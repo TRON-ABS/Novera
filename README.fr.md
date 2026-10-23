@@ -33,13 +33,15 @@ L’arabe standard, l’arabe égyptien, l’ourdou, le pendjabi occidental et l
 
 **[Consulter toutes les langues, leurs noms et leur couverture →](docs/LANGUAGES.md)**
 
+Au premier démarrage, Novera détecte et sauvegarde la langue système si aucun choix n’existe. Si l’utilisateur change de langue, son nouveau choix remplace la sauvegarde et est utilisé aux démarrages suivants. Cette [fonction de première arrivée](docs/SYSTEM_LANGUAGE.md) est disponible dans les sources et attend la prochaine compilation de bureau.
+
 ## Où en est le projet ?
 
 Novera possède son identité et son dépôt de sources. **Aucun installateur ni binaire Novera n’a encore été publié.** Les téléchargements Jan existants ne sont pas des versions Novera.
 
 Les sources actuelles incluent l’identité Novera, les évolutions du moteur et des conversations, ainsi qu’un premier modèle fixe : **LiquidAI LFM2.5-2.6B Q6_K**, température **0,1**, top-k **50**, pénalité de répétition **1,1**, contexte de **32 768 tokens**. Le téléchargement reste déclenché par l’utilisateur.
 
-**Novera 1.0.0** intègre **35 corrections Windows**. La version locale Windows x64 a été compilée en release avec LTO fat et son démarrage isolé vérifié : **4 906 tests web réussis (2 ignorés)** et **96 tests natifs ciblés réussis**. Cela ne constitue pas une validation complète des générations ni des autres plateformes. Les mises à jour applicatives et GitHub Actions restent désactivés pendant la préparation d’une distribution indépendante.
+**Novera 1.0.0** intègre **35 corrections Windows**. La version locale Windows x64 a été compilée en release avec LTO fat et son démarrage isolé vérifié : **4 937 tests web réussis (2 ignorés)** et **96 tests natifs ciblés réussis**. Cela ne constitue pas une validation complète des générations ni des autres plateformes. Les mises à jour applicatives et GitHub Actions restent désactivés pendant la préparation d’une distribution indépendante.
 
 Voir les [notes de mise à jour des sources](docs/UPDATES_2026-10-24.md).
 

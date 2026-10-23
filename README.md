@@ -38,13 +38,15 @@ Arabic, Egyptian Arabic, Urdu, Western Punjabi and Iranian Persian include right
 
 **[Explore every language, native label and coverage level →](docs/LANGUAGES.md)**
 
+First launch selects and saves the system language when no preference exists. A manual language change replaces the saved choice and is used at subsequent launches. This [first-launch language feature](docs/SYSTEM_LANGUAGE.md) is available in source and awaits the next desktop build.
+
 ## Where we are today
 
 Novera has its own product identity and source repository. **No Novera installer or binary has been released yet.** Existing Jan downloads are not Novera releases.
 
 The current source includes the Novera desktop identity, updated engine/chat integration and a fixed first-model recommendation: **LiquidAI LFM2.5-2.6B Q6_K**, with temperature **0.1**, top-k **50**, repetition penalty **1.1** and a **32,768-token context**. Its download remains a user action in setup.
 
-Novera **1.0.0** includes **35 integrated Windows fixes**. A local Windows x64 release build with fat LTO and isolated startup have been verified. Validation includes **4,906 passing web tests (2 skipped)** and **96 passing targeted native tests**. This does not establish complete model-generation or cross-platform validation. Application updates and GitHub Actions remain disabled while the independent distribution process is prepared.
+Novera **1.0.0** includes **35 integrated Windows fixes**. A local Windows x64 release build with fat LTO and isolated startup have been verified. Validation includes **4,937 passing web tests (2 skipped)** and **96 passing targeted native tests**. This does not establish complete model-generation or cross-platform validation. Application updates and GitHub Actions remain disabled while the independent distribution process is prepared.
 
 See [the source update notes](docs/UPDATES_2026-10-24.md) for scope and validation.
 

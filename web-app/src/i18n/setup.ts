@@ -1,4 +1,5 @@
 import { localStorageKey } from '@/constants/localStorage'
+import { browserLanguagePreferences, isSupportedLanguage, matchSystemLanguage } from '@/lib/systemLanguage'
 
 // Types for our i18n implementation
 export interface TranslationResources {
@@ -56,9 +57,11 @@ const getStoredLanguage = (): string => {
   try {
     const stored = localStorage.getItem(localStorageKey.settingGeneral)
     const parsed = stored ? JSON.parse(stored) : {}
-    return parsed?.state?.currentLanguage || 'en'
+    return isSupportedLanguage(parsed?.state?.currentLanguage)
+      ? parsed.state.currentLanguage
+      : matchSystemLanguage(browserLanguagePreferences())
   } catch {
-    return 'en'
+    return matchSystemLanguage(browserLanguagePreferences())
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useCallback, useState } from "react"
+import React, { ReactNode, useEffect, useLayoutEffect, useCallback, useState } from "react"
 import i18next, { loadTranslations } from "./setup"
 import { useGeneralSetting } from "@/hooks/useGeneralSetting"
 import { TranslationContext } from "./context"
@@ -19,8 +19,8 @@ export const TranslationProvider: React.FC<{ children: ReactNode }> = ({ childre
 		}
 	}, [])
 
-	// Update language when currentLanguage changes
-	useEffect(() => {
+	// Apply the hydrated language before painting the first screen.
+	useLayoutEffect(() => {
 		if (currentLanguage) {
 			i18next.changeLanguage(currentLanguage)
 			// Refresh consumers after asynchronous settings hydration changes the locale.
