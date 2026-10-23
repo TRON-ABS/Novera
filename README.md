@@ -1,6 +1,5 @@
 <div align="center">
-  <img src="web-app/public/images/novera-logo.png" alt="Novera cyan hand emblem" width="140" />
-  <h1>Novera</h1>
+  <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone. Cyan holographic hand above a connected world." width="100%" />
   <p><strong>Knowledge for everyone. AI that keeps moving forward.</strong></p>
   <p>An independent AI assistant by TRON-ABS, bringing local models, cloud providers and evolving tools into one project.</p>
   <p><strong>In development</strong> · 36 interface language options · Apache 2.0</p>

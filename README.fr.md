@@ -1,6 +1,5 @@
 <div align="center">
-  <img src="web-app/public/images/novera-logo.png" alt="Emblème Novera : une main cyan" width="140" />
-  <h1>Novera</h1>
+  <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone. Cyan holographic hand above a connected world." width="100%" />
   <p><strong>Le savoir pour tous. Une IA qui avance avec son temps.</strong></p>
   <p>Un assistant IA indépendant porté par TRON-ABS, réunissant modèles locaux, fournisseurs cloud et outils évolutifs.</p>
   <p><strong>En développement</strong> · 36 langues et variantes d’interface · Apache 2.0</p>
