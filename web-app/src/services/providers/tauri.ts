@@ -56,89 +56,93 @@ export class TauriProvidersService extends DefaultProvidersService {
 
       const runtimeProviders: ModelProvider[] = []
       for (const [providerName, value] of EngineManager.instance().engines) {
-        const models = await value.list() ?? []
-        const provider: ModelProvider = {
-          active: false,
-          persist: true,
-          provider: providerName,
-          base_url:
-            'inferenceUrl' in value
-              ? (value.inferenceUrl as string).replace('/chat/completions', '')
-              : '',
-          settings: (await value.getSettings()).map((setting) => {
-            return {
-              key: setting.key,
-              title: setting.title,
-              description: setting.description,
-              controller_type: setting.controllerType as unknown,
-              controller_props: setting.controllerProps as unknown,
-            }
-          }) as ProviderSetting[],
-          models: await Promise.all(
-            models.map(async (model) => {
-              let capabilities: string[] = []
-
-              if ('capabilities' in model && Array.isArray(model.capabilities)) {
-                capabilities = [...(model.capabilities as string[])]
-              }
-              if (!capabilities.includes(ModelCapabilities.TOOLS)) {
-                try {
-                  const toolSupported = await value.isToolSupported(model.id)
-                  if (toolSupported) {
-                    capabilities.push(ModelCapabilities.TOOLS)
-                  }
-                } catch (error) {
-                  console.warn(
-                    `Failed to check tool support for model ${model.id}:`,
-                    error
-                  )
-                  // Continue without tool capabilities if check fails
-                }
-              }
-
-              // Add embeddings capability for embedding models
-              if (model.embedding && !capabilities.includes(ModelCapabilities.EMBEDDINGS)) {
-                capabilities = [...capabilities, ModelCapabilities.EMBEDDINGS]
-              }
-
+        try {
+          const models = await value.list() ?? []
+          const provider: ModelProvider = {
+            active: false,
+            persist: true,
+            provider: providerName,
+            base_url:
+              'inferenceUrl' in value
+                ? (value.inferenceUrl as string).replace('/chat/completions', '')
+                : '',
+            settings: (await value.getSettings()).map((setting) => {
               return {
-                id: model.id,
-                model: model.id,
-                name: model.name,
-                displayName: model.name,
-                description: model.description,
-                capabilities,
-                embedding: model.embedding, // Preserve embedding flag for filtering in UI
-                imported: (model as { imported?: boolean }).imported,
-                template_kwargs: (model as { template_kwargs?: TemplateKwarg[] })
-                  .template_kwargs,
-                provider: providerName,
-                settings: Object.values(modelSettings).reduce(
-                  (acc, setting) => {
-                    const persisted = model as unknown as Record<string, unknown>
-                    const savedValue = persisted[setting.key]
-                    const performanceValue = providerName === 'llamacpp' && (
-                      (setting.key === 'performance_mode' &&
-                        (savedValue === 'manual' || savedValue === 'measured')) ||
-                      (setting.key === 'ngram_speculation' &&
-                        (savedValue === 'off' || savedValue === 'repetitive'))
-                    )
-                    acc[setting.key] = {
-                      ...setting,
-                      controller_props: {
-                        ...setting.controller_props,
-                        ...(performanceValue ? { value: savedValue as string } : {}),
-                      },
+                key: setting.key,
+                title: setting.title,
+                description: setting.description,
+                controller_type: setting.controllerType as unknown,
+                controller_props: setting.controllerProps as unknown,
+              }
+            }) as ProviderSetting[],
+            models: await Promise.all(
+              models.map(async (model) => {
+                let capabilities: string[] = []
+
+                if ('capabilities' in model && Array.isArray(model.capabilities)) {
+                  capabilities = [...(model.capabilities as string[])]
+                }
+                if (!capabilities.includes(ModelCapabilities.TOOLS)) {
+                  try {
+                    const toolSupported = await value.isToolSupported(model.id)
+                    if (toolSupported) {
+                      capabilities.push(ModelCapabilities.TOOLS)
                     }
-                    return acc
-                  },
-                  {} as Record<string, ProviderSetting>
-                ),
-              } as Model
-            })
-          ),
+                  } catch (error) {
+                    console.warn(
+                      `Failed to check tool support for model ${model.id}:`,
+                      error
+                    )
+                    // Continue without tool capabilities if check fails
+                  }
+                }
+
+                // Add embeddings capability for embedding models
+                if (model.embedding && !capabilities.includes(ModelCapabilities.EMBEDDINGS)) {
+                  capabilities = [...capabilities, ModelCapabilities.EMBEDDINGS]
+                }
+
+                return {
+                  id: model.id,
+                  model: model.id,
+                  name: model.name,
+                  displayName: model.name,
+                  description: model.description,
+                  capabilities,
+                  embedding: model.embedding, // Preserve embedding flag for filtering in UI
+                  imported: (model as { imported?: boolean }).imported,
+                  template_kwargs: (model as { template_kwargs?: TemplateKwarg[] })
+                    .template_kwargs,
+                  provider: providerName,
+                  settings: Object.values(modelSettings).reduce(
+                    (acc, setting) => {
+                      const persisted = model as unknown as Record<string, unknown>
+                      const savedValue = persisted[setting.key]
+                      const performanceValue = providerName === 'llamacpp' && (
+                        (setting.key === 'performance_mode' &&
+                          (savedValue === 'manual' || savedValue === 'measured')) ||
+                        (setting.key === 'ngram_speculation' &&
+                          (savedValue === 'off' || savedValue === 'repetitive'))
+                      )
+                      acc[setting.key] = {
+                        ...setting,
+                        controller_props: {
+                          ...setting.controller_props,
+                          ...(performanceValue ? { value: savedValue as string } : {}),
+                        },
+                      }
+                      return acc
+                    },
+                    {} as Record<string, ProviderSetting>
+                  ),
+                } as Model
+              })
+            ),
+          }
+          runtimeProviders.push(provider)
+        } catch (error: unknown) {
+          console.error(`Error getting provider ${providerName} in Tauri:`, error)
         }
-        runtimeProviders.push(provider)
       }
 
       return runtimeProviders.concat(builtinProviders as ModelProvider[])

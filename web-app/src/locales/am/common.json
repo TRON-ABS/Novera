@@ -460,7 +460,8 @@
       "updateButton": "አዘምን",
       "alreadyExists": "ፕሮጀክት \"{{projectName}}\" አስቀድሞ አለ።",
       "createSuccess": "ፕሮጀክት \"{{projectName}}\" በተሳካ ሁኔታ ተፈጥሯል።",
-      "updateSuccess": "ፕሮጀክት \"{{projectName}}\" በተሳካ ሁኔታ ዘምኗል"
+      "updateSuccess": "ፕሮጀክት \"{{projectName}}\" በተሳካ ሁኔታ ዘምኗል",
+      "saveError": "ፕሮጀክቱን ማስቀመጥ አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
     },
     "noConversationsIn": "በ {{projectName}} ውስጥ ምንም ንግግሮች የሉም",
     "startNewConversation": "ከታች {{projectName}} ጋር አዲስ ውይይት ይጀምሩ",

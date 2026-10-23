@@ -37,5 +37,6 @@
   "defaultAssistantSection": "پہلاں توں چنیا ہویا مددگار",
   "defaultAssistantDesc": "نویں گل بات شروع کرن ویلے ورتیا جاندا اے",
   "allAssistants": "سارے مددگار",
-  "lastUsed": "آخری واری ورتیا"
+  "lastUsed": "آخری واری ورتیا",
+  "deleteFailed": "معاون نوں مٹایا نہیں جا سکیا۔ مہربانی کر کے فیر کوشش کرو۔"
 }

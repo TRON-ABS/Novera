@@ -460,7 +460,8 @@
       "updateButton": "Anyari",
       "alreadyExists": "Proyek \"{{projectName}}\" wis ana",
       "createSuccess": "Proyek \"{{projectName}}\" kasil digawe",
-      "updateSuccess": "Proyek \"{{projectName}}\" dianyari kanthi sukses"
+      "updateSuccess": "Proyek \"{{projectName}}\" dianyari kanthi sukses",
+      "saveError": "Proyèk ora bisa disimpen. Mangga coba maneh."
     },
     "noConversationsIn": "Ora ana obrolan ing {{projectName}}",
     "startNewConversation": "Miwiti obrolan anyar nganggo {{projectName}} ing ngisor iki",

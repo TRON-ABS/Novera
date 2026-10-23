@@ -460,7 +460,8 @@
       "updateButton": "تحديث",
       "alreadyExists": "المشروع \"{{projectName}}\" موجود فعلًا",
       "createSuccess": "المشروع \"{{projectName}}\" اتعمل",
-      "updateSuccess": "المشروع \"{{projectName}}\" اتحدّث"
+      "updateSuccess": "المشروع \"{{projectName}}\" اتحدّث",
+      "saveError": "ما قدرناش نحفظ المشروع. جرّب تاني."
     },
     "noConversationsIn": "مفيش محادثات في {{projectName}}",
     "startNewConversation": "ابدأ محادثة جديدة مع {{projectName}} تحت",

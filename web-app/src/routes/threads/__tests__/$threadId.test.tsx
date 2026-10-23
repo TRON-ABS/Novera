@@ -312,6 +312,7 @@ vi.mock('@/lib/extension', () => ({
 }))
 
 vi.mock('@/lib/messages', () => ({
+  threadMessageIsEmpty: () => false,
   convertThreadMessagesToUIMessages: (msgs: any[]) =>
     msgs.map((m) => ({
       id: m.id,
@@ -488,11 +489,13 @@ import {
   resolveAutoInlineBudget,
 } from '@/lib/attachmentProcessing'
 import { usePrompt } from '@/hooks/usePrompt'
+import { generateThreadTitle } from '@/lib/thread-title-summarizer'
 
 // The global setup mock is a shared object, so an overridden factory has to be
 // put back or it leaks into every later test.
 const hub = getServiceHub() as unknown as Record<string, unknown>
 const realMcp = hub.mcp
+const realMessages = hub.messages
 
 const renderComponent = () => {
   const Component = Route.component as React.ComponentType
@@ -561,6 +564,7 @@ describe('ThreadDetail route', () => {
     h.appStateState.tools = []
     h.toolApprovalState.requestApproval = vi.fn().mockResolvedValue(true)
     hub.mcp = realMcp
+    hub.messages = realMessages
     useToolCallRuntime.getState().reset()
     sessionStorage.clear()
   })
@@ -582,6 +586,96 @@ describe('ThreadDetail route', () => {
     expect(screen.getByTestId('model-dropdown')).toHaveTextContent('gpt-x')
     expect(screen.getByTestId('chat-input')).toBeInTheDocument()
     expect(screen.getByTestId('chat-status')).toHaveTextContent('ready')
+  })
+
+  it('shows a failed history read and restores the conversation after retry', async () => {
+    const fetchMessages = vi.fn().mockRejectedValueOnce(new Error('history file is locked'))
+      .mockResolvedValueOnce([{
+        id: 'saved-user', thread_id: 'thread-1', role: 'user', created_at: 1,
+        content: [{ type: 'text', text: { value: 'saved history', annotations: [] } }],
+      }])
+    hub.messages = () => ({ fetchMessages })
+    h.messagesState.getMessages.mockReturnValue([])
+    renderComponent()
+    await waitFor(() => expect(screen.getByRole('alert')).toHaveTextContent('history file is locked'))
+    expect(screen.queryByTestId('chat-input')).not.toBeInTheDocument()
+    expect(h.messagesState.setMessages).not.toHaveBeenCalled()
+    await act(async () => screen.getByRole('button', { name: 'common:run.tryAgain' }).click())
+    await waitFor(() => expect(screen.getByTestId('chat-input')).toBeInTheDocument())
+    expect(fetchMessages).toHaveBeenCalledTimes(2)
+    expect(h.messagesState.setMessages).toHaveBeenCalledWith('thread-1', expect.arrayContaining([
+      expect.objectContaining({ id: 'saved-user' }),
+    ]))
+  })
+
+  it.each(['success', 'failure'])('ignores a late history %s after switching threads', async (outcome) => {
+    let resolve!: (messages: any[]) => void
+    let reject!: (error: Error) => void
+    const pending = new Promise<any[]>((yes, no) => { resolve = yes; reject = no })
+    const fetchMessages = vi.fn((id: string) => id === 'thread-1' ? pending : Promise.resolve([]))
+    hub.messages = () => ({ fetchMessages })
+    h.threadsState.threads['thread-2'] = { ...h.threadsState.threads['thread-1'], id: 'thread-2' }
+    const view = renderComponent()
+    try {
+      h.routeParams.threadId = 'thread-2'
+      const Component = Route.component as React.ComponentType
+      view.rerender(<Component />)
+      await act(async () => {
+        if (outcome === 'failure') reject(new Error('old history read failed'))
+        else resolve([{ id: 'old-message', role: 'user', content: [] }])
+      })
+      expect(fetchMessages).toHaveBeenCalledWith('thread-2')
+      expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+      expect(h.messagesState.setMessages).not.toHaveBeenCalled()
+    } finally {
+      view.unmount()
+      h.routeParams.threadId = 'thread-1'
+      delete h.threadsState.threads['thread-2']
+    }
+  })
+
+  it.each(['renamed', 'deleted'])('discards an automatic title if the thread was %s while generation was pending', async (change) => {
+    let finish!: (title: string) => void
+    vi.mocked(generateThreadTitle).mockReturnValueOnce(new Promise((resolve) => { finish = resolve }))
+    renderComponent()
+    act(() => {
+      ;(h as any).capturedOnFinish({ message: { id: 'a1', role: 'assistant', parts: [{ type: 'text', text: 'reply' }], metadata: {} }, isAbort: false })
+    })
+    await waitFor(() => expect(generateThreadTitle).toHaveBeenCalled())
+    if (change === 'deleted') delete h.threadsState.threads['thread-1']
+    else h.threadsState.threads['thread-1'] = {
+      ...h.threadsState.threads['thread-1'], title: 'My chosen title', metadata: { titleSetManually: true },
+    }
+    await act(async () => { finish('Late automatic title') })
+    expect(h.threadsState.updateThread.mock.calls.filter(([, update]: any[]) => update.title === 'Late automatic title')).toEqual([])
+  })
+
+  it('still accepts a generated title for an unchanged automatic thread', async () => {
+    renderComponent()
+    await act(async () => {
+      ;(h as any).capturedOnFinish({ message: { id: 'a1', role: 'assistant', parts: [{ type: 'text', text: 'reply' }], metadata: {} }, isAbort: false })
+    })
+    expect(h.threadsState.updateThread).toHaveBeenCalledWith('thread-1', { title: 'Short title' })
+  })
+
+  it('passes the owning thread model to title generation after the global selection changes', async () => {
+    renderComponent()
+    const originalModel = h.modelProviderState.selectedModel
+    h.modelProviderState.selectedProvider = 'another-provider'
+    h.modelProviderState.selectedModel = { id: 'another-model' }
+    try {
+      await act(async () => {
+        ;(h as any).capturedOnFinish({
+          message: { id: 'a1', role: 'assistant', parts: [{ type: 'text', text: 'hello' }], metadata: {} },
+          isAbort: false,
+        })
+      })
+      expect(generateThreadTitle).toHaveBeenCalledWith(
+        expect.any(String), expect.any(AbortSignal), { id: 'gpt-x', provider: 'openai' }
+      )
+    } finally {
+      h.modelProviderState.selectedModel = originalModel
+    }
   })
 
   it('sets current thread id on mount and resets on unmount', () => {

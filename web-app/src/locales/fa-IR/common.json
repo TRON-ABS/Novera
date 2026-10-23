@@ -460,7 +460,8 @@
       "updateButton": "به‌روزرسانی",
       "alreadyExists": "پروژه \"{{projectName}}\" از قبل وجود دارد",
       "createSuccess": "پروژه \"{{projectName}}\" با موفقیت ایجاد شد",
-      "updateSuccess": "پروژه \"{{projectName}}\" با موفقیت به روز شد"
+      "updateSuccess": "پروژه \"{{projectName}}\" با موفقیت به روز شد",
+      "saveError": "ذخیرهٔ پروژه ممکن نشد. لطفاً دوباره تلاش کنید."
     },
     "noConversationsIn": "بدون مکالمه در {{projectName}}",
     "startNewConversation": "مکالمه جدیدی را با {{projectName}} زیر شروع کنید",

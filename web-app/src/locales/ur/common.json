@@ -460,7 +460,8 @@
       "updateButton": "تازہ کاری کریں",
       "alreadyExists": "پروجیکٹ \"{{projectName}}\" پہلے سے موجود ہے۔",
       "createSuccess": "پروجیکٹ \"{{projectName}}\" کامیابی کے ساتھ بنایا گیا۔",
-      "updateSuccess": "پروجیکٹ \"{{projectName}}\" کامیابی کے ساتھ اپ ڈیٹ ہو گیا۔"
+      "updateSuccess": "پروجیکٹ \"{{projectName}}\" کامیابی کے ساتھ اپ ڈیٹ ہو گیا۔",
+      "saveError": "منصوبہ محفوظ نہیں ہو سکا۔ براہ کرم دوبارہ کوشش کریں۔"
     },
     "noConversationsIn": "{{projectName}} میں کوئی بات چیت نہیں",
     "startNewConversation": "ذیل میں {{projectName}} کے ساتھ ایک نئی گفتگو شروع کریں۔",

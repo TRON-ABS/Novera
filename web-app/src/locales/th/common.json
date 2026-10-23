@@ -460,7 +460,8 @@
       "updateButton": "อัปเดต",
       "alreadyExists": "มีโปรเจ็กต์ \"{{projectName}}\" อยู่แล้ว",
       "createSuccess": "สร้างโปรเจ็กต์ \"{{projectName}}\" สำเร็จแล้ว",
-      "updateSuccess": "อัปเดตโปรเจ็กต์ \"{{projectName}}\" สำเร็จแล้ว"
+      "updateSuccess": "อัปเดตโปรเจ็กต์ \"{{projectName}}\" สำเร็จแล้ว",
+      "saveError": "ไม่สามารถบันทึกโปรเจกต์ได้ โปรดลองอีกครั้ง"
     },
     "noConversationsIn": "ไม่มีการสนทนาใน {{projectName}}",
     "startNewConversation": "เริ่มการสนทนาใหม่ด้วย {{projectName}} ด้านล่าง",

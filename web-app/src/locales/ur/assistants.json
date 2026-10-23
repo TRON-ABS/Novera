@@ -37,5 +37,6 @@
   "defaultAssistantSection": "پہلے سے طے شدہ معاون",
   "defaultAssistantDesc": "نئی گفتگو شروع کرتے وقت استعمال ہوتا ہے",
   "allAssistants": "تمام معاونین",
-  "lastUsed": "آخری استعمال"
+  "lastUsed": "آخری استعمال",
+  "deleteFailed": "معاون حذف نہیں ہو سکا۔ براہ کرم دوبارہ کوشش کریں۔"
 }

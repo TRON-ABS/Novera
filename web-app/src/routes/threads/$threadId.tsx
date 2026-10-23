@@ -293,6 +293,14 @@ function ThreadConversation() {
   const updateMessage = useMessages((state) => state.updateMessage)
   const deleteMessage = useMessages((state) => state.deleteMessage)
   const currentThread = useRef<string | undefined>(undefined)
+  const [historyReadError, setHistoryReadError] = useState<{
+    threadId: string
+    message: string
+  } | null>(null)
+  const [historyReadAttempt, setHistoryReadAttempt] = useState(0)
+  const [isReadingHistory, setIsReadingHistory] = useState(false)
+  const currentHistoryError = historyReadError && historyReadError.threadId === threadId
+    ? historyReadError.message : undefined
 
   useTools()
 
@@ -932,8 +940,9 @@ function ThreadConversation() {
               .join('\n\n') ||
             useThreads.getState().threads[threadId]?.title
           if (inputText) {
-            const provider = useModelProvider.getState().selectedProvider
-            const modelId = useModelProvider.getState().selectedModel?.id
+            const titleModel = currentThread?.model
+            const provider = titleModel?.provider
+            const modelId = titleModel?.id
             ;(async () => {
               if (provider === 'llamacpp' && modelId) {
                 let idle = false
@@ -954,11 +963,16 @@ function ThreadConversation() {
               titleAbortRef.current = controller
               const title = await generateThreadTitle(
                 inputText,
-                controller.signal
+                controller.signal,
+                titleModel
               )
+              if (titleAbortRef.current === controller) titleAbortRef.current = null
               if (!title || controller.signal.aborted) return
+              // A rename or deletion can happen while the model is working.
+              // Recheck the live thread instead of the pre-request snapshot.
+              const latestThread = useThreads.getState().threads[threadId]
+              if (!latestThread || latestThread.metadata?.titleSetManually) return
               useThreads.getState().updateThread(threadId, { title })
-              titleAbortRef.current = null
             })()
           }
         }
@@ -1174,10 +1188,14 @@ function ThreadConversation() {
       return
     }
 
+    let cancelled = false
+    setIsReadingHistory(true)
     serviceHub
       .messages()
       .fetchMessages(threadId)
       .then((fetchedMessages) => {
+        if (cancelled) return
+        setHistoryReadError(null)
         if (fetchedMessages && fetchedMessages.length > 0) {
           const currentLocalMessages = useMessages
             .getState()
@@ -1248,11 +1266,18 @@ function ThreadConversation() {
           currentThread.current = threadId
         }
       })
-      .catch((error) =>
+      .catch((error) => {
+        if (cancelled) return
         console.error('Failed to fetch messages for thread:', threadId, error)
-      )
+        setHistoryReadError({
+          threadId,
+          message: error instanceof Error ? error.message || 'History could not be read' : String(error),
+        })
+      })
+      .finally(() => { if (!cancelled) setIsReadingHistory(false) })
+    return () => { cancelled = true }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [threadId, serviceHub])
+  }, [threadId, serviceHub, historyReadAttempt])
 
   useEffect(() => {
     return () => {
@@ -1650,10 +1675,11 @@ function ThreadConversation() {
       _documents?: unknown,
       draft?: string
     ) => {
+      if (currentHistoryError) return
       clearBannerErrors()
       await processAndSendMessage(text, files, draft)
     },
-    [processAndSendMessage, clearBannerErrors]
+    [processAndSendMessage, clearBannerErrors, currentHistoryError]
   )
 
   // Versioning helpers --------------------------------------------------------
@@ -2153,6 +2179,7 @@ function ThreadConversation() {
                   <MessageItem
                     key={message.id}
                     message={message}
+                    threadId={threadId}
                     isFirstMessage={isFirstMessage}
                     isLastMessage={isLastMessage}
                     status={effectiveStatus}
@@ -2175,6 +2202,7 @@ function ThreadConversation() {
                 <MessageItem
                   key={`continue-placeholder-${pendingContinueMessage.id}`}
                   message={pendingContinueMessage}
+                  threadId={threadId}
                   isFirstMessage={false}
                   isLastMessage={true}
                   status={effectiveStatus}
@@ -2283,6 +2311,19 @@ function ThreadConversation() {
 
         {/* Chat Input - Fixed at bottom */}
         <div className="py-4 mx-auto w-full md:w-4/5 xl:w-4/6">
+          {currentHistoryError ? (
+            <div role="alert" className="rounded-lg border p-4">
+              <p>Unable to load conversation history.</p>
+              <p className="text-sm text-muted-foreground">{currentHistoryError}</p>
+              <Button
+                disabled={isReadingHistory}
+                onClick={() => setHistoryReadAttempt((attempt) => attempt + 1)}
+                className="mt-2"
+              >
+                {t('common:run.tryAgain')}
+              </Button>
+            </div>
+          ) : (
           <ChatInput
             model={threadModel}
             onSubmit={handleSubmit}
@@ -2290,6 +2331,7 @@ function ThreadConversation() {
             chatStatus={effectiveStatus}
             toolsRunning={toolsRunning}
           />
+          )}
         </div>
       </div>
     </div>

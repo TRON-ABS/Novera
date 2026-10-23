@@ -37,5 +37,6 @@
   "defaultAssistantSection": "預設助理",
   "defaultAssistantDesc": "喺開始新嘅即時通訊嗰陣用",
   "allAssistants": "所有助理",
-  "lastUsed": "上次用過"
+  "lastUsed": "上次用過",
+  "deleteFailed": "刪除唔到助手，請再試一次。"
 }

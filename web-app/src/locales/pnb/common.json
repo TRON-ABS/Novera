@@ -460,7 +460,8 @@
       "updateButton": "اپ ڈیٹ کرو",
       "alreadyExists": "پروجیکٹ \"{{projectName}}\" پہلے توں موجود اے",
       "createSuccess": "پروجیکٹ \"{{projectName}}\" کامیابی نال بنایا گیا",
-      "updateSuccess": "پروجیکٹ \"{{projectName}}\" کامیابی نال اپ ڈیٹ کیتا گیا"
+      "updateSuccess": "پروجیکٹ \"{{projectName}}\" کامیابی نال اپ ڈیٹ کیتا گیا",
+      "saveError": "منصوبہ محفوظ نہیں ہو سکیا۔ مہربانی کر کے فیر کوشش کرو۔"
     },
     "noConversationsIn": "{{projectName}} وچ کوئی گل بات نئیں",
     "startNewConversation": "تھلے دتے گئے {{projectName}} نال نویں گل بات شروع کرو",

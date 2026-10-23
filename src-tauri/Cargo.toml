@@ -1,6 +1,6 @@
 [package]
 name = "Novera"
-version = "0.8.7"
+version = "1.0.0"
 description = "Novera: an independent AI assistant for local and cloud models."
 authors = ["TRON-ABS", "Jan contributors"]
 license = "Apache-2.0"

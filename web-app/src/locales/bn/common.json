@@ -460,7 +460,8 @@
       "updateButton": "হালনাগাদ করুন",
       "alreadyExists": "প্রকল্প \"{{projectName}}\" ইতিমধ্যেই বিদ্যমান",
       "createSuccess": "প্রকল্প \"{{projectName}}\" সফলভাবে তৈরি হয়েছে৷",
-      "updateSuccess": "প্রকল্প \"{{projectName}}\" সফলভাবে আপডেট হয়েছে"
+      "updateSuccess": "প্রকল্প \"{{projectName}}\" সফলভাবে আপডেট হয়েছে",
+      "saveError": "প্রকল্প সংরক্ষণ করা যায়নি। আবার চেষ্টা করুন।"
     },
     "noConversationsIn": "{{projectName}} এ কোনো কথোপকথন নেই",
     "startNewConversation": "নীচে {{projectName}} এর সাথে একটি নতুন কথোপকথন শুরু করুন৷",

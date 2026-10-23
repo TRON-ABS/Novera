@@ -460,7 +460,8 @@
       "updateButton": "Sasisha",
       "alreadyExists": "Mradi \"{{projectName}}\" tayari upo",
       "createSuccess": "Mradi \"{{projectName}}\" umeundwa kwa ufanisi",
-      "updateSuccess": "Mradi \"{{projectName}}\" umesasishwa"
+      "updateSuccess": "Mradi \"{{projectName}}\" umesasishwa",
+      "saveError": "Imeshindikana kuhifadhi mradi. Tafadhali jaribu tena."
     },
     "noConversationsIn": "Hakuna Mazungumzo katika {{projectName}}",
     "startNewConversation": "Anzisha mazungumzo mapya na {{projectName}} hapa chini",

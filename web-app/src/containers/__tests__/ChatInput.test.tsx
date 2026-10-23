@@ -12,6 +12,7 @@ import '@testing-library/jest-dom'
 
 // Store backing state for usePrompt (settable by tests)
 let promptState = ''
+let historyIndexState = -1
 const setPromptMock = vi.fn((val: string) => {
   promptState = val
 })
@@ -22,6 +23,7 @@ vi.mock('@/hooks/usePrompt', () => ({
   usePrompt: (selector: any) =>
     selector({
       prompt: promptState,
+      historyIndex: historyIndexState,
       setPrompt: setPromptMock,
       addToHistory: addToHistoryMock,
       navigateHistory: navigateHistoryMock,
@@ -246,8 +248,9 @@ vi.mock('@janhq/core', () => ({
   },
 }))
 
+const navigateMock = vi.fn()
 vi.mock('@tanstack/react-router', () => ({
-  useRouter: () => ({ navigate: vi.fn() }),
+  useRouter: () => ({ navigate: navigateMock }),
   Link: ({ children, ...props }: any) => <a {...props}>{children}</a>,
 }))
 
@@ -326,6 +329,7 @@ vi.mock('@/lib/platform/utils', () => ({
 // Import component AFTER all mocks
 import ChatInput from '../ChatInput'
 import { useImageAttachmentConfig } from '@/hooks/useImageAttachmentConfig'
+import { toast } from 'sonner'
 
 // Helpers -------------------------------------------------------------------
 
@@ -362,6 +366,32 @@ const renderInput = (props: any = {}) =>
 describe('ChatInput', () => {
   beforeEach(() => {
     resetAll()
+  })
+
+  it('preserves the draft when creating a conversation fails and allows retry', async () => {
+    navigateMock.mockClear()
+    const storage = vi.spyOn(Storage.prototype, 'setItem')
+    storage.mockClear()
+    promptState = 'Keep this prompt'
+    createThreadMock.mockRejectedValueOnce(new Error('disk full'))
+    renderInput()
+    fireEvent.click(document.querySelector('[data-test-id="send-message-button"]')!)
+    await waitFor(() => expect(toast.error).toHaveBeenCalledWith(
+      'Failed to create conversation', { description: 'disk full' }
+    ))
+    expect(promptState).toBe('Keep this prompt')
+    expect(setPromptMock).not.toHaveBeenCalledWith('')
+    expect(navigateMock).not.toHaveBeenCalled()
+    expect(storage.mock.calls.some(([key]) => key.startsWith('initial-message-'))).toBe(false)
+
+    createThreadMock.mockResolvedValueOnce({ id: 'saved' })
+    fireEvent.click(document.querySelector('[data-test-id="send-message-button"]')!)
+    await waitFor(() => expect(setPromptMock).toHaveBeenCalledWith(''))
+    expect(createThreadMock).toHaveBeenCalledTimes(2)
+    expect(navigateMock).toHaveBeenCalledWith(expect.objectContaining({
+      params: { threadId: 'saved' },
+    }))
+    storage.mockRestore()
   })
 
   it('renders the textarea with placeholder and send button', () => {
@@ -507,6 +537,74 @@ describe('ChatInput', () => {
     expect(setPromptMock).toHaveBeenCalledWith('')
   })
 
+  it.each([
+    { chatStatus: 'streaming', toolsRunning: false, type: 'image' },
+    { chatStatus: 'ready', toolsRunning: true, type: 'document' },
+  ])('preserves the draft and attachments instead of queueing text alone while $chatStatus/tools=$toolsRunning', async ({ chatStatus, toolsRunning, type }) => {
+    promptState = 'Explain this attachment'
+    attachmentsList = [{
+      name: type === 'image' ? 'photo.png' : 'notes.pdf',
+      type,
+      dataUrl: type === 'image' ? 'data:image/png;base64,AA==' : undefined,
+      path: type === 'document' ? '/notes.pdf' : undefined,
+      mimeType: 'image/png',
+    }]
+    clearAttachmentsMock.mockClear()
+    vi.mocked(toast.info).mockClear()
+    const onSubmit = vi.fn()
+    const view = renderInput({ onSubmit, chatStatus, toolsRunning })
+    fireEvent.keyDown(getTextarea(), { key: 'Enter' })
+    await act(async () => {})
+    expect(enqueueMock).not.toHaveBeenCalled()
+    await waitFor(() => expect(toast.info).toHaveBeenCalledWith(
+      'Wait for the current turn to finish before sending attachments'
+    ))
+    expect(onSubmit).not.toHaveBeenCalled()
+    expect(promptState).toBe('Explain this attachment')
+    expect(clearAttachmentsMock).not.toHaveBeenCalled()
+    expect(attachmentsList).toHaveLength(1)
+
+    view.rerender(<ChatInput onSubmit={onSubmit} chatStatus="ready" toolsRunning={false} />)
+    fireEvent.click(document.querySelector('[data-test-id="send-message-button"]')!)
+    await waitFor(() => expect(onSubmit).toHaveBeenCalledWith(
+      'Explain this attachment',
+      type === 'image'
+        ? [{ type: 'file', mediaType: 'image/png', url: 'data:image/png;base64,AA==' }]
+        : undefined,
+      type === 'document' ? attachmentsList : undefined,
+      'Explain this attachment'
+    ))
+  })
+
+  it.each([
+    { chatStatus: 'streaming', toolsRunning: false },
+    { chatStatus: 'ready', toolsRunning: true },
+  ])('blocks file ingestion via picker, paste, and drop while $chatStatus/tools=$toolsRunning', ({ chatStatus, toolsRunning }) => {
+    selectedModelOverride.capabilities = ['tools', 'vision']
+    const readFile = vi.spyOn(FileReader.prototype, 'readAsDataURL')
+    renderInput({ onSubmit: vi.fn(), chatStatus, toolsRunning })
+    const file = new File(['photo'], 'photo.png', { type: 'image/png' })
+    const clipboardData = {
+      items: [{ kind: 'file', type: 'image/png', getAsFile: () => file }],
+      files: [file],
+    }
+    fireEvent.change(document.querySelector('input[type="file"]:not([accept])')!, {
+      target: { files: [file] },
+    })
+    fireEvent.paste(getTextarea(), { clipboardData })
+    fireEvent.drop(getTextarea(), { dataTransfer: { files: [file] } })
+    expect(readFile).not.toHaveBeenCalled()
+    expect(document.querySelector('.lucide-plus')?.closest('button')).toBeDisabled()
+    readFile.mockRestore()
+  })
+
+  it('allows normal text paste while a turn is running', () => {
+    renderInput({ onSubmit: vi.fn(), chatStatus: 'streaming' })
+    expect(fireEvent.paste(getTextarea(), {
+      clipboardData: { items: [{ kind: 'string', type: 'text/plain' }] },
+    })).toBe(true)
+  })
+
   // Tools running means the stream is over (`ready`), but the turn is not: a new
   // message must wait for it like one sent mid-stream.
   it('queues the message while the turn\'s tools are still running', async () => {
@@ -555,12 +653,52 @@ describe('ChatInput', () => {
 
   it('navigates prompt history on ArrowDown when cursor is at end', () => {
     promptState = 'abc'
+    historyIndexState = 0
     renderInput()
     const ta = getTextarea()
     ta.focus()
     ta.setSelectionRange(3, 3)
     fireEvent.keyDown(ta, { key: 'ArrowDown' })
     expect(navigateHistoryMock).toHaveBeenCalledWith('down')
+    historyIndexState = -1
+  })
+
+  it('keeps a nonempty draft when Up is pressed at the start', () => {
+    promptState = 'draft\nwith more text'
+    renderInput()
+    const ta = getTextarea()
+    ta.setSelectionRange(0, 0)
+    expect(fireEvent.keyDown(ta, { key: 'ArrowUp' })).toBe(true)
+    expect(navigateHistoryMock).not.toHaveBeenCalled()
+    expect(ta).toHaveValue(promptState)
+  })
+
+  it('keeps Down available for caret movement outside history browsing', () => {
+    promptState = 'draft'
+    renderInput()
+    const ta = getTextarea()
+    ta.setSelectionRange(promptState.length, promptState.length)
+    expect(fireEvent.keyDown(ta, { key: 'ArrowDown' })).toBe(true)
+    expect(navigateHistoryMock).not.toHaveBeenCalled()
+  })
+
+  it('continues browsing older prompts from an unedited history entry', () => {
+    promptState = 'previous prompt'
+    historyIndexState = 0
+    try {
+      renderInput()
+      const ta = getTextarea()
+      ta.setSelectionRange(0, 0)
+      fireEvent.keyDown(ta, { key: 'ArrowUp' })
+      expect(navigateHistoryMock).toHaveBeenCalledWith('up')
+    } finally { historyIndexState = -1 }
+  })
+
+  it.each(['shiftKey', 'ctrlKey', 'altKey', 'metaKey'])('preserves %s + Up editing shortcuts', (modifier) => {
+    promptState = ''
+    renderInput()
+    expect(fireEvent.keyDown(getTextarea(), { key: 'ArrowUp', [modifier]: true })).toBe(true)
+    expect(navigateHistoryMock).not.toHaveBeenCalled()
   })
 
   it('adds attached image files to onSubmit payload', async () => {

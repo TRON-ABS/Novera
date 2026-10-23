@@ -460,7 +460,8 @@
       "updateButton": "تحديث",
       "alreadyExists": "مشروع \"{{projectName}}\" موجود بالفعل",
       "createSuccess": "تم إنشاء المشروع \"{{projectName}}\" بنجاح",
-      "updateSuccess": "تم تحديث المشروع \"{{projectName}}\" بنجاح"
+      "updateSuccess": "تم تحديث المشروع \"{{projectName}}\" بنجاح",
+      "saveError": "تعذّر حفظ المشروع. يُرجى المحاولة مرة أخرى."
     },
     "noConversationsIn": "لا توجد محادثات في {{projectName}}",
     "startNewConversation": "ابدأ محادثة جديدة مع {{projectName}} أدناه",

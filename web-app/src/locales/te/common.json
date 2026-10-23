@@ -460,7 +460,8 @@
       "updateButton": "అప్‌డేట్ చేయండి",
       "alreadyExists": "ప్రాజెక్ట్ \"{{projectName}}\" ఇప్పటికే ఉంది",
       "createSuccess": "ప్రాజెక్ట్ \"{{projectName}}\" విజయవంతంగా సృష్టించబడింది",
-      "updateSuccess": "ప్రాజెక్ట్ \"{{projectName}}\" విజయవంతంగా నవీకరించబడింది"
+      "updateSuccess": "ప్రాజెక్ట్ \"{{projectName}}\" విజయవంతంగా నవీకరించబడింది",
+      "saveError": "ప్రాజెక్ట్‌ను సేవ్ చేయలేకపోయాము. దయచేసి మళ్లీ ప్రయత్నించండి."
     },
     "noConversationsIn": "{{projectName}}లో సంభాషణలు లేవు",
     "startNewConversation": "దిగువ {{projectName}}తో కొత్త సంభాషణను ప్రారంభించండి",

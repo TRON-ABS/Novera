@@ -172,7 +172,7 @@ describe('DefaultThreadsService', () => {
       })
     })
 
-    it('should handle creation error and return original thread', async () => {
+    it('should propagate creation errors', async () => {
       const inputThread = {
         id: '1',
         title: 'New Thread',
@@ -183,9 +183,8 @@ describe('DefaultThreadsService', () => {
         new Error('Creation failed')
       )
 
-      const result = await threadsService.createThread(inputThread as Thread)
-
-      expect(result).toEqual(inputThread)
+      await expect(threadsService.createThread(inputThread as Thread))
+        .rejects.toThrow('Creation failed')
     })
   })
 
@@ -265,9 +264,8 @@ describe('DefaultThreadsService', () => {
         model: { id: 'gpt-4', provider: 'openai' },
       }
 
-      const result = await threadsService.createThread(inputThread as Thread)
-
-      expect(result).toEqual(inputThread)
+      await expect(threadsService.createThread(inputThread as Thread))
+        .rejects.toThrow('Conversational extension not available yet')
     })
 
     it('should handle updateThread when extension manager returns null', async () => {
@@ -286,14 +284,14 @@ describe('DefaultThreadsService', () => {
       expect(result).toBeUndefined()
     })
 
-    it('should handle deleteThread when extension manager returns null', async () => {
+    it('should reject deletion when extension manager returns null', async () => {
       ;(ExtensionManager.getInstance as any).mockReturnValue({
         get: vi.fn().mockReturnValue(null),
       })
 
-      const result = await threadsService.deleteThread('test-id')
-
-      expect(result).toBeUndefined()
+      await expect(threadsService.deleteThread('test-id')).rejects.toThrow(
+        'Conversational extension not available yet'
+      )
     })
 
     it('should handle fetchThreads with threads missing metadata', async () => {
@@ -438,8 +436,8 @@ describe('DefaultThreadsService', () => {
           assistants: [
             {
               model: { id: 'gpt-4', engine: 'openai' },
-              id: 'jan',
-              name: 'Novera',
+              id: 'model-only',
+              name: 'Model',
             },
           ],
         })

@@ -460,7 +460,8 @@
       "updateButton": "Atualizar",
       "alreadyExists": "Projeto \"{{projectName}}\" já existe",
       "createSuccess": "Projeto \"{{projectName}}\" criado com sucesso",
-      "updateSuccess": "Projeto \"{{projectName}}\" atualizado com sucesso"
+      "updateSuccess": "Projeto \"{{projectName}}\" atualizado com sucesso",
+      "saveError": "Não foi possível guardar o projeto. Tente novamente."
     },
     "noConversationsIn": "Nenhuma Conversa em {{projectName}}",
     "startNewConversation": "Inicie uma nova conversa com {{projectName}} abaixo",

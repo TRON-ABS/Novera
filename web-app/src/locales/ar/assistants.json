@@ -37,5 +37,6 @@
   "defaultAssistantSection": "المساعد الافتراضي",
   "defaultAssistantDesc": "يُستخدم عند بدء محادثة جديدة",
   "allAssistants": "جميع المساعدين",
-  "lastUsed": "آخر مساعد استُخدم"
+  "lastUsed": "آخر مساعد استُخدم",
+  "deleteFailed": "تعذّر حذف المساعد. يُرجى المحاولة مرة أخرى."
 }

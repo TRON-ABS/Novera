@@ -460,7 +460,8 @@
       "updateButton": "Update",
       "alreadyExists": "Project \"{{projectName}}\" don already dey",
       "createSuccess": "We don create project \"{{projectName}}\"",
-      "updateSuccess": "We don update project \"{{projectName}}\""
+      "updateSuccess": "We don update project \"{{projectName}}\"",
+      "saveError": "We no fit save di project. Abeg try again."
     },
     "noConversationsIn": "No Conversations for {{projectName}}",
     "startNewConversation": "Start new conversation with {{projectName}} below",

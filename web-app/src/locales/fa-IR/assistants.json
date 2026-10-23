@@ -37,5 +37,6 @@
   "defaultAssistantSection": "دستیار پیش فرض",
   "defaultAssistantDesc": "هنگام شروع یک چت جدید استفاده می شود",
   "allAssistants": "همه دستیاران",
-  "lastUsed": "آخرین استفاده"
+  "lastUsed": "آخرین استفاده",
+  "deleteFailed": "حذف دستیار ممکن نشد. لطفاً دوباره تلاش کنید."
 }

@@ -37,5 +37,6 @@
   "defaultAssistantSection": "ነባሪ ረዳት",
   "defaultAssistantDesc": "አዲስ ውይይት ሲጀመር ጥቅም ላይ ይውላል",
   "allAssistants": "ሁሉም ረዳቶች",
-  "lastUsed": "ለመጨረሻ ጊዜ ጥቅም ላይ የዋለ"
+  "lastUsed": "ለመጨረሻ ጊዜ ጥቅም ላይ የዋለ",
+  "deleteFailed": "ረዳቱን መሰረዝ አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
 }

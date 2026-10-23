@@ -460,7 +460,8 @@
       "updateButton": "Sabunta",
       "alreadyExists": "Aikin \"{{projectName}}\" ya riga ya wanzu",
       "createSuccess": "An ƙirƙira aikin \"{{projectName}}\" cikin nasara",
-      "updateSuccess": "An sabunta aikin \"{{projectName}}\" cikin nasara"
+      "updateSuccess": "An sabunta aikin \"{{projectName}}\" cikin nasara",
+      "saveError": "An kasa adana aikin. Da fatan za a sake gwadawa."
     },
     "noConversationsIn": "Babu Taɗi a cikin {{projectName}}",
     "startNewConversation": "Fara sabon tattaunawa tare da {{projectName}} a ƙasa",

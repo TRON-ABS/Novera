@@ -61,6 +61,7 @@ import {
   trimMessages,
   compactMessages,
   estimateTokens,
+  resolveAutoCompactWindow,
   type ContextManagerConfig,
 } from './context-manager'
 import { mcpOrchestrator } from '@/lib/mcp-orchestrator'
@@ -1289,9 +1290,12 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
     provider: ProviderObject,
     parameters: Record<string, unknown>,
     providerId: string,
-    abortSignal: AbortSignal | undefined
+    abortSignal: AbortSignal | undefined,
+    threadId: string
   ): Promise<LanguageModel> {
-    const modelPromise = ModelFactory.createModel(modelId, provider, parameters)
+    const modelPromise = ModelFactory.createModel(
+      modelId, provider, parameters, threadId
+    )
     if (!abortSignal) return modelPromise
 
     // Target lib is ES2021 here (see tsconfig.app.json), predating
@@ -1429,7 +1433,8 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
         updatedProvider ?? provider,
         mergedParams,
         providerId,
-        options.abortSignal
+        options.abortSignal,
+        threadId
       )
       this.setLoadingModel(threadId, false)
       this.setModelLoadProgress(threadId, undefined)
@@ -1484,14 +1489,14 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
         // The router has not loaded the model yet. Preserve the configured limit.
       }
     }
-    const maxContextTokens = effectiveContextWindow(
-      configuredContextTokens,
-      liveContextTokens,
-      contextShiftEnabled
-    )
     const autoCompact =
       inferenceParams.auto_compact === true ||
       inferenceParams.auto_compact === 'true'
+    const maxContextTokens = effectiveContextWindow(
+      resolveAutoCompactWindow(configuredContextTokens, providerId, autoCompact),
+      liveContextTokens,
+      contextShiftEnabled
+    )
 
     let effectiveMessages = messagesToConvert
     if (maxContextTokens > 0) {
@@ -1595,6 +1600,20 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
     const modelSupportsTools = selectedModel?.capabilities?.includes('tools') ?? this.modelSupportsTools
     const shouldEnableTools = hasTools && modelSupportsTools
 
+    // The SDK validates tool calls before the route's execution gate sees them.
+    // Retain a parser-only definition for a disabled built-in shell so a model
+    // calling it anyway receives the route's refusal and can continue. It has
+    // no executor and activeTools keeps it out of the provider request. An MCP
+    // tool of the same name keeps its existing ownership and availability.
+    const canRefuseDisabledShell =
+      modelSupportsTools &&
+      !useChatShell.getState().shellEnabled &&
+      !useAppState.getState().mcpToolNames.has('shell') &&
+      !this.tools.shell
+    const toolsForParsing = canRefuseDisabledShell
+      ? { ...this.tools, shell: { inputSchema: jsonSchema({}) } }
+      : shouldEnableTools ? this.tools : undefined
+
     // Cloud providers take reasoning via the AI SDK's per-request
     // providerOptions (native thinking config), not the raw body.
     const reasoningProviderOptions = buildReasoningProviderOptions(
@@ -1614,7 +1633,8 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
       // Hosted providers keep the SDK's two backoff retries for transient
       // 429/5xx; local servers fail at once (see isLocalChatServer).
       maxRetries: isLocalChatServer(providerId, provider.base_url) ? 0 : 2,
-      tools: shouldEnableTools ? this.tools : undefined,
+      tools: toolsForParsing,
+      ...(canRefuseDisabledShell ? { activeTools: Object.keys(this.tools) } : {}),
       toolChoice: shouldEnableTools ? 'auto' : undefined,
       system: effectiveSystem,
       // 0 means "no cap" in assistant params; the SDK rejects anything below 1.

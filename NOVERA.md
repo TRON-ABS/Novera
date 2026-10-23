@@ -14,3 +14,5 @@ Novera is maintained by TRON-ABS at https://github.com/TRON-ABS/Novera. Its purp
 The recommended setup model is LiquidAI LFM2.5-2.6B Q6_K: temperature 0.1, top-k 50, repetition penalty 1.1, context 32768. Its initial engine settings are defined in `extensions/llamacpp-extension/src/novera-model-defaults.ts`; its setup catalog is in `web-app/src/lib/noveraRecommendedModel.ts`.
 
 See [contribution guidance](CONTRIBUTING.md), [current source notes](docs/UPDATES_2026-10-23.md), [identity policy](BRANDING.md) and [official release policy](OFFICIAL_RELEASES.md).
+
+Current source version: **Novera 1.0.0**. The 35 Windows fixes are integrated and a local Windows release build has been validated. See [current source notes](docs/UPDATES_2026-10-24.md) and the [integration record](docs/NOVERA_1_INTEGRATION.md). This source publication includes no binaries; Actions and automatic updates remain disabled.

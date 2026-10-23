@@ -37,5 +37,6 @@
   "defaultAssistantSection": "Default Assistant",
   "defaultAssistantDesc": "We dey use am when new chat start",
   "allAssistants": "All Assistants",
-  "lastUsed": "Last time wey you use am"
+  "lastUsed": "Last time wey you use am",
+  "deleteFailed": "We no fit delete di assistant. Abeg try again."
 }

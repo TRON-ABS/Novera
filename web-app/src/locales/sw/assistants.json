@@ -37,5 +37,6 @@
   "defaultAssistantSection": "Msaidizi chaguo-msingi",
   "defaultAssistantDesc": "Hutumika unapoanza gumzo jipya",
   "allAssistants": "Wasaidizi wote",
-  "lastUsed": "Ilitumika mwisho"
+  "lastUsed": "Ilitumika mwisho",
+  "deleteFailed": "Imeshindikana kufuta msaidizi. Tafadhali jaribu tena."
 }

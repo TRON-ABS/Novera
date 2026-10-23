@@ -37,5 +37,6 @@
   "defaultAssistantSection": "डीफॉल्ट सहाय्यक",
   "defaultAssistantDesc": "नवीन चॅट सुरू करताना वापरला जातो",
   "allAssistants": "सर्व सहाय्यक",
-  "lastUsed": "शेवटचा वापर"
+  "lastUsed": "शेवटचा वापर",
+  "deleteFailed": "सहाय्यक हटवता आला नाही. कृपया पुन्हा प्रयत्न करा."
 }

@@ -460,7 +460,8 @@
       "updateButton": "更新",
       "alreadyExists": "「 {{projectName}} 」項目已經存在",
       "createSuccess": "成功建立咗項目「 {{projectName}} 」",
-      "updateSuccess": "項目「 {{projectName}} 」更新成功"
+      "updateSuccess": "項目「 {{projectName}} 」更新成功",
+      "saveError": "儲存唔到專案，請再試一次。"
     },
     "noConversationsIn": "{{projectName}} 冇對話",
     "startNewConversation": "同下面嘅 {{projectName}} 開始新嘅對話",

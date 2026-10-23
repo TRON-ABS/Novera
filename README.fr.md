@@ -27,7 +27,7 @@ Ces éléments décrivent les sources. La distribution Novera et sa validation e
 
 ## 36 langues et variantes d’interface
 
-Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées. Les 18 nouveaux catalogues complets couvrent chacun les **1 463 clés anglaises**. Le **wu / shanghaïen reste partiel avec 706 clés** ; les textes manquants utilisent le repli anglais. Une relecture par des locuteurs natifs reste nécessaire.
+Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées. Les 18 nouveaux catalogues complets couvrent chacun les **1 465 clés anglaises**. Le **wu / shanghaïen reste partiel avec 706 clés** ; les textes manquants utilisent le repli anglais. Une relecture par des locuteurs natifs reste nécessaire.
 
 L’arabe standard, l’arabe égyptien, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
 
@@ -39,9 +39,9 @@ Novera possède son identité et son dépôt de sources. **Aucun installateur ni
 
 Les sources actuelles incluent l’identité Novera, les évolutions du moteur et des conversations, ainsi qu’un premier modèle fixe : **LiquidAI LFM2.5-2.6B Q6_K**, température **0,1**, top-k **50**, pénalité de répétition **1,1**, contexte de **32 768 tokens**. Le téléchargement reste déclenché par l’utilisateur.
 
-La version locale Windows x64 a été compilée en mode release et son démarrage isolé vérifié ; les 238 tests ciblés passent, ainsi qu’une vérification élargie des fichiers modifiés : 4 972 tests réussis, 2 ignorés. Cela ne constitue pas une validation complète des générations ni des autres plateformes. Les mises à jour applicatives et GitHub Actions restent désactivés pendant la préparation d’une distribution indépendante.
+**Novera 1.0.0** intègre **35 corrections Windows**. La version locale Windows x64 a été compilée en release avec LTO fat et son démarrage isolé vérifié : **4 906 tests web réussis (2 ignorés)** et **96 tests natifs ciblés réussis**. Cela ne constitue pas une validation complète des générations ni des autres plateformes. Les mises à jour applicatives et GitHub Actions restent désactivés pendant la préparation d’une distribution indépendante.
 
-Voir les [notes de mise à jour des sources](docs/UPDATES_2026-10-23.md).
+Voir les [notes de mise à jour des sources](docs/UPDATES_2026-10-24.md).
 
 **[Consulter la feuille de route →](ROADMAP.md)**
 

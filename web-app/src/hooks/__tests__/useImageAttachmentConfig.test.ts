@@ -13,6 +13,9 @@ vi.mock('@/lib/backendStorage', () => ({
     },
   },
 }))
+vi.mock('@/hooks/useServiceHub', () => ({
+  getServiceHub: () => ({ core: () => ({ invoke: vi.fn().mockResolvedValue(null) }) }),
+}))
 vi.mock('@/lib/extension', () => ({
   ExtensionManager: { getInstance: () => ({ get: () => undefined }) },
 }))

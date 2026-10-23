@@ -460,7 +460,8 @@
       "updateButton": "अद्यतनित करा",
       "alreadyExists": "प्रकल्प \"{{projectName}}\" आधीपासून अस्तित्वात आहे",
       "createSuccess": "प्रकल्प \"{{projectName}}\" यशस्वीरित्या तयार केला",
-      "updateSuccess": "प्रकल्प \"{{projectName}}\" यशस्वीरित्या अद्यतनित केला"
+      "updateSuccess": "प्रकल्प \"{{projectName}}\" यशस्वीरित्या अद्यतनित केला",
+      "saveError": "प्रकल्प जतन करता आला नाही. कृपया पुन्हा प्रयत्न करा."
     },
     "noConversationsIn": "{{projectName}} मध्ये कोणतेही संभाषण नाही",
     "startNewConversation": "खाली {{projectName}} सह नवीन संभाषण सुरू करा",

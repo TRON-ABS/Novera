@@ -460,7 +460,8 @@
       "updateButton": "I-update",
       "alreadyExists": "May proyekto nang pinangalanang \"{{projectName}}\"",
       "createSuccess": "Nagawa ang proyektong \"{{projectName}}\"",
-      "updateSuccess": "Na-update ang proyektong \"{{projectName}}\""
+      "updateSuccess": "Na-update ang proyektong \"{{projectName}}\"",
+      "saveError": "Hindi mai-save ang proyekto. Pakisubukang muli."
     },
     "noConversationsIn": "Walang usapan sa {{projectName}}",
     "startNewConversation": "Magsimula ng bagong usapan sa {{projectName}} sa ibaba",

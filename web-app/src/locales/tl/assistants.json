@@ -37,5 +37,6 @@
   "defaultAssistantSection": "Default na katulong",
   "defaultAssistantDesc": "Ginagamit sa pagsisimula ng bagong usapan",
   "allAssistants": "Lahat ng katulong",
-  "lastUsed": "Huling ginamit"
+  "lastUsed": "Huling ginamit",
+  "deleteFailed": "Hindi matanggal ang assistant. Pakisubukang muli."
 }

@@ -269,6 +269,8 @@ const ChatInput = memo(function ChatInput({
   tokenSource,
   highlightedPrefix,
 }: ChatInputProps) {
+  const isStreaming = chatStatus === 'submitted' || chatStatus === 'streaming'
+  const turnBusy = isStreaming || !!toolsRunning
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const highlightRef = useRef<HTMLDivElement>(null)
   const [isFocused, setIsFocused] = useState(false)
@@ -290,6 +292,7 @@ const ChatInput = memo(function ChatInput({
   const setPrompt = usePrompt((state) => state.setPrompt)
   const addToHistory = usePrompt((state) => state.addToHistory)
   const navigateHistory = usePrompt((state) => state.navigateHistory)
+  const historyIndex = usePrompt((state) => state.historyIndex)
   const currentThreadId = useThreads((state) => state.currentThreadId)
   const currentThread = useThreads((state) => state.getCurrentThread())
   const updateCurrentThreadAssistant = useThreads(
@@ -661,7 +664,13 @@ const ChatInput = memo(function ChatInput({
       // While the model is still streaming, or the turn's tools are still
       // running, queue the message for later. The queue waits for the tools, so
       // a second turn never starts under a tool loop that Stop still has to end.
-      if ((isStreaming || toolsRunning) && queueId) {
+      if (turnBusy && queueId) {
+        // Queued turns are text-only. Keep the complete draft rather than
+        // silently sending its text without the attached files.
+        if (attachments.length > 0) {
+          toast.info('Wait for the current turn to finish before sending attachments')
+          return
+        }
         useMessageQueue.getState().enqueue(queueId, {
           id: generateId(),
           text: effectivePrompt,
@@ -771,15 +780,23 @@ const ChatInput = memo(function ChatInput({
 
         setCurrentAssistant(assistant)
 
-        const newThread = await createThread(
-          {
-            id: selectedModel?.id ?? defaultModel(selectedProvider),
-            provider: selectedProvider,
-          },
-          prompt, // Use prompt as thread title
-          assistant,
-          projectMetadata
-        )
+        let newThread: Thread
+        try {
+          newThread = await createThread(
+            {
+              id: selectedModel?.id ?? defaultModel(selectedProvider),
+              provider: selectedProvider,
+            },
+            prompt, // Use prompt as thread title
+            assistant,
+            projectMetadata
+          )
+        } catch (error) {
+          toast.error('Failed to create conversation', {
+            description: error instanceof Error ? error.message : String(error),
+          })
+          return
+        }
 
         // Transfer agent mode from home screen to the new thread
         if (isAgentMode) {
@@ -948,6 +965,7 @@ const ChatInput = memo(function ChatInput({
   )
 
   const handleAttachDocsIngest = async () => {
+    if (turnBusy) return
     try {
       if (!attachmentsEnabled) {
         toast.info('Attachments are disabled in Settings')
@@ -1442,6 +1460,7 @@ const ChatInput = memo(function ChatInput({
   }, [attachmentsKey, currentThreadId, scopeKey, setAttachmentsForThread, serviceHub, setFileIngestProgress, maxImageSizeMB])
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (turnBusy) return
     const files = e.target.files
 
     if (files && files.length > 0) {
@@ -1563,6 +1582,7 @@ const ChatInput = memo(function ChatInput({
   )
 
   const handleAudioFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (turnBusy) return
     const files = e.target.files
     if (files && files.length > 0) {
       void processAudioFiles(Array.from(files))
@@ -1572,6 +1592,7 @@ const ChatInput = memo(function ChatInput({
   }
 
   const openAudioPicker = useCallback(async () => {
+    if (turnBusy) return
     if (isPlatformTauri()) {
       try {
         const selected = await serviceHub.dialog().open({
@@ -1608,7 +1629,7 @@ const ChatInput = memo(function ChatInput({
     } else {
       audioInputRef.current?.click()
     }
-  }, [serviceHub, processAudioFiles])
+  }, [serviceHub, processAudioFiles, turnBusy])
 
   const processVideoFiles = useCallback(
     async (files: File[]) => {
@@ -1697,6 +1718,7 @@ const ChatInput = memo(function ChatInput({
   )
 
   const handleVideoFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (turnBusy) return
     const files = e.target.files
     if (files && files.length > 0) {
       void processVideoFiles(Array.from(files))
@@ -1706,6 +1728,7 @@ const ChatInput = memo(function ChatInput({
   }
 
   const openVideoPicker = useCallback(async () => {
+    if (turnBusy) return
     if (isPlatformTauri()) {
       try {
         const selected = await serviceHub.dialog().open({
@@ -1741,10 +1764,11 @@ const ChatInput = memo(function ChatInput({
     } else {
       videoInputRef.current?.click()
     }
-  }, [serviceHub, processVideoFiles])
+  }, [serviceHub, processVideoFiles, turnBusy])
 
   // Open the image picker dialog (extracted for reuse)
   const openImagePicker = useCallback(async () => {
+    if (turnBusy) return
     if (isPlatformTauri()) {
       try {
         const selected = await serviceHub.dialog().open({
@@ -1810,7 +1834,7 @@ const ChatInput = memo(function ChatInput({
       // Fallback to input click for web
       fileInputRef.current?.click()
     }
-  }, [serviceHub, processImageFiles])
+  }, [serviceHub, processImageFiles, turnBusy])
 
   const dropAcceptsAnything = hasMmproj || audioSupported || videoSupported
 
@@ -1846,6 +1870,7 @@ const ChatInput = memo(function ChatInput({
     e.stopPropagation()
     setIsDragOver(false)
 
+    if (turnBusy) return
     if (!dropAcceptsAnything) return
     if (!e.dataTransfer) {
       console.warn('No dataTransfer available in drop event')
@@ -1895,6 +1920,9 @@ const ChatInput = memo(function ChatInput({
   }
 
   const handlePaste = async (e: React.ClipboardEvent) => {
+    // Leave plain-text pastes to the browser, but do not ingest clipboard
+    // files while the input can only queue text.
+    if (turnBusy) return
     if (audioSupported) {
       const clipboardItems = e.clipboardData?.items
       if (clipboardItems && clipboardItems.length > 0) {
@@ -2020,8 +2048,6 @@ const ChatInput = memo(function ChatInput({
     }
     // If hasMmproj is false or no images found, allow normal text pasting to continue
   }
-
-  const isStreaming = chatStatus === 'submitted' || chatStatus === 'streaming'
 
   return (
     <div className="relative">
@@ -2249,18 +2275,22 @@ const ChatInput = memo(function ChatInput({
                   }
                   // When Shift+Enter is pressed, a new line is added (default behavior)
                 }
-                // Navigate prompt history with Up/Down arrow keys
-                if (e.key === 'ArrowUp' && !isComposing) {
+                // Enter history only from an empty composer. Once browsing,
+                // continue at its boundaries; typing resets historyIndex and
+                // makes the recalled text a draft again.
+                const historyShortcut = !isComposing &&
+                  !e.shiftKey && !e.ctrlKey && !e.altKey && !e.metaKey
+                if (e.key === 'ArrowUp' && historyShortcut) {
                   const textarea = e.currentTarget
                   const cursorAtStart =
                     textarea.selectionStart === 0 &&
                     textarea.selectionEnd === 0
-                  if (cursorAtStart || !prompt) {
+                  if (cursorAtStart && (!prompt || historyIndex >= 0)) {
                     e.preventDefault()
                     navigateHistory('up')
                   }
                 }
-                if (e.key === 'ArrowDown' && !isComposing) {
+                if (e.key === 'ArrowDown' && historyShortcut && historyIndex >= 0) {
                   const textarea = e.currentTarget
                   const cursorAtEnd =
                     textarea.selectionStart === prompt.length &&
@@ -2324,14 +2354,14 @@ const ChatInput = memo(function ChatInput({
               <div
                 className={cn(
                   'px-1 flex flex-wrap items-center gap-1',
-                  isStreaming && 'opacity-50 pointer-events-none'
+                  turnBusy && 'opacity-50 pointer-events-none'
                 )}
               >
                 {/* Dropdown for attachments — hidden in agent mode */}
                 {!effectiveAgentMode && (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="secondary" size="icon-sm" className='rounded-full mr-2 mb-1'>
+                    <Button disabled={turnBusy} variant="secondary" size="icon-sm" className='rounded-full mr-2 mb-1'>
                       <PlusIcon size={18} className="text-muted-foreground" />
                     </Button>
                   </DropdownMenuTrigger>

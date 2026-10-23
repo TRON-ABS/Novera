@@ -37,5 +37,6 @@
   "defaultAssistantSection": "Mataimaki na asali",
   "defaultAssistantDesc": "Ana amfani da shi yayin fara sabuwar hira",
   "allAssistants": "Duk mataimaka",
-  "lastUsed": "Amfani na ƙarshe"
+  "lastUsed": "Amfani na ƙarshe",
+  "deleteFailed": "An kasa share mataimaki. Da fatan za a sake gwadawa."
 }
