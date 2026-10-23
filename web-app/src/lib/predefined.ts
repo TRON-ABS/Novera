@@ -1,4 +1,30 @@
 export const modelSettings = {
+  ngram_speculation: {
+    key: 'ngram_speculation',
+    title: 'Repetitive text acceleration',
+    description: 'Use n-gram drafts for repetitive text. General prose and code have not shown a clear benefit.',
+    controller_type: 'dropdown',
+    controller_props: {
+      value: 'off',
+      options: [
+        { value: 'off', name: 'Off' },
+        { value: 'repetitive', name: 'Repetitive text' },
+      ],
+    },
+  },
+  performance_mode: {
+    key: 'performance_mode',
+    title: 'Performance profile',
+    description: 'Use a measured batch profile when this model, GPU, context and available memory match a calibration. Otherwise keep manual settings.',
+    controller_type: 'dropdown',
+    controller_props: {
+      value: 'manual',
+      options: [
+        { value: 'manual', name: 'Manual settings' },
+        { value: 'measured', name: 'Measured profile when available' },
+      ],
+    },
+  },
   ctx_len: {
     key: 'ctx_len',
     title: 'Context Size',

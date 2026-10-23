@@ -2,7 +2,7 @@
 //!
 //! Shares the Tauri-free core logic with the Jan desktop app; talks only to
 //! remote providers (no local inference, no GUI dependencies).
-//! Build with: cd src-tauri/jan-cli && cargo build --no-default-features --features cli
+//! Build with: cd src-tauri/novera-cli && cargo build --no-default-features --features cli
 
 use clap::{Args, CommandFactory, FromArgMatches, Parser, Subcommand};
 

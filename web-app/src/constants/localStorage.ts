@@ -12,6 +12,8 @@ export const localStorageKey = {
   settingProxyConfig: 'setting-proxy-config',
   settingWebSearch: 'setting-web-search',
   settingCowork: 'setting-cowork',
+  settingImageAttachments: 'setting-image-attachments',
+  settingChatShell: 'setting-chat-shell',
   settingHardware: 'setting-hardware',
   settingVulkan: 'setting-vulkan',
   productAnalyticPrompt: 'productAnalyticPrompt',
@@ -29,7 +31,7 @@ export const localStorageKey = {
   recentSearches: 'recent-searches',
   janModelPromptDismissed: 'jan-model-prompt-dismissed',
   agentMode: 'agent-mode',
-  latestJanModel: 'latest-jan-model',
+  latestJanModel: 'novera-recommended-model-v1',
   defaultEmbeddingModel: 'default-embedding-model',
   pausedDownloads: 'paused-downloads',
   // Value predates the Cowork rename; changing it would orphan saved sessions.

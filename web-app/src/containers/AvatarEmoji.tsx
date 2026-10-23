@@ -22,6 +22,10 @@ export const AvatarEmoji: React.FC<AvatarEmojiProps> = memo(({
   textClassName = 'text-base',
 }) => {
   if (!avatar) return null
+  // Existing assistants and saved threads still store Novera's original emoji.
+  if (avatar === '👋') {
+    return <img src="/images/novera-logo.png" alt="Novera" className={imageClassName} />
+  }
   if (isCustomImageAvatar(avatar)) {
     return <img src={avatar} alt="Custom avatar" className={imageClassName} />
   }

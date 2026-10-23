@@ -93,7 +93,7 @@ pub struct ServeOptions {
     pub store_root: PathBuf,
     /// The `[skills].enabled` whitelist; empty means every skill.
     pub enabled_skills: Vec<String>,
-    /// `~/.jan`, whose `skills/` is the user scope `skill_write` `scope:"user"`
+    /// `~/.novera`, whose `skills/` is the user scope `skill_write` `scope:"user"`
     /// writes to. `None` refuses that scope.
     pub user_store_root: Option<PathBuf>,
     /// Let the sandboxed shell reach the network.
@@ -107,7 +107,7 @@ pub struct ServeOptions {
 }
 
 impl ServeOptions {
-    /// Defaults for a project root: its store under `~/.jan/projects`, the read-only served
+    /// Defaults for a project root: its store under `~/.novera/projects`, the read-only served
     /// set, sandbox on.
     pub fn new(project_root: PathBuf) -> Self {
         let store_root = crate::core::agent::project::store_root(&project_root);
@@ -257,7 +257,7 @@ impl JanToolServer {
             Decision::HardDeny(DenyReason::Hidden) => {
                 return (
                     format!(
-                        "ERROR: tool '{name}' was refused: the Jan home (~/.jan) is hidden. \
+                        "ERROR: tool '{name}' was refused: the Jan home (~/.novera) is hidden. \
                          Use the memory_* and skill_* tools instead."
                     ),
                     Vec::new(),

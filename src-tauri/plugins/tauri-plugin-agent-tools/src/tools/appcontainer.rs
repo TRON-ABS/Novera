@@ -763,7 +763,7 @@ mod tests {
     use super::*;
 
     fn ws() -> PathBuf {
-        PathBuf::from(r"C:\Users\me\.jan\agent-workspace\threads\t1")
+        PathBuf::from(r"C:\Users\me\.novera\agent-workspace\threads\t1")
     }
 
     #[test]
@@ -792,7 +792,7 @@ mod tests {
         // names one container SID, so a command for another thread holds a
         // token that ACE does not match.
         let mine = moniker(&ws());
-        let theirs = moniker(Path::new(r"C:\Users\me\.jan\agent-workspace\threads\t2"));
+        let theirs = moniker(Path::new(r"C:\Users\me\.novera\agent-workspace\threads\t2"));
         assert_ne!(mine, theirs);
     }
 

@@ -402,10 +402,10 @@ pub struct PendingSubagent {
 }
 
 /// If `path` targets a file in a project's skill or memory store
-/// (`~/.jan/projects/<slug>/{skills,memory}/...`), return the kind
+/// (`~/.novera/projects/<slug>/{skills,memory}/...`), return the kind
 /// (`"skill"`/`"memory"`) and the item name (file stem). None otherwise.
 fn classify_agent_path(path: &str) -> Option<(&'static str, String)> {
-    const PROJECTS: &str = ".jan/projects/";
+    const PROJECTS: &str = ".novera/projects/";
     let norm = path.replace('\\', "/");
     let after = &norm[norm.find(PROJECTS)? + PROJECTS.len()..];
     let (_slug, inside) = after.split_once('/')?;
@@ -926,11 +926,11 @@ pub(crate) mod tests {
     #[test]
     fn describe_labels_fallback_path_ops() {
         assert_eq!(
-            describe_tool_call("read", &json!({"path": "/home/u/.jan/projects/app-1/skills/deploy.md"})),
+            describe_tool_call("read", &json!({"path": "/home/u/.novera/projects/app-1/skills/deploy.md"})),
             "Reading skill: deploy"
         );
         assert_eq!(
-            describe_tool_call("write", &json!({"path": "/home/u/.jan/projects/app-1/memory/decisions.md"})),
+            describe_tool_call("write", &json!({"path": "/home/u/.novera/projects/app-1/memory/decisions.md"})),
             "Updating memory: decisions"
         );
     }

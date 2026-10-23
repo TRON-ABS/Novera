@@ -1,19 +1,16 @@
-# Novera development
+# Novera — project instructions
 
-Novera is an independent public repository maintained by TRON-ABS, derived from Jan. The original license and attribution remain in place.
+Novera is maintained by TRON-ABS at https://github.com/TRON-ABS/Novera. Its purpose is **Knowledge for everyone.**
 
-The product name, desktop binary and application identifier are Novera, Novera-Desktop and io.github.tronabs.novera. Internal @janhq packages and protocol IDs remain compatibility interfaces. Novera uses its own default data directory and provider keyring namespace; no existing Jan profiles are automatically moved.
+- Work from the checked-out project root; do not assume a maintainer-specific drive or home directory.
+- Desktop identity: Novera-Desktop, application identifier `io.github.tronabs.novera`.
+- Agent instructions: `NOVERA.md`, with configurable `AGENTS.md` fallback. Agent state lives under `~/.novera`; desktop data uses the Novera application directory.
+- Preserve user conversations, models, credentials and unrelated local changes. Any data migration or deletion needs an explicit scope.
+- Contributions target this repository. Publishing builds, signing releases and enabling workflows require maintainer authorization.
+- Automatic updates remain disabled until an independent signed feed is ready. Inherited release workflows are not a verified Novera distribution pipeline.
+- Preserve applicable Apache and third-party licensing and attribution. Product branding changes do not establish ownership of inherited code.
+- Keep external model/service names and compatibility interfaces accurate.
 
-Application and CLI update checks are disabled until Novera has an independent signed release feed. The inherited release workflows still need adaptation before producing a Novera distribution. Existing Jan tags and binaries are historical artifacts, not Novera releases.
+The recommended setup model is LiquidAI LFM2.5-2.6B Q6_K: temperature 0.1, top-k 50, repetition penalty 1.1, context 32768. Its initial engine settings are defined in `extensions/llamacpp-extension/src/novera-model-defaults.ts`; its setup catalog is in `web-app/src/lib/noveraRecommendedModel.ts`.
 
-All 61 owner PRs previously opened against Jan were closed on 23 October 2026, with their source branches preserved in the public Novera-Jan-archive repository. Closed public contributions remain accessible and retain their license.
-
-The initial branding publication was based on the repository's existing main branch. Local engine, chat, profile and UI experiments are excluded. No compilation or release is performed.
-
-## Independent repository — 23 October 2026
-
-The active repository at [TRON-ABS/Novera](https://github.com/TRON-ABS/Novera) is independent of GitHub’s Jan fork network. The original fork is preserved at [TRON-ABS/Novera-Jan-archive](https://github.com/TRON-ABS/Novera-Jan-archive), including its repository metadata. No repository was deleted.
-
-Novera starts with a fresh source snapshot of commit `03aab484eaf0980b5ab68669c8ed1f0db7da493e`. All 68 source branches and their full commit histories remain in Novera-Jan-archive; they are not imported into the active repository. The original repository had no tags, releases, issues or internal pull requests at the migration checkpoint. GitHub Actions was disabled on the new repository before any code was pushed, and no compilation or installer was produced.
-
-The Jan origin, original attribution and Apache 2.0 license remain documented. GitHub’s fork relationship and the origin of the code are separate facts.
+See [contribution guidance](CONTRIBUTING.md), [current source notes](docs/UPDATES_2026-10-23.md), [identity policy](BRANDING.md) and [official release policy](OFFICIAL_RELEASES.md).

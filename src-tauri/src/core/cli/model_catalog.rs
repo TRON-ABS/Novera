@@ -1,6 +1,6 @@
 //! Per-model metadata cached from a provider's `/models` listing.
 //!
-//! `~/.jan/config.toml` records a provider's model **ids**, and that is all the
+//! `~/.novera/config.toml` records a provider's model **ids**, and that is all the
 //! agent needs to route a request. A router-style endpoint reports much more
 //! per model -- `context_length`, `max_completion_tokens` and per-token
 //! `pricing` -- which is exactly what the header gauge, `/context` and
@@ -8,7 +8,7 @@
 //! [`super::model_capabilities`], whose catalog is a hand-maintained table of
 //! model families).
 //!
-//! That metadata lives here, in `~/.jan/model_catalog.json`, rather than in
+//! That metadata lives here, in `~/.novera/model_catalog.json`, rather than in
 //! `config.toml`: the config is hand-edited and a pricing block per model would
 //! bury the three lines a user actually writes. This file is a **cache** --
 //! deleting it costs nothing but a refresh, and nothing here is a secret.
@@ -247,7 +247,7 @@ impl Catalog {
         unique_bare_match(self.providers.values(), model_id)
     }
 
-    /// Persist the cache, creating `~/.jan` if needed.
+    /// Persist the cache, creating `~/.novera` if needed.
     pub fn save(&self) -> Result<(), String> {
         let path = catalog_path()?;
         if let Some(parent) = path.parent() {

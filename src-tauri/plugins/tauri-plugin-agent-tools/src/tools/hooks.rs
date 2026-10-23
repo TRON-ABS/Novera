@@ -178,7 +178,7 @@ impl Hook {
 /// the event name is validated. `event` and `command` are the only required
 /// fields, so the smallest useful hook is two lines.
 ///
-/// `Serialize` as well as `Deserialize` because `~/.jan/config.toml` is
+/// `Serialize` as well as `Deserialize` because `~/.novera/config.toml` is
 /// round-tripped through its typed struct on every write; without it, saving a
 /// provider would silently drop the user's hooks.
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -741,11 +741,11 @@ mod tests {
         let mut set = HookSet::new();
         set.extend_from(
             vec![entry("SessionEnd", None, "true")],
-            Path::new("/home/u/.jan/config.toml"),
+            Path::new("/home/u/.novera/config.toml"),
         );
         assert_eq!(
             set.all()[0].source,
-            PathBuf::from("/home/u/.jan/config.toml")
+            PathBuf::from("/home/u/.novera/config.toml")
         );
     }
 

@@ -436,12 +436,14 @@ fn write_atomic(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
 /// Which thread's state each slot is holding, per model.
 ///
 /// The worker needs this because a save has to name a slot, and only the worker
-/// knows which thread last ran there. Chat is pinned to slot 0 by the frontend
-/// (`custom-chat-transport.ts`), so in practice this is one entry per model,
-/// but nothing here assumes that.
+/// knows which thread last ran there. Chat may opt into a bounded pool of
+/// existing slots; explicit API pins still use their requested index.
 #[derive(Debug, Default)]
 pub struct SlotOccupancy {
     resident: HashMap<(String, i32), String>,
+    busy: std::collections::HashSet<(String, i32)>,
+    last_used: HashMap<(String, i32), u64>,
+    tick: u64,
 }
 
 /// What claiming a slot did, which decides what has to happen to disk.
@@ -460,6 +462,60 @@ pub enum Claim {
 }
 
 impl SlotOccupancy {
+    /// Reuse the thread's own slot, then an empty slot, then the oldest idle
+    /// one. Never move a thread whose previous request is still generating.
+    pub fn reserve(
+        &mut self,
+        model: &str,
+        thread: &str,
+        count: i32,
+        explicit: Option<i32>,
+    ) -> Option<(i32, Claim)> {
+        if self
+            .resident
+            .iter()
+            .any(|(key, t)| key.0 == model && t == thread && self.busy.contains(key))
+        {
+            return None;
+        }
+        let own = self
+            .resident
+            .iter()
+            .find_map(|((m, s), t)| (m == model && t == thread && *s < count).then_some(*s));
+        let slot = if let Some(slot) = explicit.or(own) {
+            if self.busy.contains(&(model.to_string(), slot)) {
+                return None;
+            }
+            slot
+        } else {
+            (0..count)
+                .filter(|s| !self.busy.contains(&(model.to_string(), *s)))
+                .min_by_key(|s| {
+                    let key = (model.to_string(), *s);
+                    (
+                        self.resident.contains_key(&key),
+                        *self.last_used.get(&key).unwrap_or(&0),
+                    )
+                })?
+        };
+        self.busy.insert((model.to_string(), slot));
+        self.resident
+            .retain(|(m, s), t| !(m == model && t == thread && *s != slot));
+        let claim = self.claim(model, slot, thread);
+        Some((slot, claim))
+    }
+
+    pub fn finish(&mut self, model: &str, slot: i32, keep: bool) {
+        let key = (model.to_string(), slot);
+        self.busy.remove(&key);
+        self.tick += 1;
+        if keep {
+            self.last_used.insert(key.clone(), self.tick);
+        } else {
+            self.last_used.remove(&key);
+            self.resident.remove(&key);
+        }
+    }
     /// Records that `thread` now owns `slot` of `model`.
     pub fn claim(&mut self, model: &str, slot: i32, thread: &str) -> Claim {
         let prev = self
@@ -491,6 +547,7 @@ impl SlotOccupancy {
 
     pub fn release_model(&mut self, model: &str) {
         self.resident.retain(|(m, _), _| m != model);
+        self.last_used.retain(|(m, _), _| m != model);
     }
 
     /// Forgets a thread wherever it is sitting. Without this an erase would
@@ -504,6 +561,35 @@ impl SlotOccupancy {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn affinity_waits_for_a_busy_thread_and_evicts_only_idle_lru() {
+        let mut occ = SlotOccupancy::default();
+        assert_eq!(occ.reserve("m", "a", 2, None), Some((0, Claim::Empty)));
+        assert!(occ.reserve("m", "a", 2, None).is_none());
+        assert_eq!(occ.reserve("m", "b", 2, None), Some((1, Claim::Empty)));
+        assert!(occ.reserve("m", "c", 2, None).is_none());
+        occ.finish("m", 0, true);
+        occ.finish("m", 1, true);
+        assert_eq!(occ.reserve("m", "a", 2, None), Some((0, Claim::Unchanged)));
+        occ.finish("m", 0, true);
+        assert_eq!(
+            occ.reserve("m", "c", 2, None),
+            Some((1, Claim::Evicted("b".into())))
+        );
+        occ.finish("m", 1, false);
+        assert!(occ.get("m", 1).is_none());
+    }
+
+    #[test]
+    fn explicit_slot_and_thread_deletion_keep_the_busy_reservation() {
+        let mut occ = SlotOccupancy::default();
+        occ.reserve("m", "a", 2, Some(0)).unwrap();
+        occ.release_thread("a");
+        assert!(occ.reserve("m", "b", 2, Some(0)).is_none());
+        occ.finish("m", 0, false);
+        assert_eq!(occ.reserve("m", "b", 2, Some(0)), Some((0, Claim::Empty)));
+    }
 
     fn tmpdir(tag: &str) -> PathBuf {
         let p = std::env::temp_dir().join(format!(

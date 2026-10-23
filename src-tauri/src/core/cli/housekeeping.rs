@@ -8,7 +8,7 @@
 //!
 //! Deliberately conservative, because a deleted thread is not recoverable:
 //! - nothing runs unless the user turned it on (`prune_threads = true` in
-//!   `~/.jan/config.toml`);
+//!   `~/.novera/config.toml`);
 //! - a thread is removed only when a limit condemns it, and the newest
 //!   [`MIN_KEEP`] are never touched whatever the limits say;
 //! - the thread this session is running or resumed is always kept;
@@ -25,7 +25,7 @@ use std::path::Path;
 use serde_json::Value;
 
 /// Default age past which a thread is a candidate for removal, once pruning is
-/// switched on (`prune_threads` in `~/.jan/config.toml`; off by default).
+/// switched on (`prune_threads` in `~/.novera/config.toml`; off by default).
 pub const DEFAULT_RETENTION_DAYS: u32 = 90;
 
 /// Default cap on how many threads a project keeps.

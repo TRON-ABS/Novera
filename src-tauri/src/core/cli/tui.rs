@@ -758,12 +758,12 @@ enum PickerKind {
     ThreadTree,
     /// Second step of a rewind: restore conversation only, or + workspace.
     RewindScope,
-    /// Read-only view of `~/.jan/config.toml` providers (`/config`). Enter closes.
+    /// Read-only view of `~/.novera/config.toml` providers (`/config`). Enter closes.
     ViewConfig,
-    /// `/settings`: browse editable keys from agent.toml and `~/.jan/config.toml`;
+    /// `/settings`: browse editable keys from agent.toml and `~/.novera/config.toml`;
     /// Enter opens a docked edit prompt for the selected row.
     AgentSettings,
-    /// `/settings > providers`: manage `~/.jan/config.toml` providers via a
+    /// `/settings > providers`: manage `~/.novera/config.toml` providers via a
     /// docked add/edit wizard (`a`/`e`) or deletion (`d`).
     ProviderSettings,
     /// `/settings > subagents`: every saved subagent with the model it
@@ -920,7 +920,7 @@ struct ModelItem {
 enum ModelTarget {
     /// The session's own model (`/model`), saved to `[agent].model`.
     Session,
-    /// `smol_model` in `~/.jan/config.toml`.
+    /// `smol_model` in `~/.novera/config.toml`.
     SmolModel,
     /// `[subagents.<name>] model` in the project's agent.toml.
     Subagent(String),
@@ -1395,7 +1395,7 @@ struct PluginEnvEntry {
 /// plugin declares it needs. One entry per variable; the field is masked (the
 /// value never reaches the screen, scrollback, or transcript), Enter saves and
 /// advances, `s` skips, Esc abandons the remaining entries. Values go to
-/// `~/.jan/agent/plugin-env/<plugin>.toml` (0600) and are injected into the
+/// `~/.novera/agent/plugin-env/<plugin>.toml` (0600) and are injected into the
 /// sandboxed shell on the next run.
 struct PluginSetupPrompt {
     plugin: String,
@@ -2453,7 +2453,7 @@ struct Transcript {
     /// existing block between its summary row and full detail for the session.
     show_reasoning: bool,
     /// Whether reasoning streams into the live tail while folding is on.
-    /// Defaults from `stream_reasoning` in `~/.jan/config.toml` (true). The open
+    /// Defaults from `stream_reasoning` in `~/.novera/config.toml` (true). The open
     /// block shows its last `LIVE_REASONING_TAIL_LINES` lines and still folds to
     /// a summary row when the turn commits; false shows nothing but the header
     /// badge, as before. Orthogonal to `show_reasoning`, which unfolds for good.
@@ -4157,7 +4157,7 @@ struct App {
     last_esc: Option<Instant>,
     /// User-message index chosen in the rewind picker, carried into the scope step.
     rewind_target: Option<usize>,
-    /// The project's store (`~/.jan/projects/<slug>`) where this TUI's threads
+    /// The project's store (`~/.novera/projects/<slug>`) where this TUI's threads
     /// are saved/listed.
     agent_dir: std::path::PathBuf,
     /// OpenAI-shaped conversation history sent with each run.
@@ -7448,7 +7448,7 @@ async fn compute_context_report(snapshot: ContextSnapshot) -> ContextReport {
     let root = args.and_then(|a| a.project_root.clone());
 
     // The three system-prompt segments are carved out of one build of the
-    // real prompt: the whole thing, minus the JAN.md block, minus the
+    // real prompt: the whole thing, minus the NOVERA.md block, minus the
     // skills/memory catalogs. Splitting a single build (rather than
     // re-deriving each piece) is what keeps them summing to what is sent.
     //
@@ -8955,8 +8955,8 @@ struct ContextReport {
     session_cached_tokens: u64,
     session_cache_write_tokens: u64,
     /// The instructions files the project context loaded, farthest first, each
-    /// with whether it is not a `JAN.md` (#9079). `/context` labels each by
-    /// name (legacy `JAN.md`, `CLAUDE.md` fallback), so the choice is never silent.
+    /// with whether it is not a `NOVERA.md` (#9079). `/context` labels each by
+    /// name (legacy `NOVERA.md`, `CLAUDE.md` fallback), so the choice is never silent.
     instruction_files: Vec<(String, bool)>,
 }
 
@@ -9182,7 +9182,7 @@ fn cost_summary_line(report: &ContextReport) -> Option<String> {
 }
 
 /// Which instructions files the project context holds, for `/context`: a blank
-/// separator, a heading, then one path per file, a legacy JAN.md or a CLAUDE.md
+/// separator, a heading, then one path per file, a legacy NOVERA.md or a CLAUDE.md
 /// fallback labelled as such.
 /// Empty when none loaded, so a project without instructions shows nothing.
 fn instruction_file_lines(report: &ContextReport) -> Vec<String> {
@@ -11464,7 +11464,7 @@ fn with_real_think_tag_gate<T>(f: impl FnOnce() -> T) -> T {
 /// `<mm:think>` tags (tags themselves dropped). An unterminated open tag makes
 /// the trailing text reasoning, which keeps live streaming clean.
 ///
-/// With `think_tags = false` in `~/.jan/config.toml` the tags carry no meaning:
+/// With `think_tags = false` in `~/.novera/config.toml` the tags carry no meaning:
 /// the whole text is one answer run, so it renders verbatim and stays in the
 /// answer that goes back as history.
 fn split_reasoning(text: &str, parse_tags: bool) -> Vec<(bool, String)> {
@@ -12327,7 +12327,7 @@ pub async fn run(
     let mouse = crate::core::agent::global_config::mouse_enabled();
     enter_terminal_modes(&mut stdout, mouse).map_err(abort_startup)?;
     // Test-only hook for the real-PTY panic-recovery integration test
-    // (`jan-cli/tests/tui_panic.rs`): an in-memory unit test can prove the hook
+    // (`novera-cli/tests/tui_panic.rs`): an in-memory unit test can prove the hook
     // fires, but only a genuine panic on a genuine terminal, with every mode
     // above already turned on, proves the terminal is actually left clean.
     // Gated on an env var rather than `#[cfg(test)]`: the test spawns the real
@@ -12405,7 +12405,7 @@ pub async fn run(
         // middle of a run.
         app.note(&warning);
     }
-    // An invitation when there is nothing to load, a label when a legacy JAN.md
+    // An invitation when there is nothing to load, a label when a legacy NOVERA.md
     // or a CLAUDE.md is what loaded; an AGENTS.md project hears nothing.
     if let Some(note) = project_instructions_note(&app.project_root) {
         app.note(&note);
@@ -12423,7 +12423,7 @@ pub async fn run(
         })
     {
         app.note(&hint);
-        app.system_detail_text("(terminal_hint = false in ~/.jan/config.toml silences this)");
+        app.system_detail_text("(terminal_hint = false in ~/.novera/config.toml silences this)");
     }
     // A failed resume is not fatal: the note explains why and the blank session
     // the user already has stays usable.
@@ -13450,30 +13450,57 @@ fn strip_row_chrome(line: &str) -> Option<String> {
     }
 }
 
+/// Writes `text` to the macOS pasteboard through `pbcopy`.
+///
+/// Not `arboard`: its AppKit write logs `-[NSPasteboard _setData:...] returns
+/// false` to stderr whenever the pasteboard is contended, and stderr is the
+/// terminal the TUI is drawing on, so the line lands on top of the screen. The
+/// failure is not visible to the caller either way, so nothing is lost by
+/// sending `pbcopy`'s own stderr to the void.
+#[cfg(target_os = "macos")]
+fn set_system_clipboard(text: String) {
+    use std::process::{Command, Stdio};
+    let Ok(mut child) = Command::new("pbcopy")
+        .stdin(Stdio::piped())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .spawn()
+    else {
+        return;
+    };
+    if let Some(mut stdin) = child.stdin.take() {
+        let _ = io::Write::write_all(&mut stdin, text.as_bytes());
+    }
+    let _ = child.wait();
+}
+
+#[cfg(not(target_os = "macos"))]
+fn set_system_clipboard(text: String) {
+    let Ok(mut clip) = arboard::Clipboard::new() else {
+        return;
+    };
+    // X11/Wayland ownership lives with the setter, so this thread parks inside
+    // `wait()` until something else claims the clipboard; returning immediately
+    // would drop the text on the floor.
+    #[cfg(target_os = "linux")]
+    {
+        use arboard::SetExtLinux;
+        let _ = clip.set().wait().text(text);
+    }
+    #[cfg(not(target_os = "linux"))]
+    {
+        let _ = clip.set_text(text);
+    }
+}
+
 /// Put a selection on the system clipboard by both routes available to a TUI:
-/// `arboard`, which serves it for as long as this process runs, and OSC 52,
-/// which hands it to the terminal emulator so it survives `jan` exiting and
-/// crosses an ssh/tmux session. OSC 52 goes second so that where it is supported
-/// the terminal ends up owning the selection.
+/// the OS clipboard, which serves it for as long as this process runs, and
+/// OSC 52, which hands it to the terminal emulator so it survives `jan`
+/// exiting and crosses an ssh/tmux session. OSC 52 goes second so that where it
+/// is supported the terminal ends up owning the selection.
 fn copy_to_clipboard(text: &str) {
     let owned = text.to_string();
-    std::thread::spawn(move || {
-        let Ok(mut clip) = arboard::Clipboard::new() else {
-            return;
-        };
-        // X11/Wayland ownership lives with the setter, so this thread parks
-        // inside `wait()` until something else claims the clipboard; returning
-        // immediately would drop the text on the floor.
-        #[cfg(target_os = "linux")]
-        {
-            use arboard::SetExtLinux;
-            let _ = clip.set().wait().text(owned);
-        }
-        #[cfg(not(target_os = "linux"))]
-        {
-            let _ = clip.set_text(owned);
-        }
-    });
+    std::thread::spawn(move || set_system_clipboard(owned));
     if text.len() <= OSC52_MAX_BYTES {
         use base64::Engine;
         let payload = base64::engine::general_purpose::STANDARD.encode(text);
@@ -14651,7 +14678,7 @@ async fn handle_key(
             // deletes the selected provider only after a confirmation `d` on
             // the same row (an API key is unrecoverable). The leading
             // watermark row (an empty list) is inert. All writes go through
-            // the shared headless `~/.jan/config.toml` path.
+            // the shared headless `~/.novera/config.toml` path.
             KeyCode::Char('a') if picker.kind == PickerKind::ProviderSettings => {
                 app.picker = None;
                 app.provider_prompt = Some(ProviderPrompt::new());
@@ -15735,13 +15762,13 @@ const SLASH_COMMANDS: &[SlashCommand] = &[
     SlashCommand {
         name: "/config",
         hint: "[what you want]",
-        description: "View provider config (~/.jan/config.toml); with words, same as /vibe-setting",
+        description: "View provider config (~/.novera/config.toml); with words, same as /vibe-setting",
         alias_of: None,
     },
     SlashCommand {
         name: "/settings",
         hint: "[what you want]",
-        description: "Edit agent.toml and ~/.jan settings (menu); with words, same as /vibe-setting",
+        description: "Edit agent.toml and ~/.novera settings (menu); with words, same as /vibe-setting",
         alias_of: None,
     },
     SlashCommand {
@@ -16205,7 +16232,7 @@ Then report what you wrote and why, briefly."
 
 /// The startup note about project instructions: an invitation to `/init` when
 /// there are none, and a plain statement when a loaded file is not the default
-/// `AGENTS.md` -- a legacy `JAN.md` or an opt-in `CLAUDE.md` -- so which file
+/// `AGENTS.md` -- a legacy `NOVERA.md` or an opt-in `CLAUDE.md` -- so which file
 /// the prompt holds is never silent (#9079). `None` when every loaded file is
 /// an `AGENTS.md`: nothing to say.
 fn project_instructions_note(project_root: &std::path::Path) -> Option<String> {
@@ -16240,9 +16267,9 @@ struct InitPlan {
 }
 
 /// Choose `/init`'s target (#9083). `AGENTS.md` is the default. A root that
-/// already has a legacy `JAN.md` keeps it: `JAN.md` wins over `AGENTS.md` in the
+/// already has a legacy `NOVERA.md` keeps it: `NOVERA.md` wins over `AGENTS.md` in the
 /// same folder, so an `AGENTS.md` written next to it would never load. A project
-/// whose `[context].fallback_files` leaves `AGENTS.md` out gets `JAN.md`, the
+/// whose `[context].fallback_files` leaves `AGENTS.md` out gets `NOVERA.md`, the
 /// one name that is always read. A `CLAUDE.md` seeds a new file.
 fn init_plan(project_root: &std::path::Path) -> InitPlan {
     use crate::core::agent::context::{
@@ -16307,10 +16334,10 @@ fn init_command(app: &mut App) {
     app.submit_user_hidden(prompt);
 }
 
-/// The `/init` addendum for a project whose own file is the legacy `JAN.md`:
+/// The `/init` addendum for a project whose own file is the legacy `NOVERA.md`:
 /// keep editing it in place, and leave the rename to the user.
-const INIT_LEGACY_PARAGRAPH: &str = "`JAN.md` is Jan's legacy instructions file; new projects use \
-`AGENTS.md`, which other coding agents read too. Keep editing `JAN.md` in place -- it wins over an \
+const INIT_LEGACY_PARAGRAPH: &str = "`NOVERA.md` is Jan's legacy instructions file; new projects use \
+`AGENTS.md`, which other coding agents read too. Keep editing `NOVERA.md` in place -- it wins over an \
 `AGENTS.md` in the same folder -- and do not rename it yourself. In your report, mention that the \
 user can rename it to `AGENTS.md` if they want one file shared by every agent.";
 
@@ -16500,7 +16527,7 @@ enum SettingScope {
     /// This project's `agent.toml` (in its store), under `[agent]` unless the key
     /// names its own section.
     Project,
-    /// The user-wide `~/.jan/config.toml`, at the document root.
+    /// The user-wide `~/.novera/config.toml`, at the document root.
     Global,
 }
 
@@ -17029,7 +17056,7 @@ fn pairs_to_str(map: Option<&serde_json::Map<String, Value>>) -> String {
 }
 
 /// A docked multi-field wizard for adding or editing an OpenAI-compatible
-/// provider in `~/.jan/config.toml`. Mirrors `McpPrompt`: Up/Down move between
+/// provider in `~/.novera/config.toml`. Mirrors `McpPrompt`: Up/Down move between
 /// fields, chars/backspace edit the current field, Enter saves. The API key is
 /// never echoed (see `secret_input::mask`). `edit` mode prefills from the
 /// existing entry and defaults `name` to it; `add` mode starts blank.
@@ -17206,7 +17233,7 @@ impl ProviderPrompt {
         }
     }
 
-    /// Persist the provider to `~/.jan/config.toml` via the headless config
+    /// Persist the provider to `~/.novera/config.toml` via the headless config
     /// path the CLI shares. `api_type` stays default (OpenAI-compatible
     /// passthrough) unless an explicit type is chosen elsewhere. Returns an
     /// error keeping the prompt open on invalid input. The name is read-only
@@ -17295,7 +17322,7 @@ fn setting_path(def: &AgentSettingDef, toml_path: &std::path::Path) -> String {
         SettingScope::Project => toml_path.display().to_string(),
         SettingScope::Global => crate::core::agent::global_config::global_config_path()
             .map(|p| p.display().to_string())
-            .unwrap_or_else(|_| "~/.jan/config.toml".to_string()),
+            .unwrap_or_else(|_| "~/.novera/config.toml".to_string()),
     }
 }
 
@@ -17484,13 +17511,13 @@ fn select_settings_row(app: &mut App, value: &str) {
 }
 
 /// Open the `/settings > providers` screen: a picker row per provider in
-/// `~/.jan/config.toml` (the standalone-agent credential store), with `a` to
+/// `~/.novera/config.toml` (the standalone-agent credential store), with `a` to
 /// add, Enter to edit the selected row, and `d` pressed twice to delete it
 /// (the first `d` arms, the second confirms; see the picker key handler).
 fn open_provider_settings(app: &mut App) {
     let providers = match crate::core::agent::global_config::load_global_config() {
         Ok(c) => c,
-        Err(e) => return app.note(&format!("failed to read ~/.jan/config.toml: {e}")),
+        Err(e) => return app.note(&format!("failed to read ~/.novera/config.toml: {e}")),
     };
     let mut providers: Vec<_> = providers.into_values().collect();
     providers.sort_by(|a, b| a.provider.cmp(&b.provider));
@@ -18434,7 +18461,7 @@ fn diff_reload_entries(before: &[ReloadEntry], after: &[ReloadEntry]) -> ReloadD
 /// project's `agent.toml` limits (context window, compaction, output cap,
 /// token budget) and reports each value that moved; `plugin`/`skills` re-run
 /// discovery and rebuild the slash catalog, reporting added/removed/changed
-/// entries. The model-facing system prompt (JAN.md instructions, the skills
+/// entries. The model-facing system prompt (NOVERA.md instructions, the skills
 /// catalog) is rebuilt from disk on every run, so `system-prompt` re-reads and
 /// reports what the next run picks up. Bare `/reload` does all of them.
 fn reload_command(app: &mut App, arg: &str) {
@@ -18477,12 +18504,12 @@ fn reload_system_prompt(app: &mut App) {
     // Nothing caches the instructions across runs: the system prompt
     // (including this block and the skills catalog) is rebuilt from disk at
     // the start of every run. Re-read now to confirm what the next run picks up,
-    // through the same discovery the prompt uses: JAN.md per directory, else a
+    // through the same discovery the prompt uses: NOVERA.md per directory, else a
     // `[context].fallback_files` entry (#9079), with that list re-resolved too.
     let files = crate::core::agent::context::project_context_files(&app.project_root);
     if files.is_empty() {
         app.note(
-            "◈ reload · system-prompt · no AGENTS.md or JAN.md in this project or its ancestors",
+            "◈ reload · system-prompt · no AGENTS.md or NOVERA.md in this project or its ancestors",
         );
         return;
     }
@@ -19808,7 +19835,7 @@ fn logout_command(app: &mut App, provider: &str) {
 }
 /// Sign out of a provider from the pickers: clear the stored credential (API
 /// key or OAuth token) but keep the provider entry and its model list in
-/// `~/.jan/config.toml`, so a re-login is one Enter away. Distinct from
+/// `~/.novera/config.toml`, so a re-login is one Enter away. Distinct from
 /// [`logout_command`] (which also removes the config entry) and from the
 /// provider-settings `d` delete.
 fn sign_out_provider(app: &mut App, provider: &str) {
@@ -20022,7 +20049,7 @@ fn adopt_login_model(app: &mut App, login: &crate::core::cli::auth::LoginResult)
     }
 }
 
-/// Re-read `~/.jan/config.toml` (plus desktop and project layers) into the
+/// Re-read `~/.novera/config.toml` (plus desktop and project layers) into the
 /// session's in-memory `args.provider_configs` map. Must be called after any
 /// mid-session credential write (`/login`, `jan config set`) because
 /// `prepare_agent_session` snapshots the provider map once at startup and
@@ -20091,13 +20118,13 @@ fn terminal_setup_command(app: &mut App) {
 }
 
 /// Open the `/config` screen: a read-only view of the providers configured in
-/// `~/.jan/config.toml` (the standalone-agent credential store), with API keys
+/// `~/.novera/config.toml` (the standalone-agent credential store), with API keys
 /// redacted. Editing is headless via `jan config set/unset` (shown in the
 /// footer), since a TUI is not the safe place to type secrets.
 fn open_config_screen(app: &mut App) {
     let configs = match crate::core::agent::global_config::load_global_config() {
         Ok(c) => c,
-        Err(e) => return app.note(&format!("failed to read ~/.jan/config.toml: {e}")),
+        Err(e) => return app.note(&format!("failed to read ~/.novera/config.toml: {e}")),
     };
     let mut providers: Vec<_> = configs.into_values().collect();
     providers.sort_by(|a, b| a.provider.cmp(&b.provider));
@@ -30010,7 +30037,7 @@ mod tests {
 
         finish_account_login(
             &mut app,
-            Err("could not save provider configuration to /Users/alice/.jan/config.toml after callback code=callback-code-do-not-render with client_secret=sk-secret-do-not-render access_token=tok-secret-do-not-render scope=openid profile model.write model=claude-3 provider_payload={\"error\":\"invalid_grant\"}".to_string()),
+            Err("could not save provider configuration to /Users/alice/.novera/config.toml after callback code=callback-code-do-not-render with client_secret=sk-secret-do-not-render access_token=tok-secret-do-not-render scope=openid profile model.write model=claude-3 provider_payload={\"error\":\"invalid_grant\"}".to_string()),
         );
 
         let screen = render_rows(&mut app, 100, 24).join("\n");
@@ -30019,7 +30046,7 @@ mod tests {
             "{screen}"
         );
         assert!(
-            !screen.contains("/Users/alice/.jan/config.toml"),
+            !screen.contains("/Users/alice/.novera/config.toml"),
             "{screen}"
         );
         assert!(!screen.contains("callback-code-do-not-render"), "{screen}");
@@ -30073,7 +30100,7 @@ mod tests {
         let mut app = test_app();
 
         super::open_account_login_with_begin(&mut app, "anthropic", |_| {
-            Err("could not create callback from /Users/alice/.jan/config.toml with client_secret=sk-secret-do-not-render".to_string())
+            Err("could not create callback from /Users/alice/.novera/config.toml with client_secret=sk-secret-do-not-render".to_string())
         });
 
         let text = transcript_text(&app);
@@ -30081,7 +30108,7 @@ mod tests {
             text.contains("anthropic sign-in failed: could not complete browser sign-in"),
             "{text}"
         );
-        assert!(!text.contains("/Users/alice/.jan/config.toml"), "{text}");
+        assert!(!text.contains("/Users/alice/.novera/config.toml"), "{text}");
         assert!(!text.contains("sk-secret-do-not-render"), "{text}");
         assert!(app.account_login.is_none());
         assert!(app.account_login_submit.is_none());
@@ -30625,7 +30652,7 @@ mod tests {
         assert!(app.want_start, "/init must start a turn");
         let sent = app.history.last().expect("user message").to_string();
         assert!(sent.contains("Write `AGENTS.md`"), "{sent}");
-        assert!(!sent.contains("JAN.md"), "a new project never hears of JAN.md: {sent}");
+        assert!(!sent.contains("NOVERA.md"), "a new project never hears of NOVERA.md: {sent}");
         assert!(sent.contains("skill_write"), "{sent}");
         assert!(sent.contains("memory_write"), "{sent}");
         let _ = std::fs::remove_dir_all(&app.agent_dir);
@@ -30724,7 +30751,7 @@ mod tests {
         let message = super::login_error_message(
             "tokamak",
             crate::core::cli::auth::LoginError::Persist(
-                "could not save provider configuration to /Users/alice/.jan/config.toml with key tk-secret-do-not-render".to_string(),
+                "could not save provider configuration to /Users/alice/.novera/config.toml with key tk-secret-do-not-render".to_string(),
             ),
         );
 
@@ -30733,7 +30760,7 @@ mod tests {
             "tokamak sign-in failed: could not save sign-in securely"
         );
         assert!(
-            !message.contains("/Users/alice/.jan/config.toml"),
+            !message.contains("/Users/alice/.novera/config.toml"),
             "{message}"
         );
         assert!(!message.contains("tk-secret-do-not-render"), "{message}");
@@ -30744,7 +30771,7 @@ mod tests {
         let message = super::login_error_message(
             "anthropic",
             crate::core::cli::auth::LoginError::OAuth(
-                "callback contained code=sk-secret-do-not-render from /Users/alice/.jan/config.toml".to_string(),
+                "callback contained code=sk-secret-do-not-render from /Users/alice/.novera/config.toml".to_string(),
             ),
         );
 
@@ -30753,7 +30780,7 @@ mod tests {
             "anthropic sign-in failed: could not complete browser sign-in"
         );
         assert!(
-            !message.contains("/Users/alice/.jan/config.toml"),
+            !message.contains("/Users/alice/.novera/config.toml"),
             "{message}"
         );
         assert!(!message.contains("sk-secret-do-not-render"), "{message}");
@@ -30797,7 +30824,7 @@ mod tests {
     fn reload_provider_configs_picks_up_login_credentials() {
         crate::core::agent::global_config::with_temp_home(|_| {
             // Seed a tokamak provider in the global config (simulates what
-            // `/login` persisted to `~/.jan/config.toml`).
+            // `/login` persisted to `~/.novera/config.toml`).
             crate::core::agent::global_config::set_provider(
                 "tokamak",
                 crate::core::agent::global_config::ProviderUpdate {
@@ -31612,7 +31639,7 @@ mod tests {
     // ── /vibe-setting (#9078) ────────────────────────────────────────────
 
     /// A project agent.toml under a scratch HOME, so a global key written by a
-    /// test never reaches the developer's ~/.jan.
+    /// test never reaches the developer's ~/.novera.
     fn vibe_app(body: &str) -> TestApp {
         let app = test_app();
         std::fs::create_dir_all(&app.agent_dir).unwrap();
@@ -31645,7 +31672,7 @@ mod tests {
             assert!(!before.contains("1000000"), "nothing written yet: {before}");
             let screen = render_rows(&mut app, 100, 30).join("\n");
             assert!(screen.contains("128000 -> 1000000"), "{screen}");
-            assert!(screen.contains("~/.jan/config.toml"), "{screen}");
+            assert!(screen.contains("~/.novera/config.toml"), "{screen}");
             assert!(screen.contains("Apply? [y/N]"), "{screen}");
 
             super::vibe_setting::handle_key(&mut app, key(KeyCode::Char('y')), false);
@@ -31654,7 +31681,7 @@ mod tests {
             assert!(doc.contains("context_window = 1000000"), "{doc}");
             assert!(doc.contains("# keep me"), "format-preserving: {doc}");
             assert!(doc.contains("show_reasoning = true"), "{doc}");
-            let global = std::fs::read_to_string(home.join(".jan/config.toml")).unwrap();
+            let global = std::fs::read_to_string(home.join(".novera/config.toml")).unwrap();
             assert!(global.contains("ask_timeout_secs = 30"), "{global}");
             let note = transcript_text(&app);
             assert!(note.contains("wrote 3 setting(s)"), "{note}");
@@ -32089,8 +32116,8 @@ mod tests {
             let mut app = test_app();
             std::fs::create_dir_all(&app.agent_dir).unwrap();
             std::fs::write(app.agent_dir.join("agent.toml"), "[agent]\n").unwrap();
-            std::fs::create_dir_all(home.join(".jan")).unwrap();
-            let global_path = home.join(".jan").join("config.toml");
+            std::fs::create_dir_all(home.join(".novera")).unwrap();
+            let global_path = home.join(".novera").join("config.toml");
             std::fs::write(&global_path, "ask_timeout_secs = 5\n").unwrap();
 
             super::settings_command(&mut app, "");
@@ -44602,21 +44629,21 @@ mod tests {
         let (mut app, root) = skill_test_app("deploy", "How to deploy.");
         run_command(&mut app, "reload system-prompt", &no_mcp()).await;
         assert!(
-            transcript_text(&app).contains("no AGENTS.md or JAN.md"),
+            transcript_text(&app).contains("no AGENTS.md or NOVERA.md"),
             "empty project: {}",
             transcript_text(&app)
         );
 
-        std::fs::write(root.join("JAN.md"), "# Rules\n\nRun the tests.\n").unwrap();
+        std::fs::write(root.join("NOVERA.md"), "# Rules\n\nRun the tests.\n").unwrap();
         run_command(&mut app, "reload system-prompt", &no_mcp()).await;
         let out = transcript_text(&app);
         assert!(out.contains("re-read project instructions"), "{out}");
-        assert!(out.contains("JAN.md"), "{out}");
+        assert!(out.contains("NOVERA.md"), "{out}");
         let _ = std::fs::remove_dir_all(&root);
     }
 
     /// #9079 x #9077: `/reload system-prompt` goes through the same discovery,
-    /// so a project with only AGENTS.md reports it, and a legacy JAN.md added
+    /// so a project with only AGENTS.md reports it, and a legacy NOVERA.md added
     /// later shadows it and is labelled.
     #[tokio::test]
     async fn reload_system_prompt_reads_agents_md_fallback() {
@@ -44626,12 +44653,12 @@ mod tests {
         let out = transcript_text(&app);
         assert!(out.contains("AGENTS.md (") && !out.contains("fallback"), "{out}");
 
-        std::fs::write(root.join("JAN.md"), "# Rules\n").unwrap();
+        std::fs::write(root.join("NOVERA.md"), "# Rules\n").unwrap();
         let before = transcript_text(&app).len();
         run_command(&mut app, "reload system-prompt", &no_mcp()).await;
         let out = transcript_text(&app);
         let tail = &out[before..];
-        assert!(tail.contains("legacy JAN.md") && !tail.contains("AGENTS.md"), "{tail}");
+        assert!(tail.contains("legacy NOVERA.md") && !tail.contains("AGENTS.md"), "{tail}");
         let _ = std::fs::remove_dir_all(&root);
     }
 
@@ -45782,7 +45809,7 @@ mod tests {
         });
     }
 
-    /// Isolated from the real `~/.jan`: a cached `/models` listing there would
+    /// Isolated from the real `~/.novera`: a cached `/models` listing there would
     /// resolve these windows as `provider` and shadow the source under test.
     #[test]
     fn set_model_notes_the_context_source() {
@@ -46180,23 +46207,23 @@ mod tests {
     }
 
     /// The invitation is conditional on the same rule the system prompt uses, so
-    /// an already-onboarded project (its own JAN.md, or an ancestor's) is quiet.
+    /// an already-onboarded project (its own NOVERA.md, or an ancestor's) is quiet.
     #[test]
     fn init_invitation_tracks_whether_the_project_has_instructions() {
         let root = std::env::temp_dir().join(format!("jan_init_invite_{}", std::process::id()));
         let nested = root.join("pkg");
         std::fs::create_dir_all(&nested).unwrap();
         assert!(!crate::core::agent::context::has_context_file(&nested));
-        std::fs::write(root.join("JAN.md"), "ROOT_RULES").unwrap();
+        std::fs::write(root.join("NOVERA.md"), "ROOT_RULES").unwrap();
         assert!(
             crate::core::agent::context::has_context_file(&nested),
-            "an ancestor's JAN.md already onboards this project"
+            "an ancestor's NOVERA.md already onboards this project"
         );
         let _ = std::fs::remove_dir_all(&root);
     }
 
     /// #9079/#9083: no instructions invites `/init`; an AGENTS.md says nothing;
-    /// a legacy JAN.md (which shadows it) is named as such.
+    /// a legacy NOVERA.md (which shadows it) is named as such.
     #[test]
     fn startup_note_names_an_agents_md_fallback() {
         crate::core::agent::global_config::with_temp_home(|_| {
@@ -46212,21 +46239,21 @@ mod tests {
                 None,
                 "AGENTS.md is the default: nothing to say"
             );
-            std::fs::write(root.join("JAN.md"), "JAN_RULES").unwrap();
+            std::fs::write(root.join("NOVERA.md"), "JAN_RULES").unwrap();
             let legacy = super::project_instructions_note(&root).expect("a legacy note");
-            assert!(legacy.contains("JAN.md (legacy JAN.md)"), "{legacy}");
+            assert!(legacy.contains("NOVERA.md (legacy NOVERA.md)"), "{legacy}");
             let _ = std::fs::remove_dir_all(&root);
         });
     }
 
     /// `/context` lists the files the project context holds, labelling a legacy
-    /// JAN.md and a CLAUDE.md fallback.
+    /// NOVERA.md and a CLAUDE.md fallback.
     #[test]
     fn context_view_lists_instruction_files_and_marks_a_fallback() {
         let mut report = context_report(128_000, 16_000, [100, 100, 100, 100, 100]);
         assert!(!context_text(&report).contains("Project instructions"));
         report.instruction_files = vec![
-            ("/repo/JAN.md".into(), false),
+            ("/repo/NOVERA.md".into(), false),
             ("/repo/pkg/AGENTS.md".into(), true),
         ];
         for width in [80usize, 30] {
@@ -46236,18 +46263,18 @@ mod tests {
                 .collect::<Vec<_>>()
                 .join("\n");
             assert!(text.contains("Project instructions"), "{text}");
-            assert!(text.contains("/repo/JAN.md"), "{text}");
+            assert!(text.contains("/repo/NOVERA.md"), "{text}");
             assert!(text.contains("AGENTS.md"), "{text}");
         }
         let text = context_text(&report);
-        assert!(text.contains("/repo/JAN.md (legacy JAN.md)"), "{text}");
+        assert!(text.contains("/repo/NOVERA.md (legacy NOVERA.md)"), "{text}");
         assert!(!text.contains("AGENTS.md ("), "AGENTS.md is unlabelled: {text}");
         report.instruction_files = vec![("/repo/CLAUDE.md".into(), true)];
         assert!(context_text(&report).contains("CLAUDE.md (fallback)"));
     }
 
     /// #9083: `/init` writes AGENTS.md by default, reviews one that exists,
-    /// starts from a CLAUDE.md, keeps a legacy JAN.md, and falls back to JAN.md
+    /// starts from a CLAUDE.md, keeps a legacy NOVERA.md, and falls back to NOVERA.md
     /// when `[context].fallback_files` would not read AGENTS.md.
     #[test]
     fn init_plan_defaults_to_agents_md_and_keeps_a_legacy_jan_md() {
@@ -46269,17 +46296,17 @@ mod tests {
             );
             std::fs::write(root.join("AGENTS.md"), "AGENTS_RULES").unwrap();
             assert_eq!(super::init_plan(&root), plan("AGENTS.md", true, None));
-            // A legacy JAN.md shadows AGENTS.md, so /init edits it, not AGENTS.md.
-            std::fs::write(root.join("JAN.md"), "JAN_RULES").unwrap();
-            assert_eq!(super::init_plan(&root), plan("JAN.md", true, None));
-            // `fallback_files = []` reads JAN.md only: /init writes that.
-            std::fs::remove_file(root.join("JAN.md")).unwrap();
+            // A legacy NOVERA.md shadows AGENTS.md, so /init edits it, not AGENTS.md.
+            std::fs::write(root.join("NOVERA.md"), "JAN_RULES").unwrap();
+            assert_eq!(super::init_plan(&root), plan("NOVERA.md", true, None));
+            // `fallback_files = []` reads NOVERA.md only: /init writes that.
+            std::fs::remove_file(root.join("NOVERA.md")).unwrap();
             let store = crate::core::agent::project::store_root(&root);
             std::fs::create_dir_all(&store).unwrap();
             std::fs::write(store.join("agent.toml"), "[context]\nfallback_files = []\n").unwrap();
             assert_eq!(
                 super::init_plan(&root),
-                plan("JAN.md", false, Some("AGENTS.md"))
+                plan("NOVERA.md", false, Some("AGENTS.md"))
             );
             let _ = std::fs::remove_dir_all(&store);
             let _ = std::fs::remove_dir_all(&root);
@@ -46287,7 +46314,7 @@ mod tests {
     }
 
     /// `/init` in a project with CLAUDE.md builds AGENTS.md on it; one with a
-    /// legacy JAN.md keeps editing it and is told about the rename.
+    /// legacy NOVERA.md keeps editing it and is told about the rename.
     #[test]
     fn init_prompt_names_the_planned_file() {
         crate::core::agent::global_config::with_temp_home(|_| {
@@ -46305,14 +46332,14 @@ mod tests {
             assert!(transcript_text(&app).contains("writing AGENTS.md from this project's CLAUDE.md"));
             let _ = std::fs::remove_dir_all(&app.agent_dir);
 
-            std::fs::write(root.join("JAN.md"), "JAN_RULES").unwrap();
+            std::fs::write(root.join("NOVERA.md"), "JAN_RULES").unwrap();
             let mut app = test_app();
             app.project_root = root.clone();
             super::init_command(&mut app);
             let sent = app.history.last().expect("user message").to_string();
-            assert!(sent.contains("Write `JAN.md`"), "{sent}");
+            assert!(sent.contains("Write `NOVERA.md`"), "{sent}");
             assert!(sent.contains("legacy instructions file"), "{sent}");
-            assert!(transcript_text(&app).contains("reviewing JAN.md"));
+            assert!(transcript_text(&app).contains("reviewing NOVERA.md"));
             let _ = std::fs::remove_dir_all(&app.agent_dir);
             let _ = std::fs::remove_dir_all(&root);
         });

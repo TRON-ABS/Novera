@@ -253,8 +253,8 @@ fn describe(parsed: &ParsedSkill) -> String {
 /// invoke it to load the body. `core::agent::skills` mirrors this injection
 /// for the system-prompt catalog and `/skill:` dispatch, which resolve
 /// project + plugin skills but never see this plugin-embedded one.
-pub const DEFAULT_JAN_SKILL_NAME: &str = "jan";
-pub const DEFAULT_JAN_SKILL: &str = include_str!("default_jan_skill.md");
+pub const DEFAULT_JAN_SKILL_NAME: &str = "novera";
+pub const DEFAULT_JAN_SKILL: &str = include_str!("default_novera_skill.md");
 
 /// Whether a name refers to the built-in Jan skill (aliased `jan`), which is
 /// always available even with no project skills installed.
@@ -616,7 +616,7 @@ mod tests {
             .into_iter()
             .map(|m| m.name)
             .collect();
-        assert_eq!(model, vec!["both", "model_only", "jan"], "model side: {model:?}");
+        assert_eq!(model, vec!["both", "model_only", "novera"], "model side: {model:?}");
 
         // Both flags still visible to the management list.
         let all = list_meta(&root);
@@ -749,7 +749,7 @@ mod tests {
             .into_iter()
             .map(|m| m.name)
             .collect();
-        assert_eq!(names, vec!["g_skill", "p_skill", "jan"], "got {names:?}");
+        assert_eq!(names, vec!["g_skill", "p_skill", "novera"], "got {names:?}");
 
         let _ = std::fs::remove_dir_all(&project);
         let _ = std::fs::remove_dir_all(&permanent);

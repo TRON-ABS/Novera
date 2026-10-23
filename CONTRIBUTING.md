@@ -151,13 +151,13 @@ jan/
 - Node.js ≥ 20.0.0
 - Yarn ≥ 4.5.3
 - Make ≥ 3.81
-- Rust (for Tauri)
+- Rust ≥ 1.88 (for Tauri; see `rust-toolchain.toml` and Cargo manifests)
 - (macOS Apple Silicon only) MetalToolchain `xcodebuild -downloadComponent MetalToolchain`
 
 **Option 1: The Easy Way (Make)**
 ```bash
-git clone https://github.com/janhq/jan
-cd jan
+git clone https://github.com/TRON-ABS/Novera
+cd Novera
 make dev
 ```
 
@@ -165,8 +165,8 @@ make dev
 
 ### Reporting Bugs
 
-- **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/janhq/jan/issues)
-- If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/janhq/jan/issues/new)
+- **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/TRON-ABS/Novera/issues)
+- If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/TRON-ABS/Novera/issues/new)
 - Include your system specs and error logs - it helps a ton
 - Provide clear steps to reproduce the issue so we can quickly identify the root cause
 - Attach screenshots or screen recordings whenever possible - a visual is worth a thousand words when debugging
@@ -289,7 +289,7 @@ Common issues:
 
 - [Documentation](https://jan.ai/docs) - The manual you should read
 - [Discord Community](https://discord.gg/FTk2MvZwJH) - Where the community lives
-- [GitHub Issues](https://github.com/janhq/jan/issues) - Report bugs here
+- [GitHub Issues](https://github.com/TRON-ABS/Novera/issues) - Report bugs here
 - [GitHub Discussions](https://github.com/janhq/jan/discussions) - Ask questions
 
 ## License

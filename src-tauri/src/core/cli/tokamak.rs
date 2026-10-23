@@ -4,7 +4,7 @@
 //! concerned (Bearer key + `{base_url}/chat/completions`), so historically
 //! "login" was just: send the user to the web UI to mint an API key, verify what
 //! they paste against `GET /v1/models`, and persist it as a provider entry in
-//! `~/.jan/config.toml`. No OAuth, no callback server, no browser required --
+//! `~/.novera/config.toml`. No OAuth, no callback server, no browser required --
 //! the key could always be pasted from another machine.
 //!
 //! The default flow is now the browser-approval device flow
@@ -28,7 +28,7 @@ use crate::core::agent::global_config::{
     adopt_default_model, set_provider, DefaultModelChange, ProviderUpdate,
 };
 
-/// Provider id this login writes to in `~/.jan/config.toml`.
+/// Provider id this login writes to in `~/.novera/config.toml`.
 pub const PROVIDER: &str = "tokamak";
 /// Default OpenAI-compatible API root. Read through [`base_url`] rather than
 /// directly, so a dev or self-hosted deployment can be targeted without a
@@ -201,7 +201,7 @@ pub async fn login(api_key: &str) -> Result<Login, String> {
     persist(&api_key, roster)
 }
 
-/// Write the verified key + model list to `~/.jan/config.toml`, adopting the
+/// Write the verified key + model list to `~/.novera/config.toml`, adopting the
 /// provider's first-listed model as `default_model` when the user has none
 /// (otherwise the agent would still start with "no model specified" right after
 /// signing in) or when their default is no longer offered anywhere.

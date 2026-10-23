@@ -19,7 +19,7 @@
 //! next. It adds nothing to the system prompt. `prefix_stability` pins this.
 //!
 //! The 12-hex-character id is an HMAC of the value under a random key kept in
-//! `~/.jan/secret-placeholder.key` (mode 0600, never sent anywhere), so a reader
+//! `~/.novera/secret-placeholder.key` (mode 0600, never sent anywhere), so a reader
 //! of a transcript cannot dictionary-hash a placeholder back to its secret.
 
 use std::collections::HashMap;
@@ -113,7 +113,7 @@ pub(crate) struct SecretFilter {
 }
 
 /// `Some` when Hide Secrets is on for this process, `None` when it is off.
-/// `JAN_HIDE_SECRETS` wins over `hide_secrets` in `~/.jan/config.toml`.
+/// `JAN_HIDE_SECRETS` wins over `hide_secrets` in `~/.novera/config.toml`.
 pub(crate) fn for_run() -> Option<Arc<SecretFilter>> {
     let env = std::env::var(ENV).ok();
     let setting = crate::core::agent::global_config::hide_secrets_setting();
@@ -687,7 +687,7 @@ mod tests {
     #[test]
     fn the_key_is_created_once_private_and_reused() {
         let dir = std::env::temp_dir().join(format!("jan_secret_key_{}", std::process::id()));
-        let path = dir.join(".jan").join("secret-placeholder.key");
+        let path = dir.join(".novera").join("secret-placeholder.key");
         let _ = std::fs::remove_dir_all(&dir);
         let first = load_key_at(Some(&path));
         assert!(path.exists(), "{}", path.display());

@@ -6,7 +6,7 @@
 #[cfg(all(feature = "cli", feature = "tauri-app"))]
 compile_error!(
     "features `cli` and `tauri-app`/`desktop` are mutually exclusive; \
-     build the CLI from the standalone crate: `cd src-tauri/jan-cli && cargo build --features cli`"
+     build the CLI from the standalone crate: `cd src-tauri/novera-cli && cargo build --features cli`"
 );
 
 pub mod core;
@@ -369,9 +369,10 @@ pub fn run() {
                     ])
                     .build(),
             )?;
-            #[cfg(not(any(target_os = "ios", target_os = "android")))]
-            app.handle()
-                .plugin(tauri_plugin_updater::Builder::new().build())?;
+            // Novera has no signed update feed configured. Do not register the
+            // updater plugin: its required configuration is intentionally absent.
+            // The custom check command returns None and frontend update actions
+            // remain disabled until an independent release feed is established.
 
             // A Jan up to 0.8.4 leaves its llama-server router running across an
             // in-app update; that version cannot be fixed, so reap it here.

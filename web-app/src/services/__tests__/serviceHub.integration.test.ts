@@ -196,7 +196,7 @@ describe('ServiceHub Integration Tests', () => {
     it('should return same service instance on multiple calls', () => {
       const themeService1 = serviceHub.theme()
       const themeService2 = serviceHub.theme()
-      
+
       expect(themeService1).toBe(themeService2)
     })
   })
@@ -204,14 +204,14 @@ describe('ServiceHub Integration Tests', () => {
   describe('Basic Service Functionality', () => {
     it('should have working theme service', () => {
       const theme = serviceHub.theme()
-      
+
       expect(typeof theme.setTheme).toBe('function')
       expect(typeof theme.getCurrentWindow).toBe('function')
     })
 
     it('should have working events service', () => {
       const events = serviceHub.events()
-      
+
       expect(typeof events.emit).toBe('function')
       expect(typeof events.listen).toBe('function')
     })

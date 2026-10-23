@@ -9,7 +9,7 @@ Novera aims to make knowledge and useful AI capabilities accessible across langu
 - MCP tools, document retrieval and assistant workflows in the source foundation.
 - 36 interface locale options, with [measured coverage and explicit translation limits](docs/LANGUAGES.md).
 
-No Novera binary has been released. Builds are on hold; source integration does not establish runtime readiness.
+A local Windows x64 0.8.7 build and isolated startup have been verified. No Novera binary has been publicly released; broader runtime, packaging and cross-platform validation remain necessary. See the [current source update](docs/UPDATES_2026-10-23.md).
 
 ## 1. Consolidate the foundation
 

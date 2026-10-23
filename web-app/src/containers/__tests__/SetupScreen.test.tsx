@@ -19,6 +19,7 @@ const hoisted = vi.hoisted(() => ({
     setProviders: vi.fn(),
   },
   pullModelWithMetadataMock: vi.fn(),
+  isModelSupportedMock: vi.fn().mockResolvedValue('GREEN'),
   startEngineSetupMock: vi.fn().mockResolvedValue(undefined),
   verifyGpuOffloadMock: vi.fn(),
   verifyEmbeddingModelMock: vi.fn(),
@@ -49,7 +50,7 @@ vi.mock('@/hooks/useDownloadStore', () => ({
 vi.mock('@/hooks/useServiceHub', () => {
   const stub = () => ({
     models: () => ({
-      isModelSupported: vi.fn().mockResolvedValue('GREEN'),
+      isModelSupported: hoisted.isModelSupportedMock,
       pullModelWithMetadata: hoisted.pullModelWithMetadataMock,
       startEngineSetup: hoisted.startEngineSetupMock,
       verifyGpuOffload: hoisted.verifyGpuOffloadMock,
@@ -119,7 +120,7 @@ vi.mock('@/constants/routes', () => ({
 }))
 
 vi.mock('@/constants/models', () => ({
-  SETUP_SCREEN_QUANTIZATIONS: ['q4_k_m', 'q8_0'],
+  SETUP_SCREEN_QUANTIZATIONS: ['q4_k_m', 'q8_0', 'q6_k'],
 }))
 
 vi.mock('@/containers/HeaderPage', () => ({
@@ -138,6 +139,7 @@ vi.mock('@/components/ui/button', () => ({
 }))
 
 import SetupScreen from '../SetupScreen'
+import { NOVERA_RECOMMENDED_MODEL } from '@/lib/noveraRecommendedModel'
 
 const sampleModel = {
   model_name: 'jan-model',
@@ -565,6 +567,21 @@ describe('SetupScreen', () => {
   })
 
   describe('model page', () => {
+    it('offers and downloads the Novera LiquidAI Q6_K recommendation', async () => {
+      hoisted.janModel = NOVERA_RECOMMENDED_MODEL
+      await renderPastSetup()
+      expect(screen.getByText('LFM2.5-2.6B · Q6_K')).toBeInTheDocument()
+      expect(hoisted.isModelSupportedMock).toHaveBeenCalledWith(
+        NOVERA_RECOMMENDED_MODEL.quants![0].path, 32768
+      )
+      fireEvent.click(screen.getByText('setup:download'))
+      await waitFor(() => expect(hoisted.pullModelWithMetadataMock).toHaveBeenCalledWith(
+        'LFM2.5-2.6B-Q6_K',
+        'https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF/resolve/main/LFM2.5-2.6B-Q6_K.gguf?download=true',
+        undefined, 'hf-token', true
+      ))
+    })
+
     it('offers exactly one model card', async () => {
       await renderPastSetup()
       expect(screen.getAllByTestId('setup-model-card')).toHaveLength(1)

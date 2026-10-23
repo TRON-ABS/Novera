@@ -16,6 +16,8 @@
 import { fs, joinPath } from '@janhq/core'
 import { invoke } from '@tauri-apps/api/core'
 import type { LlamacppConfig, ModelConfig } from '@janhq/tauri-plugin-llamacpp-api'
+import { engineDevices, getEngineVersion } from '@janhq/tauri-plugin-llamacpp-api'
+import { measuredBatchProfile } from './performance-profile'
 
 // ModelConfig is intentionally widened — model.yml may carry extra fields like
 // `chat_template` that aren't yet in the strict typing.
@@ -32,6 +34,8 @@ type ModelYaml = ModelConfig & {
   pooling?: 'none' | 'mean' | 'cls' | 'last' | 'rank'
   ubatch_size?: number
   batch_size?: number
+  performance_mode?: 'manual' | 'measured'
+  ngram_speculation?: 'off' | 'repetitive'
   mtp_layers?: number
   mtp?: boolean
   mtp_model_path?: string
@@ -631,7 +635,10 @@ export async function generatePreset(
       typeof mc.mtp_model_path === 'string' && mc.mtp_model_path.length > 0
     const hasMtpLayers =
       typeof mc.mtp_layers === 'number' && mc.mtp_layers > 0
-    const specDecoding = mc.mtp === true && (hasMtpLayers || hasMtpModel)
+    const draftDecoding = mc.mtp === true && (hasMtpLayers || hasMtpModel)
+    const ngramDecoding =
+      !draftDecoding && !mc.embedding && mc.ngram_speculation === 'repetitive'
+    const specDecoding = draftDecoding || ngramDecoding
 
     const modelParallel = explicitParallel(mc.parallel)
     if (modelParallel !== undefined) {
@@ -658,7 +665,32 @@ export async function generatePreset(
     if (mc.cont_batching === false) {
       lines.push('cont-batching = false')
     }
+    let measured: { batch: number; ubatch: number } | undefined
+    if (mc.performance_mode === 'measured' && !mc.embedding) {
+      try {
+        const devices = await engineDevices({})
+        const version = await getEngineVersion()
+        measured = measuredBatchProfile(
+          { ...config, ...mc },
+          devices,
+          version.tag,
+          mc.ctx_size ?? (fitEnabled ? 0 : DEFAULT_CTX_SIZE),
+          explicitParallel(mc.parallel) ?? explicitParallel(config.parallel) ?? 0
+        )
+      } catch {
+        // Unknown hardware/version keeps the manual configuration.
+      }
+    }
+    if (measured) {
+      const fallbackBatch = mc.batch_size ?? config.batch_size ?? 2048
+      const fallbackUbatch = mc.ubatch_size ?? config.ubatch_size ?? 512
+      lines.push(`# jan-measured-performance: ${fallbackBatch},${fallbackUbatch}`)
+      // Always emit both: a shared section may have non-default batch values.
+      lines.push(`batch-size = ${measured.batch}`)
+      lines.push(`ubatch-size = ${measured.ubatch}`)
+    }
     if (
+      !measured &&
       typeof mc.batch_size === 'number' &&
       mc.batch_size > 0 &&
       mc.batch_size !== 2048
@@ -666,6 +698,7 @@ export async function generatePreset(
       lines.push(`batch-size = ${Math.floor(mc.batch_size)}`)
     }
     if (
+      !measured &&
       typeof mc.ubatch_size === 'number' &&
       mc.ubatch_size > 0 &&
       mc.ubatch_size !== 512
@@ -694,7 +727,12 @@ export async function generatePreset(
       lines.push('mmproj-offload = false')
     }
 
-    if (specDecoding) {
+    if (ngramDecoding) {
+      lines.push('spec-type = ngram-map-k')
+      lines.push('spec-draft-n-max = 8')
+      lines.push('spec-ngram-map-k-size-n = 3')
+      lines.push('spec-ngram-map-k-size-m = 8')
+    } else if (draftDecoding) {
       const specType =
         typeof mc.spec_type === 'string' && SPEC_TYPES.has(mc.spec_type)
           ? mc.spec_type

@@ -95,9 +95,9 @@ pub struct Policy {
     /// allowed) read-write in the same position as `read_roots`; an entry
     /// present in both lists is bound once, writable.
     pub write_roots: Vec<PathBuf>,
-    /// The Jan home (`~/.jan`), hidden from the shell wherever it sits: under a
+    /// The Jan home (`~/.novera`), hidden from the shell wherever it sits: under a
     /// read-only `$HOME`, inside the workspace (running in `$HOME`), or around
-    /// it (a Jan worktree in `~/.jan/worktrees/`). See [`Policy::with_hide_root`].
+    /// it (a Jan worktree in `~/.novera/worktrees/`). See [`Policy::with_hide_root`].
     pub hide_root: Option<PathBuf>,
 }
 
@@ -117,7 +117,7 @@ impl Policy {
 
     /// Hide `hide_root` from the sandboxed shell. The gate's token scan of the
     /// command string is best-effort; this is what makes the directory
-    /// unreachable to the spellings a scan cannot see (`cd ~; cat .jan/*`, a
+    /// unreachable to the spellings a scan cannot see (`cd ~; cat .novera/*`, a
     /// script the shell writes and runs). Not enforced on AppContainer, where
     /// carving a subpath back out of a granted folder would mean writing a deny
     /// ACE onto the user's directory; there the scan stands alone.
@@ -1112,7 +1112,7 @@ mod tests {
     #[test]
     fn bwrap_hides_the_jan_home_after_a_workspace_that_contains_it() {
         let ws = "/home/u";
-        let hide = "/home/u/.jan";
+        let hide = "/home/u/.novera";
         let text = joined(&bwrap_args(
             &Policy::new(Path::new(ws), false).with_hide_root(Path::new(hide)),
             &cfg(),
@@ -1126,8 +1126,8 @@ mod tests {
     /// bind only, or it would hide the tree the agent is working in.
     #[test]
     fn bwrap_hides_the_jan_home_before_a_workspace_inside_it() {
-        let ws = "/home/u/.jan/worktrees/r-1/feat";
-        let hide = "/home/u/.jan";
+        let ws = "/home/u/.novera/worktrees/r-1/feat";
+        let hide = "/home/u/.novera";
         let text = joined(&bwrap_args(
             &Policy::new(Path::new(ws), false).with_hide_root(Path::new(hide)),
             &cfg(),
@@ -1136,24 +1136,24 @@ mod tests {
         let mask = format!("--tmpfs {hide} ");
         assert_eq!(text.matches(&mask).count(), 1, "{text}");
         assert!(text.find(&mask).unwrap() < bind, "{text}");
-        assert!(!joined(&bwrap_args(&policy(), &cfg())).contains(".jan"));
+        assert!(!joined(&bwrap_args(&policy(), &cfg())).contains(".novera"));
     }
 
     #[test]
     fn seatbelt_orders_the_jan_home_deny_by_where_the_workspace_is() {
         let deny = "(deny file-read* (subpath (param \"HIDE_ROOT\")))";
         let allow = "(allow file-read* (subpath (param \"WORKSPACE\")))";
-        let home = Policy::new(Path::new("/Users/u"), false).with_hide_root(Path::new("/Users/u/.jan"));
+        let home = Policy::new(Path::new("/Users/u"), false).with_hide_root(Path::new("/Users/u/.novera"));
         let p = seatbelt_policy(&home);
         assert!(p.find(allow).unwrap() < p.find(deny).unwrap(), "{p}");
         assert!(p.contains("(deny file-write* (subpath (param \"HIDE_ROOT\")))"));
-        let wt = Policy::new(Path::new("/Users/u/.jan/worktrees/r/f"), false)
-            .with_hide_root(Path::new("/Users/u/.jan"));
+        let wt = Policy::new(Path::new("/Users/u/.novera/worktrees/r/f"), false)
+            .with_hide_root(Path::new("/Users/u/.novera"));
         let p = seatbelt_policy(&wt);
         assert!(p.find(deny).unwrap() < p.find(allow).unwrap(), "{p}");
         // The path travels as a -D parameter, never interpolated into the profile.
-        assert!(!p.contains("/Users/u/.jan"), "{p}");
-        assert!(joined(&seatbelt_args(&wt, &cfg())).contains("-DHIDE_ROOT=/Users/u/.jan"));
+        assert!(!p.contains("/Users/u/.novera"), "{p}");
+        assert!(joined(&seatbelt_args(&wt, &cfg())).contains("-DHIDE_ROOT=/Users/u/.novera"));
         assert!(!seatbelt_policy(&policy()).contains("HIDE_ROOT"));
     }
 

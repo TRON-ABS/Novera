@@ -456,7 +456,7 @@ async fn bash_exit_status_decides_is_error() {
 }
 
 /// janhq/jan-internal#394: a served client reaches the same skills the agent
-/// does: user-scope skills from `~/.jan/skills` and plugin skills, by the
+/// does: user-scope skills from `~/.novera/skills` and plugin skills, by the
 /// names `skill_list` advertises, and `skill_write` `scope:"user"` lands in
 /// the user store.
 #[tokio::test]

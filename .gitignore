@@ -1,7 +1,7 @@
 .env
 error.log
 # Runtime agent workspace scaffolded by ensure_project (not source)
-.jan/
+.novera/
 node_modules
 *.tgz
 dist
@@ -33,7 +33,7 @@ OpenCode.md
 Claude.md
 archive/
 .cache/
-.jan/
+.novera/
 
 # auto qa
 autoqa/trajectories

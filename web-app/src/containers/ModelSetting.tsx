@@ -22,6 +22,7 @@ import { cn, getModelDisplayName } from '@/lib/utils'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useAppState } from '@/hooks/useAppState'
 import { paramsSettings, samplerKeysForProvider } from '@/lib/predefinedParams'
+import { modelSettings } from '@/lib/predefined'
 
 type ModelSettingProps = {
   provider: ProviderObject
@@ -173,6 +174,8 @@ function useModelSettingControls(model: Model, provider: ProviderObject) {
         key === 'chat_template' ||
         key === 'offload_mmproj' ||
         key === 'batch_size' ||
+        key === 'performance_mode' ||
+        key === 'ngram_speculation' ||
         key === 'cpu_moe' ||
         key === 'n_cpu_moe' ||
         key === 'n_cpu_ffn'
@@ -315,7 +318,15 @@ export function ModelSettingFields({ model, provider }: ModelSettingProps) {
             </div>
           )}
           {(() => {
-            return Object.entries(model.settings || {})
+            return Object.entries({
+              ...(provider.provider === 'llamacpp'
+                ? {
+                    performance_mode: modelSettings.performance_mode,
+                    ngram_speculation: modelSettings.ngram_speculation,
+                  }
+                : {}),
+              ...model.settings,
+            })
           .reduce<[string, unknown][]>((acc, entry) => {
             if (entry[0] === 'reasoning') return acc
             // Rendered by the dedicated ChatTemplateKwargs section above.
@@ -330,6 +341,10 @@ export function ModelSettingFields({ model, provider }: ModelSettingProps) {
             return acc
           }, [])
           .filter(([key]) => {
+            if (
+              provider.provider !== 'llamacpp' &&
+              ['performance_mode', 'ngram_speculation'].includes(key)
+            ) return false
             // MLX models only support context size setting
             if (provider.provider === 'mlx') {
               return key === 'ctx_len'

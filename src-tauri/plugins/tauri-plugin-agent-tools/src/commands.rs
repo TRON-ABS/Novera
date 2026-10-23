@@ -98,7 +98,7 @@ fn with_renamed_shell_notices(
 ///
 /// `project` is an explicit override and is currently always `None`: the desktop
 /// has no project picker yet. Once one lands, a project's own store
-/// (`~/.jan/projects/<slug>`) layers on top of this one; see the memory-scope TODO.
+/// (`~/.novera/projects/<slug>`) layers on top of this one; see the memory-scope TODO.
 fn resolve_store(data_folder: &str, project: Option<&str>) -> PathBuf {
     match project.map(str::trim).filter(|p| !p.is_empty()) {
         Some(p) => workspace::project_store(Path::new(p)),
@@ -888,7 +888,7 @@ async fn execute_tool_inner(
     let tool = lookup(&name)
         .ok_or_else(|| AgentToolsError::from(format!("unknown built-in tool '{name}'")))?;
     // The desktop always sandboxes, and an attached project folder can be the
-    // user's home, which puts the CLI's `~/.jan` inside it.
+    // user's home, which puts the CLI's `~/.novera` inside it.
     let hidden = workspace::hidden_root(true);
 
     match gate::resolve_decision(
@@ -909,7 +909,7 @@ async fn execute_tool_inner(
             return Err(format!("tool '{name}' is denied by policy").into());
         }
         Decision::HardDeny(gate::DenyReason::Hidden) => {
-            return Err(format!("tool '{name}' is denied: the Jan home (~/.jan) is hidden").into());
+            return Err(format!("tool '{name}' is denied: the Jan home (~/.novera) is hidden").into());
         }
         // An exec prompt asks the user to vouch for a command that could reach
         // anything. Under an enforcing sandbox it cannot: writes stay in the

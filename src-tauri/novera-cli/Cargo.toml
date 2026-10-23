@@ -1,6 +1,6 @@
 [package]
 name = "jan-cli"
-version = "0.8.5"
+version = "0.8.7"
 description = "Headless CLI for Jan: chat with remote AI models in an interactive agent console."
 authors = ["Jan <service@jan.ai>"]
 license = "Apache-2.0"
@@ -14,7 +14,7 @@ rust-version = "1.88"
 # ignores required-features and would otherwise try to copy a `jan` binary the
 # desktop build never produces. Standalone also keeps it clear of the desktop
 # build's `ctoml package.name "Jan-<channel>"` rename, which a member could not
-# resolve its `package = "Jan"` dep against. `.cargo/config.toml` redirects
+# resolve its `package = "Novera"` dep against. `.cargo/config.toml` redirects
 # output to ../target so `target/release/jan` is unchanged.
 [[bin]]
 name = "jan"
@@ -24,7 +24,7 @@ path = "src/main.rs"
 cli = ["app_lib/cli"]
 
 [dependencies]
-app_lib = { path = "..", package = "Jan", default-features = false }
+app_lib = { path = "..", package = "Novera", default-features = false }
 tauri-plugin-agent-tools = { path = "../plugins/tauri-plugin-agent-tools", default-features = false }
 chrono = { version = "0.4", features = ["serde"] }
 clap = { version = "4", features = ["derive"] }

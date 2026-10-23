@@ -2,7 +2,7 @@
 //! reusable system prompt + default tool allowlist that the main agent can
 //! dispatch a nested, isolated run against (see `dispatch_subagent`). Definitions
 //! live as `<scope>/subagents/<name>.toml`, merged from the user scope
-//! (`~/.jan/agent/subagents/`) and the project scope (`~/.jan/projects/<slug>/
+//! (`~/.novera/agent/subagents/`) and the project scope (`~/.novera/projects/<slug>/
 //! subagents/`); the project scope shadows the user scope by name.
 
 use std::path::{Path, PathBuf};
@@ -18,7 +18,7 @@ use tauri_plugin_agent_tools::tools::spill::{
 use tauri_plugin_agent_tools::workspace;
 
 /// Directory name holding `<name>.toml` definitions, under both a project's
-/// store (`~/.jan/projects/<slug>/`), `~/.jan/agent/` and the desktop's
+/// store (`~/.novera/projects/<slug>/`), `~/.novera/agent/` and the desktop's
 /// permanent store.
 const SUBAGENTS: &str = "subagents";
 
@@ -151,9 +151,9 @@ impl std::fmt::Display for SubagentError {
     }
 }
 
-/// `~/.jan/agent/subagents/`. `None` when the home directory can't be resolved.
+/// `~/.novera/agent/subagents/`. `None` when the home directory can't be resolved.
 pub fn user_subagents_dir() -> Option<PathBuf> {
-    dirs::home_dir().map(|h| h.join(".jan").join("agent").join(SUBAGENTS))
+    dirs::home_dir().map(|h| h.join(".novera").join("agent").join(SUBAGENTS))
 }
 
 /// `<store_root>/subagents/`, in the project's store (see `project::store_root`).
@@ -1679,7 +1679,7 @@ pub(crate) fn configured_smol_model() -> Option<String> {
     crate::core::agent::global_config::smol_model().ok().flatten()
 }
 
-/// The desktop has no `~/.jan/config.toml`, so `smol` is the parent's model.
+/// The desktop has no `~/.novera/config.toml`, so `smol` is the parent's model.
 #[cfg(not(feature = "cli"))]
 pub(crate) fn configured_smol_model() -> Option<String> {
     None

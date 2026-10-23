@@ -213,6 +213,8 @@ describe('llamacpp_extension', () => {
           imported: false,
           capabilities: undefined,
           template_kwargs: [],
+          performance_mode: 'manual',
+          ngram_speculation: 'off',
         }
       ])
     })
@@ -265,6 +267,40 @@ describe('llamacpp_extension', () => {
       expect(mockDownloadManager.downloadFiles).toHaveBeenCalled()
       expect(fs.mkdir).toHaveBeenCalled()
       expect(invoke).toHaveBeenCalledWith('write_yaml', expect.any(Object))
+    })
+
+    it('persists Novera LFM Q6 defaults before the imported-model event', async () => {
+      const { getJanDataFolderPath, joinPath, fs } = await import('@janhq/core')
+      const { invoke } = await import('@tauri-apps/api/core')
+      const apiModule = await import('@janhq/tauri-plugin-llamacpp-api')
+      vi.mocked(apiModule.readGgufMetadata).mockResolvedValue({
+        version: 3,
+        tensor_count: 1,
+        metadata: { 'general.architecture': 'llama' },
+      } as any)
+
+      const mockDownloadManager = {
+        downloadFiles: vi.fn().mockResolvedValue(undefined)
+      }
+
+      window.core.extensionManager.getByName = vi.fn().mockReturnValue(mockDownloadManager)
+
+      vi.mocked(getJanDataFolderPath).mockResolvedValue('/path/to/jan')
+      vi.mocked(joinPath).mockImplementation((paths) => Promise.resolve(paths.join('/')))
+      vi.mocked(fs.existsSync).mockResolvedValue(false)
+      vi.mocked(fs.fileStat).mockResolvedValue({ size: 1000000 })
+      vi.mocked(fs.mkdir).mockResolvedValue(undefined)
+      vi.mocked(invoke).mockResolvedValue(undefined)
+
+      await extension.import('LFM2.5-2.6B-Q6_K', {
+        modelPath: 'https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF/resolve/main/LFM2.5-2.6B-Q6_K.gguf?download=true'
+      })
+
+      expect(mockDownloadManager.downloadFiles).toHaveBeenCalled()
+      expect(fs.mkdir).toHaveBeenCalled()
+      expect(invoke).toHaveBeenCalledWith('write_yaml', expect.objectContaining({
+        data: expect.objectContaining({ ctx_size: 32768, temperature: 0.1, top_k: 50, repeat_penalty: 1.1 }),
+      }))
     })
   })
 

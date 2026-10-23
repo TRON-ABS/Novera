@@ -3,7 +3,7 @@
 //! **Store root** -- holds `memory/` and `skills/`. Long-term: memories and
 //! skills outlive any single conversation, so on the desktop this is a permanent
 //! directory in the Jan data folder. A project (the CLI agent) keeps its store
-//! at `~/.jan/projects/<slug>` instead; both are just a store root to
+//! at `~/.novera/projects/<slug>` instead; both are just a store root to
 //! everything downstream.
 //!
 //! **Project root** -- the sandbox the filesystem tools (read/ls/find/grep, and
@@ -40,15 +40,15 @@ pub fn store_dir(store_root: &Path, kind: &str) -> PathBuf {
 const PROJECTS: &str = "projects";
 
 /// The directory a project stored its state in before it moved out of the
-/// project: `<project_root>/.jan`. Only the launch migration reads it.
-pub const LEGACY_DIR: &str = ".jan";
+/// project: `<project_root>/.novera`. Only the launch migration reads it.
+pub const LEGACY_DIR: &str = ".novera";
 
-/// `~/.jan`, the user-wide agent home, or `None` when the home directory is
+/// `~/.novera`, the user-wide agent home, or `None` when the home directory is
 /// unset or degenerate (a `/` home would put every project's state at the
 /// filesystem root).
 ///
 /// Test builds of this crate resolve a per-process temp directory instead, so
-/// no test writes into the developer's real `~/.jan`.
+/// no test writes into the developer's real `~/.novera`.
 pub fn jan_home() -> Option<PathBuf> {
     #[cfg(test)]
     {
@@ -64,7 +64,7 @@ pub fn jan_home() -> Option<PathBuf> {
         if home.parent().is_none() || home.as_os_str().is_empty() {
             return None;
         }
-        Some(home.join(".jan"))
+        Some(home.join(".novera"))
     }
 }
 
@@ -112,7 +112,7 @@ pub fn path_slug(path: &Path) -> String {
 /// The path a project's store is keyed on: the project root, canonicalized,
 /// with a linked git worktree mapped back onto its main checkout.
 ///
-/// Without the mapping, a session running in `~/.jan/worktrees/<slug>/<id>`
+/// Without the mapping, a session running in `~/.novera/worktrees/<slug>/<id>`
 /// would get a fresh, empty store and lose the project's memory, skills and
 /// config. A subdirectory of a worktree maps to the same subdirectory of the
 /// main checkout. Read straight from the `.git` file rather than by running
@@ -158,7 +158,7 @@ pub fn project_store_in(jan_home: &Path, project_root: &Path) -> PathBuf {
     projects_dir(jan_home).join(path_slug(&project_key(project_root)))
 }
 
-/// A project's store root: `~/.jan/projects/<slug>`, holding `agent.toml`,
+/// A project's store root: `~/.novera/projects/<slug>`, holding `agent.toml`,
 /// `memory/`, `skills/`, `subagents/`, `plugins/` and threads.
 ///
 /// Kept outside the project so the agent's own state never sits in the tree
@@ -201,7 +201,7 @@ pub fn project_meta(store: &Path) -> Option<String> {
     value.get("path")?.as_str().map(str::to_string)
 }
 
-/// Where a project kept its store before the move: `<project_root>/.jan/agent`.
+/// Where a project kept its store before the move: `<project_root>/.novera/agent`.
 pub fn legacy_project_store(project_root: &Path) -> PathBuf {
     project_root.join(LEGACY_DIR).join("agent")
 }
@@ -648,9 +648,9 @@ mod tests {
     /// A project's store lives under the Jan home, never inside the project.
     #[test]
     fn project_store_is_under_jan_home_projects() {
-        let home = Path::new("/home/u/.jan");
+        let home = Path::new("/home/u/.novera");
         let store = project_store_in(home, Path::new("/nonexistent/src/jan"));
-        assert_eq!(store, Path::new("/home/u/.jan/projects/jan-f1654549"));
+        assert_eq!(store, Path::new("/home/u/.novera/projects/jan-f1654549"));
         assert!(!project_store(Path::new("/p")).starts_with("/p"));
     }
 

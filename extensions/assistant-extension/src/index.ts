@@ -8,7 +8,7 @@ const V2_IDENTITY_LINE =
  * functionality for managing assistants.
  */
 export default class JanAssistantExtension extends AssistantExtension {
-  private readonly CURRENT_MIGRATION_VERSION = 3
+  private readonly CURRENT_MIGRATION_VERSION = 4
   private readonly MIGRATION_FILE = 'file://assistants/.migration_version'
 
   /**
@@ -27,12 +27,8 @@ export default class JanAssistantExtension extends AssistantExtension {
       // Add default parameters when creating the assistant
       const assistantWithParams = {
         ...this.defaultAssistant,
-        parameters: {
-          temperature: 0.7,
-          top_k: 20,
-          top_p: 0.8,
-          repeat_penalty: 1.12,
-        },
+        // Model defaults supply sampling unless the user explicitly overrides it.
+        parameters: {},
       }
       await this.createAssistant(assistantWithParams as Assistant)
     }
@@ -87,6 +83,11 @@ export default class JanAssistantExtension extends AssistantExtension {
       logger.info('Running migration v3: Strip identity preamble from default assistant')
       await this.migrateStripIdentityPreamble()
       await this.saveMigrationVersion(3)
+    }
+
+    if (currentVersion < 4) {
+      await this.migrateFactorySamplingOverrides()
+      await this.saveMigrationVersion(4)
     }
 
     logger.info(
@@ -237,6 +238,24 @@ Current date: {{current_date}}`
       } catch (error) {
         logger.error(`Failed to migrate assistant ${assistant.id}:`, error)
       }
+    }
+  }
+
+  /** Remove only the untouched built-in assistant's legacy sampling override. */
+  private async migrateFactorySamplingOverrides(): Promise<void> {
+    const legacy: Record<string, number> = {
+      temperature: 0.7, top_k: 20, top_p: 0.8, repeat_penalty: 1.12,
+    }
+    for (const assistant of await this.readAssistantsFromDisk()) {
+      if (assistant.id !== this.defaultAssistant.id ||
+          assistant.name !== this.defaultAssistant.name ||
+          assistant.instructions !== this.defaultAssistant.instructions) continue
+      const parameters = assistant.parameters ?? {}
+      if (Object.keys(parameters).length !== Object.keys(legacy).length ||
+          !Object.entries(legacy).every(([key, value]) => parameters[key] === value)) continue
+      assistant.parameters = {}
+      const path = await joinPath(['file://assistants', assistant.id, 'assistant.json'])
+      await fs.writeFileSync(path, JSON.stringify(assistant, null, 2))
     }
   }
 

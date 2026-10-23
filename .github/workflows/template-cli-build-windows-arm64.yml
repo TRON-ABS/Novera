@@ -64,7 +64,7 @@ jobs:
           JAN_CLI_BUILD_VERSION: ${{ inputs.new_version }}
           JAN_SIGNING_KEY: ${{ secrets.JAN_SIGNING_KEY }}
         run: |
-          cd src-tauri/jan-cli
+          cd src-tauri/novera-cli
           cargo build --no-default-features --features cli --release
 
       # The binary must be ARM64: the runner can run x64 under emulation, so a

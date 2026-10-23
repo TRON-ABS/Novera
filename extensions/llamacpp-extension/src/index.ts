@@ -1,3 +1,4 @@
+import { noveraModelDefaults } from './novera-model-defaults'
 /**
  * @file This file exports a class that implements the InferenceExtension interface from the @janhq/core package.
  * The class provides methods for initializing and stopping a model, and for making inference requests.
@@ -296,6 +297,14 @@ const MODEL_SETTINGS_YAML_MAPPING: Record<
       const n = typeof v === 'number' ? v : Number(v)
       return Number.isFinite(n) && n > 0 ? Math.floor(n) : null
     },
+  },
+  performance_mode: {
+    yamlKey: 'performance_mode',
+    coerce: (v) => v === 'measured' ? 'measured' : null,
+  },
+  ngram_speculation: {
+    yamlKey: 'ngram_speculation',
+    coerce: (v) => v === 'repetitive' ? 'repetitive' : null,
   },
   ubatch_size: {
     yamlKey: 'ubatch_size',
@@ -1686,6 +1695,12 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
           imported: isAbsolute,
           capabilities: capabilities.length > 0 ? capabilities : undefined,
           template_kwargs: templateKwargs,
+          performance_mode:
+            (modelConfig as ModelConfig & { performance_mode?: unknown })
+              .performance_mode === 'measured' ? 'measured' : 'manual',
+          ngram_speculation:
+            (modelConfig as ModelConfig & { ngram_speculation?: unknown })
+              .ngram_speculation === 'repetitive' ? 'repetitive' : 'off',
         } as modelInfo
         modelInfos.push(modelInfo)
       } catch (err) {
@@ -2116,6 +2131,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
 
     // TODO: add updateModelConfig() method
     const modelConfig = {
+      ...noveraModelDefaults(modelId, opts.modelPath),
       model_path: modelPath,
       mmproj_path: mmprojPath,
       name: resolvedName,

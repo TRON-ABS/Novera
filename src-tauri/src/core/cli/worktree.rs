@@ -8,11 +8,11 @@
 //! `repo_root` resolves to the checkout the session actually runs in.
 //!
 //! Opt-in, most specific source first: `--worktree`/`--no-worktree`, then a
-//! project's `[agent].worktree`, then `worktree` in `~/.jan/config.toml`. Off by
+//! project's `[agent].worktree`, then `worktree` in `~/.novera/config.toml`. Off by
 //! default, because turning it on moves every edit out of the directory the user
 //! is looking at, which must be their decision rather than ours.
 //!
-//! The checkout lives under `~/.jan/worktrees/<repo-slug>/<id>`, outside the
+//! The checkout lives under `~/.novera/worktrees/<repo-slug>/<id>`, outside the
 //! repository. Inside it (`<project>/worktrees/...`) the agent's own
 //! `find`/`grep`/`bash` would walk into a second copy of the tree whenever a
 //! session ran in the main checkout, and `git clean` would delete it.
@@ -51,14 +51,14 @@ pub fn resolve_enabled(flag: Option<bool>, configured: Option<bool>) -> bool {
         .unwrap_or(DEFAULT_WORKTREE)
 }
 
-/// `~/.jan/worktrees`, the user-wide home for agent checkouts.
+/// `~/.novera/worktrees`, the user-wide home for agent checkouts.
 pub fn worktrees_root() -> Result<PathBuf, String> {
     Ok(crate::core::agent::global_config::global_jan_dir()?.join("worktrees"))
 }
 
 /// Directory name for a repository: its own name plus a hash of its path, so two
 /// checkouts of the same project do not share a worktree directory. The same
-/// slug keys the project's store under `~/.jan/projects`.
+/// slug keys the project's store under `~/.novera/projects`.
 pub fn repo_slug(repo: &Path) -> String {
     tauri_plugin_agent_tools::workspace::path_slug(repo)
 }
@@ -201,7 +201,7 @@ mod tests {
     #[test]
     fn metadata_round_trips() {
         let worktree = Worktree {
-            path: PathBuf::from("/home/u/.jan/worktrees/jan-abc/3f7a91c2"),
+            path: PathBuf::from("/home/u/.novera/worktrees/jan-abc/3f7a91c2"),
             branch: "jan/agent/3f7a91c2".to_string(),
         };
         let meta = serde_json::json!({ WORKTREE_KEY: to_metadata(&worktree) });

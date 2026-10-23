@@ -1,9 +1,9 @@
 //! Cloud provider credential loader for the CLI.
 //!
 //! Jan Agent runs standalone, without Jan Desktop, so provider config is
-//! resolved from two `.jan` scopes rather than desktop's `settings.json`:
+//! resolved from two `.novera` scopes rather than desktop's `settings.json`:
 //!
-//! 1. Global `~/.jan/config.toml` (user-wide, [`crate::core::agent::global_config`]) - the base.
+//! 1. Global `~/.novera/config.toml` (user-wide, [`crate::core::agent::global_config`]) - the base.
 //! 2. Desktop `settings.json`, if present, is layered in as an **inherit-only**
 //!    additive source (never overwrites a Global entry, never written back to).
 //! 3. Project-local `agent.toml` `[provider]` override
@@ -144,7 +144,7 @@ impl ProviderOverrides {
     /// The provider this session scopes to itself: one named with an explicit
     /// `--provider` whose base URL or key came from these overrides. Its model
     /// roster and prices describe the session's endpoint rather than whatever
-    /// `~/.jan` was written for, so they are kept in memory and never persisted
+    /// `~/.novera` was written for, so they are kept in memory and never persisted
     /// (see [`super::session_provider`]).
     ///
     /// `JAN_API_KEY` with no `--provider`, and a Desktop-default provider's
@@ -254,7 +254,7 @@ pub enum BaseUrlSource {
     Env,
     /// The project's `agent.toml` `[provider]`.
     Project,
-    /// `~/.jan/config.toml`.
+    /// `~/.novera/config.toml`.
     Config,
     /// Inherited from Jan Desktop's `settings.json`.
     Desktop,
@@ -341,7 +341,7 @@ pub fn provider_for_model(model: &str, pc: &HashMap<String, ProviderConfig>) -> 
 
 /// Log a provider-config load failure at most once per process. Startup probes
 /// this in two independent places (the headless sign-in guard and the model
-/// fallback), and a malformed `~/.jan/config.toml` fails both, so without this
+/// fallback), and a malformed `~/.novera/config.toml` fails both, so without this
 /// the same multi-line TOML error is printed twice before the fatal error
 /// prints it a third time.
 fn warn_load_failure_once(context: &str, err: &str) {
@@ -477,7 +477,7 @@ pub fn unreachable_local_provider(
 
 /// Runnable `(provider, model_id)` pairs for the TUI `/model` selector, taken
 /// from the same layered resolution the agent uses -- so the picker offers
-/// exactly what a run can reach, including `~/.jan/config.toml` providers the
+/// exactly what a run can reach, including `~/.novera/config.toml` providers the
 /// desktop store knows nothing about.
 pub fn list_provider_models(project_root: Option<&std::path::Path>) -> Vec<(String, String)> {
     match load_provider_configs(project_root, &ProviderOverrides::session()) {
@@ -512,7 +512,7 @@ enum Roster {
     /// New ids are added and configured ones are kept. Merely opening `/model`
     /// runs a probe, and a permission-scoped or paginated `/models` answering
     /// with a subset must not delete a hand-added alias from
-    /// `~/.jan/config.toml` with no confirmation and no way to re-add it.
+    /// `~/.novera/config.toml` with no confirmation and no way to re-add it.
     Additive,
 }
 
@@ -607,7 +607,7 @@ pub async fn refresh_models_once(
 ///
 /// Unlike [`refresh_models_once`] there is no once-per-session guard: the user
 /// asked. Per-model metadata (`context_length`, pricing) is cached alongside in
-/// `~/.jan/model_catalog.json` -- see [`super::model_catalog`].
+/// `~/.novera/model_catalog.json` -- see [`super::model_catalog`].
 pub async fn refresh_models(
     project_root: Option<&std::path::Path>,
     provider: Option<&str>,
@@ -619,7 +619,7 @@ pub async fn refresh_models(
     // A `--provider` that matched nothing is a failed refresh, not an empty
     // one: without this the caller prints "no providers to refresh" and exits
     // 0, so a typo (or a Desktop-inherited name, which has no entry in
-    // `~/.jan/config.toml` to rewrite) reads to a script as a complete refresh.
+    // `~/.novera/config.toml` to rewrite) reads to a script as a complete refresh.
     if let Some(name) = provider {
         if refresh.listed.is_empty() && refresh.failed.is_empty() {
             refresh
@@ -687,7 +687,7 @@ fn unrefreshable_reason(project_root: Option<&std::path::Path>, provider: &str) 
     }
     match load_global_config() {
         Ok(global) if !global.contains_key(provider) => {
-            "inherited from Jan Desktop, so there is no ~/.jan/config.toml entry to refresh"
+            "inherited from Jan Desktop, so there is no ~/.novera/config.toml entry to refresh"
                 .to_string()
         }
         _ => "could not be listed".to_string(),
@@ -709,7 +709,7 @@ fn mark_probed(
 }
 
 /// Query `GET {base_url}/models` for every reachable global provider `select`
-/// accepts, and persist what comes back: ids into `~/.jan/config.toml` and
+/// accepts, and persist what comes back: ids into `~/.novera/config.toml` and
 /// per-model metadata into the model catalog.
 ///
 /// Only providers present in the global store are touched -- writing a
@@ -895,7 +895,7 @@ pub(crate) fn listing_headers(config: &ProviderConfig) -> Vec<(String, String)> 
 /// [`listing_headers`] for a provider known only by id -- a sign-in, which
 /// holds a provider definition rather than a resolved config: its configured
 /// headers, with the session's `JAN_CUSTOM_HEADERS` on top when the session
-/// names it. Read from `~/.jan/config.toml` directly, so no credential store
+/// names it. Read from `~/.novera/config.toml` directly, so no credential store
 /// is touched on the way.
 pub(crate) fn listing_headers_for(provider: &str) -> Vec<(String, String)> {
     let mut config = load_global_config()
@@ -992,8 +992,8 @@ async fn fetch_models(
     Err(last_err)
 }
 
-/// Load provider configs by layering the four `.jan`-based scopes (see module
-/// docs for the priority order): Global `~/.jan/config.toml` -> Desktop
+/// Load provider configs by layering the four `.novera`-based scopes (see module
+/// docs for the priority order): Global `~/.novera/config.toml` -> Desktop
 /// `settings.json` (inherit-only, additive) -> project `agent.toml`
 /// `[provider]` override -> `--provider`/`--api-key` CLI/env overrides.
 ///
@@ -1102,7 +1102,7 @@ fn inherit_desktop_providers(configs: &mut HashMap<String, ProviderConfig>) -> V
 }
 
 /// Apply the project's `agent.toml` `[provider]` section, if present. Highest
-/// priority of the three `.jan`-based sources: always wins over Global and the
+/// priority of the three `.novera`-based sources: always wins over Global and the
 /// Desktop inherit for the named provider.
 fn apply_local_override(
     configs: &mut HashMap<String, ProviderConfig>,
@@ -1137,7 +1137,7 @@ fn provider_config_from_section(section: ProviderSection) -> ProviderConfig {
 /// overrides run afterward and still win.
 /// Fill in a provider's key chain from the OS secret store, on demand.
 ///
-/// No-op when the config already carries one: `~/.jan/config.toml` providers
+/// No-op when the config already carries one: `~/.novera/config.toml` providers
 /// (Tokamak included) hold their key inline, as do `--api-key`/env overrides,
 /// so the prioritized path never reaches the keyring at all. Call this only for
 /// a provider that is about to be used -- each call can cost a macOS keychain
@@ -1851,7 +1851,7 @@ mod tests {
 
     /// Merely opening `/model` runs the automatic probe, so a subset answer (a
     /// permission-scoped key, a paginated gateway) must not delete a
-    /// hand-configured id from `~/.jan/config.toml`.
+    /// hand-configured id from `~/.novera/config.toml`.
     #[test]
     fn an_automatic_probe_keeps_an_id_the_endpoint_stopped_listing() {
         crate::core::agent::global_config::with_temp_home(|_| {
@@ -2698,7 +2698,7 @@ mod tests {
     #[test]
     fn configured_headers_load_from_config_toml() {
         crate::core::agent::global_config::with_temp_home(|home| {
-            let dir = home.join(".jan");
+            let dir = home.join(".novera");
             std::fs::create_dir_all(&dir).unwrap();
             std::fs::write(
                 dir.join("config.toml"),
@@ -2949,7 +2949,7 @@ mod tests {
                     catalog.save().unwrap();
                 }
                 let tokamak_entry = || {
-                    let raw = std::fs::read_to_string(home.join(".jan").join("model_catalog.json"))
+                    let raw = std::fs::read_to_string(home.join(".novera").join("model_catalog.json"))
                         .unwrap_or_default();
                     serde_json::from_str::<serde_json::Value>(&raw)
                         .ok()

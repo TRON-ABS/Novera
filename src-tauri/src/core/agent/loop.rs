@@ -705,9 +705,9 @@ struct CompositeToolInvoker {
     /// reaches a built-in, the shell or an MCP server.
     allowed_names: Option<std::collections::HashSet<String>>,
     /// Where `memory/` and `skills/` live: the project's store under
-    /// `~/.jan/projects`. The desktop points this at its permanent store.
+    /// `~/.novera/projects`. The desktop points this at its permanent store.
     store_root: std::path::PathBuf,
-    /// `~/.jan`, for the `user:` memory scope and other projects' stores.
+    /// `~/.novera`, for the `user:` memory scope and other projects' stores.
     memory_home: Option<std::path::PathBuf>,
     /// Whether other projects' memory is readable (`memory_cross_project`).
     cross_project: bool,
@@ -736,7 +736,7 @@ struct CompositeToolInvoker {
     scratch_root: std::path::PathBuf,
     /// Host env-var names/globs the shell may inherit beyond the base allowlist,
     /// and explicit key=value overrides. Resolved once per run by merging
-    /// `~/.jan/config.toml` with the project's `[tools]` section.
+    /// `~/.novera/config.toml` with the project's `[tools]` section.
     env_passthrough: Vec<String>,
     env_set: Vec<(String, String)>,
     permissions: tauri_plugin_agent_tools::permissions::ToolPermissions,
@@ -853,7 +853,7 @@ fn resolve_allow_home_read(configured: Option<bool>) -> bool {
 /// other tool they run there already has -- and the shell is what the agent
 /// does most of its work with, so confining it breaks the tools the project
 /// builds with far more often than it stops anything. Confinement is opt-in per
-/// invocation (`--sandbox`), per user (`sandbox` in `~/.jan/config.toml`) or
+/// invocation (`--sandbox`), per user (`sandbox` in `~/.novera/config.toml`) or
 /// per project (`[tools].sandbox`). The permission gate is unchanged either
 /// way: an unconfined command is still one the user approved.
 #[cfg(feature = "cli")]
@@ -982,7 +982,7 @@ fn resolve_run_settings(
 /// Merge the global `env_passthrough` with the project's: the union of both
 /// name lists (order-preserving, global first), since each entry is only a name
 /// to match against the host env. The global scope is the CLI's
-/// `~/.jan/config.toml`; the desktop has none, so it contributes nothing there.
+/// `~/.novera/config.toml`; the desktop has none, so it contributes nothing there.
 fn resolve_env_passthrough(project: Vec<String>) -> Vec<String> {
     #[cfg(feature = "cli")]
     let global = crate::core::agent::global_config::env_passthrough_setting();
@@ -1171,8 +1171,8 @@ impl CompositeToolInvoker {
         };
         // The model's skill tools resolve through the same layering as the
         // system-prompt catalog (project, plugin, user, built-in), and
-        // `skill_write` `scope:"user"` lands in `~/.jan/skills` (the same
-        // `~/.jan` as the user memory scope).
+        // `skill_write` `scope:"user"` lands in `~/.novera/skills` (the same
+        // `~/.novera` as the user memory scope).
         let ctx = ctx
             .with_skill_source(crate::core::agent::skills::CoreSkillSource::shared(
                 &self.project_root,
@@ -1977,7 +1977,7 @@ fn denied_by_policy_msg(name: &str, project_root: &std::path::Path) -> String {
 /// policy the user edits, so it points at the dedicated tools instead.
 fn hidden_path_msg(name: &str) -> String {
     format!(
-        "ERROR: tool '{name}' {HIDDEN_PATH_REFUSED} (~/.jan) holds the agent's own \
+        "ERROR: tool '{name}' {HIDDEN_PATH_REFUSED} (~/.novera) holds the agent's own \
          configuration and state and is hidden from every tool -- do not try to reach it \
          another way. Skills and memory are available through the skill_*/memory_* tools."
     )

@@ -28,6 +28,7 @@ import { useThreads } from '@/hooks/useThreads'
 import { useAttachments } from '@/hooks/useAttachments'
 import { useMCPServers } from '@/hooks/useMCPServers'
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
+import { useChatShell } from '@/hooks/useChatShell'
 import {
   WEB_SEARCH_DESCRIPTION,
   WEB_SEARCH_INPUT_SCHEMA,
@@ -887,7 +888,18 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
   }
 
   protected getModelSelection(): { selectedProvider: string; selectedModel: Model | null } {
-    return useModelProvider.getState()
+    const state = useModelProvider.getState()
+    const threadModel = this.threadId
+      ? useThreads.getState().threads[this.threadId]?.model
+      : undefined
+    if (!threadModel) return state
+    // A tool turn can resume while a different conversation is on screen.
+    // Its provider/model must follow its own thread, not the global selector.
+    const provider = state.getProviderByName(threadModel.provider)
+    return {
+      selectedProvider: threadModel.provider,
+      selectedModel: provider?.models.find((model) => model.id === threadModel.id) ?? null,
+    }
   }
 
   setLastUserMessage(message: string): void {
@@ -972,12 +984,11 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
    * @private
    */
   /**
-   * llama.cpp slot pin for this surface. Every surface shares slot 0 -- the one
-   * index guaranteed to exist -- and overrides only `thread_id`, which is what
-   * the engine parks and restores the slot's KV cache by. See CHAT_SLOT_ID.
+   * Slot 0 is the fallback. The worker may retain this conversation in either
+   * of two already allocated slots, without increasing its memory allocation.
    */
   protected slotParams(threadId?: string): Record<string, unknown> {
-    return { id_slot: CHAT_SLOT_ID, thread_id: threadId }
+    return { id_slot: CHAT_SLOT_ID, thread_id: threadId, cache_thread_slots: 2 }
   }
 
   /**
@@ -1179,9 +1190,11 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
       // The main chat offers exactly one built-in agent tool: the sandboxed
       // shell, with no network. The full toolset lives in Cowork. Schemas come
       // from Rust so they are never re-typed here, and `getAgentToolSchemas`
-      // already withholds shell when no sandbox backend can confine it.
+      // already withholds shell when no sandbox backend can confine it. A user
+      // who switched it off (#9222) gets none of it.
       try {
-        for (const schema of await getAgentToolSchemas()) {
+        const shellOn = useChatShell.getState().shellEnabled
+        for (const schema of shellOn ? await getAgentToolSchemas() : []) {
           if (!CHAT_AGENT_TOOL_NAMES.has(schema.function.name)) continue
           toolsRecord[schema.function.name] = {
             description: schema.function.description,
@@ -1405,14 +1418,9 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
       if (isPredefinedRemoteProvider(effectiveProviderName)) {
         for (const key of Object.keys(paramsSettings)) delete mergedParams[key]
       }
-      // Pin chat to slot 0 so llama-server reuses this thread's cached KV
-      // prefix across turns. Cowork and background tasks share the same slot;
-      // what keeps them from destroying this prefix is thread_id below.
-      //
-      // thread_id names whose cache that is, which is what lets the engine
-      // park it when another thread takes the slot and pick it back up later,
-      // including in a later session. It is stripped before the request
-      // reaches llama.cpp.
+      // Opt into a bounded pool of preallocated slots. The worker owns thread
+      // affinity and persists an evicted conversation before reusing its slot.
+      // Jan's routing fields are stripped before reaching llama.cpp.
       if (providerId === 'llamacpp') {
         Object.assign(mergedParams, this.slotParams(threadId))
       }
@@ -1811,12 +1819,6 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
   }
 
   /**
-   * Static instruction for the one built-in tool chat offers: the sandboxed
-   * shell. Empty when no sandbox backend enforces, because shell is then
-   * withheld too — stating limits for a tool that is not offered would only
-   * confuse the model, and an empty string keeps the prompt prefix stable.
-   */
-  /**
    * A self-contained digest of the newest memory notes. Chat advertises no
    * memory tools, so a catalog it cannot dereference would be useless; whole
    * notes under a strict budget are what fit a conversation surface. Empty when
@@ -1834,8 +1836,16 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
     ].join('\n')
   }
 
+  /**
+   * Static instruction for the one built-in tool chat offers: the sandboxed
+   * shell. Empty when no sandbox backend enforces or when the user has turned
+   * the shell off, because shell is then withheld too — stating limits for a
+   * tool that is not offered would only confuse the model, and an empty string
+   * keeps the prompt prefix stable.
+   */
   buildAgentToolsSystemInstruction(): string {
-    if (!sandboxEnforces()) return ''
+    // Describing a tool the model was not given only invites it to ask for it.
+    if (!useChatShell.getState().shellEnabled || !sandboxEnforces()) return ''
     // Stating the limits up front is cheaper than letting the model discover
     // them by having a command refused.
     return [

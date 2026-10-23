@@ -245,7 +245,7 @@ function Install-FromSource {
     throw 'cargo not found; install Rust first'
   }
   Write-Host "building the CLI from $RepoRoot (release)"
-  Push-Location (Join-Path $RepoRoot 'src-tauri\jan-cli')
+  Push-Location (Join-Path $RepoRoot 'src-tauri\novera-cli')
   try {
     # The CLI and the desktop app are mutually exclusive feature configs, so
     # the default features must stay off.

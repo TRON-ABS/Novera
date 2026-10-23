@@ -1,9 +1,9 @@
 //! One-time move of a project's agent state out of the project.
 //!
-//! Before issue #388 the agent kept everything at `<project>/.jan/agent`
+//! Before issue #388 the agent kept everything at `<project>/.novera/agent`
 //! (`agent.toml`, memory, skills, subagents, plugins, threads). It now lives in
-//! `~/.jan/projects/<slug>` (see `project::store_root`). This runs at launch
-//! and does nothing unless the workspace still has a `.jan` directory, so a
+//! `~/.novera/projects/<slug>` (see `project::store_root`). This runs at launch
+//! and does nothing unless the workspace still has a `.novera` directory, so a
 //! migrated or fresh project pays one `stat`.
 //!
 //! Never merges: when both locations already hold state the legacy folder is
@@ -17,10 +17,10 @@ use tauri_plugin_agent_tools::workspace::{legacy_project_store, LEGACY_DIR};
 /// What a launch-time migration did, for the surface to report.
 #[derive(Debug, PartialEq, Eq)]
 pub enum Outcome {
-    /// No `<project>/.jan` directory: nothing to do (the common case).
+    /// No `<project>/.novera` directory: nothing to do (the common case).
     Absent,
     /// The legacy store was moved to `to`. `leftover` lists entries in
-    /// `<project>/.jan` other than `agent/`, which were not ours to move.
+    /// `<project>/.novera` other than `agent/`, which were not ours to move.
     Moved { to: PathBuf, leftover: Vec<String> },
     /// Both the legacy and the new store hold state; nothing was touched.
     Conflict { from: PathBuf, to: PathBuf },
@@ -28,8 +28,8 @@ pub enum Outcome {
     /// the repo). Moving it would show up as deleted files and take the shared
     /// copy away from everyone else, so it is left for the user to decide.
     Tracked { from: PathBuf, to: PathBuf },
-    /// `<project>/.jan` exists but is not a project store we recognise (for
-    /// instance it is the user's global `~/.jan` because the workspace is the
+    /// `<project>/.novera` exists but is not a project store we recognise (for
+    /// instance it is the user's global `~/.novera` because the workspace is the
     /// home directory). Left alone.
     Skipped,
 }
@@ -64,9 +64,9 @@ impl Outcome {
     }
 }
 
-/// Move `<project>/.jan/agent` to `store` when the workspace still has one.
+/// Move `<project>/.novera/agent` to `store` when the workspace still has one.
 ///
-/// `jan_home` is the global `~/.jan`; a workspace whose `.jan` *is* that
+/// `jan_home` is the global `~/.novera`; a workspace whose `.novera` *is* that
 /// directory (running in `$HOME`) is skipped rather than having the user's
 /// config swallowed. Crash-safe: the tree is copied to a temp sibling of
 /// `store` and renamed into place before the source is deleted, so an
@@ -166,7 +166,7 @@ fn move_tree(from: &Path, to: &Path) -> std::io::Result<()> {
 }
 
 /// Recursive copy that recreates symlinks as symlinks instead of following them,
-/// so a link inside the store cannot pull an arbitrary tree into `~/.jan`.
+/// so a link inside the store cannot pull an arbitrary tree into `~/.novera`.
 fn copy_tree(from: &Path, to: &Path) -> std::io::Result<()> {
     std::fs::create_dir_all(to)?;
     for entry in std::fs::read_dir(from)? {
@@ -204,7 +204,7 @@ mod tests {
 
     fn legacy_project(dir: &Path) -> PathBuf {
         let project = dir.join("project");
-        let agent = project.join(".jan").join("agent");
+        let agent = project.join(".novera").join("agent");
         std::fs::create_dir_all(agent.join("memory")).unwrap();
         std::fs::create_dir_all(agent.join("threads")).unwrap();
         std::fs::write(agent.join("agent.toml"), "[agent]\nmodel = \"m\"\n").unwrap();
@@ -240,7 +240,7 @@ mod tests {
         assert_eq!(std::fs::read_to_string(store.join("memory/note.md")).unwrap(), "remember");
         assert!(store.join("threads/t1.json").is_file());
         assert!(store.join("agent.toml").is_file());
-        assert!(!project.join(".jan").exists());
+        assert!(!project.join(".novera").exists());
         assert!(out.message().unwrap().contains("moved project agent state"));
 
         // A second launch finds nothing to do.
@@ -271,7 +271,7 @@ mod tests {
         let out = migrate_on_launch(&project, &store, None);
         assert!(matches!(out, Outcome::Conflict { .. }));
         assert_eq!(std::fs::read_to_string(store.join("agent.toml")).unwrap(), "new");
-        assert!(project.join(".jan/agent/agent.toml").is_file());
+        assert!(project.join(".novera/agent/agent.toml").is_file());
         assert!(out.message().unwrap().contains("both"));
     }
 
@@ -279,7 +279,7 @@ mod tests {
     fn unrelated_entries_in_jan_are_kept_and_reported() {
         let dir = tempfile::tempdir().unwrap();
         let project = legacy_project(dir.path());
-        std::fs::write(project.join(".jan").join("other.txt"), "x").unwrap();
+        std::fs::write(project.join(".novera").join("other.txt"), "x").unwrap();
         let store = dir.path().join("home/projects/p-1");
 
         let out = migrate_on_launch(&project, &store, None);
@@ -290,16 +290,16 @@ mod tests {
                 leftover: vec!["other.txt".to_string()]
             }
         );
-        assert!(project.join(".jan/other.txt").is_file());
-        assert!(!project.join(".jan/agent").exists());
+        assert!(project.join(".novera/other.txt").is_file());
+        assert!(!project.join(".novera/agent").exists());
     }
 
-    /// Running in `$HOME` makes `<workspace>/.jan` the global Jan home, which
+    /// Running in `$HOME` makes `<workspace>/.novera` the global Jan home, which
     /// holds `config.toml` and every other project's store.
     #[test]
     fn the_global_jan_home_is_never_migrated() {
         let dir = tempfile::tempdir().unwrap();
-        let home = dir.path().join(".jan");
+        let home = dir.path().join(".novera");
         std::fs::create_dir_all(home.join("agent").join("subagents")).unwrap();
         let store = home.join("projects").join("u-1");
 
@@ -312,13 +312,13 @@ mod tests {
     #[test]
     fn a_jan_dir_without_an_agent_store_is_skipped() {
         let dir = tempfile::tempdir().unwrap();
-        std::fs::create_dir_all(dir.path().join(".jan")).unwrap();
+        std::fs::create_dir_all(dir.path().join(".novera")).unwrap();
         let store = dir.path().join("home/projects/p-1");
         assert_eq!(migrate_on_launch(dir.path(), &store, None), Outcome::Skipped);
-        assert!(dir.path().join(".jan").is_dir());
+        assert!(dir.path().join(".novera").is_dir());
     }
 
-    /// A team that commits `.jan/agent/skills` shares them through the repo;
+    /// A team that commits `.novera/agent/skills` shares them through the repo;
     /// moving them would delete tracked files for everyone.
     #[test]
     fn a_legacy_store_tracked_by_git_is_not_moved() {
@@ -339,11 +339,11 @@ mod tests {
         // Untracked, it moves as usual; nothing is lost.
         let untracked = dir.path().join("untracked");
         copy_tree(&project, &untracked).unwrap();
-        git(&["add", ".jan/agent/agent.toml"]);
+        git(&["add", ".novera/agent/agent.toml"]);
 
         let out = migrate_on_launch(&project, &store, None);
         assert!(matches!(out, Outcome::Tracked { .. }), "{out:?}");
-        assert!(project.join(".jan/agent/agent.toml").is_file());
+        assert!(project.join(".novera/agent/agent.toml").is_file());
         assert!(!store.exists());
         assert!(out.message().unwrap().contains("tracked by git"));
         assert!(matches!(

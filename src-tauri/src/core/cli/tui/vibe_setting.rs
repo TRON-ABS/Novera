@@ -104,7 +104,7 @@ fn scope_name(scope: SettingScope) -> &'static str {
 fn file_label(scope: SettingScope) -> &'static str {
     match scope {
         SettingScope::Project => "agent.toml (this project)",
-        SettingScope::Global => "~/.jan/config.toml (all projects)",
+        SettingScope::Global => "~/.novera/config.toml (all projects)",
     }
 }
 

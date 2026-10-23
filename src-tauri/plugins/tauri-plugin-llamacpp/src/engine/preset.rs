@@ -31,7 +31,10 @@ fn section_bodies(ini: &str) -> HashMap<String, Vec<String>> {
             out.entry(name.to_string()).or_default();
             continue;
         }
-        if line.is_empty() || line.starts_with('#') || line.starts_with(';') {
+        if line.is_empty()
+            || (line.starts_with('#') && !line.starts_with("# jan-measured-performance:"))
+            || line.starts_with(';')
+        {
             continue;
         }
         if let Some(name) = &current {
@@ -192,10 +195,7 @@ embeddings = true
     // Key order within a section is an artifact of how the preset is written.
     #[test]
     fn key_order_within_a_section_does_not_count_as_a_change() {
-        let reordered = specs(
-            "/p.ini",
-            "[a]\nmodel = /m.gguf\nembeddings = true\n",
-        );
+        let reordered = specs("/p.ini", "[a]\nmodel = /m.gguf\nembeddings = true\n");
         let original = specs("/p.ini", "[a]\nembeddings = true\nmodel = /m.gguf\n");
         assert_eq!(original, reordered);
     }

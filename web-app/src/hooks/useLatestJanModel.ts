@@ -1,9 +1,8 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
-import { localStorageKey, CACHE_EXPIRY_MS } from '@/constants/localStorage'
-import { getServiceHub } from '@/hooks/useServiceHub'
 import type { CatalogModel } from '@/services/models/types'
 import { backendStorage } from '@/lib/backendStorage'
+import { NOVERA_RECOMMENDED_MODEL } from '@/lib/noveraRecommendedModel'
 
 type LatestJanModelState = {
   model: CatalogModel | null
@@ -13,55 +12,25 @@ type LatestJanModelState = {
   fetchLatestJanModel: (force?: boolean) => Promise<void>
 }
 
+// Keep the store interface for existing consumers; the recommendation belongs
+// to Novera and never depends on the upstream feed or a stale cached model.
 export const useLatestJanModel = create<LatestJanModelState>()(
   persist(
-    (set, get) => ({
-      model: null,
+    (set) => ({
+      model: NOVERA_RECOMMENDED_MODEL,
       lastFetchedAt: null,
       loading: false,
       error: false,
-      fetchLatestJanModel: async (force = false) => {
-        const { lastFetchedAt, loading } = get()
-
-        if (loading) return
-
-        if (
-          !force &&
-          lastFetchedAt &&
-          Date.now() - lastFetchedAt < CACHE_EXPIRY_MS
-        ) {
-          return
-        }
-
-        set({ loading: true, error: false })
-
-        try {
-          const result = await getServiceHub()
-            .models()
-            .fetchLatestJanModel()
-
-          if (result) {
-            set({
-              model: result,
-              lastFetchedAt: Date.now(),
-              loading: false,
-            })
-          } else {
-            set({ error: true, loading: false })
-          }
-        } catch {
-          set({ error: true, loading: false })
-        }
+      fetchLatestJanModel: async () => {
+        set({ model: NOVERA_RECOMMENDED_MODEL, lastFetchedAt: Date.now(), loading: false, error: false })
       },
     }),
     {
-      name: localStorageKey.latestJanModel,
+      name: 'novera-recommended-model-v1',
       storage: createJSONStorage(() => backendStorage),
       skipHydration: true,
-      partialize: (state) => ({
-        model: state.model,
-        lastFetchedAt: state.lastFetchedAt,
-      }),
+      partialize: (state) => ({ lastFetchedAt: state.lastFetchedAt }),
+      merge: (_persisted, current) => ({ ...current, model: NOVERA_RECOMMENDED_MODEL }),
     }
   )
 )

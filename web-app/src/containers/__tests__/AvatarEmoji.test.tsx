@@ -3,6 +3,15 @@ import { render, screen } from '@testing-library/react'
 import { AvatarEmoji } from '../AvatarEmoji'
 
 describe('AvatarEmoji Component', () => {
+  it('renders the Novera logo for the legacy assistant emoji with the requested size', () => {
+    render(<AvatarEmoji avatar="👋" imageClassName="size-4 object-contain" />)
+
+    const img = screen.getByRole('img', { name: 'Novera' })
+    expect(img).toHaveAttribute('src', '/images/novera-logo.png')
+    expect(img).toHaveClass('size-4', 'object-contain')
+    expect(screen.queryByText('👋')).toBeNull()
+  })
+
   it('should return null when no avatar is provided', () => {
     const { container } = render(<AvatarEmoji />)
     expect(container.firstChild).toBeNull()

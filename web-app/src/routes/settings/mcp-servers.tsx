@@ -111,6 +111,11 @@ function MCPServersDesktop() {
     setSettings,
     updateSettings,
   } = useMCPServers()
+  // DuckDuckGo is managed exclusively by Web Search; retain its configuration
+  // in the store so editing other MCP servers cannot erase it.
+  const visibleServers = Object.entries(mcpServers).filter(
+    ([name]) => name !== 'DuckDuckGo'
+  )
   const { allowAllMCPPermissions, setAllowAllMCPPermissions } =
     useToolApproval()
 
@@ -700,12 +705,12 @@ function MCPServersDesktop() {
                 />
               </Card>
 
-              {Object.keys(mcpServers).length === 0 ? (
+              {visibleServers.length === 0 ? (
                 <div className="py-4 text-center font-medium text-muted-foreground">
                   {t('mcp-servers:noServers')}
                 </div>
               ) : (
-                Object.entries(mcpServers).map(([key, config], index) => (
+                visibleServers.map(([key, config], index) => (
                   <Card key={`${key}-${index}`}>
                     <CardItem
                       align="start"
@@ -725,8 +730,8 @@ function MCPServersDesktop() {
                           {config.official && (
                             <div className="flex items-center gap-1.5 px-2 py-0.5 text-xs bg-secondary border rounded-sm">
                               <img
-                                src="/images/jan-logo.png"
-                                alt="Jan"
+                                src="/images/novera-logo.png"
+                                alt="Novera"
                                 className="w-3 h-3 object-contain"
                               />
                               <span>Official</span>

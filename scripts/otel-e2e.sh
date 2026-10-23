@@ -10,7 +10,7 @@
 set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 jan="${1:-$here/../src-tauri/target/debug/jan}"
-[ -x "$jan" ] || { echo "no jan binary at $jan (build src-tauri/jan-cli first)"; exit 2; }
+[ -x "$jan" ] || { echo "no jan binary at $jan (build src-tauri/novera-cli first)"; exit 2; }
 command -v docker >/dev/null || { echo "docker required"; exit 2; }
 
 work="$(mktemp -d)"

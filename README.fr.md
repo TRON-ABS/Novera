@@ -37,7 +37,11 @@ L’arabe standard, l’arabe égyptien, l’ourdou, le pendjabi occidental et l
 
 Novera possède son identité et son dépôt de sources. **Aucun installateur ni binaire Novera n’a encore été publié.** Les téléchargements Jan existants ne sont pas des versions Novera.
 
-Les prochaines étapes sont la consolidation des fondations, la vérification de l’expérience intégrée et la préparation d’une distribution indépendante. Les mises à jour applicatives et GitHub Actions restent désactivés tant que les compilations sont suspendues.
+Les sources actuelles incluent l’identité Novera, les évolutions du moteur et des conversations, ainsi qu’un premier modèle fixe : **LiquidAI LFM2.5-2.6B Q6_K**, température **0,1**, top-k **50**, pénalité de répétition **1,1**, contexte de **32 768 tokens**. Le téléchargement reste déclenché par l’utilisateur.
+
+La version locale Windows x64 a été compilée en mode release et son démarrage isolé vérifié ; les 238 tests ciblés passent, ainsi qu’une vérification élargie des fichiers modifiés : 4 972 tests réussis, 2 ignorés. Cela ne constitue pas une validation complète des générations ni des autres plateformes. Les mises à jour applicatives et GitHub Actions restent désactivés pendant la préparation d’une distribution indépendante.
+
+Voir les [notes de mise à jour des sources](docs/UPDATES_2026-10-23.md).
 
 **[Consulter la feuille de route →](ROADMAP.md)**
 

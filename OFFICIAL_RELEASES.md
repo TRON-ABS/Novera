@@ -26,7 +26,7 @@ GitHub repository rules control updates to `main` and tag creation. Separate his
 
 Check the repository's current settings to confirm enforcement. The settings can change independently of this document. The repository's public rulesets provide the current technical controls.
 
-GitHub Actions and application update checks remain disabled while builds are on hold. This policy does not authorize a build, installer, release publication or automatic update.
+GitHub Actions and application update checks remain disabled. The maintainer explicitly authorized a local Novera-Desktop build on 23 October 2026. That local build is not an installer, a published release or an authorization to enable automatic updates or remote CI.
 
 ## Identity and source permissions
 

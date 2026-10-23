@@ -121,11 +121,9 @@ export class CoworkChatTransport extends CustomChatTransport {
     return this.frozenTools ?? this.tools
   }
 
-  /** Cowork shares slot 0 with the main chat, under a thread identity of its
-   * own: the engine parks the outgoing thread's KV prefix when the identity on
-   * the slot changes, so neither surface loses its cache to the other. */
+  /** Keep Cowork's identity separate while sharing the bounded resident pool. */
   protected override slotParams(threadId?: string): Record<string, unknown> {
-    return { id_slot: CHAT_SLOT_ID, thread_id: coworkThreadId(threadId) }
+    return { id_slot: CHAT_SLOT_ID, thread_id: coworkThreadId(threadId), cache_thread_slots: 2 }
   }
 
   /**

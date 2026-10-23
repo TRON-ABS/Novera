@@ -12,8 +12,8 @@
 
 use std::convert::Infallible;
 use std::net::SocketAddr;
-use std::time::Duration;
 use std::sync::Arc;
+use std::time::Duration;
 
 use bytes::Bytes;
 use http_body_util::{combinators::BoxBody, BodyExt, Full, StreamBody};
@@ -31,10 +31,69 @@ use super::Route;
 
 type Body = BoxBody<Bytes, Infallible>;
 
+/// Keep a streamed request busy until its native generator, not just its HTTP
+/// headers, has finished. Also releases acquisition on client cancellation.
+struct ModelLease {
+    registry: Arc<Mutex<Registry>>,
+    model: String,
+    slot: Option<SlotLease>,
+}
+
+struct SlotLease {
+    occupancy: Arc<Mutex<SlotOccupancy>>,
+    model: String,
+    slot: i32,
+    keep: bool,
+    selection_ms: f64,
+    save_ms: f64,
+    restore_ms: f64,
+    cacheable: bool,
+}
+
+// Field order is intentional: release the native response before its context,
+// including when a client drops the pending request or a generator panics.
+struct OwnedResponse {
+    response: super::Response,
+    _engine: Arc<super::Engine>,
+    lease: Option<ModelLease>,
+}
+
+impl Drop for SlotLease {
+    fn drop(&mut self) {
+        if let Ok(mut occ) = self.occupancy.try_lock() {
+            occ.finish(&self.model, self.slot, self.keep);
+        } else {
+            let occupancy = Arc::clone(&self.occupancy);
+            let model = self.model.clone();
+            let slot = self.slot;
+            let keep = self.keep;
+            tokio::spawn(async move {
+                occupancy.lock().await.finish(&model, slot, keep);
+            });
+        }
+    }
+}
+
+impl Drop for ModelLease {
+    fn drop(&mut self) {
+        if let Ok(mut reg) = self.registry.try_lock() {
+            reg.release(&self.model);
+        } else {
+            let registry = Arc::clone(&self.registry);
+            let model = self.model.clone();
+            tokio::spawn(async move {
+                registry.lock().await.release(&model);
+            });
+        }
+    }
+}
+
 pub struct EngineServer {
     pub port: u16,
     pub api_key: String,
     registry: Arc<Mutex<Registry>>,
+    load_gate: Arc<Mutex<()>>,
+    occupancy: Arc<Mutex<SlotOccupancy>>,
     /// Cross-session KV persistence, `None` only when the preset named no
     /// `slot-save-path` -- in which case llama.cpp answers the slot routes with
     /// 501 anyway. A store with a zero budget is still `Some`: the feature is
@@ -45,7 +104,6 @@ pub struct EngineServer {
 /// The saved-state directory plus who is sitting in which slot.
 struct SlotState {
     store: StateStore,
-    occupancy: Mutex<SlotOccupancy>,
 }
 
 /// A chat request that names the thread it belongs to, so its KV cache can be
@@ -76,14 +134,11 @@ impl SlotHint {
         if thread.is_empty() {
             return None;
         }
-        let slot = v.get("id_slot")?.as_i64()?;
+        let slot = i32::try_from(v.get("id_slot")?.as_i64()?).ok()?;
         if slot < 0 {
             return None;
         }
-        Some(Self {
-            thread,
-            slot: slot as i32,
-        })
+        Some(Self { thread, slot })
     }
 }
 
@@ -95,7 +150,8 @@ fn strip_thread_field(body: &str) -> String {
     let Some(o) = v.as_object_mut() else {
         return body.to_string();
     };
-    if o.remove(THREAD_FIELD).is_none() {
+    let changed = o.remove(THREAD_FIELD).is_some() | o.remove("cache_thread_slots").is_some();
+    if !changed {
         // Re-serializing a body that did not carry the field would reorder its
         // keys for nothing.
         return body.to_string();
@@ -123,6 +179,8 @@ impl EngineServer {
                 port,
                 api_key,
                 registry,
+                load_gate: Arc::new(Mutex::new(())),
+                occupancy: Arc::new(Mutex::new(SlotOccupancy::default())),
                 slots: None,
             },
             listener,
@@ -215,10 +273,7 @@ impl EngineServer {
     /// directory comes from the preset, which the caller has already read, and
     /// because every existing caller (including the tests) wants it off.
     pub fn with_slot_state(mut self, store: StateStore) -> Self {
-        self.slots = Some(SlotState {
-            store,
-            occupancy: Mutex::new(SlotOccupancy::default()),
-        });
+        self.slots = Some(SlotState { store });
         self
     }
 
@@ -234,50 +289,86 @@ impl EngineServer {
         engine: &Arc<super::Engine>,
         model: &str,
         hint: &SlotHint,
-    ) {
-        let Some(state) = &self.slots else { return };
-        let identity = {
+        body: &str,
+        cacheable: bool,
+    ) -> (i32, SlotLease) {
+        let started = std::time::Instant::now();
+        let (dropped, identity) = {
             let mut reg = self.registry.lock().await;
-            // A model the registry dropped took its slots' KV cache with it, so
-            // the occupancy it left behind names a thread whose state is no
-            // longer in any slot. Claiming against that returns `Evicted(prev)`
-            // and would save this slot -- empty, or another thread's -- over
-            // prev's file. Every drop path records itself; this is where the
-            // record is spent, because it is the only place a claim is made.
-            let dropped = reg.take_dropped();
-            let identity = reg.state_identity(model);
-            drop(reg);
-            if !dropped.is_empty() {
-                let mut occ = state.occupancy.lock().await;
-                for model in dropped {
-                    occ.release_model(&model);
-                }
-            }
-            identity
+            (reg.take_dropped(), reg.state_identity(model))
         };
-        let Some(identity) = identity else {
-            return;
-        };
-
-        let claim = state
-            .occupancy
-            .lock()
-            .await
-            .claim(model, hint.slot, &hint.thread);
-
-        match claim {
-            // Turn 2 and later of the same thread. The slot already holds this
-            // conversation's cache, and it is newer than the file on disk --
-            // restoring here would discard the previous turn's prefill.
-            Claim::Unchanged => return,
-            Claim::Evicted(prev) => {
-                state.save(engine, model, hint.slot, &prev, &identity).await;
+        {
+            let mut occ = self.occupancy.lock().await;
+            for model in dropped {
+                occ.release_model(&model);
             }
-            Claim::Empty => {}
         }
-        state
-            .restore(engine, model, hint.slot, &hint.thread, &identity)
-            .await;
+        // Use only slots already allocated by llama.cpp. The client budget
+        // never raises parallelism or allocates extra KV memory.
+        let requested = serde_json::from_str::<serde_json::Value>(body)
+            .ok()
+            .and_then(|v| v.get("cache_thread_slots").and_then(|v| v.as_u64()))
+            .unwrap_or(1)
+            .clamp(1, 2) as i32;
+        let unpinned = !cacheable
+            && serde_json::from_str::<serde_json::Value>(body)
+                .ok()
+                .and_then(|v| v.get("id_slot").and_then(|s| s.as_i64()))
+                .unwrap_or(-1)
+                < 0;
+        let count = if (requested > 1 && hint.slot == 0) || unpinned {
+            let engine = Arc::clone(engine);
+            tokio::task::spawn_blocking(move || {
+                let res = engine.request(Route::Slots.as_shim_name(), "");
+                serde_json::from_str::<serde_json::Value>(&res.body())
+                    .ok()
+                    .and_then(|v| v.as_array().map(|a| a.len() as i32))
+                    .unwrap_or(1)
+            })
+            .await
+            .unwrap_or(1)
+            .min(if unpinned { i32::MAX } else { requested })
+            .max(1)
+        } else {
+            hint.slot.saturating_add(1)
+        };
+        let explicit = (!unpinned && (requested == 1 || hint.slot != 0)).then_some(hint.slot);
+        let (slot, claim) = loop {
+            if let Some(reservation) =
+                self.occupancy
+                    .lock()
+                    .await
+                    .reserve(model, &hint.thread, count, explicit)
+            {
+                break reservation;
+            }
+            tokio::time::sleep(Duration::from_millis(10)).await;
+        };
+        let mut lease = SlotLease {
+            occupancy: Arc::clone(&self.occupancy),
+            model: model.into(),
+            slot,
+            keep: false,
+            selection_ms: started.elapsed().as_secs_f64() * 1000.0,
+            save_ms: 0.0,
+            restore_ms: 0.0,
+            cacheable,
+        };
+        if let (Some(state), Some(identity)) = (&self.slots, identity) {
+            if let Claim::Evicted(prev) = &claim {
+                let start = std::time::Instant::now();
+                state.save(engine, model, slot, prev, &identity).await;
+                lease.save_ms = start.elapsed().as_secs_f64() * 1000.0;
+            }
+            if cacheable && claim != Claim::Unchanged {
+                let start = std::time::Instant::now();
+                state
+                    .restore(engine, model, slot, &hint.thread, &identity)
+                    .await;
+                lease.restore_ms = start.elapsed().as_secs_f64() * 1000.0;
+            }
+        }
+        (slot, lease)
     }
 
     /// Writes every resident slot to disk. The shutdown counterpart of
@@ -295,7 +386,7 @@ impl EngineServer {
 
     async fn save_slots(&self, only: Option<&str>) {
         let Some(state) = &self.slots else { return };
-        let resident: Vec<_> = state
+        let resident: Vec<_> = self
             .occupancy
             .lock()
             .await
@@ -327,7 +418,30 @@ impl EngineServer {
             let Some((engine, identity)) = acquired else {
                 continue;
             };
+            let reservation = {
+                let mut occ = self.occupancy.lock().await;
+                if occ.get(&model, slot) == Some(thread.as_str()) {
+                    occ.reserve(&model, &thread, slot.saturating_add(1), Some(slot))
+                        .map(|_| SlotLease {
+                            occupancy: Arc::clone(&self.occupancy),
+                            model: model.clone(),
+                            slot,
+                            keep: true,
+                            cacheable: true,
+                            selection_ms: 0.0,
+                            save_ms: 0.0,
+                            restore_ms: 0.0,
+                        })
+                } else {
+                    None
+                }
+            };
+            let Some(reservation) = reservation else {
+                self.registry.lock().await.release(&model);
+                continue;
+            };
             state.save(&engine, &model, slot, &thread, &identity).await;
+            drop(reservation);
             self.registry.lock().await.release(&model);
         }
     }
@@ -352,12 +466,12 @@ impl EngineServer {
         let erased = match (model, thread) {
             (_, Some(thread)) => {
                 let n = state.store.forget_thread(thread);
-                state.occupancy.lock().await.release_thread(thread);
+                self.occupancy.lock().await.release_thread(thread);
                 n
             }
             (Some(model), None) => {
                 let n = state.store.forget_model(model);
-                state.occupancy.lock().await.release_model(model);
+                self.occupancy.lock().await.release_model(model);
                 n
             }
             (None, None) => {
@@ -370,7 +484,7 @@ impl EngineServer {
         json_ok(&serde_json::json!({ "erased": erased }))
     }
 
-    async fn route(&self, req: Request<Incoming>) -> HttpResponse<Body> {
+    async fn route(self: &Arc<Self>, req: Request<Incoming>) -> HttpResponse<Body> {
         let path = req.uri().path().to_string();
         let method = req.method().clone();
 
@@ -579,21 +693,7 @@ impl EngineServer {
                 }));
             }
         }
-        // Serializing loads behind the lock is deliberate -- two concurrent
-        // loads would race on models_max -- but starting a llama_context is
-        // blocking, so it needs block_in_place to move other tasks off this
-        // worker instead of stalling the reactor. `block_on` inside
-        // `spawn_blocking` would risk deadlocking the runtime.
-        let mut reg = self.registry.lock().await;
-        let outcome = tokio::task::block_in_place(|| {
-            let r = reg.acquire(model).map(|_| ());
-            if r.is_ok() {
-                // Resident but idle, so it stays evictable under models_max.
-                reg.release(model);
-            }
-            r
-        });
-        drop(reg);
+        let outcome = self.ensure_loaded(model).await;
 
         match outcome {
             Ok(()) => json_ok(&serde_json::json!({ "status": "loaded", "model": model })),
@@ -605,14 +705,77 @@ impl EngineServer {
         }
     }
 
+    async fn ensure_loaded(&self, model: &str) -> Result<(), RegistryError> {
+        let gate = Arc::clone(&self.load_gate);
+        let registry = Arc::clone(&self.registry);
+        let model = model.to_string();
+        // A dropped HTTP client must not strand a reservation. The detached
+        // coordinator always publishes or rejects the native result.
+        tokio::spawn(async move {
+            let _gate = gate.lock().await;
+            let (ticket, retired) = {
+                let mut reg = registry.lock().await;
+                if reg.is_loaded(&model) {
+                    return Ok(());
+                }
+                reg.prepare_load(&model)?
+            };
+            let job = ticket.clone();
+            let result = tokio::task::spawn_blocking(move || {
+                drop(retired);
+                job.start()
+            })
+            .await
+            .unwrap_or_else(|e| {
+                Err(super::EngineError::Start(format!(
+                    "native load task failed: {e}"
+                )))
+            });
+            let outcome = registry.lock().await.finish_load(&ticket, &result);
+            drop(result);
+            outcome
+        })
+        .await
+        .map_err(|e| RegistryError::Engine(super::EngineError::Start(e.to_string())))?
+    }
+
+    async fn acquire_model(&self, model: &str) -> Result<Arc<super::Engine>, RegistryError> {
+        {
+            let mut reg = self.registry.lock().await;
+            if reg.is_loaded(model) {
+                return reg.acquire(model);
+            }
+        }
+        self.ensure_loaded(model).await?;
+        let mut reg = self.registry.lock().await;
+        if !reg.is_loaded(model) {
+            return Err(super::EngineError::Start(
+                "model changed before request acquisition; retry".into(),
+            )
+            .into());
+        }
+        reg.acquire(model)
+    }
+
     /// Refuses while requests are in flight rather than cancelling them, which
     /// is what upstream's router does.
     async fn unload_model(&self, model: &str) -> HttpResponse<Body> {
-        if !self.registry.lock().await.is_loaded(model) {
+        let mut reg = self.registry.lock().await;
+        if reg.cancel_load(model) {
+            return json_ok(&serde_json::json!({ "status": "unloaded", "model": model }));
+        }
+        if !reg.is_loaded(model) {
             return json_ok(&serde_json::json!({
                 "status": "already unloaded", "model": model
             }));
         }
+        if reg.busy_models().iter().any(|id| id == model) {
+            return json_error(
+                StatusCode::CONFLICT,
+                "the model has requests in flight; retry once they finish",
+            );
+        }
+        drop(reg);
         // Before the drop, not after: `unload` takes the engine and the slot's
         // KV cache with it. This is the path Jan switches models on -- with
         // `models_max` at 1 the extension unloads the outgoing model before
@@ -631,7 +794,7 @@ impl EngineServer {
     }
 
     async fn dispatch(
-        &self,
+        self: &Arc<Self>,
         route: Route,
         model: Option<String>,
         body: String,
@@ -643,16 +806,12 @@ impl EngineServer {
         };
 
         let engine = {
-            let mut reg = self.registry.lock().await;
-            // acquire may start an engine, which blocks; see load_model.
-            match tokio::task::block_in_place(|| reg.acquire(&model)) {
+            match self.acquire_model(&model).await {
                 Ok(e) => e,
                 Err(RegistryError::Full { models_max }) => {
                     return json_error(
                         StatusCode::SERVICE_UNAVAILABLE,
-                        &format!(
-                            "all {models_max} model slots are busy; retry shortly"
-                        ),
+                        &format!("all {models_max} model slots are busy; retry shortly"),
                     )
                 }
                 Err(RegistryError::Engine(e)) => {
@@ -660,47 +819,89 @@ impl EngineServer {
                 }
             }
         };
+        let lease = ModelLease {
+            registry: Arc::clone(&self.registry),
+            model: model.clone(),
+            slot: None,
+        };
+        let server = Arc::clone(self);
+        // A disconnected HTTP client cannot release a slot midway through a
+        // native save/restore. Finish the handover and let body drop cancel it.
+        tokio::spawn(async move {
+            server
+                .dispatch_acquired(engine, route, model, body, lease)
+                .await
+        })
+        .await
+        .unwrap_or_else(|_| json_error(StatusCode::INTERNAL_SERVER_ERROR, "request task failed"))
+    }
 
+    async fn dispatch_acquired(
+        &self,
+        engine: Arc<super::Engine>,
+        route: Route,
+        model: String,
+        mut body: String,
+        mut lease: ModelLease,
+    ) -> HttpResponse<Body> {
         // Only a generating route has a KV cache worth keeping; an embedding or
         // a tokenize call leaves nothing behind.
-        let body = if route.caches_prompt() {
-            if let Some(hint) = SlotHint::from_body(&body) {
-                self.hand_over_slot(&engine, &model, &hint).await;
+        let body = if route.caches_prompt()
+            && serde_json::from_str::<serde_json::Value>(&body).is_ok_and(|v| v.is_object())
+        {
+            let named = SlotHint::from_body(&body);
+            let cacheable = named.is_some();
+            let hint = named.unwrap_or_else(|| SlotHint {
+                thread: format!("untracked-{:016x}", rand::random::<u64>()),
+                slot: serde_json::from_str::<serde_json::Value>(&body)
+                    .ok()
+                    .and_then(|v| v.get("id_slot").and_then(|v| v.as_i64()))
+                    .and_then(|v| i32::try_from(v).ok())
+                    .filter(|v| *v >= 0)
+                    .unwrap_or(0),
+            });
+            {
+                let (slot, reservation) = self
+                    .hand_over_slot(&engine, &model, &hint, &body, cacheable)
+                    .await;
+                lease.slot = Some(reservation);
+                if let Ok(mut v) = serde_json::from_str::<serde_json::Value>(&body) {
+                    v["id_slot"] = serde_json::json!(slot);
+                    body = v.to_string();
+                }
             }
             strip_thread_field(&body)
         } else {
             body
         };
 
-        let out = run(engine, route, body, STREAM_BUFFER).await;
-        self.registry.lock().await.release(&model);
-        out
+        run(engine, route, body, STREAM_BUFFER, Some(lease)).await
     }
 
     /// For routes with no model in the body: use the first resident engine.
-    async fn dispatch_any(&self, route: Route, body: String) -> HttpResponse<Body> {
+    async fn dispatch_any(self: &Arc<Self>, route: Route, body: String) -> HttpResponse<Body> {
         let engine = {
             let mut reg = self.registry.lock().await;
             let Some(first) = reg.loaded_models().into_iter().next() else {
-                return json_error(
-                    StatusCode::SERVICE_UNAVAILABLE,
-                    "no model is loaded",
-                );
+                return json_error(StatusCode::SERVICE_UNAVAILABLE, "no model is loaded");
             };
             match tokio::task::block_in_place(|| reg.acquire(&first)) {
                 Ok(e) => (e, first),
-                Err(e) => {
-                    return json_error(
-                        StatusCode::SERVICE_UNAVAILABLE,
-                        &format!("{e:?}"),
-                    )
-                }
+                Err(e) => return json_error(StatusCode::SERVICE_UNAVAILABLE, &format!("{e:?}")),
             }
         };
         let (eng, id) = engine;
-        let out = run(eng, route, body, STREAM_BUFFER).await;
-        self.registry.lock().await.release(&id);
-        out
+        let lease = ModelLease {
+            registry: Arc::clone(&self.registry),
+            model: id.clone(),
+            slot: None,
+        };
+        let server = Arc::clone(self);
+        tokio::spawn(async move { server.dispatch_acquired(eng, route, id, body, lease).await })
+            .await
+            .unwrap_or_else(|_| {
+                json_error(StatusCode::INTERNAL_SERVER_ERROR, "request task failed")
+            })
     }
 }
 
@@ -810,9 +1011,8 @@ impl SlotState {
 /// worth saving".
 async fn slot_tokens(engine: &Arc<super::Engine>, slot: i32) -> u64 {
     let engine = Arc::clone(engine);
-    let body = tokio::task::block_in_place(move || {
-        engine.request(Route::Slots.as_shim_name(), "").body()
-    });
+    let body =
+        tokio::task::block_in_place(move || engine.request(Route::Slots.as_shim_name(), "").body());
     let Ok(v) = serde_json::from_str::<serde_json::Value>(&body) else {
         return 0;
     };
@@ -831,6 +1031,7 @@ async fn run(
     route: Route,
     body: String,
     buffer: usize,
+    lease: Option<ModelLease>,
 ) -> HttpResponse<Body> {
     let name = route.as_shim_name();
 
@@ -850,20 +1051,42 @@ async fn run(
         // real 0% partial instead of an empty one, so the duplicate fired on
         // every streaming completion rather than being latent.
         let first = if is_stream { String::new() } else { res.body() };
-        (res.status(), res.content_type(), first, is_stream, res)
+        (
+            res.status(),
+            res.content_type(),
+            first,
+            is_stream,
+            OwnedResponse {
+                response: res,
+                _engine: engine2,
+                lease,
+            },
+        )
     })
     .await;
 
-    let Ok((status, content_type, first, is_stream, mut res)) = head else {
+    let Ok((status, content_type, first, is_stream, mut owned)) = head else {
         return json_error(StatusCode::INTERNAL_SERVER_ERROR, "engine task panicked");
     };
 
     let status = StatusCode::from_u16(status).unwrap_or(StatusCode::INTERNAL_SERVER_ERROR);
+    let mut builder = HttpResponse::builder()
+        .status(status)
+        .header(hyper::header::CONTENT_TYPE, content_type);
+    if let Some(slot) = owned.lease.as_mut().and_then(|l| l.slot.as_mut()) {
+        slot.keep = status.is_success() && slot.cacheable;
+        builder = builder
+            .header("x-jan-slot", slot.slot.to_string())
+            .header(
+                "x-jan-slot-selection-ms",
+                format!("{:.3}", slot.selection_ms),
+            )
+            .header("x-jan-kv-save-ms", format!("{:.3}", slot.save_ms))
+            .header("x-jan-kv-restore-ms", format!("{:.3}", slot.restore_ms));
+    }
 
     if !is_stream {
-        return HttpResponse::builder()
-            .status(status)
-            .header(hyper::header::CONTENT_TYPE, content_type)
+        return builder
             .body(Full::new(Bytes::from(first)).boxed())
             .unwrap_or_else(|_| json_error(StatusCode::INTERNAL_SERVER_ERROR, "bad response"));
     }
@@ -873,14 +1096,11 @@ async fn run(
     // cancels generation instead of running it to completion for nobody.
     let (tx, rx) = mpsc::channel::<Result<Frame<Bytes>, Infallible>>(buffer);
     tokio::task::spawn_blocking(move || {
-        // `res` is a bare handle into the engine's server context, and
-        // `dispatch` releases its registry reference the moment `run` returns
-        // -- which is now, while this is still draining. Without an owning
-        // clone here the model looks idle, eviction or an unload drops the last
-        // Arc, and `next_chunk` reads a deleted server_context.
-        let _engine = engine;
+        // Capture the aggregate, not disjoint fields: preserve native response
+        // destruction before its context, including on cancellation or panic.
+        let mut owned = owned;
         loop {
-            match res.next_chunk() {
+            match owned.response.next_chunk() {
                 Ok(Some(chunk)) => {
                     if chunk.is_empty() {
                         continue;
@@ -889,19 +1109,22 @@ async fn run(
                         .blocking_send(Ok(Frame::data(Bytes::from(chunk))))
                         .is_err()
                     {
-                        res.cancel();
+                        owned.response.cancel();
                         break;
                     }
                 }
                 Ok(None) => break,
-                Err(_) => break,
+                Err(_) => {
+                    if let Some(slot) = owned.lease.as_mut().and_then(|l| l.slot.as_mut()) {
+                        slot.keep = false;
+                    }
+                    break;
+                }
             }
         }
     });
 
-    HttpResponse::builder()
-        .status(status)
-        .header(hyper::header::CONTENT_TYPE, content_type)
+    builder
         .header(hyper::header::CACHE_CONTROL, "no-cache")
         .body(StreamBody::new(tokio_stream_wrapper(rx)).boxed())
         .unwrap_or_else(|_| json_error(StatusCode::INTERNAL_SERVER_ERROR, "bad response"))
@@ -942,7 +1165,10 @@ fn extract_model(body: &str) -> Option<String> {
 fn json_ok(v: &serde_json::Value) -> HttpResponse<Body> {
     HttpResponse::builder()
         .status(StatusCode::OK)
-        .header(hyper::header::CONTENT_TYPE, "application/json; charset=utf-8")
+        .header(
+            hyper::header::CONTENT_TYPE,
+            "application/json; charset=utf-8",
+        )
         .body(Full::new(Bytes::from(v.to_string())).boxed())
         .expect("a literal json response is always buildable")
 }
@@ -951,7 +1177,10 @@ fn json_error(status: StatusCode, message: &str) -> HttpResponse<Body> {
     let v = serde_json::json!({ "error": { "message": message, "code": status.as_u16() } });
     HttpResponse::builder()
         .status(status)
-        .header(hyper::header::CONTENT_TYPE, "application/json; charset=utf-8")
+        .header(
+            hyper::header::CONTENT_TYPE,
+            "application/json; charset=utf-8",
+        )
         .body(Full::new(Bytes::from(v.to_string())).boxed())
         .expect("a literal json response is always buildable")
 }

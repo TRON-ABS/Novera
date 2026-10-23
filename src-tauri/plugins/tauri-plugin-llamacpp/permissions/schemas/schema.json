@@ -295,6 +295,18 @@
       "type": "string",
       "oneOf": [
         {
+          "description": "Enables the begin_engine_restart command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-begin-engine-restart",
+          "markdownDescription": "Enables the begin_engine_restart command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the begin_engine_restart command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-begin-engine-restart",
+          "markdownDescription": "Denies the begin_engine_restart command without any pre-configured scope."
+        },
+        {
           "description": "Enables the cleanup_llama_processes command without any pre-configured scope.",
           "type": "string",
           "const": "allow-cleanup-llama-processes",
@@ -305,6 +317,18 @@
           "type": "string",
           "const": "deny-cleanup-llama-processes",
           "markdownDescription": "Denies the cleanup_llama_processes command without any pre-configured scope."
+        },
+        {
+          "description": "Enables the end_engine_restart command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-end-engine-restart",
+          "markdownDescription": "Enables the end_engine_restart command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the end_engine_restart command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-end-engine-restart",
+          "markdownDescription": "Denies the end_engine_restart command without any pre-configured scope."
         },
         {
           "description": "Enables the engine_devices command without any pre-configured scope.",

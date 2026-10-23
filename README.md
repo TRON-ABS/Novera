@@ -28,7 +28,7 @@ We are building around a clear product direction: keep a dependable foundation, 
 | Multilingual interface | 36 selectable locales, including regional and script variants. Translation coverage varies. |
 | An extensible application | A desktop application with extension points for model engines, tools and future capabilities. |
 
-These describe the source foundation. A packaged Novera release and its runtime validation are still being prepared.
+These describe the source foundation. The current 0.8.7 source has been built and launched locally on Windows x64; public packaging and broader runtime validation remain in preparation.
 
 ## 36 interface language options
 
@@ -42,7 +42,11 @@ Arabic, Egyptian Arabic, Urdu, Western Punjabi and Iranian Persian include right
 
 Novera has its own product identity and source repository. **No Novera installer or binary has been released yet.** Existing Jan downloads are not Novera releases.
 
-The next steps are to stabilize the foundation, verify the integrated experience and prepare an independent distribution process. Application updates and GitHub Actions remain disabled while builds are on hold.
+The current source includes the Novera desktop identity, updated engine/chat integration and a fixed first-model recommendation: **LiquidAI LFM2.5-2.6B Q6_K**, with temperature **0.1**, top-k **50**, repetition penalty **1.1** and a **32,768-token context**. Its download remains a user action in setup.
+
+A local Windows x64 release build and isolated startup have been verified, with 238 targeted tests and a broader changed-file frontend/extension run passing 4,972 tests (2 skipped). This does not establish complete model-generation or cross-platform validation. Application updates and GitHub Actions remain disabled while the independent distribution process is prepared.
+
+See [the source update notes](docs/UPDATES_2026-10-23.md) for scope and validation.
 
 **[Read the development roadmap →](ROADMAP.md)**
 

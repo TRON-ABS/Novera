@@ -58,7 +58,7 @@ describe('skillStore', () => {
     it('fails loudly when the data folder is unavailable', async () => {
       getJanDataFolder.mockResolvedValue(null)
       await expect(listSkills(storeScope)).rejects.toThrow(
-        'Jan data folder is unavailable'
+        'Novera data folder is unavailable'
       )
     })
   })

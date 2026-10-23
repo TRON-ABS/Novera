@@ -518,7 +518,7 @@ fn skill_read(args: &serde_json::Value, ctx: &ToolContext<'_>) -> String {
 
 /// `skill_write` tool: create/update a skill (new ones as `<name>/SKILL.md`).
 /// `scope` picks the store: `project` (the default, `store_root`) or `user`
-/// (`skill_user_root`, i.e. `~/.jan/skills`, visible from every project).
+/// (`skill_user_root`, i.e. `~/.novera/skills`, visible from every project).
 /// The `[skills].enabled` whitelist is honored for writes too: a disabled skill
 /// is treated as read-only so the model cannot silently overwrite (or resurrect)
 /// a skill the user has turned off or locked out of the catalog.
@@ -3058,7 +3058,7 @@ mod tests {
     #[tokio::test]
     async fn walks_skip_the_jan_home_inside_the_project() {
         let home = unique_root();
-        let jan = home.join(".jan");
+        let jan = home.join(".novera");
         std::fs::create_dir_all(jan.join("projects/p-1")).unwrap();
         std::fs::write(jan.join("config.toml"), b"api_key = SECRET_MARKER").unwrap();
         std::fs::write(jan.join("projects/p-1/agent.toml"), b"SECRET_MARKER").unwrap();
@@ -3073,7 +3073,7 @@ mod tests {
         for path in [".", "./"] {
             let ls = run("ls", json!({"path": path})).await;
             assert!(ls.contains("notes.txt") && ls.contains(".janitor"), "{ls}");
-            assert!(!ls.lines().any(|l| l == ".jan/"), "{ls}");
+            assert!(!ls.lines().any(|l| l == ".novera/"), "{ls}");
             let find = run("find", json!({"pattern": "**/*", "path": path})).await;
             assert!(find.contains("notes.txt"), "{find}");
             assert!(!find.contains("config.toml") && !find.contains("agent.toml"), "{find}");

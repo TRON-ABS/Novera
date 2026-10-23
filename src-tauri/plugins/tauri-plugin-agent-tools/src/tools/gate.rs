@@ -134,7 +134,7 @@ impl SessionGrants {
 pub enum DenyReason {
     /// `[tools] deny` in agent.toml names this tool.
     Policy,
-    /// The call reaches the Jan home (`~/.jan`), hidden from every tool.
+    /// The call reaches the Jan home (`~/.novera`), hidden from every tool.
     Hidden,
 }
 
@@ -157,7 +157,7 @@ pub struct GateContext<'a> {
     /// The subset of `read_roots` the caller marked writable: writes inside one
     /// are ordinary in-project writes rather than escapes.
     pub write_roots: &'a [PathBuf],
-    /// The Jan home (`~/.jan`: `config.toml` with keys and hooks, every
+    /// The Jan home (`~/.novera`: `config.toml` with keys and hooks, every
     /// project's store). Set while the shell is sandboxed; paths and commands
     /// reaching it are refused outright, wherever it sits relative to the
     /// project (running in `$HOME` puts it inside). See
@@ -409,7 +409,7 @@ mod tests {
     #[test]
     fn the_jan_home_is_refused_when_the_project_is_home() {
         let home = unique_root();
-        let jan = home.join(".jan");
+        let jan = home.join(".novera");
         std::fs::create_dir_all(jan.join("projects/home-1")).unwrap();
         std::fs::write(jan.join("config.toml"), b"[providers]\n").unwrap();
         std::fs::write(jan.join("projects/home-1/agent.toml"), b"[tools]\n").unwrap();
@@ -422,15 +422,15 @@ mod tests {
         };
         let mut granted = SessionGrants::default();
         granted.grant(PromptKind::Write);
-        granted.grant_command("cat ~/.jan/config.toml");
+        granted.grant_command("cat ~/.novera/config.toml");
         let hidden = Decision::HardDeny(DenyReason::Hidden);
         let cases = [
-            ("read", json!({"path": ".jan/config.toml"})),
-            ("write", json!({"path": ".jan/projects/home-1/agent.toml", "content": ""})),
-            ("edit", json!({"path": ".jan/config.toml"})),
-            ("ls", json!({"path": ".jan"})),
-            ("grep", json!({"pattern": "key", "path": ".jan"})),
-            ("shell", json!({"command": "cat ~/.jan/config.toml"})),
+            ("read", json!({"path": ".novera/config.toml"})),
+            ("write", json!({"path": ".novera/projects/home-1/agent.toml", "content": ""})),
+            ("edit", json!({"path": ".novera/config.toml"})),
+            ("ls", json!({"path": ".novera"})),
+            ("grep", json!({"pattern": "key", "path": ".novera"})),
+            ("shell", json!({"command": "cat ~/.novera/config.toml"})),
         ];
         for perms in [ToolPermissions::default(), ToolPermissions::allow_all()] {
             for (tool, args) in &cases {
@@ -452,11 +452,11 @@ mod tests {
     }
 
     /// The Jan home is refused from any project, not only when it is inside:
-    /// an escaping read of `~/.jan/config.toml` must not reach a prompt.
+    /// an escaping read of `~/.novera/config.toml` must not reach a prompt.
     #[test]
     fn the_jan_home_is_refused_from_an_ordinary_project() {
         let home = unique_root();
-        let jan = home.join(".jan");
+        let jan = home.join(".novera");
         std::fs::create_dir_all(&jan).unwrap();
         std::fs::write(jan.join("config.toml"), b"k").unwrap();
         let project = home.join("proj");
@@ -593,12 +593,12 @@ mod tests {
     #[test]
     fn hard_denies_win_over_escalation() {
         let root = unique_root();
-        let jan = root.join(".jan");
+        let jan = root.join(".novera");
         std::fs::create_dir_all(&jan).unwrap();
         let ctx = GateContext { hidden_root: Some(&jan), ..escalation_ctx(&root) };
         let d = resolve_decision(
             lookup("shell").unwrap(),
-            &json!({"command": "cat .jan/config.toml", "escalate": true}),
+            &json!({"command": "cat .novera/config.toml", "escalate": true}),
             &ctx,
             &ToolPermissions::allow_all(),
             &SessionGrants::default(),

@@ -79,7 +79,7 @@ pub(crate) fn endpoint_base_from_chat_url(upstream_url: &str) -> String {
 
 /// Map a provider's configured `api_type` to a `genai` adapter. Everything
 /// unrecognized stays on the OpenAI-compatible path, which is what the agent has
-/// always spoken and what every provider in `~/.jan/config.toml` serves today.
+/// always spoken and what every provider in `~/.novera/config.toml` serves today.
 pub(crate) fn adapter_kind_for(api_type: Option<&str>) -> AdapterKind {
     match api_type {
         Some("anthropic") => AdapterKind::Anthropic,

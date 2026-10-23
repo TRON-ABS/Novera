@@ -4,6 +4,11 @@ const writtenFiles: Record<string, string> = {}
 const modelYamls: Record<string, unknown> = {}
 const existingPaths = new Set<string>()
 
+vi.mock('@janhq/tauri-plugin-llamacpp-api', () => ({
+  engineDevices: vi.fn(async () => [{ id: 'CUDA0', name: 'NVIDIA GeForce RTX 5070 Laptop GPU', free: 7000 }]),
+  getEngineVersion: vi.fn(async () => ({ tag: 'b11823' })),
+}))
+
 vi.mock('@janhq/core', () => ({
   logger: {
     debug: vi.fn(),
@@ -48,6 +53,41 @@ vi.mock('@tauri-apps/api/core', () => ({
 }))
 
 import { generatePreset, threadCacheDir } from './preset'
+
+describe('opt-in repetitive text speculation', () => {
+  it('emits calibrated batching only when opted in and matched', async () => {
+    setupModel('calibrated', { model_path: 'C:/models/Tron-v1-Q6_K.gguf', size_bytes: 2221614624,
+      performance_mode: 'measured', ctx_size: 8192, parallel: 1 })
+    setupModel('too-long', { model_path: 'C:/models/Tron-v1-Q6_K.gguf', size_bytes: 2221614624,
+      performance_mode: 'measured', ctx_size: 32768, parallel: 1 })
+    setupModel('unknown-context', { model_path: 'C:/models/Tron-v1-Q6_K.gguf', size_bytes: 2221614624,
+      performance_mode: 'measured', parallel: 1 })
+    await generatePreset('/p', '/jan', {} as any)
+    const ini = writtenFiles['/p/router.preset.ini']
+    const calibrated = ini.split('[calibrated]')[1].split('\n[')[0]
+    expect(calibrated).toContain('batch-size = 2048')
+    expect(calibrated).toContain('ubatch-size = 2048')
+    expect(calibrated).toContain('# jan-measured-performance: 2048,512')
+    expect(ini.split('[too-long]')[1]).not.toContain('jan-measured-performance')
+    expect(ini.split('[unknown-context]')[1]).not.toContain('jan-measured-performance')
+  })
+  it('enables n-grams without a draft and preserves draft/embedding priority', async () => {
+    setupModel('repeat', { ngram_speculation: 'repetitive' })
+    setupModel('plain', {})
+    setupModel('embed', { embedding: true, ngram_speculation: 'repetitive' })
+    setupModel('mtp', { mtp: true, mtp_layers: 1, ngram_speculation: 'repetitive' })
+    await generatePreset('/p', '/jan', {} as any)
+    const ini = writtenFiles['/p/router.preset.ini']
+    const section = (id: string) => ini.split(`[${id}]`)[1].split('\n[')[0]
+    expect(section('repeat')).toContain('spec-type = ngram-map-k')
+    expect(section('repeat')).toContain('spec-draft-n-max = 8')
+    expect(section('repeat')).toContain('parallel = 1')
+    expect(section('plain')).not.toContain('spec-type')
+    expect(section('embed')).not.toContain('spec-type')
+    expect(section('mtp')).toContain('spec-type = draft-mtp')
+    expect(section('mtp')).not.toContain('ngram-map-k')
+  })
+})
 
 const CONFIG = {} as any
 

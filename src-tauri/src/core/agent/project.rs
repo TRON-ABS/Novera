@@ -1,5 +1,5 @@
 //! `agent.toml` project config parsing and store scaffolding
-//! (`~/.jan/projects/<slug>/`).
+//! (`~/.novera/projects/<slug>/`).
 
 use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
@@ -78,18 +78,18 @@ pub(crate) struct PromptSection {
     pub prefix_allow: Option<Vec<String>>,
 }
 
-/// `[context]` — which instructions files Jan reads besides `JAN.md`.
+/// `[context]` — which instructions files Jan reads besides `NOVERA.md`.
 #[derive(Debug, Clone, Default, Deserialize)]
 pub(crate) struct ContextSection {
-    /// Files read, in order, from a directory that has no non-empty `JAN.md`
+    /// Files read, in order, from a directory that has no non-empty `NOVERA.md`
     /// (#9079). Only `AGENTS.md` and `CLAUDE.md` are recognised. `None` defers to
-    /// `~/.jan/config.toml`, then to [`DEFAULT_CONTEXT_FALLBACK_FILES`]; `[]`
-    /// reads `JAN.md` only, which is the behaviour before the fallback existed.
+    /// `~/.novera/config.toml`, then to [`DEFAULT_CONTEXT_FALLBACK_FILES`]; `[]`
+    /// reads `NOVERA.md` only, which is the behaviour before the fallback existed.
     #[serde(default)]
     pub fallback_files: Option<Vec<String>>,
 }
 
-/// The fallback used when neither `agent.toml` nor `~/.jan/config.toml` sets
+/// The fallback used when neither `agent.toml` nor `~/.novera/config.toml` sets
 /// `[context].fallback_files`: the vendor-neutral `AGENTS.md`. `CLAUDE.md` is
 /// opt-in, since it is usually written for one specific agent.
 pub(crate) const DEFAULT_CONTEXT_FALLBACK_FILES: &[&str] = &["AGENTS.md"];
@@ -99,7 +99,7 @@ pub(crate) const DEFAULT_CONTEXT_FALLBACK_FILES: &[&str] = &["AGENTS.md"];
 pub(crate) const KNOWN_CONTEXT_FALLBACK_FILES: &[&str] = &["AGENTS.md", "CLAUDE.md"];
 
 /// The resolved `[context].fallback_files` for `project_root`: the project's
-/// `agent.toml` if it sets the key, else `~/.jan/config.toml`, else the
+/// `agent.toml` if it sets the key, else `~/.novera/config.toml`, else the
 /// default. Unknown names and duplicates are dropped; order is kept, and it is
 /// the precedence within a directory.
 pub(crate) fn context_fallback_files(project_root: &Path) -> Vec<String> {
@@ -147,7 +147,7 @@ pub(crate) struct PluginsSection {
 
 /// `[provider]` — project-local override of a single provider's config,
 /// highest priority in the resolution chain (wins over the global
-/// `~/.jan/config.toml` and the desktop-inherited config). Optional: most
+/// `~/.novera/config.toml` and the desktop-inherited config). Optional: most
 /// projects rely on the global scope instead. CLI-only, like `AgentSection`.
 #[cfg(feature = "cli")]
 #[derive(Debug, Clone, Default, Deserialize)]
@@ -237,7 +237,7 @@ pub(crate) struct AgentSection {
     pub max_parallel_subagents: Option<u32>,
     /// Saved threads untouched for this many days are pruned at session start
     /// (default 90; 0 disables), when `prune_threads = true` in
-    /// `~/.jan/config.toml` turns pruning on. The newest few, the resumed thread, forks'
+    /// `~/.novera/config.toml` turns pruning on. The newest few, the resumed thread, forks'
     /// parents and worktree-owning threads are always kept.
     #[serde(default)]
     pub thread_retention_days: Option<u32>,
@@ -310,7 +310,7 @@ pub(crate) struct ToolsSection {
     #[serde(default)]
     pub allow_escalation: Option<bool>,
     /// Host env-var names (exact or `*`-glob) the sandboxed `bash` may inherit
-    /// beyond the fixed base allowlist, merged over `~/.jan/config.toml`. Empty
+    /// beyond the fixed base allowlist, merged over `~/.novera/config.toml`. Empty
     /// by default; a secret-looking name is never copied by a glob.
     #[serde(default)]
     pub env_passthrough: Vec<String>,
@@ -330,12 +330,12 @@ const AGENT_TOML_TEMPLATE: &str = r#"[agent]
 # max_parallel_subagents = 10  # max concurrently-running subagents per run; extra dispatches queue FIFO
 # thread_retention_days = 90  # prune saved threads older than this at startup; 0 disables
 # max_threads = 500  # keep at most this many saved threads; 0 disables
-#                    # (both apply only with prune_threads = true in ~/.jan/config.toml)
+#                    # (both apply only with prune_threads = true in ~/.novera/config.toml)
 # show_reasoning = false  # expand  reasoning in the transcript (Ctrl-O still toggles)
 # send_reasoning = true  # resend prior reasoning to the model; false drops it from the request
 #                        # (a provider that rejects the field is detected and stripped automatically)
 
-# Project-local provider override. Wins over ~/.jan/config.toml and any
+# Project-local provider override. Wins over ~/.novera/config.toml and any
 # provider inherited from Jan Desktop's settings.json. Most projects don't
 # need this and should rely on the global scope instead.
 # [provider]
@@ -376,7 +376,7 @@ allow_write = []
 # allow_home_read = true
 # Whether `shell` runs under OS confinement at all. Unset follows the surface:
 # the CLI runs unconfined unless you pass --sandbox or set sandbox = true in
-# ~/.jan/config.toml; the desktop always confines. Set it here to require
+# ~/.novera/config.toml; the desktop always confines. Set it here to require
 # confinement for anyone working in this project.
 # sandbox = true
 # Let a sandboxed shell command that asks to escalate run outside the sandbox
@@ -386,7 +386,7 @@ allow_write = []
 # allow_escalation = true
 # Host environment variables the shell may inherit beyond the minimal base
 # (PATH, HOME, TMPDIR, ...). Names are exact or use a "*" wildcard; merged with
-# ~/.jan/config.toml. A secret-looking name (*KEY*, *TOKEN*, ...) is never
+# ~/.novera/config.toml. A secret-looking name (*KEY*, *TOKEN*, ...) is never
 # copied by a wildcard -- inject one deliberately with env_set below.
 # env_passthrough = ["SSH_AUTH_SOCK", "GIT_*", "http_proxy", "https_proxy"]
 # Explicit values for the shell env; win over env_passthrough and the global
@@ -398,7 +398,7 @@ allow_write = []
 enabled = []
 
 # Per-project model for a saved subagent, overriding its definition's own.
-# A model id, "smol" (smol_model in ~/.jan/config.toml) or "inherit" (this
+# A model id, "smol" (smol_model in ~/.novera/config.toml) or "inherit" (this
 # session's model). /settings > subagents edits these.
 # [subagents.explorer]
 # model = "smol"
@@ -420,15 +420,15 @@ enabled = []
 # No effect on current composers. Use prefix_allow to narrow today's prefix.
 # default = "tail"
 
-# Instructions files read from a directory that has no JAN.md, in order. JAN.md
-# always wins. Unset uses ~/.jan/config.toml, else ["AGENTS.md"]. Add
-# "CLAUDE.md" to opt in to it; [] reads JAN.md only.
+# Instructions files read from a directory that has no NOVERA.md, in order. NOVERA.md
+# always wins. Unset uses ~/.novera/config.toml, else ["AGENTS.md"]. Add
+# "CLAUDE.md" to opt in to it; [] reads NOVERA.md only.
 # [context]
 # fallback_files = ["AGENTS.md"]
 "#;
 
-/// `~/.jan`, where every project's store lives. Test builds use a per-process
-/// temp directory so no test reads or writes the developer's real `~/.jan`;
+/// `~/.novera`, where every project's store lives. Test builds use a per-process
+/// temp directory so no test reads or writes the developer's real `~/.novera`;
 /// the plugin's own `cfg(test)` override is not active when this crate
 /// compiles it as a dependency.
 pub(crate) fn jan_home() -> Option<PathBuf> {
@@ -453,15 +453,15 @@ pub(crate) fn hidden_root(sandbox: bool) -> Option<PathBuf> {
     }
 }
 
-/// A project's store root, `~/.jan/projects/<slug>`: `agent.toml`, `memory/`,
+/// A project's store root, `~/.novera/projects/<slug>`: `agent.toml`, `memory/`,
 /// `skills/`, `subagents/`, `plugins/` and the TUI's threads. The one place the
-/// app resolves it; the project directory itself holds only `JAN.md`.
+/// app resolves it; the project directory itself holds only `NOVERA.md`.
 pub(crate) fn store_root(project_root: &Path) -> PathBuf {
     tauri_plugin_agent_tools::workspace::project_store_at(jan_home().as_deref(), project_root)
 }
 
-/// Move a legacy `<project>/.jan/agent` into [`store_root`] when the workspace
-/// still has a `.jan` directory. Called once per launch, before anything reads
+/// Move a legacy `<project>/.novera/agent` into [`store_root`] when the workspace
+/// still has a `.novera` directory. Called once per launch, before anything reads
 /// the store; returns a line for the surface to show, if any.
 ///
 /// Once per project per process: later calls are free and return `None`, so
@@ -492,7 +492,7 @@ pub(crate) fn migrate_legacy_store(project_root: &Path) -> Option<String> {
 }
 
 /// The memory a run in `project_root` reaches, as owned paths: the project's
-/// store, and `~/.jan` for the user scope and other projects. Tests get no
+/// store, and `~/.novera` for the user scope and other projects. Tests get no
 /// cross-project listing, so one test's notes never reach another's prompt.
 pub(crate) fn memory_roots(project_root: &Path) -> (PathBuf, Option<PathBuf>, bool) {
     #[cfg(test)]
@@ -631,7 +631,7 @@ pub(crate) fn permissions_from(cfg: &AgentToml) -> ToolPermissions {
 /// Idempotent and clobber-safe: preserves user edits on re-runs. Auto-managed
 /// on both the CLI and desktop agent-run paths (there is no explicit init step).
 ///
-/// The project instructions file (`<project_root>/JAN.md`) is deliberately not
+/// The project instructions file (`<project_root>/NOVERA.md`) is deliberately not
 /// scaffolded: an empty placeholder costs prompt space and teaches nothing, so
 /// it is written by `/init` or by hand.
 pub(crate) fn ensure_project(project_root: &Path) -> Result<PathBuf, String> {
@@ -867,7 +867,7 @@ mod tests {
 
         assert_eq!(store, store_root(&root));
         assert!(!store.starts_with(&root), "the store must live outside the project");
-        assert!(!root.join(".jan").exists(), "nothing is written into the project");
+        assert!(!root.join(".novera").exists(), "nothing is written into the project");
         assert!(
             tauri_plugin_agent_tools::skills::skills_dir(&store).is_dir(),
             "skills dir the toolset reads is not the one ensure_project created"
@@ -980,7 +980,7 @@ mod tests {
         assert!(!root.exists(), "must not create the missing project dir");
     }
 
-    /// The instructions file lives at the project root as `JAN.md` and is the
+    /// The instructions file lives at the project root as `NOVERA.md` and is the
     /// user's (or `/init`'s) to create -- the scaffold must not plant an empty
     /// one in the store, which nothing reads.
     #[test]
@@ -988,7 +988,7 @@ mod tests {
         let root = unique_root("no_instructions");
         let dir = ensure_project(&root).expect("ensure");
         assert!(!dir.join("AGENT.md").exists());
-        assert!(!root.join("JAN.md").exists());
+        assert!(!root.join("NOVERA.md").exists());
         assert!(!AGENT_TOML_TEMPLATE.contains("instructions_file"));
         let _ = std::fs::remove_dir_all(&root);
     }

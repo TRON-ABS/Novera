@@ -1,5 +1,5 @@
 //! Plugin install/removal and marketplace search. A plugin is a directory
-//! `~/.jan/projects/<slug>/plugins/<name>/` cloned from a git repository, so installing
+//! `~/.novera/projects/<slug>/plugins/<name>/` cloned from a git repository, so installing
 //! from GitHub (or any git host) is just `git clone`. No lockfile or registry
 //! file: an installed plugin is a directory, removed by deleting it. Installing
 //! never executes plugin code — a plugin carries skills (instructions) plus an
@@ -250,10 +250,10 @@ pub(crate) fn find_installed(root: &Path, query: &str) -> Option<(String, Instal
     Some(entries.swap_remove(index))
 }
 
-/// `~/.jan/agent/plugin-env/`, shared by CLI setup and desktop discovery.
+/// `~/.novera/agent/plugin-env/`, shared by CLI setup and desktop discovery.
 fn plugin_env_dir() -> Result<PathBuf, String> {
     dirs::home_dir()
-        .map(|home| home.join(".jan").join("agent").join("plugin-env"))
+        .map(|home| home.join(".novera").join("agent").join("plugin-env"))
         .ok_or_else(|| "could not resolve the user's home directory".to_string())
 }
 
@@ -2011,7 +2011,7 @@ mod tests {
     }
 
     /// An installed plugin (by directory convention) whose manifest declares
-    /// one required env var, plus the store dir tests use instead of `~/.jan`.
+    /// one required env var, plus the store dir tests use instead of `~/.novera`.
     fn plugin_with_env_requirement(tag: &str, var: &str, url: &str) -> (PathBuf, PathBuf) {
         let root = unique_root(tag);
         // Create the root first: the store is keyed on the canonical path,

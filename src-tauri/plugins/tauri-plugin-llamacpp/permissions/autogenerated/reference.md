@@ -36,6 +36,32 @@ Default permissions for the llamacpp plugin
 <tr>
 <td>
 
+`llamacpp:allow-begin-engine-restart`
+
+</td>
+<td>
+
+Enables the begin_engine_restart command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`llamacpp:deny-begin-engine-restart`
+
+</td>
+<td>
+
+Denies the begin_engine_restart command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
 `llamacpp:allow-cleanup-llama-processes`
 
 </td>
@@ -55,6 +81,32 @@ Enables the cleanup_llama_processes command without any pre-configured scope.
 <td>
 
 Denies the cleanup_llama_processes command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`llamacpp:allow-end-engine-restart`
+
+</td>
+<td>
+
+Enables the end_engine_restart command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`llamacpp:deny-end-engine-restart`
+
+</td>
+<td>
+
+Denies the end_engine_restart command without any pre-configured scope.
 
 </td>
 </tr>

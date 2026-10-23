@@ -766,7 +766,7 @@ fn refusals_classify_the_messages_the_loop_builds() {
         Some(Refusal::Config)
     );
     assert_eq!(
-        refusal_of(&format!("ERROR: tool 'read' {HIDDEN_PATH_REFUSED} (~/.jan) holds")),
+        refusal_of(&format!("ERROR: tool 'read' {HIDDEN_PATH_REFUSED} (~/.novera) holds")),
         Some(Refusal::Config)
     );
     assert_eq!(

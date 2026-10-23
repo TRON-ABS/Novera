@@ -56,7 +56,7 @@ use crate::core::threads::{
 // ── Thread operations ──────────────────────────────────────────────────────
 
 /// List thread metadata under `<base>/threads/`. `base` is the Jan data folder
-/// (desktop store) or a project's store `~/.jan/projects/<slug>` (TUI store).
+/// (desktop store) or a project's store `~/.novera/projects/<slug>` (TUI store).
 pub fn list_threads_in(base: &std::path::Path) -> Result<Vec<serde_json::Value>, String> {
     use std::fs;
 
@@ -953,7 +953,7 @@ fn resolve_cost_ceiling(
 /// path if canonicalization fails (e.g. the directory doesn't exist yet).
 ///
 /// Every CLI entry point resolves its project here, so this is also where a
-/// legacy `<project>/.jan` is moved into the project's store: before anything
+/// legacy `<project>/.novera` is moved into the project's store: before anything
 /// reads it, and only when the workspace still has one. The notice is kept for
 /// the surface to show (see [`take_migration_notice`]).
 fn resolve_project_root(project: &str) -> PathBuf {
@@ -1153,7 +1153,7 @@ pub fn cli_agent_status(
     }))
 }
 
-/// Set (create or merge) a provider entry in the global `~/.jan/config.toml`,
+/// Set (create or merge) a provider entry in the global `~/.novera/config.toml`,
 /// the standalone-agent credential store. Returns the config path so the caller
 /// can report where the value landed. Headless: no Desktop app required.
 pub fn cli_agent_config_set(
@@ -1176,7 +1176,7 @@ pub fn cli_agent_config_set(
     )
 }
 
-/// Remove a provider entry from `~/.jan/config.toml`. `Ok(false)` means it was
+/// Remove a provider entry from `~/.novera/config.toml`. `Ok(false)` means it was
 /// already absent.
 pub fn cli_agent_config_unset(provider: &str) -> Result<bool, String> {
     crate::core::agent::global_config::remove_provider(provider)
@@ -1188,7 +1188,7 @@ pub fn cli_agent_config_path() -> Result<PathBuf, String> {
     crate::core::agent::global_config::ensure_global_config()
 }
 
-/// Providers configured in `~/.jan/config.toml`, as JSON with API keys redacted.
+/// Providers configured in `~/.novera/config.toml`, as JSON with API keys redacted.
 /// Reflects only the global store (what the user set), not Desktop inherit.
 pub fn cli_agent_config_list() -> Result<serde_json::Value, String> {
     let configs = crate::core::agent::global_config::load_global_config()?;
@@ -1470,11 +1470,11 @@ pub(crate) struct AgentSession {
     /// Whether the TUI expands `<think>` reasoning blocks (default false).
     pub show_reasoning: bool,
     /// Whether the TUI streams reasoning into the live tail while it folds
-    /// (`stream_reasoning` in `~/.jan/config.toml`, default true). Independent
+    /// (`stream_reasoning` in `~/.novera/config.toml`, default true). Independent
     /// of `show_reasoning`, which unfolds it for good.
     pub stream_reasoning: bool,
     /// Whether inline `<think>` tags in the serving provider's content are
-    /// reasoning (see `think_tags` in `~/.jan/config.toml`).
+    /// reasoning (see `think_tags` in `~/.novera/config.toml`).
     pub parse_think_tags: bool,
     /// Whether to resend a prior assistant turn's reasoning to the model
     /// (default true). False drops `reasoning_content` from outgoing assistant
@@ -1735,7 +1735,7 @@ fn prepare_agent_session(
     let project_root = resolve_project_root(project);
     ensure_project(&project_root)?;
     if let Err(e) = crate::core::agent::global_config::ensure_global_config() {
-        log::warn!("Agent: could not scaffold ~/.jan/config.toml: {e}");
+        log::warn!("Agent: could not scaffold ~/.novera/config.toml: {e}");
     }
     let cfg = load_agent_config(&project_root)?;
     let permissions = permissions_from(&cfg);
@@ -1761,7 +1761,7 @@ fn prepare_agent_session(
     );
 
     // Resolution order: --model flag, then agent.toml [agent].model, then the
-    // standalone global config (~/.jan/config.toml default_model / first provider
+    // standalone global config (~/.novera/config.toml default_model / first provider
     // model), then the desktop app's currently-selected model (settings.json
     // inherit). Global config outranks desktop so a standalone agent is
     // self-sufficient without a desktop install.
@@ -1771,7 +1771,7 @@ fn prepare_agent_session(
     // app last had selected starts the session on a provider the user never
     // chose here -- and hides the sign-in notice that would otherwise fire,
     // because a non-empty model reads as "configured". Leaving it unset surfaces
-    // the notice instead. An explicit --model, agent.toml, or ~/.jan default is
+    // the notice instead. An explicit --model, agent.toml, or ~/.novera default is
     // unaffected: all three outrank this.
     let explicit = model_override.is_some() || overrides.api_key.is_some();
     let model_pinned = model_override.is_some();
@@ -1785,7 +1785,7 @@ fn prepare_agent_session(
             )
         });
     // A project or global default can name a model with nobody around to serve
-    // it (e.g. this repo's own agent.toml pins one, but a fresh `~/.jan` has no
+    // it (e.g. this repo's own agent.toml pins one, but a fresh `~/.novera` has no
     // credentials for anything). Trust it only when the user was explicit
     // (--model/--api-key) or some provider can actually be reached; otherwise
     // treat it as unset so the TUI's sign-in notice fires instead of failing on
@@ -1800,12 +1800,12 @@ fn prepare_agent_session(
     };
     if model.is_empty() && flags.require_model {
         return Err(
-            "no model specified: run `jan login` to sign in to Tokamak, or pass --model, set [agent].model in agent.toml, set default_model in ~/.jan/config.toml, or select a model in the desktop app"
+            "no model specified: run `jan login` to sign in to Tokamak, or pass --model, set [agent].model in agent.toml, set default_model in ~/.novera/config.toml, or select a model in the desktop app"
                 .to_string(),
         );
     }
     // The `smol` role (used by /goal evaluation): an explicit smol_model in
-    // ~/.jan/config.toml, else reuse the main model so evaluation always works.
+    // ~/.novera/config.toml, else reuse the main model so evaluation always works.
     let smol_model = crate::core::agent::global_config::smol_model()
         .ok()
         .flatten()
@@ -3110,7 +3110,7 @@ pub async fn cli_agent_ui(
 }
 
 /// Drop stale threads from the project's store (see [`housekeeping`]) when the
-/// user `enabled` it (`prune_threads` in `~/.jan/config.toml`, off by default).
+/// user `enabled` it (`prune_threads` in `~/.novera/config.toml`, off by default).
 /// Reads the limits from `agent.toml` and never touches the thread this session
 /// resumes.
 fn prune_threads(
@@ -3137,7 +3137,7 @@ fn prune_threads(
 }
 
 /// Where the TUI persists a project's threads: the project's store,
-/// `~/.jan/projects/<slug>` (see `project::store_root`).
+/// `~/.novera/projects/<slug>` (see `project::store_root`).
 pub fn agent_dir_for(project_root: &std::path::Path) -> PathBuf {
     crate::core::agent::project::store_root(project_root)
 }
@@ -4529,7 +4529,7 @@ mod tests {
 
     /// A project's `agent.toml` naming a model must not paper over "nothing can
     /// actually serve it": with no provider configured (this repo's own
-    /// agent.toml pins `tokamak-1-preview`, but a fresh `~/.jan` has no
+    /// agent.toml pins `tokamak-1-preview`, but a fresh `~/.novera` has no
     /// credentials for it), the TUI path must still come back with an empty
     /// model so its sign-in notice fires instead of a first-message failure.
     #[test]
@@ -4948,7 +4948,7 @@ mod tests {
             Some(serde_json::json!({
                 "base_snapshot": "aaa",
                 worktree::WORKTREE_KEY: {
-                    "path": "/home/u/.jan/worktrees/jan-abc/deadbeef",
+                    "path": "/home/u/.novera/worktrees/jan-abc/deadbeef",
                     "branch": "jan/agent/deadbeef",
                 },
             })),
@@ -5025,7 +5025,7 @@ mod tests {
         let dir = tempfile::tempdir().unwrap();
         let base = dir.path();
         let workspace = worktree::Worktree {
-            path: std::path::PathBuf::from("/home/u/.jan/worktrees/p-abc/deadbeef"),
+            path: std::path::PathBuf::from("/home/u/.novera/worktrees/p-abc/deadbeef"),
             branch: "jan/agent/deadbeef".to_string(),
         };
         let history = vec![serde_json::json!({ "role": "user", "content": "do it" })];
@@ -5195,7 +5195,7 @@ mod tests {
     fn a_cost_ceiling_is_refused_rather_than_run_uncapped() {
         // A model id no listing can plausibly carry, so the lookup misses no
         // matter what the developer running these tests has cached in
-        // `~/.jan/model_catalog.json` -- which is the state every user of a
+        // `~/.novera/model_catalog.json` -- which is the state every user of a
         // plain OpenAI-compatible endpoint is in anyway.
         let unpriced = "no-such-model/never-published-a-price";
 

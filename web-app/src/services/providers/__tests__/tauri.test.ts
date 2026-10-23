@@ -52,6 +52,8 @@ vi.mock('@/lib/predefined', () => ({
       key: 'ctx_len',
       controller_props: { value: 4096 },
     },
+    performance_mode: { key: 'performance_mode', controller_props: { value: 'manual' } },
+    ngram_speculation: { key: 'ngram_speculation', controller_props: { value: 'off' } },
   },
 }))
 
@@ -68,6 +70,13 @@ vi.mock('@/lib/models', () => ({
 vi.mock('@/lib/provider-api-keys', () => ({
   providerRemoteApiKeyChain: vi.fn().mockReturnValue([]),
   API_KEY_FALLBACKS_SETTING_KEY: 'api-key-fallbacks',
+}))
+
+const platform = vi.hoisted(() => ({ mac: false }))
+vi.mock('@/lib/shortcuts/platform', () => ({
+  get isMac() {
+    return platform.mac
+  },
 }))
 
 import { fetch as fetchTauri } from '@tauri-apps/plugin-http'
@@ -92,6 +101,23 @@ describe('TauriProvidersService', () => {
   })
 
   describe('getProviders', () => {
+    it('hydrates saved llama performance options and rejects unsupported values', async () => {
+      const engine = {
+        list: vi.fn().mockResolvedValue([
+          { id: 'saved', name: 'Saved', performance_mode: 'measured', ngram_speculation: 'repetitive' },
+          { id: 'invalid', name: 'Invalid', performance_mode: 'unknown', ngram_speculation: true },
+        ]),
+        getSettings: vi.fn().mockResolvedValue([]),
+        isToolSupported: vi.fn().mockResolvedValue(false),
+      }
+      vi.mocked(EngineManager.instance).mockReturnValue({ engines: new Map([['llamacpp', engine]]) } as any)
+      const provider = (await svc.getProviders()).find(p => p.provider === 'llamacpp')!
+      expect(provider.models[0].settings?.performance_mode.controller_props.value).toBe('measured')
+      expect(provider.models[0].settings?.ngram_speculation.controller_props.value).toBe('repetitive')
+      expect(provider.models[1].settings?.performance_mode.controller_props.value).toBe('manual')
+      expect(provider.models[1].settings?.ngram_speculation.controller_props.value).toBe('off')
+    })
+
     it('returns builtin + runtime providers on success', async () => {
       const mockEngine = {
         list: vi.fn().mockResolvedValue([
@@ -319,6 +345,53 @@ describe('TauriProvidersService', () => {
       await expect(svc.fetchModelsFromProvider(baseProvider))
         .rejects.toThrow('Unexpected error')
       errSpy.mockRestore()
+    })
+
+    // `@tauri-apps/plugin-http` rejects with a plain string, not an Error.
+    describe('when the request cannot be sent', () => {
+      const reject = (url: string) =>
+        vi
+          .mocked(fetchTauri)
+          .mockRejectedValueOnce(`error sending request for url (${url})`)
+      const lan = { ...baseProvider, base_url: 'http://10.1.0.211:11434/v1' }
+
+      beforeEach(() => {
+        platform.mac = false
+        vi.spyOn(console, 'error').mockImplementation(() => {})
+      })
+
+      it('explains the failure instead of saying "Unknown error"', async () => {
+        reject('https://api.test.com/v1/models')
+        const err = await svc.fetchModelsFromProvider(baseProvider).catch((e) => e)
+        expect(err.message).toMatch(/couldn't reach the provider/i)
+        expect(err.message).toContain('https://api.test.com/v1/models')
+        expect(err.message).not.toContain('Unknown error')
+      })
+
+      it('names the macOS Local Network setting for a LAN host', async () => {
+        platform.mac = true
+        reject('http://10.1.0.211:11434/v1/models')
+        const err = await svc.fetchModelsFromProvider(lan).catch((e) => e)
+        expect(err.message).toContain('Local Network')
+      })
+
+      it('does not mention it off macOS or for a public host', async () => {
+        reject('http://10.1.0.211:11434/v1/models')
+        const off = await svc.fetchModelsFromProvider(lan).catch((e) => e)
+        expect(off.message).not.toContain('Local Network')
+
+        platform.mac = true
+        reject('https://api.test.com/v1/models')
+        const pub = await svc.fetchModelsFromProvider(baseProvider).catch((e) => e)
+        expect(pub.message).not.toContain('Local Network')
+      })
+
+      it('keeps the text of a non-Error rejection in the fallback', async () => {
+        vi.mocked(fetchTauri).mockRejectedValueOnce('something odd')
+        await expect(svc.fetchModelsFromProvider(baseProvider)).rejects.toThrow(
+          'Unexpected error while fetching models from test-provider: something odd'
+        )
+      })
     })
 
     it('adds Origin header for localhost URLs', async () => {

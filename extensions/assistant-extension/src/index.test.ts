@@ -71,7 +71,7 @@ describe('getAssistants', () => {
     const result = await ext.getAssistants()
     expect(result).toHaveLength(1)
     expect(result[0].id).toBe('jan')
-    expect(result[0].name).toBe('Jan')
+    expect(result[0].name).toBe('Novera')
   })
 
   it('falls back to the default assistant when the dir exists but is empty', async () => {
@@ -149,6 +149,25 @@ describe('deleteAssistant', () => {
 })
 
 describe('onLoad', () => {
+  it('lets the untouched factory assistant inherit model sampling on upgrade', async () => {
+    const ext = makeExt()
+    const original = (ext as any).defaultAssistant
+    seedAssistant(original.id, { ...original, parameters: { temperature: 0.7, top_k: 20, top_p: 0.8, repeat_penalty: 1.12 } })
+    files.set(`${ROOT}/.migration_version`, '3')
+    await ext.onLoad()
+    expect(readAssistant(original.id).parameters).toEqual({})
+  })
+
+  it('preserves customized sampling when removing factory overrides', async () => {
+    const ext = makeExt()
+    const original = (ext as any).defaultAssistant
+    const custom = { temperature: 0.2, top_k: 20, top_p: 0.8, repeat_penalty: 1.12 }
+    seedAssistant(original.id, { ...original, parameters: custom })
+    files.set(`${ROOT}/.migration_version`, '3')
+    await ext.onLoad()
+    expect(readAssistant(original.id).parameters).toEqual(custom)
+  })
+
   it('creates the assistants dir when missing', async () => {
     const ext = makeExt()
     await ext.onLoad()
@@ -159,7 +178,7 @@ describe('onLoad', () => {
   it('records the current migration version', async () => {
     const ext = makeExt()
     await ext.onLoad()
-    expect(files.get(`${ROOT}/.migration_version`)).toBe('3')
+    expect(files.get(`${ROOT}/.migration_version`)).toBe('4')
   })
 
   it('seeds the default assistant with parameters when none are persisted', async () => {
@@ -167,12 +186,7 @@ describe('onLoad', () => {
     await ext.onLoad()
     const seeded = readAssistant((ext as any).defaultAssistant.id)
     expect(seeded.id).toBe((ext as any).defaultAssistant.id)
-    expect(seeded.parameters).toEqual({
-      temperature: 0.7,
-      top_k: 20,
-      top_p: 0.8,
-      repeat_penalty: 1.12,
-    })
+    expect(seeded.parameters).toEqual({})
   })
 
   it('does not overwrite an existing persisted assistant on load', async () => {
@@ -259,6 +273,6 @@ describe('migrations', () => {
     files.set(`${ROOT}/.migration_version`, 'garbage')
     const ext = makeExt()
     await ext.onLoad()
-    expect(getVersion()).toBe('3')
+    expect(getVersion()).toBe('4')
   })
 })

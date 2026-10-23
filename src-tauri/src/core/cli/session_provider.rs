@@ -18,7 +18,7 @@
 //! **Session-scoped provider.** One named with an explicit `--provider` whose
 //! base URL or key came from these overrides
 //! ([`ProviderOverrides::session_scoped_provider`]). Its model ids and prices
-//! describe the endpoint this session points at, not the one `~/.jan` was
+//! describe the endpoint this session points at, not the one `~/.novera` was
 //! written for, so they live here, in memory, and never reach `config.toml` or
 //! `model_catalog.json`:
 //!
@@ -240,7 +240,7 @@ pub(crate) fn reset() {
 
 /// Run `f` in a temp home with `overrides` installed as the session's, then
 /// reset. Nested inside `with_temp_home` so it is serialized with every other
-/// test that touches `~/.jan` -- the provider rebuilds read both.
+/// test that touches `~/.novera` -- the provider rebuilds read both.
 #[cfg(test)]
 pub(crate) fn with_session<T>(
     overrides: ProviderOverrides,

@@ -281,7 +281,7 @@ fn ensure_writable(exe: &Path) -> Result<(), String> {
     let dir = exe
         .parent()
         .ok_or_else(|| format!("{} has no parent directory", exe.display()))?;
-    let probe = dir.join(format!(".jan-update-probe-{}", std::process::id()));
+    let probe = dir.join(format!(".novera-update-probe-{}", std::process::id()));
     let writable = File::create(&probe).is_ok();
     let _ = fs::remove_file(&probe);
     if !writable {
@@ -432,7 +432,7 @@ fn replace_binary(staged: &Path, exe: &Path) -> Result<(), String> {
 }
 
 /// Staging-file prefix; the pid suffix keeps two concurrent installs apart.
-const STAGING_PREFIX: &str = ".jan-update-";
+const STAGING_PREFIX: &str = ".novera-update-";
 
 /// Drop leftovers from an earlier update: the Windows backup (unlocked once the
 /// old process has exited) and any staging files from a run that was killed

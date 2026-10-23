@@ -22,7 +22,7 @@ struct TelemetryState {
 }
 
 fn state_path() -> Option<PathBuf> {
-    Some(dirs::home_dir()?.join(".jan").join("cli_telemetry.json"))
+    Some(dirs::home_dir()?.join(".novera").join("cli_telemetry.json"))
 }
 
 fn load_state(path: &Path) -> TelemetryState {
@@ -42,7 +42,7 @@ fn save_state(path: &Path, state: &TelemetryState) {
 }
 
 /// The stable per-install id used as the analytics distinct id, generated on
-/// first use and persisted to `~/.jan/cli_telemetry.json`. `None` when there is
+/// first use and persisted to `~/.novera/cli_telemetry.json`. `None` when there is
 /// no home directory to persist to -- the caller then skips the proxy rather
 /// than inventing a fresh id per run, which would count one install as many.
 pub(super) fn install_id() -> Option<String> {

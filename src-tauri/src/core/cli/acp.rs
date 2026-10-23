@@ -54,12 +54,12 @@ use crate::core::agent::r#loop::{run_orchestration_steered, settle_permission};
 use crate::core::agent::todo::{TodoList, TodoStatus};
 
 /// The env var that switches the experimental server on. Any explicit value
-/// wins over `[experimental].acp` in `~/.jan/config.toml`, so `=0` turns it off.
+/// wins over `[experimental].acp` in `~/.novera/config.toml`, so `=0` turns it off.
 pub const ENABLE_ENV: &str = "JAN_EXPERIMENTAL_ACP";
 
 /// Printed (to stderr) when `jan acp` runs without the opt-in.
 pub const DISABLED_MESSAGE: &str = "`jan acp` is experimental and off by default. Enable it with \
-     JAN_EXPERIMENTAL_ACP=1, or set `acp = true` under `[experimental]` in ~/.jan/config.toml.";
+     JAN_EXPERIMENTAL_ACP=1, or set `acp = true` under `[experimental]` in ~/.novera/config.toml.";
 
 /// Whether `jan acp` may run: the env var, then the global config, then off.
 pub fn enabled() -> bool {
@@ -206,7 +206,7 @@ fn initialize_response(req: &InitializeRequest) -> InitializeResponse {
         .agent_info(Implementation::new("jan", env!("CARGO_PKG_VERSION")))
 }
 
-/// Jan's credentials live in `~/.jan/config.toml`, filled by `jan login` or
+/// Jan's credentials live in `~/.novera/config.toml`, filled by `jan login` or
 /// `jan config set`, so authenticating is checking that one is usable.
 async fn authenticate() -> Result<AuthenticateResponse, Error> {
     if super::providers::has_usable_provider(None) {

@@ -1,5 +1,5 @@
-//! User-wide `~/.jan/config.toml` provider config. Lets Jan Agent run
-//! standalone (no Jan Desktop) with credentials scoped to the whole user, not
+//! User-wide `~/.novera/config.toml` provider config. Lets Novera Agent run
+//! standalone (no Novera Desktop) with credentials scoped to the whole user, not
 //! just one project. Optional: a missing file yields an empty provider set,
 //! not an error.
 
@@ -11,9 +11,9 @@ use serde::{Deserialize, Serialize};
 
 use crate::core::state::ProviderConfig;
 
-const GLOBAL_CONFIG_TEMPLATE: &str = r#"# Jan Agent global provider config.
+const GLOBAL_CONFIG_TEMPLATE: &str = r#"# Novera Agent global provider config.
 # Applies to every project unless overridden by that project's
-# agent.toml [provider] section (~/.jan/projects/<project>/agent.toml).
+# agent.toml [provider] section (~/.novera/projects/<project>/agent.toml).
 #
 # default_model = "my-model"        # used when no --model / agent.toml model is set
 # smol_model = "my-fast-model"       # fast model for the `smol` role (/goal evaluation,
@@ -59,7 +59,7 @@ const GLOBAL_CONFIG_TEMPLATE: &str = r#"# Jan Agent global provider config.
 #                                     # value back. Off by default;
 #                                     # JAN_HIDE_SECRETS=1|0 overrides it
 # memory_cross_project = false        # hide other projects' memory from the
-#                                     # agent (the root ~/.jan/MEMORY.md lists
+#                                     # agent (the root ~/.novera/MEMORY.md lists
 #                                     # them by default)
 # prune_threads = true                # delete old saved threads at TUI start,
 #                                     # under each project's agent.toml
@@ -81,9 +81,9 @@ const GLOBAL_CONFIG_TEMPLATE: &str = r#"# Jan Agent global provider config.
 #
 # [context]
 # fallback_files = ["AGENTS.md"]      # instructions files read where a folder
-#                                     # has no JAN.md (JAN.md always wins).
+#                                     # has no NOVERA.md (NOVERA.md always wins).
 #                                     # Default ["AGENTS.md"]; add "CLAUDE.md"
-#                                     # to opt in; [] reads JAN.md only. A
+#                                     # to opt in; [] reads NOVERA.md only. A
 #                                     # project's agent.toml [context] wins
 #
 # [experimental]                      # features that may change or go away
@@ -199,7 +199,7 @@ struct GlobalConfigToml {
     #[serde(default, skip_serializing_if = "TelemetrySection::is_empty")]
     telemetry: TelemetrySection,
     /// `[context]` -- the user-wide default for which instructions files are
-    /// read where a directory has no `JAN.md`. A project's own `[context]`
+    /// read where a directory has no `NOVERA.md`. A project's own `[context]`
     /// wins. See `project::context_fallback_files`.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     context: Option<GlobalContextSection>,
@@ -212,7 +212,7 @@ struct GlobalConfigToml {
     providers: HashMap<String, GlobalProviderEntry>,
 }
 
-/// `[tui]` in `~/.jan/config.toml`. Each key is `None` when unset.
+/// `[tui]` in `~/.novera/config.toml`. Each key is `None` when unset.
 #[derive(Debug, Clone, Default, Deserialize, Serialize, PartialEq)]
 struct TuiSection {
     /// Animate the TUI (shimmer, throbbers). `None` = on.
@@ -226,7 +226,7 @@ impl TuiSection {
     }
 }
 
-/// `[experimental]` in `~/.jan/config.toml`. Each key is `None` when unset,
+/// `[experimental]` in `~/.novera/config.toml`. Each key is `None` when unset,
 /// which means off.
 #[derive(Debug, Clone, Default, Deserialize, Serialize, PartialEq)]
 struct ExperimentalSection {
@@ -241,7 +241,7 @@ impl ExperimentalSection {
     }
 }
 
-/// `[telemetry]` in `~/.jan/config.toml` or a project's `agent.toml`. Only the
+/// `[telemetry]` in `~/.novera/config.toml` or a project's `agent.toml`. Only the
 /// switch lives here: where the data goes is the standard `OTEL_*` env, so one
 /// collector setup serves every OpenTelemetry-speaking tool unchanged.
 #[derive(Debug, Clone, Default, Deserialize, Serialize, PartialEq)]
@@ -323,19 +323,19 @@ pub(crate) struct ProviderUpdate {
     pub account: Option<Option<String>>,
 }
 
-/// `~/.jan`, the user-wide config directory.
+/// `~/.novera`, the user-wide config directory.
 pub(crate) fn global_jan_dir() -> Result<PathBuf, String> {
     dirs::home_dir()
-        .map(|home| home.join(".jan"))
+        .map(|home| home.join(".novera"))
         .ok_or_else(|| "could not resolve the user's home directory".to_string())
 }
 
-/// `~/.jan/config.toml`.
+/// `~/.novera/config.toml`.
 pub(crate) fn global_config_path() -> Result<PathBuf, String> {
     Ok(global_jan_dir()?.join("config.toml"))
 }
 
-/// Load provider configs from `~/.jan/config.toml`. Missing file -> empty map
+/// Load provider configs from `~/.novera/config.toml`. Missing file -> empty map
 /// (standalone-with-no-global-config is valid); malformed file -> error.
 pub(crate) fn load_global_config() -> Result<HashMap<String, ProviderConfig>, String> {
     let path = match global_config_path() {
@@ -371,7 +371,7 @@ pub(crate) fn load_global_config() -> Result<HashMap<String, ProviderConfig>, St
                         .collect(),
                     models: entry.models,
                     api_type: entry.api_type,
-                    // `~/.jan/config.toml` describes the desktop app's
+                    // `~/.novera/config.toml` describes the desktop app's
                     // providers, which size compaction from the project's
                     // `[provider]`/`[agent]` sections instead.
                     compaction_ratio: None,
@@ -381,7 +381,7 @@ pub(crate) fn load_global_config() -> Result<HashMap<String, ProviderConfig>, St
         .collect())
 }
 
-/// Resolve a default model from `~/.jan/config.toml` for a standalone agent:
+/// Resolve a default model from `~/.novera/config.toml` for a standalone agent:
 /// the explicit `default_model` key if set, else the first model of the first
 /// provider (providers sorted by name for determinism). `None` when nothing is
 /// configured. Errors only on a malformed file.
@@ -397,7 +397,7 @@ pub(crate) fn default_model() -> Result<Option<String>, String> {
         .find_map(|(_, entry)| entry.models.into_iter().next()))
 }
 
-/// Resolve the `smol` role model from `~/.jan/config.toml`: the explicit
+/// Resolve the `smol` role model from `~/.novera/config.toml`: the explicit
 /// `smol_model` key if set. `None` when unset (callers fall back to the
 /// session's main model). Errors only on a malformed file.
 pub(crate) fn smol_model() -> Result<Option<String>, String> {
@@ -405,7 +405,7 @@ pub(crate) fn smol_model() -> Result<Option<String>, String> {
     Ok(config.smol_model.filter(|m| !m.trim().is_empty()))
 }
 
-/// `[telemetry].enabled` in `~/.jan/config.toml`; `None` when unset. Fails
+/// `[telemetry].enabled` in `~/.novera/config.toml`; `None` when unset. Fails
 /// open to "unset" like every other preference here: telemetry is never a
 /// reason for a session not to start. CLI-only, like its sole caller.
 #[cfg(feature = "cli")]
@@ -413,20 +413,20 @@ pub(crate) fn telemetry_setting() -> Option<bool> {
     load_raw().ok().and_then(|config| config.telemetry.enabled)
 }
 
-/// `hide_secrets` in `~/.jan/config.toml`; `None` when unset. Fails open to
+/// `hide_secrets` in `~/.novera/config.toml`; `None` when unset. Fails open to
 /// "unset" (off): a preference file must never stop a session from starting.
 pub(crate) fn hide_secrets_setting() -> Option<bool> {
     load_raw().ok().and_then(|config| config.hide_secrets)
 }
 
-/// `[experimental].acp` in `~/.jan/config.toml`; `None` when unset. A malformed
+/// `[experimental].acp` in `~/.novera/config.toml`; `None` when unset. A malformed
 /// file reads as unset, which is off: an experimental surface fails closed.
 #[cfg(feature = "cli")]
 pub(crate) fn experimental_acp_setting() -> Option<bool> {
     load_raw().ok().and_then(|config| config.experimental.acp)
 }
 
-/// Whether the TUI should track the mouse (`mouse` in `~/.jan/config.toml`),
+/// Whether the TUI should track the mouse (`mouse` in `~/.novera/config.toml`),
 /// defaulting to on. A display preference must never block startup, so an
 /// unreadable or malformed config yields the default rather than an error.
 pub(crate) fn mouse_enabled() -> bool {
@@ -436,7 +436,7 @@ pub(crate) fn mouse_enabled() -> bool {
         .unwrap_or(true)
 }
 
-/// Whether the TUI animates (`[tui] animations` in `~/.jan/config.toml`),
+/// Whether the TUI animates (`[tui] animations` in `~/.novera/config.toml`),
 /// defaulting to on. Off holds every animated element on its static fallback.
 /// A display preference must never block startup, so an unreadable config
 /// yields the default. CLI-only, like its sole caller.
@@ -449,7 +449,7 @@ pub(crate) fn animations_enabled() -> bool {
 }
 
 /// Whether the TUI may offer `/terminal-setup` at startup (`terminal_hint` in
-/// `~/.jan/config.toml`), defaulting to on. Declining the offer leaves no trace
+/// `~/.novera/config.toml`), defaulting to on. Declining the offer leaves no trace
 /// on disk -- the check reads the terminal's own config -- so this key is what
 /// turns a standing note off. A display preference must never block startup, so
 /// an unreadable config yields the default.
@@ -461,7 +461,7 @@ pub(crate) fn terminal_hint_enabled() -> bool {
 }
 
 /// Whether Jan may reuse Claude Code's keychain login
-/// (`claude_code_alias` in `~/.jan/config.toml`), defaulting to on. This
+/// (`claude_code_alias` in `~/.novera/config.toml`), defaulting to on. This
 /// setting is deliberately opt-out to preserve existing behavior while making
 /// the cross-tool credential reuse explicit and reversible.
 pub(crate) fn claude_code_alias_enabled() -> bool {
@@ -471,7 +471,7 @@ pub(crate) fn claude_code_alias_enabled() -> bool {
         .unwrap_or(true)
 }
 
-/// Whether `bash` runs sandboxed by default (`sandbox` in `~/.jan/config.toml`).
+/// Whether `bash` runs sandboxed by default (`sandbox` in `~/.novera/config.toml`).
 /// `None` when unset, so the caller can let a project's `agent.toml` or the
 /// `--sandbox` flag decide before falling back to the surface default.
 ///
@@ -482,7 +482,7 @@ pub(crate) fn sandbox_setting() -> Option<bool> {
     load_raw().ok().and_then(|config| config.sandbox)
 }
 
-/// `[context].fallback_files` from `~/.jan/config.toml`, or `None` when unset
+/// `[context].fallback_files` from `~/.novera/config.toml`, or `None` when unset
 /// or unreadable, so the project's `agent.toml` and then the built-in default
 /// decide. Like the other preferences, a bad file never blocks a session.
 pub(crate) fn context_fallback_files_setting() -> Option<Vec<String>> {
@@ -493,7 +493,7 @@ pub(crate) fn context_fallback_files_setting() -> Option<Vec<String>> {
 }
 
 /// Whether a session gets its own git worktree by default (`worktree` in
-/// `~/.jan/config.toml`). `None` when unset, so a project's `agent.toml` or the
+/// `~/.novera/config.toml`). `None` when unset, so a project's `agent.toml` or the
 /// `--worktree` flag decides first. Unreadable config yields `None`, like
 /// [`sandbox_setting`]: a preference must not block a session from starting.
 pub(crate) fn worktree_setting() -> Option<bool> {
@@ -501,7 +501,7 @@ pub(crate) fn worktree_setting() -> Option<bool> {
 }
 
 /// Whether saved threads are pruned at TUI start (`prune_threads` in
-/// `~/.jan/config.toml`), defaulting to off. An unreadable config also reads
+/// `~/.novera/config.toml`), defaulting to off. An unreadable config also reads
 /// as off: the failure direction of a setting that deletes data is to keep it.
 /// CLI-only, like its sole caller.
 #[cfg(feature = "cli")]
@@ -513,7 +513,7 @@ pub(crate) fn prune_threads_enabled() -> bool {
 }
 
 /// Host env-var names the sandboxed `bash` may inherit beyond the base
-/// allowlist (`env_passthrough` in `~/.jan/config.toml`), merged under a
+/// allowlist (`env_passthrough` in `~/.novera/config.toml`), merged under a
 /// project's `[tools].env_passthrough`. Empty on an unreadable or malformed
 /// config: a shell-env preference must never block a session from starting.
 pub(crate) fn env_passthrough_setting() -> Vec<String> {
@@ -523,7 +523,7 @@ pub(crate) fn env_passthrough_setting() -> Vec<String> {
 }
 
 /// Explicit key=value overrides for the `bash` env (`env_set` in
-/// `~/.jan/config.toml`), sorted by key. Same fail-open rationale as
+/// `~/.novera/config.toml`), sorted by key. Same fail-open rationale as
 /// [`env_passthrough_setting`].
 pub(crate) fn env_set_setting() -> Vec<(String, String)> {
     load_raw()
@@ -603,7 +603,7 @@ pub(crate) fn think_tags_enabled_for(
 }
 
 /// Whether other projects' memory is listed and readable
-/// (`memory_cross_project` in `~/.jan/config.toml`), defaulting to on.
+/// (`memory_cross_project` in `~/.novera/config.toml`), defaulting to on.
 /// Unreadable config yields the default, like the other preferences.
 // Test builds pin cross-project memory off (see `project::memory_roots`).
 #[cfg_attr(test, allow(dead_code))]
@@ -615,7 +615,7 @@ pub(crate) fn memory_cross_project_enabled() -> bool {
 }
 
 /// Whether the TUI streams reasoning into its live tail while folding is on
-/// (`stream_reasoning` in `~/.jan/config.toml`), defaulting to on. `false` keeps
+/// (`stream_reasoning` in `~/.novera/config.toml`), defaulting to on. `false` keeps
 /// a folded block off screen entirely, leaving the header badge to stand for it.
 ///
 /// A display preference must never block startup, so an unreadable or malformed
@@ -627,7 +627,7 @@ pub(crate) fn stream_reasoning_enabled() -> bool {
         .unwrap_or(true)
 }
 
-/// The TUI colour-theme preference (`theme` in `~/.jan/config.toml`): `"light"`,
+/// The TUI colour-theme preference (`theme` in `~/.novera/config.toml`): `"light"`,
 /// `"dark"`, or `"auto"`. `None` when unset, which the TUI treats as auto-detect
 /// from the terminal background. An unreadable or malformed config yields `None`
 /// so a display preference never blocks startup.
@@ -636,7 +636,7 @@ pub(crate) fn theme_setting() -> Option<String> {
 }
 
 /// How long an unanswered `ask` prompt waits before it auto-answers with each
-/// question's recommended option (`ask_timeout_secs` in `~/.jan/config.toml`).
+/// question's recommended option (`ask_timeout_secs` in `~/.novera/config.toml`).
 /// `None` -- the default -- means wait forever, preserving today's blocking
 /// behavior until the user answers; `0` is treated the same as unset so the
 /// disabling value and the absent key agree.
@@ -651,7 +651,7 @@ pub(crate) fn ask_timeout() -> Option<std::time::Duration> {
         .map(std::time::Duration::from_secs)
 }
 
-/// Root-level (non-`[providers.*]`) keys of `~/.jan/config.toml`, used to spot
+/// Root-level (non-`[providers.*]`) keys of `~/.novera/config.toml`, used to spot
 /// the one mistake this file invites: appending a top-level key to the end of
 /// the file, where it silently lands inside whichever `[providers.*]` table
 /// happens to be last.
@@ -670,7 +670,7 @@ const ROOT_KEYS: &[&str] = &[
 
 /// Render a TOML parse failure with a fix, not just a location. `toml`'s own
 /// message points at the offending line and stops there, which is useless for
-/// the common case: `echo 'key = v' >> ~/.jan/config.toml` appends *after* the
+/// the common case: `echo 'key = v' >> ~/.novera/config.toml` appends *after* the
 /// last `[providers.*]` header, so the key parses as a provider field and
 /// collides on a second append. Naming the root key and the remedy turns a
 /// dead end into a one-step fix.
@@ -692,7 +692,7 @@ fn parse_error(path: &std::path::Path, err: &impl std::fmt::Display, message: &s
     )
 }
 
-/// Read `~/.jan/config.toml` into the raw TOML struct for editing. Missing file
+/// Read `~/.novera/config.toml` into the raw TOML struct for editing. Missing file
 /// -> default (empty); malformed file -> error, so a set never silently drops an
 /// unparseable file's contents.
 fn load_raw() -> Result<GlobalConfigToml, String> {
@@ -704,7 +704,7 @@ fn load_raw() -> Result<GlobalConfigToml, String> {
     toml::from_str(&raw).map_err(|e| parse_error(&path, &e, e.message()))
 }
 
-/// Serialize the config back to `~/.jan/config.toml`, creating `~/.jan` if
+/// Serialize the config back to `~/.novera/config.toml`, creating `~/.novera` if
 /// needed. The directory is user-scoped; the file is world-unreadable on Unix
 /// since it holds API keys.
 fn write_raw(config: &GlobalConfigToml) -> Result<PathBuf, String> {
@@ -728,9 +728,9 @@ fn restrict_permissions(path: &std::path::Path) {
 #[cfg(not(unix))]
 fn restrict_permissions(_path: &std::path::Path) {}
 
-/// Create or update a provider entry in `~/.jan/config.toml`, merging with any
+/// Create or update a provider entry in `~/.novera/config.toml`, merging with any
 /// existing entry (see [`ProviderUpdate`]). Returns the config path. This is the
-/// headless write path that lets a standalone Jan Agent set credentials with no
+/// headless write path that lets a standalone Novera Agent set credentials with no
 /// Desktop app present.
 pub(crate) fn set_provider(name: &str, update: ProviderUpdate) -> Result<PathBuf, String> {
     if name.trim().is_empty() {
@@ -863,7 +863,7 @@ pub(crate) fn provider_key_meta(name: &str) -> Result<StoredKeyMeta, String> {
     })
 }
 
-/// Remove a provider entry from `~/.jan/config.toml`. Returns `true` if the
+/// Remove a provider entry from `~/.novera/config.toml`. Returns `true` if the
 /// provider existed and was removed, `false` if it was already absent.
 pub(crate) fn remove_provider(name: &str) -> Result<bool, String> {
     let mut config = load_raw()?;
@@ -874,7 +874,7 @@ pub(crate) fn remove_provider(name: &str) -> Result<bool, String> {
     Ok(true)
 }
 
-/// Read one top-level scalar from `~/.jan/config.toml` as a display string.
+/// Read one top-level scalar from `~/.novera/config.toml` as a display string.
 /// `None` when the key is absent or the file is unreadable. Reads through
 /// `toml_edit` rather than the typed struct so the caller gets the value the
 /// user actually typed, and so a key this build does not know about still
@@ -892,7 +892,7 @@ pub(crate) fn global_value(key: &str) -> Option<String> {
     })
 }
 
-/// Persist a top-level scalar into `~/.jan/config.toml`, format-preserving.
+/// Persist a top-level scalar into `~/.novera/config.toml`, format-preserving.
 /// `None` removes the key so its default applies again.
 ///
 /// This edits the document rather than round-tripping the typed struct the way
@@ -926,7 +926,7 @@ pub(crate) fn set_global_key(key: &str, value: Option<toml_edit::Item>) -> Resul
     Ok(path)
 }
 
-/// Scaffold `~/.jan/config.toml` with a commented example, if it doesn't exist
+/// Scaffold `~/.novera/config.toml` with a commented example, if it doesn't exist
 /// yet. Idempotent and clobber-safe: never overwrites an existing file.
 pub(crate) fn ensure_global_config() -> Result<PathBuf, String> {
     let dir = global_jan_dir()?;
@@ -941,7 +941,7 @@ pub(crate) fn ensure_global_config() -> Result<PathBuf, String> {
 }
 
 /// Redirect `HOME` to a scratch dir for the duration of `f`. Every test that
-/// touches `~/.jan` must go through this one helper: `HOME` is process-wide, so
+/// touches `~/.novera` must go through this one helper: `HOME` is process-wide, so
 /// a second lock elsewhere would let those tests race each other.
 #[cfg(test)]
 pub(crate) fn with_temp_home<T>(f: impl FnOnce(&std::path::Path) -> T) -> T {
@@ -985,7 +985,7 @@ mod tests {
     fn hide_secrets_is_unset_by_default_and_reads_its_key() {
         with_temp_home(|home| {
             assert_eq!(hide_secrets_setting(), None, "missing file");
-            let path = home.join(".jan").join("config.toml");
+            let path = home.join(".novera").join("config.toml");
             std::fs::create_dir_all(path.parent().unwrap()).unwrap();
             std::fs::write(&path, "hide_secrets = true\n").unwrap();
             assert_eq!(hide_secrets_setting(), Some(true));
@@ -1269,12 +1269,12 @@ mod tests {
     #[test]
     fn set_global_key_scaffolds_a_missing_config() {
         with_temp_home(|home| {
-            let path = home.join(".jan").join("config.toml");
+            let path = home.join(".novera").join("config.toml");
             assert!(!path.exists(), "starting from no config");
 
             set_global_key("stream_reasoning", Some(toml_edit::value(false))).expect("set");
             let raw = std::fs::read_to_string(&path).unwrap();
-            assert!(raw.contains("Jan Agent global provider config"), "{raw}");
+            assert!(raw.contains("Novera Agent global provider config"), "{raw}");
             assert!(!stream_reasoning_enabled());
         });
     }
@@ -1340,7 +1340,7 @@ mod tests {
     fn ensure_scaffolds_and_is_idempotent() {
         with_temp_home(|home| {
             let path = ensure_global_config().expect("ensure");
-            assert_eq!(path, home.join(".jan").join("config.toml"));
+            assert_eq!(path, home.join(".novera").join("config.toml"));
             assert!(path.exists());
 
             std::fs::write(&path, "[providers.openai]\napi_key = \"sk-x\"\n").unwrap();

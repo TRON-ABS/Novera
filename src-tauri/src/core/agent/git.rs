@@ -55,10 +55,10 @@ fn git(args: &[&str]) -> Result<String, String> {
 fn run(repo: &Path, index: Option<&Path>, args: &[&str]) -> Result<String, String> {
     let mut cmd = Command::new("git");
     cmd.arg("-C").arg(repo).args(args);
-    cmd.env("GIT_AUTHOR_NAME", "Jan Agent")
-        .env("GIT_AUTHOR_EMAIL", "agent@jan.ai")
-        .env("GIT_COMMITTER_NAME", "Jan Agent")
-        .env("GIT_COMMITTER_EMAIL", "agent@jan.ai");
+    cmd.env("GIT_AUTHOR_NAME", "Novera Agent")
+        .env("GIT_AUTHOR_EMAIL", "agent@novera.local")
+        .env("GIT_COMMITTER_NAME", "Novera Agent")
+        .env("GIT_COMMITTER_EMAIL", "agent@novera.local");
     if let Some(idx) = index {
         cmd.env("GIT_INDEX_FILE", idx);
     }

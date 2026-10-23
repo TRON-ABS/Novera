@@ -9,6 +9,7 @@ import { useEffect, useMemo, useCallback, useState, useRef } from 'react'
 import { AppEvent, events } from '@janhq/core'
 import { SETUP_SCREEN_QUANTIZATIONS } from '@/constants/models'
 import { useLatestJanModel } from '@/hooks/useLatestJanModel'
+import { NOVERA_RECOMMENDED_CONTEXT_SIZE } from '@/lib/noveraRecommendedModel'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
@@ -267,7 +268,9 @@ function SetupScreen() {
         )
 
         if (variant) {
-          const cached = getCachedSupport(variant.model_id)
+          // Memory fit must use the context that the imported preset will load.
+          const supportCacheKey = `${variant.model_id}:ctx-${NOVERA_RECOMMENDED_CONTEXT_SIZE}`
+          const cached = getCachedSupport(supportCacheKey)
           if (cached) {
             console.log(`[SetupScreen] ${variant.model_id}: ${cached} (cached)`)
             variantSupportMap.set(variant.model_id, cached)
@@ -280,10 +283,10 @@ function SetupScreen() {
             )
             const supportStatus = await serviceHub
               .models()
-              .isModelSupported(variant.path)
+              .isModelSupported(variant.path, NOVERA_RECOMMENDED_CONTEXT_SIZE)
 
             console.log(`[SetupScreen] ${variant.model_id}: ${supportStatus}`)
-            setCachedSupport(variant.model_id, supportStatus)
+            setCachedSupport(supportCacheKey, supportStatus)
             variantSupportMap.set(variant.model_id, supportStatus)
           } catch (error) {
             console.error(
@@ -291,7 +294,7 @@ function SetupScreen() {
               error
             )
             variantSupportMap.set(variant.model_id, 'GREY')
-            setCachedSupport(variant.model_id, 'GREY')
+            setCachedSupport(supportCacheKey, 'GREY')
           }
         }
       }

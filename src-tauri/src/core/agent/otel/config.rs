@@ -3,7 +3,7 @@
 //! Off unless something turns it on. Precedence for the switch, highest first:
 //! `JAN_AGENT_ENABLE_TELEMETRY` (any explicit value, so `=0` can switch off a
 //! config that enables it), the project's `agent.toml` `[telemetry].enabled`,
-//! then `~/.jan/config.toml` `[telemetry].enabled`. `OTEL_SDK_DISABLED=true`
+//! then `~/.novera/config.toml` `[telemetry].enabled`. `OTEL_SDK_DISABLED=true`
 //! beats all of them, as the OpenTelemetry spec asks.
 //!
 //! Everything about the destination is read from the standard `OTEL_*`

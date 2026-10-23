@@ -3,8 +3,8 @@
 //!
 //! Every function takes a store root rather than a project root, so the same
 //! implementation serves the desktop's permanent store in the Jan data folder,
-//! a project's store under `~/.jan/projects/<slug>`, and the user-wide store at
-//! `~/.jan` itself (whose `MEMORY.md` is the root index: user notes plus one
+//! a project's store under `~/.novera/projects/<slug>`, and the user-wide store at
+//! `~/.novera` itself (whose `MEMORY.md` is the root index: user notes plus one
 //! pointer per project). Memory deliberately outlives the ephemeral per-thread
 //! sandbox the filesystem tools run in.
 //!
@@ -262,7 +262,7 @@ fn pointer_rows(pointers: &[ProjectPointer]) -> Vec<String> {
         .collect()
 }
 
-/// The root `~/.jan/MEMORY.md`: user-wide notes, then (when `cross_project`) a
+/// The root `~/.novera/MEMORY.md`: user-wide notes, then (when `cross_project`) a
 /// pointer to every project with memory. Empty when there is nothing to list.
 pub fn root_index(jan_home: &Path, cross_project: bool) -> String {
     let mut sections = Vec::new();
@@ -298,7 +298,7 @@ pub fn write_root_index(jan_home: &Path, cross_project: bool) {
 pub struct Scopes<'a> {
     /// The current store: unprefixed names read and write here.
     pub store: &'a Path,
-    /// `~/.jan`, holding the user-wide notes and every project's store. `None`
+    /// `~/.novera`, holding the user-wide notes and every project's store. `None`
     /// on the desktop, whose store is the data folder's and has no user scope.
     pub home: Option<&'a Path>,
     /// Whether other projects are listed and readable.
@@ -364,7 +364,7 @@ impl<'a> Scopes<'a> {
         }
         if !self.cross_project {
             return Err(
-                "ERROR: cross-project memory is off (memory_cross_project = false in ~/.jan/config.toml)"
+                "ERROR: cross-project memory is off (memory_cross_project = false in ~/.novera/config.toml)"
                     .to_string(),
             );
         }

@@ -49,6 +49,7 @@ describe('CoworkChatTransport', () => {
     const t = new CoworkChatTransport('s1', config())
     const params = slotParamsOf(t, 's1')
     expect(params.id_slot).toBe(CHAT_SLOT_ID)
+    expect(params.cache_thread_slots).toBe(2)
     expect(params.thread_id).toBe('cowork:s1')
     expect(params.thread_id).not.toBe('s1')
   })

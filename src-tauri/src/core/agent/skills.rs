@@ -26,15 +26,15 @@ pub(crate) fn skills_dir(root: &Path) -> PathBuf {
     crate::core::agent::project::store_root(root).join("skills")
 }
 
-/// The user-wide skill store root: `~/.jan` (skills live in its `skills/`,
-/// beside the user memory scope `~/.jan/memory`). Resolved through
+/// The user-wide skill store root: `~/.novera` (skills live in its `skills/`,
+/// beside the user memory scope `~/.novera/memory`). Resolved through
 /// [`crate::core::agent::project::jan_home`], so test builds point at a
 /// per-process temp home. `None` when there is no usable home directory.
 pub(crate) fn user_store_root() -> Option<PathBuf> {
     crate::core::agent::project::jan_home()
 }
 
-/// `~/.jan/skills`, the user scope: skills visible from every project.
+/// `~/.novera/skills`, the user scope: skills visible from every project.
 pub(crate) fn user_skills_dir() -> Option<PathBuf> {
     user_store_root().map(|home| tauri_plugin_agent_tools::skills::skills_dir(&home))
 }
@@ -75,7 +75,7 @@ pub(crate) struct SkillEntry {
     pub is_folder: bool,
     /// The plugin this skill ships in (`Some`), or `None` for a project skill.
     pub plugin: Option<String>,
-    /// True for a skill from the user scope (`~/.jan/skills`).
+    /// True for a skill from the user scope (`~/.novera/skills`).
     pub user: bool,
 }
 
@@ -275,7 +275,7 @@ pub(crate) fn discover(root: &Path) -> Vec<SkillEntry> {
     out
 }
 
-/// All user-scope skills (`~/.jan/skills`), sorted by name.
+/// All user-scope skills (`~/.novera/skills`), sorted by name.
 pub(crate) fn discover_user() -> Vec<SkillEntry> {
     let Some(dir) = user_skills_dir() else {
         return Vec::new();
@@ -288,7 +288,7 @@ pub(crate) fn discover_user() -> Vec<SkillEntry> {
 
 /// A skill file's identity on disk for deduplication: its canonical path, so
 /// the same folder reached through two symlinks (or a project `skills/` that
-/// is itself a link to `~/.jan/skills`) counts once.
+/// is itself a link to `~/.novera/skills`) counts once.
 fn canonical(file: &Path) -> PathBuf {
     std::fs::canonicalize(file).unwrap_or_else(|_| file.to_path_buf())
 }
@@ -658,7 +658,7 @@ fn is_default_jan_skill(name: &str) -> bool {
 /// advertised in every catalog even with zero project skills installed, but
 /// never force-loaded - its full body stays embedded and is fetched on demand
 /// via `skill_read` / `/skill:jan`, honoring the same invocation flags as any
-/// other skill. A project or plugin skill named "jan" shadows this default.
+/// other skill. A project or plugin skill named "novera" shadows this default.
 fn default_jan_skill_meta() -> SkillMeta {
     let parsed = parse(DEFAULT_JAN_SKILL);
     SkillMeta {
@@ -713,7 +713,7 @@ fn side_catalog(
     // The built-in Jan skill is always advertised so onboarding works even in
     // an empty project (mirrors the plugin's side_catalog). It honors the
     // enabled whitelist and side filter, and is skipped if a project or plugin
-    // skill named "jan" already shadows it.
+    // skill named "novera" already shadows it.
     if (enabled.is_empty() || enabled.iter().any(|n| n == DEFAULT_JAN_SKILL_NAME))
         && side(&parse(DEFAULT_JAN_SKILL))
         && !skills.iter().any(|m| m.name == DEFAULT_JAN_SKILL_NAME)
@@ -1138,12 +1138,12 @@ mod tests {
         write("user_only", "disable-model-invocation: true\n");
 
         let model: Vec<_> = catalog(&root, &[]).into_iter().map(|m| m.name).collect();
-        assert_eq!(model, vec!["both", "model_only", "jan"], "model side: {model:?}");
+        assert_eq!(model, vec!["both", "model_only", "novera"], "model side: {model:?}");
         let user: Vec<_> = user_catalog(&root, &[])
             .into_iter()
             .map(|m| m.name)
             .collect();
-        assert_eq!(user, vec!["both", "user_only", "jan"], "user side: {user:?}");
+        assert_eq!(user, vec!["both", "user_only", "novera"], "user side: {user:?}");
 
         // Both flags still visible to the management list.
         let all = list_meta(&root);
@@ -1545,7 +1545,7 @@ mod tests {
     }
 
     /// Skills written into the (per-process, test-only) user scope
-    /// `~/.jan/skills`, removed on drop so no other test sees them.
+    /// `~/.novera/skills`, removed on drop so no other test sees them.
     struct UserSkills(Vec<std::path::PathBuf>);
 
     impl UserSkills {
@@ -1649,20 +1649,20 @@ mod tests {
         assert_eq!(read_for_model(&root, &[], "u394-prepare").unwrap(), "user prep body");
         assert_eq!(read_for_model(&root, &[], "rel:u394-prepare").unwrap(), "plugin prep body");
         // Nothing is shadowed: the names differ.
-        assert!(report(&root, &[]).iter().all(|r| r.shadowed_by.is_none() || r.name == "jan"));
+        assert!(report(&root, &[]).iter().all(|r| r.shadowed_by.is_none() || r.name == "novera"));
         let _ = std::fs::remove_dir_all(&root);
     }
 
     #[test]
     fn built_in_jan_is_shadowed_by_a_user_skill_named_jan() {
         let mut user = UserSkills::new();
-        user.folder("jan", "---\ndescription: my jan\n---\nmine\n");
+        user.folder("novera", "---\ndescription: my jan\n---\nmine\n");
         let root = temp_root("janu");
         let model = catalog(&root, &[]);
-        let jan: Vec<_> = model.iter().filter(|m| m.name == "jan").collect();
+        let jan: Vec<_> = model.iter().filter(|m| m.name == "novera").collect();
         assert_eq!(jan.len(), 1);
         assert_eq!(jan[0].scope, SkillScope::User);
-        assert_eq!(read_for_model(&root, &[], "jan").unwrap(), "mine");
+        assert_eq!(read_for_model(&root, &[], "novera").unwrap(), "mine");
         let builtin = report(&root, &[])
             .into_iter()
             .find(|r| r.scope == SkillScope::Builtin)
@@ -1690,7 +1690,7 @@ mod tests {
         assert!(read_for_model(&root, &["other".into()], "rel:prepare").is_err());
         assert!(read_for_model(&root, &["rel".into()], "rel:prepare").is_ok());
         // The built-in jan skill still reads.
-        assert!(!read_for_model(&root, &[], "jan").unwrap().is_empty());
+        assert!(!read_for_model(&root, &[], "novera").unwrap().is_empty());
         let _ = std::fs::remove_dir_all(&root);
     }
 

@@ -90,11 +90,11 @@ pub struct ToolContext<'a> {
     /// host builds sees the same catalog its system prompt advertises. `None`
     /// keeps the store-only behaviour (the desktop).
     pub skill_source: Option<SkillSource>,
-    /// The user-wide skill store root (`~/.jan`; skills land in its `skills/`),
+    /// The user-wide skill store root (`~/.novera`; skills land in its `skills/`),
     /// the target of `skill_write` with `scope: "user"`. `None` on surfaces
     /// with no user scope, where that scope is refused.
     pub skill_user_root: Option<&'a Path>,
-    /// `~/.jan`, reached by the `memory_*` tools as the `user:` scope and as
+    /// `~/.novera`, reached by the `memory_*` tools as the `user:` scope and as
     /// the parent of other projects' stores. `None` (the desktop) confines
     /// memory to `store_root`.
     pub memory_home: Option<&'a Path>,

@@ -1,6 +1,6 @@
 [package]
-name = "Jan"
-version = "0.8.5"
+name = "Novera"
+version = "0.8.7"
 description = "Novera: an independent AI assistant for local and cloud models."
 authors = ["TRON-ABS", "Jan contributors"]
 license = "Apache-2.0"
@@ -23,12 +23,12 @@ name = "Novera-Desktop"
 path = "src/main.rs"
 required-features = ["desktop"]
 
-# The headless `jan` CLI is a separate standalone crate (jan-cli/), not a
+# The headless `jan` CLI is a separate standalone crate (novera-cli/), not a
 # [[bin]] here: tauri-cli bundles every [[bin]] regardless of required-features,
 # so a `jan` target would make the desktop bundler try to copy a binary the
 # desktop build never compiles. It is deliberately NOT a workspace member -- the
 # desktop build renames this package (`ctoml package.name "Jan-<channel>"`) and a
-# member would then fail to resolve its `package = "Jan"` dependency.
+# member would then fail to resolve its `package = "Novera"` dependency.
 
 [features]
 default = [

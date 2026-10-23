@@ -15,5 +15,7 @@
       </array>
     </dict>
   </array>
+  <key>NSLocalNetworkUsageDescription</key>
+  <string>Novera connects to model servers on your local network.</string>
 </dict>
 </plist>
