@@ -50,6 +50,10 @@ Le développement se déroule sur **[TRON-ABS/Novera](https://github.com/TRON-AB
 - [Notes sur le projet et sa compatibilité](NOVERA.md)
 - [Feuille de route](ROADMAP.md)
 
+## Projet officiel et identité
+
+Le développement et les versions officielles de Novera sont maintenus par **TRON-ABS** dans ce dépôt. Consultez la [politique d’identité](BRANDING.md) et les [règles des versions officielles](OFFICIAL_RELEASES.md) pour les distinguer des projets dérivés indépendants. Les droits accordés par Apache 2.0 restent inchangés.
+
 ## Origine et licence
 
 Novera s’appuie sur [Jan](https://github.com/janhq/jan), créé par Menlo Research et ses contributeurs. Nous conservons l’attribution d’origine et la [licence Apache 2.0](LICENSE), ainsi que le crédit aux projets libres utilisés. Novera est porté par TRON-ABS avec sa propre direction.

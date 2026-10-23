@@ -1,5 +1,7 @@
 # Contributing to Novera
 
+Official identity, release authorization and maintainer responsibilities are described in [BRANDING.md](BRANDING.md) and [OFFICIAL_RELEASES.md](OFFICIAL_RELEASES.md).
+
 Development targets [TRON-ABS/Novera](https://github.com/TRON-ABS/Novera). New contributions and release preparation are intended for Novera. Do not open or update contributions against `janhq/jan` on behalf of this project unless the user explicitly asks.
 
 Novera remains public. This development policy does not impose exclusivity on previously published contributions or replace the source license.

@@ -55,6 +55,10 @@ Development lives at **[TRON-ABS/Novera](https://github.com/TRON-ABS/Novera)**. 
 - [Project and compatibility notes](NOVERA.md)
 - [Development roadmap](ROADMAP.md)
 
+## Official project and identity
+
+Official Novera development and releases are maintained by **TRON-ABS** in this repository. See the [identity policy](BRANDING.md) and [official release policy](OFFICIAL_RELEASES.md) to distinguish official versions from independent derivatives. Source permissions under Apache 2.0 remain unchanged.
+
 ## Origins and license
 
 Novera builds on [Jan](https://github.com/janhq/jan), created by Menlo Research and its contributors. We retain the original attribution and [Apache License 2.0](LICENSE), together with the contributions of the open-source projects it depends on. Novera is maintained by TRON-ABS with its own direction.
