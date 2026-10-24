@@ -10,7 +10,7 @@ function Get-NoveraAndroidEnvironment {
     foreach ($candidate in $candidates) {
         if (!$candidate -or !(Test-Path -LiteralPath (Join-Path $candidate 'release'))) {continue}
         $release=Get-Content -LiteralPath (Join-Path $candidate 'release') -Raw
-        if ($release -match '(?m)^JAVA_VERSION="(\d+)' -and [int]$Matches[1] -eq $pin.jdkMajor) {$java=$candidate;break}
+        if ($release -match '(?m)^JAVA_VERSION="([^"]+)"' -and $Matches[1] -eq $pin.jdkVersion) {$java=$candidate;break}
     }
     $ndk=Join-Path $sdk "ndk/$($pin.ndk)"
     $llvm=Join-Path $ndk 'toolchains/llvm/prebuilt/windows-x86_64/bin'
@@ -22,19 +22,21 @@ function Get-NoveraAndroidEnvironment {
     [pscustomobject]@{repo=$repoRoot;pin=$pin;sdk=$sdk;java=$java;ndk=$ndk;llvm=$llvm;rustVersion=$rustVersion;rustBin=$rustBin;manager=(Join-Path $sdk "cmdline-tools/$($pin.commandLineTools.directory)/bin/sdkmanager.bat")}
 }
 function Set-NoveraAndroidEnvironment($Android) {
-    if (!$Android.java) {throw "JDK $($Android.pin.jdkMajor) introuvable. Definir NOVERA_ANDROID_JAVA_HOME."}
+    if (!$Android.java) {throw "JDK $($Android.pin.jdkVersion) introuvable. Definir NOVERA_ANDROID_JAVA_HOME vers un JDK portable de cette version."}
     $env:JAVA_HOME=$Android.java
+    $node=Get-Command node.exe -ErrorAction SilentlyContinue
+    if($node){$env:NOVERA_NODE_BINARY=$node.Source}
     $env:ANDROID_HOME=$Android.sdk
     $env:NDK_HOME=$Android.ndk
     $env:PATH="$($Android.rustBin);$($Android.java)/bin;$($Android.llvm);"+$env:PATH
     $env:RUSTC=Join-Path $Android.rustBin 'rustc.exe'
-    $env:CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER=Join-Path $Android.llvm 'aarch64-linux-android24-clang.cmd'
+    $env:CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER=Join-Path $Android.llvm "aarch64-linux-android$($Android.pin.minimumSdk)-clang.cmd"
     $env:CARGO_TARGET_AARCH64_LINUX_ANDROID_RUSTFLAGS='-C link-arg=-Wl,-z,max-page-size=16384'
     $env:CC_aarch64_linux_android=Join-Path $Android.llvm 'clang.exe'
     $env:CXX_aarch64_linux_android=Join-Path $Android.llvm 'clang++.exe'
     $env:AR_aarch64_linux_android=Join-Path $Android.llvm 'llvm-ar.exe'
-    $env:CFLAGS_aarch64_linux_android='--target=aarch64-linux-android24'
-    $env:CXXFLAGS_aarch64_linux_android='--target=aarch64-linux-android24'
+    $env:CFLAGS_aarch64_linux_android="--target=aarch64-linux-android$($Android.pin.minimumSdk)"
+    $env:CXXFLAGS_aarch64_linux_android="--target=aarch64-linux-android$($Android.pin.minimumSdk)"
     $env:NOVERA_ENABLE_UPDATER='false'
     $env:NOVERA_ANALYTICS_HOST=''
     $env:NOVERA_ANALYTICS_PROJECT_KEY=''

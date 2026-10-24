@@ -22,7 +22,7 @@ Ce fichier centralise les accès, le statut et les prochaines étapes ; les dét
 
 ## État actuel
 
-Préparation Android : [document actualisé](docs/ANDROID_PREPARATION.md) à partir des preuves locales. Outils installés, projet Gradle généré, contrôle Rust mobile et compilation du worker ARM64 réussis. Assemblage APK, préparation complète des bibliothèques JNI, audits finaux et essais sur téléphone restent à terminer ; Android reste désactivé dans le BAT.
+Chaîne Android intégrée aux sources : **JDK 27.0.1.0.3, SDK 37.2, NDK r30, Gradle 9.8.1, AGP 9.4.0 et Kotlin 2.4.21**. Versions centralisées, options Kotlin modernes, classpath buildSrc aligné et modules Tauri adaptés dans des copies locales générées. APK debug ARM64 assemblées et vérifiées ; intégration au projet principal contrôlée. [Préparation](docs/ANDROID_PREPARATION.md), [versions et procédure](docs/ANDROID_TOOLCHAIN.md). Android reste désactivé dans le BAT ; audits fonctionnels et essais sur téléphone restent ouverts. Présente publication des sources et de la documentation uniquement ; les outils installés et APK restent locaux.
 
 Actualisation du Hub : le filtre porte maintenant le libellé **« Adapté à mon matériel »**, traduit dans les 36 langues pour couvrir les différents appareils. Validation : 42 tests ciblés réussis, contrôle des catalogues sans erreur. Changement local, pas encore compilé ni publié.
 
@@ -30,7 +30,7 @@ Actualisation du Hub : le filtre porte maintenant le libellé **« Adapté à mo
 | --- | --- | --- |
 | Version des sources | **Novera 1.0.0** | [Frontend](web-app/package.json), [Rust](src-tauri/Cargo.toml), [Tauri](src-tauri/tauri.conf.json) |
 | Dépôt officiel | Public et indépendant du réseau de forks de Jan | [TRON-ABS/Novera](https://github.com/TRON-ABS/Novera) |
-| Dernière publication vérifiée | Base distante vérifiée : **99ff8adcc736d41ce979d8f56553c52ce6f1159d** ; présente actualisation des sources du lanceur, de la préparation Android et du libellé Hub | [Historique main](https://github.com/TRON-ABS/Novera/commits/main) |
+| Publication des sources | Présente actualisation de la chaîne Android et des documents, sur la base confirmée **b8960ce4ddc09fb467cbf63863c09c8e9cec6fb3** (contact officiel). Aucun exécutable ou APK inclus | [Historique main](https://github.com/TRON-ABS/Novera/commits/main) |
 | Corrections Windows | **35/35 intégrées et incluses dans le build local 1.0.0** | [Registre d’intégration](docs/NOVERA_1_INTEGRATION.md) |
 | Dernier exécutable | **Build du 24 octobre 2026**, Windows x64 1.0.0, release LTO fat ; dernières fonctions compilées, démarrage isolé validé ; non signé | [Dossier local](deliverables/Novera-Desktop-local-1.0.0), [preuve de compilation](deliverables/Novera-Desktop-local-1.0.0/BUILD_INFO.md) |
 | Langue système au premier démarrage | **Incluse dans le nouveau binaire local** ; français détecté sur profil neuf, choix anglais sauvegardé dans le test puis conservé après redémarrage | [Fonctionnement et validation native](docs/SYSTEM_LANGUAGE.md) |
@@ -63,7 +63,7 @@ Les campagnes de tests se recouvrent : ne pas additionner leurs totaux. Les ment
 | Langues | Traductions intégrées ; Wu partiel et relecture native incomplète | Relecture par locuteurs, complétude et contrôles d’interpolation/RTL |
 | Dépendances | Inventaire disponible ; allègement **non réalisé**, aucune dépendance ajoutée ou retirée par la restructuration | Audit des usages réels, doublons, poids et fonctions optionnelles avant toute suppression |
 | Poursuite de modularisation | Premières règles pures et adaptateurs séparés ; Factory, transport et grandes routes gardent des couplages historiques | [Limites et étapes suivantes](docs/ARCHITECTURE.md), [suivi](A_FAIRE.md) |
-| Version Android / APK | **À prévoir**, base mobile existante mais aucune APK Novera validée dans ce travail | [Étapes et critères de distribution](A_FAIRE.md) ; interface tactile, permissions, ARM64, mémoire, batterie, signature et essais sur appareils réels |
+| Version Android / APK | **APK debug ARM64 assemblées localement**, chaîne récente intégrée aux scripts ; fonctionnement sur téléphone et distribution à valider | [Chaîne Android](docs/ANDROID_TOOLCHAIN.md), [étapes et critères](A_FAIRE.md) |
 | Documentation locale | Inventaire des dépendances et ce tableau encore locaux | Relecture et publication sur demande du mainteneur |
 
 ## Carte des fichiers essentiels
@@ -353,5 +353,7 @@ Validation de la présente publication sur la base main et les seules sources s�
 Le dernier exécutable inclut la [découverte des petits modèles](docs/HUB_DISCOVERY.md), les tris et filtres par taille, la comparaison de trois modèles et le test local, dans les 36 langues. Build : 59610112 octets, SHA-256 `F68F779BF51E1B48BB066B49B1DED84207CC13A65619A09FA912B8D321C10795`, démarrage isolé vérifié. Le ZIP historique ne correspond pas à ce build. Validation actuelle : 5 103 tests web réussis, 2 ignorés ; 72 ciblés, TypeScript et langues réussis. Les campagnes se recouvrent et ne s’additionnent pas. Le binaire du nouveau Hub reste local ; les sources sont incluses dans la présente publication. Publication précédente : [d126f1f](https://github.com/TRON-ABS/Novera/commit/d126f1f52f92817622bb44810e02c1ab6e93a09d). Aucun benchmark matériel des six modèles exécuté ; aucun poids téléchargé.
 
 ## Lanceur local et future APK — 24 octobre 2026
+
+**Historique de la première préparation.** Pour l'état actuel des versions intégrées et des APK locales vérifiées, consulter [ANDROID_TOOLCHAIN.md](docs/ANDROID_TOOLCHAIN.md).
 
 [Mode d’emploi du BAT](docs/LOCAL_BUILD_LAUNCHER.md) : C:\msys64\home\jmsga\Compiler-Novera.bat ; seule la cible desktop est activée. [Préparation Android](docs/ANDROID_PREPARATION.md) : diagnostic et entrée APK ARM64 désactivée, environnement et adaptation encore incomplets. Les ressources seules ne constituent pas le projet Gradle. 65 assertions réussies sur chacun des deux hôtes PowerShell ; aucune compilation, installation ou publication dans cette préparation. L’exécutable du Hub reste inchangé.

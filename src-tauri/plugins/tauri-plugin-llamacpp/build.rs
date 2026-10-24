@@ -258,6 +258,7 @@ mod engine {
         println!("cargo:rerun-if-env-changed=JAN_ENGINE_HIP_TARGETS");
         println!("cargo:rerun-if-env-changed=JAN_ENGINE_BUILD_LOG");
         println!("cargo:rerun-if-env-changed=JAN_ENGINE_BUILD_DIR");
+        println!("cargo:rerun-if-env-changed=NDK_HOME");
 
         // The worker reports this in its handshake so the app can set it against
         // the NVIDIA driver (#9189). Read on the prebuilt path too: the prebuilt

@@ -23,7 +23,7 @@ if ($LASTEXITCODE -ne 0 -or $actual -ne $commit) {throw 'Le moteur Android exige
 $env:JAN_LLAMA_CPP_DIR=[IO.Path]::GetFullPath($source)
 if (!$env:CARGO_TARGET_DIR) {$env:CARGO_TARGET_DIR=if (Test-Path -LiteralPath 'C:/jb') {'C:/jb'} else {Join-Path $android.repo 'src-tauri/target'}}
 $env:CARGO_TARGET_DIR=[IO.Path]::GetFullPath($env:CARGO_TARGET_DIR)
-$env:JAN_ENGINE_BUILD_DIR=Join-Path $env:CARGO_TARGET_DIR 'android-llama-engine'
+$env:JAN_ENGINE_BUILD_DIR=Join-Path $env:CARGO_TARGET_DIR ("android-engine-ndk-"+$android.pin.ndk)
 $env:CARGO_BUILD_JOBS='4'
 $env:WRY_ANDROID_PACKAGE='io.github.tronabs.novera'
 $env:WRY_ANDROID_LIBRARY='app_lib'
@@ -43,16 +43,27 @@ $libs=Join-Path $engineRoot 'ggml-prefix/lib'
 $destination=Join-Path $android.repo 'src-tauri/gen/android/app/src/main/jniLibs/arm64-v8a'
 New-Item -ItemType Directory -Force -Path $destination | Out-Null
 Copy-Item -LiteralPath $worker -Destination (Join-Path $destination 'libjan_llama_worker.so') -Force
-foreach ($name in @('libggml.so','libggml-base.so','libggml-cpu.so')) {Copy-Item -LiteralPath (Join-Path $libs $name) -Destination $destination -Force}
+foreach ($name in @('libggml.so','libggml-base.so','libggml-cpu.so')) {
+    $library=Join-Path $libs $name
+    if(!(Test-Path -LiteralPath $library)){$library=Join-Path $engineRoot "ggml-prefix/bin/$name"}
+    if(!(Test-Path -LiteralPath $library)){throw "Bibliotheque moteur absente : $name"}
+    Copy-Item -LiteralPath $library -Destination $destination -Force
+}
 Copy-Item -LiteralPath (Join-Path $android.ndk 'toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so') -Destination $destination -Force
 $readelf=Join-Path $android.llvm 'llvm-readelf.exe'
 foreach ($file in Get-ChildItem -LiteralPath $destination -Filter '*.so' -File) {
     $header=& $readelf -h $file.FullName
     if (($header -join "`n") -notmatch 'Machine:\s+AArch64') {throw "Architecture invalide : $($file.Name)"}
     $segments=@(& $readelf -lW $file.FullName | Where-Object {$_ -match '^\s*LOAD\s'})
+    if($LASTEXITCODE -ne 0 -or !$segments.Count){throw "Segments ELF absents : $($file.Name)"}
     foreach ($segment in $segments) {if ([Convert]::ToInt64(($segment.Trim() -split '\s+')[-1].Replace('0x',''),16) -lt 16384) {throw "Alignement 16 Kio absent : $($file.Name)"}}
 }
-$record=[ordered]@{llama_commit=$commit;target='aarch64-linux-android';backend='cpu';models_max=1;slot_cache_mib=0;directory=$destination;files=@(Get-ChildItem -LiteralPath $destination -Filter '*.so' -File | ForEach-Object {@{name=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName).Hash;bytes=$_.Length}})}
+$assets=Join-Path $android.repo 'src-tauri/gen/android/app/src/main/assets/resources'
+New-Item -ItemType Directory -Force -Path $assets | Out-Null
+Copy-Item -LiteralPath (Join-Path $android.repo 'LICENSE') -Destination (Join-Path $assets 'LICENSE') -Force
+Copy-Item -LiteralPath (Join-Path $source 'LICENSE') -Destination (Join-Path $assets 'llama.cpp-LICENSE') -Force
+Copy-Item -LiteralPath (Join-Path $android.ndk 'toolchains/llvm/prebuilt/windows-x86_64/NOTICE') -Destination (Join-Path $assets 'NDK-toolchain-NOTICE') -Force
+$record=[ordered]@{ndk=$android.pin.ndk;llama_commit=$commit;target='aarch64-linux-android';backend='cpu';models_max=1;slot_cache_mib=0;directory=$destination;files=@(Get-ChildItem -LiteralPath $destination -Filter '*.so' -File | ForEach-Object {@{name=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName).Hash;bytes=$_.Length}})}
 $proof=Join-Path $android.repo '.build/android-engine-manifest.json'
 $record | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $proof -Encoding UTF8
 Write-Output "Moteur CPU ARM64 prepare : $destination"

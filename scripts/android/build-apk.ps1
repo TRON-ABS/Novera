@@ -7,9 +7,10 @@ $repo=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 $report=& (Join-Path $PSScriptRoot 'check-android.ps1') -Json | ConvertFrom-Json
 if (!$report.ready) { Write-Output ('APK non prete : '+($report.blockers -join ', ')); exit 3 }
 Set-Location -LiteralPath $repo
-$env:JAVA_HOME=$report.java
-$env:ANDROID_HOME=$report.sdk
-$env:NDK_HOME=$report.ndk
+. (Join-Path $PSScriptRoot 'environment.ps1')
+$android=Get-NoveraAndroidEnvironment
+Set-NoveraAndroidEnvironment $android
+& (Join-Path $PSScriptRoot 'configure-project.ps1')
 $env:IS_TAURI='true'
 $env:IS_ANDROID='true'
 $env:TAURI_ENV_PLATFORM='android'
@@ -19,5 +20,5 @@ $env:NOVERA_ENABLE_UPDATER='false'
 $env:NOVERA_ANALYTICS_HOST=''
 $env:NOVERA_ANALYTICS_PROJECT_KEY=''
 Remove-Item Env:__TAURI_BUNDLE_TYPE -ErrorAction SilentlyContinue
-& 'corepack.cmd' yarn tauri android build --apk --target aarch64 --features mobile -- --no-default-features
+& node (Join-Path $repo 'node_modules/@tauri-apps/cli/tauri.js') android build --debug --apk --target aarch64 --features mobile -- --no-default-features
 exit $LASTEXITCODE

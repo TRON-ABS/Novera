@@ -12,6 +12,8 @@ Ouvrir [TABLEAU_DE_BORD_NOVERA.md](TABLEAU_DE_BORD_NOVERA.md) pour retrouver les
 
 ## Architecture
 
+Chaîne Android de référence : JDK 27.0.1.0.3, SDK 37.2, NDK r30, Gradle 9.8.1, AGP 9.4.0 et Kotlin 2.4.21. Utiliser `scripts/android/toolchain.json`, les scripts et modèles associés ; consulter [ANDROID_TOOLCHAIN.md](docs/ANDROID_TOOLCHAIN.md). Les fichiers générés et caches Cargo ne sont pas la source des réglages. La combinaison est validée localement à la compilation ; elle ne constitue pas une validation officielle JetBrains ni une validation sur téléphone. Le BAT conserve Android désactivé.
+
 Consulter [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) et [architecture/modules.json](architecture/modules.json) avant d’étendre un domaine. Privilégier les modules extraits pour les nouvelles règles pures et les adaptateurs pour les accès système/UI. Vérifier `yarn check:architecture` et `yarn test:architecture` après modification des frontières. Les couches historiques restent en migration progressive.
 
 ## Règles de travail

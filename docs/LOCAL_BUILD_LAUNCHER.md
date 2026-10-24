@@ -23,12 +23,12 @@ Compiler-Novera.bat /android-check
 | `arm64` | Windows ARM64, ressources et outils ARM64 nécessaires | Désactivé ; commande à préparer sur environnement adapté |
 | `linux` | `.deb` / AppImage depuis Linux | Désactivé ; commande native indiquée |
 | `macos` | `.app` / `.dmg` universel depuis macOS et Xcode | Désactivé ; commande native indiquée |
-| `android` | Future APK ARM64, SDK/NDK/JDK et adaptation mobile | Désactivé et bloqué par le diagnostic |
+| `android` | APK debug ARM64, chaîne récente intégrée ; essais sur téléphone à faire | Désactivé et bloqué par les audits mobiles |
 | `ios` | Construction pour appareil depuis macOS/Xcode, signature à prévoir | Désactivé ; commande native indiquée |
 | `web` | Interface compilée `dist`, sans serveur ou déploiement | Désactivé ; fonctionnement navigateur à valider |
 | `cli` | CLI sans interface, nom de binaire historique défini par son manifeste | Désactivé |
 
-Pour une activation ultérieure, modifier **la copie du BAT réellement utilisée** (`NOVERA_BUILD_SETUP=1`, par exemple), puis appeler `Compiler-Novera.bat setup`. Cela autorise la tentative mais ne fournit pas ses dépendances. Linux/macOS/iOS ne se compilent pas automatiquement depuis ce BAT Windows ; leurs commandes existantes sont présentées avec le système requis. ARM64 exige d'abord des ressources de cette architecture. Aucune compilation de ces variantes n'a été validée par cette préparation.
+Pour une activation ultérieure, modifier **la copie du BAT réellement utilisée** (`NOVERA_BUILD_SETUP=1`, par exemple), puis appeler `Compiler-Novera.bat setup`. Cela autorise la tentative mais ne fournit pas ses dépendances. Linux/macOS/iOS ne se compilent pas automatiquement depuis ce BAT Windows ; leurs commandes existantes sont présentées avec le système requis. Windows ARM64 exige d'abord des ressources de cette architecture. Les APK Android ont été assemblées dans les validations séparées documentées ci-dessous ; les autres variantes désactivées restent à valider.
 
 ## Prérequis Windows et résultats
 
@@ -42,6 +42,6 @@ Setup/MSI utilisent le bundler Tauri et leurs sorties sont copiées dans un nouv
 
 ## Future APK
 
-Voir [ANDROID_PREPARATION.md](ANDROID_PREPARATION.md). L'entrée Android dispose d'un diagnostic de dépendances et d'un blocage explicite sur l'audit mobile. Aucun SDK, NDK, projet Gradle, clé ou APK n'est créé automatiquement par la préparation du lanceur.
+Voir [ANDROID_PREPARATION.md](ANDROID_PREPARATION.md) et [ANDROID_TOOLCHAIN.md](ANDROID_TOOLCHAIN.md). Les scripts intègrent JDK 27.0.1.0.3, SDK 37.2, NDK r30, Gradle 9.8.1, AGP 9.4.0 et Kotlin 2.4.21, avec contrôle du plugin réellement chargé. Des APK debug ARM64 ont été assemblées localement. Android reste désactivé dans le BAT et bloqué sur les audits ; le diagnostic ne télécharge ni ne compile rien. Les versions et fichiers générés se préparent explicitement avec `yarn prepare:android`. Les essais sur téléphone, la signature de production et le parcours gardé complet restent à valider.
 
-Les messages de ces scripts de développement sont en français ; ils ne constituent pas de nouveaux textes d'interface de l'application. Les nouvelles fonctions visibles de Novera doivent toujours être traduites dans les 36 langues.
+Ces scripts de développement n'ajoutent pas de textes à l'interface de l'application. Les nouvelles fonctions visibles de Novera doivent toujours être traduites dans les 36 langues.

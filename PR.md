@@ -1,3 +1,13 @@
+# Integrate the tested Android toolchain — 24 October 2026
+
+Pin SDK 37.2, Build-Tools 37.0.0, JDK 27.0.1.0.3, NDK r30 (30.0.16248370), Gradle 9.8.1, AGP 9.4.0 and Kotlin 2.4.21 in one manifest. Reapply these choices to generated projects, migrate typed compiler options, align the Kotlin dependency exported by buildSrc and verify the actually loaded plugin. Adapt generated copies of Tauri Android modules after Cargo regenerates settings, preserving the Cargo registry. Use ExecOperations and consistent JVM targets; select the exact portable JDK without changing persistent environment variables.
+
+Separate native engine caches by NDK, find the CPU backend in its actual install location and retain ELF alignment checks and notices. Keep the Android launcher disabled and mobile reviews open. Documentation records local compilation evidence, the newer-than-fully-supported JetBrains compatibility range and outstanding real-device validation. This source publication excludes Windows executables, APKs, local tool installations and release signing. GitHub Actions remains disabled. No application UI text is changed.
+
+Validation: 3 Android configuration regressions passed; 70 launcher assertions passed under each of PowerShell 5.1 and 7; 7 architecture tests and 13 module files passed. The main generated project assembled successfully (111 tasks executed, 23 up-to-date). The maintained engine preparation script then rebuilt/staged the ARM64 engine successfully, followed by a package refresh with those outputs (6 tasks executed, 128 up-to-date). Actual Kotlin 2.4.21 and its standard library were checked. Native app library and frontend inputs were reused from the prior validated Android experiment; the disabled full APK entry point and real-device operation remain unvalidated. Earlier entries describe their historical state.
+
+---
+
 # Official Novera contact address — 24 October 2026
 
 Display the maintainer-confirmed project address, `contact.novera.tronabs@gmail.com`, near the top of both repository READMEs with clickable email links. Record the same contact in project instructions, official channels and the development dashboard. Documentation-only change; address and links checked locally, without sending email or compiling the application.

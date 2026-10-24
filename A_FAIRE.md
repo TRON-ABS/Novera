@@ -6,21 +6,23 @@ Ce fichier suit les travaux à prévoir. Le [tableau de bord principal](TABLEAU_
 
 ## Version Android — APK
 
-**Statut : préparation initiale réalisée, APK encore à développer et valider.** Le lanceur de compilation conserve Android désactivé. Un diagnostic en lecture seule et un point d’entrée APK ARM64 sont préparés ; aucun SDK installé, aucun projet Gradle généré ni APK compilée. Voir [préparation Android](docs/ANDROID_PREPARATION.md). Aucune date de disponibilité annoncée.
+**Statut : chaîne récente intégrée, APK debug ARM64 assemblées localement ; essais sur téléphone à faire.** JDK 27.0.1.0.3, SDK 37.2, NDK r30, Gradle 9.8.1, AGP 9.4.0 et Kotlin 2.4.21 sont épinglés dans les scripts. Le lanceur conserve Android désactivé et les audits restent ouverts. Voir [préparation Android](docs/ANDROID_PREPARATION.md) et [chaîne de compilation](docs/ANDROID_TOOLCHAIN.md). Aucune date de disponibilité publique annoncée.
 
 ### Base déjà présente
 
 - [Configuration Android Novera](src-tauri/tauri.android.conf.json).
-- Dossier de ressources dans [src-tauri/gen/android](src-tauri/gen/android) ; le projet Gradle complet reste à initialiser.
+- Projet Gradle généré et réglages reproductibles via [configure-project.mjs](scripts/android/configure-project.mjs), avec modèles et copies locales des plugins Android.
 - Fonctionnalité Rust `mobile` dans [Cargo.toml](src-tauri/Cargo.toml).
 - Commande `build:android` dans [package.json](package.json).
 
-Ces éléments constituent une base de travail ; ils ne prouvent pas qu’une APK Novera compile ou fonctionne actuellement.
+La compilation et les contrôles du paquet sont validés localement ; le fonctionnement sur appareil réel reste à établir.
 
 ### Étapes à réaliser
 
 - [ ] Auditer la cible mobile existante, les plugins Tauri et les dépendances incompatibles avec Android.
-- [ ] Préparer et documenter l’environnement Android : JDK, SDK, NDK et cibles Rust nécessaires.
+- [x] Préparer et documenter l’environnement Android : JDK, SDK, NDK et cible Rust ARM64.
+- [x] Intégrer les versions testées, les options Kotlin modernes et l’alignement du plugin exporté par buildSrc.
+- [x] Assembler des APK debug ARM64 et contrôler manifeste, bibliothèques, signature et alignement 16 Kio.
 - [x] Ajouter un diagnostic sans installation et un point d’entrée APK désactivé avec vérification des blocages.
 - [ ] Adapter l’interface React au tactile, au clavier mobile, aux petits écrans et à la navigation retour.
 - [ ] Vérifier l’arrivée initiale : détection de langue, nouveau choix manuel sauvegardé, traductions et écriture droite à gauche.
@@ -31,7 +33,7 @@ Ces éléments constituent une base de travail ; ils ne prouvent pas qu’une AP
 - [ ] Étudier puis adapter l’inférence locale pour ARM64 : moteur, chargement des GGUF et compatibilité des fonctions.
 - [ ] Mesurer la mémoire, le contexte utilisable, la vitesse, la chauffe et la consommation sur plusieurs téléphones réels.
 - [ ] Définir les appareils et versions Android pris en charge à partir des résultats. Le minimum indiqué dans la configuration actuelle reste à valider.
-- [ ] Produire une APK de test sur demande, puis vérifier installation, démarrage, téléchargements et conversations sur appareil réel.
+- [ ] Vérifier installation des APK de test, démarrage, téléchargements et conversations sur appareil réel.
 - [ ] Préparer la signature et la conservation des clés, une procédure de construction reproductible et les empreintes des livrables.
 - [ ] Décider du canal de distribution : APK directement installable et/ou AAB pour Google Play ; documenter les prérequis du canal choisi.
 - [ ] Autoriser séparément une publication lorsque les contrôles et limites sont documentés.

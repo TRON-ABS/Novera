@@ -1,0 +1,26 @@
+// Managed by scripts/android/configure-project.mjs, after Cargo's generated settings.
+def config = new File(__CONFIG_SCRIPT__)
+def command = [System.getenv('NOVERA_NODE_BINARY') ?: 'node', config.absolutePath,
+               '--project', settingsDir.absolutePath, '--plugins-only']
+def process = new ProcessBuilder(command).redirectErrorStream(true).start()
+def output = process.inputStream.getText('UTF-8')
+if (process.waitFor() != 0) {
+    throw new GradleException('Novera Android plugin configuration failed: ' + output)
+}
+def plugins = new groovy.json.JsonSlurper().parse(new File(settingsDir, 'novera-plugin-sources.json'))
+plugins.each { id, directory ->
+    project(id).projectDir = new File(settingsDir, directory)
+}
+
+gradle.projectsEvaluated {
+    def app = gradle.rootProject.findProject(':app')
+    if (app != null) {
+        def plugin = app.plugins.findPlugin('org.jetbrains.kotlin.android')
+        def source = plugin.class.protectionDomain.codeSource.location.toString()
+        def expected = __KOTLIN_VERSION__
+        if (!source.contains('/' + expected + '/')) {
+            throw new GradleException('Novera requires Kotlin ' + expected + ', loaded: ' + source)
+        }
+        logger.lifecycle('Novera Kotlin verified: ' + expected + ' (' + source + ')')
+    }
+}

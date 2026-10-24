@@ -12,6 +12,9 @@
   },
   "scripts": {
     "check:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/check-android.ps1",
+    "prepare:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/initialize-project.ps1",
+    "build:android:engine": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/build-engine.ps1",
+    "test:android": "node --test scripts/android/__tests__/configure-project.test.mjs",
     "build:android:apk": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/build-apk.ps1",
     "prepare:updates": "node scripts/updates/novera-update.mjs",
     "test:updates": "node --test scripts/__tests__/novera-update.test.mjs",
@@ -37,7 +40,7 @@
     "dev:tauri": "yarn build:icon && yarn copy:assets:tauri && cross-env IS_CLEAN=true tauri dev",
     "dev:ios": "yarn copy:assets:mobile && RUSTC_WRAPPER= cross-env IS_IOS=true yarn tauri ios dev --features mobile",
     "dev:android": "yarn copy:assets:mobile && cross-env IS_ANDROID=true yarn tauri android dev --features mobile",
-    "build:android": "yarn build:icon && yarn copy:assets:mobile && cross-env IS_CLEAN=true yarn tauri android build -- --no-default-features --features mobile",
+    "build:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/build-apk.ps1",
     "build:ios": "yarn build:icon && yarn copy:assets:mobile && cross-env IS_IOS=true yarn tauri ios build -- --no-default-features --features mobile",
     "build:ios:device": "yarn build:icon && yarn copy:assets:mobile && cross-env IS_IOS=true yarn tauri ios build -- --no-default-features --features mobile --export-method debugging",
     "copy:assets:tauri": "cpx \"LICENSE\" \"src-tauri/resources/\"",
