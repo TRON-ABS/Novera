@@ -30,6 +30,8 @@ pub fn init<R: tauri::Runtime>(base_dir: std::path::PathBuf) -> tauri::plugin::T
             commands::memory_clear,
         ])
         .setup(move |app, _api| {
+            #[cfg(any(target_os = "android", target_os = "ios"))]
+            let base_dir = db::base_dir_in(&app.path().app_data_dir()?);
             app.manage(state::VectorDBState::new(base_dir));
             Ok(())
         })

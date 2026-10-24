@@ -18,6 +18,7 @@ type BundledEntry = {
   description: string
   // Runs on mobile (no native plugin dependencies). Desktop-only otherwise.
   mobile?: boolean
+  android?: boolean
 }
 
 // Lazily imported so the extension bundles are NOT part of the service-hub
@@ -28,6 +29,7 @@ const ENTRIES: BundledEntry[] = [
     load: () => import('@janhq/assistant-extension'),
     name: '@janhq/assistant-extension',
     productName: 'Novera Assistant',
+    android: true,
     version: '1.0.2',
     description:
       'Powers the default AI assistant that works with all your installed models.',
@@ -44,6 +46,7 @@ const ENTRIES: BundledEntry[] = [
     load: () => import('@janhq/download-extension'),
     name: '@janhq/download-extension',
     productName: 'Download Manager',
+    android: true,
     version: '1.0.0',
     description: 'Download and manage files and AI models in Novera.',
   },
@@ -51,6 +54,7 @@ const ENTRIES: BundledEntry[] = [
     load: () => import('@janhq/llamacpp-extension'),
     name: '@janhq/llamacpp-extension',
     productName: 'llama.cpp Inference Engine',
+    android: true,
     version: '1.0.1',
     description: 'This extension enables llama.cpp chat completion API calls',
   },
@@ -87,7 +91,7 @@ if (IS_MACOS) {
 export async function getBundledExtensions(
   opts: { mobile?: boolean } = {}
 ): Promise<ExtensionManifest[]> {
-  const active = ENTRIES.filter((e) => (opts.mobile ? e.mobile : true))
+  const active = ENTRIES.filter((e) => (opts.mobile ? e.mobile || (IS_ANDROID && e.android) : true))
   return Promise.all(
     active.map(async ({ load, name, productName, description, version }) => {
       const { default: Ctor } = await load()

@@ -302,6 +302,9 @@ pub fn run() {
         app_builder = app_builder.plugin(tauri_plugin_deep_link::init());
     }
 
+    #[cfg(any(target_os = "android", target_os = "ios"))]
+    { app_builder = app_builder.plugin(tauri_plugin_fs::init()).plugin(tauri_plugin_dialog::init()); }
+
     // e2e builds only: the embedded WebDriver server @wdio/tauri-service drives.
     // Gated behind the `e2e` feature so no release binary exposes it.
     #[cfg(feature = "e2e")]
@@ -314,7 +317,7 @@ pub fn run() {
         app_builder = app_builder.plugin(tauri_plugin_mlx::init());
     }
 
-    #[cfg(not(any(target_os = "android", target_os = "ios")))]
+    #[cfg(not(target_os = "ios"))]
     {
         app_builder = app_builder.plugin(tauri_plugin_hardware::init());
     }
@@ -328,10 +331,7 @@ pub fn run() {
 
     // Mobile: no updater commands
     #[cfg(any(target_os = "android", target_os = "ios"))]
-    let app_builder = app_builder.invoke_handler(invoke_commands_with_extras![
-        // Mobile-specific remote provider commands
-        core::server::remote_provider_commands::abort_remote_stream,
-    ]);
+    let app_builder = app_builder.invoke_handler(invoke_commands_with_extras![]);
 
     let app = app_builder
         .manage(AppState {
@@ -353,6 +353,8 @@ pub fn run() {
             mcp_last_known_tools: Arc::new(Mutex::new(HashMap::new())),
         })
         .setup(|app| {
+            #[cfg(any(target_os = "android", target_os = "ios"))]
+            core::app::paths::initialize_mobile_data_root(app.path().app_data_dir()?)?;
             app.handle().plugin(
                 tauri_plugin_log::Builder::default()
                     .level(log::LevelFilter::Debug)

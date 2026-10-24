@@ -11,6 +11,8 @@
     ]
   },
   "scripts": {
+    "check:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/check-android.ps1",
+    "build:android:apk": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/build-apk.ps1",
     "prepare:updates": "node scripts/updates/novera-update.mjs",
     "test:updates": "node --test scripts/__tests__/novera-update.test.mjs",
     "package:portable:win32": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-windows-portable.ps1",

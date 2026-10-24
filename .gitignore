@@ -95,3 +95,10 @@ e2e/logs
 
 # Locally compiled portable packages require separate publication approval.
 /deliverables/Novera-Portable-local-*/
+
+# Timestamped outputs of the local manual build launcher.
+/deliverables/Novera-desktop-*/
+/deliverables/Novera-setup-*/
+/deliverables/Novera-msi-*/
+/deliverables/Novera-portable-*/
+/deliverables/Novera-web-*/

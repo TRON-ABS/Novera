@@ -1,3 +1,35 @@
+# Build launcher, Android groundwork and device-neutral Hub label — 24 October 2026
+
+The manual build launcher now exposes the distribution variants while enabling only Windows x64 Novera-Desktop. Android groundwork adds pinned tool resolution, Gradle initialization/configuration, an isolated ARM64 CPU worker, mobile storage/export adaptations and a lightweight onboarding model. Android builds remain disabled and gated on unfinished reviews; neither a complete APK nor inference on a phone has been validated. The Hub hardware-fit label is translated in all 36 supported languages.
+
+Local validation: 5,103 web tests passed, 2 skipped; TypeScript no-emit and 36 locale catalogs passed; 70 build-launcher assertions passed under Windows PowerShell 5.1 and PowerShell 7; 7 architecture tests passed. The Android worker release build succeeded. No application binaries, SDK files, build logs or workflow changes are included. No remote CI, production signing or device validation is claimed. Earlier entries retain their historical status.
+
+---
+
+# Documentation Android actualisée — 24 octobre 2026
+
+`docs/ANDROID_PREPARATION.md` décrit maintenant les outils installés, le projet Gradle généré, le contrôle Rust mobile réussi et le worker ARM64 compilé, à partir des scripts et journaux locaux. Il distingue ces validations de l'assemblage APK, des audits encore ouverts et des essais sur téléphone non réalisés. Mise à jour documentaire uniquement ; aucune nouvelle compilation ou publication.
+
+---
+
+# Hub : libellé adapté à tous les appareils — 24 octobre 2026
+
+Le filtre « Adapté à mon matériel » remplace la référence au PC dans les 36 langues prises en charge, pour convenir aussi aux autres appareils. La clé `hub:discovery.adapted` et le fonctionnement du filtre restent identiques.
+
+Validation locale : 42 tests ciblés réussis et contrôle des 36 catalogues sans erreur. Sources locales ; aucune compilation ni publication pour ce changement.
+
+---
+
+# Lanceur de compilation et préparation APK — 24 octobre 2026
+
+Fichier Compiler-Novera.bat créé à côté du dépôt dans C:\msys64\home\jmsga, avec copie source dans scripts. Seule Novera-Desktop Windows x64 est activée. Setup NSIS/MSI, Portable, Windows ARM64, Linux, macOS, Android, iOS, Web et CLI restent désactivés. Les plans et diagnostics ne compilent rien ; les autres hôtes sont indiqués sans prétendre les compiler depuis Windows. Les builds Windows créent un nouveau dossier horodaté et gardent journaux/empreintes, sans remplacer le runtime existant ni copier les profils.
+
+Préparation Android : diagnostic en lecture seule, point d’entrée APK ARM64 désactivé, contrôle des outils et du vrai projet Gradle, blocage des features desktop et des audits mobiles non terminés. Java et une partie du SDK sont présents ; NDK, Command-line Tools, cible Rust Android et initialisation/adaptation mobile restent à terminer. Aucun outil installé, projet généré, clé créée ou APK compilée. Les nouveaux scripts de développement ne modifient pas les textes de l’application.
+
+Validation : 65 assertions sous Windows PowerShell 5.1 et 65 sous PowerShell 7, plans des 11 variantes, refus des 10 variantes désactivées et des arguments inconnus, syntaxe PowerShell, blocages Android, JSON et frontières réussis. BAT du dossier parent vérifié, même contenu que la source. Exécutable actuel inchangé. Documentation : docs/LOCAL_BUILD_LAUNCHER.md et docs/ANDROID_PREPARATION.md. Sources locales uniquement ; aucune compilation ou publication distante. Preuve : .build/build-launcher-2026-10-24-verification.json.
+
+---
+
 # Publication du Hub Novera — 24 octobre 2026
 
 Mise à jour des sources du Hub sur la dernière base main : sélection de six petits modèles GGUF, classement selon la mémoire estimée, tri et filtres par taille, comparaison et test local annulable. Les scores des fabricants restent sourcés et séparés des mesures locales ; aucune vitesse fictive ni classement global de qualité. 29 textes ajoutés aux 36 langues. Documentation, inventaire et tests associés inclus. Exécutable compilé et démarrage isolé vérifiés localement ; aucun binaire, archive ou changement de workflow inclus. Les anciennes mentions « local » dans les entrées suivantes décrivent leur état au moment de la compilation.

@@ -18,7 +18,7 @@
   "resumeUnavailable": "Cannot resume this download. Please start it again.",
   "discovery": {
     "title": "Discover Novera models",
-    "adapted": "Suited to my PC",
+    "adapted": "Suited to my hardware",
     "smallest": "Smallest first",
     "all": "All sizes",
     "under1": "Under 1 GB",

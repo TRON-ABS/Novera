@@ -16,7 +16,7 @@
   "searchPlaceholder": "Поиск моделей на Hugging Face…",
   "discovery": {
     "title": "Обзор моделей Novera",
-    "adapted": "Подходят моему ПК",
+    "adapted": "Подходит моему устройству",
     "smallest": "Сначала самые маленькие",
     "all": "Все размеры",
     "under1": "Меньше 1 ГБ",

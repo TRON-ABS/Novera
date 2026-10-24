@@ -50,6 +50,16 @@ use tauri::{AppHandle, Manager, Runtime};
 /// not `%APPDATA%`.
 const DATA_ROOT_ENV: &str = "JAN_DATA_ROOT";
 
+#[cfg(any(target_os = "android", target_os = "ios"))]
+static MOBILE_DATA_ROOT: std::sync::OnceLock<PathBuf> = std::sync::OnceLock::new();
+
+#[cfg(any(target_os = "android", target_os = "ios"))]
+pub fn initialize_mobile_data_root(path: PathBuf) -> Result<(), String> {
+    if !path.is_absolute() { return Err("mobile data root must be absolute".into()); }
+    std::fs::create_dir_all(&path).map_err(|e| e.to_string())?;
+    MOBILE_DATA_ROOT.set(path).map_err(|_| "mobile data root already initialized".into())
+}
+
 /// The rules for reading [`DATA_ROOT_ENV`], split out from the lookup so the
 /// validation is testable without touching the process environment.
 ///
@@ -73,6 +83,9 @@ fn env_data_dir() -> Option<PathBuf> {
 ///
 /// Use in place of `dirs::data_dir()`.
 pub fn data_dir() -> Option<PathBuf> {
+    #[cfg(any(target_os = "android", target_os = "ios"))]
+    return MOBILE_DATA_ROOT.get().cloned();
+    #[cfg(not(any(target_os = "android", target_os = "ios")))]
     env_data_dir().or_else(dirs::data_dir)
 }
 

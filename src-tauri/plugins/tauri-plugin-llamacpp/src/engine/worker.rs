@@ -499,6 +499,8 @@ pub async fn spawn(
         .stderr(Stdio::piped())
         .kill_on_drop(true);
 
+    configure_bundled_environment(&mut cmd, exe);
+
     let mut child = cmd.spawn().map_err(|e| WorkerError::Spawn(e.to_string()))?;
     // Before the handshake, so every error path below drops the job too and
     // cannot leak a worker that never reported for duty.
@@ -604,11 +606,33 @@ pub async fn spawn(
 /// Where the worker lives next to the running executable, which is how Tauri
 /// lays out a bundled sidecar.
 pub fn worker_file_name() -> &'static str {
-    if cfg!(windows) {
+    if cfg!(target_os = "android") {
+        "libjan_llama_worker.so"
+    } else if cfg!(windows) {
         "jan-llama-worker.exe"
     } else {
         "jan-llama-worker"
     }
+}
+
+/// Android extracts the worker and ggml alongside the app library. Never
+/// execute a downloaded binary from the writable model directory.
+#[cfg(target_os = "android")]
+pub fn android_worker_path() -> Option<PathBuf> {
+    let maps = std::fs::read_to_string("/proc/self/maps").ok()?;
+    maps.lines().filter_map(|line| line.split_whitespace().last())
+        .filter(|path| path.starts_with("/data/app/") && path.ends_with("/libapp_lib.so"))
+        .filter_map(|path| Path::new(path).parent())
+        .map(|dir| dir.join(worker_file_name())).find(|path| path.is_file())
+}
+
+pub fn configure_bundled_environment(command: &mut Command, executable: &Path) {
+    #[cfg(target_os = "android")]
+    if let Some(dir) = executable.parent() {
+        command.env("LD_LIBRARY_PATH", dir).env("GGML_BACKEND_PATH", dir);
+    }
+    #[cfg(not(target_os = "android"))]
+    let _ = (command, executable);
 }
 
 /// Where the worker would sit beside the app executable, whether or not it is

@@ -20,11 +20,15 @@ Ce fichier centralise les accès, le statut et les prochaines étapes ; les dét
 
 ## État actuel
 
+Préparation Android : [document actualisé](docs/ANDROID_PREPARATION.md) à partir des preuves locales. Outils installés, projet Gradle généré, contrôle Rust mobile et compilation du worker ARM64 réussis. Assemblage APK, préparation complète des bibliothèques JNI, audits finaux et essais sur téléphone restent à terminer ; Android reste désactivé dans le BAT.
+
+Actualisation du Hub : le filtre porte maintenant le libellé **« Adapté à mon matériel »**, traduit dans les 36 langues pour couvrir les différents appareils. Validation : 42 tests ciblés réussis, contrôle des catalogues sans erreur. Changement local, pas encore compilé ni publié.
+
 | Sujet | État constaté | Référence |
 | --- | --- | --- |
 | Version des sources | **Novera 1.0.0** | [Frontend](web-app/package.json), [Rust](src-tauri/Cargo.toml), [Tauri](src-tauri/tauri.conf.json) |
 | Dépôt officiel | Public et indépendant du réseau de forks de Jan | [TRON-ABS/Novera](https://github.com/TRON-ABS/Novera) |
-| Dernière publication vérifiée | Publication précédente : **aa6ddfe93cd735ea97383e9cca0a10f409b00ca9** ; actualisation des corrections décrites ci-dessous dans la présente publication | [Historique main](https://github.com/TRON-ABS/Novera/commits/main) |
+| Dernière publication vérifiée | Base distante vérifiée : **99ff8adcc736d41ce979d8f56553c52ce6f1159d** ; présente actualisation des sources du lanceur, de la préparation Android et du libellé Hub | [Historique main](https://github.com/TRON-ABS/Novera/commits/main) |
 | Corrections Windows | **35/35 intégrées et incluses dans le build local 1.0.0** | [Registre d’intégration](docs/NOVERA_1_INTEGRATION.md) |
 | Dernier exécutable | **Build du 24 octobre 2026**, Windows x64 1.0.0, release LTO fat ; dernières fonctions compilées, démarrage isolé validé ; non signé | [Dossier local](deliverables/Novera-Desktop-local-1.0.0), [preuve de compilation](deliverables/Novera-Desktop-local-1.0.0/BUILD_INFO.md) |
 | Langue système au premier démarrage | **Incluse dans le nouveau binaire local** ; français détecté sur profil neuf, choix anglais sauvegardé dans le test puis conservé après redémarrage | [Fonctionnement et validation native](docs/SYSTEM_LANGUAGE.md) |
@@ -345,3 +349,7 @@ Validation de la présente publication sur la base main et les seules sources s�
 ## Nouveau Hub compilé — 24 octobre 2026
 
 Le dernier exécutable inclut la [découverte des petits modèles](docs/HUB_DISCOVERY.md), les tris et filtres par taille, la comparaison de trois modèles et le test local, dans les 36 langues. Build : 59610112 octets, SHA-256 `F68F779BF51E1B48BB066B49B1DED84207CC13A65619A09FA912B8D321C10795`, démarrage isolé vérifié. Le ZIP historique ne correspond pas à ce build. Validation actuelle : 5 103 tests web réussis, 2 ignorés ; 72 ciblés, TypeScript et langues réussis. Les campagnes se recouvrent et ne s’additionnent pas. Le binaire du nouveau Hub reste local ; les sources sont incluses dans la présente publication. Publication précédente : [d126f1f](https://github.com/TRON-ABS/Novera/commit/d126f1f52f92817622bb44810e02c1ab6e93a09d). Aucun benchmark matériel des six modèles exécuté ; aucun poids téléchargé.
+
+## Lanceur local et future APK — 24 octobre 2026
+
+[Mode d’emploi du BAT](docs/LOCAL_BUILD_LAUNCHER.md) : C:\msys64\home\jmsga\Compiler-Novera.bat ; seule la cible desktop est activée. [Préparation Android](docs/ANDROID_PREPARATION.md) : diagnostic et entrée APK ARM64 désactivée, environnement et adaptation encore incomplets. Les ressources seules ne constituent pas le projet Gradle. 65 assertions réussies sur chacun des deux hôtes PowerShell ; aucune compilation, installation ou publication dans cette préparation. L’exécutable du Hub reste inchangé.

@@ -1,0 +1,10 @@
+{
+  "target": "aarch64-linux-android",
+  "abi": "aarch64",
+  "packageId": "io.github.tronabs.novera",
+  "reviews": {
+    "mobileDependencies": false,
+    "mobilePermissions": false,
+    "mobileStorage": false
+  }
+}

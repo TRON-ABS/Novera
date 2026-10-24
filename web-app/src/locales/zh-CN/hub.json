@@ -16,7 +16,7 @@
   "searchPlaceholder": "在 Hugging Face 上搜索模型...",
   "discovery": {
     "title": "发现 Novera 模型",
-    "adapted": "适合我的电脑",
+    "adapted": "适合我的硬件",
     "smallest": "最小优先",
     "all": "所有大小",
     "under1": "小于 1 GB",

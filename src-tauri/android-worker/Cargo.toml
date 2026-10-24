@@ -1,0 +1,22 @@
+[package]
+name = "novera-android-worker"
+version = "1.0.0"
+edition = "2021"
+license = "Apache-2.0"
+publish = false
+
+# A dedicated binary avoids enabling the native engine inside the UI process.
+[[bin]]
+name = "jan-llama-worker"
+path = "../plugins/tauri-plugin-llamacpp/src/bin/jan-llama-worker.rs"
+
+[dependencies]
+tauri-plugin-llamacpp = { path = "../plugins/tauri-plugin-llamacpp", features = ["engine"] }
+tokio = { version = "1", features = ["full"] }
+serde_json = "1"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+strip = "symbols"
+codegen-units = 1

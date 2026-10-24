@@ -99,6 +99,13 @@ mod engine {
     /// compiler: the archives here link into a Rust `*-pc-windows-msvc` binary,
     /// which a GNU-driver clang would break by emitting `libllama.a`.
     fn windows_generator(cmd: &mut Command, src: &Path) {
+        if env::var("CARGO_CFG_TARGET_OS").unwrap_or_default() == "android" {
+            let ndk = PathBuf::from(env::var_os("NDK_HOME").expect("NDK_HOME is required for the Android engine"));
+            cmd.args(["-G", "Ninja"]);
+            cmd.arg(format!("-DCMAKE_TOOLCHAIN_FILE={}", cmake_path(&ndk.join("build/cmake/android.toolchain.cmake"))));
+            cmd.args(["-DANDROID_ABI=arm64-v8a", "-DANDROID_PLATFORM=android-24", "-DANDROID_STL=c++_shared", "-DGGML_CPU_ARM_ARCH=armv8-a", "-DGGML_CPU_KLEIDIAI=OFF", "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-z,max-page-size=16384", "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-z,max-page-size=16384"]);
+            return;
+        }
         if env::var("CARGO_CFG_TARGET_OS").unwrap_or_default() != "windows" {
             return;
         }
@@ -656,6 +663,10 @@ mod engine {
             "-DCMAKE_PREFIX_PATH={}",
             ggml_prefix.display()
         ));
+        if env::var("CARGO_CFG_TARGET_OS").unwrap_or_default() == "android" {
+            cfg.arg(format!("-Dggml_DIR={}", cmake_path(&ggml_prefix.join("lib/cmake/ggml"))));
+            cfg.arg("-DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=BOTH");
+        }
         cfg.args([
             "-DCMAKE_BUILD_TYPE=Release",
             "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
@@ -1013,6 +1024,7 @@ mod engine {
     fn cpu_all_variants_supported() -> bool {
         let arch = env::var("CARGO_CFG_TARGET_ARCH").unwrap_or_default();
         let os = env::var("CARGO_CFG_TARGET_OS").unwrap_or_default();
+        if os == "android" { return false; }
         if arch == "aarch64" && os == "windows" {
             return false;
         }
@@ -1064,7 +1076,9 @@ mod engine {
             println!("cargo:rustc-link-search=native={}", d.display());
         }
         let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap_or_default();
-        let gnu_ld = !matches!(target_os.as_str(), "macos" | "ios" | "windows");
+        // Android uses lld, which resolves archive cycles itself. Embedding
+        // static libraries in the rlib also carries them to the worker crate.
+        let gnu_ld = !matches!(target_os.as_str(), "macos" | "ios" | "windows" | "android");
 
         if gnu_ld {
             // One group: the archives reference each other cyclically.
@@ -1100,6 +1114,10 @@ mod engine {
             // Windows has no rpath: the loader searches the .exe's own
             // directory first, which is where packaging puts the DLLs.
             "windows" => {}
+            "android" => {
+                for l in ["c++_shared", "m", "dl", "log"] { println!("cargo:rustc-link-lib=dylib={l}"); }
+                println!("cargo:rustc-link-arg=-Wl,-rpath,$ORIGIN");
+            }
             _ => {
                 for l in ["stdc++", "m", "pthread", "dl", "gomp"] {
                     println!("cargo:rustc-link-lib=dylib={l}");
@@ -1112,7 +1130,7 @@ mod engine {
         // without a copy step. Packaging overrides this by placing the real
         // libraries next to the executable, which $ORIGIN/@loader_path finds
         // first. Windows has no rpath at all.
-        if target_os != "windows" {
+        if target_os != "windows" && target_os != "android" {
             for d in dirs {
                 println!("cargo:rustc-link-arg=-Wl,-rpath,{}", d.display());
             }

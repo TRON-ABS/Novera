@@ -162,6 +162,10 @@ class PlatformServiceHub implements ServiceHub {
         this.coreService = new coreModule.TauriCoreService()
         this.deepLinkService = new deepLinkModule.TauriDeepLinkService()
       } else if (isPlatformIOS() || isPlatformAndroid()) {
+        if (isPlatformAndroid()) {
+          const hardwareModule = await import('./hardware/tauri')
+          this.hardwareService = new hardwareModule.TauriHardwareService()
+        }
         const [
           themeModule,
           windowModule,

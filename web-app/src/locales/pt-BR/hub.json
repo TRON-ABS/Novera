@@ -16,7 +16,7 @@
   "searchPlaceholder": "Buscar modelos no Hugging Face...",
   "discovery": {
     "title": "Descobrir modelos Novera",
-    "adapted": "Adequados ao meu PC",
+    "adapted": "Adequado ao meu hardware",
     "smallest": "Menores primeiro",
     "all": "Todos os tamanhos",
     "under1": "Menos de 1 GB",

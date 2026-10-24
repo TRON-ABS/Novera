@@ -52,6 +52,7 @@ e2e = ["dep:tauri-plugin-wdio-webdriver"]
 # MLX (tauri-plugin-mlx) is Apple-Silicon-only; it's a macOS-target dependency
 # (see [target.'cfg(target_os = "macos")'.dependencies]) rather than a feature.
 desktop = [
+    "dep:rfd",
     "deep-link",
     "hardware",
     "tauri-app",
@@ -77,7 +78,6 @@ tauri-app = [
     "dep:tauri-plugin-single-instance",
     "dep:tauri-plugin-dialog",
     "dep:fix-path-env",
-    "dep:rfd",
     "dep:gtk",
     "dep:zbus",
     "tauri-plugin-vector-db/tauri",
@@ -85,6 +85,8 @@ tauri-app = [
     "tauri-plugin-agent-tools/tauri",
 ]
 mobile = [
+    "dep:tauri-plugin-hardware",
+    "dep:tauri-plugin-fs",
     "tauri/protocol-asset",
     "tauri/test",
     "tauri/wry",
@@ -177,7 +179,6 @@ tauri-plugin-agent-tools = { path = "./plugins/tauri-plugin-agent-tools", defaul
 # `macos-system-configuration` is reqwest's legacy alias for `system-proxy` —
 # cross-platform-safe; native deps are target-gated by Cargo.
 tauri-plugin-http = { version = "2", optional = true, default-features = false, features = [
-  "native-tls",
   "http2",
   "charset",
   "macos-system-configuration",
@@ -195,11 +196,6 @@ tokio = { version = "1", features = ["full"] }
 tokio-util = "0.7.14"
 url = "2.5"
 uuid = { version = "1.7", features = ["v4"] }
-rfd = { version = "0.15.4", optional = true, default-features = false, features = [
-  "tokio",
-  "xdg-portal",
-  "common-controls-v6",
-] }
 chrono = { version = "0.4", features = ["serde"] }
 ed25519-dalek = { version = "2.1", features = ["rand_core"] }
 futures = "0.3"
@@ -232,7 +228,6 @@ keyring = { version = "3", features = [
     "crypto-rust",
 ] }
 aes-gcm = "0.10"
-machine-uid = "0.5"
 ratatui = { version = "0.30", optional = true, features = ["unstable-rendered-line-info"] }
 # Display width for the TUI's own truncation: a CJK glyph or emoji is two
 # cells wide, so counting chars overflows a bordered panel. Already in the graph
@@ -286,6 +281,9 @@ windows-sys = { version = "0.60.2", features = ["Win32_Storage_FileSystem"] }
 tauri-plugin-mlx = { path = "./plugins/tauri-plugin-mlx", optional = true }
 
 [target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+machine-uid = "0.5"
+rfd = { version = "0.15.4", optional = true, default-features = false, features = ["tokio", "xdg-portal", "common-controls-v6"] }
+tauri-plugin-http = { version = "2", optional = true, default-features = false, features = ["native-tls"] }
 reqwest = { version = "0.12", features = ["json", "blocking", "stream", "native-tls"] }
 # TLS backend must track `reqwest` above: reqwest features are additive across the
 # graph, so letting genai default to rustls would link both backends here.
@@ -302,6 +300,7 @@ tauri-plugin-single-instance = { version = "2", features = ["deep-link"], option
 sysinfo = "0.34.2"
 
 [target.'cfg(any(target_os = "android", target_os = "ios"))'.dependencies]
+tauri-plugin-fs = { version = "2", optional = true }
 reqwest = { version = "0.12", features = ["json", "blocking", "stream", "rustls-tls"], default-features = false }
 genai = { version = "=0.7.0-beta.19", default-features = false, features = ["rustls-tls"] }
 reqwest13 = { package = "reqwest", version = "0.13", default-features = false, features = ["json", "stream", "charset", "http2", "rustls"] }

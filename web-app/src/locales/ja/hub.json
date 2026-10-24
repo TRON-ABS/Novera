@@ -17,7 +17,7 @@
   "searchPlaceholder": "Hugging Faceでモデルを検索...",
   "discovery": {
     "title": "Noveraモデルを探す",
-    "adapted": "このPC向け",
+    "adapted": "この端末のハードウェア向け",
     "smallest": "小さい順",
     "all": "すべてのサイズ",
     "under1": "1 GB未満",

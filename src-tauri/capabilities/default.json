@@ -2,9 +2,13 @@
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
   "description": "enables the default permissions",
-  "windows": ["main"],
+  "windows": [
+    "main"
+  ],
   "remote": {
-    "urls": ["http://*"]
+    "urls": [
+      "http://*"
+    ]
   },
   "permissions": [
     "core:default",
@@ -55,7 +59,9 @@
     {
       "identifier": "opener:allow-open-url",
       "description": "opens the default permissions for the core module",
-      "windows": ["*"],
+      "windows": [
+        "*"
+      ],
       "allow": [
         {
           "url": "https://*"
@@ -71,12 +77,19 @@
     {
       "identifier": "opener:allow-open-path",
       "description": "Open a Cowork artifact in the OS default application. Scoped to any path because a Cowork project folder is user-chosen and can live anywhere; the same breadth the assetProtocol scope already has. Depends on plugins.opener.requireLiteralLeadingDot=false in tauri.conf.json: the Unix default makes `**` refuse dot-led components, and every Cowork workspace sits under ~/.local/share on Linux, so without it this scope matches nothing there.",
-      "windows": ["*"],
+      "windows": [
+        "*"
+      ],
       "allow": [
         {
           "path": "**"
         }
       ]
     }
+  ],
+  "platforms": [
+    "windows",
+    "linux",
+    "macOS"
   ]
 }

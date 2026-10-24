@@ -57,6 +57,8 @@ fn generate_worker_key() -> String {
 fn resolve_worker_exe<R: tauri::Runtime>(
     app_handle: &tauri::AppHandle<R>,
 ) -> Result<PathBuf, String> {
+    #[cfg(target_os = "android")]
+    if let Some(path) = worker::android_worker_path() { return Ok(path); }
     if let Some(p) = std::env::var_os("JAN_LLAMA_WORKER_BIN") {
         let p = PathBuf::from(p);
         if p.is_file() {
@@ -188,6 +190,8 @@ pub async fn start_engine<R: tauri::Runtime>(
     slot_cache_mib: u64,
     envs: HashMap<String, String>,
 ) -> Result<EngineInfo, String> {
+    #[cfg(target_os = "android")]
+    let (models_max, slot_cache_mib) = (1u32, 0u64);
     let mut guard = state.engine.lock().await;
     if let Some(existing) = guard.as_ref() {
         // Idempotent: a second start must not orphan the first worker.
@@ -338,6 +342,7 @@ pub async fn engine_devices<R: tauri::Runtime>(
     let exe = resolve_worker_exe(&app_handle)?;
     let mut cmd = tokio::process::Command::new(&exe);
     cmd.arg("--list-devices").envs(envs);
+    worker::configure_bundled_environment(&mut cmd, &exe);
     cmd.stdout(std::process::Stdio::piped());
     cmd.stderr(std::process::Stdio::piped());
     jan_utils::system::setup_windows_process_flags(&mut cmd);
@@ -589,8 +594,9 @@ pub async fn get_engine_version<R: tauri::Runtime>(
     app_handle: tauri::AppHandle<R>,
 ) -> Result<EngineVersion, String> {
     let exe = resolve_worker_exe(&app_handle)?;
-    let mut command = tokio::process::Command::new(exe);
+    let mut command = tokio::process::Command::new(&exe);
     command.arg("--version-json").kill_on_drop(true);
+    worker::configure_bundled_environment(&mut command, &exe);
     #[cfg(windows)]
     command.creation_flags(0x08000000); // CREATE_NO_WINDOW
     let output = tokio::time::timeout(std::time::Duration::from_secs(5), command.output())

@@ -1,0 +1,13 @@
+{
+  "jdkMajor": 21,
+  "compileSdk": 36,
+  "buildTools": "36.0.0",
+  "ndk": "27.2.12479018",
+  "rustTarget": "aarch64-linux-android",
+  "minimumSdk": 24,
+  "commandLineTools": {
+    "directory": "novera-15859902",
+    "url": "https://dl.google.com/android/repository/commandlinetools-win-15859902_latest.zip",
+    "sha256": "90ae805d20434428bffcb699c290860f19bb5f66a67e6b330067e3de801fb04a"
+  }
+}

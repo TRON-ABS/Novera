@@ -16,7 +16,7 @@
   "searchPlaceholder": "Hugging Face에서 모델 검색...",
   "discovery": {
     "title": "Novera 모델 탐색",
-    "adapted": "내 PC에 적합",
+    "adapted": "내 하드웨어에 적합",
     "smallest": "작은 모델부터",
     "all": "모든 크기",
     "under1": "1 GB 미만",

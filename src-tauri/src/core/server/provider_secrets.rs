@@ -81,12 +81,41 @@ fn secrets_file_path() -> PathBuf {
 }
 
 /// Derive a stable 32-byte key from a per-machine id and a versioned app salt.
+#[cfg(not(any(target_os = "android", target_os = "ios")))]
 fn derive_cipher() -> Result<Aes256Gcm, String> {
     let machine_id = machine_uid::get().unwrap_or_else(|_| "jan-fallback-machine".to_string());
     let mut hasher = Sha256::new();
     hasher.update(b"jan-provider-secrets-v1");
     hasher.update(machine_id.as_bytes());
     let key = hasher.finalize();
+    Aes256Gcm::new_from_slice(&key).map_err(|e| e.to_string())
+}
+
+// Android/iOS have no machine-uid backend. Never derive every installation's
+// key from a common fallback string. This local key stays in private app data;
+// Android backups are disabled. Hardware-keystore integration is separate.
+#[cfg(any(target_os = "android", target_os = "ios"))]
+fn derive_cipher() -> Result<Aes256Gcm, String> {
+    use std::io::Write;
+    use rand::RngCore;
+    let root = crate::core::app::paths::data_dir().ok_or("mobile private data root not initialized")?;
+    fs::create_dir_all(&root).map_err(|e| e.to_string())?;
+    let path = root.join("provider-secrets.key");
+    let key = match fs::read(&path) {
+        Ok(key) => key,
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
+            let mut key = vec![0u8; 32];
+            rand::rngs::OsRng.fill_bytes(&mut key);
+            let mut options = fs::OpenOptions::new();
+            options.write(true).create_new(true);
+            #[cfg(unix)] { use std::os::unix::fs::OpenOptionsExt; options.mode(0o600); }
+            let mut file = options.open(&path).map_err(|e| e.to_string())?;
+            file.write_all(&key).and_then(|_| file.sync_all()).map_err(|e| e.to_string())?;
+            key
+        }
+        Err(e) => return Err(e.to_string()),
+    };
+    if key.len() != 32 { return Err("invalid mobile provider key".into()); }
     Aes256Gcm::new_from_slice(&key).map_err(|e| e.to_string())
 }
 

@@ -16,7 +16,7 @@
   "searchPlaceholder": "Hledat modely na Hugging Face...",
   "discovery": {
     "title": "Objevte modely Novera",
-    "adapted": "Vhodné pro můj počítač",
+    "adapted": "Vhodné pro můj hardware",
     "smallest": "Nejmenší první",
     "all": "Všechny velikosti",
     "under1": "Méně než 1 GB",

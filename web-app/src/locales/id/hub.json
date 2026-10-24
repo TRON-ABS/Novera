@@ -16,7 +16,7 @@
   "searchPlaceholder": "Cari model di Hugging Face...",
   "discovery": {
     "title": "Jelajahi model Novera",
-    "adapted": "Sesuai untuk PC saya",
+    "adapted": "Sesuai dengan perangkat keras saya",
     "smallest": "Terkecil dahulu",
     "all": "Semua ukuran",
     "under1": "Di bawah 1 GB",

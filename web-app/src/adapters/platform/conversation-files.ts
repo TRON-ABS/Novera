@@ -16,7 +16,7 @@ export async function saveConversationFile(
       filters: [{ name: `Novera (${extension})`, extensions: [extension] }],
     })
     if (!path) return false
-    const destination = /\.[^/\\.]+$/.test(path) ? path : `${path}.${extension}`
+    const destination = path.startsWith('content://') || /\.[^/\\.]+$/.test(path) ? path : `${path}.${extension}`
     await core.invoke('write_file_sync', { args: [destination, file.content] })
     return true
   }

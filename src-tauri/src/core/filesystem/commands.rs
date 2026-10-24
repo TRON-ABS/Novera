@@ -2,6 +2,7 @@
 // It's added to ensure the legacy implementation from frontend still functions before removal.
 use super::helpers::{resolve_app_path_within_jan_data_folder, resolve_path};
 use super::models::{DialogOpenOptions, FileStat};
+#[cfg(not(any(target_os = "android", target_os = "ios")))]
 use rfd::AsyncFileDialog;
 use std::fs;
 use tauri::Runtime;
@@ -112,6 +113,12 @@ pub fn read_file_sync<R: Runtime>(
         return Err("read_file_sync error: Invalid argument".to_string());
     }
 
+    #[cfg(target_os = "android")]
+    if args[0].starts_with("content://") {
+        use tauri_plugin_fs::FsExt;
+        let path = tauri_plugin_fs::FilePath::Url(url::Url::parse(&args[0]).map_err(|e| e.to_string())?);
+        return app_handle.fs().read_to_string(path).map_err(|e| e.to_string());
+    }
     let path = resolve_path(app_handle, &args[0]);
     fs::read_to_string(&path).map_err(|e| e.to_string())
 }
@@ -125,6 +132,15 @@ pub fn write_file_sync<R: Runtime>(
         return Err("write_file_sync error: Invalid argument".to_string());
     }
 
+    #[cfg(target_os = "android")]
+    if args[0].starts_with("content://") {
+        use std::io::Write;
+        use tauri_plugin_fs::FsExt;
+        let path = tauri_plugin_fs::FilePath::Url(url::Url::parse(&args[0]).map_err(|e| e.to_string())?);
+        let mut options = tauri_plugin_fs::OpenOptions::new();
+        options.write(true).truncate(true);
+        return app_handle.fs().open(path, options).and_then(|mut file| file.write_all(args[1].as_bytes())).map_err(|e| e.to_string());
+    }
     let path = resolve_path(app_handle, &args[0]);
     let content = &args[1];
     fs::write(&path, content).map_err(|e| e.to_string())
@@ -261,6 +277,7 @@ pub(crate) fn unpack_archive(
 }
 
 // rfd native file dialog
+#[cfg(not(any(target_os = "android", target_os = "ios")))]
 #[tauri::command]
 pub async fn open_dialog(
     options: Option<DialogOpenOptions>,
@@ -307,6 +324,7 @@ pub async fn open_dialog(
     Ok(result.map(|file| serde_json::Value::String(file.path().to_string_lossy().to_string())))
 }
 
+#[cfg(not(any(target_os = "android", target_os = "ios")))]
 #[tauri::command]
 pub async fn save_dialog(options: Option<DialogOpenOptions>) -> Result<Option<String>, String> {
     let mut dialog = AsyncFileDialog::new();
@@ -328,4 +346,40 @@ pub async fn save_dialog(options: Option<DialogOpenOptions>) -> Result<Option<St
 
     let result = dialog.save_file().await;
     Ok(result.map(|file| file.path().to_string_lossy().to_string()))
+}
+
+#[cfg(any(target_os = "android", target_os = "ios"))]
+#[tauri::command]
+pub async fn open_dialog<R: Runtime>(app_handle: tauri::AppHandle<R>, options: Option<DialogOpenOptions>) -> Result<Option<serde_json::Value>, String> {
+    use tauri_plugin_dialog::DialogExt;
+    tokio::task::spawn_blocking(move || {
+        let mut dialog = app_handle.dialog().file();
+        let (mut multiple, mut directory) = (false, false);
+        if let Some(opts) = options {
+            multiple = opts.multiple.unwrap_or(false);
+            directory = opts.directory.unwrap_or(false);
+            if let Some(filters) = opts.filters { for filter in filters { dialog = dialog.add_filter(filter.name, &filter.extensions.iter().map(String::as_str).collect::<Vec<_>>()); } }
+        }
+        if multiple && !directory {
+            dialog.blocking_pick_files().map(serde_json::to_value).transpose().map_err(|e| e.to_string())
+        } else {
+            if directory { return Err("mobile directory picker is unavailable".into()); }
+            let selected = dialog.blocking_pick_file();
+            selected.map(serde_json::to_value).transpose().map_err(|e| e.to_string())
+        }
+    }).await.map_err(|e| e.to_string())?
+}
+
+#[cfg(any(target_os = "android", target_os = "ios"))]
+#[tauri::command]
+pub async fn save_dialog<R: Runtime>(app_handle: tauri::AppHandle<R>, options: Option<DialogOpenOptions>) -> Result<Option<String>, String> {
+    use tauri_plugin_dialog::DialogExt;
+    tokio::task::spawn_blocking(move || {
+        let mut dialog = app_handle.dialog().file();
+        if let Some(filters) = options.and_then(|o| o.filters) {
+            if let Some(ext) = filters.first().and_then(|f| f.extensions.first()) { dialog = dialog.set_file_name(format!("Novera.{ext}")); }
+            for filter in filters { dialog = dialog.add_filter(filter.name, &filter.extensions.iter().map(String::as_str).collect::<Vec<_>>()); }
+        }
+        Ok(dialog.blocking_save_file().map(|p| p.to_string()))
+    }).await.map_err(|e| e.to_string())?
 }
