@@ -406,5 +406,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "Parameter lanjutan",
+    "modelDefaults": "Nilai bawaan model",
+    "assistantOverrides": "Parameter khusus asisten",
+    "printPdf": "Cetak / Simpan sebagai PDF",
+    "exportHint": "Format yang dapat dibaca: cabang aktif. JSON: semua versi pesan. File eksternal tidak disertakan."
   }
 }

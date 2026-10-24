@@ -1,0 +1,32 @@
+/* Also usable when WebView2 blocks the standalone export's inline stylesheet. */
+body {
+  font:
+    16px system-ui,
+    sans-serif;
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 24px;
+  color: #202020;
+}
+pre {
+  font: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+article {
+  border-top: 1px solid #ddd;
+  padding: 12px 0;
+}
+h1,
+h2 {
+  overflow-wrap: anywhere;
+}
+@media print {
+  body {
+    margin: 0;
+    max-width: none;
+  }
+  h2 {
+    break-after: avoid;
+  }
+}

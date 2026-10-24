@@ -266,3 +266,34 @@
     padding: 6px 16px !important;
   }
 }
+/* Unlayered rules override the shared Button's rounded/ghost utilities. */
+.composer-tool, .composer-action {
+  @apply size-8 rounded-lg border border-transparent text-muted-foreground transition-colors;
+}
+.composer-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+.composer-tool:hover, .composer-action:hover {
+  @apply border-border bg-muted text-foreground;
+}
+.composer-tool-active {
+  @apply border-primary/25 bg-primary/10 text-primary;
+}
+.composer-tool-active:hover {
+  @apply border-primary/40 bg-primary/15 text-primary;
+}
+.composer-action-danger:hover {
+  @apply text-destructive bg-destructive/10;
+}
+
+.conversation-print-frame { position: fixed; width: 0; height: 0; border: 0; bottom: 0; right: 0; }

@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} انتخاب شد",
   "askSomethingElse": "یه چیز دیگه",
   "askSomethingElsePlaceholder": "پاسخ خود را تایپ کنید",
-  "submit": "ارسال کنید"
+  "submit": "ارسال کنید",
+  "composer": {
+    "advanced": "پارامترهای پیشرفته",
+    "modelDefaults": "مقادیر پیش‌فرض مدل",
+    "assistantOverrides": "پارامترهای اختصاصی دستیار",
+    "printPdf": "چاپ / ذخیره به صورت PDF",
+    "exportHint": "قالب‌های خواندنی: شاخهٔ نمایان. JSON: همهٔ نسخه‌های پیام‌ها. فایل‌های خارجی گنجانده نمی‌شوند."
+  }
 }

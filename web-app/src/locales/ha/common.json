@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} zaba",
   "askSomethingElse": "Wani abu kuma",
   "askSomethingElsePlaceholder": "Rubuta amsar ku",
-  "submit": "Sallama"
+  "submit": "Sallama",
+  "composer": {
+    "advanced": "Saituna na ci gaba",
+    "modelDefaults": "Ƙimomin asali na samfurin",
+    "assistantOverrides": "Saitunan musamman na mataimaki",
+    "printPdf": "Buga / Ajiye a matsayin PDF",
+    "exportHint": "Tsarin karantawa: reshen da ake nunawa. JSON: duk sigogin saƙonni. Ba a haɗa fayilolin waje ba."
+  }
 }

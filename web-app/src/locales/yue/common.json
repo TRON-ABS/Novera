@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} 揀咗",
   "askSomethingElse": "其他嘢",
   "askSomethingElsePlaceholder": "輸入你自己嘅答案",
-  "submit": "提交"
+  "submit": "提交",
+  "composer": {
+    "advanced": "進階參數",
+    "modelDefaults": "模型預設值",
+    "assistantOverrides": "助手自訂參數",
+    "printPdf": "列印 / 儲存為 PDF",
+    "exportHint": "可閱讀格式：目前顯示嘅分支。JSON：所有訊息版本。唔包括外部檔案。"
+  }
 }

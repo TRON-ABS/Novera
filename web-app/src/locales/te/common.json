@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} ఎంచుకోబడింది",
   "askSomethingElse": "ఇంకేదో",
   "askSomethingElsePlaceholder": "మీ స్వంత సమాధానాన్ని టైప్ చేయండి",
-  "submit": "సమర్పించండి"
+  "submit": "సమర్పించండి",
+  "composer": {
+    "advanced": "అధునాతన పారామితులు",
+    "modelDefaults": "మోడల్ డిఫాల్ట్ విలువలు",
+    "assistantOverrides": "సహాయకుడి ప్రత్యేక పారామితులు",
+    "printPdf": "ముద్రించు / PDFగా సేవ్ చేయి",
+    "exportHint": "చదవగల ఫార్మాట్‌లు: ప్రస్తుత శాఖ. JSON: సందేశాల అన్ని సంస్కరణలు. బాహ్య ఫైల్‌లు చేర్చబడవు."
+  }
 }

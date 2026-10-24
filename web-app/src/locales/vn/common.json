@@ -406,5 +406,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "Tham số nâng cao",
+    "modelDefaults": "Giá trị mặc định của mô hình",
+    "assistantOverrides": "Tham số tùy chỉnh của trợ lý",
+    "printPdf": "In / Lưu dưới dạng PDF",
+    "exportHint": "Định dạng dễ đọc: nhánh hiện tại. JSON: tất cả phiên bản của tin nhắn. Không bao gồm tệp bên ngoài."
   }
 }

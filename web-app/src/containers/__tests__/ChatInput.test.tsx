@@ -300,6 +300,7 @@ vi.mock('@/components/ui/dropdown-menu', () => {
   return {
     DropdownMenu: Pass,
     DropdownMenuContent: Pass,
+    DropdownMenuLabel: Pass,
     DropdownMenuItem: ({ children, onClick, disabled }: any) => (
       <button onClick={onClick} disabled={disabled}>
         {children}
@@ -848,9 +849,9 @@ describe('ChatInput', () => {
     // the same store when it builds its tool set -- so the toggle travels.
     it('offers the web-search toggle on every surface', () => {
       renderInput()
-      expect(icons('world-search')).toBe(1)
+      expect(screen.getAllByRole('button', { name: 'common:web_search' })).toHaveLength(1)
       renderInput({ ownsToolSet: false })
-      expect(icons('world-search')).toBeGreaterThan(0)
+      expect(screen.getAllByRole('button', { name: 'common:web_search' })).toHaveLength(2)
     })
 
     // Its only switch is Settings > Agent Tools now. In the composer it read as

@@ -28,6 +28,11 @@ function persistMessage(
   })
 }
 
+/** Drain only this thread's already queued writes before deleting its files. */
+export async function waitForThreadMessageWrites(threadId: string): Promise<void> {
+  while (pendingWrites.has(threadId)) await pendingWrites.get(threadId)
+}
+
 type MessageState = {
   messages: Record<string, ThreadMessage[]>
   getMessages: (threadId: string) => ThreadMessage[]

@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} निवडले",
   "askSomethingElse": "अजून काही",
   "askSomethingElsePlaceholder": "तुमचे स्वतःचे उत्तर टाइप करा",
-  "submit": "सबमिट करा"
+  "submit": "सबमिट करा",
+  "composer": {
+    "advanced": "प्रगत मापदंड",
+    "modelDefaults": "मॉडेलची पूर्वनिर्धारित मूल्ये",
+    "assistantOverrides": "सहाय्यकाचे स्वतंत्र मापदंड",
+    "printPdf": "प्रिंट / PDF म्हणून जतन करा",
+    "exportHint": "वाचनीय स्वरूपे: दिसणारी शाखा. JSON: संदेशांच्या सर्व आवृत्त्या. बाह्य फाइल्स समाविष्ट नाहीत."
+  }
 }

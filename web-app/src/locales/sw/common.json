@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} imechaguliwa",
   "askSomethingElse": "Kitu kingine",
   "askSomethingElsePlaceholder": "Andika jibu lako mwenyewe",
-  "submit": "Wasilisha"
+  "submit": "Wasilisha",
+  "composer": {
+    "advanced": "Vigezo vya kina",
+    "modelDefaults": "Thamani chaguomsingi za modeli",
+    "assistantOverrides": "Vigezo maalum vya msaidizi",
+    "printPdf": "Chapisha / Hifadhi kama PDF",
+    "exportHint": "Miundo ya kusoma: tawi linaloonyeshwa. JSON: matoleo yote ya ujumbe. Faili za nje hazijumuishwi."
+  }
 }

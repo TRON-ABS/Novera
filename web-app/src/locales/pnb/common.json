@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} منتخب کیتا گیا",
   "askSomethingElse": "کجھ ہور",
   "askSomethingElsePlaceholder": "اپنا جواب آپ ٹائپ کرو",
-  "submit": "جمع کراؤ"
+  "submit": "جمع کراؤ",
+  "composer": {
+    "advanced": "اعلیٰ پیرامیٹر",
+    "modelDefaults": "ماڈل دیاں پہلے توں طے قدراں",
+    "assistantOverrides": "معاون دے اپنے پیرامیٹر",
+    "printPdf": "پرنٹ / PDF وچ محفوظ کرو",
+    "exportHint": "پڑھن جوگ فارمیٹ: وکھائی جاندی شاخ۔ JSON: سنیہیاں دے سارے نسخے۔ باہری فائلاں شامل نئیں۔"
+  }
 }

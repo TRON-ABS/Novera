@@ -406,5 +406,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "高级参数",
+    "modelDefaults": "模型默认值",
+    "assistantOverrides": "助手自定义参数",
+    "printPdf": "打印 / 保存为 PDF",
+    "exportHint": "可读格式：当前分支。JSON：所有消息版本。不包含外部文件。"
   }
 }

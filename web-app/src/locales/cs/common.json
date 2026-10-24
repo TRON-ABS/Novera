@@ -406,5 +406,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "Pokročilé parametry",
+    "modelDefaults": "Výchozí hodnoty modelu",
+    "assistantOverrides": "Vlastní parametry asistenta",
+    "printPdf": "Tisk / Uložit jako PDF",
+    "exportHint": "Čitelné formáty: aktivní větev. JSON: všechny verze zpráv. Externí soubory nejsou zahrnuty."
   }
 }

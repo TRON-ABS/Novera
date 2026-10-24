@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
-import { useMessages } from '../useMessages'
+import { useMessages, waitForThreadMessageWrites } from '../useMessages'
 import { ThreadMessage } from '@janhq/core'
 
 // Mock the ServiceHub
@@ -375,4 +375,18 @@ describe('useMessages', () => {
       expect(result2.current.getMessages('thread1')).toEqual([testMessage])
     })
   })
+})
+
+it('drains ordered writes for the deleted thread without blocking on unrelated threads', async () => {
+  let finish!: () => void
+  mockCreateMessage.mockImplementationOnce(() => new Promise<ThreadMessage>((resolve) => { finish = () => resolve(message) }))
+  const message = { id: 'queued', thread_id: 'drain-thread', content: [], created_at: 1 } as unknown as ThreadMessage
+  useMessages.getState().addMessage(message)
+  let drained = false
+  const waiting = waitForThreadMessageWrites('drain-thread').then(() => { drained = true })
+  await waitForThreadMessageWrites('unrelated-thread')
+  expect(drained).toBe(false)
+  finish()
+  await waiting
+  expect(drained).toBe(true)
 })

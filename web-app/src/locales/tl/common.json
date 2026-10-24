@@ -786,5 +786,12 @@
   "askSelectedCount": "Bilang ng napili: {{count}}",
   "askSomethingElse": "Iba pa",
   "askSomethingElsePlaceholder": "I-type ang sarili mong sagot",
-  "submit": "Isumite"
+  "submit": "Isumite",
+  "composer": {
+    "advanced": "Mga advanced na parameter",
+    "modelDefaults": "Mga default ng modelo",
+    "assistantOverrides": "Sariling parameter ng assistant",
+    "printPdf": "I-print / I-save bilang PDF",
+    "exportHint": "Mga nababasang format: kasalukuyang sangay. JSON: lahat ng bersyon ng mensahe. Hindi kasama ang mga panlabas na file."
+  }
 }

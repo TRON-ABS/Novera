@@ -786,5 +786,12 @@
   "askSelectedCount": "Número de opções selecionadas: {{count}}",
   "askSomethingElse": "Outra opção",
   "askSomethingElsePlaceholder": "Escreva a sua resposta",
-  "submit": "Submeter"
+  "submit": "Submeter",
+  "composer": {
+    "advanced": "Parâmetros avançados",
+    "modelDefaults": "Valores predefinidos do modelo",
+    "assistantOverrides": "Parâmetros próprios do assistente",
+    "printPdf": "Imprimir / Guardar como PDF",
+    "exportHint": "Formatos legíveis: ramo apresentado. JSON: todas as versões das mensagens. Os ficheiros externos não estão incluídos."
+  }
 }

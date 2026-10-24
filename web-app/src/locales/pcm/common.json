@@ -786,5 +786,12 @@
   "askSelectedCount": "You don choose {{count}}",
   "askSomethingElse": "Another thing",
   "askSomethingElsePlaceholder": "Type your own answer",
-  "submit": "Submit"
+  "submit": "Submit",
+  "composer": {
+    "advanced": "Advanced parameters",
+    "modelDefaults": "Model default values",
+    "assistantOverrides": "Assistant own parameters",
+    "printPdf": "Print / Save as PDF",
+    "exportHint": "Readable formats: di branch wey dey show. JSON: all message versions. Outside files no dey inside."
+  }
 }

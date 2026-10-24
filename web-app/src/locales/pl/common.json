@@ -406,5 +406,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "Parametry zaawansowane",
+    "modelDefaults": "Domyślne wartości modelu",
+    "assistantOverrides": "Niestandardowe parametry asystenta",
+    "printPdf": "Drukuj / Zapisz jako PDF",
+    "exportHint": "Formaty czytelne: aktywna gałąź. JSON: wszystkie wersje wiadomości. Pliki zewnętrzne nie są dołączane."
   }
 }

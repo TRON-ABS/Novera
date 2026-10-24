@@ -476,5 +476,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "उन्नत पैरामीटर",
+    "modelDefaults": "मॉडल के डिफ़ॉल्ट मान",
+    "assistantOverrides": "सहायक के कस्टम पैरामीटर",
+    "printPdf": "प्रिंट करें / PDF के रूप में सहेजें",
+    "exportHint": "पढ़ने योग्य प्रारूप: सक्रिय शाखा। JSON: संदेशों के सभी संस्करण। बाहरी फ़ाइलें शामिल नहीं हैं।"
   }
 }

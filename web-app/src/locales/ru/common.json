@@ -416,5 +416,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "Расширенные параметры",
+    "modelDefaults": "Значения модели по умолчанию",
+    "assistantOverrides": "Пользовательские параметры ассистента",
+    "printPdf": "Печать / Сохранить как PDF",
+    "exportHint": "Читаемые форматы: активная ветка. JSON: все версии сообщений. Внешние файлы не включены."
   }
 }

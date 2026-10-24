@@ -406,5 +406,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "Erweiterte Parameter",
+    "modelDefaults": "Standardwerte des Modells",
+    "assistantOverrides": "Benutzerdefinierte Parameter des Assistenten",
+    "printPdf": "Drucken / Als PDF speichern",
+    "exportHint": "Lesbare Formate: aktiver Zweig. JSON: alle Nachrichtenversionen. Externe Dateien sind nicht enthalten."
   }
 }

@@ -1,13 +1,9 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import {
-  IconAdjustmentsHorizontal,
   IconChevronDown,
   IconSettings,
   IconUser,
 } from '@tabler/icons-react'
-import { Link } from '@tanstack/react-router'
-
-import { route } from '@/constants/routes'
 
 import {
   Popover,
@@ -20,6 +16,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
+import { ComposerIcon } from '@/components/ComposerIcon'
 import {
   Tooltip,
   TooltipContent,
@@ -59,6 +56,8 @@ export function SamplerPopover({
   modelId,
   assistantSwitcher,
 }: SamplerPopoverProps) {
+  const { t } = useTranslation()
+  const [advanced, setAdvanced] = useState(false)
   const currentAssistant = useAssistant((s) => s.currentAssistant)
   const updateAssistant = useAssistant((s) => s.updateAssistant)
   const assistantsLoading = useAssistant((s) => s.loading)
@@ -153,30 +152,27 @@ export function SamplerPopover({
   if (isPredefinedRemoteProvider(providerId)) return null
 
   const triggerLabel = assistantsLoading
-    ? 'Loading assistant…'
+    ? t('common:loading')
     : activeAssistant
-      ? `Sampling — ${activeAssistant.name}`
-      : 'Sampling'
+      ? `${activeAssistant.name} · ${t('common:composer.advanced')}`
+      : t('common:composer.modelDefaults')
 
   return (
-    <Popover>
+    <Popover onOpenChange={() => setAdvanced(false)}>
       <Tooltip>
         <TooltipTrigger asChild>
           <PopoverTrigger asChild>
             <Button
               variant="ghost"
               size="icon-xs"
-              aria-label="Sampling parameters"
-              className="relative"
+              aria-label={t('common:composer.advanced')}
+              className={cn(
+                'relative composer-tool',
+                hasOverrides && 'composer-tool-active'
+              )}
               disabled={assistantsLoading}
             >
-              <IconAdjustmentsHorizontal
-                size={18}
-                className={cn(
-                  'text-muted-foreground',
-                  hasOverrides && 'text-primary'
-                )}
-              />
+              <ComposerIcon>⚙️</ComposerIcon>
               {hasOverrides && (
                 <span
                   aria-hidden
@@ -197,7 +193,7 @@ export function SamplerPopover({
         sideOffset={8}
         collisionPadding={12}
         avoidCollisions
-        className="w-[380px] p-0 flex flex-col max-h-[var(--radix-popover-content-available-height)]"
+        className="w-[min(380px,calc(100vw-24px))] p-0 flex flex-col max-h-[var(--radix-popover-content-available-height)]"
       >
         <div className="flex items-center justify-between gap-2 px-4 pt-3 pb-2 border-b">
           <AssistantHeader
@@ -205,27 +201,56 @@ export function SamplerPopover({
             assistantSwitcher={assistantSwitcher}
           />
           <div className="flex items-center gap-1 shrink-0">
-            {hasOverrides && (
-              <Button variant="ghost" size="sm" onClick={handleResetAll}>
-                Reset all
-              </Button>
-            )}
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon-sm" asChild>
-                  <Link to={route.settings.assistant}>
-                    <IconSettings size={16} className="text-muted-foreground" />
-                  </Link>
+                <Button
+                  variant="ghost"
+                  size="icon-sm"
+                  disabled={!activeAssistant}
+                  aria-label={t('common:composer.advanced')}
+                  aria-expanded={advanced}
+                  aria-controls="assistant-advanced-parameters"
+                  onClick={() => setAdvanced((value) => !value)}
+                >
+                  <IconSettings
+                    size={18}
+                    stroke={1.7}
+                    className={cn(
+                      'text-muted-foreground',
+                      advanced && 'text-primary'
+                    )}
+                  />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>
-                <p>Open assistant settings</p>
-              </TooltipContent>
+              <TooltipContent>{t('common:composer.advanced')}</TooltipContent>
             </Tooltip>
           </div>
         </div>
-        {activeAssistant ? (
-          <div className="flex-1 min-h-0 overflow-y-auto px-4 py-3">
+        <div className="px-4 py-3 space-y-1">
+          <p className="text-sm font-medium">
+            {t(
+              hasOverrides
+                ? 'common:composer.assistantOverrides'
+                : 'common:composer.modelDefaults'
+            )}
+          </p>
+          {modelId && (
+            <p className="text-xs text-muted-foreground break-all">{modelId}</p>
+          )}
+        </div>
+        {advanced && activeAssistant && (
+          <div
+            id="assistant-advanced-parameters"
+            className="flex-1 min-h-0 overflow-y-auto border-t px-4 py-3 space-y-3"
+          >
+            <p className="text-xs font-medium">
+              {t('common:composer.advanced')}
+            </p>
+            {hasOverrides && (
+              <Button variant="outline" size="sm" onClick={handleResetAll}>
+                {t('common:reset')} — {t('common:composer.modelDefaults')}
+              </Button>
+            )}
             <ParametersSection
               params={params}
               providers={scopedProviders}
@@ -237,10 +262,6 @@ export function SamplerPopover({
               onAddMany={handleAddMany}
               onRemoveMany={handleRemoveMany}
             />
-          </div>
-        ) : (
-          <div className="text-xs text-muted-foreground px-4 py-3">
-            Pick an assistant above to configure sampling.
           </div>
         )}
       </PopoverContent>
@@ -291,10 +312,7 @@ function AssistantHeader({
           <IconChevronDown size={14} className="text-muted-foreground" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent
-        align="start"
-        className="max-h-64 overflow-y-auto"
-      >
+      <DropdownMenuContent align="start" className="max-h-64 overflow-y-auto">
         <AssistantsMenu
           selectedAssistant={assistantSwitcher.selectedAssistantId}
           setSelectedAssistant={assistantSwitcher.setSelectedAssistantId}

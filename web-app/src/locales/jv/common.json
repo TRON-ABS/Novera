@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} dipilih",
   "askSomethingElse": "Mergo liyane",
   "askSomethingElsePlaceholder": "Ketik jawaban sampeyan dhewe",
-  "submit": "Kirimake"
+  "submit": "Kirimake",
+  "composer": {
+    "advanced": "Parameter lanjut",
+    "modelDefaults": "Nilai gawan model",
+    "assistantOverrides": "Parameter khusus asisten",
+    "printPdf": "Cetak / Simpen dadi PDF",
+    "exportHint": "Format sing bisa diwaca: cabang sing ditampilake. JSON: kabeh versi pesen. Berkas njaba ora kalebu."
+  }
 }

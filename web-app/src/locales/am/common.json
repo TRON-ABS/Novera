@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} ተመርጧል",
   "askSomethingElse": "ሌላ ነገር",
   "askSomethingElsePlaceholder": "የራስህ መልስ ተይብ",
-  "submit": "አስገባ"
+  "submit": "አስገባ",
+  "composer": {
+    "advanced": "የላቁ መለኪያዎች",
+    "modelDefaults": "የሞዴሉ ነባሪ እሴቶች",
+    "assistantOverrides": "የረዳቱ የግል መለኪያዎች",
+    "printPdf": "አትም / እንደ PDF አስቀምጥ",
+    "exportHint": "ሊነበቡ የሚችሉ ቅርጸቶች፦ የሚታየው ቅርንጫፍ። JSON፦ ሁሉም የመልዕክት ስሪቶች። ውጫዊ ፋይሎች አይካተቱም።"
+  }
 }

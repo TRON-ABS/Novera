@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} নির্বাচিত",
   "askSomethingElse": "অন্য কিছু",
   "askSomethingElsePlaceholder": "আপনার নিজের উত্তর টাইপ করুন",
-  "submit": "জমা দিন"
+  "submit": "জমা দিন",
+  "composer": {
+    "advanced": "উন্নত প্যারামিটার",
+    "modelDefaults": "মডেলের ডিফল্ট মান",
+    "assistantOverrides": "সহকারীর নিজস্ব প্যারামিটার",
+    "printPdf": "প্রিন্ট / PDF হিসেবে সংরক্ষণ",
+    "exportHint": "পাঠযোগ্য ফরম্যাটে বর্তমান শাখা। JSON-এ বার্তার সব সংস্করণ। বাইরের ফাইল অন্তর্ভুক্ত নয়।"
+  }
 }

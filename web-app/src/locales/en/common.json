@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} selected",
   "askSomethingElse": "Something else",
   "askSomethingElsePlaceholder": "Type your own answer",
-  "submit": "Submit"
+  "submit": "Submit",
+  "composer": {
+    "advanced": "Advanced parameters",
+    "modelDefaults": "Model defaults",
+    "assistantOverrides": "Assistant overrides",
+    "printPdf": "Print / Save as PDF",
+    "exportHint": "Readable formats: active branch. JSON: all message versions. External files are not bundled."
+  }
 }

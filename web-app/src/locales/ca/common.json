@@ -408,5 +408,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "Paràmetres avançats",
+    "modelDefaults": "Valors predeterminats del model",
+    "assistantOverrides": "Paràmetres personalitzats de l’assistent",
+    "printPdf": "Imprimir / Desar com a PDF",
+    "exportHint": "Formats llegibles: branca activa. JSON: totes les versions dels missatges. No s’hi inclouen els fitxers externs."
   }
 }

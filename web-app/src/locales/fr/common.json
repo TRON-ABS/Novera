@@ -410,5 +410,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "Paramètres avancés",
+    "modelDefaults": "Valeurs du modèle",
+    "assistantOverrides": "Paramètres propres à l’assistant",
+    "printPdf": "Imprimer / Enregistrer en PDF",
+    "exportHint": "Formats lisibles : branche affichée. JSON : toutes les versions des messages. Les fichiers externes ne sont pas inclus."
   }
 }

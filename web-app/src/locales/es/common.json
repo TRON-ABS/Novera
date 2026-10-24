@@ -476,5 +476,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "Parámetros avanzados",
+    "modelDefaults": "Valores predeterminados del modelo",
+    "assistantOverrides": "Parámetros personalizados del asistente",
+    "printPdf": "Imprimir / Guardar como PDF",
+    "exportHint": "Formatos legibles: rama activa. JSON: todas las versiones de los mensajes. No se incluyen archivos externos."
   }
 }

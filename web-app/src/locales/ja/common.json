@@ -520,5 +520,12 @@
     "forceQuit": "強制終了",
     "forcing": "強制終了しています…",
     "shuttingDown": "シャットダウンしています…"
+  },
+  "composer": {
+    "advanced": "詳細パラメーター",
+    "modelDefaults": "モデルの既定値",
+    "assistantOverrides": "アシスタントのカスタムパラメーター",
+    "printPdf": "印刷 / PDFとして保存",
+    "exportHint": "閲覧用形式：現在の分岐。JSON：すべてのメッセージの全バージョン。外部ファイルは含まれません。"
   }
 }

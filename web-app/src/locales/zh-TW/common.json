@@ -406,5 +406,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "進階參數",
+    "modelDefaults": "模型預設值",
+    "assistantOverrides": "助理自訂參數",
+    "printPdf": "列印 / 儲存為 PDF",
+    "exportHint": "可讀格式：目前分支。JSON：所有訊息版本。不包含外部檔案。"
   }
 }

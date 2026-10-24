@@ -22,6 +22,14 @@ def validate(root):
     total = sum(map(len, english.values()))
     errors = []
     rows = []
+    # New feature text is required even in catalogs with legacy gaps.
+    required_common = (
+        'save', 'deleteThread', 'delete', 'cancel',
+        'dialogs.deleteThread.description',
+        'toast.deleteThread.title', 'toast.deleteThread.description',
+        'composer.advanced', 'composer.modelDefaults',
+        'composer.assistantOverrides', 'composer.printPdf', 'composer.exportHint',
+    )
     for entry in inventory:
         code = entry['locale']
         covered = 0
@@ -31,6 +39,10 @@ def validate(root):
         for namespace, original in english.items():
             source = locales / code / namespace
             translated = flatten(json.loads(source.read_text(encoding='utf-8'))) if source.exists() else {}
+            if namespace == 'common.json':
+                for key in required_common:
+                    if not translated.get(key, '').strip():
+                        issues.append(f'{namespace}:{key}: required feature translation missing')
             covered += len(set(translated) & set(original))
             if entry['source_pr'] is None:
                 continue

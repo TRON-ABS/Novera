@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} تم التحديد",
   "askSomethingElse": "شيء آخر",
   "askSomethingElsePlaceholder": "اكتب إجابتك الخاصة",
-  "submit": "إرسال"
+  "submit": "إرسال",
+  "composer": {
+    "advanced": "المعلمات المتقدمة",
+    "modelDefaults": "القيم الافتراضية للنموذج",
+    "assistantOverrides": "معلمات المساعد المخصصة",
+    "printPdf": "طباعة / حفظ بصيغة PDF",
+    "exportHint": "الصيغ المقروءة: الفرع المعروض. JSON: جميع إصدارات الرسائل. الملفات الخارجية غير مضمّنة."
+  }
 }

@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, memo } from 'react'
 import type { ReactNode } from 'react'
 import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
+import { ComposerIcon } from '@/components/ComposerIcon'
 import {
   Tooltip,
   TooltipContent,
@@ -26,21 +27,19 @@ import {
   IconPhoto,
   IconMusic,
   IconVideo,
-  IconBrain,
   IconTool,
   IconCodeCircle2,
   IconPlayerStopFilled,
   IconX,
   IconPaperclip,
   IconLoader2,
-  IconWorldSearch,
-  IconTerminal2,
   IconBrandChrome,
   IconDots,
 } from '@tabler/icons-react'
 import { generateId } from 'ai'
 import { useMessageQueue } from '@/stores/message-queue-store'
 import { QueuedMessageChip } from '@/containers/QueuedMessageBubble'
+import { ConversationActions } from '@/containers/ConversationActions'
 import { SamplerPopover } from '@/containers/SamplerPopover'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useGeneralSetting } from '@/hooks/useGeneralSetting'
@@ -2588,16 +2587,12 @@ const ChatInput = memo(function ChatInput({
                       <Button
                         variant="ghost"
                         size="icon-xs"
-                        className={cn(webSearchEnabled && 'text-primary')}
+                        aria-label={t('common:web_search')}
+                        aria-pressed={webSearchEnabled}
+                        className={cn('composer-tool', webSearchEnabled && 'composer-tool-active')}
                         onClick={() => setWebSearchEnabled(!webSearchEnabled)}
                       >
-                        <IconWorldSearch
-                          size={18}
-                          className={cn(
-                            'text-muted-foreground',
-                            webSearchEnabled && 'text-primary'
-                          )}
-                        />
+                        <ComposerIcon>🌐</ComposerIcon>
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent>
@@ -2620,16 +2615,10 @@ const ChatInput = memo(function ChatInput({
                           size="icon-xs"
                           aria-pressed={shellEnabled}
                           aria-label={t('common:shell')}
-                          className={cn(shellEnabled && 'text-primary')}
+                          className={cn('composer-tool', shellEnabled && 'composer-tool-active')}
                           onClick={() => setShellEnabled(!shellEnabled)}
                         >
-                          <IconTerminal2
-                            size={18}
-                            className={cn(
-                              'text-muted-foreground',
-                              shellEnabled && 'text-primary'
-                            )}
-                          />
+                          <ComposerIcon>💻</ComposerIcon>
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -2751,14 +2740,9 @@ const ChatInput = memo(function ChatInput({
                                   variant="ghost"
                                   size="icon-xs"
                                   aria-label={`Reasoning effort: ${effortLabel}`}
+                                  className={cn('composer-tool', currentEffort && 'composer-tool-active')}
                                 >
-                                  <IconBrain
-                                    size={18}
-                                    className={cn(
-                                      'text-muted-foreground',
-                                      currentEffort && 'text-primary'
-                                    )}
-                                  />
+                                  <ComposerIcon>⚡</ComposerIcon>
                                 </Button>
                               </DropdownMenuTrigger>
                             </TooltipTrigger>
@@ -2864,15 +2848,11 @@ const ChatInput = memo(function ChatInput({
                                 variant="ghost"
                                 size="icon-xs"
                                 aria-label={`Reasoning: ${label}`}
+                                className={cn('composer-tool', reasoningValue === 'on' && 'composer-tool-active')}
                               >
-                                <IconBrain
-                                  size={18}
-                                  className={cn(
-                                    'text-muted-foreground',
-                                    reasoningValue === 'on' && 'text-primary',
-                                    reasoningValue === 'off' && 'opacity-50'
-                                  )}
-                                />
+                                <span className={cn(reasoningValue === 'off' && 'opacity-50')}>
+                                  <ComposerIcon>⚡</ComposerIcon>
+                                </span>
                               </Button>
                             </DropdownMenuTrigger>
                           </TooltipTrigger>
@@ -2956,6 +2936,20 @@ const ChatInput = memo(function ChatInput({
                       </DropdownMenu>
                     )
                   })()}
+                {!scopeKey && (
+                  <ConversationActions
+                    thread={currentThread}
+                    busy={turnBusy || ingestingAny}
+                    onReset={() => {
+                      setPrompt('')
+                      setMessage('')
+                      setRows(1)
+                      setFilePickerOpen(false)
+                      if (fileInputRef.current) fileInputRef.current.value = ''
+                      void router.navigate({ to: route.home })
+                    }}
+                  />
+                )}
               </div>
               {surfaceControls && (
                 // Keep controls in normal flow so wrapped rows grow the composer.
@@ -2970,7 +2964,7 @@ const ChatInput = memo(function ChatInput({
               </CollapsibleControls>
             </div>
 
-            <div className="flex shrink-0 items-center gap-2">
+            <div className="flex shrink-0 items-center gap-1">
               {tokenCounterVisible && tokenCounterCompact && (
                 <div className="flex-1 flex justify-center">
                   <TokenCounter

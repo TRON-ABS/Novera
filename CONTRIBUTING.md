@@ -6,6 +6,10 @@ Development targets [TRON-ABS/Novera](https://github.com/TRON-ABS/Novera). New c
 
 Novera remains public. This development policy does not impose exclusivity on previously published contributions or replace the source license.
 
+## Required translations for new features
+
+Every new or changed user-facing text must be translated in **all supported interface locales (currently 36)** in the same change, including locales with partial legacy catalogs. This includes buttons, tooltips, menus, hints, confirmations, success messages, and errors. Use translation keys rather than hardcoded text; an English fallback does not count as a translation. Preserve interpolation variables and technical identifiers. Update coverage records in `docs/language-support.json` and `docs/LANGUAGES.md`, then run `python scripts/check-novera-locales.py` before compiling. See [the language policy](docs/LANGUAGES.md#required-localization-for-new-features).
+
 The inherited Jan contribution guidance below is retained for technical reference; upstream destinations and team procedures do not govern Novera.
 
 ---

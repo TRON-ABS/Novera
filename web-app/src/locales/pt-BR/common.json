@@ -407,5 +407,12 @@
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"
+  },
+  "composer": {
+    "advanced": "Parâmetros avançados",
+    "modelDefaults": "Valores padrão do modelo",
+    "assistantOverrides": "Parâmetros personalizados do assistente",
+    "printPdf": "Imprimir / Salvar como PDF",
+    "exportHint": "Formatos legíveis: ramificação ativa. JSON: todas as versões das mensagens. Arquivos externos não são incluídos."
   }
 }

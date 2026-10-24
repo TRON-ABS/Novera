@@ -243,6 +243,9 @@
     },
     "messageMetadata": {
       "title": "消息元数据"
+    },
+    "deleteThread": {
+      "description": "侬确定要删脱搿只会话伐？删脱以后就恢复勿转来哉。"
     }
   },
   "errorDialog": {
@@ -306,7 +309,8 @@
       "title": "重命名会话"
     },
     "deleteThread": {
-      "title": "删除会话"
+      "title": "删除会话",
+      "description": "搿只会话已经永久删脱哉。"
     },
     "errorCopied": {
       "title": "复制成功"
@@ -374,5 +378,12 @@
   "subagentsRunning_one": "运行当中个子代理数目：{{count}}",
   "subagentsRunning_other": "运行当中个子代理数目：{{count}}",
   "artifactGroupImage": "图片",
-  "askContinue": "继续"
+  "askContinue": "继续",
+  "composer": {
+    "advanced": "高级参数",
+    "modelDefaults": "模型默认值",
+    "assistantOverrides": "助手自定义参数",
+    "printPdf": "打印 / 保存为 PDF",
+    "exportHint": "可读格式：当前显示的分支。JSON：全部消息版本。不包含外部文件。"
+  }
 }

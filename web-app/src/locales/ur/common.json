@@ -786,5 +786,12 @@
   "askSelectedCount": "{{count}} منتخب",
   "askSomethingElse": "کچھ اور",
   "askSomethingElsePlaceholder": "اپنا جواب خود ٹائپ کریں۔",
-  "submit": "جمع کروائیں۔"
+  "submit": "جمع کروائیں۔",
+  "composer": {
+    "advanced": "اعلیٰ پیرامیٹرز",
+    "modelDefaults": "ماڈل کی طے شدہ قدریں",
+    "assistantOverrides": "معاون کے مخصوص پیرامیٹرز",
+    "printPdf": "پرنٹ / PDF کے طور پر محفوظ کریں",
+    "exportHint": "پڑھنے کے قابل فارمیٹس: موجودہ شاخ۔ JSON: پیغامات کے تمام نسخے۔ بیرونی فائلیں شامل نہیں ہیں۔"
+  }
 }

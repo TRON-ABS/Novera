@@ -786,5 +786,12 @@
   "askSelectedCount": "เลือกแล้ว {{count}}",
   "askSomethingElse": "อย่างอื่น",
   "askSomethingElsePlaceholder": "พิมพ์คำตอบของคุณเอง",
-  "submit": "ส่ง"
+  "submit": "ส่ง",
+  "composer": {
+    "advanced": "พารามิเตอร์ขั้นสูง",
+    "modelDefaults": "ค่าเริ่มต้นของโมเดล",
+    "assistantOverrides": "พารามิเตอร์เฉพาะของผู้ช่วย",
+    "printPdf": "พิมพ์ / บันทึกเป็น PDF",
+    "exportHint": "รูปแบบที่อ่านได้: สาขาที่แสดงอยู่ JSON: ทุกเวอร์ชันของข้อความ ไม่รวมไฟล์ภายนอก"
+  }
 }
