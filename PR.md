@@ -1,3 +1,9 @@
+# Remove the unused Jan banner — 24 October 2026
+
+Remove the legacy root-level `JanBanner.png`, which is no longer referenced by the application or READMEs. Both READMEs already display the Novera banner. Update the asset-audit inventory and development dashboard. Reference checks passed; no application build was needed. Existing license files and upstream attribution are unchanged.
+
+---
+
 # Integrate the tested Android toolchain — 24 October 2026
 
 Pin SDK 37.2, Build-Tools 37.0.0, JDK 27.0.1.0.3, NDK r30 (30.0.16248370), Gradle 9.8.1, AGP 9.4.0 and Kotlin 2.4.21 in one manifest. Reapply these choices to generated projects, migrate typed compiler options, align the Kotlin dependency exported by buildSrc and verify the actually loaded plugin. Adapt generated copies of Tauri Android modules after Cargo regenerates settings, preserving the Cargo registry. Use ExecOperations and consistent JVM targets; select the exact portable JDK without changing persistent environment variables.

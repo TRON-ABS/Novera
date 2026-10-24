@@ -22,6 +22,8 @@ Ce fichier centralise les accès, le statut et les prochaines étapes ; les dét
 
 ## État actuel
 
+Nettoyage de l'identité : ancienne bannière Jan inutilisée retirée de la racine du projet. Les README conservent la bannière Novera ; l'inventaire d'audit est actualisé. Licences et attributions héritées inchangées. Aucune compilation nécessaire.
+
 Chaîne Android intégrée aux sources : **JDK 27.0.1.0.3, SDK 37.2, NDK r30, Gradle 9.8.1, AGP 9.4.0 et Kotlin 2.4.21**. Versions centralisées, options Kotlin modernes, classpath buildSrc aligné et modules Tauri adaptés dans des copies locales générées. APK debug ARM64 assemblées et vérifiées ; intégration au projet principal contrôlée. [Préparation](docs/ANDROID_PREPARATION.md), [versions et procédure](docs/ANDROID_TOOLCHAIN.md). Android reste désactivé dans le BAT ; audits fonctionnels et essais sur téléphone restent ouverts. Présente publication des sources et de la documentation uniquement ; les outils installés et APK restent locaux.
 
 Actualisation du Hub : le filtre porte maintenant le libellé **« Adapté à mon matériel »**, traduit dans les 36 langues pour couvrir les différents appareils. Validation : 42 tests ciblés réussis, contrôle des catalogues sans erreur. Changement local, pas encore compilé ni publié.
@@ -30,7 +32,7 @@ Actualisation du Hub : le filtre porte maintenant le libellé **« Adapté à mo
 | --- | --- | --- |
 | Version des sources | **Novera 1.0.0** | [Frontend](web-app/package.json), [Rust](src-tauri/Cargo.toml), [Tauri](src-tauri/tauri.conf.json) |
 | Dépôt officiel | Public et indépendant du réseau de forks de Jan | [TRON-ABS/Novera](https://github.com/TRON-ABS/Novera) |
-| Publication des sources | Présente actualisation de la chaîne Android et des documents, sur la base confirmée **b8960ce4ddc09fb467cbf63863c09c8e9cec6fb3** (contact officiel). Aucun exécutable ou APK inclus | [Historique main](https://github.com/TRON-ABS/Novera/commits/main) |
+| Publication des sources | Chaîne Android publiée au commit **23d9ebcb65196334b7f2b85784ec54aac1e4d01b** ; présente actualisation pour retirer l'ancienne bannière Jan inutilisée. Aucun exécutable ou APK inclus | [Historique main](https://github.com/TRON-ABS/Novera/commits/main) |
 | Corrections Windows | **35/35 intégrées et incluses dans le build local 1.0.0** | [Registre d’intégration](docs/NOVERA_1_INTEGRATION.md) |
 | Dernier exécutable | **Build du 24 octobre 2026**, Windows x64 1.0.0, release LTO fat ; dernières fonctions compilées, démarrage isolé validé ; non signé | [Dossier local](deliverables/Novera-Desktop-local-1.0.0), [preuve de compilation](deliverables/Novera-Desktop-local-1.0.0/BUILD_INFO.md) |
 | Langue système au premier démarrage | **Incluse dans le nouveau binaire local** ; français détecté sur profil neuf, choix anglais sauvegardé dans le test puis conservé après redémarrage | [Fonctionnement et validation native](docs/SYSTEM_LANGUAGE.md) |
