@@ -3,6 +3,7 @@
   <p><strong>Knowledge for everyone. AI that keeps moving forward.</strong></p>
   <p>An independent AI assistant by TRON-ABS, bringing local models, cloud providers and evolving tools into one project.</p>
   <p><strong>In development</strong> · 36 interface language options · Apache 2.0</p>
+  <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p>
     <a href="README.fr.md">Français</a> ·
     <a href="docs/LANGUAGES.md">Languages</a> ·

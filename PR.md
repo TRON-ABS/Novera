@@ -1,3 +1,9 @@
+# Official Novera contact address — 24 October 2026
+
+Display the maintainer-confirmed project address, `contact.novera.tronabs@gmail.com`, near the top of both repository READMEs with clickable email links. Record the same contact in project instructions, official channels and the development dashboard. Documentation-only change; address and links checked locally, without sending email or compiling the application.
+
+---
+
 # Build launcher, Android groundwork and device-neutral Hub label — 24 October 2026
 
 The manual build launcher now exposes the distribution variants while enabling only Windows x64 Novera-Desktop. Android groundwork adds pinned tool resolution, Gradle initialization/configuration, an isolated ARM64 CPU worker, mobile storage/export adaptations and a lightweight onboarding model. Android builds remain disabled and gated on unfinished reviews; neither a complete APK nor inference on a phone has been validated. The Hub hardware-fit label is translated in all 36 supported languages.

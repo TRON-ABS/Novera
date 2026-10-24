@@ -2,6 +2,8 @@
 
 Le produit est **Novera**, maintenu par TRON-ABS : https://github.com/TRON-ABS/Novera.
 
+Contact officiel du projet : **[contact.novera.tronabs@gmail.com](mailto:contact.novera.tronabs@gmail.com)**. Adresse créée et confirmée par le mainteneur le 24 octobre 2026 ; à utiliser dans les mentions de contact de Novera.
+
 Objectif : **Knowledge for everyone.** Rendre le savoir et les outils d’intelligence artificielle accessibles en plusieurs langues, avec des modèles locaux et distants.
 
 ## Point d’entrée du développement

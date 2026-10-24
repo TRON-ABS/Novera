@@ -4,6 +4,8 @@
 
 Mission : **Knowledge for everyone.** Rendre le savoir et les outils d’IA accessibles au plus grand nombre, dans plusieurs langues. Mainteneur : **TRON-ABS**.
 
+Contact officiel de Novera : **[contact.novera.tronabs@gmail.com](mailto:contact.novera.tronabs@gmail.com)**, confirmé par le mainteneur le 24 octobre 2026 et affiché dans les README anglais et français du dépôt.
+
 Ce fichier centralise les accès, le statut et les prochaines étapes ; les détails restent dans les fichiers spécialisés. Les instructions du mainteneur et de [NOVERA.md](NOVERA.md) gardent leur priorité. Ce tableau est un état documenté, pas un suivi automatique en temps réel ni une autorisation de compiler ou de publier.
 
 ## Navigation rapide

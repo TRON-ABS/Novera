@@ -5,6 +5,7 @@
 - Source and project decisions: [TRON-ABS/Novera](https://github.com/TRON-ABS/Novera).
 - Published releases: [TRON-ABS/Novera/releases](https://github.com/TRON-ABS/Novera/releases).
 - Responsible maintainer: [TRON-ABS](https://github.com/TRON-ABS).
+- Official project contact: [contact.novera.tronabs@gmail.com](mailto:contact.novera.tronabs@gmail.com).
 
 A fork, a renamed package, a tag or a third-party download does not by itself establish an official Novera release. Official release publication requires the maintainer's authorization and publication through the repository above. A GitHub username in a commit author field is not proof of authorization.
 
