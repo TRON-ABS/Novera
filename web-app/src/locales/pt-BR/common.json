@@ -245,6 +245,9 @@
     },
     "messageMetadata": {
       "title": "Metadados da Mensagem"
+    },
+    "deleteMessage": {
+      "description": "Tem certeza de que deseja excluir esta mensagem? Esta ação não pode ser desfeita."
     }
   },
   "projects": {
@@ -414,5 +417,9 @@
     "assistantOverrides": "Parâmetros personalizados do assistente",
     "printPdf": "Imprimir / Salvar como PDF",
     "exportHint": "Formatos legíveis: ramificação ativa. JSON: todas as versões das mensagens. Arquivos externos não são incluídos."
+  },
+  "telemetry": {
+    "summary": "Com seu consentimento, {{host}} recebe apenas a versão do Novera e o sistema operacional, sem conversas ou identificador persistente.",
+    "unavailable": "As estatísticas não estão configuradas. Nenhum dado é enviado."
   }
 }

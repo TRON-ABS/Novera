@@ -1,5 +1,6 @@
 import type { ThreadMessage } from '@janhq/core'
 import { computeActivePath } from './branching'
+import { stripToolCallMarkup } from '@/modules/tools/tool-call-markup'
 
 export const conversationFormats = ['md', 'txt', 'json', 'html', 'csv'] as const
 export type ConversationFormat = (typeof conversationFormats)[number]
@@ -53,7 +54,7 @@ function assistantExportText(value: string): string {
     offset = token.index! + token[0].length
   }
   if (!stack.length && !analysis) result += value.slice(offset)
-  return result
+  return stripToolCallMarkup(result)
 }
 
 /** A file export contains conversation content, never execution traces. */

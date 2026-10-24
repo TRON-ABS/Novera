@@ -32,7 +32,7 @@ These describe the source foundation. The current 1.0.0 source has been built an
 
 ## 36 interface language options
 
-All 19 of our language contributions are integrated alongside the 17 inherited locales. The 18 new full catalogs each cover all **1,465 English keys**. **Wu / Shanghainese remains partial at 706 keys**, with English fallback for missing text. Native-speaker review remains outstanding.
+All 19 of our language contributions are integrated alongside the 17 inherited locales. The 18 new full catalogs each cover all **1,481 English keys**. **Wu / Shanghainese remains partial at 724 keys**, with English fallback for missing text. Native-speaker review remains outstanding.
 
 Arabic, Egyptian Arabic, Urdu, Western Punjabi and Iranian Persian include right-to-left interface support. Model language capabilities depend on the selected model and are separate from interface localization.
 
@@ -46,7 +46,7 @@ Novera has its own product identity and source repository. **No Novera installer
 
 The current source includes the Novera desktop identity, updated engine/chat integration and a fixed first-model recommendation: **LiquidAI LFM2.5-2.6B Q6_K**, with temperature **0.1**, top-k **50**, repetition penalty **1.1** and a **32,768-token context**. Its download remains a user action in setup.
 
-Novera **1.0.0** includes **35 integrated Windows fixes**. A local Windows x64 release build with fat LTO and isolated startup have been verified. Validation includes **4,937 passing web tests (2 skipped)** and **96 passing targeted native tests**. This does not establish complete model-generation or cross-platform validation. Application updates and GitHub Actions remain disabled while the independent distribution process is prepared.
+Novera **1.0.0** includes **35 integrated Windows fixes**. A local Windows x64 release build with fat LTO and isolated startup have been verified. The latest local build passed **4,975 web tests (2 skipped)**, native startup and saved-language persistence checks. **96 targeted native tests** passed on the earlier build and were not rerun for this build. This does not establish complete model-generation or cross-platform validation. Application updates and GitHub Actions remain disabled while the independent distribution process is prepared.
 
 See [the source update notes](docs/UPDATES_2026-10-24.md) for scope and validation.
 
@@ -68,3 +68,13 @@ Official Novera development and releases are maintained by **TRON-ABS** in this 
 ## Origins and license
 
 Novera builds on [Jan](https://github.com/janhq/jan), created by Menlo Research and its contributors. We retain the original attribution and [Apache License 2.0](LICENSE), together with the contributions of the open-source projects it depends on. Novera is maintained by TRON-ABS with its own direction.
+
+## Development control center
+
+Start with the [Novera development dashboard](TABLEAU_DE_BORD_NOVERA.md) for essential source files, current status, validation records and remaining work.
+
+See the [six-domain architecture](docs/ARCHITECTURE.md) for extracted policies, platform/UI adapters, compatibility entry points and the remaining migration work. These changes are included in this source publication.
+
+Current local source changes to [conversation controls](docs/CONVERSATION_CONTROLS.md) add exports and confirmed deletion. These changes, the modular refactor and system-language selection are included in the local build of 24 October 2026. Native startup and saved-language persistence were verified on an isolated profile. Native save/print dialogs still require manual validation.
+
+Latest source update (24 October 2026): message-action tooltips in all 36 locales, localized dates/statistics, Internet search enabled by default with saved choices preserved, raw tool-protocol filtering and outside-click dismissal of the export menu. Novera-only signed updates and opt-in statistics are prepared but remain disabled without production configuration. See [update and telemetry setup](docs/UPDATES_AND_TELEMETRY.md). The latest local desktop build passed isolated startup; no binary is published with these sources. Earlier test counts above describe their recorded builds.

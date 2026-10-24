@@ -19,6 +19,13 @@ vi.mock('@/hooks/useInterfaceSettings', () => ({
 afterEach(cleanup)
 
 describe('Markdown normalization preserves code verbatim', () => {
+  it('hides generated tool protocol while keeping the answer and user quotations', () => {
+    const raw = '<|tool_call_start|>[google(query="example")]<|tool_call_end|>'
+    const view = render(<RenderMarkdown content={raw + 'Visible answer'} />)
+    expect(screen.getByTestId('markdown-input').textContent).toBe('Visible answer')
+    view.rerender(<RenderMarkdown content={raw} isUser />)
+    expect(screen.getByTestId('markdown-input').textContent).toBe(raw)
+  })
   it.each([
     ['tilde fence', '~~~sh\nprintf "$100"\n\\(literal\\)\na**b**c\n~~~'],
     ['long backtick fence with an inner fence', '````md\n```sh\n$100\n```\n\\(literal\\)\na**b**c\n````'],

@@ -397,6 +397,9 @@
     },
     "messageMetadata": {
       "title": "Metadata saƙo"
+    },
+    "deleteMessage": {
+      "description": "Ka tabbata kana son share wannan saƙon? Ba za a iya dawo da shi ba."
     }
   },
   "errorDialog": {
@@ -793,5 +796,9 @@
     "assistantOverrides": "Saitunan musamman na mataimaki",
     "printPdf": "Buga / Ajiye a matsayin PDF",
     "exportHint": "Tsarin karantawa: reshen da ake nunawa. JSON: duk sigogin saƙonni. Ba a haɗa fayilolin waje ba."
+  },
+  "telemetry": {
+    "summary": "Da izininka, {{host}} yana karɓar sigar Novera da tsarin aiki kawai, ba tattaunawa ko lambar ganewa ta dindindin ba.",
+    "unavailable": "Ba a saita ƙididdiga ba. Ba a aika wani bayani ba."
   }
 }

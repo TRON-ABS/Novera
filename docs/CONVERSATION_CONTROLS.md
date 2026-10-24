@@ -4,6 +4,10 @@
 
 ## Paramètres et outils
 
+Mise à jour incluse dans le build local du 24 octobre 2026 : la rangée sous chaque message utilise des infobulles et noms accessibles traduits pour copier/copier terminé, mémoriser, modifier, supprimer, redemander, continuer, régénérer et parcourir les versions. La jauge ouvre les statistiques dans les modes compact et détaillé ; ses libellés et unités suivent la langue. La date des messages et les nombres utilisent la langue sélectionnée, avec adaptation des codes de catalogue non standard pour `Intl`. Les exemples et dialogues de confirmation de suppression des messages sont localisés. Ces textes sont présents dans les 36 catalogues ; les lacunes historiques d’autres parties restent distinctes.
+
+La recherche Internet est activée par défaut pour un nouveau profil ou un ancien profil sans préférence valide. Un choix booléen déjà enregistré, notamment une désactivation manuelle, reste conservé au redémarrage. Aucune préférence du profil utilisateur n’a été modifiée par cette mise à jour des sources.
+
 Style actualisé dans les sources : ⚙️ réglages, 🌐 recherche web, 💻 shell, ⚡ raisonnement, 💾 sauvegarde, 🗑️ suppression. Les emoji décoratifs partagent une boîte centrée de 20 px, une taille de police de 18 px et des boutons de 32 px. Les infobulles et libellés accessibles traduits restent portés par les boutons ; les états actifs et les restrictions existantes sont conservés. Cette modification visuelle est incluse dans le build local du 24 octobre 2026, vérifié dans .build/novera-desktop-emoji-2026-10-24.
 
 Le panneau de l’assistant indique si le modèle conserve ses valeurs par défaut ou si des paramètres de l’assistant les remplacent. La roue dentée ouvre les paramètres avancés ; « Add parameter » reste dans cette partie. Le bouton de réinitialisation retire les paramètres d’échantillonnage propres à l’assistant et conserve ses autres réglages. Sans remplacement, le modèle reprend ses valeurs configurées, y compris le profil LFM de Novera.
@@ -13,6 +17,8 @@ La portée des réglages existants est conservée : dans une discussion, sa copi
 Web Search, Shell et Raisonnement partagent un contour arrondi, une épaisseur de trait cohérente et un fond teinté quand le réglage est actif. Les restrictions du Shell, les capacités nécessaires et les différents modes de raisonnement sont conservés. La recherche web possède désormais un libellé accessible et un état `aria-pressed`.
 
 ## Disquette : sauvegarder la discussion ouverte
+
+Le menu de formats est non modal et contrôlé : un clic ou déplacement du focus ailleurs dans l’interface le ferme, même si un composant parent intercepte l’événement. Le clic extérieur peut aussi activer le contrôle visé. Le bouton, la sélection d’un format et Échap conservent leur comportement normal. Cela concerne le menu de formats ; le dialogue Windows de choix de fichier reste le dialogue natif.
 
 Placement actualisé : disquette puis corbeille immédiatement après Raisonnement, dans le groupe d’outils à gauche de la barre de saisie. Sur une fenêtre étroite, elles suivent ces outils dans le menu de débordement. Ce déplacement est inclus dans l’exécutable local recompilé le 24 octobre 2026 ; preuves dans `.build/novera-desktop-buttons-2026-10-24/verification.json`.
 
@@ -40,6 +46,12 @@ Après une suppression réussie, les messages en mémoire, la file d’attente e
 Les autres discussions restent disponibles. Une erreur conserve la discussion et la saisie, et permet de réessayer. Si l’utilisateur a changé de discussion ou est revenu à l’accueil pendant l’opération, son nouveau brouillon n’est pas effacé. Les commandes sont indisponibles pendant une génération ou le traitement des pièces jointes. La discussion de démarrage reste protégée tant que sa configuration n’est pas terminée. Cowork garde ses propres commandes et son propre cycle de session.
 
 Il s’agit d’une suppression applicative, sans garantie d’effacement sécurisé du disque ou des copies exportées. Les nettoyages secondaires hérités sont effectués au mieux et ne transforment pas une suppression persistante réussie en échec.
+
+## Recherche Internet désactivée et protocole brut du modèle
+
+Quand la recherche est désactivée, une instruction explicite demande au modèle de répondre depuis ses connaissances sans simuler de recherche ; les schémas `web_search` et `web_fetch` sont retirés, y compris si un serveur MCP les expose sous ces mêmes noms. L’exécution des outils web intégrés conserve sa vérification de l’interrupteur juste avant l’appel. Les outils MCP personnalisés ayant d’autres noms conservent leur propre configuration ; l’interrupteur web n’est pas présenté comme un pare-feu général.
+
+Certains modèles peuvent écrire `<|tool_call_start|>[google(...)]<|tool_call_end|>` comme du texte. Ce texte n’est jamais interprété ou exécuté. Il est retiré du rendu assistant, de la copie, de la sauvegarde des nouveaux messages, du rechargement de l’historique et des exports. Les balises incomplètes sont masquées pendant la génération. Les questions utilisateur et les exemples explicitement placés dans du code sont conservés. Le filtrage ne garantit pas qu’un modèle produira toujours une réponse correcte ni une réponse exploitable s’il ne génère que ce protocole invalide.
 
 ## Organisation du code
 

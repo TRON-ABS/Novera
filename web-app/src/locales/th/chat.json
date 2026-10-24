@@ -34,5 +34,17 @@
     "thoughtFor": "คิดราคา {{duration}}",
     "workedForAWhile": "ทำงานไม่กี่วินาที",
     "workedFor": "ทำงานเพื่อ {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "เวอร์ชันก่อนหน้า",
+    "nextVersion": "เวอร์ชันถัดไป",
+    "generationFailed": "สร้างคำตอบไม่สำเร็จ"
+  },
+  "messageStats": {
+    "details": "สถิติการสร้างคำตอบ",
+    "generation": "การสร้าง",
+    "reading": "การอ่าน",
+    "tokens": "โทเคน",
+    "perSecond": "โทเคน/วินาที"
   }
 }

@@ -2,6 +2,7 @@ import { localStorageKey } from '@/constants/localStorage'
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { backendStorage } from '@/lib/backendStorage'
+import { analyticsAvailable, analyticsHost, analyticsConsentScope } from '@/lib/noveraTelemetry'
 
 export const useAnalytic = () => {
   const { productAnalyticPrompt, setProductAnalyticPrompt } =
@@ -20,6 +21,8 @@ export const useAnalytic = () => {
   }
 
   return {
+    analyticsAvailable,
+    analyticsHost,
     productAnalyticPrompt,
     setProductAnalyticPrompt,
     productAnalytic,
@@ -46,7 +49,7 @@ export const useProductAnalyticPrompt = create<ProductAnalyticPromptState>()(
       return initialState
     },
     {
-      name: localStorageKey.productAnalyticPrompt,
+      name: `${localStorageKey.productAnalyticPrompt}:${analyticsConsentScope}`,
       storage: createJSONStorage(() => backendStorage),
       skipHydration: true,
     }
@@ -71,7 +74,7 @@ export const useProductAnalytic = create<ProductAnalyticState>()(
       return initialState
     },
     {
-      name: localStorageKey.productAnalytic,
+      name: `${localStorageKey.productAnalytic}:${analyticsConsentScope}`,
       storage: createJSONStorage(() => backendStorage),
       skipHydration: true,
     }

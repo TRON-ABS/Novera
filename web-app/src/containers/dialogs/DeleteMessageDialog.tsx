@@ -11,6 +11,7 @@ import {
   DialogHeader,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
+import { ActionTooltip } from '@/components/ActionTooltip'
 import { IconTrash } from '@tabler/icons-react'
 
 interface DeleteMessageDialogProps {
@@ -40,6 +41,7 @@ export function DeleteMessageDialog({ onDelete }: DeleteMessageDialogProps) {
       role="button"
       tabIndex={0}
       data-testid="delete-message-trigger"
+      aria-label={t('common:deleteMessage')}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault()
@@ -53,7 +55,9 @@ export function DeleteMessageDialog({ onDelete }: DeleteMessageDialogProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+      <ActionTooltip label={t('common:deleteMessage')}>
+        <DialogTrigger asChild>{trigger}</DialogTrigger>
+      </ActionTooltip>
       <DialogContent
         data-testid="delete-message-dialog"
         onOpenAutoFocus={(e) => {
@@ -64,8 +68,7 @@ export function DeleteMessageDialog({ onDelete }: DeleteMessageDialogProps) {
         <DialogHeader>
           <DialogTitle>{t('common:deleteMessage')}</DialogTitle>
           <DialogDescription>
-            Are you sure you want to delete this message? This action cannot be
-            undone.
+            {t('common:dialogs.deleteMessage.description')}
           </DialogDescription>
           <DialogFooter className="flex flex-col-reverse sm:flex-row sm:justify-end gap-2">
             <DialogClose asChild>

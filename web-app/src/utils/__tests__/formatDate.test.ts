@@ -2,6 +2,15 @@ import { describe, it, expect } from 'vitest'
 import { formatDate } from '../formatDate'
 
 describe('formatDate', () => {
+  it('formats message dates using the selected interface language', () => {
+    const date = new Date('2026-10-24T06:18:00Z')
+    expect(formatDate(date, { locale: 'fr' })).toBe(date.toLocaleString('fr', {
+      year: 'numeric', day: 'numeric', month: 'short', hour: 'numeric', minute: 'numeric',
+    }))
+    expect(formatDate(date, { locale: 'fr' })).not.toMatch(/AM|PM/)
+    expect(() => formatDate(date, { locale: 'vn' })).not.toThrow()
+    expect(() => formatDate(date, { locale: 'wuu' })).not.toThrow()
+  })
   it('formats Date objects correctly', () => {
     const date = new Date('2023-12-25T15:30:45Z')
     const formatted = formatDate(date)

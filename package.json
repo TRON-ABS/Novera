@@ -11,6 +11,12 @@
     ]
   },
   "scripts": {
+    "prepare:updates": "node scripts/updates/novera-update.mjs",
+    "test:updates": "node --test scripts/__tests__/novera-update.test.mjs",
+    "package:portable:win32": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-windows-portable.ps1",
+    "test:portable:win32": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/tests/package-windows-portable.Tests.ps1",
+    "check:architecture": "node scripts/check-architecture.mjs",
+    "test:architecture": "node --test scripts/__tests__/architecture.test.mjs",
     "lint": "yarn workspace @janhq/web-app lint",
     "dev": "yarn dev:tauri",
     "ios": "yarn tauri ios dev",

@@ -26,7 +26,7 @@ GitHub repository rules control updates to `main` and tag creation. Separate his
 
 Check the repository's current settings to confirm enforcement. The settings can change independently of this document. The repository's public rulesets provide the current technical controls.
 
-GitHub Actions and application update checks remain disabled. The maintainer explicitly authorized a local Novera-Desktop build on 23 October 2026. That local build is not an installer, a published release or an authorization to enable automatic updates or remote CI.
+GitHub Actions and ordinary-build application update checks remain disabled. Preparation for Novera-only signed updates and optional consent-based statistics is documented in [UPDATES_AND_TELEMETRY.md](docs/UPDATES_AND_TELEMETRY.md). An explicit signed-release configuration and a first signed installation are required before in-app updates work. No production signing key or statistics destination was created by that preparation. The maintainer explicitly authorized local Novera-Desktop builds; those builds are not a published release or authorization to enable remote CI.
 
 ## Identity and source permissions
 

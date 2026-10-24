@@ -16,8 +16,9 @@ export const localStorageKey = {
   settingChatShell: 'setting-chat-shell',
   settingHardware: 'setting-hardware',
   settingVulkan: 'setting-vulkan',
-  productAnalyticPrompt: 'productAnalyticPrompt',
-  productAnalytic: 'productAnalytic',
+  // A previous Jan consent must not enable Novera statistics automatically.
+  productAnalyticPrompt: 'novera-analytics-consent-prompt-v1',
+  productAnalytic: 'novera-analytics-opt-in-v1',
   toolApproval: 'tool-approval',
   toolAvailability: 'tool-availability',
   mcpGlobalPermissions: 'mcp-global-permissions',

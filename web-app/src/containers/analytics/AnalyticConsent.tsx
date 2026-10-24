@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
 import { useAnalytic } from '@/hooks/useAnalytic'
-import posthog from 'posthog-js'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 
 /**
@@ -10,22 +9,17 @@ import { useTranslation } from '@/i18n/react-i18next-compat'
  */
 export function AnalyticConsent() {
   const { t } = useTranslation()
-  const { setProductAnalyticPrompt, setProductAnalytic } = useAnalytic()
+  const { setProductAnalyticPrompt, setProductAnalytic, analyticsAvailable, analyticsHost } = useAnalytic()
 
   const handleProductAnalytics = (isAllowed: boolean) => {
-    if (isAllowed) {
-      posthog.opt_in_capturing()
-    } else {
-      posthog.opt_out_capturing()
-    }
-    setProductAnalytic(isAllowed)
+    setProductAnalytic(analyticsAvailable && isAllowed)
     setProductAnalyticPrompt(false)
   }
 
   return (
     <div data-testid="analytic-consent">
       <p className="text-xs text-muted-foreground leading-normal">
-        {t('analyticsConsentDetail')}
+        {t(analyticsAvailable ? 'common:telemetry.summary' : 'common:telemetry.unavailable', { host: analyticsHost })}
       </p>
       <p className="mt-2 text-sm">{t('analyticsConsentQuestion')}</p>
       <div className="mt-4 flex justify-end space-x-2">
@@ -39,6 +33,7 @@ export function AnalyticConsent() {
         </Button>
         <Button
           data-testid="analytic-allow"
+          disabled={!analyticsAvailable}
           size="sm"
           onClick={() => handleProductAnalytics(true)}
         >

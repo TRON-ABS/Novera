@@ -397,6 +397,9 @@
     },
     "messageMetadata": {
       "title": "Metadata Pesen"
+    },
+    "deleteMessage": {
+      "description": "Apa sampeyan yakin arep mbusak pesen iki? Tumindak iki ora bisa dibatalake."
     }
   },
   "errorDialog": {
@@ -793,5 +796,9 @@
     "assistantOverrides": "Parameter khusus asisten",
     "printPdf": "Cetak / Simpen dadi PDF",
     "exportHint": "Format sing bisa diwaca: cabang sing ditampilake. JSON: kabeh versi pesen. Berkas njaba ora kalebu."
+  },
+  "telemetry": {
+    "summary": "Kanthi idin sampeyan, {{host}} mung nampa versi Novera lan sistem operasi, tanpa pacelathon utawa tandha pengenal permanen.",
+    "unavailable": "Statistik durung dikonfigurasi. Ora ana data sing dikirim."
   }
 }

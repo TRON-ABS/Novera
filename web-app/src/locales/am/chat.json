@@ -34,5 +34,17 @@
     "thoughtFor": "የታሰበበት ለ{{duration}}",
     "workedForAWhile": "ለጥቂት ሰከንዶች ሰርቷል",
     "workedFor": "ለ{{duration}} ሰርቷል"
+  },
+  "messageActions": {
+    "previousVersion": "ያለፈው ስሪት",
+    "nextVersion": "ቀጣዩ ስሪት",
+    "generationFailed": "ምላሽ ማመንጨት አልተሳካም"
+  },
+  "messageStats": {
+    "details": "የምላሽ ማመንጨት ስታቲስቲክስ",
+    "generation": "ማመንጨት",
+    "reading": "ማንበብ",
+    "tokens": "ቶከኖች",
+    "perSecond": "ቶከኖች/ሰከንድ"
   }
 }

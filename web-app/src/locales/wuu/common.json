@@ -246,6 +246,9 @@
     },
     "deleteThread": {
       "description": "侬确定要删脱搿只会话伐？删脱以后就恢复勿转来哉。"
+    },
+    "deleteMessage": {
+      "description": "侬确定要删脱搿条消息伐？删脱以后就恢复勿转来哉。"
     }
   },
   "errorDialog": {
@@ -385,5 +388,9 @@
     "assistantOverrides": "助手自定义参数",
     "printPdf": "打印 / 保存为 PDF",
     "exportHint": "可读格式：当前显示的分支。JSON：全部消息版本。不包含外部文件。"
+  },
+  "telemetry": {
+    "summary": "侬同意以后，{{host}} 只收到 Novera 版本搭操作系统，勿包括会话，也勿带长久个识别码。",
+    "unavailable": "统计功能还呒没设置，勿会发送任何数据。"
   }
 }

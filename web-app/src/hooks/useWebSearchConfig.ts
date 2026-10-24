@@ -53,6 +53,7 @@ export const WEB_SEARCH_PROVIDERS: WebSearchProviderMeta[] = [
 ]
 
 export const DEFAULT_SEARCH_PROVIDER = 'duckduckgo'
+export const DEFAULT_WEB_SEARCH_ENABLED = true
 
 export const providerFavicon = (meta: WebSearchProviderMeta): string =>
   `https://www.google.com/s2/favicons?domain=${meta.homepage}&sz=64`
@@ -74,7 +75,7 @@ type WebSearchConfigState = {
 export const useWebSearchConfig = create<WebSearchConfigState>()(
   persist(
     (set, get) => ({
-      webSearchEnabled: true,
+      webSearchEnabled: DEFAULT_WEB_SEARCH_ENABLED,
       searchProvider: DEFAULT_SEARCH_PROVIDER,
       apiKeys: {},
       endpoints: {},
@@ -100,6 +101,15 @@ export const useWebSearchConfig = create<WebSearchConfigState>()(
       name: localStorageKey.settingWebSearch,
       storage: createJSONStorage(() => backendStorage),
       skipHydration: true,
+      merge: (persisted, current) => {
+        const saved = persisted && typeof persisted === 'object'
+          ? persisted as Partial<WebSearchConfigState> : {}
+        return {
+          ...current, ...saved,
+          webSearchEnabled: typeof saved.webSearchEnabled === 'boolean'
+            ? saved.webSearchEnabled : DEFAULT_WEB_SEARCH_ENABLED,
+        }
+      },
       // Never write API keys to plaintext settings.json; they live in the keyring.
       partialize: (state) => ({
         webSearchEnabled: state.webSearchEnabled,

@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "scope": "Strict checks apply only to strictRoots; sourceRoots document the existing integration layer and are not certified as fully decoupled.",
+  "areas": [
+    {
+      "id": "interface",
+      "title": "Interface",
+      "sourceRoots": [
+        "web-app/src/components",
+        "web-app/src/containers",
+        "web-app/src/i18n",
+        "web-app/src/adapters/interface"
+      ],
+      "strictRoots": [
+        "web-app/src/modules/interface"
+      ],
+      "pure": true,
+      "allowedAreas": [],
+      "runtimeImports": [],
+      "typeImports": []
+    },
+    {
+      "id": "conversations",
+      "title": "Conversations",
+      "sourceRoots": [
+        "web-app/src/hooks/useMessages.ts",
+        "web-app/src/hooks/useThreads.ts",
+        "src-tauri/src/core/threads"
+      ],
+      "strictRoots": [
+        "web-app/src/modules/conversations"
+      ],
+      "pure": true,
+      "allowedAreas": [
+        "tools"
+      ],
+      "runtimeImports": [
+        "@janhq/core"
+      ],
+      "typeImports": [
+        "@ai-sdk/react",
+        "ai"
+      ]
+    },
+    {
+      "id": "engines",
+      "title": "Moteurs IA",
+      "sourceRoots": [
+        "extensions/llamacpp-extension",
+        "extensions/mlx-extension",
+        "src-tauri/plugins/tauri-plugin-llamacpp",
+        "web-app/src/lib/model-factory.ts"
+      ],
+      "strictRoots": [
+        "web-app/src/modules/engines"
+      ],
+      "pure": true,
+      "allowedAreas": [],
+      "runtimeImports": [],
+      "typeImports": [
+        "@ai-sdk/openai-compatible",
+        "ai"
+      ]
+    },
+    {
+      "id": "tools",
+      "title": "Outils et agents",
+      "sourceRoots": [
+        "src-tauri/src/core/agent",
+        "src-tauri/src/core/mcp",
+        "src-tauri/plugins/tauri-plugin-agent-tools"
+      ],
+      "strictRoots": [
+        "web-app/src/modules/tools"
+      ],
+      "pure": true,
+      "allowedAreas": [],
+      "runtimeImports": [],
+      "typeImports": [
+        "@ai-sdk/react",
+        "ai"
+      ]
+    },
+    {
+      "id": "platform",
+      "title": "Adaptations par plateforme",
+      "sourceRoots": [
+        "web-app/src/lib/platform",
+        "web-app/src/services/core",
+        "src-tauri/capabilities",
+        "src-tauri/tauri.windows.conf.json",
+        "src-tauri/tauri.linux.conf.json",
+        "src-tauri/tauri.android.conf.json",
+        "web-app/src/adapters/platform"
+      ],
+      "strictRoots": [
+        "web-app/src/modules/platform"
+      ],
+      "pure": false,
+      "allowedAreas": [],
+      "runtimeImports": [
+        "@tauri-apps/plugin-os",
+        "@/lib/platform/utils"
+      ],
+      "typeImports": []
+    },
+    {
+      "id": "distribution",
+      "title": "Distribution",
+      "sourceRoots": [
+        "src-tauri/build-utils",
+        ".github/workflows",
+        "package.json",
+        "scripts/package-windows-portable.ps1",
+        "scripts/tests/package-windows-portable.Tests.ps1"
+      ],
+      "strictRoots": [
+        "scripts/distribution"
+      ],
+      "pure": false,
+      "allowedAreas": [],
+      "runtimeImports": [
+        "node:"
+      ],
+      "typeImports": []
+    }
+  ]
+}

@@ -9,5 +9,26 @@
   "sendMessage": "Envoyer un message",
   "newConversation": "Nouvelle conversation",
   "clearHistory": "Effacer l'historique",
-  "done": "Done"
+  "done": "Done",
+  "messageActions": {
+    "previousVersion": "Version précédente",
+    "nextVersion": "Version suivante",
+    "generationFailed": "Échec de la génération"
+  },
+  "messageStats": {
+    "details": "Statistiques de génération",
+    "generation": "Génération",
+    "reading": "Lecture",
+    "tokens": "Jetons",
+    "perSecond": "jetons/s"
+  },
+  "actions": {
+    "regenerate": "Régénérer la réponse",
+    "askAgain": "Redemander",
+    "continue": "Continuer la génération",
+    "remember": "Mémoriser ce message",
+    "rememberSaved": "Enregistré en mémoire sous « {{name}} »",
+    "rememberExists": "Déjà en mémoire sous « {{name}} »",
+    "rememberFailed": "Impossible d’enregistrer en mémoire"
+  }
 }

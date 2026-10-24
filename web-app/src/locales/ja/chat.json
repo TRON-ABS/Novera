@@ -13,5 +13,26 @@
     "title": "ドキュメントを準備しています",
     "description": "添付ファイルを検索・引用できるようにインデックスを作成しています。大きなドキュメントの場合は少し時間がかかることがあります。"
   },
-  "done": "Done"
+  "done": "Done",
+  "messageActions": {
+    "previousVersion": "前のバージョン",
+    "nextVersion": "次のバージョン",
+    "generationFailed": "生成に失敗しました"
+  },
+  "messageStats": {
+    "details": "生成の統計",
+    "generation": "生成",
+    "reading": "読み取り",
+    "tokens": "トークン",
+    "perSecond": "トークン/秒"
+  },
+  "actions": {
+    "regenerate": "回答を再生成",
+    "askAgain": "もう一度質問",
+    "continue": "生成を続行",
+    "remember": "このメッセージを記憶",
+    "rememberSaved": "「{{name}}」としてメモリに保存しました",
+    "rememberExists": "「{{name}}」として既にメモリにあります",
+    "rememberFailed": "メモリに保存できませんでした"
+  }
 }

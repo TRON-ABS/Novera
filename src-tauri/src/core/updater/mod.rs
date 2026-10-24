@@ -7,4 +7,6 @@ pub mod commands;
 pub mod custom_updater;
 pub mod hmac_client;
 #[cfg(not(feature = "cli"))]
+pub mod policy;
+#[cfg(not(feature = "cli"))]
 pub mod session;

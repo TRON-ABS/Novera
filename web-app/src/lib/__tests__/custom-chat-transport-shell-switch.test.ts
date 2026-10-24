@@ -8,6 +8,7 @@ import type { LanguageModelV3StreamPart } from '@ai-sdk/provider'
 // prompt paragraph that describes it.
 const h = vi.hoisted(() => ({
   shellEnabled: true,
+  webSearchEnabled: false,
   sandbox: true,
   schemas: vi.fn(),
   model: undefined as unknown,
@@ -61,7 +62,7 @@ vi.mock('@/hooks/useMCPServers', () => ({
   },
 }))
 vi.mock('@/hooks/useWebSearchConfig', () => ({
-  useWebSearchConfig: { getState: () => ({ webSearchEnabled: false }) },
+  useWebSearchConfig: { getState: () => ({ webSearchEnabled: h.webSearchEnabled }) },
 }))
 vi.mock('@/lib/extension', () => ({
   ExtensionManager: { getInstance: () => ({ get: () => null }) },
@@ -117,6 +118,7 @@ describe('chat shell switch (#9222)', () => {
     h.mcpTools = []
     useAppState.setState({ mcpToolNames: new Set() })
     h.sandbox = true
+    h.webSearchEnabled = false
     h.schemas.mockReset()
     h.schemas.mockResolvedValue([
       {
@@ -135,6 +137,21 @@ describe('chat shell switch (#9222)', () => {
     await transport.refreshTools()
     expect(Object.keys(transport.getTools())).toContain('shell')
     expect(transport.buildAgentToolsSystemInstruction()).toContain('# Shell')
+  })
+  it('explicitly forbids simulated searches and withholds web schemas while web search is off', async () => {
+    h.mcpTools = ['web_search', 'web_fetch'].map((name) => ({ name, server: 'web', inputSchema: { type: 'object' } }))
+    await transport.refreshTools()
+    expect(transport.getTools()).not.toHaveProperty('web_search')
+    expect(transport.getTools()).not.toHaveProperty('web_fetch')
+    expect(transport.buildWebSearchSystemInstruction()).toContain('disabled by the user')
+    expect(transport.buildWebSearchSystemInstruction()).toContain('Do not search')
+  })
+  it('advertises native web tools again only after the user enables them', async () => {
+    h.webSearchEnabled = true
+    await transport.refreshTools()
+    expect(transport.getTools()).toHaveProperty('web_search')
+    expect(transport.getTools()).toHaveProperty('web_fetch')
+    expect(transport.buildWebSearchSystemInstruction()).toContain('You can search the web')
   })
 
   it('withholds the shell and its prompt text once the switch is off', async () => {

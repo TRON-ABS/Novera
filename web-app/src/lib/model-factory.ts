@@ -28,18 +28,7 @@
 /**
  * Inference parameters for customizing model behavior
  */
-export interface ModelParameters {
-  temperature?: number
-  top_k?: number
-  top_p?: number
-  repeat_penalty?: number
-  max_output_tokens?: number
-  max_context_tokens?: number
-  auto_compact?: boolean
-  presence_penalty?: number
-  frequency_penalty?: number
-  stop_sequences?: string[]
-}
+export type { ModelParameters } from '@/modules/engines/contracts'
 
 import {
   extractReasoningMiddleware,
@@ -49,7 +38,6 @@ import {
 import { createOpenAI } from '@ai-sdk/openai'
 import {
   createOpenAICompatible,
-  MetadataExtractor,
   OpenAICompatibleChatLanguageModel,
 } from '@ai-sdk/openai-compatible'
 import { createAnthropic } from '@ai-sdk/anthropic'
@@ -81,123 +69,11 @@ import {
 } from '@/lib/providerCaps'
 import { engineFailure } from '@/lib/engineError'
 import { i18n } from '@/i18n/react-i18next-compat'
-import { useAppState } from '@/hooks/useAppState'
 import { useGeneralSetting } from '@/hooks/useGeneralSetting'
 import { ensureAnthropicHeaders } from '@/lib/remoteModelCatalog'
 
-/**
- * Llama.cpp timings structure from the response
- */
-interface LlamaCppTimings {
-  prompt_n?: number
-  predicted_n?: number
-  predicted_per_second?: number
-  prompt_per_second?: number
-  cache_n?: number
-}
-
-// prompt_n only counts tokens freshly processed this turn; tokens served from
-// the KV cache (the rest of the conversation) are reported separately in
-// cache_n, so total prompt/context usage is the sum of both.
-const totalPromptTokens = (timings: LlamaCppTimings): number =>
-  (timings.prompt_n ?? 0) + (timings.cache_n ?? 0)
-
-interface LlamaCppPromptProgress {
-  total?: number
-  cache?: number
-  processed?: number
-  time_ms?: number
-}
-
-interface LlamaCppChunk {
-  timings?: LlamaCppTimings
-  prompt_progress?: LlamaCppPromptProgress
-}
-
-/**
- * Custom metadata extractor for MLX that extracts timing information
- * and converts it to token usage format. MLX uses the same timing structure
- * as llama.cpp.
- */
-const createProviderMetadataExtractor = (
-  streamThreadId?: string
-): MetadataExtractor => ({
-  extractMetadata: async ({ parsedBody }: { parsedBody: unknown }) => {
-    const body = parsedBody as LlamaCppChunk
-    if (body?.timings) {
-      return {
-        providerMetadata: {
-          promptTokens: totalPromptTokens(body.timings),
-          completionTokens: body.timings.predicted_n ?? null,
-          tokensPerSecond: body.timings.predicted_per_second ?? null,
-          promptPerSecond: body.timings.prompt_per_second ?? null,
-        },
-      }
-    }
-    return undefined
-  },
-  createStreamExtractor: () => {
-    let lastTimings: LlamaCppTimings | undefined
-
-    return {
-      processChunk: (parsedChunk: unknown) => {
-        const chunk = parsedChunk as LlamaCppChunk
-        const state = useAppState.getState()
-        // Legacy global fields mirror only the currently selected stream.
-        const isCurrentStream = !!streamThreadId && state.currentStreamThreadId === streamThreadId
-        if (isCurrentStream && state.loadingModel) {
-          state.updateLoadingModel(false)
-        }
-        if (streamThreadId) {
-          state.updateThreadLoadingModel(streamThreadId, false)
-        }
-        if (chunk?.timings) {
-          lastTimings = chunk.timings
-          const liveStats = {
-            promptTokens: totalPromptTokens(lastTimings),
-            completionTokens: lastTimings.predicted_n ?? 0,
-            tokensPerSecond: lastTimings.predicted_per_second ?? null,
-            promptPerSecond: lastTimings.prompt_per_second ?? null,
-          }
-          if (isCurrentStream) state.updateLiveTokenStats(liveStats)
-          if (streamThreadId) {
-            state.updateThreadLiveTokenStats(streamThreadId, liveStats)
-          }
-        }
-        const pp = chunk?.prompt_progress
-        if (
-          pp &&
-          typeof pp.total === 'number' &&
-          typeof pp.processed === 'number'
-        ) {
-          const progress = {
-            total: pp.total,
-            processed: pp.processed,
-            cache: pp.cache ?? 0,
-            time_ms: pp.time_ms ?? 0,
-          }
-          if (isCurrentStream) state.updatePromptProgress(progress)
-          if (streamThreadId) {
-            state.updateThreadPromptProgress(streamThreadId, progress)
-          }
-        }
-      },
-      buildMetadata: () => {
-        if (lastTimings) {
-          return {
-            providerMetadata: {
-              promptTokens: totalPromptTokens(lastTimings),
-              completionTokens: lastTimings.predicted_n ?? null,
-              tokensPerSecond: lastTimings.predicted_per_second ?? null,
-              promptPerSecond: lastTimings.prompt_per_second ?? null,
-            },
-          }
-        }
-        return undefined
-      },
-    }
-  },
-})
+import { createProviderMetadataExtractor } from '@/modules/engines/stream-metadata'
+import { publishEngineProgress } from '@/adapters/interface/engine-progress'
 
 /**
  * Keys from inference parameters that are client-side only and must not
@@ -1096,7 +972,7 @@ export class ModelFactory {
       },
       includeUsage: true,
       fetch: customFetch,
-      metadataExtractor: createProviderMetadataExtractor(streamThreadId),
+      metadataExtractor: createProviderMetadataExtractor(streamThreadId, publishEngineProgress),
     })
   }
 
@@ -1185,7 +1061,7 @@ export class ModelFactory {
         return url.toString()
       },
       fetch: customFetch,
-      metadataExtractor: createProviderMetadataExtractor(streamThreadId),
+      metadataExtractor: createProviderMetadataExtractor(streamThreadId, publishEngineProgress),
     })
 
     return wrapLanguageModel({

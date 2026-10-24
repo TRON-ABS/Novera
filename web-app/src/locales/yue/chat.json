@@ -34,5 +34,17 @@
     "thoughtFor": "諗住用 {{duration}}",
     "workedForAWhile": "做咗幾秒",
     "workedFor": "做過 {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "上一個版本",
+    "nextVersion": "下一個版本",
+    "generationFailed": "生成失敗"
+  },
+  "messageStats": {
+    "details": "生成統計",
+    "generation": "生成",
+    "reading": "讀取",
+    "tokens": "詞元",
+    "perSecond": "詞元/秒"
   }
 }

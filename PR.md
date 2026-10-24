@@ -1,3 +1,45 @@
+# Mise à jour des sources Novera — 24 octobre 2026
+
+Périmètre de publication : corrections des infobulles et statistiques dans les 36 langues, recherche Internet active par défaut avec choix enregistré conservé, filtrage des protocoles outils et fermeture du menu de sauvegarde au clic extérieur ; préparation de mises à jour signées Novera et de statistiques consenties, sans activation. Les modules extraits, contrôles de frontières, scripts de distribution et documentation associés sont inclus. Exécutables, archives locales et changements de workflows sont exclus.
+
+Validation sur la dernière base main publiée et les 164 fichiers sélectionnés : **5 053 tests web réussis, 2 ignorés** ; TypeScript sans émission réussi ; 36 catalogues sans erreur ; 13 fichiers contrôlés sans violation de frontière ; 10 tests Node réussis ; packaging : 223 assertions sur 12 scénarios réussies. Le build Windows local et son démarrage isolé ont été vérifiés avant cette publication. Aucune exécution CI, validation officielle, installation signée réelle ni validation interactive des dialogues natifs revendiquée. GitHub Actions reste désactivé.
+
+---
+
+# Compilation des infobulles et statistiques localisées — 24 octobre 2026
+
+Compilation locale release de Novera-Desktop réussie avec les dernières traductions des actions dans les 36 langues, dates et statistiques localisées, recherche Internet active par défaut avec préférence booléenne enregistrée conservée. Validation des sources préalable : 86 tests ciblés et TypeScript sans émission réussis. Bundle web et compilation native réussis ; démarrage isolé vérifié pendant 10 secondes. Ancien exécutable sauvegardé, 29 fichiers de moteurs/ressources conservés. Taille : 59540480 octets ; SHA-256 : `4549FBB7B893BED432F02942B2F89B2F190D8C3833FD673DDFC1BF0D4F96BF9C`. Preuves : `.build/novera-desktop-message-actions-2026-10-24/verification.json`. Mises à jour et envois statistiques non activés. Aucun ZIP, installateur ou publication distante.
+
+---
+
+# Infobulles des messages dans les 36 langues — 24 octobre 2026
+
+Sources uniquement, sans compilation demandée : infobulles cohérentes et libellés accessibles pour les petites actions sous les messages ; traduction des actions mémoire/régénération/reprise manquantes, des versions et de la confirmation de suppression. Jauge de statistiques accessible en modes compact et détaillé, unités/libellés et nombres localisés ; dates des messages suivant la langue de l’interface avec adaptation des identifiants de locale. 436 traductions ajoutées, couverture de cette zone assurée dans les 36 catalogues, inventaire mis à jour à 1 481 clés anglaises. Les autres lacunes historiques restent distinctes.
+
+Recherche web : défaut explicitement activé, y compris après hydratation d’un ancien profil sans préférence ; une préférence booléenne enregistrée reste conservée. Aucun changement du profil utilisateur. Validation : 86 tests ciblés réussis, contrôle TypeScript sans émission, vérification des 36 catalogues sans erreur. Exécutable inchangé, aucune compilation native ou Vite et aucune publication.
+
+---
+
+# Recherche désactivée et fermeture du menu de sauvegarde — 24 octobre 2026
+
+Le modèle pouvait imprimer des appels `google(...)` entre balises de protocole alors que la recherche était désactivée. Instruction hors ligne explicite, retrait des schémas web même en cas de collision MCP et filtrage pur des balises brutes dans le rendu, la copie, les conversions d’historique et les exports. Les fragments de protocole incomplets sont masqués ; les textes utilisateur et les exemples de code restent préservés. Aucun appel n’est exécuté depuis ce texte. Les outils web intégrés conservent leur garde d’exécution.
+
+Le menu de sauvegarde est désormais non modal et son état contrôlé ; écoute en capture des clics et changements de focus extérieurs pour fermer le menu même quand un parent consomme l’événement. Les choix de format et le dialogue natif restent inchangés. Validation ciblée : 49 tests réussis ; TypeScript et architecture sans violation. Aucun nouveau texte d’interface à traduire.
+
+Compilation locale Novera-Desktop release réussie ; ancien exécutable sauvegardé, 29 fichiers de moteurs/ressources inchangés. Démarrage isolé vérifié. Suite web complète : **5 012 tests réussis, 2 ignorés**. Taille : 59515904 octets, SHA-256 : `87B374AE4C9E7BF2213126D055BCA6FA805C77FAAD4FB608E62AFB77216AA3FE`. Preuves : `.build/novera-desktop-search-save-2026-10-24/verification.json`. La préparation précédente des mises à jour/statistiques est intégrée dans ce build avec activation désactivée ; aucune clé ni destination de production créée. Aucun ZIP, installateur ou publication distante.
+
+---
+
+# Préparation mises à jour signées et statistiques consenties — 24 octobre 2026
+
+Sources locales : chemin de mise à jour Tauri séparé des statistiques, flux limité à GitHub Releases TRON-ABS/Novera et enregistrement du plugin conditionné à la configuration d’une clé publique. Builds ordinaires désactivés ; outil de configuration/manifeste NSIS x64 sans téléversement ni clé de production. Les téléchargements de modèles ne passent plus par le miroir Jan et son identifiant HMAC. L’installation garde la séquence téléchargement vérifié, arrêt, installation et reprise MCP en cas d’échec.
+
+Politique choisie par le mainteneur : statistiques minimales avec accord explicite, sans destination configurée pour l’instant. Aucun envoi activé. Collecte préparée limitée à la version et au système, UUID renouvelé à chaque événement, sans profil, cookies, conversations ni identifiant persistant. Ancien consentement Jan non repris ; Google Analytics et initialisation SDK automatique retirés. Deux nouveaux textes traduits dans les 36 langues ; inventaire actualisé à 1 472 clés anglaises. Première clé et release signées, installation de départ, destination statistique et validation réelle restent à fournir avant mise en service. Documentation : docs/UPDATES_AND_TELEMETRY.md. Aucun exécutable recompilé ni workflow activé par cette préparation.
+
+Validation locale : suite web complète **4 990 tests réussis, 2 ignorés**, puis 30 tests ciblés réussis après les derniers ajustements de consentement et de format de requête ; TypeScript réussi ; 36 catalogues sans erreur. Trois tests Node de préparation des releases réussis. `cargo check --offline --locked --release --lib` réussi ; deux tests de la politique Rust exécutés sur le fichier réel avec `rustc --test` et les dépendances release existantes (pas de suite native complète revendiquée). Bundle web construit sans script Google Analytics ; contrôle d’architecture sans violation. Pas de clé de production, de requête statistique réelle, de test d’installation signé ou de publication distante pour cette préparation.
+
+---
+
 # Mise à jour du dépôt Novera — 24 octobre 2026
 
 Ensemble de publication : 62 fichiers pour les commandes de sauvegarde/suppression, leurs dépendances Conversations, les six icônes emoji, les textes des commandes dans les 36 langues, la règle de traduction obligatoire et la correction d’export sans réflexions ni traces d’outils. Base distante vérifiée : `b8e8c819f2ca9a9c97a06a991a0cffb7b35aea70` ; aucune PR équivalente ouverte. Les autres refactorisations et outils locaux restent hors de cet ensemble. Aucun binaire, artefact de compilation ou workflow CI inclus.

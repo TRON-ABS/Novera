@@ -304,6 +304,9 @@
     },
     "messageMetadata": {
       "title": "消息元数据"
+    },
+    "deleteMessage": {
+      "description": "确定要删除这条消息吗？此操作无法撤销。"
     }
   },
   "errorDialog": {
@@ -413,5 +416,9 @@
     "assistantOverrides": "助手自定义参数",
     "printPdf": "打印 / 保存为 PDF",
     "exportHint": "可读格式：当前分支。JSON：所有消息版本。不包含外部文件。"
+  },
+  "telemetry": {
+    "summary": "经您同意，{{host}} 仅接收 Novera 版本和操作系统，不包含对话或持久标识符。",
+    "unavailable": "尚未配置统计功能。不会发送任何数据。"
   }
 }

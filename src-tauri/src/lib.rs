@@ -323,7 +323,6 @@ pub fn run() {
     #[cfg(not(any(target_os = "android", target_os = "ios")))]
     let app_builder = app_builder.invoke_handler(invoke_commands_with_extras![
         // Custom updater commands (desktop only)
-        core::updater::commands::check_for_app_updates,
         core::updater::commands::is_update_available,
     ]);
 
@@ -369,10 +368,12 @@ pub fn run() {
                     ])
                     .build(),
             )?;
-            // Novera has no signed update feed configured. Do not register the
-            // updater plugin: its required configuration is intentionally absent.
-            // The custom check command returns None and frontend update actions
-            // remain disabled until an independent release feed is established.
+            // Ordinary builds stay disabled. An explicit signed-release overlay
+            // enables only the Novera feed; checks send no installation identity.
+            #[cfg(feature = "desktop")]
+            if core::updater::policy::configured(app.config().plugins.0.get("updater")) {
+                app.handle().plugin(tauri_plugin_updater::Builder::new().build())?;
+            }
 
             // A Jan up to 0.8.4 leaves its llama-server router running across an
             // in-app update; that version cannot be fixed, so reap it here.

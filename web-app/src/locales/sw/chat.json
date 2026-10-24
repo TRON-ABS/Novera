@@ -34,5 +34,17 @@
     "thoughtFor": "Imefikiri kwa {{duration}}",
     "workedForAWhile": "Imefanya kazi kwa sekunde chache",
     "workedFor": "Imefanya kazi kwa {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Toleo lililopita",
+    "nextVersion": "Toleo linalofuata",
+    "generationFailed": "Uzalishaji umeshindwa"
+  },
+  "messageStats": {
+    "details": "Takwimu za uzalishaji",
+    "generation": "Uzalishaji",
+    "reading": "Usomaji",
+    "tokens": "Tokeni",
+    "perSecond": "tokeni/sekunde"
   }
 }

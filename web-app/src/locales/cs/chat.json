@@ -9,5 +9,26 @@
   "sendMessage": "Odeslat zprávu",
   "newConversation": "Nová konverzace",
   "clearHistory": "Vymazat historii",
-  "done": "Done"
+  "done": "Done",
+  "messageActions": {
+    "previousVersion": "Předchozí verze",
+    "nextVersion": "Další verze",
+    "generationFailed": "Generování selhalo"
+  },
+  "messageStats": {
+    "details": "Statistiky generování",
+    "generation": "Generování",
+    "reading": "Čtení",
+    "tokens": "Tokeny",
+    "perSecond": "tokenů/s"
+  },
+  "actions": {
+    "regenerate": "Vygenerovat odpověď znovu",
+    "askAgain": "Zeptat se znovu",
+    "continue": "Pokračovat v generování",
+    "remember": "Zapamatovat si tuto zprávu",
+    "rememberSaved": "Uloženo do paměti jako „{{name}}“",
+    "rememberExists": "Již v paměti jako „{{name}}“",
+    "rememberFailed": "Nelze uložit do paměti"
+  }
 }

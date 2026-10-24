@@ -34,5 +34,17 @@
     "thoughtFor": "{{duration}} పాటు ఆలోచించింది",
     "workedForAWhile": "కొన్ని సెకన్లపాటు పని చేసింది",
     "workedFor": "{{duration}} పాటు పని చేసింది"
+  },
+  "messageActions": {
+    "previousVersion": "మునుపటి సంస్కరణ",
+    "nextVersion": "తదుపరి సంస్కరణ",
+    "generationFailed": "రూపొందించడం విఫలమైంది"
+  },
+  "messageStats": {
+    "details": "రూపొందింపు గణాంకాలు",
+    "generation": "రూపొందింపు",
+    "reading": "చదవడం",
+    "tokens": "టోకెన్లు",
+    "perSecond": "టోకెన్లు/సెకను"
   }
 }

@@ -248,6 +248,9 @@
     },
     "messageMetadata": {
       "title": "Metadata zprávy"
+    },
+    "deleteMessage": {
+      "description": "Opravdu chcete tuto zprávu smazat? Tuto akci nelze vrátit zpět."
     }
   },
   "projects": {
@@ -413,5 +416,9 @@
     "assistantOverrides": "Vlastní parametry asistenta",
     "printPdf": "Tisk / Uložit jako PDF",
     "exportHint": "Čitelné formáty: aktivní větev. JSON: všechny verze zpráv. Externí soubory nejsou zahrnuty."
+  },
+  "telemetry": {
+    "summary": "S vaším souhlasem obdrží {{host}} pouze verzi Novera a operační systém, bez konverzací a trvalého identifikátoru.",
+    "unavailable": "Statistiky nejsou nakonfigurovány. Žádná data se neodesílají."
   }
 }

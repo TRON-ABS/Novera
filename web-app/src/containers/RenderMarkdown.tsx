@@ -1,6 +1,7 @@
 
 import { Components, ExtraProps } from 'react-markdown'
 import { memo, useDeferredValue, useMemo } from 'react'
+import { stripToolCallMarkup } from '@/modules/tools/tool-call-markup'
 import {
   cn,
   disableIndentedCodeBlockPlugin,
@@ -271,11 +272,11 @@ function RenderMarkdownComponent({
   // normalizeLatex is O(n) over the full string and its cache misses every chunk;
   // skip it while streaming (LaTeX can't render mid-token) to avoid O(n²) cost.
   const normalizedContent = useMemo(
-    () =>
-      linkifyWebCitations(
-        isStreaming ? effectiveContent : normalizeLatex(effectiveContent)
-      ),
-    [effectiveContent, isStreaming]
+    () => {
+      const visible = isUser ? effectiveContent : stripToolCallMarkup(effectiveContent)
+      return linkifyWebCitations(isStreaming ? visible : normalizeLatex(visible))
+    },
+    [effectiveContent, isStreaming, isUser]
   )
 
   const mergedComponents = useMemo<Components>(() => {

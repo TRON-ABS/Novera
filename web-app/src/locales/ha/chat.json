@@ -34,5 +34,17 @@
     "thoughtFor": "An yi tunani na {{duration}}",
     "workedForAWhile": "An yi aiki na wasu daƙiƙu",
     "workedFor": "An yi aiki na {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Sigar da ta gabata",
+    "nextVersion": "Siga ta gaba",
+    "generationFailed": "Ƙirƙirar amsa ta kasa"
+  },
+  "messageStats": {
+    "details": "Ƙididdigar ƙirƙirar amsa",
+    "generation": "Ƙirƙira",
+    "reading": "Karatu",
+    "tokens": "Token",
+    "perSecond": "token/sakan"
   }
 }

@@ -34,5 +34,17 @@
     "thoughtFor": "استغرق التفكير {{duration}}",
     "workedForAWhile": "استغرق العمل بضع ثوانٍ",
     "workedFor": "استغرق العمل {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "الإصدار السابق",
+    "nextVersion": "الإصدار التالي",
+    "generationFailed": "فشل التوليد"
+  },
+  "messageStats": {
+    "details": "إحصاءات التوليد",
+    "generation": "التوليد",
+    "reading": "القراءة",
+    "tokens": "الرموز",
+    "perSecond": "رمز/ث"
   }
 }

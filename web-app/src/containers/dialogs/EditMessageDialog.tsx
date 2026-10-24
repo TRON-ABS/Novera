@@ -10,6 +10,7 @@ import {
   DialogHeader,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
+import { ActionTooltip } from '@/components/ActionTooltip'
 import { Textarea } from '@/components/ui/textarea'
 import { IconFile, IconPencil, IconX } from '@tabler/icons-react'
 import {
@@ -86,6 +87,7 @@ export function EditMessageDialog({
       role="button"
       tabIndex={0}
       data-testid="edit-message-trigger"
+      aria-label={t('common:edit')}
       disabled={!selectedModel}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -100,7 +102,9 @@ export function EditMessageDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>{triggerElement || defaultTrigger}</DialogTrigger>
+      <ActionTooltip label={t('common:edit')}>
+        <DialogTrigger asChild>{triggerElement || defaultTrigger}</DialogTrigger>
+      </ActionTooltip>
       <DialogContent data-testid="edit-message-dialog">
         <DialogHeader>
           <DialogTitle>{t('common:dialogs.editMessage.title')}</DialogTitle>

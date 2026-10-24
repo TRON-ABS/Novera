@@ -34,5 +34,17 @@
     "thoughtFor": "想了 {{duration}}",
     "workedForAWhile": "做了几秒钟",
     "workedFor": "做了 {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "前头个版本",
+    "nextVersion": "后头个版本",
+    "generationFailed": "生成失败哉"
+  },
+  "messageStats": {
+    "details": "生成统计",
+    "generation": "生成",
+    "reading": "读取",
+    "tokens": "词元",
+    "perSecond": "词元/秒"
   }
 }

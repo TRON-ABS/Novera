@@ -241,6 +241,9 @@
     },
     "messageMetadata": {
       "title": "Metadades del missatge"
+    },
+    "deleteMessage": {
+      "description": "Segur que voleu suprimir aquest missatge? Aquesta acció no es pot desfer."
     }
   },
   "projects": {
@@ -415,5 +418,9 @@
     "assistantOverrides": "Paràmetres personalitzats de l’assistent",
     "printPdf": "Imprimir / Desar com a PDF",
     "exportHint": "Formats llegibles: branca activa. JSON: totes les versions dels missatges. No s’hi inclouen els fitxers externs."
+  },
+  "telemetry": {
+    "summary": "Amb el vostre consentiment, {{host}} només rep la versió de Novera i el sistema operatiu, sense converses ni identificador persistent.",
+    "unavailable": "Les estadístiques no estan configurades. No s’envia cap dada."
   }
 }

@@ -34,5 +34,17 @@
     "thoughtFor": "{{duration}} சிந்தித்தது",
     "workedForAWhile": "சில வினாடிகள் வேலை செய்தது",
     "workedFor": "{{duration}} வேலை செய்தது"
+  },
+  "messageActions": {
+    "previousVersion": "முந்தைய பதிப்பு",
+    "nextVersion": "அடுத்த பதிப்பு",
+    "generationFailed": "உருவாக்கம் தோல்வியடைந்தது"
+  },
+  "messageStats": {
+    "details": "உருவாக்கப் புள்ளிவிவரங்கள்",
+    "generation": "உருவாக்கம்",
+    "reading": "வாசித்தல்",
+    "tokens": "டோக்கன்கள்",
+    "perSecond": "டோக்கன்கள்/வினாடி"
   }
 }

@@ -2,6 +2,8 @@ import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { Route as PrivacyRoute } from '../privacy'
 
+const telemetry = vi.hoisted(() => ({ available: true, set: vi.fn() }))
+
 // Mock dependencies
 vi.mock('@/containers/SettingsMenu', () => ({
   default: () => <div data-testid="settings-menu">Settings Menu</div>,
@@ -32,7 +34,8 @@ vi.mock('@/containers/Card', () => ({
 vi.mock('@/hooks/useAnalytic', () => ({
   useAnalytic: () => ({
     productAnalytic: false,
-    setProductAnalytic: vi.fn(),
+    setProductAnalytic: telemetry.set,
+    analyticsAvailable: telemetry.available,
   }),
 }))
 
@@ -43,11 +46,12 @@ vi.mock('@/i18n/react-i18next-compat', () => ({
 }))
 
 vi.mock('@/components/ui/switch', () => ({
-  Switch: ({ checked, onCheckedChange }: { checked: boolean; onCheckedChange: (checked: boolean) => void }) => (
+  Switch: ({ checked, onCheckedChange, disabled }: { checked: boolean; onCheckedChange: (checked: boolean) => void; disabled?: boolean }) => (
     <input
       data-testid="switch"
       type="checkbox"
       checked={checked}
+      disabled={disabled}
       onChange={(e) => onCheckedChange(e.target.checked)}
     />
   ),
@@ -78,6 +82,23 @@ vi.mock('@tanstack/react-router', () => ({
 describe('Privacy Settings Route', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    telemetry.available = true
+  })
+
+  it('does not allow statistics to be enabled before a destination is configured', () => {
+    telemetry.available = false
+    const Component = PrivacyRoute.component as React.ComponentType
+    render(<Component />)
+    expect(screen.getByTestId('switch')).toBeDisabled()
+    expect(screen.getByText('common:telemetry.unavailable')).toBeInTheDocument()
+  })
+
+  it('records explicit consent only when the user enables the configured switch', () => {
+    const Component = PrivacyRoute.component as React.ComponentType
+    render(<Component />)
+    expect(telemetry.set).not.toHaveBeenCalled()
+    fireEvent.click(screen.getByTestId('switch'))
+    expect(telemetry.set).toHaveBeenCalledWith(true)
   })
 
   it('should render the privacy settings page', () => {

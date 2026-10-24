@@ -111,6 +111,26 @@ it('keeps empty-home actions disabled', () => {
     screen.getByRole('button', { name: 'common:deleteThread' })
   ).toBeDisabled()
 })
+it('closes the save menu on an outside click even if the composer consumes the event', async () => {
+  const outside = vi.fn()
+  render(<>
+    <ConversationActions thread={thread} busy={false} onReset={mock.reset} />
+    <button onPointerDown={(event) => { event.stopPropagation(); outside() }}>Outside</button>
+  </>)
+  fireEvent.keyDown(screen.getByRole('button', { name: 'common:save' }), { key: 'ArrowDown' })
+  expect(await screen.findByRole('menuitem', { name: 'TXT (.txt)' })).toBeInTheDocument()
+  fireEvent.pointerDown(screen.getByRole('button', { name: 'Outside' }))
+  await waitFor(() => expect(screen.queryByRole('menuitem', { name: 'TXT (.txt)' })).not.toBeInTheDocument())
+  expect(outside).toHaveBeenCalledOnce()
+  expect(mock.save).not.toHaveBeenCalled()
+})
+it('closes the save menu when focus moves to another interface control', async () => {
+  render(<><ConversationActions thread={thread} busy={false} onReset={mock.reset} /><input aria-label="Other field" /></>)
+  fireEvent.keyDown(screen.getByRole('button', { name: 'common:save' }), { key: 'ArrowDown' })
+  await screen.findByRole('menuitem', { name: 'TXT (.txt)' })
+  fireEvent.focusIn(screen.getByRole('textbox', { name: 'Other field' }))
+  await waitFor(() => expect(screen.queryByRole('menuitem', { name: 'TXT (.txt)' })).not.toBeInTheDocument())
+})
 it('requires confirmation and allows cancellation without deleting', () => {
   renderActions()
   fireEvent.click(screen.getByRole('button', { name: 'common:deleteThread' }))

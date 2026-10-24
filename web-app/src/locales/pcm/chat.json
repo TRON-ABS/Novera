@@ -34,5 +34,17 @@
     "thoughtFor": "E think for {{duration}}",
     "workedForAWhile": "E work for some seconds",
     "workedFor": "E work for {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Version wey come before",
+    "nextVersion": "Next version",
+    "generationFailed": "Answer no fit generate"
+  },
+  "messageStats": {
+    "details": "Statistics for answer generation",
+    "generation": "Generation",
+    "reading": "Reading",
+    "tokens": "Tokens",
+    "perSecond": "tokens/second"
   }
 }

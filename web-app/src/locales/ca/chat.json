@@ -9,5 +9,26 @@
   "sendMessage": "Envia el missatge",
   "newConversation": "Conversa nova",
   "clearHistory": "Neteja l’historial",
-  "done": "Done"
+  "done": "Done",
+  "messageActions": {
+    "previousVersion": "Versió anterior",
+    "nextVersion": "Versió següent",
+    "generationFailed": "La generació ha fallat"
+  },
+  "messageStats": {
+    "details": "Estadístiques de generació",
+    "generation": "Generació",
+    "reading": "Lectura",
+    "tokens": "Tokens",
+    "perSecond": "tokens/s"
+  },
+  "actions": {
+    "regenerate": "Tornar a generar la resposta",
+    "askAgain": "Tornar a preguntar",
+    "continue": "Continuar la generació",
+    "remember": "Recordar aquest missatge",
+    "rememberSaved": "Desat a la memòria com a «{{name}}»",
+    "rememberExists": "Ja és a la memòria com a «{{name}}»",
+    "rememberFailed": "No s’ha pogut desar a la memòria"
+  }
 }

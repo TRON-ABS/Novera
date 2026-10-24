@@ -9,5 +9,26 @@
   "clearHistory": "清除历史记录",
   "temporaryChat": "临时聊天",
   "temporaryChatDescription": "开始一个临时对话，不会保存到您的聊天历史记录中。",
-  "done": "Done"
+  "done": "Done",
+  "messageActions": {
+    "previousVersion": "上一版本",
+    "nextVersion": "下一版本",
+    "generationFailed": "生成失败"
+  },
+  "messageStats": {
+    "details": "生成统计",
+    "generation": "生成",
+    "reading": "读取",
+    "tokens": "词元",
+    "perSecond": "词元/秒"
+  },
+  "actions": {
+    "regenerate": "重新生成回答",
+    "askAgain": "重新提问",
+    "continue": "继续生成",
+    "remember": "记住这条消息",
+    "rememberSaved": "已以“{{name}}”保存到记忆",
+    "rememberExists": "记忆中已存在“{{name}}”",
+    "rememberFailed": "无法保存到记忆"
+  }
 }

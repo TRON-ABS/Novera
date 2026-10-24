@@ -75,6 +75,7 @@ vi.mock('@/hooks/useLatestJanModel', () => ({
 vi.mock('@/hooks/useAnalytic', () => ({
   useAnalytic: () => ({
     productAnalyticPrompt: hoisted.productAnalyticPrompt,
+      analyticsAvailable: true,
     setProductAnalytic: vi.fn(),
     setProductAnalyticPrompt: vi.fn(),
   }),

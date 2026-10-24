@@ -1207,6 +1207,11 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
       }
     }
 
+    // A same-named MCP tool must not reintroduce the disabled native web tools.
+    if (!useWebSearchConfig.getState().webSearchEnabled) {
+      delete toolsRecord.web_search
+      delete toolsRecord.web_fetch
+    }
     this.tools = toolsRecord
   }
 
@@ -1824,7 +1829,12 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
    * users who keep it off.
    */
   buildWebSearchSystemInstruction(): string {
-    if (!useWebSearchConfig.getState().webSearchEnabled) return ''
+    if (!useWebSearchConfig.getState().webSearchEnabled) return [
+      '# Web Access: disabled by the user',
+      'Do not search the Internet or call web_search, web_fetch, google, or other web search tools.',
+      'Answer from your existing knowledge and the conversation only. State uncertainty when needed.',
+      'Do not claim to have searched or print simulated tool calls or tool protocol markers.',
+    ].join(' ')
     return [
       '# Web Access',
       'You can search the web with web_search and read pages with web_fetch.',

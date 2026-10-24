@@ -9,5 +9,26 @@
   "sendMessage": "Отправить сообщение",
   "newConversation": "Новый диалог",
   "clearHistory": "Очистить историю",
-  "done": "Done"
+  "done": "Done",
+  "messageActions": {
+    "previousVersion": "Предыдущая версия",
+    "nextVersion": "Следующая версия",
+    "generationFailed": "Ошибка генерации"
+  },
+  "messageStats": {
+    "details": "Статистика генерации",
+    "generation": "Генерация",
+    "reading": "Чтение",
+    "tokens": "Токены",
+    "perSecond": "токенов/с"
+  },
+  "actions": {
+    "regenerate": "Сгенерировать ответ заново",
+    "askAgain": "Спросить снова",
+    "continue": "Продолжить генерацию",
+    "remember": "Запомнить это сообщение",
+    "rememberSaved": "Сохранено в памяти как «{{name}}»",
+    "rememberExists": "Уже в памяти как «{{name}}»",
+    "rememberFailed": "Не удалось сохранить в памяти"
+  }
 }

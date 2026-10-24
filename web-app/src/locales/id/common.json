@@ -247,6 +247,9 @@
     },
     "messageMetadata": {
       "title": "Metadata Pesan"
+    },
+    "deleteMessage": {
+      "description": "Yakin ingin menghapus pesan ini? Tindakan ini tidak dapat dibatalkan."
     }
   },
   "errorDialog": {
@@ -413,5 +416,9 @@
     "assistantOverrides": "Parameter khusus asisten",
     "printPdf": "Cetak / Simpan sebagai PDF",
     "exportHint": "Format yang dapat dibaca: cabang aktif. JSON: semua versi pesan. File eksternal tidak disertakan."
+  },
+  "telemetry": {
+    "summary": "Dengan persetujuan Anda, {{host}} hanya menerima versi Novera dan sistem operasi, tanpa percakapan atau pengenal tetap.",
+    "unavailable": "Statistik belum dikonfigurasi. Tidak ada data yang dikirim."
   }
 }

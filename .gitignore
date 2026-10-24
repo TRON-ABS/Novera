@@ -17,6 +17,7 @@ core/lib/**
 test_results.html
 pre-install
 .build
+/.novera-signing/
 
 # docs
 docs/yarn.lock
@@ -88,3 +89,9 @@ src-tauri/plugins/tauri-plugin-llamacpp/vendor/
 
 # wdio writes per-session driver logs here (e2e/wdio.conf.ts outputDir).
 e2e/logs
+
+# Local portable validation artifacts are not a public release.
+/deliverables/Novera-portable-validation-*/
+
+# Locally compiled portable packages require separate publication approval.
+/deliverables/Novera-Portable-local-*/

@@ -34,5 +34,17 @@
     "thoughtFor": "فکر برای {{duration}}",
     "workedForAWhile": "برای چند ثانیه کار کرد",
     "workedFor": "کار برای {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "نسخهٔ قبلی",
+    "nextVersion": "نسخهٔ بعدی",
+    "generationFailed": "تولید ناموفق بود"
+  },
+  "messageStats": {
+    "details": "آمار تولید",
+    "generation": "تولید",
+    "reading": "خواندن",
+    "tokens": "توکن‌ها",
+    "perSecond": "توکن/ثانیه"
   }
 }

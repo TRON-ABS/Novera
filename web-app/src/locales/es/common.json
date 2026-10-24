@@ -264,6 +264,9 @@
     },
     "messageMetadata": {
       "title": "Metadatos del mensaje"
+    },
+    "deleteMessage": {
+      "description": "¿Seguro que quieres eliminar este mensaje? Esta acción no se puede deshacer."
     }
   },
   "projects": {
@@ -483,5 +486,9 @@
     "assistantOverrides": "Parámetros personalizados del asistente",
     "printPdf": "Imprimir / Guardar como PDF",
     "exportHint": "Formatos legibles: rama activa. JSON: todas las versiones de los mensajes. No se incluyen archivos externos."
+  },
+  "telemetry": {
+    "summary": "Con tu consentimiento, {{host}} solo recibe la versión de Novera y el sistema operativo, sin conversaciones ni identificador persistente.",
+    "unavailable": "Las estadísticas no están configuradas. No se envían datos."
   }
 }

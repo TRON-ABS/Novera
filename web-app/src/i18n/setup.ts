@@ -1,5 +1,6 @@
 import { localStorageKey } from '@/constants/localStorage'
-import { browserLanguagePreferences, isSupportedLanguage, matchSystemLanguage } from '@/lib/systemLanguage'
+import { isSupportedLanguage, matchSystemLanguage } from '@/modules/interface/languages'
+import { browserLanguagePreferences } from '@/modules/platform/browser-language'
 
 // Types for our i18n implementation
 export interface TranslationResources {

@@ -34,5 +34,17 @@
     "thoughtFor": "{{duration}} विचार केला",
     "workedForAWhile": "काही सेकंद काम केले",
     "workedFor": "{{duration}} काम केले"
+  },
+  "messageActions": {
+    "previousVersion": "मागील आवृत्ती",
+    "nextVersion": "पुढील आवृत्ती",
+    "generationFailed": "उत्तर तयार करण्यात अयशस्वी"
+  },
+  "messageStats": {
+    "details": "उत्तर निर्मितीची आकडेवारी",
+    "generation": "निर्मिती",
+    "reading": "वाचन",
+    "tokens": "टोकन",
+    "perSecond": "टोकन/सेकंद"
   }
 }

@@ -34,5 +34,17 @@
     "thoughtFor": "Dipikir {{duration}}",
     "workedForAWhile": "Makarya sawetara detik",
     "workedFor": "Kerja {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Versi sadurunge",
+    "nextVersion": "Versi sabanjure",
+    "generationFailed": "Gagal nggawe wangsulan"
+  },
+  "messageStats": {
+    "details": "Statistik nggawe wangsulan",
+    "generation": "Nggawe",
+    "reading": "Maca",
+    "tokens": "Token",
+    "perSecond": "token/detik"
   }
 }

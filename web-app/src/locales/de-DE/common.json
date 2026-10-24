@@ -247,6 +247,9 @@
     },
     "messageMetadata": {
       "title": "Nachricht Metadaten"
+    },
+    "deleteMessage": {
+      "description": "Möchten Sie diese Nachricht wirklich löschen? Dies kann nicht rückgängig gemacht werden."
     }
   },
   "projects": {
@@ -413,5 +416,9 @@
     "assistantOverrides": "Benutzerdefinierte Parameter des Assistenten",
     "printPdf": "Drucken / Als PDF speichern",
     "exportHint": "Lesbare Formate: aktiver Zweig. JSON: alle Nachrichtenversionen. Externe Dateien sind nicht enthalten."
+  },
+  "telemetry": {
+    "summary": "Mit Ihrer Zustimmung erhält {{host}} nur die Novera-Version und das Betriebssystem, ohne Gespräche oder dauerhafte Kennung.",
+    "unavailable": "Statistiken sind nicht eingerichtet. Es werden keine Daten gesendet."
   }
 }

@@ -397,6 +397,9 @@
     },
     "messageMetadata": {
       "title": "Metadata ya ujumbe"
+    },
+    "deleteMessage": {
+      "description": "Una uhakika unataka kufuta ujumbe huu? Hatua hii haiwezi kutenduliwa."
     }
   },
   "errorDialog": {
@@ -793,5 +796,9 @@
     "assistantOverrides": "Vigezo maalum vya msaidizi",
     "printPdf": "Chapisha / Hifadhi kama PDF",
     "exportHint": "Miundo ya kusoma: tawi linaloonyeshwa. JSON: matoleo yote ya ujumbe. Faili za nje hazijumuishwi."
+  },
+  "telemetry": {
+    "summary": "Kwa idhini yako, {{host}} hupokea tu toleo la Novera na mfumo wa uendeshaji, bila mazungumzo au kitambulisho cha kudumu.",
+    "unavailable": "Takwimu hazijasanidiwa. Hakuna data inayotumwa."
   }
 }

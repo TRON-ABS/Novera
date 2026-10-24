@@ -263,6 +263,9 @@
     },
     "messageMetadata": {
       "title": "메시지 메타데이터"
+    },
+    "deleteMessage": {
+      "description": "이 메시지를 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
     }
   },
   "projects": {
@@ -482,5 +485,9 @@
     "assistantOverrides": "어시스턴트 사용자 지정 매개변수",
     "printPdf": "인쇄 / PDF로 저장",
     "exportHint": "읽기용 형식: 현재 분기. JSON: 모든 메시지 버전. 외부 파일은 포함되지 않습니다."
+  },
+  "telemetry": {
+    "summary": "동의하면 {{host}}에 Novera 버전과 운영 체제만 전송됩니다. 대화나 영구 식별자는 전송되지 않습니다.",
+    "unavailable": "통계가 설정되지 않았습니다. 데이터가 전송되지 않습니다."
   }
 }

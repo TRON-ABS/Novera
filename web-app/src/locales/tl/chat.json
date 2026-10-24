@@ -34,5 +34,17 @@
     "thoughtFor": "Nag-isip nang {{duration}}",
     "workedForAWhile": "Gumawa nang ilang segundo",
     "workedFor": "Gumawa nang {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Nakaraang bersyon",
+    "nextVersion": "Susunod na bersyon",
+    "generationFailed": "Hindi nabuo ang tugon"
+  },
+  "messageStats": {
+    "details": "Mga istatistika ng pagbuo",
+    "generation": "Pagbuo",
+    "reading": "Pagbasa",
+    "tokens": "Mga token",
+    "perSecond": "token/segundo"
   }
 }

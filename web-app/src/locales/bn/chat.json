@@ -34,5 +34,17 @@
     "thoughtFor": "{{duration}} ধরে ভেবেছে",
     "workedForAWhile": "কয়েক সেকেন্ড ধরে কাজ করেছে",
     "workedFor": "{{duration}} ধরে কাজ করেছে"
+  },
+  "messageActions": {
+    "previousVersion": "আগের সংস্করণ",
+    "nextVersion": "পরের সংস্করণ",
+    "generationFailed": "উত্তর তৈরি ব্যর্থ হয়েছে"
+  },
+  "messageStats": {
+    "details": "উত্তর তৈরির পরিসংখ্যান",
+    "generation": "তৈরি",
+    "reading": "পড়া",
+    "tokens": "টোকেন",
+    "perSecond": "টোকেন/সেকেন্ড"
   }
 }

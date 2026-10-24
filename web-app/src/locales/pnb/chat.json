@@ -34,5 +34,17 @@
     "thoughtFor": "{{duration}} لئی سوچیا",
     "workedForAWhile": "کجھ سیکنڈ کم کیتا",
     "workedFor": "{{duration}} لئی کم کیتا"
+  },
+  "messageActions": {
+    "previousVersion": "پچھلا ورژن",
+    "nextVersion": "اگلا ورژن",
+    "generationFailed": "تیار کرنا ناکام ہو گیا"
+  },
+  "messageStats": {
+    "details": "تیاری دے اعدادوشمار",
+    "generation": "تیاری",
+    "reading": "پڑھنا",
+    "tokens": "ٹوکن",
+    "perSecond": "ٹوکن/سیکنڈ"
   }
 }

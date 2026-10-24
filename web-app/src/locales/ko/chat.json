@@ -9,5 +9,26 @@
   "sendMessage": "메시지 보내기",
   "newConversation": "새 대화",
   "clearHistory": "대화 기록 삭제",
-  "done": "Done"
+  "done": "Done",
+  "messageActions": {
+    "previousVersion": "이전 버전",
+    "nextVersion": "다음 버전",
+    "generationFailed": "생성 실패"
+  },
+  "messageStats": {
+    "details": "생성 통계",
+    "generation": "생성",
+    "reading": "읽기",
+    "tokens": "토큰",
+    "perSecond": "토큰/초"
+  },
+  "actions": {
+    "regenerate": "응답 다시 생성",
+    "askAgain": "다시 질문",
+    "continue": "생성 계속",
+    "remember": "이 메시지 기억",
+    "rememberSaved": "“{{name}}” 이름으로 메모리에 저장했습니다",
+    "rememberExists": "이미 “{{name}}” 이름으로 메모리에 있습니다",
+    "rememberFailed": "메모리에 저장할 수 없습니다"
+  }
 }

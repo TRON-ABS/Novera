@@ -397,6 +397,9 @@
     },
     "messageMetadata": {
       "title": "Message Metadata"
+    },
+    "deleteMessage": {
+      "description": "You sure say you wan delete this message? You no fit undo am."
     }
   },
   "errorDialog": {
@@ -793,5 +796,9 @@
     "assistantOverrides": "Assistant own parameters",
     "printPdf": "Print / Save as PDF",
     "exportHint": "Readable formats: di branch wey dey show. JSON: all message versions. Outside files no dey inside."
+  },
+  "telemetry": {
+    "summary": "If you agree, {{host}} go receive only Novera version and operating system, no chat or permanent ID.",
+    "unavailable": "We never set up statistics yet. No data dey go out."
   }
 }

@@ -2,6 +2,8 @@
 import { memo, useState, useCallback, useEffect, useMemo } from 'react'
 import type { UIMessage, ChatStatus } from 'ai'
 import { RenderMarkdown } from './RenderMarkdown'
+import { stripToolCallMarkup } from '@/modules/tools/tool-call-markup'
+import { ActionTooltip } from '@/components/ActionTooltip'
 import { cn } from '@/lib/utils'
 import { usedSkillNames } from '@/lib/agentActivity'
 
@@ -95,7 +97,8 @@ export const MessageItem = memo(
     onSwitchVersion,
     highlightedPrefix,
   }: MessageItemProps) => {
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
+    const dateLocale = i18n?.language ?? 'en'
     const selectedModel = useModelProvider((state) => state.selectedModel)
     const coloredUserBubble = useInterfaceSettings((s) => s.coloredUserBubble)
     const metadata = message.metadata as Record<string, unknown> | undefined
@@ -269,14 +272,15 @@ export const MessageItem = memo(
 
     // Get full text content for copy button
     const getFullTextContent = useCallback(() => {
-      return message.parts
+      const text = message.parts
         .filter(
           (part): part is { type: 'text'; text: string } =>
             part.type === CONTENT_TYPE.TEXT
         )
         .map((part) => part.text)
         .join('\n')
-    }, [message.parts])
+      return message.role === 'assistant' ? stripToolCallMarkup(text) : text
+    }, [message.parts, message.role])
 
     const renderTextPart = (
       part: { type: 'text'; text: string },
@@ -522,29 +526,29 @@ export const MessageItem = memo(
     const versionNav =
       versionInfo && versionInfo.count > 1 && onSwitchVersion ? (
         <div className="flex items-center gap-0.5 text-muted-foreground">
-          <button
+          <ActionTooltip label={t('chat:messageActions.previousVersion')}><button
             type="button"
             data-testid="message-version-prev"
             className="hover:text-foreground disabled:opacity-40"
             disabled={versionInfo.index <= 1}
             onClick={() => onSwitchVersion(message.id, -1)}
-            title="Previous version"
+            aria-label={t('chat:messageActions.previousVersion')}
           >
             <IconChevronLeft size={14} />
-          </button>
+          </button></ActionTooltip>
           <span data-testid="message-version-counter" className="tabular-nums">
             {versionInfo.index}/{versionInfo.count}
           </span>
-          <button
+          <ActionTooltip label={t('chat:messageActions.nextVersion')}><button
             type="button"
             data-testid="message-version-next"
             className="hover:text-foreground disabled:opacity-40"
             disabled={versionInfo.index >= versionInfo.count}
             onClick={() => onSwitchVersion(message.id, 1)}
-            title="Next version"
+            aria-label={t('chat:messageActions.nextVersion')}
           >
             <IconChevronRight size={14} />
-          </button>
+          </button></ActionTooltip>
         </div>
       ) : null
 
@@ -615,7 +619,7 @@ export const MessageItem = memo(
             />
             <div className="flex-1 min-w-0">
               <div className="font-medium text-destructive">
-                Generation failed
+                {t('chat:messageActions.generationFailed')}
               </div>
               <div className="text-muted-foreground break-words">
                 {messageError}
@@ -632,7 +636,7 @@ export const MessageItem = memo(
                   className="shrink-0"
                 >
                   <IconRefresh size={14} />
-                  <span>Regenerate</span>
+                  <span>{t('chat:actions.regenerate')}</span>
                 </Button>
               )}
           </div>
@@ -644,7 +648,7 @@ export const MessageItem = memo(
         {message.role === 'user' && !hideActions && (
           <div className="mt-3 flex items-center justify-end gap-2 text-muted-foreground text-xs opacity-0 transition-opacity group-hover/message:opacity-100 focus-within:opacity-100">
             <span className="text-muted-foreground">
-              {formatDate(createdAt)}
+              {formatDate(createdAt, { locale: dateLocale })}
             </span>
             <div className="flex items-center gap-1">
               {versionNav}
@@ -663,14 +667,14 @@ export const MessageItem = memo(
               {onRetry &&
                 status !== CHAT_STATUS.STREAMING &&
                 status !== CHAT_STATUS.SUBMITTED && (
-                  <Button
+                  <ActionTooltip label={t('chat:actions.askAgain')}><Button
                     variant="ghost"
                     size="icon-xs"
                     onClick={() => onRetry(message.id, getFullTextContent())}
-                    title={t('chat:actions.askAgain')}
+                    aria-label={t('chat:actions.askAgain')}
                   >
                     <IconRefresh size={16} className="text-muted-foreground" />
-                  </Button>
+                  </Button></ActionTooltip>
                 )}
 
               {onDelete &&
@@ -684,10 +688,10 @@ export const MessageItem = memo(
 
         {/* Message actions for assistant messages (non-tool) */}
         {message.role === 'assistant' && !hideActions && (
-          <div className="mt-3 flex items-center gap-2 text-muted-foreground text-xs">
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-muted-foreground text-xs">
             {!isStreaming && (
               <span className="text-muted-foreground">
-                {formatDate(createdAt)}
+                {formatDate(createdAt, { locale: dateLocale })}
               </span>
             )}
             <div
@@ -716,30 +720,30 @@ export const MessageItem = memo(
                 !isStreaming &&
                 isLastMessage &&
                 canContinue && (
-                  <Button
+                  <ActionTooltip label={t('chat:actions.continue')}><Button
                     variant="ghost"
                     size="icon-xs"
                     data-testid="continue-message"
                     onClick={handleContinue}
-                    title={t('chat:actions.continue')}
+                    aria-label={t('chat:actions.continue')}
                   >
                     <IconPlayerPlay size={16} />
-                  </Button>
+                  </Button></ActionTooltip>
                 )}
 
               {selectedModel &&
                 onRegenerate &&
                 !isStreaming &&
                 isLastMessage && (
-                  <Button
+                  <ActionTooltip label={t('chat:actions.regenerate')}><Button
                     variant="ghost"
                     size="icon-xs"
                     data-testid="regenerate-message"
                     onClick={handleRegenerate}
-                    title={t('chat:actions.regenerate')}
+                    aria-label={t('chat:actions.regenerate')}
                   >
                     <IconRefresh size={16} />
-                  </Button>
+                  </Button></ActionTooltip>
                 )}
             </div>
 

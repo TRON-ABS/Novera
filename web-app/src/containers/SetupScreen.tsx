@@ -230,7 +230,8 @@ function SetupScreen() {
     enabled: hasStarted,
   })
   const [showDetails, setShowDetails] = useState(false)
-  const { productAnalyticPrompt } = useAnalytic()
+  const { productAnalyticPrompt: storedConsentPrompt, analyticsAvailable } = useAnalytic()
+  const productAnalyticPrompt = analyticsAvailable && storedConsentPrompt
   // `productAnalyticPrompt` flips to false the moment consent is answered, which
   // dropped that page out of the list and renumbered the flow under the user
   // ("Step 3 of 4" became "Step 3 of 3"). Latched instead, so the page count is

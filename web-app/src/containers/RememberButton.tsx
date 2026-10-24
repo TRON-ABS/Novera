@@ -5,6 +5,7 @@ import { IconBookmark, IconBookmarkFilled } from '@tabler/icons-react'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useThreads } from '@/hooks/useThreads'
 import { rememberNote } from '@/lib/agentWorkspace'
+import { ActionTooltip } from '@/components/ActionTooltip'
 
 /**
  * Chat's only write path into the shared agent memory: user-driven, one click
@@ -44,17 +45,17 @@ export const RememberButton = ({ text }: { text: string }) => {
   }
 
   return (
-    <Button
+    <ActionTooltip label={t('chat:actions.remember')}><Button
       variant="ghost"
       size="icon-xs"
       onClick={handleRemember}
-      title={t('chat:actions.remember')}
+      aria-label={t('chat:actions.remember')}
     >
       {saved ? (
         <IconBookmarkFilled size={16} className="text-primary" />
       ) : (
         <IconBookmark size={16} />
       )}
-    </Button>
+    </Button></ActionTooltip>
   )
 }

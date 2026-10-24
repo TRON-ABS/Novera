@@ -34,5 +34,17 @@
     "thoughtFor": "{{duration}} تک سوچا",
     "workedForAWhile": "چند سیکنڈ کام کیا",
     "workedFor": "{{duration}} تک کام کیا"
+  },
+  "messageActions": {
+    "previousVersion": "پچھلا ورژن",
+    "nextVersion": "اگلا ورژن",
+    "generationFailed": "تیار کرنے میں ناکامی"
+  },
+  "messageStats": {
+    "details": "تیاری کے اعدادوشمار",
+    "generation": "تیاری",
+    "reading": "پڑھنا",
+    "tokens": "ٹوکن",
+    "perSecond": "ٹوکن/سیکنڈ"
   }
 }

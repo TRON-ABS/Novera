@@ -107,7 +107,7 @@ vi.mock('@/components/ui/sidebar', () => ({
 
 // Hooks
 vi.mock('@/hooks/useAnalytic', () => ({
-  useAnalytic: () => ({ productAnalyticPrompt: h.productAnalyticPrompt }),
+  useAnalytic: () => ({ productAnalyticPrompt: h.productAnalyticPrompt, analyticsAvailable: true }),
 }))
 vi.mock('@/hooks/useIsOnboarding', () => ({
   useIsOnboarding: () => h.isOnboarding,

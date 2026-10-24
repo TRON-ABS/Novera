@@ -34,5 +34,17 @@
     "thoughtFor": "Thought for {{duration}}",
     "workedForAWhile": "Worked for a few seconds",
     "workedFor": "Worked for {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Previous version",
+    "nextVersion": "Next version",
+    "generationFailed": "Generation failed"
+  },
+  "messageStats": {
+    "details": "Generation statistics",
+    "generation": "Generation",
+    "reading": "Reading",
+    "tokens": "Tokens",
+    "perSecond": "tokens/s"
   }
 }

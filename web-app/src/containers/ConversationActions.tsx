@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ComposerIcon } from '@/components/ComposerIcon'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
@@ -59,6 +59,26 @@ export function ConversationActions({
   const [working, setWorking] = useState(false)
   const workingRef = useRef(false)
   const [deleteTarget, setDeleteTarget] = useState<Thread>()
+  const [saveMenuOpen, setSaveMenuOpen] = useState(false)
+  const saveTrigger = useRef<HTMLButtonElement>(null)
+  const saveMenu = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!saveMenuOpen) return
+    const dismissOutside = (event: Event) => {
+      const target = event.target
+      if (target instanceof Node &&
+          !saveTrigger.current?.contains(target) && !saveMenu.current?.contains(target)) {
+        setSaveMenuOpen(false)
+      }
+    }
+    // Capture also covers clicks consumed by a surrounding composer/popover.
+    document.addEventListener('pointerdown', dismissOutside, true)
+    document.addEventListener('focusin', dismissOutside, true)
+    return () => {
+      document.removeEventListener('pointerdown', dismissOutside, true)
+      document.removeEventListener('focusin', dismissOutside, true)
+    }
+  }, [saveMenuOpen])
   const disabled = !thread || busy || working
   const protectedSetup =
     !!thread &&
@@ -128,11 +148,12 @@ export function ConversationActions({
 
   return (
     <>
-      <DropdownMenu>
+      <DropdownMenu modal={false} open={saveMenuOpen} onOpenChange={setSaveMenuOpen}>
         <Tooltip>
           <TooltipTrigger asChild>
             <DropdownMenuTrigger asChild>
               <Button
+                ref={saveTrigger}
                 variant="ghost"
                 size="icon-sm"
                 disabled={disabled}
@@ -145,7 +166,7 @@ export function ConversationActions({
           </TooltipTrigger>
           <TooltipContent>{t('common:save')}</TooltipContent>
         </Tooltip>
-        <DropdownMenuContent align="end" className="w-64">
+        <DropdownMenuContent ref={saveMenu} align="end" className="w-64">
           <DropdownMenuLabel>{t('common:save')}</DropdownMenuLabel>
           <p className="px-2 pb-2 text-xs text-muted-foreground">
             {t('common:composer.exportHint')}

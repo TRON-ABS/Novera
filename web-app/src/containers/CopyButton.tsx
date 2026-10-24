@@ -1,9 +1,13 @@
 import { Button } from '@/components/ui/button'
 import { IconCopy, IconCopyCheck } from '@tabler/icons-react'
 import { useState } from 'react'
+import { useTranslation } from '@/i18n/react-i18next-compat'
+import { ActionTooltip } from '@/components/ActionTooltip'
 
 export const CopyButton = ({ text }: { text: string }) => {
   const [copied, setCopied] = useState(false)
+  const { t } = useTranslation()
+  const label = t(copied ? 'common:copied' : 'common:copy')
 
   const handleCopy = () => {
     navigator.clipboard.writeText(text)
@@ -12,7 +16,8 @@ export const CopyButton = ({ text }: { text: string }) => {
   }
 
   return (
-    <Button
+    <ActionTooltip label={label}><Button
+      aria-label={label}
       variant="ghost"
       size="icon-xs"
       onClick={handleCopy}
@@ -24,6 +29,6 @@ export const CopyButton = ({ text }: { text: string }) => {
       ) : (
         <IconCopy size={16} />
       )}
-    </Button>
+    </Button></ActionTooltip>
   )
 }

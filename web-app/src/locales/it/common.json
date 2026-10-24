@@ -273,6 +273,9 @@
     },
     "messageMetadata": {
       "title": "Metadati del messaggio"
+    },
+    "deleteMessage": {
+      "description": "Vuoi davvero eliminare questo messaggio? Questa azione non può essere annullata."
     }
   },
   "errorDialog": {
@@ -504,5 +507,9 @@
     "assistantOverrides": "Parametri personalizzati dell’assistente",
     "printPdf": "Stampa / Salva come PDF",
     "exportHint": "Formati leggibili: ramo attivo. JSON: tutte le versioni dei messaggi. I file esterni non sono inclusi."
+  },
+  "telemetry": {
+    "summary": "Con il tuo consenso, {{host}} riceve solo la versione di Novera e il sistema operativo, senza conversazioni né identificatore persistente.",
+    "unavailable": "Le statistiche non sono configurate. Nessun dato viene inviato."
   }
 }

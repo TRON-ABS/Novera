@@ -285,6 +285,9 @@
     },
     "messageMetadata": {
       "title": "メッセージメタデータ"
+    },
+    "deleteMessage": {
+      "description": "このメッセージを削除しますか？この操作は取り消せません。"
     }
   },
   "errorDialog": {
@@ -527,5 +530,9 @@
     "assistantOverrides": "アシスタントのカスタムパラメーター",
     "printPdf": "印刷 / PDFとして保存",
     "exportHint": "閲覧用形式：現在の分岐。JSON：すべてのメッセージの全バージョン。外部ファイルは含まれません。"
+  },
+  "telemetry": {
+    "summary": "同意した場合、{{host}} にNoveraのバージョンとOSのみが送信されます。会話や永続的な識別子は送信されません。",
+    "unavailable": "統計は設定されていません。データは送信されません。"
   }
 }

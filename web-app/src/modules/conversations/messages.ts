@@ -6,6 +6,7 @@ import {
   ChatCompletionRole,
 } from '@janhq/core'
 import type { UIMessage } from '@ai-sdk/react'
+import { stripToolCallMarkup } from '@/modules/tools/tool-call-markup'
 // Attachments are now handled upstream in newUserThreadContent
 
 type ThreadContent = NonNullable<ThreadMessage['content']>[number]
@@ -27,7 +28,7 @@ export function convertUIMessageToThreadMessage(
       content.push({
         type: ContentType.Text,
         text: {
-          value: part.text,
+          value: uiMessage.role === 'assistant' ? stripToolCallMarkup(part.text) : part.text,
           annotations: [],
         },
       })
@@ -268,7 +269,9 @@ export function convertThreadMessageToUIMessage(
     } else if (content.type === 'text' && content.text?.value) {
       // Text content - split out any legacy <think>/<thought> reasoning so it
       // renders in the reasoning UI instead of inline (see reasoningPartsFromText).
-      parts.push(...reasoningPartsFromText(content.text.value))
+      const value = threadMessage.role === 'assistant'
+        ? stripToolCallMarkup(content.text.value) : content.text.value
+      parts.push(...reasoningPartsFromText(value))
     } else if (content.type === 'image_url' && content.image_url?.url) {
       parts.push({
         type: 'file',
@@ -508,7 +511,8 @@ export function extractContentPartsFromUIMessage(message: UIMessage): ThreadCont
       }
     } else if (part.type === 'text') {
       // Add text content as separate item
-      const textContent = part.text ?? ''
+      const textContent = message.role === 'assistant'
+        ? stripToolCallMarkup(part.text ?? '') : part.text ?? ''
       if (textContent) {
         content.push({
           type: 'text' as ContentType.Text,

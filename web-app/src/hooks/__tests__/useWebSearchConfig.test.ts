@@ -24,6 +24,14 @@ describe('web search preferences', () => {
   it('uses DuckDuckGo when no preferences were saved', async () => {
     await useWebSearchConfig.persist.rehydrate()
     expect(useWebSearchConfig.getState().searchProvider).toBe('duckduckgo')
+    expect(useWebSearchConfig.getState().webSearchEnabled).toBe(true)
+  })
+
+  it('enables search by default when an older profile has no search preference', async () => {
+    storage.getItem.mockResolvedValue(JSON.stringify({ state: { searchProvider: 'duckduckgo' }, version: 0 }))
+    useWebSearchConfig.setState({ webSearchEnabled: false })
+    await useWebSearchConfig.persist.rehydrate()
+    expect(useWebSearchConfig.getState().webSearchEnabled).toBe(true)
   })
 
   it('preserves an existing provider and disabled preference', async () => {

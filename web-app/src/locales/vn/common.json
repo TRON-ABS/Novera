@@ -304,6 +304,9 @@
     },
     "messageMetadata": {
       "title": "Siêu dữ liệu tin nhắn"
+    },
+    "deleteMessage": {
+      "description": "Bạn có chắc muốn xóa tin nhắn này không? Không thể hoàn tác thao tác này."
     }
   },
   "errorDialog": {
@@ -413,5 +416,9 @@
     "assistantOverrides": "Tham số tùy chỉnh của trợ lý",
     "printPdf": "In / Lưu dưới dạng PDF",
     "exportHint": "Định dạng dễ đọc: nhánh hiện tại. JSON: tất cả phiên bản của tin nhắn. Không bao gồm tệp bên ngoài."
+  },
+  "telemetry": {
+    "summary": "Khi bạn đồng ý, {{host}} chỉ nhận phiên bản Novera và hệ điều hành, không có hội thoại hay mã định danh cố định.",
+    "unavailable": "Chưa cấu hình thống kê. Không có dữ liệu nào được gửi."
   }
 }

@@ -390,26 +390,17 @@ fn test_download_item_deserialization() {
 
 #[test]
 fn test_convert_to_mirror_url_huggingface() {
-    let url = "https://huggingface.co/some/repo/resolve/main/model.gguf";
-    let mirror = convert_to_mirror_url(url).expect("should produce a mirror url");
-    assert!(mirror.starts_with("https://apps") && mirror.contains(".jan.ai/"));
-    assert!(mirror.ends_with("huggingface.co/some/repo/resolve/main/model.gguf"));
+    assert!(convert_to_mirror_url("https://huggingface.co/some/repo/resolve/main/model.gguf").is_none());
 }
 
 #[test]
 fn test_convert_to_mirror_url_huggingface_subdomain() {
-    // Subdomains of mirror domains should also be mirrored
-    let url = "https://cdn.huggingface.co/file.bin";
-    let mirror = convert_to_mirror_url(url).expect("subdomain should mirror");
-    assert!(mirror.ends_with("cdn.huggingface.co/file.bin"));
+    assert!(convert_to_mirror_url("https://cdn.huggingface.co/file.bin").is_none());
 }
 
 #[test]
 fn test_convert_to_mirror_url_http_scheme() {
-    let url = "http://huggingface.co/file";
-    let mirror = convert_to_mirror_url(url).expect("http should be stripped too");
-    assert!(mirror.ends_with("huggingface.co/file"));
-    assert!(!mirror.contains("http://huggingface.co"));
+    assert!(convert_to_mirror_url("http://huggingface.co/file").is_none());
 }
 
 #[test]

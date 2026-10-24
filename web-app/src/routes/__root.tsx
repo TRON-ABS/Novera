@@ -37,7 +37,7 @@ export const Route = createRootRoute({
 })
 
 const AppLayout = () => {
-  const { productAnalyticPrompt } = useAnalytic()
+  const { productAnalyticPrompt, analyticsAvailable } = useAnalytic()
   // The setup screen is the only onboarding surface: everything below that would
   // otherwise stack on top of it is deferred until it is done.
   const isOnboarding = useIsOnboarding()
@@ -77,7 +77,7 @@ const AppLayout = () => {
           </div>
         </SidebarInset>
 
-        {productAnalyticPrompt && !isOnboarding && <PromptAnalytic />}
+        {analyticsAvailable && productAnalyticPrompt && !isOnboarding && <PromptAnalytic />}
       </SidebarProvider>
     </div>
   )

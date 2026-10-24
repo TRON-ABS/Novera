@@ -9,5 +9,26 @@
   "sendMessage": "Kirim Pesan",
   "newConversation": "Percakapan Baru",
   "clearHistory": "Hapus Riwayat",
-  "done": "Done"
+  "done": "Done",
+  "messageActions": {
+    "previousVersion": "Versi sebelumnya",
+    "nextVersion": "Versi berikutnya",
+    "generationFailed": "Pembuatan gagal"
+  },
+  "messageStats": {
+    "details": "Statistik pembuatan",
+    "generation": "Pembuatan",
+    "reading": "Pembacaan",
+    "tokens": "Token",
+    "perSecond": "token/detik"
+  },
+  "actions": {
+    "regenerate": "Buat ulang jawaban",
+    "askAgain": "Tanya lagi",
+    "continue": "Lanjutkan pembuatan",
+    "remember": "Ingat pesan ini",
+    "rememberSaved": "Disimpan ke memori sebagai “{{name}}”",
+    "rememberExists": "Sudah ada di memori sebagai “{{name}}”",
+    "rememberFailed": "Tidak dapat menyimpan ke memori"
+  }
 }

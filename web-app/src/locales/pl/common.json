@@ -241,6 +241,9 @@
     },
     "messageMetadata": {
       "title": "Metadane Wiadomości"
+    },
+    "deleteMessage": {
+      "description": "Czy na pewno chcesz usunąć tę wiadomość? Tej operacji nie można cofnąć."
     }
   },
   "projects": {
@@ -413,5 +416,9 @@
     "assistantOverrides": "Niestandardowe parametry asystenta",
     "printPdf": "Drukuj / Zapisz jako PDF",
     "exportHint": "Formaty czytelne: aktywna gałąź. JSON: wszystkie wersje wiadomości. Pliki zewnętrzne nie są dołączane."
+  },
+  "telemetry": {
+    "summary": "Za Twoją zgodą {{host}} otrzymuje tylko wersję Novera i system operacyjny, bez rozmów i trwałego identyfikatora.",
+    "unavailable": "Statystyki nie są skonfigurowane. Żadne dane nie są wysyłane."
   }
 }

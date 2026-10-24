@@ -2,6 +2,9 @@ import { memo } from 'react'
 import { toNumber } from '@/utils/number'
 import { Gauge } from 'lucide-react'
 import { useInterfaceSettings } from '@/hooks/useInterfaceSettings'
+import { useTranslation } from '@/i18n/react-i18next-compat'
+import { intlLocale } from '@/utils/intlLocale'
+import { ActionTooltip } from '@/components/ActionTooltip'
 import {
   Popover,
   PopoverContent,
@@ -29,6 +32,9 @@ interface TokenSpeedIndicatorProps {
 export const TokenSpeedIndicator = memo(
   ({ metadata, streaming }: TokenSpeedIndicatorProps) => {
     const showTokenSpeed = useInterfaceSettings((s) => s.showTokenSpeed)
+    const { t, i18n } = useTranslation()
+    const numbers = new Intl.NumberFormat(intlLocale(i18n?.language ?? 'en'), { maximumFractionDigits: 2 })
+    const rate = (value: number) => `${numbers.format(value)} ${t('chat:messageStats.perSecond')}`
 
     const nonStreamingAssistantParam =
       typeof metadata?.assistant === 'object' &&
@@ -50,53 +56,41 @@ export const TokenSpeedIndicator = memo(
 
     if (displaySpeed === 0 && displayTokenCount === 0) return null
 
-    if (showTokenSpeed) {
-      return (
-        <div className="flex items-center gap-2 text-muted-foreground text-xs">
-          {displaySpeed > 0 && (
-            <div className="flex items-center gap-1">
-              <Gauge size={16} />
-              <span>{displaySpeed} tokens/sec</span>
-            </div>
-          )}
-          {displayTokenCount > 0 && (
-            <span className="text-muted-foreground">
-              ({displayTokenCount} tokens)
-            </span>
-          )}
-        </div>
-      )
-    }
-
     return (
       <Popover>
+        <ActionTooltip label={t('chat:messageStats.details')}>
         <PopoverTrigger asChild>
           <button
             type="button"
-            aria-label="Token speed details"
-            className="text-muted-foreground cursor-pointer hover:text-foreground transition-colors"
+            aria-label={t('chat:messageStats.details')}
+            className="inline-flex items-center gap-2 text-xs text-muted-foreground cursor-pointer hover:text-foreground transition-colors"
           >
-            <Gauge size={16} />
+            <Gauge size={16} aria-hidden="true" />
+            {showTokenSpeed && displaySpeed > 0 && <span>{rate(displaySpeed)}</span>}
+            {showTokenSpeed && displayTokenCount > 0 && (
+              <span>({t('chat:messageStats.tokens')}: {numbers.format(displayTokenCount)})</span>
+            )}
           </button>
         </PopoverTrigger>
+        </ActionTooltip>
         <PopoverContent align="start" className="w-auto p-3 text-xs">
           <div className="flex flex-col gap-1">
             {rawSpeed > 0 && (
               <div className="flex items-center justify-between gap-4">
-                <span className="text-muted-foreground">Generation</span>
-                <span className="font-mono">{rawSpeed.toFixed(2)} tps</span>
+                <span className="text-muted-foreground">{t('chat:messageStats.generation')}</span>
+                <span className="font-mono">{rate(rawSpeed)}</span>
               </div>
             )}
             {promptSpeed && promptSpeed > 0 && (
               <div className="flex items-center justify-between gap-4">
-                <span className="text-muted-foreground">Reading</span>
-                <span className="font-mono">{promptSpeed.toFixed(2)} tps</span>
+                <span className="text-muted-foreground">{t('chat:messageStats.reading')}</span>
+                <span className="font-mono">{rate(promptSpeed)}</span>
               </div>
             )}
             {displayTokenCount > 0 && (
               <div className="flex items-center justify-between gap-4">
-                <span className="text-muted-foreground">Tokens</span>
-                <span className="font-mono">{displayTokenCount}</span>
+                <span className="text-muted-foreground">{t('chat:messageStats.tokens')}</span>
+                <span className="font-mono">{numbers.format(displayTokenCount)}</span>
               </div>
             )}
           </div>

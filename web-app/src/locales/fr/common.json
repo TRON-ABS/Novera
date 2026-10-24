@@ -247,6 +247,9 @@
     },
     "messageMetadata": {
       "title": "Métadonnées du message"
+    },
+    "deleteMessage": {
+      "description": "Voulez-vous vraiment supprimer ce message ? Cette action est irréversible."
     }
   },
   "projects": {
@@ -417,5 +420,9 @@
     "assistantOverrides": "Paramètres propres à l’assistant",
     "printPdf": "Imprimer / Enregistrer en PDF",
     "exportHint": "Formats lisibles : branche affichée. JSON : toutes les versions des messages. Les fichiers externes ne sont pas inclus."
+  },
+  "telemetry": {
+    "summary": "Avec votre accord, {{host}} reçoit uniquement la version de Novera et le système, sans conversations ni identifiant persistant.",
+    "unavailable": "Les statistiques ne sont pas configurées. Aucune donnée n’est envoyée."
   }
 }

@@ -9,5 +9,26 @@
   "sendMessage": "Enviar mensaje",
   "newConversation": "Nueva conversación",
   "clearHistory": "Borrar historial",
-  "done": "Done"
+  "done": "Done",
+  "messageActions": {
+    "previousVersion": "Versión anterior",
+    "nextVersion": "Versión siguiente",
+    "generationFailed": "Error de generación"
+  },
+  "messageStats": {
+    "details": "Estadísticas de generación",
+    "generation": "Generación",
+    "reading": "Lectura",
+    "tokens": "Tokens",
+    "perSecond": "tokens/s"
+  },
+  "actions": {
+    "regenerate": "Regenerar la respuesta",
+    "askAgain": "Preguntar de nuevo",
+    "continue": "Continuar generando",
+    "remember": "Recordar este mensaje",
+    "rememberSaved": "Guardado en la memoria como «{{name}}»",
+    "rememberExists": "Ya está en la memoria como «{{name}}»",
+    "rememberFailed": "No se pudo guardar en la memoria"
+  }
 }

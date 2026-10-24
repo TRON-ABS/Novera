@@ -6,7 +6,6 @@ import { Switch } from '@/components/ui/switch'
 import { Card, CardItem } from '@/containers/Card'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useAnalytic } from '@/hooks/useAnalytic'
-import posthog from 'posthog-js'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Route = createFileRoute(route.settings.privacy as any)({
@@ -15,7 +14,7 @@ export const Route = createFileRoute(route.settings.privacy as any)({
 
 function Privacy() {
   const { t } = useTranslation()
-  const { setProductAnalytic, productAnalytic } = useAnalytic()
+  const { setProductAnalytic, productAnalytic, analyticsAvailable, analyticsHost } = useAnalytic()
 
   return (
     <div className="flex flex-col h-svh w-full">
@@ -36,14 +35,10 @@ function Privacy() {
                   </h1>
                   <div className="flex items-center gap-2">
                     <Switch
-                      checked={productAnalytic}
+                      checked={analyticsAvailable && productAnalytic}
+                      disabled={!analyticsAvailable}
                       onCheckedChange={(state) => {
-                        if (state) {
-                          posthog.opt_in_capturing()
-                        } else {
-                          posthog.opt_out_capturing()
-                        }
-                        setProductAnalytic(state)
+                        setProductAnalytic(analyticsAvailable && state)
                       }}
                     />
                   </div>
@@ -52,7 +47,7 @@ function Privacy() {
             >
               <CardItem
                 title={t('settings:privacy.helpUsImprove')}
-                description={<p>{t('settings:privacy.helpUsImproveDesc')}</p>}
+                description={<p>{t(analyticsAvailable ? 'common:telemetry.summary' : 'common:telemetry.unavailable', { host: analyticsHost })}</p>}
                 align="start"
               />
               <CardItem

@@ -397,6 +397,9 @@
     },
     "messageMetadata": {
       "title": "Metadata ng mensahe"
+    },
+    "deleteMessage": {
+      "description": "Sigurado ka bang gusto mong tanggalin ang mensaheng ito? Hindi na ito maibabalik."
     }
   },
   "errorDialog": {
@@ -793,5 +796,9 @@
     "assistantOverrides": "Sariling parameter ng assistant",
     "printPdf": "I-print / I-save bilang PDF",
     "exportHint": "Mga nababasang format: kasalukuyang sangay. JSON: lahat ng bersyon ng mensahe. Hindi kasama ang mga panlabas na file."
+  },
+  "telemetry": {
+    "summary": "Sa pahintulot mo, bersyon lang ng Novera at operating system ang matatanggap ng {{host}}, walang mga pag-uusap o permanenteng identifier.",
+    "unavailable": "Hindi pa naka-configure ang mga istatistika. Walang ipinapadalang data."
   }
 }

@@ -215,7 +215,7 @@ describe('MessageItem', () => {
         onRegenerate={onRegenerate}
       />
     )
-    const regenBtn = screen.getByTitle('chat:actions.regenerate')
+    const regenBtn = screen.getByRole('button', { name: 'chat:actions.regenerate' })
     fireEvent.click(regenBtn)
     expect(onRegenerate).toHaveBeenCalledWith('msg-1')
   })
@@ -231,7 +231,7 @@ describe('MessageItem', () => {
         onRegenerate={onRegenerate}
       />
     )
-    expect(screen.queryByTitle('chat:actions.regenerate')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'chat:actions.regenerate' })).not.toBeInTheDocument()
   })
 
   it('shows Continue button on a stopped last assistant message', () => {
@@ -247,7 +247,7 @@ describe('MessageItem', () => {
         onContinue={onContinue}
       />
     )
-    const btn = screen.getByTitle('chat:actions.continue')
+    const btn = screen.getByRole('button', { name: 'chat:actions.continue' })
     fireEvent.click(btn)
     expect(onContinue).toHaveBeenCalledWith('msg-1')
   })
@@ -276,7 +276,7 @@ describe('MessageItem', () => {
         onContinue={vi.fn()}
       />
     )
-    expect(screen.queryByTitle('chat:actions.continue')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'chat:actions.continue' })).not.toBeInTheDocument()
   })
 
   it('hides Continue button when the turn finished normally', () => {
@@ -289,7 +289,7 @@ describe('MessageItem', () => {
         onContinue={vi.fn()}
       />
     )
-    expect(screen.queryByTitle('chat:actions.continue')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'chat:actions.continue' })).not.toBeInTheDocument()
   })
 
   it('hides Continue button on a stopped message that is not last', () => {
@@ -304,7 +304,7 @@ describe('MessageItem', () => {
         onContinue={vi.fn()}
       />
     )
-    expect(screen.queryByTitle('chat:actions.continue')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'chat:actions.continue' })).not.toBeInTheDocument()
   })
 
   it('fires onEdit when edit dialog saves', () => {
@@ -360,7 +360,7 @@ describe('MessageItem', () => {
         onRetry={onRetry}
       />
     )
-    fireEvent.click(screen.getByTitle('chat:actions.askAgain'))
+    fireEvent.click(screen.getByRole('button', { name: 'chat:actions.askAgain' }))
     expect(onRetry).toHaveBeenCalledWith(
       'msg-1',
       expect.stringContaining('ask me again')
@@ -380,7 +380,7 @@ describe('MessageItem', () => {
         status={'ready' as any}
       />
     )
-    expect(screen.queryByTitle('chat:actions.askAgain')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'chat:actions.askAgain' })).not.toBeInTheDocument()
   })
 
   it('hides actions when hideActions is set', () => {
@@ -780,6 +780,6 @@ describe('MessageItem', () => {
         onRegenerate={onRegenerate}
       />
     )
-    expect(screen.queryByTitle('chat:actions.regenerate')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'chat:actions.regenerate' })).not.toBeInTheDocument()
   })
 })

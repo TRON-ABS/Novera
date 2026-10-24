@@ -397,6 +397,9 @@
     },
     "messageMetadata": {
       "title": "Message Metadata"
+    },
+    "deleteMessage": {
+      "description": "Are you sure you want to delete this message? This action cannot be undone."
     }
   },
   "errorDialog": {
@@ -793,5 +796,9 @@
     "assistantOverrides": "Assistant overrides",
     "printPdf": "Print / Save as PDF",
     "exportHint": "Readable formats: active branch. JSON: all message versions. External files are not bundled."
+  },
+  "telemetry": {
+    "summary": "With your consent, {{host}} receives only the Novera version and operating system, without conversations or a persistent identifier.",
+    "unavailable": "Statistics are not configured. No data is sent."
   }
 }

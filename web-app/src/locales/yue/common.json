@@ -397,6 +397,9 @@
     },
     "messageMetadata": {
       "title": "訊息元數據"
+    },
+    "deleteMessage": {
+      "description": "你確定要刪除呢則訊息？呢個操作無法復原。"
     }
   },
   "errorDialog": {
@@ -793,5 +796,9 @@
     "assistantOverrides": "助手自訂參數",
     "printPdf": "列印 / 儲存為 PDF",
     "exportHint": "可閱讀格式：目前顯示嘅分支。JSON：所有訊息版本。唔包括外部檔案。"
+  },
+  "telemetry": {
+    "summary": "得到你同意後，{{host}} 只會收到 Novera 版本同作業系統，唔包括對話或者持續識別碼。",
+    "unavailable": "統計功能未設定，唔會傳送任何資料。"
   }
 }

@@ -9,5 +9,26 @@
   "clearHistory": "Wyczyść Historię",
   "temporaryChat": "Tymczasowy Czat",
   "temporaryChatDescription": "Rozpocznij tymczasową rozmowę, która nie zostanie zapisana w historii czatów.",
-  "done": "Done"
+  "done": "Done",
+  "messageActions": {
+    "previousVersion": "Poprzednia wersja",
+    "nextVersion": "Następna wersja",
+    "generationFailed": "Generowanie nie powiodło się"
+  },
+  "messageStats": {
+    "details": "Statystyki generowania",
+    "generation": "Generowanie",
+    "reading": "Odczyt",
+    "tokens": "Tokeny",
+    "perSecond": "tokenów/s"
+  },
+  "actions": {
+    "regenerate": "Wygeneruj odpowiedź ponownie",
+    "askAgain": "Zapytaj ponownie",
+    "continue": "Kontynuuj generowanie",
+    "remember": "Zapamiętaj tę wiadomość",
+    "rememberSaved": "Zapisano w pamięci jako „{{name}}”",
+    "rememberExists": "Już w pamięci jako „{{name}}”",
+    "rememberFailed": "Nie udało się zapisać w pamięci"
+  }
 }
