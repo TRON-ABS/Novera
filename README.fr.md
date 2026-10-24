@@ -27,7 +27,7 @@ Ces éléments décrivent les sources. La distribution Novera et sa validation e
 
 ## 36 langues et variantes d’interface
 
-Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées. Les 18 nouveaux catalogues complets couvrent chacun les **1 481 clés anglaises**. Le **wu / shanghaïen reste partiel avec 724 clés** ; les textes manquants utilisent le repli anglais. Une relecture par des locuteurs natifs reste nécessaire.
+Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées. Les 18 nouveaux catalogues complets couvrent chacun les **1 510 clés anglaises**. Le **wu / shanghaïen reste partiel avec 753 clés** ; les textes manquants utilisent le repli anglais. Une relecture par des locuteurs natifs reste nécessaire.
 
 L’arabe standard, l’arabe égyptien, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
 
@@ -73,3 +73,5 @@ Voir l’[architecture en six domaines](docs/ARCHITECTURE.md) pour les règles e
 Les sources locales ajoutent les [commandes de discussion](docs/CONVERSATION_CONTROLS.md), l’export et la suppression confirmée. Ces changements, la restructuration modulaire et la sélection de langue système sont inclus dans le build local du 24 octobre 2026. Démarrage et persistance de langue sont vérifiés sur profil isolé. Les dialogues natifs d’enregistrement/impression restent à valider manuellement.
 
 Dernière mise à jour des sources (24 octobre 2026) : infobulles dans les 36 langues, dates/statistiques localisées, recherche Internet active par défaut avec choix sauvegardé conservé, filtrage du protocole outil brut et fermeture du menu au clic extérieur. Mises à jour signées et statistiques avec consentement préparées, sans activation ni configuration de production. Voir [la préparation](docs/UPDATES_AND_TELEMETRY.md). Démarrage isolé du dernier build local vérifié ; aucun binaire publié avec les sources. Les chiffres de tests précédents décrivent leurs builds historiques.
+
+Le Hub propose six petits modèles GGUF épinglés, estimation mémoire selon le matériel, tri et filtres par taille, comparaison de trois modèles, scores fabricant sourcés et test local annulable des modèles déjà lancés. Les 29 nouveaux textes sont traduits dans les 36 langues. [Fonctionnement et limites des mesures](docs/HUB_DISCOVERY.md). Validation locale : 5 103 tests web réussis, 2 ignorés ; TypeScript et langues réussis. Démarrage du build Windows local vérifié ; binaires exclus de cette publication des sources.

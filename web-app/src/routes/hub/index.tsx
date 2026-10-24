@@ -3,7 +3,8 @@ import { useVirtualizer } from '@tanstack/react-virtual'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { route } from '@/constants/routes'
 import { useModelSources } from '@/hooks/useModelSources'
-import { cn, formatBytes, sanitizeModelId } from '@/lib/utils'
+import { cn, sanitizeModelId } from '@/lib/utils'
+import { parseFileSize } from '@/lib/modelCompatibility'
 import { sumMlxModelBytes } from '@/lib/modelCompatibility'
 import { isSpecSidecar } from '@/lib/specDraft'
 import {
@@ -14,6 +15,7 @@ import {
   useCallback,
   useRef,
   useTransition,
+  useLayoutEffect,
 } from 'react'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { Card, CardItem } from '@/containers/Card'
@@ -62,6 +64,9 @@ import { MlxModelDownloadAction } from '@/containers/MlxModelDownloadAction'
 import { DEFAULT_MODEL_QUANTIZATIONS } from '@/constants/models'
 import { Button } from '@/components/ui/button'
 import { RenderMarkdown } from '@/containers/RenderMarkdown'
+import { useHardware } from '@/hooks/useHardware'
+import { mergeHubCatalog, sortHubModels, hubSizeMatches, hubKey, hubFormatBytes } from '@/lib/hubDiscovery'
+import { HubComparison, HubModelFacts } from '@/containers/HubModelInsights'
 
 type SearchParams = {
   repo: string
@@ -107,12 +112,17 @@ export const Route = createFileRoute(route.hub.index as any)({
 function HubContent() {
   const [isPending, startTransition] = useTransition()
   const parentRef = useRef(null)
+  const listRef = useRef<HTMLDivElement>(null)
+  const prefixRef = useRef<HTMLDivElement>(null)
+  const [scrollMargin, setScrollMargin] = useState(0)
   const huggingfaceToken = useGeneralSetting((state) => state.huggingfaceToken)
   const serviceHub = useServiceHub()
 
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const sortOptions = [
+    { value: 'adapted', name: t('hub:discovery.adapted') },
+    { value: 'smallest', name: t('hub:discovery.smallest') },
     { value: 'newest', name: t('hub:sortNewest') },
     { value: 'most-downloaded', name: t('hub:sortMostDownloaded') },
     ...(IS_MACOS
@@ -145,7 +155,10 @@ function HubContent() {
   )
 
   const [searchValue, setSearchValue] = useState('')
-  const [sortSelected, setSortSelected] = useState('newest')
+  const [sortSelected, setSortSelected] = useState('adapted')
+  const hardware = useHardware(s => s.hardwareData)
+  const [sizeBand, setSizeBand] = useState('all')
+  const [compared, setCompared] = useState<CatalogModel[]>([])
   const [expandedModels, setExpandedModels] = useState<Record<string, boolean>>(
     {}
   )
@@ -168,7 +181,7 @@ function HubContent() {
 
   // Sorting functionality
   const sortedModels = useMemo(() => {
-    let sorted = [...sources]
+    let sorted = mergeHubCatalog(sources).filter(m => hubSizeMatches(m, sizeBand))
 
     // Apply MLX/GGUF filter first (only on Mac)
     if (sortSelected === 'mlx') {
@@ -177,16 +190,8 @@ function HubContent() {
       sorted = sorted.filter((m) => !m.is_mlx)
     }
 
-    // Apply sorting
-    if (sortSelected === 'most-downloaded') {
-      return sorted.sort((a, b) => (b.downloads || 0) - (a.downloads || 0))
-    }
-    return sorted.sort(
-      (a, b) =>
-        new Date(b.created_at || 0).getTime() -
-        new Date(a.created_at || 0).getTime()
-    )
-  }, [sortSelected, sources])
+    return sortHubModels(sorted, sortSelected, hardware)
+  }, [sortSelected, sources, hardware, sizeBand])
 
   // Filtered models (debounced search)
   const [debouncedSearchValue, setDebouncedSearchValue] = useState(searchValue)
@@ -251,7 +256,7 @@ function HubContent() {
         .filter((model) => (model.quants?.length ?? 0) > 0)
     }
     // Add HuggingFace repo at the beginning if available
-    if (huggingFaceRepo) {
+    if (huggingFaceRepo && hubSizeMatches(huggingFaceRepo, sizeBand)) {
       filtered = [huggingFaceRepo, ...filtered]
     }
     return filtered
@@ -261,7 +266,19 @@ function HubContent() {
     showOnlyDownloaded,
     huggingFaceRepo,
     searchOptions,
+    sizeBand,
   ])
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      const parent = parentRef.current as HTMLElement | null
+      if (parent && listRef.current) setScrollMargin(listRef.current.getBoundingClientRect().top - parent.getBoundingClientRect().top + parent.scrollTop)
+    }
+    measure()
+    const observer = new ResizeObserver(measure)
+    if (prefixRef.current) observer.observe(prefixRef.current)
+    return () => observer.disconnect()
+  }, [compared, filteredModels.length, isInitialLoad, loading])
 
   // Dynamic estimate size based on model state
   const estimateSize = useCallback(
@@ -287,6 +304,7 @@ function HubContent() {
           getScrollElement: () => parentRef.current,
           estimateSize,
           overscan: 8,
+          scrollMargin,
           measureElement: (el: HTMLElement) => el.getBoundingClientRect().height,
         }
       : { count: 0, getScrollElement: () => null, estimateSize: () => 0 }
@@ -363,7 +381,7 @@ function HubContent() {
 
   const isRecommendedModel = useCallback((modelId: string) => {
     return (extractModelName(modelId)?.toLowerCase() ===
-      'jan-nano-gguf') as boolean
+      'lfm2.5-1.2b-instruct') as boolean
   }, [])
 
   const handleUseModel = useCallback(
@@ -385,6 +403,9 @@ function HubContent() {
   const renderFilter = () => {
     return (
       <>
+        <select className="text-xs border rounded p-1 bg-background max-w-36" aria-label={t('hub:discovery.weight')} value={sizeBand} onChange={e => setSizeBand(e.target.value)}>
+          {['all', 'under1', 'from1to2', 'from2to4', 'over4'].map(band => <option key={band} value={band}>{t(`hub:discovery.${band}`)}</option>)}
+        </select>
         {/* Sort dropdown - always visible */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -464,6 +485,10 @@ function HubContent() {
         </HeaderPage>
         <div ref={parentRef} className="p-4 w-full h-[calc(100%-60px)] overflow-y-auto! first-step-setup-local-provider">
           <div className="flex flex-col h-full justify-between gap-4 gap-y-3 w-full md:w-4/5 xl:w-4/6 mx-auto">
+            <div ref={prefixRef} className="space-y-3 shrink-0">
+              <h1 className="text-lg font-semibold">{t('hub:discovery.title')}</h1>
+              <HubComparison models={compared} clear={() => setCompared([])} />
+            </div>
             {/* Show skeleton immediately on navigation, then show actual content when loaded */}
             {(isInitialLoad || (loading && !filteredModels.length)) ? (
               // Skeleton loading state for better perceived performance
@@ -506,6 +531,7 @@ function HubContent() {
                   {renderFilter()}
                 </div>
                 <div
+                  ref={listRef}
                   style={{
                     height: `${rowVirtualizer.getTotalSize()}px`,
                     width: '100%',
@@ -522,7 +548,7 @@ function HubContent() {
                         top: 0,
                         left: 0,
                         width: '100%',
-                        transform: `translateY(${virtualItem.start}px)`,
+                        transform: `translateY(${virtualItem.start - scrollMargin}px)`,
                         paddingBottom: 8,
                       }}
                     >
@@ -542,7 +568,7 @@ function HubContent() {
                                       ? name.split('/').pop()!
                                       : name,
                                   },
-                                  search: isHfRepo ? { repo: name } : {},
+                                  search: filteredModels[virtualItem.index].hub ? { repo: filteredModels[virtualItem.index].hub!.repo } : isHfRepo ? { repo: name } : {},
                                 })
                               }}
                             >
@@ -572,15 +598,15 @@ function HubContent() {
                               <div className="flex items-center gap-2">
                                 <span className="text-muted-foreground font-medium text-xs">
                                   {filteredModels[virtualItem.index].is_mlx
-                                    ? formatBytes(
+                                    ? hubFormatBytes(
                                         sumMlxModelBytes(
                                           filteredModels[virtualItem.index]
-                                        ) || undefined
+                                        ) || undefined, i18n.language
                                       )
-                                    : selectDefaultQuant(
+                                    : hubFormatBytes(parseFileSize(selectDefaultQuant(
                                         filteredModels[virtualItem.index].quants,
                                         DEFAULT_MODEL_QUANTIZATIONS
-                                      )?.file_size}
+                                      )?.file_size), i18n.language)}
                                 </span>
                                 <ModelInfoHoverCard
                                   model={filteredModels[virtualItem.index]}
@@ -608,6 +634,18 @@ function HubContent() {
                           </div>
                         }
                       >
+                        <div className="flex justify-end mt-2">
+                          <label className="flex gap-2 items-center text-xs cursor-pointer">
+                            <input type="checkbox" aria-label={`${t('hub:discovery.compare')} ${filteredModels[virtualItem.index].display_name ?? filteredModels[virtualItem.index].model_name}`} checked={compared.some(m => hubKey(m) === hubKey(filteredModels[virtualItem.index]))}
+                              disabled={compared.length >= 3 && !compared.some(m => hubKey(m) === hubKey(filteredModels[virtualItem.index]))}
+                              onChange={e => {
+                                const model = filteredModels[virtualItem.index]
+                                setCompared(prev => e.target.checked ? prev.length < 3 ? [...prev, model] : prev : prev.filter(m => hubKey(m) !== hubKey(model)))
+                              }} />
+                            {t('hub:discovery.compare')}
+                          </label>
+                        </div>
+                        <HubModelFacts model={filteredModels[virtualItem.index]} />
                         <div className="line-clamp-2 mt-3 text-muted-foreground leading-normal">
                           <RenderMarkdown
                             className="select-none reset-heading"
@@ -747,7 +785,7 @@ function HubContent() {
                                                 tier.className
                                               )}
                                             >
-                                              {tier.label}
+                                          {tier.label}
                                             </span>
                                           ) : null
                                         })()}
@@ -761,7 +799,7 @@ function HubContent() {
                                     actions={
                                       <div className="flex items-center gap-2">
                                         <p className="text-muted-foreground font-medium text-xs">
-                                          {variant.file_size}
+                                          {hubFormatBytes(parseFileSize(variant.file_size), i18n.language)}
                                         </p>
                                         <ModelInfoHoverCard
                                           model={

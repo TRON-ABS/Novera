@@ -28,6 +28,8 @@ import { useGeneralSetting } from '@/hooks/useGeneralSetting'
 import { ModelInfoHoverCard } from '@/containers/ModelInfoHoverCard'
 import { DEFAULT_MODEL_QUANTIZATIONS } from '@/constants/models'
 import { useTranslation } from '@/i18n'
+import { mergeHubCatalog } from '@/lib/hubDiscovery'
+import { HubModelFacts } from '@/containers/HubModelInsights'
 
 type SearchParams = {
   repo: string
@@ -85,8 +87,8 @@ function HubModelDetailContent() {
   }, [modelId, fetchRepo])
   // Find the model data from sources
   const modelData = useMemo(() => {
-    return sources.find((model) => model.model_name === modelId) ?? repoData
-  }, [sources, modelId, repoData])
+    return mergeHubCatalog(sources).find((model) => model.model_name === modelId && (!model.hub || !search.repo || model.hub.repo === search.repo)) ?? repoData
+  }, [sources, modelId, repoData, search.repo])
 
   // Speculative draft companions are paired with a real quant at download
   // time, not standalone models — keep them out of the selectable variant list.
@@ -273,6 +275,7 @@ function HubModelDetailContent() {
               {/* Description */}
               {modelData.description && (
                 <div className="text-muted-foreground mb-4">
+                  {modelData.hub && <HubModelFacts model={modelData} />}
                   <RenderMarkdown
                     className="select-none reset-heading"
                     components={{

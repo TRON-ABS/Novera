@@ -32,7 +32,7 @@ These describe the source foundation. The current 1.0.0 source has been built an
 
 ## 36 interface language options
 
-All 19 of our language contributions are integrated alongside the 17 inherited locales. The 18 new full catalogs each cover all **1,481 English keys**. **Wu / Shanghainese remains partial at 724 keys**, with English fallback for missing text. Native-speaker review remains outstanding.
+All 19 of our language contributions are integrated alongside the 17 inherited locales. The 18 new full catalogs each cover all **1,510 English keys**. **Wu / Shanghainese remains partial at 753 keys**, with English fallback for missing text. Native-speaker review remains outstanding.
 
 Arabic, Egyptian Arabic, Urdu, Western Punjabi and Iranian Persian include right-to-left interface support. Model language capabilities depend on the selected model and are separate from interface localization.
 
@@ -78,3 +78,5 @@ See the [six-domain architecture](docs/ARCHITECTURE.md) for extracted policies, 
 Current local source changes to [conversation controls](docs/CONVERSATION_CONTROLS.md) add exports and confirmed deletion. These changes, the modular refactor and system-language selection are included in the local build of 24 October 2026. Native startup and saved-language persistence were verified on an isolated profile. Native save/print dialogs still require manual validation.
 
 Latest source update (24 October 2026): message-action tooltips in all 36 locales, localized dates/statistics, Internet search enabled by default with saved choices preserved, raw tool-protocol filtering and outside-click dismissal of the export menu. Novera-only signed updates and opt-in statistics are prepared but remain disabled without production configuration. See [update and telemetry setup](docs/UPDATES_AND_TELEMETRY.md). The latest local desktop build passed isolated startup; no binary is published with these sources. Earlier test counts above describe their recorded builds.
+
+The Hub now includes six small pinned GGUF models, hardware-aware memory estimates, size sorting and filters, three-model comparison, source-linked publisher scores and a cancellable local speed test for already-running models. All 29 new labels are translated into 36 languages. [Behavior and measurement limits](docs/HUB_DISCOVERY.md). Local validation: 5,103 web tests passed, 2 skipped; TypeScript and all locale catalogs passed. The local Windows build started successfully; binaries are excluded from this source update.

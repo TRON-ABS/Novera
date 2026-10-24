@@ -1,0 +1,272 @@
+[
+  {
+    "model_name": "LFM2.5-230M",
+    "display_name": "LFM2.5-230M",
+    "developer": "LiquidAI",
+    "description": "LFM2.5-230M",
+    "downloads": 338128,
+    "quants": [
+      {
+        "model_id": "LFM2.5-230M-Q4_K_M",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-230M-GGUF/resolve/03502067c64ce32ac4fe87b0cec0310a1a13d3e9/LFM2.5-230M-Q4_K_M.gguf?download=true",
+        "file_size": "153406304"
+      },
+      {
+        "model_id": "LFM2.5-230M-Q6_K",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-230M-GGUF/resolve/03502067c64ce32ac4fe87b0cec0310a1a13d3e9/LFM2.5-230M-Q6_K.gguf?download=true",
+        "file_size": "190983008"
+      },
+      {
+        "model_id": "LFM2.5-230M-Q8_0",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-230M-GGUF/resolve/03502067c64ce32ac4fe87b0cec0310a1a13d3e9/LFM2.5-230M-Q8_0.gguf?download=true",
+        "file_size": "246598496"
+      }
+    ],
+    "created_at": "2026-06-11T15:01:26.000Z",
+    "hub": {
+      "parametersB": 0.23,
+      "repo": "LiquidAI/LFM2.5-230M-GGUF",
+      "revision": "03502067c64ce32ac4fe87b0cec0310a1a13d3e9",
+      "verifiedAt": "2026-10-24",
+      "recommended": false,
+      "source": "https://huggingface.co/LiquidAI/LFM2.5-230M",
+      "benchmarks": [
+        {
+          "name": "MMLU-Pro",
+          "score": 20.25,
+          "mode": "publisher"
+        },
+        {
+          "name": "IFEval",
+          "score": 71.71,
+          "mode": "publisher"
+        }
+      ]
+    }
+  },
+  {
+    "model_name": "LFM2.5-350M",
+    "display_name": "LFM2.5-350M",
+    "developer": "LiquidAI",
+    "description": "LFM2.5-350M",
+    "downloads": 85171,
+    "quants": [
+      {
+        "model_id": "LFM2.5-350M-Q4_K_M",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-350M-GGUF/resolve/657e078c94084481950a2d555a941481f715536b/LFM2.5-350M-Q4_K_M.gguf?download=true",
+        "file_size": "229312224"
+      },
+      {
+        "model_id": "LFM2.5-350M-Q6_K",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-350M-GGUF/resolve/657e078c94084481950a2d555a941481f715536b/LFM2.5-350M-Q6_K.gguf?download=true",
+        "file_size": "293381856"
+      },
+      {
+        "model_id": "LFM2.5-350M-Q8_0",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-350M-GGUF/resolve/657e078c94084481950a2d555a941481f715536b/LFM2.5-350M-Q8_0.gguf?download=true",
+        "file_size": "379217632"
+      }
+    ],
+    "created_at": "2026-03-25T02:45:48.000Z",
+    "hub": {
+      "parametersB": 0.35,
+      "repo": "LiquidAI/LFM2.5-350M-GGUF",
+      "revision": "657e078c94084481950a2d555a941481f715536b",
+      "verifiedAt": "2026-10-24",
+      "recommended": false,
+      "source": "https://huggingface.co/LiquidAI/LFM2.5-350M",
+      "benchmarks": [
+        {
+          "name": "MMLU-Pro",
+          "score": 20.01,
+          "mode": "publisher"
+        },
+        {
+          "name": "IFEval",
+          "score": 76.96,
+          "mode": "publisher"
+        }
+      ]
+    }
+  },
+  {
+    "model_name": "LFM2.5-1.2B-Instruct",
+    "display_name": "LFM2.5-1.2B-Instruct",
+    "developer": "LiquidAI",
+    "description": "LFM2.5-1.2B-Instruct",
+    "downloads": 334084,
+    "quants": [
+      {
+        "model_id": "LFM2.5-1.2B-Instruct-Q4_K_M",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF/resolve/8ed288026e23958ad9dfa92d53ed773a8eee7125/LFM2.5-1.2B-Instruct-Q4_K_M.gguf?download=true",
+        "file_size": "730895168"
+      },
+      {
+        "model_id": "LFM2.5-1.2B-Instruct-Q6_K",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF/resolve/8ed288026e23958ad9dfa92d53ed773a8eee7125/LFM2.5-1.2B-Instruct-Q6_K.gguf?download=true",
+        "file_size": "962843456"
+      },
+      {
+        "model_id": "LFM2.5-1.2B-Instruct-Q8_0",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF/resolve/8ed288026e23958ad9dfa92d53ed773a8eee7125/LFM2.5-1.2B-Instruct-Q8_0.gguf?download=true",
+        "file_size": "1246253888"
+      }
+    ],
+    "created_at": "2026-01-04T00:09:26.000Z",
+    "hub": {
+      "parametersB": 1.2,
+      "repo": "LiquidAI/LFM2.5-1.2B-Instruct-GGUF",
+      "revision": "8ed288026e23958ad9dfa92d53ed773a8eee7125",
+      "verifiedAt": "2026-10-24",
+      "recommended": true,
+      "source": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct",
+      "benchmarks": [
+        {
+          "name": "MMLU-Pro",
+          "score": 44.35,
+          "mode": "publisher"
+        },
+        {
+          "name": "IFEval",
+          "score": 86.23,
+          "mode": "publisher"
+        }
+      ]
+    }
+  },
+  {
+    "model_name": "LFM2.5-2.6B",
+    "display_name": "LFM2.5-2.6B",
+    "developer": "LiquidAI",
+    "description": "LFM2.5-2.6B",
+    "downloads": 626985,
+    "quants": [
+      {
+        "model_id": "LFM2.5-2.6B-Q4_K_M",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF/resolve/e7caca5d835a3901a8e0d63e94009429bafafdfc/LFM2.5-2.6B-Q4_K_M.gguf?download=true",
+        "file_size": "1674455040"
+      },
+      {
+        "model_id": "LFM2.5-2.6B-Q6_K",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF/resolve/e7caca5d835a3901a8e0d63e94009429bafafdfc/LFM2.5-2.6B-Q6_K.gguf?download=true",
+        "file_size": "2221615104"
+      },
+      {
+        "model_id": "LFM2.5-2.6B-Q8_0",
+        "path": "https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF/resolve/e7caca5d835a3901a8e0d63e94009429bafafdfc/LFM2.5-2.6B-Q8_0.gguf?download=true",
+        "file_size": "2874779648"
+      }
+    ],
+    "created_at": "2026-08-01T22:42:15.000Z",
+    "hub": {
+      "parametersB": 2.6,
+      "repo": "LiquidAI/LFM2.5-2.6B-GGUF",
+      "revision": "e7caca5d835a3901a8e0d63e94009429bafafdfc",
+      "verifiedAt": "2026-10-24",
+      "recommended": true,
+      "source": "https://huggingface.co/LiquidAI/LFM2.5-2.6B",
+      "benchmarks": [
+        {
+          "name": "IFBench",
+          "score": 59.17,
+          "mode": "publisher"
+        },
+        {
+          "name": "LiveCodeBench v6",
+          "score": 59.41,
+          "mode": "publisher"
+        }
+      ]
+    }
+  },
+  {
+    "model_name": "Qwen3.5-0.8B",
+    "display_name": "Qwen3.5-0.8B",
+    "developer": "Qwen",
+    "description": "Qwen3.5-0.8B",
+    "downloads": 253887,
+    "quants": [
+      {
+        "model_id": "Qwen3.5-0.8B-Q4_K_M",
+        "path": "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/6ab461498e2023f6e3c1baea90a8f0fe38ab64d0/Qwen3.5-0.8B-Q4_K_M.gguf?download=true",
+        "file_size": "532517120"
+      },
+      {
+        "model_id": "Qwen3.5-0.8B-Q6_K",
+        "path": "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/6ab461498e2023f6e3c1baea90a8f0fe38ab64d0/Qwen3.5-0.8B-Q6_K.gguf?download=true",
+        "file_size": "639029504"
+      },
+      {
+        "model_id": "Qwen3.5-0.8B-Q8_0",
+        "path": "https://huggingface.co/unsloth/Qwen3.5-0.8B-GGUF/resolve/6ab461498e2023f6e3c1baea90a8f0fe38ab64d0/Qwen3.5-0.8B-Q8_0.gguf?download=true",
+        "file_size": "811843840"
+      }
+    ],
+    "created_at": "2026-03-01T14:38:35.000Z",
+    "hub": {
+      "parametersB": 0.8,
+      "repo": "unsloth/Qwen3.5-0.8B-GGUF",
+      "revision": "6ab461498e2023f6e3c1baea90a8f0fe38ab64d0",
+      "verifiedAt": "2026-10-24",
+      "recommended": false,
+      "source": "https://huggingface.co/Qwen/Qwen3.5-0.8B",
+      "benchmarks": [
+        {
+          "name": "MMLU-Pro",
+          "score": 29.7,
+          "mode": "nonThinking"
+        },
+        {
+          "name": "IFEval",
+          "score": 52.1,
+          "mode": "nonThinking"
+        }
+      ]
+    }
+  },
+  {
+    "model_name": "Qwen3.5-2B",
+    "display_name": "Qwen3.5-2B",
+    "developer": "Qwen",
+    "description": "Qwen3.5-2B",
+    "downloads": 400244,
+    "quants": [
+      {
+        "model_id": "Qwen3.5-2B-Q4_K_M",
+        "path": "https://huggingface.co/unsloth/Qwen3.5-2B-GGUF/resolve/f6d5376be1edb4d416d56da11e5397a961aca8ae/Qwen3.5-2B-Q4_K_M.gguf?download=true",
+        "file_size": "1280835840"
+      },
+      {
+        "model_id": "Qwen3.5-2B-Q6_K",
+        "path": "https://huggingface.co/unsloth/Qwen3.5-2B-GGUF/resolve/f6d5376be1edb4d416d56da11e5397a961aca8ae/Qwen3.5-2B-Q6_K.gguf?download=true",
+        "file_size": "1574961408"
+      },
+      {
+        "model_id": "Qwen3.5-2B-Q8_0",
+        "path": "https://huggingface.co/unsloth/Qwen3.5-2B-GGUF/resolve/f6d5376be1edb4d416d56da11e5397a961aca8ae/Qwen3.5-2B-Q8_0.gguf?download=true",
+        "file_size": "2012012800"
+      }
+    ],
+    "created_at": "2026-02-28T14:04:40.000Z",
+    "hub": {
+      "parametersB": 2,
+      "repo": "unsloth/Qwen3.5-2B-GGUF",
+      "revision": "f6d5376be1edb4d416d56da11e5397a961aca8ae",
+      "verifiedAt": "2026-10-24",
+      "recommended": false,
+      "source": "https://huggingface.co/Qwen/Qwen3.5-2B",
+      "benchmarks": [
+        {
+          "name": "MMLU-Pro",
+          "score": 55.3,
+          "mode": "nonThinking"
+        },
+        {
+          "name": "IFEval",
+          "score": 61.2,
+          "mode": "nonThinking"
+        }
+      ]
+    }
+  }
+]

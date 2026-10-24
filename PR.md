@@ -1,3 +1,21 @@
+# Publication du Hub Novera — 24 octobre 2026
+
+Mise à jour des sources du Hub sur la dernière base main : sélection de six petits modèles GGUF, classement selon la mémoire estimée, tri et filtres par taille, comparaison et test local annulable. Les scores des fabricants restent sourcés et séparés des mesures locales ; aucune vitesse fictive ni classement global de qualité. 29 textes ajoutés aux 36 langues. Documentation, inventaire et tests associés inclus. Exécutable compilé et démarrage isolé vérifiés localement ; aucun binaire, archive ou changement de workflow inclus. Les anciennes mentions « local » dans les entrées suivantes décrivent leur état au moment de la compilation.
+
+Validation locale avant publication : 5 103 tests web réussis, 2 ignorés ; 72 tests ciblés, TypeScript sans émission, 36 catalogues et contrôles de frontières réussis. Les campagnes se recouvrent. Pas de benchmark matériel réel des six modèles, de parcours graphique exhaustif ni de CI distante exécutée. GitHub Actions, mises à jour automatiques et statistiques non configurées restent désactivés.
+
+---
+
+# Hub Novera : petits modèles et performances — 24 octobre 2026
+
+Le Hub embarque six petits modèles GGUF aux révisions et tailles vérifiées. Le catalogue historique reste disponible ; le tri par défaut tient compte de la mémoire estimée et de la sélection Novera, avec un tri par poids et des filtres de taille. Comparaison de trois modèles, scores fabricant sourcés sans classement global artificiel, estimation mémoire et test local sur les variantes déjà téléchargées et lancées. Le test est annulable, limité à 128 jetons et une minute, sans outils ni historique de discussion ; débit calculé depuis les jetons réellement rapportés, mémoire du système explicitement distincte de la mémoire du modèle. Annulation au départ du Hub et en cas de génération concurrente.
+
+29 nouveaux textes traduits dans les 36 langues ; contrôle imposé même aux catalogues partiels. Inventaire : 1 510 clés anglaises, Wu partiel à 753. Documentation : docs/HUB_DISCOVERY.md. Validation : 72 tests ciblés et suite complète **5 103 réussis, 2 ignorés**, TypeScript sans émission, 36 catalogues et frontières sans erreur. Pas de téléchargement des poids, de benchmark matériel des six modèles ou de validation graphique exhaustive revendiqué.
+
+Compilation locale Novera-Desktop release réussie, démarrage isolé vérifié ; ancien exécutable sauvegardé et 29 fichiers de moteur/ressources conservés. Taille : 59610112 octets ; SHA-256 : `F68F779BF51E1B48BB066B49B1DED84207CC13A65619A09FA912B8D321C10795`. Preuves : `.build/novera-desktop-hub-2026-10-24/verification.json`. Aucun ZIP, installateur ou publication distante. Mises à jour automatiques et statistiques non configurées restent désactivées.
+
+---
+
 # Mise à jour des sources Novera — 24 octobre 2026
 
 Périmètre de publication : corrections des infobulles et statistiques dans les 36 langues, recherche Internet active par défaut avec choix enregistré conservé, filtrage des protocoles outils et fermeture du menu de sauvegarde au clic extérieur ; préparation de mises à jour signées Novera et de statistiques consenties, sans activation. Les modules extraits, contrôles de frontières, scripts de distribution et documentation associés sont inclus. Exécutables, archives locales et changements de workflows sont exclus.

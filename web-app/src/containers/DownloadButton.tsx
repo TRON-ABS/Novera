@@ -98,7 +98,7 @@ export function DownloadButtonPlaceholder({
 
   const isRecommendedModel = useCallback((modelId: string) => {
     return (extractModelName(modelId)?.toLowerCase() ===
-      'jan-nano-gguf') as boolean
+      'lfm2.5-1.2b-instruct') as boolean
   }, [])
 
   if ((model.quants?.length ?? 0) === 0) {

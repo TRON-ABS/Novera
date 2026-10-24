@@ -27,6 +27,15 @@ export interface SafetensorsFile {
 }
 
 export interface CatalogModel {
+  hub?: {
+    parametersB: number
+    repo: string
+    revision: string
+    verifiedAt: string
+    recommended: boolean
+    source: string
+    benchmarks: { name: string; score: number; mode: string }[]
+  }
   model_name: string
   display_name?: string
   description: string

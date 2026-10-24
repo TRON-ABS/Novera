@@ -56,6 +56,10 @@ def validate(root):
                 for key in required_chat:
                     if not translated.get(key, '').strip():
                         issues.append(f'{namespace}:{key}: required feature translation missing')
+            if namespace == 'hub.json':
+                for key in original:
+                    if key.startswith('discovery.') and not translated.get(key, '').strip():
+                        issues.append(f'{namespace}:{key}: required feature translation missing')
             covered += len(set(translated) & set(original))
             if entry['source_pr'] is None:
                 continue
