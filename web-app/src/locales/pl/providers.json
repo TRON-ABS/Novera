@@ -58,5 +58,8 @@
   },
   "addProvider": "Dodaj Dostawcę",
   "addOpenAIProvider": "Dodaj Dostawcę OpenAI",
-  "enterNameForProvider": "Wprowadź nazwę dostawcy"
+  "enterNameForProvider": "Wprowadź nazwę dostawcy",
+  "baseUrl": {
+    "alibabaDescription": "Użyj adresu punktu końcowego obszaru roboczego Alibaba Cloud i jego regionu. Zastąp YOUR-WORKSPACE-ID identyfikatorem obszaru i użyj klucza API z tego samego regionu."
+  }
 }

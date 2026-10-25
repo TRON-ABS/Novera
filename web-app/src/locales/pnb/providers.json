@@ -105,7 +105,8 @@
   "enterNameForProvider": "فراہم کرن آلے دا ناں درج کرو",
   "baseUrl": {
     "title": "بیس URL",
-    "azureDescription": "تہاڈا ازور OpenAI اینڈ پوائنٹ۔ YOUR-RESOURCE-NAME نو اپنڑے ازور وسائل دے ناں نال تبدیل کرو۔"
+    "azureDescription": "تہاڈا ازور OpenAI اینڈ پوائنٹ۔ YOUR-RESOURCE-NAME نو اپنڑے ازور وسائل دے ناں نال تبدیل کرو۔",
+    "alibabaDescription": "اپنی Alibaba Cloud ورک سپیس تے اوہدے علاقے دا اینڈ پوائنٹ ورتو۔ YOUR-WORKSPACE-ID دی تھاں ورک سپیس دی شناخت لکھو تے اوسے علاقے دی API کنجی ورتو۔"
   },
   "apiKeys": {
     "title": "API چابیاں",

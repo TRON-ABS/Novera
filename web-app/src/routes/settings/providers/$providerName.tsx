@@ -249,7 +249,7 @@ function ProviderDetail() {
   }, [providerName, provider?.api_key, JSON.stringify(provider?.api_key_fallbacks ?? [])])
 
   useEffect(() => {
-    if (provider?.provider !== 'azure') return
+    if (!provider || !['azure', 'alibaba'].includes(provider.provider)) return
     setBaseUrlDraft(provider.base_url ?? '')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [providerName, provider?.base_url])
@@ -332,7 +332,7 @@ function ProviderDetail() {
   }, [apiKeysDraft, provider, providerName, serviceHub, updateProvider])
 
   const commitBaseUrlDraft = useCallback(() => {
-    if (!provider || provider.provider !== 'azure') return
+    if (!provider || !['azure', 'alibaba'].includes(provider.provider)) return
     const next = baseUrlDraft.trim()
     if (next === (provider.base_url ?? '')) return
     updateProvider(providerName, { ...provider, base_url: next })
@@ -517,7 +517,19 @@ function ProviderDetail() {
           })
           return
         }
-        const updatedModels = [...importedModels, ...fresh]
+        const addedCount = fresh.filter((model) => !provider.models.some((existing) => existing.id === model.id)).length
+        const updatedModels = [...importedModels, ...fresh.map((model) => {
+          const existing = provider.models.find((saved) => saved.id === model.id)
+          if (!existing) return model
+          const customCapabilities = (existing as Model & { _userConfiguredCapabilities?: boolean })._userConfiguredCapabilities
+          return {
+            ...existing,
+            ...model,
+            settings: existing.settings,
+            displayName: existing.displayName,
+            ...(customCapabilities ? { capabilities: existing.capabilities } : {}),
+          }
+        })]
         const keepIds = new Set(updatedModels.map((m) => m.id))
         const removedIds = provider.models
           .filter((m) => !m.imported && !keepIds.has(m.id))
@@ -528,8 +540,8 @@ function ProviderDetail() {
           models: updatedModels,
         })
         toast.success(t('providers:models'), {
-          description: t('providers:refreshModelsSuccess', {
-            count: fresh.length,
+          description: addedCount === 0 ? t('providers:noNewModels') : t('providers:refreshModelsSuccess', {
+            count: addedCount,
             provider: provider.provider,
           }),
         })
@@ -805,19 +817,19 @@ function ProviderDetail() {
                 provider.provider !== 'llamacpp' &&
                 provider.provider !== 'mlx' && (
                   <Card>
-                    {provider.provider === 'azure' && (
+                    {['azure', 'alibaba'].includes(provider.provider) && (
                       <div className="space-y-2 mb-4">
                         <div className="space-y-1">
                           <h2 className="font-medium text-foreground text-base">
                             {t('providers:baseUrl.title')}
                           </h2>
                           <p className="text-sm text-muted-foreground leading-normal">
-                            {t('providers:baseUrl.azureDescription')}
+                            {t(provider.provider === 'alibaba' ? 'providers:baseUrl.alibabaDescription' : 'providers:baseUrl.azureDescription')}
                           </p>
                         </div>
                         <input
                           className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm font-mono shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                          placeholder="https://YOUR-RESOURCE-NAME.openai.azure.com/openai/v1"
+                          placeholder={predefinedProviders.find((p) => p.provider === provider.provider)?.base_url}
                           value={baseUrlDraft}
                           onChange={(e) => setBaseUrlDraft(e.target.value)}
                           onBlur={() => commitBaseUrlDraft()}

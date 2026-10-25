@@ -105,7 +105,8 @@
   "enterNameForProvider": "نام ارائه دهنده را وارد کنید",
   "baseUrl": {
     "title": "پایه URL",
-    "azureDescription": "نقطه پایانی Azure OpenAI شما. YOUR-RESOURCE-NAME را با نام منبع Azure خود جایگزین کنید."
+    "azureDescription": "نقطه پایانی Azure OpenAI شما. YOUR-RESOURCE-NAME را با نام منبع Azure خود جایگزین کنید.",
+    "alibabaDescription": "از نشانی فضای کاری Alibaba Cloud و منطقهٔ آن استفاده کنید. YOUR-WORKSPACE-ID را با شناسهٔ فضای کاری جایگزین کنید و کلید API همان منطقه را به کار ببرید."
   },
   "apiKeys": {
     "title": "کلیدهای API",

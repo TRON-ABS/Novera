@@ -58,5 +58,8 @@
   },
   "addProvider": "添加提供商",
   "addOpenAIProvider": "添加 OpenAI 提供商",
-  "enterNameForProvider": "输入提供商名称"
+  "enterNameForProvider": "输入提供商名称",
+  "baseUrl": {
+    "alibabaDescription": "使用您的阿里云工作空间及其地域对应的服务地址。将 YOUR-WORKSPACE-ID 替换为工作空间 ID，并使用同一地域的 API 密钥。"
+  }
 }

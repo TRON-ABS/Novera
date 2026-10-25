@@ -105,7 +105,8 @@
   "enterNameForProvider": "Shigar da suna don mai bayarwa",
   "baseUrl": {
     "title": "Bayanan Bayani na URL",
-    "azureDescription": "Ƙarshen ƙarshen Azure OpenAI. Sauya YOUR-RESOURCE-NAME da sunan albarkatun Azure ku."
+    "azureDescription": "Ƙarshen ƙarshen Azure OpenAI. Sauya YOUR-RESOURCE-NAME da sunan albarkatun Azure ku.",
+    "alibabaDescription": "Yi amfani da adireshin wurin aikinka na Alibaba Cloud da yankinsa. Sauya YOUR-WORKSPACE-ID da ID na wurin aikin, sannan ka yi amfani da maɓallin API daga wannan yankin."
   },
   "apiKeys": {
     "title": "Maɓallan API",

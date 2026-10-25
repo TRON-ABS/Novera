@@ -105,7 +105,8 @@
   "enterNameForProvider": "प्रदात्यासाठी नाव प्रविष्ट करा",
   "baseUrl": {
     "title": "बेस URL",
-    "azureDescription": "तुमचा Azure OpenAI एंडपॉइंट. YOUR-RESOURCE-NAME च्या जागी तुमच्या Azure संसाधनाचे नाव लिहा."
+    "azureDescription": "तुमचा Azure OpenAI एंडपॉइंट. YOUR-RESOURCE-NAME च्या जागी तुमच्या Azure संसाधनाचे नाव लिहा.",
+    "alibabaDescription": "तुमच्या Alibaba Cloud कार्यक्षेत्राचा आणि त्याच्या प्रदेशाचा एंडपॉइंट वापरा. YOUR-WORKSPACE-ID च्या जागी कार्यक्षेत्राचा आयडी द्या आणि त्याच प्रदेशाची API की वापरा."
   },
   "apiKeys": {
     "title": "API की",

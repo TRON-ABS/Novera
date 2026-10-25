@@ -1,4 +1,5 @@
 import { providerRemoteApiKeyChain } from './provider-api-keys'
+import { cloudModelCapabilities, cloudModelPresets } from '@/constants/cloudModels'
 
 export type RemoteCatalogModel = {
   id: string
@@ -64,7 +65,7 @@ export function ensureAnthropicHeaders(
   setDefaultHeader(headers, ANTHROPIC_BROWSER_ACCESS_HEADER, 'true')
 }
 
-type CatalogKind = 'openai' | 'anthropic' | 'gemini'
+type CatalogKind = 'openai' | 'anthropic' | 'gemini' | 'compatible'
 
 /// Resolve which catalog shape a provider speaks. `api_type` is authoritative
 /// (a custom-named Anthropic gateway still lists Claude models), falling back
@@ -78,6 +79,7 @@ function resolveCatalogKind(
   if (name === 'openai' || name === 'anthropic' || name === 'gemini') {
     return name
   }
+  if (Object.prototype.hasOwnProperty.call(cloudModelPresets, name)) return 'compatible'
   return null
 }
 
@@ -101,7 +103,7 @@ function inferOpenAICapabilities(id: string): string[] | null {
     return null
   }
   if (
-    id.startsWith('gpt-5') ||
+    /^gpt-[5-9]/.test(id) ||
     id.startsWith('gpt-4o') ||
     id.startsWith('gpt-4.1') ||
     id.startsWith('gpt-4.5') ||
@@ -130,6 +132,8 @@ function inferGeminiCapabilities(id: string): string[] | null {
     lower.startsWith('text-embedding-') ||
     lower.startsWith('embedding-') ||
     lower.startsWith('gemini-embedding') ||
+    lower.includes('nano-banana') ||
+    /(?:image|tts|audio|live|transcribe|translate|omni)/.test(lower) ||
     lower.startsWith('imagen-') ||
     lower.startsWith('veo-') ||
     lower.startsWith('aqa')
@@ -213,7 +217,7 @@ export async function fetchTopRemoteModels(
   for (let i = 0; i < attempts.length; i++) {
     const result = await getJson(
       fetchImpl,
-      `${provider.base_url}/models`,
+      `${provider.base_url.replace(/\/+$/, '')}/models`,
       buildHeaders(provider, attempts[i])
     )
     lastStatus = result.status
@@ -224,20 +228,24 @@ export async function fetchTopRemoteModels(
     }
 
     const body = result.body as { data?: unknown }
-    const rows = Array.isArray(body?.data) ? (body.data as unknown[]) : []
-    return normalizeCatalog(kind, rows)
+    if (!Array.isArray(body?.data)) {
+      throw new Error(`Invalid model catalog from ${provider.provider}`)
+    }
+    return normalizeCatalog(kind, body.data, provider.provider)
   }
 
   throw new Error(`Failed to fetch models from ${provider.provider}: ${lastStatus} ${lastStatusText}`)
 }
 
-function normalizeCatalog(kind: CatalogKind, rows: unknown[]): RemoteCatalogModel[] {
+function normalizeCatalog(kind: CatalogKind, rows: unknown[], provider: string): RemoteCatalogModel[] {
   const inferCaps =
     kind === 'openai'
       ? inferOpenAICapabilities
       : kind === 'gemini'
         ? inferGeminiCapabilities
-        : inferAnthropicCapabilities
+        : kind === 'anthropic'
+          ? inferAnthropicCapabilities
+          : (id: string) => cloudModelCapabilities(provider, id) ?? ['completion']
 
   const parsed: RemoteCatalogModel[] = []
   for (const raw of rows) {
@@ -245,8 +253,16 @@ function normalizeCatalog(kind: CatalogKind, rows: unknown[]): RemoteCatalogMode
     const row = raw as Record<string, unknown>
     const id = typeof row.id === 'string' ? row.id : null
     if (!id) continue
+    if (kind === 'compatible' && !isCompatibleChatModel(id, row)) continue
     const caps = inferCaps(id)
     if (!caps) continue
+    if (kind === 'compatible') {
+      const architecture = row.architecture as { input_modalities?: string[] } | undefined
+      const parameters = Array.isArray(row.supported_parameters) ? row.supported_parameters : []
+      const routes = Array.isArray(row.providers) ? row.providers as { supports_tools?: boolean }[] : []
+      if (architecture?.input_modalities?.includes('image') && !caps.includes('vision')) caps.push('vision')
+      if ((parameters.includes('tools') || routes.some((route) => route.supports_tools)) && !caps.includes('tools')) caps.push('tools')
+    }
     const createdMs = parseCreated(row.created, row.created_at)
     parsed.push({ id, capabilities: caps, createdMs })
   }
@@ -259,9 +275,24 @@ function normalizeCatalog(kind: CatalogKind, rows: unknown[]): RemoteCatalogMode
       return a.id.localeCompare(b.id)
     })
   } else {
-    parsed.sort((a, b) => b.createdMs - a.createdMs || a.id.localeCompare(b.id))
+    const presets = (cloudModelPresets as Record<string, readonly { id: string }[]>)[provider] ?? []
+    const rank = (id: string) => {
+      const index = presets.findIndex((model) => model.id === id)
+      return index < 0 ? Number.MAX_SAFE_INTEGER : index
+    }
+    parsed.sort((a, b) => b.createdMs - a.createdMs || rank(a.id) - rank(b.id) || a.id.localeCompare(b.id))
   }
-  return parsed.slice(0, TOP_N)
+  return parsed.filter((model, index, all) => all.findIndex((m) => m.id === model.id) === index).slice(0, TOP_N)
+}
+
+// Catalogs can also expose speech, embeddings, moderation and image generation.
+// Unknown chat models remain text-only until their capabilities are verified.
+function isCompatibleChatModel(id: string, row: Record<string, unknown>): boolean {
+  const architecture = row.architecture as { output_modalities?: string[] } | undefined
+  if (architecture?.output_modalities && !architecture.output_modalities.includes('text')) return false
+  const capabilities = row.capabilities as { completion_chat?: boolean } | undefined
+  if (capabilities?.completion_chat === false) return false
+  return !/(embed|rerank|whisper|tts|orpheus|speech|transcribe|moderation|content[-_]safety|safety[-_]guard|image[-_]gen|grok-imagine|flux|stable-diffusion|dall-e|nemoguard|cosmos|parse|riva-|nvclip|ising)/i.test(id)
 }
 
 function parseCreated(created: unknown, createdAt: unknown): number {

@@ -58,5 +58,8 @@
   },
   "addProvider": "공급자 추가",
   "addOpenAIProvider": "OpenAI 공급자 추가",
-  "enterNameForProvider": "공급자 이름 입력"
+  "enterNameForProvider": "공급자 이름 입력",
+  "baseUrl": {
+    "alibabaDescription": "Alibaba Cloud 작업 공간과 해당 리전의 엔드포인트를 사용하세요. YOUR-WORKSPACE-ID를 작업 공간 ID로 바꾸고 같은 리전의 API 키를 사용하세요."
+  }
 }

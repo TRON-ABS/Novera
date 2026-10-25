@@ -105,7 +105,8 @@
   "enterNameForProvider": "Ilagay ang pangalan ng tagapagbigay",
   "baseUrl": {
     "title": "Batayang URL",
-    "azureDescription": "Ang iyong Azure OpenAI endpoint. Palitan ang YOUR-RESOURCE-NAME ng pangalan ng iyong Azure resource."
+    "azureDescription": "Ang iyong Azure OpenAI endpoint. Palitan ang YOUR-RESOURCE-NAME ng pangalan ng iyong Azure resource.",
+    "alibabaDescription": "Gamitin ang endpoint ng iyong Alibaba Cloud workspace at rehiyon. Palitan ang YOUR-WORKSPACE-ID ng ID ng workspace at gumamit ng API key mula sa parehong rehiyon."
   },
   "apiKeys": {
     "title": "Mga API key",

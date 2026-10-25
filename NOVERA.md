@@ -23,6 +23,7 @@ Consulter [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) et [architecture/modules.
 - Instructions prioritaires de l’agent : `NOVERA.md` ; repli configurable sur `AGENTS.md`.
 - Nouvel état de l’agent : `~/.novera` ; ne pas importer ni supprimer automatiquement les profils Jan existants.
 - Préserver les modifications locales, modèles, conversations et identifiants.
+- Fournisseurs et modèles cloud : suivre la [procédure de maintenance](docs/CLOUD_PROVIDERS.md#procédure-pour-les-futures-mises-à-jour), vérifier les sources officielles et dater le catalogue. Tout texte d’interface ajouté ou modifié doit être traduit dans les **36 langues prises en charge** ; actualiser aussi l’inventaire et la documentation des langues.
 - Version en préparation : **Novera 1.0.0**. Consigne du 23 octobre 2026 : intégrer les corrections par lots ; **aucune compilation de l’application et aucune publication distante avant la fin des PR et une nouvelle autorisation**. Les tests ciblés restent autorisés. Ne pas réactiver GitHub Actions.
 - Après les 35 intégrations Windows, le mainteneur a autorisé la compilation **locale** de Novera 1.0.0 le 23 octobre 2026. Cette autorisation inclut les validations nécessaires ; aucune publication distante ni activation de workflows.
 - Le 24 octobre 2026, le mainteneur a autorisé la publication des dernières sources et de leur documentation sur Novera ; les exécutables locaux restent exclus et GitHub Actions reste désactivé.
@@ -37,3 +38,5 @@ Consulter [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) et [architecture/modules.
 - [Identité](BRANDING.md) ; [versions officielles](OFFICIAL_RELEASES.md).
 - [Plan pour une version propriétaire](docs/NOVERA_VERSION_PROPRIETAIRE.md).
 Actualisation du 24 octobre 2026 : le mainteneur a autorisé la publication des dernières corrections et de leur documentation après compilation locale de Novera-Desktop. Les exécutables et archives locaux restent exclus ; GitHub Actions, mises à jour automatiques et envois statistiques restent désactivés.
+
+Actualisation du 25 octobre 2026 : le mainteneur a autorisé la publication des fournisseurs cloud, modèles, logos officiels, traductions et documents de maintenance mis à jour. Exécutables, APK, caches et fichiers temporaires locaux exclus ; GitHub Actions reste désactivé.

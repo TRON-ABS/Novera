@@ -105,7 +105,8 @@
   "enterNameForProvider": "فراہم کنندہ کا نام درج کریں۔",
   "baseUrl": {
     "title": "بیس URL",
-    "azureDescription": "آپ کا Azure OpenAI اینڈ پوائنٹ۔ YOUR-RESOURCE-NAME کو اپنے Azure وسائل کے نام سے تبدیل کریں۔"
+    "azureDescription": "آپ کا Azure OpenAI اینڈ پوائنٹ۔ YOUR-RESOURCE-NAME کو اپنے Azure وسائل کے نام سے تبدیل کریں۔",
+    "alibabaDescription": "اپنی Alibaba Cloud ورک اسپیس اور اس کے خطے کا اینڈ پوائنٹ استعمال کریں۔ YOUR-WORKSPACE-ID کی جگہ ورک اسپیس کی شناخت درج کریں اور اسی خطے کی API کلید استعمال کریں۔"
   },
   "apiKeys": {
     "title": "API چابیاں",

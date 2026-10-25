@@ -105,7 +105,8 @@
   "enterNameForProvider": "Ketik jeneng panyedhiya",
   "baseUrl": {
     "title": "Dasar URL",
-    "azureDescription": "Titik pungkasan Azure OpenAI sampeyan. Ganti YOUR-RESOURCE-NAME nganggo jeneng sumber daya Azure."
+    "azureDescription": "Titik pungkasan Azure OpenAI sampeyan. Ganti YOUR-RESOURCE-NAME nganggo jeneng sumber daya Azure.",
+    "alibabaDescription": "Gunakake endpoint ruang kerja Alibaba Cloud lan wilayahe. Ganti YOUR-WORKSPACE-ID nganggo ID ruang kerja lan gunakake kunci API saka wilayah sing padha."
   },
   "apiKeys": {
     "title": "API tombol",

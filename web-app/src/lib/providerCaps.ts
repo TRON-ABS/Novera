@@ -159,6 +159,13 @@ const BUILTIN_CAPS: Record<string, ProviderCaps> = {
   huggingface: HUGGINGFACE,
   nvidia: NVIDIA,
   minimax: MINIMAX,
+  deepseek: OPENAI_STRICT,
+  moonshot: OPENAI_STRICT,
+  alibaba: OPENAI_STRICT,
+  cerebras: OPENAI_STRICT,
+  together: OPENAI_STRICT,
+  fireworks: OPENAI_STRICT,
+  perplexity: OPENAI_STRICT,
   llamacpp: LLAMACPP,
   mlx: MLX,
 }
@@ -192,7 +199,7 @@ export function buildsOwnToolImageRequest(
   provider: Pick<ProviderObject, 'provider' | 'api_type'>
 ): boolean {
   if (getProviderApiType(provider) === 'anthropic') return true
-  return ['anthropic', 'openai', 'google', 'gemini'].includes(
+  return ['anthropic', 'openai', 'perplexity', 'google', 'gemini'].includes(
     provider.provider.toLowerCase()
   )
 }

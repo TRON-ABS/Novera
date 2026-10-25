@@ -57,5 +57,8 @@
   },
   "addProvider": "Adicionar Provedor",
   "addOpenAIProvider": "Adicionar Provedor OpenAI",
-  "enterNameForProvider": "Digite o nome para o provedor"
+  "enterNameForProvider": "Digite o nome para o provedor",
+  "baseUrl": {
+    "alibabaDescription": "Use o endpoint do seu espaço de trabalho Alibaba Cloud e da respectiva região. Substitua YOUR-WORKSPACE-ID pelo ID do espaço e use uma chave API da mesma região."
+  }
 }

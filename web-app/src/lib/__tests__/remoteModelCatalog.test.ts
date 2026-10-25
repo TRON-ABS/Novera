@@ -43,8 +43,8 @@ describe('supportsRemoteCatalog', () => {
     expect(supportsRemoteCatalog('openai')).toBe(true)
     expect(supportsRemoteCatalog('anthropic')).toBe(true)
     expect(supportsRemoteCatalog('gemini')).toBe(true)
-    expect(supportsRemoteCatalog('groq')).toBe(false)
-    expect(supportsRemoteCatalog('mistral')).toBe(false)
+    expect(supportsRemoteCatalog('groq')).toBe(true)
+    expect(supportsRemoteCatalog('mistral')).toBe(true)
   })
 
   it('supports custom-named providers with api_type anthropic', () => {

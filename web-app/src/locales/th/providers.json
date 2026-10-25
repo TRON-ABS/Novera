@@ -105,7 +105,8 @@
   "enterNameForProvider": "ป้อนชื่อผู้ให้บริการ",
   "baseUrl": {
     "title": "ฐาน URL",
-    "azureDescription": "จุดสิ้นสุด Azure OpenAI ของคุณ แทนที่ YOUR-RESOURCE-NAME ด้วยชื่อทรัพยากร Azure ของคุณ"
+    "azureDescription": "จุดสิ้นสุด Azure OpenAI ของคุณ แทนที่ YOUR-RESOURCE-NAME ด้วยชื่อทรัพยากร Azure ของคุณ",
+    "alibabaDescription": "ใช้ปลายทางของเวิร์กสเปซ Alibaba Cloud และภูมิภาคของคุณ แทนที่ YOUR-WORKSPACE-ID ด้วยรหัสเวิร์กสเปซ และใช้คีย์ API จากภูมิภาคเดียวกัน"
   },
   "apiKeys": {
     "title": "API คีย์",

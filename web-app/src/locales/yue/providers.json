@@ -105,7 +105,8 @@
   "enterNameForProvider": "輸入供應商嘅名稱",
   "baseUrl": {
     "title": "底座 URL",
-    "azureDescription": "你嘅 Azure OpenAI 端點。用你嘅 Azure 資源名稱取代 YOUR-RESOURCE-NAME 。"
+    "azureDescription": "你嘅 Azure OpenAI 端點。用你嘅 Azure 資源名稱取代 YOUR-RESOURCE-NAME 。",
+    "alibabaDescription": "請用你嘅阿里雲工作空間同所屬地區嘅服務地址。將 YOUR-WORKSPACE-ID 換成工作空間 ID，並使用同一地區嘅 API 金鑰。"
   },
   "apiKeys": {
     "title": "API 鍵",

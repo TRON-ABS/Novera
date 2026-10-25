@@ -105,7 +105,8 @@
   "enterNameForProvider": "اكتب اسم المزوّد",
   "baseUrl": {
     "title": "قاعدة URL",
-    "azureDescription": "نقطة Azure OpenAI بتاعتك. بدّل YOUR-RESOURCE-NAME باسم مورد Azure عندك."
+    "azureDescription": "نقطة Azure OpenAI بتاعتك. بدّل YOUR-RESOURCE-NAME باسم مورد Azure عندك.",
+    "alibabaDescription": "استخدم عنوان مساحة شغلك في Alibaba Cloud والمنطقة بتاعتها. بدّل YOUR-WORKSPACE-ID بمعرّف مساحة الشغل واستخدم مفتاح API من نفس المنطقة."
   },
   "apiKeys": {
     "title": "API مفاتيح",

@@ -382,6 +382,17 @@ beforeEach(() => {
 })
 
 describe('ProviderDetail route', () => {
+  it('edits the Alibaba workspace endpoint and displays the localized regional help', async () => {
+    h.providerMap.alibaba = { ...h.openaiProvider, provider: 'alibaba', base_url: 'https://YOUR-WORKSPACE-ID.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1', settings: [] }
+    h.params.providerName = 'alibaba'
+    renderComponent()
+    expect(screen.getByText('providers:baseUrl.alibabaDescription')).toBeInTheDocument()
+    const input = screen.getByDisplayValue(h.providerMap.alibaba.base_url)
+    fireEvent.change(input, { target: { value: 'https://workspace.us-east-1.maas.aliyuncs.com/compatible-mode/v1' } })
+    fireEvent.blur(input)
+    await waitFor(() => expect(h.updateProvider).toHaveBeenCalledWith('alibaba', expect.objectContaining({ base_url: 'https://workspace.us-east-1.maas.aliyuncs.com/compatible-mode/v1' })))
+    delete h.providerMap.alibaba
+  })
   describe('Route config', () => {
     it('validateSearch stringifies the step param', () => {
       const r = (Route as any).validateSearch({ step: 42 })
@@ -616,7 +627,9 @@ describe('ProviderDetail route', () => {
     })
 
     it('refresh shows "no new models" toast when all models already exist', async () => {
-      h.providersSvc.fetchModelsFromProvider = vi.fn().mockResolvedValue(['gpt-4'])
+      h.openaiProvider.models[0].displayName = 'My model'
+      h.openaiProvider.models[0].settings = { temperature: { controller_props: { value: 0.4 } } }
+      h.providersSvc.fetch = vi.fn(() => vi.fn().mockResolvedValue(new Response(JSON.stringify({ data: [{ id: 'gpt-4' }] }))))
       renderComponent()
       const addModel = screen.getByTestId('add-model')
       const refreshBtn = addModel.parentElement?.querySelector('button') as HTMLButtonElement
@@ -629,6 +642,9 @@ describe('ProviderDetail route', () => {
           expect.objectContaining({ description: 'providers:noNewModels' })
         )
       })
+      expect(h.updateProvider).toHaveBeenCalledWith('openai', expect.objectContaining({
+        models: [expect.objectContaining({ displayName: 'My model', settings: { temperature: { controller_props: { value: 0.4 } } } })],
+      }))
     })
 
     it('refresh toasts error on fetch failure', async () => {

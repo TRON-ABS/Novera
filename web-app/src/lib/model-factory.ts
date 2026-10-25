@@ -866,6 +866,7 @@ export class ModelFactory {
       case 'anthropic':
         return this.createAnthropicModel(modelId, provider, parameters)
 
+      case 'perplexity':
       case 'openai':
         return this.createOpenAIModel(modelId, provider, parameters)
       case 'google':
@@ -877,10 +878,9 @@ export class ModelFactory {
       case 'fireworks':
       case 'deepseek':
       case 'cohere':
-      case 'perplexity':
       case 'moonshot':
       case 'minimax':
-        return this.createOpenAICompatibleModel(modelId, provider)
+        return this.createOpenAICompatibleModel(modelId, provider, parameters)
 
       case 'mistral':
         return this.createMistralModel(modelId, provider, parameters)
@@ -1149,11 +1149,8 @@ export class ModelFactory {
       fetch: fetchImpl,
     })
 
-    // The genuine OpenAI provider always supports the Responses API, so use it
-    // unconditionally: it is a superset of Chat Completions and the only surface
-    // that returns reasoning summaries. Custom OpenAI-compatible providers route
-    // through createOpenAICompatibleModel, not here, so this cannot hit a proxy
-    // that only implements /chat/completions.
+    // OpenAI and Perplexity Agent both support /responses. Other compatible
+    // providers retain the Chat Completions adapter.
     return openai.responses(modelId)
   }
 

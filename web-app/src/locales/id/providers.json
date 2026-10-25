@@ -58,5 +58,8 @@
   },
   "addProvider": "Tambah Penyedia",
   "addOpenAIProvider": "Tambah Penyedia OpenAI",
-  "enterNameForProvider": "Masukkan nama untuk penyedia"
+  "enterNameForProvider": "Masukkan nama untuk penyedia",
+  "baseUrl": {
+    "alibabaDescription": "Gunakan endpoint ruang kerja Alibaba Cloud dan wilayahnya. Ganti YOUR-WORKSPACE-ID dengan ID ruang kerja dan gunakan kunci API dari wilayah yang sama."
+  }
 }

@@ -105,7 +105,8 @@
   "enterNameForProvider": "ప్రొవైడర్ పేరును నమోదు చేయండి",
   "baseUrl": {
     "title": "బేస్ URL",
-    "azureDescription": "మీ అజూర్ OpenAI ఎండ్ పాయింట్. YOUR-RESOURCE-NAMEని మీ అజూర్ రిసోర్స్ పేరుతో భర్తీ చేయండి."
+    "azureDescription": "మీ అజూర్ OpenAI ఎండ్ పాయింట్. YOUR-RESOURCE-NAMEని మీ అజూర్ రిసోర్స్ పేరుతో భర్తీ చేయండి.",
+    "alibabaDescription": "మీ Alibaba Cloud వర్క్‌స్పేస్ మరియు దాని ప్రాంతానికి చెందిన ఎండ్‌పాయింట్‌ను ఉపయోగించండి. YOUR-WORKSPACE-ID స్థానంలో వర్క్‌స్పేస్ IDని నమోదు చేసి, అదే ప్రాంతానికి చెందిన API కీని ఉపయోగించండి."
   },
   "apiKeys": {
     "title": "API కీలు",

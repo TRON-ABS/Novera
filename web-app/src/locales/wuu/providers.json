@@ -50,5 +50,8 @@
   "apiKeys": {
     "primaryBadge": "主要",
     "advanced": "高级"
+  },
+  "baseUrl": {
+    "alibabaDescription": "请用侬个阿里云工作空间搭所在地域对应个服务地址。把 YOUR-WORKSPACE-ID 换成工作空间 ID，再用同一地域个 API 密钥。"
   }
 }

@@ -89,7 +89,8 @@
   "enterNameForProvider": "プロバイダーの名前を入力してください",
   "baseUrl": {
     "title": "ベースURL",
-    "azureDescription": "あなたのAzure OpenAIエンドポイント。YOUR-RESOURCE-NAMEをAzureリソース名に置き換えてください。"
+    "azureDescription": "あなたのAzure OpenAIエンドポイント。YOUR-RESOURCE-NAMEをAzureリソース名に置き換えてください。",
+    "alibabaDescription": "Alibaba Cloud のワークスペースとリージョンに対応するエンドポイントを使用してください。YOUR-WORKSPACE-ID をワークスペース ID に置き換え、同じリージョンの API キーを使用してください。"
   },
   "apiKeys": {
     "title": "APIキー",

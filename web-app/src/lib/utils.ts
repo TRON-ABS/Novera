@@ -159,6 +159,20 @@ export function getProviderLogo(provider: string) {
       return '/images/model-provider/minimax.svg'
     case 'nvidia':
       return '/images/model-provider/nvidia.svg'
+    case 'deepseek':
+      return '/images/model-provider/deepseek.ico'
+    case 'moonshot':
+      return '/images/model-provider/moonshot.png'
+    case 'alibaba':
+      return '/images/model-provider/alibaba.png'
+    case 'cerebras':
+      return '/images/model-provider/cerebras.png'
+    case 'together':
+      return '/images/model-provider/together.svg'
+    case 'fireworks':
+      return '/images/model-provider/fireworks.svg'
+    case 'perplexity':
+      return '/images/model-provider/perplexity.png'
     default:
       return undefined
   }
@@ -182,6 +196,20 @@ export const getProviderTitle = (provider: string) => {
       return 'Hugging Face'
     case 'xai':
       return 'xAI'
+    case 'deepseek':
+      return 'DeepSeek'
+    case 'moonshot':
+      return 'Kimi (Moonshot AI)'
+    case 'alibaba':
+      return 'Alibaba Cloud (Qwen)'
+    case 'cerebras':
+      return 'Cerebras'
+    case 'together':
+      return 'Together AI'
+    case 'fireworks':
+      return 'Fireworks AI'
+    case 'perplexity':
+      return 'Perplexity'
     case 'minimax':
       return 'MiniMax'
     case 'nvidia':

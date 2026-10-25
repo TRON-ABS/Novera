@@ -58,5 +58,8 @@
   },
   "addProvider": "Добавить поставщика",
   "addOpenAIProvider": "Добавить поставщика OpenAI",
-  "enterNameForProvider": "Введите имя поставщика"
+  "enterNameForProvider": "Введите имя поставщика",
+  "baseUrl": {
+    "alibabaDescription": "Используйте адрес рабочей области Alibaba Cloud и её региона. Замените YOUR-WORKSPACE-ID идентификатором рабочей области и используйте ключ API из того же региона."
+  }
 }

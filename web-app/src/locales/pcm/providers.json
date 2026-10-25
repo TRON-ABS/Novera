@@ -105,7 +105,8 @@
   "enterNameForProvider": "Enter name for provider",
   "baseUrl": {
     "title": "Base URL",
-    "azureDescription": "Na your Azure OpenAI endpoint. Put your Azure resource name for YOUR-RESOURCE-NAME."
+    "azureDescription": "Na your Azure OpenAI endpoint. Put your Azure resource name for YOUR-RESOURCE-NAME.",
+    "alibabaDescription": "Use di endpoint for your Alibaba Cloud workspace and region. Replace YOUR-WORKSPACE-ID with your workspace ID, and use API key wey come from di same region."
   },
   "apiKeys": {
     "title": "API keys",

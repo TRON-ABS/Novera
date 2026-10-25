@@ -105,7 +105,8 @@
   "enterNameForProvider": "প্রদানকারীর নাম লিখুন",
   "baseUrl": {
     "title": "ভিত্তি URL",
-    "azureDescription": "আপনার Azure OpenAI এন্ডপয়েন্ট। আপনার Azure রিসোর্স নাম দিয়ে আপনার-রিসোর্স-নাম প্রতিস্থাপন করুন।"
+    "azureDescription": "আপনার Azure OpenAI এন্ডপয়েন্ট। আপনার Azure রিসোর্স নাম দিয়ে আপনার-রিসোর্স-নাম প্রতিস্থাপন করুন।",
+    "alibabaDescription": "আপনার Alibaba Cloud ওয়ার্কস্পেস ও তার অঞ্চলের এন্ডপয়েন্ট ব্যবহার করুন। YOUR-WORKSPACE-ID-এর বদলে ওয়ার্কস্পেসের আইডি দিন এবং একই অঞ্চলের API কী ব্যবহার করুন।"
   },
   "apiKeys": {
     "title": "API কী",

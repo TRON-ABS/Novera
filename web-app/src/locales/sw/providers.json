@@ -105,7 +105,8 @@
   "enterNameForProvider": "Weka jina la mtoaji",
   "baseUrl": {
     "title": "Msingi URL",
-    "azureDescription": "Mwisho wako wa Azure OpenAI. Badilisha YOUR-RESOURCE-NAME na jina la rasilimali yako ya Azure."
+    "azureDescription": "Mwisho wako wa Azure OpenAI. Badilisha YOUR-RESOURCE-NAME na jina la rasilimali yako ya Azure.",
+    "alibabaDescription": "Tumia anwani ya nafasi yako ya kazi ya Alibaba Cloud na eneo lake. Badilisha YOUR-WORKSPACE-ID na kitambulisho cha nafasi ya kazi, kisha utumie ufunguo wa API wa eneo hilo hilo."
   },
   "apiKeys": {
     "title": "API vitufe",

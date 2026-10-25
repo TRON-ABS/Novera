@@ -100,5 +100,8 @@
     "oneKeyHint": "Le chiavi di riserva opzionali si configurano nella sezione Avanzate.",
     "addKey": "Aggiungi chiave",
     "removeKey": "Rimuovi chiave"
+  },
+  "baseUrl": {
+    "alibabaDescription": "Usa l’endpoint del tuo spazio di lavoro Alibaba Cloud e della sua regione. Sostituisci YOUR-WORKSPACE-ID con l’ID dello spazio e usa una chiave API della stessa regione."
   }
 }

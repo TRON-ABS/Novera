@@ -58,5 +58,8 @@
   },
   "addProvider": "Přidat poskytovatele",
   "addOpenAIProvider": "Přidat OpenAI poskytovatele",
-  "enterNameForProvider": "Zadejte název pro poskytovatele"
+  "enterNameForProvider": "Zadejte název pro poskytovatele",
+  "baseUrl": {
+    "alibabaDescription": "Použijte koncový bod pracovního prostoru Alibaba Cloud a jeho oblasti. Nahraďte YOUR-WORKSPACE-ID ID pracovního prostoru a použijte klíč API ze stejné oblasti."
+  }
 }

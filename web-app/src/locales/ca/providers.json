@@ -58,5 +58,8 @@
   },
   "addProvider": "Afegeix un proveïdor",
   "addOpenAIProvider": "Afegeix un proveïdor d’OpenAI",
-  "enterNameForProvider": "Introdueix el nom del proveïdor"
+  "enterNameForProvider": "Introdueix el nom del proveïdor",
+  "baseUrl": {
+    "alibabaDescription": "Utilitzeu el punt de connexió del vostre espai de treball d’Alibaba Cloud i de la seva regió. Substituïu YOUR-WORKSPACE-ID per l’ID de l’espai i feu servir una clau API de la mateixa regió."
+  }
 }

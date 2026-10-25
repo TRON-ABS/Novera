@@ -58,5 +58,8 @@
   },
   "addProvider": "Anbieter hinzufügen",
   "addOpenAIProvider": "OpenAI Anbieter hinzufügen",
-  "enterNameForProvider": "Namen für den Anbieter eingeben"
+  "enterNameForProvider": "Namen für den Anbieter eingeben",
+  "baseUrl": {
+    "alibabaDescription": "Verwenden Sie den Endpunkt Ihres Alibaba-Cloud-Arbeitsbereichs und seiner Region. Ersetzen Sie YOUR-WORKSPACE-ID durch Ihre Arbeitsbereichs-ID und verwenden Sie einen API-Schlüssel aus derselben Region."
+  }
 }

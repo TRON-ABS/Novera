@@ -105,7 +105,8 @@
   "enterNameForProvider": "የአቅራቢውን ስም ያስገቡ",
   "baseUrl": {
     "title": "መሠረት URL",
-    "azureDescription": "የእርስዎ Azure OpenAI የመጨረሻ ነጥብ። YOUR-RESOURCE-NAME በ Azure መርጃ ስምዎ ይተኩ።"
+    "azureDescription": "የእርስዎ Azure OpenAI የመጨረሻ ነጥብ። YOUR-RESOURCE-NAME በ Azure መርጃ ስምዎ ይተኩ።",
+    "alibabaDescription": "የAlibaba Cloud የሥራ ቦታዎን እና የክልሉን የግንኙነት አድራሻ ይጠቀሙ። YOUR-WORKSPACE-ID በሥራ ቦታዎ መለያ ይተኩና የዚያኑ ክልል API ቁልፍ ይጠቀሙ።"
   },
   "apiKeys": {
     "title": "API ቁልፎች",

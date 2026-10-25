@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { ModelFactory } from '../model-factory'
+import { createOpenAI } from '@ai-sdk/openai'
 
 const mockGlobalFetch = vi.fn()
 
@@ -134,10 +135,20 @@ describe('ModelFactory - coverage', () => {
   })
 
   it('creates openai-compatible model for known providers', async () => {
-    for (const p of ['azure', 'groq', 'together', 'fireworks', 'deepseek', 'cohere', 'perplexity', 'moonshot', 'minimax']) {
+    for (const p of ['azure', 'groq', 'together', 'fireworks', 'deepseek', 'cohere', 'moonshot', 'minimax', 'alibaba', 'cerebras']) {
       const model = await ModelFactory.createModel('model-1', mkProvider(p), {})
       expect(model).toBeDefined()
     }
+  })
+
+  it('uses Responses for current Perplexity Agent models and preserves its endpoint', async () => {
+    await ModelFactory.createModel('perplexity/sonar', mkProvider('perplexity', {
+      base_url: 'https://api.perplexity.ai/v1',
+    }))
+    expect(createOpenAI).toHaveBeenCalledWith(expect.objectContaining({ baseURL: 'https://api.perplexity.ai/v1' }))
+    const client = vi.mocked(createOpenAI).mock.results[0].value
+    expect(client.responses).toHaveBeenCalledWith('perplexity/sonar')
+    expect(client.chat).not.toHaveBeenCalled()
   })
 
   it('creates openai-compatible model for unknown providers', async () => {

@@ -116,7 +116,7 @@ export const predefinedProviders = [
     provider: 'anthropic',
     api_type: 'anthropic',
     explore_models_url:
-      'https://docs.anthropic.com/en/docs/about-claude/models',
+      'https://platform.claude.com/docs/en/models/overview',
     settings: [
       {
         key: 'api-key',
@@ -165,29 +165,14 @@ export const predefinedProviders = [
         },
       },
     ],
-    models: [
-      {
-        id: 'deepseek/deepseek-r1:free',
-        name: 'DeepSeek-R1 (free)',
-        version: '1.0',
-        description: '',
-        capabilities: ['completion'],
-      },
-      {
-        id: 'qwen/qwen3-30b-a3b:free',
-        name: 'Qwen3 30B A3B (free)',
-        version: '1.0',
-        description: '',
-        capabilities: ['completion'],
-      },
-    ],
+    models: [],
   },
   {
     active: true,
     api_key: '',
     base_url: 'https://api.mistral.ai/v1',
     explore_models_url:
-      'https://docs.mistral.ai/getting-started/models/models_overview/',
+      'https://docs.mistral.ai/models',
     provider: 'mistral',
     settings: [
       {
@@ -233,7 +218,7 @@ export const predefinedProviders = [
     active: true,
     api_key: '',
     base_url: 'https://api.x.ai/v1',
-    explore_models_url: 'https://docs.x.ai/overview',
+    explore_models_url: 'https://docs.x.ai/developers/models',
     provider: 'xai',
     settings: [
       {
@@ -256,7 +241,7 @@ export const predefinedProviders = [
     active: true,
     api_key: '',
     base_url: 'https://generativelanguage.googleapis.com/v1beta/openai',
-    explore_models_url: 'https://ai.google.dev/gemini-api/docs/models/gemini',
+    explore_models_url: 'https://ai.google.dev/gemini-api/docs/models',
     provider: 'gemini',
     settings: [
       {
@@ -296,36 +281,7 @@ export const predefinedProviders = [
         },
       },
     ],
-    models: [
-      {
-        id: 'MiniMax-M2.7',
-        name: 'MiniMax-M2.7',
-        version: '1.0',
-        description: 'Latest flagship model with enhanced reasoning and coding.',
-        capabilities: ['completion', 'tools'],
-      },
-      {
-        id: 'MiniMax-M2.7-highspeed',
-        name: 'MiniMax-M2.7-highspeed',
-        version: '1.0',
-        description: 'High-speed version of M2.7 for low-latency scenarios.',
-        capabilities: ['completion', 'tools'],
-      },
-      {
-        id: 'MiniMax-M2.5',
-        name: 'MiniMax-M2.5',
-        version: '1.0',
-        description: 'Peak Performance. Ultimate Value. Master the Complex. 204K context window.',
-        capabilities: ['completion', 'tools'],
-      },
-      {
-        id: 'MiniMax-M2.5-highspeed',
-        name: 'MiniMax-M2.5-highspeed',
-        version: '1.0',
-        description: 'Same performance, faster and more agile. 204K context window.',
-        capabilities: ['completion', 'tools'],
-      },
-    ],
+    models: [],
   },
   {
     active: true,
@@ -349,32 +305,7 @@ export const predefinedProviders = [
         },
       },
     ],
-    models: [
-      {
-        id: 'moonshotai/Kimi-K2-Instruct:groq',
-        name: 'Kimi-K2-Instruct',
-        version: '1.0',
-        description:
-          '1T parameters Moonshot chat model tuned for tool-aware, nuanced responses.',
-        capabilities: ['completion', 'tools'],
-      },
-      {
-        id: 'deepseek-ai/DeepSeek-R1-0528',
-        name: 'DeepSeek-R1-0528',
-        version: '1.0',
-        description:
-          "DeepSeek's flagship reasoning engine with open weights and advanced tool control.",
-        capabilities: ['completion', 'tools'],
-      },
-      {
-        id: 'deepseek-ai/DeepSeek-V3-0324',
-        name: 'DeepSeek-V3-0324',
-        version: '1.0',
-        description:
-          'Streamlined DeepSeek model focused on fast, high-quality completions and tool use.',
-        capabilities: ['completion', 'tools'],
-      },
-    ],
+    models: [],
   },
   {
     active: true,
@@ -397,6 +328,70 @@ export const predefinedProviders = [
         },
       },
     ],
+    models: [],
+  },
+
+  {
+    active: true,
+    api_key: '',
+    provider: 'deepseek',
+    base_url: 'https://api.deepseek.com',
+    explore_models_url: 'https://api-docs.deepseek.com/',
+    settings: [],
+    models: [],
+  },
+  {
+    active: true,
+    api_key: '',
+    provider: 'moonshot',
+    base_url: 'https://api.moonshot.ai/v1',
+    explore_models_url: 'https://platform.kimi.ai/docs/models',
+    settings: [],
+    models: [],
+  },
+  {
+    active: true,
+    api_key: '',
+    provider: 'alibaba',
+    base_url: 'https://YOUR-WORKSPACE-ID.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1',
+    explore_models_url: 'https://www.alibabacloud.com/help/en/model-studio/models',
+    settings: [],
+    models: [],
+  },
+  {
+    active: true,
+    api_key: '',
+    provider: 'cerebras',
+    base_url: 'https://api.cerebras.ai/v1',
+    explore_models_url: 'https://inference-docs.cerebras.ai/models/overview',
+    settings: [],
+    models: [],
+  },
+  {
+    active: true,
+    api_key: '',
+    provider: 'together',
+    base_url: 'https://api.together.ai/v1',
+    explore_models_url: 'https://docs.together.ai/docs/serverless/models',
+    settings: [],
+    models: [],
+  },
+  {
+    active: true,
+    api_key: '',
+    provider: 'fireworks',
+    base_url: 'https://api.fireworks.ai/inference/v1',
+    explore_models_url: 'https://docs.fireworks.ai/getting-started/models',
+    settings: [],
+    models: [],
+  },
+  {
+    active: true,
+    api_key: '',
+    provider: 'perplexity',
+    base_url: 'https://api.perplexity.ai/v1',
+    explore_models_url: 'https://docs.perplexity.ai/docs/agent-api/models',
+    settings: [],
     models: [],
   },
 ]

@@ -1,3 +1,37 @@
+# Publish current cloud providers, catalogs and official logos — 25 October 2026
+
+Publish the source changes for 18 cloud providers and 57 chat presets, seven official bundled logos, Alibaba help in all 36 locales and maintenance documentation. Include the documented local cleanup without publishing or deleting distribution artifacts on GitHub. This update follows the already-published Jan banner removal.
+
+Validation: 215 affected provider/catalog tests and 60 utility tests passed; TypeScript without emission passed after the logo change; 36 locales passed; 13 architecture files had no violations and 7 architecture tests passed. The earlier broad run had one provider-refresh fixture failure, corrected and covered by the final targeted run. Authenticated inference and the updated UI in a newly compiled executable remain unvalidated. GitHub Actions remains disabled. Executables, APKs, archives, caches, test profiles and credentials are excluded.
+
+---
+
+# Add official logos for the seven new cloud providers — 25 October 2026
+
+The new cloud providers displayed fallback initials instead of their brand icons. Bundle official DeepSeek, Kimi, Alibaba Cloud, Cerebras, Together AI, Fireworks AI and Perplexity assets and wire them through the existing provider-logo lookup. Preserve the original asset bytes and document first-party sources and checksums in docs/PROVIDER_LOGOS.md. Existing avatar consumers pick up the icons without remote image requests or new UI strings.
+
+Validation: 60 existing utility tests passed; all seven mappings and asset hashes checked; SVGs checked for scripts and external references. A local preview decoded all 28 image occurrences at 18/40 pixels on light/dark backgrounds and was visually inspected. No application compilation or remote publication was performed.
+
+---
+
+# Remove obsolete local generated artifacts — 25 October 2026
+
+Remove 41 obsolete generated directories and two downloaded archives from local build experiments and older distributions, totaling 14,378,737,833 logical bytes. Keep current Desktop outputs, a previous timestamped Desktop distribution, the main Android APK, installed tools, source snapshots, user data and validation reports. All 43 removals succeeded; SHA-256 checks of the protected Desktop executables, main APK and installed JDK are unchanged. Record scope and future cleanup safeguards in docs/LOCAL_CLEANUP.md. No tracked source files were deleted and no build or remote publication was performed.
+
+---
+
+# Refresh cloud providers and chat model presets — 25 October 2026
+
+The provider picker lacked seven services and shipped outdated model presets. Add DeepSeek, Kimi (Moonshot AI), Alibaba Cloud (Qwen), Cerebras, Together AI, Fireworks AI and Perplexity. Centralize the current chat shortlists and their capabilities; update existing providers against official catalogs. Keep Azure deployment names account-specific. Preserve persisted models, credentials, settings and deletion tombstones during startup merging.
+
+Extend catalog refresh to the maintained compatible services, filter recognized non-chat endpoints, read published capabilities, deduplicate IDs and retain curated ordering when creation dates tie. Use the Responses adapter for Perplexity Agent models. Allow Alibaba workspace/region endpoints to be edited and translate the new help in all 36 locales. Record dated sources and compatibility limits in docs/CLOUD_PROVIDERS.md and update language coverage.
+
+Document the future maintenance procedure and link it from NOVERA.md: verify official API IDs and capabilities, preserve user configuration, translate UI changes into all 36 locales, run relevant checks and record actual validation results.
+
+Validation: 215 affected tests passed across 9 files; TypeScript without emission passed; 36 locale catalogs passed with 1,511 English keys; 13 architecture files passed with no violations and 7 architecture tests passed. The broader run recorded 5,111 passes, 2 skips and one refresh fixture failure before its correction; the corrected provider-route suite passes in the final targeted run. The 18 providers offer 57 chat presets. Public model catalogs were read without credentials; no paid inference requests were made. API account availability and end-to-end inference remain unvalidated. No application binary or remote publication is included.
+
+---
+
 # Remove the unused Jan banner — 24 October 2026
 
 Remove the legacy root-level `JanBanner.png`, which is no longer referenced by the application or READMEs. Both READMEs already display the Novera banner. Update the asset-audit inventory and development dashboard. Reference checks passed; no application build was needed. Existing license files and upstream attribution are unchanged.

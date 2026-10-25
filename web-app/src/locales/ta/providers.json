@@ -105,7 +105,8 @@
   "enterNameForProvider": "வழங்குநரின் பெயரை உள்ளிடவும்",
   "baseUrl": {
     "title": "அடிப்படை URL",
-    "azureDescription": "உங்கள் அசூர் OpenAI இறுதிப்புள்ளி. உங்கள் Azure ஆதாரப் பெயருடன் YOUR-RESOURCE-NAME ஐ மாற்றவும்."
+    "azureDescription": "உங்கள் அசூர் OpenAI இறுதிப்புள்ளி. உங்கள் Azure ஆதாரப் பெயருடன் YOUR-RESOURCE-NAME ஐ மாற்றவும்.",
+    "alibabaDescription": "உங்கள் Alibaba Cloud பணியிடம் மற்றும் அதன் பிராந்தியத்திற்கான முனைய முகவரியைப் பயன்படுத்தவும். YOUR-WORKSPACE-ID என்பதைப் பணியிட அடையாளத்தால் மாற்றி, அதே பிராந்தியத்தின் API விசையைப் பயன்படுத்தவும்."
   },
   "apiKeys": {
     "title": "API விசைகள்",

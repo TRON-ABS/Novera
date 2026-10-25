@@ -58,5 +58,8 @@
   },
   "addProvider": "प्रदाता जोड़ें",
   "addOpenAIProvider": "OpenAI प्रदाता जोड़ें",
-  "enterNameForProvider": "कृपया प्रदाता का नाम दर्ज करें"
+  "enterNameForProvider": "कृपया प्रदाता का नाम दर्ज करें",
+  "baseUrl": {
+    "alibabaDescription": "अपने Alibaba Cloud कार्यक्षेत्र और उसके क्षेत्र का एंडपॉइंट उपयोग करें। YOUR-WORKSPACE-ID को कार्यक्षेत्र की आईडी से बदलें और उसी क्षेत्र की API कुंजी उपयोग करें।"
+  }
 }
