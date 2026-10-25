@@ -1,0 +1,101 @@
+{
+  "editServer": "Tajaajilaa MCP Sirreessi",
+  "addServer": "Tajaajilaa MCP Dabali",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Haala ekstenshinii ilaalaa jira..."
+    },
+    "notInstalled": {
+      "title": "Novera hojiiwwan biraawzarii keessan keessatti raawwata",
+      "description": "Ekstenshinii sana fe'iitii Novera biraawzariitti akka seenu hayyami",
+      "getExtension": "Ekstenshinii Argadhu"
+    }
+  },
+  "serverName": "Maqaa Tajaajilaa",
+  "enterServerName": "Maqaa sarvarii galchi",
+  "command": "Ajaja",
+  "enterCommand": "Ajaja galchi (uvx yookiin npx)",
+  "arguments": "Falmiiwwan",
+  "argument": "Falmii {{index}}",
+  "envVars": "Jijjiiramoota Naannoo",
+  "key": "Furtuu",
+  "value": "Gatii",
+  "save": "Olkaa’i",
+  "status": "Haala",
+  "connected": "Wal qunnameera",
+  "disconnected": "Wal qunnamtiin citeera",
+  "deleteServer": {
+    "title": "Tajaajilaa MCP Haqi",
+    "description": "Tajaajilaa MCP {{serverName}} haquu akka barbaaddu dhugaa dhaa? Gochi kun deebi'uu hin danda'u.",
+    "delete": "Balleessi",
+    "success": "Tajaajilaa MCP {{serverName}} milkaa'inaan haqameera"
+  },
+  "editJson": {
+    "title": "Tajaajilaa MCPf JSON Sirreessi: {{serverName}}",
+    "titleAll": "Tajaajiloota MCP Hunda Sirreessi JSON",
+    "placeholder": "Qindaa'ina JSON galchi",
+    "errorParse": "Daataa jalqabaa hiikuun hin danda'amne",
+    "errorPaste": "Qabiyyee maxxanfame keessatti unkaan JSON sirrii miti",
+    "errorFormat": "Unka JSON sirrii miti",
+    "errorServerName": "Maqaan sarvarii barbaachisaadha, duwwaa ta'uu hin danda'u",
+    "errorMissingServerNameKey": "JSON akka {\"serverName\": {config}} tti qindaa'uu qaba - furtuun maqaa sarvarii hir'ateera",
+    "errorInvalidType": "Gosti '{{type}}' sarvarii '{{serverName}}'f sirrii miti. Gosti 'stdio', 'http', yookiin 'sse' ta'uu qaba",
+    "save": "Olkaa’i"
+  },
+  "checkParams": "Maaloo akka barumsaatti paaraameetaroota ilaali.",
+  "title": "Tajaajilaa MCP",
+  "experimental": "Yaalii",
+  "editAllJson": "Tajaajiloota Hunda JSON Sirreessi",
+  "findMore": "Tajaajiloota MCP dabalataa asitti argadhaa",
+  "allowPermissions": "Hayyamoota Meeshaa MCP Hunda Hayyami",
+  "allowPermissionsDesc": "Yeroo eeyyamamu, waamichaaleen meeshaa MCP hundi haasawa hayyamaa osoo hin agarsiisin ofumaan ni hayyamamu. Qindaa'inni kun haasawawwan hundaaf, kanneen haaraa dabalatee, waliigalaan hojiirra oola.",
+  "noServers": "Tajaajila MCP hin argamne",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Tajaajilli {{serverKey}} milkaa'inaan hojjetame",
+  "serverStatusInactive": "Tajaajilaan {{serverKey}} milkaa'inaan dha'e",
+  "runtimeSettings": {
+    "title": "Qindaa'ina Yeroo Hojii",
+    "description": "Akkaataa Novera tajaajiloota MCP itti bulchuufi irra deebi'ee yaalu qindeessi.",
+    "toolCallTimeout": "Yeroo itti gaafatamni meeshaa itti dhumatu (sekondii)",
+    "toolCallTimeoutDesc": "Yeroo dheeraa deebii meeshaa MCP argachuuf eegamu, yeroon osoo hin xumuramin.",
+    "maxToolOutputChars": "Baay'ina qubee ba'ii meeshaa isa guddaa",
+    "maxToolOutputCharsDesc": "Bu'aan meeshaa isa dheeraan marii keessatti ni tursiifama. Wanti kanaa darbe kamiyyuu ni gabaabfama, akkasumas akka gabaabfameetti mallatteeffama, kanaafuu bu'aan guddaan tokko qofti haala yaad-rimee moodeelaa guutuu hin dhabsiisu. Bu'aawwan guutuutti tursiisuuf 0 irratti qabaa.",
+    "smartToolRouting": "Daandii meeshaa MCP kan ogummaa qabu",
+    "smartToolRoutingDesc": "Yeroo eeyyamamu, Novera meeshaalee fe'uu isaa dura tajaajiltoota MCP kanneen barbaachisoo ta'an filata. Yeroo hunda tarree meeshaa MCP guutuu fe'uuf eeyyama dhabsiisi.",
+    "useLightweightRouterModel": "Daandii baasuu (routing)f moodeela addaa fayyadami",
+    "useLightweightRouterModelDesc": "Yeroo daandiin baasuun (smart routing) eegalame, tarkaanfii daandii baasuu sana moodeela haasawaa (chat model) bakka bu'ee moodeela addaa (yeroo baay'ee isa xiqqaa) fayyadamuun raawwadhu. Daandii baasuu (routing)f yeroo hunda moodeela haasawaa (chat model) kan hojjechaa jiru fayyadamuuf cufi.",
+    "routerModel": "Moodeela daandii baasuu (Routing model)",
+    "routerModelDesc": "Dhaabbata tajaajilaa fi moodeela bakka tokkotti filadhu. Moodeelonni salphaan qofatu tarreeffame, kunis daandiin saffisaa fi rakasa akka ta'uuf.",
+    "selectRouterModelPlaceholder": "Moodeela daandii filadhu…",
+    "routerModelSearchPlaceholder": "Moodeelota barbaadi…",
+    "routerModelEmptyList": "Moodeelonni salphaan hin argaman. Moodeela xiqqaa itti dabali yookaan furtuuwwan API Moodeelota keessatti qindeessi.",
+    "routerModelEmptySearch": "\"{{query}}\"f kan walsimu hin jiru."
+  },
+  "auth": {
+    "label": "Mirkanneessa:",
+    "state": {
+      "notApplicable": "hin barbaachisu",
+      "staticHeader": "Mata duree Eeyyamaa",
+      "authenticated": "mirkanaa'e",
+      "expired": "yeroon isaa darbe",
+      "staleResource": "kan biraatiif URL kenname",
+      "unauthenticated": "hin mirkanoofne"
+    },
+    "expiresIn": "{{duration}} keessatti yeroon isaa ni darba",
+    "authenticate": "Seeni",
+    "reauthenticate": "Irra deebi'ii mirkaneeffadhu",
+    "clear": "Mirkaneessa haqi",
+    "waiting": "Biroowserii eeggachaa jira...",
+    "openSignInPage": "Fuula seenuu bani",
+    "needsAuth": "{{serverName}} mirkaneessa barbaada",
+    "needsAuthHint": "Wal qunnamuuf gara sarvarii kanaatti seeni.",
+    "authorized": "Gara {{serverName}}tti seeneera",
+    "authorizeFailed": "Seensi gara {{serverName}}tti godhame hin milkoofne",
+    "cleared": "Ragaalee eenyummaa kuufaman kan {{serverName}} haqameera",
+    "nothingToClear": "{{serverName}} ragaalee eenyummaa kuufaman hin qabu ture",
+    "clearFailed": "Ragaalee eenyummaa kan {{serverName}} haquun hin danda'amne",
+    "renew": "Yeroo hojii haaromsi",
+    "expiredAgo": "{{duration}} dura yeroon isaa darbe"
+  }
+}

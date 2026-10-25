@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Code",
+    "preview": "Voorbeeldweergave",
+    "previewStreaming": "Beschikbaar wanneer de generatie is voltooid",
+    "unresolvedAssets_one": "1 assetreferentie kan niet in de voorbeeldweergave worden geladen. Relatieve paden hebben geen basis URL om tegen te resolven.",
+    "unresolvedAssets_other": "{{count}} assetreferenties kunnen niet in de voorbeeldweergave worden geladen. Relatieve paden hebben geen basis URL om tegen te resolven."
+  },
+  "assistants": "Assistenten",
+  "hardware": "Hardware",
+  "mcp-servers": "MCP Servers",
+  "local_api_server": "Lokale API Server",
+  "remote_access": "Toegang op afstand",
+  "integrations": "Integraties",
+  "experimental": "Experimenteel",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Proxy",
+  "web_search": "Webzoeken",
+  "shell": "Shell",
+  "browse": "Bladeren",
+  "moreControls": "Meer besturingselementen",
+  "starting": "Opstarten...",
+  "activeSuffix": "(Actief)",
+  "extensions": "Extensies",
+  "attachments": "Bijlagen",
+  "general": "Algemeen",
+  "settings": "Instellingen",
+  "modelProviders": "Modelaanbieders",
+  "localProviders": "Lokaal",
+  "remoteProviders": "Afstandsbediening",
+  "manageProviders": "Beheer aanbieders",
+  "hiddenProviders": "{{count}} uitgeschakeld",
+  "hideProvider": "Verberg aanbieder",
+  "showProvider": "Toon aanbieder",
+  "interface": "Interface",
+  "appearance": "Uiterlijk",
+  "privacy": "Privacy",
+  "keyboardShortcuts": "Sneltoetsen",
+  "home": "Startpagina",
+  "cowork": "Cowork",
+  "newSession": "Nieuwe sessie",
+  "artifacts": "Artefacten",
+  "customize": "Aanpassen",
+  "local": "Lokaal",
+  "selectFolder": "Selecteer map",
+  "selectModel": "Selecteer eerst een model",
+  "commands": "Opdrachten",
+  "cmdHelp": "Lijst met beschikbare opdrachten",
+  "cmdClear": "Wis deze sessie",
+  "cmdModels": "Schakel het actieve model",
+  "cmdModelsHint": "Typ /models en kies dan een model uit de lijst",
+  "cmdModelSwitched": "Overgeschakeld naar {{name}}",
+  "cmdUnknown": "Onbekende opdracht: {{name}}. Probeer /help",
+  "cmdBusy": "Kan dit niet doen terwijl de agent actief is",
+  "cmdCompact": "Compacteer de context van de sessie in een samenvatting",
+  "cmdCompacted": "Gecompacteerd {{before}} -> {{after}} berichten",
+  "cmdNothingToCompact": "Nog niets om te compacten",
+  "cmdCompactFailed": "Compacteren mislukt: {{error}}",
+  "cmdPlan": "Schakel planningsmodus (alleen-lezen: de agent stelt voor zonder te schrijven)",
+  "cmdPlanOn": "Planningsmodus aan: de agent leest en stelt voor zonder te schrijven",
+  "cmdPlanOff": "Planningsmodus uit: normale uitvoering",
+  "cmdTodo": "Open het voortgangspaneel",
+  "cmdTasks": "Open het paneel voor achtergrondtaken",
+  "cmdInit": "Bestudeer het project en schrijf vaardigheden en geheugen",
+  "cmdInitRunning": "Project onboarding",
+  "skills": "Vaardigheden",
+  "skillsInContext": "Beschikbare vaardigheden voor de agent deze keer",
+  "skillsTitle": "Beheer vaardigheden",
+  "skillsScopeProject": "Vaardigheden voor {{folder}}",
+  "skillsScopeGlobal": "Globale vaardigheden, beschikbaar voor elke sessie",
+  "skillsScopeMerged": "Vaardigheden voor {{folder}}, plus de globale vaardigheden die elke sessie deelt",
+  "skillOriginFolder": "map",
+  "skillOriginGlobal": "globaal",
+  "skillsEmpty": "Nog geen vaardigheden",
+  "skillsPickOrNew": "Selecteer een vaardigheid om te bewerken, of maak een nieuwe.",
+  "skillNew": "Nieuwe vaardigheid",
+  "skillDelete": "Vaardigheid verwijderen",
+  "skillSave": "Opslaan",
+  "skillSaved": "Vaardigheid opgeslagen",
+  "skillNameRequired": "Vaardigheidsnaam is vereist",
+  "skillNamePlaceholder": "vaardigheids-naam",
+  "skillContentPlaceholder": "Beschrijf de herbruikbare procedure in Markdown…",
+  "skillHubImport": "Importeer van hub",
+  "skillHubTitle": "Anthropic vaardighedenshub",
+  "skillHubEmpty": "Geen vaardigheden gevonden op de hub",
+  "skillImport": "Importeren",
+  "skillReimport": "Herimporteren",
+  "skillImported": "GeÏmporteerd {{name}}",
+  "sessions": "Sessies",
+  "deleteSession": "Verwijder sessie",
+  "deleteSessionTitle": "Sessies verwijderen?",
+  "deleteSessionBody": "\"{{title}}\" en de transcriptie ervan zullen permanent worden verwijderd. Dit kan niet ongedaan worden gemaakt.",
+  "newChat": "Nieuw gesprek",
+  "newAgentChat": "Nieuw agentgesprek",
+  "chats": "Gesprekken",
+  "favorites": "Favorieten",
+  "recents": "Recente",
+  "hub": "Hub",
+  "helpSupport": "Hulp & Ondersteuning",
+  "helpUsImproveJan": "Help ons Novera te verbeteren",
+  "analyticsConsentDetail": "We verzamelen anonieme gegevens om te begrijpen hoe functies worden gebruikt. Uw gesprekken en persoonlijke informatie worden nooit gevolgd. U kunt dit altijd wijzigen in Instellingen > Privacy.",
+  "analyticsConsentQuestion": "Wilt u ons helpen Novera te verbeteren?",
+  "unstarAll": "Alles uit favorieten halen",
+  "unstar": "Uit favorieten halen",
+  "deleteAll": "Alles verwijderen",
+  "star": "Toevoegen aan favorieten",
+  "rename": "Naam wijzigen",
+  "delete": "Verwijderen",
+  "copied": "Gekopieerd!",
+  "dataFolder": "Data-map",
+  "others": "Overige",
+  "language": "Taal",
+  "login": "Inloggen",
+  "loginWith": "Inloggen met {{provider}}",
+  "loginFailed": "Inloggen mislukt",
+  "logout": "Uitloggen",
+  "loggingOut": "Bezig met uitloggen...",
+  "loggedOut": "Succesvol uitgelogd",
+  "logoutFailed": "Uitloggen mislukt",
+  "profile": "Profiel",
+  "reset": "Reset",
+  "search": "Zoeken",
+  "searchThreads": "Zoek threads...",
+  "toNavigate": "navigeren naar",
+  "toSelect": "selecteren",
+  "toClose": "sluiten",
+  "clearRecent": "Wissen",
+  "name": "Naam",
+  "cancel": "Annuleren",
+  "dismiss": "Sluiten",
+  "create": "Aanmaken",
+  "save": "Opslaan",
+  "edit": "Bewerken",
+  "copy": "Kopiëren",
+  "back": "Terug",
+  "close": "Sluiten",
+  "done": "Klaar",
+  "next": "Volgende",
+  "finish": "Voltooien",
+  "skip": "Overslaan",
+  "allow": "Toestaan",
+  "deny": "Weigeren",
+  "start": "Starten",
+  "stop": "Stoppen",
+  "preview": {
+    "loading": "Bezig met openen…",
+    "unsupported": "Novera kan dit soort bestand niet weergeven. Open het om het in een andere app te bekijken.",
+    "outside": "Dit bestand bevindt zich niet langer in de sessiewerkruimte.",
+    "tooLarge": "Te groot om te bekijken. Open het om het in een andere app te zien.",
+    "reload": "Opnieuw laden",
+    "allowNetwork": "Netwerk toestaan",
+    "unsandboxed": "Onbeheerd uitvoeren: opgeslagen gegevens en lokale bestanden werken",
+    "unresolvedRefs_one": "1 bestand waar deze pagina naar linkt kan niet in de preview worden geladen. Open het om het in een browser te bekijken.",
+    "unresolvedRefs_other": "{{count}} bestanden waar deze pagina naar linkt, kunnen niet worden geladen in de preview. Open het om het in een browser te bekijken.",
+    "externalRefs_one": "1 bron die deze pagina van het web laadt, is geblokkeerd. Zet \"Netwerk toestaan\" aan om het te laden.",
+    "externalRefs_other": "{{count}} bronnen die deze pagina van het web laadt, zijn geblokkeerd. Zet \"Netwerk toestaan\" aan om ze te laden.",
+    "scriptErrors_one": "De pagina gaf een foutmelding: {{message}}",
+    "scriptErrors_other": "De pagina meldde {{count}} fouten. Eerste: {{message}}"
+  },
+  "changes": {
+    "title": "Agent-wijzigingen",
+    "empty": "Bestanden die de agent schrijft of bewerkt, worden hier weergegeven.",
+    "a11y": "Agent-wijzigingen: {{files}} bestanden, {{additions}} toegevoegd, {{deletions}} verwijderd"
+  },
+  "modelPanel": {
+    "title": "Modelinstellingen",
+    "a11y": "Open modelinstellingen",
+    "contextTooltip": "Contextvenster: {{value}} van {{max}} tokens"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Vaardigheid '{{name}}' is niet beschikbaar",
+    "kind": {
+      "skill": "Vaardigheid",
+      "command": "Opdracht",
+      "model": "Model"
+    }
+  },
+  "compactWidth": "Compacte Breedte",
+  "fullWidth": "Volledige Breedte",
+  "dark": "Donker",
+  "light": "Licht",
+  "system": "Systeem",
+  "auto": "Auto",
+  "english": "Engels",
+  "medium": "Gemiddeld",
+  "newThread": "Nieuwe discussie",
+  "noResultsFound": "Geen resultaten gevonden",
+  "noThreadsYet": "Nog geen discussies",
+  "noThreadsYetDesc": "Start een nieuw gesprek om hier je discussiegeschiedenis te bekijken.",
+  "downloads": "Downloads",
+  "downloading": "Bezig met downloaden",
+  "uploadingAttachments": "Bijlagen uploaden…",
+  "cancelDownload": "Download annuleren",
+  "downloadCancelled": "Download geannuleerd",
+  "downloadComplete": "Download voltooid",
+  "thinking": "Bezig met nadenken…",
+  "thought": "Gedachte",
+  "callingTool": "Tool oproepen",
+  "completed": "Voltooid",
+  "image": "Afbeelding",
+  "vision": "Visie",
+  "multimodal": "Multimodaal",
+  "embeddings": "Inbeddingen",
+  "tools": "Hulpmiddelen",
+  "webSearch": "Webzoeken",
+  "reasoning": "Redeneren",
+  "proactive": "Proactief",
+  "selectAModel": "Selecteer een model",
+  "noToolsAvailable": "Geen tools beschikbaar",
+  "noModelsFoundFor": "Geen modellen gevonden voor “{{searchValue}}”",
+  "failedToLoadModels": "Modellen kunnen niet worden geladen",
+  "noModels": "Geen modellen gevonden",
+  "noAssistant": "Geen assistent",
+  "customAvatar": "Aangepaste avatar",
+  "editAssistant": "Assistent bewerken",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Opnieuw genereren",
+  "threadImage": "Discussieafbeelding",
+  "editMessage": "Bericht bewerken",
+  "deleteMessage": "Bericht verwijderen",
+  "deleteThread": "Discussie verwijderen",
+  "renameThread": "Discussie hernoemen",
+  "threadTitle": "Discussietitel",
+  "deleteAllThreads": "Alle discussies verwijderen",
+  "allThreadsUnfavorited": "Alle discussies uit favorieten verwijderen",
+  "deleteAllThreadsConfirm": "Weet u zeker dat u alle discussies wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
+  "addProvider": "Provider toevoegen",
+  "addOpenAIProvider": "OpenAI Provider toevoegen",
+  "enterNameForProvider": "Voer een naam in voor uw provider",
+  "providerAlreadyExists": "Er bestaat al een provider met de naam “{{name}}”. Kies een andere naam.",
+  "adjustFontSize": "Lettergrootte aanpassen",
+  "changeLanguage": "Taal wijzigen",
+  "editTheme": "Thema bewerken",
+  "editCodeBlockStyle": "Stijl van codeblok bewerken",
+  "editServerHost": "Serverhost bewerken",
+  "pickColorWindowBackground": "Kleur voor vensterachtergrond kiezen",
+  "pickColorAppMainView": "Kleur voor hoofdweergave van de app kiezen",
+  "pickColorAppPrimary": "Kleur voor primaire app kiezen",
+  "pickColorAppAccent": "Kleur voor accent in app kiezen",
+  "pickColorAppDestructive": "Kleur voor destructieve app kiezen",
+  "apiKeyRequired": "API Sleutel is vereist",
+  "enterTrustedHosts": "Vertrouwde hosts invoeren",
+  "placeholder": {
+    "chatInput": "Stel me een vraag..."
+  },
+  "confirm": "Bevestigen",
+  "continue": "Doorgaan",
+  "loading": "Bezig met laden...",
+  "settingUpJan": "Opstarten Novera…",
+  "registeringExtensions": "Extensies registreren…",
+  "loadingExtensions": "Extensies worden geladen… ({{done}}/{{total}})",
+  "error": "Fout",
+  "success": "Geslaagd",
+  "warning": "Waarschuwing",
+  "conversationNotAvailable": "Gesprek niet beschikbaar",
+  "conversationNotAvailableDescription": "Het gesprek dat je probeert te openen, is niet beschikbaar of is verwijderd.",
+  "temporaryChat": "Tijdelijke Chat",
+  "temporaryChatTooltip": "Tijdelijke chats verschijnen niet in je geschiedenis",
+  "noResultsFoundDesc": "We konden geen chats vinden die aan je zoekopdracht voldoen. Probeer een ander trefwoord.",
+  "searchModels": "Zoek modellen...",
+  "searchStyles": "Zoek stijlen...",
+  "createAssistant": "Assistent aanmaken",
+  "enterApiKey": "Voer de toets API in",
+  "scrollToBottom": "Scroll naar beneden",
+  "generateAiResponse": "AI-antwoord genereren",
+  "continueAiResponse": "Doorgaan met AI-antwoord",
+  "addModel": {
+    "title": "Model toevoegen",
+    "modelId": "Model-ID",
+    "enterModelId": "Voer model-ID in",
+    "addModel": "Model toevoegen",
+    "description": "Een nieuw model toevoegen aan de provider",
+    "exploreModels": "De modellenlijst van de provider bekijken"
+  },
+  "mcpServers": {
+    "editServer": "Server bewerken",
+    "addServer": "Server toevoegen",
+    "serverName": "Servernaam",
+    "enterServerName": "Voer de servernaam in",
+    "command": "Opdracht",
+    "enterCommand": "Voer een commando in",
+    "arguments": "Argumenten",
+    "argument": "Argument {{index}}",
+    "envVars": "Omgevingsvariabelen",
+    "key": "Sleutel",
+    "value": "Waarde",
+    "save": "Opslaan"
+  },
+  "deleteServer": {
+    "title": "Server verwijderen",
+    "delete": "Verwijderen"
+  },
+  "editJson": {
+    "errorParse": "Kan JSON niet parseren",
+    "errorPaste": "Kan JSON niet plakken",
+    "errorFormat": "Ongeldige JSON-indeling",
+    "titleAll": "Configuratie van alle servers bewerken",
+    "placeholder": "Voer de configuratie van JSON in...",
+    "save": "Opslaan"
+  },
+  "editModel": {
+    "title": "Model bewerken: {{modelId}}",
+    "description": "Configureer de mogelijkheden van het model door de onderstaande opties in of uit te schakelen.",
+    "capabilities": "Mogelijkheden",
+    "tools": "Hulpmiddelen",
+    "vision": "Visie",
+    "embeddings": "Inbeddingen",
+    "notAvailable": "Nog niet beschikbaar"
+  },
+  "outOfContextError": {
+    "truncateInput": "Invoer afkappen",
+    "title": "Fout: buiten de context",
+    "description": "Deze chat bereikt de geheugenlimiet van de AI, net zoals een whiteboard dat vol raakt. We kunnen het geheugenvenster (de zogenaamde contextgrootte) uitbreiden zodat het meer onthoudt, maar dit kan meer geheugen van je computer in beslag nemen. We kunnen de invoer ook inkorten, wat betekent dat een deel van de chatgeschiedenis wordt gewist om ruimte te maken voor nieuwe berichten.",
+    "increaseContextSizeDescription": "Wil je de contextgrootte vergroten?",
+    "increaseContextSize": "Contextgrootte vergroten"
+  },
+  "toolApproval": {
+    "title": "Verzoek om toestemming voor tool",
+    "description": "De assistent wil <strong>{{toolName}}</strong> gebruiken",
+    "securityNotice": "Sta alleen tools toe die je vertrouwt. Tools hebben toegang tot je systeem en gegevens.",
+    "deny": "Weigeren",
+    "allowOnce": "Eenmalig toestaan",
+    "alwaysAllow": "Altijd toestaan"
+  },
+  "deleteModel": {
+    "title": "Model verwijderen: {{modelId}}",
+    "description": "Weet u zeker dat u dit model wilt verwijderen? Deze handeling kan niet ongedaan worden gemaakt.",
+    "success": "Model {{modelId}} is definitief verwijderd.",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen"
+  },
+  "deleteProvider": {
+    "title": "Provider verwijderen",
+    "description": "Verwijder deze provider en al zijn modellen. Deze handeling kan niet ongedaan worden gemaakt.",
+    "success": "Provider {{provider}} is definitief verwijderd.",
+    "confirmTitle": "Provider verwijderen: {{provider}}",
+    "confirmDescription": "Weet u zeker dat u deze provider wilt verwijderen? Deze handeling kan niet ongedaan worden gemaakt.",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen"
+  },
+  "modelSettings": {
+    "title": "Modelinstellingen - {{modelId}}",
+    "description": "Configureer de modelinstellingen om de prestaties en het gedrag te optimaliseren.",
+    "nglDisabledByFit": "Automatisch aanpassen kiest GPU lagen. Schakel ‘Auto-fit’ uit om dit handmatig in te stellen.",
+    "samplingDefaults": {
+      "title": "Standaard samplingparameters",
+      "description": "Standaard instellingen voor de sampler van dit model. Wordt gebruikt tenzij overschreven door waarden per assistent of per verzoek."
+    },
+    "specDraft": {
+      "section": "Speculatieve decodering",
+      "enable": "Speculatieve decodering inschakelen",
+      "enableDescription": "Maak meerdere tokens per stap en verifieer deze in één doorloop, wat het genereren versnelt. Maakt gebruik van de ingebouwde MTP-heads van het model, of het mee gedownloade conceptmodel (MTP, Eagle3, DFlash of DSpark).",
+      "nMax": "Max. aantal concept-tokens",
+      "nMaxDescription": "Maximaal aantal tokens dat per stap kan worden opgesteld. Standaard 16.",
+      "nMin": "Min. aantal opgestelde tokens",
+      "nMinDescription": "Minimaal aantal tokens dat per stap moet worden opgesteld. Standaard 0.",
+      "pMin": "Min. opstelkans",
+      "pMinDescription": "Minimale waarschijnlijkheid voor ‘greedy drafting’ (0–1). Standaardwaarde 0,75."
+    },
+    "templateKwargs": {
+      "section": "Opties voor chatsjablonen",
+      "description": "Extra opties die de chatsjabloon van dit model accepteert. Wordt bij elk verzoek verzonden als chat_template_kwargs; laat de waarde op de standaardinstelling staan om de sjabloon te laten beslissen.",
+      "addCustom": "Aangepaste optie toevoegen",
+      "keyPlaceholder": "naam",
+      "valuePlaceholder": "waarde",
+      "add": "Toevoegen",
+      "cancel": "Annuleren",
+      "remove": "Verwijderen"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Modelinstellingen konden niet worden bijgewerkt"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Locatie van de gegevensmap wijzigen",
+      "description": "Weet u zeker dat u de locatie van de gegevensmap wilt wijzigen? Hierdoor worden al uw gegevens naar de nieuwe locatie verplaatst en wordt de toepassing opnieuw opgestart.",
+      "currentLocation": "Huidige locatie:",
+      "newLocation": "Nieuwe locatie:",
+      "cancel": "Annuleren",
+      "changeLocation": "Locatie wijzigen"
+    },
+    "deleteAllThreads": {
+      "title": "Alle discussies verwijderen",
+      "description": "Alle gesprekken worden verwijderd. Deze actie kan niet ongedaan worden gemaakt."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Alle gesprekken verwijderen",
+      "description": "{{count}} gesprekken in “{{projectName}}” worden verwijderd. Deze handeling kan niet ongedaan worden gemaakt."
+    },
+    "deleteThread": {
+      "description": "Weet u zeker dat u deze thread wilt verwijderen? Deze handeling kan niet ongedaan worden gemaakt."
+    },
+    "editMessage": {
+      "title": "Bericht bewerken"
+    },
+    "messageMetadata": {
+      "title": "Metadata van bericht"
+    },
+    "deleteMessage": {
+      "description": "Weet u zeker dat u dit bericht wilt verwijderen? Deze handeling kan niet ongedaan worden gemaakt."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Er is iets misgegaan",
+    "details": "Details"
+  },
+  "missingDependenciesDialog": {
+    "title": "Ontbrekende systeembibliotheken",
+    "description": "De {{backend}} is geïnstalleerd, maar sommige vereiste systeembibliotheken konden niet worden gevonden. Het programma kan terugvallen op CPU of niet correct werken.",
+    "installLabel": "Installeer het volgende om dit te verhelpen:",
+    "download": "Downloaden",
+    "additionalLibraries": "Overige ontbrekende bibliotheken:",
+    "missingLibraries": "Ontbrekende bibliotheken:",
+    "showRawLibraries": "Toon {{count}} ontbrekende bibliotheeknamen"
+  },
+  "projects": {
+    "title": "Projecten",
+    "new": "Nieuwe projecten",
+    "addProject": "Project toevoegen",
+    "addToProject": "Toevoegen aan project",
+    "removeFromProject": "Verwijderen uit project",
+    "createNewProject": "Nieuw project aanmaken",
+    "editProject": "Project bewerken",
+    "deleteProject": "Project verwijderen",
+    "projectName": "Projectnaam",
+    "enterProjectName": "Voer de projectnaam in...",
+    "noProjectsAvailable": "Geen projecten beschikbaar",
+    "noProjectsYet": "Nog geen projecten",
+    "noProjectsYetDesc": "Start een nieuw project door op de knop ‘Project toevoegen’ te klikken.",
+    "projectNotFound": "Project niet gevonden",
+    "projectNotFoundDesc": "Het project dat u zoekt, bestaat niet of is verwijderd.",
+    "selectAssistant": "Assistent selecteren",
+    "noAssistantAssigned": "Er is geen assistent toegewezen aan dit project",
+    "files": "Bestanden",
+    "filesDescription": "Voeg PDF’s, documenten of andere tekst toe om in dit project te raadplegen.",
+    "uploadingFiles": "Bestanden worden verwerkt…",
+    "processButton": "Toevoegen",
+    "deleteProjectDialog": {
+      "title": "Project verwijderen",
+      "permanentDelete": "Hiermee worden alle discussiethreads definitief verwijderd.",
+      "permanentDeleteWarning": "Deze actie verwijdert ALLE discussiethreads binnen het project definitief!",
+      "deleteEmptyProject": "Deze actie verwijdert project “{{projectName}}”.",
+      "saveThreadsAdvice": "Verplaats discussies naar je discussielijst of een ander project voordat je ze verwijdert, om ze te bewaren.",
+      "starredWarning": "Je hebt nog steeds gemarkeerde discussies in het project.",
+      "deleteButton": "Verwijderen",
+      "successWithName": "Project “{{projectName}}” succesvol verwijderd",
+      "successWithoutName": "Project succesvol verwijderd",
+      "error": "Het verwijderen van het project is mislukt. Probeer het opnieuw.",
+      "ariaLabel": "Verwijderen {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Nieuw project aanmaken",
+      "editTitle": "Project bewerken",
+      "nameLabel": "Projectnaam",
+      "namePlaceholder": "Voer de projectnaam in...",
+      "assistant": "Assistent",
+      "selectAssistant": "Kies een assistent (optioneel)",
+      "noAssistant": "Geen assistent",
+      "addAssistant": "Assistent toevoegen",
+      "createButton": "Aanmaken",
+      "updateButton": "Bijwerken",
+      "alreadyExists": "Project „{{projectName}}“ bestaat al",
+      "createSuccess": "Project „{{projectName}}“ succesvol aangemaakt",
+      "updateSuccess": "Project „{{projectName}}“ succesvol bijgewerkt",
+      "saveError": "Project kon niet worden opgeslagen. Probeer het opnieuw."
+    },
+    "noConversationsIn": "Geen gesprekken in {{projectName}}",
+    "startNewConversation": "Start hieronder een nieuw gesprek met {{projectName}}",
+    "conversationsIn": "Gesprekken in {{projectName}}",
+    "conversationsDescription": "Klik op een gesprek om verder te chatten, of start hieronder een nieuw gesprek.",
+    "conversation": "Gesprek",
+    "instructions": "Instructies",
+    "setup": "Instellingen",
+    "instructionsDescription": "Toon en stijl van reacties aanpassen",
+    "manageInstructions": "Instructies beheren",
+    "thread": "discussie",
+    "threads": "discussies",
+    "updated": "Bijgewerkt:",
+    "collapseProject": "Project samenvouwen",
+    "expandProject": "Project uitvouwen",
+    "update": "Bijwerken",
+    "searchProjects": "Zoek projecten...",
+    "noProjectsFound": "Geen projecten gevonden",
+    "tryDifferentSearch": "Probeer een andere zoekterm"
+  },
+  "attachmentsIngestion": {
+    "title": "Kies hoe je bijlagen wilt opnemen",
+    "description": "Kies of je deze bestanden direct in de chat wilt opnemen of ze in plaats daarvan als inbeddingen wilt indexeren.",
+    "inline": "In de chat opnemen",
+    "embeddings": "Embeddings gebruiken"
+  },
+  "attachmentInjectedIndicator": "Opgenomen in de chat",
+  "attachmentEmbeddedIndicator": "Ingesloten voor RAG",
+  "viewInjectedContent": "Opgenomen inhoud bekijken",
+  "injectedContentTitle": "Geïnjecteerde bestandsinhoud",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Alle discussies uit favorieten verwijderen",
+      "description": "Alle threads zijn uit je favorieten verwijderd."
+    },
+    "deleteAllThreads": {
+      "title": "Alle discussies verwijderen",
+      "description": "Alle threads zijn definitief verwijderd."
+    },
+    "renameThread": {
+      "title": "Discussie hernoemen",
+      "description": "De titel van deze thread is gewijzigd in ‘{{title}}’"
+    },
+    "deleteThread": {
+      "title": "Discussie verwijderen",
+      "description": "Deze thread is definitief verwijderd."
+    },
+    "errorCopied": {
+      "title": "Kopiëren gelukt",
+      "description": "Foutinformatie naar het klembord gekopieerd"
+    },
+    "errorCopyFailed": {
+      "title": "Kopiëren mislukt",
+      "description": "Het kopiëren van de foutinformatie naar het klembord is mislukt"
+    },
+    "editMessage": {
+      "title": "Bericht bewerken",
+      "description": "Bericht succesvol bewerkt. Wacht tot het model reageert."
+    },
+    "appUpdateDownloaded": {
+      "title": "App-update gedownload",
+      "description": "De app-update is succesvol gedownload."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Downloaden van app-update mislukt",
+      "description": "Het downloaden van de app-update is mislukt. Probeer het opnieuw."
+    },
+    "downloadComplete": {
+      "title": "Download voltooid",
+      "description": "{{item}} is gedownload"
+    },
+    "downloadCancelled": {
+      "title": "Download geannuleerd",
+      "description": "Het downloadproces is geannuleerd"
+    },
+    "downloadFailed": {
+      "title": "Download mislukt",
+      "description": "Het downloaden van {{item}} is mislukt",
+      "descriptionWithReason": "Het downloaden van {{item}} is mislukt: {{reason}}",
+      "reason": {
+        "dns": "De servernaam kon niet worden omgezet",
+        "refused": "De verbinding werd geweigerd",
+        "timeout": "de verbinding is verlopen",
+        "tls": "er kon geen beveiligde verbinding tot stand worden gebracht",
+        "proxy": "de proxy kon niet worden bereikt",
+        "unreachable": "de server kon niet worden bereikt"
+      }
+    },
+    "openSettings": "Instellingen openen",
+    "openLogs": "Logbestanden openen",
+    "downloadTokenRequired": {
+      "title": "Hugging Face-token vereist",
+      "description": "Voor dit model is een Hugging Face-toegangstoken vereist. Voeg je token toe in Instellingen en probeer het opnieuw."
+    },
+    "downloadLicenseRequired": {
+      "title": "Accepteer de modellicentie op Hugging Face",
+      "description": "Je moet de licentie van het model op de Hugging Face-pagina accepteren voordat je het kunt downloaden."
+    },
+    "downloadRateLimited": {
+      "title": "Beperkt door Hugging Face",
+      "description": "Je bent onderworpen aan een verwerkingslimiet. Door een token toe te voegen kun je de verwerkingslimieten verhogen. Probeer het later nog eens."
+    },
+    "modelValidationStarted": {
+      "title": "Model wordt gevalideerd",
+      "description": "Model “{{modelId}}” succesvol gedownload. Integriteit wordt gecontroleerd..."
+    },
+    "modelValidationFailed": {
+      "title": "Modelvalidatie mislukt",
+      "description": "Het gedownloade model “{{modelId}}” is niet geslaagd voor de integriteitscontrole en is verwijderd. Het bestand is mogelijk beschadigd of gemanipuleerd."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Download voltooid",
+      "description": "Model “{{item}}” succesvol gedownload en geverifieerd"
+    },
+    "projectCreated": {
+      "title": "Project aangemaakt",
+      "description": "Project „{{projectName}}“ succesvol aangemaakt"
+    },
+    "projectRenamed": {
+      "title": "Project hernoemd",
+      "description": "Project hernoemd van “{{oldName}}” naar “{{newName}}”"
+    },
+    "projectDeleted": {
+      "title": "Project verwijderd",
+      "description": "Project “{{projectName}}” succesvol verwijderd"
+    },
+    "projectAlreadyExists": {
+      "title": "Project bestaat al",
+      "description": "Project „{{projectName}}“ bestaat al"
+    },
+    "projectDeleteFailed": {
+      "title": "Verwijderen mislukt",
+      "description": "Het verwijderen van het project is mislukt. Probeer het opnieuw."
+    },
+    "threadAssignedToProject": {
+      "title": "Thread toegewezen",
+      "description": "Thread succesvol toegewezen aan “{{projectName}}”"
+    },
+    "threadRemovedFromProject": {
+      "title": "Thread verwijderd",
+      "description": "Thread succesvol verwijderd uit “{{projectName}}”"
+    },
+    "fileUploaded": {
+      "title": "Bestand verwerkt",
+      "description": "Bestand is succesvol verwerkt en geïndexeerd"
+    },
+    "uploadFailed": {
+      "title": "Verwerking mislukt",
+      "description": "Bestand kon niet worden verwerkt",
+      "subjectThisFile": "Dit bestand",
+      "pdfMalformedXref": "{{subject}} bevat een onjuist opgebouwde PDF-kruisverwijzingstabel en kon niet worden geparseerd. Probeer het te openen in een PDF-viewer en sla het opnieuw op (Bestand → Afdrukken → Opslaan als PDF), en upload het vervolgens opnieuw.",
+      "pdfScanned": "{{subject}} lijkt een gescand of op afbeeldingen gebaseerd PDF te zijn. OCR wordt nog niet ondersteund — upload alstublieft een op tekst gebaseerd PDF.",
+      "pdfEncrypted": "{{subject}} is beveiligd met een wachtwoord. Verwijder het wachtwoord en probeer het opnieuw.",
+      "pdfUnsupportedFeature": "{{subject}} maakt gebruik van een PDF-functie die Novera nog niet kan verwerken (bijv. PostScript-kleuren-/schaduwfuncties). Probeer het opnieuw op te slaan (Bestand → Afdrukken → Opslaan als PDF) om het te vlakken, en upload het vervolgens opnieuw.",
+      "pdfGeneric": "{{subject}} kon niet als PDF worden geparseerd. Het bestand is mogelijk beschadigd of maakt gebruik van een niet-ondersteunde PDF-functie.",
+      "fileTooLarge": "{{subject}} is te groot. {{message}}.",
+      "unsupportedType": "Bestandstype “{{type}}” wordt niet ondersteund.",
+      "ioError": "Kon {{subject}} niet lezen: {{message}}",
+      "parseGeneric": "{{subject}} kon niet worden geparseerd: {{message}}",
+      "fallback": "Het verwerken van {{subject}} is mislukt."
+    },
+    "fileDeleted": {
+      "title": "Bestand verwijderd",
+      "description": "Bestand is uit het project verwijderd"
+    },
+    "deleteFailed": {
+      "title": "Verwijderen mislukt",
+      "description": "Bestand kon niet worden verwijderd"
+    },
+    "fileAlreadyExists": {
+      "title": "Bestand bestaat al",
+      "description": "Bestand is al aan dit project toegevoegd"
+    },
+    "unsupportedFileType": {
+      "title": "Niet-ondersteund bestandstype",
+      "description": "Bestandsextensie „.{{extension}}“ wordt niet ondersteund voor projectverwijzingen."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Bijlagen uitgeschakeld",
+      "description": "Bijlagen zijn uitgeschakeld in de instellingen"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Bestand te groot",
+    "fileTooLargeDescription": "{{fileName}} overschrijdt de limiet van {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} delen",
+    "title": "Bestanden",
+    "empty": "Bestanden die u bijvoegt en bestanden die de agent aanmaakt, worden hier weergegeven.",
+    "a11y": "Bestanden: {{count}}",
+    "attachments": "Bijlagen",
+    "notImported": "niet in de werkruimte"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp is nog steeds bezet",
+    "description": "Een of meer modellen zijn niet op tijd ontladen. Als je het programma geforceerd afsluit, wordt llama.cpp beëindigd en kunnen actieve reacties worden onderbroken.",
+    "forceQuit": "Geforceerd afsluiten",
+    "forcing": "Geforceerd afsluiten…",
+    "shuttingDown": "Afsluiten…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Inklappen",
+  "expand": "Uitklappen",
+  "todoPanelTitle": "Voortgang",
+  "todoPanelEmpty": "Nog geen takenlijst.",
+  "backgroundTasks": "Achtergrondtaken",
+  "subagentsRunning_one": "{{count}} subagent actief",
+  "subagentsRunning_other": "{{count}} subagenten actief",
+  "monitorsRunning_one": "{{count}} monitor actief",
+  "monitorsRunning_other": "{{count}} monitors actief",
+  "backgroundRunning_one": "{{count}} achtergrondtaak actief",
+  "backgroundRunning_other": "{{count}} achtergrondtaken actief",
+  "monitors": "Monitoren",
+  "monitorPolling": "Polling",
+  "monitorMatched": "Gevonden",
+  "monitorTimedOut": "Time-out",
+  "monitorStopped": "Gestopt",
+  "monitorEnded": "Beëindigd",
+  "coworkWatching_one": "{{count}} monitor in de gaten houden…",
+  "coworkWatching_other": "{{count}} monitors in de gaten houden…",
+  "coworkWaitingBackground": "Wachten op achtergrondtaken…",
+  "noBackgroundTasks": "Nog geen achtergrondtaken.",
+  "running": "Wordt uitgevoerd",
+  "queued": "In de wachtrij",
+  "waiting": "Wachten",
+  "finished": "Voltooid",
+  "subagentPhase": "fase {{phase}}",
+  "subagentWaiting": "wachten",
+  "viewTranscript": "Transcript bekijken",
+  "taskWorking": "Bezig…",
+  "taskNoOutput": "De subagent heeft geen zichtbare uitvoer geproduceerd.",
+  "subagentToolUses_one": "{{count}} gereedschapgebruik",
+  "subagentToolUses_other": "{{count}} gereedschapsgebruik",
+  "artifactGroupCode": "Code",
+  "artifactGroupImage": "Afbeelding",
+  "artifactGroupDocument": "Document",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Voorbeeld openen",
+  "artifactOpenExternal": "Openen",
+  "artifactMoreActions": "Meer acties",
+  "artifactShowInFolder": "Weergeven in map",
+  "skillsUsedLabel": "Gebruikte vaardigheden",
+  "skillsUsed": "Gebruikte vaardigheden: {{skills}}",
+  "artifactsAll": "Alles",
+  "artifactsEmpty": "Er is nog niets geproduceerd. Artefacten van Cowork runs worden hier weergegeven.",
+  "artifactsNoMatch": "Er zijn geen overeenkomende artefacten.",
+  "artifactsSearch": "Zoek naar artefacten",
+  "artifactsShowMore": "Toon {{count}} meer",
+  "workspace": {
+    "readsFrom": "Werkt in",
+    "writable": "lezen en schrijven",
+    "footnote": "De agent leest en bewerkt deze map rechtstreeks. Bekijk wat er is gewijzigd in het diff-paneel.",
+    "footnoteEmpty": "Voeg een map toe zodat de agent aan je project kan werken. De agent kan de bestanden daarin lezen en bewerken.",
+    "attach": "Voeg een map toe",
+    "change": "Map wijzigen",
+    "detach": "Map loskoppelen",
+    "open": "Openen",
+    "reveal": "Weergeven",
+    "unavailable": "Werkruimte niet beschikbaar",
+    "missing": "De werkruimtemap {{folder}} is niet langer beschikbaar. Kies een andere map.",
+    "openFailed": "Werkruimte kon niet worden geopend",
+    "revealFailed": "Werkruimte kon niet worden weergegeven",
+    "a11yWithFolder": "Projectmap {{folder}}, gekoppeld met lees- en schrijftoegang. Wijzig of ontkoppel deze.",
+    "a11yNoFolder": "Er is geen projectmap gekoppeld. Koppel er een."
+  },
+  "coworkEmpty": {
+    "title": "Waar werken we aan?",
+    "subtitleSandbox": "Geef Novera een taak. Het leest en schrijft bestanden, voert opdrachten uit en doorloopt de stappen zelfstandig.",
+    "subtitleFolder": "Geef Novera een taak. Het werkt rechtstreeks in {{folder}} en leest en bewerkt zelfstandig bestanden.",
+    "try": "Probeer het eens",
+    "sandbox": {
+      "first": "Schrijf een Python-script dat bestanden hernoemt op basis van de datum waarop ze zijn gemaakt",
+      "second": "Maak een dashboard van één pagina op basis van een CSV die ik hier zal plakken",
+      "third": "Stel een README op voor een project dat ik je zal beschrijven"
+    },
+    "folder": {
+      "first": "Leg uit hoe {{folder}} in elkaar zit",
+      "second": "Zoek alle TODO’s in {{folder}} en groepeer ze per gebied",
+      "third": "Schrijf tests voor het deel van {{folder}} waarnaar ik je verwijs"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Geen terminal",
+    "a11y": "Het uitvoeren van commando’s is uitgeschakeld. Details.",
+    "title": "Het uitvoeren van commando’s is uitgeschakeld",
+    "body": "Novera laat de agent alleen shell-commando’s uitvoeren als je systeem deze kan isoleren. Er is hier geen sandbox beschikbaar, dus de agent kan bestanden in zijn sandbox lezen, schrijven en bewerken — maar niets uitvoeren.",
+    "fixLinux": "Linux maakt gebruik van bubblewrap. Installeer dit en start vervolgens Novera opnieuw op.",
+    "fixMac": "macOS maakt gebruik van de ingebouwde sandbox in /usr/bin/sandbox-exec. Start Novera opnieuw op zodra deze beschikbaar is.",
+    "fixWindows": "Windows maakt gebruik van AppContainer. Start Novera opnieuw op om het nog eens te proberen.",
+    "recheck": "Controleer nogmaals"
+  },
+  "planMode": {
+    "label": "Plan",
+    "tooltipOff": "Eerst plannen — de agent leest en doet voorstellen, zonder te schrijven.",
+    "tooltipOn": "Plannen. Schakel dit uit om de agent bestanden te laten schrijven.",
+    "onAnnounce": "Planningsmodus aan",
+    "placeholder": "Vraag om een plan. De agent zal geen bestanden wijzigen."
+  },
+  "budget": {
+    "stoppedSteps": "Gestopt bij {{max}} stappen. De agent is nog niet klaar.",
+    "keepGoing": "Doorgaan",
+    "stoppedTokens": "Gestopt — deze sessie heeft zijn tokenbudget bereikt.",
+    "compact": "Compact",
+    "newSession": "Nieuwe sessie"
+  },
+  "run": {
+    "stopped": "Gestopt.",
+    "failed": "De uitvoering is voortijdig gestopt.",
+    "tryAgain": "Probeer het opnieuw"
+  },
+  "modelNoTools": "{{model}} kan geen tools aanroepen en kan dus niet als agent fungeren. Kies een model waarmee tools kunnen worden aangeroepen.",
+  "askContinue": "Doorgaan",
+  "askNext": "Volgende vraag",
+  "askPrev": "Vorige vraag",
+  "askRecommended": "Aanbevolen",
+  "askSelectedCount": "{{count}} geselecteerd",
+  "askSomethingElse": "Iets anders",
+  "askSomethingElsePlaceholder": "Typ je eigen antwoord",
+  "submit": "Verzenden",
+  "composer": {
+    "advanced": "Geavanceerde parameters",
+    "modelDefaults": "Standaardinstellingen van het model",
+    "assistantOverrides": "Overschrijvingen door de assistent",
+    "printPdf": "Afdrukken / Opslaan als PDF",
+    "exportHint": "Leesbare formaten: actieve tak. JSON: alle berichtversies. Externe bestanden worden niet meegeleverd."
+  },
+  "telemetry": {
+    "summary": "Met uw toestemming ontvangt {{host}} alleen de Novera-versie en het besturingssysteem, zonder gesprekken of een permanente identificatiecode.",
+    "unavailable": "Statistieken zijn niet geconfigureerd. Er worden geen gegevens verzonden."
+  },
+  "errorTracking": {
+    "title": "Foutregistratie",
+    "summary": "Optionele rapporten naar {{host}}: fouttype, code-positie, versie en besturingssysteem. Geen gesprekken, onbewerkte foutmeldingen of sleutels. Op elk moment uitschakelbaar.",
+    "unavailable": "Foutregistratie is niet geconfigureerd. Er worden geen rapporten verzonden."
+  }
+}

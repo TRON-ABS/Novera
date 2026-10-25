@@ -1,0 +1,50 @@
+{
+  "welcome": "Akkam, akkamitti jirtu?",
+  "description": "Har'a akkamitti isin gargaaruu danda'a?",
+  "temporaryChat": "Haasawa Yeroo Gabaabaa",
+  "temporaryChatDescription": "Haasawa yeroo gabaabaa kan seenaa haasawaa keessanitti hin kuufamne jalqabi.",
+  "status": {
+    "empty": "Haasofni Hin Argamne"
+  },
+  "sendMessage": "Ergaa Ergi",
+  "newConversation": "Haasaa Haaraa",
+  "clearHistory": "Seenaa Haqaa",
+  "embeddings": {
+    "title": "Sanadoota kee qopheessaa jira",
+    "description": "Faayiloota maxxanfaman tarreessaa jira, akka barbaadamanii fi wabiin itti kennamuuf. Kun sanadoota gurguddaadhaaf yeroo muraasa fudhachuu danda'a."
+  },
+  "actions": {
+    "regenerate": "Deebii irra deebi'ii uumi",
+    "askAgain": "Irra deebi'ii gaafadhu",
+    "continue": "Uumuu itti fufi",
+    "remember": "Kana yaadatti qabi",
+    "rememberSaved": "Akka \"{{name}}\"tti yaadannootti kuufame",
+    "rememberExists": "Duraanuu akka \"{{name}}\"tti yaadannoo keessa jira",
+    "rememberFailed": "Yaadannootti kuusuun hin danda'amne"
+  },
+  "done": "Xumurame",
+  "webSources": "{{count}} madda(awwan)",
+  "reasoning": {
+    "label": "Yaadaa...",
+    "thinking": "Yaadaa jira",
+    "working": "Hojii irra jira...",
+    "showFullTimeline": "Sarara yeroo guutuu agarsiisi",
+    "showCurrentStep": "Tarkaanfii ammaa qofa agarsiisi",
+    "thoughtForAWhile": "Sekondii muraasaaf yaade",
+    "thoughtFor": "{{duration}}f yaade",
+    "workedForAWhile": "Sekondii muraasaaf hojjete",
+    "workedFor": "{{duration}}f hojjete"
+  },
+  "messageActions": {
+    "previousVersion": "Garaagarummaa duraanii",
+    "nextVersion": "Garaagarummaa itti aanu",
+    "generationFailed": "Uumamni kufaate"
+  },
+  "messageStats": {
+    "details": "Istaatistiksii uumamaa",
+    "generation": "Uumaa",
+    "reading": "Dubbisa",
+    "tokens": "Tokeenota",
+    "perSecond": "tokeenota/s"
+  }
+}

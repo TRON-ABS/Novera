@@ -1,0 +1,101 @@
+{
+  "editServer": "MCP serverini o‘zgartirish",
+  "addServer": "MCP serverni qo‘shish",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Plagin holati tekshirilmoqda..."
+    },
+    "notInstalled": {
+      "title": "Novera brauzeringizdagi vazifalarni bajaradi",
+      "description": "Novera brauzerga kirishni berish uchun kengaytirma o‘rnatish",
+      "getExtension": "Ko‘paytirishni olish"
+    }
+  },
+  "serverName": "Server nomi",
+  "enterServerName": "Server nomini kiriting",
+  "command": "Buyruq",
+  "enterCommand": "Buyruqni kiriting (uvx yoki npx)",
+  "arguments": "Argumentlar",
+  "argument": "{{index}} argumenti",
+  "envVars": "Atrof-muhit o‘zgaruvchilari",
+  "key": "Kalit",
+  "value": "Qimmat",
+  "save": "Saqlash",
+  "status": "Holat",
+  "connected": "Ulangan",
+  "disconnected": "Aloqa uzilgan",
+  "deleteServer": {
+    "title": "MCP serverini o‘chirib tashlash",
+    "description": "Siz MCP serverni {{serverName}} yo‘q qilishni xohlayotganingizda ishonchlimisiz? Bu harakat bekor qilinmaydi.",
+    "delete": "O‘chirish",
+    "success": "MCP server {{serverName}} muvaffaqiyatli o‘chirildi"
+  },
+  "editJson": {
+    "title": "MCP Server uchun JSONni o‘zgartirish: {{serverName}}",
+    "titleAll": "Barcha MCP serverlar JSON'ini tahrirlash",
+    "placeholder": "JSON konfiguratsiyasini kiritish",
+    "errorParse": "Dastlabki ma’lumotlarni tahlil qilish muvaffaqiyatsiz yakunlandi",
+    "errorPaste": "Yopilgan mazmunda nodurust JSON formati",
+    "errorFormat": "Noloyiq JSON formati",
+    "errorServerName": "Server nomi kerak va bo‘sh bo‘lmasligi kerak",
+    "errorMissingServerNameKey": "JSON {\"serverName\": {config}} ko‘rinishida tuzilishi kerak - server nomi kaliti yo‘q",
+    "errorInvalidType": "Server '{{serverName}}' uchun noqonuniy '{{type}}' turi. Tipi 'stdio', 'http' yoki 'sse' bo‘lishi kerak",
+    "save": "Saqlash"
+  },
+  "checkParams": "Iltimos, parametrlarni o‘quv qo‘llanmasiga muvofiq tekshiring.",
+  "title": "MCP serverlari",
+  "experimental": "Eksperimental",
+  "editAllJson": "Barcha serverlar JSON'ini tahrirlash",
+  "findMore": "Yana MCP serverlarni toping",
+  "allowPermissions": "Barcha MCP asboblari ruxsatlariga ruxsat berish",
+  "allowPermissionsDesc": "Agar ishga tushirilgan bo‘lsa, barcha MCP asbob chaqiriqlari ruxsat dialoglarini ko‘rsatmasdan avtomatik ravishda tasdiqlanadi. Bu moslama yangi suhbatlar bilan birgalikda barcha suhbatlarga global qo‘llaniladi.",
+  "noServers": "MCP serverlari topilmadi",
+  "args": "Args",
+  "env": "Konvert",
+  "serverStatusActive": "Server {{serverKey}} muvaffaqiyatli faollashtirildi",
+  "serverStatusInactive": "Server {{serverKey}} muvaffaqiyatli o‘chirildi",
+  "runtimeSettings": {
+    "title": "Ishlash vaqti parametrlari",
+    "description": "Noveraning MCP serverlarni qanday boshqarishini va qayta urinishini sozlash.",
+    "toolCallTimeout": "Asbob chaqiriq vaqti tugadi (soniyalarda)",
+    "toolCallTimeoutDesc": "Taym-autdan oldin MCP asbob javobini kutish uchun maksimal vaqt.",
+    "maxToolOutputChars": "Asbobning maksimal chiqarilish belgilari",
+    "maxToolOutputCharsDesc": "Muloqotda saqlanadigan eng uzun asbob natijalari. Undan ortiqcha barchasi qisqartiriladi va qisqartirilgan deb belgilanadi, shuning uchun birgina katta natija model kontekstini tugatishi mumkin emas. Natijalarni to‘liq saqlash uchun 0 ga qo‘ying.",
+    "smartToolRouting": "Smart MCP asbob yo‘llash",
+    "smartToolRoutingDesc": "Agar ishga tushirilgan bo‘lsa, Novera asboblarni yuklashdan oldin tegishli MCP serverlarni tanlaydi. Har doim to‘liq MCP asboblar ro‘yxatini yuklash uchun ishga tushirmang.",
+    "useLightweightRouterModel": "Yo‘naltirish uchun ajratilgan modeldan foydalanish",
+    "useLightweightRouterModelDesc": "Agar aqlli yo‘naltirish ishga tushirilgan bo‘lsa, yo‘naltirish bosqichini suhbat modeli o‘rniga alohida (ko‘pincha kichikroq) model bilan bajaring. Yo‘naltirish uchun doimo faol suhbat modelidan foydalanish uchun buni o‘chiring.",
+    "routerModel": "Yo‘naltirish modeli",
+    "routerModelDesc": "Provayder va modelni bir joyda tanlang. Faqat yengil modellar ro‘yxatga olinadi, shuning uchun marshrutlashtirish tez va arzon qoladi.",
+    "selectRouterModelPlaceholder": "Marshrutlash modelini tanlang…",
+    "routerModelSearchPlaceholder": "Modellarni qidirish…",
+    "routerModelEmptyList": "Og‘ir modellar mavjud emas. Kichik modelni qo‘shing yoki Models'da API tugmasini sozlang.",
+    "routerModelEmptySearch": "“{{query}}” uchun moslik yo‘q."
+  },
+  "auth": {
+    "label": "Hujjat:",
+    "state": {
+      "notApplicable": "talab qilinmaydi",
+      "staticHeader": "Guvohnoma boshligi",
+      "authenticated": "Tasdiqlandi",
+      "expired": "muddati o‘tgan",
+      "staleResource": "boshqa URL uchun chiqarilgan",
+      "unauthenticated": "Tasdiqlanmagan"
+    },
+    "expiresIn": "muddati {{duration}}da tugaydi",
+    "authenticate": "Kirish",
+    "reauthenticate": "Takror tasdiqlash",
+    "clear": "Autentifikatsiyani tozalash",
+    "waiting": "Brauzer kutilmoqda...",
+    "openSignInPage": "Kirish sahifasini ochish",
+    "needsAuth": "{{serverName}} autentifikatsiyani talab qiladi",
+    "needsAuthHint": "Ulanish uchun bu serverga kirishingiz kerak.",
+    "authorized": "{{serverName}}ga kirish",
+    "authorizeFailed": "{{serverName}} uchun kirish muvaffaqiyatsiz yakunlandi",
+    "cleared": "{{serverName}} uchun saqlangan ishonchli ma’lumotlar tozalandi",
+    "nothingToClear": "{{serverName}}da saqlangan ishonchli ma’lumotlar yo‘q",
+    "clearFailed": "{{serverName}} uchun ishonchli ma’lumotlarni tozalay olmadim",
+    "renew": "Seansni yangilash",
+    "expiredAgo": "muddati o‘tgan {{duration}} oldin"
+  }
+}

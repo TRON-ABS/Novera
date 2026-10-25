@@ -1,0 +1,10 @@
+{
+  "newVersion": "নতুন সংস্কৰণ {{version}}",
+  "updateAvailable": "আপডেইট উপলব্ধ",
+  "nightlyBuild": "ৰাতিকালীন বিল্ড",
+  "showReleaseNotes": "ৰিলিজ টোকাসমূহ দেখুৱাওক",
+  "hideReleaseNotes": "ৰিলিজ টোকা আড়াল কৰক",
+  "remindMeLater": "পিছত মনত পেলাওক (_R)",
+  "downloading": "ডাউনল'ড কৰা হৈছে...",
+  "updateNow": "এতিয়া আপডেইট কৰক"
+}

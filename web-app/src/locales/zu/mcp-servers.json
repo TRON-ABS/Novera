@@ -1,0 +1,101 @@
+{
+  "editServer": "Hlela i-MCP Iseva",
+  "addServer": "Engeza i-MCP Iseva",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Ukuhlola isimo sengezo..."
+    },
+    "notInstalled": {
+      "title": "Novera iqedela imisebenzi kusesipheqululini sakho",
+      "description": "Faka isengezo ukuze unike Novera ukufinyelela kusiphequluli",
+      "getExtension": "Thola Isengezo"
+    }
+  },
+  "serverName": "Igama Leseva",
+  "enterServerName": "Faka igama leseva",
+  "command": "Umyalo",
+  "enterCommand": "Faka umyalo (uvx noma npx)",
+  "arguments": "Izimfanelo",
+  "argument": "Isimfanelo {{index}}",
+  "envVars": "Izimo Zemvelo",
+  "key": "Ukhiye",
+  "value": "Inani",
+  "save": "Londoloza",
+  "status": "Isimo",
+  "connected": "Kuxhunywe",
+  "disconnected": "Kuxhunywe kude",
+  "deleteServer": {
+    "title": "Susa i-MCP Iseva",
+    "description": "Uqinisekile ukuthi ufuna ukususa iseva ye-MCP {{serverName}}? Lesi senzo asikwazi ukuguqulwa.",
+    "delete": "Susa",
+    "success": "Iseva ye-MCP {{serverName}} isusiwe ngempumelelo"
+  },
+  "editJson": {
+    "title": "Hlela JSON ye-MCP Iseva: {{serverName}}",
+    "titleAll": "Hlela Zonke Iseva MCP JSON",
+    "placeholder": "Faka izilungiselelo ze-JSON",
+    "errorParse": "Ukuhlaziya idatha yokuqala kwehlulekile",
+    "errorPaste": "Ifomethi ye-JSON engalungile okuqukethwe okufakiwe",
+    "errorFormat": "Ifomethi engalungile JSON",
+    "errorServerName": "Igama leseva liyadingeka futhi alinakuba nento",
+    "errorMissingServerNameKey": "JSON kumele ihlelwe kanje {\"serverName\": {config}} - kushodayo okhiye begama leseva",
+    "errorInvalidType": "Uhlobo olungelona '{{type}}' lweseva '{{serverName}}'. Uhlobo kumele lube 'stdio', 'http', noma 'sse'",
+    "save": "Londoloza"
+  },
+  "checkParams": "Sicela uhlole amapharamitha ngokusho kwesifundo.",
+  "title": "MCP Amaseva",
+  "experimental": "Okusekwe Ezivivinyweni",
+  "editAllJson": "Hlela Zonke Iseva JSON",
+  "findMore": "Thola amanye amaseva MCP ku",
+  "allowPermissions": "Vumela Zonke Izimvume Zezixhobo MCP",
+  "allowPermissionsDesc": "Uma kuvuliwe, zonke izingcingo zezixhobo MCP zizovunyelwa ngokuzenzakalayo ngaphandle kokukhombisa izingxoxo zemvume. Lolu hlelo lusebenza kuwo wonke amazwi, kuhlanganise nezincwadi ezintsha.",
+  "noServers": "Ayikho iseva MCP etholakele",
+  "args": "Izimpikiswano",
+  "env": "Imvelo",
+  "serverStatusActive": "Isiphakeli {{serverKey}} sisenzi kahle ukuvulwa",
+  "serverStatusInactive": "Isiphakeli {{serverKey}} sisenzi kahle ukuvala",
+  "runtimeSettings": {
+    "title": "Izilungiselelo Zokusebenza",
+    "description": "Lungisa ukuthi Novera ilawula kanjani futhi izame futhi iziphakeli MCP.",
+    "toolCallTimeout": "Isikhathi sokuphelelwa kokulinda ithuluzi (imizuzwana)",
+    "toolCallTimeoutDesc": "Isikhathi esikhulu sokulinda impendulo yethuluzi MCP ngaphambi kokuphelelwa isikhathi.",
+    "maxToolOutputChars": "Ukwandisa okungenzeka kwemiphumela yethuluzi",
+    "maxToolOutputCharsDesc": "Umphumela wethuluzi omude kakhulu ogcinwa engxoxweni. Noma yini edlula lokhu iyasuswa futhi iboniswe njengefushane, ukuze umphumela omkhulu ungadogi umfutho womongo womodeli. Setha ku-0 ukuze ugcine imiphumela yonke.",
+    "smartToolRouting": "Ukuhlela okuhlakaniphile kwamathuluzi MCP",
+    "smartToolRoutingDesc": "Uma kuvuliwe, Novera ikhetha iziphakeli MCP ezifanele ngaphambi kokulayisha amathuluzi. Vala ukuze ulayishe njalo uhlu lwamathuluzi MCP ngokuphelele.",
+    "useLightweightRouterModel": "Sebenzisa imodeli ekhethekile yokuhlela",
+    "useLightweightRouterModelDesc": "Lapho ukuhlela okuhlakaniphile kuvaliwe, sebenzisa isinyathelo sokuhlela ngomodeli ohlukile (ngokuvamile omncane) esikhundleni somodeli wengxoxo. Vala ukuze uhlale usebenzisa imodeli yengxoxo esebenzayo ekubhekaneni.",
+    "routerModel": "Imodeli yokuhlela",
+    "routerModelDesc": "Khetha umhlinzeki nemodeli endaweni eyodwa. Kuphelele imodeli ezelula ukuze ukuhlela kuhlale kushesha futhi kubize kancane.",
+    "selectRouterModelPlaceholder": "Khetha imodeli yokuhlela…",
+    "routerModelSearchPlaceholder": "Sesha imodeli…",
+    "routerModelEmptyList": "Ayikho imodeli ezelula etholakalayo. Faka imodeli encane noma hlela okhiye API ku-Models.",
+    "routerModelEmptySearch": "Azikho izindlela zokuhambisana no-“{{query}}”."
+  },
+  "auth": {
+    "label": "Ukuqinisekisa:",
+    "state": {
+      "notApplicable": "akudingekile",
+      "staticHeader": "ikhanda le-authorization",
+      "authenticated": "kuqinisekisiwe",
+      "expired": "sekuphelelwe yisikhathi",
+      "staleResource": "ikhishwa komunye URL",
+      "unauthenticated": "galaqinisekisiwe"
+    },
+    "expiresIn": "kuphelelwe yisikhathi ku-{{duration}}",
+    "authenticate": "Ngena ngemvume",
+    "reauthenticate": "Phinda uqinisekise",
+    "clear": "Sula ukuqinisekiswa",
+    "waiting": "Ulindele isiphequluli...",
+    "openSignInPage": "Vula ikhasi lokungena ngemvume",
+    "needsAuth": "{{serverName}} idinga ukuqinisekiswa",
+    "needsAuthHint": "Ngena kulesi seva ukuze uxhumeke.",
+    "authorized": "Ungene ngemvume ku-{{serverName}}",
+    "authorizeFailed": "Ukungena ngemvume ku-{{serverName}} kwehlulekile",
+    "cleared": "Suse ama-credentials agcinwe ku-{{serverName}}",
+    "nothingToClear": "{{serverName}} alinalo igalelo eligcinwe",
+    "clearFailed": "Akuqondanga ukususa ama-credentials ku-{{serverName}}",
+    "renew": "Buyekeza iseshini",
+    "expiredAgo": "kuphelelwe isikhathi {{duration}} edlule"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "addProvider": "Adaugă un furnizor",
+  "addOpenAIProvider": "Adaugă furnizor personalizat",
+  "enterNameForProvider": "Numele furnizorului (de ex. my-llm-server)",
+  "apiTypeLabel": "Format API",
+  "apiTypeOpenAI": "Compatibil cu OpenAI",
+  "apiTypeAnthropic": "Compatibil cu Anthropic",
+  "baseUrlLabel": "Bază URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API cheie",
+  "apiKeyPlaceholder": "Inserează cheia ta API",
+  "invalidBaseUrl": "Baza URL trebuie să fie un http(s) valid URL",
+  "globalSettings": "Setări globale",
+  "stripReasoning": "Scoate raționamentul din context",
+  "stripReasoningDesc": "Îmbunătățește reutilizarea cache-ului KV pentru modelele locale, dar unele modele (de exemplu, versiunile mai noi ale Qwen) recomandă păstrarea acestuia pentru o mai bună raționare multi-turn.",
+  "providerAlreadyExists": "Un furnizor numit {{name}} există deja."
+}

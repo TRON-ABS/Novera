@@ -1,0 +1,50 @@
+{
+  "welcome": "Sawubona, unjani?",
+  "description": "Ngingakusiza kanjani namuhla?",
+  "temporaryChat": "Ingxoxo Yesikhashana",
+  "temporaryChatDescription": "Qala ingxoxo yesikhashana engalayishwa emlandweni wakho wezingxoxo.",
+  "status": {
+    "empty": "Akukho Zingxoxo Ezitholakele"
+  },
+  "sendMessage": "Thumela Umlayezo",
+  "newConversation": "Ingxoxo Entsha",
+  "clearHistory": "Sula Umlando",
+  "embeddings": {
+    "title": "Kulungele amadokhumenti akho",
+    "description": "Kuhlelwa amafayela afakiwe ukuze akwazi ukufunwa nokucitshwe. Lokhu kungathatha umzuzu kumadokhumenti amakhulu."
+  },
+  "actions": {
+    "regenerate": "Phinda uphendule",
+    "askAgain": "Buza futhi",
+    "continue": "Qhubeka ukhiqiza",
+    "remember": "Kukhumbule lokhu",
+    "rememberSaved": "Kugcinwe kwimemori njenge \"{{name}}\"",
+    "rememberExists": "Sekusele kwimemori njenge \"{{name}}\"",
+    "rememberFailed": "Kungenzekanga ukugcina kwimemori"
+  },
+  "done": "Kwenziwe",
+  "webSources": "Imithombo {{count}}",
+  "reasoning": {
+    "label": "Ukucabanga...",
+    "thinking": "Ukucabanga",
+    "working": "Kusebenza...",
+    "showFullTimeline": "Khombisa zonke izikhathi",
+    "showCurrentStep": "Khombisa isinyathelo samanje kuphela",
+    "thoughtForAWhile": "Kucabange isikhashana",
+    "thoughtFor": "Kucabange {{duration}}",
+    "workedForAWhile": "Kusebenza isikhashana",
+    "workedFor": "Kusebenza {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Inguqulo yangaphambilini",
+    "nextVersion": "Inguqulo elandelayo",
+    "generationFailed": "Ukukhiqiza kuhlulekile"
+  },
+  "messageStats": {
+    "details": "Imininingwane yokukhiqiza",
+    "generation": "Ukukhiqiza",
+    "reading": "Ukufunda",
+    "tokens": "Amathokheni",
+    "perSecond": "amathokheni/s"
+  }
+}

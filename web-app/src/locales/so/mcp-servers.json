@@ -1,0 +1,101 @@
+{
+  "editServer": "Tafatir MCP Server",
+  "addServer": "Ku dar MCP Server",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Hubinta xaaladda kordhinta..."
+    },
+    "notInstalled": {
+      "title": "Novera wuxuu dhammeeyaa hawlaha browser-kaaga",
+      "description": "Ku rakib kordhinta si aad Novera u siisid marin browser",
+      "getExtension": "Soo hel Kordhinta"
+    }
+  },
+  "serverName": "Magaca Server-ka",
+  "enterServerName": "Geli magaca server-ka",
+  "command": "Amar",
+  "enterCommand": "Geli amarka (uvx ama npx)",
+  "arguments": "Doodaha",
+  "argument": "Dooda {{index}}",
+  "envVars": "Isbeddellada Deegaanka",
+  "key": "Furaha",
+  "value": "Qiimaha",
+  "save": "Kaydi",
+  "status": "Xaaladda",
+  "connected": "Ku xiran",
+  "disconnected": "Kala go'ay",
+  "deleteServer": {
+    "title": "Tir MCP Server",
+    "description": "Ma hubtaa inaad rabto inaad tirtirto MCP server {{serverName}}? Ficilkaan lama rogi karo.",
+    "delete": "Tirtir",
+    "success": "MCP server {{serverName}} si guul leh ayaa loo tirtiray"
+  },
+  "editJson": {
+    "title": "Tafatir JSON ee MCP Server: {{serverName}}",
+    "titleAll": "Tafatir Dhamaan MCP Servers JSON",
+    "placeholder": "Geli habaynta JSON",
+    "errorParse": "Ku guul darreystay in la akhriyo xogta hore",
+    "errorPaste": "Qaabka JSON ee qoraalka la paste-gareeyey waa khaldan",
+    "errorFormat": "Qaabka JSON ma saxna",
+    "errorServerName": "Magaca Server-ka waa lagama maarmaan waana inuusan madhnayn",
+    "errorMissingServerNameKey": "JSON waa in loo habeeyaa sidan {\"serverName\": {config}} - furaha magaca server-ka wuu maqan yahay",
+    "errorInvalidType": "Nooca '{{type}}' ee server '{{serverName}}' waa mid aan sax ahayn. Nooca waa inuu noqdaa 'stdio', 'http', ama 'sse'",
+    "save": "Kaydi"
+  },
+  "checkParams": "Fadlan hubi cabbirrada sida ku cad casharka.",
+  "title": "MCP Adeegayaasha",
+  "experimental": "Tijaabo",
+  "editAllJson": "Tafatir Dhamaan Servers JSON",
+  "findMore": "Ka hel servero MCP dheeri ah",
+  "allowPermissions": "U oggolow Dhamaan Ogolaanshaha Qalabka MCP",
+  "allowPermissionsDesc": "Marka la shido, dhamaan wicitaannada qalabka MCP si toos ah ayaa loo oggolaan doonaa adigoon soo bandhigin sanduuqyada ogolaanshaha. Dejintani waxay quseysaa guud ahaan wada sheekeysiga, oo ay ku jiraan sheekaysiyo cusub.",
+  "noServers": "Servero MCP lama helin",
+  "args": "Xulashooyinka",
+  "env": "Deegaanka",
+  "serverStatusActive": "Server {{serverKey}} si guul leh ayaa loo hawlgaliyay",
+  "serverStatusInactive": "Server {{serverKey}} si guul leh ayaa loo joojiyay",
+  "runtimeSettings": {
+    "title": "Settings-ka Wakhtiga Socodka",
+    "description": "Hagaaji sida Novera uu u maareeyo oo uu u tijaabiyo mar kale server-yada MCP.",
+    "toolCallTimeout": "Waqtiga ugu badan ee wacista qalabka (ilbiriqsiyo)",
+    "toolCallTimeoutDesc": "Waqtiga ugu badan ee lagu sugayo jawaabta qalabka MCP ka hor intaanu dhaafin waqtiga.",
+    "maxToolOutputChars": "Xarfaha ugu badan ee natiijada qalabka",
+    "maxToolOutputCharsDesc": "Natiijada qalabka ee ugu dheer ee lagu hayo wadahadalka. Wax kasta oo ka dambeeya waxaa la jarayaa oo loo calaamadeeyaa in la gooyay, si hal natiijo weyn aysan u buuxin karin macnaha model-ka. U dejiso 0 si natiijooyinka loo hayo dhammeystiran.",
+    "smartToolRouting": "Qalabka caqliga leh ee MCP ee la marsiiyo",
+    "smartToolRoutingDesc": "Marka la hawlgaliyo, Novera wuxuu doortaa server-yada MCP ee khuseeya ka hor inta aanala soo rarin qalabka. Jooji si mar kasta loogu raro liiska buuxa ee qalabka MCP.",
+    "useLightweightRouterModel": "Isticmaal moodel gaar ah oo loogu talagalay marsiinta",
+    "useLightweightRouterModelDesc": "Marka smart routing uu shidanyahay, ku socodsii talaabada routing model gaar ah (inta badan mid yar) halkii aad ka isticmaali lahayd chat model-ka. Dami si mar walba loogu isticmaalo chat model-ka firfircoon ee routing.",
+    "routerModel": "Model-ka Routing",
+    "routerModelDesc": "Dooro bixiyaha iyo model-ka hal meel. Kaliya models fudud ayaa liiska ku jira si routing-ku u ahaado degdeg oo jaban.",
+    "selectRouterModelPlaceholder": "Dooro model-ka routing…",
+    "routerModelSearchPlaceholder": "Raadi models…",
+    "routerModelEmptyList": "Ma jiraan models fudud oo la heli karo. Ku dar model yar ama habee API furayaasha ee Models.",
+    "routerModelEmptySearch": "Ma jiraan wax la mid ah “{{query}}”."
+  },
+  "auth": {
+    "label": "Auth:",
+    "state": {
+      "notApplicable": "lagama maarmaan ma aha",
+      "staticHeader": "Authorization header",
+      "authenticated": "la xaqiijiyay",
+      "expired": "dhamaaday",
+      "staleResource": "lagu soo saaray URL kale",
+      "unauthenticated": "lagu xaqiijiyay ma aha"
+    },
+    "expiresIn": "waxay dhacaysaa {{duration}} gudahood",
+    "authenticate": "Gali",
+    "reauthenticate": "Dib u xaqiiji",
+    "clear": "Nadiifi xaqiijinta",
+    "waiting": "Sugaya browser...",
+    "openSignInPage": "Fur bogga galitaanka",
+    "needsAuth": "{{serverName}} waxay u baahan tahay xaqiijin",
+    "needsAuthHint": "Gali server-kan si aad u xidhidhiso.",
+    "authorized": "Waa lagaa galay {{serverName}}",
+    "authorizeFailed": "Galka {{serverName}} wuu fashilmay",
+    "cleared": "Waramaha keydsan ee {{serverName}} waa la nadiifiyey",
+    "nothingToClear": "{{serverName}} wax waraam kaydsan ma lahayn",
+    "clearFailed": "Lama nadiifin karin waraamaha {{serverName}}",
+    "renew": "Cusbooneysii session-ka",
+    "expiredAgo": "wuu dhacay {{duration}} ka hor"
+  }
+}

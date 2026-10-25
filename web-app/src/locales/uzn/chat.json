@@ -1,0 +1,50 @@
+{
+  "welcome": "Salom, qandaysiz?",
+  "description": "Bugun men sizga nima qilaman?",
+  "temporaryChat": "Muvaqqat suhbat",
+  "temporaryChatDescription": "Suhbat tarixiga saqlanmaydigan vaqtinchalik suhbatni boshlash.",
+  "status": {
+    "empty": "Suhbat topilmadi"
+  },
+  "sendMessage": "Xabar yuborish",
+  "newConversation": "Yangi suhbat",
+  "clearHistory": "Tarixni tozalash",
+  "embeddings": {
+    "title": "Hujjatlar tayyorlanmoqda",
+    "description": "Ilova qilingan fayllar indekslanmoqda, shuning uchun ularni qidirish va keltirish mumkin. Bu katta hujjat uchun biroz vaqt talab qilishi mumkin."
+  },
+  "actions": {
+    "regenerate": "Javobni qayta yaratish",
+    "askAgain": "Qayta so‘rash",
+    "continue": "Yuklash davom etmoqda",
+    "remember": "Buni esda saqlash",
+    "rememberSaved": "Xotiraga \"{{name}}\" sifatida saqlandi",
+    "rememberExists": "Xotirada \"{{name}}\" sifatida mavjud",
+    "rememberFailed": "Xotiraga saqlanmadi"
+  },
+  "done": "Tugatildi",
+  "webSources": "{{count}} manba(lar)",
+  "reasoning": {
+    "label": "Ma’lumot",
+    "thinking": "Tasavvur qilish",
+    "working": "Ishlayotgan...",
+    "showFullTimeline": "Barcha vaqt chizig‘ini ko‘rsatish",
+    "showCurrentStep": "Faqat hozirgi qadamni ko‘rsatish",
+    "thoughtForAWhile": "Bir necha soniya o‘ylandi",
+    "thoughtFor": "{{duration}} uchun o‘ylangan",
+    "workedForAWhile": "Bir necha soniya ishladi",
+    "workedFor": "{{duration}} uchun ishlagan"
+  },
+  "messageActions": {
+    "previousVersion": "Oldingi versiya",
+    "nextVersion": "Keyingi versiya",
+    "generationFailed": "Yuklash muvaffaqiyatsiz yakunlandi"
+  },
+  "messageStats": {
+    "details": "Generatsiya statistikasi",
+    "generation": "Yuklab olish",
+    "reading": "O‘qish",
+    "tokens": "Tokenlar",
+    "perSecond": "Tokenlar/s"
+  }
+}

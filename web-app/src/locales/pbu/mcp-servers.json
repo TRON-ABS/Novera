@@ -1,0 +1,101 @@
+{
+  "editServer": "ویرچوئل MCP سرور سمول",
+  "addServer": "ویرچوئل MCP سرور اضافه کول",
+  "browserExtension": {
+    "connecting": {
+      "checking": "د پراختیا حالت کتنه..."
+    },
+    "notInstalled": {
+      "title": "Novera ستاسو په براوزر کې دندې بشپړوي",
+      "description": "Novera ته د براوزر لاسرسي ورکولو لپاره غځونه نصب کړئ.",
+      "getExtension": "پراختیا ترلاسه کړئ"
+    }
+  },
+  "serverName": "د سرور نوم",
+  "enterServerName": "د سرور نوم دننه کړه",
+  "command": "بولۍ",
+  "enterCommand": "آمریت داخل کړئ (uvx یا npx)",
+  "arguments": "استدلالونه",
+  "argument": "استدلال {{index}}",
+  "envVars": "د چاپیریال متغیرونه",
+  "key": "کیلي",
+  "value": "ارزښت",
+  "save": "خوندي کړئ",
+  "status": "حالت",
+  "connected": "نښلول شوی",
+  "disconnected": "له نښلولو څخه بې برخې شوی",
+  "deleteServer": {
+    "title": "ویرچوئل MCP سرور حذف کړئ",
+    "description": "باور لرئ چې د MCP سرور {{serverName}} حذف کړئ؟ دا کار نه شي بیرته اخیستل کېدی.",
+    "delete": "ړنګ کړئ",
+    "success": "MCP سرور {{serverName}} په بریالیتوب سره حذف شو"
+  },
+  "editJson": {
+    "title": "د JSON ایډیټ د MCP سرور لپاره: {{serverName}}",
+    "titleAll": "ټول MCP سرورونه ایډیټ کړئ JSON",
+    "placeholder": "د JSON تنظیمات داخل کړئ",
+    "errorParse": "د لومړنیو معلوماتو پارس کول ناکام شول",
+    "errorPaste": "د پیسټ شوي مینځپانګې کې د JSON فورمټ ناسم دی",
+    "errorFormat": "ناسم JSON فورمټ",
+    "errorServerName": "د سرور نوم اړین دی او نشي خالي پاتې کېدای",
+    "errorMissingServerNameKey": "JSON باید داسې جوړښت ولري: {\"serverName\": {config}} - د سرور د نوم کیلي نده موجوده",
+    "errorInvalidType": "د سرور '{{serverName}}' لپاره ناسم ډول '{{type}}'. ډول باید 'stdio', 'http', یا 'sse' وي",
+    "save": "خوندي کړئ"
+  },
+  "checkParams": "مهرباني وکړئ پارامیټونه د ښوونې سره سم وګورئ.",
+  "title": "MCP سرورونه",
+  "experimental": "تجربوي",
+  "editAllJson": "ټول سرورونه ایډیټ کړئ JSON",
+  "findMore": "د نورو MCP سرورونو موندلو لپاره",
+  "allowPermissions": "ټول MCP د وسیلې اجازې ومنئ",
+  "allowPermissionsDesc": "کله چې فعال شي، د MCP ټول وسیلې غوښتنې به په اوتومات ډول تصویب شي پرته له دې چې د اجازې ډایلاګونه وښودل شي. دا ترتیبات په ټولو خبرو کې عمومي پلي کیږي، په نوي چیټونو کې هم.",
+  "noServers": "هیڅ MCP سرور ونه موندل شو",
+  "args": "څرګندونې",
+  "env": "چاپیریال",
+  "serverStatusActive": "سرور {{serverKey}} په بریالیتوب سره فعال شو",
+  "serverStatusInactive": "سرور {{serverKey}} په بریالیتوب سره غیر فعال شو",
+  "runtimeSettings": {
+    "title": "د چلولو امستنې",
+    "description": "وټاکئ چې Novera څنګه د MCP سرورونه اداره او بیا هڅه کوي.",
+    "toolCallTimeout": "د وسیلې د غږولو د وخت حدود (ثانیې)",
+    "toolCallTimeoutDesc": "د MCP د وسیلې د ځواب لپاره لوړه انتظار موده مخکې له دې چې وخت خلاص شي.",
+    "maxToolOutputChars": "د وسیلې د تولید د حروفو لوړه اندازه",
+    "maxToolOutputCharsDesc": "په خبرو اترو کې تر ټولو اوږد وسیله پایله ساتل شوې. هر څه چې له دې زیات وي، پرې کیږي او د لنډ شوي په توګه نښه کیږي، نو یوه لویه پایله د ماډل متن له منځه نه وړي. ۰ ته وټاکئ ترڅو پایلې بشپړې وساتل شي.",
+    "smartToolRouting": "هوښیار MCP د وسیلې لارښود",
+    "smartToolRoutingDesc": "کله چې فعاله شي، Novera د وسیلې پورته کولو دمخه اړوند MCP سرورونه غوره کوي. بې فعاله کړئ ترڅو تل د بشپړ MCP وسیلې لست پورته شي.",
+    "useLightweightRouterModel": "د لارښود لپاره ځانګړی ماډل وکاروئ",
+    "useLightweightRouterModelDesc": "کله چې سمارټ راوټینګ فعال وي، د چټ ماډل پر ځای د یوې جلا (اکثره کوچنۍ) ماډل سره راوټینګ مرحله پرمخ یوسئ. بند کړئ چې تل د فعال چټ ماډل د راوټینګ لپاره وکاروي.",
+    "routerModel": "د راوټینګ ماډل",
+    "routerModelDesc": "په یوه ځای کې د چمتو کوونکي او ماډل غوره کړئ. یوازې سپک ماډلونه ښکاره کیږي ترڅو راوټینګ ګړندی او ارزانه پاتې شي.",
+    "selectRouterModelPlaceholder": "د راوټینګ ماډل وټاکئ…",
+    "routerModelSearchPlaceholder": "ماډلونه ولټوئ…",
+    "routerModelEmptyList": "هیڅ سپک ماډلونه شتون نلري. کوچنۍ ماډل اضافه کړئ یا په ماډلونو کې API کیلي تنظیم کړئ.",
+    "routerModelEmptySearch": "د “{{query}}” لپاره هیڅ میچ شتون نلري."
+  },
+  "auth": {
+    "label": "لاسرسي:",
+    "state": {
+      "notApplicable": "ضرورت نشته",
+      "staticHeader": "د اجازې سرلیک",
+      "authenticated": "تصدیق شوی",
+      "expired": "پای ته رسیدلی",
+      "staleResource": "د بل URL لپاره صادر شوی",
+      "unauthenticated": "تصدیق شوی نه دی"
+    },
+    "expiresIn": "په {{duration}} کې پای ته رسیږي",
+    "authenticate": "ننوتل",
+    "reauthenticate": "بیا تصدیق کول",
+    "clear": "تصدیق لرې کړئ",
+    "waiting": "د براوزر انتظار…",
+    "openSignInPage": "د ننه کیدو پاڼه پرانیزه",
+    "needsAuth": "{{serverName}} تایید ته اړتیا لري",
+    "needsAuthHint": "د دې سرور سره د ننه کیدو لپاره ننه شه.",
+    "authorized": "په {{serverName}} کې ننه شوی",
+    "authorizeFailed": "د {{serverName}} لپاره ننه کیدل ناکام شول",
+    "cleared": "د {{serverName}} د ذخیره شویو اسنادو پاکول",
+    "nothingToClear": "{{serverName}} هیڅ ذخیره شوي اسناد نه لرل",
+    "clearFailed": "د {{serverName}} لپاره اسناد پاک نشول",
+    "renew": "ناسته تازه کړه",
+    "expiredAgo": "{{duration}} مخکې پای ته رسیدلی"
+  }
+}

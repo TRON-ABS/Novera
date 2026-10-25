@@ -1,0 +1,18 @@
+{
+  "addProvider": "Provayderni qo‘shish",
+  "addOpenAIProvider": "Boshqa provayderni qo‘shish",
+  "enterNameForProvider": "Provayder nomi (masalan, my-llm-server)",
+  "apiTypeLabel": "API formati",
+  "apiTypeOpenAI": "OpenAI-muvofik",
+  "apiTypeAnthropic": "Anthropic-muvofik",
+  "baseUrlLabel": "Asosiy URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API tugmasi",
+  "apiKeyPlaceholder": "API kalitingizni joylang",
+  "invalidBaseUrl": "Assotsiatsiya URL to‘g‘ri http(s) URL bo‘lishi kerak",
+  "globalSettings": "Global parametrlar",
+  "stripReasoning": "Kontekstdan asoslashni olib tashlash",
+  "stripReasoningDesc": "Barcha provayderlar orasida tarixni qayta jo‘natishdan oldin oldingi turlarning fikrlash/tasavvur qilish mazmunini olib tashlash. Lokal modellar uchun KV-keshni qayta ishlashni yaxshilaydi, lekin ba’zi modellar (masalan, yangi Qwen nashrlari) uni ko‘p martali fikrlash uchun saqlab qolishni tavsiya qiladi.",
+  "providerAlreadyExists": "{{name}} nomli provayder mavjud."
+}

@@ -1,0 +1,10 @@
+{
+  "newVersion": "Noua versiune {{version}}",
+  "updateAvailable": "Actualizare disponibilă",
+  "nightlyBuild": "Construcție de noapte",
+  "showReleaseNotes": "Arată notele de lansare",
+  "hideReleaseNotes": "Ascunde notele de lansare",
+  "remindMeLater": "Amintește-mi mai târziu",
+  "downloading": "Încărcați mai multe...",
+  "updateNow": "Actualizează acum"
+}

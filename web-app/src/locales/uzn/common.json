@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Kod",
+    "preview": "Avvalgi ko‘rinish",
+    "previewStreaming": "Yuklab olish tugaganida qo‘llanishi mumkin",
+    "unresolvedAssets_one": "1-xususiy manba oldindan ko‘rish uchun yuklab olinmadi. Munosabatli yo‘llarda URL bazasi yo‘q.",
+    "unresolvedAssets_other": "{{count}} aktiv manbalari oldingi ko‘rinishda yuklab olinmaydi. Munosabatli yo‘llarda URL bazasi yo‘q."
+  },
+  "assistants": "Yordamchilar",
+  "hardware": "Jadval",
+  "mcp-servers": "MCP serverlari",
+  "local_api_server": "Lokal API server",
+  "remote_access": "Dastlabki kirish",
+  "integrations": "Integratsiyalar",
+  "experimental": "Eksperimental",
+  "claude_code": "Klod Kod",
+  "https_proxy": "HTTPS proksi",
+  "web_search": "Veb-qidiruv",
+  "shell": "Qoplama",
+  "browse": "Ko‘rib chiqish",
+  "moreControls": "Ko‘proq nazoratlar",
+  "starting": "Boshlanmoqda...",
+  "activeSuffix": "(faol)",
+  "extensions": "Ko‘paytirishlar",
+  "attachments": "Ilovalar",
+  "general": "Umum",
+  "settings": "Sozlamalar",
+  "modelProviders": "Model provayderlari",
+  "localProviders": "Lokal",
+  "remoteProviders": "Yaqindagina",
+  "manageProviders": "Provayderlarni boshqarish",
+  "hiddenProviders": "{{count}} noaktiv",
+  "hideProvider": "Provayderni yashirish",
+  "showProvider": "Provayderni ko‘rsatish",
+  "interface": "Interfeys",
+  "appearance": "Tashqi ko‘rinish",
+  "privacy": "Shaxsiylik",
+  "keyboardShortcuts": "Qisqa yo‘llar",
+  "home": "Uy",
+  "cowork": "Cowork",
+  "newSession": "Yangi seans",
+  "artifacts": "Artefaktlar",
+  "customize": "O‘zgartirish",
+  "local": "Lokal",
+  "selectFolder": "Jildni tanlash",
+  "selectModel": "Avval modelni tanlang",
+  "commands": "Buyruqlar",
+  "cmdHelp": "Qoladigan buyruqlar ro‘yxati",
+  "cmdClear": "Ushbu seansni tozalash",
+  "cmdModels": "Faol modelni almashtirish",
+  "cmdModelsHint": "/models yozib, ro‘yxatdan modelni tanlang",
+  "cmdModelSwitched": "{{name}} ga o‘chirildi",
+  "cmdUnknown": "Noma’lum buyruq: {{name}}. /help bilan urining",
+  "cmdBusy": "Agent ishlayotgan paytda buni qila olmaysiz",
+  "cmdCompact": "Seans kontekstini qisqartirish",
+  "cmdCompacted": "Siqilgan {{before}} -> {{after}} xabarlari",
+  "cmdNothingToCompact": "Hozircha siqish uchun hech narsa yo‘q",
+  "cmdCompactFailed": "Siqish muvaffaqiyatsiz yakunlandi: {{error}}",
+  "cmdPlan": "Plan rejimini o‘chirib-yoqish (faqat o‘qish: agent yozmasdan taklif qiladi)",
+  "cmdPlanOn": "Planlash rejimi ishga tushirilgan: agent o‘qiydi va yozmasdan taklif qiladi",
+  "cmdPlanOff": "Planlash rejimi o‘chirilgan: oddiy bajarish",
+  "cmdTodo": "Yuzaga chiqish panelini ochish",
+  "cmdTasks": "Orqa fon vazifalari panelini ochish",
+  "cmdInit": "Loyihani o‘rganish va malaka va xotirani yozish",
+  "cmdInitRunning": "Ushbu loyihani ishga tushirish",
+  "skills": "Mahorat",
+  "skillsInContext": "Agentga bu ishga tushirishda mavjud bo‘lgan qobiliyatlar",
+  "skillsTitle": "Qobiliyatlarni boshqarish",
+  "skillsScopeProject": "{{folder}} uchun malaka",
+  "skillsScopeGlobal": "Har bir sessiyada mavjud bo‘lgan global qobiliyatlar",
+  "skillsScopeMerged": "{{folder}} uchun qobiliyatlar, har bir seans uchun umumiy qobiliyatlar",
+  "skillOriginFolder": "jild",
+  "skillOriginGlobal": "global",
+  "skillsEmpty": "Hozircha malaka yo‘q",
+  "skillsPickOrNew": "Tahrirlash uchun mahoratni tanlang yoki yangisini yarating.",
+  "skillNew": "Yangi malaka",
+  "skillDelete": "Qobiliyatni o‘chir",
+  "skillSave": "Saqlash",
+  "skillSaved": "Sifat saqlandi",
+  "skillNameRequired": "Qobiliyat nomi talab etiladi",
+  "skillNamePlaceholder": "Ko‘rsatgich",
+  "skillContentPlaceholder": "Markdownda qayta ishlash tartibini ta’riflang...",
+  "skillHubImport": "Xabdan import qilish",
+  "skillHubTitle": "Anthropic malaka markazi",
+  "skillHubEmpty": "Xabda qobiliyat topilmadi",
+  "skillImport": "Import",
+  "skillReimport": "Qayta importlash",
+  "skillImported": "{{name}} import qilindi",
+  "sessions": "Seanslar",
+  "deleteSession": "Seansni o‘chirish",
+  "deleteSessionTitle": "Seans yo‘q qilinadimi?",
+  "deleteSessionBody": "\"{{title}}\" va uning transkripti doimiy ravishda o‘chiriladi. Buni bekor qilish mumkin emas.",
+  "newChat": "Yangi suhbat",
+  "newAgentChat": "Yangi agent suhbati",
+  "chats": "Suhbatlar",
+  "favorites": "Yoqimlilar",
+  "recents": "Yaqindagi",
+  "hub": "Xab",
+  "helpSupport": "Yordam va qo‘llab-quvvatlash",
+  "helpUsImproveJan": "Novera'ni yaxshilashga yordam bering",
+  "analyticsConsentDetail": "Biz funktsiyaning ishlashini tushunish uchun noma’lum ma’lumotlarni to‘playmiz. Sizning suhbatlaringiz va shaxsiy ma’lumotlaringiz hech qachon kuzatilmaydi. Buni har doim Parametrlar > Maxfiylik bo‘limida o‘zgartirishingiz mumkin.",
+  "analyticsConsentQuestion": "Bizga Noverani yaxshilashga yordam bermoqchimisiz?",
+  "unstarAll": "Hammasini o‘chirish",
+  "unstar": "Tartibdan chiqarish",
+  "deleteAll": "Hammasini o‘chirib tashlash",
+  "star": "yulduz",
+  "rename": "O‘zgartirish",
+  "delete": "O‘chirish",
+  "copied": "Kopiyalandi!",
+  "dataFolder": "Ma’lumotlar jildlari",
+  "others": "Boshqa",
+  "language": "Til",
+  "login": "Kirish",
+  "loginWith": "{{provider}} bilan kirish",
+  "loginFailed": "Kirishga muvaffaq bo‘lolmadim",
+  "logout": "Chiqish",
+  "loggingOut": "Chiqish...",
+  "loggedOut": "Ishonchli chiqqan",
+  "logoutFailed": "Chiqishga muvaffaq bo‘lmadi",
+  "profile": "Profil",
+  "reset": "Qayta tiklash",
+  "search": "Qidirish",
+  "searchThreads": "Tarmoqlarni qidirish...",
+  "toNavigate": "Navigatsiya",
+  "toSelect": "Tanlash",
+  "toClose": "Yopish",
+  "clearRecent": "Ochiq",
+  "name": "Nomlar",
+  "cancel": "Bekor qilish",
+  "dismiss": "Oxirga yetkazish",
+  "create": "Yaratish",
+  "save": "Saqlash",
+  "edit": "Tahrirlash",
+  "copy": "Nusxalash",
+  "back": "Orqaga",
+  "close": "Yopish",
+  "done": "Tugatildi",
+  "next": "Keyingi",
+  "finish": "Tugatish",
+  "skip": "Ko‘prik",
+  "allow": "Ijozat berish",
+  "deny": "Rad etish",
+  "start": "Boshlash",
+  "stop": "to‘xtatish",
+  "preview": {
+    "loading": "Ochilmoqda…",
+    "unsupported": "Novera bu fayl turini ko‘rsata olmaydi. Uni boshqa dasturda ko‘rish uchun oching.",
+    "outside": "Ushbu fayl endi seans ish joyida yo‘q.",
+    "tooLarge": "Namoyish qilish uchun juda katta. Boshqa dasturda ko‘rish uchun oching.",
+    "reload": "Qayta yuklash",
+    "allowNetwork": "Tarmoqga ruxsat berish",
+    "unsandboxed": "Sandboxsiz ishga tushirish: saqlangan ma’lumotlar va mahalliy fayllar ishlaydi",
+    "unresolvedRefs_one": "Ushbu sahifaga bog‘langan 1 faylni ko‘rish uchun yuklab olish mumkin emas. Uni brauzerda ko‘rish uchun oching.",
+    "unresolvedRefs_other": "Ushbu sahifaga bog‘langan {{count}} fayllar oldindan ko‘rishda yuklab olinmaydi. Uni brauzerda ko‘rish uchun oching.",
+    "externalRefs_one": "Bu sahifa vebdan yuklaydigan 1 resurs bloklangan. Uni yuklash uchun \"Aloqaga ruxsat berish\"ni yoqing.",
+    "externalRefs_other": "Bu sahifa vebdan yuklagan {{count}} resurslari bloklangan. Ularni yuklash uchun \"Aloqaga ruxsat berish\"ni yoqing.",
+    "scriptErrors_one": "Sahifa xato haqida xabar berdi: {{message}}",
+    "scriptErrors_other": "Sahifa {{count}} xato haqida xabar berdi. Birinchi: {{message}}"
+  },
+  "changes": {
+    "title": "Agent o‘zgarishlari",
+    "empty": "Agent yozgan yoki o‘zgartirgan fayllar bu yerda ko‘rsatiladi.",
+    "a11y": "Agent o‘zgarishlari: {{files}} fayllar, {{additions}} qo‘shilgan, {{deletions}} olib tashlangan"
+  },
+  "modelPanel": {
+    "title": "Model parametrlari",
+    "a11y": "Model parametrlarini ochish",
+    "contextTooltip": "Kontekst oynasi: {{value}} dan {{max}} tokenlar"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "'{{name}}' malakasi mavjud emas",
+    "kind": {
+      "skill": "Mahorati",
+      "command": "Buyruq",
+      "model": "Model"
+    }
+  },
+  "compactWidth": "Kichik kenglik",
+  "fullWidth": "Barcha kenglik",
+  "dark": "qorong‘u",
+  "light": "Yorug‘lik",
+  "system": "Sistema",
+  "auto": "Avto",
+  "english": "Inglizcha",
+  "medium": "Media",
+  "newThread": "Yangi zanjir",
+  "noResultsFound": "Natija topilmadi",
+  "noThreadsYet": "Hozircha zanjirlar yo‘q",
+  "noThreadsYetDesc": "Bu yerda sizning zanjir tarixini ko‘rish uchun yangi suhbatni boshlash.",
+  "downloads": "Yuklab olishlar",
+  "downloading": "Yuklab olindi",
+  "uploadingAttachments": "Ilovalar yuklanmoqda…",
+  "cancelDownload": "Yuklab olishni bekor qilish",
+  "downloadCancelled": "Yuklab olish bekor qilindi",
+  "downloadComplete": "Yuklab olish yakunlandi",
+  "thinking": "Tasavvur qiling...",
+  "thought": "Tasavvur",
+  "callingTool": "Qo‘ng‘iroq asbobi",
+  "completed": "Tugatildi",
+  "image": "Rasm",
+  "vision": "Ko‘rinish",
+  "multimodal": "Multimodallar",
+  "embeddings": "Qo‘shishlar",
+  "tools": "Asboblar",
+  "webSearch": "Veb-qidiruv",
+  "reasoning": "Tafsilotlar",
+  "proactive": "Proaktiv",
+  "selectAModel": "Modelni tanlash",
+  "noToolsAvailable": "Asboblar mavjud emas",
+  "noModelsFoundFor": "\"{{searchValue}}\" uchun model topilmadi",
+  "failedToLoadModels": "Modellarni yuklash muvaffaqiyatsiz yakunlandi",
+  "noModels": "Model topilmadi",
+  "noAssistant": "Yordamchi yo‘q",
+  "customAvatar": "Boshqa avatar",
+  "editAssistant": "Tahrirlash yordamchisi",
+  "jan": "Novera",
+  "metadata": "Meta ma’lumot",
+  "regenerate": "Yangidan yaratish",
+  "threadImage": "Tarmoq tasviri",
+  "editMessage": "Xabarni o‘zgartirish",
+  "deleteMessage": "Xabarni o‘chirib tashlash",
+  "deleteThread": "Aloqani o‘chirish",
+  "renameThread": "Tarmoqni qayta nomlash",
+  "threadTitle": "Mavzu sarlavhasi",
+  "deleteAllThreads": "Barcha zanjirlarni o‘chirib tashlash",
+  "allThreadsUnfavorited": "Barcha zanjirlarni afzal ko‘rmaslik",
+  "deleteAllThreadsConfirm": "Barcha zanjirlarni o‘chirib tashlashni istaysizmi? Bu harakatdan voz kechib bo‘lmaydi.",
+  "addProvider": "Provayderni qo‘shish",
+  "addOpenAIProvider": "OpenAI provayderini qo‘shish",
+  "enterNameForProvider": "Provayderingiz uchun nomni kiriting",
+  "providerAlreadyExists": "\"{{name}}\" nomli provayder mavjud. Iltimos, boshqa nomni tanlang.",
+  "adjustFontSize": "Harf hajmini to‘g‘rilash",
+  "changeLanguage": "Tilni o‘zgartirish",
+  "editTheme": "Mavzuni o‘zgartirish",
+  "editCodeBlockStyle": "Kod bloki uslubini o‘zgartirish",
+  "editServerHost": "Server xostini o‘zgartirish",
+  "pickColorWindowBackground": "Ekran orqa foni rangini tanlash",
+  "pickColorAppMainView": "Rangli dasturning asosiy ko‘rinishini tanlash",
+  "pickColorAppPrimary": "Rang dasturining asosiy rangini tanlash",
+  "pickColorAppAccent": "Dastur aktsenti rangini tanlash",
+  "pickColorAppDestructive": "Rangni tanlash",
+  "apiKeyRequired": "API kalit talab etiladi",
+  "enterTrustedHosts": "ishonchli xostlarni kiriting",
+  "placeholder": {
+    "chatInput": "Mendan biror narsani so‘rang."
+  },
+  "confirm": "Tasdiqlash",
+  "continue": "Davom ettirish",
+  "loading": "Yuklanmoqda...",
+  "settingUpJan": "Novera yuklanmoqda...",
+  "registeringExtensions": "Ko‘paytirishlar ro‘yxatga olinmoqda…",
+  "loadingExtensions": "Ko‘paytirishlar yuklanmoqda… ({{done}}/{{total}})",
+  "error": "Xato",
+  "success": "Muvaffaqiyat",
+  "warning": "Ogohlantirish",
+  "conversationNotAvailable": "Suhbat mavjud emas",
+  "conversationNotAvailableDescription": "Siz kirishga urinayotgan suhbat mavjud emas yoki o‘chirilgan.",
+  "temporaryChat": "Muvaqqat suhbat",
+  "temporaryChatTooltip": "Muvaqqat suhbat tarixingizda ko‘rinmaydi",
+  "noResultsFoundDesc": "Biz sizning qidiruvingizga mos keladigan suhbatlarni topa olmadik. Boshqa so‘zni izlang.",
+  "searchModels": "Modellarni qidirish...",
+  "searchStyles": "Uslublarni qidirish...",
+  "createAssistant": "Yordamchini yaratish",
+  "enterApiKey": "API tugmasini kiriting",
+  "scrollToBottom": "Poyonga siljish",
+  "generateAiResponse": "AI javobini yaratish",
+  "continueAiResponse": "AI javobi bilan davom ettirish",
+  "addModel": {
+    "title": "Modelni qo‘shish",
+    "modelId": "Model ID",
+    "enterModelId": "Model ID'ni kiriting",
+    "addModel": "Modelni qo‘shish",
+    "description": "Provayderga yangi modelni qo‘shish",
+    "exploreModels": "Provayderdan modellar ro‘yxatini ko‘rish"
+  },
+  "mcpServers": {
+    "editServer": "Serverni o‘zgartirish",
+    "addServer": "Serverni qo‘shish",
+    "serverName": "Server nomi",
+    "enterServerName": "Server nomini kiriting",
+    "command": "Buyruq",
+    "enterCommand": "Buyruqni kiriting",
+    "arguments": "Argumentlar",
+    "argument": "{{index}} argumenti",
+    "envVars": "Atrof-muhit o‘zgaruvchilari",
+    "key": "Kalit",
+    "value": "Qimmat",
+    "save": "Saqlash"
+  },
+  "deleteServer": {
+    "title": "Serverni o‘chirish",
+    "delete": "O‘chirish"
+  },
+  "editJson": {
+    "errorParse": "JSONni tahlil qilish muvaffaqiyatsiz yakunlandi",
+    "errorPaste": "JSONni joylashtirish muvaffaqiyatsiz yakunlandi",
+    "errorFormat": "Noloyiq JSON formati",
+    "titleAll": "Barcha serverlar konfiguratsiyasini o‘zgartirish",
+    "placeholder": "JSON konfiguratsiyasiga kirish...",
+    "save": "Saqlash"
+  },
+  "editModel": {
+    "title": "Modelni o‘zgartirish: {{modelId}}",
+    "description": "Model imkoniyatlarini quyidagi parametrlarni almashtirish orqali sozlang.",
+    "capabilities": "Qobiliyatlar",
+    "tools": "Asboblar",
+    "vision": "Ko‘rinish",
+    "embeddings": "Qo‘shishlar",
+    "notAvailable": "Hozircha mavjud emas"
+  },
+  "outOfContextError": {
+    "truncateInput": "Kirishni qisqartirish",
+    "title": "Kontekstdan tashqari xato",
+    "description": "Bu suhbat AI xotira chegarasiga yetib bormoqda, xuddi oq taxta to‘lib ketayotgandek. Biz xotira oynasini (kontekst hajmi deb ataladi) kengaytirib, yanada ko‘proq xotiraga ega bo‘lishimiz mumkin, ammo bu kompyuter xotirasini ko‘proq ishlatishi mumkin. Biz kiritishni ham qisqartirishimiz mumkin, bu esa yangi xabarlar uchun joy ajratish uchun suhbat tarixining ba’zi qismini unutishi mumkin.",
+    "increaseContextSizeDescription": "Kontekst hajmini oshirishni xohlaysizmi?",
+    "increaseContextSize": "Kontekst hajmini oshirish"
+  },
+  "toolApproval": {
+    "title": "Asbob ruxsat so‘rashi",
+    "description": "Yordamchi <strong>{{toolName}}</strong>ni qo‘llashni xohlaydi",
+    "securityNotice": "Faqat ishongan asboblarga ruxsat bering. Asboblar sizning tizimingiz va ma’lumotlaringizga kirishi mumkin.",
+    "deny": "Rad etish",
+    "allowOnce": "Bir marta ruxsat berish",
+    "alwaysAllow": "Doimo ruxsat berish"
+  },
+  "deleteModel": {
+    "title": "Modelni o‘chirib tashlash: {{modelId}}",
+    "description": "Siz bu modelni yo‘q qilishni istaysizmi? Bu harakat bekor qilinmaydi.",
+    "success": "Model {{modelId}} doimiy ravishda olib tashlandi.",
+    "cancel": "Bekor qilish",
+    "delete": "O‘chirish"
+  },
+  "deleteProvider": {
+    "title": "Provayderni olib tashlash",
+    "description": "Ushbu provayderni va uning barcha modellarini o‘chirib tashlash. Bu harakatdan voz kechib bo‘lmaydi.",
+    "success": "Provayder {{provider}} doimiy ravishda yo‘q qilindi.",
+    "confirmTitle": "Provayderni o‘chirish: {{provider}}",
+    "confirmDescription": "Siz bu provayderni yo‘q qilishni istaysizmi? Bu ishga qaytish mumkin emas.",
+    "cancel": "Bekor qilish",
+    "delete": "O‘chirish"
+  },
+  "modelSettings": {
+    "title": "Model parametrlari - {{modelId}}",
+    "description": "Model parametrlarini samaradorlik va harakatni optimallashtirish uchun sozlash.",
+    "nglDisabledByFit": "Avtomoslashtirish GPU qatlamlarni tanlaydi. Buni qo‘lda o‘rnatish uchun Avtomoslashtirishni o‘chiring.",
+    "samplingDefaults": {
+      "title": "Standart namuna parametrlari",
+      "description": "Ushbu model uchun standart namuna olish parametrlari. Har bir yordamchi yoki har bir talab qiymatlari bilan almashtirilmasa, qo‘llaniladi."
+    },
+    "specDraft": {
+      "section": "Spekulyativ dekodlash",
+      "enable": "Spekulyativ dekodlashni ishga tushirish",
+      "enableDescription": "Har bir bosqichda bir nechta tokenlarni tayyorlash va ularni bir marta tekshirish, yaratishni tezlashtiradi. Modelning ichiga o‘rnatilgan MTP boshlarini yoki u bilan yuklab olingan loyiha modelini (MTP, Eagle3, DFlash yoki DSpark) foydalanadi.",
+      "nMax": "Maks. loyiha tegi",
+      "nMaxDescription": "Har bir bosqichda loyihalash uchun maksimal tokenlar soni. Defolt 16.",
+      "nMin": "Mintaqalar",
+      "nMinDescription": "Har bir bosqichda loyihalash uchun minimal tokenlar soni. Oldindan 0.",
+      "pMin": "Minimal loyiha ehtimoli",
+      "pMinDescription": "Jahldor loyihalashning minimal ehtimoli (0-1). Defolt 0.75."
+    },
+    "templateKwargs": {
+      "section": "Suhbat shablon parametrlari",
+      "description": "Bu modelning suhbat shabloni qabul qiladigan qo‘shimcha parametrlar. Har bir iltimos uchun chat_template_kwargs sifatida yuboriladi; shablon qaror qabul qilishi uchun uning oldingi qiymatini qoldiring.",
+      "addCustom": "Boshqa parametrni qo‘shish",
+      "keyPlaceholder": "nom",
+      "valuePlaceholder": "qiymat",
+      "add": "Qo‘shish",
+      "cancel": "Bekor qilish",
+      "remove": "Olib tashlash"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Model parametrlari yangilanmadi"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Ma’lumotlar jildini joyini o‘zgartirish",
+      "description": "Ma’lumotlar jildining joyini o‘zgartirishni istaysizmi? Bu sizning barcha ma’lumotlaringizni yangi joyga ko‘chiradi va dasturni qayta ishga tushiradi.",
+      "currentLocation": "Joriy manzil:",
+      "newLocation": "Yangi manzil:",
+      "cancel": "Bekor qilish",
+      "changeLocation": "Manzilni o‘zgartirish"
+    },
+    "deleteAllThreads": {
+      "title": "Barcha zanjirlarni o‘chirib tashlash",
+      "description": "Barcha zanjirlar o‘chiriladi. Bu harakatdan voz kechib bo‘lmaydi."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Hamma suhbatlarni o‘chirib tashlash",
+      "description": "\"{{projectName}}\"dagi {{count}} suhbatlar o‘chiriladi. Bu harakatdan voz kechib bo‘lmaydi."
+    },
+    "deleteThread": {
+      "description": "Siz bu zanjirni yo‘q qilishni istaysizmi? Bu ishga qaytish mumkin emas."
+    },
+    "editMessage": {
+      "title": "Xabarni o‘zgartirish"
+    },
+    "messageMetadata": {
+      "title": "Xabar metama’lumotlari"
+    },
+    "deleteMessage": {
+      "description": "Ushbu xabarni o‘chirib tashlashni istaysizmi? Bu ishga qaytish mumkin emas."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Biror narsa xato bo‘ldi",
+    "details": "Tafsilotlar"
+  },
+  "missingDependenciesDialog": {
+    "title": "Yo‘qolgan tizim kitobxonalari",
+    "description": "{{backend}} o‘rnatildi, lekin ba’zi kerakli tizim kitobxonalari topilmadi. U CPUga qaytishi yoki to‘g‘ri ishlamasligi mumkin.",
+    "installLabel": "Buni tuzatish uchun quyidagilarni o‘rnating:",
+    "download": "Yuklab olish",
+    "additionalLibraries": "Qo‘shimcha yo‘qotilgan kitoblar:",
+    "missingLibraries": "Yo‘qotilgan kitoblar:",
+    "showRawLibraries": "{{count}} yo‘qotilgan kitobxona nomlarini ko‘rsatish"
+  },
+  "projects": {
+    "title": "Loyihalar",
+    "new": "Yangi loyihalar",
+    "addProject": "Loyihani qo‘shish",
+    "addToProject": "Loyihaga qo‘shish",
+    "removeFromProject": "Loyihadan olib tashlash",
+    "createNewProject": "Yangi loyiha yaratish",
+    "editProject": "Loyihani o‘zgartirish",
+    "deleteProject": "Loyihani o‘chirish",
+    "projectName": "Loyiha nomi",
+    "enterProjectName": "Loyiha nomini kiriting...",
+    "noProjectsAvailable": "Loyiha mavjud emas",
+    "noProjectsYet": "Hozircha loyihalar yo‘q",
+    "noProjectsYetDesc": "Loyiha qo‘shish tugmasini bosib, yangi loyihani boshlang.",
+    "projectNotFound": "Loyiha topilmadi",
+    "projectNotFoundDesc": "Siz izlayotgan loyiha mavjud emas yoki o‘chirilgan.",
+    "selectAssistant": "Yordamchini tanlash",
+    "noAssistantAssigned": "Ushbu loyihaga yordamchi tayinlanmagan",
+    "files": "Fayllar",
+    "filesDescription": "Ushbu loyihaga PDF, hujjat yoki boshqa matnni misol sifatida qo‘shing.",
+    "uploadingFiles": "Fayllar ishlanmoqda…",
+    "processButton": "Qo‘shish",
+    "deleteProjectDialog": {
+      "title": "Loyihani o‘chirish",
+      "permanentDelete": "Bu barcha zanjirlarni doimiy ravishda o‘chiradi.",
+      "permanentDeleteWarning": "Bu harakat loyihadagi HAMMA zanjirlarni doimiy ravishda o‘chiradi!",
+      "deleteEmptyProject": "Bu harakat \"{{projectName}}\" loyihasini o‘chiradi.",
+      "saveThreadsAdvice": "Tarmoqlarni saqlash uchun ularni o‘chirib tashlashdan oldin tarmoqlar ro‘yxatiga yoki boshqa loyihaga ko‘chiring.",
+      "starredWarning": "Sizda hali ham loyihada yulduzli zanjirlar bor.",
+      "deleteButton": "O‘chirish",
+      "successWithName": "Loyiha \"{{projectName}}\" muvaffaqiyatli o‘chirildi",
+      "successWithoutName": "Loyiha muvaffaqiyatli o‘chirildi",
+      "error": "Loyihani o‘chirib tashlash muvaffaqiyatsiz yakunlandi. Iltimos, yana urinib ko‘ring.",
+      "ariaLabel": "{{projectName}}ni o‘chirib tashlash"
+    },
+    "addProjectDialog": {
+      "createTitle": "Yangi loyiha yaratish",
+      "editTitle": "Loyihani o‘zgartirish",
+      "nameLabel": "Loyiha nomi",
+      "namePlaceholder": "Loyiha nomini kiriting...",
+      "assistant": "Yordamchi",
+      "selectAssistant": "Yordamchini tanlash (ixtiyoriy)",
+      "noAssistant": "Yordamchi yo‘q",
+      "addAssistant": "Yordamchi qo‘shish",
+      "createButton": "Yaratish",
+      "updateButton": "Yangilash",
+      "alreadyExists": "\"{{projectName}}\" loyihasi mavjud",
+      "createSuccess": "Loyiha \"{{projectName}}\" muvaffaqiyatli yaratildi",
+      "updateSuccess": "Loyiha \"{{projectName}}\" muvaffaqiyatli yangilandi",
+      "saveError": "Loyiha saqlanmadi. Marhamat qilib yana urining."
+    },
+    "noConversationsIn": "{{projectName}}da suhbat yo‘q",
+    "startNewConversation": "Quyidagi {{projectName}} bilan yangi suhbatni boshlash",
+    "conversationsIn": "{{projectName}}dagi suhbatlar",
+    "conversationsDescription": "Suhbatni davom ettirish uchun biror suhbatni bosing yoki quyida yangisini boshlang.",
+    "conversation": "Suhbat",
+    "instructions": "Yo‘riqnoma",
+    "setup": "O‘rnatish",
+    "instructionsDescription": "Ton va javob uslubini moslashtirish",
+    "manageInstructions": "Yo‘riqnomalarni boshqarish",
+    "thread": "zanjir",
+    "threads": "zanjirlar",
+    "updated": "Yangilandi:",
+    "collapseProject": "Loyihani yopish",
+    "expandProject": "Loyihani kengaytirish",
+    "update": "Yangilash",
+    "searchProjects": "Loyihalarni qidirish...",
+    "noProjectsFound": "Loyiha topilmadi",
+    "tryDifferentSearch": "Boshqa qidiruv iborasi bilan urining"
+  },
+  "attachmentsIngestion": {
+    "title": "Ilovalarni qanday qabul qilishni tanlang",
+    "description": "Ushbu fayllarni suhbatga to‘g‘ridan-to‘g‘ri kiritish yoki o‘rniga ularni yopishtirib indekslashni tanlang.",
+    "inline": "Suhbatga kiritish",
+    "embeddings": "Qo‘shishlardan foydalanish"
+  },
+  "attachmentInjectedIndicator": "Suhbatga kiritildi",
+  "attachmentEmbeddedIndicator": "RAG uchun yopishtirilgan",
+  "viewInjectedContent": "In’yektsion mazmunni ko‘rish",
+  "injectedContentTitle": "Fayl mazmuni kiritildi",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Barcha zanjirlarni afzal ko‘rmaslik",
+      "description": "Barcha zanjirlar sevimlilardan olib tashlandi."
+    },
+    "deleteAllThreads": {
+      "title": "Barcha zanjirlarni o‘chirib tashlash",
+      "description": "Barcha zanjirlar doimiy ravishda o‘chirildi."
+    },
+    "renameThread": {
+      "title": "Tarmoqni qayta nomlash",
+      "description": "Poyabzal sarlavhasi '{{title}}' ga o‘zgartirildi"
+    },
+    "deleteThread": {
+      "title": "Aloqani o‘chirish",
+      "description": "Bu zanjir doimiy ravishda o‘chirildi."
+    },
+    "errorCopied": {
+      "title": "Nusxa olish muvaffaqiyatli yakunlandi",
+      "description": "Xato haqidagi ma’lumot silliq diskka ko‘chirildi"
+    },
+    "errorCopyFailed": {
+      "title": "Nusxa olish muvaffaqiyatsiz yakunlandi",
+      "description": "Xato haqidagi ma’lumotni buferga ko‘chirib olish muvaffaqiyatsiz yakunlandi"
+    },
+    "editMessage": {
+      "title": "Xabarni o‘zgartirish",
+      "description": "Xabar muvaffaqiyatli o‘zgartirildi. Iltimos, model javob bergunicha kuting."
+    },
+    "appUpdateDownloaded": {
+      "title": "Dastur yangilanishi yuklandi",
+      "description": "Dastur yangilanishi muvaffaqiyatli yuklab olindi."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Dastur yangilanishini yuklab olish muvaffaqiyatsiz yakunlandi",
+      "description": "Dastur yangilanishini yuklab olish muvaffaqiyatsiz yakunlandi. Marhamat qilib yana urining."
+    },
+    "downloadComplete": {
+      "title": "Yuklab olish yakunlandi",
+      "description": "{{item}} yuklab olingan"
+    },
+    "downloadCancelled": {
+      "title": "Yuklab olish bekor qilindi",
+      "description": "Yuklab olish jarayoni bekor qilindi"
+    },
+    "downloadFailed": {
+      "title": "Yuklab olish muvaffaqiyatsiz yakunlandi",
+      "description": "{{item}} yuklab olishda xato",
+      "descriptionWithReason": "{{item}} yuklab olish muvaffaqiyatsiz yakunlandi: {{reason}}",
+      "reason": {
+        "dns": "Server nomi hal qilinmadi",
+        "refused": "ulanish rad etildi",
+        "timeout": "aloqa vaqti o‘tib ketdi",
+        "tls": "xavfsiz aloqa o‘rnatilmadi",
+        "proxy": "proksiga yetib borilmadi",
+        "unreachable": "Serverga yetib bo‘lmadi"
+      }
+    },
+    "openSettings": "Parametrlarni ochish",
+    "openLogs": "Jurnalni ochish",
+    "downloadTokenRequired": {
+      "title": "Hugging Face token kerak",
+      "description": "Bu model Hugging Face kirish tokenini talab qiladi. Parametrlarda sizning tokeningizni qo‘shing va yana urining."
+    },
+    "downloadLicenseRequired": {
+      "title": "Model litsenziyasini Hugging Faceda qabul qilish",
+      "description": "Siz yuklab olishdan oldin uning Hugging Face sahifasidagi model litsenziyasini qabul qilishingiz kerak."
+    },
+    "downloadRateLimited": {
+      "title": "Sur’at Hugging Face bilan cheklangan",
+      "description": "Siz tezlik chegarasi bilan cheklangansiz. Token qo‘shish tezlik chegarasini oshirishi mumkin. Iltimos, keyinroq yana urining."
+    },
+    "modelValidationStarted": {
+      "title": "Model tasdiqlanmoqda",
+      "description": "\"{{modelId}}\" modeli muvaffaqiyatli yuklab olindi. Barqarorligi tekshirilmoqda..."
+    },
+    "modelValidationFailed": {
+      "title": "Model tasdiqlashi muvaffaqiyatsiz yakunlandi",
+      "description": "Yuklab olingan \"{{modelId}}\" modeli to‘liqligini tekshirishdan o‘ta olmadi va olib tashlandi. Fayl buzilgan yoki o‘zgartirilgan bo‘lishi mumkin."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Yuklab olish yakunlandi",
+      "description": "\"{{item}}\" modeli yuklab olindi va muvaffaqiyatli tekshirildi"
+    },
+    "projectCreated": {
+      "title": "Loyiha yaratildi",
+      "description": "Loyiha \"{{projectName}}\" muvaffaqiyatli yaratildi"
+    },
+    "projectRenamed": {
+      "title": "Loyiha nomi o‘zgartirildi",
+      "description": "Loyiha nomi \"{{oldName}}\"dan \"{{newName}}\"ga o‘zgartirildi"
+    },
+    "projectDeleted": {
+      "title": "Loyiha yo‘q qilindi",
+      "description": "Loyiha \"{{projectName}}\" muvaffaqiyatli o‘chirildi"
+    },
+    "projectAlreadyExists": {
+      "title": "Loyiha mavjud",
+      "description": "\"{{projectName}}\" loyihasi mavjud"
+    },
+    "projectDeleteFailed": {
+      "title": "O‘chirish muvaffaqiyatsiz yakunlandi",
+      "description": "Loyihani o‘chirib tashlash muvaffaqiyatsiz yakunlandi. Iltimos, yana urinib ko‘ring."
+    },
+    "threadAssignedToProject": {
+      "title": "Taqsimlangan zanjir",
+      "description": "Poyabzal \"{{projectName}}\"ga muvaffaqiyatli taqsimlandi"
+    },
+    "threadRemovedFromProject": {
+      "title": "Tarmoq olib tashlandi",
+      "description": "Poyabzal \"{{projectName}}\" dan muvaffaqiyatli olib tashlandi"
+    },
+    "fileUploaded": {
+      "title": "Fayl ishlandi",
+      "description": "Fayl muvaffaqiyatli ishlandi va indekslandi"
+    },
+    "uploadFailed": {
+      "title": "Ishlab chiqish muvaffaqiyatsiz yakunlandi",
+      "description": "Fayl ishlash muvaffaqiyatsiz yakunlandi",
+      "subjectThisFile": "Ushbu fayl",
+      "pdfMalformedXref": "{{subject}} ning PDF cross-reference jadvali xato shakllangan va tahlil qilina olmadi. Uni PDF ko‘rgichida ochib ko‘ring va qayta saqlang (Fayl → Chop qilish → PDF sifatida saqlash), so‘ngra yana yuklang.",
+      "pdfScanned": "{{subject}} skan qilingan yoki tasvirga asoslangan PDF ko‘rinadi. OCR hali qo‘llanilmaydi — iltimos matnga asoslangan PDF yuklab oling.",
+      "pdfEncrypted": "{{subject}} maxfiy so‘z bilan himoyalangan. Maxfiy so‘zni olib tashlang va yana urining.",
+      "pdfUnsupportedFeature": "{{subject}} PDF xususiyatini foydalanadi Novera hali tahlil qilina olmaydi (masalan, PostScript rang/soya funktsiyalari). Uni qayta saqlab ko‘ring (Fayl → Chop qilish → Boshqacha saqlash PDF) uni bir tekislash uchun, so‘ngra yana yuklab oling.",
+      "pdfGeneric": "{{subject}} PDF sifatida talqin qilinmadi. Fayl buzilgan bo‘lishi mumkin yoki qo‘llanilmaydigan PDF xususiyatini qo‘llashi mumkin.",
+      "fileTooLarge": "{{subject}} juda katta. {{message}}.",
+      "unsupportedType": "\"{{type}}\" fayl turi qo‘llanilmaydi.",
+      "ioError": "{{subject}} o‘qilmadi: {{message}}",
+      "parseGeneric": "{{subject}} tahlil qilinmadi: {{message}}",
+      "fallback": "{{subject}}ni ishlash muvaffaqiyatsiz tugadi."
+    },
+    "fileDeleted": {
+      "title": "Fayl o‘chirildi",
+      "description": "Fayl loyihadan olib tashlandi"
+    },
+    "deleteFailed": {
+      "title": "O‘chirish muvaffaqiyatsiz yakunlandi",
+      "description": "Faylni o‘chirishga muvaffaq bo‘lilmadi"
+    },
+    "fileAlreadyExists": {
+      "title": "Fayl mavjud",
+      "description": "Fayl loyihaga allaqachon ilova qilingan"
+    },
+    "unsupportedFileType": {
+      "title": "Yordam berilmaydigan fayl turi",
+      "description": "Fayl kengaytiruvi \".{{extension}}\" loyiha manbasi uchun qo‘llanilmaydi."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Ilovalar o‘chirilgan",
+      "description": "Ilovalar Parametrlarda o‘chirilgan"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Fayl juda katta",
+    "fileTooLargeDescription": "{{fileName}} {{maxFileSizeMB}}MB chegaradan oshdi"
+  },
+  "files": {
+    "chunksCount": "{{count}} parchalar",
+    "title": "Fayllar",
+    "empty": "Siz ilova qilgan fayllar va agent yaratgan fayllar bu yerda ko‘rsatiladi.",
+    "a11y": "Fayllar: {{count}}",
+    "attachments": "Ilovalar",
+    "notImported": "Ish joyida emas"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp hali ham band",
+    "description": "Bir yoki bir nechta modellar vaqtida yuklanmagan. Qo‘llab-quvvatlash llama.cppni tugatadi va faol javoblarni to‘xtatadi.",
+    "forceQuit": "Majburiy chiqish",
+    "forcing": "Majburiy chiqish...",
+    "shuttingDown": "O‘chirilmoqda..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Qisqartirish",
+  "expand": "Ko‘tarish",
+  "todoPanelTitle": "Yuklab olish",
+  "todoPanelEmpty": "Hozircha ish ro‘yxati yo‘q.",
+  "backgroundTasks": "Orqa fon vazifalari",
+  "subagentsRunning_one": "{{count}} subagent ishlayotgan",
+  "subagentsRunning_other": "{{count}} ishlayotgan sub agentlar",
+  "monitorsRunning_one": "{{count}} monitor ishlayotgan",
+  "monitorsRunning_other": "{{count}} ishlayotgan monitorga",
+  "backgroundRunning_one": "{{count}} fon vazifasi amalga oshirilmoqda",
+  "backgroundRunning_other": "{{count}} ishlayotgan fon vazifalari",
+  "monitors": "Monitorlar",
+  "monitorPolling": "So‘rov",
+  "monitorMatched": "Muvofiq",
+  "monitorTimedOut": "Vaqt o‘tib ketdi",
+  "monitorStopped": "to‘xtatildi",
+  "monitorEnded": "Tugatildi",
+  "coworkWatching_one": "{{count}} monitori kuzatilmoqda…",
+  "coworkWatching_other": "{{count}} monitorga qaralmoqda…",
+  "coworkWaitingBackground": "Orqa fon vazifalarini kutish...",
+  "noBackgroundTasks": "Hozircha fon vazifalari yo‘q.",
+  "running": "Yuklanmoqda",
+  "queued": "Qator",
+  "waiting": "Kutish",
+  "finished": "Tugatildi",
+  "subagentPhase": "Faza {{phase}}",
+  "subagentWaiting": "kutmoqda",
+  "viewTranscript": "Transkriptni ko‘rish",
+  "taskWorking": "Ishlayotgan...",
+  "taskNoOutput": "Subagent ko‘rinuvchi chiqindini chiqarmadi.",
+  "subagentToolUses_one": "{{count}} asbobdan foydalanish",
+  "subagentToolUses_other": "{{count}} asbob ishlatiladi",
+  "artifactGroupCode": "Kod",
+  "artifactGroupImage": "Rasm",
+  "artifactGroupDocument": "Hujjat",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Avvalgi ko‘rinishni ochish",
+  "artifactOpenExternal": "_Ochish",
+  "artifactMoreActions": "Ko‘proq harakatlar",
+  "artifactShowInFolder": "Jildda ko‘rsatish",
+  "skillsUsedLabel": "Ishlatilgan malakalar",
+  "skillsUsed": "Ishlatilgan malakalar: {{skills}}",
+  "artifactsAll": "Hammasi",
+  "artifactsEmpty": "Hozircha hech narsa yaratilmadi. Bu yerda Cowork ishlashdan olingan artefaktlar ko‘rsatiladi.",
+  "artifactsNoMatch": "Artefaktlar mos kelmadi.",
+  "artifactsSearch": "Artefaktlarni qidirish",
+  "artifactsShowMore": "{{count}} dan ko‘proq ko‘rsatish",
+  "workspace": {
+    "readsFrom": "Bu yerda ishlaydi",
+    "writable": "O‘qish va yozish",
+    "footnote": "Agent bu jildni to‘g‘ridan-to‘g‘ri o‘qiydi va o‘zgartiradi. Farq panelida nima o‘zgarganini ko‘rib chiqing.",
+    "footnoteEmpty": "Agent sizning loyihangiz ustida ishlashga ruxsat berish uchun jildni qo‘shing. U unda fayllarni o‘qish va o‘zgartirishi mumkin.",
+    "attach": "Jildni ilova qilish",
+    "change": "Jildni o‘zgartirish",
+    "detach": "Jildni ajratish",
+    "open": "_Ochish",
+    "reveal": "Ko‘rsatish",
+    "unavailable": "Ish joyi mavjud emas",
+    "missing": "Ish joyi jildining {{folder}} nomi mavjud emas. Iltimos, boshqa jildni tanlang.",
+    "openFailed": "Ish joyi ochilmadi",
+    "revealFailed": "Ish joyi ko‘rsatilmadi",
+    "a11yWithFolder": "{{folder}} loyiha papkasi, o‘qish va yozish huquqi bilan bog‘langan. Uni o‘zgartiring yoki ajratib oling.",
+    "a11yNoFolder": "Loyiha papkasi ilova qilinmagan. Iltimos, qo‘shing."
+  },
+  "coworkEmpty": {
+    "title": "Biz nima ustida ishlayapmiz?",
+    "subtitleSandbox": "Novera vazifani bering. U fayllarni o‘qiydi va yozadi, buyruqlarni bajaradi va qadamlarni o‘zi bajaradi.",
+    "subtitleFolder": "Noveraga vazifa bering. U {{folder}}da to‘g‘ridan-to‘g‘ri ishlaydi, fayllarni o‘zi o‘qiydi va tahrirlaydi.",
+    "try": "Sinab ko‘rish",
+    "sandbox": {
+      "first": "Fayllarni ular olingan sanaga ko‘ra qayta nomlash uchun Python skripti yozing",
+      "second": "CSV dan bitta sahifali panelni yaratish",
+      "third": "Men sizga ta’rif bergan loyiha uchun README loyihasini tuzish"
+    },
+    "folder": {
+      "first": "{{folder}} qanday qilib birlashganini tushuntiring",
+      "second": "{{folder}}dagi har bir TODOni topish va ularni hudud bo‘yicha guruhlash",
+      "third": "Men sizga ko‘rsatayotgan {{folder}} qismi uchun sinovlar yozing"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Terminal yo‘q",
+    "a11y": "Buyruqlarni bajarish o‘chirib qo‘yilgan. Ma’lumotlar.",
+    "title": "Buyruqlarni bajarish o‘chirilgan",
+    "body": "Novera agentga faqatgina sizning tizimingiz ularni cheklab qo‘yishi mumkin bo‘lgan shell buyruqlarini bajarishga imkon beradi. Bu yerda sandbox mavjud emas, shuning uchun agent sandboxdagi fayllarni o‘qishi, yozishi va tahrirlashi mumkin, ammo hech narsani bajara olmaydi.",
+    "fixLinux": "Linux bubblewrap'dan foydalanadi. Uni o‘rnatib, Noverani qayta ishga tushiring.",
+    "fixMac": "macOS /usr/bin/sandbox-exec da joylashgan ichkariga o‘rnatilgan sandbox'dan foydalanadi. U mavjud bo‘lganda Novera qayta ishga tushiriladi.",
+    "fixWindows": "Windows AppContainer'dan foydalanadi. Yana urinish uchun Novera'ni qayta ishga tushiring.",
+    "recheck": "Qayta tekshirish"
+  },
+  "planMode": {
+    "label": "Loyiha",
+    "tooltipOff": "Avval rejalashtiring - agent o‘qiydi va yozmasdan taklif qiladi.",
+    "tooltipOn": "Planirovka. Fayllarni agent yozishiga ruxsat berish uchun buni o‘chiring.",
+    "onAnnounce": "Planlash rejimi ishga tushgan",
+    "placeholder": "Planni so‘rang. Agent hech qanday faylni o‘zgartirmaydi."
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} qadamda to‘xtatildi. Agent tugamagan.",
+    "keepGoing": "Davom eting",
+    "stoppedTokens": "Tuxtatildi - bu seans o‘z indikator byudjetini o‘tkazib yubordi.",
+    "compact": "Siqilgan",
+    "newSession": "Yangi seans"
+  },
+  "run": {
+    "stopped": "to‘xtatildi.",
+    "failed": "Erta turdi.",
+    "tryAgain": "Qayta urinish"
+  },
+  "modelNoTools": "{{model}} asboblarni chaqira olmaydi, shuning uchun agent sifatida ishlay olmaydi. Asbob chaqiruvchi modelni tanlang.",
+  "askContinue": "Davom ettirish",
+  "askNext": "Keyingi savol",
+  "askPrev": "Oldingi savol",
+  "askRecommended": "Rekomendatsiyalar",
+  "askSelectedCount": "{{count}} tanlandi",
+  "askSomethingElse": "Boshqa narsa",
+  "askSomethingElsePlaceholder": "O‘z javobingizni yozing",
+  "submit": "Yuborish",
+  "composer": {
+    "advanced": "Oldingi parametrlar",
+    "modelDefaults": "Modelning oldingi qiymati",
+    "assistantOverrides": "Yordamchi o‘zgartirishlar",
+    "printPdf": "Chop qilish / PDF ko‘rinishida saqlash",
+    "exportHint": "O‘qiluvchi formatlar: faol shox. JSON: barcha xabar versiyalari. Tashqi fayllar paketga kiritilmaydi."
+  },
+  "telemetry": {
+    "summary": "Sizning ruxsatingiz bilan, {{host}} faqat Novera versiyasini va operatsion tizimini oladi, suhbatlar yoki doimiy identifikatorsiz.",
+    "unavailable": "Statistika konfiguratsiya qilinmagan. Ma’lumot jo‘natilmaydi."
+  },
+  "errorTracking": {
+    "title": "Xato izlash",
+    "summary": "{{host}}ga ixtiyoriy hisobotlar: xato turi, kod o‘rni, versiyasi va operatsion tizimi. Muloqotlar, sof xato xabarlari yoki qulflar yo‘q. Har qachon o‘chirib qo‘yish mumkin.",
+    "unavailable": "Xato kuzatish sozlanmagan. Hech qanday hisobot yuborilmaydi."
+  }
+}

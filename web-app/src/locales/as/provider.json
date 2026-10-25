@@ -1,0 +1,18 @@
+{
+  "addProvider": "প্ৰদানকাৰী যোগ কৰক",
+  "addOpenAIProvider": "স্বনিৰ্বাচিত প্ৰদানকাৰী যোগ কৰক",
+  "enterNameForProvider": "প্ৰদানকাৰীৰ নাম (যেনে, my-llm-server)",
+  "apiTypeLabel": "API বিন্যাস",
+  "apiTypeOpenAI": "OpenAI-সমৰ্থিত",
+  "apiTypeAnthropic": "Anthropic-সমৰ্থিত",
+  "baseUrlLabel": "ভিত্তি URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API কি",
+  "apiKeyPlaceholder": "আপোনাৰ API কি' পেইস্ট কৰক",
+  "invalidBaseUrl": "ভিত্তি URL এটা বৈধ http(s) URL হ'ব লাগিব",
+  "globalSettings": "সাৰ্বজনীন বৈশিষ্ট্য",
+  "stripReasoning": "প্ৰসঙ্গৰ পৰা যুক্তিবিজ্ঞান আঁতৰুৱা হ'ব",
+  "stripReasoningDesc": "ইতিহাস পুনঃ প্ৰেৰণ কৰাৰ পূৰ্বে, সকলো প্ৰদানকাৰীৰ মাজত, পূৰ্ববৰ্তী আৱৰ্জনাৰ চিন্তা/যুক্তিৰ সমল আঁতৰাওক। স্থানীয় মডেলৰ বাবে KV-cache পুনৰ ব্যৱহাৰ উন্নত কৰে, কিন্তু কিছুমান মডেলে (যেনে নতুন Qwen মুক্তিসমূহ) ভাল মাল্টি-আৱৰ্জনাৰ যুক্তিৰ বাবে ইয়াক ৰখাৰ পৰামৰ্শ দিয়ে।",
+  "providerAlreadyExists": "{{name}} নামক এটা প্ৰদানকাৰী ইতিমধ্যে আছে।"
+}

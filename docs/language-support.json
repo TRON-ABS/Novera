@@ -598,5 +598,105 @@
     "total": 1516,
     "partial": false,
     "source_pr": null
+  },
+  {
+    "locale": "uzn",
+    "language": "Northern Uzbek",
+    "label": "O‘zbekcha (shimoliy)",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "zu",
+    "language": "Zulu",
+    "label": "isiZulu",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "aec",
+    "language": "Saidi Arabic",
+    "label": "عربي صعيدي",
+    "direction": "rtl",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "pbu",
+    "language": "Northern Pashto",
+    "label": "پښتو (شمالي)",
+    "direction": "rtl",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "gaz",
+    "language": "West Central Oromo",
+    "label": "Oromoo (Giddugaleessa-Lixaa)",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "skr",
+    "language": "Saraiki",
+    "label": "سرائیکی",
+    "direction": "rtl",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "nl",
+    "language": "Dutch",
+    "label": "Nederlands",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "so",
+    "language": "Somali",
+    "label": "Soomaali",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "ro",
+    "language": "Romanian",
+    "label": "Română",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "as",
+    "language": "Assamese",
+    "label": "অসমীয়া",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
   }
 ]

@@ -43,6 +43,16 @@ it.each([
   ['prs', 'دری', 'بسته کنید', 'rtl'],
   ['ne', 'नेपाली', 'बन्द गर्नुहोस्', 'ltr'],
   ['ms', 'Bahasa Melayu', 'Tutup', 'ltr'],
+  ['uzn', 'O‘zbekcha (shimoliy)', 'Yopish', 'ltr'],
+  ['zu', 'isiZulu', 'Vala', 'ltr'],
+  ['aec', 'عربي صعيدي', 'اقفل', 'rtl'],
+  ['pbu', 'پښتو (شمالي)', 'وتړئ', 'rtl'],
+  ['gaz', 'Oromoo (Giddugaleessa-Lixaa)', 'Cufi', 'ltr'],
+  ['skr', 'سرائیکی', 'بند کرو', 'rtl'],
+  ['nl', 'Nederlands', 'Sluiten', 'ltr'],
+  ['so', 'Soomaali', 'Xir', 'ltr'],
+  ['ro', 'Română', 'Închide', 'ltr'],
+  ['as', 'অসমীয়া', 'বন্ধ কৰক', 'ltr'],
 ])('selects %s, loads its text, persists the choice and restores menu direction', async (locale, label, close, direction) => {
   const user = userEvent.setup()
   const view = render(<TranslationProvider><LanguageSwitcher /></TranslationProvider>)
@@ -51,7 +61,7 @@ it.each([
   expect(settings.setCurrentLanguage).toHaveBeenCalledWith(locale)
   expect(i18n.language).toBe(locale)
   expect(i18n.t('common:close')).toBe(close)
-  expect(document.documentElement).toHaveAttribute('lang', locale === 'prs' ? 'fa-AF' : locale)
+  expect(document.documentElement).toHaveAttribute('lang', ({ prs: 'fa-AF', uzn: 'uz', pbu: 'ps', gaz: 'om' } as Record<string, string>)[locale] ?? locale)
   expect(document.documentElement).toHaveAttribute('dir', direction)
   expect(JSON.parse(localStorage.getItem(localStorageKey.settingGeneral)!)).toMatchObject({
     state: { currentLanguage: locale },
@@ -80,7 +90,8 @@ it.each([
 
 it.each([['apc', 'ar-LB'], ['apd', 'ar-SD'], ['arq', 'ar-DZ'], ['ary', 'ar-MA'],
   ['cjy', 'zh-CN'], ['nan', 'zh-TW'], ['hak', 'zh-TW'], ['hsn', 'zh-CN'], ['prs', 'fa-AF'],
-  ['sd', 'sd-Arab-PK'], ['pa', 'pa-Guru-IN']])('formats %s using a supported regional locale rather than English fallback', (locale, regional) => {
+  ['sd', 'sd-Arab-PK'], ['pa', 'pa-Guru-IN'], ['uzn', 'uz-Latn-UZ'],
+  ['pbu', 'ps-AF'], ['gaz', 'om-ET'], ['aec', 'ar-EG'], ['skr', 'ur-PK']])('formats %s using a supported regional locale rather than English fallback', (locale, regional) => {
   expect(intlLocale(locale)).toBe(regional)
   expect(new Intl.NumberFormat(intlLocale(locale)).format(1234)).toBe(
     new Intl.NumberFormat(regional).format(1234),

@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Koodh",
+    "preview": "Hordhac",
+    "previewStreaming": "La heli karo marka dhalintu dhamaato",
+    "unresolvedAssets_one": "1 tixraac hanti lama soo rarikaro hordhaca. Jidadka is xiriira ma leeyihiin saldhig URL lagu xallinayo.",
+    "unresolvedAssets_other": "{{count}} tixraac hanti lama soo rarikaro hordhaca. Jidadka is xiriira ma leeyihiin saldhig URL lagu xallinayo."
+  },
+  "assistants": "Kaaliyeyaasha",
+  "hardware": "Qalab",
+  "mcp-servers": "MCP Adeegayaasha",
+  "local_api_server": "Adeegaha API Maxaliga ah",
+  "remote_access": "Gelitaanka Fog",
+  "integrations": "Isdhexgalka",
+  "experimental": "Tijaabo",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Wakiil",
+  "web_search": "Raadinta Webka",
+  "shell": "Shell",
+  "browse": "Briws dhexogi",
+  "moreControls": "Xakameyn dheeraad ah",
+  "starting": "Bilow...",
+  "activeSuffix": "(Firfircoon)",
+  "extensions": "Kordhinta",
+  "attachments": "Ku lifaaqan",
+  "general": "Guud",
+  "settings": "Dejinta",
+  "modelProviders": "Bixiyayaasha Moodalka",
+  "localProviders": "Maxali",
+  "remoteProviders": "Fog",
+  "manageProviders": "Maamul bixiyayaasha",
+  "hiddenProviders": "{{count}} la naafoobay",
+  "hideProvider": "Qari bixiyaha",
+  "showProvider": "Muuji bixiyaha",
+  "interface": "Is-dhexgalka",
+  "appearance": "Muuqaalka",
+  "privacy": "Asturnaanta",
+  "keyboardShortcuts": "Tariiqooyin gaagaaban",
+  "home": "Hoy",
+  "cowork": "Cowork",
+  "newSession": "Kalfadhi cusub",
+  "artifacts": "Farsamooyin",
+  "customize": "Habee",
+  "local": "Maxali",
+  "selectFolder": "Dooro fayl",
+  "selectModel": "U dooro moodal marka hore",
+  "commands": "Amarka",
+  "cmdHelp": "Liiska amarrada la heli karo",
+  "cmdClear": "Nadiifi kalfadhigan",
+  "cmdModels": "Beddel moodelka firfircoon",
+  "cmdModelsHint": "Qor /models ka dibna ka dooro moodelka liiska",
+  "cmdModelSwitched": "Waxaa loo beddelay {{name}}",
+  "cmdUnknown": "Amar aan la garanayn: {{name}}. Isku day /help",
+  "cmdBusy": "Ma samayn karo taas haddii wakiilka uu socdo",
+  "cmdCompact": "Isku soo koob macnaha kalfadhiga",
+  "cmdCompacted": "La soo koobay {{before}} -> {{after}} farriimaha",
+  "cmdNothingToCompact": "Wali wax la soo koobi karo ma jiraan",
+  "cmdCompactFailed": "Soo koobid waa fashilantay: {{error}}",
+  "cmdPlan": "Beddel habka qorshaha (akhris-kaliya: wakiilku wuxuu soo jeedinayaa adigoon qorin)",
+  "cmdPlanOn": "Habka qorshe: wakiilku wuu akhriyaa oo soo jeedinayaa adigoon qorin",
+  "cmdPlanOff": "Habka qorshe off: fulin caadi ah",
+  "cmdTodo": "Fur guddiga horumarka",
+  "cmdTasks": "Fur guddiga hawlaha asalka ah",
+  "cmdInit": "Baro mashruuca oo qor xirfadaha iyo xusuusta",
+  "cmdInitRunning": "Gelitaanka mashruucan",
+  "skills": "Xirfadaha",
+  "skillsInContext": "Xirfadaha uu wakiilka heli karo markan",
+  "skillsTitle": "Maamul xirfadaha",
+  "skillsScopeProject": "Xirfadaha {{folder}}",
+  "skillsScopeGlobal": "Xirfadaha guud, oo lagu heli karo kulan kasta",
+  "skillsScopeMerged": "Xirfadaha {{folder}}, iyo sidoo kale xirfadaha guud ee kullankiiba wadaagaan",
+  "skillOriginFolder": "galka",
+  "skillOriginGlobal": "guud",
+  "skillsEmpty": "Weli ma jiraan xirfado",
+  "skillsPickOrNew": "Xulo xirfad si aad u beddesho, ama mid cusub abuuro.",
+  "skillNew": "Xirfad cusub",
+  "skillDelete": "Tirtir xirfad",
+  "skillSave": "Kaydi",
+  "skillSaved": "Xirfadda waa la keydiyay",
+  "skillNameRequired": "Magaca xirfadda waa loo baahan yahay",
+  "skillNamePlaceholder": "magac-xirfad",
+  "skillContentPlaceholder": "Sharax habka dib loo isticmaali karo ee Markdown…",
+  "skillHubImport": "Ka soo dhoofso xarunta",
+  "skillHubTitle": "Xarunta xirfadaha Anthropic",
+  "skillHubEmpty": "Ma jiraan xirfado laga helay xarunta",
+  "skillImport": "Soo dhoofso",
+  "skillReimport": "Mar kale soo dhoofso",
+  "skillImported": "{{name}} waa la soo dhoofiyay",
+  "sessions": "Kulanada",
+  "deleteSession": "Tirtir kulan",
+  "deleteSessionTitle": "Tirtir kulan?",
+  "deleteSessionBody": "\"{{title}}\" iyo qoraalkeeda si joogto ah ayaa loo tirtiri doonaa. Tan lama soo celin karo.",
+  "newChat": "Sheekad Cusub",
+  "newAgentChat": "Sheekad Wakiil Cusub",
+  "chats": "Sheekooyinka",
+  "favorites": "Kuwa La Jecel Yahay",
+  "recents": "Kuwa Ugu Dambeeyay",
+  "hub": "Xarunta",
+  "helpSupport": "Caawinaad & Taageero",
+  "helpUsImproveJan": "Ka Caawi In La Hagaajiyo Novera",
+  "analyticsConsentDetail": "Waxaan ururinaa xog aan magac lahayn si aan u fahanno sida astaamaha loo isticmaalo. Sheekooyinkaaga iyo macluumaadkaaga shaqsiyeed lama raadraaco weligaa. Waxaad tan mar kasta ka beddeli kartaa Dejinta > Asturnaanta.",
+  "analyticsConsentQuestion": "Ma jeclaan lahayd inaad naga caawiso hagaajinta Novera?",
+  "unstarAll": "Ka saar Dhammaan Xiddigaha",
+  "unstar": "Ka Saar Xiddig",
+  "deleteAll": "Tirtir Dhammaan",
+  "star": "Xiddig",
+  "rename": "Beddel Magaca",
+  "delete": "Tirtir",
+  "copied": "La Koobiyay!",
+  "dataFolder": "Galka Xogta",
+  "others": "Kale",
+  "language": "Luqadda",
+  "login": "Soo Gal",
+  "loginWith": "Soo Gal Iyada oo la isticmaalayo {{provider}}",
+  "loginFailed": "Soo Galidda Way Guul Darraysay",
+  "logout": "Ka Bax",
+  "loggingOut": "Waxaa La Baxayaa...",
+  "loggedOut": "Si Guul Leh Ayaa Loo Baxay",
+  "logoutFailed": "Ku guuldareystay in la galo",
+  "profile": "Profile",
+  "reset": "Dib u dejin",
+  "search": "Raadi",
+  "searchThreads": "Raadi silsiladaha...",
+  "toNavigate": "si aad u dhex socoto",
+  "toSelect": "si aad u doorato",
+  "toClose": "si aad u xidhid",
+  "clearRecent": "Nadiifi",
+  "name": "Magac",
+  "cancel": "Jooji",
+  "dismiss": "Tiro",
+  "create": "Abuur",
+  "save": "Kaydi",
+  "edit": "Wax ka beddel",
+  "copy": "Nuqul ka samee",
+  "back": "Dib",
+  "close": "Xir",
+  "done": "Dhamaystiran",
+  "next": "Xiga",
+  "finish": "Dhameystir",
+  "skip": "Bood",
+  "allow": "Ogolow",
+  "deny": "Diid",
+  "start": "Bilow",
+  "stop": "Jooji",
+  "preview": {
+    "loading": "Furaya...",
+    "unsupported": "Novera ma muujin karo noocan faylka ah. Fur si aad uga aragto app kale.",
+    "outside": "Faylkani mar dambe kuma jiro goobta shaqada ee session-ka.",
+    "tooLarge": "Waa weyn yahay si loo daawado. Fur si aad uga aragto app kale.",
+    "reload": "Dib u rar",
+    "allowNetwork": "Ogolow shabakad",
+    "unsandboxed": "Orod aan sanduuq lagu xidhin: xogta la keydiyay iyo faylasha maxaliga ah waa shaqeeyaan",
+    "unresolvedRefs_one": "1 fayl oo boggan la xidhiidha laguma rari karo daawashada. Fur si aad uga aragto browser.",
+    "unresolvedRefs_other": "{{count}} faylasha boggan isku xira ma soo muuqan karaan marka la eego hordhaca. Furo si aad ugu aragto browser-ka.",
+    "externalRefs_one": "1 kheyraad oo boggan ka soo dejiyo webka waa la xannibay. Furo \"U ogolow shabakadda\" si aad u soo dejiso.",
+    "externalRefs_other": "{{count}} kheyraad oo boggan ka soo dejiyo webka waa la xannibay. Furo \"U ogolow shabakadda\" si aad u soo dejiso.",
+    "scriptErrors_one": "Boggu waxa uu soo sheegay qalad: {{message}}",
+    "scriptErrors_other": "Boggu waxa uu soo sheegay {{count}} qaladaad. Kan ugu horeeya: {{message}}"
+  },
+  "changes": {
+    "title": "Isbeddellada wakiilka",
+    "empty": "Faylasha wakiilku qoro ama wax ka beddelo halkan ayaa ka muuqan doona.",
+    "a11y": "Isbeddellada wakiilka: {{files}} fayl, {{additions}} la daray, {{deletions}} la saaray"
+  },
+  "modelPanel": {
+    "title": "Dejinta moodelka",
+    "a11y": "Furo dejinta moodelka",
+    "contextTooltip": "Daaqadda macnaha: {{value}} ka mid ah {{max}} tokens"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Xirfadda '{{name}}' ma heli karo",
+    "kind": {
+      "skill": "Xirfad",
+      "command": "Amar",
+      "model": "Moodel"
+    }
+  },
+  "compactWidth": "Ballac Yar",
+  "fullWidth": "Ballac Buuxa",
+  "dark": "Madow",
+  "light": "Fiiqan",
+  "system": "Nidaam",
+  "auto": "Auto",
+  "english": "Ingiriis",
+  "medium": "Dhexdhexaad",
+  "newThread": "Calaamado Cusub",
+  "noResultsFound": "Natiijo la’aan",
+  "noThreadsYet": "Calaamado ma jiraan weli",
+  "noThreadsYetDesc": "Bilow wadahadal cusub si aad halkan uga aragto taariikhda calaamadahaaga.",
+  "downloads": "Soo dejin",
+  "downloading": "Soo dejinaya",
+  "uploadingAttachments": "Gudbinta lifaaqyada…",
+  "cancelDownload": "Jooji soo dejinta",
+  "downloadCancelled": "Soo dejinta waa la joojiyey",
+  "downloadComplete": "Soo dejinta waa dhameystiran tahay",
+  "thinking": "Fikrad ka fekeraya...",
+  "thought": "Fikrad",
+  "callingTool": "Wac aalad",
+  "completed": "Dhameystiran",
+  "image": "Sawir",
+  "vision": "Aragti",
+  "multimodal": "Noocyo badan",
+  "embeddings": "Xiriirinta",
+  "tools": "Aaladaha",
+  "webSearch": "Raadinta Webka",
+  "reasoning": "Falanqeyn",
+  "proactive": "Firfircoon",
+  "selectAModel": "Dooro moodeel",
+  "noToolsAvailable": "Aalado ma jiraan",
+  "noModelsFoundFor": "Moodeelo lama helin oo loogu talagalay \"{{searchValue}}\"",
+  "failedToLoadModels": "Waxaa guuldareystay in moodeelada la soo rarto",
+  "noModels": "Moodeelo ma jiraan",
+  "noAssistant": "Kaaliyaha ma jiro",
+  "customAvatar": "Sawirka khaaska ah",
+  "editAssistant": "Tafatir Kaaliye",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Regenerate",
+  "threadImage": "Sawirka xadhigga",
+  "editMessage": "Fariinta Tafatir",
+  "deleteMessage": "Fariinta Tirtir",
+  "deleteThread": "Tirtir Thread",
+  "renameThread": "Thread-ka Magac-beddelka",
+  "threadTitle": "Cinwaanka Xadhigga",
+  "deleteAllThreads": "Tirtir dhammaan threads-ka",
+  "allThreadsUnfavorited": "Dhammaan Threads Aan La Filayn",
+  "deleteAllThreadsConfirm": "Ma hubtaa inaad rabto inaad tirtirto dhammaan threads-ka? Ficilkan lama joojin karo.",
+  "addProvider": "Ku dar Bixiyaha",
+  "addOpenAIProvider": "Add OpenAI Provider",
+  "enterNameForProvider": "Geli magac bixiyahaaga",
+  "providerAlreadyExists": "Bixiye magaciisu yahay \"{{name}}\" horey ayuu u jiraa. Fadlan magac kale dooro.",
+  "adjustFontSize": "Hagaaji Cabbirka Farta",
+  "changeLanguage": "Beddel Luqadda",
+  "editTheme": "Mawduuca Tafatir",
+  "editCodeBlockStyle": "Qaabka Block ee Koodhka Tafatir",
+  "editServerHost": "Martida Server-ka Tafatir",
+  "pickColorWindowBackground": "Dooro Midabka Daaqadda Asalka",
+  "pickColorAppMainView": "Pick Color App Muuqaalka Weyn",
+  "pickColorAppPrimary": "Pick Color App Primary",
+  "pickColorAppAccent": "Pick Color App Accent",
+  "pickColorAppDestructive": "Dooro Midabka App-ka burburiya",
+  "apiKeyRequired": "API Furaha waa loo baahan yahay",
+  "enterTrustedHosts": "Geli martida la aamini karo",
+  "placeholder": {
+    "chatInput": "I weydii wax kasta..."
+  },
+  "confirm": "Xaqiiji",
+  "continue": "Sii wad",
+  "loading": "Waxaa la rarayaa...",
+  "settingUpJan": "Dib u bilowga Novera…",
+  "registeringExtensions": "Diiwaangelinta fidinno...",
+  "loadingExtensions": "Rarida fidinno… ({{done}}/{{total}})",
+  "error": "Khalad",
+  "success": "Guul",
+  "warning": "Digniin",
+  "conversationNotAvailable": "Wadahadal ma jiro",
+  "conversationNotAvailableDescription": "Wadahadalka aad isku dayayso inaad gasho lama heli karo ama waa la tirtiray.",
+  "temporaryChat": "Sheeko Kumeelgaar ah",
+  "temporaryChatTooltip": "Wadahadal kumeelgaar ah ma muuqan doono taariikhdaada",
+  "noResultsFoundDesc": "Ma aanan helin wadahadalo la midd ah raadintaada. Isku day eray kale.",
+  "searchModels": "Raadi moodooyinka...",
+  "searchStyles": "Raadi qaababka...",
+  "createAssistant": "Abuur Kaaliyaha",
+  "enterApiKey": "Geli API Furaha",
+  "scrollToBottom": "Hoos u rog",
+  "generateAiResponse": "Soo saar Jawaabta AI",
+  "continueAiResponse": "Sii wad Jawaabta AI",
+  "addModel": {
+    "title": "Ku dar Moodel",
+    "modelId": "Aqoonsiga Moodelka",
+    "enterModelId": "Geli Aqoonsiga Moodelka",
+    "addModel": "Ku dar Moodel",
+    "description": "Ku dar moodel cusub bixiyaha",
+    "exploreModels": "Eeg liiska moodelka ee bixiyaha"
+  },
+  "mcpServers": {
+    "editServer": "Tafatir Server-ka",
+    "addServer": "Ku dar Server",
+    "serverName": "Magaca Server-ka",
+    "enterServerName": "Geli magaca server-ka",
+    "command": "Amar",
+    "enterCommand": "Geli amarka",
+    "arguments": "Doodaha",
+    "argument": "Dooda {{index}}",
+    "envVars": "Isbeddellada Deegaanka",
+    "key": "Furaha",
+    "value": "Qiimaha",
+    "save": "Kaydi"
+  },
+  "deleteServer": {
+    "title": "Tirtir Server-ka",
+    "delete": "Tirtir"
+  },
+  "editJson": {
+    "errorParse": "Ku guuldareystay fahamka JSON",
+    "errorPaste": "Ku guuldareystay dhajinta JSON",
+    "errorFormat": "Qaabka JSON ma saxna",
+    "titleAll": "Tafatir Dhammaan Dejinta Servers",
+    "placeholder": "Geli dejinta JSON...",
+    "save": "Kaydi"
+  },
+  "editModel": {
+    "title": "Tafatir Moodelka: {{modelId}}",
+    "description": "Qaabee kartida moodelka adigoo shidaya xulashooyinka hoose.",
+    "capabilities": "Kartida",
+    "tools": "Aaladaha",
+    "vision": "Aragti",
+    "embeddings": "Xiriirinta",
+    "notAvailable": "Weliba ma jiro"
+  },
+  "outOfContextError": {
+    "truncateInput": "Jar Galinta",
+    "title": "Khalad aan macno lahayn",
+    "description": "Sheekadan ayaa gaaraysa xadka xasuusta AI-ga, sida boodh cad oo buuxsama. Waxaan ballaarin karnaa daaqadda xasuusta (oo loo yaqaan cabbirka macnaha) si uu u xasuusto wax badan, laakiin waxay isticmaali kartaa xasuusta kombiyuutarkaaga. Waxa kale oo aan soo koobikarnaa gelinta, taasoo micnaheedu yahay inuu iloobi doono qaar ka mid ah taariikhda sheekada si uu boos u sameeyo farriimaha cusub.",
+    "increaseContextSizeDescription": "Ma rabtaa inaad kordhiso cabbirka macnaha?",
+    "increaseContextSize": "Kordhi Cabbirka Macnaha"
+  },
+  "toolApproval": {
+    "title": "Codsi Ogolaansho Qalab",
+    "description": "Kaaliyaha wuxuu rabaa inuu isticmaalo <strong>{{toolName}}</strong>",
+    "securityNotice": "Kaliya u ogolow qalabka aad kalsoonida ku qabto. Qalabka wuxuu marin u heli karaa nidaamkaaga iyo xogtaada.",
+    "deny": "Diid",
+    "allowOnce": "Mar Kaliya Ogolow",
+    "alwaysAllow": "Mar Walba Ogolow"
+  },
+  "deleteModel": {
+    "title": "Tirtir Model: {{modelId}}",
+    "description": "Ma hubtaa inaad rabto inaad tirtirto moodelkan? Ficilkan lama soo celin karo.",
+    "success": "Model {{modelId}} si joogto ah ayaa loo tirtiray.",
+    "cancel": "Jooji",
+    "delete": "Tirtir"
+  },
+  "deleteProvider": {
+    "title": "Tirtir Bixiyaha",
+    "description": "Tirtir bixiyaha iyo dhammaan moodalladiisa. Ficilkani lama soo celin karo.",
+    "success": "Bixiyaha {{provider}} si joogto ah ayaa loo tirtiray.",
+    "confirmTitle": "Tirtir Bixiyaha: {{provider}}",
+    "confirmDescription": "Ma hubtaa inaad rabto inaad tirtirto bixiyahan? Ficilkani lama soo celin karo.",
+    "cancel": "Jooji",
+    "delete": "Tirtir"
+  },
+  "modelSettings": {
+    "title": "Dejinta Moodalka - {{modelId}}",
+    "description": "Deji dejimaha moodalka si uu u wanaajiyo waxqabadka iyo dhaqanka.",
+    "nglDisabledByFit": "Auto-fit wuxuu dooranayaa GPU lakab. Jooji Auto-fit si aad tan u dejiso gacanta.",
+    "samplingDefaults": {
+      "title": "Qiyaasta tijaabada caadiga ah",
+      "description": "Dejimaha tijaabada caadiga ah ee moodalkan. Waxaa la isticmaalaa ilaa laga beddelo qiyamka ka yimid kaaliyaha gaar ah ama codsi kasta."
+    },
+    "specDraft": {
+      "section": "Fasiraadda mala-awaalka",
+      "enable": "Daaq fasiraadda mala-awaalka",
+      "enableDescription": "Qor dhowr astaamo tallaabo kasta oo hubi hal mar, taasoo dardargelisa soo saarista. Waxay isticmaashaa madaxyada MTP ee ku dhex jira moodelka, ama moodelka qabyada ah ee laga soo dejiyay (MTP, Eagle3, DFlash ama DSpark).",
+      "nMax": "Tirada ugu badan ee astaamaha qabyada ah",
+      "nMaxDescription": "Tirada ugu badan ee astaamaha la qori karo tallaabo kasta. Waxay asal ahaan tahay 16.",
+      "nMin": "Tirada ugu yar ee astaamaha qabyada ah",
+      "nMinDescription": "Tirada ugu yar ee astaamaha la qori karo tallaabo kasta. Waxay asal ahaan tahay 0.",
+      "pMin": "Fursadda ugu yar ee qabyada ah",
+      "pMinDescription": "Fursadda ugu yar ee qorista qabyada ah (0–1). Waxay asal ahaan tahay 0.75."
+    },
+    "templateKwargs": {
+      "section": "Xulashooyinka template-ka sheekada",
+      "description": "Xulashooyin dheeri ah oo template-ka sheekadan uu aqbalo. Waxaa loo diraa sida chat_template_kwargs codsi kasta; ka tag qiimaha asalka ah si template-ku u go'aamiyo.",
+      "addCustom": "Kudar xulasho gaar ah",
+      "keyPlaceholder": "magac",
+      "valuePlaceholder": "qiime",
+      "add": "Ku dar",
+      "cancel": "Jooji",
+      "remove": "Ka saar"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Ma la cusbooneysiin karo dejimaha moodelka"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Beddel Goobta Faylka Xogta",
+      "description": "Ma hubtaa inaad rabto inaad beddesho goobta galka xogta? Tani waxay u dhaqaaqi doontaa dhammaan xogtaada goobta cusub waxayna dib u bilaabi doontaa barnaamijka.",
+      "currentLocation": "Goobta Hadda:",
+      "newLocation": "Goobta Cusub:",
+      "cancel": "Jooji",
+      "changeLocation": "Beddel Goobta"
+    },
+    "deleteAllThreads": {
+      "title": "Tirtir dhammaan threads-ka",
+      "description": "Dhammaan xiriirooyinka waa la tirtiri doonaa. Tallaabadan lama soo celin karo."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Tirtir Dhammaan Wadahadalada",
+      "description": "{{count}} wadahadalo ku jira \"{{projectName}}\" waa la tirtiri doonaa. Tallaabadan lama soo celin karo."
+    },
+    "deleteThread": {
+      "description": "Ma hubtaa inaad rabto inaad tirtirto xiriirkan? Tallaabadan lama soo celin karo."
+    },
+    "editMessage": {
+      "title": "Fariinta Tafatir"
+    },
+    "messageMetadata": {
+      "title": "Faahfaahinta Fariinta"
+    },
+    "deleteMessage": {
+      "description": "Ma hubtaa inaad rabto inaad tirtirto fariintan? Tallaabadan lama soo celin karo."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Wax khalad ah ayaa dhacay",
+    "details": "Faahfaahin"
+  },
+  "missingDependenciesDialog": {
+    "title": "Makhaayadaha Nidaamka oo Maqan",
+    "description": "{{backend}} waa la rakibay laakiin qaar ka mid ah makhaayadaha nidaamka ee loo baahan yahay lama helin. Waxay u badan tahay inuu ku laaban doono CPU ama si sax ah u shaqayn waayo.",
+    "installLabel": "Si aad tan u hagaajiso, ku rakib waxyaabaha soo socda:",
+    "download": "Soo deji",
+    "additionalLibraries": "Maktabado dheeri ah oo maqan:",
+    "missingLibraries": "Maktabadaha maqan:",
+    "showRawLibraries": "Tus magacyada maktabadaha maqan {{count}}"
+  },
+  "projects": {
+    "title": "Mashaariic",
+    "new": "Mashaariic Cusub",
+    "addProject": "Ku dar Mashruuc",
+    "addToProject": "Ku dar mashruuca",
+    "removeFromProject": "Ka saar mashruuca",
+    "createNewProject": "Abuur Mashruuc Cusub",
+    "editProject": "Tafatir Mashruuca",
+    "deleteProject": "Tirtir Mashruuca",
+    "projectName": "Magaca Mashruuca",
+    "enterProjectName": "Geli magaca mashruuca...",
+    "noProjectsAvailable": "Mashaariic ma jiraan",
+    "noProjectsYet": "Welina Mashaariic ma jiraan",
+    "noProjectsYetDesc": "Bilaaw mashruuc cusub adigoo gujinaya batoonka Ku dar Mashruuc.",
+    "projectNotFound": "Mashruuca Lama Heli Karo",
+    "projectNotFoundDesc": "Mashruuca aad raadineyso ma jiro ama waa la tirtiray.",
+    "selectAssistant": "Xullo kaaliyaha",
+    "noAssistantAssigned": "Mashruucan looma qoondeyn kaaliye",
+    "files": "Faylasha",
+    "filesDescription": "Ku dar PDFs, dukumiintiyo, ama qoraallo kale si loogu tixraaco mashruucan.",
+    "uploadingFiles": "Faylasha ayaa la farsamaynayaa…",
+    "processButton": "Ku dar",
+    "deleteProjectDialog": {
+      "title": "Tirtir Mashruuca",
+      "permanentDelete": "Tani waxay si joogto ah u tirtiri doontaa dhammaan sheekooyinka.",
+      "permanentDeleteWarning": "Tallaabtani waxay si joogto ah u tirtiri doontaa DHAMMAAN sheekooyinka ku jira mashruuca!",
+      "deleteEmptyProject": "Tallaabtani waxay tirtiri doontaa mashruuca \"{{projectName}}\".",
+      "saveThreadsAdvice": "Si aad u keydiso sheekooyinka, u guuri liiskaaga sheekooyinka ama mashruuc kale ka hor intaadan tirtirin.",
+      "starredWarning": "Weli waxaad haysataa sheekooyin xiddigo leh oo ku jira mashruuca.",
+      "deleteButton": "Tirtir",
+      "successWithName": "Mashruuca \"{{projectName}}\" si guul leh ayaa loo tirtiray",
+      "successWithoutName": "Mashruuca si guul leh ayaa loo tirtiray",
+      "error": "Mashruuca lama tirtiri karo. Fadlan isku day mar kale.",
+      "ariaLabel": "Tirtir {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Abuur Mashruuc Cusub",
+      "editTitle": "Tafatir Mashruuca",
+      "nameLabel": "Magaca Mashruuca",
+      "namePlaceholder": "Geli magaca mashruuca...",
+      "assistant": "Kaaliye",
+      "selectAssistant": "Dooro kaaliye (ikhtiyaari)",
+      "noAssistant": "Kaaliyaha ma jiro",
+      "addAssistant": "Kudar Kaaliye",
+      "createButton": "Abuur",
+      "updateButton": "Cusboonaysiinta",
+      "alreadyExists": "Mashruuca \"{{projectName}}\" hore ayuu u jiray",
+      "createSuccess": "Mashruuca \"{{projectName}}\" si guul leh ayaa loo sameeyay",
+      "updateSuccess": "Mashruuca \"{{projectName}}\" si guul leh ayaa loo cusboonaysiiyay",
+      "saveError": "Mashruuca lama kaydin karo. Fadlan isku day mar kale."
+    },
+    "noConversationsIn": "Sheekooyin Kuma Jiiraan {{projectName}}",
+    "startNewConversation": "Bilow sheeko cusub oo la yeesho {{projectName}} hoos",
+    "conversationsIn": "Sheekooyinka ku jira {{projectName}}",
+    "conversationsDescription": "Guji sheeko kasta si aad wadahadal u sii wadato, ama bilow mid cusub hoos.",
+    "conversation": "Sheeko",
+    "instructions": "Tilmaamaha",
+    "setup": "Dejinta",
+    "instructionsDescription": "Habee codka iyo qaabka jawaabta",
+    "manageInstructions": "Maamul Tilmaamaha",
+    "thread": "iil",
+    "threads": "iilo",
+    "updated": "La cusbooneysiiyay:",
+    "collapseProject": "Isku duub mashruuca",
+    "expandProject": "Fidinta mashruuca",
+    "update": "Cusboonaysiinta",
+    "searchProjects": "Raadi mashruucyo...",
+    "noProjectsFound": "Mashruuc la helin",
+    "tryDifferentSearch": "Isku day eray kale oo raadinta ah"
+  },
+  "attachmentsIngestion": {
+    "title": "Dooro sida loo geliyo lifaaqyada",
+    "description": "Dooro haddii aad rabto in faylashaasi si toos ah loogu daro sheekada ama loo tuso sida embeddings.",
+    "inline": "Ku duri sheekada",
+    "embeddings": "Isticmaal embeddings"
+  },
+  "attachmentInjectedIndicator": "Si toos ah ayaa loogu daray sheekada",
+  "attachmentEmbeddedIndicator": "Waxaa loo embedding sameeyay RAG",
+  "viewInjectedContent": "Eeg waxa la duray",
+  "injectedContentTitle": "Waxa ku jira faylka la duray",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Dhammaan Threads Aan La Filayn",
+      "description": "Dhammaan mawduucyada ayaa laga saaray kuwa aad jeceshahay."
+    },
+    "deleteAllThreads": {
+      "title": "Tirtir dhammaan threads-ka",
+      "description": "Dhammaan mawduucyada si joogto ah ayaa loo tirtiray."
+    },
+    "renameThread": {
+      "title": "Thread-ka Magac-beddelka",
+      "description": "Cinwaanka mawduuca waxaa lagu beddelay '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Tirtir Thread",
+      "description": "Mawduucan si joogto ah ayaa loo tirtiray."
+    },
+    "errorCopied": {
+      "title": "Nuqul sameyntu waa guulaysatay",
+      "description": "Macluumaadka khaladka ayaa laga nuqulay clipboard-ka"
+    },
+    "errorCopyFailed": {
+      "title": "Nuqul samayn waa la waayay",
+      "description": "Nuqul ka sameynta macluumaadka khaladka ayaa la waayay"
+    },
+    "editMessage": {
+      "title": "Fariinta Tafatir",
+      "description": "Fariinta si guul leh ayaa loo tafatiray. Fadlan sugo jawaabta moodalka."
+    },
+    "appUpdateDownloaded": {
+      "title": "Cusbooneysiinta App-ka waa la soo dejiyay",
+      "description": "Cusbooneysiinta app-ka si guul leh ayaa loo soo dejiyay."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Soo dejinta Cusbooneysiinta App-ka waa ay ku fashilantay",
+      "description": "Fashilka soo dejinta cusbooneysiinta app-ka. Fadlan isku day mar kale."
+    },
+    "downloadComplete": {
+      "title": "Soo dejinta waa dhameystiran tahay",
+      "description": "{{item}} waa la soo dejiyay"
+    },
+    "downloadCancelled": {
+      "title": "Soo dejinta waa la joojiyey",
+      "description": "Habka soo dejinta waa la joojiyay"
+    },
+    "downloadFailed": {
+      "title": "Soo dejinta waa fashilantay",
+      "description": "Soo dejinta {{item}} waa fashilantay",
+      "descriptionWithReason": "Soo dejinta {{item}} waa fashilantay: {{reason}}",
+      "reason": {
+        "dns": "magaca server-ka lama xallin karin",
+        "refused": "xiriirku waa la diiday",
+        "timeout": "xiriirku wuu waqtigiisu dhaafay",
+        "tls": "xiriir ammaan ah lama samayn karin",
+        "proxy": "proxy-ga lama gaarin karin",
+        "unreachable": "server-ka lama gaari karin"
+      }
+    },
+    "openSettings": "Fur Dejinta",
+    "openLogs": "Fur diiwaanada",
+    "downloadTokenRequired": {
+      "title": "Hugging Face token ayaa loo baahan yahay",
+      "description": "Moojulkan wuxuu u baahan yahay Hugging Face token gelitaanka. Ku dar token-kaaga Dejinta kadibna isku day mar kale."
+    },
+    "downloadLicenseRequired": {
+      "title": "Ogow ruqsadda moojulka ee Hugging Face",
+      "description": "Waa inaad aqbashaa ruqsadda moojulka boggiisa Hugging Face ka hor inta aadan soo dejisan."
+    },
+    "downloadRateLimited": {
+      "title": "Xaddidida heerka ee Hugging Face",
+      "description": "Waxaad xaddidid heerka lagu sameeyay. Ku darista token-ka waxay kordhin kartaa xaddidida. Fadlan isku day mar kale goor dambe."
+    },
+    "modelValidationStarted": {
+      "title": "Fiirinaya Mojulka",
+      "description": "Moojul \"{{modelId}}\" si guul leh ayaa loo soo dejiyey. Hubinaya saxnimada..."
+    },
+    "modelValidationFailed": {
+      "title": "Hubinta Mojulka waa ay ku guuldareysatay",
+      "description": "Moodeelka la soo dejiyey \"{{modelId}}\" wuxuu ku guuldareystay hubinta daacadnimada waxaana la tirtiray. Faylka ayaa laga yaabaa inuu xumaaday ama la beddelay."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Soo dejinta waa dhameystiran tahay",
+      "description": "Moodeelka \"{{item}}\" si guul leh ayaa loo soo dejiyey oo loo xaqiijiyey"
+    },
+    "projectCreated": {
+      "title": "Mashruuc la abuuray",
+      "description": "Mashruuca \"{{projectName}}\" si guul leh ayaa loo sameeyay"
+    },
+    "projectRenamed": {
+      "title": "Mashruuc magac loo beddelay",
+      "description": "Mashruuc magaciisa ayaa laga beddelay \"{{oldName}}\" ilaa \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Mashruuc la tirtiray",
+      "description": "Mashruuca \"{{projectName}}\" si guul leh ayaa loo tirtiray"
+    },
+    "projectAlreadyExists": {
+      "title": "Mashruuc horey ayuu u jiray",
+      "description": "Mashruuca \"{{projectName}}\" hore ayuu u jiray"
+    },
+    "projectDeleteFailed": {
+      "title": "Tirtirid waa ku guuldareystay",
+      "description": "Mashruuca lama tirtiri karo. Fadlan isku day mar kale."
+    },
+    "threadAssignedToProject": {
+      "title": "Dulqaad la qoondeeyey",
+      "description": "Dulqaadka si guul leh ayaa loogu qoondeeyey \"{{projectName}}\""
+    },
+    "threadRemovedFromProject": {
+      "title": "Dulqaad la saaray",
+      "description": "Dulqaadka si guul leh ayaa looga saaray \"{{projectName}}\""
+    },
+    "fileUploaded": {
+      "title": "Fayl la farsameeyey",
+      "description": "Faylka si guul leh ayaa loo farsameeyey oo loo calaamadeeyey"
+    },
+    "uploadFailed": {
+      "title": "Farsamaynta waa ku guuldareysatay",
+      "description": "Faylka farsamayntiisu waa ku guuldareysatay",
+      "subjectThisFile": "Faylkan",
+      "pdfMalformedXref": "{{subject}} waxay leedahay jadwal tixraac isku xiran oo qaldan oo PDF ah mana la tafsiri karin. Isku day inaad ku furto daawade PDF oo dib u keydiso (File → Print → Save as PDF), ka dibna mar kale soo geli.",
+      "pdfScanned": "{{subject}} waxay u muuqataa inay tahay PDF sawir ahaan la sawiray ama sawir ku salaysan. OCR weli lama taageerin — fadlan soo geli PDF oo qoraal ku salaysan.",
+      "pdfEncrypted": "{{subject}} waa la ilaaliyay password. Ka saar password-ka oo isku day mar kale.",
+      "pdfUnsupportedFeature": "{{subject}} waxay isticmaashaa astaanta PDF oo Novera weli ma tafsiri karo (tusaale, shaqooyinka midabka/hooska PostScript). Isku day inaad dib u keydiso (File → Print → Save as PDF) si aad u simayso, ka dibna mar kale soo geli.",
+      "pdfGeneric": "{{subject}} lama tafsiri karin sida PDF. Faylku waxaa laga yaabaa inuu dhaawacan yahay ama wuxuu isticmaalaa astaamo PDF oo aan la taageerin.",
+      "fileTooLarge": "{{subject}} waa aad u weyn. {{message}}.",
+      "unsupportedType": "Nooca faylka \"{{type}}\" lama taageero.",
+      "ioError": "Ma akhriyi karo {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} lama tafsiri karin: {{message}}",
+      "fallback": "Wax ka shaqayn la wayday {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Faylka waa la tirtiray",
+      "description": "Faylka ayaa laga saaray mashruuca"
+    },
+    "deleteFailed": {
+      "title": "Tirtirid waa ku guuldareystay",
+      "description": "Faylka lama tirtiri karo"
+    },
+    "fileAlreadyExists": {
+      "title": "Faylka horey buu u jiray",
+      "description": "Faylka horey ayuu ugu lifaaqnaa mashruucan"
+    },
+    "unsupportedFileType": {
+      "title": "Nooca Faylka lama taageersana",
+      "description": "Faylka leh kordhinta \".{{extension}}\" lama taageero tixraaca Mashruuca."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Lifaaqyada waa naafo",
+      "description": "Lifaaqyada waa naafo Settings-ka"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Faylka waa weyn yahay",
+    "fileTooLargeDescription": "{{fileName}} wuxuu ka badan yahay xadka {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} qaybood",
+    "title": "Faylasha",
+    "empty": "Faylasha aad lifaaqdo iyo faylasha uu wakiilku abuuro ayaa halkan ka muuqan doona.",
+    "a11y": "Faylasha: {{count}}",
+    "attachments": "Ku lifaaqan",
+    "notImported": "ma joogto goobta shaqada"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp weli waa mashquul",
+    "description": "Hal ama in ka badan moodelo ma aysan unload waqtigeeda. Xiritaanka xoogga ah waxay joojin doontaa llama.cpp oo waxay carqaladeyn kartaa jawaabaha firfircoon.",
+    "forceQuit": "Xir xoог",
+    "forcing": "Qasab ku joojin...",
+    "shuttingDown": "Daminaya..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Burbur",
+  "expand": "Ballaarin",
+  "todoPanelTitle": "Horumar",
+  "todoPanelEmpty": "Liiska hawlaha weli ma jiro.",
+  "backgroundTasks": "Hawlaha asalka ah",
+  "subagentsRunning_one": "{{count}} wakiil-hoosaad oo socda",
+  "subagentsRunning_other": "{{count}} wakiillo hoos yimaada oo socda",
+  "monitorsRunning_one": "{{count}} monitor-ka oo shaqeynaya",
+  "monitorsRunning_other": "{{count}} kormeerayaasha oo shaqeynaya",
+  "backgroundRunning_one": "{{count}} hawsha asalka ah oo socota",
+  "backgroundRunning_other": "{{count}} hawlaha asalka ah oo socda",
+  "monitors": "Kormeerayaasha",
+  "monitorPolling": "Sahan-bixinta",
+  "monitorMatched": "Is waafajiyay",
+  "monitorTimedOut": "Waqti la joojiyay",
+  "monitorStopped": "Joojiyay",
+  "monitorEnded": "Dhammaad",
+  "coworkWatching_one": "Daawanaya {{count}} monitor...",
+  "coworkWatching_other": "Daawashada {{count}} monitors...",
+  "coworkWaitingBackground": "Sugaya hawlo asalka ah...",
+  "noBackgroundTasks": "Weli ma jiraan hawlo asalka ah.",
+  "running": "Orodka",
+  "queued": "Safka la joojiyay",
+  "waiting": "Sugaya",
+  "finished": "Dhammaad",
+  "subagentPhase": "wejiga {{phase}}",
+  "subagentWaiting": "Sugaya",
+  "viewTranscript": "Fiiri qoraalka",
+  "taskWorking": "Shaqaynaya…",
+  "taskNoOutput": "Wakiilka hoose wax muuqaal ah ma soo saarin.",
+  "subagentToolUses_one": "{{count}} isticmaalka qalabka",
+  "subagentToolUses_other": "{{count}} isticmaalka qalabka",
+  "artifactGroupCode": "Koodh",
+  "artifactGroupImage": "Sawir",
+  "artifactGroupDocument": "Dukumiinti",
+  "artifactGroupVideo": "Muuqaal",
+  "artifactGroupAudio": "Maqal",
+  "artifactOpenPreview": "Fur hordhac",
+  "artifactOpenExternal": "Fur",
+  "artifactMoreActions": "Tallaabooyin dheeraad ah",
+  "artifactShowInFolder": "Ku muuji Faylka",
+  "skillsUsedLabel": "Xirfadaha la isticmaalay",
+  "skillsUsed": "Xirfadaha la isticmaalay: {{skills}}",
+  "artifactsAll": "Dhamaan",
+  "artifactsEmpty": "Waxba weli lama soo saarin. Waxyaabaha laga helay Cowork sicirka ayaa halkan ka muuqan doona.",
+  "artifactsNoMatch": "Wax waxyaabo ah ma jiro oo kulmaya.",
+  "artifactsSearch": "Raadi waxyaabaha la sameeyey",
+  "artifactsShowMore": "Muuji {{count}} dheeraad ah",
+  "workspace": {
+    "readsFrom": "Shaqeeya gudaha",
+    "writable": "akhris & qoraal",
+    "footnote": "Wakiilku si toos ah ayuu u akhriyaa oo u tafatiraa faylkan. Fiiri waxa isbeddelay guddiga farqiga.",
+    "footnoteEmpty": "Ku lifaaq fayl si wakiilku uga shaqeeyo mashruucaaga. Waxa uu awoodaa inuu akhriyo oo uu tafatiro faylasha ku jira.",
+    "attach": "Ku lifaaq fayl",
+    "change": "Beddel galka",
+    "detach": "Fur galka si gooni ah",
+    "open": "Fur",
+    "reveal": "Muujin",
+    "unavailable": "Goob shaqo lama heli karo",
+    "missing": "Galka goobta shaqada {{folder}} mar dambe lama heli karo. Dooro gal kale.",
+    "openFailed": "Ma furi karin goobta shaqada",
+    "revealFailed": "Ma muujin karin goobta shaqada",
+    "a11yWithFolder": "Galka mashruuca {{folder}}, oo lagu lifaaqay helitaanka akhris iyo qorid. Beddel ama ka fur.",
+    "a11yNoFolder": "Galka mashruuca lama lifaaqin. Mid lifaaq."
+  },
+  "coworkEmpty": {
+    "title": "Maxaan ka shaqeyneynaa?",
+    "subtitleSandbox": "Si Novera hawl. Waxay akhridaa oo qortaa faylasha, fulisaa amarro, isla markaana si madax-bannaan u dhex socotaa talaabooyinka.",
+    "subtitleFolder": "Si Novera hawl. Waxay si toos ah uga shaqeysaa {{folder}}, iyadoo akhrinaysa oo tafatireysa faylasha iyada oo keli ah.",
+    "try": "Isku day",
+    "sandbox": {
+      "first": "Qor script Python ah oo magacyada faylasha u beddela taariikhda la qaaday",
+      "second": "Dhiso hal-bog dashboard ah laga bilaabo CSV aan ku dhejin doono",
+      "third": "Qor README mashruuc aan kuu sharaxo"
+    },
+    "folder": {
+      "first": "Sharax sida {{folder}} loo dhisay",
+      "second": "Raadi dhammaan TODO-ga ku jira {{folder}} kuna kala saar meelaha uu quseyso",
+      "third": "Qor tijaabooyinka qaybta {{folder}} ee aan kuu tilmaamo"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Ma jiro terminal",
+    "a11y": "Orodista amarrada waa la joojiyay. Faahfaahin.",
+    "title": "Orodista amarrada waa la joojiyay",
+    "body": "Novera waxay u ogolaataa wakiilka inuu socodsiiyo amarrada shell kaliya marka nidaamkaaga uu xaddidi karo. Halkan ma jiro sandbox, sidaas darteed wakiilku wuxuu akhrisan, qori iyo tafatiri karaa faylasha ku jira sandbox-kiisa — laakiin ma ordi karo wax kale.",
+    "fixLinux": "Linux waxay isticmaashaa bubblewrap. Ku rakib, ka dib dib u bilow Novera.",
+    "fixMac": "macOS waxay isticmaashaa sandbox-ka dhisan ee ku jira /usr/bin/sandbox-exec. Dib u bilow Novera marka uu diyaar noqdo.",
+    "fixWindows": "Windows waxay isticmaashaa AppContainer. Dib u bilow Novera si aad mar kale isku daydo.",
+    "recheck": "Mar kale hubi"
+  },
+  "planMode": {
+    "label": "Qorshee",
+    "tooltipOff": "U qorshee marka hore — wakiilku wuu akhriyaa oo soo jeediyaa, qoraalna ma sameeyo.",
+    "tooltipOn": "Qorsheyn. Ka jooji si wakiilku u qoro faylasha.",
+    "onAnnounce": "Habka qorsheynta waa on",
+    "placeholder": "Weeydii qorshe. Wakiilku ma beddeli doono wax faylal ah."
+  },
+  "budget": {
+    "stoppedSteps": "La joojiyay tallaabooyinka {{max}}. Wakiilku ma dhammaynin.",
+    "keepGoing": "Sii wad",
+    "stoppedTokens": "La joojiyay — kalfadhigan wuxuu gaaray miisaaniyadda token-ka.",
+    "compact": "Isku soo ururi",
+    "newSession": "Kalfadhi cusub"
+  },
+  "run": {
+    "stopped": "La joojiyay.",
+    "failed": "Orodka waa la joojiyay hore.",
+    "tryAgain": "Mar kale isku day"
+  },
+  "modelNoTools": "{{model}} ma wici karo qalabka, markaa wakiil ma noqon karo. Door qalab-wadid moodeel.",
+  "askContinue": "Sii wad",
+  "askNext": "Su’aasha xigta",
+  "askPrev": "Su’aashii hore",
+  "askRecommended": "La taliyay",
+  "askSelectedCount": "{{count}} waa la doortay",
+  "askSomethingElse": "Wax kale",
+  "askSomethingElsePlaceholder": "Qor jawaabtaada",
+  "submit": "Gudbi",
+  "composer": {
+    "advanced": "Xuduudaha horumarsan",
+    "modelDefaults": "Qaab-dhismeedka moodeelka",
+    "assistantOverrides": "Ka-saarida Asistant",
+    "printPdf": "Daabac / Kaydi ahaan PDF",
+    "exportHint": "Qaababka la akhrisan karo: laanta firfircoon. JSON: dhammaan noocyada fariimaha. Faylasha dibadda lama ururin."
+  },
+  "telemetry": {
+    "summary": "Oggolaanshahaaga, {{host}} wuxuu helayaa kaliya nooca Novera iyo nidaamka hawlgalka, iyada oo aan la helin wada sheekaysiyo ama aqoonsi joogto ah.",
+    "unavailable": "Tirakoob lama habeeyey. Xog lama diro."
+  },
+  "errorTracking": {
+    "title": "La socodka khaladaadka",
+    "summary": "Warbixinno ikhtiyaari ah oo loo diro {{host}}: nooca khaladka, goobta koodhka, nooca iyo nidaamka hawlgalka. Wada sheekaysiyo, fariimaha khaladka ceyriinka ah ama furayaasha lama diro. Mar kasta waa la naaqu karaa.",
+    "unavailable": "La socodka khaladaadka lama habeeyey. Warbixino lama diro."
+  }
+}

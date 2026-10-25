@@ -1,0 +1,18 @@
+{
+  "addProvider": "Ku dar Bixiyaha",
+  "addOpenAIProvider": "Ku dar Bixiye Caadi ah",
+  "enterNameForProvider": "Magaca Bixiye (tusaale, my-llm-server)",
+  "apiTypeLabel": "Qaabka API",
+  "apiTypeOpenAI": "La jaanqaadi kara OpenAI",
+  "apiTypeAnthropic": "La jaanqaadi kara Anthropic",
+  "baseUrlLabel": "Aasaas URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "Furaha API",
+  "apiKeyPlaceholder": "Ku dheji furahaaga API",
+  "invalidBaseUrl": "Aasaaska URL waa inuu noqdaa http(s) sax ah URL",
+  "globalSettings": "Dejinta guud",
+  "stripReasoning": "Ka saar sababeynta macnaha",
+  "stripReasoningDesc": "Ka saar fikirkii/xeerarka hore ee wadahadallada kahor intaadan dib u dirin taariikhda, dhammaan bixiyeyaasha. Tani waxay hagaajisaa dib u isticmaalka KV-cache ee moodooyinka gudaha, laakiin qaar ka mid ah moodooyinka (tusaale, noocyada cusub ee Qwen) waxay ku talinayaan in la haysto si loo helo fikrad wanaagsan oo wadahadal ah.",
+  "providerAlreadyExists": "Bixiye la yiraahdo {{name}} hore ayaa jira."
+}

@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Cod",
+    "preview": "Previzualizare",
+    "previewStreaming": "Disponibil când se termină generarea",
+    "unresolvedAssets_one": "O resursă nu poate fi încărcată în previzualizare. Căile relative nu au un URL de bază pentru a fi rezolvate.",
+    "unresolvedAssets_other": "{{count}} referințe la active nu pot fi încărcate în previzualizare. Căile relative nu au URL-uri de bază pe care să le rezolve."
+  },
+  "assistants": "Asistenți",
+  "hardware": "Hardware",
+  "mcp-servers": "MCP Servere",
+  "local_api_server": "Server local API",
+  "remote_access": "Acces la distanță",
+  "integrations": "Integrare",
+  "experimental": "Experimental",
+  "claude_code": "Filme cu Claude Code",
+  "https_proxy": "Proxy HTTPS",
+  "web_search": "Căutare pe web",
+  "shell": "Shell",
+  "browse": "Răsfoiește",
+  "moreControls": "Mai multe controale",
+  "starting": "Începând cu...",
+  "activeSuffix": "(Activ)",
+  "extensions": "Extensii",
+  "attachments": "Atașamente",
+  "general": "General",
+  "settings": "Setări",
+  "modelProviders": "Furnizori de modele",
+  "localProviders": "Local",
+  "remoteProviders": "La distanță",
+  "manageProviders": "Gestionați furnizorii de servicii",
+  "hiddenProviders": "{{count}} dezactivat",
+  "hideProvider": "Ascunde furnizorul",
+  "showProvider": "Arată furnizorul",
+  "interface": "Interfață",
+  "appearance": "Aspect",
+  "privacy": "Confidențialitate",
+  "keyboardShortcuts": "Comenzi rapide",
+  "home": "Acasă",
+  "cowork": "Cowork",
+  "newSession": "O nouă sesiune",
+  "artifacts": "Artefacte",
+  "customize": "Particularizare",
+  "local": "Local",
+  "selectFolder": "Selectează folderul",
+  "selectModel": "Selectați mai întâi un model",
+  "commands": "Comenzi",
+  "cmdHelp": "Lista comenzilor disponibile",
+  "cmdClear": "Goliți această sesiune",
+  "cmdModels": "Comutarea modelului activ",
+  "cmdModelsHint": "Scrie /models apoi alege un model din lista",
+  "cmdModelSwitched": "A trecut la {{name}}",
+  "cmdUnknown": "Comanda necunoscută: {{name}}. Încearcă /help",
+  "cmdBusy": "Nu pot face asta în timp ce agentul rulează",
+  "cmdCompact": "Compactarea contextului sesiunii într-un rezumat",
+  "cmdCompacted": "Mesaje compactate {{before}} -> {{after}}",
+  "cmdNothingToCompact": "Nimic de compactat încă",
+  "cmdCompactFailed": "Compactarea a eșuat: {{error}}",
+  "cmdPlan": "Comutarea modului de planificare (doar în citire: agentul propune fără scriere)",
+  "cmdPlanOn": "Modul de planificare activat: agentul citește și propune fără a scrie",
+  "cmdPlanOff": "Mod de planificare dezactivat: execuție normală",
+  "cmdTodo": "Deschideți panoul de progres",
+  "cmdTasks": "Deschiderea panoului de sarcini de fundal",
+  "cmdInit": "Studiați proiectul și scrieți abilitățile și memoria",
+  "cmdInitRunning": "Despre acest proiect",
+  "skills": "Aptitudini",
+  "skillsInContext": "Abilități disponibile pentru agent în această rundă",
+  "skillsTitle": "Gestionați abilitățile dvs.",
+  "skillsScopeProject": "Abilități pentru {{folder}}",
+  "skillsScopeGlobal": "Competențe globale, disponibile pentru fiecare sesiune",
+  "skillsScopeMerged": "Abilități pentru {{folder}}, plus abilitățile globale pe care le împărtășește fiecare sesiune",
+  "skillOriginFolder": "folder",
+  "skillOriginGlobal": "global",
+  "skillsEmpty": "Nici o abilitate încă",
+  "skillsPickOrNew": "Selectați o abilitate de editat sau creați una nouă.",
+  "skillNew": "O nouă abilitate",
+  "skillDelete": "Ștergeți abilitatea",
+  "skillSave": "Salvează",
+  "skillSaved": "Abilitatea salvată",
+  "skillNameRequired": "Numele abilității este obligatoriu",
+  "skillNamePlaceholder": "Abilități",
+  "skillContentPlaceholder": "Descrieți procedura reutilizabilă în Markdown…",
+  "skillHubImport": "Import din hub",
+  "skillHubTitle": "Anthropic centru de abilități",
+  "skillHubEmpty": "Nu s-au găsit abilități în hub",
+  "skillImport": "Import",
+  "skillReimport": "Reimport",
+  "skillImported": "Importate {{name}}",
+  "sessions": "Sesiuni",
+  "deleteSession": "Ștergeți sesiunea",
+  "deleteSessionTitle": "Ștergeți sesiunea?",
+  "deleteSessionBody": "\"{{title}}\" și transcrierea acestuia vor fi șterse definitiv. Această acțiune nu poate fi anulată.",
+  "newChat": "Chat nou deschis",
+  "newAgentChat": "Chat pentru agent nou",
+  "chats": "Chat-uri",
+  "favorites": "Favorite",
+  "recents": "Recente",
+  "hub": "Hub",
+  "helpSupport": "Ajutor & suport",
+  "helpUsImproveJan": "Ajută-ne să îmbunătățim Novera",
+  "analyticsConsentDetail": "Colectăm date anonime pentru a înțelege utilizarea funcției. Chaturile și informațiile personale nu sunt niciodată urmărite. Puteți schimba acest lucru oricând în Setări > Confidențialitate.",
+  "analyticsConsentQuestion": "Doriți să ne ajutați să îmbunătățim Novera?",
+  "unstarAll": "Anulează starul tuturor",
+  "unstar": "Unstar",
+  "deleteAll": "Șterge tot",
+  "star": "Stea",
+  "rename": "Redenumire",
+  "delete": "Șterge",
+  "copied": "Copiat!",
+  "dataFolder": "Folder de date",
+  "others": "Altele",
+  "language": "Limbă",
+  "login": "Autentificați-vă",
+  "loginWith": "Conectează-te cu {{provider}}",
+  "loginFailed": "Nu te poți autentifica?",
+  "logout": "Deconectare",
+  "loggingOut": "Încărcați mai multe...",
+  "loggedOut": "Autentificare cu succes",
+  "logoutFailed": "Nu s-a putut deconecta",
+  "profile": "Profil",
+  "reset": "Resetează",
+  "search": "Caută",
+  "searchThreads": "Căutare în subiecte...",
+  "toNavigate": "Click aici pentru a naviga",
+  "toSelect": "Click pentru a selecta",
+  "toClose": "Click pentru a închide",
+  "clearRecent": "Clar.",
+  "name": "Numele",
+  "cancel": "Anulează",
+  "dismiss": "Renunță.",
+  "create": "Creează",
+  "save": "Salvează",
+  "edit": "Editează",
+  "copy": "Copiază",
+  "back": "Înapoi.",
+  "close": "Închide",
+  "done": "Efectuat",
+  "next": "Următorul",
+  "finish": "Termină.",
+  "skip": "Navă",
+  "allow": "Permite",
+  "deny": "Refuzat",
+  "start": "Începe",
+  "stop": "Opreşte-te.",
+  "preview": {
+    "loading": "Se deschide în...",
+    "unsupported": "Novera nu poate afișa acest tip de fișier. Deschideți-l pentru a-l vedea în altă aplicație.",
+    "outside": "Acest fișier nu mai este în spațiul de lucru al sesiunii.",
+    "tooLarge": "Prea mare pentru previzualizare. Deschide-l pentru a-l vedea în altă aplicație.",
+    "reload": "Reîncarcă",
+    "allowNetwork": "Permiteți rețeaua",
+    "unsandboxed": "Rulați fără sandbox: datele salvate și fișierele locale funcționează",
+    "unresolvedRefs_one": "Fișierul la care face trimitere această pagină nu se poate încărca în previzualizare Deschideți-l pentru a-l vedea într-un browser.",
+    "unresolvedRefs_other": "{{count}} fișiere la care face trimitere această pagină nu se pot încărca în previzualizare. Deschideți-le pentru a le vedea într-un browser.",
+    "externalRefs_one": "1 resursă pe care această pagină o încarcă de pe web este blocată Activează „Permite rețeaua” pentru a o încărca.",
+    "externalRefs_other": "{{count}} Resursele pe care această pagină le încarcă de pe web sunt blocate Activați „Permiteți rețeaua” pentru a le încărca.",
+    "scriptErrors_one": "Pagina a raportat o eroare: {{message}}",
+    "scriptErrors_other": "Pagina a raportat erori {{count}}. Prima: {{message}}"
+  },
+  "changes": {
+    "title": "Schimbări ale agentului",
+    "empty": "Fișierele pe care agentul le scrie sau le editează vor apărea aici.",
+    "a11y": "Schimbări ale agentului: {{files}} fișiere, {{additions}} adăugate, {{deletions}} eliminate"
+  },
+  "modelPanel": {
+    "title": "Setări de model",
+    "a11y": "Deschiderea setărilor modelului",
+    "contextTooltip": "Fereastra contextuală: {{value}} din {{max}} jetoane"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Abilitatea '{{name}}' nu este disponibilă",
+    "kind": {
+      "skill": "Îndemânare",
+      "command": "Comandă",
+      "model": "Model"
+    }
+  },
+  "compactWidth": "Lăţime compactă",
+  "fullWidth": "Lățime completă",
+  "dark": "Întuneric",
+  "light": "Lumină",
+  "system": "Sistem",
+  "auto": "Auto",
+  "english": "Engleză",
+  "medium": "Mediu",
+  "newThread": "Un subiect nou",
+  "noResultsFound": "Niciun rezultat găsit",
+  "noThreadsYet": "Nu există subiecte încă",
+  "noThreadsYetDesc": "Începeți o conversație nouă pentru a vedea istoricul firului aici.",
+  "downloads": "Descărcări",
+  "downloading": "Se descarcă",
+  "uploadingAttachments": "Se încarcă atașamentele...",
+  "cancelDownload": "Anulează descărcarea",
+  "downloadCancelled": "Descărcare anulată",
+  "downloadComplete": "Descărcați complet",
+  "thinking": "Gândindu-mă la...",
+  "thought": "Gândire",
+  "callingTool": "Instrument de apelare",
+  "completed": "Finalizat",
+  "image": "Imagine",
+  "vision": "Viziune",
+  "multimodal": "Multimodal",
+  "embeddings": "Încorporare",
+  "tools": "Instrumente",
+  "webSearch": "Căutare pe web",
+  "reasoning": "Raționament",
+  "proactive": "Proactiv",
+  "selectAModel": "Selectează un model",
+  "noToolsAvailable": "Nu sunt instrumente disponibile",
+  "noModelsFoundFor": "Niciun model găsit pentru \"{{searchValue}}\"",
+  "failedToLoadModels": "Nu s-a putut încărca modelele",
+  "noModels": "Niciun model găsit",
+  "noAssistant": "Fără asistent",
+  "customAvatar": "Avatar personalizat",
+  "editAssistant": "Asistent de editare",
+  "jan": "Novera",
+  "metadata": "Metadate",
+  "regenerate": "Regenerează",
+  "threadImage": "Imagine de fir",
+  "editMessage": "Editează mesajul",
+  "deleteMessage": "Șterge mesajul",
+  "deleteThread": "Șterge subiectul",
+  "renameThread": "Redenumește subiectul",
+  "threadTitle": "Titlul subiectului",
+  "deleteAllThreads": "Șterge toate subiectele",
+  "allThreadsUnfavorited": "Toate subiectele Unfavorited",
+  "deleteAllThreadsConfirm": "Ești sigur că vrei să ștergi toate subiectele? Această acțiune nu poate fi anulată.",
+  "addProvider": "Adaugă un furnizor",
+  "addOpenAIProvider": "Adaugă un furnizor OpenAI",
+  "enterNameForProvider": "Introduceți un nume pentru furnizorul dvs.",
+  "providerAlreadyExists": "Furnizorul cu numele \"{{name}}\" există deja. Vă rugăm să alegeți un alt nume.",
+  "adjustFontSize": "Reglați dimensiunea fontului",
+  "changeLanguage": "Schimbă limba",
+  "editTheme": "Editează tema",
+  "editCodeBlockStyle": "Editarea stilului blocului de cod",
+  "editServerHost": "Editare gazdă server",
+  "pickColorWindowBackground": "Alege culoarea fundalului ferestrei",
+  "pickColorAppMainView": "Alege culoarea App Vizualizare principală",
+  "pickColorAppPrimary": "Alegeți culoarea App Primary",
+  "pickColorAppAccent": "Alege culoarea App Accent",
+  "pickColorAppDestructive": "Alege culoarea App distructiv",
+  "apiKeyRequired": "Cheia API este necesară",
+  "enterTrustedHosts": "Introduceți gazdele de încredere",
+  "placeholder": {
+    "chatInput": "Întreabă-mă orice..."
+  },
+  "confirm": "Confirmă",
+  "continue": "Continuă.",
+  "loading": "Încărcați mai multe...",
+  "settingUpJan": "Se pornește Novera…",
+  "registeringExtensions": "Se înregistrează extensiile…",
+  "loadingExtensions": "Se încarcă extensiile… ({{done}}/{{total}})",
+  "error": "Eroare",
+  "success": "Succes.",
+  "warning": "Avertisment",
+  "conversationNotAvailable": "Conversația nu este disponibilă",
+  "conversationNotAvailableDescription": "Conversația pe care încercați să o accesați nu este disponibilă sau a fost ștearsă.",
+  "temporaryChat": "Chat temporar",
+  "temporaryChatTooltip": "Chatul temporar nu va apărea în istoric",
+  "noResultsFoundDesc": "Nu am găsit chat-uri care să corespundă căutării tale. Încearcă un alt cuvânt cheie.",
+  "searchModels": "Caută modele...",
+  "searchStyles": "Stiluri de căutare...",
+  "createAssistant": "Creați un asistent",
+  "enterApiKey": "Introdu tasta API",
+  "scrollToBottom": "Derulați la partea de jos",
+  "generateAiResponse": "Generați răspunsul AI",
+  "continueAiResponse": "Continuă cu AI Response",
+  "addModel": {
+    "title": "Adaugă modelul tău",
+    "modelId": "ID-ul modelului",
+    "enterModelId": "Introdu ID-ul modelului",
+    "addModel": "Adaugă modelul tău",
+    "description": "Adăugați un nou model la furnizor",
+    "exploreModels": "Vezi lista de modele de la furnizor"
+  },
+  "mcpServers": {
+    "editServer": "Editează serverul",
+    "addServer": "Adaugă un server",
+    "serverName": "Numele serverului",
+    "enterServerName": "Introduceți numele serverului",
+    "command": "Comandă",
+    "enterCommand": "Introduceți comanda",
+    "arguments": "Argumente",
+    "argument": "Argument {{index}}",
+    "envVars": "Variabile de mediu",
+    "key": "Cheie",
+    "value": "Valoare",
+    "save": "Salvează"
+  },
+  "deleteServer": {
+    "title": "Şterge serverul",
+    "delete": "Șterge"
+  },
+  "editJson": {
+    "errorParse": "Nu s-a putut analiza JSON",
+    "errorPaste": "Nu s-a putut lipi JSON",
+    "errorFormat": "Format JSON nevalid",
+    "titleAll": "Editarea configurației tuturor serverelor",
+    "placeholder": "Introduceți JSON configurare...",
+    "save": "Salvează"
+  },
+  "editModel": {
+    "title": "Editează modelul: {{modelId}}",
+    "description": "Configurați capabilitățile modelului prin comutarea opțiunilor de mai jos.",
+    "capabilities": "Capacități",
+    "tools": "Instrumente",
+    "vision": "Viziune",
+    "embeddings": "Încorporare",
+    "notAvailable": "Încă nu este disponibil"
+  },
+  "outOfContextError": {
+    "truncateInput": "Trunchiază intrarea",
+    "title": "Eroare în afara contextului",
+    "description": "Acest chat ajunge la limita memoriei AI, ca o tablă albă care se umple. Putem extinde fereastra de memorie (numită dimensiunea contextului) astfel încât să-și amintească mai mult, dar poate utiliza mai multă memorie a computerului dvs. Putem, de asemenea, trunchia intrarea, ceea ce înseamnă că va uita o parte din istoricul chat-ului pentru a face loc pentru mesaje noi.",
+    "increaseContextSizeDescription": "Doriți să măriți dimensiunea contextului?",
+    "increaseContextSize": "Crește dimensiunea contextului"
+  },
+  "toolApproval": {
+    "title": "Cerere de permisiune pentru instrument",
+    "description": "Asistentul vrea să folosească <strong>{{toolName}}</strong>",
+    "securityNotice": "Permiteți doar instrumentele în care aveți încredere. Instrumentele pot accesa sistemul și datele dvs.",
+    "deny": "Refuzat",
+    "allowOnce": "Permiteți o dată",
+    "alwaysAllow": "Permite întotdeauna"
+  },
+  "deleteModel": {
+    "title": "Şterge modelul: {{modelId}}",
+    "description": "Ești sigur că vrei să ștergi acest model? Această acțiune nu poate fi anulată.",
+    "success": "Modelul {{modelId}} a fost șters definitiv.",
+    "cancel": "Anulează",
+    "delete": "Șterge"
+  },
+  "deleteProvider": {
+    "title": "Şterge furnizorul",
+    "description": "Ştergeţi acest furnizor şi toate modelele sale. Această acţiune nu poate fi anulată.",
+    "success": "Furnizorul {{provider}} a fost șters definitiv.",
+    "confirmTitle": "Şterge furnizorul: {{provider}}",
+    "confirmDescription": "Sigur doriţi să ştergeţi acest furnizor? Această acţiune nu poate fi anulată.",
+    "cancel": "Anulează",
+    "delete": "Șterge"
+  },
+  "modelSettings": {
+    "title": "Setările modelului - {{modelId}}",
+    "description": "Configurați setările modelului pentru a optimiza performanța și comportamentul.",
+    "nglDisabledByFit": "Auto-fit alege GPU straturi. Dezactivați Auto-fit pentru a seta acest lucru manual.",
+    "samplingDefaults": {
+      "title": "Parametrii impliciți de eșantionare",
+      "description": "Setările implicite ale sampler-ului pentru acest model. Folosit dacă nu este suprascris de valorile per-assistant sau per-request."
+    },
+    "specDraft": {
+      "section": "Decodificarea speculativă",
+      "enable": "Activează decodificarea speculativă",
+      "enableDescription": "Proiectați mai multe token-uri pe pas și verificați-le într-o singură trecere, ceea ce accelerează generarea.Utilizează capetele MTP încorporate ale modelului sau modelul de proiect descărcat împreună cu acesta (MTP, Eagle3, DFlash sau DSpark).",
+      "nMax": "Max draft tokens",
+      "nMaxDescription": "Numărul maxim de jetoane de draftat per pas. Implicit 16.",
+      "nMin": "Jetoane minime draft",
+      "nMinDescription": "Numărul minim de jetoane de draftat per pas. Implicit 0.",
+      "pMin": "Probabilitatea minimă de draft",
+      "pMinDescription": "Probabilitatea minimă pentru draftul lacom (0-1). Implicit 0.75."
+    },
+    "templateKwargs": {
+      "section": "Opțiuni pentru șablonul de chat",
+      "description": "Opțiuni suplimentare acceptate de șablonul de conversație al modelului. Sunt trimise prin chat_template_kwargs la fiecare cerere; păstrează valoarea implicită pentru a lăsa șablonul să decidă.",
+      "addCustom": "Adaugă opțiune personalizată",
+      "keyPlaceholder": "nume",
+      "valuePlaceholder": "Valoare",
+      "add": "Adaugă",
+      "cancel": "Anulează",
+      "remove": "Eliminare"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Nu s-a putut actualiza setările modelului"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Modificarea locației folderului de date",
+      "description": "Ești sigur că vrei să schimbi locația folderului de date?Acest lucru va muta toate datele tale în noua locație și va reporni aplicația.",
+      "currentLocation": "Locația curentă: București",
+      "newLocation": "Locație nouă:",
+      "cancel": "Anulează",
+      "changeLocation": "Schimbă locația"
+    },
+    "deleteAllThreads": {
+      "title": "Șterge toate subiectele",
+      "description": "Toate firele vor fi șterse. Această acțiune nu poate fi anulată."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Ștergeți toate conversațiile",
+      "description": "{{count}} conversațiile din \"{{projectName}}\" vor fi șterse. Această acțiune nu poate fi anulată."
+    },
+    "deleteThread": {
+      "description": "Ești sigur că vrei să ștergi acest subiect? Această acțiune nu poate fi anulată."
+    },
+    "editMessage": {
+      "title": "Editează mesajul"
+    },
+    "messageMetadata": {
+      "title": "Metadatele mesajului"
+    },
+    "deleteMessage": {
+      "description": "Sunteți sigur că doriți să ștergeți acest mesaj? Această acțiune nu poate fi anulată."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Ceva nu a mers bine.",
+    "details": "Detalii"
+  },
+  "missingDependenciesDialog": {
+    "title": "Biblioteci de sistem lipsă",
+    "description": "{{backend}} a fost instalat, dar unele biblioteci de sistem necesare nu au putut fi găsite.Este posibil să cadă înapoi la CPU sau să nu ruleze corect.",
+    "installLabel": "Pentru a remedia această problemă, instalați următoarele:",
+    "download": "Descarcă",
+    "additionalLibraries": "Biblioteci suplimentare lipsă:",
+    "missingLibraries": "Biblioteci care lipsesc:",
+    "showRawLibraries": "Arată {{count}} lipsă nume de biblioteci"
+  },
+  "projects": {
+    "title": "Proiecte",
+    "new": "Proiecte noi în derulare",
+    "addProject": "Adaugă un proiect",
+    "addToProject": "Adaugă la proiect",
+    "removeFromProject": "Eliminare din proiect",
+    "createNewProject": "Creează un proiect nou",
+    "editProject": "Editează proiectul",
+    "deleteProject": "Șterge proiectul",
+    "projectName": "Numele proiectului",
+    "enterProjectName": "Introduceți numele proiectului...",
+    "noProjectsAvailable": "Niciun proiect disponibil",
+    "noProjectsYet": "Nu există proiecte încă",
+    "noProjectsYetDesc": "Începeți un proiect nou făcând clic pe butonul Adăugare proiect.",
+    "projectNotFound": "Pagina nu a fost gasita",
+    "projectNotFoundDesc": "Pagina pe care o căutați în acest blog nu există.",
+    "selectAssistant": "Selectează un asistent",
+    "noAssistantAssigned": "Niciun asistent nu este atribuit acestui proiect",
+    "files": "Fișiere",
+    "filesDescription": "Adăugați PDF-uri, documente sau alt text pentru referință în acest proiect.",
+    "uploadingFiles": "Se procesează fișierele...",
+    "processButton": "Adaugă",
+    "deleteProjectDialog": {
+      "title": "Șterge proiectul",
+      "permanentDelete": "Aceasta va șterge definitiv toate subiectele.",
+      "permanentDeleteWarning": "Această acțiune va șterge definitiv TOATE firele din cadrul proiectului!",
+      "deleteEmptyProject": "Această acțiune va șterge proiectul \"{{projectName}}\".",
+      "saveThreadsAdvice": "Pentru a salva firele, mutați-le în lista de fire sau într-un alt proiect înainte de a le șterge.",
+      "starredWarning": "Încă mai aveți fire marcate în cadrul proiectului.",
+      "deleteButton": "Șterge",
+      "successWithName": "Proiectul \"{{projectName}}\" şters cu succes",
+      "successWithoutName": "Proiect sters cu succes",
+      "error": "Ștergerea proiectului a eșuat. Vă rugăm să încercați din nou.",
+      "ariaLabel": "Ștergeți {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Creează un proiect nou",
+      "editTitle": "Editează proiectul",
+      "nameLabel": "Numele proiectului",
+      "namePlaceholder": "Introduceți numele proiectului...",
+      "assistant": "Asistent",
+      "selectAssistant": "Selectați un asistent (opțional)",
+      "noAssistant": "Fără asistent",
+      "addAssistant": "Adăugați un asistent",
+      "createButton": "Creează",
+      "updateButton": "Actualizare",
+      "alreadyExists": "Proiectul \"{{projectName}}\" există deja",
+      "createSuccess": "Proiectul \"{{projectName}}\" creat cu succes",
+      "updateSuccess": "Proiectul \"{{projectName}}\" actualizat cu succes",
+      "saveError": "Nu s-a putut salva proiectul. Vă rugăm să încercați din nou."
+    },
+    "noConversationsIn": "Nu există conversaţii în {{projectName}}",
+    "startNewConversation": "Începe o nouă conversație cu {{projectName}} de mai jos",
+    "conversationsIn": "Conversaţii în {{projectName}}",
+    "conversationsDescription": "Faceți clic pe orice conversație pentru a continua chat-ul sau pentru a începe una nouă mai jos.",
+    "conversation": "Conversație",
+    "instructions": "Instrucțiuni",
+    "setup": "Configurare",
+    "instructionsDescription": "Personalizați tonul și stilul de răspuns",
+    "manageInstructions": "Gestionați instrucțiunile",
+    "thread": "fir",
+    "threads": "fire",
+    "updated": "Actualizat:",
+    "collapseProject": "Collapse proiectul",
+    "expandProject": "Extinde proiectul",
+    "update": "Actualizare",
+    "searchProjects": "Caută proiecte...",
+    "noProjectsFound": "Niciun proiect găsit",
+    "tryDifferentSearch": "Încercați un alt termen de căutare"
+  },
+  "attachmentsIngestion": {
+    "title": "Alegeți cum să ingerați atașările",
+    "description": "Alegeți dacă doriți să includeți aceste fișiere direct în chat sau să le indexați ca încorporare.",
+    "inline": "Injectează în chat",
+    "embeddings": "Folosește înglobările"
+  },
+  "attachmentInjectedIndicator": "Injectat în chat",
+  "attachmentEmbeddedIndicator": "Embedded pentru RAG",
+  "viewInjectedContent": "Vizualizarea conținutului injectat",
+  "injectedContentTitle": "Conținutul fișierului injectat",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Toate subiectele Unfavorited",
+      "description": "Toate subiectele au fost eliminate din favorite."
+    },
+    "deleteAllThreads": {
+      "title": "Șterge toate subiectele",
+      "description": "Toate subiectele au fost șterse definitiv."
+    },
+    "renameThread": {
+      "title": "Redenumește subiectul",
+      "description": "Titlul subiectului a fost redenumit la '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Șterge subiectul",
+      "description": "Acest subiect a fost sters definitiv."
+    },
+    "errorCopied": {
+      "title": "Copiază cu succes",
+      "description": "Informații despre eroare copiate în clipboard"
+    },
+    "errorCopyFailed": {
+      "title": "Copierea nu a reușit",
+      "description": "Copierea informațiilor despre eroare în clipboard nu a reușit"
+    },
+    "editMessage": {
+      "title": "Editează mesajul",
+      "description": "Mesajul a fost editat cu succes. Vă rugăm să așteptați răspunsul modelului."
+    },
+    "appUpdateDownloaded": {
+      "title": "Actualizarea aplicației descărcată",
+      "description": "Actualizarea aplicației a fost descărcată cu succes."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Descărcarea actualizării aplicației a eșuat",
+      "description": "Descărcarea actualizării aplicaţiei a eşuat. Încercaţi din nou."
+    },
+    "downloadComplete": {
+      "title": "Descărcați complet",
+      "description": "{{item}} a fost descărcat"
+    },
+    "downloadCancelled": {
+      "title": "Descărcare anulată",
+      "description": "Procesul de descarcare a fost anulat"
+    },
+    "downloadFailed": {
+      "title": "Descărcarea a eșuat",
+      "description": "Descărcarea {{item}} a eșuat",
+      "descriptionWithReason": "Descărcarea {{item}} a eșuat: {{reason}}",
+      "reason": {
+        "dns": "Numele serverului nu a putut fi rezolvat",
+        "refused": "Conexiunea a fost refuzată",
+        "timeout": "Conexiunea a expirat.",
+        "tls": "O conexiune securizată nu a putut fi stabilită",
+        "proxy": "Proxy-ul nu a putut fi accesat",
+        "unreachable": "Serverul nu a putut fi accesat."
+      }
+    },
+    "openSettings": "Deschideți setările",
+    "openLogs": "Deschideți jurnalele",
+    "downloadTokenRequired": {
+      "title": "Hugging Face token necesar",
+      "description": "Acest model necesită un token de acces Hugging Face. Adăugați tokenul în Setări și încercați din nou."
+    },
+    "downloadLicenseRequired": {
+      "title": "Acceptați licența de model pe Hugging Face",
+      "description": "Trebuie să acceptați licența modelului pe pagina sa Hugging Face înainte de a descărca."
+    },
+    "downloadRateLimited": {
+      "title": "Rata limitată de Hugging Face",
+      "description": "Ați fost restricționat de viteză. Adăugarea unui token poate crește limitele de viteză. Vă rugăm încercați din nou mai târziu."
+    },
+    "modelValidationStarted": {
+      "title": "Validarea modelului",
+      "description": "Modelul \"{{modelId}}\" a fost descărcat cu succes. Se verifică integritatea..."
+    },
+    "modelValidationFailed": {
+      "title": "Validarea modelului a eșuat",
+      "description": "Modelul descărcat \"{{modelId}}\" a eșuat la verificarea integrității și a fost eliminat.Fișierul poate fi corupt sau modificat."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Descărcați complet",
+      "description": "Modelul \"{{item}}\" a fost descărcat și verificat cu succes"
+    },
+    "projectCreated": {
+      "title": "Proiectul a fost creat",
+      "description": "Proiectul \"{{projectName}}\" creat cu succes"
+    },
+    "projectRenamed": {
+      "title": "Proiect redenumit",
+      "description": "Proiectul redenumit de la \"{{oldName}}\" la \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Proiectul a fost șters",
+      "description": "Proiectul \"{{projectName}}\" şters cu succes"
+    },
+    "projectAlreadyExists": {
+      "title": "Proiectul există deja",
+      "description": "Proiectul \"{{projectName}}\" există deja"
+    },
+    "projectDeleteFailed": {
+      "title": "Ștergerea a eșuat",
+      "description": "Ștergerea proiectului a eșuat. Vă rugăm să încercați din nou."
+    },
+    "threadAssignedToProject": {
+      "title": "Subiect atribuit",
+      "description": "Subiect atribuit cu succes la \"{{projectName}}\""
+    },
+    "threadRemovedFromProject": {
+      "title": "Subiectul a fost eliminat",
+      "description": "Subiect eliminat din \"{{projectName}}\" cu succes"
+    },
+    "fileUploaded": {
+      "title": "Fișierul a fost procesat",
+      "description": "Fișierul a fost procesat cu succes"
+    },
+    "uploadFailed": {
+      "title": "Procesarea a eșuat",
+      "description": "Procesarea fișierului a eșuat",
+      "subjectThisFile": "Acest fișier",
+      "pdfMalformedXref": "{{subject}} are un tabel de referințe încrucișate PDF formatat greșit și nu a putut fi analizat.Încercați să-l deschideți într-un vizualizator PDF și să-l salvați din nou (Fișier → Imprimare → Salvare ca PDF), apoi încărcați din nou.",
+      "pdfScanned": "{{subject}} pare a fi un PDF scanat sau bazat pe imagine.OCR nu este suportat încă — vă rugăm să încărcați un PDF bazat pe text.",
+      "pdfEncrypted": "{{subject}} este protejat prin parolă. Eliminați parola și încercați din nou.",
+      "pdfUnsupportedFeature": "{{subject}} folosește o caracteristică PDF pe care Novera nu o poate analiza încă (de exemplu, funcții de culoare/shadowing PostScript). Încercați să o salvați din nou (Fișier → Imprimare → Salvare ca PDF) pentru a o uniformiza, apoi încărcați din nou.",
+      "pdfGeneric": "{{subject}} nu a putut fi analizat ca PDF Fișierul poate fi corupt sau utilizează o caracteristică PDF neacceptată.",
+      "fileTooLarge": "{{subject}} este prea mare. {{message}}.",
+      "unsupportedType": "Tipul de fișier \"{{type}}\" nu este acceptat.",
+      "ioError": "Imposibil de citit {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} nu a putut fi analizat: {{message}}",
+      "fallback": "Nu s-a putut procesa {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Fișierul a fost șters",
+      "description": "Fișierul a fost eliminat din proiect"
+    },
+    "deleteFailed": {
+      "title": "Ștergerea a eșuat",
+      "description": "Nu s-a putut şterge fişierul"
+    },
+    "fileAlreadyExists": {
+      "title": "Fișierul există deja",
+      "description": "Fișierul este deja atașat la acest proiect"
+    },
+    "unsupportedFileType": {
+      "title": "Tip de fișier neacceptat",
+      "description": "Extensia de fișier \".{{extension}}\" nu este acceptată pentru referința proiectului."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Atașamentele sunt dezactivate",
+      "description": "Atașamentele sunt dezactivate în Setări"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Fișier prea mare",
+    "fileTooLargeDescription": "{{fileName}} depășește limita {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} bucăți",
+    "title": "Fișiere",
+    "empty": "Fișierele pe care le atașați și fișierele pe care agentul le creează vor apărea aici.",
+    "a11y": "Fișiere: {{count}}",
+    "attachments": "Atașamente",
+    "notImported": "Nu este în spațiul de lucru"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp este încă ocupat",
+    "description": "Unul sau mai multe modele nu s-au descărcat la timp.Închiderea forțată va termina llama.cpp și poate întrerupe răspunsurile active.",
+    "forceQuit": "Ieșire forțată",
+    "forcing": "Forțează ieșirea...",
+    "shuttingDown": "Se închide..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Restrânge",
+  "expand": "Extinde",
+  "todoPanelTitle": "Progresul",
+  "todoPanelEmpty": "Nici o listă de tot încă.",
+  "backgroundTasks": "Sarcini de fundal",
+  "subagentsRunning_one": "{{count}} subagent running",
+  "subagentsRunning_other": "{{count}} subagents running",
+  "monitorsRunning_one": "{{count}} monitor de rulare",
+  "monitorsRunning_other": "{{count}} monitorizează rularea",
+  "backgroundRunning_one": "{{count}} sarcina de fundal rulează",
+  "backgroundRunning_other": "{{count}} sarcini de fundal care rulează",
+  "monitors": "Monitoare",
+  "monitorPolling": "Sondaj",
+  "monitorMatched": "Potrivit",
+  "monitorTimedOut": "Timp de expirare",
+  "monitorStopped": "Oprit",
+  "monitorEnded": "Încheiat",
+  "coworkWatching_one": "Urmărind {{count}} monitor…",
+  "coworkWatching_other": "Urmărind {{count}} monitoare…",
+  "coworkWaitingBackground": "Se așteaptă sarcini de fundal…",
+  "noBackgroundTasks": "Nu există încă sarcini de fundal.",
+  "running": "Fugi.",
+  "queued": "În așteptare",
+  "waiting": "Aştept.",
+  "finished": "Terminat",
+  "subagentPhase": "Faza {{phase}}",
+  "subagentWaiting": "În așteptare",
+  "viewTranscript": "Vezi transcrierea",
+  "taskWorking": "Lucrează...",
+  "taskNoOutput": "Subagentul nu a produs nici o ieșire vizibilă.",
+  "subagentToolUses_one": "Utilizarea instrumentului {{count}}",
+  "subagentToolUses_other": "{{count}} utilizări ale instrumentului",
+  "artifactGroupCode": "Cod",
+  "artifactGroupImage": "Imagine",
+  "artifactGroupDocument": "Document",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Deschideți previzualizarea",
+  "artifactOpenExternal": "Deschide",
+  "artifactMoreActions": "Mai multe acțiuni",
+  "artifactShowInFolder": "Afișează în folder",
+  "skillsUsedLabel": "Aptitudini folosite",
+  "skillsUsed": "Abilităţi folosite: {{skills}}",
+  "artifactsAll": "Toate",
+  "artifactsEmpty": "Încă nu s-a produs nimic. Artefactele din Cowork sunt afișate aici.",
+  "artifactsNoMatch": "Niciun artefact nu se potrivește.",
+  "artifactsSearch": "Căutare de artefacte",
+  "artifactsShowMore": "Arată {{count}} mai mult",
+  "workspace": {
+    "readsFrom": "Lucrează în România",
+    "writable": "Citește & scrie",
+    "footnote": "Agentul citește și editează acest folder direct. Revizuiți ce s-a schimbat în panoul diff.",
+    "footnoteEmpty": "Atașați un folder pentru a permite agentului să lucreze la proiectul dvs. Acesta poate citi și edita fișierele din interiorul acestuia.",
+    "attach": "Atașarea unui folder",
+    "change": "Schimbă folderul",
+    "detach": "Decuplează folderul",
+    "open": "Deschide",
+    "reveal": "Dezvăluie",
+    "unavailable": "Spațiu de lucru indisponibil",
+    "missing": "Folderul spațiului de lucru {{folder}} nu mai este disponibil. Alegeți un alt folder.",
+    "openFailed": "Nu am putut deschide spațiul de lucru",
+    "revealFailed": "Nu s-a putut dezvălui spațiul de lucru",
+    "a11yWithFolder": "Folderul proiectului {{folder}}, atașat cu acces de citire și scriere. Schimbați sau detașați-l.",
+    "a11yNoFolder": "Niciun folder de proiect atașat. Atașați unul."
+  },
+  "coworkEmpty": {
+    "title": "La ce lucrăm?",
+    "subtitleSandbox": "Dă-i lui Novera o sarcină, el citește și scrie fișiere, rulează comenzi și lucrează prin pași de unul singur.",
+    "subtitleFolder": "Dă-i lui Novera o sarcină. Funcționează direct în {{folder}}, citind și editând fișiere pe cont propriu.",
+    "try": "Încearcă.",
+    "sandbox": {
+      "first": "Scrieți un script Python care redenumește fișierele după data la care au fost luate",
+      "second": "Construiți un tablou de bord pe o singură pagină dintr-un CSV pe care îl voi lipi",
+      "third": "Elaborarea unui README pentru un proiect pe care vi-l descriu"
+    },
+    "folder": {
+      "first": "Explicați cum se compune {{folder}}",
+      "second": "Găsiți fiecare TODO în {{folder}} și grupați-le după zonă",
+      "third": "Scrieți teste pentru partea de {{folder}} vă indic la"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "În terminal",
+    "a11y": "Executarea comenzilor este dezactivată. Detalii.",
+    "title": "Rularea comenzilor este dezactivată",
+    "body": "Novera permite agentului să execute comenzi shell numai atunci când sistemul tău le poate restricționa.Nu există sandbox disponibil aici, astfel încât agentul poate citi, scrie și edita fișiere în sandboxul său - dar nu poate executa nimic.",
+    "fixLinux": "Linux folosește bubblewrap. Instalați-l, apoi reporniți Novera.",
+    "fixMac": "macOS folosește sandbox-ul încorporat din /usr/bin/sandbox-exec.Reporniți Novera odată ce este disponibil.",
+    "fixWindows": "Windows utilizează AppContainer. Reporniți Novera pentru a încerca din nou.",
+    "recheck": "Verifică din nou"
+  },
+  "planMode": {
+    "label": "Planificarea",
+    "tooltipOff": "Planificați mai întâi - agentul citește și propune, fără a scrie.",
+    "tooltipOn": "Planificare. Dezactivați această opțiune pentru a permite agentului să scrie fișiere.",
+    "onAnnounce": "Mod de planificare activat",
+    "placeholder": "Cere un plan. Agentul nu va schimba niciun fișier."
+  },
+  "budget": {
+    "stoppedSteps": "S-a oprit la {{max}} pași. Agentul nu a terminat.",
+    "keepGoing": "Continuă să mergi",
+    "stoppedTokens": "Oprită — această sesiune și-a atins bugetul de token.",
+    "compact": "Compact",
+    "newSession": "O nouă sesiune"
+  },
+  "run": {
+    "stopped": "Oprit.",
+    "failed": "Cursa s-a oprit devreme.",
+    "tryAgain": "Încearcă din nou"
+  },
+  "modelNoTools": "{{model}} nu poate apela instrumente, deci nu poate acționa ca agent. Alegeți un model care apelează instrumente.",
+  "askContinue": "Continuă.",
+  "askNext": "Întrebarea următoare",
+  "askPrev": "Întrebarea anterioară",
+  "askRecommended": "Recomandat",
+  "askSelectedCount": "{{count}} selectat",
+  "askSomethingElse": "Altceva.",
+  "askSomethingElsePlaceholder": "Tastați propriul răspuns",
+  "submit": "Trimite",
+  "composer": {
+    "advanced": "Parametrii avansați",
+    "modelDefaults": "Valorile implicite ale modelului",
+    "assistantOverrides": "Suprascrieri ale asistentului",
+    "printPdf": "Imprimare / Salvare ca PDF",
+    "exportHint": "Formate lizibile: ramificația activă. JSON: toate versiunile mesajului. Fișierele externe nu sunt incluse."
+  },
+  "telemetry": {
+    "summary": "Cu consimțământul tău, {{host}} primește doar versiunea și sistemul de operare Novera, fără conversații sau un identificator persistent.",
+    "unavailable": "Statisticile nu sunt configurate. Nu sunt trimise date."
+  },
+  "errorTracking": {
+    "title": "Urmărirea erorilor",
+    "summary": "Rapoarte opționale către {{host}}: tipul de eroare, poziția codului, versiunea și sistemul de operare. Fără conversații, mesaje de eroare brute sau chei. Dezactivați oricând.",
+    "unavailable": "Urmărirea erorilor nu este configurată. Nu sunt trimise rapoarte."
+  }
+}

@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Koodii",
+    "preview": "Ilaalcha duraa",
+    "previewStreaming": "Yeroo uummaan xumuramu argama",
+    "unresolvedAssets_one": "Wabii qabeenyaa 1 agarsiisa duraa keessatti fe'amuu hin dandeenye. Daandiiwwan hariiroo qaban bu'uura URL kan irratti furuuf hin qaban.",
+    "unresolvedAssets_other": "Wabiiwwan qabeenyaa {{count}} agarsiisa duraa keessatti fe'amuu hin danda'an. Daandiiwwan hariiroo qaban bu'uura URL kan irratti furuuf hin qaban."
+  },
+  "assistants": "Gargaartota",
+  "hardware": "Haardiweerii",
+  "mcp-servers": "Tajaajilaa MCP",
+  "local_api_server": "Tajaajilaa Naannoo API",
+  "remote_access": "Seensa Fageenyaa",
+  "integrations": "Wal-simsiisa",
+  "experimental": "Yaalii",
+  "claude_code": "Koodii Kilaawud",
+  "https_proxy": "HTTPS Pirooksii",
+  "web_search": "Barbaacha Weebii",
+  "shell": "Sheelii",
+  "browse": "Daawwadhu",
+  "moreControls": "To'annoowwan dabalataa",
+  "starting": "Jala jira...",
+  "activeSuffix": "(Hojii irra jira)",
+  "extensions": "Dabalatawwan",
+  "attachments": "Maxxansawwan",
+  "general": "Waliigala",
+  "settings": "Qindaa’ina",
+  "modelProviders": "Dhiheessitoota Moodeelaa",
+  "localProviders": "Naannoo",
+  "remoteProviders": "Fageenya",
+  "manageProviders": "Dhiheessitoota bulchuu",
+  "hiddenProviders": "{{count}} cufame",
+  "hideProvider": "Dhiheessaa dhoksi",
+  "showProvider": "Dhiheessaa agarsiisi",
+  "interface": "Walqunnamsiisa",
+  "appearance": "Bifaa",
+  "privacy": "Iccitii",
+  "keyboardShortcuts": "Gabaabduuwwan",
+  "home": "Fuula Jalqabaa",
+  "cowork": "Cowork",
+  "newSession": "Yeroo haaraa",
+  "artifacts": "Bu'aalee hojii",
+  "customize": "Sirreessi",
+  "local": "Naannoo",
+  "selectFolder": "Galmee filadhu",
+  "selectModel": "Dura moodeela filadhu",
+  "commands": "Ajajoota",
+  "cmdHelp": "Ajajoota argaman tarreessi",
+  "cmdClear": "Yeroo hojii kana qulqulleessi",
+  "cmdModels": "Moodeela hojii irra jiru jijjiiri",
+  "cmdModelsHint": "/models barreessi, sana booda tarree keessaa moodeela filadhu",
+  "cmdModelSwitched": "Gara {{name}}tti jijjiirame",
+  "cmdUnknown": "Ajaja hin beekamne: {{name}}. /help yaali",
+  "cmdBusy": "Ajaantiin osoo hojjechaa jiruu kana gochuun hin danda'amu",
+  "cmdCompact": "Qabiyyee yeroo walqunnamtii gara cuunfaatti walitti qabu",
+  "cmdCompacted": "Ergaawwan {{before}} -> {{after}} gabaabfamaniiru",
+  "cmdNothingToCompact": "Ammaaf kan gabaabsamu hin jiru",
+  "cmdCompactFailed": "Gabaabsuun kufa: {{error}}",
+  "cmdPlan": "Haala karooraa jijjiiri (dubbisa qofaaf: ejentiin osoo hin barreessin yaada dhiyeessa)",
+  "cmdPlanOn": "Haala karooraa baname: ejentiin osoo hin barreessin ni dubbisa akkasumas yaada dhiyeessa",
+  "cmdPlanOff": "Haala karooraa cufame: raawwii idilee",
+  "cmdTodo": "Paanaalii adeemsaa bani",
+  "cmdTasks": "Paanaalii hojiiwwan duubaa bani",
+  "cmdInit": "Piroojekticha qorachuu fi dandeettiiwwanii fi yaadannoo barreessuu",
+  "cmdInitRunning": "Piroojektii kana keessatti nama haaraa simachuu",
+  "skills": "Dandeettiiwwan",
+  "skillsInContext": "Dandeettiiwwan raawwii kanaaf ejentiif argaman",
+  "skillsTitle": "Dandeettiiwwan bulchuu",
+  "skillsScopeProject": "Dandeettiiwwan {{folder}}",
+  "skillsScopeGlobal": "Dandeettiiwwan waliigalaa, kanneen yeroo hundaaf argaman",
+  "skillsScopeMerged": "Dandeettiiwwan {{folder}}, dabalataan dandeettiiwwan waliigalaa kan yeroo hundi qooddatu",
+  "skillOriginFolder": "galmee",
+  "skillOriginGlobal": "waliigala",
+  "skillsEmpty": "Dandeettiiwwan ammaaf hin jiran",
+  "skillsPickOrNew": "Dandeettii gulaaluuf filadhu, yookaan kan haaraa uumi.",
+  "skillNew": "Dandeettii haaraa",
+  "skillDelete": "Dandeettii haqi",
+  "skillSave": "Olkaa’i",
+  "skillSaved": "Dandeettiin olkaa'ame",
+  "skillNameRequired": "Maqaan dandeettii dirqama",
+  "skillNamePlaceholder": "maqaa-dandeettii",
+  "skillContentPlaceholder": "Adeemsa irra deebiin fayyadamuu danda'amu Markdown keessatti ibsi…",
+  "skillHubImport": "Giddugala irraa galchi",
+  "skillHubTitle": "Anthropic giddugala dandeettii",
+  "skillHubEmpty": "Hubii irratti dandeettiiwwan hin argamne",
+  "skillImport": "Galuu",
+  "skillReimport": "Irra deebi'anii galchuu",
+  "skillImported": "Galfame {{name}}",
+  "sessions": "Yeroowwan",
+  "deleteSession": "Yeroo haasawaa haqi",
+  "deleteSessionTitle": "Yeroo haasawaa haqi?",
+  "deleteSessionBody": "\"{{title}}\" fi barreeffamni waraabbame isaa guutummaatti ni haqama. Kun deebi'uu hin danda'u.",
+  "newChat": "Haasawa Haaraa",
+  "newAgentChat": "Haasawa Ejentii Haaraa",
+  "chats": "Haasawawwan",
+  "favorites": "Jaallatamoo",
+  "recents": "Dhiheenya Kana",
+  "hub": "Giddugala",
+  "helpSupport": "Gargaarsa & Deeggarsa",
+  "helpUsImproveJan": "Novera akka fooyyessinu nu gargaaraa",
+  "analyticsConsentDetail": "Fayyadama amala addaa hubachuuf ragaa maqaa hin qabne ni sassaabna. Haasawwiin keessan fi odeeffannoon dhuunfaa keessanii gonkumaa hin hordofaman. Kana yeroo barbaaddan kamittuu Qindaa'ina > Dhuunfaa keessatti jijjiiruu dandeessu.",
+  "analyticsConsentQuestion": "Novera fooyyessuuf nu gargaaruu ni barbaaddaa?",
+  "unstarAll": "Hunda irraa urjii baasuu",
+  "unstar": "Urjii baasuu",
+  "deleteAll": "Hunda Haqi",
+  "star": "Urjii Godhi",
+  "rename": "Maqaa Jijjiiri",
+  "delete": "Balleessi",
+  "copied": "Koppii Ta'e!",
+  "dataFolder": "Galmee Daataa",
+  "others": "Kan Biraa",
+  "language": "Afaan",
+  "login": "Seeni",
+  "loginWith": "{{provider}} fayyadamuun Seeni",
+  "loginFailed": "Se'uun hin milkoofne",
+  "logout": "Ba'i",
+  "loggingOut": "Ba'aa jira...",
+  "loggedOut": "Milkaa'inaan Ba'eera",
+  "logoutFailed": "Ba'uun Hin Milkoofne",
+  "profile": "Piroofaayilii",
+  "reset": "Deebisi",
+  "search": "Barbaadi",
+  "searchThreads": "Mata dureewwan barbaadi...",
+  "toNavigate": "gara deemuuf",
+  "toSelect": "filachuuf",
+  "toClose": "cufuuf",
+  "clearRecent": "Qulqulleessi",
+  "name": "Maqaa",
+  "cancel": "Haqi",
+  "dismiss": "Heeyi",
+  "create": "Uumi",
+  "save": "Olkaa’i",
+  "edit": "Gulaali",
+  "copy": "Garagalchi",
+  "back": "Duubatti",
+  "close": "Cufi",
+  "done": "Xumurame",
+  "next": "Itti Aansu",
+  "finish": "Xumuri",
+  "skip": "Dhafi",
+  "allow": "Hayyami",
+  "deny": "Dhaamsi",
+  "start": "Jalqabi",
+  "stop": "Dhaabi",
+  "preview": {
+    "loading": "Banaa jira…",
+    "unsupported": "Novera gosa faayilii kanaa agarsiisuu hin danda'u. Appilikeeshinii biraatiin ilaaluuf bani.",
+    "outside": "Faayiliin kun iddoo hojii yeroo ammaa keessa hin jiru.",
+    "tooLarge": "Dursanii ilaaluuf baay'ee guddaadha. Appilikeeshinii biraatiin ilaaluuf bani.",
+    "reload": "Irra deebi'ii fe'i",
+    "allowNetwork": "Neetworkii hayyami",
+    "unsandboxed": "Sanduuqa alatti hojjechiisi: daataan olkaa'ame fi faayiloonni naannoo ni hojjetu",
+    "unresolvedRefs_one": "Faayiliin 1 fuulli kun itti hidhata, agarsiisa duraa keessatti fe'amuu hin danda'u. Barawuzara keessatti ilaaluuf banaa.",
+    "unresolvedRefs_other": "Faayiloota {{count}} fuulli kun itti hidhata, agarsiisa duraa keessatti fe'amuu hin danda'an. Barawuzara keessatti ilaaluuf banaa.",
+    "externalRefs_one": "Qabeenyi 1 fuulli kun interneetii irraa fe'u cufameera. Isa fe'uuf \"Neetworkii hayyami\" banaa.",
+    "externalRefs_other": "Qabeenyiiwwan {{count}} fuulli kun interneetii irraa fe'u cufamaniiru. Isaan fe'uuf \"Neetworkii hayyami\" banaa.",
+    "scriptErrors_one": "Fuulichi dogoggora gabaaseera: {{message}}",
+    "scriptErrors_other": "Fuulichi dogoggora {{count}} gabaaseera. Jalqaba: {{message}}"
+  },
+  "changes": {
+    "title": "Jijjiirama Ejentii",
+    "empty": "Faayiloonni ejentichi barreessu yookiin gulaalu asitti mul'atu.",
+    "a11y": "Jijjiirama ejentii: faayiloota {{files}}, {{additions}} dabalamaniiru, {{deletions}} haqamaniiru"
+  },
+  "modelPanel": {
+    "title": "Qindaa'ina moodeelii",
+    "a11y": "Qindaa'ina moodeelii bani",
+    "contextTooltip": "Foddaa haal-duree: {{value}} keessaa {{max}} tuqaalee"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Dandeettiin '{{name}}' hin argamu",
+    "kind": {
+      "skill": "Dandeettii",
+      "command": "Ajaja",
+      "model": "Moodeela"
+    }
+  },
+  "compactWidth": "Bal'ina Dhiphaa",
+  "fullWidth": "Bal'ina Guutuu",
+  "dark": "Dukkanaa'aa",
+  "light": "Ifaa",
+  "system": "Sirna",
+  "auto": "Ofumaan",
+  "english": "Afaan Ingiliffaa",
+  "medium": "Giddu-galeessa",
+  "newThread": "Mata Duree Haaraa",
+  "noResultsFound": "Bu'aan hin argamne",
+  "noThreadsYet": "Mata dureen hanga ammaatti hin jiru",
+  "noThreadsYetDesc": "Seenaa mata duree kee asitti ilaaluuf marii haaraa jalqabi.",
+  "downloads": "Buufamoota",
+  "downloading": "Buufamaa jira",
+  "uploadingAttachments": "Maxxansoota ol fe'aa jira…",
+  "cancelDownload": "Buufama haqi",
+  "downloadCancelled": "Buufamni haqameera",
+  "downloadComplete": "Buufamni xumurameera",
+  "thinking": "Yaaduu...",
+  "thought": "Yaada",
+  "callingTool": "Meeshaa waamichaa",
+  "completed": "Xumurame",
+  "image": "Suuraa",
+  "vision": "Mul'ata",
+  "multimodal": "Miidiyaa-hedduu",
+  "embeddings": "Embeddings",
+  "tools": "Meeshaalee",
+  "webSearch": "Barbaacha Weebii",
+  "reasoning": "Sababeessuu",
+  "proactive": "Dursiituu",
+  "selectAModel": "Moodeela filadhu",
+  "noToolsAvailable": "Meeshaan hin argamne",
+  "noModelsFoundFor": "Moodeelonni \"{{searchValue}}\" jedhuuf hin argamne",
+  "failedToLoadModels": "Moodeelota fe'uun hin milkoofne",
+  "noModels": "Moodeelonni hin argamne",
+  "noAssistant": "Gargaaraan hin jiru",
+  "customAvatar": "Suuraa mata duree ofii",
+  "editAssistant": "Gargaaraa Sirreessi",
+  "jan": "Novera",
+  "metadata": "Odeeffannoo dabalataa",
+  "regenerate": "Irra deebi'ii uumi",
+  "threadImage": "Suuraa mata duree",
+  "editMessage": "Ergaa Sirreessi",
+  "deleteMessage": "Ergaa Haqi",
+  "deleteThread": "Mata Duree Haquu",
+  "renameThread": "Mata Duree Maqaa Jijjiiruu",
+  "threadTitle": "Mata Duree",
+  "deleteAllThreads": "Mata Dureewwan Hunda Haquu",
+  "allThreadsUnfavorited": "Mata Dureewwan Hunda Jaalala Irraa Baasuu",
+  "deleteAllThreadsConfirm": "Dhugaadhaa harka hunda haquu barbaaddaa? Gochi kun deebi'uu hin danda'u.",
+  "addProvider": "Dhaabbata Dabal",
+  "addOpenAIProvider": "Dhaabbata OpenAI Dabal",
+  "enterNameForProvider": "Dhaabbata keetiif maqaa galchi",
+  "providerAlreadyExists": "Dhiheessaan maqaa \"{{name}}\" jedhamuun dursee jira. Maaloo maqaa biraa filadhu.",
+  "adjustFontSize": "Guddina qubee sirreessi",
+  "changeLanguage": "Afaan jijjiiri",
+  "editTheme": "Tii'mii gulaali",
+  "editCodeBlockStyle": "Akkaataa koodii cufaa gulaali",
+  "editServerHost": "Hoostii Sarvarii Sirreessi",
+  "pickColorWindowBackground": "Bifaa Duubee Foddaa Filadhu",
+  "pickColorAppMainView": "Bifaa Ilaalcha Guddaa Appilikeeshinii Filadhu",
+  "pickColorAppPrimary": "Bifaa Appilikeeshinii Isa Duraa Filadhu",
+  "pickColorAppAccent": "Bifaa Cimsituu Appilikeeshinii Filadhu",
+  "pickColorAppDestructive": "Bifaa Appilikeeshinii Badiisaa Filadhu",
+  "apiKeyRequired": "API Furtuun barbaachisaadha",
+  "enterTrustedHosts": "Keessummoota amanamoo galchi",
+  "placeholder": {
+    "chatInput": "Waanuma barbaadde na gaafadhu..."
+  },
+  "confirm": "Mirkaneeffadhu",
+  "continue": "Itti fufi",
+  "loading": "Fe'amaa jira...",
+  "settingUpJan": "Novera jalqabaa jira…",
+  "registeringExtensions": "Dabalata galmeessaa jira…",
+  "loadingExtensions": "Dabalatawwan fe'amaa jiru… ({{done}}/{{total}})",
+  "error": "Dogoggora",
+  "success": "Milkaa'ina",
+  "warning": "Akeekkachiisa",
+  "conversationNotAvailable": "Haasofni hin argamu",
+  "conversationNotAvailableDescription": "Mariin ati argachuu barbaaddu hin argamu yookaan haqameera.",
+  "temporaryChat": "Haasawa Yeroo Gabaabaa",
+  "temporaryChatTooltip": "Mariin yeroof seenaa kee keessatti hin mul'atu",
+  "noResultsFoundDesc": "Mariilee barbaacha keetiin walsiman argachuu hin dandeenye. Jecha furtuu biraa yaali.",
+  "searchModels": "Moodeelota barbaadi...",
+  "searchStyles": "Istaayiloota barbaadi...",
+  "createAssistant": "Gargaaraa uumi",
+  "enterApiKey": "Furtuu API galchi",
+  "scrollToBottom": "Gadi buusi",
+  "generateAiResponse": "Deebii AI Uumi",
+  "continueAiResponse": "Deebii AI waliin itti fufi",
+  "addModel": {
+    "title": "Moodeela Dabali",
+    "modelId": "ID Moodeelaa",
+    "enterModelId": "Lakkofsa Moodeelaa Galchi",
+    "addModel": "Moodeela Dabali",
+    "description": "Dhiheessaadhaaf moodeela haaraa dabali",
+    "exploreModels": "Tarree moodeelota dhiheessaa irraa ilaali"
+  },
+  "mcpServers": {
+    "editServer": "Tajaajilaa Sirreessi",
+    "addServer": "Tajaajilaa Dabali",
+    "serverName": "Maqaa Tajaajilaa",
+    "enterServerName": "Maqaa sarvarii galchi",
+    "command": "Ajaja",
+    "enterCommand": "Ajaja galchi",
+    "arguments": "Falmiiwwan",
+    "argument": "Falmii {{index}}",
+    "envVars": "Jijjiiramoota Naannoo",
+    "key": "Furtuu",
+    "value": "Gatii",
+    "save": "Olkaa’i"
+  },
+  "deleteServer": {
+    "title": "Tajaajilaa Haqi",
+    "delete": "Balleessi"
+  },
+  "editJson": {
+    "errorParse": "JSON hiikuu hin danda'amne",
+    "errorPaste": "JSON maxxansuu hin danda'amne",
+    "errorFormat": "Unka JSON sirrii miti",
+    "titleAll": "Qindaa'ina Sarvaroota Hunda Sirreessi",
+    "placeholder": "Qindaa'ina JSON galchi...",
+    "save": "Olkaa’i"
+  },
+  "editModel": {
+    "title": "Moodeela Sirreessi: {{modelId}}",
+    "description": "Filannoowwan armaan gadii jijjiiruudhaan dandeettiiwwan moodeelaa qindeessi.",
+    "capabilities": "Dandeettiiwwan",
+    "tools": "Meeshaalee",
+    "vision": "Mul'ata",
+    "embeddings": "Embeddings",
+    "notAvailable": "Amma hin argamu"
+  },
+  "outOfContextError": {
+    "truncateInput": "Galtee Gabaabsuu",
+    "title": "Dogoggora daangaa hubannoo",
+    "description": "Haasofni kun daangaa yaadannoo AI ga'aa jira, akkuma gabatee adii guutamu. Faskii yaadannoo (kan 'context size' jedhamu) babal'isuun waan caalaa akka yaadatu gochuu dandeenya, garuu kun yaadannoo kompiitara keessanii caalaatti fayyadamuu danda'a. Akkasumas galmee gabaabsuu dandeenya, kunis ergaawwan haaraaf iddoo uumuuf seenaa haasawaa muraasa akka dagatu taasisa.",
+    "increaseContextSizeDescription": "Guddina 'context size' dabaluu barbaaddaa?",
+    "increaseContextSize": "Guddisa Guddina Daldalaa"
+  },
+  "toolApproval": {
+    "title": "Gaaffii Eeyyama Meeshaa",
+    "description": "Gargaartichi <strong>{{toolName}}</strong> fayyadamuu barbaada",
+    "securityNotice": "Meeshaalee amantan qofa eeyyamaa. Meeshaaleen sirna keessanii fi ragaa keessan seenuu danda'u.",
+    "deny": "Dhaamsi",
+    "allowOnce": "Yeroo Tokko Qofa Hayyami",
+    "alwaysAllow": "Yeroo Hunda Hayyami"
+  },
+  "deleteModel": {
+    "title": "Moodeela Haqi: {{modelId}}",
+    "description": "Moodeela kana haquu akka barbaaddu dhugaa? Gochi kun deebi'uu hin danda'u.",
+    "success": "Moodeelli {{modelId}} dhaabbataan haqameera.",
+    "cancel": "Haqi",
+    "delete": "Balleessi"
+  },
+  "deleteProvider": {
+    "title": "Dhiheessaa Haqi",
+    "description": "Dhiheessaa kanaafi moodeelota isaa hunda haqi. Gochi kun deebi'uu hin danda'u.",
+    "success": "Dhiheessaan {{provider}} dhaabbataan haqameera.",
+    "confirmTitle": "Dhiheessaa Haqi: {{provider}}",
+    "confirmDescription": "Dhiheessaa kana haquu akka barbaaddu mirkanaa'aa? Gochi kun deebi'uu hin danda'u.",
+    "cancel": "Haqi",
+    "delete": "Balleessi"
+  },
+  "modelSettings": {
+    "title": "Qindaa'ina Moodeelaa - {{modelId}}",
+    "description": "Raawwii fi amala fooyyessuuf qindaa'ina moodeelaa qindeessi.",
+    "nglDisabledByFit": "Auto-fit baqaana GPU filachaa jira. Kana harkaanaan qindeessuuf Auto-fit cufi.",
+    "samplingDefaults": {
+      "title": "Paaraameetaroota saamudaa idilee",
+      "description": "Qindaa'ina saamudaa idilee moodeela kanaaf. Gatiiwwan gargaaraa yookiin gaaffii irratti hundaa'an yoo jiraatan malee kan fayyadamu."
+    },
+    "specDraft": {
+      "section": "Hiikkaa tilmaamaa",
+      "enable": "Hiikkaa tilmaamaa eeyyami",
+      "enableDescription": "Tarkaanfii tokko keessatti tookens hedduu funaanii, marsaa tokkoon mirkaneessi, kunis uumama ni saffisiisa. Mataawwan MTP kan moodeelicha keessatti ijaaraman, yookiin moodeela funaansa kan isa waliin buufame (MTP, Eagle3, DFlash yookiin DSpark) fayyadama.",
+      "nMax": "Baay'ina olaanaa tookenoota wixineeffamanii",
+      "nMaxDescription": "Baay'ina olaanaa tookenoota tarkaanfii tokkoon wixineeffamanii. Akka idileetti 16.",
+      "nMin": "Tookenoota xixiqqaa filataman",
+      "nMinDescription": "Lakkoofsa tookenoota xixiqqaa tarkaanfii tokkoon filataman. Akka idileetti 0.",
+      "pMin": "Carraa filannoo xixiqqaa",
+      "pMinDescription": "Carraa xixiqqaa filannoo danqaa (0–1). Akka idileetti 0.75."
+    },
+    "templateKwargs": {
+      "section": "Filannoowwan unkaa haasawaa",
+      "description": "Filannoowwan dabalataa unkaan haasawaa moodeelii kanaa fudhatu. Gaaffii hundumaa irratti akka chat_template_kwargstti ergama; unkaan akka murteessuuf gatii isaa isa duraan ture irratti dhiisi.",
+      "addCustom": "Filannoo addaa dabali",
+      "keyPlaceholder": "Maqaa",
+      "valuePlaceholder": "Gatii",
+      "add": "Dabali",
+      "cancel": "Haqi",
+      "remove": "Hiri"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Qindaa'ina moodeelaa haaromsuun hin danda'amne"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Iddoo Galmee Daataa Jijjiiri",
+      "description": "Dhuguma iddoo galmee daataa jijjiiruu akka barbaaddu mirkanaa'aa? Kun daataa kee hunda gara iddoo haaraatti ni jijjiira, akkasumas appilikeeshinicha ni cufee irra deebiin ni jalqaba.",
+      "currentLocation": "Bakka Ammaa:",
+      "newLocation": "Bakka Haaraa:",
+      "cancel": "Haqi",
+      "changeLocation": "Bakka Jijjiiri"
+    },
+    "deleteAllThreads": {
+      "title": "Mata Dureewwan Hunda Haquu",
+      "description": "Mariin hundi ni haqama. Gochi kun deebi'uu hin danda'u."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Haasaawwan Hunda Haqi",
+      "description": "Haasaawwan {{count}} kan \"{{projectName}}\" keessa jiran ni haqamu. Gochi kun deebi'uu hin danda'u."
+    },
+    "deleteThread": {
+      "description": "Dhageettii kana haquu akka barbaaddu mirkanaa'aa? Gochi kun deebi'uu hin danda'u."
+    },
+    "editMessage": {
+      "title": "Ergaa Sirreessi"
+    },
+    "messageMetadata": {
+      "title": "Odeeffannoo Dabalataa Ergaa"
+    },
+    "deleteMessage": {
+      "description": "Ergaa kana haquu akka barbaaddu mirkanaa'aa? Gochi kun deebi'uu hin danda'u."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Wanti tokko dogoggoraan deeme",
+    "details": "Bal'ina"
+  },
+  "missingDependenciesDialog": {
+    "title": "Laayibrariwwan Sirnaa Kan Bahan",
+    "description": "{{backend}} fe'ameera, garuu laayibrariin sirnaa barbaachisan tokko tokko argamuu hin dandeenye. Gara CPU deebi'uu yookaan sirriitti hojjechuu dhiisuu danda'a.",
+    "installLabel": "Kana sirreessuuf, kan armaan gadii fe'i:",
+    "download": "Buusi",
+    "additionalLibraries": "Laayibrariwwan dabalataa kan hin jirre:",
+    "missingLibraries": "Laayibrariwwan hin jirre:",
+    "showRawLibraries": "Maqaa laayibrariwwan {{count}} kanneen hin jirre agarsiisi"
+  },
+  "projects": {
+    "title": "Piroojektoota",
+    "new": "Piroojektoota Haaraa",
+    "addProject": "Piroojektii Dabali",
+    "addToProject": "Piroojektiitti Dabali",
+    "removeFromProject": "Piroojektii keessaa baasi",
+    "createNewProject": "Piroojektii Haaraa Uumi",
+    "editProject": "Piroojektii Sirreessi",
+    "deleteProject": "Piroojektii Haqi",
+    "projectName": "Maqaa Piroojektii",
+    "enterProjectName": "Maqaa piroojektii galchi...",
+    "noProjectsAvailable": "Piroojektiin hin jiru",
+    "noProjectsYet": "Piroojektiin Hanga Ammaa Hin Jiru",
+    "noProjectsYetDesc": "Qabduu 'Piroojektii Dabali' jedhu cuqaasuun piroojektii haaraa jalqabi.",
+    "projectNotFound": "Piroojektiin Hin Argamne",
+    "projectNotFoundDesc": "Piroojektiin ati barbaadaa jirtu hin jiru yookaan haqameera.",
+    "selectAssistant": "Gargaaraa filadhu",
+    "noAssistantAssigned": "Piroojektii kanaaf gargaaraan ramadame hin jiru",
+    "files": "Faayiloota",
+    "filesDescription": "Piroojektii kana keessatti wabiidhaaf PDF, sanadoota, yookiin barruu biroo itti dabali.",
+    "uploadingFiles": "Faayiloota qindeessaa jira…",
+    "processButton": "Dabali",
+    "deleteProjectDialog": {
+      "title": "Piroojektii Haqi",
+      "permanentDelete": "Kun mareewwan hunda yeroo hundumaaf ni haqa.",
+      "permanentDeleteWarning": "Gochi kun mareewwan HUNDA kan pirojekticha keessa jiran yeroo hundumaaf ni haqa!",
+      "deleteEmptyProject": "Gochi kun pirojektii \"{{projectName}}\" ni haqa.",
+      "saveThreadsAdvice": "Karoorawwan olkaa'uuf, osoo hin haqin dura gara tarree karoora keetii yookiin gara pirojektii biraatti isaan jijjiiri.",
+      "starredWarning": "Ammas pirojektii kana keessatti karoora urjiidhaan mallatteeffaman qabda.",
+      "deleteButton": "Balleessi",
+      "successWithName": "Pirojektiin \"{{projectName}}\" milkaa'inaan haqameera",
+      "successWithoutName": "Piroojektiin milkaa'inaan haqameera",
+      "error": "Piroojektii haquun hin milkoofne. Maaloo irra deebi'aa yaalaa.",
+      "ariaLabel": "{{projectName}} Haqi"
+    },
+    "addProjectDialog": {
+      "createTitle": "Piroojektii Haaraa Uumi",
+      "editTitle": "Piroojektii Sirreessi",
+      "nameLabel": "Maqaa Piroojektii",
+      "namePlaceholder": "Maqaa piroojektii galchi...",
+      "assistant": "Gargaaraa",
+      "selectAssistant": "Gargaaraa filadhu (filannoo)",
+      "noAssistant": "Gargaaraan hin jiru",
+      "addAssistant": "Gargaaraa Dabali",
+      "createButton": "Uumi",
+      "updateButton": "Haaromsi",
+      "alreadyExists": "Piroojektiin \"{{projectName}}\" duraanuu ni jira",
+      "createSuccess": "Piroojektiin \"{{projectName}}\" milkaa'inaan uumameera",
+      "updateSuccess": "Piroojektiin \"{{projectName}}\" milkaa'inaan haaromfameera",
+      "saveError": "Piroojekticha ol kaa'uun hin danda'amne. Maaloo irra deebi'aa yaalaa."
+    },
+    "noConversationsIn": "{{projectName}} keessatti Mariin hin jiru",
+    "startNewConversation": "{{projectName}} wajjin marii haaraa armaan gadiitiin jalqaba",
+    "conversationsIn": "Haasaawwan {{projectName}} keessatti",
+    "conversationsDescription": "Haasaa itti fufuuf haasaa kamiyyuu tuqi, yookaan isa haaraa gaditti jalqabi.",
+    "conversation": "Haasaa",
+    "instructions": "Qajeelfamoota",
+    "setup": "Qindeessuu",
+    "instructionsDescription": "Sagalee fi akkaataa deebii sirreessuu",
+    "manageInstructions": "Qajeelfamoota Bulchuu",
+    "thread": "Sarara",
+    "threads": "Sararoota",
+    "updated": "Kan haaromfame:",
+    "collapseProject": "Piroojektii cuunfi",
+    "expandProject": "Piroojektii diriirsi",
+    "update": "Haaromsi",
+    "searchProjects": "Piroojektoota barbaadi...",
+    "noProjectsFound": "Piroojektiin hin argamne",
+    "tryDifferentSearch": "Jecha barbaachaa biraa yaali"
+  },
+  "attachmentsIngestion": {
+    "title": "Akkamitti maxxansitoota akka galchitu filadhu",
+    "description": "Faayiloota kana kallattiin haasawa keessatti galchuu yookiin bakka isaa bu'ee akka maxxansaatti galmeessuu filadhu.",
+    "inline": "Haasawa keessatti galchi",
+    "embeddings": "Maxxansoota fayyadami"
+  },
+  "attachmentInjectedIndicator": "Haasawa keessatti galfame",
+  "attachmentEmbeddedIndicator": "RAG'iif itti hidhame",
+  "viewInjectedContent": "Qabiyyee galfame ilaali",
+  "injectedContentTitle": "Qabiyyee faayilii galfame",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Mata Dureewwan Hunda Jaalala Irraa Baasuu",
+      "description": "Mariiwwan hundi jaallatamoo kee keessaa baafamaniiru."
+    },
+    "deleteAllThreads": {
+      "title": "Mata Dureewwan Hunda Haquu",
+      "description": "Mariiwwan hundi yeroo hundumaaf haqamaniiru."
+    },
+    "renameThread": {
+      "title": "Mata Duree Maqaa Jijjiiruu",
+      "description": "Mata dureen marii '{{title}}' jedhamee jijjiirameera."
+    },
+    "deleteThread": {
+      "title": "Mata Duree Haquu",
+      "description": "Marii kun yeroo hundumaaf haqameera."
+    },
+    "errorCopied": {
+      "title": "Gara koppii gochuun milkaa'eera.",
+      "description": "Odeeffannoon dogoggoraa gara kiliipboordiiatti waraabameera"
+    },
+    "errorCopyFailed": {
+      "title": "Waraabuun hin milkoofne",
+      "description": "Odeeffannoo dogoggoraa gara kiliipboordiiatti waraabuun hin milkoofne"
+    },
+    "editMessage": {
+      "title": "Ergaa Sirreessi",
+      "description": "Ergaan milkaa'inaan gulaalameera. Maaloo moodeliin deebii akka kennu eegaa."
+    },
+    "appUpdateDownloaded": {
+      "title": "Appilikeeshiniin Haaromfame Buufameera",
+      "description": "Haaromsi appilikeeshinichaa milkaa'inaan buufameera."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Buufannaan Haaromsa Appilikeeshinii hin milkoofne",
+      "description": "Haaromsa appilikeeshinichaa buufachuun hin milkoofne. Maaloo irra deebi'aa yaalaa."
+    },
+    "downloadComplete": {
+      "title": "Buufamni xumurameera",
+      "description": "{{item}} buufameera"
+    },
+    "downloadCancelled": {
+      "title": "Buufamni haqameera",
+      "description": "Adeemsi buufannaa haqameera"
+    },
+    "downloadFailed": {
+      "title": "Buufannaan hin milkoofne",
+      "description": "Buufannaan {{item}} hin milkoofne",
+      "descriptionWithReason": "Buufannaan {{item}} hin milkoofne: {{reason}}",
+      "reason": {
+        "dns": "maqaansaa tajaajilaa hiikuun hin danda'amne",
+        "refused": "quunnamtiin didameera",
+        "timeout": "quunnamtiin yeroon irra darbe",
+        "tls": "quunnamtiin nageenya qabu uumuun hin danda'amne",
+        "proxy": "pirooksiin quunnamuun hin danda'amne",
+        "unreachable": "Sarvariin hin argamne"
+      }
+    },
+    "openSettings": "Qindaa'ina Bani",
+    "openLogs": "Galmeewwan Bani",
+    "downloadTokenRequired": {
+      "title": "Hugging Face tookiiniin barbaachisa",
+      "description": "Moodeelli kun tokenii seensaa Hugging Face barbaada. Tokenii kee Qindaa'ina keessatti dabaliitii irra deebi'ii yaali."
+    },
+    "downloadLicenseRequired": {
+      "title": "Hayyama moodeelaa Hugging Face irratti fudhadhu",
+      "description": "Buufachuu kee dura, hayyama moodeelichaa fuula isaa kan Hugging Face irratti fudhachuu qabda."
+    },
+    "downloadRateLimited": {
+      "title": "Hugging Face irraa daangaan itti kaa'ame",
+      "description": "Daangaan isiniif kaa'ameera. Tookeniin dabaluun daangaa kana dabaluu danda'a. Maaloo booda irra deebi'aa yaalaa."
+    },
+    "modelValidationStarted": {
+      "title": "Moodeela Mirkaneessaa",
+      "description": "Moodeeliin buufame \"{{modelId}}\" milkaa'inaan buufameera. Qulqullina isaa mirkaneessaa..."
+    },
+    "modelValidationFailed": {
+      "title": "Moodeelii Madaaluun Muddame",
+      "description": "Moodeeliin buufame \"{{modelId}}\" mirkaneessa qulqullinaa irratti waan kufeef haqameera. Faayilichi manca'uu yookaan miidhamuu danda'a."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Buufamni xumurameera",
+      "description": "Moodeelli \"{{item}}\" milkaa'inaan buufamee mirkanaa'eera"
+    },
+    "projectCreated": {
+      "title": "Piroojektiin uumameera",
+      "description": "Piroojektiin \"{{projectName}}\" milkaa'inaan uumameera"
+    },
+    "projectRenamed": {
+      "title": "Piroojektiin Maqaa Irraa Jijjiirame",
+      "description": "Piroojektiin \"{{oldName}}\" irraa gara \"{{newName}}\" tti maqaan isaa jijjiirame"
+    },
+    "projectDeleted": {
+      "title": "Piroojektiin Haqame",
+      "description": "Pirojektiin \"{{projectName}}\" milkaa'inaan haqameera"
+    },
+    "projectAlreadyExists": {
+      "title": "Piroojektiin Dursee Ni Jira",
+      "description": "Piroojektiin \"{{projectName}}\" duraanuu ni jira"
+    },
+    "projectDeleteFailed": {
+      "title": "Haquun Hin Milkoofne",
+      "description": "Piroojektii haquun hin milkoofne. Maaloo irra deebi'aa yaalaa."
+    },
+    "threadAssignedToProject": {
+      "title": "Yaadni Ramadame",
+      "description": "Yaadni \"{{projectName}}\"f milkaa'inaan ramadame"
+    },
+    "threadRemovedFromProject": {
+      "title": "Yaadni Kaafame",
+      "description": "Yaadni \"{{projectName}}\" irraa milkaa'inaan kaafame"
+    },
+    "fileUploaded": {
+      "title": "Faayiliin Hojiirra Oole",
+      "description": "Faayiliin milkaa'inaan hojiirra oolee galmeeffameera"
+    },
+    "uploadFailed": {
+      "title": "Hojiirra Oolchuun Muddame",
+      "description": "Faayilii hojiirra oolchuun muddame",
+      "subjectThisFile": "Faayiliin kun",
+      "pdfMalformedXref": "{{subject}} gabatee wal-qixxeessituu PDF bocoo qabu waan qabuuf hiikuun hin danda'amne. Madaqsiisaa PDF keessatti baniitii irra deebi'ii ol kaa'i (Faayilii → Maxxansi → Akka kanaatti ol kaayi PDF), sana booda irra deebi'ii ol fe'i.",
+      "pdfScanned": "{{subject}} PDF iskaanarame ykn suuraa irratti hundaa'e fakkaata. OCR ammaaf hin deeggaramu — maaloo PDF barruu irratti hundaa'e olkaa'i.",
+      "pdfEncrypted": "{{subject}} jecha darbii ittiin cufameera. Jecha darbii sana irraa kaasaatii irra deebi'aa yaalaa.",
+      "pdfUnsupportedFeature": "{{subject}} amaloota PDF kan Novera amma hiikuu hin dandeenye fayyadama (fkn. hojiiwwan halluu/gaaddisa PostScript). Akka isaa salphisuuf irra deebi'ii ol kaa'i (Faayilii → Maxxansi → Akka kanaatti ol kaa'i PDF), achiin booda irra deebi'ii ol fe'i.",
+      "pdfGeneric": "{{subject}} akka PDFtti hiikamuu hin dandeenye. Faayilichi manca'uu danda'a yookaan amaloota PDF kan hin deeggaramne fayyadama ta'a.",
+      "fileTooLarge": "{{subject}} baay'ee guddaadha. {{message}}.",
+      "unsupportedType": "Gosti faayilii \"{{type}}\" hin deeggaramu.",
+      "ioError": "{{subject}} dubbisuun hin danda'amne: {{message}}",
+      "parseGeneric": "{{subject}} hiikuun hin danda'amne: {{message}}",
+      "fallback": "{{subject}} hojjechuu hin dandeenye."
+    },
+    "fileDeleted": {
+      "title": "Faayiliin haqameera",
+      "description": "Faayiliin pirojekticha keessaa baafameera"
+    },
+    "deleteFailed": {
+      "title": "Haquun Hin Milkoofne",
+      "description": "Faayilii haquun hin danda'amne"
+    },
+    "fileAlreadyExists": {
+      "title": "Faayilichi duraanuu ni jira",
+      "description": "Faayilichi piroojektii kana irratti duraanuu maxxanfameera"
+    },
+    "unsupportedFileType": {
+      "title": "Gosa Faayilii hin deeggaramne",
+      "description": "Daballiin faayilii \".{{extension}}\" wabiidhaaf piroojektii hin deeggaru."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Maxxansawwan cufamaniiru",
+      "description": "Maxxansawwan Qindaa'ina keessatti cufamaniiru"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Faayiliin baay'ee guddaadha",
+    "fileTooLargeDescription": "{{fileName}} daangaa {{maxFileSizeMB}}MB ni caala"
+  },
+  "files": {
+    "chunksCount": "Kutaalee {{count}}",
+    "title": "Faayiloota",
+    "empty": "Faayiloonni ati maxxansituu fi faayiloonni ejentiin uumu asitti mul'atu.",
+    "a11y": "Faayiloota: {{count}}",
+    "attachments": "Maxxansawwan",
+    "notImported": "bakka hojiitti hin jiru"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp ammayyuu hojiin itti baay'ateera",
+    "description": "Moodeeloonni tokko yookiin isaa ol yeroon hin bu'an. Dirqamaan cufuun llama.cpp ni dhaabsa akkasumas deebiiwwan hojjechaa jiran gufachiisuu danda'a.",
+    "forceQuit": "Dirqiin cufi",
+    "forcing": "Dirqiin cufamaa jira…",
+    "shuttingDown": "Cufamaa jira…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Cuqqaasi",
+  "expand": "Baballifsi",
+  "todoPanelTitle": "Guddina",
+  "todoPanelEmpty": "Tarreen hojii ammaaf hin jiru.",
+  "backgroundTasks": "Hojiiwwan duubaa",
+  "subagentsRunning_one": "{{count}} ejentii xiqqaa hojjechaa jira",
+  "subagentsRunning_other": "{{count}} ejentoonni xiqqaa hojjechaa jiru",
+  "monitorsRunning_one": "{{count}} to'ataan hojjechaa jira",
+  "monitorsRunning_other": "{{count}} to'attoonni hojjechaa jiran",
+  "backgroundRunning_one": "{{count}} hojiin duubaa hojjechaa jira",
+  "backgroundRunning_other": "{{count}} hojiileen duubaa hojjechaa jiru",
+  "monitors": "To'attoota",
+  "monitorPolling": "Gaafachaa",
+  "monitorMatched": "Walsimsiifame",
+  "monitorTimedOut": "Yeroon irra darbe",
+  "monitorStopped": "Dhufsiifame",
+  "monitorEnded": "Xumurame",
+  "coworkWatching_one": "To'achaa {{count}} mooniitara…",
+  "coworkWatching_other": "To'achaa {{count}} mooniitaroota…",
+  "coworkWaitingBackground": "Hojiiwwan duubaa eeggachaa…",
+  "noBackgroundTasks": "Hanga ammaatti hojiiwwan duubaa hin jiran.",
+  "running": "Deemaa jira",
+  "queued": "Tarreeffame",
+  "waiting": "Eegaa jira",
+  "finished": "Xumurame",
+  "subagentPhase": "sadarkaa {{phase}}",
+  "subagentWaiting": "eegaa jira",
+  "viewTranscript": "Barruu dubbii ilaali",
+  "taskWorking": "Hojii irra jira…",
+  "taskNoOutput": "Ejentiin xiqqaan bu'aa mul'atu hin laanne.",
+  "subagentToolUses_one": "{{count}} meeshaa fayyadama",
+  "subagentToolUses_other": "{{count}} meeshaalee fayyadama",
+  "artifactGroupCode": "Koodii",
+  "artifactGroupImage": "Suuraa",
+  "artifactGroupDocument": "Sanada",
+  "artifactGroupVideo": "Viidiyoo",
+  "artifactGroupAudio": "Sagalee",
+  "artifactOpenPreview": "Duraa ilaali",
+  "artifactOpenExternal": "Bani",
+  "artifactMoreActions": "Gochaalee dabalataa",
+  "artifactShowInFolder": "Galmee keessatti agarsiisi",
+  "skillsUsedLabel": "Dandeettiiwwan itti fayyadaman",
+  "skillsUsed": "Dandeettiiwwan itti fayyadaman: {{skills}}",
+  "artifactsAll": "Hunda",
+  "artifactsEmpty": "Ammaaf homtuu hin oomishamne. Bu'aawwan hojii yaaliiwwan Cowork irraa argaman asitti mul'atu.",
+  "artifactsNoMatch": "Bu'aan hojii kan walsimu hin jiru.",
+  "artifactsSearch": "Bu'aa hojii barbaadi",
+  "artifactsShowMore": "{{count}} caalaatti agarsiisi",
+  "workspace": {
+    "readsFrom": "Hojii keessatti",
+    "writable": "Dubbisuu fi barreessuu",
+    "footnote": "Ejentiin kutaa kana kallattiidhaan ni dubbisa akkasumas ni gulaala. Garaagarummaa isaa paanaalii garaagarummaa (diff panel) keessatti ilaali.",
+    "footnoteEmpty": "Ejentiin piroojektii kee irratti akka hojjetuuf kutaa fayyadamaa itti maxxansi. Faayiloota isaa keessa jiran dubbisuu fi gulaaluu ni danda'a.",
+    "attach": "Galmee itti maxxansi",
+    "change": "Galmee jijjiiri",
+    "detach": "Galmee irraa hiiki",
+    "open": "Bani",
+    "reveal": "Mul'isi",
+    "unavailable": "Iddoo hojii hin argamu",
+    "missing": "Galmeen iddoo hojii {{folder}} amma hin argamu. Galmee biraa filadhu.",
+    "openFailed": "Iddoo hojii banuu hin dandeenye",
+    "revealFailed": "Iddoo hojii mul'isuu hin dandeenye",
+    "a11yWithFolder": "Galmeen piroojektii {{folder}}, mirga dubbisuu fi barreessuudhaan maxxanfame. Jijjiiri yookiin irraa hiiki.",
+    "a11yNoFolder": "Galmeen piroojektii tokkollee hin maxxanfamne. Tokko maxxansi."
+  },
+  "coworkEmpty": {
+    "title": "Maal irratti hojjechaa jirra?",
+    "subtitleSandbox": "Noveraf hojii kenni. Faayiloota dubbisaafi barreessa, ajajoota raawwata, akkasumas tarkaanfiiwwan ofumaan hordofa.",
+    "subtitleFolder": "Noveraf hojii kenni. Inni kallattiin {{folder}} keessatti hojjeta, faayiloota ofiin dubbisaafi gulaala.",
+    "try": "Yaali",
+    "sandbox": {
+      "first": "Skriptii Paayithoonii kan faayiloota guyyaa itti fudhatamaniin maqaa isaanii jijjiiru barreessi",
+      "second": "Daashboordii fuula tokkoo CSV kan ani maxxansu irraa ijaari",
+      "third": "Piroojektii ani siif ibsuuf README qopheessi"
+    },
+    "folder": {
+      "first": "{{folder}} akkamitti akka walitti qindaa'e ibsi",
+      "second": "TODO hunda kan {{folder}} keessa jiru barbaadiitii naannoo isaaniitiin gareetti qoodi",
+      "third": "Kutaa {{folder}} isa ani si agarsiisuuf qormaata barreessi"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Terminaaliin hin jiru",
+    "a11y": "Ajajoota raawwachuun cufameera. Bal'ina.",
+    "title": "Ajajoota raawwachuun cufameera",
+    "body": "Novera ajentiin ajajoota sheelii akka raawwatu kan heyyamu yeroo sirni kee isaan daangessuu danda'u qofaadha. Sandbox asitti hin jiru, kanaaf ajentiin faayiloota sandboksii isaa keessatti dubbisuu, barreessuu fi gulaaluu ni danda'a — garuu homaa raawwachuu hin danda'u.",
+    "fixLinux": "Linux bubblewrap fayyadama. Isa fe'iitii, sana booda Novera irra deebi'ii jalqabsiisi.",
+    "fixMac": "macOS sandboksii keessatti ijaarame kan /usr/bin/sandbox-exec fayyadama. Yeroo argametti Novera irra deebi'ii jalqabsiisi.",
+    "fixWindows": "Windows AppContainer fayyadama. Irra deebi'anii yaaluuf Novera irra deebiin jalqabsiisi.",
+    "recheck": "Irra deebi'ii ilaali"
+  },
+  "planMode": {
+    "label": "Karoori",
+    "tooltipOff": "Dura karoori — ejentiin osoo hin barreessin dubbisee yaada dhiyeessa.",
+    "tooltipOn": "Karoora baasuu. Ejentiin faayiloota akka barreessuuf kana cufi.",
+    "onAnnounce": "Haala karooraa banameera",
+    "placeholder": "Karoora gaafadhu. Ejentiin faayilii kamiyyuu hin jijjiiru."
+  },
+  "budget": {
+    "stoppedSteps": "Tarkaanfiiwwan {{max}} irratti dhaabbate. Ejentiin hin xumurine.",
+    "keepGoing": "Itti fufi",
+    "stoppedTokens": "Dhaabbate — yeroon hojii kun baajata tookeni isaa ga'eera.",
+    "compact": "Cuunfaa",
+    "newSession": "Yeroo haaraa"
+  },
+  "run": {
+    "stopped": "Dhiyaateera.",
+    "failed": "Sagantichi yeroo isaa dura dhaabbate.",
+    "tryAgain": "Irra deebi'ii yaali"
+  },
+  "modelNoTools": "{{model}} meeshaalee waamuu hin danda'u, kanaaf ejentii ta'ee hojjechuu hin danda'u. Moodeela meeshaalee waamu filadhu.",
+  "askContinue": "Itti fufi",
+  "askNext": "Gaaffii itti aanu",
+  "askPrev": "Gaaffii kanaan duraa",
+  "askRecommended": "Kan gorfamu",
+  "askSelectedCount": "{{count}} filatameera",
+  "askSomethingElse": "Waan biraa",
+  "askSomethingElsePlaceholder": "Deebii kee mataan kee barreessi",
+  "submit": "Ergi",
+  "composer": {
+    "advanced": "Paaraameetaroota sadarkaa olaanaa",
+    "modelDefaults": "Deebiiwwan idilee moodeelaa",
+    "assistantOverrides": "Jijjiirraa gargaaraa",
+    "printPdf": "Maxxansi / Akka PDFtti Olkaa'i",
+    "exportHint": "Unkaawwan dubbifamuu danda'an: damee hojii irra jiru. JSON: jijjiirama ergaa hunda. Faayiloonni alaa waliin hin dhihaatan."
+  },
+  "telemetry": {
+    "summary": "Hayyama keetiin, {{host}} gosa Novera fi sirna hojii qofa, haasawa yookiin adda baasaa yeroo dheeraa turu malee, ni fudhata.",
+    "unavailable": "Istaatistiiksiin hin qindeeffamne. Ragaan hin ergamu."
+  },
+  "errorTracking": {
+    "title": "Hordoffii dogoggoraa",
+    "summary": "Gabaasa filannoo gara {{host}}: gosa dogoggoraa, iddoo koodii, gitaafi sirna hojii. Mariiwwan, ergaawwan dogoggoraa hin qindaa'in yookiin furtuuwwan hin ergan. Yeroo barbaaddetti cufuu dandeessa.",
+    "unavailable": "Hordoffiin dogoggoraa hin qindaa'ine. Gabaasni hin ergamu."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "welcome": "Bună, ce mai faci?",
+  "description": "Cum te pot ajuta azi?",
+  "temporaryChat": "Chat temporar",
+  "temporaryChatDescription": "Începeți o conversație temporară care nu va fi salvată în istoricul conversațiilor.",
+  "status": {
+    "empty": "Nu au fost găsite chat-uri"
+  },
+  "sendMessage": "Trimite un mesaj",
+  "newConversation": "Conversație nouă",
+  "clearHistory": "Ștergeți istoricul",
+  "embeddings": {
+    "title": "Pregătirea documentelor tale",
+    "description": "Indexarea fișierelor atașate, astfel încât acestea să poată fi căutate și citate; acest lucru poate dura un moment pentru documentele mari."
+  },
+  "actions": {
+    "regenerate": "Regenerează răspunsul",
+    "askAgain": "Întreabă din nou",
+    "continue": "Continuă generarea",
+    "remember": "Amintiți-vă acest lucru",
+    "rememberSaved": "Salvat în memorie ca \"{{name}}\"",
+    "rememberExists": "Deja în memorie ca \"{{name}}\"",
+    "rememberFailed": "Nu s-a putut salva în memorie"
+  },
+  "done": "Efectuat",
+  "webSources": "{{count}} sursa (sursele)",
+  "reasoning": {
+    "label": "Raţionament...",
+    "thinking": "Gândire",
+    "working": "De lucru...",
+    "showFullTimeline": "Arată cronologia completă",
+    "showCurrentStep": "Afișează doar pasul curent",
+    "thoughtForAWhile": "M-am gândit pentru câteva secunde",
+    "thoughtFor": "Gândit pentru {{duration}}",
+    "workedForAWhile": "A lucrat pentru câteva secunde",
+    "workedFor": "Am lucrat pentru {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Versiunea anterioară",
+    "nextVersion": "Versiunea următoare",
+    "generationFailed": "Generarea a eșuat"
+  },
+  "messageStats": {
+    "details": "Statistici de generație",
+    "generation": "Generare",
+    "reading": "Citire",
+    "tokens": "Jetoane",
+    "perSecond": "tokens/s"
+  }
+}

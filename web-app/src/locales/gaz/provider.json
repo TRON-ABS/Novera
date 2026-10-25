@@ -1,0 +1,18 @@
+{
+  "addProvider": "Dhaabbata Dabal",
+  "addOpenAIProvider": "Dhiheessaa Addaa Dabali",
+  "enterNameForProvider": "Maqaa Dhiheessaa (fkn. my-llm-server)",
+  "apiTypeLabel": "Unka API",
+  "apiTypeOpenAI": "Kan OpenAI wajjin walsimu",
+  "apiTypeAnthropic": "Kan Anthropic wajjin walsimu",
+  "baseUrlLabel": "Bu'uura URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "Furtuu API",
+  "apiKeyPlaceholder": "Furtuu API kee maxxansi",
+  "invalidBaseUrl": "Bu'uurri URL http(s) URL sirrii ta'uu qaba",
+  "globalSettings": "Qindaa'ina waliigalaa",
+  "stripReasoning": "Yaada madaallii haalicha keessaa baasuu",
+  "stripReasoningDesc": "Seenaa deebisanii erguu dura, dhiyeessitoota hunda keessatti qabiyyee yaada/madaallii marsaa duraa haquu. Kun moodeloota naannoof deebisanii fayyadama KV-cache ni fooyyessa, garuu moodeloonni tokko tokko (fkn. gad-lakkifamoota Qwen haaraa) madaallii marsaa hedduu fooyyessuuf akka tursiifamu gorsu.",
+  "providerAlreadyExists": "Dhiheessaan {{name}} jedhamu duraanuu ni jira."
+}

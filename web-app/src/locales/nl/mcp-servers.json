@@ -1,0 +1,101 @@
+{
+  "editServer": "Bewerk MCP-server",
+  "addServer": "Voeg MCP-server toe",
+  "browserExtension": {
+    "connecting": {
+      "checking": "De status van de extensie wordt gecontroleerd..."
+    },
+    "notInstalled": {
+      "title": "Novera voert taken uit in uw browser",
+      "description": "Installeer de extensie om Novera toegang tot de browser te geven",
+      "getExtension": "Extensie downloaden"
+    }
+  },
+  "serverName": "Servernaam",
+  "enterServerName": "Voer de servernaam in",
+  "command": "Opdracht",
+  "enterCommand": "Voer een commando in (uvx of npx)",
+  "arguments": "Argumenten",
+  "argument": "Argument {{index}}",
+  "envVars": "Omgevingsvariabelen",
+  "key": "Sleutel",
+  "value": "Waarde",
+  "save": "Opslaan",
+  "status": "Status",
+  "connected": "Verbonden",
+  "disconnected": "Verbinding verbroken",
+  "deleteServer": {
+    "title": "Server MCP verwijderen",
+    "description": "Weet u zeker dat u de MCP-server {{serverName}} wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
+    "delete": "Verwijderen",
+    "success": "MCP-server {{serverName}} succesvol verwijderd"
+  },
+  "editJson": {
+    "title": "Bewerk JSON voor MCP Server: {{serverName}}",
+    "titleAll": "Alle MCP-servers JSON bewerken",
+    "placeholder": "Voer de configuratie van JSON in",
+    "errorParse": "Het parseren van de initiële gegevens is mislukt",
+    "errorPaste": "Ongeldige JSON-indeling in de geplakte inhoud",
+    "errorFormat": "Ongeldige JSON-indeling",
+    "errorServerName": "De servernaam is verplicht en mag niet leeg zijn",
+    "errorMissingServerNameKey": "JSON moet de volgende structuur hebben: {“serverName”: {config}} - sleutel ‘serverName’ ontbreekt",
+    "errorInvalidType": "Ongeldig type ‘{{type}}’ voor server ‘{{serverName}}’. Het type moet ‘stdio’, ‘http’ of ‘sse’ zijn",
+    "save": "Opslaan"
+  },
+  "checkParams": "Controleer de parameters aan de hand van de handleiding.",
+  "title": "MCP Servers",
+  "experimental": "Experimenteel",
+  "editAllJson": "Alle servers JSON bewerken",
+  "findMore": "Vind meer MCP-servers op",
+  "allowPermissions": "Alle MCP-toolmachtigingen toestaan",
+  "allowPermissionsDesc": "Indien ingeschakeld, worden alle MCP-toolaanroepen automatisch goedgekeurd zonder dat er machtigingsdialoogvensters worden weergegeven. Deze instelling geldt globaal voor alle gesprekken, inclusief nieuwe chats.",
+  "noServers": "Geen MCP-servers gevonden",
+  "args": "Argumenten",
+  "env": "Omgeving",
+  "serverStatusActive": "Server {{serverKey}} succesvol geactiveerd",
+  "serverStatusInactive": "Server {{serverKey}} succesvol gedeactiveerd",
+  "runtimeSettings": {
+    "title": "Instellingen voor uitvoeringstijd",
+    "description": "Configureer hoe Novera de MCP-servers beheert en herhalingspogingen uitvoert.",
+    "toolCallTimeout": "Time-out voor toolaanroep (seconden)",
+    "toolCallTimeoutDesc": "Maximale wachttijd op een reactie van de MCP-tool voordat de time-out in werking treedt.",
+    "maxToolOutputChars": "Maximaal aantal tekens in tooluitvoer",
+    "maxToolOutputCharsDesc": "Langste toolresultaat dat in het gesprek wordt bewaard. Alles wat hier langer is, wordt ingekort en gemarkeerd als afgekapt, zodat één groot resultaat de context van het model niet volledig in beslag neemt. Stel in op 0 om resultaten volledig te behouden.",
+    "smartToolRouting": "Slimme MCP-toolroutering",
+    "smartToolRoutingDesc": "Indien ingeschakeld, selecteert Novera relevante MCP-servers voordat tools worden geladen. Schakel uit om altijd de volledige MCP-toolijst te laden.",
+    "useLightweightRouterModel": "Gebruik een speciaal model voor routing",
+    "useLightweightRouterModelDesc": "Als slimme routering is ingeschakeld, voer je de routeringsstap uit met een apart (vaak kleiner) model in plaats van het chatmodel. Schakel deze optie uit om altijd het actieve chatmodel te gebruiken voor routering.",
+    "routerModel": "Routeringsmodel",
+    "routerModelDesc": "Kies provider en model op één plek. Er worden alleen lichtgewicht modellen weergegeven, zodat routering snel en goedkoop blijft.",
+    "selectRouterModelPlaceholder": "Selecteer routingmodel…",
+    "routerModelSearchPlaceholder": "Zoek modellen…",
+    "routerModelEmptyList": "Er zijn geen lichtgewicht modellen beschikbaar. Voeg een kleiner model toe of configureer API-sleutels in Modellen.",
+    "routerModelEmptySearch": "Geen resultaten voor “{{query}}”."
+  },
+  "auth": {
+    "label": "Auth:",
+    "state": {
+      "notApplicable": "niet vereist",
+      "staticHeader": "Autorisatieheader",
+      "authenticated": "geverifieerd",
+      "expired": "verlopen",
+      "staleResource": "uitgegeven voor een andere URL",
+      "unauthenticated": "Niet geverifieerd"
+    },
+    "expiresIn": "vervalt over {{duration}}",
+    "authenticate": "Aanmelden met Facebook",
+    "reauthenticate": "Opnieuw verifiëren",
+    "clear": "Duidelijke authenticatie",
+    "waiting": "Wachten op browser...",
+    "openSignInPage": "De aanmeldingspagina openen",
+    "needsAuth": "{{serverName}} vereist verificatie",
+    "needsAuthHint": "Meld u aan bij deze server om verbinding te maken.",
+    "authorized": "Aangemeld bij {{serverName}}",
+    "authorizeFailed": "Aanmelden voor {{serverName}} is mislukt",
+    "cleared": "Opgeslagen inloggegevens gewist voor {{serverName}}",
+    "nothingToClear": "{{serverName}} had geen opgeslagen inloggegevens",
+    "clearFailed": "Kan referenties voor {{serverName}} niet wissen",
+    "renew": "Sessie vernieuwen",
+    "expiredAgo": "Verlopen {{duration}} geleden"
+  }
+}

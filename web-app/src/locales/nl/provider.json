@@ -1,0 +1,18 @@
+{
+  "addProvider": "Provider toevoegen",
+  "addOpenAIProvider": "Aangepaste provider toevoegen",
+  "enterNameForProvider": "Providernaam (bijv. mijn-llm-server)",
+  "apiTypeLabel": "API-formaat",
+  "apiTypeOpenAI": "OpenAI-compatibel",
+  "apiTypeAnthropic": "Anthropic-compatibel",
+  "baseUrlLabel": "Basis URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API sleutel",
+  "apiKeyPlaceholder": "Plak je API sleutel",
+  "invalidBaseUrl": "Basis URL moet een geldige http(s) URL zijn",
+  "globalSettings": "Algemene globale instellingen",
+  "stripReasoning": "Redeneren uit context halen",
+  "stripReasoningDesc": "Verwijder de denk- / redeneerinhoud van eerdere beurten voordat u de geschiedenis opnieuw verzendt, over alle providers. Verbetert het hergebruik van KV-cache voor lokale modellen, maar sommige modellen (bijvoorbeeld nieuwere Qwen-releases) raden aan om het te behouden voor een betere redenering met meerdere beurten.",
+  "providerAlreadyExists": "Er bestaat al een provider met de naam {{name}}."
+}

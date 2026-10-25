@@ -1,0 +1,50 @@
+{
+  "welcome": "Hallo, hoe gaat het met je?",
+  "description": "Hoe kan ik je vandaag helpen?",
+  "temporaryChat": "Tijdelijke Chat",
+  "temporaryChatDescription": "Begin een tijdelijk gesprek dat niet in je chatgeschiedenis wordt opgeslagen.",
+  "status": {
+    "empty": "Geen chats gevonden"
+  },
+  "sendMessage": "Bericht verzenden",
+  "newConversation": "Nieuw gesprek",
+  "clearHistory": "Geschiedenis wissen",
+  "embeddings": {
+    "title": "Uw documenten voorbereiden",
+    "description": "De bijgevoegde bestanden indexeren zodat ze doorzocht en geciteerd kunnen worden. Dit kan even duren voor grote documenten."
+  },
+  "actions": {
+    "regenerate": "Antwoord opnieuw genereren",
+    "askAgain": "Opnieuw vragen",
+    "continue": "Doorgaan met genereren",
+    "remember": "Dit onthouden",
+    "rememberSaved": "Opgeslagen in het geheugen als \"{{name}}\"",
+    "rememberExists": "Al in het geheugen als \"{{name}}\"",
+    "rememberFailed": "Kon niet opslaan in het geheugen"
+  },
+  "done": "Klaar",
+  "webSources": "{{count}} bron(nen)",
+  "reasoning": {
+    "label": "Redeneren...",
+    "thinking": "Denken",
+    "working": "Bezig...",
+    "showFullTimeline": "Toon volledige tijdlijn",
+    "showCurrentStep": "Toon alleen huidige stap",
+    "thoughtForAWhile": "Een paar seconden nagedacht",
+    "thoughtFor": "Gedacht voor {{duration}}",
+    "workedForAWhile": "Een paar seconden gewerkt",
+    "workedFor": "Gewerkt voor {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Vorige versie",
+    "nextVersion": "Volgende versie",
+    "generationFailed": "Generatie mislukt"
+  },
+  "messageStats": {
+    "details": "Generatiestatistieken",
+    "generation": "Generatie",
+    "reading": "Lezen",
+    "tokens": "Tokens",
+    "perSecond": "tokens/s"
+  }
+}

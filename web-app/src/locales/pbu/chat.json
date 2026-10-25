@@ -1,0 +1,50 @@
+{
+  "welcome": "سلام، څنګه یې؟",
+  "description": "زه نن درسره څنګه مرسته کولی شم؟",
+  "temporaryChat": "موقتي چیټ",
+  "temporaryChatDescription": "یو موقتي مکالمه پیل کړئ چې ستاسو د چیټ تاریخ کې به خوندي نه شي.",
+  "status": {
+    "empty": "هیڅ چیټ ونه موندل شو"
+  },
+  "sendMessage": "پیغام واستوئ",
+  "newConversation": "نوې خبرې اترې",
+  "clearHistory": "تاریخ پاک کړئ",
+  "embeddings": {
+    "title": "ستاسو د اسنادو چمتو کول",
+    "description": "مربوط فایلونه اندېکس کول، ترڅو وپلټل شي او تشریح شي. د لویو اسنادو لپاره ممکن لږ وخت ونیسي."
+  },
+  "actions": {
+    "regenerate": "ځواب بیا جوړ کړئ",
+    "askAgain": "بیا پوښتنه وکړئ",
+    "continue": "تولید ته دوام ورکړئ",
+    "remember": "دا یاد وساتئ",
+    "rememberSaved": "په حافظه کې د \"{{name}}\" په توګه خوندي شو",
+    "rememberExists": "لا دمخه په حافظه کې د \"{{name}}\" په توګه شتون لري",
+    "rememberFailed": "په حافظه کې خوندي نشو"
+  },
+  "done": "خلاص شو",
+  "webSources": "{{count}} سرچینه(ګانې)",
+  "reasoning": {
+    "label": "فکر کول...",
+    "thinking": "فکر کول",
+    "working": "کار روان دی...",
+    "showFullTimeline": "مکمل وخت کرښه وښایه",
+    "showCurrentStep": "یوازې اوسنی ګام وښایه",
+    "thoughtForAWhile": "څو ثانیې فکر وکړ",
+    "thoughtFor": "د {{duration}} لپاره فکر وکړ",
+    "workedForAWhile": "څو ثانیې کار وکړ",
+    "workedFor": "د {{duration}} لپاره کار وکړ"
+  },
+  "messageActions": {
+    "previousVersion": "تېر نسخه",
+    "nextVersion": "بله نسخه",
+    "generationFailed": "جوړونه ناکامه شو"
+  },
+  "messageStats": {
+    "details": "د جوړونې احصایه",
+    "generation": "جوړول",
+    "reading": "لوستل",
+    "tokens": "توکنونه",
+    "perSecond": "توکنونه/ثانیه"
+  }
+}

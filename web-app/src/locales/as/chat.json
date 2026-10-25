@@ -1,0 +1,50 @@
+{
+  "welcome": "হ্যালো, আপুনি কেনে আছে?",
+  "description": "আজি মই আপোনাৰ কি সহায় কৰিব পাৰোঁ?",
+  "temporaryChat": "অস্থায়ী চেট",
+  "temporaryChatDescription": "এটা অস্থায়ী কথোপকথন আৰম্ভ কৰক যি আপোনাৰ চেট ইতিহাসত সংৰক্ষণ কৰা ন'হ'ব।",
+  "status": {
+    "empty": "কোনো চেট পোৱা নগল"
+  },
+  "sendMessage": "বাৰ্তা প্ৰেৰণ কৰক",
+  "newConversation": "নতুন কথোপকথন",
+  "clearHistory": "ইতিহাস আঁতৰাওক",
+  "embeddings": {
+    "title": "আপোনাৰ দস্তাবেজসমূহ প্ৰস্তুত কৰা হৈছে",
+    "description": "সংযুক্ত নথিপত্ৰসমূহৰ সূচী প্ৰস্তুত কৰা হৈছে যাতে ইয়াক অনুসন্ধান আৰু উদ্ধৃতি কৰা যাব। ডাঙৰ দস্তাবেজসমূহৰ বাবে ই কিছু সময় লব পাৰে।"
+  },
+  "actions": {
+    "regenerate": "প্ৰতিক্ৰিয়া পুনৰুদ্ধাৰ কৰক",
+    "askAgain": "পুনৰ জিজ্ঞাসা কৰক",
+    "continue": "সৃষ্টি কৰা অব্যাহত ৰাখক",
+    "remember": "এইটো মনত ৰাখক",
+    "rememberSaved": "মেমৰিলৈ \"{{name}}\" হিচাপে সংৰক্ষণ কৰা হৈছে",
+    "rememberExists": "\"{{name}}\" হিচাপে ইতিমধ্যে মেমৰিত আছে",
+    "rememberFailed": "মেমৰিলৈ সংৰক্ষণ কৰিব পৰা নগল"
+  },
+  "done": "সম্পন্ন",
+  "webSources": "{{count}} উৎস",
+  "reasoning": {
+    "label": "যুক্তি প্ৰদান কৰা হৈছে...",
+    "thinking": "চিন্তা কৰা হৈছে",
+    "working": "কাম কৰা হৈছে...",
+    "showFullTimeline": "সম্পূৰ্ণ সময়ৰেখা প্ৰদৰ্শন কৰক",
+    "showCurrentStep": "কেৱল বৰ্তমান স্তৰ প্ৰদৰ্শন কৰক",
+    "thoughtForAWhile": "কয়েক ছেকেণ্ডৰ বাবে চিন্তা কৰা হ'ল",
+    "thoughtFor": "{{duration}} ৰ বাবে চিন্তা কৰা হৈছে",
+    "workedForAWhile": "কয়েক ছেকেণ্ডৰ বাবে কাম কৰা হৈছে",
+    "workedFor": "{{duration}}ৰ বাবে কাম কৰিছিল"
+  },
+  "messageActions": {
+    "previousVersion": "পূৰ্ববৰ্তী সংস্কৰণ",
+    "nextVersion": "পৰবৰ্তী সংস্কৰণ",
+    "generationFailed": "সৃষ্টি কৰোঁতে ব্যৰ্থ"
+  },
+  "messageStats": {
+    "details": "উৎপাদন পৰিসংখ্যান",
+    "generation": "প্ৰজন্ম",
+    "reading": "পঢ়া",
+    "tokens": "টোকেনসমূহ",
+    "perSecond": "টোকেন/সেকেন্ড"
+  }
+}

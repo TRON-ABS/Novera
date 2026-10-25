@@ -1,23 +1,25 @@
-# Novera — revue de la modification courante
+# Novera — current change review
 
-## fix(i18n): add the next ten locale catalogs
+## fix(i18n): add ten complete locale catalogs
 
-Add Ukrainian, Xiang, Malayalam, Arabic-script Sindhi, Gurmukhi Punjabi, Sundanese, Igbo, Dari, Nepali and Malay with all 1,516 English keys in 14 namespaces each. Novera now registers 60 catalogs (15,160 new entries), preserving all 50 existing catalogs.
+The next ten planned interface locales were unavailable. Add Northern Uzbek (Latin), Zulu, Saidi Arabic, Northern Pashto, West Central Oromo, Saraiki, Dutch, Somali, Romanian and Assamese: 1,516 English keys in 14 namespaces each. Novera registers 70 catalogs, adding 15,160 entries in 140 JSON files and preserving all 840 existing locale JSON files.
 
-Connect selection, persisted types, system detection, RTL and regional formatting. Handle Intl canonicalization of `prs` to `fa-AF`; preserve Iranian Persian and Shahmukhi choices. Do not silently map Sindhi Devanagari to an Arabic-script UI. Eight catalogs use machine-assisted drafts; Xiang/Dari use shared written technical text with editorial adaptations. The language guide records their exact shared/adapted counts; native review and complete vernacular adaptation remain open.
+Connect native labels, persisted language types, automatic selection, document language, RTL menus and compatible regional formatting. Handle Intl canonicalization of uzn/pbu/gaz; skip explicit incompatible scripts and Southern Pashto rather than replacing those preferences with the new catalogs. Saved user choices retain priority.
+
+Translation drafts combine Microsoft Translator, earlier DeepL results, local MADLAD-400/CTranslate2 inference and editorial corrections. Google returned HTTP 429 for this batch; DeepL reached its free quota. No paid service, account creation or quota bypass was used. Rejected local Oromo/Saraiki outputs are excluded. Uzbek is transliterated into Latin. Oromo includes 490 editorial completions. Saidi/Saraiki share 1,266/1,196 technical entries with existing Egyptian/Shahmukhi catalogs and adapt 250/320 entries. Their vernacular adaptation remains partial; key coverage does not certify linguistic accuracy. Native and regional review remain pending, as documented in the language guide.
 
 ## Validation
 
-- `python scripts/check-novera-locales.py`: 60 catalogs, 1,516 keys each, zero errors; 15,160 new entries preserve interpolation variables and code literals.
-- `node node_modules/vitest/vitest.mjs run src/locales/__tests__ src/containers/__tests__/LanguageSwitcher src/lib/__tests__/systemLanguage.test.ts src/hooks/__tests__/useGeneralSetting.language.test.ts` from `web-app`: 856 passed in 45 files, no failures. Covers complete catalogs, loading, native labels, persistence/hydration, canonical Dari, script selection, regional formats and RTL menu restoration.
-- `node node_modules/typescript/bin/tsc --noEmit` from `web-app`: passed.
-- `node --test scripts/__tests__/architecture.test.mjs`: 7 passed; `node scripts/check-architecture.mjs`: 13 modules, no violations.
-- Documentation audit: 176 valid local links, 14 main documents, 100 roadmap rows and remaining numbered priorities 1–42. All 700 existing locale JSON files preserved after line-ending normalization. Keep model top-k at 50 and the historical logo preview at 18/40 px; locale-count edits must not replace unrelated numbers.
-- Reviewed untranslated UI labels and DSpark memory/context terminology; native review and complete Xiang/Dari vernacular adaptation remain open, alongside earlier documented variants.
-- No application build, user-profile change, remote CI activation or binary release. The full web suite was not rerun; earlier full-suite results remain historical.
+- `python scripts/check-novera-locales.py`: 70 catalogs, 1,516 keys each, zero errors; interpolation and code literals preserved.
+- From `web-app`: `node node_modules/vitest/vitest.mjs run src/locales/__tests__ src/containers/__tests__/LanguageSwitcher src/lib/__tests__/systemLanguage.test.ts src/hooks/__tests__/useGeneralSetting.language.test.ts`: 963 passed in 45 files. Covers catalog completeness, selection, saved choice/hydration, canonical locale aliases, script selection, regional formats and RTL restoration.
+- From `web-app`: `node node_modules/typescript/bin/tsc --noEmit`: passed.
+- `node --test scripts/__tests__/architecture.test.mjs`: 7 passed. `node scripts/check-architecture.mjs`: 13 modules, no violations.
+- Documentation audit: 177 valid local links, 14 main documents, 100 historical roadmap rows, numbered priorities 1–32. All 840 previous locale JSONs unchanged after line-ending normalization. Unrelated model top-k, logo dimensions and binary sizes are preserved.
+- Remote check: no equivalent open pull request; GitHub Actions remains disabled. Source publication is distinct from CI approval and binary release.
+- No application build, installation or user-profile change. The full web suite was not rerun; previous full-suite results remain historical.
 
 ## References
 
-- [Language inventory and methods](docs/LANGUAGES.md)
-- [Source/build status](TABLEAU_DE_BORD_NOVERA.md)
+- [Language inventory, translation methods and limitations](docs/LANGUAGES.md)
+- [Current source and build status](TABLEAU_DE_BORD_NOVERA.md)
 - [Remaining work](ROADMAP.md)

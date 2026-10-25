@@ -1,0 +1,10 @@
+{
+  "newVersion": "Yangi versiya {{version}}",
+  "updateAvailable": "Yangilanish mavjud",
+  "nightlyBuild": "Kechki qurish",
+  "showReleaseNotes": "Chop etish eslatmalarini ko‘rsatish",
+  "hideReleaseNotes": "Chop etish eslatmalarini yashirish",
+  "remindMeLater": "Keyin eslatish",
+  "downloading": "Yuklab olindi...",
+  "updateNow": "Endi yangilash"
+}

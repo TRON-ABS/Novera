@@ -10,6 +10,11 @@ afterEach(() => { vi.restoreAllMocks(); h.native = false; h.locale.mockReset() }
 
 describe('system language matching', () => {
   it.each([
+    ['uzn', 'uzn'], ['uz-UZ', 'uzn'], ['uz-Latn-UZ', 'uzn'], ['uz-Cyrl-UZ', 'en'], ['uz-Arab-AF', 'en'],
+    ['pbu-AF', 'pbu'], ['ps-PK', 'pbu'], ['ps-Arab-AF', 'pbu'], ['ps-Latn', 'en'], ['pbt-AF', 'en'],
+    ['gaz-ET', 'gaz'], ['om-ET', 'gaz'], ['om-Latn-KE', 'gaz'], ['om-Ethi', 'en'],
+    ['zu-ZA', 'zu'], ['aec-EG', 'aec'], ['skr-PK', 'skr'], ['nl-NL', 'nl'], ['nl-BE', 'nl'],
+    ['so-SO', 'so'], ['ro-RO', 'ro'], ['as-IN', 'as'],
     ['fr-FR', 'fr'], ['fr_CA.UTF-8', 'fr'], ['de-AT', 'de-DE'],
     ['pt-PT', 'pt-PT'], ['pt-BR', 'pt-BR'], ['pt-AO', 'pt-PT'],
     ['zh-Hans-HK', 'zh-CN'], ['zh-Hant', 'zh-TW'], ['zh-HK', 'zh-TW'],
@@ -29,6 +34,7 @@ describe('system language matching', () => {
   it('tries later preferred languages and falls back safely on invalid or absent tags', () => {
     expect(matchSystemLanguage(['bad tag', 'sv-SE', 'ja-JP', 'fr-FR'])).toBe('ja')
     expect(matchSystemLanguage(['sd-Deva-IN', 'fr-FR'])).toBe('fr')
+    expect(matchSystemLanguage(['uz-Cyrl-UZ', 'ps-Latn', 'om-Ethi', 'pbt-AF', 'nl-BE'])).toBe('nl')
     expect(matchSystemLanguage([])).toBe('en')
     expect(matchSystemLanguage(['C', ''])).toBe('en')
   })

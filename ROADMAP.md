@@ -4,13 +4,13 @@ Mise à jour du **25 octobre 2026**. Cette liste centralise les tâches ; elle n
 
 ## Priorité : valider les sources actuelles en fonctionnement
 
-- [ ] Sur nouvelle demande de compilation, construire un candidat avec les 36 catalogues complets, les nouveaux noms internes et les options DSpark/consentement du premier démarrage.
+- [ ] Sur nouvelle demande de compilation, construire un candidat avec les 70 catalogues complets, les nouveaux noms internes et les options DSpark/consentement du premier démarrage.
 - [ ] Vérifier une vraie première installation : langue, refus mémorisé, consentements indépendants, absence de destination et téléchargement facultatif de DSpark.
 - [ ] Mesurer la vitesse, RAM/VRAM et longueur de contexte avec et sans DSpark sur le matériel annoncé ; aucun gain garanti.
 - [ ] Vérifier la liaison complète du shim et une mise à niveau réelle de l’ancien worker vers `novera-llama-worker`, avec restauration sur échec.
 - [ ] Vérifier génération CPU/GPU, sauvegarde native, impression/PDF et navigation ; préserver les données existantes.
 - [ ] Vérifier le transport d’une erreur depuis le WebView sur profil isolé, après accord de test explicite ; fixer rétention et traitement des IP côté service.
-- [ ] Faire relire les traductions par des locuteurs natifs, notamment les ajouts assistés par traduction automatique et les variantes éditoriales jin/min nan/hakka/algérien/marocain/xiang/dari encore fondées en partie sur une terminologie écrite commune. La couverture des clés est complète, la revue linguistique reste ouverte.
+- [ ] Faire relire les traductions par des locuteurs natifs, notamment les ajouts assistés par traduction automatique et les variantes éditoriales jin/min nan/hakka/algérien/marocain/xiang/dari/saïdi/saraiki encore fondées en partie sur une terminologie écrite commune. La couverture des clés est complète, la revue linguistique reste ouverte.
 - [ ] Examiner séparément la correction Linux historique #9346 et tester sur Linux.
 
 ## Version Android — APK

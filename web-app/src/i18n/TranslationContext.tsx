@@ -42,7 +42,7 @@ export const TranslationProvider: React.FC<{ children: ReactNode }> = ({ childre
 				t: translate,
 				i18n: i18next,
 			}}>
-			<DirectionProvider dir={["ar", "apc", "apd", "arq", "ary", "sd", "prs", "ur", "arz", "pnb", "fa", "fa-IR"].includes(appliedLanguage) ? "rtl" : "ltr"}>
+			<DirectionProvider dir={["ar", "aec", "pbu", "skr", "apc", "apd", "arq", "ary", "sd", "prs", "ur", "arz", "pnb", "fa", "fa-IR"].includes(appliedLanguage) ? "rtl" : "ltr"}>
 				{children}
 			</DirectionProvider>
 		</TranslationContext.Provider>

@@ -1,0 +1,50 @@
+{
+  "welcome": "سلام، تساں کیویں ہو؟",
+  "description": "اڄ میں تہاݙی کیویں مدد کر سڳدا ہاں؟",
+  "temporaryChat": "عارضی گل بات",
+  "temporaryChatDescription": "عارضی گل بات شروع کرو جیہڑی تہاݙی گل بات دی تاریخ وچ محفوظ نئیں ہووے گی۔",
+  "status": {
+    "empty": "کوئی گل بات نئیں لبھی"
+  },
+  "sendMessage": "سنیہا گھلو",
+  "newConversation": "نویں گل بات",
+  "clearHistory": "تاریخ مٹاؤ",
+  "embeddings": {
+    "title": "تہاݙے دستاویز تیار ہو رہے نیں",
+    "description": "نال لائیاں فائلاں دا اشاریہ بن رہیا ہے تاں جو اوہناں وچ لبھیا جا سکے تے حوالے دِتے جا سکن۔ وݙے دستاویزاں لئی تھوڑا وقت لگ سڳدا ہے۔"
+  },
+  "actions": {
+    "regenerate": "جواب ولدا بݨاؤ",
+    "askAgain": "ولدا پچھو",
+    "continue": "جواب بݨاوݨ جاری رکھو",
+    "remember": "ایہ یاد رکھو",
+    "rememberSaved": "\"{{name}}\" دے ناں نال یادداشت وچ محفوظ ہو گیا",
+    "rememberExists": "\"{{name}}\" دے ناں نال یادداشت وچ پہلاں ای موجود ہے",
+    "rememberFailed": "یادداشت وچ محفوظ نئیں ہو سکیا"
+  },
+  "done": "مک ڳیا",
+  "webSources": "حوالیاں دی گنتی: {{count}}",
+  "reasoning": {
+    "label": "سوچ رہیا ہے...",
+    "thinking": "سوچ رہیا ہے",
+    "working": "کم ہو رہیا ہے...",
+    "showFullTimeline": "سارے ویلے دی ترتیب وکھاؤ",
+    "showCurrentStep": "صرف موجودہ قدم وکھاؤ",
+    "thoughtForAWhile": "کجھ سیکنڈ سوچیا",
+    "thoughtFor": "{{duration}} لئی سوچیا",
+    "workedForAWhile": "کجھ سیکنڈ کم کیتا",
+    "workedFor": "{{duration}} لئی کم کیتا"
+  },
+  "messageActions": {
+    "previousVersion": "پچھلا ورژن",
+    "nextVersion": "اگلا ورژن",
+    "generationFailed": "تیار کرنا ناکام ہو گیا"
+  },
+  "messageStats": {
+    "details": "تیاری دے اعدادوشمار",
+    "generation": "تیاری",
+    "reading": "پڑھنا",
+    "tokens": "ٹوکن",
+    "perSecond": "ٹوکن/سیکنڈ"
+  }
+}

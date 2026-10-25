@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "কোড",
+    "preview": "পূৰ্বপ্ৰদৰ্শন",
+    "previewStreaming": "নিৰ্মাণ সমাপ্ত হ'লে উপলব্ধ",
+    "unresolvedAssets_one": "পূৰ্বদৰ্শনত ১ সম্পদ সংজ্ঞা ল'ড কৰিব নোৱাৰি। আপেক্ষিক পথসমূহৰ সৈতে সমাধান কৰিবলে কোনো ভিত্তি URL নাই।",
+    "unresolvedAssets_other": "{{count}} সম্পদ সংজ্ঞাসমূহ পূৰ্বপ্ৰদৰ্শনত ল'ড কৰিব নোৱাৰি। আপেক্ষিক পথসমূহৰ সৈতে সমাধান কৰিবলে কোনো ভিত্তি URL নাই।"
+  },
+  "assistants": "সহায়ক",
+  "hardware": "হাৰ্ডৱেৰ",
+  "mcp-servers": "MCP চাৰ্ভাৰসমূহ",
+  "local_api_server": "স্থানীয় API চাৰ্ভাৰ",
+  "remote_access": "দূৰবৰ্তী অভিগম",
+  "integrations": "সমন্বয়সমূহ",
+  "experimental": "পৰীক্ষামূলক",
+  "claude_code": "ক্লাউড কোড",
+  "https_proxy": "HTTPS প্ৰক্সি",
+  "web_search": "ৱেব অনুসন্ধান",
+  "shell": "শ্বেল",
+  "browse": "ব্ৰাউছ কৰক",
+  "moreControls": "অধিক নিয়ন্ত্ৰণ",
+  "starting": "আৰম্ভ কৰা হৈছে...",
+  "activeSuffix": "(সক্ৰিয়)",
+  "extensions": "প্ৰসাৰণসমূহ",
+  "attachments": "এটাচমেন্টসমূহ",
+  "general": "সাধাৰণ",
+  "settings": "ছেটিংছ",
+  "modelProviders": "মডেল প্ৰদানকাৰী",
+  "localProviders": "স্থানীয়",
+  "remoteProviders": "দূৰবৰ্তী",
+  "manageProviders": "প্ৰদানকাৰীসমূহ পৰিচালনা কৰক",
+  "hiddenProviders": "{{count}} অসামৰ্থবান",
+  "hideProvider": "প্ৰদানকাৰী আড়াল কৰক",
+  "showProvider": "প্ৰদানকাৰী দেখুৱাওক",
+  "interface": "আন্তঃপৃষ্ট",
+  "appearance": "প্ৰদৰ্শন",
+  "privacy": "গোপনীয়তা",
+  "keyboardShortcuts": "চমু পথ",
+  "home": "ঘৰ",
+  "cowork": "Cowork",
+  "newSession": "নতুন অধিবেশন",
+  "artifacts": "আৰ্টিফাক্টসমূহ",
+  "customize": "স্বনিৰ্বাচিত কৰক",
+  "local": "স্থানীয়",
+  "selectFolder": "ফোল্ডাৰ নিৰ্বাচন কৰক",
+  "selectModel": "প্ৰথমে এটা আৰ্হি বাছক",
+  "commands": "কমান্ড",
+  "cmdHelp": "উপলব্ধ কমান্ডসমূহ তালিকাভুক্ত কৰক",
+  "cmdClear": "এই অধিবেশন পৰিষ্কাৰ কৰক",
+  "cmdModels": "সক্ৰিয় আৰ্হি পৰিবৰ্তন কৰক",
+  "cmdModelsHint": "/models লিখক আৰু তাৰ পিছত তালিকাৰ পৰা এটা মডেল বাছক",
+  "cmdModelSwitched": "{{name}} লৈ পৰিবৰ্তন কৰা হৈছে",
+  "cmdUnknown": "অজ্ঞাত কমান্ড: {{name}}। /help চেষ্টা কৰক",
+  "cmdBusy": "এজেন্ট চলা অৱস্থাত সেইটো কৰিব নোৱাৰি",
+  "cmdCompact": "অধিবেশনৰ প্ৰসংগক এটা সাৰাংশত সংকুচিত কৰক",
+  "cmdCompacted": "সংকুচিত {{before}} -> {{after}} বাৰ্তা",
+  "cmdNothingToCompact": "কম্প্ৰেছ কৰিবলে এতিয়াও একো নাই",
+  "cmdCompactFailed": "সংকোচন ব্যৰ্থ হল: {{error}}",
+  "cmdPlan": "প্ল্যান মোড অদল-বদল কৰক (কেৱল-পঢ়িব পৰা: এজেন্টে লিখা অবিহনে প্ৰস্তাব কৰে)",
+  "cmdPlanOn": "প্ল্যান মোড সক্ৰিয়: এজেন্টে লিখা অবিহনে পঢ়ে আৰু প্ৰস্তাব কৰে",
+  "cmdPlanOff": "পৰিকল্পনা অৱস্থা বন্ধ কৰক: স্বাভাৱিক কাৰ্য্যকৰণ",
+  "cmdTodo": "প্ৰগতি পেনেল খোলক",
+  "cmdTasks": "পটভূমিৰ কাৰ্য্য পেনেল খোলক",
+  "cmdInit": "প্ৰকল্প অধ্যয়ন কৰক আৰু দক্ষতা আৰু স্মৃতিশক্তি লিখক",
+  "cmdInitRunning": "এই প্ৰকল্পৰ বাবে প্ৰস্তুত কৰা হৈছে",
+  "skills": "দক্ষতা",
+  "skillsInContext": "এজেণ্টৰ বাবে এই চলাৰ সময়ত উপলব্ধ দক্ষতাসমূহ",
+  "skillsTitle": "দক্ষতা পৰিচালনা কৰক",
+  "skillsScopeProject": "{{folder}} ৰ বাবে দক্ষতা",
+  "skillsScopeGlobal": "সাৰ্বজনীন দক্ষতা, প্ৰত্যেক অধিবেশনত উপলব্ধ",
+  "skillsScopeMerged": "{{folder}} ৰ বাবে দক্ষতা, লগতে প্ৰতিটো অধিবেশনৰ অংশীদাৰী সাৰ্বজনীন দক্ষতা",
+  "skillOriginFolder": "ফোল্ডাৰ",
+  "skillOriginGlobal": "সাৰ্বজনীন",
+  "skillsEmpty": "এতিয়াও কোনো দক্ষতা নাই",
+  "skillsPickOrNew": "সম্পাদনৰ বাবে এটা দক্ষতা বাছক, অথবা এটা নতুন এটা সৃষ্টি কৰক।",
+  "skillNew": "নতুন দক্ষতা",
+  "skillDelete": "দক্ষতা আঁতৰাওক",
+  "skillSave": "সঞ্চয় কৰক",
+  "skillSaved": "দক্ষতা সংৰক্ষণ কৰা হৈছে",
+  "skillNameRequired": "দক্ষতাৰ নাম আবশ্যক",
+  "skillNamePlaceholder": "ত্ৰুটি:",
+  "skillContentPlaceholder": "পুনৰ ব্যৱহাৰযোগ্য প্ৰক্ৰিয়া Markdown ত বৰ্ণনা কৰক…",
+  "skillHubImport": "হাব থেকে আমদানি কৰক",
+  "skillHubTitle": "Anthropic দক্ষতা হাব",
+  "skillHubEmpty": "হাবত কোনো দক্ষতা পোৱা নাযায়",
+  "skillImport": "আমদানি কৰক",
+  "skillReimport": "পুনৰ আমদানি কৰক",
+  "skillImported": "{{name}} ইমপোৰ্ট কৰা হৈছে",
+  "sessions": "অধিবেশন",
+  "deleteSession": "অধিবেশন মচি পেলাওক",
+  "deleteSessionTitle": "অধিবেশন মচি পেলাব নে?",
+  "deleteSessionBody": "\"{{title}}\" আৰু ইয়াৰ অনুলিপি স্থায়ীৰূপে আঁতৰুৱা হ'ব। এইটো বাতিল কৰা নাযায়।",
+  "newChat": "নতুন চেট",
+  "newAgentChat": "নতুন এজেন্ট চেট",
+  "chats": "চেটসমূহ",
+  "favorites": "পছন্দসমূহ",
+  "recents": "শেহতীয়া",
+  "hub": "হাব",
+  "helpSupport": "সহায় আৰু সমৰ্থন",
+  "helpUsImproveJan": "Novera উন্নত কৰিবলৈ আমাক সহায় কৰক",
+  "analyticsConsentDetail": "বৈশিষ্ট্যৰ ব্যৱহাৰ বুজাবলৈ আমি অজ্ঞাত তথ্য সংগ্ৰহ কৰোঁ। আপোনাৰ চেট আৰু ব্যক্তিগত তথ্য কখনোই অনুসৰণ কৰা ন'হ'ব। আপুনি এইটো যিকোনো সময়ত বৈশিষ্ট্য > গোপনীয়তাত পৰিবৰ্তন কৰিব পাৰে।",
+  "analyticsConsentQuestion": "আপুনি Novera উন্নত কৰিবলৈ সহায় কৰিব বিচাৰে নে?",
+  "unstarAll": "সকলো বাতিল কৰক",
+  "unstar": "অ-তাৰা",
+  "deleteAll": "সকলো আঁতৰাওক",
+  "star": "নক্ষত্ৰ",
+  "rename": "নাম পৰিবৰ্তন কৰক",
+  "delete": "মচি পেলাওক",
+  "copied": "কপি কৰা হৈছে!",
+  "dataFolder": "তথ্যৰ ফোল্ডাৰ",
+  "others": "অন্যান্য",
+  "language": "ভাষা",
+  "login": "প্ৰৱেশ কৰক",
+  "loginWith": "{{provider}} ৰ সৈতে প্ৰৱেশ কৰক",
+  "loginFailed": "প্ৰৱেশ কৰিবলৈ ব্যৰ্থ",
+  "logout": "লগ আউট কৰক",
+  "loggingOut": "লগ আউট কৰা হৈছে...",
+  "loggedOut": "সফলতাৰে লগ আউট কৰা হৈছে",
+  "logoutFailed": "লগ আউট কৰিবলৈ ব্যৰ্থ",
+  "profile": "আলেখ্য",
+  "reset": "পুনৰুদ্ধাৰ কৰক",
+  "search": "সন্ধান কৰক",
+  "searchThreads": "থ্ৰেড অনুসন্ধান কৰক...",
+  "toNavigate": "অনুসন্ধান কৰক",
+  "toSelect": "নিৰ্বাচন কৰক",
+  "toClose": "বন্ধ কৰক",
+  "clearRecent": "পৰিষ্কাৰ কৰক",
+  "name": "নাম:",
+  "cancel": "বাতিল কৰক",
+  "dismiss": "নাকচ কৰক",
+  "create": "সৃষ্টি কৰক",
+  "save": "সঞ্চয় কৰক",
+  "edit": "সম্পাদনা কৰক",
+  "copy": "কপি কৰক",
+  "back": "পিছলৈ",
+  "close": "বন্ধ কৰক",
+  "done": "সম্পন্ন",
+  "next": "পৰবৰ্তী",
+  "finish": "সমাপ্তি",
+  "skip": "জাহাজ",
+  "allow": "অনুমতি দিয়ক",
+  "deny": "নাকচ কৰক",
+  "start": "আৰম্ভ কৰক",
+  "stop": "বন্ধ কৰক",
+  "preview": {
+    "loading": "খোলা হৈছে…",
+    "unsupported": "Novera দ্বাৰা এই ধৰণৰ নথিপত্ৰ প্ৰদৰ্শন কৰা নাযায়। অন্য এপ্লিকেচনত প্ৰদৰ্শনৰ বাবে ইয়াক খোলক।",
+    "outside": "এই নথিপত্ৰ বৰ্তমানে অধিবেশনৰ কাৰ্য্যক্ষেত্ৰত উপস্থিত নাই।",
+    "tooLarge": "পূৰ্বপ্ৰদৰ্শনৰ বাবে অত্যাধিক ডাঙৰ। অন্য এপ্লিকেচনত দেখুৱাবলৈ খোলক।",
+    "reload": "পুনঃ তুলি লওক",
+    "allowNetwork": "নেটৱাৰ্ক অনুমোদন কৰক",
+    "unsandboxed": "স্যান্ডবক্সবিহীনভাৱে চলাওক: সংৰক্ষিত তথ্য আৰু স্থানীয় নথিপত্ৰসমূহ কাম কৰে",
+    "unresolvedRefs_one": "পূৰ্বদৰ্শনত এই পৃষ্ঠাৰ সৈতে সংযুক্ত ১ নথিপত্ৰ লোড কৰা নাযায়। ব্ৰাউছাৰ ব্যৱহাৰ কৰি এই নথিপত্ৰটি প্ৰদৰ্শন কৰাৰ বাবে খোলক।",
+    "unresolvedRefs_other": "{{count}} এই পৃষ্ঠাৰ সৈতে সংযুক্ত নথিপত্ৰসমূহ পূৰ্বদৰ্শনত ল'ড কৰিব নোৱাৰি। ইয়াক এটা ব্ৰাউজাৰত চাবলৈ খোলক।",
+    "externalRefs_one": "ৱেবৰ পৰা এই পৃষ্ঠাৰ দ্বাৰা লোড কৰা ১ সংখ্যক সম্পদ বন্ধ কৰা হৈছে। ইয়াক লোড কৰিবলৈ \"নেটৱাৰ্ক অনুমোদন কৰক\" সক্ৰিয় কৰক।",
+    "externalRefs_other": "এই পৃষ্ঠাৰ দ্বাৰা ৱেব থেকে লোড কৰা {{count}} সম্পদ নিষিদ্ধ কৰা হৈছে । এইসমূহ লোড কৰিবলৈ \"নেটৱাৰ্ক অনুমোদন কৰক\" সক্ৰিয় কৰক ।",
+    "scriptErrors_one": "পৃষ্ঠাৰ দ্বাৰা এটা ত্ৰুটিৰ প্ৰতিবেদন কৰা হৈছে: {{message}}",
+    "scriptErrors_other": "পৃষ্ঠাত {{count}} ত্ৰুটিৰ প্ৰতিবেদন কৰা হৈছে। প্ৰথম: {{message}}"
+  },
+  "changes": {
+    "title": "এজেন্ট পৰিবৰ্তনসমূহ",
+    "empty": "এজেন্ট দ্বাৰা লিখা অথবা সম্পাদন কৰা নথিপত্ৰসমূহ ইয়াত প্ৰদৰ্শিত হ'ব।",
+    "a11y": "এজেন্ট পৰিবৰ্তন: {{files}} নথিপত্ৰ, {{additions}} যোগ কৰা, {{deletions}} আঁতৰুৱা"
+  },
+  "modelPanel": {
+    "title": "আৰ্হি সংহতিসমূহ",
+    "a11y": "মডেল সংহতিসমূহ খোলক",
+    "contextTooltip": "কনটেক্সট উইন্ডো: {{max}} টোকেনৰ {{value}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "দক্ষতা '{{name}}' উপলব্ধ নহয়",
+    "kind": {
+      "skill": "দক্ষতা",
+      "command": "নিৰ্দেশ",
+      "model": "আৰ্হি"
+    }
+  },
+  "compactWidth": "প্ৰস্থ সংকুচিত কৰক",
+  "fullWidth": "সম্পূৰ্ণ প্ৰস্থ",
+  "dark": "অন্ধকাৰ",
+  "light": "হালধীয়া",
+  "system": "চিস্টেম",
+  "auto": "স্বচালিত",
+  "english": "ইংৰাজীName",
+  "medium": "মাধ্যম",
+  "newThread": "নতুন থ্ৰেড",
+  "noResultsFound": "কোনো ফলাফল পোৱা নগল",
+  "noThreadsYet": "এতিয়াও কোনো থ্ৰেড নাই",
+  "noThreadsYetDesc": "আপোনাৰ থ্ৰেডৰ ইতিহাস এই স্থানত চাবলে এটা নতুন কথোপকথন আৰম্ভ কৰক।",
+  "downloads": "ডাউনল'ডসমূহ",
+  "downloading": "ডাউনল'ড কৰা হৈছে",
+  "uploadingAttachments": "এটাচমেন্টসমূহ আপলোড কৰা হৈছে…",
+  "cancelDownload": "ডাউনল'ড বাতিল কৰক",
+  "downloadCancelled": "ডাউনল'ড বাতিল কৰা হৈছে",
+  "downloadComplete": "ডাউনল'ড সমাপ্ত",
+  "thinking": "চিন্তা কৰা হৈছে...",
+  "thought": "চিন্তা",
+  "callingTool": "কলিং সঁজুলি",
+  "completed": "সমাপ্ত",
+  "image": "ছবি",
+  "vision": "দৃষ্টি",
+  "multimodal": "মাল্টিমোডাল",
+  "embeddings": "এম্বেডিংসমূহ",
+  "tools": "সঁজুলিসমূহ",
+  "webSearch": "ৱেব অনুসন্ধান",
+  "reasoning": "যুক্তি",
+  "proactive": "প্ৰগতিশীল",
+  "selectAModel": "এটা আৰ্হি বাছক",
+  "noToolsAvailable": "কোনো সঁজুলি উপলব্ধ নাই",
+  "noModelsFoundFor": "\"{{searchValue}}\" ৰ বাবে কোনো মডেল পোৱা নগল",
+  "failedToLoadModels": "মডেলসমূহ ল'ড কৰিবলৈ ব্যৰ্থ",
+  "noModels": "কোনো মডেল পোৱা নাযায়",
+  "noAssistant": "সহায়ক নাই",
+  "customAvatar": "স্বনিৰ্বাচিত আভিধানিক",
+  "editAssistant": "সম্পাদন সহায়ক",
+  "jan": "Novera",
+  "metadata": "মেটাডাটা",
+  "regenerate": "পুনৰুদ্ধাৰ কৰক",
+  "threadImage": "থ্ৰেড ছবি",
+  "editMessage": "বাৰ্তা সম্পাদন কৰক",
+  "deleteMessage": "বাৰ্তা আঁতৰাওক",
+  "deleteThread": "থ্ৰেড আঁতৰাওক",
+  "renameThread": "থ্ৰেডৰ নাম পৰিবৰ্তন কৰক",
+  "threadTitle": "থ্ৰেড শীৰ্ষক",
+  "deleteAllThreads": "সকলো থ্ৰেড আঁতৰাওক",
+  "allThreadsUnfavorited": "সকলো থ্ৰেড অপ্ৰিয়",
+  "deleteAllThreadsConfirm": "আপুনি নিশ্চিতৰূপে সকলো থ্ৰেড আঁতৰাবলৈ ইচ্ছুক নে? এই কাৰ্য্য বাতিল কৰা নাযায়।",
+  "addProvider": "প্ৰদানকাৰী যোগ কৰক",
+  "addOpenAIProvider": "OpenAI প্ৰদানকাৰী যোগ কৰক",
+  "enterNameForProvider": "আপোনাৰ প্ৰদানকাৰীৰ বাবে এটা নাম সুমুৱাওক",
+  "providerAlreadyExists": "\"{{name}}\" নামৰ প্ৰদানকাৰী ইতিমধ্যে আছে। অনুগ্ৰহ কৰি এটা ভিন্ন নাম বাছক।",
+  "adjustFontSize": "ফন্টৰ আকাৰ পৰিবৰ্তন কৰক",
+  "changeLanguage": "ভাষা পৰিবৰ্তন কৰক",
+  "editTheme": "থিম সম্পাদন কৰক",
+  "editCodeBlockStyle": "কোড ব্লক বিন্যাস সম্পাদন কৰক",
+  "editServerHost": "চাৰ্ভাৰ হস্ট সম্পাদন কৰক",
+  "pickColorWindowBackground": "উইন্ডো পটভূমিৰ ৰং নিৰ্ব্বাচন কৰক",
+  "pickColorAppMainView": "ৰঙ এপ্লিকেচন প্ৰধান দৰ্শন নিৰ্ব্বাচন কৰক",
+  "pickColorAppPrimary": "ৰং এপ্লিকেচন প্ৰাথমিক নিৰ্ব্বাচন কৰক",
+  "pickColorAppAccent": "ৰং এপ্লিকেচনৰ গুৰুত্ব নিৰ্ব্বাচন কৰক",
+  "pickColorAppDestructive": "ৰঙৰ এপ্লিকেচনৰ ধ্বংসাত্মক নিৰ্বাচন কৰক",
+  "apiKeyRequired": "API কি'ৰ প্ৰয়োজন",
+  "enterTrustedHosts": "বিশ্বস্ত হস্টসমূহ সুমুৱাওক",
+  "placeholder": {
+    "chatInput": "আমাক যিকোনো প্ৰশ্ন কৰক..."
+  },
+  "confirm": "নিশ্চিত কৰক",
+  "continue": "অগ্ৰসৰ হওক",
+  "loading": "লোড কৰা হৈছে...",
+  "settingUpJan": "বুট কৰা হৈছে Novera…",
+  "registeringExtensions": "প্ৰসাৰণসমূহ নিবন্ধন কৰা হৈছে…",
+  "loadingExtensions": "এক্সটেনশন লোড কৰা হৈছে… ({{done}}/{{total}})",
+  "error": "সমস্যা",
+  "success": "সফলতা",
+  "warning": "সতৰ্কবাৰ্তা",
+  "conversationNotAvailable": "কথোপকথন উপলব্ধ নহয়",
+  "conversationNotAvailableDescription": "আপুনি ব্যৱহাৰ কৰিবলৈ চেষ্টা কৰা কথোপকথন উপলব্ধ নহয় অথবা মচি পেলোৱা হৈছে।",
+  "temporaryChat": "অস্থায়ী চেট",
+  "temporaryChatTooltip": "অস্থায়ী চেটসমূহ আপোনাৰ ইতিহাসত প্ৰদৰ্শন কৰা ন'হ'ব",
+  "noResultsFoundDesc": "আপোনাৰ অনুসন্ধানৰ সৈতে মিল থকা কোনো চেট পোৱা নাযায়। অন্য কি'ৱাৰ্ড ব্যৱহাৰ কৰক।",
+  "searchModels": "আৰ্হি অনুসন্ধান কৰক...",
+  "searchStyles": "শৈলী অনুসন্ধান কৰক...",
+  "createAssistant": "সহায়ক সৃষ্টি কৰক",
+  "enterApiKey": "API কি' সুমুৱাওক",
+  "scrollToBottom": "তলত স্ক্ৰল কৰক",
+  "generateAiResponse": "AI প্ৰতিক্ৰিয়া সৃষ্টি কৰক",
+  "continueAiResponse": "AI প্ৰতিক্ৰিয়াৰ সৈতে অব্যাহত ৰাখক",
+  "addModel": {
+    "title": "আৰ্হি যোগ কৰক",
+    "modelId": "আৰ্হি ID",
+    "enterModelId": "আৰ্হি ID সুমুৱাওক",
+    "addModel": "আৰ্হি যোগ কৰক",
+    "description": "উপলব্ধকৰোঁতালৈ এটা নতুন আৰ্হি যোগ কৰক",
+    "exploreModels": "প্ৰদানকাৰীৰ পৰা আৰ্হি তালিকা চাওক"
+  },
+  "mcpServers": {
+    "editServer": "চাৰ্ভাৰ সম্পাদন কৰক",
+    "addServer": "চাৰ্ভাৰ যোগ কৰক",
+    "serverName": "চাৰ্ভাৰৰ নাম",
+    "enterServerName": "চাৰ্ভাৰৰ নাম লিখক",
+    "command": "নিৰ্দেশ",
+    "enterCommand": "কমান্ড লিখক",
+    "arguments": "তৰ্কসমূহ",
+    "argument": "তৰ্ক {{index}}",
+    "envVars": "পৰিবেশ চলকসমূহ",
+    "key": "চাবি",
+    "value": "মান",
+    "save": "সঞ্চয় কৰক"
+  },
+  "deleteServer": {
+    "title": "চাৰ্ভাৰ মচি পেলাওক",
+    "delete": "মচি পেলাওক"
+  },
+  "editJson": {
+    "errorParse": "JSON বিশ্লেষণ কৰিবলৈ ব্যৰ্থ",
+    "errorPaste": "JSON পেইস্ট কৰিবলৈ ব্যৰ্থ",
+    "errorFormat": "অবৈধ JSON বিন্যাস",
+    "titleAll": "সকলো চাৰ্ভাৰৰ বিন্যাস সম্পাদন কৰক",
+    "placeholder": "JSON বিন্যাস প্ৰৱেশ কৰক...",
+    "save": "সঞ্চয় কৰক"
+  },
+  "editModel": {
+    "title": "মডেল সম্পাদন কৰক: {{modelId}}",
+    "description": "নিম্নলিখিত বিকল্পসমূহ টগল কৰি আৰ্হি ক্ষমতাসমূহ বিন্যাস কৰক।",
+    "capabilities": "ক্ষমতাসমূহ",
+    "tools": "সঁজুলিসমূহ",
+    "vision": "দৃষ্টি",
+    "embeddings": "এম্বেডিংসমূহ",
+    "notAvailable": "এতিয়াও উপলব্ধ নহয়"
+  },
+  "outOfContextError": {
+    "truncateInput": "ইনপুট কটাওক",
+    "title": "পৰিপ্ৰেক্ষতিত ত্ৰুটি",
+    "description": "এই চেটটি AI'ৰ মেমৰি সীমাত উপনীত হৈছে, ৱেইটব'ৰ্ড পূৰ্ণ হোৱাৰ দৰে। আমি মেমৰি উইন্ডো (কন্টেক্সট আকাৰ বুলি কোৱা) প্ৰসাৰিত কৰিব পাৰো যাতে ই অধিক স্মৰণ কৰে, কিন্তু ই আপোনাৰ কমপিউটাৰৰ মেমৰি অধিক ব্যৱহাৰ কৰিব পাৰে। আমি ইনপুটও কাটি পেলাব পাৰো, যাৰ অৰ্থ নতুন বাৰ্তাসমূহৰ বাবে স্থান সৃষ্টি কৰিবলৈ চেট ইতিহাসৰ কিছু অংশ ভুলে যাব।",
+    "increaseContextSizeDescription": "আপুনি প্ৰসঙ্গৰ আকাৰ বৃদ্ধি কৰিবলৈ ইচ্ছুক নে?",
+    "increaseContextSize": "প্ৰসঙ্গৰ আকাৰ বৃদ্ধি কৰক"
+  },
+  "toolApproval": {
+    "title": "সঁজুলিৰ অনুমতিৰ অনুৰোধ",
+    "description": "সহায়কে <strong>{{toolName}}</strong> ব্যৱহাৰ কৰিবলৈ ইচ্ছুক",
+    "securityNotice": "কেৱল আপুনি বিশ্বাস কৰা সঁজুলিসমূহ অনুমোদন কৰক। সঁজুলিসমূহে আপোনাৰ চিস্টেম আৰু তথ্য ব্যৱহাৰ কৰিব পাৰে।",
+    "deny": "নাকচ কৰক",
+    "allowOnce": "একবাৰ অনুমতি দিয়ক",
+    "alwaysAllow": "সদায় অনুমতি দিয়ক"
+  },
+  "deleteModel": {
+    "title": "মডেল আঁতৰাওক: {{modelId}}",
+    "description": "আপুনি নিশ্চিতৰূপে এই আৰ্হি আঁতৰাবলৈ ইচ্ছুক নে? এই কাৰ্য্য বাতিল কৰা নাযায়।",
+    "success": "মডেল {{modelId}} স্থায়ীৰূপে আঁতৰুৱা হৈছে।",
+    "cancel": "বাতিল কৰক",
+    "delete": "মচি পেলাওক"
+  },
+  "deleteProvider": {
+    "title": "প্ৰদানকাৰী মচি পেলাওক",
+    "description": "এই প্ৰদানকাৰী আৰু ইয়াৰ সকলো আৰ্হি আঁতৰাওক। এই কাৰ্য্য বাতিল কৰা নাযাব।",
+    "success": "প্ৰদানকাৰী {{provider}} স্থায়ীৰূপে আঁতৰুৱা হৈছে।",
+    "confirmTitle": "প্ৰদানকাৰী মচি পেলাওক: {{provider}}",
+    "confirmDescription": "আপুনি নিশ্চিতৰূপে এই প্ৰদানকাৰীক আঁতৰাবলৈ ইচ্ছুক নে? এই কাৰ্য্য বাতিল কৰা নাযাব।",
+    "cancel": "বাতিল কৰক",
+    "delete": "মচি পেলাওক"
+  },
+  "modelSettings": {
+    "title": "আৰ্হি সংহতিসমূহ - {{modelId}}",
+    "description": "কাৰ্য্যক্ষমতা আৰু আচৰণ উন্নত কৰাৰ বাবে মডেলৰ বৈশিষ্ট্য বিন্যাস কৰক।",
+    "nglDisabledByFit": "স্বয়ংক্ৰিয়ভাবে মিল খোৱা GPU স্তৰ নিৰ্বাচন কৰা হৈছে। এইটো হস্তচালিতভাৱে সংহতি কৰিবলৈ স্বয়ংক্ৰিয়ভাবে মিল খোৱা বন্ধ কৰক।",
+    "samplingDefaults": {
+      "title": "অবিকল্পিত নমুনা প্ৰাচলসমূহ",
+      "description": "এই আৰ্হিৰ বাবে অবিকল্পিত নমুনা সংহতিসমূহ। প্ৰতি সহায়ক অথবা প্ৰতি অনুৰোধ মানসমূহ দ্বাৰা অগ্ৰাহ্য নকৰিলে ব্যৱহাৰ কৰা হ'ব।"
+    },
+    "specDraft": {
+      "section": "অনুমানমূলক ডিকোডিং",
+      "enable": "স্পেকুলেটিভ ডিকোডিং সক্ৰিয় কৰক",
+      "enableDescription": "প্ৰতি পদক্ষেপে একাধিক টোকেন ড্ৰাফট কৰক আৰু এবাৰ পাৰ হ'লে ইয়াক পৰীক্ষা কৰক, যাৰ ফলত উৎপাদন দ্ৰুত হ'ব। মডেলৰ অভ্যন্তৰীণ MTP হেডাৰ ব্যৱহাৰ কৰে, অথবা ইয়াৰ সৈতে ডাউনল'ড কৰা ড্ৰাফট মডেল (MTP, Eagle3, DFlash অথবা DSpark)।",
+      "nMax": "সৰ্বাধিক ড্ৰাফ্ট টোকেন",
+      "nMaxDescription": "প্ৰতি পদক্ষেপে ড্ৰাফ্ট কৰা টোকেনৰ সৰ্বাধিক সংখ্যা। অবিকল্পিত মান ১৬।",
+      "nMin": "নূন্যতম ড্ৰাফ্ট টোকেন",
+      "nMinDescription": "প্ৰতি পদক্ষেপে ড্ৰাফ্ট কৰাৰ বাবে টোকেনৰ সৰ্বনিম্ন সংখ্যা। অবিকল্পিত মান ০।",
+      "pMin": "নূন্যতম ড্ৰাফ্ট সম্ভাৱনা",
+      "pMinDescription": "greedy drafting ৰ বাবে সৰ্বনিম্ন সম্ভাৱনা (০-১)। অবিকল্পিত ০.৭৫।"
+    },
+    "templateKwargs": {
+      "section": "চেট টেমপ্লেট বিকল্পসমূহ",
+      "description": "এই মডেলৰ চেট টেমপ্লেট দ্বাৰা গ্ৰহণ কৰা অতিৰিক্ত বিকল্পসমূহ। প্ৰতিটো অনুৰোধত chat_template_kwargs ৰূপে প্ৰেৰিত হ'ব; টেমপ্লেটৰ দ্বাৰা নিৰ্ধাৰিত হ'বলে অবিকল্পিত মানত এটা মান ৰখা হ'ব।",
+      "addCustom": "স্বনিৰ্বাচিত বিকল্প যোগ কৰক",
+      "keyPlaceholder": "নাম",
+      "valuePlaceholder": "মান",
+      "add": "যোগ কৰক",
+      "cancel": "বাতিল কৰক",
+      "remove": "আঁতৰাওক (_R)"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "আৰ্হি সংহতিসমূহ আপডেইট কৰিব পৰা নগল"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "তথ্য ফোল্ডাৰৰ অৱস্থান পৰিবৰ্তন কৰক",
+      "description": "তথ্য ফোল্ডাৰৰ অৱস্থান পৰিবৰ্তন কৰিবলৈ আপুনি নিশ্চিত নে? ইয়াৰ ফলত আপোনাৰ সকলো তথ্য নতুন অৱস্থানত স্থানান্তৰ কৰা হ'ব আৰু এপ্লিকেচন পুনৰায় আৰম্ভ কৰা হ'ব।",
+      "currentLocation": "বৰ্তমান অৱস্থান:",
+      "newLocation": "নতুন অৱস্থান:",
+      "cancel": "বাতিল কৰক",
+      "changeLocation": "অৱস্থান পৰিবৰ্তন কৰক"
+    },
+    "deleteAllThreads": {
+      "title": "সকলো থ্ৰেড আঁতৰাওক",
+      "description": "সকলো থ্ৰেড আঁতৰুৱা হ'ব । এই কাৰ্য্য বাতিল কৰা নাযাব ।"
+    },
+    "deleteAllThreadsInProject": {
+      "title": "সকলো কথোপকথন মচি পেলাওক",
+      "description": "\"{{projectName}}\" ত {{count}} কথোপকথন আঁতৰুৱা হ'ব। এই কাৰ্য্য বাতিল কৰা নাযায়।"
+    },
+    "deleteThread": {
+      "description": "আপুনি নিশ্চিতৰূপে এই থ্ৰেড আঁতৰাবলৈ ইচ্ছুক নে? এই কাৰ্য্য বাতিল কৰা নাযায়।"
+    },
+    "editMessage": {
+      "title": "বাৰ্তা সম্পাদন কৰক"
+    },
+    "messageMetadata": {
+      "title": "বাৰ্তা মেটাডাটা"
+    },
+    "deleteMessage": {
+      "description": "আপুনি নিশ্চিতৰূপে এই বাৰ্তাটি আঁতৰাবলৈ ইচ্ছুক নে? এই কাৰ্য্য বাতিল কৰা নাযায়।"
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "কিছু ভুল হ'ল",
+    "details": "বিৱৰণসমূহ"
+  },
+  "missingDependenciesDialog": {
+    "title": "অনুপস্থিত চিস্টেম লাইব্ৰেৰিসমূহ",
+    "description": "{{backend}} ইন্সটল কৰা হৈছিল কিন্তু কিছুমান প্ৰয়োজনীয় চিস্টেম লাইব্ৰেৰি পোৱা নাযায়। ই CPU লৈ ফিৰিব পাৰে অথবা সঠিকভাৱে চলাব নোৱাৰিব।",
+    "installLabel": "এইটো ঠিক কৰিবলৈ নিম্নলিখিতসমূহ ইনস্টল কৰক:",
+    "download": "ডাউনল’ড কৰক",
+    "additionalLibraries": "অতিৰিক্ত অনুপস্থিত লাইব্ৰেৰি:",
+    "missingLibraries": "অনুপস্থিত লাইব্ৰেৰি:",
+    "showRawLibraries": "{{count}} অনুপস্থিত লাইব্ৰেৰি নাম দেখুৱাওক"
+  },
+  "projects": {
+    "title": "প্ৰকল্পসমূহ",
+    "new": "নতুন প্ৰকল্প",
+    "addProject": "প্ৰকল্প যোগ কৰক",
+    "addToProject": "প্ৰকল্পত যোগ কৰক",
+    "removeFromProject": "প্ৰকল্পৰ পৰা আঁতৰাওক",
+    "createNewProject": "নতুন প্ৰকল্প নিৰ্মাণ কৰক",
+    "editProject": "প্ৰকল্প সম্পাদন কৰক",
+    "deleteProject": "প্ৰকল্প আঁতৰাওক",
+    "projectName": "প্ৰকল্পৰ নাম",
+    "enterProjectName": "প্ৰকল্পৰ নাম লিখক...",
+    "noProjectsAvailable": "কোনো প্ৰকল্প উপলব্ধ নাই",
+    "noProjectsYet": "এতিয়াও কোনো প্ৰকল্প নাই",
+    "noProjectsYetDesc": "প্ৰকল্প যোগ কৰক বুটাম ক্লিক কৰি এটা নতুন প্ৰকল্প আৰম্ভ কৰক।",
+    "projectNotFound": "প্ৰকল্প পোৱা নগল",
+    "projectNotFoundDesc": "আপুনি অনুসন্ধান কৰা প্ৰকল্পৰ অস্তিত্ব নাই বা আঁতৰুৱা হৈছে।",
+    "selectAssistant": "সহায়ক নিৰ্বাচন কৰক",
+    "noAssistantAssigned": "এই প্ৰকল্পৰ বাবে কোনো সহায়ক নিৰ্ধাৰিত নহয়",
+    "files": "নথিপত্ৰ",
+    "filesDescription": "এই প্ৰকল্পত উল্লিখিত হ'বলৈ PDFs, দস্তাবেজ অথবা অন্য টেক্সট যোগ কৰক।",
+    "uploadingFiles": "নথিপত্ৰ প্ৰক্ৰিয়াকৰণ কৰা হৈছে…",
+    "processButton": "যোগ কৰক",
+    "deleteProjectDialog": {
+      "title": "প্ৰকল্প আঁতৰাওক",
+      "permanentDelete": "এইটোৱে সকলো থ্ৰেড স্থায়ীৰূপে আঁতৰাই পেলাব।",
+      "permanentDeleteWarning": "এই কাৰ্য্য দ্বাৰা প্ৰকল্পৰ সকলো থ্ৰেড স্থায়ীৰূপে আঁতৰুৱা হ'ব!",
+      "deleteEmptyProject": "এই কাৰ্য্য দ্বাৰা প্ৰকল্প \"{{projectName}}\" আঁতৰুৱা হ'ব।",
+      "saveThreadsAdvice": "থ্ৰেডসমূহ সংৰক্ষণ কৰিবলে, আঁতৰুৱাৰ পূৰ্বে ইয়াক আপোনাৰ থ্ৰেড তালিকা অথবা অন্য প্ৰকল্পলে স্থানান্তৰ কৰক।",
+      "starredWarning": "প্ৰকল্পত আপোনাৰ এতিয়াও ষ্টাৰ্ড থ্ৰেড আছে।",
+      "deleteButton": "মচি পেলাওক",
+      "successWithName": "প্ৰকল্প \"{{projectName}}\" সফলতাৰে আঁতৰুৱা হৈছে",
+      "successWithoutName": "সফলতাৰে প্ৰকল্প আঁতৰুৱা হৈছে",
+      "error": "প্ৰকল্প আঁতৰাবলৈ ব্যৰ্থ। অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক।",
+      "ariaLabel": "{{projectName}} আঁতৰাওক"
+    },
+    "addProjectDialog": {
+      "createTitle": "নতুন প্ৰকল্প নিৰ্মাণ কৰক",
+      "editTitle": "প্ৰকল্প সম্পাদন কৰক",
+      "nameLabel": "প্ৰকল্পৰ নাম",
+      "namePlaceholder": "প্ৰকল্পৰ নাম লিখক...",
+      "assistant": "সহায়ক",
+      "selectAssistant": "সহায়ক নিৰ্বাচন কৰক (বৈকল্পিক)",
+      "noAssistant": "সহায়ক নাই",
+      "addAssistant": "সহায়ক যোগ কৰক",
+      "createButton": "সৃষ্টি কৰক",
+      "updateButton": "আপডেইট কৰক",
+      "alreadyExists": "প্ৰকল্প \"{{projectName}}\" ইতিমধ্যে আছে",
+      "createSuccess": "সফলতাৰে প্ৰকল্প \"{{projectName}}\" সৃষ্টি কৰা হৈছে",
+      "updateSuccess": "প্ৰকল্প \"{{projectName}}\" সফলতাৰে আপডেইট কৰা হৈছে",
+      "saveError": "প্ৰকল্প সংৰক্ষণ কৰিব নোৱাৰি। অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক।"
+    },
+    "noConversationsIn": "{{projectName}} ত কোনো কথোপকথন নাই",
+    "startNewConversation": "নিম্নলিখিত {{projectName}} ৰ সৈতে এটা নতুন কথোপকথন আৰম্ভ কৰক",
+    "conversationsIn": "{{projectName}} ত কথোপকথন",
+    "conversationsDescription": "চেট অব্যাহত ৰাখিবলৈ যিকোনো চেটত ক্লিক কৰক, অথবা তলত এটা নতুন চেট আৰম্ভ কৰক।",
+    "conversation": "কথোপকথন",
+    "instructions": "নিৰ্দেশনা",
+    "setup": "স্থাপন কৰক",
+    "instructionsDescription": "প্ৰতিক্ৰিয়াৰ টোন আৰু বিন্যাস স্বনিৰ্বাচিত কৰক",
+    "manageInstructions": "নিৰ্দেশসমূহ পৰিচালনা কৰক",
+    "thread": "থ্ৰেড",
+    "threads": "থ্ৰেডসমূহ",
+    "updated": "আপডেইট কৰা হৈছে:",
+    "collapseProject": "প্ৰকল্প সংকুচিত কৰক",
+    "expandProject": "প্ৰকল্প প্ৰসাৰিত কৰক",
+    "update": "আপডেইট কৰক",
+    "searchProjects": "প্ৰকল্প অনুসন্ধান কৰক...",
+    "noProjectsFound": "কোনো প্ৰকল্প পোৱা নগল",
+    "tryDifferentSearch": "এটা ভিন্ন অনুসন্ধান শব্দ চেষ্টা কৰক"
+  },
+  "attachmentsIngestion": {
+    "title": "সংযুক্ত বস্তুসমূহ কেনেকৈ অন্তৰ্ভুক্ত কৰা হ'ব নিৰ্বাচন কৰক",
+    "description": "এই নথিপত্ৰসমূহ সরাসৰি চেটত অন্তৰ্ভুক্ত কৰা হ'ব নে ইয়াৰ পৰিবৰ্তে ইম্বেডিং হিচাপে ইন্ডেক্স কৰা হ'ব সেইটো নিৰ্বাচন কৰক।",
+    "inline": "চেটত ইঞ্জেক্ট কৰক",
+    "embeddings": "এম্বেডিং ব্যৱহাৰ কৰক"
+  },
+  "attachmentInjectedIndicator": "চেটত প্ৰৱেশ কৰা হৈছে",
+  "attachmentEmbeddedIndicator": "RAG ৰ বাবে প্ৰোথিত",
+  "viewInjectedContent": "ইঞ্জেক্ট কৰা সমলসমূহ দৰ্শন কৰক",
+  "injectedContentTitle": "ইনজেক্ট কৰা নথিপত্ৰৰ সমল",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "সকলো থ্ৰেড অপ্ৰিয়",
+      "description": "আপোনাৰ পছন্দৰ তালিকাৰ পৰা সকলো থ্ৰেড আঁতৰুৱা হৈছে ।"
+    },
+    "deleteAllThreads": {
+      "title": "সকলো থ্ৰেড আঁতৰাওক",
+      "description": "সকলো থ্ৰেড স্থায়ীৰূপে আঁতৰুৱা হৈছে।"
+    },
+    "renameThread": {
+      "title": "থ্ৰেডৰ নাম পৰিবৰ্তন কৰক",
+      "description": "থ্ৰেডৰ শিৰোনামৰ নাম '{{title}}' লে পৰিবৰ্তন কৰা হৈছে"
+    },
+    "deleteThread": {
+      "title": "থ্ৰেড আঁতৰাওক",
+      "description": "এই থ্ৰেড স্থায়ীৰূপে আঁতৰুৱা হৈছে।"
+    },
+    "errorCopied": {
+      "title": "সফলভাবে কপি কৰক",
+      "description": "ত্ৰুটি সংক্ৰান্ত তথ্য ক্লিপবৰ্ডত কপি কৰা হৈছে"
+    },
+    "errorCopyFailed": {
+      "title": "কপি কৰোঁতে ব্যৰ্থ",
+      "description": "ত্ৰুটি সংক্ৰান্ত তথ্য ক্লিপবৰ্ডত কপি কৰোঁতে ব্যৰ্থ"
+    },
+    "editMessage": {
+      "title": "বাৰ্তা সম্পাদন কৰক",
+      "description": "সফলতাৰে বাৰ্তা সম্পাদন কৰা হৈছে । অনুগ্ৰহ কৰি মডেল প্ৰতিক্ৰিয়া কৰাৰ বাবে অপেক্ষা কৰক ।"
+    },
+    "appUpdateDownloaded": {
+      "title": "এপ্লিকেচন আপডেইট ডাউনল'ড কৰা হৈছে",
+      "description": "এপ্লিকেচন আপডেইট সফলতাৰে ডাউনল'ড কৰা হৈছে।"
+    },
+    "appUpdateDownloadFailed": {
+      "title": "এপ্লিকেচন আপডেইট ডাউনল'ড কৰিবলৈ ব্যৰ্থ",
+      "description": "অনুপ্ৰয়োগ আপডেইট ডাউনল'ড কৰিবলৈ ব্যৰ্থ। অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক।"
+    },
+    "downloadComplete": {
+      "title": "ডাউনল'ড সমাপ্ত",
+      "description": "{{item}} ডাউনল'ড কৰা হৈছে"
+    },
+    "downloadCancelled": {
+      "title": "ডাউনল'ড বাতিল কৰা হৈছে",
+      "description": "ডাউনল'ড প্ৰক্ৰিয়া বাতিল কৰা হৈছে"
+    },
+    "downloadFailed": {
+      "title": "ডাউনল'ড ব্যৰ্থ হল",
+      "description": "{{item}} ডাউনল'ড কৰিবলৈ ব্যৰ্থ",
+      "descriptionWithReason": "{{item}} ডাউনল'ড কৰিবলৈ ব্যৰ্থ: {{reason}}",
+      "reason": {
+        "dns": "চাৰ্ভাৰৰ নাম মীমাংসা কৰা নাযায়",
+        "refused": "সংযোগ নাকচ কৰা হৈছিল",
+        "timeout": "সংযোগৰ সময়সীমা সমাপ্ত হৈছে",
+        "tls": "নিৰাপদ সংযোগ স্থাপন কৰা নাযায়",
+        "proxy": "প্ৰক্সিৰ সৈতে যোগাযোগ কৰা নাযায়",
+        "unreachable": "চাৰ্ভাৰৰ সৈতে যোগাযোগ কৰা নাযায়"
+      }
+    },
+    "openSettings": "সংহতিসমূহ খোলক",
+    "openLogs": "লগ খোলক",
+    "downloadTokenRequired": {
+      "title": "Hugging Face টোকেনৰ প্ৰয়োজন",
+      "description": "এই আৰ্হিৰ বাবে এটা Hugging Face অভিগম টোকেনৰ প্ৰয়োজন। বৈশিষ্ট্যসমূহত আপোনাৰ টোকেন যোগ কৰক আৰু পুনৰ চেষ্টা কৰক।"
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face ত মডেল লাইচেন্স গ্ৰহণ কৰক",
+      "description": "ডাউনল'ড কৰাৰ পূৰ্বে আপুনি মডেলৰ লাইসেন্স ইয়াৰ Hugging Face পৃষ্ঠাত গ্ৰহণ কৰিব লাগিব।"
+    },
+    "downloadRateLimited": {
+      "title": "Hugging Face দ্বাৰা সীমাবদ্ধ",
+      "description": "আপোনাৰ হাৰ সীমাবদ্ধ কৰা হৈছে। এটা টোকেন যোগ কৰিলে হাৰ সীমা বৃদ্ধি হব পাৰে। অনুগ্ৰহ কৰি পিছত পুনঃ চেষ্টা কৰক।"
+    },
+    "modelValidationStarted": {
+      "title": "মডেল বৈধকৰণ কৰা হৈছে",
+      "description": "সফলতাৰে আৰ্হি \"{{modelId}}\" ডাউনল'ড কৰা হৈছে। অখণ্ডতা পৰীক্ষা কৰা হৈছে..."
+    },
+    "modelValidationFailed": {
+      "title": "মডেল বৈধকৰণ বিফল",
+      "description": "ডাউনল'ড কৰা আৰ্হি \"{{modelId}}\" অখণ্ডতা পৰীক্ষাত ব্যৰ্থ হ'ল আৰু আঁতৰুৱা হ'ল। নথিপত্ৰ হয়তো ক্ষতিগ্ৰস্ত অথবা পৰিবৰ্তন কৰা হৈছে।"
+    },
+    "downloadAndVerificationComplete": {
+      "title": "ডাউনল'ড সমাপ্ত",
+      "description": "আৰ্হি \"{{item}}\" সফলতাৰে ডাউনল'ড আৰু পৰীক্ষা কৰা হৈছে"
+    },
+    "projectCreated": {
+      "title": "প্ৰকল্প নিৰ্মাণ কৰা হৈছে",
+      "description": "সফলতাৰে প্ৰকল্প \"{{projectName}}\" সৃষ্টি কৰা হৈছে"
+    },
+    "projectRenamed": {
+      "title": "প্ৰকল্পৰ নাম পৰিবৰ্তন কৰক",
+      "description": "প্ৰকল্পৰ নাম \"{{oldName}}\" ৰ পৰা \"{{newName}}\" লে পৰিবৰ্তন কৰা হৈছে"
+    },
+    "projectDeleted": {
+      "title": "প্ৰকল্প আঁতৰুৱা হৈছে",
+      "description": "প্ৰকল্প \"{{projectName}}\" সফলতাৰে আঁতৰুৱা হৈছে"
+    },
+    "projectAlreadyExists": {
+      "title": "প্ৰকল্প ইতিমধ্যে আছে",
+      "description": "প্ৰকল্প \"{{projectName}}\" ইতিমধ্যে আছে"
+    },
+    "projectDeleteFailed": {
+      "title": "আঁতৰাবলৈ ব্যৰ্থ",
+      "description": "প্ৰকল্প আঁতৰাবলৈ ব্যৰ্থ। অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক।"
+    },
+    "threadAssignedToProject": {
+      "title": "থ্ৰেড নিৰ্ধাৰণ কৰা হৈছে",
+      "description": "থ্ৰেড সফলতাৰে \"{{projectName}}\" লে ধাৰ্য্য কৰা হৈছে"
+    },
+    "threadRemovedFromProject": {
+      "title": "থ্ৰেড আঁতৰুৱা হৈছে",
+      "description": "\"{{projectName}}\" ৰ পৰা থ্ৰেড সফলতাৰে আঁতৰুৱা হৈছে"
+    },
+    "fileUploaded": {
+      "title": "নথিপত্ৰ প্ৰক্ৰিয়া কৰা হৈছে",
+      "description": "নথিপত্ৰ সফলতাৰে প্ৰক্ৰিয়া কৰা হৈছে আৰু সূচীভুক্ত কৰা হৈছে"
+    },
+    "uploadFailed": {
+      "title": "প্ৰক্ৰিয়াকৰণ ব্যৰ্থ হল",
+      "description": "নথিপত্ৰ প্ৰক্ৰিয়াকৰণ কৰিবলৈ ব্যৰ্থ",
+      "subjectThisFile": "এই নথিপত্ৰ",
+      "pdfMalformedXref": "{{subject}} ৰ এটা ত্ৰুটিপূৰ্ণ PDF ক্ৰস-ৰিফাৰেন্স টেবুল আছে আৰু বিশ্লেষণ কৰিব পৰা নগল। এটা PDF দৰ্শকত ইয়াক খোলা আৰু পুনৰ সংৰক্ষণ কৰাৰ চেষ্টা কৰক (File → Print → Save as PDF), তাৰ পিছত পুনৰ আপলোড কৰক।",
+      "pdfScanned": "{{subject}} এটা স্কেন কৰা অথবা ছবি-ভিত্তিক PDF দেখা যায়। OCR এতিয়াও সমৰ্থিত নহয় - অনুগ্ৰহ কৰি এটা টেক্সট-ভিত্তিক PDF আপলোড কৰক।",
+      "pdfEncrypted": "{{subject}} গুপ্তশব্দ দ্বাৰা সুৰক্ষিত। গুপ্তশব্দ আঁতৰাই পুনৰ চেষ্টা কৰক।",
+      "pdfUnsupportedFeature": "{{subject}}এ এটা PDF বৈশিষ্ট্য ব্যৱহাৰ কৰে Noveraএ এতিয়াও বিশ্লেষণ কৰিব নোৱাৰি (উদাহৰণস্বৰূপ PostScript ৰঙ/শ্বেডিং ফাংশনসমূহ)। ইয়াক প্লেট কৰিবলৈ পুনৰ সংৰক্ষণ কৰক (File → Print → Save as PDF) আৰু তাৰ পিছত পুনৰ আপলোড কৰক।",
+      "pdfGeneric": "{{subject}}ক PDF হিচাপে বিশ্লেষণ কৰিব পৰা নগল। নথিপত্ৰ হয়তো ক্ষতিগ্ৰস্ত অথবা এটা অসমৰ্থিত PDF বৈশিষ্ট্য ব্যৱহাৰ কৰে।",
+      "fileTooLarge": "{{subject}} অতি ডাঙৰ। {{message}}।",
+      "unsupportedType": "নথিপত্ৰৰ ধৰণ \"{{type}}\" সমৰ্থিত নহয়।",
+      "ioError": "{{subject}} পঢ়িব পৰা নগল: {{message}}",
+      "parseGeneric": "{{subject}} বিশ্লেষণ কৰা নাযায়: {{message}}",
+      "fallback": "{{subject}} প্ৰক্ৰিয়াকৰণ কৰিবলৈ ব্যৰ্থ।"
+    },
+    "fileDeleted": {
+      "title": "নথিপত্ৰ আঁতৰুৱা হৈছে",
+      "description": "নথিপত্ৰ প্ৰকল্পৰ পৰা আঁতৰুৱা হৈছে"
+    },
+    "deleteFailed": {
+      "title": "আঁতৰাবলৈ ব্যৰ্থ",
+      "description": "নথিপত্ৰ আঁতৰাবলৈ ব্যৰ্থ"
+    },
+    "fileAlreadyExists": {
+      "title": "নথিপত্ৰ ইতিমধ্যে আছে",
+      "description": "নথিপত্ৰ ইতিমধ্যে এই প্ৰকল্পত সংযুক্ত আছে"
+    },
+    "unsupportedFileType": {
+      "title": "অসমৰ্থিত নথিপত্ৰ ধৰণ",
+      "description": "নথিপত্ৰৰ প্ৰসাৰণ \".{{extension}}\" প্ৰকল্পৰ অনুলিপিৰ বাবে সমৰ্থিত নহয়।"
+    },
+    "attachmentsDisabledInfo": {
+      "title": "সংযুক্ত বস্তু নিষ্ক্ৰিয় কৰা হৈছে",
+      "description": "সংযুক্ত বস্তুসমূহ সংহতিসমূহত নিষ্ক্ৰিয় কৰা হৈছে"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "নথিপত্ৰ অত্যাধিক ডাঙৰ",
+    "fileTooLargeDescription": "{{fileName}} {{maxFileSizeMB}}MB সীমা অতিক্ৰম কৰে"
+  },
+  "files": {
+    "chunksCount": "{{count}} খণ্ড",
+    "title": "নথিপত্ৰ",
+    "empty": "আপুনি সংযুক্ত কৰা নথিপত্ৰসমূহ আৰু এজেন্ট দ্বাৰা সৃষ্টি কৰা নথিপত্ৰসমূহ ইয়াত প্ৰদৰ্শিত হ'ব।",
+    "a11y": "নথিপত্ৰ: {{count}}",
+    "attachments": "এটাচমেন্টসমূহ",
+    "notImported": "কাৰ্য্যক্ষেত্ৰত নহয়"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp এতিয়াও ব্যস্ত",
+    "description": "সময়মতে এটা বা অধিক মডেল আনলোড কৰা নাযায়। জোৰ কৰি প্ৰস্থান কৰিলে llama.cpp সমাপ্ত হ'ব আৰু সক্ৰিয় প্ৰতিক্ৰিয়া বিঘ্নিত হ'ব পাৰে।",
+    "forceQuit": "বাধ্যতামূলকভাবে প্ৰস্থান কৰক",
+    "forcing": "জোৰ কৰি প্ৰস্থান কৰা হৈছে…",
+    "shuttingDown": "বন্ধ কৰা হৈছে…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "সংকুচিত কৰক",
+  "expand": "প্ৰসাৰিত কৰক",
+  "todoPanelTitle": "অগ্ৰগতি",
+  "todoPanelEmpty": "এতিয়াও কোনো কাজৰ তালিকা নাই।",
+  "backgroundTasks": "পটভূমিৰ কাৰ্য্যসমূহ",
+  "subagentsRunning_one": "{{count}} subagent চলিছে",
+  "subagentsRunning_other": "{{count}} subagents চলি আছে",
+  "monitorsRunning_one": "{{count}} মনিটৰ চলছে",
+  "monitorsRunning_other": "{{count}} চলমান মনিটৰসমূহ",
+  "backgroundRunning_one": "{{count}} পটভূমি কাৰ্য্য চলছে",
+  "backgroundRunning_other": "{{count}} পটভূমিৰ কাৰ্য্য চলছে",
+  "monitors": "মনিটৰসমূহ",
+  "monitorPolling": "প'লিং",
+  "monitorMatched": "মিল",
+  "monitorTimedOut": "সময়সীমা পাৰ হৈছে",
+  "monitorStopped": "বন্ধ কৰা হৈছে",
+  "monitorEnded": "সমাপ্ত",
+  "coworkWatching_one": "{{count}} মনিটৰ প্ৰদৰ্শন কৰা হৈছে…",
+  "coworkWatching_other": "{{count}} মনিটৰসমূহ চোৱা হৈছে…",
+  "coworkWaitingBackground": "পটভূমিৰ কাৰ্য্যৰ বাবে অপেক্ষা কৰা হৈছে…",
+  "noBackgroundTasks": "এতিয়াও কোনো পটভূমিৰ কাৰ্য্য নাই।",
+  "running": "চলোৱা হৈছে",
+  "queued": "অপেক্ষা কৰক",
+  "waiting": "অপেক্ষা কৰা হৈছে",
+  "finished": "সমাপ্ত",
+  "subagentPhase": "পৰ্যায় {{phase}}",
+  "subagentWaiting": "অপেক্ষা কৰা হৈছে",
+  "viewTranscript": "অনুলিপি প্ৰদৰ্শন কৰক",
+  "taskWorking": "কাম কৰা হৈছে…",
+  "taskNoOutput": "Subagent দ্বাৰা কোনো দৃশ্যমান আউটপুট প্ৰস্তুত কৰা হোৱা নাই।",
+  "subagentToolUses_one": "{{count}} টুল ব্যৱহাৰ কৰক",
+  "subagentToolUses_other": "{{count}} টুল ব্যৱহাৰ",
+  "artifactGroupCode": "কোড",
+  "artifactGroupImage": "ছবি",
+  "artifactGroupDocument": "দস্তাবেজ",
+  "artifactGroupVideo": "ভিডিঅ'",
+  "artifactGroupAudio": "অডিঅ'",
+  "artifactOpenPreview": "পূৰ্বপ্ৰদৰ্শন খোলক",
+  "artifactOpenExternal": "খোলক",
+  "artifactMoreActions": "অধিক কাৰ্য্য",
+  "artifactShowInFolder": "ফোল্ডাৰত প্ৰদৰ্শন কৰক",
+  "skillsUsedLabel": "ব্যৱহাৰ কৰা দক্ষতাসমূহ",
+  "skillsUsed": "ব্যৱহৃত দক্ষতা: {{skills}}",
+  "artifactsAll": "সকলো",
+  "artifactsEmpty": "এতিয়াও একো নিৰ্মাণ কৰা হোৱা নাই। Cowork ৰ পৰা আৰ্টিফেক্টসমূহ ইয়াত প্ৰদৰ্শিত হৈছে।",
+  "artifactsNoMatch": "কোনো আৰ্টিফেকচ মিল নাই।",
+  "artifactsSearch": "আৰ্টিফেকচ অনুসন্ধান কৰক",
+  "artifactsShowMore": "{{count}} অধিক দেখুৱাওক",
+  "workspace": {
+    "readsFrom": "ইয়াত কাম কৰে",
+    "writable": "পঢ়ক আৰু লিখক",
+    "footnote": "এজেন্টে এই ফোল্ডাৰ প্ৰত্যক্ষভাৱে পঢ়ে আৰু সম্পাদন কৰে। diff পেনেলত যি পৰিবৰ্তন কৰা হৈছে তাক পৰীক্ষা কৰক।",
+    "footnoteEmpty": "এজেন্টক আপোনাৰ প্ৰকল্পত কাম কৰিবলে এটা ফোল্ডাৰ সংযুক্ত কৰক। ই ইয়াত অন্তৰ্ভুক্ত নথিপত্ৰ পঢ়িব আৰু সম্পাদন কৰিব পাৰে।",
+    "attach": "এটা ফোল্ডাৰ সংযুক্ত কৰক",
+    "change": "ফোল্ডাৰ পৰিবৰ্তন কৰক",
+    "detach": "ফোল্ডাৰ বিচ্ছিন্ন কৰক",
+    "open": "খোলক",
+    "reveal": "প্ৰকাশ কৰক",
+    "unavailable": "কৰ্মক্ষেত্ৰ উপলব্ধ নহয়",
+    "missing": "কৰ্মক্ষেত্ৰ ফোল্ডাৰ {{folder}} এতিয়া উপলব্ধ নহয়। অনুগ্ৰহ কৰি অন্য এটা ফোল্ডাৰ বাছক।",
+    "openFailed": "কৰ্মক্ষেত্ৰ খোলা নাযায়",
+    "revealFailed": "কৰ্মক্ষেত্ৰ প্ৰদৰ্শন কৰা নাযায়",
+    "a11yWithFolder": "প্ৰকল্প ফোল্ডাৰ {{folder}}, পঢ়া আৰু লিখাৰ অনুমতি সহযোগে সংযুক্ত। ইয়াক পৰিবৰ্তন কৰক অথবা বিচ্ছিন্ন কৰক।",
+    "a11yNoFolder": "কোনো প্ৰকল্প ফোল্ডাৰ সংযুক্ত কৰা নহয় । এটা সংযুক্ত কৰক ।"
+  },
+  "coworkEmpty": {
+    "title": "আমি কি কাম কৰি আছো?",
+    "subtitleSandbox": "Novera-ক এটা কাম দিয়ক। ই নথিপত্ৰ পঢ়ে আৰু লিখে, কমান্ড চলায়, আৰু পদক্ষেপসমূহত নিজস্বভাৱে কাম কৰে।",
+    "subtitleFolder": "Novera-ক এটা কাম দিয়ক। ই সরাসৰি {{folder}}-ত কাম কৰে, নথিপত্ৰসমূহ নিজেই পঢ়ি আৰু সম্পাদন কৰে।",
+    "try": "চেষ্টা কৰক",
+    "sandbox": {
+      "first": "এটা Python স্ক্ৰিপ্ট লিখক যি নথিপত্ৰসমূহৰ নাম পুনৰ নামকৰণ কৰে সেইসমূহ গ্ৰহণ কৰা তাৰিখ অনুসাৰে",
+      "second": "এটা CSV ৰ পৰা এটা একক-পৃষ্ঠা ডাচবোর্ড নিৰ্মাণ কৰক যি মই পেস্ট কৰিম",
+      "third": "মই আপোনাৰ বাবে বৰ্ণনা কৰা এটা প্ৰকল্পৰ বাবে README ড্ৰাফট কৰক"
+    },
+    "folder": {
+      "first": "{{folder}} কিদৰে একত্ৰিত কৰা হয় তা ব্যাখ্যা কৰক",
+      "second": "{{folder}} ত প্ৰতিটো TODO সন্ধান কৰক আৰু অঞ্চল অনুযায়ী দলবদ্ধ কৰক",
+      "third": "{{folder}} ৰ অংশৰ বাবে পৰীক্ষা লিখক যিটো আমি আপোনাক দেখুৱাম"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "টাৰ্মিনেল নাই",
+    "a11y": "কমান্ড চলোৱা বন্ধ কৰা হৈছে । বিৱৰণসমূহ ।",
+    "title": "কমান্ড চলোৱা বন্ধ কৰা হৈছে",
+    "body": "Novera এজেণ্টক কেৱল শ্বেল কমান্ডসমূহ চলাবলে অনুমতি দিয়ে যেতিয়া আপোনাৰ চিস্টেম ইয়াক সীমাবদ্ধ কৰিব পাৰে। ইয়াত কোনো স্যান্ডবক্স উপলব্ধ নহয়, সেয়েহে এজেণ্টে ইয়াৰ স্যান্ডবক্সত নথিপত্ৰসমূহ পঢ়িব, লিখিব আৰু সম্পাদন কৰিব পাৰে - কিন্তু একো চলাব নোৱাৰে।",
+    "fixLinux": "Linux এ bubblewrap ব্যৱহাৰ কৰে। ইন্সটল কৰক, তাৰ পিছত Novera পুনৰায় আৰম্ভ কৰক।",
+    "fixMac": "macOS এ /usr/bin/sandbox-exec ত অন্তৰ্ভুক্ত স্যান্ডবক্স ব্যৱহাৰ কৰে। ই উপলব্ধ হ'লে Novera পুনৰায় আৰম্ভ কৰক।",
+    "fixWindows": "Windows এ AppContainer ব্যৱহাৰ কৰে। পুনৰ চেষ্টা কৰিবলৈ Novera পুনৰায় আৰম্ভ কৰক।",
+    "recheck": "পুনঃ পৰীক্ষা কৰক"
+  },
+  "planMode": {
+    "label": "প্লেন",
+    "tooltipOff": "প্ৰথমে পৰিকল্পনা কৰক - এজেন্টে পঢ়ে আৰু প্ৰস্তাৱ কৰে, লিখা নোহোৱাকৈ।",
+    "tooltipOn": "পৰিকল্পনা। এজেন্টক নথিপত্ৰ লিখাৰ অনুমতি দিবলৈ ইয়াক নিষ্ক্ৰিয় কৰক।",
+    "onAnnounce": "প্ল্যান মোড সক্ৰিয়",
+    "placeholder": "এটা পৰিকল্পনাৰ বাবে প্ৰশ্ন কৰক। এজেন্টে কোনো নথিপত্ৰ পৰিবৰ্তন নকৰিব।"
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} পদক্ষেপে বন্ধ কৰা হৈছে। এজেন্ট সমাপ্ত নহয়।",
+    "keepGoing": "আগবাঢ়ক",
+    "stoppedTokens": "বন্ধ কৰা হৈছে — এই অধিবেশনে ইয়াৰ টোকেন বাজেট অতিক্ৰম কৰিছে।",
+    "compact": "সংকুচিত কৰক",
+    "newSession": "নতুন অধিবেশন"
+  },
+  "run": {
+    "stopped": "বন্ধ কৰা হৈছে ।",
+    "failed": "চলি থকা কাৰ্য্য সৰ্বপ্ৰথমে বন্ধ কৰা হৈছে।",
+    "tryAgain": "পুনৰ চেষ্টা কৰক"
+  },
+  "modelNoTools": "{{model}} টুল কল কৰিব নোৱাৰি, গতিকে ই এটা এজেন্ট হিচাপে কাম কৰিব নোৱাৰি। এটা টুল-কলিং মডেল বাছক।",
+  "askContinue": "অগ্ৰসৰ হওক",
+  "askNext": "পৰবৰ্তী প্ৰশ্ন",
+  "askPrev": "পূৰ্ববৰ্তী প্ৰশ্ন",
+  "askRecommended": "প্ৰস্তাবিত",
+  "askSelectedCount": "{{count}} নিৰ্বাচিত",
+  "askSomethingElse": "অন্য কিছু",
+  "askSomethingElsePlaceholder": "আপোনাৰ নিজস্ব উত্তৰ লিখক",
+  "submit": "জমা কৰক",
+  "composer": {
+    "advanced": "উন্নত প্ৰাচলসমূহ",
+    "modelDefaults": "মডেলৰ অবিকল্পিত মান",
+    "assistantOverrides": "সহায়ক অগ্ৰাহ্য কৰক",
+    "printPdf": "PDF হিচাপে প্ৰিন্ট কৰক / সংৰক্ষণ কৰক",
+    "exportHint": "পঢ়িব পৰা বিন্যাস: সক্ৰিয় শাখা। JSON: সকলো বাৰ্তা সংস্কৰণ। বহিৰ্তম নথিপত্ৰসমূহ বান্ডেল কৰা নহয়।"
+  },
+  "telemetry": {
+    "summary": "আপোনাৰ অনুমতিৰ সৈতে, {{host}} এ কেৱল Novera সংস্কৰণ আৰু অপাৰেটিং চিস্টেম প্ৰাপ্ত কৰে, কথোপকথন অথবা স্থায়ী পৰিচয় বিহীন।",
+    "unavailable": "পৰিসংখ্যা বিন্যাস কৰা নহয়। কোনো তথ্য প্ৰেৰিত নহয়।"
+  },
+  "errorTracking": {
+    "title": "ত্ৰুটি অনুসৰণ কৰা হৈছে",
+    "summary": "{{host}}লে বৈকল্পিক প্ৰতিবেদনসমূহ: ত্ৰুটিৰ ধৰণ, কোড অৱস্থান, সংস্কৰণ আৰু অপাৰেটিং চিস্টেম। কোনো কথোপকথন, কাঁচা ত্ৰুটি বাৰ্তা অথবা কি' নাই। যিকোনো সময়ত অসামৰ্থবান কৰক।",
+    "unavailable": "বাগ ট্ৰেকিং বিন্যাস কৰা নহয়। কোনো প্ৰতিবেদন প্ৰেৰিত নহয়।"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "editServer": "Editează serverul MCP",
+  "addServer": "Adaugă serverul MCP",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Se verifică starea extensiei..."
+    },
+    "notInstalled": {
+      "title": "Novera completează sarcini în browserul dvs.",
+      "description": "Instalați extensia pentru a da Novera acces la browser",
+      "getExtension": "Obțineți extensia"
+    }
+  },
+  "serverName": "Numele serverului",
+  "enterServerName": "Introduceți numele serverului",
+  "command": "Comandă",
+  "enterCommand": "Introdu comanda (uvx sau npx)",
+  "arguments": "Argumente",
+  "argument": "Argument {{index}}",
+  "envVars": "Variabile de mediu",
+  "key": "Cheie",
+  "value": "Valoare",
+  "save": "Salvează",
+  "status": "Starea",
+  "connected": "Conectat",
+  "disconnected": "Deconectat",
+  "deleteServer": {
+    "title": "Șterge serverul MCP",
+    "description": "Sunteți sigur că doriți să ștergeți serverul MCP {{serverName}}?Această acțiune nu poate fi anulată.",
+    "delete": "Șterge",
+    "success": "Serverul MCP {{serverName}} a fost şters cu succes"
+  },
+  "editJson": {
+    "title": "Editează JSON pentru serverul MCP: {{serverName}}",
+    "titleAll": "Editează toate serverele MCP JSON",
+    "placeholder": "Introduceți configurația JSON",
+    "errorParse": "Nu s-a putut analiza datele inițiale",
+    "errorPaste": "Format JSON nevalid în conținutul lipit",
+    "errorFormat": "Format JSON nevalid",
+    "errorServerName": "Numele serverului este obligatoriu și nu poate fi lăsat gol",
+    "errorMissingServerNameKey": "JSON trebuie să fie structurat ca {\"serverName\": {config}} - lipsește cheia numelui serverului",
+    "errorInvalidType": "Tip nevalid '{{type}}' pentru serverul '{{serverName}}'. Tipul trebuie să fie 'stdio', 'http' sau 'sse'",
+    "save": "Salvează"
+  },
+  "checkParams": "Vă rugăm să verificați parametrii conform tutorialului.",
+  "title": "MCP Servere",
+  "experimental": "Experimental",
+  "editAllJson": "Editează toate serverele JSON",
+  "findMore": "Găsește mai multe servere MCP la",
+  "allowPermissions": "Permiteți toate MCP Permisiunile instrumentului",
+  "allowPermissionsDesc": "Când este activată, toate apelurile la instrumentele MCP vor fi aprobate automat fără a afișa dialoguri de permisiune.Această setare se aplică global tuturor conversațiilor, inclusiv chat-urilor noi.",
+  "noServers": "Nu au fost găsite servere MCP",
+  "args": "Furios.",
+  "env": "Plic",
+  "serverStatusActive": "Server {{serverKey}} activat cu succes",
+  "serverStatusInactive": "Server {{serverKey}} dezactivat cu succes",
+  "runtimeSettings": {
+    "title": "Setări runtime",
+    "description": "Configurați modul în care Novera gestionează și reîncearcă serverele MCP.",
+    "toolCallTimeout": "Timp de aşteptare pentru apelarea uneltei (secunde)",
+    "toolCallTimeoutDesc": "Timpul maxim de așteptare pentru un răspuns al instrumentului MCP înainte de expirarea timpului.",
+    "maxToolOutputChars": "Max caractere de ieșire a sculei",
+    "maxToolOutputCharsDesc": "Rezultatul cel mai lung al instrumentului păstrat în conversație. Orice după aceasta este tăiat și marcat ca trunchiat, astfel încât un rezultat mare nu poate epuiza contextul modelului. Setați la 0 pentru a păstra rezultatele întregi.",
+    "smartToolRouting": "Rutarea inteligentă a sculelor MCP",
+    "smartToolRoutingDesc": "Când este activat, Novera selectează serverele relevante MCP înainte de a încărca instrumentele.Dezactivați pentru a încărca întotdeauna lista completă de instrumente MCP.",
+    "useLightweightRouterModel": "Utilizarea unui model dedicat pentru rutare",
+    "useLightweightRouterModelDesc": "Când rutarea inteligentă este activată, rulați pasul de rutare cu un model separat (adesea mai mic) în loc de modelul de chat.Dezactivați pentru a utiliza întotdeauna modelul de chat activ pentru rutare.",
+    "routerModel": "Model de rutare",
+    "routerModelDesc": "Alegeți furnizorul și modelul într-un singur loc.Doar modelele ușoare sunt listate astfel încât rutarea rămâne rapidă și ieftină.",
+    "selectRouterModelPlaceholder": "Selectați modelul de rutare…",
+    "routerModelSearchPlaceholder": "Caută modele…",
+    "routerModelEmptyList": "Adăugați un model mai mic sau configurați cheile API în Models (Modele).",
+    "routerModelEmptySearch": "Nu există nicio potrivire pentru „{{query}}”."
+  },
+  "auth": {
+    "label": "Auth:",
+    "state": {
+      "notApplicable": "Nu este necesar",
+      "staticHeader": "Antet de autorizare",
+      "authenticated": "autentificat",
+      "expired": "expirat",
+      "staleResource": "emis pentru un alt URL",
+      "unauthenticated": "Nu este autentificat"
+    },
+    "expiresIn": "expiră în {{duration}}",
+    "authenticate": "Autentificați-vă acum",
+    "reauthenticate": "Reautentificare",
+    "clear": "Autentificare clară",
+    "waiting": "Se așteaptă browserul...",
+    "openSignInPage": "Deschide pagina de conectare",
+    "needsAuth": "{{serverName}} are nevoie de autentificare",
+    "needsAuthHint": "Conectați-vă la acest server pentru a vă conecta.",
+    "authorized": "Autentificat în {{serverName}}",
+    "authorizeFailed": "Autentificarea pentru {{serverName}} a eșuat",
+    "cleared": "S-au șters acreditările stocate pentru {{serverName}}",
+    "nothingToClear": "{{serverName}} nu avea acreditări stocate",
+    "clearFailed": "Nu s-au putut șterge acreditările pentru {{serverName}}",
+    "renew": "Reînnoiește sesiunea",
+    "expiredAgo": "expirat {{duration}} acum"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "welcome": "Hi, sidee tahay?",
+  "description": "Sideen kaaga caawin karaa maanta?",
+  "temporaryChat": "Sheeko Kumeelgaar ah",
+  "temporaryChatDescription": "Bilow sheeko kumeelgaar ah oo aan lagu keydin taariikhda sheekadaada.",
+  "status": {
+    "empty": "Laguma helin sheekooyin"
+  },
+  "sendMessage": "Dir Fariin",
+  "newConversation": "Sheeko Cusub",
+  "clearHistory": "Tirtir Taariikhda",
+  "embeddings": {
+    "title": "Diyaarinaya dukumiintiyadaada",
+    "description": "Index garaacaya faylasha la lifaaqay si loo raadin karo laguna xigan karo. Tani waxay qaadan kartaa waqti haddii dukumiintiyadu waaweyn yihiin."
+  },
+  "actions": {
+    "regenerate": "Dib u soo saar jawaabta",
+    "askAgain": "Mar kale weydii",
+    "continue": "Sii wad soo saarista",
+    "remember": "Xasuuso tan",
+    "rememberSaved": "Waxaa lagu keydiyay xusuusta sida \"{{name}}\"",
+    "rememberExists": "Hore ayaa loogu jiray xusuusta sida \"{{name}}\"",
+    "rememberFailed": "Lama keydin karin xusuusta"
+  },
+  "done": "Dhamaystiran",
+  "webSources": "{{count}} ilo",
+  "reasoning": {
+    "label": "Fikradeyn...",
+    "thinking": "Fikir",
+    "working": "Shaqaynaya...",
+    "showFullTimeline": "Muuji waqtiga dhamaystiran",
+    "showCurrentStep": "Muuji tallaabada hadda kaliya",
+    "thoughtForAWhile": "Fikiray dhowr ilbiriqsi",
+    "thoughtFor": "Fikiray {{duration}}",
+    "workedForAWhile": "Shaqeeyay dhowr ilbiriqsi",
+    "workedFor": "Shaqeeyay {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Nooca hore",
+    "nextVersion": "Nooca xiga",
+    "generationFailed": "Dhalinta way guuldareysatay"
+  },
+  "messageStats": {
+    "details": "Tirooyinka dhalinta",
+    "generation": "Dhalin",
+    "reading": "Akhris",
+    "tokens": "Talaan-ooyinka",
+    "perSecond": "tukaan/s"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "editServer": "MCP চাৰ্ভাৰ সম্পাদন কৰক",
+  "addServer": "MCP চাৰ্ভাৰ যোগ কৰক",
+  "browserExtension": {
+    "connecting": {
+      "checking": "প্ৰসাৰণৰ অৱস্থা পৰীক্ষা কৰা হৈছে..."
+    },
+    "notInstalled": {
+      "title": "Novera আপোনাৰ ব্ৰাউছাৰত কাৰ্য্য সম্পন্ন কৰে",
+      "description": "Novera ব্ৰাউছাৰ ব্যৱহাৰৰ অনুমতি দিয়াৰ বাবে এক্সটেনশন ইনস্টল কৰক",
+      "getExtension": "প্ৰসাৰণ প্ৰাপ্ত কৰক"
+    }
+  },
+  "serverName": "চাৰ্ভাৰৰ নাম",
+  "enterServerName": "চাৰ্ভাৰৰ নাম লিখক",
+  "command": "নিৰ্দেশ",
+  "enterCommand": "কমান্ড লিখক (uvx অথবা npx)",
+  "arguments": "তৰ্কসমূহ",
+  "argument": "তৰ্ক {{index}}",
+  "envVars": "পৰিবেশ চলকসমূহ",
+  "key": "চাবি",
+  "value": "মান",
+  "save": "সঞ্চয় কৰক",
+  "status": "অৱস্থা",
+  "connected": "সংযুক্ত",
+  "disconnected": "বিচ্ছিন্ন",
+  "deleteServer": {
+    "title": "MCP চাৰ্ভাৰ মচি পেলাওক",
+    "description": "আপুনি নিশ্চিতৰূপে MCP সেৱক {{serverName}} আঁতৰাবলৈ ইচ্ছুক নে? এই কাৰ্য্য বাতিল কৰা নাযাব।",
+    "delete": "মচি পেলাওক",
+    "success": "MCP সেৱক {{serverName}} সফলতাৰে আঁতৰুৱা হৈছে"
+  },
+  "editJson": {
+    "title": "MCP সেৱকৰ বাবে JSON সম্পাদন কৰক: {{serverName}}",
+    "titleAll": "সকলো MCP সেৱক JSON সম্পাদন কৰক",
+    "placeholder": "JSON বিন্যাস প্ৰৱেশ কৰক",
+    "errorParse": "প্ৰাৰম্ভিক তথ্য বিশ্লেষণ কৰিবলৈ ব্যৰ্থ",
+    "errorPaste": "পেস্ট কৰা সমলসমূহত অবৈধ JSON বিন্যাস",
+    "errorFormat": "অবৈধ JSON বিন্যাস",
+    "errorServerName": "চাৰ্ভাৰৰ নাম প্ৰয়োজনীয় আৰু ৰিক্ত কৰিব নোৱাৰি",
+    "errorMissingServerNameKey": "JSON {\"serverName\": {config}} হিচাপে গঠন কৰা আৱশ্যক - চাৰ্ভাৰৰ নাম চাবি অনুপস্থিত",
+    "errorInvalidType": "সেৱক '{{serverName}}' ৰ বাবে অবৈধ ধৰণ '{{type}}'। ধৰণ 'stdio', 'http', অথবা 'sse' হব লাগিব",
+    "save": "সঞ্চয় কৰক"
+  },
+  "checkParams": "অনুগ্ৰহ কৰি টিউটোৰিয়েল অনুযায়ী প্ৰাচলসমূহ পৰীক্ষা কৰক।",
+  "title": "MCP চাৰ্ভাৰসমূহ",
+  "experimental": "পৰীক্ষামূলক",
+  "editAllJson": "সকলো চাৰ্ভাৰ JSON সম্পাদন কৰক",
+  "findMore": "ইয়াত অধিক MCP সেৱক সন্ধান কৰক",
+  "allowPermissions": "সকলো MCP টুল অনুমতি অনুমোদন কৰক",
+  "allowPermissionsDesc": "সক্ৰিয় কৰা হ'লে, সকলো MCP টুল কল স্বয়ংক্ৰিয়ভাৱে অনুমোদিত হ'ব অনুমতি ডাইলগসমূহ দেখুৱাব নোহোৱাকে। এই সংহতি নতুন চেটসমূহ অন্তৰ্ভুক্ত কৰি সকলো কথোপকথনত সাৰ্বজনীনভাৱে প্ৰয়োগ কৰা হ'ব।",
+  "noServers": "কোনো MCP সেৱক পোৱা নাযায়",
+  "args": "আৰ্গচ",
+  "env": "আবৰ্জনা",
+  "serverStatusActive": "চাৰ্ভাৰ {{serverKey}} সফলতাৰে সক্ৰিয় কৰা হৈছে",
+  "serverStatusInactive": "চাৰ্ভাৰৰ {{serverKey}} সফলভাৱে নিষ্ক্ৰিয় কৰা হৈছে",
+  "runtimeSettings": {
+    "title": "ৰনটাইম সংহতিসমূহ",
+    "description": "Novera এ কিদৰে MCP সেৱকসমূহ পৰিচালনা আৰু পুনৰ চেষ্টা কৰে বিন্যাস কৰক।",
+    "toolCallTimeout": "টুল কলৰ সময়সীমা (ছেকেণ্ড)",
+    "toolCallTimeoutDesc": "সময়অন্ত হোৱাৰ আগতে MCP টুল প্ৰতিক্ৰিয়াৰ বাবে অপেক্ষা কৰাৰ সৰ্বাধিক সময়।",
+    "maxToolOutputChars": "সৰ্বাধিক টুল আউটপুট আখৰ",
+    "maxToolOutputCharsDesc": "কথোপকথনত সংৰক্ষণ কৰা সৰ্ববৃহৎ সঁজুলিৰ ফলাফল। ইয়াৰ পিছত যিকোনো ফলাফল আঁতৰুৱা হ'ব আৰু কটা হ'ব বুলি চিহ্নিত কৰা হ'ব, সেয়েহে এটা ডাঙৰ ফলাফল মডেলৰ পৰিপ্ৰেক্ষতিত ব্যৱহৃত হ'ব নোৱাৰে। ফলাফল সম্পূৰ্ণ অৱস্থাত ৰাখিবলৈ ০ সংহতি কৰক।",
+    "smartToolRouting": "স্মাৰ্ট MCP টুল ৰুটিং",
+    "smartToolRoutingDesc": "সক্ৰিয় কৰা হ'লে, Novera সঁজুলিসমূহ ল'ড কৰাৰ পূৰ্বে প্ৰযোজ্য MCP সেৱকসমূহ নিৰ্বাচন কৰে। সদায় সম্পূৰ্ণ MCP সঁজুলি তালিকা ল'ড কৰিবলৈ অসামৰ্থবান কৰক।",
+    "useLightweightRouterModel": "পথ নিৰ্ধাৰণৰ বাবে এটা বিশেষ মডেল ব্যৱহাৰ কৰক",
+    "useLightweightRouterModelDesc": "স্মাৰ্ট ৰুটিং সক্ৰিয় হ'লে, চেট মডেলৰ পৰিবৰ্তে এটা পৃথক (সাধাৰণতে সৰু) মডেলৰ সৈতে ৰুটিং পদক্ষেপ চলাওক। সদায় ৰুটিং কৰাৰ বাবে সক্ৰিয় চেট মডেল ব্যৱহাৰ কৰিবলৈ নিষ্ক্ৰিয় কৰক।",
+    "routerModel": "ৰাউটিং মডেল",
+    "routerModelDesc": "এক স্থানত প্ৰদানকাৰী আৰু আৰ্হি বাছক। কেৱল হালধীয়া আৰ্হিসমূহ তালিকাভুক্ত কৰা হৈছে যাতে ৰাউটিং দ্ৰুত আৰু সস্তা হৈ থাকে।",
+    "selectRouterModelPlaceholder": "ৰুটিং মডেল বাছক…",
+    "routerModelSearchPlaceholder": "মডেল অনুসন্ধান কৰক…",
+    "routerModelEmptyList": "কোনো লাইটৱেইট মডেল উপলব্ধ নাই। এটা সৰু মডেল যোগ কৰক অথবা মডেলসমূহত API কি'সমূহ বিন্যাস কৰক।",
+    "routerModelEmptySearch": "“{{query}}” ৰ বাবে কোনো মিল নাই।"
+  },
+  "auth": {
+    "label": "প্ৰমাণীকৰণ:",
+    "state": {
+      "notApplicable": "প্ৰয়োজনীয় নহয়",
+      "staticHeader": "প্ৰমাণীকৰণ হেডাৰ",
+      "authenticated": "অনুমোদিত",
+      "expired": "মেয়াদ উত্তীৰ্ণ",
+      "staleResource": "অন্য URLৰ বাবে প্ৰদান কৰা হৈছে",
+      "unauthenticated": "অনুমোদিত নহয়"
+    },
+    "expiresIn": "{{duration}} ত অৱসান হয়",
+    "authenticate": "প্ৰৱেশ কৰক",
+    "reauthenticate": "পুনৰ প্ৰমাণীকৰণ কৰক",
+    "clear": "প্ৰমাণীকৰণ পৰিষ্কাৰ কৰক",
+    "waiting": "ব্ৰাউছাৰৰ বাবে অপেক্ষা কৰা হৈছে...",
+    "openSignInPage": "লগ-ইন পৃষ্ঠা খোলক",
+    "needsAuth": "{{serverName}} প্ৰমাণীকৰণৰ প্ৰয়োজন",
+    "needsAuthHint": "সংযোগ কৰিবলে এই চাৰ্ভাৰত প্ৰৱেশ কৰক।",
+    "authorized": "{{serverName}} ত প্ৰৱেশ কৰা হৈছে",
+    "authorizeFailed": "{{serverName}} ৰ বাবে প্ৰৱেশ কৰিবলৈ ব্যৰ্থ",
+    "cleared": "{{serverName}} ৰ বাবে সংৰক্ষিত প্ৰমাণপত্ৰ পৰিষ্কাৰ কৰা হৈছে",
+    "nothingToClear": "{{serverName}} ৰ কোনো সংৰক্ষিত প্ৰমাণপত্ৰ নাই",
+    "clearFailed": "{{serverName}} ৰ বাবে প্ৰমাণপত্ৰ আঁতৰাব নোৱাৰি",
+    "renew": "অধিবেশন পুনৰায় আৰম্ভ কৰক",
+    "expiredAgo": "{{duration}} আগতে অৱসান ঘটিছে"
+  }
+}

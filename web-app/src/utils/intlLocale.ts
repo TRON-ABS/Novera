@@ -5,6 +5,7 @@ export function intlLocale(language: string): string {
     arq: 'ar-DZ', ary: 'ar-MA', cjy: 'zh-CN', nan: 'zh-TW', hak: 'zh-TW',
     hsn: 'zh-CN', prs: 'fa-AF', sd: 'sd-Arab-PK', pa: 'pa-Guru-IN',
     pnb: 'pa-Arab-PK', pcm: 'en-NG',
+    uzn: 'uz-Latn-UZ', pbu: 'ps-AF', gaz: 'om-ET', aec: 'ar-EG', skr: 'ur-PK',
   }
   const locale = aliases[language] ?? language
   try {

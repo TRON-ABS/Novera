@@ -1,0 +1,18 @@
+{
+  "addProvider": "Engeza Umhlinzeki",
+  "addOpenAIProvider": "Engeza Umhlinzeki Wokwenza Ngokwezifiso",
+  "enterNameForProvider": "Igama lomhlinzeki (isb. iseva-yami-llm)",
+  "apiTypeLabel": "Ifomethi ye-API",
+  "apiTypeOpenAI": "Okusebenzisana ne-OpenAI",
+  "apiTypeAnthropic": "Okusebenzisana ne-Anthropic",
+  "baseUrlLabel": "Isizinda se-URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "Ukhiye we-API",
+  "apiKeyPlaceholder": "Namathisela ukhiye wakho we-API",
+  "invalidBaseUrl": "Isizinda se-URL kumele sibe yi-http(s) URL evumelekile",
+  "globalSettings": "Izilungiselelo zomhlaba wonke",
+  "stripReasoning": "Susa ukuzicabangela endaweni yomongo",
+  "stripReasoningDesc": "Susa imicabango/nendlela yokucabanga yezikhathi zangaphambilini ngaphambi kokuthumela umlando kabusha, kuwo wonke abahlinzeki. Kuthuthukisa ukusebenzisa kabusha i-KV-cache kumamodeli wendawo, kodwa amanye amamodeli (isb. ukukhishwa okusha kwe-Qwen) ancoma ukugcina ukuze kube nokucabanga okungcono okunezigaba eziningi.",
+  "providerAlreadyExists": "Kukhona umhlinzeki ogama lakhe lingu-{{name}} kakade."
+}

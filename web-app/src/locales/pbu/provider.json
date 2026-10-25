@@ -1,0 +1,18 @@
+{
+  "addProvider": "چمتو کوونکی اضافه کړئ",
+  "addOpenAIProvider": "د کسټم پرووایډر اضافه کړئ",
+  "enterNameForProvider": "د پرووایډر نوم (لکه my-llm-server)",
+  "apiTypeLabel": "API فارمیټ",
+  "apiTypeOpenAI": "OpenAI-موافق",
+  "apiTypeAnthropic": "Anthropic-موافق",
+  "baseUrlLabel": "بنسټیز URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "د API کیلي",
+  "apiKeyPlaceholder": "خپله API کیلي پیسټ کړئ",
+  "invalidBaseUrl": "بنسټیز URL باید د یو معتبر http(s) URL وي",
+  "globalSettings": "نړیوالې ترتیبات",
+  "stripReasoning": "له کانټکست څخه دلیل لرې کړئ",
+  "stripReasoningDesc": "د تیرو مکالمو د فکر او استدلال مینځپانګه د تاریخ بیا لیږلو څخه مخکې لېرې کړئ، په ټولو وړاندې کونکو کې. د محلي ماډلونو لپاره د KV-cache بیا کارونې ښه والی راولي، خو ځینې ماډلونه (لکه د نوي Qwen خپرونې) سپارښتنه کوي چې دا وساتل شي د ښه څو-ځل استدلال لپاره.",
+  "providerAlreadyExists": "یو وړاندې کونکی چې نوم یې {{name}} دی، مخکې شتون لري."
+}
