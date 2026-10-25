@@ -1,4 +1,4 @@
-> Technical reference retained from the inherited CLI. The executable and protocol identifiers still use `jan`. Links to other retired guides point to their historical Git revision; see [local Novera CLI setup](../AGENT_CLI.md).
+> Technical reference retained from the inherited CLI. The executable and protocol identifiers still use `jan`. Links to other retired guides point to their historical Git revision; see [local Novera CLI setup](../BUILD_AND_RELEASE.md#cli).
 
 # Protocol Records
 
@@ -119,7 +119,7 @@ Answer it with:
 `content` is a string or an array of `text` / `image_url` parts, and images are held to the same
 caps as a user message. The parts are kept, in order, as the tool message in the transcript; where
 an image goes on the provider request depends on the provider's API (see
-[tool result images](./cli#tool-result-images)). `details` is for the host's display only: Jan
+[tool result images](./cli.md#tool-result-images)). `details` is for the host's display only: Jan
 emits it as `item/tool_details`, never sends it to the model, and does not persist it with the
 thread. A reply for a request that is no longer pending (already answered, cancelled, or never
 issued) fails with `-32602` and `data: {"kind": "not_pending"}`. So does a `permission/respond`

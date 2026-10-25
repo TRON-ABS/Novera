@@ -1,307 +1,36 @@
 # Contributing to Novera
 
-Official identity, release authorization and maintainer responsibilities are described in [BRANDING.md](BRANDING.md) and [OFFICIAL_RELEASES.md](OFFICIAL_RELEASES.md).
+Development targets [TRON-ABS/Novera](https://github.com/TRON-ABS/Novera). Contributions and release preparation belong here. Do not open or update contributions against `janhq/jan` on behalf of Novera without an explicit request. This contribution policy does not replace the source license or restrict previously published contributions.
 
-Development targets [TRON-ABS/Novera](https://github.com/TRON-ABS/Novera). New contributions and release preparation are intended for Novera. Do not open or update contributions against `janhq/jan` on behalf of this project unless the user explicitly asks.
+## Start here
 
-Novera remains public. This development policy does not impose exclusivity on previously published contributions or replace the source license.
+- [Dashboard](TABLEAU_DE_BORD_NOVERA.md): current source/build status and validation limits.
+- [Development guide](docs/DEVELOPMENT.md): architecture, compatibility and dependency references.
+- [Build and release guide](docs/BUILD_AND_RELEASE.md): local toolchain, Windows, Android and distribution.
+- [Roadmap](ROADMAP.md): remaining tasks; [user guide](docs/USER_GUIDE.md): intended behavior.
 
-## Required translations for new features
+Use versions declared by `package.json`, `rust-toolchain.toml` and the relevant manifests. Android versions come from `scripts/android/toolchain.json`. Platform tools and resources are required separately. For local development, use the repository's `make dev` entry point after preparing its dependencies; see the build guide for the Windows launcher and its disabled targets.
 
-Every new or changed user-facing text must be translated in **all supported interface locales (currently 36)** in the same change, including locales with partial legacy catalogs. This includes buttons, tooltips, menus, hints, confirmations, success messages, and errors. Use translation keys rather than hardcoded text; an English fallback does not count as a translation. Preserve interpolation variables and technical identifiers. Update coverage records in `docs/language-support.json` and `docs/LANGUAGES.md`, then run `python scripts/check-novera-locales.py` before compiling. See [the language policy](docs/LANGUAGES.md#required-localization-for-new-features).
+## Required translations
 
-The inherited Jan contribution guidance below is retained for technical reference; upstream destinations and team procedures do not govern Novera.
+Every new or changed user-facing text must be translated in **all 36 supported interface locales** in the same change: buttons, tooltips, menus, hints, confirmations, success messages and errors. Use translation keys, preserve interpolation variables and technical identifiers, and update `docs/language-support.json` and [the language inventory](docs/LANGUAGES.md). English fallback does not count as a translation. All catalogs currently have complete key coverage; native-language review remains open.
 
----
+Run `python scripts/check-novera-locales.py` after changing interface text. Review assistance by native speakers is welcome; explain terminology changes and preserve message variables.
 
-# Contributing to Jan
+## Reports and focused changes
 
-First off, thank you for considering contributing to Jan. It's people like you that make Jan such an amazing project.
+Search [issues](https://github.com/TRON-ABS/Novera/issues) and existing pull requests before starting. A useful report includes the exact version, operating system, hardware where relevant, steps, expected/actual behavior and a small reproduction. Remove secrets and personal conversation data from logs and screenshots. Send reports to this repository; Jan support channels are not Novera support channels.
 
-Jan is an AI assistant that can run 100% offline on your device. Think ChatGPT, but private, local, and under your complete control. If you're thinking about contributing, you're already awesome - let's make AI accessible to everyone, one commit at a time.
+Keep changes focused and preserve user data, saved preferences, compatibility interfaces, licenses and notices. Add regression coverage for meaningful behavioral fixes. Run the affected tests and type checks; run `yarn check:architecture` and `yarn test:architecture` when changing module boundaries. Native Rust tests compile code, so distinguish them from documentation or static checks. Do not claim CI, runtime or platform validation that has not happened.
 
-## Quick Links to Component Guides
+## Commits and pull requests
 
-- **[Web App](./web-app/CONTRIBUTING.md)** - React UI and logic
-- **[Core SDK](./core/CONTRIBUTING.md)** - TypeScript SDK and extension system
-- **[Extensions](./extensions/CONTRIBUTING.md)** - Supportive modules for the frontend
-- **[Tauri Backend](./src-tauri/CONTRIBUTING.md)** - Rust native integration
-- **[Tauri Plugins](./src-tauri/plugins/CONTRIBUTING.md)** - Hardware and system plugins
+Use a concise English Conventional Commit title describing the real change, for example `fix(chat): preserve drafts after save failure`. Stage relevant files only. Signing with an existing configured GPG/SSH identity helps verify authorship; never publish private signing material or change global Git configuration as part of an unrelated patch.
 
-## How Jan Actually Works
+Write the PR title and description in English. Lead with the concrete problem and corrected behavior; include a short reproduction or before/after evidence, actual test commands/results and known limits. Use screenshots for visual changes when useful. Identify dependencies and overlaps, reference related issues, and use `Closes #…` only when the issue is fully resolved. Reuse an existing PR when continuing the same work and update [PR.md](PR.md) with its current scope and validation.
 
-Jan is a desktop app that runs local AI models. Here's how the components actually connect:
+## Documentation and release policy
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                   Web App (Frontend)                     │
-│                      (web-app/)                          │
-│  • React UI                                              │
-│  • Chat Interface                                        │
-│  • Settings Pages                                        │
-│  • Model Hub                                             │
-└────────────┬─────────────────────────────┬───────────────┘
-             │                             │
-             │ imports                     │ imports
-             ▼                             ▼
-  ┌──────────────────────┐      ┌──────────────────────┐
-  │     Core SDK         │      │     Extensions       │
-  │      (core/)         │      │   (extensions/)      │
-  │                      │      │                      │
-  │ • TypeScript APIs    │◄─────│ • Assistant Mgmt     │
-  │ • Extension System   │ uses │ • Conversations      │
-  │ • Event Bus          │      │ • Downloads          │
-  │ • Type Definitions   │      │ • LlamaCPP           │
-  └──────────┬───────────┘      └───────────┬──────────┘
-             │                              │
-             │   ┌──────────────────────┐   │
-             │   │       Web App        │   │
-             │   └──────────┬───────────┘   │
-             │              │               │
-             └──────────────┼───────────────┘
-                            │
-                            ▼
-                        Tauri IPC
-                    (invoke commands)
-                            │
-                            ▼
-┌───────────────────────────────────────────────────────────┐
-│                   Tauri Backend (Rust)                    │
-│                      (src-tauri/)                         │
-│                                                           │
-│  • Window Management        • File System Access          │
-│  • Process Control          • System Integration          │
-│  • IPC Command Handler      • Security & Permissions      │
-└───────────────────────────┬───────────────────────────────┘
-                            │
-                            │
-                            ▼
-┌───────────────────────────────────────────────────────────┐
-│                   Tauri Plugins (Rust)                    │
-│                   (src-tauri/plugins/)                    │
-│                                                           │
-│     ┌──────────────────┐        ┌──────────────────┐      │
-│     │  Hardware Plugin │        │  LlamaCPP Plugin │      │
-│     │                  │        │                  │      │
-│     │ • CPU/GPU Info   │        │ • Process Mgmt   │      │
-│     │ • Memory Stats   │        │ • Model Loading  │      │
-│     │ • System Info    │        │ • Inference      │      │
-│     └──────────────────┘        └──────────────────┘      │
-└───────────────────────────────────────────────────────────┘
-```
+Update the existing guide for the topic, the dashboard for current status, the roadmap for remaining work and the changelog for dated evidence. Avoid a new Markdown file for every task or validation run. Technical subproject references and runnable agent examples remain separate where their consumers need them.
 
-### The Communication Flow
-
-1. **JavaScript Layer Relationships**:
-   - Web App imports Core SDK and Extensions as JavaScript modules
-   - Extensions use Core SDK for shared functionality
-   - All run in the browser/webview context
-
-2. **All Three → Backend**: Through Tauri IPC
-   - **Web App** → Backend: `await invoke('app_command', data)`
-   - **Core SDK** → Backend: `await invoke('core_command', data)`
-   - **Extensions** → Backend: `await invoke('ext_command', data)`
-   - Each component can independently call backend commands
-
-3. **Backend → Plugins**: Native Rust integration
-   - Backend loads plugins as Rust libraries
-   - Direct function calls, no IPC overhead
-
-4. **Response Flow**:
-   - Plugin → Backend → IPC → Requester (Web App/Core/Extension) → UI updates
-
-### Real-World Example: Loading a Model
-
-Here's what actually happens when you click "Download Llama 3":
-
-1. **Web App** (`web-app/`) - User clicks download button
-2. **Extension** (`extensions/download-extension`) - Handles the download logic
-3. **Tauri Backend** (`src-tauri/`) - Actually downloads the file to disk
-4. **Extension** (`extensions/llamacpp-extension`) - Prepares model for loading
-5. **Tauri Plugin** (`src-tauri/plugins/llamacpp`) - Starts llama.cpp process
-6. **Hardware Plugin** (`src-tauri/plugins/hardware`) - Detects GPU, optimizes settings
-7. **Model ready!** - User can start chatting
-
-## Project Structure
-
-```
-jan/
-├── web-app/              # React frontend (what users see)
-├── src-tauri/            # Rust backend (system integration)
-│   ├── src/core/         # Core Tauri commands
-│   └── plugins/          # Tauri plugins (hardware, llamacpp)
-├── core/                 # TypeScript SDK (API layer)
-├── extensions/           # JavaScript extensions
-│   ├── assistant-extension/
-│   ├── conversational-extension/
-│   ├── download-extension/
-│   └── llamacpp-extension/
-├── docs/                 # Documentation website
-├── website/              # Marketing website
-├── autoqa/               # Automated testing
-├── scripts/              # Build utilities
-│
-├── package.json          # Root workspace configuration
-├── Makefile              # Build automation commands
-├── LICENSE               # Apache 2.0 license
-└── README.md             # Project overview
-```
-
-## Development Setup
-
-### The Scenic Route (Build from Source)
-
-**Prerequisites:**
-- Node.js ≥ 20.0.0
-- Yarn ≥ 4.5.3
-- Make ≥ 3.81
-- Rust ≥ 1.88 (for Tauri; see `rust-toolchain.toml` and Cargo manifests)
-- (macOS Apple Silicon only) MetalToolchain `xcodebuild -downloadComponent MetalToolchain`
-
-**Option 1: The Easy Way (Make)**
-```bash
-git clone https://github.com/TRON-ABS/Novera
-cd Novera
-make dev
-```
-
-## How Can I Contribute?
-
-### Reporting Bugs
-
-- **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/TRON-ABS/Novera/issues)
-- If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/TRON-ABS/Novera/issues/new)
-- Include your system specs and error logs - it helps a ton
-- Provide clear steps to reproduce the issue so we can quickly identify the root cause
-- Attach screenshots or screen recordings whenever possible - a visual is worth a thousand words when debugging
-
-### Suggesting Enhancements
-
-- Open a new issue with a clear title and description
-- Explain why this enhancement would be useful
-- Include mockups or examples if you can
-
-### Your First Code Contribution
-
-**Choose Your Adventure:**
-- **Frontend UI and logic** → `web-app/`
-- **Shared API declarations** → `core/`
-- **Backend system integration** → `src-tauri/`
-- **Business logic features** → `extensions/`
-- **Dedicated backend handler** → `src-tauri/plugins/`
-
-**The Process:**
-1. Fork the repo
-2. Create a new branch (`git checkout -b feature-name`)
-3. Make your changes (and write tests!)
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin feature-name`)
-6. Open a new Pull Request against `main` branch
-
-## Testing
-
-```bash
-yarn test                    # All tests
-cd src-tauri && cargo test  # Rust tests
-cd autoqa && python main.py # End-to-end tests
-```
-
-## Code Standards
-
-### TypeScript/JavaScript
-- TypeScript required (we're not animals)
-- ESLint + Prettier
-- Functional React components
-- Proper typing (no `any` - seriously!)
-
-### Rust
-- `cargo fmt` + `cargo clippy`
-- `Result<T, E>` for error handling
-- Document public APIs
-
-## Git Conventions
-
-### Branches
-- `main` - main branch with latest & completed commits (target this branch for PRs)
-- `release/*` - stable releases or upcoming release candidate
-- `feature/*` - new features
-- `fix/*` - bug fixes
-
-### Commit Messages
-- Use the present tense ("Add feature" not "Added feature")
-- Be descriptive but concise
-- Reference issues when applicable
-
-Examples:
-```
-feat: add support for Qwen models
-fix: resolve memory leak in model loading
-docs: update installation instructions
-```
-
-### Signed Commits
-
-We ask that you **sign your commits** so we can verify that changes really come from you. Git supports signing with a GPG/SSH key or, on Linux, a PGP key via `git commit -S`.
-
-**1. Create and publish your key** (if you don't have one):
-```bash
-# Generate a GPG key (follow the prompts, add your email)
-gpg --full-generate-key
-
-# List your key IDs
-gpg --list-secret-keys --keyid-format=long
-```
-
-**2. Register the key on GitHub**
-- Export your public key: `gpg --armor --export YOUR_KEY_ID > public.gpg`
-- Go to GitHub → **Settings** → **SSH and GPG keys** → **New GPG key** and paste the contents
-- Add your key ID to Git:
-```bash
-git config --global user.signingkey YOUR_KEY_ID
-git config --global commit.gpgsign true
-```
-
-**3. Sign your commits**
-```bash
-git commit -S -m 'feat: add support for Qwen models'
-```
-
-The `-S` flag signs the commit; `commit.gpgsign true` (above) makes it the default. Signed commits show a green **Verified** badge on GitHub once your key is registered. See [Git's signing docs](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work) for details.
-
-> **SSH signing**: If you prefer SSH over GPG, follow [GitHub's SSH signing guide](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits-with-ssh) and commit with `git commit -S` as well.
-
-### Pull Request Requirements
-- Include a screenshot or screen recording in your PR description showing the change in action
-- For bug fixes: show both the **before** (broken behavior) and **after** (fixed behavior)
-- For new features or enhancements: demonstrate the feature working as expected
-
-## Troubleshooting
-
-If things go sideways:
-
-1. **Check our [troubleshooting docs](https://jan.ai/docs/desktop/troubleshooting)**
-2. **Clear everything and start fresh:** `make clean` then `make dev`
-3. **Copy your error logs and system specs**
-4. **Ask for help in our [Discord](https://discord.gg/FTk2MvZwJH)** `#🆘|jan-help` channel
-
-Common issues:
-- **Build failures**: Check Node.js and Rust versions
-- **Extension not loading**: Verify it's properly registered
-- **Model not working**: Check hardware requirements and GPU drivers
-
-## Getting Help
-
-- [Documentation](https://jan.ai/docs) - The manual you should read
-- [Discord Community](https://discord.gg/FTk2MvZwJH) - Where the community lives
-- [GitHub Issues](https://github.com/TRON-ABS/Novera/issues) - Report bugs here
-- [GitHub Discussions](https://github.com/janhq/jan/discussions) - Ask questions
-
-## License
-
-Apache 2.0 - Because sharing is caring. See [LICENSE](./LICENSE) for the legal stuff.
-
-## Additional Notes
-
-We're building something pretty cool here - an AI assistant that respects your privacy and runs entirely on your machine. Every contribution, no matter how small, helps make AI more accessible to everyone.
-
-Thanks for being part of the journey. Let's build the future of local AI together! 🚀
+Sources can be newer than the last executable. GitHub Actions remains disabled; source publication is not binary-release authorization. Follow [official release policy](OFFICIAL_RELEASES.md) and [branding policy](BRANDING.md), retain the [Apache 2.0 license](LICENSE) and third-party attribution, and obtain maintainer authorization before publishing a binary release.

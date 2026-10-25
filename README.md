@@ -39,47 +39,20 @@ Arabic, Egyptian Arabic, Urdu, Western Punjabi and Iranian Persian include right
 
 **[Explore every language, native label and coverage level →](docs/LANGUAGES.md)**
 
-First launch selects and saves the system language when no preference exists. A manual language change replaces the saved choice and is used at subsequent launches. This [first-launch language feature](docs/SYSTEM_LANGUAGE.md) is available in source and awaits the next desktop build.
+## Project status
 
-## Where we are today
+**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 36 complete interface locales (1,516 keys each), the small-model Hub and updated cloud-provider presets. Native-language review is still needed.
 
-Novera has its own product identity and source repository. **No Novera installer or binary has been released yet.** Existing Jan downloads are not Novera releases.
+First launch saves the system language, recommends LFM2.5-2.6B Q6_K on desktop with optional DSpark, and asks separately about error reporting, off by default. The latest local executable predates these final additions. See the [dashboard](TABLEAU_DE_BORD_NOVERA.md) for exact validation and limitations. GitHub Actions and automatic updates remain disabled.
 
-The current source includes the Novera desktop identity, updated engine/chat integration and a fixed first-model recommendation: **LiquidAI LFM2.5-2.6B Q6_K**, with temperature **0.1**, top-k **50**, repetition penalty **1.1** and a **32,768-token context**. Its download remains a user action in setup.
+## Documentation and contributions
 
-Novera **1.0.0** includes **35 integrated Windows fixes**. A local Windows x64 release build with fat LTO and isolated startup have been verified. The latest local build passed **4,975 web tests (2 skipped)**, native startup and saved-language persistence checks. **96 targeted native tests** passed on the earlier build and were not rerun for this build. This does not establish complete model-generation or cross-platform validation. Application updates and GitHub Actions remain disabled while the independent distribution process is prepared.
+- [User guide](docs/USER_GUIDE.md): setup, models, conversations and privacy.
+- [Development](docs/DEVELOPMENT.md) and [build/release guide](docs/BUILD_AND_RELEASE.md).
+- [Languages](docs/LANGUAGES.md), [roadmap](ROADMAP.md), [changelog](docs/CHANGELOG.md) and [contribution guide](CONTRIBUTING.md).
 
-See [the source update notes](docs/UPDATES_2026-10-24.md) for scope and validation.
+## Identity and license
 
-**[Read the development roadmap →](ROADMAP.md)**
+Novera is maintained by **TRON-ABS** in [this repository](https://github.com/TRON-ABS/Novera). See the [identity policy](BRANDING.md) and [official release policy](OFFICIAL_RELEASES.md).
 
-## Follow and contribute
-
-Development lives at **[TRON-ABS/Novera](https://github.com/TRON-ABS/Novera)**. Contributions should target this repository. Useful contributions include language review, reproducible bug reports, model compatibility work, accessibility improvements and focused code changes.
-
-- [Contribution guide](CONTRIBUTING.md)
-- [Language inventory and translation checks](docs/LANGUAGES.md)
-- [Project and compatibility notes](NOVERA.md)
-- [Development roadmap](ROADMAP.md)
-
-## Official project and identity
-
-Official Novera development and releases are maintained by **TRON-ABS** in this repository. See the [identity policy](BRANDING.md) and [official release policy](OFFICIAL_RELEASES.md) to distinguish official versions from independent derivatives. Source permissions under Apache 2.0 remain unchanged.
-
-## Origins and license
-
-Novera builds on [Jan](https://github.com/janhq/jan), created by Menlo Research and its contributors. We retain the original attribution and [Apache License 2.0](LICENSE), together with the contributions of the open-source projects it depends on. Novera is maintained by TRON-ABS with its own direction.
-
-## Development control center
-
-Start with the [Novera development dashboard](TABLEAU_DE_BORD_NOVERA.md) for essential source files, current status, validation records and remaining work.
-
-See the [six-domain architecture](docs/ARCHITECTURE.md) for extracted policies, platform/UI adapters, compatibility entry points and the remaining migration work. These changes are included in this source publication.
-
-Current local source changes to [conversation controls](docs/CONVERSATION_CONTROLS.md) add exports and confirmed deletion. These changes, the modular refactor and system-language selection are included in the local build of 24 October 2026. Native startup and saved-language persistence were verified on an isolated profile. Native save/print dialogs still require manual validation.
-
-Latest source update (24 October 2026): message-action tooltips in all 36 locales, localized dates/statistics, Internet search enabled by default with saved choices preserved, raw tool-protocol filtering and outside-click dismissal of the export menu. Novera-only signed updates and opt-in statistics are prepared but remain disabled without production configuration. See [update and telemetry setup](docs/UPDATES_AND_TELEMETRY.md). The latest local desktop build passed isolated startup; no binary is published with these sources. Earlier test counts above describe their recorded builds.
-
-The Hub now includes six small pinned GGUF models, hardware-aware memory estimates, size sorting and filters, three-model comparison, source-linked publisher scores and a cancellable local speed test for already-running models. All 29 new labels are translated into 36 languages. [Behavior and measurement limits](docs/HUB_DISCOVERY.md). Local validation: 5,103 web tests passed, 2 skipped; TypeScript and all locale catalogs passed. The local Windows build started successfully; binaries are excluded from this source update.
-
-The Android build scripts now pin SDK 37.2, JDK 27.0.1.0.3, NDK r30, Gradle 9.8.1, AGP 9.4.0 and Kotlin 2.4.21. Local ARM64 debug APK compilation has been verified; real-device operation and public distribution remain unvalidated. The launcher keeps Android disabled while mobile reviews are open. [Toolchain, reproducible configuration and limits](docs/ANDROID_TOOLCHAIN.md).
+Novera builds on [Jan](https://github.com/janhq/jan), created by Menlo Research and its contributors. Original and third-party attributions and the [Apache 2.0 license](LICENSE) are retained. Jan downloads are not Novera releases.

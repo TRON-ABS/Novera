@@ -41,7 +41,7 @@ if(!(Test-Path -LiteralPath $engineManifest)){$payload=$false}else{
     if($engine.ndk -ne $android.pin.ndk){$payload=$false}
 }
 Check 'local-engine' $payload 'Worker CPU et bibliotheques ARM64 a inclure dans APK.'
-foreach($review in $state.reviews.PSObject.Properties){Check "review-$($review.Name)" ([bool]$review.Value) 'Audit du portage mobile et preuve dans docs/ANDROID_PREPARATION.md.'}
+foreach($review in $state.reviews.PSObject.Properties){Check "review-$($review.Name)" ([bool]$review.Value) 'Audit du portage mobile et preuve dans docs/BUILD_AND_RELEASE.md.'}
 $cap=Get-Content -LiteralPath (Join-Path $android.repo 'src-tauri/capabilities/mobile.json') -Raw | ConvertFrom-Json
 Check 'permissions' (!$cap.PSObject.Properties['remote'] -and ($cap.permissions -notcontains 'shell:allow-spawn')) 'Aucun acces distant IPC ni lancement shell dans la capacite mobile.'
 $blocked=@($checks | Where-Object {!$_.ok})

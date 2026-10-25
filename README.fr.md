@@ -34,47 +34,20 @@ L’arabe standard, l’arabe égyptien, l’ourdou, le pendjabi occidental et l
 
 **[Consulter toutes les langues, leurs noms et leur couverture →](docs/LANGUAGES.md)**
 
-Au premier démarrage, Novera détecte et sauvegarde la langue système si aucun choix n’existe. Si l’utilisateur change de langue, son nouveau choix remplace la sauvegarde et est utilisé aux démarrages suivants. Cette [fonction de première arrivée](docs/SYSTEM_LANGUAGE.md) est disponible dans les sources et attend la prochaine compilation de bureau.
+## État du projet
 
-## Où en est le projet ?
+**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 36 locales complètes (1 516 clés chacune), le Hub de petits modèles et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
 
-Novera possède son identité et son dépôt de sources. **Aucun installateur ni binaire Novera n’a encore été publié.** Les téléchargements Jan existants ne sont pas des versions Novera.
+Le premier démarrage sauvegarde la langue système, propose LFM2.5-2.6B Q6_K sur desktop avec DSpark facultatif, et demande séparément le suivi des erreurs, désactivé par défaut. Le dernier exécutable local précède ces derniers ajouts. Voir [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour les validations et limites exactes. GitHub Actions et mises à jour automatiques restent désactivés.
 
-Les sources actuelles incluent l’identité Novera, les évolutions du moteur et des conversations, ainsi qu’un premier modèle fixe : **LiquidAI LFM2.5-2.6B Q6_K**, température **0,1**, top-k **50**, pénalité de répétition **1,1**, contexte de **32 768 tokens**. Le téléchargement reste déclenché par l’utilisateur.
+## Documentation et contribution
 
-**Novera 1.0.0** intègre **35 corrections Windows**. La version locale Windows x64 a été compilée en release avec LTO fat et son démarrage isolé vérifié : **4 975 tests web réussis (2 ignorés)**, démarrage natif et persistance de langue vérifiés. Les **96 tests natifs ciblés** avaient réussi sur l’ancien build et n’ont pas été relancés pour cette compilation. Cela ne constitue pas une validation complète des générations ni des autres plateformes. Les mises à jour applicatives et GitHub Actions restent désactivés pendant la préparation d’une distribution indépendante.
+- [Guide utilisateur](docs/USER_GUIDE.md) : démarrage, modèles, discussions et confidentialité.
+- [Développement](docs/DEVELOPMENT.md) et [construction/distribution](docs/BUILD_AND_RELEASE.md).
+- [Langues](docs/LANGUAGES.md), [feuille de route](ROADMAP.md), [historique](docs/CHANGELOG.md) et [contribuer](CONTRIBUTING.md).
 
-Voir les [notes de mise à jour des sources](docs/UPDATES_2026-10-24.md).
+## Identité et licence
 
-**[Consulter la feuille de route →](ROADMAP.md)**
+Novera est maintenu par **TRON-ABS** dans [ce dépôt](https://github.com/TRON-ABS/Novera). [Politique d’identité](BRANDING.md), [versions officielles](OFFICIAL_RELEASES.md).
 
-## Suivre le projet et contribuer
-
-Le développement se déroule sur **[TRON-ABS/Novera](https://github.com/TRON-ABS/Novera)**. Les contributions doivent cibler ce dépôt. La relecture des traductions, les reproductions de bugs, la compatibilité des modèles et les améliorations d’accessibilité sont particulièrement utiles.
-
-- [Guide de contribution](CONTRIBUTING.md)
-- [Inventaire des langues et contrôles des traductions](docs/LANGUAGES.md)
-- [Notes sur le projet et sa compatibilité](NOVERA.md)
-- [Feuille de route](ROADMAP.md)
-
-## Projet officiel et identité
-
-Le développement et les versions officielles de Novera sont maintenus par **TRON-ABS** dans ce dépôt. Consultez la [politique d’identité](BRANDING.md) et les [règles des versions officielles](OFFICIAL_RELEASES.md) pour les distinguer des projets dérivés indépendants. Les droits accordés par Apache 2.0 restent inchangés.
-
-## Origine et licence
-
-Novera s’appuie sur [Jan](https://github.com/janhq/jan), créé par Menlo Research et ses contributeurs. Nous conservons l’attribution d’origine et la [licence Apache 2.0](LICENSE), ainsi que le crédit aux projets libres utilisés. Novera est porté par TRON-ABS avec sa propre direction.
-
-## Centre de contrôle du développement
-
-Le [tableau de bord Novera](TABLEAU_DE_BORD_NOVERA.md) centralise les fichiers essentiels, l’état des sources et du binaire, les validations et les travaux restants.
-
-Voir l’[architecture en six domaines](docs/ARCHITECTURE.md) pour les règles extraites, les adaptateurs, la compatibilité et les migrations restantes. Ces changements sont inclus dans cette publication des sources.
-
-Les sources locales ajoutent les [commandes de discussion](docs/CONVERSATION_CONTROLS.md), l’export et la suppression confirmée. Ces changements, la restructuration modulaire et la sélection de langue système sont inclus dans le build local du 24 octobre 2026. Démarrage et persistance de langue sont vérifiés sur profil isolé. Les dialogues natifs d’enregistrement/impression restent à valider manuellement.
-
-Dernière mise à jour des sources (24 octobre 2026) : infobulles dans les 36 langues, dates/statistiques localisées, recherche Internet active par défaut avec choix sauvegardé conservé, filtrage du protocole outil brut et fermeture du menu au clic extérieur. Mises à jour signées et statistiques avec consentement préparées, sans activation ni configuration de production. Voir [la préparation](docs/UPDATES_AND_TELEMETRY.md). Démarrage isolé du dernier build local vérifié ; aucun binaire publié avec les sources. Les chiffres de tests précédents décrivent leurs builds historiques.
-
-Le Hub propose six petits modèles GGUF épinglés, estimation mémoire selon le matériel, tri et filtres par taille, comparaison de trois modèles, scores fabricant sourcés et test local annulable des modèles déjà lancés. Les 29 nouveaux textes sont traduits dans les 36 langues. [Fonctionnement et limites des mesures](docs/HUB_DISCOVERY.md). Validation locale : 5 103 tests web réussis, 2 ignorés ; TypeScript et langues réussis. Démarrage du build Windows local vérifié ; binaires exclus de cette publication des sources.
-
-Les scripts Android intègrent désormais SDK 37.2, JDK 27.0.1.0.3, NDK r30, Gradle 9.8.1, AGP 9.4.0 et Kotlin 2.4.21. La compilation locale d’APK debug ARM64 est vérifiée ; le fonctionnement sur téléphone et la distribution publique restent à valider. Le lanceur garde Android désactivé pendant les audits mobiles. [Versions, configuration reproductible et limites](docs/ANDROID_TOOLCHAIN.md).
+Novera s’appuie sur [Jan](https://github.com/janhq/jan), créé par Menlo Research et ses contributeurs. Les attributions d’origine, celles des projets tiers et la [licence Apache 2.0](LICENSE) sont conservées. Les téléchargements Jan ne sont pas des versions Novera.

@@ -1,4 +1,4 @@
-// Verified chat shortlists: 2026-10-25. Sources and limits: docs/CLOUD_PROVIDERS.md.
+// Verified chat shortlists: 2026-10-25. Sources and limits: docs/USER_GUIDE.md.
 // Brand names / API identifiers are intentionally invariant across all locales.
 export const CLOUD_CATALOG_VERIFIED_AT = '2026-10-25'
 
