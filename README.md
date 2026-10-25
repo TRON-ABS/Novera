@@ -2,7 +2,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone. Cyan holographic hand above a connected world." width="100%" />
   <p><strong>Knowledge for everyone. AI that keeps moving forward.</strong></p>
   <p>An independent AI assistant by TRON-ABS, bringing local models, cloud providers and evolving tools into one project.</p>
-  <p><strong>In development</strong> · 36 interface language options · Apache 2.0</p>
+  <p><strong>In development</strong> · 40 interface language options · Apache 2.0</p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p>
     <a href="README.fr.md">Français</a> ·
@@ -26,22 +26,22 @@ We are building around a clear product direction: keep a dependable foundation, 
 | --- | --- |
 | Local and cloud AI | Local model engines alongside connections to remote model providers. Compatibility depends on the model, provider and hardware. |
 | Tools and documents | MCP integrations, document retrieval and assistant workflows inherited from the existing codebase. |
-| Multilingual interface | 36 selectable locales, each covering all 1,516 current English keys. Native-speaker review remains pending. |
+| Multilingual interface | 40 selectable locales, each covering all 1,516 current English keys. Native-speaker review remains pending. |
 | An extensible application | A desktop application with extension points for model engines, tools and future capabilities. |
 
 These describe the source foundation. The current 1.0.0 source has been built and launched locally on Windows x64; public packaging and broader runtime validation remain in preparation.
 
-## 36 interface language options
+## 40 interface language options
 
-All 19 of our language contributions are integrated alongside the 17 inherited locales. **All 36 catalogs cover 1,516 / 1,516 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. These latest translations require a new desktop build.
+All 19 of our language contributions are integrated alongside the 17 inherited locales and four new Novera catalogs: Gujarati, Kannada, Levantine Arabic and Sudanese Arabic. **All 40 catalogs cover 1,516 / 1,516 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. These latest translations require a new desktop build.
 
-Arabic, Egyptian Arabic, Urdu, Western Punjabi and Iranian Persian include right-to-left interface support. Model language capabilities depend on the selected model and are separate from interface localization.
+Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Urdu, Western Punjabi and Iranian Persian include right-to-left interface support. Model language capabilities depend on the selected model and are separate from interface localization.
 
 **[Explore every language, native label and coverage level →](docs/LANGUAGES.md)**
 
 ## Project status
 
-**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 36 complete interface locales (1,516 keys each), the small-model Hub and updated cloud-provider presets. Native-language review is still needed.
+**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 40 complete interface locales (1,516 keys each), the small-model Hub and updated cloud-provider presets. Native-language review is still needed.
 
 First launch saves the system language, recommends LFM2.5-2.6B Q6_K on desktop with optional DSpark, and asks separately about error reporting, off by default. The latest local executable predates these final additions. See the [dashboard](TABLEAU_DE_BORD_NOVERA.md) for exact validation and limitations. GitHub Actions and automatic updates remain disabled.
 

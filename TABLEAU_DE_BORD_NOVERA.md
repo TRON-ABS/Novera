@@ -10,7 +10,7 @@
 | Utiliser Novera : premier démarrage, modèles, discussions, confidentialité | [Guide utilisateur](docs/USER_GUIDE.md) |
 | Architecture, moteur, compatibilité, dépendances et logos | [Développement](docs/DEVELOPMENT.md) |
 | Compiler, préparer Windows/Android, signer et distribuer | [Construction et distribution](docs/BUILD_AND_RELEASE.md) |
-| Couverture des 36 locales, traductions et feuille de route des langues | [Langues](docs/LANGUAGES.md) |
+| Couverture des 40 locales, traductions et feuille de route des langues | [Langues](docs/LANGUAGES.md) |
 | Prochaines tâches | [Feuille de route unique](ROADMAP.md) |
 | Changements et preuves historiques | [Historique](docs/CHANGELOG.md) |
 | Revue de la modification courante | [PR.md](PR.md) |
@@ -20,10 +20,12 @@
 ## Sources actuelles
 
 - Version préparée : **1.0.0** ; 35 corrections Windows intégrées, architecture en six domaines et nouveaux noms internes Novera.
-- **36/36 catalogues**, chacun à **1 516/1 516 clés anglaises (100 %)** dans 14 espaces de noms. Relecture native encore nécessaire.
+- **40/40 catalogues**, chacun à **1 516/1 516 clés anglaises (100 %)** dans 14 espaces de noms. Gujarati, kannada, arabe levantin et arabe soudanais ajoutés. Relecture native encore nécessaire.
 - Premier démarrage : langue système sauvegardée, recommandation desktop LFM2.5-2.6B Q6_K, compagnon DSpark Q8_0 facultatif avec explication RAM/VRAM/contexte, demande distincte pour le suivi des erreurs.
 - Catalogue Hub de six petits modèles et fournisseurs cloud actualisés selon les sources relevées le 25 octobre. Disponibilité et capacités réelles dépendent du modèle, du compte et du matériel.
 - Dernière suite web complète enregistrée : **5 187 tests réussis, 2 ignorés** ; TypeScript sans émission, catalogues et frontières d’architecture validés. Ce résultat précède la consolidation documentaire et ne prouve pas un fonctionnement natif complet.
+
+Dernier ajout de langues : **660 tests ciblés réussis dans 45 fichiers**, TypeScript sans émission, 40 catalogues complets et contrôles d’architecture validés. Ces tests ne reconstruisent pas le programme.
 
 ## Dernier exécutable local
 

@@ -2,7 +2,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone. Cyan holographic hand above a connected world." width="100%" />
   <p><strong>Le savoir pour tous. Une IA qui avance avec son temps.</strong></p>
   <p>Un assistant IA indépendant porté par TRON-ABS, réunissant modèles locaux, fournisseurs cloud et outils évolutifs.</p>
-  <p><strong>En développement</strong> · 36 langues et variantes d’interface · Apache 2.0</p>
+  <p><strong>En développement</strong> · 40 langues et variantes d’interface · Apache 2.0</p>
   <p>Contact officiel : <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p><a href="README.md">English</a> · <a href="docs/LANGUAGES.md">Langues</a> · <a href="ROADMAP.md">Feuille de route</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
 </div>
@@ -21,22 +21,22 @@ La direction du projet est claire : consolider les fondations, explorer rapideme
 | --- | --- |
 | IA locale et cloud | Des moteurs de modèles locaux et des connexions à des fournisseurs distants. La compatibilité dépend du modèle, du fournisseur et du matériel. |
 | Outils et documents | Des intégrations MCP, la recherche dans les documents et des fonctions d’assistant héritées du code existant. |
-| Interface multilingue | 36 locales sélectionnables couvrant chacune les 1 516 clés anglaises actuelles. Relecture native encore nécessaire. |
+| Interface multilingue | 40 locales sélectionnables couvrant chacune les 1 516 clés anglaises actuelles. Relecture native encore nécessaire. |
 | Application extensible | Une application de bureau avec des points d’extension pour les moteurs, les outils et les futures capacités. |
 
 Ces éléments décrivent les sources. La distribution Novera et sa validation en fonctionnement restent à préparer.
 
-## 36 langues et variantes d’interface
+## 40 langues et variantes d’interface
 
-Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées. **Les 36 catalogues couvrent chacun les 1 516 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Ces dernières traductions nécessitent une nouvelle compilation de bureau.
+Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et à quatre nouveaux catalogues Novera : gujarati, kannada, arabe levantin et arabe soudanais. **Les 40 catalogues couvrent chacun les 1 516 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Ces dernières traductions nécessitent une nouvelle compilation de bureau.
 
-L’arabe standard, l’arabe égyptien, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
+L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
 
 **[Consulter toutes les langues, leurs noms et leur couverture →](docs/LANGUAGES.md)**
 
 ## État du projet
 
-**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 36 locales complètes (1 516 clés chacune), le Hub de petits modèles et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
+**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 40 locales complètes (1 516 clés chacune), le Hub de petits modèles et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
 
 Le premier démarrage sauvegarde la langue système, propose LFM2.5-2.6B Q6_K sur desktop avec DSpark facultatif, et demande séparément le suivi des erreurs, désactivé par défaut. Le dernier exécutable local précède ces derniers ajouts. Voir [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour les validations et limites exactes. GitHub Actions et mises à jour automatiques restent désactivés.
 

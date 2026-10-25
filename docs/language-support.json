@@ -358,5 +358,45 @@
     "total": 1516,
     "partial": false,
     "source_pr": null
+  },
+  {
+    "locale": "gu",
+    "language": "Gujarati",
+    "label": "ગુજરાતી",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "kn",
+    "language": "Kannada",
+    "label": "ಕನ್ನಡ",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "apc",
+    "language": "Levantine Arabic",
+    "label": "عربي شامي",
+    "direction": "rtl",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "apd",
+    "language": "Sudanese Arabic",
+    "label": "عربي سوداني",
+    "direction": "rtl",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
   }
 ]

@@ -133,7 +133,7 @@ const translate = (key: string, options: Record<string, unknown> = {}): string =
 function syncDocumentLanguage(language: string): void {
   if (typeof document === 'undefined') return
   document.documentElement.lang = language === 'vn' ? 'vi' : language
-  document.documentElement.dir = ['ar', 'ur', 'arz', 'pnb', 'fa', 'fa-IR'].includes(language) ? 'rtl' : 'ltr'
+  document.documentElement.dir = ['ar', 'apc', 'apd', 'ur', 'arz', 'pnb', 'fa', 'fa-IR'].includes(language) ? 'rtl' : 'ltr'
 }
 
 // Change language function

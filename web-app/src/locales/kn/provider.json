@@ -1,0 +1,18 @@
+{
+  "addProvider": "ಒದಗಿಸುವವರನ್ನು ಸೇರಿಸಿ",
+  "addOpenAIProvider": "ಕಸ್ಟಮ್ ಪೂರೈಕೆದಾರರನ್ನು ಸೇರಿಸಿ",
+  "enterNameForProvider": "ಪೂರೈಕೆದಾರರ ಹೆಸರು (ಉದಾ. my-llm-server)",
+  "apiTypeLabel": "API ಫಾರ್ಮ್ಯಾಟ್",
+  "apiTypeOpenAI": "OpenAI-ಹೊಂದಾಣಿಕೆ",
+  "apiTypeAnthropic": "Anthropic-ಹೊಂದಾಣಿಕೆ",
+  "baseUrlLabel": "ಆಧಾರ URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API ಕೀ",
+  "apiKeyPlaceholder": "ನಿಮ್ಮ API ಕೀಯನ್ನು ಅಂಟಿಸಿ",
+  "invalidBaseUrl": "ಆಧಾರ URL ಮಾನ್ಯವಾದ http(ಗಳು) URL ಆಗಿರಬೇಕು",
+  "globalSettings": "ಜಾಗತಿಕ ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
+  "stripReasoning": "ಸಂದರ್ಭದಿಂದ ತರ್ಕವನ್ನು ಬಿಡಿ",
+  "stripReasoningDesc": "ಎಲ್ಲಾ ಪೂರೈಕೆದಾರರಾದ್ಯಂತ ಇತಿಹಾಸವನ್ನು ಮರುಕಳಿಸುವ ಮೊದಲು ಪೂರ್ವ ತಿರುವುಗಳ ಚಿಂತನೆ/ತಾರ್ಕಿಕ ವಿಷಯವನ್ನು ತೆಗೆದುಹಾಕಿ. ಸ್ಥಳೀಯ ಮಾದರಿಗಳಿಗೆ KV-ಸಂಗ್ರಹ ಮರುಬಳಕೆಯನ್ನು ಸುಧಾರಿಸುತ್ತದೆ, ಆದರೆ ಕೆಲವು ಮಾದರಿಗಳು (ಉದಾ. ಹೊಸ Qwen ಬಿಡುಗಡೆಗಳು) ಉತ್ತಮ ಬಹು-ತಿರುವು ತಾರ್ಕಿಕತೆಗಾಗಿ ಅದನ್ನು ಇರಿಸಿಕೊಳ್ಳಲು ಶಿಫಾರಸು ಮಾಡುತ್ತವೆ.",
+  "providerAlreadyExists": "{{name}} ಹೆಸರಿನ ಪೂರೈಕೆದಾರರು ಈಗಾಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದಾರೆ."
+}

@@ -23,15 +23,15 @@ const total = Object.values(english).reduce((sum, bundle) => sum + Object.keys(b
 const placeholders = (value: string) => [...value.matchAll(/\{\{(\w+)\}\}/g)].map((match) => match[1]).sort()
 const code = (value: string) => value.match(/`[^`]*`/g) ?? []
 const completedLocales = ['es', 'fr', 'it', 'hi', 'id', 'pl', 'vn', 'zh-CN', 'zh-TW',
-  'de-DE', 'cs', 'pt-BR', 'ko', 'ja', 'ru', 'ca']
+  'de-DE', 'cs', 'pt-BR', 'ko', 'ja', 'ru', 'ca', 'gu', 'kn', 'apc', 'apd']
 
 describe('complete interface catalogs', () => {
-  it('documents all 36 shipped locales as complete', () => {
+  it('documents all 40 shipped locales as complete', () => {
     const directories = readdirSync(root, { withFileTypes: true })
       .filter((entry) => entry.isDirectory() && !entry.name.startsWith('__'))
       .map((entry) => entry.name).sort()
     expect(inventory.map((entry) => entry.locale).sort()).toEqual(directories)
-    expect(inventory).toHaveLength(36)
+    expect(inventory).toHaveLength(40)
     for (const entry of inventory) {
       expect(entry, entry.locale).toMatchObject({ keys: total, total, partial: false })
     }

@@ -1,0 +1,101 @@
+{
+  "editServer": "MCP સર્વર સંપાદિત કરો",
+  "addServer": "MCP સર્વર ઉમેરો",
+  "browserExtension": {
+    "connecting": {
+      "checking": "એક્સ્ટેંશન સ્થિતિ તપાસી રહ્યું છે..."
+    },
+    "notInstalled": {
+      "title": "Novera તમારા બ્રાઉઝરમાં કાર્યો પૂર્ણ કરે છે",
+      "description": "Novera બ્રાઉઝર ઍક્સેસ આપવા માટે એક્સ્ટેંશન ઇન્સ્ટોલ કરો",
+      "getExtension": "એક્સ્ટેંશન મેળવો"
+    }
+  },
+  "serverName": "સર્વર નામ",
+  "enterServerName": "સર્વર નામ દાખલ કરો",
+  "command": "આદેશ",
+  "enterCommand": "આદેશ દાખલ કરો (uvx અથવા npx)",
+  "arguments": "દલીલો",
+  "argument": "દલીલ {{index}}",
+  "envVars": "પર્યાવરણ ચલો",
+  "key": "કી",
+  "value": "મૂલ્ય",
+  "save": "સાચવો",
+  "status": "સ્થિતિ",
+  "connected": "કનેક્ટેડ",
+  "disconnected": "ડિસ્કનેક્ટ",
+  "deleteServer": {
+    "title": "MCP સર્વર કાઢી નાખો",
+    "description": "શું તમે ખરેખર MCP સર્વર {{serverName}} કાઢી નાખવા માંગો છો? આ ક્રિયા પૂર્વવત્ કરી શકાતી નથી.",
+    "delete": "કાઢી નાખો",
+    "success": "MCP સર્વર {{serverName}} સફળતાપૂર્વક કાઢી નાખ્યું"
+  },
+  "editJson": {
+    "title": "MCP સર્વર માટે JSON સંપાદિત કરો: {{serverName}}",
+    "titleAll": "બધા MCP સર્વર JSON સંપાદિત કરો",
+    "placeholder": "JSON રૂપરેખાંકન દાખલ કરો",
+    "errorParse": "પ્રારંભિક ડેટાનું વિશ્લેષણ કરવામાં નિષ્ફળ",
+    "errorPaste": "પેસ્ટ કરેલી સામગ્રીમાં અમાન્ય JSON ફોર્મેટ",
+    "errorFormat": "અમાન્ય JSON ફોર્મેટ",
+    "errorServerName": "સર્વર નામ જરૂરી છે અને ખાલી હોઈ શકતું નથી",
+    "errorMissingServerNameKey": "JSON {\"serverName\": {config}} તરીકે સંરચિત હોવું આવશ્યક છે - સર્વર નામ કી ખૂટે છે",
+    "errorInvalidType": "સર્વર '{{serverName}}' માટે અમાન્ય પ્રકાર '{{type}}'. પ્રકાર 'stdio', 'http', અથવા 'sse' હોવો જોઈએ",
+    "save": "સાચવો"
+  },
+  "checkParams": "કૃપા કરીને ટ્યુટોરીયલ અનુસાર પરિમાણો તપાસો.",
+  "title": "MCP સર્વર્સ",
+  "experimental": "પ્રાયોગિક",
+  "editAllJson": "બધા સર્વર સંપાદિત કરો JSON",
+  "findMore": "પર વધુ MCP સર્વર્સ શોધો",
+  "allowPermissions": "બધી MCP ટૂલ પરવાનગીઓને મંજૂરી આપો",
+  "allowPermissionsDesc": "જ્યારે સક્ષમ હોય, ત્યારે તમામ MCP ટૂલ કૉલ્સ પરવાનગી સંવાદો દર્શાવ્યા વિના આપમેળે મંજૂર કરવામાં આવશે. આ સેટિંગ નવી ચેટ્સ સહિત તમામ વાતચીતો પર વૈશ્વિક સ્તરે લાગુ પડે છે.",
+  "noServers": "કોઈ MCP સર્વર મળ્યાં નથી",
+  "args": "આર્ગ્સ",
+  "env": "એન્વ",
+  "serverStatusActive": "સર્વર {{serverKey}} સફળતાપૂર્વક સક્રિય થયું",
+  "serverStatusInactive": "સર્વર {{serverKey}} સફળતાપૂર્વક નિષ્ક્રિય",
+  "runtimeSettings": {
+    "title": "રનટાઇમ સેટિંગ્સ",
+    "description": "Novera કેવી રીતે મેનેજ કરે છે અને MCP સર્વર્સને ફરીથી પ્રયાસ કરે છે તે ગોઠવો.",
+    "toolCallTimeout": "સાધન કૉલ સમયસમાપ્તિ (સેકન્ડ)",
+    "toolCallTimeoutDesc": "સમય સમાપ્ત થતાં પહેલાં MCP સાધન પ્રતિસાદની રાહ જોવા માટે મહત્તમ સમય.",
+    "maxToolOutputChars": "મહત્તમ ટૂલ આઉટપુટ અક્ષરો",
+    "maxToolOutputCharsDesc": "વાતચીતમાં રાખવામાં આવેલ સૌથી લાંબુ સાધન પરિણામ. આના પછીની કોઈપણ વસ્તુ સુવ્યવસ્થિત અને કાપવામાં આવેલ તરીકે ચિહ્નિત થયેલ છે, તેથી એક મોટું પરિણામ મોડેલના સંદર્ભને ખતમ કરી શકતું નથી. પરિણામોને સંપૂર્ણ રાખવા માટે 0 પર સેટ કરો.",
+    "smartToolRouting": "સ્માર્ટ MCP ટૂલ રૂટીંગ",
+    "smartToolRoutingDesc": "જ્યારે સક્ષમ હોય, ત્યારે Novera સાધનો લોડ કરતા પહેલા સંબંધિત MCP સર્વર્સ પસંદ કરે છે. સંપૂર્ણ MCP સાધન સૂચિને હંમેશા લોડ કરવા માટે અક્ષમ કરો.",
+    "useLightweightRouterModel": "રૂટીંગ માટે સમર્પિત મોડેલનો ઉપયોગ કરો",
+    "useLightweightRouterModelDesc": "જ્યારે સ્માર્ટ રૂટીંગ ચાલુ હોય, ત્યારે ચેટ મોડલને બદલે અલગ (ઘણી વખત નાના) મોડેલ સાથે રૂટીંગ સ્ટેપ ચલાવો. રાઉટીંગ માટે હંમેશા સક્રિય ચેટ મોડલનો ઉપયોગ કરવા માટે બંધ કરો.",
+    "routerModel": "રૂટીંગ મોડેલ",
+    "routerModelDesc": "એક જગ્યાએ પ્રદાતા અને મોડેલ પસંદ કરો. માત્ર હળવા વજનના મૉડલ જ સૂચિબદ્ધ છે જેથી રાઉટિંગ ઝડપી અને સસ્તું રહે.",
+    "selectRouterModelPlaceholder": "રૂટીંગ મોડલ પસંદ કરો...",
+    "routerModelSearchPlaceholder": "મોડલ્સ શોધો...",
+    "routerModelEmptyList": "કોઈ હળવા વજનના મોડલ ઉપલબ્ધ નથી. એક નાનું મોડલ ઉમેરો અથવા મોડલ્સમાં API કી ગોઠવો.",
+    "routerModelEmptySearch": "“{{query}}” માટે કોઈ મેળ નથી."
+  },
+  "auth": {
+    "label": "ઓથ:",
+    "state": {
+      "notApplicable": "જરૂરી નથી",
+      "staticHeader": "અધિકૃતતા હેડર",
+      "authenticated": "પ્રમાણિત",
+      "expired": "સમાપ્ત",
+      "staleResource": "બીજા URL માટે જારી",
+      "unauthenticated": "પ્રમાણિત નથી"
+    },
+    "expiresIn": "{{duration}} માં સમાપ્ત થાય છે",
+    "authenticate": "સાઇન ઇન કરો",
+    "reauthenticate": "ફરીથી પ્રમાણિત કરો",
+    "clear": "પ્રમાણીકરણ સાફ કરો",
+    "waiting": "બ્રાઉઝરની રાહ જોઈ રહ્યાં છીએ...",
+    "openSignInPage": "સાઇન-ઇન પેજ ખોલો",
+    "needsAuth": "{{serverName}} ને પ્રમાણીકરણની જરૂર છે",
+    "needsAuthHint": "કનેક્ટ કરવા માટે આ સર્વર પર સાઇન ઇન કરો.",
+    "authorized": "{{serverName}} માં સાઇન ઇન કર્યું",
+    "authorizeFailed": "{{serverName}} માટે સાઇન-ઇન નિષ્ફળ થયું",
+    "cleared": "{{serverName}} માટે સંગ્રહિત ઓળખપત્રો સાફ કર્યા",
+    "nothingToClear": "{{serverName}} પાસે કોઈ સંગ્રહિત ઓળખપત્રો નથી",
+    "clearFailed": "{{serverName}} માટે ઓળખપત્રો સાફ કરી શકાયા નથી",
+    "renew": "સત્ર રિન્યૂ કરો",
+    "expiredAgo": "{{duration}} પહેલાં સમયસીમા સમાપ્ત"
+  }
+}

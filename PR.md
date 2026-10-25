@@ -1,24 +1,22 @@
 # Novera — revue de la modification courante
 
-## fix(docs): consolidate and refresh project documentation
+## fix(i18n): add four complete interface locales
 
-The project had 36 main Markdown files with overlapping task journals, stale dependency snapshots and conflicting current/build status. Consolidate them into 14 maintained entry points and guides, keeping one current dashboard, one task roadmap and one dated changelog.
+The next four languages in the roadmap were unavailable in setup and settings. Add Gujarati (`gu`), Kannada (`kn`), Levantine Arabic (`apc`) and Sudanese Arabic (`apd`), each with all 1,516 English keys across 14 namespaces. Novera now exposes 40 complete catalogs.
 
-Preserve the 100-language planning table, all 35 Windows fix references, licensing and provenance guidance, provider-logo sources and technical agent examples. Replace references in active documentation and source comments/messages. The latest source baseline remains 36 locales at 1,516 keys; the latest local executable predates the final translations, internal renames and onboarding changes.
-
-No new dependency, application build, user-profile change, remote CI activation or binary release. Source publication follows the maintainer’s existing authorization. No new pull request is created; check the remote for overlapping work before publishing.
+Register selector labels, persisted language types, system-locale matching, regional Intl formatting and RTL document/menu direction for both Arabic variants. Keep all 36 existing catalogs intact. Gujarati/Kannada use machine-assisted drafts and curated terminology; Arabic variants share technical Arabic and receive separate editorial adaptations. Native-speaker review remains pending; key coverage does not certify linguistic quality.
 
 ## Validation
 
-- Documentation audit: 14 main Markdown files instead of 36; 16 documents checked, 174 local links and anchors valid, no active references to retired documents. All 100 language-planning rows, 35 Windows-fix rows and four verbatim ADK excerpts preserved. License, branding policy and locale inventory unchanged.
-- `python scripts/check-novera-locales.py`: 36 catalogs, 1,516 keys each, no errors.
-- `node --test scripts/__tests__/architecture.test.mjs`: 7 passed, 0 failed.
-- `node scripts/check-architecture.mjs`: 6 areas, 13 modules, no violations.
-- No application compilation or full web-suite rerun. The previous full web suite (5,187 passed, 2 skipped) is a historical source baseline.
+- `python scripts/check-novera-locales.py`: 40 catalogs, 1,516 keys each, no errors (6,064 new entries).
+- `node node_modules/vitest/vitest.mjs run src/locales/__tests__ src/containers/__tests__/LanguageSwitcher src/lib/__tests__/systemLanguage.test.ts src/hooks/__tests__/useGeneralSetting.language.test.ts` from `web-app`: 660 passed in 45 files, no failures. Covers complete keys/literals, native labels, persisted selection, system matching, hydration, interpolation and RTL menu restoration.
+- `node node_modules/typescript/bin/tsc --noEmit` from `web-app`: passed.
+- `node --test scripts/__tests__/architecture.test.mjs`: 7 passed; `node scripts/check-architecture.mjs`: 13 modules, no violations.
+- Documentation links and roadmap order checked; all 504 existing locale JSON files preserved byte-for-byte after line-ending normalization. Native review and a rebuilt runtime remain unvalidated.
+- No application compilation, user-profile modification, remote CI activation or binary release. The previous full web suite remains a historical baseline; it was not rerun for this addition.
 
-## Review references
+## References
 
-- [Current status](TABLEAU_DE_BORD_NOVERA.md)
-- [Development and maintenance](docs/DEVELOPMENT.md)
-- [Consolidated changelog](docs/CHANGELOG.md)
-- [Remaining validation tasks](ROADMAP.md)
+- [Language inventory and methods](docs/LANGUAGES.md)
+- [Current source/build status](TABLEAU_DE_BORD_NOVERA.md)
+- [Remaining work](ROADMAP.md)

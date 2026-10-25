@@ -1,0 +1,18 @@
+{
+  "addProvider": "પ્રદાતા ઉમેરો",
+  "addOpenAIProvider": "કસ્ટમ પ્રદાતા ઉમેરો",
+  "enterNameForProvider": "પ્રદાતાનું નામ (દા.ત. my-llm-server)",
+  "apiTypeLabel": "API ફોર્મેટ",
+  "apiTypeOpenAI": "OpenAI-સુસંગત",
+  "apiTypeAnthropic": "Anthropic-સુસંગત",
+  "baseUrlLabel": "આધાર URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API કી",
+  "apiKeyPlaceholder": "તમારી API કી પેસ્ટ કરો",
+  "invalidBaseUrl": "આધાર URL માન્ય http(s) URL હોવો જોઈએ",
+  "globalSettings": "વૈશ્વિક સેટિંગ્સ",
+  "stripReasoning": "સંદર્ભમાંથી સ્ટ્રીપ તર્ક",
+  "stripReasoningDesc": "તમામ પ્રદાતાઓમાં, ઇતિહાસને ફરીથી મોકલતા પહેલા અગાઉના વળાંકોની વિચારસરણી/તર્ક સામગ્રીને દૂર કરો. સ્થાનિક મોડલ માટે KV-કેશના પુનઃઉપયોગમાં સુધારો કરે છે, પરંતુ કેટલાક મોડલ (દા.ત. નવા ક્વેન રીલિઝ) તેને વધુ સારા મલ્ટી-ટર્ન રિઝનિંગ માટે રાખવાની ભલામણ કરે છે.",
+  "providerAlreadyExists": "{{name}} નામનું પ્રદાતા પહેલેથી અસ્તિત્વમાં છે."
+}

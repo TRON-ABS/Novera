@@ -1,0 +1,50 @@
+{
+  "welcome": "السلام عليكم، أخبارك شنو؟",
+  "description": "أقدر أساعدك كيف الليلة؟",
+  "temporaryChat": "محادثة مؤقتة",
+  "temporaryChatDescription": "ابدأ محادثة مؤقتة لن تُحفظ في سجل المحادثات.",
+  "status": {
+    "empty": "ما لقينا دردشات"
+  },
+  "sendMessage": "أرسل رسالة",
+  "newConversation": "دردشة جديدة",
+  "clearHistory": "امسح السجل",
+  "embeddings": {
+    "title": "جارٍ تجهيز مستنداتك",
+    "description": "تجري فهرسة الملفات المرفقة حتى يمكن البحث فيها والاستشهاد بها. قد يستغرق ذلك بعض الوقت مع المستندات الكبيرة."
+  },
+  "actions": {
+    "regenerate": "ولّد الرد من جديد",
+    "askAgain": "اسأل تاني",
+    "continue": "واصل التوليد",
+    "remember": "اتذكّر الحاجة دي",
+    "rememberSaved": "اتحفظ في الذاكرة باسم \"{{name}}\"",
+    "rememberExists": "موجود في الذاكرة من قبل باسم \"{{name}}\"",
+    "rememberFailed": "ما قدرنا نحفظه في الذاكرة"
+  },
+  "done": "تمّ",
+  "webSources": "عدد المصادر: {{count}}",
+  "reasoning": {
+    "label": "التفكير...",
+    "thinking": "يفكّر",
+    "working": "جارٍ العمل...",
+    "showFullTimeline": "عرض التسلسل الزمني الكامل",
+    "showCurrentStep": "عرض الخطوة الحالية فقط",
+    "thoughtForAWhile": "استغرق التفكير بضع ثوانٍ",
+    "thoughtFor": "استغرق التفكير {{duration}}",
+    "workedForAWhile": "استغرق العمل بضع ثوانٍ",
+    "workedFor": "استغرق العمل {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "النسخة الفاتت",
+    "nextVersion": "النسخة الجاية",
+    "generationFailed": "التوليد ما نجح"
+  },
+  "messageStats": {
+    "details": "إحصاءات التوليد",
+    "generation": "التوليد",
+    "reading": "القراءة",
+    "tokens": "الرموز",
+    "perSecond": "رمز/ث"
+  }
+}

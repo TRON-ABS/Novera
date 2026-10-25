@@ -59,7 +59,7 @@ Confidentialité ; le filtre des données envoyées est inchangé.
 
 ### Paramètres et outils
 
-La rangée sous chaque message utilise des infobulles et noms accessibles traduits pour copier/copier terminé, mémoriser, modifier, supprimer, redemander, continuer, régénérer et parcourir les versions. La jauge ouvre les statistiques dans les modes compact et détaillé ; ses libellés et unités suivent la langue. La date des messages et les nombres utilisent la langue sélectionnée, avec adaptation des codes de catalogue non standard pour `Intl`. Les exemples et dialogues de confirmation de suppression des messages sont localisés. Ces textes sont présents dans les 36 catalogues.
+La rangée sous chaque message utilise des infobulles et noms accessibles traduits pour copier/copier terminé, mémoriser, modifier, supprimer, redemander, continuer, régénérer et parcourir les versions. La jauge ouvre les statistiques dans les modes compact et détaillé ; ses libellés et unités suivent la langue. La date des messages et les nombres utilisent la langue sélectionnée, avec adaptation des codes de catalogue non standard pour `Intl`. Les exemples et dialogues de confirmation de suppression des messages sont localisés. Ces textes sont présents dans les 40 catalogues.
 
 La recherche Internet est activée par défaut pour un nouveau profil ou un ancien profil sans préférence valide. Un choix booléen déjà enregistré, notamment une désactivation manuelle, reste conservé au redémarrage. Aucune préférence du profil utilisateur n’a été modifiée par cette mise à jour des sources.
 
@@ -147,7 +147,7 @@ Le test est interdit pendant une génération de discussion ou Cowork, annulé s
 
 Catalogue vérifié le **25 octobre 2026** dans les documentations et catalogues officiels. Novera propose **18 fournisseurs prédéfinis** et **57 modèles de conversation présélectionnés**, dont sept nouveaux fournisseurs : DeepSeek, Kimi (Moonshot AI), Alibaba Cloud (Qwen), Cerebras, Together AI, Fireworks AI et Perplexity.
 
-Les sélections de conversation sont centralisées dans `web-app/src/constants/cloudModels.ts`. Elles offrent des modèles actuels sans prétendre reproduire tous les catalogues commerciaux. Les noms de marques et identifiants API restent identiques dans les 36 langues ; toute nouvelle explication d’interface est traduite dans les 36 langues.
+Les sélections de conversation sont centralisées dans `web-app/src/constants/cloudModels.ts`. Elles offrent des modèles actuels sans prétendre reproduire tous les catalogues commerciaux. Les noms de marques et identifiants API restent identiques dans les 40 langues ; toute nouvelle explication d’interface est traduite dans les 40 langues.
 
 Les sept fournisseurs ajoutés disposent de logos officiels embarqués. Voir la [provenance et la procédure de maintenance des logos](DEVELOPMENT.md#logos).
 
@@ -177,7 +177,7 @@ Les sept fournisseurs ajoutés disposent de logos officiels embarqués. Voir la 
 ### Configuration et actualisation
 
 - Une clé API du fournisseur est nécessaire. Aucune clé utilisateur n’a été lue ni utilisée pour cette vérification ; aucun appel d’inférence payant n’a été lancé.
-- Alibaba utilise une URL propre à l’espace de travail et à la région. Le champ est modifiable, comme pour Azure. Remplacer `YOUR-WORKSPACE-ID` et sélectionner la région correspondant à la clé. L’aide est traduite dans les 36 langues.
+- Alibaba utilise une URL propre à l’espace de travail et à la région. Le champ est modifiable, comme pour Azure. Remplacer `YOUR-WORKSPACE-ID` et sélectionner la région correspondant à la clé. L’aide est traduite dans les 40 langues.
 - Perplexity utilise désormais `/v1/responses` avec l’adaptateur OpenAI existant. Les anciens préréglages Sonar Chat Completions ne sont plus proposés par défaut.
 - Le bouton d’actualisation sait lire les catalogues des nouveaux fournisseurs lorsqu’ils exposent `/models`. Il conserve au maximum dix modèles récents, filtre les services non conversationnels reconnus et exploite les métadonnées de capacités disponibles. Les dates égales ou absentes utilisent l’ordre de la sélection vérifiée avant le tri alphabétique.
 - Un modèle inconnu reste limité au texte tant que ses capacités ne sont pas confirmées. Le catalogue NVIDIA ne fournit pas ces capacités : ses nouvelles sélections sont volontairement limitées au texte dans Novera. La disponibilité commerciale d’un modèle ne prouve pas la compatibilité complète de toutes ses fonctions.
@@ -190,7 +190,7 @@ Les sept fournisseurs ajoutés disposent de logos officiels embarqués. Voir la 
 2. Actualiser `web-app/src/constants/cloudModels.ts`, y compris `CLOUD_CATALOG_VERIFIED_AT`. Ne déclarer les outils ou la vision que sur preuve officielle. Conserver les choix de gamme et ne pas remplacer silencieusement un modèle choisi par l’utilisateur.
 3. Pour un fournisseur ajouté ou une API modifiée, contrôler `constants/providers.ts`, `lib/remoteModelCatalog.ts`, `lib/model-factory.ts`, `lib/providerCaps.ts` et les noms affichés dans `lib/utils.ts`. Les modèles Azure restent liés aux noms des déploiements du compte.
 4. Préserver les clés, adresses personnalisées, réglages, modèles importés et suppressions volontaires. Tester l’actualisation, les réponses vides ou invalides et les erreurs d’accès sans effacer la liste existante.
-5. Traduire tout texte d’interface ajouté ou modifié dans les **36 langues prises en charge**, puis actualiser `docs/language-support.json` et `docs/LANGUAGES.md`. Les marques et identifiants techniques gardent leur écriture officielle.
+5. Traduire tout texte d’interface ajouté ou modifié dans les **40 langues prises en charge**, puis actualiser `docs/language-support.json` et `docs/LANGUAGES.md`. Les marques et identifiants techniques gardent leur écriture officielle.
 6. Exécuter les tests concernés du catalogue, du service des fournisseurs, de la fusion des modèles et de l’écran de configuration ; vérifier TypeScript sans émission et `python scripts/check-novera-locales.py`. Vérifier aussi l’architecture si ses frontières changent. Distinguer les tests simulés des appels réellement validés avec un compte autorisé.
 7. Mettre à jour ce document, `PR.md` et `TABLEAU_DE_BORD_NOVERA.md` avec les résultats réels et les limites. La mise à jour de cette documentation ne déclenche ni compilation, ni publication, ni activation de GitHub Actions.
 

@@ -2,6 +2,10 @@
 
 Les entrées ci-dessous décrivent des étapes datées. Elles ne remplacent pas [l’état courant des sources et du binaire](../TABLEAU_DE_BORD_NOVERA.md). Les journaux bruts, caches et exécutables restent locaux.
 
+## 25 octobre — quatre locales supplémentaires
+
+Ajout du gujarati, kannada, arabe levantin et arabe soudanais : **40 catalogues**, chacun à **1 516/1 516 clés**. Sélecteur, typage, détection système, persistance, formats régionaux et RTL sont raccordés. Méthodes et limites linguistiques dans [Langues](LANGUAGES.md). Les 36 anciens catalogues sont inchangés ; relecture native des nouveaux textes ouverte. Validation : 660 tests ciblés réussis dans 45 fichiers, TypeScript sans émission, catalogues et architecture sans erreur. Aucune compilation applicative, modification de profil ou activation de CI pour cet ajout.
+
 <a id="history"></a>
 
 ## 25 octobre 2026 — documentation regroupée

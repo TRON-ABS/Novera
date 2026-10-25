@@ -15,7 +15,9 @@ describe('system language matching', () => {
     ['zh-Hans-HK', 'zh-CN'], ['zh-Hant', 'zh-TW'], ['zh-HK', 'zh-TW'],
     ['vi-VN', 'vn'], ['fa-AF', 'fa-IR'], ['fil-PH', 'tl'],
     ['pa-Arab-PK', 'pnb'], ['pa-IN', 'en'], ['yue-Hant-HK', 'yue'],
-    ['ar-EG', 'ar'], ['arz-EG', 'arz'], ['en-US', 'en'], ['sv-SE', 'en'],
+    ['gu-IN', 'gu'], ['kn-IN', 'kn'], ['apc-LB', 'apc'], ['apd-SD', 'apd'],
+    ['ar-LB', 'apc'], ['ar-SY', 'apc'], ['ar-JO', 'apc'], ['ar-PS', 'apc'],
+    ['ar-SD', 'apd'], ['ar-SA', 'ar'], ['ar-EG', 'ar'], ['arz-EG', 'arz'], ['en-US', 'en'], ['sv-SE', 'en'],
   ])('matches %s to %s', (tag, language) => {
     expect(matchSystemLanguage([tag])).toBe(language)
   })

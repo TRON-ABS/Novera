@@ -1,6 +1,6 @@
 export const supportedLanguages = [
   'en', 'bn', 'ar', 'ur', 'pcm', 'arz', 'mr', 'te', 'ta', 'sw', 'ha',
-  'pnb', 'tl', 'pt-PT', 'yue', 'wuu', 'fa-IR', 'am', 'th', 'jv',
+  'pnb', 'tl', 'pt-PT', 'yue', 'wuu', 'fa-IR', 'am', 'th', 'jv', 'gu', 'kn', 'apc', 'apd',
   'es', 'fr', 'it', 'hi', 'id', 'pl', 'vn', 'zh-CN', 'zh-TW',
   'de-DE', 'cs', 'pt-BR', 'ko', 'ja', 'ru', 'ca',
 ] as const satisfies readonly Language[]
@@ -26,6 +26,8 @@ export function matchSystemLanguage(preferences: readonly string[]): Language {
       if (language === 'vi' || language === 'vn') return 'vn'
       if (language === 'fa') return 'fa-IR'
       if (language === 'fil') return 'tl'
+      if (language === 'ar' && ['LB', 'SY', 'JO', 'PS'].includes(tag.region ?? '')) return 'apc'
+      if (language === 'ar' && tag.region === 'SD') return 'apd'
       if (language === 'pa' && (tag.script === 'Arab' || (!tag.script && tag.region === 'PK'))) return 'pnb'
       if (isSupportedLanguage(language)) return language
     } catch {
