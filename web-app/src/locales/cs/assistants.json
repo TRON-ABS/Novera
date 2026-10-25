@@ -31,5 +31,12 @@
   "personality": "Osobnost",
   "capabilities": "Schopnosti",
   "instructionsDateHint": "Tip: Použijte {{current_date}} pro vložení dnešního data.",
-  "maxToolSteps": "Maximum kroků nástroje"
+  "maxToolSteps": "Maximum kroků nástroje",
+  "deleteFailed": "Asistenta nelze smazat. Zkuste to prosím znovu.",
+  "setAsDefault": "Nastavit jako výchozího asistenta",
+  "isDefault": "Výchozí",
+  "defaultAssistantSection": "Výchozí asistent",
+  "defaultAssistantDesc": "Používá se při zahájení nového chatu",
+  "allAssistants": "Všichni asistenti",
+  "lastUsed": "Naposledy použito"
 }

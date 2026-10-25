@@ -24,5 +24,7 @@
   "active": "Actiu",
   "performance": "Rendiment",
   "resources": "Recursos",
-  "refresh": "Actualitza"
+  "refresh": "Actualitza",
+  "gpus": "GPU",
+  "vram": "VRAM"
 }

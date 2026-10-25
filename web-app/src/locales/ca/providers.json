@@ -31,7 +31,9 @@
     "description": "Segur que vols suprimir aquest model? Aquesta acció no es pot desfer.",
     "success": "El model {{modelId}} s’ha suprimit definitivament.",
     "cancel": "Cancel·la",
-    "delete": "Suprimeix"
+    "delete": "Suprimeix",
+    "importedDescription": "Eliminar aquest model importat de Novera? El vostre fitxer local al disc no se suprimirà.",
+    "removeFromJan": "Eliminar de Novera"
   },
   "deleteProvider": {
     "title": "Suprimeix el proveïdor",
@@ -54,12 +56,72 @@
     "warning": {
       "title": "Ves amb compte",
       "description": "Modificar les capacitats del model pot afectar el rendiment i la funcionalitat. Una configuració incorrecta pot provocar comportaments inesperats o errors."
-    }
+    },
+    "audio": "Àudio",
+    "video": "Vídeo"
   },
   "addProvider": "Afegeix un proveïdor",
   "addOpenAIProvider": "Afegeix un proveïdor d’OpenAI",
   "enterNameForProvider": "Introdueix el nom del proveïdor",
   "baseUrl": {
-    "alibabaDescription": "Utilitzeu el punt de connexió del vostre espai de treball d’Alibaba Cloud i de la seva regió. Substituïu YOUR-WORKSPACE-ID per l’ID de l’espai i feu servir una clau API de la mateixa regió."
+    "alibabaDescription": "Utilitzeu el punt de connexió del vostre espai de treball d’Alibaba Cloud i de la seva regió. Substituïu YOUR-WORKSPACE-ID per l’ID de l’espai i feu servir una clau API de la mateixa regió.",
+    "title": "Base URL",
+    "azureDescription": "El vostre punt final d'Azure OpenAI. Substituïu YOUR-RESOURCE-NAME pel nom del vostre recurs Azure."
+  },
+  "limitedSupport": "És possible que aquest proveïdor no sigui totalment compatible. Les capacitats (eines, visió, àudio) no es detecten automàticament: afegiu models manualment i configureu les capacitats per model.",
+  "mlxExperimental": "El suport de MLX és experimental. Les incrustacions no estan disponibles, el commutador de raonament encara no està connectat i algunes arquitectures de models més noves poden no carregar-se. Informa de problemes a GitHub perquè puguem prioritzar-los.",
+  "engineBundled": "El motor d'inferència està integrat a Novera, de manera que no hi ha res per descarregar ni actualitzar per separat. Citeu aquesta versió quan informeu d'un model que no es pot carregar.",
+  "engineOtherVersion": "Necessites una versió diferent de llama.cpp? Executeu el vostre propi llama-server i afegiu-lo com a proveïdor personalitzat compatible amb OpenAI.",
+  "engineOtherVersionLink": "Com fer-ho",
+  "engineReleaseNotes": "Notes de la versió",
+  "engineBuild": "Construeix",
+  "engineCommit": "Compromís",
+  "backendInstalled": "Instal·lat",
+  "backendHistoryShow": "Mostra l'historial d'actualitzacions",
+  "backendHistoryHide": "Amaga l'historial d'actualitzacions",
+  "backendHistoryLoading": "S'està carregant l'historial d'actualitzacions...",
+  "backendHistoryEmpty": "Encara no s'han registrat actualitzacions de fons.",
+  "backendHistoryNone": "cap",
+  "backendHistoryUpdated": "Actualitzat",
+  "backendHistoryRolledBack": "Enrotllat",
+  "backendHistoryRollbackFailed": "No s'ha pogut revertir",
+  "backendHistoryFailed": "Ha fallat",
+  "chatModels": "Models de xat",
+  "embeddingModels": "Incorporació de models",
+  "embeddingModelsDesc": "S'utilitza per a RAG i cerca vectorial. El model seleccionat esdevé el predeterminat quan es generen incrustacions.",
+  "embeddingModelDefault": "Per defecte",
+  "embeddingModelSetDefault": "Estableix com a model d'inserció predeterminat",
+  "embeddingModelIsDefault": "Model d'inserció predeterminat",
+  "imported": "Importat",
+  "importedTooltip": "Importat des d'un fitxer local. En eliminar-lo de Novera no se suprimirà el fitxer del disc.",
+  "noModelFoundRemoteDesc": "Els models disponibles es mostraran aquí. Utilitzeu el botó d'actualització de dalt per obtenir models del proveïdor o afegiu-ne un manualment amb el botó +.",
+  "deleteAllModels": {
+    "button": "Suprimeix-ho tot",
+    "title": "Vols suprimir tots els models baixats?",
+    "description": "Això eliminarà permanentment els models {{count}} del disc.",
+    "sizeLabel": "Espai en disc per alliberar:",
+    "calculating": "S'està calculant...",
+    "warning": "Aquesta acció no es pot desfer.",
+    "importedExcluded": "Els models importats {{count}} es mantindran (els seus fitxers no els va baixar Novera).",
+    "confirm": "Suprimeix els models {{count}}",
+    "deleting": "S'està suprimint...",
+    "success": "S'han suprimit els models {{count}}.",
+    "partialFailure": "No s'han pogut suprimir els models {{count}}. Vegeu la consola per obtenir més informació."
+  },
+  "apiKeys": {
+    "title": "Tecles API",
+    "description": "Introduïu la vostra clau API. Podeu afegir claus addicionals a Avançat i Novera provarà la següent automàticament si una clau falla.",
+    "placeholder": "sk-…\nsk-…",
+    "primaryPlaceholder": "Introduïu la clau primària API",
+    "keyPlaceholder": "Introduïu la clau API",
+    "primaryBadge": "Primària",
+    "test": "Tecles de prova",
+    "testing": "Prova...",
+    "testHint": "Comprova /models amb cada clau i mostra l'estat de cada tecla.",
+    "advanced": "Avançat",
+    "hideAdvanced": "Amaga avançat",
+    "oneKeyHint": "Les tecles alternatives opcionals es configuren a Avançat.",
+    "addKey": "Afegeix la clau",
+    "removeKey": "Elimina la clau"
   }
 }

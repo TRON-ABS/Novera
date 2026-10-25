@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "Seleccionar modelo de enrutado…",
     "routerModelSearchPlaceholder": "Buscar modelos…",
     "routerModelEmptyList": "No hay modelos ligeros disponibles. Añada un modelo más pequeño o configure las claves API en Modelos.",
-    "routerModelEmptySearch": "No hay coincidencias para «{{query}}»."
+    "routerModelEmptySearch": "No hay coincidencias para «{{query}}».",
+    "maxToolOutputChars": "Máximo de caracteres de salida de herramienta",
+    "maxToolOutputCharsDesc": "El resultado de la herramienta más largo mantenido en la conversación. Todo lo que pase más allá de esto se recorta y se marca como truncado, por lo que un resultado grande no puede agotar el contexto del modelo. Establezca en 0 para mantener los resultados completos."
+  },
+  "auth": {
+    "label": "Autenticación:",
+    "state": {
+      "notApplicable": "no requerido",
+      "staticHeader": "Encabezado de autorización",
+      "authenticated": "autenticado",
+      "expired": "caducado",
+      "staleResource": "emitido para otro URL",
+      "unauthenticated": "no autenticado"
+    },
+    "expiresIn": "caduca en {{duration}}",
+    "authenticate": "Iniciar sesión",
+    "reauthenticate": "Volver a autenticar",
+    "clear": "Borrar autenticación",
+    "waiting": "Esperando el navegador...",
+    "openSignInPage": "Abra la página de inicio de sesión",
+    "needsAuth": "{{serverName}} necesita autenticación",
+    "needsAuthHint": "Inicie sesión en este servidor para conectarse.",
+    "authorized": "Iniciado sesión en {{serverName}}",
+    "authorizeFailed": "Error al iniciar sesión en {{serverName}}",
+    "cleared": "Se borraron las credenciales almacenadas para {{serverName}}",
+    "nothingToClear": "{{serverName}} no tenía credenciales almacenadas",
+    "clearFailed": "No se pudieron borrar las credenciales para {{serverName}}",
+    "renew": "Renovar sesión",
+    "expiredAgo": "hace {{duration}} caducado"
   }
 }

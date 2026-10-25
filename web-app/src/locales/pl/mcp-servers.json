@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "Wybierz model routowania…",
     "routerModelSearchPlaceholder": "Szukaj modeli…",
     "routerModelEmptyList": "Brak lekkich modeli. Dodaj mniejszy model lub skonfiguruj klucze API w sekcji Modele.",
-    "routerModelEmptySearch": "Brak wyników dla „{{query}}”."
+    "routerModelEmptySearch": "Brak wyników dla „{{query}}”.",
+    "maxToolOutputChars": "Maksymalna liczba znaków wyjściowych narzędzia",
+    "maxToolOutputCharsDesc": "Najdłuższy wynik narzędzia zachowany w rozmowie. Wszystko poza tym jest przycinane i oznaczane jako obcięte, więc jeden duży wynik nie może wyczerpać kontekstu modelu. Ustaw na 0, aby zachować wyniki w całości."
+  },
+  "auth": {
+    "label": "Autoryzacja:",
+    "state": {
+      "notApplicable": "nie jest wymagane",
+      "staticHeader": "Nagłówek autoryzacji",
+      "authenticated": "uwierzytelnione",
+      "expired": "wygasło",
+      "staleResource": "wydany dla innego URL",
+      "unauthenticated": "nie został uwierzytelniony"
+    },
+    "expiresIn": "wygasa w {{duration}}",
+    "authenticate": "Zaloguj się",
+    "reauthenticate": "Uwierzytelnij ponownie",
+    "clear": "Wyczyść uwierzytelnienie",
+    "waiting": "Oczekiwanie na przeglądarkę...",
+    "openSignInPage": "Otwórz stronę logowania",
+    "needsAuth": "{{serverName}} wymaga uwierzytelnienia",
+    "needsAuthHint": "Zaloguj się do tego serwera, aby się połączyć.",
+    "authorized": "Zalogowano się do {{serverName}}",
+    "authorizeFailed": "Logowanie do {{serverName}} nie powiodło się",
+    "cleared": "Wyczyszczono zapisane dane uwierzytelniające dla {{serverName}}",
+    "nothingToClear": "{{serverName}} nie miał zapisanych żadnych danych uwierzytelniających",
+    "clearFailed": "Nie można wyczyścić danych uwierzytelniających dla {{serverName}}",
+    "renew": "Odnów sesję",
+    "expiredAgo": "wygasło {{duration}} temu"
   }
 }

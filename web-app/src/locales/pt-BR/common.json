@@ -61,7 +61,21 @@
   "deny": "Negar",
   "start": "Iniciar",
   "stop": "Parar",
-  "preview": "Visualizar",
+  "preview": {
+    "loading": "Abertura…",
+    "unsupported": "Novera não pode mostrar este tipo de arquivo. Abra-o para vê-lo em outro aplicativo.",
+    "outside": "Este arquivo não está mais na área de trabalho da sessão.",
+    "tooLarge": "Grande demais para visualização. Abra-o para vê-lo em outro aplicativo.",
+    "reload": "Recarregar",
+    "allowNetwork": "Permitir rede",
+    "unsandboxed": "Executar sem sandbox: dados salvos e arquivos locais funcionam",
+    "unresolvedRefs_one": "1 arquivo vinculado a esta página não pode ser carregado na visualização. Abra-o para vê-lo em um navegador.",
+    "unresolvedRefs_other": "Os arquivos {{count}} aos quais esta página está vinculada não podem ser carregados na visualização. Abra-o para vê-lo em um navegador.",
+    "externalRefs_one": "1 recurso que esta página carrega da web está bloqueado. Ative \"Permitir rede\" para carregá-lo.",
+    "externalRefs_other": "Os recursos {{count}} que esta página carrega da web estão bloqueados. Ative \"Permitir rede\" para carregá-los.",
+    "scriptErrors_one": "A página relatou um erro: {{message}}",
+    "scriptErrors_other": "A página relatou erros {{count}}. Primeiro: {{message}}"
+  },
   "compactWidth": "Largura Compacta",
   "fullWidth": "Largura Completa",
   "dark": "Escuro",
@@ -222,7 +236,32 @@
   "modelSettings": {
     "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
     "title": "Configurações do Modelo - {{modelId}}",
-    "description": "Configure as configurações do modelo para otimizar desempenho e comportamento."
+    "description": "Configure as configurações do modelo para otimizar desempenho e comportamento.",
+    "samplingDefaults": {
+      "title": "Parâmetros de amostragem padrão",
+      "description": "Configurações padrão do amostrador para este modelo. Usado, a menos que seja substituído por valores por assistente ou por solicitação."
+    },
+    "specDraft": {
+      "section": "Decodificação especulativa",
+      "enable": "Habilitar decodificação especulativa",
+      "enableDescription": "Elabore vários tokens por etapa e verifique-os em uma única passagem, o que acelera a geração. Usa os cabeçotes MTP integrados do modelo ou o modelo preliminar baixado com ele (MTP, Eagle3, DFlash ou DSpark).",
+      "nMax": "Máximo de tokens de draft",
+      "nMaxDescription": "Número máximo de tokens para draftar por etapa. Padrão 16.",
+      "nMin": "Tokens de rascunho mínimo",
+      "nMinDescription": "Número mínimo de tokens para draftar por etapa. Padrão 0.",
+      "pMin": "Probabilidade mínima de draft",
+      "pMinDescription": "Probabilidade mínima para elaboração gananciosa (0–1). Padrão 0,75."
+    },
+    "templateKwargs": {
+      "section": "Opções de modelo de bate-papo",
+      "description": "Opções extras que o modelo de chat deste modelo aceita. Enviado como chat_template_kwargs em cada solicitação; deixe um valor padrão para deixar o modelo decidir.",
+      "addCustom": "Adicionar opção personalizada",
+      "keyPlaceholder": "nome\nvalor",
+      "valuePlaceholder": "valor",
+      "add": "Adicionar",
+      "cancel": "Cancelar",
+      "remove": "Remover"
+    }
   },
   "dialogs": {
     "changeDataFolder": {
@@ -248,6 +287,10 @@
     },
     "deleteMessage": {
       "description": "Tem certeza de que deseja excluir esta mensagem? Esta ação não pode ser desfeita."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Excluir todas as conversas",
+      "description": "As conversas {{count}} em \"{{projectName}}\" serão excluídas. Esta ação não pode ser desfeita."
     }
   },
   "projects": {
@@ -288,7 +331,13 @@
       "updateButton": "Atualizar",
       "alreadyExists": "Projeto \"{{projectName}}\" já existe",
       "createSuccess": "Projeto \"{{projectName}}\" criado com sucesso",
-      "renameSuccess": "Projeto renomeado de \"{{oldName}}\" para \"{{newName}}\""
+      "renameSuccess": "Projeto renomeado de \"{{oldName}}\" para \"{{newName}}\"",
+      "assistant": "Assistente",
+      "selectAssistant": "Selecione um assistente (opcional)",
+      "noAssistant": "Sem assistente",
+      "addAssistant": "Adicionar assistente",
+      "updateSuccess": "Projeto \"{{projectName}}\" atualizado com sucesso",
+      "saveError": "Não foi possível salvar o projeto. Por favor, tente novamente."
     },
     "noConversationsIn": "Nenhuma Conversa em {{projectName}}",
     "startNewConversation": "Inicie uma nova conversa com {{projectName}} abaixo",
@@ -304,7 +353,16 @@
     "noProjectsFound": "Nenhum projeto encontrado",
     "tryDifferentSearch": "Tente um termo de busca diferente",
     "uploadingFiles": "Processando arquivos…",
-    "processButton": "Adicionar"
+    "processButton": "Adicionar",
+    "selectAssistant": "Selecionar assistente",
+    "noAssistantAssigned": "Nenhum assistente atribuído a este projeto",
+    "files": "Arquivos",
+    "filesDescription": "Adicione PDFs, documentos ou outro texto para referência neste projeto.",
+    "conversation": "Conversa",
+    "instructions": "Instruções",
+    "setup": "Configuração",
+    "instructionsDescription": "Personalize o tom e o estilo de resposta",
+    "manageInstructions": "Gerenciar instruções"
   },
   "errorDialog": {
     "titleFallback": "Algo deu errado",
@@ -357,7 +415,16 @@
     },
     "downloadFailed": {
       "title": "Falha no Download",
-      "description": "Falha no download de {{item}}"
+      "description": "Falha no download de {{item}}",
+      "descriptionWithReason": "Falha no download de {{item}}: {{reason}}",
+      "reason": {
+        "dns": "o nome do servidor não pôde ser resolvido",
+        "refused": "a conexão foi recusada",
+        "timeout": "a conexão expirou",
+        "tls": "não foi possível estabelecer uma conexão segura",
+        "proxy": "o proxy não pôde ser alcançado",
+        "unreachable": "o servidor não pôde ser alcançado"
+      }
     },
     "modelValidationStarted": {
       "title": "Validando Modelo",
@@ -398,6 +465,59 @@
     "threadRemovedFromProject": {
       "title": "Conversa Removida",
       "description": "Conversa removida de \"{{projectName}}\" com sucesso"
+    },
+    "openSettings": "Abrir Configurações",
+    "openLogs": "Registros abertos",
+    "downloadTokenRequired": {
+      "title": "Token Hugging Face necessário",
+      "description": "Este modelo requer um token de acesso Hugging Face. Adicione seu token em Configurações e tente novamente."
+    },
+    "downloadLicenseRequired": {
+      "title": "Aceite licença de modelo em Hugging Face",
+      "description": "Você deve aceitar a licença do modelo na página Hugging Face antes de fazer o download."
+    },
+    "downloadRateLimited": {
+      "title": "Taxa limitada por Hugging Face",
+      "description": "Sua taxa foi limitada. Adicionar um token pode aumentar os limites de taxa. Por favor, tente novamente mais tarde."
+    },
+    "fileUploaded": {
+      "title": "Arquivo processado",
+      "description": "O arquivo foi processado e indexado com sucesso"
+    },
+    "uploadFailed": {
+      "title": "Falha no processamento",
+      "description": "Falha ao processar arquivo",
+      "subjectThisFile": "Este arquivo",
+      "pdfMalformedXref": "{{subject}} possui uma tabela de referência cruzada PDF malformada e não pôde ser analisada. Tente abri-lo em um visualizador PDF e salvá-lo novamente (Arquivo → Imprimir → Salvar como PDF) e faça upload novamente.",
+      "pdfScanned": "{{subject}} parece ser um PDF digitalizado ou baseado em imagem. OCR ainda não é compatível. Faça upload de um PDF baseado em texto.",
+      "pdfEncrypted": "{{subject}} é protegido por senha. Remova a senha e tente novamente.",
+      "pdfUnsupportedFeature": "{{subject}} usa um recurso PDF que Novera ainda não pode analisar (por exemplo, funções de cor/sombreamento PostScript). Tente salvá-lo novamente (Arquivo → Imprimir → Salvar como PDF) para nivelá-lo e carregue novamente.",
+      "pdfGeneric": "{{subject}} não pôde ser analisado como PDF. O arquivo pode estar corrompido ou usar um recurso PDF não compatível.",
+      "fileTooLarge": "{{subject}} é muito grande. {{message}}.",
+      "unsupportedType": "O tipo de arquivo \"{{type}}\" não é suportado.",
+      "ioError": "Não foi possível ler {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} não pôde ser analisado: {{message}}",
+      "fallback": "Falha ao processar {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Arquivo excluído",
+      "description": "O arquivo foi removido do projeto"
+    },
+    "deleteFailed": {
+      "title": "Falha na exclusão",
+      "description": "Falha ao excluir arquivo"
+    },
+    "fileAlreadyExists": {
+      "title": "O arquivo já existe",
+      "description": "O arquivo já está anexado a este projeto"
+    },
+    "unsupportedFileType": {
+      "title": "Tipo de arquivo não suportado",
+      "description": "A extensão de arquivo \".{{extension}}\" não é suportada para referência de projeto."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Anexos desativados",
+      "description": "Os anexos estão desativados nas configurações"
     }
   },
   "attachmentInjectedIndicator": "Injetado no chat",
@@ -425,5 +545,265 @@
   "errorTracking": {
     "title": "Monitoramento de erros",
     "summary": "Relatórios opcionais para {{host}}: tipo de erro, posição no código, versão e sistema operacional. Sem conversas, mensagens de erro originais ou chaves. Desative quando quiser."
-  }
+  },
+  "htmlArtifact": {
+    "code": "Código",
+    "preview": "Visualização",
+    "previewStreaming": "Disponível quando a geração termina",
+    "unresolvedAssets_one": "1 referência de ativo não pode ser carregada na visualização. Os caminhos relativos não têm base URL para resolver.",
+    "unresolvedAssets_other": "As referências de ativos {{count}} não podem ser carregadas na visualização. Os caminhos relativos não têm base URL para resolver."
+  },
+  "remote_access": "Acesso Remoto",
+  "integrations": "Integrações",
+  "claude_code": "Código Claude",
+  "web_search": "Pesquisa na Web",
+  "shell": "Concha",
+  "browse": "Navegar",
+  "moreControls": "Mais controles",
+  "starting": "Iniciando...",
+  "activeSuffix": "(Ativo)",
+  "hideProvider": "Ocultar provedor",
+  "showProvider": "Mostrar provedor",
+  "interface": "Interface",
+  "home": "Página inicial",
+  "cowork": "Cowork",
+  "newSession": "Nova sessão",
+  "artifacts": "Artefatos",
+  "customize": "Personalizar",
+  "local": "Locais",
+  "selectFolder": "Selecione a pasta",
+  "selectModel": "Selecione um modelo primeiro",
+  "commands": "Comandos",
+  "cmdHelp": "Listar comandos disponíveis",
+  "cmdClear": "Limpar esta sessão",
+  "cmdModels": "Trocar o modelo ativo",
+  "cmdModelsHint": "Digite /models e escolha um modelo da lista",
+  "cmdModelSwitched": "Mudou para {{name}}",
+  "cmdUnknown": "Comando desconhecido: {{name}}. Experimente /help",
+  "cmdBusy": "Não é possível fazer isso enquanto o agente está em execução",
+  "cmdCompact": "Compacte o contexto da sessão em um resumo",
+  "cmdCompacted": "Mensagens {{before}} compactadas -> {{after}}",
+  "cmdNothingToCompact": "Nada para compactar ainda",
+  "cmdCompactFailed": "Falha na compactação: {{error}}",
+  "cmdPlan": "Alternar modo de plano (somente leitura: o agente propõe sem escrever)",
+  "cmdPlanOn": "Modo planejamento ativado: o agente lê e propõe sem escrever",
+  "cmdPlanOff": "Modo de planejamento desativado: execução normal",
+  "cmdTodo": "Abra o painel de progresso",
+  "cmdTasks": "Abra o painel de tarefas em segundo plano",
+  "cmdInit": "Estude o projeto e habilidades de escrita e memória",
+  "cmdInitRunning": "Integrando este projeto",
+  "skills": "Habilidades",
+  "skillsInContext": "Habilidades disponíveis para o agente nesta execução",
+  "skillsTitle": "Gerenciar habilidades",
+  "skillsScopeProject": "Habilidades para {{folder}}",
+  "skillsScopeGlobal": "Habilidades globais, disponíveis para todas as sessões",
+  "skillsScopeMerged": "Habilidades para {{folder}}, além das habilidades globais que cada sessão compartilha\npasta",
+  "skillOriginFolder": "pasta",
+  "skillOriginGlobal": "global",
+  "skillsEmpty": "Nenhuma habilidade ainda",
+  "skillsPickOrNew": "Selecione uma habilidade para editar ou crie uma nova.",
+  "skillNew": "Nova habilidade",
+  "skillDelete": "Excluir habilidade",
+  "skillSave": "Salvar",
+  "skillSaved": "Habilidade salva",
+  "skillNameRequired": "O nome da habilidade é obrigatório",
+  "skillNamePlaceholder": "nome da habilidade",
+  "skillContentPlaceholder": "Descreva o procedimento reutilizável no Markdown…",
+  "skillHubImport": "Importar do hub",
+  "skillHubTitle": "Centro de habilidades Anthropic",
+  "skillHubEmpty": "Nenhuma habilidade encontrada no hub",
+  "skillImport": "Importar",
+  "skillReimport": "Reimportar",
+  "skillImported": "Importado {{name}}",
+  "sessions": "Sessões",
+  "deleteSession": "Excluir sessão",
+  "deleteSessionTitle": "Excluir sessão?",
+  "deleteSessionBody": "\"{{title}}\" e sua transcrição serão excluídos permanentemente. Isso não pode ser desfeito.",
+  "analyticsConsentDetail": "Coletamos dados anônimos para entender o uso dos recursos. Seus bate-papos e informações pessoais nunca são rastreados. Você pode alterar isso a qualquer momento em Configurações > Privacidade.",
+  "analyticsConsentQuestion": "Gostaria de nos ajudar a melhorar o Novera?",
+  "searchThreads": "Pesquisar tópicos...",
+  "toNavigate": "para navegar",
+  "toSelect": "para selecionar",
+  "toClose": "para fechar",
+  "clearRecent": "Limpar",
+  "dismiss": "Dispensar",
+  "changes": {
+    "title": "Mudanças de agente",
+    "empty": "Os arquivos que o agente escreve ou edita aparecerão aqui.",
+    "a11y": "Mudanças no agente: arquivos {{files}}, {{additions}} adicionado, {{deletions}} removido"
+  },
+  "modelPanel": {
+    "title": "Configurações do modelo",
+    "a11y": "Abra as configurações do modelo",
+    "contextTooltip": "Janela de contexto: {{value}} de {{max}} tokens"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "A habilidade '{{name}}' não está disponível",
+    "kind": {
+      "skill": "Habilidade",
+      "command": "Comando",
+      "model": "Modelo"
+    }
+  },
+  "multimodal": "Multimodal",
+  "proactive": "Proativo",
+  "noAssistant": "Sem assistente",
+  "settingUpJan": "Inicializando Novera…",
+  "registeringExtensions": "Registrando extensões…",
+  "loadingExtensions": "Carregando extensões… ({{done}}/{{total}})",
+  "continueAiResponse": "Continue com a resposta AI",
+  "modelControls": {
+    "updateFailed": "Não foi possível atualizar as configurações do modelo"
+  },
+  "missingDependenciesDialog": {
+    "title": "Bibliotecas do sistema ausentes",
+    "description": "O {{backend}} foi instalado, mas algumas bibliotecas de sistema necessárias não foram encontradas. Ele pode voltar para CPU ou não funcionar corretamente.",
+    "installLabel": "Para corrigir isso, instale o seguinte:",
+    "download": "Baixar",
+    "additionalLibraries": "Bibliotecas adicionais ausentes:",
+    "missingLibraries": "Bibliotecas ausentes:",
+    "showRawLibraries": "Mostrar nomes de bibliotecas ausentes em {{count}}"
+  },
+  "attachmentsIngestion": {
+    "title": "Escolha como ingerir anexos",
+    "description": "Escolha se deseja incluir esses arquivos diretamente no bate-papo ou indexá-los como embeddings.",
+    "inline": "Injetar no bate-papo",
+    "embeddings": "Use incorporações"
+  },
+  "errors": {
+    "fileTooLarge": "Arquivo muito grande",
+    "fileTooLargeDescription": "{{fileName}} excede o limite {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "Pedaços {{count}}",
+    "title": "Arquivos",
+    "empty": "Os arquivos anexados e os arquivos criados pelo agente aparecerão aqui.",
+    "a11y": "Arquivos: {{count}}",
+    "attachments": "Anexos",
+    "notImported": "não está na área de trabalho"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Recolher",
+  "expand": "Expandir",
+  "todoPanelTitle": "Progresso",
+  "todoPanelEmpty": "Ainda não há lista de tarefas.",
+  "backgroundTasks": "Tarefas em segundo plano",
+  "subagentsRunning_one": "Subagente {{count}} em execução",
+  "subagentsRunning_other": "Subagentes {{count}} em execução",
+  "monitorsRunning_one": "Monitor {{count}} em execução",
+  "monitorsRunning_other": "Monitores {{count}} em execução",
+  "backgroundRunning_one": "Tarefa em segundo plano {{count}} em execução",
+  "backgroundRunning_other": "Tarefas em segundo plano {{count}} em execução",
+  "monitors": "Monitores",
+  "monitorPolling": "Votação",
+  "monitorMatched": "Correspondente",
+  "monitorTimedOut": "Tempo limite esgotado",
+  "monitorStopped": "Parado",
+  "monitorEnded": "Finalizado",
+  "coworkWatching_one": "Assistindo ao monitor {{count}}…",
+  "coworkWatching_other": "Assistindo monitores {{count}}…",
+  "coworkWaitingBackground": "Aguardando tarefas em segundo plano…",
+  "noBackgroundTasks": "Ainda não há tarefas em segundo plano.",
+  "running": "Correndo",
+  "queued": "Na fila",
+  "waiting": "Esperando",
+  "finished": "Concluído",
+  "subagentPhase": "fase {{phase}}",
+  "subagentWaiting": "esperando",
+  "viewTranscript": "Ver transcrição",
+  "taskWorking": "Trabalhando…",
+  "taskNoOutput": "O subagente não produziu nenhuma saída visível.",
+  "subagentToolUses_one": "Uso da ferramenta {{count}}",
+  "subagentToolUses_other": "A ferramenta {{count}} usa",
+  "artifactGroupCode": "Código",
+  "artifactGroupImage": "Imagem",
+  "artifactGroupDocument": "Documento",
+  "artifactGroupVideo": "Vídeo",
+  "artifactGroupAudio": "Áudio",
+  "artifactOpenPreview": "Abrir visualização",
+  "artifactOpenExternal": "Abrir",
+  "artifactMoreActions": "Mais ações",
+  "artifactShowInFolder": "Mostrar na pasta",
+  "skillsUsedLabel": "Habilidades usadas",
+  "skillsUsed": "Habilidades utilizadas: {{skills}}",
+  "artifactsAll": "Todos",
+  "artifactsEmpty": "Nada produzido ainda. Artefatos de corridas de Cowork aparecem aqui.",
+  "artifactsNoMatch": "Nenhum artefato corresponde.",
+  "artifactsSearch": "Pesquisar artefatos",
+  "artifactsShowMore": "Mostrar mais {{count}}",
+  "workspace": {
+    "readsFrom": "Trabalha em",
+    "writable": "ler e escrever",
+    "footnote": "O agente lê e edita esta pasta diretamente. Revise o que mudou no painel de diferenças.",
+    "footnoteEmpty": "Anexe uma pasta para permitir que o agente trabalhe em seu projeto. Ele pode ler e editar arquivos dentro dele.",
+    "attach": "Anexe uma pasta",
+    "change": "Alterar pasta",
+    "detach": "Desanexar pasta",
+    "open": "Abrir",
+    "reveal": "Revelar",
+    "unavailable": "Espaço de trabalho indisponível",
+    "missing": "A pasta do espaço de trabalho {{folder}} não está mais disponível. Escolha uma pasta diferente.",
+    "openFailed": "Não foi possível abrir a área de trabalho",
+    "revealFailed": "Não foi possível revelar o espaço de trabalho",
+    "a11yWithFolder": "Pasta do projeto {{folder}}, anexada com acesso de leitura e gravação. Altere ou desconecte-o.",
+    "a11yNoFolder": "Nenhuma pasta de projeto anexada. Anexe um."
+  },
+  "coworkEmpty": {
+    "title": "No que estamos trabalhando?",
+    "subtitleSandbox": "Dê uma tarefa a Novera. Ele lê e grava arquivos, executa comandos e executa as etapas por conta própria.",
+    "subtitleFolder": "Dê uma tarefa a Novera. Funciona diretamente no {{folder}}, lendo e editando arquivos por conta própria.",
+    "try": "Experimente",
+    "sandbox": {
+      "first": "Escreva um script Python que renomeie os arquivos pela data em que foram obtidos",
+      "second": "Crie um painel de página única a partir de um CSV que irei colar",
+      "third": "Esboce um README para um projeto que descrevo para você"
+    },
+    "folder": {
+      "first": "Explique como {{folder}} é montado",
+      "second": "Encontre todos os TODO em {{folder}} e agrupe-os por área",
+      "third": "Escreva testes para a parte do {{folder}} que indico para você"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Sem terminal",
+    "a11y": "A execução de comandos está desativada. Detalhes.",
+    "title": "A execução de comandos está desativada",
+    "body": "Novera permite que o agente execute comandos shell somente quando seu sistema puder confiná-los. Nenhuma sandbox está disponível aqui, então o agente pode ler, gravar e editar arquivos em sua sandbox — mas não executar nada.",
+    "fixLinux": "Linux usa bubblewrap. Instale-o e reinicie Novera.",
+    "fixMac": "macOS usa a sandbox integrada em /usr/bin/sandbox-exec. Reinicie Novera assim que estiver disponível.",
+    "fixWindows": "Windows usa AppContainer. Reinicie Novera para tentar novamente.",
+    "recheck": "Verifique novamente"
+  },
+  "planMode": {
+    "label": "Plano",
+    "tooltipOff": "Planeje primeiro — o agente lê e propõe, sem escrever.",
+    "tooltipOn": "Planejamento. Desative esta opção para permitir que o agente grave arquivos.",
+    "onAnnounce": "Modo planejamento ativado",
+    "placeholder": "Solicite um plano. O agente não alterará nenhum arquivo."
+  },
+  "budget": {
+    "stoppedSteps": "Parado nas etapas {{max}}. O agente não terminou.",
+    "keepGoing": "Continue",
+    "stoppedTokens": "Parada — esta sessão atingiu seu orçamento de tokens.",
+    "compact": "Compacto",
+    "newSession": "Nova sessão"
+  },
+  "run": {
+    "stopped": "Parado.",
+    "failed": "A corrida parou mais cedo.",
+    "tryAgain": "Tente novamente"
+  },
+  "modelNoTools": "{{model}} não pode chamar ferramentas, portanto não pode atuar como agente. Escolha um modelo de chamada de ferramenta.",
+  "askContinue": "Continuar",
+  "askNext": "Próxima pergunta",
+  "askPrev": "Pergunta anterior",
+  "askRecommended": "Recomendado",
+  "askSelectedCount": "{{count}} selecionado",
+  "askSomethingElse": "Outra coisa",
+  "askSomethingElsePlaceholder": "Digite sua própria resposta",
+  "submit": "Enviar"
 }

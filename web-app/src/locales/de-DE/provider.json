@@ -1,5 +1,18 @@
 {
   "addProvider": "Anbieter hinzufügen",
   "addOpenAIProvider": "OpenAI Anbieter hinzufügen",
-  "enterNameForProvider": "Namen für Anbieter eingeben"
+  "enterNameForProvider": "Namen für Anbieter eingeben",
+  "apiTypeLabel": "API-Format",
+  "apiTypeOpenAI": "OpenAI-kompatibel",
+  "apiTypeAnthropic": "Anthropic-kompatibel",
+  "baseUrlLabel": "Basis URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API-Taste",
+  "apiKeyPlaceholder": "Fügen Sie Ihren API-Schlüssel ein",
+  "invalidBaseUrl": "Basis URL muss ein gültiger http(s) URL sein",
+  "globalSettings": "Globale Einstellungen",
+  "stripReasoning": "Ziehen Sie die Argumentation aus dem Kontext",
+  "stripReasoningDesc": "Entfernen Sie den Denk-/Begründungsinhalt früherer Runden, bevor Sie den Verlauf erneut senden, bei allen Anbietern. Verbessert die Wiederverwendung des KV-caches für lokale Modelle, einige Modelle (z. B. neuere Qwen-Versionen) empfehlen jedoch, ihn für eine bessere Multiturn-Begründung beizubehalten.",
+  "providerAlreadyExists": "Ein Anbieter namens {{name}} existiert bereits."
 }

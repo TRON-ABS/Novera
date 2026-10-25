@@ -62,7 +62,21 @@
   "deny": "拒絕",
   "start": "開始",
   "stop": "停止",
-  "preview": "預覽",
+  "preview": {
+    "loading": "開幕…",
+    "unsupported": "Novera 無法顯示此類檔案。打開它即可在另一個應用程式中查看它。",
+    "outside": "​​該檔案不再位於會話工作區。",
+    "tooLarge": "太大而無法預覽。打開它即可在另一個應用程式中查看它。",
+    "reload": "重新加載",
+    "allowNetwork": "允許網絡",
+    "unsandboxed": "非沙盒運作：已儲存的資料和本機檔案可以運作",
+    "unresolvedRefs_one": "此頁面連結的 1 個檔案無法在預覽中載入。打開它以在瀏覽器中查看它。",
+    "unresolvedRefs_other": "此頁面連結到的 {{count}} 檔案無法在預覽中載入。打開它以在瀏覽器中查看它。",
+    "externalRefs_one": "此頁面從網路載入的 1 個資源被封鎖。打開“允許網路”來載入它。",
+    "externalRefs_other": "{{count}} 此頁面從網路載入的資源被阻止。打開“允許網路”來載入它們。",
+    "scriptErrors_one": "頁面報錯：{{message}}",
+    "scriptErrors_other": "頁面報{{count}}錯誤。第一：{{message}}"
+  },
   "compactWidth": "緊湊寬度",
   "fullWidth": "全寬",
   "dark": "深色",
@@ -224,7 +238,32 @@
   "modelSettings": {
     "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
     "title": "模型設定 - {{modelId}}",
-    "description": "設定模型設定以最佳化效能和行為。"
+    "description": "設定模型設定以最佳化效能和行為。",
+    "samplingDefaults": {
+      "title": "預設取樣參數",
+      "description": "此模型的預設取樣器設定。除非被每個助手或每個請求的值覆蓋，否則使用。"
+    },
+    "specDraft": {
+      "section": "推測解碼",
+      "enable": "啟用推測解碼",
+      "enableDescription": "每一步起草多個詞元並一次驗證它們，從而加快生成速度。使用模型的內建 MTP 頭，或隨其下載的草稿模型（MTP、Eagle3、DFlash 或 DSpark）。",
+      "nMax": "最大草稿詞元",
+      "nMaxDescription": "每步驟起草的最大詞元數。預設 16。",
+      "nMin": "最小草稿詞元",
+      "nMinDescription": "每步驟起草的最小詞元數量。預設 0。",
+      "pMin": "最小選秀機率",
+      "pMinDescription": "貪心起草的最小機率 (0–1)。預設 0.75。"
+    },
+    "templateKwargs": {
+      "section": "聊天範本選項",
+      "description": "此模型的聊天範本接受的額外選項。每個請求均以 chat_template_kwargs 形式發送；保留預設值以讓範本決定。",
+      "addCustom": "新增自訂選項",
+      "keyPlaceholder": "姓名",
+      "valuePlaceholder": "值",
+      "add": "添加",
+      "cancel": "取消",
+      "remove": "刪除"
+    }
   },
   "projects": {
     "title": "專案",
@@ -280,8 +319,23 @@
       "updateButton": "更新",
       "alreadyExists": "專案「{{projectName}}」已存在",
       "createSuccess": "專案「{{projectName}}」已成功建立",
-      "renameSuccess": "專案已從「{{oldName}}」重新命名為「{{newName}}」"
-    }
+      "renameSuccess": "專案已從「{{oldName}}」重新命名為「{{newName}}」",
+      "assistant": "助理",
+      "selectAssistant": "選擇助手（可選）",
+      "noAssistant": "無助理",
+      "addAssistant": "新增助手",
+      "updateSuccess": "專案「{{projectName}}」更新成功",
+      "saveError": "無法保存項目。請再試一次。"
+    },
+    "selectAssistant": "選擇助手",
+    "noAssistantAssigned": "沒有助理被分配到該項目",
+    "files": "文件",
+    "filesDescription": "新增 PDF、文件或其他文字以供此項目參考。",
+    "conversation": "對話",
+    "instructions": "使用說明",
+    "setup": "設定",
+    "instructionsDescription": "自訂回應語氣與風格",
+    "manageInstructions": "管理指令"
   },
   "dialogs": {
     "changeDataFolder": {
@@ -307,6 +361,10 @@
     },
     "deleteMessage": {
       "description": "確定要刪除這則訊息嗎？此操作無法復原。"
+    },
+    "deleteAllThreadsInProject": {
+      "title": "刪除所有對話",
+      "description": "“{{projectName}}”中的 {{count}} 對話將會被刪除。此操作無法撤銷。"
     }
   },
   "errorDialog": {
@@ -360,7 +418,16 @@
     },
     "downloadFailed": {
       "title": "下載失敗",
-      "description": "{{item}} 下載失敗"
+      "description": "{{item}} 下載失敗",
+      "descriptionWithReason": "{{item}} 下載失敗：{{reason}}",
+      "reason": {
+        "dns": "無法解析伺服器名稱",
+        "refused": "連線被拒絕",
+        "timeout": "連接逾時",
+        "tls": "無法建立安全連接",
+        "proxy": "無法存取代理",
+        "unreachable": "無法存取伺服器"
+      }
     },
     "modelValidationStarted": {
       "title": "正在驗證模型",
@@ -401,6 +468,59 @@
     "threadRemovedFromProject": {
       "title": "執行緒已移除",
       "description": "執行緒已成功從「{{projectName}}」中移除"
+    },
+    "openSettings": "打開設定",
+    "openLogs": "打開日誌",
+    "downloadTokenRequired": {
+      "title": "需要 Hugging Face 權杖",
+      "description": "此模型需要 Hugging Face 存取權杖。在“設定”中新增您的權杖並重試。"
+    },
+    "downloadLicenseRequired": {
+      "title": "接受 Hugging Face 上的模型許可證",
+      "description": "下載前，您必須在 Hugging Face 頁面上接受該模型的授權。"
+    },
+    "downloadRateLimited": {
+      "title": "速率受Hugging Face限制",
+      "description": "您已受到速率限制。添加權杖可以提高速率限制。請稍後重試。"
+    },
+    "fileUploaded": {
+      "title": "文件已處理",
+      "description": "檔案已成功處理並索引"
+    },
+    "uploadFailed": {
+      "title": "處理失敗",
+      "description": "處理文件失敗",
+      "subjectThisFile": "這個文件",
+      "pdfMalformedXref": "{{subject}} 具有格式錯誤的 PDF 交叉引用表，無法解析。嘗試在 PDF 檢視器中開啟它並重新儲存（檔案 → 列印 → 儲存為 PDF），然後再次上傳。",
+      "pdfScanned": "{{subject}} 似乎是掃描或基於影像的 PDF。尚不支援 OCR — 請上傳基於文字的 PDF。",
+      "pdfEncrypted": "{{subject}} 受密碼保護。刪除密碼並重試。",
+      "pdfUnsupportedFeature": "{{subject}} 使用 PDF 功能 Novera 尚無法解析（例如 PostScript 顏色/陰影功能）。嘗試重新儲存（檔案 → 列印 → 另存為 PDF）以拼合它，然後再次上傳。",
+      "pdfGeneric": "{{subject}} 無法解析為 PDF。該檔案可能已損壞或使用了不支援的 PDF 功能。",
+      "fileTooLarge": "{{subject}} 太大。 {{message}}。",
+      "unsupportedType": "不支援檔案類型「{{type}}」。",
+      "ioError": "無法讀取 {{subject}}：{{message}}",
+      "parseGeneric": "{{subject}} 無法解析：{{message}}",
+      "fallback": "處理 {{subject}} 失敗。"
+    },
+    "fileDeleted": {
+      "title": "檔案已刪除",
+      "description": "檔案已從項目中刪除"
+    },
+    "deleteFailed": {
+      "title": "刪除失敗",
+      "description": "刪除檔案失敗"
+    },
+    "fileAlreadyExists": {
+      "title": "檔案已存在",
+      "description": "文件已附加到該項目"
+    },
+    "unsupportedFileType": {
+      "title": "不支援的文件類型",
+      "description": "專案引用不支援檔案副檔名「.{{extension}}」。"
+    },
+    "attachmentsDisabledInfo": {
+      "title": "附件已停用",
+      "description": "設定中禁用附件"
     }
   },
   "llamacppBusyOnExit": {
@@ -424,5 +544,267 @@
   "errorTracking": {
     "title": "錯誤追蹤",
     "summary": "向 {{host}} 傳送選擇性報告：錯誤類型、程式碼位置、版本及作業系統。不含對話、原始錯誤訊息或金鑰。可隨時關閉。"
-  }
+  },
+  "htmlArtifact": {
+    "code": "代碼",
+    "preview": "預覽",
+    "previewStreaming": "生成完成後可用",
+    "unresolvedAssets_one": "1 個資源參考無法在預覽中載入。相對路徑沒有可解析的基礎 URL。",
+    "unresolvedAssets_other": "{{count}} 資源引用無法在預覽中載入。相對路徑沒有可解析的基礎 URL。"
+  },
+  "remote_access": "遠端訪問",
+  "integrations": "集成",
+  "claude_code": "克勞德密碼",
+  "web_search": "網頁搜索",
+  "shell": "Shell",
+  "browse": "瀏覽",
+  "moreControls": "更多控制",
+  "starting": "開始...",
+  "activeSuffix": "（主動）",
+  "hideProvider": "隱藏提供者",
+  "showProvider": "顯示提供者",
+  "home": "首頁",
+  "cowork": "Cowork",
+  "newSession": "新會話",
+  "artifacts": "文物",
+  "customize": "定制",
+  "local": "本地",
+  "selectFolder": "選擇資料夾",
+  "selectModel": "先選擇型號",
+  "commands": "指令",
+  "cmdHelp": "列出可用指令",
+  "cmdClear": "清除本次會話",
+  "cmdModels": "切換活動模型",
+  "cmdModelsHint": "輸入 /models，然後從清單中選擇一個型號",
+  "cmdModelSwitched": "切換為{{name}}",
+  "cmdUnknown": "未知指令：{{name}}。試試/help",
+  "cmdBusy": "代理運行時無法執行此操作",
+  "cmdCompact": "將會話上下文壓縮為摘要",
+  "cmdCompacted": "壓縮後的 {{before}} -> {{after}} 訊息",
+  "cmdNothingToCompact": "還沒有什麼可以壓縮的",
+  "cmdCompactFailed": "壓縮失敗：{{error}}",
+  "cmdPlan": "切換計劃模式（唯讀：代理提出而不寫入）",
+  "cmdPlanOn": "計劃模式開啟：代理讀取並提議，無需寫入",
+  "cmdPlanOff": "計畫模式關閉：正常執行",
+  "cmdTodo": "打開進度面板",
+  "cmdTasks": "開啟後台任務面板",
+  "cmdInit": "研究專案並寫作技巧與記憶",
+  "cmdInitRunning": "加入此項目",
+  "skills": "技能",
+  "skillsInContext": "特工本次運行可用的技能",
+  "skillsTitle": "管理技能",
+  "skillsScopeProject": "{{folder}} 技能",
+  "skillsScopeGlobal": "全球技能，適用於每個課程",
+  "skillsScopeMerged": "{{folder}} 的技能，加上每堂課分享的全域技能",
+  "skillOriginFolder": "資料夾",
+  "skillOriginGlobal": "全球",
+  "skillsEmpty": "還沒有技能",
+  "skillsPickOrNew": "選擇要編輯的技能，或建立新技能。",
+  "skillNew": "新技能",
+  "skillDelete": "刪除技能",
+  "skillSave": "保存",
+  "skillSaved": "技能已保存",
+  "skillNameRequired": "技能名稱為必填項",
+  "skillNamePlaceholder": "技能名稱",
+  "skillContentPlaceholder": "描述 Markdown 中的可重複使用流程...",
+  "skillHubImport": "從集線器匯入",
+  "skillHubTitle": "Anthropic 技能中心",
+  "skillHubEmpty": "在中心找不到技能",
+  "skillImport": "導入",
+  "skillReimport": "重新導入",
+  "skillImported": "進口{{name}}",
+  "sessions": "會議",
+  "deleteSession": "刪除會話",
+  "deleteSessionTitle": "刪除會話？",
+  "deleteSessionBody": "「{{title}}」及其成績單將會永久刪除。這無法撤消。",
+  "analyticsConsentDetail": "我們收集匿名資料以了解功能使用情況。您的聊天和個人資訊永遠不會被追蹤。您可以隨時在「設定」>「隱私權」中變更此設定。",
+  "analyticsConsentQuestion": "您願意幫我們改良Novera嗎？",
+  "searchThreads": "搜尋主題...",
+  "toNavigate": "導航",
+  "toSelect": "選擇",
+  "toClose": "關閉",
+  "clearRecent": "清除",
+  "dismiss": "解僱",
+  "changes": {
+    "title": "代理變更",
+    "empty": "代理寫入或編輯的檔案將顯示在此。",
+    "a11y": "代理更改：{{files}} 檔案、新增 {{additions}}、刪除 {{deletions}}"
+  },
+  "modelPanel": {
+    "title": "模型設置",
+    "a11y": "開啟模型設置",
+    "contextTooltip": "上下文視窗：{{value}} / {{max}} 個詞元"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "技能「{{name}}」不可用",
+    "kind": {
+      "skill": "技能",
+      "command": "指令",
+      "model": "型號"
+    }
+  },
+  "multimodal": "多式聯運",
+  "noAssistant": "無助理",
+  "settingUpJan": "啟動Novera…",
+  "registeringExtensions": "正在註冊擴充...",
+  "loadingExtensions": "正在載入擴充… ({{done}}/{{total}})",
+  "continueAiResponse": "繼續 AI 響應",
+  "modelControls": {
+    "updateFailed": "無法更新模型設置"
+  },
+  "missingDependenciesDialog": {
+    "title": "缺少系統函式庫",
+    "description": "{{backend}} 已安裝，但找不到一些所需的系統函式庫。它可能會回退到 CPU 或無法正常運作。",
+    "installLabel": "若要解決此問題，請安裝以下軟體：",
+    "download": "下載",
+    "additionalLibraries": "其他缺少的函式庫：",
+    "missingLibraries": "缺少庫：",
+    "showRawLibraries": "顯示 {{count}} 缺少的函式庫名稱"
+  },
+  "attachmentsIngestion": {
+    "title": "選擇如何擷取附件",
+    "description": "選擇是將這些檔案直接包含在聊天中還是將它們索引為嵌入。",
+    "inline": "注入聊天",
+    "embeddings": "使用嵌入"
+  },
+  "attachmentInjectedIndicator": "注入聊天中",
+  "attachmentEmbeddedIndicator": "嵌入式 RAG",
+  "viewInjectedContent": "查看註入的內容",
+  "injectedContentTitle": "注入的文件內容",
+  "errors": {
+    "fileTooLarge": "文件太大",
+    "fileTooLargeDescription": "{{fileName}} 超出 {{maxFileSizeMB}}MB 限制"
+  },
+  "files": {
+    "chunksCount": "{{count}} 塊",
+    "title": "文件",
+    "empty": "您附加的文件和代理程式建立的文件將顯示在此。",
+    "a11y": "檔案：{{count}}",
+    "attachments": "附件",
+    "notImported": "不在工作區"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "崩潰",
+  "expand": "展開",
+  "todoPanelTitle": "進展",
+  "todoPanelEmpty": "還沒有待辦事項清單。",
+  "backgroundTasks": "後台任務",
+  "subagentsRunning_one": "{{count}} 子代理程式正在運行",
+  "subagentsRunning_other": "{{count}} 子代理程式正在運行",
+  "monitorsRunning_one": "{{count}} 監控運行",
+  "monitorsRunning_other": "{{count}} 監控運行",
+  "backgroundRunning_one": "{{count}} 後台任務運行",
+  "backgroundRunning_other": "{{count}} 後台任務正在執行",
+  "monitors": "監視器",
+  "monitorPolling": "投票",
+  "monitorMatched": "匹配",
+  "monitorTimedOut": "超時",
+  "monitorStopped": "已停止",
+  "monitorEnded": "已結束",
+  "coworkWatching_one": "正在觀看 {{count}} 監視器…",
+  "coworkWatching_other": "正在觀看 {{count}} 監視器…",
+  "coworkWaitingBackground": "等待後台任務...",
+  "noBackgroundTasks": "尚無後台任務。",
+  "running": "跑步",
+  "queued": "已排隊",
+  "waiting": "等待",
+  "finished": "完成",
+  "subagentPhase": "相{{phase}}",
+  "subagentWaiting": "等待",
+  "viewTranscript": "查看成績單",
+  "taskWorking": "工作中…",
+  "taskNoOutput": "子代理程式沒有產生可見的輸出。",
+  "subagentToolUses_one": "{{count}} 工具使用",
+  "subagentToolUses_other": "{{count}} 工具用途",
+  "artifactGroupCode": "代碼",
+  "artifactGroupImage": "圖片",
+  "artifactGroupDocument": "文件",
+  "artifactGroupVideo": "視頻",
+  "artifactGroupAudio": "音訊",
+  "artifactOpenPreview": "打開預覽",
+  "artifactOpenExternal": "打開",
+  "artifactMoreActions": "更多操作",
+  "artifactShowInFolder": "在資料夾中顯示",
+  "skillsUsedLabel": "使用的技能",
+  "skillsUsed": "使用技能：{{skills}}",
+  "artifactsAll": "全部",
+  "artifactsEmpty": "尚未生產任何產品。來自 Cowork 運行的工件顯示在此。",
+  "artifactsNoMatch": "沒有相符的工件。",
+  "artifactsSearch": "搜尋文物",
+  "artifactsShowMore": "顯示更多{{count}}",
+  "workspace": {
+    "readsFrom": "工作於",
+    "writable": "讀寫",
+    "footnote": "代理直接讀取和編輯此資料夾。查看差異面板中發生的變更。",
+    "footnoteEmpty": "附加一個資料夾，以便代理在您的專案上工作。它可以讀取和編輯其中的文件。",
+    "attach": "附加資料夾",
+    "change": "更改資料夾",
+    "detach": "分離資料夾",
+    "open": "打開",
+    "reveal": "揭曉",
+    "unavailable": "工作空間不可用",
+    "missing": "工作區資料夾 {{folder}} 不再可用。選擇不同的資料夾。",
+    "openFailed": "無法開啟工作區",
+    "revealFailed": "無法顯示工作區",
+    "a11yWithFolder": "專案資料夾{{folder}}，附帶讀寫權限。更改或分離它。",
+    "a11yNoFolder": "未附加項目資料夾。附上一張。"
+  },
+  "coworkEmpty": {
+    "title": "​​我們在做什麼？",
+    "subtitleSandbox": "給Novera一個任務。它讀取和寫入檔案、運行命令並自行完成這些步驟。",
+    "subtitleFolder": "給Novera一個任務。它直接在 {{folder}} 中工作，自行讀取和編輯文件。",
+    "try": "試試看",
+    "sandbox": {
+      "first": "編寫一個 Python 腳本，根據文件的取得日期重新命名文件",
+      "second": "從我將貼上的 CSV 建立單頁儀表板",
+      "third": "為我向您描述的項目起草 README"
+    },
+    "folder": {
+      "first": "解釋一下{{folder}}是如何組合在一起的",
+      "second": "找出{{folder}}中的每一個TODO，並依區域分組",
+      "third": "為我指出的{{folder}}部分編寫測試"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "無終端",
+    "a11y": "運行指令已關閉。細節。",
+    "title": "運行指令已關閉",
+    "body": "Novera 僅當您的系統可以限制代理時才允許代理程式執行 shell 命令。這裡沒有可用的沙箱，因此代理可以在其沙箱中讀取、寫入和編輯文件，但不能運行任何東西。",
+    "fixLinux": "Linux 使用 bubblewrap。安裝它，然後重新啟動Novera。",
+    "fixMac": "macOS 使用 /usr/bin/sandbox-exec 的內建沙箱。一旦 Novera 可用，請重新啟動它。",
+    "fixWindows": "Windows 使用 AppContainer。重啟Novera重試。",
+    "recheck": "再次檢查"
+  },
+  "planMode": {
+    "label": "計劃",
+    "tooltipOff": "首先計劃－代理閱讀並提出建議，而不是書寫。",
+    "tooltipOn": "規劃。關閉此選項以讓代理寫入檔案。",
+    "onAnnounce": "計畫模式開啟",
+    "placeholder": "詢問計畫。代理不會更改任何文件。"
+  },
+  "budget": {
+    "stoppedSteps": "停在 {{max}} 步。代理還沒說完。",
+    "keepGoing": "繼續前進",
+    "stoppedTokens": "已停止——此工作階段已用完詞元預算。",
+    "compact": "緊湊型",
+    "newSession": "新會話"
+  },
+  "run": {
+    "stopped": "停止了。",
+    "failed": "跑步提前停止了。",
+    "tryAgain": "再試一次"
+  },
+  "modelNoTools": "{{model}} 無法呼叫工具，因此無法充當代理。選擇一個工具呼叫模型。",
+  "askContinue": "繼續",
+  "askNext": "下一個問題",
+  "askPrev": "上一個問題",
+  "askRecommended": "推薦",
+  "askSelectedCount": "{{count}} 已選擇",
+  "askSomethingElse": "其他",
+  "askSomethingElsePlaceholder": "輸入自己的答案",
+  "submit": "提交"
 }

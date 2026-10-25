@@ -62,7 +62,21 @@
   "deny": "Zamítnout",
   "start": "Spustit",
   "stop": "Zastavit",
-  "preview": "Náhled",
+  "preview": {
+    "loading": "Otevírání…",
+    "unsupported": "Novera nemůže zobrazit tento druh souboru. Otevřete ji, abyste ji viděli v jiné aplikaci.",
+    "outside": "Tento soubor již není v pracovním prostoru relace.",
+    "tooLarge": "Příliš velké pro náhled. Otevřete ji, abyste ji viděli v jiné aplikaci.",
+    "reload": "Znovu načíst",
+    "allowNetwork": "Povolit síť",
+    "unsandboxed": "Spustit unsandboxed: uložená data a místní soubory fungují",
+    "unresolvedRefs_one": "1 soubor, na který tato stránka odkazuje, nelze v náhledu načíst. Otevřete jej, abyste jej viděli v prohlížeči.",
+    "unresolvedRefs_other": "Soubory {{count}}, na které tato stránka odkazuje, nelze v náhledu načíst. Otevřete jej, abyste jej viděli v prohlížeči.",
+    "externalRefs_one": "1 zdroj, který tato stránka načítá z webu, je blokován. Chcete-li ji načíst, zapněte možnost „Povolit síť“.",
+    "externalRefs_other": "Zdroje {{count}}, které tato stránka načítá z webu, jsou blokovány. Chcete-li je načíst, zapněte možnost „Povolit síť“.",
+    "scriptErrors_one": "Stránka ohlásila chybu: {{message}}",
+    "scriptErrors_other": "Stránka hlásila chyby {{count}}. První: {{message}}"
+  },
   "compactWidth": "Kompaktní šířka",
   "fullWidth": "Plná šířka",
   "dark": "Tmavý",
@@ -225,7 +239,32 @@
   "modelSettings": {
     "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
     "title": "Nastavení modelu - {{modelId}}",
-    "description": "Nakonfigurujte nastavení modelu pro optimalizaci výkonu a chování."
+    "description": "Nakonfigurujte nastavení modelu pro optimalizaci výkonu a chování.",
+    "samplingDefaults": {
+      "title": "Výchozí parametry vzorkování",
+      "description": "Výchozí nastavení vzorkovače pro tento model. Používá se, pokud není přepsáno hodnotami na asistenta nebo na požadavek."
+    },
+    "specDraft": {
+      "section": "Spekulativní dekódování",
+      "enable": "Povolit spekulativní dekódování",
+      "enableDescription": "Navrhněte několik tokenů na krok a ověřte je v jednom průchodu, což urychluje generování. Používá vestavěné hlavy modelu MTP nebo s ním stažený návrh modelu (MTP, Eagle3, DFlash nebo DSpark).",
+      "nMax": "Maximální koncept tokenů",
+      "nMaxDescription": "Maximální počet tokenů k návrhu na krok. Výchozí 16.",
+      "nMin": "Min. návrh tokenů",
+      "nMinDescription": "Minimální počet tokenů k návrhu na krok. Výchozí 0.",
+      "pMin": "Minimální pravděpodobnost ponoru",
+      "pMinDescription": "Minimální pravděpodobnost zištného navrhování (0–1). Výchozí 0,75."
+    },
+    "templateKwargs": {
+      "section": "Možnosti šablony chatu",
+      "description": "Další možnosti, které šablona chatu tohoto modelu přijímá. Odesláno jako chat_template_kwargs na každý požadavek; ponechte výchozí hodnotu, aby se rozhodla šablona.",
+      "addCustom": "Přidat vlastní možnost",
+      "keyPlaceholder": "jméno\nhodnota",
+      "valuePlaceholder": "hodnota",
+      "add": "Přidat",
+      "cancel": "Zrušit",
+      "remove": "Odebrat"
+    }
   },
   "dialogs": {
     "changeDataFolder": {
@@ -251,6 +290,10 @@
     },
     "deleteMessage": {
       "description": "Opravdu chcete tuto zprávu smazat? Tuto akci nelze vrátit zpět."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Smazat všechny konverzace",
+      "description": "{{count}} konverzace v „{{projectName}}“ budou smazány. Tuto akci nelze vrátit zpět."
     }
   },
   "projects": {
@@ -291,7 +334,13 @@
       "updateButton": "Aktualizovat",
       "alreadyExists": "Projekt \"{{projectName}}\" již existuje",
       "createSuccess": "Projekt \"{{projectName}}\" byl úspěšně vytvořen",
-      "renameSuccess": "Projekt byl přejmenován z \"{{oldName}}\" na \"{{newName}}\""
+      "renameSuccess": "Projekt byl přejmenován z \"{{oldName}}\" na \"{{newName}}\"",
+      "assistant": "Asistent",
+      "selectAssistant": "Vyberte asistenta (volitelné)",
+      "noAssistant": "Žádný asistent",
+      "addAssistant": "Přidat asistenta",
+      "updateSuccess": "Projekt \"{{projectName}}\" byl úspěšně aktualizován",
+      "saveError": "Projekt nelze uložit. Zkuste to prosím znovu."
     },
     "noConversationsIn": "Žádné konverzace v {{projectName}}",
     "startNewConversation": "Začněte novou konverzaci s {{projectName}} níže",
@@ -307,7 +356,16 @@
     "noProjectsFound": "Nebyly nalezeny žádné projekty",
     "tryDifferentSearch": "Zkuste jiný vyhledávací výraz",
     "uploadingFiles": "Zpracování souborů…",
-    "processButton": "Přidat"
+    "processButton": "Přidat",
+    "selectAssistant": "Vyberte asistenta",
+    "noAssistantAssigned": "K tomuto projektu není přiřazen žádný asistent",
+    "files": "Soubory",
+    "filesDescription": "Přidejte soubory PDF, dokumenty nebo jiný text, na který budete v tomto projektu odkazovat.",
+    "conversation": "Konverzace",
+    "instructions": "Pokyny",
+    "setup": "Nastavení",
+    "instructionsDescription": "Přizpůsobte si tón a styl odezvy",
+    "manageInstructions": "Správa pokynů"
   },
   "errorDialog": {
     "titleFallback": "Něco se pokazilo",
@@ -360,7 +418,16 @@
     },
     "downloadFailed": {
       "title": "Stahování selhalo",
-      "description": "Stahování {{item}} selhalo"
+      "description": "Stahování {{item}} selhalo",
+      "descriptionWithReason": "Stažení {{item}} se nezdařilo: {{reason}}",
+      "reason": {
+        "dns": "název serveru nelze přeložit",
+        "refused": "připojení bylo odmítnuto",
+        "timeout": "vypršel časový limit připojení",
+        "tls": "zabezpečené připojení nelze navázat",
+        "proxy": "proxy nebylo dosaženo",
+        "unreachable": "server nebyl dostupný"
+      }
     },
     "modelValidationStarted": {
       "title": "Ověřování modelu",
@@ -401,6 +468,59 @@
     "threadRemovedFromProject": {
       "title": "Vlákno odebráno",
       "description": "Vlákno bylo úspěšně odebráno z \"{{projectName}}\""
+    },
+    "openSettings": "Otevřete Nastavení",
+    "openLogs": "Otevřete protokoly\nJe vyžadován token",
+    "downloadTokenRequired": {
+      "title": "Hugging Face",
+      "description": "Tento model vyžaduje přístupový token Hugging Face. Přidejte svůj token v Nastavení a zkuste to znovu."
+    },
+    "downloadLicenseRequired": {
+      "title": "Přijměte modelovou licenci na Hugging Face",
+      "description": "Před stažením musíte přijmout licenci modelu na jeho stránce Hugging Face."
+    },
+    "downloadRateLimited": {
+      "title": "Sazba omezena Hugging Face",
+      "description": "Byli jste omezeni sazbou. Přidání tokenu může zvýšit rychlostní limity. Zkuste to znovu později."
+    },
+    "fileUploaded": {
+      "title": "Soubor zpracován",
+      "description": "Soubor byl úspěšně zpracován a indexován"
+    },
+    "uploadFailed": {
+      "title": "Zpracování se nezdařilo",
+      "description": "Nepodařilo se zpracovat soubor",
+      "subjectThisFile": "Tento soubor",
+      "pdfMalformedXref": "{{subject}} má chybně vytvořenou tabulku křížových odkazů PDF a nelze ji analyzovat. Zkuste jej otevřít v prohlížeči PDF a znovu jej uložit (Soubor → Tisk → Uložit jako PDF) a poté znovu nahrát.",
+      "pdfScanned": "{{subject}} se zdá být naskenované nebo založené na obrázcích PDF. OCR zatím není podporován – nahrajte prosím textový PDF.",
+      "pdfEncrypted": "{{subject}} je chráněn heslem. Odstraňte heslo a zkuste to znovu.",
+      "pdfUnsupportedFeature": "{{subject}} používá funkci PDF Novera zatím nelze analyzovat (např. funkce barev/stínování PostScript). Zkuste jej znovu uložit (Soubor → Tisk → Uložit jako PDF), abyste jej srovnali, a poté jej znovu nahrajte.",
+      "pdfGeneric": "{{subject}} nelze analyzovat jako PDF. Soubor může být poškozen nebo používá nepodporovanou funkci PDF.",
+      "fileTooLarge": "{{subject}} je příliš velký. {{message}}.",
+      "unsupportedType": "Typ souboru \"{{type}}\" není podporován.",
+      "ioError": "Nelze přečíst {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} nelze analyzovat: {{message}}",
+      "fallback": "Nepodařilo se zpracovat {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Soubor smazán",
+      "description": "Soubor byl odstraněn z projektu"
+    },
+    "deleteFailed": {
+      "title": "Smazání se nezdařilo",
+      "description": "Smazání souboru se nezdařilo"
+    },
+    "fileAlreadyExists": {
+      "title": "Soubor již existuje",
+      "description": "Soubor je již připojen k tomuto projektu"
+    },
+    "unsupportedFileType": {
+      "title": "Nepodporovaný typ souboru",
+      "description": "Přípona souboru \".{{extension}}\" není podporována pro reference projektu."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Přílohy jsou zakázány",
+      "description": "Přílohy jsou zakázány v Nastavení"
     }
   },
   "llamacppBusyOnExit": {
@@ -424,5 +544,266 @@
   "errorTracking": {
     "title": "Sledování chyb",
     "summary": "Volitelná hlášení pro {{host}}: typ chyby, pozice v kódu, verze a operační systém. Bez konverzací, původních chybových zpráv a klíčů. Lze kdykoli vypnout."
-  }
+  },
+  "htmlArtifact": {
+    "code": "Kód",
+    "preview": "Náhled",
+    "previewStreaming": "Dostupné po dokončení generování",
+    "unresolvedAssets_one": "V náhledu nelze načíst 1 referenci majetku. Relativní cesty nemají žádný základ URL, proti kterému by bylo možné vyřešit.",
+    "unresolvedAssets_other": "Reference aktiv {{count}} nelze v náhledu načíst. Relativní cesty nemají žádný základ URL, proti kterému by bylo možné vyřešit."
+  },
+  "remote_access": "Vzdálený přístup",
+  "integrations": "Integrace",
+  "claude_code": "Claudeův kód",
+  "web_search": "Vyhledávání na webu",
+  "shell": "Shell",
+  "browse": "Procházet",
+  "moreControls": "Více ovládacích prvků",
+  "starting": "Začíná...",
+  "activeSuffix": "(aktivní)",
+  "hideProvider": "Skrýt poskytovatele",
+  "showProvider": "Zobrazit poskytovatele",
+  "home": "Domů",
+  "cowork": "Cowork",
+  "newSession": "Nová relace",
+  "artifacts": "Artefakty",
+  "customize": "Přizpůsobit",
+  "local": "Místní",
+  "selectFolder": "Vyberte složku",
+  "selectModel": "Nejprve vyberte model",
+  "commands": "Příkazy",
+  "cmdHelp": "Seznam dostupných příkazů",
+  "cmdClear": "Vymažte tuto relaci",
+  "cmdModels": "Přepněte aktivní model",
+  "cmdModelsHint": "Napište /models a poté vyberte model ze seznamu",
+  "cmdModelSwitched": "Přepnuto na {{name}}",
+  "cmdUnknown": "Neznámý příkaz: {{name}}. Zkuste /help",
+  "cmdBusy": "Nelze to udělat, když agent běží",
+  "cmdCompact": "Zkomprimujte kontext relace do shrnutí",
+  "cmdCompacted": "Zkomprimované zprávy {{before}} -> {{after}}",
+  "cmdNothingToCompact": "Zatím není co komprimovat",
+  "cmdCompactFailed": "Zhutnění se nezdařilo: {{error}}",
+  "cmdPlan": "Přepnout režim plánu (pouze pro čtení: agent navrhuje bez psaní)",
+  "cmdPlanOn": "Režim plánu zapnut: agent čte a navrhuje bez psaní",
+  "cmdPlanOff": "Režim plánu vypnut: normální provedení",
+  "cmdTodo": "Otevřete panel průběhu",
+  "cmdTasks": "Otevřete panel úloh na pozadí",
+  "cmdInit": "Prostudujte si projekt a zapište si dovednosti a paměť",
+  "cmdInitRunning": "Registrace tohoto projektu",
+  "skills": "Dovednosti",
+  "skillsInContext": "Dovednosti dostupné agentovi v tomto běhu",
+  "skillsTitle": "Řídit dovednosti",
+  "skillsScopeProject": "Dovednosti pro {{folder}}",
+  "skillsScopeGlobal": "Globální dovednosti, dostupné pro každou relaci",
+  "skillsScopeMerged": "Dovednosti pro {{folder}} plus globální dovednosti sdílené každou relací\nsložka",
+  "skillOriginFolder": "složku",
+  "skillOriginGlobal": "globální",
+  "skillsEmpty": "Zatím žádné dovednosti",
+  "skillsPickOrNew": "Vyberte dovednost, kterou chcete upravit, nebo vytvořte novou.",
+  "skillNew": "Nová dovednost",
+  "skillDelete": "Smazat dovednost",
+  "skillSave": "Uložit",
+  "skillSaved": "Dovednost uložena",
+  "skillNameRequired": "Jméno dovednosti je povinné",
+  "skillNamePlaceholder": "název dovednosti",
+  "skillContentPlaceholder": "Popište znovu použitelný postup v Markdown…",
+  "skillHubImport": "Import z hubu",
+  "skillHubTitle": "Centrum dovedností Anthropic",
+  "skillHubEmpty": "Na hubu nebyly nalezeny žádné dovednosti",
+  "skillImport": "Import",
+  "skillReimport": "Opětovný import",
+  "skillImported": "Importováno {{name}}",
+  "sessions": "Relace",
+  "deleteSession": "Smazat relaci",
+  "deleteSessionTitle": "Smazat relaci?",
+  "deleteSessionBody": "\"{{title}}\" a jeho přepis budou trvale smazány. Toto nelze vrátit zpět.",
+  "analyticsConsentDetail": "Shromažďujeme anonymní údaje, abychom porozuměli používání funkcí. Vaše chaty a osobní údaje nejsou nikdy sledovány. Toto můžete kdykoli změnit v Nastavení > Soukromí.",
+  "analyticsConsentQuestion": "Chtěli byste nám pomoci vylepšit Novera?",
+  "searchThreads": "Hledat vlákna...",
+  "toNavigate": "pro navigaci",
+  "toSelect": "vyberte",
+  "toClose": "zavřít",
+  "clearRecent": "Jasný",
+  "dismiss": "Odmítnout",
+  "changes": {
+    "title": "Změny agenta",
+    "empty": "Zde se zobrazí soubory, které agent zapisuje nebo upravuje.",
+    "a11y": "Změny agenta: soubory {{files}}, přidáno {{additions}}, odstraněno {{deletions}}"
+  },
+  "modelPanel": {
+    "title": "Nastavení modelu",
+    "a11y": "Otevřete nastavení modelu",
+    "contextTooltip": "Kontextové okno: {{value}} z {{max}} tokenů"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Dovednost '{{name}}' není k dispozici",
+    "kind": {
+      "skill": "Dovednost",
+      "command": "Příkaz\nModel",
+      "model": "Model"
+    }
+  },
+  "multimodal": "Multimodální",
+  "noAssistant": "Žádný asistent",
+  "settingUpJan": "Spouštění Novera…",
+  "registeringExtensions": "Registrace rozšíření…",
+  "loadingExtensions": "Načítání rozšíření… ({{done}}/{{total}})",
+  "modelControls": {
+    "updateFailed": "Nelze aktualizovat nastavení modelu"
+  },
+  "missingDependenciesDialog": {
+    "title": "Chybějící systémové knihovny",
+    "description": "{{backend}} byl nainstalován, ale některé požadované systémové knihovny nebyly nalezeny. Může se vrátit zpět na CPU nebo nemusí fungovat správně.",
+    "installLabel": "Chcete-li to opravit, nainstalujte následující:",
+    "download": "Stáhnout",
+    "additionalLibraries": "Další chybějící knihovny:",
+    "missingLibraries": "Chybějící knihovny:",
+    "showRawLibraries": "Zobrazit chybějící názvy knihoven {{count}}"
+  },
+  "attachmentsIngestion": {
+    "title": "Vyberte způsob příjmu příloh",
+    "description": "Vyberte, zda chcete tyto soubory zahrnout přímo do chatu, nebo je místo toho indexovat jako vložení.",
+    "inline": "Vložit do chatu",
+    "embeddings": "Použijte vložení"
+  },
+  "attachmentInjectedIndicator": "Vloženo do chatu",
+  "attachmentEmbeddedIndicator": "Vestavěný pro RAG",
+  "viewInjectedContent": "Zobrazit vložený obsah",
+  "injectedContentTitle": "Vložený obsah souboru",
+  "errors": {
+    "fileTooLarge": "Soubor je příliš velký",
+    "fileTooLargeDescription": "{{fileName}} překračuje limit {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} kusy",
+    "title": "Soubory",
+    "empty": "Zde se zobrazí soubory, které připojíte, a soubory, které vytvoří agent.",
+    "a11y": "Soubory: {{count}}",
+    "attachments": "Přílohy",
+    "notImported": "není v pracovním prostoru"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Sbalit",
+  "expand": "Rozbalit",
+  "todoPanelTitle": "Pokrok",
+  "todoPanelEmpty": "Zatím žádný seznam úkolů.",
+  "backgroundTasks": "Úlohy na pozadí",
+  "subagentsRunning_one": "Podagent {{count}} běží",
+  "subagentsRunning_other": "Podagenti {{count}} běží",
+  "monitorsRunning_one": "Monitor {{count}} běží",
+  "monitorsRunning_other": "Monitory {{count}} běží",
+  "backgroundRunning_one": "Na pozadí běží úloha {{count}}",
+  "backgroundRunning_other": "Úlohy na pozadí {{count}} běží",
+  "monitors": "Monitory",
+  "monitorPolling": "Dotazování",
+  "monitorMatched": "Shodováno",
+  "monitorTimedOut": "Vypršel časový limit",
+  "monitorStopped": "Zastaveno",
+  "monitorEnded": "Skončeno",
+  "coworkWatching_one": "Sledování monitoru {{count}}…",
+  "coworkWatching_other": "Sledování monitorů {{count}}…",
+  "coworkWaitingBackground": "Čekání na úkoly na pozadí…",
+  "noBackgroundTasks": "Zatím žádné úlohy na pozadí.",
+  "running": "Běh",
+  "queued": "Ve frontě",
+  "waiting": "Čekání",
+  "finished": "Hotovo",
+  "subagentPhase": "fáze {{phase}}",
+  "subagentWaiting": "čekání",
+  "viewTranscript": "Zobrazit přepis",
+  "taskWorking": "Pracuje…",
+  "taskNoOutput": "Subagent nevytvořil žádný viditelný výstup.\nPoužití nástroje",
+  "subagentToolUses_one": "{{count}}",
+  "subagentToolUses_other": "Použití nástroje {{count}}",
+  "artifactGroupCode": "Kód",
+  "artifactGroupImage": "Obrázek",
+  "artifactGroupDocument": "Dokument",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Zvuk",
+  "artifactOpenPreview": "Otevřít náhled",
+  "artifactOpenExternal": "Otevřeno",
+  "artifactMoreActions": "Další akce",
+  "artifactShowInFolder": "Zobrazit ve složce",
+  "skillsUsedLabel": "Použité dovednosti",
+  "skillsUsed": "Použité dovednosti: {{skills}}",
+  "artifactsAll": "Vše",
+  "artifactsEmpty": "Zatím se nic nevyrábí. Zde se zobrazují artefakty z Coworkových běhů.",
+  "artifactsNoMatch": "Žádné artefakty neodpovídají.",
+  "artifactsSearch": "Hledejte artefakty",
+  "artifactsShowMore": "Zobrazit další {{count}}",
+  "workspace": {
+    "readsFrom": "Pracuje v",
+    "writable": "čtení a zápis",
+    "footnote": "Agent čte a upravuje přímo tuto složku. Zkontrolujte, co se změnilo na panelu rozdílů.",
+    "footnoteEmpty": "Připojte složku, aby agent mohl pracovat na vašem projektu. Může číst a upravovat soubory uvnitř.",
+    "attach": "Připojte složku",
+    "change": "Změnit složku",
+    "detach": "Odpojit složku",
+    "open": "Otevřeno",
+    "reveal": "Odhalit",
+    "unavailable": "Pracovní plocha není k dispozici",
+    "missing": "Složka pracovního prostoru {{folder}} již není k dispozici. Vyberte jinou složku.",
+    "openFailed": "Nelze otevřít pracovní prostor",
+    "revealFailed": "Nelze odhalit pracovní prostor",
+    "a11yWithFolder": "Projektová složka {{folder}}, připojená s přístupem pro čtení a zápis. Změňte nebo odeberte jej.",
+    "a11yNoFolder": "Není připojena složka projektu. Jeden připojte."
+  },
+  "coworkEmpty": {
+    "title": "Na čem pracujeme?",
+    "subtitleSandbox": "Dejte Novera úkol. Čte a zapisuje soubory, spouští příkazy a provádí jednotlivé kroky samostatně.",
+    "subtitleFolder": "Dejte Novera úkol. Funguje přímo v {{folder}}, čte a upravuje soubory sám.",
+    "try": "Zkuste",
+    "sandbox": {
+      "first": "Napište Python skript, který přejmenuje soubory podle data, kdy byly pořízeny",
+      "second": "Vytvořte jednostránkový řídicí panel z CSV, který vložím",
+      "third": "Navrhněte README pro projekt, který vám popisuji"
+    },
+    "folder": {
+      "first": "Vysvětlete, jak se skládá {{folder}}",
+      "second": "Najděte každý TODO v {{folder}} a seskupte je podle oblasti",
+      "third": "Napište testy pro část {{folder}}, na kterou vám ukážu"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Žádný terminál",
+    "a11y": "Spouštění příkazů je vypnuto. Podrobnosti.",
+    "title": "Spouštění příkazů je vypnuto",
+    "body": "Novera umožňuje agentovi spouštět příkazy shellu pouze tehdy, když je váš systém může omezit. Není zde k dispozici žádná karanténa, takže agent může číst, zapisovat a upravovat soubory v karanténě – ale nic nespouštět.",
+    "fixLinux": "Linux používá bubblewrap. Nainstalujte jej a poté restartujte Novera.",
+    "fixMac": "macOS používá vestavěný sandbox na /usr/bin/sandbox-exec. Jakmile bude Novera k dispozici, restartujte jej.",
+    "fixWindows": "Windows používá AppContainer. Restartujte Novera a zkuste to znovu.",
+    "recheck": "Zkontrolujte znovu"
+  },
+  "planMode": {
+    "label": "Plán",
+    "tooltipOff": "Nejprve plánujte – agent čte a navrhuje, bez psaní.",
+    "tooltipOn": "Plánování. Vypněte toto, aby agent mohl zapisovat soubory.",
+    "onAnnounce": "Režim plánu je zapnutý",
+    "placeholder": "Zeptejte se na plán. Agent nezmění žádné soubory."
+  },
+  "budget": {
+    "stoppedSteps": "Zastaveno v krocích {{max}}. Agent neskončil.",
+    "keepGoing": "Pokračuj",
+    "stoppedTokens": "Zastaveno – tato relace dosáhla svého tokenového rozpočtu.",
+    "compact": "Kompaktní",
+    "newSession": "Nová relace"
+  },
+  "run": {
+    "stopped": "Zastaveno.",
+    "failed": "Běh se předčasně zastavil.",
+    "tryAgain": "Zkuste to znovu"
+  },
+  "modelNoTools": "{{model}} nemůže volat nástroje, takže nemůže fungovat jako agent. Vyberte model volání nástroje.",
+  "askContinue": "Pokračujte",
+  "askNext": "Další otázka",
+  "askPrev": "Předchozí otázka",
+  "askRecommended": "Doporučeno\nVybráno",
+  "askSelectedCount": "{{count}}",
+  "askSomethingElse": "Něco jiného",
+  "askSomethingElsePlaceholder": "Napište vlastní odpověď",
+  "submit": "Odeslat"
 }

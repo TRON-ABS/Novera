@@ -75,7 +75,9 @@
     "search": "Cerca",
     "searchDesc": "Apre la finestra di dialogo di ricerca.",
     "goToSettings": "Vai alle impostazioni",
-    "goToSettingsDesc": "Apre le impostazioni."
+    "goToSettingsDesc": "Apre le impostazioni.",
+    "switchAssistant": "Assistente al cambio",
+    "switchAssistantDesc": "Passa all'assistente successivo nella chat."
   },
   "interface": {
     "title": "Interfaccia",
@@ -120,7 +122,13 @@
     "resetCodeBlockStyle": "Ripristina stile blocco di codice",
     "resetCodeBlockStyleDesc": "Ripristina lo stile del blocco di codice a quello predefinito.",
     "resetCodeBlockSuccess": "Stile del blocco di codice ripristinato con successo",
-    "resetCodeBlockSuccessDesc": "Lo stile del blocco di codice è stato ripristinato a quello predefinito."
+    "resetCodeBlockSuccessDesc": "Lo stile del blocco di codice è stato ripristinato a quello predefinito.",
+    "coloredUserBubble": "Fumetto colorato del messaggio utente",
+    "coloredUserBubbleDesc": "Usa il colore principale come sfondo dei tuoi messaggi. Quando sono disattivati, i messaggi dell'assistente vengono abbinati a testo normale su sfondo neutro.",
+    "renderHtmlArtifacts": "Rendering degli artefatti HTML e SVG",
+    "renderHtmlArtifactsDesc": "Aggiungi una scheda Anteprima ai blocchi di codice HTML e SVG. HTML esegue la pagina generata dal modello in un frame sandbox che esegue i propri script ma non può accedere a Novera, ai file o alla rete; SVG esegue il rendering in modo statico con gli script disabilitati. Disattivato per impostazione predefinita.",
+    "autoGenerateTitle": "Titolo della chat generato automaticamente",
+    "autoGenerateTitleDesc": "Riepiloga automaticamente le nuove conversazioni nel titolo della discussione. Disattiva per mantenere il titolo predefinito finché non lo rinomini tu stesso."
   },
   "hardware": {
     "os": "Sistema operativo",
@@ -144,7 +152,20 @@
     "freeOf": "liberi di",
     "driverVersion": "Versione driver",
     "computeCapability": "Capacità di calcolo",
-    "systemMonitor": "Monitoraggio di sistema"
+    "systemMonitor": "Monitoraggio di sistema",
+    "backendApi": "Backend API",
+    "apiVersion": "Versione API",
+    "refresh": "Aggiorna",
+    "detectingDevices": "Rilevamento GPU...",
+    "deviceListError": "Impossibile leggere i dispositivi GPU",
+    "noDevicesDesc": "Nessuna GPU è visibile al motore llama.cpp. I modelli funzioneranno sul CPU.",
+    "gpuDisabled": "Disabilitato",
+    "backendApiDesc": "Come llama.cpp comunica con questo GPU",
+    "backendSelectDesc": "Usa questo API per questo GPU",
+    "unifiedMemory": "Memoria unificata",
+    "unifiedMemoryDesc": "Lo GPU condivide un pool di memoria con lo CPU: i modelli attingono dalla stessa memoria del resto del sistema.",
+    "engineRestartedForDevices": "Le tue GPU sono cambiate, quindi il motore locale è stato riavviato. I modelli si ricaricano al prossimo utilizzo.",
+    "engineBusyDevicesChanged": "Le tue GPU sono cambiate, ma un modello è occupato. Interrompilo, quindi premi Aggiorna per utilizzare il nuovo GPU."
   },
   "httpsProxy": {
     "proxy": "Proxy",
@@ -166,7 +187,9 @@
     "proxyHostSsl": "SSL Host Proxy",
     "proxyHostSslDesc": "Convalida il certificato SSL del proxy",
     "hostSsl": "SSL Host",
-    "hostSslDesc": "Convalida i certificati SSL degli host di destinazione."
+    "hostSslDesc": "Convalida i certificati SSL degli host di destinazione.",
+    "peerSsl": "Peer SSL",
+    "peerSslDesc": "Convalida i certificati SSL delle connessioni peer."
   },
   "localApiServer": {
     "title": "Server API locale",
@@ -204,7 +227,9 @@
     "proxyTimeoutDesc": "Tempo di attesa in secondi per una risposta dal modello locale.",
     "defaultModel": "Modello predefinito server API locale",
     "defaultModelDesc": "Modello locale da caricare automaticamente all'avvio del server.",
-    "defaultModelPlaceholder": "Seleziona un modello locale"
+    "defaultModelPlaceholder": "Seleziona un modello locale",
+    "runInBackground": "Esegui in background",
+    "runInBackgroundDesc": "Mantieni il server in esecuzione nella barra delle applicazioni quando la finestra è chiusa. Quando è disattivato, chiudendo la finestra si esce da Novera e si arresta il server."
   },
   "privacy": {
     "analytics": "Analisi dati",
@@ -267,7 +292,14 @@
     "reportIssue": "Segnala problema",
     "credits": "Crediti",
     "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
-    "creditsDesc2": "Un ringraziamento speciale alle nostre dipendenze open-source — in particolare llama.cpp e Tauri — e alla nostra straordinaria community IA."
+    "creditsDesc2": "Un ringraziamento speciale alle nostre dipendenze open-source — in particolare llama.cpp e Tauri — e alla nostra straordinaria community IA.",
+    "autoUpdateCheck": "Controllo automatico degli aggiornamenti",
+    "autoUpdateCheckDesc": "Controlla automaticamente gli aggiornamenti all'avvio e periodicamente.",
+    "clearWebData": "Cancella i dati dell'interfaccia memorizzati nella cache",
+    "clearWebDataDesc": "Rimuove la memoria locale memorizzata nella cache e le preferenze UI mantenute dalla finestra dell'app. L'interfaccia viene ripristinata al suo stato predefinito.",
+    "janCli": "Novera CLI",
+    "janCliDesc": "Esegui l'agente Novera dal tuo terminale. Segui la guida per installare e iniziare.",
+    "janCliSetupGuide": "Guida all'installazione"
   },
   "extensions": {
     "title": "Estensioni"
@@ -302,7 +334,10 @@
     "chunkSize": "Dimensione frammento (caratteri)",
     "chunkSizeDesc": "Numero massimo approssimativo di caratteri per frammento (chunk) per gli embedding.",
     "chunkOverlap": "Sovrapposizione (caratteri)",
-    "chunkOverlapDesc": "Sovrapposizione di caratteri tra frammenti consecutivi."
+    "chunkOverlapDesc": "Sovrapposizione di caratteri tra frammenti consecutivi.",
+    "maxFileDisabledReason": "Attiva Abilita allegati per modificare il limite delle dimensioni del documento.",
+    "maxImage": "Dimensione massima immagine (MB)",
+    "maxImageDesc": "Dimensione massima per immagine (JPEG o PNG). Il tuo fornitore o modello potrebbe imporre un limite inferiore."
   },
   "dialogs": {
     "changeDataFolder": {
@@ -315,5 +350,46 @@
     }
   },
   "backendInstallSuccess": "Backend installato con successo!",
-  "backendInstallError": "Impossibile installare il backend"
+  "backendInstallError": "Impossibile installare il backend",
+  "webSearch": {
+    "title": "Ricerca sul Web",
+    "description": "Consenti ai modelli di cercare e leggere il Web utilizzando gli strumenti integrati di Novera.",
+    "enable": "Abilita ricerca Web",
+    "enableDesc": "Pubblicizza gli strumenti web_search e web_fetch su modelli che supportano l'uso dello strumento. Funziona immediatamente senza la chiave API.",
+    "provider": "Fornitore di ricerca",
+    "providerDesc": "Scegli il backend che risponde web_search e web_fetch.",
+    "apiKey": "{{provider}} API Chiave",
+    "apiKeyOptional": "Facoltativo. Fornisci una chiave {{provider}} API per limiti di frequenza più elevati e risultati strutturati. Lascia vuoto per utilizzare l'endpoint senza chiave gratuito.",
+    "apiKeyRequired": "Obbligatorio. {{provider}} necessita di una chiave API per restituire i risultati.",
+    "apiKeyPlaceholder": "Inserisci la tua chiave {{provider}} API",
+    "endpoint": "{{provider}} Istanza URL",
+    "endpointDesc": "Obbligatorio. Lo URL di base della tua istanza {{provider}}, con JSON API abilitato.",
+    "endpointPlaceholder": "https://searx.example.com"
+  },
+  "cowork": {
+    "title": "Cowork",
+    "description": "Configura l’interfaccia dell’agente Cowork: la shell isolata in una sandbox e le memorie e competenze salvate permanentemente nella cartella dati di Novera.",
+    "shell": "Comandi della shell",
+    "shellChecking": "Verifica della sandbox in corso...",
+    "shellSandboxed": "I comandi vengono eseguiti confinati da {{backend}}: possono scrivere solo all'interno dell'area di lavoro della sessione e i file nella cartella Home non sono leggibili.",
+    "shellUnavailable": "Su questo sistema non è disponibile alcun sandbox, quindi lo strumento shell non è offerto. I comandi non vengono mai eseguiti senza limiti.",
+    "network": "Consenti accesso alla rete",
+    "networkDesc": "Consenti ai comandi di Cowork di raggiungere la rete, per operazioni come l'installazione di pacchetti o il recupero di un repository. Attivo per impostazione predefinita. La shell della chat principale non ha mai accesso alla rete.",
+    "openFolder": "Apri cartella",
+    "memories": "Ricordi",
+    "noMemories": "Ancora nessun ricordo. I modelli li aggiungono con lo strumento memory_write mentre apprendono cose che vale la pena conservare.",
+    "skills": "Competenze",
+    "noSkills": "Ancora nessuna competenza. Una competenza è un insieme riutilizzabile di istruzioni che un modello può caricare su richiesta.",
+    "add": "Aggiungi",
+    "editMemory": "Modifica memoria",
+    "editMemoryDesc": "Un argomento per nota. I modelli li leggono con lo strumento memory_read.",
+    "editSkill": "Modifica abilità",
+    "editSkillDesc": "Istruzioni in Markdown, con una descrizione facoltativa nell’intestazione YAML. I modelli vedono la descrizione prima di caricare la competenza.",
+    "namePlaceholder": "Nome",
+    "contentPlaceholder": "Contenuto",
+    "loadFailed": "Impossibile caricare l'area di lavoro dell'agente",
+    "saveFailed": "Impossibile salvare",
+    "deleteFailed": "Impossibile eliminare",
+    "revealFailed": "Impossibile aprire la cartella"
+  }
 }

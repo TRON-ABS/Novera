@@ -31,5 +31,12 @@
   "personality": "Tính cách",
   "capabilities": "Khả năng",
   "instructionsDateHint": "Mẹo: Dùng {{current_date}} để chèn ngày hôm nay.",
-  "maxToolSteps": "Bước tối đa của công cụ"
+  "maxToolSteps": "Bước tối đa của công cụ",
+  "deleteFailed": "Không thể xóa trợ lý. Vui lòng thử lại.",
+  "setAsDefault": "Đặt làm trợ lý mặc định",
+  "isDefault": "Mặc định",
+  "defaultAssistantSection": "Trợ lý mặc định",
+  "defaultAssistantDesc": "Được sử dụng khi bắt đầu cuộc trò chuyện mới",
+  "allAssistants": "Tất cả Trợ lý",
+  "lastUsed": "Được sử dụng lần cuối"
 }

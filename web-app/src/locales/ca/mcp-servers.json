@@ -68,8 +68,36 @@
     "selectRouterModelPlaceholder": "Seleccioneu el model d'encaminament…",
     "routerModelSearchPlaceholder": "Cercar models…",
     "routerModelEmptyList": "No hi ha models lleugers disponibles. Afegiu un model més petit o configureu les claus API a Models.",
-    "routerModelEmptySearch": "Cap coincidència per a «{{query}}»."
+    "routerModelEmptySearch": "Cap coincidència per a «{{query}}».",
+    "maxToolOutputChars": "Màxim de caràcters de sortida de l'eina",
+    "maxToolOutputCharsDesc": "El resultat de l'eina més llarg conservat a la conversa. Qualsevol cosa que passi això es retalla i es marca com a truncat, de manera que un resultat gran no pot esgotar el context del model. Establiu a 0 per mantenir els resultats sencers."
   },
   "proactiveMode": "Mode proactiu d’ús del navegador",
-  "proactiveModeDesc": "Quan està activat, captura automàticament captures de pantalla del navegador per aportar context addicional a les tasques d’automatització. Requereix l’MCP Jan Browser amb visió i model d’ús d’eines."
+  "proactiveModeDesc": "Quan està activat, captura automàticament captures de pantalla del navegador per aportar context addicional a les tasques d’automatització. Requereix l’MCP Jan Browser amb visió i model d’ús d’eines.",
+  "auth": {
+    "label": "Auth:",
+    "state": {
+      "notApplicable": "no és necessari",
+      "staticHeader": "Capçalera d'autorització",
+      "authenticated": "autenticat",
+      "expired": "ha caducat",
+      "staleResource": "emès per a un altre URL",
+      "unauthenticated": "no s'ha autenticat"
+    },
+    "expiresIn": "caduca a {{duration}}",
+    "authenticate": "Inicieu la sessió",
+    "reauthenticate": "Torna a autenticar",
+    "clear": "Autenticació clara",
+    "waiting": "S'està esperant el navegador...",
+    "openSignInPage": "Obriu la pàgina d'inici de sessió",
+    "needsAuth": "{{serverName}} necessita autenticació",
+    "needsAuthHint": "Inicieu la sessió en aquest servidor per connectar-vos.",
+    "authorized": "S'ha iniciat la sessió a {{serverName}}",
+    "authorizeFailed": "L'inici de sessió per a {{serverName}} ha fallat",
+    "cleared": "S'han esborrat les credencials emmagatzemades per a {{serverName}}",
+    "nothingToClear": "{{serverName}} no tenia credencials emmagatzemades",
+    "clearFailed": "No s'han pogut esborrar les credencials per a {{serverName}}",
+    "renew": "Renovar sessió",
+    "expiredAgo": "va caducar fa {{duration}}"
+  }
 }

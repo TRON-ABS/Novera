@@ -31,5 +31,12 @@
   "personality": "Persönlichkeit",
   "capabilities": "Fähigkeiten",
   "instructionsDateHint": "Tipp: Verwenden Sie {{current_date}}, um das heutige Datum einzufügen.",
-  "maxToolSteps": "Maximale Werkzeugschritte"
+  "maxToolSteps": "Maximale Werkzeugschritte",
+  "deleteFailed": "Der Assistent konnte nicht gelöscht werden. Bitte versuchen Sie es erneut.",
+  "setAsDefault": "Als Standardassistent festlegen",
+  "isDefault": "Standard",
+  "defaultAssistantSection": "Standardassistent",
+  "defaultAssistantDesc": "Wird beim Starten eines neuen Chats verwendet",
+  "allAssistants": "Alle Assistenten",
+  "lastUsed": "Zuletzt verwendet"
 }

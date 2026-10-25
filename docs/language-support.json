@@ -154,9 +154,9 @@
     "language": "Wu (Shanghainese)",
     "label": "吴语（上海话）",
     "direction": "ltr",
-    "keys": 756,
+    "keys": 1513,
     "total": 1513,
-    "partial": true,
+    "partial": false,
     "source_pr": 9412
   },
   {
@@ -204,7 +204,7 @@
     "language": "Spanish",
     "label": "Español",
     "direction": "ltr",
-    "keys": 983,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -214,7 +214,7 @@
     "language": "French",
     "label": "Français",
     "direction": "ltr",
-    "keys": 927,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -224,7 +224,7 @@
     "language": "Italian",
     "label": "Italiano",
     "direction": "ltr",
-    "keys": 1050,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -234,7 +234,7 @@
     "language": "Hindi",
     "label": "हिंदी",
     "direction": "ltr",
-    "keys": 983,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -244,7 +244,7 @@
     "language": "Indonesian",
     "label": "Bahasa",
     "direction": "ltr",
-    "keys": 885,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -254,7 +254,7 @@
     "language": "Polish",
     "label": "Polski",
     "direction": "ltr",
-    "keys": 885,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -264,7 +264,7 @@
     "language": "Vietnamese",
     "label": "Tiếng Việt",
     "direction": "ltr",
-    "keys": 885,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -274,7 +274,7 @@
     "language": "Chinese (Simplified)",
     "label": "简体中文",
     "direction": "ltr",
-    "keys": 885,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -284,7 +284,7 @@
     "language": "Chinese (Traditional)",
     "label": "繁體中文",
     "direction": "ltr",
-    "keys": 885,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -294,7 +294,7 @@
     "language": "German",
     "label": "Deutsch",
     "direction": "ltr",
-    "keys": 885,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -304,7 +304,7 @@
     "language": "Czech",
     "label": "Čeština",
     "direction": "ltr",
-    "keys": 914,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -314,7 +314,7 @@
     "language": "Portuguese (Brazil)",
     "label": "Português (Brasil)",
     "direction": "ltr",
-    "keys": 887,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -324,7 +324,7 @@
     "language": "Korean",
     "label": "한국어",
     "direction": "ltr",
-    "keys": 982,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -334,7 +334,7 @@
     "language": "Japanese",
     "label": "日本語",
     "direction": "ltr",
-    "keys": 1095,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -344,7 +344,7 @@
     "language": "Russian",
     "label": "Русский",
     "direction": "ltr",
-    "keys": 930,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null
@@ -354,7 +354,7 @@
     "language": "Catalan",
     "label": "Català",
     "direction": "ltr",
-    "keys": 928,
+    "keys": 1513,
     "total": 1513,
     "partial": false,
     "source_pr": null

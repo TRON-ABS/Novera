@@ -30,5 +30,21 @@
     "rememberSaved": "Đã lưu vào bộ nhớ với tên “{{name}}”",
     "rememberExists": "Đã có trong bộ nhớ với tên “{{name}}”",
     "rememberFailed": "Không thể lưu vào bộ nhớ"
+  },
+  "embeddings": {
+    "title": "Chuẩn bị hồ sơ",
+    "description": "Lập chỉ mục các file đính kèm để có thể tìm kiếm và trích dẫn. Quá trình này có thể mất chút thời gian đối với các tài liệu lớn."
+  },
+  "webSources": "(Các) nguồn {{count}}",
+  "reasoning": {
+    "label": "Lý luận...",
+    "thinking": "Suy nghĩ",
+    "working": "Đang làm việc...",
+    "showFullTimeline": "Hiển thị dòng thời gian đầy đủ",
+    "showCurrentStep": "Chỉ hiển thị bước hiện tại",
+    "thoughtForAWhile": "Suy nghĩ vài giây",
+    "thoughtFor": "Suy nghĩ dành cho {{duration}}",
+    "workedForAWhile": "Hoạt động được vài giây",
+    "workedFor": "Đã làm việc cho {{duration}}"
   }
 }

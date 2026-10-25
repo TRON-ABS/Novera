@@ -14,9 +14,9 @@ This is interface localization. The languages a model understands or generates d
 
 24 October 2026: message-footer action tooltips, accessible names, generation statistics and message-delete confirmation now have explicit entries in all 36 catalogs. This adds 436 translations, including seven existing memory/retry action keys absent from sixteen inherited catalogs. Message dates and numeric formatting follow the selected interface locale. These changes are included in the local desktop build of 24 October 2026.
 
-The 18 newly integrated full catalogs contain all **1,513 current English keys** across 14 namespaces. This measures key coverage, not native-language review or translation quality. These translations were machine-assisted and still need native-speaker review. The Alibaba workspace and region help added on 25 October 2026 is present in all 36 locales; it has not yet been compiled into the desktop executable.
+All **36 interface catalogs contain all 1,513 current English keys** across 14 namespaces. On 25 October 2026, the remaining 16 inherited catalogs were completed with 9,219 additional translations after Wu was completed. This measures key coverage, not native-language review or translation quality. These translations were machine-assisted and still need native-speaker review. The Alibaba workspace and region help added on 25 October 2026 is present in all 36 locales; it has not yet been compiled into the desktop executable.
 
-**Wu (Shanghainese) remains partial: 756 / 1,513 keys (50.0%)**. Missing texts use the English fallback. Existing inherited translations have varying coverage and are not claimed to be complete.
+**Wu (Shanghainese): 1,513 / 1,513 keys (100%)**. On 25 October 2026, the 757 missing entries were translated across ten namespaces, preserving the 756 existing entries. Interpolation variables, code literals and technical identifiers were checked. Native-speaker review remains pending; these additions have not been compiled into the desktop executable. The 16 formerly incomplete inherited catalogs now also have full key coverage; this does not imply native-speaker review.
 
 Arabic, Egyptian Arabic, Urdu, Western Punjabi and Iranian Persian use right-to-left layout, synchronized with document metadata and Radix menus/dialogs. Technical URL, email and number inputs remain left-to-right; free-text inputs use automatic direction.
 
@@ -39,27 +39,27 @@ Arabic, Egyptian Arabic, Urdu, Western Punjabi and Iranian Persian use right-to-
 | `tl` | Tagalog | Tagalog | LTR | 1513 / 1,513 | [Contribution 9409](https://github.com/TRON-ABS/Novera/commit/9a5c67ec3631d45bf9d093523c46c239ae6f3ea7) |
 | `pt-PT` | Portuguese (Portugal) | Português (Portugal) | LTR | 1513 / 1,513 | [Contribution 9410](https://github.com/TRON-ABS/Novera/commit/feebfd09e9790284a48c4412eec8bd0a1c725d48) |
 | `yue` | Cantonese | 粵語 | LTR | 1513 / 1,513 | [Contribution 9411](https://github.com/TRON-ABS/Novera/commit/c08f3313b074d6449fb4d08f9d6a7a1a10973723) |
-| `wuu` | Wu (Shanghainese) | 吴语（上海话） | LTR | 756 / 1,513 | [Contribution 9412](https://github.com/TRON-ABS/Novera/commit/cea04c0e641ce91656c02ca79d11db318508afa7) — partial |
+| `wuu` | Wu (Shanghainese) | 吴语（上海话） | LTR | 1513 / 1,513 | [Contribution 9412](https://github.com/TRON-ABS/Novera/commit/cea04c0e641ce91656c02ca79d11db318508afa7), completed locally on 25 October 2026 |
 | `fa-IR` | Iranian Persian | فارسی (ایران) | RTL | 1513 / 1,513 | [Contribution 9413](https://github.com/TRON-ABS/Novera/commit/7390c493df3373aae20a3598d6942fc59db71e3c) |
 | `am` | Amharic | አማርኛ | LTR | 1513 / 1,513 | [Contribution 9414](https://github.com/TRON-ABS/Novera/commit/5834c83c2c0134af807454ba5f9d155dd0c0cfae) |
 | `th` | Thai | ไทย | LTR | 1513 / 1,513 | [Contribution 9415](https://github.com/TRON-ABS/Novera/commit/9b9a4cab272ad9b96ae52a0c9c33f3d6ca891e70) |
 | `jv` | Javanese | Basa Jawa | LTR | 1513 / 1,513 | [Contribution 9416](https://github.com/TRON-ABS/Novera/commit/ea9a66394fcbee0da167ab8776fbb857285aa865) |
-| `es` | Spanish | Español | LTR | 981 / 1,513 | Inherited from Jan |
-| `fr` | French | Français | LTR | 925 / 1,513 | Inherited from Jan |
-| `it` | Italian | Italiano | LTR | 1048 / 1,513 | Inherited from Jan |
-| `hi` | Hindi | हिंदी | LTR | 981 / 1,513 | Inherited from Jan |
-| `id` | Indonesian | Bahasa | LTR | 883 / 1,513 | Inherited from Jan |
-| `pl` | Polish | Polski | LTR | 883 / 1,513 | Inherited from Jan |
-| `vn` | Vietnamese | Tiếng Việt | LTR | 883 / 1,513 | Inherited from Jan |
-| `zh-CN` | Chinese (Simplified) | 简体中文 | LTR | 883 / 1,513 | Inherited from Jan |
-| `zh-TW` | Chinese (Traditional) | 繁體中文 | LTR | 883 / 1,513 | Inherited from Jan |
-| `de-DE` | German | Deutsch | LTR | 883 / 1,513 | Inherited from Jan |
-| `cs` | Czech | Čeština | LTR | 912 / 1,513 | Inherited from Jan |
-| `pt-BR` | Portuguese (Brazil) | Português (Brasil) | LTR | 885 / 1,513 | Inherited from Jan |
-| `ko` | Korean | 한국어 | LTR | 980 / 1,513 | Inherited from Jan |
-| `ja` | Japanese | 日本語 | LTR | 1093 / 1,513 | Inherited from Jan |
-| `ru` | Russian | Русский | LTR | 928 / 1,513 | Inherited from Jan |
-| `ca` | Catalan | Català | LTR | 926 / 1,513 | Inherited from Jan |
+| `es` | Spanish | Español | LTR | 1513 / 1,513 | Inherited from Jan |
+| `fr` | French | Français | LTR | 1513 / 1,513 | Inherited from Jan |
+| `it` | Italian | Italiano | LTR | 1513 / 1,513 | Inherited from Jan |
+| `hi` | Hindi | हिंदी | LTR | 1513 / 1,513 | Inherited from Jan |
+| `id` | Indonesian | Bahasa | LTR | 1513 / 1,513 | Inherited from Jan |
+| `pl` | Polish | Polski | LTR | 1513 / 1,513 | Inherited from Jan |
+| `vn` | Vietnamese | Tiếng Việt | LTR | 1513 / 1,513 | Inherited from Jan |
+| `zh-CN` | Chinese (Simplified) | 简体中文 | LTR | 1513 / 1,513 | Inherited from Jan |
+| `zh-TW` | Chinese (Traditional) | 繁體中文 | LTR | 1513 / 1,513 | Inherited from Jan |
+| `de-DE` | German | Deutsch | LTR | 1513 / 1,513 | Inherited from Jan |
+| `cs` | Czech | Čeština | LTR | 1513 / 1,513 | Inherited from Jan |
+| `pt-BR` | Portuguese (Brazil) | Português (Brasil) | LTR | 1513 / 1,513 | Inherited from Jan |
+| `ko` | Korean | 한국어 | LTR | 1513 / 1,513 | Inherited from Jan |
+| `ja` | Japanese | 日本語 | LTR | 1513 / 1,513 | Inherited from Jan |
+| `ru` | Russian | Русский | LTR | 1513 / 1,513 | Inherited from Jan |
+| `ca` | Catalan | Català | LTR | 1513 / 1,513 | Inherited from Jan |
 
 ## Validation and release status
 
@@ -73,10 +73,16 @@ Reproduce the catalog checks without compiling: `python scripts/check-novera-loc
 
 ## Novera 1.0.0 integration in progress
 
-The local source now has 1,465 English keys after adding assistant-deletion and project-save error messages. All 18 complete contributed catalogs include these two messages; native-speaker review remains pending. Wu retains its partial coverage of 706 keys with English fallback. This count describes the current source, not the previously built 0.8.7 executable. The resulting source integration was subsequently built locally and approved for source publication on 24 October 2026; no public binary release is included.
+At this integration stage, the local source had 1,465 English keys after adding assistant-deletion and project-save error messages. All 18 then-complete contributed catalogs included these two messages; native-speaker review remained pending. Wu then had partial coverage of 706 keys with English fallback; see the current coverage above for its completion on 25 October. This historical count describes that source stage, not the previously built 0.8.7 executable. The resulting source integration was subsequently built locally and approved for source publication on 24 October 2026; no public binary release is included.
 
 ## Local composer update — 24 October 2026
 
-The five interface keys for advanced parameters and conversation export now have translations in all 36 catalogs, along with save/delete actions and their confirmation texts. The 18 full contributed catalogs remain complete (1,510 keys); Wu remains partial (753 keys). Historical gaps elsewhere still use the English fallback. Native-speaker review remains pending. The current local executable includes the controls and their updated placement; the latest 77 translations and six emoji icons are also included in the local executable rebuilt on 24 October 2026. See [conversation controls](CONVERSATION_CONTROLS.md).
+At this update stage, the five interface keys for advanced parameters and conversation export had translations in all 36 catalogs, along with save/delete actions and their confirmation texts. The 18 then-full contributed catalogs covered 1,510 keys; Wu was still partial at 753 keys. These are historical counts; see the current coverage above. Historical gaps elsewhere still use the English fallback. Native-speaker review remains pending. The local executable rebuilt on 24 October 2026 includes the controls and their updated placement, those 77 translations and six emoji icons. See [conversation controls](CONVERSATION_CONTROLS.md).
 
 25 October 2026: Error tracking has a separate, default-off privacy control. Its title and data disclosure are translated in all 36 locales (72 entries). Translation coverage is checked; native-speaker review remains pending. No application compilation.
+
+## Completion of inherited catalogs — 25 October 2026
+
+Added 9,219 missing translations across 176 JSON files for Spanish, French, Italian, Hindi, Indonesian, Polish, Vietnamese, Simplified Chinese, Traditional Chinese, German, Czech, Brazilian Portuguese, Korean, Japanese, Russian and Catalan. All 36 locales now cover 1,513/1,513 English keys. Google Translate drafts were generated with the user’s explicit permission; 98 targeted terminology and phrasing corrections were applied locally. Native-speaker review remains pending.
+
+Existing current-key translations were retained except for two repaired interpolation errors in Italian and Polish. The obsolete flat `common.preview` label in each inherited catalog was archived and replaced by the current nested preview messages. Other historical extra keys were retained. The validator now enforces full coverage, non-empty text, interpolation and code literals for inherited catalogs as well as contributed ones. Evidence: [completion report](../deliverables/locale-completion-2026-10-25/report.md). These additions have not been compiled into the desktop executable.

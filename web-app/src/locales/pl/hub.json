@@ -44,5 +44,7 @@
     "yellow": "Mały zapas pamięci",
     "red": "Za mało pamięci",
     "unknown": "Nieznana pamięć"
-  }
+  },
+  "downloadFailed": "Nie udało się rozpocząć pobierania",
+  "resumeUnavailable": "Nie można wznowić pobierania. Proszę, rozpocznij jeszcze raz."
 }

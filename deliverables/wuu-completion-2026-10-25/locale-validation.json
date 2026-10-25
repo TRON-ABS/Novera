@@ -1,0 +1,225 @@
+{
+  "locales": 36,
+  "integrated_contributions": 19,
+  "english_keys": 1513,
+  "errors": [],
+  "coverage": [
+    {
+      "locale": "en",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "bn",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "ar",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "ur",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "pcm",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "arz",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "mr",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "te",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "ta",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "sw",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "ha",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "pnb",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "tl",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "pt-PT",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "yue",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "wuu",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "fa-IR",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "am",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "th",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "jv",
+      "covered": 1513,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "es",
+      "covered": 983,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "fr",
+      "covered": 927,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "it",
+      "covered": 1050,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "hi",
+      "covered": 983,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "id",
+      "covered": 885,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "pl",
+      "covered": 885,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "vn",
+      "covered": 885,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "zh-CN",
+      "covered": 885,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "zh-TW",
+      "covered": 885,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "de-DE",
+      "covered": 885,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "cs",
+      "covered": 914,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "pt-BR",
+      "covered": 887,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "ko",
+      "covered": 982,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "ja",
+      "covered": 1095,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "ru",
+      "covered": 930,
+      "total": 1513,
+      "partial": false
+    },
+    {
+      "locale": "ca",
+      "covered": 928,
+      "total": 1513,
+      "partial": false
+    }
+  ],
+  "compiled": false
+}

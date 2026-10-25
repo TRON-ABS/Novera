@@ -30,5 +30,21 @@
     "rememberSaved": "已以“{{name}}”保存到记忆",
     "rememberExists": "记忆中已存在“{{name}}”",
     "rememberFailed": "无法保存到记忆"
+  },
+  "embeddings": {
+    "title": "准备文件",
+    "description": "对附件进行索引，以便可以搜索和引用它们。对于大型文档，这可能需要一些时间。"
+  },
+  "webSources": "{{count}} 来源",
+  "reasoning": {
+    "label": "推理...",
+    "thinking": "思考",
+    "working": "工作中...",
+    "showFullTimeline": "显示完整时间线",
+    "showCurrentStep": "仅显示当前步骤",
+    "thoughtForAWhile": "想了几秒",
+    "thoughtFor": "对{{duration}}的思考",
+    "workedForAWhile": "工作了几秒钟",
+    "workedFor": "为 {{duration}} 工作"
   }
 }

@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "रूटिंग मॉडल चुनें…",
     "routerModelSearchPlaceholder": "मॉडल खोजें…",
     "routerModelEmptyList": "कोई उपलब्ध हल्के मॉडल नहीं हैं। कृपया छोटे मॉडल जोड़ें या 'Models' में API कुंजी सेट करें।",
-    "routerModelEmptySearch": "कोई परिणाम नहीं मिला जो '{{query}}' से मेल खाता हो।"
+    "routerModelEmptySearch": "कोई परिणाम नहीं मिला जो '{{query}}' से मेल खाता हो।",
+    "maxToolOutputChars": "अधिकतम टूल आउटपुट वर्ण",
+    "maxToolOutputCharsDesc": "बातचीत में रखा गया सबसे लंबा टूल परिणाम। इससे पहले की किसी भी चीज़ को काट दिया गया है और काट-छाँट के रूप में चिह्नित किया गया है, इसलिए एक बड़ा परिणाम मॉडल के संदर्भ को समाप्त नहीं कर सकता है। परिणामों को संपूर्ण रखने के लिए 0 पर सेट करें।"
+  },
+  "auth": {
+    "label": "प्रामाणिक:",
+    "state": {
+      "notApplicable": "आवश्यक नहीं",
+      "staticHeader": "प्राधिकरण शीर्षलेख",
+      "authenticated": "प्रमाणित",
+      "expired": "समाप्त हो गया",
+      "staleResource": "दूसरे URL के लिए जारी किया गया",
+      "unauthenticated": "प्रमाणित नहीं"
+    },
+    "expiresIn": "{{duration}} में समाप्त होता है",
+    "authenticate": "साइन इन करें",
+    "reauthenticate": "पुनः प्रमाणित करें",
+    "clear": "स्पष्ट प्रमाणीकरण",
+    "waiting": "ब्राउज़र की प्रतीक्षा है...",
+    "openSignInPage": "साइन-इन पेज खोलें",
+    "needsAuth": "{{serverName}} को प्रमाणीकरण की आवश्यकता है",
+    "needsAuthHint": "कनेक्ट करने के लिए इस सर्वर में साइन इन करें।",
+    "authorized": "{{serverName}} में साइन इन किया गया",
+    "authorizeFailed": "{{serverName}} के लिए साइन-इन विफल रहा",
+    "cleared": "{{serverName}} के लिए संग्रहीत क्रेडेंशियल साफ़ किए गए",
+    "nothingToClear": "{{serverName}} में कोई संग्रहीत क्रेडेंशियल नहीं था",
+    "clearFailed": "{{serverName}} के लिए क्रेडेंशियल साफ़ नहीं किया जा सका",
+    "renew": "नवीनीकरण सत्र",
+    "expiredAgo": "{{duration}} पहले समाप्त हो गया"
   }
 }

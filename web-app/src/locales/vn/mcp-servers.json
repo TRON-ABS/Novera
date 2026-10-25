@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "Chọn model định tuyến…",
     "routerModelSearchPlaceholder": "Tìm model…",
     "routerModelEmptyList": "Không có model nhẹ. Hãy thêm model nhỏ hơn hoặc cấu hình khóa API trong Models.",
-    "routerModelEmptySearch": "Không có kết quả cho “{{query}}”."
+    "routerModelEmptySearch": "Không có kết quả cho “{{query}}”.",
+    "maxToolOutputChars": "Ký tự đầu ra công cụ tối đa",
+    "maxToolOutputCharsDesc": "Kết quả công cụ được lưu giữ lâu nhất trong cuộc trò chuyện. Bất cứ điều gì vượt quá điều này sẽ được cắt bớt và đánh dấu là bị cắt ngắn, do đó, một kết quả lớn không thể làm cạn kiệt bối cảnh của mô hình. Đặt thành 0 để giữ nguyên kết quả."
+  },
+  "auth": {
+    "label": "Xác thực:",
+    "state": {
+      "notApplicable": "không bắt buộc",
+      "staticHeader": "Tiêu đề ủy quyền",
+      "authenticated": "đã được xác thực",
+      "expired": "đã hết hạn",
+      "staleResource": "được cấp cho một URL khác",
+      "unauthenticated": "không được xác thực"
+    },
+    "expiresIn": "hết hạn vào {{duration}}",
+    "authenticate": "Đăng nhập",
+    "reauthenticate": "Xác thực lại",
+    "clear": "Xác thực rõ ràng",
+    "waiting": "Đang chờ trình duyệt...",
+    "openSignInPage": "Mở trang đăng nhập",
+    "needsAuth": "{{serverName}} cần xác thực",
+    "needsAuthHint": "Đăng nhập vào máy chủ này để kết nối.",
+    "authorized": "Đã đăng nhập vào {{serverName}}",
+    "authorizeFailed": "Đăng nhập {{serverName}} không thành công",
+    "cleared": "Đã xóa thông tin xác thực được lưu trữ cho {{serverName}}",
+    "nothingToClear": "{{serverName}} không có thông tin xác thực được lưu trữ",
+    "clearFailed": "Không thể xóa thông tin xác thực cho {{serverName}}",
+    "renew": "Gia hạn phiên",
+    "expiredAgo": "{{duration}} đã hết hạn trước"
   }
 }

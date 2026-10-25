@@ -6,5 +6,13 @@
   "baseUrlPlaceholder": "https://il-tuo-endpoint/v1",
   "apiKeyLabel": "Chiave API (opzionale)",
   "apiKeyPlaceholder": "Incolla la tua chiave API",
-  "invalidBaseUrl": "L'URL di base deve essere un URL http(s) valido"
+  "invalidBaseUrl": "L'URL di base deve essere un URL http(s) valido",
+  "apiTypeLabel": "Formato API",
+  "apiTypeOpenAI": "Compatibile con OpenAI",
+  "apiTypeAnthropic": "Compatibile con Anthropic",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "globalSettings": "Impostazioni globali",
+  "stripReasoning": "Estrai il ragionamento dal contesto",
+  "stripReasoningDesc": "Rimuovi il contenuto di pensiero/ragionamento dei turni precedenti prima di inviare nuovamente la cronologia, a tutti i fornitori. Migliora il riutilizzo della cache KV- per i modelli locali, ma alcuni modelli (ad esempio le versioni più recenti di Qwen) consigliano di mantenerlo per un migliore ragionamento multi-turno.",
+  "providerAlreadyExists": "Esiste già un provider denominato {{name}}."
 }

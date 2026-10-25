@@ -1,5 +1,18 @@
 {
   "addProvider": "Thêm nhà cung cấp",
   "addOpenAIProvider": "Thêm nhà cung cấp OpenAI",
-  "enterNameForProvider": "Nhập tên cho nhà cung cấp"
+  "enterNameForProvider": "Nhập tên cho nhà cung cấp",
+  "apiTypeLabel": "Định dạng API",
+  "apiTypeOpenAI": "Tương thích với OpenAI",
+  "apiTypeAnthropic": "Tương thích với Anthropic",
+  "baseUrlLabel": "Đế URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "Phím API",
+  "apiKeyPlaceholder": "Dán khóa API của bạn",
+  "invalidBaseUrl": "URL cơ sở phải là một http(s) URL hợp lệ",
+  "globalSettings": "Cài đặt chung",
+  "stripReasoning": "Tách lý luận ra khỏi ngữ cảnh",
+  "stripReasoningDesc": "Xóa nội dung suy nghĩ/lý luận của lượt trước trước khi gửi lại lịch sử, trên tất cả các nhà cung cấp. Cải thiện khả năng sử dụng lại KV-cache cho các mô hình cục bộ, nhưng một số mô hình (ví dụ: các bản phát hành Qwen mới hơn) khuyên bạn nên giữ lại bộ đệm này để lý luận nhiều lượt tốt hơn.",
+  "providerAlreadyExists": "Nhà cung cấp có tên {{name}} đã tồn tại."
 }

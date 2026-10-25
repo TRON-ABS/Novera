@@ -37,5 +37,6 @@
   "defaultAssistantSection": "デフォルトのアシスタント",
   "defaultAssistantDesc": "新しいチャットを開始するときに使用されます",
   "allAssistants": "すべてのアシスタント",
-  "lastUsed": "最終使用"
+  "lastUsed": "最終使用",
+  "deleteFailed": "アシスタントを削除できませんでした。もう一度試してください。"
 }

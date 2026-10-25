@@ -1,5 +1,36 @@
 {
   "title": "上下文错误",
   "truncateInput": "截断输入",
-  "increaseContextSize": "增加上下文大小"
+  "increaseContextSize": "增加上下文大小",
+  "description": "搿个聊天快到 AI 个记忆上限了，就像白板快写满一样。阿拉可以扩大记忆窗口（叫上下文大小），让伊记牢更多内容，不过可能要多用一点电脑内存。也可以截短输入，忘脱一部分聊天历史，拨新消息腾地方。",
+  "increaseContextSizeDescription": "侬要扩大上下文大小𠲎？",
+  "lastRequestOverflowed": "上趟请求超出上下文窗口了。",
+  "contextOverflowDetail": "搿趟请求需要 {{request}} 个词元，不过模型个上下文窗口只放得落 {{context}} 个。",
+  "contextOverflowGeneric": "搿趟请求超过可用个上下文大小了。",
+  "emptyReply": "模型结束了，不过呒没返回答复。请重新生成，或者检查提供商设置。",
+  "engine": {
+    "unknown": "模型引擎报了一个意料之外个错误。",
+    "MODEL_LOAD_FAILED": "模型载入勿进。",
+    "MODEL_ARCH_NOT_SUPPORTED": "当前引擎勿支持搿个模型架构。到设置里向更新引擎，可能就支持了。",
+    "MODEL_LOAD_TIMED_OUT": "模型载入辰光忒长，已经停脱了。换小一点个模型或者缩小上下文通常有用。",
+    "MISSING_SHARED_LIBRARY": "引擎需要个库缺了，所以启动勿起来。",
+    "GPU_DRIVER_TOO_OLD": "侬个 GPU 驱动对搿个引擎来讲忒老了。更新驱动，或者到设置切换到 CPU 引擎就好。",
+    "OUT_OF_MEMORY": "内存勿够运行搿个模型。换小一点个模型或者缩小上下文通常有用。",
+    "INVALID_ARGUMENT": "模型有一项设置勿对。",
+    "IO_ERROR": "启动模型个辰光，有个文件读勿出或者写勿进。",
+    "INTERNAL_ERROR": "Novera 启动模型个辰光内部出了问题。",
+    "ENGINE_UNREACHABLE": "llama.cpp 引擎勒海运行，不过 Novera 连勿上本机（127.0.0.1）个引擎。可能是 VPN、代理或者安全软件拦住了本地连接。",
+    "ENGINE_STOPPED": "llama.cpp 引擎意外停脱了。重新发消息会再启动；要是一直停，可能是安全软件或者 GPU 驱动个问题。",
+    "UNSUPPORTED_CPU": "搿台电脑个处理器勿支持本地模型。Novera 个本地引擎是为 Apple Silicon Mac（M1 或更新）构建个，所以勒 Intel Mac 上启动勿起来。云端搭自定义提供商照常好用。"
+  },
+  "engineMissingLibraries": "缺少：{{libraries}}",
+  "engineReportedDetail": "引擎报告：{{detail}}",
+  "startModelFailed": "模型启动失败：{{reason}}",
+  "createModelFailed": "模型创建失败：{{reason}}",
+  "noRunningSession": "寻勿着模型 {{model}} 正勒海运行个会话",
+  "serverPortOccupied": "端口已经拨占用了",
+  "serverPortOccupiedDescription": "端口 {{port}} 已经有人用勒海。请换一个端口。",
+  "serverInvalidModelPath": "模型路径无效或者访问勿到",
+  "serverStartModelFailed": "模型启动失败",
+  "serverStartFailed": "服务器启动失败"
 }

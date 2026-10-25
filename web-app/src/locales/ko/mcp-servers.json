@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "라우팅 모델 선택…",
     "routerModelSearchPlaceholder": "모델 검색…",
     "routerModelEmptyList": "사용 가능한 경량 모델이 없습니다. 더 작은 모델을 추가하거나 모델에서 API 키를 설정하세요.",
-    "routerModelEmptySearch": "「{{query}}」에 일치하는 항목이 없습니다."
+    "routerModelEmptySearch": "「{{query}}」에 일치하는 항목이 없습니다.",
+    "maxToolOutputChars": "최대 도구 출력 문자",
+    "maxToolOutputCharsDesc": "가장 긴 도구 결과가 대화에 보관됩니다. 이 이후의 모든 내용은 잘려지고 잘린 것으로 표시되므로 하나의 큰 결과가 모델의 컨텍스트를 소진시킬 수 없습니다. 결과 전체를 유지하려면 0으로 설정합니다."
+  },
+  "auth": {
+    "label": "작성자:",
+    "state": {
+      "notApplicable": "필요하지 않음",
+      "staticHeader": "인증 헤더",
+      "authenticated": "인증됨",
+      "expired": "만료됨",
+      "staleResource": "다른 URL에 대해 발행됨",
+      "unauthenticated": "인증되지 않음"
+    },
+    "expiresIn": "는 {{duration}}에 만료됩니다.",
+    "authenticate": "로그인",
+    "reauthenticate": "재인증",
+    "clear": "인증 지우기",
+    "waiting": "브라우저를 기다리는 중...",
+    "openSignInPage": "로그인 페이지 열기",
+    "needsAuth": "{{serverName}} 인증이 필요합니다",
+    "needsAuthHint": "연결하려면 이 서버에 로그인하세요.",
+    "authorized": "{{serverName}}에 로그인했습니다",
+    "authorizeFailed": "{{serverName}} 로그인 실패",
+    "cleared": "{{serverName}}에 대해 저장된 자격 증명이 삭제되었습니다.",
+    "nothingToClear": "{{serverName}}에는 저장된 자격 증명이 없습니다.",
+    "clearFailed": "{{serverName}}에 대한 자격 증명을 지울 수 없습니다.",
+    "renew": "세션 갱신",
+    "expiredAgo": "{{duration}} 전에 만료됨"
   }
 }

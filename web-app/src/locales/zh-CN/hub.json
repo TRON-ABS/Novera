@@ -44,5 +44,7 @@
     "yellow": "内存余量较少",
     "red": "内存不足",
     "unknown": "内存未知"
-  }
+  },
+  "downloadFailed": "无法开始下载",
+  "resumeUnavailable": "无法恢复此下载。请重新开始。"
 }

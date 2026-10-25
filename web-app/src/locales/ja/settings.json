@@ -126,7 +126,9 @@
     "resetCodeBlockStyle": "コードブロックスタイルをリセット",
     "resetCodeBlockStyleDesc": "コードブロックスタイルをデフォルトにリセットします。",
     "resetCodeBlockSuccess": "コードブロックスタイルが正常にリセットされました",
-    "resetCodeBlockSuccessDesc": "コードブロックスタイルがデフォルトに復元されました。"
+    "resetCodeBlockSuccessDesc": "コードブロックスタイルがデフォルトに復元されました。",
+    "autoGenerateTitle": "チャットタイトルを自動生成",
+    "autoGenerateTitleDesc": "新しい会話をスレッドのタイトルに自動的に要約します。オフにすると、自分で名前を変更するまでデフォルトのタイトルが維持されます。"
   },
   "hardware": {
     "os": "オペレーティングシステム",
@@ -150,7 +152,20 @@
     "freeOf": " / 空き",
     "driverVersion": "ドライバーのバージョン",
     "computeCapability": "計算能力",
-    "systemMonitor": "システムモニター"
+    "systemMonitor": "システムモニター",
+    "backendApi": "バックエンド API",
+    "apiVersion": "API バージョン",
+    "refresh": "リフレッシュ",
+    "detectingDevices": "GPU を検出しています...",
+    "deviceListError": "GPU デバイスを読み取れませんでした",
+    "noDevicesDesc": "llama.cpp エンジンには GPU が表示されません。モデルは CPU で実行されます。",
+    "gpuDisabled": "無効",
+    "backendApiDesc": "llama.cpp がこの GPU と会話する方法",
+    "backendSelectDesc": "この GPU には、この API を使用してください",
+    "unifiedMemory": "統合メモリ",
+    "unifiedMemoryDesc": "GPU は CPU と 1 つのメモリ プールを共有します。モデルはシステムの残りの部分と同じメモリから描画します。",
+    "engineRestartedForDevices": "GPU が変更されたため、ローカル エンジンが再起動されました。次回の使用時にモデルがリロードされます。",
+    "engineBusyDevicesChanged": "GPU が変更されましたが、モデルはビジー状態です。それを停止し、[更新] を押して新しい GPU を使用します。"
   },
   "httpsProxy": {
     "proxy": "プロキシ",
@@ -212,7 +227,9 @@
     "proxyTimeoutDesc": "ローカルモデルからの応答を待機する時間（秒）。",
     "defaultModel": "ローカルAPIサーバーの既定モデル",
     "defaultModelDesc": "サーバー起動時に自動的に読み込むローカルモデルです。",
-    "defaultModelPlaceholder": "ローカルモデルを選択"
+    "defaultModelPlaceholder": "ローカルモデルを選択",
+    "runInBackground": "バックグラウンドで実行",
+    "runInBackgroundDesc": "ウィンドウを閉じているときは、システム トレイでサーバーを実行したままにしてください。オフの場合、ウィンドウを閉じると Novera が終了し、サーバーが停止します。"
   },
   "privacy": {
     "analytics": "分析",
@@ -279,7 +296,10 @@
     "reportIssue": "問題を報告",
     "credits": "クレジット",
     "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
-    "creditsDesc2": "オープンソースの依存関係、特にllama.cppとTauri、そして素晴らしいAIコミュニティに感謝します。"
+    "creditsDesc2": "オープンソースの依存関係、特にllama.cppとTauri、そして素晴らしいAIコミュニティに感謝します。",
+    "janCli": "Novera CLI",
+    "janCliDesc": "端末から Novera のエージェントを実行します。ガイドに従ってインストールして開始してください。",
+    "janCliSetupGuide": "セットアップガイド"
   },
   "extensions": {
     "title": "拡張機能"
@@ -314,7 +334,10 @@
     "chunkSize": "チャンクサイズ（文字数）",
     "chunkSizeDesc": "埋め込み用の1チャンクあたりのおおよその最大文字数です。",
     "chunkOverlap": "オーバーラップ（文字数）",
-    "chunkOverlapDesc": "連続するチャンク間で重複させる文字数です。"
+    "chunkOverlapDesc": "連続するチャンク間で重複させる文字数です。",
+    "maxFileDisabledReason": "ドキュメントのサイズ制限を変更するには、「添付ファイルを有効にする」をオンにします。",
+    "maxImage": "最大画像サイズ (MB)",
+    "maxImageDesc": "画像ごとの最大サイズ (JPEG または PNG)。プロバイダーまたはモデルによっては、下限が適用される場合があります。"
   },
   "dialogs": {
     "changeDataFolder": {
@@ -327,5 +350,46 @@
     }
   },
   "backendInstallSuccess": "バックエンドは正常にインストールされました",
-  "backendInstallError": "バックエンドのインストールに失敗しました"
+  "backendInstallError": "バックエンドのインストールに失敗しました",
+  "webSearch": {
+    "title": "ウェブ検索",
+    "description": "Novera の組み込みツールを使用して、モデルに Web を検索および読み取りさせます。",
+    "enable": "Web 検索を有効にする",
+    "enableDesc": "ツールの使用をサポートするモデルに web_search および web_fetch ツールをアドバタイズします。 API キーなしですぐに使用できます。",
+    "provider": "検索プロバイダー",
+    "providerDesc": "web_search および web_fetch に応答するバックエンドを選択します。",
+    "apiKey": "{{provider}} API キー",
+    "apiKeyOptional": "オプション。より高いレート制限と構造化された結果を得るには、{{provider}} API キーを提供します。無料のキーレス エンドポイントを使用するには、空のままにします。",
+    "apiKeyRequired": "必須。 {{provider}} が結果を返すには、API キーが必要です。",
+    "apiKeyPlaceholder": "{{provider}} API キーを入力してください",
+    "endpoint": "{{provider}} インスタンス URL",
+    "endpointDesc": "必須。 JSON API が有効になっている、{{provider}} インスタンスのベース URL。",
+    "endpointPlaceholder": "https://searx.example.com"
+  },
+  "cowork": {
+    "title": "Cowork",
+    "description": "Cowork エージェントのインターフェースを設定します。サンドボックス内のシェルと、Novera データフォルダーに永続保存されるメモリおよびスキルが対象です。",
+    "shell": "シェルコマンド",
+    "shellChecking": "サンドボックスを確認しています...",
+    "shellSandboxed": "コマンドは {{backend}} によって制限されて実行されます。コマンドはセッション ワークスペース内でのみ書き込み可能で、ホーム フォルダー内のファイルは読み取りできません。",
+    "shellUnavailable": "このシステムでは利用可能なサンドボックスがないため、シェル ツールは提供されません。コマンドが無制限に実行されることはありません。",
+    "network": "ネットワークアクセスを許可する",
+    "networkDesc": "パッケージのインストールやリポジトリの取得などのために、Cowork コマンドがネットワークに到達できるようにします。デフォルトではオンです。メイン チャットのシェルにはネットワーク アクセスがありません。",
+    "openFolder": "フォルダーを開く",
+    "memories": "思い出",
+    "noMemories": "記憶はまだありません。モデルは、保持する価値のあるものを学習するときに、memory_write ツールを使用してそれらを追加します。",
+    "skills": "スキル",
+    "noSkills": "スキルはまだありません。スキルは、モデルがオンデマンドでロードできる再利用可能な命令のセットです。",
+    "add": "追加",
+    "editMemory": "メモリの編集",
+    "editMemoryDesc": "ノートごとに 1 つのトピック。モデルは、memory_read ツールを使用してこれらを読み取ります。",
+    "editSkill": "エディットスキル",
+    "editSkillDesc": "Markdown 命令 (オプションで YAML 前付の説明付き)。説明は、スキルをロードする前にモデルに表示されるものです。",
+    "namePlaceholder": "名前",
+    "contentPlaceholder": "内容",
+    "loadFailed": "エージェント ワークスペースをロードできませんでした",
+    "saveFailed": "保存できませんでした",
+    "deleteFailed": "削除できませんでした",
+    "revealFailed": "フォルダーを開けませんでした"
+  }
 }

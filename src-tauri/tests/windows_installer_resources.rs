@@ -29,7 +29,6 @@ fn renamed_worker_keeps_the_legacy_upgrade_and_rollback_paths() {
     assert!(clean.contains("Delete \"$INSTDIR\\resources\\bin\\jan-llama-worker.exe\""));
 }
 
-
 /// The body of `Function <name>` or `Section <name>` up to its terminator.
 ///
 /// Located by byte search rather than by summing line lengths: a Windows

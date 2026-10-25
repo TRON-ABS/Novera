@@ -62,7 +62,21 @@
   "deny": "Odmów",
   "start": "Uruchom",
   "stop": "Zatrzymaj",
-  "preview": "Podgląd",
+  "preview": {
+    "loading": "Otwieranie…",
+    "unsupported": "Novera nie może wyświetlić tego rodzaju pliku. Otwórz, aby zobaczyć w innej aplikacji.",
+    "outside": "Ten plik nie znajduje się już w obszarze roboczym sesji.",
+    "tooLarge": "Zbyt duży, aby wyświetlić podgląd. Otwórz, aby zobaczyć w innej aplikacji.",
+    "reload": "Załaduj ponownie",
+    "allowNetwork": "Zezwól na sieć",
+    "unsandboxed": "Uruchom bez piaskownicy: zapisane dane i pliki lokalne działają",
+    "unresolvedRefs_one": "1 pliku, do którego prowadzi ta strona, nie można załadować w podglądzie. Otwórz go, aby zobaczyć w przeglądarce.",
+    "unresolvedRefs_other": "Plików {{count}}, do których prowadzą linki na tej stronie, nie można załadować w podglądzie. Otwórz go, aby zobaczyć w przeglądarce.",
+    "externalRefs_one": "1 zasób ładowany przez tę stronę z sieci jest zablokowany. Włącz „Zezwalaj na sieć”, aby go załadować.",
+    "externalRefs_other": "Zasoby {{count}}, które ta strona ładuje z Internetu, są zablokowane. Aby je załadować, włącz opcję „Zezwalaj na sieć”.",
+    "scriptErrors_one": "Strona zgłosiła błąd: {{message}}",
+    "scriptErrors_other": "Strona zgłosiła błędy {{count}}. Po pierwsze: {{message}}"
+  },
   "compactWidth": "Zwarta Szerokość",
   "fullWidth": "Pełna Szerokość",
   "dark": "Ciemny",
@@ -218,7 +232,32 @@
   "modelSettings": {
     "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
     "title": "Ustawienia Modelu - {{modelId}}",
-    "description": "Zmień ustawienia modelu aby poprawić jego wydajność i zachowanie"
+    "description": "Zmień ustawienia modelu aby poprawić jego wydajność i zachowanie",
+    "samplingDefaults": {
+      "title": "Domyślne parametry próbkowania",
+      "description": "Domyślne ustawienia samplera dla tego modelu. Używane, chyba że zostaną zastąpione wartościami dla poszczególnych asystentów lub żądań."
+    },
+    "specDraft": {
+      "section": "Dekodowanie spekulatywne",
+      "enable": "Włącz dekodowanie spekulatywne",
+      "enableDescription": "Projektuj kilka tokenów na krok i weryfikuj je w jednym przebiegu, co przyspiesza generowanie. Wykorzystuje wbudowane głowice modelu MTP lub pobrany wraz z nim model roboczy (MTP, Eagle3, DFlash lub DSpark).",
+      "nMax": "Maksymalna liczba żetonów draftu",
+      "nMaxDescription": "Maksymalna liczba tokenów do pobrania na krok. Domyślnie 16.",
+      "nMin": "Minimalne tokeny draftu",
+      "nMinDescription": "Minimalna liczba tokenów do wyciągnięcia na krok. Domyślnie 0.",
+      "pMin": "Minimalne prawdopodobieństwo przeciągu",
+      "pMinDescription": "Minimalne prawdopodobieństwo zachłannego przepisywania (0–1). Domyślnie 0,75."
+    },
+    "templateKwargs": {
+      "section": "Opcje szablonu czatu",
+      "description": "Dodatkowe opcje akceptowane przez szablon czatu tej modelki. Wysyłane jako chat_template_kwargs na każde żądanie; pozostaw wartość domyślną, aby szablon mógł zdecydować.",
+      "addCustom": "Dodaj opcję niestandardową",
+      "keyPlaceholder": "nazwa\nWartość",
+      "valuePlaceholder": "wartość",
+      "add": "Dodaj",
+      "cancel": "Anuluj",
+      "remove": "Usuń"
+    }
   },
   "dialogs": {
     "changeDataFolder": {
@@ -244,6 +283,10 @@
     },
     "deleteMessage": {
       "description": "Czy na pewno chcesz usunąć tę wiadomość? Tej operacji nie można cofnąć."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Usuń wszystkie rozmowy",
+      "description": "Rozmowy {{count}} w \"{{projectName}}\" zostaną usunięte. Tej akcji nie można cofnąć."
     }
   },
   "projects": {
@@ -285,7 +328,13 @@
       "updateButton": "Aktualizuj",
       "alreadyExists": "Projekt \"{{projectName}}\" już istnieje",
       "createSuccess": "Projekt \"{{projectName}}\" został pomyślnie utworzony",
-      "renameSuccess": "Projekt zmieniono z \"{{oldName}}\" na \"{{newName}}\""
+      "renameSuccess": "Projekt zmieniono z \"{{oldName}}\" na \"{{newName}}\"",
+      "assistant": "Asystent",
+      "selectAssistant": "Wybierz asystenta (opcjonalnie)",
+      "noAssistant": "Brak asystenta",
+      "addAssistant": "Dodaj Asystenta",
+      "updateSuccess": "Projekt „{{projectName}}” został pomyślnie zaktualizowany",
+      "saveError": "Nie można zapisać projektu. Spróbuj ponownie."
     },
     "noConversationsIn": "Brak Rozmów w {{projectName}}",
     "startNewConversation": "Rozpocznij nową rozmowę z {{projectName}} poniżej",
@@ -301,7 +350,16 @@
     "noProjectsFound": "Nie znaleziono projektów",
     "tryDifferentSearch": "Spróbuj innego wyszukiwania",
     "uploadingFiles": "Przetwarzanie plików…",
-    "processButton": "Dodaj"
+    "processButton": "Dodaj",
+    "selectAssistant": "Wybierz asystenta",
+    "noAssistantAssigned": "Do tego projektu nie przypisano żadnego asystenta",
+    "files": "Pliki",
+    "filesDescription": "Dodaj pliki PDF, dokumenty lub inny tekst, do którego będziesz się odwoływać w tym projekcie.",
+    "conversation": "Rozmowa",
+    "instructions": "Instrukcje",
+    "setup": "Konfiguracja",
+    "instructionsDescription": "Dostosuj ton i styl odpowiedzi",
+    "manageInstructions": "Zarządzaj instrukcjami"
   },
   "errorDialog": {
     "titleFallback": "Coś poszło nie tak",
@@ -346,7 +404,7 @@
     },
     "downloadComplete": {
       "title": "Ukończono Pobieranie",
-      "description": "Model {{modelId}} został pobrany."
+      "description": "Pobrano {{item}}."
     },
     "downloadCancelled": {
       "title": "Anulowano Pobieranie",
@@ -354,7 +412,16 @@
     },
     "downloadFailed": {
       "title": "Błąd Pobierania",
-      "description": "Błąd pobierania {{item}}"
+      "description": "Błąd pobierania {{item}}",
+      "descriptionWithReason": "Pobieranie {{item}} nie powiodło się: {{reason}}",
+      "reason": {
+        "dns": "nie można rozpoznać nazwy serwera",
+        "refused": "połączenie zostało odrzucone",
+        "timeout": "Upłynął limit czasu połączenia",
+        "tls": "nie można nawiązać bezpiecznego połączenia",
+        "proxy": "serwer proxy nie został osiągnięty",
+        "unreachable": "serwer nie został osiągnięty"
+      }
     },
     "modelValidationStarted": {
       "title": "Weryfikacja Modelu",
@@ -395,6 +462,59 @@
     "threadRemovedFromProject": {
       "title": "Wątek Usunięty",
       "description": "Wątek został pomyślnie usunięty z \"{{projectName}}\""
+    },
+    "openSettings": "Otwórz Ustawienia",
+    "openLogs": "Otwórz logi\nWymagany token",
+    "downloadTokenRequired": {
+      "title": "Hugging Face",
+      "description": "Ten model wymaga tokena dostępu Hugging Face. Dodaj swój token w Ustawieniach i spróbuj ponownie."
+    },
+    "downloadLicenseRequired": {
+      "title": "Zaakceptuj licencję modelu na Hugging Face",
+      "description": "Przed pobraniem musisz zaakceptować licencję modelu na jego stronie Hugging Face."
+    },
+    "downloadRateLimited": {
+      "title": "Szybkość ograniczona przez Hugging Face",
+      "description": "Twoje stawki są ograniczone. Dodanie tokena może zwiększyć limity stawek. Spróbuj ponownie później."
+    },
+    "fileUploaded": {
+      "title": "Plik przetworzony",
+      "description": "Plik został pomyślnie przetworzony i zaindeksowany"
+    },
+    "uploadFailed": {
+      "title": "Przetwarzanie nie powiodło się",
+      "description": "Nie udało się przetworzyć pliku",
+      "subjectThisFile": "Ten plik",
+      "pdfMalformedXref": "{{subject}} ma zniekształconą tabelę powiązań PDF i nie można jej przeanalizować. Spróbuj otworzyć go w przeglądarce PDF i zapisać ponownie (Plik → Drukuj → Zapisz jako PDF), a następnie prześlij ponownie.",
+      "pdfScanned": "{{subject}} wygląda na zeskanowany lub oparty na obrazie PDF. OCR nie jest jeszcze obsługiwany — prześlij plik tekstowy PDF.",
+      "pdfEncrypted": "{{subject}} jest chroniony hasłem. Usuń hasło i spróbuj ponownie.",
+      "pdfUnsupportedFeature": "{{subject}} używa funkcji PDF, której Novera nie może jeszcze przeanalizować (np. funkcji koloru/cieniowania PostScript). Spróbuj zapisać go ponownie (Plik → Drukuj → Zapisz jako PDF), aby go spłaszczyć, a następnie prześlij ponownie.",
+      "pdfGeneric": "{{subject}} nie mogło zostać przeanalizowane jako PDF. Plik może być uszkodzony lub wykorzystuje nieobsługiwaną funkcję PDF.",
+      "fileTooLarge": "{{subject}} jest za duży. {{message}}.",
+      "unsupportedType": "Typ pliku „{{type}}” nie jest obsługiwany.",
+      "ioError": "Nie można odczytać {{subject}}: {{message}}",
+      "parseGeneric": "Nie można przeanalizować {{subject}}: {{message}}",
+      "fallback": "Nie udało się przetworzyć {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Plik został usunięty",
+      "description": "Plik został usunięty z projektu"
+    },
+    "deleteFailed": {
+      "title": "Usuwanie nie powiodło się",
+      "description": "Nie udało się usunąć pliku"
+    },
+    "fileAlreadyExists": {
+      "title": "Plik już istnieje",
+      "description": "Plik jest już dołączony do tego projektu"
+    },
+    "unsupportedFileType": {
+      "title": "Nieobsługiwany typ pliku",
+      "description": "Rozszerzenie pliku „.{{extension}}” nie jest obsługiwane w celach informacyjnych projektu."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Załączniki wyłączone",
+      "description": "Załączniki są wyłączone w Ustawieniach"
     }
   },
   "failedToLoadModels": "Nie udało się wczytać modeli",
@@ -424,5 +544,267 @@
   "errorTracking": {
     "title": "Śledzenie błędów",
     "summary": "Opcjonalne raporty do {{host}}: typ błędu, pozycja w kodzie, wersja i system operacyjny. Bez rozmów, oryginalnych komunikatów błędów ani kluczy. Można wyłączyć w każdej chwili."
-  }
+  },
+  "htmlArtifact": {
+    "code": "Kod",
+    "preview": "Podgląd",
+    "previewStreaming": "Dostępne po zakończeniu generowania",
+    "unresolvedAssets_one": "1 odniesienie do zasobu nie może zostać załadowane w podglądzie. Ścieżki względne nie mają bazowego URL, na podstawie którego można je rozwiązać.",
+    "unresolvedAssets_other": "Odniesienia do zasobów {{count}} nie mogą zostać załadowane w podglądzie. Ścieżki względne nie mają bazowego URL, na podstawie którego można je rozwiązać."
+  },
+  "remote_access": "Dostęp zdalny",
+  "integrations": "Integracje",
+  "claude_code": "Kod Claude'a",
+  "web_search": "Wyszukiwarka internetowa",
+  "shell": "Powłoka",
+  "browse": "Przeglądaj",
+  "moreControls": "Więcej kontroli",
+  "starting": "Rozpoczynanie...",
+  "activeSuffix": "(Aktywny)",
+  "hideProvider": "Ukryj dostawcę",
+  "showProvider": "Pokaż dostawcę",
+  "home": "Strona główna",
+  "cowork": "Cowork",
+  "newSession": "Nowa sesja",
+  "artifacts": "Artefakty",
+  "customize": "Dostosuj",
+  "local": "Lokalnie",
+  "selectFolder": "Wybierz folder",
+  "selectModel": "Najpierw wybierz model",
+  "commands": "Polecenia",
+  "cmdHelp": "Lista dostępnych poleceń",
+  "cmdClear": "Wyczyść tę sesję",
+  "cmdModels": "Przełącz aktywny model",
+  "cmdModelsHint": "Wpisz /models i wybierz model z listy",
+  "cmdModelSwitched": "Przełączono na {{name}}",
+  "cmdUnknown": "Nieznane polecenie: {{name}}. Wypróbuj /help",
+  "cmdBusy": "Nie można tego zrobić, gdy agent jest uruchomiony",
+  "cmdCompact": "Skomplikuj kontekst sesji w podsumowanie",
+  "cmdCompacted": "Kompaktowane komunikaty {{before}} -> {{after}}",
+  "cmdNothingToCompact": "Nie ma jeszcze nic do kompaktowania",
+  "cmdCompactFailed": "Kompaktowanie nie powiodło się: {{error}}",
+  "cmdPlan": "Przełącz tryb planu (tylko do odczytu: agent oświadcza się bez pisania)",
+  "cmdPlanOn": "Tryb planowania włączony: agent czyta i oświadcza się bez pisania",
+  "cmdPlanOff": "Tryb planowania wyłączony: normalne wykonanie",
+  "cmdTodo": "Otwórz panel postępu",
+  "cmdTasks": "Otwórz panel zadań w tle",
+  "cmdInit": "Przestudiuj projekt i zapisz umiejętności oraz pamięć",
+  "cmdInitRunning": "Dołączam do tego projektu",
+  "skills": "Umiejętności",
+  "skillsInContext": "Umiejętności dostępne dla agenta w tym biegu",
+  "skillsTitle": "Zarządzaj umiejętnościami",
+  "skillsScopeProject": "Umiejętności dla {{folder}}",
+  "skillsScopeGlobal": "Umiejętności globalne, dostępne w każdej sesji",
+  "skillsScopeMerged": "Umiejętności dla {{folder}} oraz globalne umiejętności udostępniane w każdej sesji\nfolderze",
+  "skillOriginFolder": "falcówka",
+  "skillOriginGlobal": "globalny",
+  "skillsEmpty": "Nie ma jeszcze żadnych umiejętności",
+  "skillsPickOrNew": "Wybierz umiejętność do edycji lub utwórz nową.",
+  "skillNew": "Nowa umiejętność",
+  "skillDelete": "Usuń umiejętność",
+  "skillSave": "Zapisz",
+  "skillSaved": "Umiejętność zapisana",
+  "skillNameRequired": "Nazwa umiejętności jest wymagana",
+  "skillNamePlaceholder": "nazwa-umiejętności",
+  "skillContentPlaceholder": "Opisz procedurę wielokrotnego użytku w Markdown…",
+  "skillHubImport": "Importuj z koncentratora",
+  "skillHubTitle": "Centrum umiejętności Anthropic",
+  "skillHubEmpty": "W hubie nie znaleziono umiejętności",
+  "skillImport": "Importuj",
+  "skillReimport": "Ponowny import",
+  "skillImported": "Zaimportowano {{name}}",
+  "sessions": "Sesje",
+  "deleteSession": "Usuń sesję",
+  "deleteSessionTitle": "Usunąć sesję?",
+  "deleteSessionBody": "„{{title}}” i jego transkrypcja zostaną trwale usunięte. Tego nie można cofnąć.",
+  "analyticsConsentDetail": "Zbieramy anonimowe dane, aby zrozumieć wykorzystanie funkcji. Twoje czaty i dane osobowe nigdy nie są śledzone. Możesz to zmienić w dowolnym momencie, wybierając Ustawienia > Prywatność.",
+  "analyticsConsentQuestion": "Czy chciałbyś nam pomóc ulepszyć Novera?",
+  "searchThreads": "Przeszukaj wątki...",
+  "toNavigate": ", aby nawigować",
+  "toSelect": ", aby wybrać",
+  "toClose": ", aby zamknąć",
+  "clearRecent": "Wyczyść",
+  "dismiss": "Odrzuć",
+  "changes": {
+    "title": "Zmiany agenta",
+    "empty": "Tutaj pojawią się pliki napisane lub edytowane przez agenta.",
+    "a11y": "Zmiany agenta: pliki {{files}}, dodano {{additions}}, usunięto {{deletions}}"
+  },
+  "modelPanel": {
+    "title": "Ustawienia modelu",
+    "a11y": "Otwórz ustawienia modelu",
+    "contextTooltip": "Okno kontekstu: {{value}} z {{max}} tokenów"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Umiejętność „{{name}}” nie jest dostępna",
+    "kind": {
+      "skill": "Umiejętność",
+      "command": "Polecenie",
+      "model": "Model"
+    }
+  },
+  "multimodal": "Multimodalny",
+  "noAssistant": "Brak asystenta",
+  "settingUpJan": "Uruchamianie Novera…",
+  "registeringExtensions": "Rejestrowanie rozszerzeń…",
+  "loadingExtensions": "Ładowanie rozszerzeń… ({{done}}/{{total}})",
+  "continueAiResponse": "Kontynuuj odpowiedź AI",
+  "modelControls": {
+    "updateFailed": "Nie można zaktualizować ustawień modelu"
+  },
+  "missingDependenciesDialog": {
+    "title": "Brakujące biblioteki systemowe",
+    "description": "{{backend}} został zainstalowany, ale nie można znaleźć niektórych wymaganych bibliotek systemowych. Może wrócić do CPU lub nie działać poprawnie.",
+    "installLabel": "Aby to naprawić, zainstaluj:",
+    "download": "Pobierz",
+    "additionalLibraries": "Dodatkowe brakujące biblioteki:",
+    "missingLibraries": "Brakujące biblioteki:",
+    "showRawLibraries": "Pokaż brakujące nazwy bibliotek {{count}}"
+  },
+  "attachmentsIngestion": {
+    "title": "Wybierz sposób przyjmowania załączników",
+    "description": "Wybierz, czy chcesz dołączyć te pliki bezpośrednio do czatu, czy zamiast tego zindeksować je jako osadzone elementy.",
+    "inline": "Wstrzyknij do czatu",
+    "embeddings": "Użyj osadzania"
+  },
+  "attachmentInjectedIndicator": "Dodano do czatu",
+  "attachmentEmbeddedIndicator": "Wbudowany dla RAG",
+  "viewInjectedContent": "Wyświetl wstrzykniętą zawartość",
+  "injectedContentTitle": "Wstrzyknięta zawartość pliku",
+  "errors": {
+    "fileTooLarge": "Plik jest za duży",
+    "fileTooLargeDescription": "{{fileName}} przekracza limit {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "Kawałki {{count}}",
+    "title": "Pliki",
+    "empty": "Tutaj pojawią się pliki, które załączysz i pliki utworzone przez agenta.",
+    "a11y": "Pliki: {{count}}",
+    "attachments": "Załączniki",
+    "notImported": "nie znajduje się w obszarze roboczym"
+  },
+  "duration": {
+    "seconds": "{{count}}",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Zwiń",
+  "expand": "Rozwiń",
+  "todoPanelTitle": "Postęp",
+  "todoPanelEmpty": "Nie ma jeszcze listy rzeczy do zrobienia.",
+  "backgroundTasks": "Zadania w tle",
+  "subagentsRunning_one": "Podagent {{count}} działa",
+  "subagentsRunning_other": "Podagenci {{count}} działają",
+  "monitorsRunning_one": "Monitor {{count}} działa",
+  "monitorsRunning_other": "Monitory {{count}} działają",
+  "backgroundRunning_one": "Uruchomione zadanie w tle {{count}}",
+  "backgroundRunning_other": "Uruchomione zadania w tle {{count}}",
+  "monitors": "Monitory",
+  "monitorPolling": "Odpytywanie",
+  "monitorMatched": "Dopasowane",
+  "monitorTimedOut": "Upłynął limit czasu",
+  "monitorStopped": "Zatrzymano",
+  "monitorEnded": "Zakończono",
+  "coworkWatching_one": "Oglądam monitor {{count}}…",
+  "coworkWatching_other": "Oglądanie monitorów {{count}}…",
+  "coworkWaitingBackground": "Oczekiwanie na zadania w tle…",
+  "noBackgroundTasks": "Nie ma jeszcze zadań w tle.",
+  "running": "Działa",
+  "queued": "W kolejce",
+  "waiting": "Czekam",
+  "finished": "Zakończono",
+  "subagentPhase": "faza {{phase}}",
+  "subagentWaiting": "czekam",
+  "viewTranscript": "Zobacz transkrypcję",
+  "taskWorking": "Działa…",
+  "taskNoOutput": "Subagent nie wygenerował żadnych widocznych wyników.",
+  "subagentToolUses_one": "Użycie narzędzia {{count}}",
+  "subagentToolUses_other": "Używa narzędzia {{count}}",
+  "artifactGroupCode": "Kod",
+  "artifactGroupImage": "Obraz",
+  "artifactGroupDocument": "Dokument",
+  "artifactGroupVideo": "Wideo",
+  "artifactGroupAudio": "Dźwięk",
+  "artifactOpenPreview": "Otwórz podgląd",
+  "artifactOpenExternal": "Otwórz",
+  "artifactMoreActions": "Więcej akcji",
+  "artifactShowInFolder": "Pokaż w folderze",
+  "skillsUsedLabel": "Wykorzystane umiejętności",
+  "skillsUsed": "Wykorzystane umiejętności: {{skills}}",
+  "artifactsAll": "Wszystko",
+  "artifactsEmpty": "Nic jeszcze nie zostało wyprodukowane. Tutaj pojawiają się artefakty z biegów Cowork.",
+  "artifactsNoMatch": "Żadne artefakty nie pasują.",
+  "artifactsSearch": "Szukaj artefaktów",
+  "artifactsShowMore": "Pokaż {{count}} więcej",
+  "workspace": {
+    "readsFrom": "Działa w",
+    "writable": "czytaj i pisz",
+    "footnote": "Agent bezpośrednio czyta i edytuje ten folder. Sprawdź, co zmieniło się w panelu różnicowym.",
+    "footnoteEmpty": "Dołącz folder, aby agent mógł pracować nad Twoim projektem. Może czytać i edytować znajdujące się w nim pliki.",
+    "attach": "Dołącz folder",
+    "change": "Zmień folder",
+    "detach": "Odłącz folder",
+    "open": "Otwórz",
+    "reveal": "Odkryj",
+    "unavailable": "Obszar roboczy niedostępny",
+    "missing": "Folder obszaru roboczego {{folder}} nie jest już dostępny. Wybierz inny folder.",
+    "openFailed": "Nie można otworzyć obszaru roboczego",
+    "revealFailed": "Nie można wyświetlić obszaru roboczego",
+    "a11yWithFolder": "Folder projektu {{folder}}, załączony z możliwością odczytu i zapisu. Zmień lub odłącz.",
+    "a11yNoFolder": "Brak dołączonego folderu projektu. Dołącz jeden."
+  },
+  "coworkEmpty": {
+    "title": "Nad czym pracujemy?",
+    "subtitleSandbox": "Daj Novera zadanie. Odczytuje i zapisuje pliki, uruchamia polecenia i samodzielnie wykonuje poszczególne kroki.",
+    "subtitleFolder": "Daj Novera zadanie. Działa bezpośrednio w {{folder}}, samodzielnie czytając i edytując pliki.",
+    "try": "Spróbuj",
+    "sandbox": {
+      "first": "Napisz skrypt w języku Python, który zmienia nazwy plików według daty ich pobrania",
+      "second": "Zbuduj jednostronicowy dashboard na podstawie CSV, który wkleję",
+      "third": "Przygotuj README dla projektu, który Ci opisuję"
+    },
+    "folder": {
+      "first": "Wyjaśnij, w jaki sposób {{folder}} jest złożony",
+      "second": "Znajdź wszystkie TODO w {{folder}} i pogrupuj je według obszaru",
+      "third": "Napisz testy dla części {{folder}}, na którą wskazuję"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Brak terminala",
+    "a11y": "Uruchamianie poleceń jest wyłączone. Bliższe dane.",
+    "title": "Uruchamianie poleceń jest wyłączone",
+    "body": "Novera pozwala agentowi uruchamiać polecenia powłoki tylko wtedy, gdy system może je ograniczyć. Nie jest tu dostępna żadna piaskownica, więc agent może czytać, zapisywać i edytować pliki w swojej piaskownicy, ale nie może niczego uruchamiać.",
+    "fixLinux": "Linux używa bubblewrap. Zainstaluj go, a następnie uruchom ponownie Novera.",
+    "fixMac": "macOS korzysta z wbudowanej piaskownicy w /usr/bin/sandbox-exec. Uruchom ponownie Novera, gdy będzie dostępny.",
+    "fixWindows": "Windows używa AppContainer. Uruchom ponownie Novera, aby spróbować ponownie.",
+    "recheck": "Sprawdź ponownie"
+  },
+  "planMode": {
+    "label": "Plan",
+    "tooltipOff": "Najpierw zaplanuj — agent czyta i proponuje, bez pisania.",
+    "tooltipOn": "Planowanie. Wyłącz tę opcję, aby agent mógł zapisywać pliki.",
+    "onAnnounce": "Tryb planu włączony",
+    "placeholder": "Poproś o plan. Agent nie zmieni żadnych plików."
+  },
+  "budget": {
+    "stoppedSteps": "Zatrzymano na stopniach {{max}}. Agent nie skończył.",
+    "keepGoing": "Kontynuuj",
+    "stoppedTokens": "Zatrzymano — ta sesja osiągnęła budżet tokenowy.",
+    "compact": "Kompaktowy",
+    "newSession": "Nowa sesja"
+  },
+  "run": {
+    "stopped": "Zatrzymano.",
+    "failed": "Bieg zatrzymał się wcześniej.",
+    "tryAgain": "Spróbuj ponownie"
+  },
+  "modelNoTools": "{{model}} nie może wywoływać narzędzi, więc nie może działać jako agent. Wybierz model wywołujący narzędzie.",
+  "askContinue": "Kontynuuj",
+  "askNext": "Następne pytanie",
+  "askPrev": "Poprzednie pytanie",
+  "askRecommended": "Zalecane\nWybrano",
+  "askSelectedCount": "{{count}}",
+  "askSomethingElse": "Coś innego",
+  "askSomethingElsePlaceholder": "Wpisz własną odpowiedź",
+  "submit": "Prześlij"
 }

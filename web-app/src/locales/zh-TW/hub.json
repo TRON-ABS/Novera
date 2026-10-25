@@ -44,5 +44,7 @@
     "yellow": "記憶體餘裕較少",
     "red": "記憶體不足",
     "unknown": "記憶體未知"
-  }
+  },
+  "downloadFailed": "無法開始下載",
+  "resumeUnavailable": "無法恢復此下載。請重新開始。"
 }

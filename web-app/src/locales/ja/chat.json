@@ -34,5 +34,17 @@
     "rememberSaved": "「{{name}}」としてメモリに保存しました",
     "rememberExists": "「{{name}}」として既にメモリにあります",
     "rememberFailed": "メモリに保存できませんでした"
+  },
+  "webSources": "{{count}} ソース",
+  "reasoning": {
+    "label": "推理...",
+    "thinking": "考える",
+    "working": "作業中...",
+    "showFullTimeline": "タイムライン全体を表示",
+    "showCurrentStep": "現在のステップのみを表示",
+    "thoughtForAWhile": "数秒考えた",
+    "thoughtFor": "{{duration}}への思い",
+    "workedForAWhile": "数秒間動作しました",
+    "workedFor": "{{duration}}で働いていました"
   }
 }

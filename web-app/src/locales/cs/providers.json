@@ -31,7 +31,9 @@
     "description": "Opravdu chcete smazat tento model? Tuto akci nelze vrátit zpět.",
     "success": "Model {{modelId}} byl trvale smazán.",
     "cancel": "Zrušit",
-    "delete": "Smazat"
+    "delete": "Smazat",
+    "importedDescription": "Odebrat tento importovaný model ze Novera? Váš lokální soubor na disku nebude smazán.",
+    "removeFromJan": "Odebrat ze Novera"
   },
   "deleteProvider": {
     "title": "Smazat poskytovatele",
@@ -54,12 +56,72 @@
     "warning": {
       "title": "Postupujte opatrně",
       "description": "Úprava schopností modelu může ovlivnit výkon a funkčnost. Nesprávné nastavení může způsobit neočekávané chování nebo chyby."
-    }
+    },
+    "audio": "Zvuk",
+    "video": "Video"
   },
   "addProvider": "Přidat poskytovatele",
   "addOpenAIProvider": "Přidat OpenAI poskytovatele",
   "enterNameForProvider": "Zadejte název pro poskytovatele",
   "baseUrl": {
-    "alibabaDescription": "Použijte koncový bod pracovního prostoru Alibaba Cloud a jeho oblasti. Nahraďte YOUR-WORKSPACE-ID ID pracovního prostoru a použijte klíč API ze stejné oblasti."
+    "alibabaDescription": "Použijte koncový bod pracovního prostoru Alibaba Cloud a jeho oblasti. Nahraďte YOUR-WORKSPACE-ID ID pracovního prostoru a použijte klíč API ze stejné oblasti.",
+    "title": "Základna URL",
+    "azureDescription": "Váš koncový bod Azure OpenAI. Nahraďte YOUR-RESOURCE-NAME názvem svého prostředku Azure.\nKlávesy"
+  },
+  "limitedSupport": "Tento poskytovatel nemusí být plně podporován. Schopnosti (nástroje, vidění, zvuk) nejsou automaticky detekovány – přidejte modely ručně a nakonfigurujte možnosti pro každý model.",
+  "mlxExperimental": "Podpora MLX je experimentální. Vložení nejsou k dispozici, přepínač uvažování ještě není zapojený a některé architektury novějších modelů se nemusí načíst. Nahlaste problémy na GitHubu, abychom je mohli upřednostnit.",
+  "engineBundled": "Inferenční engine je zabudován do Novera, takže není co stahovat nebo aktualizovat samostatně. Při hlášení modelu, který se nepodařilo načíst, uveďte tuto verzi.",
+  "engineOtherVersion": "Potřebujete jinou verzi llama.cpp? Spusťte svůj vlastní llama-server a přidejte jej jako vlastního poskytovatele kompatibilního se OpenAI.",
+  "engineOtherVersionLink": "Jak na to",
+  "engineReleaseNotes": "Poznámky k verzi",
+  "engineBuild": "Sestavení",
+  "engineCommit": "Zavázat se",
+  "backendInstalled": "Instalováno",
+  "backendHistoryShow": "Zobrazit historii aktualizací",
+  "backendHistoryHide": "Skrýt historii aktualizací",
+  "backendHistoryLoading": "Načítání historie aktualizací...",
+  "backendHistoryEmpty": "Dosud nebyly zaznamenány žádné aktualizace backendu.",
+  "backendHistoryNone": "žádný",
+  "backendHistoryUpdated": "Aktualizováno",
+  "backendHistoryRolledBack": "Vráceno zpět",
+  "backendHistoryRollbackFailed": "Vrácení zpět se nezdařilo",
+  "backendHistoryFailed": "Selhalo",
+  "chatModels": "Chatové modely",
+  "embeddingModels": "Vkládací modely",
+  "embeddingModelsDesc": "Používá se pro RAG a vektorové vyhledávání. Vybraný model se stane výchozím při generování vložení.",
+  "embeddingModelDefault": "Výchozí",
+  "embeddingModelSetDefault": "Nastavit jako výchozí model vkládání",
+  "embeddingModelIsDefault": "Výchozí model vkládání",
+  "imported": "Importováno",
+  "importedTooltip": "Importováno z místního souboru. Odstraněním z Novera neodstraníte soubor na disku.",
+  "noModelFoundRemoteDesc": "Dostupné modely budou uvedeny zde. Pomocí tlačítka pro obnovení výše načtěte modely od poskytovatele, nebo je přidejte ručně pomocí tlačítka +.",
+  "deleteAllModels": {
+    "button": "Smazat vše",
+    "title": "Smazat všechny stažené modely?",
+    "description": "Toto trvale odstraní model(y) {{count}} z disku.",
+    "sizeLabel": "Místo na disku, které se má uvolnit:",
+    "calculating": "Počítám…",
+    "warning": "Tuto akci nelze vrátit zpět.",
+    "importedExcluded": "Importované modely {{count}} budou zachovány (jejich soubory nebyly staženy pomocí Novera).",
+    "confirm": "Smazat model(y) {{count}}",
+    "deleting": "Mazání…",
+    "success": "Smazán model(y) {{count}}.",
+    "partialFailure": "Nepodařilo se odstranit modely {{count}}. Podrobnosti viz konzola."
+  },
+  "apiKeys": {
+    "title": "API",
+    "description": "Zadejte svůj klíč API. V Advanced můžete přidat další klíče a Novera se automaticky pokusí o další, pokud klíč selže.",
+    "placeholder": "sk-…\nsk-…",
+    "primaryPlaceholder": "Zadejte primární klíč API",
+    "keyPlaceholder": "Zadejte klíč API",
+    "primaryBadge": "Primární",
+    "test": "Testovací klíče",
+    "testing": "Testování...",
+    "testHint": "Kontroluje /models s každou klávesou a zobrazuje stav jednotlivých kláves.",
+    "advanced": "Pokročilé",
+    "hideAdvanced": "Skrýt pokročilé",
+    "oneKeyHint": "Volitelné záložní klávesy se konfigurují v Rozšířeném nastavení.",
+    "addKey": "Přidat klíč",
+    "removeKey": "Vyjměte klíč"
   }
 }

@@ -1,6 +1,6 @@
 # Windows entry point used by Compiler-Novera.bat. No publication or CI calls.
 [CmdletBinding()]
-param()
+param([switch]$WithTelemetry)
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 2
 
@@ -38,7 +38,7 @@ $id = if ($planOnly) { if ($env:NOVERA_BUILD_OPTION) { $env:NOVERA_BUILD_OPTION.
 $selected = $variants | Where-Object Id -eq $id
 if (!$selected) { Write-Output "ERREUR : variante inconnue '$id'. Utiliser /list."; exit 2 }
 if ($planOnly) {
-    [ordered]@{variant=$selected.Id; enabled=$selected.Enabled; repository=$repo; required_host=$selected.Host; command=$selected.Command; compiled=$false; published=$false; automatic_updates=$false; statistics=$false} | ConvertTo-Json
+    [ordered]@{variant=$selected.Id; enabled=$selected.Enabled; repository=$repo; required_host=$selected.Host; command=$selected.Command; compiled=$false; published=$false; automatic_updates=$false; statistics=$false; telemetry_requested=[bool]$WithTelemetry; consent_default=$false} | ConvertTo-Json
     exit 0
 }
 if (!$selected.Enabled) { Write-Output "DESACTIVE : $($selected.Name). Mettre NOVERA_BUILD_$($selected.Flag)=1 dans le BAT pour preparer son activation."; exit 2 }
@@ -69,6 +69,15 @@ try {
     $env:NOVERA_ENABLE_UPDATER = 'false'
     $env:NOVERA_ANALYTICS_HOST = ''
     $env:NOVERA_ANALYTICS_PROJECT_KEY = ''
+    $telemetryConfigured = $false
+    if ($WithTelemetry) {
+        . (Join-Path $PSScriptRoot 'read-novera-telemetry.ps1')
+        $telemetry = Read-NoveraTelemetry (Join-Path $repo 'web-app/.env.local')
+        $env:NOVERA_ANALYTICS_HOST = $telemetry.Host
+        $env:NOVERA_ANALYTICS_PROJECT_KEY = $telemetry.Key
+        $telemetryConfigured = $true
+        Write-Output "Telemetry destination configured: $($telemetry.Host). User consent remains required."
+    }
     $env:CARGO_BUILD_JOBS = '4'
     if (!$env:CARGO_TARGET_DIR) {
         $env:CARGO_TARGET_DIR = if (Test-Path -LiteralPath 'C:/jb' -PathType Container) { 'C:/jb' } else { Join-Path $repo 'src-tauri/target' }
@@ -173,7 +182,7 @@ try {
             }
         }
     }
-    $record = [ordered]@{variant=$id;version=$config.version;completed_utc=[DateTime]::UtcNow.ToString('o');output=$output;logs=$logs;published=$false;automatic_updates=$false;statistics=$false}
+    $record = [ordered]@{variant=$id;version=$config.version;completed_utc=[DateTime]::UtcNow.ToString('o');output=$output;logs=$logs;published=$false;automatic_updates=$false;statistics=$false;telemetry_configured=$telemetryConfigured;consent_default=$false}
     $record | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $logs 'result.json') -Encoding UTF8
     if (Test-Path -LiteralPath $output) {
         $checksums = Get-ChildItem -LiteralPath $output -File -Recurse | ForEach-Object { "$((Get-FileHash -LiteralPath $_.FullName).Hash)  $($_.FullName.Substring($output.Length + 1))" }

@@ -31,5 +31,12 @@
   "personality": "Личность",
   "capabilities": "Возможности",
   "instructionsDateHint": "Совет: Используйте {{current_date}} для вставки текущей даты.",
-  "maxToolSteps": "Максимум шагов инструмента"
+  "maxToolSteps": "Максимум шагов инструмента",
+  "deleteFailed": "Не удалось удалить помощника. Пожалуйста, попробуйте еще раз.",
+  "setAsDefault": "Установить помощником по умолчанию.",
+  "isDefault": "По умолчанию",
+  "defaultAssistantSection": "Помощник по умолчанию",
+  "defaultAssistantDesc": "Используется при запуске нового чата.",
+  "allAssistants": "Все помощники",
+  "lastUsed": "Последнее использование"
 }

@@ -30,5 +30,21 @@
     "rememberSaved": "Desat a la memòria com a «{{name}}»",
     "rememberExists": "Ja és a la memòria com a «{{name}}»",
     "rememberFailed": "No s’ha pogut desar a la memòria"
+  },
+  "embeddings": {
+    "title": "Preparant els vostres documents",
+    "description": "Indexació dels fitxers adjunts perquè es puguin cercar i citar. Això pot trigar un moment per a documents grans."
+  },
+  "webSources": "{{count}} font(s)",
+  "reasoning": {
+    "label": "Raonament...",
+    "thinking": "Pensant",
+    "working": "Treballant...",
+    "showFullTimeline": "Mostra la línia de temps completa",
+    "showCurrentStep": "Mostra només el pas actual",
+    "thoughtForAWhile": "Pensar uns segons",
+    "thoughtFor": "Pensat per a {{duration}}",
+    "workedForAWhile": "Va funcionar durant uns segons",
+    "workedFor": "Va treballar per a {{duration}}"
   }
 }

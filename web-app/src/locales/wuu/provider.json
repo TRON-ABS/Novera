@@ -1,4 +1,18 @@
 {
   "addProvider": "添加提供商",
-  "addOpenAIProvider": "添加 OpenAI 提供商"
+  "addOpenAIProvider": "添加 OpenAI 提供商",
+  "enterNameForProvider": "提供商名字（比方讲 my-llm-server）",
+  "apiTypeLabel": "API 格式",
+  "apiTypeOpenAI": "兼容 OpenAI",
+  "apiTypeAnthropic": "兼容 Anthropic",
+  "baseUrlLabel": "基础 URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API 密钥",
+  "apiKeyPlaceholder": "贴入侬个 API 密钥",
+  "invalidBaseUrl": "基础 URL 一定要是有效个 http(s) URL",
+  "globalSettings": "全局设置",
+  "stripReasoning": "从上下文移除推理内容",
+  "stripReasoningDesc": "重新发送历史记录以前，移除前几轮个思考／推理内容，对所有提供商生效。搿能可以提高本地模型个 KV 缓存复用率，不过有些模型（比方讲新版 Qwen）建议保留搿部分，好让多轮推理效果更好。",
+  "providerAlreadyExists": "已经有一个叫 {{name}} 个提供商了。"
 }

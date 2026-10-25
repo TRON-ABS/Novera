@@ -44,5 +44,7 @@
     "yellow": "Cadangan memori kecil",
     "red": "Memori tidak cukup",
     "unknown": "Memori tidak diketahui"
-  }
+  },
+  "downloadFailed": "Gagal memulai pengunduhan",
+  "resumeUnavailable": "Tidak dapat melanjutkan pengunduhan ini. Silakan mulai lagi."
 }

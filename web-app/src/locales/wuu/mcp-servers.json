@@ -6,7 +6,9 @@
       "checking": "正在检查扩展状态..."
     },
     "notInstalled": {
-      "getExtension": "获取扩展"
+      "getExtension": "获取扩展",
+      "title": "Novera 帮侬勒浏览器里向完成任务",
+      "description": "装好扩展，拨 Novera 访问浏览器个权限"
     }
   },
   "serverName": "服务器名称",
@@ -24,14 +26,21 @@
   "disconnected": "已断开",
   "deleteServer": {
     "title": "删除 MCP 服务器",
-    "delete": "删除"
+    "delete": "删除",
+    "description": "侬确定要删脱 MCP 服务器 {{serverName}} 𠲎？搿个操作撤销勿来。",
+    "success": "MCP 服务器 {{serverName}} 已经删脱了"
   },
   "editJson": {
     "titleAll": "编辑所有 MCP 服务器的 JSON",
     "placeholder": "输入 JSON 配置",
     "errorParse": "解析初始数据失败",
     "errorFormat": "JSON 格式无效",
-    "save": "保存"
+    "save": "保存",
+    "title": "编辑 MCP 服务器个 JSON：{{serverName}}",
+    "errorPaste": "贴进来个内容 JSON 格式勿对",
+    "errorServerName": "服务器名字一定要填，勿好空勒海",
+    "errorMissingServerNameKey": "JSON 要写成 {\"serverName\": {config}} 搿种结构——缺少服务器名字键",
+    "errorInvalidType": "服务器「{{serverName}}」个类型「{{type}}」勿对。类型一定要是 'stdio'、'http' 或者 'sse'"
   },
   "title": "MCP 服务",
   "experimental": "实验性",
@@ -48,6 +57,45 @@
     "routerModel": "路由模型",
     "selectRouterModelPlaceholder": "选择路由模型…",
     "routerModelSearchPlaceholder": "搜索模型…",
-    "routerModelEmptySearch": "没有与「{{query}}」匹配的结果。"
+    "routerModelEmptySearch": "没有与「{{query}}」匹配的结果。",
+    "description": "设置 Novera 哪能管理搭重试 MCP 服务器。",
+    "toolCallTimeoutDesc": "等 MCP 工具回复个最长辰光，超过就算超时。",
+    "maxToolOutputChars": "工具输出最多字符数",
+    "maxToolOutputCharsDesc": "对话里向保留个工具结果最长长度。超过个部分会截脱并标明已截断，免得一个大结果用光模型个上下文。设成 0 就保留完整结果。",
+    "smartToolRoutingDesc": "打开以后，Novera 先挑相关个 MCP 服务器，再载入工具。关脱就每趟侪载入完整个 MCP 工具清单。",
+    "useLightweightRouterModel": "用专门个模型做路由",
+    "useLightweightRouterModelDesc": "智能路由打开个辰光，用另外一个模型（通常更小）做路由，勿用聊天模型。关脱以后就一直用当前聊天模型做路由。",
+    "routerModelDesc": "勒同一个地方选提供商搭模型。这里只列轻量模型，让路由快一点、花费少一点。",
+    "routerModelEmptyList": "眼下呒没轻量模型。请到模型设置添加小一点个模型，或者配置 API 密钥。"
+  },
+  "checkParams": "请照教程检查参数。",
+  "allowPermissionsDesc": "打开以后，所有 MCP 工具调用侪会自动批准，勿再弹权限对话框。搿个设置对所有对话生效，新聊天也包括勒里向。",
+  "serverStatusActive": "服务器 {{serverKey}} 已经启用了",
+  "serverStatusInactive": "服务器 {{serverKey}} 已经停用了",
+  "auth": {
+    "label": "认证：",
+    "state": {
+      "notApplicable": "勿需要",
+      "staticHeader": "Authorization 请求头",
+      "authenticated": "已经认证",
+      "expired": "已经过期",
+      "staleResource": "是拨另外一个 URL 签发个",
+      "unauthenticated": "还呒没认证"
+    },
+    "expiresIn": "再过 {{duration}} 过期",
+    "authenticate": "登录",
+    "reauthenticate": "重新认证",
+    "clear": "清除认证",
+    "waiting": "勒海等浏览器…",
+    "openSignInPage": "打开登录页面",
+    "needsAuth": "{{serverName}} 需要认证",
+    "needsAuthHint": "登录搿个服务器才好连接。",
+    "authorized": "已经登录到 {{serverName}}",
+    "authorizeFailed": "{{serverName}} 登录失败",
+    "cleared": "已经清除 {{serverName}} 保存个凭据",
+    "nothingToClear": "{{serverName}} 呒没保存个凭据",
+    "clearFailed": "清除勿脱 {{serverName}} 个凭据",
+    "renew": "续期会话",
+    "expiredAgo": "{{duration}} 以前就过期了"
   }
 }

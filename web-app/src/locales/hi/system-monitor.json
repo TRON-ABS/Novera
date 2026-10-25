@@ -24,5 +24,7 @@
   "active": "सक्रिय",
   "performance": "प्रदर्शन",
   "resources": "संसाधन",
-  "refresh": "रीफ्रेश करें"
+  "refresh": "रीफ्रेश करें",
+  "gpus": "जीपीयू",
+  "vram": "VRAM"
 }

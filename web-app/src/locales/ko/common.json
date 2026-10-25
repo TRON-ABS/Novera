@@ -73,7 +73,21 @@
   "deny": "거부",
   "start": "시작",
   "stop": "중지",
-  "preview": "미리보기",
+  "preview": {
+    "loading": "오프닝…",
+    "unsupported": "Novera에서는 이러한 종류의 파일을 표시할 수 없습니다. 다른 앱에서 보려면 열어보세요.",
+    "outside": "이 파일은 더 이상 세션 작업 공간에 없습니다.",
+    "tooLarge": "너무 커서 미리 볼 수 없습니다. 다른 앱에서 보려면 열어보세요.",
+    "reload": "새로고침",
+    "allowNetwork": "네트워크 허용",
+    "unsandboxed": "샌드박스 처리되지 않은 실행: 저장된 데이터 및 로컬 파일이 작동함",
+    "unresolvedRefs_one": "이 페이지에 링크된 파일 1개를 미리보기에서 로드할 수 없습니다. 열어서 브라우저에서 확인하세요.",
+    "unresolvedRefs_other": "이 페이지에 링크된 {{count}} 파일은 미리보기에서 로드할 수 없습니다. 열어서 브라우저에서 확인하세요.",
+    "externalRefs_one": "이 페이지가 웹에서 로드하는 리소스 1개가 차단되었습니다. 로드하려면 '네트워크 허용'을 켜세요.",
+    "externalRefs_other": "이 페이지가 웹에서 로드하는 {{count}} 리소스는 차단되었습니다. 로드하려면 '네트워크 허용'을 켜세요.",
+    "scriptErrors_one": "페이지에서 오류를 보고했습니다: {{message}}",
+    "scriptErrors_other": "페이지에서 {{count}} 오류를 보고했습니다. 첫째: {{message}}"
+  },
   "compactWidth": "콤팩트 너비",
   "fullWidth": "전체 너비",
   "dark": "다크",
@@ -236,7 +250,32 @@
   "modelSettings": {
     "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
     "title": "모델 설정 - {{modelId}}",
-    "description": "모델 설정을 구성하여 성능과 동작을 최적화합니다."
+    "description": "모델 설정을 구성하여 성능과 동작을 최적화합니다.",
+    "samplingDefaults": {
+      "title": "기본 샘플링 매개변수",
+      "description": "이 모델의 기본 샘플러 설정입니다. 지원별 또는 요청별 값으로 재정의되지 않는 한 사용됩니다."
+    },
+    "specDraft": {
+      "section": "추측적 디코딩",
+      "enable": "추론적 디코딩 활성화",
+      "enableDescription": "단계별로 여러 개의 토큰 초안을 작성하고 한 번에 검증하면 생성 속도가 빨라집니다. 모델에 내장된 MTP 헤드 또는 함께 다운로드한 초안 모델(MTP, Eagle3, DFlash 또는 DSpark)을 사용합니다.",
+      "nMax": "최대 초안 토큰",
+      "nMaxDescription": "단계당 드래프트할 최대 토큰 수입니다. 기본값 16.",
+      "nMin": "최소 초안 토큰",
+      "nMinDescription": "단계당 드래프트할 최소 토큰 수입니다. 기본값은 0입니다.",
+      "pMin": "최소 드래프트 확률",
+      "pMinDescription": "탐욕스러운 제도의 최소 확률(0–1)입니다. 기본값은 0.75입니다."
+    },
+    "templateKwargs": {
+      "section": "채팅 템플릿 옵션",
+      "description": "이 모델의 채팅 템플릿에서는 추가 옵션을 사용할 수 있습니다. 각 요청마다 chat_template_kwargs로 전송됩니다. 템플릿이 결정하도록 하려면 값을 기본값으로 둡니다.",
+      "addCustom": "맞춤 옵션 추가",
+      "keyPlaceholder": "이름",
+      "valuePlaceholder": "값",
+      "add": "추가",
+      "cancel": "취소",
+      "remove": "삭제"
+    }
   },
   "dialogs": {
     "changeDataFolder": {
@@ -316,7 +355,8 @@
       "updateButton": "업데이트",
       "alreadyExists": "\"{{projectName}}\" 프로젝트가 이미 존재합니다",
       "createSuccess": "\"{{projectName}}\" 프로젝트가 성공적으로 생성되었습니다",
-      "updateSuccess": "\"{{projectName}}\" 프로젝트가 성공적으로 업데이트되었습니다"
+      "updateSuccess": "\"{{projectName}}\" 프로젝트가 성공적으로 업데이트되었습니다",
+      "saveError": "프로젝트를 저장할 수 없습니다. 다시 시도해 주세요."
     },
     "noConversationsIn": "{{projectName}}에 대화가 없습니다",
     "startNewConversation": "아래에서 {{projectName}}와(과) 새 대화를 시작하세요",
@@ -398,7 +438,16 @@
     },
     "downloadFailed": {
       "title": "다운로드 실패",
-      "description": "{{item}} 다운로드를 실패했습니다"
+      "description": "{{item}} 다운로드를 실패했습니다",
+      "descriptionWithReason": "{{item}} 다운로드 실패: {{reason}}",
+      "reason": {
+        "dns": "서버 이름을 확인할 수 없습니다.",
+        "refused": "연결이 거부되었습니다",
+        "timeout": "연결 시간이 초과되었습니다.",
+        "tls": "보안 연결을 설정할 수 없습니다.",
+        "proxy": "프록시에 연결할 수 없습니다.",
+        "unreachable": "서버에 연결할 수 없습니다."
+      }
     },
     "modelValidationStarted": {
       "title": "모델 검증 중",
@@ -446,7 +495,18 @@
     },
     "uploadFailed": {
       "title": "처리 실패",
-      "description": "파일을 처리하지 못했습니다"
+      "description": "파일을 처리하지 못했습니다",
+      "subjectThisFile": "이 파일",
+      "pdfMalformedXref": "{{subject}}에 잘못된 PDF 상호 참조 테이블이 있어 구문 분석할 수 없습니다. PDF 뷰어에서 열어서 다시 저장(파일 → 인쇄 → PDF로 저장)한 후 다시 업로드해 보세요.",
+      "pdfScanned": "{{subject}}는 스캔 ​​또는 이미지 기반 PDF인 것으로 보입니다. OCR는 아직 지원되지 않습니다. 텍스트 기반 PDF를 업로드하세요.",
+      "pdfEncrypted": "{{subject}}는 비밀번호로 보호되어 있습니다. 비밀번호를 삭제하고 다시 시도하세요.",
+      "pdfUnsupportedFeature": "{{subject}}는 PDF 기능을 사용합니다. Novera는 아직 구문 분석할 수 없습니다(예: PostScript 색상/음영 기능). 다시 저장(파일 → 인쇄 → PDF로 저장)하여 병합한 다음 다시 업로드해 보세요.",
+      "pdfGeneric": "{{subject}}를 PDF로 구문 분석할 수 없습니다. 파일이 손상되었거나 지원되지 않는 PDF 기능을 사용하고 있을 수 있습니다.",
+      "fileTooLarge": "{{subject}}가 너무 큽니다. {{message}}.",
+      "unsupportedType": "파일 형식 \"{{type}}\"는 지원되지 않습니다.",
+      "ioError": "{{subject}}를 읽을 수 없습니다: {{message}}",
+      "parseGeneric": "{{subject}}를 구문 분석할 수 없습니다: {{message}}",
+      "fallback": "{{subject}} 처리에 실패했습니다."
     },
     "fileDeleted": {
       "title": "파일 삭제됨",
@@ -463,6 +523,24 @@
     "attachmentsDisabledInfo": {
       "title": "첨부 파일 비활성화됨",
       "description": "설정에서 첨부 파일이 비활성화되어 있습니다"
+    },
+    "openSettings": "설정 열기",
+    "openLogs": "로그 열기",
+    "downloadTokenRequired": {
+      "title": "Hugging Face 토큰 필요",
+      "description": "이 모델에는 Hugging Face 액세스 토큰이 필요합니다. 설정에 토큰을 추가하고 다시 시도하세요."
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face 모델 라이선스 수락",
+      "description": "다운로드하기 전에 Hugging Face 페이지에서 모델 라이센스에 동의해야 합니다."
+    },
+    "downloadRateLimited": {
+      "title": "Hugging Face에 의해 제한되는 비율",
+      "description": "요금이 제한되었습니다. 토큰을 추가하면 속도 제한이 늘어날 수 있습니다. 나중에 다시 시도해 주세요."
+    },
+    "unsupportedFileType": {
+      "title": "지원되지 않는 파일 형식",
+      "description": "파일 확장자 \".{{extension}}\"는 프로젝트 참조용으로 지원되지 않습니다."
     }
   },
   "errors": {
@@ -470,7 +548,12 @@
     "fileTooLargeDescription": "{{fileName}}이(가) {{maxFileSizeMB}}MB 제한을 초과합니다"
   },
   "files": {
-    "chunksCount": "청크 {{count}}개"
+    "chunksCount": "청크 {{count}}개",
+    "title": "파일",
+    "empty": "첨부한 파일과 에이전트가 생성한 파일이 여기에 표시됩니다.",
+    "a11y": "파일: {{count}}",
+    "attachments": "첨부파일",
+    "notImported": "작업공간에 없음"
   },
   "llamacppBusyOnExit": {
     "title": "llama.cpp is still busy",
@@ -493,5 +576,235 @@
   "errorTracking": {
     "title": "오류 추적",
     "summary": "{{host}}에 선택적으로 전송: 오류 유형, 코드 위치, 버전 및 운영체제. 대화, 원본 오류 메시지 또는 키는 포함하지 않습니다. 언제든 끌 수 있습니다."
-  }
+  },
+  "htmlArtifact": {
+    "code": "코드",
+    "preview": "미리보기",
+    "previewStreaming": "생성이 완료되면 사용 가능",
+    "unresolvedAssets_one": "자산 참조 1개를 미리보기에서 로드할 수 없습니다. 상대 경로에는 확인할 기본 URL가 없습니다.",
+    "unresolvedAssets_other": "{{count}} 자산 참조는 미리보기에서 로드할 수 없습니다. 상대 경로에는 확인할 기본 URL가 없습니다."
+  },
+  "web_search": "웹 검색",
+  "shell": "쉘",
+  "browse": "찾아보기",
+  "moreControls": "더 많은 제어 기능",
+  "starting": "시작합니다...",
+  "activeSuffix": "(활성)",
+  "appearance": "외모",
+  "home": "홈",
+  "cowork": "Cowork",
+  "newSession": "새 세션",
+  "artifacts": "유물",
+  "customize": "맞춤설정",
+  "local": "지역",
+  "selectFolder": "폴더 선택",
+  "selectModel": "먼저 모델을 선택하세요",
+  "commands": "명령",
+  "cmdHelp": "사용 가능한 명령어 나열",
+  "cmdClear": "이 세션 지우기",
+  "cmdModels": "활성 모델 전환",
+  "cmdModelsHint": "/models를 입력한 다음 목록에서 모델을 선택하세요.",
+  "cmdModelSwitched": "{{name}}로 전환됨",
+  "cmdUnknown": "알 수 없는 명령: {{name}}. /help를 사용해 보세요",
+  "cmdBusy": "에이전트가 실행되는 동안에는 해당 작업을 수행할 수 없습니다.",
+  "cmdCompact": "세션의 내용을 요약으로 압축하세요.",
+  "cmdCompacted": "압축된 {{before}} -> {{after}} 메시지",
+  "cmdNothingToCompact": "아직 압축할 항목이 없습니다.",
+  "cmdCompactFailed": "압축 실패: {{error}}",
+  "cmdPlan": "계획 모드 전환(읽기 전용: 상담원이 쓰지 않고 제안함)",
+  "cmdPlanOn": "계획 모드 켜짐: 에이전트가 쓰지 않고 읽고 제안합니다.",
+  "cmdPlanOff": "계획 모드 꺼짐: 정상 실행",
+  "cmdTodo": "진행률 패널 열기",
+  "cmdTasks": "백그라운드 작업 패널 열기",
+  "cmdInit": "프로젝트를 공부하고 기술과 기억력을 쓰세요",
+  "cmdInitRunning": "이 프로젝트 온보딩 중",
+  "skills": "스킬",
+  "skillsInContext": "이번 실행에서 에이전트가 사용할 수 있는 스킬",
+  "skillsTitle": "스킬 관리",
+  "skillsScopeProject": "{{folder}} 스킬",
+  "skillsScopeGlobal": "모든 세션에서 사용할 수 있는 글로벌 기술",
+  "skillsScopeMerged": "{{folder}} 스킬과 모든 세션이 공유하는 글로벌 스킬",
+  "skillOriginFolder": "폴더",
+  "skillOriginGlobal": "글로벌",
+  "skillsEmpty": "아직 스킬이 없습니다",
+  "skillsPickOrNew": "편집할 스킬을 선택하거나 새로 생성하세요.",
+  "skillNew": "새로운 스킬",
+  "skillDelete": "스킬 삭제",
+  "skillSave": "저장",
+  "skillSaved": "스킬 저장됨",
+  "skillNameRequired": "스킬명을 입력해야 합니다.",
+  "skillNamePlaceholder": "스킬명",
+  "skillContentPlaceholder": "Markdown의 재사용 가능한 절차를 설명하세요…",
+  "skillHubImport": "허브에서 가져오기",
+  "skillHubTitle": "Anthropic 스킬 허브",
+  "skillHubEmpty": "허브에서 기술을 찾을 수 없습니다.",
+  "skillImport": "가져오기",
+  "skillReimport": "다시 가져오기",
+  "skillImported": "수입 {{name}}",
+  "sessions": "세션",
+  "deleteSession": "세션 삭제",
+  "deleteSessionTitle": "세션을 삭제하시겠습니까?",
+  "deleteSessionBody": "\"{{title}}\" 및 해당 내용이 영구적으로 삭제됩니다. 이 작업은 취소할 수 없습니다.",
+  "analyticsConsentDetail": "기능 사용을 이해하기 위해 익명 데이터를 수집합니다. 귀하의 채팅 및 개인 정보는 절대 추적되지 않습니다. 설정 > 개인정보 보호에서 언제든지 이를 변경할 수 있습니다.",
+  "analyticsConsentQuestion": "Novera 개선에 도움을 주시겠습니까?",
+  "dismiss": "닫기",
+  "changes": {
+    "title": "에이전트 변경",
+    "empty": "상담원이 작성하거나 편집한 파일이 여기에 표시됩니다.",
+    "a11y": "에이전트 변경 사항: {{files}} 파일, {{additions}} 추가, {{deletions}} 제거"
+  },
+  "modelPanel": {
+    "title": "모델 설정",
+    "a11y": "모델 설정 열기",
+    "contextTooltip": "컨텍스트 창: {{max}}개 토큰 중 {{value}}개"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "스킬 '{{name}}'를 사용할 수 없습니다.",
+    "kind": {
+      "skill": "스킬",
+      "command": "명령",
+      "model": "모델"
+    }
+  },
+  "multimodal": "다중 모드",
+  "noAssistant": "조수 없음",
+  "settingUpJan": "Novera 부팅 중…",
+  "registeringExtensions": "확장 프로그램 등록 중…",
+  "loadingExtensions": "확장 프로그램 로드 중… ({{done}}/{{total}})",
+  "modelControls": {
+    "updateFailed": "모델 설정을 업데이트할 수 없습니다."
+  },
+  "missingDependenciesDialog": {
+    "title": "누락된 시스템 라이브러리",
+    "description": "{{backend}}가 설치되었지만 일부 필수 시스템 라이브러리를 찾을 수 없습니다. CPU로 대체되거나 올바르게 실행되지 않을 수 있습니다.",
+    "installLabel": "이 문제를 해결하려면 다음을 설치하세요.",
+    "download": "다운로드",
+    "additionalLibraries": "추가 누락 라이브러리:",
+    "missingLibraries": "누락된 라이브러리:",
+    "showRawLibraries": "{{count}} 누락된 라이브러리 이름 표시"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "접기",
+  "expand": "펼치기",
+  "todoPanelTitle": "진행상황",
+  "todoPanelEmpty": "아직 할 일 목록이 없습니다.",
+  "backgroundTasks": "백그라운드 작업",
+  "subagentsRunning_one": "{{count}} 하위 에이전트 실행 중",
+  "subagentsRunning_other": "{{count}} 하위 에이전트 실행 중",
+  "monitorsRunning_one": "{{count}} 모니터 실행 중",
+  "monitorsRunning_other": "{{count}} 모니터 실행 중",
+  "backgroundRunning_one": "{{count}} 백그라운드 작업 실행 중",
+  "backgroundRunning_other": "{{count}} 백그라운드 작업 실행 중",
+  "monitors": "모니터",
+  "monitorPolling": "여론조사",
+  "monitorMatched": "일치함",
+  "monitorTimedOut": "시간이 초과되었습니다",
+  "monitorStopped": "중지됨",
+  "monitorEnded": "종료됨",
+  "coworkWatching_one": "{{count}} 모니터를 보는 중…",
+  "coworkWatching_other": "{{count}} 모니터를 보는 중…",
+  "coworkWaitingBackground": "백그라운드 작업을 기다리는 중…",
+  "noBackgroundTasks": "아직 백그라운드 작업이 없습니다.",
+  "running": "달리고 있다",
+  "queued": "대기 중",
+  "waiting": "기다리는 중",
+  "finished": "완료",
+  "subagentPhase": "상 {{phase}}",
+  "subagentWaiting": "기다리고 있어요",
+  "viewTranscript": "성적표 보기",
+  "taskWorking": "일하는 중…",
+  "taskNoOutput": "하위 에이전트가 눈에 보이는 출력을 생성하지 않았습니다.",
+  "subagentToolUses_one": "{{count}} 공구 사용",
+  "subagentToolUses_other": "{{count}} 도구 사용",
+  "artifactGroupCode": "코드",
+  "artifactGroupImage": "이미지",
+  "artifactGroupDocument": "문서",
+  "artifactGroupVideo": "동영상",
+  "artifactGroupAudio": "오디오",
+  "artifactOpenPreview": "미리보기 열기",
+  "artifactOpenExternal": "공개",
+  "artifactMoreActions": "추가 작업",
+  "artifactShowInFolder": "폴더에 표시",
+  "skillsUsedLabel": "사용 스킬",
+  "skillsUsed": "사용 스킬 : {{skills}}",
+  "artifactsAll": "전체",
+  "artifactsEmpty": "아직 생산된 제품이 없습니다. Cowork 실행의 아티팩트가 여기에 표시됩니다.",
+  "artifactsNoMatch": "일치하는 유물이 없습니다.",
+  "artifactsSearch": "유물 검색",
+  "artifactsShowMore": "{{count}} 더 보기",
+  "workspace": {
+    "readsFrom": "근무 국가",
+    "writable": "읽기 및 쓰기",
+    "footnote": "에이전트가 이 폴더를 직접 읽고 편집합니다. Diff 패널에서 변경된 내용을 검토하세요.",
+    "footnoteEmpty": "에이전트가 프로젝트 작업을 수행할 수 있도록 폴더를 첨부하세요. 그 안에 있는 파일을 읽고 편집할 수 있습니다.",
+    "attach": "폴더 첨부",
+    "change": "폴더 변경",
+    "detach": "폴더 분리",
+    "open": "공개",
+    "reveal": "공개",
+    "unavailable": "작업 공간을 사용할 수 없습니다",
+    "missing": "작업공간 폴더 {{folder}}는 더 이상 사용할 수 없습니다. 다른 폴더를 선택하세요.",
+    "openFailed": "작업공간을 열 수 없습니다.",
+    "revealFailed": "작업공간을 공개할 수 없습니다.",
+    "a11yWithFolder": "프로젝트 폴더 {{folder}}, 읽기 및 쓰기 권한이 첨부되어 있습니다. 변경하거나 분리하세요.",
+    "a11yNoFolder": "첨부된 프로젝트 폴더가 없습니다. 하나를 첨부하세요."
+  },
+  "coworkEmpty": {
+    "title": "우리는 무엇을 하고 있나요?",
+    "subtitleSandbox": "Novera에게 작업을 맡겨보세요. 파일을 읽고 쓰고, 명령을 실행하고, 자체적으로 단계를 수행합니다.",
+    "subtitleFolder": "Novera에게 작업을 주세요. {{folder}}에서 직접 작동하며 자체적으로 파일을 읽고 편집합니다.",
+    "try": "시도해 보세요",
+    "sandbox": {
+      "first": "파일을 촬영한 날짜별로 이름을 바꾸는 Python 스크립트를 작성하세요.",
+      "second": "붙여넣을 CSV에서 단일 페이지 대시보드를 구축하세요.",
+      "third": "제가 설명하는 프로젝트에 대한 README 초안을 작성하세요"
+    },
+    "folder": {
+      "first": "{{folder}}가 어떻게 구성되는지 설명해주세요",
+      "second": "{{folder}}에서 모든 TODO를 찾아 지역별로 그룹화하세요.",
+      "third": "{{folder}} 부분에 대한 테스트 작성"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "터미널 없음",
+    "a11y": "실행 명령이 꺼졌습니다. 세부.",
+    "title": "실행 명령이 꺼졌습니다.",
+    "body": "Novera를 사용하면 시스템에서 제한할 수 있는 경우에만 에이전트가 셸 명령을 실행할 수 있습니다. 여기서는 샌드박스를 사용할 수 없으므로 에이전트는 샌드박스에 있는 파일을 읽고 쓰고 편집할 수 있지만 아무것도 실행할 수는 없습니다.",
+    "fixLinux": "Linux는 bubblewrap를 사용합니다. 설치한 후 Novera를 다시 시작하세요.",
+    "fixMac": "macOS는 /usr/bin/sandbox-exec에 내장된 샌드박스를 사용합니다. 사용 가능해지면 Novera를 다시 시작하십시오.",
+    "fixWindows": "Windows에서는 AppContainer를 사용합니다. 다시 시도하려면 Novera를 다시 시작하세요.",
+    "recheck": "다시 확인해 보세요"
+  },
+  "planMode": {
+    "label": "계획",
+    "tooltipOff": "계획을 먼저 세우세요. 에이전트가 글을 쓰지 않고 읽고 제안합니다.",
+    "tooltipOn": "기획. 에이전트가 파일을 쓸 수 있도록 하려면 이 기능을 끄십시오.",
+    "onAnnounce": "계획 모드 켜짐",
+    "placeholder": "계획을 물어보세요. 에이전트는 파일을 변경하지 않습니다."
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} 걸음에서 멈췄습니다. 상담원이 완료되지 않았습니다.",
+    "keepGoing": "계속하세요",
+    "stoppedTokens": "중지됨 — 이 세션이 토큰 예산에 도달했습니다.",
+    "compact": "컴팩트",
+    "newSession": "새 세션"
+  },
+  "run": {
+    "stopped": "중지되었습니다.",
+    "failed": "운행이 일찍 중단되었습니다.",
+    "tryAgain": "다시 시도해 보세요"
+  },
+  "modelNoTools": "{{model}}는 도구를 호출할 수 없으므로 에이전트 역할을 할 수 없습니다. 도구 호출 모델을 선택하세요.",
+  "askContinue": "계속",
+  "askNext": "다음 질문",
+  "askPrev": "이전 질문",
+  "askRecommended": "추천",
+  "askSelectedCount": "{{count}} 선택됨",
+  "askSomethingElse": "다른 것",
+  "askSomethingElsePlaceholder": "답을 직접 입력하세요",
+  "submit": "제출"
 }

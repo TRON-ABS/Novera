@@ -24,5 +24,7 @@
   "active": "Hoạt động",
   "performance": "Hiệu suất",
   "resources": "Tài nguyên",
-  "refresh": "Làm mới"
+  "refresh": "Làm mới",
+  "gpus": "GPU",
+  "vram": "VRAM"
 }

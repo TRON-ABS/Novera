@@ -2,7 +2,9 @@
   "htmlArtifact": {
     "code": "コード",
     "preview": "プレビュー",
-    "previewStreaming": "生成が完了すると利用できます"
+    "previewStreaming": "生成が完了すると利用できます",
+    "unresolvedAssets_one": "1 つのアセット参照をプレビューにロードできません。相対パスには、解決するためのベース URL がありません。",
+    "unresolvedAssets_other": "{{count}} アセット参照をプレビューにロードできません。相対パスには、解決するためのベース URL がありません。"
   },
   "assistants": "アシスタント",
   "hardware": "ハードウェア",
@@ -78,7 +80,21 @@
   "deny": "拒否",
   "start": "開始",
   "stop": "停止",
-  "preview": "プレビュー",
+  "preview": {
+    "loading": "オープニング…",
+    "unsupported": "Novera ではこの種類のファイルを表示できません。それを開いて別のアプリで表示します。",
+    "outside": "このファイルはセッション ワークスペースに存在しません。",
+    "tooLarge": "大きすぎてプレビューできません。それを開いて別のアプリで表示します。",
+    "reload": "リロード",
+    "allowNetwork": "ネットワークを許可",
+    "unsandboxed": "サンドボックスなしで実行: 保存されたデータとローカル ファイルが動作します",
+    "unresolvedRefs_one": "このページにリンクされている 1 つのファイルがプレビューで読み込めません。それを開いてブラウザで表示します。",
+    "unresolvedRefs_other": "このページのリンク先の {{count}} ファイルはプレビューで読み込めません。それを開いてブラウザで表示します。",
+    "externalRefs_one": "このページが Web からロードする 1 つのリソースがブロックされています。 「ネットワークを許可」をオンにして読み込んでください。",
+    "externalRefs_other": "このページが Web からロードする {{count}} リソースはブロックされています。それらをロードするには、「ネットワークを許可」をオンにします。",
+    "scriptErrors_one": "ページでエラーが報告されました: {{message}}",
+    "scriptErrors_other": "このページでは {{count}} エラーが報告されました。最初: {{message}}"
+  },
   "compactWidth": "コンパクト幅",
   "fullWidth": "全幅",
   "dark": "ダーク",
@@ -257,7 +273,20 @@
       "nMin": "最小下書きトークン数",
       "nMinDescription": "ステップごとに下書きするトークンの最小数。デフォルトは0です。",
       "pMin": "最小下書き確率",
-      "pMinDescription": "貪欲な下書きの最小確率（0〜1）。デフォルトは0.75です。"
+      "pMinDescription": "貪欲な下書きの最小確率（0〜1）。デフォルトは0.75です。",
+      "section": "投機的デコード",
+      "enable": "投機的デコードを有効にする",
+      "enableDescription": "ステップごとに複数のトークンをドラフトし、1 回のパスで検証することで、生成が高速化されます。モデルの内蔵 MTP ヘッド、または一緒にダウンロードされたドラフト モデル (MTP、Eagle3、DFlash または DSpark) を使用します。"
+    },
+    "templateKwargs": {
+      "section": "チャットテンプレートのオプション",
+      "description": "このモデルのチャット テンプレートが受け入れる追加オプション。リクエストごとに chat_template_kwargs として送信されます。値はデフォルトのままにして、テンプレートに決定させます。",
+      "addCustom": "カスタムオプションを追加",
+      "keyPlaceholder": "名前",
+      "valuePlaceholder": "値",
+      "add": "追加",
+      "cancel": "キャンセル",
+      "remove": "削除"
     }
   },
   "dialogs": {
@@ -351,7 +380,8 @@
       "updateButton": "更新",
       "alreadyExists": "プロジェクト「{{projectName}}」はすでに存在します",
       "createSuccess": "プロジェクト「{{projectName}}」を正常に作成しました",
-      "updateSuccess": "プロジェクト「{{projectName}}」を正常に更新しました"
+      "updateSuccess": "プロジェクト「{{projectName}}」を正常に更新しました",
+      "saveError": "プロジェクトを保存できませんでした。もう一度試してください。"
     },
     "noConversationsIn": "{{projectName}}には会話がありません",
     "startNewConversation": "以下で{{projectName}}との新しい会話を開始します",
@@ -429,7 +459,16 @@
     },
     "downloadFailed": {
       "title": "ダウンロードに失敗しました",
-      "description": "{{item}}のダウンロードに失敗しました"
+      "description": "{{item}}のダウンロードに失敗しました",
+      "descriptionWithReason": "{{item}} ダウンロードに失敗しました: {{reason}}",
+      "reason": {
+        "dns": "サーバー名を解決できませんでした",
+        "refused": "接続が拒否されました",
+        "timeout": "接続がタイムアウトしました",
+        "tls": "安全な接続を確立できませんでした",
+        "proxy": "プロキシに接続できませんでした",
+        "unreachable": "サーバーにアクセスできませんでした"
+      }
     },
     "modelValidationStarted": {
       "title": "モデルを検証中",
@@ -487,7 +526,8 @@
       "unsupportedType": "ファイル形式「{{type}}」はサポートされていません。",
       "ioError": "{{subject}}を読み取れませんでした: {{message}}",
       "parseGeneric": "{{subject}}を解析できませんでした: {{message}}",
-      "fallback": "{{subject}}の処理に失敗しました。"
+      "fallback": "{{subject}}の処理に失敗しました。",
+      "pdfUnsupportedFeature": "{{subject}} は、Novera がまだ解析できない PDF 機能を使用します (例: PostScript カラー/シェーディング関数)。再保存 ([ファイル] → [印刷] → [PDF として保存]) して平坦化し、再度アップロードしてみてください。"
     },
     "fileDeleted": {
       "title": "ファイルを削除しました",
@@ -508,6 +548,20 @@
     "attachmentsDisabledInfo": {
       "title": "添付ファイルが無効です",
       "description": "添付ファイルは設定で無効になっています"
+    },
+    "openSettings": "設定を開く",
+    "openLogs": "ログを開く",
+    "downloadTokenRequired": {
+      "title": "Hugging Face トークンが必要です",
+      "description": "このモデルには、Hugging Face アクセス トークンが必要です。 [設定] にトークンを追加して、再試行してください。"
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face のモデルライセンスに同意します",
+      "description": "ダウンロードする前に、Hugging Face ページでモデルのライセンスに同意する必要があります。"
+    },
+    "downloadRateLimited": {
+      "title": "レートは Hugging Face によって制限されます",
+      "description": "レートが制限されています。トークンを追加すると、レート制限が増加する可能性があります。後でもう一度試してください。"
     }
   },
   "errors": {
@@ -515,7 +569,12 @@
     "fileTooLargeDescription": "{{fileName}}は{{maxFileSizeMB}}MBの上限を超えています"
   },
   "files": {
-    "chunksCount": "{{count}}個のチャンク"
+    "chunksCount": "{{count}}個のチャンク",
+    "title": "ファイル",
+    "empty": "添付したファイルとエージェントが作成したファイルがここに表示されます。",
+    "a11y": "ファイル: {{count}}",
+    "attachments": "添付ファイル",
+    "notImported": "がワークスペースにありません"
   },
   "llamacppBusyOnExit": {
     "title": "llama.cppはまだビジー状態です",
@@ -538,5 +597,212 @@
   "errorTracking": {
     "title": "エラー追跡",
     "summary": "{{host}} への任意の報告：エラーの種類、コード上の位置、バージョン、OS。会話、元のエラーメッセージ、キーは含みません。いつでも無効にできます。"
-  }
+  },
+  "web_search": "ウェブ検索",
+  "shell": "シェル",
+  "browse": "閲覧する",
+  "moreControls": "その他のコントロール",
+  "starting": "開始中...",
+  "activeSuffix": "(アクティブ)",
+  "home": "ホーム",
+  "cowork": "Cowork",
+  "newSession": "新しいセッション",
+  "artifacts": "アーティファクト",
+  "customize": "カスタマイズ",
+  "local": "ローカル",
+  "selectFolder": "フォルダーを選択してください",
+  "selectModel": "最初にモデルを選択してください",
+  "commands": "コマンド",
+  "cmdHelp": "利用可能なコマンドをリストする",
+  "cmdClear": "このセッションをクリアする",
+  "cmdModels": "アクティブモデルを切り替える",
+  "cmdModelsHint": "/models と入力し、リストからモデルを選択します",
+  "cmdModelSwitched": "{{name}} に切り替えました",
+  "cmdUnknown": "不明なコマンド: {{name}}。 /help をお試しください",
+  "cmdBusy": "エージェントの実行中はそれを行うことはできません",
+  "cmdCompact": "セッションのコンテキストを要約に圧縮します",
+  "cmdCompacted": "圧縮された {{before}} -> {{after}} メッセージ",
+  "cmdNothingToCompact": "圧縮するものはまだありません",
+  "cmdCompactFailed": "圧縮に失敗しました: {{error}}",
+  "cmdPlan": "計画モードの切り替え (読み取り専用: エージェントが書き込みなしで提案します)",
+  "cmdPlanOn": "計画モードがオン: エージェントは書かずに読んで提案します",
+  "cmdPlanOff": "プランモードオフ: 通常の実行",
+  "cmdTodo": "進行状況パネルを開く",
+  "cmdTasks": "バックグラウンドタスクパネルを開きます",
+  "cmdInit": "プロジェクトを研究し、スキルと記憶を書きます",
+  "cmdInitRunning": "このプロジェクトのオンボーディング",
+  "skills": "スキル",
+  "skillsInContext": "この実行でエージェントが利用できるスキル",
+  "skillsTitle": "スキルを管理する",
+  "skillsScopeProject": "{{folder}}のスキル",
+  "skillsScopeGlobal": "すべてのセッションで利用できるグローバル スキル",
+  "skillsScopeMerged": "{{folder}} のスキルに加え、各セッションで共有されるグローバル スキル",
+  "skillOriginFolder": "フォルダ",
+  "skillOriginGlobal": "グローバル",
+  "skillsEmpty": "スキルはまだありません",
+  "skillsPickOrNew": "編集するスキルを選択するか、新しいスキルを作成します。",
+  "skillNew": "新しいスキル",
+  "skillDelete": "スキルの削除",
+  "skillSave": "保存",
+  "skillSaved": "スキルが保存されました",
+  "skillNameRequired": "スキル名は必須です",
+  "skillNamePlaceholder": "スキル名",
+  "skillContentPlaceholder": "再利用可能なプロシージャをMarkdownで記述する…",
+  "skillHubImport": "ハブからインポート",
+  "skillHubTitle": "Anthropic スキルハブ",
+  "skillHubEmpty": "ハブにスキルが見つかりませんでした",
+  "skillImport": "輸入",
+  "skillReimport": "逆輸入",
+  "skillImported": "輸入済み {{name}}",
+  "sessions": "セッション",
+  "deleteSession": "セッションを削除",
+  "deleteSessionTitle": "セッションを削除しますか?",
+  "deleteSessionBody": "「{{title}}」とそのトランスクリプトは完全に削除されます。これを元に戻すことはできません。",
+  "analyticsConsentDetail": "当社は、機能の使用状況を把握するために匿名データを収集します。チャットや個人情報は決して追跡されません。これは、[設定] > [プライバシー]でいつでも変更できます。",
+  "analyticsConsentQuestion": "Novera の改善にご協力いただけませんか?",
+  "changes": {
+    "title": "エージェントの変更",
+    "empty": "エージェントが書き込みまたは編集したファイルがここに表示されます。",
+    "a11y": "エージェントの変更: {{files}} ファイル、{{additions}} 追加、{{deletions}} 削除"
+  },
+  "modelPanel": {
+    "title": "モデル設定",
+    "a11y": "モデル設定を開く",
+    "contextTooltip": "コンテキストウィンドウ: {{value}} / {{max}} トークン"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "スキル「{{name}}」は使用できません",
+    "kind": {
+      "skill": "スキル",
+      "command": "コマンド",
+      "model": "モデル"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "モデル設定を更新できませんでした"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "崩壊",
+  "expand": "拡大する",
+  "todoPanelTitle": "進捗状況",
+  "todoPanelEmpty": "ToDo リストがまだありません。",
+  "backgroundTasks": "バックグラウンドタスク",
+  "subagentsRunning_one": "{{count}} サブエージェントが実行中です",
+  "subagentsRunning_other": "{{count}} サブエージェントが実行中です",
+  "monitorsRunning_one": "{{count}} モニターが実行中です",
+  "monitorsRunning_other": "{{count}} モニターが実行中",
+  "backgroundRunning_one": "{{count}} バックグラウンド タスクが実行中です",
+  "backgroundRunning_other": "{{count}} バックグラウンド タスクが実行中です",
+  "monitors": "モニター",
+  "monitorPolling": "ポーリング",
+  "monitorMatched": "一致しました",
+  "monitorTimedOut": "タイムアウトしました",
+  "monitorStopped": "停止しました",
+  "monitorEnded": "終了しました",
+  "coworkWatching_one": "{{count}} モニターを見ています…",
+  "coworkWatching_other": "{{count}} モニターを見ています…",
+  "coworkWaitingBackground": "バックグラウンドタスクを待機しています…",
+  "noBackgroundTasks": "バックグラウンドタスクはまだありません。",
+  "running": "ランニング",
+  "queued": "キューに登録されました",
+  "waiting": "待っています",
+  "finished": "終了",
+  "subagentPhase": "相 {{phase}}",
+  "subagentWaiting": "待っています",
+  "viewTranscript": "トランスクリプトを表示",
+  "taskWorking": "働いています…",
+  "taskNoOutput": "サブエージェントは目に見える出力を生成しませんでした。",
+  "subagentToolUses_one": "{{count}} ツール使用",
+  "subagentToolUses_other": "{{count}} ツールの使用",
+  "artifactGroupCode": "コード",
+  "artifactGroupImage": "画像",
+  "artifactGroupDocument": "ドキュメント",
+  "artifactGroupVideo": "ビデオ",
+  "artifactGroupAudio": "オーディオ",
+  "artifactOpenPreview": "プレビューを開く",
+  "artifactOpenExternal": "開く",
+  "artifactMoreActions": "その他のアクション",
+  "artifactShowInFolder": "フォルダー内に表示",
+  "skillsUsedLabel": "使用スキル",
+  "skillsUsed": "使用スキル：{{skills}}",
+  "artifactsAll": "すべて",
+  "artifactsEmpty": "まだ何も作成されていません。 Cowork の実行で得られた成果物がここに表示されます。",
+  "artifactsNoMatch": "一致するアーティファクトはありません。",
+  "artifactsSearch": "アーティファクトを検索",
+  "artifactsShowMore": "{{count}} もっと見る",
+  "workspace": {
+    "readsFrom": "で働いています",
+    "writable": "読み書き",
+    "footnote": "エージェントはこのフォルダーを直接読み取り、編集します。差分パネルで何が変更されたかを確認します。",
+    "footnoteEmpty": "フォルダーを添付して、エージェントがプロジェクトで作業できるようにします。内部のファイルを読み取り、編集できます。",
+    "attach": "フォルダーを添付する",
+    "change": "フォルダを変更",
+    "detach": "フォルダーを切り離す",
+    "open": "開く",
+    "reveal": "明らかにする",
+    "unavailable": "ワークスペースが利用できません",
+    "missing": "ワークスペース フォルダー {{folder}} は使用できなくなりました。別のフォルダーを選択してください。",
+    "openFailed": "ワークスペースを開けませんでした",
+    "revealFailed": "ワークスペースを表示できませんでした",
+    "a11yWithFolder": "プロジェクト フォルダー {{folder}}、読み取りおよび書き込みアクセス権が付与されています。変更するか取り外してください。",
+    "a11yNoFolder": "プロジェクトフォルダーが接続されていません。 1 つ添付します。"
+  },
+  "coworkEmpty": {
+    "title": "私たちは何に取り組んでいますか?",
+    "subtitleSandbox": "Novera にタスクを与えます。ファイルの読み取りと書き込み、コマンドの実行、および各ステップを独自に実行します。",
+    "subtitleFolder": "Novera にタスクを与えます。 {{folder}} で直接動作し、独自にファイルを読み取り、編集します。",
+    "try": "試してみる",
+    "sandbox": {
+      "first": "ファイルの名前を撮影日によって変更する Python スクリプトを作成します。",
+      "second": "CSV から単一ページのダッシュボードを構築します。貼り付けます。",
+      "third": "私があなたに説明するプロジェクトの README の草案を作成してください"
+    },
+    "folder": {
+      "first": "{{folder}} がどのように組み立てられているか説明する",
+      "second": "{{folder}} 内のすべての TODO を検索し、エリアごとにグループ化します",
+      "third": "{{folder}} の部分のテストを作成します。"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "端子がありません",
+    "a11y": "コマンドの実行がオフになっています。詳細。",
+    "title": "コマンドの実行がオフになっています",
+    "body": "Novera では、システムがシェル コマンドを制限できる場合にのみ、エージェントがシェル コマンドを実行できるようにします。ここではサンドボックスが利用できないため、エージェントはサンドボックス内のファイルの読み取り、書き込み、編集はできますが、何も実行することはできません。",
+    "fixLinux": "Linux は bubblewrap を使用します。インストールしてから、Novera を再起動します。",
+    "fixMac": "macOS は、/usr/bin/sandbox-exec の組み込みサンドボックスを使用します。 Novera が利用可能になったら再起動します。",
+    "fixWindows": "Windows は AppContainer を使用します。 Novera を再起動して、もう一度試してください。",
+    "recheck": "もう一度確認してください"
+  },
+  "planMode": {
+    "label": "計画",
+    "tooltipOff": "最初に計画を立てる — エージェントは、書かずに読んで提案します。",
+    "tooltipOn": "企画中。エージェントがファイルを書き込めるようにするには、これをオフにします。",
+    "onAnnounce": "プランモードがオン",
+    "placeholder": "計画を立ててください。エージェントはファイルを変更しません。"
+  },
+  "budget": {
+    "stoppedSteps": "{{max}}ステップで停止しました。エージェントはまだ終わっていません。",
+    "keepGoing": "続けてください",
+    "stoppedTokens": "停止 — このセッションはトークン予算に達しました。",
+    "compact": "コンパクト",
+    "newSession": "新しいセッション"
+  },
+  "run": {
+    "stopped": "停止しました。",
+    "failed": "走行は早々に終了しました。",
+    "tryAgain": "もう一度試してください"
+  },
+  "modelNoTools": "{{model}} はツールを呼び出すことができないため、エージェントとして機能できません。ツール呼び出しモデルを選択します。",
+  "askContinue": "続きます",
+  "askNext": "次の質問",
+  "askPrev": "前の質問",
+  "askRecommended": "おすすめ",
+  "askSelectedCount": "{{count}} が選択されました",
+  "askSomethingElse": "何か別のもの",
+  "askSomethingElsePlaceholder": "独自の答えを入力してください",
+  "submit": "送信する"
 }

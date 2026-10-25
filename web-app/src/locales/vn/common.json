@@ -62,7 +62,21 @@
   "deny": "Từ chối",
   "start": "Bắt đầu",
   "stop": "Dừng",
-  "preview": "Xem trước",
+  "preview": {
+    "loading": "Khai trương…",
+    "unsupported": "Novera không thể hiển thị loại tệp này. Mở nó để xem nó trong một ứng dụng khác.",
+    "outside": "Tệp này không còn trong không gian làm việc của phiên.",
+    "tooLarge": "Quá lớn để xem trước. Mở nó để xem nó trong một ứng dụng khác.",
+    "reload": "Tải lại",
+    "allowNetwork": "Cho phép mạng",
+    "unsandboxed": "Chạy không có hộp cát: dữ liệu đã lưu và tệp cục bộ hoạt động",
+    "unresolvedRefs_one": "1 tệp mà trang này liên kết đến không thể tải trong bản xem trước. Mở nó để xem nó trong trình duyệt.",
+    "unresolvedRefs_other": "Tệp {{count}} mà trang này liên kết đến không thể tải trong bản xem trước. Mở nó để xem nó trong trình duyệt.",
+    "externalRefs_one": "1 tài nguyên mà trang này tải từ web đã bị chặn. Bật \"Cho phép mạng\" để tải nó.",
+    "externalRefs_other": "Tài nguyên {{count}} mà trang này tải từ web đã bị chặn. Bật \"Cho phép mạng\" để tải chúng.",
+    "scriptErrors_one": "Trang báo lỗi: {{message}}",
+    "scriptErrors_other": "Trang báo lỗi {{count}}. Đầu tiên: {{message}}"
+  },
   "compactWidth": "Chiều rộng nhỏ gọn",
   "fullWidth": "Chiều rộng đầy đủ",
   "dark": "Tối",
@@ -224,7 +238,32 @@
   "modelSettings": {
     "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
     "title": "Cài đặt mô hình - {{modelId}}",
-    "description": "Định cấu hình cài đặt mô hình để tối ưu hóa hiệu suất và hành vi."
+    "description": "Định cấu hình cài đặt mô hình để tối ưu hóa hiệu suất và hành vi.",
+    "samplingDefaults": {
+      "title": "Thông số lấy mẫu mặc định",
+      "description": "Cài đặt bộ lấy mẫu mặc định cho kiểu máy này. Được sử dụng trừ khi bị ghi đè bởi các giá trị theo trợ lý hoặc theo yêu cầu."
+    },
+    "specDraft": {
+      "section": "Giải mã suy đoán",
+      "enable": "Kích hoạt giải mã suy đoán",
+      "enableDescription": "Soạn thảo một số mã thông báo mỗi bước và xác minh chúng trong một lần chuyển, giúp tăng tốc độ tạo. Sử dụng các đầu MTP tích hợp sẵn của mô hình hoặc mô hình nháp được tải xuống cùng với nó (MTP, Eagle3, DFlash hoặc DSpark).",
+      "nMax": "Mã thông báo dự thảo tối đa",
+      "nMaxDescription": "Số lượng mã thông báo tối đa để phác thảo mỗi bước. Mặc định 16.",
+      "nMin": "Mã thông báo dự thảo tối thiểu",
+      "nMinDescription": "Số lượng mã thông báo tối thiểu để phác thảo mỗi bước. Mặc định 0.",
+      "pMin": "Xác suất dự thảo tối thiểu",
+      "pMinDescription": "Xác suất tối thiểu cho việc soạn thảo tham lam (0–1). Mặc định 0,75."
+    },
+    "templateKwargs": {
+      "section": "Tùy chọn mẫu trò chuyện",
+      "description": "Tùy chọn bổ sung mà mẫu trò chuyện của mô hình này chấp nhận. Được gửi dưới dạng chat_template_kwargs theo từng yêu cầu; để lại một giá trị mặc định để mẫu quyết định.",
+      "addCustom": "Thêm tùy chọn tùy chỉnh",
+      "keyPlaceholder": "tên\ngiá trị",
+      "valuePlaceholder": "giá trị",
+      "add": "Thêm",
+      "cancel": "Hủy",
+      "remove": "Xóa"
+    }
   },
   "projects": {
     "title": "Dự án",
@@ -280,8 +319,23 @@
       "updateButton": "Cập nhật",
       "alreadyExists": "Dự án \"{{projectName}}\" đã tồn tại",
       "createSuccess": "Dự án \"{{projectName}}\" đã được tạo thành công",
-      "renameSuccess": "Dự án đã được đổi tên từ \"{{oldName}}\" thành \"{{newName}}\""
-    }
+      "renameSuccess": "Dự án đã được đổi tên từ \"{{oldName}}\" thành \"{{newName}}\"",
+      "assistant": "Trợ lý",
+      "selectAssistant": "Chọn trợ lý (tùy chọn)",
+      "noAssistant": "Không có trợ lý",
+      "addAssistant": "Thêm Trợ lý",
+      "updateSuccess": "Dự án \"{{projectName}}\" được cập nhật thành công",
+      "saveError": "Không thể lưu dự án. Vui lòng thử lại."
+    },
+    "selectAssistant": "Chọn trợ lý",
+    "noAssistantAssigned": "Không có trợ lý nào được giao cho dự án này",
+    "files": "Tệp",
+    "filesDescription": "Thêm tệp PDF, tài liệu hoặc văn bản khác để tham khảo trong dự án này.",
+    "conversation": "Cuộc trò chuyện",
+    "instructions": "Hướng dẫn",
+    "setup": "Thiết lập",
+    "instructionsDescription": "Tùy chỉnh giọng điệu và phong cách phản hồi",
+    "manageInstructions": "Quản lý hướng dẫn"
   },
   "dialogs": {
     "changeDataFolder": {
@@ -307,6 +361,10 @@
     },
     "deleteMessage": {
       "description": "Bạn có chắc muốn xóa tin nhắn này không? Không thể hoàn tác thao tác này."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Xóa tất cả cuộc trò chuyện",
+      "description": "Các cuộc hội thoại {{count}} trong \"{{projectName}}\" sẽ bị xóa. Không thể hoàn tác hành động này."
     }
   },
   "errorDialog": {
@@ -360,7 +418,16 @@
     },
     "downloadFailed": {
       "title": "Tải xuống thất bại",
-      "description": "Tải xuống {{item}} thất bại"
+      "description": "Tải xuống {{item}} thất bại",
+      "descriptionWithReason": "Tải xuống {{item}} không thành công: {{reason}}",
+      "reason": {
+        "dns": "tên máy chủ không thể giải quyết được",
+        "refused": "kết nối bị từ chối",
+        "timeout": "kết nối đã hết thời gian chờ",
+        "tls": "không thể thiết lập kết nối an toàn",
+        "proxy": "không thể truy cập proxy",
+        "unreachable": "không thể kết nối được với máy chủ"
+      }
     },
     "modelValidationStarted": {
       "title": "Đang xác thực mô hình",
@@ -401,6 +468,59 @@
     "threadRemovedFromProject": {
       "title": "Chủ đề đã được xóa",
       "description": "Chủ đề đã được xóa khỏi \"{{projectName}}\" thành công"
+    },
+    "openSettings": "Mở Cài đặt",
+    "openLogs": "Mở nhật ký",
+    "downloadTokenRequired": {
+      "title": "Cần có mã thông báo Hugging Face",
+      "description": "Mô hình này yêu cầu mã thông báo truy cập Hugging Face. Thêm mã thông báo của bạn vào Cài đặt và thử lại."
+    },
+    "downloadLicenseRequired": {
+      "title": "Chấp nhận giấy phép mẫu trên Hugging Face",
+      "description": "Bạn phải chấp nhận giấy phép của mô hình trên trang Hugging Face trước khi tải xuống."
+    },
+    "downloadRateLimited": {
+      "title": "Tỷ lệ bị giới hạn bởi Hugging Face",
+      "description": "Bạn đã bị giới hạn tỷ lệ. Việc thêm mã thông báo có thể tăng giới hạn tỷ lệ. Vui lòng thử lại sau."
+    },
+    "fileUploaded": {
+      "title": "Tệp đã được xử lý",
+      "description": "Tệp đã được xử lý và lập chỉ mục thành công"
+    },
+    "uploadFailed": {
+      "title": "Xử lý không thành công",
+      "description": "Không xử lý được tệp",
+      "subjectThisFile": "Tệp này",
+      "pdfMalformedXref": "{{subject}} có bảng tham chiếu chéo PDF không đúng định dạng và không thể phân tích cú pháp. Hãy thử mở nó trong trình xem PDF và lưu lại (Tệp → In → Lưu dưới dạng PDF), sau đó tải lên lại.",
+      "pdfScanned": "{{subject}} dường như là PDF được quét hoặc dựa trên hình ảnh. OCR chưa được hỗ trợ - vui lòng tải lên PDF dựa trên văn bản.",
+      "pdfEncrypted": "{{subject}} được bảo vệ bằng mật khẩu. Hãy xóa mật khẩu và thử lại.",
+      "pdfUnsupportedFeature": "{{subject}} sử dụng tính năng PDF Novera chưa thể phân tích cú pháp (ví dụ: chức năng tô màu/tô màu PostScript). Hãy thử lưu lại (Tệp → In → Lưu dưới dạng PDF) để làm phẳng nó, sau đó tải lên lại.",
+      "pdfGeneric": "{{subject}} không thể được phân tích cú pháp dưới dạng PDF. Tệp có thể bị hỏng hoặc sử dụng tính năng PDF không được hỗ trợ.",
+      "fileTooLarge": "{{subject}} quá lớn. {{message}}.",
+      "unsupportedType": "Loại tệp \"{{type}}\" không được hỗ trợ.",
+      "ioError": "Không thể đọc được {{subject}}: {{message}}",
+      "parseGeneric": "Không thể phân tích cú pháp {{subject}}: {{message}}",
+      "fallback": "Không xử lý được {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Tệp đã bị xóa",
+      "description": "Tệp đã bị xóa khỏi dự án"
+    },
+    "deleteFailed": {
+      "title": "Xóa không thành công",
+      "description": "Không xóa được tập tin"
+    },
+    "fileAlreadyExists": {
+      "title": "Tệp đã tồn tại",
+      "description": "Tệp đã được đính kèm vào dự án này"
+    },
+    "unsupportedFileType": {
+      "title": "Loại tệp không được hỗ trợ",
+      "description": "Phần mở rộng tệp \".{{extension}}\" không được hỗ trợ để tham khảo Dự án."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Tệp đính kèm bị vô hiệu hóa",
+      "description": "Tệp đính kèm bị tắt trong Cài đặt"
     }
   },
   "llamacppBusyOnExit": {
@@ -424,5 +544,267 @@
   "errorTracking": {
     "title": "Theo dõi lỗi",
     "summary": "Báo cáo tùy chọn đến {{host}}: loại lỗi, vị trí mã, phiên bản và hệ điều hành. Không có hội thoại, thông báo lỗi gốc hay khóa. Có thể tắt bất cứ lúc nào."
-  }
+  },
+  "htmlArtifact": {
+    "code": "Mã",
+    "preview": "Xem trước",
+    "previewStreaming": "Có sẵn khi quá trình tạo kết thúc",
+    "unresolvedAssets_one": "Không thể tải 1 tham chiếu nội dung trong bản xem trước. Đường dẫn tương đối không có cơ sở URL để giải quyết.",
+    "unresolvedAssets_other": "Không thể tải tham chiếu nội dung {{count}} trong bản xem trước. Đường dẫn tương đối không có cơ sở URL để giải quyết."
+  },
+  "remote_access": "Truy cập từ xa",
+  "integrations": "Tích hợp",
+  "claude_code": "Mã Claude",
+  "web_search": "Tìm kiếm trên web",
+  "shell": "Vỏ",
+  "browse": "Duyệt qua",
+  "moreControls": "Nhiều điều khiển hơn",
+  "starting": "Bắt đầu...",
+  "activeSuffix": "(Hoạt động)",
+  "hideProvider": "Ẩn nhà cung cấp",
+  "showProvider": "Hiển thị nhà cung cấp",
+  "home": "Trang chủ",
+  "cowork": "Cowork",
+  "newSession": "Phiên mới",
+  "artifacts": "Hiện vật",
+  "customize": "Tùy chỉnh",
+  "local": "Địa phương",
+  "selectFolder": "Chọn thư mục",
+  "selectModel": "Chọn mẫu trước",
+  "commands": "Lệnh",
+  "cmdHelp": "Liệt kê các lệnh có sẵn",
+  "cmdClear": "Xóa phiên này",
+  "cmdModels": "Chuyển đổi mô hình đang hoạt động",
+  "cmdModelsHint": "Nhập /models sau đó chọn một mẫu từ danh sách",
+  "cmdModelSwitched": "Đã chuyển sang {{name}}",
+  "cmdUnknown": "Lệnh không xác định: {{name}}. Hãy dùng thử /help",
+  "cmdBusy": "Không thể làm điều đó khi tác nhân đang chạy",
+  "cmdCompact": "Rút gọn bối cảnh của phiên thành một bản tóm tắt",
+  "cmdCompacted": "Tin nhắn {{before}} được nén -> {{after}}",
+  "cmdNothingToCompact": "Chưa có gì để thu gọn",
+  "cmdCompactFailed": "Nén không thành công: {{error}}",
+  "cmdPlan": "Chuyển đổi chế độ kế hoạch (chỉ đọc: đại lý đề xuất không cần viết)",
+  "cmdPlanOn": "Chế độ lập kế hoạch trên: đại lý đọc và đề xuất không cần viết",
+  "cmdPlanOff": "Tắt chế độ lập kế hoạch: thực hiện bình thường",
+  "cmdTodo": "Mở bảng tiến trình",
+  "cmdTasks": "Mở bảng tác vụ nền",
+  "cmdInit": "Nghiên cứu dự án, kỹ năng viết và trí nhớ",
+  "cmdInitRunning": "Triển khai dự án này",
+  "skills": "Kỹ năng",
+  "skillsInContext": "Kỹ năng có sẵn cho đại lý trong lần chạy này",
+  "skillsTitle": "Quản lý kỹ năng",
+  "skillsScopeProject": "Kỹ năng dành cho {{folder}}",
+  "skillsScopeGlobal": "Kỹ năng toàn cầu, có sẵn cho mọi buổi học",
+  "skillsScopeMerged": "Kỹ năng dành cho {{folder}}, cộng với các kỹ năng toàn cầu mà mỗi phiên chia sẻ\nthư mục",
+  "skillOriginFolder": "thư mục",
+  "skillOriginGlobal": "toàn cầu",
+  "skillsEmpty": "Chưa có kỹ năng",
+  "skillsPickOrNew": "Chọn một kỹ năng để chỉnh sửa hoặc tạo một kỹ năng mới.",
+  "skillNew": "Kỹ năng mới",
+  "skillDelete": "Xóa kỹ năng",
+  "skillSave": "Lưu",
+  "skillSaved": "Đã lưu kỹ năng",
+  "skillNameRequired": "Cần có tên kỹ năng",
+  "skillNamePlaceholder": "tên kỹ năng",
+  "skillContentPlaceholder": "Mô tả quy trình có thể tái sử dụng trong Markdown…",
+  "skillHubImport": "Nhập từ trung tâm",
+  "skillHubTitle": "Trung tâm kỹ năng Anthropic",
+  "skillHubEmpty": "Không tìm thấy kỹ năng nào trên trung tâm",
+  "skillImport": "Nhập khẩu",
+  "skillReimport": "Nhập lại",
+  "skillImported": "{{name}} nhập khẩu",
+  "sessions": "Phiên",
+  "deleteSession": "Xóa phiên",
+  "deleteSessionTitle": "Xóa phiên?",
+  "deleteSessionBody": "\"{{title}}\" và bản ghi của nó sẽ bị xóa vĩnh viễn. Không thể hoàn tác việc này.",
+  "analyticsConsentDetail": "Chúng tôi thu thập dữ liệu ẩn danh để hiểu cách sử dụng tính năng. Cuộc trò chuyện và thông tin cá nhân của bạn không bao giờ được theo dõi. Bạn có thể thay đổi điều này bất cứ lúc nào trong Cài đặt > Quyền riêng tư.",
+  "analyticsConsentQuestion": "Bạn có muốn giúp chúng tôi cải thiện Novera không?",
+  "searchThreads": "Tìm kiếm chủ đề...",
+  "toNavigate": "để điều hướng",
+  "toSelect": "để chọn",
+  "toClose": "để đóng",
+  "clearRecent": "Xóa",
+  "dismiss": "Loại bỏ",
+  "changes": {
+    "title": "Thay đổi đại lý",
+    "empty": "Các tập tin tác nhân viết hoặc chỉnh sửa sẽ hiển thị ở đây.",
+    "a11y": "Thay đổi tác nhân: Tệp {{files}}, {{additions}} đã thêm, {{deletions}} đã xóa"
+  },
+  "modelPanel": {
+    "title": "Cài đặt mô hình",
+    "a11y": "Mở cài đặt mô hình",
+    "contextTooltip": "Cửa sổ ngữ cảnh: {{value}} / {{max}} token"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Kỹ năng '{{name}}' không khả dụng",
+    "kind": {
+      "skill": "Kỹ năng",
+      "command": "Lệnh",
+      "model": "Người mẫu"
+    }
+  },
+  "multimodal": "Đa phương thức",
+  "noAssistant": "Không có trợ lý",
+  "settingUpJan": "Đang khởi động Novera…",
+  "registeringExtensions": "Đăng ký tiện ích mở rộng…",
+  "loadingExtensions": "Đang tải tiện ích mở rộng… ({{done}}/{{total}})",
+  "continueAiResponse": "Tiếp tục với Phản hồi AI",
+  "modelControls": {
+    "updateFailed": "Không thể cập nhật cài đặt kiểu máy"
+  },
+  "missingDependenciesDialog": {
+    "title": "Thiếu thư viện hệ thống",
+    "description": "{{backend}} đã được cài đặt nhưng không thể tìm thấy một số thư viện hệ thống cần thiết. Nó có thể quay trở lại CPU hoặc chạy không chính xác.",
+    "installLabel": "Để khắc phục điều này, hãy cài đặt như sau:",
+    "download": "Tải xuống",
+    "additionalLibraries": "Bổ sung các thư viện còn thiếu:",
+    "missingLibraries": "Thiếu thư viện:",
+    "showRawLibraries": "Hiển thị tên thư viện bị thiếu {{count}}"
+  },
+  "attachmentsIngestion": {
+    "title": "Chọn cách nhập tệp đính kèm",
+    "description": "Thay vào đó, hãy chọn đưa các tệp này trực tiếp vào cuộc trò chuyện hay lập chỉ mục cho chúng dưới dạng tệp nhúng.",
+    "inline": "Đưa vào cuộc trò chuyện",
+    "embeddings": "Sử dụng nội dung nhúng"
+  },
+  "attachmentInjectedIndicator": "Được đưa vào cuộc trò chuyện",
+  "attachmentEmbeddedIndicator": "Được nhúng cho RAG",
+  "viewInjectedContent": "Xem nội dung được chèn",
+  "injectedContentTitle": "Nội dung tệp được chèn",
+  "errors": {
+    "fileTooLarge": "Tệp quá lớn",
+    "fileTooLargeDescription": "{{fileName}} vượt quá giới hạn {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "Khối {{count}}",
+    "title": "Tệp",
+    "empty": "Các tệp bạn đính kèm và các tệp mà tác nhân tạo sẽ hiển thị ở đây.",
+    "a11y": "Tập tin: {{count}}",
+    "attachments": "Tệp đính kèm",
+    "notImported": "không có trong không gian làm việc"
+  },
+  "duration": {
+    "seconds": "{{count}}",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Thu gọn",
+  "expand": "Mở rộng",
+  "todoPanelTitle": "Tiến độ",
+  "todoPanelEmpty": "Chưa có danh sách việc cần làm.",
+  "backgroundTasks": "Nhiệm vụ nền",
+  "subagentsRunning_one": "Đại lý phụ {{count}} đang chạy",
+  "subagentsRunning_other": "Các đại lý phụ {{count}} đang chạy",
+  "monitorsRunning_one": "Màn hình {{count}} đang chạy",
+  "monitorsRunning_other": "Màn hình {{count}} đang chạy",
+  "backgroundRunning_one": "Tác vụ nền {{count}} đang chạy",
+  "backgroundRunning_other": "Tác vụ nền {{count}} đang chạy",
+  "monitors": "Màn hình",
+  "monitorPolling": "Bỏ phiếu",
+  "monitorMatched": "Phù hợp",
+  "monitorTimedOut": "Đã hết thời gian",
+  "monitorStopped": "Đã dừng",
+  "monitorEnded": "Đã kết thúc",
+  "coworkWatching_one": "Đang xem màn hình {{count}}…",
+  "coworkWatching_other": "Đang xem màn hình {{count}}…",
+  "coworkWaitingBackground": "Đang chờ tác vụ nền…",
+  "noBackgroundTasks": "Chưa có tác vụ nền nào.",
+  "running": "Đang chạy",
+  "queued": "Đã xếp hàng",
+  "waiting": "Chờ đợi",
+  "finished": "Đã hoàn thành",
+  "subagentPhase": "pha {{phase}}",
+  "subagentWaiting": "chờ đợi",
+  "viewTranscript": "Xem bản ghi",
+  "taskWorking": "Đang làm việc…",
+  "taskNoOutput": "Tác nhân phụ không tạo ra đầu ra rõ ràng.",
+  "subagentToolUses_one": "Sử dụng công cụ {{count}}",
+  "subagentToolUses_other": "Công dụng của công cụ {{count}}",
+  "artifactGroupCode": "Mã",
+  "artifactGroupImage": "Hình ảnh",
+  "artifactGroupDocument": "Tài liệu",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Âm thanh",
+  "artifactOpenPreview": "Mở bản xem trước",
+  "artifactOpenExternal": "Mở",
+  "artifactMoreActions": "Thêm hành động",
+  "artifactShowInFolder": "Hiển thị trong thư mục",
+  "skillsUsedLabel": "Kỹ năng được sử dụng",
+  "skillsUsed": "Kỹ năng sử dụng: {{skills}}",
+  "artifactsAll": "Tất cả",
+  "artifactsEmpty": "Chưa có sản phẩm nào được sản xuất. Hiện vật từ các hoạt động Cowork hiển thị ở đây.",
+  "artifactsNoMatch": "Không có hiện vật nào khớp.",
+  "artifactsSearch": "Tìm kiếm hiện vật",
+  "artifactsShowMore": "Hiển thị thêm {{count}}",
+  "workspace": {
+    "readsFrom": "Hoạt động ở",
+    "writable": "đọc và viết",
+    "footnote": "Tác nhân trực tiếp đọc và chỉnh sửa thư mục này. Xem lại những gì đã thay đổi trong bảng khác biệt.",
+    "footnoteEmpty": "Đính kèm một thư mục để cho phép đại lý làm việc trên dự án của bạn. Nó có thể đọc và chỉnh sửa các tập tin bên trong nó.",
+    "attach": "Đính kèm thư mục",
+    "change": "Thay đổi thư mục",
+    "detach": "Tách thư mục",
+    "open": "Mở",
+    "reveal": "Tiết lộ",
+    "unavailable": "Không có không gian làm việc",
+    "missing": "Thư mục không gian làm việc {{folder}} không còn tồn tại. Chọn một thư mục khác.",
+    "openFailed": "Không thể mở không gian làm việc",
+    "revealFailed": "Không thể tiết lộ không gian làm việc",
+    "a11yWithFolder": "Thư mục dự án {{folder}}, kèm theo quyền truy cập đọc và ghi. Thay đổi hoặc tách nó ra.",
+    "a11yNoFolder": "Không có thư mục dự án nào được đính kèm. Đính kèm một cái."
+  },
+  "coworkEmpty": {
+    "title": "Chúng tôi đang làm việc gì?",
+    "subtitleSandbox": "Giao cho Novera một nhiệm vụ. Nó đọc và ghi các tập tin, chạy lệnh và tự thực hiện các bước.",
+    "subtitleFolder": "Giao cho Novera một nhiệm vụ. Nó hoạt động trực tiếp trong {{folder}}, tự đọc và chỉnh sửa các tệp.",
+    "try": "Hãy thử",
+    "sandbox": {
+      "first": "Viết tập lệnh Python đổi tên tệp theo ngày chúng được lấy",
+      "second": "Tạo trang tổng quan một trang từ CSV mà tôi sẽ dán vào",
+      "third": "Dự thảo README cho dự án mà tôi mô tả cho bạn"
+    },
+    "folder": {
+      "first": "Giải thích cách kết hợp {{folder}}",
+      "second": "Tìm mọi TODO trong {{folder}} và nhóm chúng theo khu vực",
+      "third": "Viết bài kiểm tra cho phần {{folder}} tôi chỉ cho bạn"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Không có thiết bị đầu cuối",
+    "a11y": "Lệnh chạy bị tắt. Chi tiết.",
+    "title": "Lệnh chạy bị tắt",
+    "body": "Novera chỉ cho phép tác nhân chạy các lệnh shell khi hệ thống của bạn có thể giới hạn chúng. Không có hộp cát nào ở đây nên tác nhân có thể đọc, ghi và chỉnh sửa tệp trong hộp cát của nó — nhưng không chạy bất cứ thứ gì.",
+    "fixLinux": "Linux sử dụng bubblewrap. Cài đặt nó, sau đó khởi động lại Novera.",
+    "fixMac": "macOS sử dụng hộp cát tích hợp tại /usr/bin/sandbox-exec. Khởi động lại Novera khi có sẵn.",
+    "fixWindows": "Windows sử dụng AppContainer. Khởi động lại Novera để thử lại.",
+    "recheck": "Kiểm tra lại"
+  },
+  "planMode": {
+    "label": "Kế hoạch",
+    "tooltipOff": "Lên kế hoạch trước - người đại diện đọc và đề xuất mà không cần viết.",
+    "tooltipOn": "Lập kế hoạch. Tắt cái này đi để cho phép tác nhân ghi tập tin.",
+    "onAnnounce": "Chế độ lập kế hoạch đang bật",
+    "placeholder": "Yêu cầu kế hoạch. Tác nhân sẽ không thay đổi bất kỳ tập tin nào."
+  },
+  "budget": {
+    "stoppedSteps": "Đã dừng ở bước {{max}}. Người đại diện vẫn chưa hoàn thành.",
+    "keepGoing": "Tiếp tục đi",
+    "stoppedTokens": "Đã dừng — phiên này đã dùng hết ngân sách token.",
+    "compact": "Nhỏ gọn",
+    "newSession": "Phiên mới"
+  },
+  "run": {
+    "stopped": "Đã dừng.",
+    "failed": "Cuộc chạy dừng sớm.",
+    "tryAgain": "Thử lại"
+  },
+  "modelNoTools": "{{model}} không thể gọi công cụ nên không thể hoạt động như một đại lý. Chọn một mô hình gọi công cụ.",
+  "askContinue": "Tiếp tục",
+  "askNext": "Câu hỏi tiếp theo",
+  "askPrev": "Câu hỏi trước",
+  "askRecommended": "Được đề xuất",
+  "askSelectedCount": "{{count}} đã chọn",
+  "askSomethingElse": "Cái gì khác",
+  "askSomethingElsePlaceholder": "Nhập câu trả lời của riêng bạn",
+  "submit": "Gửi"
 }

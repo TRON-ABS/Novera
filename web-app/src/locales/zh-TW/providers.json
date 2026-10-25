@@ -31,7 +31,9 @@
     "description": "您確定要刪除此模型嗎？此操作無法復原。",
     "success": "模型 {{modelId}} 已永久刪除。",
     "cancel": "取消",
-    "delete": "刪除"
+    "delete": "刪除",
+    "importedDescription": "從 Novera 中刪除此匯入模型嗎？您磁碟上的本機檔案不會被刪除。",
+    "removeFromJan": "從 Novera 中刪除"
   },
   "deleteProvider": {
     "title": "刪除提供者",
@@ -54,12 +56,72 @@
     "warning": {
       "title": "請謹慎操作",
       "description": "修改模型功能可能會影響效能和功能。錯誤的設定可能導致意外行為或錯誤。"
-    }
+    },
+    "audio": "音訊",
+    "video": "視頻"
   },
   "addProvider": "新增提供者",
   "addOpenAIProvider": "新增 OpenAI 提供者",
   "enterNameForProvider": "輸入提供者名稱",
   "baseUrl": {
-    "alibabaDescription": "請使用您的阿里雲工作空間及其區域對應的服務位址。將 YOUR-WORKSPACE-ID 替換為工作空間 ID，並使用同一區域的 API 金鑰。"
+    "alibabaDescription": "請使用您的阿里雲工作空間及其區域對應的服務位址。將 YOUR-WORKSPACE-ID 替換為工作空間 ID，並使用同一區域的 API 金鑰。",
+    "title": "底座 URL",
+    "azureDescription": "您的 Azure OpenAI 端點。將 YOUR-RESOURCE-NAME 替換為你的 Azure 資源名稱。"
+  },
+  "limitedSupport": "該提供者可能未完全支援。功能（工具、視覺、音訊）不會自動偵測 - 手動新增模型並配置每個模型的功能。",
+  "mlxExperimental": "MLX 支援處於實驗階段。嵌入不可用，推理切換尚未連接，某些較新的模型架構可能無法載入。在 GitHub 上報告問題，以便我們確定它們的優先順序。",
+  "engineBundled": "推理引擎內建於Novera中，因此無需單獨下載或更新。報告載入失敗的模型時引用此版本。",
+  "engineOtherVersion": "需要不同的 llama.cpp 版本？運行您自己的 llama-server 並將其新增為自訂 OpenAI 相容提供者。",
+  "engineOtherVersionLink": "如何",
+  "engineReleaseNotes": "發行說明",
+  "engineBuild": "構建",
+  "engineCommit": "承諾",
+  "backendInstalled": "已安裝",
+  "backendHistoryShow": "顯示更新歷史",
+  "backendHistoryHide": "隱藏更新記錄",
+  "backendHistoryLoading": "正在載入更新歷史記錄...",
+  "backendHistoryEmpty": "尚未記錄後端更新。",
+  "backendHistoryNone": "無",
+  "backendHistoryUpdated": "已更新",
+  "backendHistoryRolledBack": "已回滾",
+  "backendHistoryRollbackFailed": "回滾失敗",
+  "backendHistoryFailed": "失敗",
+  "chatModels": "聊天模型",
+  "embeddingModels": "嵌入模型",
+  "embeddingModelsDesc": "用於 RAG 和向量搜尋。產生嵌入時，所選模型將成為預設模型。",
+  "embeddingModelDefault": "預設",
+  "embeddingModelSetDefault": "設定為預設嵌入模型",
+  "embeddingModelIsDefault": "預設嵌入模型",
+  "imported": "進口",
+  "importedTooltip": "從本機檔案匯入。從 Novera 中刪除它不會刪除磁碟上的檔案。",
+  "noModelFoundRemoteDesc": "可用型號將在此列出。使用上面的刷新按鈕從提供者取得模型，或使用 + 按鈕手動新增模型。",
+  "deleteAllModels": {
+    "button": "全部刪除",
+    "title": "刪除所有下載的模型？",
+    "description": "這將從磁碟中永久刪除 {{count}} 模型。",
+    "sizeLabel": "要釋放的磁碟空間：",
+    "calculating": "正在計算…",
+    "warning": "此操作無法撤銷。",
+    "importedExcluded": "{{count}} 匯入的模型將被保留（它們的檔案不是由 Novera 下載的）。",
+    "confirm": "刪除 {{count}} 型號",
+    "deleting": "正在刪除...",
+    "success": "刪除了 {{count}} 型號。",
+    "partialFailure": "刪除{{count}}模型失敗。有關詳細信息，請參閱控制台。"
+  },
+  "apiKeys": {
+    "title": "API 鍵",
+    "description": "輸入您的 API 金鑰。您可以在「進階」中新增額外的金鑰，如果某個金鑰失敗，Novera 將自動嘗試下一個金鑰。",
+    "placeholder": "sk-…\nsk-…",
+    "primaryPlaceholder": "輸入主金鑰 API",
+    "keyPlaceholder": "輸入API金鑰",
+    "primaryBadge": "小學",
+    "test": "測試鍵",
+    "testing": "測試中...",
+    "testHint": "檢查每個按鍵的 /models 並顯示每個按鍵的狀態。",
+    "advanced": "高級",
+    "hideAdvanced": "隱藏高級",
+    "oneKeyHint": "可選後備鍵在進階中配置。",
+    "addKey": "新增金鑰",
+    "removeKey": "拔掉鑰匙"
   }
 }

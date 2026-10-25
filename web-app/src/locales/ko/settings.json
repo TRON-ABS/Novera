@@ -75,7 +75,9 @@
     "search": "검색",
     "searchDesc": "검색 대화 상자를 엽니다.",
     "goToSettings": "설정으로 이동",
-    "goToSettingsDesc": "설정을 엽니다."
+    "goToSettingsDesc": "설정을 엽니다.",
+    "switchAssistant": "스위치 도우미",
+    "switchAssistantDesc": "채팅에서 다음 어시스턴트로 순환합니다."
   },
   "interface": {
     "title": "인터페이스",
@@ -112,7 +114,21 @@
     "resetCodeBlockStyle": "코드 블록 스타일 재설정",
     "resetCodeBlockStyleDesc": "코드 블록 스타일을 기본값으로 재설정합니다.",
     "resetCodeBlockSuccess": "코드 블록 스타일 재설정 성공",
-    "resetCodeBlockSuccessDesc": "코드 블록 스타일이 기본값으로 복원되었습니다."
+    "resetCodeBlockSuccessDesc": "코드 블록 스타일이 기본값으로 복원되었습니다.",
+    "notificationPosition": "알림 위치",
+    "notificationPositionDesc": "토스트 알림이 표시되는 위치입니다. Windows에서는 기본값이 오른쪽 하단이므로 팝업이 창 컨트롤을 덮지 않습니다.",
+    "notificationPositionTopRight": "오른쪽 상단",
+    "notificationPositionTopLeft": "왼쪽 상단",
+    "notificationPositionBottomRight": "오른쪽 하단",
+    "notificationPositionBottomLeft": "왼쪽 하단",
+    "showTokenSpeed": "토큰 속도 표시",
+    "showTokenSpeedDesc": "보조 메시지 아래에 토큰/초 및 토큰 수를 인라인으로 표시합니다. 꺼져 있으면 클릭 시 컴팩트 아이콘에 세부 정보가 표시됩니다.",
+    "coloredUserBubble": "컬러 사용자 메시지 풍선",
+    "coloredUserBubbleDesc": "강조 색상을 메시지 배경으로 사용하세요. 꺼져 있으면 보조 메시지를 중립 배경의 일반 텍스트와 일치시킵니다.",
+    "renderHtmlArtifacts": "HTML 및 SVG 아티팩트 렌더링",
+    "renderHtmlArtifactsDesc": "HTML 및 SVG 코드 블록에 미리보기 탭을 추가합니다. HTML는 자체 스크립트를 실행하지만 Novera, 파일 또는 네트워크에 액세스할 수 없는 샌드박스 프레임에서 모델 생성 페이지를 실행합니다. SVG는 스크립트가 비활성화된 상태에서 정적으로 렌더링됩니다. 기본적으로 꺼져 있습니다.",
+    "autoGenerateTitle": "채팅 제목 자동 생성",
+    "autoGenerateTitleDesc": "새로운 대화를 스레드 제목으로 자동 요약합니다. 직접 이름을 바꿀 때까지 기본 제목을 유지하려면 끄세요."
   },
   "hardware": {
     "os": "운영 체제",
@@ -136,7 +152,20 @@
     "freeOf": "여유 / 총",
     "driverVersion": "드라이버 버전",
     "computeCapability": "컴퓨팅 기능",
-    "systemMonitor": "시스템 모니터"
+    "systemMonitor": "시스템 모니터",
+    "backendApi": "백엔드 API",
+    "apiVersion": "API 버전",
+    "refresh": "새로고침",
+    "detectingDevices": "GPU 감지 중...",
+    "deviceListError": "GPU 장치를 읽을 수 없습니다.",
+    "noDevicesDesc": "llama.cpp 엔진에는 GPU가 표시되지 않습니다. 모델은 CPU에서 실행됩니다.",
+    "gpuDisabled": "장애인",
+    "backendApiDesc": "llama.cpp가 이 GPU와 대화하는 방법",
+    "backendSelectDesc": "이 GPU에는 이 API를 사용하세요.",
+    "unifiedMemory": "통합 메모리",
+    "unifiedMemoryDesc": "GPU는 CPU와 하나의 메모리 풀을 공유합니다. 모델은 시스템의 나머지 부분과 동일한 메모리에서 가져옵니다.",
+    "engineRestartedForDevices": "GPU가 변경되어 로컬 엔진이 다시 시작되었습니다. 다음 사용 시 모델이 다시 로드됩니다.",
+    "engineBusyDevicesChanged": "GPU가 변경되었지만 모델이 사용 중입니다. 중지한 다음 새로 고침을 눌러 새로운 GPU를 사용하세요."
   },
   "httpsProxy": {
     "proxy": "프록시",
@@ -198,7 +227,9 @@
     "proxyTimeoutDesc": "로컬 모델의 응답을 기다리는 시간입니다(초 단위).",
     "defaultModel": "로컬 API 서버 기본 모델",
     "defaultModelDesc": "서버가 시작될 때 자동으로 로드할 로컬 모델입니다.",
-    "defaultModelPlaceholder": "로컬 모델 선택"
+    "defaultModelPlaceholder": "로컬 모델 선택",
+    "runInBackground": "백그라운드에서 실행",
+    "runInBackgroundDesc": "창을 닫아도 시스템 트레이에서 서버를 계속 실행합니다. 끄면 창을 닫으면 Novera가 종료되고 서버가 중지됩니다."
   },
   "privacy": {
     "analytics": "분석",
@@ -261,7 +292,14 @@
     "reportIssue": "문제 신고",
     "credits": "크레딧",
     "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
-    "creditsDesc2": "오픈 소스 종속성(특히 llama.cpp 및 Tauri)과 멋진 AI 커뮤니티에 특별히 감사드립니다."
+    "creditsDesc2": "오픈 소스 종속성(특히 llama.cpp 및 Tauri)과 멋진 AI 커뮤니티에 특별히 감사드립니다.",
+    "autoUpdateCheck": "자동 업데이트 확인",
+    "autoUpdateCheckDesc": "시작 시 자동으로 업데이트를 확인하고 주기적으로 확인하세요.",
+    "clearWebData": "캐시된 인터페이스 데이터 지우기",
+    "clearWebDataDesc": "앱 창에 보관된 캐시된 로컬 저장소 및 UI 기본 설정을 제거합니다. 인터페이스가 기본 상태로 재설정됩니다.",
+    "janCli": "Novera CLI",
+    "janCliDesc": "단말기에서 Novera의 에이전트를 실행하세요. 가이드에 따라 설치하고 시작하세요.",
+    "janCliSetupGuide": "설정 가이드"
   },
   "extensions": {
     "title": "확장 프로그램"
@@ -296,7 +334,10 @@
     "chunkSize": "청크 크기 (문자)",
     "chunkSizeDesc": "임베딩을 위한 청크당 대략적인 최대 문자 수입니다.",
     "chunkOverlap": "오버랩 (문자)",
-    "chunkOverlapDesc": "연속된 청크 간의 문자 겹침입니다."
+    "chunkOverlapDesc": "연속된 청크 간의 문자 겹침입니다.",
+    "maxFileDisabledReason": "첨부 파일 활성화를 켜서 문서 크기 제한을 변경하세요.",
+    "maxImage": "최대 이미지 크기(MB)",
+    "maxImageDesc": "이미지당 최대 크기(JPEG 또는 PNG). 귀하의 서비스 제공자 또는 모델은 더 낮은 한도를 적용할 수 있습니다."
   },
   "dialogs": {
     "changeDataFolder": {
@@ -482,5 +523,46 @@
       "startSetup": "설정 시작",
       "connecting": "연결 중..."
     }
+  },
+  "webSearch": {
+    "title": "웹 검색",
+    "description": "Novera에 내장된 도구를 사용하여 모델이 웹을 검색하고 읽을 수 있도록 하세요.",
+    "enable": "웹 검색 활성화",
+    "enableDesc": "도구 사용을 지원하는 모델에 web_search 및 web_fetch 도구를 광고하십시오. API 키 없이도 즉시 사용할 수 있습니다.",
+    "provider": "검색 제공자",
+    "providerDesc": "web_search 및 web_fetch에 응답하는 백엔드를 선택하세요.",
+    "apiKey": "{{provider}} API 열쇠",
+    "apiKeyOptional": "선택사항. 더 높은 속도 제한과 구조화된 결과를 위해 {{provider}} API 키를 제공하세요. 무료 키리스 엔드포인트를 사용하려면 비워 두세요.",
+    "apiKeyRequired": "필수입니다. {{provider}}는 결과를 반환하려면 API 키가 필요합니다.",
+    "apiKeyPlaceholder": "{{provider}} API 키를 입력하세요",
+    "endpoint": "{{provider}} 인스턴스 URL",
+    "endpointDesc": "필수입니다. JSON API가 활성화된 {{provider}} 인스턴스의 기본 URL입니다.",
+    "endpointPlaceholder": "https://searx.example.com"
+  },
+  "cowork": {
+    "title": "Cowork",
+    "description": "Cowork 에이전트 화면을 구성하세요. 샌드박스 쉘과 Novera 데이터 폴더에 영구적으로 보관되는 메모리와 기술이 포함됩니다.",
+    "shell": "쉘 명령",
+    "shellChecking": "샌드박스 확인 중...",
+    "shellSandboxed": "명령은 {{backend}}에 의해 제한되어 실행됩니다. 이 명령은 세션 작업 공간 내에서만 쓸 수 있으며 홈 폴더에 있는 파일은 읽을 수 없습니다.",
+    "shellUnavailable": "이 시스템에서는 샌드박스를 사용할 수 없으므로 쉘 도구가 제공되지 않습니다. 명령은 제한 없이 실행되지 않습니다.",
+    "network": "네트워크 액세스 허용",
+    "networkDesc": "패키지 설치나 저장소 가져오기 등의 작업을 위해 Cowork 명령이 네트워크에 도달하도록 하세요. 기본적으로 켜져 있습니다. 기본 채팅의 셸에는 네트워크 액세스가 없습니다.",
+    "openFolder": "폴더 열기",
+    "memories": "추억",
+    "noMemories": "아직 추억이 없습니다. 모델은 보관할 가치가 있는 내용을 학습하면서 memory_write 도구를 추가합니다.",
+    "skills": "스킬",
+    "noSkills": "아직 스킬이 없습니다. 스킬은 모델이 요청 시 로드할 수 있는 재사용 가능한 지침 세트입니다.",
+    "add": "추가",
+    "editMemory": "메모리 편집",
+    "editMemoryDesc": "메모당 하나의 주제입니다. 모델은 memory_read 도구를 사용하여 이러한 내용을 다시 읽습니다.",
+    "editSkill": "스킬 편집",
+    "editSkillDesc": "Markdown 지침, 선택적으로 YAML 머리말에 설명 포함. 설명은 스킬을 로드하기 전에 모델이 보는 내용입니다.",
+    "namePlaceholder": "이름",
+    "contentPlaceholder": "내용",
+    "loadFailed": "상담원 작업공간을 로드할 수 없습니다.",
+    "saveFailed": "저장할 수 없습니다.",
+    "deleteFailed": "삭제할 수 없습니다.",
+    "revealFailed": "폴더를 열 수 없습니다."
   }
 }

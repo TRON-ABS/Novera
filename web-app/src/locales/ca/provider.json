@@ -1,5 +1,18 @@
 {
   "addProvider": "Afegeix un proveïdor",
   "addOpenAIProvider": "Afegeix un proveïdor d’OpenAI",
-  "enterNameForProvider": "Introdueix el nom del proveïdor"
+  "enterNameForProvider": "Introdueix el nom del proveïdor",
+  "apiTypeLabel": "Format API",
+  "apiTypeOpenAI": "Compatible amb OpenAI",
+  "apiTypeAnthropic": "Compatible amb Anthropic",
+  "baseUrlLabel": "Base URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "Clau API",
+  "apiKeyPlaceholder": "Enganxeu la vostra clau API",
+  "invalidBaseUrl": "La base URL ha de ser una http(s) URL vàlida",
+  "globalSettings": "Configuració global",
+  "stripReasoning": "Eliminar el raonament del context",
+  "stripReasoningDesc": "Elimineu el contingut de pensament/raonament dels torns anteriors abans de tornar a enviar l'historial, a tots els proveïdors. Millora la reutilització de la memòria cau de KV- per als models locals, però alguns models (per exemple, les versions més recents de Qwen) recomanen mantenir-lo per a un millor raonament de diverses voltes.",
+  "providerAlreadyExists": "Ja existeix un proveïdor anomenat {{name}}."
 }

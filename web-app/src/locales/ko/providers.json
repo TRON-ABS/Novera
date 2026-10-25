@@ -31,7 +31,9 @@
     "description": "이 모델을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
     "success": "모델 {{modelId}}이(가) 영구적으로 삭제되었습니다.",
     "cancel": "취소",
-    "delete": "삭제"
+    "delete": "삭제",
+    "importedDescription": "Novera에서 가져온 모델을 제거하시겠습니까? 디스크의 로컬 파일은 삭제되지 않습니다.",
+    "removeFromJan": "Novera에서 제거"
   },
   "deleteProvider": {
     "title": "공급자 삭제",
@@ -54,12 +56,72 @@
     "warning": {
       "title": "주의 사항",
       "description": "모델 기능을 수정하면 성능과 동작에 영향을 줄 수 있습니다. 잘못된 설정은 예기치 않은 오류를 발생시킬 수 있습니다."
-    }
+    },
+    "audio": "오디오",
+    "video": "동영상"
   },
   "addProvider": "공급자 추가",
   "addOpenAIProvider": "OpenAI 공급자 추가",
   "enterNameForProvider": "공급자 이름 입력",
   "baseUrl": {
-    "alibabaDescription": "Alibaba Cloud 작업 공간과 해당 리전의 엔드포인트를 사용하세요. YOUR-WORKSPACE-ID를 작업 공간 ID로 바꾸고 같은 리전의 API 키를 사용하세요."
+    "alibabaDescription": "Alibaba Cloud 작업 공간과 해당 리전의 엔드포인트를 사용하세요. YOUR-WORKSPACE-ID를 작업 공간 ID로 바꾸고 같은 리전의 API 키를 사용하세요.",
+    "title": "베이스 URL",
+    "azureDescription": "Azure OpenAI 엔드포인트. YOUR-RESOURCE-NAME를 Azure 리소스 이름으로 바꿉니다."
+  },
+  "limitedSupport": "이 공급자는 완전히 지원되지 않을 수 있습니다. 기능(도구, 비전, 오디오)은 자동으로 감지되지 않습니다. 모델을 수동으로 추가하고 모델당 기능을 구성하세요.",
+  "mlxExperimental": "MLX 지원은 실험적입니다. 임베딩을 사용할 수 없고 추론 토글이 아직 연결되지 않았으며 일부 최신 모델 아키텍처가 로드되지 않을 수 있습니다. 우선순위를 정할 수 있도록 GitHub에 문제를 보고하세요.",
+  "engineBundled": "Novera에는 추론 엔진이 내장되어 있어 별도로 다운로드하거나 업데이트할 필요가 없습니다. 로드에 실패한 모델을 보고할 때 이 버전을 인용하세요.",
+  "engineOtherVersion": "다른 llama.cpp 버전이 필요하십니까? 자체 llama-server를 실행하고 이를 사용자 정의 OpenAI 호환 공급자로 추가하세요.",
+  "engineOtherVersionLink": "방법",
+  "engineReleaseNotes": "출시 노트",
+  "engineBuild": "빌드",
+  "engineCommit": "커밋",
+  "backendInstalled": "설치됨",
+  "backendHistoryShow": "업데이트 기록 표시",
+  "backendHistoryHide": "업데이트 기록 숨기기",
+  "backendHistoryLoading": "업데이트 기록 로드 중...",
+  "backendHistoryEmpty": "아직 기록된 백엔드 업데이트가 없습니다.",
+  "backendHistoryNone": "없음",
+  "backendHistoryUpdated": "업데이트됨",
+  "backendHistoryRolledBack": "롤백됨",
+  "backendHistoryRollbackFailed": "롤백 실패",
+  "backendHistoryFailed": "실패",
+  "chatModels": "채팅 모델",
+  "embeddingModels": "모델 삽입",
+  "embeddingModelsDesc": "RAG 및 벡터 검색에 사용됩니다. 선택한 모델은 임베딩 생성 시 기본값이 됩니다.",
+  "embeddingModelDefault": "기본값",
+  "embeddingModelSetDefault": "기본 임베딩 모델로 설정",
+  "embeddingModelIsDefault": "기본 임베딩 모델",
+  "imported": "수입됨",
+  "importedTooltip": "로컬 파일에서 가져왔습니다. Novera에서 제거해도 디스크의 파일은 삭제되지 않습니다.",
+  "noModelFoundRemoteDesc": "사용 가능한 모델이 여기에 나열됩니다. 위의 새로 고침 버튼을 사용하여 공급자로부터 모델을 가져오거나 + 버튼을 사용하여 수동으로 추가하세요.",
+  "deleteAllModels": {
+    "button": "모두 삭제",
+    "title": "다운로드한 모델을 모두 삭제하시겠습니까?",
+    "description": "이렇게 하면 {{count}} 모델이 디스크에서 영구적으로 제거됩니다.",
+    "sizeLabel": "확보할 디스크 공간:",
+    "calculating": "계산 중…",
+    "warning": "이 작업은 취소할 수 없습니다.",
+    "importedExcluded": "{{count}} 가져온 모델은 유지됩니다(해당 파일은 Novera에서 다운로드되지 않았습니다).",
+    "confirm": "{{count}} 모델 삭제",
+    "deleting": "삭제 중…",
+    "success": "{{count}} 모델을 삭제했습니다.",
+    "partialFailure": "{{count}} 모델을 삭제하지 못했습니다. 자세한 내용은 콘솔을 참조하세요."
+  },
+  "apiKeys": {
+    "title": "API 키",
+    "description": "API 키를 입력하세요. 고급에서 추가 키를 추가할 수 있으며, 키가 실패하면 Novera가 자동으로 다음 키를 시도합니다.",
+    "placeholder": "sk-…\nsk-…",
+    "primaryPlaceholder": "기본 API 키를 입력하세요",
+    "keyPlaceholder": "API 키를 입력하세요",
+    "primaryBadge": "초등학생",
+    "test": "테스트 키",
+    "testing": "테스트 중...",
+    "testHint": "각 키로 /models를 확인하고 키별 상태를 표시합니다.",
+    "advanced": "고급",
+    "hideAdvanced": "고급 숨기기",
+    "oneKeyHint": "선택적 대체 키는 고급에서 구성됩니다.",
+    "addKey": "키 추가",
+    "removeKey": "키 제거"
   }
 }

@@ -24,5 +24,7 @@
   "active": "활성",
   "performance": "성능",
   "resources": "리소스",
-  "refresh": "새로고침"
+  "refresh": "새로고침",
+  "gpus": "GPU",
+  "vram": "VRAM"
 }

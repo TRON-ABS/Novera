@@ -24,5 +24,7 @@
   "active": "作用中",
   "performance": "效能",
   "resources": "資源",
-  "refresh": "重新整理"
+  "refresh": "重新整理",
+  "gpus": "GPU",
+  "vram": "VRAM"
 }

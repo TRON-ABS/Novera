@@ -71,7 +71,13 @@
     "shiftEnter": "Maj + Retorn",
     "navigation": "Navegació",
     "goToSettings": "Vés a Configuració",
-    "goToSettingsDesc": "Obre la configuració."
+    "goToSettingsDesc": "Obre la configuració.",
+    "newProject": "Nou projecte",
+    "newProjectDesc": "Obre el diàleg de creació del projecte.",
+    "switchAssistant": "Assistent de canvi",
+    "switchAssistantDesc": "Ves al següent assistent del xat.",
+    "search": "Cerca",
+    "searchDesc": "Obre el diàleg de cerca."
   },
   "interface": {
     "title": "Interfície",
@@ -110,7 +116,21 @@
     "resetCodeBlockStyle": "Restableix l’estil del bloc de codi",
     "resetCodeBlockStyleDesc": "Restableix l’estil del bloc de codi als valors per defecte.",
     "resetCodeBlockSuccess": "S’ha restablert l’estil del bloc de codi",
-    "resetCodeBlockSuccessDesc": "L’estil del bloc de codi s’ha restaurat al valor per defecte."
+    "resetCodeBlockSuccessDesc": "L’estil del bloc de codi s’ha restaurat al valor per defecte.",
+    "notificationPosition": "Posició de notificació",
+    "notificationPositionDesc": "On apareixen les notificacions de brindis. A Windows, el valor predeterminat és a la part inferior dreta, de manera que les finestres emergents no cobreixen els controls de la finestra.",
+    "notificationPositionTopRight": "A dalt a la dreta",
+    "notificationPositionTopLeft": "A dalt a l'esquerra",
+    "notificationPositionBottomRight": "A la part inferior dreta",
+    "notificationPositionBottomLeft": "A baix a l'esquerra",
+    "showTokenSpeed": "Mostra la velocitat del testimoni",
+    "showTokenSpeedDesc": "Mostra fitxes/segons i el recompte de fitxes en línia a sota dels missatges de l'assistent. Quan està apagat, una icona compacta mostra els detalls en fer clic.",
+    "coloredUserBubble": "Bombolla de missatge d'usuari de color",
+    "coloredUserBubbleDesc": "Utilitzeu el color d'accent com a fons dels vostres missatges. Quan estan desactivats, coincideixen els missatges de l'assistent amb text sense format sobre un fons neutre.",
+    "renderHtmlArtifacts": "Renderitza els artefactes HTML i SVG",
+    "renderHtmlArtifactsDesc": "Afegiu una pestanya de vista prèvia als blocs de codi HTML i SVG. HTML executa la pàgina generada pel model en un marc de sorra que executa els seus propis scripts però no pot accedir a Novera, als vostres fitxers o a la xarxa; SVG es renderitza estàticament amb els scripts desactivats. Desactivat per defecte.",
+    "autoGenerateTitle": "Genera automàticament el títol del xat",
+    "autoGenerateTitleDesc": "Resumeix automàticament les noves converses en el títol d'un fil. Desactiveu-lo per mantenir el títol predeterminat fins que el canvieu el nom."
   },
   "hardware": {
     "os": "Sistema operatiu",
@@ -134,7 +154,20 @@
     "freeOf": "lliure de",
     "driverVersion": "Versió del controlador",
     "computeCapability": "Capacitat de càlcul",
-    "systemMonitor": "Monitor del sistema"
+    "systemMonitor": "Monitor del sistema",
+    "backendApi": "Backend API",
+    "apiVersion": "Versió API",
+    "refresh": "Actualitza",
+    "detectingDevices": "S'estan detectant GPU...",
+    "deviceListError": "No s'han pogut llegir els dispositius GPU",
+    "noDevicesDesc": "No hi ha cap GPU visible al motor llama.cpp. Els models funcionaran amb el CPU.",
+    "gpuDisabled": "Desactivat",
+    "backendApiDesc": "Com parla llama.cpp amb aquest GPU",
+    "backendSelectDesc": "Utilitzeu aquest API per a aquest GPU",
+    "unifiedMemory": "Memòria unificada",
+    "unifiedMemoryDesc": "El GPU comparteix una agrupació de memòria amb el CPU: els models s'utilitzen de la mateixa memòria que la resta del sistema.",
+    "engineRestartedForDevices": "Les teves GPU han canviat, de manera que es va reiniciar el motor local. Els models es tornen a carregar en el proper ús.",
+    "engineBusyDevicesChanged": "Les teves GPU han canviat, però un model està ocupat. Atureu-lo i, a continuació, premeu Actualitza per utilitzar el nou GPU."
   },
   "httpsProxy": {
     "proxy": "Proxy",
@@ -193,7 +226,12 @@
     "verboseLogs": "Registres detallats",
     "verboseLogsDesc": "Activa registres detallats del servidor per fer depuració.",
     "proxyTimeout": "Temps d’espera de la sol·licitud",
-    "proxyTimeoutDesc": "Temps d’espera d’una resposta del model local, en segons."
+    "proxyTimeoutDesc": "Temps d’espera d’una resposta del model local, en segons.",
+    "runInBackground": "Executar en segon pla",
+    "runInBackgroundDesc": "Mantingueu el servidor en funcionament a la safata del sistema quan la finestra estigui tancada. Quan està desactivat, tancant la finestra es tanca Novera i s'atura el servidor.",
+    "defaultModel": "Model predeterminat Servidor local API",
+    "defaultModelDesc": "Model local per carregar automàticament quan s'iniciï el servidor.",
+    "defaultModelPlaceholder": "Seleccioneu un model local"
   },
   "privacy": {
     "analytics": "Analítica",
@@ -256,7 +294,14 @@
     "reportIssue": "Informa del problema",
     "credits": "Crèdits",
     "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
-    "creditsDesc2": "Agraïments especials a les nostres dependències de codi obert — especialment llama.cpp i Tauri — i a la nostra comunitat d’IA."
+    "creditsDesc2": "Agraïments especials a les nostres dependències de codi obert — especialment llama.cpp i Tauri — i a la nostra comunitat d’IA.",
+    "autoUpdateCheck": "Comprovació automàtica d'actualitzacions",
+    "autoUpdateCheckDesc": "Comprova automàticament si hi ha actualitzacions a l'inici i periòdicament.",
+    "clearWebData": "Esborra les dades de la interfície de la memòria cau",
+    "clearWebDataDesc": "Elimina l'emmagatzematge local a la memòria cau i les preferències UI conservades a la finestra de l'aplicació. La interfície es restableix al seu estat predeterminat.",
+    "janCli": "Novera CLI",
+    "janCliDesc": "Executeu l'agent de Novera des del vostre terminal. Seguiu la guia per instal·lar i començar.",
+    "janCliSetupGuide": "Guia de configuració"
   },
   "extensions": {
     "title": "Extensions"
@@ -291,7 +336,10 @@
     "chunkSize": "Mida del fragment (caràcters)",
     "chunkSizeDesc": "Nombre aproximat de caràcters per fragment per a les incrustacions.",
     "chunkOverlap": "Solapament (caràcters)",
-    "chunkOverlapDesc": "Caràcters coincidents entre fragments consecutius."
+    "chunkOverlapDesc": "Caràcters coincidents entre fragments consecutius.",
+    "maxFileDisabledReason": "Activeu Habilita els fitxers adjunts per canviar el límit de mida del document.",
+    "maxImage": "Mida màxima de la imatge (MB)",
+    "maxImageDesc": "Mida màxima per imatge (JPEG o PNG). El vostre proveïdor o model pot aplicar un límit inferior."
   },
   "dialogs": {
     "changeDataFolder": {
@@ -304,5 +352,46 @@
     }
   },
   "backendInstallSuccess": "El backend s’ha instal·lat correctament",
-  "backendInstallError": "No s’ha pogut instal·lar el backend"
+  "backendInstallError": "No s’ha pogut instal·lar el backend",
+  "webSearch": {
+    "title": "Cerca web",
+    "description": "Permet que els models cerquin i llegeixin al web mitjançant les eines integrades de Novera.",
+    "enable": "Activa la cerca web",
+    "enableDesc": "Anuncia les eines web_search i web_fetch als models que admeten l'ús d'eines. Funciona fora de la caixa sense clau API.",
+    "provider": "Proveïdor de cerca",
+    "providerDesc": "Trieu el backend que respongui a web_search i web_fetch.",
+    "apiKey": "{{provider}} API Clau",
+    "apiKeyOptional": "Opcional. Proporcioneu una clau {{provider}} API per obtenir límits de velocitat més alts i resultats estructurats. Deixeu-lo en blanc per utilitzar el punt final sense clau gratuït.",
+    "apiKeyRequired": "Obligatori. {{provider}} necessita una clau API per retornar resultats.",
+    "apiKeyPlaceholder": "Introduïu la vostra clau {{provider}} API",
+    "endpoint": "{{provider}} Instància URL",
+    "endpointDesc": "Obligatori. La base URL de la vostra instància {{provider}}, amb la JSON API activada.",
+    "endpointPlaceholder": "https://searx.example.com"
+  },
+  "cowork": {
+    "title": "Cowork",
+    "description": "Configureu la interfície de l’agent Cowork: el shell aïllat en un entorn de proves i les memòries i habilitats desades permanentment a la carpeta de dades Novera.",
+    "shell": "Ordres de Shell",
+    "shellChecking": "S'està comprovant si hi ha una caixa de sorra...",
+    "shellSandboxed": "Les ordres s'executen limitades per {{backend}}: només poden escriure dins de l'espai de treball de la sessió i els fitxers de la vostra carpeta d'inici no es poden llegir.",
+    "shellUnavailable": "No hi ha cap sandbox disponible en aquest sistema, de manera que l'eina de shell no s'ofereix. Les ordres mai s'executen sense limitacions.",
+    "network": "Permet l'accés a la xarxa",
+    "networkDesc": "Permet que les ordres de Cowork arribin a la xarxa, per a coses com instal·lar paquets o obtenir un repositori. Activat per defecte. El shell del xat principal mai té accés a la xarxa.",
+    "openFolder": "Obre la carpeta",
+    "memories": "Records",
+    "noMemories": "Encara no hi ha records. Els models els afegeixen amb l'eina memory_write mentre aprenen coses que val la pena conservar.",
+    "skills": "Habilitats",
+    "noSkills": "Encara no hi ha habilitats. Una habilitat és un conjunt d'instruccions reutilitzables que un model pot carregar sota demanda.",
+    "add": "Afegeix",
+    "editMemory": "Edita la memòria",
+    "editMemoryDesc": "Un tema per nota. Els models els llegeixen amb l'eina memory_read.",
+    "editSkill": "Edita l'habilitat",
+    "editSkillDesc": "Instruccions en Markdown, amb una descripció opcional a la capçalera YAML. Els models veuen aquesta descripció abans de carregar l’habilitat.",
+    "namePlaceholder": "Nom",
+    "contentPlaceholder": "Contingut",
+    "loadFailed": "No s'ha pogut carregar l'espai de treball de l'agent",
+    "saveFailed": "No s'ha pogut desar",
+    "deleteFailed": "No s'ha pogut suprimir",
+    "revealFailed": "No s'ha pogut obrir la carpeta"
+  }
 }

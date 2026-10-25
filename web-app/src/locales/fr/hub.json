@@ -44,5 +44,7 @@
     "yellow": "Peu de marge mémoire",
     "red": "Mémoire insuffisante",
     "unknown": "Mémoire inconnue"
-  }
+  },
+  "downloadFailed": "Échec du démarrage du téléchargement",
+  "resumeUnavailable": "Impossible de reprendre ce téléchargement. Veuillez le recommencer."
 }

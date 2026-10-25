@@ -55,7 +55,21 @@
   "deny": "Denega",
   "start": "Inicia",
   "stop": "Atura",
-  "preview": "Previsualitza",
+  "preview": {
+    "loading": "Obertura...",
+    "unsupported": "Novera no pot mostrar aquest tipus de fitxer. Obriu-lo per veure'l en una altra aplicació.",
+    "outside": "Aquest fitxer ja no és a l'espai de treball de la sessió.",
+    "tooLarge": "Massa gran per a una vista prèvia. Obriu-lo per veure'l en una altra aplicació.",
+    "reload": "Torna a carregar",
+    "allowNetwork": "Permet la xarxa",
+    "unsandboxed": "Executar sense sorra: les dades desades i els fitxers locals funcionen",
+    "unresolvedRefs_one": "1 fitxer d'enllaços d'aquesta pàgina no es pot carregar a la vista prèvia. Obriu-lo per veure'l en un navegador.",
+    "unresolvedRefs_other": "Els fitxers {{count}} que aquesta pàgina enllaça no es poden carregar a la vista prèvia. Obriu-lo per veure'l en un navegador.",
+    "externalRefs_one": "1 recurs que carrega aquesta pàgina des del web està bloquejat. Activeu \"Permet la xarxa\" per carregar-lo.",
+    "externalRefs_other": "Els recursos {{count}} que carrega aquesta pàgina des del web estan bloquejats. Activeu \"Permet la xarxa\" per carregar-los.",
+    "scriptErrors_one": "La pàgina ha informat d'un error: {{message}}",
+    "scriptErrors_other": "La pàgina ha informat d'errors {{count}}. Primer: {{message}}"
+  },
   "compactWidth": "Amplada compacta",
   "fullWidth": "Amplada completa",
   "dark": "Fosc",
@@ -218,7 +232,32 @@
   "modelSettings": {
     "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
     "title": "Paràmetres del model - {{modelId}}",
-    "description": "Configura els paràmetres del model per optimitzar el rendiment i el comportament."
+    "description": "Configura els paràmetres del model per optimitzar el rendiment i el comportament.",
+    "samplingDefaults": {
+      "title": "Paràmetres de mostreig per defecte",
+      "description": "Configuració de mostreig per defecte per a aquest model. S'utilitza tret que se substitueixin per valors per assistent o per sol·licitud."
+    },
+    "specDraft": {
+      "section": "Descodificació especulativa",
+      "enable": "Activa la descodificació especulativa",
+      "enableDescription": "Esborra diverses fitxes per pas i verifica-les en una sola passada, la qual cosa accelera la generació. Utilitza els capçals MTP integrats del model o el model d'esborrany que s'hi ha baixat (MTP, Eagle3, DFlash o DSpark).",
+      "nMax": "Màxim fitxes d'esborrany",
+      "nMaxDescription": "Nombre màxim de fitxes per esborrar per pas. Per defecte 16.",
+      "nMin": "Fitxes d'esborrany mínimes",
+      "nMinDescription": "Nombre mínim de fitxes per esborrar per pas. Per defecte 0.",
+      "pMin": "Probabilitat d'esborrany mínima",
+      "pMinDescription": "Probabilitat mínima de redacció cobdiciosa (0–1). Per defecte 0,75."
+    },
+    "templateKwargs": {
+      "section": "Opcions de plantilla de xat",
+      "description": "Opcions addicionals que la plantilla de xat d'aquest model accepta. Enviat com a chat_template_kwargs a cada sol·licitud; deixar un valor per defecte perquè la plantilla decideixi.",
+      "addCustom": "Afegeix una opció personalitzada",
+      "keyPlaceholder": "nom\nvalor",
+      "valuePlaceholder": "valor",
+      "add": "Afegeix",
+      "cancel": "Cancel·la",
+      "remove": "Eliminar"
+    }
   },
   "dialogs": {
     "changeDataFolder": {
@@ -244,6 +283,10 @@
     },
     "deleteMessage": {
       "description": "Segur que voleu suprimir aquest missatge? Aquesta acció no es pot desfer."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Suprimeix totes les converses",
+      "description": "Les converses {{count}} a \"{{projectName}}\" se suprimiran. Aquesta acció no es pot desfer."
     }
   },
   "projects": {
@@ -283,7 +326,13 @@
       "updateButton": "Actualitza",
       "alreadyExists": "El projecte \"{{projectName}}\" ja existeix",
       "createSuccess": "Projecte \"{{projectName}}\" creat correctament",
-      "renameSuccess": "Projecte reanomenat de \"{{oldName}}\" a \"{{newName}}\""
+      "renameSuccess": "Projecte reanomenat de \"{{oldName}}\" a \"{{newName}}\"",
+      "assistant": "Assistent",
+      "selectAssistant": "Seleccioneu un assistent (opcional)",
+      "noAssistant": "Sense assistent",
+      "addAssistant": "Afegeix Assistent",
+      "updateSuccess": "El projecte \"{{projectName}}\" s'ha actualitzat correctament",
+      "saveError": "No s'ha pogut desar el projecte. Si us plau, torna-ho a provar."
     },
     "noConversationsIn": "No hi ha converses a {{projectName}}",
     "startNewConversation": "Inicia una conversa nova amb {{projectName}} a continuació",
@@ -299,7 +348,17 @@
     "noProjectsFound": "No s’han trobat projectes",
     "tryDifferentSearch": "Prova amb un terme de cerca diferent",
     "uploadingFiles": "S’estan processant els fitxers…",
-    "processButton": "Afegeix"
+    "processButton": "Afegeix",
+    "new": "Nous Projectes",
+    "selectAssistant": "Seleccioneu l'assistent",
+    "noAssistantAssigned": "No hi ha cap assistent assignat a aquest projecte",
+    "files": "Fitxers",
+    "filesDescription": "Afegiu PDF, documents o un altre text per fer referència en aquest projecte.",
+    "conversation": "Conversa",
+    "instructions": "Instruccions",
+    "setup": "Configuració",
+    "instructionsDescription": "Personalitza el to i l'estil de resposta",
+    "manageInstructions": "Gestiona les instruccions"
   },
   "attachmentsIngestion": {
     "title": "Tria com ingerir els adjunts",
@@ -362,7 +421,16 @@
     },
     "downloadFailed": {
       "title": "Error de descàrrega",
-      "description": "La descàrrega de {{item}} ha fallat"
+      "description": "La descàrrega de {{item}} ha fallat",
+      "descriptionWithReason": "La baixada de {{item}} ha fallat: {{reason}}",
+      "reason": {
+        "dns": "no s'ha pogut resoldre el nom del servidor",
+        "refused": "s'ha rebutjat la connexió",
+        "timeout": "s'ha esgotat el temps de connexió",
+        "tls": "no s'ha pogut establir una connexió segura",
+        "proxy": "no s'ha pogut arribar al servidor intermediari",
+        "unreachable": "no s'ha pogut accedir al servidor"
+      }
     },
     "modelValidationStarted": {
       "title": "S’està validant el model",
@@ -403,6 +471,59 @@
     "threadRemovedFromProject": {
       "title": "Fil eliminat del projecte",
       "description": "El fil s’ha eliminat de \"{{projectName}}\" correctament"
+    },
+    "openSettings": "Obriu Configuració",
+    "openLogs": "Obriu els registres",
+    "downloadTokenRequired": {
+      "title": "Es requereix un testimoni Hugging Face",
+      "description": "Aquest model requereix un testimoni d'accés Hugging Face. Afegiu el vostre testimoni a Configuració i torneu-ho a provar."
+    },
+    "downloadLicenseRequired": {
+      "title": "Accepteu la llicència de model a Hugging Face",
+      "description": "Heu d'acceptar la llicència del model a la seva pàgina Hugging Face abans de descarregar-lo."
+    },
+    "downloadRateLimited": {
+      "title": "Tarifa limitada per Hugging Face",
+      "description": "Heu estat limitat a la tarifa. Afegir un testimoni pot augmentar els límits de velocitat. Si us plau, torna-ho a provar més tard."
+    },
+    "fileUploaded": {
+      "title": "Fitxer processat",
+      "description": "El fitxer s'ha processat i indexat correctament"
+    },
+    "uploadFailed": {
+      "title": "El processament ha fallat",
+      "description": "No s'ha pogut processar el fitxer",
+      "subjectThisFile": "Aquest fitxer",
+      "pdfMalformedXref": "{{subject}} té una taula de referència creuada PDF mal formada i no s'ha pogut analitzar. Intenteu obrir-lo en un visualitzador PDF i tornar-lo a desar (Fitxer → Imprimir → Desa com a PDF) i, a continuació, tornar-lo a carregar.",
+      "pdfScanned": "{{subject}} sembla ser un PDF escanejat o basat en imatges. OCR encara no és compatible; si us plau, carregueu un PDF basat en text.",
+      "pdfEncrypted": "{{subject}} està protegit amb contrasenya. Elimina la contrasenya i torna-ho a provar.",
+      "pdfUnsupportedFeature": "{{subject}} utilitza una funció PDF que Novera encara no pot analitzar (p. ex., funcions de color/ombrejat PostScript). Proveu de tornar a desar-lo (Fitxer → Imprimir → Desa com a PDF) per aplanar-lo i, a continuació, tornar-lo a carregar.",
+      "pdfGeneric": "{{subject}} no s'ha pogut analitzar com a PDF. És possible que el fitxer estigui malmès o utilitzi una funció PDF no compatible.",
+      "fileTooLarge": "{{subject}} és massa gran. {{message}}.",
+      "unsupportedType": "El tipus de fitxer \"{{type}}\" no és compatible.",
+      "ioError": "No s'ha pogut llegir {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} no s'ha pogut analitzar: {{message}}",
+      "fallback": "No s'ha pogut processar {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Fitxer suprimit",
+      "description": "El fitxer s'ha eliminat del projecte"
+    },
+    "deleteFailed": {
+      "title": "S'ha produït un error en la supressió",
+      "description": "No s'ha pogut suprimir el fitxer"
+    },
+    "fileAlreadyExists": {
+      "title": "El fitxer ja existeix",
+      "description": "El fitxer ja està adjunt a aquest projecte"
+    },
+    "unsupportedFileType": {
+      "title": "Tipus de fitxer no compatible",
+      "description": "L'extensió de fitxer \".{{extension}}\" no és compatible per a la referència del projecte."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Fitxers adjunts desactivats",
+      "description": "Els fitxers adjunts estan desactivats a Configuració"
     }
   },
   "llamacppBusyOnExit": {
@@ -426,5 +547,263 @@
   "errorTracking": {
     "title": "Seguiment d’errors",
     "summary": "Informes opcionals a {{host}}: tipus d’error, posició al codi, versió i sistema operatiu. Sense converses, missatges d’error originals ni claus. Es pot desactivar en qualsevol moment."
-  }
+  },
+  "htmlArtifact": {
+    "code": "Codi",
+    "preview": "Vista prèvia",
+    "previewStreaming": "Disponible quan acabi la generació",
+    "unresolvedAssets_one": "1 referència d'actiu no es pot carregar a la vista prèvia. Els camins relatius no tenen una base URL per resoldre.",
+    "unresolvedAssets_other": "Les referències de recursos {{count}} no es poden carregar a la vista prèvia. Els camins relatius no tenen una base URL per resoldre."
+  },
+  "remote_access": "Accés remot",
+  "integrations": "Integracions",
+  "experimental": "Experimental",
+  "claude_code": "Claude Code",
+  "web_search": "Cerca web",
+  "shell": "Shell",
+  "browse": "Navega",
+  "moreControls": "Més controls",
+  "starting": "S'està començant...",
+  "activeSuffix": "(actiu)",
+  "manageProviders": "Gestioneu els proveïdors",
+  "hiddenProviders": "{{count}} desactivat",
+  "hideProvider": "Amaga el proveïdor",
+  "showProvider": "Mostra el proveïdor",
+  "appearance": "Aparença",
+  "home": "Casa",
+  "cowork": "Cowork",
+  "newSession": "Nova sessió",
+  "artifacts": "Artefactes",
+  "customize": "Personalitza",
+  "local": "Local",
+  "selectFolder": "Seleccioneu la carpeta",
+  "selectModel": "Seleccioneu primer un model",
+  "commands": "Ordres",
+  "cmdHelp": "Llista les ordres disponibles",
+  "cmdClear": "Esborra aquesta sessió",
+  "cmdModels": "Canvia el model actiu",
+  "cmdModelsHint": "Escriviu /models i després trieu un model de la llista",
+  "cmdModelSwitched": "S'ha canviat a {{name}}",
+  "cmdUnknown": "Ordre desconeguda: {{name}}. Proveu /help",
+  "cmdBusy": "No es pot fer això mentre l'agent s'està executant",
+  "cmdCompact": "Compacteu el context de la sessió en un resum",
+  "cmdCompacted": "{{before}} compactats -> Missatges {{after}}",
+  "cmdNothingToCompact": "Encara no hi ha res per compactar",
+  "cmdCompactFailed": "La compactació ha fallat: {{error}}",
+  "cmdPlan": "Canvia el mode de pla (només de lectura: l'agent proposa sense escriure)",
+  "cmdPlanOn": "Mode de planificació activat: l'agent llegeix i proposa sense escriure",
+  "cmdPlanOff": "Mode de pla desactivat: execució normal",
+  "cmdTodo": "Obriu el tauler de progrés",
+  "cmdTasks": "Obriu el tauler de tasques en segon pla",
+  "cmdInit": "Estudiar el projecte i escriure habilitats i memòria",
+  "cmdInitRunning": "Incorporació d'aquest projecte",
+  "skills": "Habilitats",
+  "skillsInContext": "Habilitats disponibles per a l'agent aquesta carrera",
+  "skillsTitle": "Gestiona les habilitats",
+  "skillsScopeProject": "Habilitats per a {{folder}}",
+  "skillsScopeGlobal": "Competències globals, disponibles per a cada sessió",
+  "skillsScopeMerged": "Habilitats per a {{folder}}, a més de les habilitats globals que comparteix cada sessió\ncarpeta",
+  "skillOriginFolder": "carpeta",
+  "skillOriginGlobal": "global",
+  "skillsEmpty": "Encara no hi ha habilitats",
+  "skillsPickOrNew": "Seleccioneu una habilitat per editar o creeu-ne una de nova.",
+  "skillNew": "Nova habilitat",
+  "skillDelete": "Suprimeix l'habilitat",
+  "skillSave": "Desa",
+  "skillSaved": "Habilitat desada",
+  "skillNameRequired": "El nom de l'habilitat és obligatori",
+  "skillNamePlaceholder": "nom-habilitat",
+  "skillContentPlaceholder": "Descriu el procediment reutilitzable a Markdown...",
+  "skillHubImport": "Importa des del concentrador",
+  "skillHubTitle": "Anthropic centre d'habilitats",
+  "skillHubEmpty": "No s'han trobat habilitats al centre",
+  "skillImport": "Importa",
+  "skillReimport": "Torna a importar",
+  "skillImported": "{{name}} importat",
+  "sessions": "Sessions",
+  "deleteSession": "Suprimeix la sessió",
+  "deleteSessionTitle": "Vols suprimir la sessió?",
+  "deleteSessionBody": "\"{{title}}\" i la seva transcripció se suprimiran permanentment. Això no es pot desfer.",
+  "newAgentChat": "Xat d'agent nou",
+  "chats": "Xats",
+  "analyticsConsentDetail": "Recopilem dades anònimes per entendre l'ús de les funcions. Mai es fa un seguiment dels teus xats i informació personal. Pots canviar-ho en qualsevol moment a Configuració > Privadesa.",
+  "analyticsConsentQuestion": "Vols ajudar-nos a millorar Novera?",
+  "searchThreads": "Cerca fils...",
+  "toNavigate": "per navegar",
+  "toSelect": "per seleccionar",
+  "toClose": "per tancar",
+  "clearRecent": "Clar",
+  "dismiss": "Descartar",
+  "done": "Fet",
+  "changes": {
+    "title": "Canvis d'agent",
+    "empty": "Els fitxers que l'agent escriu o edita es mostraran aquí.",
+    "a11y": "Canvis d'agent: fitxers {{files}}, {{additions}} afegit, {{deletions}} eliminat"
+  },
+  "modelPanel": {
+    "title": "Configuració del model",
+    "a11y": "Obriu la configuració del model",
+    "contextTooltip": "Finestra de context: {{value}} de {{max}} tokens"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "L'habilitat '{{name}}' no està disponible",
+    "kind": {
+      "skill": "Habilitat",
+      "command": "Comandament",
+      "model": "Model"
+    }
+  },
+  "multimodal": "Multimodal",
+  "noAssistant": "Sense assistent",
+  "settingUpJan": "S'està arrencant Novera...",
+  "registeringExtensions": "Registrant extensions...",
+  "loadingExtensions": "S'estan carregant extensions... ({{done}}/{{total}})",
+  "modelControls": {
+    "updateFailed": "No s'ha pogut actualitzar la configuració del model"
+  },
+  "missingDependenciesDialog": {
+    "title": "Falten biblioteques del sistema",
+    "description": "S'ha instal·lat el {{backend}}, però no s'han pogut trobar algunes biblioteques del sistema necessàries. Pot ser que es torni a CPU o no funcioni correctament.",
+    "installLabel": "Per solucionar-ho, instal·leu el següent:",
+    "download": "Descarrega",
+    "additionalLibraries": "Biblioteques addicionals que falten:",
+    "missingLibraries": "Biblioteques que falten:",
+    "showRawLibraries": "Mostra els noms de biblioteques que falten {{count}}"
+  },
+  "errors": {
+    "fileTooLarge": "El fitxer és massa gran",
+    "fileTooLargeDescription": "{{fileName}} supera el límit {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} trossos",
+    "title": "Fitxers",
+    "empty": "Els fitxers que adjunteu i els fitxers que crea l'agent es mostraran aquí.",
+    "a11y": "Fitxers: {{count}}",
+    "attachments": "Adjunts",
+    "notImported": "no a l'espai de treball"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Col·lapse",
+  "expand": "Ampliar",
+  "todoPanelTitle": "Progrés",
+  "todoPanelEmpty": "Encara no hi ha cap llista de tasques.",
+  "backgroundTasks": "Tasques de fons",
+  "subagentsRunning_one": "{{count}} subagent en execució",
+  "subagentsRunning_other": "Subagents {{count}} en execució",
+  "monitorsRunning_one": "Monitor {{count}} en funcionament",
+  "monitorsRunning_other": "Monitors {{count}} en funcionament",
+  "backgroundRunning_one": "Tasca en segon pla {{count}} en execució",
+  "backgroundRunning_other": "{{count}} tasques en segon pla en execució",
+  "monitors": "Monitors",
+  "monitorPolling": "Enquesta",
+  "monitorMatched": "Coincidint",
+  "monitorTimedOut": "Temps esgotat",
+  "monitorStopped": "Aturat",
+  "monitorEnded": "Finalitzat",
+  "coworkWatching_one": "S'està veient el monitor {{count}}...",
+  "coworkWatching_other": "Mirant els monitors {{count}}...",
+  "coworkWaitingBackground": "Esperant tasques en segon pla...",
+  "noBackgroundTasks": "Encara no hi ha tasques en segon pla.",
+  "running": "Córrer",
+  "queued": "En cua",
+  "waiting": "Esperant",
+  "finished": "Acabat",
+  "subagentPhase": "fase {{phase}}",
+  "subagentWaiting": "esperant",
+  "viewTranscript": "Veure transcripció",
+  "taskWorking": "Treballant...",
+  "taskNoOutput": "El subagent no ha produït cap sortida visible.",
+  "subagentToolUses_one": "Ús de l'eina {{count}}",
+  "subagentToolUses_other": "Utilitza l'eina {{count}}",
+  "artifactGroupCode": "Codi",
+  "artifactGroupImage": "Imatge",
+  "artifactGroupDocument": "Document",
+  "artifactGroupVideo": "Vídeo",
+  "artifactGroupAudio": "Àudio",
+  "artifactOpenPreview": "Obre la vista prèvia",
+  "artifactOpenExternal": "Obert",
+  "artifactMoreActions": "Més accions",
+  "artifactShowInFolder": "Mostra a la carpeta",
+  "skillsUsedLabel": "Habilitats utilitzades",
+  "skillsUsed": "Habilitats utilitzades: {{skills}}",
+  "artifactsAll": "Tot",
+  "artifactsEmpty": "Encara no s'ha produït res. Els artefactes de les execucions de Cowork es mostren aquí.",
+  "artifactsNoMatch": "Cap artefacte coincideix.",
+  "artifactsSearch": "Cerca artefactes",
+  "artifactsShowMore": "Mostra més {{count}}",
+  "workspace": {
+    "readsFrom": "Funciona a",
+    "writable": "llegir i escriure",
+    "footnote": "L'agent llegeix i edita aquesta carpeta directament. Revisa què ha canviat al tauler de diferències.",
+    "footnoteEmpty": "Adjunteu una carpeta per deixar que l'agent treballi en el vostre projecte. Pot llegir i editar fitxers dins d'ell.",
+    "attach": "Adjunteu una carpeta",
+    "change": "Canvia la carpeta",
+    "detach": "Separa la carpeta",
+    "open": "Obert",
+    "reveal": "Revelar",
+    "unavailable": "L'espai de treball no està disponible",
+    "missing": "La carpeta de l'espai de treball {{folder}} ja no està disponible. Trieu una carpeta diferent.",
+    "openFailed": "No s'ha pogut obrir l'espai de treball",
+    "revealFailed": "No s'ha pogut revelar l'espai de treball",
+    "a11yWithFolder": "Carpeta del projecte {{folder}}, adjunta amb accés de lectura i escriptura. Canviar-lo o separar-lo.",
+    "a11yNoFolder": "No hi ha cap carpeta de projecte adjunta. Adjunteu-ne un."
+  },
+  "coworkEmpty": {
+    "title": "En què estem treballant?",
+    "subtitleSandbox": "Doneu una tasca a Novera. Llegeix i escriu fitxers, executa ordres i treballa per si mateix a través dels passos.",
+    "subtitleFolder": "Doneu una tasca a Novera. Funciona directament a {{folder}}, llegint i editant fitxers per si sol.",
+    "try": "Prova",
+    "sandbox": {
+      "first": "Escriu un script de Python que canviï el nom dels fitxers per la data en què es van prendre",
+      "second": "Creeu un tauler d'una sola pàgina a partir d'un CSV que enganxaré",
+      "third": "Elaborar un README per a un projecte que us descric"
+    },
+    "folder": {
+      "first": "Explica com s'ajunta {{folder}}",
+      "second": "Troba tots els TODO a {{folder}} i agrupa-los per àrea",
+      "third": "Escriu proves per a la part de {{folder}} T'assenyala"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Sense terminal",
+    "a11y": "L'execució d'ordres està desactivada. Detalls.",
+    "title": "L'execució d'ordres està desactivada",
+    "body": "Novera permet que l'agent executi ordres de l'intèrpret d'ordres només quan el vostre sistema les pot limitar. No hi ha cap sandbox disponible aquí, de manera que l'agent pot llegir, escriure i editar fitxers al seu sandbox, però no executar res.",
+    "fixLinux": "Linux utilitza bubblewrap. Instal·leu-lo i reinicieu Novera.",
+    "fixMac": "macOS utilitza la caixa de sorra integrada a /usr/bin/sandbox-exec. Reinicieu Novera un cop estigui disponible.",
+    "fixWindows": "Windows utilitza AppContainer. Reinicieu Novera per tornar-ho a provar.",
+    "recheck": "Comproveu de nou"
+  },
+  "planMode": {
+    "label": "Pla",
+    "tooltipOff": "Planifica primer: l'agent llegeix i proposa, sense escriure.",
+    "tooltipOn": "Planificació. Desactiveu-ho per permetre que l'agent escrigui fitxers.",
+    "onAnnounce": "Mode de planificació activat",
+    "placeholder": "Demana un pla. L'agent no canviarà cap fitxer."
+  },
+  "budget": {
+    "stoppedSteps": "S'ha aturat als passos {{max}}. L'agent no ha acabat.",
+    "keepGoing": "Segueix així",
+    "stoppedTokens": "Aturat: aquesta sessió ha esgotat el pressupost de tokens.",
+    "compact": "Compacte",
+    "newSession": "Nova sessió"
+  },
+  "run": {
+    "stopped": "Aturat.",
+    "failed": "La carrera es va aturar aviat.",
+    "tryAgain": "Torna-ho a provar"
+  },
+  "modelNoTools": "{{model}} no pot trucar a eines, de manera que no pot actuar com a agent. Trieu un model de trucada d'eines.",
+  "askContinue": "Continua",
+  "askNext": "Següent pregunta",
+  "askPrev": "Pregunta anterior",
+  "askRecommended": "Recomanat",
+  "askSelectedCount": "{{count}} seleccionat",
+  "askSomethingElse": "Una altra cosa",
+  "askSomethingElsePlaceholder": "Escriu la teva pròpia resposta",
+  "submit": "Envia"
 }

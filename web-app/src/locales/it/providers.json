@@ -80,7 +80,8 @@
     "warning": {
       "title": "Procedi con cautela",
       "description": "La modifica delle funzionalità del modello potrebbe influire sulle prestazioni e sulle funzioni. Impostazioni errate potrebbero causare comportamenti imprevisti o errori."
-    }
+    },
+    "video": "Video"
   },
   "addProvider": "Aggiungi provider",
   "addOpenAIProvider": "Aggiungi fornitore OpenAI",
@@ -102,6 +103,25 @@
     "removeKey": "Rimuovi chiave"
   },
   "baseUrl": {
-    "alibabaDescription": "Usa l’endpoint del tuo spazio di lavoro Alibaba Cloud e della sua regione. Sostituisci YOUR-WORKSPACE-ID con l’ID dello spazio e usa una chiave API della stessa regione."
-  }
+    "alibabaDescription": "Usa l’endpoint del tuo spazio di lavoro Alibaba Cloud e della sua regione. Sostituisci YOUR-WORKSPACE-ID con l’ID dello spazio e usa una chiave API della stessa regione.",
+    "title": "Base URL",
+    "azureDescription": "Il tuo endpoint Azure OpenAI. Sostituisci YOUR-RESOURCE-NAME con il nome della risorsa di Azure."
+  },
+  "mlxExperimental": "Il supporto MLX è sperimentale. Gli incorporamenti non sono disponibili, l'interruttore del ragionamento non è ancora collegato e alcune architetture di modelli più recenti potrebbero non riuscire a caricarsi. Segnala problemi su GitHub in modo che possiamo dare loro la priorità.",
+  "engineBundled": "Il motore di inferenza è integrato in Novera, quindi non c'è nulla da scaricare o aggiornare separatamente. Citare questa versione quando si segnala un modello che non riesce a caricare.",
+  "engineOtherVersion": "Hai bisogno di una versione llama.cpp diversa? Esegui il tuo llama-server e aggiungilo come provider personalizzato compatibile con OpenAI.",
+  "engineOtherVersionLink": "Come fare",
+  "engineReleaseNotes": "Note sulla versione",
+  "engineBuild": "Costruisci",
+  "engineCommit": "Impegnati",
+  "backendInstalled": "Installato",
+  "backendHistoryShow": "Mostra la cronologia degli aggiornamenti",
+  "backendHistoryHide": "Nascondi la cronologia degli aggiornamenti",
+  "backendHistoryLoading": "Caricamento cronologia aggiornamenti...",
+  "backendHistoryEmpty": "Nessun aggiornamento del backend ancora registrato.",
+  "backendHistoryNone": "nessuno",
+  "backendHistoryUpdated": "Aggiornato",
+  "backendHistoryRolledBack": "Rollback",
+  "backendHistoryRollbackFailed": "Rollback fallito",
+  "backendHistoryFailed": "Fallito"
 }

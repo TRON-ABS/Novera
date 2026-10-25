@@ -1,0 +1,970 @@
+NOVERA — NOUVELLE COMPILATION LOCALE — 24 OCTOBRE 2026
+
+Dernières sources compilées en 1.0.0 Windows x64 LTO fat. 4 975 tests web
+réussis (2 ignorés), TypeScript et architecture réussis. Français détecté
+sur profil isolé, choix anglais simulé dans le stockage conservé après
+redémarrage. Nouveau ZIP assemblé et vérifié ; ancienne version sauvegardée.
+Exécutable SHA-256 : B682ADF50B626792CFBFA729C4D06B178D7A46B47FCB73063693A21B1C84D55B.
+Aucune publication ou CI distante. Preuves : .build/novera-local-build-2026-10-24_03-26-05/verification.json.
+
+---
+
+NOVERA — WINDOWS PORTABLE / #9302 — 24 OCTOBRE 2026
+
+Adaptation locale de notre contribution #9302 : scripts, inventaire/empreintes,
+223 assertions sous chaque PowerShell (5.1 et 7), CI manuelle Novera préparée
+avec autorisation explicite, en lecture seule et sans secrets/publication.
+Actions non activé, aucun workflow lancé. ZIP de validation du build existant
+1.0.0 créé et vérifié ; démarrage isolé depuis extraction réussi. Les nouvelles
+fonctions des sources ne sont pas recompilées. Documentation :
+docs/windows-portable.md. Preuves : .build/novera-portable-2026-10-24/verification.json.
+Les entrées plus anciennes ci-dessous conservent leur état historique.
+
+---
+
+# Modèle par défaut Novera — LFM2.5, 23 octobre 2026
+
+LFM2.5-2.6B Q6_K proposé au démarrage : température 0,1 ; top-k 50 ; repeat_penalty 1,1 ; contexte 32768. Recommandation et contrôle mémoire indépendants du catalogue/cache Jan. Paramètres natifs enregistrés à l’import ; ancien override d’usine de l’assistant retiré avec garde sur les personnalisations.
+238 tests ciblés réussis ; compilation optimisée et démarrage isolé validés. Poids du modèle non téléchargés. SHA-256 Novera-Desktop : `62714E4022A5A08D5012146F18FBE2D5869E28B1D584DA96D5290C89C35E8211`.
+Rapport : `.build/novera-lfm-default-2026-10-23/summary.md`. Aucune publication distante.
+
+---
+
+# Jan supprimé — Novera optimisé validé, 23 octobre 2026
+
+Installation, données Jan (effacement confirmé), caches, archive, raccourcis et 135 éléments temporaires supprimés. Gain mesuré après désinstallation : 10.30 Go.
+Binaire final Novera-Desktop 0.8.7 : `deliverables/Novera-Desktop-local-0.8.7/Novera-Desktop.exe` ; LTO fat validée, empreinte identique au résultat compilé. Aucune fermeture de Novera imposée par le nettoyage.
+Rapport : `.build/jan-removal-2026-10-23/summary.md`.
+
+---
+
+# Novera — compilation locale du 23 octobre 2026
+
+Novera-Desktop 0.8.7 compilé et démarrage isolé vérifié ; 45 tests ciblés réussis.
+Exécutable : `deliverables/Novera-Desktop-local-0.8.7/Novera-Desktop.exe`.
+SHA-256 : `739A35C08AF7FC075D7303E17284E5B14090534CB25AD26D0C50125920F38A0B`.
+Rapport : `.build/novera-desktop-local-2026-10-23/summary.md`.
+Aucune publication ni installation. Les entrées ci-dessous décrivent leur état historique.
+
+---
+
+NETTOYAGE DISQUE TERMINÉ — 19 octobre 2026
+23.37 Go libérés (21.76 Gio), environ 61.18 Go libres.
+Portable modifié supprimé, ainsi que les anciennes sauvegardes/moteurs, installateurs 0.8.4 et caches Cargo autorisés.
+Jan installé b11721, données utilisateur et sources du fork conservés et vérifiés.
+Les anciennes sauvegardes citées plus bas ont été supprimées ; leurs chemins sont historiques.
+Aucune nouvelle sauvegarde créée. Une nouvelle version portable originale sera préparée plus tard sur demande.
+Rapports : .build/jan-cleanup-*.json et .build/jan-old-copies-cleanup-result.json.
+
+PANNEAU CORRIGÉ ET VÉRIFIÉ — 19 octobre 2026
+Jan installé affiche llama.cpp 0.7.0, Build b11721, Commit ff5a2337.
+Version Jan 0.8.6 et boutons Windows vérifiés. 8 tests natifs réussis.
+Le panneau interroge le worker via --version-json, au lieu du pin de compilation de son EXE.
+EXE recompilé localement depuis v0.8.6 ; ancien EXE signé sauvegardé sous .build/llama-update-b11721/panel-before/.
+Aucune conversation ou préférence modifiée. Jan laissé ouvert sur ce panneau.
+Preuves, empreintes et patchs : .build/llama-update-b11721/ ; détails dans PR.md.
+
+LLAMA.CPP b11721 INSTALLÉ SUR LES DEUX VERSIONS — 19 octobre 2026
+Portable : b11696 -> b11721 ; Jan officiel 0.8.6 : b11146 -> b11721.
+Release préversion du 18 octobre ; commit ff5a23376725e5a889fa0bfb987b7541dc304da0.
+CUDA 13.4, architecture 120 (RTX 5070), CUDA Graphs ON vérifié.
+Worker + DLL mis à jour dans le portable, l’installation officielle et src-tauri/resources/bin.
+Interfaces inchangées par SHA-256 ; signature de l’interface officielle toujours valide.
+5 tests moteur réussis. Chargement, 2 générations et déchargement vérifiés depuis chaque installation.
+Contexte du modèle conservé : 128192 demandé / 128256 effectif ; caches BF16/BF16.
+Performances mesurées sur installations : portable 118,75–129,76 tokens/s ; officiel 115,86–117,41.
+Démarrage natif des deux Jan et chemins de leurs workers vérifiés ; Jan officiel laissé ouvert.
+Aucune conversation de test créée. Anciens installateurs et ZIP non reconstruits.
+Le runtime officiel est maintenant une compilation locale ; une mise à jour Jan pourra le remplacer.
+Preuves et sauvegardes complètes : .build/llama-update-b11721/ ; détail dans PR.md.
+Worker SHA-256 : 947E05F00BB67707B38206198A7A04582CB8BC2A4C3E53986DF18AD062BF24BC
+Aucun push ni changement des PR GitHub.
+
+LISTE COMPLÈTE DES PR ACTUALISÉE — 19 octobre 2026 (Europe/Paris)
+172 PR ouvertes, dont 5 brouillons, récupérées sur les 2 pages de l’API GitHub.
+172 numéros uniques ; tableau complet en tête de PR.md (titre, auteur, cible, labels, mise à jour).
+Source : https://github.com/janhq/jan/pulls
+Relevé structuré : .build/jan-open-prs-2026-10-19.json
+
+SUIVI ACTUEL — 19 octobre 2026 (Europe/Paris)
+Application : Jan officiel 0.8.6 réinstallé, signature valide, interface ouverte et vérifiée.
+Conversations et modèles conservés. Fork et modifications locales conservés à la demande de l’utilisateur.
+Application officielle : C:\Users\jmsga\AppData\Local\Programs\Jan\Jan-Desktop.exe
+Sources du fork : C:\msys64\home\jmsga\jan ; origin TRON-ABS/jan ; upstream janhq/jan.
+Le code du fork n’est pas intégré à l’application officielle installée.
+
+Nos deux PR upstream restent ouvertes et non fusionnées, selon l’API GitHub :
+- #9299 : llama.cpp b11681, hors brouillon, update-llamacpp-b11681 vers dev.
+  https://github.com/janhq/jan/pull/9299
+  Tête : 6f0bbf0e6e30951a82150c6428d9e1605259abdd.
+  Aucun commentaire/revue ni check run renvoyé sur cette tête.
+  À faire : essais CPU/Vulkan, chargement/déchargement, génération et clarification de la cible dev.
+- #9302 : portable Windows, brouillon, codex/windows-portable vers main.
+  https://github.com/janhq/jan/pull/9302
+  Tête : aaa998f3521fece5c04d634cbe6fd8c33d4d1650.
+  Aucun commentaire/revue ; check package du fork réussi, aucun check run upstream renvoyé.
+  https://github.com/TRON-ABS/jan/actions/runs/38892765556/job/116945981028
+  À faire : compilation de cette branche exacte, ZIP extrait séparément, interface,
+  chargement/génération, chemins avec espaces et parcours publication/signature.
+
+Branches de correctifs conservées : filesystem-path-scope (cd4bea85a),
+atomic-thread-message-write (ef1feae40), fix-api-utf8 (9bc866c86),
+fix-windows-mcp-clippy (13e8373c3), sous le préfixe codex/ ; détails dans PR.md.
+Les 16 autres PR citées dans le suivi restent ouvertes et non fusionnées ;
+leurs diffs et validations n’ont pas été réaudités lors de ce relevé documentaire.
+Aucun push, rebase, fusion, changement de PR, nouveau test/build ou déclenchement de CI.
+Ce relevé est actuel ; les informations et anciennes consignes ci-dessous sont historiques.
+
+==========================================================
+  JAN / TRON-ABS — SUIVI DES CONTRIBUTIONS
+  Régression de hauteur corrigée — 17 octobre 2026.
+  AppLayout borné à la hauteur du viewport ; messages flex corrigés, saisie maintenue en bas.
+  Défaut reproduit dans Jan avant correction, puis vérifié après recherche et ouverture d'une discussion :
+  question/réponse visibles et cadre en bas. Aucun message de test envoyé ; Jan laissé ouvert.
+  65 tests réussis ; EXE, installateurs et portable reconstruits.
+  SHA-256 portable : 5914DC9C54E5825E07936C6C5BB073B8990BF5A78BBF2CC01E9145E995BF850D
+  Journal/preuves : .build/conversation-height-fix-build.log et conversation-height-fix-artifacts.json.
+  Navigation dans le cadre, à gauche — 17 octobre 2026, 00 h 09.
+  Voyant centré sous le cadre ; saisie abaissée avec petite marge, footer séparé retiré des discussions.
+  65 tests réussis ; EXE, MSI et portable recompilés. Interface native non lancée pour contrôle visuel.
+  Portable actuel : portable/Jan-Portable/Jan-Desktop.exe.
+  SHA-256 : 4EA7E810BF8A2282916EBA75CFC9FCD7D14D949B6C2377322EDC0E651293E5D3
+  Journal/preuves : .build/composer-navigation-build.log et composer-navigation-artifacts.json.
+  Historique déroulant ajouté et compilé — 16 octobre 2026, 23 h 52.
+  Bouton à droite du voyant ; panneau vers le haut borné au cadre de saisie.
+  Toutes les discussions sauvegardées, titres, dates/heures, recherche et suppression.
+  Recherche titre/date/heure/projet ; 38 tests réussis. Interface native non lancée.
+  Portable : portable/Jan-Portable/Jan-Desktop.exe ; installateurs actualisés dans exe/.
+  SHA-256 : D4571B33DCA9518A36250A796A8D36EBBA31E8A1BFF50A0790177E7403C65A53
+  Journal et preuves : .build/conversation-history-build.log et conversation-history-artifacts.json.
+  Logo robot masculin + disque appliqué et compilé — 16 octobre 2026, 23 h 30.
+  Portable actuel : portable/Jan-Portable/Jan-Desktop.exe.
+  Icône du fichier contrôlée via Windows Shell : nouveau logo bien renvoyé.
+  Six tailles ICO embarquées vérifiées ; suivi Cargo du fichier ICO ajouté.
+  Rafraîchissement ciblé de l'Explorateur intégré au packager portable.
+  Absence signalée non reproduite par Shell avant correction ; cache visuel probable.
+  SHA-256 portable : 965B20E652B17BC10C56316144E6EF74C33019EC225E5B8931CC9270641B6FE7
+  Preuves : .build/robot-disc-build.log, robot-disc-artifacts.json,
+  robot-disc-icon-verification.json et shell-icon-after.png.
+  Correction des avertissements — 16 octobre 2026, 23 h 06 :
+  CLI Tauri aligné sur 2.11.4 ; marquages NSIS et MSI vérifiés, y compris
+  dans l'EXE extrait du MSI sans installation. Avertissement updater supprimé.
+  Variables AMD, code mort CPU et imports thème corrigés ; 24 tests réussis.
+  EXE, installateurs et portable reconstruits. Conseils taille JS / ID macOS conservés.
+  SHA-256 portable actuel : DE1B5AC0CC581E84C5E53FBCB68C932ED5B77B01501FE09EE721BDCE1CAC2708
+  Logs/preuves : .build/warnings-fixed-build.log, warnings-fixed-artifacts.json,
+  warnings-fixed-nsis-check.json et warnings-fixed-bundle-check.json.
+  Compilation interface Tron + Web Search réussie le 16 octobre 2026.
+  Installateur : exe/Jan_0.8.4_x64-setup.exe ; MSI également disponible.
+  Portable : portable/Jan-Portable/Jan-Desktop.exe (ressources incluses).
+  SHA-256 portable : 5FBADDDFDC5F900A2BA12BAF50F725E15F12C631FB688522D71D8B946DD253AA
+  Journal : .build/tron-ui-build.log ; empreintes : .build/tron-ui-artifacts.json.
+  14 tests avatar + 5 tests MCP réussis ; interface non lancée pour validation.
+  Avertissement packaging Tauri : mise à jour automatique potentiellement affectée.
+  Dernière mise à jour : 16 octobre 2026
+  Fork     : https://github.com/TRON-ABS/jan
+  Upstream : https://github.com/janhq/jan
+  Dépôt local : C:\msys64\home\jmsga\jan
+==========================================================
+
+CONSIGNE ACTIVE — VERSION MAISON UNIQUEMENT — 16 OCTOBRE 2026
+----------------------------------------------------------
+Pour le moment : uniquement des correctifs, tests et compilations locaux
+sur notre version maison. Aucun nouveau fork, push, PR, release ou envoi
+de code distant ; les anciennes autorisations de publication sont suspendues.
+Réactivation uniquement sur nouvelle demande explicite de l'utilisateur.
+Les forks/PR existants restent en historique, sans suppression demandée.
+Procédure active détaillée tout en haut de PR.md ; ancienne procédure archivée.
+
+PORTABLE CORRIGÉ — CHARGEMENT MINICPM5 — 16 OCTOBRE 2026
+----------------------------------------------------------
+Lancer la nouvelle copie extraite :
+  C:\jb\release\Jan-Portable-Corrige\Jan-Desktop.exe
+ZIP complet :
+  C:\jb\release\portable-fixed\Jan_0.8.4_x64-portable.zip
+Cette copie remplace pour les essais l'ancien dossier Jan Portable TEST.
+Version : branche locale update-llamacpp-b11681, Jan 0.8.4, moteur b11681.
+Cause constatée : slot-save-path mélangeait le préfixe Windows canonique
+avec /thread-cache ; le worker quittait avec l'erreur 123, statut 7.
+Correction locale : threadCacheDir utilise des séparateurs Windows natifs,
+avec tests des chemins ordinaires, canoniques, UNC et avec slash final.
+206 tests extension réussis ; interface et EXE release reconstruits.
+Depuis le moteur du ZIP extrait : MiniCPM5-2B-Q4_K_M chargé avec 68192
+tokens de contexte, fit désactivé, chemin de cache canonique Windows,
+génération terminée avec la réponse « Hello! ». Paramètres réels non modifiés.
+L'interface graphique n'a pas été validée visuellement dans cet essai.
+SHA-256 EXE : 51606DE40F86F4D3EBCACB38D4F8E58CC0BC8E1F5A420C3EDB75CAF0A4FE8F00
+SHA-256 ZIP : BBCCC6593FF94B3B2BB9CA516CB99650E88D23D6BF9A5F8E2FBCFD1E4DE49E6A
+Logs et preuves : .build/portable-fixed-build.log,
+.build/portable-fixed-artifacts.json, .build/portable-model-check/worker.log
+et .build/portable-model-check/completion.json.
+Les corrections source sont locales dans extensions/llamacpp-extension/src/
+preset.ts et preset.test.ts ; aucune nouvelle PR amont créée pour ce défaut,
+une correction équivalente existe déjà dans le checkout portable basé sur main.
+
+DERNIER CORRECTIF PUBLIÉ — ÉCRITURE ATOMIQUE DES CONVERSATIONS (#8071)
+-----------------------------------------------------------------------
+PR amont : https://github.com/janhq/jan/pull/8071 (ouverte et approuvée).
+Branche du fork : codex/atomic-thread-message-write
+Lien : https://github.com/TRON-ABS/jan/tree/codex/atomic-thread-message-write
+Commit signé : ef1feae40e5cb8a38d733203cda1e2b29483c14c (signature GitHub VALID)
+Suivi publié : deux variables AMD renommées en snake_case, import downloads
+et helper UserSkills::track limités aux tests Unix qui les utilisent.
+Découverte corrigée : préparation Git du test de worktree rendue fiable,
+puis normalisation du chemin principal pour partager les skills sous Windows.
+138 tests Windows release réussis : workspace 30, downloads 48, skills 25,
+conversations 35. Seul reste le message informatif du linker MSVC .lib/.exp.
+Logs : .build/thread-atomic/*-quality.log ; procédure détaillée dans PR.md.
+Base : upstream/main, a86d87ebcfb7eb542dbc548cd3a5936b4650c3c6
+Arbre Git vérifié : 3cead3dc28607fa31ca104b066e2a6cbe6d52320
+Checkout : C:\msys64\home\jmsga\jan\.build\thread-atomic
+
+`messages.jsonl` est écrit dans un fichier temporaire voisin, unique et
+créé avec `create_new`, puis remplacé atomiquement. Le fichier initial reste
+intact si l'écriture échoue. 35 tests threads Windows passent, rustfmt ciblé
+et diff propres. Clippy passe avec l'unique exception de deux lints MCP déjà
+présents ; aucun nouveau diagnostic threads. Le formatage global remonte des
+écarts préexistants hors de ces fichiers. Pas de PR upstream en doublon.
+Aucun token conservé dans les fichiers.
+
+CORRECTIF PUBLIÉ — SÉCURITÉ FILESYSTEM (#8068)
+----------------------------------------------------------
+PR amont toujours ouverte : https://github.com/janhq/jan/pull/8068
+Base vérifiée : upstream/main a86d87ebcfb7eb542dbc548cd3a5936b4650c3c6
+Branche locale : codex/fix-filesystem-path-scope
+Checkout : C:\msys64\home\jmsga\jan\.build\filesystem-scope
+
+Contrôle de mkdir, de la source et destination de mv, et de
+write_file_sync par le résolveur canonique du dossier de données Jan.
+20 tests filesystem Windows réussis, rustfmt réussi, diff propre.
+Le test symlink ne tourne que sur Unix. Clippy strict signale deux
+emprunts MCP préexistants dans main, corrigés séparément dans
+codex/fix-windows-mcp-clippy; aucun nouveau diagnostic filesystem.
+La compilation de tests montre aussi des avertissements préexistants
+dans le plugin AMD et d'autres modules, distincts de ce correctif.
+
+État : publié sur le fork, signature GitHub VALID.
+Lien : https://github.com/TRON-ABS/jan/tree/codex/fix-filesystem-path-scope
+Commit : cd4bea85a593043c7f6b2a3724a2b1871535d832
+Arbre Git identique au code testé : 537c05b6f357ef7f08699ecc2cc359a8f463f9c3.
+SHA distant vérifié ; branche locale alignée et propre.
+Aucune nouvelle PR amont créée. Validation backend et tests ; aucun
+nouveau paquet portable compilé pour cette contribution.
+Authentification fournie par l'utilisateur utilisée uniquement en mémoire.
+Aucun token enregistré dans les fichiers du projet.
+
+CORRECTIF PUBLIÉ PRÉCÉDEMMENT — AVERTISSEMENTS MCP WINDOWS
+----------------------------------------------------------
+Date : 16/10/2026.
+Branche : codex/fix-windows-mcp-clippy
+Lien : https://github.com/TRON-ABS/jan/tree/codex/fix-windows-mcp-clippy
+Commit signé : 13e8373c3e5fdb3043cb33070388985bb529c94e
+Base : upstream/main, a86d87ebcfb7eb542dbc548cd3a5936b4650c3c6
+Checkout : C:\msys64\home\jmsga\jan\.build\mcp-clippy
+Portée : enlever deux & superflus dans Command::args pour taskkill
+et tasklist, dans core/mcp/helpers.rs et core/mcp/lockfile.rs.
+
+Contrôles : main actualisé, recherches de PR ouvertes/fermées,
+Clippy strict reproduit en échec avant puis réussi après correction,
+95 tests MCP réussis, diff propre et aucun nouveau diagnostic rustfmt.
+Deux tests exclus : test_check_and_cleanup_stale_lock_removes_dead_pid_lock
+et test_cleanup_own_locks_removes_only_current_pid_locks, car ils
+contournent l'isolation en appelant directement un dossier système.
+Tests exécutés avec JAN_DATA_ROOT et --test-threads=1.
+La dépendance hardware émet encore deux avertissements non_snake_case,
+distincts des deux avertissements MCP supprimés.
+Logs : .build/mcp-clippy-before.log, .build/mcp-clippy-after.log,
+.build/mcp-clippy-tests.log. Aucun nouvel EXE desktop pour ce nettoyage.
+Publication sur le fork uniquement ; aucune PR upstream créée ici.
+
+La procédure détaillée de contribution est maintenant tout en haut
+de PR.md : contrôle des PR/main, reproduction, branche isolée,
+tests et limites, signature, publication, CI et mise à jour du suivi.
+Les notes locales restent hors des commits de code destinés à upstream.
+
+CORRECTIF PUBLIÉ PRÉCÉDEMMENT — SERVEUR API / UTF-8
+----------------------------------------------------------
+Branche du fork : codex/fix-api-utf8
+Lien : https://github.com/TRON-ABS/jan/tree/codex/fix-api-utf8
+Commit signé : 9bc866c86dbfbbd90402db67a7141bf64cb1be39
+Base : upstream/main, a86d87ebcfb7eb542dbc548cd3a5936b4650c3c6
+Origine : correctif de la PR existante #8685, complété par trois tests.
+Aucune nouvelle PR upstream créée pour éviter un doublon.
+Checkout isolé : C:\msys64\home\jmsga\jan\.build\api-utf8
+Fichiers : src-tauri/src/core/server/proxy.rs et tests.rs.
+
+Validations : panique reproduite avant correction, régression corrigée,
+91 tests du serveur réussis, interface/extensions compilées,
+Jan-Desktop.exe 0.8.5 compilé en release, Clippy réussi avec deux
+avertissements MCP hors correctif, aucun nouveau diagnostic rustfmt.
+Exécutable : C:\jb\release\Jan-Desktop.exe (55915008 octets).
+SHA-256 : E3A98DB9340374C57A46E65C7E2C3033A3D2907FC370A684CE59C930BA17921B
+Logs de validation : .build\api-utf8-tests.log,
+.build\api-utf8-frontend.log, .build\api-utf8-build.log,
+.build\api-utf8-clippy.log et .build\api-utf8-before.log.
+
+Test de démarrage : le nouveau processus est resté actif huit secondes,
+puis a été arrêté. La tentative de redirection APPDATA/LOCALAPPDATA
+n'a pas isolé les dossiers système Windows résolus par Jan.
+Le profil habituel a été utilisé et ses paramètres/logs actualisés.
+Ne pas qualifier ce test de démarrage isolé. L'interface et l'inférence
+avec un modèle n'ont pas été validées visuellement pendant cet essai.
+
+CONTRIBUTION WINDOWS PORTABLE — PR DISTINCTE
+----------------------------------------------------------
+PR : https://github.com/janhq/jan/pull/9302
+Titre : feat(ci): restore Windows portable ZIP distribution
+État constaté le 16/10/2026 : brouillon, non fusionnée.
+Branche du fork : codex/windows-portable
+Base de la PR : janhq/jan:main
+Base utilisée : a86d87ebcfb7eb542dbc548cd3a5936b4650c3c6
+Commit : aaa998f3521fece5c04d634cbe6fd8c33d4d1650
+Signature GitHub : valide, vérifiée lors de la publication.
+Checkout isolé :
+  C:\msys64\home\jmsga\jan\.build\windows-portable
+
+La contribution portable est indépendante de la branche
+update-llamacpp-b11681 et de ses modifications locales.
+Le checkout de contribution était propre après publication.
+
+Fichiers inclus dans la PR (7) :
+  .github/workflows/manual-build-portable.yml
+  .github/workflows/template-tauri-build-windows-x64.yml
+  .github/workflows/windows-portable-tests.yml
+  docs/windows-portable.md
+  package.json
+  scripts/package-windows-portable.ps1
+  scripts/tests/package-windows-portable.Tests.ps1
+
+Fonctionnement : ZIP de l'exécutable desktop avec ses ressources,
+le worker llama.cpp, les DLL et les sidecars Bun/uv.
+Workflow manuel utilisant la branche choisie et le workflow du fork.
+Builds sans publication possibles sans les secrets upstream.
+Les publications conservent les exigences de signature.
+Les données et modèles restent dans le dossier utilisateur normal.
+WebView2 et le runtime Visual C++ restent nécessaires sur la machine.
+
+VALIDATIONS
+----------------------------------------------------------
+Tests locaux réussis sous Windows PowerShell 5.1 et PowerShell 7 :
+  noms stable/beta/nightly, chemins avec espaces, contenu du ZIP,
+  sorties GitHub Actions, rejet de dépendances absentes ou vides,
+  conservation du ZIP précédent après échec, suppression des fichiers
+  obsolètes dans une nouvelle archive et nettoyage du staging.
+CI du fork réussie :
+  https://github.com/TRON-ABS/jan/actions/runs/38892765556
+git diff --check : réussi.
+actionlint : aucun nouveau diagnostic, après exclusion des avertissements
+préexistants sur les inputs requis avec défaut et les secrets PostHog.
+
+À valider avant de sortir la PR du brouillon : compilation complète
+de cette branche, interface/inférence et parcours de signature/publication.
+Le build existant 0.8.4 a servi au test local du ZIP et des backends
+CPU/Vulkan ; il ne constitue pas un nouveau build de main 0.8.5.
+
+ARCHIVE LOCALE DÉJÀ GÉNÉRÉE
+----------------------------------------------------------
+  C:\jb\release\Jan_0.8.4_x64-portable.zip
+  Taille constatée : 105255969 octets.
+Extraire tout le ZIP et lancer Jan-Desktop.exe.
+
+Commandes du checkout de contribution, après un build Windows :
+  yarn package:portable:win32
+  powershell -NoProfile -ExecutionPolicy Bypass -File scripts/tests/package-windows-portable.Tests.ps1
+
+Chemins de build personnalisés :
+  ./scripts/package-windows-portable.ps1 -ReleaseDir C:/build/release -OutputDir C:/build/portable
+Le script respecte aussi CARGO_TARGET_DIR pour rechercher le build.
+
+ACCÈS GITHUB POUR LES PROCHAINES CONTRIBUTIONS
+----------------------------------------------------------
+Compte vérifié : TRON-ABS.
+Authentification utilisée : Git Credential Manager pour github.com.
+Helper constaté : manager. Les identifiants sont conservés par le
+gestionnaire système, pas dans ce document ni dans le dépôt.
+Ne pas ajouter de token ici, dans les scripts, les logs ou les URLs Git.
+Le token partagé dans le chat le 16/10/2026 n'a pas été enregistré.
+Le révoquer depuis https://github.com/settings/tokens.
+
+GitHub CLI (gh) n'était pas installé dans le PATH de cette session.
+La branche et le commit signé ont été créés via l'API GitHub :
+  REST pour créer la référence de branche et la PR en brouillon ;
+  GraphQL createCommitOnBranch pour publier les fichiers en un commit signé.
+Les appels ont obtenu l'identifiant via git credential fill, en mémoire,
+sans afficher ni écrire sa valeur. Git push peut réutiliser le même helper.
+Ne jamais lancer git credential fill directement dans une sortie visible :
+sa réponse contient le secret. Si l'accès a expiré, refaire la connexion
+interactive dans le gestionnaire d'identifiants.
+
+REPRISE POUR UNE PROCHAINE CONTRIBUTION
+----------------------------------------------------------
+1. Lire ce suivi, vérifier git status et les PRs/branches sur GitHub.
+   Les états et numéros de version ci-dessus sont ceux du 16/10/2026.
+2. Récupérer les refs upstream/origin, puis relire CONTRIBUTING.md actuel.
+   La contribution portable cible main selon le guide lu à cette date.
+   Ne pas appliquer la consigne historique « toujours dev » ci-dessous.
+3. Préserver les changements locaux de Makefile, build.rs et les scripts
+   de build. Utiliser un checkout séparé pour une nouvelle contribution.
+   Ne pas utiliser reset --hard ou clean -fd pour contourner ces changements.
+4. Créer une branche dédiée codex/<sujet> à partir de la base vérifiée,
+   sélectionner uniquement les fichiers de la contribution et les tester.
+5. Réutiliser Git Credential Manager ; publier sur TRON-ABS/jan avec
+   un commit signé, ouvrir/mettre à jour la PR et relever les résultats CI.
+   Réutiliser la PR #9302 pour les corrections du portable.
+6. Mettre ce suivi à jour avec les nouveaux commits, PRs et validations.
+   Aucune surveillance périodique ni nouvelle automatisation n'a été créée.
+
+
+==========================================================
+  HISTORIQUE — MISE À JOUR llama.cpp vers b11681
+  Les consignes de reprise ci-dessus priment sur cet historique.
+  Utilisateur : TRON-ABS
+  Fork        : https://github.com/TRON-ABS/jan
+  Upstream    : https://github.com/janhq/jan
+  Pull Request: https://github.com/janhq/jan/pull/9299
+  Statut      : ✅ PR créée, en attente de review
+==========================================================
+
+CONTEXTE
+----------------------------------------------------------
+Jan intègre llama.cpp en tant que moteur "bundled" depuis
+la v0.8.5. La version épinglée est définie dans le fichier
+build.rs du plugin tauri-plugin-llamacpp. Pour changer la
+version de llama.cpp utilisée par Jan, il faut modifier ce
+fichier + les fichiers qui le référencent, puis ouvrir une
+Pull Request sur la branche dev du dépôt officiel.
+
+Version de départ (branche dev) : b10582 (llama.cpp 0.2.0)
+Version cible                   : b11681 (llama.cpp 0.7.0)
+Hash du commit cible : 5e03a1ff450cae37a774684de55d14fb48b1f90b
+Release upstream     : https://github.com/ggml-org/llama.cpp/releases/tag/b11681
+
+
+==========================================================
+  PARTIE 1 — PRÉPARATION DE L'ENVIRONNEMENT
+==========================================================
+
+ÉTAPE 0 — SE PLACER DANS LE DOSSIER DU PROJET
+----------------------------------------------------------
+Ouvrir Git Bash (MINGW64), pas cmd.exe ni PowerShell.
+
+cd ~/jan
+pwd
+# Doit afficher : /home/jmsga/jan
+
+
+ÉTAPE 1 — CLONER LE FORK (si pas encore fait)
+----------------------------------------------------------
+1. Forker janhq/jan sur GitHub (bouton "Fork" en haut à droite)
+2. Cloner votre fork :
+
+git clone https://github.com/TRON-ABS/jan.git
+cd jan
+
+3. Configurer le remote "upstream" (dépôt officiel) :
+
+git remote add upstream https://github.com/janhq/jan.git
+
+Si "upstream already exists" :
+git remote set-url upstream https://github.com/janhq/jan.git
+
+
+ÉTAPE 2 — RÉPARER LE PROBLÈME CRLF (Windows)
+----------------------------------------------------------
+⚠️ PROBLÈME RENCONTRÉ :
+Après un clone sur Windows, "git status" peut afficher
+2000+ fichiers modifiés alors qu'on n'a rien touché. C'est
+causé par la conversion automatique des fins de ligne (LF
+vs CRLF).
+
+✅ SOLUTION :
+
+git config core.autocrlf false
+git reset --hard HEAD
+git clean -fd
+
+Ensuite "git status" doit afficher :
+  nothing to commit, working tree clean
+
+
+ÉTAPE 3 — CONFIGURER L'IDENTITÉ GIT (une seule fois)
+----------------------------------------------------------
+⚠️ PROBLÈME RENCONTRÉ :
+"fatal: unable to auto-detect email address"
+
+✅ SOLUTION (avec email GitHub privé) :
+
+git config --global user.name "TRON-ABS"
+git config --global user.email "120470647+TRON-ABS@users.noreply.github.com"
+
+Vérifier :
+git config --global user.name
+git config --global user.email
+
+
+ÉTAPE 4 — RÉCUPÉRER LES BRANCHES OFFICIELLES
+----------------------------------------------------------
+git fetch upstream
+
+⚠️ IMPORTANT : travailler sur "dev", pas sur "main".
+La branche "main" contient la version stable (b10582 ou
+b11146 selon le moment), tandis que "dev" contient la
+version de développement la plus à jour pour les PRs.
+
+
+ÉTAPE 5 — CRÉER LA BRANCHE DE TRAVAIL SUR dev
+----------------------------------------------------------
+git checkout -b update-llamacpp-b11681 upstream/dev
+
+⚠️ PROBLÈME RENCONTRÉ :
+"Your local changes to the following files would be
+overwritten by checkout"
+
+✅ SOLUTION :
+git config core.autocrlf false
+git reset --hard HEAD
+git checkout -b update-llamacpp-b11681 upstream/dev
+
+Alternative (stash) :
+git stash
+git checkout -b update-llamacpp-b11681 upstream/dev
+git stash drop
+
+Vérifier :
+git branch
+# Doit afficher :
+#   main
+# * update-llamacpp-b11681
+
+
+==========================================================
+  PARTIE 2 — MODIFIER LE CODE
+==========================================================
+
+ÉTAPE 6 — IDENTIFIER LA VERSION ACTUELLE
+----------------------------------------------------------
+grep -n "LLAMA_CPP_TAG\|LLAMA_CPP_BUILD_NUMBER\|LLAMA_CPP_COMMIT\|LLAMA_CPP_VERSION" src-tauri/plugins/tauri-plugin-llamacpp/build.rs
+
+Résultat attendu sur dev (avant modif) :
+  16:pub const LLAMA_CPP_TAG: &str = "b10582";
+  17:pub const LLAMA_CPP_BUILD_NUMBER: u32 = 10582;
+  18:pub const LLAMA_CPP_COMMIT: &str = "e85caa81ea2b65797396018c179b87ad61fa38ab";
+  19:pub const LLAMA_CPP_VERSION: &str = "0.2.0";
+
+
+ÉTAPE 7 — MODIFIER build.rs (les 4 constantes)
+----------------------------------------------------------
+Fichier : src-tauri/plugins/tauri-plugin-llamacpp/build.rs
+
+AVANT :
+  pub const LLAMA_CPP_TAG: &str = "b10582";
+  pub const LLAMA_CPP_BUILD_NUMBER: u32 = 10582;
+  pub const LLAMA_CPP_COMMIT: &str = "e85caa81ea2b65797396018c179b87ad61fa38ab";
+  pub const LLAMA_CPP_VERSION: &str = "0.2.0";
+
+APRÈS :
+  pub const LLAMA_CPP_TAG: &str = "b11681";
+  pub const LLAMA_CPP_BUILD_NUMBER: u32 = 11681;
+  pub const LLAMA_CPP_COMMIT: &str = "5e03a1ff450cae37a774684de55d14fb48b1f90b";
+  pub const LLAMA_CPP_VERSION: &str = "0.7.0";
+
+MÉTHODE RECOMMANDÉE : sed (4 commandes, une par ligne)
+-----------------------------------------------------
+sed -i 's/pub const LLAMA_CPP_TAG: &str = "b10582";/pub const LLAMA_CPP_TAG: \&str = "b11681";/' src-tauri/plugins/tauri-plugin-llamacpp/build.rs
+
+sed -i 's/pub const LLAMA_CPP_BUILD_NUMBER: u32 = 10582;/pub const LLAMA_CPP_BUILD_NUMBER: u32 = 11681;/' src-tauri/plugins/tauri-plugin-llamacpp/build.rs
+
+sed -i 's/pub const LLAMA_CPP_COMMIT: &str = "e85caa81ea2b65797396018c179b87ad61fa38ab";/pub const LLAMA_CPP_COMMIT: \&str = "5e03a1ff450cae37a774684de55d14fb48b1f90b";/' src-tauri/plugins/tauri-plugin-llamacpp/build.rs
+
+sed -i 's/pub const LLAMA_CPP_VERSION: &str = "0.2.0";/pub const LLAMA_CPP_VERSION: \&str = "0.7.0";/' src-tauri/plugins/tauri-plugin-llamacpp/build.rs
+
+VÉRIFICATION :
+sed -n '16,19p' src-tauri/plugins/tauri-plugin-llamacpp/build.rs
+
+
+ÉTAPE 8 — CHERCHER TOUTES LES AUTRES RÉFÉRENCES
+----------------------------------------------------------
+grep -rn "b10582\|e85caa81" . --exclude-dir=node_modules --exclude-dir=.git
+
+Sur la branche dev, on trouve 4 fichiers :
+
+1. src-tauri/plugins/tauri-plugin-llamacpp/src/engine/mod.rs
+   (⚠️ LE PLUS IMPORTANT : test d'assertion)
+
+2. src-tauri/build-utils/fetch-engine-source.sh
+   (commentaire)
+
+3. src-tauri/plugins/tauri-plugin-llamacpp/shim/jan_llama_shim.h
+   (commentaire "e.g. 10582")
+
+4. (déjà modifié) build.rs
+
+
+ÉTAPE 9 — MODIFIER mod.rs (le test d'assertion) ⚠️ CRITIQUE
+----------------------------------------------------------
+⚠️ CE FICHIER CONTIENT 3 ASSERTIONS QUI DOIVENT TOUTES
+ÊTRE MODIFIÉES, SINON LE BUILD ÉCHOUE.
+
+Voir le bloc complet :
+sed -n '210,220p' src-tauri/plugins/tauri-plugin-llamacpp/src/engine/mod.rs
+
+Commandes sed (3 séparées) :
+
+sed -i 's/assert_eq!(PINNED_TAG, "b10582")/assert_eq!(PINNED_TAG, "b11681")/' src-tauri/plugins/tauri-plugin-llamacpp/src/engine/mod.rs
+
+sed -i 's/assert_eq!(PINNED_BUILD_NUMBER, "10582")/assert_eq!(PINNED_BUILD_NUMBER, "11681")/' src-tauri/plugins/tauri-plugin-llamacpp/src/engine/mod.rs
+
+sed -i 's/assert_eq!(PINNED_VERSION, "0.2.0")/assert_eq!(PINNED_VERSION, "0.7.0")/' src-tauri/plugins/tauri-plugin-llamacpp/src/engine/mod.rs
+
+VÉRIFICATION :
+sed -n '212,218p' src-tauri/plugins/tauri-plugin-llamacpp/src/engine/mod.rs
+
+Doit afficher :
+  fn pin_constants_are_populated_from_build_rs() {
+      assert_eq!(PINNED_TAG, "b11681");
+      assert_eq!(PINNED_BUILD_NUMBER, "11681");
+      assert_eq!(PINNED_VERSION, "0.7.0");
+      assert_eq!(PINNED_COMMIT.len(), 40, "commit should be a full sha");
+  }
+
+
+ÉTAPE 10 — MODIFIER fetch-engine-source.sh
+----------------------------------------------------------
+sed -i 's/# could move b10582 and a --branch clone/# could move b11681 and a --branch clone/' src-tauri/build-utils/fetch-engine-source.sh
+
+
+ÉTAPE 11 — MODIFIER jan_llama_shim.h
+----------------------------------------------------------
+sed -i 's|// e.g. 10582|// e.g. 11681|' src-tauri/plugins/tauri-plugin-llamacpp/shim/jan_llama_shim.h
+
+
+ÉTAPE 12 — VÉRIFICATION FINALE
+----------------------------------------------------------
+grep -rn "b10582\|10582\|e85caa81" . --exclude-dir=node_modules --exclude-dir=.git
+
+Doit ne rien retourner (aucun résultat) ✅
+
+⚠️ NOTE : "0.2.0" peut apparaître légitimement dans des
+package.json ou Cargo.toml. Ne cherchez que b10582,
+10582 et e85caa81.
+
+
+==========================================================
+  PARTIE 3 — COMMIT ET PUSH
+==========================================================
+
+ÉTAPE 13 — VOIR LE RÉCAPITULATIF
+----------------------------------------------------------
+git status
+
+Doit afficher 4 fichiers modifiés :
+  src-tauri/build-utils/fetch-engine-source.sh
+  src-tauri/plugins/tauri-plugin-llamacpp/build.rs
+  src-tauri/plugins/tauri-plugin-llamacpp/shim/jan_llama_shim.h
+  src-tauri/plugins/tauri-plugin-llamacpp/src/engine/mod.rs
+
+Facultatif : voir le diff complet :
+git diff
+
+
+ÉTAPE 14 — ENREGISTRER LE COMMIT
+----------------------------------------------------------
+git add .
+
+git commit -m "feat(llamacpp): upgrade engine to b11681"
+
+Résultat attendu :
+  [update-llamacpp-b11681 abc1234] feat(llamacpp): upgrade engine to b11681
+   4 files changed, 8 insertions(+), 8 deletions(-)
+
+
+ÉTAPE 15 — AUTHENTIFICATION GITHUB
+----------------------------------------------------------
+Utiliser Git Credential Manager déjà configuré (helper manager).
+Ne pas enregistrer de token dans ce fichier ni configurer
+credential.helper store : cette méthode écrit les identifiants en clair.
+Si la connexion a expiré, refaire la connexion interactive avec GCM.
+
+
+ÉTAPE 16 — ENVOYER SUR VOTRE FORK
+----------------------------------------------------------
+git push -u origin update-llamacpp-b11681
+
+Le gestionnaire d'identifiants réutilise la connexion GitHub existante.
+Ne pas copier les secrets dans le dépôt, un script ou un message.
+
+
+==========================================================
+  PARTIE 4 — CRÉER LA PULL REQUEST
+==========================================================
+
+ÉTAPE 17 — OUVRIR LA PAGE DE LA PR
+----------------------------------------------------------
+Après le push, Git affiche :
+  remote: Create a pull request for 'update-llamacpp-b11681' on GitHub by visiting:
+  remote:      https://github.com/TRON-ABS/jan/pull/new/update-llamacpp-b11681
+
+Cliquer sur ce lien, OU aller directement sur :
+https://github.com/TRON-ABS/jan
+puis cliquer sur "Compare & pull request".
+
+
+ÉTAPE 18 — CONFIGURER LA PR ⚠️ ATTENTION À LA BRANCHE
+----------------------------------------------------------
+⚠️ PROBLÈME RENCONTRÉ :
+GitHub propose par défaut "base: main" au lieu de "base: dev".
+Si on ne corrige pas, la PR essaiera de fusionner dans main
+et affichera "Can't automatically merge".
+
+✅ SOLUTION :
+Cliquer sur le bouton "base: main" en haut de la page et
+choisir "dev" dans la liste.
+
+Configuration finale attendue :
+  base repository : janhq/jan
+  base branch     : dev          ← ⚠️ VÉRIFIER ABSOLUMENT
+  head repository : TRON-ABS/jan
+  compare branch  : update-llamacpp-b11681
+
+Quand c'est bon, GitHub affiche en vert :
+  ✅ Able to merge. These branches can be automatically merged.
+
+
+ÉTAPE 19 — TITRE ET DESCRIPTION
+----------------------------------------------------------
+Titre :
+  feat(llamacpp): upgrade engine to b11681
+
+Description (à coller après avoir effacé le template par défaut) :
+
+## Summary
+Bump the bundled llama.cpp engine from b10582 to b11681.
+
+## Changes
+- Updated pinned tag, build number, commit, and version in `tauri-plugin-llamacpp/build.rs`
+- Updated engine test assertions in `tauri-plugin-llamacpp/src/engine/mod.rs`
+- Updated comment in `build-utils/fetch-engine-source.sh`
+- Updated comment in `shim/jan_llama_shim.h`
+
+## Reference
+Upstream release: https://github.com/ggml-org/llama.cpp/releases/tag/b11681
+
+
+Comment effacer le template par défaut :
+1. Clic dans la zone description
+2. Ctrl+A (tout sélectionner)
+3. Suppr (tout effacer)
+4. Ctrl+V (coller la nouvelle description)
+
+
+ÉTAPE 20 — CRÉER LA PR
+----------------------------------------------------------
+Cliquer sur le bouton vert "Create pull request" en bas.
+
+La PR est créée. Vous recevrez un numéro (ex : #9299) et
+une URL du type :
+  https://github.com/janhq/jan/pull/9299
+
+
+==========================================================
+  PARTIE 5 — APRÈS LA PR
+==========================================================
+
+ÉTAPE 21 — SURVEILLER LA CI
+----------------------------------------------------------
+Sur la page de la PR, en bas, des "checks" apparaissent
+automatiquement (GitHub Actions) :
+  - Lint
+  - Rust Check
+  - TypeScript Check
+  - Build (peut prendre 30 min à plusieurs heures)
+
+Ne pas s'inquiéter si certains échouent : beaucoup de PR
+récentes ont des CI cassés temporairement, sans lien avec
+votre code.
+
+
+ÉTAPE 22 — RÉPONDRE AUX REVIEWERS
+----------------------------------------------------------
+Un mainteneur va examiner votre PR. Il peut :
+  - La fusionner directement
+  - Demander un ajustement
+  - Poser une question
+
+Vous recevrez des emails à chaque activité.
+
+
+ÉTAPE 23 — METTRE À JOUR LA PR (si demandé)
+----------------------------------------------------------
+Si le reviewer demande un changement :
+
+1. Rester sur la branche :
+   git checkout update-llamacpp-b11681
+
+2. Faire la modification (avec sed ou nano)
+3. Ajouter et committer :
+   git add .
+   git commit -m "fix: address review comments"
+
+4. Pousser :
+   git push
+
+La PR se met à jour automatiquement.
+
+
+==========================================================
+  TABLEAU RÉCAPITULATIF DES PROBLÈMES RENCONTRÉS
+==========================================================
+
+PROBLÈME                                    → SOLUTION
+----------------------------------------------------------
+"pwd is not recognized"                     → Ouvrir Git Bash (MINGW64), pas cmd.exe
+"not a git repository"                      → cd ~/jan
+"cd jangit" introuvable                     → taper chaque commande sur sa propre ligne
+"Your local changes would be overwritten"   → git config core.autocrlf false + git reset --hard HEAD
+2000+ fichiers "modifiés" après clone       → git config core.autocrlf false + git reset --hard HEAD
+"unable to auto-detect email address"       → git config --global user.email "..." et user.name "..."
+"remote upstream already exists"            → git remote set-url upstream https://github.com/janhq/jan.git
+"cgrep: command not found"                  → taper "grep" (pas "cgrep")
+Push demande une connexion                  → utiliser Git Credential Manager (helper manager)
+Accès GitHub expiré                          → refaire la connexion interactive dans GCM
+PR propose "base: main"                     → changer pour "dev" dans le menu déroulant
+"Can't automatically merge"                 → changer base: main → base: dev
+
+
+==========================================================
+  COMMANDES UTILES
+==========================================================
+
+Voir la branche courante :
+git branch
+
+Voir les remotes :
+git remote -v
+
+Voir l'historique :
+git log --oneline -10
+
+Voir les modifications en cours :
+git status
+git diff
+
+Revenir à la branche main :
+git checkout main
+
+Supprimer une branche locale :
+git branch -D update-llamacpp-b11681
+
+Récupérer les dernières modifs d'upstream :
+git fetch upstream
+
+Mettre à jour la branche dev locale :
+git checkout dev
+git pull upstream dev
+
+Voir la config Git globale :
+git config --global --list
+
+
+==========================================================
+  POUR LA PROCHAINE MISE À JOUR (ex : b12000)
+==========================================================
+
+1. Chercher la release sur :
+   https://github.com/ggml-org/llama.cpp/releases
+
+2. Noter le tag (bXXXXX) et le hash du commit
+   (visible dans l'API GitHub ou la page de release).
+
+3. Remplacer partout "b11681" par "bXXXXX",
+   "11681" par XXXXX, et le hash par le nouveau.
+
+4. Reprendre les étapes 4 à 20 de ce document.
+
+5. Utiliser un nouveau nom de branche :
+   git checkout -b update-llamacpp-bXXXXX upstream/dev
+
+
+==========================================================
+  FIN DU GUIDE
+==========================================================
+
+
+## Diagnostic VRAM Tron-v1 — 17 octobre 2026
+
+Investigation en lecture seule des réglages utilisateur. Le preset actif sous Roaming/Jan/data/llamacpp contient `fit = off` et `ctx-size = 130000`; Tron-v1 ne surcharge pas ce contexte dans model.yml. Le store de l'interface contient également ctx_len=130000. Les caches K/V sont f16 et leur offload est activé. Le code HEAD de référence utilisait 8192; les modifications locales de predefined.ts, preset.ts et la migration version 18 de useModelProvider.ts imposent 130000 (la migration remplace même les anciennes valeurs 8192).
+
+Métadonnées lues directement dans Tron-v1-Q4_K_M.gguf : architecture llama, 42 couches, 2 têtes KV, dimensions K/V 128, contexte natif 131072, fichier 1561314560 octets. Estimation de capacité du seul cache K+V f16 pour les 42 couches : environ 5,21 Gio à 130000 tokens contre 0,328 Gio à 8192, hors alignement et buffers de calcul. Cette capacité est en VRAM si les couches/cache sont entièrement sur GPU; ce n'est pas une mesure comparative des deux applications. Le moteur n'était pas actif lors de l'inspection et aucune mesure de Jan original n'a été fournie. Le changement de contexte explique une réserve bien supérieure sans changement de poids du modèle. Aucune préférence ni source de fonctionnement modifiée; aucun nouveau build nécessaire pour le diagnostic.
+
+
+### Rectification du diagnostic VRAM — contexte identique
+
+L'utilisateur précise que Jan original et le portable sont tous deux configurés à 130000 tokens : la comparaison 8192/130000 ne démontre donc pas la cause de l'écart constaté. Conserver son contexte. Paramètres effectivement retrouvés côté portable : caches K/V f16, Flash Attention auto, parallel 0, no_kv_offload false, batch 2048, ubatch 512, kv_unified auto. Les réglages cache K/V et Flash Attention existent dans les settings globaux llama.cpp et sont rendus sur la page du fournisseur; ils ne sont pas dans les paramètres individuels du modèle. Le portable embarque ggml-vulkan.dll sans ggml-cuda.dll; les anciens backends présents dans le dossier utilisateur sont win-cuda-13.4-x64 (b11513/b11535/b11601/b11621). Cela établit une différence de moteurs disponibles, pas une comparaison mesurée ni les anciens paramètres réellement utilisés. Réponse utilisateur au chemin de Jan original : « retirer », interprétée comme version retirée. Cause exacte restant à confirmer par anciens réglages/logs ou comparaison contrôlée. Aucune modification de contexte, cache ou moteur appliquée.
+
+
+## Portable CUDA RTX 5070 — 17 octobre 2026
+
+À la demande de l'utilisateur, moteur local recompilé avec CUDA 13.4.92, architecture sm_120 (RTX 5070 Laptop, capacité 12.0), llama.cpp b11696 inchangé. Le portable embarque le worker CUDA, ggml-cuda et les DLL redistribuables cudart/cuBLAS/cuBLASLt; Vulkan retiré du runtime préparé. Assistant de compilation locale : scripts/build-windows-cuda-engine.ps1; dépendances ajoutées au bundle Windows et procédure documentée. Le script local de compilation de l'interface vérifie la présence de CUDA avant packaging.
+
+Validation réelle : Tron-v1 chargé avec 130000 tokens demandés (130048 après alignement), réponse visible obtenue et worker arrêté normalement. Contrôle du portable final avec PATH limité à System32, sans CUDA_PATH : CUDA0 / RTX 5070 détecté. Empreintes de toutes les DLL et du worker identiques aux sources testées; EXE portable identique au release. Interface TypeScript/Vite et release Rust compilés; NSIS/MSI et portable actualisés. Aucun changement des préférences utilisateur de contexte, de cache ou de Flash Attention. Aucun envoi distant; interface native non lancée pour ce changement de moteur.
+
+Mesures exploratoires nvidia-smi (VRAM totale incluant bureau/autres applications, sujette à WDDM) : CUDA FP16 contrôle 853 -> 7726 Mio; CUDA Q8_0 avec Flash Attention explicitement activé 857 -> 5438 Mio; ancien worker Vulkan contrôle 751 -> 6513 Mio. Générations réussies dans les trois cas. Le passage à CUDA ne prouve donc pas une baisse de VRAM; le cache quantifié reste une piste testée, non appliquée. Jan original retiré : aucun accès à ses réglages exacts, aucune comparaison mesurée avec cette installation.
+
+SHA-256 portable : 0FE61A9155F3E68600B27B248DC23B8562FC85091FD94CA7CC3CB67ED6D1A3B2. Preuves : .build/cuda-build-artifacts.json, .build/cuda-packaged-devices.log, .build/cuda-vram-comparison/report.json. Journaux : .build/cuda-engine-build.log, .build/cuda-native-build.log et .build/cuda-desktop-build.log. Les avertissements préexistants sur les chunks et l'identifiant .app restent présents.
+
+
+## Contrôle de Jan original installé — 17 octobre 2026
+
+Inspection de la fenêtre Jan.exe de C:/Users/jmsga/AppData/Local/Programs/Jan par le skill computer-use, sans modifier de paramètres ni arrêter/recharger le modèle. Version UI 0.8.4; moteur sélectionné b11621 / win-cuda-13.4-x64. Le panneau de Tron-v1 affiche effectivement Context Size = 130000. Le store version 17 contient aussi ctx_len=130000. Cependant le modèle YAML ne contient aucun ctx_size, et le preset actif a [*] ctx-size = 8192 sans surcharge pour Tron-v1.
+
+Preuve du contexte effectif : processus enfant llama-server.exe PID 13292 lancé avec --alias Tron-v1-Q4_K_M --ctx-size 8192 --no-cont-batching --cache-ram -1 --fit off --model C:/msys64/home/jmsga/jan/Tron-v1-Q4_K_M.gguf. Le journal de chargement confirme n_slots=4, n_ctx_slot=8192, kv_unified=true (app.log ligne 276 lors de l'inspection). La VRAM totale relevée par nvidia-smi est de 2791 Mio sur 8151 Mio. Caches K/V f16, Flash Attention auto. Il existe donc un décalage démontré entre valeur affichée/persistée dans l'interface et configuration effectivement transmise au moteur dans cette installation. Cela explique la faible consommation observée; ce contrôle n'établit pas une consommation de 2,7 Go à 130000 tokens réellement alloués.
+
+La version maison avait été testée avec un contexte réellement chargé de 130048 (alignement de 130000). La comparaison précédente mélangeait donc deux contextes effectifs différents. Les hypothèses CUDA/Vulkan et cache quantifié n'expliquent pas ce contrôle précis. Jan original laissé ouvert sur le panneau montrant Context Size 130000; aucune préférence modifiée, aucune discussion envoyée/supprimée, aucun nouveau build.
+
+
+## Correction vitesse CUDA Graphs — 17 octobre 2026
+
+Écart utilisateur confirmé dans les logs du portable : environ 22 tokens/s, contre environ 130 dans Jan original. Comparaison contrôlée du même GGUF, même prompt, contexte effectif 130048 (130000 demandé), 128 tokens générés : ancien worker environ 17 tokens/s sur cet essai, ancien llama-server b11621 environ 156 tokens/s. Toutes les couches étaient sur GPU, mêmes 5334 Mio de cache KV, Flash Attention effectivement activé. Les CUDA Graphs étaient désactivés dans le CMakeCache du worker; le moteur original déclarait USE_GRAPHS=1.
+
+Cause de compilation corrigée dans build.rs : le premier étage construit ggml séparément et perdait GGML_CUDA_GRAPHS_DEFAULT=ON défini par le CMake racine de llama.cpp. GGML_CUDA_GRAPHS=ON est maintenant explicite pour engine-cuda. Le helper Windows vérifie aussi cette option avant staging. Aucun réglage utilisateur de contexte, de cache ou Flash Attention modifié.
+
+Mesures après correction, deux générations de 128 tokens par variante (tokens/s de décodage) : {"portable-auto": [177.62, 146.25], "original-auto": [133.61, 133.97], "portable-flash-on": [136.64, 135.43]}. Preuves et journaux : .build/tron-speed/, .build/tron-speed-graphs/, .build/cuda-graphs-engine-build.log, .build/cuda-graphs-package.log et .build/cuda-graphs-artifacts.json. Ces essais sont locaux et ne créent aucune discussion dans Jan.
+
+Le worker et ggml ont été recompilés; les ressources CUDA corrigées ont été incorporées aux installateurs EXE/MSI et au portable via tauri bundle. L'exécutable d'interface validé précédemment est réutilisé, car l'interface et le protocole worker n'ont pas changé. Empreintes du runtime portable comparées au moteur testé; détection CUDA0 validée avec PATH limité à System32, sans CUDA_PATH. Contexte 130000 conservé. Aucune publication distante.
+
+SHA-256 worker corrigé : F8F357371DE602735F806B90694874CCC5779E0058E8016AE5F614F6DA921321. SHA-256 ggml-cuda corrigé : 266487069CDF6C80062F697476E03EAAA7F36A783FA54968190FD5BFC12A85F7. SHA-256 desktop : 0FE61A9155F3E68600B27B248DC23B8562FC85091FD94CA7CC3CB67ED6D1A3B2.
+
+
+## Question sous les boutons de fenêtre — 17 octobre 2026
+
+Réservation de 64 pixels en haut des routes discussions et Cowork, hors de la zone de défilement. Le premier message ne démarre plus à y=0 sous la barre de déplacement et les contrôles Windows (conteneur de 60 pixels). La saisie conserve sa position basse. Les longs échanges restent défilants; le comportement d'ancrage automatique en bas est conservé.
+
+Validation : 48 tests ciblés réussis (discussions 33, layout racine 15). Une assertion obsolète attendait encore le header et le sélecteur supprimés précédemment; elle décrit désormais le compositeur sans ces anciens éléments. Premier essai Vitest bloqué par EPERM du bac à sable; relance autorisée réussie. TypeScript/Vite et EXE release compilés, NSIS/MSI et portable actualisés. Contrôle natif sur une copie de test du nouveau build pendant le packaging : recherche puis ouverture du fil Ferrari F50, défilement au début, question entière à y=65 sous les contrôles et saisie maintenue en bas. Aucun message envoyé ni supprimé; copie de test fermée ensuite.
+
+Le runtime CUDA Graphs livré est strictement identique par SHA-256 au moteur validé à 146–178 tokens/s; aucune préférence de contexte ou de cache modifiée. Empreintes : .build/message-top-spacing-artifacts.json. Journaux : .build/message-top-spacing-tests.log et .build/message-top-spacing-build.log. SHA-256 portable : B3E7631B151B40834D2B8443A02A5BF97DA44D28BD61F893317E1D3ACDD11F7E. Aucun envoi distant.
+
+
+## PR du test de compteur selon la locale — 20 octobre 2026
+
+PR publiée après autorisation : https://github.com/janhq/jan/pull/9361 ; branche codex/fix-token-counter-locale-test sur le fork TRON-ABS/jan. Commit signé vérifié 51728d1e6699cba686769debec8025090fbc5d1e, base officielle 8c0615520239ba668717c20dd3a1b0733549b8f3. Seul TokenCounter.test.tsx est modifié : une assertion respecte le format numérique de la locale et ses espaces Unicode. Aucun code de production modifié dans la PR.
+
+Preuve sur le test officiel sous fr-FR : 19 réussites et 1 échec avant, 20/20 après. Doublons recontrôlés ; aucun équivalent identifié, #8256 traduit des libellés sans corriger ce test. PR ouverte, attachée au chat, aucune revue ou fusion ; aucun check-run et statut agrégé pending au contrôle. Aucune validation anglaise ou CI revendiquée. Preuves : deliverables/pr-audit-v0.8.7/.
+
+## Mise à jour locale 0.8.7 — variante installée cyan, 20 octobre 2026
+
+L’utilisateur a explicitement choisi le Jan installé avec la main cyan. La variante Tron du dépôt principal ne doit pas remplacer cette installation. Sources cyan `.build/panel-official` fusionnées depuis v0.8.6 vers le tag officiel v0.8.7, en conservant DuckDuckGo, l’icône cyan et les conversations persistantes (#9311). Contrôles : TypeScript et Vite réussis, 4 303 tests cyan réussis / zéro échec / deux tests optionnels désactivés, 71 tests de route réussis et test avec le modèle réel réussi. CLI release 0.8.7 compilée. Moteur b11721 CUDA existant à préserver par empreinte. Compilation desktop et installation suivies dans `deliverables/installation-cyan-v0.8.7-2026-10-20.md`, preuves dans `.build/local-update-0.8.7/`. Aucune publication GitHub pour cette mise à jour locale.
+
+### Installation cyan 0.8.7 terminée — 20 octobre 2026, 15:30
+
+Desktop et CLI release compilés. Archive extraite et tous les fichiers vérifiés par SHA-256 ; démarrage isolé validé avec migration store 0.8.6 vers 0.8.7, schéma MCP 4 vers 5, configuration MCP strictement conservée. Les six icônes intégrées correspondent à la main cyan. EXE installé : SHA-256 5A1332D51CEC3B86BECDB4EC7264F3FDD54D8F75C322AAB949BDD7319827270D. Les huit fichiers du moteur CUDA restent identiques et les 17 fichiers utilisateur suivis sont inchangés avant/après remplacement. CLI ajouté, bun/uv et raccourcis conservés ; métadonnée Windows DisplayVersion=0.8.7. Application laissée fermée pour relance utilisateur. Retour arrière disponible sous `.build/local-update-0.8.7/rollback/`. Rapport : `deliverables/installation-cyan-v0.8.7-2026-10-20.md`. Aucun contrôle visuel de la nouvelle fenêtre ni publication distante.
+
+## Dépôt principal remplacé par la variante cyan — 20 octobre 2026
+
+Sur demande explicite de l’utilisateur, les sources Tron actives à la racine ont été supprimées et remplacées par les sources cyan 0.8.7 précédemment sous `.build/panel-official`. Emplacement actuel unique de travail : `C:/msys64/home/jmsga/jan`. Branche : `codex/jan-cyan-0.8.7`, basée sur le tag officiel v0.8.7 ; personnalisations cyan conservées comme modifications locales. Historique Git, contributions existantes et rapports conservés. Les 2 907 fichiers sources déplacés ont été contrôlés par SHA-256, aucun écart ; 19 jonctions internes réorientées et vérifiées. Scripts de compilation cyan et de contrôle d’icône actualisés. Aucun nouveau test ni build exécuté pour ce déplacement ; les validations précédentes restent celles de la version installée. L’application installée et ses données ne sont pas modifiées par cette opération.
+
+## Deux correctifs publiés séparément — 20 octobre 2026
+
+1. **PR #9364 — fix(markdown): preserve fenced and inline code during math normalization** : https://github.com/janhq/jan/pull/9364. Défaut reproduit sur main officiel 8c0615520 : 8 tests échouent et 2 passent avant ; 47 tests Markdown réussis après. TypeScript, ESLint et diff réussis. Commit signé vérifié aa7d51465b486a930010fccc784dd25f1a5de42e. Deux fichiers, protection des clôtures de code et spans contre les transformations mathématiques.
+2. **PR #9365 — fix(tables): preserve literal code whitespace in exported cells** : https://github.com/janhq/jan/pull/9365. Reproduction avec une vraie réponse Markdown : les espaces dans une valeur littérale de code étaient condensés dans les exports. Avant : 5 régressions en échec et un contrôle prose réussi ; après : 43 tests réussis. TypeScript, ESLint et diff réussis. Commit signé vérifié 03d33936fd48c5be6304d9f54ea36ae502d276f1. Le candidat initial concernant les retours <br> a été abandonné après contrôle d’intégration ; il ne fait pas partie de la PR.
+
+Main et doublons revérifiés avant chaque publication. PR indépendantes, même base officielle, aucun fichier modifié commun, aucun ordre de fusion requis. Contenu et descriptions distants vérifiés ; toutes deux ouvertes, non brouillons, non fusionnées, sans revue ni check-run, statut agrégé pending au contrôle. Validation locale uniquement. Attachées à cette conversation. Checkout de contribution propre ; sources principales cyan et installation inchangées. Rapport et preuves : deliverables/two-pr-2026-10-20/README.md et final-verification.json.

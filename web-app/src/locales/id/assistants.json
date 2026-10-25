@@ -31,5 +31,12 @@
   "personality": "Kepribadian",
   "capabilities": "Kemampuan",
   "instructionsDateHint": "Tips: Gunakan {{current_date}} untuk menyisipkan tanggal hari ini.",
-  "maxToolSteps": "Langkah alat maksimum"
+  "maxToolSteps": "Langkah alat maksimum",
+  "deleteFailed": "Tidak dapat menghapus asisten. Silakan coba lagi.",
+  "setAsDefault": "Ditetapkan sebagai asisten default",
+  "isDefault": "Bawaan",
+  "defaultAssistantSection": "Asisten Bawaan",
+  "defaultAssistantDesc": "Digunakan saat memulai obrolan baru",
+  "allAssistants": "Semua Asisten",
+  "lastUsed": "Terakhir digunakan"
 }

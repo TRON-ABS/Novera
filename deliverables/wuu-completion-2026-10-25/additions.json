@@ -1,0 +1,16 @@
+{
+  "added": 757,
+  "namespaces": {
+    "assistants": 1,
+    "hub": 3,
+    "mcp-servers": 44,
+    "model-errors": 29,
+    "provider": 14,
+    "providers": 70,
+    "setup": 47,
+    "system-monitor": 3,
+    "common": 350,
+    "settings": 196
+  },
+  "existing_entries_preserved": true
+}

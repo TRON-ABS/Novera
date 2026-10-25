@@ -71,7 +71,13 @@
     "shiftEnter": "Shift + Enter",
     "navigation": "Navigace",
     "goToSettings": "Přejít do nastavení",
-    "goToSettingsDesc": "Otevřít nastavení."
+    "goToSettingsDesc": "Otevřít nastavení.",
+    "newProject": "Nový projekt",
+    "newProjectDesc": "Otevřete dialog pro vytvoření projektu.",
+    "switchAssistant": "Asistent přepínání",
+    "switchAssistantDesc": "Cyklus k dalšímu asistentovi v chatu.",
+    "search": "Hledat",
+    "searchDesc": "Otevřete vyhledávací dialog."
   },
   "interface": {
     "title": "Rozhraní",
@@ -108,7 +114,21 @@
     "resetCodeBlockStyle": "Obnovit styl bloku kódu",
     "resetCodeBlockStyleDesc": "Obnovit styl bloku kódu na výchozí.",
     "resetCodeBlockSuccess": "Styl bloku kódu úspěšně obnoven",
-    "resetCodeBlockSuccessDesc": "Styl bloku kódu byl obnoven na výchozí."
+    "resetCodeBlockSuccessDesc": "Styl bloku kódu byl obnoven na výchozí.",
+    "notificationPosition": "Pozice oznámení",
+    "notificationPositionDesc": "Kde se zobrazují upozornění na toasty. Ve Windows je výchozí nastavení vpravo dole, takže vyskakovací okna nezakrývají ovládací prvky okna.",
+    "notificationPositionTopRight": "Vpravo nahoře",
+    "notificationPositionTopLeft": "Vlevo nahoře",
+    "notificationPositionBottomRight": "Vpravo dole",
+    "notificationPositionBottomLeft": "Vlevo dole",
+    "showTokenSpeed": "Zobrazit rychlost tokenu",
+    "showTokenSpeedDesc": "Zobrazit tokeny/s a počet tokenů v řádku pod zprávami asistenta. Když je vypnutá, kompaktní ikona zobrazí podrobnosti po kliknutí.",
+    "coloredUserBubble": "Barevná bublina uživatelské zprávy",
+    "coloredUserBubbleDesc": "Použijte barvu zvýraznění jako pozadí vašich zpráv. Když jsou vypnuté, spojují zprávy asistenta s prostým textem na neutrálním pozadí.",
+    "renderHtmlArtifacts": "Vykreslování artefaktů HTML & SVG",
+    "renderHtmlArtifactsDesc": "Přidejte kartu Náhled do bloků kódu HTML a SVG. HTML spouští modelem vygenerovanou stránku v izolovaném rámci, který spouští své vlastní skripty, ale nemá přístup k Novera, vašim souborům nebo síti; SVG se vykresluje staticky s vypnutými skripty. Ve výchozím nastavení vypnuto.",
+    "autoGenerateTitle": "Automaticky vygenerovat název chatu",
+    "autoGenerateTitleDesc": "Automaticky shrnout nové konverzace do názvu vlákna. Vypněte, chcete-li zachovat výchozí název, dokud jej sami nepřejmenujete."
   },
   "hardware": {
     "os": "Operační systém",
@@ -132,7 +152,20 @@
     "freeOf": "volných z",
     "driverVersion": "Verze ovladače",
     "computeCapability": "Výpočetní schopnost",
-    "systemMonitor": "Monitorování systému"
+    "systemMonitor": "Monitorování systému",
+    "backendApi": "Backend API\nVerze",
+    "apiVersion": "API",
+    "refresh": "Obnovit",
+    "detectingDevices": "Detekce GPU...",
+    "deviceListError": "Nelze přečíst zařízení GPU",
+    "noDevicesDesc": "Pro engine llama.cpp nejsou viditelné žádné GPU. Modely poběží na CPU.",
+    "gpuDisabled": "Zakázáno",
+    "backendApiDesc": "Jak llama.cpp mluví s tímto GPU",
+    "backendSelectDesc": "Použijte tento API pro tento GPU",
+    "unifiedMemory": "Jednotná paměť",
+    "unifiedMemoryDesc": "GPU sdílí jeden paměťový fond s CPU – modely čerpají ze stejné paměti jako zbytek systému.",
+    "engineRestartedForDevices": "Vaše GPU se změnily, takže byl restartován místní engine. Modely se při příštím použití znovu načtou.",
+    "engineBusyDevicesChanged": "Vaše GPU se změnily, ale model je zaneprázdněn. Zastavte jej a poté stiskněte Refresh, abyste mohli používat nový GPU."
   },
   "httpsProxy": {
     "proxy": "Proxy",
@@ -191,7 +224,12 @@
     "verboseLogs": "Podrobné záznamy serveru",
     "verboseLogsDesc": "Povolit detailní záznamy serveru pro ladění.",
     "proxyTimeout": "Časový limit požadavku",
-    "proxyTimeoutDesc": "Doba čekání na odpověď od lokálního modelu, sekundy."
+    "proxyTimeoutDesc": "Doba čekání na odpověď od lokálního modelu, sekundy.",
+    "runInBackground": "Spustit na pozadí",
+    "runInBackgroundDesc": "Po zavření okna ponechte server spuštěný v systémové liště. Když je vypnuto, zavření okna ukončí Novera a zastaví server.",
+    "defaultModel": "Výchozí model Místní server API",
+    "defaultModelDesc": "Lokální model se načte automaticky při spuštění serveru.",
+    "defaultModelPlaceholder": "Vyberte místní model"
   },
   "privacy": {
     "analytics": "Analytika",
@@ -254,7 +292,14 @@
     "reportIssue": "Nahlásit problém",
     "credits": "Poděkování",
     "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
-    "creditsDesc2": "Speciální poděkování našim open-source závislostem—zejména llama.cpp a Tauri—a naší úžasné AI komunitě."
+    "creditsDesc2": "Speciální poděkování našim open-source závislostem—zejména llama.cpp a Tauri—a naší úžasné AI komunitě.",
+    "autoUpdateCheck": "Automatická kontrola aktualizací",
+    "autoUpdateCheckDesc": "Automaticky kontrolovat aktualizace při spuštění a pravidelně.",
+    "clearWebData": "Vymazat data rozhraní v mezipaměti",
+    "clearWebDataDesc": "Odebere místní úložiště uložené v mezipaměti a předvolby UI uchovávané v okně aplikace. Rozhraní se vrátí do výchozího stavu.",
+    "janCli": "Novera CLI",
+    "janCliDesc": "Spusťte agenta Novera ze svého terminálu. Postupujte podle pokynů k instalaci a začněte.",
+    "janCliSetupGuide": "Průvodce nastavením"
   },
   "extensions": {
     "title": "Rozšíření"
@@ -281,7 +326,18 @@
     "chunkSize": "Velikost části (tokeny)",
     "chunkSizeDesc": "Přibližný maximální počet tokenů na část pro embeddingy.",
     "chunkOverlap": "Překryv (tokeny)",
-    "chunkOverlapDesc": "Překryv tokenů mezi po sobě jdoucími částmi."
+    "chunkOverlapDesc": "Překryv tokenů mezi po sobě jdoucími částmi.",
+    "parseMode": "Předvolba analýzy",
+    "parseModeDesc": "Vyberte způsob přidávání analyzovaných dokumentů do konverzací.",
+    "parseModeAuto": "Auto",
+    "parseModeInline": "Zahrnout do chatu",
+    "parseModeEmbeddings": "Ingest jako vložení",
+    "parseModePrompt": "Ptejte se pokaždé",
+    "autoInlineThreshold": "Automaticky vložený práh",
+    "autoInlineThresholdDesc": "Zlomek kontextu modelu použitý jako limit pro vkládání analyzovaných souborů do místních modelů.",
+    "maxFileDisabledReason": "Chcete-li změnit limit velikosti dokumentu, zapněte možnost Povolit přílohy.",
+    "maxImage": "Maximální velikost obrázku (MB)",
+    "maxImageDesc": "Maximální velikost na obrázek (JPEG nebo PNG). Váš poskytovatel nebo model může vynutit nižší limit."
   },
   "dialogs": {
     "changeDataFolder": {
@@ -294,5 +350,46 @@
     }
   },
   "backendInstallSuccess": "Backend úspěšně nainstalován",
-  "backendInstallError": "Nepodařilo se nainstalovat backend"
+  "backendInstallError": "Nepodařilo se nainstalovat backend",
+  "webSearch": {
+    "title": "Vyhledávání na webu",
+    "description": "Nechte modely vyhledávat a číst web pomocí vestavěných nástrojů Novera.",
+    "enable": "Povolit vyhledávání na webu",
+    "enableDesc": "Inzerujte nástroje web_search a web_fetch na modely, které podporují použití nástrojů. Funguje po vybalení bez klíče API.",
+    "provider": "Poskytovatel vyhledávání",
+    "providerDesc": "Vyberte backend, který odpovídá web_search a web_fetch.",
+    "apiKey": "Klíč {{provider}} API",
+    "apiKeyOptional": "Volitelné. Poskytněte klíč {{provider}} API pro vyšší limity rychlosti a strukturované výsledky. Chcete-li použít bezplatný koncový bod bez klíče, ponechte prázdné.",
+    "apiKeyRequired": "Povinné. {{provider}} potřebuje k vrácení výsledků klíč API.",
+    "apiKeyPlaceholder": "Zadejte svůj klíč {{provider}} API",
+    "endpoint": "{{provider}} Instance URL",
+    "endpointDesc": "Vyžadováno. Základní URL vaší instance {{provider}} s povolenou JSON API.",
+    "endpointPlaceholder": "https://searx.example.com"
+  },
+  "cowork": {
+    "title": "Cowork",
+    "description": "Nastavte rozhraní agenta Cowork: shell izolovaný v sandboxu a paměti a dovednosti trvale uložené v datové složce Novera.",
+    "shell": "Příkazy shellu",
+    "shellChecking": "Kontrola sandboxu...",
+    "shellSandboxed": "Příkazy spouštěné omezeně {{backend}}: mohou zapisovat pouze do pracovního prostoru relace a soubory ve vaší domovské složce nejsou čitelné.",
+    "shellUnavailable": "V tomto systému není k dispozici žádný sandbox, takže nástroj shell není nabízen. Příkazy se nikdy nespouštějí neomezeně.",
+    "network": "Povolit přístup k síti",
+    "networkDesc": "Nechte příkazy Cowork dosáhnout sítě, například pro instalaci balíčků nebo načtení úložiště. Ve výchozím nastavení zapnuto. Shell hlavního chatu nikdy nemá přístup k síti.",
+    "openFolder": "Otevřete složku",
+    "memories": "Vzpomínky",
+    "noMemories": "Zatím žádné vzpomínky. Modely je přidávají pomocí nástroje memory_write, když se učí věci, které stojí za to uchovávat.",
+    "skills": "Dovednosti",
+    "noSkills": "Zatím žádné dovednosti. Dovednost je opakovaně použitelná sada instrukcí, kterou může model načíst na vyžádání.",
+    "add": "Přidat",
+    "editMemory": "Upravit paměť",
+    "editMemoryDesc": "Jedno téma na poznámku. Modely je přečtou zpět pomocí nástroje memory_read.",
+    "editSkill": "Upravit dovednost",
+    "editSkillDesc": "Pokyny Markdown, volitelně s popisem ve frontmatteru YAML. Popis je to, co modely vidí před načtením dovednosti.",
+    "namePlaceholder": "Jméno",
+    "contentPlaceholder": "Obsah",
+    "loadFailed": "Nelze načíst pracovní prostor agenta",
+    "saveFailed": "Nelze uložit",
+    "deleteFailed": "Nelze smazat",
+    "revealFailed": "Nelze otevřít složku"
+  }
 }

@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "Seleziona il modello di routing…",
     "routerModelSearchPlaceholder": "Cerca modelli…",
     "routerModelEmptyList": "Nessun modello leggero disponibile. Aggiungi un modello più piccolo o configura le chiavi API in Modelli.",
-    "routerModelEmptySearch": "Nessuna corrispondenza per “{{query}}”."
+    "routerModelEmptySearch": "Nessuna corrispondenza per “{{query}}”.",
+    "maxToolOutputChars": "Caratteri massimi di output dello strumento",
+    "maxToolOutputCharsDesc": "Risultato dello strumento più lungo mantenuto nella conversazione. Tutto ciò che va oltre questo viene tagliato e contrassegnato come troncato, quindi un risultato di grandi dimensioni non può esaurire il contesto del modello. Impostato su 0 per mantenere i risultati interi."
+  },
+  "auth": {
+    "label": "Autenticazione:",
+    "state": {
+      "notApplicable": "non richiesto",
+      "staticHeader": "Intestazione dell'autorizzazione",
+      "authenticated": "autenticato",
+      "expired": "scaduto",
+      "staleResource": "rilasciato per un altro URL",
+      "unauthenticated": "non autenticato"
+    },
+    "expiresIn": "scade tra {{duration}}",
+    "authenticate": "Accedi",
+    "reauthenticate": "Riautenticarsi",
+    "clear": "Autenticazione chiara",
+    "waiting": "In attesa del browser...",
+    "openSignInPage": "Apri la pagina di accesso",
+    "needsAuth": "{{serverName}} necessita di autenticazione",
+    "needsAuthHint": "Accedi a questo server per connetterti.",
+    "authorized": "Accesso a {{serverName}}",
+    "authorizeFailed": "Accesso per {{serverName}} non riuscito",
+    "cleared": "Credenziali archiviate cancellate per {{serverName}}",
+    "nothingToClear": "{{serverName}} non aveva credenziali memorizzate",
+    "clearFailed": "Impossibile cancellare le credenziali per {{serverName}}",
+    "renew": "Rinnova sessione",
+    "expiredAgo": "scaduto {{duration}} fa"
   }
 }

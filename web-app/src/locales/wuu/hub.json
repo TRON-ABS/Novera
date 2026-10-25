@@ -43,5 +43,8 @@
     "yellow": "内存余量少",
     "red": "内存勿够",
     "unknown": "内存勿晓得"
-  }
+  },
+  "downloadFailed": "下载启动失败",
+  "searchPlaceholder": "到 Hugging Face 搜索模型…",
+  "resumeUnavailable": "搿趟下载接勿下去。请重新开始。"
 }

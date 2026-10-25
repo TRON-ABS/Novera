@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "Vyberte model pro směrování…",
     "routerModelSearchPlaceholder": "Hledat modely…",
     "routerModelEmptyList": "Nejsou dostupné žádné lehké modely. Přidejte menší model nebo nastavte klíče API v části Modely.",
-    "routerModelEmptySearch": "Žádné shody pro „{{query}}“."
+    "routerModelEmptySearch": "Žádné shody pro „{{query}}“.",
+    "maxToolOutputChars": "Max. výstupní znaky nástroje",
+    "maxToolOutputCharsDesc": "Nejdelší výsledek nástroje uchovávaný v konverzaci. Cokoli za tímto je oříznuto a označeno jako zkrácené, takže jeden velký výsledek nemůže vyčerpat kontext modelu. Chcete-li zachovat celistvost výsledků, nastavte na 0."
+  },
+  "auth": {
+    "label": "Ověření:",
+    "state": {
+      "notApplicable": "není vyžadováno",
+      "staticHeader": "Autorizační hlavička",
+      "authenticated": "ověřeno",
+      "expired": "vypršela",
+      "staleResource": "vydáno pro další URL",
+      "unauthenticated": "není ověřeno"
+    },
+    "expiresIn": "vyprší v {{duration}}",
+    "authenticate": "Přihlaste se",
+    "reauthenticate": "Znovu ověřit",
+    "clear": "Vymazat ověřování",
+    "waiting": "Čekání na prohlížeč...",
+    "openSignInPage": "Otevřete přihlašovací stránku",
+    "needsAuth": "{{serverName}} vyžaduje ověření",
+    "needsAuthHint": "Chcete-li se připojit, přihlaste se k tomuto serveru.",
+    "authorized": "Přihlášeno do {{serverName}}",
+    "authorizeFailed": "Přihlášení pro {{serverName}} se nezdařilo",
+    "cleared": "Vymazány uložené přihlašovací údaje pro {{serverName}}",
+    "nothingToClear": "{{serverName}} neměl žádné uložené přihlašovací údaje",
+    "clearFailed": "Nelze vymazat přihlašovací údaje pro {{serverName}}",
+    "renew": "Obnovit relaci",
+    "expiredAgo": "vypršelo před {{duration}}"
   }
 }

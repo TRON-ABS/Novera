@@ -1,7 +1,10 @@
 {
   "htmlArtifact": {
     "unresolvedAssets_one": "预览里向有 1 个资源引用载入勿进。相对路径缺少用来解析个基础 URL。",
-    "unresolvedAssets_other": "预览里向有 {{count}} 个资源引用载入勿进。相对路径缺少用来解析个基础 URL。"
+    "unresolvedAssets_other": "预览里向有 {{count}} 个资源引用载入勿进。相对路径缺少用来解析个基础 URL。",
+    "code": "代码",
+    "preview": "预览",
+    "previewStreaming": "生成结束以后就好看"
   },
   "assistants": "助手",
   "hardware": "硬件",
@@ -76,8 +79,10 @@
   "coworkSlash": {
     "kind": {
       "command": "命令",
-      "model": "模型"
-    }
+      "model": "模型",
+      "skill": "技能"
+    },
+    "skillUnavailable": "技能「{{name}}」用勿了"
   },
   "compactWidth": "紧凑宽度",
   "fullWidth": "全宽",
@@ -160,7 +165,8 @@
     "modelId": "模型 ID",
     "enterModelId": "输入模型 ID",
     "addModel": "添加模型",
-    "exploreModels": "查看提供商的模型列表"
+    "exploreModels": "查看提供商的模型列表",
+    "description": "拨提供商添加一个新模型"
   },
   "mcpServers": {
     "editServer": "编辑服务器",
@@ -194,29 +200,39 @@
     "tools": "工具",
     "vision": "视觉",
     "embeddings": "嵌入",
-    "notAvailable": "尚不可用"
+    "notAvailable": "尚不可用",
+    "description": "用下头个开关配置模型能力。"
   },
   "outOfContextError": {
     "truncateInput": "截断输入",
     "title": "上下文错误",
-    "increaseContextSize": "增加上下文大小"
+    "increaseContextSize": "增加上下文大小",
+    "description": "搿个聊天快到 AI 个记忆上限了，就像白板快写满一样。阿拉可以扩大记忆窗口（叫上下文大小），让伊记牢更多内容，不过可能要多用一点电脑内存。也可以截短输入，忘脱一部分聊天历史，拨新消息腾地方。",
+    "increaseContextSizeDescription": "侬要扩大上下文大小𠲎？"
   },
   "toolApproval": {
     "title": "工具权限请求",
     "deny": "勿允许",
     "allowOnce": "只允许搿一趟",
-    "alwaysAllow": "始终允许"
+    "alwaysAllow": "始终允许",
+    "description": "助手想用 <strong>{{toolName}}</strong>",
+    "securityNotice": "只好允许侬信得过个工具。工具好访问侬个系统搭数据。"
   },
   "deleteModel": {
     "title": "删除模型：{{modelId}}",
     "cancel": "取消",
-    "delete": "删除"
+    "delete": "删除",
+    "description": "侬确定要删脱搿个模型𠲎？搿个操作撤销勿来。",
+    "success": "模型 {{modelId}} 已经永久删脱了。"
   },
   "deleteProvider": {
     "title": "删除提供商",
     "confirmTitle": "删除提供商：{{provider}}",
     "cancel": "取消",
-    "delete": "删除"
+    "delete": "删除",
+    "description": "删脱搿个提供商搭伊所有个模型。搿个操作撤销勿来。",
+    "success": "提供商 {{provider}} 已经永久删脱了。",
+    "confirmDescription": "侬确定要删脱搿个提供商𠲎？搿个操作撤销勿来。"
   },
   "modelSettings": {
     "title": "模型设置 - {{modelId}}",
@@ -224,7 +240,28 @@
       "keyPlaceholder": "名称",
       "add": "添加",
       "cancel": "取消",
-      "remove": "移除"
+      "remove": "移除",
+      "section": "聊天模板选项",
+      "description": "搿个模型个聊天模板接受个额外选项。每趟请求用 chat_template_kwargs 发送；值保留默认，就让模板自家决定。",
+      "addCustom": "添加自定义选项",
+      "valuePlaceholder": "值"
+    },
+    "description": "配置模型设置，优化性能搭行为。",
+    "nglDisabledByFit": "自动适配正勒海选择 GPU 层数。关脱自动适配才好手动设置。",
+    "samplingDefaults": {
+      "title": "默认采样参数",
+      "description": "搿个模型个默认采样设置。要是助手或者单趟请求呒没另外指定，就用搿搭个值。"
+    },
+    "specDraft": {
+      "section": "推测解码",
+      "enable": "启用推测解码",
+      "enableDescription": "每步先起草几个词元，再一趟验证，好加快生成。用模型内置个 MTP 头，或者搭模型一道下载个草稿模型（MTP、Eagle3、DFlash 或 DSpark）。",
+      "nMax": "最多草稿词元数",
+      "nMaxDescription": "每步最多起草个词元数。默认 16。",
+      "nMin": "最少草稿词元数",
+      "nMinDescription": "每步最少起草个词元数。默认 0。",
+      "pMin": "最低草稿概率",
+      "pMinDescription": "贪心起草个最低概率（0–1）。默认 0.75。"
     }
   },
   "dialogs": {
@@ -233,10 +270,12 @@
       "currentLocation": "当前位置：",
       "newLocation": "新位置：",
       "cancel": "取消",
-      "changeLocation": "更改位置"
+      "changeLocation": "更改位置",
+      "description": "侬确定要改数据文件夹个位置𠲎？所有数据会搬到新位置，应用也会重新启动。"
     },
     "deleteAllThreads": {
-      "title": "删除所有会话"
+      "title": "删除所有会话",
+      "description": "所有对话侪会删脱。搿个操作撤销勿来。"
     },
     "editMessage": {
       "title": "编辑消息"
@@ -249,6 +288,10 @@
     },
     "deleteMessage": {
       "description": "侬确定要删脱搿条消息伐？删脱以后就恢复勿转来哉。"
+    },
+    "deleteAllThreadsInProject": {
+      "title": "删除所有对话",
+      "description": "「{{projectName}}」里向个 {{count}} 个对话侪会删脱。搿个操作撤销勿来。"
     }
   },
   "errorDialog": {
@@ -256,7 +299,13 @@
     "details": "详细信息"
   },
   "missingDependenciesDialog": {
-    "download": "下载"
+    "download": "下载",
+    "title": "缺少系统库",
+    "description": "{{backend}} 装好了，不过有些必需个系统库寻勿着。伊可能退回 CPU 运行，或者运行勿正常。",
+    "installLabel": "要解决搿个问题，请安装下头搿些：",
+    "additionalLibraries": "另外缺少个库：",
+    "missingLibraries": "缺少个库：",
+    "showRawLibraries": "显示 {{count}} 个缺少个库名"
   },
   "projects": {
     "title": "项目",
@@ -278,7 +327,14 @@
       "title": "删除项目",
       "deleteButton": "删除",
       "successWithoutName": "项目删除成功",
-      "ariaLabel": "删除{{projectName}}"
+      "ariaLabel": "删除{{projectName}}",
+      "permanentDelete": "搿会永久删脱所有对话。",
+      "permanentDeleteWarning": "搿个操作会永久删脱项目里向全部个对话！",
+      "deleteEmptyProject": "搿个操作会删脱项目「{{projectName}}」。",
+      "saveThreadsAdvice": "要保留对话，请勒删除以前，先拿伊拉搬到对话清单或者别个项目。",
+      "starredWarning": "项目里向还有收藏个对话。",
+      "successWithName": "项目「{{projectName}}」已经删脱了",
+      "error": "项目删勿脱。请再试一趟。"
     },
     "addProjectDialog": {
       "createTitle": "创建新项目",
@@ -288,7 +344,13 @@
       "assistant": "助手",
       "addAssistant": "添加助手",
       "createButton": "创建",
-      "updateButton": "更新"
+      "updateButton": "更新",
+      "selectAssistant": "选择助手（可选）",
+      "noAssistant": "呒没助手",
+      "alreadyExists": "项目「{{projectName}}」已经有了",
+      "createSuccess": "项目「{{projectName}}」创建好了",
+      "updateSuccess": "项目「{{projectName}}」更新好了",
+      "saveError": "项目保存勿了。请再试一趟。"
     },
     "instructions": "说明",
     "thread": "线程",
@@ -299,84 +361,181 @@
     "update": "更新",
     "searchProjects": "搜索项目...",
     "noProjectsFound": "未找到项目",
-    "tryDifferentSearch": "尝试不同的搜索词"
+    "tryDifferentSearch": "尝试不同的搜索词",
+    "noProjectsYetDesc": "点「添加项目」按钮，开个新项目。",
+    "projectNotFoundDesc": "侬寻个项目勿存在，或者已经删脱了。",
+    "selectAssistant": "选择助手",
+    "noAssistantAssigned": "搿个项目还呒没指定助手",
+    "files": "文件",
+    "filesDescription": "添加 PDF、文档或者别个文本，拨搿个项目参考。",
+    "noConversationsIn": "{{projectName}} 里向呒没对话",
+    "startNewConversation": "勒下头开始 {{projectName}} 个新对话",
+    "conversationsIn": "{{projectName}} 里向个对话",
+    "conversationsDescription": "点任意一个对话就好接下去聊，或者勒下头开个新对话。",
+    "conversation": "对话",
+    "setup": "设置",
+    "instructionsDescription": "自定义答复个口气搭风格",
+    "manageInstructions": "管理指令"
   },
   "toast": {
     "allThreadsUnfavorited": {
-      "title": "所有会话已取消收藏"
+      "title": "所有会话已取消收藏",
+      "description": "所有对话侪从侬个收藏里向移除了。"
     },
     "deleteAllThreads": {
-      "title": "删除所有会话"
+      "title": "删除所有会话",
+      "description": "所有对话侪已经永久删脱了。"
     },
     "renameThread": {
-      "title": "重命名会话"
+      "title": "重命名会话",
+      "description": "对话标题已经改成「{{title}}」"
     },
     "deleteThread": {
       "title": "删除会话",
       "description": "搿只会话已经永久删脱哉。"
     },
     "errorCopied": {
-      "title": "复制成功"
+      "title": "复制成功",
+      "description": "错误信息已经复制到剪贴板了"
     },
     "errorCopyFailed": {
-      "title": "复制失败"
+      "title": "复制失败",
+      "description": "错误信息复制勿到剪贴板"
     },
     "editMessage": {
-      "title": "编辑消息"
+      "title": "编辑消息",
+      "description": "消息改好了。请等模型回复。"
     },
     "appUpdateDownloaded": {
-      "title": "应用更新已下载"
+      "title": "应用更新已下载",
+      "description": "应用更新已经下载好了。"
     },
     "appUpdateDownloadFailed": {
-      "title": "应用更新下载失败"
+      "title": "应用更新下载失败",
+      "description": "应用更新下载失败。请再试一趟。"
     },
     "downloadComplete": {
       "title": "下载完成",
       "description": "{{item}} 已下载"
     },
     "downloadCancelled": {
-      "title": "下载已取消"
+      "title": "下载已取消",
+      "description": "下载已经取消了"
     },
     "downloadFailed": {
       "title": "下载失败",
-      "description": "{{item}} 下载失败"
+      "description": "{{item}} 下载失败",
+      "descriptionWithReason": "{{item}} 下载失败：{{reason}}",
+      "reason": {
+        "dns": "服务器名字解析勿出",
+        "refused": "连接拨拒绝了",
+        "timeout": "连接超时了",
+        "tls": "安全连接建勿起来",
+        "proxy": "代理连勿上",
+        "unreachable": "服务器连勿上"
+      }
     },
     "modelValidationStarted": {
-      "title": "正在验证模型"
+      "title": "正在验证模型",
+      "description": "模型「{{modelId}}」下载好了。勒海验证完整性…"
     },
     "modelValidationFailed": {
-      "title": "模型验证失败"
+      "title": "模型验证失败",
+      "description": "下载个模型「{{modelId}}」呒没通过完整性验证，已经移除了。文件可能坏脱了或者拨改过了。"
     },
     "downloadAndVerificationComplete": {
-      "title": "下载完成"
+      "title": "下载完成",
+      "description": "模型「{{item}}」下载搭验证侪好了"
     },
     "projectCreated": {
-      "title": "项目已创建"
+      "title": "项目已创建",
+      "description": "项目「{{projectName}}」创建好了"
     },
     "projectRenamed": {
-      "title": "项目已重命名"
+      "title": "项目已重命名",
+      "description": "项目已经从「{{oldName}}」改名为「{{newName}}」"
     },
     "projectDeleted": {
-      "title": "项目已删除"
+      "title": "项目已删除",
+      "description": "项目「{{projectName}}」已经删脱了"
     },
     "projectAlreadyExists": {
-      "title": "项目已存在"
+      "title": "项目已存在",
+      "description": "项目「{{projectName}}」已经有了"
     },
     "projectDeleteFailed": {
-      "title": "删除失败"
+      "title": "删除失败",
+      "description": "项目删勿脱。请再试一趟。"
     },
     "threadAssignedToProject": {
-      "title": "线程已分配"
+      "title": "线程已分配",
+      "description": "对话已经放进「{{projectName}}」了"
     },
     "threadRemovedFromProject": {
-      "title": "线程已移除"
+      "title": "线程已移除",
+      "description": "对话已经从「{{projectName}}」移除了"
     },
     "deleteFailed": {
-      "title": "删除失败"
+      "title": "删除失败",
+      "description": "文件删勿脱"
+    },
+    "openSettings": "打开设置",
+    "openLogs": "打开日志",
+    "downloadTokenRequired": {
+      "title": "需要 Hugging Face 访问令牌",
+      "description": "搿个模型需要 Hugging Face 访问令牌。请到设置添加侬个令牌再重试。"
+    },
+    "downloadLicenseRequired": {
+      "title": "到 Hugging Face 接受模型许可",
+      "description": "下载以前，侬一定要到搿个模型个 Hugging Face 页面接受许可。"
+    },
+    "downloadRateLimited": {
+      "title": "Hugging Face 限制了请求频率",
+      "description": "侬个请求频率拨限制了。添加令牌好提高频率上限。请过歇再试。"
+    },
+    "fileUploaded": {
+      "title": "文件处理好了",
+      "description": "文件处理搭索引侪做好了"
+    },
+    "uploadFailed": {
+      "title": "处理失败",
+      "description": "文件处理失败",
+      "subjectThisFile": "搿个文件",
+      "pdfMalformedXref": "{{subject}} 个 PDF 交叉引用表坏脱了，解析勿了。请试试看用 PDF 阅读器打开，再保存一趟（文件 → 打印 → 另存为 PDF），然后重新上传。",
+      "pdfScanned": "{{subject}} 看起来是扫描件或者图片型 PDF。眼下还勿支持 OCR——请上传有文本个 PDF。",
+      "pdfEncrypted": "{{subject}} 有密码保护。请拿密码去脱再试。",
+      "pdfUnsupportedFeature": "{{subject}} 用了 Novera 暂时解析勿了个 PDF 功能（比方讲 PostScript 颜色／明暗函数）。请重新保存（文件 → 打印 → 另存为 PDF），拿伊扁平化以后再上传。",
+      "pdfGeneric": "{{subject}} 当作 PDF 解析勿了。文件可能坏脱了，或者用了勿支持个 PDF 功能。",
+      "fileTooLarge": "{{subject}} 忒大了。{{message}}。",
+      "unsupportedType": "勿支持「{{type}}」文件类型。",
+      "ioError": "{{subject}} 读勿出：{{message}}",
+      "parseGeneric": "{{subject}} 解析勿了：{{message}}",
+      "fallback": "{{subject}} 处理失败。"
+    },
+    "fileDeleted": {
+      "title": "文件删脱了",
+      "description": "文件已经从项目里向移除了"
+    },
+    "fileAlreadyExists": {
+      "title": "文件已经有了",
+      "description": "文件已经附加到搿个项目了"
+    },
+    "unsupportedFileType": {
+      "title": "勿支持个文件类型",
+      "description": "项目参考文件勿支持「.{{extension}}」扩展名。"
+    },
+    "attachmentsDisabledInfo": {
+      "title": "附件关脱了",
+      "description": "设置里向拿附件关脱了"
     }
   },
   "files": {
-    "attachments": "附件"
+    "attachments": "附件",
+    "chunksCount": "{{count}} 个分块",
+    "title": "文件",
+    "empty": "侬附加个文件搭智能体创建个文件会显示勒搿搭。",
+    "a11y": "文件：{{count}}",
+    "notImported": "勿勒工作区里向"
   },
   "subagentsRunning_one": "运行当中个子代理数目：{{count}}",
   "subagentsRunning_other": "运行当中个子代理数目：{{count}}",
@@ -396,5 +555,254 @@
   "errorTracking": {
     "title": "错误跟踪",
     "summary": "可以选择向 {{host}} 发送报告：错误类型、代码位置、版本搭操作系统。勿包含对话、原始错误消息搭密钥。随时可以关脱。"
-  }
+  },
+  "remote_access": "远程访问",
+  "integrations": "集成",
+  "browse": "浏览",
+  "moreControls": "更多控件",
+  "starting": "勒海启动…",
+  "activeSuffix": " （当前启用）",
+  "manageProviders": "管理提供商",
+  "hiddenProviders": "{{count}} 个已停用",
+  "hideProvider": "隐藏提供商",
+  "showProvider": "显示提供商",
+  "home": "主页",
+  "newSession": "新建会话",
+  "artifacts": "产物",
+  "customize": "自定义",
+  "selectFolder": "选择文件夹",
+  "selectModel": "请先选一个模型",
+  "commands": "命令",
+  "cmdHelp": "列出可用个命令",
+  "cmdClear": "清空搿个会话",
+  "cmdModels": "切换当前模型",
+  "cmdModelSwitched": "已经切换到 {{name}}",
+  "cmdBusy": "智能体运行个辰光搿能做勿来",
+  "cmdCompact": "拿会话上下文压缩成摘要",
+  "cmdCompacted": "消息已经从 {{before}} 条压缩到 {{after}} 条",
+  "cmdNothingToCompact": "眼下呒没内容好压缩",
+  "cmdCompactFailed": "压缩失败：{{error}}",
+  "cmdPlan": "切换计划模式（只读：智能体只提建议，勿写文件）",
+  "cmdPlanOn": "计划模式打开了：智能体只读搭提建议，勿写文件",
+  "cmdPlanOff": "计划模式关脱了：正常执行",
+  "cmdTodo": "打开进度面板",
+  "cmdTasks": "打开后台任务面板",
+  "cmdInit": "研究项目，写好技能搭记忆",
+  "cmdInitRunning": "勒海熟悉搿个项目",
+  "skills": "技能",
+  "skillsInContext": "搿趟运行智能体好用个技能",
+  "skillsTitle": "管理技能",
+  "skillsScopeProject": "{{folder}} 个技能",
+  "skillsScopeGlobal": "全局技能，每个会话侪好用",
+  "skillsScopeMerged": "{{folder}} 个技能，加上每个会话共用个全局技能",
+  "skillOriginFolder": "文件夹",
+  "skillOriginGlobal": "全局",
+  "skillsEmpty": "还呒没技能",
+  "skillsPickOrNew": "选个技能来编辑，或者新建一个。",
+  "skillNew": "新建技能",
+  "skillDelete": "删除技能",
+  "skillSaved": "技能保存好了",
+  "skillNameRequired": "技能名字一定要填",
+  "skillNamePlaceholder": "skill-name",
+  "skillContentPlaceholder": "用 Markdown 写清楚好重复使用个步骤…",
+  "skillHubImport": "从技能中心导入",
+  "skillHubTitle": "Anthropic 技能中心",
+  "skillHubEmpty": "技能中心里向呒没寻着技能",
+  "skillReimport": "重新导入",
+  "skillImported": "已经导入 {{name}}",
+  "sessions": "会话",
+  "deleteSession": "删除会话",
+  "deleteSessionTitle": "删脱会话𠲎？",
+  "deleteSessionBody": "「{{title}}」搭伊个记录侪会永久删脱。搿个操作撤销勿来。",
+  "analyticsConsentDetail": "阿拉收集匿名数据来了解功能哪能用。侬个聊天搭个人信息从来勿会跟踪。侬随时好到设置 > 隐私修改搿项选择。",
+  "analyticsConsentQuestion": "侬愿意帮阿拉改进 Novera 𠲎？",
+  "searchThreads": "搜索对话…",
+  "toNavigate": "来导航",
+  "toSelect": "来选择",
+  "toClose": "来关闭",
+  "clearRecent": "清除",
+  "dismiss": "关脱",
+  "preview": {
+    "loading": "勒海打开…",
+    "unsupported": "Novera 显示勿了搿种文件。打开伊，好到别个应用里向看。",
+    "outside": "搿个文件已经勿勒会话工作区里向了。",
+    "tooLarge": "文件忒大，预览勿了。打开伊，好到别个应用里向看。",
+    "reload": "重新载入",
+    "allowNetwork": "允许联网",
+    "unsandboxed": "沙盒外运行：好用保存个数据搭本地文件",
+    "unresolvedRefs_one": "搿个页面链接个 1 个文件勒预览里向载入勿进。请打开到浏览器里向看。",
+    "unresolvedRefs_other": "搿个页面链接个 {{count}} 个文件勒预览里向载入勿进。请打开到浏览器里向看。",
+    "externalRefs_one": "搿个页面从网上载入个 1 个资源拨拦住了。打开「允许联网」才好载入。",
+    "externalRefs_other": "搿个页面从网上载入个 {{count}} 个资源拨拦住了。打开「允许联网」才好载入。",
+    "scriptErrors_one": "页面报了一个错误：{{message}}",
+    "scriptErrors_other": "页面报了 {{count}} 个错误。第一个：{{message}}"
+  },
+  "changes": {
+    "title": "智能体个修改",
+    "empty": "智能体写好或者改过个文件会显示勒搿搭。",
+    "a11y": "智能体个修改：{{files}} 个文件，新增 {{additions}}，移除 {{deletions}}"
+  },
+  "modelPanel": {
+    "title": "模型设置",
+    "a11y": "打开模型设置",
+    "contextTooltip": "上下文窗口：{{value}} / {{max}} 个词元"
+  },
+  "noThreadsYetDesc": "开个新对话，侬个对话历史就会显示勒搿搭。",
+  "multimodal": "多模态",
+  "noModelsFoundFor": "寻勿着搭「{{searchValue}}」匹配个模型",
+  "noAssistant": "呒没助手",
+  "deleteAllThreadsConfirm": "侬确定要删脱所有对话𠲎？搿个操作撤销勿来。",
+  "enterNameForProvider": "拨侬个提供商起个名字",
+  "providerAlreadyExists": "已经有一个叫「{{name}}」个提供商了。请换个名字。",
+  "settingUpJan": "勒海启动 Novera…",
+  "registeringExtensions": "勒海注册扩展…",
+  "loadingExtensions": "勒海载入扩展…（{{done}}/{{total}}）",
+  "conversationNotAvailableDescription": "侬想访问个对话用勿了，或者已经删脱了。",
+  "temporaryChatTooltip": "临时聊天勿会出现勒侬个历史里向",
+  "noResultsFoundDesc": "阿拉寻勿着搭侬搜索匹配个聊天。请换个关键词。",
+  "continueAiResponse": "让 AI 继续回复",
+  "modelControls": {
+    "updateFailed": "模型设置更新勿了"
+  },
+  "attachmentsIngestion": {
+    "title": "选择哪能处理附件",
+    "description": "选择拿搿些文件直接放进聊天，还是转成嵌入向量建立索引。",
+    "inline": "注入聊天",
+    "embeddings": "使用嵌入向量"
+  },
+  "attachmentInjectedIndicator": "已经注入聊天",
+  "attachmentEmbeddedIndicator": "已经转成 RAG 嵌入向量",
+  "viewInjectedContent": "查看注入个内容",
+  "injectedContentTitle": "注入个文件内容",
+  "errors": {
+    "fileTooLarge": "文件忒大",
+    "fileTooLargeDescription": "{{fileName}} 超过 {{maxFileSizeMB}}MB 个上限了"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp 还勒海忙",
+    "description": "一个或者多个模型呒没及时卸载。强制退出会结束 llama.cpp，可能会打断正勒海生成个回复。",
+    "forceQuit": "强制退出",
+    "forcing": "勒海强制退出…",
+    "shuttingDown": "勒海关闭…"
+  },
+  "duration": {
+    "seconds": "{{count}} 秒",
+    "minutes": "{{count}} 分钟",
+    "hours": "{{count}} 小时"
+  },
+  "collapse": "收起",
+  "expand": "展开",
+  "todoPanelTitle": "进度",
+  "todoPanelEmpty": "还呒没待办清单。",
+  "backgroundTasks": "后台任务",
+  "monitorsRunning_one": "{{count}} 个监视任务勒海运行",
+  "monitorsRunning_other": "{{count}} 个监视任务勒海运行",
+  "backgroundRunning_one": "{{count}} 个后台任务勒海运行",
+  "backgroundRunning_other": "{{count}} 个后台任务勒海运行",
+  "monitors": "监视任务",
+  "monitorPolling": "轮询中",
+  "monitorMatched": "已经匹配",
+  "monitorTimedOut": "已经超时",
+  "monitorStopped": "已经停止",
+  "monitorEnded": "已经结束",
+  "coworkWatching_one": "勒海看牢 {{count}} 个监视任务…",
+  "coworkWatching_other": "勒海看牢 {{count}} 个监视任务…",
+  "coworkWaitingBackground": "勒海等后台任务…",
+  "noBackgroundTasks": "还呒没后台任务。",
+  "running": "运行中",
+  "queued": "排队中",
+  "waiting": "等候中",
+  "finished": "已经完成",
+  "subagentPhase": "第 {{phase}} 阶段",
+  "subagentWaiting": "等候中",
+  "viewTranscript": "查看记录",
+  "taskWorking": "勒海处理…",
+  "taskNoOutput": "子智能体呒没产生看得见个输出。",
+  "subagentToolUses_one": "{{count}} 趟工具调用",
+  "subagentToolUses_other": "{{count}} 趟工具调用",
+  "artifactGroupCode": "代码",
+  "artifactGroupDocument": "文档",
+  "artifactGroupVideo": "视频",
+  "artifactGroupAudio": "音频",
+  "artifactOpenPreview": "打开预览",
+  "artifactOpenExternal": "打开",
+  "artifactMoreActions": "更多操作",
+  "artifactShowInFolder": "勒文件夹里向显示",
+  "skillsUsedLabel": "用过个技能",
+  "skillsUsed": "用过个技能：{{skills}}",
+  "artifactsAll": "全部",
+  "artifactsEmpty": "还呒没产物。Cowork 运行生成个产物会显示勒搿搭。",
+  "artifactsNoMatch": "呒没匹配个产物。",
+  "artifactsSearch": "搜索产物",
+  "artifactsShowMore": "再显示 {{count}} 个",
+  "workspace": {
+    "readsFrom": "工作位置",
+    "writable": "好读好写",
+    "footnote": "智能体直接读取搭编辑搿个文件夹。请勒差异面板检查改过个内容。",
+    "footnoteEmpty": "附加一个文件夹，让智能体处理侬个项目。伊好读取搭编辑里向个文件。",
+    "attach": "附加文件夹",
+    "change": "更换文件夹",
+    "detach": "分离文件夹",
+    "open": "打开",
+    "reveal": "显示位置",
+    "unavailable": "工作区用勿了",
+    "missing": "工作区文件夹 {{folder}} 已经用勿了了。请选择别个文件夹。",
+    "openFailed": "工作区打开勿了",
+    "revealFailed": "工作区位置显示勿了",
+    "a11yWithFolder": "项目文件夹 {{folder}}，已经附加，好读好写。好更换或者分离。",
+    "a11yNoFolder": "还呒没附加项目文件夹。请附加一个。"
+  },
+  "coworkEmpty": {
+    "title": "阿拉来做点啥？",
+    "subtitleSandbox": "拨 Novera 一个任务。伊会自家读写文件、运行命令，一步步做好。",
+    "subtitleFolder": "拨 Novera 一个任务。伊会直接勒 {{folder}} 里向工作，自家读取搭编辑文件。",
+    "try": "试试看",
+    "sandbox": {
+      "first": "写一个 Python 脚本，照拍摄日期拨文件改名",
+      "second": "用我贴进来个 CSV 做一个单页仪表盘",
+      "third": "照我描述个项目起草一个 README"
+    },
+    "folder": {
+      "first": "解释 {{folder}} 是哪能组织起来个",
+      "second": "寻出 {{folder}} 里向所有 TODO，照领域分组",
+      "third": "拨 {{folder}} 里向我指定个部分写测试"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "呒没终端",
+    "a11y": "运行命令关脱了。查看详情。",
+    "title": "运行命令关脱了",
+    "body": "只有侬个系统好限制命令个活动范围，Novera 才让智能体运行 shell 命令。搿搭呒没可用个沙盒，所以智能体好勒自家沙盒里向读、写搭编辑文件，不过勿好运行命令。",
+    "fixLinux": "Linux 用 bubblewrap。装好伊以后，请重新启动 Novera。",
+    "fixMac": "macOS 用 /usr/bin/sandbox-exec 个内置沙盒。伊可用以后，请重新启动 Novera。",
+    "fixWindows": "Windows 用 AppContainer。请重新启动 Novera 再试。",
+    "recheck": "重新检查"
+  },
+  "planMode": {
+    "label": "计划",
+    "tooltipOff": "先做计划——智能体只读搭提建议，勿写文件。",
+    "tooltipOn": "勒海做计划。关脱搿项，智能体才好写文件。",
+    "onAnnounce": "计划模式打开了",
+    "placeholder": "请伊做个计划。智能体勿会改任何文件。"
+  },
+  "budget": {
+    "stoppedSteps": "做到 {{max}} 步停脱了。智能体还呒没做完。",
+    "keepGoing": "继续做",
+    "stoppedTokens": "停脱了——搿个会话用完词元预算了。",
+    "compact": "压缩",
+    "newSession": "新建会话"
+  },
+  "run": {
+    "stopped": "停脱了。",
+    "failed": "搿趟运行提早停脱了。",
+    "tryAgain": "再试一趟"
+  },
+  "modelNoTools": "{{model}} 勿会调用工具，所以做勿了智能体。请选个好调用工具个模型。",
+  "askNext": "下一个问题",
+  "askPrev": "上一个问题",
+  "askRecommended": "推荐",
+  "askSelectedCount": "已经选了 {{count}} 项",
+  "askSomethingElse": "别个答案",
+  "askSomethingElsePlaceholder": "输入侬自家个答案",
+  "submit": "提交"
 }

@@ -24,5 +24,7 @@
   "active": "Aktivní",
   "performance": "Výkon",
   "resources": "Prostředky",
-  "refresh": "Obnovit"
+  "refresh": "Obnovit",
+  "gpus": "GPU",
+  "vram": "VRAM"
 }

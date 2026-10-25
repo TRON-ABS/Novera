@@ -37,5 +37,6 @@
   "defaultAssistantSection": "Assistent per defecte",
   "defaultAssistantDesc": "S'utilitza en iniciar un xat nou",
   "allAssistants": "Tots els assistents",
-  "lastUsed": "Últim ús"
+  "lastUsed": "Últim ús",
+  "deleteFailed": "No s'ha pogut suprimir l'assistent. Si us plau, torna-ho a provar."
 }

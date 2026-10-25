@@ -44,5 +44,7 @@
     "yellow": "메모리 여유 적음",
     "red": "메모리 부족",
     "unknown": "메모리 알 수 없음"
-  }
+  },
+  "downloadFailed": "다운로드를 시작하지 못했습니다.",
+  "resumeUnavailable": "다운로드를 재개할 수 없습니다. 다시 시작해 주세요."
 }

@@ -24,5 +24,7 @@
   "active": "Aktif",
   "performance": "Kinerja",
   "resources": "Sumber Daya",
-  "refresh": "Segarkan"
+  "refresh": "Segarkan",
+  "gpus": "GPU",
+  "vram": "VRAM"
 }

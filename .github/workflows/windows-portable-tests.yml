@@ -1,0 +1,21 @@
+name: Novera - Windows portable packaging tests
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          persist-credentials: false
+      - name: Verify packaging with Windows PowerShell 5.1
+        shell: powershell
+        run: ./scripts/tests/package-windows-portable.Tests.ps1
+      - name: Verify packaging with PowerShell 7
+        shell: pwsh
+        run: ./scripts/tests/package-windows-portable.Tests.ps1

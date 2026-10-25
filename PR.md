@@ -1,3 +1,27 @@
+# Synchronize all pending Novera sources and documentation — 25 October 2026
+
+The repository lagged behind the main local source folder: Wu and sixteen
+inherited catalogs were still incomplete remotely, and the validated launcher
+and tracking documents were not published. Add the pending 9,976 translations
+and coverage checks, update the READMEs to 36 complete catalogs of 1,513 English
+keys, include the explicit telemetry configuration reader and its tests, and
+synchronize the remaining manual packaging workflows and maintenance records.
+Keep the already-published Jan cleanup and Novera internal names intact.
+
+Validation: the complete local web suite passed 5,177 tests with two skipped
+and no failures; all 36 locale inventories pass. Architecture/update/Android
+configuration tests passed 13 cases, build-launcher checks passed 69 assertions
+and the telemetry reader passed 16 assertions without network or real tokens.
+The preceding TypeScript no-emission check passed. Selected files are checked
+for secrets and compared by Git blob identities after publication. Native
+speaker review, a rebuild with the latest names/translations and full engine
+link validation remain pending. CI remains disabled. No executables, APKs,
+credentials, user data or raw diagnostic artifacts are included.
+
+[Scope, validation and exclusions](docs/REPOSITORY_SYNC.md).
+
+---
+
 # Rename Novera-owned engine and interface components — 25 October 2026
 
 Source builds and runtime discovery still expected `jan-llama-worker` and
@@ -35,6 +59,18 @@ The native test now follows the migrated Markdown paths; it was not executed.
 GitHub Actions was confirmed disabled through the GitHub API. No application rebuild,
 binary publication, CI activation or history rewrite. Existing unrelated local
 changes are excluded from this publication. Details: [cleanup](docs/JAN_CLEANUP.md).
+
+---
+
+# Build and validate the opt-in PostHog EU connection — 25 October 2026
+
+Add an explicit `-WithTelemetry` option to the local Desktop launcher. Parse only the public project token and validated HTTPS origin from the Git-ignored local frontend environment file; reject private tokens and unsafe or duplicate settings. Keep destination variables empty without this option, user consents default-off and Android unchanged.
+
+Local validation: 12 configuration checks and 3 updater tests passed. Frontend and Rust release builds succeeded. The new 60,113,408-byte Desktop executable starts on an isolated native/WebView2 profile and displays both privacy controls off with the EU host in French. Previous distribution executable hash verified unchanged; no real-user consent was modified.
+
+An explicitly authorized Node harness using the same error adapter sent exactly one synthetic exception with version `1.0.0-validation`. EU ingestion returned HTTP 200 / Ok; preflight accepted the Tauri origin. Activity and Error tracking in EU project 319433 displayed the matching event and one TypeError issue with the constant redacted message. This verifies ingestion and grouping, not transport from an actual WebView exception. No native-crash or source-map validation; no user startup statistic was sent.
+
+Build output: `deliverables/Novera-desktop-1.0.0-2026-10-25_02-59-20-029`. SHA-256: `3EA0AB5571BF9EFEDF2584C0EE5D4DEAD87B8E12CA4E94AB2A9EC04A2A19B426`. Evidence: `.build/posthog-desktop-validation-2026-10-25/validation.json`. These launcher changes and this build are local, following the previously published error-tracking commit 0990a25. No new remote publication, binary upload or GitHub Actions activation.
 
 ---
 
@@ -2157,3 +2193,42 @@ The results identify announcement-scope ambiguity and weak source selection /
 unsupported synthesis, rather than showing prompt loss or UI text duplication.
 
 [Audit report and evidence](deliverables/prompt-audit-2026-10-23/report.md).
+
+
+## Wu catalog completion — 25 October 2026
+
+The Wu interface catalog was missing 757 of 1,513 English keys. Added all 757
+translations across ten namespaces, preserving the 756 existing entries.
+Updated the language inventory and tracking documents to 1,513/1,513 keys.
+
+Local validation: `python scripts/check-novera-locales.py` passed with zero
+errors. The Wu integrity and language-switcher Vitest suites passed all 19
+tests, including coverage, placeholders, technical identifiers and runtime
+interpolation. Native-speaker review remains pending. No application rebuild,
+CI validation, publication or external PR-state verification for this change.
+
+[Report and validation evidence](deliverables/wuu-completion-2026-10-25/report.md).
+
+
+## Complete all inherited interface catalogs — 25 October 2026
+
+Sixteen inherited locales were missing 9,219 English-key translations, leaving
+parts of their interface in English. Added those entries across 176 JSON files.
+All 36 interface locales now cover 1,513/1,513 English keys.
+
+Google Translate drafts were generated with explicit user consent; 98 targeted
+terminology and phrasing corrections were applied locally. Retained existing
+current-key translations except two Italian/Polish messages with broken
+interpolation variables. Archived and migrated the obsolete flat preview label
+in all 16 catalogs to the current nested messages; other legacy keys remain.
+The validator now checks inherited catalogs for missing or empty strings,
+interpolation variables and code literals. Coverage inventory and tracking
+documents are updated.
+
+Validation: `python scripts/check-novera-locales.py` passed with zero errors.
+Six targeted Vitest suites passed all 193 tests, including all-catalog coverage
+and runtime preview/setup resolution for each of the 16 completed locales.
+No application rebuild, CI run, publication or external PR-state check.
+Native-speaker review remains pending; 100% describes key coverage.
+
+[Completion report and evidence](deliverables/locale-completion-2026-10-25/report.md).

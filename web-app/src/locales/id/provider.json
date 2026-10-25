@@ -1,5 +1,18 @@
 {
   "addProvider": "Tambah Penyedia",
   "addOpenAIProvider": "Tambah Penyedia OpenAI",
-  "enterNameForProvider": "Masukkan nama untuk penyedia"
+  "enterNameForProvider": "Masukkan nama untuk penyedia",
+  "apiTypeLabel": "format API",
+  "apiTypeOpenAI": "Kompatibel dengan OpenAI",
+  "apiTypeAnthropic": "Kompatibel dengan Anthropic",
+  "baseUrlLabel": "Basis URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "Kunci API",
+  "apiKeyPlaceholder": "Tempel kunci API Anda",
+  "invalidBaseUrl": "Basis URL harus berupa http(s) URL yang valid",
+  "globalSettings": "Pengaturan global",
+  "stripReasoning": "Hapus penalaran dari konteks",
+  "stripReasoningDesc": "Hapus konten pemikiran/penalaran giliran sebelumnya sebelum mengirim ulang riwayat, ke semua penyedia. Meningkatkan penggunaan kembali KV-cache untuk model lokal, namun beberapa model (misalnya rilis Qwen yang lebih baru) merekomendasikan untuk menyimpannya untuk alasan multi-putaran yang lebih baik.",
+  "providerAlreadyExists": "Penyedia bernama {{name}} sudah ada."
 }

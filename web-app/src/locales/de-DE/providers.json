@@ -31,7 +31,9 @@
     "description": "Möchtest Du dieses Modell wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
     "success": "Modell {{modelId}} wurde permanent gelöscht.",
     "cancel": "Abbrechen",
-    "delete": "Löschen"
+    "delete": "Löschen",
+    "importedDescription": "Dieses importierte Modell aus Novera entfernen? Ihre lokale Datei auf der Festplatte wird nicht gelöscht.",
+    "removeFromJan": "Aus Novera entfernen"
   },
   "deleteProvider": {
     "title": "Anbieter löschen",
@@ -54,12 +56,72 @@
     "warning": {
       "title": "Mit Vorsicht fortfahren",
       "description": "Das Ändern von Modellfunktionen kann Leistung und Funktionalität beeinträchtigen. Falsche Einstellungen können zu unerwartetem Verhalten oder Fehlern führen."
-    }
+    },
+    "audio": "Audio",
+    "video": "Video"
   },
   "addProvider": "Anbieter hinzufügen",
   "addOpenAIProvider": "OpenAI Anbieter hinzufügen",
   "enterNameForProvider": "Namen für den Anbieter eingeben",
   "baseUrl": {
-    "alibabaDescription": "Verwenden Sie den Endpunkt Ihres Alibaba-Cloud-Arbeitsbereichs und seiner Region. Ersetzen Sie YOUR-WORKSPACE-ID durch Ihre Arbeitsbereichs-ID und verwenden Sie einen API-Schlüssel aus derselben Region."
+    "alibabaDescription": "Verwenden Sie den Endpunkt Ihres Alibaba-Cloud-Arbeitsbereichs und seiner Region. Ersetzen Sie YOUR-WORKSPACE-ID durch Ihre Arbeitsbereichs-ID und verwenden Sie einen API-Schlüssel aus derselben Region.",
+    "title": "Basis URL",
+    "azureDescription": "Ihr Azure OpenAI-Endpunkt. Ersetzen Sie YOUR-RESOURCE-NAME durch Ihren Azure-Ressourcennamen."
+  },
+  "limitedSupport": "Dieser Anbieter wird möglicherweise nicht vollständig unterstützt. Funktionen (Tools, Vision, Audio) werden nicht automatisch erkannt – fügen Sie Modelle manuell hinzu und konfigurieren Sie Funktionen pro Modell.",
+  "mlxExperimental": "Die MLX-Unterstützung ist experimentell. Einbettungen sind nicht verfügbar, der Argumentationsschalter ist noch nicht verkabelt und einige neuere Modellarchitekturen können möglicherweise nicht geladen werden. Melden Sie Probleme auf GitHub, damit wir sie priorisieren können.",
+  "engineBundled": "Die Inferenz-Engine ist in Novera integriert, sodass nichts separat heruntergeladen oder aktualisiert werden muss. Zitieren Sie diese Version, wenn Sie ein Modell melden, das nicht geladen werden kann.",
+  "engineOtherVersion": "Benötigen Sie eine andere llama.cpp-Version? Führen Sie Ihr eigenes llama-server aus und fügen Sie es als benutzerdefinierten OpenAI-kompatiblen Anbieter hinzu.",
+  "engineOtherVersionLink": "So geht's",
+  "engineReleaseNotes": "Versionshinweise",
+  "engineBuild": "Bauen",
+  "engineCommit": "Übernehmen",
+  "backendInstalled": "Installiert",
+  "backendHistoryShow": "Update-Verlauf anzeigen",
+  "backendHistoryHide": "Update-Verlauf ausblenden",
+  "backendHistoryLoading": "Update-Verlauf wird geladen...",
+  "backendHistoryEmpty": "Es wurden noch keine Backend-Updates aufgezeichnet.",
+  "backendHistoryNone": "keine",
+  "backendHistoryUpdated": "Aktualisiert",
+  "backendHistoryRolledBack": "Zurückgesetzt",
+  "backendHistoryRollbackFailed": "Rollback fehlgeschlagen",
+  "backendHistoryFailed": "Fehlgeschlagen",
+  "chatModels": "Chat-Modelle",
+  "embeddingModels": "Modelle einbetten",
+  "embeddingModelsDesc": "Wird für RAG und Vektorsuche verwendet. Das ausgewählte Modell wird beim Generieren von Einbettungen zum Standardmodell.",
+  "embeddingModelDefault": "Standard",
+  "embeddingModelSetDefault": "Als Standard-Einbettungsmodell festlegen",
+  "embeddingModelIsDefault": "Standard-Einbettungsmodell",
+  "imported": "Importiert",
+  "importedTooltip": "Aus einer lokalen Datei importiert. Durch das Entfernen aus Novera wird die Datei auf der Festplatte nicht gelöscht.",
+  "noModelFoundRemoteDesc": "Verfügbare Modelle werden hier aufgelistet. Verwenden Sie die Schaltfläche „Aktualisieren“ oben, um Modelle vom Anbieter abzurufen, oder fügen Sie eines manuell mit der Schaltfläche „+“ hinzu.",
+  "deleteAllModels": {
+    "button": "Alle löschen",
+    "title": "Alle heruntergeladenen Modelle löschen?",
+    "description": "Dadurch werden die {{count}}-Modelle dauerhaft von der Festplatte entfernt.",
+    "sizeLabel": "Freizugebender Speicherplatz:",
+    "calculating": "Berechnen…",
+    "warning": "Diese Aktion kann nicht rückgängig gemacht werden.",
+    "importedExcluded": "Von {{count}} importierte Modelle bleiben erhalten (ihre Dateien wurden von Novera nicht heruntergeladen).",
+    "confirm": "{{count}}-Modell(e) löschen",
+    "deleting": "Löschen…",
+    "success": "{{count}}-Modell(e) gelöscht.",
+    "partialFailure": "Fehler beim Löschen der {{count}}-Modelle. Weitere Informationen finden Sie in der Konsole."
+  },
+  "apiKeys": {
+    "title": "API-Tasten",
+    "description": "Geben Sie Ihren API-Schlüssel ein. Sie können in „Erweitert“ zusätzliche Schlüssel hinzufügen, und Novera versucht automatisch den nächsten, wenn ein Schlüssel fehlschlägt.",
+    "placeholder": "sk-…\nsk-…",
+    "primaryPlaceholder": "Geben Sie den primären Schlüssel API ein",
+    "keyPlaceholder": "Geben Sie den Schlüssel API ein",
+    "primaryBadge": "Primär",
+    "test": "Testschlüssel",
+    "testing": "Testen...",
+    "testHint": "Überprüft /models mit jedem Schlüssel und zeigt den Status pro Schlüssel an.",
+    "advanced": "Erweitert",
+    "hideAdvanced": "Erweitert ausblenden",
+    "oneKeyHint": "Optionale Fallback-Tasten werden in „Erweitert“ konfiguriert.",
+    "addKey": "Schlüssel hinzufügen",
+    "removeKey": "Schlüssel abziehen"
   }
 }

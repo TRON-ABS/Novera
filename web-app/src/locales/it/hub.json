@@ -45,5 +45,6 @@
     "yellow": "Poco margine di memoria",
     "red": "Memoria insufficiente",
     "unknown": "Memoria sconosciuta"
-  }
+  },
+  "resumeUnavailable": "Impossibile riprendere questo download. Per favore, riavvialo."
 }

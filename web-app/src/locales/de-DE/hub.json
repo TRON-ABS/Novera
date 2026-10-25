@@ -45,5 +45,7 @@
     "yellow": "Wenig Speicherreserve",
     "red": "Speicher unzureichend",
     "unknown": "Speicher unbekannt"
-  }
+  },
+  "downloadFailed": "Download konnte nicht gestartet werden",
+  "resumeUnavailable": "Dieser Download kann nicht fortgesetzt werden. Bitte starten Sie es erneut."
 }

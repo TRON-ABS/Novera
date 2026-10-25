@@ -30,5 +30,21 @@
     "rememberSaved": "Als „{{name}}“ im Gedächtnis gespeichert",
     "rememberExists": "Bereits als „{{name}}“ im Gedächtnis",
     "rememberFailed": "Konnte nicht im Gedächtnis gespeichert werden"
+  },
+  "embeddings": {
+    "title": "Vorbereitung Ihrer Dokumente",
+    "description": "Indizieren der angehängten Dateien, damit sie durchsucht und zitiert werden können. Bei großen Dokumenten kann dies einen Moment dauern."
+  },
+  "webSources": "{{count}} Quelle(n)",
+  "reasoning": {
+    "label": "Begründung...",
+    "thinking": "Denken",
+    "working": "Arbeitet...",
+    "showFullTimeline": "Vollständige Zeitleiste anzeigen",
+    "showCurrentStep": "Nur aktuellen Schritt anzeigen",
+    "thoughtForAWhile": "Ein paar Sekunden nachgedacht",
+    "thoughtFor": "Gedacht für {{duration}}",
+    "workedForAWhile": "Funktionierte ein paar Sekunden lang",
+    "workedFor": "Funktioniert für {{duration}}"
   }
 }

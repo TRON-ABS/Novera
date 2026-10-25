@@ -1,5 +1,18 @@
 {
   "addProvider": "제공자 추가",
   "addOpenAIProvider": "OpenAI 제공자 추가",
-  "enterNameForProvider": "제공자 이름 입력"
+  "enterNameForProvider": "제공자 이름 입력",
+  "apiTypeLabel": "API 형식",
+  "apiTypeOpenAI": "OpenAI 호환",
+  "apiTypeAnthropic": "Anthropic 호환",
+  "baseUrlLabel": "베이스 URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API 키",
+  "apiKeyPlaceholder": "API 키를 붙여넣으세요.",
+  "invalidBaseUrl": "기본 URL는 유효한 http(s) URL여야 합니다.",
+  "globalSettings": "전역 설정",
+  "stripReasoning": "맥락에서 추론 제거",
+  "stripReasoningDesc": "모든 제공자에 걸쳐 기록을 다시 보내기 전에 이전 턴의 사고/추론 콘텐츠를 제거하세요. 로컬 모델에 대한 KV-cache 재사용을 개선하지만 일부 모델(예: 최신 Qwen 릴리스)에서는 더 나은 다중 회전 추론을 위해 이를 유지하는 것이 좋습니다.",
+  "providerAlreadyExists": "{{name}}라는 공급자가 이미 존재합니다."
 }

@@ -71,7 +71,13 @@
     "shiftEnter": "Maj + Entrée",
     "navigation": "Navigation",
     "goToSettings": "Aller aux paramètres",
-    "goToSettingsDesc": "Ouvrir les paramètres."
+    "goToSettingsDesc": "Ouvrir les paramètres.",
+    "newProject": "Nouveau projet",
+    "newProjectDesc": "Ouvrez la boîte de dialogue de création de projet.",
+    "switchAssistant": "Assistant de commutation",
+    "switchAssistantDesc": "Passez à l'assistant suivant dans le chat.",
+    "search": "Rechercher",
+    "searchDesc": "Ouvrez la boîte de dialogue de recherche."
   },
   "interface": {
     "title": "Interface",
@@ -108,7 +114,21 @@
     "resetCodeBlockStyle": "Réinitialiser le style du bloc de code",
     "resetCodeBlockStyleDesc": "Réinitialisez le style du bloc de code par défaut.",
     "resetCodeBlockSuccess": "Style du bloc de code réinitialisé avec succès",
-    "resetCodeBlockSuccessDesc": "Le style du bloc de code a été restauré par défaut."
+    "resetCodeBlockSuccessDesc": "Le style du bloc de code a été restauré par défaut.",
+    "notificationPosition": "Position de notification",
+    "notificationPositionDesc": "Emplacement des notifications. Sous Windows, elles apparaissent par défaut en bas à droite pour ne pas masquer les commandes de la fenêtre.",
+    "notificationPositionTopRight": "En haut à droite",
+    "notificationPositionTopLeft": "En haut à gauche",
+    "notificationPositionBottomRight": "En bas à droite",
+    "notificationPositionBottomLeft": "En bas à gauche",
+    "showTokenSpeed": "Afficher la vitesse de génération des jetons",
+    "showTokenSpeedDesc": "Affiche le débit en jetons/s et le nombre de jetons sous les messages de l’assistant. Si cette option est désactivée, une petite icône permet de consulter ces détails.",
+    "coloredUserBubble": "Bulle de message utilisateur colorée",
+    "coloredUserBubbleDesc": "Utilisez la couleur d'accent comme arrière-plan de vos messages. Lorsqu'ils sont désactivés, ils font correspondre les messages de l'assistant avec du texte brut sur un fond neutre.",
+    "renderHtmlArtifacts": "Rendu des artefacts HTML et SVG",
+    "renderHtmlArtifactsDesc": "Ajoutez un onglet Aperçu aux blocs de code HTML et SVG. HTML exécute la page générée par le modèle dans un cadre en bac à sable qui exécute ses propres scripts mais ne peut pas accéder à Novera, à vos fichiers ou au réseau ; SVG effectue un rendu statique avec les scripts désactivés. Désactivé par défaut.",
+    "autoGenerateTitle": "Titre de discussion généré automatiquement",
+    "autoGenerateTitleDesc": "Résumez automatiquement les nouvelles conversations dans un titre de fil de discussion. Désactivez-le pour conserver le titre par défaut jusqu'à ce que vous le renommiez vous-même."
   },
   "hardware": {
     "os": "Système d'exploitation",
@@ -132,7 +152,20 @@
     "freeOf": "libre sur",
     "driverVersion": "Version du pilote",
     "computeCapability": "Capacité de calcul",
-    "systemMonitor": "Moniteur système"
+    "systemMonitor": "Moniteur système",
+    "backendApi": "Back-end API",
+    "apiVersion": "Version API",
+    "refresh": "Actualiser",
+    "detectingDevices": "Détection des GPU...",
+    "deviceListError": "Impossible de lire les appareils GPU",
+    "noDevicesDesc": "Aucun GPU n'est visible pour le moteur llama.cpp. Les modèles fonctionneront sur le CPU.",
+    "gpuDisabled": "Désactivé",
+    "backendApiDesc": "Comment llama.cpp parle à ce GPU",
+    "backendSelectDesc": "Utilisez ce API pour ce GPU",
+    "unifiedMemory": "Mémoire unifiée",
+    "unifiedMemoryDesc": "Le GPU partage un pool de mémoire avec le CPU — les modèles puisent dans la même mémoire que le reste du système.",
+    "engineRestartedForDevices": "Vos GPU ont changé, le moteur local a donc été redémarré. Les modèles se rechargent lors de la prochaine utilisation.",
+    "engineBusyDevicesChanged": "Vos GPU ont changé, mais un modèle est occupé. Arrêtez-le, puis appuyez sur Actualiser pour utiliser le nouveau GPU."
   },
   "httpsProxy": {
     "proxy": "Proxy",
@@ -191,7 +224,12 @@
     "verboseLogs": "Journaux de serveur détaillés",
     "verboseLogsDesc": "Activez les journaux de serveur détaillés pour le débogage.",
     "proxyTimeout": "Délai d'attente de la requête",
-    "proxyTimeoutDesc": "Temps d'attente pour une réponse du modèle local, en secondes."
+    "proxyTimeoutDesc": "Temps d'attente pour une réponse du modèle local, en secondes.",
+    "runInBackground": "Exécuter en arrière-plan",
+    "runInBackgroundDesc": "Laissez le serveur fonctionner dans la barre d'état système lorsque la fenêtre est fermée. Lorsqu'elle est désactivée, la fermeture de la fenêtre quitte Novera et arrête le serveur.",
+    "defaultModel": "Modèle par défaut Serveur local API",
+    "defaultModelDesc": "Modèle local à charger automatiquement au démarrage du serveur.",
+    "defaultModelPlaceholder": "Sélectionnez un modèle local"
   },
   "privacy": {
     "analytics": "Analytique",
@@ -254,7 +292,14 @@
     "reportIssue": "Signaler un problème",
     "credits": "Crédits",
     "creditsDesc1": "Novera (TRON-ABS), fondé sur Jan de Menlo Research et de ses contributeurs.",
-    "creditsDesc2": "Remerciements spéciaux à nos dépendances open-source, en particulier llama.cpp et Tauri, ainsi qu'à notre incroyable communauté IA."
+    "creditsDesc2": "Remerciements spéciaux à nos dépendances open-source, en particulier llama.cpp et Tauri, ainsi qu'à notre incroyable communauté IA.",
+    "autoUpdateCheck": "Vérification automatique des mises à jour",
+    "autoUpdateCheckDesc": "Vérifiez automatiquement les mises à jour au démarrage et périodiquement.",
+    "clearWebData": "Effacer les données d'interface mises en cache",
+    "clearWebDataDesc": "Supprime le stockage local mis en cache et les préférences UI conservées par la fenêtre de l'application. L'interface se réinitialise à son état par défaut.",
+    "janCli": "Novera CLI",
+    "janCliDesc": "Exécutez l'agent Novera depuis votre terminal. Suivez le guide pour installer et commencer.",
+    "janCliSetupGuide": "Guide de configuration"
   },
   "extensions": {
     "title": "Extensions"
@@ -289,7 +334,10 @@
     "chunkSize": "Taille du bloc (caractères)",
     "chunkSizeDesc": "Nombre maximum approximatif de caractères par bloc pour les embeddings.",
     "chunkOverlap": "Chevauchement (caractères)",
-    "chunkOverlapDesc": "Chevauchement de caractères entre les blocs consécutifs."
+    "chunkOverlapDesc": "Chevauchement de caractères entre les blocs consécutifs.",
+    "maxFileDisabledReason": "Activez Activer les pièces jointes pour modifier la limite de taille du document.",
+    "maxImage": "Taille maximale de l'image (MB)",
+    "maxImageDesc": "Taille maximale par image (JPEG ou PNG). Votre fournisseur ou modèle peut imposer une limite inférieure."
   },
   "dialogs": {
     "changeDataFolder": {
@@ -302,5 +350,46 @@
     }
   },
   "backendInstallSuccess": "Backend installé avec succès",
-  "backendInstallError": "Échec de l'installation du backend"
+  "backendInstallError": "Échec de l'installation du backend",
+  "webSearch": {
+    "title": "Recherche sur le Web",
+    "description": "Laissez les modèles rechercher et lire sur le Web à l'aide des outils intégrés de Novera.",
+    "enable": "Activer la recherche sur le Web",
+    "enableDesc": "Annoncez les outils web_search et web_fetch aux modèles prenant en charge l'utilisation des outils. Fonctionne immédiatement sans clé API.",
+    "provider": "Fournisseur de recherche",
+    "providerDesc": "Choisissez le backend qui répond à web_search et web_fetch.",
+    "apiKey": "Clé {{provider}} API",
+    "apiKeyOptional": "Facultatif. Fournissez une clé API {{provider}} pour obtenir des limites de requêtes plus élevées et des résultats structurés. Laissez ce champ vide pour utiliser le point d’accès gratuit sans clé.",
+    "apiKeyRequired": "Obligatoire. {{provider}} nécessite une clé API pour renvoyer les résultats.",
+    "apiKeyPlaceholder": "Entrez votre clé {{provider}} API",
+    "endpoint": "{{provider}} Instance URL",
+    "endpointDesc": "Obligatoire. Le URL de base de votre instance {{provider}}, avec le JSON API activé.",
+    "endpointPlaceholder": "https://searx.example.com"
+  },
+  "cowork": {
+    "title": "Cowork",
+    "description": "Configurez l’interface de l’agent Cowork : son shell isolé dans un bac à sable, ainsi que les mémoires et compétences conservées dans votre dossier de données Novera.",
+    "shell": "Commandes Shell",
+    "shellChecking": "Recherche d'un bac à sable...",
+    "shellSandboxed": "Les commandes exécutées sont limitées par {{backend}} : elles ne peuvent écrire que dans l'espace de travail de la session et les fichiers de votre dossier personnel ne sont pas lisibles.",
+    "shellUnavailable": "Aucun bac à sable n'est disponible sur ce système, l'outil shell n'est donc pas proposé. Les commandes ne sont jamais exécutées de manière illimitée.",
+    "network": "Autoriser l'accès au réseau",
+    "networkDesc": "Autorise les commandes de Cowork à accéder au réseau, par exemple pour installer des paquets ou récupérer un dépôt. Activé par défaut. Le shell de la conversation principale n’a jamais accès au réseau.",
+    "openFolder": "Ouvrir le dossier",
+    "memories": "Souvenirs",
+    "noMemories": "Aucun souvenir pour l'instant. Les modèles les ajoutent avec l'outil memory_write à mesure qu'ils apprennent des choses qui méritent d'être conservées.",
+    "skills": "Compétences",
+    "noSkills": "Aucune compétence pour l'instant. Une compétence est un ensemble d'instructions réutilisables qu'un modèle peut charger à la demande.",
+    "add": "Ajouter",
+    "editMemory": "Modifier la mémoire",
+    "editMemoryDesc": "Un sujet par note. Les modèles les lisent avec l'outil memory_read.",
+    "editSkill": "Modifier la compétence",
+    "editSkillDesc": "Instructions Markdown, avec une description facultative dans l’en-tête YAML. Le modèle voit cette description avant de charger la compétence.",
+    "namePlaceholder": "Nom",
+    "contentPlaceholder": "Contenu",
+    "loadFailed": "Impossible de charger l'espace de travail de l'agent",
+    "saveFailed": "Impossible d'enregistrer",
+    "deleteFailed": "Impossible de supprimer",
+    "revealFailed": "Impossible d'ouvrir le dossier"
+  }
 }

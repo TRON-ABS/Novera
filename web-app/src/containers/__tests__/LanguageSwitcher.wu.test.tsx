@@ -64,7 +64,9 @@ it('preserves interpolation in tool approvals and count messages', () => {
   }
 })
 
-it('falls back to English for a message not yet translated in the partial Wu catalog', () => {
+it('uses Wu for previously missing agent, setup and error messages', () => {
   i18n.changeLanguage('wuu')
-  expect(i18n.t('common:coworkEmpty.subtitleSandbox')).toBe('Give Novera a task. It reads and writes files, runs commands, and works through the steps on its own.')
+  expect(i18n.t('common:coworkEmpty.subtitleSandbox')).toBe('拨 Novera 一个任务。伊会自家读写文件、运行命令，一步步做好。')
+  expect(i18n.t('setup:stepCounter', { current: 2, total: 4 })).toBe('第 2 步，总共 4 步')
+  expect(i18n.t('model-errors:contextOverflowDetail', { request: 4096, context: 2048 })).toBe('搿趟请求需要 4096 个词元，不过模型个上下文窗口只放得落 2048 个。')
 })

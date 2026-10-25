@@ -16,21 +16,41 @@
     "modelId": "模型 ID",
     "enterModelId": "输入模型 ID",
     "addModel": "添加模型",
-    "modelExists": "模型已存在"
+    "modelExists": "模型已存在",
+    "description": "拨 {{provider}} 提供商添加一个新模型。",
+    "exploreModels": "查看 {{provider}} 个模型清单",
+    "modelExistsDesc": "请换一个模型 ID。"
   },
   "deleteModel": {
     "title": "删除模型：{{modelId}}",
     "cancel": "取消",
-    "delete": "删除"
+    "delete": "删除",
+    "description": "侬确定要删脱搿个模型𠲎？搿个操作撤销勿来。",
+    "importedDescription": "从 Novera 移除搿个导入模型𠲎？侬磁盘上个本地文件勿会删脱。",
+    "removeFromJan": "从 Novera 移除",
+    "success": "模型 {{modelId}} 已经永久删脱了。"
   },
   "deleteAllModels": {
-    "button": "全部删除"
+    "button": "全部删除",
+    "title": "删脱所有下载个模型𠲎？",
+    "description": "搿会从磁盘永久删脱 {{count}} 个模型。",
+    "sizeLabel": "会腾出来个磁盘空间：",
+    "calculating": "勒海计算…",
+    "warning": "搿个操作撤销勿来。",
+    "importedExcluded": "{{count}} 个导入模型会保留（伊拉个文件勿是 Novera 下载个）。",
+    "confirm": "删脱 {{count}} 个模型",
+    "deleting": "勒海删除…",
+    "success": "已经删脱 {{count}} 个模型。",
+    "partialFailure": "{{count}} 个模型删勿脱。请看控制台里向个详情。"
   },
   "deleteProvider": {
     "title": "删除提供商",
     "confirmTitle": "删除提供商：{{provider}}",
     "cancel": "取消",
-    "delete": "删除"
+    "delete": "删除",
+    "description": "删脱搿个提供商搭伊所有个模型。搿个操作撤销勿来。",
+    "success": "提供商 {{provider}} 已经永久删脱了。",
+    "confirmDescription": "侬确定要删脱搿个提供商𠲎？搿个操作撤销勿来。"
   },
   "editModel": {
     "title": "编辑模型：{{modelId}}",
@@ -41,17 +61,67 @@
     "embeddings": "嵌入",
     "notAvailable": "尚不可用",
     "warning": {
-      "title": "谨慎操作"
-    }
+      "title": "谨慎操作",
+      "description": "修改模型能力可能影响性能搭功能。设置勿对，可能会出现意外行为或者错误。"
+    },
+    "description": "用下头个开关配置模型能力。",
+    "audio": "音频",
+    "video": "视频"
   },
   "addProvider": "添加提供商",
   "addOpenAIProvider": "添加 OpenAI 提供商",
   "enterNameForProvider": "输入提供商名称",
   "apiKeys": {
     "primaryBadge": "主要",
-    "advanced": "高级"
+    "advanced": "高级",
+    "title": "API 密钥",
+    "description": "输入侬个 API 密钥。侬好勒高级设置添加备用密钥，一个失效了 Novera 会自动试下一个。",
+    "placeholder": "sk-…\nsk-…",
+    "primaryPlaceholder": "输入主要 API 密钥",
+    "keyPlaceholder": "输入 API 密钥",
+    "test": "测试密钥",
+    "testing": "勒海测试…",
+    "testHint": "逐个用密钥检查 /models，并显示每个密钥个状态。",
+    "hideAdvanced": "收起高级设置",
+    "oneKeyHint": "可选个备用密钥勒高级设置里向配置。",
+    "addKey": "添加密钥",
+    "removeKey": "移除密钥"
   },
   "baseUrl": {
-    "alibabaDescription": "请用侬个阿里云工作空间搭所在地域对应个服务地址。把 YOUR-WORKSPACE-ID 换成工作空间 ID，再用同一地域个 API 密钥。"
-  }
+    "alibabaDescription": "请用侬个阿里云工作空间搭所在地域对应个服务地址。把 YOUR-WORKSPACE-ID 换成工作空间 ID，再用同一地域个 API 密钥。",
+    "title": "基础 URL",
+    "azureDescription": "侬个 Azure OpenAI 端点。请拿 YOUR-RESOURCE-NAME 换成侬个 Azure 资源名字。"
+  },
+  "limitedSupport": "搿个提供商可能呒没得到完整支持。工具、视觉搭音频能力勿会自动检测——请手动添加模型，再逐个配置能力。",
+  "mlxExperimental": "MLX 支持还是实验性个。嵌入功能勿可用，推理开关还呒没接通，有些新模型架构也可能载入失败。请到 GitHub 报问题，好让阿拉安排优先顺序。",
+  "engineBundled": "推理引擎已经内置勒 Novera 里向，勿需要另外下载或者更新。报告模型载入失败个辰光，请带上搿个版本号。",
+  "engineOtherVersion": "需要别个 llama.cpp 版本𠲎？请自家运行 llama-server，再当作兼容 OpenAI 个自定义提供商添加进来。",
+  "engineOtherVersionLink": "操作办法",
+  "engineReleaseNotes": "发行说明",
+  "engineBuild": "构建版本",
+  "engineCommit": "提交",
+  "refreshModelsError": "提供商一定要配置基础 URL 搭至少一个 API 密钥，才好获取模型。",
+  "refreshModelsSuccess": "已经从 {{provider}} 添加了 {{count}} 个新模型。",
+  "noNewModels": "呒没寻着新模型。所有可用模型侪已经添加了。",
+  "refreshModelsFailed": "从 {{provider}} 获取模型失败。请检查侬个 API 密钥搭基础 URL。",
+  "backendInstalled": "已经安装",
+  "backendHistoryShow": "显示更新历史",
+  "backendHistoryHide": "收起更新历史",
+  "backendHistoryLoading": "勒海载入更新历史…",
+  "backendHistoryEmpty": "还呒没后端更新记录。",
+  "backendHistoryNone": "呒没",
+  "backendHistoryUpdated": "已经更新",
+  "backendHistoryRolledBack": "已经回退",
+  "backendHistoryRollbackFailed": "回退失败",
+  "backendHistoryFailed": "失败",
+  "chatModels": "聊天模型",
+  "embeddingModels": "嵌入模型",
+  "embeddingModelsDesc": "用来做 RAG 搭向量搜索。选中个模型会成为生成嵌入向量个默认模型。",
+  "embeddingModelSetDefault": "设成默认嵌入模型",
+  "embeddingModelIsDefault": "默认嵌入模型",
+  "imported": "已经导入",
+  "importedTooltip": "从本地文件导入个。从 Novera 移除伊，勿会删脱磁盘上个文件。",
+  "importModelSuccess": "模型 {{provider}} 已经导入好了。",
+  "noModelFoundDesc": "可用模型会列勒搿搭。侬要是还呒没模型，请到中心下载。",
+  "noModelFoundRemoteDesc": "可用模型会列勒搿搭。用上头个刷新按钮从提供商获取模型，或者用 + 按钮手动添加。"
 }

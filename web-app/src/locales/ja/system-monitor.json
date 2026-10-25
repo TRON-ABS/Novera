@@ -24,5 +24,7 @@
   "active": "アクティブ",
   "performance": "パフォーマンス",
   "resources": "リソース",
-  "refresh": "更新"
+  "refresh": "更新",
+  "gpus": "GPU",
+  "vram": "VRAM"
 }

@@ -30,5 +30,21 @@
     "rememberSaved": "Guardado en la memoria como «{{name}}»",
     "rememberExists": "Ya está en la memoria como «{{name}}»",
     "rememberFailed": "No se pudo guardar en la memoria"
+  },
+  "embeddings": {
+    "title": "Preparando tus documentos",
+    "description": "Indexar los archivos adjuntos para poder buscarlos y citarlos. Esto puede tardar un momento en el caso de documentos grandes."
+  },
+  "webSources": "Fuente(s) {{count}}",
+  "reasoning": {
+    "label": "Razonamiento...",
+    "thinking": "Pensando",
+    "working": "Trabajando...",
+    "showFullTimeline": "Mostrar línea de tiempo completa",
+    "showCurrentStep": "Mostrar solo el paso actual",
+    "thoughtForAWhile": "Pensé unos segundos",
+    "thoughtFor": "Pensado para {{duration}}",
+    "workedForAWhile": "Trabajó durante unos segundos",
+    "workedFor": "Trabajó para {{duration}}"
   }
 }

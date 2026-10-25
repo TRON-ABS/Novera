@@ -1,28 +1,130 @@
-name: Manual build portable (windows)
+name: Novera - Manual Windows portable build
 
+# Prepared with explicit maintainer approval; Actions remains disabled.
 on:
   workflow_dispatch:
     inputs:
       build_ref:
-        description: "Code ref to build (e.g. refs/tags/v0.7.5 or refs/heads/release/v0.7.5)"
-        required: true
-        default: "refs/tags/v0.7.5"
-      version:
-        description: "Version to stamp into the app"
-        required: true
-        default: "0.7.5"
+        description: Code ref (empty uses the selected branch; requires Novera packager)
+        required: false
+        default: ''
       channel:
-        description: "stable/beta/nightly"
+        description: Release channel (version comes from the selected source)
+        type: choice
+        options: [stable, beta, nightly]
+        default: stable
         required: true
-        default: "stable"
+      engine_variant:
+        description: Engine backend
+        type: choice
+        options: [cpu, vulkan]
+        default: vulkan
+        required: true
+
+permissions:
+  contents: read
 
 jobs:
   build-windows-portable:
-    uses: janhq/jan/.github/workflows/template-tauri-build-windows-x64.yml@main
-    secrets: inherit
-    with:
-      ref: ${{ inputs.build_ref }}
-      public_provider: "none"
-      channel: ${{ inputs.channel }}
-      new_version: ${{ inputs.version }}
-      upload_url: ""
+    runs-on: windows-2025
+    timeout-minutes: 240
+    env:
+      CARGO_TARGET_DIR: ${{ github.workspace }}/src-tauri/target
+      IS_TAURI: 'true'
+      JAN_ENGINE_REQUIRE_SIGNING: '0'
+    steps:
+      - name: Checkout the selected Novera source
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          ref: ${{ inputs.build_ref || github.ref }}
+          persist-credentials: false
+      - name: Validate source and prepare the channel
+        shell: pwsh
+        env:
+          BUILD_CHANNEL: ${{ inputs.channel }}
+          ENGINE_VARIANT: ${{ inputs.engine_variant }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:BUILD_CHANNEL -notin @('stable', 'beta', 'nightly')) { throw 'Unsupported channel' }
+          if ($env:ENGINE_VARIANT -notin @('cpu', 'vulkan')) { throw 'Unsupported engine variant' }
+          if (!(Test-Path scripts/distribution/package-windows-portable.ps1)) { throw 'Selected ref lacks the Novera packager' }
+          $path = (Resolve-Path -LiteralPath 'src-tauri/tauri.conf.json').Path
+          $config = Get-Content -LiteralPath $path -Raw | ConvertFrom-Json
+          if ($config.productName -ne 'Novera' -or $config.mainBinaryName -ne 'Novera-Desktop') { throw 'Expected canonical Novera source config' }
+          $config.bundle | Add-Member -NotePropertyName createUpdaterArtifacts -NotePropertyValue $false -Force
+          if ($config.plugins.PSObject.Properties['updater']) { $config.plugins.PSObject.Properties.Remove('updater') }
+          if ($env:BUILD_CHANNEL -ne 'stable') {
+            $config.productName = "Novera-$env:BUILD_CHANNEL"
+            $config.mainBinaryName = "Novera-Desktop-$env:BUILD_CHANNEL"
+            $config.identifier = "io.github.tronabs.novera-$env:BUILD_CHANNEL"
+            $cargoPath = (Resolve-Path -LiteralPath 'src-tauri/Cargo.toml').Path
+            $cargo = [IO.File]::ReadAllText($cargoPath)
+            foreach ($line in @('name = "Novera-Desktop"', 'default-run = "Novera-Desktop"')) {
+              if (!$cargo.Contains($line)) { throw "Missing Cargo bin configuration: $line" }
+              $cargo = $cargo.Replace($line, $line.Replace('Novera-Desktop', $config.mainBinaryName))
+            }
+            [IO.File]::WriteAllText($cargoPath, $cargo)
+          }
+          [IO.File]::WriteAllText($path, ($config | ConvertTo-Json -Depth 100))
+      - name: Provision make and Git Bash
+        shell: pwsh
+        run: |
+          if (!(Test-Path 'C:\Program Files\Git\bin\bash.exe')) { choco install git -y --no-progress }
+          Add-Content $env:GITHUB_PATH 'C:\Program Files\Git\cmd'
+          Add-Content $env:GITHUB_PATH 'C:\Program Files\Git\bin'
+          Add-Content $env:GITHUB_ENV "PATH=$env:PATH;C:\Program Files\Git\usr\bin"
+          if (!(Get-Command make -ErrorAction SilentlyContinue)) {
+            choco install make -y --no-progress
+            Add-Content $env:GITHUB_PATH 'C:\ProgramData\chocolatey\bin'
+          }
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - name: Set up the project Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.98.0'
+          targets: x86_64-pc-windows-msvc
+      - name: Enter the MSVC developer environment
+        uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756 # v1.13.0
+        with:
+          arch: x64
+      - name: Set up the engine toolchain
+        uses: ./.github/actions/setup-engine-toolchain
+        with:
+          variant: ${{ inputs.engine_variant }}
+      - name: Prepare dependencies and engine
+        shell: bash
+        run: |
+          set -euo pipefail
+          corepack enable
+          corepack prepare yarn@4.5.3 --activate
+          yarn install --immutable
+          yarn build:tauri:plugin:api
+          yarn build:core
+          yarn build:extensions
+          yarn download:bin
+          make build-engine
+      - name: Build desktop without installers or updater artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          yarn build:icon
+          yarn copy:assets:tauri
+          yarn tauri build --no-bundle
+      - name: Check packaging
+        shell: pwsh
+        run: ./scripts/tests/package-windows-portable.Tests.ps1
+      - name: Package Windows portable
+        id: portable
+        shell: pwsh
+        run: ./scripts/package-windows-portable.ps1
+      - name: Retain the unsigned build result
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: novera-windows-portable-${{ inputs.channel }}
+          path: |
+            ${{ steps.portable.outputs.PORTABLE_PATH }}
+            ${{ steps.portable.outputs.PORTABLE_SHA256_PATH }}
+          if-no-files-found: error

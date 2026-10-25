@@ -44,5 +44,7 @@
     "yellow": "Ít bộ nhớ dự phòng",
     "red": "Thiếu bộ nhớ",
     "unknown": "Chưa rõ bộ nhớ"
-  }
+  },
+  "downloadFailed": "Không thể bắt đầu tải xuống",
+  "resumeUnavailable": "Không thể tiếp tục quá trình tải xuống này. Hãy bắt đầu lại."
 }

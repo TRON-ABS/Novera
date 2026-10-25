@@ -31,7 +31,9 @@
     "description": "Apakah Anda yakin ingin menghapus model ini? Tindakan ini tidak dapat dibatalkan.",
     "success": "Model {{modelId}} telah dihapus secara permanen.",
     "cancel": "Batal",
-    "delete": "Hapus"
+    "delete": "Hapus",
+    "importedDescription": "Hapus model yang diimpor ini dari Novera? File lokal Anda di disk tidak akan dihapus.",
+    "removeFromJan": "Hapus dari Novera"
   },
   "deleteProvider": {
     "title": "Hapus Penyedia",
@@ -54,12 +56,72 @@
     "warning": {
       "title": "Lanjutkan dengan Hati-hati",
       "description": "Memodifikasi kemampuan model dapat mempengaruhi kinerja dan fungsionalitas. Pengaturan yang salah dapat menyebabkan perilaku atau kesalahan yang tidak terduga."
-    }
+    },
+    "audio": "Audio",
+    "video": "Video"
   },
   "addProvider": "Tambah Penyedia",
   "addOpenAIProvider": "Tambah Penyedia OpenAI",
   "enterNameForProvider": "Masukkan nama untuk penyedia",
   "baseUrl": {
-    "alibabaDescription": "Gunakan endpoint ruang kerja Alibaba Cloud dan wilayahnya. Ganti YOUR-WORKSPACE-ID dengan ID ruang kerja dan gunakan kunci API dari wilayah yang sama."
+    "alibabaDescription": "Gunakan endpoint ruang kerja Alibaba Cloud dan wilayahnya. Ganti YOUR-WORKSPACE-ID dengan ID ruang kerja dan gunakan kunci API dari wilayah yang sama.",
+    "title": "Basis URL",
+    "azureDescription": "Titik akhir Azure OpenAI Anda. Ganti YOUR-RESOURCE-NAME dengan nama sumber daya Azure Anda."
+  },
+  "limitedSupport": "Penyedia ini mungkin tidak didukung sepenuhnya. Kemampuan (alat, visi, audio) tidak terdeteksi secara otomatis - tambahkan model secara manual dan konfigurasikan kemampuan per model.",
+  "mlxExperimental": "Dukungan MLX bersifat eksperimental. Penyematan tidak tersedia, tombol penalaran belum tersambung, dan beberapa arsitektur model baru mungkin gagal dimuat. Laporkan masalah di GitHub agar kami dapat memprioritaskannya.",
+  "engineBundled": "Mesin inferensi terpasang di Novera, jadi tidak ada yang perlu diunduh atau diperbarui secara terpisah. Kutip versi ini ketika melaporkan model yang gagal dimuat.",
+  "engineOtherVersion": "Butuh versi llama.cpp yang berbeda? Jalankan llama-server Anda sendiri dan tambahkan sebagai penyedia khusus yang kompatibel dengan OpenAI.",
+  "engineOtherVersionLink": "Bagaimana caranya",
+  "engineReleaseNotes": "Catatan rilis",
+  "engineBuild": "Bangun",
+  "engineCommit": "Berkomitmen",
+  "backendInstalled": "Terpasang",
+  "backendHistoryShow": "Tampilkan riwayat pembaruan",
+  "backendHistoryHide": "Sembunyikan riwayat pembaruan",
+  "backendHistoryLoading": "Memuat riwayat pembaruan...",
+  "backendHistoryEmpty": "Belum ada pembaruan backend yang tercatat.",
+  "backendHistoryNone": "tidak ada",
+  "backendHistoryUpdated": "Diperbarui",
+  "backendHistoryRolledBack": "Diputar kembali",
+  "backendHistoryRollbackFailed": "Pengembalian gagal",
+  "backendHistoryFailed": "Gagal",
+  "chatModels": "Model Obrolan",
+  "embeddingModels": "Model Penyematan",
+  "embeddingModelsDesc": "Digunakan untuk RAG dan pencarian vektor. Model yang dipilih menjadi default saat membuat embeddings.",
+  "embeddingModelDefault": "Bawaan",
+  "embeddingModelSetDefault": "Ditetapkan sebagai model penyematan default",
+  "embeddingModelIsDefault": "Model penyematan default",
+  "imported": "Diimpor",
+  "importedTooltip": "Diimpor dari file lokal. Menghapusnya dari Novera tidak akan menghapus file di disk.",
+  "noModelFoundRemoteDesc": "Model yang tersedia akan dicantumkan di sini. Gunakan tombol segarkan di atas untuk mengambil model dari penyedia, atau tambahkan model secara manual dengan tombol +.",
+  "deleteAllModels": {
+    "button": "Hapus Semua",
+    "title": "Hapus semua model yang diunduh?",
+    "description": "Ini akan menghapus model {{count}} secara permanen dari disk.",
+    "sizeLabel": "Ruang disk yang akan dikosongkan:",
+    "calculating": "Menghitung…",
+    "warning": "Tindakan ini tidak dapat dibatalkan.",
+    "importedExcluded": "Model {{count}} yang diimpor akan disimpan (filenya tidak diunduh oleh Novera).",
+    "confirm": "Hapus model {{count}}",
+    "deleting": "Menghapus…",
+    "success": "Model {{count}} dihapus.",
+    "partialFailure": "Gagal menghapus model {{count}}. Lihat konsol untuk detailnya."
+  },
+  "apiKeys": {
+    "title": "Kunci API",
+    "description": "Masukkan kunci API Anda. Anda dapat menambahkan kunci tambahan di Tingkat Lanjut, dan Novera akan mencoba kunci berikutnya secara otomatis jika ada kunci yang gagal.",
+    "placeholder": "sk-…\nsk-…",
+    "primaryPlaceholder": "Masukkan kunci API utama",
+    "keyPlaceholder": "Masukkan kunci API",
+    "primaryBadge": "Utama",
+    "test": "Kunci tes",
+    "testing": "Pengujian...",
+    "testHint": "Memeriksa /models dengan setiap kunci dan menampilkan status per kunci.",
+    "advanced": "Lanjutan",
+    "hideAdvanced": "Sembunyikan lanjutan",
+    "oneKeyHint": "Kunci cadangan opsional dikonfigurasikan di Tingkat Lanjut.",
+    "addKey": "Tambahkan kunci",
+    "removeKey": "Hapus kunci"
   }
 }

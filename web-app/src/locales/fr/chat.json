@@ -30,5 +30,21 @@
     "rememberSaved": "Enregistré en mémoire sous « {{name}} »",
     "rememberExists": "Déjà en mémoire sous « {{name}} »",
     "rememberFailed": "Impossible d’enregistrer en mémoire"
+  },
+  "embeddings": {
+    "title": "Préparer vos documents",
+    "description": "Indexation des fichiers joints afin qu'ils puissent être recherchés et cités. Cela peut prendre un certain temps pour les documents volumineux."
+  },
+  "webSources": "Source(s) {{count}}",
+  "reasoning": {
+    "label": "Raisonnement...",
+    "thinking": "Réflexion",
+    "working": "En cours...",
+    "showFullTimeline": "Afficher la chronologie complète",
+    "showCurrentStep": "Afficher uniquement l'étape en cours",
+    "thoughtForAWhile": "Réfléchi quelques secondes",
+    "thoughtFor": "Pensée pour {{duration}}",
+    "workedForAWhile": "A fonctionné pendant quelques secondes",
+    "workedFor": "A travaillé pour {{duration}}"
   }
 }

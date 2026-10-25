@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "ルーティングモデルを選択…",
     "routerModelSearchPlaceholder": "モデルを検索…",
     "routerModelEmptyList": "利用可能な軽量モデルがありません。より小さなモデルを追加するか、「モデル」でAPIキーを設定してください。",
-    "routerModelEmptySearch": "「{{query}}」に一致するものはありません。"
+    "routerModelEmptySearch": "「{{query}}」に一致するものはありません。",
+    "maxToolOutputChars": "ツールの最大出力文字数",
+    "maxToolOutputCharsDesc": "会話内に保持された最長のツール結果。これを超えるものはトリミングされ、切り捨てとしてマークされるため、1 つの大きな結果でモデルのコンテキストが使い果たされることはありません。結果をそのまま保持するには 0 に設定します。"
+  },
+  "auth": {
+    "label": "認証:",
+    "state": {
+      "notApplicable": "不要",
+      "staticHeader": "認可ヘッダー",
+      "authenticated": "認証されました",
+      "expired": "有効期限が切れました",
+      "staleResource": "が別の URL に対して発行されました",
+      "unauthenticated": "認証されていません"
+    },
+    "expiresIn": "は {{duration}} に期限切れになります",
+    "authenticate": "サインイン",
+    "reauthenticate": "再認証",
+    "clear": "クリア認証",
+    "waiting": "ブラウザを待っています...",
+    "openSignInPage": "サインインページを開きます",
+    "needsAuth": "{{serverName}} には認証が必要です",
+    "needsAuthHint": "接続するには、このサーバーにサインインしてください。",
+    "authorized": "{{serverName}} にサインインしました",
+    "authorizeFailed": "{{serverName}} へのサインインに失敗しました",
+    "cleared": "{{serverName}} の保存された資格情報をクリアしました",
+    "nothingToClear": "{{serverName}} には認証情報が保存されていませんでした",
+    "clearFailed": "{{serverName}} の認証情報をクリアできませんでした",
+    "renew": "セッションを更新します",
+    "expiredAgo": "{{duration}} 前に期限切れになりました"
   }
 }

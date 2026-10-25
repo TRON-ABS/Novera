@@ -13,12 +13,11 @@ const placeholders = (text: string) => [...text.matchAll(/\{\{(\w+)\}\}/g)].map(
 const code = (text: string) => text.match(/`[^`]*`/g) ?? []
 const identifiers = (text: string) => (text.match(/\b(?:memory_read|memory_write|web_search|web_fetch|chat_template_kwargs|YOUR-RESOURCE-NAME)\b|(?<!\w)\/(?:help|models)\b/g) ?? []).sort()
 
-describe('Partial Wu (Shanghainese) locale integrity', () => {
-  it.each(namespaces)('%s only includes valid English keys and preserves interpolation and code literals', (namespace) => {
+describe('Complete Wu (Shanghainese) locale integrity', () => {
+  it.each(namespaces)('%s covers every English key and preserves interpolation and code literals', (namespace) => {
     const english = leaves(JSON.parse(readFileSync(join(locales, 'en', namespace), 'utf8')))
     const wu = leaves(JSON.parse(readFileSync(join(locales, 'wuu', namespace), 'utf8')))
-    expect(Object.keys(english)).toEqual(expect.arrayContaining(Object.keys(wu)))
-    if (namespace === 'tools.json') expect(Object.keys(wu).sort()).toEqual(Object.keys(english).sort())
+    expect(Object.keys(wu).sort()).toEqual(Object.keys(english).sort())
     for (const [key, translated] of Object.entries(wu)) {
       const original = english[key]
       if (original) expect(translated.length, key).toBeGreaterThan(0)

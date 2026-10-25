@@ -66,8 +66,6 @@ def validate(root):
                     if key.startswith('discovery.') and not translated.get(key, '').strip():
                         issues.append(f'{namespace}:{key}: required feature translation missing')
             covered += len(set(translated) & set(original))
-            if entry['source_pr'] is None:
-                continue
             missing.extend(f'{namespace}:{key}' for key in set(original) - set(translated))
             extras.extend(f'{namespace}:{key}' for key in set(translated) - set(original))
             for key in set(original) & set(translated):
@@ -78,11 +76,13 @@ def validate(root):
                     left, right = re.findall(pattern, value), re.findall(pattern, reference)
                     if (Counter(left) != Counter(right) if label == 'interpolation' else left != right):
                         issues.append(f'{namespace}:{key}: {label}')
-                if re.search(r'JANPH|JANSEG|ZXQ|QXZ|\uFFFD', value):
+                if code != 'en' and re.search(r'JANPH|JANSEG|ZXQ|QXZ|\uFFFD', value):
                     issues.append(f'{namespace}:{key}: temporary marker')
-        if extras:
+        # Inherited catalogs retain obsolete upstream keys; do not delete user
+        # translations merely to make their shape match the English catalog.
+        if extras and entry['source_pr'] is not None:
             issues.append(f'{len(extras)} unknown keys')
-        if missing and entry['source_pr'] is not None and not entry['partial']:
+        if missing and not entry['partial']:
             issues.append(f'{len(missing)} missing keys')
         if covered != entry['keys'] or total != entry['total']:
             issues.append('documented coverage differs from catalog')

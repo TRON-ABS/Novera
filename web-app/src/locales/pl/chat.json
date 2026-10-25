@@ -30,5 +30,21 @@
     "rememberSaved": "Zapisano w pamięci jako „{{name}}”",
     "rememberExists": "Już w pamięci jako „{{name}}”",
     "rememberFailed": "Nie udało się zapisać w pamięci"
+  },
+  "embeddings": {
+    "title": "Przygotowanie dokumentów",
+    "description": "Indeksowanie załączonych plików, aby można było je przeszukiwać i cytować. W przypadku dużych dokumentów może to chwilę potrwać."
+  },
+  "webSources": "Źródło(a) {{count}}",
+  "reasoning": {
+    "label": "Rozumowanie...",
+    "thinking": "Myślenie",
+    "working": "Działa...",
+    "showFullTimeline": "Pokaż pełną oś czasu",
+    "showCurrentStep": "Pokaż tylko bieżący krok",
+    "thoughtForAWhile": "Pomyślałem przez kilka sekund",
+    "thoughtFor": "Myśl o {{duration}}",
+    "workedForAWhile": "Działało przez kilka sekund",
+    "workedFor": "Pracował dla {{duration}}"
   }
 }

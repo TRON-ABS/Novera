@@ -6,5 +6,31 @@
   "increaseContextSize": "コンテキストサイズを増やす",
   "lastRequestOverflowed": "前回のリクエストがコンテキストウィンドウを超過しました。",
   "contextOverflowDetail": "このリクエストには {{request}} token が必要でしたが、モデルのコンテキストウィンドウは {{context}} token しか保持できません。",
-  "contextOverflowGeneric": "リクエストが利用可能なコンテキストサイズを超えています。"
+  "contextOverflowGeneric": "リクエストが利用可能なコンテキストサイズを超えています。",
+  "emptyReply": "返信を返さないままモデルが終了しました。再生成を試すか、プロバイダーの設定を確認してください。",
+  "engine": {
+    "unknown": "モデル エンジンが予期しないエラーを報告しました。",
+    "MODEL_LOAD_FAILED": "モデルをロードできませんでした。",
+    "MODEL_ARCH_NOT_SUPPORTED": "このモデルのアーキテクチャは現在のエンジンではサポートされていません。 [設定] からエンジンを更新すると、サポートが追加される場合があります。",
+    "MODEL_LOAD_TIMED_OUT": "モデルのロードに時間がかかりすぎたため、停止されました。通常は、モデルまたはコンテキスト サイズを小さくすると効果的です。",
+    "MISSING_SHARED_LIBRARY": "エンジンに必要なライブラリがないため、エンジンを開始できません。",
+    "GPU_DRIVER_TOO_OLD": "GPU ドライバーはこのエンジンには古すぎます。ドライバーを更新するか、設定で CPU エンジンに切り替えると、この問題が解決されます。",
+    "OUT_OF_MEMORY": "このモデルを実行するにはメモリが不足しています。通常は、モデルまたはコンテキスト サイズを小さくすると効果的です。",
+    "INVALID_ARGUMENT": "モデルの設定の 1 つが無効です。",
+    "IO_ERROR": "モデルの起動中にファイルの読み取りまたは書き込みができませんでした。",
+    "INTERNAL_ERROR": "モデルの起動中に Novera 内で問題が発生しました。",
+    "ENGINE_UNREACHABLE": "llama.cpp エンジンは実行されていますが、Novera はこのコンピューター (127.0.0.1) 上でそれに接続できません。 VPN、プロキシ、またはセキュリティ ソフトウェアがローカル接続をブロックしている可能性があります。",
+    "ENGINE_STOPPED": "llama.cpp エンジンが予期せず停止しました。メッセージを再度送信すると、メッセージが再び開始されます。停止し続ける場合は、セキュリティソフトまたはGPUドライバーが原因である可能性があります。",
+    "UNSUPPORTED_CPU": "ローカル モデルは、このコンピュータのプロセッサではサポートされていません。 Novera のローカル エンジンは Apple Silicon Mac (M1 以降) 用に構築されているため、Intel Mac では起動できません。クラウドプロバイダーとカスタムプロバイダーは引き続き機能します。"
+  },
+  "engineMissingLibraries": "欠落: {{libraries}}",
+  "engineReportedDetail": "エンジンが報告しました: {{detail}}",
+  "startModelFailed": "モデルの起動に失敗しました: {{reason}}",
+  "createModelFailed": "モデルの作成に失敗しました: {{reason}}",
+  "noRunningSession": "モデル: {{model}} の実行セッションが見つかりませんでした",
+  "serverPortOccupied": "ポートが占有されました",
+  "serverPortOccupiedDescription": "ポート {{port}} はすでに使用されています。別のポートを試してください。",
+  "serverInvalidModelPath": "モデルパスが無効またはアクセスできません",
+  "serverStartModelFailed": "モデルの起動に失敗しました",
+  "serverStartFailed": "サーバーの起動に失敗しました"
 }

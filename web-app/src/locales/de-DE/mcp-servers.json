@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "Weiterleitungsmodell auswählen…",
     "routerModelSearchPlaceholder": "Modelle durchsuchen…",
     "routerModelEmptyList": "Keine leichtgewichtigen Modelle verfügbar. Fügen Sie ein kleineres Modell hinzu oder konfigurieren Sie API-Schlüssel unter Modelle.",
-    "routerModelEmptySearch": "Keine Treffer für „{{query}}“."
+    "routerModelEmptySearch": "Keine Treffer für „{{query}}“.",
+    "maxToolOutputChars": "Maximale Werkzeugausgabezeichen",
+    "maxToolOutputCharsDesc": "Längstes Tool-Ergebnis, das im Gespräch gespeichert wird. Alles, was darüber hinausgeht, wird gekürzt und als abgeschnitten markiert, sodass ein einziges großes Ergebnis den Kontext des Modells nicht erschöpfen kann. Auf 0 setzen, um die Ergebnisse vollständig zu halten."
+  },
+  "auth": {
+    "label": "Authentifizierung:",
+    "state": {
+      "notApplicable": "nicht erforderlich",
+      "staticHeader": "Autorisierungsheader",
+      "authenticated": "authentifiziert",
+      "expired": "abgelaufen",
+      "staleResource": "ausgestellt für einen anderen URL",
+      "unauthenticated": "nicht authentifiziert"
+    },
+    "expiresIn": "läuft in {{duration}} ab",
+    "authenticate": "Anmelden",
+    "reauthenticate": "Erneut authentifizieren",
+    "clear": "Klare Authentifizierung",
+    "waiting": "Warten auf Browser...",
+    "openSignInPage": "Öffnen Sie die Anmeldeseite",
+    "needsAuth": "{{serverName}} benötigt eine Authentifizierung",
+    "needsAuthHint": "Melden Sie sich bei diesem Server an, um eine Verbindung herzustellen.",
+    "authorized": "Angemeldet bei {{serverName}}",
+    "authorizeFailed": "Die Anmeldung für {{serverName}} ist fehlgeschlagen",
+    "cleared": "Gespeicherte Anmeldeinformationen für {{serverName}} gelöscht",
+    "nothingToClear": "{{serverName}} hatte keine gespeicherten Anmeldeinformationen",
+    "clearFailed": "Anmeldeinformationen für {{serverName}} konnten nicht gelöscht werden",
+    "renew": "Sitzung erneuern",
+    "expiredAgo": "ist vor {{duration}} abgelaufen"
   }
 }

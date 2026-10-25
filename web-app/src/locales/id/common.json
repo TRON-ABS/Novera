@@ -62,7 +62,21 @@
   "deny": "Tolak",
   "start": "Mulai",
   "stop": "Hentikan",
-  "preview": "Pratinjau",
+  "preview": {
+    "loading": "Pembukaan…",
+    "unsupported": "Novera tidak dapat menampilkan file seperti ini. Buka untuk melihatnya di aplikasi lain.",
+    "outside": "File ini tidak lagi berada di ruang kerja sesi.",
+    "tooLarge": "Terlalu besar untuk dipratinjau. Buka untuk melihatnya di aplikasi lain.",
+    "reload": "Muat ulang",
+    "allowNetwork": "Izinkan jaringan",
+    "unsandboxed": "Jalankan tanpa kotak pasir: data tersimpan dan file lokal berfungsi",
+    "unresolvedRefs_one": "1 file yang ditautkan ke halaman ini tidak dapat dimuat di pratinjau. Buka untuk melihatnya di browser.",
+    "unresolvedRefs_other": "File {{count}} yang ditautkan ke halaman ini tidak dapat dimuat di pratinjau. Buka untuk melihatnya di browser.",
+    "externalRefs_one": "1 sumber daya yang dimuat halaman ini dari web diblokir. Aktifkan \"Izinkan jaringan\" untuk memuatnya.",
+    "externalRefs_other": "Sumber daya {{count}} yang dimuat halaman ini dari web diblokir. Aktifkan \"Izinkan jaringan\" untuk memuatnya.",
+    "scriptErrors_one": "Halaman melaporkan kesalahan: {{message}}",
+    "scriptErrors_other": "Halaman ini melaporkan kesalahan {{count}}. Pertama: {{message}}"
+  },
   "compactWidth": "Lebar Ringkas",
   "fullWidth": "Lebar Penuh",
   "dark": "Gelap",
@@ -224,7 +238,32 @@
   "modelSettings": {
     "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
     "title": "Pengaturan Model - {{modelId}}",
-    "description": "Konfigurasikan pengaturan model untuk mengoptimalkan kinerja dan perilaku."
+    "description": "Konfigurasikan pengaturan model untuk mengoptimalkan kinerja dan perilaku.",
+    "samplingDefaults": {
+      "title": "Parameter pengambilan sampel default",
+      "description": "Pengaturan sampler default untuk model ini. Digunakan kecuali diganti dengan nilai per asisten atau per permintaan."
+    },
+    "specDraft": {
+      "section": "Penguraian kode spekulatif",
+      "enable": "Aktifkan decoding spekulatif",
+      "enableDescription": "Draf beberapa token per langkah dan verifikasi dalam satu langkah, yang mempercepat pembuatan. Menggunakan head MTP bawaan model, atau model draf yang diunduh dengannya (MTP, Eagle3, DFlash, atau DSpark).",
+      "nMax": "Token draf maksimal",
+      "nMaxDescription": "Jumlah maksimum token yang akan disusun per langkah. Bawaan 16.",
+      "nMin": "Token draf minimum",
+      "nMinDescription": "Jumlah minimum token yang akan disusun per langkah. Bawaan 0.",
+      "pMin": "Kemungkinan draf minimum",
+      "pMinDescription": "Probabilitas minimum untuk penyusunan serakah (0–1). Standarnya 0,75."
+    },
+    "templateKwargs": {
+      "section": "Opsi templat obrolan",
+      "description": "Opsi tambahan yang diterima templat obrolan model ini. Dikirim sebagai chat_template_kwargs pada setiap permintaan; biarkan nilai defaultnya agar templat dapat memutuskan.",
+      "addCustom": "Tambahkan opsi khusus",
+      "keyPlaceholder": "nama\nnilai",
+      "valuePlaceholder": "nilai",
+      "add": "Tambahkan",
+      "cancel": "Batal",
+      "remove": "Hapus"
+    }
   },
   "dialogs": {
     "changeDataFolder": {
@@ -250,6 +289,10 @@
     },
     "deleteMessage": {
       "description": "Yakin ingin menghapus pesan ini? Tindakan ini tidak dapat dibatalkan."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Hapus Semua Percakapan",
+      "description": "Percakapan {{count}} di \"{{projectName}}\" akan dihapus. Tindakan ini tidak dapat dibatalkan."
     }
   },
   "errorDialog": {
@@ -303,7 +346,16 @@
     },
     "downloadFailed": {
       "title": "Unduhan Gagal",
-      "description": "Unduhan {{item}} gagal"
+      "description": "Unduhan {{item}} gagal",
+      "descriptionWithReason": "Pengunduhan {{item}} gagal: {{reason}}",
+      "reason": {
+        "dns": "nama server tidak dapat diselesaikan",
+        "refused": "koneksi ditolak",
+        "timeout": "waktu koneksi habis",
+        "tls": "sambungan aman tidak dapat dibuat",
+        "proxy": "proxy tidak dapat dihubungi",
+        "unreachable": "server tidak dapat dihubungi"
+      }
     },
     "modelValidationStarted": {
       "title": "Memvalidasi Model",
@@ -344,6 +396,59 @@
     "threadRemovedFromProject": {
       "title": "Thread Dihapus",
       "description": "Thread berhasil dihapus dari \"{{projectName}}\""
+    },
+    "openSettings": "Buka Pengaturan",
+    "openLogs": "Buka log",
+    "downloadTokenRequired": {
+      "title": "Token Hugging Face diperlukan",
+      "description": "Model ini memerlukan token akses Hugging Face. Tambahkan token Anda di Pengaturan dan coba lagi."
+    },
+    "downloadLicenseRequired": {
+      "title": "Terima lisensi model di Hugging Face",
+      "description": "Anda harus menerima lisensi model di halaman Hugging Face sebelum mengunduh."
+    },
+    "downloadRateLimited": {
+      "title": "Tarif dibatasi oleh Hugging Face",
+      "description": "Tarif Anda dibatasi. Menambahkan token dapat meningkatkan batas tarif. Silakan coba lagi nanti."
+    },
+    "fileUploaded": {
+      "title": "File Diproses",
+      "description": "File telah berhasil diproses dan diindeks"
+    },
+    "uploadFailed": {
+      "title": "Pemrosesan Gagal",
+      "description": "Gagal memproses file",
+      "subjectThisFile": "Berkas ini",
+      "pdfMalformedXref": "{{subject}} memiliki format tabel referensi silang PDF yang salah dan tidak dapat diuraikan. Coba buka di penampil PDF dan simpan kembali (File → Cetak → Simpan sebagai PDF), lalu unggah lagi.",
+      "pdfScanned": "{{subject}} tampaknya merupakan PDF yang dipindai atau berbasis gambar. OCR belum didukung — harap unggah PDF berbasis teks.",
+      "pdfEncrypted": "{{subject}} dilindungi kata sandi. Hapus kata sandi dan coba lagi.",
+      "pdfUnsupportedFeature": "{{subject}} menggunakan fitur PDF Novera belum dapat diurai (mis. fungsi warna/bayangan PostScript). Coba simpan kembali (File → Print → Save as PDF) untuk meratakannya, lalu upload lagi.",
+      "pdfGeneric": "{{subject}} tidak dapat diuraikan sebagai PDF. File mungkin rusak atau menggunakan fitur PDF yang tidak didukung.",
+      "fileTooLarge": "{{subject}} terlalu besar. {{message}}.",
+      "unsupportedType": "Jenis file \"{{type}}\" tidak didukung.",
+      "ioError": "Tidak dapat membaca {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} tidak dapat diuraikan: {{message}}",
+      "fallback": "Gagal memproses {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Berkas Dihapus",
+      "description": "File telah dihapus dari proyek"
+    },
+    "deleteFailed": {
+      "title": "Penghapusan Gagal",
+      "description": "Gagal menghapus berkas"
+    },
+    "fileAlreadyExists": {
+      "title": "File Sudah Ada",
+      "description": "File sudah dilampirkan pada proyek ini"
+    },
+    "unsupportedFileType": {
+      "title": "Jenis File Tidak Didukung",
+      "description": "Ekstensi file \".{{extension}}\" tidak didukung untuk referensi Proyek."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Lampiran Dinonaktifkan",
+      "description": "Lampiran dinonaktifkan di Pengaturan"
     }
   },
   "projects": {
@@ -385,7 +490,13 @@
       "updateButton": "Perbarui",
       "alreadyExists": "Proyek \"{{projectName}}\" sudah ada",
       "createSuccess": "Proyek \"{{projectName}}\" berhasil dibuat",
-      "renameSuccess": "Proyek diubah dari \"{{oldName}}\" menjadi \"{{newName}}\""
+      "renameSuccess": "Proyek diubah dari \"{{oldName}}\" menjadi \"{{newName}}\"",
+      "assistant": "Asisten",
+      "selectAssistant": "Pilih asisten (opsional)",
+      "noAssistant": "Tidak ada asisten",
+      "addAssistant": "Tambahkan Asisten",
+      "updateSuccess": "Proyek \"{{projectName}}\" berhasil diperbarui",
+      "saveError": "Tidak dapat menyimpan proyek. Silakan coba lagi."
     },
     "noConversationsIn": "Tidak Ada Percakapan di {{projectName}}",
     "startNewConversation": "Mulai percakapan baru dengan {{projectName}} di bawah",
@@ -401,7 +512,16 @@
     "noProjectsFound": "Tidak ada proyek ditemukan",
     "tryDifferentSearch": "Coba kata kunci pencarian lain",
     "uploadingFiles": "Memproses file…",
-    "processButton": "Tambah"
+    "processButton": "Tambah",
+    "selectAssistant": "Pilih asisten",
+    "noAssistantAssigned": "Tidak ada asisten yang ditugaskan untuk proyek ini",
+    "files": "File",
+    "filesDescription": "Tambahkan PDF, dokumen, atau teks lain sebagai referensi dalam proyek ini.",
+    "conversation": "Percakapan",
+    "instructions": "Instruksi",
+    "setup": "Pengaturan",
+    "instructionsDescription": "Sesuaikan nada dan gaya respons",
+    "manageInstructions": "Kelola Instruksi"
   },
   "llamacppBusyOnExit": {
     "title": "llama.cpp is still busy",
@@ -424,5 +544,267 @@
   "errorTracking": {
     "title": "Pelacakan kesalahan",
     "summary": "Laporan opsional ke {{host}}: jenis kesalahan, posisi kode, versi, dan sistem operasi. Tanpa percakapan, pesan kesalahan asli, atau kunci. Dapat dinonaktifkan kapan saja."
-  }
+  },
+  "htmlArtifact": {
+    "code": "Kode",
+    "preview": "Pratinjau",
+    "previewStreaming": "Tersedia saat pembuatan selesai",
+    "unresolvedAssets_one": "1 referensi aset tidak dapat dimuat di pratinjau. Jalur relatif tidak memiliki dasar URL untuk diselesaikan.",
+    "unresolvedAssets_other": "Referensi aset {{count}} tidak dapat dimuat di pratinjau. Jalur relatif tidak memiliki dasar URL untuk diselesaikan."
+  },
+  "remote_access": "Akses Jarak Jauh",
+  "integrations": "Integrasi",
+  "claude_code": "Kode Claude",
+  "web_search": "Pencarian Web",
+  "shell": "Kerang",
+  "browse": "Jelajahi",
+  "moreControls": "Lebih banyak kontrol",
+  "starting": "Mulai...",
+  "activeSuffix": "(Aktif)",
+  "hideProvider": "Sembunyikan penyedia",
+  "showProvider": "Tampilkan penyedia",
+  "home": "Rumah",
+  "cowork": "Cowork",
+  "newSession": "Sesi baru",
+  "artifacts": "Artefak",
+  "customize": "Sesuaikan",
+  "local": "Lokal",
+  "selectFolder": "Pilih folder",
+  "selectModel": "Pilih model terlebih dahulu",
+  "commands": "Perintah",
+  "cmdHelp": "Daftar perintah yang tersedia",
+  "cmdClear": "Selesaikan sesi ini",
+  "cmdModels": "Ganti model aktif",
+  "cmdModelsHint": "Ketik /models lalu pilih model dari daftar",
+  "cmdModelSwitched": "Beralih ke {{name}}",
+  "cmdUnknown": "Perintah tidak diketahui: {{name}}. Coba /help",
+  "cmdBusy": "Tidak dapat melakukan itu saat agen sedang berjalan",
+  "cmdCompact": "Ringkas konteks sesi menjadi ringkasan",
+  "cmdCompacted": "Pesan {{before}} -> {{after}} yang dipadatkan",
+  "cmdNothingToCompact": "Belum ada yang perlu dipadatkan",
+  "cmdCompactFailed": "Pemadatan gagal: {{error}}",
+  "cmdPlan": "Alihkan mode paket (hanya baca: agen mengusulkan tanpa menulis)",
+  "cmdPlanOn": "Mode rencana aktif: agen membaca dan mengusulkan tanpa menulis",
+  "cmdPlanOff": "Mode rencana nonaktif: eksekusi normal",
+  "cmdTodo": "Buka panel kemajuan",
+  "cmdTasks": "Buka panel tugas latar belakang",
+  "cmdInit": "Pelajari proyek dan tulis keterampilan dan memori",
+  "cmdInitRunning": "Memulai proyek ini",
+  "skills": "Keterampilan",
+  "skillsInContext": "Keterampilan yang tersedia untuk agen saat ini",
+  "skillsTitle": "Kelola keterampilan",
+  "skillsScopeProject": "Keterampilan untuk {{folder}}",
+  "skillsScopeGlobal": "Keterampilan global, tersedia untuk setiap sesi",
+  "skillsScopeMerged": "Keterampilan untuk {{folder}}, ditambah keterampilan global yang dibagikan setiap sesi\nmap",
+  "skillOriginFolder": "map",
+  "skillOriginGlobal": "global",
+  "skillsEmpty": "Belum ada keterampilan",
+  "skillsPickOrNew": "Pilih keterampilan yang akan diedit, atau buat yang baru.",
+  "skillNew": "Keterampilan baru",
+  "skillDelete": "Hapus keterampilan",
+  "skillSave": "Simpan",
+  "skillSaved": "Keterampilan disimpan",
+  "skillNameRequired": "Nama keahlian wajib diisi",
+  "skillNamePlaceholder": "nama keterampilan",
+  "skillContentPlaceholder": "Jelaskan prosedur yang dapat digunakan kembali di Markdown…",
+  "skillHubImport": "Impor dari hub",
+  "skillHubTitle": "Pusat keterampilan Anthropic",
+  "skillHubEmpty": "Tidak ada keterampilan yang ditemukan di hub",
+  "skillImport": "Impor",
+  "skillReimport": "Impor ulang",
+  "skillImported": "{{name}} yang diimpor",
+  "sessions": "Sesi",
+  "deleteSession": "Hapus sesi",
+  "deleteSessionTitle": "Hapus sesi?",
+  "deleteSessionBody": "\"{{title}}\" dan transkripnya akan dihapus secara permanen. Hal ini tidak dapat dibatalkan.",
+  "analyticsConsentDetail": "Kami mengumpulkan data anonim untuk memahami penggunaan fitur. Obrolan dan informasi pribadi Anda tidak pernah dilacak. Anda dapat mengubahnya kapan saja di Pengaturan > Privasi.",
+  "analyticsConsentQuestion": "Apakah Anda ingin membantu kami meningkatkan Novera?",
+  "searchThreads": "Cari thread...",
+  "toNavigate": "untuk bernavigasi",
+  "toSelect": "untuk memilih",
+  "toClose": "untuk menutup",
+  "clearRecent": "Jelas",
+  "dismiss": "Singkirkan",
+  "changes": {
+    "title": "Agen berubah",
+    "empty": "File yang ditulis atau diedit oleh agen akan muncul di sini.",
+    "a11y": "Perubahan agen: file {{files}}, {{additions}} ditambahkan, {{deletions}} dihapus"
+  },
+  "modelPanel": {
+    "title": "Pengaturan model",
+    "a11y": "Buka pengaturan model",
+    "contextTooltip": "Jendela konteks: {{value}} dari {{max}} token"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Keterampilan '{{name}}' tidak tersedia",
+    "kind": {
+      "skill": "Keterampilan",
+      "command": "Perintah",
+      "model": "Model"
+    }
+  },
+  "multimodal": "Multimoda",
+  "noAssistant": "Tidak ada asisten",
+  "settingUpJan": "Mem-boot Novera…",
+  "registeringExtensions": "Mendaftarkan ekstensi…",
+  "loadingExtensions": "Memuat ekstensi… ({{done}}/{{total}})",
+  "continueAiResponse": "Lanjutkan dengan Respon AI",
+  "modelControls": {
+    "updateFailed": "Tidak dapat memperbarui pengaturan model"
+  },
+  "missingDependenciesDialog": {
+    "title": "Perpustakaan Sistem Hilang",
+    "description": "{{backend}} telah diinstal tetapi beberapa perpustakaan sistem yang diperlukan tidak dapat ditemukan. Ini mungkin kembali ke CPU atau tidak berjalan dengan benar.",
+    "installLabel": "Untuk memperbaikinya, instal yang berikut ini:",
+    "download": "Unduh",
+    "additionalLibraries": "Perpustakaan tambahan yang hilang:",
+    "missingLibraries": "Perpustakaan tidak ada:",
+    "showRawLibraries": "Tampilkan {{count}} nama perpustakaan yang hilang"
+  },
+  "attachmentsIngestion": {
+    "title": "Pilih cara menelan lampiran",
+    "description": "Pilih apakah akan menyertakan file ini secara langsung dalam obrolan atau mengindeksnya sebagai penyematan.",
+    "inline": "Suntikkan ke dalam obrolan",
+    "embeddings": "Gunakan penyematan"
+  },
+  "attachmentInjectedIndicator": "Dimasukkan ke dalam obrolan",
+  "attachmentEmbeddedIndicator": "Tersemat untuk RAG",
+  "viewInjectedContent": "Lihat konten yang disuntikkan",
+  "injectedContentTitle": "Konten file yang disuntikkan",
+  "errors": {
+    "fileTooLarge": "File terlalu besar",
+    "fileTooLargeDescription": "{{fileName}} melebihi batas {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "Potongan {{count}}",
+    "title": "File",
+    "empty": "File yang Anda lampirkan dan file yang dibuat agen akan muncul di sini.",
+    "a11y": "File: {{count}}",
+    "attachments": "Lampiran",
+    "notImported": "tidak berada di ruang kerja"
+  },
+  "duration": {
+    "seconds": "{{count}}",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Runtuh",
+  "expand": "Perluas",
+  "todoPanelTitle": "Kemajuan",
+  "todoPanelEmpty": "Belum ada daftar tugas.",
+  "backgroundTasks": "Tugas latar belakang",
+  "subagentsRunning_one": "Subagen {{count}} berjalan",
+  "subagentsRunning_other": "Subagen {{count}} berjalan",
+  "monitorsRunning_one": "Monitor {{count}} berjalan",
+  "monitorsRunning_other": "Monitor {{count}} berjalan",
+  "backgroundRunning_one": "Tugas latar belakang {{count}} berjalan",
+  "backgroundRunning_other": "Tugas latar belakang {{count}} berjalan",
+  "monitors": "Monitor",
+  "monitorPolling": "Jajak Pendapat",
+  "monitorMatched": "Cocok",
+  "monitorTimedOut": "Waktu habis",
+  "monitorStopped": "Berhenti",
+  "monitorEnded": "Berakhir",
+  "coworkWatching_one": "Menonton monitor {{count}}…",
+  "coworkWatching_other": "Menonton monitor {{count}}…",
+  "coworkWaitingBackground": "Menunggu tugas latar belakang…",
+  "noBackgroundTasks": "Belum ada tugas latar belakang.",
+  "running": "Berlari",
+  "queued": "Mengantri",
+  "waiting": "Menunggu",
+  "finished": "Selesai",
+  "subagentPhase": "fase {{phase}}",
+  "subagentWaiting": "menunggu",
+  "viewTranscript": "Lihat transkrip",
+  "taskWorking": "Bekerja…",
+  "taskNoOutput": "Subagen tidak menghasilkan keluaran yang terlihat.",
+  "subagentToolUses_one": "Penggunaan alat {{count}}",
+  "subagentToolUses_other": "Penggunaan alat {{count}}",
+  "artifactGroupCode": "Kode",
+  "artifactGroupImage": "Gambar",
+  "artifactGroupDocument": "Dokumen",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Buka pratinjau",
+  "artifactOpenExternal": "Buka",
+  "artifactMoreActions": "Tindakan lainnya",
+  "artifactShowInFolder": "Tampilkan di Folder",
+  "skillsUsedLabel": "Keterampilan yang digunakan",
+  "skillsUsed": "Keterampilan yang digunakan: {{skills}}",
+  "artifactsAll": "Semua",
+  "artifactsEmpty": "Belum ada yang diproduksi. Artefak dari Cowork run muncul di sini.",
+  "artifactsNoMatch": "Tidak ada artefak yang cocok.",
+  "artifactsSearch": "Cari artefak",
+  "artifactsShowMore": "Tampilkan {{count}} selengkapnya",
+  "workspace": {
+    "readsFrom": "Bekerja di",
+    "writable": "membaca & menulis",
+    "footnote": "Agen membaca dan mengedit folder ini secara langsung. Tinjau apa yang berubah di panel diff.",
+    "footnoteEmpty": "Lampirkan folder agar agen dapat mengerjakan proyek Anda. Itu dapat membaca dan mengedit file di dalamnya.",
+    "attach": "Lampirkan folder",
+    "change": "Ganti folder",
+    "detach": "Lepaskan folder",
+    "open": "Buka",
+    "reveal": "Mengungkapkan",
+    "unavailable": "Ruang kerja tidak tersedia",
+    "missing": "Folder ruang kerja {{folder}} tidak lagi tersedia. Pilih folder lain.",
+    "openFailed": "Tidak dapat membuka ruang kerja",
+    "revealFailed": "Tidak dapat menampilkan ruang kerja",
+    "a11yWithFolder": "Folder proyek {{folder}}, terlampir dengan akses baca dan tulis. Ubah atau lepaskan.",
+    "a11yNoFolder": "Tidak ada folder proyek yang dilampirkan. Lampirkan satu."
+  },
+  "coworkEmpty": {
+    "title": "Apa yang sedang kita kerjakan?",
+    "subtitleSandbox": "Berikan tugas pada Novera. Ia membaca dan menulis file, menjalankan perintah, dan mengerjakan langkah-langkahnya sendiri.",
+    "subtitleFolder": "Berikan tugas pada Novera. Ia bekerja langsung di {{folder}}, membaca dan mengedit file sendiri.",
+    "try": "Coba",
+    "sandbox": {
+      "first": "Tulis skrip Python yang mengganti nama file berdasarkan tanggal pengambilannya",
+      "second": "Buat dasbor satu halaman dari CSV yang akan saya tempel",
+      "third": "Draf README untuk proyek yang saya jelaskan kepada Anda"
+    },
+    "folder": {
+      "first": "Jelaskan bagaimana {{folder}} disatukan",
+      "second": "Temukan setiap TODO di {{folder}} dan kelompokkan berdasarkan area",
+      "third": "Tulis tes untuk bagian {{folder}} Saya tunjukkan"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Tidak ada terminal",
+    "a11y": "Perintah yang berjalan dimatikan. Detail.",
+    "title": "Perintah yang berjalan dimatikan",
+    "body": "Novera memungkinkan agen menjalankan perintah shell hanya ketika sistem Anda dapat membatasinya. Tidak ada kotak pasir yang tersedia di sini, sehingga agen dapat membaca, menulis, dan mengedit file di kotak pasirnya — namun tidak menjalankan apa pun.",
+    "fixLinux": "Linux menggunakan bubblewrap. Instal, lalu restart Novera.",
+    "fixMac": "macOS menggunakan kotak pasir bawaan di /usr/bin/sandbox-exec. Mulai ulang Novera setelah tersedia.",
+    "fixWindows": "Windows menggunakan AppContainer. Mulai ulang Novera untuk mencoba lagi.",
+    "recheck": "Periksa lagi"
+  },
+  "planMode": {
+    "label": "Rencana",
+    "tooltipOff": "Rencanakan terlebih dahulu — agen membaca dan mengusulkan, tanpa menulis.",
+    "tooltipOn": "Perencanaan. Nonaktifkan ini agar agen dapat menulis file.",
+    "onAnnounce": "Mode rencana aktif",
+    "placeholder": "Minta rencana. Agen tidak akan mengubah file apa pun."
+  },
+  "budget": {
+    "stoppedSteps": "Berhenti di langkah {{max}}. Agen belum selesai.",
+    "keepGoing": "Lanjutkan",
+    "stoppedTokens": "Berhenti — sesi ini mencapai anggaran tokennya.",
+    "compact": "Kompak",
+    "newSession": "Sesi baru"
+  },
+  "run": {
+    "stopped": "Berhenti.",
+    "failed": "Lari berhenti lebih awal.",
+    "tryAgain": "Coba lagi"
+  },
+  "modelNoTools": "{{model}} tidak dapat memanggil alat, sehingga tidak dapat bertindak sebagai agen. Pilih model pemanggilan alat.",
+  "askContinue": "Lanjutkan",
+  "askNext": "Pertanyaan berikutnya",
+  "askPrev": "Pertanyaan sebelumnya",
+  "askRecommended": "Direkomendasikan",
+  "askSelectedCount": "{{count}} dipilih",
+  "askSomethingElse": "Sesuatu yang lain",
+  "askSomethingElsePlaceholder": "Ketik jawaban Anda sendiri",
+  "submit": "Kirim"
 }

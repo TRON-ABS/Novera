@@ -44,5 +44,7 @@
     "yellow": "Poc marge de memòria",
     "red": "Memòria insuficient",
     "unknown": "Memòria desconeguda"
-  }
+  },
+  "downloadFailed": "No s'ha pogut iniciar la baixada",
+  "resumeUnavailable": "No es pot reprendre aquesta baixada. Si us plau, torna a començar."
 }

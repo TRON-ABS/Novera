@@ -31,7 +31,9 @@
     "description": "Bạn có chắc chắn muốn xóa mô hình này không? Hành động này không thể hoàn tác.",
     "success": "Mô hình {{modelId}} đã bị xóa vĩnh viễn.",
     "cancel": "Hủy",
-    "delete": "Xóa"
+    "delete": "Xóa",
+    "importedDescription": "Xóa mô hình đã nhập này khỏi Novera? Tệp cục bộ của bạn trên đĩa sẽ không bị xóa.",
+    "removeFromJan": "Xóa khỏi Novera"
   },
   "deleteProvider": {
     "title": "Xóa nhà cung cấp",
@@ -54,12 +56,72 @@
     "warning": {
       "title": "Hãy Thận Trọng",
       "description": "Việc sửa đổi khả năng của mô hình có thể ảnh hưởng đến hiệu suất và chức năng. Cài đặt không chính xác có thể gây ra hành vi hoặc lỗi không mong muốn."
-    }
+    },
+    "audio": "Âm thanh",
+    "video": "Video"
   },
   "addProvider": "Thêm nhà cung cấp",
   "addOpenAIProvider": "Thêm nhà cung cấp OpenAI",
   "enterNameForProvider": "Nhập tên cho nhà cung cấp",
   "baseUrl": {
-    "alibabaDescription": "Dùng điểm cuối của không gian làm việc Alibaba Cloud và khu vực tương ứng. Thay YOUR-WORKSPACE-ID bằng mã không gian làm việc và dùng khóa API của cùng khu vực."
+    "alibabaDescription": "Dùng điểm cuối của không gian làm việc Alibaba Cloud và khu vực tương ứng. Thay YOUR-WORKSPACE-ID bằng mã không gian làm việc và dùng khóa API của cùng khu vực.",
+    "title": "Đế URL",
+    "azureDescription": "Điểm cuối Azure OpenAI của bạn. Thay thế YOUR-RESOURCE-NAME bằng tên tài nguyên Azure của bạn."
+  },
+  "limitedSupport": "Nhà cung cấp này có thể không được hỗ trợ đầy đủ. Các khả năng (công cụ, hình ảnh, âm thanh) không được tự động phát hiện - thêm mô hình theo cách thủ công và định cấu hình khả năng cho mỗi mô hình.",
+  "mlxExperimental": "Hỗ trợ MLX chỉ mang tính thử nghiệm. Tính năng nhúng không khả dụng, chuyển đổi lý do chưa được kết nối và một số kiến ​​trúc mô hình mới hơn có thể không tải được. Báo cáo sự cố trên GitHub để chúng tôi có thể ưu tiên xử lý chúng.",
+  "engineBundled": "Công cụ suy luận được tích hợp trong Novera nên không có gì để tải xuống hoặc cập nhật riêng. Trích dẫn phiên bản này khi báo cáo một mô hình không tải được.",
+  "engineOtherVersion": "Cần một phiên bản llama.cpp khác? Chạy llama-server của riêng bạn và thêm nó làm nhà cung cấp tương thích với OpenAI tùy chỉnh.",
+  "engineOtherVersionLink": "Làm thế nào để",
+  "engineReleaseNotes": "Ghi chú phát hành",
+  "engineBuild": "Xây dựng",
+  "engineCommit": "Cam kết",
+  "backendInstalled": "Đã cài đặt",
+  "backendHistoryShow": "Hiển thị lịch sử cập nhật",
+  "backendHistoryHide": "Ẩn lịch sử cập nhật",
+  "backendHistoryLoading": "Đang tải lịch sử cập nhật...",
+  "backendHistoryEmpty": "Chưa có bản cập nhật phụ trợ nào được ghi lại.",
+  "backendHistoryNone": "không có",
+  "backendHistoryUpdated": "Đã cập nhật",
+  "backendHistoryRolledBack": "Đã quay lại",
+  "backendHistoryRollbackFailed": "Khôi phục không thành công",
+  "backendHistoryFailed": "Không thành công",
+  "chatModels": "Mô hình trò chuyện",
+  "embeddingModels": "Nhúng mô hình",
+  "embeddingModelsDesc": "Được sử dụng cho RAG và tìm kiếm vectơ. Mô hình đã chọn sẽ trở thành mặc định khi tạo các phần nhúng.",
+  "embeddingModelDefault": "Mặc định",
+  "embeddingModelSetDefault": "Đặt làm mô hình nhúng mặc định",
+  "embeddingModelIsDefault": "Mô hình nhúng mặc định",
+  "imported": "Nhập khẩu",
+  "importedTooltip": "Được nhập từ tệp cục bộ. Xóa nó khỏi Novera sẽ không xóa tệp trên đĩa.",
+  "noModelFoundRemoteDesc": "Các mẫu có sẵn sẽ được liệt kê tại đây. Sử dụng nút làm mới ở trên để tìm nạp mô hình từ nhà cung cấp hoặc thêm mô hình theo cách thủ công bằng nút +.",
+  "deleteAllModels": {
+    "button": "Xóa tất cả",
+    "title": "Xóa tất cả các mẫu đã tải xuống?",
+    "description": "Thao tác này sẽ xóa vĩnh viễn (các) kiểu máy {{count}} khỏi đĩa.",
+    "sizeLabel": "Dung lượng ổ đĩa cần được giải phóng:",
+    "calculating": "Đang tính…",
+    "warning": "Hành động này không thể hoàn tác được.",
+    "importedExcluded": "(Các) mẫu đã nhập {{count}} sẽ được giữ lại (các tệp của chúng không được Novera tải xuống).",
+    "confirm": "Xóa (các) mẫu {{count}}",
+    "deleting": "Đang xóa…",
+    "success": "Đã xóa (các) mẫu {{count}}.",
+    "partialFailure": "Không thể xóa (các) mẫu {{count}}. Xem bảng điều khiển để biết chi tiết."
+  },
+  "apiKeys": {
+    "title": "Phím API",
+    "description": "Nhập khóa API của bạn. Bạn có thể thêm các khóa bổ sung trong Nâng cao và Novera sẽ tự động thử khóa tiếp theo nếu một khóa bị lỗi.",
+    "placeholder": "sk-…\nsk-…",
+    "primaryPlaceholder": "Nhập khóa API chính",
+    "keyPlaceholder": "Nhập phím API",
+    "primaryBadge": "Tiểu học",
+    "test": "Kiểm tra phím",
+    "testing": "Kiểm tra...",
+    "testHint": "Kiểm tra /models với từng phím và hiển thị trạng thái của từng phím.",
+    "advanced": "Nâng cao",
+    "hideAdvanced": "Ẩn nâng cao",
+    "oneKeyHint": "Các phím dự phòng tùy chọn được định cấu hình trong Nâng cao.",
+    "addKey": "Thêm khóa",
+    "removeKey": "Xóa chìa khóa"
   }
 }

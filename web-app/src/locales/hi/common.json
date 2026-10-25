@@ -74,7 +74,21 @@
   "deny": "अस्वीकार करें",
   "start": "शुरू करें",
   "stop": "रोकें",
-  "preview": "पूर्वावलोकन",
+  "preview": {
+    "loading": "खुल रहा है...",
+    "unsupported": "Novera इस प्रकार की फ़ाइल नहीं दिखा सकता। इसे किसी अन्य ऐप में देखने के लिए खोलें।",
+    "outside": "यह फ़ाइल अब सत्र कार्यक्षेत्र में नहीं है।",
+    "tooLarge": "पूर्वावलोकन के लिए बहुत बड़ा। इसे किसी अन्य ऐप में देखने के लिए खोलें।",
+    "reload": "पुनः लोड करें",
+    "allowNetwork": "नेटवर्क की अनुमति दें",
+    "unsandboxed": "बिना सैंडबॉक्स किए चलाएँ: सहेजा गया डेटा और स्थानीय फ़ाइलें काम करती हैं",
+    "unresolvedRefs_one": "1 फ़ाइल इस पेज लिंक को पूर्वावलोकन में लोड नहीं कर सकती। इसे ब्राउज़र में देखने के लिए खोलें.",
+    "unresolvedRefs_other": "{{count}} फ़ाइलें इस पेज लिंक को पूर्वावलोकन में लोड नहीं कर सकतीं। इसे ब्राउज़र में देखने के लिए खोलें.",
+    "externalRefs_one": "वेब से इस पृष्ठ द्वारा लोड किया गया 1 संसाधन अवरुद्ध है। इसे लोड करने के लिए \"नेटवर्क की अनुमति दें\" चालू करें।",
+    "externalRefs_other": "{{count}} संसाधन वेब से लोड किए गए इस पृष्ठ को अवरुद्ध कर दिया गया है। उन्हें लोड करने के लिए \"नेटवर्क की अनुमति दें\" चालू करें।",
+    "scriptErrors_one": "पृष्ठ ने एक त्रुटि की सूचना दी: {{message}}",
+    "scriptErrors_other": "पृष्ठ ने {{count}} त्रुटियों की सूचना दी। पहला: {{message}}"
+  },
   "compactWidth": "कॉम्पैक्ट चौड़ाई",
   "fullWidth": "पूर्ण चौड़ाई",
   "dark": "डार्क",
@@ -237,7 +251,32 @@
   "modelSettings": {
     "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
     "title": "मॉडल सेटिंग्स - {{modelId}}",
-    "description": "प्रदर्शन और व्यवहार को अनुकूलित करने के लिए मॉडल सेटिंग्स कॉन्फ़िगर करें।"
+    "description": "प्रदर्शन और व्यवहार को अनुकूलित करने के लिए मॉडल सेटिंग्स कॉन्फ़िगर करें।",
+    "samplingDefaults": {
+      "title": "डिफ़ॉल्ट नमूना पैरामीटर",
+      "description": "इस मॉडल के लिए डिफ़ॉल्ट सैंपलर सेटिंग्स। इसका उपयोग तब तक किया जाता है जब तक कि इसे प्रति-सहायक या प्रति-अनुरोध मानों द्वारा ओवरराइड न किया जाए।"
+    },
+    "specDraft": {
+      "section": "सट्टा डिकोडिंग",
+      "enable": "सट्टा डिकोडिंग सक्षम करें",
+      "enableDescription": "प्रति चरण कई टोकन ड्राफ्ट करें और उन्हें एक पास में सत्यापित करें, जिससे पीढ़ी में तेजी आती है। मॉडल के अंतर्निर्मित MTP हेड, या इसके साथ डाउनलोड किए गए ड्राफ्ट मॉडल (MTP, Eagle3, DFlash या DSpark) का उपयोग करता है।",
+      "nMax": "अधिकतम ड्राफ्ट टोकन",
+      "nMaxDescription": "प्रति चरण ड्राफ्ट करने के लिए टोकन की अधिकतम संख्या। डिफ़ॉल्ट 16.",
+      "nMin": "न्यूनतम ड्राफ्ट टोकन",
+      "nMinDescription": "प्रति चरण ड्राफ्ट करने के लिए टोकन की न्यूनतम संख्या। डिफ़ॉल्ट 0.",
+      "pMin": "न्यूनतम ड्राफ्ट संभावना",
+      "pMinDescription": "लालची प्रारूपण के लिए न्यूनतम संभावना (0-1)। डिफ़ॉल्ट 0.75."
+    },
+    "templateKwargs": {
+      "section": "चैट टेम्पलेट विकल्प",
+      "description": "इस मॉडल का चैट टेम्प्लेट अतिरिक्त विकल्प स्वीकार करता है। प्रत्येक अनुरोध पर chat_template_kwargs के रूप में भेजा गया; टेम्पलेट को निर्णय लेने देने के लिए उसके डिफ़ॉल्ट पर एक मान छोड़ें।",
+      "addCustom": "कस्टम विकल्प जोड़ें",
+      "keyPlaceholder": "नाम",
+      "valuePlaceholder": "मान",
+      "add": "जोड़ें",
+      "cancel": "रद्द करें",
+      "remove": "हटाएं"
+    }
   },
   "dialogs": {
     "changeDataFolder": {
@@ -317,7 +356,8 @@
       "updateButton": "अपडेट करें",
       "alreadyExists": "प्रोजेक्ट \"{{projectName}}\" पहले से मौजूद है",
       "createSuccess": "प्रोजेक्ट \"{{projectName}}\" सफलतापूर्वक बनाया गया",
-      "updateSuccess": "प्रोजेक्ट \"{{projectName}}\" सफलतापूर्वक अपडेट किया गया"
+      "updateSuccess": "प्रोजेक्ट \"{{projectName}}\" सफलतापूर्वक अपडेट किया गया",
+      "saveError": "प्रोजेक्ट सहेजा नहीं जा सका. कृपया पुन: प्रयास करें।"
     },
     "noConversationsIn": "{{projectName}} में कोई वार्तालाप नहीं है",
     "startNewConversation": "{{projectName}} के साथ नीचे एक नई वार्तालाप शुरू करें",
@@ -399,7 +439,16 @@
     },
     "downloadFailed": {
       "title": "डाउनलोड त्रुटि",
-      "description": "{{item}} का डाउनलोड विफल हुआ"
+      "description": "{{item}} का डाउनलोड विफल हुआ",
+      "descriptionWithReason": "{{item}} डाउनलोड विफल: {{reason}}",
+      "reason": {
+        "dns": "सर्वर नाम का समाधान नहीं किया जा सका",
+        "refused": "कनेक्शन अस्वीकार कर दिया गया था",
+        "timeout": "कनेक्शन का समय समाप्त हो गया",
+        "tls": "सुरक्षित कनेक्शन स्थापित नहीं किया जा सका",
+        "proxy": "प्रॉक्सी तक नहीं पहुंचा जा सका",
+        "unreachable": "सर्वर तक नहीं पहुंचा जा सका"
+      }
     },
     "modelValidationStarted": {
       "title": "मॉडल सत्यापित हो रहा है",
@@ -447,7 +496,18 @@
     },
     "uploadFailed": {
       "title": "प्रोसेसिंग में त्रुटि",
-      "description": "फ़ाइल प्रोसेस करने में त्रुटि हुई"
+      "description": "फ़ाइल प्रोसेस करने में त्रुटि हुई",
+      "subjectThisFile": "यह फ़ाइल",
+      "pdfMalformedXref": "{{subject}} में एक विकृत PDF क्रॉस-रेफरेंस तालिका है और इसे पार्स नहीं किया जा सका। इसे PDF व्यूअर में खोलने और पुनः सहेजने का प्रयास करें (फ़ाइल → प्रिंट → PDF के रूप में सहेजें), फिर दोबारा अपलोड करें।",
+      "pdfScanned": "{{subject}} एक स्कैन किया हुआ या छवि-आधारित PDF प्रतीत होता है। OCR अभी तक समर्थित नहीं है - कृपया टेक्स्ट-आधारित PDF अपलोड करें।",
+      "pdfEncrypted": "{{subject}} पासवर्ड से सुरक्षित है। पासवर्ड निकालें और पुनः प्रयास करें.",
+      "pdfUnsupportedFeature": "{{subject}} एक PDF सुविधा का उपयोग करता है Novera अभी तक पार्स नहीं कर सकता है (उदाहरण के लिए PostScript रंग/छायांकन फ़ंक्शन)। इसे समतल करने के लिए इसे पुनः सहेजने का प्रयास करें (फ़ाइल → प्रिंट → PDF के रूप में सहेजें), फिर दोबारा अपलोड करें।",
+      "pdfGeneric": "{{subject}} को PDF के रूप में पार्स नहीं किया जा सका। फ़ाइल दूषित हो सकती है या असमर्थित PDF सुविधा का उपयोग कर सकती है।",
+      "fileTooLarge": "{{subject}} बहुत बड़ा है। {{message}}.",
+      "unsupportedType": "फ़ाइल प्रकार \"{{type}}\" समर्थित नहीं है।",
+      "ioError": "{{subject}} नहीं पढ़ सका: {{message}}",
+      "parseGeneric": "{{subject}} को पार्स नहीं किया जा सका: {{message}}",
+      "fallback": "{{subject}} को संसाधित करने में विफल।"
     },
     "fileDeleted": {
       "title": "फ़ाइल हटाई गई",
@@ -464,6 +524,24 @@
     "attachmentsDisabledInfo": {
       "title": "संलग्नक निष्क्रिय हैं",
       "description": "संलग्नक सेटिंग्स में निष्क्रिय किए गए हैं"
+    },
+    "openSettings": "सेटिंग्स खोलें",
+    "openLogs": "लॉग खोलें",
+    "downloadTokenRequired": {
+      "title": "Hugging Face टोकन आवश्यक है",
+      "description": "इस मॉडल को Hugging Face एक्सेस टोकन की आवश्यकता है। सेटिंग्स में अपना टोकन जोड़ें और पुनः प्रयास करें।"
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face पर मॉडल लाइसेंस स्वीकार करें",
+      "description": "डाउनलोड करने से पहले आपको मॉडल के लाइसेंस को उसके Hugging Face पेज पर स्वीकार करना होगा।"
+    },
+    "downloadRateLimited": {
+      "title": "दर Hugging Face द्वारा सीमित",
+      "description": "आपकी दर सीमित कर दी गई है। टोकन जोड़ने से दर सीमा बढ़ सकती है। कृपया बाद में पुन: प्रयास करें।"
+    },
+    "unsupportedFileType": {
+      "title": "असमर्थित फ़ाइल प्रकार",
+      "description": "फ़ाइल एक्सटेंशन \".{{extension}}\" प्रोजेक्ट संदर्भ के लिए समर्थित नहीं है।"
     }
   },
   "errors": {
@@ -471,7 +549,12 @@
     "fileTooLargeDescription": "{{fileName}} {{maxFileSizeMB}}MB की सीमा से अधिक है"
   },
   "files": {
-    "chunksCount": "{{count}} खंड"
+    "chunksCount": "{{count}} खंड",
+    "title": "फ़ाइलें",
+    "empty": "आपके द्वारा संलग्न की गई फ़ाइलें और एजेंट द्वारा बनाई गई फ़ाइलें यहां दिखाई देंगी।",
+    "a11y": "फ़ाइलें: {{count}}",
+    "attachments": "संलग्नक",
+    "notImported": "कार्यक्षेत्र में नहीं"
   },
   "llamacppBusyOnExit": {
     "title": "llama.cpp is still busy",
@@ -494,5 +577,234 @@
   "errorTracking": {
     "title": "त्रुटियों की निगरानी",
     "summary": "{{host}} को वैकल्पिक रिपोर्ट: त्रुटि का प्रकार, कोड में स्थान, संस्करण और ऑपरेटिंग सिस्टम। बातचीत, मूल त्रुटि संदेश या कुंजियाँ नहीं। कभी भी बंद करें।"
-  }
+  },
+  "htmlArtifact": {
+    "code": "कोड",
+    "preview": "पूर्वावलोकन",
+    "previewStreaming": "पीढ़ी समाप्त होने पर उपलब्ध",
+    "unresolvedAssets_one": "1 परिसंपत्ति संदर्भ पूर्वावलोकन में लोड नहीं हो सकता। संबंधित पथों के पास हल करने के लिए कोई आधार URL नहीं है।",
+    "unresolvedAssets_other": "{{count}} परिसंपत्ति संदर्भ पूर्वावलोकन में लोड नहीं हो सकते। सापेक्ष पथों के पास हल करने के लिए कोई आधार URL नहीं है।"
+  },
+  "web_search": "वेब खोज",
+  "shell": "शैल",
+  "browse": "ब्राउज़ करें",
+  "moreControls": "अधिक नियंत्रण",
+  "starting": "प्रारंभ...",
+  "activeSuffix": "(सक्रिय)",
+  "home": "होम",
+  "cowork": "Cowork",
+  "newSession": "नया सत्र",
+  "artifacts": "कलाकृतियाँ",
+  "customize": "अनुकूलित करें",
+  "local": "स्थानीय",
+  "selectFolder": "फ़ोल्डर चुनें",
+  "selectModel": "पहले एक मॉडल चुनें",
+  "commands": "कमांड",
+  "cmdHelp": "उपलब्ध आदेशों की सूची बनाएं",
+  "cmdClear": "इस सत्र को साफ़ करें",
+  "cmdModels": "सक्रिय मॉडल स्विच करें",
+  "cmdModelsHint": "/models टाइप करें फिर सूची से एक मॉडल चुनें",
+  "cmdModelSwitched": "{{name}} पर स्विच किया गया",
+  "cmdUnknown": "अज्ञात कमांड: {{name}}। /help आज़माएँ",
+  "cmdBusy": "जब एजेंट चल रहा हो तो ऐसा नहीं कर सकता",
+  "cmdCompact": "सत्र के संदर्भ को सारांश में संक्षिप्त करें",
+  "cmdCompacted": "संकुचित {{before}} -> {{after}} संदेश",
+  "cmdNothingToCompact": "अभी तक कॉम्पैक्ट करने के लिए कुछ भी नहीं है",
+  "cmdCompactFailed": "संघनन विफल: {{error}}",
+  "cmdPlan": "योजना मोड टॉगल करें (केवल पढ़ने के लिए: एजेंट बिना लिखे प्रस्ताव करता है)",
+  "cmdPlanOn": "योजना मोड चालू: एजेंट पढ़ता है और बिना लिखे प्रस्ताव करता है",
+  "cmdPlanOff": "योजना मोड बंद: सामान्य निष्पादन",
+  "cmdTodo": "प्रगति पैनल खोलें",
+  "cmdTasks": "बैकग्राउंड टास्क पैनल खोलें",
+  "cmdInit": "परियोजना का अध्ययन करें और कौशल और स्मृति लिखें",
+  "cmdInitRunning": "इस प्रोजेक्ट में शामिल होना",
+  "skills": "कौशल",
+  "skillsInContext": "इस बार एजेंट के लिए उपलब्ध कौशल",
+  "skillsTitle": "कौशल प्रबंधित करें",
+  "skillsScopeProject": "{{folder}} के लिए कौशल",
+  "skillsScopeGlobal": "वैश्विक कौशल, हर सत्र के लिए उपलब्ध",
+  "skillsScopeMerged": "{{folder}} के लिए कौशल, साथ ही हर सत्र में साझा किए जाने वाले वैश्विक कौशल",
+  "skillOriginFolder": "फ़ोल्डर",
+  "skillOriginGlobal": "वैश्विक",
+  "skillsEmpty": "अभी तक कोई कौशल नहीं",
+  "skillsPickOrNew": "संपादित करने या नया बनाने के लिए एक कौशल का चयन करें।",
+  "skillNew": "नया कौशल",
+  "skillDelete": "कौशल हटाएं",
+  "skillSave": "सहेजें",
+  "skillSaved": "कौशल सहेजा गया",
+  "skillNameRequired": "कौशल नाम आवश्यक है",
+  "skillNamePlaceholder": "कौशल-नाम",
+  "skillContentPlaceholder": "Markdown में पुन: प्रयोज्य प्रक्रिया का वर्णन करें…",
+  "skillHubImport": "हब से आयात",
+  "skillHubTitle": "Anthropic कौशल केंद्र",
+  "skillHubEmpty": "हब पर कोई कौशल नहीं मिला",
+  "skillImport": "आयात",
+  "skillReimport": "पुनः आयात",
+  "skillImported": "आयातित {{name}}",
+  "sessions": "सत्र",
+  "deleteSession": "सत्र हटाएं",
+  "deleteSessionTitle": "सत्र हटाएं?",
+  "deleteSessionBody": "\"{{title}}\" और इसकी प्रतिलिपि स्थायी रूप से हटा दी जाएगी। इसे पूर्ववत नहीं किया जा सकता.",
+  "analyticsConsentDetail": "हम फीचर उपयोग को समझने के लिए गुमनाम डेटा एकत्र करते हैं। आपकी चैट और निजी जानकारी कभी ट्रैक नहीं की जाती. आप इसे सेटिंग्स > गोपनीयता में कभी भी बदल सकते हैं।",
+  "analyticsConsentQuestion": "क्या आप Novera को बेहतर बनाने में हमारी मदद करना चाहेंगे?",
+  "dismiss": "बर्खास्त करें",
+  "changes": {
+    "title": "एजेंट बदलता है",
+    "empty": "एजेंट द्वारा लिखी या संपादित की गई फ़ाइलें यहां दिखाई देंगी।",
+    "a11y": "एजेंट परिवर्तन: {{files}} फ़ाइलें, {{additions}} जोड़ा गया, {{deletions}} हटाया गया"
+  },
+  "modelPanel": {
+    "title": "मॉडल सेटिंग्स",
+    "a11y": "मॉडल सेटिंग्स खोलें",
+    "contextTooltip": "संदर्भ विंडो: {{max}} में से {{value}} टोकन"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "कौशल '{{name}}' उपलब्ध नहीं है",
+    "kind": {
+      "skill": "कौशल",
+      "command": "कमांड",
+      "model": "मॉडल"
+    }
+  },
+  "multimodal": "मल्टीमॉडल",
+  "noAssistant": "कोई सहायक नहीं",
+  "settingUpJan": "Novera को बूट किया जा रहा है...",
+  "registeringExtensions": "एक्सटेंशन पंजीकृत हो रहा है...",
+  "loadingExtensions": "एक्सटेंशन लोड हो रहा है… ({{done}}/{{total}})",
+  "modelControls": {
+    "updateFailed": "मॉडल सेटिंग्स को अपडेट नहीं किया जा सका"
+  },
+  "missingDependenciesDialog": {
+    "title": "गुम सिस्टम लाइब्रेरी",
+    "description": "{{backend}} स्थापित किया गया था लेकिन कुछ आवश्यक सिस्टम लाइब्रेरी नहीं मिल सकीं। यह CPU पर वापस आ सकता है या ठीक से नहीं चल सकता है।",
+    "installLabel": "इसे ठीक करने के लिए, निम्नलिखित स्थापित करें:",
+    "download": "डाउनलोड करें",
+    "additionalLibraries": "अतिरिक्त लापता पुस्तकालय:",
+    "missingLibraries": "गुम पुस्तकालय:",
+    "showRawLibraries": "{{count}} गुम लाइब्रेरी नाम दिखाएं"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "पतन",
+  "expand": "विस्तार करें",
+  "todoPanelTitle": "प्रगति",
+  "todoPanelEmpty": "अभी तक कोई कार्य सूची नहीं।",
+  "backgroundTasks": "पृष्ठभूमि कार्य",
+  "subagentsRunning_one": "{{count}} सबएजेंट चल रहा है",
+  "subagentsRunning_other": "{{count}} सबएजेंट चल रहे हैं",
+  "monitorsRunning_one": "{{count}} मॉनिटर चल रहा है",
+  "monitorsRunning_other": "{{count}} मॉनिटर चल रहा है",
+  "backgroundRunning_one": "{{count}} पृष्ठभूमि कार्य चल रहा है",
+  "backgroundRunning_other": "{{count}} पृष्ठभूमि कार्य चल रहे हैं",
+  "monitors": "मॉनिटर्स",
+  "monitorPolling": "मतदान",
+  "monitorMatched": "मिलान हुआ",
+  "monitorTimedOut": "समय समाप्त हो गया",
+  "monitorStopped": "रुक गया",
+  "monitorEnded": "ख़त्म",
+  "coworkWatching_one": "{{count}} मॉनिटर देखना…",
+  "coworkWatching_other": "{{count}} मॉनिटर देखना…",
+  "coworkWaitingBackground": "पृष्ठभूमि कार्यों पर प्रतीक्षा की जा रही है...",
+  "noBackgroundTasks": "अभी तक कोई पृष्ठभूमि कार्य नहीं।",
+  "running": "चल रहा है",
+  "queued": "कतारबद्ध",
+  "waiting": "इंतज़ार कर रहा हूँ",
+  "finished": "समाप्त",
+  "subagentPhase": "चरण {{phase}}",
+  "subagentWaiting": "प्रतीक्षा कर रहा है",
+  "viewTranscript": "प्रतिलेख देखें",
+  "taskWorking": "कार्य करना…",
+  "taskNoOutput": "सबएजेंट ने कोई दृश्यमान आउटपुट नहीं दिया।",
+  "subagentToolUses_one": "{{count}} टूल का उपयोग",
+  "subagentToolUses_other": "{{count}} टूल का उपयोग",
+  "artifactGroupCode": "कोड",
+  "artifactGroupImage": "छवि",
+  "artifactGroupDocument": "दस्तावेज़",
+  "artifactGroupVideo": "वीडियो",
+  "artifactGroupAudio": "ऑडियो",
+  "artifactOpenPreview": "पूर्वावलोकन खोलें",
+  "artifactOpenExternal": "खोलें",
+  "artifactMoreActions": "अधिक कार्रवाइयां",
+  "artifactShowInFolder": "फ़ोल्डर में दिखाएँ",
+  "skillsUsedLabel": "प्रयुक्त कौशल",
+  "skillsUsed": "प्रयुक्त कौशल: {{skills}}",
+  "artifactsAll": "सभी",
+  "artifactsEmpty": "अभी तक कुछ भी उत्पादन नहीं हुआ है। Cowork रन की कलाकृतियाँ यहाँ दिखाई देती हैं।",
+  "artifactsNoMatch": "कोई कलाकृतियाँ मेल नहीं खातीं।",
+  "artifactsSearch": "कलाकृतियाँ खोजें",
+  "artifactsShowMore": "{{count}} और दिखाएं",
+  "workspace": {
+    "readsFrom": "में काम करता है",
+    "writable": "पढ़ें और लिखें",
+    "footnote": "एजेंट इस फ़ोल्डर को सीधे पढ़ता और संपादित करता है। समीक्षा करें कि अंतर पैनल में क्या परिवर्तन हुआ।",
+    "footnoteEmpty": "एजेंट को आपके प्रोजेक्ट पर काम करने देने के लिए एक फ़ोल्डर संलग्न करें। यह इसके अंदर फाइलों को पढ़ और संपादित कर सकता है।",
+    "attach": "एक फ़ोल्डर संलग्न करें",
+    "change": "फ़ोल्डर बदलें",
+    "detach": "फ़ोल्डर को अलग करें",
+    "open": "खोलें",
+    "reveal": "खुलासा",
+    "unavailable": "कार्यस्थान अनुपलब्ध",
+    "missing": "कार्यस्थान फ़ोल्डर {{folder}} अब उपलब्ध नहीं है। कोई भिन्न फ़ोल्डर चुनें.",
+    "openFailed": "कार्यस्थान नहीं खुल सका",
+    "revealFailed": "कार्यस्थान प्रकट नहीं किया जा सका",
+    "a11yWithFolder": "प्रोजेक्ट फ़ोल्डर {{folder}}, पढ़ने और लिखने की पहुंच के साथ संलग्न। इसे बदलो या अलग करो.",
+    "a11yNoFolder": "कोई प्रोजेक्ट फ़ोल्डर संलग्न नहीं है। एक संलग्न करें."
+  },
+  "coworkEmpty": {
+    "title": "हम किस पर काम कर रहे हैं?",
+    "subtitleSandbox": "Novera को एक कार्य दें। यह फाइलों को पढ़ता और लिखता है, कमांड चलाता है और चरणों के माध्यम से अपने आप काम करता है।",
+    "subtitleFolder": "Novera को एक कार्य दें। यह सीधे {{folder}} में काम करता है, फ़ाइलों को अपने आप पढ़ता और संपादित करता है।",
+    "try": "प्रयास करें",
+    "sandbox": {
+      "first": "एक पायथन स्क्रिप्ट लिखें जो फ़ाइलों को उनके लिए जाने की तारीख के अनुसार नाम बदल देती है",
+      "second": "CSV से एक सिंगल-पेज डैशबोर्ड बनाएं, मैं उसमें पेस्ट करूंगा",
+      "third": "मैं जिस प्रोजेक्ट के बारे में आपको बता रहा हूं उसके लिए एक README ड्राफ्ट करें"
+    },
+    "folder": {
+      "first": "बताएं कि {{folder}} को एक साथ कैसे रखा जाता है",
+      "second": "{{folder}} में प्रत्येक TODO ढूंढें और उन्हें क्षेत्र के अनुसार समूहित करें",
+      "third": "{{folder}} के भाग के लिए परीक्षण लिखें मैं आपको इंगित करता हूं"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "कोई टर्मिनल नहीं",
+    "a11y": "रनिंग कमांड बंद है। विवरण।",
+    "title": "रनिंग कमांड बंद है",
+    "body": "Novera एजेंट को शेल कमांड तभी चलाने देता है जब आपका सिस्टम उन्हें सीमित कर सकता है। यहां कोई सैंडबॉक्स उपलब्ध नहीं है, इसलिए एजेंट अपने सैंडबॉक्स में फ़ाइलों को पढ़, लिख और संपादित कर सकता है - लेकिन कुछ भी नहीं चला सकता है।",
+    "fixLinux": "लिनक्स bubblewrap का उपयोग करता है। इसे इंस्टॉल करें, फिर Novera को पुनरारंभ करें।",
+    "fixMac": "macOS /usr/bin/sandbox-exec पर बिल्ट-इन सैंडबॉक्स का उपयोग करता है। Novera उपलब्ध होने पर पुनः आरंभ करें।",
+    "fixWindows": "विंडोज़ AppContainer का उपयोग करता है। पुनः प्रयास करने के लिए Novera को पुनरारंभ करें।",
+    "recheck": "दोबारा जांचें"
+  },
+  "planMode": {
+    "label": "योजना",
+    "tooltipOff": "पहले योजना बनाएं - एजेंट पढ़ता है और प्रस्ताव देता है, बिना लिखे।",
+    "tooltipOn": "योजना. एजेंट को फ़ाइलें लिखने देने के लिए इसे बंद करें।",
+    "onAnnounce": "योजना मोड चालू",
+    "placeholder": "एक योजना के लिए पूछें। एजेंट कोई फ़ाइल नहीं बदलेगा."
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} चरणों पर रुका। एजेंट समाप्त नहीं हुआ है.",
+    "keepGoing": "चलते रहो",
+    "stoppedTokens": "रोक दिया गया — इस सत्र का टोकन बजट समाप्त हो गया है।",
+    "compact": "कॉम्पैक्ट",
+    "newSession": "नया सत्र"
+  },
+  "run": {
+    "stopped": "रुक गया.",
+    "failed": "रन जल्दी रुक गया।",
+    "tryAgain": "पुनः प्रयास करें"
+  },
+  "modelNoTools": "{{model}} टूल को कॉल नहीं कर सकता, इसलिए यह एजेंट के रूप में कार्य नहीं कर सकता। टूल-कॉलिंग मॉडल चुनें.",
+  "askContinue": "जारी रखें",
+  "askNext": "अगला प्रश्न",
+  "askPrev": "पिछला प्रश्न",
+  "askRecommended": "अनुशंसित",
+  "askSelectedCount": "{{count}} चयनित",
+  "askSomethingElse": "कुछ और",
+  "askSomethingElsePlaceholder": "अपना उत्तर स्वयं टाइप करें",
+  "submit": "सबमिट करें"
 }

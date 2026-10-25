@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "Sélectionner un modèle de routage…",
     "routerModelSearchPlaceholder": "Rechercher des modèles…",
     "routerModelEmptyList": "Aucun modèle léger disponible. Ajoutez un modèle plus petit ou configurez les clés API dans Modèles.",
-    "routerModelEmptySearch": "Aucun résultat pour « {{query}} »."
+    "routerModelEmptySearch": "Aucun résultat pour « {{query}} ».",
+    "maxToolOutputChars": "Nombre maximum de caractères de sortie de l'outil",
+    "maxToolOutputCharsDesc": "Résultat d'outil le plus long conservé dans la conversation. Tout ce qui dépasse cette valeur est tronqué et marqué comme tronqué, de sorte qu'un résultat volumineux ne peut pas épuiser le contexte du modèle. Réglez sur 0 pour conserver les résultats entiers."
+  },
+  "auth": {
+    "label": "Authentification :",
+    "state": {
+      "notApplicable": "non requis",
+      "staticHeader": "En-tête d'autorisation",
+      "authenticated": "authentifié",
+      "expired": "expiré",
+      "staleResource": "émis pour un autre URL",
+      "unauthenticated": "non authentifié"
+    },
+    "expiresIn": "expire dans {{duration}}",
+    "authenticate": "Connectez-vous",
+    "reauthenticate": "Ré-authentifier",
+    "clear": "Effacer l'authentification",
+    "waiting": "En attente du navigateur...",
+    "openSignInPage": "Ouvrez la page de connexion",
+    "needsAuth": "{{serverName}} nécessite une authentification",
+    "needsAuthHint": "Connectez-vous à ce serveur pour vous connecter.",
+    "authorized": "Connecté à {{serverName}}",
+    "authorizeFailed": "Échec de la connexion pour {{serverName}}",
+    "cleared": "Effacement des informations d'identification stockées pour {{serverName}}",
+    "nothingToClear": "{{serverName}} n'avait aucune information d'identification stockée",
+    "clearFailed": "Impossible d'effacer les informations d'identification pour {{serverName}}",
+    "renew": "Renouveler la session",
+    "expiredAgo": "a expiré il y a {{duration}}"
   }
 }

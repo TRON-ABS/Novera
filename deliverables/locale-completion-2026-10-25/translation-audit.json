@@ -1,0 +1,25 @@
+{
+  "additions": {
+    "es": 530,
+    "fr": 586,
+    "it": 463,
+    "hi": 530,
+    "id": 628,
+    "pl": 628,
+    "vn": 628,
+    "zh-CN": 628,
+    "zh-TW": 628,
+    "de-DE": 628,
+    "cs": 599,
+    "pt-BR": 626,
+    "ko": 531,
+    "ja": 418,
+    "ru": 583,
+    "ca": 585
+  },
+  "total_added": 9219,
+  "errors": [],
+  "method": "Google Translate machine-assisted draft; existing translations preserved",
+  "native_speaker_review": "pending",
+  "compiled": false
+}

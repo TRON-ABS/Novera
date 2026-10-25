@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "Pilih model perutean…",
     "routerModelSearchPlaceholder": "Cari model…",
     "routerModelEmptyList": "Tidak ada model ringan. Tambahkan model yang lebih kecil atau atur kunci API di Model.",
-    "routerModelEmptySearch": "Tidak ada yang cocok untuk “{{query}}”."
+    "routerModelEmptySearch": "Tidak ada yang cocok untuk “{{query}}”.",
+    "maxToolOutputChars": "Karakter keluaran alat maksimal",
+    "maxToolOutputCharsDesc": "Hasil alat terpanjang disimpan dalam percakapan. Apa pun yang melewati ini akan dipangkas dan ditandai sebagai terpotong, sehingga satu hasil besar tidak dapat menghabiskan konteks model. Setel ke 0 untuk menjaga hasil tetap utuh."
+  },
+  "auth": {
+    "label": "Penulisan:",
+    "state": {
+      "notApplicable": "tidak diperlukan",
+      "staticHeader": "Tajuk otorisasi",
+      "authenticated": "diautentikasi",
+      "expired": "kedaluwarsa",
+      "staleResource": "dikeluarkan untuk URL lainnya",
+      "unauthenticated": "tidak diautentikasi"
+    },
+    "expiresIn": "kedaluwarsa pada {{duration}}",
+    "authenticate": "Masuk",
+    "reauthenticate": "Otentikasi ulang",
+    "clear": "Hapus otentikasi",
+    "waiting": "Menunggu peramban...",
+    "openSignInPage": "Buka halaman masuk",
+    "needsAuth": "{{serverName}} memerlukan otentikasi",
+    "needsAuthHint": "Masuk ke server ini untuk terhubung.",
+    "authorized": "Masuk ke {{serverName}}",
+    "authorizeFailed": "Gagal masuk untuk {{serverName}}",
+    "cleared": "Menghapus kredensial yang tersimpan untuk {{serverName}}",
+    "nothingToClear": "{{serverName}} tidak memiliki kredensial tersimpan",
+    "clearFailed": "Tidak dapat menghapus kredensial untuk {{serverName}}",
+    "renew": "Perbarui sesi",
+    "expiredAgo": "kadaluwarsa {{duration}} yang lalu"
   }
 }

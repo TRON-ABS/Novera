@@ -31,7 +31,9 @@
     "description": "¿Estás seguro de que deseas eliminar este modelo? Esta acción no se puede deshacer.",
     "success": "El modelo {{modelId}} ha sido eliminado permanentemente.",
     "cancel": "Cancelar",
-    "delete": "Eliminar"
+    "delete": "Eliminar",
+    "importedDescription": "¿Eliminar este modelo importado de Novera? Su archivo local en el disco no se eliminará.",
+    "removeFromJan": "Quitar de Novera"
   },
   "deleteProvider": {
     "title": "Eliminar proveedor",
@@ -54,12 +56,72 @@
     "warning": {
       "title": "Proceder con precaución",
       "description": "Modificar las capacidades del modelo puede afectar el rendimiento y la funcionalidad. Configuraciones incorrectas podrían causar comportamientos inesperados o errores."
-    }
+    },
+    "audio": "Audio",
+    "video": "Vídeo"
   },
   "addProvider": "Agregar proveedor",
   "addOpenAIProvider": "Agregar proveedor OpenAI",
   "enterNameForProvider": "Ingresa un nombre para el proveedor",
   "baseUrl": {
-    "alibabaDescription": "Use el punto de conexión de su espacio de trabajo de Alibaba Cloud y su región. Sustituya YOUR-WORKSPACE-ID por el ID del espacio y use una clave API de la misma región."
+    "alibabaDescription": "Use el punto de conexión de su espacio de trabajo de Alibaba Cloud y su región. Sustituya YOUR-WORKSPACE-ID por el ID del espacio y use una clave API de la misma región.",
+    "title": "Base URL",
+    "azureDescription": "Su punto final Azure OpenAI. Reemplace YOUR-RESOURCE-NAME con el nombre de su recurso de Azure."
+  },
+  "limitedSupport": "Es posible que este proveedor no sea totalmente compatible. Las capacidades (herramientas, visión, audio) no se detectan automáticamente: agregue modelos manualmente y configure las capacidades por modelo.",
+  "mlxExperimental": "La compatibilidad con MLX es experimental. Las incrustaciones no están disponibles, la palanca de razonamiento aún no está conectada y es posible que algunas arquitecturas de modelos más nuevos no se carguen. Informar problemas en GitHub para que podamos priorizarlos.",
+  "engineBundled": "El motor de inferencia está integrado en Novera, por lo que no es necesario descargar ni actualizar nada por separado. Cite esta versión cuando informe sobre un modelo que no se carga.",
+  "engineOtherVersion": "¿Necesita una versión diferente de llama.cpp? Ejecute su propio llama-server y agréguelo como proveedor personalizado compatible con OpenAI.",
+  "engineOtherVersionLink": "Cómo",
+  "engineReleaseNotes": "Notas de la versión",
+  "engineBuild": "Construir",
+  "engineCommit": "Comprometerse",
+  "backendInstalled": "Instalado",
+  "backendHistoryShow": "Mostrar historial de actualizaciones",
+  "backendHistoryHide": "Ocultar historial de actualizaciones",
+  "backendHistoryLoading": "Cargando historial de actualizaciones...",
+  "backendHistoryEmpty": "Aún no se han registrado actualizaciones de backend.",
+  "backendHistoryNone": "ninguno",
+  "backendHistoryUpdated": "Actualizado",
+  "backendHistoryRolledBack": "Revertido",
+  "backendHistoryRollbackFailed": "Falló la reversión",
+  "backendHistoryFailed": "Falló",
+  "chatModels": "Modelos de chat",
+  "embeddingModels": "Incrustar modelos",
+  "embeddingModelsDesc": "Se utiliza para RAG y búsqueda vectorial. El modelo seleccionado se convierte en el predeterminado al generar incrustaciones.",
+  "embeddingModelDefault": "Predeterminado",
+  "embeddingModelSetDefault": "Establecer como modelo de incrustación predeterminado",
+  "embeddingModelIsDefault": "Modelo de incrustación predeterminado",
+  "imported": "Importado",
+  "importedTooltip": "Importado desde un archivo local. Eliminarlo de Novera no eliminará el archivo en el disco.",
+  "noModelFoundRemoteDesc": "Los modelos disponibles se enumerarán aquí. Utilice el botón de actualización de arriba para buscar modelos del proveedor o agregue uno manualmente con el botón +.",
+  "deleteAllModels": {
+    "button": "Eliminar todo",
+    "title": "¿Eliminar todos los modelos descargados?",
+    "description": "Esto eliminará permanentemente los modelos {{count}} del disco.",
+    "sizeLabel": "Espacio en disco a liberar:",
+    "calculating": "Calculando…",
+    "warning": "Esta acción no se puede deshacer.",
+    "importedExcluded": "Se conservarán los modelos importados de {{count}} (sus archivos no fueron descargados por Novera).",
+    "confirm": "Eliminar modelo(s) {{count}}",
+    "deleting": "Eliminando…",
+    "success": "Modelo(s) {{count}} eliminados.",
+    "partialFailure": "No se pudieron eliminar los modelos {{count}}. Consulte la consola para obtener más detalles."
+  },
+  "apiKeys": {
+    "title": "Teclas API",
+    "description": "Ingrese su clave API. Puede agregar claves adicionales en Avanzado y Novera intentará la siguiente automáticamente si falla una clave.",
+    "placeholder": "sk-…\nsk-…",
+    "primaryPlaceholder": "Ingrese la clave principal API",
+    "keyPlaceholder": "Ingrese la clave API",
+    "primaryBadge": "Primaria",
+    "test": "Claves de prueba",
+    "testing": "Probando...",
+    "testHint": "Comprueba /models con cada clave y muestra el estado de cada clave.",
+    "advanced": "Avanzado",
+    "hideAdvanced": "Ocultar avanzado",
+    "oneKeyHint": "Las claves de reserva opcionales se configuran en Avanzado.",
+    "addKey": "Agregar clave",
+    "removeKey": "Quitar clave"
   }
 }

@@ -30,5 +30,21 @@
     "rememberSaved": "Uloženo do paměti jako „{{name}}“",
     "rememberExists": "Již v paměti jako „{{name}}“",
     "rememberFailed": "Nelze uložit do paměti"
+  },
+  "embeddings": {
+    "title": "Příprava dokumentů",
+    "description": "Indexování připojených souborů, aby bylo možné v nich vyhledávat a citovat. U velkých dokumentů to může chvíli trvat."
+  },
+  "webSources": "Zdroj(e) {{count}}",
+  "reasoning": {
+    "label": "Zdůvodnění...",
+    "thinking": "Myšlení",
+    "working": "Pracuje se...",
+    "showFullTimeline": "Zobrazit celou časovou osu",
+    "showCurrentStep": "Zobrazit pouze aktuální krok",
+    "thoughtForAWhile": "Několik sekund se zamyslel",
+    "thoughtFor": "Myšlenka pro {{duration}}",
+    "workedForAWhile": "Pracovalo několik sekund",
+    "workedFor": "Pracoval pro {{duration}}"
   }
 }

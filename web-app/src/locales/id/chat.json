@@ -30,5 +30,21 @@
     "rememberSaved": "Disimpan ke memori sebagai “{{name}}”",
     "rememberExists": "Sudah ada di memori sebagai “{{name}}”",
     "rememberFailed": "Tidak dapat menyimpan ke memori"
+  },
+  "embeddings": {
+    "title": "Mempersiapkan dokumen Anda",
+    "description": "Mengindeks file lampiran agar dapat dicari dan dikutip. Ini mungkin memerlukan waktu beberapa saat untuk dokumen berukuran besar."
+  },
+  "webSources": "Sumber {{count}}",
+  "reasoning": {
+    "label": "Penalaran...",
+    "thinking": "Berpikir",
+    "working": "Bekerja...",
+    "showFullTimeline": "Tampilkan garis waktu lengkap",
+    "showCurrentStep": "Tampilkan langkah saat ini saja",
+    "thoughtForAWhile": "Berpikir beberapa detik",
+    "thoughtFor": "Pemikiran untuk {{duration}}",
+    "workedForAWhile": "Bekerja selama beberapa detik",
+    "workedFor": "Bekerja untuk {{duration}}"
   }
 }

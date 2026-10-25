@@ -75,7 +75,9 @@
     "search": "Buscar",
     "searchDesc": "Abrir el diálogo de búsqueda.",
     "goToSettings": "Ir a Configuración",
-    "goToSettingsDesc": "Abrir configuración."
+    "goToSettingsDesc": "Abrir configuración.",
+    "switchAssistant": "Asistente de cambio",
+    "switchAssistantDesc": "Pasa al siguiente asistente en el chat."
   },
   "interface": {
     "title": "Interfaz",
@@ -112,7 +114,21 @@
     "resetCodeBlockStyle": "Restablecer estilo de bloques de código",
     "resetCodeBlockStyleDesc": "Restablecer el estilo de bloques de código a los valores predeterminados.",
     "resetCodeBlockSuccess": "Estilo de bloques de código restablecido correctamente",
-    "resetCodeBlockSuccessDesc": "El estilo de bloques de código ha sido restaurado a los valores predeterminados."
+    "resetCodeBlockSuccessDesc": "El estilo de bloques de código ha sido restaurado a los valores predeterminados.",
+    "notificationPosition": "Posición de notificación",
+    "notificationPositionDesc": "Donde aparecen las notificaciones del brindis. En Windows, el valor predeterminado es la parte inferior derecha, por lo que las ventanas emergentes no cubren los controles de la ventana.",
+    "notificationPositionTopRight": "Arriba a la derecha",
+    "notificationPositionTopLeft": "Arriba a la izquierda",
+    "notificationPositionBottomRight": "Abajo a la derecha",
+    "notificationPositionBottomLeft": "Abajo a la izquierda",
+    "showTokenSpeed": "Mostrar velocidad del token",
+    "showTokenSpeedDesc": "Muestra tokens/seg y recuento de tokens en línea debajo de los mensajes del asistente. Cuando está desactivado, un icono compacto muestra los detalles al hacer clic.",
+    "coloredUserBubble": "Burbuja de mensaje de usuario de color",
+    "coloredUserBubbleDesc": "Utilice el color de acento como fondo de sus mensajes. Cuando están desactivados, relacionan los mensajes del asistente con texto sin formato sobre un fondo neutro.",
+    "renderHtmlArtifacts": "Renderizar artefactos HTML y SVG",
+    "renderHtmlArtifactsDesc": "Agregue una pestaña Vista previa a los bloques de código HTML y SVG. HTML ejecuta la página generada por el modelo en un marco de espacio aislado que ejecuta sus propios scripts pero no puede acceder a Novera, sus archivos o la red; SVG se procesa estáticamente con los scripts deshabilitados. Desactivado de forma predeterminada.",
+    "autoGenerateTitle": "Generar título de chat automáticamente",
+    "autoGenerateTitleDesc": "Resume automáticamente nuevas conversaciones en el título de un hilo. Desactívelo para mantener el título predeterminado hasta que le cambie el nombre usted mismo."
   },
   "hardware": {
     "os": "Sistema operativo",
@@ -136,7 +152,20 @@
     "freeOf": "libre de",
     "driverVersion": "Versión del controlador",
     "computeCapability": "Capacidad de cómputo",
-    "systemMonitor": "Monitor del sistema"
+    "systemMonitor": "Monitor del sistema",
+    "backendApi": "Servidor API",
+    "apiVersion": "Versión API",
+    "refresh": "Actualizar",
+    "detectingDevices": "Detectando GPU...",
+    "deviceListError": "No se pudieron leer los dispositivos GPU",
+    "noDevicesDesc": "No hay GPU visibles para el motor llama.cpp. Los modelos funcionarán con el CPU.",
+    "gpuDisabled": "Deshabilitado",
+    "backendApiDesc": "Cómo le habla llama.cpp a este GPU",
+    "backendSelectDesc": "Utilice este API para este GPU",
+    "unifiedMemory": "Memoria Unificada",
+    "unifiedMemoryDesc": "El GPU comparte un grupo de memoria con el CPU: los modelos utilizan la misma memoria que el resto del sistema.",
+    "engineRestartedForDevices": "Sus GPU cambiaron, por lo que se reinició el motor local. Los modelos se recargan en el próximo uso.",
+    "engineBusyDevicesChanged": "Tus GPU cambiaron, pero un modelo está ocupado. Deténgalo, luego presione Actualizar para usar el nuevo GPU."
   },
   "httpsProxy": {
     "proxy": "Proxy",
@@ -198,7 +227,9 @@
     "proxyTimeoutDesc": "Tiempo de espera para una respuesta del modelo local, en segundos.",
     "defaultModel": "Modelo predeterminado del servidor API local",
     "defaultModelDesc": "Modelo local a cargar automáticamente cuando el servidor se inicia.",
-    "defaultModelPlaceholder": "Selecciona un modelo local"
+    "defaultModelPlaceholder": "Selecciona un modelo local",
+    "runInBackground": "Ejecutar en segundo plano",
+    "runInBackgroundDesc": "Mantenga el servidor ejecutándose en la bandeja del sistema cuando la ventana esté cerrada. Cuando está apagado, al cerrar la ventana se sale de Novera y se detiene el servidor."
   },
   "privacy": {
     "analytics": "Analíticas",
@@ -261,7 +292,14 @@
     "reportIssue": "Reportar problema",
     "credits": "Créditos",
     "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
-    "creditsDesc2": "Un agradecimiento especial a nuestras dependencias de código abierto, especialmente llama.cpp y Tauri, y a nuestra increíble comunidad de IA."
+    "creditsDesc2": "Un agradecimiento especial a nuestras dependencias de código abierto, especialmente llama.cpp y Tauri, y a nuestra increíble comunidad de IA.",
+    "autoUpdateCheck": "Comprobación de actualización automática",
+    "autoUpdateCheckDesc": "Comprueba automáticamente si hay actualizaciones al inicio y periódicamente.",
+    "clearWebData": "Borrar datos de la interfaz en caché",
+    "clearWebDataDesc": "Elimina el almacenamiento local en caché y las preferencias UI mantenidas por la ventana de la aplicación. La interfaz se restablece a su estado predeterminado.",
+    "janCli": "Novera CLI",
+    "janCliDesc": "Ejecute el agente de Novera desde su terminal. Siga la guía para instalar y comenzar.",
+    "janCliSetupGuide": "Guía de configuración"
   },
   "extensions": {
     "title": "Extensiones"
@@ -296,7 +334,10 @@
     "chunkSize": "Tamaño de fragmento (caracteres)",
     "chunkSizeDesc": "Máximo aproximado de caracteres por fragmento para embeddings.",
     "chunkOverlap": "Superposición (caracteres)",
-    "chunkOverlapDesc": "Superposición de caracteres entre fragmentos consecutivos."
+    "chunkOverlapDesc": "Superposición de caracteres entre fragmentos consecutivos.",
+    "maxFileDisabledReason": "Active Habilitar archivos adjuntos para cambiar el límite de tamaño del documento.",
+    "maxImage": "Tamaño máximo de imagen (MB)",
+    "maxImageDesc": "Tamaño máximo por imagen (JPEG o PNG). Su proveedor o modelo puede imponer un límite más bajo."
   },
   "dialogs": {
     "changeDataFolder": {
@@ -482,5 +523,46 @@
       "startSetup": "Iniciar configuración",
       "connecting": "Conectando..."
     }
+  },
+  "webSearch": {
+    "title": "Búsqueda web",
+    "description": "Permita que los modelos busquen y lean la web utilizando las herramientas integradas de Novera.",
+    "enable": "Habilitar búsqueda web",
+    "enableDesc": "Anuncie las herramientas web_search y web_fetch en modelos que admitan el uso de herramientas. Funciona desde el primer momento sin clave API.",
+    "provider": "Proveedor de búsqueda",
+    "providerDesc": "Elija el backend que responda a web_search y web_fetch.",
+    "apiKey": "Clave {{provider}} API",
+    "apiKeyOptional": "Opcional. Proporcione una clave {{provider}} API para límites de tasa más altos y resultados estructurados. Déjelo vacío para utilizar el punto final sin llave gratuito.",
+    "apiKeyRequired": "Requerido. {{provider}} necesita una clave API para devolver resultados.",
+    "apiKeyPlaceholder": "Ingrese su clave {{provider}} API",
+    "endpoint": "{{provider}} Instancia URL",
+    "endpointDesc": "Requerido. El URL base de su instancia {{provider}}, con el JSON API habilitado.",
+    "endpointPlaceholder": "https://searx.example.com"
+  },
+  "cowork": {
+    "title": "Cowork",
+    "description": "Configure la interfaz del agente Cowork: su shell aislado y las memorias y habilidades guardadas de forma permanente en su carpeta de datos Novera.",
+    "shell": "Comandos de Shell",
+    "shellChecking": "Buscando una zona de pruebas...",
+    "shellSandboxed": "Los comandos se ejecutan confinados en {{backend}}: solo pueden escribir dentro del espacio de trabajo de la sesión y los archivos de su carpeta de inicio no se pueden leer.",
+    "shellUnavailable": "No hay ningún entorno de pruebas disponible en este sistema, por lo que no se ofrece la herramienta Shell. Los comandos nunca se ejecutan ilimitadamente.",
+    "network": "Permitir acceso a la red",
+    "networkDesc": "Permita que los comandos de Cowork lleguen a la red, para cosas como instalar paquetes o buscar un repositorio. Activado de forma predeterminada. El shell del chat principal nunca tiene acceso a la red.",
+    "openFolder": "Abrir carpeta",
+    "memories": "Recuerdos",
+    "noMemories": "Aún no hay recuerdos. Los modelos los agregan con la herramienta memory_write a medida que aprenden cosas que vale la pena conservar.",
+    "skills": "Habilidades",
+    "noSkills": "Aún no hay habilidades. Una habilidad es un conjunto reutilizable de instrucciones que un modelo puede cargar según demanda.",
+    "add": "Agregar",
+    "editMemory": "Editar memoria",
+    "editMemoryDesc": "Un tema por nota. Los modelos los leen con la herramienta memory_read.",
+    "editSkill": "Editar habilidad",
+    "editSkillDesc": "Instrucciones en Markdown, con una descripción opcional en la cabecera YAML. Los modelos ven esta descripción antes de cargar la habilidad.",
+    "namePlaceholder": "Nombre",
+    "contentPlaceholder": "Contenido",
+    "loadFailed": "No se pudo cargar el espacio de trabajo del agente",
+    "saveFailed": "No se pudo guardar",
+    "deleteFailed": "No se pudo eliminar",
+    "revealFailed": "No se pudo abrir la carpeta"
   }
 }

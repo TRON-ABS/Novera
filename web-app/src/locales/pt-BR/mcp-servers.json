@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "Selecionar modelo de roteamento…",
     "routerModelSearchPlaceholder": "Pesquisar modelos…",
     "routerModelEmptyList": "Nenhum modelo leve disponível. Adicione um modelo menor ou configure chaves de API em Modelos.",
-    "routerModelEmptySearch": "Nenhum resultado para “{{query}}”."
+    "routerModelEmptySearch": "Nenhum resultado para “{{query}}”.",
+    "maxToolOutputChars": "Máximo de caracteres de saída da ferramenta",
+    "maxToolOutputCharsDesc": "Resultado de ferramenta mais longo mantido na conversa. Qualquer coisa além disso é cortada e marcada como truncada, portanto, um resultado grande não pode esgotar o contexto do modelo. Defina como 0 para manter os resultados inteiros."
+  },
+  "auth": {
+    "label": "Autenticação:",
+    "state": {
+      "notApplicable": "não obrigatório",
+      "staticHeader": "Cabeçalho de autorização",
+      "authenticated": "autenticado",
+      "expired": "expirou",
+      "staleResource": "emitido para outro URL",
+      "unauthenticated": "não autenticado"
+    },
+    "expiresIn": "expira em {{duration}}",
+    "authenticate": "Faça login",
+    "reauthenticate": "Reautenticar",
+    "clear": "Limpar autenticação",
+    "waiting": "Aguardando navegador...",
+    "openSignInPage": "Abra a página de login",
+    "needsAuth": "{{serverName}} precisa de autenticação",
+    "needsAuthHint": "Faça login neste servidor para se conectar.",
+    "authorized": "Conectado em {{serverName}}",
+    "authorizeFailed": "Falha no login para {{serverName}}",
+    "cleared": "Credenciais armazenadas apagadas para {{serverName}}",
+    "nothingToClear": "{{serverName}} não tinha credenciais armazenadas",
+    "clearFailed": "Não foi possível limpar as credenciais de {{serverName}}",
+    "renew": "Renovar sessão",
+    "expiredAgo": "{{duration}} expirado atrás"
   }
 }

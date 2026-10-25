@@ -44,5 +44,7 @@
     "yellow": "Poco margen de memoria",
     "red": "Memoria insuficiente",
     "unknown": "Memoria desconocida"
-  }
+  },
+  "downloadFailed": "No se pudo iniciar la descarga",
+  "resumeUnavailable": "No se puede reanudar esta descarga. Por favor, empieza de nuevo."
 }

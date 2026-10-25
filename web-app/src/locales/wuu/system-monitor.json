@@ -23,5 +23,8 @@
   "active": "活动",
   "performance": "性能",
   "resources": "资源",
-  "refresh": "刷新"
+  "refresh": "刷新",
+  "noRunningModels": "眼下呒没模型勒海运行",
+  "gpus": "GPU",
+  "noActiveGpus": "呒没启用个 GPU。眼下所有 GPU 侪关脱了。"
 }

@@ -44,5 +44,7 @@
     "yellow": "Malá paměťová rezerva",
     "red": "Nedostatek paměti",
     "unknown": "Paměť neznámá"
-  }
+  },
+  "downloadFailed": "Nepodařilo se zahájit stahování",
+  "resumeUnavailable": "Toto stahování nelze obnovit. Spusťte to prosím znovu."
 }

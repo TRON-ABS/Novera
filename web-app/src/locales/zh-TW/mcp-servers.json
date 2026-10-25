@@ -68,6 +68,34 @@
     "selectRouterModelPlaceholder": "選擇路由模型…",
     "routerModelSearchPlaceholder": "搜尋模型…",
     "routerModelEmptyList": "沒有可用的輕量模型。請新增較小的模型，或在「模型」中設定 API 金鑰。",
-    "routerModelEmptySearch": "沒有與「{{query}}」相符的結果。"
+    "routerModelEmptySearch": "沒有與「{{query}}」相符的結果。",
+    "maxToolOutputChars": "工具最大輸出字元數",
+    "maxToolOutputCharsDesc": "對話中保存的最長工具結果。超過此範圍的任何內容都會被修剪並標記為截斷，因此一個大結果無法耗盡模型的上下文。設定為 0 以保持結果完整。"
+  },
+  "auth": {
+    "label": "授權：",
+    "state": {
+      "notApplicable": "不需要",
+      "staticHeader": "授權標頭",
+      "authenticated": "已驗證",
+      "expired": "已過期",
+      "staleResource": "為另一首 URL 發行",
+      "unauthenticated": "未驗證"
+    },
+    "expiresIn": "到期時間為 {{duration}}",
+    "authenticate": "登入",
+    "reauthenticate": "重新驗證",
+    "clear": "清晰的身份驗證",
+    "waiting": "正在等待瀏覽器...",
+    "openSignInPage": "開啟登入頁面",
+    "needsAuth": "{{serverName}} 需認證",
+    "needsAuthHint": "登入此伺服器進行連線。",
+    "authorized": "登入{{serverName}}",
+    "authorizeFailed": "{{serverName}} 登入失敗",
+    "cleared": "清除了 {{serverName}} 的儲存憑證",
+    "nothingToClear": "{{serverName}} 沒有儲存憑證",
+    "clearFailed": "無法清除 {{serverName}} 的憑證",
+    "renew": "續訂會話",
+    "expiredAgo": "已過期 {{duration}} 前"
   }
 }
