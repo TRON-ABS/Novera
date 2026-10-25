@@ -668,7 +668,7 @@ impl Registry {
     ///
     /// Unconditional where `unload` refuses a busy model: this runs only once
     /// the listener has stopped, and the point is to reach each `Engine`'s Drop
-    /// -- and so `jan_llama_engine_stop` -- before the process exits. Returns
+    /// -- and so `novera_llama_engine_stop` -- before the process exits. Returns
     /// the ids it released, for the log.
     pub fn shutdown(&mut self) -> Vec<String> {
         self.closed = true;

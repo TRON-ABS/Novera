@@ -1,5 +1,5 @@
 //! Safe wrapper over llama.cpp's `server-context`, reached through the C shim
-//! in `shim/jan_llama_shim.cpp`.
+//! in `shim/novera_llama_shim.cpp`.
 //!
 //! The engine runs *in this process*: no `llama-server` child, no downloaded
 //! binary. Everything OpenAI-shaped -- chat templating, tool-call parsing,

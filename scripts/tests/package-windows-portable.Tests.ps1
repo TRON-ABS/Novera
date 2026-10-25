@@ -44,10 +44,10 @@ try {
     Write-FixtureFile 'scripts/distribution/placeholder'
     Copy-Item -LiteralPath "$repoRoot/scripts/package-windows-portable.ps1" -Destination "$fixture/scripts/"
     Copy-Item -LiteralPath "$repoRoot/scripts/distribution/package-windows-portable.ps1" -Destination "$fixture/scripts/distribution/"
-    $windowsJson = '{"bundle":{"resources":["resources/LICENSE","resources/bin/jan-llama-worker.exe","resources/bin/*.dll"],"externalBin":["resources/bin/bun","resources/bin/uv"]}}'
+    $windowsJson = '{"bundle":{"resources":["resources/LICENSE","resources/bin/novera-llama-worker.exe","resources/bin/*.dll"],"externalBin":["resources/bin/bun","resources/bin/uv"]}}'
     Write-FixtureFile 'src-tauri/tauri.windows.conf.json' $windowsJson
     foreach ($notice in @('LICENSE', 'BRANDING.md', 'OFFICIAL_RELEASES.md', 'src-tauri/resources/LICENSE')) { Write-FixtureFile $notice 'license and attribution fixture' }
-    foreach ($binary in @('jan-llama-worker.exe', 'ggml-base.dll', 'ggml.dll', 'ggml-cpu-x64.dll', 'ggml-vulkan.dll', 'sqlite-vec.dll', 'bun-x86_64-pc-windows-msvc.exe', 'uv-x86_64-pc-windows-msvc.exe')) { Write-FixturePE "src-tauri/resources/bin/$binary" }
+    foreach ($binary in @('novera-llama-worker.exe', 'ggml-base.dll', 'ggml.dll', 'ggml-cpu-x64.dll', 'ggml-vulkan.dll', 'sqlite-vec.dll', 'bun-x86_64-pc-windows-msvc.exe', 'uv-x86_64-pc-windows-msvc.exe')) { Write-FixturePE "src-tauri/resources/bin/$binary" }
     Write-FixturePE 'custom target/release/extra.dll'
     Write-FixtureFile 'custom target/release/private-token.txt' 'must never ship'
     $env:CARGO_TARGET_DIR = Join-Path $fixture 'custom target'
@@ -62,7 +62,7 @@ try {
         $archivePath = Join-Path $outputDir "${product}_1.0.0_x64-portable.zip"
         $zip = [IO.Compression.ZipFile]::OpenRead($archivePath)
         try {
-            foreach ($name in @("$desktop.exe", 'bun.exe', 'uv.exe', 'extra.dll', 'resources/LICENSE', 'resources/bin/jan-llama-worker.exe', 'resources/bin/ggml-cpu-x64.dll', 'resources/bin/ggml-vulkan.dll', 'resources/bin/sqlite-vec.dll', 'README.txt', 'LICENSE', 'BRANDING.md', 'OFFICIAL_RELEASES.md', 'portable-manifest.json', 'SHA256SUMS')) {
+            foreach ($name in @("$desktop.exe", 'bun.exe', 'uv.exe', 'extra.dll', 'resources/LICENSE', 'resources/bin/novera-llama-worker.exe', 'resources/bin/ggml-cpu-x64.dll', 'resources/bin/ggml-vulkan.dll', 'resources/bin/sqlite-vec.dll', 'README.txt', 'LICENSE', 'BRANDING.md', 'OFFICIAL_RELEASES.md', 'portable-manifest.json', 'SHA256SUMS')) {
                 Assert-True ($null -ne $zip.GetEntry($name)) "Missing ZIP entry: $name"
             }
             Assert-True ($null -eq $zip.GetEntry('private-token.txt')) 'Private files were included'
@@ -89,7 +89,7 @@ try {
     Package
     Assert-True ((Get-FileHash -LiteralPath $archivePath).Hash -eq $previousHash) 'Same inputs produced a different ZIP'
     Pass 'reproducible ZIP within the same PowerShell/.NET runtime'
-    foreach ($relative in @('src-tauri/resources/bin/uv-x86_64-pc-windows-msvc.exe', 'src-tauri/resources/bin/jan-llama-worker.exe', 'src-tauri/resources/bin/ggml-base.dll', 'src-tauri/resources/bin/ggml-cpu-x64.dll', "custom target/release/$desktop.exe")) {
+    foreach ($relative in @('src-tauri/resources/bin/uv-x86_64-pc-windows-msvc.exe', 'src-tauri/resources/bin/novera-llama-worker.exe', 'src-tauri/resources/bin/ggml-base.dll', 'src-tauri/resources/bin/ggml-cpu-x64.dll', "custom target/release/$desktop.exe")) {
         $path = Join-Path $fixture $relative; $saved = [IO.File]::ReadAllBytes($path)
         Remove-Item -LiteralPath $path; Assert-Failure
         [IO.File]::WriteAllBytes($path, @()); Assert-Failure

@@ -141,7 +141,7 @@ fn fault_emitter<R: tauri::Runtime>(
 ) -> worker::FaultCallback {
     use tauri::Emitter;
     Arc::new(move |fault: worker::RuntimeFault, line: String| {
-        log::error!("jan-llama-worker fault ({fault:?}): {line}");
+        log::error!("novera-llama-worker fault ({fault:?}): {line}");
         let payload = driver::fault_payload(
             &line,
             versions.driver.get(),
@@ -567,7 +567,7 @@ pub async fn get_engine_info(
     // would fail against a closed port with no explanation.
     if let Some(h) = guard.as_mut() {
         if let Some(status) = h.exited() {
-            log::warn!("jan-llama-worker exited unexpectedly: {status}");
+            log::warn!("novera-llama-worker exited unexpectedly: {status}");
             *guard = None;
             return Ok(None);
         }
@@ -753,7 +753,7 @@ mod tests {
     #[test]
     fn the_worker_file_name_is_platform_correct() {
         let name = super::worker::worker_file_name();
-        assert!(name.starts_with("jan-llama-worker"));
+        assert!(name.starts_with("novera-llama-worker"));
         assert_eq!(name.ends_with(".exe"), cfg!(windows));
     }
 }

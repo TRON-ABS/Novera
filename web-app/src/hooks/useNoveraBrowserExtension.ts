@@ -2,20 +2,23 @@ import { useState, useCallback, useRef } from 'react'
 import { useServiceHub } from '@/hooks/useServiceHub'
 import { useMCPServers } from '@/hooks/useMCPServers'
 import { toast } from 'sonner'
-import type { JanBrowserExtensionDialogState } from '@/containers/dialogs/JanBrowserExtensionDialog'
+import type { NoveraBrowserExtensionDialogState } from '@/containers/dialogs/NoveraBrowserExtensionDialog'
 
 const JAN_BROWSER_MCP_NAME = 'Jan Browser MCP'
+
+// This Novera hook integrates the upstream extension; its server name and
+// connection command remain compatibility identifiers, not Novera branding.
 
 // Timeout and polling configuration
 const PING_TIMEOUT_MS = 6000 // Backend ping takes up to 3s
 const POLL_INTERVAL_MS = 500
 const SERVER_START_DELAY_MS = 1000
 
-export function useJanBrowserExtension() {
+export function useNoveraBrowserExtension() {
   const serviceHub = useServiceHub()
   const { mcpServers, editServer, syncServers } = useMCPServers()
 
-  const [dialogState, setDialogState] = useState<JanBrowserExtensionDialogState>('closed')
+  const [dialogState, setDialogState] = useState<NoveraBrowserExtensionDialogState>('closed')
   const [dialogOpen, setDialogOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [isCancelling, setIsCancelling] = useState(false)

@@ -1,3 +1,24 @@
+# Rename Novera-owned engine and interface components — 25 October 2026
+
+Source builds and runtime discovery still expected `jan-llama-worker` and
+`jan_llama_shim`, and Novera’s own interface modules exposed Jan names. Rename
+the worker, shim/archive/C ABI, imports, tests, manifests and build/package paths
+to Novera. Preserve the prior Windows worker during upgrade rollback and remove
+it only after a successful replacement. Keep persisted preference keys,
+attribution and actual third-party Jan provider/extension identifiers intact;
+resolve the Novera provider logo to the existing Novera asset.
+
+Local validation: 234 web tests passed across nine suites; TypeScript without
+emission passed; portable packaging passed 223 assertions/12 scenarios; three
+installer-resource tests passed in an isolated Rust harness. Cargo metadata,
+C/C++ header syntax, 17 FFI declarations and Bash/PowerShell syntax checked.
+Existing mocked-error and React act warnings remain. No full engine link,
+application rebuild, actual installer upgrade or cross-platform build claimed.
+CI remains disabled. Existing unrelated local changes are excluded from this
+publication. [Scope and limitations](docs/NOVERA_INTERNAL_NAMES.md).
+
+---
+
 # Retire unused Jan website and distribution files — 25 October 2026
 
 The repository still carried Jan's website, downloads, media and Flatpak recipe

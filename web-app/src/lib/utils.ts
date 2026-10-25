@@ -129,6 +129,8 @@ export function getModelDisplayName(model: Model): string {
 
 export function getProviderLogo(provider: string) {
   switch (provider) {
+    case 'novera':
+      return '/images/novera-logo.png'
     case 'jan':
       return '/images/model-provider/jan.png'
     case 'llamacpp':

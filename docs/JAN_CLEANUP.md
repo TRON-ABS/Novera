@@ -45,3 +45,10 @@ lui-même n’a pas été exécuté. Aucune compilation d’application, install
 suppression de données utilisateur, réécriture d’historique ou activation de
 GitHub Actions pour ce nettoyage. La publication porte uniquement sur ce lot,
 pas sur les autres changements en cours dans le dossier de travail.
+
+## Adaptation ultérieure des noms internes
+
+Après ce nettoyage, les composants propres à Novera conservés sous leurs anciens
+noms ont été renommés avec leurs consommateurs. Voir [les noms actuels et la
+compatibilité](NOVERA_INTERNAL_NAMES.md). Les mentions ci-dessus décrivent le
+contrôle effectué avant ce renommage ; les éléments tiers restent attribués.

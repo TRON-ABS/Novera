@@ -30,10 +30,10 @@ export function pruneLocalStorageByFlags(flags: WebdataResetFlags): void {
       k.lastUsedAssistant,
       k.defaultAssistantId,
       k.favoriteModels,
-      k.latestJanModel,
+      k.latestNoveraModel,
       k.defaultEmbeddingModel,
       k.modelSupportCache,
-      k.janModelPromptDismissed,
+      k.noveraModelPromptDismissed,
       k.pausedDownloads,
     ])
   }

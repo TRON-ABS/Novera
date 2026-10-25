@@ -12,6 +12,10 @@ import {
 } from '../utils'
 
 describe('getProviderLogo', () => {
+  it('uses Novera branding while retaining the third-party Jan provider logo', () => {
+    expect(getProviderLogo('novera')).toBe('/images/novera-logo.png')
+    expect(getProviderLogo('jan')).toBe('/images/model-provider/jan.png')
+  })
   it('returns correct logo paths for known providers', () => {
     expect(getProviderLogo('llamacpp')).toBe(
       '/images/model-provider/llamacpp.svg'

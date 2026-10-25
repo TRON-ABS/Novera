@@ -8,7 +8,7 @@
 //! `llama-server` binary and the router's per-model subprocesses.
 //!
 //! Usage:
-//!   jan-llama-worker --preset <router.preset.ini> [--port N] [--models-max N]
+//!   novera-llama-worker --preset <router.preset.ini> [--port N] [--models-max N]
 //!
 //! The bearer token comes from `JAN_LLAMA_API_KEY`, never argv: argv is
 //! readable by any other process on the machine (`ps`, `/proc/<pid>/cmdline`,
@@ -86,7 +86,7 @@ fn parse_args() -> Result<Args, String> {
                 std::process::exit(0);
             }
             "--version" => {
-                println!("jan-llama-worker (llama.cpp {PINNED_TAG})");
+                println!("novera-llama-worker (llama.cpp {PINNED_TAG})");
                 std::process::exit(0);
             }
             other => return Err(format!("unknown flag: {other}")),
@@ -100,7 +100,7 @@ async fn main() {
     let args = match parse_args() {
         Ok(a) => a,
         Err(e) => {
-            eprintln!("jan-llama-worker: {e}");
+            eprintln!("novera-llama-worker: {e}");
             std::process::exit(2);
         }
     };
@@ -109,7 +109,7 @@ async fn main() {
     // common_params and llama_context_params cross the boundary by value and
     // their layout has changed repeatedly upstream.
     if let Err(e) = assert_pinned_version() {
-        eprintln!("jan-llama-worker: {e}");
+        eprintln!("novera-llama-worker: {e}");
         std::process::exit(3);
     }
 
@@ -120,7 +120,7 @@ async fn main() {
         match tauri_plugin_llamacpp::engine::Engine::devices_json() {
             Ok(json) => println!("{json}"),
             Err(e) => {
-                eprintln!("jan-llama-worker: could not list devices: {e}");
+                eprintln!("novera-llama-worker: could not list devices: {e}");
                 std::process::exit(6);
             }
         }
@@ -135,7 +135,7 @@ async fn main() {
         let ini = match std::fs::read_to_string(path) {
             Ok(s) => s,
             Err(e) => {
-                eprintln!("jan-llama-worker: could not read {path}: {e}");
+                eprintln!("novera-llama-worker: could not read {path}: {e}");
                 std::process::exit(4);
             }
         };
@@ -152,7 +152,7 @@ async fn main() {
         if let Some(dir) = preset::shared_value(&ini, "slot-save-path") {
             let store = StateStore::new(&dir, args.slot_cache_mib);
             if let Err(e) = store.ensure_dir() {
-                eprintln!("jan-llama-worker: could not create {dir}: {e}");
+                eprintln!("novera-llama-worker: could not create {dir}: {e}");
                 std::process::exit(7);
             }
             // Pruned here, not only on reload: a budget lowered (or zeroed)
@@ -160,7 +160,7 @@ async fn main() {
             // nothing else walks this directory at startup.
             let dropped = store.prune().len();
             if dropped > 0 {
-                eprintln!("jan-llama-worker: pruned {dropped} saved thread cache(s)");
+                eprintln!("novera-llama-worker: pruned {dropped} saved thread cache(s)");
             }
             // Kept even at a zero budget: erasing a deleted thread's state and
             // clearing the directory both need the store, and neither writes.
@@ -178,7 +178,7 @@ async fn main() {
     let (server, listener) = match EngineServer::bind(registry, args.port, api_key).await {
         Ok(v) => v,
         Err(e) => {
-            eprintln!("jan-llama-worker: could not bind: {e}");
+            eprintln!("novera-llama-worker: could not bind: {e}");
             std::process::exit(5);
         }
     };
@@ -186,13 +186,13 @@ async fn main() {
         Some(store) => {
             if store.saves_enabled() {
                 eprintln!(
-                    "jan-llama-worker: keeping up to {} MiB of thread KV cache in {}",
+                    "novera-llama-worker: keeping up to {} MiB of thread KV cache in {}",
                     args.slot_cache_mib,
                     store.dir().display()
                 );
             } else {
                 eprintln!(
-                    "jan-llama-worker: thread KV cache is off; keeping {} clear",
+                    "novera-llama-worker: thread KV cache is off; keeping {} clear",
                     store.dir().display()
                 );
             }
@@ -230,11 +230,11 @@ async fn main() {
     server.save_resident_slots().await;
 
     // Releasing the models here is the whole point of exiting in-band: each
-    // Engine's Drop runs jan_llama_engine_stop, terminating its server_queue
+    // Engine's Drop runs novera_llama_engine_stop, terminating its server_queue
     // loop and freeing the weights. A force-killed process skips all of that.
     let released = registry_for_teardown.lock().await.shutdown();
     if !released.is_empty() {
-        eprintln!("jan-llama-worker: released {}", released.join(", "));
+        eprintln!("novera-llama-worker: released {}", released.join(", "));
     }
 }
 
@@ -258,7 +258,7 @@ async fn shutdown_requested() {
         let mut term = match signal(SignalKind::terminate()) {
             Ok(s) => s,
             Err(e) => {
-                eprintln!("jan-llama-worker: could not watch SIGTERM: {e}");
+                eprintln!("novera-llama-worker: could not watch SIGTERM: {e}");
                 stdin_eof().await;
                 return;
             }

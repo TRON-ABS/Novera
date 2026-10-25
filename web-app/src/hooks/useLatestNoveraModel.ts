@@ -4,24 +4,24 @@ import type { CatalogModel } from '@/services/models/types'
 import { backendStorage } from '@/lib/backendStorage'
 import { NOVERA_RECOMMENDED_MODEL } from '@/lib/noveraRecommendedModel'
 
-type LatestJanModelState = {
+type LatestNoveraModelState = {
   model: CatalogModel | null
   lastFetchedAt: number | null
   loading: boolean
   error: boolean
-  fetchLatestJanModel: (force?: boolean) => Promise<void>
+  fetchLatestNoveraModel: (force?: boolean) => Promise<void>
 }
 
 // Keep the store interface for existing consumers; the recommendation belongs
 // to Novera and never depends on the upstream feed or a stale cached model.
-export const useLatestJanModel = create<LatestJanModelState>()(
+export const useLatestNoveraModel = create<LatestNoveraModelState>()(
   persist(
     (set) => ({
       model: NOVERA_RECOMMENDED_MODEL,
       lastFetchedAt: null,
       loading: false,
       error: false,
-      fetchLatestJanModel: async () => {
+      fetchLatestNoveraModel: async () => {
         set({ model: NOVERA_RECOMMENDED_MODEL, lastFetchedAt: Date.now(), loading: false, error: false })
       },
     }),

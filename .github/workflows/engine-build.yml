@@ -69,7 +69,7 @@ jobs:
           fi
 
   worker:
-    name: jan-llama-worker (${{ matrix.name }})
+    name: novera-llama-worker (${{ matrix.name }})
     needs: variants
     # No label here is self-hosted any more, so this guard is belt and braces:
     # the job compiles `build.rs`, `shim/**` and `engine/**` from the PR tip and
@@ -191,7 +191,7 @@ jobs:
       - name: Smoke-test the worker
         shell: bash
         run: |
-          bin=src-tauri/resources/bin/jan-llama-worker
+          bin=src-tauri/resources/bin/novera-llama-worker
           if [ "$RUNNER_OS" = "Windows" ]; then
             bin="$bin.exe"
           fi
@@ -205,19 +205,19 @@ jobs:
         if: runner.os == 'macOS'
         shell: bash
         run: |
-          archs=$(lipo -archs src-tauri/resources/bin/jan-llama-worker)
-          echo "jan-llama-worker: $archs"
+          archs=$(lipo -archs src-tauri/resources/bin/novera-llama-worker)
+          echo "novera-llama-worker: $archs"
           for want in x86_64 arm64; do
             case " $archs " in
               *" $want "*) ;;
-              *) echo "::warning::jan-llama-worker has no $want slice, so local inference will not start on $want Macs" ;;
+              *) echo "::warning::novera-llama-worker has no $want slice, so local inference will not start on $want Macs" ;;
             esac
           done
 
       - name: Upload the engine
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: jan-llama-worker-${{ matrix.name }}
+          name: novera-llama-worker-${{ matrix.name }}
           path: src-tauri/resources/bin
           if-no-files-found: error
 

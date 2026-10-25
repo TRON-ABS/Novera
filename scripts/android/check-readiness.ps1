@@ -34,7 +34,7 @@ $builder=Get-Content -LiteralPath (Join-Path $PSScriptRoot 'build-apk.ps1') -Raw
 Check 'mobile-feature-selection' ($builder -match '--no-default-features' -and $builder -match 'mobile') 'Le build mobile exclut explicitement les features desktop par defaut.'
 $jni=Join-Path $project 'app/src/main/jniLibs/arm64-v8a'
 $payload=$true
-foreach($name in @('libjan_llama_worker.so','libggml.so','libggml-base.so','libggml-cpu.so','libc++_shared.so')){if(!(Test-Path -LiteralPath (Join-Path $jni $name))){$payload=$false}}
+foreach($name in @('libnovera_llama_worker.so','libggml.so','libggml-base.so','libggml-cpu.so','libc++_shared.so')){if(!(Test-Path -LiteralPath (Join-Path $jni $name))){$payload=$false}}
 $engineManifest=Join-Path $android.repo '.build/android-engine-manifest.json'
 if(!(Test-Path -LiteralPath $engineManifest)){$payload=$false}else{
     $engine=Get-Content -LiteralPath $engineManifest -Raw | ConvertFrom-Json

@@ -28,7 +28,7 @@ on:
         type: string
         default: 'metal'
         description: >
-          JAN_ENGINE_VARIANT for the bundled jan-llama-worker. Metal is the only
+          JAN_ENGINE_VARIANT for the bundled novera-llama-worker. Metal is the only
           backend worth shipping on macOS.
 jobs:
   build-macos-external:
@@ -118,7 +118,7 @@ jobs:
           yarn --version
           yarn config set -H enableImmutableInstalls false
 
-      # `make build` compiles jan-llama-worker, which the dmg bundles. Metal is
+      # `make build` compiles novera-llama-worker, which the dmg bundles. Metal is
       # the only backend worth shipping on macOS, and it needs nothing beyond
       # Xcode.
       - name: Set up the llama.cpp engine toolchain
@@ -138,12 +138,12 @@ jobs:
       - name: Report the engine's architecture coverage
         shell: bash
         run: |
-          archs=$(lipo -archs src-tauri/resources/bin/jan-llama-worker)
-          echo "jan-llama-worker: $archs"
+          archs=$(lipo -archs src-tauri/resources/bin/novera-llama-worker)
+          echo "novera-llama-worker: $archs"
           for want in x86_64 arm64; do
             case " $archs " in
               *" $want "*) ;;
-              *) echo "::warning::jan-llama-worker has no $want slice, so local inference will not start on $want Macs" ;;
+              *) echo "::warning::novera-llama-worker has no $want slice, so local inference will not start on $want Macs" ;;
             esac
           done
 

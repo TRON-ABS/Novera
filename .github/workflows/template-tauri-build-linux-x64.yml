@@ -46,7 +46,7 @@ on:
         type: string
         default: 'vulkan'
         description: >
-          JAN_ENGINE_VARIANT for the bundled jan-llama-worker: a `-` joined
+          JAN_ENGINE_VARIANT for the bundled novera-llama-worker: a `-` joined
           backend list, e.g. vulkan, cuda13-vulkan, rocm-vulkan. One CUDA major
           per bundle, so cuda12 and cuda13 are separate builds.
     secrets:
@@ -126,7 +126,7 @@ jobs:
           sudo apt update
           sudo apt install -y libglib2.0-dev libatk1.0-dev libpango1.0-dev libgtk-3-dev libsoup-3.0-dev libwebkit2gtk-4.1-dev librsvg2-dev libfuse2 libappindicator3-dev xdg-utils pkg-config file desktop-file-utils
 
-      # `make build` compiles jan-llama-worker, which the deb and the AppImage
+      # `make build` compiles novera-llama-worker, which the deb and the AppImage
       # both bundle. The default variant is vulkan because it covers AMD, Intel
       # and NVIDIA through one driver-provided backend; a cuda or rocm variant
       # needs a caller-supplied runner that carries that toolkit.
@@ -287,7 +287,7 @@ jobs:
           appdir=$(ls -d src-tauri/target/release/bundle/appimage/*.AppDir 2>/dev/null | head -1)
           [ -n "$appdir" ] || { echo "no AppDir left behind; the build failed before bundling"; exit 0; }
           echo "--- engine binaries tauri staged into the AppDir"
-          find "$appdir" \( -name 'libggml*' -o -name 'libcu*' -o -name 'jan-llama-worker' \) | head -40
+          find "$appdir" \( -name 'libggml*' -o -name 'libcu*' -o -name 'novera-llama-worker' \) | head -40
           echo "--- tauri's linuxdeploy command over that AppDir"
           OUTPUT="$PWD/diagnose.AppImage" ARCH=x86_64 PATH="$PWD/.cache/tauri:$PATH" \
             "$tool" --appimage-extract-and-run --appdir "$appdir" --plugin gtk --output appimage || echo "exit $?"

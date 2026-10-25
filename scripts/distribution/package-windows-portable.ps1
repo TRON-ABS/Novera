@@ -112,7 +112,7 @@ try {
         Copy-RequiredFile $_.FullName (Join-Path $stage $_.Name)
     }
     foreach ($required in @($desktop, 'bun.exe', 'uv.exe', 'resources/LICENSE',
-        'resources/bin/jan-llama-worker.exe', 'resources/bin/ggml.dll', 'resources/bin/ggml-base.dll')) {
+        'resources/bin/novera-llama-worker.exe', 'resources/bin/ggml.dll', 'resources/bin/ggml-base.dll')) {
         if (!(Test-Path -LiteralPath (Join-Path $stage $required) -PathType Leaf)) { throw "Incomplete runtime: $required" }
     }
     if (@(Get-ChildItem -LiteralPath (Join-Path $stage 'resources/bin') -Filter 'ggml-cpu*.dll' -File).Count -eq 0) {

@@ -23,17 +23,17 @@ vi.mock('@/hooks/useMCPServers', () => ({
 }))
 
 // Mock the dialog type
-vi.mock('@/containers/dialogs/JanBrowserExtensionDialog', () => ({}))
+vi.mock('@/containers/dialogs/NoveraBrowserExtensionDialog', () => ({}))
 
-describe('useJanBrowserExtension', () => {
+describe('useNoveraBrowserExtension', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mockMcpServers = {}
   })
 
   it('should return correct initial state when no config exists', async () => {
-    const { useJanBrowserExtension } = await import('../useJanBrowserExtension')
-    const { result } = renderHook(() => useJanBrowserExtension())
+    const { useNoveraBrowserExtension } = await import('../useNoveraBrowserExtension')
+    const { result } = renderHook(() => useNoveraBrowserExtension())
 
     expect(result.current.hasConfig).toBe(false)
     expect(result.current.isActive).toBe(false)
@@ -50,8 +50,8 @@ describe('useJanBrowserExtension', () => {
       'Jan Browser MCP': { command: 'node', args: [], env: {}, active: false },
     }
 
-    const { useJanBrowserExtension } = await import('../useJanBrowserExtension')
-    const { result } = renderHook(() => useJanBrowserExtension())
+    const { useNoveraBrowserExtension } = await import('../useNoveraBrowserExtension')
+    const { result } = renderHook(() => useNoveraBrowserExtension())
 
     expect(result.current.hasConfig).toBe(true)
     expect(result.current.isActive).toBe(false)
@@ -62,16 +62,16 @@ describe('useJanBrowserExtension', () => {
       'Jan Browser MCP': { command: 'node', args: [], env: {}, active: true },
     }
 
-    const { useJanBrowserExtension } = await import('../useJanBrowserExtension')
-    const { result } = renderHook(() => useJanBrowserExtension())
+    const { useNoveraBrowserExtension } = await import('../useNoveraBrowserExtension')
+    const { result } = renderHook(() => useNoveraBrowserExtension())
 
     expect(result.current.isActive).toBe(true)
   })
 
   it('should show error toast when toggling without config', async () => {
     const { toast } = await import('sonner')
-    const { useJanBrowserExtension } = await import('../useJanBrowserExtension')
-    const { result } = renderHook(() => useJanBrowserExtension())
+    const { useNoveraBrowserExtension } = await import('../useNoveraBrowserExtension')
+    const { result } = renderHook(() => useNoveraBrowserExtension())
 
     await act(async () => {
       await result.current.toggleBrowser()
@@ -85,8 +85,8 @@ describe('useJanBrowserExtension', () => {
       'Jan Browser MCP': { command: 'node', args: [], env: {}, active: true },
     }
 
-    const { useJanBrowserExtension } = await import('../useJanBrowserExtension')
-    const { result } = renderHook(() => useJanBrowserExtension())
+    const { useNoveraBrowserExtension } = await import('../useNoveraBrowserExtension')
+    const { result } = renderHook(() => useNoveraBrowserExtension())
 
     act(() => {
       result.current.handleCancel()
@@ -98,8 +98,8 @@ describe('useJanBrowserExtension', () => {
   })
 
   it('should allow setting dialog open state', async () => {
-    const { useJanBrowserExtension } = await import('../useJanBrowserExtension')
-    const { result } = renderHook(() => useJanBrowserExtension())
+    const { useNoveraBrowserExtension } = await import('../useNoveraBrowserExtension')
+    const { result } = renderHook(() => useNoveraBrowserExtension())
 
     act(() => {
       result.current.setDialogOpen(true)

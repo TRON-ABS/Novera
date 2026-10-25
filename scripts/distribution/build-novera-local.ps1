@@ -158,7 +158,7 @@ try {
                 Copy-Item -LiteralPath $source -Destination (Join-Path $output "$(Split-Path $sidecar -Leaf).exe")
             }
             Get-ChildItem -LiteralPath $binaryRoot -Filter '*.dll' -File | ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $output }
-            foreach ($name in @('ggml.dll','ggml-base.dll','jan-llama-worker.exe')) {
+            foreach ($name in @('ggml.dll','ggml-base.dll','novera-llama-worker.exe')) {
                 if (!(Test-Path -LiteralPath (Join-Path $output "resources/bin/$name"))) { throw "Moteur incomplet : $name" }
             }
             if (!(Get-ChildItem -LiteralPath (Join-Path $output 'resources/bin') -Filter 'ggml-cpu*.dll' -File)) { throw 'Backend CPU absent.' }

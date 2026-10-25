@@ -179,8 +179,8 @@ vi.mock('@/hooks/useChatAttachments', () => ({
   ),
 }))
 
-vi.mock('@/hooks/useJanBrowserExtension', () => ({
-  useJanBrowserExtension: () => ({
+vi.mock('@/hooks/useNoveraBrowserExtension', () => ({
+  useNoveraBrowserExtension: () => ({
     hasConfig: false,
     isActive: false,
     isLoading: false,
@@ -280,7 +280,7 @@ vi.mock('@/containers/AvatarEmoji', () => ({
 vi.mock('@/containers/McpExtensionToolLoader', () => ({
   McpExtensionToolLoader: () => null,
 }))
-vi.mock('@/containers/dialogs/JanBrowserExtensionDialog', () => ({
+vi.mock('@/containers/dialogs/NoveraBrowserExtensionDialog', () => ({
   __esModule: true,
   default: () => null,
 }))

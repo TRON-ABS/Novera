@@ -23,9 +23,9 @@ unixpath() { if command -v cygpath >/dev/null 2>&1; then cygpath -u "$1"; else p
 script_code() { nocr < "$1" | sed '/^[[:space:]]*\(#.*\)\{0,1\}$/d'; }
 
 # build.rs's ARCHIVES, read rather than copied so the two cannot drift, minus
-# jan_llama_shim, which cc rebuilds on every build
+# novera_llama_shim, which cc rebuilds on every build
 archives() {
-  nocr < "$P/build.rs" | sed -n '/const ARCHIVES: /,/];/s/^ *"\([^"]*\)",*$/\1/p' | grep -vx jan_llama_shim
+  nocr < "$P/build.rs" | sed -n '/const ARCHIVES: /,/];/s/^ *"\([^"]*\)",*$/\1/p' | grep -vx novera_llama_shim
 }
 
 # Everything the prebuilt link and stage-engine.sh need. build.rs itself only
@@ -122,7 +122,7 @@ save)
   exe=
   case "$(uname -s)" in MINGW*|MSYS*|CYGWIN*) exe=.exe ;; esac
   # A non-empty staged worker proves both cmake stages built and linked in this run
-  [ -s "src-tauri/resources/bin/jan-llama-worker$exe" ] || {
+  [ -s "src-tauri/resources/bin/novera-llama-worker$exe" ] || {
     echo "::warning::engine-prebuilt: engine not built this run; not saving"; exit 0; }
   marker=$(ls -t "${CARGO_TARGET_DIR:-$P/target}"/release/build/tauri-plugin-llamacpp-*/out/engine-build-root.txt | head -1)
   root=$(unixpath "$(nocr < "$marker" | tr -d '\n')") # relocated out of OUT_DIR on Windows

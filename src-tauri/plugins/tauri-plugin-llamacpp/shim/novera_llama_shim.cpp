@@ -1,4 +1,4 @@
-#include "jan_llama_shim.h"
+#include "novera_llama_shim.h"
 
 #include "server-context.h"
 #include "server-common.h"
@@ -28,7 +28,7 @@
 #include <thread>
 #include <unordered_map>
 
-struct jan_llama_engine;
+struct novera_llama_engine;
 
 namespace {
 
@@ -64,7 +64,7 @@ void set_err(char * err, size_t err_len, const std::string & msg) {
     err[n] = '\0';
 }
 
-jan_llama_engine * finish_start(std::unique_ptr<jan_llama_engine> engine,
+novera_llama_engine * finish_start(std::unique_ptr<novera_llama_engine> engine,
                                 char * err, size_t err_len);
 
 // `server_context::load_model` returns a bool and puts the reason -- a CUDA
@@ -216,10 +216,10 @@ std::map<std::string, std::string> parse_query(const char * query) {
 
 } // namespace
 
-struct jan_llama_engine {
+struct novera_llama_engine {
     common_params params;
     server_context ctx;
-    jan_llama_state_cb on_state = nullptr;
+    novera_llama_state_cb on_state = nullptr;
     void *             state_ud = nullptr;
     std::unique_ptr<server_routes> routes;
     std::thread loop;
@@ -268,7 +268,7 @@ struct jan_llama_engine {
 // that pointer for the life of the stream -- so the request, and the
 // std::function its `should_stop` member references, must outlive the response.
 // Declaration order here is the destruction order that guarantees it.
-struct jan_llama_response {
+struct novera_llama_response {
     std::atomic<bool> cancel{false};
     std::function<bool()> should_stop;
     std::unique_ptr<server_http_req> req;
@@ -285,19 +285,19 @@ struct jan_llama_response {
         }
     }
 
-    ~jan_llama_response() {
+    ~novera_llama_response() {
         finish();
     }
 };
 
-jan_llama_engine * jan_llama_engine_start(const char * const * argv,
+novera_llama_engine * novera_llama_engine_start(const char * const * argv,
                                           int                  argc,
-                                          jan_llama_state_cb   on_state,
+                                          novera_llama_state_cb   on_state,
                                           void *               user_data,
                                           char *               err,
                                           size_t               err_len) {
     try {
-        auto engine = std::make_unique<jan_llama_engine>();
+        auto engine = std::make_unique<novera_llama_engine>();
         engine->on_state = on_state;
         engine->state_ud = user_data;
 
@@ -328,9 +328,9 @@ jan_llama_engine * jan_llama_engine_start(const char * const * argv,
     }
 }
 
-jan_llama_engine * jan_llama_engine_start_from_preset(const char *       ini_path,
+novera_llama_engine * novera_llama_engine_start_from_preset(const char *       ini_path,
                                                      const char *       preset_name,
-                                                     jan_llama_state_cb on_state,
+                                                     novera_llama_state_cb on_state,
                                                      void *             user_data,
                                                      char *             err,
                                                      size_t             err_len) {
@@ -339,7 +339,7 @@ jan_llama_engine * jan_llama_engine_start_from_preset(const char *       ini_pat
             set_err(err, err_len, "ini_path and preset_name are required");
             return nullptr;
         }
-        auto engine = std::make_unique<jan_llama_engine>();
+        auto engine = std::make_unique<novera_llama_engine>();
         engine->on_state = on_state;
         engine->state_ud = user_data;
 
@@ -431,7 +431,7 @@ jan_llama_engine * jan_llama_engine_start_from_preset(const char *       ini_pat
 
 namespace {
 
-jan_llama_engine * finish_start(std::unique_ptr<jan_llama_engine> engine,
+novera_llama_engine * finish_start(std::unique_ptr<novera_llama_engine> engine,
                                 char * err, size_t err_len) {
     try {
         // server.cpp:156-161, in llama-server's main() -- which neither entry
@@ -514,7 +514,7 @@ jan_llama_engine * finish_start(std::unique_ptr<jan_llama_engine> engine,
 
 } // namespace
 
-int jan_llama_engine_stop(jan_llama_engine * engine) {
+int novera_llama_engine_stop(novera_llama_engine * engine) {
     if (engine == nullptr) {
         return 0;
     }
@@ -556,12 +556,12 @@ int jan_llama_engine_stop(jan_llama_engine * engine) {
     return 0;
 }
 
-jan_llama_response * jan_llama_engine_request(jan_llama_engine * engine,
+novera_llama_response * novera_llama_engine_request(novera_llama_engine * engine,
                                               const char *       route,
                                               const char *       query,
                                               const char *       body,
                                               size_t             body_len) {
-    auto out = new jan_llama_response();
+    auto out = new novera_llama_response();
     try {
         if (engine == nullptr || route == nullptr) {
             out->res = error_response("engine or route is null", ERROR_TYPE_SERVER);
@@ -611,15 +611,15 @@ jan_llama_response * jan_llama_engine_request(jan_llama_engine * engine,
     }
 }
 
-int jan_llama_response_status(const jan_llama_response * res) {
+int novera_llama_response_status(const novera_llama_response * res) {
     return (res && res->res) ? res->res->status : 500;
 }
 
-const char * jan_llama_response_content_type(const jan_llama_response * res) {
+const char * novera_llama_response_content_type(const novera_llama_response * res) {
     return (res && res->res) ? res->res->content_type.c_str() : "";
 }
 
-const char * jan_llama_response_body(const jan_llama_response * res, size_t * len) {
+const char * novera_llama_response_body(const novera_llama_response * res, size_t * len) {
     if (!res || !res->res) {
         if (len) *len = 0;
         return "";
@@ -628,11 +628,11 @@ const char * jan_llama_response_body(const jan_llama_response * res, size_t * le
     return res->res->data.c_str();
 }
 
-int jan_llama_response_is_stream(const jan_llama_response * res) {
+int novera_llama_response_is_stream(const novera_llama_response * res) {
     return (res && res->res && res->res->is_stream()) ? 1 : 0;
 }
 
-int jan_llama_response_next(jan_llama_response * res, const char ** chunk, size_t * len) {
+int novera_llama_response_next(novera_llama_response * res, const char ** chunk, size_t * len) {
     if (!res || !res->res || !res->res->next) {
         return 0;
     }
@@ -658,17 +658,17 @@ int jan_llama_response_next(jan_llama_response * res, const char ** chunk, size_
     }
 }
 
-void jan_llama_response_cancel(jan_llama_response * res) {
+void novera_llama_response_cancel(novera_llama_response * res) {
     if (res) {
         res->cancel.store(true);
     }
 }
 
-void jan_llama_response_free(jan_llama_response * res) {
+void novera_llama_response_free(novera_llama_response * res) {
     delete res;
 }
 
-void jan_llama_load_backends(const char * dir) {
+void novera_llama_load_backends(const char * dir) {
     try {
         if (dir == nullptr || *dir == '\0') {
             ggml_backend_load_all();
@@ -684,7 +684,7 @@ void jan_llama_load_backends(const char * dir) {
 // Mirrors common_print_available_devices (common/arg.cpp:1139-1161): load every
 // backend, then report the non-CPU devices with memory in MiB. The CPU device
 // is excluded there too -- "offload to CPU" is not a choice the setting offers.
-char * jan_llama_devices_json(void) {
+char * novera_llama_devices_json(void) {
     constexpr size_t MiB = 1024 * 1024;
     std::string out = "[";
     try {
@@ -723,20 +723,20 @@ char * jan_llama_devices_json(void) {
     return buf;
 }
 
-void jan_llama_string_free(char * s) {
+void novera_llama_string_free(char * s) {
     std::free(s);
 }
 
 // llama_version() is libllama's (include/llama.h); llama_build_number() and
 // llama_commit() come from build-info.cpp in llama-common-base.
-const char * jan_llama_version(void) {
+const char * novera_llama_version(void) {
     return llama_version();
 }
 
-int jan_llama_build_number(void) {
+int novera_llama_build_number(void) {
     return llama_build_number();
 }
 
-const char * jan_llama_commit(void) {
+const char * novera_llama_commit(void) {
     return llama_commit();
 }

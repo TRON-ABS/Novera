@@ -529,10 +529,10 @@ build-engine: engine-source check-engine-toolchain
 	@echo "Building llama.cpp engine worker (variant: $(JAN_ENGINE_VARIANT), features: $(ENGINE_FEATURES), jobs: $(if $(JAN_ENGINE_JOBS),$(JAN_ENGINE_JOBS),all cores))"
 	$(call MKDIR,'$(ENGINE_BIN_DIR)')
 ifeq ($(DETECTED_OS),Windows)
-	cd $(ENGINE_PLUGIN_DIR) && $(ENGINE_CARGO_JOBS_WIN) cargo build --release --features $(ENGINE_FEATURES) --bin jan-llama-worker
+	cd $(ENGINE_PLUGIN_DIR) && $(ENGINE_CARGO_JOBS_WIN) cargo build --release --features $(ENGINE_FEATURES) --bin novera-llama-worker
 	bash src-tauri/build-utils/stage-engine.sh release
 else
-	$(call with_engine_log,cd $(ENGINE_PLUGIN_DIR) && $(ENGINE_CARGO_JOBS) cargo build --release --features $(ENGINE_FEATURES) --bin jan-llama-worker)
+	$(call with_engine_log,cd $(ENGINE_PLUGIN_DIR) && $(ENGINE_CARGO_JOBS) cargo build --release --features $(ENGINE_FEATURES) --bin novera-llama-worker)
 	bash src-tauri/build-utils/stage-engine.sh release
 endif
 	bash src-tauri/build-utils/sign-engine.sh
@@ -556,10 +556,10 @@ build-engine-dev: engine-source check-engine-toolchain
 	@echo "Building llama.cpp engine worker (dev, variant: $(JAN_ENGINE_VARIANT), jobs: $(if $(JAN_ENGINE_JOBS),$(JAN_ENGINE_JOBS),all cores))"
 	$(call MKDIR,'$(ENGINE_BIN_DIR)')
 ifeq ($(DETECTED_OS),Windows)
-	cd $(ENGINE_PLUGIN_DIR) && $(ENGINE_CARGO_JOBS_WIN) cargo build --features $(ENGINE_FEATURES) --bin jan-llama-worker
+	cd $(ENGINE_PLUGIN_DIR) && $(ENGINE_CARGO_JOBS_WIN) cargo build --features $(ENGINE_FEATURES) --bin novera-llama-worker
 	bash src-tauri/build-utils/stage-engine.sh debug
 else
-	$(call with_engine_log,cd $(ENGINE_PLUGIN_DIR) && $(ENGINE_CARGO_JOBS) cargo build --features $(ENGINE_FEATURES) --bin jan-llama-worker)
+	$(call with_engine_log,cd $(ENGINE_PLUGIN_DIR) && $(ENGINE_CARGO_JOBS) cargo build --features $(ENGINE_FEATURES) --bin novera-llama-worker)
 	bash src-tauri/build-utils/stage-engine.sh debug
 endif
 

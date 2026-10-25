@@ -530,7 +530,7 @@ jobs:
         shell: pwsh
         run: |
           $bin = 'src-tauri/resources/bin'
-          $worker = Join-Path $bin 'jan-llama-worker.exe'
+          $worker = Join-Path $bin 'novera-llama-worker.exe'
           if (-not (Test-Path $worker)) { throw "$worker missing" }
 
           $vc = $env:VCToolsInstallDir

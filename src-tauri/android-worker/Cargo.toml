@@ -7,8 +7,8 @@ publish = false
 
 # A dedicated binary avoids enabling the native engine inside the UI process.
 [[bin]]
-name = "jan-llama-worker"
-path = "../plugins/tauri-plugin-llamacpp/src/bin/jan-llama-worker.rs"
+name = "novera-llama-worker"
+path = "../plugins/tauri-plugin-llamacpp/src/bin/novera-llama-worker.rs"
 
 [dependencies]
 tauri-plugin-llamacpp = { path = "../plugins/tauri-plugin-llamacpp", features = ["engine"] }

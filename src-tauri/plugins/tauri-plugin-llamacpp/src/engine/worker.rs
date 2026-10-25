@@ -1,4 +1,4 @@
-//! Supervises the `jan-llama-worker` process.
+//! Supervises the `novera-llama-worker` process.
 //!
 //! This is the crash boundary. The worker links llama.cpp statically, but in
 //! its own process, because `GGML_ASSERT` calls `abort()` unconditionally and
@@ -42,10 +42,10 @@ pub enum WorkerError {
 impl std::fmt::Display for WorkerError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::Spawn(m) => write!(f, "could not start jan-llama-worker: {m}"),
-            Self::Handshake(m) => write!(f, "jan-llama-worker did not come up: {m}"),
+            Self::Spawn(m) => write!(f, "could not start novera-llama-worker: {m}"),
+            Self::Handshake(m) => write!(f, "novera-llama-worker did not come up: {m}"),
             Self::Timeout(d) => {
-                write!(f, "jan-llama-worker did not report a port within {d:?}")
+                write!(f, "novera-llama-worker did not report a port within {d:?}")
             }
         }
     }
@@ -200,7 +200,7 @@ const FAULT_DEBOUNCE: Duration = Duration::from_secs(3);
 pub const API_KEY_ENV: &str = "JAN_LLAMA_API_KEY";
 
 /// How long to wait for the worker to unwind after it accepts `/shutdown`.
-/// Generous because unwinding runs `jan_llama_engine_stop` per resident model,
+/// Generous because unwinding runs `novera_llama_engine_stop` per resident model,
 /// which terminates each `server_queue` loop and frees the model.
 const SHUTDOWN_TIMEOUT: std::time::Duration = std::time::Duration::from_secs(15);
 
@@ -392,7 +392,7 @@ impl WorkerHandle {
     /// `llama-server`: the router could only be signalled, and Windows has no
     /// deliverable SIGTERM equivalent (`GenerateConsoleCtrlEvent(CTRL_C_EVENT)`
     /// needs process group 0, which would kill Jan too), so it had to be
-    /// force-killed there. A force kill skips `jan_llama_engine_stop`, leaving
+    /// force-killed there. A force kill skips `novera_llama_engine_stop`, leaving
     /// `server_queue` loops unterminated and the model unfreed.
     ///
     /// Signals remain the fallback for a worker too wedged to answer.
@@ -400,12 +400,12 @@ impl WorkerHandle {
         if self.request_shutdown() {
             match tokio::time::timeout(SHUTDOWN_TIMEOUT, self.child.wait()).await {
                 Ok(Ok(status)) => {
-                    log::info!("jan-llama-worker exited gracefully: {status}");
+                    log::info!("novera-llama-worker exited gracefully: {status}");
                     return;
                 }
                 Ok(Err(e)) => log::warn!("waiting on the worker failed: {e}"),
                 Err(_) => log::warn!(
-                    "jan-llama-worker did not exit within {}s of /shutdown; falling back",
+                    "novera-llama-worker did not exit within {}s of /shutdown; falling back",
                     SHUTDOWN_TIMEOUT.as_secs()
                 ),
             }
@@ -480,7 +480,7 @@ pub async fn spawn(
     //
     // Absolute only: `current_dir` also changes how the OS resolves a *relative*
     // program path, so doing this unconditionally would make a dev's
-    // `--bin build/jan-llama-worker` be looked up inside `build/`. Every shipped
+    // `--bin build/novera-llama-worker` be looked up inside `build/`. Every shipped
     // path is absolute (`resource_dir()`, or `sidecar_path` off
     // `current_exe`), so the hardening lands exactly where it matters.
     if exe.is_absolute() {
@@ -542,7 +542,7 @@ pub async fn spawn(
                     lines.next_line().await
                 };
                 let Ok(Some(line)) = next else { break };
-                log::debug!("jan-llama-worker: {line}");
+                log::debug!("novera-llama-worker: {line}");
                 for (fault, text) in reader.feed(&line) {
                     report(fault, text);
                 }
@@ -587,7 +587,7 @@ pub async fn spawn(
     // Keep draining stdout so the worker never blocks on a full pipe.
     tokio::spawn(async move {
         while let Ok(Some(line)) = lines.next_line().await {
-            log::debug!("jan-llama-worker: {line}");
+            log::debug!("novera-llama-worker: {line}");
         }
     });
 
@@ -607,11 +607,11 @@ pub async fn spawn(
 /// lays out a bundled sidecar.
 pub fn worker_file_name() -> &'static str {
     if cfg!(target_os = "android") {
-        "libjan_llama_worker.so"
+        "libnovera_llama_worker.so"
     } else if cfg!(windows) {
-        "jan-llama-worker.exe"
+        "novera-llama-worker.exe"
     } else {
-        "jan-llama-worker"
+        "novera-llama-worker"
     }
 }
 

@@ -71,7 +71,7 @@ mod engine {
     /// references, so on GNU ld they go inside one --start-group rather than
     /// being ordered by hand. No ggml here: stage 1 builds it shared.
     const ARCHIVES: &[&str] = &[
-        "jan_llama_shim",
+        "novera_llama_shim",
         "server-context",
         "llama-common",
         "llama-common-base",
@@ -247,8 +247,8 @@ mod engine {
     const HIP_TARGETS: &str = "gfx908;gfx90a;gfx942;gfx1030;gfx1100;gfx1101;gfx1102;gfx1103;gfx1150;gfx1151;gfx1200;gfx1201";
 
     pub fn build() {
-        println!("cargo:rerun-if-changed=shim/jan_llama_shim.cpp");
-        println!("cargo:rerun-if-changed=shim/jan_llama_shim.h");
+        println!("cargo:rerun-if-changed=shim/novera_llama_shim.cpp");
+        println!("cargo:rerun-if-changed=shim/novera_llama_shim.h");
         println!("cargo:rerun-if-env-changed=JAN_LLAMA_PREBUILT_DIR");
         println!("cargo:rerun-if-env-changed=JAN_LLAMA_CPP_DIR");
         println!("cargo:rerun-if-env-changed=JAN_ENGINE_CUDA_ARCHS");
@@ -1057,7 +1057,7 @@ mod engine {
         let mut cc = cc::Build::new();
         cc.cpp(true)
             .std("c++17")
-            .file("shim/jan_llama_shim.cpp")
+            .file("shim/novera_llama_shim.cpp")
             .include("shim")
             .include(src.join("include"))
             .include(src.join("ggml/include"))
@@ -1068,7 +1068,7 @@ mod engine {
             .include(src.join("vendor/nlohmann"))
             .include(generated_include)
             .include(generated_include.join("common"));
-        cc.compile("jan_llama_shim");
+        cc.compile("novera_llama_shim");
         PathBuf::from(env::var("OUT_DIR").unwrap())
     }
 

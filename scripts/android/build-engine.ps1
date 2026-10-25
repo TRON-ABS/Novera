@@ -31,10 +31,10 @@ $env:TAURI_ANDROID_PACKAGE_UNESCAPED='io.github.tronabs.novera'
 $env:TAURI_ANDROID_PROJECT_PATH=Join-Path $android.repo 'src-tauri/gen/android'
 $env:WRY_ANDROID_KOTLIN_FILES_OUT_DIR=Join-Path $env:TAURI_ANDROID_PROJECT_PATH 'app/src/main/java/io/github/tronabs/novera/generated'
 New-Item -ItemType Directory -Force -Path $env:WRY_ANDROID_KOTLIN_FILES_OUT_DIR | Out-Null
-& (Join-Path $android.rustBin 'cargo.exe') build --locked --release --manifest-path src-tauri/android-worker/Cargo.toml --target aarch64-linux-android --bin jan-llama-worker
+& (Join-Path $android.rustBin 'cargo.exe') build --locked --release --manifest-path src-tauri/android-worker/Cargo.toml --target aarch64-linux-android --bin novera-llama-worker
 if ($LASTEXITCODE -ne 0) {throw 'Compilation du worker CPU Android en echec.'}
 $release=Join-Path $env:CARGO_TARGET_DIR 'aarch64-linux-android/release'
-$worker=Join-Path $release 'jan-llama-worker'
+$worker=Join-Path $release 'novera-llama-worker'
 if (!(Test-Path -LiteralPath $worker)) {throw 'Worker Android absent.'}
 $markers=@(Get-ChildItem -Path (Join-Path $release 'build/tauri-plugin-llamacpp-*/out/engine-build-root.txt') -File | Sort-Object LastWriteTime -Descending)
 if (!$markers.Count) {throw 'Preuve de construction du moteur absente.'}
@@ -42,7 +42,7 @@ $engineRoot=(Get-Content -LiteralPath $markers[0].FullName -Raw).Trim()
 $libs=Join-Path $engineRoot 'ggml-prefix/lib'
 $destination=Join-Path $android.repo 'src-tauri/gen/android/app/src/main/jniLibs/arm64-v8a'
 New-Item -ItemType Directory -Force -Path $destination | Out-Null
-Copy-Item -LiteralPath $worker -Destination (Join-Path $destination 'libjan_llama_worker.so') -Force
+Copy-Item -LiteralPath $worker -Destination (Join-Path $destination 'libnovera_llama_worker.so') -Force
 foreach ($name in @('libggml.so','libggml-base.so','libggml-cpu.so')) {
     $library=Join-Path $libs $name
     if(!(Test-Path -LiteralPath $library)){$library=Join-Path $engineRoot "ggml-prefix/bin/$name"}

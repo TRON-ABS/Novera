@@ -28,7 +28,7 @@ on:
         type: string
         default: 'vulkan'
         description: >
-          JAN_ENGINE_VARIANT for the bundled jan-llama-worker: a `-` joined
+          JAN_ENGINE_VARIANT for the bundled novera-llama-worker: a `-` joined
           backend list, e.g. vulkan, cuda13-vulkan, rocm-vulkan. One CUDA major
           per bundle, so cuda12 and cuda13 are separate builds.
 jobs:
@@ -177,7 +177,7 @@ jobs:
           yarn --version
           yarn config set -H enableImmutableInstalls false
 
-      # `make build` compiles jan-llama-worker, which the NSIS and MSI bundles
+      # `make build` compiles novera-llama-worker, which the NSIS and MSI bundles
       # both carry. Vulkan covers AMD, Intel and NVIDIA here through one
       # driver-provided backend; a CUDA variant needs a toolkit on the runner.
       - name: Set up the llama.cpp engine toolchain

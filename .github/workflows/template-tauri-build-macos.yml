@@ -41,7 +41,7 @@ on:
         type: string
         default: 'metal'
         description: >
-          JAN_ENGINE_VARIANT for the bundled jan-llama-worker. Metal is the only
+          JAN_ENGINE_VARIANT for the bundled novera-llama-worker. Metal is the only
           backend worth shipping on macOS.
     secrets:
       DELTA_AWS_S3_BUCKET_NAME:
@@ -196,7 +196,7 @@ jobs:
           yarn --version
           yarn config set -H enableImmutableInstalls false
 
-      # `make build` compiles jan-llama-worker, which the dmg bundles. Metal is
+      # `make build` compiles novera-llama-worker, which the dmg bundles. Metal is
       # the only backend worth shipping on macOS, and it needs nothing beyond
       # Xcode, so this runs on the GitHub-hosted image unless a caller says
       # otherwise.
@@ -282,12 +282,12 @@ jobs:
       - name: Report the engine's architecture coverage
         shell: bash
         run: |
-          archs=$(lipo -archs src-tauri/resources/bin/jan-llama-worker)
-          echo "jan-llama-worker: $archs"
+          archs=$(lipo -archs src-tauri/resources/bin/novera-llama-worker)
+          echo "novera-llama-worker: $archs"
           for want in x86_64 arm64; do
             case " $archs " in
               *" $want "*) ;;
-              *) echo "::warning::jan-llama-worker has no $want slice, so local inference will not start on $want Macs" ;;
+              *) echo "::warning::novera-llama-worker has no $want slice, so local inference will not start on $want Macs" ;;
             esac
           done
 
@@ -299,9 +299,9 @@ jobs:
           bundle=$(find src-tauri/target/universal-apple-darwin/release/bundle/macos -maxdepth 1 -name '*.app' | head -1)
           echo "Verifying $bundle"
           codesign --verify --deep --strict --verbose=2 "$bundle"
-          worker=$(find "$bundle/Contents/Resources" -name jan-llama-worker | head -1)
+          worker=$(find "$bundle/Contents/Resources" -name novera-llama-worker | head -1)
           if [ -z "$worker" ]; then
-            echo "error: no jan-llama-worker inside $bundle" >&2
+            echo "error: no novera-llama-worker inside $bundle" >&2
             exit 1
           fi
           codesign --verify --strict "$worker"

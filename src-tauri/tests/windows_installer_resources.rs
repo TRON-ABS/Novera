@@ -15,6 +15,21 @@
 
 use std::path::PathBuf;
 
+#[test]
+fn renamed_worker_keeps_the_legacy_upgrade_and_rollback_paths() {
+    let template = repo_file("tauri.bundle.windows.nsis.template");
+    let free = nsis_block(&template, "!macro FreeBundledFiles", "!macroend");
+    let clean = nsis_block(&template, "!macro CleanFreedBinaries", "!macroend");
+    for worker in ["novera-llama-worker.exe", "jan-llama-worker.exe"] {
+        assert!(free.contains(&format!("StopBundledProcess \"{worker}\"")));
+        assert!(free.contains(&format!("UnlockBundledBinary \"$INSTDIR\\resources\\bin\\{worker}\"")));
+        assert!(free.contains(&format!("RestoreBundledBinary \"$INSTDIR\\resources\\bin\\{worker}\"")));
+        assert!(clean.contains(&format!("DeleteFreedBinary \"$INSTDIR\\resources\\bin\\{worker}\"")));
+    }
+    assert!(clean.contains("Delete \"$INSTDIR\\resources\\bin\\jan-llama-worker.exe\""));
+}
+
+
 /// The body of `Function <name>` or `Section <name>` up to its terminator.
 ///
 /// Located by byte search rather than by summing line lengths: a Windows

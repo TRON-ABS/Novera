@@ -1,8 +1,8 @@
 // C ABI over llama.cpp's server-context. Everything OpenAI-shaped -- chat
 // templates, tool-call parsing, reasoning, sampling, slots, prompt cache,
 // multimodal -- stays inside libserver-context.a; this only moves bytes.
-#ifndef JAN_LLAMA_SHIM_H
-#define JAN_LLAMA_SHIM_H
+#ifndef NOVERA_LLAMA_SHIM_H
+#define NOVERA_LLAMA_SHIM_H
 
 #include <stddef.h>
 
@@ -10,8 +10,8 @@
 extern "C" {
 #endif
 
-typedef struct jan_llama_engine   jan_llama_engine;
-typedef struct jan_llama_response jan_llama_response;
+typedef struct novera_llama_engine   novera_llama_engine;
+typedef struct novera_llama_response novera_llama_response;
 
 // Load-lifecycle notifications, called on the thread driving the load (and
 // later, for a sleep/resume, on the engine's own loop thread). `state` is
@@ -19,25 +19,25 @@ typedef struct jan_llama_response jan_llama_response;
 // for "loading" that is {"stages":[..],"current":..,"value":0..1}, which is
 // the only source of real load progress. Must not throw and must stay valid
 // until the engine is stopped. NULL for no notifications.
-typedef void (*jan_llama_state_cb)(const char * state,
+typedef void (*novera_llama_state_cb)(const char * state,
                                   const char * payload,
                                   void *       user_data);
 
 // argv is llama-server's own flag set (common_params_parse), so callers reuse
 // the upstream arg table instead of mirroring common_params across the FFI.
 // Returns NULL on failure and writes a message into err.
-jan_llama_engine * jan_llama_engine_start(const char * const * argv,
+novera_llama_engine * novera_llama_engine_start(const char * const * argv,
                                           int                  argc,
-                                          jan_llama_state_cb   on_state,
+                                          novera_llama_state_cb   on_state,
                                           void *               user_data,
                                           char *               err,
                                           size_t               err_len);
 
 // Starts from a router.preset.ini section, exactly as Jan already generates it:
 // the [*] section is applied first, then the named one overrides it.
-jan_llama_engine * jan_llama_engine_start_from_preset(const char *       ini_path,
+novera_llama_engine * novera_llama_engine_start_from_preset(const char *       ini_path,
                                                      const char *       preset_name,
-                                                     jan_llama_state_cb on_state,
+                                                     novera_llama_state_cb on_state,
                                                      void *             user_data,
                                                      char *             err,
                                                      size_t             err_len);
@@ -47,7 +47,7 @@ jan_llama_engine * jan_llama_engine_start_from_preset(const char *       ini_pat
 // rather than freed; 0 on the clean join. The caller owns the `user_data` it
 // passed to start, and must leak it too on a 1 -- freeing it would leave the
 // detached loop calling into freed memory.
-int jan_llama_engine_stop(jan_llama_engine * engine);
+int novera_llama_engine_stop(novera_llama_engine * engine);
 
 // route names match server_routes members, e.g. "post_chat_completions".
 // Never returns NULL: transport failures come back as a 5xx response.
@@ -56,25 +56,25 @@ int jan_llama_engine_stop(jan_llama_engine * engine);
 // request's param map. llama.cpp reads slot actions and a few flags from there
 // rather than from the body, so a route like post_slots is unreachable without
 // it. NULL or "" means no params.
-jan_llama_response * jan_llama_engine_request(jan_llama_engine * engine,
+novera_llama_response * novera_llama_engine_request(novera_llama_engine * engine,
                                               const char *       route,
                                               const char *       query,
                                               const char *       body,
                                               size_t             body_len);
 
-int          jan_llama_response_status(const jan_llama_response * res);
-const char * jan_llama_response_content_type(const jan_llama_response * res);
-const char * jan_llama_response_body(const jan_llama_response * res, size_t * len);
-int          jan_llama_response_is_stream(const jan_llama_response * res);
+int          novera_llama_response_status(const novera_llama_response * res);
+const char * novera_llama_response_content_type(const novera_llama_response * res);
+const char * novera_llama_response_body(const novera_llama_response * res, size_t * len);
+int          novera_llama_response_is_stream(const novera_llama_response * res);
 
 // 1 = chunk written (valid until the next call on this response), 0 = finished,
 // -1 = the generator threw. Empty chunks are legal and mean "nothing yet".
-int jan_llama_response_next(jan_llama_response * res, const char ** chunk, size_t * len);
+int novera_llama_response_next(novera_llama_response * res, const char ** chunk, size_t * len);
 
-void jan_llama_response_free(jan_llama_response * res);
+void novera_llama_response_free(novera_llama_response * res);
 
 // Asks the in-flight generator to stop; safe to call from another thread.
-void jan_llama_response_cancel(jan_llama_response * res);
+void novera_llama_response_cancel(novera_llama_response * res);
 
 // Registers the ggml compute backends. `dir` names a directory of backend
 // modules; NULL uses ggml's own search (the executable's directory, then the
@@ -83,22 +83,22 @@ void jan_llama_response_cancel(jan_llama_response * res);
 // Only call this with a non-NULL `dir` when the executable has no backend
 // modules beside it: ggml's loader has no already-loaded guard, so a directory
 // pre-load followed by its internal search would register a backend twice.
-void jan_llama_load_backends(const char * dir);
+void novera_llama_load_backends(const char * dir);
 
 // The devices this build can offload to, as a JSON array of
 // {id, name, mem, free} with memory in MiB -- the same fields the old
 // `llama-server --list-devices` stdout was parsed into, so the Rust and TS
 // sides are unchanged. Needs no engine: ggml devices are process-global.
-// Never NULL; free the result with jan_llama_string_free.
-char * jan_llama_devices_json(void);
+// Never NULL; free the result with novera_llama_string_free.
+char * novera_llama_devices_json(void);
 
-void jan_llama_string_free(char * s);
+void novera_llama_string_free(char * s);
 
 // The llama.cpp the shim was compiled against, for the pin assertion in
 // build.rs / engine::assert_pinned_version.
-const char * jan_llama_version(void);       // e.g. "0.5.0"
-int          jan_llama_build_number(void);  // e.g. 11146
-const char * jan_llama_commit(void);
+const char * novera_llama_version(void);       // e.g. "0.5.0"
+int          novera_llama_build_number(void);  // e.g. 11146
+const char * novera_llama_commit(void);
 
 #ifdef __cplusplus
 }

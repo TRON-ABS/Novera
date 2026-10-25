@@ -3,13 +3,13 @@ import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 import { backendStorage } from '@/lib/backendStorage'
 
-export type JanModelPromptDismissedState = {
+export type NoveraModelPromptDismissedState = {
   dismissedModelName: string | null
   setDismissedModelName: (modelName: string) => void
 }
 
-export const useJanModelPromptDismissed =
-  create<JanModelPromptDismissedState>()(
+export const useNoveraModelPromptDismissed =
+  create<NoveraModelPromptDismissedState>()(
     persist(
       (set) => ({
         dismissedModelName: null,
@@ -17,7 +17,7 @@ export const useJanModelPromptDismissed =
           set({ dismissedModelName: modelName }),
       }),
       {
-        name: localStorageKey.janModelPromptDismissed,
+        name: localStorageKey.noveraModelPromptDismissed,
         storage: createJSONStorage(() => backendStorage),
         skipHydration: true,
         version: 1,
@@ -26,7 +26,7 @@ export const useJanModelPromptDismissed =
           if ('dismissed' in state && !('dismissedModelName' in state)) {
             return { dismissedModelName: null }
           }
-          return state as JanModelPromptDismissedState
+          return state as NoveraModelPromptDismissedState
         },
       }
     )

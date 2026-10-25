@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Stages jan-llama-worker and the ggml runtime into src-tauri/resources/bin.
+# Stages novera-llama-worker and the ggml runtime into src-tauri/resources/bin.
 # Backend modules must sit beside the worker: ggml searches the exe directory
 # (ggml-backend-reg.cpp), and libggml/libggml-base resolve via $ORIGIN.
 set -euo pipefail
@@ -18,7 +18,7 @@ case "$(uname -s)" in
   *)                    EXE="";     LIBEXT="so";    MODEXT="so"  ;;
 esac
 
-WORKER="$TARGET_DIR/jan-llama-worker$EXE"
+WORKER="$TARGET_DIR/novera-llama-worker$EXE"
 if [ ! -f "$WORKER" ]; then
   echo "stage-engine: $WORKER not found; run the cargo build first" >&2
   exit 1
@@ -31,8 +31,8 @@ find "$DEST" -maxdepth 1 \( -name 'libggml*' -o -name 'ggml*.dll' \
   -o -name 'libcudart.so*' -o -name 'libcublas*.so*' \
   -o -name 'cudart64_*.dll' -o -name 'cublas*.dll' \) -exec rm -f {} +
 
-install -m755 "$WORKER" "$DEST/jan-llama-worker$EXE"
-echo "stage-engine: staged jan-llama-worker$EXE"
+install -m755 "$WORKER" "$DEST/novera-llama-worker$EXE"
+echo "stage-engine: staged novera-llama-worker$EXE"
 
 newest() {
   find "$TARGET_DIR/build" -maxdepth 3 "$@" -print0 2>/dev/null \

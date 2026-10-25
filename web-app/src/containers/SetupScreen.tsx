@@ -8,7 +8,7 @@ import { useServiceHub } from '@/hooks/useServiceHub'
 import { useEffect, useMemo, useCallback, useState, useRef } from 'react'
 import { AppEvent, events } from '@janhq/core'
 import { SETUP_SCREEN_QUANTIZATIONS } from '@/constants/models'
-import { useLatestJanModel } from '@/hooks/useLatestJanModel'
+import { useLatestNoveraModel } from '@/hooks/useLatestNoveraModel'
 import { NOVERA_RECOMMENDED_CONTEXT_SIZE } from '@/lib/noveraRecommendedModel'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
@@ -209,8 +209,8 @@ function SetupScreen() {
   const {
     model: janNewModel,
     error: metadataFetchFailed,
-    fetchLatestJanModel,
-  } = useLatestJanModel()
+    fetchLatestNoveraModel,
+  } = useLatestNoveraModel()
   const [supportedVariants, setSupportedVariants] = useState<
     Map<string, 'RED' | 'YELLOW' | 'GREEN' | 'GREY'>
   >(new Map())
@@ -309,8 +309,8 @@ function SetupScreen() {
   }, [janNewModel, serviceHub])
 
   useEffect(() => {
-    fetchLatestJanModel(true)
-  }, [fetchLatestJanModel])
+    fetchLatestNoveraModel(true)
+  }, [fetchLatestNoveraModel])
 
 
   const defaultVariant = useMemo(() => {

@@ -109,8 +109,8 @@ import {
   resolveAutoInlineBudget,
 } from '@/lib/attachmentProcessing'
 import { activePathTokens } from '@/lib/message-branching'
-import JanBrowserExtensionDialog from '@/containers/dialogs/JanBrowserExtensionDialog'
-import { useJanBrowserExtension } from '@/hooks/useJanBrowserExtension'
+import NoveraBrowserExtensionDialog from '@/containers/dialogs/NoveraBrowserExtensionDialog'
+import { useNoveraBrowserExtension } from '@/hooks/useNoveraBrowserExtension'
 import { useAgentMode } from '@/hooks/useAgentMode'
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
 import {
@@ -511,7 +511,7 @@ const ChatInput = memo(function ChatInput({
     disableDueToIncompatibleModel,
     handleCancel: handleExtensionDialogCancel,
     setDialogOpen: setExtensionDialogOpen,
-  } = useJanBrowserExtension()
+  } = useNoveraBrowserExtension()
 
   // Check if model supports browser feature (requires both vision and tools)
   const modelSupportsBrowser = useMemo(() => {
@@ -3051,7 +3051,7 @@ const ChatInput = memo(function ChatInput({
         </div>
       )}
 
-      <JanBrowserExtensionDialog
+      <NoveraBrowserExtensionDialog
         open={extensionDialogOpen}
         onOpenChange={setExtensionDialogOpen}
         state={extensionDialogState}

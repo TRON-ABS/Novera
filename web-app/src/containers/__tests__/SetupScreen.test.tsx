@@ -7,7 +7,7 @@ import '@testing-library/jest-dom'
 const hoisted = vi.hoisted(() => ({
   janModel: null as any,
   metadataError: null as any,
-  fetchLatestJanModel: vi.fn(),
+  fetchLatestNoveraModel: vi.fn(),
   downloadStore: {
     downloads: {} as Record<string, any>,
     localDownloadingModels: new Set<string>(),
@@ -64,11 +64,11 @@ vi.mock('@/hooks/useServiceHub', () => {
   return { useServiceHub: stub, getServiceHub: stub }
 })
 
-vi.mock('@/hooks/useLatestJanModel', () => ({
-  useLatestJanModel: () => ({
+vi.mock('@/hooks/useLatestNoveraModel', () => ({
+  useLatestNoveraModel: () => ({
     model: hoisted.janModel,
     error: hoisted.metadataError,
-    fetchLatestJanModel: hoisted.fetchLatestJanModel,
+    fetchLatestNoveraModel: hoisted.fetchLatestNoveraModel,
   }),
 }))
 
@@ -226,9 +226,9 @@ describe('SetupScreen', () => {
     expect(screen.getByTestId('header-page')).toBeInTheDocument()
   })
 
-  it('calls fetchLatestJanModel on mount', async () => {
+  it('calls fetchLatestNoveraModel on mount', async () => {
     await renderStarted()
-    expect(hoisted.fetchLatestJanModel).toHaveBeenCalledWith(true)
+    expect(hoisted.fetchLatestNoveraModel).toHaveBeenCalledWith(true)
   })
 
   it('runs the engine and embedding probes on mount', async () => {

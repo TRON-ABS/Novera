@@ -16,8 +16,8 @@ import { useDownloadStore } from '@/hooks/useDownloadStore'
 import { useProxyConfig } from '@/hooks/useProxyConfig'
 import { useVulkan } from '@/hooks/useVulkan'
 import { useFavoriteModel } from '@/hooks/useFavoriteModel'
-import { useLatestJanModel } from '@/hooks/useLatestJanModel'
-import { useJanModelPromptDismissed } from '@/hooks/useJanModelPrompt'
+import { useLatestNoveraModel } from '@/hooks/useLatestNoveraModel'
+import { useNoveraModelPromptDismissed } from '@/hooks/useNoveraModelPrompt'
 import { useDefaultEmbeddingModel } from '@/hooks/useDefaultEmbeddingModel'
 import { useAgentMode } from '@/hooks/useAgentMode'
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
@@ -53,8 +53,8 @@ const secondaryStores = [
   useProxyConfig,
   useVulkan,
   useFavoriteModel,
-  useLatestJanModel,
-  useJanModelPromptDismissed,
+  useLatestNoveraModel,
+  useNoveraModelPromptDismissed,
   useDefaultEmbeddingModel,
   useAgentMode,
   useWebSearchConfig,
