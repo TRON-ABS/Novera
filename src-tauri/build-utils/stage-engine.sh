@@ -24,6 +24,21 @@ if [ ! -f "$WORKER" ]; then
   exit 1
 fi
 
+# CUDA toolkits can contain x64 and ARM64 DLLs with identical names. Read the
+# PE machine field rather than selecting whichever directory find visits first.
+pe_machine() {
+  local offset signature
+  offset=$(od -An -tu4 -j60 -N4 "$1" 2>/dev/null | tr -d '[:space:]')
+  [[ "$offset" =~ ^[0-9]+$ ]] || return 1
+  signature=$(od -An -tx4 -j"$offset" -N4 "$1" 2>/dev/null | tr -d '[:space:]')
+  [ "$signature" = 00004550 ] || return 1
+  od -An -tx2 -j"$((offset + 4))" -N2 "$1" 2>/dev/null | tr -d '[:space:]'
+}
+WORKER_MACHINE=""
+if [ "$LIBEXT" = dll ]; then
+  WORKER_MACHINE=$(pe_machine "$WORKER") || { echo "stage-engine: invalid worker PE" >&2; exit 1; }
+fi
+
 mkdir -p "$DEST"
 
 # The bundle globs ship whatever is in DEST, including an earlier variant's leftovers.
@@ -67,6 +82,10 @@ fi
 stage_lib() {
   local name
   name="$(basename "$1")"
+  if [ "$LIBEXT" = dll ] && [ "$(pe_machine "$1")" != "$WORKER_MACHINE" ]; then
+    echo "stage-engine: $1 does not match worker PE machine $WORKER_MACHINE" >&2
+    return 1
+  fi
   cp -Pf "$1" "$DEST/$name"
   [ -L "$1" ] || chmod 644 "$DEST/$name"
 }
@@ -155,7 +174,8 @@ if [ "$LIBEXT" = "dll" ]; then
 else
   import_re='libcu(dart|blas|blasLt)\.so\.[0-9]+'
 fi
-imports_of() { tr -d '\0' < "$1" | grep -aoE "$import_re" | sort -u; }
+# A leaf dependency can legitimately import no further CUDA libraries.
+imports_of() { tr -d '\0' < "$1" | grep -aoE "$import_re" | sort -u || true; }
 
 needed="$(imports_of "$cuda_module")"
 [ -n "$needed" ] || {
@@ -173,7 +193,14 @@ roots=("${CUDA_PATH:-}" "${CUDA_HOME:-}")
 LIBDIR=""
 for root in "${roots[@]}"; do
   [ -n "$root" ] && [ -d "$root" ] || continue
-  hit="$(find -L "$root" -maxdepth 4 -iname "$first" -print -quit 2>/dev/null)"
+  hit=""
+  if [ "$LIBEXT" = dll ]; then
+    while IFS= read -r -d '' candidate; do
+      if [ "$(pe_machine "$candidate")" = "$WORKER_MACHINE" ]; then hit="$candidate"; break; fi
+    done < <(find -L "$root" -maxdepth 4 -iname "$first" -print0 2>/dev/null)
+  else
+    hit="$(find -L "$root" -maxdepth 4 -iname "$first" -print -quit 2>/dev/null)"
+  fi
   if [ -n "$hit" ]; then LIBDIR="$(dirname "$hit")"; break; fi
 done
 [ -n "$LIBDIR" ] || {
@@ -205,5 +232,15 @@ while [ -n "$queue" ]; do
   done
   queue="$next"
 done
+
+# Windows runtime/portable validation includes cudart even when this particular
+# ggml build links the CUDA runtime statically. Keep it from the same ABI folder.
+if [ "$LIBEXT" = dll ]; then
+  for src in "$LIBDIR"/cudart64_*.dll; do
+    [ -f "$src" ] || continue
+    if [ ! -f "$DEST/$(basename "$src")" ]; then runtime=$((runtime + 1)); fi
+    stage_lib "$src"
+  done
+fi
 
 echo "stage-engine: staged $runtime CUDA runtime libraries from $LIBDIR"

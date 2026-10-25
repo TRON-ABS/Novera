@@ -1,6 +1,6 @@
 # Novera — tableau de bord
 
-État des sources au **25 octobre 2026**. Ce fichier est le point d’entrée ; les procédures, tâches et preuves détaillées sont dans les documents ci-dessous.
+État des sources au **26 octobre 2026**. Ce fichier est le point d’entrée ; les procédures, tâches et preuves détaillées sont dans les documents ci-dessous.
 
 ## Où trouver l’information ?
 
@@ -29,11 +29,13 @@ Dernier lot : **963 tests ciblés réussis dans 45 fichiers**, TypeScript sans �
 
 ## Dernier exécutable local
 
-Le dernier build Windows x64 date du **25 octobre 2026, 02:59**, dans `deliverables/Novera-desktop-1.0.0-2026-10-25_02-59-20-029`. Il précède les compléments de traductions, les renommages internes et les dernières options du premier démarrage.
+Compilation Windows x64 terminée le **26 octobre 2026 à 00:04 (Paris)**, démarrée le 25 à 23:59, dans `deliverables/Novera-desktop-1.0.0-2026-10-25_23-59-09-633`. Elle intègre les **70 catalogues**, les noms internes Novera et les options DSpark/consentements des sources actuelles.
 
-EXE : **60 113 408 octets**, SHA-256 `3EA0AB5571BF9EFEDF2584C0EE5D4DEAD87B8E12CA4E94AB2A9EC04A2A19B426`.
+EXE : **65 208 832 octets**, SHA-256 `1D3E1F545BF11CDC50F6E5F031ABFCA2DBD1E6293818F3D12A049263CDAC187A`.
 
-Démarrage isolé et écran de confidentialité français vérifiés, deux consentements désactivés. Un seul rapport synthétique a été reçu par le projet PostHog Europe via un harnais Node ; le transport d’une erreur réelle depuis le WebView reste à vérifier. Les fichiers locaux de configuration, journaux et binaires ne sont pas publiés avec les sources.
+Le BAT fourni a terminé les étapes moteur, interface et desktop. Le dossier contient 26 exécutables/DLL contrôlés x64 ; worker `novera-llama-worker.exe` version 0.7.0, llama.cpp b11823, CUDA x64 et CPU chargés. Le worker du dossier final détecte la RTX 5070 Laptop. L’ancien worker n’est pas livré. Réutilisation du moteur vérifiée sans environnement de compilation spécial, après contrôle des empreintes. Preuves locales : `.build/engine-launcher-fix-2026-10-25/runtime-audit.json` et `.build/launcher-desktop-2026-10-25_23-59-09-633/result.json`.
+
+La compilation ne remplace pas l’application installée et ne modifie aucun profil. Aucun nouveau démarrage de l’interface, génération de modèle ou essai de mise à niveau n’a été réalisé pour cette correction. Suivi des erreurs, statistiques et mises à jour restent désactivés dans ce build sans télémétrie configurée. Les premiers démarrages et le transport réel d’erreurs depuis le WebView restent à valider.
 
 ## Limites de distribution
 

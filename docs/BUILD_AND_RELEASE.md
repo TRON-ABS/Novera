@@ -1,6 +1,6 @@
 # Novera — construction et distribution
 
-Procédures des sources au **25 octobre 2026**. Les commandes de compilation, installation et signature ci-dessous sont à exécuter dans le cadre d’une demande correspondante ; la consolidation de documentation ne les exécute pas. [État actuel](../TABLEAU_DE_BORD_NOVERA.md), [tâches de validation](../ROADMAP.md), [règles de publication](../OFFICIAL_RELEASES.md).
+Procédures des sources au **26 octobre 2026**. Les commandes de compilation, installation et signature ci-dessous sont à exécuter dans le cadre d’une demande correspondante ; la consolidation de documentation ne les exécute pas. [État actuel](../TABLEAU_DE_BORD_NOVERA.md), [tâches de validation](../ROADMAP.md), [règles de publication](../OFFICIAL_RELEASES.md).
 
 [Desktop](#desktop) · [Portable](#portable) · [Android](#android) · [CLI](#cli) · [Mises à jour](#updates) · [Collecte facultative](#telemetry) · [Nettoyage](#cleanup)
 
@@ -40,7 +40,13 @@ Pour une activation ultérieure, modifier **la copie du BAT réellement utilisé
 
 ### Prérequis Windows et résultats
 
-Le dépôt doit déjà avoir ses dépendances Yarn, ses extensions compilées, le moteur et les auxiliaires dans `src-tauri/resources`. Le lanceur ne remplace pas une préparation initiale du dépôt. Node.js/Corepack, la version Rust MSVC épinglée dans `rust-toolchain.toml`, Visual Studio Build Tools C++ et Windows SDK sont nécessaires. MSVC est recherché via `vswhere`.
+Le dépôt doit déjà avoir ses dépendances Yarn, ses extensions compilées et les auxiliaires Bun/uv dans `src-tauri/resources`. Node.js/Corepack, la version Rust MSVC épinglée dans `rust-toolchain.toml`, Visual Studio Build Tools C++ et Windows SDK sont nécessaires. MSVC est recherché via `vswhere`.
+
+Avant `desktop`, `portable`, `setup` ou `msi`, le lanceur prépare désormais `novera-llama-worker.exe` et ses bibliothèques, avant même la compilation de l’interface et la résolution des ressources Tauri. [Préparation du moteur](../scripts/distribution/prepare-novera-engine.ps1) : sources llama.cpp épinglées, contrôle des outils, compilation Cargo hors ligne/verrouillée, préparation des DLL et vérification `--version-json`. Un échec arrête le lanceur avec un journal distinct. L’ancien nom `jan-llama-worker.exe` ne satisfait pas ce prérequis.
+
+La première préparation du moteur demande Bash (Git for Windows ou MSYS2), CMake, Ninja et Clang sur PATH, ainsi que le kit correspondant au backend GPU choisi. `JAN_LLAMA_CPP_DIR` peut désigner les sources locales préparées ; sinon le script récupère la révision épinglée. `JAN_ENGINE_VARIANT` permet un choix explicite (`cpu`, `vulkan`, `cuda12`, `cuda13`, `hip`/`rocm`, ou combinaison). Sans choix explicite, les backends déjà préparés sont conservés ; un dossier sans moteur commence avec Vulkan. Les variantes CUDA explicites sont confrontées à la version réelle de nvcc. Les préréglages locaux historiques peuvent cibler uniquement le matériel testé et ne prouvent pas une distribution universelle.
+
+Un reçu local ignoré, `.novera-engine-build.json`, permet de réutiliser le moteur lorsque les empreintes de ses sources et de tous ses binaires correspondent encore. Un changement de sources, de DLL ou d’options explicitement demandées déclenche une nouvelle préparation. Les outils GNU ne passent avant PATH que pendant les étapes Bash ; le lien Cargo garde les outils MSVC. La sélection des DLL CUDA vérifie leur architecture PE contre celle du worker, notamment quand un même kit contient `bin/arm64` et `bin/x64`. `cudart` accompagne le runtime Windows même si le module courant le lie statiquement.
 
 Le cache Rust suit `CARGO_TARGET_DIR` s'il est défini ; sinon il utilise `C:\jb` lorsqu'il existe, puis `src-tauri/target`. Le build desktop est hors ligne et verrouillé pour Cargo : une dépendance non disponible doit être préparée séparément. Corepack peut nécessiter une première mise en cache de Yarn.
 

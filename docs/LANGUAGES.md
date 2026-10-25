@@ -1,6 +1,6 @@
 # Langues d’interface Novera
 
-État du **25 octobre 2026** : **70 locales sélectionnables**, chacune à **1 516/1 516 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
+État du **26 octobre 2026** : **70 locales sélectionnables**, chacune à **1 516/1 516 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
 
 ## Règle pour tout texte visible
 
@@ -10,7 +10,7 @@ Tout texte d’interface ajouté **ou modifié** doit être traduit dans les 70 
 python scripts/check-novera-locales.py
 ```
 
-Le contrôle couvre JSON, espaces de noms, clés complètes/non vides, variables, littéraux et enregistrement des locales. Les ajouts récents sont publiés dans les sources mais n’ont pas encore été recompilés dans le dernier exécutable ; [état du build](../TABLEAU_DE_BORD_NOVERA.md).
+Le contrôle couvre JSON, espaces de noms, clés complètes/non vides, variables, littéraux et enregistrement des locales. Les 70 catalogues sont inclus dans la compilation Windows locale terminée le 26 octobre ; aucun binaire public n’est diffusé. Voir [l’état du build](../TABLEAU_DE_BORD_NOVERA.md).
 
 ## Compléments récents
 
@@ -54,7 +54,7 @@ Méthodes : brouillons assistés par Microsoft Translator, DeepL et le modèle l
 
 La détection tient compte de la canonicalisation Intl : `uz` → `uzn`, `ps` → `pbu`, `om` → `gaz`. Une préférence explicite ouzbek cyrillique/arabe, pachto latin, oromo non latin ou pachto du Sud est laissée à la préférence suivante. Le choix sauvegardé reste prioritaire. Les métadonnées du document utilisent `uz`, `ps`, `om` ; les formats utilisent `uz-Latn-UZ`, `ps-AF`, `om-ET`, `ar-EG` et `ur-PK` pour les cinq codes régionaux concernés. Un format de repli compatible avec Intl ne vaut pas localisation régionale complète.
 
-Validation : 963 tests ciblés dans 45 fichiers, TypeScript sans émission, contrôle des 70 catalogues et architecture sans erreur. Aucun binaire reconstruit ; le dernier exécutable reste antérieur à ces ajouts.
+Validation de cet ajout : 963 tests ciblés dans 45 fichiers, TypeScript sans émission, contrôle des 70 catalogues et architecture sans erreur. Cet ajout n’avait pas reconstruit le binaire. La correction du lanceur, terminée le 26 octobre, compile désormais les 70 catalogues dans un nouveau dossier Windows local ; la relecture native reste ouverte.
 
 <a id="system-language"></a>
 

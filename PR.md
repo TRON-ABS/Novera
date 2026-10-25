@@ -1,25 +1,30 @@
 # Novera — current change review
 
-## fix(i18n): add ten complete locale catalogs
+## fix(build): prepare the engine before Windows desktop resources
 
-The next ten planned interface locales were unavailable. Add Northern Uzbek (Latin), Zulu, Saidi Arabic, Northern Pashto, West Central Oromo, Saraiki, Dutch, Somali, Romanian and Assamese: 1,516 English keys in 14 namespaces each. Novera registers 70 catalogs, adding 15,160 entries in 140 JSON files and preserving all 840 existing locale JSON files.
+After the worker rename, the Windows BAT compiled the interface and launched the desktop build while only `jan-llama-worker.exe` was present. Tauri failed with `resource path resources\\bin\\novera-llama-worker.exe doesn't exist`.
 
-Connect native labels, persisted language types, automatic selection, document language, RTL menus and compatible regional formatting. Handle Intl canonicalization of uzn/pbu/gaz; skip explicit incompatible scripts and Southern Pashto rather than replacing those preferences with the new catalogs. Saved user choices retain priority.
+Prepare the pinned worker before desktop/portable/setup/MSI builds: check source and tools, build the real `novera-llama-worker` Cargo target offline/locked, stage the engine runtime and verify its version. Preserve prepared GPU backends. Fail at the relevant logged step. Reuse only a local build whose worker sources, explicit build options and binary hashes match, so Explorer launches can use an unchanged prepared engine. Scope GNU tools to Bash steps to preserve MSVC linker precedence.
 
-Translation drafts combine Microsoft Translator, earlier DeepL results, local MADLAD-400/CTranslate2 inference and editorial corrections. Google returned HTTP 429 for this batch; DeepL reached its free quota. No paid service, account creation or quota bypass was used. Rejected local Oromo/Saraiki outputs are excluded. Uzbek is transliterated into Latin. Oromo includes 490 editorial completions. Saidi/Saraiki share 1,266/1,196 technical entries with existing Egyptian/Shahmukhi catalogs and adapt 250/320 entries. Their vernacular adaptation remains partial; key coverage does not certify linguistic accuracy. Native and regional review remain pending, as documented in the language guide.
+The real rebuild also exposed CUDA staging selecting `bin/arm64` before `bin/x64`. Compare PE machine fields with the worker when selecting and copying DLLs; reject another architecture. Retain cudart for Windows runtime validation and allow dependency-chain leaves with no further CUDA imports. The user BAT itself already delegates to the repository launcher and needs no edit.
 
 ## Validation
 
-- `python scripts/check-novera-locales.py`: 70 catalogs, 1,516 keys each, zero errors; interpolation and code literals preserved.
-- From `web-app`: `node node_modules/vitest/vitest.mjs run src/locales/__tests__ src/containers/__tests__/LanguageSwitcher src/lib/__tests__/systemLanguage.test.ts src/hooks/__tests__/useGeneralSetting.language.test.ts`: 963 passed in 45 files. Covers catalog completeness, selection, saved choice/hydration, canonical locale aliases, script selection, regional formats and RTL restoration.
-- From `web-app`: `node node_modules/typescript/bin/tsc --noEmit`: passed.
-- `node --test scripts/__tests__/architecture.test.mjs`: 7 passed. `node scripts/check-architecture.mjs`: 13 modules, no violations.
-- Documentation audit: 177 valid local links, 14 main documents, 100 historical roadmap rows, numbered priorities 1–32. All 840 previous locale JSONs unchanged after line-ending normalization. Unrelated model top-k, logo dimensions and binary sizes are preserved.
-- Remote check: no equivalent open pull request; GitHub Actions remains disabled. Source publication is distinct from CI approval and binary release.
-- No application build, installation or user-profile change. The full web suite was not rerun; previous full-suite results remain historical.
+- `pwsh -NoProfile -File scripts/tests/prepare-novera-engine.Tests.ps1` and Windows PowerShell 5.1 equivalent: 19 assertions each; covers backends, order, failure propagation, empty artifacts, source/binary cache invalidation and equivalent Windows paths. No real compilation in these tests.
+- `pwsh -NoProfile -File scripts/tests/build-launcher.Tests.ps1`: 69 assertions, plans/disabled variants/Android guards; no app compilation.
+- `node --test scripts/__tests__/engine-staging.test.mjs`: 3 passed; synthetic multi-architecture toolkit, wrong-architecture-only toolkit and mismatched backend.
+- `pwsh -NoProfile -File scripts/tests/package-windows-portable.Tests.ps1`: 223 assertions in 12 scenarios.
+- `pwsh -NoProfile -File scripts/tests/telemetry-config.Tests.ps1`: 16 assertions; no network.
+- `node --test scripts/__tests__/architecture.test.mjs`: 7 passed. `node scripts/check-architecture.mjs`: 13 modules, no violations. Locale checker: 70 catalogs, 1,516 keys each, zero errors.
+- Real user BAT completed engine, interface and desktop. Output: `deliverables/Novera-desktop-1.0.0-2026-10-25_23-59-09-633`, completed 26 October at 00:04 Paris. EXE: 65,208,832 bytes, SHA-256 `1D3E1F545BF11CDC50F6E5F031ABFCA2DBD1E6293818F3D12A049263CDAC187A`.
+- Audited all 26 EXE/DLL files as x64. Packaged worker reports llama.cpp b11823, commit `5c19a5a7560024bb19745b4ae04a75613d4b9aa3`, and detects the RTX 5070 Laptop through CUDA. No legacy worker shipped. Verified cache reuse separately from a normal environment.
+
+## Limits
+
+The local build reused native C++ archives whose b11823 pin was checked, rebuilt the renamed Rust worker and C shim, and retained the historical CUDA SM120 configuration for this machine. It is not a fresh native build for every GPU or a signed distribution validation. No desktop UI launch, model generation, upgrade test, installation or user-profile change was performed. Automatic updates/statistics remain disabled, no telemetry destination was configured, and no public binary is released. Raw logs and binaries stay local. Previous locale tests remain historical; this change does not modify locale JSONs.
 
 ## References
 
-- [Language inventory, translation methods and limitations](docs/LANGUAGES.md)
-- [Current source and build status](TABLEAU_DE_BORD_NOVERA.md)
-- [Remaining work](ROADMAP.md)
+- [Build procedure](docs/BUILD_AND_RELEASE.md#desktop)
+- [Current source and local binary](TABLEAU_DE_BORD_NOVERA.md)
+- [Remaining functional validation](ROADMAP.md)

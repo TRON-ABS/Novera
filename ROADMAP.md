@@ -1,10 +1,10 @@
 # Novera — feuille de route
 
-Mise à jour du **25 octobre 2026**. Cette liste centralise les tâches ; elle n’annonce aucune date de sortie. L’état des sources et du dernier binaire est dans [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md).
+Mise à jour du **26 octobre 2026**. Cette liste centralise les tâches ; elle n’annonce aucune date de sortie. L’état des sources et du dernier binaire est dans [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md).
 
 ## Priorité : valider les sources actuelles en fonctionnement
 
-- [ ] Sur nouvelle demande de compilation, construire un candidat avec les 70 catalogues complets, les nouveaux noms internes et les options DSpark/consentement du premier démarrage.
+- [x] Construire un candidat local avec les 70 catalogues, les noms internes et les options DSpark/consentement : terminé le 26 octobre après correction de la préparation du worker et des DLL CUDA x64. Les essais fonctionnels ci-dessous restent ouverts.
 - [ ] Vérifier une vraie première installation : langue, refus mémorisé, consentements indépendants, absence de destination et téléchargement facultatif de DSpark.
 - [ ] Mesurer la vitesse, RAM/VRAM et longueur de contexte avec et sans DSpark sur le matériel annoncé ; aucun gain garanti.
 - [ ] Vérifier la liaison complète du shim et une mise à niveau réelle de l’ancien worker vers `novera-llama-worker`, avec restauration sur échec.

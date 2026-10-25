@@ -6,7 +6,7 @@ Set-StrictMode -Version 2
 
 $repo = if ($env:NOVERA_BUILD_REPO) { [IO.Path]::GetFullPath($env:NOVERA_BUILD_REPO) } else { Split-Path (Split-Path $PSScriptRoot -Parent) -Parent }
 $variants = @(
-    [pscustomobject]@{Id='desktop'; Flag='DESKTOP'; Name='Novera-Desktop Windows x64'; Host='Windows x64'; Command='yarn build:web + cargo build --offline --locked --release --bin Novera-Desktop'},
+    [pscustomobject]@{Id='desktop'; Flag='DESKTOP'; Name='Novera-Desktop Windows x64'; Host='Windows x64'; Command='prepare engine worker/resources + yarn build:web + cargo build --offline --locked --release --bin Novera-Desktop'},
     [pscustomobject]@{Id='setup'; Flag='SETUP'; Name='Setup Windows x64 (NSIS .exe)'; Host='Windows x64'; Command='yarn tauri build --bundles nsis'},
     [pscustomobject]@{Id='msi'; Flag='MSI'; Name='Setup Windows x64 (MSI)'; Host='Windows x64'; Command='yarn tauri build --bundles msi'},
     [pscustomobject]@{Id='portable'; Flag='PORTABLE'; Name='Portable Windows x64 (.zip)'; Host='Windows x64'; Command='desktop + scripts/package-windows-portable.ps1 -RuntimeDir <nouveau-runtime>'},
@@ -129,6 +129,13 @@ try {
     $env:TAURI_ENV_TARGET_TRIPLE = 'x86_64-pc-windows-msvc'
     $env:TAURI_ENV_FAMILY = 'windows'
     $env:__TAURI_BUNDLE_TYPE = 'nsis'
+    if ($id -in @('desktop','portable','setup','msi')) {
+        . (Join-Path $PSScriptRoot 'prepare-novera-engine.ps1')
+        Prepare-NoveraEngine $repo (Join-Path $toolchain 'cargo.exe') {
+            param($Name, $Exe, $Arguments)
+            Run-Step $Name $Exe $Arguments
+        }
+    }
     if ($id -in @('setup','msi')) {
         $bundle = if ($id -eq 'setup') { 'nsis' } else { 'msi' }
         Run-Step 'setup' $corepack @('yarn','tauri','build','--bundles',$bundle)

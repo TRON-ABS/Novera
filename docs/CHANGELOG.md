@@ -2,6 +2,12 @@
 
 Les entrées ci-dessous décrivent des étapes datées. Elles ne remplacent pas [l’état courant des sources et du binaire](../TABLEAU_DE_BORD_NOVERA.md). Les journaux bruts, caches et exécutables restent locaux.
 
+## 26 octobre — corriger la compilation Windows après le renommage du worker
+
+Le BAT échouait dans Tauri car `novera-llama-worker.exe` n’était pas préparé. Le lanceur construit et prépare désormais le worker avant l’interface/desktop, ou réutilise un build local dont les sources et binaires correspondent. Les étapes ont leurs propres journaux et arrêtent le lancement sur erreur. Le staging CUDA compare l’architecture PE au worker et prend les DLL x64 dans les kits qui contiennent aussi ARM64 ; `cudart` est conservé pour les contrôles du runtime Windows.
+
+Validation : 19 assertions de préparation sous PowerShell 5.1 et 7, 69 assertions du lanceur, 223 assertions du packager, 16 de configuration télémétrie, trois tests Bash/CUDA et sept tests d’architecture réussis. Compilation réelle via le BAT utilisateur, terminée à 00:04 Paris : `deliverables/Novera-desktop-1.0.0-2026-10-25_23-59-09-633`, EXE **65 208 832 octets**, SHA-256 `1D3E1F545BF11CDC50F6E5F031ABFCA2DBD1E6293818F3D12A049263CDAC187A`. Les 26 binaires du dossier sont x64 ; le worker b11823 détecte la RTX 5070 Laptop depuis le dossier final. Le cache du moteur est vérifié séparément depuis un environnement normal. Les 70 catalogues sont inclus. Aucun lancement de l’interface, génération de modèle, installation, changement de profil ou publication binaire pour cette correction.
+
 ## 25 octobre — de l’ouzbek du Nord à l’assamais
 
 Ajout de uzn, zu, aec, pbu, gaz, skr, nl, so, ro et as : **70 catalogues à 1 516 clés**, soit 15 160 nouvelles entrées dans 140 JSON. Les 840 JSON précédents sont préservés. Détection système avec canonicalisation et distinction des écritures, persistance, formats compatibles et RTL raccordés. Validation : 963 tests ciblés dans 45 fichiers, TypeScript et contrôles des langues/architecture réussis. [Méthodes et limites](LANGUAGES.md) : traduction assistée, compléments éditoriaux, saïdi/saraiki encore partiels en vernaculaire ; relecture native requise. Aucun binaire reconstruit, profil modifié ou CI activée.
