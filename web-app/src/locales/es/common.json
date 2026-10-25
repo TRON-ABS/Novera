@@ -490,5 +490,9 @@
   "telemetry": {
     "summary": "Con tu consentimiento, {{host}} solo recibe la versión de Novera y el sistema operativo, sin conversaciones ni identificador persistente.",
     "unavailable": "Las estadísticas no están configuradas. No se envían datos."
+  },
+  "errorTracking": {
+    "title": "Seguimiento de errores",
+    "summary": "Informes opcionales a {{host}}: tipo de error, posición en el código, versión y sistema operativo. Sin conversaciones, mensajes de error originales ni claves. Puedes desactivarlo cuando quieras."
   }
 }

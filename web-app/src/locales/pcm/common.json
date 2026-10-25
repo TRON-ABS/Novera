@@ -800,5 +800,9 @@
   "telemetry": {
     "summary": "If you agree, {{host}} go receive only Novera version and operating system, no chat or permanent ID.",
     "unavailable": "We never set up statistics yet. No data dey go out."
+  },
+  "errorTracking": {
+    "title": "Track error",
+    "summary": "Optional report to {{host}}: error type, code position, version and operating system. No conversation, original error message or key. You fit off am anytime."
   }
 }

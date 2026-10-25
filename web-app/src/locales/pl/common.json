@@ -420,5 +420,9 @@
   "telemetry": {
     "summary": "Za Twoją zgodą {{host}} otrzymuje tylko wersję Novera i system operacyjny, bez rozmów i trwałego identyfikatora.",
     "unavailable": "Statystyki nie są skonfigurowane. Żadne dane nie są wysyłane."
+  },
+  "errorTracking": {
+    "title": "Śledzenie błędów",
+    "summary": "Opcjonalne raporty do {{host}}: typ błędu, pozycja w kodzie, wersja i system operacyjny. Bez rozmów, oryginalnych komunikatów błędów ani kluczy. Można wyłączyć w każdej chwili."
   }
 }

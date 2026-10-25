@@ -420,5 +420,9 @@
   "telemetry": {
     "summary": "Khi bạn đồng ý, {{host}} chỉ nhận phiên bản Novera và hệ điều hành, không có hội thoại hay mã định danh cố định.",
     "unavailable": "Chưa cấu hình thống kê. Không có dữ liệu nào được gửi."
+  },
+  "errorTracking": {
+    "title": "Theo dõi lỗi",
+    "summary": "Báo cáo tùy chọn đến {{host}}: loại lỗi, vị trí mã, phiên bản và hệ điều hành. Không có hội thoại, thông báo lỗi gốc hay khóa. Có thể tắt bất cứ lúc nào."
   }
 }

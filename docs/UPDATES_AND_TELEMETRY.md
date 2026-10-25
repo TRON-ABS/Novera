@@ -26,11 +26,15 @@ La version portable actuelle exige une **première installation manuelle** de la
 
 Référence de format et de signature : [documentation officielle Tauri Updater](https://v2.tauri.app/plugin/updater/).
 
-## Statistiques facultatives, sans destination configurée
+## Statistiques facultatives : configuration locale et mise en service
 
-Choix du mainteneur : statistiques minimales avec accord explicite, mais **aucun service configuré pour l’instant**. Aucune requête statistique n’est envoyée dans cette configuration. Le choix est désactivé dans Confidentialité et l’assistant de démarrage ne demande pas un consentement sans destination disponible.
+Le 25 octobre 2026, après clarification des régions US/Europe, le mainteneur a fourni un nouveau jeton déclaré issu du projet Europe. Il remplace le premier jeton uniquement dans le fichier local ignoré par Git. Vite charge bien ce nouveau jeton et l’origine européenne ; aucun appel réseau de vérification n’a été effectué. La publication des sources et documents est autorisée, sans publier ce fichier local ni aucun jeton.
 
-La préparation attend, pour un futur projet PostHog appartenant à Novera :
+Actualisation du 25 octobre 2026 : le mainteneur a fourni le jeton public de son projet PostHog et confirmé la région Europe. La configuration est préparée localement dans `web-app/.env.local`, ignoré par Git, avec l’origine de collecte `https://eu.i.posthog.com`. Le jeton n’est pas recopié dans cette documentation. Aucune compilation, aucun changement du consentement utilisateur et aucun événement réel envoyé pendant cette préparation ; la région et la réception effectives du projet restent à vérifier lors du raccordement réel. Le lanceur de compilation Desktop et les scripts Android continuent de forcer les variables statistiques à vide : leur activation devra faire l’objet d’une modification explicite avant une compilation destinée à tester la collecte. Une invocation directe de Vite peut lire le fichier local ; le consentement reste alors désactivé par défaut.
+
+Choix du mainteneur : statistiques minimales avec accord explicite. Les compilations produites par les lanceurs actuels restent **sans destination de collecte**, malgré la configuration locale préparée ci-dessus. Aucune requête statistique n’est envoyée par ces compilations. Sans destination disponible, le choix est désactivé dans Confidentialité et l’assistant de démarrage ne demande pas de consentement.
+
+La configuration d’un projet PostHog appartenant à Novera utilise :
 
 - `NOVERA_ANALYTICS_HOST` : origine HTTPS du service de collecte, sans chemin, identifiants, paramètres ou redirection ;
 - `NOVERA_ANALYTICS_PROJECT_KEY` : jeton **public du projet**, jamais une clé d’administration personnelle.
@@ -41,7 +45,7 @@ Le consentement est lié à l’hôte et au projet destinataires : changer l’u
 
 Après configuration et compilation, l’utilisateur doit autoriser l’envoi dans le dialogue ou dans Paramètres → Confidentialité. Le texte indique l’hôte destinataire. Le refus laisse toutes les fonctions disponibles ; le retrait du consentement annule la requête en attente et empêche les suivantes. Les textes spécifiques sont présents dans les 36 langues.
 
-Le seul événement préparé est `novera_app_started`, contenant :
+L’événement de statistiques d’usage préparé est `novera_app_started`, contenant :
 
 - la version de Novera et le système d’exploitation ;
 - un UUID aléatoire propre à cet événement, exigé par le protocole PostHog, jamais conservé ou réutilisé ;
@@ -54,5 +58,17 @@ Le serveur destinataire voit nécessairement les informations réseau de connexi
 Les journaux locaux de diagnostic restent distincts de ces statistiques. Le mécanisme avancé OpenTelemetry des agents reste lui aussi distinct, désactivé par défaut et activable seulement par sa configuration explicite de collecteur ; il n’est pas activé par le bouton de statistiques. La mise à jour du CLI historique reste désactivée. Les modèles sont désormais téléchargés directement depuis leur URL source, sans détour par le miroir Jan ni identifiant HMAC.
 
 ## Contrôles de préparation
+
+### Suivi des erreurs — 25 octobre 2026
+
+À la demande du mainteneur, les sources préparent aussi PostHog **Error tracking** avec la même destination européenne. Le réglage indépendant Paramètres → Confidentialité → Suivi des erreurs est désactivé par défaut, sans reprendre le consentement aux statistiques. Ses deux textes sont traduits dans les 36 locales. Le consentement est persisté séparément pour chaque hôte/projet et version du schéma ; il est restauré après initialisation du stockage. Le retrait retire les écouteurs et annule les requêtes en cours. Les anciennes promesses génériques de données toujours agrégées ont été retirées de cet écran : les rapports d’erreurs sont des événements individuels.
+
+L’adaptateur HTTP envoie des événements `$exception` selon le [schéma manuel officiel PostHog](https://posthog.com/docs/error-tracking/installation/manual). Il écoute uniquement les erreurs JavaScript non interceptées (`error`) et les promesses rejetées sans gestionnaire (`unhandledrejection`) pendant l’accord. Aucun SDK de capture automatique, enregistrement de session, breadcrumb, profil utilisateur ou cookie n’est activé.
+
+Chaque rapport contient un type d’erreur parmi une liste fermée, un message technique constant, la version et le système, une identité aléatoire non réutilisée et éventuellement des positions numériques dans le bundle principal de l’application. Les URL, noms de fichiers et fonctions sont remplacés ou omis ; messages bruts, causes, propriétés personnalisées, conversations, prompts et clés ne sont jamais sérialisés. Seules les positions reconnues dans les URL de ressources `tauri.localhost/assets/index-*.js` sont retenues ; les autres piles sont omises. La pile est plafonnée à dix positions, les rapports identiques sont dédupliqués et le nombre d’envois est limité à dix par période d’activation du collecteur. Aucune file persistante ni relance réseau.
+
+Limites : les erreurs déjà interceptées par React/le routeur ou les fournisseurs ne sont pas couvertes, ni les crashs natifs Rust/Android ou du moteur. Aucune source map n’est publiée : les positions disponibles concernent le code compilé, sans résolution vers les sources. La région réelle du projet, CORS/WebView2 et l’affichage/regroupement dans PostHog restent à valider sur une compilation de test et un rapport explicitement consenti. Les lanceurs Desktop/Android continuent de vider les variables de destination ; cette préparation ne change aucun binaire et n’effectue aucun envoi réel. La conservation des IP et la rétention côté service restent à configurer.
+
+Validation locale : 44 tests ciblés réussis dans huit fichiers (télémétrie, filtrage des erreurs, consentements indépendants, révocation, limites, stockage et écran de confidentialité). TypeScript sans émission réussi ; inventaire des 36 locales validé, 1 513 clés anglaises, wu partiel à 756 clés. Les appels réseau sont simulés dans les tests. Aucune compilation de l’application ni publication distante.
 
 `node --test scripts/__tests__/novera-update.test.mjs` vérifie la construction de la configuration et du manifeste sur des données synthétiques, sans clé de production ni réseau. `python scripts/check-novera-locales.py` vérifie les 36 catalogues. Les tests web couvrent le consentement, la révocation, l’absence de destination, le contenu autorisé et l’ordre téléchargement/arrêt/installation. Les vérifications de sources ne constituent pas un essai de mise à jour réelle : celui-ci reste nécessaire avec une première release signée.

@@ -1,4 +1,5 @@
 import { useTheme } from '@/hooks/useTheme'
+import { useErrorTracking } from '@/hooks/useErrorTracking'
 import { useInterfaceSettings } from '@/hooks/useInterfaceSettings'
 import { useGeneralSetting } from '@/hooks/useGeneralSetting'
 import { useLeftPanel } from '@/hooks/useLeftPanel'
@@ -37,6 +38,7 @@ import { useImageAttachmentConfig } from '@/hooks/useImageAttachmentConfig'
 // useInterfaceSettings' onRehydrateStorage reads useTheme.getState().isDark, so
 // theme must hydrate first.
 const secondaryStores = [
+  useErrorTracking,
   useInterfaceSettings,
   useGeneralSetting,
   useLeftPanel,

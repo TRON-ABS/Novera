@@ -112,3 +112,5 @@ Sources : positions 1–38, [tableau 2026 attribué à Ethnologue](https://en.wi
 État Jan vérifié sur main `44aee093ae5a974c31ec43d24ceca163c0e59c14` et les PR GitHub. Le turc et le suédois sont proposés par des tiers. Le repérage des PR ouvertes par titre ne garantit pas l'absence de toute contribution équivalente : avant chaque nouvelle traduction, recontrôler les contributions existantes. Détails des travaux : [PR.md](PR.md).
 
 Inventaire effectif de Novera : [docs/LANGUAGES.md](docs/LANGUAGES.md). Aucune compilation effectuée pour cette intégration. Les langues mentionnées uniquement en PR tierces ne sont pas ajoutées.
+
+25 October 2026: Error tracking has a separate, default-off privacy control. Its title and data disclosure are translated in all 36 locales (72 entries). Translation coverage is checked; native-speaker review remains pending. No application compilation.

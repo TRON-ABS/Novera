@@ -800,5 +800,9 @@
   "telemetry": {
     "summary": "Da izininka, {{host}} yana karɓar sigar Novera da tsarin aiki kawai, ba tattaunawa ko lambar ganewa ta dindindin ba.",
     "unavailable": "Ba a saita ƙididdiga ba. Ba a aika wani bayani ba."
+  },
+  "errorTracking": {
+    "title": "Bibiyar kurakurai",
+    "summary": "Rahotanni na zaɓi zuwa {{host}}: nau’in kuskure, wurin lamba, siga da tsarin aiki. Babu tattaunawa, asalin saƙonnin kuskure ko maɓallai. Ana iya kashewa kowane lokaci."
   }
 }

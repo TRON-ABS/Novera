@@ -800,5 +800,9 @@
   "telemetry": {
     "summary": "Kanthi idin sampeyan, {{host}} mung nampa versi Novera lan sistem operasi, tanpa pacelathon utawa tandha pengenal permanen.",
     "unavailable": "Statistik durung dikonfigurasi. Ora ana data sing dikirim."
+  },
+  "errorTracking": {
+    "title": "Pelacakan kesalahan",
+    "summary": "Laporan opsional menyang {{host}}: jinis kesalahan, panggonan kode, versi lan sistem operasi. Tanpa pacelathon, pesen kesalahan asli utawa kunci. Bisa dipateni kapan wae."
   }
 }

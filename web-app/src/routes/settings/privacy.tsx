@@ -6,6 +6,7 @@ import { Switch } from '@/components/ui/switch'
 import { Card, CardItem } from '@/containers/Card'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useAnalytic } from '@/hooks/useAnalytic'
+import { useErrorTracking } from '@/hooks/useErrorTracking'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Route = createFileRoute(route.settings.privacy as any)({
@@ -15,6 +16,7 @@ export const Route = createFileRoute(route.settings.privacy as any)({
 function Privacy() {
   const { t } = useTranslation()
   const { setProductAnalytic, productAnalytic, analyticsAvailable, analyticsHost } = useAnalytic()
+  const { enabled: errorTracking, setEnabled: setErrorTracking } = useErrorTracking()
 
   return (
     <div className="flex flex-col h-svh w-full">
@@ -50,34 +52,21 @@ function Privacy() {
                 description={<p>{t(analyticsAvailable ? 'common:telemetry.summary' : 'common:telemetry.unavailable', { host: analyticsHost })}</p>}
                 align="start"
               />
-              <CardItem
-                description={
-                  <div className="text-foreground">
-                    <p>{t('settings:privacy.privacyPolicy')}</p>
-                    <p className="my-1">
-                      {t('settings:privacy.analyticsDesc')}
-                    </p>
-                    <p>{t('settings:privacy.privacyPromises')}</p>
-                    <ul className="list-disc pl-4 space-y-1 mt-4">
-                      <li className="font-medium">
-                        {t('settings:privacy.promise1')}
-                      </li>
-                      <li className="font-medium">
-                        {t('settings:privacy.promise2')}
-                      </li>
-                      <li className="font-medium">
-                        {t('settings:privacy.promise3')}
-                      </li>
-                      <li className="font-medium">
-                        {t('settings:privacy.promise4')}
-                      </li>
-                      <li className="font-medium">
-                        {t('settings:privacy.promise5')}
-                      </li>
-                    </ul>
-                  </div>
-                }
-              />
+            </Card>
+            <Card header={
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-medium text-foreground text-base" id="error-tracking-label">
+                  {t('common:errorTracking.title')}
+                </h2>
+                <Switch
+                  aria-labelledby="error-tracking-label"
+                  checked={analyticsAvailable && errorTracking}
+                  disabled={!analyticsAvailable}
+                  onCheckedChange={(enabled) => setErrorTracking(analyticsAvailable && enabled)}
+                />
+              </div>
+            }>
+              <CardItem description={<p>{t(analyticsAvailable ? 'common:errorTracking.summary' : 'common:telemetry.unavailable', { host: analyticsHost })}</p>} align="start" />
             </Card>
           </div>
         </div>

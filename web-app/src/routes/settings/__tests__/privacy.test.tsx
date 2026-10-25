@@ -3,6 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { Route as PrivacyRoute } from '../privacy'
 
 const telemetry = vi.hoisted(() => ({ available: true, set: vi.fn() }))
+const errors = vi.hoisted(() => ({ set: vi.fn() }))
+vi.mock('@/hooks/useErrorTracking', () => ({ useErrorTracking: () => ({ enabled: false, setEnabled: errors.set }) }))
 
 // Mock dependencies
 vi.mock('@/containers/SettingsMenu', () => ({
@@ -80,6 +82,17 @@ vi.mock('@tanstack/react-router', () => ({
 }))
 
 describe('Privacy Settings Route', () => {
+  it('keeps error consent independent and prevents enabling without a destination', () => {
+    const Component = PrivacyRoute.component as React.ComponentType
+    const view = render(<Component />)
+    const switches = screen.getAllByTestId('switch')
+    expect(switches[1]).not.toBeChecked()
+    fireEvent.click(switches[1])
+    expect(errors.set).toHaveBeenCalledWith(true)
+    expect(telemetry.set).not.toHaveBeenCalled()
+    telemetry.available = false; view.rerender(<Component />)
+    expect(screen.getAllByTestId('switch')[1]).toBeDisabled()
+  })
   beforeEach(() => {
     vi.clearAllMocks()
     telemetry.available = true
@@ -89,15 +102,15 @@ describe('Privacy Settings Route', () => {
     telemetry.available = false
     const Component = PrivacyRoute.component as React.ComponentType
     render(<Component />)
-    expect(screen.getByTestId('switch')).toBeDisabled()
-    expect(screen.getByText('common:telemetry.unavailable')).toBeInTheDocument()
+    expect(screen.getAllByTestId('switch')[0]).toBeDisabled()
+    expect(screen.getAllByText('common:telemetry.unavailable')[0]).toBeInTheDocument()
   })
 
   it('records explicit consent only when the user enables the configured switch', () => {
     const Component = PrivacyRoute.component as React.ComponentType
     render(<Component />)
     expect(telemetry.set).not.toHaveBeenCalled()
-    fireEvent.click(screen.getByTestId('switch'))
+    fireEvent.click(screen.getAllByTestId('switch')[0])
     expect(telemetry.set).toHaveBeenCalledWith(true)
   })
 
@@ -114,8 +127,8 @@ describe('Privacy Settings Route', () => {
     const Component = PrivacyRoute.component as React.ComponentType
     render(<Component />)
 
-    expect(screen.getByTestId('card')).toBeInTheDocument()
-    expect(screen.getByTestId('card-header')).toBeInTheDocument()
+    expect(screen.getAllByTestId('card')[0]).toBeInTheDocument()
+    expect(screen.getAllByTestId('card-header')[0]).toBeInTheDocument()
     expect(screen.getByText('settings:privacy.analytics')).toBeInTheDocument()
   })
 
@@ -123,7 +136,7 @@ describe('Privacy Settings Route', () => {
     const Component = PrivacyRoute.component as React.ComponentType
     render(<Component />)
 
-    const analyticsSwitch = screen.getByTestId('switch')
+    const analyticsSwitch = screen.getAllByTestId('switch')[0]
     expect(analyticsSwitch).toBeInTheDocument()
     expect(analyticsSwitch).not.toBeChecked()
   })
@@ -132,7 +145,7 @@ describe('Privacy Settings Route', () => {
     const Component = PrivacyRoute.component as React.ComponentType
     render(<Component />)
 
-    const analyticsSwitch = screen.getByTestId('switch')
+    const analyticsSwitch = screen.getAllByTestId('switch')[0]
     expect(analyticsSwitch).toBeInTheDocument()
     
     // Test that switch is interactive
@@ -144,7 +157,7 @@ describe('Privacy Settings Route', () => {
     const Component = PrivacyRoute.component as React.ComponentType
     render(<Component />)
 
-    const analyticsSwitch = screen.getByTestId('switch')
+    const analyticsSwitch = screen.getAllByTestId('switch')[0]
     expect(analyticsSwitch).toBeInTheDocument()
     
     // Test that switch is interactive
@@ -167,7 +180,7 @@ describe('Privacy Settings Route', () => {
     const Component = PrivacyRoute.component as React.ComponentType
     render(<Component />)
 
-    const analyticsSwitch = screen.getByTestId('switch')
+    const analyticsSwitch = screen.getAllByTestId('switch')[0]
     expect(analyticsSwitch).toBeInTheDocument()
     // Test that switch has some state
     expect(analyticsSwitch).toHaveAttribute('type', 'checkbox')
@@ -177,7 +190,7 @@ describe('Privacy Settings Route', () => {
     const Component = PrivacyRoute.component as React.ComponentType
     render(<Component />)
 
-    const analyticsSwitch = screen.getByTestId('switch')
+    const analyticsSwitch = screen.getAllByTestId('switch')[0]
     expect(analyticsSwitch).toBeInTheDocument()
     expect(analyticsSwitch).toHaveAttribute('type', 'checkbox')
   })
@@ -195,7 +208,7 @@ describe('Privacy Settings Route', () => {
     const Component = PrivacyRoute.component as React.ComponentType
     render(<Component />)
 
-    const analyticsSwitch = screen.getByTestId('switch')
+    const analyticsSwitch = screen.getAllByTestId('switch')[0]
     
     // Test that switch can be toggled
     fireEvent.click(analyticsSwitch)

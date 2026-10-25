@@ -421,5 +421,9 @@
   "telemetry": {
     "summary": "Com seu consentimento, {{host}} recebe apenas a versão do Novera e o sistema operacional, sem conversas ou identificador persistente.",
     "unavailable": "As estatísticas não estão configuradas. Nenhum dado é enviado."
+  },
+  "errorTracking": {
+    "title": "Monitoramento de erros",
+    "summary": "Relatórios opcionais para {{host}}: tipo de erro, posição no código, versão e sistema operacional. Sem conversas, mensagens de erro originais ou chaves. Desative quando quiser."
   }
 }

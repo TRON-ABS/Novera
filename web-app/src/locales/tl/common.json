@@ -800,5 +800,9 @@
   "telemetry": {
     "summary": "Sa pahintulot mo, bersyon lang ng Novera at operating system ang matatanggap ng {{host}}, walang mga pag-uusap o permanenteng identifier.",
     "unavailable": "Hindi pa naka-configure ang mga istatistika. Walang ipinapadalang data."
+  },
+  "errorTracking": {
+    "title": "Pagsubaybay sa mga error",
+    "summary": "Opsyonal na ulat sa {{host}}: uri ng error, lokasyon sa code, bersyon at operating system. Walang pag-uusap, orihinal na mensahe ng error o key. Maaaring i-off anumang oras."
   }
 }

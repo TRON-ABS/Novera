@@ -420,5 +420,9 @@
   "telemetry": {
     "summary": "S vaším souhlasem obdrží {{host}} pouze verzi Novera a operační systém, bez konverzací a trvalého identifikátoru.",
     "unavailable": "Statistiky nejsou nakonfigurovány. Žádná data se neodesílají."
+  },
+  "errorTracking": {
+    "title": "Sledování chyb",
+    "summary": "Volitelná hlášení pro {{host}}: typ chyby, pozice v kódu, verze a operační systém. Bez konverzací, původních chybových zpráv a klíčů. Lze kdykoli vypnout."
   }
 }

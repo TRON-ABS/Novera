@@ -1,3 +1,21 @@
+# Prepare opt-in PostHog error tracking — 25 October 2026
+
+Add a separate default-off Error tracking control in Privacy, with explicit disclosures in all 36 locales and destination-scoped persisted permission. Existing analytics consent does not authorize exception collection. Remove the legacy blanket aggregate-data promises from the privacy screen because exception reports are individual events.
+
+Capture unhandled frontend errors and promise rejections through the documented manual `$exception` API. Allowlist error types and numeric positions from the packaged main bundle, replace messages and filenames, omit causes/custom fields/functions, deduplicate and cap reports at ten per collector activation. Withdrawal removes listeners and aborts pending requests. No replay, SDK initialization, breadcrumbs, persistent identity or raw messages. Native crashes, caught React/router/provider errors and source-map resolution remain outside this implementation.
+
+Validation: 44 targeted tests passed across eight files; TypeScript without emission and all 36 locale inventories passed. Network calls are mocked. Real EU project ingestion, WebView2 CORS and dashboard grouping remain unvalidated. Build launchers still clear destination variables. The maintainer authorized publishing these sources and documentation to main on 25 October 2026. Exclude the Git-ignored local EU token, executables and build artifacts; keep GitHub Actions disabled. No application build or real event transmission.
+
+---
+
+# Document the local PostHog EU project preparation — 25 October 2026
+
+Record the maintainer-provided public project token in a Git-ignored local frontend environment file and use the documented EU ingestion origin. Keep the token out of documentation, user consent unchanged and the existing Desktop/Android launcher safeguards in place. No application compilation, real event transmission or remote publication is performed. Live project region and ingestion remain unvalidated.
+
+Validation: Vite loaded the local EU destination and public project token successfully. All 30 targeted telemetry, consent and privacy tests passed across five files, using mocked network requests.
+
+---
+
 # Rename the local agent launcher for Novera — 25 October 2026
 
 Rename the unused root launcher from jan-agent.sh to novera-agent.sh and update its usage text and documentation. Resolve the local CLI under its Novera name when available, preserving compatibility with the existing internal jan/jan.exe binaries. Keep default interactive-agent startup, argument forwarding and the src-tauri working directory. Fail clearly when no executable is available; never download or compile a CLI automatically. The Desktop application and embedded agent implementation are unchanged.

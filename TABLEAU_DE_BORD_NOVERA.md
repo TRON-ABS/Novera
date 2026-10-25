@@ -10,6 +10,10 @@ Ce fichier centralise les accès, le statut et les prochaines étapes ; les dét
 
 ## Navigation rapide
 
+Publication des sources autorisée le 25 octobre 2026 : suivi des erreurs, consentement indépendant, traductions et documentation. Le nouveau jeton déclaré européen remplace le premier uniquement dans la configuration locale ignorée par Git ; aucun jeton, binaire ou artefact de compilation n’entre dans cette publication. GitHub Actions reste désactivé.
+
+Préparation locale du 25 octobre 2026 : **Error tracking PostHog** ajouté aux sources avec un consentement indépendant, désactivé par défaut, et des textes dans les 36 langues. Filtrage strict des rapports JavaScript non interceptés, déduplication, dix rapports maximum par activation, arrêt immédiat sur retrait. Validation ciblée : 44 tests et TypeScript sans émission réussis ; inventaire des langues validé. Aucun envoi réel, compilation ou publication. Les lanceurs gardent la destination désactivée ; crashs natifs, erreurs interceptées et source maps restent hors périmètre. Voir [configuration et limites](docs/UPDATES_AND_TELEMETRY.md#suivi-des-erreurs--25-octobre-2026).
+
 - [Fournisseurs cloud et procédure des futures mises à jour](docs/CLOUD_PROVIDERS.md)
 - [État actuel](#état-actuel)
 - [Travaux restants](#travaux-restants)
@@ -22,6 +26,8 @@ Ce fichier centralise les accès, le statut et les prochaines étapes ; les dét
 - [Règles de maintenance du tableau](#règles-de-maintenance-du-tableau)
 
 ## État actuel
+
+PostHog Europe : jeton public fourni par le mainteneur et configuration locale préparée dans `web-app/.env.local` (ignoré par Git), origine `https://eu.i.posthog.com`. Consentement par défaut inchangé ; aucune compilation ni collecte réelle pendant cette préparation. Les lanceurs Desktop/Android maintiennent la collecte indisponible dans leurs builds tant que leur activation n’est pas explicitement adaptée. [État et prochaines étapes](docs/UPDATES_AND_TELEMETRY.md).
 
 Lanceur terminal renommé en **`novera-agent.sh`**, avec textes Novera et compatibilité du CLI local sous ses noms actuels, y compris `jan.exe` pour Git Bash/MSYS2. L’ancien `jan-agent.sh` est retiré ; le moteur d’agent et le nom interne du binaire restent inchangés. Sources incluses dans la publication de ce renommage ; aucune compilation de l’application.
 

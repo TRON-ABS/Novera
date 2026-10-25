@@ -800,5 +800,9 @@
   "telemetry": {
     "summary": "Kwa idhini yako, {{host}} hupokea tu toleo la Novera na mfumo wa uendeshaji, bila mazungumzo au kitambulisho cha kudumu.",
     "unavailable": "Takwimu hazijasanidiwa. Hakuna data inayotumwa."
+  },
+  "errorTracking": {
+    "title": "Ufuatiliaji wa hitilafu",
+    "summary": "Ripoti za hiari kwa {{host}}: aina ya hitilafu, nafasi ya msimbo, toleo na mfumo wa uendeshaji. Hakuna mazungumzo, ujumbe asili wa hitilafu au funguo. Zima wakati wowote."
   }
 }

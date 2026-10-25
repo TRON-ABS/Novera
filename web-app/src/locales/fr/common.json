@@ -424,5 +424,9 @@
   "telemetry": {
     "summary": "Avec votre accord, {{host}} reçoit uniquement la version de Novera et le système, sans conversations ni identifiant persistant.",
     "unavailable": "Les statistiques ne sont pas configurées. Aucune donnée n’est envoyée."
+  },
+  "errorTracking": {
+    "title": "Suivi des erreurs",
+    "summary": "Rapports facultatifs vers {{host}} : type d’erreur, position dans le code, version et système. Sans conversations, messages d’erreur bruts ni clés. Désactivable à tout moment."
   }
 }

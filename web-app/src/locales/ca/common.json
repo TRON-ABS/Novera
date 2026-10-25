@@ -422,5 +422,9 @@
   "telemetry": {
     "summary": "Amb el vostre consentiment, {{host}} només rep la versió de Novera i el sistema operatiu, sense converses ni identificador persistent.",
     "unavailable": "Les estadístiques no estan configurades. No s’envia cap dada."
+  },
+  "errorTracking": {
+    "title": "Seguiment d’errors",
+    "summary": "Informes opcionals a {{host}}: tipus d’error, posició al codi, versió i sistema operatiu. Sense converses, missatges d’error originals ni claus. Es pot desactivar en qualsevol moment."
   }
 }
