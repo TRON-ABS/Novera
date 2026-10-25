@@ -1,6 +1,6 @@
 # Novera — suivi des langues et feuille de route des 100 langues
 
-Mis à jour le **25 octobre 2026**. **36 locales d’interface dans les sources Novera**, dont les 19 contributions de langues intégrées. Les 36 catalogues d’interface couvrent désormais les 1 513 clés anglaises actuelles (100 %). Les 16 catalogues hérités encore incomplets ont reçu les 9 219 traductions manquantes. Le wu/shanghaïen est désormais complet en nombre de clés (1 513 / 1 513, soit 100 %) : les 757 entrées manquantes ont été traduites, sans modifier les 756 entrées existantes. Cette couverture mesure la présence des clés, pas la qualité des traductions ; une relecture par des locuteurs natifs reste nécessaire. Le tableau ci-dessous conserve le classement historique comme feuille de route, sans nouvelle vérification des estimations de locuteurs.
+Mis à jour le **25 octobre 2026**. **36 locales d’interface dans les sources Novera**, dont les 19 contributions de langues intégrées. Les 36 catalogues d’interface couvrent désormais les 1 516 clés anglaises actuelles (100 %). Les 16 catalogues hérités encore incomplets ont reçu les 9 219 traductions manquantes. Le wu/shanghaïen est désormais complet en nombre de clés (1 516 / 1 516, soit 100 %) : les 757 entrées manquantes ont été traduites, sans modifier les 756 entrées existantes. Cette couverture mesure la présence des clés, pas la qualité des traductions ; une relecture par des locuteurs natifs reste nécessaire. Le tableau ci-dessous conserve le classement historique comme feuille de route, sans nouvelle vérification des estimations de locuteurs. Les 757 entrées wu et 9 219 entrées héritées concernent le complément précédent à 1 513 clés ; trois nouvelles entrées communes portent maintenant chaque catalogue à 1 516 clés.
 
 La colonne **À faire, ordre** numérote les prochaines traductions de 1 à 66, de la plus parlée à la moins parlée. Nos 19 PR historiques vers Jan sont fermées ; leur contenu est intégré dans Novera. « Disponible » désigne les langues héritées, sans garantir une traduction complète. Le portugais du Portugal (`pt-PT`, PR #9410) et celui du Brésil (`pt-BR`, disponible) ont des catalogues séparés ; cette variante supplémentaire ne compte pas comme une langue supplémentaire parmi les 100.
 
@@ -31,7 +31,7 @@ La colonne **À faire, ordre** numérote les prochaines traductions de 1 à 66, 
 | 23 | Tagalog | 87 | 2026 | Intégrée dans Novera | — | [#9409](https://github.com/janhq/jan/pull/9409) |
 | 24 | Tamoul | 86 | 2026 | Intégrée dans Novera | — | [#9403](https://github.com/janhq/jan/pull/9403) |
 | 25 | Yue / cantonais | 86 | 2026 | Intégrée dans Novera | — | [#9411](https://github.com/janhq/jan/pull/9411) |
-| 26 | Wu / shanghaïen | 83 | 2026 | Intégrée dans Novera — 1 513/1 513 clés ; relecture requise | — | [#9412](https://github.com/janhq/jan/pull/9412) |
+| 26 | Wu / shanghaïen | 83 | 2026 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | [#9412](https://github.com/janhq/jan/pull/9412) |
 | 27 | Persan iranien | 82 | 2026 | Intégrée dans Novera | — | [#9413](https://github.com/janhq/jan/pull/9413) |
 | 28 | Coréen | 82 | 2026 | Disponible | — | — |
 | 29 | Amharique | 78 | 2026 | Intégrée dans Novera | — | [#9414](https://github.com/janhq/jan/pull/9414) |
@@ -120,3 +120,5 @@ Les traductions des commandes de saisie et des actions sur les messages sont inc
 25 octobre 2026 : le suivi des erreurs dispose d’un réglage de confidentialité distinct, désactivé par défaut. Son titre et son explication sur les données transmises sont traduits dans les 36 locales (72 entrées). La présence des traductions est vérifiée ; une relecture par des locuteurs natifs reste nécessaire. Ces traductions n’ont pas fait l’objet d’une compilation de l’application.
 
 25 octobre 2026 : les 16 catalogues hérités sont complétés à 1 513/1 513 clés chacun, avec 9 219 traductions ajoutées dans 176 fichiers. Traduction automatique Google Translate autorisée explicitement par l’utilisateur, puis 98 corrections ciblées de terminologie et de formulation. Deux anciens messages italien et polonais ont aussi été corrigés pour rétablir leurs variables. Les contrôles couvrent désormais toutes les langues, y compris celles héritées. Les traductions restent à relire par des locuteurs natifs et ne sont pas encore compilées dans l’application.
+
+25 octobre 2026 : option DSpark au premier démarrage, explication RAM/VRAM/contexte et demande indépendante pour le suivi des erreurs. Trois nouvelles clés traduites dans les 36 langues : couverture courante 1 516/1 516.

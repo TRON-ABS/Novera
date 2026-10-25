@@ -58,5 +58,7 @@
   "otherWarnings": "{{count}} các bước kiểm tra khác cũng cần được chú ý.",
   "continueStep": "Tiếp tục",
   "stageSetupDone": "Động cơ đã sẵn sàng",
-  "setupDoneBody": "Novera sẽ chạy các mô hình địa phương với llama.cpp."
+  "setupDoneBody": "Novera sẽ chạy các mô hình địa phương với llama.cpp.",
+  "dsparkEnable": "Bật tăng tốc DSpark (tùy chọn)",
+  "dsparkDescription": "Tải mô hình phụ trợ DSpark Q8_0 ({{size}}) cho LFM2.5-2.6B. Mô hình này có thể tăng tốc sinh văn bản nhưng dùng thêm RAM hoặc VRAM, khiến bộ nhớ dành cho ngữ cảnh giảm đi. Hãy thử trên phần cứng của bạn; điều chỉnh độ dài ngữ cảnh hoặc tắt giải mã suy đoán trong cài đặt mô hình."
 }

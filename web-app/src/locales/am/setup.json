@@ -49,5 +49,7 @@
   "otherWarnings": "{{count}} ሌሎች ቼኮችም ትኩረት ያስፈልጋቸዋል።",
   "continueStep": "ቀጥል",
   "stageSetupDone": "ሞተር ዝግጁ ነው።",
-  "setupDoneBody": "Novera የሀገር ውስጥ ሞዴሎችን በllama.cpp ይሰራል።"
+  "setupDoneBody": "Novera የሀገር ውስጥ ሞዴሎችን በllama.cpp ይሰራል።",
+  "dsparkEnable": "የDSpark ማፋጠኛን አንቃ (አማራጭ)",
+  "dsparkDescription": "ለLFM2.5-2.6B የDSpark Q8_0 አጋዥ ሞዴልን ({{size}}) ያወርዳል። ጽሑፍ ማመንጨትን ሊያፋጥን ይችላል፣ ግን ተጨማሪ RAM ወይም VRAM ስለሚጠቀም ለአውድ የሚቀረው ማህደረ ትውስታ ይቀንሳል። በራስዎ ሃርድዌር ላይ ይሞክሩት፤ በሞዴሉ ቅንብሮች የአውዱን ርዝመት ያስተካክሉ ወይም ግምታዊ ዲኮዲንግን ያጥፉ።"
 }

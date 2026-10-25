@@ -58,5 +58,7 @@
   "otherWarnings": "{{count}} Inne kontrole również wymagają uwagi.",
   "continueStep": "Kontynuuj",
   "stageSetupDone": "Silnik gotowy",
-  "setupDoneBody": "Novera będzie obsługiwał lokalne modele z llama.cpp."
+  "setupDoneBody": "Novera będzie obsługiwał lokalne modele z llama.cpp.",
+  "dsparkEnable": "Włącz przyspieszenie DSpark (opcjonalne)",
+  "dsparkDescription": "Pobiera model pomocniczy DSpark Q8_0 ({{size}}) dla LFM2.5-2.6B. Może przyspieszyć generowanie, ale zużywa dodatkową pamięć RAM lub VRAM, pozostawiając mniej miejsca na kontekst. Przetestuj go na swoim sprzęcie; dostosuj długość kontekstu lub wyłącz dekodowanie spekulatywne w ustawieniach modelu."
 }

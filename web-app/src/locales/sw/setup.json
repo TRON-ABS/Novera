@@ -49,5 +49,7 @@
   "otherWarnings": "Idadi ya ukaguzi mwingine unaohitaji kuangaliwa: {{count}}.",
   "continueStep": "Endelea",
   "stageSetupDone": "Injini iko tayari",
-  "setupDoneBody": "Novera itaendesha modeli za ndani kwa kutumia llama.cpp."
+  "setupDoneBody": "Novera itaendesha modeli za ndani kwa kutumia llama.cpp.",
+  "dsparkEnable": "Washa uharakishaji wa DSpark (hiari)",
+  "dsparkDescription": "Hupakua modeli saidizi ya DSpark Q8_0 ({{size}}) kwa LFM2.5-2.6B. Inaweza kuharakisha uzalishaji wa maandishi, lakini hutumia RAM au VRAM ya ziada na kuacha kumbukumbu kidogo kwa muktadha. Ijaribu kwenye vifaa vyako; rekebisha urefu wa muktadha au zima usimbuaji wa kubashiri katika mipangilio ya modeli."
 }

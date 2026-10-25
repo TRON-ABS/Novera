@@ -576,7 +576,8 @@
   },
   "errorTracking": {
     "title": "Seguimiento de errores",
-    "summary": "Informes opcionales a {{host}}: tipo de error, posición en el código, versión y sistema operativo. Sin conversaciones, mensajes de error originales ni claves. Puedes desactivarlo cuando quieras."
+    "summary": "Informes opcionales a {{host}}: tipo de error, posición en el código, versión y sistema operativo. Sin conversaciones, mensajes de error originales ni claves. Puedes desactivarlo cuando quieras.",
+    "unavailable": "El seguimiento de errores no está configurado. No se envían informes."
   },
   "htmlArtifact": {
     "code": "Código",

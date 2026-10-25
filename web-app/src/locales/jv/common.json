@@ -803,6 +803,7 @@
   },
   "errorTracking": {
     "title": "Pelacakan kesalahan",
-    "summary": "Laporan opsional menyang {{host}}: jinis kesalahan, panggonan kode, versi lan sistem operasi. Tanpa pacelathon, pesen kesalahan asli utawa kunci. Bisa dipateni kapan wae."
+    "summary": "Laporan opsional menyang {{host}}: jinis kesalahan, panggonan kode, versi lan sistem operasi. Tanpa pacelathon, pesen kesalahan asli utawa kunci. Bisa dipateni kapan wae.",
+    "unavailable": "Pelacakan kesalahan durung dikonfigurasi. Ora ana laporan sing dikirim."
   }
 }

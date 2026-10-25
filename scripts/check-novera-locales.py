@@ -30,7 +30,7 @@ def validate(root):
         'composer.advanced', 'composer.modelDefaults',
         'composer.assistantOverrides', 'composer.printPdf', 'composer.exportHint',
         'telemetry.summary', 'telemetry.unavailable',
-        'errorTracking.title', 'errorTracking.summary',
+        'errorTracking.title', 'errorTracking.summary', 'errorTracking.unavailable',
         'copy', 'copied', 'edit', 'deleteMessage', 'dialogs.deleteMessage.description',
     )
     required_chat = (

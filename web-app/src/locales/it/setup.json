@@ -58,5 +58,7 @@
   "otherWarnings": "{{count}} anche altri controlli richiedono attenzione.",
   "continueStep": "Continua",
   "stageSetupDone": "Motore pronto",
-  "setupDoneBody": "Novera eseguirà i modelli locali con llama.cpp."
+  "setupDoneBody": "Novera eseguirà i modelli locali con llama.cpp.",
+  "dsparkEnable": "Attiva l’accelerazione DSpark (facoltativo)",
+  "dsparkDescription": "Scarica il modello ausiliario DSpark Q8_0 ({{size}}) per LFM2.5-2.6B. Può accelerare la generazione, ma usa più RAM o VRAM, lasciando meno memoria per il contesto. Provalo sul tuo hardware; regola la lunghezza del contesto o disattiva la decodifica speculativa nelle impostazioni del modello."
 }

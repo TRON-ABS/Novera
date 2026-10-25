@@ -49,5 +49,7 @@
   "otherWarnings": "فيه {{count}} من الفحوصات التانية محتاجة اهتمام كمان.",
   "continueStep": "كمّل",
   "stageSetupDone": "المحرك جاهز",
-  "setupDoneBody": "Novera هيشغّل النماذج المحلية بـ llama.cpp."
+  "setupDoneBody": "Novera هيشغّل النماذج المحلية بـ llama.cpp.",
+  "dsparkEnable": "فعّل تسريع DSpark (اختياري)",
+  "dsparkDescription": "بينزّل الموديل المساعد DSpark Q8_0 ({{size}}) لـ LFM2.5-2.6B. ممكن يسرّع توليد الردود، بس بيستخدم RAM أو VRAM زيادة، فبيفضل ذاكرة أقل للسياق. جرّبه على جهازك؛ ظبّط طول السياق أو اقفل فك الترميز التخميني من إعدادات الموديل."
 }

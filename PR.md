@@ -1,3 +1,28 @@
+# Add optional onboarding DSpark and independent error-report consent — 25 October 2026
+
+First-run setup offered only the base LFM2.5-2.6B Q6_K download and never asked
+separately about error reporting. Add an unchecked DSpark Q8_0 companion option
+for that desktop target, with a RAM/VRAM/context tradeoff disclosure before the
+user starts downloading. Pass the existing paired-draft import path and dspark
+kind for immediate and queued downloads; do not attach the 2.6B draft to Android
+or other models and do not silently shrink the context.
+
+Add a separate first-run error consent page with recipient/data disclosure and
+Allow/Deny. Preserve off-by-default behavior and store the answered state in the
+existing destination-scoped preference. Usage-statistics consent cannot grant
+error permission; missing configuration disables Allow, page counts remain
+stable and model imports cannot bypass pending questions.
+
+All three new messages are translated in all 36 locales (108 entries), bringing
+coverage to 1516 English keys per locale. Full local web suite: 5187 passed,
+2 skipped, no failures. TypeScript without emission, 36-catalog validation,
+7 architecture tests and the boundary scan passed. The companion's official
+metadata was checked without downloading weights. No app build, real hardware
+benchmark, actual first-run download, report transmission or CI execution.
+Native-speaker review remains pending. [Behavior and limits](docs/FIRST_RUN_OPTIONS.md).
+
+---
+
 # Synchronize all pending Novera sources and documentation — 25 October 2026
 
 The repository lagged behind the main local source folder: Wu and sixteen

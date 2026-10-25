@@ -543,7 +543,8 @@
   },
   "errorTracking": {
     "title": "Fehlerverfolgung",
-    "summary": "Optionale Berichte an {{host}}: Fehlertyp, Codeposition, Version und Betriebssystem. Keine Gespräche, unverarbeiteten Fehlermeldungen oder Schlüssel. Jederzeit deaktivierbar."
+    "summary": "Optionale Berichte an {{host}}: Fehlertyp, Codeposition, Version und Betriebssystem. Keine Gespräche, unverarbeiteten Fehlermeldungen oder Schlüssel. Jederzeit deaktivierbar.",
+    "unavailable": "Die Fehlererfassung ist nicht konfiguriert. Es werden keine Berichte gesendet."
   },
   "htmlArtifact": {
     "code": "Code",

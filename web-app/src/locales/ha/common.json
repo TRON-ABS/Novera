@@ -803,6 +803,7 @@
   },
   "errorTracking": {
     "title": "Bibiyar kurakurai",
-    "summary": "Rahotanni na zaɓi zuwa {{host}}: nau’in kuskure, wurin lamba, siga da tsarin aiki. Babu tattaunawa, asalin saƙonnin kuskure ko maɓallai. Ana iya kashewa kowane lokaci."
+    "summary": "Rahotanni na zaɓi zuwa {{host}}: nau’in kuskure, wurin lamba, siga da tsarin aiki. Babu tattaunawa, asalin saƙonnin kuskure ko maɓallai. Ana iya kashewa kowane lokaci.",
+    "unavailable": "Ba a saita bin diddigin kurakurai ba. Ba a aika rahotanni."
   }
 }

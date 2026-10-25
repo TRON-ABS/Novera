@@ -803,6 +803,7 @@
   },
   "errorTracking": {
     "title": "Track error",
-    "summary": "Optional report to {{host}}: error type, code position, version and operating system. No conversation, original error message or key. You fit off am anytime."
+    "summary": "Optional report to {{host}}: error type, code position, version and operating system. No conversation, original error message or key. You fit off am anytime.",
+    "unavailable": "Error tracking never get configuration. No report dey send."
   }
 }

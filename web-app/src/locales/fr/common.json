@@ -546,7 +546,8 @@
   },
   "errorTracking": {
     "title": "Suivi des erreurs",
-    "summary": "Rapports facultatifs vers {{host}} : type d’erreur, position dans le code, version et système. Sans conversations, messages d’erreur bruts ni clés. Désactivable à tout moment."
+    "summary": "Rapports facultatifs vers {{host}} : type d’erreur, position dans le code, version et système. Sans conversations, messages d’erreur bruts ni clés. Désactivable à tout moment.",
+    "unavailable": "Le suivi des erreurs n’est pas configuré. Aucun rapport n’est envoyé."
   },
   "htmlArtifact": {
     "code": "Code",

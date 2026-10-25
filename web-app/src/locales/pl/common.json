@@ -543,7 +543,8 @@
   },
   "errorTracking": {
     "title": "Śledzenie błędów",
-    "summary": "Opcjonalne raporty do {{host}}: typ błędu, pozycja w kodzie, wersja i system operacyjny. Bez rozmów, oryginalnych komunikatów błędów ani kluczy. Można wyłączyć w każdej chwili."
+    "summary": "Opcjonalne raporty do {{host}}: typ błędu, pozycja w kodzie, wersja i system operacyjny. Bez rozmów, oryginalnych komunikatów błędów ani kluczy. Można wyłączyć w każdej chwili.",
+    "unavailable": "Śledzenie błędów nie jest skonfigurowane. Raporty nie są wysyłane."
   },
   "htmlArtifact": {
     "code": "Kod",

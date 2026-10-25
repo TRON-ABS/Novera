@@ -586,7 +586,8 @@
   },
   "errorTracking": {
     "title": "Monitoraggio degli errori",
-    "summary": "Rapporti facoltativi a {{host}}: tipo di errore, posizione nel codice, versione e sistema operativo. Nessuna conversazione, messaggio di errore originale o chiave. Disattivabile in qualsiasi momento."
+    "summary": "Rapporti facoltativi a {{host}}: tipo di errore, posizione nel codice, versione e sistema operativo. Nessuna conversazione, messaggio di errore originale o chiave. Disattivabile in qualsiasi momento.",
+    "unavailable": "Il monitoraggio degli errori non è configurato. Non vengono inviati rapporti."
   },
   "htmlArtifact": {
     "code": "Codice",

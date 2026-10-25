@@ -96,3 +96,7 @@ Le code initial du suivi des erreurs est publié dans le commit `0990a25c761910b
 ## Inclusion dans la synchronisation des sources — 25 octobre 2026
 
 Le paramètre `-WithTelemetry`, son lecteur de configuration et ce compte rendu sont inclus dans la publication des dernières sources. Le lecteur passe 16 assertions de sécurité sur des valeurs synthétiques, sans réseau ; les contrôles du lanceur passent 69 assertions sans compilation. Le fichier `web-app/.env.local`, ses valeurs et les fichiers compilés restent locaux et exclus. Les états « locaux » des paragraphes précédents décrivent leurs étapes historiques. Aucun nouveau rapport PostHog, consentement utilisateur ou binaire n’est envoyé pour cette synchronisation.
+
+## Question du premier démarrage — 25 octobre 2026
+
+Le suivi des erreurs possède maintenant sa propre étape Autoriser / Refuser, après l’éventuelle demande de statistiques et avant le modèle. Le choix est mémorisé dans le store existant et reste désactivé par défaut. Sans destination configurée, l’autorisation est impossible et aucun rapport n’est envoyé. L’acceptation des statistiques ne répond pas à cette question. Les filtres, le contenu limité des rapports et le retrait du consentement restent inchangés. Voir [premier démarrage](FIRST_RUN_OPTIONS.md).

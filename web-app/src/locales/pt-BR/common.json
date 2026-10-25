@@ -544,7 +544,8 @@
   },
   "errorTracking": {
     "title": "Monitoramento de erros",
-    "summary": "Relatórios opcionais para {{host}}: tipo de erro, posição no código, versão e sistema operacional. Sem conversas, mensagens de erro originais ou chaves. Desative quando quiser."
+    "summary": "Relatórios opcionais para {{host}}: tipo de erro, posição no código, versão e sistema operacional. Sem conversas, mensagens de erro originais ou chaves. Desative quando quiser.",
+    "unavailable": "O rastreamento de erros não está configurado. Nenhum relatório é enviado."
   },
   "htmlArtifact": {
     "code": "Código",

@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
@@ -26,6 +26,7 @@ const hoisted = vi.hoisted(() => ({
   getHardwareInfoMock: vi.fn(),
   navigateMock: vi.fn(),
   productAnalyticPrompt: false,
+  errorTracking: { enabled: false, promptPending: false, setEnabled: vi.fn() },
   eventHandlers: {} as Record<string, any>,
   huggingfaceToken: 'hf-token',
   toastMock: {
@@ -79,6 +80,11 @@ vi.mock('@/hooks/useAnalytic', () => ({
     setProductAnalytic: vi.fn(),
     setProductAnalyticPrompt: vi.fn(),
   }),
+}))
+
+vi.mock('@/hooks/useErrorTracking', () => ({
+  useErrorTracking: (selector?: (state: typeof hoisted.errorTracking) => unknown) =>
+    selector ? selector(hoisted.errorTracking) : hoisted.errorTracking,
 }))
 
 vi.mock('@/hooks/useGeneralSetting', () => ({
@@ -140,7 +146,7 @@ vi.mock('@/components/ui/button', () => ({
 }))
 
 import SetupScreen from '../SetupScreen'
-import { NOVERA_RECOMMENDED_MODEL } from '@/lib/noveraRecommendedModel'
+import { NOVERA_RECOMMENDED_MODEL, NOVERA_RECOMMENDED_DRAFT, noveraRecommendedModelFor } from '@/lib/noveraRecommendedModel'
 
 const sampleModel = {
   model_name: 'jan-model',
@@ -191,12 +197,27 @@ const renderPastSetup = async () => {
 const currentPage = () =>
   screen.getByTestId('setup-wizard').getAttribute('data-page')
 
+const realNow = Date.now.bind(Date)
+let cacheClockOffset = 0
+afterEach(() => vi.restoreAllMocks())
+
 describe('SetupScreen', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    // The production support cache is module-scoped, so clearing storage alone
+    // does not isolate successive tests of the same onboarding model.
+    cacheClockOffset += 70_000
+    vi.spyOn(Date, 'now').mockImplementation(() => realNow() + cacheClockOffset)
     hoisted.janModel = sampleModel
     hoisted.metadataError = null
+    hoisted.isModelSupportedMock.mockResolvedValue('GREEN')
     hoisted.productAnalyticPrompt = false
+    hoisted.errorTracking.enabled = false
+    hoisted.errorTracking.promptPending = false
+    hoisted.errorTracking.setEnabled.mockImplementation((enabled: boolean) => {
+      hoisted.errorTracking.enabled = enabled
+      hoisted.errorTracking.promptPending = false
+    })
     hoisted.downloadStore.downloads = {}
     hoisted.downloadStore.localDownloadingModels = new Set()
     hoisted.providersMock.getProviderByName.mockReturnValue({ models: [] })
@@ -568,6 +589,42 @@ describe('SetupScreen', () => {
   })
 
   describe('model page', () => {
+    it('keeps DSpark optional and passes the companion only after explicit selection', async () => {
+      hoisted.janModel = NOVERA_RECOMMENDED_MODEL
+      await renderPastSetup()
+      const checkbox = screen.getByRole('checkbox', { name: 'setup:dsparkEnable' })
+      expect(checkbox).not.toBeChecked()
+      expect(screen.getByText('setup:dsparkDescription')).toBeInTheDocument()
+      expect(hoisted.pullModelWithMetadataMock).not.toHaveBeenCalled()
+      fireEvent.click(checkbox)
+      fireEvent.click(screen.getByText('setup:download'))
+      await waitFor(() => expect(hoisted.pullModelWithMetadataMock).toHaveBeenCalledWith(
+        'LFM2.5-2.6B-Q6_K', NOVERA_RECOMMENDED_DRAFT.targetPath,
+        undefined, 'hf-token', true, NOVERA_RECOMMENDED_DRAFT.path, 'dspark'
+      ))
+      expect(checkbox).toBeDisabled()
+    })
+
+    it('keeps the chosen DSpark companion while a download waits for the support check', async () => {
+      hoisted.janModel = NOVERA_RECOMMENDED_MODEL
+      let resolveSupport!: (status: string) => void
+      hoisted.isModelSupportedMock.mockImplementationOnce(() => new Promise((resolve) => { resolveSupport = resolve }))
+      await renderPastSetup()
+      fireEvent.click(screen.getByRole('checkbox', { name: 'setup:dsparkEnable' }))
+      fireEvent.click(screen.getByText('setup:download'))
+      expect(hoisted.pullModelWithMetadataMock).not.toHaveBeenCalled()
+      await act(async () => resolveSupport('GREEN'))
+      await waitFor(() => expect(hoisted.pullModelWithMetadataMock).toHaveBeenCalledWith(
+        'LFM2.5-2.6B-Q6_K', NOVERA_RECOMMENDED_DRAFT.targetPath,
+        undefined, 'hf-token', true, NOVERA_RECOMMENDED_DRAFT.path, 'dspark'
+      ))
+    })
+
+    it('does not offer the 2.6B draft for the Android 1.2B recommendation', async () => {
+      hoisted.janModel = noveraRecommendedModelFor(true)
+      await renderPastSetup()
+      expect(screen.queryByRole('checkbox', { name: 'setup:dsparkEnable' })).not.toBeInTheDocument()
+    })
     it('offers and downloads the Novera LiquidAI Q6_K recommendation', async () => {
       hoisted.janModel = NOVERA_RECOMMENDED_MODEL
       await renderPastSetup()
@@ -684,6 +741,51 @@ describe('SetupScreen', () => {
     it('does not start a download on its own', async () => {
       await renderPastSetup()
       expect(hoisted.pullModelWithMetadataMock).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('independent first-run error reporting choice', () => {
+    it('asks even after usage statistics have already been answered, then keeps page numbering stable', async () => {
+      hoisted.errorTracking.promptPending = true
+      const { rerender } = await renderPastSetup()
+      expect(currentPage()).toBe('error-consent')
+      expect(hoisted.errorTracking.setEnabled).not.toHaveBeenCalled()
+      const count = screen.getByTestId('setup-wizard').querySelectorAll('span.h-1').length
+      fireEvent.click(screen.getByRole('button', { name: 'common:deny' }))
+      expect(hoisted.errorTracking.setEnabled).toHaveBeenCalledWith(false)
+      rerender(<SetupScreen />)
+      await waitFor(() => expect(currentPage()).toBe('model'))
+      expect(hoisted.errorTracking.enabled).toBe(false)
+      expect(screen.getByTestId('setup-wizard').querySelectorAll('span.h-1')).toHaveLength(count)
+    })
+
+    it('never treats the usage statistics choice as permission to report errors', async () => {
+      hoisted.productAnalyticPrompt = true
+      hoisted.errorTracking.promptPending = true
+      const { rerender } = await renderPastSetup()
+      expect(currentPage()).toBe('consent')
+      hoisted.productAnalyticPrompt = false
+      rerender(<SetupScreen />)
+      await waitFor(() => expect(currentPage()).toBe('error-consent'))
+      expect(hoisted.errorTracking.enabled).toBe(false)
+      expect(hoisted.errorTracking.setEnabled).not.toHaveBeenCalled()
+      fireEvent.click(screen.getByRole('button', { name: 'common:allow' }))
+      expect(hoisted.errorTracking.setEnabled).toHaveBeenCalledWith(true)
+    })
+
+    it('does not bypass the error question when a matching model import arrives', async () => {
+      hoisted.errorTracking.promptPending = true
+      await renderPastSetup()
+      await act(async () => hoisted.eventHandlers.onModelImported({ modelId: 'jan-q4_k_m' }))
+      expect(currentPage()).toBe('error-consent')
+      expect(hoisted.navigateMock).not.toHaveBeenCalled()
+    })
+
+    it('does not ask again when error reporting was already explicitly enabled', async () => {
+      hoisted.errorTracking.promptPending = true
+      hoisted.errorTracking.enabled = true
+      await renderPastSetup()
+      expect(currentPage()).toBe('model')
     })
   })
 

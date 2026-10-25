@@ -58,5 +58,7 @@
   "otherWarnings": "{{count}} 기타 검사에도 주의가 필요합니다.",
   "continueStep": "계속",
   "stageSetupDone": "엔진 준비 완료",
-  "setupDoneBody": "Novera는 llama.cpp를 사용하여 로컬 모델을 실행합니다."
+  "setupDoneBody": "Novera는 llama.cpp를 사용하여 로컬 모델을 실행합니다.",
+  "dsparkEnable": "DSpark 가속 사용 (선택 사항)",
+  "dsparkDescription": "LFM2.5-2.6B용 보조 모델 DSpark Q8_0({{size}})를 다운로드합니다. 생성 속도가 빨라질 수 있지만 RAM 또는 VRAM을 추가로 사용하므로 컨텍스트에 쓸 수 있는 메모리가 줄어듭니다. 자신의 하드웨어에서 테스트하고 모델 설정에서 컨텍스트 길이를 조정하거나 추측 디코딩을 끄세요."
 }

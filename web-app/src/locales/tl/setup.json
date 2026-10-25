@@ -49,5 +49,7 @@
   "otherWarnings": "Bilang ng iba pang pagsusuring kailangang tingnan: {{count}}.",
   "continueStep": "Magpatuloy",
   "stageSetupDone": "Handa na ang engine",
-  "setupDoneBody": "Magpapatakbo ang Novera ng mga lokal na modelo gamit ang llama.cpp."
+  "setupDoneBody": "Magpapatakbo ang Novera ng mga lokal na modelo gamit ang llama.cpp.",
+  "dsparkEnable": "Paganahin ang DSpark acceleration (opsyonal)",
+  "dsparkDescription": "Dina-download ang katuwang na modelong DSpark Q8_0 ({{size}}) para sa LFM2.5-2.6B. Maaari nitong pabilisin ang pagbuo ng teksto, pero gumagamit ng dagdag na RAM o VRAM kaya mas kaunting memory ang natitira para sa konteksto. Subukan ito sa iyong hardware; ayusin ang haba ng konteksto o patayin ang speculative decoding sa mga setting ng modelo."
 }

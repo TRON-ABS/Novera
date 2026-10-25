@@ -58,5 +58,7 @@
   "otherWarnings": "{{count}} 他のチェックにも注意が必要です。",
   "continueStep": "続きます",
   "stageSetupDone": "エンジン準備完了",
-  "setupDoneBody": "Novera は、llama.cpp でローカル モデルを実行します。"
+  "setupDoneBody": "Novera は、llama.cpp でローカル モデルを実行します。",
+  "dsparkEnable": "DSpark による高速化を有効にする（任意）",
+  "dsparkDescription": "LFM2.5-2.6B 用の補助モデル DSpark Q8_0（{{size}}）をダウンロードします。生成が速くなる可能性がありますが、RAM または VRAM を追加で使用するため、コンテキストに使えるメモリが減ります。ご自身のハードウェアで動作を確認し、モデル設定でコンテキスト長を調整するか、投機的デコードを無効にしてください。"
 }

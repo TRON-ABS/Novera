@@ -543,7 +543,8 @@
   },
   "errorTracking": {
     "title": "Pelacakan kesalahan",
-    "summary": "Laporan opsional ke {{host}}: jenis kesalahan, posisi kode, versi, dan sistem operasi. Tanpa percakapan, pesan kesalahan asli, atau kunci. Dapat dinonaktifkan kapan saja."
+    "summary": "Laporan opsional ke {{host}}: jenis kesalahan, posisi kode, versi, dan sistem operasi. Tanpa percakapan, pesan kesalahan asli, atau kunci. Dapat dinonaktifkan kapan saja.",
+    "unavailable": "Pelacakan kesalahan belum dikonfigurasi. Tidak ada laporan yang dikirim."
   },
   "htmlArtifact": {
     "code": "Kode",

@@ -1,5 +1,9 @@
 # Synchronisation des sources — 25 octobre 2026
 
+> Ce document décrit la publication de synchronisation précédente à 1 513 clés.
+> Le complément ultérieur [DSpark et suivi des erreurs au premier démarrage](FIRST_RUN_OPTIONS.md)
+> porte les 36 catalogues à 1 516 clés.
+
 Cette publication aligne le dépôt avec les sources et la documentation du
 dossier principal. Elle complète les publications du nettoyage Jan et des
 noms internes Novera déjà présentes sur `main`.

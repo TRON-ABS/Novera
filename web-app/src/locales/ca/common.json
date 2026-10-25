@@ -546,7 +546,8 @@
   },
   "errorTracking": {
     "title": "Seguiment d’errors",
-    "summary": "Informes opcionals a {{host}}: tipus d’error, posició al codi, versió i sistema operatiu. Sense converses, missatges d’error originals ni claus. Es pot desactivar en qualsevol moment."
+    "summary": "Informes opcionals a {{host}}: tipus d’error, posició al codi, versió i sistema operatiu. Sense converses, missatges d’error originals ni claus. Es pot desactivar en qualsevol moment.",
+    "unavailable": "El seguiment d’errors no està configurat. No s’envien informes."
   },
   "htmlArtifact": {
     "code": "Codi",

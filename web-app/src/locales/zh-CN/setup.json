@@ -58,5 +58,7 @@
   "otherWarnings": "{{count}} 其他检查也需要注意。",
   "continueStep": "继续",
   "stageSetupDone": "发动机就绪",
-  "setupDoneBody": "Novera 将与 llama.cpp 一起运行本地模型。"
+  "setupDoneBody": "Novera 将与 llama.cpp 一起运行本地模型。",
+  "dsparkEnable": "启用 DSpark 加速（可选）",
+  "dsparkDescription": "为 LFM2.5-2.6B 下载 DSpark Q8_0 辅助模型（{{size}}）。它可能加快生成，但会额外占用 RAM 或 VRAM，减少可用于上下文的内存。请在自己的硬件上测试，并在模型设置中调整上下文长度或关闭推测解码。"
 }

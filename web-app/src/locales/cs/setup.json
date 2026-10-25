@@ -58,5 +58,7 @@
   "otherWarnings": "{{count}} další kontroly také vyžadují pozornost.",
   "continueStep": "Pokračujte",
   "stageSetupDone": "Motor připraven",
-  "setupDoneBody": "Novera poběží místní modely se llama.cpp."
+  "setupDoneBody": "Novera poběží místní modely se llama.cpp.",
+  "dsparkEnable": "Zapnout akceleraci DSpark (volitelné)",
+  "dsparkDescription": "Stáhne pomocný model DSpark Q8_0 ({{size}}) pro LFM2.5-2.6B. Může urychlit generování, ale využívá další RAM nebo VRAM, takže zbývá méně paměti pro kontext. Vyzkoušejte jej na svém hardwaru; upravte délku kontextu nebo v nastavení modelu vypněte spekulativní dekódování."
 }

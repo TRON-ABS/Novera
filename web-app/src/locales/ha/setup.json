@@ -49,5 +49,7 @@
   "otherWarnings": "{{count}} sauran cak ɗin kuma suna buƙatar kulawa.",
   "continueStep": "Ci gaba",
   "stageSetupDone": "Injin shirye",
-  "setupDoneBody": "Novera zai gudanar da ƙirar gida tare da llama.cpp."
+  "setupDoneBody": "Novera zai gudanar da ƙirar gida tare da llama.cpp.",
+  "dsparkEnable": "Kunna hanzarin DSpark (na zaɓi)",
+  "dsparkDescription": "Yana sauke samfurin taimako DSpark Q8_0 ({{size}}) don LFM2.5-2.6B. Zai iya hanzarta samar da rubutu, amma yana amfani da ƙarin RAM ko VRAM, yana barin ƙwaƙwalwa kaɗan don mahalli. Gwada shi a kan na'urarka; daidaita tsawon mahalli ko kashe speculative decoding a saitunan samfurin."
 }

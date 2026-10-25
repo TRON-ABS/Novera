@@ -58,5 +58,7 @@
   "otherWarnings": "{{count}} Andere Prüfungen erfordern ebenfalls Aufmerksamkeit.",
   "continueStep": "Weiter",
   "stageSetupDone": "Motor bereit",
-  "setupDoneBody": "Novera führt lokale Modelle mit llama.cpp aus."
+  "setupDoneBody": "Novera führt lokale Modelle mit llama.cpp aus.",
+  "dsparkEnable": "DSpark-Beschleunigung aktivieren (optional)",
+  "dsparkDescription": "Lädt das Zusatzmodell DSpark Q8_0 ({{size}}) für LFM2.5-2.6B herunter. Es kann die Generierung beschleunigen, benötigt aber zusätzlichen RAM oder VRAM. Dadurch bleibt weniger Speicher für den Kontext. Testen Sie es auf Ihrer Hardware; passen Sie die Kontextlänge an oder deaktivieren Sie die spekulative Dekodierung in den Modelleinstellungen."
 }

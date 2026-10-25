@@ -803,6 +803,7 @@
   },
   "errorTracking": {
     "title": "Error tracking",
-    "summary": "Optional reports to {{host}}: error type, code position, version and operating system. No conversations, raw error messages or keys. Disable anytime."
+    "summary": "Optional reports to {{host}}: error type, code position, version and operating system. No conversations, raw error messages or keys. Disable anytime.",
+    "unavailable": "Error tracking is not configured. No reports are sent."
   }
 }

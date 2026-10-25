@@ -49,5 +49,7 @@
   "otherWarnings": "{{count}} pamriksa liyane uga kudu digatekake.",
   "continueStep": "Terusake",
   "stageSetupDone": "Engine siap",
-  "setupDoneBody": "Novera bakal mbukak model lokal kanthi llama.cpp."
+  "setupDoneBody": "Novera bakal mbukak model lokal kanthi llama.cpp.",
+  "dsparkEnable": "Aktifake akselerasi DSpark (opsional)",
+  "dsparkDescription": "Ngundhuh model panyengkuyung DSpark Q8_0 ({{size}}) kanggo LFM2.5-2.6B. Bisa nyepetake pangasilan teks, nanging nggunakake RAM utawa VRAM tambahan, mula memori kanggo konteks dadi suda. Coba ing piranti keras panjenengan; atur dawa konteks utawa pateni dekoding spekulatif ing setelan model."
 }

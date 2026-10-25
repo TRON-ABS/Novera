@@ -803,6 +803,7 @@
   },
   "errorTracking": {
     "title": "Monitorização de erros",
-    "summary": "Relatórios opcionais para {{host}}: tipo de erro, posição no código, versão e sistema operativo. Sem conversas, mensagens de erro originais ou chaves. Pode desativar a qualquer momento."
+    "summary": "Relatórios opcionais para {{host}}: tipo de erro, posição no código, versão e sistema operativo. Sem conversas, mensagens de erro originais ou chaves. Pode desativar a qualquer momento.",
+    "unavailable": "O acompanhamento de erros não está configurado. Não são enviados relatórios."
   }
 }

@@ -58,5 +58,7 @@
   "otherWarnings": "{{count}} pemeriksaan lainnya juga perlu diperhatikan.",
   "continueStep": "Lanjutkan",
   "stageSetupDone": "Mesin siap",
-  "setupDoneBody": "Novera akan menjalankan model lokal dengan llama.cpp."
+  "setupDoneBody": "Novera akan menjalankan model lokal dengan llama.cpp.",
+  "dsparkEnable": "Aktifkan akselerasi DSpark (opsional)",
+  "dsparkDescription": "Mengunduh model pendamping DSpark Q8_0 ({{size}}) untuk LFM2.5-2.6B. Ini dapat mempercepat pembuatan teks, tetapi menggunakan RAM atau VRAM tambahan sehingga memori untuk konteks berkurang. Uji pada perangkat keras Anda; sesuaikan panjang konteks atau nonaktifkan dekode spekulatif di pengaturan model."
 }

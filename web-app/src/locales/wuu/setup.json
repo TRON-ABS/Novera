@@ -49,5 +49,7 @@
   "badgeGpuUnknown": "勒海检查 GPU 支持…",
   "otherWarnings": "另外 {{count}} 项检查也需要侬留意。",
   "stageSetupDone": "引擎准备好了",
-  "setupDoneBody": "Novera 会用 llama.cpp 运行本地模型。"
+  "setupDoneBody": "Novera 会用 llama.cpp 运行本地模型。",
+  "dsparkEnable": "开启 DSpark 加速（可选）",
+  "dsparkDescription": "拨 LFM2.5-2.6B 下载 DSpark Q8_0 辅助模型（{{size}}）。伊可能让生成快一点，不过要多用 RAM 或 VRAM，留拨上下文个内存就少一点。请勒自家硬件上试试看，再到模型设置调整上下文长度，或者关脱推测解码。"
 }

@@ -543,7 +543,8 @@
   },
   "errorTracking": {
     "title": "Theo dõi lỗi",
-    "summary": "Báo cáo tùy chọn đến {{host}}: loại lỗi, vị trí mã, phiên bản và hệ điều hành. Không có hội thoại, thông báo lỗi gốc hay khóa. Có thể tắt bất cứ lúc nào."
+    "summary": "Báo cáo tùy chọn đến {{host}}: loại lỗi, vị trí mã, phiên bản và hệ điều hành. Không có hội thoại, thông báo lỗi gốc hay khóa. Có thể tắt bất cứ lúc nào.",
+    "unavailable": "Chưa cấu hình theo dõi lỗi. Không gửi báo cáo nào."
   },
   "htmlArtifact": {
     "code": "Mã",

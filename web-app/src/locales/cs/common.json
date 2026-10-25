@@ -543,7 +543,8 @@
   },
   "errorTracking": {
     "title": "Sledování chyb",
-    "summary": "Volitelná hlášení pro {{host}}: typ chyby, pozice v kódu, verze a operační systém. Bez konverzací, původních chybových zpráv a klíčů. Lze kdykoli vypnout."
+    "summary": "Volitelná hlášení pro {{host}}: typ chyby, pozice v kódu, verze a operační systém. Bez konverzací, původních chybových zpráv a klíčů. Lze kdykoli vypnout.",
+    "unavailable": "Sledování chyb není nakonfigurováno. Žádná hlášení se neodesílají."
   },
   "htmlArtifact": {
     "code": "Kód",

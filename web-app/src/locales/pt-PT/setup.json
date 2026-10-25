@@ -49,5 +49,7 @@
   "otherWarnings": "Número de outras verificações que requerem atenção: {{count}}.",
   "continueStep": "Continuar",
   "stageSetupDone": "Motor pronto",
-  "setupDoneBody": "O Novera irá executar modelos locais com llama.cpp."
+  "setupDoneBody": "O Novera irá executar modelos locais com llama.cpp.",
+  "dsparkEnable": "Ativar a aceleração DSpark (opcional)",
+  "dsparkDescription": "Transfere o modelo auxiliar DSpark Q8_0 ({{size}}) para LFM2.5-2.6B. Pode acelerar a geração, mas utiliza mais RAM ou VRAM, deixando menos memória para o contexto. Teste-o no seu equipamento; ajuste o comprimento do contexto ou desative a descodificação especulativa nas definições do modelo."
 }

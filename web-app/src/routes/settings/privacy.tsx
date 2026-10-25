@@ -66,7 +66,7 @@ function Privacy() {
                 />
               </div>
             }>
-              <CardItem description={<p>{t(analyticsAvailable ? 'common:errorTracking.summary' : 'common:telemetry.unavailable', { host: analyticsHost })}</p>} align="start" />
+              <CardItem description={<p>{t(analyticsAvailable ? 'common:errorTracking.summary' : 'common:errorTracking.unavailable', { host: analyticsHost })}</p>} align="start" />
             </Card>
           </div>
         </div>

@@ -21,14 +21,14 @@ La direction du projet est claire : consolider les fondations, explorer rapideme
 | --- | --- |
 | IA locale et cloud | Des moteurs de modèles locaux et des connexions à des fournisseurs distants. La compatibilité dépend du modèle, du fournisseur et du matériel. |
 | Outils et documents | Des intégrations MCP, la recherche dans les documents et des fonctions d’assistant héritées du code existant. |
-| Interface multilingue | 36 locales sélectionnables couvrant chacune les 1 513 clés anglaises actuelles. Relecture native encore nécessaire. |
+| Interface multilingue | 36 locales sélectionnables couvrant chacune les 1 516 clés anglaises actuelles. Relecture native encore nécessaire. |
 | Application extensible | Une application de bureau avec des points d’extension pour les moteurs, les outils et les futures capacités. |
 
 Ces éléments décrivent les sources. La distribution Novera et sa validation en fonctionnement restent à préparer.
 
 ## 36 langues et variantes d’interface
 
-Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées. **Les 36 catalogues couvrent chacun les 1 513 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Ces dernières traductions nécessitent une nouvelle compilation de bureau.
+Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées. **Les 36 catalogues couvrent chacun les 1 516 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Ces dernières traductions nécessitent une nouvelle compilation de bureau.
 
 L’arabe standard, l’arabe égyptien, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
 

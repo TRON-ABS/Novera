@@ -49,5 +49,7 @@
   "otherWarnings": "{{count}} other checks still need attention.",
   "continueStep": "Continue",
   "stageSetupDone": "Engine don ready",
-  "setupDoneBody": "Novera go run local models with llama.cpp."
+  "setupDoneBody": "Novera go run local models with llama.cpp.",
+  "dsparkEnable": "Turn on DSpark acceleration (na choice)",
+  "dsparkDescription": "E go download DSpark Q8_0 helper model ({{size}}) for LFM2.5-2.6B. E fit make text generation fast, but e go use extra RAM or VRAM, so memory wey remain for context go reduce. Test am for your hardware; adjust context length or turn off speculative decoding for model settings."
 }

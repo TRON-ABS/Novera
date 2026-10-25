@@ -26,14 +26,14 @@ We are building around a clear product direction: keep a dependable foundation, 
 | --- | --- |
 | Local and cloud AI | Local model engines alongside connections to remote model providers. Compatibility depends on the model, provider and hardware. |
 | Tools and documents | MCP integrations, document retrieval and assistant workflows inherited from the existing codebase. |
-| Multilingual interface | 36 selectable locales, each covering all 1,513 current English keys. Native-speaker review remains pending. |
+| Multilingual interface | 36 selectable locales, each covering all 1,516 current English keys. Native-speaker review remains pending. |
 | An extensible application | A desktop application with extension points for model engines, tools and future capabilities. |
 
 These describe the source foundation. The current 1.0.0 source has been built and launched locally on Windows x64; public packaging and broader runtime validation remain in preparation.
 
 ## 36 interface language options
 
-All 19 of our language contributions are integrated alongside the 17 inherited locales. **All 36 catalogs cover 1,513 / 1,513 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. These latest translations require a new desktop build.
+All 19 of our language contributions are integrated alongside the 17 inherited locales. **All 36 catalogs cover 1,516 / 1,516 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. These latest translations require a new desktop build.
 
 Arabic, Egyptian Arabic, Urdu, Western Punjabi and Iranian Persian include right-to-left interface support. Model language capabilities depend on the selected model and are separate from interface localization.
 

@@ -9,7 +9,7 @@ import { useEffect, useMemo, useCallback, useState, useRef } from 'react'
 import { AppEvent, events } from '@janhq/core'
 import { SETUP_SCREEN_QUANTIZATIONS } from '@/constants/models'
 import { useLatestNoveraModel } from '@/hooks/useLatestNoveraModel'
-import { NOVERA_RECOMMENDED_CONTEXT_SIZE } from '@/lib/noveraRecommendedModel'
+import { NOVERA_RECOMMENDED_CONTEXT_SIZE, NOVERA_RECOMMENDED_DRAFT } from '@/lib/noveraRecommendedModel'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
@@ -31,6 +31,8 @@ import {
 } from '@/hooks/useSetupChecklist'
 import { pickMmproj, type SetupModelOption } from '@/lib/setupModelOptions'
 import { AnalyticConsent } from './analytics/AnalyticConsent'
+import { ErrorTrackingConsent } from './analytics/ErrorTrackingConsent'
+import { useErrorTracking } from '@/hooks/useErrorTracking'
 import { DependencyAdvice } from './dialogs/DependencyAdvice'
 import HeaderPage from './HeaderPage'
 
@@ -206,6 +208,7 @@ function SetupScreen() {
   const llamaProvider = getProviderByName('llamacpp')
   const [quickStartInitiated, setQuickStartInitiated] = useState(false)
   const [quickStartQueued, setQuickStartQueued] = useState(false)
+  const [dsparkEnabled, setDsparkEnabled] = useState(false)
   const {
     model: janNewModel,
     error: metadataFetchFailed,
@@ -237,9 +240,15 @@ function SetupScreen() {
   // ("Step 3 of 4" became "Step 3 of 3"). Latched instead, so the page count is
   // fixed once known.
   const [includesConsent, setIncludesConsent] = useState(false)
+  const { promptPending: errorPromptPending, enabled: errorTrackingEnabled } = useErrorTracking()
+  const needsErrorConsent = errorPromptPending && !errorTrackingEnabled
+  const [includesErrorConsent, setIncludesErrorConsent] = useState(needsErrorConsent)
   useEffect(() => {
     if (productAnalyticPrompt) setIncludesConsent(true)
   }, [productAnalyticPrompt])
+  useEffect(() => {
+    if (needsErrorConsent) setIncludesErrorConsent(true)
+  }, [needsErrorConsent])
 
 
   // Check model support for variants when janNewModel is available
@@ -373,6 +382,8 @@ function SetupScreen() {
   // The quant depends on the per-variant fit check, so a click before it lands
   // has to be queued rather than acted on.
   const isSelectionReady = Boolean(selected && isSupportCheckComplete)
+  const canUseDspark = !IS_ANDROID && selected?.modelId === NOVERA_RECOMMENDED_DRAFT.targetModelId &&
+    selected.path === NOVERA_RECOMMENDED_DRAFT.targetPath
 
   const downloadProcesses = useMemo(
     () =>
@@ -414,6 +425,9 @@ function SetupScreen() {
   const startDownload = useCallback(
     (option: SetupModelOption) => {
       addLocalDownloadingModel(option.modelId)
+      const useDraft = dsparkEnabled && !IS_ANDROID &&
+        option.modelId === NOVERA_RECOMMENDED_DRAFT.targetModelId &&
+        option.path === NOVERA_RECOMMENDED_DRAFT.targetPath
       serviceHub
         .models()
         .pullModelWithMetadata(
@@ -421,10 +435,11 @@ function SetupScreen() {
           option.path,
           option.mmprojPath,
           huggingfaceToken,
-          true
+          true,
+          ...(useDraft ? [NOVERA_RECOMMENDED_DRAFT.path, NOVERA_RECOMMENDED_DRAFT.kind] as const : [])
         )
     },
-    [addLocalDownloadingModel, serviceHub, huggingfaceToken]
+    [addLocalDownloadingModel, serviceHub, huggingfaceToken, dsparkEnabled]
   )
 
   const handleQuickStart = useCallback(() => {
@@ -480,6 +495,7 @@ function SetupScreen() {
   useEffect(() => {
     const onModelImported = async (payload: { modelId: string }) => {
       if (!selected || hasNavigatedRef.current) return
+      if (needsErrorConsent || productAnalyticPrompt) return
       if (payload.modelId !== selected.modelId) return
       await completeSetup()
     }
@@ -489,7 +505,7 @@ function SetupScreen() {
     return () => {
       events.off(AppEvent.onModelImported, onModelImported)
     }
-  }, [selected, completeSetup])
+  }, [selected, completeSetup, needsErrorConsent, productAnalyticPrompt])
 
   useEffect(() => {
     if (quickStartQueued && selected && isSelectionReady) {
@@ -589,8 +605,14 @@ function SetupScreen() {
           },
         ]
       : []
-    return [welcome, setupPage, ...consent, modelStep]
-  }, [setupPage, modelStep, includesConsent])
+    const errorConsent: WizardStep[] = includesErrorConsent ? [{
+      id: 'error-consent',
+      labelKey: 'common:errorTracking.title',
+      status: 'pending',
+      messageKey: '',
+    }] : []
+    return [welcome, setupPage, ...consent, ...errorConsent, modelStep]
+  }, [setupPage, modelStep, includesConsent, includesErrorConsent])
 
   const isPageSettled = useCallback(
     (page: WizardStep) => {
@@ -601,11 +623,13 @@ function SetupScreen() {
           return isSetupSettled
         case 'consent':
           return !productAnalyticPrompt
+        case 'error-consent':
+          return !needsErrorConsent
         default:
           return Boolean(isDownloaded)
       }
     },
-    [hasStarted, isSetupSettled, productAnalyticPrompt, isDownloaded]
+    [hasStarted, isSetupSettled, productAnalyticPrompt, needsErrorConsent, isDownloaded]
   )
 
   const currentIndex = pages.findIndex((page) => !isPageSettled(page))
@@ -666,6 +690,7 @@ function SetupScreen() {
       case 'model':
         return t('setup:description')
       case 'consent':
+      case 'error-consent':
         return null
       default:
         return setupBody
@@ -881,6 +906,10 @@ function SetupScreen() {
                   </div>
                 )}
 
+                {currentPage.id === 'error-consent' && (
+                  <div className="mt-5"><ErrorTrackingConsent /></div>
+                )}
+
                 {currentPage.id === 'model' && (
                   <div className="mt-5">
                     <ModelCard
@@ -893,6 +922,25 @@ function SetupScreen() {
                       isDownloaded={Boolean(isDownloaded)}
                       onDownload={handleQuickStart}
                     />
+                    {canUseDspark && !isDownloaded && (
+                      <div className="mt-3 rounded-lg border p-3">
+                        <label htmlFor="setup-dspark" className="flex items-start gap-2 text-sm font-medium">
+                          <input
+                            id="setup-dspark"
+                            type="checkbox"
+                            checked={dsparkEnabled}
+                            disabled={isDownloading || quickStartInitiated}
+                            aria-describedby="setup-dspark-description"
+                            onChange={(event) => setDsparkEnabled(event.target.checked)}
+                            className="mt-0.5 size-4 shrink-0 accent-primary"
+                          />
+                          {t('setup:dsparkEnable')}
+                        </label>
+                        <p id="setup-dspark-description" className="mt-2 text-xs text-muted-foreground">
+                          {t('setup:dsparkDescription', { size: NOVERA_RECOMMENDED_DRAFT.fileSize })}
+                        </p>
+                      </div>
+                    )}
                     <button
                       type="button"
                       className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground"
