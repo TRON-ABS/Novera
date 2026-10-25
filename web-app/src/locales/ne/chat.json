@@ -1,0 +1,50 @@
+{
+  "welcome": "नमस्ते, कस्तो हुनुहुन्छ?",
+  "description": "आज म तपाईंलाई कसरी मद्दत गर्न सक्छु?",
+  "temporaryChat": "अस्थायी च्याट",
+  "temporaryChatDescription": "एउटा अस्थायी कुराकानी सुरु गर्नुहोस् जुन तपाईंको च्याट इतिहासमा सुरक्षित गरिने छैन।",
+  "status": {
+    "empty": "कुनै च्याट फेला परेन"
+  },
+  "sendMessage": "सन्देश पठाउनुहोस्",
+  "newConversation": "नयाँ कुराकानी",
+  "clearHistory": "इतिहास खाली गर्नुहोस्",
+  "embeddings": {
+    "title": "तपाईंको कागजातहरू तयार गर्दै",
+    "description": "संलग्न फाइलहरू अनुक्रमणिका गर्दै ताकि तिनीहरू खोजी र उद्धृत गर्न सकिन्छ। यसले ठूला कागजातहरूको लागि केही समय लिन सक्छ।"
+  },
+  "actions": {
+    "regenerate": "प्रतिक्रिया पुन: उत्पन्न गर्नुहोस्",
+    "askAgain": "फेरि सोध्नुहोस्",
+    "continue": "उत्पादन जारी राख्नुहोस्",
+    "remember": "यो याद राख्नुहोस्",
+    "rememberSaved": "मेमोरीमा \"{{name}}\" को रूपमा सुरक्षित गरियो",
+    "rememberExists": "पहिले नै \"{{name}}\" को रूपमा मेमोरीमा",
+    "rememberFailed": "मेमोरीमा बचत गर्न सकिएन"
+  },
+  "done": "सकियो",
+  "webSources": "{{count}} स्रोत(हरू)",
+  "reasoning": {
+    "label": "तर्क...",
+    "thinking": "सोच्दै",
+    "working": "काम गर्दै...",
+    "showFullTimeline": "पूर्ण समयरेखा देखाउनुहोस्",
+    "showCurrentStep": "हालको चरण मात्र देखाउनुहोस्",
+    "thoughtForAWhile": "केही सेकेन्ड सोचे",
+    "thoughtFor": "{{duration}} को लागी सोचेको",
+    "workedForAWhile": "केही सेकेन्ड काम गरे",
+    "workedFor": "{{duration}} मा काम गरेको"
+  },
+  "messageActions": {
+    "previousVersion": "अघिल्लो संस्करण",
+    "nextVersion": "अर्को संस्करण",
+    "generationFailed": "पुस्ता असफल भयो"
+  },
+  "messageStats": {
+    "details": "पुस्ता तथ्याङ्क",
+    "generation": "पुस्ता",
+    "reading": "पढ्दै",
+    "tokens": "टोकनहरू",
+    "perSecond": "टोकन/सेकेन्ड"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "addProvider": "مهيا ڪندڙ شامل ڪريو",
+  "addOpenAIProvider": "ڪسٽم مهيا ڪندڙ شامل ڪريو",
+  "enterNameForProvider": "مهيا ڪندڙ جو نالو (مثال طور my-llm-server)",
+  "apiTypeLabel": "API فارميٽ",
+  "apiTypeOpenAI": "OpenAI-مطابق",
+  "apiTypeAnthropic": "Anthropic-مطابق",
+  "baseUrlLabel": "بنياد URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API چاٻي",
+  "apiKeyPlaceholder": "پنھنجي API چيڪ پيسٽ ڪريو",
+  "invalidBaseUrl": "بنياد URL ھڪڙو صحيح ھجڻ گھرجي http(s) URL",
+  "globalSettings": "گلوبل سيٽنگون",
+  "stripReasoning": "سياق و سباق کان استدلال",
+  "stripReasoningDesc": "تاريخ کي ٻيهر موڪلڻ کان اڳ اڳئين موڙ جي سوچ/استدلال واري مواد کي هٽايو، سڀني مهيا ڪندڙن تي. مقامي ماڊلز لاءِ KV-ڪيچ ٻيهر استعمال کي بهتر بڻائي ٿو، پر ڪجهه ماڊلز (مثال طور نئون Qwen رليز) ان کي بهتر ملٽي ٽرن ريجننگ لاءِ رکڻ جي صلاح ڏين ٿا.",
+  "providerAlreadyExists": "{{name}} نالي هڪ مهيا ڪندڙ اڳ ۾ ئي موجود آهي."
+}

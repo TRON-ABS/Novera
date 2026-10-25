@@ -1,0 +1,18 @@
+{
+  "addProvider": "प्रदायक थप्नुहोस्",
+  "addOpenAIProvider": "आफू अनुकूल प्रदायक थप्नुहोस्",
+  "enterNameForProvider": "प्रदायकको नाम (जस्तै my-llm-server)",
+  "apiTypeLabel": "API ढाँचा",
+  "apiTypeOpenAI": "OpenAI-कम्प्याटिबल",
+  "apiTypeAnthropic": "Anthropic-कम्प्याटिबल",
+  "baseUrlLabel": "आधार URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API कुञ्जी",
+  "apiKeyPlaceholder": "आफ्नो API कुञ्जी टाँस्नुहोस्",
+  "invalidBaseUrl": "आधार URL मान्य http(हरू) URL हुनुपर्छ",
+  "globalSettings": "ग्लोबल सेटिङहरू",
+  "stripReasoning": "सन्दर्भबाट तर्क गर्नुहोस्",
+  "stripReasoningDesc": "सबै प्रदायकहरूमा, इतिहास पुन: पठाउनु अघि अघिल्लो पालोको सोच/तर्क सामग्री हटाउनुहोस्। स्थानीय मोडेलहरूको लागि KV-क्यास पुन: प्रयोगमा सुधार गर्दछ, तर केही मोडेलहरू (जस्तै नयाँ Qwen रिलीजहरू) ले यसलाई राम्रो बहु-टर्न तर्कको लागि राख्न सिफारिस गर्दछ।",
+  "providerAlreadyExists": "{{name}} नामक प्रदायक पहिले नै अवस्थित छ।"
+}

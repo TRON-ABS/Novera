@@ -33,6 +33,16 @@ it.each([
   ['ln', 'Lingála', 'Kanga', 'ltr'],
   ['ary', 'الدارجة المغربية', 'سدّ', 'rtl'],
   ['or', 'ଓଡ଼ିଆ', 'ବନ୍ଦ କରନ୍ତୁ', 'ltr'],
+  ['uk', 'Українська', 'Закрити', 'ltr'],
+  ['hsn', '湘语', '关起', 'ltr'],
+  ['ml', 'മലയാളം', 'അടയ്ക്കുക', 'ltr'],
+  ['sd', 'سنڌي', 'بند ڪريو', 'rtl'],
+  ['pa', 'ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)', 'ਬੰਦ ਕਰੋ', 'ltr'],
+  ['su', 'Basa Sunda', 'Tutup', 'ltr'],
+  ['ig', 'Ìgbò', 'Mechie', 'ltr'],
+  ['prs', 'دری', 'بسته کنید', 'rtl'],
+  ['ne', 'नेपाली', 'बन्द गर्नुहोस्', 'ltr'],
+  ['ms', 'Bahasa Melayu', 'Tutup', 'ltr'],
 ])('selects %s, loads its text, persists the choice and restores menu direction', async (locale, label, close, direction) => {
   const user = userEvent.setup()
   const view = render(<TranslationProvider><LanguageSwitcher /></TranslationProvider>)
@@ -41,7 +51,7 @@ it.each([
   expect(settings.setCurrentLanguage).toHaveBeenCalledWith(locale)
   expect(i18n.language).toBe(locale)
   expect(i18n.t('common:close')).toBe(close)
-  expect(document.documentElement).toHaveAttribute('lang', locale)
+  expect(document.documentElement).toHaveAttribute('lang', locale === 'prs' ? 'fa-AF' : locale)
   expect(document.documentElement).toHaveAttribute('dir', direction)
   expect(JSON.parse(localStorage.getItem(localStorageKey.settingGeneral)!)).toMatchObject({
     state: { currentLanguage: locale },
@@ -69,7 +79,8 @@ it.each([
 })
 
 it.each([['apc', 'ar-LB'], ['apd', 'ar-SD'], ['arq', 'ar-DZ'], ['ary', 'ar-MA'],
-  ['cjy', 'zh-CN'], ['nan', 'zh-TW'], ['hak', 'zh-TW']])('formats %s using a supported regional locale rather than English fallback', (locale, regional) => {
+  ['cjy', 'zh-CN'], ['nan', 'zh-TW'], ['hak', 'zh-TW'], ['hsn', 'zh-CN'], ['prs', 'fa-AF'],
+  ['sd', 'sd-Arab-PK'], ['pa', 'pa-Guru-IN']])('formats %s using a supported regional locale rather than English fallback', (locale, regional) => {
   expect(intlLocale(locale)).toBe(regional)
   expect(new Intl.NumberFormat(intlLocale(locale)).format(1234)).toBe(
     new Intl.NumberFormat(regional).format(1234),

@@ -498,5 +498,105 @@
     "total": 1516,
     "partial": false,
     "source_pr": null
+  },
+  {
+    "locale": "uk",
+    "language": "Ukrainian",
+    "label": "Українська",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "hsn",
+    "language": "Xiang Chinese",
+    "label": "湘语",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "ml",
+    "language": "Malayalam",
+    "label": "മലയാളം",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "sd",
+    "language": "Sindhi",
+    "label": "سنڌي",
+    "direction": "rtl",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "pa",
+    "language": "Eastern Punjabi",
+    "label": "ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "su",
+    "language": "Sundanese",
+    "label": "Basa Sunda",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "ig",
+    "language": "Igbo",
+    "label": "Ìgbò",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "prs",
+    "language": "Dari",
+    "label": "دری",
+    "direction": "rtl",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "ne",
+    "language": "Nepali",
+    "label": "नेपाली",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "ms",
+    "language": "Malay",
+    "label": "Bahasa Melayu",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
   }
 ]

@@ -1,0 +1,101 @@
+{
+  "editServer": "ايڊٽ ڪريو MCP سرور",
+  "addServer": "شامل ڪريو MCP سرور",
+  "browserExtension": {
+    "connecting": {
+      "checking": "ايڪسٽينشن اسٽيٽس چيڪ ڪيو پيو وڃي..."
+    },
+    "notInstalled": {
+      "title": "Novera توهان جي برائوزر ۾ ڪم مڪمل ڪري ٿو",
+      "description": "Novera برائوزر جي رسائي ڏيڻ لاءِ ايڪسٽينشن انسٽال ڪريو",
+      "getExtension": "واڌارو حاصل ڪريو"
+    }
+  },
+  "serverName": "سرور جو نالو",
+  "enterServerName": "سرور جو نالو داخل ڪريو",
+  "command": "حڪم",
+  "enterCommand": "حڪم داخل ڪريو (uvx يا npx)",
+  "arguments": "دليل",
+  "argument": "دليل {{index}}",
+  "envVars": "ماحولياتي تبديليون",
+  "key": "چاٻي",
+  "value": "قدر",
+  "save": "محفوظ ڪريو",
+  "status": "حيثيت",
+  "connected": "ڳنڍيل",
+  "disconnected": "ڌار ٿيل",
+  "deleteServer": {
+    "title": "ختم ڪريو MCP سرور",
+    "description": "ڇا توھان واقعي MCP سرور {{serverName}} کي ختم ڪرڻ چاھيو ٿا؟ ھن عمل کي رد نٿو ڪري سگھجي.",
+    "delete": "ختم ڪريو",
+    "success": "MCP سرور {{serverName}} ڪاميابي سان ڊهي ويو"
+  },
+  "editJson": {
+    "title": "ايڊٽ ڪريو JSON MCP سرور لاءِ: {{serverName}}",
+    "titleAll": "سڀ ايڊٽ ڪريو MCP سرور JSON",
+    "placeholder": "داخل ڪريو JSON ترتيب",
+    "errorParse": "شروعاتي ڊيٽا کي پارس ڪرڻ ۾ ناڪام ٿيو",
+    "errorPaste": "پيسٽ ڪيل مواد ۾ غلط JSON فارميٽ",
+    "errorFormat": "غلط JSON فارميٽ",
+    "errorServerName": "سرور جو نالو گھربل آھي ۽ خالي نٿو ٿي سگھي",
+    "errorMissingServerNameKey": "JSON لازمي طور تي {\"serverName\": {config}} - سرور جو نالو غائب",
+    "errorInvalidType": "غلط قسم '{{type}}' سرور لاءِ '{{serverName}}'. قسم هجڻ گهرجي 'stdio'، 'http'، يا 'sse'",
+    "save": "محفوظ ڪريو"
+  },
+  "checkParams": "مھرباني ڪري ٽيوٽوريل جي مطابق پيرا ميٽر چيڪ ڪريو.",
+  "title": "MCP سرور",
+  "experimental": "تجرباتي",
+  "editAllJson": "سڀني سرورن کي تبديل ڪريو JSON",
+  "findMore": "وڌيڪ ڳولھيو MCP سرورز تي",
+  "allowPermissions": "سڀ MCP اوزار جي اجازت ڏيو",
+  "allowPermissionsDesc": "جڏهن فعال ڪيو ويندو، سڀ MCP ٽول ڪالون پاڻمرادو منظور ٿي وينديون بغير اجازت ڊائلاگ ڏيکاريندي. هي سيٽنگ عالمي سطح تي سڀني ڳالهين تي لاڳو ٿئي ٿي، بشمول نئين چيٽ.",
+  "noServers": "ڪوبه MCP سرور نه مليو",
+  "args": "ارگس",
+  "env": "ماحول",
+  "serverStatusActive": "سرور {{serverKey}} ڪاميابيءَ سان چالو ٿيو",
+  "serverStatusInactive": "سرور {{serverKey}} ڪاميابي سان غير فعال ڪيو ويو",
+  "runtimeSettings": {
+    "title": "رن ٽائم سيٽنگون",
+    "description": "ترتيب ڏيو ڪيئن Novera منظم ڪري ٿو ۽ ٻيهر ڪوشش ڪري ٿو MCP سرور.",
+    "toolCallTimeout": "ٽول ڪال ٽائم آئوٽ (سيڪنڊ)",
+    "toolCallTimeoutDesc": "وقت ختم ٿيڻ کان اڳ MCP اوزار جي جواب جو انتظار ڪرڻ لاءِ وڌ ۾ وڌ وقت.",
+    "maxToolOutputChars": "وڌ ۾ وڌ ٽول آئوٽ پٽ اکر",
+    "maxToolOutputCharsDesc": "ڊگھو اوزار نتيجو گفتگو ۾ رکيو. ماضيءَ جي ڪا به شيءِ سنواريل آهي ۽ نشان لڳل آهي، تنهنڪري هڪ وڏو نتيجو ماڊل جي حوالي سان ختم نٿو ڪري سگهي. نتيجن کي مڪمل رکڻ لاء 0 تي سيٽ ڪريو.",
+    "smartToolRouting": "سمارٽ MCP اوزار روٽنگ",
+    "smartToolRoutingDesc": "فعال ٿيڻ تي، Novera لاڳاپيل MCP سرورز کي چونڊيندو آھي اوزار لوڊ ڪرڻ کان اڳ. هميشه مڪمل MCP ٽول لسٽ لوڊ ڪرڻ لاءِ بند ڪريو.",
+    "useLightweightRouterModel": "رستي لاء وقف ماڊل استعمال ڪريو",
+    "useLightweightRouterModelDesc": "جڏهن سمارٽ روٽنگ آن هجي، روٽنگ جي قدم کي چيٽ ماڊل جي بدران الڳ (اڪثر ننڍا) ماڊل سان هلايو. روٽنگ لاءِ هميشه فعال چيٽ ماڊل استعمال ڪرڻ لاءِ بند ڪريو.",
+    "routerModel": "رستي وارو ماڊل",
+    "routerModelDesc": "ھڪڙي جڳھ ۾ مهيا ڪندڙ ۽ ماڊل چونڊيو. صرف ٿلهي وزن جا ماڊل درج ڪيا ويا آهن تنهنڪري رستو تيز ۽ سستو رهي ٿو.",
+    "selectRouterModelPlaceholder": "روٽنگ ماڊل چونڊيو...",
+    "routerModelSearchPlaceholder": "ماڊل ڳوليو…",
+    "routerModelEmptyList": "ڪو به ٿلهو ماڊل موجود ناهي. ھڪڙو ننڍڙو ماڊل شامل ڪريو يا ماڊل ۾ API ڪيز ترتيب ڏيو.",
+    "routerModelEmptySearch": "“{{query}}” لاءِ ڪوبه ملندڙ ناهي."
+  },
+  "auth": {
+    "label": "سند:",
+    "state": {
+      "notApplicable": "گهربل ناهي",
+      "staticHeader": "اختيار ڏيڻ وارو سر",
+      "authenticated": "تصديق ٿيل",
+      "expired": "ختم ٿي ويو",
+      "staleResource": "ٻئي URL لاءِ جاري ڪيو ويو",
+      "unauthenticated": "تصديق ٿيل نه آهي"
+    },
+    "expiresIn": "{{duration}} ۾ ختم ٿئي ٿو",
+    "authenticate": "سائن ان ڪريو",
+    "reauthenticate": "ٻيهر تصديق ڪريو",
+    "clear": "صاف تصديق",
+    "waiting": "برائوزر جي انتظار ۾...",
+    "openSignInPage": "سائن ان پيج کوليو",
+    "needsAuth": "{{serverName}} تصديق جي ضرورت آهي",
+    "needsAuthHint": "ڳنڍڻ لاء هن سرور ۾ سائن ان ڪريو.",
+    "authorized": "{{serverName}} ۾ سائن ان ٿيو",
+    "authorizeFailed": "{{serverName}} لاءِ سائن ان ناڪام ٿيو",
+    "cleared": "{{serverName}} لاءِ محفوظ ٿيل سندون صاف ڪيون ويون",
+    "nothingToClear": "{{serverName}} وٽ ڪو به ذخيرو ٿيل سند نه هو",
+    "clearFailed": "{{serverName}} لاءِ سندون صاف نه ٿي سگھيون",
+    "renew": "تجديد سيشن",
+    "expiredAgo": "{{duration}} اڳ ختم ٿي ويو"
+  }
+}

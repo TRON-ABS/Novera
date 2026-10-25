@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Kod",
+    "preview": "Pratonton",
+    "previewStreaming": "Tersedia apabila penjanaan selesai",
+    "unresolvedAssets_one": "1 rujukan aset tidak dapat dimuatkan dalam pratonton. Laluan relatif tidak mempunyai asas URL untuk diselesaikan.",
+    "unresolvedAssets_other": "{{count}} rujukan aset tidak dapat dimuatkan dalam pratonton. Laluan relatif tidak mempunyai asas URL untuk diselesaikan."
+  },
+  "assistants": "Pembantu",
+  "hardware": "Perkakasan",
+  "mcp-servers": "MCP Pelayan",
+  "local_api_server": "Pelayan API Tempatan",
+  "remote_access": "Akses Jauh",
+  "integrations": "Integrasi",
+  "experimental": "Eksperimen",
+  "claude_code": "Kod Claude",
+  "https_proxy": "HTTPS Proksi",
+  "web_search": "Carian Web",
+  "shell": "Shell",
+  "browse": "Semak imbas",
+  "moreControls": "Lebih banyak kawalan",
+  "starting": "Bermula...",
+  "activeSuffix": "(Aktif)",
+  "extensions": "Sambungan",
+  "attachments": "Lampiran",
+  "general": "Umum",
+  "settings": "Tetapan",
+  "modelProviders": "Pembekal Model",
+  "localProviders": "Tempatan",
+  "remoteProviders": "Jauh",
+  "manageProviders": "Urus pembekal",
+  "hiddenProviders": "{{count}} dilumpuhkan",
+  "hideProvider": "Sembunyikan pembekal",
+  "showProvider": "Tunjukkan pembekal",
+  "interface": "Antara muka",
+  "appearance": "Penampilan",
+  "privacy": "Privasi",
+  "keyboardShortcuts": "Jalan pintas",
+  "home": "Rumah",
+  "cowork": "Cowork",
+  "newSession": "Sesi baru",
+  "artifacts": "Artifak",
+  "customize": "Sesuaikan",
+  "local": "Tempatan",
+  "selectFolder": "Pilih folder",
+  "selectModel": "Pilih model dahulu",
+  "commands": "Perintah",
+  "cmdHelp": "Senaraikan arahan yang tersedia",
+  "cmdClear": "Kosongkan sesi ini",
+  "cmdModels": "Tukar model aktif",
+  "cmdModelsHint": "Taip /models kemudian pilih model daripada senarai",
+  "cmdModelSwitched": "Bertukar kepada {{name}}",
+  "cmdUnknown": "Perintah tidak diketahui: {{name}}. Cuba /help",
+  "cmdBusy": "Tidak boleh berbuat demikian semasa ejen berjalan",
+  "cmdCompact": "Padatkan konteks sesi menjadi ringkasan",
+  "cmdCompacted": "Padat {{before}} -> {{after}} mesej",
+  "cmdNothingToCompact": "Belum ada apa-apa untuk dipadatkan",
+  "cmdCompactFailed": "Pemadatan gagal: {{error}}",
+  "cmdPlan": "Togol mod pelan (baca sahaja: ejen mencadangkan tanpa menulis)",
+  "cmdPlanOn": "Mod rancangan hidup: ejen membaca dan mencadangkan tanpa menulis",
+  "cmdPlanOff": "Mod pelan dimatikan: pelaksanaan biasa",
+  "cmdTodo": "Buka panel kemajuan",
+  "cmdTasks": "Buka panel tugas latar belakang",
+  "cmdInit": "Kaji projek dan kemahiran menulis dan ingatan",
+  "cmdInitRunning": "Memulakan projek ini",
+  "skills": "Kemahiran",
+  "skillsInContext": "Kemahiran yang tersedia untuk ejen dijalankan ini",
+  "skillsTitle": "Mengurus kemahiran",
+  "skillsScopeProject": "Kemahiran untuk {{folder}}",
+  "skillsScopeGlobal": "Kemahiran global, tersedia untuk setiap sesi",
+  "skillsScopeMerged": "Kemahiran untuk {{folder}}, ditambah dengan kemahiran global yang dikongsi setiap sesi",
+  "skillOriginFolder": "folder",
+  "skillOriginGlobal": "global",
+  "skillsEmpty": "Belum ada kemahiran",
+  "skillsPickOrNew": "Pilih kemahiran untuk diedit atau buat kemahiran baharu.",
+  "skillNew": "Kemahiran baru",
+  "skillDelete": "Padam kemahiran",
+  "skillSave": "Simpan",
+  "skillSaved": "Kemahiran disimpan",
+  "skillNameRequired": "Nama kemahiran diperlukan",
+  "skillNamePlaceholder": "nama kemahiran",
+  "skillContentPlaceholder": "Terangkan prosedur boleh guna semula dalam Markdown…",
+  "skillHubImport": "Import dari hab",
+  "skillHubTitle": "Anthropic hab kemahiran",
+  "skillHubEmpty": "Tiada kemahiran ditemui di hab",
+  "skillImport": "Import",
+  "skillReimport": "Import semula",
+  "skillImported": "Diimport {{name}}",
+  "sessions": "Sesi",
+  "deleteSession": "Padamkan sesi",
+  "deleteSessionTitle": "Padamkan sesi?",
+  "deleteSessionBody": "\"{{title}}\" dan transkripnya akan dipadamkan secara kekal. Ini tidak boleh dibuat asal.",
+  "newChat": "Sembang Baharu",
+  "newAgentChat": "Sembang Agen Baharu",
+  "chats": "Sembang",
+  "favorites": "Kegemaran",
+  "recents": "Terkini",
+  "hub": "Hab",
+  "helpSupport": "Bantuan & Sokongan",
+  "helpUsImproveJan": "Bantu Kami Meningkatkan Novera",
+  "analyticsConsentDetail": "Kami mengumpul data tanpa nama untuk memahami penggunaan ciri. Sembang dan maklumat peribadi anda tidak pernah dijejaki. Anda boleh menukar ini pada bila-bila masa dalam Tetapan > Privasi.",
+  "analyticsConsentQuestion": "Adakah anda ingin membantu kami meningkatkan Novera?",
+  "unstarAll": "Nyahbintang Semua",
+  "unstar": "Nyahbintang",
+  "deleteAll": "Padam Semua",
+  "star": "Bintang",
+  "rename": "Namakan semula",
+  "delete": "Padam",
+  "copied": "disalin!",
+  "dataFolder": "Folder Data",
+  "others": "Lain-lain",
+  "language": "Bahasa",
+  "login": "Log Masuk",
+  "loginWith": "Log Masuk Dengan {{provider}}",
+  "loginFailed": "Gagal Log Masuk",
+  "logout": "Log Keluar",
+  "loggingOut": "Log Keluar...",
+  "loggedOut": "Berjaya Log Keluar",
+  "logoutFailed": "Gagal Log Keluar",
+  "profile": "Profil",
+  "reset": "Tetapkan semula",
+  "search": "Cari",
+  "searchThreads": "Cari urutan...",
+  "toNavigate": "untuk mengemudi",
+  "toSelect": "untuk memilih",
+  "toClose": "untuk menutup",
+  "clearRecent": "Jelas",
+  "name": "Nama",
+  "cancel": "Batal",
+  "dismiss": "Tolak",
+  "create": "Buat",
+  "save": "Simpan",
+  "edit": "Sunting",
+  "copy": "Salin",
+  "back": "belakang",
+  "close": "Tutup",
+  "done": "Selesai",
+  "next": "Seterusnya",
+  "finish": "Selesai",
+  "skip": "Langkau",
+  "allow": "benarkan",
+  "deny": "Nafikan",
+  "start": "Mulakan",
+  "stop": "Berhenti",
+  "preview": {
+    "loading": "Membuka…",
+    "unsupported": "Novera tidak dapat menunjukkan fail jenis ini. Bukanya untuk melihatnya dalam apl lain.",
+    "outside": "Fail ini tiada lagi dalam ruang kerja sesi.",
+    "tooLarge": "Terlalu besar untuk dipratonton. Bukanya untuk melihatnya dalam apl lain.",
+    "reload": "Muat semula",
+    "allowNetwork": "Benarkan rangkaian",
+    "unsandboxed": "Jalankan tanpa kotak pasir: data yang disimpan dan fail tempatan berfungsi",
+    "unresolvedRefs_one": "1 fail pautan halaman ini tidak dapat dimuatkan dalam pratonton. Bukanya untuk melihatnya dalam penyemak imbas.",
+    "unresolvedRefs_other": "{{count}} fail pautan halaman ini tidak dapat dimuatkan dalam pratonton. Bukanya untuk melihatnya dalam penyemak imbas.",
+    "externalRefs_one": "1 sumber yang dimuatkan oleh halaman ini dari web disekat. Hidupkan \"Benarkan rangkaian\" untuk memuatkannya.",
+    "externalRefs_other": "{{count}} sumber yang dimuatkan halaman ini dari web disekat. Hidupkan \"Benarkan rangkaian\" untuk memuatkannya.",
+    "scriptErrors_one": "Halaman melaporkan ralat: {{message}}",
+    "scriptErrors_other": "Halaman melaporkan {{count}} ralat. Pertama: {{message}}"
+  },
+  "changes": {
+    "title": "Perubahan ejen",
+    "empty": "Fail yang ditulis atau diedit oleh ejen akan dipaparkan di sini.",
+    "a11y": "Perubahan ejen: {{files}} fail, {{additions}} ditambah, {{deletions}} dialih keluar"
+  },
+  "modelPanel": {
+    "title": "Tetapan model",
+    "a11y": "Buka tetapan model",
+    "contextTooltip": "Tetingkap konteks: {{value}} daripada {{max}} token"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Kemahiran '{{name}}' tidak tersedia",
+    "kind": {
+      "skill": "Kemahiran",
+      "command": "Arahan",
+      "model": "Model"
+    }
+  },
+  "compactWidth": "Lebar Padat",
+  "fullWidth": "Lebar Penuh",
+  "dark": "Gelap",
+  "light": "Cahaya",
+  "system": "Sistem",
+  "auto": "Auto",
+  "english": "Inggeris",
+  "medium": "Sederhana",
+  "newThread": "Benang Baru",
+  "noResultsFound": "Tiada hasil ditemui",
+  "noThreadsYet": "Tiada benang lagi",
+  "noThreadsYetDesc": "Mulakan perbualan baharu untuk melihat sejarah urutan anda di sini.",
+  "downloads": "Muat turun",
+  "downloading": "Memuat turun",
+  "uploadingAttachments": "Memuat naik lampiran…",
+  "cancelDownload": "Batalkan muat turun",
+  "downloadCancelled": "Muat Turun Dibatalkan",
+  "downloadComplete": "Muat Turun Selesai",
+  "thinking": "Berfikir...",
+  "thought": "Fikir",
+  "callingTool": "Alat panggilan",
+  "completed": "Selesai",
+  "image": "Imej",
+  "vision": "Penglihatan",
+  "multimodal": "Multimodal",
+  "embeddings": "Embeddings",
+  "tools": "Alatan",
+  "webSearch": "Carian Web",
+  "reasoning": "Penaakulan",
+  "proactive": "Proaktif",
+  "selectAModel": "Pilih model",
+  "noToolsAvailable": "Tiada alat tersedia",
+  "noModelsFoundFor": "Tiada model ditemui untuk \"{{searchValue}}\"",
+  "failedToLoadModels": "Gagal memuatkan model",
+  "noModels": "Tiada model ditemui",
+  "noAssistant": "Tiada pembantu",
+  "customAvatar": "Avatar tersuai",
+  "editAssistant": "Edit Pembantu",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Menjana semula",
+  "threadImage": "Imej benang",
+  "editMessage": "Edit Mesej",
+  "deleteMessage": "Padam Mesej",
+  "deleteThread": "Padamkan Benang",
+  "renameThread": "Namakan semula Benang",
+  "threadTitle": "Tajuk Benang",
+  "deleteAllThreads": "Padamkan Semua Benang",
+  "allThreadsUnfavorited": "Semua Benang Tidak Digemari",
+  "deleteAllThreadsConfirm": "Adakah anda pasti mahu memadamkan semua urutan? Tindakan ini tidak boleh dibuat asal.",
+  "addProvider": "Tambah Pembekal",
+  "addOpenAIProvider": "Tambah OpenAI Pembekal",
+  "enterNameForProvider": "Masukkan nama untuk pembekal anda",
+  "providerAlreadyExists": "Pembekal dengan nama \"{{name}}\" sudah wujud. Sila pilih nama lain.",
+  "adjustFontSize": "Laraskan Saiz Fon",
+  "changeLanguage": "Tukar Bahasa",
+  "editTheme": "Edit Tema",
+  "editCodeBlockStyle": "Edit Gaya Blok Kod",
+  "editServerHost": "Edit Hos Pelayan",
+  "pickColorWindowBackground": "Pilih Latar Belakang Tetingkap Warna",
+  "pickColorAppMainView": "Pilih Paparan Utama Apl Warna",
+  "pickColorAppPrimary": "Pilih Warna Apl Utama",
+  "pickColorAppAccent": "Pilih Aksen Apl Warna",
+  "pickColorAppDestructive": "Pilih Apl Warna Memusnahkan",
+  "apiKeyRequired": "API Kunci diperlukan",
+  "enterTrustedHosts": "Masukkan hos yang dipercayai",
+  "placeholder": {
+    "chatInput": "Tanya saya apa-apa..."
+  },
+  "confirm": "sahkan",
+  "continue": "teruskan",
+  "loading": "Memuatkan...",
+  "settingUpJan": "Memulakan Novera…",
+  "registeringExtensions": "Mendaftarkan sambungan…",
+  "loadingExtensions": "Memuatkan sambungan… ({{done}}/{{total}})",
+  "error": "ralat",
+  "success": "Kejayaan",
+  "warning": "Amaran",
+  "conversationNotAvailable": "Perbualan tidak tersedia",
+  "conversationNotAvailableDescription": "Perbualan yang anda cuba akses tidak tersedia atau telah dipadamkan.",
+  "temporaryChat": "Sembang Sementara",
+  "temporaryChatTooltip": "Sembang sementara tidak akan muncul dalam sejarah anda",
+  "noResultsFoundDesc": "Kami tidak menemui sebarang sembang yang sepadan dengan carian anda. Cuba kata kunci lain.",
+  "searchModels": "Cari model...",
+  "searchStyles": "Gaya carian...",
+  "createAssistant": "Buat Pembantu",
+  "enterApiKey": "Masukkan API Kunci",
+  "scrollToBottom": "Tatal ke bawah",
+  "generateAiResponse": "Hasilkan Respons AI",
+  "continueAiResponse": "Teruskan dengan AI Response",
+  "addModel": {
+    "title": "Tambah Model",
+    "modelId": "ID model",
+    "enterModelId": "Masukkan ID Model",
+    "addModel": "Tambah Model",
+    "description": "Tambahkan model baharu pada pembekal",
+    "exploreModels": "Lihat senarai model daripada pembekal"
+  },
+  "mcpServers": {
+    "editServer": "Edit Pelayan",
+    "addServer": "Tambah Pelayan",
+    "serverName": "Nama Pelayan",
+    "enterServerName": "Masukkan nama pelayan",
+    "command": "Arahan",
+    "enterCommand": "Masukkan arahan",
+    "arguments": "Hujah",
+    "argument": "Hujah {{index}}",
+    "envVars": "Pembolehubah Persekitaran",
+    "key": "kunci",
+    "value": "Nilai",
+    "save": "Simpan"
+  },
+  "deleteServer": {
+    "title": "Padamkan Pelayan",
+    "delete": "Padam"
+  },
+  "editJson": {
+    "errorParse": "Gagal menghuraikan JSON",
+    "errorPaste": "Gagal menampal JSON",
+    "errorFormat": "Format JSON tidak sah",
+    "titleAll": "Edit Konfigurasi Semua Pelayan",
+    "placeholder": "Masukkan konfigurasi JSON...",
+    "save": "Simpan"
+  },
+  "editModel": {
+    "title": "Sunting model: {{modelId}}",
+    "description": "Konfigurasikan keupayaan model dengan menogol pilihan di bawah.",
+    "capabilities": "Keupayaan",
+    "tools": "Alatan",
+    "vision": "Penglihatan",
+    "embeddings": "Embeddings",
+    "notAvailable": "Belum tersedia lagi"
+  },
+  "outOfContextError": {
+    "truncateInput": "Potong Input",
+    "title": "Ralat di luar konteks",
+    "description": "Sembang ini mencapai had ingatan AI, seperti mengisi papan putih. Kami boleh mengembangkan tetingkap memori (dipanggil saiz konteks) supaya ia mengingati lebih banyak, tetapi ia mungkin menggunakan lebih banyak memori komputer anda. Kami juga boleh memotong input, yang bermaksud ia akan melupakan beberapa sejarah sembang untuk memberi ruang kepada mesej baharu.",
+    "increaseContextSizeDescription": "Adakah anda ingin meningkatkan saiz konteks?",
+    "increaseContextSize": "Tingkatkan Saiz Konteks"
+  },
+  "toolApproval": {
+    "title": "Permintaan Kebenaran Alat",
+    "description": "Pembantu ingin menggunakan <strong>{{toolName}}</strong>",
+    "securityNotice": "Hanya benarkan alatan yang anda percayai. Alat boleh mengakses sistem dan data anda.",
+    "deny": "Nafikan",
+    "allowOnce": "Benarkan Sekali",
+    "alwaysAllow": "Sentiasa Benarkan"
+  },
+  "deleteModel": {
+    "title": "Padamkan Model: {{modelId}}",
+    "description": "Adakah anda pasti mahu memadamkan model ini? Tindakan ini tidak boleh dibuat asal.",
+    "success": "Model {{modelId}} telah dipadamkan secara kekal.",
+    "cancel": "Batal",
+    "delete": "Padam"
+  },
+  "deleteProvider": {
+    "title": "Padamkan Pembekal",
+    "description": "Padamkan pembekal ini dan semua modelnya. Tindakan ini tidak boleh dibuat asal.",
+    "success": "Pembekal {{provider}} telah dipadamkan secara kekal.",
+    "confirmTitle": "Padamkan Pembekal: {{provider}}",
+    "confirmDescription": "Adakah anda pasti mahu memadamkan pembekal ini? Tindakan ini tidak boleh dibuat asal.",
+    "cancel": "Batal",
+    "delete": "Padam"
+  },
+  "modelSettings": {
+    "title": "Tetapan Model - {{modelId}}",
+    "description": "Konfigurasikan tetapan model untuk mengoptimumkan prestasi dan tingkah laku.",
+    "nglDisabledByFit": "Auto-muat sedang memilih GPU lapisan. Matikan Automuat untuk menetapkan ini secara manual.",
+    "samplingDefaults": {
+      "title": "Parameter pensampelan lalai",
+      "description": "Tetapan pensampel lalai untuk model ini. Digunakan melainkan ditindih oleh nilai setiap pembantu atau setiap permintaan."
+    },
+    "specDraft": {
+      "section": "Penyahkodan spekulatif",
+      "enable": "Dayakan penyahkodan spekulatif",
+      "enableDescription": "Draf beberapa token setiap langkah dan sahkannya dalam satu laluan, yang mempercepatkan penjanaan. Menggunakan kepala MTP terbina dalam model, atau model draf yang dimuat turun bersamanya (MTP, Eagle3, DFlash atau DSpark).",
+      "nMax": "Token draf maksimum",
+      "nMaxDescription": "Bilangan maksimum token untuk draf setiap langkah. Lalai 16.",
+      "nMin": "Token draf min",
+      "nMinDescription": "Bilangan minimum token untuk draf setiap langkah. Lalai 0.",
+      "pMin": "Kebarangkalian draf min",
+      "pMinDescription": "Kebarangkalian minimum untuk merangka tamak (0–1). Lalai 0.75."
+    },
+    "templateKwargs": {
+      "section": "Pilihan templat sembang",
+      "description": "Pilihan tambahan yang diterima oleh templat sembang model ini. Dihantar sebagai chat_template_kwargs pada setiap permintaan; biarkan nilai pada lalainya untuk membiarkan templat membuat keputusan.",
+      "addCustom": "Tambah pilihan tersuai",
+      "keyPlaceholder": "nama",
+      "valuePlaceholder": "nilai",
+      "add": "Tambah",
+      "cancel": "Batal",
+      "remove": "Alih keluar"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Tidak dapat mengemas kini tetapan model"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Tukar Lokasi Folder Data",
+      "description": "Adakah anda pasti mahu menukar lokasi folder data? Ini akan mengalihkan semua data anda ke lokasi baharu dan memulakan semula aplikasi.",
+      "currentLocation": "Lokasi Semasa:",
+      "newLocation": "Lokasi Baharu:",
+      "cancel": "Batal",
+      "changeLocation": "Tukar Lokasi"
+    },
+    "deleteAllThreads": {
+      "title": "Padamkan Semua Benang",
+      "description": "Semua urutan akan dipadamkan. Tindakan ini tidak boleh dibuat asal."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Padamkan Semua Perbualan",
+      "description": "{{count}} perbualan dalam \"{{projectName}}\" akan dipadamkan. Tindakan ini tidak boleh dibuat asal."
+    },
+    "deleteThread": {
+      "description": "Adakah anda pasti mahu memadamkan urutan ini? Tindakan ini tidak boleh dibuat asal."
+    },
+    "editMessage": {
+      "title": "Edit Mesej"
+    },
+    "messageMetadata": {
+      "title": "Metadata Mesej"
+    },
+    "deleteMessage": {
+      "description": "Adakah anda pasti mahu memadamkan mesej ini? Tindakan ini tidak boleh dibuat asal."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Sesuatu telah berlaku",
+    "details": "Butiran"
+  },
+  "missingDependenciesDialog": {
+    "title": "Perpustakaan Sistem Hilang",
+    "description": "{{backend}} telah dipasang tetapi beberapa pustaka sistem yang diperlukan tidak dapat ditemui. Ia mungkin kembali ke CPU atau tidak berjalan dengan betul.",
+    "installLabel": "Untuk membetulkannya, pasang yang berikut:",
+    "download": "Muat turun",
+    "additionalLibraries": "Perpustakaan tambahan yang tiada:",
+    "missingLibraries": "Perpustakaan hilang:",
+    "showRawLibraries": "Tunjukkan {{count}} nama perpustakaan yang tiada"
+  },
+  "projects": {
+    "title": "Projek",
+    "new": "Projek Baru",
+    "addProject": "Tambah Projek",
+    "addToProject": "Tambahkan pada projek",
+    "removeFromProject": "Alih keluar daripada projek",
+    "createNewProject": "Buat Projek Baharu",
+    "editProject": "Edit Projek",
+    "deleteProject": "Padamkan Projek",
+    "projectName": "Nama Projek",
+    "enterProjectName": "Masukkan nama projek...",
+    "noProjectsAvailable": "Tiada projek tersedia",
+    "noProjectsYet": "Belum Ada Projek",
+    "noProjectsYetDesc": "Mulakan projek baharu dengan mengklik butang Tambah Projek.",
+    "projectNotFound": "Projek Tidak Ditemui",
+    "projectNotFoundDesc": "Projek yang anda cari tidak wujud atau telah dipadamkan.",
+    "selectAssistant": "Pilih pembantu",
+    "noAssistantAssigned": "Tiada pembantu ditugaskan untuk projek ini",
+    "files": "Fail",
+    "filesDescription": "Tambahkan PDF, dokumen atau teks lain untuk rujukan dalam projek ini.",
+    "uploadingFiles": "Memproses fail…",
+    "processButton": "Tambah",
+    "deleteProjectDialog": {
+      "title": "Padamkan Projek",
+      "permanentDelete": "Ini akan memadamkan semua urutan secara kekal.",
+      "permanentDeleteWarning": "Tindakan ini akan memadamkan SEMUA urutan dalam projek secara kekal!",
+      "deleteEmptyProject": "Tindakan ini akan memadamkan projek \"{{projectName}}\".",
+      "saveThreadsAdvice": "Untuk menyimpan utas, alihkannya ke senarai utas anda atau projek lain sebelum memadamkannya.",
+      "starredWarning": "Anda masih mempunyai urutan berbintang dalam projek.",
+      "deleteButton": "Padam",
+      "successWithName": "Projek \"{{projectName}}\" berjaya dipadamkan",
+      "successWithoutName": "Projek berjaya dipadamkan",
+      "error": "Gagal memadamkan projek. Sila cuba lagi.",
+      "ariaLabel": "Padam {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Buat Projek Baharu",
+      "editTitle": "Edit Projek",
+      "nameLabel": "Nama Projek",
+      "namePlaceholder": "Masukkan nama projek...",
+      "assistant": "Penolong",
+      "selectAssistant": "Pilih pembantu (pilihan)",
+      "noAssistant": "Tiada pembantu",
+      "addAssistant": "Tambah Assistant",
+      "createButton": "Buat",
+      "updateButton": "Kemas kini",
+      "alreadyExists": "Projek \"{{projectName}}\" sudah wujud",
+      "createSuccess": "Projek \"{{projectName}}\" berjaya dibuat",
+      "updateSuccess": "Projek \"{{projectName}}\" berjaya dikemas kini",
+      "saveError": "Tidak dapat menyimpan projek. Sila cuba lagi."
+    },
+    "noConversationsIn": "Tiada Perbualan dalam {{projectName}}",
+    "startNewConversation": "Mulakan perbualan baharu dengan {{projectName}} di bawah",
+    "conversationsIn": "Perbualan dalam {{projectName}}",
+    "conversationsDescription": "Klik pada mana-mana perbualan untuk meneruskan sembang, atau mulakan perbualan baharu di bawah.",
+    "conversation": "Perbualan",
+    "instructions": "Arahan",
+    "setup": "Persediaan",
+    "instructionsDescription": "Sesuaikan nada dan gaya tindak balas",
+    "manageInstructions": "Uruskan Arahan",
+    "thread": "benang",
+    "threads": "benang",
+    "updated": "Dikemas kini:",
+    "collapseProject": "Projek runtuh",
+    "expandProject": "Kembangkan projek",
+    "update": "Kemas kini",
+    "searchProjects": "Cari projek...",
+    "noProjectsFound": "Tiada projek ditemui",
+    "tryDifferentSearch": "Cuba istilah carian yang berbeza"
+  },
+  "attachmentsIngestion": {
+    "title": "Pilih cara menelan lampiran",
+    "description": "Pilih sama ada untuk memasukkan fail ini terus dalam sembang atau mengindeksnya sebagai pembenaman sebaliknya.",
+    "inline": "Suntikan ke dalam sembang",
+    "embeddings": "Gunakan benam"
+  },
+  "attachmentInjectedIndicator": "Disuntik ke dalam sembang",
+  "attachmentEmbeddedIndicator": "Dibenamkan untuk RAG",
+  "viewInjectedContent": "Lihat kandungan yang disuntik",
+  "injectedContentTitle": "Kandungan fail yang disuntik",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Semua Benang Tidak Digemari",
+      "description": "Semua urutan telah dialih keluar daripada kegemaran anda."
+    },
+    "deleteAllThreads": {
+      "title": "Padamkan Semua Benang",
+      "description": "Semua urutan telah dipadamkan secara kekal."
+    },
+    "renameThread": {
+      "title": "Namakan semula Benang",
+      "description": "Tajuk utas telah dinamakan semula kepada '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Padamkan Benang",
+      "description": "Urutan ini telah dipadamkan secara kekal."
+    },
+    "errorCopied": {
+      "title": "Penyalinan berjaya",
+      "description": "Maklumat ralat disalin ke papan keratan"
+    },
+    "errorCopyFailed": {
+      "title": "Gagal menyalin",
+      "description": "Gagal menyalin maklumat ralat ke papan keratan"
+    },
+    "editMessage": {
+      "title": "Edit Mesej",
+      "description": "Mesej berjaya diedit. Sila tunggu model membalas."
+    },
+    "appUpdateDownloaded": {
+      "title": "Kemas Kini Apl Dimuat Turun",
+      "description": "Kemas kini apl telah berjaya dimuat turun."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Muat Turun Kemas Kini Apl Gagal",
+      "description": "Gagal memuat turun kemas kini apl. Sila cuba lagi."
+    },
+    "downloadComplete": {
+      "title": "Muat Turun Selesai",
+      "description": "{{item}} telah dimuat turun"
+    },
+    "downloadCancelled": {
+      "title": "Muat Turun Dibatalkan",
+      "description": "Proses muat turun telah dibatalkan"
+    },
+    "downloadFailed": {
+      "title": "Muat turun Gagal",
+      "description": "{{item}} muat turun gagal",
+      "descriptionWithReason": "{{item}} muat turun gagal: {{reason}}",
+      "reason": {
+        "dns": "nama pelayan tidak dapat diselesaikan",
+        "refused": "sambungan itu ditolak",
+        "timeout": "sambungan tamat masa",
+        "tls": "sambungan selamat tidak dapat diwujudkan",
+        "proxy": "proksi tidak dapat dihubungi",
+        "unreachable": "pelayan tidak dapat dihubungi"
+      }
+    },
+    "openSettings": "Buka Tetapan",
+    "openLogs": "Buka log",
+    "downloadTokenRequired": {
+      "title": "Hugging Face token diperlukan",
+      "description": "Model ini memerlukan token akses Hugging Face. Tambahkan token anda dalam Tetapan dan cuba semula."
+    },
+    "downloadLicenseRequired": {
+      "title": "Terima lesen model pada Hugging Face",
+      "description": "Anda mesti menerima lesen model pada halaman Hugging Face sebelum memuat turun."
+    },
+    "downloadRateLimited": {
+      "title": "Kadar terhad sebanyak Hugging Face",
+      "description": "Anda telah dihadkan kadar. Menambah token boleh meningkatkan had kadar. Sila cuba lagi kemudian."
+    },
+    "modelValidationStarted": {
+      "title": "Mengesahkan Model",
+      "description": "Berjaya memuat turun model \"{{modelId}}\". Mengesahkan integriti..."
+    },
+    "modelValidationFailed": {
+      "title": "Pengesahan Model Gagal",
+      "description": "Model \"{{modelId}}\" yang dimuat turun gagal pengesahan integriti dan telah dialih keluar. Fail mungkin rosak atau diusik."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Muat Turun Selesai",
+      "description": "Model \"{{item}}\" berjaya dimuat turun dan disahkan"
+    },
+    "projectCreated": {
+      "title": "Projek Dicipta",
+      "description": "Projek \"{{projectName}}\" berjaya dibuat"
+    },
+    "projectRenamed": {
+      "title": "Projek Diubah Nama",
+      "description": "Projek dinamakan semula daripada \"{{oldName}}\" kepada \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Projek Dipadamkan",
+      "description": "Projek \"{{projectName}}\" berjaya dipadamkan"
+    },
+    "projectAlreadyExists": {
+      "title": "Projek Sudah Wujud",
+      "description": "Projek \"{{projectName}}\" sudah wujud"
+    },
+    "projectDeleteFailed": {
+      "title": "Padam Gagal",
+      "description": "Gagal memadamkan projek. Sila cuba lagi."
+    },
+    "threadAssignedToProject": {
+      "title": "Benang Ditugaskan",
+      "description": "Benang diperuntukkan kepada \"{{projectName}}\" berjaya"
+    },
+    "threadRemovedFromProject": {
+      "title": "Benang Dialih Keluar",
+      "description": "Benang dialih keluar daripada \"{{projectName}}\" berjaya"
+    },
+    "fileUploaded": {
+      "title": "Fail Diproses",
+      "description": "Fail telah berjaya diproses dan diindeks"
+    },
+    "uploadFailed": {
+      "title": "Pemprosesan Gagal",
+      "description": "Gagal memproses fail",
+      "subjectThisFile": "Fail ini",
+      "pdfMalformedXref": "{{subject}} mempunyai jadual rujukan silang PDF yang cacat dan tidak dapat dihuraikan. Cuba buka dalam pemapar PDF dan simpan semula (Fail → Cetak → Simpan sebagai PDF), kemudian muat naik semula.",
+      "pdfScanned": "{{subject}} nampaknya PDF yang diimbas atau berasaskan imej. OCR belum disokong lagi — sila muat naik berasaskan teks PDF.",
+      "pdfEncrypted": "{{subject}} dilindungi kata laluan. Alih keluar kata laluan dan cuba lagi.",
+      "pdfUnsupportedFeature": "{{subject}} menggunakan ciri PDF Novera belum dapat menghuraikan lagi (cth. PostScript warna/fungsi teduhan). Cuba simpan semula (Fail → Cetak → Simpan sebagai PDF) untuk meratakannya, kemudian muat naik semula.",
+      "pdfGeneric": "{{subject}} tidak dapat dihuraikan sebagai PDF. Fail mungkin rosak atau menggunakan ciri PDF yang tidak disokong.",
+      "fileTooLarge": "{{subject}} terlalu besar. {{message}}.",
+      "unsupportedType": "Jenis fail \"{{type}}\" tidak disokong.",
+      "ioError": "Tidak boleh membaca {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} tidak dapat dihuraikan: {{message}}",
+      "fallback": "Gagal memproses {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Fail Dipadamkan",
+      "description": "Fail telah dialih keluar daripada projek"
+    },
+    "deleteFailed": {
+      "title": "Padam Gagal",
+      "description": "Gagal memadam fail"
+    },
+    "fileAlreadyExists": {
+      "title": "Fail Sudah Wujud",
+      "description": "Fail sudah dilampirkan pada projek ini"
+    },
+    "unsupportedFileType": {
+      "title": "Jenis Fail Tidak Disokong",
+      "description": "Sambungan fail \".{{extension}}\" tidak disokong untuk rujukan Projek."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Lampiran Dilumpuhkan",
+      "description": "Lampiran dilumpuhkan dalam Tetapan"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Fail terlalu besar",
+    "fileTooLargeDescription": "{{fileName}} melebihi had {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} ketulan",
+    "title": "Fail",
+    "empty": "Fail yang anda lampirkan dan fail yang dibuat oleh ejen akan dipaparkan di sini.",
+    "a11y": "Fail: {{count}}",
+    "attachments": "Lampiran",
+    "notImported": "bukan di ruang kerja"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp masih sibuk",
+    "description": "Satu atau lebih model tidak memunggah dalam masa. Berhenti secara paksa akan menamatkan llama.cpp dan boleh mengganggu respons aktif.",
+    "forceQuit": "Berhenti paksa",
+    "forcing": "Berhenti paksa…",
+    "shuttingDown": "Mematikan…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}j"
+  },
+  "collapse": "Runtuh",
+  "expand": "Kembangkan",
+  "todoPanelTitle": "Kemajuan",
+  "todoPanelEmpty": "Tiada senarai tugasan lagi.",
+  "backgroundTasks": "Tugas latar belakang",
+  "subagentsRunning_one": "{{count}} subagen berjalan",
+  "subagentsRunning_other": "{{count}} subagen berjalan",
+  "monitorsRunning_one": "{{count}} monitor berjalan",
+  "monitorsRunning_other": "{{count}} memantau berjalan",
+  "backgroundRunning_one": "{{count}} tugas latar belakang berjalan",
+  "backgroundRunning_other": "{{count}} tugas latar belakang berjalan",
+  "monitors": "Pemantau",
+  "monitorPolling": "pengundian",
+  "monitorMatched": "dipadankan",
+  "monitorTimedOut": "Tamat masa",
+  "monitorStopped": "Berhenti",
+  "monitorEnded": "Berakhir",
+  "coworkWatching_one": "Menonton {{count}} memantau…",
+  "coworkWatching_other": "Menonton {{count}} memantau…",
+  "coworkWaitingBackground": "Menunggu tugasan latar belakang…",
+  "noBackgroundTasks": "Tiada tugas latar belakang lagi.",
+  "running": "Berlari",
+  "queued": "Beratur",
+  "waiting": "Menunggu",
+  "finished": "Selesai",
+  "subagentPhase": "fasa {{phase}}",
+  "subagentWaiting": "menunggu",
+  "viewTranscript": "Lihat transkrip",
+  "taskWorking": "Bekerja…",
+  "taskNoOutput": "Subagen tidak menghasilkan keluaran yang kelihatan.",
+  "subagentToolUses_one": "{{count}} penggunaan alatan",
+  "subagentToolUses_other": "{{count}} kegunaan alatan",
+  "artifactGroupCode": "Kod",
+  "artifactGroupImage": "Imej",
+  "artifactGroupDocument": "Dokumen",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Buka pratonton",
+  "artifactOpenExternal": "Buka",
+  "artifactMoreActions": "Lebih banyak tindakan",
+  "artifactShowInFolder": "Tunjukkan dalam Folder",
+  "skillsUsedLabel": "Kemahiran yang digunakan",
+  "skillsUsed": "Kemahiran yang digunakan: {{skills}}",
+  "artifactsAll": "Semua",
+  "artifactsEmpty": "Belum ada yang dihasilkan. Artifak daripada Cowork larian dipaparkan di sini.",
+  "artifactsNoMatch": "Tiada artifak sepadan.",
+  "artifactsSearch": "Cari artifak",
+  "artifactsShowMore": "Tunjukkan {{count}} lagi",
+  "workspace": {
+    "readsFrom": "Berfungsi dalam",
+    "writable": "baca & tulis",
+    "footnote": "Ejen membaca dan mengedit folder ini secara langsung. Semak perkara yang berubah dalam panel perbezaan.",
+    "footnoteEmpty": "Lampirkan folder untuk membenarkan ejen bekerja pada projek anda. Ia boleh membaca dan mengedit fail di dalamnya.",
+    "attach": "Lampirkan folder",
+    "change": "Tukar folder",
+    "detach": "Tanggalkan folder",
+    "open": "Buka",
+    "reveal": "Dedahkan",
+    "unavailable": "Ruang kerja tidak tersedia",
+    "missing": "Folder ruang kerja {{folder}} tidak lagi tersedia. Pilih folder lain.",
+    "openFailed": "Tidak dapat membuka ruang kerja",
+    "revealFailed": "Tidak dapat mendedahkan ruang kerja",
+    "a11yWithFolder": "Folder projek {{folder}}, dilampirkan dengan akses baca dan tulis. Tukar atau tanggalkannya.",
+    "a11yNoFolder": "Tiada folder projek dilampirkan. Lampirkan satu."
+  },
+  "coworkEmpty": {
+    "title": "Apa yang sedang kita usahakan?",
+    "subtitleSandbox": "Beri Novera tugas. Ia membaca dan menulis fail, menjalankan arahan dan berfungsi melalui langkah-langkah itu sendiri.",
+    "subtitleFolder": "Beri Novera tugas. Ia berfungsi secara langsung dalam {{folder}}, membaca dan mengedit fail sendiri.",
+    "try": "Cubalah",
+    "sandbox": {
+      "first": "Tulis skrip Python yang menamakan semula fail mengikut tarikh ia diambil",
+      "second": "Bina papan pemuka satu halaman daripada CSV saya akan tampalkan",
+      "third": "Draf README untuk projek yang saya terangkan kepada anda"
+    },
+    "folder": {
+      "first": "Terangkan bagaimana {{folder}} disatukan",
+      "second": "Cari setiap TODO dalam {{folder}} dan kumpulkannya mengikut kawasan",
+      "third": "Tulis ujian untuk bahagian {{folder}} saya tunjukkan kepada anda"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Tiada terminal",
+    "a11y": "Menjalankan arahan dimatikan. Butiran.",
+    "title": "Menjalankan arahan dimatikan",
+    "body": "Novera membenarkan ejen menjalankan arahan shell hanya apabila sistem anda boleh mengehadkannya. Tiada kotak pasir tersedia di sini, jadi ejen boleh membaca, menulis dan mengedit fail dalam kotak pasirnya — tetapi tidak menjalankan apa-apa.",
+    "fixLinux": "Linux menggunakan bubblewrap. Pasangnya, kemudian mulakan semula Novera.",
+    "fixMac": "macOS menggunakan kotak pasir terbina dalam di /usr/bin/sandbox-exec. Mulakan semula Novera sebaik sahaja ia tersedia.",
+    "fixWindows": "Windows menggunakan AppContainer. Mulakan semula Novera untuk mencuba lagi.",
+    "recheck": "Semak semula"
+  },
+  "planMode": {
+    "label": "Rancang",
+    "tooltipOff": "Rancang dahulu — ejen membaca dan mencadangkan, tanpa menulis.",
+    "tooltipOn": "Perancangan. Matikan ini untuk membenarkan ejen menulis fail.",
+    "onAnnounce": "Mod rancangan dihidupkan",
+    "placeholder": "Minta rancangan. Ejen tidak akan menukar sebarang fail."
+  },
+  "budget": {
+    "stoppedSteps": "Berhenti pada {{max}} langkah. Ejen belum selesai.",
+    "keepGoing": "Teruskan",
+    "stoppedTokens": "Dihentikan — sesi ini mencapai belanjawan tokennya.",
+    "compact": "Padat",
+    "newSession": "Sesi baru"
+  },
+  "run": {
+    "stopped": "Berhenti.",
+    "failed": "Larian berhenti awal.",
+    "tryAgain": "Cuba lagi"
+  },
+  "modelNoTools": "{{model}} tidak boleh memanggil alatan, jadi ia tidak boleh bertindak sebagai ejen. Pilih model panggilan alat.",
+  "askContinue": "teruskan",
+  "askNext": "Soalan seterusnya",
+  "askPrev": "Soalan sebelumnya",
+  "askRecommended": "Disyorkan",
+  "askSelectedCount": "{{count}} dipilih",
+  "askSomethingElse": "Sesuatu yang lain",
+  "askSomethingElsePlaceholder": "Taip jawapan anda sendiri",
+  "submit": "Hantar",
+  "composer": {
+    "advanced": "Parameter lanjutan",
+    "modelDefaults": "Model lalai",
+    "assistantOverrides": "Penolong menimpa",
+    "printPdf": "Cetak / Simpan sebagai PDF",
+    "exportHint": "Format yang boleh dibaca: cawangan aktif. JSON: semua versi mesej. Fail luaran tidak digabungkan."
+  },
+  "telemetry": {
+    "summary": "Dengan persetujuan anda, {{host}} hanya menerima versi Novera dan sistem pengendalian, tanpa perbualan atau pengecam yang berterusan.",
+    "unavailable": "Statistik tidak dikonfigurasikan. Tiada data dihantar."
+  },
+  "errorTracking": {
+    "title": "Penjejakan ralat",
+    "summary": "Laporan pilihan kepada {{host}}: jenis ralat, kedudukan kod, versi dan sistem pengendalian. Tiada perbualan, mesej ralat mentah atau kunci. Lumpuhkan bila-bila masa.",
+    "unavailable": "Penjejakan ralat tidak dikonfigurasikan. Tiada laporan dihantar."
+  }
+}

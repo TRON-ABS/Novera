@@ -132,8 +132,8 @@ const translate = (key: string, options: Record<string, unknown> = {}): string =
 // Keep the DOM language and base direction in sync, including initial load.
 function syncDocumentLanguage(language: string): void {
   if (typeof document === 'undefined') return
-  document.documentElement.lang = language === 'vn' ? 'vi' : language
-  document.documentElement.dir = ['ar', 'apc', 'apd', 'arq', 'ary', 'ur', 'arz', 'pnb', 'fa', 'fa-IR'].includes(language) ? 'rtl' : 'ltr'
+  document.documentElement.lang = language === 'vn' ? 'vi' : language === 'prs' ? 'fa-AF' : language
+  document.documentElement.dir = ['ar', 'apc', 'apd', 'arq', 'ary', 'sd', 'prs', 'ur', 'arz', 'pnb', 'fa', 'fa-IR'].includes(language) ? 'rtl' : 'ltr'
 }
 
 // Change language function

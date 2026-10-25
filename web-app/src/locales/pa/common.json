@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "ਕੋਡ",
+    "preview": "ਝਲਕ",
+    "previewStreaming": "ਜਨਰੇਸ਼ਨ ਪੂਰਾ ਹੋਣ 'ਤੇ ਉਪਲਬਧ",
+    "unresolvedAssets_one": "ਪੂਰਵ-ਝਲਕ ਵਿੱਚ 1 ਸੰਪਤੀ ਦਾ ਹਵਾਲਾ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਸਾਪੇਖਿਕ ਮਾਰਗਾਂ ਦੇ ਵਿਰੁੱਧ ਹੱਲ ਕਰਨ ਲਈ ਕੋਈ ਅਧਾਰ URL ਨਹੀਂ ਹੈ।",
+    "unresolvedAssets_other": "{{count}} ਸੰਪੱਤੀ ਹਵਾਲੇ ਪੂਰਵਦਰਸ਼ਨ ਵਿੱਚ ਲੋਡ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ। ਸਾਪੇਖਿਕ ਮਾਰਗਾਂ ਦੇ ਵਿਰੁੱਧ ਹੱਲ ਕਰਨ ਲਈ ਕੋਈ ਅਧਾਰ URL ਨਹੀਂ ਹੈ।"
+  },
+  "assistants": "ਸਹਾਇਕ",
+  "hardware": "ਹਾਰਡਵੇਅਰ",
+  "mcp-servers": "MCP ਸਰਵਰ",
+  "local_api_server": "ਸਥਾਨਕ API ਸਰਵਰ",
+  "remote_access": "ਰਿਮੋਟ ਪਹੁੰਚ",
+  "integrations": "ਏਕੀਕਰਣ",
+  "experimental": "ਪ੍ਰਯੋਗਾਤਮਕ",
+  "claude_code": "ਕਲਾਉਡ ਕੋਡ",
+  "https_proxy": "HTTPS ਪ੍ਰੌਕਸੀ",
+  "web_search": "ਵੈੱਬ ਖੋਜ",
+  "shell": "ਸ਼ੈੱਲ",
+  "browse": "ਬ੍ਰਾਊਜ਼ ਕਰੋ",
+  "moreControls": "ਹੋਰ ਨਿਯੰਤਰਣ",
+  "starting": "ਸ਼ੁਰੂ ਹੋ ਰਿਹਾ ਹੈ...",
+  "activeSuffix": "(ਕਿਰਿਆਸ਼ੀਲ)",
+  "extensions": "ਐਕਸਟੈਂਸ਼ਨਾਂ",
+  "attachments": "ਅਟੈਚਮੈਂਟਸ",
+  "general": "ਜਨਰਲ",
+  "settings": "ਸੈਟਿੰਗਾਂ",
+  "modelProviders": "ਮਾਡਲ ਪ੍ਰਦਾਤਾ",
+  "localProviders": "ਸਥਾਨਕ",
+  "remoteProviders": "ਰਿਮੋਟ",
+  "manageProviders": "ਪ੍ਰਦਾਤਾਵਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ",
+  "hiddenProviders": "{{count}} ਅਸਮਰਥਿਤ",
+  "hideProvider": "ਪ੍ਰਦਾਤਾ ਨੂੰ ਲੁਕਾਓ",
+  "showProvider": "ਪ੍ਰਦਾਤਾ ਦਿਖਾਓ",
+  "interface": "ਇੰਟਰਫੇਸ",
+  "appearance": "ਦਿੱਖ",
+  "privacy": "ਗੋਪਨੀਯਤਾ",
+  "keyboardShortcuts": "ਸ਼ਾਰਟਕੱਟ",
+  "home": "ਘਰ",
+  "cowork": "Cowork",
+  "newSession": "ਨਵਾਂ ਸੈਸ਼ਨ",
+  "artifacts": "ਕਲਾਕ੍ਰਿਤੀਆਂ",
+  "customize": "ਅਨੁਕੂਲਿਤ ਕਰੋ",
+  "local": "ਸਥਾਨਕ",
+  "selectFolder": "ਫੋਲਡਰ ਚੁਣੋ",
+  "selectModel": "ਪਹਿਲਾਂ ਇੱਕ ਮਾਡਲ ਚੁਣੋ",
+  "commands": "ਹੁਕਮ",
+  "cmdHelp": "ਉਪਲਬਧ ਕਮਾਂਡਾਂ ਦੀ ਸੂਚੀ ਬਣਾਓ",
+  "cmdClear": "ਇਸ ਸੈਸ਼ਨ ਨੂੰ ਸਾਫ਼ ਕਰੋ",
+  "cmdModels": "ਕਿਰਿਆਸ਼ੀਲ ਮਾਡਲ ਬਦਲੋ",
+  "cmdModelsHint": "/models ਟਾਈਪ ਕਰੋ ਫਿਰ ਸੂਚੀ ਵਿੱਚੋਂ ਇੱਕ ਮਾਡਲ ਚੁਣੋ",
+  "cmdModelSwitched": "{{name}} 'ਤੇ ਬਦਲਿਆ ਗਿਆ",
+  "cmdUnknown": "ਅਗਿਆਤ ਕਮਾਂਡ: {{name}}। /help ਅਜ਼ਮਾਓ",
+  "cmdBusy": "ਜਦੋਂ ਏਜੰਟ ਚੱਲ ਰਿਹਾ ਹੋਵੇ ਤਾਂ ਅਜਿਹਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ",
+  "cmdCompact": "ਸੈਸ਼ਨ ਦੇ ਸੰਦਰਭ ਨੂੰ ਸੰਖੇਪ ਵਿੱਚ ਸੰਖੇਪ ਕਰੋ",
+  "cmdCompacted": "ਸੰਕੁਚਿਤ {{before}} -> {{after}} ਸੁਨੇਹੇ",
+  "cmdNothingToCompact": "ਅਜੇ ਸੰਕੁਚਿਤ ਕਰਨ ਲਈ ਕੁਝ ਨਹੀਂ ਹੈ",
+  "cmdCompactFailed": "ਸੰਕੁਚਿਤ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ: {{error}}",
+  "cmdPlan": "ਪਲਾਨ ਮੋਡ ਨੂੰ ਟੌਗਲ ਕਰੋ (ਸਿਰਫ਼ ਪੜ੍ਹਨ ਲਈ: ਏਜੰਟ ਬਿਨਾਂ ਲਿਖਤੀ ਪ੍ਰਸਤਾਵ ਦਿੰਦਾ ਹੈ)",
+  "cmdPlanOn": "ਯੋਜਨਾ ਮੋਡ ਚਾਲੂ: ਏਜੰਟ ਬਿਨਾਂ ਲਿਖੇ ਪੜ੍ਹਦਾ ਅਤੇ ਪ੍ਰਸਤਾਵ ਦਿੰਦਾ ਹੈ",
+  "cmdPlanOff": "ਪਲਾਨ ਮੋਡ ਬੰਦ: ਸਧਾਰਨ ਐਗਜ਼ੀਕਿਊਸ਼ਨ",
+  "cmdTodo": "ਤਰੱਕੀ ਪੈਨਲ ਖੋਲ੍ਹੋ",
+  "cmdTasks": "ਬੈਕਗ੍ਰਾਊਂਡ ਟਾਸਕ ਪੈਨਲ ਖੋਲ੍ਹੋ",
+  "cmdInit": "ਪ੍ਰੋਜੈਕਟ ਦਾ ਅਧਿਐਨ ਕਰੋ ਅਤੇ ਹੁਨਰ ਅਤੇ ਮੈਮੋਰੀ ਲਿਖੋ",
+  "cmdInitRunning": "ਇਸ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋ ਰਿਹਾ ਹੈ",
+  "skills": "ਹੁਨਰ",
+  "skillsInContext": "ਇਸ ਨੂੰ ਚਲਾਉਣ ਵਾਲੇ ਏਜੰਟ ਲਈ ਹੁਨਰ ਉਪਲਬਧ ਹਨ",
+  "skillsTitle": "ਹੁਨਰ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ",
+  "skillsScopeProject": "{{folder}} ਲਈ ਹੁਨਰ",
+  "skillsScopeGlobal": "ਗਲੋਬਲ ਹੁਨਰ, ਹਰ ਸੈਸ਼ਨ ਲਈ ਉਪਲਬਧ",
+  "skillsScopeMerged": "{{folder}} ਲਈ ਹੁਨਰ, ਨਾਲ ਹੀ ਗਲੋਬਲ ਹੁਨਰ ਹਰ ਸੈਸ਼ਨ ਸ਼ੇਅਰ ਕਰਦਾ ਹੈ",
+  "skillOriginFolder": "ਫੋਲਡਰ",
+  "skillOriginGlobal": "ਗਲੋਬਲ",
+  "skillsEmpty": "ਅਜੇ ਕੋਈ ਹੁਨਰ ਨਹੀਂ ਹੈ",
+  "skillsPickOrNew": "ਸੰਪਾਦਿਤ ਕਰਨ ਲਈ ਇੱਕ ਹੁਨਰ ਚੁਣੋ, ਜਾਂ ਇੱਕ ਨਵਾਂ ਬਣਾਓ।",
+  "skillNew": "ਨਵਾਂ ਹੁਨਰ",
+  "skillDelete": "ਹੁਨਰ ਨੂੰ ਮਿਟਾਓ",
+  "skillSave": "ਸੰਭਾਲੋ",
+  "skillSaved": "ਹੁਨਰ ਬਚਾਇਆ",
+  "skillNameRequired": "ਹੁਨਰ ਨਾਮ ਦੀ ਲੋੜ ਹੈ",
+  "skillNamePlaceholder": "ਹੁਨਰ-ਨਾਮ",
+  "skillContentPlaceholder": "Markdown ਵਿੱਚ ਮੁੜ ਵਰਤੋਂ ਯੋਗ ਪ੍ਰਕਿਰਿਆ ਦਾ ਵਰਣਨ ਕਰੋ...",
+  "skillHubImport": "ਹੱਬ ਤੋਂ ਆਯਾਤ ਕਰੋ",
+  "skillHubTitle": "Anthropic ਹੁਨਰ ਕੇਂਦਰ",
+  "skillHubEmpty": "ਹੱਬ 'ਤੇ ਕੋਈ ਹੁਨਰ ਨਹੀਂ ਮਿਲਿਆ",
+  "skillImport": "ਆਯਾਤ ਕਰੋ",
+  "skillReimport": "ਮੁੜ-ਆਯਾਤ ਕਰੋ",
+  "skillImported": "ਆਯਾਤ ਕੀਤਾ {{name}}",
+  "sessions": "ਸੈਸ਼ਨ",
+  "deleteSession": "ਸੈਸ਼ਨ ਮਿਟਾਓ",
+  "deleteSessionTitle": "ਸੈਸ਼ਨ ਮਿਟਾਉਣਾ ਹੈ?",
+  "deleteSessionBody": "\"{{title}}\" ਅਤੇ ਇਸਦੀ ਪ੍ਰਤੀਲਿਪੀ ਨੂੰ ਸਥਾਈ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਇਸ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
+  "newChat": "ਨਵੀਂ ਚੈਟ",
+  "newAgentChat": "ਨਵਾਂ ਏਜੰਟ ਚੈਟ",
+  "chats": "ਗੱਲਬਾਤ",
+  "favorites": "ਮਨਪਸੰਦ",
+  "recents": "ਹਾਲੀਆ",
+  "hub": "ਹੱਬ",
+  "helpSupport": "ਮਦਦ ਅਤੇ ਸਹਾਇਤਾ",
+  "helpUsImproveJan": "Novera ਨੂੰ ਸੁਧਾਰਨ ਵਿੱਚ ਸਾਡੀ ਮਦਦ ਕਰੋ",
+  "analyticsConsentDetail": "ਅਸੀਂ ਵਿਸ਼ੇਸ਼ਤਾ ਦੀ ਵਰਤੋਂ ਨੂੰ ਸਮਝਣ ਲਈ ਅਗਿਆਤ ਡੇਟਾ ਇਕੱਤਰ ਕਰਦੇ ਹਾਂ। ਤੁਹਾਡੀਆਂ ਚੈਟਾਂ ਅਤੇ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਨੂੰ ਕਦੇ ਵੀ ਟਰੈਕ ਨਹੀਂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਤੁਸੀਂ ਇਸਨੂੰ ਸੈਟਿੰਗਾਂ > ਗੋਪਨੀਯਤਾ ਵਿੱਚ ਕਿਸੇ ਵੀ ਸਮੇਂ ਬਦਲ ਸਕਦੇ ਹੋ।",
+  "analyticsConsentQuestion": "ਕੀ ਤੁਸੀਂ Novera ਨੂੰ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਸਾਡੀ ਮਦਦ ਕਰਨਾ ਚਾਹੋਗੇ?",
+  "unstarAll": "ਸਭ ਤੋਂ ਤਾਰਾ ਹਟਾਓ",
+  "unstar": "ਤਾਰਾ ਹਟਾਓ",
+  "deleteAll": "ਸਭ ਮਿਟਾਓ",
+  "star": "ਤਾਰਾ",
+  "rename": "ਨਾਮ ਬਦਲੋ",
+  "delete": "ਮਿਟਾਓ",
+  "copied": "ਕਾਪੀ ਕੀਤਾ!",
+  "dataFolder": "ਡਾਟਾ ਫੋਲਡਰ",
+  "others": "ਹੋਰ",
+  "language": "ਭਾਸ਼ਾ",
+  "login": "ਲੌਗ ਇਨ ਕਰੋ",
+  "loginWith": "{{provider}} ਨਾਲ ਲੌਗ ਇਨ ਕਰੋ",
+  "loginFailed": "ਲੌਗ ਇਨ ਕਰਨ ਵਿੱਚ ਅਸਫਲ",
+  "logout": "ਲੌਗ ਆਉਟ ਕਰੋ",
+  "loggingOut": "ਲੌਗ ਆਉਟ ਹੋ ਰਿਹਾ ਹੈ...",
+  "loggedOut": "ਸਫਲਤਾਪੂਰਵਕ ਲੌਗ ਆਊਟ ਹੋਇਆ",
+  "logoutFailed": "ਲੌਗ ਆਉਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ",
+  "profile": "ਪ੍ਰੋਫਾਈਲ",
+  "reset": "ਰੀਸੈਟ ਕਰੋ",
+  "search": "ਖੋਜੋ",
+  "searchThreads": "ਥ੍ਰੈੱਡ ਖੋਜੋ...",
+  "toNavigate": "ਨੈਵੀਗੇਟ ਕਰਨ ਲਈ",
+  "toSelect": "ਦੀ ਚੋਣ ਕਰਨ ਲਈ",
+  "toClose": "ਬੰਦ ਕਰਨ ਲਈ",
+  "clearRecent": "ਸਾਫ਼",
+  "name": "ਨਾਮ",
+  "cancel": "ਰੱਦ ਕਰੋ",
+  "dismiss": "ਖਾਰਜ ਕਰੋ",
+  "create": "ਬਣਾਓ",
+  "save": "ਸੰਭਾਲੋ",
+  "edit": "ਸੋਧੋ",
+  "copy": "ਨਕਲ ਕਰੋ",
+  "back": "ਵਾਪਸ",
+  "close": "ਬੰਦ ਕਰੋ",
+  "done": "ਹੋ ਗਿਆ",
+  "next": "ਅੱਗੇ",
+  "finish": "ਸਮਾਪਤ",
+  "skip": "ਛੱਡੋ",
+  "allow": "ਇਜਾਜ਼ਤ ਦਿਓ",
+  "deny": "ਇਨਕਾਰ",
+  "start": "ਸ਼ੁਰੂ ਕਰੋ",
+  "stop": "ਰੁਕੋ",
+  "preview": {
+    "loading": "ਖੋਲ੍ਹਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
+    "unsupported": "Novera ਇਸ ਕਿਸਮ ਦੀ ਫ਼ਾਈਲ ਨਹੀਂ ਦਿਖਾ ਸਕਦਾ। ਇਸਨੂੰ ਕਿਸੇ ਹੋਰ ਐਪ ਵਿੱਚ ਦੇਖਣ ਲਈ ਇਸਨੂੰ ਖੋਲ੍ਹੋ।",
+    "outside": "ਇਹ ਫ਼ਾਈਲ ਹੁਣ ਸੈਸ਼ਨ ਵਰਕਸਪੇਸ ਵਿੱਚ ਨਹੀਂ ਹੈ।",
+    "tooLarge": "ਪੂਰਵਦਰਸ਼ਨ ਲਈ ਬਹੁਤ ਵੱਡਾ। ਇਸਨੂੰ ਕਿਸੇ ਹੋਰ ਐਪ ਵਿੱਚ ਦੇਖਣ ਲਈ ਇਸਨੂੰ ਖੋਲ੍ਹੋ।",
+    "reload": "ਰੀਲੋਡ ਕਰੋ",
+    "allowNetwork": "ਨੈੱਟਵਰਕ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ",
+    "unsandboxed": "ਅਨਸੈਂਡਬਾਕਸਡ ਚਲਾਓ: ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਡੇਟਾ ਅਤੇ ਸਥਾਨਕ ਫਾਈਲਾਂ ਕੰਮ ਕਰਦੀਆਂ ਹਨ",
+    "unresolvedRefs_one": "1 ਫ਼ਾਈਲ ਜਿਸ ਨਾਲ ਇਹ ਪੰਨਾ ਲਿੰਕ ਹੈ, ਝਲਕ ਵਿੱਚ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕਦਾ। ਇਸਨੂੰ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਦੇਖਣ ਲਈ ਇਸਨੂੰ ਖੋਲ੍ਹੋ।",
+    "unresolvedRefs_other": "{{count}} ਫਾਈਲਾਂ ਜਿਹਨਾਂ ਨਾਲ ਇਹ ਪੰਨਾ ਲਿੰਕ ਕਰਦਾ ਹੈ ਪੂਰਵਦਰਸ਼ਨ ਵਿੱਚ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਇਸਨੂੰ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਦੇਖਣ ਲਈ ਇਸਨੂੰ ਖੋਲ੍ਹੋ।",
+    "externalRefs_one": "ਵੈੱਬ ਤੋਂ ਇਹ ਪੰਨਾ ਲੋਡ ਹੋਣ ਵਾਲਾ 1 ਸਰੋਤ ਬਲੌਕ ਕੀਤਾ ਗਿਆ ਹੈ। ਇਸਨੂੰ ਲੋਡ ਕਰਨ ਲਈ \"ਨੈੱਟਵਰਕ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ\" ਨੂੰ ਚਾਲੂ ਕਰੋ।",
+    "externalRefs_other": "{{count}} ਸਰੋਤ ਜੋ ਇਹ ਪੰਨਾ ਵੈੱਬ ਤੋਂ ਲੋਡ ਕਰਦਾ ਹੈ ਬਲੌਕ ਕੀਤਾ ਗਿਆ ਹੈ। ਉਹਨਾਂ ਨੂੰ ਲੋਡ ਕਰਨ ਲਈ \"ਨੈੱਟਵਰਕ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ\" ਨੂੰ ਚਾਲੂ ਕਰੋ।",
+    "scriptErrors_one": "ਪੰਨੇ ਨੇ ਇੱਕ ਗਲਤੀ ਦੀ ਰਿਪੋਰਟ ਕੀਤੀ: {{message}}",
+    "scriptErrors_other": "ਪੰਨੇ ਨੇ {{count}} ਤਰੁੱਟੀਆਂ ਦੀ ਰਿਪੋਰਟ ਕੀਤੀ ਹੈ। ਪਹਿਲਾ: {{message}}"
+  },
+  "changes": {
+    "title": "ਏਜੰਟ ਬਦਲਦਾ ਹੈ",
+    "empty": "ਏਜੰਟ ਦੁਆਰਾ ਲਿਖੀਆਂ ਜਾਂ ਸੰਪਾਦਿਤ ਕੀਤੀਆਂ ਫਾਈਲਾਂ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੀਆਂ।",
+    "a11y": "ਏਜੰਟ ਤਬਦੀਲੀਆਂ: {{files}} ਫ਼ਾਈਲਾਂ, {{additions}} ਜੋੜੀਆਂ ਗਈਆਂ, {{deletions}} ਹਟਾਈਆਂ ਗਈਆਂ"
+  },
+  "modelPanel": {
+    "title": "ਮਾਡਲ ਸੈਟਿੰਗਾਂ",
+    "a11y": "ਮਾਡਲ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ",
+    "contextTooltip": "ਸੰਦਰਭ ਵਿੰਡੋ: {{max}} ਟੋਕਨਾਂ ਵਿੱਚੋਂ {{value}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "ਹੁਨਰ '{{name}}' ਉਪਲਬਧ ਨਹੀਂ ਹੈ",
+    "kind": {
+      "skill": "ਹੁਨਰ",
+      "command": "ਕਮਾਂਡ",
+      "model": "ਮਾਡਲ"
+    }
+  },
+  "compactWidth": "ਸੰਖੇਪ ਚੌੜਾਈ",
+  "fullWidth": "ਪੂਰੀ ਚੌੜਾਈ",
+  "dark": "ਹਨੇਰਾ",
+  "light": "ਚਾਨਣ",
+  "system": "ਸਿਸਟਮ",
+  "auto": "ਆਟੋ",
+  "english": "ਅੰਗਰੇਜ਼ੀ",
+  "medium": "ਦਰਮਿਆਨਾ",
+  "newThread": "ਨਵਾਂ ਥ੍ਰੈਡ",
+  "noResultsFound": "ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ ਮਿਲੇ",
+  "noThreadsYet": "ਅਜੇ ਤੱਕ ਕੋਈ ਥਰਿੱਡ ਨਹੀਂ ਹਨ",
+  "noThreadsYetDesc": "ਇੱਥੇ ਆਪਣਾ ਥ੍ਰੈਡ ਇਤਿਹਾਸ ਦੇਖਣ ਲਈ ਇੱਕ ਨਵੀਂ ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ।",
+  "downloads": "ਡਾਊਨਲੋਡ",
+  "downloading": "ਡਾਊਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ",
+  "uploadingAttachments": "ਅਟੈਚਮੈਂਟਾਂ ਅੱਪਲੋਡ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ...",
+  "cancelDownload": "ਡਾਊਨਲੋਡ ਰੱਦ ਕਰੋ",
+  "downloadCancelled": "ਡਾਊਨਲੋਡ ਰੱਦ ਕੀਤਾ",
+  "downloadComplete": "ਡਾਊਨਲੋਡ ਪੂਰਾ ਹੋਇਆ",
+  "thinking": "ਸੋਚ ਰਿਹਾ...",
+  "thought": "ਸੋਚਿਆ",
+  "callingTool": "ਕਾਲਿੰਗ ਟੂਲ",
+  "completed": "ਪੂਰਾ ਹੋਇਆ",
+  "image": "ਚਿੱਤਰ",
+  "vision": "ਦ੍ਰਿਸ਼ਟੀ",
+  "multimodal": "ਮਲਟੀਮੋਡਲ",
+  "embeddings": "ਏਮਬੈਡਿੰਗਸ",
+  "tools": "ਸੰਦ",
+  "webSearch": "ਵੈੱਬ ਖੋਜ",
+  "reasoning": "ਤਰਕ",
+  "proactive": "ਕਿਰਿਆਸ਼ੀਲ",
+  "selectAModel": "ਇੱਕ ਮਾਡਲ ਚੁਣੋ",
+  "noToolsAvailable": "ਕੋਈ ਸਾਧਨ ਉਪਲਬਧ ਨਹੀਂ ਹਨ",
+  "noModelsFoundFor": "\"{{searchValue}}\" ਲਈ ਕੋਈ ਮਾਡਲ ਨਹੀਂ ਮਿਲਿਆ",
+  "failedToLoadModels": "ਮਾਡਲ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ",
+  "noModels": "ਕੋਈ ਮਾਡਲ ਨਹੀਂ ਮਿਲੇ",
+  "noAssistant": "ਕੋਈ ਸਹਾਇਕ ਨਹੀਂ",
+  "customAvatar": "ਕਸਟਮ ਅਵਤਾਰ",
+  "editAssistant": "ਸਹਾਇਕ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+  "jan": "Novera",
+  "metadata": "ਮੈਟਾਡਾਟਾ",
+  "regenerate": "ਪੁਨਰਜਨਮ",
+  "threadImage": "ਥਰਿੱਡ ਚਿੱਤਰ",
+  "editMessage": "ਸੁਨੇਹਾ ਸੰਪਾਦਿਤ ਕਰੋ",
+  "deleteMessage": "ਸੁਨੇਹਾ ਮਿਟਾਓ",
+  "deleteThread": "ਥਰਿੱਡ ਮਿਟਾਓ",
+  "renameThread": "ਥ੍ਰੈੱਡ ਦਾ ਨਾਮ ਬਦਲੋ",
+  "threadTitle": "ਥਰਿੱਡ ਸਿਰਲੇਖ",
+  "deleteAllThreads": "ਸਾਰੇ ਥ੍ਰੈਡਸ ਮਿਟਾਓ",
+  "allThreadsUnfavorited": "ਸਾਰੇ ਥ੍ਰੈੱਡਾਂ ਨੂੰ ਮਨਪਸੰਦ ਨਹੀਂ ਕੀਤਾ ਗਿਆ",
+  "deleteAllThreadsConfirm": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਸਾਰੇ ਥ੍ਰੈੱਡਾਂ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
+  "addProvider": "ਪ੍ਰਦਾਤਾ ਸ਼ਾਮਲ ਕਰੋ",
+  "addOpenAIProvider": "OpenAI ਪ੍ਰਦਾਤਾ ਸ਼ਾਮਲ ਕਰੋ",
+  "enterNameForProvider": "ਆਪਣੇ ਪ੍ਰਦਾਤਾ ਲਈ ਇੱਕ ਨਾਮ ਦਰਜ ਕਰੋ",
+  "providerAlreadyExists": "\"{{name}}\" ਨਾਮ ਵਾਲਾ ਪ੍ਰਦਾਤਾ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਕੋਈ ਵੱਖਰਾ ਨਾਮ ਚੁਣੋ।",
+  "adjustFontSize": "ਫੌਂਟ ਦਾ ਆਕਾਰ ਵਿਵਸਥਿਤ ਕਰੋ",
+  "changeLanguage": "ਭਾਸ਼ਾ ਬਦਲੋ",
+  "editTheme": "ਥੀਮ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+  "editCodeBlockStyle": "ਕੋਡ ਬਲਾਕ ਸ਼ੈਲੀ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+  "editServerHost": "ਸਰਵਰ ਹੋਸਟ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+  "pickColorWindowBackground": "ਰੰਗ ਵਿੰਡੋ ਬੈਕਗ੍ਰਾਉਂਡ ਚੁਣੋ",
+  "pickColorAppMainView": "ਰੰਗ ਐਪ ਮੁੱਖ ਦ੍ਰਿਸ਼ ਚੁਣੋ",
+  "pickColorAppPrimary": "ਰੰਗ ਐਪ ਪ੍ਰਾਇਮਰੀ ਚੁਣੋ",
+  "pickColorAppAccent": "ਰੰਗ ਐਪ ਐਕਸੈਂਟ ਚੁਣੋ",
+  "pickColorAppDestructive": "ਵਿਨਾਸ਼ਕਾਰੀ ਰੰਗ ਐਪ ਚੁਣੋ",
+  "apiKeyRequired": "API ਕੁੰਜੀ ਦੀ ਲੋੜ ਹੈ",
+  "enterTrustedHosts": "ਭਰੋਸੇਯੋਗ ਮੇਜ਼ਬਾਨਾਂ ਨੂੰ ਦਾਖਲ ਕਰੋ",
+  "placeholder": {
+    "chatInput": "ਮੈਨੂੰ ਕੁਝ ਵੀ ਪੁੱਛੋ ..."
+  },
+  "confirm": "ਪੁਸ਼ਟੀ ਕਰੋ",
+  "continue": "ਜਾਰੀ ਰੱਖੋ",
+  "loading": "ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
+  "settingUpJan": "Novera ਨੂੰ ਬੂਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
+  "registeringExtensions": "ਐਕਸਟੈਂਸ਼ਨਾਂ ਨੂੰ ਰਜਿਸਟਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...",
+  "loadingExtensions": "ਐਕਸਟੈਂਸ਼ਨਾਂ ਲੋਡ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ... ({{done}}/{{total}})",
+  "error": "ਗਲਤੀ",
+  "success": "ਸਫਲਤਾ",
+  "warning": "ਚੇਤਾਵਨੀ",
+  "conversationNotAvailable": "ਗੱਲਬਾਤ ਉਪਲਬਧ ਨਹੀਂ ਹੈ",
+  "conversationNotAvailableDescription": "ਜਿਸ ਗੱਲਬਾਤ ਤੱਕ ਤੁਸੀਂ ਪਹੁੰਚ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਹੇ ਹੋ ਉਹ ਉਪਲਬਧ ਨਹੀਂ ਹੈ ਜਾਂ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ।",
+  "temporaryChat": "ਅਸਥਾਈ ਚੈਟ",
+  "temporaryChatTooltip": "ਅਸਥਾਈ ਚੈਟ ਤੁਹਾਡੇ ਇਤਿਹਾਸ ਵਿੱਚ ਦਿਖਾਈ ਨਹੀਂ ਦੇਵੇਗੀ",
+  "noResultsFoundDesc": "ਅਸੀਂ ਤੁਹਾਡੀ ਖੋਜ ਨਾਲ ਮੇਲ ਖਾਂਦੀ ਕੋਈ ਵੀ ਚੈਟ ਨਹੀਂ ਲੱਭ ਸਕੇ। ਇੱਕ ਵੱਖਰਾ ਕੀਵਰਡ ਅਜ਼ਮਾਓ।",
+  "searchModels": "ਖੋਜ ਮਾਡਲ...",
+  "searchStyles": "ਖੋਜ ਸ਼ੈਲੀਆਂ...",
+  "createAssistant": "ਸਹਾਇਕ ਬਣਾਓ",
+  "enterApiKey": "API ਕੁੰਜੀ ਦਰਜ ਕਰੋ",
+  "scrollToBottom": "ਹੇਠਾਂ ਤੱਕ ਸਕ੍ਰੋਲ ਕਰੋ",
+  "generateAiResponse": "AI ਜਵਾਬ ਤਿਆਰ ਕਰੋ",
+  "continueAiResponse": "AI ਜਵਾਬ ਦੇ ਨਾਲ ਜਾਰੀ ਰੱਖੋ",
+  "addModel": {
+    "title": "ਮਾਡਲ ਸ਼ਾਮਲ ਕਰੋ",
+    "modelId": "ਮਾਡਲ ਆਈ.ਡੀ",
+    "enterModelId": "ਮਾਡਲ ID ਦਾਖਲ ਕਰੋ",
+    "addModel": "ਮਾਡਲ ਸ਼ਾਮਲ ਕਰੋ",
+    "description": "ਪ੍ਰਦਾਤਾ ਲਈ ਇੱਕ ਨਵਾਂ ਮਾਡਲ ਸ਼ਾਮਲ ਕਰੋ",
+    "exploreModels": "ਪ੍ਰਦਾਤਾ ਤੋਂ ਮਾਡਲ ਸੂਚੀ ਦੇਖੋ"
+  },
+  "mcpServers": {
+    "editServer": "ਸਰਵਰ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+    "addServer": "ਸਰਵਰ ਸ਼ਾਮਲ ਕਰੋ",
+    "serverName": "ਸਰਵਰ ਦਾ ਨਾਮ",
+    "enterServerName": "ਸਰਵਰ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+    "command": "ਕਮਾਂਡ",
+    "enterCommand": "ਕਮਾਂਡ ਦਿਓ",
+    "arguments": "ਦਲੀਲਾਂ",
+    "argument": "ਆਰਗੂਮੈਂਟ {{index}}",
+    "envVars": "ਵਾਤਾਵਰਣ ਵੇਰੀਏਬਲ",
+    "key": "ਕੁੰਜੀ",
+    "value": "ਮੁੱਲ",
+    "save": "ਸੰਭਾਲੋ"
+  },
+  "deleteServer": {
+    "title": "ਸਰਵਰ ਮਿਟਾਓ",
+    "delete": "ਮਿਟਾਓ"
+  },
+  "editJson": {
+    "errorParse": "JSON ਪਾਰਸ ਕਰਨ ਵਿੱਚ ਅਸਫਲ",
+    "errorPaste": "JSON ਪੇਸਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ",
+    "errorFormat": "ਅਵੈਧ JSON ਫਾਰਮੈਟ",
+    "titleAll": "ਸਾਰੇ ਸਰਵਰ ਸੰਰਚਨਾ ਨੂੰ ਸੋਧੋ",
+    "placeholder": "JSON ਸੰਰਚਨਾ ਦਰਜ ਕਰੋ...",
+    "save": "ਸੰਭਾਲੋ"
+  },
+  "editModel": {
+    "title": "ਮਾਡਲ ਸੰਪਾਦਿਤ ਕਰੋ: {{modelId}}",
+    "description": "ਹੇਠਾਂ ਦਿੱਤੇ ਵਿਕਲਪਾਂ ਨੂੰ ਟੌਗਲ ਕਰਕੇ ਮਾਡਲ ਸਮਰੱਥਾਵਾਂ ਨੂੰ ਕੌਂਫਿਗਰ ਕਰੋ।",
+    "capabilities": "ਸਮਰੱਥਾਵਾਂ",
+    "tools": "ਸੰਦ",
+    "vision": "ਦ੍ਰਿਸ਼ਟੀ",
+    "embeddings": "ਏਮਬੈਡਿੰਗਸ",
+    "notAvailable": "ਅਜੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ"
+  },
+  "outOfContextError": {
+    "truncateInput": "ਇੰਪੁੱਟ ਕੱਟੋ",
+    "title": "ਸੰਦਰਭ ਤੋਂ ਬਾਹਰ ਗਲਤੀ",
+    "description": "ਇਹ ਚੈਟ AI ਦੀ ਮੈਮੋਰੀ ਸੀਮਾ ਤੱਕ ਪਹੁੰਚ ਰਹੀ ਹੈ, ਜਿਵੇਂ ਕਿ ਇੱਕ ਵ੍ਹਾਈਟਬੋਰਡ ਭਰ ਰਿਹਾ ਹੈ। ਅਸੀਂ ਮੈਮੋਰੀ ਵਿੰਡੋ (ਜਿਸ ਨੂੰ ਸੰਦਰਭ ਆਕਾਰ ਕਿਹਾ ਜਾਂਦਾ ਹੈ) ਦਾ ਵਿਸਤਾਰ ਕਰ ਸਕਦੇ ਹਾਂ ਤਾਂ ਜੋ ਇਹ ਵਧੇਰੇ ਯਾਦ ਰੱਖੇ, ਪਰ ਇਹ ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਦੀ ਮੈਮੋਰੀ ਦੀ ਜ਼ਿਆਦਾ ਵਰਤੋਂ ਕਰ ਸਕਦਾ ਹੈ। ਅਸੀਂ ਇਨਪੁਟ ਨੂੰ ਵੀ ਕੱਟ ਸਕਦੇ ਹਾਂ, ਜਿਸਦਾ ਮਤਲਬ ਹੈ ਕਿ ਇਹ ਨਵੇਂ ਸੰਦੇਸ਼ਾਂ ਲਈ ਜਗ੍ਹਾ ਬਣਾਉਣ ਲਈ ਕੁਝ ਚੈਟ ਇਤਿਹਾਸ ਨੂੰ ਭੁੱਲ ਜਾਵੇਗਾ।",
+    "increaseContextSizeDescription": "ਕੀ ਤੁਸੀਂ ਸੰਦਰਭ ਆਕਾਰ ਵਧਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
+    "increaseContextSize": "ਸੰਦਰਭ ਆਕਾਰ ਵਧਾਓ"
+  },
+  "toolApproval": {
+    "title": "ਟੂਲ ਅਨੁਮਤੀ ਦੀ ਬੇਨਤੀ",
+    "description": "ਸਹਾਇਕ <strong>{{toolName}}</strong> ਦੀ ਵਰਤੋਂ ਕਰਨਾ ਚਾਹੁੰਦਾ ਹੈ",
+    "securityNotice": "ਸਿਰਫ਼ ਉਹਨਾਂ ਟੂਲਾਂ ਨੂੰ ਇਜਾਜ਼ਤ ਦਿਓ ਜਿਨ੍ਹਾਂ 'ਤੇ ਤੁਸੀਂ ਭਰੋਸਾ ਕਰਦੇ ਹੋ। ਟੂਲ ਤੁਹਾਡੇ ਸਿਸਟਮ ਅਤੇ ਡੇਟਾ ਤੱਕ ਪਹੁੰਚ ਕਰ ਸਕਦੇ ਹਨ।",
+    "deny": "ਇਨਕਾਰ",
+    "allowOnce": "ਇੱਕ ਵਾਰ ਇਜਾਜ਼ਤ ਦਿਓ",
+    "alwaysAllow": "ਹਮੇਸ਼ਾ ਇਜਾਜ਼ਤ ਦਿਓ"
+  },
+  "deleteModel": {
+    "title": "ਮਾਡਲ ਮਿਟਾਓ: {{modelId}}",
+    "description": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਮਾਡਲ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
+    "success": "ਮਾਡਲ {{modelId}} ਨੂੰ ਪੱਕੇ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ।",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "delete": "ਮਿਟਾਓ"
+  },
+  "deleteProvider": {
+    "title": "ਪ੍ਰਦਾਨਕ ਨੂੰ ਮਿਟਾਓ",
+    "description": "ਇਸ ਪ੍ਰਦਾਤਾ ਅਤੇ ਇਸਦੇ ਸਾਰੇ ਮਾਡਲਾਂ ਨੂੰ ਮਿਟਾਓ। ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
+    "success": "ਪ੍ਰਦਾਤਾ {{provider}} ਨੂੰ ਪੱਕੇ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ।",
+    "confirmTitle": "ਪ੍ਰਦਾਨਕ ਨੂੰ ਮਿਟਾਓ: {{provider}}",
+    "confirmDescription": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਪ੍ਰਦਾਤਾ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "delete": "ਮਿਟਾਓ"
+  },
+  "modelSettings": {
+    "title": "ਮਾਡਲ ਸੈਟਿੰਗਾਂ - {{modelId}}",
+    "description": "ਪ੍ਰਦਰਸ਼ਨ ਅਤੇ ਵਿਵਹਾਰ ਨੂੰ ਅਨੁਕੂਲ ਬਣਾਉਣ ਲਈ ਮਾਡਲ ਸੈਟਿੰਗਾਂ ਨੂੰ ਕੌਂਫਿਗਰ ਕਰੋ।",
+    "nglDisabledByFit": "ਆਟੋ-ਫਿੱਟ GPU ਲੇਅਰਾਂ ਦੀ ਚੋਣ ਕਰ ਰਿਹਾ ਹੈ। ਇਸਨੂੰ ਹੱਥੀਂ ਸੈੱਟ ਕਰਨ ਲਈ ਆਟੋ-ਫਿੱਟ ਬੰਦ ਕਰੋ।",
+    "samplingDefaults": {
+      "title": "ਪੂਰਵ-ਨਿਰਧਾਰਤ ਸੈਂਪਲਿੰਗ ਪੈਰਾਮੀਟਰ",
+      "description": "ਇਸ ਮਾਡਲ ਲਈ ਪੂਰਵ-ਨਿਰਧਾਰਤ ਨਮੂਨਾ ਸੈਟਿੰਗਾਂ। ਪ੍ਰਤੀ-ਸਹਾਇਕ ਜਾਂ ਪ੍ਰਤੀ-ਬੇਨਤੀ ਮੁੱਲਾਂ ਦੁਆਰਾ ਓਵਰਰਾਈਡ ਕੀਤੇ ਜਾਣ ਤੱਕ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।"
+    },
+    "specDraft": {
+      "section": "ਅੰਦਾਜ਼ੇ ਵਾਲੀ ਡੀਕੋਡਿੰਗ",
+      "enable": "ਸੱਟੇਬਾਜ਼ੀ ਡੀਕੋਡਿੰਗ ਨੂੰ ਸਮਰੱਥ ਬਣਾਓ",
+      "enableDescription": "ਪ੍ਰਤੀ ਕਦਮ ਕਈ ਟੋਕਨਾਂ ਦਾ ਖਰੜਾ ਤਿਆਰ ਕਰੋ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਇੱਕ ਪਾਸ ਵਿੱਚ ਪ੍ਰਮਾਣਿਤ ਕਰੋ, ਜੋ ਉਤਪਾਦਨ ਨੂੰ ਤੇਜ਼ ਕਰਦਾ ਹੈ। ਮਾਡਲ ਦੇ ਬਿਲਟ-ਇਨ MTP ਹੈਡਸ, ਜਾਂ ਇਸਦੇ ਨਾਲ ਡਾਊਨਲੋਡ ਕੀਤੇ ਡਰਾਫਟ ਮਾਡਲ (MTP, Eagle3, DFlash ਜਾਂ DSpark) ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ।",
+      "nMax": "ਅਧਿਕਤਮ ਡਰਾਫਟ ਟੋਕਨ",
+      "nMaxDescription": "ਪ੍ਰਤੀ ਕਦਮ ਡਰਾਫਟ ਕਰਨ ਲਈ ਟੋਕਨਾਂ ਦੀ ਅਧਿਕਤਮ ਸੰਖਿਆ। ਡਿਫਾਲਟ 16.",
+      "nMin": "ਘੱਟੋ-ਘੱਟ ਡਰਾਫਟ ਟੋਕਨ",
+      "nMinDescription": "ਪ੍ਰਤੀ ਕਦਮ ਡਰਾਫਟ ਕਰਨ ਲਈ ਟੋਕਨਾਂ ਦੀ ਨਿਊਨਤਮ ਸੰਖਿਆ। ਪੂਰਵ-ਨਿਰਧਾਰਤ 0.",
+      "pMin": "ਘੱਟੋ-ਘੱਟ ਡਰਾਫਟ ਸੰਭਾਵਨਾ",
+      "pMinDescription": "ਲਾਲਚੀ ਡਰਾਫਟਿੰਗ ਲਈ ਘੱਟੋ-ਘੱਟ ਸੰਭਾਵਨਾ (0-1)। ਡਿਫਾਲਟ 0.75।"
+    },
+    "templateKwargs": {
+      "section": "ਚੈਟ ਟੈਮਪਲੇਟ ਵਿਕਲਪ",
+      "description": "ਇਸ ਮਾਡਲ ਦਾ ਚੈਟ ਟੈਮਪਲੇਟ ਸਵੀਕਾਰ ਕਰਦਾ ਹੈ ਵਾਧੂ ਵਿਕਲਪ। ਹਰੇਕ ਬੇਨਤੀ 'ਤੇ chat_template_kwargs ਵਜੋਂ ਭੇਜਿਆ ਗਿਆ; ਟੈਮਪਲੇਟ ਨੂੰ ਫੈਸਲਾ ਕਰਨ ਦੇਣ ਲਈ ਇਸਦੇ ਡਿਫੌਲਟ 'ਤੇ ਇੱਕ ਮੁੱਲ ਛੱਡੋ।",
+      "addCustom": "ਕਸਟਮ ਵਿਕਲਪ ਸ਼ਾਮਲ ਕਰੋ",
+      "keyPlaceholder": "ਨਾਮ",
+      "valuePlaceholder": "ਮੁੱਲ",
+      "add": "ਸ਼ਾਮਲ ਕਰੋ",
+      "cancel": "ਰੱਦ ਕਰੋ",
+      "remove": "ਹਟਾਓ"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "ਮਾਡਲ ਸੈਟਿੰਗਾਂ ਨੂੰ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "ਡਾਟਾ ਫੋਲਡਰ ਦੀ ਸਥਿਤੀ ਬਦਲੋ",
+      "description": "ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਡਾਟਾ ਫੋਲਡਰ ਟਿਕਾਣਾ ਬਦਲਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਤੁਹਾਡੇ ਸਾਰੇ ਡੇਟਾ ਨੂੰ ਨਵੇਂ ਸਥਾਨ 'ਤੇ ਲੈ ਜਾਏਗਾ ਅਤੇ ਐਪਲੀਕੇਸ਼ਨ ਨੂੰ ਰੀਸਟਾਰਟ ਕਰੇਗਾ।",
+      "currentLocation": "ਮੌਜੂਦਾ ਟਿਕਾਣਾ:",
+      "newLocation": "ਨਵਾਂ ਟਿਕਾਣਾ:",
+      "cancel": "ਰੱਦ ਕਰੋ",
+      "changeLocation": "ਟਿਕਾਣਾ ਬਦਲੋ"
+    },
+    "deleteAllThreads": {
+      "title": "ਸਾਰੇ ਥ੍ਰੈਡਸ ਮਿਟਾਓ",
+      "description": "ਸਾਰੇ ਥ੍ਰੈੱਡ ਮਿਟਾ ਦਿੱਤੇ ਜਾਣਗੇ। ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"
+    },
+    "deleteAllThreadsInProject": {
+      "title": "ਸਾਰੀਆਂ ਗੱਲਾਂਬਾਤਾਂ ਮਿਟਾਓ",
+      "description": "\"{{projectName}}\" ਵਿੱਚ {{count}} ਗੱਲਬਾਤ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"
+    },
+    "deleteThread": {
+      "description": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਥ੍ਰੈਡ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"
+    },
+    "editMessage": {
+      "title": "ਸੁਨੇਹਾ ਸੰਪਾਦਿਤ ਕਰੋ"
+    },
+    "messageMetadata": {
+      "title": "ਸੁਨੇਹਾ ਮੈਟਾਡੇਟਾ"
+    },
+    "deleteMessage": {
+      "description": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਇਸ ਸੁਨੇਹੇ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ",
+    "details": "ਵੇਰਵੇ"
+  },
+  "missingDependenciesDialog": {
+    "title": "ਗੁੰਮ ਸਿਸਟਮ ਲਾਇਬ੍ਰੇਰੀਆਂ",
+    "description": "{{backend}} ਇੰਸਟਾਲ ਕੀਤਾ ਗਿਆ ਸੀ ਪਰ ਕੁਝ ਲੋੜੀਂਦੀਆਂ ਸਿਸਟਮ ਲਾਇਬ੍ਰੇਰੀਆਂ ਨਹੀਂ ਮਿਲੀਆਂ। ਇਹ CPU 'ਤੇ ਵਾਪਸ ਆ ਸਕਦਾ ਹੈ ਜਾਂ ਸਹੀ ਢੰਗ ਨਾਲ ਨਹੀਂ ਚੱਲ ਸਕਦਾ।",
+    "installLabel": "ਇਸ ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ, ਹੇਠ ਲਿਖੇ ਨੂੰ ਸਥਾਪਿਤ ਕਰੋ:",
+    "download": "ਡਾਊਨਲੋਡ ਕਰੋ",
+    "additionalLibraries": "ਵਾਧੂ ਗੁੰਮ ਲਾਇਬ੍ਰੇਰੀਆਂ:",
+    "missingLibraries": "ਗੁੰਮ ਹੋਈ ਲਾਇਬ੍ਰੇਰੀਆਂ:",
+    "showRawLibraries": "{{count}} ਗੁੰਮ ਲਾਇਬ੍ਰੇਰੀ ਦੇ ਨਾਮ ਦਿਖਾਓ"
+  },
+  "projects": {
+    "title": "ਪ੍ਰੋਜੈਕਟਸ",
+    "new": "ਨਵੇਂ ਪ੍ਰੋਜੈਕਟ",
+    "addProject": "ਪ੍ਰੋਜੈਕਟ ਸ਼ਾਮਲ ਕਰੋ",
+    "addToProject": "ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ",
+    "removeFromProject": "ਪ੍ਰੋਜੈਕਟ ਤੋਂ ਹਟਾਓ",
+    "createNewProject": "ਨਵਾਂ ਪ੍ਰੋਜੈਕਟ ਬਣਾਓ",
+    "editProject": "ਪ੍ਰੋਜੈਕਟ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+    "deleteProject": "ਪ੍ਰੋਜੈਕਟ ਮਿਟਾਓ",
+    "projectName": "ਪ੍ਰੋਜੈਕਟ ਦਾ ਨਾਮ",
+    "enterProjectName": "ਪ੍ਰੋਜੈਕਟ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ...",
+    "noProjectsAvailable": "ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਉਪਲਬਧ ਨਹੀਂ ਹਨ",
+    "noProjectsYet": "ਅਜੇ ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ",
+    "noProjectsYetDesc": "ਪ੍ਰੋਜੈਕਟ ਸ਼ਾਮਲ ਕਰੋ ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਇੱਕ ਨਵਾਂ ਪ੍ਰੋਜੈਕਟ ਸ਼ੁਰੂ ਕਰੋ।",
+    "projectNotFound": "ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ ਮਿਲਿਆ",
+    "projectNotFoundDesc": "ਜਿਸ ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਤੁਸੀਂ ਲੱਭ ਰਹੇ ਹੋ ਉਹ ਮੌਜੂਦ ਨਹੀਂ ਹੈ ਜਾਂ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ।",
+    "selectAssistant": "ਸਹਾਇਕ ਚੁਣੋ",
+    "noAssistantAssigned": "ਇਸ ਪ੍ਰੋਜੈਕਟ ਲਈ ਕੋਈ ਸਹਾਇਕ ਨਿਯੁਕਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਹੈ",
+    "files": "ਫਾਈਲਾਂ",
+    "filesDescription": "ਇਸ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਹਵਾਲੇ ਲਈ PDF, ਦਸਤਾਵੇਜ਼, ਜਾਂ ਹੋਰ ਟੈਕਸਟ ਸ਼ਾਮਲ ਕਰੋ।",
+    "uploadingFiles": "ਫ਼ਾਈਲਾਂ 'ਤੇ ਪ੍ਰਕਿਰਿਆ ਹੋ ਰਹੀ ਹੈ...",
+    "processButton": "ਸ਼ਾਮਲ ਕਰੋ",
+    "deleteProjectDialog": {
+      "title": "ਪ੍ਰੋਜੈਕਟ ਮਿਟਾਓ",
+      "permanentDelete": "ਇਹ ਸਾਰੇ ਥ੍ਰੈੱਡਾਂ ਨੂੰ ਪੱਕੇ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦੇਵੇਗਾ।",
+      "permanentDeleteWarning": "ਇਹ ਕਾਰਵਾਈ ਪ੍ਰੋਜੈਕਟ ਦੇ ਅੰਦਰਲੇ ਸਾਰੇ ਥ੍ਰੈੱਡਾਂ ਨੂੰ ਸਥਾਈ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦੇਵੇਗੀ!",
+      "deleteEmptyProject": "ਇਹ ਕਾਰਵਾਈ ਪ੍ਰੋਜੈਕਟ \"{{projectName}}\" ਨੂੰ ਮਿਟਾ ਦੇਵੇਗੀ।",
+      "saveThreadsAdvice": "ਥ੍ਰੈੱਡਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰਨ ਲਈ, ਮਿਟਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਉਹਨਾਂ ਨੂੰ ਆਪਣੀ ਥ੍ਰੈਡ ਸੂਚੀ ਜਾਂ ਕਿਸੇ ਹੋਰ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਭੇਜੋ।",
+      "starredWarning": "ਤੁਹਾਡੇ ਕੋਲ ਅਜੇ ਵੀ ਪ੍ਰੋਜੈਕਟ ਦੇ ਅੰਦਰ ਤਾਰਾਬੱਧ ਥ੍ਰੈੱਡ ਹਨ।",
+      "deleteButton": "ਮਿਟਾਓ",
+      "successWithName": "ਪ੍ਰੋਜੈਕਟ \"{{projectName}}\" ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾਇਆ ਗਿਆ",
+      "successWithoutName": "ਪ੍ਰੋਜੈਕਟ ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾਇਆ ਗਿਆ",
+      "error": "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਮਿਟਾਉਣਾ ਅਸਫਲ ਰਿਹਾ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+      "ariaLabel": "{{projectName}} ਮਿਟਾਓ"
+    },
+    "addProjectDialog": {
+      "createTitle": "ਨਵਾਂ ਪ੍ਰੋਜੈਕਟ ਬਣਾਓ",
+      "editTitle": "ਪ੍ਰੋਜੈਕਟ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+      "nameLabel": "ਪ੍ਰੋਜੈਕਟ ਦਾ ਨਾਮ",
+      "namePlaceholder": "ਪ੍ਰੋਜੈਕਟ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ...",
+      "assistant": "ਸਹਾਇਕ",
+      "selectAssistant": "ਇੱਕ ਸਹਾਇਕ ਚੁਣੋ (ਵਿਕਲਪਿਕ)",
+      "noAssistant": "ਕੋਈ ਸਹਾਇਕ ਨਹੀਂ",
+      "addAssistant": "ਸਹਾਇਕ ਸ਼ਾਮਲ ਕਰੋ",
+      "createButton": "ਬਣਾਓ",
+      "updateButton": "ਅੱਪਡੇਟ ਕਰੋ",
+      "alreadyExists": "ਪ੍ਰੋਜੈਕਟ \"{{projectName}}\" ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ",
+      "createSuccess": "ਪ੍ਰੋਜੈਕਟ \"{{projectName}}\" ਸਫਲਤਾਪੂਰਵਕ ਬਣਾਇਆ ਗਿਆ",
+      "updateSuccess": "ਪ੍ਰੋਜੈਕਟ \"{{projectName}}\" ਸਫਲਤਾਪੂਰਵਕ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ",
+      "saveError": "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+    },
+    "noConversationsIn": "{{projectName}} ਵਿੱਚ ਕੋਈ ਗੱਲਬਾਤ ਨਹੀਂ",
+    "startNewConversation": "ਹੇਠਾਂ {{projectName}} ਨਾਲ ਇੱਕ ਨਵੀਂ ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ",
+    "conversationsIn": "{{projectName}} ਵਿੱਚ ਗੱਲਬਾਤ",
+    "conversationsDescription": "ਚੈਟਿੰਗ ਜਾਰੀ ਰੱਖਣ ਲਈ ਕਿਸੇ ਵੀ ਗੱਲਬਾਤ 'ਤੇ ਕਲਿੱਕ ਕਰੋ, ਜਾਂ ਹੇਠਾਂ ਇੱਕ ਨਵੀਂ ਸ਼ੁਰੂਆਤ ਕਰੋ।",
+    "conversation": "ਗੱਲਬਾਤ",
+    "instructions": "ਹਦਾਇਤਾਂ",
+    "setup": "ਸੈੱਟਅੱਪ",
+    "instructionsDescription": "ਟੋਨ ਅਤੇ ਜਵਾਬ ਦੀ ਸ਼ੈਲੀ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰੋ",
+    "manageInstructions": "ਹਦਾਇਤਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ",
+    "thread": "ਧਾਗਾ",
+    "threads": "ਥਰਿੱਡ",
+    "updated": "ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ:",
+    "collapseProject": "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਸਮੇਟੋ",
+    "expandProject": "ਪ੍ਰੋਜੈਕਟ ਦਾ ਵਿਸਤਾਰ ਕਰੋ",
+    "update": "ਅੱਪਡੇਟ ਕਰੋ",
+    "searchProjects": "ਪ੍ਰੋਜੈਕਟ ਖੋਜੋ...",
+    "noProjectsFound": "ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਨਹੀਂ ਮਿਲੇ",
+    "tryDifferentSearch": "ਇੱਕ ਵੱਖਰਾ ਖੋਜ ਸ਼ਬਦ ਅਜ਼ਮਾਓ"
+  },
+  "attachmentsIngestion": {
+    "title": "ਚੁਣੋ ਕਿ ਅਟੈਚਮੈਂਟਾਂ ਨੂੰ ਕਿਵੇਂ ਗ੍ਰਹਿਣ ਕਰਨਾ ਹੈ",
+    "description": "ਚੁਣੋ ਕਿ ਕੀ ਇਹਨਾਂ ਫ਼ਾਈਲਾਂ ਨੂੰ ਸਿੱਧੇ ਚੈਟ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰਨਾ ਹੈ ਜਾਂ ਉਹਨਾਂ ਨੂੰ ਏਮਬੈਡਿੰਗਾਂ ਵਜੋਂ ਸੂਚੀਬੱਧ ਕਰਨਾ ਹੈ।",
+    "inline": "ਚੈਟ ਵਿੱਚ ਇੰਜੈਕਟ ਕਰੋ",
+    "embeddings": "ਏਮਬੈਡਿੰਗਸ ਦੀ ਵਰਤੋਂ ਕਰੋ"
+  },
+  "attachmentInjectedIndicator": "ਗੱਲਬਾਤ ਵਿੱਚ ਟੀਕਾ ਲਗਾਇਆ",
+  "attachmentEmbeddedIndicator": "RAG ਲਈ ਏਮਬੇਡ ਕੀਤਾ",
+  "viewInjectedContent": "ਟੀਕੇ ਵਾਲੀ ਸਮੱਗਰੀ ਦੇਖੋ",
+  "injectedContentTitle": "ਇੰਜੈਕਟ ਕੀਤੀ ਫਾਈਲ ਸਮੱਗਰੀ",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "ਸਾਰੇ ਥ੍ਰੈੱਡਾਂ ਨੂੰ ਮਨਪਸੰਦ ਨਹੀਂ ਕੀਤਾ ਗਿਆ",
+      "description": "ਤੁਹਾਡੇ ਮਨਪਸੰਦ ਵਿੱਚੋਂ ਸਾਰੇ ਥ੍ਰੈੱਡ ਹਟਾ ਦਿੱਤੇ ਗਏ ਹਨ।"
+    },
+    "deleteAllThreads": {
+      "title": "ਸਾਰੇ ਥ੍ਰੈਡਸ ਮਿਟਾਓ",
+      "description": "ਸਾਰੇ ਥ੍ਰੈੱਡ ਪੱਕੇ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦਿੱਤੇ ਗਏ ਹਨ।"
+    },
+    "renameThread": {
+      "title": "ਥ੍ਰੈੱਡ ਦਾ ਨਾਮ ਬਦਲੋ",
+      "description": "ਥ੍ਰੈੱਡ ਸਿਰਲੇਖ ਦਾ ਨਾਮ '{{title}}' ਰੱਖਿਆ ਗਿਆ ਹੈ"
+    },
+    "deleteThread": {
+      "title": "ਥਰਿੱਡ ਮਿਟਾਓ",
+      "description": "ਇਹ ਥਰਿੱਡ ਪੱਕੇ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ।"
+    },
+    "errorCopied": {
+      "title": "ਕਾਪੀ ਸਫਲ",
+      "description": "ਗਲਤੀ ਜਾਣਕਾਰੀ ਕਲਿੱਪਬੋਰਡ 'ਤੇ ਕਾਪੀ ਕੀਤੀ ਗਈ"
+    },
+    "errorCopyFailed": {
+      "title": "ਕਾਪੀ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ",
+      "description": "ਤਰੁਟੀ ਜਾਣਕਾਰੀ ਨੂੰ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
+    },
+    "editMessage": {
+      "title": "ਸੁਨੇਹਾ ਸੰਪਾਦਿਤ ਕਰੋ",
+      "description": "ਸੁਨੇਹਾ ਸਫਲਤਾਪੂਰਵਕ ਸੰਪਾਦਿਤ ਕੀਤਾ ਗਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਮਾਡਲ ਦੇ ਜਵਾਬ ਦੀ ਉਡੀਕ ਕਰੋ।"
+    },
+    "appUpdateDownloaded": {
+      "title": "ਐਪ ਅੱਪਡੇਟ ਡਾਊਨਲੋਡ ਕੀਤਾ ਗਿਆ",
+      "description": "ਐਪ ਅੱਪਡੇਟ ਸਫਲਤਾਪੂਰਵਕ ਡਾਊਨਲੋਡ ਕੀਤਾ ਗਿਆ ਹੈ।"
+    },
+    "appUpdateDownloadFailed": {
+      "title": "ਐਪ ਅੱਪਡੇਟ ਡਾਊਨਲੋਡ ਅਸਫਲ ਰਿਹਾ",
+      "description": "ਐਪ ਅੱਪਡੇਟ ਨੂੰ ਡਾਊਨਲੋਡ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+    },
+    "downloadComplete": {
+      "title": "ਡਾਊਨਲੋਡ ਪੂਰਾ ਹੋਇਆ",
+      "description": "{{item}} ਡਾਊਨਲੋਡ ਕੀਤਾ ਗਿਆ ਹੈ"
+    },
+    "downloadCancelled": {
+      "title": "ਡਾਊਨਲੋਡ ਰੱਦ ਕੀਤਾ",
+      "description": "ਡਾਊਨਲੋਡ ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਰੱਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਸੀ"
+    },
+    "downloadFailed": {
+      "title": "ਡਾਊਨਲੋਡ ਅਸਫਲ ਰਿਹਾ",
+      "description": "{{item}} ਡਾਊਨਲੋਡ ਅਸਫਲ ਰਿਹਾ",
+      "descriptionWithReason": "{{item}} ਡਾਊਨਲੋਡ ਅਸਫਲ: {{reason}}",
+      "reason": {
+        "dns": "ਸਰਵਰ ਨਾਮ ਨੂੰ ਹੱਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ",
+        "refused": "ਕੁਨੈਕਸ਼ਨ ਤੋਂ ਇਨਕਾਰ ਕਰ ਦਿੱਤਾ ਗਿਆ ਸੀ",
+        "timeout": "ਕੁਨੈਕਸ਼ਨ ਦਾ ਸਮਾਂ ਸਮਾਪਤ ਹੋਇਆ",
+        "tls": "ਇੱਕ ਸੁਰੱਖਿਅਤ ਕੁਨੈਕਸ਼ਨ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ ਹੈ",
+        "proxy": "ਪ੍ਰੌਕਸੀ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ",
+        "unreachable": "ਸਰਵਰ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ"
+      }
+    },
+    "openSettings": "ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ",
+    "openLogs": "ਲੌਗ ਖੋਲ੍ਹੋ",
+    "downloadTokenRequired": {
+      "title": "Hugging Face ਟੋਕਨ ਲੋੜੀਂਦਾ ਹੈ",
+      "description": "ਇਸ ਮਾਡਲ ਲਈ ਇੱਕ Hugging Face ਪਹੁੰਚ ਟੋਕਨ ਦੀ ਲੋੜ ਹੈ। ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਆਪਣਾ ਟੋਕਨ ਸ਼ਾਮਲ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face 'ਤੇ ਮਾਡਲ ਲਾਇਸੰਸ ਸਵੀਕਾਰ ਕਰੋ",
+      "description": "ਤੁਹਾਨੂੰ ਡਾਊਨਲੋਡ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਮਾਡਲ ਦੇ ਲਾਇਸੰਸ ਨੂੰ ਇਸਦੇ Hugging Face ਪੰਨੇ 'ਤੇ ਸਵੀਕਾਰ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ।"
+    },
+    "downloadRateLimited": {
+      "title": "ਦਰ Hugging Face ਦੁਆਰਾ ਸੀਮਿਤ",
+      "description": "ਤੁਹਾਨੂੰ ਦਰ-ਸੀਮਤ ਕੀਤਾ ਗਿਆ ਹੈ। ਇੱਕ ਟੋਕਨ ਜੋੜਨਾ ਦਰ ਸੀਮਾਵਾਂ ਨੂੰ ਵਧਾ ਸਕਦਾ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+    },
+    "modelValidationStarted": {
+      "title": "ਮਾਡਲ ਪ੍ਰਮਾਣਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ",
+      "description": "ਮਾਡਲ \"{{modelId}}\" ਨੂੰ ਸਫਲਤਾਪੂਰਵਕ ਡਾਊਨਲੋਡ ਕੀਤਾ ਗਿਆ। ਅਖੰਡਤਾ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
+    },
+    "modelValidationFailed": {
+      "title": "ਮਾਡਲ ਪ੍ਰਮਾਣਿਕਤਾ ਅਸਫਲ ਰਹੀ",
+      "description": "ਡਾਊਨਲੋਡ ਕੀਤਾ ਮਾਡਲ \"{{modelId}}\" ਅਖੰਡਤਾ ਪੁਸ਼ਟੀਕਰਨ ਵਿੱਚ ਅਸਫਲ ਰਿਹਾ ਅਤੇ ਇਸਨੂੰ ਹਟਾ ਦਿੱਤਾ ਗਿਆ। ਫ਼ਾਈਲ ਖਰਾਬ ਹੋ ਸਕਦੀ ਹੈ ਜਾਂ ਇਸ ਨਾਲ ਛੇੜਛਾੜ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।"
+    },
+    "downloadAndVerificationComplete": {
+      "title": "ਡਾਊਨਲੋਡ ਪੂਰਾ ਹੋਇਆ",
+      "description": "ਮਾਡਲ \"{{item}}\" ਡਾਊਨਲੋਡ ਕੀਤਾ ਗਿਆ ਅਤੇ ਸਫਲਤਾਪੂਰਵਕ ਪੁਸ਼ਟੀ ਕੀਤੀ ਗਈ"
+    },
+    "projectCreated": {
+      "title": "ਪ੍ਰੋਜੈਕਟ ਬਣਾਇਆ ਗਿਆ",
+      "description": "ਪ੍ਰੋਜੈਕਟ \"{{projectName}}\" ਸਫਲਤਾਪੂਰਵਕ ਬਣਾਇਆ ਗਿਆ"
+    },
+    "projectRenamed": {
+      "title": "ਪ੍ਰੋਜੈਕਟ ਦਾ ਨਾਮ ਬਦਲਿਆ ਗਿਆ",
+      "description": "ਪ੍ਰੋਜੈਕਟ ਦਾ ਨਾਮ \"{{oldName}}\" ਤੋਂ \"{{newName}}\" ਵਿੱਚ ਬਦਲਿਆ ਗਿਆ"
+    },
+    "projectDeleted": {
+      "title": "ਪ੍ਰੋਜੈਕਟ ਮਿਟਾਇਆ ਗਿਆ",
+      "description": "ਪ੍ਰੋਜੈਕਟ \"{{projectName}}\" ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾਇਆ ਗਿਆ"
+    },
+    "projectAlreadyExists": {
+      "title": "ਪ੍ਰੋਜੈਕਟ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ",
+      "description": "ਪ੍ਰੋਜੈਕਟ \"{{projectName}}\" ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
+    },
+    "projectDeleteFailed": {
+      "title": "ਮਿਟਾਉਣਾ ਅਸਫਲ ਰਿਹਾ",
+      "description": "ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਮਿਟਾਉਣਾ ਅਸਫਲ ਰਿਹਾ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+    },
+    "threadAssignedToProject": {
+      "title": "ਥ੍ਰੈਡ ਅਸਾਈਨ ਕੀਤਾ ਗਿਆ",
+      "description": "\"{{projectName}}\" ਨੂੰ ਸਫਲਤਾਪੂਰਵਕ ਥ੍ਰੈਡ ਸੌਂਪਿਆ ਗਿਆ"
+    },
+    "threadRemovedFromProject": {
+      "title": "ਥਰਿੱਡ ਹਟਾਇਆ ਗਿਆ",
+      "description": "\"{{projectName}}\" ਤੋਂ ਥ੍ਰੈਡ ਸਫਲਤਾਪੂਰਵਕ ਹਟਾਇਆ ਗਿਆ"
+    },
+    "fileUploaded": {
+      "title": "ਫ਼ਾਈਲ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕੀਤੀ ਗਈ",
+      "description": "ਫਾਈਲ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕੀਤੀ ਗਈ ਹੈ ਅਤੇ ਸਫਲਤਾਪੂਰਵਕ ਇੰਡੈਕਸ ਕੀਤੀ ਗਈ ਹੈ"
+    },
+    "uploadFailed": {
+      "title": "ਪ੍ਰਕਿਰਿਆ ਅਸਫਲ ਰਹੀ",
+      "description": "ਫ਼ਾਈਲ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰਨ ਵਿੱਚ ਅਸਫਲ",
+      "subjectThisFile": "ਇਹ ਫਾਈਲ",
+      "pdfMalformedXref": "{{subject}} ਵਿੱਚ ਇੱਕ ਨੁਕਸਦਾਰ PDF ਕਰਾਸ-ਰੈਫਰੈਂਸ ਟੇਬਲ ਹੈ ਅਤੇ ਪਾਰਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਇਸਨੂੰ PDF ਦਰਸ਼ਕ ਵਿੱਚ ਖੋਲ੍ਹਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਅਤੇ ਇਸਨੂੰ ਮੁੜ-ਸੁਰੱਖਿਅਤ ਕਰੋ (ਫਾਈਲ → ਪ੍ਰਿੰਟ → PDF ਵਜੋਂ ਸੁਰੱਖਿਅਤ ਕਰੋ), ਫਿਰ ਦੁਬਾਰਾ ਅੱਪਲੋਡ ਕਰੋ।",
+      "pdfScanned": "{{subject}} ਇੱਕ ਸਕੈਨ ਕੀਤਾ ਜਾਂ ਚਿੱਤਰ-ਆਧਾਰਿਤ PDF ਜਾਪਦਾ ਹੈ। OCR ਹਾਲੇ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ — ਕਿਰਪਾ ਕਰਕੇ ਟੈਕਸਟ-ਅਧਾਰਿਤ PDF ਅੱਪਲੋਡ ਕਰੋ।",
+      "pdfEncrypted": "{{subject}} ਪਾਸਵਰਡ-ਸੁਰੱਖਿਅਤ ਹੈ। ਪਾਸਵਰਡ ਹਟਾਓ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+      "pdfUnsupportedFeature": "{{subject}} ਇੱਕ PDF ਵਿਸ਼ੇਸ਼ਤਾ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ Novera ਹਾਲੇ ਤੱਕ ਪਾਰਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ (ਉਦਾਹਰਨ ਲਈ ਪੋਸਟਸਕ੍ਰਿਪਟ ਰੰਗ/ਸ਼ੇਡਿੰਗ ਫੰਕਸ਼ਨ)। ਇਸਨੂੰ ਸਮਤਲ ਕਰਨ ਲਈ ਇਸਨੂੰ ਮੁੜ-ਸੁਰੱਖਿਅਤ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ (ਫਾਈਲ → ਪ੍ਰਿੰਟ → PDF ਦੇ ਤੌਰ ਤੇ ਸੁਰੱਖਿਅਤ ਕਰੋ), ਫਿਰ ਦੁਬਾਰਾ ਅੱਪਲੋਡ ਕਰੋ।",
+      "pdfGeneric": "{{subject}} ਨੂੰ PDF ਵਜੋਂ ਪਾਰਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ। ਫ਼ਾਈਲ ਖਰਾਬ ਹੋ ਸਕਦੀ ਹੈ ਜਾਂ ਅਸਮਰਥਿਤ PDF ਵਿਸ਼ੇਸ਼ਤਾ ਦੀ ਵਰਤੋਂ ਕਰਦੀ ਹੈ।",
+      "fileTooLarge": "{{subject}} ਬਹੁਤ ਵੱਡਾ ਹੈ। {{message}}।",
+      "unsupportedType": "ਫ਼ਾਈਲ ਕਿਸਮ \"{{type}}\" ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ।",
+      "ioError": "{{subject}} ਪੜ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ: {{message}}",
+      "parseGeneric": "{{subject}} ਨੂੰ ਪਾਰਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ: {{message}}",
+      "fallback": "{{subject}} ਪ੍ਰਕਿਰਿਆ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।"
+    },
+    "fileDeleted": {
+      "title": "ਫਾਈਲ ਮਿਟਾਈ ਗਈ",
+      "description": "ਫਾਈਲ ਨੂੰ ਪ੍ਰੋਜੈਕਟ ਤੋਂ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ"
+    },
+    "deleteFailed": {
+      "title": "ਮਿਟਾਉਣਾ ਅਸਫਲ ਰਿਹਾ",
+      "description": "ਫ਼ਾਈਲ ਨੂੰ ਮਿਟਾਉਣਾ ਅਸਫਲ ਰਿਹਾ"
+    },
+    "fileAlreadyExists": {
+      "title": "ਫ਼ਾਈਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ",
+      "description": "ਫ਼ਾਈਲ ਪਹਿਲਾਂ ਹੀ ਇਸ ਪ੍ਰੋਜੈਕਟ ਨਾਲ ਨੱਥੀ ਹੈ"
+    },
+    "unsupportedFileType": {
+      "title": "ਅਸਮਰਥਿਤ ਫ਼ਾਈਲ ਕਿਸਮ",
+      "description": "ਫਾਈਲ ਐਕਸਟੈਂਸ਼ਨ \".{{extension}}\" ਪ੍ਰੋਜੈਕਟ ਸੰਦਰਭ ਲਈ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ।"
+    },
+    "attachmentsDisabledInfo": {
+      "title": "ਅਟੈਚਮੈਂਟਾਂ ਨੂੰ ਅਯੋਗ ਬਣਾਇਆ ਗਿਆ",
+      "description": "ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਅਟੈਚਮੈਂਟਾਂ ਨੂੰ ਅਯੋਗ ਬਣਾਇਆ ਗਿਆ ਹੈ"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "ਫ਼ਾਈਲ ਬਹੁਤ ਵੱਡੀ ਹੈ",
+    "fileTooLargeDescription": "{{fileName}} {{maxFileSizeMB}}MB ਸੀਮਾ ਤੋਂ ਵੱਧ ਗਿਆ ਹੈ"
+  },
+  "files": {
+    "chunksCount": "{{count}} ਟੁਕੜੇ",
+    "title": "ਫਾਈਲਾਂ",
+    "empty": "ਤੁਹਾਡੇ ਵੱਲੋਂ ਨੱਥੀ ਕੀਤੀਆਂ ਫ਼ਾਈਲਾਂ ਅਤੇ ਏਜੰਟ ਵੱਲੋਂ ਬਣਾਈਆਂ ਗਈਆਂ ਫ਼ਾਈਲਾਂ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੀਆਂ।",
+    "a11y": "ਫ਼ਾਈਲਾਂ: {{count}}",
+    "attachments": "ਅਟੈਚਮੈਂਟਸ",
+    "notImported": "ਵਰਕਸਪੇਸ ਵਿੱਚ ਨਹੀਂ"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp ਅਜੇ ਵੀ ਵਿਅਸਤ ਹੈ",
+    "description": "ਇੱਕ ਜਾਂ ਇੱਕ ਤੋਂ ਵੱਧ ਮਾਡਲ ਸਮੇਂ ਵਿੱਚ ਅਨਲੋਡ ਨਹੀਂ ਹੋਏ। ਜ਼ਬਰਦਸਤੀ ਛੱਡਣ ਨਾਲ llama.cpp ਸਮਾਪਤ ਹੋ ਜਾਵੇਗਾ ਅਤੇ ਕਿਰਿਆਸ਼ੀਲ ਜਵਾਬਾਂ ਵਿੱਚ ਵਿਘਨ ਪੈ ਸਕਦਾ ਹੈ।",
+    "forceQuit": "ਛੱਡਣ ਲਈ ਮਜਬੂਰ ਕਰੋ",
+    "forcing": "ਜ਼ਬਰਦਸਤੀ ਛੱਡਣਾ…",
+    "shuttingDown": "ਬੰਦ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "ਸਮੇਟਣਾ",
+  "expand": "ਫੈਲਾਓ",
+  "todoPanelTitle": "ਤਰੱਕੀ",
+  "todoPanelEmpty": "ਅਜੇ ਤੱਕ ਕੋਈ ਟੂਡੋ ਸੂਚੀ ਨਹੀਂ ਹੈ।",
+  "backgroundTasks": "ਪਿਛੋਕੜ ਕਾਰਜ",
+  "subagentsRunning_one": "{{count}} ਸਬਜੈਂਟ ਚੱਲ ਰਿਹਾ ਹੈ",
+  "subagentsRunning_other": "{{count}} ਸਬ-ਏਜੈਂਟ ਚੱਲ ਰਹੇ ਹਨ",
+  "monitorsRunning_one": "{{count}} ਮਾਨੀਟਰ ਚੱਲ ਰਿਹਾ ਹੈ",
+  "monitorsRunning_other": "{{count}} ਮਾਨੀਟਰ ਚੱਲ ਰਹੇ ਹਨ",
+  "backgroundRunning_one": "{{count}} ਪਿਛੋਕੜ ਕਾਰਜ ਚੱਲ ਰਿਹਾ ਹੈ",
+  "backgroundRunning_other": "{{count}} ਪਿਛੋਕੜ ਕਾਰਜ ਚੱਲ ਰਹੇ ਹਨ",
+  "monitors": "ਨਿਗਰਾਨੀ ਕਰਦਾ ਹੈ",
+  "monitorPolling": "ਪੋਲਿੰਗ",
+  "monitorMatched": "ਮੇਲ ਖਾਂਦਾ ਹੈ",
+  "monitorTimedOut": "ਸਮਾਂ ਸਮਾਪਤ ਹੋਇਆ",
+  "monitorStopped": "ਰੁੱਕ ਗਿਆ",
+  "monitorEnded": "ਖਤਮ ਹੋ ਗਿਆ",
+  "coworkWatching_one": "{{count}} ਮਾਨੀਟਰ ਦੇਖ ਰਿਹਾ ਹੈ...",
+  "coworkWatching_other": "{{count}} ਮਾਨੀਟਰ ਦੇਖ ਰਿਹਾ ਹੈ...",
+  "coworkWaitingBackground": "ਪਿਛੋਕੜ ਕਾਰਜਾਂ ਦੀ ਉਡੀਕ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ...",
+  "noBackgroundTasks": "ਹਾਲੇ ਕੋਈ ਪਿਛੋਕੜ ਕਾਰਜ ਨਹੀਂ ਹਨ।",
+  "running": "ਚੱਲ ਰਿਹਾ ਹੈ",
+  "queued": "ਕਤਾਰਬੱਧ",
+  "waiting": "ਉਡੀਕ ਕਰ ਰਿਹਾ ਹੈ",
+  "finished": "ਸਮਾਪਤ",
+  "subagentPhase": "ਪੜਾਅ {{phase}}",
+  "subagentWaiting": "ਉਡੀਕ",
+  "viewTranscript": "ਪ੍ਰਤੀਲਿਪੀ ਵੇਖੋ",
+  "taskWorking": "ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ...",
+  "taskNoOutput": "ਸਬਜੈਂਟ ਨੇ ਕੋਈ ਦਿਖਾਈ ਦੇਣ ਵਾਲੀ ਆਉਟਪੁੱਟ ਨਹੀਂ ਪੈਦਾ ਕੀਤੀ।",
+  "subagentToolUses_one": "{{count}} ਟੂਲ ਦੀ ਵਰਤੋਂ",
+  "subagentToolUses_other": "{{count}} ਟੂਲ ਵਰਤਦਾ ਹੈ",
+  "artifactGroupCode": "ਕੋਡ",
+  "artifactGroupImage": "ਚਿੱਤਰ",
+  "artifactGroupDocument": "ਦਸਤਾਵੇਜ਼",
+  "artifactGroupVideo": "ਵੀਡੀਓ",
+  "artifactGroupAudio": "ਆਡੀਓ",
+  "artifactOpenPreview": "ਪੂਰਵਦਰਸ਼ਨ ਖੋਲ੍ਹੋ",
+  "artifactOpenExternal": "ਖੋਲ੍ਹੋ",
+  "artifactMoreActions": "ਹੋਰ ਕਾਰਵਾਈਆਂ",
+  "artifactShowInFolder": "ਫੋਲਡਰ ਵਿੱਚ ਦਿਖਾਓ",
+  "skillsUsedLabel": "ਹੁਨਰ ਦੀ ਵਰਤੋਂ ਕੀਤੀ",
+  "skillsUsed": "ਵਰਤੇ ਗਏ ਹੁਨਰ: {{skills}}",
+  "artifactsAll": "ਸਾਰੇ",
+  "artifactsEmpty": "ਅਜੇ ਤੱਕ ਕੁਝ ਵੀ ਪੈਦਾ ਨਹੀਂ ਹੋਇਆ। Cowork ਦੌੜਾਂ ਦੀਆਂ ਕਲਾਕ੍ਰਿਤੀਆਂ ਇੱਥੇ ਦਿਖਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।",
+  "artifactsNoMatch": "ਕੋਈ ਕਲਾਤਮਕ ਚੀਜ਼ਾਂ ਮੇਲ ਨਹੀਂ ਖਾਂਦੀਆਂ।",
+  "artifactsSearch": "ਕਲਾਤਮਕ ਚੀਜ਼ਾਂ ਦੀ ਖੋਜ ਕਰੋ",
+  "artifactsShowMore": "{{count}} ਹੋਰ ਦਿਖਾਓ",
+  "workspace": {
+    "readsFrom": "ਵਿਚ ਕੰਮ ਕਰਦਾ ਹੈ",
+    "writable": "ਪੜ੍ਹੋ ਅਤੇ ਲਿਖੋ",
+    "footnote": "ਏਜੰਟ ਇਸ ਫੋਲਡਰ ਨੂੰ ਸਿੱਧਾ ਪੜ੍ਹਦਾ ਅਤੇ ਸੰਪਾਦਿਤ ਕਰਦਾ ਹੈ। ਡਿਫ ਪੈਨਲ ਵਿੱਚ ਕੀ ਬਦਲਿਆ ਹੈ ਦੀ ਸਮੀਖਿਆ ਕਰੋ।",
+    "footnoteEmpty": "ਏਜੰਟ ਨੂੰ ਤੁਹਾਡੇ ਪ੍ਰੋਜੈਕਟ 'ਤੇ ਕੰਮ ਕਰਨ ਦੇਣ ਲਈ ਇੱਕ ਫੋਲਡਰ ਨੱਥੀ ਕਰੋ। ਇਹ ਇਸ ਦੇ ਅੰਦਰ ਫਾਈਲਾਂ ਨੂੰ ਪੜ੍ਹ ਅਤੇ ਸੰਪਾਦਿਤ ਕਰ ਸਕਦਾ ਹੈ.",
+    "attach": "ਇੱਕ ਫੋਲਡਰ ਨੱਥੀ ਕਰੋ",
+    "change": "ਫੋਲਡਰ ਬਦਲੋ",
+    "detach": "ਫੋਲਡਰ ਨੂੰ ਵੱਖ ਕਰੋ",
+    "open": "ਖੋਲ੍ਹੋ",
+    "reveal": "ਪ੍ਰਗਟ",
+    "unavailable": "ਵਰਕਸਪੇਸ ਉਪਲਬਧ ਨਹੀਂ ਹੈ",
+    "missing": "ਵਰਕਸਪੇਸ ਫੋਲਡਰ {{folder}} ਹੁਣ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਇੱਕ ਵੱਖਰਾ ਫੋਲਡਰ ਚੁਣੋ।",
+    "openFailed": "ਵਰਕਸਪੇਸ ਖੋਲ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ",
+    "revealFailed": "ਵਰਕਸਪੇਸ ਨੂੰ ਉਜਾਗਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ",
+    "a11yWithFolder": "ਪ੍ਰੋਜੈਕਟ ਫੋਲਡਰ {{folder}}, ਪੜ੍ਹਨ ਅਤੇ ਲਿਖਣ ਦੀ ਪਹੁੰਚ ਨਾਲ ਜੁੜਿਆ ਹੋਇਆ ਹੈ। ਇਸਨੂੰ ਬਦਲੋ ਜਾਂ ਵੱਖ ਕਰੋ।",
+    "a11yNoFolder": "ਕੋਈ ਪ੍ਰੋਜੈਕਟ ਫੋਲਡਰ ਨੱਥੀ ਨਹੀਂ ਹੈ। ਇੱਕ ਨੱਥੀ ਕਰੋ।"
+  },
+  "coworkEmpty": {
+    "title": "ਅਸੀਂ ਕਿਸ 'ਤੇ ਕੰਮ ਕਰ ਰਹੇ ਹਾਂ?",
+    "subtitleSandbox": "Novera ਇੱਕ ਕੰਮ ਦਿਓ। ਇਹ ਫਾਈਲਾਂ ਨੂੰ ਪੜ੍ਹਦਾ ਅਤੇ ਲਿਖਦਾ ਹੈ, ਕਮਾਂਡਾਂ ਚਲਾਉਂਦਾ ਹੈ, ਅਤੇ ਆਪਣੇ ਆਪ ਕਦਮਾਂ ਰਾਹੀਂ ਕੰਮ ਕਰਦਾ ਹੈ।",
+    "subtitleFolder": "Novera ਇੱਕ ਕੰਮ ਦਿਓ। ਇਹ ਸਿੱਧੇ {{folder}} ਵਿੱਚ ਕੰਮ ਕਰਦਾ ਹੈ, ਆਪਣੇ ਆਪ ਫਾਈਲਾਂ ਨੂੰ ਪੜ੍ਹਦਾ ਅਤੇ ਸੰਪਾਦਿਤ ਕਰਦਾ ਹੈ।",
+    "try": "ਕੋਸ਼ਿਸ਼ ਕਰੋ",
+    "sandbox": {
+      "first": "ਇੱਕ ਪਾਈਥਨ ਸਕ੍ਰਿਪਟ ਲਿਖੋ ਜੋ ਫਾਈਲਾਂ ਦਾ ਨਾਮ ਉਹਨਾਂ ਨੂੰ ਲਏ ਜਾਣ ਦੀ ਮਿਤੀ ਦੁਆਰਾ ਬਦਲਦੀ ਹੈ",
+      "second": "ਇੱਕ CSV ਤੋਂ ਇੱਕ ਸਿੰਗਲ-ਪੇਜ ਡੈਸ਼ਬੋਰਡ ਬਣਾਓ ਜਿਸ ਵਿੱਚ ਮੈਂ ਪੇਸਟ ਕਰਾਂਗਾ",
+      "third": "ਉਸ ਪ੍ਰੋਜੈਕਟ ਲਈ ਇੱਕ README ਡਰਾਫਟ ਕਰੋ ਜੋ ਮੈਂ ਤੁਹਾਨੂੰ ਦੱਸਦਾ ਹਾਂ"
+    },
+    "folder": {
+      "first": "ਸਮਝਾਓ ਕਿ {{folder}} ਨੂੰ ਕਿਵੇਂ ਇਕੱਠਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ",
+      "second": "ਹਰੇਕ TODO ਨੂੰ {{folder}} ਵਿੱਚ ਲੱਭੋ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਖੇਤਰ ਅਨੁਸਾਰ ਸਮੂਹ ਕਰੋ",
+      "third": "{{folder}} ਦੇ ਹਿੱਸੇ ਲਈ ਟੈਸਟ ਲਿਖੋ ਜਿਸ ਵੱਲ ਮੈਂ ਤੁਹਾਨੂੰ ਦੱਸਦਾ ਹਾਂ"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "ਕੋਈ ਟਰਮੀਨਲ ਨਹੀਂ",
+    "a11y": "ਚਲਾਉਣ ਵਾਲੀਆਂ ਕਮਾਂਡਾਂ ਬੰਦ ਹਨ। ਵੇਰਵੇ।",
+    "title": "ਚਲਾਉਣ ਵਾਲੀਆਂ ਕਮਾਂਡਾਂ ਬੰਦ ਹਨ",
+    "body": "Novera ਏਜੰਟ ਨੂੰ ਸ਼ੈੱਲ ਕਮਾਂਡਾਂ ਸਿਰਫ਼ ਉਦੋਂ ਹੀ ਚਲਾਉਣ ਦਿੰਦਾ ਹੈ ਜਦੋਂ ਤੁਹਾਡਾ ਸਿਸਟਮ ਉਹਨਾਂ ਨੂੰ ਸੀਮਤ ਕਰ ਸਕਦਾ ਹੈ। ਇੱਥੇ ਕੋਈ ਸੈਂਡਬੌਕਸ ਉਪਲਬਧ ਨਹੀਂ ਹੈ, ਇਸਲਈ ਏਜੰਟ ਆਪਣੇ ਸੈਂਡਬਾਕਸ ਵਿੱਚ ਫਾਈਲਾਂ ਨੂੰ ਪੜ੍ਹ, ਲਿਖ ਅਤੇ ਸੰਪਾਦਿਤ ਕਰ ਸਕਦਾ ਹੈ — ਪਰ ਕੁਝ ਵੀ ਨਹੀਂ ਚਲਾ ਸਕਦਾ।",
+    "fixLinux": "Linux ਬੱਬਲਵਰੈਪ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ। ਇਸਨੂੰ ਸਥਾਪਿਤ ਕਰੋ, ਫਿਰ Novera ਰੀਸਟਾਰਟ ਕਰੋ।",
+    "fixMac": "macOS /usr/bin/sandbox-exec 'ਤੇ ਬਿਲਟ-ਇਨ ਸੈਂਡਬਾਕਸ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ। ਇੱਕ ਵਾਰ ਉਪਲਬਧ ਹੋਣ 'ਤੇ Novera ਮੁੜ-ਚਾਲੂ ਕਰੋ।",
+    "fixWindows": "Windows ਐਪ ਕੰਟੇਨਰ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਲਈ Novera ਰੀਸਟਾਰਟ ਕਰੋ।",
+    "recheck": "ਦੁਬਾਰਾ ਜਾਂਚ ਕਰੋ"
+  },
+  "planMode": {
+    "label": "ਯੋਜਨਾ",
+    "tooltipOff": "ਪਹਿਲਾਂ ਯੋਜਨਾ ਬਣਾਓ — ਏਜੰਟ ਬਿਨਾਂ ਲਿਖੇ, ਪੜ੍ਹਦਾ ਅਤੇ ਪ੍ਰਸਤਾਵ ਦਿੰਦਾ ਹੈ।",
+    "tooltipOn": "ਯੋਜਨਾਬੰਦੀ। ਏਜੰਟ ਨੂੰ ਫਾਈਲਾਂ ਲਿਖਣ ਦੇਣ ਲਈ ਇਸਨੂੰ ਬੰਦ ਕਰੋ।",
+    "onAnnounce": "ਪਲਾਨ ਮੋਡ ਚਾਲੂ ਹੈ",
+    "placeholder": "ਇੱਕ ਯੋਜਨਾ ਲਈ ਪੁੱਛੋ. ਏਜੰਟ ਕਿਸੇ ਵੀ ਫ਼ਾਈਲ ਨੂੰ ਨਹੀਂ ਬਦਲੇਗਾ।"
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} ਕਦਮਾਂ 'ਤੇ ਰੁਕਿਆ। ਏਜੰਟ ਪੂਰਾ ਨਹੀਂ ਹੋਇਆ ਹੈ।",
+    "keepGoing": "ਚਲਦੇ ਰਹੋ",
+    "stoppedTokens": "ਰੁਕਿਆ - ਇਸ ਸੈਸ਼ਨ ਨੇ ਇਸਦੇ ਟੋਕਨ ਬਜਟ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕੀਤਾ।",
+    "compact": "ਸੰਖੇਪ",
+    "newSession": "ਨਵਾਂ ਸੈਸ਼ਨ"
+  },
+  "run": {
+    "stopped": "ਰੁੱਕ ਗਿਆ।",
+    "failed": "ਦੌੜ ਛੇਤੀ ਰੁਕ ਗਈ।",
+    "tryAgain": "ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+  },
+  "modelNoTools": "{{model}} ਟੂਲਸ ਨੂੰ ਕਾਲ ਨਹੀਂ ਕਰ ਸਕਦਾ, ਇਸਲਈ ਇਹ ਏਜੰਟ ਵਜੋਂ ਕੰਮ ਨਹੀਂ ਕਰ ਸਕਦਾ। ਇੱਕ ਟੂਲ-ਕਾਲਿੰਗ ਮਾਡਲ ਚੁਣੋ।",
+  "askContinue": "ਜਾਰੀ ਰੱਖੋ",
+  "askNext": "ਅਗਲਾ ਸਵਾਲ",
+  "askPrev": "ਪਿਛਲਾ ਸਵਾਲ",
+  "askRecommended": "ਸਿਫ਼ਾਰਿਸ਼ ਕੀਤੀ",
+  "askSelectedCount": "{{count}} ਚੁਣਿਆ ਗਿਆ",
+  "askSomethingElse": "ਕੁਝ ਹੋਰ",
+  "askSomethingElsePlaceholder": "ਆਪਣਾ ਜਵਾਬ ਟਾਈਪ ਕਰੋ",
+  "submit": "ਜਮ੍ਹਾਂ ਕਰੋ",
+  "composer": {
+    "advanced": "ਉੱਨਤ ਪੈਰਾਮੀਟਰ",
+    "modelDefaults": "ਮਾਡਲ ਪੂਰਵ-ਨਿਰਧਾਰਤ",
+    "assistantOverrides": "ਸਹਾਇਕ ਓਵਰਰਾਈਡ ਕਰਦਾ ਹੈ",
+    "printPdf": "ਪ੍ਰਿੰਟ / PDF ਦੇ ਰੂਪ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕਰੋ",
+    "exportHint": "ਪੜ੍ਹਨਯੋਗ ਫਾਰਮੈਟ: ਕਿਰਿਆਸ਼ੀਲ ਸ਼ਾਖਾ। JSON: ਸਾਰੇ ਸੰਦੇਸ਼ ਸੰਸਕਰਣ। ਬਾਹਰੀ ਫਾਈਲਾਂ ਬੰਡਲ ਨਹੀਂ ਹਨ।"
+  },
+  "telemetry": {
+    "summary": "ਤੁਹਾਡੀ ਸਹਿਮਤੀ ਨਾਲ, {{host}} ਸਿਰਫ਼ Novera ਸੰਸਕਰਣ ਅਤੇ ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ, ਬਿਨਾਂ ਗੱਲਬਾਤ ਜਾਂ ਇੱਕ ਨਿਰੰਤਰ ਪਛਾਣਕਰਤਾ।",
+    "unavailable": "ਅੰਕੜੇ ਕੌਂਫਿਗਰ ਨਹੀਂ ਕੀਤੇ ਗਏ ਹਨ। ਕੋਈ ਡਾਟਾ ਨਹੀਂ ਭੇਜਿਆ ਗਿਆ ਹੈ।"
+  },
+  "errorTracking": {
+    "title": "ਗਲਤੀ ਟਰੈਕਿੰਗ",
+    "summary": "{{host}} ਨੂੰ ਵਿਕਲਪਿਕ ਰਿਪੋਰਟਾਂ: ਗਲਤੀ ਦੀ ਕਿਸਮ, ਕੋਡ ਸਥਿਤੀ, ਸੰਸਕਰਣ ਅਤੇ ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ। ਕੋਈ ਗੱਲਬਾਤ, ਕੱਚੇ ਗਲਤੀ ਸੁਨੇਹੇ ਜਾਂ ਕੁੰਜੀਆਂ ਨਹੀਂ। ਕਿਸੇ ਵੀ ਸਮੇਂ ਅਯੋਗ ਕਰੋ।",
+    "unavailable": "ਗਲਤੀ ਟਰੈਕਿੰਗ ਕੌਂਫਿਗਰ ਨਹੀਂ ਕੀਤੀ ਗਈ ਹੈ। ਕੋਈ ਰਿਪੋਰਟ ਨਹੀਂ ਭੇਜੀ ਜਾਂਦੀ।"
+  }
+}

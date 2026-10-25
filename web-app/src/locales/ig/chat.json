@@ -1,0 +1,50 @@
+{
+  "welcome": "Ndewo, kedu ka ị mere?",
+  "description": "Kedu ka m ga-esi nyere gị aka taa?",
+  "temporaryChat": "Mkparịta ụka nwa oge",
+  "temporaryChatDescription": "Bido mkparịta ụka nwa oge nke agaghị echekwa na akụkọ nkata gị.",
+  "status": {
+    "empty": "Achọghị nkata"
+  },
+  "sendMessage": "Ziga ozi",
+  "newConversation": "Mkparịta ụka ọhụrụ",
+  "clearHistory": "Kpochapụ akụkọ ihe mere eme",
+  "embeddings": {
+    "title": "Na-akwado akwụkwọ gị",
+    "description": "Na-edepụta faịlụ ndị agbakwunyere ka e wee nwee ike chọọ ya ma kpọọ ha. Nke a nwere ike iwe obere oge maka nnukwu akwụkwọ."
+  },
+  "actions": {
+    "regenerate": "Megharịa nzaghachi",
+    "askAgain": "Jụọ ọzọ",
+    "continue": "Gaa n'ihu na-emepụta",
+    "remember": "Cheta nke a",
+    "rememberSaved": "Echekwara na ebe nchekwa dị ka \"{{name}}\"",
+    "rememberExists": "Ugbua na ebe nchekwa dị ka \"{{name}}\"",
+    "rememberFailed": "Enweghị ike ịchekwaa na ebe nchekwa"
+  },
+  "done": "Emechaala",
+  "webSources": "{{count}} isi mmalite (s)",
+  "reasoning": {
+    "label": "Na-atụgharị uche...",
+    "thinking": "Na-eche echiche",
+    "working": "Na-arụ ọrụ...",
+    "showFullTimeline": "Gosi usoro iheomume zuru oke",
+    "showCurrentStep": "Gosi nzọụkwụ dị ugbu a naanị",
+    "thoughtForAWhile": "Chee echiche maka sekọnd ole na ole",
+    "thoughtFor": "Echiche maka {{duration}}",
+    "workedForAWhile": "Arụ ọrụ maka sekọnd ole na ole",
+    "workedFor": "Na-arụ ọrụ maka {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Ụdị gara aga",
+    "nextVersion": "Ụdị ọzọ",
+    "generationFailed": "Ọgbọ dara"
+  },
+  "messageStats": {
+    "details": "Ọnụ ọgụgụ ọgbọ",
+    "generation": "Ọgbọ",
+    "reading": "Ọgụgụ",
+    "tokens": "Token",
+    "perSecond": "akara/s"
+  }
+}

@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Код",
+    "preview": "Попередній перегляд",
+    "previewStreaming": "Доступно після завершення генерації",
+    "unresolvedAssets_one": "Не вдається завантажити 1 посилання на об’єкт у попередньому перегляді. Відносні шляхи не мають бази URL для вирішення.",
+    "unresolvedAssets_other": "{{count}} посилань на активи не можна завантажити в попередньому перегляді. Відносні шляхи не мають бази URL для вирішення."
+  },
+  "assistants": "Помічники",
+  "hardware": "Обладнання",
+  "mcp-servers": "MCP Сервери",
+  "local_api_server": "Локальний сервер API",
+  "remote_access": "Віддалений доступ",
+  "integrations": "Інтеграції",
+  "experimental": "Експериментальний",
+  "claude_code": "Клод Код",
+  "https_proxy": "HTTPS Проксі",
+  "web_search": "Пошук в Інтернеті",
+  "shell": "оболонка",
+  "browse": "переглядати",
+  "moreControls": "Більше елементів керування",
+  "starting": "Починаючи...",
+  "activeSuffix": "(активний)",
+  "extensions": "Розширення",
+  "attachments": "Додатки",
+  "general": "Загальний",
+  "settings": "Налаштування",
+  "modelProviders": "Модельні постачальники",
+  "localProviders": "Місцевий",
+  "remoteProviders": "Дистанційний",
+  "manageProviders": "Керуйте провайдерами",
+  "hiddenProviders": "{{count}} вимкнено",
+  "hideProvider": "Приховати провайдера",
+  "showProvider": "Показати провайдера",
+  "interface": "Інтерфейс",
+  "appearance": "Зовнішній вигляд",
+  "privacy": "Конфіденційність",
+  "keyboardShortcuts": "Ярлики",
+  "home": "додому",
+  "cowork": "Cowork",
+  "newSession": "Нова сесія",
+  "artifacts": "Артефакти",
+  "customize": "Налаштувати",
+  "local": "Місцевий",
+  "selectFolder": "Виберіть папку",
+  "selectModel": "Спочатку виберіть модель",
+  "commands": "Команди",
+  "cmdHelp": "Список доступних команд",
+  "cmdClear": "Очистити цей сеанс",
+  "cmdModels": "Перемкніть активну модель",
+  "cmdModelsHint": "Введіть /models, а потім виберіть модель зі списку",
+  "cmdModelSwitched": "Перейшов на {{name}}",
+  "cmdUnknown": "Невідома команда: {{name}}. Спробуйте /help",
+  "cmdBusy": "Не можна зробити це, коли агент працює",
+  "cmdCompact": "Стисніть контекст сеансу в резюме",
+  "cmdCompacted": "Стиснуті повідомлення {{before}} -> {{after}}",
+  "cmdNothingToCompact": "Ущільнювати поки що нічого",
+  "cmdCompactFailed": "Помилка стиснення: {{error}}",
+  "cmdPlan": "Перемкнути режим планування (тільки читання: агент пропонує без написання)",
+  "cmdPlanOn": "Режим планування ввімкнено: агент читає та робить пропозиції без письма",
+  "cmdPlanOff": "Режим планування вимкнено: нормальне виконання",
+  "cmdTodo": "Відкрийте панель прогресу",
+  "cmdTasks": "Відкрийте панель фонових завдань",
+  "cmdInit": "Вивчіть проект і навички письма та пам'ять",
+  "cmdInitRunning": "Підключення до цього проекту",
+  "skills": "Навички",
+  "skillsInContext": "Навички, доступні агенту в цьому запускі",
+  "skillsTitle": "Керуйте навичками",
+  "skillsScopeProject": "Навички для {{folder}}",
+  "skillsScopeGlobal": "Глобальні навички, доступні для кожної сесії",
+  "skillsScopeMerged": "Навички для {{folder}}, а також глобальні навички, якими ділиться кожен сеанс",
+  "skillOriginFolder": "папку",
+  "skillOriginGlobal": "глобальний",
+  "skillsEmpty": "Ще немає навичок",
+  "skillsPickOrNew": "Виберіть навичку для редагування або створіть нову.",
+  "skillNew": "Новий навик",
+  "skillDelete": "Видалити навик",
+  "skillSave": "Зберегти",
+  "skillSaved": "Навичка збережена",
+  "skillNameRequired": "Потрібно вказати назву навички",
+  "skillNamePlaceholder": "вміння-назва",
+  "skillContentPlaceholder": "Опишіть процедуру багаторазового використання в Markdown…",
+  "skillHubImport": "Імпорт з хабу",
+  "skillHubTitle": "Anthropic центр навичок",
+  "skillHubEmpty": "На хабі не знайдено навичок",
+  "skillImport": "Імпорт",
+  "skillReimport": "Повторний імпорт",
+  "skillImported": "Імпортовано {{name}}",
+  "sessions": "Сеанси",
+  "deleteSession": "Видалити сеанс",
+  "deleteSessionTitle": "Видалити сеанс?",
+  "deleteSessionBody": "\"{{title}}\" та його розшифровку буде остаточно видалено. Цю дію не можна скасувати.",
+  "newChat": "Новий чат",
+  "newAgentChat": "Чат нового агента",
+  "chats": "Чати",
+  "favorites": "Вибране",
+  "recents": "Останні",
+  "hub": "Хаб",
+  "helpSupport": "Допомога та підтримка",
+  "helpUsImproveJan": "Допоможіть нам покращити Novera",
+  "analyticsConsentDetail": "Ми збираємо анонімні дані, щоб зрозуміти використання функцій. Ваші чати та особиста інформація ніколи не відстежуються. Ви можете будь-коли змінити це в Налаштуваннях > Конфіденційність.",
+  "analyticsConsentQuestion": "Хочете допомогти нам покращити Novera?",
+  "unstarAll": "Зняти зірочку з усіх",
+  "unstar": "Зняти зірочку",
+  "deleteAll": "Видалити все",
+  "star": "зірка",
+  "rename": "Перейменувати",
+  "delete": "Видалити",
+  "copied": "Скопійовано!",
+  "dataFolder": "Папка даних",
+  "others": "інше",
+  "language": "Мова",
+  "login": "Увійти",
+  "loginWith": "Увійти за допомогою {{provider}}",
+  "loginFailed": "Не вдалося увійти",
+  "logout": "Вийти",
+  "loggingOut": "Вихід...",
+  "loggedOut": "Успішно вийшли",
+  "logoutFailed": "Не вдалося вийти",
+  "profile": "Профіль",
+  "reset": "Скинути",
+  "search": "Пошук",
+  "searchThreads": "Шукати ланцюжки...",
+  "toNavigate": "для навігації",
+  "toSelect": "вибрати",
+  "toClose": "закрити",
+  "clearRecent": "ясно",
+  "name": "Ім'я",
+  "cancel": "Скасувати",
+  "dismiss": "Відхилити",
+  "create": "Створити",
+  "save": "Зберегти",
+  "edit": "Редагувати",
+  "copy": "Копіювати",
+  "back": "Назад",
+  "close": "Закрити",
+  "done": "Готово",
+  "next": "Далі",
+  "finish": "Закінчити",
+  "skip": "Пропустити",
+  "allow": "Дозволити",
+  "deny": "Заперечувати",
+  "start": "старт",
+  "stop": "Стоп",
+  "preview": {
+    "loading": "Відкриття…",
+    "unsupported": "Novera не може показати файл такого типу. Відкрийте його, щоб побачити в іншій програмі.",
+    "outside": "Цей файл більше не знаходиться в робочій області сеансу.",
+    "tooLarge": "Завеликий для попереднього перегляду. Відкрийте його, щоб побачити в іншій програмі.",
+    "reload": "Перезавантажити",
+    "allowNetwork": "Дозволити мережу",
+    "unsandboxed": "Запуск без ізольованого програмного середовища: збережені дані та локальні файли працюють",
+    "unresolvedRefs_one": "1 файл, на який посилається ця сторінка, не може завантажити в попередньому перегляді. Відкрийте його, щоб побачити його в браузері.",
+    "unresolvedRefs_other": "{{count}} файлів, на які посилається ця сторінка, неможливо завантажити в попередньому перегляді. Відкрийте його, щоб побачити його в браузері.",
+    "externalRefs_one": "1 ресурс, який ця сторінка завантажує з Інтернету, заблоковано. Увімкніть «Дозволити мережу», щоб завантажити його.",
+    "externalRefs_other": "{{count}} ресурсів, які ця сторінка завантажує з Інтернету, заблоковано. Увімкніть «Дозволити мережу», щоб завантажити їх.",
+    "scriptErrors_one": "Сторінка повідомила про помилку: {{message}}",
+    "scriptErrors_other": "Сторінка повідомила про {{count}} помилок. Перший: {{message}}"
+  },
+  "changes": {
+    "title": "Зміна агента",
+    "empty": "Тут відображатимуться файли, які пише чи редагує агент.",
+    "a11y": "Зміни агента: {{files}} файлів, {{additions}} додано, {{deletions}} видалено"
+  },
+  "modelPanel": {
+    "title": "Параметри моделі",
+    "a11y": "Відкрити налаштування моделі",
+    "contextTooltip": "Контекстне вікно: {{value}} з {{max}} токенів"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Навик «{{name}}» недоступний",
+    "kind": {
+      "skill": "Майстерність",
+      "command": "Команда",
+      "model": "Модель"
+    }
+  },
+  "compactWidth": "Компактна ширина",
+  "fullWidth": "Повна ширина",
+  "dark": "Темний",
+  "light": "світло",
+  "system": "система",
+  "auto": "Авто",
+  "english": "англійська",
+  "medium": "Середній",
+  "newThread": "Нова тема",
+  "noResultsFound": "Результатів не знайдено",
+  "noThreadsYet": "Ще немає тем",
+  "noThreadsYetDesc": "Почніть нову розмову, щоб переглянути тут свою історію ланцюжків.",
+  "downloads": "Завантаження",
+  "downloading": "Завантаження",
+  "uploadingAttachments": "Завантаження вкладень…",
+  "cancelDownload": "Скасувати завантаження",
+  "downloadCancelled": "Завантаження скасовано",
+  "downloadComplete": "Завантаження завершено",
+  "thinking": "Думаючи...",
+  "thought": "Думка",
+  "callingTool": "Інструмент виклику",
+  "completed": "Виконано",
+  "image": "Зображення",
+  "vision": "Бачення",
+  "multimodal": "Мультимодальний",
+  "embeddings": "Вбудовування",
+  "tools": "Інструменти",
+  "webSearch": "Пошук в Інтернеті",
+  "reasoning": "Міркування",
+  "proactive": "Проактивний",
+  "selectAModel": "Виберіть модель",
+  "noToolsAvailable": "Інструменти відсутні",
+  "noModelsFoundFor": "Не знайдено моделей для \"{{searchValue}}\"",
+  "failedToLoadModels": "Не вдалося завантажити моделі",
+  "noModels": "Моделі не знайдено",
+  "noAssistant": "Без помічника",
+  "customAvatar": "Власний аватар",
+  "editAssistant": "Помічник редагування",
+  "jan": "Novera",
+  "metadata": "Метадані",
+  "regenerate": "Регенерувати",
+  "threadImage": "Зображення нитки",
+  "editMessage": "Редагувати повідомлення",
+  "deleteMessage": "Видалити повідомлення",
+  "deleteThread": "Видалити ланцюжок",
+  "renameThread": "Перейменувати ланцюжок",
+  "threadTitle": "Назва теми",
+  "deleteAllThreads": "Видалити всі теми",
+  "allThreadsUnfavorited": "Усі ланцюжки видалено з вибраного",
+  "deleteAllThreadsConfirm": "Ви впевнені, що бажаєте видалити всі ланцюжки? Цю дію не можна скасувати.",
+  "addProvider": "Додати постачальника",
+  "addOpenAIProvider": "Додайте постачальника OpenAI",
+  "enterNameForProvider": "Введіть назву свого провайдера",
+  "providerAlreadyExists": "Постачальник з назвою \"{{name}}\" вже існує. Виберіть інше ім'я.",
+  "adjustFontSize": "Відрегулюйте розмір шрифту",
+  "changeLanguage": "Змінити мову",
+  "editTheme": "Редагувати тему",
+  "editCodeBlockStyle": "Редагувати стиль блоку коду",
+  "editServerHost": "Редагувати хост сервера",
+  "pickColorWindowBackground": "Виберіть колір тла вікна",
+  "pickColorAppMainView": "Виберіть головний вигляд додатка «Кольор».",
+  "pickColorAppPrimary": "Виберіть Color App Primary",
+  "pickColorAppAccent": "Виберіть Color App Accent",
+  "pickColorAppDestructive": "Виберіть Color App Destructive",
+  "apiKeyRequired": "API Потрібен ключ",
+  "enterTrustedHosts": "Введіть надійних хостів",
+  "placeholder": {
+    "chatInput": "Запитай мене що завгодно..."
+  },
+  "confirm": "Підтвердити",
+  "continue": "Продовжити",
+  "loading": "Завантаження...",
+  "settingUpJan": "Завантаження Novera…",
+  "registeringExtensions": "Реєстрація розширень…",
+  "loadingExtensions": "Завантаження розширень… ({{done}}/{{total}})",
+  "error": "Помилка",
+  "success": "Успіх",
+  "warning": "Попередження",
+  "conversationNotAvailable": "Розмова недоступна",
+  "conversationNotAvailableDescription": "Розмова, до якої ви намагаєтеся отримати доступ, недоступна або її видалено.",
+  "temporaryChat": "Тимчасовий чат",
+  "temporaryChatTooltip": "Тимчасовий чат не відображатиметься у вашій історії",
+  "noResultsFoundDesc": "Ми не змогли знайти жодного чату, який відповідає вашому запиту. Спробуйте інше ключове слово.",
+  "searchModels": "Пошук моделей...",
+  "searchStyles": "Стилі пошуку...",
+  "createAssistant": "Створити помічника",
+  "enterApiKey": "Введіть ключ API",
+  "scrollToBottom": "Прокрутіть вниз",
+  "generateAiResponse": "Створення відповіді AI",
+  "continueAiResponse": "Продовжте роботу з AI Response",
+  "addModel": {
+    "title": "Додати модель",
+    "modelId": "ID моделі",
+    "enterModelId": "Введіть ID моделі",
+    "addModel": "Додати модель",
+    "description": "Додати нову модель до провайдера",
+    "exploreModels": "Перегляньте список моделей від постачальника"
+  },
+  "mcpServers": {
+    "editServer": "Редагувати сервер",
+    "addServer": "Додати сервер",
+    "serverName": "Ім'я сервера",
+    "enterServerName": "Введіть назву сервера",
+    "command": "Команда",
+    "enterCommand": "Введіть команду",
+    "arguments": "Аргументи",
+    "argument": "Аргумент {{index}}",
+    "envVars": "Змінні середовища",
+    "key": "ключ",
+    "value": "Значення",
+    "save": "Зберегти"
+  },
+  "deleteServer": {
+    "title": "Видалити сервер",
+    "delete": "Видалити"
+  },
+  "editJson": {
+    "errorParse": "Не вдалося проаналізувати JSON",
+    "errorPaste": "Не вдалося вставити JSON",
+    "errorFormat": "Недійсний формат JSON",
+    "titleAll": "Змінити конфігурацію всіх серверів",
+    "placeholder": "Введіть конфігурацію JSON...",
+    "save": "Зберегти"
+  },
+  "editModel": {
+    "title": "Редагувати модель: {{modelId}}",
+    "description": "Налаштуйте можливості моделі, перемикаючи параметри нижче.",
+    "capabilities": "Можливості",
+    "tools": "Інструменти",
+    "vision": "Бачення",
+    "embeddings": "Вбудовування",
+    "notAvailable": "Ще не доступний"
+  },
+  "outOfContextError": {
+    "truncateInput": "Обрізати вхідні дані",
+    "title": "Помилка поза контекстом",
+    "description": "Цей чат досягає обмеження пам’яті штучного інтелекту, подібно до заповнення дошки. Ми можемо розширити вікно пам’яті (так званий розмір контексту), щоб воно запам’ятовувало більше, але воно може використовувати більше пам’яті вашого комп’ютера. Ми також можемо обрізати вхідні дані, що означає, що він забуде частину історії чату, щоб звільнити місце для нових повідомлень.",
+    "increaseContextSizeDescription": "Бажаєте збільшити розмір контексту?",
+    "increaseContextSize": "Збільшити розмір контексту"
+  },
+  "toolApproval": {
+    "title": "Запит на дозвіл інструменту",
+    "description": "Помічник хоче використовувати <strong>{{toolName}}</strong>",
+    "securityNotice": "Дозволяйте лише інструменти, яким ви довіряєте. Інструменти можуть отримати доступ до вашої системи та даних.",
+    "deny": "Заперечувати",
+    "allowOnce": "Дозволити один раз",
+    "alwaysAllow": "Завжди дозволяти"
+  },
+  "deleteModel": {
+    "title": "Видалити модель: {{modelId}}",
+    "description": "Ви впевнені, що хочете видалити цю модель? Цю дію не можна скасувати.",
+    "success": "Модель {{modelId}} видалено назавжди.",
+    "cancel": "Скасувати",
+    "delete": "Видалити"
+  },
+  "deleteProvider": {
+    "title": "Видалити постачальника",
+    "description": "Видалити цього постачальника та всі його моделі. Цю дію не можна скасувати.",
+    "success": "Постачальника {{provider}} видалено остаточно.",
+    "confirmTitle": "Видалити постачальника: {{provider}}",
+    "confirmDescription": "Ви впевнені, що хочете видалити цього постачальника? Цю дію не можна скасувати.",
+    "cancel": "Скасувати",
+    "delete": "Видалити"
+  },
+  "modelSettings": {
+    "title": "Параметри моделі - {{modelId}}",
+    "description": "Налаштуйте параметри моделі для оптимізації продуктивності та поведінки.",
+    "nglDisabledByFit": "Автопідгонка вибирає GPU шарів. Вимкніть Auto-fit, щоб налаштувати це вручну.",
+    "samplingDefaults": {
+      "title": "Параметри вибірки за замовчуванням",
+      "description": "Налаштування семплера за замовчуванням для цієї моделі. Використовується, якщо не перевизначено значеннями для кожного помічника або кожного запиту."
+    },
+    "specDraft": {
+      "section": "Спекулятивне декодування",
+      "enable": "Увімкнути спекулятивне декодування",
+      "enableDescription": "Створюйте кілька токенів за крок і перевіряйте їх за один прохід, що прискорює генерацію. Використовує вбудовані в модель головки MTP або чорнову модель, завантажену разом із нею (MTP, Eagle3, DFlash або DSpark).",
+      "nMax": "Максимальна кількість токенів",
+      "nMaxDescription": "Максимальна кількість токенів для чернетки за крок. За замовчуванням 16.",
+      "nMin": "Мін. чернетки токенів",
+      "nMinDescription": "Мінімальна кількість токенів для чернетки за крок. За замовчуванням 0.",
+      "pMin": "Мінімальна ймовірність тяги",
+      "pMinDescription": "Мінімальна ймовірність жадібного складання (0–1). За замовчуванням 0,75."
+    },
+    "templateKwargs": {
+      "section": "Параметри шаблону чату",
+      "description": "Додаткові параметри, які підтримує шаблон чату цієї моделі. Надсилається як chat_template_kwargs за кожним запитом; залиште значення за замовчуванням, щоб дозволити шаблону вирішити.",
+      "addCustom": "Додати спеціальну опцію",
+      "keyPlaceholder": "назва",
+      "valuePlaceholder": "значення",
+      "add": "Додати",
+      "cancel": "Скасувати",
+      "remove": "видалити"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Не вдалося оновити налаштування моделі"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Змінити розташування папки даних",
+      "description": "Ви впевнені, що бажаєте змінити розташування папки даних? Це перемістить усі ваші дані в нове місце та перезапустить програму.",
+      "currentLocation": "Поточне місцезнаходження:",
+      "newLocation": "Нове місце розташування:",
+      "cancel": "Скасувати",
+      "changeLocation": "Змінити місце розташування"
+    },
+    "deleteAllThreads": {
+      "title": "Видалити всі теми",
+      "description": "Усі ланцюжки буде видалено. Цю дію не можна скасувати."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Видалити всі розмови",
+      "description": "{{count}} розмов у \"{{projectName}}\" буде видалено. Цю дію не можна скасувати."
+    },
+    "deleteThread": {
+      "description": "Ви впевнені, що хочете видалити цю тему? Цю дію не можна скасувати."
+    },
+    "editMessage": {
+      "title": "Редагувати повідомлення"
+    },
+    "messageMetadata": {
+      "title": "Метадані повідомлення"
+    },
+    "deleteMessage": {
+      "description": "Ви впевнені, що хочете видалити це повідомлення? Цю дію не можна скасувати."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Щось пішло не так",
+    "details": "Подробиці"
+  },
+  "missingDependenciesDialog": {
+    "title": "Відсутні системні бібліотеки",
+    "description": "{{backend}} було встановлено, але деякі необхідні системні бібліотеки не знайдено. Він може повернутися до CPU або працювати некоректно.",
+    "installLabel": "Щоб виправити це, встановіть наступне:",
+    "download": "Завантажити",
+    "additionalLibraries": "Додаткові відсутні бібліотеки:",
+    "missingLibraries": "Відсутні бібліотеки:",
+    "showRawLibraries": "Показати {{count}} відсутніх імен бібліотек"
+  },
+  "projects": {
+    "title": "Проекти",
+    "new": "Нові проекти",
+    "addProject": "Додати проект",
+    "addToProject": "Додати до проекту",
+    "removeFromProject": "Видалити з проекту",
+    "createNewProject": "Створити новий проект",
+    "editProject": "Редагувати проект",
+    "deleteProject": "Видалити проект",
+    "projectName": "Назва проекту",
+    "enterProjectName": "Введіть назву проекту...",
+    "noProjectsAvailable": "Немає доступних проектів",
+    "noProjectsYet": "Проектів ще немає",
+    "noProjectsYetDesc": "Розпочніть новий проект, натиснувши кнопку «Додати проект».",
+    "projectNotFound": "Проект не знайдено",
+    "projectNotFoundDesc": "Проект, який ви шукаєте, не існує або був видалений.",
+    "selectAssistant": "Виберіть помічника",
+    "noAssistantAssigned": "Немає помічників, призначених для цього проекту",
+    "files": "Файли",
+    "filesDescription": "Додайте PDF-файли, документи чи інший текст для посилання в цьому проекті.",
+    "uploadingFiles": "Обробка файлів…",
+    "processButton": "Додати",
+    "deleteProjectDialog": {
+      "title": "Видалити проект",
+      "permanentDelete": "Це назавжди видалить усі ланцюжки.",
+      "permanentDeleteWarning": "Ця дія назавжди видалить УСІ потоки в рамках проекту!",
+      "deleteEmptyProject": "Ця дія видалить проект \"{{projectName}}\".",
+      "saveThreadsAdvice": "Щоб зберегти ланцюжки, перемістіть їх у свій список ланцюжків або інший проект перед видаленням.",
+      "starredWarning": "У проекті все ще є позначені зірочкою теми.",
+      "deleteButton": "Видалити",
+      "successWithName": "Проект \"{{projectName}}\" успішно видалено",
+      "successWithoutName": "Проект успішно видалено",
+      "error": "Не вдалося видалити проект. Спробуйте ще раз.",
+      "ariaLabel": "Видалити {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Створити новий проект",
+      "editTitle": "Редагувати проект",
+      "nameLabel": "Назва проекту",
+      "namePlaceholder": "Введіть назву проекту...",
+      "assistant": "помічник",
+      "selectAssistant": "Виберіть помічника (необов'язково)",
+      "noAssistant": "Без помічника",
+      "addAssistant": "Додати помічника",
+      "createButton": "Створити",
+      "updateButton": "оновлення",
+      "alreadyExists": "Проект «{{projectName}}» вже існує",
+      "createSuccess": "Проект \"{{projectName}}\" успішно створено",
+      "updateSuccess": "Проект \"{{projectName}}\" успішно оновлено",
+      "saveError": "Не вдалося зберегти проект. Спробуйте ще раз."
+    },
+    "noConversationsIn": "Немає розмов у {{projectName}}",
+    "startNewConversation": "Почніть нову розмову з {{projectName}} нижче",
+    "conversationsIn": "Розмови в {{projectName}}",
+    "conversationsDescription": "Натисніть будь-яку розмову, щоб продовжити спілкування, або почніть нову нижче.",
+    "conversation": "Розмова",
+    "instructions": "Інструкції",
+    "setup": "Налаштування",
+    "instructionsDescription": "Налаштуйте тон і стиль відповіді",
+    "manageInstructions": "Керувати інструкціями",
+    "thread": "нитка",
+    "threads": "нитки",
+    "updated": "Оновлено:",
+    "collapseProject": "Згорнути проект",
+    "expandProject": "Розгорнути проект",
+    "update": "оновлення",
+    "searchProjects": "Пошук проектів...",
+    "noProjectsFound": "Проекти не знайдено",
+    "tryDifferentSearch": "Спробуйте інший термін пошуку"
+  },
+  "attachmentsIngestion": {
+    "title": "Виберіть спосіб отримання вкладень",
+    "description": "Виберіть, чи включати ці файли безпосередньо в чат чи індексувати їх як вбудовані файли.",
+    "inline": "Ввести в чат",
+    "embeddings": "Використовуйте вставки"
+  },
+  "attachmentInjectedIndicator": "Введено в чат",
+  "attachmentEmbeddedIndicator": "Вбудований для RAG",
+  "viewInjectedContent": "Перегляньте введений вміст",
+  "injectedContentTitle": "Вставлений вміст файлу",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Усі ланцюжки видалено з вибраного",
+      "description": "Усі ланцюжки видалено з вибраного."
+    },
+    "deleteAllThreads": {
+      "title": "Видалити всі теми",
+      "description": "Усі ланцюжки видалено назавжди."
+    },
+    "renameThread": {
+      "title": "Перейменувати ланцюжок",
+      "description": "Назву ланцюжка змінено на \"{{title}}\""
+    },
+    "deleteThread": {
+      "title": "Видалити ланцюжок",
+      "description": "Цей ланцюжок видалено назавжди."
+    },
+    "errorCopied": {
+      "title": "Копіювання успішне",
+      "description": "Інформація про помилку скопійована в буфер обміну"
+    },
+    "errorCopyFailed": {
+      "title": "Не вдалося скопіювати",
+      "description": "Не вдалося скопіювати інформацію про помилку в буфер обміну"
+    },
+    "editMessage": {
+      "title": "Редагувати повідомлення",
+      "description": "Повідомлення успішно відредаговано. Зачекайте, поки модель відповість."
+    },
+    "appUpdateDownloaded": {
+      "title": "Оновлення програми завантажено",
+      "description": "Оновлення програми успішно завантажено."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Помилка завантаження оновлення програми",
+      "description": "Не вдалося завантажити оновлення програми. Спробуйте ще раз."
+    },
+    "downloadComplete": {
+      "title": "Завантаження завершено",
+      "description": "{{item}} завантажено"
+    },
+    "downloadCancelled": {
+      "title": "Завантаження скасовано",
+      "description": "Процес завантаження скасовано"
+    },
+    "downloadFailed": {
+      "title": "Помилка завантаження",
+      "description": "Помилка завантаження {{item}}",
+      "descriptionWithReason": "Помилка завантаження {{item}}: {{reason}}",
+      "reason": {
+        "dns": "ім'я сервера не вдалося вирішити",
+        "refused": "у підключенні було відмовлено",
+        "timeout": "час очікування підключення закінчився",
+        "tls": "не вдалося встановити безпечне з'єднання",
+        "proxy": "проксі не вдалося отримати",
+        "unreachable": "сервер не доступний"
+      }
+    },
+    "openSettings": "Відкрийте налаштування",
+    "openLogs": "Відкриті журнали",
+    "downloadTokenRequired": {
+      "title": "Потрібен жетон Hugging Face",
+      "description": "Для цієї моделі потрібен маркер доступу Hugging Face. Додайте маркер у налаштуваннях і повторіть спробу."
+    },
+    "downloadLicenseRequired": {
+      "title": "Прийняти модель ліцензії на Hugging Face",
+      "description": "Ви повинні прийняти ліцензію моделі на сторінці Hugging Face перед завантаженням."
+    },
+    "downloadRateLimited": {
+      "title": "Ціна обмежена Hugging Face",
+      "description": "Ви були обмежені по швидкості. Додавання токена може збільшити обмеження швидкості. Спробуйте пізніше."
+    },
+    "modelValidationStarted": {
+      "title": "Перевірка моделі",
+      "description": "Модель \"{{modelId}}\" успішно завантажено. Перевірка цілісності..."
+    },
+    "modelValidationFailed": {
+      "title": "Помилка перевірки моделі",
+      "description": "Завантажену модель \"{{modelId}}\" не вдалося перевірити на цілісність і було видалено. Файл може бути пошкоджено або підроблено."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Завантаження завершено",
+      "description": "Модель \"{{item}}\" завантажено та успішно перевірено"
+    },
+    "projectCreated": {
+      "title": "Проект створено",
+      "description": "Проект \"{{projectName}}\" успішно створено"
+    },
+    "projectRenamed": {
+      "title": "Проект перейменовано",
+      "description": "Проект змінено з \"{{oldName}}\" на \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Проект видалено",
+      "description": "Проект \"{{projectName}}\" успішно видалено"
+    },
+    "projectAlreadyExists": {
+      "title": "Проект вже існує",
+      "description": "Проект «{{projectName}}» вже існує"
+    },
+    "projectDeleteFailed": {
+      "title": "Не вдалося видалити",
+      "description": "Не вдалося видалити проект. Спробуйте ще раз."
+    },
+    "threadAssignedToProject": {
+      "title": "Тема призначена",
+      "description": "Потік успішно призначено для \"{{projectName}}\"."
+    },
+    "threadRemovedFromProject": {
+      "title": "Тема видалена",
+      "description": "Тему успішно видалено з \"{{projectName}}\"."
+    },
+    "fileUploaded": {
+      "title": "Файл оброблено",
+      "description": "Файл оброблено та успішно проіндексовано"
+    },
+    "uploadFailed": {
+      "title": "Помилка обробки",
+      "description": "Не вдалося обробити файл",
+      "subjectThisFile": "Цей файл",
+      "pdfMalformedXref": "{{subject}} містить неправильно сформовану таблицю перехресних посилань PDF, і її неможливо проаналізувати. Спробуйте відкрити його у засобі перегляду PDF та повторно зберегти (Файл → Друк → Зберегти як PDF), а потім завантажте знову.",
+      "pdfScanned": "{{subject}} виглядає як відсканований або зображений PDF. OCR ще не підтримується — завантажте текстовий PDF.",
+      "pdfEncrypted": "{{subject}} захищено паролем. Видаліть пароль і повторіть спробу.",
+      "pdfUnsupportedFeature": "{{subject}} використовує функцію PDF, яку Novera ще не може розібрати (наприклад, функції кольору/затінення PostScript). Спробуйте повторно зберегти його (Файл → Друк → Зберегти як PDF), щоб звести його, а потім завантажте знову.",
+      "pdfGeneric": "{{subject}} не вдалося розібрати як PDF. Файл може бути пошкоджено або використовує непідтримувану функцію PDF.",
+      "fileTooLarge": "{{subject}} завелике. {{message}}.",
+      "unsupportedType": "Тип файлу \"{{type}}\" не підтримується.",
+      "ioError": "Не вдалося прочитати {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} не вдалося проаналізувати: {{message}}",
+      "fallback": "Не вдалося обробити {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Файл видалено",
+      "description": "Файл видалено з проекту"
+    },
+    "deleteFailed": {
+      "title": "Не вдалося видалити",
+      "description": "Не вдалося видалити файл"
+    },
+    "fileAlreadyExists": {
+      "title": "Файл уже існує",
+      "description": "Файл уже прикріплено до цього проекту"
+    },
+    "unsupportedFileType": {
+      "title": "Непідтримуваний тип файлу",
+      "description": "Розширення файлу \".{{extension}}\" не підтримується для довідки проекту."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Вкладення вимкнено",
+      "description": "Вкладення вимкнено в налаштуваннях"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Файл завеликий",
+    "fileTooLargeDescription": "{{fileName}} перевищує ліміт {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} шматків",
+    "title": "Файли",
+    "empty": "Тут відображатимуться файли, які ви вкладаєте, і файли, створені агентом.",
+    "a11y": "Файли: {{count}}",
+    "attachments": "Додатки",
+    "notImported": "не в робочому місці"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp все ще зайнятий",
+    "description": "Одна або кілька моделей не вивантажилися вчасно. Примусове припинення роботи llama.cpp та може перервати активні відповіді.",
+    "forceQuit": "Примусово вийти",
+    "forcing": "Примусовий вихід…",
+    "shuttingDown": "Вимкнення…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}м",
+    "hours": "{{count}}год"
+  },
+  "collapse": "Згорнути",
+  "expand": "Розгорнути",
+  "todoPanelTitle": "Прогрес",
+  "todoPanelEmpty": "Ще немає списку справ.",
+  "backgroundTasks": "Фонові завдання",
+  "subagentsRunning_one": "{{count}} працює субагент",
+  "subagentsRunning_other": "Запущено {{count}} субагентів",
+  "monitorsRunning_one": "{{count}} працює монітор",
+  "monitorsRunning_other": "Запущено {{count}} моніторів",
+  "backgroundRunning_one": "Виконується фонове завдання {{count}}",
+  "backgroundRunning_other": "Виконується {{count}} фонових завдань",
+  "monitors": "Монітори",
+  "monitorPolling": "Опитування",
+  "monitorMatched": "Збіг",
+  "monitorTimedOut": "Час очікування минув",
+  "monitorStopped": "Зупинився",
+  "monitorEnded": "Завершено",
+  "coworkWatching_one": "Перегляд монітора {{count}}…",
+  "coworkWatching_other": "Перегляд {{count}} моніторів…",
+  "coworkWaitingBackground": "Очікування фонових завдань…",
+  "noBackgroundTasks": "Фонових завдань ще немає.",
+  "running": "Біг",
+  "queued": "У черзі",
+  "waiting": "Очікування",
+  "finished": "Готово",
+  "subagentPhase": "фаза {{phase}}",
+  "subagentWaiting": "очікування",
+  "viewTranscript": "Переглянути стенограму",
+  "taskWorking": "Робота…",
+  "taskNoOutput": "Субагент не дав видимого результату.",
+  "subagentToolUses_one": "{{count}} використання інструменту",
+  "subagentToolUses_other": "{{count}} використання інструменту",
+  "artifactGroupCode": "Код",
+  "artifactGroupImage": "Зображення",
+  "artifactGroupDocument": "документ",
+  "artifactGroupVideo": "відео",
+  "artifactGroupAudio": "Аудіо",
+  "artifactOpenPreview": "Відкрити попередній перегляд",
+  "artifactOpenExternal": "відкритий",
+  "artifactMoreActions": "Більше дій",
+  "artifactShowInFolder": "Показати в папці",
+  "skillsUsedLabel": "Використані навички",
+  "skillsUsed": "Використані навички: {{skills}}",
+  "artifactsAll": "все",
+  "artifactsEmpty": "Ще нічого не виготовлено. Тут відображаються артефакти з Cowork серій.",
+  "artifactsNoMatch": "Немає відповідних артефактів.",
+  "artifactsSearch": "Пошук артефактів",
+  "artifactsShowMore": "Показати ще {{count}}",
+  "workspace": {
+    "readsFrom": "Працює в",
+    "writable": "читати і писати",
+    "footnote": "Агент безпосередньо читає та редагує цю папку. Перегляньте, що змінилося на панелі відмінностей.",
+    "footnoteEmpty": "Додайте папку, щоб дозволити агенту працювати над вашим проектом. Він може читати та редагувати файли в ньому.",
+    "attach": "Прикріпіть папку",
+    "change": "Змінити папку",
+    "detach": "Від’єднати папку",
+    "open": "відкритий",
+    "reveal": "Розкрити",
+    "unavailable": "Робоча область недоступна",
+    "missing": "Папка робочої області {{folder}} більше недоступна. Виберіть іншу папку.",
+    "openFailed": "Не вдалося відкрити робочу область",
+    "revealFailed": "Не вдалося відкрити робочу область",
+    "a11yWithFolder": "Папка проекту {{folder}}, приєднана з доступом для читання та запису. Змініть або від'єднайте його.",
+    "a11yNoFolder": "Папка проекту не долучена. Прикріпіть один."
+  },
+  "coworkEmpty": {
+    "title": "Над чим ми працюємо?",
+    "subtitleSandbox": "Дайте Novera завдання. Він читає та записує файли, виконує команди та виконує кроки самостійно.",
+    "subtitleFolder": "Дайте Novera завдання. Він працює безпосередньо в {{folder}}, читаючи та редагуючи файли самостійно.",
+    "try": "Спробуй",
+    "sandbox": {
+      "first": "Напишіть сценарій Python, який перейменовує файли за датою їх створення",
+      "second": "Створіть односторінкову інформаційну панель із CSV, яку я вставлю",
+      "third": "Створіть README для проекту, який я вам описую"
+    },
+    "folder": {
+      "first": "Поясніть, як складається {{folder}}",
+      "second": "Знайдіть усі TODO в {{folder}} та згрупуйте їх за областями",
+      "third": "Напишіть тести на ту частину {{folder}}, яку я вам вказую"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Немає терміналу",
+    "a11y": "Виконання команд вимкнено. Подробиці.",
+    "title": "Виконання команд вимкнено",
+    "body": "Novera дозволяє агенту виконувати команди оболонки лише тоді, коли ваша система може їх обмежити. Ізольоване програмне середовище тут недоступне, тому агент може читати, писати та редагувати файли у своєму ізольованому програмному середовищі, але не запускати нічого.",
+    "fixLinux": "Linux використовує пухирчасту плівку. Встановіть його, а потім перезапустіть Novera.",
+    "fixMac": "macOS використовує вбудовану пісочницю в /usr/bin/sandbox-exec. Перезапустіть Novera, коли він стане доступним.",
+    "fixWindows": "Windows використовує AppContainer. Перезапустіть Novera, щоб повторити спробу.",
+    "recheck": "Перевірте ще раз"
+  },
+  "planMode": {
+    "label": "План",
+    "tooltipOff": "Спершу плануйте — агент читає та пропонує, не пишучи.",
+    "tooltipOn": "Планування. Вимкніть це, щоб дозволити агенту записувати файли.",
+    "onAnnounce": "Увімкнено режим планування",
+    "placeholder": "Попросіть план. Агент не змінюватиме файли."
+  },
+  "budget": {
+    "stoppedSteps": "Зупинився на {{max}} кроках. Агент не закінчив.",
+    "keepGoing": "Продовжуйте",
+    "stoppedTokens": "Зупинено — ця сесія досягла свого символічного бюджету.",
+    "compact": "Компактний",
+    "newSession": "Нова сесія"
+  },
+  "run": {
+    "stopped": "Зупинився.",
+    "failed": "Біг рано припинився.",
+    "tryAgain": "Спробуйте знову"
+  },
+  "modelNoTools": "{{model}} не може викликати інструменти, тому він не може діяти як агент. Виберіть модель виклику інструментів.",
+  "askContinue": "Продовжити",
+  "askNext": "Наступне питання",
+  "askPrev": "Попереднє запитання",
+  "askRecommended": "Рекомендовано",
+  "askSelectedCount": "{{count}} вибрано",
+  "askSomethingElse": "Щось інше",
+  "askSomethingElsePlaceholder": "Введіть власну відповідь",
+  "submit": "Надіслати",
+  "composer": {
+    "advanced": "Розширені параметри",
+    "modelDefaults": "Стандартні параметри моделі",
+    "assistantOverrides": "Перевизначення помічника",
+    "printPdf": "Роздрукувати / зберегти як PDF",
+    "exportHint": "Читальні формати: активна гілка. JSON: усі версії повідомлення. Зовнішні файли не об’єднуються."
+  },
+  "telemetry": {
+    "summary": "З вашої згоди {{host}} отримує лише версію Novera та операційну систему без розмов чи постійного ідентифікатора.",
+    "unavailable": "Статистика не налаштована. Дані не надсилаються."
+  },
+  "errorTracking": {
+    "title": "Відстеження помилок",
+    "summary": "Додаткові звіти до {{host}}: тип помилки, позиція коду, версія та операційна система. Жодних розмов, необроблених повідомлень про помилки чи ключів. Вимкніть будь-коли.",
+    "unavailable": "Відстеження помилок не налаштовано. Звіти не надсилаються."
+  }
+}

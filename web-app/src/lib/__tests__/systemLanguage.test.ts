@@ -13,19 +13,22 @@ describe('system language matching', () => {
     ['fr-FR', 'fr'], ['fr_CA.UTF-8', 'fr'], ['de-AT', 'de-DE'],
     ['pt-PT', 'pt-PT'], ['pt-BR', 'pt-BR'], ['pt-AO', 'pt-PT'],
     ['zh-Hans-HK', 'zh-CN'], ['zh-Hant', 'zh-TW'], ['zh-HK', 'zh-TW'],
-    ['vi-VN', 'vn'], ['fa-AF', 'fa-IR'], ['fil-PH', 'tl'],
-    ['pa-Arab-PK', 'pnb'], ['pa-IN', 'en'], ['yue-Hant-HK', 'yue'],
+    ['vi-VN', 'vn'], ['fa-AF', 'prs'], ['fa-IR', 'fa-IR'], ['prs', 'prs'], ['prs-AF', 'prs'], ['fil-PH', 'tl'],
+    ['pa-Arab-PK', 'pnb'], ['pa-IN', 'pa'], ['pa-Guru-PK', 'pa'], ['pa-PK', 'pnb'], ['yue-Hant-HK', 'yue'],
     ['gu-IN', 'gu'], ['kn-IN', 'kn'], ['apc-LB', 'apc'], ['apd-SD', 'apd'],
     ['ar-LB', 'apc'], ['ar-SY', 'apc'], ['ar-JO', 'apc'], ['ar-PS', 'apc'],
     ['ar-SD', 'apd'], ['ar-DZ', 'arq'], ['ar-MA', 'ary'],
     ['arq-DZ', 'arq'], ['ary-MA', 'ary'], ['yo-NG', 'yo'], ['bho-IN', 'bho'],
     ['cjy-CN', 'cjy'], ['nan-TW', 'nan'], ['my-MM', 'my'], ['hak-TW', 'hak'],
-    ['ln-CD', 'ln'], ['or-IN', 'or'], ['ar-SA', 'ar'], ['ar-EG', 'ar'], ['arz-EG', 'arz'], ['en-US', 'en'], ['sv-SE', 'en'],
+    ['ln-CD', 'ln'], ['or-IN', 'or'], ['uk-UA', 'uk'], ['hsn-CN', 'hsn'],
+    ['ml-IN', 'ml'], ['sd-PK', 'sd'], ['sd-Arab-IN', 'sd'], ['sd-Deva-IN', 'en'],
+    ['su-ID', 'su'], ['ig-NG', 'ig'], ['ne-NP', 'ne'], ['ms-MY', 'ms'], ['ar-SA', 'ar'], ['ar-EG', 'ar'], ['arz-EG', 'arz'], ['en-US', 'en'], ['sv-SE', 'en'],
   ])('matches %s to %s', (tag, language) => {
     expect(matchSystemLanguage([tag])).toBe(language)
   })
   it('tries later preferred languages and falls back safely on invalid or absent tags', () => {
     expect(matchSystemLanguage(['bad tag', 'sv-SE', 'ja-JP', 'fr-FR'])).toBe('ja')
+    expect(matchSystemLanguage(['sd-Deva-IN', 'fr-FR'])).toBe('fr')
     expect(matchSystemLanguage([])).toBe('en')
     expect(matchSystemLanguage(['C', ''])).toBe('en')
   })

@@ -1,0 +1,50 @@
+{
+  "welcome": "ਹੈਲੋ, ਤੁਸੀਂ ਕਿਵੇਂ ਹੋ?",
+  "description": "ਅੱਜ ਮੈਂ ਤੁਹਾਡੀ ਕਿਵੇਂ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ?",
+  "temporaryChat": "ਅਸਥਾਈ ਚੈਟ",
+  "temporaryChatDescription": "ਇੱਕ ਅਸਥਾਈ ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰੋ ਜੋ ਤੁਹਾਡੇ ਚੈਟ ਇਤਿਹਾਸ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤੀ ਜਾਵੇਗੀ।",
+  "status": {
+    "empty": "ਕੋਈ ਗੱਲਬਾਤ ਨਹੀਂ ਮਿਲੀ"
+  },
+  "sendMessage": "ਸੁਨੇਹਾ ਭੇਜੋ",
+  "newConversation": "ਨਵੀਂ ਗੱਲਬਾਤ",
+  "clearHistory": "ਇਤਿਹਾਸ ਸਾਫ਼ ਕਰੋ",
+  "embeddings": {
+    "title": "ਤੁਹਾਡੇ ਦਸਤਾਵੇਜ਼ ਤਿਆਰ ਕਰ ਰਿਹਾ ਹੈ",
+    "description": "ਨੱਥੀ ਫਾਈਲਾਂ ਨੂੰ ਇੰਡੈਕਸ ਕਰਨਾ ਤਾਂ ਜੋ ਉਹਨਾਂ ਨੂੰ ਖੋਜਿਆ ਜਾ ਸਕੇ ਅਤੇ ਹਵਾਲਾ ਦਿੱਤਾ ਜਾ ਸਕੇ। ਵੱਡੇ ਦਸਤਾਵੇਜ਼ਾਂ ਲਈ ਇਸ ਵਿੱਚ ਕੁਝ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।"
+  },
+  "actions": {
+    "regenerate": "ਜਵਾਬ ਨੂੰ ਮੁੜ ਤਿਆਰ ਕਰੋ",
+    "askAgain": "ਦੁਬਾਰਾ ਪੁੱਛੋ",
+    "continue": "ਬਣਾਉਣਾ ਜਾਰੀ ਰੱਖੋ",
+    "remember": "ਇਹ ਯਾਦ ਰੱਖੋ",
+    "rememberSaved": "ਮੈਮੋਰੀ ਵਿੱਚ \"{{name}}\" ਵਜੋਂ ਸੁਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ",
+    "rememberExists": "ਪਹਿਲਾਂ ਹੀ \"{{name}}\" ਵਜੋਂ ਮੈਮੋਰੀ ਵਿੱਚ ਹੈ",
+    "rememberFailed": "ਮੈਮੋਰੀ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ"
+  },
+  "done": "ਹੋ ਗਿਆ",
+  "webSources": "{{count}} ਸਰੋਤ",
+  "reasoning": {
+    "label": "ਤਰਕ...",
+    "thinking": "ਸੋਚਣਾ",
+    "working": "ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ...",
+    "showFullTimeline": "ਪੂਰੀ ਸਮਾਂਰੇਖਾ ਦਿਖਾਓ",
+    "showCurrentStep": "ਸਿਰਫ਼ ਮੌਜੂਦਾ ਪੜਾਅ ਦਿਖਾਓ",
+    "thoughtForAWhile": "ਕੁਝ ਸਕਿੰਟਾਂ ਲਈ ਸੋਚਿਆ",
+    "thoughtFor": "{{duration}} ਲਈ ਸੋਚਿਆ",
+    "workedForAWhile": "ਕੁਝ ਸਕਿੰਟਾਂ ਲਈ ਕੰਮ ਕੀਤਾ",
+    "workedFor": "{{duration}} ਲਈ ਕੰਮ ਕੀਤਾ"
+  },
+  "messageActions": {
+    "previousVersion": "ਪਿਛਲਾ ਸੰਸਕਰਣ",
+    "nextVersion": "ਅਗਲਾ ਸੰਸਕਰਣ",
+    "generationFailed": "ਪੀੜ੍ਹੀ ਅਸਫਲ ਰਹੀ"
+  },
+  "messageStats": {
+    "details": "ਪੀੜ੍ਹੀ ਦੇ ਅੰਕੜੇ",
+    "generation": "ਪੀੜ੍ਹੀ",
+    "reading": "ਪੜ੍ਹਨਾ",
+    "tokens": "ਟੋਕਨ",
+    "perSecond": "ਟੋਕਨ/s"
+  }
+}

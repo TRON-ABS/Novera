@@ -1,0 +1,18 @@
+{
+  "addProvider": "Додати постачальника",
+  "addOpenAIProvider": "Додати власного постачальника",
+  "enterNameForProvider": "Ім’я постачальника (наприклад, my-llm-server)",
+  "apiTypeLabel": "Формат API",
+  "apiTypeOpenAI": "OpenAI-сумісний",
+  "apiTypeAnthropic": "Anthropic-сумісний",
+  "baseUrlLabel": "База URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "Ключ API",
+  "apiKeyPlaceholder": "Вставте свій ключ API",
+  "invalidBaseUrl": "База URL має бути дійсним http(s) URL",
+  "globalSettings": "Глобальні налаштування",
+  "stripReasoning": "Відокремте міркування від контексту",
+  "stripReasoningDesc": "Видаліть вміст мислення/міркування попередніх ходів перед повторним надсиланням історії для всіх постачальників. Покращує повторне використання KV-кешу для локальних моделей, але деякі моделі (наприклад, новіші випуски Qwen) рекомендують зберегти його для кращого багатооборотного обґрунтування.",
+  "providerAlreadyExists": "Постачальник під назвою {{name}} вже існує."
+}

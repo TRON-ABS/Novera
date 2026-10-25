@@ -1,0 +1,50 @@
+{
+  "welcome": "Hai, kumaha damang?",
+  "description": "Kumaha abdi tiasa ngabantosan anjeun dinten ayeuna?",
+  "temporaryChat": "Obrolan samentara",
+  "temporaryChatDescription": "Mimitian paguneman samentawis anu moal disimpen dina sajarah obrolan anjeun.",
+  "status": {
+    "empty": "Taya obrolan kapanggih"
+  },
+  "sendMessage": "Kirim Pesen",
+  "newConversation": "Paguneman Anyar",
+  "clearHistory": "Hapus Sajarah",
+  "embeddings": {
+    "title": "Nyiapkeun dokumén anjeun",
+    "description": "Indexing file napel ngarah bisa searched tur dicutat. Ieu tiasa nyandak sakedap kanggo dokumén ageung."
+  },
+  "actions": {
+    "regenerate": "Regenerasi respon",
+    "askAgain": "Nanya deui",
+    "continue": "Neruskeun ngahasilkeun",
+    "remember": "Inget ieu",
+    "rememberSaved": "Disimpen dina mémori salaku \"{{name}}\"",
+    "rememberExists": "Geus aya dina mémori salaku \"{{name}}\"",
+    "rememberFailed": "Teu bisa nyimpen kana mémori"
+  },
+  "done": "Réngsé",
+  "webSources": "{{count}} sumber",
+  "reasoning": {
+    "label": "Alesan...",
+    "thinking": "Pikiran",
+    "working": "Gawé...",
+    "showFullTimeline": "Témbongkeun timeline pinuh",
+    "showCurrentStep": "Témbongkeun léngkah ayeuna wungkul",
+    "thoughtForAWhile": "Dipikir sababaraha detik",
+    "thoughtFor": "Dipikir {{duration}}",
+    "workedForAWhile": "Digarap sababaraha detik",
+    "workedFor": "Digarap {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Vérsi saméméhna",
+    "nextVersion": "Vérsi salajengna",
+    "generationFailed": "Generasi gagal"
+  },
+  "messageStats": {
+    "details": "Statistik generasi",
+    "generation": "Generasi",
+    "reading": "bacaan",
+    "tokens": "Token",
+    "perSecond": "token / s"
+  }
+}

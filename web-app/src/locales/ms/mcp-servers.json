@@ -1,0 +1,101 @@
+{
+  "editServer": "Edit MCP Pelayan",
+  "addServer": "Tambah MCP Pelayan",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Menyemak status sambungan..."
+    },
+    "notInstalled": {
+      "title": "Novera menyelesaikan tugas dalam penyemak imbas anda",
+      "description": "Pasang sambungan untuk memberi Novera akses penyemak imbas",
+      "getExtension": "Dapatkan Sambungan"
+    }
+  },
+  "serverName": "Nama Pelayan",
+  "enterServerName": "Masukkan nama pelayan",
+  "command": "Arahan",
+  "enterCommand": "Masukkan arahan (uvx atau npx)",
+  "arguments": "Hujah",
+  "argument": "Hujah {{index}}",
+  "envVars": "Pembolehubah Persekitaran",
+  "key": "kunci",
+  "value": "Nilai",
+  "save": "Simpan",
+  "status": "Status",
+  "connected": "Bersambung",
+  "disconnected": "Terputus sambungan",
+  "deleteServer": {
+    "title": "Padamkan MCP Pelayan",
+    "description": "Adakah anda pasti mahu memadamkan pelayan MCP {{serverName}}? Tindakan ini tidak boleh dibuat asal.",
+    "delete": "Padam",
+    "success": "MCP pelayan {{serverName}} berjaya dipadamkan"
+  },
+  "editJson": {
+    "title": "Edit JSON untuk MCP Pelayan: {{serverName}}",
+    "titleAll": "Edit Semua MCP Pelayan JSON",
+    "placeholder": "Masukkan konfigurasi JSON",
+    "errorParse": "Gagal menghuraikan data awal",
+    "errorPaste": "Format JSON tidak sah dalam kandungan yang ditampal",
+    "errorFormat": "Format JSON tidak sah",
+    "errorServerName": "Nama pelayan diperlukan dan tidak boleh kosong",
+    "errorMissingServerNameKey": "JSON mesti distrukturkan sebagai {\"serverName\": {config}} - tiada kekunci nama pelayan",
+    "errorInvalidType": "Jenis '{{type}}' tidak sah untuk pelayan '{{serverName}}'. Jenis mestilah 'stdio', 'http' atau 'sse'",
+    "save": "Simpan"
+  },
+  "checkParams": "Sila semak parameter mengikut tutorial.",
+  "title": "MCP Pelayan",
+  "experimental": "Eksperimen",
+  "editAllJson": "Edit Semua Pelayan JSON",
+  "findMore": "Dapatkan lebih banyak MCP pelayan di",
+  "allowPermissions": "Benarkan Semua MCP Kebenaran Alat",
+  "allowPermissionsDesc": "Apabila didayakan, semua MCP panggilan alat akan diluluskan secara automatik tanpa menunjukkan dialog kebenaran. Tetapan ini digunakan secara global untuk semua perbualan, termasuk sembang baharu.",
+  "noServers": "Tiada MCP pelayan ditemui",
+  "args": "Argumen",
+  "env": "Persekitaran",
+  "serverStatusActive": "Pelayan {{serverKey}} berjaya diaktifkan",
+  "serverStatusInactive": "Pelayan {{serverKey}} berjaya dinyahaktifkan",
+  "runtimeSettings": {
+    "title": "Tetapan Masa Jalan",
+    "description": "Konfigurasikan cara Novera mengurus dan mencuba semula MCP pelayan.",
+    "toolCallTimeout": "tamat masa panggilan alat (saat)",
+    "toolCallTimeoutDesc": "Masa maksimum untuk menunggu respons alat MCP sebelum tamat masa.",
+    "maxToolOutputChars": "Aksara output alat maks",
+    "maxToolOutputCharsDesc": "Hasil alat terpanjang disimpan dalam perbualan. Apa-apa sahaja yang melepasi ini dipangkas dan ditandakan sebagai dipenggal, jadi satu hasil yang besar tidak boleh meletihkan konteks model. Tetapkan kepada 0 untuk memastikan keputusan keseluruhan.",
+    "smartToolRouting": "Penghalaan alat pintar MCP",
+    "smartToolRoutingDesc": "Apabila didayakan, Novera memilih pelayan MCP yang berkaitan sebelum memuatkan alatan. Lumpuhkan untuk sentiasa memuatkan senarai alat MCP penuh.",
+    "useLightweightRouterModel": "Gunakan model khusus untuk penghalaan",
+    "useLightweightRouterModelDesc": "Apabila penghalaan pintar dihidupkan, jalankan langkah penghalaan dengan model berasingan (selalunya lebih kecil) dan bukannya model sembang. Matikan untuk sentiasa menggunakan model sembang aktif untuk penghalaan.",
+    "routerModel": "Model penghalaan",
+    "routerModelDesc": "Pilih pembekal dan model di satu tempat. Hanya model ringan disenaraikan supaya penghalaan kekal pantas dan murah.",
+    "selectRouterModelPlaceholder": "Pilih model penghalaan…",
+    "routerModelSearchPlaceholder": "Cari model…",
+    "routerModelEmptyList": "Tiada model ringan tersedia. Tambahkan model yang lebih kecil atau konfigurasikan kekunci API dalam Model.",
+    "routerModelEmptySearch": "Tiada padanan untuk “{{query}}”."
+  },
+  "auth": {
+    "label": "Pengesahan:",
+    "state": {
+      "notApplicable": "tidak diperlukan",
+      "staticHeader": "Pengepala kebenaran",
+      "authenticated": "disahkan",
+      "expired": "tamat tempoh",
+      "staleResource": "dikeluarkan untuk URL lagi",
+      "unauthenticated": "tidak disahkan"
+    },
+    "expiresIn": "tamat tempoh dalam {{duration}}",
+    "authenticate": "Log masuk",
+    "reauthenticate": "Sahkan semula",
+    "clear": "Pengesahan yang jelas",
+    "waiting": "Menunggu penyemak imbas...",
+    "openSignInPage": "Buka halaman log masuk",
+    "needsAuth": "{{serverName}} memerlukan pengesahan",
+    "needsAuthHint": "Log masuk ke pelayan ini untuk menyambung.",
+    "authorized": "Log masuk ke {{serverName}}",
+    "authorizeFailed": "Log masuk untuk {{serverName}} gagal",
+    "cleared": "Mengosongkan bukti kelayakan yang disimpan untuk {{serverName}}",
+    "nothingToClear": "{{serverName}} tidak mempunyai bukti kelayakan yang disimpan",
+    "clearFailed": "Tidak dapat mengosongkan kelayakan untuk {{serverName}}",
+    "renew": "Perbaharui sesi",
+    "expiredAgo": "tamat tempoh {{duration}} yang lalu"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "welcome": "привіт як справи",
+  "description": "Чим я можу тобі допомогти сьогодні?",
+  "temporaryChat": "Тимчасовий чат",
+  "temporaryChatDescription": "Почніть тимчасову розмову, яка не буде збережена в історії чату.",
+  "status": {
+    "empty": "Чати не знайдено"
+  },
+  "sendMessage": "Надіслати повідомлення",
+  "newConversation": "Нова розмова",
+  "clearHistory": "Очистити історію",
+  "embeddings": {
+    "title": "Підготовка документів",
+    "description": "Індексація вкладених файлів, щоб їх можна було шукати та цитувати. Для великих документів це може зайняти деякий час."
+  },
+  "actions": {
+    "regenerate": "Відновити відповідь",
+    "askAgain": "Запитайте знову",
+    "continue": "Продовжити генерацію",
+    "remember": "Пам'ятайте про це",
+    "rememberSaved": "Збережено в пам'яті як \"{{name}}\"",
+    "rememberExists": "Вже в пам'яті як \"{{name}}\"",
+    "rememberFailed": "Не вдалося зберегти в пам'ять"
+  },
+  "done": "Готово",
+  "webSources": "{{count}} джерела",
+  "reasoning": {
+    "label": "Міркування...",
+    "thinking": "Мислення",
+    "working": "Працює...",
+    "showFullTimeline": "Показати повну шкалу часу",
+    "showCurrentStep": "Показати лише поточний крок",
+    "thoughtForAWhile": "Подумав кілька секунд",
+    "thoughtFor": "Думка за {{duration}}",
+    "workedForAWhile": "Попрацював кілька секунд",
+    "workedFor": "Працював на {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Попередня версія",
+    "nextVersion": "Наступна версія",
+    "generationFailed": "Помилка генерації"
+  },
+  "messageStats": {
+    "details": "Статистика генерації",
+    "generation": "Покоління",
+    "reading": "Читання",
+    "tokens": "Жетони",
+    "perSecond": "жетонів/с"
+  }
+}

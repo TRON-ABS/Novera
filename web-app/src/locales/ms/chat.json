@@ -1,0 +1,50 @@
+{
+  "welcome": "Hai, apa khabar?",
+  "description": "Bagaimana saya boleh membantu anda hari ini?",
+  "temporaryChat": "Sembang Sementara",
+  "temporaryChatDescription": "Mulakan perbualan sementara yang tidak akan disimpan ke sejarah sembang anda.",
+  "status": {
+    "empty": "Tiada Sembang Ditemui"
+  },
+  "sendMessage": "Hantar Mesej",
+  "newConversation": "Perbualan Baru",
+  "clearHistory": "Kosongkan Sejarah",
+  "embeddings": {
+    "title": "Menyediakan dokumen anda",
+    "description": "Mengindeks fail yang dilampirkan supaya ia boleh dicari dan dipetik. Ini mungkin mengambil sedikit masa untuk dokumen besar."
+  },
+  "actions": {
+    "regenerate": "Menjana semula tindak balas",
+    "askAgain": "Tanya lagi",
+    "continue": "Teruskan menjana",
+    "remember": "Ingat ini",
+    "rememberSaved": "Disimpan ke ingatan sebagai \"{{name}}\"",
+    "rememberExists": "Sudah dalam ingatan sebagai \"{{name}}\"",
+    "rememberFailed": "Tidak dapat disimpan ke ingatan"
+  },
+  "done": "Selesai",
+  "webSources": "{{count}} sumber",
+  "reasoning": {
+    "label": "Penaakulan...",
+    "thinking": "Berfikir",
+    "working": "sedang bekerja...",
+    "showFullTimeline": "Tunjukkan garis masa penuh",
+    "showCurrentStep": "Tunjukkan langkah semasa sahaja",
+    "thoughtForAWhile": "Termenung beberapa saat",
+    "thoughtFor": "Difikirkan untuk {{duration}}",
+    "workedForAWhile": "Bekerja selama beberapa saat",
+    "workedFor": "Bekerja dengan harga {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Versi sebelumnya",
+    "nextVersion": "Versi seterusnya",
+    "generationFailed": "Generasi gagal"
+  },
+  "messageStats": {
+    "details": "Statistik penjanaan",
+    "generation": "Generasi",
+    "reading": "Membaca",
+    "tokens": "Token",
+    "perSecond": "token/s"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "editServer": "MCP ਸਰਵਰ ਦਾ ਸੰਪਾਦਨ ਕਰੋ",
+  "addServer": "MCP ਸਰਵਰ ਸ਼ਾਮਲ ਕਰੋ",
+  "browserExtension": {
+    "connecting": {
+      "checking": "ਐਕਸਟੈਂਸ਼ਨ ਸਥਿਤੀ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
+    },
+    "notInstalled": {
+      "title": "Novera ਤੁਹਾਡੇ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਕਾਰਜਾਂ ਨੂੰ ਪੂਰਾ ਕਰਦਾ ਹੈ",
+      "description": "Novera ਬ੍ਰਾਊਜ਼ਰ ਪਹੁੰਚ ਦੇਣ ਲਈ ਐਕਸਟੈਂਸ਼ਨ ਨੂੰ ਸਥਾਪਿਤ ਕਰੋ",
+      "getExtension": "ਐਕਸਟੈਂਸ਼ਨ ਪ੍ਰਾਪਤ ਕਰੋ"
+    }
+  },
+  "serverName": "ਸਰਵਰ ਦਾ ਨਾਮ",
+  "enterServerName": "ਸਰਵਰ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+  "command": "ਕਮਾਂਡ",
+  "enterCommand": "ਕਮਾਂਡ ਦਿਓ (uvx ਜਾਂ npx)",
+  "arguments": "ਦਲੀਲਾਂ",
+  "argument": "ਆਰਗੂਮੈਂਟ {{index}}",
+  "envVars": "ਵਾਤਾਵਰਣ ਵੇਰੀਏਬਲ",
+  "key": "ਕੁੰਜੀ",
+  "value": "ਮੁੱਲ",
+  "save": "ਸੰਭਾਲੋ",
+  "status": "ਸਥਿਤੀ",
+  "connected": "ਜੁੜਿਆ",
+  "disconnected": "ਡਿਸਕਨੈਕਟ ਕੀਤਾ",
+  "deleteServer": {
+    "title": "MCP ਸਰਵਰ ਮਿਟਾਓ",
+    "description": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ MCP ਸਰਵਰ {{serverName}} ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
+    "delete": "ਮਿਟਾਓ",
+    "success": "MCP ਸਰਵਰ {{serverName}} ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾਇਆ ਗਿਆ"
+  },
+  "editJson": {
+    "title": "MCP ਸਰਵਰ ਲਈ JSON ਸੰਪਾਦਿਤ ਕਰੋ: {{serverName}}",
+    "titleAll": "ਸਾਰੇ MCP ਸਰਵਰ JSON ਸੰਪਾਦਿਤ ਕਰੋ",
+    "placeholder": "JSON ਸੰਰਚਨਾ ਦਰਜ ਕਰੋ",
+    "errorParse": "ਸ਼ੁਰੂਆਤੀ ਡੇਟਾ ਨੂੰ ਪਾਰਸ ਕਰਨ ਵਿੱਚ ਅਸਫਲ",
+    "errorPaste": "ਪੇਸਟ ਕੀਤੀ ਸਮੱਗਰੀ ਵਿੱਚ ਅਵੈਧ JSON ਫਾਰਮੈਟ",
+    "errorFormat": "ਅਵੈਧ JSON ਫਾਰਮੈਟ",
+    "errorServerName": "ਸਰਵਰ ਨਾਮ ਲੋੜੀਂਦਾ ਹੈ ਅਤੇ ਖਾਲੀ ਨਹੀਂ ਹੋ ਸਕਦਾ",
+    "errorMissingServerNameKey": "JSON ਲਾਜ਼ਮੀ ਤੌਰ 'ਤੇ {\"serverName\": {config}} - ਸਰਵਰ ਨਾਮ ਕੁੰਜੀ ਗੁੰਮ ਹੈ",
+    "errorInvalidType": "ਸਰਵਰ '{{serverName}}' ਲਈ ਅਵੈਧ ਕਿਸਮ '{{type}}'। ਕਿਸਮ 'stdio', 'http', ਜਾਂ 'sse' ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ",
+    "save": "ਸੰਭਾਲੋ"
+  },
+  "checkParams": "ਕਿਰਪਾ ਕਰਕੇ ਟਿਊਟੋਰਿਅਲ ਦੇ ਅਨੁਸਾਰ ਪੈਰਾਮੀਟਰਾਂ ਦੀ ਜਾਂਚ ਕਰੋ।",
+  "title": "MCP ਸਰਵਰ",
+  "experimental": "ਪ੍ਰਯੋਗਾਤਮਕ",
+  "editAllJson": "ਸਾਰੇ ਸਰਵਰਾਂ ਨੂੰ ਸੋਧੋ JSON",
+  "findMore": "'ਤੇ ਹੋਰ MCP ਸਰਵਰ ਲੱਭੋ",
+  "allowPermissions": "ਸਾਰੀਆਂ MCP ਟੂਲ ਇਜਾਜ਼ਤਾਂ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ",
+  "allowPermissionsDesc": "ਜਦੋਂ ਯੋਗ ਕੀਤਾ ਜਾਂਦਾ ਹੈ, ਤਾਂ ਸਾਰੀਆਂ MCP ਟੂਲ ਕਾਲਾਂ ਬਿਨਾਂ ਇਜਾਜ਼ਤ ਡਾਇਲਾਗ ਦਿਖਾਏ ਆਪਣੇ ਆਪ ਮਨਜ਼ੂਰ ਹੋ ਜਾਣਗੀਆਂ। ਇਹ ਸੈਟਿੰਗ ਨਵੀਂ ਚੈਟਾਂ ਸਮੇਤ ਸਾਰੀਆਂ ਗੱਲਬਾਤਾਂ 'ਤੇ ਵਿਸ਼ਵ ਪੱਧਰ 'ਤੇ ਲਾਗੂ ਹੁੰਦੀ ਹੈ।",
+  "noServers": "ਕੋਈ MCP ਸਰਵਰ ਨਹੀਂ ਮਿਲੇ",
+  "args": "ਆਰਗਸ",
+  "env": "ਵਾਤਾਵਰਨ",
+  "serverStatusActive": "ਸਰਵਰ {{serverKey}} ਸਫਲਤਾਪੂਰਵਕ ਸਰਗਰਮ ਹੋਇਆ",
+  "serverStatusInactive": "ਸਰਵਰ {{serverKey}} ਸਫਲਤਾਪੂਰਵਕ ਅਕਿਰਿਆਸ਼ੀਲ ਕੀਤਾ ਗਿਆ",
+  "runtimeSettings": {
+    "title": "ਰਨਟਾਈਮ ਸੈਟਿੰਗਾਂ",
+    "description": "ਕੌਂਫਿਗਰ ਕਰੋ ਕਿ ਕਿਵੇਂ Novera MCP ਸਰਵਰਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰਦਾ ਹੈ।",
+    "toolCallTimeout": "ਟੂਲ ਕਾਲ ਦਾ ਸਮਾਂ ਸਮਾਪਤ (ਸਕਿੰਟ)",
+    "toolCallTimeoutDesc": "ਸਮਾਂ ਸਮਾਪਤ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ MCP ਟੂਲ ਜਵਾਬ ਦੀ ਉਡੀਕ ਕਰਨ ਲਈ ਅਧਿਕਤਮ ਸਮਾਂ।",
+    "maxToolOutputChars": "ਅਧਿਕਤਮ ਟੂਲ ਆਉਟਪੁੱਟ ਅੱਖਰ",
+    "maxToolOutputCharsDesc": "ਸਭ ਤੋਂ ਲੰਬਾ ਟੂਲ ਨਤੀਜਾ ਗੱਲਬਾਤ ਵਿੱਚ ਰੱਖਿਆ ਗਿਆ। ਇਸ ਤੋਂ ਪਹਿਲਾਂ ਦੀ ਕਿਸੇ ਵੀ ਚੀਜ਼ ਨੂੰ ਕੱਟਿਆ ਗਿਆ ਹੈ ਅਤੇ ਕੱਟਿਆ ਗਿਆ ਹੈ, ਇਸ ਲਈ ਇੱਕ ਵੱਡਾ ਨਤੀਜਾ ਮਾਡਲ ਦੇ ਸੰਦਰਭ ਨੂੰ ਖਤਮ ਨਹੀਂ ਕਰ ਸਕਦਾ ਹੈ। ਨਤੀਜਿਆਂ ਨੂੰ ਪੂਰਾ ਰੱਖਣ ਲਈ 0 'ਤੇ ਸੈੱਟ ਕਰੋ।",
+    "smartToolRouting": "ਸਮਾਰਟ MCP ਟੂਲ ਰੂਟਿੰਗ",
+    "smartToolRoutingDesc": "ਜਦੋਂ ਸਮਰਥਿਤ ਹੁੰਦਾ ਹੈ, Novera ਟੂਲ ਲੋਡ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਸੰਬੰਧਿਤ MCP ਸਰਵਰਾਂ ਦੀ ਚੋਣ ਕਰਦਾ ਹੈ। ਪੂਰੀ MCP ਟੂਲ ਸੂਚੀ ਨੂੰ ਹਮੇਸ਼ਾ ਲੋਡ ਕਰਨ ਲਈ ਅਯੋਗ ਕਰੋ।",
+    "useLightweightRouterModel": "ਰੂਟਿੰਗ ਲਈ ਇੱਕ ਸਮਰਪਿਤ ਮਾਡਲ ਦੀ ਵਰਤੋਂ ਕਰੋ",
+    "useLightweightRouterModelDesc": "ਜਦੋਂ ਸਮਾਰਟ ਰੂਟਿੰਗ ਚਾਲੂ ਹੁੰਦੀ ਹੈ, ਤਾਂ ਚੈਟ ਮਾਡਲ ਦੀ ਬਜਾਏ ਇੱਕ ਵੱਖਰੇ (ਅਕਸਰ ਛੋਟੇ) ਮਾਡਲ ਨਾਲ ਰੂਟਿੰਗ ਪੜਾਅ ਚਲਾਓ। ਰੂਟਿੰਗ ਲਈ ਹਮੇਸ਼ਾ ਕਿਰਿਆਸ਼ੀਲ ਚੈਟ ਮਾਡਲ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ ਬੰਦ ਕਰੋ।",
+    "routerModel": "ਰੂਟਿੰਗ ਮਾਡਲ",
+    "routerModelDesc": "ਇੱਕ ਥਾਂ 'ਤੇ ਪ੍ਰਦਾਤਾ ਅਤੇ ਮਾਡਲ ਚੁਣੋ। ਸਿਰਫ਼ ਹਲਕੇ ਭਾਰ ਵਾਲੇ ਮਾਡਲਾਂ ਨੂੰ ਸੂਚੀਬੱਧ ਕੀਤਾ ਗਿਆ ਹੈ ਇਸਲਈ ਰੂਟਿੰਗ ਤੇਜ਼ ਅਤੇ ਸਸਤੀ ਰਹਿੰਦੀ ਹੈ।",
+    "selectRouterModelPlaceholder": "ਰੂਟਿੰਗ ਮਾਡਲ ਚੁਣੋ...",
+    "routerModelSearchPlaceholder": "ਖੋਜ ਮਾਡਲ…",
+    "routerModelEmptyList": "ਕੋਈ ਹਲਕੇ ਮਾਡਲ ਉਪਲਬਧ ਨਹੀਂ ਹਨ। ਇੱਕ ਛੋਟਾ ਮਾਡਲ ਸ਼ਾਮਲ ਕਰੋ ਜਾਂ ਮਾਡਲਾਂ ਵਿੱਚ API ਕੁੰਜੀਆਂ ਨੂੰ ਕੌਂਫਿਗਰ ਕਰੋ।",
+    "routerModelEmptySearch": "“{{query}}” ਲਈ ਕੋਈ ਮੇਲ ਨਹੀਂ।"
+  },
+  "auth": {
+    "label": "ਪ੍ਰਮਾਣਿਕਤਾ:",
+    "state": {
+      "notApplicable": "ਲੋੜੀਂਦਾ ਨਹੀਂ",
+      "staticHeader": "ਅਧਿਕਾਰ ਸਿਰਲੇਖ",
+      "authenticated": "ਪ੍ਰਮਾਣਿਤ",
+      "expired": "ਮਿਆਦ ਪੁੱਗ ਗਈ",
+      "staleResource": "ਹੋਰ URL ਲਈ ਜਾਰੀ ਕੀਤਾ ਗਿਆ",
+      "unauthenticated": "ਪ੍ਰਮਾਣਿਤ ਨਹੀਂ ਹੈ"
+    },
+    "expiresIn": "{{duration}} ਵਿੱਚ ਮਿਆਦ ਪੁੱਗਦੀ ਹੈ",
+    "authenticate": "ਸਾਈਨ ਇਨ ਕਰੋ",
+    "reauthenticate": "ਮੁੜ-ਪ੍ਰਮਾਣਿਤ ਕਰੋ",
+    "clear": "ਪ੍ਰਮਾਣਿਕਤਾ ਸਾਫ਼ ਕਰੋ",
+    "waiting": "ਬ੍ਰਾਊਜ਼ਰ ਦੀ ਉਡੀਕ ਕਰ ਰਿਹਾ ਹੈ...",
+    "openSignInPage": "ਸਾਈਨ-ਇਨ ਪੰਨਾ ਖੋਲ੍ਹੋ",
+    "needsAuth": "{{serverName}} ਨੂੰ ਪ੍ਰਮਾਣੀਕਰਨ ਦੀ ਲੋੜ ਹੈ",
+    "needsAuthHint": "ਜੁੜਨ ਲਈ ਇਸ ਸਰਵਰ ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ।",
+    "authorized": "{{serverName}} ਵਿੱਚ ਸਾਈਨ ਇਨ ਕੀਤਾ",
+    "authorizeFailed": "{{serverName}} ਲਈ ਸਾਈਨ-ਇਨ ਅਸਫਲ ਰਿਹਾ",
+    "cleared": "{{serverName}} ਲਈ ਸਟੋਰ ਕੀਤੇ ਪ੍ਰਮਾਣ ਪੱਤਰਾਂ ਨੂੰ ਕਲੀਅਰ ਕੀਤਾ ਗਿਆ",
+    "nothingToClear": "{{serverName}} ਕੋਲ ਕੋਈ ਸਟੋਰ ਕੀਤੇ ਪ੍ਰਮਾਣ ਪੱਤਰ ਨਹੀਂ ਸਨ",
+    "clearFailed": "{{serverName}} ਲਈ ਪ੍ਰਮਾਣ ਪੱਤਰ ਸਾਫ਼ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕੇ",
+    "renew": "ਸੈਸ਼ਨ ਦਾ ਨਵੀਨੀਕਰਨ ਕਰੋ",
+    "expiredAgo": "{{duration}} ਪਹਿਲਾਂ ਮਿਆਦ ਪੁੱਗ ਗਈ"
+  }
+}

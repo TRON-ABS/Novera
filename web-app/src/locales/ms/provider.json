@@ -1,0 +1,18 @@
+{
+  "addProvider": "Tambah Pembekal",
+  "addOpenAIProvider": "Tambah Penyedia Tersuai",
+  "enterNameForProvider": "Nama pembekal (cth. my-llm-server)",
+  "apiTypeLabel": "Format API",
+  "apiTypeOpenAI": "OpenAI-serasi",
+  "apiTypeAnthropic": "Anthropic-serasi",
+  "baseUrlLabel": "Pangkalan URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API kunci",
+  "apiKeyPlaceholder": "Tampalkan kunci API anda",
+  "invalidBaseUrl": "Pangkalan URL mestilah http(s) yang sah URL",
+  "globalSettings": "Tetapan global",
+  "stripReasoning": "Keluarkan penaakulan daripada konteks",
+  "stripReasoningDesc": "Alih keluar kandungan pemikiran/penaakulan giliran sebelumnya sebelum menghantar semula sejarah, merentas semua penyedia. Meningkatkan penggunaan semula cache KV untuk model tempatan, tetapi sesetengah model (mis. keluaran Qwen yang lebih baharu) mengesyorkan menyimpannya untuk alasan berbilang pusingan yang lebih baik.",
+  "providerAlreadyExists": "Pembekal bernama {{name}} sudah wujud."
+}

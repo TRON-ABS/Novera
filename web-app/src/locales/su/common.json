@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Kodeu",
+    "preview": "Sawangan",
+    "previewStreaming": "Sadia nalika generasi rengse",
+    "unresolvedAssets_one": "1 rujukan aset teu tiasa dimuat dina sawangan. Jalur rélatif henteu gaduh dasar URL pikeun ngabéréskeun.",
+    "unresolvedAssets_other": "{{count}} rujukan aset teu tiasa dimuat dina sawangan. Jalur rélatif henteu gaduh dasar URL pikeun ngabéréskeun."
+  },
+  "assistants": "Asisten",
+  "hardware": "Parangkat keras",
+  "mcp-servers": "MCP Server",
+  "local_api_server": "Lokal API Server",
+  "remote_access": "Aksés Jauh",
+  "integrations": "Integrasi",
+  "experimental": "Ékspériméntal",
+  "claude_code": "Kodeu Claude",
+  "https_proxy": "HTTPS Proksi",
+  "web_search": "Pilarian wéb",
+  "shell": "Cangkang",
+  "browse": "Kotektak",
+  "moreControls": "Langkung kadali",
+  "starting": "Ngamimitian...",
+  "activeSuffix": "(Aktif)",
+  "extensions": "Ékstensi",
+  "attachments": "Kantétan",
+  "general": "Umum",
+  "settings": "Setélan",
+  "modelProviders": "Panyadia modél",
+  "localProviders": "Lokal",
+  "remoteProviders": "Jauh",
+  "manageProviders": "Ngatur panyadia",
+  "hiddenProviders": "{{count}} ditumpurkeun",
+  "hideProvider": "Sumputkeun panyadia",
+  "showProvider": "Témbongkeun panyadia",
+  "interface": "Panganteur",
+  "appearance": "Penampilan",
+  "privacy": "Privasi",
+  "keyboardShortcuts": "Potong kompas",
+  "home": "Imah",
+  "cowork": "Cowork",
+  "newSession": "sési anyar",
+  "artifacts": "Artéfak",
+  "customize": "Sesuaikeun",
+  "local": "Lokal",
+  "selectFolder": "Pilih folder",
+  "selectModel": "Pilih modél heula",
+  "commands": "Paréntah",
+  "cmdHelp": "Daptar paréntah sadia",
+  "cmdClear": "Hapus sési ieu",
+  "cmdModels": "Pindah modél aktip",
+  "cmdModelsHint": "Ketik /models teras pilih modél tina daptar",
+  "cmdModelSwitched": "Dialihkeun ka {{name}}",
+  "cmdUnknown": "Paréntah teu dipikanyaho: {{name}}. Coba /help",
+  "cmdBusy": "Teu tiasa ngalakukeun éta nalika agén jalan",
+  "cmdCompact": "Compact kontéks sési kana kasimpulan",
+  "cmdCompacted": "Pesen {{before}} -> {{after}}",
+  "cmdNothingToCompact": "Euweuh nu kompak-kompak acan",
+  "cmdCompactFailed": "Compaction gagal: {{error}}",
+  "cmdPlan": "Togél mode rencana (baca wungkul: agén ngajukeun tanpa tulisan)",
+  "cmdPlanOn": "Mode rencana on: agén maca na proposes tanpa tulisan",
+  "cmdPlanOff": "Mode rencana pareum: palaksanaan normal",
+  "cmdTodo": "Buka panel kamajuan",
+  "cmdTasks": "Buka panel tugas latar tukang",
+  "cmdInit": "Diajar proyék jeung nulis kaahlian jeung memori",
+  "cmdInitRunning": "Onboarding proyék ieu",
+  "skills": "Kaahlian",
+  "skillsInContext": "Kaahlian sadia pikeun agén ieu ngajalankeun",
+  "skillsTitle": "Ngatur kaahlian",
+  "skillsScopeProject": "Kaahlian pikeun {{folder}}",
+  "skillsScopeGlobal": "Kaahlian global, sayogi pikeun unggal sési",
+  "skillsScopeMerged": "Kaahlian pikeun {{folder}}, ditambah kaahlian global unggal sési dibagikeun",
+  "skillOriginFolder": "polder",
+  "skillOriginGlobal": "sakabéh proyék",
+  "skillsEmpty": "Euweuh kaahlian acan",
+  "skillsPickOrNew": "Pilih kaahlian pikeun ngédit, atawa jieun nu anyar.",
+  "skillNew": "kaahlian anyar",
+  "skillDelete": "Ngahapus kaahlian",
+  "skillSave": "Simpen",
+  "skillSaved": "Skill disimpen",
+  "skillNameRequired": "Ngaran skill diperlukeun",
+  "skillNamePlaceholder": "skill-ngaran",
+  "skillContentPlaceholder": "Jelaskeun prosedur anu tiasa dianggo deui dina Markdown…",
+  "skillHubImport": "Impor ti hub",
+  "skillHubTitle": "Puseur kaparigelan Anthropic",
+  "skillHubEmpty": "Taya kaahlian kapanggih dina hub",
+  "skillImport": "Impor",
+  "skillReimport": "Impor deui",
+  "skillImported": "Diimpor {{name}}",
+  "sessions": "sési",
+  "deleteSession": "Pupus sési",
+  "deleteSessionTitle": "Hapus sési?",
+  "deleteSessionBody": "\"{{title}}\" sareng transkripna bakal dihapus permanén. Ieu teu bisa dibolaykeun.",
+  "newChat": "Chat anyar",
+  "newAgentChat": "Agén Anyar Chat",
+  "chats": "Obrolan",
+  "favorites": "Paporit",
+  "recents": "panganyarna",
+  "hub": "Puseur",
+  "helpSupport": "Pitulung & Rojongan",
+  "helpUsImproveJan": "Bantu Kami Ngaronjatkeun Novera",
+  "analyticsConsentDetail": "Kami ngumpulkeun data anonim pikeun ngartos panggunaan fitur. Obrolan sareng inpormasi pribadi anjeun henteu pernah dilacak. Anjeun tiasa ngarobih ieu iraha waé dina Setélan> Privasi.",
+  "analyticsConsentQuestion": "Naha anjeun hoyong ngabantosan kami ningkatkeun Novera?",
+  "unstarAll": "Unstar Sadaya",
+  "unstar": "Cabut tanda béntang",
+  "deleteAll": "Pupus Sadayana",
+  "star": "Béntang",
+  "rename": "Ganti ngaran",
+  "delete": "Pupus",
+  "copied": "Disalin!",
+  "dataFolder": "Polder Data",
+  "others": "Lain",
+  "language": "Basa",
+  "login": "Asup",
+  "loginWith": "Asup Jeung {{provider}}",
+  "loginFailed": "Gagal Asup",
+  "logout": "Kaluar",
+  "loggingOut": "Kaluar log...",
+  "loggedOut": "Berhasil Kaluar",
+  "logoutFailed": "Gagal Kaluar",
+  "profile": "Propil",
+  "reset": "Setél deui",
+  "search": "Paluruh",
+  "searchThreads": "Pilarian utas...",
+  "toNavigate": "pikeun nganapigasi",
+  "toSelect": "pikeun milih",
+  "toClose": "pikeun nutup",
+  "clearRecent": "Jelas",
+  "name": "Ngaran",
+  "cancel": "Batalkeun",
+  "dismiss": "Ngaleungitkeun",
+  "create": "Nyiptakeun",
+  "save": "Simpen",
+  "edit": "Édit",
+  "copy": "Salin",
+  "back": "Balik deui",
+  "close": "Tutup",
+  "done": "Réngsé",
+  "next": "Salajengna",
+  "finish": "Bérés",
+  "skip": "Luncatan",
+  "allow": "Nyanggakeun",
+  "deny": "mungkir",
+  "start": "Mimitian",
+  "stop": "Eureun",
+  "preview": {
+    "loading": "Muka…",
+    "unsupported": "Novera teu tiasa nunjukkeun file sapertos kieu. Buka pikeun ningali dina aplikasi anu sanés.",
+    "outside": "Berkas ieu henteu aya dina ruang kerja sési.",
+    "tooLarge": "Gede teuing pikeun sawangan. Buka pikeun ningali dina aplikasi anu sanés.",
+    "reload": "Muatan deui",
+    "allowNetwork": "Ngidinan jaringan",
+    "unsandboxed": "Jalankeun unsandboxed: data disimpen jeung file lokal jalan",
+    "unresolvedRefs_one": "1 file kaca ieu numbu ka teu bisa dimuat dina sawangan. Buka pikeun ningali dina browser.",
+    "unresolvedRefs_other": "{{count}} file kaca ieu numbu ka teu bisa dimuat dina sawangan. Buka pikeun ningali dina browser.",
+    "externalRefs_one": "1 sumberdaya kaca ieu dimuat ti web dipeungpeuk. Hurungkeun \"Ngidinan jaringan\" pikeun ngamuat éta.",
+    "externalRefs_other": "{{count}} sumberdaya kaca ieu dimuat ti web diblokir. Hurungkeun \"Ngidinan jaringan\" pikeun ngamuat aranjeunna.",
+    "scriptErrors_one": "Kaca ngalaporkeun kasalahan: {{message}}",
+    "scriptErrors_other": "Kaca ngalaporkeun {{count}} kasalahan. Kahiji: {{message}}"
+  },
+  "changes": {
+    "title": "Parobahan agén",
+    "empty": "Berkas anu ditulis atanapi diédit ku agén bakal muncul di dieu.",
+    "a11y": "Parobahan agén: {{files}} file, {{additions}} ditambahkeun, {{deletions}} dihapus"
+  },
+  "modelPanel": {
+    "title": "Setélan modél",
+    "a11y": "Buka setélan modél",
+    "contextTooltip": "Jandéla kontéks: {{value}} tina {{max}} token"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Kaahlian '{{name}}' teu sadia",
+    "kind": {
+      "skill": "Kaahlian",
+      "command": "Paréntah",
+      "model": "Modél"
+    }
+  },
+  "compactWidth": "Lebar kompak",
+  "fullWidth": "Lebar pinuh",
+  "dark": "Poek",
+  "light": "Caang",
+  "system": "Sistim",
+  "auto": "Otomatis",
+  "english": "Inggris",
+  "medium": "Sedeng",
+  "newThread": "Thread Anyar",
+  "noResultsFound": "Teu kapanggih hasil",
+  "noThreadsYet": "Henteu aya benang",
+  "noThreadsYetDesc": "Mimitian paguneman anyar pikeun ningali sajarah thread anjeun di dieu.",
+  "downloads": "Undeuran",
+  "downloading": "Ngundeur",
+  "uploadingAttachments": "Ngunggah kantétan…",
+  "cancelDownload": "Ngabolaykeun download",
+  "downloadCancelled": "Ngundeur Dibolaykeun",
+  "downloadComplete": "Ngundeur Lengkep",
+  "thinking": "Pikiran...",
+  "thought": "Panginten",
+  "callingTool": "Alat nelepon",
+  "completed": "Réngsé",
+  "image": "Gambar",
+  "vision": "Visi",
+  "multimodal": "Rupa-rupa média",
+  "embeddings": "Pangwakilan véktor",
+  "tools": "Parabot",
+  "webSearch": "Pilarian wéb",
+  "reasoning": "nalar",
+  "proactive": "Proaktif",
+  "selectAModel": "Pilih modél",
+  "noToolsAvailable": "Taya parabot sadia",
+  "noModelsFoundFor": "Teu aya modél anu kapendak pikeun \"{{searchValue}}\"",
+  "failedToLoadModels": "Gagal ngamuat modél",
+  "noModels": "Teu aya modél anu kapendak",
+  "noAssistant": "Taya asisten",
+  "customAvatar": "Avatar custom",
+  "editAssistant": "Édit Asisten",
+  "jan": "Novera",
+  "metadata": "Métadata",
+  "regenerate": "Regenerasi",
+  "threadImage": "Gambar benang",
+  "editMessage": "Édit Pesen",
+  "deleteMessage": "Pupus Pesen",
+  "deleteThread": "Pupus Thread",
+  "renameThread": "Ganti ngaran Thread",
+  "threadTitle": "Judul Thread",
+  "deleteAllThreads": "Pupus Sadaya Utas",
+  "allThreadsUnfavorited": "Kabéh Threads Unfavorited",
+  "deleteAllThreadsConfirm": "Naha anjeun yakin hoyong mupus sadaya utas? Peta ieu teu bisa dibolaykeun.",
+  "addProvider": "Tambahkeun Provider",
+  "addOpenAIProvider": "Tambahkeun OpenAI Panyadia",
+  "enterNameForProvider": "Lebetkeun nami kanggo panyadia anjeun",
+  "providerAlreadyExists": "Panyadia sareng nami \"{{name}}\" parantos aya. Punten pilih nami anu sanés.",
+  "adjustFontSize": "Saluyukeun Ukuran Font",
+  "changeLanguage": "Robah Basa",
+  "editTheme": "Édit Téma",
+  "editCodeBlockStyle": "Edit Code Blok Style",
+  "editServerHost": "Édit Server Host",
+  "pickColorWindowBackground": "Pilih Latar Jandéla Warna",
+  "pickColorAppMainView": "Pilih Warna App Main View",
+  "pickColorAppPrimary": "Pilih Warna App primér",
+  "pickColorAppAccent": "Pilih Aksen Aplikasi Warna",
+  "pickColorAppDestructive": "Pilih Warna App Destructive",
+  "apiKeyRequired": "API konci diperlukeun",
+  "enterTrustedHosts": "Lebetkeun host anu dipercaya",
+  "placeholder": {
+    "chatInput": "Tanya kuring naon waé ..."
+  },
+  "confirm": "Konpirmasi",
+  "continue": "Teraskeun",
+  "loading": "Ngamuat...",
+  "settingUpJan": "Boot up Novera…",
+  "registeringExtensions": "Ngadaptarkeun ekstensi…",
+  "loadingExtensions": "Ngamuat ekstensi… ({{done}}/{{total}})",
+  "error": "Kasalahan",
+  "success": "Kasuksésan",
+  "warning": "Awas",
+  "conversationNotAvailable": "Paguneman teu sadia",
+  "conversationNotAvailableDescription": "Paguneman anu anjeun cobian aksés henteu sayogi atanapi parantos dihapus.",
+  "temporaryChat": "Obrolan samentara",
+  "temporaryChatTooltip": "Obrolan samentara moal muncul dina sajarah anjeun",
+  "noResultsFoundDesc": "Kami henteu mendakan obrolan anu cocog sareng milarian anjeun. Coba kecap konci anu béda.",
+  "searchModels": "Milarian modél...",
+  "searchStyles": "Gaya milarian...",
+  "createAssistant": "Jieun Asisten",
+  "enterApiKey": "Lebetkeun konci API",
+  "scrollToBottom": "Gulung ka handap",
+  "generateAiResponse": "Ngahasilkeun Tanggapan AI",
+  "continueAiResponse": "Teruskeun sareng Tanggapan AI",
+  "addModel": {
+    "title": "Tambahkeun Modél",
+    "modelId": "ID modél",
+    "enterModelId": "Lebetkeun ID Modél",
+    "addModel": "Tambahkeun Modél",
+    "description": "Tambahkeun modél anyar pikeun panyadia",
+    "exploreModels": "Tempo daptar model ti panyadia"
+  },
+  "mcpServers": {
+    "editServer": "Édit Server",
+    "addServer": "Tambahkeun Server",
+    "serverName": "Ngaran Server",
+    "enterServerName": "Lebetkeun nami server",
+    "command": "Paréntah",
+    "enterCommand": "Lebetkeun paréntah",
+    "arguments": "Arguméntasi",
+    "argument": "Argumen {{index}}",
+    "envVars": "Variabel Lingkungan",
+    "key": "konci",
+    "value": "Nilai",
+    "save": "Simpen"
+  },
+  "deleteServer": {
+    "title": "Hapus Server",
+    "delete": "Pupus"
+  },
+  "editJson": {
+    "errorParse": "Gagal nga-parse JSON",
+    "errorPaste": "Gagal nempelkeun JSON",
+    "errorFormat": "Format JSON teu valid",
+    "titleAll": "Édit Sadaya Konfigurasi Server",
+    "placeholder": "Lebetkeun JSON konfigurasi...",
+    "save": "Simpen"
+  },
+  "editModel": {
+    "title": "Édit Modél: {{modelId}}",
+    "description": "Konpigurasikeun kamampuan model ku togling pilihan di handap.",
+    "capabilities": "Kamampuhan",
+    "tools": "Parabot",
+    "vision": "Visi",
+    "embeddings": "Pangwakilan véktor",
+    "notAvailable": "Teu sadia acan"
+  },
+  "outOfContextError": {
+    "truncateInput": "Input motong",
+    "title": "Kaluar tina kasalahan konteks",
+    "description": "Obrolan ieu ngahontal wates mémori AI, sapertos papan tulis ngeusian. Urang tiasa ngagedekeun jandela mémori (disebut ukuran kontéks) supados émut langkung seueur, tapi tiasa dianggo langkung seueur mémori komputer anjeun. Urang ogé bisa truncate input, nu hartina eta bakal poho sababaraha sajarah obrolan sangkan rohangan pikeun pesen anyar.",
+    "increaseContextSizeDescription": "Naha anjeun badé ningkatkeun ukuran kontéks?",
+    "increaseContextSize": "Ningkatkeun Ukuran Kontéks"
+  },
+  "toolApproval": {
+    "title": "Permintaan Idin Alat",
+    "description": "Asisten hoyong nganggo <strong>{{toolName}}</strong>",
+    "securityNotice": "Ngan ukur ngawenangkeun alat anu anjeun percanten. Parabot tiasa ngaksés sistem sareng data anjeun.",
+    "deny": "mungkir",
+    "allowOnce": "Ngidinan Sakali",
+    "alwaysAllow": "Sok Ngidinan"
+  },
+  "deleteModel": {
+    "title": "Hapus Modél: {{modelId}}",
+    "description": "Naha anjeun yakin hoyong ngahapus modél ieu? Peta ieu teu bisa dibolaykeun.",
+    "success": "Model {{modelId}} parantos dihapus permanén.",
+    "cancel": "Batalkeun",
+    "delete": "Pupus"
+  },
+  "deleteProvider": {
+    "title": "Hapus Provider",
+    "description": "Pupus panyadia ieu sareng sadaya modélna. Peta ieu teu bisa dibolaykeun.",
+    "success": "Panyadia {{provider}} parantos dihapus permanén.",
+    "confirmTitle": "Hapus Panyadia: {{provider}}",
+    "confirmDescription": "Naha anjeun yakin hoyong mupus panyadia ieu? Peta ieu teu bisa dibolaykeun.",
+    "cancel": "Batalkeun",
+    "delete": "Pupus"
+  },
+  "modelSettings": {
+    "title": "Setélan modél - {{modelId}}",
+    "description": "Konpigurasikeun setélan modél pikeun ngaoptimalkeun kinerja sareng paripolah.",
+    "nglDisabledByFit": "Auto-fit nyaéta milih GPU lapisan. Pareuman Auto-fit pikeun nyetél ieu sacara manual.",
+    "samplingDefaults": {
+      "title": "Parameter sampling standar",
+      "description": "Setélan sampler standar pikeun modél ieu. Dipaké iwal overridden ku nilai per-asisten atawa per-pénta."
+    },
+    "specDraft": {
+      "section": "decoding spekulatif",
+      "enable": "Aktipkeun decoding spekulatif",
+      "enableDescription": "Draf sababaraha token per léngkah sareng pariksa aranjeunna dina hiji pas, anu nyepetkeun generasi. Maké modél MTP heads, atanapi draf modél anu diunduh sareng éta (MTP, Eagle3, DFlash atanapi DSpark).",
+      "nMax": "Draf token max",
+      "nMaxDescription": "Jumlah maksimum token pikeun draf per hambalan. Standar 16.",
+      "nMin": "Draf token mnt",
+      "nMinDescription": "Jumlah minimum token pikeun draf per léngkah. Default 0.",
+      "pMin": "Probabilitas draf mnt",
+      "pMinDescription": "Kamungkinan minimum pikeun drafting rakus (0-1). Standar 0.75."
+    },
+    "templateKwargs": {
+      "section": "Pilihan template obrolan",
+      "description": "Pilihan tambahan model ieu chat template narima. Dikirim salaku chat_template_kwargs dina unggal pamundut; ninggalkeun nilai dina standar na hayu template mutuskeun.",
+      "addCustom": "Tambahkeun pilihan custom",
+      "keyPlaceholder": "ngaran",
+      "valuePlaceholder": "nilai",
+      "add": "Tambahkeun",
+      "cancel": "Batalkeun",
+      "remove": "Cabut"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Teu bisa ngamutahirkeun setelan model"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Robah Lokasi Polder Data",
+      "description": "Naha anjeun yakin hoyong ngarobih lokasi folder data? Ieu bakal mindahkeun sadaya data anjeun ka lokasi anyar sareng ngabalikan deui aplikasi.",
+      "currentLocation": "Lokasi ayeuna:",
+      "newLocation": "Lokasi Anyar:",
+      "cancel": "Batalkeun",
+      "changeLocation": "Robah Lokasi"
+    },
+    "deleteAllThreads": {
+      "title": "Pupus Sadaya Utas",
+      "description": "Sadaya seratan bakal dipupus. Peta ieu teu bisa dibolaykeun."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Pupus Sadaya Paguneman",
+      "description": "{{count}} paguneman dina \"{{projectName}}\" bakal dipupus. Peta ieu teu bisa dibolaykeun."
+    },
+    "deleteThread": {
+      "description": "Naha anjeun yakin hoyong ngahapus utas ieu? Peta ieu teu bisa dibolaykeun."
+    },
+    "editMessage": {
+      "title": "Édit Pesen"
+    },
+    "messageMetadata": {
+      "title": "Metadata pesen"
+    },
+    "deleteMessage": {
+      "description": "Naha anjeun yakin hoyong mupus pesen ieu? Peta ieu teu bisa dibolaykeun."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Aya nu lepat",
+    "details": "Rincian"
+  },
+  "missingDependenciesDialog": {
+    "title": "Perpustakaan Sistim leungit",
+    "description": "{{backend}} parantos dipasang tapi sababaraha perpustakaan sistem anu diperyogikeun teu tiasa dipendakan. Éta tiasa turun deui ka CPU atanapi henteu jalan leres.",
+    "installLabel": "Pikeun ngalereskeun ieu, pasang di handap ieu:",
+    "download": "Unduh",
+    "additionalLibraries": "Perpustakaan leungit tambahan:",
+    "missingLibraries": "Perpustakaan leungit:",
+    "showRawLibraries": "Témbongkeun {{count}} ngaran perpustakaan leungit"
+  },
+  "projects": {
+    "title": "Proyék",
+    "new": "Proyék anyar",
+    "addProject": "Tambahkeun Proyék",
+    "addToProject": "Tambahkeun ka proyék",
+    "removeFromProject": "Cabut tina proyék",
+    "createNewProject": "Jieun Proyék Anyar",
+    "editProject": "Édit Proyék",
+    "deleteProject": "Hapus Proyék",
+    "projectName": "Ngaran proyék",
+    "enterProjectName": "Lebetkeun nami proyék...",
+    "noProjectsAvailable": "Taya proyék sadia",
+    "noProjectsYet": "Taya Proyék Acan",
+    "noProjectsYetDesc": "Mimitian proyék énggal ku ngaklik tombol Tambihkeun Proyék.",
+    "projectNotFound": "Proyék Teu Kapendak",
+    "projectNotFoundDesc": "Proyék anu anjeun pilari teu aya atanapi parantos dihapus.",
+    "selectAssistant": "Pilih asisten",
+    "noAssistantAssigned": "Taya asisten ditugaskeun pikeun proyék ieu",
+    "files": "File",
+    "filesDescription": "Tambahkeun PDF, dokumén, atawa téks séjén pikeun rujukan dina proyék ieu.",
+    "uploadingFiles": "Ngolah file…",
+    "processButton": "Tambahkeun",
+    "deleteProjectDialog": {
+      "title": "Hapus Proyék",
+      "permanentDelete": "Ieu bakal ngahapus salamina sadaya utas.",
+      "permanentDeleteWarning": "Aksi ieu bakal ngahapus sacara permanen ALL utas dina proyék!",
+      "deleteEmptyProject": "Tindakan ieu bakal ngahapus proyék \"{{projectName}}\".",
+      "saveThreadsAdvice": "Pikeun ngahemat utas, pindahkeun kana daptar utas anjeun atanapi proyék sanés sateuacan ngahapus.",
+      "starredWarning": "Anjeun masih gaduh béntang béntang dina proyék.",
+      "deleteButton": "Pupus",
+      "successWithName": "Proyék \"{{projectName}}\" suksés dihapus",
+      "successWithoutName": "Proyék suksés dihapus",
+      "error": "Gagal ngahapus proyék. Mangga cobian deui.",
+      "ariaLabel": "Hapus {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Jieun Proyék Anyar",
+      "editTitle": "Édit Proyék",
+      "nameLabel": "Ngaran proyék",
+      "namePlaceholder": "Lebetkeun nami proyék...",
+      "assistant": "Asisten",
+      "selectAssistant": "Pilih asisten (opsional)",
+      "noAssistant": "Taya asisten",
+      "addAssistant": "Tambahkeun Asisten",
+      "createButton": "Nyiptakeun",
+      "updateButton": "Pembaruan",
+      "alreadyExists": "Proyék \"{{projectName}}\" parantos aya",
+      "createSuccess": "Proyék \"{{projectName}}\" suksés dijieun",
+      "updateSuccess": "Proyék \"{{projectName}}\" suksés diropéa",
+      "saveError": "Teu tiasa nyimpen proyék. Mangga cobian deui."
+    },
+    "noConversationsIn": "Henteu aya Paguneman dina {{projectName}}",
+    "startNewConversation": "Mimitian paguneman anyar nganggo {{projectName}} di handap",
+    "conversationsIn": "Paguneman dina {{projectName}}",
+    "conversationsDescription": "Pencét kana paguneman naon waé pikeun neraskeun obrolan, atanapi ngamimitian anu énggal di handap.",
+    "conversation": "Paguneman",
+    "instructions": "parentah",
+    "setup": "Pangaturan",
+    "instructionsDescription": "Sesuaikeun nada sareng gaya réspon",
+    "manageInstructions": "Atur Parentah",
+    "thread": "benang",
+    "threads": "benang",
+    "updated": "Diropéa:",
+    "collapseProject": "Proyék runtuh",
+    "expandProject": "Ngalegaan proyék",
+    "update": "Pembaruan",
+    "searchProjects": "Pilarian proyék...",
+    "noProjectsFound": "Taya proyék kapanggih",
+    "tryDifferentSearch": "Coba istilah pilarian béda"
+  },
+  "attachmentsIngestion": {
+    "title": "Pilih kumaha carana nyerep kantétan",
+    "description": "Pilih naha rék ngasupkeun file ieu langsung dina obrolan atawa indéks aranjeunna salaku embeddings.",
+    "inline": "Nyuntik kana obrolan",
+    "embeddings": "Paké embeddings"
+  },
+  "attachmentInjectedIndicator": "Disuntik kana obrolan",
+  "attachmentEmbeddedIndicator": "Dipasang pikeun RAG",
+  "viewInjectedContent": "Nempo eusi disuntik",
+  "injectedContentTitle": "eusi file nyuntik",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Kabéh Threads Unfavorited",
+      "description": "Sadaya utas parantos dipiceun tina paporit anjeun."
+    },
+    "deleteAllThreads": {
+      "title": "Pupus Sadaya Utas",
+      "description": "Sadaya seratan parantos dihapus permanén."
+    },
+    "renameThread": {
+      "title": "Ganti ngaran Thread",
+      "description": "Judul thread geus diganti jadi '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Pupus Thread",
+      "description": "Utas ieu parantos dihapus permanén."
+    },
+    "errorCopied": {
+      "title": "Nyalin suksés",
+      "description": "Inpormasi kasalahan disalin kana clipboard"
+    },
+    "errorCopyFailed": {
+      "title": "Gagal nyalin",
+      "description": "Gagal nyalin inpormasi kasalahan ka clipboard"
+    },
+    "editMessage": {
+      "title": "Édit Pesen",
+      "description": "Pesen hasil diédit. Mangga antosan model ngabales."
+    },
+    "appUpdateDownloaded": {
+      "title": "Apdet Aplikasi Diunduh",
+      "description": "Pembaruan aplikasi parantos suksés diunduh."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Ngundeur Apdet Aplikasi Gagal",
+      "description": "Gagal pikeun ngundeur apdet aplikasi. Mangga cobian deui."
+    },
+    "downloadComplete": {
+      "title": "Ngundeur Lengkep",
+      "description": "{{item}} parantos diunduh"
+    },
+    "downloadCancelled": {
+      "title": "Ngundeur Dibolaykeun",
+      "description": "Prosés undeuran dibatalkeun"
+    },
+    "downloadFailed": {
+      "title": "Ngundeur Gagal",
+      "description": "{{item}} undeuran gagal",
+      "descriptionWithReason": "{{item}} unduhan gagal: {{reason}}",
+      "reason": {
+        "dns": "ngaran server teu bisa direngsekeun",
+        "refused": "sambungan ditolak",
+        "timeout": "sambungan timed kaluar",
+        "tls": "sambungan aman teu bisa dijieun",
+        "proxy": "proxy teu bisa ngahontal",
+        "unreachable": "server teu bisa ngahontal"
+      }
+    },
+    "openSettings": "Buka Setélan",
+    "openLogs": "Buka log",
+    "downloadTokenRequired": {
+      "title": "Hugging Face token diperlukeun",
+      "description": "Modél ieu merlukeun token aksés Hugging Face. Tambahkeun token anjeun dina Setélan sareng cobian deui."
+    },
+    "downloadLicenseRequired": {
+      "title": "Tampa lisénsi modél dina Hugging Face",
+      "description": "Anjeun kedah nampi lisénsi modél dina halaman Hugging Face na sateuacan diunduh."
+    },
+    "downloadRateLimited": {
+      "title": "Ongkos dibatesan ku Hugging Face",
+      "description": "Anjeun parantos dibatesan laju. Nambahkeun token tiasa ningkatkeun wates laju. Mangga cobian deui engké."
+    },
+    "modelValidationStarted": {
+      "title": "Validasi Modél",
+      "description": "Modél \"{{modelId}}\" hasil diundeur. Verifikasi integritas..."
+    },
+    "modelValidationFailed": {
+      "title": "Validasi Model Gagal",
+      "description": "Modél nu diundeur \"{{modelId}}\" gagal verifikasi integritas sarta dihapus. Filena tiasa dirusak atanapi dirusak."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Ngundeur Lengkep",
+      "description": "Model \"{{item}}\" parantos diunduh sareng parantos diverifikasi"
+    },
+    "projectCreated": {
+      "title": "Proyék Dijieun",
+      "description": "Proyék \"{{projectName}}\" suksés dijieun"
+    },
+    "projectRenamed": {
+      "title": "Proyék Diganti Ngaran",
+      "description": "Proyék diganti ngaranna tina \"{{oldName}}\" jadi \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Proyék Dipupus",
+      "description": "Proyék \"{{projectName}}\" suksés dihapus"
+    },
+    "projectAlreadyExists": {
+      "title": "Proyék Geus Aya",
+      "description": "Proyék \"{{projectName}}\" parantos aya"
+    },
+    "projectDeleteFailed": {
+      "title": "Hapus Gagal",
+      "description": "Gagal ngahapus proyék. Mangga cobian deui."
+    },
+    "threadAssignedToProject": {
+      "title": "Thread Ditugaskeun",
+      "description": "Thread ditugaskeun ka \"{{projectName}}\" suksés"
+    },
+    "threadRemovedFromProject": {
+      "title": "Thread Dipiceun",
+      "description": "Thread dihapus tina \"{{projectName}}\" suksés"
+    },
+    "fileUploaded": {
+      "title": "File Diolah",
+      "description": "File parantos diolah sareng parantos diindeks"
+    },
+    "uploadFailed": {
+      "title": "Ngolah Gagal",
+      "description": "Gagal ngolah file",
+      "subjectThisFile": "file ieu",
+      "pdfMalformedXref": "{{subject}} ngagaduhan tabel rujukan silang PDF salah sareng teu tiasa diparse. Coba buka dina PDF panempo teras simpen deui (Koropak → Citak → Simpen salaku PDF), teras unggah deui.",
+      "pdfScanned": "{{subject}} katingalina mangrupikeun hasil scan atanapi dumasar-gambar PDF. OCR teu acan dirojong — mangga unggah dumasar téks PDF.",
+      "pdfEncrypted": "{{subject}} ditangtayungan sandi. Cabut kecap akses sareng cobian deui.",
+      "pdfUnsupportedFeature": "{{subject}} ngagunakeun fitur PDF Novera can bisa parse (misalna PostScript warna/fungsi shading). Coba simpen deui (File → Print → Save as PDF) pikeun ngaratakeunana, teras unggah deui.",
+      "pdfGeneric": "{{subject}} teu bisa diparse jadi PDF. Berkasna tiasa rusak atanapi nganggo fitur PDF anu teu didukung.",
+      "fileTooLarge": "{{subject}} ageung teuing. {{message}}.",
+      "unsupportedType": "Jinis koropak \"{{type}}\" teu dirojong.",
+      "ioError": "Teu bisa maca {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} teu bisa diparse: {{message}}",
+      "fallback": "Gagal ngolah {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "File Dihapus",
+      "description": "File parantos dipiceun tina proyék"
+    },
+    "deleteFailed": {
+      "title": "Hapus Gagal",
+      "description": "Gagal ngahapus file"
+    },
+    "fileAlreadyExists": {
+      "title": "File Geus Aya",
+      "description": "Berkas parantos napel kana proyék ieu"
+    },
+    "unsupportedFileType": {
+      "title": "Tipe File Teu Dirojong",
+      "description": "Ekstensi file \".{{extension}}\" teu dirojong pikeun rujukan Proyék."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Kantétan ditumpurkeun",
+      "description": "Kantétan ditumpurkeun dina Setélan"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "File ageung teuing",
+    "fileTooLargeDescription": "{{fileName}} ngaleuwihan wates {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} sapotong",
+    "title": "File",
+    "empty": "File anu anjeun lampirkeun sareng file anu diciptakeun ku agén bakal muncul di dieu.",
+    "a11y": "Berkas: {{count}}",
+    "attachments": "Kantétan",
+    "notImported": "henteu di ruang kerja"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp masih sibuk",
+    "description": "Hiji atanapi langkung model henteu ngabongkar dina waktosna. Force-quitting bakal ngeureunkeun llama.cpp sareng tiasa ngaganggu réspon aktip.",
+    "forceQuit": "Maksakeun kaluar",
+    "forcing": "Maksakeun kaluar…",
+    "shuttingDown": "Pareuman…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Rubuh",
+  "expand": "Ngalegaan",
+  "todoPanelTitle": "Kamajuan",
+  "todoPanelEmpty": "Teu acan aya daptar todo.",
+  "backgroundTasks": "Tugas latar",
+  "subagentsRunning_one": "{{count}} subagén ngajalankeun",
+  "subagentsRunning_other": "{{count}} subagén ngajalankeun",
+  "monitorsRunning_one": "{{count}} monitor ngajalankeun",
+  "monitorsRunning_other": "{{count}} monitor ngajalankeun",
+  "backgroundRunning_one": "{{count}} tugas latar jalan",
+  "backgroundRunning_other": "{{count}} tugas tukang jalan",
+  "monitors": "Ngawaskeun",
+  "monitorPolling": "Mariksa périodik",
+  "monitorMatched": "Dicocogkeun",
+  "monitorTimedOut": "Waktuna kaluar",
+  "monitorStopped": "Dieureunkeun",
+  "monitorEnded": "Réngsé",
+  "coworkWatching_one": "Lalajo {{count}} monitor…",
+  "coworkWatching_other": "Nonton {{count}} monitor…",
+  "coworkWaitingBackground": "Nungguan tugas latar…",
+  "noBackgroundTasks": "Henteu aya tugas latar.",
+  "running": "Lumpat",
+  "queued": "Ngantri",
+  "waiting": "Nungguan",
+  "finished": "Réngsé",
+  "subagentPhase": "fase {{phase}}",
+  "subagentWaiting": "ngantosan",
+  "viewTranscript": "Témbongkeun transkrip",
+  "taskWorking": "Gawé…",
+  "taskNoOutput": "Subagén henteu ngahasilkeun kaluaran anu katingali.",
+  "subagentToolUses_one": "{{count}} pamakéan alat",
+  "subagentToolUses_other": "{{count}} ngagunakeun alat",
+  "artifactGroupCode": "Kodeu",
+  "artifactGroupImage": "Gambar",
+  "artifactGroupDocument": "Dokumén",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Buka sawangan",
+  "artifactOpenExternal": "Buka",
+  "artifactMoreActions": "Langkung lampah",
+  "artifactShowInFolder": "Témbongkeun dina Polder",
+  "skillsUsedLabel": "Kaahlian dipaké",
+  "skillsUsed": "Kaahlian dipaké: {{skills}}",
+  "artifactsAll": "Sadayana",
+  "artifactsEmpty": "Henteu aya anu diproduksi acan. Artefak tina Cowork ngalir muncul di dieu.",
+  "artifactsNoMatch": "Taya artefak cocog.",
+  "artifactsSearch": "Pilarian artefak",
+  "artifactsShowMore": "Témbongkeun {{count}} deui",
+  "workspace": {
+    "readsFrom": "Gawéna di",
+    "writable": "maca & nulis",
+    "footnote": "Agén maca sareng ngédit folder ieu langsung. Pariksa naon anu robah dina panel diff.",
+    "footnoteEmpty": "Gantelkeun polder pikeun ngantepkeun agén damel dina proyék anjeun. Éta tiasa maca sareng ngédit file di jerona.",
+    "attach": "Gantelkeun polder",
+    "change": "Ganti folder",
+    "detach": "Cabut folder",
+    "open": "Buka",
+    "reveal": "Nyilakakeun",
+    "unavailable": "Ruang gawé teu sadia",
+    "missing": "Polder ruang kerja {{folder}} teu aya deui. Pilih polder anu béda.",
+    "openFailed": "Teu bisa muka rohangan gawé",
+    "revealFailed": "Teu bisa nembongkeun rohangan gawé",
+    "a11yWithFolder": "Polder proyék {{folder}}, digantelkeun sareng aksés baca sareng tulis. Robah atawa coplokkeunana.",
+    "a11yNoFolder": "Taya folder proyék napel. Gantelkeun hiji."
+  },
+  "coworkEmpty": {
+    "title": "Naon anu urang damel?",
+    "subtitleSandbox": "Pasihan Novera tugas. Éta maca sareng nyerat file, ngajalankeun paréntah, sareng ngalaksanakeun léngkah-léngkahna nyalira.",
+    "subtitleFolder": "Pasihan Novera tugas. Gawéna langsung dina {{folder}}, maca sareng ngédit file nyalira.",
+    "try": "Coba",
+    "sandbox": {
+      "first": "Tulis skrip Python anu ngarobih nami file dumasar kana tanggal dicandak",
+      "second": "Ngawangun dasbor halaman tunggal tina CSV Abdi badé nempelkeun",
+      "third": "Draf README pikeun proyék kuring ngajelaskeun ka anjeun"
+    },
+    "folder": {
+      "first": "Terangkeun kumaha {{folder}} dihijikeun",
+      "second": "Milarian unggal TODO dina {{folder}} sareng kelompokkeun dumasar daérah",
+      "third": "Tulis tés pikeun bagian tina {{folder}} Kuring nunjuk anjeun"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Taya terminal",
+    "a11y": "Paréntah ngajalankeun dipareuman. Rincian.",
+    "title": "Paréntah ngajalankeun dipareuman",
+    "body": "Novera ngidinan agén ngajalankeun paréntah cangkang ngan lamun sistem Anjeun bisa ngurung aranjeunna. Henteu aya kotak pasir anu sayogi di dieu, janten agén tiasa maca, nyerat sareng ngédit file dina kotak keusikna - tapi henteu ngajalankeun nanaon.",
+    "fixLinux": "Linux ngagunakeun bubblewrap. Pasang, teras balikan deui Novera.",
+    "fixMac": "macOS ngagunakeun kotak pasir anu diwangun dina /usr/bin/sandbox-exec. Balikan deui Novera saatos sayogi.",
+    "fixWindows": "Windows ngagunakeun AppContainer. Balikan deui Novera pikeun nyobaan deui.",
+    "recheck": "Pariksa deui"
+  },
+  "planMode": {
+    "label": "Rencanana",
+    "tooltipOff": "Rencanana heula - agén maca sareng ngajukeun, tanpa nyerat.",
+    "tooltipOn": "Ngarencanakeun. Pareuman ieu pikeun ngantepkeun agén nyerat file.",
+    "onAnnounce": "Mode rencana on",
+    "placeholder": "Ménta rencana. Agén moal ngarobih file naon waé."
+  },
+  "budget": {
+    "stoppedSteps": "Dieureunkeun dina {{max}} léngkah. Agén teu acan réngsé.",
+    "keepGoing": "Teruskeun",
+    "stoppedTokens": "Dieureunkeun - sési ieu pencét anggaran token na.",
+    "compact": "Kompak",
+    "newSession": "sési anyar"
+  },
+  "run": {
+    "stopped": "Dieureunkeun.",
+    "failed": "Lumpat eureun mimiti.",
+    "tryAgain": "Coba deui"
+  },
+  "modelNoTools": "{{model}} teu bisa nelepon parabot, jadi teu bisa meta salaku agén. Pilih modél panggero alat.",
+  "askContinue": "Teraskeun",
+  "askNext": "Patarosan salajengna",
+  "askPrev": "Patarosan saméméhna",
+  "askRecommended": "Dianjurkeun",
+  "askSelectedCount": "{{count}} dipilih",
+  "askSomethingElse": "Lain nanaon",
+  "askSomethingElsePlaceholder": "Ketik jawaban anjeun sorangan",
+  "submit": "Kirimkeun",
+  "composer": {
+    "advanced": "Parameter canggih",
+    "modelDefaults": "Model standar",
+    "assistantOverrides": "Asisten overrides",
+    "printPdf": "Nyitak / Simpen salaku PDF",
+    "exportHint": "Format anu tiasa dibaca: cabang aktip. JSON: sadaya versi pesen. Payil éksternal henteu dibuntel."
+  },
+  "telemetry": {
+    "summary": "Kalayan idin anjeun, {{host}} ngan ukur nampi versi Novera sareng sistem operasi, tanpa paguneman atanapi idéntifikasi anu terus-terusan.",
+    "unavailable": "Statistik teu ngonpigurasi. Taya data anu dikirim."
+  },
+  "errorTracking": {
+    "title": "Kasalahan nyukcruk",
+    "summary": "Laporan opsional ka {{host}}: jinis kasalahan, posisi kode, versi sareng sistem operasi. Taya paguneman, talatah kasalahan atah atawa konci. Pareuman iraha waé.",
+    "unavailable": "Pelacakan kasalahan henteu dikonpigurasi. Taya laporan anu dikirim."
+  }
+}

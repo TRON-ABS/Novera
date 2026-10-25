@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Koodu",
+    "preview": "Nhụchalụ",
+    "previewStreaming": "Dị mgbe ọgbọ gwụchara",
+    "unresolvedAssets_one": "1 ntụaka uru enweghị ike ibunye na nhụchalụ. Ụzọ ndị ikwu enweghị isi URL iji dozie megide.",
+    "unresolvedAssets_other": "{{count}} ntụnyere akụrụngwa enweghị ike ibunye na nhụchalụ. Ụzọ ndị ikwu enweghị isi URL iji dozie megide."
+  },
+  "assistants": "Ndị enyemaka",
+  "hardware": "Akụrụngwa",
+  "mcp-servers": "MCP Sava",
+  "local_api_server": "Mpaghara API sava",
+  "remote_access": "Nweta anya",
+  "integrations": "Mmekọrịta",
+  "experimental": "Nnwale",
+  "claude_code": "Koodu Claude",
+  "https_proxy": "Onye nnọchi HTTPS",
+  "web_search": "Chọọ Weebụ",
+  "shell": "Mmemme iwu",
+  "browse": "Chọgharịa",
+  "moreControls": "Njikwa ndị ọzọ",
+  "starting": "Bido...",
+  "activeSuffix": "(Na-arụ ọrụ)",
+  "extensions": "Mgbatị",
+  "attachments": "Mgbakwụnye",
+  "general": "Izugbe",
+  "settings": "Ntọala",
+  "modelProviders": "Ndị na-enye ihe nlereanya",
+  "localProviders": "Mpaghara",
+  "remoteProviders": "Ime ime",
+  "manageProviders": "Jikwaa ndị na-eweta ya",
+  "hiddenProviders": "{{count}} nwere nkwarụ",
+  "hideProvider": "Zoo onye na-eweta ya",
+  "showProvider": "Gosi onye na-eweta ya",
+  "interface": "Ihu ngwa",
+  "appearance": "Ọdịdị",
+  "privacy": "Nzuzo",
+  "keyboardShortcuts": "Ụzọ mkpirisi",
+  "home": "Ụlọ",
+  "cowork": "Cowork",
+  "newSession": "Oge ọhụrụ",
+  "artifacts": "Akụrụngwa",
+  "customize": "Hazie",
+  "local": "Mpaghara",
+  "selectFolder": "Họrọ nchekwa",
+  "selectModel": "Họrọ ihe nlereanya mbụ",
+  "commands": "Iwu",
+  "cmdHelp": "Depụta iwu dị",
+  "cmdClear": "Kpochapụ nnọkọ a",
+  "cmdModels": "Gbanwee ihe nlereanya nọ n'ọrụ",
+  "cmdModelsHint": "Pịnye /models wee họrọ ihe nlereanya na listi ahụ",
+  "cmdModelSwitched": "Gbanyere {{name}}",
+  "cmdUnknown": "Iwu amaghi ama: {{name}}. Gbalịa /help",
+  "cmdBusy": "Enweghị ike ime nke ahụ mgbe onye ọrụ na-agba ọsọ",
+  "cmdCompact": "Kwakọba ihe gbasara nnọkọ ahụ ka ọ bụrụ nchịkọta",
+  "cmdCompacted": "Kọmpat {{before}} -> {{after}} ozi",
+  "cmdNothingToCompact": "Ọnweghị ihe ga-agbakọ",
+  "cmdCompactFailed": "Nkwekọrịta dara: {{error}}",
+  "cmdPlan": "Tụgharịa ụdị atụmatụ (naanị ọgụgụ: onye nnọchi anya na-atụ aro na-edeghị)",
+  "cmdPlanOn": "Atụmatụ atụmatụ na: onye ọrụ na-agụ ma na-atụ aro na-enweghị ederede",
+  "cmdPlanOff": "Gbanyụọ ọnọdụ atụmatụ: mmegbu nkịtị",
+  "cmdTodo": "Mepee ogwe ọganihu",
+  "cmdTasks": "Mepee ogwe ihe aga-eme ndabere",
+  "cmdInit": "Mụọ ọrụ ahụ wee dee nkà na ebe nchekwa",
+  "cmdInitRunning": "Ịbanye oru ngo a",
+  "skills": "Nkà",
+  "skillsInContext": "Nkà dịịrị onye nnọchi anya ọsọ a",
+  "skillsTitle": "Jikwaa nka",
+  "skillsScopeProject": "Nkà mmụta maka {{folder}}",
+  "skillsScopeGlobal": "Nkà zuru ụwa ọnụ, dị maka nnọkọ ọ bụla",
+  "skillsScopeMerged": "Nkà maka {{folder}}, gbakwunyere nkà zuru ụwa ọnụ oge ọ bụla na-ekere òkè",
+  "skillOriginFolder": "nchekwa",
+  "skillOriginGlobal": "zuru ụwa ọnụ",
+  "skillsEmpty": "Enweghị nka ma",
+  "skillsPickOrNew": "Họrọ nka iji dezie, ma ọ bụ mepụta nke ọhụrụ.",
+  "skillNew": "Nkà ọhụrụ",
+  "skillDelete": "Hichapụ nka",
+  "skillSave": "Chekwaa",
+  "skillSaved": "echekwara nka",
+  "skillNameRequired": "Achọrọ aha nka",
+  "skillNamePlaceholder": "nka-aha",
+  "skillContentPlaceholder": "Kọwaa usoro enwere ike iji ya na Markdown…",
+  "skillHubImport": "Bubata site na hub",
+  "skillHubTitle": "Anthropic ebe nka",
+  "skillHubEmpty": "Ọnweghị nka ahụrụ na oghere",
+  "skillImport": "Bubata",
+  "skillReimport": "Bubata ọzọ",
+  "skillImported": "Ebubatara {{name}}",
+  "sessions": "Oge",
+  "deleteSession": "Hichapụ nnọkọ",
+  "deleteSessionTitle": "Hichapụ nnọkọ?",
+  "deleteSessionBody": "\"{{title}}\" na transcript ya ga-ehichapụ kpamkpam. Enweghị ike ịmegharị nke a.",
+  "newChat": "Mkparịta ụka ọhụrụ",
+  "newAgentChat": "Mkparịta ụka onye nnọchite ọhụrụ",
+  "chats": "Mkparịta ụka",
+  "favorites": "ọkacha mmasị",
+  "recents": "Na nso nso a",
+  "hub": "Ebe etiti",
+  "helpSupport": "Enyemaka & Nkwado",
+  "helpUsImproveJan": "Nyere anyị aka imeziwanye Novera",
+  "analyticsConsentDetail": "Anyị na-anakọta data na-amaghị aha iji ghọta ojiji njirimara. A naghị enyocha nkata gị na ozi gbasara gị. Ị nwere ike ịgbanwe nke a oge ọ bụla na Ntọala> Nzuzo.",
+  "analyticsConsentQuestion": "Ọ ga-amasị gị inyere anyị aka imeziwanye Novera?",
+  "unstarAll": "Wepụ ihe niile",
+  "unstar": "Wepụ kpakpando",
+  "deleteAll": "Hichapụ ha niile",
+  "star": "Kpakpando",
+  "rename": "Nyegharịa aha",
+  "delete": "Hichapụ",
+  "copied": "Eṅomiri!",
+  "dataFolder": "nchekwa data",
+  "others": "Ndị ọzọ",
+  "language": "Asụsụ",
+  "login": "Banye",
+  "loginWith": "Banye na {{provider}}",
+  "loginFailed": "Ịbanye agaghị",
+  "logout": "Wepụ",
+  "loggingOut": "Ọpụpụ...",
+  "loggedOut": "Wepụ nke ọma",
+  "logoutFailed": "Ọpụghị",
+  "profile": "Profaịlụ",
+  "reset": "Tọgharia",
+  "search": "Chọọ",
+  "searchThreads": "Chọọ eriri...",
+  "toNavigate": "ịnyagharịa",
+  "toSelect": "ịhọrọ",
+  "toClose": "imechi",
+  "clearRecent": "Kpochapụ",
+  "name": "Aha",
+  "cancel": "Kagbuo",
+  "dismiss": "Wepụ",
+  "create": "Mepụta",
+  "save": "Chekwaa",
+  "edit": "Dezie",
+  "copy": "Detuo",
+  "back": "Azu",
+  "close": "Mechie",
+  "done": "Emechaala",
+  "next": "Osote",
+  "finish": "Mechaa",
+  "skip": "Mafee",
+  "allow": "kwe",
+  "deny": "Ajụ",
+  "start": "Malite",
+  "stop": "Kwụsị",
+  "preview": {
+    "loading": "Na-emepe…",
+    "unsupported": "Novera enweghị ike igosi ụdị faịlụ a. Mepee ya ka ịhụ ya na ngwa ọzọ.",
+    "outside": "Faịlụ a adịkwaghị na oghere ọrụ nnọkọ.",
+    "tooLarge": "Nnukwu oke ịhụchalụ. Mepee ya ka ịhụ ya na ngwa ọzọ.",
+    "reload": "Bugharịa",
+    "allowNetwork": "Kwe ka netwọk",
+    "unsandboxed": "Gbaa igbe enweghị mkpuchi: data echekwara yana faịlụ mpaghara na-arụ ọrụ",
+    "unresolvedRefs_one": "1 faịlụ njikọ ibe a enweghị ike ibunye na nhụchalụ. Mepee ya ka ịhụ ya na ihe nchọgharị.",
+    "unresolvedRefs_other": "{{count}} faịlụ njikọ ibe a enweghị ike ibunye na nhụchalụ. Mepee ya ka ịhụ ya na ihe nchọgharị.",
+    "externalRefs_one": "1 egbochiri ibu nke ibe a site na webụ. Gbanwuo \"Kwe ka netwọkụ\" ibu ya.",
+    "externalRefs_other": "{{count}} akụrụngwa nke ibe a na-ebu site na webụ egbochiri. Gbanwuo \"Kwe Ka netwọkụ\" ka ibu ha.",
+    "scriptErrors_one": "Ibe ahụ kọrọ mperi: {{message}}",
+    "scriptErrors_other": "Ibe ahụ kọrọ mperi {{count}}. Nke mbụ: {{message}}"
+  },
+  "changes": {
+    "title": "Onye nnọchi anya na-agbanwe",
+    "empty": "Faịlụ onye nnọchi anya na-ede ma ọ bụ dezie ga-apụta ebe a.",
+    "a11y": "Mgbanwe ndị nnọchi anya: {{files}} faịlụ, {{additions}} agbakwunyere, {{deletions}} wepụrụ"
+  },
+  "modelPanel": {
+    "title": "Ntọala nlereanya",
+    "a11y": "Mepee ntọala ụdị",
+    "contextTooltip": "Window okwu: {{value}} nke {{max}} tokens"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Skill '{{name}}' adịghị",
+    "kind": {
+      "skill": "Nkà",
+      "command": "Iwu",
+      "model": "Nlereanya"
+    }
+  },
+  "compactWidth": "Obosara kọmpat",
+  "fullWidth": "Obosara zuru oke",
+  "dark": "Ọchịchịrị",
+  "light": "Ìhè",
+  "system": "Sistemu",
+  "auto": "Akpaaka",
+  "english": "Bekee",
+  "medium": "Ọkara",
+  "newThread": "Eriri ọhụrụ",
+  "noResultsFound": "Ọnweghị nsonaazụ ahụrụ",
+  "noThreadsYet": "Enweghị eriri ma",
+  "noThreadsYetDesc": "Bido mkparịta ụka ọhụrụ ka ịhụ akụkọ eri gị ebe a.",
+  "downloads": "Nbudata",
+  "downloading": "Nbudata",
+  "uploadingAttachments": "Na-ebugote mgbakwunye…",
+  "cancelDownload": "Kagbuo nbudata",
+  "downloadCancelled": "Kagbuo nbudata",
+  "downloadComplete": "Budata zuru ezu",
+  "thinking": "Na-eche...",
+  "thought": "Echiche",
+  "callingTool": "Ngwá ọrụ ịkpọ oku",
+  "completed": "Emechara",
+  "image": "Onyonyo",
+  "vision": "Ọhụụ",
+  "multimodal": "Ụdị mgbasa ozi dị iche iche",
+  "embeddings": "Ntinye",
+  "tools": "Ngwa",
+  "webSearch": "Chọọ Weebụ",
+  "reasoning": "Ịtụgharị uche",
+  "proactive": "Na-eme ihe",
+  "selectAModel": "Họrọ ihe nlereanya",
+  "noToolsAvailable": "Enweghị ngwaọrụ dị",
+  "noModelsFoundFor": "Ọ nweghị ụdị ahụrụ maka \"{{searchValue}}\"",
+  "failedToLoadModels": "Ịkwanye ụdị adịghị",
+  "noModels": "Ọnweghị ụdị ahụrụ",
+  "noAssistant": "Enweghị onye inyeaka",
+  "customAvatar": "Avatar omenala",
+  "editAssistant": "Dezie ihe enyemaka",
+  "jan": "Novera",
+  "metadata": "metadata",
+  "regenerate": "Megharịa",
+  "threadImage": "Onyonyo eri",
+  "editMessage": "Dezie ozi",
+  "deleteMessage": "Hichapụ ozi",
+  "deleteThread": "Hichapụ eri",
+  "renameThread": "Nyegharịa eriri aha",
+  "threadTitle": "Aha eri",
+  "deleteAllThreads": "Hichapụ eri niile",
+  "allThreadsUnfavorited": "Eriri niile anaghị amasị",
+  "deleteAllThreadsConfirm": "Ị ji n'aka na ịchọrọ ihichapụ eri niile? Enweghị ike imegharị ihe a.",
+  "addProvider": "Tinye Onye na-enye",
+  "addOpenAIProvider": "Tinye OpenAI Onye na-eweta",
+  "enterNameForProvider": "Tinye aha maka onye na-eweta gị",
+  "providerAlreadyExists": "Onye na-enye aha \"{{name}}\" adịlarị. Biko họrọ aha dị iche.",
+  "adjustFontSize": "Gbanwee nha mkpụrụedemede",
+  "changeLanguage": "Gbanwee Asụsụ",
+  "editTheme": "Dezie Okwu",
+  "editCodeBlockStyle": "Dezie Koodu ngọngọ Style",
+  "editServerHost": "Dezie onye ọbịa nkesa",
+  "pickColorWindowBackground": "Họrọ ndabere agba agba",
+  "pickColorAppMainView": "Họrọ Agba Nlele Isi",
+  "pickColorAppPrimary": "Họrọ Agba nke mbụ",
+  "pickColorAppAccent": "Họrọ ụda ngwa agba",
+  "pickColorAppDestructive": "Họrọ Agba Ngwa na-emebi emebi",
+  "apiKeyRequired": "API Igodo achọrọ",
+  "enterTrustedHosts": "Tinye ndị ọbịa tụkwasịrị obi",
+  "placeholder": {
+    "chatInput": "Jụọ m ihe ọ bụla..."
+  },
+  "confirm": "Kwenye",
+  "continue": "Gaa n'ihu",
+  "loading": "Na-ebu...",
+  "settingUpJan": "Na-agba ọsọ Novera…",
+  "registeringExtensions": "Na-edebanye aha ndọtị…",
+  "loadingExtensions": "Na-ebu ndọtị… ({{done}}/{{total}})",
+  "error": "Njehie",
+  "success": "Ihe ịga nke ọma",
+  "warning": "Ịdọ aka ná ntị",
+  "conversationNotAvailable": "Mkparịta ụka adịghị",
+  "conversationNotAvailableDescription": "Mkparịta ụka ị na-achọ ịnweta adịghị ma ọ bụ ehichapụ.",
+  "temporaryChat": "Mkparịta ụka nwa oge",
+  "temporaryChatTooltip": "Mkparịta ụka nwa oge agaghị apụta na akụkọ gị",
+  "noResultsFoundDesc": "Anyị enweghị ike ịhụ nkata ọ bụla dabara na ọchụchọ gị. Gbalịa isi okwu dị iche.",
+  "searchModels": "Chọọ ụdịdị...",
+  "searchStyles": "Chọọ ụdịdị...",
+  "createAssistant": "Mepụta ihe enyemaka",
+  "enterApiKey": "Tinye API igodo",
+  "scrollToBottom": "Pịgharịa gaa na ala",
+  "generateAiResponse": "Mepụta nzaghachi AI",
+  "continueAiResponse": "Gaa n'ihu na nzaghachi AI",
+  "addModel": {
+    "title": "Tinye Model",
+    "modelId": "NJ nlereanya",
+    "enterModelId": "Tinye NJ Model",
+    "addModel": "Tinye Model",
+    "description": "Tinye ihe nlereanya ọhụrụ na onye na-eweta ya",
+    "exploreModels": "Hụ ndepụta nlereanya sitere n'aka onye na-eweta ya"
+  },
+  "mcpServers": {
+    "editServer": "Dezie ihe nkesa",
+    "addServer": "Tinye ihe nkesa",
+    "serverName": "Aha nkesa",
+    "enterServerName": "Tinye aha nkesa",
+    "command": "Iwu",
+    "enterCommand": "Tinye iwu",
+    "arguments": "Arụmụka",
+    "argument": "Arụmụka {{index}}",
+    "envVars": "Ngbanwe gburugburu",
+    "key": "Igodo",
+    "value": "Uru",
+    "save": "Chekwaa"
+  },
+  "deleteServer": {
+    "title": "Hichapụ ihe nkesa",
+    "delete": "Hichapụ"
+  },
+  "editJson": {
+    "errorParse": "Ekpughị nyocha JSON",
+    "errorPaste": "Ịdịghị mado JSON",
+    "errorFormat": "Ụdị JSON na-ezighi ezi",
+    "titleAll": "Dezie nhazi niile nke sava",
+    "placeholder": "Tinye nhazi JSON...",
+    "save": "Chekwaa"
+  },
+  "editModel": {
+    "title": "Ụdị nhazi: {{modelId}}",
+    "description": "Hazie ikike ụdị site na ịtụgharị nhọrọ ndị dị n'okpuru.",
+    "capabilities": "Ike",
+    "tools": "Ngwa",
+    "vision": "Ọhụụ",
+    "embeddings": "Ntinye",
+    "notAvailable": "Ọ dịbeghị"
+  },
+  "outOfContextError": {
+    "truncateInput": "Ntinye mbelata",
+    "title": "Njehie enweghị ọnọdụ",
+    "description": "Mkparịta ụka a na-erute oke ebe nchekwa AI, dị ka bọọdụ ọcha na-ejuputa. Anyị nwere ike ịgbasa mpio ebe nchekwa (nke a na-akpọ ọnọdụ ọnọdụ) ka ọ na-echetakwu, mana ọ nwere ike iji ọtụtụ ebe nchekwa kọmputa gị. Anyị nwekwara ike ibelata ntinye, nke pụtara na ọ ga-echefu ụfọdụ akụkọ nkata iji nye ohere maka ozi ọhụrụ.",
+    "increaseContextSizeDescription": "Ị chọrọ ịbawanye nha gburugburu?",
+    "increaseContextSize": "Welite nha Ọdịnaya"
+  },
+  "toolApproval": {
+    "title": "Arịrịọ ikike ngwaọrụ",
+    "description": "Onye inyeaka chọrọ iji <strong>{{toolName}}</strong>",
+    "securityNotice": "Hapụ naanị ngwaọrụ ị tụkwasịrị obi. Ngwa nwere ike ịnweta sistemụ na data gị.",
+    "deny": "Ajụ",
+    "allowOnce": "Kwe ka otu oge",
+    "alwaysAllow": "Hapụ mgbe niile"
+  },
+  "deleteModel": {
+    "title": "Ụdị nhichapụ: {{modelId}}",
+    "description": "Ị ji n'aka na ịchọrọ ihichapụ ihe nlereanya a? Enweghị ike imegharị ihe a.",
+    "success": "Ụdị {{modelId}} ehichapụrụ kpamkpam.",
+    "cancel": "Kagbuo",
+    "delete": "Hichapụ"
+  },
+  "deleteProvider": {
+    "title": "Hichapụ onye na-eweta ya",
+    "description": "Hichapụ onye na-eweta ya na ụdị ya niile. Enweghị ike imegharị ihe a.",
+    "success": "Onye na-eweta {{provider}} ehichapụrụ kpamkpam.",
+    "confirmTitle": "Hichapụ onye na-eweta: {{provider}}",
+    "confirmDescription": "Ị ji n'aka na ịchọrọ ihichapụ onye na-eweta ihe a? Enweghị ike imegharị ihe a.",
+    "cancel": "Kagbuo",
+    "delete": "Hichapụ"
+  },
+  "modelSettings": {
+    "title": "Ntọala Model - {{modelId}}",
+    "description": "Hazie ntọala ụdị ka ebuli arụmọrụ na omume.",
+    "nglDisabledByFit": "Auto-dabara na-ahọrọ GPU n'ígwé. Gbanyụọ akpaghị aka ka iji aka gị tọọ nke a.",
+    "samplingDefaults": {
+      "title": "Parampat nlele mbụ",
+      "description": "Ntọala sampler mbụ maka ihe nlereanya a. A na-eji ya belụsọ na ụkpụrụ enyemaka onye ọ bụla ma ọ bụ onye arịrịọ kagburu ya."
+    },
+    "specDraft": {
+      "section": "Nchọpụta ntule",
+      "enable": "Kwado nhọpụta ntule",
+      "enableDescription": "Dezie ọtụtụ akara n'otu nzọụkwụ wee nyochaa ha n'otu ngafe, nke na-eme ka ọgbọ na-agba ọsọ ọsọ. Na-eji isi MTP arụnyere n'ime ihe nlereanya ahụ, ma ọ bụ ihe nlereanya ejiri ya budata (MTP, Eagle3, DFlash ma ọ bụ DSpark).",
+      "nMax": "Ihe akara ngosi kacha",
+      "nMaxDescription": "Ọnụ ọgụgụ kacha elu nke token iji depụta otu nzọụkwụ. Nke mbụ 16.",
+      "nMin": "Min draft token",
+      "nMinDescription": "Ọnụ ọgụgụ kacha nta nke token iji depụta otu nzọụkwụ. Ebube 0.",
+      "pMin": "Nke puru omume",
+      "pMinDescription": "Opekempe ohere maka idepụta anyaukwu (0-1). 0.75."
+    },
+    "templateKwargs": {
+      "section": "Nhọrọ ndebiri nkata",
+      "description": "Nhọrọ ndị ọzọ template nkata ụdị a na-anabata. Ezitere dị ka chat_template_kwargs na arịrịọ ọ bụla; hapụ uru na ndabara ya ka template kpebie.",
+      "addCustom": "Tinye nhọrọ omenala",
+      "keyPlaceholder": "aha",
+      "valuePlaceholder": "uru",
+      "add": "Tinye",
+      "cancel": "Kagbuo",
+      "remove": "Wepu"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Enweghị ike imelite ntọala ụdị"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Gbanwee ebe nchekwa data",
+      "description": "Ị ji n'aka na ị chọrọ ịgbanwe ebe nchekwa data? Nke a ga-ebuga data gị niile gaa na ebe ọhụrụ wee malitegharịa ngwa ahụ.",
+      "currentLocation": "Ebe dị ugbu a:",
+      "newLocation": "Ebe ọhụrụ:",
+      "cancel": "Kagbuo",
+      "changeLocation": "Gbanwee ebe"
+    },
+    "deleteAllThreads": {
+      "title": "Hichapụ eri niile",
+      "description": "A ga-ehichapụ eri niile. Enweghị ike imegharị ihe a."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Hichapụ Mkparịta ụka niile",
+      "description": "Mkparịta ụka {{count}} na \"{{projectName}}\" ga-ehichapụ. Enweghị ike imegharị ihe a."
+    },
+    "deleteThread": {
+      "description": "Ị ji n'aka na ịchọrọ ihichapụ eri a? Enweghị ike imegharị ihe a."
+    },
+    "editMessage": {
+      "title": "Dezie ozi"
+    },
+    "messageMetadata": {
+      "title": "Metadata ozi"
+    },
+    "deleteMessage": {
+      "description": "Ị ji n'aka na ịchọrọ ihichapụ ozi a? Enweghị ike imegharị ihe a."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Ọ nwere ihe adịghị mma",
+    "details": "Nkọwa"
+  },
+  "missingDependenciesDialog": {
+    "title": "Ọba akwụkwọ Sistemu na-efu",
+    "description": "Awụnyere {{backend}} mana enweghị ike ịhụ ụfọdụ ọba akwụkwọ sistemụ achọrọ. Ọ nwere ike daa azụ na CPU ma ọ bụ na ọ gaghị agba ọsọ nke ọma.",
+    "installLabel": "Iji dozie nke a, wụnye ihe ndị a:",
+    "download": "Budata",
+    "additionalLibraries": "Ọbá akwụkwọ ndị ọzọ na-efu efu:",
+    "missingLibraries": "Ụlọ akwụkwọ na-efu efu:",
+    "showRawLibraries": "Gosi {{count}} aha ọba akwụkwọ na-efu"
+  },
+  "projects": {
+    "title": "Ihe oru ngo",
+    "new": "Ọrụ ọhụrụ",
+    "addProject": "Tinye Project",
+    "addToProject": "Tinye na oru ngo",
+    "removeFromProject": "Wepu na oru ngo",
+    "createNewProject": "Mepụta Ọrụ Ọhụrụ",
+    "editProject": "Dezie oru ngo",
+    "deleteProject": "Hichapụ Project",
+    "projectName": "Aha oru ngo",
+    "enterProjectName": "Tinye aha oru ngo...",
+    "noProjectsAvailable": "Enweghị oru ngo dị",
+    "noProjectsYet": "Ọnweghị oru ngo",
+    "noProjectsYetDesc": "Malite ọrụ ọhụrụ site na ịpị bọtịnụ Tinye Project.",
+    "projectNotFound": "Achọtaghị oru ngo",
+    "projectNotFoundDesc": "Ọrụ ị na-achọ adịghị ma ọ bụ ehichapụ.",
+    "selectAssistant": "Họrọ onye inyeaka",
+    "noAssistantAssigned": "Ọ nweghị onye enyemaka ekenyere ọrụ a",
+    "files": "Faịlụ",
+    "filesDescription": "Tinye PDF, dọkụmentị, ma ọ bụ ederede ọzọ maka ntụnye aka na ọrụ a.",
+    "uploadingFiles": "Na-ahazi faịlụ…",
+    "processButton": "Tinye",
+    "deleteProjectDialog": {
+      "title": "Hichapụ Project",
+      "permanentDelete": "Nke a ga-ehichapụ eri niile kpamkpam.",
+      "permanentDeleteWarning": "Omume a ga-ehichapụ eri niile dị n'ime ọrụ ahụ kpamkpam!",
+      "deleteEmptyProject": "Omume a ga-ehichapụ ọrụ \"{{projectName}}\".",
+      "saveThreadsAdvice": "Ka ịchekwaa eri, bugharịa ha na listi eri gị ma ọ bụ ọrụ ọzọ tupu ihichapụ ya.",
+      "starredWarning": "Ị ka nwere eriri nwere akara n'ime ọrụ ahụ.",
+      "deleteButton": "Hichapụ",
+      "successWithName": "Arụmọrụ \"{{projectName}}\" ehichapụrụ nke ọma",
+      "successWithoutName": "A ehichapụrụ ọrụ nke ọma",
+      "error": "Ihichapụ ọrụ adịghị. Biko nwaa ọzọ.",
+      "ariaLabel": "Hichapụ {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Mepụta Ọrụ Ọhụrụ",
+      "editTitle": "Dezie oru ngo",
+      "nameLabel": "Aha oru ngo",
+      "namePlaceholder": "Tinye aha oru ngo...",
+      "assistant": "Enyemaka",
+      "selectAssistant": "Họrọ onye inyeaka (nhọrọ)",
+      "noAssistant": "Enweghị onye inyeaka",
+      "addAssistant": "Tinye onye enyemaka",
+      "createButton": "Mepụta",
+      "updateButton": "Mmelite",
+      "alreadyExists": "Project \"{{projectName}}\" adịlarị",
+      "createSuccess": "Project \"{{projectName}}\" emepụtara nke ọma",
+      "updateSuccess": "Akụrụngwa \"{{projectName}}\" emelitere nke ọma",
+      "saveError": "Enweghị ike ichekwa ọrụ. Biko nwaa ọzọ."
+    },
+    "noConversationsIn": "Enweghị mkparịta ụka na {{projectName}}",
+    "startNewConversation": "Bido mkparịta ụka ọhụrụ na {{projectName}} n'okpuru",
+    "conversationsIn": "Mkparịta ụka na {{projectName}}",
+    "conversationsDescription": "Pịa mkparịta ụka ọ bụla ka ịga n'ihu na-akparịta ụka, ma ọ bụ malite nke ọhụrụ n'okpuru.",
+    "conversation": "Mkparịta ụka",
+    "instructions": "Ntuziaka",
+    "setup": "Melite",
+    "instructionsDescription": "Hazie ụda na ụdị nzaghachi",
+    "manageInstructions": "Jikwaa ntuziaka",
+    "thread": "eri",
+    "threads": "eri",
+    "updated": "Emelitere:",
+    "collapseProject": "Kwatuo oru ngo",
+    "expandProject": "Gbasaa oru ngo",
+    "update": "Mmelite",
+    "searchProjects": "Chọọ ọrụ...",
+    "noProjectsFound": "Ọnweghị ọrụ ahụrụ",
+    "tryDifferentSearch": "Gbalịa okwu ọchụchọ dị iche"
+  },
+  "attachmentsIngestion": {
+    "title": "Họrọ otu esi etinye mgbakwunye",
+    "description": "Họrọ ma ị ga-etinye faịlụ ndị a ozugbo na nkata ma ọ bụ depụta ha dịka ntinye kama.",
+    "inline": "Tinye n'ime nkata",
+    "embeddings": "Jiri ntinye"
+  },
+  "attachmentInjectedIndicator": "Gbanyere n'ime nkata",
+  "attachmentEmbeddedIndicator": "Agbanyere maka RAG",
+  "viewInjectedContent": "Lelee ọdịnaya agbanyere",
+  "injectedContentTitle": "Ọdịnaya faịlụ agbanyere",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Eriri niile anaghị amasị",
+      "description": "Ewepụla eri niile na ọkacha mmasị gị."
+    },
+    "deleteAllThreads": {
+      "title": "Hichapụ eri niile",
+      "description": "E hichapụla eri niile na-adịgide adịgide."
+    },
+    "renameThread": {
+      "title": "Nyegharịa eriri aha",
+      "description": "Akpọgharịrị aha eri ka ọ bụrụ '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Hichapụ eri",
+      "description": "E hichapụla eri a kpamkpam."
+    },
+    "errorCopied": {
+      "title": "Detuo nke ọma",
+      "description": "Eṅomiri ozi mperi na klipbọọdụ"
+    },
+    "errorCopyFailed": {
+      "title": "Iṅomi agaghị",
+      "description": "Iṅomi ozi mperi na klipbọọdụ ada ada"
+    },
+    "editMessage": {
+      "title": "Dezie ozi",
+      "description": "Edoziziri ozi nke ọma. Biko chere ka ihe nlereanya ahụ zaghachi."
+    },
+    "appUpdateDownloaded": {
+      "title": "Ebudatala mmelite ngwa",
+      "description": "Ebudatala mmelite ngwa ahụ nke ọma."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Nbudata ngw emelite agaghị",
+      "description": "Ịbudata mmelite ngwa agaghị adị. Biko nwaa ọzọ."
+    },
+    "downloadComplete": {
+      "title": "Budata zuru ezu",
+      "description": "Ebudatala {{item}}"
+    },
+    "downloadCancelled": {
+      "title": "Kagbuo nbudata",
+      "description": "A kagburu usoro nbudata ahụ"
+    },
+    "downloadFailed": {
+      "title": "Nbudata agaghị",
+      "description": "{{item}} nbudata dara",
+      "descriptionWithReason": "{{item}} nbudata dara: {{reason}}",
+      "reason": {
+        "dns": "enweghị ike idozi aha sava ahụ",
+        "refused": "a jụrụ njikọ ahụ",
+        "timeout": "njikọ ahụ agwụla",
+        "tls": "enweghị ike ịmepụta njikọ echekwara",
+        "proxy": "enweghị ike iru proxy",
+        "unreachable": "enweghị ike iru ihe nkesa ahụ"
+      }
+    },
+    "openSettings": "Mepee Ntọala",
+    "openLogs": "Mepee ndekọ",
+    "downloadTokenRequired": {
+      "title": "Hugging Face token chọrọ",
+      "description": "Ihe nlereanya a chọrọ akara ohere Hugging Face. Tinye akara gị na Ntọala wee nwaa ọzọ."
+    },
+    "downloadLicenseRequired": {
+      "title": "Nabata akwụkwọ ikike nlereanya na Hugging Face",
+      "description": "Ị ga-anabatarịrị ikikere ihe nlereanya na ibe ya Hugging Face tupu nbudata."
+    },
+    "downloadRateLimited": {
+      "title": "Oke ruru site na Hugging Face",
+      "description": "Ị nwere oke-oke. Ịtinye akara nwere ike ịbawanye oke ọnụego. Biko nwaa ọzọ ma emechaa."
+    },
+    "modelValidationStarted": {
+      "title": "Nlereanya na-akwado",
+      "description": "Ụdị ebudatara \"{{modelId}}\" nke ọma. Na-enyocha iguzosi ike n'ezi ihe..."
+    },
+    "modelValidationFailed": {
+      "title": "Nnwale nlereanya adaghị",
+      "description": "Ụdị ebudatara \"{{modelId}}\" dara nkwenye n'ezi ihe wee wepụ ya. Enwere ike mebie ma ọ bụ mebie faịlụ a."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Budata zuru ezu",
+      "description": "Ụdị \"{{item}}\" ebudatara wee gosipụta nke ọma"
+    },
+    "projectCreated": {
+      "title": "Emepụtara oru ngo",
+      "description": "Project \"{{projectName}}\" emepụtara nke ọma"
+    },
+    "projectRenamed": {
+      "title": "Akpọgharịrị aha oru ngo",
+      "description": "A kpọgharịrị aha ya site na \"{{oldName}}\" ka ọ bụrụ \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Ebichapụla oru ngo",
+      "description": "Arụmọrụ \"{{projectName}}\" ehichapụrụ nke ọma"
+    },
+    "projectAlreadyExists": {
+      "title": "Ọrụ adịlarị",
+      "description": "Project \"{{projectName}}\" adịlarị"
+    },
+    "projectDeleteFailed": {
+      "title": "Hichapụ agaghị",
+      "description": "Ihichapụ ọrụ adịghị. Biko nwaa ọzọ."
+    },
+    "threadAssignedToProject": {
+      "title": "Enyere eriri",
+      "description": "Ekenyere eriri na \"{{projectName}}\" nke ọma"
+    },
+    "threadRemovedFromProject": {
+      "title": "E wepụrụ eriri",
+      "description": "E wepụrụ eriri na \"{{projectName}}\" nke ọma"
+    },
+    "fileUploaded": {
+      "title": "Haziri faịlụ",
+      "description": "Ahaziri faịlụ ma depụta ya nke ọma"
+    },
+    "uploadFailed": {
+      "title": "Nhazi agaghị",
+      "description": "Ịhazi faịlụ agaghị",
+      "subjectThisFile": "Faịlụ a",
+      "pdfMalformedXref": "{{subject}} nwere tebụl nrụtụ aka PDF enweghị ike ịtụgharị ya. Gbalịa imepe ya na ihe nlele PDF wee chekwaa ya (Faịlụ → Bipụta → Chekwa dị ka PDF), wee bulite ọzọ.",
+      "pdfScanned": "{{subject}} dị ka a nyochara ma ọ bụ dabere na onyonyo PDF. Akwadoghi OCR - biko bulite ederede dabere PDF.",
+      "pdfEncrypted": "{{subject}} echekwara paswọọdụ. Wepu paswọọdụ wee nwaa ọzọ.",
+      "pdfUnsupportedFeature": "{{subject}} na-eji njirimara PDF Novera enweghị ike ịkọwapụta (dịka ọmụmaatụ agba PostScript/ọrụ ndo). Gbalịa ichekwa ya ọzọ (Faịlụ → Bipụta → Chekwa dị ka PDF) ka ọ daa nhata, wee bulite ọzọ.",
+      "pdfGeneric": "Enweghị ike ịtụgharị {{subject}} dị ka PDF. Enwere ike mebie faịlụ a ma ọ bụ jiri njirimara PDF anaghị akwado ya.",
+      "fileTooLarge": "{{subject}} buru oke ibu. {{message}}.",
+      "unsupportedType": "Ụdị faịlụ \"{{type}}\" akwadoghị.",
+      "ioError": "Enweghị ike ịgụ {{subject}}: {{message}}",
+      "parseGeneric": "Enweghị ike ịkọwa {{subject}}: {{message}}",
+      "fallback": "Ịhazighị {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Ehichapụ faịlụ",
+      "description": "Ewepula faịlụ na oru ngo"
+    },
+    "deleteFailed": {
+      "title": "Hichapụ agaghị",
+      "description": "Ihichapụ faịlụ agaghị"
+    },
+    "fileAlreadyExists": {
+      "title": "Faịlụ adịlarị",
+      "description": "E tinyelarị faịlụ na ọrụ a"
+    },
+    "unsupportedFileType": {
+      "title": "Ụdị faịlụ anaghị akwado",
+      "description": "Anaghị akwado ndọtị faịlụ \".{{extension}}\" maka nrụtụ aka ọrụ."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Agbanyụrụ mgbakwunye",
+      "description": "Agbanyụrụ mgbakwunye na Ntọala"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Faịlụ buru ibu",
+    "fileTooLargeDescription": "{{fileName}} gafere oke {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} iberibe",
+    "title": "Faịlụ",
+    "empty": "Faịlụ ị gbakwunyere na faịlụ onye nnọchi anya ga-apụta ebe a.",
+    "a11y": "Faịlụ: {{count}}",
+    "attachments": "Mgbakwụnye",
+    "notImported": "ọ bụghị n'ebe ọrụ"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp ka na-arụ ọrụ",
+    "description": "Otu ụdị ma ọ bụ karịa ebupụghị n'oge. Ịkwụsị mmanye ga-akwụsị llama.cpp ma nwee ike ịkwụsị nzaghachi na-arụ ọrụ.",
+    "forceQuit": "Manye kwụsị",
+    "forcing": "Manye ịkwụsị…",
+    "shuttingDown": "Na-emechi…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "daa",
+  "expand": "Gbasaa",
+  "todoPanelTitle": "Ọganihu",
+  "todoPanelEmpty": "Enweghị ndepụta ime eme.",
+  "backgroundTasks": "Ọrụ ndabere",
+  "subagentsRunning_one": "{{count}} Subagent na-agba ọsọ",
+  "subagentsRunning_other": "{{count}} ndị subagents na-agba ọsọ",
+  "monitorsRunning_one": "{{count}} Monitor na-agba ọsọ",
+  "monitorsRunning_other": "{{count}} Monitors na-agba ọsọ",
+  "backgroundRunning_one": "{{count}} ọrụ ndabere na-arụ ọrụ",
+  "backgroundRunning_other": "{{count}} ọrụ ndabere na-arụ ọrụ",
+  "monitors": "Nyocha",
+  "monitorPolling": "Ntuli aka",
+  "monitorMatched": "Dakọtara",
+  "monitorTimedOut": "Oge agwụla",
+  "monitorStopped": "Akwụsịla",
+  "monitorEnded": "Akwụsịla",
+  "coworkWatching_one": "Na-ekiri {{count}} Monitor…",
+  "coworkWatching_other": "Na-ekiri {{count}} Monitors…",
+  "coworkWaitingBackground": "Na-eche ọrụ n'azụ…",
+  "noBackgroundTasks": "Enweghị ọrụ ndabere.",
+  "running": "Na-agba ọsọ",
+  "queued": "kwụ n'ahịrị",
+  "waiting": "Na-eche",
+  "finished": "Emechaala",
+  "subagentPhase": "nkeji {{phase}}",
+  "subagentWaiting": "ichere",
+  "viewTranscript": "Lelee transcript",
+  "taskWorking": "Na-arụ ọrụ…",
+  "taskNoOutput": "Onye isi ala ahụ ewepụtaghị ihe a na-ahụ anya.",
+  "subagentToolUses_one": "{{count}} eji ngwá ọrụ eme ihe",
+  "subagentToolUses_other": "{{count}} akụrụngwa eji",
+  "artifactGroupCode": "Koodu",
+  "artifactGroupImage": "Onyonyo",
+  "artifactGroupDocument": "Akwụkwọ",
+  "artifactGroupVideo": "Vidiyo",
+  "artifactGroupAudio": "Ụda",
+  "artifactOpenPreview": "Mepee nhụchalụ",
+  "artifactOpenExternal": "Mepee",
+  "artifactMoreActions": "Omume ndị ọzọ",
+  "artifactShowInFolder": "Gosi na nchekwa",
+  "skillsUsedLabel": "A na-eji nkà eme ihe",
+  "skillsUsed": "Nkà eji: {{skills}}",
+  "artifactsAll": "Ha niile",
+  "artifactsEmpty": "Ọnweghị ihe emepụtara. Artifacts si Cowork na-agba na-egosi ebe a.",
+  "artifactsNoMatch": "Ọnweghị ihe arịa dakọtara.",
+  "artifactsSearch": "Chọọ akụrụngwa",
+  "artifactsShowMore": "Gosi {{count}} ọzọ",
+  "workspace": {
+    "readsFrom": "Na-arụ ọrụ na",
+    "writable": "gụọ & dee",
+    "footnote": "Onye nnọchi anya na-agụ ma dezie folda a ozugbo. Nyochaa ihe gbanwere na panel dị iche.",
+    "footnoteEmpty": "Tinye otu nchekwa ka onye ọrụ ahụ rụọ ọrụ na ọrụ gị. Ọ nwere ike ịgụ na dezie faịlụ n'ime ya.",
+    "attach": "Tinye nchekwa",
+    "change": "Gbanwee folda",
+    "detach": "Wepụ folda",
+    "open": "Mepee",
+    "reveal": "kpughere",
+    "unavailable": "Oghere ọrụ adịghị",
+    "missing": "Ebe nchekwa nchekwa {{folder}} adịkwaghị. Họrọ folda dị iche.",
+    "openFailed": "Enweghị ike imepe oghere ọrụ",
+    "revealFailed": "Enweghị ike ikpughe oghere ọrụ",
+    "a11yWithFolder": "Ihe nchekwa ọrụ {{folder}}, jikọtara ya na ohere ịgụ na ide. Gbanwee ma ọ bụ wepụ ya.",
+    "a11yNoFolder": "Enweghị nchekwa nchekwa ọrụ agbakwunyere. Tinye otu."
+  },
+  "coworkEmpty": {
+    "title": "Kedu ihe anyị na-arụ ọrụ?",
+    "subtitleSandbox": "Nye Novera ọrụ. Ọ na-agụ ma na-ede faịlụ, na-agba iwu, ma na-arụ ọrụ site na nzọụkwụ n'onwe ya.",
+    "subtitleFolder": "Nye Novera ọrụ. Ọ na-arụ ọrụ ozugbo na {{folder}}, na-agụ ma na-edezi faịlụ n'onwe ya.",
+    "try": "Gbalịa",
+    "sandbox": {
+      "first": "Dee script Python nke na-atụgharị aha faịlụ site na ụbọchị ewepụtara ha",
+      "second": "Mepụta dashboard nwere otu ibe site na CSV Aga m mado ya",
+      "third": "Depụta README maka ọrụ m kọwara gị"
+    },
+    "folder": {
+      "first": "Kọwaa otu esi ejikọta {{folder}}",
+      "second": "Chọta TODO ọ bụla na {{folder}} wee chịkọta ha na mpaghara",
+      "third": "Dee ule maka akụkụ {{folder}} M na-atụ gị aka"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Enweghị ọnụ",
+    "a11y": "Agbanyụrụ iwu na-agba ọsọ. Nkọwa.",
+    "title": "Agbanyụrụ iwu na-agba ọsọ",
+    "body": "Novera na-ahapụ onye ọrụ ahụ ka ọ rụọ ọrụ shei naanị mgbe sistemụ gị nwere ike igbochi ha. Enweghị igbe ájá dị ebe a, ya mere onye ọrụ ahụ nwere ike ịgụ, dee na dezie faịlụ n'ime igbe ájá ya - mana ọ naghị eme ihe ọ bụla.",
+    "fixLinux": "Linux na-eji ihe mkpuchi. Wụnye ya, wee malitegharịa Novera.",
+    "fixMac": "macOS na-eji igbe ájá arụnyere na /usr/bin/sandbox-exec. Malitegharịa ekwentị Novera ozugbo ọ dị.",
+    "fixWindows": "Windows na-eji AppContainer. Malitegharịa Novera iji nwaa ọzọ.",
+    "recheck": "Lelee ọzọ"
+  },
+  "planMode": {
+    "label": "Atụmatụ",
+    "tooltipOff": "Mee atụmatụ mbụ - onye ọrụ na-agụ ma na-atụ aro, na-enweghị ederede.",
+    "tooltipOn": "Nhazi. Gbanyụọ nke a ka onye ọrụ ahụ dee faịlụ.",
+    "onAnnounce": "Mee atụmatụ mode",
+    "placeholder": "Rịọ maka atụmatụ. Onye nnọchi anya agaghị agbanwe faịlụ ọ bụla."
+  },
+  "budget": {
+    "stoppedSteps": "Kwụsịrị na {{max}} nzọụkwụ. Onye nnọchi anya ahụ emechabeghị.",
+    "keepGoing": "Na-aga",
+    "stoppedTokens": "Kwụsị - nnọkọ a kụrụ ego mmefu ego ya.",
+    "compact": "Kọmpat",
+    "newSession": "Oge ọhụrụ"
+  },
+  "run": {
+    "stopped": "Akwụsịla.",
+    "failed": "Ọsọ ahụ kwụsịrị n'oge.",
+    "tryAgain": "Nwaa ọzọ"
+  },
+  "modelNoTools": "{{model}} enweghị ike ịkpọ ngwaọrụ, yabụ na ọ nweghị ike rụọ ọrụ dị ka onye nnọchi anya. Họrọ ihe nlereanya ịkpọ ngwá ọrụ.",
+  "askContinue": "Gaa n'ihu",
+  "askNext": "Ajụjụ na-esote",
+  "askPrev": "Ajụjụ gara aga",
+  "askRecommended": "Akwadoro",
+  "askSelectedCount": "{{count}} ahọpụtara",
+  "askSomethingElse": "Ihe ọzọ",
+  "askSomethingElsePlaceholder": "Pịnye azịza nke gị",
+  "submit": "Nyefee",
+  "composer": {
+    "advanced": "Parampat dị elu",
+    "modelDefaults": "Ụdị ndabara",
+    "assistantOverrides": "Onye enyemaka na-agbagha",
+    "printPdf": "Bipụta / Chekwa dị ka PDF",
+    "exportHint": "Ụdị enwere ike ịgụ: alaka na-arụ ọrụ. JSON: ụdị ozi niile. Ejikọtaghị faịlụ mpụga."
+  },
+  "telemetry": {
+    "summary": "Site na nkwenye gị, {{host}} na-enweta naanị ụdị Novera na sistemụ arụmọrụ, na-enweghị mkparịta ụka ma ọ bụ ihe nchọpụta na-adịgide adịgide.",
+    "unavailable": "Ahazighị ọnụ ọgụgụ. Ọ dịghị data ezipụ."
+  },
+  "errorTracking": {
+    "title": "Njehie nsuso",
+    "summary": "Nkwupụta nhọrọ na {{host}}: ụdị njehie, ọnọdụ koodu, ụdị na sistemụ arụmọrụ. Enweghị mkparịta ụka, ozi mperi ma ọ bụ igodo. Gbanyụọ oge ọ bụla.",
+    "unavailable": "Ahazighị mperi nsochi. Ọ dịghị akụkọ ezipụ."
+  }
+}

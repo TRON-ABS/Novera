@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "ڪوڊ",
+    "preview": "ڏيکاءُ",
+    "previewStreaming": "دستياب آهي جڏهن نسل ختم ٿئي ٿي",
+    "unresolvedAssets_one": "1 اثاثن جو حوالو ڏيک ۾ لوڊ نٿو ٿي سگھي. واسطيدار رستا ڪو به بنياد نه آهن URL خلاف حل ڪرڻ لاءِ.",
+    "unresolvedAssets_other": "{{count}} اثاثن جا حوالا ڏيک ۾ لوڊ نٿا ٿي سگهن. واسطيدار رستا ڪو به بنياد نه آهن URL خلاف حل ڪرڻ لاءِ."
+  },
+  "assistants": "مددگار",
+  "hardware": "هارڊويئر",
+  "mcp-servers": "MCP سرور",
+  "local_api_server": "مقامي API سرور",
+  "remote_access": "ريموٽ رسائي",
+  "integrations": "انضمام",
+  "experimental": "تجرباتي",
+  "claude_code": "ڪلاڊ ڪوڊ",
+  "https_proxy": "HTTPS پراڪسي",
+  "web_search": "ويب ڳولا",
+  "shell": "شيل",
+  "browse": "برائوز",
+  "moreControls": "وڌيڪ ڪنٽرول",
+  "starting": "شروع ٿي رهيو آهي...",
+  "activeSuffix": "(فعال)",
+  "extensions": "واڌايون",
+  "attachments": "منسلڪات",
+  "general": "جنرل",
+  "settings": "سيٽنگون",
+  "modelProviders": "ماڊل فراهم ڪندڙ",
+  "localProviders": "مقامي",
+  "remoteProviders": "ريموٽ",
+  "manageProviders": "مهيا ڪندڙن کي منظم ڪريو",
+  "hiddenProviders": "{{count}} معذور",
+  "hideProvider": "فراهم ڪندڙ کي لڪايو",
+  "showProvider": "مهيا ڪندڙ ڏيکاريو",
+  "interface": "انٽرفيس",
+  "appearance": "ظاهر",
+  "privacy": "رازداري",
+  "keyboardShortcuts": "شارٽ ڪٽ",
+  "home": "گهر",
+  "cowork": "Cowork",
+  "newSession": "نئون سيشن",
+  "artifacts": "آثار",
+  "customize": "حسب ضرورت",
+  "local": "مقامي",
+  "selectFolder": "فولڊر چونڊيو",
+  "selectModel": "پهرين ماڊل چونڊيو",
+  "commands": "حڪم",
+  "cmdHelp": "دستياب حڪمن جي فهرست",
+  "cmdClear": "ھن سيشن کي صاف ڪريو",
+  "cmdModels": "فعال ماڊل کي تبديل ڪريو",
+  "cmdModelsHint": "ٽائيپ ڪريو /models پوءِ فهرست مان ھڪڙو نمونو چونڊيو",
+  "cmdModelSwitched": "{{name}} ڏانهن تبديل ڪيو ويو",
+  "cmdUnknown": "اڻڄاتل حڪم: {{name}}. ڪوشش ڪريو /help",
+  "cmdBusy": "اهو نٿو ڪري سگهان جڏهن ايجنٽ هلي رهيو آهي",
+  "cmdCompact": "سيشن جي تناظر کي خلاصو ۾ ترتيب ڏيو",
+  "cmdCompacted": "ٺھيل {{before}} -> {{after}} نياپا",
+  "cmdNothingToCompact": "اڃان تائين ڪجھ به نه ٺهيو",
+  "cmdCompactFailed": "ٺاھڻ ناڪام ٿيو: {{error}}",
+  "cmdPlan": "ٽوگل پلان موڊ (صرف پڙهڻ لاءِ: ايجنٽ بغير لکڻ جي تجويز ڪري ٿو)",
+  "cmdPlanOn": "پلان موڊ تي: ايجنٽ بغير لکڻ جي پڙهي ۽ تجويز ڪري ٿو",
+  "cmdPlanOff": "پلان موڊ بند: عام عمل",
+  "cmdTodo": "ترقي پينل کوليو",
+  "cmdTasks": "پس منظر ٽاسڪ پينل کوليو",
+  "cmdInit": "منصوبي جو مطالعو ڪريو ۽ لکڻ جي صلاحيتن ۽ ياداشت",
+  "cmdInitRunning": "هن پروجيڪٽ ۾ شامل ٿيڻ",
+  "skills": "مهارت",
+  "skillsInContext": "هن رن جي ايجنٽ وٽ موجود صلاحيتون",
+  "skillsTitle": "صلاحيتن کي منظم ڪريو",
+  "skillsScopeProject": "{{folder}} لاءِ صلاحيتون",
+  "skillsScopeGlobal": "عالمي صلاحيتن، هر سيشن لاء دستياب",
+  "skillsScopeMerged": "{{folder}} لاءِ صلاحيتون، گڏوگڏ عالمي صلاحيتن جو هر سيشن شيئر ڪري ٿو",
+  "skillOriginFolder": "فولڊر",
+  "skillOriginGlobal": "عالمي",
+  "skillsEmpty": "اڃا تائين ڪا به مهارت نه آهي",
+  "skillsPickOrNew": "تبديل ڪرڻ لاءِ مهارت چونڊيو، يا نئون ٺاھيو.",
+  "skillNew": "جديد مهارت",
+  "skillDelete": "مهارت کي ختم ڪريو",
+  "skillSave": "محفوظ ڪريو",
+  "skillSaved": "مهارت بچايو",
+  "skillNameRequired": "مهارت جو نالو گهربل آهي",
+  "skillNamePlaceholder": "مهارت جو نالو",
+  "skillContentPlaceholder": "Markdown ۾ ٻيهر استعمال جي قابل عمل جي وضاحت ڪريو...",
+  "skillHubImport": "حب مان درآمد ڪريو",
+  "skillHubTitle": "Anthropic مهارت جو مرڪز",
+  "skillHubEmpty": "حب تي ڪا به مهارت نه ملي",
+  "skillImport": "درآمد",
+  "skillReimport": "ٻيهر درآمد ڪريو",
+  "skillImported": "درآمد ٿيل {{name}}",
+  "sessions": "سيشن",
+  "deleteSession": "سيشن کي ختم ڪريو",
+  "deleteSessionTitle": "سيشن ختم ڪريو؟",
+  "deleteSessionBody": "\"{{title}}\" ۽ ان جو ٽرانسڪرپٽ مستقل طور ڊهي ويندو. هن کي رد نٿو ڪري سگهجي.",
+  "newChat": "نئين چيٽ",
+  "newAgentChat": "نئون ايجنٽ چيٽ",
+  "chats": "چٽ",
+  "favorites": "پسنديده",
+  "recents": "تازو",
+  "hub": "حب",
+  "helpSupport": "مدد ۽ مدد",
+  "helpUsImproveJan": "اسان کي بهتر بنائڻ ۾ مدد ڪريو Novera",
+  "analyticsConsentDetail": "اسان خصوصيت جي استعمال کي سمجهڻ لاءِ گمنام ڊيٽا گڏ ڪريون ٿا. توهان جي چيٽ ۽ ذاتي معلومات ڪڏهن به ٽريڪ نه ڪئي وئي آهي. توھان ھن کي ڪنھن به وقت سيٽنگون > رازداري ۾ تبديل ڪري سگھو ٿا.",
+  "analyticsConsentQuestion": "ڇا توھان Novera کي بھتر ڪرڻ ۾ اسان جي مدد ڪرڻ چاھيو ٿا؟",
+  "unstarAll": "سڀني تان پسند جو نشان هٽايو",
+  "unstar": "اڻ تارو",
+  "deleteAll": "سڀ ختم ڪريو",
+  "star": "تارو",
+  "rename": "نالو مٽايو",
+  "delete": "ختم ڪريو",
+  "copied": "نقل ٿيل!",
+  "dataFolder": "ڊيٽا فولڊر",
+  "others": "ٻيو",
+  "language": "ٻولي",
+  "login": "لاگ ان",
+  "loginWith": "{{provider}} سان لاگ ان",
+  "loginFailed": "لاگ ان ٿيڻ ۾ ناڪام ٿيو",
+  "logout": "لاگ آئوٽ",
+  "loggingOut": "لاگ آئوٽ ٿي رهيو آهي...",
+  "loggedOut": "ڪاميابيءَ سان لاگ آئوٽ ٿيو",
+  "logoutFailed": "لاگ آئوٽ ٿيڻ ۾ ناڪام",
+  "profile": "پروفائل",
+  "reset": "ري سيٽ ڪريو",
+  "search": "ڳوليو",
+  "searchThreads": "سلسلا ڳولھيو...",
+  "toNavigate": "نيويگيٽ ڪرڻ",
+  "toSelect": "چونڊڻ لاءِ",
+  "toClose": "بند ڪرڻ",
+  "clearRecent": "پڌرو",
+  "name": "نالو",
+  "cancel": "رد ڪريو",
+  "dismiss": "برطرف",
+  "create": "ٺاهيو",
+  "save": "محفوظ ڪريو",
+  "edit": "سنواريو",
+  "copy": "نقل ڪريو",
+  "back": "پوئتي",
+  "close": "بند ڪريو",
+  "done": "ٿي ويو",
+  "next": "اڳيان",
+  "finish": "ختم ڪرڻ",
+  "skip": "ڇڏڻ",
+  "allow": "اجازت ڏيو",
+  "deny": "انڪار ڪرڻ",
+  "start": "شروع",
+  "stop": "روڪ",
+  "preview": {
+    "loading": "کوليو پيو وڃي…",
+    "unsupported": "Novera هن قسم جي فائل کي نه ٿو ڏيکاري سگھي. ان کي کوليو ان کي ٻي ايپ ۾ ڏسڻ لاءِ.",
+    "outside": "هي فائل هاڻي سيشن جي ڪم جي جڳهه ۾ ناهي.",
+    "tooLarge": "ڏيک ڏيڻ لاءِ تمام وڏو. ان کي کوليو ان کي ٻي ايپ ۾ ڏسڻ لاءِ.",
+    "reload": "ٻيهر لوڊ ڪريو",
+    "allowNetwork": "نيٽ ورڪ جي اجازت ڏيو",
+    "unsandboxed": "Unsandboxed هلايو: محفوظ ڪيل ڊيٽا ۽ مقامي فائلون ڪم ڪن ٿيون",
+    "unresolvedRefs_one": "1 فائل ھي صفحو لنڪس ڪري ٿو پريو ۾ لوڊ نٿو ٿي سگھي. ان کي کوليو ان کي برائوزر ۾ ڏسڻ لاءِ.",
+    "unresolvedRefs_other": "{{count}} فائلون جن سان ھي صفحو ڳنڍي ٿو پريو ۾ لوڊ نٿو ٿي سگھي. ان کي کوليو ان کي برائوزر ۾ ڏسڻ لاءِ.",
+    "externalRefs_one": "1 ذريعو هي صفحو ويب تان لوڊ ٿئي ٿو بلاڪ ڪيو ويو آهي. ان کي لوڊ ڪرڻ لاء \"نيٽ ورڪ جي اجازت ڏيو\" کي چالو ڪريو.",
+    "externalRefs_other": "{{count}} وسيلا هي صفحو جيڪو ويب تان لوڊ ڪري ٿو بلاڪ ڪيو ويو آهي. انھن کي لوڊ ڪرڻ لاء \"نيٽ ورڪ جي اجازت ڏيو\" کي چالو ڪريو.",
+    "scriptErrors_one": "صفحو هڪ غلطي ٻڌايو: {{message}}",
+    "scriptErrors_other": "صفحي {{count}} غلطيون ٻڌايو. پهريون: {{message}}"
+  },
+  "changes": {
+    "title": "ايجنٽ تبديليون",
+    "empty": "فائلون جيڪي ايجنٽ لکي ٿو يا ايڊٽ ڪري ٿو هتي ڏيکاريا ويندا.",
+    "a11y": "ايجنٽ تبديليون: {{files}} فائلون، {{additions}} شامل ڪيا ويا، {{deletions}} هٽايا ويا"
+  },
+  "modelPanel": {
+    "title": "ماڊل سيٽنگون",
+    "a11y": "ماڊل سيٽنگون کوليو",
+    "contextTooltip": "ڪنٽينسٽ ونڊو: {{value}} مان {{max}} ٽوڪن"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "مهارت '{{name}}' دستياب ناهي",
+    "kind": {
+      "skill": "مهارت",
+      "command": "حڪم",
+      "model": "ماڊل"
+    }
+  },
+  "compactWidth": "ڪمپيڪٽ ويڪر",
+  "fullWidth": "پوري ويڪر",
+  "dark": "اونداهو",
+  "light": "روشني",
+  "system": "سسٽم",
+  "auto": "خودڪار",
+  "english": "انگريزي",
+  "medium": "وچولي",
+  "newThread": "نئون موضوع",
+  "noResultsFound": "ڪي به نتيجا نه مليا",
+  "noThreadsYet": "اڃان تائين ڪوبه سلسلو ناهي",
+  "noThreadsYetDesc": "هتي پنهنجي سلسلي جي تاريخ ڏسڻ لاءِ هڪ نئين گفتگو شروع ڪريو.",
+  "downloads": "ڊائون لوڊ",
+  "downloading": "ڊائون لوڊ ڪندي",
+  "uploadingAttachments": "اٽيچمينٽ اپ لوڊ ٿي رهيو آهي…",
+  "cancelDownload": "ڊائون لوڊ منسوخ ڪريو",
+  "downloadCancelled": "ڊائون لوڊ منسوخ",
+  "downloadComplete": "ڊائون لوڊ مڪمل",
+  "thinking": "سوچڻ...",
+  "thought": "سوچ",
+  "callingTool": "سڏڻ وارو اوزار",
+  "completed": "مڪمل ٿيو",
+  "image": "تصوير",
+  "vision": "ويزن",
+  "multimodal": "ملٽي موڊل",
+  "embeddings": "ايمبيڊنگس",
+  "tools": "اوزار",
+  "webSearch": "ويب ڳولا",
+  "reasoning": "دليل ڏيڻ",
+  "proactive": "فعال",
+  "selectAModel": "هڪ ماڊل چونڊيو",
+  "noToolsAvailable": "ڪوبه اوزار دستياب ناهي",
+  "noModelsFoundFor": "\"{{searchValue}}\" لاءِ ڪي به ماڊل نه مليا",
+  "failedToLoadModels": "ماڊل لوڊ ڪرڻ ۾ ناڪام",
+  "noModels": "ڪي به ماڊل نه مليا",
+  "noAssistant": "نه مددگار",
+  "customAvatar": "حسب ضرورت اوتار",
+  "editAssistant": "اسسٽنٽ ايڊٽ ڪريو",
+  "jan": "Novera",
+  "metadata": "ميٽاداٽا",
+  "regenerate": "ٻيهر پيدا ڪرڻ",
+  "threadImage": "موضوع واري تصوير",
+  "editMessage": "پيغام ۾ ترميم ڪريو",
+  "deleteMessage": "حذف ڪريو پيغام",
+  "deleteThread": "موضوع کي ختم ڪريو",
+  "renameThread": "نالو تبديل ڪريو موضوع",
+  "threadTitle": "موضوع جو عنوان",
+  "deleteAllThreads": "سڀ موضوع ختم ڪريو",
+  "allThreadsUnfavorited": "سڀ موضوع ناپسنديده",
+  "deleteAllThreadsConfirm": "ڇا توھان پڪ آھيو ته توھان سڀني موضوعن کي ختم ڪرڻ چاھيو ٿا؟ ھن عمل کي رد نٿو ڪري سگھجي.",
+  "addProvider": "مهيا ڪندڙ شامل ڪريو",
+  "addOpenAIProvider": "شامل ڪريو OpenAI مهيا ڪندڙ",
+  "enterNameForProvider": "توهان جي فراهم ڪندڙ لاء نالو داخل ڪريو",
+  "providerAlreadyExists": "\"{{name}}\" نالي سان مهيا ڪندڙ اڳ ۾ ئي موجود آهي. مھرباني ڪري ڪو ٻيو نالو چونڊيو.",
+  "adjustFontSize": "فونٽ جي سائيز کي ترتيب ڏيو",
+  "changeLanguage": "ٻولي تبديل ڪريو",
+  "editTheme": "ترميم ڪريو موضوع",
+  "editCodeBlockStyle": "ايڊٽ ڪريو ڪوڊ بلاڪ اسٽائل",
+  "editServerHost": "ايڊٽ ڪريو سرور ميزبان",
+  "pickColorWindowBackground": "رنگ ونڊو پس منظر چونڊيو",
+  "pickColorAppMainView": "چونڊيو رنگ ايپ مکيه ڏيک",
+  "pickColorAppPrimary": "چونڊيو رنگ ايپ پرائمري",
+  "pickColorAppAccent": "چونڊيو رنگ ائپ ايڪسنٽ",
+  "pickColorAppDestructive": "چونڊيو رنگ ايپ تباهي",
+  "apiKeyRequired": "API چاٻي گھربل آھي",
+  "enterTrustedHosts": "قابل اعتماد ميزبان داخل ڪريو",
+  "placeholder": {
+    "chatInput": "مون کان ڪجهه پڇو..."
+  },
+  "confirm": "تصديق ڪريو",
+  "continue": "جاري رکو",
+  "loading": "لوڊ ٿي رهيو آهي...",
+  "settingUpJan": "بوٽ ڪري رهيو آهي Novera…",
+  "registeringExtensions": "ايڪسٽينشن کي رجسٽر ڪري رهيو آهي…",
+  "loadingExtensions": "لوڊ ڪندي واڌايون... ({{done}}/{{total}})",
+  "error": "نقص",
+  "success": "ڪاميابي",
+  "warning": "ڊيڄاريندڙ",
+  "conversationNotAvailable": "گفتگو دستياب ناهي",
+  "conversationNotAvailableDescription": "گفتگو جيڪا توهان رسائي ڪرڻ جي ڪوشش ڪري رهيا آهيو دستياب ناهي يا ختم ڪئي وئي آهي.",
+  "temporaryChat": "عارضي چيٽ",
+  "temporaryChatTooltip": "عارضي چيٽ توهان جي تاريخ ۾ ظاهر نه ٿيندي",
+  "noResultsFoundDesc": "اسان توهان جي ڳولها سان ملندڙ ڪا به چيٽ نه ڳولي سگهيا آهيون. ڪوشش ڪريو ڪو مختلف لفظ.",
+  "searchModels": "ڳولها ماڊل...",
+  "searchStyles": "انداز ڳوليو...",
+  "createAssistant": "اسسٽنٽ ٺاهيو",
+  "enterApiKey": "داخل ڪريو API ڪي",
+  "scrollToBottom": "ھيٺ لھي وڃو",
+  "generateAiResponse": "AI جواب ٺاھيو",
+  "continueAiResponse": "AI جواب سان جاري رکو",
+  "addModel": {
+    "title": "ماڊل شامل ڪريو",
+    "modelId": "ماڊل ID",
+    "enterModelId": "داخل ڪريو ماڊل ID",
+    "addModel": "ماڊل شامل ڪريو",
+    "description": "مهيا ڪندڙ کي نئون ماڊل شامل ڪريو",
+    "exploreModels": "مهيا ڪندڙ کان ماڊل لسٽ ڏسو"
+  },
+  "mcpServers": {
+    "editServer": "ايڊٽ سرور",
+    "addServer": "سرور شامل ڪريو",
+    "serverName": "سرور جو نالو",
+    "enterServerName": "سرور جو نالو داخل ڪريو",
+    "command": "حڪم",
+    "enterCommand": "حڪم داخل ڪريو",
+    "arguments": "دليل",
+    "argument": "دليل {{index}}",
+    "envVars": "ماحولياتي تبديليون",
+    "key": "چاٻي",
+    "value": "قدر",
+    "save": "محفوظ ڪريو"
+  },
+  "deleteServer": {
+    "title": "سرور کي ختم ڪريو",
+    "delete": "ختم ڪريو"
+  },
+  "editJson": {
+    "errorParse": "پارس ڪرڻ ۾ ناڪام ٿيو JSON",
+    "errorPaste": "پيسٽ ڪرڻ ۾ ناڪام ٿيو JSON",
+    "errorFormat": "غلط JSON فارميٽ",
+    "titleAll": "سڀني سرورن جي ترتيب ۾ ترميم ڪريو",
+    "placeholder": "داخل ڪريو JSON ترتيب...",
+    "save": "محفوظ ڪريو"
+  },
+  "editModel": {
+    "title": "تبديل ڪريو ماڊل: {{modelId}}",
+    "description": "ھيٺ ڏنل اختيارن کي ٽوگل ڪندي ماڊل صلاحيتن کي ترتيب ڏيو.",
+    "capabilities": "صلاحيتون",
+    "tools": "اوزار",
+    "vision": "ويزن",
+    "embeddings": "ايمبيڊنگس",
+    "notAvailable": "اڃا دستياب ناهي"
+  },
+  "outOfContextError": {
+    "truncateInput": "ان پٽ کي ٽوڙيو",
+    "title": "حوالي کان ٻاهر جي غلطي",
+    "description": "هي چيٽ AI جي ميموري جي حد تائين پهچي رهي آهي، جهڙوڪ وائيٽ بورڊ ڀرڻ. اسان ميموري ونڊو کي وڌائي سگھون ٿا (جنهن کي context size سڏيو وڃي ٿو) ان ڪري اهو وڌيڪ ياد رکي ٿو، پر اهو شايد توهان جي ڪمپيوٽر جي وڌيڪ ياداشت کي استعمال ڪري سگهي ٿو. اسان ان پٽ کي به ڪٽ ڪري سگهون ٿا، جنهن جو مطلب آهي ته اهو ڪجهه چيٽ جي تاريخ کي وساري ڇڏيندو ته جيئن نئين پيغامن لاءِ ڪمرو ٺاهيو وڃي.",
+    "increaseContextSizeDescription": "ڇا توھان چاھيو ٿا ته حوالن جي سائيز کي وڌايو؟",
+    "increaseContextSize": "Context Size وڌايو"
+  },
+  "toolApproval": {
+    "title": "اوزار جي اجازت جي درخواست",
+    "description": "اسسٽنٽ استعمال ڪرڻ گھري ٿو <strong>{{toolName}}</strong>",
+    "securityNotice": "صرف انهن اوزارن کي اجازت ڏيو جن تي توهان ڀروسو ڪيو. اوزار توهان جي سسٽم ۽ ڊيٽا تائين رسائي ڪري سگهن ٿا.",
+    "deny": "انڪار ڪرڻ",
+    "allowOnce": "هڪ ڀيرو اجازت ڏيو",
+    "alwaysAllow": "هميشه اجازت ڏيو"
+  },
+  "deleteModel": {
+    "title": "ماڊل حذف ڪريو: {{modelId}}",
+    "description": "ڇا توھان واقعي ھن ماڊل کي ختم ڪرڻ چاھيو ٿا؟ ھن عمل کي رد نٿو ڪري سگھجي.",
+    "success": "ماڊل {{modelId}} مستقل طور ختم ڪيو ويو آھي.",
+    "cancel": "رد ڪريو",
+    "delete": "ختم ڪريو"
+  },
+  "deleteProvider": {
+    "title": "فراهم ڪندڙ کي ختم ڪريو",
+    "description": "هن فراهم ڪندڙ ۽ ان جي سڀني ماڊلز کي ختم ڪريو. ھن عمل کي رد نٿو ڪري سگھجي.",
+    "success": "مهيا ڪندڙ {{provider}} مستقل طور تي ختم ڪيو ويو آهي.",
+    "confirmTitle": "فراهم ڪندڙ کي ختم ڪريو: {{provider}}",
+    "confirmDescription": "ڇا توهان واقعي هن فراهم ڪندڙ کي ختم ڪرڻ چاهيو ٿا؟ ھن عمل کي رد نٿو ڪري سگھجي.",
+    "cancel": "رد ڪريو",
+    "delete": "ختم ڪريو"
+  },
+  "modelSettings": {
+    "title": "ماڊل سيٽنگون - {{modelId}}",
+    "description": "ڪارڪردگي ۽ رويي کي بهتر ڪرڻ لاء ماڊل سيٽنگون ترتيب ڏيو.",
+    "nglDisabledByFit": "خودڪار فٽ GPU تہون چونڊيندي آھي. هن دستي طور تي سيٽ ڪرڻ لاء خودڪار فٽ بند ڪريو.",
+    "samplingDefaults": {
+      "title": "ڊفالٽ نموني جا پيرا ميٽر",
+      "description": "هن ماڊل لاءِ ڊفالٽ نموني سيٽنگون. استعمال ڪيو ويو جيستائين في اسسٽنٽ يا في-درخواست جي قيمتن کي ختم نه ڪيو وڃي."
+    },
+    "specDraft": {
+      "section": "قياس آرائي واري ڊيڪوڊنگ",
+      "enable": "قياس آرائي واري ڊيڪوڊنگ کي فعال ڪريو",
+      "enableDescription": "هر قدم تي ڪيترن ئي ٽوڪن جو مسودو ٺاهيو ۽ انهن کي هڪ پاس ۾ تصديق ڪريو، جيڪو نسل کي تيز ڪري ٿو. استعمال ڪري ٿو ماڊل جي بلٽ ان MTP هيڊز، يا ان سان ڊائون لوڊ ڪيل ڊرافٽ ماڊل (MTP, Eagle3, DFlash يا DSpark).",
+      "nMax": "وڌ ۾ وڌ ڊرافٽ ٽوڪن",
+      "nMaxDescription": "ٽوڪن جو وڌ ۾ وڌ تعداد ڊرافٽ ڪرڻ لاءِ في قدم. ڊفالٽ 16.",
+      "nMin": "گھٽ ۾ گھٽ ڊرافٽ ٽوڪن",
+      "nMinDescription": "گھٽ ۾ گھٽ تعداد ٽوڪن جو مسودو في قدم تي. ڊفالٽ 0.",
+      "pMin": "گھٽ ۾ گھٽ مسودو امڪان",
+      "pMinDescription": "لالچ جي مسودي لاءِ گھٽ ۾ گھٽ امڪان (0-1). ڊفالٽ 0.75."
+    },
+    "templateKwargs": {
+      "section": "چيٽ ٽيمپليٽ جا اختيار",
+      "description": "اضافي اختيارات هن ماڊل جي چيٽ ٽيمپليٽ قبول ڪري ٿو. هر درخواست تي chat_template_kwargs طور موڪليو ويو؛ ھڪڙي قدر کي ان جي ڊفالٽ تي ڇڏي ڏيو ٽيمپليٽ کي فيصلو ڪرڻ ڏيو.",
+      "addCustom": "ڪسٽم اختيار شامل ڪريو",
+      "keyPlaceholder": "نالو",
+      "valuePlaceholder": "قدر",
+      "add": "شامل ڪريو",
+      "cancel": "رد ڪريو",
+      "remove": "هٽايو"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "ماڊل سيٽنگون اپڊيٽ نه ٿي سگھي"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "ڊيٽا فولڊر جي جڳھ کي تبديل ڪريو",
+      "description": "ڇا توهان پڪ سان ڊيٽا فولڊر جي جڳھ کي تبديل ڪرڻ چاهيو ٿا؟ اهو توهان جي سڀني ڊيٽا کي نئين جڳهه ڏانهن منتقل ڪندو ۽ ايپليڪيشن کي ٻيهر شروع ڪندو.",
+      "currentLocation": "موجوده جڳھ:",
+      "newLocation": "نئون مقام:",
+      "cancel": "رد ڪريو",
+      "changeLocation": "جڳھ تبديل ڪريو"
+    },
+    "deleteAllThreads": {
+      "title": "سڀ موضوع ختم ڪريو",
+      "description": "سڀ سلسلا ختم ڪيا ويندا. ھن عمل کي رد نٿو ڪري سگھجي."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "سڀني ڳالهين کي ختم ڪريو",
+      "description": "{{count}} گفتگوون \"{{projectName}}\" ۾ ختم ڪيون وينديون. ھن عمل کي رد نٿو ڪري سگھجي."
+    },
+    "deleteThread": {
+      "description": "ڇا توھان واقعي ھن سلسلي کي ختم ڪرڻ چاھيو ٿا؟ ھن عمل کي رد نٿو ڪري سگھجي."
+    },
+    "editMessage": {
+      "title": "پيغام ۾ ترميم ڪريو"
+    },
+    "messageMetadata": {
+      "title": "پيغام ميٽاداٽا"
+    },
+    "deleteMessage": {
+      "description": "ڇا توهان واقعي هن پيغام کي حذف ڪرڻ چاهيو ٿا؟ ھن عمل کي رد نٿو ڪري سگھجي."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "ڪجهه غلط ٿي ويو",
+    "details": "تفصيل"
+  },
+  "missingDependenciesDialog": {
+    "title": "غائب سسٽم لائبريريون",
+    "description": "{{backend}} انسٽال ڪيو ويو پر ڪجهه گهربل سسٽم لائبريريون نه ملي سگهيون. اهو ٿي سگهي ٿو واپس CPU ڏانهن يا صحيح طريقي سان نه هلندو.",
+    "installLabel": "ھن کي درست ڪرڻ لاء، ھيٺيون انسٽال ڪريو:",
+    "download": "ڊائونلوڊ ڪريو",
+    "additionalLibraries": "اضافي غائب لائبريريون:",
+    "missingLibraries": "غائب لائبريريون:",
+    "showRawLibraries": "ڏيکاريو {{count}} غائب لائبريري جا نالا"
+  },
+  "projects": {
+    "title": "منصوبا",
+    "new": "نوان منصوبا",
+    "addProject": "پروجيڪٽ شامل ڪريو",
+    "addToProject": "پروجيڪٽ ۾ شامل ڪريو",
+    "removeFromProject": "پروجيڪٽ مان هٽايو",
+    "createNewProject": "نئون پروجيڪٽ ٺاهيو",
+    "editProject": "پروجيڪٽ ۾ ترميم ڪريو",
+    "deleteProject": "پروجيڪٽ کي ختم ڪريو",
+    "projectName": "پروجيڪٽ جو نالو",
+    "enterProjectName": "پروجيڪٽ جو نالو داخل ڪريو...",
+    "noProjectsAvailable": "ڪوبه پروجيڪٽ موجود ناهي",
+    "noProjectsYet": "اڃان تائين ڪوبه پروجيڪٽ ناهي",
+    "noProjectsYetDesc": "شامل ڪريو پروجيڪٽ بٽڻ تي ڪلڪ ڪري نئون پروجيڪٽ شروع ڪريو.",
+    "projectNotFound": "پروجيڪٽ نه مليو",
+    "projectNotFoundDesc": "جيڪو پروجيڪٽ توهان ڳولي رهيا آهيو اهو موجود ناهي يا ختم ڪيو ويو آهي.",
+    "selectAssistant": "اسسٽنٽ چونڊيو",
+    "noAssistantAssigned": "هن پروجيڪٽ لاءِ ڪو به مددگار مقرر نه ڪيو ويو آهي",
+    "files": "فائلون",
+    "filesDescription": "PDFs، دستاويزن، يا ٻيو متن شامل ڪريو ھن منصوبي ۾ حوالي ڪرڻ لاء.",
+    "uploadingFiles": "فائلن تي عمل ڪيو پيو وڃي...",
+    "processButton": "شامل ڪريو",
+    "deleteProjectDialog": {
+      "title": "پروجيڪٽ کي ختم ڪريو",
+      "permanentDelete": "اهو مستقل طور تي سڀني موضوعن کي ختم ڪري ڇڏيندو.",
+      "permanentDeleteWarning": "اهو عمل مستقل طور تي پروجيڪٽ جي سڀني موضوعن کي ختم ڪري ڇڏيندو!",
+      "deleteEmptyProject": "هي عمل \"{{projectName}}\" پروجيڪٽ کي ختم ڪري ڇڏيندو.",
+      "saveThreadsAdvice": "موضوعن کي محفوظ ڪرڻ لاءِ، حذف ڪرڻ کان اڳ انھن کي پنھنجي سلسلي جي فهرست يا ٻي منصوبي ڏانھن منتقل ڪريو.",
+      "starredWarning": "توھان اڃا تائين پروجيڪٽ اندر تارا تارا آھن.",
+      "deleteButton": "ختم ڪريو",
+      "successWithName": "پروجيڪٽ \"{{projectName}}\" ڪاميابي سان ختم ڪيو ويو",
+      "successWithoutName": "پروجيڪٽ ڪاميابي سان ختم ڪيو ويو",
+      "error": "منصوبي کي ختم ڪرڻ ۾ ناڪام ٿيو. مهرباني ڪري ٻيهر ڪوشش ڪريو.",
+      "ariaLabel": "حذف ڪريو {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "نئون پروجيڪٽ ٺاهيو",
+      "editTitle": "پروجيڪٽ ۾ ترميم ڪريو",
+      "nameLabel": "پروجيڪٽ جو نالو",
+      "namePlaceholder": "پروجيڪٽ جو نالو داخل ڪريو...",
+      "assistant": "مددگار",
+      "selectAssistant": "هڪ اسسٽنٽ چونڊيو (اختياري)",
+      "noAssistant": "نه مددگار",
+      "addAssistant": "اسسٽنٽ شامل ڪريو",
+      "createButton": "ٺاهيو",
+      "updateButton": "تازه ڪاري",
+      "alreadyExists": "پروجيڪٽ \"{{projectName}}\" اڳ ۾ ئي موجود آهي",
+      "createSuccess": "پروجيڪٽ \"{{projectName}}\" ڪاميابي سان ٺهيل",
+      "updateSuccess": "پروجيڪٽ \"{{projectName}}\" ڪاميابي سان اپڊيٽ ڪيو ويو",
+      "saveError": "پروجيڪٽ محفوظ نه ٿي سگهيو. مهرباني ڪري ٻيهر ڪوشش ڪريو."
+    },
+    "noConversationsIn": "{{projectName}} ۾ ڪابه ڳالهه ٻولهه ناهي",
+    "startNewConversation": "هيٺ ڏنل {{projectName}} سان نئين گفتگو شروع ڪريو",
+    "conversationsIn": "{{projectName}} ۾ ڳالهيون",
+    "conversationsDescription": "چيٽنگ جاري رکڻ لاءِ ڪنهن به ڳالهه ٻولهه تي ڪلڪ ڪريو، يا هيٺ هڪ نئون شروع ڪريو.",
+    "conversation": "ڳالهه ٻولهه",
+    "instructions": "هدايتون",
+    "setup": "سيٽ اپ",
+    "instructionsDescription": "ڍنگ ۽ جواب جي انداز کي ترتيب ڏيو",
+    "manageInstructions": "هدايتون منظم ڪريو",
+    "thread": "ڌاڳو",
+    "threads": "موضوع",
+    "updated": "اپڊيٽ ٿيل:",
+    "collapseProject": "منصوبي کي ٽوڙيو",
+    "expandProject": "پروجيڪٽ کي وڌايو",
+    "update": "تازه ڪاري",
+    "searchProjects": "منصوبا ڳولھيو...",
+    "noProjectsFound": "ڪوبه پروجيڪٽ نه مليو",
+    "tryDifferentSearch": "ڪوشش ڪريو مختلف ڳولا اصطلاح"
+  },
+  "attachmentsIngestion": {
+    "title": "چونڊيو ته ڪيئن ڳنڍجي ڳنڍجي",
+    "description": "چونڊيو ته ڇا انهن فائلن کي سڌو سنئون چيٽ ۾ شامل ڪيو وڃي يا ان جي بدران ايمبيڊنگس طور انڊيڪس ڪيو وڃي.",
+    "inline": "چيٽ ۾ داخل ڪريو",
+    "embeddings": "ايمبيڊنگ استعمال ڪريو"
+  },
+  "attachmentInjectedIndicator": "چيٽ ۾ داخل ٿيو",
+  "attachmentEmbeddedIndicator": "RAG لاءِ شامل ٿيل",
+  "viewInjectedContent": "injected مواد ڏسو",
+  "injectedContentTitle": "داخل ٿيل فائل مواد",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "سڀ موضوع ناپسنديده",
+      "description": "سڀ سلسلا توهان جي پسنديده مان ڪڍيا ويا آهن."
+    },
+    "deleteAllThreads": {
+      "title": "سڀ موضوع ختم ڪريو",
+      "description": "سڀ سلسلا مستقل طور ختم ڪيا ويا آهن."
+    },
+    "renameThread": {
+      "title": "نالو تبديل ڪريو موضوع",
+      "description": "موضوع جي عنوان کي تبديل ڪيو ويو آهي '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "موضوع کي ختم ڪريو",
+      "description": "هي موضوع مستقل طور تي ڊهي ويو آهي."
+    },
+    "errorCopied": {
+      "title": "ڪاپي ڪامياب",
+      "description": "غلطي جي ڄاڻ ڪلپ بورڊ تي نقل ڪئي وئي"
+    },
+    "errorCopyFailed": {
+      "title": "ڪاپي ڪرڻ ۾ ناڪام ٿيو",
+      "description": "غلطي جي معلومات کي ڪلپ بورڊ تي نقل ڪرڻ ۾ ناڪام ٿيو"
+    },
+    "editMessage": {
+      "title": "پيغام ۾ ترميم ڪريو",
+      "description": "پيغام ڪاميابيءَ سان ايڊٽ ڪيو ويو. مھرباني ڪري ماڊل جي جواب جو انتظار ڪريو."
+    },
+    "appUpdateDownloaded": {
+      "title": "ايپ اپڊيٽ ڊائون لوڊ ڪئي وئي",
+      "description": "ايپ اپڊيٽ ڪاميابيءَ سان ڊائون لوڊ ڪئي وئي آهي."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "ايپ اپڊيٽ ڊائون لوڊ ناڪام",
+      "description": "ايپ اپڊيٽ ڊائون لوڊ ڪرڻ ۾ ناڪام ٿيو. مهرباني ڪري ٻيهر ڪوشش ڪريو."
+    },
+    "downloadComplete": {
+      "title": "ڊائون لوڊ مڪمل",
+      "description": "{{item}} ڊائون لوڊ ڪيو ويو"
+    },
+    "downloadCancelled": {
+      "title": "ڊائون لوڊ منسوخ",
+      "description": "ڊائون لوڊ عمل منسوخ ڪيو ويو"
+    },
+    "downloadFailed": {
+      "title": "ڊائون لوڊ ناڪام",
+      "description": "{{item}} ڊائون لوڊ ناڪام ٿيو",
+      "descriptionWithReason": "{{item}} ڊائون لوڊ ناڪام ٿيو: {{reason}}",
+      "reason": {
+        "dns": "سرور جو نالو حل نه ٿي سگهيو",
+        "refused": "رابطي کان انڪار ڪيو ويو",
+        "timeout": "ڪنيڪشن جو وقت ختم ٿي ويو",
+        "tls": "هڪ محفوظ ڪنيڪشن قائم نه ٿي سگهيو",
+        "proxy": "پراکسي پهچي نه سگهيو",
+        "unreachable": "سرور تائين پهچي نه سگهيو"
+      }
+    },
+    "openSettings": "سيٽنگون کوليو",
+    "openLogs": "کليل لاگ",
+    "downloadTokenRequired": {
+      "title": "Hugging Face ٽوڪن گهربل",
+      "description": "ھن ماڊل کي ھڪ Hugging Face رسائي ٽوڪن جي ضرورت آھي. سيٽنگون ۾ پنهنجو ٽوڪن شامل ڪريو ۽ ٻيهر ڪوشش ڪريو."
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face تي ماڊل لائسنس قبول ڪريو",
+      "description": "ڊائون لوڊ ڪرڻ کان پهريان توھان کي ان جي Hugging Face صفحي تي ماڊل جي لائسنس کي قبول ڪرڻ گھرجي."
+    },
+    "downloadRateLimited": {
+      "title": "Hugging Face طرفان محدود شرح",
+      "description": "توهان جي شرح محدود ڪئي وئي آهي. ٽوڪن شامل ڪرڻ سان شرح جي حد وڌائي سگھي ٿي. مهرباني ڪري ڪجھہ دير رکي ٻيهر ڪوشش ڪندا."
+    },
+    "modelValidationStarted": {
+      "title": "تصديق ٿيل ماڊل",
+      "description": "ڊائون لوڊ ٿيل ماڊل \"{{modelId}}\" ڪاميابي سان. سالميت جي تصديق..."
+    },
+    "modelValidationFailed": {
+      "title": "ماڊل جي تصديق ناڪام ٿي وئي",
+      "description": "ڊائون لوڊ ٿيل ماڊل \"{{modelId}}\" سالميت جي تصديق ۾ ناڪام ٿيو ۽ هٽايو ويو. فائل خراب ٿي سگھي ٿي يا خراب ٿي سگھي ٿي."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "ڊائون لوڊ مڪمل",
+      "description": "ماڊل \"{{item}}\" ڊائون لوڊ ۽ ڪاميابي سان تصديق ڪئي وئي"
+    },
+    "projectCreated": {
+      "title": "پروجيڪٽ ٺاهي وئي",
+      "description": "پروجيڪٽ \"{{projectName}}\" ڪاميابي سان ٺهيل"
+    },
+    "projectRenamed": {
+      "title": "پروجيڪٽ جو نالو تبديل ڪيو ويو",
+      "description": "پروجيڪٽ جو نالو \"{{oldName}}\" مان \"{{newName}}\" ڪيو ويو"
+    },
+    "projectDeleted": {
+      "title": "پروجيڪٽ ختم ڪيو ويو",
+      "description": "پروجيڪٽ \"{{projectName}}\" ڪاميابي سان ختم ڪيو ويو"
+    },
+    "projectAlreadyExists": {
+      "title": "پروجيڪٽ اڳ ۾ ئي موجود آهي",
+      "description": "پروجيڪٽ \"{{projectName}}\" اڳ ۾ ئي موجود آهي"
+    },
+    "projectDeleteFailed": {
+      "title": "حذف ڪرڻ ۾ ناڪام",
+      "description": "منصوبي کي ختم ڪرڻ ۾ ناڪام ٿيو. مهرباني ڪري ٻيهر ڪوشش ڪريو."
+    },
+    "threadAssignedToProject": {
+      "title": "مقرر ٿيل موضوع",
+      "description": "\"{{projectName}}\" کي ڪاميابيءَ سان لڳايو ويو"
+    },
+    "threadRemovedFromProject": {
+      "title": "موضوع ڪڍيو ويو",
+      "description": "موضوع \"{{projectName}}\" مان ڪاميابي سان هٽايو ويو"
+    },
+    "fileUploaded": {
+      "title": "فائل پروسيس ٿيل",
+      "description": "فائل پروسيس ڪئي وئي آهي ۽ ڪاميابي سان ترتيب ڏني وئي آهي"
+    },
+    "uploadFailed": {
+      "title": "پروسيسنگ ناڪام",
+      "description": "فائل کي پروسيس ڪرڻ ۾ ناڪام ٿيو",
+      "subjectThisFile": "هن فائل",
+      "pdfMalformedXref": "{{subject}} ۾ هڪ خراب PDF ڪراس ريفرنس ٽيبل آهي ۽ ان کي پارس نٿو ڪري سگهجي. ان کي کولڻ جي ڪوشش ڪريو PDF ڏسندڙ ۾ ۽ ان کي ٻيهر محفوظ ڪريو (فائل → پرنٽ → محفوظ ڪريو PDF طور)، پوءِ ٻيهر اپ لوڊ ڪريو.",
+      "pdfScanned": "{{subject}} لڳي ٿو اسڪين ٿيل يا تصوير تي ٻڌل PDF. OCR اڃا تائين سپورٽ نه ڪئي آهي — مهرباني ڪري هڪ متن تي ٻڌل PDF اپ لوڊ ڪريو.",
+      "pdfEncrypted": "{{subject}} پاسورڊ کان محفوظ آهي. پاسورڊ هٽايو ۽ ٻيهر ڪوشش ڪريو.",
+      "pdfUnsupportedFeature": "{{subject}} هڪ PDF خصوصيت استعمال ڪري ٿو Novera اڃا تائين پارس نٿو ڪري سگھجي (مثال طور پوسٽ اسڪرپٽ رنگ/شيڊنگ فنڪشن). ان کي ٻيهر محفوظ ڪرڻ جي ڪوشش ڪريو (فائل → پرنٽ → محفوظ ڪريو PDF طور) ان کي برابر ڪرڻ لاءِ، پوءِ ٻيهر اپ لوڊ ڪريو.",
+      "pdfGeneric": "{{subject}} کي PDF طور پارس نٿو ڪري سگھجي. فائل خراب ٿي سگھي ٿي يا استعمال ڪري ٿي ھڪڙي غير معاون خصوصيت PDF.",
+      "fileTooLarge": "{{subject}} تمام وڏو آهي. {{message}}.",
+      "unsupportedType": "فائل جو قسم \"{{type}}\" سپورٽ نه آهي.",
+      "ioError": "پڙهي نه سگهيو {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} پارس نه ٿي سگهيو: {{message}}",
+      "fallback": "عمل ڪرڻ ۾ ناڪام ٿيو {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "فائل ڊليٽ ڪئي وئي",
+      "description": "پروجيڪٽ مان فائل هٽائي وئي آهي"
+    },
+    "deleteFailed": {
+      "title": "حذف ڪرڻ ۾ ناڪام",
+      "description": "فائل کي ختم ڪرڻ ۾ ناڪام ٿيو"
+    },
+    "fileAlreadyExists": {
+      "title": "فائل اڳ ۾ ئي موجود آهي",
+      "description": "فائل اڳ ۾ ئي هن منصوبي سان ڳنڍيل آهي"
+    },
+    "unsupportedFileType": {
+      "title": "اڻ سڌريل فائل جو قسم",
+      "description": "فائل جي توسيع \".{{extension}}\" پروجيڪٽ جي حوالي سان سهڪار نه ڪئي وئي آهي."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "منسلڪ بند ٿيل",
+      "description": "منسلڪات سيٽنگون ۾ بند ٿيل آهن"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "فائل تمام وڏي",
+    "fileTooLargeDescription": "{{fileName}} {{maxFileSizeMB}}MB حد کان وڌي ٿو"
+  },
+  "files": {
+    "chunksCount": "{{count}} ٽڪر",
+    "title": "فائلون",
+    "empty": "فائلون جيڪي توهان ڳنڍيندا آهن ۽ اهي فائلون جيڪي ايجنٽ ٺاهيندا آهن هتي ڏيکاريا ويندا.",
+    "a11y": "فائلون: {{count}}",
+    "attachments": "منسلڪات",
+    "notImported": "ڪم جي جڳهه ۾ نه"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp اڃا مصروف آهي",
+    "description": "هڪ يا وڌيڪ ماڊل وقت ۾ لوڊ نه ڪيو. زبردستي ڇڏڻ llama.cpp کي ختم ڪري ڇڏيندو ۽ فعال جوابن ۾ مداخلت ڪري سگھي ٿو.",
+    "forceQuit": "زبردستي ڇڏڻ",
+    "forcing": "زبردستي ڇڏڻ…",
+    "shuttingDown": "بند ٿي رهيو آهي…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}} م",
+    "hours": "{{count}}h"
+  },
+  "collapse": "ٽٽڻ",
+  "expand": "وسعت",
+  "todoPanelTitle": "ترقي",
+  "todoPanelEmpty": "اڃان تائين ڪا ٽوٽو لسٽ ناهي.",
+  "backgroundTasks": "پس منظر جا ڪم",
+  "subagentsRunning_one": "{{count}} subagent هلندڙ",
+  "subagentsRunning_other": "{{count}} سب ايجنٽ ھلندڙ",
+  "monitorsRunning_one": "{{count}} مانيٽر هلندڙ",
+  "monitorsRunning_other": "{{count}} مانيٽر هلندڙ",
+  "backgroundRunning_one": "{{count}} پس منظر جو ڪم هلندڙ",
+  "backgroundRunning_other": "{{count}} پس منظر جا ڪم هلندڙ",
+  "monitors": "مانيٽر",
+  "monitorPolling": "پولنگ",
+  "monitorMatched": "ملائي",
+  "monitorTimedOut": "وقت ختم ٿي ويو",
+  "monitorStopped": "روڪيو",
+  "monitorEnded": "ختم ٿيو",
+  "coworkWatching_one": "{{count}} مانيٽر ڏسي رهيو آهي…",
+  "coworkWatching_other": "{{count}} مانيٽر ڏسي رهيو آهي…",
+  "coworkWaitingBackground": "پس منظر جي ڪمن جي انتظار ۾...",
+  "noBackgroundTasks": "اڃان تائين ڪوبه پس منظر وارو ڪم ناهي.",
+  "running": "هلندڙ",
+  "queued": "قطار",
+  "waiting": "انتظار ڪرڻ",
+  "finished": "ختم",
+  "subagentPhase": "مرحلو {{phase}}",
+  "subagentWaiting": "انتظار ڪرڻ",
+  "viewTranscript": "نقل ڏسو",
+  "taskWorking": "ڪم ڪري رهيو آهي…",
+  "taskNoOutput": "ذيلي ايجنٽ ڪو به ظاهر نه ڪيو.",
+  "subagentToolUses_one": "{{count}} اوزار استعمال",
+  "subagentToolUses_other": "{{count}} اوزار استعمال ڪري ٿو",
+  "artifactGroupCode": "ڪوڊ",
+  "artifactGroupImage": "تصوير",
+  "artifactGroupDocument": "دستاويز",
+  "artifactGroupVideo": "وڊيو",
+  "artifactGroupAudio": "آڊيو",
+  "artifactOpenPreview": "کليل ڏيک",
+  "artifactOpenExternal": "کليل",
+  "artifactMoreActions": "وڌيڪ عمل",
+  "artifactShowInFolder": "فولڊر ۾ ڏيکاريو",
+  "skillsUsedLabel": "استعمال ڪيل مهارتون",
+  "skillsUsed": "استعمال ڪيل صلاحيتون: {{skills}}",
+  "artifactsAll": "سڀ",
+  "artifactsEmpty": "اڃا تائين ڪجھ به نه پيدا ٿيو. Cowork رن جا نمونا هتي ڏيکاريا وڃن ٿا.",
+  "artifactsNoMatch": "ڪي به نمونا ملن ٿا.",
+  "artifactsSearch": "آثارن جي ڳولا ڪريو",
+  "artifactsShowMore": "ڏيکاريو {{count}} وڌيڪ",
+  "workspace": {
+    "readsFrom": "۾ ڪم ڪري ٿو",
+    "writable": "پڙهڻ ۽ لکڻ",
+    "footnote": "ايجنٽ هن فولڊر کي سڌو پڙهي ۽ ايڊٽ ڪري ٿو. نظرثاني ڪريو ڇا تبديلي پينل ۾.",
+    "footnoteEmpty": "ايجنٽ کي توهان جي پروجيڪٽ تي ڪم ڪرڻ جي اجازت ڏيڻ لاء هڪ فولڊر ڳنڍيو. اهو ان جي اندر فائلون پڙهي ۽ ايڊٽ ڪري سگهي ٿو.",
+    "attach": "هڪ فولڊر ڳنڍيو",
+    "change": "فولڊر تبديل ڪريو",
+    "detach": "فولڊر کي ڌار ڪريو",
+    "open": "کليل",
+    "reveal": "پڌرو ڪرڻ",
+    "unavailable": "ڪم جي جڳهه دستياب ناهي",
+    "missing": "ڪم اسپيس فولڊر {{folder}} هاڻي موجود ناهي. هڪ مختلف فولڊر چونڊيو.",
+    "openFailed": "ڪم اسپيس کولي نه سگھيو",
+    "revealFailed": "ڪم اسپيس کي ظاهر نه ڪري سگهيو",
+    "a11yWithFolder": "پروجيڪٽ فولڊر {{folder}}، پڙهڻ ۽ لکڻ جي رسائي سان ڳنڍيل. ان کي تبديل ڪريو يا الڳ ڪريو.",
+    "a11yNoFolder": "ڪو به پروجيڪٽ فولڊر شامل ناهي. ھڪڙو ڳنڍيو."
+  },
+  "coworkEmpty": {
+    "title": "اسان ڇا تي ڪم ڪري رهيا آهيون؟",
+    "subtitleSandbox": "Novera هڪ ڪم ڏيو. اهو فائلون پڙهي ۽ لکي ٿو، حڪم هلائي ٿو، ۽ پنهنجي قدمن ذريعي ڪم ڪري ٿو.",
+    "subtitleFolder": "Novera هڪ ڪم ڏيو. اهو سڌو سنئون {{folder}} ۾ ڪم ڪري ٿو، پنهنجي طور تي فائلن کي پڙهڻ ۽ ايڊٽ ڪرڻ.",
+    "try": "ڪوشش ڪريو",
+    "sandbox": {
+      "first": "Python اسڪرپٽ لکو جيڪو فائلن کي تبديل ڪري ٿو تاريخ جي لحاظ کان اهي ورتو ويو",
+      "second": "هڪ CSV مان هڪ واحد صفحي واري ڊيش بورڊ ٺاهيو جنهن ۾ مان پيسٽ ڪندس",
+      "third": "ھڪڙي منصوبي لاءِ README جو مسودو ٺاھيو جيڪو مان توھان کي بيان ڪريان ٿو"
+    },
+    "folder": {
+      "first": "وضاحت ڪريو ته ڪيئن {{folder}} گڏ ڪيو ويو آهي",
+      "second": "{{folder}} ۾ هر TODO ڳولھيو ۽ انھن کي علائقي جي لحاظ کان گروپ ڪريو",
+      "third": "{{folder}} جي حصي لاءِ ٽيسٽ لکو، مان توھان کي اشارو ڪريان ٿو"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "نه ٽرمينل",
+    "a11y": "هلندڙ حڪمن کي بند ڪيو ويو آهي. تفصيل.",
+    "title": "هلندڙ حڪمن کي بند ڪيو ويو آهي",
+    "body": "Novera ايجنٽ کي شيل ڪمانڊ هلائڻ جي اجازت ڏئي ٿو صرف جڏهن توهان جو سسٽم انهن کي محدود ڪري سگهي ٿو. هتي ڪوبه سينڊ باڪس موجود ناهي، تنهن ڪري ايجنٽ پڙهي سگهي ٿو، لکي سگهي ٿو ۽ ان جي سينڊ باڪس ۾ فائلون ايڊٽ ڪري سگهي ٿو - پر ڪجھ به نه هلائي.",
+    "fixLinux": "Linux بلبليپ استعمال ڪري ٿو. ان کي انسٽال ڪريو، وري شروع ڪريو Novera.",
+    "fixMac": "macOS /usr/bin/sandbox-exec تي ٺهيل سينڊ باڪس استعمال ڪري ٿو. ٻيهر شروع ڪريو Novera هڪ ڀيرو دستياب آهي.",
+    "fixWindows": "Windows AppContainer استعمال ڪري ٿو. ٻيهر شروع ڪريو Novera ٻيهر ڪوشش ڪرڻ لاءِ.",
+    "recheck": "ٻيهر چيڪ ڪريو"
+  },
+  "planMode": {
+    "label": "رٿ",
+    "tooltipOff": "پهريون منصوبو - ايجنٽ پڙهي ٿو ۽ تجويز ڪري ٿو، بغير لکڻ جي.",
+    "tooltipOn": "رٿابندي. ايجنٽ کي فائلون لکڻ جي اجازت ڏيڻ لاءِ هن کي بند ڪريو.",
+    "onAnnounce": "پلان موڊ تي",
+    "placeholder": "هڪ منصوبي لاء پڇو. ايجنٽ ڪا به فائل تبديل نه ڪندو."
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} قدمن تي روڪيو ويو. ايجنٽ ختم نه ڪيو آهي.",
+    "keepGoing": "جاري رکو",
+    "stoppedTokens": "روڪيو ويو - هي سيشن پنهنجي ٽوڪن بجيٽ کي ماريو.",
+    "compact": "ڪمپيڪٽ",
+    "newSession": "نئون سيشن"
+  },
+  "run": {
+    "stopped": "روڪيو.",
+    "failed": "ڊوڙ جلدي بند ٿي وئي.",
+    "tryAgain": "ٻيهر ڪوشش ڪريو"
+  },
+  "modelNoTools": "{{model}} اوزار کي ڪال نٿو ڪري سگهي، تنهنڪري اهو ايجنٽ طور ڪم نٿو ڪري سگهي. هڪ اوزار-ڪالينگ ماڊل چونڊيو.",
+  "askContinue": "جاري رکو",
+  "askNext": "ايندڙ سوال",
+  "askPrev": "اڳوڻو سوال",
+  "askRecommended": "تجويز ڪيل",
+  "askSelectedCount": "{{count}} منتخب ٿيل",
+  "askSomethingElse": "ٻيو ڪجهه",
+  "askSomethingElsePlaceholder": "پنهنجو جواب لکو",
+  "submit": "جمع ڪرايو",
+  "composer": {
+    "advanced": "ترقي يافته پيراگراف",
+    "modelDefaults": "ماڊل ڊفالٽ",
+    "assistantOverrides": "اسسٽنٽ اوور رائيڊ",
+    "printPdf": "PDF طور پرنٽ/محفوظ ڪريو",
+    "exportHint": "پڙهڻ جي قابل فارميٽ: فعال شاخ. JSON: سڀ پيغام ورجن. خارجي فائلون بنڊل نه آهن."
+  },
+  "telemetry": {
+    "summary": "توهان جي رضامندي سان، {{host}} حاصل ڪري ٿو صرف Novera نسخو ۽ آپريٽنگ سسٽم، بغير گفتگو يا مسلسل سڃاڻپ ڪندڙ.",
+    "unavailable": "انگ اکر ترتيب نه آهن. ڪابه ڊيٽا نه موڪلي وئي آهي."
+  },
+  "errorTracking": {
+    "title": "غلطي ٽريڪنگ",
+    "summary": "{{host}} ڏانهن اختياري رپورٽون: غلطي جو قسم، ڪوڊ پوزيشن، ورزن ۽ آپريٽنگ سسٽم. ڪابه ڳالهه ٻولهه، خام نقص پيغام يا ڪنجيون. ڪنهن به وقت بند ڪريو.",
+    "unavailable": "غلطي ٽريڪنگ ترتيب نه ڏني وئي آهي. ڪابه رپورٽ نه موڪلي وئي آهي."
+  }
+}

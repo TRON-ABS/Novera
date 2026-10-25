@@ -1,0 +1,18 @@
+{
+  "addProvider": "Tinye Onye na-enye",
+  "addOpenAIProvider": "Tinye onye na-eweta ahịa",
+  "enterNameForProvider": "Aha onye na-eweta (dịka my-llm-sava)",
+  "apiTypeLabel": "API usoro",
+  "apiTypeOpenAI": "OpenAI-dakọtara",
+  "apiTypeAnthropic": "Anthropic-dakọtara",
+  "baseUrlLabel": "URL ntọala",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API igodo",
+  "apiKeyPlaceholder": "Tapawa igodo API",
+  "invalidBaseUrl": "Base URL ga-abụrịrị http(s) URL dị irè",
+  "globalSettings": "Ntọala zuru ụwa ọnụ",
+  "stripReasoning": "Wepụ ntụgharị uche site na gburugburu",
+  "stripReasoningDesc": "Wepu ọdịnaya tupu atụgharị / ịtụgharị uche tupu iziga akụkọ ihe mere eme, gafee ndị na-eweta niile. Na-akwalite ijikwa KV-cache maka ụdị mpaghara, mana ụfọdụ ụdị (dịka ọmụmaatụ mwepụta Qwen ọhụrụ) na-akwado idobe ya maka echiche ntụgharị ọtụtụ ka mma.",
+  "providerAlreadyExists": "Onye na-eweta aha ya bụ {{name}} adịlarị."
+}

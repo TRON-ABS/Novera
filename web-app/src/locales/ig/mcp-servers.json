@@ -1,0 +1,101 @@
+{
+  "editServer": "Dezie MCP sava",
+  "addServer": "Tinye MCP sava",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Na-elele ọkwa ndọtị..."
+    },
+    "notInstalled": {
+      "title": "Novera na-emecha ọrụ na ihe nchọgharị gị",
+      "description": "Wụnye ndọtị ahụ iji nye Novera ohere ihe nchọgharị",
+      "getExtension": "Nweta ndọtị"
+    }
+  },
+  "serverName": "Aha nkesa",
+  "enterServerName": "Tinye aha nkesa",
+  "command": "Iwu",
+  "enterCommand": "Tinye iwu (uvx ma ọ bụ npx)",
+  "arguments": "Arụmụka",
+  "argument": "Arụmụka {{index}}",
+  "envVars": "Ngbanwe gburugburu",
+  "key": "Igodo",
+  "value": "Uru",
+  "save": "Chekwaa",
+  "status": "Ọnọdụ",
+  "connected": "Ejikọtara",
+  "disconnected": "Akwụsịla",
+  "deleteServer": {
+    "title": "Hichapụ MCP sava",
+    "description": "Ị ji n'aka na ịchọrọ ihichapụ ihe nkesa MCP {{serverName}}? Enweghị ike imegharị ihe a.",
+    "delete": "Hichapụ",
+    "success": "MCP ihe nkesa {{serverName}} ehichapụrụ nke ọma"
+  },
+  "editJson": {
+    "title": "Dezie JSON maka MCP nkesa: {{serverName}}",
+    "titleAll": "Dezie ihe niile MCP sava JSON",
+    "placeholder": "Tinye JSON nhazi",
+    "errorParse": "Ịtụgharị data mbụ agaghị ekwe omume",
+    "errorPaste": "Ọkpụkpọ JSON ezighi ezi na ọdịnaya mado",
+    "errorFormat": "Ụdị JSON na-ezighi ezi",
+    "errorServerName": "Achọrọ aha nkesa na enweghị ike ịbụ ihe efu",
+    "errorMissingServerNameKey": "A ghaghị ịhazi JSON ka {\"Aha nkesa\": {config}} - igodo aha aha na-efu.",
+    "errorInvalidType": "Ụdị '{{type}}' na ezighi ezi maka ihe nkesa '{{serverName}}'. Ụdị ga-abụrịrị 'stdio', 'http', ma ọ bụ 'sse'",
+    "save": "Chekwaa"
+  },
+  "checkParams": "Biko lelee parameters dị ka nkuzi si dị.",
+  "title": "MCP Sava",
+  "experimental": "Nnwale",
+  "editAllJson": "Dezie sava niile JSON",
+  "findMore": "Chọta ihe nkesa MCP sava na",
+  "allowPermissions": "Kwe ka ihe niile MCP ikike akụrụngwa",
+  "allowPermissionsDesc": "Mgbe enyere ya aka, a ga-anabata oku ngwa ọrụ niile MCP na-egosighi mkparịta ụka ikike. Ntọala a na-emetụta ụwa niile na mkparịta ụka niile, gụnyere nkata ọhụrụ.",
+  "noServers": "Ọnweghị sava MCP hụrụ",
+  "args": "Mgbakwunye iwu",
+  "env": "Ọnọdụ ọrụ",
+  "serverStatusActive": "Sava {{serverKey}} arụ ọrụ nke ọma",
+  "serverStatusInactive": "Ihe nkesa {{serverKey}} agbanyụrụ nke ọma",
+  "runtimeSettings": {
+    "title": "Ntọala oge ịgba ọsọ",
+    "description": "Hazie ka Novera si ejikwa ma megharịa MCP sava.",
+    "toolCallTimeout": "Oge ngwụcha oku ngwaọrụ (sekọnd)",
+    "toolCallTimeoutDesc": "Ogologo oge iji chere nzaghachi ngwa ọrụ MCP tupu oge eruo.",
+    "maxToolOutputChars": "Ederede mmepụta ngwá ọrụ kacha",
+    "maxToolOutputCharsDesc": "Nsonaazụ ngwaọrụ kacha ogologo debere na mkparịta ụka. A na-akpụcha ihe ọ bụla gara aga nke a ma kaa ya ka ọ gbajiri agbaji, yabụ otu nnukwu nsonaazụ enweghị ike ibelata ọnọdụ ihe nlereanya ahụ. Tọọ na 0 ka idobe nsonaazụ ya zuru oke.",
+    "smartToolRouting": "Smart MCP nhazi ihe eji eme ihe",
+    "smartToolRoutingDesc": "Mgbe agbanyere ya, Novera na-ahọrọ sava MCP dị mkpa tupu ibunye ngwaọrụ. Gbanyụọ ịkwanye ndepụta ngwaọrụ MCP zuru ezu mgbe niile.",
+    "useLightweightRouterModel": "Jiri ihe atụ raara onwe ya nye maka ịkwọgharị",
+    "useLightweightRouterModelDesc": "Mgbe smart routing na-na, jiri usoro dị iche (na-adịkarị obere) mee usoro ụzọ ụzọ kama iji ụdị nkata. Gbanyụọ ka ị na-eji ụdị nkata na-arụ ọrụ mgbe niile maka ntụgharị.",
+    "routerModel": "Ihe nlegharị anya",
+    "routerModelDesc": "Họrọ onye na-eweta na ihe nlereanya n'otu ebe. Naanị ụdị dị fechaa ka edepụtara ya mere njem na-adị ngwa ngwa yana ọnụ ala.",
+    "selectRouterModelPlaceholder": "Họrọ ụdị ntugharị…",
+    "routerModelSearchPlaceholder": "Chọọ ụdị…",
+    "routerModelEmptyList": "Enweghị ụdị dị fechaa dị. Tinye obere ihe nlereanya ma ọ bụ hazie igodo API na Model.",
+    "routerModelEmptySearch": "Enweghị egwuregwu maka \"{{query}}\"."
+  },
+  "auth": {
+    "label": "Nyocha:",
+    "state": {
+      "notApplicable": "achọghị",
+      "staticHeader": "nkụnye eji isi mee ikike",
+      "authenticated": "ezitere",
+      "expired": "kubie ume",
+      "staleResource": "enyere maka URL ọzọ",
+      "unauthenticated": "akwadoghi ya"
+    },
+    "expiresIn": "expire na {{duration}}",
+    "authenticate": "banye",
+    "reauthenticate": "Nyochaa ọzọ",
+    "clear": "Kpochapụ nkwenye",
+    "waiting": "Na-eche ihe nchọgharị...",
+    "openSignInPage": "Mepee ibe nbanye",
+    "needsAuth": "{{serverName}} chọrọ nyocha",
+    "needsAuthHint": "Banye na sava a iji jikọọ.",
+    "authorized": "Banye na {{serverName}}",
+    "authorizeFailed": "Nbanye maka {{serverName}} dara",
+    "cleared": "Ekpuchiri nzere echekwara maka {{serverName}}",
+    "nothingToClear": "{{serverName}} enweghị nzere echekwara",
+    "clearFailed": "Enweghị ike ikpochapụ nzere maka {{serverName}}",
+    "renew": "Megharia nnọkọ",
+    "expiredAgo": "kubie ume {{duration}} gara aga"
+  }
+}

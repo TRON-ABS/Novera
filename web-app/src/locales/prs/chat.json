@@ -1,0 +1,50 @@
+{
+  "welcome": "سلام، چطور هستید؟",
+  "description": "امروز چطور می‌توانم کمک تان کنم؟",
+  "temporaryChat": "چت موقت",
+  "temporaryChatDescription": "یک گفتگوی موقت شروع کنید که در تاریخچه گفتگوهایتان ذخیره نمی‌شود.",
+  "status": {
+    "empty": "هیچ گفت‌وگویی پیدا نشد"
+  },
+  "sendMessage": "پیام بفرستید",
+  "newConversation": "گفت‌وگوی نو",
+  "clearHistory": "پاک کردن تاریخچه",
+  "embeddings": {
+    "title": "در حال آماده‌سازی اسناد شما",
+    "description": "فایل‌های پیوست نمایه‌سازی می‌شوند تا بتوان آن‌ها را جستجو و به آن‌ها استناد کرد. برای اسناد بزرگ ممکن است کمی طول بکشد."
+  },
+  "actions": {
+    "regenerate": "پاسخ را دوباره تولید کنید",
+    "askAgain": "دوباره بپرسید",
+    "continue": "تولید را ادامه بدهید",
+    "remember": "این را به خاطر بسپارید",
+    "rememberSaved": "با نام «{{name}}» در حافظه ذخیره شد",
+    "rememberExists": "از قبل با نام «{{name}}» در حافظه وجود دارد",
+    "rememberFailed": "ذخیره در حافظه ممکن نشد"
+  },
+  "done": "انجام شد",
+  "webSources": "تعداد منابع: {{count}}",
+  "reasoning": {
+    "label": "استدلال ...",
+    "thinking": "فکر کردن",
+    "working": "در حال کار...",
+    "showFullTimeline": "نمایش جدول زمانی کامل",
+    "showCurrentStep": "فقط مرحله فعلی نمایش داده شود",
+    "thoughtForAWhile": "چند ثانیه فکر کرد",
+    "thoughtFor": "فکر برای {{duration}}",
+    "workedForAWhile": "برای چند ثانیه کار کرد",
+    "workedFor": "کار برای {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "نسخهٔ قبلی",
+    "nextVersion": "نسخهٔ بعدی",
+    "generationFailed": "تولید ناموفق بود"
+  },
+  "messageStats": {
+    "details": "آمار تولید",
+    "generation": "تولید",
+    "reading": "خواندن",
+    "tokens": "توکن‌ها",
+    "perSecond": "توکن/ثانیه"
+  }
+}

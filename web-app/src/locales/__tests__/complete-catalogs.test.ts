@@ -24,15 +24,16 @@ const placeholders = (value: string) => [...value.matchAll(/\{\{(\w+)\}\}/g)].ma
 const code = (value: string) => value.match(/`[^`]*`/g) ?? []
 const completedLocales = ['es', 'fr', 'it', 'hi', 'id', 'pl', 'vn', 'zh-CN', 'zh-TW',
   'de-DE', 'cs', 'pt-BR', 'ko', 'ja', 'ru', 'ca', 'gu', 'kn', 'apc', 'apd',
-  'yo', 'bho', 'cjy', 'nan', 'my', 'arq', 'hak', 'ln', 'ary', 'or']
+  'yo', 'bho', 'cjy', 'nan', 'my', 'arq', 'hak', 'ln', 'ary', 'or',
+  'uk', 'hsn', 'ml', 'sd', 'pa', 'su', 'ig', 'prs', 'ne', 'ms']
 
 describe('complete interface catalogs', () => {
-  it('documents all 50 shipped locales as complete', () => {
+  it('documents all 60 shipped locales as complete', () => {
     const directories = readdirSync(root, { withFileTypes: true })
       .filter((entry) => entry.isDirectory() && !entry.name.startsWith('__'))
       .map((entry) => entry.name).sort()
     expect(inventory.map((entry) => entry.locale).sort()).toEqual(directories)
-    expect(inventory).toHaveLength(50)
+    expect(inventory).toHaveLength(60)
     for (const entry of inventory) {
       expect(entry, entry.locale).toMatchObject({ keys: total, total, partial: false })
     }

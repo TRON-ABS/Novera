@@ -1,0 +1,18 @@
+{
+  "addProvider": "Tambahkeun Provider",
+  "addOpenAIProvider": "Tambahkeun Panyadia Adat",
+  "enterNameForProvider": "Ngaran panyadia (misalna my-llm-server)",
+  "apiTypeLabel": "API formatna",
+  "apiTypeOpenAI": "OpenAI-cocog",
+  "apiTypeAnthropic": "Anthropic-cocog",
+  "baseUrlLabel": "Dasar URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API konci",
+  "apiKeyPlaceholder": "Tempelkeun konci API anjeun",
+  "invalidBaseUrl": "Dasar URL kedah sah http(s) URL",
+  "globalSettings": "Setélan global",
+  "stripReasoning": "Cabut nalar tina konteks",
+  "stripReasoningDesc": "Hapus eusi pamikiran/penalaran sateuacanna sateuacan ngirimkeun deui sajarah, ka sadaya panyadia. Ngaronjatkeun KV-cache dipake deui pikeun model lokal, tapi sababaraha model (misalna leuwih anyar Kaluaran Qwen) nyarankeun tetep eta pikeun alesan multi-péngkolan hadé.",
+  "providerAlreadyExists": "Panyadia anu namina {{name}} parantos aya."
+}

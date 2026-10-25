@@ -1,0 +1,101 @@
+{
+  "editServer": "MCP सर्भर सम्पादन गर्नुहोस्",
+  "addServer": "MCP सर्भर थप्नुहोस्",
+  "browserExtension": {
+    "connecting": {
+      "checking": "विस्तार स्थिति जाँच गर्दै..."
+    },
+    "notInstalled": {
+      "title": "Novera तपाईंको ब्राउजरमा कार्यहरू पूरा गर्दछ",
+      "description": "Novera ब्राउजर पहुँच दिन विस्तार स्थापना गर्नुहोस्",
+      "getExtension": "विस्तार प्राप्त गर्नुहोस्"
+    }
+  },
+  "serverName": "सर्भर नाम",
+  "enterServerName": "सर्भर नाम प्रविष्ट गर्नुहोस्",
+  "command": "आदेश",
+  "enterCommand": "आदेश प्रविष्ट गर्नुहोस् (uvx वा npx)",
+  "arguments": "तर्कहरू",
+  "argument": "तर्क {{index}}",
+  "envVars": "वातावरण चर",
+  "key": "कुञ्जी",
+  "value": "मूल्य",
+  "save": "सुरक्षित गर्नुहोस्",
+  "status": "स्थिति",
+  "connected": "जडान भयो",
+  "disconnected": "विच्छेद भयो",
+  "deleteServer": {
+    "title": "MCP सर्भर मेटाउनुहोस्",
+    "description": "के तपाइँ निश्चित हुनुहुन्छ कि तपाइँ MCP सर्भर {{serverName}} मेटाउन चाहनुहुन्छ? यो कार्य अन्डू गर्न सकिँदैन।",
+    "delete": "मेटाउनुहोस्",
+    "success": "MCP सर्भर {{serverName}} सफलतापूर्वक मेटाइयो"
+  },
+  "editJson": {
+    "title": "MCP सर्भरको लागि JSON सम्पादन गर्नुहोस्: {{serverName}}",
+    "titleAll": "सबै MCP सर्भरहरू JSON सम्पादन गर्नुहोस्",
+    "placeholder": "JSON कन्फिगरेसन प्रविष्ट गर्नुहोस्",
+    "errorParse": "प्रारम्भिक डाटा पार्स गर्न असफल भयो",
+    "errorPaste": "टाँसिएको सामग्रीमा अवैध JSON ढाँचा",
+    "errorFormat": "अवैध JSON ढाँचा",
+    "errorServerName": "सर्भर नाम आवश्यक छ र खाली हुन सक्दैन",
+    "errorMissingServerNameKey": "JSON {\"serverName\": {config}} को रूपमा संरचित हुनुपर्छ - सर्भर नाम कुञ्जी छुटेको छ",
+    "errorInvalidType": "सर्भर '{{serverName}}' को लागि अमान्य प्रकार '{{type}}'। प्रकार 'stdio', 'http', वा 'sse' हुनुपर्छ",
+    "save": "सुरक्षित गर्नुहोस्"
+  },
+  "checkParams": "कृपया ट्यूटोरियल अनुसार प्यारामिटरहरू जाँच गर्नुहोस्।",
+  "title": "MCP सर्भरहरू",
+  "experimental": "प्रयोगात्मक",
+  "editAllJson": "सबै सर्भरहरू सम्पादन गर्नुहोस् JSON",
+  "findMore": "थप MCP सर्भरहरू फेला पार्नुहोस्",
+  "allowPermissions": "सबै MCP उपकरण अनुमतिहरूलाई अनुमति दिनुहोस्",
+  "allowPermissionsDesc": "सक्षम हुँदा, सबै MCP उपकरण कलहरू अनुमति संवादहरू नदेखाई स्वचालित रूपमा स्वीकृत हुनेछन्। यो सेटिङ नयाँ च्याट सहित सबै कुराकानीहरूमा विश्वव्यापी रूपमा लागू हुन्छ।",
+  "noServers": "कुनै MCP सर्भर फेला परेन",
+  "args": "आर्गुमेन्टहरू",
+  "env": "वातावरण",
+  "serverStatusActive": "सर्भर {{serverKey}} सफलतापूर्वक सक्रिय गरियो",
+  "serverStatusInactive": "सर्भर {{serverKey}} सफलतापूर्वक निष्क्रिय गरियो",
+  "runtimeSettings": {
+    "title": "रनटाइम सेटिङहरू",
+    "description": "Novera कसरी MCP सर्भरहरू व्यवस्थापन र पुन: प्रयास गर्ने कन्फिगर गर्नुहोस्।",
+    "toolCallTimeout": "उपकरण कल टाइमआउट (सेकेन्ड)",
+    "toolCallTimeoutDesc": "समय समाप्त हुनु अघि MCP उपकरण प्रतिक्रियाको लागि पर्खन अधिकतम समय।",
+    "maxToolOutputChars": "अधिकतम उपकरण आउटपुट वर्ण",
+    "maxToolOutputCharsDesc": "कुराकानीमा राखिएको सबैभन्दा लामो उपकरण परिणाम। यसअघिका कुनै पनि कुरालाई काटिएको छ र काटिएको रूपमा चिन्ह लगाइएको छ, त्यसैले एउटा ठूलो परिणामले मोडेलको सन्दर्भलाई समाप्त गर्न सक्दैन। नतिजा पूर्ण राख्न ० मा सेट गर्नुहोस्।",
+    "smartToolRouting": "स्मार्ट MCP उपकरण रूटिङ",
+    "smartToolRoutingDesc": "जब सक्षम हुन्छ, Novera ले उपकरणहरू लोड गर्नु अघि सान्दर्भिक MCP सर्भरहरू चयन गर्दछ। सधैं पूर्ण MCP उपकरण सूची लोड गर्न असक्षम गर्नुहोस्।",
+    "useLightweightRouterModel": "रूटिङको लागि समर्पित मोडेल प्रयोग गर्नुहोस्",
+    "useLightweightRouterModelDesc": "जब स्मार्ट राउटिङ सक्रिय हुन्छ, च्याट मोडेलको सट्टा छुट्टै (प्रायः सानो) मोडेलको साथ राउटिङ चरण चलाउनुहोस्। रूटिङका ​​लागि सधैँ सक्रिय च्याट मोडेल प्रयोग गर्न बन्द गर्नुहोस्।",
+    "routerModel": "रूटिङ मोडेल",
+    "routerModelDesc": "एकै ठाउँमा प्रदायक र मोडेल छनौट गर्नुहोस्। केवल हल्का मोडेलहरू सूचीबद्ध छन् त्यसैले रूटिङ छिटो र सस्तो रहन्छ।",
+    "selectRouterModelPlaceholder": "रूटिङ मोडेल चयन गर्नुहोस्...",
+    "routerModelSearchPlaceholder": "मोडेलहरू खोज्नुहोस्…",
+    "routerModelEmptyList": "कुनै हल्का मोडेलहरू उपलब्ध छैनन्। सानो मोडेल थप्नुहोस् वा मोडेलहरूमा API कुञ्जीहरू कन्फिगर गर्नुहोस्।",
+    "routerModelEmptySearch": "\"{{query}}\" को लागि कुनै मिल्दो छैन।"
+  },
+  "auth": {
+    "label": "प्रमाण:",
+    "state": {
+      "notApplicable": "आवश्यक छैन",
+      "staticHeader": "प्राधिकरण हेडर",
+      "authenticated": "प्रमाणित",
+      "expired": "म्याद सकियो",
+      "staleResource": "अर्को URL को लागि जारी",
+      "unauthenticated": "प्रमाणीकरण गरिएको छैन"
+    },
+    "expiresIn": "{{duration}} मा म्याद सकिन्छ",
+    "authenticate": "साइन इन गर्नुहोस्",
+    "reauthenticate": "पुन: प्रमाणीकरण गर्नुहोस्",
+    "clear": "प्रमाणीकरण खाली गर्नुहोस्",
+    "waiting": "ब्राउजरको लागि प्रतिक्षा गर्दै...",
+    "openSignInPage": "साइन-इन पृष्ठ खोल्नुहोस्",
+    "needsAuth": "{{serverName}} प्रमाणीकरण आवश्यक छ",
+    "needsAuthHint": "जडान गर्न यो सर्भरमा साइन इन गर्नुहोस्।",
+    "authorized": "{{serverName}} मा साइन इन गरियो",
+    "authorizeFailed": "{{serverName}} को लागि साइन-इन असफल भयो",
+    "cleared": "{{serverName}} का लागि भण्डारण गरिएका प्रमाणहरू खाली गरियो",
+    "nothingToClear": "{{serverName}} सँग कुनै भण्डार गरिएको प्रमाणहरू थिएनन्",
+    "clearFailed": "{{serverName}} को लागि प्रमाणहरू खाली गर्न सकिएन",
+    "renew": "सत्र नवीकरण गर्नुहोस्",
+    "expiredAgo": "{{duration}} पहिले म्याद सकियो"
+  }
+}

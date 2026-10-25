@@ -1,0 +1,18 @@
+{
+  "addProvider": "ദാതാവിനെ ചേർക്കുക",
+  "addOpenAIProvider": "ഇഷ്‌ടാനുസൃത ദാതാവിനെ ചേർക്കുക",
+  "enterNameForProvider": "ദാതാവിൻ്റെ പേര് (ഉദാ. my-llm-server)",
+  "apiTypeLabel": "API ഫോർമാറ്റ്",
+  "apiTypeOpenAI": "OpenAI-അനുയോജ്യമാണ്",
+  "apiTypeAnthropic": "Anthropic-അനുയോജ്യമാണ്",
+  "baseUrlLabel": "അടിസ്ഥാനം URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API കീ",
+  "apiKeyPlaceholder": "നിങ്ങളുടെ API കീ ഒട്ടിക്കുക",
+  "invalidBaseUrl": "അടിസ്ഥാനം URL ഒരു സാധുവായ http(കൾ) URL ആയിരിക്കണം",
+  "globalSettings": "ആഗോള ക്രമീകരണങ്ങൾ",
+  "stripReasoning": "സന്ദർഭത്തിൽ നിന്ന് ന്യായവാദം ഒഴിവാക്കുക",
+  "stripReasoningDesc": "എല്ലാ ദാതാക്കളിലുടനീളവും ചരിത്രം വീണ്ടും അയയ്‌ക്കുന്നതിന് മുമ്പ് മുൻ തിരിവുകളുടെ ചിന്ത/യുക്തിപരമായ ഉള്ളടക്കം നീക്കം ചെയ്യുക. പ്രാദേശിക മോഡലുകൾക്കായി കെവി-കാഷെ പുനരുപയോഗം മെച്ചപ്പെടുത്തുന്നു, എന്നാൽ ചില മോഡലുകൾ (ഉദാ. പുതിയ ക്വെൻ റിലീസുകൾ) മികച്ച മൾട്ടി-ടേൺ ന്യായവാദത്തിനായി ഇത് സൂക്ഷിക്കാൻ ശുപാർശ ചെയ്യുന്നു.",
+  "providerAlreadyExists": "{{name}} എന്ന പേരുള്ള ഒരു ദാതാവ് ഇതിനകം നിലവിലുണ്ട്."
+}

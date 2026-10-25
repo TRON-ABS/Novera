@@ -1,0 +1,18 @@
+{
+  "addProvider": "ਪ੍ਰਦਾਤਾ ਸ਼ਾਮਲ ਕਰੋ",
+  "addOpenAIProvider": "ਕਸਟਮ ਪ੍ਰਦਾਤਾ ਸ਼ਾਮਲ ਕਰੋ",
+  "enterNameForProvider": "ਪ੍ਰਦਾਤਾ ਦਾ ਨਾਮ (ਉਦਾਹਰਨ ਲਈ my-llm-server)",
+  "apiTypeLabel": "API ਫਾਰਮੈਟ",
+  "apiTypeOpenAI": "OpenAI-ਅਨੁਕੂਲ",
+  "apiTypeAnthropic": "Anthropic-ਅਨੁਕੂਲ",
+  "baseUrlLabel": "ਅਧਾਰ URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API ਕੁੰਜੀ",
+  "apiKeyPlaceholder": "ਆਪਣੀ API ਕੁੰਜੀ ਪੇਸਟ ਕਰੋ",
+  "invalidBaseUrl": "ਅਧਾਰ URL ਇੱਕ ਵੈਧ http(s) URL ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ",
+  "globalSettings": "ਗਲੋਬਲ ਸੈਟਿੰਗ",
+  "stripReasoning": "ਸੰਦਰਭ ਤੋਂ ਤਰਕ ਕੱਢੋ",
+  "stripReasoningDesc": "ਇਤਿਹਾਸ ਨੂੰ ਮੁੜ ਭੇਜਣ ਤੋਂ ਪਹਿਲਾਂ, ਸਾਰੇ ਪ੍ਰਦਾਤਾਵਾਂ ਵਿੱਚ ਪੁਰਾਣੇ ਮੋੜਾਂ ਦੀ ਸੋਚ/ਤਰਕਸ਼ੀਲ ਸਮੱਗਰੀ ਨੂੰ ਹਟਾਓ। ਸਥਾਨਕ ਮਾਡਲਾਂ ਲਈ ਕੇਵੀ-ਕੈਸ਼ ਦੀ ਮੁੜ ਵਰਤੋਂ ਵਿੱਚ ਸੁਧਾਰ ਕਰਦਾ ਹੈ, ਪਰ ਕੁਝ ਮਾਡਲਾਂ (ਜਿਵੇਂ ਕਿ ਨਵੇਂ ਕਵੇਨ ਰੀਲੀਜ਼) ਬਿਹਤਰ ਬਹੁ-ਵਾਰੀ ਤਰਕ ਲਈ ਇਸਨੂੰ ਰੱਖਣ ਦੀ ਸਿਫ਼ਾਰਸ਼ ਕਰਦੇ ਹਨ।",
+  "providerAlreadyExists": "{{name}} ਨਾਮ ਦਾ ਇੱਕ ਪ੍ਰਦਾਤਾ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
+}

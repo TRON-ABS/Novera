@@ -1,0 +1,101 @@
+{
+  "editServer": "Édit MCP Server",
+  "addServer": "Tambahkeun MCP Server",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Mariksa status ekstensi..."
+    },
+    "notInstalled": {
+      "title": "Novera ngalengkepan tugas dina panyungsi anjeun",
+      "description": "Pasang ekstensi pikeun masihan Novera aksés browser",
+      "getExtension": "Meunang Extension"
+    }
+  },
+  "serverName": "Ngaran Server",
+  "enterServerName": "Lebetkeun nami server",
+  "command": "Paréntah",
+  "enterCommand": "Lebetkeun paréntah (uvx atanapi npx)",
+  "arguments": "Arguméntasi",
+  "argument": "Argumen {{index}}",
+  "envVars": "Variabel Lingkungan",
+  "key": "konci",
+  "value": "Nilai",
+  "save": "Simpen",
+  "status": "Status",
+  "connected": "Nyambung",
+  "disconnected": "Dipegatkeun",
+  "deleteServer": {
+    "title": "Hapus MCP Server",
+    "description": "Naha anjeun yakin hoyong ngahapus server MCP {{serverName}}? Peta ieu teu bisa dibolaykeun.",
+    "delete": "Pupus",
+    "success": "MCP server {{serverName}} suksés dihapus"
+  },
+  "editJson": {
+    "title": "Édit JSON pikeun MCP Server: {{serverName}}",
+    "titleAll": "Édit Sadayana MCP Server JSON",
+    "placeholder": "Lebetkeun JSON konfigurasi",
+    "errorParse": "Gagal nga-parse data awal",
+    "errorPaste": "Format JSON teu sah dina eusi nu ditémpélkeun",
+    "errorFormat": "Format JSON teu valid",
+    "errorServerName": "Ngaran server diperlukeun tur teu bisa kosong",
+    "errorMissingServerNameKey": "JSON kudu disusun jadi {\"serverName\": {config}} - leungit konci ngaran server",
+    "errorInvalidType": "Jenis '{{type}}' teu sah pikeun server '{{serverName}}'. Jenisna kedah 'stdio', 'http', atanapi 'sse'",
+    "save": "Simpen"
+  },
+  "checkParams": "Mangga parios parameter numutkeun tutorial.",
+  "title": "MCP Server",
+  "experimental": "Ékspériméntal",
+  "editAllJson": "Édit Sadaya Server JSON",
+  "findMore": "Milarian langkung seueur MCP server di",
+  "allowPermissions": "Ngidinan Sadayana MCP Idin Alat",
+  "allowPermissionsDesc": "Nalika diaktipkeun, sadaya sauran MCP alat bakal otomatis disatujuan tanpa nunjukkeun dialog idin. Setelan ieu lumaku sacara global ka sadaya paguneman, kaasup obrolan anyar.",
+  "noServers": "Teu kapanggih MCP server",
+  "args": "Argumén",
+  "env": "Lingkungan",
+  "serverStatusActive": "Server {{serverKey}} suksés diaktipkeun",
+  "serverStatusInactive": "Server {{serverKey}} suksés dinonaktipkeun",
+  "runtimeSettings": {
+    "title": "Setélan Runtime",
+    "description": "Konpigurasikeun kumaha Novera ngatur sareng coba deui MCP server.",
+    "toolCallTimeout": "Waktos panggero alat (detik)",
+    "toolCallTimeoutDesc": "Waktos maksimal pikeun ngadagoan MCP réspon alat sateuacan waktos kaluar.",
+    "maxToolOutputChars": "Max alat kaluaran karakter",
+    "maxToolOutputCharsDesc": "Hasil alat pangpanjangna disimpen dina paguneman. Naon waé anu kapungkur ieu dipangkas sareng ditandaan salaku dipotong, ku kituna hiji hasil anu ageung moal tiasa ngaleungitkeun kontéks modél. Setel ka 0 pikeun ngajaga hasil sadayana.",
+    "smartToolRouting": "Pintar MCP alat routing",
+    "smartToolRoutingDesc": "Lamun diaktipkeun, Novera milih MCP server relevan saméméh muka parabot. Pareuman pikeun salawasna muka daptar alat MCP lengkep.",
+    "useLightweightRouterModel": "Paké model dedicated pikeun routing",
+    "useLightweightRouterModelDesc": "Nalika routing pinter hurung, ngajalankeun hambalan routing kalawan misah (sering leuwih leutik) model tinimbang model obrolan. Pareuman pikeun salawasna ngagunakeun modél obrolan aktip pikeun routing.",
+    "routerModel": "Modél routing",
+    "routerModelDesc": "Pilih panyadia sareng modél dina hiji tempat. Ngan model anu hampang anu didaptarkeun ku kituna routing tetep gancang sareng murah.",
+    "selectRouterModelPlaceholder": "Pilih modél routing…",
+    "routerModelSearchPlaceholder": "Milarian modél…",
+    "routerModelEmptyList": "Taya model lightweight sadia. Tambahkeun model nu leuwih leutik atawa ngonpigurasikeun kenop API dina Models.",
+    "routerModelEmptySearch": "Teu aya patandingan pikeun \"{{query}}\"."
+  },
+  "auth": {
+    "label": "Auténtikasi:",
+    "state": {
+      "notApplicable": "teu diperlukeun",
+      "staticHeader": "lulugu otorisasina",
+      "authenticated": "dioténtikasi",
+      "expired": "kadaluwarsa",
+      "staleResource": "dikaluarkeun pikeun URL deui",
+      "unauthenticated": "teu dioténtikasi"
+    },
+    "expiresIn": "kadaluarsa dina {{duration}}",
+    "authenticate": "Asup",
+    "reauthenticate": "Ngaoténtikasi deui",
+    "clear": "auténtikasi jelas",
+    "waiting": "Nunggu browser...",
+    "openSignInPage": "Buka kaca asup",
+    "needsAuth": "{{serverName}} peryogi auténtikasi",
+    "needsAuthHint": "Asup ka server ieu pikeun nyambung.",
+    "authorized": "Asup ka {{serverName}}",
+    "authorizeFailed": "Asup {{serverName}} gagal",
+    "cleared": "Ngabersihan kredensial anu disimpen pikeun {{serverName}}",
+    "nothingToClear": "{{serverName}} teu boga kredensial nu disimpen",
+    "clearFailed": "Teu bisa mupus kredensial pikeun {{serverName}}",
+    "renew": "renew sési",
+    "expiredAgo": "kadaluwarsa {{duration}} kaliwat"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "newVersion": "Нова версія {{version}}",
+  "updateAvailable": "Оновлення доступне",
+  "nightlyBuild": "Нічна збірка",
+  "showReleaseNotes": "Показати примітки до випуску",
+  "hideReleaseNotes": "Сховати примітки до випуску",
+  "remindMeLater": "Нагадати мені пізніше",
+  "downloading": "Завантаження...",
+  "updateNow": "Оновити зараз"
+}

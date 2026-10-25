@@ -1,0 +1,50 @@
+{
+  "welcome": "هيلو، توهان ڪيئن آهيو؟",
+  "description": "مان اڄ ڪيئن توهان جي مدد ڪري سگهان ٿو؟",
+  "temporaryChat": "عارضي چيٽ",
+  "temporaryChatDescription": "هڪ عارضي گفتگو شروع ڪريو جيڪا توهان جي چيٽ جي تاريخ ۾ محفوظ نه ڪئي ويندي.",
+  "status": {
+    "empty": "ڪابه چيٽ نه ملي"
+  },
+  "sendMessage": "پيغام موڪليو",
+  "newConversation": "نئين ڳالهه ٻولهه",
+  "clearHistory": "صاف تاريخ",
+  "embeddings": {
+    "title": "توهان جي دستاويز تيار ڪرڻ",
+    "description": "منسلڪ فائلن کي ترتيب ڏيو ته جيئن اهي ڳولها ۽ حوالا ڪري سگهجن. اهو شايد ڪجهه وقت وٺي سگھي ٿو وڏن دستاويزن لاءِ."
+  },
+  "actions": {
+    "regenerate": "رد عمل پيدا ڪريو",
+    "askAgain": "وري پڇيو",
+    "continue": "پيدا ڪرڻ جاري رکو",
+    "remember": "هي ياد رکو",
+    "rememberSaved": "\"{{name}}\" جي طور تي ياداشت ۾ محفوظ ڪيو ويو",
+    "rememberExists": "اڳ ۾ ئي \"{{name}}\" جي طور تي ياداشت ۾",
+    "rememberFailed": "ياداشت ۾ محفوظ نه ٿي سگهيو"
+  },
+  "done": "ٿي ويو",
+  "webSources": "{{count}} ذريعو",
+  "reasoning": {
+    "label": "استدلال...",
+    "thinking": "سوچڻ",
+    "working": "ڪم ڪري رهيو آهي...",
+    "showFullTimeline": "مڪمل ٽائم لائن ڏيکاريو",
+    "showCurrentStep": "صرف موجوده قدم ڏيکاريو",
+    "thoughtForAWhile": "ڪجهه سيڪنڊن لاءِ سوچيو",
+    "thoughtFor": "{{duration}} لاءِ سوچيو",
+    "workedForAWhile": "چند سيڪنڊن لاء ڪم ڪيو",
+    "workedFor": "{{duration}} لاء ڪم ڪيو"
+  },
+  "messageActions": {
+    "previousVersion": "اڳوڻو نسخو",
+    "nextVersion": "ايندڙ نسخو",
+    "generationFailed": "نسل ناڪام ٿيو"
+  },
+  "messageStats": {
+    "details": "نسل جا انگ اکر",
+    "generation": "نسل",
+    "reading": "پڙهڻ",
+    "tokens": "ٽوڪن",
+    "perSecond": "ٽوڪن/s"
+  }
+}

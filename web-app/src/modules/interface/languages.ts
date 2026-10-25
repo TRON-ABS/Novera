@@ -2,6 +2,7 @@ export const supportedLanguages = [
   'en', 'bn', 'ar', 'ur', 'pcm', 'arz', 'mr', 'te', 'ta', 'sw', 'ha',
   'pnb', 'tl', 'pt-PT', 'yue', 'wuu', 'fa-IR', 'am', 'th', 'jv', 'gu', 'kn', 'apc', 'apd',
   'yo', 'bho', 'cjy', 'nan', 'my', 'arq', 'hak', 'ln', 'ary', 'or',
+  'uk', 'hsn', 'ml', 'sd', 'pa', 'su', 'ig', 'prs', 'ne', 'ms',
   'es', 'fr', 'it', 'hi', 'id', 'pl', 'vn', 'zh-CN', 'zh-TW',
   'de-DE', 'cs', 'pt-BR', 'ko', 'ja', 'ru', 'ca',
 ] as const satisfies readonly Language[]
@@ -25,6 +26,7 @@ export function matchSystemLanguage(preferences: readonly string[]): Language {
       if (language === 'pt') return tag.region === 'BR' ? 'pt-BR' : 'pt-PT'
       if (language === 'de') return 'de-DE'
       if (language === 'vi' || language === 'vn') return 'vn'
+      if (language === 'fa' && tag.region === 'AF') return 'prs'
       if (language === 'fa') return 'fa-IR'
       if (language === 'fil') return 'tl'
       if (language === 'ar' && ['LB', 'SY', 'JO', 'PS'].includes(tag.region ?? '')) return 'apc'
@@ -32,6 +34,8 @@ export function matchSystemLanguage(preferences: readonly string[]): Language {
       if (language === 'ar' && tag.region === 'DZ') return 'arq'
       if (language === 'ar' && tag.region === 'MA') return 'ary'
       if (language === 'pa' && (tag.script === 'Arab' || (!tag.script && tag.region === 'PK'))) return 'pnb'
+      // The Sindhi catalog uses Arabic script, not the Devanagari variant.
+      if (language === 'sd' && tag.script === 'Deva') continue
       if (isSupportedLanguage(language)) return language
     } catch {
       // An unavailable or invalid locale must not prevent startup.
