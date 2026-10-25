@@ -23,6 +23,8 @@ Ce fichier centralise les accès, le statut et les prochaines étapes ; les dét
 
 ## État actuel
 
+Lanceur terminal renommé en **`novera-agent.sh`**, avec textes Novera et compatibilité du CLI local sous ses noms actuels, y compris `jan.exe` pour Git Bash/MSYS2. L’ancien `jan-agent.sh` est retiré ; le moteur d’agent et le nom interne du binaire restent inchangés. Sources incluses dans la publication de ce renommage ; aucune compilation de l’application.
+
 Logos des sept nouveaux fournisseurs cloud : images officielles de DeepSeek, Kimi, Alibaba Cloud, Cerebras, Together AI, Fireworks AI et Perplexity intégrées localement et raccordées aux avatars existants. 60 tests des utilitaires réussis ; sept fichiers vérifiés et aperçu clair/sombre contrôlé à petite taille. [Provenance et maintenance](docs/PROVIDER_LOGOS.md). Sources et logos inclus dans la publication du 25 octobre 2026 ; aucune nouvelle compilation pour cet ajout.
 
 Nettoyage local du 25 octobre 2026 : **41 dossiers générés et 2 archives supprimés**, soit environ **14,4 Go** de fichiers. Anciennes distributions, copies de runtimes et caches Android expérimentaux retirés ; sources, données, outils installés et rapports conservés. Empreintes des exécutables Desktop protégés et de l’APK actuelle inchangées. [Détail et règles des prochains nettoyages](docs/LOCAL_CLEANUP.md). Aucune compilation ni publication pour ce nettoyage.

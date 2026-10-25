@@ -20,6 +20,7 @@ Consulter [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) et [architecture/modules.
 
 - Sources : `C:\msys64\home\jmsga\Novera`.
 - Application locale : `Novera-Desktop.exe` ; identifiant `io.github.tronabs.novera`.
+- Lanceur terminal local : `./novera-agent.sh` sous Bash (dont Git Bash/MSYS2). Sans argument, ouvre l’interface de l’agent ; sinon transmet les arguments au CLI local. Reconnaît les noms `novera`/`novera.exe` et les noms internes hérités `jan`/`jan.exe` dans `src-tauri/resources/bin`. Aucun téléchargement ni compilation automatique.
 - Instructions prioritaires de l’agent : `NOVERA.md` ; repli configurable sur `AGENTS.md`.
 - Nouvel état de l’agent : `~/.novera` ; ne pas importer ni supprimer automatiquement les profils Jan existants.
 - Préserver les modifications locales, modèles, conversations et identifiants.

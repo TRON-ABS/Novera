@@ -1,3 +1,11 @@
+# Rename the local agent launcher for Novera — 25 October 2026
+
+Rename the unused root launcher from jan-agent.sh to novera-agent.sh and update its usage text and documentation. Resolve the local CLI under its Novera name when available, preserving compatibility with the existing internal jan/jan.exe binaries. Keep default interactive-agent startup, argument forwarding and the src-tauri working directory. Fail clearly when no executable is available; never download or compile a CLI automatically. The Desktop application and embedded agent implementation are unchanged.
+
+Validation: Bash syntax passed and 13 isolated checks passed using stub executables, including all four binary names, paths and arguments containing spaces, exit-code forwarding and the missing-binary error. The real agent was not started and the application was not compiled. Publish the rename and documentation only; GitHub Actions remains disabled.
+
+---
+
 # Publish current cloud providers, catalogs and official logos — 25 October 2026
 
 Publish the source changes for 18 cloud providers and 57 chat presets, seven official bundled logos, Alibaba help in all 36 locales and maintenance documentation. Include the documented local cleanup without publishing or deleting distribution artifacts on GitHub. This update follows the already-published Jan banner removal.
