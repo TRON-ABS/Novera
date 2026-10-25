@@ -1,0 +1,18 @@
+{
+  "addProvider": "प्रदाता के जोड़ल जाला",
+  "addOpenAIProvider": "कस्टम प्रदाता के जोड़ल जाला",
+  "enterNameForProvider": "प्रदाता के नाँव (जइसे कि my-llm-server)",
+  "apiTypeLabel": "API प्रारूप के बा",
+  "apiTypeOpenAI": "OpenAI-संगत बा",
+  "apiTypeAnthropic": "Anthropic-संगत बा",
+  "baseUrlLabel": "आधार URL के बा।",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API कुंजी के बा",
+  "apiKeyPlaceholder": "आपन API कुंजी पेस्ट करीं",
+  "invalidBaseUrl": "आधार URL एगो वैध http(s) होखे के चाहीं URL",
+  "globalSettings": "ग्लोबल सेटिंग्स के बारे में बतावल गइल बा",
+  "stripReasoning": "संदर्भ से तर्क के पट्टी कर लीं",
+  "stripReasoningDesc": "इतिहास के फिर से भेजे से पहिले, सभ प्रदाता के पार, पहिले के मोड़ के सोच/तर्क सामग्री हटाईं। स्थानीय मॉडल सभ खातिर केवी-कैश के दोबारा इस्तेमाल में सुधार करे ला, बाकी कुछ मॉडल (जइसे कि नया क्यूवेन रिलीज) बेहतर मल्टी-टर्न रिजनिंग खातिर एकरा के रखे के सलाह देलें।",
+  "providerAlreadyExists": "{{name}} नाम के एगो प्रदाता पहिले से मौजूद बा।"
+}

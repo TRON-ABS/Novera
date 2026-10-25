@@ -1,0 +1,18 @@
+{
+  "addProvider": "Fi Olupese kun",
+  "addOpenAIProvider": "Fi Aṣa Olupese",
+  "enterNameForProvider": "Orukọ olupese (fun apẹẹrẹ my-llm-server)",
+  "apiTypeLabel": "API ọna kika",
+  "apiTypeOpenAI": "OpenAI-ibaramu",
+  "apiTypeAnthropic": "Anthropic-ibaramu",
+  "baseUrlLabel": "Ipilẹ URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API bọtini",
+  "apiKeyPlaceholder": "Lẹẹmọ bọtini API rẹ",
+  "invalidBaseUrl": "Ipilẹ URL gbọdọ jẹ http(s) ti o wulo URL",
+  "globalSettings": "Eto agbaye",
+  "stripReasoning": "Yiyọ ero inu ọrọ-ọrọ",
+  "stripReasoningDesc": "Yọọ akoonu ironu/alaye ṣaaju ki o to fi itan ranṣẹ, kọja gbogbo awọn olupese. Ṣe ilọsiwaju ilo kaṣe KV-fun awọn awoṣe agbegbe, ṣugbọn diẹ ninu awọn awoṣe (fun apẹẹrẹ awọn idasilẹ Qwen tuntun) ṣeduro fifipamọ rẹ fun ero ọpọlọpọ-Tan to dara julọ.",
+  "providerAlreadyExists": "Olupese kan ti a npè ni {{name}} ti wa tẹlẹ."
+}

@@ -1,0 +1,18 @@
+{
+  "addProvider": "Bakisa Mopesi",
+  "addOpenAIProvider": "Bakisa Mopesi ya Personnalisé",
+  "enterNameForProvider": "Nkombo ya mopesi (e.g. my-llm-server) .",
+  "apiTypeLabel": "API ya format",
+  "apiTypeOpenAI": "OpenAI-ezali na boyokani",
+  "apiTypeAnthropic": "Anthropic-ezali na boyokani",
+  "baseUrlLabel": "Base URL Ezali na .",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API fungola",
+  "apiKeyPlaceholder": "Kola clé na yo ya API",
+  "invalidBaseUrl": "Base URL esengeli kozala http(s) ya malamu URL .",
+  "globalSettings": "Ba paramètres ya mokili mobimba",
+  "stripReasoning": "Longola makanisi na makambo oyo ezali na kati",
+  "stripReasoningDesc": "Longola ba tour ya liboso ya kokanisa/raisonnement contenus avant ya kotinda lisusu histoire, na kati ya ba fournisseurs nionso. Ebongisi bosaleli lisusu ya KV-cache mpo na ba modèles ya mboka, kasi ba modèles mosusu (e.g. ba sorties ya sika ya Qwen) epesi toli ya kobomba yango mpo na raisonnement ya malamu ya ba tour ebele.",
+  "providerAlreadyExists": "Mopesi moko na kombo ya {{name}} azali déjà."
+}

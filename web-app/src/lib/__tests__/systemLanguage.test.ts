@@ -17,7 +17,10 @@ describe('system language matching', () => {
     ['pa-Arab-PK', 'pnb'], ['pa-IN', 'en'], ['yue-Hant-HK', 'yue'],
     ['gu-IN', 'gu'], ['kn-IN', 'kn'], ['apc-LB', 'apc'], ['apd-SD', 'apd'],
     ['ar-LB', 'apc'], ['ar-SY', 'apc'], ['ar-JO', 'apc'], ['ar-PS', 'apc'],
-    ['ar-SD', 'apd'], ['ar-SA', 'ar'], ['ar-EG', 'ar'], ['arz-EG', 'arz'], ['en-US', 'en'], ['sv-SE', 'en'],
+    ['ar-SD', 'apd'], ['ar-DZ', 'arq'], ['ar-MA', 'ary'],
+    ['arq-DZ', 'arq'], ['ary-MA', 'ary'], ['yo-NG', 'yo'], ['bho-IN', 'bho'],
+    ['cjy-CN', 'cjy'], ['nan-TW', 'nan'], ['my-MM', 'my'], ['hak-TW', 'hak'],
+    ['ln-CD', 'ln'], ['or-IN', 'or'], ['ar-SA', 'ar'], ['ar-EG', 'ar'], ['arz-EG', 'arz'], ['en-US', 'en'], ['sv-SE', 'en'],
   ])('matches %s to %s', (tag, language) => {
     expect(matchSystemLanguage([tag])).toBe(language)
   })

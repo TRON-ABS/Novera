@@ -1,0 +1,50 @@
+{
+  "welcome": "你好，最近好無？",
+  "description": "今仔日欲予我共你鬥相共啥物？",
+  "temporaryChat": "臨時聊天",
+  "temporaryChatDescription": "開始一個不會儲存到聊天歷史記錄的臨時對話。",
+  "status": {
+    "empty": "揣無對話"
+  },
+  "sendMessage": "送出訊息",
+  "newConversation": "新對話",
+  "clearHistory": "清除歷史記錄",
+  "embeddings": {
+    "title": "準備文件",
+    "description": "對附件進行索引，以便會當搜尋和引用它們。對於大型文檔，這可能需要一些時間。"
+  },
+  "actions": {
+    "regenerate": "閣生一个回答",
+    "askAgain": "閣問一擺",
+    "continue": "繼續產生",
+    "remember": "共這項記落來",
+    "rememberSaved": "已以「{{name}}」儲存至記憶",
+    "rememberExists": "記憶中已有「{{name}}」",
+    "rememberFailed": "無法儲存至記憶"
+  },
+  "done": "好矣",
+  "webSources": "{{count}} 來源",
+  "reasoning": {
+    "label": "推理...",
+    "thinking": "思考",
+    "working": "工作中...",
+    "showFullTimeline": "顯示完整時間軸",
+    "showCurrentStep": "僅顯示目前步驟",
+    "thoughtForAWhile": "想了幾秒鐘",
+    "thoughtFor": "對{{duration}}的思考",
+    "workedForAWhile": "工作了幾秒鐘",
+    "workedFor": "為 {{duration}} 工作"
+  },
+  "messageActions": {
+    "previousVersion": "上一個版本",
+    "nextVersion": "下一個版本",
+    "generationFailed": "生成失敗"
+  },
+  "messageStats": {
+    "details": "生成統計",
+    "generation": "生成",
+    "reading": "讀取",
+    "tokens": "詞元",
+    "perSecond": "詞元/秒"
+  }
+}

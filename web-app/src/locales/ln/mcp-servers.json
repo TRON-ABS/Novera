@@ -1,0 +1,101 @@
+{
+  "editServer": "Bobongisi MCP Serveur",
+  "addServer": "Bakisa MCP Serveur",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Ko vérifier état ya extension..."
+    },
+    "notInstalled": {
+      "title": "Novera esilisaka misala na navigateur na yo",
+      "description": "Botia extension mpo na kopesa Novera accès ya navigateur",
+      "getExtension": "Bozua Extension"
+    }
+  },
+  "serverName": "Kombo ya Serveur",
+  "enterServerName": "Tyá nkombo ya mosaleli",
+  "command": "Etinda",
+  "enterCommand": "Tyá etinda (uvx to npx) .",
+  "arguments": "Ba arguments",
+  "argument": "Likanisi {{index}} .",
+  "envVars": "Ba Variables ya Environnement",
+  "key": "Fungola",
+  "value": "Motuya",
+  "save": "Bomba",
+  "status": "Ezalela ya likambo",
+  "connected": "Ezali na boyokani",
+  "disconnected": "Ekabwani na boyokani",
+  "deleteServer": {
+    "title": "Bolongola MCP Serveur",
+    "description": "Ozali sûr que olingi o supprimer serveur MCP {{serverName}}? Action oyo ekoki kozongisama sima te.",
+    "delete": "Sukisa",
+    "success": "MCP serveur {{serverName}} elongolami malamu"
+  },
+  "editJson": {
+    "title": "Bobongisi JSON mpo na MCP Serveur: {{serverName}}",
+    "titleAll": "Bobongisi Ba Serveurs nionso MCP JSON",
+    "placeholder": "Bokota na configuration ya JSON",
+    "errorParse": "Elongi te ko parser ba données ya ebandeli",
+    "errorPaste": "Format JSON ya mabe na makambo oyo ekangami",
+    "errorFormat": "Format JSON ezali malamu te",
+    "errorServerName": "Nkombo ya serveur esengeli mpe ekoki kozala mpamba te",
+    "errorMissingServerNameKey": "JSON esengeli kozala na structure lokola {\"serverName\": {config}} - fungola ya kombo ya serveur ezangi",
+    "errorInvalidType": "Lolenge ya mabe '{{type}}' mpo na mosaleli '{{serverName}}'. Type esengeli kozala 'stdio', 'http', to 'sse'.",
+    "save": "Bomba"
+  },
+  "checkParams": "Svp botala ba paramètres selon mateya.",
+  "title": "MCP Ba serveurs",
+  "experimental": "Makambo ya komeka",
+  "editAllJson": "Bobongisi ba Serveurs Nionso JSON",
+  "findMore": "Boluka ba serveurs MCP mosusu na",
+  "allowPermissions": "Tika Ndingisa Nyonso ya Esaleli MCP",
+  "allowPermissionsDesc": "Tango efungolami, ba appels nionso ya outil MCP ekondimama automatiquement sans kolakisa ba dialogues ya ndingisa. Paramètre oyo etali mokili mobimba mpo na masolo nyonso, ata mpe masolo ya sika.",
+  "noServers": "Ba serveurs MCP ezwami te",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Serveur {{serverKey}} e activé na malonga",
+  "serverStatusInactive": "Serveur {{serverKey}} e désactivé na elonga",
+  "runtimeSettings": {
+    "title": "Paramètres ya tango ya kosala",
+    "description": "Configurer ndenge nini Novera e gérer pe emekaka lisusu MCP ba serveurs.",
+    "toolCallTimeout": "Ntango ya kobenga esaleli (segɔnde) .",
+    "toolCallTimeoutDesc": "Tango ya likolo ya kozela eyano ya esaleli ya MCP yambo ya kosilisa tango.",
+    "maxToolOutputChars": "Max esaleli ya kobimisa bilembo",
+    "maxToolOutputCharsDesc": "Longest outil résultat ebombami na lisolo. Eloko nyonso oyo eleki oyo ekatamaka mpe etyami elembo lokola ekatamaki, yango wana mbano moko ya monene ekoki te kosilisa contexte ya modèle. Set na 0 mpo na kobatela ba résultats mobimba.",
+    "smartToolRouting": "Routage ya bisaleli ya mayele MCP",
+    "smartToolRoutingDesc": "Tango efungolami, Novera eponaka ba serveurs MCP oyo etali yango liboso ya ko charger bisaleli. Désactiver mpo na ko charger toujours liste mobimba ya bisaleli MCP.",
+    "useLightweightRouterModel": "Salelá modèle oyo epesameli mpo na kosala routage",
+    "useLightweightRouterModelDesc": "Tango routage ya mayele ezali kosala, tambuisa étape ya routage na modèle ekeseni (mbala mingi ya moke) na esika ya modèle ya chat. Boma mpo na kosalela ntango nyonso modèle ya chat active mpo na routage.",
+    "routerModel": "Modèle ya routage",
+    "routerModelDesc": "Pona fournisseur na modèle na esika moko. Kaka ba modèles légers nde etangami donc routage etikalaka mbangu pe ya talo moke.",
+    "selectRouterModelPlaceholder": "Pona modèle ya routage...",
+    "routerModelSearchPlaceholder": "Boluka ba modèles...",
+    "routerModelEmptyList": "Ba modèles ya poids légers ezali te. Bakisa modèle ya moke to configurer ba touches API na Modèles.",
+    "routerModelEmptySearch": "Ezali na boyokani te mpo na “{{query}}”."
+  },
+  "auth": {
+    "label": "Auth:",
+    "state": {
+      "notApplicable": "esengeli te",
+      "staticHeader": "Motó ya likambo ya ndingisa",
+      "authenticated": "oyo endimami na bondimi",
+      "expired": "esilaki",
+      "staleResource": "ebimisami mpo na URL mosusu .",
+      "unauthenticated": "oyo endimami te"
+    },
+    "expiresIn": "ekosila na {{duration}} .",
+    "authenticate": "Kota na site",
+    "reauthenticate": "Kozongela bondimi",
+    "clear": "Bondimi ya polele",
+    "waiting": "Kozela navigateur...",
+    "openSignInPage": "Fungola lokasa ya kokɔta na site",
+    "needsAuth": "{{serverName}} esengeli na bondimi",
+    "needsAuthHint": "Kota na serveur oyo pona ko connecter.",
+    "authorized": "Okoti na {{serverName}}",
+    "authorizeFailed": "Kokota mpo na {{serverName}} elongi te",
+    "cleared": "Elongolami ba credentiels oyo ebombami mpo na {{serverName}} .",
+    "nothingToClear": "{{serverName}} azalaki na ba credentiels oyo ebombamaki te",
+    "clearFailed": "Ekoki te ko effacer ba credentiels pona {{serverName}} .",
+    "renew": "Bozongisa session ya sika",
+    "expiredAgo": "esilaki {{duration}} eleki"
+  }
+}

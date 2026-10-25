@@ -398,5 +398,105 @@
     "total": 1516,
     "partial": false,
     "source_pr": null
+  },
+  {
+    "locale": "yo",
+    "language": "Yoruba",
+    "label": "Yorùbá",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "bho",
+    "language": "Bhojpuri",
+    "label": "भोजपुरी",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "cjy",
+    "language": "Jin Chinese",
+    "label": "晋语",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "nan",
+    "language": "Min Nan Chinese",
+    "label": "閩南語",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "my",
+    "language": "Burmese",
+    "label": "မြန်မာ",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "arq",
+    "language": "Algerian Arabic",
+    "label": "دارجة جزائرية",
+    "direction": "rtl",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "hak",
+    "language": "Hakka Chinese",
+    "label": "客家話",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "ln",
+    "language": "Lingala",
+    "label": "Lingála",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "ary",
+    "language": "Moroccan Arabic",
+    "label": "الدارجة المغربية",
+    "direction": "rtl",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "or",
+    "language": "Odia",
+    "label": "ଓଡ଼ିଆ",
+    "direction": "ltr",
+    "keys": 1516,
+    "total": 1516,
+    "partial": false,
+    "source_pr": null
   }
 ]

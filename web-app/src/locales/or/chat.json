@@ -1,0 +1,50 @@
+{
+  "welcome": "ହାଏ, ତୁମେ କେମିତି ଅଛ?",
+  "description": "ଆଜି ମୁଁ ଆପଣଙ୍କୁ କିପରି ସାହାଯ୍ୟ କରିପାରିବି?",
+  "temporaryChat": "ଅସ୍ଥାୟୀ ଚାଟ୍ |",
+  "temporaryChatDescription": "ଏକ ଅସ୍ଥାୟୀ ବାର୍ତ୍ତାଳାପ ଆରମ୍ଭ କରନ୍ତୁ ଯାହା ଆପଣଙ୍କର ଚାଟ୍ ଇତିହାସରେ ସଞ୍ଚୟ ହେବ ନାହିଁ |",
+  "status": {
+    "empty": "କ Chat ଣସି ଚାଟ୍ ମିଳିଲା ନାହିଁ |"
+  },
+  "sendMessage": "ବାର୍ତ୍ତା ପଠାନ୍ତୁ |",
+  "newConversation": "ନୂତନ ବାର୍ତ୍ତାଳାପ |",
+  "clearHistory": "ଇତିହାସ ସଫା କରନ୍ତୁ |",
+  "embeddings": {
+    "title": "ତୁମର ଡକ୍ୟୁମେଣ୍ଟ୍ ପ୍ରସ୍ତୁତ କରୁଛି |",
+    "description": "ସଂଲଗ୍ନ ହୋଇଥିବା ଫାଇଲଗୁଡ଼ିକୁ ଇଣ୍ଡେକ୍ସ କରିବା ଦ୍ so ାରା ସେଗୁଡିକ ସନ୍ଧାନ କରାଯାଇ ଉଦ୍ଧୃତ ହୋଇପାରିବ | ବଡ଼ ଡକ୍ୟୁମେଣ୍ଟ୍ ପାଇଁ ଏହା କିଛି ସମୟ ନେଇପାରେ |"
+  },
+  "actions": {
+    "regenerate": "ପ୍ରତିକ୍ରିୟା ପୁନ ener ନିର୍ମାଣ କରନ୍ତୁ |",
+    "askAgain": "ପୁନର୍ବାର ପଚାର |",
+    "continue": "ଉତ୍ପାଦନ ଜାରି ରଖ |",
+    "remember": "ଏହାକୁ ମନେରଖ |",
+    "rememberSaved": "ସ୍ମୃତିକୁ \"{{name}}\" ଭାବରେ ସଞ୍ଚୟ କରାଯାଇଛି |",
+    "rememberExists": "ପୂର୍ବରୁ \"{{name}}\" ଭାବରେ ସ୍ମୃତିରେ ଅଛି |",
+    "rememberFailed": "ସ୍ମୃତିକୁ ସଞ୍ଚୟ କରିପାରିଲା ନାହିଁ |"
+  },
+  "done": "ସମାପ୍ତ",
+  "webSources": "{{count}} ଉତ୍ସ (ଗୁଡିକ)",
+  "reasoning": {
+    "label": "ଯୁକ୍ତି ...",
+    "thinking": "ଚିନ୍ତା କରୁଛି |",
+    "working": "କାର୍ଯ୍ୟ ...",
+    "showFullTimeline": "ପୂର୍ଣ୍ଣ ସମୟସୀମା ଦେଖାନ୍ତୁ |",
+    "showCurrentStep": "କେବଳ ସାମ୍ପ୍ରତିକ ପଦକ୍ଷେପ ଦେଖାନ୍ତୁ |",
+    "thoughtForAWhile": "କିଛି ସେକେଣ୍ଡ ପାଇଁ ଚିନ୍ତା |",
+    "thoughtFor": "{{duration}} ପାଇଁ ଚିନ୍ତା |",
+    "workedForAWhile": "କିଛି ସେକେଣ୍ଡ ପାଇଁ କାମ କଲା |",
+    "workedFor": "{{duration}} ପାଇଁ କାମ କଲା |"
+  },
+  "messageActions": {
+    "previousVersion": "ପୂର୍ବ ସଂସ୍କରଣ",
+    "nextVersion": "ପରବର୍ତ୍ତୀ ସଂସ୍କରଣ |",
+    "generationFailed": "ଜେନେରେସନ୍ ବିଫଳ ହେଲା |"
+  },
+  "messageStats": {
+    "details": "ଜେନେରେସନ୍ ପରିସଂଖ୍ୟାନ |",
+    "generation": "ପି Generation ଼ି",
+    "reading": "ପ Reading ିବା |",
+    "tokens": "ଟୋକେନ୍ |",
+    "perSecond": "ଟୋକେନ୍ / ଗୁଡିକ"
+  }
+}

@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Code",
+    "preview": "Botali liboso",
+    "previewStreaming": "Disponible tango génération ekosila",
+    "unresolvedAssets_one": "1 référence ya asset ekoki ko charger te na aperçu. Banzela ya boyokani ezali na moboko te URL mpo na kosilisa yango.",
+    "unresolvedAssets_other": "{{count}} ba références ya ba biens ekoki ko charger na aperçu te. Banzela ya boyokani ezali na moboko te URL mpo na kosilisa yango."
+  },
+  "assistants": "Basungi",
+  "hardware": "Matériel ya kosala",
+  "mcp-servers": "MCP Ba serveurs",
+  "local_api_server": "API Serveur ya esika",
+  "remote_access": "Accès à distance",
+  "integrations": "Ba intégrations",
+  "experimental": "Makambo ya komeka",
+  "claude_code": "Code ya Claude",
+  "https_proxy": "HTTPS Mopesi ya mosala",
+  "web_search": "Bolukiluki na Internet",
+  "shell": "Shell na yango",
+  "browse": "Naviguer na kati",
+  "moreControls": "Ba contrôles mingi",
+  "starting": "Kobanda...",
+  "activeSuffix": " (Ezali na mosala)",
+  "extensions": "Ba extensions",
+  "attachments": "Ba attachements oyo ezali na kati",
+  "general": "Général",
+  "settings": "Bobongisi",
+  "modelProviders": "Ba Fournisseurs ya Modèle",
+  "localProviders": "Local",
+  "remoteProviders": "Télécommande",
+  "manageProviders": "Bokamba ba fournisseurs",
+  "hiddenProviders": "{{count}} azali na makoki ya kosala mosala",
+  "hideProvider": "Bomba mopesi",
+  "showProvider": "Lakisa mopesi",
+  "interface": "Interface ya kosala",
+  "appearance": "Komonana",
+  "privacy": "Bomoi ya moto ye moko",
+  "keyboardShortcuts": "Ba nzela mikuse",
+  "home": "Ndako",
+  "cowork": "Cowork",
+  "newSession": "Session ya sika",
+  "artifacts": "Biloko ya kala",
+  "customize": "Bosala na ndenge ya moto ye moko",
+  "local": "Local",
+  "selectFolder": "Pona dossier",
+  "selectModel": "Pona liboso modèle moko",
+  "commands": "Mibeko",
+  "cmdHelp": "Tángá mitindo oyo ezali",
+  "cmdClear": "Effacer session oyo",
+  "cmdModels": "Bobongola modèle oyo ezali kosala",
+  "cmdModelsHint": "Tyá /models na nsima poná modèle moko na liste",
+  "cmdModelSwitched": "Ebongwani na {{name}} .",
+  "cmdUnknown": "Etinda eyebani te: {{name}}. Meka /help .",
+  "cmdBusy": "Ekoki kosala bongo te tango agent azali ko kima",
+  "cmdCompact": "Compacter contexte ya session na bokuse",
+  "cmdCompacted": "Ba messages compactés {{before}} -> {{after}}",
+  "cmdNothingToCompact": "Eloko ya kosala compact nanu te",
+  "cmdCompactFailed": "Compaction elongi te: {{error}} .",
+  "cmdPlan": "Mode ya plan ya kobongola (ya kotanga kaka: agent a proposer sans kokoma)",
+  "cmdPlanOn": "Mode ya plan na : agent atangi pe a proposer sans kokoma",
+  "cmdPlanOff": "Mode ya plan off: exécution normale",
+  "cmdTodo": "Fungola panneau ya progrès",
+  "cmdTasks": "Fungola panneau ya misala ya sima",
+  "cmdInit": "Yekola projet pe kokoma mayele pe mémoire",
+  "cmdInitRunning": "Onboarding projet oyo",
+  "skills": "Makoki",
+  "skillsInContext": "Makoki oyo ezali na agent oyo azali kopota mbangu",
+  "skillsTitle": "Kokamba mayele",
+  "skillsScopeProject": "Makoki mpo na {{folder}} .",
+  "skillsScopeGlobal": "Makoki ya mokili mobimba, oyo ezali mpo na session nyonso",
+  "skillsScopeMerged": "Makoki mpo na {{folder}}, bakisa makoki ya mokili mobimba oyo session nyonso ekabolaka",
+  "skillOriginFolder": "dossier",
+  "skillOriginGlobal": "mokili mobimba",
+  "skillsEmpty": "Makoki naino te",
+  "skillsPickOrNew": "Pona mayele moko oyo olingi kobongisa, to salá ya sika.",
+  "skillNew": "Makoki ya sika",
+  "skillDelete": "Kolongola mayele",
+  "skillSave": "Bomba",
+  "skillSaved": "Makoki ebombami",
+  "skillNameRequired": "Nkombo ya makoki esengeli",
+  "skillNamePlaceholder": "makoki-nkombo",
+  "skillContentPlaceholder": "Limbola ndenge ya kosala oyo ekoki kosalelama lisusu na Markdown...",
+  "skillHubImport": "Importer depuis hub",
+  "skillHubTitle": "Anthropic esika ya mayele",
+  "skillHubEmpty": "Makoki moko te ezwami na hub",
+  "skillImport": "Kokɔtisa biloko na mboka mopaya",
+  "skillReimport": "Kozongela kokɔtisa biloko na mboka mopaya",
+  "skillImported": "Ekɔtisami na mboka mopaya {{name}}",
+  "sessions": "Ba sessions ya ba sessions",
+  "deleteSession": "Bolongola session",
+  "deleteSessionTitle": "Kolongola session?",
+  "deleteSessionBody": "\"{{title}}\" mpe transcript na yango ekolongolama mpo na libela. Oyo ekoki kozongisama sima te.",
+  "newChat": "Chat ya sika",
+  "newAgentChat": "Chat ya Agent ya sika",
+  "chats": "Masolo ya kosolola",
+  "favorites": "Ba oyo balingaka mingi",
+  "recents": "Makambo oyo euti kosalema kala mingi te",
+  "hub": "Hub",
+  "helpSupport": "Lisalisi & Lisungi",
+  "helpUsImproveJan": "Bosunga Biso Tobongola Novera",
+  "analyticsConsentDetail": "Tosangisi ba données anonymes mpo na ko comprendre usage ya fonctionnalité. Ba chats na yo mpe ba informations personnelles na yo elandami ata moke te. Okoki kobongola yango ntango nyonso na Paramètres > Confidentialité.",
+  "analyticsConsentQuestion": "Olingi osalisa biso to bongisa Novera?",
+  "unstarAll": "Unstar Nionso",
+  "unstar": "Unstar na yango",
+  "deleteAll": "Bolongola Nyonso",
+  "star": "Monzoto",
+  "rename": "Bobongola nkombo",
+  "delete": "Sukisa",
+  "copied": "Esalemi kopi!",
+  "dataFolder": "Dossier ya ba Données",
+  "others": "Mosusu",
+  "language": "Lokótá",
+  "login": "Kokota na site",
+  "loginWith": "Kota Na {{provider}} .",
+  "loginFailed": "Elongi te Kokɔta",
+  "logout": "Bima na libanda",
+  "loggingOut": "Kobima na mikanda...",
+  "loggedOut": "Alongwaki kobima na ndako",
+  "logoutFailed": "Elongi te Kobima",
+  "profile": "Profil ya makambo",
+  "reset": "Réinitialiser lisusu",
+  "search": "Luka",
+  "searchThreads": "Boluka ba threads...",
+  "toNavigate": "mpo na kosala navigation",
+  "toSelect": "mpo na kopona",
+  "toClose": "mpo na kokanga",
+  "clearRecent": "Ezali polele",
+  "name": "Kombo",
+  "cancel": "Longola",
+  "dismiss": "Kolongolama na mosala",
+  "create": "Bokela",
+  "save": "Bomba",
+  "edit": "Bongisa",
+  "copy": "Sala kopi",
+  "back": "Kozonga sima",
+  "close": "Kanga",
+  "done": "Esili",
+  "next": "Na nsima",
+  "finish": "Silisa",
+  "skip": "Koleka",
+  "allow": "Tika nzela",
+  "deny": "Bowangana",
+  "start": "Bandá",
+  "stop": "Botika",
+  "preview": {
+    "loading": "Kofungola...",
+    "unsupported": "Novera ekoki kolakisa lolenge ya fichier oyo te. Fungola yango mpo omona yango na appli mosusu.",
+    "outside": "Fisyé oyo ezali lisusu na esika ya mosala ya session te.",
+    "tooLarge": "Munene mingi mpo na kosala aperçu. Fungola yango mpo omona yango na appli mosusu.",
+    "reload": "Recharger lisusu",
+    "allowNetwork": "Tika nzela na réseau",
+    "unsandboxed": "Tambwisa unsandboxed: ba données oyo ebombami mpe ba fichiers locales esalaka",
+    "unresolvedRefs_one": "1 fichier oyo page oyo ezo lien na yango ekoki ko charger te na aperçu. Fungola yango mpo omona yango na navigateur.",
+    "unresolvedRefs_other": "{{count}} ba fichiers oyo page oyo ezo lien na yango ekoki ko charger te na aperçu. Fungola yango mpo omona yango na navigateur.",
+    "externalRefs_one": "1 ressource page oyo ezo charger depuis web ekangami. Bofungola \"Allow network\" pona ko charger yango.",
+    "externalRefs_other": "{{count}} ba ressources page oyo ezo charger depuis web ekangami. Bofungola \"Allow network\" pona ko charger bango.",
+    "scriptErrors_one": "Lokasa yango eyebisaki libunga moko: {{message}} .",
+    "scriptErrors_other": "Lokasa yango eyebisaki mabunga ya {{count}}. Ya liboso: {{message}}"
+  },
+  "changes": {
+    "title": "Agent abongwanaka",
+    "empty": "Ba fichiers oyo agent akomi to a éditer eko lakisa awa.",
+    "a11y": "Mbongwana ya agent: {{files}} ba fichiers, {{additions}} ebakisami, {{deletions}} elongolami"
+  },
+  "modelPanel": {
+    "title": "Ba paramètres ya modèle",
+    "a11y": "Fungola ba paramètres ya modèle",
+    "contextTooltip": "Fenêtre ya contexte: {{value}} ya {{max}} jetons"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Makoki '{{name}}' ezali te",
+    "kind": {
+      "skill": "Makoki",
+      "command": "Etinda",
+      "model": "Modèle ya kosala"
+    }
+  },
+  "compactWidth": "Largeur Compacte",
+  "fullWidth": "Largeur mobimba",
+  "dark": "Molili",
+  "light": "Pole",
+  "system": "Système",
+  "auto": "Auto",
+  "english": "Lingala",
+  "medium": "Moyen ya monene",
+  "newThread": "Thread ya sika",
+  "noResultsFound": "Ba résultats ezwami te",
+  "noThreadsYet": "Nanu ba threads te",
+  "noThreadsYetDesc": "Bandá lisolo ya sika mpo na komona lisolo ya thread na yo awa.",
+  "downloads": "Ba téléchargements",
+  "downloading": "Kozwa téléchargement",
+  "uploadingAttachments": "Kotiya ba pièces jointes...",
+  "cancelDownload": "Annuler téléchargement",
+  "downloadCancelled": "Téléchargement Annulé",
+  "downloadComplete": "Télécharger Complète",
+  "thinking": "Kokanisa...",
+  "thought": "Makanisi",
+  "callingTool": "Esaleli ya kobenga",
+  "completed": "Esili",
+  "image": "Elilingi",
+  "vision": "Bomoni",
+  "multimodal": "Multimodal ya kosala",
+  "embeddings": "Ba embeddings ya biloko",
+  "tools": "Bisaleli ya kosalela",
+  "webSearch": "Bolukiluki na Internet",
+  "reasoning": "Kokanisa na makanisi",
+  "proactive": "Proactive",
+  "selectAModel": "Pona modèle moko",
+  "noToolsAvailable": "Bisaleli ezali te",
+  "noModelsFoundFor": "Modèles ezwami te mpo na \"{{searchValue}}\".",
+  "failedToLoadModels": "Elongi te ko charger ba modèles",
+  "noModels": "Ba modèles ezwami te",
+  "noAssistant": "Mosungi moko te",
+  "customAvatar": "Avatar personnalisé",
+  "editAssistant": "Mosungi ya Bobongisi",
+  "jan": "Novera",
+  "metadata": "Ba métadonnées",
+  "regenerate": "Kozongisa sika",
+  "threadImage": "Elilingi ya nsinga",
+  "editMessage": "Bobongisi Message",
+  "deleteMessage": "Bolongola Message",
+  "deleteThread": "Bolongola Thread",
+  "renameThread": "Bobongola kombo ya Thread",
+  "threadTitle": "Titre ya Thread",
+  "deleteAllThreads": "Bolongola ba Threads Nionso",
+  "allThreadsUnfavorited": "Ba Threads Nionso Ezali Infavorité",
+  "deleteAllThreadsConfirm": "Ozali sûr que olingi o supprimer ba threads nionso? Action oyo ekoki kozongisama sima te.",
+  "addProvider": "Bakisa Mopesi",
+  "addOpenAIProvider": "Bakisa OpenAI Mopesi",
+  "enterNameForProvider": "Tyá nkombo ya mopesi na yo",
+  "providerAlreadyExists": "Mopesi na kombo \"{{name}}\" azali déjà. Svp pona kombo mosusu.",
+  "adjustFontSize": "Bongisa Taille ya Font",
+  "changeLanguage": "Bobongola Monoko",
+  "editTheme": "Bobongisi Motó ya likambo",
+  "editCodeBlockStyle": "Bobongisi Style ya Bloc ya Code",
+  "editServerHost": "Bobongisi Hôte ya Serveur",
+  "pickColorWindowBackground": "Pona Couleur Fenêtre Fond",
+  "pickColorAppMainView": "Pona App ya couleur Vue principale",
+  "pickColorAppPrimary": "Pona App ya couleur Primaire",
+  "pickColorAppAccent": "Pona Accent ya App ya Couleur",
+  "pickColorAppDestructive": "Pona App ya couleur Destructive",
+  "apiKeyRequired": "API Fungola esengeli",
+  "enterTrustedHosts": "Tyá ba hôtes oyo okoki kotyela motema",
+  "placeholder": {
+    "chatInput": "Tuna ngai eloko nionso..."
+  },
+  "confirm": "Confirmer",
+  "continue": "Koba na likambo yango",
+  "loading": "Ezali ko charger...",
+  "settingUpJan": "Kosala démarrage Novera...",
+  "registeringExtensions": "Kokomisa ba extensions...",
+  "loadingExtensions": "Ba extensions ya chargement... ({{done}}/{{total}})",
+  "error": "Libunga",
+  "success": "Kolonga",
+  "warning": "Likebisi",
+  "conversationNotAvailable": "Masolo ezali te",
+  "conversationNotAvailableDescription": "Lisolo oyo ozali koluka kokɔta ezali te to elongolami.",
+  "temporaryChat": "Chat ya mwa ntango moke",
+  "temporaryChatTooltip": "Chat temporaire ekobima na histoire na yo te",
+  "noResultsFoundDesc": "Tokuti ata ba chats moko te oyo ekokani na recherche na yo. Meká liloba ya ntina mosusu.",
+  "searchModels": "Boluka ba modèles...",
+  "searchStyles": "Ba styles ya boluki...",
+  "createAssistant": "Bosala Mosungi",
+  "enterApiKey": "Tyá API Fungola",
+  "scrollToBottom": "Salá défilement tii na nse",
+  "generateAiResponse": "Kosala Eyano ya AI",
+  "continueAiResponse": "Koba na AI Response",
+  "addModel": {
+    "title": "Bakisa Modèle",
+    "modelId": "ID ya modèle",
+    "enterModelId": "Tyá ID ya Modèle",
+    "addModel": "Bakisa Modèle",
+    "description": "Bakisa modèle ya sika na fournisseur",
+    "exploreModels": "Tala liste ya modèle oyo euti na mopesi"
+  },
+  "mcpServers": {
+    "editServer": "Bobongisi Serveur",
+    "addServer": "Bakisa Serveur",
+    "serverName": "Kombo ya Serveur",
+    "enterServerName": "Tyá nkombo ya mosaleli",
+    "command": "Etinda",
+    "enterCommand": "Tyá komande",
+    "arguments": "Ba arguments",
+    "argument": "Likanisi {{index}} .",
+    "envVars": "Ba Variables ya Environnement",
+    "key": "Fungola",
+    "value": "Motuya",
+    "save": "Bomba"
+  },
+  "deleteServer": {
+    "title": "Bolongola Serveur",
+    "delete": "Sukisa"
+  },
+  "editJson": {
+    "errorParse": "Elongi te kosala parse JSON .",
+    "errorPaste": "Elongi te ko coller JSON .",
+    "errorFormat": "Format JSON ezali malamu te",
+    "titleAll": "Bobongisi Configuration ya ba Serveurs Nionso",
+    "placeholder": "Bokota na configuration ya JSON...",
+    "save": "Bomba"
+  },
+  "editModel": {
+    "title": "Modèle ya bobongisi: {{modelId}}",
+    "description": "Configurer ba capacités ya modèle en toggling ba options oyo ezali awa na se.",
+    "capabilities": "Makoki ya kosala",
+    "tools": "Bisaleli ya kosalela",
+    "vision": "Bomoni",
+    "embeddings": "Ba embeddings ya biloko",
+    "notAvailable": "Ezali naino te"
+  },
+  "outOfContextError": {
+    "truncateInput": "Kokata Entrée",
+    "title": "Libunga oyo ezali libanda ya contexte",
+    "description": "Chat oyo ezali kokoma na limite ya mémoire ya AI, lokola tableau blanc oyo ezali kotondisa. Tokoki ko augmenter fenêtre ya mémoire (oyo babengaka taille ya contexte) po e rappeler mingi, kasi ekoki kosalela mingi mémoire ya ordinateur na yo. Tokoki mpe kokata entrée, elingi koloba ekobosana mua histoire ya chat mpo na kopesa esika na ba messages ya sika.",
+    "increaseContextSizeDescription": "Olingi kobakisa bonene ya contexte?",
+    "increaseContextSize": "Bobakisa Taille ya Contexte"
+  },
+  "toolApproval": {
+    "title": "Bosengi ya Ndingisa ya Esaleli",
+    "description": "Mosungi alingi kosalela <strong>{{toolName}}</strong> .",
+    "securityNotice": "Tika kaka bisaleli oyo otyelaka motema. Bisaleli ekoki ko accéder na système na yo na ba données.",
+    "deny": "Bowangana",
+    "allowOnce": "Tika Mbala moko",
+    "alwaysAllow": "Tika ntango nyonso"
+  },
+  "deleteModel": {
+    "title": "Kolongola Modèle: {{modelId}}",
+    "description": "Ozali sûr que olingi o supprimer modèle oyo? Action oyo ekoki kozongisama sima te.",
+    "success": "Modèle {{modelId}} elongolami mpo na libela.",
+    "cancel": "Longola",
+    "delete": "Sukisa"
+  },
+  "deleteProvider": {
+    "title": "Bolongola Mopesi",
+    "description": "Bolongola fournisseur oyo na ba modèles na ye nionso. Action oyo ekoki kozongisama sima te.",
+    "success": "Mopesi {{provider}} alongolami mpo na libela.",
+    "confirmTitle": "Bolongola Mopesi: {{provider}}",
+    "confirmDescription": "Ozali sûr que olingi o supprimer fournisseur oyo? Action oyo ekoki kozongisama sima te.",
+    "cancel": "Longola",
+    "delete": "Sukisa"
+  },
+  "modelSettings": {
+    "title": "Paramètres ya modèle - {{modelId}}",
+    "description": "Configurer ba paramètres ya modèle pona ko optimiser performance na comportement.",
+    "nglDisabledByFit": "Auto-fit ezali kopona GPU couches. Boma Auto-fit mpo na kosala yango na maboko.",
+    "samplingDefaults": {
+      "title": "Ba paramètres ya échantillonnage par défaut",
+      "description": "Paramètres ya échantillon par défaut pona modèle oyo. Esalemi longola se soki elongolami na motuya ya mosungi moko to ya bosengi moko."
+    },
+    "specDraft": {
+      "section": "Décodage ya spéculatif",
+      "enable": "Activer décodage spéculatif",
+      "enableDescription": "Bosala ba jetons ebele na étape moko pe bo vérifier yango na passe moko, oyo esala que génération esala mbangu. Esalelaka mitó ya MTP oyo etongami na kati ya modèle, to modèle ya projet oyo ezwami na yango (MTP, Eagle3, DFlash to DSpark).",
+      "nMax": "Max ba jetons ya projet",
+      "nMaxDescription": "Motango ya likolo ya ba jetons oyo esengeli kosala draft na étape moko. Likambo ya liboso 16.",
+      "nMin": "Min ba jetons ya projet",
+      "nMinDescription": "Motango ya moke ya ba jetons oyo esengeli kosala draft na étape moko. Na ndenge ya liboso 0.",
+      "pMin": "Min probabilité ya projet",
+      "pMinDescription": "Probabilité minimum mpo na kosala ba rédactions ya lokoso (0–1). Na ndenge ya liboso 0,75."
+    },
+    "templateKwargs": {
+      "section": "Options ya modèle ya chat",
+      "description": "Options supplémentaires modèle ya chat ya modèle oyo endimi. Etindami lokola chat_template_kwargs na bosengi moko na moko; tika valeur na défaut na yango pona kotika modèle e décider.",
+      "addCustom": "Bakisa option personnalisée",
+      "keyPlaceholder": "nkombo",
+      "valuePlaceholder": "motuya na yango",
+      "add": "Bakisa",
+      "cancel": "Longola",
+      "remove": "Longola yango"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Ekoki te kosala mikolo oyo ba paramètres ya modèle"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Bobongola Esika ya Dossier ya Ba Données",
+      "description": "Ozali sûr que olingi o changer esika ya dossier ya ba données? Yango ekokende na ba données na yo nionso na esika ya sika mpe ekobanda lisusu application.",
+      "currentLocation": "Esika ya lelo:",
+      "newLocation": "Esika ya sika:",
+      "cancel": "Longola",
+      "changeLocation": "Bobongola Esika"
+    },
+    "deleteAllThreads": {
+      "title": "Bolongola ba Threads Nionso",
+      "description": "Ba threads nionso ekozala effacé. Action oyo ekoki kozongisama sima te."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Bolongola Masolo Nyonso",
+      "description": "{{count}} masolo na \"{{projectName}}\" ekolongolama. Action oyo ekoki kozongisama sima te."
+    },
+    "deleteThread": {
+      "description": "Ozali sûr que olingi o supprimer thread oyo? Action oyo ekoki kozongisama sima te."
+    },
+    "editMessage": {
+      "title": "Bobongisi Message"
+    },
+    "messageMetadata": {
+      "title": "Ba Métadonnées ya Message"
+    },
+    "deleteMessage": {
+      "description": "Ozali sûr que olingi o supprimer message oyo? Action oyo ekoki kozongisama sima te."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Eloko moko ekendeki mabe",
+    "details": "Makambo ya mikemike"
+  },
+  "missingDependenciesDialog": {
+    "title": "Ba Bibliothèques ya Système oyo ezangi",
+    "description": "{{backend}} etiamaki kasi ba bibliothèques mosusu ya système oyo esengeli ezwamaki te. Ekoki kozonga sima na CPU to kotambola malamu te.",
+    "installLabel": "Mpo na kobongisa yango, tyá makambo oyo elandi:",
+    "download": "Kitisa",
+    "additionalLibraries": "Ba bibliothèques mosusu oyo ezangi:",
+    "missingLibraries": "Ba bibliothèques oyo ezangi:",
+    "showRawLibraries": "Lakisa {{count}} ba kombo ya bibliothèque oyo ezangi"
+  },
+  "projects": {
+    "title": "Misala ya kosala",
+    "new": "Ba Projets ya Sika",
+    "addProject": "Bakisa Projet",
+    "addToProject": "Bakisa na projet",
+    "removeFromProject": "Longola na projet",
+    "createNewProject": "Bosala Projet ya Sika",
+    "editProject": "Projet ya Bobongisi",
+    "deleteProject": "Bolongola Projet",
+    "projectName": "Kombo ya Projet",
+    "enterProjectName": "Tyá nkombo ya mosala...",
+    "noProjectsAvailable": "Ba projets ezali te",
+    "noProjectsYet": "Naino ba Projets te",
+    "noProjectsYetDesc": "Bandá mosala ya sika na kofinaka butɔ Bakisa mosala.",
+    "projectNotFound": "Projet Ezwami Te",
+    "projectNotFoundDesc": "Projet oyo ozali koluka ezali te to elongolami.",
+    "selectAssistant": "Pona mosungi",
+    "noAssistantAssigned": "Mosungi moko te apesameli mosala oyo",
+    "files": "Ba fichiers",
+    "filesDescription": "Bakisa ba PDF, mikanda, to makomi mosusu mpo na kosala référence na projet oyo.",
+    "uploadingFiles": "Traitement ya ba fichiers...",
+    "processButton": "Bakisa",
+    "deleteProjectDialog": {
+      "title": "Bolongola Projet",
+      "permanentDelete": "Yango ekolongola libela ba threads nionso.",
+      "permanentDeleteWarning": "Action oyo eko effacer libela ba threads NIOSO na kati ya projet!",
+      "deleteEmptyProject": "Action oyo eko effacer projet \"{{projectName}}\".",
+      "saveThreadsAdvice": "Pona kobomba ba threads, kende na liste ya ba threads na yo to na projet mosusu avant ya ko effacer.",
+      "starredWarning": "Ozali kaka na ba threads étoiles na kati ya projet.",
+      "deleteButton": "Sukisa",
+      "successWithName": "Projet \"{{projectName}}\" elongolami na elonga",
+      "successWithoutName": "Projet elongolami na elonga",
+      "error": "Elongi te ko effacer projet. Svp meka lisusu.",
+      "ariaLabel": "Bolongola {{projectName}} ."
+    },
+    "addProjectDialog": {
+      "createTitle": "Bosala Projet ya Sika",
+      "editTitle": "Projet ya Bobongisi",
+      "nameLabel": "Kombo ya Projet",
+      "namePlaceholder": "Tyá nkombo ya mosala...",
+      "assistant": "Mosungi ya mosala",
+      "selectAssistant": "Pona mosungi (na bolingi) .",
+      "noAssistant": "Mosungi moko te",
+      "addAssistant": "Bakisa Mosungi",
+      "createButton": "Bokela",
+      "updateButton": "Mikolo oyo",
+      "alreadyExists": "Projet \"{{projectName}}\" ezali déjà",
+      "createSuccess": "Projet \"{{projectName}}\" esalemi na elonga",
+      "updateSuccess": "Projet \"{{projectName}}\" ebongwani",
+      "saveError": "Ekokaki kobikisa projet te. Svp meka lisusu."
+    },
+    "noConversationsIn": "Masolo te na {{projectName}} .",
+    "startNewConversation": "Bandá lisolo ya sika na {{projectName}} na nse",
+    "conversationsIn": "Masolo na {{projectName}} .",
+    "conversationsDescription": "Finá na lisolo nyonso mpo na kokoba kosolola, to banda ya sika na nse.",
+    "conversation": "Lisolo ya lisolo",
+    "instructions": "Malako",
+    "setup": "Setup ya kosala",
+    "instructionsDescription": "Personnaliser ton na style ya réponse",
+    "manageInstructions": "Gérer ba Instructions",
+    "thread": "nsinga ya nsinga",
+    "threads": "ba fils ya ba fils",
+    "updated": "Mikolo oyo:",
+    "collapseProject": "Projet ya kokweya",
+    "expandProject": "Bopanzana ya projet",
+    "update": "Mikolo oyo",
+    "searchProjects": "Boluka ba projets...",
+    "noProjectsFound": "Ba projets moko te ezwami",
+    "tryDifferentSearch": "Meká liloba mosusu ya kolukaluka"
+  },
+  "attachmentsIngestion": {
+    "title": "Pona ndenge ya ko ingérer ba attachement",
+    "description": "Pona soki okotia ba fichiers oyo directement na chat to o indexer yango lokola ba embeddings na esika na yango.",
+    "inline": "Injecter na kati ya chat",
+    "embeddings": "Salelá ba embeddings"
+  },
+  "attachmentInjectedIndicator": "Injecté na kati ya chat",
+  "attachmentEmbeddedIndicator": "Embedded mpo na RAG",
+  "viewInjectedContent": "Tala makambo oyo ba injecter",
+  "injectedContentTitle": "Contenu ya fichier injecté",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Ba Threads Nionso Ezali Infavorité",
+      "description": "Ba threads nionso elongolami na ba oyo olingaka mingi."
+    },
+    "deleteAllThreads": {
+      "title": "Bolongola ba Threads Nionso",
+      "description": "Ba threads nionso elongolami libela."
+    },
+    "renameThread": {
+      "title": "Bobongola kombo ya Thread",
+      "description": "Titre ya thread ebongwani kombo na yango na '{{title}}'."
+    },
+    "deleteThread": {
+      "title": "Bolongola Thread",
+      "description": "Thread oyo elongolami mpo na libela."
+    },
+    "errorCopied": {
+      "title": "Copie elongi",
+      "description": "Ba information ya erreur e copier na clipboard"
+    },
+    "errorCopyFailed": {
+      "title": "Elongi te kosala kopi",
+      "description": "Elongi te kosala kopi ya ba information ya erreur na clipboard"
+    },
+    "editMessage": {
+      "title": "Bobongisi Message",
+      "description": "Message ebongolamaki malamu. Svp bozela modèle a répondre."
+    },
+    "appUpdateDownloaded": {
+      "title": "Mikolo ya sika ya App Téléchargé",
+      "description": "Mikolo oyo ya app esili kozwama malamu."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Téléchargement ya mise à jour ya app elongi te",
+      "description": "Elongi te ko télécharger mise à jour ya app. Svp meka lisusu."
+    },
+    "downloadComplete": {
+      "title": "Télécharger Complète",
+      "description": "{{item}} esili kozwama"
+    },
+    "downloadCancelled": {
+      "title": "Téléchargement Annulé",
+      "description": "Processus ya téléchargement e annulé"
+    },
+    "downloadFailed": {
+      "title": "Téléchargement Elongi te",
+      "description": "{{item}} téléchargement elongi te",
+      "descriptionWithReason": "{{item}} téléchargement elongi te: {{reason}}",
+      "reason": {
+        "dns": "kombo ya serveur ekokaki kosila te",
+        "refused": "boyokani yango eboyamaki",
+        "timeout": "connexion yango esilaki",
+        "tls": "boyokani ya libateli ekokaki kosalama te",
+        "proxy": "proxy ekokaki kozwama te",
+        "unreachable": "serveur ekokaki kozwama te"
+      }
+    },
+    "openSettings": "Fungola Paramètres",
+    "openLogs": "Fungola ba journals",
+    "downloadTokenRequired": {
+      "title": "Hugging Face jeton esengeli",
+      "description": "Modèle oyo esengaka jeton ya accès Hugging Face. Bakisa token na yo na Paramètres mpe meka lisusu."
+    },
+    "downloadLicenseRequired": {
+      "title": "Ndima licence ya modèle na Hugging Face",
+      "description": "Esengeli ondima licence ya modèle na page na yango Hugging Face avant o télécharger."
+    },
+    "downloadRateLimited": {
+      "title": "Taux limité na Hugging Face .",
+      "description": "Ozalaki na taux-limité. Kobakisa jeton ekoki komatisaka ba limite ya taux. Svp meka lisusu sima."
+    },
+    "modelValidationStarted": {
+      "title": "Modèle ya ko valider",
+      "description": "Téléchargé modèle \"{{modelId}}\" na elonga. Ko vérifier intégrité..."
+    },
+    "modelValidationFailed": {
+      "title": "Validation ya modèle elongi te",
+      "description": "Modèle oyo e téléchargé \"{{modelId}}\" elongaki te vérification ya intégrité mpe elongolamaki. Fisyé ekoki kobebisama to kobongola yango."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Télécharger Complète",
+      "description": "Modèle \"{{item}}\" e téléchargé pe e vérifié na succès"
+    },
+    "projectCreated": {
+      "title": "Projet Esalemi",
+      "description": "Projet \"{{projectName}}\" esalemi na elonga"
+    },
+    "projectRenamed": {
+      "title": "Projet Ebongwani na nkombo mosusu",
+      "description": "Projet ebongwani kombo ya \"{{oldName}}\" na \"{{newName}}\"."
+    },
+    "projectDeleted": {
+      "title": "Projet Elongolami",
+      "description": "Projet \"{{projectName}}\" elongolami na elonga"
+    },
+    "projectAlreadyExists": {
+      "title": "Projet Ezali Déjà",
+      "description": "Projet \"{{projectName}}\" ezali déjà"
+    },
+    "projectDeleteFailed": {
+      "title": "Kolongola Elongi te",
+      "description": "Elongi te ko effacer projet. Svp meka lisusu."
+    },
+    "threadAssignedToProject": {
+      "title": "Thread Epesameli",
+      "description": "Thread oyo epesami na \"{{projectName}}\" na elonga"
+    },
+    "threadRemovedFromProject": {
+      "title": "Thread Elongolami",
+      "description": "Thread elongolami na \"{{projectName}}\" na elonga"
+    },
+    "fileUploaded": {
+      "title": "Fichier oyo esalemi",
+      "description": "Fichier esalemi mpe esili kosala index na elonga"
+    },
+    "uploadFailed": {
+      "title": "Traitement Elongi te",
+      "description": "Elongi te kosala fichier",
+      "subjectThisFile": "Fisyé oyo",
+      "pdfMalformedXref": "{{subject}} ezali na tableau ya référence croisée PDF oyo esalemi malamu te mpe ekokaki ko parser te. Meka kofungola yango na PDF viewer mpe kobomba yango lisusu (Fichier → Imprimer → Bomba lokola PDF), sima ko uploader lisusu.",
+      "pdfScanned": "{{subject}} emonani lokola PDF oyo esalemi na scanner to oyo esalemi na bilili. OCR esungami naino te — tosengi otia PDF oyo esalemi na makomi.",
+      "pdfEncrypted": "{{subject}} ezali na mot de passe. Longola mot de passe mpe meka lisusu.",
+      "pdfUnsupportedFeature": "{{subject}} esalelaka fonctionnalité PDF Novera ekoki nanu ko parser te (e.g. ba fonctions ya couleur/shading ya PostScript). Meka kobomba yango lisusu (Fichier → Imprimer → Bomba lokola PDF) mpo na ko plat, sima ko uploader lisusu.",
+      "pdfGeneric": "{{subject}} ekokaki te ko parser lokola PDF. Fisyé ekoki kobeba to kosalela eloko oyo esungami te PDF.",
+      "fileTooLarge": "{{subject}} ezali monene mingi. {{message}}.",
+      "unsupportedType": "Lolenge ya fisyé \"{{type}}\" esimbami te.",
+      "ioError": "Ekoki kotanga te {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} ekokaki kozala parsés te: {{message}}",
+      "fallback": "Elongi te kosala {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Fichier Elongolami",
+      "description": "Fichier elongolami na projet"
+    },
+    "deleteFailed": {
+      "title": "Kolongola Elongi te",
+      "description": "Elongi te kosilisa fisyé"
+    },
+    "fileAlreadyExists": {
+      "title": "Fichier Ezali Déjà",
+      "description": "Fichier ezali déjà attaché na projet oyo"
+    },
+    "unsupportedFileType": {
+      "title": "Lolenge ya Fisyé oyo esungami te",
+      "description": "Bobakisi ya fisyé \".{{extension}}\" esungami te mpo na botalisi ya Projet."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Ba pièces jointes e désactivé",
+      "description": "Ba pièces jointes ezali désactivée na Paramètres"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Fichier ya monene mingi",
+    "fileTooLargeDescription": "{{fileName}} eleki ndelo ya {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} biteni ya biloko",
+    "title": "Ba fichiers",
+    "empty": "Ba fichiers oyo o attache na ba fichiers oyo agent a créer eko lakisa awa.",
+    "a11y": "Ba fisyé: {{count}}",
+    "attachments": "Ba attachements oyo ezali na kati",
+    "notImported": "na esika ya mosala te"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp azali kaka na mosala mingi",
+    "description": "Modèle moko to mingi e déchargeaki te na tango. Kotika na makasi ekosila llama.cpp mpe ekoki kokata biyano ya mosala.",
+    "forceQuit": "Force etikalaki",
+    "forcing": "Force kotika...",
+    "shuttingDown": "Kokanga..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Kokwea ya kokwea",
+  "expand": "Bopanzana",
+  "todoPanelTitle": "Bokoli",
+  "todoPanelEmpty": "Liste ya todo te nanu.",
+  "backgroundTasks": "Misala ya sima",
+  "subagentsRunning_one": "{{count}} sous-agent oyo ezali kosala",
+  "subagentsRunning_other": "{{count}} ba sous-agents oyo ezali kosala",
+  "monitorsRunning_one": "{{count}} monitore obt",
+  "monitorsRunning_other": "{{count}} monitory na pozadí",
+  "backgroundRunning_one": "{{count}} mosala ya sima ezali kotambola",
+  "backgroundRunning_other": "{{count}} misala ya sima ezali kotambola",
+  "monitors": "Bamoniteurs",
+  "monitorPolling": "Kosala ba sondages",
+  "monitorMatched": "Ekokani na yango",
+  "monitorTimedOut": "Ntango esilaki",
+  "monitorStopped": "Atelemaki",
+  "monitorEnded": "Esili",
+  "coworkWatching_one": "Botala {{count}} monitor...",
+  "coworkWatching_other": "Botala {{count}} monitory...",
+  "coworkWaitingBackground": "Kozela na misala ya sima...",
+  "noBackgroundTasks": "Misala ya sima naino te.",
+  "running": "Kokima mbangu",
+  "queued": "Bazali kosala molɔngɔ",
+  "waiting": "Kozela",
+  "finished": "Esili",
+  "subagentPhase": "eteni {{phase}} .",
+  "subagentWaiting": "kozela",
+  "viewTranscript": "Tala transcript oyo ekomamaki",
+  "taskWorking": "Kosala...",
+  "taskNoOutput": "Sous-agent ebimisaki sortie oyo emonanaka te.",
+  "subagentToolUses_one": "{{count}} kosalela esaleli",
+  "subagentToolUses_other": "{{count}} esaleli esalela",
+  "artifactGroupCode": "Code",
+  "artifactGroupImage": "Elilingi",
+  "artifactGroupDocument": "Mokanda",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Fungola aperçu ya liboso",
+  "artifactOpenExternal": "Fungola",
+  "artifactMoreActions": "Misala mingi",
+  "artifactShowInFolder": "Lakisa na Dossier",
+  "skillsUsedLabel": "Makoki oyo basaleli",
+  "skillsUsed": "Makoki oyo basaleli: {{skills}}",
+  "artifactsAll": "Nyonso",
+  "artifactsEmpty": "Eloko moko te ebimi naino. Ba artifacts ya Cowork courses ezo monana awa.",
+  "artifactsNoMatch": "Biloko moko te ya kala ekokani.",
+  "artifactsSearch": "Luka biloko ya kala",
+  "artifactsShowMore": "Lakisa {{count}} mingi",
+  "workspace": {
+    "readsFrom": "Asalaka na",
+    "writable": "kotanga & kokoma",
+    "footnote": "Agent atangi pe abongoli dossier oyo directement. Tala oyo ebongwanaki na panneau ya diff.",
+    "footnoteEmpty": "Bokanga dossier moko mpo na kotika agent asala na projet na yo. Ekoki kotanga mpe kobongisa ba fichiers oyo ezali na kati na yango.",
+    "attach": "Bokanga dossier moko",
+    "change": "Bobongola dossier",
+    "detach": "Kolongola dossier",
+    "open": "Fungola",
+    "reveal": "Bimisá yango",
+    "unavailable": "Esika ya mosala ezali te",
+    "missing": "Dossier ya esika ya mosala {{folder}} ezali lisusu te. Pona dossier mosusu.",
+    "openFailed": "Ekokaki kofungola esika ya mosala te",
+    "revealFailed": "Ekokaki te kobimisa esika ya mosala",
+    "a11yWithFolder": "Dossier ya projet {{folder}}, ekangami na accès ya kotanga pe kokoma. Bobongola to bolongola yango.",
+    "a11yNoFolder": "Dossier ya projet moko te ekangami. Bokanga moko."
+  },
+  "coworkEmpty": {
+    "title": "Tozali kosala nini?",
+    "subtitleSandbox": "Pesa Novera mosala moko. Ezali kotanga mpe kokoma ba fichiers, kosala ba commandes, mpe kosala na ba étapes yango moko.",
+    "subtitleFolder": "Pesa Novera mosala moko. Esalaka directement na {{folder}}, kotanga pe kobongisa ba fichiers yango moko.",
+    "try": "Meká kosala bongo",
+    "sandbox": {
+      "first": "Kokoma script ya Python oyo ezo changer ba fichiers kombo na date oyo ezuami",
+      "second": "Tongela tableau de bord ya lokasa moko na CSV nako coller na kati",
+      "third": "Bosala projet ya README pona projet moko na décrire bino"
+    },
+    "folder": {
+      "first": "Limbola ndenge nini {{folder}} etiamaki esika moko",
+      "second": "Luka TODO nionso na {{folder}} pe grouper yango na etando",
+      "third": "Kokoma ba tests pona partie ya {{folder}} na pointer yo"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Terminal te",
+    "a11y": "Kosala ba commandes ekangami. Makambo ya mike.",
+    "title": "Kosala ba commandes ekangami",
+    "body": "Novera e permettre agent asala ba commandes ya shell kaka tango système na yo ekoki ko confiner yango. Sandbox moko te ezali awa, yango wana agent akoki kotanga, kokoma mpe kobongisa ba fichiers na sandbox na ye — kasi kosala eloko moko te.",
+    "fixLinux": "Linux esalelaka bubblewrap. Botia yango, sima bobandi lisusu Novera.",
+    "fixMac": "macOS esalelaka boîte de sable oyo etongami na kati na /usr/bin/sandbox-exec. Kobanda lisusu Novera mbala moko ekozala.",
+    "fixWindows": "Windows esalelaka AppContainer. Bandá lisusu Novera mpo na komeka lisusu.",
+    "recheck": "Talá lisusu"
+  },
+  "planMode": {
+    "label": "Bongisá mwango",
+    "tooltipOff": "Planifier liboso — agent atangi pe a proposer, sans kokoma.",
+    "tooltipOn": "Kosala mwango. Boma oyo mpo na kotika agent akoma ba fichiers.",
+    "onAnnounce": "Mode ya plan na",
+    "placeholder": "Sɛngá mwango. Agent ako changer ba fichiers moko te."
+  },
+  "budget": {
+    "stoppedSteps": "Etelemaki na {{max}} matambe. Agent asili n’ango te.",
+    "keepGoing": "Kobá kokende liboso",
+    "stoppedTokens": "Stopped — session oyo ebetaki budget na yango ya jeton.",
+    "compact": "Compact ezali",
+    "newSession": "Session ya sika"
+  },
+  "run": {
+    "stopped": "Atelemaki.",
+    "failed": "Kokima mbangu etelemaki liboso.",
+    "tryAgain": "Meká lisusu"
+  },
+  "modelNoTools": "{{model}} ekoki kobenga bisaleli te, yango wana ekoki kosala lokola agent te. Pona modèle ya kobenga bisaleli.",
+  "askContinue": "Koba na likambo yango",
+  "askNext": "Motuna oyo elandi",
+  "askPrev": "Motuna ya liboso",
+  "askRecommended": "Epesameli toli",
+  "askSelectedCount": "{{count}} eponami",
+  "askSomethingElse": "Eloko mosusu",
+  "askSomethingElsePlaceholder": "Tyá eyano na yo moko",
+  "submit": "Botindela biso",
+  "composer": {
+    "advanced": "Ba paramètres ya liboso",
+    "modelDefaults": "Ba défauts ya modèle",
+    "assistantOverrides": "Assistant azali kosala ba overrides",
+    "printPdf": "Imprimer / Bomba lokola PDF .",
+    "exportHint": "Ba formats oyo ekoki kotangama: filiale active. JSON: ba versions nionso ya message. Ba fichiers ya libanda ezali bundled te."
+  },
+  "telemetry": {
+    "summary": "Na ndingisa na yo, {{host}} ezuaka kaka version Novera mpe système d’exploitation, sans masolo to identifiant persistant.",
+    "unavailable": "Ba statistiques ezali configuré te. Ba données moko te etindamaka."
+  },
+  "errorTracking": {
+    "title": "Kolanda mabunga",
+    "summary": "Ba rapports optionnels na {{host}}: type ya erreur, position ya code, version na système d’exploitation. Masolo te, ba messages ya erreur brute to ba clés te. Désactiver tango nionso.",
+    "unavailable": "Suivi ya ba erreurs e configuré te. Ba rapports etindamaka te."
+  }
+}

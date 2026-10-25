@@ -2,6 +2,10 @@
 
 Les entrées ci-dessous décrivent des étapes datées. Elles ne remplacent pas [l’état courant des sources et du binaire](../TABLEAU_DE_BORD_NOVERA.md). Les journaux bruts, caches et exécutables restent locaux.
 
+## 25 octobre — dix locales supplémentaires
+
+Ajout de yo, bho, cjy, nan, my, arq, hak, ln, ary et or : **50 catalogues à 1 516 clés chacun**, avec 15 160 nouvelles entrées. Registres, détection système, persistance, RTL et formats régionaux raccordés. Les méthodes et le partage de textes techniques des variantes éditoriales sont détaillés dans [Langues](LANGUAGES.md) ; relecture native et approfondissement vernaculaire restent ouverts. Les 40 anciens catalogues sont conservés. Validation finale : 757 tests ciblés dans 45 fichiers, TypeScript sans émission, catalogues/architecture sans erreur et 175 liens locaux valides. Retrait de 2 904 préfixes parasites dans les brouillons bhojpuri/lingala, avec garde de régression. Aucune compilation applicative ni activation de CI.
+
 ## 25 octobre — quatre locales supplémentaires
 
 Ajout du gujarati, kannada, arabe levantin et arabe soudanais : **40 catalogues**, chacun à **1 516/1 516 clés**. Sélecteur, typage, détection système, persistance, formats régionaux et RTL sont raccordés. Méthodes et limites linguistiques dans [Langues](LANGUAGES.md). Les 36 anciens catalogues sont inchangés ; relecture native des nouveaux textes ouverte. Validation : 660 tests ciblés réussis dans 45 fichiers, TypeScript sans émission, catalogues et architecture sans erreur. Aucune compilation applicative, modification de profil ou activation de CI pour cet ajout.

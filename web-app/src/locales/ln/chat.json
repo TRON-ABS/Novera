@@ -1,0 +1,50 @@
+{
+  "welcome": "Salut, ozali ndenge nini?",
+  "description": "Ndenge nini nakoki kosalisa yo lelo?",
+  "temporaryChat": "Chat ya mwa ntango moke",
+  "temporaryChatDescription": "Bandá lisolo ya mwa ntango moke oyo ekobombama te na lisolo na yo ya kosolola.",
+  "status": {
+    "empty": "Ba Chats Ezwami Te"
+  },
+  "sendMessage": "Tinda Message",
+  "newConversation": "Lisolo ya Sika",
+  "clearHistory": "Histoire ya polele",
+  "embeddings": {
+    "title": "Kobongisa mikanda na yo",
+    "description": "Kosala index ya ba fichiers oyo ekangami mpo ete bakoka koluka mpe ko citer yango. Yango ekoki kozwa mwa ntango mpo na mikanda ya minene."
+  },
+  "actions": {
+    "regenerate": "Bozongisa eyano",
+    "askAgain": "Tuna lisusu",
+    "continue": "Koba kobimisa",
+    "remember": "Kobosana te likambo oyo",
+    "rememberSaved": "Ebombami na mémoire lokola \"{{name}}\".",
+    "rememberExists": "Déjà na mémoire lokola \"{{name}}\".",
+    "rememberFailed": "Ekoki te kobomba na mémoire"
+  },
+  "done": "Esili",
+  "webSources": "{{count}} liziba (ba)",
+  "reasoning": {
+    "label": "Kokanisa makanisi...",
+    "thinking": "Kokanisa",
+    "working": "Kosala...",
+    "showFullTimeline": "Lakisa ntango mobimba",
+    "showCurrentStep": "Lakisa kaka étape ya lelo",
+    "thoughtForAWhile": "Akanisaki na boumeli ya mwa basegɔnde",
+    "thoughtFor": "Ekanisami mpo na {{duration}}",
+    "workedForAWhile": "Asalaki na boumeli ya mwa basegɔnde",
+    "workedFor": "Asalaki mpo na {{duration}} ."
+  },
+  "messageActions": {
+    "previousVersion": "Version ya kala",
+    "nextVersion": "Version oyo elandi",
+    "generationFailed": "Generation elongaki te"
+  },
+  "messageStats": {
+    "details": "Statistiques ya génération",
+    "generation": "Nkola ya nkola",
+    "reading": "Kotánga",
+    "tokens": "Ba jetons",
+    "perSecond": "bilembo/ba bilembo"
+  }
+}

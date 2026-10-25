@@ -1,10 +1,10 @@
 # Langues d’interface Novera
 
-État du **25 octobre 2026** : **40 locales sélectionnables**, chacune à **1 516/1 516 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
+État du **25 octobre 2026** : **50 locales sélectionnables**, chacune à **1 516/1 516 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
 
 ## Règle pour tout texte visible
 
-Tout texte d’interface ajouté **ou modifié** doit être traduit dans les 40 locales dans la même modification : boutons, infobulles, menus, aides, confirmations, succès et erreurs. Le repli anglais ne remplace pas une traduction. Préserver variables, littéraux de code et identifiants techniques ; actualiser [language-support.json](language-support.json) puis exécuter depuis la racine :
+Tout texte d’interface ajouté **ou modifié** doit être traduit dans les 50 locales dans la même modification : boutons, infobulles, menus, aides, confirmations, succès et erreurs. Le repli anglais ne remplace pas une traduction. Préserver variables, littéraux de code et identifiants techniques ; actualiser [language-support.json](language-support.json) puis exécuter depuis la racine :
 
 ```sh
 python scripts/check-novera-locales.py
@@ -26,13 +26,21 @@ Le gujarati et le kannada sont des brouillons assistés par Google Translate, av
 
 **Couverture des clés complète ; relecture native non effectuée.** Les anciens catalogues ne sont pas modifiés. Aucun nouveau binaire n’est construit pour cet ajout.
 
+## Dix langues supplémentaires — 25 octobre 2026
+
+Yoruba (`yo`), bhojpuri (`bho`), jin/jinyu (`cjy`), min nan (`nan`), birman (`my`), arabe algérien (`arq`), hakka (`hak`), lingala (`ln`), arabe marocain (`ary`) et odia (`or`) ajoutent **15 160 entrées dans 140 fichiers**. Les 50 catalogues ont chacun les 1 516 clés anglaises actuelles. Les choix sont reliés au sélecteur, à la persistance et à la détection système. Algérien et marocain utilisent RTL et les formats régionaux ; jin, min nan et hakka ont des formats chinois compatibles avec Intl, sans prétendre que ces formats localisent tous leurs usages régionaux.
+
+Yoruba, bhojpuri, birman, lingala et odia : brouillons Google Translate, littéraux protégés et corrections ciblées. Les cinq autres catalogues sont des **adaptations éditoriales écrites**, avec une terminologie technique commune aux catalogues arabe/chinois existants. Ils ne constituent pas une traduction Google dans ces variantes. Les sources et limites du service sont dans la [liste officielle](https://docs.cloud.google.com/translate/docs/languages).
+
+Pour rendre cette limite vérifiable, sur 1 516 entrées : jin en adapte 221 et en partage 1 295 avec le chinois simplifié ; min nan et hakka en adaptent chacun 325 et en partagent 1 191 avec le chinois traditionnel ; algérien et marocain en adaptent chacun 317 et en partagent 1 199 avec l’arabe technique. Les consignes de démarrage, actions et confidentialité disposent de formulations distinctes. **Clés présentes à 100 % ne signifie pas traduction vernaculaire intégrale certifiée.** La relecture et l’approfondissement par des locuteurs natifs restent nécessaires, en particulier pour ces cinq variantes. Aucun ancien catalogue ni profil utilisateur n’est modifié, aucun binaire recompilé.
+
 <a id="system-language"></a>
 
 ## Langue système et direction
 
 Sans préférence sauvegardée, le premier démarrage choisit la langue système prise en charge puis l’enregistre. Un changement manuel remplace ce choix pour les démarrages suivants. La correspondance linguistique appartient à l’interface ; la lecture de locale native au service de plateforme. Le réglage sauvegardé reste prioritaire.
 
-Arabe, arabe égyptien, arabe levantin, arabe soudanais, ourdou, pendjabi occidental et persan iranien utilisent une interface droite à gauche, synchronisée avec les métadonnées du document et les menus/dialogues Radix. URL, courriels et nombres techniques restent gauche à droite ; les champs de texte libre ont une direction automatique.
+Arabe, arabe égyptien, arabe levantin, arabe soudanais, arabe algérien, arabe marocain, ourdou, pendjabi occidental et persan iranien utilisent une interface droite à gauche, synchronisée avec les métadonnées du document et les menus/dialogues Radix. URL, courriels et nombres techniques restent gauche à droite ; les champs de texte libre ont une direction automatique.
 
 ## Complete selector inventory
 
@@ -78,12 +86,22 @@ Arabe, arabe égyptien, arabe levantin, arabe soudanais, ourdou, pendjabi occide
 | `kn` | Kannada | ಕನ್ನಡ | LTR | 1516 / 1,516 | Novera — draft, native review pending |
 | `apc` | Levantine Arabic | عربي شامي | RTL | 1516 / 1,516 | Novera — draft, native review pending |
 | `apd` | Sudanese Arabic | عربي سوداني | RTL | 1516 / 1,516 | Novera — draft, native review pending |
+| `yo` | Yoruba | Yorùbá | LTR | 1516 / 1,516 | Novera — draft, native review pending |
+| `bho` | Bhojpuri | भोजपुरी | LTR | 1516 / 1,516 | Novera — draft, native review pending |
+| `cjy` | Jin Chinese | 晋语 | LTR | 1516 / 1,516 | Novera — draft, native review pending |
+| `nan` | Min Nan Chinese | 閩南語 | LTR | 1516 / 1,516 | Novera — draft, native review pending |
+| `my` | Burmese | မြန်မာ | LTR | 1516 / 1,516 | Novera — draft, native review pending |
+| `arq` | Algerian Arabic | دارجة جزائرية | RTL | 1516 / 1,516 | Novera — draft, native review pending |
+| `hak` | Hakka Chinese | 客家話 | LTR | 1516 / 1,516 | Novera — draft, native review pending |
+| `ln` | Lingala | Lingála | LTR | 1516 / 1,516 | Novera — draft, native review pending |
+| `ary` | Moroccan Arabic | الدارجة المغربية | RTL | 1516 / 1,516 | Novera — draft, native review pending |
+| `or` | Odia | ଓଡ଼ିଆ | LTR | 1516 / 1,516 | Novera — draft, native review pending |
 
 <a id="roadmap-100"></a>
 
 ## Feuille de route historique des 100 langues
 
-Le tableau de planification ci-dessous conserve ses 100 langues ; l’état d’intégration et l’ordre des travaux sont actualisés. Ses estimations de locuteurs mélangent les relevés 2025/2026 et ne constituent ni un classement officiel actualisé ni 100 langues prises en charge. Les 40 locales effectives sont celles de l’inventaire ci-dessus. Portugal et Brésil ont des catalogues distincts mais ne comptent pas deux langues dans ce classement.
+Le tableau de planification ci-dessous conserve ses 100 langues ; l’état d’intégration et l’ordre des travaux sont actualisés. Ses estimations de locuteurs mélangent les relevés 2025/2026 et ne constituent ni un classement officiel actualisé ni 100 langues prises en charge. Les 50 locales effectives sont celles de l’inventaire ci-dessus. Portugal et Brésil ont des catalogues distincts mais ne comptent pas deux langues dans ce classement.
 
 Les statuts des PR externes correspondent au relevé historique sur Jan `44aee093ae5a974c31ec43d24ceca163c0e59c14`, sans nouvelle vérification le 25 octobre. Les contributions Novera sont intégrées. Avant toute nouvelle traduction, vérifier les contributions existantes ; une recherche par titre ne garantit pas leur absence.
 
@@ -125,69 +143,69 @@ Les statuts des PR externes correspondent au relevé historique sur Jan `44aee09
 | 34 | Kannada | 59 | 2026 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
 | 35 | Arabe levantin | 58 | 2026 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
 | 36 | Arabe soudanais | 54 | 2026 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
-| 37 | Yoruba | 53 | 2026 | À faire | 1 | — |
-| 38 | Bhojpuri | 53 | 2026 | À faire | 2 | — |
-| 39* | Jin / jinyu | 48,0 | 2025 | À faire | 3 | — |
-| 40* | Min nan | 45,8 | 2025 | À faire | 4 | — |
+| 37 | Yoruba | 53 | 2026 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
+| 38 | Bhojpuri | 53 | 2026 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
+| 39* | Jin / jinyu | 48,0 | 2025 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
+| 40* | Min nan | 45,8 | 2025 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
 | 41* | Polonais | 45,3 | 2025 | Disponible | — | — |
-| 42* | Birman | 44,4 | 2025 | À faire | 5 | — |
-| 43* | Arabe algérien | 41,6 | 2025 | À faire | 6 | — |
-| 44* | Hakka | 40,7 | 2025 | À faire | 7 | — |
-| 45* | Lingala | 40,6 | 2025 | À faire | 8 | — |
-| 46* | Arabe marocain | 40,2 | 2025 | À faire | 9 | — |
-| 47* | Odia | 39,5 | 2025 | À faire | 10 | — |
-| 48* | Ukrainien | 39,0 | 2025 | À faire | 11 | — |
-| 49* | Xiang | 38,2 | 2025 | À faire | 12 | — |
-| 50* | Malayalam | 38,2 | 2025 | À faire | 13 | — |
-| 51* | Sindhi | 36,9 | 2025 | À faire | 14 | — |
-| 52* | Pendjabi oriental | 36,5 | 2025 | À faire | 15 | — |
-| 53* | Soundanais | 35,5 | 2025 | À faire | 16 | — |
-| 54* | Igbo | 33,7 | 2025 | À faire | 17 | — |
-| 55* | Dari | 33,4 | 2025 | À faire | 18 | — |
-| 56* | Népalais | 33,1 | 2025 | À faire | 19 | — |
-| 57* | Malais | 29,5 | 2025 | À faire | 20 | — |
-| 58* | Ouzbek du Nord | 29,4 | 2025 | À faire | 21 | — |
-| 59* | Zoulou | 27,8 | 2025 | À faire | 22 | — |
-| 60* | Arabe saïdi | 27,3 | 2025 | À faire | 23 | — |
-| 61* | Pachto du Nord | 27,2 | 2025 | À faire | 24 | — |
-| 62* | Oromo du Centre-Ouest | 27,0 | 2025 | À faire | 25 | — |
-| 63* | Saraiki | 25,6 | 2025 | À faire | 26 | — |
-| 64* | Néerlandais | 25,4 | 2025 | À faire | 27 | — |
-| 65* | Somali | 24,7 | 2025 | À faire | 28 | — |
-| 66* | Roumain | 23,7 | 2025 | À faire | 29 | — |
-| 67* | Assamais | 23,6 | 2025 | À faire | 30 | — |
-| 68* | Gan | 22,6 | 2025 | À faire | 31 | — |
-| 69* | Pachto du Sud | 21,7 | 2025 | À faire | 32 | — |
-| 70* | Cebuano | 21,4 | 2025 | À faire | 33 | — |
-| 71* | Kazakh | 21,4 | 2025 | À faire | 34 | — |
-| 72* | Magahi | 21,0 | 2025 | À faire | 35 | — |
-| 73* | Arabe najdi | 20,9 | 2025 | À faire | 36 | — |
-| 74* | Cingalais | 20,2 | 2025 | À faire | 37 | — |
-| 75* | Arabe mésopotamien | 20,1 | 2025 | À faire | 38 | — |
-| 76* | Xhosa | 19,2 | 2025 | À faire | 39 | — |
-| 77* | Khmer | 19,0 | 2025 | À faire | 40 | — |
-| 78* | Afrikaans | 18,1 | 2025 | À faire | 41 | — |
-| 79* | Peul du Nigéria | 18,0 | 2025 | À faire | 42 | — |
-| 80* | Maïthili | 17,6 | 2025 | À faire | 43 | — |
-| 81* | Wolof | 17,3 | 2025 | À faire | 44 | — |
-| 82* | Kurde du Nord (kurmandji) | 17,2 | 2025 | À faire | 45 | — |
-| 83* | Chhattisgarhi | 16,3 | 2025 | À faire | 46 | — |
-| 84* | Kinyarwanda | 15,3 | 2025 | À faire | 47 | — |
-| 85* | Thaï du Nord-Est (isan) | 15,1 | 2025 | À faire | 48 | — |
-| 86* | Chichewa | 14,5 | 2025 | À faire | 49 | — |
-| 87* | Bambara | 14,4 | 2025 | À faire | 50 | — |
-| 88* | Shona | 14,1 | 2025 | À faire | 51 | — |
-| 89* | Azéri du Sud | 13,8 | 2025 | À faire | 52 | — |
-| 90* | Tswana | 13,7 | 2025 | À faire | 53 | — |
-| 91* | Sotho du Nord | 13,7 | 2025 | À faire | 54 | — |
-| 92* | Bavarois | 13,7 | 2025 | À faire | 55 | — |
-| 93* | Créole haïtien | 13,7 | 2025 | À faire | 56 | — |
-| 94* | Ouïghour | 13,6 | 2025 | À faire | 57 | — |
-| 95* | Sotho du Sud | 13,5 | 2025 | À faire | 58 | — |
-| 96* | Grec | 13,3 | 2025 | À faire | 59 | — |
+| 42* | Birman | 44,4 | 2025 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
+| 43* | Arabe algérien | 41,6 | 2025 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
+| 44* | Hakka | 40,7 | 2025 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
+| 45* | Lingala | 40,6 | 2025 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
+| 46* | Arabe marocain | 40,2 | 2025 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
+| 47* | Odia | 39,5 | 2025 | Intégrée dans Novera — 1 516/1 516 clés ; relecture requise | — | — |
+| 48* | Ukrainien | 39,0 | 2025 | À faire | 1 | — |
+| 49* | Xiang | 38,2 | 2025 | À faire | 2 | — |
+| 50* | Malayalam | 38,2 | 2025 | À faire | 3 | — |
+| 51* | Sindhi | 36,9 | 2025 | À faire | 4 | — |
+| 52* | Pendjabi oriental | 36,5 | 2025 | À faire | 5 | — |
+| 53* | Soundanais | 35,5 | 2025 | À faire | 6 | — |
+| 54* | Igbo | 33,7 | 2025 | À faire | 7 | — |
+| 55* | Dari | 33,4 | 2025 | À faire | 8 | — |
+| 56* | Népalais | 33,1 | 2025 | À faire | 9 | — |
+| 57* | Malais | 29,5 | 2025 | À faire | 10 | — |
+| 58* | Ouzbek du Nord | 29,4 | 2025 | À faire | 11 | — |
+| 59* | Zoulou | 27,8 | 2025 | À faire | 12 | — |
+| 60* | Arabe saïdi | 27,3 | 2025 | À faire | 13 | — |
+| 61* | Pachto du Nord | 27,2 | 2025 | À faire | 14 | — |
+| 62* | Oromo du Centre-Ouest | 27,0 | 2025 | À faire | 15 | — |
+| 63* | Saraiki | 25,6 | 2025 | À faire | 16 | — |
+| 64* | Néerlandais | 25,4 | 2025 | À faire | 17 | — |
+| 65* | Somali | 24,7 | 2025 | À faire | 18 | — |
+| 66* | Roumain | 23,7 | 2025 | À faire | 19 | — |
+| 67* | Assamais | 23,6 | 2025 | À faire | 20 | — |
+| 68* | Gan | 22,6 | 2025 | À faire | 21 | — |
+| 69* | Pachto du Sud | 21,7 | 2025 | À faire | 22 | — |
+| 70* | Cebuano | 21,4 | 2025 | À faire | 23 | — |
+| 71* | Kazakh | 21,4 | 2025 | À faire | 24 | — |
+| 72* | Magahi | 21,0 | 2025 | À faire | 25 | — |
+| 73* | Arabe najdi | 20,9 | 2025 | À faire | 26 | — |
+| 74* | Cingalais | 20,2 | 2025 | À faire | 27 | — |
+| 75* | Arabe mésopotamien | 20,1 | 2025 | À faire | 28 | — |
+| 76* | Xhosa | 19,2 | 2025 | À faire | 29 | — |
+| 77* | Khmer | 19,0 | 2025 | À faire | 30 | — |
+| 78* | Afrikaans | 18,1 | 2025 | À faire | 31 | — |
+| 79* | Peul du Nigéria | 18,0 | 2025 | À faire | 32 | — |
+| 80* | Maïthili | 17,6 | 2025 | À faire | 33 | — |
+| 81* | Wolof | 17,3 | 2025 | À faire | 34 | — |
+| 82* | Kurde du Nord (kurmandji) | 17,2 | 2025 | À faire | 35 | — |
+| 83* | Chhattisgarhi | 16,3 | 2025 | À faire | 36 | — |
+| 84* | Kinyarwanda | 15,3 | 2025 | À faire | 37 | — |
+| 85* | Thaï du Nord-Est (isan) | 15,1 | 2025 | À faire | 38 | — |
+| 86* | Chichewa | 14,5 | 2025 | À faire | 39 | — |
+| 87* | Bambara | 14,4 | 2025 | À faire | 40 | — |
+| 88* | Shona | 14,1 | 2025 | À faire | 41 | — |
+| 89* | Azéri du Sud | 13,8 | 2025 | À faire | 42 | — |
+| 90* | Tswana | 13,7 | 2025 | À faire | 43 | — |
+| 91* | Sotho du Nord | 13,7 | 2025 | À faire | 44 | — |
+| 92* | Bavarois | 13,7 | 2025 | À faire | 45 | — |
+| 93* | Créole haïtien | 13,7 | 2025 | À faire | 46 | — |
+| 94* | Ouïghour | 13,6 | 2025 | À faire | 47 | — |
+| 95* | Sotho du Sud | 13,5 | 2025 | À faire | 48 | — |
+| 96* | Grec | 13,3 | 2025 | À faire | 49 | — |
 | 97* | Suédois | 13,3 | 2025 | PR tierce — en attente de fusion | — | [#8829](https://github.com/janhq/jan/pull/8829) |
-| 98* | Chittagonien | 13,0 | 2025 | À faire | 60 | — |
-| 99* | Kirundi | 12,9 | 2025 | À faire | 61 | — |
-| 100* | Dioula | 12,8 | 2025 | À faire | 62 | — |
+| 98* | Chittagonien | 13,0 | 2025 | À faire | 50 | — |
+| 99* | Kirundi | 12,9 | 2025 | À faire | 51 | — |
+| 100* | Dioula | 12,8 | 2025 | À faire | 52 | — |
 
 Sources : positions 1–38, [tableau 2026 attribué à Ethnologue](https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers) ; positions 39–100*, [compilation communautaire 2025](https://www.jetpunk.com/user-quizzes/2026529/top-200-languages-ethnologue-2025). **Les positions marquées * sont provisoires, à confirmer ; ce tableau mélange deux années et ne constitue pas un top 100 officiel 2026.** Les variétés arabes et chinoises sont distinguées ; les deux écritures chinoises de Jan comptent ensemble ici.

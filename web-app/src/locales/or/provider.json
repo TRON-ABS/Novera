@@ -1,0 +1,18 @@
+{
+  "addProvider": "ପ୍ରଦାନକାରୀ ଯୋଡନ୍ତୁ |",
+  "addOpenAIProvider": "କଷ୍ଟମ୍ ପ୍ରଦାନକାରୀ ଯୋଗକର |",
+  "enterNameForProvider": "ପ୍ରଦାନକାରୀ ନାମ (ଯଥା my-llm-server)",
+  "apiTypeLabel": "API ଫର୍ମାଟ୍ |",
+  "apiTypeOpenAI": "OpenAI- ସୁସଙ୍ଗତ |",
+  "apiTypeAnthropic": "Anthropic- ସୁସଙ୍ଗତ |",
+  "baseUrlLabel": "ଆଧାର URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API ଚାବି |",
+  "apiKeyPlaceholder": "ଆପଣଙ୍କର API ଚାବି ଲେପନ କରନ୍ତୁ |",
+  "invalidBaseUrl": "ଆଧାର URL ନିଶ୍ଚିତ ଭାବରେ ଏକ ବ valid ଧ http (ଗୁଡିକ) URL ହେବା ଆବଶ୍ୟକ |",
+  "globalSettings": "ଗ୍ଲୋବାଲ୍ ସେଟିଙ୍ଗ୍ |",
+  "stripReasoning": "ପ୍ରସଙ୍ଗରୁ ଷ୍ଟ୍ରିପ୍ ଯୁକ୍ତି |",
+  "stripReasoningDesc": "ସମସ୍ତ ପ୍ରଦାନକାରୀଙ୍କ ମଧ୍ୟରେ ଇତିହାସ ପଠାଇବା ପୂର୍ବରୁ ପୂର୍ବ ଟର୍ନର ଚିନ୍ତାଧାରା / ଯୁକ୍ତିଯୁକ୍ତ ବିଷୟବସ୍ତୁ ଅପସାରଣ କରନ୍ତୁ | ସ୍ଥାନୀୟ ମଡେଲଗୁଡିକ ପାଇଁ KV- କ୍ୟାଚ୍ ପୁନ use ବ୍ୟବହାରକୁ ଉନ୍ନତ କରିଥାଏ, କିନ୍ତୁ କିଛି ମଡେଲ୍ (ଯଥା ନୂତନ Qwen ରିଲିଜ୍) ଏହାକୁ ଉନ୍ନତ ମଲ୍ଟି ଟର୍ନ ଯୁକ୍ତି ପାଇଁ ରଖିବାକୁ ପରାମର୍ଶ ଦେଇଥାଏ |",
+  "providerAlreadyExists": "{{name}} ନାମକ ଏକ ପ୍ରଦାନକାରୀ ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି |"
+}

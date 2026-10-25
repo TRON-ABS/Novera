@@ -1,0 +1,10 @@
+{
+  "newVersion": "ဗားရှင်းအသစ် {{version}}",
+  "updateAvailable": "အပ်ဒိတ် ရနိုင်သည်။",
+  "nightlyBuild": "ညစဉ်တည်ဆောက်ခြင်း။",
+  "showReleaseNotes": "ထုတ်ဝေမှုမှတ်စုများကို ပြပါ။",
+  "hideReleaseNotes": "ထုတ်ဝေမှုမှတ်စုများကို ဝှက်ထားပါ။",
+  "remindMeLater": "နောက်မှ သတိပေးပါ။",
+  "downloading": "ဒေါင်းလုဒ်လုပ်နေသည်...",
+  "updateNow": "ယခု အပ်ဒိတ်လုပ်ပါ။"
+}

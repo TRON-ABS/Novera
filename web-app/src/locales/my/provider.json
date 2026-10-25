@@ -1,0 +1,18 @@
+{
+  "addProvider": "ပံ့ပိုးသူထည့်ပါ။",
+  "addOpenAIProvider": "စိတ်ကြိုက်ပံ့ပိုးပေးသူကို ထည့်ပါ။",
+  "enterNameForProvider": "ဝန်ဆောင်မှုပေးသူအမည် (ဥပမာ my-llm-server)",
+  "apiTypeLabel": "API ဖော်မတ်",
+  "apiTypeOpenAI": "OpenAI လိုက်ဖက်သည်။",
+  "apiTypeAnthropic": "Anthropic လိုက်ဖက်သည်။",
+  "baseUrlLabel": "အခြေခံ URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API သော့",
+  "apiKeyPlaceholder": "သင်၏ API သော့ကို ကူးထည့်ပါ။",
+  "invalidBaseUrl": "အခြေခံ URL တရားဝင် http(များ) URL ဖြစ်ရမည်",
+  "globalSettings": "ကမ္ဘာလုံးဆိုင်ရာ ဆက်တင်များ",
+  "stripReasoning": "အကြောင်းအရာမှ ကျိုးကြောင်းဆင်ခြင်ခြင်းကို ဖယ်ထားပါ။",
+  "stripReasoningDesc": "ဝန်ဆောင်မှုပေးသူအားလုံးတွင် မှတ်တမ်းပြန်မပို့မီ ကြိုတင်အလှည့်အပြောင်းများ၏ တွေးခေါ်မှု/ကျိုးကြောင်းဆီလျော်မှု အကြောင်းအရာကို ဖယ်ရှားပါ။ ပြည်တွင်းမော်ဒယ်များအတွက် KV-cache ပြန်လည်အသုံးပြုမှုကို ပိုမိုကောင်းမွန်စေသော်လည်း အချို့သောမော်ဒယ်များ (ဥပမာ Qwen အသစ်ထွက်ရှိမှုများ) သည် ပိုမိုကောင်းမွန်သော multi-turning အကြောင်းပြချက်အတွက် ၎င်းကို ထိန်းသိမ်းထားရန် အကြံပြုထားသည်။",
+  "providerAlreadyExists": "{{name}} အမည်ရှိ ဝန်ဆောင်မှုပေးသူ ရှိနှင့်ပြီးဖြစ်သည်။"
+}

@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Koodu",
+    "preview": "Awotẹlẹ",
+    "previewStreaming": "Wa nigbati iran ba pari",
+    "unresolvedAssets_one": "Itọkasi dukia 1 ko le ṣajọpọ ninu awotẹlẹ. Awọn ọna ibatan ko ni ipilẹ URL lati yanju lodi si.",
+    "unresolvedAssets_other": "{{count}} awọn itọkasi dukia ko le ṣajọpọ ninu awotẹlẹ. Awọn ọna ibatan ko ni ipilẹ URL lati yanju lodi si."
+  },
+  "assistants": "Awọn oluranlọwọ",
+  "hardware": "Ẹ̀rọ",
+  "mcp-servers": "MCP Awọn olupin",
+  "local_api_server": "Agbegbe API Server",
+  "remote_access": "Wiwọle Latọna jijin",
+  "integrations": "Awọn akojọpọ",
+  "experimental": "Idanwo",
+  "claude_code": "Claude koodu",
+  "https_proxy": "HTTPS Aṣoju",
+  "web_search": "Wiwa wẹẹbu",
+  "shell": "Ikarahun",
+  "browse": "Ṣawakiri",
+  "moreControls": "Awọn idari diẹ sii",
+  "starting": "Bibẹrẹ...",
+  "activeSuffix": "(Nṣiṣẹ)",
+  "extensions": "Awọn amugbooro",
+  "attachments": "Awọn asomọ",
+  "general": "Gbogboogbo",
+  "settings": "Ètò",
+  "modelProviders": "Awọn olupese awoṣe",
+  "localProviders": "Agbegbe",
+  "remoteProviders": "Latọna jijin",
+  "manageProviders": "Ṣakoso awọn olupese",
+  "hiddenProviders": "{{count}} alaabo",
+  "hideProvider": "Tọju olupese",
+  "showProvider": "Ṣe afihan olupese",
+  "interface": "Ni wiwo",
+  "appearance": "Ifarahan",
+  "privacy": "Asiri",
+  "keyboardShortcuts": "Awọn ọna abuja",
+  "home": "Ile",
+  "cowork": "Cowork",
+  "newSession": "Igba tuntun",
+  "artifacts": "Awọn ohun-ọṣọ",
+  "customize": "Ṣe akanṣe",
+  "local": "Agbegbe",
+  "selectFolder": "Yan folda",
+  "selectModel": "Yan awoṣe akọkọ",
+  "commands": "Awọn aṣẹ",
+  "cmdHelp": "Ṣe atokọ awọn aṣẹ ti o wa",
+  "cmdClear": "Pa igba yii kuro",
+  "cmdModels": "Yipada awọn ti nṣiṣe lọwọ awoṣe",
+  "cmdModelsHint": "Tẹ /models lẹhinna mu awoṣe kan lati atokọ naa",
+  "cmdModelSwitched": "Yipada si {{name}}",
+  "cmdUnknown": "Aṣẹ aimọ: {{name}}. Gbiyanju /help",
+  "cmdBusy": "Ko le ṣe pe nigba ti oluranlowo nṣiṣẹ",
+  "cmdCompact": "Iwapọ ayika igba sinu akopọ kan",
+  "cmdCompacted": "Compacted {{before}} -> {{after}} awọn ifiranṣẹ",
+  "cmdNothingToCompact": "Ko si ohun to iwapọ sibẹsibẹ",
+  "cmdCompactFailed": "Iwapọ kuna: {{error}}",
+  "cmdPlan": "Ipo ero balu (ka-nikan: aṣoju daba laisi kikọ)",
+  "cmdPlanOn": "Gbero mode lori: oluranlowo ka ati ki o tanmo lai kikọ",
+  "cmdPlanOff": "Eto mode pa: deede ipaniyan",
+  "cmdTodo": "Ṣii awọn ilọsiwaju nronu",
+  "cmdTasks": "Ṣii nronu awọn iṣẹ-ṣiṣe lẹhin",
+  "cmdInit": "Kọ ẹkọ akanṣe naa ki o kọ awọn ọgbọn ati iranti",
+  "cmdInitRunning": "Onboarding yi ise agbese",
+  "skills": "Awọn ogbon",
+  "skillsInContext": "Awọn ogbon ti o wa si oluranlowo ni ṣiṣe yii",
+  "skillsTitle": "Ṣakoso awọn ogbon",
+  "skillsScopeProject": "Awọn ogbon fun {{folder}}",
+  "skillsScopeGlobal": "Awọn ọgbọn agbaye, wa si gbogbo igba",
+  "skillsScopeMerged": "Awọn ogbon fun {{folder}}, pẹlu awọn ọgbọn agbaye ni gbogbo awọn pinpin igba",
+  "skillOriginFolder": "folda",
+  "skillOriginGlobal": "agbaye",
+  "skillsEmpty": "Ko si ogbon sibẹsibẹ",
+  "skillsPickOrNew": "Yan ogbon lati satunkọ, tabi ṣẹda titun kan.",
+  "skillNew": "Olorijori tuntun",
+  "skillDelete": "Pa olorijori",
+  "skillSave": "Fi pamọ́",
+  "skillSaved": "Ti fipamọ ọgbọn",
+  "skillNameRequired": "Orukọ ogbon ni a nilo",
+  "skillNamePlaceholder": "olorijori-orukọ",
+  "skillContentPlaceholder": "Ṣe apejuwe ilana atunlo ni Markdown…",
+  "skillHubImport": "Gbe wọle lati ibudo",
+  "skillHubTitle": "Anthropic ogbon ibudo",
+  "skillHubEmpty": "Ko si ogbon ri lori ibudo",
+  "skillImport": "gbe wọle",
+  "skillReimport": "Tun gbe wọle",
+  "skillImported": "Ti ko wọle {{name}}",
+  "sessions": "Awọn akoko",
+  "deleteSession": "Pa igba rẹ kuro",
+  "deleteSessionTitle": "Pa igba rẹ kuro?",
+  "deleteSessionBody": "\"{{title}}\" ati iwe-kikọ rẹ yoo parẹ patapata. Eyi ko le ṣe atunṣe.",
+  "newChat": "Iwiregbe Tuntun",
+  "newAgentChat": "New Aṣoju iwiregbe",
+  "chats": "Awọn ibaraẹnisọrọ",
+  "favorites": "Awọn ayanfẹ",
+  "recents": "Awọn aipẹ",
+  "hub": "Ibudo",
+  "helpSupport": "Iranlọwọ & Atilẹyin",
+  "helpUsImproveJan": "Ran Wa lọwọ ilọsiwaju Novera",
+  "analyticsConsentDetail": "A gba data ailorukọ lati loye lilo ẹya. Awọn ibaraẹnisọrọ rẹ ati alaye ti ara ẹni ko jẹ tọpinpin rara. O le yi eyi pada nigbakugba ni Eto> Asiri.",
+  "analyticsConsentQuestion": "Ṣe o fẹ lati ran wa lọwọ lati ni ilọsiwaju Novera?",
+  "unstarAll": "Unstar Gbogbo",
+  "unstar": "Yọ irawọ kuro",
+  "deleteAll": "Pa Gbogbo Rẹ",
+  "star": "Irawọ",
+  "rename": "Fun lorukọ mii",
+  "delete": "Pa rẹ́",
+  "copied": "Ti daakọ!",
+  "dataFolder": "Data Folda",
+  "others": "Omiiran",
+  "language": "Èdè",
+  "login": "Wo ile",
+  "loginWith": "Wọle Pẹlu {{provider}}",
+  "loginFailed": "Kuna Lati Wọle",
+  "logout": "Jade jade",
+  "loggingOut": "Wọle jade...",
+  "loggedOut": "Wọle Ni aṣeyọri",
+  "logoutFailed": "Kuna Lati Jade",
+  "profile": "Profaili",
+  "reset": "Tunto",
+  "search": "Ṣàwárí",
+  "searchThreads": "Ṣewadii awọn okun...",
+  "toNavigate": "lati lilö kiri",
+  "toSelect": "lati yan",
+  "toClose": "lati pa",
+  "clearRecent": "Ko o",
+  "name": "Oruko",
+  "cancel": "Fagilé",
+  "dismiss": "Yọọ kuro",
+  "create": "Ṣẹda",
+  "save": "Fi pamọ́",
+  "edit": "Ṣàtúnṣe",
+  "copy": "Ṣẹ̀dà",
+  "back": "Pada",
+  "close": "Pa",
+  "done": "Ti ṣe",
+  "next": "Itele",
+  "finish": "Pari",
+  "skip": "Rekọja",
+  "allow": "Gba laaye",
+  "deny": "Kọ",
+  "start": "Bẹrẹ",
+  "stop": "Duro",
+  "preview": {
+    "loading": "Ṣii…",
+    "unsupported": "Novera ko le ṣe afihan iru faili yii. Ṣii lati rii ninu ohun elo miiran.",
+    "outside": "Faili yii ko si ni aaye iṣẹ igba mọ.",
+    "tooLarge": "O tobi ju lati ṣe awotẹlẹ. Ṣii lati rii ninu ohun elo miiran.",
+    "reload": "Tun gbee si",
+    "allowNetwork": "Gba nẹtiwọki laaye",
+    "unsandboxed": "Ṣiṣe unsandboxed: data ti o fipamọ ati awọn faili agbegbe ṣiṣẹ",
+    "unresolvedRefs_one": "1 faili awọn ọna asopọ oju-iwe yii ko le ṣe fifuye ni awotẹlẹ. Ṣii lati rii ni ẹrọ aṣawakiri kan.",
+    "unresolvedRefs_other": "Awọn faili {{count}} awọn ọna asopọ oju-iwe yii ko le ṣajọpọ ninu awotẹlẹ. Ṣii lati rii ni ẹrọ aṣawakiri kan.",
+    "externalRefs_one": "1 orisun awọn ẹru oju-iwe yii lati oju opo wẹẹbu ti dina. Tan \"Gba nẹtiwọki laaye\" lati kojọpọ.",
+    "externalRefs_other": "Awọn ohun elo {{count}} oju-iwe yii awọn ẹru lati oju opo wẹẹbu ti dina. Tan \"Gba nẹtiwọki laaye\" lati kojọpọ wọn.",
+    "scriptErrors_one": "Oju-iwe naa royin aṣiṣe kan: {{message}}",
+    "scriptErrors_other": "Oju-iwe naa royin awọn aṣiṣe {{count}}. Akọkọ: {{message}}"
+  },
+  "changes": {
+    "title": "Aṣoju ayipada",
+    "empty": "Awọn faili ti aṣoju kọ tabi ṣatunkọ yoo han nibi.",
+    "a11y": "Awọn iyipada aṣoju: {{files}} awọn faili, {{additions}} fi kun, {{deletions}} yọkuro"
+  },
+  "modelPanel": {
+    "title": "Eto awoṣe",
+    "a11y": "Ṣii awọn eto awoṣe",
+    "contextTooltip": "Ferese ọrọ: {{value}} ti {{max}} àmi"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Ogbon '{{name}}' ko si",
+    "kind": {
+      "skill": "Ogbon",
+      "command": "Àṣẹ",
+      "model": "Awoṣe"
+    }
+  },
+  "compactWidth": "Iwapọ Iwọn",
+  "fullWidth": "Iwọn Kikun",
+  "dark": "Dudu",
+  "light": "Imọlẹ",
+  "system": "Eto",
+  "auto": "Aifọwọyi",
+  "english": "Èdè Gẹ̀ẹ́sì",
+  "medium": "Alabọde",
+  "newThread": "Oran Tuntun",
+  "noResultsFound": "Ko si esi ri",
+  "noThreadsYet": "Ko si awọn okun sibẹsibẹ",
+  "noThreadsYetDesc": "Bẹrẹ ibaraẹnisọrọ tuntun lati wo itan itan-ọrọ rẹ nibi.",
+  "downloads": "Awọn igbasilẹ",
+  "downloading": "Gbigba lati ayelujara",
+  "uploadingAttachments": "Ikojọpọ awọn asomọ…",
+  "cancelDownload": "Fagilee gbigba lati ayelujara",
+  "downloadCancelled": "Ti fagilee igbasilẹ",
+  "downloadComplete": "Gbigbasilẹ Pari",
+  "thinking": "N ronu...",
+  "thought": "Ero",
+  "callingTool": "Ohun elo ipe",
+  "completed": "Ti pari",
+  "image": "Aworan",
+  "vision": "Iranran",
+  "multimodal": "Ọ̀pọ̀ irú ìwọlé",
+  "embeddings": "Awọn ifibọ",
+  "tools": "Awọn irinṣẹ",
+  "webSearch": "Wiwa wẹẹbu",
+  "reasoning": "Idi",
+  "proactive": "Iṣeduro",
+  "selectAModel": "Yan awoṣe",
+  "noToolsAvailable": "Ko si awọn irinṣẹ to wa",
+  "noModelsFoundFor": "Ko si awọn awoṣe ti a rii fun \"{{searchValue}}\"",
+  "failedToLoadModels": "Kuna lati kojọpọ awọn awoṣe",
+  "noModels": "Ko si awọn awoṣe ti a rii",
+  "noAssistant": "Ko si oluranlọwọ",
+  "customAvatar": "Afata ti aṣa",
+  "editAssistant": "Iranlọwọ Ṣatunkọ",
+  "jan": "Novera",
+  "metadata": "Dátà àpèjúwe",
+  "regenerate": "Tuntun-pada",
+  "threadImage": "Aworan atọka",
+  "editMessage": "Ifiranṣẹ Ṣatunkọ",
+  "deleteMessage": "Pa ifiranṣẹ rẹ",
+  "deleteThread": "Pa O tẹle",
+  "renameThread": "Lorukọmii Okun",
+  "threadTitle": "Opo Title",
+  "deleteAllThreads": "Pa Gbogbo Awọn Oro",
+  "allThreadsUnfavorited": "Gbogbo Awọn Opo Ailokun",
+  "deleteAllThreadsConfirm": "Ṣe o da ọ loju pe o fẹ pa gbogbo awọn okun rẹ rẹ bi? Iṣe yii ko le ṣe atunṣe.",
+  "addProvider": "Fi Olupese kun",
+  "addOpenAIProvider": "Fi kun OpenAI Olupese",
+  "enterNameForProvider": "Tẹ orukọ sii fun olupese rẹ",
+  "providerAlreadyExists": "Olupese pẹlu orukọ \"{{name}}\" ti wa tẹlẹ. Jọwọ yan orukọ ti o yatọ.",
+  "adjustFontSize": "Ṣatunṣe Iwọn Font",
+  "changeLanguage": "Yi ede pada",
+  "editTheme": "Akori Ṣatunkọ",
+  "editCodeBlockStyle": "Ṣatunkọ koodu Àkọsílẹ Style",
+  "editServerHost": "Gbalejo olupin Ṣatunkọ",
+  "pickColorWindowBackground": "Yan abẹlẹ Window Awọ",
+  "pickColorAppMainView": "Yan Ohun elo Awọ Akọkọ Wo",
+  "pickColorAppPrimary": "Mu Awọ App Primary",
+  "pickColorAppAccent": "Yan Ohun elo Awọ Accent",
+  "pickColorAppDestructive": "Mu Awọ App Iparun",
+  "apiKeyRequired": "API Bọtini ni a nilo",
+  "enterTrustedHosts": "Tẹ awọn ogun ti o gbẹkẹle",
+  "placeholder": {
+    "chatInput": "Beere lọwọ mi ohunkohun..."
+  },
+  "confirm": "Jẹrisi",
+  "continue": "Tesiwaju",
+  "loading": "Nkojọpọ...",
+  "settingUpJan": "Gbigbe soke Novera…",
+  "registeringExtensions": "Iforukọsilẹ awọn amugbooro…",
+  "loadingExtensions": "Nkojọpọ awọn amugbooro… ({{done}}/{{total}})",
+  "error": "Asise",
+  "success": "Aseyori",
+  "warning": "Ikilo",
+  "conversationNotAvailable": "Ko si ibaraẹnisọrọ",
+  "conversationNotAvailableDescription": "Ibaraẹnisọrọ ti o n gbiyanju lati wọle si ko si tabi ti paarẹ.",
+  "temporaryChat": "Iwiregbe igba diẹ",
+  "temporaryChatTooltip": "Iwiregbe igba diẹ kii yoo han ninu itan-akọọlẹ rẹ",
+  "noResultsFoundDesc": "A ko le rii eyikeyi awọn ibaraẹnisọrọ ti o baamu wiwa rẹ. Gbiyanju koko ti o yatọ.",
+  "searchModels": "Wa awọn awoṣe...",
+  "searchStyles": "Wa awọn ara...",
+  "createAssistant": "Ṣẹda Iranlọwọ",
+  "enterApiKey": "Tẹ API Bọtini",
+  "scrollToBottom": "Yi lọ si isalẹ",
+  "generateAiResponse": "Ṣẹda Idahun AI",
+  "continueAiResponse": "Tẹsiwaju pẹlu AI Idahun",
+  "addModel": {
+    "title": "Fi Awoṣe kun",
+    "modelId": "ID awoṣe",
+    "enterModelId": "Tẹ ID awoṣe sii",
+    "addModel": "Fi Awoṣe kun",
+    "description": "Fi awoṣe titun kun si olupese",
+    "exploreModels": "Wo atokọ awoṣe lati ọdọ olupese"
+  },
+  "mcpServers": {
+    "editServer": "Ṣatunkọ Server",
+    "addServer": "Fi olupin sii",
+    "serverName": "Orukọ olupin",
+    "enterServerName": "Tẹ orukọ olupin sii",
+    "command": "Àṣẹ",
+    "enterCommand": "Tẹ aṣẹ sii",
+    "arguments": "Awọn ariyanjiyan",
+    "argument": "Ariyanjiyan {{index}}",
+    "envVars": "Awọn iyipada Ayika",
+    "key": "Bọtini",
+    "value": "Iye",
+    "save": "Fi pamọ́"
+  },
+  "deleteServer": {
+    "title": "Pa olupin rẹ",
+    "delete": "Pa rẹ́"
+  },
+  "editJson": {
+    "errorParse": "Kuna lati ṣe itupalẹ JSON",
+    "errorPaste": "Kuna lati lẹẹmọ JSON",
+    "errorFormat": "Ọna kika JSON ti ko tọ",
+    "titleAll": "Satunkọ Gbogbo awọn olupin iṣeto ni",
+    "placeholder": "Tẹ JSON iṣeto ni...",
+    "save": "Fi pamọ́"
+  },
+  "editModel": {
+    "title": "Awoṣe Ṣatunkọ: {{modelId}}",
+    "description": "Tunto awọn agbara awoṣe nipa yiyi awọn aṣayan isalẹ.",
+    "capabilities": "Awọn agbara",
+    "tools": "Awọn irinṣẹ",
+    "vision": "Iranran",
+    "embeddings": "Awọn ifibọ",
+    "notAvailable": "Ko si sibẹsibẹ"
+  },
+  "outOfContextError": {
+    "truncateInput": "Gé ọ̀rọ̀ ìwọlé kúrú",
+    "title": "Ko si aṣiṣe ọrọ-ọrọ",
+    "description": "Iwiregbe yii n de opin iranti AI, bii awo funfun kan ti o kun. A le faagun window iranti (ti a npe ni iwọn ipo ọrọ) ki o ranti diẹ sii, ṣugbọn o le lo diẹ sii ti iranti kọnputa rẹ. A tun le ge titẹ sii, eyiti o tumọ si pe yoo gbagbe diẹ ninu itan iwiregbe lati ṣe aye fun awọn ifiranṣẹ tuntun.",
+    "increaseContextSizeDescription": "Ṣe o fẹ lati mu iwọn ọrọ pọ si?",
+    "increaseContextSize": "Mu Iwọn Ọrọ pọ sii"
+  },
+  "toolApproval": {
+    "title": "Ibeere Gbigbanilaaye Irinṣẹ",
+    "description": "Oluranlọwọ fẹ lati lo <strong>{{toolName}}</strong>",
+    "securityNotice": "Gba awọn irinṣẹ ti o gbẹkẹle nikan. Awọn irinṣẹ le wọle si eto rẹ ati data.",
+    "deny": "Kọ",
+    "allowOnce": "Gba Ni ẹẹkan",
+    "alwaysAllow": "Gba laaye nigbagbogbo"
+  },
+  "deleteModel": {
+    "title": "Awoṣe Parẹ: {{modelId}}",
+    "description": "Ṣe o da ọ loju pe o fẹ pa awoṣe yii rẹ bi? Iṣe yii ko le ṣe atunṣe.",
+    "success": "Awoṣe {{modelId}} ti paarẹ patapata.",
+    "cancel": "Fagilé",
+    "delete": "Pa rẹ́"
+  },
+  "deleteProvider": {
+    "title": "Pa Olupese",
+    "description": "Pa olupese yii ati gbogbo awọn awoṣe rẹ. Iṣe yii ko le ṣe atunṣe.",
+    "success": "Olupese {{provider}} ti paarẹ patapata.",
+    "confirmTitle": "Parẹ Olupese: {{provider}}",
+    "confirmDescription": "Ṣe o da ọ loju pe o fẹ pa olupese yii rẹ bi? Iṣe yii ko le ṣe atunṣe.",
+    "cancel": "Fagilé",
+    "delete": "Pa rẹ́"
+  },
+  "modelSettings": {
+    "title": "Eto Awoṣe - {{modelId}}",
+    "description": "Ṣe atunto awọn eto awoṣe lati mu iṣẹ ṣiṣe ati ihuwasi pọ si.",
+    "nglDisabledByFit": "Ibamu adaṣe jẹ yiyan awọn fẹlẹfẹlẹ GPU. Pa a dada-aifọwọyi lati ṣeto eyi pẹlu ọwọ.",
+    "samplingDefaults": {
+      "title": "Awọn paramita iṣapẹẹrẹ aiyipada",
+      "description": "Awọn eto apẹẹrẹ aiyipada fun awoṣe yii. Ti a lo ayafi ti o ba bori nipasẹ oluranlọwọ tabi awọn iye ibeere fun."
+    },
+    "specDraft": {
+      "section": "Ifojusi iyasọtọ",
+      "enable": "Jeki iyipada arosọ",
+      "enableDescription": "Akọpamọ ọpọlọpọ awọn ami-ami fun igbesẹ kan ki o rii daju wọn ni iwe-iwọle kan, eyiti o yara iyara iran. Nlo awọn olori MTP ti a ṣe sinu awoṣe, tabi awoṣe apẹrẹ ti a ṣe igbasilẹ pẹlu rẹ (MTP, Eagle3, DFlash tabi DSpark).",
+      "nMax": "Max osere àmi",
+      "nMaxDescription": "Nọmba ti o pọju ti awọn ami-ami lati kọ fun igbesẹ kan. Aiyipada 16.",
+      "nMin": "Min osere àmi",
+      "nMinDescription": "Nọmba ti o kere ju ti awọn ami-ami lati kọ fun igbesẹ kan. Aiyipada 0.",
+      "pMin": "Min osere iṣeeṣe",
+      "pMinDescription": "Iṣeṣe to kere julọ fun kikọ ojukokoro (0-1). Aiyipada 0.75."
+    },
+    "templateKwargs": {
+      "section": "Awọn aṣayan awoṣe iwiregbe",
+      "description": "Awọn aṣayan afikun awoṣe iwiregbe awoṣe yii gba. Ti firanṣẹ bi chat_template_kwargs lori ibeere kọọkan; fi iye silẹ ni aiyipada rẹ lati jẹ ki awoṣe pinnu.",
+      "addCustom": "Ṣafikun aṣayan aṣa",
+      "keyPlaceholder": "oruko",
+      "valuePlaceholder": "iye",
+      "add": "Fi kún",
+      "cancel": "Fagilé",
+      "remove": "Yọ kuro"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Ko le ṣe imudojuiwọn awọn eto awoṣe"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Yi Data Folda Ibi",
+      "description": "Ṣe o da ọ loju pe o fẹ yi ipo folda data pada bi? Eyi yoo gbe gbogbo data rẹ lọ si ipo titun ati tun ohun elo naa bẹrẹ.",
+      "currentLocation": "Ibi lọwọlọwọ:",
+      "newLocation": "Ibi Tuntun:",
+      "cancel": "Fagilé",
+      "changeLocation": "Yi Ipo"
+    },
+    "deleteAllThreads": {
+      "title": "Pa Gbogbo Awọn Oro",
+      "description": "Gbogbo awọn okun yoo paarẹ. Iṣe yii ko le ṣe atunṣe."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Pa Gbogbo Awọn ibaraẹnisọrọ rẹ",
+      "description": "{{count}} awọn ibaraẹnisọrọ ni \"{{projectName}}\" yoo paarẹ. Iṣe yii ko le ṣe atunṣe."
+    },
+    "deleteThread": {
+      "description": "Ṣe o da ọ loju pe o fẹ pa okun yii rẹ bi? Iṣe yii ko le ṣe atunṣe."
+    },
+    "editMessage": {
+      "title": "Ifiranṣẹ Ṣatunkọ"
+    },
+    "messageMetadata": {
+      "title": "Metadata ifiranṣẹ"
+    },
+    "deleteMessage": {
+      "description": "Ṣe o da ọ loju pe o fẹ pa ifiranṣẹ yii rẹ bi? Iṣe yii ko le ṣe atunṣe."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Nkankan ti ko tọ",
+    "details": "Awọn alaye"
+  },
+  "missingDependenciesDialog": {
+    "title": "Sonu System Library",
+    "description": "Ti fi sori ẹrọ {{backend}} ṣugbọn diẹ ninu awọn ile-ikawe eto ti a beere ko le rii. O le ṣubu pada si CPU tabi ko ṣiṣẹ ni deede.",
+    "installLabel": "Lati ṣatunṣe eyi, fi sori ẹrọ atẹle naa:",
+    "download": "Ṣe ìgbàsílẹ̀",
+    "additionalLibraries": "Awọn ile-ikawe ti o padanu ni afikun:",
+    "missingLibraries": "Awọn ile-ikawe ti o padanu:",
+    "showRawLibraries": "Ṣe afihan {{count}} awọn orukọ ile-ikawe ti o padanu"
+  },
+  "projects": {
+    "title": "Awọn iṣẹ akanṣe",
+    "new": "Àwọn iṣẹ́ tuntun",
+    "addProject": "Fi Project",
+    "addToProject": "Fi si ise agbese",
+    "removeFromProject": "Yọ kuro lati iṣẹ akanṣe",
+    "createNewProject": "Ṣẹda New Project",
+    "editProject": "Ṣatunkọ Project",
+    "deleteProject": "Pa Project",
+    "projectName": "Oruko ise agbese",
+    "enterProjectName": "Tẹ orukọ ise agbese sii...",
+    "noProjectsAvailable": "Ko si awọn iṣẹ akanṣe",
+    "noProjectsYet": "Ko si Awọn iṣẹ akanṣe Sibẹ",
+    "noProjectsYetDesc": "Bẹrẹ iṣẹ akanṣe tuntun nipa tite bọtini Fi Project kun.",
+    "projectNotFound": "A ko ri ise agbese",
+    "projectNotFoundDesc": "Ise agbese ti o n wa ko si tabi ti paarẹ.",
+    "selectAssistant": "Yan oluranlọwọ",
+    "noAssistantAssigned": "Ko si oluranlọwọ ti a yàn si iṣẹ akanṣe yii",
+    "files": "Awọn faili",
+    "filesDescription": "Ṣafikun awọn PDF, awọn iwe aṣẹ, tabi ọrọ miiran lati tọka si ninu iṣẹ akanṣe yii.",
+    "uploadingFiles": "Nṣiṣẹ awọn faili…",
+    "processButton": "Fi kún",
+    "deleteProjectDialog": {
+      "title": "Pa Project",
+      "permanentDelete": "Eyi yoo pa gbogbo awọn okun rẹ rẹ patapata.",
+      "permanentDeleteWarning": "Iṣe yii yoo paarẹ GBOGBO awọn okun laarin iṣẹ akanṣe naa patapata!",
+      "deleteEmptyProject": "Iṣe yii yoo paarẹ iṣẹ akanṣe \"{{projectName}}\".",
+      "saveThreadsAdvice": "Lati fipamọ awọn okun, gbe wọn lọ si atokọ o tẹle ara rẹ tabi iṣẹ akanṣe miiran ṣaaju piparẹ.",
+      "starredWarning": "O tun ni awọn okun irawọ laarin iṣẹ akanṣe naa.",
+      "deleteButton": "Pa rẹ́",
+      "successWithName": "Ise agbese \"{{projectName}}\" ti paarẹ ni aṣeyọri",
+      "successWithoutName": "Ise agbese ti paarẹ ni aṣeyọri",
+      "error": "Kuna lati pa ise agbese rẹ. Jọwọ gbiyanju lẹẹkansi.",
+      "ariaLabel": "Paarẹ {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Ṣẹda New Project",
+      "editTitle": "Ṣatunkọ Project",
+      "nameLabel": "Oruko ise agbese",
+      "namePlaceholder": "Tẹ orukọ ise agbese sii...",
+      "assistant": "Iranlọwọ",
+      "selectAssistant": "Yan oluranlọwọ (aṣayan)",
+      "noAssistant": "Ko si oluranlọwọ",
+      "addAssistant": "Fi Iranlọwọ kun",
+      "createButton": "Ṣẹda",
+      "updateButton": "Imudojuiwọn",
+      "alreadyExists": "Ise agbese \"{{projectName}}\" ti wa tẹlẹ",
+      "createSuccess": "Ise agbese \"{{projectName}}\" ti a ṣẹda ni aṣeyọri",
+      "updateSuccess": "Ise agbese \"{{projectName}}\" ni imudojuiwọn ni aṣeyọri",
+      "saveError": "Ko le fi ise agbese pamọ. Jọwọ gbiyanju lẹẹkansi."
+    },
+    "noConversationsIn": "Ko si Awọn ibaraẹnisọrọ ni {{projectName}}",
+    "startNewConversation": "Bẹrẹ ibaraẹnisọrọ tuntun pẹlu {{projectName}} ni isalẹ",
+    "conversationsIn": "Awọn ibaraẹnisọrọ ni {{projectName}}",
+    "conversationsDescription": "Tẹ eyikeyi ibaraẹnisọrọ lati tẹsiwaju iwiregbe, tabi bẹrẹ tuntun kan ni isalẹ.",
+    "conversation": "Ifọrọwanilẹnuwo",
+    "instructions": "Awọn ilana",
+    "setup": "Ṣeto",
+    "instructionsDescription": "Ṣe akanṣe ohun orin ati ara ti idahun",
+    "manageInstructions": "Ṣakoso Awọn Ilana",
+    "thread": "okùn",
+    "threads": "awon okun",
+    "updated": "imudojuiwọn:",
+    "collapseProject": "Ise agbese Collapse",
+    "expandProject": "Faagun ise agbese",
+    "update": "Imudojuiwọn",
+    "searchProjects": "Wa awọn iṣẹ akanṣe...",
+    "noProjectsFound": "Ko si awọn iṣẹ akanṣe",
+    "tryDifferentSearch": "Gbiyanju ọrọ wiwa ti o yatọ"
+  },
+  "attachmentsIngestion": {
+    "title": "Yan bi o ṣe le mu awọn asomọ wọle",
+    "description": "Yan boya lati ṣafikun awọn faili wọnyi taara ninu iwiregbe tabi ṣe atọkasi wọn bi awọn ifibọ dipo.",
+    "inline": "Abẹrẹ sinu iwiregbe",
+    "embeddings": "Lo awọn ifibọ"
+  },
+  "attachmentInjectedIndicator": "Abẹrẹ sinu iwiregbe",
+  "attachmentEmbeddedIndicator": "Ifibọ fun RAG",
+  "viewInjectedContent": "Wo akoonu itasi",
+  "injectedContentTitle": "Abẹrẹ faili akoonu",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Gbogbo Awọn Opo Ailokun",
+      "description": "Gbogbo awọn okun ti yọ kuro lati awọn ayanfẹ rẹ."
+    },
+    "deleteAllThreads": {
+      "title": "Pa Gbogbo Awọn Oro",
+      "description": "Gbogbo awọn okun ti paarẹ patapata."
+    },
+    "renameThread": {
+      "title": "Lorukọmii Okun",
+      "description": "Akọle okun ti jẹ lorukọ si '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Pa O tẹle",
+      "description": "Oso yii ti parẹ patapata."
+    },
+    "errorCopied": {
+      "title": "Daakọ aṣeyọri",
+      "description": "Alaye aṣiṣe dakọ si agekuru agekuru"
+    },
+    "errorCopyFailed": {
+      "title": "Kuna lati daakọ",
+      "description": "Kuna lati da alaye aṣiṣe kọ si agekuru agekuru"
+    },
+    "editMessage": {
+      "title": "Ifiranṣẹ Ṣatunkọ",
+      "description": "Ifiranṣẹ ṣatunkọ ni aṣeyọri. Jọwọ duro fun awoṣe lati dahun."
+    },
+    "appUpdateDownloaded": {
+      "title": "Imudojuiwọn App Gba lati ayelujara",
+      "description": "Imudojuiwọn app naa ti ṣe igbasilẹ ni aṣeyọri."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Ṣe igbasilẹ imudojuiwọn App kuna",
+      "description": "Kuna lati ṣe igbasilẹ imudojuiwọn app. Jọwọ gbiyanju lẹẹkansi."
+    },
+    "downloadComplete": {
+      "title": "Gbigbasilẹ Pari",
+      "description": "{{item}} ti gba lati ayelujara"
+    },
+    "downloadCancelled": {
+      "title": "Ti fagilee igbasilẹ",
+      "description": "Ilana igbasilẹ naa ti fagile"
+    },
+    "downloadFailed": {
+      "title": "Gbigba lati ayelujara kuna",
+      "description": "{{item}} gbigba lati ayelujara kuna",
+      "descriptionWithReason": "{{item}} gbigba lati ayelujara kuna: {{reason}}",
+      "reason": {
+        "dns": "orukọ olupin ko le yanju",
+        "refused": "asopọ ti a kọ",
+        "timeout": "awọn asopọ ti akoko jade",
+        "tls": "asopọ to ni aabo ko le fi idi mulẹ",
+        "proxy": "aṣoju ko le de ọdọ",
+        "unreachable": "olupin ko le de ọdọ"
+      }
+    },
+    "openSettings": "Ṣii Eto",
+    "openLogs": "Ṣii awọn akọọlẹ",
+    "downloadTokenRequired": {
+      "title": "Hugging Face àmi ti a beere",
+      "description": "Awoṣe yii nilo ami iraye si Hugging Face. Ṣafikun ami-ami rẹ ni Eto ki o tun gbiyanju."
+    },
+    "downloadLicenseRequired": {
+      "title": "Gba iwe-aṣẹ awoṣe lori Hugging Face",
+      "description": "O gbọdọ gba iwe-aṣẹ awoṣe lori oju-iwe Hugging Face rẹ ṣaaju igbasilẹ."
+    },
+    "downloadRateLimited": {
+      "title": "Oṣuwọn ni opin nipasẹ Hugging Face",
+      "description": "O ti ni opin-oṣuwọn. Ṣafikun aami kan le mu awọn opin oṣuwọn pọ si. Jọwọ gbiyanju lẹẹkansi nigbamii."
+    },
+    "modelValidationStarted": {
+      "title": "Awoṣe afọwọsi",
+      "description": "Awoṣe ti a ṣe igbasilẹ \"{{modelId}}\" ni aṣeyọri. Ìdárí ìdúróṣinṣin..."
+    },
+    "modelValidationFailed": {
+      "title": "Ifọwọsi awoṣe kuna",
+      "description": "Awoṣe ti a ṣe igbasilẹ \"{{modelId}}\" kuna ìmúdájú ìdúróṣinṣin a sì yọkuro. Faili naa le jẹ ibajẹ tabi ti bajẹ."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Gbigbasilẹ Pari",
+      "description": "Awoṣe \"{{item}}\" ti ṣe igbasilẹ ati jẹrisi ni aṣeyọri"
+    },
+    "projectCreated": {
+      "title": "Ise agbese Ṣẹda",
+      "description": "Ise agbese \"{{projectName}}\" ti a ṣẹda ni aṣeyọri"
+    },
+    "projectRenamed": {
+      "title": "Project lorukọmii",
+      "description": "Ise agbese tunrukọ lati \"{{oldName}}\" si \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Ise agbese Parẹ",
+      "description": "Ise agbese \"{{projectName}}\" ti paarẹ ni aṣeyọri"
+    },
+    "projectAlreadyExists": {
+      "title": "Ise agbese ti wa tẹlẹ",
+      "description": "Ise agbese \"{{projectName}}\" ti wa tẹlẹ"
+    },
+    "projectDeleteFailed": {
+      "title": "Paarẹ kuna",
+      "description": "Kuna lati pa ise agbese rẹ. Jọwọ gbiyanju lẹẹkansi."
+    },
+    "threadAssignedToProject": {
+      "title": "Opo sọtọ",
+      "description": "Opo sọtọ si \"{{projectName}}\" ni aṣeyọri"
+    },
+    "threadRemovedFromProject": {
+      "title": "Opo kuro",
+      "description": "Ayọ kuro lati \"{{projectName}}\" ni aṣeyọri"
+    },
+    "fileUploaded": {
+      "title": "Ti ṣiṣẹ Faili",
+      "description": "Faili ti ni ilọsiwaju ati atọkasi ni aṣeyọri"
+    },
+    "uploadFailed": {
+      "title": "Ti kuna ilana",
+      "description": "Kuna lati ṣiṣẹ faili",
+      "subjectThisFile": "Faili yii",
+      "pdfMalformedXref": "{{subject}} ni tabili itọka agbelebu PDF ti ko dara ati pe ko le ṣe itupalẹ. Gbiyanju lati ṣi i ni oluwo PDF ki o tun fi pamọ (Faili → Tẹjade → Fipamọ bi PDF), lẹhinna tun gbejade lẹẹkansi.",
+      "pdfScanned": "{{subject}} han lati jẹ ti ṣayẹwo tabi ti o da lori aworan PDF. OCR ko ni atilẹyin sibẹsibẹ - jọwọ gbejade ọrọ ti o da PDF.",
+      "pdfEncrypted": "{{subject}} jẹ aabo ọrọ igbaniwọle. Yọ ọrọ igbaniwọle kuro ki o tun gbiyanju lẹẹkansi.",
+      "pdfUnsupportedFeature": "{{subject}} nlo ẹya PDF kan Novera ko le ṣe itupalẹ sibẹsibẹ (fun apẹẹrẹ awọ PostScript / awọn iṣẹ iboji). Gbiyanju tun-fifipamọ rẹ (Faili → Tẹjade → Fipamọ bi PDF) lati tan-an, lẹhinna tun gbejade lẹẹkansi.",
+      "pdfGeneric": "{{subject}} ko le ṣe itupalẹ bi PDF. Faili naa le jẹ ibajẹ tabi lo ẹya ti ko ni atilẹyin PDF.",
+      "fileTooLarge": "{{subject}} ti tobi ju. {{message}}.",
+      "unsupportedType": "Iru faili \"{{type}}\" ko ni atilẹyin.",
+      "ioError": "Ko le ka {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} ko le ṣe itupalẹ: {{message}}",
+      "fallback": "Kuna lati ṣiṣẹ {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Faili Parẹ",
+      "description": "Faili ti yọkuro kuro ninu iṣẹ akanṣe naa"
+    },
+    "deleteFailed": {
+      "title": "Paarẹ kuna",
+      "description": "Kuna lati pa faili rẹ"
+    },
+    "fileAlreadyExists": {
+      "title": "Faili ti wa tẹlẹ",
+      "description": "Faili ti wa ni asopọ tẹlẹ si iṣẹ akanṣe yii"
+    },
+    "unsupportedFileType": {
+      "title": "Iru faili ti ko ni atilẹyin",
+      "description": "Ifaagun faili \".{{extension}}\" ko ṣe atilẹyin fun itọkasi Project."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Alaabo Awọn asomọ",
+      "description": "Awọn asomọ jẹ alaabo ni Eto"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Faili ti tobi ju",
+    "fileTooLargeDescription": "{{fileName}} kọja opin {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} awọn ege",
+    "title": "Awọn faili",
+    "empty": "Awọn faili ti o somọ ati awọn faili ti aṣoju ṣẹda yoo han ni ibi.",
+    "a11y": "Awọn faili: {{count}}",
+    "attachments": "Awọn asomọ",
+    "notImported": "ko si ni aaye iṣẹ"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp n ṣiṣẹ lọwọ",
+    "description": "Ọkan tabi diẹ ẹ sii si dede ko unload ni akoko. Ifilọkuro ti ipa yoo fopin si llama.cpp ati pe o le da awọn idahun lọwọ.",
+    "forceQuit": "Fi ipa mu kuro",
+    "forcing": "Fi ipa mu…",
+    "shuttingDown": "Tiipa…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Kọlulẹ",
+  "expand": "Faagun",
+  "todoPanelTitle": "Ilọsiwaju",
+  "todoPanelEmpty": "Ko si atokọ todo sibẹsibẹ.",
+  "backgroundTasks": "Awọn iṣẹ abẹlẹ",
+  "subagentsRunning_one": "{{count}} ṣiṣiṣẹsẹhin",
+  "subagentsRunning_other": "{{count}} awọn alabẹwẹ nṣiṣẹ",
+  "monitorsRunning_one": "{{count}} diigi nṣiṣẹ",
+  "monitorsRunning_other": "{{count}} diigi nṣiṣẹ",
+  "backgroundRunning_one": "{{count}} iṣẹ ṣiṣe abẹlẹ",
+  "backgroundRunning_other": "{{count}} awọn iṣẹ abẹlẹ nṣiṣẹ",
+  "monitors": "Awọn diigi",
+  "monitorPolling": "Idibo",
+  "monitorMatched": "Ti baamu",
+  "monitorTimedOut": "Ti pari",
+  "monitorStopped": "Duro",
+  "monitorEnded": "Ti pari",
+  "coworkWatching_one": "Wiwo {{count}} atẹle…",
+  "coworkWatching_other": "Wiwo {{count}} diigi…",
+  "coworkWaitingBackground": "Nduro lori awọn iṣẹ ṣiṣe abẹlẹ…",
+  "noBackgroundTasks": "Ko si awọn iṣẹ abẹlẹ sibẹsibẹ.",
+  "running": "Nṣiṣẹ",
+  "queued": "Ti wa ni isinyi",
+  "waiting": "Nduro",
+  "finished": "Ti pari",
+  "subagentPhase": "ipele {{phase}}",
+  "subagentWaiting": "nduro",
+  "viewTranscript": "Wo tiransikiripiti",
+  "taskWorking": "Nṣiṣẹ…",
+  "taskNoOutput": "Subagent ko ṣejade abajade ti o han.",
+  "subagentToolUses_one": "{{count}} Lilo irinṣẹ",
+  "subagentToolUses_other": "{{count}} irinṣẹ lilo",
+  "artifactGroupCode": "Koodu",
+  "artifactGroupImage": "Aworan",
+  "artifactGroupDocument": "Iwe aṣẹ",
+  "artifactGroupVideo": "Fidio",
+  "artifactGroupAudio": "Ohun",
+  "artifactOpenPreview": "Ṣi awotẹlẹ",
+  "artifactOpenExternal": "Ṣii",
+  "artifactMoreActions": "Awọn iṣe diẹ sii",
+  "artifactShowInFolder": "Fihan ninu Folda",
+  "skillsUsedLabel": "Awọn ogbon ti a lo",
+  "skillsUsed": "Awọn ogbon ti a lo: {{skills}}",
+  "artifactsAll": "Gbogbo",
+  "artifactsEmpty": "Ko si ohun ti o ṣejade sibẹsibẹ. Awọn ohun-ọṣọ lati awọn iṣẹ ṣiṣe Cowork han nibi.",
+  "artifactsNoMatch": "Ko si awọn ohun-ọṣọ ti o baamu.",
+  "artifactsSearch": "Ṣewadii awọn ohun-ọṣọ",
+  "artifactsShowMore": "Ṣe afihan {{count}} diẹ sii",
+  "workspace": {
+    "readsFrom": "Ṣiṣẹ ninu",
+    "writable": "ka & kọ",
+    "footnote": "Aṣoju naa ka ati ṣatunkọ folda yii taara. Ṣe ayẹwo ohun ti o yipada ninu nronu iyatọ.",
+    "footnoteEmpty": "So folda kan lati jẹ ki aṣoju ṣiṣẹ lori iṣẹ akanṣe rẹ. O le ka ati ṣatunkọ awọn faili inu rẹ.",
+    "attach": "So folda kan",
+    "change": "Yi folda pada",
+    "detach": "Yọ folda kuro",
+    "open": "Ṣii",
+    "reveal": "Ifihan",
+    "unavailable": "Ko si aaye iṣẹ",
+    "missing": "folda aaye iṣẹ {{folder}} ko si mọ. Yan folda ti o yatọ.",
+    "openFailed": "Ko le ṣi aaye iṣẹ",
+    "revealFailed": "Ko le fi aaye iṣẹ han",
+    "a11yWithFolder": "Folda ise agbese {{folder}}, so pẹlu kika ati kikọ wiwọle. Yipada tabi yọ kuro.",
+    "a11yNoFolder": "Ko si folda ise agbese so. So ọkan."
+  },
+  "coworkEmpty": {
+    "title": "Kini a n ṣiṣẹ lori?",
+    "subtitleSandbox": "Fun Noveraṣẹ kan. O ka ati kọ awọn faili, ṣiṣe awọn aṣẹ, ati ṣiṣẹ nipasẹ awọn igbesẹ lori tirẹ.",
+    "subtitleFolder": "Fun Noveraṣẹ kan. O ṣiṣẹ taara ni {{folder}}, kika ati ṣiṣatunkọ awọn faili lori ara rẹ.",
+    "try": "Gbiyanju",
+    "sandbox": {
+      "first": "Kọ iwe afọwọkọ Python kan ti o tun awọn faili lorukọ nipasẹ ọjọ ti wọn mu wọn",
+      "second": "Kọ dasibodu oju-iwe kan lati CSV Emi yoo lẹẹmọ sinu",
+      "third": "Akọsilẹ README fun iṣẹ akanṣe ti Mo ṣe apejuwe fun ọ"
+    },
+    "folder": {
+      "first": "Ṣe alaye bi a ṣe fi {{folder}} papọ",
+      "second": "Wa gbogbo TODO ni {{folder}} ki o ṣe akojọpọ wọn nipasẹ agbegbe",
+      "third": "Kọ awọn idanwo fun apakan {{folder}} Mo tọka si"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Ko si ebute",
+    "a11y": "Awọn pipaṣẹ ṣiṣe ti wa ni pipa. Awọn alaye.",
+    "title": "Awọn pipaṣẹ ṣiṣe ti wa ni pipa",
+    "body": "Novera jẹ ki aṣoju ṣiṣẹ awọn aṣẹ ikarahun nikan nigbati eto rẹ le di wọn mọ. Ko si apoti iyanrin ti o wa nibi, nitorinaa aṣoju le ka, kọ ati ṣatunkọ awọn faili ninu apoti iyanrin rẹ - ṣugbọn ko ṣiṣẹ ohunkohun.",
+    "fixLinux": "Linux nlo bubblewrap. Fi sii, lẹhinna tun bẹrẹ Novera.",
+    "fixMac": "macOS nlo apoti iyanrin ti a ṣe sinu ni /usr/bin/sandbox-exec. Tun bẹrẹ Novera ni kete ti o wa.",
+    "fixWindows": "Windows nlo AppContainer. Tun bẹrẹ Novera lati gbiyanju lẹẹkansi.",
+    "recheck": "Ṣayẹwo lẹẹkansi"
+  },
+  "planMode": {
+    "label": "Ètò",
+    "tooltipOff": "Gbero akọkọ - aṣoju naa ka ati gbero, laisi kikọ.",
+    "tooltipOn": "Eto. Pa eyi lati jẹ ki aṣoju kọ awọn faili.",
+    "onAnnounce": "Eto mode lori",
+    "placeholder": "Beere fun eto kan. Aṣoju kii yoo yi awọn faili eyikeyi pada."
+  },
+  "budget": {
+    "stoppedSteps": "Duro ni awọn igbesẹ {{max}}. Aṣoju naa ko ti pari.",
+    "keepGoing": "Tesiwaju",
+    "stoppedTokens": "Duro - igba yii kọlu isunawo ami rẹ.",
+    "compact": "Iwapọ",
+    "newSession": "Igba tuntun"
+  },
+  "run": {
+    "stopped": "Duro.",
+    "failed": "Ṣiṣe naa duro ni kutukutu.",
+    "tryAgain": "Gbiyanju lẹẹkansi"
+  },
+  "modelNoTools": "{{model}} ko le pe awọn irinṣẹ, nitorina ko le ṣe bi oluranlowo. Mu awoṣe ipe ohun elo kan.",
+  "askContinue": "Tesiwaju",
+  "askNext": "Ibeere t'okan",
+  "askPrev": "Ibeere iṣaaju",
+  "askRecommended": "Ti ṣe iṣeduro",
+  "askSelectedCount": "{{count}} ti yan",
+  "askSomethingElse": "Nkankan miran",
+  "askSomethingElsePlaceholder": "Tẹ idahun ti ara rẹ",
+  "submit": "Fi silẹ",
+  "composer": {
+    "advanced": "To ti ni ilọsiwaju sile",
+    "modelDefaults": "Awọn aiyipada awoṣe",
+    "assistantOverrides": "Iranlọwọ danu",
+    "printPdf": "Tẹjade / Fipamọ bi PDF",
+    "exportHint": "Awọn ọna kika kika: ẹka ti nṣiṣe lọwọ. JSON: gbogbo awọn ẹya ifiranṣẹ. Awọn faili ita ko ni idapọ."
+  },
+  "telemetry": {
+    "summary": "Pẹlu igbanilaaye rẹ, {{host}} gba ẹya Novera nikan ati ẹrọ ṣiṣe, laisi awọn ibaraẹnisọrọ tabi idamọ ti o tẹpẹlẹ.",
+    "unavailable": "Awọn iṣiro ko ni tunto. Ko si data ti a firanṣẹ."
+  },
+  "errorTracking": {
+    "title": "Titele aṣiṣe",
+    "summary": "Awọn ijabọ aṣayan si {{host}}: iru aṣiṣe, ipo koodu, ẹya ati ẹrọ ṣiṣe. Ko si awọn ibaraẹnisọrọ, awọn ifiranṣẹ aṣiṣe aise tabi awọn bọtini. Pa nigbakugba.",
+    "unavailable": "Titele aṣiṣe ko tunto. Ko si iroyin ti wa ni rán."
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "editServer": "編輯 MCP 伺服器",
+  "addServer": "新增 MCP 伺服器",
+  "browserExtension": {
+    "connecting": {
+      "checking": "當在檢查擴充功能狀態..."
+    },
+    "notInstalled": {
+      "title": "Novera 在你个瀏覽器中完成任務",
+      "description": "安裝擴充功能以授予 Novera 瀏覽器存取權限",
+      "getExtension": "取得擴充功能"
+    }
+  },
+  "serverName": "伺服器名稱",
+  "enterServerName": "輸入伺服器名稱",
+  "command": "指令",
+  "enterCommand": "輸入指令 (uvx 或 npx)",
+  "arguments": "參數",
+  "argument": "參數 {{index}}",
+  "envVars": "環境變數",
+  "key": "鍵",
+  "value": "值",
+  "save": "存起來",
+  "status": "狀態",
+  "connected": "已連線",
+  "disconnected": "已斷線",
+  "deleteServer": {
+    "title": "刪忒 MCP 伺服器",
+    "description": "你確定要刪忒 MCP 伺服器 {{serverName}} 嗎？此操作無法復原。",
+    "delete": "刪忒",
+    "success": "MCP 伺服器 {{serverName}} 刪忒成功"
+  },
+  "editJson": {
+    "title": "編輯 MCP 伺服器的 JSON：{{serverName}}",
+    "titleAll": "編輯所有 MCP 伺服器的 JSON",
+    "placeholder": "輸入 JSON 設定",
+    "errorParse": "解析初始資料失敗",
+    "errorPaste": "貼上內容的 JSON 格式無效",
+    "errorFormat": "JSON 格式無效",
+    "errorServerName": "伺服器名稱為必填項目，做毋得為空",
+    "errorMissingServerNameKey": "JSON 必須依照 {\"serverName\": {config}} 結構 - 缺少伺服器名稱鍵值",
+    "errorInvalidType": "伺服器 '{{serverName}}' 的類型 '{{type}}' 無效。類型必須是 'stdio'、'http' 或 'sse'",
+    "save": "存起來"
+  },
+  "checkParams": "請根據教學檢查參數。",
+  "title": "MCP 伺服器",
+  "experimental": "實驗性",
+  "editAllJson": "編輯所有伺服器的 JSON",
+  "findMore": "在以下位置尋找更多 MCP 伺服器",
+  "allowPermissions": "允許所有 MCP 工具權限",
+  "allowPermissionsDesc": "啟用後，所有 MCP 工具呼叫將自動核准，而不會顯示權限對話方塊。此設定全域適用於所有對話，包括新聊天。",
+  "noServers": "找不到 MCP 伺服器",
+  "args": "參數",
+  "env": "環境",
+  "serverStatusActive": "伺服器 {{serverKey}} 啟用成功",
+  "serverStatusInactive": "伺服器 {{serverKey}} 停用成功",
+  "runtimeSettings": {
+    "title": "執行階段設定",
+    "description": "設定 Novera 仰般管理及再試一擺 MCP 伺服器。",
+    "toolCallTimeout": "工具呼叫逾時（秒）",
+    "toolCallTimeoutDesc": "等待 MCP 工具回應的最長時間，超過即逾時。",
+    "maxToolOutputChars": "工具最大輸出字元數",
+    "maxToolOutputCharsDesc": "對話中保存的最長工具結果。超過此範圍的任何內容都會被修剪並標記為截斷，因此一個大結果無法耗盡模型的上下文。設定為 0 以保持結果完整。",
+    "smartToolRouting": "智慧 MCP 工具路由",
+    "smartToolRoutingDesc": "啟用時，Novera 會在載入工具前先選擇相關的 MCP 伺服器。關忒則一律載入完整的 MCP 工具清單。",
+    "useLightweightRouterModel": "使用專用模型進行路由",
+    "useLightweightRouterModelDesc": "智慧路由開啟時，路由步驟會使用獨立的（通常較小的）模型，而非聊天模型。關忒則一律使用作用中的聊天模型進行路由。",
+    "routerModel": "路由模型",
+    "routerModelDesc": "在同一處選擇提供商與模型。僅列出輕量模型，以維持路由快速、低成本。",
+    "selectRouterModelPlaceholder": "選擇路由模型…",
+    "routerModelSearchPlaceholder": "搜尋模型…",
+    "routerModelEmptyList": "無可用的輕量模型。請新增較小的模型，或在「模型」中設定 API 金鑰。",
+    "routerModelEmptySearch": "無與「{{query}}」相符的結果。"
+  },
+  "auth": {
+    "label": "授權：",
+    "state": {
+      "notApplicable": "不需要",
+      "staticHeader": "授權標頭",
+      "authenticated": "已驗證",
+      "expired": "已過期",
+      "staleResource": "為另一首 URL 發行",
+      "unauthenticated": "未驗證"
+    },
+    "expiresIn": "到期時間為 {{duration}}",
+    "authenticate": "登入",
+    "reauthenticate": "重新驗證",
+    "clear": "清晰的身份驗證",
+    "waiting": "當在等待瀏覽器...",
+    "openSignInPage": "開啟登入頁面",
+    "needsAuth": "{{serverName}} 需認證",
+    "needsAuthHint": "登入此伺服器進行連線。",
+    "authorized": "登入{{serverName}}",
+    "authorizeFailed": "{{serverName}} 登入失敗",
+    "cleared": "清除了 {{serverName}} 的儲存憑證",
+    "nothingToClear": "{{serverName}} 無儲存憑證",
+    "clearFailed": "無法清除 {{serverName}} 的憑證",
+    "renew": "續訂會話",
+    "expiredAgo": "已過期 {{duration}} 前"
+  }
+}

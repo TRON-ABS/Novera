@@ -1,0 +1,50 @@
+{
+  "welcome": "Hi, bawo ni o?",
+  "description": "Bawo ni MO ṣe le ran ọ lọwọ loni?",
+  "temporaryChat": "Iwiregbe igba diẹ",
+  "temporaryChatDescription": "Bẹrẹ ibaraẹnisọrọ igba diẹ ti kii yoo wa ni fipamọ si itan iwiregbe rẹ.",
+  "status": {
+    "empty": "Ko ri Awọn ibaraẹnisọrọ"
+  },
+  "sendMessage": "Firanṣẹ Ifiranṣẹ",
+  "newConversation": "Ibaraẹnisọrọ Tuntun",
+  "clearHistory": "Ko itan-akọọlẹ kuro",
+  "embeddings": {
+    "title": "Ngbaradi awọn iwe aṣẹ rẹ",
+    "description": "Titọka awọn faili ti o somọ ki wọn le wa ati tọka si. Eyi le gba akoko diẹ fun awọn iwe aṣẹ nla."
+  },
+  "actions": {
+    "regenerate": "Atunse esi",
+    "askAgain": "Beere lẹẹkansi",
+    "continue": "Tesiwaju ti ipilẹṣẹ",
+    "remember": "Ranti eyi",
+    "rememberSaved": "Ti fipamọ si iranti bi \"{{name}}\"",
+    "rememberExists": "Tẹlẹ ni iranti bi \"{{name}}\"",
+    "rememberFailed": "Ko le fipamọ si iranti"
+  },
+  "done": "Ti ṣe",
+  "webSources": "{{count}} orisun(s)",
+  "reasoning": {
+    "label": "Idi...",
+    "thinking": "Ni ero",
+    "working": "Nṣiṣẹ...",
+    "showFullTimeline": "Ṣe afihan aago ni kikun",
+    "showCurrentStep": "Ṣe afihan igbesẹ lọwọlọwọ nikan",
+    "thoughtForAWhile": "Ronu fun iṣẹju diẹ",
+    "thoughtFor": "Ero fun {{duration}}",
+    "workedForAWhile": "Ṣiṣẹ fun iṣẹju diẹ",
+    "workedFor": "Ti ṣiṣẹ fun {{duration}}"
+  },
+  "messageActions": {
+    "previousVersion": "Ti tẹlẹ ti ikede",
+    "nextVersion": "Next ti ikede",
+    "generationFailed": "Iran kuna"
+  },
+  "messageStats": {
+    "details": "Awọn iṣiro iran",
+    "generation": "Iran iran",
+    "reading": "Kika",
+    "tokens": "Awọn ami-ami",
+    "perSecond": "àmi / s"
+  }
+}

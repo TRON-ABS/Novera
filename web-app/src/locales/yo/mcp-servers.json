@@ -1,0 +1,101 @@
+{
+  "editServer": "Ṣatunkọ MCP olupin",
+  "addServer": "Ṣafikun MCP olupin",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Ṣiṣayẹwo ipo itẹsiwaju..."
+    },
+    "notInstalled": {
+      "title": "Novera pari awọn iṣẹ ṣiṣe ninu ẹrọ aṣawakiri rẹ",
+      "description": "Fi itẹsiwaju sii lati fun Novera wiwọle ẹrọ aṣawakiri",
+      "getExtension": "Gba Ifaagun"
+    }
+  },
+  "serverName": "Orukọ olupin",
+  "enterServerName": "Tẹ orukọ olupin sii",
+  "command": "Àṣẹ",
+  "enterCommand": "Tẹ aṣẹ sii (uvx tabi npx)",
+  "arguments": "Awọn ariyanjiyan",
+  "argument": "Ariyanjiyan {{index}}",
+  "envVars": "Awọn iyipada Ayika",
+  "key": "Bọtini",
+  "value": "Iye",
+  "save": "Fi pamọ́",
+  "status": "Ipo",
+  "connected": "Ti sopọ",
+  "disconnected": "Ge asopọ",
+  "deleteServer": {
+    "title": "Paarẹ MCP Server",
+    "description": "Ṣe o da ọ loju pe o fẹ paarẹ olupin MCP olupin {{serverName}} bi? Iṣe yii ko le ṣe atunṣe.",
+    "delete": "Pa rẹ́",
+    "success": "MCP olupin {{serverName}} paarẹ ni aṣeyọri"
+  },
+  "editJson": {
+    "title": "Ṣatunkọ JSON fun MCP olupin: {{serverName}}",
+    "titleAll": "Ṣatunkọ Gbogbo MCP Awọn olupin JSON",
+    "placeholder": "Tẹ JSON iṣeto ni",
+    "errorParse": "Kuna lati tu data akọkọ",
+    "errorPaste": "Ọna kika JSON aiṣedeede ninu akoonu ti a fi lẹẹmọ",
+    "errorFormat": "Ọna kika JSON ti ko tọ",
+    "errorServerName": "O nilo orukọ olupin ko si le jẹ ofo",
+    "errorMissingServerNameKey": "JSON gbọdọ jẹ iṣeto bi {\"Oruko olupin\": {config}} - bọtini orukọ olupin ti o padanu",
+    "errorInvalidType": "Iru aiṣedeede '{{type}}' fun olupin '{{serverName}}'. Iru gbọdọ jẹ 'stdio', 'http', tabi 'sse'",
+    "save": "Fi pamọ́"
+  },
+  "checkParams": "Jọwọ ṣayẹwo awọn paramita ni ibamu si ikẹkọ.",
+  "title": "MCP Awọn olupin",
+  "experimental": "Idanwo",
+  "editAllJson": "Ṣatunkọ Gbogbo Awọn olupin JSON",
+  "findMore": "Wa diẹ sii MCP olupin ni",
+  "allowPermissions": "Gba Gbogbo MCP Awọn igbanilaaye Irinṣẹ",
+  "allowPermissionsDesc": "Nigbati o ba mu ṣiṣẹ, gbogbo awọn ipe irinṣẹ MCP yoo jẹ ifọwọsi laifọwọyi laisi iṣafihan awọn ibaraẹnisọrọ igbanilaaye. Eto yii kan agbaye si gbogbo awọn ibaraẹnisọrọ, pẹlu awọn iwiregbe tuntun.",
+  "noServers": "Ko si awọn olupin MCP ti a rii",
+  "args": "Àwọn àfikún àṣẹ",
+  "env": "Àyíká",
+  "serverStatusActive": "Olupin {{serverKey}} ti mu ṣiṣẹ ni aṣeyọri",
+  "serverStatusInactive": "Olupin {{serverKey}} ti mu ṣiṣẹ ni aṣeyọri",
+  "runtimeSettings": {
+    "title": "Awọn eto asiko-ṣiṣe",
+    "description": "Ṣe atunto bawo ni Novera ṣe n ṣakoso ati gbiyanju awọn olupin MCP.",
+    "toolCallTimeout": "Akoko ipe irinṣẹ (awọn iṣẹju-aaya)",
+    "toolCallTimeoutDesc": "Akoko to pọju lati duro fun esi ohun elo MCP ṣaaju ki akoko to jade.",
+    "maxToolOutputChars": "Max ọpa wu ohun kikọ",
+    "maxToolOutputCharsDesc": "Abajade irinṣẹ to gun julọ wa ninu ibaraẹnisọrọ naa. Ohunkohun ti o kọja eyi jẹ gige ati samisi bi gige, nitorinaa abajade nla kan ko le mu ipo awoṣe naa mu. Ṣeto si 0 lati tọju awọn abajade odindi.",
+    "smartToolRouting": "Smart MCP ipa ọna irinṣẹ",
+    "smartToolRoutingDesc": "Nigbati o ba ṣiṣẹ, Novera yan awọn olupin MCP ti o yẹ ṣaaju awọn irinṣẹ ikojọpọ. Pa a nigbagbogbo kojọpọ atokọ ohun elo MCP kikun.",
+    "useLightweightRouterModel": "Lo awoṣe iyasọtọ fun ipa-ọna",
+    "useLightweightRouterModelDesc": "Nigbati ipa-ọna ọlọgbọn ba wa ni titan, ṣiṣe igbesẹ ipa-ọna pẹlu awoṣe lọtọ (nigbagbogbo kere) dipo awoṣe iwiregbe. Paa lati nigbagbogbo lo awoṣe iwiregbe ti nṣiṣe lọwọ fun ipa-ọna.",
+    "routerModel": "Awoṣe afisona",
+    "routerModelDesc": "Yan olupese ati awoṣe ni ibi kan. Awọn awoṣe iwuwo fẹẹrẹ nikan ni a ṣe atokọ nitorinaa afisona duro ni iyara ati olowo poku.",
+    "selectRouterModelPlaceholder": "Yan awoṣe ipa ọna…",
+    "routerModelSearchPlaceholder": "Ṣewadii awọn awoṣe…",
+    "routerModelEmptyList": "Ko si awọn awoṣe iwuwo fẹẹrẹ wa. Ṣafikun awoṣe kekere kan tabi tunto awọn bọtini API ni Awọn awoṣe.",
+    "routerModelEmptySearch": "Ko si awọn ere-kere fun “{{query}}”."
+  },
+  "auth": {
+    "label": "Ifọwọsi:",
+    "state": {
+      "notApplicable": "ko beere",
+      "staticHeader": "Akọsori iwe-aṣẹ",
+      "authenticated": "nile",
+      "expired": "pari",
+      "staleResource": "jade fun URL miiran",
+      "unauthenticated": "ko nile"
+    },
+    "expiresIn": "pari ni {{duration}}",
+    "authenticate": "wọle",
+    "reauthenticate": "Tun-jeri",
+    "clear": "Ko ìfàṣẹsí",
+    "waiting": "Nduro fun ẹrọ aṣawakiri...",
+    "openSignInPage": "Ṣii oju-iwe iwọle",
+    "needsAuth": "{{serverName}} nilo ìfàṣẹsí",
+    "needsAuthHint": "Wọle si olupin yii lati sopọ.",
+    "authorized": "Wọle si {{serverName}}",
+    "authorizeFailed": "Wọle fun {{serverName}} kuna",
+    "cleared": "Paarẹ awọn iwe-ẹri ipamọ fun {{serverName}}",
+    "nothingToClear": "{{serverName}} ko ni awọn iwe-ẹri ti o fipamọ",
+    "clearFailed": "Ko le ko awọn iwe-ẹri kuro fun {{serverName}}",
+    "renew": "Tunse igba",
+    "expiredAgo": "pari {{duration}}pi seyin"
+  }
+}

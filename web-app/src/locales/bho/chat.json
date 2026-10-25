@@ -1,0 +1,50 @@
+{
+  "welcome": "हाय, रउरा कइसन बानी?",
+  "description": "आज हम रउरा के कइसे मदद करब?",
+  "temporaryChat": "अस्थायी गपशप के बा",
+  "temporaryChatDescription": "अस्थायी बातचीत शुरू करीं जवन रउरा चैट इतिहास में सेव ना होखी.",
+  "status": {
+    "empty": "कवनो गपशप ना मिलल"
+  },
+  "sendMessage": "संदेश भेजल जाला",
+  "newConversation": "नया बातचीत भइल",
+  "clearHistory": "इतिहास के साफ कर दिहल जाव",
+  "embeddings": {
+    "title": "आपन दस्तावेज तइयार करत बानी",
+    "description": "संलग्न फाइल सभ के अनुक्रमणिका बनावल ताकि इनहन के खोजल जा सके आ उद्धृत कइल जा सके। बड़का दस्तावेजन खातिर एहमें एक पल लाग सकेला."
+  },
+  "actions": {
+    "regenerate": "प्रतिक्रिया के पुनर्जीवित करे के बा",
+    "askAgain": "फेरु से पूछीं",
+    "continue": "जनरेट करत रहीं",
+    "remember": "ई बात याद राखीं",
+    "rememberSaved": "\"{{name}}\" के रूप में मेमोरी में सेव कइल गइल।",
+    "rememberExists": "पहिले से ही \"{{name}}\" के रूप में मेमोरी में बा।",
+    "rememberFailed": "मेमोरी में सेव ना हो सकल"
+  },
+  "done": "हो गइल बा",
+  "webSources": "{{count}} स्रोत (स्रोत) के बा।",
+  "reasoning": {
+    "label": "तर्क देत बानी...",
+    "thinking": "सोचत बानी",
+    "working": "काम करत बानी...",
+    "showFullTimeline": "पूरा टाइमलाइन देखावल जाव",
+    "showCurrentStep": "खाली वर्तमान कदम देखाईं",
+    "thoughtForAWhile": "कुछ सेकेंड खातिर सोचल गइल",
+    "thoughtFor": "{{duration}} खातिर सोचा गइल",
+    "workedForAWhile": "कुछ सेकंड खातिर काम कइलस",
+    "workedFor": "{{duration}} के लिए काम कइले बानी।"
+  },
+  "messageActions": {
+    "previousVersion": "पिछला संस्करण के बा",
+    "nextVersion": "अगिला संस्करण के बा",
+    "generationFailed": "पीढ़ी फेल हो गइल"
+  },
+  "messageStats": {
+    "details": "पीढ़ी के आँकड़ा के बारे में बतावल गइल बा",
+    "generation": "पीढ़ी के जनरेशन के बा",
+    "reading": "पढ़त बानी",
+    "tokens": "टोकन के बा",
+    "perSecond": "टोकन/टोकन के बा"
+  }
+}

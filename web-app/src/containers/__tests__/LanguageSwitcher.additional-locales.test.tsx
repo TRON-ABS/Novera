@@ -23,6 +23,16 @@ it.each([
   ['kn', 'ಕನ್ನಡ', 'ಮುಚ್ಚಿ', 'ltr'],
   ['apc', 'عربي شامي', 'سكّر', 'rtl'],
   ['apd', 'عربي سوداني', 'اقفل', 'rtl'],
+  ['yo', 'Yorùbá', 'Pa', 'ltr'],
+  ['bho', 'भोजपुरी', 'बंद करीं', 'ltr'],
+  ['cjy', '晋语', '关上', 'ltr'],
+  ['nan', '閩南語', '關起來', 'ltr'],
+  ['my', 'မြန်မာ', 'ပိတ်ရန်', 'ltr'],
+  ['arq', 'دارجة جزائرية', 'سدّ', 'rtl'],
+  ['hak', '客家話', '關忒', 'ltr'],
+  ['ln', 'Lingála', 'Kanga', 'ltr'],
+  ['ary', 'الدارجة المغربية', 'سدّ', 'rtl'],
+  ['or', 'ଓଡ଼ିଆ', 'ବନ୍ଦ କରନ୍ତୁ', 'ltr'],
 ])('selects %s, loads its text, persists the choice and restores menu direction', async (locale, label, close, direction) => {
   const user = userEvent.setup()
   const view = render(<TranslationProvider><LanguageSwitcher /></TranslationProvider>)
@@ -58,7 +68,8 @@ it.each([
   expect(screen.getByRole('menu')).toHaveAttribute('dir', 'ltr')
 })
 
-it.each([['apc', 'ar-LB'], ['apd', 'ar-SD']])('formats %s using regional Arabic rather than English fallback', (locale, regional) => {
+it.each([['apc', 'ar-LB'], ['apd', 'ar-SD'], ['arq', 'ar-DZ'], ['ary', 'ar-MA'],
+  ['cjy', 'zh-CN'], ['nan', 'zh-TW'], ['hak', 'zh-TW']])('formats %s using a supported regional locale rather than English fallback', (locale, regional) => {
   expect(intlLocale(locale)).toBe(regional)
   expect(new Intl.NumberFormat(intlLocale(locale)).format(1234)).toBe(
     new Intl.NumberFormat(regional).format(1234),
