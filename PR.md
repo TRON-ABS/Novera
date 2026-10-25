@@ -1,3 +1,22 @@
+# Retire unused Jan website and distribution files — 25 October 2026
+
+The repository still carried Jan's website, downloads, media and Flatpak recipe
+alongside Novera. The installers defaulted to Jan distributions and the Flatpak
+recipe built Jan v0.8.5. Remove those obsolete files and their dedicated
+workflows, the old Japanese/Chinese Jan READMEs and an unused logo. Keep current
+Novera Markdown documentation, API tests, attribution and all runtime code.
+Document source CLI usage and the absence of a validated Novera Flatpak package.
+Preserve historical dependency links against the pre-cleanup Git revision.
+
+Validation: checked deletion scope, retained runtime references and file hashes,
+local workflow/document links, all four ADK source excerpts and `git diff --check`.
+The native test now follows the migrated Markdown paths; it was not executed.
+GitHub Actions was confirmed disabled through the GitHub API. No application rebuild,
+binary publication, CI activation or history rewrite. Existing unrelated local
+changes are excluded from this publication. Details: [cleanup](docs/JAN_CLEANUP.md).
+
+---
+
 # Prepare opt-in PostHog error tracking — 25 October 2026
 
 Add a separate default-off Error tracking control in Privacy, with explicit disclosures in all 36 locales and destination-scoped persisted permission. Existing analytics consent does not authorize exception collection. Remove the legacy blanket aggregate-data promises from the privacy screen because exception reports are individual events.

@@ -10,7 +10,6 @@ updates:
     directories:
       - '/'
       - 'core'
-      - 'docs'
       - 'e2e'
       - 'extensions'
       - 'extensions/*'

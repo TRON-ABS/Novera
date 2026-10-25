@@ -305,11 +305,11 @@ fn python_host_tool_round_trips() {
 #[test]
 fn the_docs_quote_the_examples_verbatim() {
     let root = repo_root();
-    let pages = root.join("docs/src/pages/docs/agent");
+    let pages = root.join("docs/agent");
     let mut quoted = std::collections::BTreeSet::new();
     for entry in std::fs::read_dir(&pages).expect("agent docs") {
         let page = entry.expect("page").path();
-        if page.extension().is_none_or(|e| e != "mdx") {
+        if page.extension().is_none_or(|e| e != "md") {
             continue;
         }
         let text = std::fs::read_to_string(&page).expect("read page");
