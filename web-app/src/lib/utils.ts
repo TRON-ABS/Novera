@@ -129,6 +129,10 @@ export function getModelDisplayName(model: Model): string {
 
 export function getProviderLogo(provider: string) {
   switch (provider) {
+    case 'liquidai':
+      return '/images/model-provider/liquidai.png'
+    case 'qwen':
+      return '/images/model-provider/qwen.png'
     case 'novera':
       return '/images/novera-logo.png'
     case 'jan':
@@ -147,8 +151,24 @@ export function getProviderLogo(provider: string) {
       return '/images/model-provider/open-router.svg'
     case 'groq':
       return '/images/model-provider/groq.svg'
+    case 'meta':
+      return '/images/model-provider/meta.ico'
     case 'cohere':
       return '/images/model-provider/cohere.svg'
+    case 'zai':
+      return '/images/model-provider/zai.svg'
+    case 'ai21':
+      return '/images/model-provider/ai21.png'
+    case 'byteplus':
+      return '/images/model-provider/byteplus.png'
+    case 'baidu':
+      return '/images/model-provider/baidu.ico'
+    case 'tencent':
+      return '/images/model-provider/tencent.ico'
+    case 'bedrock':
+      return '/images/model-provider/bedrock.png'
+    case 'watsonx':
+      return '/images/model-provider/watsonx.png'
     case 'gemini':
       return '/images/model-provider/gemini.svg'
     case 'openai':
@@ -182,6 +202,25 @@ export function getProviderLogo(provider: string) {
 
 export const getProviderTitle = (provider: string) => {
   switch (provider) {
+    case 'meta':
+      return 'Meta AI'
+    case 'cohere':
+      return 'Cohere'
+    case 'zai':
+      return 'Z.ai'
+    case 'ai21':
+      return 'AI21 Labs'
+    case 'byteplus':
+      return 'BytePlus (ByteDance)'
+    case 'baidu':
+      return 'Baidu Qianfan'
+    case 'tencent':
+      return 'Tencent TokenHub'
+    case 'bedrock':
+      return 'Amazon Bedrock'
+    case 'watsonx':
+      return 'IBM watsonx'
+
     case 'jan':
       return 'Jan'
     case 'llamacpp':

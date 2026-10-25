@@ -14,6 +14,7 @@ import {
 import { route } from '@/constants/routes'
 import { useModelSources } from '@/hooks/useModelSources'
 import { extractModelName, extractDescription } from '@/lib/models'
+import ModelPublisherAvatar from '@/containers/ModelPublisherAvatar'
 import { RenderMarkdown } from '@/containers/RenderMarkdown'
 import { useEffect, useMemo, useCallback, useState } from 'react'
 import { useModelProvider } from '@/hooks/useModelProvider'
@@ -242,6 +243,8 @@ function HubModelDetailContent() {
           <div className="max-w-4xl mx-auto p-6">
             {/* Model Header */}
             <div className="mb-8">
+              <div className="flex items-start gap-3">
+              <ModelPublisherAvatar model={modelData} />
               <h1
                 className="text-2xl font-semibold mb-4 capitalize wrap-break-word line-clamp-2"
                 title={
@@ -252,6 +255,7 @@ function HubModelDetailContent() {
                 {extractModelName(modelData.model_name) ||
                   modelData.model_name}
               </h1>
+              </div>
 
               {/* Stats */}
               <div className="flex items-center gap-4 text-sm text-foreground mb-4 flex-wrap">

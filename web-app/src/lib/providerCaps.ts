@@ -42,7 +42,7 @@ const GOOGLE: ProviderCaps = {
 }
 
 const COHERE: ProviderCaps = {
-  supported: set('top_k', 'penalties'),
+  supported: set('penalties'),
   maybe: new Set(),
 }
 
@@ -146,6 +146,15 @@ const CUSTOM_PERMISSIVE: ProviderCaps = {
 }
 
 const BUILTIN_CAPS: Record<string, ProviderCaps> = {
+  meta: { supported: set(), maybe: new Set() },
+  zai: { supported: set(), maybe: new Set() },
+  ai21: { supported: set(), maybe: new Set() },
+  byteplus: { supported: set(), maybe: new Set() },
+  baidu: { supported: set(), maybe: new Set() },
+  tencent: { supported: set(), maybe: new Set() },
+  bedrock: { supported: set(), maybe: new Set() },
+  watsonx: { supported: set(), maybe: new Set() },
+
   openai: OPENAI_STRICT,
   azure: AZURE,
   anthropic: ANTHROPIC,

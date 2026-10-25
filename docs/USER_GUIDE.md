@@ -1,12 +1,14 @@
 # Novera — guide utilisateur
 
-Comportements présents dans les sources au **25 octobre 2026**. Le [tableau de bord](../TABLEAU_DE_BORD_NOVERA.md) précise ce qui est déjà compilé et ce qui reste à valider. Aucun binaire public n’est encore disponible.
+Comportements présents dans les sources au **26 octobre 2026**. Le [tableau de bord](../TABLEAU_DE_BORD_NOVERA.md) précise ce qui est déjà compilé et ce qui reste à valider. Aucun binaire public n’est encore disponible.
 
 [Premier démarrage](#first-run) · [Discussions](#conversations) · [Hub](#hub) · [Cloud](#cloud) · [Confidentialité](#privacy) · [Agent](#agent)
 
 <a id="first-run"></a>
 
 ## Premier démarrage
+
+Le sélecteur affiche les **70 noms natifs** (Français, English, العربية, 日本語, etc.), avec sens de lecture automatique et un menu élargi et défilant. Le nom indonésien est précisé en **Bahasa Indonesia**.
 
 Sans préférence sauvegardée, la langue système est sélectionnée puis enregistrée. Un choix manuel remplace cette préférence pour les démarrages suivants. Voir [les langues](LANGUAGES.md#system-language).
 
@@ -143,13 +145,15 @@ Le test est interdit pendant une génération de discussion ou Cowork, annulé s
 
 <a id="cloud"></a>
 
+Les six modèles locaux présélectionnés affichent l’icône officielle de leur éditeur : **Liquid AI** pour les quatre LFM2.5 et **Qwen** pour les deux Qwen3.5. Ces icônes sont embarquées, visibles dans la liste du Hub et sur la fiche du modèle, avec fond clair pour rester lisibles dans les deux thèmes. Aucun téléchargement de poids ne démarre à l’affichage.
+
 ## Fournisseurs cloud et maintenance
 
-Catalogue vérifié le **25 octobre 2026** dans les documentations et catalogues officiels. Novera propose **18 fournisseurs prédéfinis** et **57 modèles de conversation présélectionnés**, dont sept nouveaux fournisseurs : DeepSeek, Kimi (Moonshot AI), Alibaba Cloud (Qwen), Cerebras, Together AI, Fireworks AI et Perplexity.
+Catalogue initial vérifié le **25 octobre 2026**, neuf fournisseurs supplémentaires vérifiés le **26 octobre 2026** dans les sources officielles. Novera propose **27 fournisseurs prédéfinis** et **69 modèles de conversation présélectionnés**. Azure utilise les noms de déploiement du compte ; IBM watsonx utilise les alias de sa passerelle et ne possède pas de sélection universelle.
 
 Les sélections de conversation sont centralisées dans `web-app/src/constants/cloudModels.ts`. Elles offrent des modèles actuels sans prétendre reproduire tous les catalogues commerciaux. Les noms de marques et identifiants API restent identiques dans les 70 langues ; toute nouvelle explication d’interface est traduite dans les 70 langues.
 
-Les sept fournisseurs ajoutés disposent de logos officiels embarqués. Voir la [provenance et la procédure de maintenance des logos](DEVELOPMENT.md#logos).
+Les fournisseurs ajoutés disposent de leurs propres logos officiels embarqués. Voir la [provenance et la procédure de maintenance des logos](DEVELOPMENT.md#logos).
 
 ### Sélections et sources officielles
 
@@ -174,8 +178,24 @@ Les sept fournisseurs ajoutés disposent de logos officiels embarqués. Voir la 
 | Fireworks AI | DeepSeek V4.1 Flash 1017, Kimi K3, MiniMax M3 | [Catalogue](https://docs.fireworks.ai/getting-started/models), [DeepSeek](https://app.fireworks.ai/models/fireworks/deepseek-v4p1-flash-1017), [Kimi](https://app.fireworks.ai/models/fireworks/kimi-k3), [MiniMax](https://app.fireworks.ai/models/fireworks/minimax-m3) |
 | Perplexity | Sonar Agent, GPT-6.1 Sol, Gemini 4 Argon, Kimi K3 | [Modèles Agent](https://docs.perplexity.ai/docs/agent-api/models), [API Responses](https://docs.perplexity.ai/docs/agent-api/openai-compatibility) |
 
+| Meta AI | `muse-wonder-1.0`, `muse-spark-1.3` | [Modèles](https://dev.meta.ai/docs/models), [API](https://dev.meta.ai/docs/api-reference) |
+| Cohere | `command-a-plus-05-2026` | [Modèles](https://docs.cohere.com/docs/models), [compatibilité OpenAI](https://docs.cohere.com/v2/docs/compatibility-api) |
+| Z.ai | `glm-5.3`, `glm-5.3-flash`, `glm-5.3-flashx` | [GLM-5.3](https://docs.z.ai/guides/llm/glm-5.3), [Flash](https://docs.z.ai/guides/vlm/glm-5.3-flash), [configuration](https://zcode.z.ai/en/docs/configuration) |
+| AI21 Labs | `jamba-large` (1.7), `jamba-mini-2` (2) | [Modèles et alias API](https://docs.ai21.com/docs/jamba-foundation-models), [API](https://docs.ai21.com/reference/jamba-1-6-api-ref) |
+| BytePlus (ByteDance) | `dola-seed-2-1-turbo-260628` | [Paramètres et disponibilité](https://docs.byteplus.com/en/docs/modelark/model-parameter-support), [retraits](https://docs.byteplus.com/en/docs/modelark/model-deprecation-notice) |
+| Baidu Qianfan | `ernie-5.1` | [Catalogue Chine](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j), [ERNIE 5.1](https://ernie.baidu.com/blog/posts/ernie-5.1-0508-release/) |
+| Tencent TokenHub | `hy4-preview` | [API et régions](https://cloud.tencent.com/document/product/1823/130078), [modèle](https://cloud.tencent.com/document/product/1823/132252) |
+| Amazon Bedrock | `openai.gpt-6.1-sol` via Mantle | [API](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html), [fiche du modèle](https://docs.aws.amazon.com/fr_fr/bedrock/latest/userguide/model-card-openai-gpt-6-1-sol.html) |
+| IBM watsonx | Catalogue du compte via Model Gateway ; aucun identifiant inventé | [Passerelle](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models), [SDK officiel](https://ibm.github.io/watsonx-ai-python-sdk/model_gateway.html) |
+
 ### Configuration et actualisation
 
+- Les ajouts du 26 octobre emploient les API compatibles Chat Completions. Meta AI désigne son API développeur, distincte de l’abonnement grand public. Les modèles auto-hébergés sans identifiant cloud (par exemple Jamba 3B) ne sont pas inventés dans la liste.
+- Les URL Z.ai, BytePlus, Baidu, Tencent, Bedrock et IBM sont modifiables. Z.ai distingue prépaiement (`/api/paas/v4`) et Coding Plan (`/api/coding/paas/v4`) : choisir l’offre de la clé ; GLM-5.3 impose son raisonnement. Baidu utilise par défaut l’API Chine `/v2` pour ERNIE 5.1 ; sa disponibilité sur l’API internationale n’est pas présumée. Tencent utilise TokenHub Chine ; Singapour emploie `https://tokenhub-intl.tencentmaas.com/v1`, avec une clé et des modèles autorisés pour ce site. BytePlus conserve l’endpoint ModelArk de Singapour ; `dola-seed-evolving` n’est pas proposé car la documentation l’indique indisponible sur BytePlus.
+- Amazon Bedrock utilise une clé API bearer Bedrock et l’endpoint Mantle régional, sans signature SigV4. Le catalogue est interrogé sur `/v1/models` ; GPT-6 utilise `/openai/v1`, GPT-OSS `/v1`. Les URL de proxy personnalisées restent intactes. Le catalogue importé est limité aux familles GPT dont ce transport Chat Completions est pris en charge ; la disponibilité varie selon région et compte.
+- IBM nécessite l’URL réelle du Model Gateway du compte (`https://YOUR-GATEWAY-HOST/ml/gateway/v1`) et son authentification autorisée. Laisser l’URL vide bloque l’inférence. Actualiser la liste après configuration : les alias et versions, y compris les éventuels modèles Granite récents, sont ceux réellement enregistrés dans la passerelle. Cette intégration ne remplace pas l’API native watsonx à projet/IAM.
+- Cohere conserve l’URL d’inférence `/compatibility/v1` et lit son catalogue natif `/v1/models?endpoint=chat&page_size=1000`, en écartant les modèles retirés et non conversationnels. Les anciennes configurations Cohere sont conservées et leur URL native obsolète est corrigée ; les clés et URL de proxy ne sont pas remplacées.
+- Z.ai, AI21, BytePlus, Baidu et Tencent utilisent une sélection maintenue dans les sources : l’actualisation réintroduit les modèles de cette sélection sans supprimer les modèles existants. Aucun endpoint de catalogue non documenté n’est supposé ; le test des clés par catalogue est désactivé pour ces services. La disponibilité d’une nouvelle version exige une nouvelle vérification et mise à jour de cette sélection.
 - Une clé API du fournisseur est nécessaire. Aucune clé utilisateur n’a été lue ni utilisée pour cette vérification ; aucun appel d’inférence payant n’a été lancé.
 - Alibaba utilise une URL propre à l’espace de travail et à la région. Le champ est modifiable, comme pour Azure. Remplacer `YOUR-WORKSPACE-ID` et sélectionner la région correspondant à la clé. L’aide est traduite dans les 70 langues.
 - Perplexity utilise désormais `/v1/responses` avec l’adaptateur OpenAI existant. Les anciens préréglages Sonar Chat Completions ne sont plus proposés par défaut.

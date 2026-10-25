@@ -324,6 +324,23 @@ describe('useModelProvider - coverage', () => {
       return persistApi?.getOptions().migrate as ((state: unknown, version: number) => any) | undefined
     }
 
+    it('repairs only the obsolete native Cohere URL while preserving keys and proxy URLs', () => {
+      const migrate = getMigrate()!
+      for (const version of [3, 9, 20]) {
+        const migrated = migrate({ providers: [
+          makeProvider('cohere', [{ id: 'custom', settings: {} }], { base_url: 'https://api.cohere.ai/v1', api_key: 'test-key', api_key_fallbacks: ['test-backup'] }),
+          makeProvider('cohere', [], { base_url: 'https://proxy.test/v1', api_key: 'proxy-key' }),
+          makeProvider('bedrock', [], { base_url: 'https://bedrock-mantle.eu-west-1.api.aws/openai/v1' }),
+        ], deletedModels: [] }, version)
+        expect(migrated.providers[0].base_url).toBe('https://api.cohere.ai/compatibility/v1')
+        expect(migrated.providers[0].api_key).toBe('test-key')
+        expect(migrated.providers[0].api_key_fallbacks).toEqual(['test-backup'])
+        expect(migrated.providers[0].models[0].id).toBe('custom')
+        expect(migrated.providers[1].base_url).toBe('https://proxy.test/v1')
+        expect(migrated.providers[2].base_url).toContain('eu-west-1')
+      }
+    })
+
     it.each([
       [7, 'removing proactive capability', {
         providers: [{ provider: 'openai', models: [{ id: 'm1', capabilities: ['tools', 'proactive', 'vision'], settings: {} }], settings: [] }],
@@ -331,14 +348,14 @@ describe('useModelProvider - coverage', () => {
       }, (migrated: any) => {
         expect(migrated.providers[0].models[0].capabilities).toEqual(['tools', 'vision'])
       }],
-      [9, 'removing cohere provider', {
+      [9, 'preserving cohere provider', {
         providers: [
           { provider: 'cohere', models: [], settings: [] },
           { provider: 'openai', models: [], settings: [] },
         ],
         deletedModels: [],
       }, (migrated: any) => {
-        expect(migrated.providers.find((p: any) => p.provider === 'cohere')).toBeUndefined()
+        expect(migrated.providers.find((p: any) => p.provider === 'cohere')).toBeDefined()
         expect(migrated.providers.find((p: any) => p.provider === 'openai')).toBeDefined()
       }],
       [10, 'v10 is now a no-op (auto_increase_ctx_len removed in v15)', {

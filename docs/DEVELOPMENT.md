@@ -190,3 +190,29 @@ Choisir les tests correspondant au changement et documenter leurs résultats ré
 Pour les discussions : règles pures dans `web-app/src/modules/conversations`, fichiers/impression dans `web-app/src/adapters/platform/conversation-files.ts`, interface dans `ConversationActions.tsx`, `SamplerPopover.tsx` et `ChatInput.tsx` sous `web-app/src/containers`. Maintenir les frontières et leurs tests lors d’une extraction.
 
 Documenter chaque information dans son guide de référence ; mettre les validations historiques dans [CHANGELOG.md](CHANGELOG.md), les tâches dans [ROADMAP.md](../ROADMAP.md) et la revue courante dans [PR.md](../PR.md). Garder les journaux bruts sous `.build`, hors publication.
+
+### Ajout du 26 octobre 2026
+
+Huit nouvelles icônes officielles sont copiées sans modification ; Cohere réutilise son SVG existant. Les images identifient leurs titulaires et ne constituent pas une affiliation. Tous les fichiers restent embarqués ; aucune requête distante de logo à l’utilisation.
+
+| Fichier | Source officielle | SHA-256 |
+| --- | --- | --- |
+| `meta.ico` | [Fichier officiel](https://dev.meta.ai/favicon.ico?favicon.0__pei86aoyzg.ico) | `778876a7aae08af4cad55ffebe07e9ec1f2b04507c54cc823a15d236b0aad1fe` |
+| `zai.svg` | [Fichier officiel](https://z-cdn.chatglm.cn/z-ai/static/logo.svg) | `07a45e8e35b0b631ed2c68cd1cb041f9721b1ceeb0bd0e34f1459b0304a741c7` |
+| `ai21.png` | [Fichier officiel](https://docs.ai21.com/mintlify-assets/_mintlify/favicons/ai21-demo/zc4uXZjknsciGHPW/_generated/favicon/android-chrome-192x192.png) | `349794b81593fa1f650dfdda3487140539d8ad506f6d2fa682c92cb7e737ce9f` |
+| `byteplus.png` | [Fichier officiel](https://sf-bpcms.bytepluscdn.com/obj/byteplus-public-aiso/portal/assets/favicon.png) | `64fc512a00a7e955b1fc678cc72485aaba3af7a7fa5d915aaccd79daa8474b76` |
+| `baidu.ico` | [Fichier officiel](https://bce.bdstatic.com/img/favicon.ico) | `38cc162afabad330b02199760aabfa6242310ccd7353e26eb0846b0c4769ccbf` |
+| `tencent.ico` | [Fichier officiel](https://cloudcache.tencent-cloud.com/qcloud/favicon.ico) | `5171df10b79863d76d591705e52b93b4c5295e64d874e41fca5ecac351f5f45e` |
+| `bedrock.png` | [Fichier officiel](https://a0.awsstatic.com/libra-css/images/site/touch-icon-ipad-144-smile.png) | `f80d3ec6c5b2adee55267ecfcf2fc4131aa8551a546b7a1971b5e465c05c2403` |
+| `watsonx.png` | [Fichier officiel](https://www.ibm.com/content/dam/adobe-cms/default-images/icon-192x192.png) | `9f48c5b9877d2badf2ec7b3ad2167bed9936ebde67dbd2e1755b51429e8f7a87` |
+
+Vérification visuelle locale : neuf icônes à 18 et 40 pixels sur fonds clair et sombre, 36/36 images décodées. Les nouveaux SVG ont été contrôlés sans script ni ressource distante. Aucun exécutable reconstruit pour cet ajout. Les tests du catalogue utilisent des réponses simulées ; aucune authentification ou génération payante auprès de ces neuf services n’a été validée.
+
+Les six modèles locaux du Hub et leurs fiches utilisent désormais les icônes officielles Liquid AI et Qwen, avec fond blanc pour le contraste. L’éditeur est identifié par le champ `developer`, sans déduire une marque d’un nom de fichier arbitraire. Les modèles d’éditeurs inconnus gardent leur affichage sans faux logo.
+
+| Fichier local | Site officiel | Source du fichier | SHA-256 |
+| --- | --- | --- | --- |
+| `liquidai.png` | [Site](https://www.liquid.ai/) | [Fichier](https://www.liquid.ai/icon1.png?icon1.1ngy61cnfba9o.png) | `e3316af4ec01ef14a7cc2a6b32ce1be82647b3aad3d1f94a8f35469c8ac18c81` |
+| `qwen.png` | [Site](https://qwen.ai/) | [Fichier](https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png) | `cd9390bc4209c319121d111f3a1f535b3c7dd909b8f860d41acc9744138d58df` |
+
+Contrôle complémentaire : les 27 fournisseurs cloud et les six modèles locaux disposent tous d’une icône locale ; aperçu complet clair/sombre, 66/66 images décodées. Les 70 noms natifs sont visibles dans un aperçu distinct et testés dans le sélecteur réel.

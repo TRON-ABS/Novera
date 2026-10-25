@@ -1,3 +1,4 @@
+import { CURATED_ONLY_PROVIDERS, EDITABLE_PROVIDER_ENDPOINTS, providerCatalogUrl } from '@/lib/providerEndpoints'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Card, CardItem } from '@/containers/Card'
 import HeaderPage from '@/containers/HeaderPage'
@@ -249,7 +250,7 @@ function ProviderDetail() {
   }, [providerName, provider?.api_key, JSON.stringify(provider?.api_key_fallbacks ?? [])])
 
   useEffect(() => {
-    if (!provider || !['azure', 'alibaba'].includes(provider.provider)) return
+    if (!provider || !EDITABLE_PROVIDER_ENDPOINTS.has(provider.provider)) return
     setBaseUrlDraft(provider.base_url ?? '')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [providerName, provider?.base_url])
@@ -332,7 +333,7 @@ function ProviderDetail() {
   }, [apiKeysDraft, provider, providerName, serviceHub, updateProvider])
 
   const commitBaseUrlDraft = useCallback(() => {
-    if (!provider || !['azure', 'alibaba'].includes(provider.provider)) return
+    if (!provider || !EDITABLE_PROVIDER_ENDPOINTS.has(provider.provider)) return
     const next = baseUrlDraft.trim()
     if (next === (provider.base_url ?? '')) return
     updateProvider(providerName, { ...provider, base_url: next })
@@ -438,7 +439,7 @@ function ProviderDetail() {
         }
 
         try {
-          const response = await fetchImpl(`${provider.base_url}/models`, {
+          const response = await fetchImpl(providerCatalogUrl(provider), {
             method: 'GET',
             headers,
           })
@@ -469,7 +470,7 @@ function ProviderDetail() {
     } finally {
       setIsTestingKeys(false)
     }
-  }, [apiKeysDraft, maskApiKey, provider?.base_url, serviceHub, t])
+  }, [apiKeysDraft, maskApiKey, provider, serviceHub, t])
 
   // Note: settingsChanged event is now handled globally in GlobalEventHandler
   // This ensures all screens receive the event intermediately
@@ -507,7 +508,7 @@ function ProviderDetail() {
         }))
       }
 
-      if (supportsRemoteCatalog(provider)) {
+      if (supportsRemoteCatalog(provider) && !CURATED_ONLY_PROVIDERS.has(provider.provider)) {
         const importedModels = provider.models.filter((m) => m.imported)
         const importedIds = new Set(importedModels.map((m) => m.id))
         const fresh = newModels.filter((m) => !importedIds.has(m.id))
@@ -817,19 +818,19 @@ function ProviderDetail() {
                 provider.provider !== 'llamacpp' &&
                 provider.provider !== 'mlx' && (
                   <Card>
-                    {['azure', 'alibaba'].includes(provider.provider) && (
+                    {EDITABLE_PROVIDER_ENDPOINTS.has(provider.provider) && (
                       <div className="space-y-2 mb-4">
                         <div className="space-y-1">
                           <h2 className="font-medium text-foreground text-base">
                             {t('providers:baseUrl.title')}
                           </h2>
                           <p className="text-sm text-muted-foreground leading-normal">
-                            {t(provider.provider === 'alibaba' ? 'providers:baseUrl.alibabaDescription' : 'providers:baseUrl.azureDescription')}
+                            {['azure', 'alibaba'].includes(provider.provider) && t(provider.provider === 'alibaba' ? 'providers:baseUrl.alibabaDescription' : 'providers:baseUrl.azureDescription')}
                           </p>
                         </div>
                         <input
                           className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm font-mono shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                          placeholder={predefinedProviders.find((p) => p.provider === provider.provider)?.base_url}
+                          placeholder={provider.provider === 'watsonx' ? 'https://YOUR-GATEWAY-HOST/ml/gateway/v1' : predefinedProviders.find((p) => p.provider === provider.provider)?.base_url}
                           value={baseUrlDraft}
                           onChange={(e) => setBaseUrlDraft(e.target.value)}
                           onBlur={() => commitBaseUrlDraft()}
@@ -881,7 +882,7 @@ function ProviderDetail() {
                         <div className="space-y-3">
                           <div className="flex items-center justify-between gap-2">
                             <div className="text-xs text-muted-foreground">
-                              {t('providers:apiKeys.testHint')}
+                              {!CURATED_ONLY_PROVIDERS.has(provider.provider) && t('providers:apiKeys.testHint')}
                             </div>
                             <div className="flex items-center gap-2">
                               <Button
@@ -899,7 +900,7 @@ function ProviderDetail() {
                                 size="sm"
                                 variant="outline"
                                 onClick={handleTestApiKeys}
-                                disabled={isTestingKeys}
+                                disabled={isTestingKeys || CURATED_ONLY_PROVIDERS.has(provider.provider)}
                               >
                                 {isTestingKeys ? (
                                   <>

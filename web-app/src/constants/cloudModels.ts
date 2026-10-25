@@ -1,6 +1,6 @@
-// Verified chat shortlists: 2026-10-25. Sources and limits: docs/USER_GUIDE.md.
+// Existing shortlists: 2026-10-25; nine additions: 2026-10-26. Sources and limits: docs/USER_GUIDE.md.
 // Brand names / API identifiers are intentionally invariant across all locales.
-export const CLOUD_CATALOG_VERIFIED_AT = '2026-10-25'
+export const CLOUD_CATALOG_VERIFIED_AT = '2026-10-26'
 
 type ChatPreset = { id: string; tools: boolean; vision: boolean }
 export const cloudModelPresets = {
@@ -94,6 +94,36 @@ export const cloudModelPresets = {
     { id: 'nvidia/nemotron-3.5-super-vl-120b-a12b', tools: false, vision: false },
     { id: 'nvidia/nemotron-3.5-lightning-30b-a3b', tools: false, vision: false },
     { id: 'z-ai/glm-5.3', tools: false, vision: false },
+  ],
+  meta: [
+    { id: 'muse-wonder-1.0', tools: true, vision: true },
+    { id: 'muse-spark-1.3', tools: true, vision: true },
+  ],
+  cohere: [
+    { id: 'command-a-plus-05-2026', tools: true, vision: true },
+  ],
+  zai: [
+    { id: 'glm-5.3', tools: true, vision: false },
+    { id: 'glm-5.3-flash', tools: true, vision: true },
+    { id: 'glm-5.3-flashx', tools: true, vision: true },
+  ],
+  ai21: [
+    { id: 'jamba-large', tools: true, vision: false },
+    { id: 'jamba-mini-2', tools: true, vision: false },
+  ],
+  byteplus: [
+    { id: 'dola-seed-2-1-turbo-260628', tools: true, vision: true },
+  ],
+  baidu: [
+    { id: 'ernie-5.1', tools: false, vision: false },
+  ],
+  tencent: [
+    { id: 'hy4-preview', tools: false, vision: false },
+  ],
+  bedrock: [
+    { id: 'openai.gpt-6.1-sol', tools: true, vision: true },
+  ],
+  watsonx: [
   ],
 } satisfies Record<string, readonly ChatPreset[]>
 

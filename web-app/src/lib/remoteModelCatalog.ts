@@ -1,3 +1,4 @@
+import { CURATED_ONLY_PROVIDERS, providerCatalogUrl } from './providerEndpoints'
 import { providerRemoteApiKeyChain } from './provider-api-keys'
 import { cloudModelCapabilities, cloudModelPresets } from '@/constants/cloudModels'
 
@@ -205,6 +206,10 @@ export async function fetchTopRemoteModels(
   if (!kind) {
     throw new Error(`Catalog not supported for ${provider.provider}`)
   }
+  if (CURATED_ONLY_PROVIDERS.has(provider.provider)) {
+    const presets = (cloudModelPresets as Record<string, readonly { id: string }[]>)[provider.provider] ?? []
+    return presets.map(({ id }) => ({ id, capabilities: cloudModelCapabilities(provider.provider, id) ?? ['completion'], createdMs: 0 }))
+  }
   if (!provider.base_url) {
     throw new Error('Provider must have base_url configured')
   }
@@ -217,7 +222,7 @@ export async function fetchTopRemoteModels(
   for (let i = 0; i < attempts.length; i++) {
     const result = await getJson(
       fetchImpl,
-      `${provider.base_url.replace(/\/+$/, '')}/models`,
+      providerCatalogUrl(provider),
       buildHeaders(provider, attempts[i])
     )
     lastStatus = result.status
@@ -227,7 +232,10 @@ export async function fetchTopRemoteModels(
       throw new Error(`Failed to fetch models from ${provider.provider}: ${result.status} ${result.statusText}`)
     }
 
-    const body = result.body as { data?: unknown }
+    const body = result.body as { data?: unknown; models?: { name?: string; is_deprecated?: boolean; endpoints?: string[] }[] }
+    if (provider.provider === 'cohere' && Array.isArray(body?.models)) {
+      return normalizeCatalog(kind, body.models.filter((m) => !m.is_deprecated && m.endpoints?.includes('chat')).map((m) => ({ id: m.name })), provider.provider)
+    }
     if (!Array.isArray(body?.data)) {
       throw new Error(`Invalid model catalog from ${provider.provider}`)
     }
@@ -253,6 +261,8 @@ function normalizeCatalog(kind: CatalogKind, rows: unknown[], provider: string):
     const row = raw as Record<string, unknown>
     const id = typeof row.id === 'string' ? row.id : null
     if (!id) continue
+    // Mantle also lists models that require a different inference protocol.
+    if (provider === 'bedrock' && !/^openai\.gpt-(?:[6-9]|oss-)/.test(id)) continue
     if (kind === 'compatible' && !isCompatibleChatModel(id, row)) continue
     const caps = inferCaps(id)
     if (!caps) continue

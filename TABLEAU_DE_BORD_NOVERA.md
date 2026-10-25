@@ -22,14 +22,16 @@
 - Version préparée : **1.0.0** ; 35 corrections Windows intégrées, architecture en six domaines et nouveaux noms internes Novera.
 - **70/70 catalogues**, chacun à **1 516/1 516 clés anglaises (100 %)** dans 14 espaces de noms. Dernier lot : ouzbek du Nord, zoulou, arabe saïdi, pachto du Nord, oromo du Centre-Ouest, saraiki, néerlandais, somali, roumain et assamais. Relecture native encore nécessaire.
 - Premier démarrage : langue système sauvegardée, recommandation desktop LFM2.5-2.6B Q6_K, compagnon DSpark Q8_0 facultatif avec explication RAM/VRAM/contexte, demande distincte pour le suivi des erreurs.
-- Catalogue Hub de six petits modèles et fournisseurs cloud actualisés selon les sources relevées le 25 octobre. Disponibilité et capacités réelles dépendent du modèle, du compte et du matériel.
+- Catalogue Hub de six petits modèles ; **27 fournisseurs cloud** et **69 modèles présélectionnés**, avec neuf fournisseurs et leurs icônes ajoutés le 26 octobre (listes initiales relevées le 25). Disponibilité et capacités réelles dépendent du modèle, du compte et du matériel.
 - Dernière suite web complète enregistrée : **5 187 tests réussis, 2 ignorés** ; TypeScript sans émission, catalogues et frontières d’architecture validés. Ce résultat précède la consolidation documentaire et ne prouve pas un fonctionnement natif complet.
 
-Dernier lot : **963 tests ciblés réussis dans 45 fichiers**, TypeScript sans émission, 70 catalogues complets en clés et contrôles d’architecture validés. Relecture native et adaptation vernaculaire intégrale des variantes éditoriales restent ouvertes. Ces tests ne reconstruisent pas le programme.
+Dernier lot cloud : **310 tests ciblés réussis dans quatorze fichiers**, TypeScript sans émission, 70 catalogues complets et 980 JSON inchangés ; 27 fournisseurs et six modèles locaux avec icônes officielles vérifiées ; les 70 noms de langues restent natifs. Aucun exécutable reconstruit pour ce lot.
+
+Dernier lot langues : **963 tests ciblés réussis dans 45 fichiers**, TypeScript sans émission, 70 catalogues complets en clés et contrôles d’architecture validés. Relecture native et adaptation vernaculaire intégrale des variantes éditoriales restent ouvertes. Ces tests ne reconstruisent pas le programme.
 
 ## Dernier exécutable local
 
-Compilation Windows x64 terminée le **26 octobre 2026 à 00:04 (Paris)**, démarrée le 25 à 23:59, dans `deliverables/Novera-desktop-1.0.0-2026-10-25_23-59-09-633`. Elle intègre les **70 catalogues**, les noms internes Novera et les options DSpark/consentements des sources actuelles.
+Compilation Windows x64 terminée le **26 octobre 2026 à 00:04 (Paris)**, démarrée le 25 à 23:59, dans `deliverables/Novera-desktop-1.0.0-2026-10-25_23-59-09-633`. Elle intègre les **70 catalogues**, les noms internes Novera et les options DSpark/consentements. Elle précède les neuf ajouts cloud du 26 octobre ; ceux-ci nécessitent une nouvelle compilation.
 
 EXE : **65 208 832 octets**, SHA-256 `1D3E1F545BF11CDC50F6E5F031ABFCA2DBD1E6293818F3D12A049263CDAC187A`.
 

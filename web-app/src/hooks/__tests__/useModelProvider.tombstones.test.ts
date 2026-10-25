@@ -27,7 +27,7 @@ describe('persisted provider deletion records', () => {
     expect(useModelProvider.getState().deletedModels).toEqual(['historical'])
     useModelProvider.getState().addDeletedModels(['new'], 'alpha')
     const saved = JSON.parse(h.storage.get(localStorageKey.modelProvider)!)
-    expect(saved.version).toBe(20)
+    expect(saved.version).toBe(21)
     expect(saved.state.deletedModels).toEqual(['historical', { provider: 'alpha', id: 'new' }])
   })
 

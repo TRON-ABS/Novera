@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { ChevronsUpDown } from 'lucide-react'
 
-const LANGUAGES = [
+export const NATIVE_LANGUAGES = [
   { value: 'en', label: 'English' },
   { value: 'bn', label: 'বাংলা' },
   { value: 'ar', label: 'العربية' },
@@ -69,7 +69,7 @@ const LANGUAGES = [
   { value: 'fr', label: 'Français' },
   { value: 'it', label: 'Italiano' },
   { value: 'hi', label: 'हिंदी' },
-  { value: 'id', label: 'Bahasa' },
+  { value: 'id', label: 'Bahasa Indonesia' },
   { value: 'pl', label: 'Polski' },
   { value: 'vn', label: 'Tiếng Việt' },
   { value: 'zh-CN', label: '简体中文' },
@@ -81,10 +81,10 @@ const LANGUAGES = [
   { value: 'ja', label: '日本語' },
   { value: 'ru', label: 'Русский' },
   { value: 'ca', label: 'Català' },
-]
+] satisfies { value: Language; label: string }[]
 
 export default function LanguageSwitcher() {
-  const { i18n, t } = useAppTranslation()
+  const { i18n } = useAppTranslation()
   const { setCurrentLanguage, currentLanguage } = useGeneralSetting()
 
   const changeLanguage = (lng: string) => {
@@ -96,17 +96,21 @@ export default function LanguageSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="sm" className="w-full justify-between">
-          {LANGUAGES.find(
+          <span lang={currentLanguage === 'vn' ? 'vi' : currentLanguage} dir="auto" className="truncate">
+          {NATIVE_LANGUAGES.find(
             (lang: { value: string; label: string }) =>
               lang.value === currentLanguage
-          )?.label || t('common:english')}
+          )?.label || 'English'}
+          </span>
           <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground ml-2" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-40">
-        {LANGUAGES.map((lang) => (
+      <DropdownMenuContent align="end" className="w-64 max-h-80 overflow-y-auto">
+        {NATIVE_LANGUAGES.map((lang) => (
           <DropdownMenuItem
             key={lang.value}
+            lang={lang.value === 'vn' ? 'vi' : lang.value}
+            dir="auto"
             className={cn(
               'cursor-pointer my-0.5',
               currentLanguage === lang.value && 'bg-secondary-foreground/8'

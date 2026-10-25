@@ -20,33 +20,6 @@ export const JAN_V2_VL_QUANTIZATIONS = ['q4_k_m', 'q4_k_s', 'q4_0', 'q3_k_m']
  * Provider model capabilities; maintained cloud presets are defined in cloudModels.ts
  */
 export const providerModels = {
-  ai21: {
-    models: ['jamba-instruct'],
-    supportsCompletion: true,
-    supportsStreaming: ['jamba-instruct'],
-    supportsJSON: [],
-    supportsImages: [],
-    supportsToolCalls: [],
-    supportsN: true,
-  },
-  cohere: {
-    models: ['command-a-03-2025', 'command-r-08-2024', 'command-r-plus-08-2024'],
-    supportsCompletion: true,
-    supportsStreaming: ['command-a-03-2025', 'command-r-08-2024', 'command-r-plus-08-2024'],
-    supportsJSON: [],
-    supportsImages: [],
-    supportsToolCalls: ['command-a-03-2025', 'command-r-08-2024', 'command-r-plus-08-2024'],
-    supportsN: true,
-  },
-  bedrock: {
-    models: ['anthropic.claude-3-5-sonnet-20241022-v2:0', 'anthropic.claude-3-5-haiku-20241022-v1:0', 'cohere.command-r-plus-v1:0', 'cohere.command-r-v1:0', 'meta.llama3-70b-instruct-v1:0', 'meta.llama3-8b-instruct-v1:0', 'mistral.mistral-large-2402-v1:0', 'amazon.titan-text-express-v1'],
-    supportsCompletion: true,
-    supportsStreaming: ['anthropic.claude-3-5-sonnet-20241022-v2:0', 'anthropic.claude-3-5-haiku-20241022-v1:0', 'cohere.command-r-plus-v1:0', 'cohere.command-r-v1:0', 'meta.llama3-70b-instruct-v1:0', 'meta.llama3-8b-instruct-v1:0', 'mistral.mistral-large-2402-v1:0', 'amazon.titan-text-express-v1'],
-    supportsJSON: [],
-    supportsImages: ['anthropic.claude-3-5-sonnet-20241022-v2:0', 'anthropic.claude-3-5-haiku-20241022-v1:0'],
-    supportsToolCalls: ['anthropic.claude-3-5-sonnet-20241022-v2:0', 'anthropic.claude-3-5-haiku-20241022-v1:0', 'cohere.command-r-plus-v1:0', 'cohere.command-r-v1:0', 'mistral.mistral-large-2402-v1:0'],
-    supportsN: true,
-  },
   'openai-compatible': {
     models: true,
     supportsCompletion: true,

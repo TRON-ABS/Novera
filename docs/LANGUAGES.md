@@ -2,6 +2,8 @@
 
 État du **26 octobre 2026** : **70 locales sélectionnables**, chacune à **1 516/1 516 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
 
+Le sélecteur présente les **70 langues sous leur nom natif**. Les attributs `lang` et `dir="auto"` accompagnent chaque entrée ; un menu élargi et défilant conserve les noms longs accessibles. Le nom indonésien est **Bahasa Indonesia**. Les noms de marques et identifiants API restent des littéraux invariants ; les ajouts cloud et icônes du 26 octobre réutilisent les traductions existantes sans modifier les 980 JSON.
+
 ## Règle pour tout texte visible
 
 Tout texte d’interface ajouté **ou modifié** doit être traduit dans les 70 locales dans la même modification : boutons, infobulles, menus, aides, confirmations, succès et erreurs. Le repli anglais ne remplace pas une traduction. Préserver variables, littéraux de code et identifiants techniques ; actualiser [language-support.json](language-support.json) puis exécuter depuis la racine :

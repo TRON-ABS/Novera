@@ -1,3 +1,4 @@
+import { providerInferenceUrl } from './providerEndpoints'
 /**
  * Model Factory
  *
@@ -1285,6 +1286,9 @@ export class ModelFactory {
     provider: ProviderObject,
     parameters: Record<string, unknown> = {}
   ): LanguageModel {
+    if (provider.provider === 'watsonx' && !provider.base_url) {
+      throw new Error(i18n.t('providers:refreshModelsError'))
+    }
     const headers: Record<string, string> = {}
 
     // Add custom headers if specified
@@ -1318,7 +1322,7 @@ export class ModelFactory {
 
     const openAICompatible = createOpenAICompatible({
       name: provider.provider,
-      baseURL: provider.base_url || 'https://api.openai.com/v1',
+      baseURL: providerInferenceUrl(provider, modelId),
       headers,
       includeUsage: true,
       fetch: fetchImpl,

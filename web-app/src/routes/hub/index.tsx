@@ -67,6 +67,7 @@ import { RenderMarkdown } from '@/containers/RenderMarkdown'
 import { useHardware } from '@/hooks/useHardware'
 import { mergeHubCatalog, sortHubModels, hubSizeMatches, hubKey, hubFormatBytes } from '@/lib/hubDiscovery'
 import { HubComparison, HubModelFacts } from '@/containers/HubModelInsights'
+import ModelPublisherAvatar from '@/containers/ModelPublisherAvatar'
 
 type SearchParams = {
   repo: string
@@ -572,6 +573,8 @@ function HubContent() {
                                 })
                               }}
                             >
+                              <div className="flex items-center gap-2">
+                              <ModelPublisherAvatar model={filteredModels[virtualItem.index]} />
                               <h1
                                 className={cn(
                                   'text-foreground font-medium text-base capitalize sm:max-w-none',
@@ -593,6 +596,7 @@ function HubContent() {
                                   filteredModels[virtualItem.index].model_name
                                 ) || ''}
                               </h1>
+                              </div>
                             </div>
                             <div className="shrink-0 flex flex-col items-end gap-2">
                               <div className="flex items-center gap-2">

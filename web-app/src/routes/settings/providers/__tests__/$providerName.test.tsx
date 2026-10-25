@@ -339,6 +339,7 @@ beforeEach(() => {
   h.params.providerName = 'openai'
   h.appState.activeModels = []
   h.openaiProvider.api_key = 'sk-primary'
+  h.openaiProvider.base_url = 'https://api.openai.com/v1'
   h.openaiProvider.api_key_fallbacks = ['sk-fallback-1']
   h.openaiProvider.active = true
   h.openaiProvider.models = [
@@ -382,6 +383,41 @@ beforeEach(() => {
 })
 
 describe('ProviderDetail route', () => {
+  it.each(['zai', 'byteplus', 'baidu', 'tencent', 'bedrock', 'watsonx'])('saves the account or regional endpoint for %s without Azure help', async (id) => {
+    h.providerMap[id] = { ...h.openaiProvider, provider: id, base_url: 'https://old.test/v1', settings: [] }
+    h.params.providerName = id
+    renderComponent()
+    expect(screen.queryByText('providers:baseUrl.azureDescription')).not.toBeInTheDocument()
+    const input = screen.getByDisplayValue('https://old.test/v1')
+    fireEvent.change(input, { target: { value: 'https://account.test/v1' } })
+    fireEvent.blur(input)
+    await waitFor(() => expect(h.updateProvider).toHaveBeenCalledWith(id, expect.objectContaining({ base_url: 'https://account.test/v1', api_key: 'sk-primary' })))
+    delete h.providerMap[id]
+  })
+
+  it('disables catalog-based key testing for a curated-only service', () => {
+    h.providerMap.zai = { ...h.openaiProvider, provider: 'zai', settings: [] }
+    h.params.providerName = 'zai'
+    renderComponent()
+    fireEvent.click(screen.getByText('providers:apiKeys.advanced'))
+    expect(screen.getByText('providers:apiKeys.test')).toBeDisabled()
+    expect(screen.queryByText('providers:apiKeys.testHint')).not.toBeInTheDocument()
+    delete h.providerMap.zai
+  })
+
+  it('refreshes a curated selection without deleting account-specific models', async () => {
+    h.providerMap.zai = { ...h.openaiProvider, provider: 'zai', settings: [], models: [{ id: 'account-custom', capabilities: ['completion'] }] }
+    h.params.providerName = 'zai'
+    renderComponent()
+    const refresh = screen.getByTestId('add-model').parentElement?.querySelector('button') as HTMLButtonElement
+    await act(async () => fireEvent.click(refresh))
+    await waitFor(() => expect(h.updateProvider).toHaveBeenCalledWith('zai', expect.objectContaining({ models: expect.arrayContaining([
+      expect.objectContaining({ id: 'account-custom' }), expect.objectContaining({ id: 'glm-5.3' }),
+    ]) })))
+    expect(h.modelProviderStore.addDeletedModels).not.toHaveBeenCalled()
+    delete h.providerMap.zai
+  })
+
   it('edits the Alibaba workspace endpoint and displays the localized regional help', async () => {
     h.providerMap.alibaba = { ...h.openaiProvider, provider: 'alibaba', base_url: 'https://YOUR-WORKSPACE-ID.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1', settings: [] }
     h.params.providerName = 'alibaba'

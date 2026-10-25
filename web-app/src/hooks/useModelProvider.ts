@@ -641,12 +641,6 @@ export const useModelProvider = create<ModelProviderState>()(
           })
         }
 
-        if (version <= 9 && state?.providers) {
-          state.providers = state.providers.filter(
-            (provider) => provider.provider !== 'cohere'
-          )
-        }
-
         // Migration v10 historically inserted `auto_increase_ctx_len`. The
         // setting was removed in v15, so v10 is now a no-op for any user
         // still passing through this point.
@@ -685,7 +679,7 @@ export const useModelProvider = create<ModelProviderState>()(
           // setting. Force their base_url back to the canonical constant and
           // strip any leftover base-url entry from persisted settings[].
           const canonicalByName = new Map(
-            predefinedProviders.map((p) => [p.provider, p.base_url])
+            predefinedProviders.filter((p) => !['meta', 'cohere', 'zai', 'ai21', 'byteplus', 'baidu', 'tencent', 'bedrock', 'watsonx'].includes(p.provider)).map((p) => [p.provider, p.base_url])
           )
           state.providers.forEach((provider) => {
             const canonical = canonicalByName.get(provider.provider)
@@ -817,9 +811,16 @@ export const useModelProvider = create<ModelProviderState>()(
           })
         }
 
+        if (version <= 20 && state?.providers) {
+          state.providers.forEach((provider) => {
+            if (provider.provider === 'cohere' && provider.base_url === 'https://api.cohere.ai/v1') {
+              provider.base_url = 'https://api.cohere.ai/compatibility/v1'
+            }
+          })
+        }
         return state
       },
-      version: 20,
+      version: 21,
     }
   )
 )

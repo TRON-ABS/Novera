@@ -2,6 +2,14 @@
 
 Les entrées ci-dessous décrivent des étapes datées. Elles ne remplacent pas [l’état courant des sources et du binaire](../TABLEAU_DE_BORD_NOVERA.md). Les journaux bruts, caches et exécutables restent locaux.
 
+## 26 octobre — neuf fournisseurs cloud et modèles récents
+
+Ajout de Meta AI, Cohere, Z.ai, AI21 Labs, BytePlus, Baidu Qianfan, Tencent TokenHub, Amazon Bedrock et IBM watsonx : **27 fournisseurs** et **69 modèles présélectionnés** au total. Modèles récents vérifiés dans les sources officielles ; IBM utilise les alias réellement activés dans la passerelle du compte. Neuf icônes officielles raccordées, dont le SVG Cohere existant. URL régionales et passerelles modifiables, catalogue Cohere natif et routes Mantle distinctes, migration Cohere sans suppression des clés ou proxy.
+
+Noms natifs des 70 langues, menu élargi avec sens de lecture automatique ; icônes officielles Liquid AI et Qwen ajoutées aux six modèles locaux dans le Hub et sur leurs fiches.
+
+Validation : **310 tests ciblés réussis dans quatorze fichiers**, TypeScript sans émission, 70 catalogues complets à 1 516 clés et 980 JSON inchangés, 177 liens locaux valides. Aperçu des icônes : 36/36 images décodées sur fonds clair et sombre. Les cinq services sans contrat de catalogue vérifié gardent des listes maintenues et le test par catalogue désactivé. Aucun accès aux clés utilisateur, appel d’inférence payant, exécutable reconstruit ou binaire publié. [Sources et limites](USER_GUIDE.md#cloud), [provenance des icônes](DEVELOPMENT.md#logos).
+
 ## 26 octobre — corriger la compilation Windows après le renommage du worker
 
 Le BAT échouait dans Tauri car `novera-llama-worker.exe` n’était pas préparé. Le lanceur construit et prépare désormais le worker avant l’interface/desktop, ou réutilise un build local dont les sources et binaires correspondent. Les étapes ont leurs propres journaux et arrêtent le lancement sur erreur. Le staging CUDA compare l’architecture PE au worker et prend les DLL x64 dans les kits qui contiennent aussi ARM64 ; `cudart` est conservé pour les contrôles du runtime Windows.
