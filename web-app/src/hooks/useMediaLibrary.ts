@@ -8,6 +8,7 @@ import {
   type CreationSettings,
 } from './useCreation'
 import type { InstallSnapshot } from './useCreationInstall'
+import { joinLocalPath } from '@/modules/platform/local-path'
 
 export interface MediaProfile {
   id: string
@@ -118,7 +119,7 @@ export const useMediaLibrary = create<{
                           )
                           .map((f) => [
                             f.role,
-                            `${job.plan.directory}/${f.name}`,
+                            joinLocalPath(job.plan.directory, f.name),
                           ])
                       ),
                       imageEngine: job.plan.variant?.startsWith('nvfp4')

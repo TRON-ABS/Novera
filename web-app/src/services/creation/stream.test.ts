@@ -36,7 +36,11 @@ async function read(stream: ReturnType<typeof creationStream>) {
 describe('media generation conversation stream', () => {
   beforeEach(() => {
     vi.clearAllMocks()
-    useImageUpscale.setState({ enabled: false, factor: 2, models: { 2: '', 4: '' } })
+    useImageUpscale.setState({
+      enabled: false,
+      factor: 2,
+      models: { 2: '', 4: '' },
+    })
     useMemoryPolicy.setState({ policy: 'auto', waiting: {} })
     useCreation.setState({
       settings: {
@@ -167,25 +171,55 @@ describe('media generation conversation stream', () => {
   })
   it('passes optional upscaling only to local image jobs and keeps one seed during busy retries', async () => {
     useCreation.getState().setSettings({ seedMode: 'increment', seed: 100 })
-    useImageUpscale.setState({ enabled: true, factor: 4, models: { 2: '', 4: 'D:/upscale.pth' } })
+    useImageUpscale.setState({
+      enabled: true,
+      factor: 4,
+      models: { 2: '', 4: 'D:/upscale.pth' },
+    })
     let starts = 0
     vi.mocked(invoke).mockImplementation(async (command) => {
       if (command === 'creation_start') {
         if (++starts === 1) throw 'CREATION_BUSY'
         return 'seed-job'
       }
-      return { stage: 'done', name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.png' }
+      return {
+        stage: 'done',
+        name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.png',
+      }
     })
-    const chunks = await read(creationStream('image', 'test', messages, 'seeds', undefined, vi.fn()))
-    const requests = vi.mocked(invoke).mock.calls.filter(([cmd]) => cmd === 'creation_start')
+    const chunks = await read(
+      creationStream('image', 'test', messages, 'seeds', undefined, vi.fn())
+    )
+    const requests = vi
+      .mocked(invoke)
+      .mock.calls.filter(([cmd]) => cmd === 'creation_start')
     expect(requests).toHaveLength(2)
-    for (const [, args] of requests) expect(args).toMatchObject({ request: {
-      seed: 100, upscale_factor: 4, upscale_model: 'D:/upscale.pth',
-    } })
+    for (const [, args] of requests)
+      expect(args).toMatchObject({
+        request: {
+          seed: 100,
+          upscale_factor: 4,
+          upscale_model: 'D:/upscale.pth',
+        },
+      })
     expect(useCreation.getState().settings.seed).toBe(101)
-    expect(chunks.find((c) => c.type === 'file')).toMatchObject({ providerMetadata: { novera: { seed: 100 } } })
-    await read(creationStream('video', 'test', messages, 'seeds-video', undefined, vi.fn()))
-    const video = vi.mocked(invoke).mock.calls.filter(([cmd]) => cmd === 'creation_start').at(-1)![1] as { request: Record<string, unknown> }
+    expect(chunks.find((c) => c.type === 'file')).toMatchObject({
+      providerMetadata: { novera: { seed: 100 } },
+    })
+    await read(
+      creationStream(
+        'video',
+        'test',
+        messages,
+        'seeds-video',
+        undefined,
+        vi.fn()
+      )
+    )
+    const video = vi
+      .mocked(invoke)
+      .mock.calls.filter(([cmd]) => cmd === 'creation_start')
+      .at(-1)![1] as { request: Record<string, unknown> }
     expect(video.request.upscale_factor).toBeUndefined()
     expect(video.request.seed).toBe(101)
   })
@@ -372,6 +406,57 @@ describe('media generation conversation stream', () => {
     ).rejects.toThrow('chat:creation.failed')
     expect(invoke).toHaveBeenCalledWith('creation_cancel', { id: 'job2' })
     expect(finish).toHaveBeenCalledTimes(1)
+  })
+  it('repairs already persisted official model paths before invoking the native generator', async () => {
+    useImageUpscale.setState({
+      enabled: true,
+      factor: 2,
+      installedModels: { 2: '\\\\?\\C:\\models/RealESRGAN_x2plus.pth', 4: '' },
+    })
+    vi.mocked(invoke).mockImplementation(async (command) =>
+      command === 'creation_start'
+        ? 'upscale-job'
+        : {
+            stage: 'done',
+            name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.png',
+          }
+    )
+    await read(
+      creationStream('image', 'test', messages, 'upscale', undefined, vi.fn())
+    )
+    expect(invoke).toHaveBeenCalledWith(
+      'creation_start',
+      expect.objectContaining({
+        request: expect.objectContaining({
+          upscale_model: '\\\\?\\C:\\models\\RealESRGAN_x2plus.pth',
+        }),
+      })
+    )
+  })
+  it.each([
+    'CREATION_UPSCALE_RUNTIME: Python python: No module named torch',
+    'CREATION_UPSCALE: incompatible checkpoint',
+    'CREATION_UPSCALE: CUDA out of memory',
+  ])('keeps the actionable upscaler diagnostic: %s', async (reason) => {
+    vi.mocked(invoke).mockImplementation(async (command) =>
+      command === 'creation_start' ? Promise.reject(reason) : undefined
+    )
+    await expect(
+      read(
+        creationStream(
+          'image',
+          'test',
+          messages,
+          'upscale-error',
+          undefined,
+          vi.fn()
+        )
+      )
+    ).rejects.toThrow(reason)
+    expect(invoke).not.toHaveBeenCalledWith(
+      'creation_status',
+      expect.anything()
+    )
   })
   it('cancels a start that finishes after the user pressed Stop', async () => {
     const abort = new AbortController()

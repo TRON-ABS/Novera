@@ -25,6 +25,7 @@ import type { ImageSeedMode } from '@/modules/engines/image-seed'
 import { ImageUpscaleControls } from './ImageUpscaleControls'
 import { MediaSizeControls } from './MediaSizeControls'
 import { inferMediaRatio } from '@/modules/engines/media-size'
+import { useImageUpscale } from '@/hooks/useImageUpscale'
 
 export function CreationControls({
   scope,
@@ -36,6 +37,7 @@ export function CreationControls({
   const { t } = useTranslation()
   const service = useServiceHub()
   const baseState = useCreation()
+  const upscale = useImageUpscale()
   const mediaProfiles = useMediaLibrary((s) => s.profiles)
   const selected =
     baseState.selections[scope]?.[
@@ -244,6 +246,18 @@ export function CreationControls({
           >
             {settings.width} × {settings.height}
           </Button>
+          {mode === 'image' && upscale.enabled && (
+            <Button
+              size="xs"
+              variant="ghost"
+              className="border border-transparent composer-tool-active ml-auto"
+              onClick={() => setOpen(true)}
+              aria-label={`${t('chat:creation.upscaleTitle')} · ×${upscale.factor} · ${settings.width * upscale.factor} × ${settings.height * upscale.factor}`}
+            >
+              Real-ESRGAN ×{upscale.factor} · {settings.width * upscale.factor}{' '}
+              × {settings.height * upscale.factor}
+            </Button>
+          )}
         </div>
       )}
       {(mode === 'image' || mode === 'video') && (

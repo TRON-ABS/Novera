@@ -2,6 +2,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { CreationControls } from '../CreationControls'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
+import { useImageUpscale } from '@/hooks/useImageUpscale'
 const mocks = vi.hoisted(() => ({ open: vi.fn() }))
 vi.mock('@/lib/platform/utils', () => ({ isPlatformTauri: () => true }))
 vi.mock('@/hooks/useServiceHub', () => ({
@@ -20,12 +21,43 @@ vi.mock('@/lib/backendStorage', () => ({
 describe('creation choices in the composer', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    useImageUpscale.setState({ enabled: false, factor: 2 })
     useCreation.setState({
       settings: { ...creationDefaults },
       modes: {},
       sources: {},
       progress: {},
     })
+  })
+  it('shows the active upscaler and final dimensions beside the ratio controls only for local images', () => {
+    useCreation.setState({
+      modes: { sized: 'image' },
+      settings: {
+        ...creationDefaults,
+        width: 512,
+        height: 224,
+        imageModel: 'D:/image',
+      },
+    })
+    useImageUpscale.setState({ enabled: true, factor: 2 })
+    const { rerender } = render(
+      <CreationControls scope="sized" disabled={false} />
+    )
+    const badge = screen.getByRole('button', {
+      name: 'chat:creation.upscaleTitle · ×2 · 1024 × 448',
+    })
+    expect(badge).toHaveClass('composer-tool-active')
+    expect(badge).toHaveTextContent('Real-ESRGAN ×2 · 1024 × 448')
+    useImageUpscale.setState({ factor: 4 })
+    rerender(<CreationControls scope="sized" disabled={false} />)
+    expect(
+      screen.getByRole('button', {
+        name: 'chat:creation.upscaleTitle · ×4 · 2048 × 896',
+      })
+    ).toBeInTheDocument()
+    useImageUpscale.setState({ enabled: false })
+    rerender(<CreationControls scope="sized" disabled={false} />)
+    expect(screen.queryByText(/Real-ESRGAN ×/)).not.toBeInTheDocument()
   })
   it('keeps output choice scoped to the current thread and offers local model selection', async () => {
     mocks.open.mockResolvedValue('D:/models/image')
@@ -56,17 +88,29 @@ describe('creation choices in the composer', () => {
   it('offers image seed modes, reuses the previous seed and shows the resolution limit', () => {
     useCreation.getState().setSettings({ lastImageSeed: 1234 })
     render(<CreationControls scope="seed-thread" disabled={false} />)
-    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.settings' }))
+    fireEvent.click(
+      screen.getByRole('button', { name: 'chat:creation.settings' })
+    )
     const seed = screen.getByLabelText('chat:creation.seed')
     expect(seed).toBeDisabled()
-    expect(screen.getByText('chat:creation.imageResolutionMax')).toBeInTheDocument()
-    fireEvent.change(screen.getByRole('combobox', { name: 'chat:creation.seedMode' }), {
-      target: { value: 'increment' },
-    })
+    expect(
+      screen.getByText('chat:creation.imageResolutionMax')
+    ).toBeInTheDocument()
+    fireEvent.change(
+      screen.getByRole('combobox', { name: 'chat:creation.seedMode' }),
+      {
+        target: { value: 'increment' },
+      }
+    )
     expect(seed).not.toBeDisabled()
     expect(useCreation.getState().settings.seedMode).toBe('increment')
-    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.seedReuse' }))
-    expect(useCreation.getState().settings).toMatchObject({ seedMode: 'fixed', seed: 1234 })
+    fireEvent.click(
+      screen.getByRole('button', { name: 'chat:creation.seedReuse' })
+    )
+    expect(useCreation.getState().settings).toMatchObject({
+      seedMode: 'fixed',
+      seed: 1234,
+    })
   })
   it('offers separate image GGUF, Qwen GGUF and VAE file choices', async () => {
     useCreation.getState().setSettings({

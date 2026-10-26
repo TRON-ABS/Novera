@@ -19,6 +19,7 @@ import { generateCloudMedia, CloudCreationError } from './cloud'
 import { getProviderTitle } from '@/lib/utils'
 import { reserveImageSeed } from './seed'
 import { useImageUpscale } from '@/hooks/useImageUpscale'
+import { normalizeLocalPath } from '@/modules/platform/local-path'
 
 export function creationStream(
   task: CreationTask,
@@ -49,6 +50,19 @@ export function creationStream(
   const localizedErrors = new Set<Error>()
   const fail = (key: string): never => {
     const error = new Error(i18n.t(key))
+    localizedErrors.add(error)
+    throw error
+  }
+  const failUpscale = (reason: unknown): never => {
+    const detail = String(reason).slice(0, 1600)
+    const hint = /out of memory|memoryerror/i.test(detail)
+      ? 'hub:catalog.tipLimited'
+      : detail.includes('CREATION_UPSCALE_MISSING')
+        ? 'chat:creation.upscaleMissing'
+        : 'chat:creation.upscaleTitle'
+    const error = new Error(
+      `${i18n.t('chat:creation.failed')} ${i18n.t(hint)}\n${i18n.t('common:details')}: ${detail}`
+    )
     localizedErrors.add(error)
     throw error
   }
@@ -221,7 +235,9 @@ export function creationStream(
                 memory_policy: memoryPolicy,
                 backend: cpp ? 'sdcpp' : nativeFp4 ? 'nvfp4-cuda' : 'diffusers',
                 encoder_device: settings.encoderDevice ?? 'auto',
-                cpp_executable: IS_WINDOWS ? null : (settings.cppExecutable ?? null),
+                cpp_executable: IS_WINDOWS
+                  ? null
+                  : (settings.cppExecutable ?? null),
                 cpp_llm: settings.ggufTextEncoder ?? null,
                 cpp_vae: settings.ggufVae ?? null,
                 cpp_cfg: settings.ggufGuidance ?? 1,
@@ -235,17 +251,23 @@ export function creationStream(
                 frames: settings.frames,
                 fps: settings.fps,
                 seed: imageSeed ?? settings.seed,
-                ...(task === 'image' && upscale.enabled ? {
-                  upscale_factor: upscale.factor,
-                  upscale_model: upscale.models[upscale.factor] || upscale.installedModels[upscale.factor] || null,
-                } : {}),
+                ...(task === 'image' && upscale.enabled
+                  ? {
+                      upscale_factor: upscale.factor,
+                      upscale_model:
+                        normalizeLocalPath(
+                          upscale.models[upscale.factor] ||
+                            upscale.installedModels[upscale.factor] ||
+                            ''
+                        ) || null,
+                    }
+                  : {}),
                 input_image: inputImage ?? null,
               },
             })
             break
           } catch (error) {
-            if (typeof error === 'string' && error.includes('CREATION_UPSCALE'))
-              fail('chat:creation.upscaleMissing')
+            if (String(error).includes('CREATION_UPSCALE')) failUpscale(error)
             if (
               memoryPolicy !== 'auto' ||
               !String(error).includes('CREATION_BUSY')
@@ -279,9 +301,9 @@ export function creationStream(
           })
           if (report.stage === 'error') {
             console.error('Novera creation engine:', report.error)
-            const hint = /CREATION_UPSCALE/i.test(report.error ?? '')
-              ? 'chat:creation.upscaleMissing'
-              : /out of memory|memoryerror/i.test(report.error ?? '')
+            if (/CREATION_UPSCALE/i.test(report.error ?? ''))
+              failUpscale(report.error)
+            const hint = /out of memory|memoryerror/i.test(report.error ?? '')
               ? 'hub:catalog.tipLimited'
               : nativeFp4
                 ? 'chat:creation.nativeNote'

@@ -1,5 +1,13 @@
 # Suivi des moteurs locaux Novera
 
+## Incident Real-ESRGAN : chemins installés et Python — 26 octobre 2026
+
+Les deux poids officiels étaient en état installé/vérifié. Le registre assemblait une racine Windows canonique `\\?\C:\…` avec `/RealESRGAN_x2plus.pth` : GetFileAttributesW renvoyait fichier absent alors que le chemin utilisant `\` fonctionnait. La fonction Rust `local_file` reproduit le refus initial et accepte maintenant la forme réparée ; un test isolé utilise son code source exact. Le frontend répare aussi les anciennes références à l’envoi, et l’installateur assemble correctement les nouveaux chemins d’agrandissement et des composants média.
+
+L’alias Python configuré renvoyait vers Python 3.15 sans torch, Pillow ni NumPy. L’environnement média CUDA existant fournit PyTorch 2.14.1+cu130 et CUDA disponible ; les réglages sauvegardés ont été corrigés pendant que Novera était fermé. Les sources ajoutent un contrôle borné des imports avant génération, sans chargement de poids ni installation automatique. Un manque de mémoire ou un échec d’environnement n’est plus systématiquement présenté comme des poids absents.
+
+Essai réel avec le poids officiel ×2 effectivement installé et une image déjà générée : **512 × 224 → 1024 × 448 en 4,52 s**, original conservé. Preuves locales ignorées dans `.build/upscale-fix-2026-10-26/`. **42 tests web dans cinq fichiers**, un test Rust isolé de reproduction, TypeScript et contrôle natif. Le bouton Real-ESRGAN affiche facteur et dimensions finales près des réglages de ratio/résolution ; validation de composant, pas de nouveau build applicatif ni de parcours graphique complet. Pas de nouveau téléchargement de poids ni de binaire public.
+
 ## Graines et agrandissement Real-ESRGAN — 26 octobre 2026
 
 Graines locales aléatoire/fixe/+1/−1, réservation unique par demande et par profil, graine concrète transmise aux trois moteurs et enregistrée dans les métadonnées. Les reprises `CREATION_BUSY` gardent la même valeur ; les anciens profils sans mode restent fixes. Le message 2048 × 2048 près des dimensions décrit le plafond de génération de l’application, sous réserve des ressources.

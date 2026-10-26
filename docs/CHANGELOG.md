@@ -1,5 +1,11 @@
 # Novera — historique consolidé
 
+## 26 octobre — correction Real-ESRGAN et dimensions finales visibles
+
+Réparation des chemins Windows canoniques assemblés avec un séparateur incompatible, y compris les registres existants à l’envoi d’une demande. L’installation des composants média utilise désormais une jonction correcte. Contrôle des dépendances Python/PyTorch/Pillow/NumPy avant le rendu optionnel, avec diagnostic technique distinct des poids manquants et priorité à l’erreur mémoire. Bouton actif **Real-ESRGAN ×2/×4 · largeur × hauteur finale** à droite de Ratio/Résolution, actualisé avec leurs réglages et masqué lorsque désactivé ou hors image locale.
+
+Validation : **42 tests web / cinq fichiers**, un test Rust isolé utilisant la fonction exacte qui reproduit le refus du chemin Windows puis valide sa réparation ; essai réel du poids ×2 installé sur une image 512 × 224, sortie 1024 × 448 en 4,52 s avec l’environnement CUDA existant. Réglages locaux corrigés pendant que Novera était fermé. Types et contrôle natif réussis ; aucun nouvel EXE, ni validation d’un nouveau parcours graphique complet. [Guide](USER_GUIDE.md#real-esrgan--chemins-windows-python-et-taille-finale--26-octobre-2026).
+
 ## 26 octobre — partage local, messageries, exports et ratios
 
 Ajout d’une icône de partage sous les réponses/images/vidéos et dans la barre de discussion : résultat seul, branche active complète avec messages hors écran, ou sélection ; aperçu avant copie, sauvegarde, impression/PDF et passage au système. Formats documentaires enrichis DOCX/ODT/RTF/EPUB en plus de Markdown/TXT/HTML/JSON/CSV/ZIP ; onze encodeurs matriciels dont AVIF, SVG incorporé et original préservé. Copie de fichier pour les applications de chat compatibles ; adaptateurs Windows/macOS/Android/iOS et Linux (courriel XDG + presse-papiers), sans envoi automatique ni liens publics hébergés. Dix-neuf ratios et ratio personnalisé, boutons de résolution avec ajustement aux dimensions actuelles, pour profils locaux image/vidéo. Trente nouveaux libellés dans les 70 locales : **1 734 clés**.

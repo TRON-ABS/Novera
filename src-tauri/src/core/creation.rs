@@ -57,6 +57,12 @@ pub struct Request {
 }
 
 fn local_file(value: &str, extensions: &[&str]) -> Result<PathBuf, String> {
+    // Old installer records combined a canonical verbatim prefix with '/'.
+    // Windows does not normalize separators after that prefix.
+    #[cfg(windows)]
+    let normalized = value.replace('/', "\\");
+    #[cfg(windows)]
+    let value = normalized.as_str();
     let path = PathBuf::from(value)
         .canonicalize()
         .map_err(|_| "Required local model or engine file is unavailable")?;
@@ -86,6 +92,27 @@ fn local_file(value: &str, extensions: &[&str]) -> Result<PathBuf, String> {
         }
     }
     Ok(path)
+}
+
+#[cfg(all(test, windows))]
+mod installed_path_tests {
+    use super::*;
+    #[test]
+    fn accepts_legacy_verbatim_installer_paths() {
+        let root = std::env::temp_dir().join(format!(
+            "novera-upscale-path-{}-{}", std::process::id(),
+            std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_nanos()
+        ));
+        std::fs::create_dir(&root).unwrap();
+        let file = root.join("RealESRGAN_x2plus.pth");
+        std::fs::write(&file, b"fixture").unwrap();
+        let root = root.canonicalize().unwrap();
+        let mixed = format!("{}/RealESRGAN_x2plus.pth", root.display());
+        assert!(PathBuf::from(&mixed).canonicalize().is_err(), "fixture reproduces the original Windows failure");
+        assert_eq!(local_file(&mixed, &["pth"]).unwrap(), file.canonicalize().unwrap());
+        std::fs::remove_file(file).unwrap();
+        std::fs::remove_dir(root).unwrap();
+    }
 }
 
 // Inspect bounded GGUF metadata, not its filename; never load model weights to identify its role.
@@ -439,6 +466,29 @@ pub async fn creation_start<R: Runtime>(
     }
     let started = std::time::Instant::now();
     validate(&request)?;
+    if request.upscale_factor.is_some() {
+        // Fail before generating an image when the selected Python cannot run
+        // the optional upscaler. This process exits before either model loads.
+        let mut probe = Command::new(if request.python.trim().is_empty() {
+            "python"
+        } else {
+            &request.python
+        });
+        probe.args(["-c", "import torch, numpy; from PIL import Image; import sys; assert sys.argv[1] != 'cuda' or torch.cuda.is_available(), 'CUDA unavailable for upscaling'", &request.device]);
+        probe.kill_on_drop(true);
+        #[cfg(windows)]
+        probe.creation_flags(0x08000000);
+        let result = tokio::time::timeout(std::time::Duration::from_secs(30), probe.output())
+            .await
+            .map_err(|_| "CREATION_UPSCALE_RUNTIME: Python/PyTorch check timed out".to_string())?
+            .map_err(|e| format!("CREATION_UPSCALE_RUNTIME: Python {}: {e}", request.python))?;
+        if !result.status.success() {
+            return Err(format!("CREATION_UPSCALE_RUNTIME: Python {}: {}",
+                request.python,
+                String::from_utf8_lossy(&result.stderr).chars().take(1200).collect::<String>()
+            ));
+        }
+    }
     let mut jobs = JOBS.lock().await;
     // Release completed handles. Automatic requests are exclusive; Manual permits independent workers.
     jobs.retain(|_, job| !job.delivered || !matches!(job.child.try_wait(), Ok(Some(_))));

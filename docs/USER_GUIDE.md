@@ -1,5 +1,15 @@
 # Novera — guide utilisateur
 
+## Real-ESRGAN : chemins Windows, Python et taille finale — 26 octobre 2026
+
+Lorsque l’agrandissement est activé pour une image locale, un bouton coloré à droite de **Ratio** et **Résolution** indique **Real-ESRGAN ×2/×4** et les dimensions finales prévues. Il suit immédiatement le facteur, le ratio et la résolution choisis ; cliquer ouvre les réglages. Exemple : 512 × 224 avec ×2 donne 1024 × 448. Il disparaît lorsque l’option est désactivée et n’est pas affiché pour la vidéo ou le cloud.
+
+Une correction prend en charge les anciens chemins Windows d’installation combinant le préfixe canonique `\\?\` et un `/` avant le nom du fichier. Les poids pouvaient être installés et vérifiés, mais refusés par l’API Windows. Les nouveaux chemins sont assemblés correctement et les anciens chemins d’agrandissement sont réparés lors de la demande ; la validation native accepte aussi les composants concernés.
+
+Le champ **Python** des réglages média doit désigner l’interpréteur de l’environnement contenant **PyTorch, Pillow et NumPy**. Installer les poids ne fournit pas ces dépendances. Un simple `python` peut pointer vers un autre environnement. Novera contrôle désormais ces imports avant de commencer le rendu avec agrandissement, ainsi que la disponibilité CUDA lorsque CUDA est explicitement demandé. Un échec distingue le modèle absent, le problème Python et le manque de mémoire, avec son détail technique ; tous ne renvoient plus au conseil d’installation des poids. Aucun téléchargement de dépendances ni remplacement global de Python n’est effectué automatiquement.
+
+Diagnostic sur le PC du mainteneur : les deux poids officiels étaient présents ; les chemins enregistrés étaient mal assemblés et l’alias `python` ne contenait aucune des trois dépendances. Les réglages sauvegardés ont été corrigés vers l’environnement CUDA existant et vérifié, sans modifier les modèles ni les autres préférences. Essai réel avec le poids installé ×2 : **512 × 224 → 1024 × 448, 4,52 s**. Cela valide le worker sur ce PC, pas un parcours complet de la nouvelle application. L’indicateur et le contrôle préalable nécessitent une recompilation ; aucun nouvel EXE n’est publié pour ce correctif.
+
 ## Partage des résultats et ratios — sources du 26 octobre 2026
 
 La petite icône **Partager**, à côté des actions existantes sous une réponse ou une création, ouvre un aperçu. Le même bouton dans la barre de discussion partage la conversation. Choisir **Ce résultat uniquement**, **Toute la conversation actuelle** ou **Choisir les éléments** ; préparer l’aperçu, puis Copier, Copier le fichier, Enregistrer, Imprimer/PDF ou Partage système. Modifier la sélection invalide l’aperçu précédent. Questions et sources sont sélectionnables ; les paramètres de génération restent facultatifs et désactivés initialement.

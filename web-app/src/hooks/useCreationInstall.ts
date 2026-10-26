@@ -6,6 +6,7 @@ import { backendStorage } from '@/lib/backendStorage'
 import { isPlatformTauri } from '@/lib/platform/utils'
 import { useMediaLibrary, selectMediaProfile } from './useMediaLibrary'
 import { useImageUpscale } from './useImageUpscale'
+import { joinLocalPath } from '@/modules/platform/local-path'
 
 export interface InstallPlan {
   variant?: string
@@ -74,7 +75,10 @@ export function applyInstalled(job: InstallSnapshot) {
   if (job.plan.variant === 'upscale') {
     for (const factor of [2, 4] as const) {
       const file = job.plan.files.find((f) => f.role === `upscale${factor}`)
-      if (file) useImageUpscale.getState().registerModel(factor, `${job.plan.directory}/${file.name}`)
+      if (file)
+        useImageUpscale
+          .getState()
+          .registerModel(factor, joinLocalPath(job.plan.directory, file.name))
     }
     window.dispatchEvent(new CustomEvent('novera-creation-settings'))
     return

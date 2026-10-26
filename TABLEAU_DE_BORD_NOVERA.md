@@ -1,5 +1,9 @@
 # Novera — tableau de bord
 
+## Real-ESRGAN : incident corrigé et taille finale — 26 octobre 2026
+
+Deux causes confirmées sur le PC du mainteneur : chemins de poids Windows mal assemblés et `python` sans PyTorch/Pillow/NumPy. Sources corrigées, diagnostic préalable avant génération, réglages sauvegardés réparés vers le Python CUDA existant. **Vrai ×2 : 512 × 224 → 1024 × 448 en 4,52 s**. Le compositeur affiche un bouton Real-ESRGAN actif avec facteur et taille finale à droite de Ratio/Résolution. **42 tests web, un test Rust isolé de reproduction Windows**, TypeScript et contrôle natif réussis ; aucun nouveau binaire. [Détails et périmètre](docs/USER_GUIDE.md#real-esrgan--chemins-windows-python-et-taille-finale--26-octobre-2026).
+
 ## Partage, messageries et ratios — 26 octobre 2026
 
 Sources : petite icône sous chaque réponse/création et pour la discussion ; résultat, branche active complète ou sélection, aperçu explicite, copie riche/image/fichier, exports et impression/PDF. DOCX/ODT/RTF/EPUB/ZIP complètent les formats textuels ; original et onze encodeurs d’image, SVG incorporé ; vidéo originale. Messageries via les capacités du système, copie ou pièce jointe ; Linux utilise le portail courriel. Dix-neuf ratios + personnalisé et résolutions ajustées au grand côté courant pour les profils locaux. **70 locales × 1 734 clés ; 145 tests web, trois tests Rust**, TypeScript, Vite, contrôle natif Windows et architecture réussis. Sources des autres adaptateurs présentes, essais natifs correspondants encore nécessaires. Aucun nouveau binaire, aucun envoi automatique ni lien public hébergé. [Guide et limites](docs/USER_GUIDE.md#partage-des-résultats-et-ratios--sources-du-26-octobre-2026).

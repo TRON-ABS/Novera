@@ -50,7 +50,7 @@ These describe the source foundation. Earlier 1.0.0 builds were compiled and lau
 
 ## Text, images and video in one conversation
 
-Sources add random/fixed/+1/−1 image seeds, the 2048 × 2048 generation limit, and optional Real-ESRGAN ×2/×4 upscaling, initially disabled. Install the verified official weights or browse for a local file; upscaling requires the configured media Python/PyTorch environment. [Usage and limits](docs/USER_GUIDE.md#graines-résolution-et-agrandissement--sources-du-26-octobre-2026). Available after the next application rebuild.
+Sources add random/fixed/+1/−1 image seeds, the 2048 × 2048 generation limit, and optional Real-ESRGAN ×2/×4 upscaling, initially disabled. Install the verified official weights or browse for a local file; upscaling requires the configured media Python/PyTorch environment. An active Real-ESRGAN button beside Ratio/Resolution shows the selected factor and final dimensions; a dependency check runs before generation. Legacy Windows installer paths are repaired automatically. [Usage and limits](docs/USER_GUIDE.md#graines-résolution-et-agrandissement--sources-du-26-octobre-2026). Available after the next application rebuild.
 
 - Choose Text, Image, Video or Multimodal, and Local or Cloud, while keeping the conversation in one place. A model that understands an image does not automatically generate images.
 - Save completed creations automatically to the operating system’s Pictures/**Novera image** and Videos/**Novera vidéo** folders. Display total time below images/videos and measured generation time when the engine supplies it.
