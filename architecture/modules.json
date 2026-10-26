@@ -53,7 +53,8 @@
         "media-server",
         "src-tauri/src/core/creation.rs",
         "web-app/src/services/creation",
-        "src-tauri/src/core/creation_bundle.rs"
+        "src-tauri/src/core/creation_bundle.rs",
+        "src-tauri/src/core/creation_policy.rs"
       ],
       "strictRoots": [
         "web-app/src/modules/engines"

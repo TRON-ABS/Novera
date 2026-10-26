@@ -141,5 +141,15 @@
     "paused": "An dakata",
     "verifying": "Ana tantance fayiloli",
     "error": "Shigarwa ta gaza. Duba hanyar sadarwa, sarari, izinin shiga da lasisin samfurori sannan a ci gaba."
+  },
+  "memory": {
+    "title": "Ƙwaƙwalwar samfuran cikin gida",
+    "auto": "Na atomatik · shawara",
+    "manual": "Da hannu · samfura tare",
+    "autoNote": "Yana loda samfura idan ana buƙata kuma yana saki waɗanda ba a amfani da su bayan aikin yanzu ya ƙare.",
+    "manualNote": "Rubutu, hoto da bidiyo za su iya aiki tare a hirarraki dabam idan RAM/VRAM ya isa. Ƙwaƙwalwa na iya ƙarewa.",
+    "preserve": "Fayiloli da hirarraki suna nan; samfura za su sake loduwa idan ana buƙata. Sauye-sauye na shafar sababbin buƙatu.",
+    "waiting": "Ana jira ko sakin RAM/VRAM…",
+    "failed": "Inganta ƙwaƙwalwa ya gaza. Sake gwadawa ko zaɓi Da hannu."
   }
 }

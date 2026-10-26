@@ -1,5 +1,15 @@
 # Suivi des moteurs locaux Novera
 
+## Gestion mémoire entre texte, image et vidéo — 26 octobre 2026
+
+Sur desktop, Automatique est la préférence globale par défaut, persistée séparément des configurations média ; importer ou sélectionner une configuration ne la remet pas à zéro. Une file pure de baux d’inférence protège les travaux actifs, permet le partage du même modèle texte, attend les modèles différents et accorde un passage réentrant aux chargements internes. Une préparation partagée empêche un second utilisateur du même modèle de démarrer avant la fin de l’éviction ; annuler un demandeur ne casse pas l’autre. Les baux sont libérés à la fin, à l’erreur ou à l’annulation du flux.
+
+L’adaptateur attend la publication et la sortie des anciens workers média ; la commande native `creation_release_idle` ne retire que leurs handles terminés et livrés, sans tuer de génération ni supprimer de sortie. Il décharge ensuite les modèles inutilisés via les API llama.cpp/MLX/Transformers et actualise la liste chargée. Les appels cloud seuls passent sans éviction. Les documents/RAG et modèles locaux de routage des outils partagent le bail du tour ; un routeur local est recréé après éviction pour retrouver sa vraie session. Les modèles et conversations ne sont pas retirés du catalogue ou du disque.
+
+Manuel suit aussi les travaux actifs mais autorise leur coexistence : le worker natif valide la politique puis permet plusieurs processus image/vidéo indépendants. Le service texte désactive son éviction implicite lorsque la mémoire est gérée par Novera. Texte/image/vidéo peuvent donc être demandés simultanément dans des discussions distinctes si le matériel le permet. Les workers média se terminent normalement après chaque tâche ; aucun cache média permanent n’est ajouté. Une préférence modifiée ne préempte pas les travaux en cours.
+
+Validation locale : **369 tests web réussis dans 24 fichiers**, dont permutations texte/image/vidéo, concurrence manuelle, équité, annulation, préparation partagée, RAG/routeur auxiliaire et contrôles visibles ; **3 tests Rust autonomes** de politique de concurrence ; contrôle Rust de la bibliothèque, TypeScript, **70 locales × 1 689 clés**, frontières et tests d’architecture. Ces preuves sont des tests de politique/orchestration avec moteurs simulés ; elles ne prouvent pas la cohabitation de trois gros modèles sur chaque GPU. Les anciens essais CUDA/Vulkan/NVFP4 demeurent séparés. Pas de nouveau build Novera ni binaire publié.
+
 ## Installation groupée, bibliothèque et moteur embarqué — 26 octobre 2026
 
 Sources locales : installation explicitement confirmée du trio FLUX.2 Klein/Qwen3/VAE vers le dossier système Documents ou un parent choisi, progression par octets/fichier, SHA-256 et révisions officielles, pause/reprise HTTP Range avec contrôle Content-Range et redémarrage sûr si le serveur ignore Range. Les fichiers finaux différents déjà présents ne sont jamais écrasés. L’état de la tâche est conservé ; une tâche interrompue au redémarrage devient en pause. Aucun modèle complet téléchargé pendant ce développement.

@@ -141,5 +141,15 @@
     "paused": "Imesitishwa",
     "verifying": "Inathibitisha faili",
     "error": "Usakinishaji umeshindwa. Kagua mtandao, nafasi, ruhusa na leseni za modeli, kisha endelea."
+  },
+  "memory": {
+    "title": "Kumbukumbu ya modeli za ndani",
+    "auto": "Otomatiki · inapendekezwa",
+    "manual": "Mwongozo · modeli sambamba",
+    "autoNote": "Hupakia modeli zinapohitajika na kuachilia zisizotumika baada ya kazi inayoendelea kuisha.",
+    "manualNote": "Maandishi, picha na video zinaweza kufanya kazi pamoja katika mazungumzo tofauti ikiwa RAM/VRAM inatosha. Kumbukumbu inaweza kuisha.",
+    "preserve": "Faili na mazungumzo huhifadhiwa; modeli hupakiwa tena zinapohitajika. Mabadiliko yanatumika kwa maombi mapya.",
+    "waiting": "Inasubiri au kuachilia RAM/VRAM…",
+    "failed": "Uboreshaji wa kumbukumbu umeshindwa. Jaribu tena au chagua Mwongozo."
   }
 }

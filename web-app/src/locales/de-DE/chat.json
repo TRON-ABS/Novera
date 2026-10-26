@@ -141,5 +141,15 @@
     "paused": "Pausiert",
     "verifying": "Dateien werden geprüft",
     "error": "Installation fehlgeschlagen. Netzwerk, freien Speicher, Zugriffsrechte und Modelllizenzen prüfen und fortsetzen."
+  },
+  "memory": {
+    "title": "Speicher lokaler Modelle",
+    "auto": "Automatisch · empfohlen",
+    "manual": "Manuell · parallele Modelle",
+    "autoNote": "Lädt Modelle bei Bedarf und gibt ungenutzte Modelle nach Abschluss laufender Arbeit frei.",
+    "manualNote": "Text, Bild und Video können bei genügend RAM/VRAM in getrennten Chats gleichzeitig laufen. Der Speicher kann knapp werden.",
+    "preserve": "Dateien und Chats bleiben erhalten; Modelle werden bei Bedarf neu geladen. Änderungen gelten für neue Anfragen.",
+    "waiting": "Warten oder RAM/VRAM freigeben…",
+    "failed": "Speicheroptimierung fehlgeschlagen. Erneut versuchen oder Manuell wählen."
   }
 }

@@ -1,6 +1,8 @@
 import { invoke } from '@tauri-apps/api/core'
 import type { UIMessage, UIMessageChunk } from 'ai'
 import { useMediaLibrary } from '@/hooks/useMediaLibrary'
+import { beginLocalMemory, releaseFinishedMedia } from './memory'
+import { useMemoryPolicy } from '@/hooks/useMemoryPolicy'
 import { useCreation } from '@/hooks/useCreation'
 import {
   creationReference,
@@ -37,6 +39,9 @@ export function creationStream(
   let cancelled = signal?.aborted ?? false
   let closed = false
   let finished = false
+  let releaseMemory: (() => void) | undefined
+  let stopping: Promise<unknown> | undefined
+  const memoryPolicy = useMemoryPolicy.getState().policy
   const localizedErrors = new Set<Error>()
   const fail = (key: string): never => {
     const error = new Error(i18n.t(key))
@@ -46,7 +51,7 @@ export function creationStream(
   const stop = () => {
     cancelled = true
     cloudController.abort()
-    if (id) void invoke('creation_cancel', { id }).catch(() => {})
+    if (id) stopping ??= invoke('creation_cancel', { id }).catch(() => {})
   }
   signal?.addEventListener('abort', stop, { once: true })
   return new ReadableStream<UIMessageChunk>({
@@ -192,28 +197,56 @@ export function creationStream(
         }
         if (nativeFp4 && (inputImage || settings.device === 'cpu'))
           fail('chat:creation.nativeNote')
-        id = await invoke<string>('creation_start', {
-          request: {
-            task,
-            backend: cpp ? 'sdcpp' : nativeFp4 ? 'nvfp4-cuda' : 'diffusers',
-            encoder_device: settings.encoderDevice ?? 'auto',
-            cpp_executable: settings.cppExecutable ?? null,
-            cpp_llm: settings.ggufTextEncoder ?? null,
-            cpp_vae: settings.ggufVae ?? null,
-            cpp_cfg: settings.ggufGuidance ?? 1,
-            prompt: prompt.replace(/^\/(?:image|video)\s*/i, ''),
+        releaseMemory = await beginLocalMemory(
+          {
+            kind: task,
+            provider: cpp ? 'sdcpp' : nativeFp4 ? 'nvfp4-cuda' : 'diffusers',
             model,
-            python: settings.python,
-            device: settings.device,
-            width: settings.width,
-            height: settings.height,
-            steps: settings.steps,
-            frames: settings.frames,
-            fps: settings.fps,
-            seed: settings.seed,
-            input_image: inputImage ?? null,
           },
-        })
+          { signal: cloudController.signal, scope, policy: memoryPolicy }
+        )
+        if (cancelled) throw new DOMException('Aborted', 'AbortError')
+        for (;;) {
+          if (cancelled) throw new DOMException('Aborted', 'AbortError')
+          try {
+            id = await invoke<string>('creation_start', {
+              request: {
+                task,
+                memory_policy: memoryPolicy,
+                backend: cpp ? 'sdcpp' : nativeFp4 ? 'nvfp4-cuda' : 'diffusers',
+                encoder_device: settings.encoderDevice ?? 'auto',
+                cpp_executable: settings.cppExecutable ?? null,
+                cpp_llm: settings.ggufTextEncoder ?? null,
+                cpp_vae: settings.ggufVae ?? null,
+                cpp_cfg: settings.ggufGuidance ?? 1,
+                prompt: prompt.replace(/^\/(?:image|video)\s*/i, ''),
+                model,
+                python: settings.python,
+                device: settings.device,
+                width: settings.width,
+                height: settings.height,
+                steps: settings.steps,
+                frames: settings.frames,
+                fps: settings.fps,
+                seed: settings.seed,
+                input_image: inputImage ?? null,
+              },
+            })
+            break
+          } catch (error) {
+            if (
+              memoryPolicy !== 'auto' ||
+              !String(error).includes('CREATION_BUSY')
+            )
+              throw error
+            useMemoryPolicy.getState().setWaiting(scope, true)
+            try {
+              await releaseFinishedMedia(cloudController.signal)
+            } finally {
+              useMemoryPolicy.getState().setWaiting(scope, false)
+            }
+          }
+        }
         if (cancelled) {
           stop()
           throw new DOMException('Aborted', 'AbortError')
@@ -308,6 +341,8 @@ export function creationStream(
           if (!finished) await invoke('creation_cancel', { id }).catch(() => {})
           await invoke('creation_cloud_release', { id }).catch(() => {})
         }
+        await stopping
+        releaseMemory?.()
         signal?.removeEventListener('abort', stop)
         useCreation.getState().setProgress(scope)
         onFinish()

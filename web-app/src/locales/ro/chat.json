@@ -141,5 +141,15 @@
     "paused": "În pauză",
     "verifying": "Se verifică fișierele",
     "error": "Instalarea a eșuat. Verifică rețeaua, spațiul liber, permisiunile și licențele modelelor, apoi reia."
+  },
+  "memory": {
+    "title": "Memoria modelelor locale",
+    "auto": "Automat · recomandat",
+    "manual": "Manual · modele în paralel",
+    "autoNote": "Încarcă modelele la nevoie și eliberează modelele nefolosite după încheierea lucrului activ.",
+    "manualNote": "Textul, imaginile și videoclipurile pot rula împreună în conversații separate dacă RAM/VRAM permite. Memoria se poate epuiza.",
+    "preserve": "Fișierele și conversațiile se păstrează; modelele se reîncarcă la nevoie. Modificările se aplică cererilor noi.",
+    "waiting": "Se așteaptă sau se eliberează RAM/VRAM…",
+    "failed": "Optimizarea memoriei a eșuat. Reîncearcă sau alege Manual."
   }
 }

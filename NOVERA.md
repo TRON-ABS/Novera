@@ -1,5 +1,16 @@
 # Novera — instructions du projet
 
+## Direction produit : automatisation avancée, simplicité mondiale
+
+Novera prend en charge la complexité technique pour que chacun puisse discuter, créer et apprendre au même endroit. Concevoir les parcours autour de l’intention de l’utilisateur, avec des choix automatiques utiles, des explications compréhensibles dans les 70 locales et un accès direct aux réglages avancés.
+
+- Automatiser les tâches déjà prises en charge : diagnostic matériel, sélection du moteur compatible, installation confirmée des configurations conseillées, vérification des fichiers, progression, mémoire des modèles et sauvegarde dans les bons dossiers système.
+- La gestion mémoire est **Automatique par défaut** : attendre les travaux locaux actifs, préserver leurs modèles auxiliaires, décharger les modèles inutilisés puis charger le modèle demandé. Garder les fichiers, conversations, sélections et réglages ; recharger à la prochaine demande. Les appels cloud seuls ne nécessitent pas d’éviction locale.
+- Le mode **Manuel** autorise des modèles texte/image/vidéo concurrents dans des discussions distinctes, selon les capacités réelles de RAM/VRAM. Ne pas interrompre une génération en cours lors d’un changement de préférence. Les nouvelles demandes utilisent la nouvelle préférence. Les moteurs média qui terminent leur processus libèrent naturellement leurs poids même en Manuel.
+- L’optimisation ne supprime jamais les fichiers du mainteneur ou de l’utilisateur. Une attente ou un échec doit être explicite ; ne pas annoncer une libération réussie si le moteur refuse de se décharger.
+- Garder les confirmations nécessaires pour les téléchargements, licences, coûts cloud et actions sensibles, en respectant les consentements existants. L’automatisation produit ne signifie pas autonomie sans limites ni validation universelle de tous les matériels/modèles.
+- Distinguer fonctions effectivement présentes, validation des sources, essais matériels et objectifs futurs. Maintenir la vitrine et les références cohérentes ; rechercher le maximum de simplicité sans masquer les limites utiles à la décision.
+
 Le produit est **Novera**, maintenu par TRON-ABS : https://github.com/TRON-ABS/Novera.
 Contact officiel : [contact.novera.tronabs@gmail.com](mailto:contact.novera.tronabs@gmail.com).
 Objectif : **Knowledge for everyone.**

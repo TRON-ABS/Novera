@@ -141,5 +141,15 @@
     "paused": "Paused",
     "verifying": "Verifying files",
     "error": "Installation failed. Check your network, free space, access rights and model licences, then resume."
+  },
+  "memory": {
+    "title": "Local model memory",
+    "auto": "Automatic · recommended",
+    "manual": "Manual · parallel models",
+    "autoNote": "Loads models on demand and releases unused models after active work finishes.",
+    "manualNote": "Text, image and video can run together in separate conversations if RAM/VRAM permits. Models may run out of memory.",
+    "preserve": "Files and conversations are kept; models reload when needed. Changes apply to new requests.",
+    "waiting": "Waiting or freeing RAM/VRAM…",
+    "failed": "Memory optimization failed. Retry or choose Manual."
   }
 }

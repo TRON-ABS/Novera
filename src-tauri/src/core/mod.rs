@@ -35,3 +35,6 @@ pub mod updater;
 
 #[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
 pub mod creation_bundle;
+
+#[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
+pub mod creation_policy;

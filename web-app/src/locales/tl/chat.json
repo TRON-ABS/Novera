@@ -141,5 +141,15 @@
     "paused": "Naka-pause",
     "verifying": "Sinusuri ang mga file",
     "error": "Nabigo ang pag-install. Suriin ang network, bakanteng espasyo, pahintulot at mga lisensya ng modelo, saka ituloy."
+  },
+  "memory": {
+    "title": "Memory ng lokal na modelo",
+    "auto": "Awtomatiko · inirerekomenda",
+    "manual": "Manwal · magkakasabay na modelo",
+    "autoNote": "Naglo-load ng modelo kapag kailangan at nagpapalaya ng hindi ginagamit matapos ang kasalukuyang gawain.",
+    "manualNote": "Maaaring sabay ang teksto, larawan at video sa magkakahiwalay na usapan kung sapat ang RAM/VRAM. Maaaring maubos ang memory.",
+    "preserve": "Nananatili ang mga file at usapan; muling naglo-load ang modelo kapag kailangan. Para sa bagong kahilingan ang mga pagbabago.",
+    "waiting": "Naghihintay o nagpapalaya ng RAM/VRAM…",
+    "failed": "Nabigo ang pag-optimize ng memory. Subukan muli o piliin ang Manwal."
   }
 }

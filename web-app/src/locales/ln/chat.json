@@ -141,5 +141,15 @@
     "paused": "Epemisami",
     "verifying": "Kotala soki bafichiers ezali malamu",
     "error": "Installation elongi te. Talá réseau, esika, ndingisa ya kokɔta mpe licences ya modèles, mpe kobá."
+  },
+  "memory": {
+    "title": "Mémoire ya modèles ya kati",
+    "auto": "Automatique · toli",
+    "manual": "Na maboko · modèles elongo",
+    "autoNote": "Etisaka modèles soki esengeli mpe etika oyo esalelami te nsima ya kosilisa mosala oyo ezali kosalama.",
+    "manualNote": "Makomi, bililingi mpe bavideo ekoki kosala elongo na masolo ekeseni soki RAM/VRAM ekoki. Mémoire ekoki kosila.",
+    "preserve": "Bafichiers mpe masolo ebatelami; modèles etisamaka lisusu soki esengeli. Mbongwana etali bosengi ya sika.",
+    "waiting": "Kozela to kopesa RAM/VRAM esika…",
+    "failed": "Kobongisa mémoire elongi te. Meka lisusu to poná Na maboko."
   }
 }

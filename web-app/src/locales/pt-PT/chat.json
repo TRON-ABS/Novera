@@ -141,5 +141,15 @@
     "paused": "Em pausa",
     "verifying": "A verificar ficheiros",
     "error": "A instalação falhou. Verifique a rede, o espaço livre, as permissões e as licenças dos modelos e retome."
+  },
+  "memory": {
+    "title": "Memória dos modelos locais",
+    "auto": "Automático · recomendado",
+    "manual": "Manual · modelos em paralelo",
+    "autoNote": "Carrega modelos a pedido e liberta os não utilizados após terminar o trabalho em curso.",
+    "manualNote": "Texto, imagem e vídeo podem funcionar em simultâneo em conversas separadas se a RAM/VRAM permitir. A memória pode esgotar-se.",
+    "preserve": "Os ficheiros e conversas são conservados; os modelos são recarregados quando necessário. As alterações aplicam-se a novos pedidos.",
+    "waiting": "A aguardar ou libertar RAM/VRAM…",
+    "failed": "A otimização da memória falhou. Tente novamente ou escolha Manual."
   }
 }

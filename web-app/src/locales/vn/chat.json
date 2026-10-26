@@ -141,5 +141,15 @@
     "paused": "Đã tạm dừng",
     "verifying": "Đang kiểm tra tệp",
     "error": "Cài đặt thất bại. Kiểm tra mạng, dung lượng trống, quyền truy cập và giấy phép mô hình rồi tiếp tục."
+  },
+  "memory": {
+    "title": "Bộ nhớ mô hình cục bộ",
+    "auto": "Tự động · khuyên dùng",
+    "manual": "Thủ công · mô hình song song",
+    "autoNote": "Nạp mô hình khi cần và giải phóng mô hình không dùng sau khi công việc đang chạy kết thúc.",
+    "manualNote": "Văn bản, ảnh và video có thể chạy cùng lúc ở các cuộc trò chuyện riêng nếu đủ RAM/VRAM. Bộ nhớ có thể cạn.",
+    "preserve": "Tệp và trò chuyện được giữ lại; mô hình nạp lại khi cần. Thay đổi áp dụng cho yêu cầu mới.",
+    "waiting": "Đang chờ hoặc giải phóng RAM/VRAM…",
+    "failed": "Tối ưu bộ nhớ thất bại. Thử lại hoặc chọn Thủ công."
   }
 }

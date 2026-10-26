@@ -1,10 +1,15 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { invoke } from '@tauri-apps/api/core'
 import { creationStream } from './stream'
+import { useMemoryPolicy } from '@/hooks/useMemoryPolicy'
 import { useMediaLibrary } from '@/hooks/useMediaLibrary'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import type { UIMessage } from 'ai'
 
+vi.mock('./memory', () => ({
+  beginLocalMemory: async () => () => {},
+  releaseFinishedMedia: async () => {},
+}))
 vi.mock('@tauri-apps/api/core', () => ({ invoke: vi.fn() }))
 vi.mock('@/lib/platform/utils', () => ({ isPlatformTauri: () => true }))
 vi.mock('@/i18n', () => ({ default: { t: (key: string) => key } }))
@@ -30,6 +35,7 @@ async function read(stream: ReturnType<typeof creationStream>) {
 describe('media generation conversation stream', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    useMemoryPolicy.setState({ policy: 'auto', waiting: {} })
     useCreation.setState({
       settings: {
         ...creationDefaults,
@@ -59,12 +65,10 @@ describe('media generation conversation stream', () => {
         },
       ],
     })
-    useCreation
-      .getState()
-      .setSelection('saved-thread', 'image', {
-        provider: 'diffusers',
-        id: 'media-flux',
-      })
+    useCreation.getState().setSelection('saved-thread', 'image', {
+      provider: 'diffusers',
+      id: 'media-flux',
+    })
     vi.mocked(invoke).mockImplementation(async (command) =>
       command === 'creation_start'
         ? 'saved'
@@ -94,6 +98,33 @@ describe('media generation conversation stream', () => {
       })
     )
     useMediaLibrary.setState({ profiles: [] })
+  })
+  it('passes the explicit global Manual policy to the native worker', async () => {
+    useMemoryPolicy.getState().setPolicy('manual')
+    vi.mocked(invoke).mockImplementation(async (command) =>
+      command === 'creation_start'
+        ? 'parallel'
+        : {
+            stage: 'done',
+            name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.png',
+          }
+    )
+    await read(
+      creationStream(
+        'image',
+        'a picture',
+        messages,
+        'parallel',
+        undefined,
+        vi.fn()
+      )
+    )
+    expect(invoke).toHaveBeenCalledWith(
+      'creation_start',
+      expect.objectContaining({
+        request: expect.objectContaining({ memory_policy: 'manual' }),
+      })
+    )
   })
   it('allows the bundled image engine without asking for an executable path', async () => {
     useCreation.getState().setSettings({

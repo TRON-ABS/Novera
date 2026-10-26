@@ -141,5 +141,15 @@
     "paused": "Direureuhkeun",
     "verifying": "Mariksa berkas",
     "error": "Pamasangan gagal. Pariksa jaringan, rohangan kosong, idin aksés sareng lisénsi modél, teras teraskeun."
+  },
+  "memory": {
+    "title": "Mémori modél lokal",
+    "auto": "Otomatis · disarankeun",
+    "manual": "Manual · modél sajajar",
+    "autoNote": "Ngamuat modél lamun diperlukeun tur ngaleupaskeun nu teu dipaké sanggeus pagawéan aktif réngsé.",
+    "manualNote": "Téks, gambar sareng vidéo tiasa jalan babarengan dina obrolan misah lamun RAM/VRAM cekap. Mémori tiasa béak.",
+    "preserve": "Berkas sareng obrolan tetep disimpen; modél dimuat deui lamun perlu. Parobahan lumaku pikeun paménta anyar.",
+    "waiting": "Ngantosan atanapi ngaleupaskeun RAM/VRAM…",
+    "failed": "Optimasi mémori gagal. Cobian deui atanapi pilih Manual."
   }
 }

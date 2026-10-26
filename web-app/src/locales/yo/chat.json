@@ -141,5 +141,15 @@
     "paused": "Ó dúró",
     "verifying": "Ń ṣàyẹ̀wò fáìlì",
     "error": "Fífi sílẹ̀ kùnà. Ṣàyẹ̀wò nẹ́tíwọ́ọ̀kì, ààyè, ẹ̀tọ́ àyè àti ìwé-àṣẹ àwọn módẹ́lì, kí o sì tẹ̀síwájú."
+  },
+  "memory": {
+    "title": "Ìrántí àwọn módẹ́lì inú ẹ̀rọ",
+    "auto": "Aládàáṣiṣẹ́ · a dámọ̀ràn rẹ̀",
+    "manual": "Àfọwọ́ṣe · àwọn módẹ́lì papọ̀",
+    "autoNote": "Ó ń gbé módẹ́lì wọlé nígbà tí a nílò rẹ̀, ó sì ń tú èyí tí a kò lò sílẹ̀ lẹ́yìn tí iṣẹ́ tó ń lọ bá parí.",
+    "manualNote": "Ọ̀rọ̀, àwòrán àti fídíò lè ṣiṣẹ́ papọ̀ nínú ìjíròrò ọ̀tọ̀ bí RAM/VRAM bá tó. Ìrántí lè tán.",
+    "preserve": "Àwọn fáìlì àti ìjíròrò wà láìparẹ́; módẹ́lì á tún wọlé bí a bá nílò rẹ̀. Àyípadà kan ìbéèrè tuntun.",
+    "waiting": "Ń dúró tàbí ń tú RAM/VRAM sílẹ̀…",
+    "failed": "Ìmúdára ìrántí kùnà. Gbìyànjú lẹ́ẹ̀kan síi tàbí yan Àfọwọ́ṣe."
   }
 }

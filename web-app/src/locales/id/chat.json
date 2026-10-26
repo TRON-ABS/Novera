@@ -141,5 +141,15 @@
     "paused": "Dijeda",
     "verifying": "Memverifikasi berkas",
     "error": "Pemasangan gagal. Periksa jaringan, ruang kosong, izin akses dan lisensi model, lalu lanjutkan."
+  },
+  "memory": {
+    "title": "Memori model lokal",
+    "auto": "Otomatis · disarankan",
+    "manual": "Manual · model paralel",
+    "autoNote": "Memuat model saat dibutuhkan dan membebaskan model yang tidak dipakai setelah pekerjaan aktif selesai.",
+    "manualNote": "Teks, gambar dan video dapat berjalan bersama dalam percakapan terpisah jika RAM/VRAM cukup. Memori dapat habis.",
+    "preserve": "Berkas dan percakapan tetap disimpan; model dimuat ulang saat diperlukan. Perubahan berlaku untuk permintaan baru.",
+    "waiting": "Menunggu atau membebaskan RAM/VRAM…",
+    "failed": "Optimasi memori gagal. Coba lagi atau pilih Manual."
   }
 }

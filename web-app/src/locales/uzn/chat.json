@@ -141,5 +141,15 @@
     "paused": "Toʻxtatib turilgan",
     "verifying": "Fayllar tekshirilmoqda",
     "error": "Oʻrnatish bajarilmadi. Tarmoq, boʻsh joy, kirish huquqlari va model litsenziyalarini tekshirib davom ettiring."
+  },
+  "memory": {
+    "title": "Mahalliy modellar xotirasi",
+    "auto": "Avtomatik · tavsiya etiladi",
+    "manual": "Qoʻlda · parallel modellar",
+    "autoNote": "Modellarni kerak paytda yuklaydi va joriy ish tugagach ishlatilmayotgan modellarni boʻshatadi.",
+    "manualNote": "RAM/VRAM yetarli boʻlsa, matn, rasm va video alohida suhbatlarda birga ishlashi mumkin. Xotira tugashi mumkin.",
+    "preserve": "Fayllar va suhbatlar saqlanadi; modellar kerak boʻlsa qayta yuklanadi. Oʻzgarishlar yangi soʻrovlarga tatbiq etiladi.",
+    "waiting": "Kutilmoqda yoki RAM/VRAM boʻshatilmoqda…",
+    "failed": "Xotirani optimallashtirib boʻlmadi. Qayta urinib koʻring yoki Qoʻlda rejimini tanlang."
   }
 }

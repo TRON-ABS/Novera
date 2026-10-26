@@ -1,3 +1,9 @@
+import {
+  beginLocalMemory,
+  LOCAL_TEXT_ENGINES,
+  memoryManagementAvailable,
+} from '@/services/creation/memory'
+import { useMemoryPolicy } from '@/hooks/useMemoryPolicy'
 import { fetchHuggingFacePage } from './huggingfaceCatalog'
 /**
  * Default Models Service - Web implementation
@@ -45,12 +51,19 @@ export class DefaultModelsService implements ModelsService {
     return this.getEngine()?.get(modelId)
   }
 
-  async getModelContextLimit(modelId: string, provider: string): Promise<number | undefined> {
-    const engine = this.getEngine(provider) as (AIEngine & {
-      getModelContextLimit?: (id: string) => Promise<number | undefined>
-    }) | undefined
+  async getModelContextLimit(
+    modelId: string,
+    provider: string
+  ): Promise<number | undefined> {
+    const engine = this.getEngine(provider) as
+      | (AIEngine & {
+          getModelContextLimit?: (id: string) => Promise<number | undefined>
+        })
+      | undefined
     if (!engine?.getModelContextLimit)
-      throw new Error('This provider cannot read model context limits. Update its extension or check provider settings.')
+      throw new Error(
+        'This provider cannot read model context limits. Update its extension or check provider settings.'
+      )
     return engine.getModelContextLimit(modelId)
   }
 
@@ -62,16 +75,24 @@ export class DefaultModelsService implements ModelsService {
     return (await this.fetchModelCatalogPage()).models
   }
 
-  async fetchModelCatalogPage(cursor?: string): Promise<{ models: ModelCatalog; nextCursor?: string }> {
+  async fetchModelCatalogPage(
+    cursor?: string
+  ): Promise<{ models: ModelCatalog; nextCursor?: string }> {
     try {
       const page = await fetchHuggingFacePage(fetch, IS_MACOS, cursor)
-      const models = page.repos.map((repo) => this.convertHfRepoToCatalogModel(repo)).map((model) => ({
-        ...model,
-        quants: model.quants?.filter((q) => !/-\d{5}-of-\d{5}(?:\.gguf)?$/i.test(q.model_id)),
-      }))
+      const models = page.repos
+        .map((repo) => this.convertHfRepoToCatalogModel(repo))
+        .map((model) => ({
+          ...model,
+          quants: model.quants?.filter(
+            (q) => !/-\d{5}-of-\d{5}(?:\.gguf)?$/i.test(q.model_id)
+          ),
+        }))
       return { models, nextCursor: page.nextCursor }
     } catch (error) {
-      throw new Error(`Failed to fetch model catalog: ${error instanceof Error ? error.message : 'Unknown error'}`)
+      throw new Error(
+        `Failed to fetch model catalog: ${error instanceof Error ? error.message : 'Unknown error'}`
+      )
     }
   }
 
@@ -192,13 +213,20 @@ export class DefaultModelsService implements ModelsService {
       model_name: repo.modelId,
       pipeline_tag: repo.pipeline_tag,
       tags: repo.tags,
-      languages: Array.isArray(repo.cardData?.language) ? repo.cardData.language : typeof repo.cardData?.language === 'string' ? [repo.cardData.language] : undefined,
+      languages: Array.isArray(repo.cardData?.language)
+        ? repo.cardData.language
+        : typeof repo.cardData?.language === 'string'
+          ? [repo.cardData.language]
+          : undefined,
       library_name: repo.library_name,
       revision: repo.sha,
       license: repo.cardData?.license,
       gated: repo.gated,
       model_config: repo.config,
-      files: repo.siblings?.map(file => ({ name: file.rfilename, size: file.size ?? file.lfs?.size })),
+      files: repo.siblings?.map((file) => ({
+        name: file.rfilename,
+        size: file.size ?? file.lfs?.size,
+      })),
       developer: repo.author,
       downloads: repo.downloads || 0,
       created_at: repo.createdAt,
@@ -340,10 +368,11 @@ export class DefaultModelsService implements ModelsService {
     const llamacppEngine = this.getEngine('llamacpp')
     const mlxEngine = this.getEngine('mlx')
     try {
-      await Promise.allSettled([
-        llamacppEngine?.abortImport(id),
-        mlxEngine?.abortImport(id),
-      ].filter(Boolean))
+      await Promise.allSettled(
+        [llamacppEngine?.abortImport(id), mlxEngine?.abortImport(id)].filter(
+          Boolean
+        )
+      )
     } finally {
       events.emit(DownloadEvent.onFileDownloadStopped, {
         modelId: id,
@@ -369,7 +398,7 @@ export class DefaultModelsService implements ModelsService {
   }
 
   async getActiveModels(provider?: string): Promise<string[]> {
-    return this.getEngine(provider)?.getLoadedModels() ?? []
+    return (await this.getEngine(provider)?.getLoadedModels()) ?? []
   }
 
   async stopModel(
@@ -389,7 +418,9 @@ export class DefaultModelsService implements ModelsService {
     if (mlxModels)
       await Promise.all(mlxModels.map((model) => this.stopModel(model, 'mlx')))
     const transformersModels = await this.getActiveModels('transformers')
-    await Promise.all(transformersModels.map((model) => this.stopModel(model, 'transformers')))
+    await Promise.all(
+      transformersModels.map((model) => this.stopModel(model, 'transformers'))
+    )
   }
 
   async startModel(
@@ -400,45 +431,61 @@ export class DefaultModelsService implements ModelsService {
     const engine = this.getEngine(provider.provider)
     if (!engine) return undefined
 
-    const loadedModels = await engine.getLoadedModels()
-    if (loadedModels.includes(model)) return undefined
+    const releaseMemory = LOCAL_TEXT_ENGINES.includes(
+      provider.provider as (typeof LOCAL_TEXT_ENGINES)[number]
+    )
+      ? await beginLocalMemory(
+          { kind: 'text', provider: provider.provider, model },
+          { models: this, load: true, auxiliary: bypassAutoUnload }
+        )
+      : () => {}
+    try {
+      const loadedModels = await engine.getLoadedModels()
+      if (loadedModels.includes(model)) return undefined
 
-    // Find the model configuration to get settings
-    const modelConfig = provider.models.find((m) => m.id === model)
+      // Find the model configuration to get settings
+      const modelConfig = provider.models.find((m) => m.id === model)
 
-    // Key mapping function to transform setting keys
-    const mapSettingKey = (key: string): string => {
-      const keyMappings: Record<string, string> = {
-        ctx_len: 'ctx_size',
-        ngl: 'n_gpu_layers',
+      // Key mapping function to transform setting keys
+      const mapSettingKey = (key: string): string => {
+        const keyMappings: Record<string, string> = {
+          ctx_len: 'ctx_size',
+          ngl: 'n_gpu_layers',
+        }
+        return keyMappings[key] || key
       }
-      return keyMappings[key] || key
+
+      const settings = modelConfig?.settings
+        ? Object.fromEntries(
+            Object.entries(modelConfig.settings).map(([key, value]) => [
+              mapSettingKey(key),
+              value.controller_props?.value,
+            ])
+          )
+        : undefined
+
+      return await engine
+        .load(
+          model,
+          settings,
+          false,
+          bypassAutoUnload ||
+            memoryManagementAvailable() ||
+            useMemoryPolicy.getState().policy === 'manual'
+        )
+        .catch((error) => {
+          console.error(
+            `Failed to start model ${model} for provider ${provider.provider}:`,
+            error
+          )
+          throw error
+        })
+    } finally {
+      releaseMemory()
     }
-
-    const settings = modelConfig?.settings
-      ? Object.fromEntries(
-          Object.entries(modelConfig.settings).map(([key, value]) => [
-            mapSettingKey(key),
-            value.controller_props?.value,
-          ])
-        )
-      : undefined
-
-    return engine
-      .load(model, settings, false, bypassAutoUnload)
-      .catch((error) => {
-        console.error(
-          `Failed to start model ${model} for provider ${provider.provider}:`,
-          error
-        )
-        throw error
-      })
   }
 
-  private reloadingModels = new Map<
-    string,
-    Promise<SessionInfo | undefined>
-  >()
+  private reloadingModels = new Map<string, Promise<SessionInfo | undefined>>()
 
   // Force unload first: a crashed model still reports "loaded", so load() alone no-ops.
   async reloadModel(
@@ -875,12 +922,16 @@ export class DefaultModelsService implements ModelsService {
               }
             }
 
-            const toolContextFromContent = extractToolContextFromContent(message)
+            const toolContextFromContent =
+              extractToolContextFromContent(message)
             const toolContextFromMetadata =
               toolContextFromContent.length > 0
                 ? ''
                 : extractToolContextFromMetadata(message)
-            const toolContext = [toolContextFromContent, toolContextFromMetadata]
+            const toolContext = [
+              toolContextFromContent,
+              toolContextFromMetadata,
+            ]
               .filter((entry) => entry.length > 0)
               .join('\n\n')
             if (toolContext.length > 0) {

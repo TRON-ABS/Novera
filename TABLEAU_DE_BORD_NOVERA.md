@@ -1,5 +1,9 @@
 # Novera — tableau de bord
 
+## Automatisation mémoire et contrôle manuel — 26 octobre 2026
+
+Gestion **Automatique par défaut**, dans les deux sens entre texte, image et vidéo : attente des travaux locaux actifs, déchargement des modèles devenus inutiles, rechargement à la demande et conservation des conversations/fichiers. Mode **Manuel** pour demandes texte/image/vidéo simultanées dans des discussions distinctes selon la RAM/VRAM ; les workers média restent des processus par génération. Contrôle visible dans la discussion et les paramètres généraux, traduit dans les 70 locales. **369 tests web / 24 fichiers**, trois tests natifs de politique, types et architecture ; **1 689 clés par locale**. Publication des sources/vitrine autorisée, sans nouveau build de Novera ni binaire. [Détails et limites](docs/SUIVI_MOTEURS.md#gestion-mémoire-entre-texte-image-et-vidéo--26-octobre-2026).
+
 ## Installation conseillée et bibliothèque Image/Vidéo — sources locales
 
 Le lot du 26 octobre ajoute l’installation confirmée du trio FLUX dans `Documents/Novera models` ou un dossier choisi, progression globale/per-file, pause/reprise et vérification SHA-256. Icône seule, sans audio ni notification système, fin conservée jusqu’au clic. Import automatique dans la section Image de la page llama.cpp, import manuel/édition/retrait des configurations et sélecteur de discussion par catégorie. Le prochain build Windows embarque le moteur C++ CUDA 13.4.3/Vulkan/CPU ; plus de chemin `.build` à choisir. **70 locales × 1 681 clés**, 98 tests web ciblés/TypeScript/architecture et six tests natifs isolés validés. La sonde CUDA fonctionne ; le nouveau parcours graphique complet reste à tester avec la compilation du mainteneur. Publication des sources et contrôle de la vitrine autorisés ; aucune compilation de Novera ni publication de binaire pour ce lot. [Détails et limites](docs/SUIVI_MOTEURS.md#installation-groupée-bibliothèque-et-moteur-embarqué--26-octobre-2026).

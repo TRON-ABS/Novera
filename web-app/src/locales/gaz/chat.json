@@ -141,5 +141,15 @@
     "paused": "Dhaabbate",
     "verifying": "Faayiloota mirkaneessaa",
     "error": "Fe’uun hin milkoofne. Neetworkii, bakka duwwaa, hayyama fi eeyyama moodeelotaa ilaalii itti fufi."
+  },
+  "memory": {
+    "title": "Yaadannoo moodeelota keessaa",
+    "auto": "Ofumaan · gorfama",
+    "manual": "Harkaan · moodeelota walumaan",
+    "autoNote": "Yeroo barbaachisu moodeelota fe’a; hojii amma jiru erga xumuramee booda kan hin fayyadamne gad lakkisa.",
+    "manualNote": "RAM/VRAM yoo ga’e, barruun, suuraan fi viidiyoon haasawa adda addaatti walumaan hojjachuu danda’u. Yaadannoon dhumuu danda’a.",
+    "preserve": "Faayiloonni fi haasawni ni eegamu; moodeelonni yeroo barbaachisu deebi’anii fe’amu. Jijjiiramni gaaffii haaraa ilaallata.",
+    "waiting": "Eegaa ykn RAM/VRAM gad lakkisaa…",
+    "failed": "Fooyyessi yaadannoo hin milkoofne. Irra deebi’i ykn Harkaan filadhu."
   }
 }

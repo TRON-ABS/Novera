@@ -131,7 +131,7 @@ describe('DefaultModelsService', () => {
     it('should stop all active models from all providers', async () => {
       mockEngine.getLoadedModels.mockResolvedValue(['model1', 'model2'])
       await modelsService.stopAllModels()
-      expect(mockEngine.unload).toHaveBeenCalledTimes(4)
+      expect(mockEngine.unload).toHaveBeenCalledTimes(6)
     })
 
     it('should handle empty active models', async () => {

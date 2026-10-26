@@ -339,6 +339,7 @@ pub fn run() {
         core::creation_bundle::creation_bundle_status,
         core::creation_bundle::creation_bundle_action,
         core::creation::creation_check_files,
+        core::creation::creation_release_idle,
         core::creation::creation_start,
         core::creation::creation_status,
         core::creation::creation_cancel,

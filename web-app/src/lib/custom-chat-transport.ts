@@ -43,7 +43,10 @@ import {
   sandboxEnforces,
 } from '@/lib/agentTools'
 import { useAppState, type ModelLoadProgress } from '@/hooks/useAppState'
-import { unloadLlamaModel, getLoadedModels } from '@janhq/tauri-plugin-llamacpp-api'
+import {
+  unloadLlamaModel,
+  getLoadedModels,
+} from '@janhq/tauri-plugin-llamacpp-api'
 import { engineFailure } from '@/lib/engineError'
 import { ExtensionManager } from '@/lib/extension'
 import { getLlamacppExtension } from '@/lib/llamacppRouterProps'
@@ -52,11 +55,7 @@ import {
   isThinkingBudgetLevelKey,
 } from '@/lib/thinkingBudget'
 import { buildReasoningProviderOptions } from '@/lib/reasoningProviderOptions'
-import {
-  ExtensionTypeEnum,
-  VectorDBExtension,
-  type MCPTool,
-} from '@janhq/core'
+import { ExtensionTypeEnum, VectorDBExtension, type MCPTool } from '@janhq/core'
 import {
   trimMessages,
   compactMessages,
@@ -83,6 +82,11 @@ import { CHAT_SLOT_ID } from '@/constants/models'
 import { useCreation } from '@/hooks/useCreation'
 import { useAgentMode } from '@/hooks/useAgentMode'
 import { resolveOutputMode, CREATION_PREFIX } from '@/modules/engines/creation'
+import {
+  beginLocalMemory,
+  streamWithMemory,
+  LOCAL_TEXT_ENGINES,
+} from '@/services/creation/memory'
 import { creationStream } from '@/services/creation/stream'
 import { createStepMetadata } from '@/lib/stepMetadata'
 
@@ -127,8 +131,18 @@ const SCHEMA_PRIMITIVE_TYPES = new Set([
   'object',
 ])
 
-const SCHEMA_NODE_MAP_KEYS = new Set(['properties', 'patternProperties', 'definitions', '$defs'])
-const SCHEMA_NODE_LIST_KEYS = new Set(['anyOf', 'oneOf', 'allOf', 'prefixItems'])
+const SCHEMA_NODE_MAP_KEYS = new Set([
+  'properties',
+  'patternProperties',
+  'definitions',
+  '$defs',
+])
+const SCHEMA_NODE_LIST_KEYS = new Set([
+  'anyOf',
+  'oneOf',
+  'allOf',
+  'prefixItems',
+])
 
 // Per-model sidebar keys forwarded into each chat-completion request body as
 // defaults. These *are* also written into the model's own preset section, so
@@ -237,14 +251,16 @@ async function resolveThinkingBudgetTokens(
   model: Model | null | undefined,
   modelId: string | undefined
 ): Promise<number | undefined> {
-  const rawLevel = model?.settings?.thinking_budget_tokens?.controller_props?.value
+  const rawLevel =
+    model?.settings?.thinking_budget_tokens?.controller_props?.value
   if (!isThinkingBudgetLevelKey(rawLevel)) return undefined
   if (rawLevel === 'unlimited') return -1
 
   let contextSize: number | undefined
   if (modelId) {
     try {
-      contextSize = (await getLlamacppExtension()?.getModelProps?.(modelId))?.nCtx
+      contextSize = (await getLlamacppExtension()?.getModelProps?.(modelId))
+        ?.nCtx
     } catch {
       // Model not loaded yet or router unreachable; fall through to configured/default.
     }
@@ -273,7 +289,6 @@ export function effectiveContextWindow(
     : configuredContextTokens
 }
 
-
 /**
  * Coerce a schema-node slot into a valid sub-schema. Some tool generators
  * emit shorthand like `{ "properties": { "foo": "string" } }` instead of
@@ -299,36 +314,42 @@ function normalizeToolInputSchemaValue(value: unknown): unknown {
   }
 
   const normalized = Object.fromEntries(
-    Object.entries(value as Record<string, unknown>).map(([key, childValue]) => {
-      // Schema-node containers: their direct children are sub-schemas, so a
-      // bare-string primitive type name should expand to `{ type: <name> }`.
-      if (
-        SCHEMA_NODE_MAP_KEYS.has(key) &&
-        childValue &&
-        typeof childValue === 'object' &&
-        !Array.isArray(childValue)
-      ) {
-        return [
-          key,
-          Object.fromEntries(
-            Object.entries(childValue as Record<string, unknown>).map(
-              ([propKey, propVal]) => [propKey, coerceSchemaNode(propVal)]
-            )
-          ),
-        ]
+    Object.entries(value as Record<string, unknown>).map(
+      ([key, childValue]) => {
+        // Schema-node containers: their direct children are sub-schemas, so a
+        // bare-string primitive type name should expand to `{ type: <name> }`.
+        if (
+          SCHEMA_NODE_MAP_KEYS.has(key) &&
+          childValue &&
+          typeof childValue === 'object' &&
+          !Array.isArray(childValue)
+        ) {
+          return [
+            key,
+            Object.fromEntries(
+              Object.entries(childValue as Record<string, unknown>).map(
+                ([propKey, propVal]) => [propKey, coerceSchemaNode(propVal)]
+              )
+            ),
+          ]
+        }
+        if (SCHEMA_NODE_LIST_KEYS.has(key) && Array.isArray(childValue)) {
+          return [key, childValue.map(coerceSchemaNode)]
+        }
+        if (key === 'items') {
+          if (Array.isArray(childValue))
+            return [key, childValue.map(coerceSchemaNode)]
+          return [key, coerceSchemaNode(childValue)]
+        }
+        return [key, normalizeToolInputSchemaValue(childValue)]
       }
-      if (SCHEMA_NODE_LIST_KEYS.has(key) && Array.isArray(childValue)) {
-        return [key, childValue.map(coerceSchemaNode)]
-      }
-      if (key === 'items') {
-        if (Array.isArray(childValue)) return [key, childValue.map(coerceSchemaNode)]
-        return [key, coerceSchemaNode(childValue)]
-      }
-      return [key, normalizeToolInputSchemaValue(childValue)]
-    })
+    )
   )
 
-  const hasDescription = Object.prototype.hasOwnProperty.call(normalized, 'description')
+  const hasDescription = Object.prototype.hasOwnProperty.call(
+    normalized,
+    'description'
+  )
   const hasType = Object.prototype.hasOwnProperty.call(normalized, 'type')
   const hasNestedSchemaKeywords =
     Object.prototype.hasOwnProperty.call(normalized, 'properties') ||
@@ -338,7 +359,10 @@ function normalizeToolInputSchemaValue(value: unknown): unknown {
     Object.prototype.hasOwnProperty.call(normalized, 'allOf') ||
     Object.prototype.hasOwnProperty.call(normalized, '$ref')
 
-  if (normalized.type === 'object' && !Object.prototype.hasOwnProperty.call(normalized, 'properties')) {
+  if (
+    normalized.type === 'object' &&
+    !Object.prototype.hasOwnProperty.call(normalized, 'properties')
+  ) {
     normalized.properties = {}
   }
 
@@ -487,7 +511,8 @@ export function extractContextInfoFromError(
     if (!inner || typeof inner !== 'object') return null
     const nPromptTokens = (inner as Record<string, unknown>).n_prompt_tokens
     const nCtx = (inner as Record<string, unknown>).n_ctx
-    if (typeof nPromptTokens !== 'number' || typeof nCtx !== 'number') return null
+    if (typeof nPromptTokens !== 'number' || typeof nCtx !== 'number')
+      return null
     return { nPromptTokens, nCtx }
   } catch {
     return null
@@ -504,7 +529,8 @@ export function unwrapRetryError(error: unknown): unknown {
 }
 
 const RETRY_PREFIX_RE = /^Failed after \d+ attempts\. Last error: /
-const RETRY_NONRETRYABLE_RE = /^Failed after \d+ attempts with non-retryable error: '(.+)'$/s
+const RETRY_NONRETRYABLE_RE =
+  /^Failed after \d+ attempts with non-retryable error: '(.+)'$/s
 
 export function stripRetryErrorWrapper(message: string): string {
   if (typeof message !== 'string') return message
@@ -696,7 +722,7 @@ const LOCAL_ENGINE_PROVIDERS: Record<string, true> = {
 }
 
 const LOOPBACK_HOSTS: Record<string, true> = {
-  localhost: true,
+  'localhost': true,
   // What some local servers print as their listen address.
   '0.0.0.0': true,
   // URL.hostname keeps the brackets on IPv6 literals.
@@ -797,7 +823,10 @@ function extractLatestUserText(messages: UIMessage[]): string {
     const parts = Array.isArray(m.parts) ? m.parts : []
     const chunks: string[] = []
     for (const p of parts) {
-      if (p.type === 'text' && typeof (p as { text?: string }).text === 'string') {
+      if (
+        p.type === 'text' &&
+        typeof (p as { text?: string }).text === 'string'
+      ) {
         const t = (p as { text: string }).text.trim()
         if (t) chunks.push(t)
       }
@@ -858,6 +887,14 @@ function prependContinuationToUIStream(
   })
 }
 
+type TransportSendOptions = {
+  chatId: string
+  messages: UIMessage[]
+  abortSignal: AbortSignal | undefined
+  trigger: 'submit-message' | 'regenerate-message'
+  messageId: string | undefined
+} & ChatRequestOptions
+
 export class CustomChatTransport implements ChatTransport<UIMessage> {
   public model: LanguageModel | null = null
   private routerModel: LanguageModel | null = null
@@ -893,7 +930,10 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
     // Tools will be loaded when updateRagToolsAvailability is called with model capabilities
   }
 
-  protected getModelSelection(): { selectedProvider: string; selectedModel: Model | null } {
+  protected getModelSelection(): {
+    selectedProvider: string
+    selectedModel: Model | null
+  } {
     const state = useModelProvider.getState()
     const threadModel = this.threadId
       ? useThreads.getState().threads[this.threadId]?.model
@@ -904,7 +944,8 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
     const provider = state.getProviderByName(threadModel.provider)
     return {
       selectedProvider: threadModel.provider,
-      selectedModel: provider?.models.find((model) => model.id === threadModel.id) ?? null,
+      selectedModel:
+        provider?.models.find((model) => model.id === threadModel.id) ?? null,
     }
   }
 
@@ -1049,7 +1090,8 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
     }
 
     const selectedModel = this.getModelSelection().selectedModel
-    const modelSupportsTools = selectedModel?.capabilities?.includes('tools') ?? this.modelSupportsTools
+    const modelSupportsTools =
+      selectedModel?.capabilities?.includes('tools') ?? this.modelSupportsTools
 
     // Only load tools if model supports them
     if (modelSupportsTools) {
@@ -1067,7 +1109,8 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
               ExtensionTypeEnum.VectorDB
             )
             if (ext?.listAttachmentsForProject) {
-              const projectFiles = await ext.listAttachmentsForProject(projectId)
+              const projectFiles =
+                await ext.listAttachmentsForProject(projectId)
               hasDocuments = hasThreadDocuments || projectFiles.length > 0
             }
           } catch (error) {
@@ -1097,7 +1140,9 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
                 toolsRecord[tool.name] = {
                   description: tool.description,
                   inputSchema: jsonSchema(
-                    normalizeToolInputSchema(tool.inputSchema as Record<string, unknown>)
+                    normalizeToolInputSchema(
+                      tool.inputSchema as Record<string, unknown>
+                    )
                   ),
                 } as Tool
               }
@@ -1129,26 +1174,45 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
           if (this.frozenRoutedTools && this.frozenRoutedSig === routedSig) {
             mcpTools = this.frozenRoutedTools
           } else {
-            const routerModel =
+            const localRouter =
               mcpSettings.useLightweightRouterModel &&
-              mcpSettings.routerModelProvider.trim() &&
-              mcpSettings.routerModelId.trim()
-                ? (await this.resolveRouterModel(mcpSettings)) ?? this.model
-                : this.model
-            mcpTools = await mcpOrchestrator.getRelevantTools(
-              this.lastUserMessage,
-              {
-                getTools: () => mcpService.getTools(),
-                getToolsForServers: (names) =>
-                  mcpService.getToolsForServers!(names),
-                getServerSummaries: () => Promise.resolve(summaries),
-              },
-              disabledToolKeys,
-              {
-                routerModel,
-                abortSignal,
-              }
-            )
+              LOCAL_TEXT_ENGINES.includes(
+                mcpSettings.routerModelProvider as (typeof LOCAL_TEXT_ENGINES)[number]
+              )
+            const releaseRouter = localRouter
+              ? await beginLocalMemory(
+                  {
+                    kind: 'text',
+                    provider: mcpSettings.routerModelProvider,
+                    model: mcpSettings.routerModelId,
+                  },
+                  { auxiliary: true, signal: abortSignal }
+                )
+              : () => {}
+            try {
+              const routerModel =
+                mcpSettings.useLightweightRouterModel &&
+                mcpSettings.routerModelProvider.trim() &&
+                mcpSettings.routerModelId.trim()
+                  ? ((await this.resolveRouterModel(mcpSettings)) ?? this.model)
+                  : this.model
+              mcpTools = await mcpOrchestrator.getRelevantTools(
+                this.lastUserMessage,
+                {
+                  getTools: () => mcpService.getTools(),
+                  getToolsForServers: (names) =>
+                    mcpService.getToolsForServers!(names),
+                  getServerSummaries: () => Promise.resolve(summaries),
+                },
+                disabledToolKeys,
+                {
+                  routerModel,
+                  abortSignal,
+                }
+              )
+            } finally {
+              releaseRouter()
+            }
             this.frozenRoutedTools = mcpTools
             this.frozenRoutedSig = routedSig
           }
@@ -1171,7 +1235,9 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
             toolsRecord[tool.name] = {
               description: tool.description,
               inputSchema: jsonSchema(
-                normalizeToolInputSchema(tool.inputSchema as Record<string, unknown>)
+                normalizeToolInputSchema(
+                  tool.inputSchema as Record<string, unknown>
+                )
               ),
             } as Tool
           })
@@ -1185,11 +1251,15 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
       if (useWebSearchConfig.getState().webSearchEnabled) {
         toolsRecord['web_search'] = {
           description: WEB_SEARCH_DESCRIPTION,
-          inputSchema: jsonSchema(WEB_SEARCH_INPUT_SCHEMA as Record<string, unknown>),
+          inputSchema: jsonSchema(
+            WEB_SEARCH_INPUT_SCHEMA as Record<string, unknown>
+          ),
         } as Tool
         toolsRecord['web_fetch'] = {
           description: WEB_FETCH_DESCRIPTION,
-          inputSchema: jsonSchema(WEB_FETCH_INPUT_SCHEMA as Record<string, unknown>),
+          inputSchema: jsonSchema(
+            WEB_FETCH_INPUT_SCHEMA as Record<string, unknown>
+          ),
         } as Tool
       }
 
@@ -1231,7 +1301,13 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
     if (!providerName || !modelId) return null
 
     const key = `${providerName}::${modelId}`
-    if (this.routerModel && this.routerModelKey === key) {
+    if (
+      this.routerModel &&
+      this.routerModelKey === key &&
+      !LOCAL_TEXT_ENGINES.includes(
+        providerName as (typeof LOCAL_TEXT_ENGINES)[number]
+      )
+    ) {
       return this.routerModel
     }
 
@@ -1304,7 +1380,10 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
     threadId: string
   ): Promise<LanguageModel> {
     const modelPromise = ModelFactory.createModel(
-      modelId, provider, parameters, threadId
+      modelId,
+      provider,
+      parameters,
+      threadId
     )
     if (!abortSignal) return modelPromise
 
@@ -1347,39 +1426,114 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
   }
 
   async sendMessages(
-    options: {
-      chatId: string
-      messages: UIMessage[]
-      abortSignal: AbortSignal | undefined
-    } & {
-      trigger: 'submit-message' | 'regenerate-message'
-      messageId: string | undefined
-    } & ChatRequestOptions
+    options: TransportSendOptions
+  ): Promise<ReadableStream<UIMessageChunk>> {
+    const scope = this.threadId ?? options.chatId
+    const agentOnly =
+      useAgentMode.getState().isAgentMode(scope) &&
+      !useThreads.getState().threads?.[scope]?.metadata?.project
+    const output =
+      this.streamRoutesToCowork || agentOnly
+        ? 'text'
+        : resolveOutputMode(
+            useCreation.getState().modes[scope] ?? 'auto',
+            extractLatestUserText(options.messages)
+          )
+    if (output !== 'text')
+      return this.sendMessagesInternal(options, undefined, output)
+    const selection = this.getModelSelection()
+    const local = LOCAL_TEXT_ENGINES.includes(
+      selection.selectedProvider as (typeof LOCAL_TEXT_ENGINES)[number]
+    )
+    if (!local || !selection.selectedModel?.id)
+      return this.sendMessagesInternal(options, selection, output)
+    const release = await beginLocalMemory(
+      {
+        kind: 'text',
+        provider: selection.selectedProvider,
+        model: selection.selectedModel.id,
+      },
+      { signal: options.abortSignal, scope }
+    )
+    try {
+      return streamWithMemory(
+        await this.sendMessagesInternal(options, selection, output),
+        release,
+        options.abortSignal
+      )
+    } catch (error) {
+      release()
+      throw error
+    }
+  }
+
+  private async sendMessagesInternal(
+    options: TransportSendOptions,
+    selection?: ReturnType<CustomChatTransport['getModelSelection']>,
+    outputOverride?: ReturnType<typeof resolveOutputMode>
   ): Promise<ReadableStream<UIMessageChunk>> {
     const threadId = this.threadId ?? options.chatId
     const myGeneration = ++this.streamGeneration
     const prompt = extractLatestUserText(options.messages)
-    const agentOnly = useAgentMode.getState().isAgentMode(threadId) && !useThreads.getState().threads?.[threadId]?.metadata?.project
-    const outputMode = this.streamRoutesToCowork || agentOnly ? 'text' : resolveOutputMode(useCreation.getState().modes[threadId] ?? 'auto', prompt)
+    const agentOnly =
+      useAgentMode.getState().isAgentMode(threadId) &&
+      !useThreads.getState().threads?.[threadId]?.metadata?.project
+    const outputMode =
+      outputOverride ??
+      (this.streamRoutesToCowork || agentOnly
+        ? 'text'
+        : resolveOutputMode(
+            useCreation.getState().modes[threadId] ?? 'auto',
+            prompt
+          ))
     if (outputMode !== 'text') {
       useAppState.getState().setCurrentStreamThreadId(threadId, false)
-      return creationStream(outputMode, prompt, options.messages, threadId, options.abortSignal, () => {
-        if (this.streamGeneration === myGeneration && useAppState.getState().currentStreamThreadId === threadId) {
-          useAppState.getState().setCurrentStreamThreadId(undefined)
+      return creationStream(
+        outputMode,
+        prompt,
+        options.messages,
+        threadId,
+        options.abortSignal,
+        () => {
+          if (
+            this.streamGeneration === myGeneration &&
+            useAppState.getState().currentStreamThreadId === threadId
+          ) {
+            useAppState.getState().setCurrentStreamThreadId(undefined)
+          }
         }
-      })
+      )
     }
     // Generated media references belong to the gallery, not to a text engine's wire format.
-    options = { ...options, messages: options.messages.map(message => message.role !== 'assistant' ? message : ({
-      ...message, parts: message.parts.filter(part => !(part.type === 'file' && part.url.startsWith(CREATION_PREFIX))),
-    })).filter(message => message.role !== 'assistant' || message.parts.length > 0) }
+    options = {
+      ...options,
+      messages: options.messages
+        .map((message) =>
+          message.role !== 'assistant'
+            ? message
+            : {
+                ...message,
+                parts: message.parts.filter(
+                  (part) =>
+                    !(
+                      part.type === 'file' &&
+                      part.url.startsWith(CREATION_PREFIX)
+                    )
+                ),
+              }
+        )
+        .filter(
+          (message) => message.role !== 'assistant' || message.parts.length > 0
+        ),
+    }
     useAppState
       .getState()
       .setCurrentStreamThreadId(threadId, this.streamRoutesToCowork)
     // Capture the effective provider name early so the Anthropic serial
     // tool-use repair later uses the same value that was used to create the
     // model, even if the user switches provider mid-request.
-    const { selectedModel, selectedProvider: providerId } = this.getModelSelection()
+    const { selectedModel, selectedProvider: providerId } =
+      selection ?? this.getModelSelection()
     const modelId = selectedModel?.id
     const effectiveProviderName = providerId
     const provider = useModelProvider.getState().getProviderByName(providerId)
@@ -1483,11 +1637,11 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
 
     const inferenceParams = this.getActiveInferenceParams()
 
-
     const effectiveSystem = this.buildSystemPrompt(messagesToConvert)
 
     const maxOutputTokens: number | undefined = (() => {
-      const raw = inferenceParams.max_output_tokens ?? inferenceParams.max_tokens
+      const raw =
+        inferenceParams.max_output_tokens ?? inferenceParams.max_tokens
       if (raw === undefined || raw === null) return undefined
       const n = typeof raw === 'number' ? raw : Number(raw)
       return isNaN(n) ? undefined : n
@@ -1495,7 +1649,7 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
 
     const configuredContextTokens = (() => {
       const raw = inferenceParams.max_context_tokens
-      return typeof raw === 'number' ? raw : (Number(raw) || 0)
+      return typeof raw === 'number' ? raw : Number(raw) || 0
     })()
     const contextShiftEnabled =
       providerId === 'llamacpp' &&
@@ -1518,7 +1672,11 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
       inferenceParams.auto_compact === true ||
       inferenceParams.auto_compact === 'true'
     const maxContextTokens = effectiveContextWindow(
-      resolveAutoCompactWindow(configuredContextTokens, providerId, autoCompact),
+      resolveAutoCompactWindow(
+        configuredContextTokens,
+        providerId,
+        autoCompact
+      ),
       liveContextTokens,
       contextShiftEnabled
     )
@@ -1547,7 +1705,9 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
         if (compactResult.trimmedCount > 0) {
           console.debug(
             `[context-manager] Compacted ${compactResult.trimmedCount} messages` +
-              (compactResult.compactedSummary ? ' with summary' : ' (trim fallback)')
+              (compactResult.compactedSummary
+                ? ' with summary'
+                : ' (trim fallback)')
           )
         }
       } else {
@@ -1622,7 +1782,8 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
 
     // Include tools only if we have tools loaded AND model supports them
     const hasTools = Object.keys(this.tools).length > 0
-    const modelSupportsTools = selectedModel?.capabilities?.includes('tools') ?? this.modelSupportsTools
+    const modelSupportsTools =
+      selectedModel?.capabilities?.includes('tools') ?? this.modelSupportsTools
     const shouldEnableTools = hasTools && modelSupportsTools
 
     // The SDK validates tool calls before the route's execution gate sees them.
@@ -1637,7 +1798,9 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
       !this.tools.shell
     const toolsForParsing = canRefuseDisabledShell
       ? { ...this.tools, shell: { inputSchema: jsonSchema({}) } }
-      : shouldEnableTools ? this.tools : undefined
+      : shouldEnableTools
+        ? this.tools
+        : undefined
 
     // Cloud providers take reasoning via the AI SDK's per-request
     // providerOptions (native thinking config), not the raw body.
@@ -1659,7 +1822,9 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
       // 429/5xx; local servers fail at once (see isLocalChatServer).
       maxRetries: isLocalChatServer(providerId, provider.base_url) ? 0 : 2,
       tools: toolsForParsing,
-      ...(canRefuseDisabledShell ? { activeTools: Object.keys(this.tools) } : {}),
+      ...(canRefuseDisabledShell
+        ? { activeTools: Object.keys(this.tools) }
+        : {}),
       toolChoice: shouldEnableTools ? 'auto' : undefined,
       system: effectiveSystem,
       // 0 means "no cap" in assistant params; the SDK rejects anything below 1.
@@ -1700,13 +1865,14 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
           }
         }
         const unwrapped = unwrapRetryError(error)
-        const rawMessage = unwrapped == null
-          ? 'Unknown error'
-          : typeof unwrapped === 'string'
-            ? unwrapped
-            : unwrapped instanceof Error
-              ? unwrapped.message
-              : JSON.stringify(unwrapped)
+        const rawMessage =
+          unwrapped == null
+            ? 'Unknown error'
+            : typeof unwrapped === 'string'
+              ? unwrapped
+              : unwrapped instanceof Error
+                ? unwrapped.message
+                : JSON.stringify(unwrapped)
         const baseMessage = stripRetryErrorWrapper(rawMessage)
 
         const contextInfo = extractContextInfoFromError(unwrapped)
@@ -1766,7 +1932,8 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
   // the outgoing wire, which llama-server's chat-completions endpoint accepts.
   encodeAudioAttachments(messages: UIMessage[]): UIMessage[] {
     return messages.map((message) => {
-      if (message.role !== 'user' || !Array.isArray(message.parts)) return message
+      if (message.role !== 'user' || !Array.isArray(message.parts))
+        return message
       let touched = false
       const nextParts = message.parts.map((part) => {
         if (
@@ -1778,7 +1945,10 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
           const parsed = parseAudioDataUrl((part as { url: string }).url)
           if (!parsed) return part
           touched = true
-          return { type: 'text' as const, text: encodeAudioSentinel(parsed.format, parsed.data) }
+          return {
+            type: 'text' as const,
+            text: encodeAudioSentinel(parsed.format, parsed.data),
+          }
         }
         return part
       })
@@ -1793,7 +1963,8 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
   // parts (frames decoded via the vision encoder + ffmpeg on the server).
   encodeVideoAttachments(messages: UIMessage[]): UIMessage[] {
     return messages.map((message) => {
-      if (message.role !== 'user' || !Array.isArray(message.parts)) return message
+      if (message.role !== 'user' || !Array.isArray(message.parts))
+        return message
       let touched = false
       const nextParts = message.parts.map((part) => {
         if (
@@ -1805,7 +1976,10 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
           const parsed = parseVideoDataUrl((part as { url: string }).url)
           if (!parsed) return part
           touched = true
-          return { type: 'text' as const, text: encodeVideoSentinel(parsed.data) }
+          return {
+            type: 'text' as const,
+            text: encodeVideoSentinel(parsed.data),
+          }
         }
         return part
       })
@@ -1849,12 +2023,13 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
    * users who keep it off.
    */
   buildWebSearchSystemInstruction(): string {
-    if (!useWebSearchConfig.getState().webSearchEnabled) return [
-      '# Web Access: disabled by the user',
-      'Do not search the Internet or call web_search, web_fetch, google, or other web search tools.',
-      'Answer from your existing knowledge and the conversation only. State uncertainty when needed.',
-      'Do not claim to have searched or print simulated tool calls or tool protocol markers.',
-    ].join(' ')
+    if (!useWebSearchConfig.getState().webSearchEnabled)
+      return [
+        '# Web Access: disabled by the user',
+        'Do not search the Internet or call web_search, web_fetch, google, or other web search tools.',
+        'Answer from your existing knowledge and the conversation only. State uncertainty when needed.',
+        'Do not claim to have searched or print simulated tool calls or tool protocol markers.',
+      ].join(' ')
     return [
       '# Web Access',
       'You can search the web with web_search and read pages with web_fetch.',

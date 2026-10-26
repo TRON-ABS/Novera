@@ -141,5 +141,15 @@
     "paused": "Diendhegake",
     "verifying": "Mriksa berkas",
     "error": "Pamasangan gagal. Priksa jaringan, papan kosong, idin akses lan lisensi model, banjur terusake."
+  },
+  "memory": {
+    "title": "Memori model lokal",
+    "auto": "Otomatis · disaranake",
+    "manual": "Manual · model bebarengan",
+    "autoNote": "Ngemot model nalika dibutuhake lan ngeculake model sing ora dienggo sawisé tugas aktif rampung.",
+    "manualNote": "Teks, gambar lan video bisa mlaku bebarengan ing obrolan kapisah yen RAM/VRAM cukup. Memori bisa entek.",
+    "preserve": "Berkas lan obrolan tetep disimpen; model dimuat maneh yen perlu. Owah-owahan ditrapake kanggo panjaluk anyar.",
+    "waiting": "Ngenteni utawa ngeculake RAM/VRAM…",
+    "failed": "Optimasi memori gagal. Coba maneh utawa pilih Manual."
   }
 }

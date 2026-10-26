@@ -1,5 +1,9 @@
 # Novera — développement
 
+## Propriété de la mémoire des moteurs — 26 octobre 2026
+
+La [file pure](../web-app/src/modules/engines/memory-gate.ts) appartient au domaine Moteurs IA. L’[adaptateur de cycle de vie](../web-app/src/services/creation/memory.ts) relie les préférences, les flux et les API de moteurs ; les composants d’interface affichent le choix et l’attente. Les baux couvrent l’inférence locale, les chargements réentrants et les auxiliaires RAG/routage ; les tâches manuelles sont suivies pour qu’un retour en Automatique ne les préempte pas. Le [contrôle natif](../src-tauri/src/core/creation_policy.rs) valide les demandes de concurrence, et le nettoyage du média distingue processus terminé et sortie effectivement livrée. Aucun domaine supplémentaire ni dépendance native n’est ajouté.
+
 Référence des sources au **25 octobre 2026**. L’état de validation courant est centralisé dans [le tableau de bord](../TABLEAU_DE_BORD_NOVERA.md) ; le travail restant dans [la feuille de route](../ROADMAP.md).
 
 [Architecture](#architecture) · [Moteur](#engine) · [Compatibilité](#compatibility) · [Dépendances](#dependencies) · [Logos](#logos) · [Contrôles](#checks)

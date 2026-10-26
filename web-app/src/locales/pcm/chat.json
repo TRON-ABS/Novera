@@ -141,5 +141,15 @@
     "paused": "E pause",
     "verifying": "Dey check files",
     "error": "Installation fail. Check network, free space, access permission and model licences, then continue."
+  },
+  "memory": {
+    "title": "Memory for local models",
+    "auto": "Automatic · we recommend am",
+    "manual": "Manual · models together",
+    "autoNote": "E dey load model when need dey and free unused models after di work wey dey run finish.",
+    "manualNote": "Text, picture and video fit run together for separate chats if RAM/VRAM reach. Memory fit finish.",
+    "preserve": "Files and chats go remain; models go load again when need dey. Changes na for new requests.",
+    "waiting": "Dey wait or free RAM/VRAM…",
+    "failed": "Memory optimisation fail. Try again or choose Manual."
   }
 }

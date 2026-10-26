@@ -141,5 +141,15 @@
     "paused": "Gepauzeerd",
     "verifying": "Bestanden controleren",
     "error": "Installatie mislukt. Controleer netwerk, vrije ruimte, toegangsrechten en modellicenties en hervat."
+  },
+  "memory": {
+    "title": "Geheugen voor lokale modellen",
+    "auto": "Automatisch · aanbevolen",
+    "manual": "Handmatig · parallelle modellen",
+    "autoNote": "Laadt modellen wanneer nodig en maakt ongebruikte modellen vrij zodra lopend werk klaar is.",
+    "manualNote": "Tekst, beeld en video kunnen bij genoeg RAM/VRAM tegelijk in aparte gesprekken werken. Het geheugen kan opraken.",
+    "preserve": "Bestanden en gesprekken blijven bewaard; modellen laden opnieuw wanneer nodig. Wijzigingen gelden voor nieuwe verzoeken.",
+    "waiting": "Wachten of RAM/VRAM vrijmaken…",
+    "failed": "Geheugenoptimalisatie mislukt. Probeer opnieuw of kies Handmatig."
   }
 }

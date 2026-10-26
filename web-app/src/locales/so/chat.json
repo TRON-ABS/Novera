@@ -141,5 +141,15 @@
     "paused": "Waa la hakiyey",
     "verifying": "Hubinta faylasha",
     "error": "Rakibiddu way fashilantay. Hubi shabakadda, booska bannaan, oggolaanshaha iyo ruqsadaha moodellada, dabadeed sii wad."
+  },
+  "memory": {
+    "title": "Xusuusta moodellada gudaha",
+    "auto": "Toos · lagu taliyey",
+    "manual": "Gacanta · moodello wada socda",
+    "autoNote": "Waxay soo rartaa moodellada marka loo baahdo oo sii daysaa kuwa aan la adeegsan marka shaqada socotaa dhammaato.",
+    "manualNote": "Qoraal, sawir iyo muuqaal way wada shaqayn karaan wadahadallo kala duwan haddii RAM/VRAM ku filan yahay. Xusuustu way dhammaan kartaa.",
+    "preserve": "Faylasha iyo wadahadalladu way jiraan; moodelladu dib bay u rarmaan marka loo baahdo. Isbeddelladu waxay khuseeyaan codsiyada cusub.",
+    "waiting": "Sugid ama sii daynta RAM/VRAM…",
+    "failed": "Hagaajinta xusuustu way fashilantay. Isku day mar kale ama dooro Gacanta."
   }
 }

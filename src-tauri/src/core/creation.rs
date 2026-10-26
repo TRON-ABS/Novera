@@ -47,6 +47,8 @@ pub struct Request {
     cpp_cfg: Option<f32>,
     #[serde(skip)]
     compat_quantize: bool,
+    #[serde(default)]
+    memory_policy: Option<String>,
 }
 
 fn local_file(value: &str, extensions: &[&str]) -> Result<PathBuf, String> {
@@ -283,7 +285,8 @@ fn cpp_command(
 }
 
 fn validate(request: &Request) -> Result<(), String> {
-    if !["image", "video"].contains(&request.task.as_str())
+    if !super::creation_policy::valid_memory_policy(request.memory_policy.as_deref())
+        || !["image", "video"].contains(&request.task.as_str())
         || request.prompt.trim().is_empty()
         || request.prompt.len() > 32_000
         || !["auto", "cpu", "cuda"].contains(&request.device.as_str())
@@ -392,10 +395,10 @@ pub async fn creation_start<R: Runtime>(
     let started = std::time::Instant::now();
     validate(&request)?;
     let mut jobs = JOBS.lock().await;
-    // Release old completed process handles; only one GPU creation at a time.
+    // Release completed handles. Automatic requests are exclusive; Manual permits independent workers.
     jobs.retain(|_, job| !job.delivered || !matches!(job.child.try_wait(), Ok(Some(_))));
     for job in jobs.values_mut() {
-        if job.child.try_wait().map_err(|e| e.to_string())?.is_none() {
+        if !super::creation_policy::may_start_media(request.memory_policy.as_deref(), job.child.try_wait().map_err(|e| e.to_string())?.is_none()) {
             return Err("CREATION_BUSY".into());
         }
     }
@@ -734,6 +737,17 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             )
         }
     }
+}
+
+/// Drop only completed, delivered processes; never cancel work or remove saved media.
+#[tauri::command]
+pub async fn creation_release_idle() -> Result<Value, String> {
+    let mut jobs=JOBS.lock().await;
+    for job in jobs.values_mut() {
+        if !job.delivered || job.child.try_wait().map_err(|e|e.to_string())?.is_none() {return Ok(json!({"busy":true}));}
+    }
+    jobs.clear();
+    Ok(json!({"busy":false}))
 }
 
 #[tauri::command]

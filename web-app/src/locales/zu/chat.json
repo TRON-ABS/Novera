@@ -141,5 +141,15 @@
     "paused": "Kumiswe okwesikhashana",
     "verifying": "Kuqinisekiswa amafayela",
     "error": "Ukufaka kuhlulekile. Hlola inethiwekhi, indawo, izimvume namalayisensi amamodeli bese uqhubeka."
+  },
+  "memory": {
+    "title": "Inkumbulo yamamodeli endawo",
+    "auto": "Okuzenzakalelayo · kuyanconywa",
+    "manual": "Okwenziwa ngesandla · amamodeli ndawonye",
+    "autoNote": "Ilayisha amamodeli lapho edingeka futhi ikhulule angasasetshenziswa lapho umsebenzi osebenzayo uphela.",
+    "manualNote": "Umbhalo, izithombe nevidiyo kungasebenza ndawonye ezingxoxweni ezihlukene uma i-RAM/VRAM yanele. Inkumbulo ingaphela.",
+    "preserve": "Amafayela nezingxoxo ziyagcinwa; amamodeli alayishwa futhi lapho edingeka. Izinguquko zisebenza ezicelweni ezintsha.",
+    "waiting": "Kulindiwe noma kukhululwa i-RAM/VRAM…",
+    "failed": "Ukulungisa inkumbulo kwehlulekile. Zama futhi noma khetha Okwenziwa ngesandla."
   }
 }

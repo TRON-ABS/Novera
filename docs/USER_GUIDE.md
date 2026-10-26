@@ -1,5 +1,15 @@
 # Novera — guide utilisateur
 
+## Mémoire automatique ou modèles en parallèle — 26 octobre 2026
+
+Sur desktop, le réglage **Mémoire des modèles locaux** apparaît dans la discussion et dans **Paramètres → Général**. Il est mémorisé pour le profil et expliqué dans les 70 locales.
+
+**Automatique, recommandé et activé par défaut** : Novera attend la fin des travaux locaux actifs, libère les modèles texte inutilisés puis charge celui demandé. Le changement fonctionne dans les deux sens entre texte, image et vidéo. Les modèles texte se rechargent à la prochaine demande ; les fichiers, réglages, sélections et conversations restent conservés. Le travail déjà engagé et ses modèles auxiliaires de documents/RAG ou de routage des outils sont protégés. L’attente/libération de RAM/VRAM est visible dans le résumé du réglage. Un appel cloud seul n’impose pas de décharger les modèles locaux.
+
+**Manuel, modèles en parallèle** : si la machine possède assez de RAM/VRAM, ouvrir des discussions distinctes permet de lancer simultanément un modèle texte, un modèle image et un modèle vidéo. Novera ne décharge pas automatiquement les modèles et le verrou exclusif entre les workers image/vidéo est levé pour ces demandes. La capacité du moteur et la mémoire disponible restent déterminantes ; une saturation demeure possible. Les processus média actuels se terminent après leur génération et libèrent leurs poids naturellement, y compris en Manuel : ce réglage n’ajoute pas un cache média permanent.
+
+Les changements de mode s’appliquent aux nouvelles demandes et n’annulent pas les générations en cours. Les demandes automatiques attendent aussi les travaux manuels déjà engagés avant d’évincer des modèles. Ces fonctions sont présentes dans les sources ; le parcours matériel à trois modèles lourds reste à tester avec la prochaine compilation du mainteneur.
+
 ## Installation conseillée et bibliothèque média — sources du 26 octobre 2026
 
 Dans les réglages de création, **Installer cette configuration** présente les trois composants FLUX.2 Klein 4B, leurs tailles, les liens des fournisseurs/licences, l’espace libre et la destination. Par défaut : le véritable dossier Documents du système (Téléchargements en repli), puis `Novera models/FLUX.2 Klein 4B`. **Parcourir** permet de choisir un autre parent, mémorisé pour les prochaines installations. Le sous-dossier et les fichiers ne sont créés qu’après confirmation. Les références officielles sont épinglées à une révision et vérifiées par SHA-256 ; le total est de **5 269 712 238 octets**, hors marge de sécurité.

@@ -36,7 +36,7 @@ Ces domaines constituent une direction de contribution et de développement, pas
 | --- | --- |
 | IA locale et cloud | Un Hub relié directement à Hugging Face et 41 fournisseurs cloud prédéfinis. Les formats et modèles utilisables dépendent du moteur, du compte et du matériel. |
 | Outils et documents | Des intégrations MCP, la recherche dans les documents et des fonctions d’assistant héritées du code existant. |
-| Interface multilingue | 70 locales sélectionnables couvrant chacune les 1 681 clés anglaises actuelles. Relecture native encore nécessaire. |
+| Interface multilingue | 70 locales sélectionnables couvrant chacune les 1 689 clés anglaises actuelles. Relecture native encore nécessaire. |
 | Application extensible | Une application de bureau avec des points d’extension pour les moteurs, les outils et les futures capacités. |
 
 Ces éléments décrivent les sources. Des versions 1.0.0 antérieures ont été compilées et démarrées localement sous Windows x64. Les dernières sources attendent une nouvelle compilation du mainteneur ; la distribution publique et la validation sur davantage de matériels restent à préparer.
@@ -50,6 +50,14 @@ Ces éléments décrivent les sources. Des versions 1.0.0 antérieures ont été
 
 Une vraie image NVFP4 512 × 512 sur RTX 5070 Laptop a exécuté **400 GEMM FP4 matérielles**, avec Qwen3 GGUF et un VAE FLUX.2 Safetensors. Les choix CPU/GPU/Auto de l’encodeur ont été essayés. Le chemin C++ de compatibilité a aussi produit des images réelles CPU/Vulkan ; il utilise un cache plus volumineux et ne calcule pas en FP4 natif. Des fixtures PNG/MP4 minuscules ont validé la création locale et les durées. Les contrats HTTP cloud sont testés avec des réponses simulées, sans génération payante ni accès de compte validé. Le binaire Windows compilé par le mainteneur a maintenant généré et affiché une vraie image 512 × 512 avec le trio conseillé FLUX.2 Klein Q4_K_M + Qwen3 Q4_K_M CPU + VAE officiel, enregistrée dans Images/Novera image, avec une durée totale affichée de 25,5 s. Cela valide ce parcours graphique GGUF/C++/Vulkan sur un PC ; les autres parcours restent à tester. Voir le [diagnostic graphique](docs/SUIVI_MOTEURS.md#diagnostic-graphique-et-trio-gguf-réel--26-octobre-2026). Voir [les preuves et limites](docs/SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026).
 
+## Automatisation avancée, simplicité par défaut
+
+Novera vise à prendre en charge les étapes techniques pour que chacun, partout dans le monde, puisse se concentrer sur l’apprentissage, la discussion et la création. Les sources réunissent déjà conseils matériels, téléchargements guidés et vérifiés, configurations média par catégorie, moteur image Windows embarqué et sauvegarde dans les dossiers système.
+
+**La gestion automatique de la mémoire est activée par défaut.** Les demandes locales texte/image/vidéo attendent le travail actif, libèrent les modèles inutiles et rechargent le modèle sélectionné au besoin. Fichiers, conversations et sélections sont conservés. Le **mode Manuel** permet texte, image et vidéo ensemble dans des discussions distinctes selon la RAM/VRAM et les moteurs. Les workers média actuels se terminent après la génération ; aucun cache média permanent n’est ajouté. Les deux modes et leurs limites sont expliqués dans les 70 locales, avec état d’attente visible et réglage commun dans Général.
+
+369 tests web ciblés, trois tests natifs de politique, types et langues valident les sources d’orchestration. Le test complet de trois modèles lourds dans l’application dépend encore du matériel. Aucun nouveau binaire publié. [Guide mémoire](docs/USER_GUIDE.md#mémoire-automatique-ou-modèles-en-parallèle--26-octobre-2026) · [Direction produit](NOVERA.md#direction-produit--automatisation-avancée-simplicité-mondiale).
+
 ## Installation guidée des modèles média locaux
 
 Les compilations Windows embarquent désormais le moteur privé stable-diffusion.cpp **CUDA 13.4.3 / Vulkan / CPU**. Laisser le champ exécutable vide sélectionne le lanceur intégré. Les NVIDIA Maxwell/Pascal/Volta passent par Vulkan si leur pilote l’expose, sinon par CPU ; cette politique ne constitue pas une certification matérielle.
@@ -58,7 +66,7 @@ Les compilations Windows embarquent désormais le moteur privé stable-diffusion
 
 Le choix initial utilise FLUX GGUF, **Qwen3-4B GGUF sur CPU** et le VAE officiel. La variante [FLUX NVFP4 officielle](https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-nvfp4) est proposée après vérification du moteur PyTorch configuré, d’un vrai calcul FP4 natif et de la mémoire GPU libre ; elle conserve le même encodeur GGUF CPU. Son environnement CUDA PyTorch reste séparé du moteur C++ embarqué. Cela ne certifie pas les autres checkpoints.
 
-Capacités des sources : **98 tests web ciblés, six tests natifs isolés, TypeScript et 70 × 1 681 clés de langue validés**. L’installation et la bibliothèque doivent encore être essayées dans la prochaine compilation du mainteneur ; aucun nouveau binaire ni version publique ici. [Utilisation](docs/USER_GUIDE.md#installation-conseillée-et-bibliothèque-média--sources-du-26-octobre-2026) · [Preuves et limites](docs/SUIVI_MOTEURS.md#installation-groupée-bibliothèque-et-moteur-embarqué--26-octobre-2026).
+Capacités des sources : **98 tests web ciblés, six tests natifs isolés, TypeScript et 70 × 1 689 clés de langue validés**. L’installation et la bibliothèque doivent encore être essayées dans la prochaine compilation du mainteneur ; aucun nouveau binaire ni version publique ici. [Utilisation](docs/USER_GUIDE.md#installation-conseillée-et-bibliothèque-média--sources-du-26-octobre-2026) · [Preuves et limites](docs/SUIVI_MOTEURS.md#installation-groupée-bibliothèque-et-moteur-embarqué--26-octobre-2026).
 
 ## Fournisseurs cloud
 
@@ -118,7 +126,7 @@ Le Hub explore 23 entrées de navigation à partir des métadonnées Hugging Fac
 
 ## 70 langues et variantes d’interface
 
-Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et à 34 nouveaux catalogues Novera. Les dix derniers sont ouzbek du Nord, zoulou, arabe saïdi, pachto du Nord, oromo du Centre-Ouest, saraiki, néerlandais, somali, roumain et assamais. **Les 70 catalogues couvrent chacun les 1 681 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Les anciens builds locaux incluent les catalogues dans leur état d’alors ; les nouveaux textes d’installation et de bibliothèque attendent la prochaine compilation du mainteneur ; aucun binaire public n’est publié. Certains catalogues sont des variantes éditoriales fondées en partie sur des textes techniques écrits communs ; leur adaptation vernaculaire intégrale reste ouverte. Le guide des langues précise leur périmètre.
+Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et à 34 nouveaux catalogues Novera. Les dix derniers sont ouzbek du Nord, zoulou, arabe saïdi, pachto du Nord, oromo du Centre-Ouest, saraiki, néerlandais, somali, roumain et assamais. **Les 70 catalogues couvrent chacun les 1 689 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Les anciens builds locaux incluent les catalogues dans leur état d’alors ; les nouveaux textes d’installation et de bibliothèque attendent la prochaine compilation du mainteneur ; aucun binaire public n’est publié. Certains catalogues sont des variantes éditoriales fondées en partie sur des textes techniques écrits communs ; leur adaptation vernaculaire intégrale reste ouverte. Le guide des langues précise leur périmètre.
 
 L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais, l’arabe algérien, l’arabe marocain, l’arabe saïdi, le pachto du Nord, le saraiki, le sindhi, le dari, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
 
@@ -126,7 +134,7 @@ L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais
 
 ## État du projet
 
-**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 70 catalogues complets en clés (1 681 chacun), le Hub adaptatif, le moteur textuel local Safetensors/Transformers et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
+**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 70 catalogues complets en clés (1 689 chacun), le Hub adaptatif, le moteur textuel local Safetensors/Transformers et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
 
 Le premier démarrage sauvegarde la langue système, propose LFM2.5-2.6B Q6_K sur desktop avec DSpark facultatif, et demande séparément le suivi des erreurs, désactivé par défaut. Les sources et les binaires sont suivis séparément ; les derniers correctifs du Hub attendent la compilation du mainteneur. Voir [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour les validations et limites exactes. GitHub Actions et mises à jour automatiques restent désactivés.
 

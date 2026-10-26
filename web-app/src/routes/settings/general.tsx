@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { route } from '@/constants/routes'
 import SettingsMenu from '@/containers/SettingsMenu'
+import { MemoryModeControl } from '@/containers/MemoryModeControl'
 import HeaderPage from '@/containers/HeaderPage'
 import { Switch } from '@/components/ui/switch'
 import { Button } from '@/components/ui/button'
@@ -173,14 +174,15 @@ function General() {
     <div className="flex flex-col h-svh w-full">
       <HeaderPage>
         <div className="flex items-center gap-2 w-full">
-          <span className='font-medium text-base font-studio'>{t('common:settings')}</span>
+          <span className="font-medium text-base font-studio">
+            {t('common:settings')}
+          </span>
         </div>
       </HeaderPage>
       <div className="flex h-[calc(100%-60px)]">
         <SettingsMenu />
         <div className="p-4 pt-0 w-full overflow-y-auto">
           <div className="flex flex-col justify-between gap-4 gap-y-3 w-full">
-
             {/* General */}
             <Card title={t('common:general')}>
               <CardItem
@@ -229,6 +231,8 @@ function General() {
               />
             </Card>
 
+            <MemoryModeControl scope="settings" />
+
             {/* Data folder - Desktop only */}
             <Card title={t('common:dataFolder')}>
               <CardItem
@@ -268,7 +272,10 @@ function General() {
                       >
                         {isCopied ? (
                           <div className="flex items-center gap-1">
-                            <IconCopyCheck size={14} className="text-green-500 dark:text-green-600" />
+                            <IconCopyCheck
+                              size={14}
+                              className="text-green-500 dark:text-green-600"
+                            />
                             <span className="text-xs leading-0">
                               {t('settings:general.copied')}
                             </span>
@@ -291,11 +298,8 @@ function General() {
                       title={t('settings:dataFolder.appData')}
                       onClick={handleDataFolderChange}
                     >
-                        <IconFolder
-                          size={12}
-                          className="text-muted-foreground"
-                        />
-                        <span>{t('settings:general.changeLocation')}</span>
+                      <IconFolder size={12} className="text-muted-foreground" />
+                      <span>{t('settings:general.changeLocation')}</span>
                     </Button>
                     {selectedNewPath && (
                       <ChangeDataFolderLocation
@@ -331,10 +335,9 @@ function General() {
                       onClick={async () => {
                         if (janDataFolder) {
                           try {
-                            const logsPath = await serviceHub.path().join(
-                              janDataFolder,
-                              'logs'
-                            )
+                            const logsPath = await serviceHub
+                              .path()
+                              .join(janDataFolder, 'logs')
                             await serviceHub.opener().openPath(logsPath)
                           } catch (error) {
                             console.error(
@@ -346,10 +349,7 @@ function General() {
                       }}
                       title={t('settings:general.revealLogs')}
                     >
-                      <IconFolder
-                        size={12}
-                        className="text-muted-foreground"
-                      />
+                      <IconFolder size={12} className="text-muted-foreground" />
                       <span>{openFileTitle()}</span>
                     </Button>
                     <Button
@@ -437,7 +437,7 @@ function General() {
                     />
                     <Button
                       variant="outline"
-                      size='sm'
+                      size="sm"
                       disabled={isValidatingToken}
                       onClick={async () => {
                         const token = (huggingfaceToken || '').trim()
@@ -547,10 +547,10 @@ function General() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                      <IconBrandGithub
-                        size={18}
-                        className="text-muted-foreground"
-                      />
+                    <IconBrandGithub
+                      size={18}
+                      className="text-muted-foreground"
+                    />
                   </a>
                 }
               />

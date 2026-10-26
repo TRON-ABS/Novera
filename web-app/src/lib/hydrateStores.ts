@@ -1,4 +1,5 @@
 import { useTheme } from '@/hooks/useTheme'
+import { useMemoryPolicy } from '@/hooks/useMemoryPolicy'
 import { useCreation } from '@/hooks/useCreation'
 import { useErrorTracking } from '@/hooks/useErrorTracking'
 import { useInterfaceSettings } from '@/hooks/useInterfaceSettings'
@@ -40,6 +41,7 @@ import { useImageAttachmentConfig } from '@/hooks/useImageAttachmentConfig'
 // theme must hydrate first.
 const secondaryStores = [
   useCreation,
+  useMemoryPolicy,
   useErrorTracking,
   useInterfaceSettings,
   useGeneralSetting,
@@ -85,7 +87,9 @@ const hydrateStore = async (store: BackendStore): Promise<void> => {
     // Zustand's rehydrate promise resolves even when its storage read failed.
     if (store.persist.hasHydrated()) return
   }
-  throw new Error(`Persisted settings '${store.persist.getOptions?.().name ?? 'unknown'}' could not be hydrated after three attempts`)
+  throw new Error(
+    `Persisted settings '${store.persist.getOptions?.().name ?? 'unknown'}' could not be hydrated after three attempts`
+  )
 }
 
 let hydration: Promise<void> | undefined
@@ -96,8 +100,12 @@ export function hydrateBackendStores(): Promise<void> {
     const theme = await Promise.allSettled([hydrateStore(useTheme)])
     // Try every store even if theme failed. Its read must run so the storage
     // guard protects its saved settings before initialization can fall back.
-    const secondary = await Promise.allSettled(secondaryStores.map(hydrateStore))
-    const failed = [...theme, ...secondary].find((result) => result.status === 'rejected')
+    const secondary = await Promise.allSettled(
+      secondaryStores.map(hydrateStore)
+    )
+    const failed = [...theme, ...secondary].find(
+      (result) => result.status === 'rejected'
+    )
     if (failed?.status === 'rejected') throw failed.reason
   })().finally(() => {
     hydration = undefined

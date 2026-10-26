@@ -141,5 +141,15 @@
     "paused": "Dijeda",
     "verifying": "Mengesahkan fail",
     "error": "Pemasangan gagal. Semak rangkaian, ruang kosong, hak akses dan lesen model, kemudian sambung."
+  },
+  "memory": {
+    "title": "Memori model setempat",
+    "auto": "Automatik · disyorkan",
+    "manual": "Manual · model selari",
+    "autoNote": "Memuatkan model apabila perlu dan melepaskan model yang tidak digunakan selepas kerja aktif selesai.",
+    "manualNote": "Teks, imej dan video boleh berjalan bersama dalam perbualan berasingan jika RAM/VRAM mencukupi. Memori mungkin kehabisan.",
+    "preserve": "Fail dan perbualan dikekalkan; model dimuatkan semula apabila perlu. Perubahan terpakai pada permintaan baharu.",
+    "waiting": "Menunggu atau melepaskan RAM/VRAM…",
+    "failed": "Pengoptimuman memori gagal. Cuba lagi atau pilih Manual."
   }
 }

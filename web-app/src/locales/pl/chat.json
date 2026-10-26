@@ -141,5 +141,15 @@
     "paused": "Wstrzymano",
     "verifying": "Sprawdzanie plików",
     "error": "Instalacja nie powiodła się. Sprawdź sieć, wolne miejsce, uprawnienia i licencje modeli, a następnie wznów."
+  },
+  "memory": {
+    "title": "Pamięć modeli lokalnych",
+    "auto": "Automatycznie · zalecane",
+    "manual": "Ręcznie · modele równoległe",
+    "autoNote": "Ładuje modele na żądanie i zwalnia nieużywane po zakończeniu bieżącej pracy.",
+    "manualNote": "Tekst, obraz i wideo mogą działać razem w osobnych rozmowach, jeśli wystarczy RAM/VRAM. Pamięć może się wyczerpać.",
+    "preserve": "Pliki i rozmowy zostają zachowane; modele ładują się ponownie w razie potrzeby. Zmiany dotyczą nowych żądań.",
+    "waiting": "Oczekiwanie lub zwalnianie RAM/VRAM…",
+    "failed": "Optymalizacja pamięci nie powiodła się. Ponów lub wybierz tryb ręczny."
   }
 }

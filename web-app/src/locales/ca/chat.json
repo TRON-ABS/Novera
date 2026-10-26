@@ -141,5 +141,15 @@
     "paused": "En pausa",
     "verifying": "Verificant fitxers",
     "error": "La instal·lació ha fallat. Comprova xarxa, espai lliure, permisos i llicències dels models i reprèn-la."
+  },
+  "memory": {
+    "title": "Memòria dels models locals",
+    "auto": "Automàtic · recomanat",
+    "manual": "Manual · models en paral·lel",
+    "autoNote": "Carrega models quan cal i allibera els que no s’utilitzen en acabar la feina activa.",
+    "manualNote": "Text, imatge i vídeo poden funcionar junts en converses separades si hi ha prou RAM/VRAM. La memòria es pot esgotar.",
+    "preserve": "Es conserven fitxers i converses; els models es tornen a carregar quan cal. Els canvis s’apliquen a les noves peticions.",
+    "waiting": "Esperant o alliberant RAM/VRAM…",
+    "failed": "L’optimització de memòria ha fallat. Torna-ho a provar o tria Manual."
   }
 }

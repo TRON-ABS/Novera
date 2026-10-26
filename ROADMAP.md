@@ -1,5 +1,17 @@
 # Novera — feuille de route
 
+## Direction : automatiser la complexité, garder des choix simples
+
+Rendre les capacités avancées utiles au quotidien pour des utilisateurs de langues, niveaux techniques et matériels différents. Les automatismes déjà présents couvrent le diagnostic du Hub, le moteur Windows intégré, les configurations média conseillées, les téléchargements vérifiés, les bibliothèques par catégorie et la sauvegarde système. La gestion de RAM/VRAM ajoute un choix Automatique recommandé et un choix Manuel pour les machines capables de travailler en parallèle.
+
+- [x] Sources : transitions mémoire texte/image/vidéo dans les deux sens, file d’attente, protection des tâches et modèles auxiliaires, conservation des fichiers/conversations.
+- [x] Sources : mode Manuel sans éviction et workers média concurrents, explications dans les 70 locales et paramètres mémorisés.
+- [ ] Tester le parcours complet après compilation, dont trois modèles lourds en parallèle sur matériel dimensionné et erreurs de mémoire réelles.
+- [ ] Étendre progressivement les estimations de coût mémoire, le placement et les conseils avec des mesures par matériel ; conserver les réglages experts et les limites explicites.
+- [ ] Relire les nouvelles traductions nativement et améliorer l’accessibilité au fil des essais utilisateurs.
+
+Ces objectifs concernent le produit Novera ; ils ne déclenchent ni compilation, ni tâche planifiée externe, ni publication de binaire.
+
 ## Installation média et moteur embarqué — 26 octobre 2026
 
 - [x] Sources : installation FLUX explicitement confirmée, choix de dossier système/personnalisé, reprise, vérification, progression persistante sans audio/notification système.

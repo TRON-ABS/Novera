@@ -140,8 +140,7 @@ describe('CustomChatTransport: abort during model load', () => {
     })
 
     // Give sendMessages a tick to reach createModel() and start "loading".
-    await Promise.resolve()
-    await Promise.resolve()
+    await vi.waitFor(() => expect(h.resolveCreateModel).toBeTypeOf('function'))
 
     controller.abort()
 
@@ -161,8 +160,7 @@ describe('CustomChatTransport: abort during model load', () => {
       messageId: undefined,
     })
 
-    await Promise.resolve()
-    await Promise.resolve()
+    await vi.waitFor(() => expect(h.resolveCreateModel).toBeTypeOf('function'))
     h.resolveCreateModel?.()
 
     await expect(send).resolves.toBeDefined()

@@ -141,5 +141,15 @@
     "paused": "Akwụsịtụrụ",
     "verifying": "Na-enyocha faịlụ",
     "error": "Nwụnye dara. Lelee netwọkụ, oghere, ikike ịbanye na ikikere ụdị, wee gaa n’ihu."
+  },
+  "memory": {
+    "title": "Ebe nchekwa ụdị dị n’ime kọmputa",
+    "auto": "Akpaka · akwadoro",
+    "manual": "Aka · ụdị n’otu oge",
+    "autoNote": "Ọ na-ebunye ụdị mgbe achọrọ ya ma tọhapụ ndị a naghị eji mgbe ọrụ na-aga gwụchara.",
+    "manualNote": "Ederede, onyonyo na vidiyo nwere ike ịrụkọ ọrụ na mkparịta ụka dị iche ma ọ bụrụ na RAM/VRAM ezuo. Ebe nchekwa nwere ike ịgwụ.",
+    "preserve": "Faịlụ na mkparịta ụka na-adị; a na-ebunye ụdị ọzọ mgbe achọrọ. Mgbanwe metụtara arịrịọ ọhụrụ.",
+    "waiting": "Na-eche ma ọ bụ na-atọhapụ RAM/VRAM…",
+    "failed": "Nkwalite ebe nchekwa dara. Nwaa ọzọ ma ọ bụ họrọ Aka."
   }
 }

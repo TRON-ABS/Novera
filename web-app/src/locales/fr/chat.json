@@ -141,5 +141,15 @@
     "paused": "En pause",
     "verifying": "Vérification des fichiers",
     "error": "Échec de l’installation. Vérifiez le réseau, l’espace libre, les droits d’accès et les licences des modèles, puis reprenez."
+  },
+  "memory": {
+    "title": "Mémoire des modèles locaux",
+    "auto": "Automatique · recommandé",
+    "manual": "Manuel · modèles en parallèle",
+    "autoNote": "Charge les modèles à la demande et libère ceux devenus inutiles après la fin du travail en cours.",
+    "manualNote": "Texte, image et vidéo peuvent fonctionner ensemble dans des discussions distinctes si la RAM/VRAM le permet. La mémoire peut devenir insuffisante.",
+    "preserve": "Les fichiers et discussions sont conservés ; les modèles se rechargent au besoin. Les changements s’appliquent aux nouvelles demandes.",
+    "waiting": "Attente ou libération de RAM/VRAM…",
+    "failed": "Échec de l’optimisation mémoire. Réessayez ou choisissez Manuel."
   }
 }

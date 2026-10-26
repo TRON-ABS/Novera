@@ -1,3 +1,4 @@
+import { beginLocalMemory } from '@/services/creation/memory'
 import type { RAGService } from './types'
 import type { MCPTool, MCPToolCallResult, RAGExtension } from '@janhq/core'
 import { ExtensionManager } from '@/lib/extension'
@@ -50,7 +51,15 @@ export class DefaultRAGService implements RAGService {
         a.thread_id = args.projectId
       }
       a.scope = args.scope
-      return await ext.callTool(args.toolName, a)
+      const release = await beginLocalMemory(
+        { kind: 'text', provider: 'rag', model: 'embedding' },
+        { auxiliary: true, scope: args.threadId }
+      )
+      try {
+        return await ext.callTool(args.toolName, a)
+      } finally {
+        release()
+      }
     } catch (e) {
       const msg = e instanceof Error ? e.message : JSON.stringify(e)
       return {
@@ -80,7 +89,17 @@ export class DefaultRAGService implements RAGService {
       const ext = ExtensionManager.getInstance().get<RAGExtension>(
         ExtensionTypeEnum.RAG
       )
-      if (ext?.embed) return await ext.embed(texts)
+      if (ext?.embed) {
+        const release = await beginLocalMemory(
+          { kind: 'text', provider: 'rag', model: 'embedding' },
+          { auxiliary: true }
+        )
+        try {
+          return await ext.embed(texts)
+        } finally {
+          release()
+        }
+      }
     } catch (e) {
       console.debug('RAG embed unavailable', e)
     }

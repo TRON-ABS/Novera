@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { IconPhoto, IconVideo, IconAdjustments } from '@tabler/icons-react'
 import { useMediaLibrary, selectMediaProfile } from '@/hooks/useMediaLibrary'
+import { MemoryModeControl } from './MemoryModeControl'
 import { useCreation } from '@/hooks/useCreation'
 import { useServiceHub } from '@/hooks/useServiceHub'
 import { useTranslation } from '@/i18n/react-i18next-compat'
@@ -228,6 +229,7 @@ export function CreationControls({
           </button>
         </div>
       )}
+      <MemoryModeControl scope={scope} />
       {progress && (
         <div role="status" className="space-y-1 text-xs">
           <span>

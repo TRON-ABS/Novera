@@ -141,5 +141,15 @@
     "paused": "Pozastaveno",
     "verifying": "Ověřování souborů",
     "error": "Instalace selhala. Zkontrolujte síť, volné místo, oprávnění a licence modelů a pokračujte."
+  },
+  "memory": {
+    "title": "Paměť místních modelů",
+    "auto": "Automaticky · doporučeno",
+    "manual": "Ručně · souběžné modely",
+    "autoNote": "Načítá modely podle potřeby a po dokončení probíhající práce uvolní nepoužívané modely.",
+    "manualNote": "Text, obrázky a video mohou běžet současně v samostatných konverzacích, pokud stačí RAM/VRAM. Paměť se může vyčerpat.",
+    "preserve": "Soubory a konverzace zůstanou zachovány; modely se podle potřeby znovu načtou. Změny platí pro nové požadavky.",
+    "waiting": "Čekání nebo uvolňování RAM/VRAM…",
+    "failed": "Optimalizace paměti selhala. Zkuste znovu nebo zvolte ruční režim."
   }
 }
