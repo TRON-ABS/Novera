@@ -1,5 +1,12 @@
 # Novera — historique consolidé
 
+## Temps signalé et périphérique Real-ESRGAN — 26 octobre 2026
+
+Le mainteneur signale **11,3 secondes sans agrandissement Real-ESRGAN** pour le rendu GGUF/C++ évoqué dans le suivi. La mesure initiale instrumentée de 25,5 s est conservée comme historique ; aucun gain contrôlé entre ces deux essais n’est annoncé.
+
+Test réel ciblé de Real-ESRGAN avec son poids officiel ×2 : **64 × 64 → 128 × 128**, modèle et tenseurs sur **CUDA en Auto** sur RTX 5070 Laptop ; même calcul confirmé sur CPU lorsqu’il est forcé. Aucune préférence de l’application modifiée. Ce contrôle ne compare pas les performances CPU/GPU et ne constitue pas un nouveau rendu complet de Novera. Mise à jour documentaire uniquement, sans recompilation ni publication de binaire.
+
+
 ## Panneau compact et consignes par catégorie — 26 octobre 2026
 
 Le panneau de discussion est désormais compact, avec un contour dégradé et des états ON/OFF explicites. Les menus Ratio/Résolution règlent directement les dimensions. L’interrupteur d’agrandissement et son menu ×2/×4 affichent la taille finale réelle ; la mémoire automatique indique son état.
