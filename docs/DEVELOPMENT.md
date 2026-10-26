@@ -195,6 +195,10 @@ Pour les discussions : règles pures dans `web-app/src/modules/conversations`, f
 
 Documenter chaque information dans son guide de référence ; mettre les validations historiques dans [CHANGELOG.md](CHANGELOG.md), les tâches dans [ROADMAP.md](../ROADMAP.md) et la revue courante dans [PR.md](../PR.md). Garder les journaux bruts sous `.build`, hors publication.
 
+### Vitrine GitHub à chaque synchronisation
+
+À chaque mise à jour du dépôt, appliquer la règle de [NOVERA.md](../NOVERA.md) et vérifier aussi la vitrine publique. Le champ **À propos** et son site associé sont des réglages GitHub indépendants : un commit du README ne les modifie pas. Contrôler la description, les README anglais/français rendus, les langues, fournisseurs, catégories et moteurs annoncés, les liens/images, les sujets et les versions publiques. Préserver les licences, marques et attributions. Confirmer les changements en ligne après publication et signaler toute limite d’accès ou de rendu ; ne pas présenter une source testée localement comme un binaire public. Ce contrôle ne compile rien et laisse GitHub Actions désactivé.
+
 ### Ajout du 26 octobre 2026
 
 Huit nouvelles icônes officielles sont copiées sans modification ; Cohere réutilise son SVG existant. Les images identifient leurs titulaires et ne constituent pas une affiliation. Tous les fichiers restent embarqués ; aucune requête distante de logo à l’utilisation.

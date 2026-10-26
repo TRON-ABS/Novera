@@ -52,6 +52,14 @@ Le BAT fourni a terminé les étapes moteur, interface et desktop. Le dossier co
 
 La compilation ne remplace pas l’application installée et ne modifie aucun profil. Aucun nouveau démarrage de l’interface, génération de modèle ou essai de mise à niveau n’a été réalisé pour cette correction. Suivi des erreurs, statistiques et mises à jour restent désactivés dans ce build sans télémétrie configurée. Les premiers démarrages et le transport réel d’erreurs depuis le WebView restent à valider.
 
+## Vitrine GitHub — contrôle du 26 octobre 2026
+
+Le champ « À propos », indépendant du README, a été corrigé : **70 locales d’interface**, **27 fournisseurs cloud**, Hub adaptatif et état en développement. Site associé et sujets du dépôt contrôlés ; aucune version binaire publique présente et GitHub Actions désactivé lors de la vérification.
+
+Les README anglais/français présentent le défilement progressif, le moteur textuel Safetensors, les 23 entrées de navigation et les 14 locales RTL. Le contrôle des sources a confirmé 70 catalogues à 1 587 clés, 27 icônes par galerie et **98 références locales valides** au total, images et ancres incluses. Les derniers changements restent à compiler par le mainteneur. Le texte et les attributions de licence hérités sont conservés ; l’API GitHub classe actuellement la courte notice `LICENSE` en « Other », ce qui ne constitue pas un changement de licence.
+
+La règle permanente est inscrite dans [NOVERA.md](NOVERA.md) et le [guide de développement](docs/DEVELOPMENT.md) : vérifier et actualiser la vitrine lors de chaque synchronisation, puis contrôler le résultat en ligne. Les preuves de cet audit restent locales sous `.build/showcase-2026-10-26/` ; aucune compilation ou publication binaire pour cette modification.
+
 ## Limites de distribution
 
 **Aucun binaire Novera public.** GitHub Actions et mises à jour automatiques restent désactivés. Les sources publiées peuvent être plus récentes que le programme installé. La consolidation documentaire ne compile ni ne remplace l’application.

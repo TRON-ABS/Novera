@@ -24,7 +24,7 @@ La direction du projet est claire : consolider les fondations, explorer rapideme
 | Interface multilingue | 70 locales sélectionnables couvrant chacune les 1 587 clés anglaises actuelles. Relecture native encore nécessaire. |
 | Application extensible | Une application de bureau avec des points d’extension pour les moteurs, les outils et les futures capacités. |
 
-Ces éléments décrivent les sources. La distribution Novera et sa validation en fonctionnement restent à préparer.
+Ces éléments décrivent les sources. Des versions 1.0.0 antérieures ont été compilées et démarrées localement sous Windows x64. Les dernières sources attendent une nouvelle compilation du mainteneur ; la distribution publique et la validation sur davantage de matériels restent à préparer.
 
 ## Fournisseurs cloud
 
@@ -48,19 +48,19 @@ Ces éléments décrivent les sources. La distribution Novera et sa validation e
 
 **Hugging Face : 3 187 159 dépôts de modèles, soit environ 3,19 millions**, relevés le **26 octobre 2026** ([catalogue global](https://huggingface.co/models)). Parmi eux : **214 900 dépôts GGUF** et **27 295 dépôts MLX** ([GGUF](https://huggingface.co/models?library=gguf), [MLX](https://huggingface.co/models?library=mlx)). Ces nombres incluent variantes et conversions ; ils ne mesurent ni les modèles distincts ni une compatibilité garantie avec Novera.
 
-Le Hub explore 23 entrées de navigation à partir des métadonnées Hugging Face, avec conseils matériels locaux et vérification avant téléchargement. Les six présélections restent disponibles. Image, vidéo et autres tâches nécessitent encore leurs moteurs ; découvrir un modèle ne garantit pas son exécution. Les modèles textuels Safetensors utilisent le nouveau moteur local Transformers : voir les [capacités et limites testées](docs/SUIVI_MOTEURS.md). Les derniers correctifs de défilement progressif et de diagnostic attendent la compilation du mainteneur.
+Le Hub explore 23 entrées de navigation à partir des métadonnées Hugging Face, avec conseils matériels locaux et vérification avant téléchargement. Les modèles de la catégorie sélectionnée se chargent progressivement au défilement, avec ajout des résultats sous les lignes existantes. Les six présélections restent disponibles. Image, vidéo et autres tâches nécessitent encore leurs moteurs ; découvrir un modèle ne garantit pas son exécution. Les modèles textuels Safetensors utilisent le nouveau moteur local Transformers : voir les [capacités et limites testées](docs/SUIVI_MOTEURS.md). Les derniers correctifs de défilement progressif et de diagnostic attendent la compilation du mainteneur.
 
 ## 70 langues et variantes d’interface
 
 Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et à 34 nouveaux catalogues Novera. Les dix derniers sont ouzbek du Nord, zoulou, arabe saïdi, pachto du Nord, oromo du Centre-Ouest, saraiki, néerlandais, somali, roumain et assamais. **Les 70 catalogues couvrent chacun les 1 587 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. La compilation Windows locale terminée le 26 octobre inclut ces traductions ; aucun binaire public n’est publié. Certains catalogues sont des variantes éditoriales fondées en partie sur des textes techniques écrits communs ; leur adaptation vernaculaire intégrale reste ouverte. Le guide des langues précise leur périmètre.
 
-L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais, l’arabe algérien, l’arabe marocain, le sindhi, le dari, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
+L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais, l’arabe algérien, l’arabe marocain, l’arabe saïdi, le pachto du Nord, le saraiki, le sindhi, le dari, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
 
 **[Consulter toutes les langues, leurs noms et leur couverture →](docs/LANGUAGES.md)**
 
 ## État du projet
 
-**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 70 catalogues complets en clés (1 587 chacun), le Hub de petits modèles et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
+**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 70 catalogues complets en clés (1 587 chacun), le Hub adaptatif, le moteur textuel local Safetensors/Transformers et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
 
 Le premier démarrage sauvegarde la langue système, propose LFM2.5-2.6B Q6_K sur desktop avec DSpark facultatif, et demande séparément le suivi des erreurs, désactivé par défaut. Les sources et les binaires sont suivis séparément ; les derniers correctifs du Hub attendent la compilation du mainteneur. Voir [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour les validations et limites exactes. GitHub Actions et mises à jour automatiques restent désactivés.
 
