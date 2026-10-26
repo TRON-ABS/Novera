@@ -1,5 +1,9 @@
 # Novera — tableau de bord
 
+## Partage Windows de nouveau activé — 26 octobre 2026
+
+**État courant des sources : volet système Windows réactivé à la demande du mainteneur.** Le problème a aussi été rencontré hors Novera ; le mainteneur indique avoir trouvé le réglage concerné. Cette observation ne certifie pas une cause technique précise. Copier le fichier reste un parcours Win32 dans un worker ; Enregistrer reste disponible. **20 tests web Windows**, TypeScript et contrôle natif ; aucun réglage Windows changé, aucun nouveau binaire ni nouvel envoi vers une messagerie validé. [Guide](docs/USER_GUIDE.md#partage-système-windows-réactivé--26-octobre-2026).
+
 ## Partage Windows : protection après gel confirmé — 26 octobre 2026
 
 Le volet système a bloqué l’interaction et Novera a fait l’objet d’un événement Windows AppHang. **Volet WinRT suspendu dans les sources**, côté interface et commande native ; réactivation conditionnée à une validation interactive. Copier le fichier est mis en avant et utilise CF_HDROP Unicode matérialisé hors interface ; Enregistrer/copie riche/image/PDF restent disponibles. Instance résiduelle fermée, bureau libéré sans redémarrage de l’Explorateur. **20 tests web Windows + un test Rust Shell**, types et contrôle natif réussis. Cause Windows/interop non isolée ; aucun réglage utilisateur à modifier identifié, aucun nouvel EXE Novera ni partage réel vers une messagerie certifié. [Guide et limites](docs/USER_GUIDE.md#partage-windows--volet-bloquant-suspendu--26-octobre-2026).

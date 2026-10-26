@@ -237,46 +237,34 @@ pub async fn sharing_native<R: Runtime>(
     text: String,
     payload: Payload,
 ) -> Result<(), String> {
-    // The WinRT share flyout has caused a confirmed application hang. Keep
-    // this boundary fail-fast until interactive handoff is validated again.
-    // Saving and the fully materialized Win32 file clipboard remain available.
-    #[cfg(windows)]
+    let (mime, stage_app) = (payload.mime.clone(), app.clone());
+    let file = tauri::async_runtime::spawn_blocking(move || stage_payload(&stage_app, &payload))
+        .await
+        .map_err(|e| e.to_string())??;
+    let _ = (&window, &mime);
+    #[cfg(target_os = "linux")]
+    return linux_share(&file, &title, &text).await;
+    #[cfg(any(target_os = "android", target_os = "ios"))]
+    return tauri_plugin_novera_share::share(
+        &app,
+        &file.to_string_lossy(),
+        &mime,
+        &title,
+        &text,
+        false,
+    );
+    #[cfg(not(any(target_os = "android", target_os = "ios", target_os = "linux")))]
     {
-        let _ = (app, window, title, text, payload);
-        return Err("SHARE_UNSUPPORTED".into());
-    }
-    #[cfg(not(windows))]
-    {
-        let (mime, stage_app) = (payload.mime.clone(), app.clone());
-        let file =
-            tauri::async_runtime::spawn_blocking(move || stage_payload(&stage_app, &payload))
-                .await
-                .map_err(|e| e.to_string())??;
-        let _ = (&window, &mime);
-        #[cfg(target_os = "linux")]
-        return linux_share(&file, &title, &text).await;
-        #[cfg(any(target_os = "android", target_os = "ios"))]
-        return tauri_plugin_novera_share::share(
-            &app,
-            &file.to_string_lossy(),
-            &mime,
-            &title,
-            &text,
-            false,
-        );
-        #[cfg(not(any(target_os = "android", target_os = "ios", target_os = "linux")))]
-        {
-            let _ = &mime;
-            let (send, receive) = tokio::sync::oneshot::channel();
-            let owner = window.clone();
-            window
-                .run_on_main_thread(move || {
-                    let result = native_sheet(&owner, &file, &title, &text, false);
-                    let _ = send.send(result);
-                })
-                .map_err(|e| e.to_string())?;
-            receive.await.map_err(|e| e.to_string())?
-        }
+        let _ = &mime;
+        let (send, receive) = tokio::sync::oneshot::channel();
+        let owner = window.clone();
+        window
+            .run_on_main_thread(move || {
+                let result = native_sheet(&owner, &file, &title, &text, false);
+                let _ = send.send(result);
+            })
+            .map_err(|e| e.to_string())?;
+        receive.await.map_err(|e| e.to_string())?
     }
 }
 
@@ -441,6 +429,74 @@ async fn linux_share(file: &Path, title: &str, text: &str) -> Result<(), String>
             Err("SHARE_UNSUPPORTED".into())
         }
     }
+}
+
+#[cfg(windows)]
+fn native_sheet<R: Runtime>(
+    window: &tauri::WebviewWindow<R>,
+    file: &Path,
+    title: &str,
+    text: &str,
+    _copy: bool,
+) -> Result<(), String> {
+    use windows::{
+        core::{factory, Interface, HSTRING},
+        ApplicationModel::DataTransfer::{DataRequestedEventArgs, DataTransferManager},
+        Foundation::TypedEventHandler,
+        Storage::{IStorageItem, StorageFile},
+        Win32::{Foundation::HWND, UI::Shell::IDataTransferManagerInterop},
+    };
+    use windows_collections::IIterable;
+    thread_local! {static ACTIVE:std::cell::RefCell<Option<(DataTransferManager,i64)>>=const{std::cell::RefCell::new(None)};}
+    let run = || -> windows::core::Result<()> {
+        use windows::Win32::System::WinRT::{RoInitialize, RO_INIT_SINGLETHREADED};
+        thread_local! {static RO:std::cell::OnceCell<windows::core::Result<()>>=const{std::cell::OnceCell::new()};}
+        RO.with(|r| {
+            r.get_or_init(|| unsafe { RoInitialize(RO_INIT_SINGLETHREADED) })
+                .clone()
+        })?;
+        let path = file.to_string_lossy();
+        let path = path.strip_prefix("\\\\?\\").unwrap_or(&path);
+        let item: IStorageItem = StorageFile::GetFileFromPathAsync(&HSTRING::from(path))?
+            .join()?
+            .cast()?;
+        let interop: IDataTransferManagerInterop =
+            factory::<DataTransferManager, IDataTransferManagerInterop>()?;
+        let hwnd = HWND(
+            window
+                .hwnd()
+                .map_err(|_| windows::core::Error::from_thread())?
+                .0,
+        );
+        let manager: DataTransferManager = unsafe { interop.GetForWindow(hwnd)? };
+        ACTIVE.with(|s| {
+            if let Some((m, t)) = s.borrow_mut().take() {
+                let _ = m.RemoveDataRequested(t);
+            }
+        });
+        let item = windows::core::AgileReference::new(&item)?;
+        let title = HSTRING::from(title);
+        let text = HSTRING::from(text);
+        let token = manager.DataRequested(&TypedEventHandler::<
+            DataTransferManager,
+            DataRequestedEventArgs,
+        >::new(move |_, args| {
+            let args = args
+                .as_ref()
+                .ok_or_else(windows::core::Error::from_thread)?;
+            let data = args.Request()?.Data()?;
+            data.Properties()?.SetTitle(&title)?;
+            if !text.is_empty() {
+                data.SetText(&text)?;
+            }
+            let items: IIterable<IStorageItem> = vec![Some(item.resolve()?)].into();
+            data.SetStorageItemsReadOnly(&items)?;
+            Ok(())
+        }))?;
+        ACTIVE.with(|s| *s.borrow_mut() = Some((manager, token)));
+        unsafe { interop.ShowShareUIForWindow(hwnd) }
+    };
+    run().map_err(|e| format!("SHARE_UNSUPPORTED: {e}"))
 }
 
 #[cfg(windows)]

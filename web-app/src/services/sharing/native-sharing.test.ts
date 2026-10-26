@@ -19,14 +19,23 @@ const value: PreparedShare = {
 
 describe('native sharing recovery', () => {
   it.runIf(IS_WINDOWS)(
-    'blocks the known hanging Windows flyout before IPC or browser fallback',
+    'hands Windows system sharing to the native adapter without a browser fallback',
     async () => {
-      const core = { invoke: vi.fn() } as unknown as CoreService
-      expect(canSystemShare(value)).toBe(false)
-      await expect(systemShare(value, core)).rejects.toThrow(
-        'SHARE_UNSUPPORTED'
-      )
-      expect(core.invoke).not.toHaveBeenCalled()
+      const core = {
+        invoke: vi.fn().mockResolvedValue(undefined),
+      } as unknown as CoreService
+      expect(canSystemShare(value)).toBe(true)
+      await systemShare(value, core)
+      expect(core.invoke).toHaveBeenCalledWith('sharing_native', {
+        title: 'Test',
+        text: '',
+        payload: {
+          filename: 'Novera.png',
+          mime: 'image/png',
+          base64: 'AQID',
+          asset: null,
+        },
+      })
     }
   )
   it('keeps copying the actual export file available for attachment', async () => {

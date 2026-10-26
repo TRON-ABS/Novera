@@ -1,5 +1,9 @@
 # Novera — historique consolidé
 
+## 26 octobre — réactivation du partage système Windows
+
+Réactivation explicite demandée par le mainteneur après reproduction du problème de partage hors Novera et indication qu’il a trouvé un réglage Windows. Retrait des deux protections temporaires (interface et commande native), restauration de l’adaptateur DataTransferManager, maintien de la copie de fichier Win32 dans un worker et de l’enregistrement. Aucun réglage Windows modifié par Novera ; cause système non certifiée à partir d’une capture. Vingt tests web Windows, TypeScript et contrôle natif ; pas de nouveau binaire ni de nouvel envoi réel vers une messagerie. [État courant](USER_GUIDE.md#partage-système-windows-réactivé--26-octobre-2026).
+
 ## 26 octobre — protection contre le gel du partage Windows
 
 Un gel réel de Novera et un volet Partager impossible à fermer ont invalidé la validation limitée aux sources du premier adaptateur Windows. Désactivation temporaire du volet WinRT côté interface et commande native ; aucune préparation ne le lance désormais sous Windows. Copier le fichier est mis en avant et utilise le format natif CF_HDROP Unicode entièrement matérialisé, dans un worker, avec libération correcte de la mémoire en cas d’erreur. Enregistrer, copie riche/image et impression restent disponibles. Autres adaptateurs inchangés.

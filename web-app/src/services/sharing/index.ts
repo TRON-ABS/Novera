@@ -524,8 +524,6 @@ export async function savePrepared(
 
 export function canSystemShare(value: PreparedShare): boolean {
   if (value.format === 'pdf') return false
-  // A confirmed WinRT flyout hang must not immobilize the application again.
-  if (isPlatformTauri() && IS_WINDOWS) return false
   if (
     isPlatformTauri() &&
     (IS_WINDOWS || IS_MACOS || IS_LINUX || IS_ANDROID || IS_IOS)
@@ -536,7 +534,6 @@ export function canSystemShare(value: PreparedShare): boolean {
   return !!value.bytes && !!navigator.canShare?.({ files: [fileFrom(value)] })
 }
 export async function systemShare(value: PreparedShare, core: CoreService) {
-  if (isPlatformTauri() && IS_WINDOWS) throw new Error('SHARE_UNSUPPORTED')
   if (
     isPlatformTauri() &&
     (IS_WINDOWS || IS_MACOS || IS_LINUX || IS_ANDROID || IS_IOS)

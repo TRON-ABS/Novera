@@ -1,6 +1,16 @@
 # Novera — guide utilisateur
 
+## Partage système Windows réactivé — 26 octobre 2026
+
+Le bouton **Partage système** et son adaptateur Windows sont de nouveau activés dans les sources, à la demande du mainteneur : le même dysfonctionnement a été observé hors Novera, puis le mainteneur a indiqué avoir trouvé le réglage concerné. Cette réactivation ne constitue pas une confirmation technique de la cause du problème Windows ; Novera ne modifie aucun réglage du système.
+
+Après Préparer, utiliser **Partage système** pour choisir une application Windows compatible. **Copier le fichier** et **Enregistrer** restent disponibles ; la copie conserve le parcours Win32 CF_HDROP Unicode dans un worker, indépendant du volet WinRT. Le contenu n’est envoyé qu’après les actions explicites dans l’application destinataire. PDF conserve son parcours d’impression/enregistrement.
+
+Vingt tests web ciblés sous configuration Windows, TypeScript et contrôle natif vérifient les sources. Aucun nouvel exécutable Novera ni nouvel essai complet d’envoi vers une messagerie n’est annoncé. Recompiler pour rétablir le bouton dans un build qui contenait la protection temporaire.
+
 ## Partage Windows : volet bloquant suspendu — 26 octobre 2026
+
+**Étape historique, remplacée par la réactivation décrite ci-dessus.**
 
 Un incident réel a bloqué le volet Partager : impossible de choisir une application ou de fermer la fenêtre ; Windows a enregistré un gel de Novera, et son volet est resté après l’arrêt de l’application. La fermeture ciblée de l’instance de partage a libéré le bureau sans redémarrer l’Explorateur. Aucun réglage Windows manquant n’a été identifié ; la cause exacte entre le système et l’interopérabilité n’est pas établie.
 
@@ -38,7 +48,7 @@ Les exports bureautiques utilisent leurs vrais conteneurs ; la fidélité des mi
 
 | Plateforme | Passage vers les applications installées |
 | --- | --- |
-| Windows | Copier le fichier et Enregistrer ; volet WinRT temporairement désactivé après un gel confirmé. |
+| Windows | Feuille de partage native réactivée, Copier le fichier via Win32 et Enregistrer. |
 | macOS | Sélecteur de services de partage et fichier dans le presse-papiers. |
 | Android | Choix système ACTION_SEND avec URI temporaire autorisée en lecture et copie de fichier. |
 | iOS/iPadOS | Feuille UIActivityViewController et fournisseur de fichier pour le presse-papiers. |
