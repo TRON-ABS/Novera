@@ -1,11 +1,9 @@
-# fix(docs): synchronize the GitHub showcase with current Novera sources
+# fix(docs): add the Safetensors catalog count to the repository showcase
 
-The repository About description still advertised 36 interface language options although the published source contains 70. Update the GitHub description to 70 locales, 27 cloud providers and the adaptive model Hub. About is a repository setting and is maintained separately from README commits.
+The Hugging Face model catalog section listed GGUF and MLX but omitted Safetensors after adding the Transformers engine. Add the official Safetensors repository count, **1,440,138 observed on 26 October 2026**, to both English and French READMEs with a direct source link.
 
-Align both READMEs with progressive category scrolling, the Safetensors/Transformers text engine and the full set of 14 RTL locales. Clarify that earlier Windows builds were tested locally while the latest changes still await the maintainer’s build. Retain upstream and third-party attributions, model task limitations and the absence of public binaries.
-
-Add the maintainer’s permanent instruction to NOVERA.md and the development guide: every repository synchronization must also check the live GitHub showcase, About/homepage, rendered English/French READMEs, counts, links/images, topics and release status, with any access limitation reported explicitly.
+Distinguish repository counts from verified Novera compatibility: the current Safetensors engine supports recognized causal text architectures in complete local folders; the format catalog also contains unsupported modalities, adapters and quantizations. Format counts overlap and must not be summed as unique models.
 
 ## Validation
 
-Both README galleries match the 27 predefined providers, with 27 distinct icons each. All 98 local references, including images and anchors, resolve against the current tree. Source registries confirm 70 catalogs with 1,587 keys each, 14 RTL locales and 23 Hub navigation entries. The live About description was updated and read back successfully; the homepage and topics were retained. No public releases are present and Actions remains disabled. Validate the rendered English/French documents after publishing this commit; audit evidence stays local under `.build/showcase-2026-10-26/`. No application behavior, license text, model weights, credentials or binary artifacts change. Existing 309-test application validation remains historical; no new application tests or compilation are needed for this documentation/metadata change. GitHub Actions stays disabled.
+The live official Hugging Face page reports `numTotalItems: 1440138`, matching its rendered model count. Source snapshot remains local under `.build/showcase-2026-10-26/`. Both README galleries and local links are rechecked; verify the published English/French GitHub rendering and About metadata after publication. No application changes, compilation or new application tests for this documentation-only update. Preserve license notices, binary release status and disabled GitHub Actions.

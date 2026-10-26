@@ -58,6 +58,8 @@ Le champ « À propos », indépendant du README, a été corrigé : **70 locale
 
 Les README anglais/français présentent le défilement progressif, le moteur textuel Safetensors, les 23 entrées de navigation et les 14 locales RTL. Le contrôle des sources a confirmé 70 catalogues à 1 587 clés, 27 icônes par galerie et **98 références locales valides** au total, images et ancres incluses. Les derniers changements restent à compiler par le mainteneur. Le texte et les attributions de licence hérités sont conservés ; l’API GitHub classe actuellement la courte notice `LICENSE` en « Other », ce qui ne constitue pas un changement de licence.
 
+Le catalogue Safetensors officiel recensait **1 440 138 dépôts** lors du relevé du 26 octobre 2026. Ce nombre est ajouté aux deux README avec sa source ; il ne compte pas les modèles vérifiés compatibles Novera et ne s’additionne pas aux autres formats sans risque de doublons.
+
 La règle permanente est inscrite dans [NOVERA.md](NOVERA.md) et le [guide de développement](docs/DEVELOPMENT.md) : vérifier et actualiser la vitrine lors de chaque synchronisation, puis contrôler le résultat en ligne. Les preuves de cet audit restent locales sous `.build/showcase-2026-10-26/` ; aucune compilation ou publication binaire pour cette modification.
 
 ## Limites de distribution
