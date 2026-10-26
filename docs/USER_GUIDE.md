@@ -1,5 +1,15 @@
 # Novera — guide utilisateur
 
+## Partage Windows : volet bloquant suspendu — 26 octobre 2026
+
+Un incident réel a bloqué le volet Partager : impossible de choisir une application ou de fermer la fenêtre ; Windows a enregistré un gel de Novera, et son volet est resté après l’arrêt de l’application. La fermeture ciblée de l’instance de partage a libéré le bureau sans redémarrer l’Explorateur. Aucun réglage Windows manquant n’a été identifié ; la cause exacte entre le système et l’interopérabilité n’est pas établie.
+
+**Dans les sources corrigées, le volet système Windows est temporairement indisponible**, avec protection dans l’interface et dans la commande native. Utiliser **Copier le fichier**, désormais mis en avant, puis coller dans une application compatible, ou **Enregistrer** et joindre le fichier. Texte riche, copie d’image et impression/PDF restent disponibles selon le format. Aucun message n’est envoyé automatiquement. Le partage système des autres plateformes conserve son code et ses limites de validation.
+
+Sous Windows, Copier le fichier fournit un bloc Unicode CF_HDROP entièrement matérialisé, sans attente WinRT, lecture différée du fichier ni callback de partage dans le fil d’interface. La préparation et la copie passent par un worker ; le presse-papiers peut être temporairement occupé, auquel cas une erreur est affichée. La compatibilité du collage dépend de l’application destinataire. L’application et le volet de diagnostic de cet incident ont été fermés ; aucun nouveau binaire Novera n’est publié. **Recompiler pour bénéficier de la protection** ; ne pas réutiliser le bouton système d’un ancien build pour vérifier ce correctif.
+
+Validation : vingt tests web ciblés sous configuration Windows, un test Rust utilisant le parseur réel du Shell pour des chemins Unicode et UNC, contrôle natif Windows et TypeScript. Cela ne certifie pas un envoi vers WhatsApp, Outlook ou une autre messagerie. La réactivation du volet WinRT nécessite une correction démontrée et un essai interactif réussi.
+
 ## Real-ESRGAN : chemins Windows, Python et taille finale — 26 octobre 2026
 
 Lorsque l’agrandissement est activé pour une image locale, un bouton coloré à droite de **Ratio** et **Résolution** indique **Real-ESRGAN ×2/×4** et les dimensions finales prévues. Il suit immédiatement le facteur, le ratio et la résolution choisis ; cliquer ouvre les réglages. Exemple : 512 × 224 avec ×2 donne 1024 × 448. Il disparaît lorsque l’option est désactivée et n’est pas affiché pour la vidéo ou le cloud.
@@ -28,7 +38,7 @@ Les exports bureautiques utilisent leurs vrais conteneurs ; la fidélité des mi
 
 | Plateforme | Passage vers les applications installées |
 | --- | --- |
-| Windows | Feuille de partage native et presse-papiers contenant un vrai fichier. |
+| Windows | Copier le fichier et Enregistrer ; volet WinRT temporairement désactivé après un gel confirmé. |
 | macOS | Sélecteur de services de partage et fichier dans le presse-papiers. |
 | Android | Choix système ACTION_SEND avec URI temporaire autorisée en lecture et copie de fichier. |
 | iOS/iPadOS | Feuille UIActivityViewController et fournisseur de fichier pour le presse-papiers. |

@@ -1,5 +1,9 @@
 # Novera — tableau de bord
 
+## Partage Windows : protection après gel confirmé — 26 octobre 2026
+
+Le volet système a bloqué l’interaction et Novera a fait l’objet d’un événement Windows AppHang. **Volet WinRT suspendu dans les sources**, côté interface et commande native ; réactivation conditionnée à une validation interactive. Copier le fichier est mis en avant et utilise CF_HDROP Unicode matérialisé hors interface ; Enregistrer/copie riche/image/PDF restent disponibles. Instance résiduelle fermée, bureau libéré sans redémarrage de l’Explorateur. **20 tests web Windows + un test Rust Shell**, types et contrôle natif réussis. Cause Windows/interop non isolée ; aucun réglage utilisateur à modifier identifié, aucun nouvel EXE Novera ni partage réel vers une messagerie certifié. [Guide et limites](docs/USER_GUIDE.md#partage-windows--volet-bloquant-suspendu--26-octobre-2026).
+
 ## Real-ESRGAN : incident corrigé et taille finale — 26 octobre 2026
 
 Deux causes confirmées sur le PC du mainteneur : chemins de poids Windows mal assemblés et `python` sans PyTorch/Pillow/NumPy. Sources corrigées, diagnostic préalable avant génération, réglages sauvegardés réparés vers le Python CUDA existant. **Vrai ×2 : 512 × 224 → 1024 × 448 en 4,52 s**. Le compositeur affiche un bouton Real-ESRGAN actif avec facteur et taille finale à droite de Ratio/Résolution. **42 tests web, un test Rust isolé de reproduction Windows**, TypeScript et contrôle natif réussis ; aucun nouveau binaire. [Détails et périmètre](docs/USER_GUIDE.md#real-esrgan--chemins-windows-python-et-taille-finale--26-octobre-2026).

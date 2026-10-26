@@ -237,34 +237,46 @@ pub async fn sharing_native<R: Runtime>(
     text: String,
     payload: Payload,
 ) -> Result<(), String> {
-    let (mime, stage_app) = (payload.mime.clone(), app.clone());
-    let file = tauri::async_runtime::spawn_blocking(move || stage_payload(&stage_app, &payload))
-        .await
-        .map_err(|e| e.to_string())??;
-    let _ = (&window, &mime);
-    #[cfg(target_os = "linux")]
-    return linux_share(&file, &title, &text).await;
-    #[cfg(any(target_os = "android", target_os = "ios"))]
-    return tauri_plugin_novera_share::share(
-        &app,
-        &file.to_string_lossy(),
-        &mime,
-        &title,
-        &text,
-        false,
-    );
-    #[cfg(not(any(target_os = "android", target_os = "ios", target_os = "linux")))]
+    // The WinRT share flyout has caused a confirmed application hang. Keep
+    // this boundary fail-fast until interactive handoff is validated again.
+    // Saving and the fully materialized Win32 file clipboard remain available.
+    #[cfg(windows)]
     {
-        let _ = &mime;
-        let (send, receive) = tokio::sync::oneshot::channel();
-        let owner = window.clone();
-        window
-            .run_on_main_thread(move || {
-                let result = native_sheet(&owner, &file, &title, &text, false);
-                let _ = send.send(result);
-            })
-            .map_err(|e| e.to_string())?;
-        receive.await.map_err(|e| e.to_string())?
+        let _ = (app, window, title, text, payload);
+        return Err("SHARE_UNSUPPORTED".into());
+    }
+    #[cfg(not(windows))]
+    {
+        let (mime, stage_app) = (payload.mime.clone(), app.clone());
+        let file =
+            tauri::async_runtime::spawn_blocking(move || stage_payload(&stage_app, &payload))
+                .await
+                .map_err(|e| e.to_string())??;
+        let _ = (&window, &mime);
+        #[cfg(target_os = "linux")]
+        return linux_share(&file, &title, &text).await;
+        #[cfg(any(target_os = "android", target_os = "ios"))]
+        return tauri_plugin_novera_share::share(
+            &app,
+            &file.to_string_lossy(),
+            &mime,
+            &title,
+            &text,
+            false,
+        );
+        #[cfg(not(any(target_os = "android", target_os = "ios", target_os = "linux")))]
+        {
+            let _ = &mime;
+            let (send, receive) = tokio::sync::oneshot::channel();
+            let owner = window.clone();
+            window
+                .run_on_main_thread(move || {
+                    let result = native_sheet(&owner, &file, &title, &text, false);
+                    let _ = send.send(result);
+                })
+                .map_err(|e| e.to_string())?;
+            receive.await.map_err(|e| e.to_string())?
+        }
     }
 }
 
@@ -329,6 +341,14 @@ pub async fn sharing_copy_file<R: Runtime>(
     let file = tauri::async_runtime::spawn_blocking(move || stage_payload(&stage_app, &payload))
         .await
         .map_err(|e| e.to_string())??;
+    #[cfg(windows)]
+    {
+        let _ = mime;
+        let owner = window.hwnd().map_err(|e| e.to_string())?.0 as isize;
+        return tauri::async_runtime::spawn_blocking(move || copy_windows_file(&file, owner))
+            .await
+            .map_err(|e| e.to_string())?;
+    }
     #[cfg(any(target_os = "android", target_os = "ios"))]
     return tauri_plugin_novera_share::share(
         &app,
@@ -338,7 +358,7 @@ pub async fn sharing_copy_file<R: Runtime>(
         "",
         true,
     );
-    #[cfg(not(any(target_os = "android", target_os = "ios")))]
+    #[cfg(not(any(windows, target_os = "android", target_os = "ios")))]
     {
         let _ = mime;
         let owner = window.clone();
@@ -424,78 +444,93 @@ async fn linux_share(file: &Path, title: &str, text: &str) -> Result<(), String>
 }
 
 #[cfg(windows)]
-fn native_sheet<R: Runtime>(
-    window: &tauri::WebviewWindow<R>,
-    file: &Path,
-    title: &str,
-    text: &str,
-    copy: bool,
-) -> Result<(), String> {
-    use windows::{
-        core::{factory, Interface, HSTRING},
-        ApplicationModel::DataTransfer::{DataRequestedEventArgs, DataTransferManager},
-        Foundation::TypedEventHandler,
-        Storage::{IStorageItem, StorageFile},
-        Win32::{Foundation::HWND, UI::Shell::IDataTransferManagerInterop},
+fn windows_file_drop(file: &Path) -> Result<Vec<u8>, String> {
+    use windows::Win32::{
+        Foundation::POINT,
+        UI::Shell::DROPFILES,
     };
-    use windows_collections::IIterable;
-    thread_local! {static ACTIVE:std::cell::RefCell<Option<(DataTransferManager,i64)>>=const{std::cell::RefCell::new(None)};}
-    let run = || -> windows::core::Result<()> {
-        use windows::Win32::System::WinRT::{RoInitialize, RO_INIT_SINGLETHREADED};
-        thread_local! {static RO:std::cell::OnceCell<windows::core::Result<()>>=const{std::cell::OnceCell::new()};}
-        RO.with(|r| {
-            r.get_or_init(|| unsafe { RoInitialize(RO_INIT_SINGLETHREADED) })
-                .clone()
-        })?;
-        let path = file.to_string_lossy();
-        let path = path.strip_prefix("\\\\?\\").unwrap_or(&path);
-        let item: IStorageItem = StorageFile::GetFileFromPathAsync(&HSTRING::from(path))?
-            .join()?
-            .cast()?;
-        if copy {
-            use windows::ApplicationModel::DataTransfer::{Clipboard, DataPackage};
-            let data = DataPackage::new()?;
-            let items: IIterable<IStorageItem> = vec![Some(item)].into();
-            data.SetStorageItemsReadOnly(&items)?;
-            Clipboard::SetContent(&data)?;
-            Clipboard::Flush()?;
-            return Ok(());
+    let path = file.to_str().ok_or("SHARE_INVALID")?;
+    let plain = if let Some(unc) = path.strip_prefix("\\\\?\\UNC\\") {
+        format!("\\\\{unc}")
+    } else {
+        path.strip_prefix("\\\\?\\").unwrap_or(path).to_owned()
+    };
+    let names: Vec<u16> = plain.encode_utf16().chain([0, 0]).collect();
+    let header = DROPFILES {
+        pFiles: std::mem::size_of::<DROPFILES>() as u32,
+        pt: POINT::default(),
+        fNC: false.into(),
+        fWide: true.into(),
+    };
+    let mut bytes = Vec::with_capacity(std::mem::size_of::<DROPFILES>() + names.len() * 2);
+    // DROPFILES has only initialized 32-bit fields, with no interior padding.
+    bytes.extend_from_slice(unsafe {
+        std::slice::from_raw_parts(
+            &header as *const DROPFILES as *const u8,
+            std::mem::size_of::<DROPFILES>(),
+        )
+    });
+    for value in names {
+        bytes.extend_from_slice(&value.to_le_bytes());
+    }
+    Ok(bytes)
+}
+
+#[cfg(windows)]
+fn copy_windows_file(file: &Path, owner: isize) -> Result<(), String> {
+    use windows::Win32::{
+        Foundation::{GlobalFree, HANDLE, HGLOBAL, HWND},
+        System::{
+            DataExchange::{CloseClipboard, EmptyClipboard, OpenClipboard, SetClipboardData},
+            Memory::{GlobalAlloc, GlobalLock, GlobalUnlock, GMEM_MOVEABLE},
+        },
+    };
+    struct Memory(Option<HGLOBAL>);
+    impl Drop for Memory {
+        fn drop(&mut self) {
+            if let Some(handle) = self.0 {
+                unsafe {
+                    let _ = GlobalFree(Some(handle));
+                }
+            }
         }
-        let interop: IDataTransferManagerInterop =
-            factory::<DataTransferManager, IDataTransferManagerInterop>()?;
-        let hwnd = HWND(
-            window
-                .hwnd()
-                .map_err(|_| windows::core::Error::from_thread())?
-                .0,
-        );
-        let manager: DataTransferManager = unsafe { interop.GetForWindow(hwnd)? };
-        ACTIVE.with(|s| {
-            if let Some((m, t)) = s.borrow_mut().take() {
-                let _ = m.RemoveDataRequested(t);
+    }
+    struct Clipboard;
+    impl Drop for Clipboard {
+        fn drop(&mut self) {
+            unsafe {
+                let _ = CloseClipboard();
             }
-        });
-        let item = windows::core::AgileReference::new(&item)?;
-        let title = HSTRING::from(title);
-        let text = HSTRING::from(text);
-        let token = manager.DataRequested(&TypedEventHandler::<
-            DataTransferManager,
-            DataRequestedEventArgs,
-        >::new(move |_, args| {
-            let args = args
-                .as_ref()
-                .ok_or_else(windows::core::Error::from_thread)?;
-            let data = args.Request()?.Data()?;
-            data.Properties()?.SetTitle(&title)?;
-            if !text.is_empty() {
-                data.SetText(&text)?;
+        }
+    }
+    let run = || -> windows::core::Result<()> {
+        let bytes = windows_file_drop(file).map_err(|_| windows::core::Error::from_thread())?;
+        unsafe {
+            let handle = GlobalAlloc(GMEM_MOVEABLE, bytes.len())?;
+            let mut memory = Memory(Some(handle));
+            let target = GlobalLock(handle);
+            if target.is_null() {
+                return Err(windows::core::Error::from_thread());
             }
-            let items: IIterable<IStorageItem> = vec![Some(item.resolve()?)].into();
-            data.SetStorageItemsReadOnly(&items)?;
-            Ok(())
-        }))?;
-        ACTIVE.with(|s| *s.borrow_mut() = Some((manager, token)));
-        unsafe { interop.ShowShareUIForWindow(hwnd) }
+            std::ptr::copy_nonoverlapping(bytes.as_ptr(), target.cast::<u8>(), bytes.len());
+            let _ = GlobalUnlock(handle);
+            let mut opened = OpenClipboard(Some(HWND(owner as *mut _)));
+            for _ in 0..8 {
+                if opened.is_ok() {
+                    break;
+                }
+                std::thread::sleep(std::time::Duration::from_millis(25));
+                opened = OpenClipboard(Some(HWND(owner as *mut _)));
+            }
+            opened?;
+            let _clipboard = Clipboard;
+            EmptyClipboard()?;
+            // CF_HDROP = 15. Windows owns the complete block after this call;
+            // no deferred WinRT callback or UI-thread file access is required.
+            SetClipboardData(15, Some(HANDLE(handle.0)))?;
+            memory.0 = None;
+        }
+        Ok(())
     };
     run().map_err(|e| format!("SHARE_UNSUPPORTED: {e}"))
 }
@@ -628,6 +663,31 @@ fn native_sheet<R: Runtime>(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[cfg(windows)]
+    #[test]
+    fn windows_file_drop_is_readable_by_the_shell() {
+        use windows::Win32::{Foundation::GlobalFree, System::Memory::{GlobalAlloc,GlobalLock,GlobalUnlock,GMEM_MOVEABLE},UI::Shell::{DragQueryFileW,HDROP}};
+        for (input,expected) in [
+            (r"\\?\C:\Images\École 世界.png",r"C:\Images\École 世界.png"),
+            (r"\\?\UNC\server\Images\Novera.png",r"\\server\Images\Novera.png"),
+        ] {
+            let bytes=windows_file_drop(Path::new(input)).unwrap();
+            unsafe {
+                let memory=GlobalAlloc(GMEM_MOVEABLE,bytes.len()).unwrap();
+                let target=GlobalLock(memory);assert!(!target.is_null());
+                std::ptr::copy_nonoverlapping(bytes.as_ptr(),target.cast::<u8>(),bytes.len());
+                let _=GlobalUnlock(memory);
+                let drop=HDROP(memory.0);
+                assert_eq!(DragQueryFileW(drop,u32::MAX,None),1);
+                let mut name=vec![0u16;DragQueryFileW(drop,0,None) as usize+1];
+                DragQueryFileW(drop,0,Some(&mut name));name.pop();
+                assert_eq!(String::from_utf16(&name).unwrap(),expected);
+                // Win32 GlobalFree returns NULL on success; do not treat its
+                // projected handle result as a conventional success handle.
+                let _ = GlobalFree(Some(memory));
+            }
+        }
+    }
     #[test]
     fn filenames_and_payloads_are_bounded_and_portable() {
         for name in [
@@ -679,7 +739,9 @@ mod tests {
             let bytes = base64::engine::general_purpose::STANDARD
                 .decode(value["base64"].as_str().unwrap())
                 .unwrap();
-            if format == "ppm" { assert!(bytes.starts_with(b"P6")); }
+            if format == "ppm" {
+                assert!(bytes.starts_with(b"P6"));
+            }
             if format == "avif" {
                 assert!(bytes.windows(4).any(|w| w == b"avif"));
             } else {

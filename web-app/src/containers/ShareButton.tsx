@@ -538,6 +538,15 @@ export function ShareButton({
                 {prepared.filename}
               </p>
               <div className="flex flex-wrap gap-2">
+                {isPlatformTauri() && (
+                  <Button
+                    variant={IS_WINDOWS ? 'default' : 'outline'}
+                    disabled={busy || format === 'pdf'}
+                    onClick={() => void act('copyFile')}
+                  >
+                    {t('chat:sharing.copyFile')}
+                  </Button>
+                )}
                 <Button
                   disabled={busy || !canSystemShare(prepared)}
                   onClick={() => void act('system')}
@@ -551,15 +560,6 @@ export function ShareButton({
                 >
                   {t('common:save')}
                 </Button>
-                {isPlatformTauri() && (
-                  <Button
-                    variant="outline"
-                    disabled={busy || format === 'pdf'}
-                    onClick={() => void act('copyFile')}
-                  >
-                    {t('chat:sharing.copyFile')}
-                  </Button>
-                )}
                 <Button
                   variant="outline"
                   disabled={

@@ -1,5 +1,11 @@
 # Novera — historique consolidé
 
+## 26 octobre — protection contre le gel du partage Windows
+
+Un gel réel de Novera et un volet Partager impossible à fermer ont invalidé la validation limitée aux sources du premier adaptateur Windows. Désactivation temporaire du volet WinRT côté interface et commande native ; aucune préparation ne le lance désormais sous Windows. Copier le fichier est mis en avant et utilise le format natif CF_HDROP Unicode entièrement matérialisé, dans un worker, avec libération correcte de la mémoire en cas d’erreur. Enregistrer, copie riche/image et impression restent disponibles. Autres adaptateurs inchangés.
+
+Vingt tests web sous configuration Windows, un test Rust avec DragQueryFileW pour Unicode/UNC, types et contrôle natif réussis. Le bureau a été libéré en fermant seulement l’instance de partage résiduelle, sans redémarrage de l’Explorateur. Aucun réglage Windows manquant identifié ; cause exacte du gel non établie et volet non présenté comme réparé/réactivé. Aucun nouveau binaire Novera ni envoi réel de message. [Guide de récupération](USER_GUIDE.md#partage-windows--volet-bloquant-suspendu--26-octobre-2026).
+
 ## 26 octobre — correction Real-ESRGAN et dimensions finales visibles
 
 Réparation des chemins Windows canoniques assemblés avec un séparateur incompatible, y compris les registres existants à l’envoi d’une demande. L’installation des composants média utilise désormais une jonction correcte. Contrôle des dépendances Python/PyTorch/Pillow/NumPy avant le rendu optionnel, avec diagnostic technique distinct des poids manquants et priorité à l’erreur mémoire. Bouton actif **Real-ESRGAN ×2/×4 · largeur × hauteur finale** à droite de Ratio/Résolution, actualisé avec leurs réglages et masqué lorsque désactivé ou hors image locale.

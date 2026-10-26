@@ -10,6 +10,7 @@ const mocks = vi.hoisted(() => ({
   copy: vi.fn(),
   copyFile: vi.fn(),
   drain: vi.fn(),
+  canShare: true,
 }))
 vi.mock('@/i18n/react-i18next-compat', () => ({
   useTranslation: () => ({ t: (key: string) => key }),
@@ -38,8 +39,9 @@ vi.mock('@/services/sharing', () => ({
   systemShare: mocks.system,
   copyPrepared: mocks.copy,
   copyShareFile: mocks.copyFile,
-  canSystemShare: () => true,
+  canSystemShare: () => mocks.canShare,
 }))
+vi.mock('@/lib/platform/utils', () => ({ isPlatformTauri: () => true }))
 const m = (id: string, role: string, text: string) => ({
   id,
   role,
@@ -53,6 +55,7 @@ const m = (id: string, role: string, text: string) => ({
 describe('unified sharing preview', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    mocks.canShare = true
     mocks.drain.mockResolvedValue(undefined)
     mocks.fetch.mockResolvedValue([
       m('q', 'user', 'Older question'),
@@ -143,5 +146,33 @@ describe('unified sharing preview', () => {
     )
     expect(mocks.system).not.toHaveBeenCalled()
     expect(mocks.save).not.toHaveBeenCalled()
+  })
+  it('keeps file copy and close usable when the Windows system flyout is unavailable', async () => {
+    mocks.canShare = false
+    mocks.copyFile.mockResolvedValue(undefined)
+    render(<ShareButton threadId="t" conversation />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'chat:sharing.prepare' })
+      ).not.toBeDisabled()
+    )
+    fireEvent.click(
+      screen.getByRole('button', { name: 'chat:sharing.prepare' })
+    )
+    await screen.findByTitle('chat:sharing.preview')
+    const system = screen.getByRole('button', { name: 'chat:sharing.system' })
+    expect(system).toBeDisabled()
+    expect(screen.getByText('chat:sharing.fallback')).toBeInTheDocument()
+    fireEvent.click(system)
+    expect(mocks.system).not.toHaveBeenCalled()
+    fireEvent.click(
+      screen.getByRole('button', { name: 'chat:sharing.copyFile' })
+    )
+    await waitFor(() => expect(mocks.copyFile).toHaveBeenCalledTimes(1))
+    fireEvent.click(screen.getByRole('button', { name: 'common:close' }))
+    await waitFor(() =>
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    )
   })
 })
