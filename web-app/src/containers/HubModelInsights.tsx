@@ -10,22 +10,21 @@ import { useServiceHub } from '@/hooks/useServiceHub'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { measureHubModel, type HubMeasurement } from '@/lib/hubBenchmark'
 import { Button } from '@/components/ui/button'
-import { DEFAULT_CTX_LENGTH, estimateModelFit } from '@/lib/modelCompatibility'
+import { HubHardwareDiagnostic } from './HubHardwareDiagnostic'
+import { modelEngine } from '@/modules/engines/hub-catalog'
 
 export function HubModelFacts({ model }: { model: CatalogModel }) {
   const { t, i18n } = useTranslation()
-  const hardware = useHardware(s => s.hardwareData)
   const numbers = new Intl.NumberFormat(intlLocale(i18n.language), { maximumFractionDigits: 2 })
   const bytes = (value: number | null) => hubFormatBytes(value, i18n.language)
-  const fit = estimateModelFit(hubWeight(model), DEFAULT_CTX_LENGTH, hardware)
   return <div className="mt-3 space-y-2 text-xs">
     <div className="flex flex-wrap gap-x-4 gap-y-1">
       {model.hub && <span>{t('hub:discovery.parameters')}: {numbers.format(model.hub.parametersB)} B</span>}
       <span>{t('hub:discovery.weight')}: {bytes(hubWeight(model))}</span>
-      <span>{t('hub:discovery.memory')}: {bytes(hubMemory(model))}</span>
-      <span>{t(`hub:discovery.${fit}`)}</span>
+      {modelEngine(model) !== 'future' && <span>{t('hub:discovery.memory')}: {bytes(hubMemory(model))}</span>}
     </div>
     <p className="text-muted-foreground">{t('hub:discovery.estimated')}</p>
+    <HubHardwareDiagnostic model={model} />
     {model.hub ? <>
       <div className="flex flex-wrap gap-x-4 gap-y-1">
         <a className="underline" href={model.hub.source} target="_blank" rel="noopener noreferrer">{t('hub:discovery.benchmarks')}</a>

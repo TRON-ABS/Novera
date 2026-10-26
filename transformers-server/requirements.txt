@@ -1,0 +1,4 @@
+# Install torch first from the official CPU or CUDA index (Python 3.15 wheels).
+torch==2.14.1
+transformers==5.20.2
+safetensors==0.8.0

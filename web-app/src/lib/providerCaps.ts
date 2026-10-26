@@ -146,6 +146,7 @@ const CUSTOM_PERMISSIVE: ProviderCaps = {
 }
 
 const BUILTIN_CAPS: Record<string, ProviderCaps> = {
+  transformers: { supported: set(), maybe: new Set() },
   meta: { supported: set(), maybe: new Set() },
   zai: { supported: set(), maybe: new Set() },
   ai21: { supported: set(), maybe: new Set() },
@@ -213,7 +214,7 @@ export function buildsOwnToolImageRequest(
   )
 }
 
-const LOCAL_PROVIDER_IDS = new Set<string>(['llamacpp', 'mlx'])
+const LOCAL_PROVIDER_IDS = new Set<string>(['llamacpp', 'mlx', 'transformers'])
 
 /**
  * Predefined remote providers ship locked base_urls and expose only a fixed

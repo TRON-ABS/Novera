@@ -244,7 +244,7 @@ function ProviderDetail() {
 
   useEffect(() => {
     if (!provider) return
-    if (provider.provider === 'llamacpp' || provider.provider === 'mlx') return
+    if (isLocalProvider(provider.provider)) return
     setApiKeysDraft(providerRemoteApiKeyChain(provider).join('\n'))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [providerName, provider?.api_key, JSON.stringify(provider?.api_key_fallbacks ?? [])])
@@ -715,7 +715,10 @@ function ProviderDetail() {
                     <div className="mt-2">
                       <DynamicControllerSetting
                           controllerType={setting.controller_type}
-                          controllerProps={setting.controller_props}
+                          controllerProps={setting.key === 'execution_device' ? {
+                            ...setting.controller_props,
+                            options: setting.controller_props.options?.map(option => option.value === 'auto' ? { ...option, name: t('common:auto') } : option),
+                          } : setting.controller_props}
                           className={cn(setting.key === 'device' && 'hidden')}
                           onChange={(newValue) => {
                             if (provider) {
@@ -815,8 +818,7 @@ function ProviderDetail() {
               )}
 
               {provider &&
-                provider.provider !== 'llamacpp' &&
-                provider.provider !== 'mlx' && (
+                !isLocalProvider(provider.provider) && (
                   <Card>
                     {EDITABLE_PROVIDER_ENDPOINTS.has(provider.provider) && (
                       <div className="space-y-2 mb-4">
@@ -1017,7 +1019,7 @@ function ProviderDetail() {
                       {t('providers:models')}
                     </h1>
                     <div className="flex items-center gap-2">
-                      {provider && provider.provider !== 'llamacpp' && provider.provider !== 'mlx' && (
+                      {provider && !isLocalProvider(provider.provider) && (
                         <>
                           <Button
                             variant="secondary"
@@ -1041,8 +1043,7 @@ function ProviderDetail() {
                         </>
                       )}
                       {provider &&
-                        (provider.provider === 'llamacpp' ||
-                          provider.provider === 'mlx') && (
+                        isLocalProvider(provider.provider) && (
                           <DialogDeleteAllModels provider={provider} />
                         )}
                       {provider && provider.provider === 'llamacpp' && (
@@ -1065,7 +1066,7 @@ function ProviderDetail() {
                           }
                         />
                       )}
-                      {provider && provider.provider === 'mlx' && (
+                      {provider && (provider.provider === 'mlx' || provider.provider === 'transformers') && (
                           <ImportMlxModelDialog
                             provider={provider}
                             onSuccess={handleModelImportSuccess}
@@ -1129,7 +1130,7 @@ function ProviderDetail() {
                               modelId={model.id}
                             />
                             {model.settings && provider &&
-                              provider.provider === 'llamacpp' && (
+                              (provider.provider === 'llamacpp' || provider.provider === 'transformers') && (
                               <ModelSetting provider={provider} model={model} />
                             )}
                             {((provider &&
@@ -1148,8 +1149,7 @@ function ProviderDetail() {
                               modelId={model.id}
                             />
                             {provider &&
-                              (provider.provider === 'llamacpp' ||
-                                provider.provider === 'mlx') && (
+                              isLocalProvider(provider.provider) && (
                                 <div className="ml-2">
                                   {activeModels.some(
                                     (activeModel) => activeModel === model.id

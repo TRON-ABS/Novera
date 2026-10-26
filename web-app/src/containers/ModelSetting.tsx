@@ -285,7 +285,7 @@ export function ModelSettingFields({ model, provider }: ModelSettingProps) {
               onChange={handleTemplateKwargsChange}
             />
           )}
-          {(provider.provider === 'llamacpp' || provider.provider === 'mlx') &&
+          {['llamacpp', 'mlx', 'transformers'].includes(provider.provider) &&
             model.embedding !== true && (
               <SamplerDefaults
                 model={model}
@@ -346,7 +346,7 @@ export function ModelSettingFields({ model, provider }: ModelSettingProps) {
               ['performance_mode', 'ngram_speculation'].includes(key)
             ) return false
             // MLX models only support context size setting
-            if (provider.provider === 'mlx') {
+            if (provider.provider === 'mlx' || provider.provider === 'transformers') {
               return key === 'ctx_len'
             }
             return true

@@ -42,7 +42,7 @@ describe('Novera Hub discovery', () => {
     expect(sortHubModels(mergeHubCatalog([]),'adapted',tinyPC)[0].model_name).toBe('LFM2.5-230M')
   })
   it('labels a memory heuristic rather than inventing hardware throughput', () => {
-    expect(hubMemory(model('1 GB'))).toBe(1.2e9)
+    expect(hubMemory(model('1 GB'))).toBe(1.4e9)
     expect(hubMemory(model())).toBeNull()
     expect(NOVERA_HUB_MODELS.every(m => !('tokensPerSecond' in m.hub!))).toBe(true)
   })

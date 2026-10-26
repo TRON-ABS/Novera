@@ -13,7 +13,10 @@ import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { toast } from 'sonner'
 import { useNavigate } from '@tanstack/react-router'
 
+import { useHubDownloadReview } from './HubHardwareDiagnostic'
+
 export const MlxModelDownloadAction = memo(({ model }: { model: CatalogModel }) => {
+  const { reviewDownload, reviewDialog } = useHubDownloadReview(model)
   const serviceHub = useServiceHub()
   const { t } = useTranslation()
   const huggingfaceToken = useGeneralSetting((state) => state.huggingfaceToken)
@@ -172,6 +175,7 @@ export const MlxModelDownloadAction = memo(({ model }: { model: CatalogModel }) 
 
   return (
     <div className="flex items-center">
+      {reviewDialog}
       {isDownloading && !isDownloaded && (
         <div className="flex items-center gap-2 w-20">
           <Progress className="border" value={downloadProgress * 100} />
@@ -194,7 +198,7 @@ export const MlxModelDownloadAction = memo(({ model }: { model: CatalogModel }) 
           data-test-id={`hub-model-${modelId}`}
           variant="outline"
           size="sm"
-          onClick={handleDownloadMlxModel}
+          onClick={() => void reviewDownload(handleDownloadMlxModel)}
           className={cn(isDownloading && 'hidden')}
         >
           {t('hub:download')}

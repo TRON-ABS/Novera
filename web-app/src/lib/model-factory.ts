@@ -864,6 +864,9 @@ export class ModelFactory {
       case 'mlx':
         return this.createMlxModel(modelId, provider, parameters, streamThreadId)
 
+      case 'transformers':
+        return this.createTransformersModel(modelId, provider, parameters)
+
       case 'anthropic':
         return this.createAnthropicModel(modelId, provider, parameters)
 
@@ -981,6 +984,44 @@ export class ModelFactory {
    * Create an MLX model by starting the model and finding the running session.
    * MLX uses the same OpenAI-compatible API pattern as llamacpp.
    */
+  private static async createTransformersModel(
+    modelId: string,
+    provider: ProviderObject,
+    parameters: Record<string, unknown>
+  ): Promise<LanguageModel> {
+    const { useServiceStore } = await import('@/hooks/useServiceHub')
+    const hub = useServiceStore.getState().serviceHub
+    if (!hub) throw new Error('Local model services are not ready')
+    await hub.models().startModel(provider, modelId)
+    const session = await invoke<SessionInfo | null>('transformers_session', { modelId })
+    if (!session) throw new Error(`No running Safetensors session for ${modelId}`)
+    const baseUrl = `http://127.0.0.1:${session.port}`
+    const headers = { Authorization: `Bearer ${session.api_key}`, Origin: 'tauri://localhost' }
+    // Only expose sampling options implemented by this CPU engine.
+    const supported = Object.fromEntries(Object.entries(parameters).filter(([key]) =>
+      ['temperature', 'top_p', 'max_tokens', 'max_output_tokens'].includes(key)
+    ))
+    const baseFetch = createCustomFetch(loopbackFetch, supported)
+    const fetch: typeof globalThis.fetch = async (input, init) => {
+      const requestId = crypto.randomUUID()
+      const cancel = () => {
+        void loopbackFetch(`${baseUrl}/v1/cancel`, {
+          method: 'POST', headers: { ...headers, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ request_id: requestId }),
+        }).catch(() => {})
+      }
+      init?.signal?.addEventListener('abort', cancel, { once: true })
+      if (init?.signal?.aborted) throw new DOMException('Aborted', 'AbortError')
+      const requestHeaders = new Headers(init?.headers)
+      requestHeaders.set('X-Novera-Request-Id', requestId)
+      return baseFetch(input, { ...init, headers: requestHeaders })
+    }
+    return new OpenAICompatibleChatLanguageModel(modelId, {
+      provider: 'transformers', headers: () => headers,
+      url: ({ path }) => `${baseUrl}/v1${path}`, fetch, includeUsage: true,
+    })
+  }
+
   private static async createMlxModel(
     modelId: string,
     provider?: ProviderObject,

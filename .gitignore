@@ -74,6 +74,9 @@ src-tauri/resources/
 
 ## test
 test-data
+# Native test fixtures include a thread id and must remain local.
+/test-data-ThreadId*/
+/deliverables/safetensors-test-*/
 llm-docs
 .claude/agents
 .claude

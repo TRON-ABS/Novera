@@ -40,6 +40,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { ModelInfoHoverCard } from '@/containers/ModelInfoHoverCard'
+import { HubInfiniteScroll } from '@/containers/HubInfiniteScroll'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -68,6 +69,11 @@ import { useHardware } from '@/hooks/useHardware'
 import { mergeHubCatalog, sortHubModels, hubSizeMatches, hubKey, hubFormatBytes } from '@/lib/hubDiscovery'
 import { HubComparison, HubModelFacts } from '@/containers/HubModelInsights'
 import ModelPublisherAvatar from '@/containers/ModelPublisherAvatar'
+import { HubCategoryExplorer } from '@/containers/HubCategoryExplorer'
+import { HubAdvisor } from '@/containers/HubAdvisor'
+import { categoryMatches, modelEngine, type HubCategory } from '@/modules/engines/hub-catalog'
+import { fetchHubCategoryPage } from '@/services/models/hubCategories'
+import { useHubProgressiveOrder } from '@/hooks/useHubProgressiveOrder'
 
 type SearchParams = {
   repo: string
@@ -112,7 +118,7 @@ export const Route = createFileRoute(route.hub.index as any)({
 
 function HubContent() {
   const [isPending, startTransition] = useTransition()
-  const parentRef = useRef(null)
+  const parentRef = useRef<HTMLDivElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
   const prefixRef = useRef<HTMLDivElement>(null)
   const [scrollMargin, setScrollMargin] = useState(0)
@@ -162,6 +168,12 @@ function HubContent() {
   const [sortSelected, setSortSelected] = useState('adapted')
   const hardware = useHardware(s => s.hardwareData)
   const [sizeBand, setSizeBand] = useState('all')
+  const [category, setCategory] = useState<HubCategory>('all')
+  const [format, setFormat] = useState('all')
+  const [availability, setAvailability] = useState('all')
+  const [categoryPage, setCategoryPage] = useState<{ category: HubCategory; models: CatalogModel[]; cursor?: string; loading: boolean; error: boolean }>({ category: 'all', models: [], loading: false, error: false })
+  const [categoryReload, setCategoryReload] = useState(0)
+  const categorySequence = useRef(0)
   const [compared, setCompared] = useState<CatalogModel[]>([])
   const [expandedModels, setExpandedModels] = useState<Record<string, boolean>>(
     {}
@@ -185,7 +197,15 @@ function HubContent() {
 
   // Sorting functionality
   const sortedModels = useMemo(() => {
-    let sorted = mergeHubCatalog(sources).filter(m => hubSizeMatches(m, sizeBand))
+    const discovered = categoryPage.category === category ? categoryPage.models : []
+    const unique = [...new Map([...discovered, ...sources].map(model => [hubKey(model), model])).values()]
+    let sorted = mergeHubCatalog(unique).filter(m => hubSizeMatches(m, sizeBand) && categoryMatches(m, category))
+    if (format === 'gguf') sorted = sorted.filter(model => !!model.quants?.length && !model.is_mlx)
+    if (format === 'safetensors') sorted = sorted.filter(model => !!model.safetensors_files?.length && !model.is_mlx)
+    if (format === 'mlx') sorted = sorted.filter(model => !!model.is_mlx)
+    if (format === 'onnx') sorted = sorted.filter(model => model.files?.some(file => /\.onnx$/i.test(file.name)))
+    if (format === 'pytorch') sorted = sorted.filter(model => model.files?.some(file => /\.(?:pt|pth|bin)$/i.test(file.name)))
+    if (availability !== 'all') sorted = sorted.filter(model => (modelEngine(model) === 'future') === (availability === 'planned'))
 
     // Apply MLX/GGUF filter first (only on Mac)
     if (sortSelected === 'mlx') {
@@ -195,10 +215,12 @@ function HubContent() {
     }
 
     return sortHubModels(sorted, sortSelected, hardware)
-  }, [sortSelected, sources, hardware, sizeBand])
+  }, [sortSelected, sources, hardware, sizeBand, categoryPage, category, format, availability])
 
   // Filtered models (debounced search)
   const [debouncedSearchValue, setDebouncedSearchValue] = useState(searchValue)
+  const progressiveModels = useHubProgressiveOrder(sortedModels,
+    JSON.stringify([category, debouncedSearchValue, sortSelected, sizeBand, format, availability, showOnlyDownloaded, categoryReload]))
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -207,12 +229,41 @@ function HubContent() {
     return () => clearTimeout(handler)
   }, [searchValue])
 
+  useEffect(() => {
+    let active = true
+    ++categorySequence.current
+    setCategoryPage({ category, models: [], loading: true, error: false })
+    void fetchHubCategoryPage(fetch, category, undefined, cleanHubSearchQuery(debouncedSearchValue))
+      .then(page => { if (active) setCategoryPage({ category, models: page.repos.map(repo => serviceHub.models().convertHfRepoToCatalogModel(repo)), cursor: page.nextCursor, loading: false, error: false }) })
+      .catch(() => { if (active) setCategoryPage({ category, models: [], loading: false, error: true }) })
+    return () => { active = false }
+  }, [category, debouncedSearchValue, serviceHub, categoryReload])
+
+  async function fetchMoreInCategory() {
+    if (categoryPage.category !== category || categoryPage.loading || categoryPage.error || !categoryPage.cursor) return
+    const selected = category
+    const sequence = categorySequence.current
+    setCategoryPage(previous => ({ ...previous, loading: true, error: false }))
+    try {
+      const page = await fetchHubCategoryPage(fetch, selected, categoryPage.cursor, cleanHubSearchQuery(debouncedSearchValue))
+      setCategoryPage(previous => previous.category !== selected || sequence !== categorySequence.current ? previous : ({ ...previous,
+        models: [...new Map([...previous.models, ...page.repos.map(repo => serviceHub.models().convertHfRepoToCatalogModel(repo))].map(model => [hubKey(model), model])).values()],
+        cursor: page.nextCursor === previous.cursor ? undefined : page.nextCursor, loading: false,
+      }))
+    } catch { setCategoryPage(previous => previous.category === selected && sequence === categorySequence.current ? { ...previous, loading: false, error: true } : previous) }
+  }
+
+  // A new category or query starts at its own first results.
+  useLayoutEffect(() => {
+    parentRef.current?.scrollTo({ top: 0 })
+  }, [category, debouncedSearchValue, sizeBand, format, availability, showOnlyDownloaded])
+
   const filteredModels = useMemo(() => {
     // Speculative draft companions (mtp/eagle3/dflash/dspark) are draft models,
     // not standalone variants — move them out of `quants` (so they don't show
     // as downloadable) into `specQuants`, where DownloadButton resolves them
     // against the chosen quant.
-    let filtered: CatalogModel[] = sortedModels.map((model) => ({
+    let filtered: CatalogModel[] = progressiveModels.map((model) => ({
       ...model,
       quants: model.quants?.filter((q) => !isSpecSidecar(q)),
       specQuants: model.quants?.filter((q) => isSpecSidecar(q)),
@@ -260,17 +311,18 @@ function HubContent() {
         .filter((model) => (model.quants?.length ?? 0) > 0)
     }
     // Add HuggingFace repo at the beginning if available
-    if (huggingFaceRepo && hubSizeMatches(huggingFaceRepo, sizeBand)) {
+    if (huggingFaceRepo && hubSizeMatches(huggingFaceRepo, sizeBand) && categoryMatches(huggingFaceRepo, category)) {
       filtered = [huggingFaceRepo, ...filtered]
     }
     return filtered
   }, [
-    sortedModels,
+    progressiveModels,
     debouncedSearchValue,
     showOnlyDownloaded,
     huggingFaceRepo,
     searchOptions,
     sizeBand,
+    category,
   ])
 
   useLayoutEffect(() => {
@@ -490,7 +542,19 @@ function HubContent() {
         <div ref={parentRef} className="p-4 w-full h-[calc(100%-60px)] overflow-y-auto! first-step-setup-local-provider">
           <div className="flex flex-col h-full justify-between gap-4 gap-y-3 w-full md:w-4/5 xl:w-4/6 mx-auto">
             <div ref={prefixRef} className="space-y-3 shrink-0">
-              <h1 className="text-lg font-semibold">{t('hub:discovery.title')}</h1>
+              <HubCategoryExplorer selected={category} onSelect={setCategory} />
+              <HubAdvisor models={filteredModels} />
+              <div className="flex flex-wrap items-center gap-2 text-xs">
+                <select className="rounded border bg-background px-2 py-1.5" aria-label={t('hub:catalog.format')} value={format} onChange={event => setFormat(event.target.value)}>
+                  <option value="all">{t('hub:catalog.allFormats')}</option><option value="gguf">GGUF</option><option value="safetensors">Safetensors</option><option value="mlx">MLX</option><option value="onnx">ONNX</option><option value="pytorch">PyTorch</option>
+                </select>
+                <select className="rounded border bg-background px-2 py-1.5" aria-label={t('hub:catalog.availability')} value={availability} onChange={event => setAvailability(event.target.value)}>
+                  <option value="all">{t('hub:catalog.allEngines')}</option><option value="integrated">{t('hub:catalog.integrated')}</option><option value="planned">{t('hub:catalog.planned')}</option>
+                </select>
+                <span className="ml-auto text-muted-foreground">{filteredModels.length} · {t('hub:catalog.loaded')}</span>
+                {categoryPage.loading && <span role="status">{t('hub:loadingModels')}</span>}
+              </div>
+              {categoryPage.error && <div role="alert" className="flex items-center justify-between gap-2 text-xs text-muted-foreground"><span>{t('hub:catalog.catalogError')}</span><Button size="sm" variant="outline" onClick={() => setCategoryReload(value => value + 1)}>{t('common:run.tryAgain')}</Button></div>}
               {error && (
                 <div role="alert" className="flex items-center justify-between gap-3 text-sm text-muted-foreground">
                   <span>{t('common:error')}{/\b[45]\d\d\b/.test(error.message) ? ` · HTTP ${error.message.match(/\b[45]\d\d\b/)![0]}` : ''}</span>
@@ -852,13 +916,17 @@ function HubContent() {
                 </div>
               </div>
             )}
-            {nextCursor && (
-              <div className="flex justify-center py-4">
-                <Button variant="outline" disabled={loading} onClick={() => fetchMore()}>
-                  {loading ? t('hub:loadingModels') : t('common:next')}
-                </Button>
-              </div>
-            )}
+            <HubInfiniteScroll
+              root={parentRef}
+              pageKey={JSON.stringify([category, categoryReload, debouncedSearchValue, sizeBand, format, availability, categoryPage.cursor, category === 'all' ? nextCursor : null])}
+              hasMore={!showOnlyDownloaded && ((categoryPage.category === category && Boolean(categoryPage.cursor)) || (category === 'all' && !debouncedSearchValue && Boolean(nextCursor)))}
+              loading={categoryPage.loading || (category === 'all' && loading)}
+              paused={categoryPage.category !== category || categoryPage.error || (category === 'all' && Boolean(error)) || filteredModels.length === 0}
+              onLoadMore={() => {
+                if (categoryPage.category === category && categoryPage.cursor) void fetchMoreInCategory()
+                if (category === 'all' && !debouncedSearchValue && nextCursor) void fetchMore()
+              }}
+            />
           </div>
         </div>
       </div>

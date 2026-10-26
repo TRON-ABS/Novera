@@ -18,6 +18,7 @@ import { DownloadEvent, DownloadState, events } from '@janhq/core'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useShallow } from 'zustand/shallow'
 import { DEFAULT_MODEL_QUANTIZATIONS } from '@/constants/models'
+import { useHubDownloadReview } from './HubHardwareDiagnostic'
 
 type ModelProps = {
   model: CatalogModel
@@ -52,6 +53,7 @@ export function DownloadButtonPlaceholder({
   const [isDownloaded, setDownloaded] = useState<boolean>(false)
 
   const quant = selectDefaultQuant(model.quants, DEFAULT_MODEL_QUANTIZATIONS)
+  const { reviewDownload, reviewDialog } = useHubDownloadReview(model, quant)
 
   const modelId = quant?.model_id || model.model_name
 
@@ -109,7 +111,7 @@ export function DownloadButtonPlaceholder({
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button size="sm">View on HuggingFace</Button>
+          <Button size="sm">{t('hub:catalog.source')}</Button>
         </a>
       </div>
     )
@@ -169,6 +171,7 @@ export function DownloadButtonPlaceholder({
         isRecommended && 'hub-download-button-step'
       )}
     >
+      {reviewDialog}
       {isDownloading && !isDownloaded && (
         <div className={cn('flex items-center gap-2 w-20')}>
           <Progress className='border' value={downloadProgress * 100} />
@@ -191,7 +194,7 @@ export function DownloadButtonPlaceholder({
           data-test-id={`hub-model-${modelId}`}
           variant="outline"
           size="sm"
-          onClick={handleDownload}
+          onClick={() => void reviewDownload(handleDownload)}
           className={cn(isDownloading && 'hidden')}
         >
           {(() => {

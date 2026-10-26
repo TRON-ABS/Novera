@@ -77,7 +77,8 @@ export class DefaultModelsService implements ModelsService {
 
   async fetchHuggingFaceRepo(
     repoId: string,
-    hfToken?: string
+    hfToken?: string,
+    revision?: string
   ): Promise<HuggingFaceRepo | null> {
     try {
       // Clean the repo ID to handle various input formats
@@ -92,7 +93,7 @@ export class DefaultModelsService implements ModelsService {
       }
 
       const response = await fetch(
-        `https://huggingface.co/api/models/${cleanRepoId}?blobs=true&files_metadata=true`,
+        `https://huggingface.co/api/models/${cleanRepoId}${revision ? `/revision/${encodeURIComponent(revision)}` : ''}?blobs=true&files_metadata=true`,
         {
           headers: hfToken
             ? {
@@ -150,7 +151,7 @@ export class DefaultModelsService implements ModelsService {
       return {
         model_id: `${repo.author}/${sanitizeModelId(modelId)}`,
         path: `https://huggingface.co/${repo.modelId}/resolve/main/${file.rfilename}`,
-        file_size: formatFileSize(file.size),
+        file_size: formatFileSize(file.size ?? file.lfs?.size),
       }
     })
 
@@ -161,7 +162,7 @@ export class DefaultModelsService implements ModelsService {
       return {
         model_id: sanitizeModelId(modelId),
         path: `https://huggingface.co/${repo.modelId}/resolve/main/${file.rfilename}`,
-        file_size: formatFileSize(file.size),
+        file_size: formatFileSize(file.size ?? file.lfs?.size),
       }
     })
 
@@ -182,16 +183,26 @@ export class DefaultModelsService implements ModelsService {
       return {
         model_id: sanitizeModelId(modelId),
         path: `https://huggingface.co/${repo.modelId}/resolve/main/${file.rfilename}`,
-        file_size: formatFileSize(file.size),
+        file_size: formatFileSize(file.size ?? file.lfs?.size),
         sha256: file.lfs?.sha256,
       }
     })
 
     return {
       model_name: repo.modelId,
+      pipeline_tag: repo.pipeline_tag,
+      tags: repo.tags,
+      languages: Array.isArray(repo.cardData?.language) ? repo.cardData.language : typeof repo.cardData?.language === 'string' ? [repo.cardData.language] : undefined,
+      library_name: repo.library_name,
+      revision: repo.sha,
+      license: repo.cardData?.license,
+      gated: repo.gated,
+      model_config: repo.config,
+      files: repo.siblings?.map(file => ({ name: file.rfilename, size: file.size ?? file.lfs?.size })),
       developer: repo.author,
       downloads: repo.downloads || 0,
       created_at: repo.createdAt,
+      updated_at: repo.lastModified ?? repo.last_modified,
       num_quants: quants.length,
       quants: quants,
       num_mmproj: mmprojModels.length,
@@ -377,6 +388,8 @@ export class DefaultModelsService implements ModelsService {
     const mlxModels = await this.getActiveModels('mlx')
     if (mlxModels)
       await Promise.all(mlxModels.map((model) => this.stopModel(model, 'mlx')))
+    const transformersModels = await this.getActiveModels('transformers')
+    await Promise.all(transformersModels.map((model) => this.stopModel(model, 'transformers')))
   }
 
   async startModel(

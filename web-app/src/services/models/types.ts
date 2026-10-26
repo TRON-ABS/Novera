@@ -27,6 +27,14 @@ export interface SafetensorsFile {
 }
 
 export interface CatalogModel {
+  languages?: string[]
+  pipeline_tag?: string
+  tags?: string[]
+  revision?: string
+  license?: string
+  gated?: boolean | string
+  model_config?: { model_type?: string; architectures?: string[]; dtype?: string; torch_dtype?: string; quantization_config?: unknown }
+  files?: { name: string; size?: number }[]
   hub?: {
     parametersB: number
     repo: string
@@ -52,6 +60,7 @@ export interface CatalogModel {
   safetensors_files?: SafetensorsFile[]
   num_safetensors?: number
   created_at?: string
+  updated_at?: string
   readme?: string
   tools?: boolean
   is_mlx?: boolean
@@ -61,6 +70,7 @@ export type ModelCatalog = CatalogModel[]
 
 // HuggingFace repository information
 export interface HuggingFaceRepo {
+  config?: { model_type?: string; architectures?: string[]; dtype?: string; torch_dtype?: string; quantization_config?: unknown }
   id: string
   modelId: string
   sha: string
@@ -71,6 +81,7 @@ export interface HuggingFaceRepo {
   pipeline_tag?: string
   createdAt: string
   last_modified: string
+  lastModified?: string
   private: boolean
   disabled: boolean
   gated: boolean | string
@@ -123,7 +134,8 @@ export interface ModelsService {
   fetchModelCatalogPage(cursor?: string): Promise<{ models: ModelCatalog; nextCursor?: string }>
   fetchHuggingFaceRepo(
     repoId: string,
-    hfToken?: string
+    hfToken?: string,
+    revision?: string
   ): Promise<HuggingFaceRepo | null>
   convertHfRepoToCatalogModel(repo: HuggingFaceRepo): CatalogModel
   updateModel(modelId: string, model: Partial<CoreModel>): Promise<void>

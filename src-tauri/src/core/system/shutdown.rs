@@ -27,6 +27,9 @@ pub async fn shutdown_cleanup<R: Runtime>(app: &AppHandle<R>) {
     // No agent shell (or child it spawned) may outlive the app.
     tauri_plugin_agent_tools::tools::proc::kill_all();
 
+    #[cfg(not(any(target_os = "android", target_os = "ios")))]
+    crate::core::transformers::cleanup().await;
+
     let state = app.state::<AppState>();
     match tokio::time::timeout(
         MCP_CLEANUP_TIMEOUT,

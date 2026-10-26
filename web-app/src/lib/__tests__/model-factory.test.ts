@@ -76,6 +76,35 @@ describe('ModelFactory', () => {
   })
 
   describe('createModel', () => {
+    it('starts Safetensors locally and uses its authenticated loopback session', async () => {
+      const { OpenAICompatibleChatLanguageModel } = await import('@ai-sdk/openai-compatible')
+      const { fetch: httpFetch } = await import('@tauri-apps/plugin-http')
+      mockedInvoke.mockResolvedValue({ port: 19101, api_key: 'local-key', model_id: 'tiny' })
+      const provider: ProviderObject = { provider: 'transformers', active: true, models: [], settings: [] }
+      await ModelFactory.createModel('tiny', provider, { temperature: 0, top_p: 0.9, top_k: 40, max_output_tokens: 8 })
+      expect(mockStartModel).toHaveBeenCalledWith(provider, 'tiny')
+      expect(mockedInvoke).toHaveBeenCalledWith('transformers_session', { modelId: 'tiny' })
+      const config = vi.mocked(OpenAICompatibleChatLanguageModel).mock.calls.at(-1)![1]
+      expect(config.url({ path: '/chat/completions', modelId: 'tiny' })).toBe('http://127.0.0.1:19101/v1/chat/completions')
+      expect(config.headers()).toMatchObject({ Authorization: 'Bearer local-key' })
+      vi.mocked(httpFetch).mockResolvedValue(new Response('{}'))
+      const controller = new AbortController()
+      await config.fetch!('http://127.0.0.1:19101/v1/chat/completions', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ model: 'tiny' }), signal: controller.signal,
+      })
+      const sent = JSON.parse(vi.mocked(httpFetch).mock.calls.at(-1)![1]!.body as string)
+      expect(sent).toMatchObject({ temperature: 0, top_p: 0.9, max_tokens: 8 })
+      expect(sent).not.toHaveProperty('top_k')
+      controller.abort()
+      expect(httpFetch).toHaveBeenLastCalledWith('http://127.0.0.1:19101/v1/cancel', expect.objectContaining({ method: 'POST' }))
+    })
+
+    it('reports a missing Safetensors session instead of falling back to a remote provider', async () => {
+      mockedInvoke.mockResolvedValue(null)
+      await expect(ModelFactory.createModel('tiny', { provider: 'transformers', active: true, models: [], settings: [] }))
+        .rejects.toThrow('No running Safetensors session')
+    })
+
     it('should create an Anthropic model for anthropic provider', async () => {
       const provider: ProviderObject = {
         provider: 'anthropic',

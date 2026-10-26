@@ -73,6 +73,10 @@ yarn test:architecture
 
 ## Moteur local
 
+Le [suivi des moteurs CPU/GPU](SUIVI_MOTEURS.md) décrit l’ajout local Safetensors/Transformers du 26 octobre 2026, Python 3.15.1, les versions PyTorch CPU/CUDA et les validations réelles. La publication de ces sources a été autorisée par le mainteneur le 26 octobre 2026 ; elle ne publie aucun environnement ou binaire.
+
+Le Hub sépare les règles pures (`modules/engines/hub-catalog.ts`, `hub-advisor.ts`), la découverte réseau (`services/models/hubCategories.ts`) et les adaptateurs UI/matériels (`HubHardwareDiagnostic`, `HubAdvisor`). Le catalogue de catégories utilise des métadonnées publiques, un cache de dix minutes et au maximum six requêtes de huit résultats par page ; les curseurs restent limités à l’API modèles Hugging Face. Les conseils se calculent localement, sans envoi des relevés matériels. Les points de téléchargement du Hub passent par la revue ; le badge partage son diagnostic. Un observateur du bas de la liste virtualisée, rattaché au conteneur défilant du Hub, charge les pages à moins de 400 px du bas. Chaque curseur ne déclenche qu’une demande ; chargement, erreur et fin des résultats suspendent l’observation. Les observateurs périmés sont ignorés lors du changement de catégorie. `useHubProgressiveOrder` conserve les lignes déjà affichées et ajoute les nouvelles en bas ; le changement de tri ou de filtre réinitialise cet ordre. La découverte de nouvelles tâches ne les rend pas exécutables. Voir le suivi des moteurs pour les tests et limites.
+
 La source de version est `src-tauri/plugins/tauri-plugin-llamacpp/build.rs` : moteur **0.7.0**, llama.cpp **b11823**, commit `5c19a5a7560024bb19745b4ae04a75613d4b9aa3`. Une version déclarée n’atteste pas qu’un exécutable existant a été reconstruit.
 
 La recommandation et le compagnon DSpark sont définis dans `web-app/src/lib/noveraRecommendedModel.ts`. Le modèle desktop reste LFM2.5-2.6B Q6_K ; DSpark ajoute un brouillon Q8_0 au chemin d’import existant (`specDraftPath`, type `dspark`, mode `draft-dspark`). La recommandation Android 1.2B est distincte. Les contrôles de mémoire et capacités ne remplacent pas des mesures matérielles.

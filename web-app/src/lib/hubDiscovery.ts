@@ -4,7 +4,8 @@ import type { CatalogModel } from '@/services/models/types'
 import type { HardwareData } from '@/hooks/useHardware'
 import { selectDefaultQuant } from './models'
 import { DEFAULT_MODEL_QUANTIZATIONS } from '@/constants/models'
-import { DEFAULT_CTX_LENGTH, estimateModelFit, estimateKvCacheBytes, parseFileSize, sumMlxModelBytes } from './modelCompatibility'
+import { DEFAULT_CTX_LENGTH, parseFileSize, sumMlxModelBytes } from './modelCompatibility'
+import { diagnoseHubModel, estimateHubMemory } from '@/modules/engines/hub-catalog'
 import { isSpecSidecar } from './specDraft'
 import { intlLocale } from '@/utils/intlLocale'
 
@@ -28,12 +29,13 @@ export function mergeHubCatalog(sources: CatalogModel[]): CatalogModel[] {
 }
 
 export function hubWeight(m: CatalogModel): number | null {
-  const size = m.is_mlx ? sumMlxModelBytes(m) : parseFileSize(selectDefaultQuant(m.quants?.filter(q => !isSpecSidecar(q)), DEFAULT_MODEL_QUANTIZATIONS)?.file_size)
+  if (!m.quants?.length && m.safetensors_files?.length && m.safetensors_files.some(file => !parseFileSize(file.file_size))) return null
+  const size = m.is_mlx || (!m.quants?.length && m.safetensors_files?.length) ? sumMlxModelBytes(m) : parseFileSize(selectDefaultQuant(m.quants?.filter(q => !isSpecSidecar(q)), DEFAULT_MODEL_QUANTIZATIONS)?.file_size)
   return size && size > 0 ? size : null
 }
 export function hubMemory(m: CatalogModel): number | null {
   const size = hubWeight(m)
-  return size ? size + estimateKvCacheBytes(size, DEFAULT_CTX_LENGTH) : null
+  return estimateHubMemory(size, DEFAULT_CTX_LENGTH)
 }
 export function hubSizeMatches(m: CatalogModel, band: string): boolean {
   if (band === 'all') return true
@@ -46,8 +48,16 @@ export function hubSizeMatches(m: CatalogModel, band: string): boolean {
 }
 export function sortHubModels(sources: CatalogModel[], sort: string, hardware: HardwareData): CatalogModel[] {
   const weight = (m: CatalogModel) => hubWeight(m) ?? Infinity
-  const ranks = { green: 0, yellow: 1, unknown: 2, red: 3 }
-  const fit = (m: CatalogModel) => ranks[estimateModelFit(hubWeight(m), DEFAULT_CTX_LENGTH, hardware)]
+  const ranks = { fits: 0, tight: 1, unknown: 2, insufficient: 3 }
+  const fit = (m: CatalogModel) => {
+    const diagnosis = diagnoseHubModel(m, {
+      platform: hardware.os_type, ramBytes: hardware.total_memory > 0 ? hardware.total_memory * 1024 ** 2 : null,
+      gpus: hardware.gpus.filter(gpu => gpu.activated !== false).map(gpu => ({ name: gpu.name, vendor: gpu.vendor, totalBytes: gpu.total_memory * 1024 ** 2 })),
+    }, { weightsBytes: hubWeight(m) })
+    if (diagnosis.engineState === 'platform') return 5
+    if (diagnosis.engineState === 'planned') return 4
+    return ranks[diagnosis.memory]
+  }
   return [...sources].sort((a,b) => {
     if (sort === 'adapted' && fit(a) !== fit(b)) return fit(a) - fit(b)
     const owner = (model: CatalogModel) => model.hub?.repo.split('/')[0] ?? model.developer
@@ -62,7 +72,7 @@ export function sortHubModels(sources: CatalogModel[], sort: string, hardware: H
       return Number.isNaN(delta) ? hubKey(a).localeCompare(hubKey(b)) : delta || hubKey(a).localeCompare(hubKey(b))
     }
     if (sort === 'most-downloaded') return (b.downloads || 0) - (a.downloads || 0)
-    const date = (m: CatalogModel) => Number.isFinite(Date.parse(m.created_at ?? '')) ? Date.parse(m.created_at!) : 0
+    const date = (m: CatalogModel) => Number.isFinite(Date.parse(m.updated_at ?? m.created_at ?? '')) ? Date.parse((m.updated_at ?? m.created_at)!) : 0
     return date(b) - date(a)
   })
 }

@@ -11,6 +11,7 @@ import { IconDownload } from '@tabler/icons-react'
 import { useNavigate } from '@tanstack/react-router'
 import { useCallback, useMemo } from 'react'
 import { toast } from 'sonner'
+import { useHubDownloadReview } from './HubHardwareDiagnostic'
 
 export const ModelDownloadAction = ({
   variant,
@@ -22,6 +23,7 @@ export const ModelDownloadAction = ({
   const serviceHub = useServiceHub()
 
   const { t } = useTranslation()
+  const { reviewDownload, reviewDialog } = useHubDownloadReview(model, variant)
   const huggingfaceToken = useGeneralSetting((state) => state.huggingfaceToken)
   const {
     downloads,
@@ -138,12 +140,16 @@ export const ModelDownloadAction = ({
   }
 
   return (
-    <div
+    <>
+    {reviewDialog}
+    <button
+      type="button"
       className="size-6 cursor-pointer flex items-center justify-center rounded transition-all duration-200 ease-in-out"
       title={t('hub:downloadModel')}
-      onClick={handleDownloadModel}
+      onClick={() => void reviewDownload(handleDownloadModel)}
     >
       <IconDownload size={16} className="text-muted-foreground" />
-    </div>
+    </button>
+    </>
   )
 }

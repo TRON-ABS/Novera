@@ -327,6 +327,13 @@ pub fn run() {
     let app_builder = app_builder.invoke_handler(invoke_commands_with_extras![
         // Custom updater commands (desktop only)
         core::updater::commands::is_update_available,
+        core::transformers::transformers_list,
+        core::transformers::transformers_import,
+        core::transformers::transformers_delete,
+        core::transformers::transformers_load,
+        core::transformers::transformers_unload,
+        core::transformers::transformers_session,
+        core::transformers::transformers_probe,
     ]);
 
     // Mobile: no updater commands

@@ -31,6 +31,7 @@ import { DEFAULT_MODEL_QUANTIZATIONS } from '@/constants/models'
 import { useTranslation } from '@/i18n'
 import { mergeHubCatalog } from '@/lib/hubDiscovery'
 import { HubModelFacts } from '@/containers/HubModelInsights'
+import { useHubDownloadReview } from '@/containers/HubHardwareDiagnostic'
 
 type SearchParams = {
   repo: string
@@ -90,6 +91,7 @@ function HubModelDetailContent() {
   const modelData = useMemo(() => {
     return mergeHubCatalog(sources).find((model) => model.model_name === modelId && (!model.hub || !search.repo || model.hub.repo === search.repo)) ?? repoData
   }, [sources, modelId, repoData, search.repo])
+  const { reviewDownload, reviewDialog } = useHubDownloadReview(modelData)
 
   // Speculative draft companions are paired with a real quant at download
   // time, not standalone models — keep them out of the selectable variant list.
@@ -279,7 +281,8 @@ function HubModelDetailContent() {
               {/* Description */}
               {modelData.description && (
                 <div className="text-muted-foreground mb-4">
-                  {modelData.hub && <HubModelFacts model={modelData} />}
+                  <HubModelFacts model={modelData} />
+                  {reviewDialog}
                   <RenderMarkdown
                     className="select-none reset-heading"
                     components={{
@@ -434,7 +437,7 @@ function HubModelDetailContent() {
                                 return (
                                   <Button
                                     size="sm"
-                                    onClick={() => {
+                                    onClick={() => void reviewDownload(() => {
                                       addLocalDownloadingModel(
                                         variant.model_id
                                       )
@@ -465,7 +468,7 @@ function HubModelDetailContent() {
                                           specDraft?.quant.path,
                                           specDraft?.kind
                                         )
-                                    }}
+                                    }, variant)}
                                     className={cn(isDownloading && 'hidden')}
                                     variant="outline"
                                   >

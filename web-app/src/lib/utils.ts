@@ -202,6 +202,8 @@ export function getProviderLogo(provider: string) {
 
 export const getProviderTitle = (provider: string) => {
   switch (provider) {
+    case 'transformers':
+      return 'Safetensors / Transformers'
     case 'meta':
       return 'Meta AI'
     case 'cohere':

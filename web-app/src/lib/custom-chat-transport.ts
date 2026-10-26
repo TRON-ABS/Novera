@@ -688,6 +688,7 @@ export function coalesceMessagesForAlternation(
 const LOCAL_ENGINE_PROVIDERS: Record<string, true> = {
   llamacpp: true,
   mlx: true,
+  transformers: true,
 }
 
 const LOOPBACK_HOSTS: Record<string, true> = {

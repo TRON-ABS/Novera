@@ -78,6 +78,16 @@ const ENTRIES: BundledEntry[] = [
 // The MLX extension depends on @janhq/tauri-plugin-mlx-api, which only exists
 // on macOS. IS_MACOS is a build-time constant, so this import() is dead-code
 // eliminated on other platforms and never enters the bundle graph.
+if (IS_WINDOWS || IS_LINUX) {
+  ENTRIES.push({
+    load: () => import('../transformers/engine'),
+    name: '@novera/transformers-extension',
+    productName: 'Safetensors / Transformers',
+    version: '0.1.0',
+    description: 'Safetensors · PyTorch · CPU / CUDA',
+  })
+}
+
 if (IS_MACOS) {
   ENTRIES.push({
     load: () => import('@janhq/mlx-extension'),

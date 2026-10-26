@@ -423,6 +423,7 @@ export const MLX_SAMPLER_KEYS = [
 export function samplerKeysForProvider(
   providerId: string
 ): readonly string[] {
+  if (providerId === 'transformers') return ['temperature', 'top_p']
   return providerId === 'mlx' ? MLX_SAMPLER_KEYS : SAMPLER_DEFAULT_KEYS
 }
 
