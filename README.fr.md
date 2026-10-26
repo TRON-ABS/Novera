@@ -2,9 +2,9 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone. Cyan holographic hand above a connected world." width="100%" />
   <p><strong>Le savoir pour tous. Une IA qui avance avec son temps.</strong></p>
   <p>Un assistant IA indépendant porté par TRON-ABS, réunissant modèles locaux, fournisseurs cloud et outils évolutifs.</p>
-  <p><strong>En développement</strong> · 70 langues et variantes d’interface · Apache 2.0</p>
+  <p><strong>En développement</strong> · 70 langues et variantes d’interface · 27 fournisseurs cloud · Apache 2.0</p>
   <p>Contact officiel : <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
-  <p><a href="README.md">English</a> · <a href="docs/LANGUAGES.md">Langues</a> · <a href="ROADMAP.md">Feuille de route</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
+  <p><a href="#fournisseurs-cloud">Fournisseurs cloud</a> · <a href="#catalogue-de-modèles-hugging-face">Modèles locaux</a> · <a href="README.md">English</a> · <a href="docs/LANGUAGES.md">Langues</a> · <a href="ROADMAP.md">Feuille de route</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
 </div>
 
 ---
@@ -19,12 +19,36 @@ La direction du projet est claire : consolider les fondations, explorer rapideme
 
 | Domaine | Présent dans les sources |
 | --- | --- |
-| IA locale et cloud | Des moteurs de modèles locaux et des connexions à des fournisseurs distants. La compatibilité dépend du modèle, du fournisseur et du matériel. |
+| IA locale et cloud | Un Hub relié directement à Hugging Face et 27 fournisseurs cloud prédéfinis. Les formats et modèles utilisables dépendent du moteur, du compte et du matériel. |
 | Outils et documents | Des intégrations MCP, la recherche dans les documents et des fonctions d’assistant héritées du code existant. |
 | Interface multilingue | 70 locales sélectionnables couvrant chacune les 1 516 clés anglaises actuelles. Relecture native encore nécessaire. |
 | Application extensible | Une application de bureau avec des points d’extension pour les moteurs, les outils et les futures capacités. |
 
 Ces éléments décrivent les sources. La distribution Novera et sa validation en fonctionnement restent à préparer.
+
+## Fournisseurs cloud
+
+**27 fournisseurs cloud prédéfinis** dans les sources Novera, avec leurs icônes officielles embarquées. Les modèles disponibles dépendent du compte et de la région.
+
+| | | |
+| --- | --- | --- |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="28" height="28" /> [OpenAI](https://platform.openai.com/docs/models) | <img src="web-app/public/images/model-provider/azure.svg" alt="Azure" width="28" height="28" /> [Azure](https://oai.azure.com/deployments) | <img src="web-app/public/images/model-provider/anthropic.svg" alt="Anthropic" width="28" height="28" /> [Anthropic](https://platform.claude.com/docs/en/models/overview) |
+| <img src="web-app/public/images/model-provider/open-router.svg" alt="OpenRouter" width="28" height="28" /> [OpenRouter](https://openrouter.ai/models) | <img src="web-app/public/images/model-provider/mistral.svg" alt="Mistral" width="28" height="28" /> [Mistral](https://docs.mistral.ai/models) | <img src="web-app/public/images/model-provider/groq.svg" alt="Groq" width="28" height="28" /> [Groq](https://console.groq.com/docs/models) |
+| <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="28" height="28" /> [xAI](https://docs.x.ai/developers/models) | <img src="web-app/public/images/model-provider/gemini.svg" alt="Gemini" width="28" height="28" /> [Gemini](https://ai.google.dev/gemini-api/docs/models) | <img src="web-app/public/images/model-provider/minimax.svg" alt="MiniMax" width="28" height="28" /> [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) |
+| <img src="web-app/public/images/model-provider/huggingface.svg" alt="Hugging Face" width="28" height="28" /> [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | <img src="web-app/public/images/model-provider/nvidia.svg" alt="NVIDIA NIM" width="28" height="28" /> [NVIDIA NIM](https://build.nvidia.com/models) | <img src=".github/assets/providers/deepseek.png" alt="DeepSeek" width="28" height="28" /> [DeepSeek](https://api-docs.deepseek.com/) |
+| <img src="web-app/public/images/model-provider/moonshot.png" alt="Kimi (Moonshot AI)" width="28" height="28" /> [Kimi (Moonshot AI)](https://platform.kimi.ai/docs/models) | <img src="web-app/public/images/model-provider/alibaba.png" alt="Alibaba Cloud (Qwen)" width="28" height="28" /> [Alibaba Cloud (Qwen)](https://www.alibabacloud.com/help/en/model-studio/models) | <img src="web-app/public/images/model-provider/cerebras.png" alt="Cerebras" width="28" height="28" /> [Cerebras](https://inference-docs.cerebras.ai/models/overview) |
+| <img src="web-app/public/images/model-provider/together.svg" alt="Together AI" width="28" height="28" /> [Together AI](https://docs.together.ai/docs/serverless/models) | <img src="web-app/public/images/model-provider/fireworks.svg" alt="Fireworks AI" width="28" height="28" /> [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | <img src="web-app/public/images/model-provider/perplexity.png" alt="Perplexity" width="28" height="28" /> [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) |
+| <img src=".github/assets/providers/meta.png" alt="Meta AI" width="28" height="28" /> [Meta AI](https://dev.meta.ai/docs/models) | <img src="web-app/public/images/model-provider/cohere.svg" alt="Cohere" width="28" height="28" /> [Cohere](https://docs.cohere.com/docs/models) | <img src="web-app/public/images/model-provider/zai.svg" alt="Z.ai" width="28" height="28" /> [Z.ai](https://docs.z.ai/guides/llm/glm-5.3) |
+| <img src="web-app/public/images/model-provider/ai21.png" alt="AI21 Labs" width="28" height="28" /> [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus (ByteDance)" width="28" height="28" /> [BytePlus (ByteDance)](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | <img src=".github/assets/providers/baidu.png" alt="Baidu Qianfan" width="28" height="28" /> [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) |
+| <img src=".github/assets/providers/tencent.png" alt="Tencent TokenHub" width="28" height="28" /> [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | <img src="web-app/public/images/model-provider/bedrock.png" alt="Amazon Bedrock" width="28" height="28" /> [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | <img src="web-app/public/images/model-provider/watsonx.png" alt="IBM watsonx" width="28" height="28" /> [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) |
+
+[Modèles récents et configuration](docs/USER_GUIDE.md#cloud) · [Provenance des icônes et marques](docs/DEVELOPMENT.md#logos)
+
+## Catalogue de modèles Hugging Face
+
+**Hugging Face : 3 187 159 dépôts de modèles, soit environ 3,19 millions**, relevés le **26 octobre 2026** ([catalogue global](https://huggingface.co/models)). Parmi eux : **214 900 dépôts GGUF** et **27 295 dépôts MLX** ([GGUF](https://huggingface.co/models?library=gguf), [MLX](https://huggingface.co/models?library=mlx)). Ces nombres incluent variantes et conversions ; ils ne mesurent ni les modèles distincts ni une compatibilité garantie avec Novera.
+
+Le Hub découvre les formats compatibles directement auprès de Hugging Face, par lots, avec priorité aux éditeurs d’origine. Les six présélections Novera restent disponibles. La découverte directe nécessite une nouvelle compilation ; le dernier exécutable local la précède.
 
 ## 70 langues et variantes d’interface
 
@@ -33,12 +57,6 @@ Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et
 L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais, l’arabe algérien, l’arabe marocain, le sindhi, le dari, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
 
 **[Consulter toutes les langues, leurs noms et leur couverture →](docs/LANGUAGES.md)**
-
-## Catalogue de modèles Hugging Face
-
-**Hugging Face : 3 187 159 dépôts de modèles, soit environ 3,19 millions**, relevés le **26 octobre 2026** ([catalogue global](https://huggingface.co/models)). Parmi eux : **214 900 dépôts GGUF** et **27 295 dépôts MLX** ([GGUF](https://huggingface.co/models?library=gguf), [MLX](https://huggingface.co/models?library=mlx)). Ces nombres incluent variantes et conversions ; ils ne mesurent ni les modèles distincts ni une compatibilité garantie avec Novera.
-
-Le Hub découvre les formats compatibles directement auprès de Hugging Face, par lots, avec priorité aux éditeurs d’origine. Les six présélections Novera restent disponibles. La découverte directe nécessite une nouvelle compilation ; le dernier exécutable local la précède.
 
 ## État du projet
 

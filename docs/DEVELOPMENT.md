@@ -228,3 +228,14 @@ La priorité d’éditeur repose sur une liste explicite d’organisations, sans
 Le store conserve les pages déjà chargées en cas de panne, déduplique les lots et expose un bouton d’essai manuel traduit. La migration invalide uniquement le cache régénérable de l’ancien catalogue ; modèles, profils et conversations ne changent pas. Aucun nouveau texte d’interface à traduire : les contrôles réutilisent les clés présentes dans les 70 locales.
 
 Sources du contrat : [API Hub officielle](https://huggingface.co/docs/hub/api), [client officiel list_models](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.HfApi.list_models). Essai réel public Windows le 26 octobre : **44 dépôts**, tailles présentes pour les 44, **49 requêtes de métadonnées**, page suivante disponible ; aucun poids téléchargé. Ce relevé de lot ne représente pas le nombre total de modèles compatibles. MLX et erreurs réseau sont couverts par des tests simulés, sans validation native Mac pour ce lot.
+
+### Logos visibles sur la page du dépôt — 26 octobre 2026
+
+Les README français et anglais affichent les 27 fournisseurs prédéfinis, avec noms, liens officiels et icônes embarquées. Les SVG et PNG existants sont réutilisés. Quatre ICO sont décodés en PNG RGBA pour la documentation GitHub, sans redessiner ni changer les pixels du logo ; les originaux de l’application restent inchangés. Les marques et attributions précédentes s’appliquent également à ces dérivés.
+
+| PNG pour GitHub | ICO source | SHA-256 du PNG |
+| --- | --- | --- |
+| `.github/assets/providers/deepseek.png` | `web-app/public/images/model-provider/deepseek.ico` | `cba0168e484cf74016847e09aff47c839f4198000a52f19e76f44a73dafe24e4` |
+| `.github/assets/providers/meta.png` | `web-app/public/images/model-provider/meta.ico` | `9798cf7f10eee9085b0a7b4b52e3c5555da7d784d37a8d7eec099c9d51ac6805` |
+| `.github/assets/providers/baidu.png` | `web-app/public/images/model-provider/baidu.ico` | `d8197d537f0dd996eeeac08d8a3e6e3953fe54d4e958d6e268f7fc53668b0278` |
+| `.github/assets/providers/tencent.png` | `web-app/public/images/model-provider/tencent.ico` | `dde5822eb6a66a6f7a4e466ea1ca35341a5b0f2239d7a75898bacf22a275585a` |

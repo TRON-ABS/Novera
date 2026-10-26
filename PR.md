@@ -1,20 +1,16 @@
-# fix(hub): discover Hugging Face models directly and update repository counts
+# fix(docs): show all cloud provider icons on the repository homepage
 
-The Hub depended on Jan's remote GitHub JSON feed despite supporting direct Hugging Face downloads. Replace that feed with paginated public Hugging Face discovery while keeping all six pinned Novera presets. Prioritize recognized original publishers, retain hardware-fit ordering, and distinguish original model publishers from community GGUF converters.
+The 27 cloud provider logos existed in the application source but were missing from the repository homepage. Add a complete three-column gallery to both READMEs, using the provider names, bundled official icons and documentation links from the application catalog. Promote the gallery near the top, add header navigation and show the provider count alongside the existing language count.
 
-Discover text/multimodal GGUF repositories and MLX only on supported platforms. Cache pages for ten minutes, bound file-metadata concurrency to three, validate next-page URLs, deduplicate repositories and retain usable data on failure. HTTP 429 does not trigger automatic retries. Remove the unused Jan recommendation API and Vite catalog constants; invalidate only the regenerable old catalog cache. Installed models, credentials, conversations and profiles remain unchanged.
-
-Promote the dated Hugging Face counts in both READMEs and the dashboard: 3,187,159 total model repositories (about 3.19 million), 214,900 GGUF and 27,295 MLX, observed on 26 October 2026. These are upstream repository counts, including variants, not a claim that every repository works in Novera. All six presets remain documented.
+Keep the Hugging Face repository counts dated and distinguish them from Novera compatibility. Retain the development status and link to the detailed setup and brand-provenance guides. Reuse existing SVG/PNG assets; derive four documentation-only PNGs from the ICO originals without changing decoded RGBA pixels.
 
 ## Validation
 
-- Targeted Vitest service, pagination/cache, Hub merge/ranking/conversion, comparison and localization tests: **257 passed across 11 files**.
-- TypeScript app check without emission: passed.
-- Architecture checker: six areas, 13 extracted files, zero violations; seven architecture tests passed.
-- Locale checker: **70 catalogs with 1,516/1,516 keys**. UI controls reuse existing translations; no locale JSON changed.
-- Public API smoke test through the new discovery code: **44 repositories**, all with file sizes, a next-page cursor and 49 metadata requests. No account token or model weights used.
-- Documentation audit: 14 main Markdown files, 178 local links valid, all 980 locale JSONs and six pinned presets unchanged. No open overlapping PR; GitHub Actions disabled.
+- Both galleries checked against all 27 configured providers: no omitted or duplicate provider; all local image paths, dimensions and alternative text verified.
+- Four PNG derivatives decoded and compared with their ICO originals: identical RGBA dimensions and pixels.
+- Documentation audit: 14 main Markdown files and 182 valid local links; application sources, all 980 locale JSONs and six pinned model presets remain unchanged.
+- GitHub page rendering is checked separately after publication. No application tests or executable rebuild for this documentation-only change.
 
 ## Limits
 
-The complete upstream index is not downloaded. Name filtering applies to loaded pages; exact repository IDs/URLs retain direct lookup. Unknown architectures and access-restricted weights are not guaranteed to work. Mac/MLX behavior and error cases are mocked for this change; no native Mac validation or desktop executable rebuild. No binary release, telemetry activation or user-profile change. GitHub Actions remain disabled.
+The gallery describes source integrations, not live account certification or a new compiled release. Trademarks remain owned by their respective holders. GitHub Actions remain disabled; no application behavior, credentials, consent or model files change.

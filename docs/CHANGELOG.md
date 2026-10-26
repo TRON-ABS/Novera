@@ -2,6 +2,10 @@
 
 Les entrées ci-dessous décrivent des étapes datées. Elles ne remplacent pas [l’état courant des sources et du binaire](../TABLEAU_DE_BORD_NOVERA.md). Les journaux bruts, caches et exécutables restent locaux.
 
+## 26 octobre — les fournisseurs cloud dans la vitrine GitHub
+
+Les README français et anglais mettent en avant les 27 fournisseurs cloud avec leurs icônes et liens officiels, la découverte Hugging Face et les 70 langues. Ajout de liens directs depuis l’en-tête. Quatre dérivés PNG des ICO existants servent uniquement au rendu de la documentation. Aucun changement de l’application, des modèles, des traductions ou des consentements.
+
 ## 26 octobre — catalogue Hugging Face direct et chiffres actualisés
 
 Le Hub découvre directement les dépôts Hugging Face compatibles par lots, avec priorité aux éditeurs d’origine, pagination et cache ; il conserve les six présélections Novera et abandonne le flux JSON Jan sur GitHub. Modèles installés, conversations et profils inchangés. Chiffres mis en avant dans les README et le tableau de bord : **3 187 159 dépôts de modèles** au total, environ **3,19 millions**, dont **214 900 GGUF** et **27 295 MLX**, relevés le 26 octobre ; variantes et conversions incluses, sans garantie de compatibilité de tous ces dépôts.
