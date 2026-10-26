@@ -1,5 +1,9 @@
 # Novera — tableau de bord
 
+## Installation conseillée et bibliothèque Image/Vidéo — sources locales
+
+Le lot du 26 octobre ajoute l’installation confirmée du trio FLUX dans `Documents/Novera models` ou un dossier choisi, progression globale/per-file, pause/reprise et vérification SHA-256. Icône seule, sans audio ni notification système, fin conservée jusqu’au clic. Import automatique dans la section Image de la page llama.cpp, import manuel/édition/retrait des configurations et sélecteur de discussion par catégorie. Le prochain build Windows embarque le moteur C++ CUDA 13.4.3/Vulkan/CPU ; plus de chemin `.build` à choisir. **70 locales × 1 681 clés**, 98 tests web ciblés/TypeScript/architecture et six tests natifs isolés validés. La sonde CUDA fonctionne ; le nouveau parcours graphique complet reste à tester avec la compilation du mainteneur. Publication des sources et contrôle de la vitrine autorisés ; aucune compilation de Novera ni publication de binaire pour ce lot. [Détails et limites](docs/SUIVI_MOTEURS.md#installation-groupée-bibliothèque-et-moteur-embarqué--26-octobre-2026).
+
 État des sources au **26 octobre 2026**. Ce fichier est le point d’entrée ; les procédures, tâches et preuves détaillées sont dans les documents ci-dessous.
 
 

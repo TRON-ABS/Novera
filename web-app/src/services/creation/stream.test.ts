@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { invoke } from '@tauri-apps/api/core'
 import { creationStream } from './stream'
+import { useMediaLibrary } from '@/hooks/useMediaLibrary'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import type { UIMessage } from 'ai'
 
@@ -40,6 +41,96 @@ describe('media generation conversation stream', () => {
       sources: {},
       progress: {},
     })
+  })
+  it('uses the saved media configuration for this thread rather than another thread’s current settings', async () => {
+    useMediaLibrary.setState({
+      profiles: [
+        {
+          id: 'media-flux',
+          name: 'Saved FLUX',
+          task: 'image',
+          settings: {
+            ...creationDefaults,
+            imageEngine: 'sdcpp',
+            ggufImageModel: 'D:/saved-flux.gguf',
+            ggufTextEncoder: 'D:/saved-qwen.gguf',
+            ggufVae: 'D:/saved-vae.safetensors',
+          },
+        },
+      ],
+    })
+    useCreation
+      .getState()
+      .setSelection('saved-thread', 'image', {
+        provider: 'diffusers',
+        id: 'media-flux',
+      })
+    vi.mocked(invoke).mockImplementation(async (command) =>
+      command === 'creation_start'
+        ? 'saved'
+        : {
+            stage: 'done',
+            name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.png',
+          }
+    )
+    await read(
+      creationStream(
+        'image',
+        'a picture',
+        messages,
+        'saved-thread',
+        undefined,
+        vi.fn()
+      )
+    )
+    expect(invoke).toHaveBeenCalledWith(
+      'creation_start',
+      expect.objectContaining({
+        request: expect.objectContaining({
+          backend: 'sdcpp',
+          model: 'D:/saved-flux.gguf',
+          cpp_llm: 'D:/saved-qwen.gguf',
+        }),
+      })
+    )
+    useMediaLibrary.setState({ profiles: [] })
+  })
+  it('allows the bundled image engine without asking for an executable path', async () => {
+    useCreation.getState().setSettings({
+      imageEngine: 'sdcpp',
+      cppExecutable: '',
+      ggufImageModel: 'D:/flux.gguf',
+      ggufTextEncoder: 'D:/qwen.gguf',
+      ggufVae: 'D:/vae.safetensors',
+    })
+    vi.mocked(invoke).mockImplementation(async (command) =>
+      command === 'creation_start'
+        ? 'built-in'
+        : {
+            stage: 'done',
+            name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.png',
+          }
+    )
+    const chunks = await read(
+      creationStream(
+        'image',
+        'a picture',
+        messages,
+        'bundled',
+        undefined,
+        vi.fn()
+      )
+    )
+    expect(invoke).toHaveBeenCalledWith(
+      'creation_start',
+      expect.objectContaining({
+        request: expect.objectContaining({
+          backend: 'sdcpp',
+          cpp_executable: '',
+        }),
+      })
+    )
+    expect(chunks.some((chunk) => chunk.type === 'file')).toBe(true)
   })
   it('emits a file only after native save is complete and uses the selected media model', async () => {
     vi.mocked(invoke).mockImplementation(async (command) =>
@@ -414,4 +505,19 @@ describe('media generation conversation stream', () => {
       expect(JSON.parse(JSON.stringify(file))).toEqual(file)
     }
   )
+  it('explains a GGUF image selected for the native Safetensors FP4 backend before starting a process', async () => {
+    useCreation.getState().setSettings({
+      imageEngine: 'nvfp4-cuda',
+      device: 'auto',
+      ggufImageModel: 'D:/flux.gguf',
+      ggufTextEncoder: 'D:/qwen.gguf',
+      ggufVae: 'D:/vae.safetensors',
+    })
+    await expect(
+      read(
+        creationStream('image', 'scene', messages, 'native', undefined, vi.fn())
+      )
+    ).rejects.toThrow('chat:creation.nativeNote')
+    expect(invoke).not.toHaveBeenCalledWith('creation_start', expect.anything())
+  })
 })

@@ -124,7 +124,22 @@
     "totalTime": "Isikhathi esiphelele",
     "totalTimeHint": "Isikhathi esiphelele sihlanganisa ukulayisha, ukubhala ngekhodi kombhalo, ukukhiqiza, noma yiliphi ifu elilindile, ukulanda nokulondoloza. Isizukulwane sisodwa sikhonjiswa ngokwehlukana lapho injini ibika ngaso.",
     "recommendedSetup": "Isiphakamiso se-Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Qala ngemodeli yesithombe ku-GPU kanye nombhalo wekhodi we-Qwen3-4B ku-CPU ukuze ushiye i-VRAM eyengeziwe ukuze ikhiqize, kanye ne-FLUX.2 VAE esemthethweni. Inkinobho isetha isishumeki sibe yi-CPU, isizukulwane siye ku-Auto, izinyathelo ezi-4 kanye ne-CFG 1. I-Auto isebenzisa i-GPU etholakala enjinini ekhethiwe, noma i-CPU uma ingatholakali. Zikhiphele wena amafayela bese ukhetha imizila yawo yendawo. Ukufaneleka kanye nesivinini kuncike hardware yakho; le nhlanganisela yokulanda yona kanye ayikahlolwa isikhathi sokusebenza.",
+    "recommendedSetupNote": "Ukudala ku-GPU, Qwen3-4B ku-CPU, izinyathelo 4, CFG 1. Kuhlolwe ku-Windows/Vulkan; isivinini nokuhambisana kuncike kuzingxenyekazi.",
     "applyRecommendedPlacement": "Sebenzisa ukubekwa okuphakanyisiwe"
+  },
+  "creationInstall": {
+    "install": "Faka lokhu kulungiselela",
+    "confirm": "Landa lawa mafayela kule folda? Kusebenza amalayisensi abahlinzeki.",
+    "background": "Ungaqhubeka nokuxoxa nokudala izithombe noma amavidiyo ngesikhathi sokulanda. Landela inqubekela phambili ngesithonjana kubha enkulu.",
+    "space": "Ukulanda: {{total}} · Okukhululekile: {{free}}",
+    "ready": "Ukulungiselela sekulungile",
+    "use": "Sebenzisa lokhu kulungiselela",
+    "engine": "Injini eyakhelwe ngaphakathi: CUDA / Vulkan / CPU ngokuzenzakalela",
+    "note": "Ukudala ku-GPU, Qwen3-4B ku-CPU, izinyathelo 4, CFG 1. Kuhlolwe ku-Windows/Vulkan; isivinini nokuhambisana kuncike kuzingxenyekazi.",
+    "pause": "Misa okwesikhashana",
+    "resume": "Qhubeka",
+    "paused": "Kumiswe okwesikhashana",
+    "verifying": "Kuqinisekiswa amafayela",
+    "error": "Ukufaka kuhlulekile. Hlola inethiwekhi, indawo, izimvume namalayisensi amamodeli bese uqhubeka."
   }
 }

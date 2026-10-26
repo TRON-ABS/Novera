@@ -48,7 +48,7 @@
     "download:lib": "node ./scripts/download-lib.mjs",
     "download:bin": "node ./scripts/download-bin.mjs",
     "build:mlx-server": "make build-mlx-server",
-    "build:tauri:win32": "yarn download:bin && yarn tauri build",
+    "build:tauri:win32": "yarn download:bin && yarn prepare:image:win32 && yarn tauri build",
     "build:tauri:linux": "yarn download:bin && NO_STRIP=1 ./src-tauri/build-utils/shim-linuxdeploy.sh yarn tauri build && ./src-tauri/build-utils/buildAppImage.sh",
     "build:tauri:darwin": "yarn download:bin && yarn build:mlx-server && yarn tauri build --target universal-apple-darwin",
     "build:tauri": "yarn build:icon && yarn copy:assets:tauri && run-script-os",
@@ -63,7 +63,8 @@
     "prepare": "husky",
     "e2e": "yarn build:e2e:app && cd e2e && yarn install --immutable && yarn test",
     "build:e2e:app": "yarn build:icon && node ./scripts/stub-tauri-resources.mjs && yarn build:e2e:deps && cross-env IS_TAURI=true yarn build:web && cargo build --locked --manifest-path src-tauri/Cargo.toml --features e2e --bin Novera-Desktop",
-    "build:e2e:deps": "yarn install && yarn build:tauri:plugin:api && yarn build:core && yarn build:extensions"
+    "build:e2e:deps": "yarn install && yarn build:tauri:plugin:api && yarn build:core && yarn build:extensions",
+    "prepare:image:win32": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/distribution/stage-novera-image.ps1"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^2.7.0",

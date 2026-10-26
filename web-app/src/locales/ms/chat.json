@@ -124,7 +124,22 @@
     "totalTime": "Jumlah masa",
     "totalTimeHint": "Jumlah masa termasuk memuatkan, pengekodan teks, penjanaan, sebarang awan menunggu, memuat turun dan menyimpan. Penjanaan sahaja ditunjukkan secara berasingan apabila enjin melaporkannya.",
     "recommendedSetup": "Cadangan Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Mulakan dengan model imej pada GPU dan pengekodan teks Qwen3-4B pada CPU untuk meninggalkan lebih banyak VRAM untuk penjanaan, serta FLUX.2 VAE rasmi. Butang menetapkan pengekod kepada CPU, penjanaan kepada Auto, 4 langkah dan CFG 1. Auto menggunakan GPU yang tersedia untuk enjin yang dipilih, atau CPU jika tidak tersedia. Muat turun fail sendiri dan pilih laluan setempatnya. Kesesuaian dan kelajuan bergantung pada perkakasan anda; gabungan muat turun tepat ini belum lagi diuji masa jalan.",
+    "recommendedSetupNote": "Penjanaan pada GPU, Qwen3-4B pada CPU, 4 langkah, CFG 1. Diuji pada Windows/Vulkan; kelajuan dan keserasian bergantung pada perkakasan.",
     "applyRecommendedPlacement": "Gunakan penempatan yang dicadangkan"
+  },
+  "creationInstall": {
+    "install": "Pasang konfigurasi ini",
+    "confirm": "Muat turun fail ini ke folder ini? Lesen penyedia terpakai.",
+    "background": "Anda boleh terus berbual dan mencipta imej atau video semasa muat turun. Pantau kemajuan melalui ikon pada bar utama.",
+    "space": "Muat turun: {{total}} · Kosong: {{free}}",
+    "ready": "Konfigurasi sedia",
+    "use": "Gunakan konfigurasi ini",
+    "engine": "Enjin terbina dalam: CUDA / Vulkan / CPU automatik",
+    "note": "Penjanaan pada GPU, Qwen3-4B pada CPU, 4 langkah, CFG 1. Diuji pada Windows/Vulkan; kelajuan dan keserasian bergantung pada perkakasan.",
+    "pause": "Jeda",
+    "resume": "Sambung",
+    "paused": "Dijeda",
+    "verifying": "Mengesahkan fail",
+    "error": "Pemasangan gagal. Semak rangkaian, ruang kosong, hak akses dan lesen model, kemudian sambung."
   }
 }

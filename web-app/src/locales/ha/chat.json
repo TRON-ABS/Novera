@@ -124,7 +124,22 @@
     "totalTime": "Jimlar lokaci",
     "totalTimeHint": "Jimlar lokacin ya haɗa da lodawa, shigar da rubutu, tsarawa, kowane girgije mai jira, saukewa da adanawa. Generation kadai ana nunawa daban lokacin da injin ya ba da rahotonsa.",
     "recommendedSetup": "Shawarar Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Fara da samfurin hoto akan GPU da rubutun Qwen3-4B akan CPU don barin ƙarin VRAM don tsarawa, da FLUX.2 VAE na hukuma. Maɓallin yana saita mai rikodin zuwa CPU, tsara zuwa Auto, matakai 4 da CFG 1. Auto yana amfani da GPU da ke samuwa ga injin da aka zaɓa, ko CPU idan babu. Zazzage fayilolin da kanku kuma zaɓi hanyoyin gida. Dace da saurin ya dogara da kayan aikin ku; wannan ainihin haɗin zazzagewar har yanzu ba a gwada-lokacin aiki ba tukuna.",
+    "recommendedSetupNote": "Ƙirƙira a GPU, Qwen3-4B a CPU, matakai 4, CFG 1. An gwada a Windows/Vulkan; sauri da dacewa sun dogara ga na’ura.",
     "applyRecommendedPlacement": "Aiwatar da shawarar wuri"
+  },
+  "creationInstall": {
+    "install": "Shigar da wannan saiti",
+    "confirm": "A sauke waɗannan fayiloli cikin wannan babban fayil? Lasisin masu samarwa suna aiki.",
+    "background": "Za ka iya ci gaba da hira da ƙirƙirar hotuna ko bidiyo yayin saukewa. Bi ci gaba ta alamar babban sandar.",
+    "space": "Saukewa: {{total}} · Sarari: {{free}}",
+    "ready": "Saiti ya shirya",
+    "use": "Yi amfani da wannan saiti",
+    "engine": "Injin da ke ciki: CUDA / Vulkan / CPU ta atomatik",
+    "note": "Ƙirƙira a GPU, Qwen3-4B a CPU, matakai 4, CFG 1. An gwada a Windows/Vulkan; sauri da dacewa sun dogara ga na’ura.",
+    "pause": "Dakata",
+    "resume": "Ci gaba",
+    "paused": "An dakata",
+    "verifying": "Ana tantance fayiloli",
+    "error": "Shigarwa ta gaza. Duba hanyar sadarwa, sarari, izinin shiga da lasisin samfurori sannan a ci gaba."
   }
 }

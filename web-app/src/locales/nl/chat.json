@@ -124,7 +124,22 @@
     "totalTime": "Totale tijd",
     "totalTimeHint": "De totale tijd omvat het laden, tekstcodering, genereren, wachten in de cloud, downloaden en opslaan. Alleen de generatie wordt afzonderlijk weergegeven wanneer de engine dit meldt.",
     "recommendedSetup": "Novera suggestie: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Begin met het afbeeldingsmodel op GPU en Qwen3-4B-tekstcodering op de CPU om meer VRAM over te laten voor generatie, plus de officiële FLUX.2 VAE. Met de knop wordt de encoder ingesteld op CPU, generatie op Auto, 4 stappen en CFG 1. Auto gebruikt de GPU die beschikbaar is voor de gekozen engine, of CPU als deze niet beschikbaar is. Download de bestanden zelf en selecteer hun lokale paden. Geschiktheid en snelheid zijn afhankelijk van uw hardware; deze exacte downloadcombinatie is nog niet runtime-getest.",
+    "recommendedSetupNote": "Genereren op GPU, Qwen3-4B op CPU, 4 stappen, CFG 1. Getest op Windows met Vulkan; snelheid en compatibiliteit hangen af van de hardware.",
     "applyRecommendedPlacement": "Pas voorgestelde plaatsing toe"
+  },
+  "creationInstall": {
+    "install": "Deze configuratie installeren",
+    "confirm": "Deze bestanden naar deze map downloaden? De licenties van de aanbieders gelden.",
+    "background": "Je kunt tijdens downloads blijven chatten en afbeeldingen of video’s maken. Volg de voortgang via het pictogram in de hoofdbalk.",
+    "space": "Download: {{total}} · Vrij: {{free}}",
+    "ready": "Configuratie gereed",
+    "use": "Deze configuratie gebruiken",
+    "engine": "Ingebouwde engine: automatisch CUDA / Vulkan / CPU",
+    "note": "Genereren op GPU, Qwen3-4B op CPU, 4 stappen, CFG 1. Getest op Windows met Vulkan; snelheid en compatibiliteit hangen af van de hardware.",
+    "pause": "Pauzeren",
+    "resume": "Hervatten",
+    "paused": "Gepauzeerd",
+    "verifying": "Bestanden controleren",
+    "error": "Installatie mislukt. Controleer netwerk, vrije ruimte, toegangsrechten en modellicenties en hervat."
   }
 }

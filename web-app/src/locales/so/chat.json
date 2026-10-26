@@ -124,7 +124,22 @@
     "totalTime": "Wadarta wakhtiga",
     "totalTimeHint": "Wadarta wakhtiga waxa ka mid ah rarista, codaynta qoraalka, jiilka, daruur kasta oo sugaysa, soo dejinta iyo kaydinta. Jiilka oo keliya ayaa si gaar ah loo muujiyaa marka matoorku soo sheego.",
     "recommendedSetup": "Soo jeedin Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Ka bilow qaabka sawirka GPU iyo qoraalka Qwen3-4B ee ku dhejinaya CPU si aad uga tagto VRAM badan jiilka, iyo FLUX.2 VAE ee rasmiga ah. Badhanku wuxuu dejiyaa cod-bixiyaha CPU, jiil ilaa Auto, 4 tillaabo iyo CFG 1. Auto waxay isticmaashaa GPU-ga uu heli karo matoorka la doortay, ama CPU haddii aan la heli karin. Laftaadu soo deji faylalka oo dooro dariiqyada deegaanka. Ku habboonaanta iyo xawaaraha waxay ku xiran tahay qalabkaaga; isku darka soo dejinta saxda ah weli lama tijaabin wakhtiga runtu.",
+    "recommendedSetupNote": "Abuurid GPU, Qwen3-4B CPU, 4 tallaabo, CFG 1. Lagu tijaabiyey Windows/Vulkan; xawaare iyo iswaafajin waxay ku xiran yihiin qalabka.",
     "applyRecommendedPlacement": "Codso meelaynta la soo jeediyay"
+  },
+  "creationInstall": {
+    "install": "Rakib habayntan",
+    "confirm": "Ku soo deji faylashan galkan? Ruqsadaha bixiyeyaasha ayaa khuseeya.",
+    "background": "Waad sii sheekaysan kartaa oo abuuri kartaa sawirro ama muuqaallo inta la soo dejinayo. Horumarka kala soco astaanta barta weyn.",
+    "space": "Soo dejin: {{total}} · Bannaan: {{free}}",
+    "ready": "Habayntu waa diyaar",
+    "use": "Adeegso habayntan",
+    "engine": "Matoor ku dhex jira: CUDA / Vulkan / CPU si toos ah",
+    "note": "Abuurid GPU, Qwen3-4B CPU, 4 tallaabo, CFG 1. Lagu tijaabiyey Windows/Vulkan; xawaare iyo iswaafajin waxay ku xiran yihiin qalabka.",
+    "pause": "Haki",
+    "resume": "Sii wad",
+    "paused": "Waa la hakiyey",
+    "verifying": "Hubinta faylasha",
+    "error": "Rakibiddu way fashilantay. Hubi shabakadda, booska bannaan, oggolaanshaha iyo ruqsadaha moodellada, dabadeed sii wad."
   }
 }

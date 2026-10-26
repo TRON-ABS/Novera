@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "platform": "windows-x86_64",
+  "cudaToolkit": "13.4.3",
+  "nvcc": "13.4.92",
+  "cudaMinimumSM": 75,
+  "cudaArchitectures": "75-virtual;80-virtual;86-real;89-real;90-virtual;100-real;103-real;120a-real;121a-real",
+  "source": "https://github.com/leejet/stable-diffusion.cpp.git",
+  "revision": "e41fbcf455e0fbb45e08bd535b00d6cba865e921",
+  "ggmlRevision": "a5915eb0e47adef21c3f25b889a008925ea838c2",
+  "vulkanArchive": "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-1015-e41fbcf/sd-master-e41fbcf-bin-win-vulkan-x64.zip",
+  "vulkanSHA256": "259ceeb62f1069190d24c85ea1c4549d2d61deb0ef712510dbe98d79ce93a38b",
+  "cpuArchive": "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-1015-e41fbcf/sd-master-e41fbcf-bin-win-cpu-x64.zip",
+  "cpuSHA256": "bfc02f16df7744296ecc7720503a2b633575490dd7d8b448aee035c1fc836bec"
+}

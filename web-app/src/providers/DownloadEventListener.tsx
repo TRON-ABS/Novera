@@ -1,3 +1,4 @@
+import { useCreationInstallSync } from '@/hooks/useCreationInstall'
 import { useDownloadEvents } from '@/hooks/useDownloadEvents'
 
 /**
@@ -6,5 +7,6 @@ import { useDownloadEvents } from '@/hooks/useDownloadEvents'
  */
 export function DownloadEventListener() {
   useDownloadEvents()
+  useCreationInstallSync()
   return null
 }

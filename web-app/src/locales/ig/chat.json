@@ -124,7 +124,22 @@
     "totalTime": "ngụkọta oge",
     "totalTimeHint": "Ngụkọta oge gụnyere ntinye, ntinye ederede, ọgbọ, igwe ojii ọ bụla na-echere, nbudata na ịchekwa. Ọgbọ naanị ka egosiri iche mgbe injin na-akọ ya.",
     "recommendedSetup": "Ntụnye Nova: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Malite na ihe nlere onyonyo na GPU na ederede Qwen3-4B na CPU iji hapụ ọtụtụ VRAM maka ọgbọ, gbakwunyere FLUX.2 VAE gọọmentị. Bọtịnụ ahụ na-edobe koodu na CPU, ọgbọ gaa na akpaaka, nzọụkwụ 4 yana CFG 1. Nchekwa onwe na-eji GPU dị maka injin ahọpụtara, ma ọ bụ CPU ma ọ bụrụ na adịghị. Budata faịlụ ndị ahụ n'onwe gị wee họrọ ụzọ mpaghara ha. Kwesịrị ekwesị na ọsọ na-adabere na ngwaike gị; Nchikota nbudata a ka anwalebeghị oge ojiri.",
+    "recommendedSetupNote": "Ime na GPU, Qwen3-4B na CPU, nzọụkwụ 4, CFG 1. A nwalere na Windows/Vulkan; ọsọ na ndakọrịta dabere na ngwaike.",
     "applyRecommendedPlacement": "Tinye ntinye atụ aro"
+  },
+  "creationInstall": {
+    "install": "Wụnye nhazi a",
+    "confirm": "Budata faịlụ ndị a n’ime nchekwa a? Ikikere ndị na-enye ya metụtara.",
+    "background": "Ị nwere ike ịga n’ihu na mkparịta ụka na imepụta onyonyo ma ọ bụ vidiyo mgbe a na-ebudata. Soro ọganihu site na akara dị n’ogwe isi.",
+    "space": "Nbudata: {{total}} · Oghere: {{free}}",
+    "ready": "Nhazi adịla njikere",
+    "use": "Jiri nhazi a",
+    "engine": "Injin etinyere: CUDA / Vulkan / CPU na-akpaghị aka",
+    "note": "Ime na GPU, Qwen3-4B na CPU, nzọụkwụ 4, CFG 1. A nwalere na Windows/Vulkan; ọsọ na ndakọrịta dabere na ngwaike.",
+    "pause": "Kwụsịtụ",
+    "resume": "Gaa n’ihu",
+    "paused": "Akwụsịtụrụ",
+    "verifying": "Na-enyocha faịlụ",
+    "error": "Nwụnye dara. Lelee netwọkụ, oghere, ikike ịbanye na ikikere ụdị, wee gaa n’ihu."
   }
 }

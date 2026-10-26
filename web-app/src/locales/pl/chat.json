@@ -124,7 +124,22 @@
     "totalTime": "Czas całkowity",
     "totalTimeHint": "Całkowity czas obejmuje ładowanie, kodowanie tekstu, generowanie, oczekiwanie w chmurze, pobieranie i zapisywanie. Sama generacja jest pokazywana osobno, gdy silnik ją zgłasza.",
     "recommendedSetup": "Sugestia Novery: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Zacznij od modelu obrazu na GPU i kodowania tekstu Qwen3-4B na CPU, aby pozostawić więcej pamięci VRAM do generowania oraz oficjalny VAE FLUX.2. Przycisk ustawia koder na CPU, generację na Auto, 4 kroki i CFG 1. Auto używa procesora graficznego dostępnego dla wybranego silnika lub procesora, jeśli jest niedostępny. Pobierz pliki samodzielnie i wybierz ich ścieżki lokalne. Przydatność i szybkość zależą od sprzętu; ta dokładna kombinacja pobierania nie została jeszcze przetestowana w czasie wykonywania.",
+    "recommendedSetupNote": "Generowanie na GPU, Qwen3-4B na CPU, 4 kroki, CFG 1. Testowano w Windows z Vulkan; szybkość i zgodność zależą od sprzętu.",
     "applyRecommendedPlacement": "Zastosuj sugerowane rozmieszczenie"
+  },
+  "creationInstall": {
+    "install": "Zainstaluj tę konfigurację",
+    "confirm": "Pobrać te pliki do tego folderu? Obowiązują licencje dostawców.",
+    "background": "Podczas pobierania możesz nadal rozmawiać i tworzyć obrazy lub filmy. Postęp wskazuje ikona na głównym pasku.",
+    "space": "Pobieranie: {{total}} · Wolne: {{free}}",
+    "ready": "Konfiguracja gotowa",
+    "use": "Użyj tej konfiguracji",
+    "engine": "Wbudowany silnik: automatycznie CUDA / Vulkan / CPU",
+    "note": "Generowanie na GPU, Qwen3-4B na CPU, 4 kroki, CFG 1. Testowano w Windows z Vulkan; szybkość i zgodność zależą od sprzętu.",
+    "pause": "Wstrzymaj",
+    "resume": "Wznów",
+    "paused": "Wstrzymano",
+    "verifying": "Sprawdzanie plików",
+    "error": "Instalacja nie powiodła się. Sprawdź sieć, wolne miejsce, uprawnienia i licencje modeli, a następnie wznów."
   }
 }

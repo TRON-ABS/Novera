@@ -1,5 +1,14 @@
 # Novera — feuille de route
 
+## Installation média et moteur embarqué — 26 octobre 2026
+
+- [x] Sources : installation FLUX explicitement confirmée, choix de dossier système/personnalisé, reprise, vérification, progression persistante sans audio/notification système.
+- [x] Sources : bibliothèque Image/Vidéo dans la page llama.cpp, import automatique et manuel, édition, retrait avec conservation des fichiers, sélection par discussion.
+- [x] Préparation Windows : moteur CUDA 13.4.3 et replis Vulkan/CPU, empaquetage automatique et sonde CUDA réelle.
+- [ ] Tester le parcours complet dans la prochaine compilation du mainteneur, sur petits fichiers puis le trio réel avec droits/licences nécessaires.
+- [ ] Valider une image avec le nouveau C++ CUDA embarqué ; conserver les essais Vulkan et NVFP4 PyTorch séparés.
+- [ ] Essayer le repli sur de vraies cartes Maxwell/Pascal/Volta et relire les nouvelles traductions avec des locuteurs natifs.
+
 Mise à jour du **26 octobre 2026**. Cette liste centralise les tâches ; elle n’annonce aucune date de sortie. L’état des sources et du dernier binaire est dans [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md).
 
 

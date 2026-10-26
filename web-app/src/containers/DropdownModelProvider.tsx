@@ -24,6 +24,7 @@ import { predefinedProviders } from '@/constants/providers'
 import { providerHasRemoteApiKeys } from '@/lib/provider-api-keys'
 import { useServiceHub } from '@/hooks/useServiceHub'
 import { getLastUsedModel } from '@/utils/getModelToStart'
+import { useMediaLibrary, selectMediaProfile } from '@/hooks/useMediaLibrary'
 import { useCreation } from '@/hooks/useCreation'
 import { useAgentMode } from '@/hooks/useAgentMode'
 import {
@@ -93,6 +94,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   const serviceHub = useServiceHub()
 
   const creation = useCreation()
+  const mediaProfiles = useMediaLibrary((s) => s.profiles)
   const currentThreadId = useThreads((state) => state.currentThreadId)
   const scope = mediaScope ?? currentThreadId ?? 'new'
   const agent = useAgentMode((state) => state.agentThreads[scope] === true)
@@ -105,7 +107,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
       ? creation.selections[scope]?.[mode]
       : undefined
   const allProviders = useMemo(() => {
-    const local: Model[] = (['image', 'video'] as const).flatMap((task) => {
+    const fallback: Model[] = (['image', 'video'] as const).flatMap((task) => {
       const path =
         task === 'image'
           ? ['sdcpp', 'nvfp4-cuda'].includes(
@@ -114,7 +116,15 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
             ? creation.settings.ggufImageModel
             : creation.settings.imageModel
           : creation.settings.videoModel
-      return path
+      return path &&
+        !mediaProfiles.some(
+          (p) =>
+            p.task === task &&
+            (task === 'video'
+              ? p.settings.videoModel === path
+              : p.settings.ggufImageModel === path ||
+                p.settings.imageModel === path)
+        )
         ? [
             {
               id: `diffusers-${task}`,
@@ -130,6 +140,19 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
           ]
         : []
     })
+    const local: Model[] = [
+      ...mediaProfiles.map(
+        (p) =>
+          ({
+            id: p.id,
+            displayName: p.name,
+            output_modalities: [p.task],
+            input_modalities: ['text'],
+            capabilities: [`${p.task}-generation`],
+          }) as Model
+      ),
+      ...fallback,
+    ]
     return [
       ...providers,
       ...(local.length
@@ -145,6 +168,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
     ]
   }, [
     providers,
+    mediaProfiles,
     creation.settings.imageModel,
     creation.settings.videoModel,
     creation.settings.imageEngine,
@@ -508,6 +532,13 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
           ? 'video'
           : undefined
       if (task && mediaAllowed) {
+        const profile = useMediaLibrary
+          .getState()
+          .profiles.find(
+            (p) =>
+              providerId === 'diffusers' && p.id === searchableModel.model.id
+          )
+        if (profile) selectMediaProfile(profile, scope)
         creation.setSelection(scope, task, {
           provider: providerId,
           id: searchableModel.model.id,

@@ -124,7 +124,22 @@
     "totalTime": "Ntango mobimba",
     "totalTimeHint": "Tango mobimba esangisi chargement, encodage ya texte, génération, cloud nionso oyo ezali kozela, téléchargement pe kobomba. Génération yango moko elakisami separatement tango moteur e rapporter yango.",
     "recommendedSetup": "Likanisi ya Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Bandá na modèle ya image na GPU mpe encodage ya texte Qwen3-4B na CPU mpo na kotika VRAM mingi mpo na génération, bakisa FLUX.2 VAE officiel. Bouton etie encodeur na CPU, génération na Auto, 4 étapes na CFG 1. Auto esalela GPU oyo ezali na moteur oyo oponi, to CPU soki ezali te. Télécharger yo moko ba fichiers mpe pona ba voies locales na yango. Bobongi mpe mbangu etali matériel na yo; combinaison oyo ya téléchargement ya sikisiki e testé nanu te.",
+    "recommendedSetupNote": "Kosala na GPU, Qwen3-4B na CPU, matambe 4, CFG 1. Emekami na Windows/Vulkan; mbangu mpe boyokani etaleli matériel.",
     "applyRecommendedPlacement": "Salelá esika oyo epesami likanisi"
+  },
+  "creationInstall": {
+    "install": "Tyá ebongiseli oyo",
+    "confirm": "Kokitisa bafichiers oyo na dosye oyo? Mibeko ya ndingisa ya bapesi esalelami.",
+    "background": "Okoki kokoba kosolola mpe kosala bililingi to bavideo ntango kokitisa ezali kosalama. Landá bokende liboso na elembo ya barre ya monene.",
+    "space": "Kokitisa: {{total}} · Esika: {{free}}",
+    "ready": "Ebongiseli ebongi",
+    "use": "Salelá ebongiseli oyo",
+    "engine": "Moteur ya kati: CUDA / Vulkan / CPU na ndenge ya yango moko",
+    "note": "Kosala na GPU, Qwen3-4B na CPU, matambe 4, CFG 1. Emekami na Windows/Vulkan; mbangu mpe boyokani etaleli matériel.",
+    "pause": "Pemisa",
+    "resume": "Koba",
+    "paused": "Epemisami",
+    "verifying": "Kotala soki bafichiers ezali malamu",
+    "error": "Installation elongi te. Talá réseau, esika, ndingisa ya kokɔta mpe licences ya modèles, mpe kobá."
   }
 }

@@ -3,6 +3,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import React from 'react'
+import { mediaModels } from '@/constants/mediaProviders'
 
 // -----------------------------------------------------------------------------
 // Hoisted shared state + mocks
@@ -663,6 +664,8 @@ describe('ProviderDetail route', () => {
     })
 
     it('refresh shows "no new models" toast when all models already exist', async () => {
+      // Curated image/video presets are part of the existing catalog too.
+      h.openaiProvider.models = [...h.openaiProvider.models, ...mediaModels('openai')]
       h.openaiProvider.models[0].displayName = 'My model'
       h.openaiProvider.models[0].settings = { temperature: { controller_props: { value: 0.4 } } }
       h.providersSvc.fetch = vi.fn(() => vi.fn().mockResolvedValue(new Response(JSON.stringify({ data: [{ id: 'gpt-4' }] }))))
@@ -679,7 +682,7 @@ describe('ProviderDetail route', () => {
         )
       })
       expect(h.updateProvider).toHaveBeenCalledWith('openai', expect.objectContaining({
-        models: [expect.objectContaining({ displayName: 'My model', settings: { temperature: { controller_props: { value: 0.4 } } } })],
+        models: expect.arrayContaining([expect.objectContaining({ displayName: 'My model', settings: { temperature: { controller_props: { value: 0.4 } } } })]),
       }))
     })
 

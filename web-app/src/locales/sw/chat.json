@@ -124,7 +124,22 @@
     "totalTime": "Jumla ya muda",
     "totalTimeHint": "Jumla ya muda ni pamoja na kupakia, kusimba maandishi, kutengeneza, kusubiri kwa wingu, kupakua na kuhifadhi. Kizazi pekee huonyeshwa tofauti wakati injini inaripoti.",
     "recommendedSetup": "Pendekezo la Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Anza na muundo wa picha kwenye GPU na usimbaji wa maandishi wa Qwen3-4B kwenye CPU ili kuacha VRAM zaidi kwa ajili ya uzalishaji, pamoja na FLUX.2 VAE rasmi. Kitufe huweka kisimbaji kuwa CPU, kizazi hadi Kiotomatiki, hatua 4 na CFG 1. Kiotomatiki hutumia GPU inayopatikana kwa injini iliyochaguliwa, au CPU ikiwa haipatikani. Pakua faili mwenyewe na uchague njia zao za karibu. Kufaa na kasi hutegemea vifaa vyako; mchanganyiko huu wa upakuaji bado haujajaribiwa wakati wa utekelezaji.",
+    "recommendedSetupNote": "Uundaji kwenye GPU, Qwen3-4B kwenye CPU, hatua 4, CFG 1. Imejaribiwa Windows/Vulkan; kasi na uoanifu hutegemea vifaa.",
     "applyRecommendedPlacement": "Tekeleza uwekaji uliopendekezwa"
+  },
+  "creationInstall": {
+    "install": "Sakinisha usanidi huu",
+    "confirm": "Pakua faili hizi kwenye folda hii? Leseni za watoa huduma zinatumika.",
+    "background": "Unaweza kuendelea kuzungumza na kuunda picha au video wakati wa kupakua. Fuatilia maendeleo kupitia ikoni ya upau mkuu.",
+    "space": "Upakuaji: {{total}} · Nafasi: {{free}}",
+    "ready": "Usanidi uko tayari",
+    "use": "Tumia usanidi huu",
+    "engine": "Injini iliyojumuishwa: CUDA / Vulkan / CPU kiotomatiki",
+    "note": "Uundaji kwenye GPU, Qwen3-4B kwenye CPU, hatua 4, CFG 1. Imejaribiwa Windows/Vulkan; kasi na uoanifu hutegemea vifaa.",
+    "pause": "Sitisha",
+    "resume": "Endelea",
+    "paused": "Imesitishwa",
+    "verifying": "Inathibitisha faili",
+    "error": "Usakinishaji umeshindwa. Kagua mtandao, nafasi, ruhusa na leseni za modeli, kisha endelea."
   }
 }

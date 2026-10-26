@@ -124,7 +124,22 @@
     "totalTime": "Total waktos",
     "totalTimeHint": "Total waktu ngawengku loading, encoding téks, generasi, sagala awan ngantosan, ngundeur tur nyimpen. Generasi nyalira ditampilkeun nyalira nalika mesin ngalaporkeun éta.",
     "recommendedSetup": "saran Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Mimitian ku model gambar on GPU na Qwen3-4B téks encoding on CPU pikeun ninggalkeun leuwih VRAM pikeun generasi, tambah resmi FLUX.2 VAE. Tombol susunan encoder ka CPU, generasi ka Otomatis, 4 léngkah jeung CFG 1. Otomatis ngagunakeun GPU sadia pikeun mesin dipilih, atawa CPU lamun sadia. Unduh file sorangan sareng pilih jalur lokalna. Cocog sareng laju gumantung kana hardware anjeun; kombinasi download pasti ieu teu acan runtime-dites.",
+    "recommendedSetupNote": "Nyieun dina GPU, Qwen3-4B dina CPU, 4 léngkah, CFG 1. Diuji dina Windows/Vulkan; laju sareng kasaluyuan gumantung kana alat.",
     "applyRecommendedPlacement": "Larapkeun panempatan anu disarankeun"
+  },
+  "creationInstall": {
+    "install": "Pasang konfigurasi ieu",
+    "confirm": "Unduh berkas ieu kana polder ieu? Lisénsi panyadia lumaku.",
+    "background": "Anjeun tiasa teras ngobrol sareng ngadamel gambar atanapi vidéo nalika ngunduh. Tingali kamajuan dina ikon bar utama.",
+    "space": "Unduhan: {{total}} · Kosong: {{free}}",
+    "ready": "Konfigurasi siap",
+    "use": "Paké konfigurasi ieu",
+    "engine": "Mesin bawaan: CUDA / Vulkan / CPU otomatis",
+    "note": "Nyieun dina GPU, Qwen3-4B dina CPU, 4 léngkah, CFG 1. Diuji dina Windows/Vulkan; laju sareng kasaluyuan gumantung kana alat.",
+    "pause": "Reureuh",
+    "resume": "Teraskeun",
+    "paused": "Direureuhkeun",
+    "verifying": "Mariksa berkas",
+    "error": "Pamasangan gagal. Pariksa jaringan, rohangan kosong, idin aksés sareng lisénsi modél, teras teraskeun."
   }
 }

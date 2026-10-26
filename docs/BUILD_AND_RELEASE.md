@@ -1,5 +1,11 @@
 # Novera — construction et distribution
 
+## Moteur image embarqué Windows — 26 octobre 2026
+
+`Prepare-NoveraImageEngine` est appelé avant la résolution des ressources Tauri par le lanceur Windows. `yarn build:tauri:win32` appelle aussi `yarn prepare:image:win32`. Pour une commande Tauri directe, exécuter cette préparation au préalable. Le script réutilise `.build/novera-image-cuda134/runtime` après vérification de son manifeste SHA-256 et de la révision épinglée, ou lance la préparation reproductible décrite dans [le moteur image](../media-server/image-launcher/README.md). Un runtime local contrôlé peut être fourni au processus de compilation avec `NOVERA_IMAGE_RUNTIME`.
+
+Les exécutables, DLL CUDA/Vulkan/CPU et licences sont copiés sous `src-tauri/resources/image-engine` puis dans le desktop, NSIS/MSI ou portable avec la même arborescence. Ce répertoire est ignoré par Git ; les modèles et configurations utilisateur n’en font pas partie. Le runtime CUDA C++ est privé et distinct de celui de PyTorch. Aucune compilation de l’application, signature ni publication de binaire n’a été exécutée pour ce lot.
+
 Procédures des sources au **26 octobre 2026**. Les commandes de compilation, installation et signature ci-dessous sont à exécuter dans le cadre d’une demande correspondante ; la consolidation de documentation ne les exécute pas. [État actuel](../TABLEAU_DE_BORD_NOVERA.md), [tâches de validation](../ROADMAP.md), [règles de publication](../OFFICIAL_RELEASES.md).
 
 [Desktop](#desktop) · [Portable](#portable) · [Android](#android) · [CLI](#cli) · [Mises à jour](#updates) · [Collecte facultative](#telemetry) · [Nettoyage](#cleanup)

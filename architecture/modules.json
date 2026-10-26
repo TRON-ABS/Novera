@@ -52,7 +52,8 @@
         "web-app/src/lib/model-factory.ts",
         "media-server",
         "src-tauri/src/core/creation.rs",
-        "web-app/src/services/creation"
+        "web-app/src/services/creation",
+        "src-tauri/src/core/creation_bundle.rs"
       ],
       "strictRoots": [
         "web-app/src/modules/engines"

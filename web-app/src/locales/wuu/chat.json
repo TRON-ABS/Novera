@@ -124,7 +124,22 @@
     "totalTime": "总时间",
     "totalTimeHint": "总时间包括加载、文本编码、生成、任意云等待、下载和保存。当引擎报告时,单独显示生成。",
     "recommendedSetup": "Novera建议:FLUX.2 Klein 4B",
-    "recommendedSetupNote": "从GPU上的图像模型和CPU上的Qwen3-4B文本编码开始,以留下更多的VRAM用于生成,加上官方的FLUX.2 VAE。该按钮将编码器设置为 CPU,生成设置为自动,4 个步骤和 CFG 1。自动使用可供所选引擎使用的 GPU,如果不可用则使用 CPU。自行下载文件并选择其本地路径。适用性和速度取决于您的硬件;这个确切的下载组合尚未经过运行时测试。",
+    "recommendedSetupNote": "GPU 做图，CPU 跑 Qwen3-4B，4 步，CFG 1。勒 Windows/Vulkan 测试过；速度搭兼容情况看硬件。",
     "applyRecommendedPlacement": "应用建议的放置位置"
+  },
+  "creationInstall": {
+    "install": "安装搿套设置",
+    "confirm": "要把搿些文件下载到搿只文件夹伐？要遵守提供方个许可证。",
+    "background": "下载个辰光还好继续聊天、做图片或者视频。主栏图标浪好看下载进度。",
+    "space": "下载：{{total}} · 空余：{{free}}",
+    "ready": "设置准备好哉",
+    "use": "用搿套设置",
+    "engine": "自带引擎：自动选 CUDA / Vulkan / CPU",
+    "note": "GPU 做图，CPU 跑 Qwen3-4B，4 步，CFG 1。勒 Windows/Vulkan 测试过；速度搭兼容情况看硬件。",
+    "pause": "暂停",
+    "resume": "继续",
+    "paused": "暂停哉",
+    "verifying": "正勒检查文件",
+    "error": "安装呒没成功。请检查网络、空余空间、访问权限搭模型许可证再继续。"
   }
 }

@@ -124,7 +124,22 @@
     "totalTime": "總時間",
     "totalTimeHint": "總時間包括載入、文字編碼、生成、任何雲端等待、下載同儲存。當引擎報告嗰陣,單獨顯示一代。",
     "recommendedSetup": "諾維拉建議： FLUX .2克萊恩4B",
-    "recommendedSetupNote": "由 GPU 上嘅圖像模型同 CPU 上嘅 Qwen3-4B 文字編碼開始,留低更多 VRAM 供生成,加上官方嘅 FLUX.2 VAE 。個掣會將編碼器設定為 CPU ,將生成設定為自動,4個步驟同埋 CFG 1。自動會用所選引擎可用嘅 GPU ,如果唔可用,就會用 CPU 。你自己下載啲檔案,然後揀佢哋嘅本地路徑。適合性同速度取決於你嘅硬件;呢個確切嘅下載組合仲未經過執行時測試。",
+    "recommendedSetupNote": "GPU 生成圖片，CPU 跑 Qwen3-4B，4 步，CFG 1。喺 Windows/Vulkan 測試過；速度同相容性視乎硬件。",
     "applyRecommendedPlacement": "應用建議嘅放置位置"
+  },
+  "creationInstall": {
+    "install": "安裝呢個設定",
+    "confirm": "將呢啲檔案下載到呢個資料夾？須遵守供應商嘅授權條款。",
+    "background": "下載期間可以繼續傾偈、整圖片或者影片。喺主列圖示睇下載進度。",
+    "space": "下載：{{total}} · 可用：{{free}}",
+    "ready": "設定準備好",
+    "use": "用呢個設定",
+    "engine": "內置引擎：自動揀 CUDA / Vulkan / CPU",
+    "note": "GPU 生成圖片，CPU 跑 Qwen3-4B，4 步，CFG 1。喺 Windows/Vulkan 測試過；速度同相容性視乎硬件。",
+    "pause": "暫停",
+    "resume": "繼續",
+    "paused": "已暫停",
+    "verifying": "檢查緊檔案",
+    "error": "安裝失敗。請檢查網絡、可用空間、存取權限同模型授權，再繼續。"
   }
 }

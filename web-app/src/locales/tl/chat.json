@@ -124,7 +124,22 @@
     "totalTime": "Kabuuang oras",
     "totalTimeHint": "Kasama sa kabuuang oras ang paglo-load, pag-encode ng teksto, pagbuo, anumang paghihintay sa ulap, pag-download at pag-save. Ang pagbuo lamang ay ipinapakita nang hiwalay kapag iniulat ito ng makina.",
     "recommendedSetup": "Mungkahi ng Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Magsimula sa modelo ng imahe sa GPU at Qwen3-4B text encoding sa CPU upang mag-iwan ng higit pang VRAM para sa henerasyon, kasama ang opisyal na FLUX.2 VAE. Itinatakda ng button ang encoder sa CPU, generation sa Auto, 4 na hakbang at CFG 1. Ginagamit ng Auto ang GPU na available sa napiling engine, o CPU kung hindi available. Mag-download ng mga file at piliin ang kanilang mga lokal na landas. Ang pagiging angkop at bilis ay nakasalalay sa iyong hardware; ang eksaktong kumbinasyon ng pag-download na ito ay hindi pa nasusubok ng runtime.",
+    "recommendedSetupNote": "Paglikha sa GPU, Qwen3-4B sa CPU, 4 na hakbang, CFG 1. Nasubok sa Windows/Vulkan; bilis at compatibility ay depende sa hardware.",
     "applyRecommendedPlacement": "Ilapat ang iminungkahing placement"
+  },
+  "creationInstall": {
+    "install": "I-install ang configuration na ito",
+    "confirm": "I-download ang mga file na ito sa folder na ito? Nalalapat ang mga lisensya ng provider.",
+    "background": "Maaari kang magpatuloy sa pag-chat at paggawa ng larawan o video habang nagda-download. Sundan ang progreso sa icon sa pangunahing bar.",
+    "space": "Download: {{total}} · Bakante: {{free}}",
+    "ready": "Handa na ang configuration",
+    "use": "Gamitin ang configuration na ito",
+    "engine": "Built-in na engine: awtomatikong CUDA / Vulkan / CPU",
+    "note": "Paglikha sa GPU, Qwen3-4B sa CPU, 4 na hakbang, CFG 1. Nasubok sa Windows/Vulkan; bilis at compatibility ay depende sa hardware.",
+    "pause": "I-pause",
+    "resume": "Ituloy",
+    "paused": "Naka-pause",
+    "verifying": "Sinusuri ang mga file",
+    "error": "Nabigo ang pag-install. Suriin ang network, bakanteng espasyo, pahintulot at mga lisensya ng modelo, saka ituloy."
   }
 }

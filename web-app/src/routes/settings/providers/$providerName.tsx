@@ -14,6 +14,7 @@ import { DialogEditModel } from '@/containers/dialogs/EditModel'
 import { ImportLlamacppModelDialog } from '@/containers/dialogs/ImportLlamacppModelDialog'
 import { ImportMlxModelDialog } from '@/containers/dialogs/ImportMlxModelDialog'
 import { ModelSetting } from '@/containers/ModelSetting'
+import { MediaLibrary } from '@/containers/MediaLibrary'
 import { LlamacppEngineInfo } from '@/containers/LlamacppEngineInfo'
 import { DialogDeleteModel } from '@/containers/dialogs/DeleteModel'
 import { DialogDeleteAllModels } from '@/containers/dialogs/DeleteAllModels'
@@ -665,6 +666,7 @@ function ProviderDetail() {
               )}
 
             {isLlamacpp && <LlamacppEngineInfo />}
+            {isLlamacpp && <MediaLibrary />}
             {provider && CURATED_ONLY_PROVIDERS.has(provider.provider) && <p className="text-xs text-muted-foreground">{t('chat:creation.catalogNote')}</p>}
             {provider?.provider === 'adobe-firefly' && <label className="space-y-1 text-sm"><span>{t('chat:creation.adobeCredentials')}</span><input aria-label="x-api-key" className="block w-full rounded border bg-background p-2" value={provider.custom_header?.find(item => item.header.toLowerCase() === 'x-api-key')?.value ?? ''} onChange={event => updateProvider(providerName, { custom_header: [{ header: 'x-api-key', value: event.target.value.trim() }] })} /></label>}
 

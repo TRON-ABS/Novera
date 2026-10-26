@@ -124,7 +124,22 @@
     "totalTime": "總時間",
     "totalTimeHint": "總時間包括載入、文字編碼、生成、任意雲端等待、下載和保存。當引擎報告時,單獨顯示產生。",
     "recommendedSetup": "Novera建議:FLUX.2 Klein 4B",
-    "recommendedSetupNote": "從GPU上的圖像模型和CPU上的Qwen3-4B文字編碼開始,以留下更多的VRAM用於生成,加上官方的FLUX.2 VAE。此按鈕將編碼器設定為 CPU,產生設定為自動,4 個步驟和 CFG 1。自動使用可供所選引擎使用的 GPU,如果不可用則使用 CPU。自行下載檔案並選擇其本機路徑。適用性和速度取決於您的硬體;這個確切的下載組合尚未經過運行時測試。",
+    "recommendedSetupNote": "GPU 做圖，CPU 執行 Qwen3-4B，4 步，CFG 1。佇 Windows/Vulkan 測試過；速度佮相容性看硬體。",
     "applyRecommendedPlacement": "應用建議的放置位置"
+  },
+  "creationInstall": {
+    "install": "安裝這組設定",
+    "confirm": "欲共這寡檔案下載佇這个資料夾無？愛遵守提供者的授權條款。",
+    "background": "下載的時陣閣會使繼續開講、做圖片抑是影片。對主列圖示看下載進度。",
+    "space": "下載：{{total}} · 空間：{{free}}",
+    "ready": "設定準備好矣",
+    "use": "用這組設定",
+    "engine": "內建引擎：自動揀 CUDA / Vulkan / CPU",
+    "note": "GPU 做圖，CPU 執行 Qwen3-4B，4 步，CFG 1。佇 Windows/Vulkan 測試過；速度佮相容性看硬體。",
+    "pause": "暫停",
+    "resume": "繼續",
+    "paused": "暫停矣",
+    "verifying": "咧檢查檔案",
+    "error": "安裝無成功。請檢查網路、空間、存取權限佮模型授權才繼續。"
   }
 }

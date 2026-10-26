@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { IconPhoto, IconVideo, IconAdjustments } from '@tabler/icons-react'
+import { useMediaLibrary, selectMediaProfile } from '@/hooks/useMediaLibrary'
 import { useCreation } from '@/hooks/useCreation'
 import { useServiceHub } from '@/hooks/useServiceHub'
 import { useTranslation } from '@/i18n/react-i18next-compat'
@@ -17,6 +18,7 @@ import { useModelProvider } from '@/hooks/useModelProvider'
 import { getProviderTitle } from '@/lib/utils'
 import { mediaPreset } from '@/constants/mediaProviders'
 import { modelModalities } from '@/modules/engines/model-modalities'
+import { CreationInstallButton } from './CreationInstall'
 import { klein4bRecommendation } from '@/constants/creationRecommendations'
 
 export function CreationControls({
@@ -28,7 +30,27 @@ export function CreationControls({
 }) {
   const { t } = useTranslation()
   const service = useServiceHub()
-  const state = useCreation()
+  const baseState = useCreation()
+  const mediaProfiles = useMediaLibrary((s) => s.profiles)
+  const selected =
+    baseState.selections[scope]?.[
+      baseState.modes[scope] === 'video' ? 'video' : 'image'
+    ]
+  const profile =
+    selected?.provider === 'diffusers'
+      ? mediaProfiles.find((p) => p.id === selected.id)
+      : undefined
+  const state = {
+    ...baseState,
+    settings: { ...baseState.settings, ...profile?.settings },
+    setSettings: (value: Parameters<typeof baseState.setSettings>[0]) => {
+      baseState.setSettings(value)
+      if (profile)
+        useMediaLibrary
+          .getState()
+          .put({ ...profile, settings: { ...profile.settings, ...value } })
+    },
+  }
   const providers = useModelProvider((value) => value.providers)
   const mode = state.modes[scope] ?? 'auto'
   const [open, setOpen] = useState(false)
@@ -72,10 +94,23 @@ export function CreationControls({
     settings.videoModel,
   ])
   useEffect(() => {
-    const show = () => setOpen(true)
+    const show = (event: Event) => {
+      if (event instanceof CustomEvent && event.detail?.installed) {
+        const task = event.detail.task === 'video' ? 'video' : 'image'
+        state.setSelection(
+          scope,
+          task,
+          event.detail.profileId
+            ? { provider: 'diffusers', id: event.detail.profileId }
+            : undefined
+        )
+        state.setMode(scope, task)
+      }
+      setOpen(true)
+    }
     window.addEventListener('novera-creation-settings', show)
     return () => window.removeEventListener('novera-creation-settings', show)
-  }, [])
+  }, [scope, state.setSelection, state.setMode])
   async function pick(
     kind:
       | 'imageModel'
@@ -86,9 +121,32 @@ export function CreationControls({
       | 'ggufTextEncoder'
       | 'ggufVae'
   ) {
+    const directory = kind === 'imageModel' || kind === 'videoModel'
+    const extensions =
+      kind === 'cppExecutable' || kind === 'python'
+        ? IS_WINDOWS
+          ? ['exe']
+          : undefined
+        : nativeFp4 && kind === 'ggufImageModel'
+          ? ['safetensors']
+          : nativeFp4 && kind === 'ggufTextEncoder'
+            ? ['gguf']
+            : nativeFp4 && kind === 'ggufVae'
+              ? ['safetensors']
+              : ['gguf', 'safetensors']
     const selected = await service.dialog().open({
-      directory: kind === 'imageModel' || kind === 'videoModel',
+      directory,
       multiple: false,
+      ...(!directory && extensions
+        ? {
+            filters: [
+              {
+                name: kind === 'python' ? 'Python' : t(`chat:creation.${kind}`),
+                extensions,
+              },
+            ],
+          }
+        : {}),
     })
     if (typeof selected === 'string') state.setSettings({ [kind]: selected })
   }
@@ -204,7 +262,15 @@ export function CreationControls({
                       ? JSON.stringify(state.selections[scope][task])
                       : ''
                   }
-                  onChange={(event) =>
+                  onChange={(event) => {
+                    const profile = mediaProfiles.find(
+                      (p) =>
+                        p.id ===
+                        (event.target.value
+                          ? JSON.parse(event.target.value).id
+                          : '')
+                    )
+                    if (profile) selectMediaProfile(profile, scope)
                     state.setSelection(
                       scope,
                       task,
@@ -212,7 +278,7 @@ export function CreationControls({
                         ? JSON.parse(event.target.value)
                         : undefined
                     )
-                  }
+                  }}
                 >
                   <option value="">
                     {task === 'image' && cpp
@@ -220,6 +286,19 @@ export function CreationControls({
                       : 'Diffusers'}{' '}
                     · {t('chat:creation.local')}
                   </option>
+                  {mediaProfiles
+                    .filter((p) => p.task === task)
+                    .map((p) => (
+                      <option
+                        key={p.id}
+                        value={JSON.stringify({
+                          provider: 'diffusers',
+                          id: p.id,
+                        })}
+                      >
+                        {t('chat:creation.local')} · {p.name}
+                      </option>
+                    ))}
                   {providers
                     .filter((provider) => provider.active)
                     .flatMap((provider) =>
@@ -286,13 +365,13 @@ export function CreationControls({
                 </label>
                 {separate && (
                   <>
-                    {cpp && (
+                    {(cpp || nativeFp4) && (
                       <aside className="space-y-2 rounded-lg border p-3 text-xs">
                         <p className="font-medium">
                           {t('chat:creation.recommendedSetup')}
                         </p>
                         <p className="text-muted-foreground">
-                          {t('chat:creation.recommendedSetupNote')}
+                          {t('chat:creationInstall.note')}
                         </p>
                         <p className="text-muted-foreground">
                           {t('hub:catalog.quantQualityAdvice')}
@@ -322,6 +401,9 @@ export function CreationControls({
                         >
                           {t('chat:creation.applyRecommendedPlacement')}
                         </Button>
+                        <CreationInstallButton
+                          onStarted={() => setOpen(false)}
+                        />
                       </aside>
                     )}
                     <p className="text-xs text-muted-foreground">
@@ -352,6 +434,11 @@ export function CreationControls({
                               id={`creation-${key}`}
                               className="min-w-0 flex-1 rounded border bg-background p-2 text-xs"
                               value={settings[key] ?? ''}
+                              placeholder={
+                                key === 'cppExecutable'
+                                  ? t('chat:creationInstall.engine')
+                                  : undefined
+                              }
                               onChange={(event) =>
                                 state.setSettings({ [key]: event.target.value })
                               }
@@ -363,6 +450,17 @@ export function CreationControls({
                               {t('common:browse')}
                             </Button>
                           </div>
+                          {key === 'cppExecutable' && (
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() =>
+                                state.setSettings({ cppExecutable: '' })
+                              }
+                            >
+                              {t('chat:creationInstall.engine')}
+                            </Button>
+                          )}
                         </label>
                       ))}
                     {cpp && (

@@ -1,5 +1,6 @@
 import { invoke } from '@tauri-apps/api/core'
 import type { UIMessage, UIMessageChunk } from 'ai'
+import { useMediaLibrary } from '@/hooks/useMediaLibrary'
 import { useCreation } from '@/hooks/useCreation'
 import {
   creationReference,
@@ -24,8 +25,12 @@ export function creationStream(
   onFinish: () => void
 ) {
   const state = useCreation.getState()
-  const settings = { ...state.settings }
   const selection = state.selections?.[scope]?.[task]
+  const profile =
+    selection?.provider === 'diffusers'
+      ? useMediaLibrary.getState().profiles.find((p) => p.id === selection.id)
+      : undefined
+  const settings = { ...state.settings, ...profile?.settings }
   const cloudController = new AbortController()
   let cloudPrepared = false
   let id: string | undefined
@@ -73,11 +78,15 @@ export function creationStream(
               : settings.videoModel
         if (!selection && !model) fail('chat:creation.configure')
         if (
+          nativeFp4 &&
+          (!selection || selection.provider === 'diffusers') &&
+          /\.gguf$/i.test(model)
+        )
+          fail('chat:creation.nativeNote')
+        if (
           (cpp || nativeFp4) &&
           (!selection || selection.provider === 'diffusers') &&
-          ((cpp && !settings.cppExecutable) ||
-            !settings.ggufTextEncoder ||
-            !settings.ggufVae)
+          (!settings.ggufTextEncoder || !settings.ggufVae)
         )
           fail(
             nativeFp4 ? 'chat:creation.nativeNote' : 'chat:creation.ggufNote'

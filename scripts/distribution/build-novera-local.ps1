@@ -130,6 +130,8 @@ try {
     $env:TAURI_ENV_FAMILY = 'windows'
     $env:__TAURI_BUNDLE_TYPE = 'nsis'
     if ($id -in @('desktop','portable','setup','msi')) {
+        . (Join-Path $PSScriptRoot 'prepare-novera-image.ps1')
+        Prepare-NoveraImageEngine $repo
         . (Join-Path $PSScriptRoot 'prepare-novera-engine.ps1')
         Prepare-NoveraEngine $repo (Join-Path $toolchain 'cargo.exe') {
             param($Name, $Exe, $Arguments)

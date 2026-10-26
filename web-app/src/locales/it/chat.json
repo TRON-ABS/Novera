@@ -124,7 +124,22 @@
     "totalTime": "Tempo totale",
     "totalTimeHint": "Il tempo totale comprende il caricamento, la codifica del testo, la generazione, l'eventuale attesa nel cloud, il download e il salvataggio. La sola generazione viene mostrata separatamente quando il motore la segnala.",
     "recommendedSetup": "Suggerimento Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Inizia con il modello immagine sulla GPU e la codifica del testo Qwen3-4B sulla CPU per lasciare più VRAM per la generazione, oltre al FLUX.2 VAE ufficiale. Il pulsante imposta l'encoder su CPU, generazione su Auto, 4 passaggi e CFG 1. Auto utilizza la GPU disponibile per il motore scelto o la CPU se non disponibile. Scarica tu stesso i file e seleziona i loro percorsi locali. L'idoneità e la velocità dipendono dall'hardware; questa esatta combinazione di download non è ancora stata testata in fase di esecuzione.",
+    "recommendedSetupNote": "Generazione su GPU, Qwen3-4B su CPU, 4 passaggi, CFG 1. Testato su Windows con Vulkan; velocità e compatibilità dipendono dall’hardware.",
     "applyRecommendedPlacement": "Applicare il posizionamento suggerito"
+  },
+  "creationInstall": {
+    "install": "Installa questa configurazione",
+    "confirm": "Scaricare questi file in questa cartella? Si applicano le licenze dei fornitori.",
+    "background": "Puoi continuare a chattare e creare immagini o video durante i download. Segui i progressi con l’icona nella barra principale.",
+    "space": "Download: {{total}} · Libero: {{free}}",
+    "ready": "Configurazione pronta",
+    "use": "Usa questa configurazione",
+    "engine": "Motore integrato: CUDA / Vulkan / CPU automatici",
+    "note": "Generazione su GPU, Qwen3-4B su CPU, 4 passaggi, CFG 1. Testato su Windows con Vulkan; velocità e compatibilità dipendono dall’hardware.",
+    "pause": "Pausa",
+    "resume": "Riprendi",
+    "paused": "In pausa",
+    "verifying": "Verifica dei file",
+    "error": "Installazione non riuscita. Controlla rete, spazio libero, permessi e licenze dei modelli, poi riprendi."
   }
 }

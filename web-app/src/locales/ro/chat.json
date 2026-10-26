@@ -124,7 +124,22 @@
     "totalTime": "Timp total",
     "totalTimeHint": "Timpul total include încărcarea, codificarea textului, generarea, orice așteptare în cloud, descărcarea și salvarea. Numai generația este afișată separat atunci când motorul o raportează.",
     "recommendedSetup": "Sugestie Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Începeți cu modelul de imagine pe GPU și codificarea textului Qwen3-4B pe CPU pentru a lăsa mai multă VRAM pentru generare, plus VAE oficial FLUX.2. Butonul setează codificatorul la CPU, generarea la Auto, 4 pași și CFG 1. Auto folosește GPU-ul disponibil pentru motorul ales sau CPU dacă nu este disponibil. Descărcați singur fișierele și selectați căile locale ale acestora. Adecvarea și viteza depind de hardware-ul dvs.; această combinație exactă de descărcare nu este încă testată la timp.",
+    "recommendedSetupNote": "Generare pe GPU, Qwen3-4B pe CPU, 4 pași, CFG 1. Testat pe Windows cu Vulkan; viteza și compatibilitatea depind de hardware.",
     "applyRecommendedPlacement": "Aplicați plasarea sugerată"
+  },
+  "creationInstall": {
+    "install": "Instalează această configurație",
+    "confirm": "Descarci aceste fișiere în acest dosar? Se aplică licențele furnizorilor.",
+    "background": "Poți continua conversațiile și crearea imaginilor sau videoclipurilor în timpul descărcărilor. Urmărește progresul prin pictograma din bara principală.",
+    "space": "Descărcare: {{total}} · Liber: {{free}}",
+    "ready": "Configurație pregătită",
+    "use": "Folosește această configurație",
+    "engine": "Motor integrat: CUDA / Vulkan / CPU automat",
+    "note": "Generare pe GPU, Qwen3-4B pe CPU, 4 pași, CFG 1. Testat pe Windows cu Vulkan; viteza și compatibilitatea depind de hardware.",
+    "pause": "Pauză",
+    "resume": "Reia",
+    "paused": "În pauză",
+    "verifying": "Se verifică fișierele",
+    "error": "Instalarea a eșuat. Verifică rețeaua, spațiul liber, permisiunile și licențele modelelor, apoi reia."
   }
 }

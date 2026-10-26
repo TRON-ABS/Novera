@@ -124,7 +124,22 @@
     "totalTime": "Lapapọ akoko",
     "totalTimeHint": "Lapapọ akoko pẹlu ikojọpọ, fifi koodu, iran, eyikeyi awọsanma nduro, gbigba lati ayelujara ati fifipamọ. Iran nikan ni a fihan lọtọ nigbati engine ba ṣe ijabọ rẹ.",
     "recommendedSetup": "Nova aba: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Bẹrẹ pẹlu awoṣe aworan lori GPU ati koodu koodu Qwen3-4B lori Sipiyu lati fi VRAM diẹ sii fun iran, pẹlu FLUX.2 VAE osise. Bọtini naa ṣeto koodu koodu si Sipiyu, iran si Aifọwọyi, awọn igbesẹ 4 ati CFG 1. Aifọwọyi nlo GPU ti o wa si ẹrọ ti o yan, tabi Sipiyu ti ko ba si. Ṣe igbasilẹ awọn faili funrararẹ ki o yan awọn ọna agbegbe wọn. Ibamu ati iyara da lori ohun elo rẹ; Ijọpọ igbasilẹ gangan yii ko tii ni idanwo akoko-ṣiṣe sibẹsibẹ.",
+    "recommendedSetupNote": "Ṣíṣẹ̀dá lórí GPU, Qwen3-4B lórí CPU, ìgbésẹ̀ 4, CFG 1. A dán an wò lórí Windows/Vulkan; iyára àti ìbámu dá lórí ohun èlò.",
     "applyRecommendedPlacement": "Waye ibi ti a daba"
+  },
+  "creationInstall": {
+    "install": "Fi ètò yìí sílẹ̀",
+    "confirm": "Ṣe kí a gba àwọn fáìlì wọ̀nyí sínú àpò yìí? Àwọn ìwé-àṣẹ olùpèsè ló kan.",
+    "background": "O lè máa bá ìjíròrò àti ṣíṣẹ̀dá àwòrán tàbí fídíò lọ nígbà gbígba. Tọpinpin ìlọsíwájú pẹ̀lú àmì lórí ọ̀pá àkọ́kọ́.",
+    "space": "Gbígba: {{total}} · Ààyè: {{free}}",
+    "ready": "Ètò ti ṣetán",
+    "use": "Lo ètò yìí",
+    "engine": "Ẹ̀rọ inú: CUDA / Vulkan / CPU láìfọwọ́yí",
+    "note": "Ṣíṣẹ̀dá lórí GPU, Qwen3-4B lórí CPU, ìgbésẹ̀ 4, CFG 1. A dán an wò lórí Windows/Vulkan; iyára àti ìbámu dá lórí ohun èlò.",
+    "pause": "Dúró díẹ̀",
+    "resume": "Tẹ̀síwájú",
+    "paused": "Ó dúró",
+    "verifying": "Ń ṣàyẹ̀wò fáìlì",
+    "error": "Fífi sílẹ̀ kùnà. Ṣàyẹ̀wò nẹ́tíwọ́ọ̀kì, ààyè, ẹ̀tọ́ àyè àti ìwé-àṣẹ àwọn módẹ́lì, kí o sì tẹ̀síwájú."
   }
 }

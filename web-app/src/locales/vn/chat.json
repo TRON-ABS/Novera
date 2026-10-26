@@ -124,7 +124,22 @@
     "totalTime": "Tổng thời gian",
     "totalTimeHint": "Tổng thời gian bao gồm tải, mã hóa văn bản, tạo, bất kỳ đám mây nào đang chờ, tải xuống và lưu. Riêng thế hệ được hiển thị riêng khi động cơ báo cáo nó.",
     "recommendedSetup": "Gợi ý của Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Bắt đầu với mô hình hình ảnh trên GPU và mã hóa văn bản Qwen3-4B trên CPU để tạo ra nhiều VRAM hơn cho thế hệ, cùng với FLUX.2 VAE chính thức. Nút đặt bộ mã hóa thành CPU, tạo thành Tự động, 4 bước và CFG 1. Tự động sử dụng GPU có sẵn cho công cụ đã chọn hoặc CPU nếu không có. Hãy tự tải xuống các tệp và chọn đường dẫn cục bộ của chúng. Sự phù hợp và tốc độ phụ thuộc vào phần cứng của bạn; sự kết hợp tải xuống chính xác này chưa được thử nghiệm trong thời gian chạy.",
+    "recommendedSetupNote": "Tạo trên GPU, Qwen3-4B trên CPU, 4 bước, CFG 1. Đã thử trên Windows/Vulkan; tốc độ và tương thích tùy phần cứng.",
     "applyRecommendedPlacement": "Áp dụng vị trí được đề xuất"
+  },
+  "creationInstall": {
+    "install": "Cài đặt cấu hình này",
+    "confirm": "Tải các tệp này vào thư mục này? Áp dụng giấy phép của nhà cung cấp.",
+    "background": "Bạn có thể tiếp tục trò chuyện và tạo ảnh hoặc video trong khi tải. Theo dõi tiến độ qua biểu tượng trên thanh chính.",
+    "space": "Tải xuống: {{total}} · Trống: {{free}}",
+    "ready": "Cấu hình đã sẵn sàng",
+    "use": "Dùng cấu hình này",
+    "engine": "Bộ máy tích hợp: tự động CUDA / Vulkan / CPU",
+    "note": "Tạo trên GPU, Qwen3-4B trên CPU, 4 bước, CFG 1. Đã thử trên Windows/Vulkan; tốc độ và tương thích tùy phần cứng.",
+    "pause": "Tạm dừng",
+    "resume": "Tiếp tục",
+    "paused": "Đã tạm dừng",
+    "verifying": "Đang kiểm tra tệp",
+    "error": "Cài đặt thất bại. Kiểm tra mạng, dung lượng trống, quyền truy cập và giấy phép mô hình rồi tiếp tục."
   }
 }

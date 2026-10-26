@@ -124,7 +124,22 @@
     "totalTime": "Umumiy vaqt",
     "totalTimeHint": "Umumiy vaqtga yuklash, matnni kodlash, yaratish, bulutni kutish, yuklab olish va saqlash kiradi. Dvigatel bu haqda xabar berganda, faqat avlod alohida ko'rsatiladi.",
     "recommendedSetup": "Novera taklifi: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Ishlab chiqarish uchun koʻproq VRAM va rasmiy FLUX.2 VAE qoldirish uchun GPUda tasvir modeli va protsessorda Qwen3-4B matn kodlashdan boshlang. Tugma kodlovchini protsessorga, ishlab chiqarishni Avtomatikga, 4 bosqichli va CFG 1 ga o'rnatadi. Avto tanlangan dvigatelda mavjud bo'lgan GPU yoki mavjud bo'lmasa CPU dan foydalanadi. Fayllarni o'zingiz yuklab oling va ularning mahalliy yo'llarini tanlang. Muvofiqlik va tezlik sizning uskunangizga bog'liq; bu aniq yuklab olish birikmasi hali ish vaqti sinovidan o'tmagan.",
+    "recommendedSetupNote": "GPUda yaratish, CPUda Qwen3-4B, 4 qadam, CFG 1. Windows/Vulkanda sinalgan; tezlik va moslik qurilmaga bogʻliq.",
     "applyRecommendedPlacement": "Tavsiya etilgan joylashuvni qo'llash"
+  },
+  "creationInstall": {
+    "install": "Ushbu sozlamani oʻrnatish",
+    "confirm": "Bu fayllar shu jildga yuklansinmi? Yetkazib beruvchilarning litsenziyalari amal qiladi.",
+    "background": "Yuklash paytida suhbatlashish va rasm yoki video yaratishni davom ettirishingiz mumkin. Jarayonni asosiy paneldagi belgi orqali kuzating.",
+    "space": "Yuklash: {{total}} · Boʻsh: {{free}}",
+    "ready": "Sozlama tayyor",
+    "use": "Ushbu sozlamadan foydalanish",
+    "engine": "Ichki mexanizm: avtomatik CUDA / Vulkan / CPU",
+    "note": "GPUda yaratish, CPUda Qwen3-4B, 4 qadam, CFG 1. Windows/Vulkanda sinalgan; tezlik va moslik qurilmaga bogʻliq.",
+    "pause": "Toʻxtatib turish",
+    "resume": "Davom ettirish",
+    "paused": "Toʻxtatib turilgan",
+    "verifying": "Fayllar tekshirilmoqda",
+    "error": "Oʻrnatish bajarilmadi. Tarmoq, boʻsh joy, kirish huquqlari va model litsenziyalarini tekshirib davom ettiring."
   }
 }

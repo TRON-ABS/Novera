@@ -124,7 +124,22 @@
     "totalTime": "Yeroo waliigalaa",
     "totalTimeHint": "Yeroon waliigalaa fe'uu, barruu koodii gochuu, dhaloota, duumessa kamiyyuu eeguu, buufachuu fi qusachuu of keessatti qabata. Dhaloonni qofti yeroo motorri gabaasu addatti agarsiifama.",
     "recommendedSetup": "Yaada Noovaaraa: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Moodeela fakkii GPU irratti fi barruu Qwen3-4B CPU irratti koodii gochuu irraa jalqabi VRAM dabalataa dhalootaaf dhiisuuf, dabalataan FLUX.2 VAE ofiisaa. Qabduun kun encoder gara CPU, dhaloota gara Auto, tarkaanfii 4 fi CFG 1. Auton GPU motora filatameef argamu, ykn yoo hin argamne CPU fayyadama. Faayilota ofuma keetii buufadhuutii daandii naannoo isaanii filadhu. Mijachuu fi saffisni haardwaara keessan irratti hundaa’a; walnyaatinsi buufachuu sirrii kun ammallee yeroo gaggeeffamaatti hin qoratamne.",
+    "recommendedSetupNote": "Uumuu GPU irratti, Qwen3-4B CPU irratti, tarkaanfii 4, CFG 1. Windows/Vulkan irratti qorame; saffisaa fi walsimannaan meeshaa irratti hundaa’u.",
     "applyRecommendedPlacement": "Bakka kaa’uu yaadame hojiirra oolchuu"
+  },
+  "creationInstall": {
+    "install": "Qindaa’ina kana fe’i",
+    "confirm": "Faayiloota kana galmee kanatti buusuu? Eeyyamni dhiyeessitootaa ni hojjeta.",
+    "background": "Yeroo buufamu haasa’uu fi suuraa yookaan viidiyoo uumuu itti fufuu dandeessa. Adeemsa mallattoo barruu guddaa irraa hordofi.",
+    "space": "Buufata: {{total}} · Bakka: {{free}}",
+    "ready": "Qindaa’inni qophaa’e",
+    "use": "Qindaa’ina kana fayyadami",
+    "engine": "Injinii keessaa: CUDA / Vulkan / CPU ofumaan",
+    "note": "Uumuu GPU irratti, Qwen3-4B CPU irratti, tarkaanfii 4, CFG 1. Windows/Vulkan irratti qorame; saffisaa fi walsimannaan meeshaa irratti hundaa’u.",
+    "pause": "Dhaabi",
+    "resume": "Itti fufi",
+    "paused": "Dhaabbate",
+    "verifying": "Faayiloota mirkaneessaa",
+    "error": "Fe’uun hin milkoofne. Neetworkii, bakka duwwaa, hayyama fi eeyyama moodeelotaa ilaalii itti fufi."
   }
 }

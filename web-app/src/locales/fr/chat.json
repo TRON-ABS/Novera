@@ -124,7 +124,22 @@
     "totalTime": "Durée totale",
     "totalTimeHint": "La durée totale comprend le chargement, l’encodage du texte, la génération, l’attente cloud éventuelle, le téléchargement et la sauvegarde. La génération seule est indiquée séparément quand le moteur la mesure.",
     "recommendedSetup": "Conseil Novera : FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Pour commencer : modèle image sur GPU, encodage Qwen3-4B sur CPU pour laisser davantage de VRAM à la génération, avec le VAE FLUX.2 officiel. Le bouton règle l’encodeur sur CPU, la génération sur Auto, 4 étapes et CFG 1. Auto utilise le GPU disponible pour le moteur choisi, ou le CPU à défaut. Téléchargez les fichiers puis sélectionnez leurs chemins locaux. L’adéquation et la vitesse dépendent de votre matériel ; cette combinaison exacte de téléchargements n’a pas encore été testée à l’exécution.",
+    "recommendedSetupNote": "Génération sur GPU, encodage Qwen3-4B sur CPU, 4 étapes, CFG 1. Testé sous Windows avec Vulkan ; vitesse et compatibilité dépendent du matériel.",
     "applyRecommendedPlacement": "Appliquer le placement conseillé"
+  },
+  "creationInstall": {
+    "install": "Installer cette configuration",
+    "confirm": "Télécharger ces fichiers dans ce dossier ? Les licences des fournisseurs s’appliquent.",
+    "background": "Vous pouvez continuer à discuter ou à créer des images et vidéos pendant le téléchargement. Suivez sa progression avec l’icône de la barre principale.",
+    "space": "Téléchargement : {{total}} · Libre : {{free}}",
+    "ready": "Configuration prête",
+    "use": "Utiliser cette configuration",
+    "engine": "Moteur intégré : CUDA / Vulkan / CPU automatiques",
+    "note": "Génération sur GPU, encodage Qwen3-4B sur CPU, 4 étapes, CFG 1. Testé sous Windows avec Vulkan ; vitesse et compatibilité dépendent du matériel.",
+    "pause": "Pause",
+    "resume": "Reprendre",
+    "paused": "En pause",
+    "verifying": "Vérification des fichiers",
+    "error": "Échec de l’installation. Vérifiez le réseau, l’espace libre, les droits d’accès et les licences des modèles, puis reprenez."
   }
 }

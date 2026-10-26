@@ -124,7 +124,22 @@
     "totalTime": "Celkový čas",
     "totalTimeHint": "Celkový čas zahrnuje načítání, kódování textu, generování, čekání v cloudu, stahování a ukládání. Samotná generace se zobrazuje samostatně, když ji motor hlásí.",
     "recommendedSetup": "Návrh Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Začněte s modelem obrazu na GPU a kódováním textu Qwen3-4B na CPU, abyste ponechali více VRAM pro generování, plus oficiální FLUX.2 VAE. Tlačítko nastaví kodér na CPU, generování na Auto, 4 kroky a CFG 1. Auto používá GPU dostupný pro vybraný engine nebo CPU, pokud není k dispozici. Stáhněte si soubory sami a vyberte jejich místní cesty. Vhodnost a rychlost závisí na vašem hardwaru; tato přesná kombinace stahování ještě není testována za běhu.",
+    "recommendedSetupNote": "Generování na GPU, Qwen3-4B na CPU, 4 kroky, CFG 1. Testováno ve Windows s Vulkan; rychlost a kompatibilita závisí na hardwaru.",
     "applyRecommendedPlacement": "Použijte navrhované umístění"
+  },
+  "creationInstall": {
+    "install": "Nainstalovat tuto konfiguraci",
+    "confirm": "Stáhnout tyto soubory do této složky? Platí licence poskytovatelů.",
+    "background": "Během stahování můžete dál chatovat a vytvářet obrázky nebo videa. Průběh sledujte pomocí ikony na hlavní liště.",
+    "space": "Stahování: {{total}} · Volné: {{free}}",
+    "ready": "Konfigurace připravena",
+    "use": "Použít tuto konfiguraci",
+    "engine": "Vestavěný engine: automaticky CUDA / Vulkan / CPU",
+    "note": "Generování na GPU, Qwen3-4B na CPU, 4 kroky, CFG 1. Testováno ve Windows s Vulkan; rychlost a kompatibilita závisí na hardwaru.",
+    "pause": "Pozastavit",
+    "resume": "Pokračovat",
+    "paused": "Pozastaveno",
+    "verifying": "Ověřování souborů",
+    "error": "Instalace selhala. Zkontrolujte síť, volné místo, oprávnění a licence modelů a pokračujte."
   }
 }

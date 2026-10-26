@@ -1,5 +1,11 @@
 # Local creations inside the conversation
 
+## Starter downloads and imported media library (2026-10-26)
+
+The desktop now offers an explicitly approved, revision-pinned FLUX.2 Klein GGUF + Qwen3 GGUF + VAE Safetensors bundle. Native transfers run independently of conversations, verify SHA-256, support pause/resume, and show a main-bar progress panel until completion is acknowledged. Completed bundles become one Image configuration in the llama.cpp import page; image/video configurations can also be imported, edited, selected or removed there. Removal follows the existing imported-model rule and preserves files. No audio or OS completion notification is used.
+
+Windows builds stage the private [CUDA 13.4.3 / Vulkan / CPU launcher](image-launcher/README.md) automatically. An empty C++ executable field resolves to bundled resources. Native NVFP4 PyTorch keeps its separate cu130 runtime. Source/unit validation is distinct from the next maintainer-built GUI test; no application rebuild or binary publication was performed.
+
 This desktop adapter uses an offline **Diffusers 0.42.0** worker under **Python 3.15.1** with the existing PyTorch CPU/CUDA environment. It is separate from the causal-text Transformers server. A `.safetensors` file alone is not a complete diffusion model.
 
 Install the optional dependencies into an isolated environment, never into the global Python installation:

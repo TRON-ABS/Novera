@@ -124,7 +124,22 @@
     "totalTime": "Gesamtzeit",
     "totalTimeHint": "Die Gesamtzeit umfasst das Laden, die Textkodierung, die Generierung, das Warten in der Cloud, das Herunterladen und das Speichern. Nur die Erzeugung wird separat angezeigt, wenn die Engine sie meldet.",
     "recommendedSetup": "Novera-Vorschlag: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Beginnen Sie mit dem Bildmodell auf der GPU und der Qwen3-4B-Textkodierung auf der CPU, um mehr VRAM für die Generierung sowie das offizielle FLUX.2 VAE übrig zu lassen. Die Schaltfläche stellt den Encoder auf CPU, die Generierung auf Auto, 4 Schritte und CFG 1 ein. Auto verwendet die GPU, die für die ausgewählte Engine verfügbar ist, oder die CPU, wenn diese nicht verfügbar ist. Laden Sie die Dateien selbst herunter und wählen Sie ihre lokalen Pfade aus. Eignung und Geschwindigkeit hängen von Ihrer Hardware ab; Diese genaue Download-Kombination ist noch nicht laufzeitgetestet.",
+    "recommendedSetupNote": "Generierung auf GPU, Qwen3-4B auf CPU, 4 Schritte, CFG 1. Unter Windows mit Vulkan getestet; Tempo und Kompatibilität hängen von der Hardware ab.",
     "applyRecommendedPlacement": "Vorgeschlagene Platzierung anwenden"
+  },
+  "creationInstall": {
+    "install": "Diese Konfiguration installieren",
+    "confirm": "Diese Dateien in diesen Ordner herunterladen? Es gelten die Lizenzen der Anbieter.",
+    "background": "Während des Downloads können Sie weiter chatten und Bilder oder Videos erstellen. Das Symbol in der Hauptleiste zeigt den Fortschritt.",
+    "space": "Download: {{total}} · Frei: {{free}}",
+    "ready": "Konfiguration bereit",
+    "use": "Diese Konfiguration verwenden",
+    "engine": "Integrierte Engine: automatisch CUDA / Vulkan / CPU",
+    "note": "Generierung auf GPU, Qwen3-4B auf CPU, 4 Schritte, CFG 1. Unter Windows mit Vulkan getestet; Tempo und Kompatibilität hängen von der Hardware ab.",
+    "pause": "Pausieren",
+    "resume": "Fortsetzen",
+    "paused": "Pausiert",
+    "verifying": "Dateien werden geprüft",
+    "error": "Installation fehlgeschlagen. Netzwerk, freien Speicher, Zugriffsrechte und Modelllizenzen prüfen und fortsetzen."
   }
 }

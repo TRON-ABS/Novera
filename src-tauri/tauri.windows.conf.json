@@ -42,7 +42,12 @@
     "resources": [
       "resources/LICENSE",
       "resources/bin/novera-llama-worker.exe",
-      "resources/bin/*.dll"
+      "resources/bin/*.dll",
+      "resources/image-engine/*.*",
+      "resources/image-engine/cuda/*.*",
+      "resources/image-engine/vulkan/*.*",
+      "resources/image-engine/cpu/*.*",
+      "resources/image-engine/licenses/*"
     ],
     "externalBin": [
       "resources/bin/bun",

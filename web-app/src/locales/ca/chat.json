@@ -124,7 +124,22 @@
     "totalTime": "Temps total",
     "totalTimeHint": "El temps total inclou la càrrega, la codificació de text, la generació, qualsevol espera al núvol, la descàrrega i l'emmagatzematge. La generació sola es mostra per separat quan el motor ho informa.",
     "recommendedSetup": "Novera suggeriment: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Comenceu amb el model d'imatge a la GPU i la codificació de text Qwen3-4B a la CPU per deixar més VRAM per a la generació, a més del VAE oficial de FLUX.2. El botó estableix el codificador en CPU, generació en Automàtica, 4 passos i CFG 1. Automàtic utilitza la GPU disponible per al motor escollit, o la CPU si no està disponible. Baixeu els fitxers vosaltres mateixos i seleccioneu els seus camins locals. La idoneïtat i la velocitat depenen del vostre maquinari; aquesta combinació de descàrrega exacta encara no s'ha provat en temps d'execució.",
+    "recommendedSetupNote": "Generació amb GPU, Qwen3-4B amb CPU, 4 passos, CFG 1. Provat a Windows amb Vulkan; velocitat i compatibilitat depenen del maquinari.",
     "applyRecommendedPlacement": "Aplica la ubicació suggerida"
+  },
+  "creationInstall": {
+    "install": "Instal·la aquesta configuració",
+    "confirm": "Vols baixar aquests fitxers en aquesta carpeta? S’apliquen les llicències dels proveïdors.",
+    "background": "Pots continuar conversant i creant imatges o vídeos durant les baixades. Segueix el progrés amb la icona de la barra principal.",
+    "space": "Baixada: {{total}} · Lliure: {{free}}",
+    "ready": "Configuració preparada",
+    "use": "Utilitza aquesta configuració",
+    "engine": "Motor integrat: CUDA / Vulkan / CPU automàtics",
+    "note": "Generació amb GPU, Qwen3-4B amb CPU, 4 passos, CFG 1. Provat a Windows amb Vulkan; velocitat i compatibilitat depenen del maquinari.",
+    "pause": "Pausa",
+    "resume": "Reprèn",
+    "paused": "En pausa",
+    "verifying": "Verificant fitxers",
+    "error": "La instal·lació ha fallat. Comprova xarxa, espai lliure, permisos i llicències dels models i reprèn-la."
   }
 }

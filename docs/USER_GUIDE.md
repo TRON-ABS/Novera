@@ -1,5 +1,17 @@
 # Novera — guide utilisateur
 
+## Installation conseillée et bibliothèque média — sources du 26 octobre 2026
+
+Dans les réglages de création, **Installer cette configuration** présente les trois composants FLUX.2 Klein 4B, leurs tailles, les liens des fournisseurs/licences, l’espace libre et la destination. Par défaut : le véritable dossier Documents du système (Téléchargements en repli), puis `Novera models/FLUX.2 Klein 4B`. **Parcourir** permet de choisir un autre parent, mémorisé pour les prochaines installations. Le sous-dossier et les fichiers ne sont créés qu’après confirmation. Les références officielles sont épinglées à une révision et vérifiées par SHA-256 ; le total est de **5 269 712 238 octets**, hors marge de sécurité.
+
+Une variante FLUX NVFP4 officielle avec le même Qwen GGUF CPU est également proposée si le diagnostic du GPU et du moteur PyTorch confirme le calcul FP4 natif et la mémoire libre. Le téléchargement est lui aussi soumis à confirmation.
+
+Les téléchargements continuent pendant les discussions et les créations d’images ou de vidéos. Une petite icône de la barre principale montre le pourcentage et ouvre le détail de chaque fichier, avec pause, reprise et annulation. Aucun son, toast de fin ni notification système. Après vérification, **Configuration prête** reste visible jusqu’au clic d’accusé de réception ; le panneau reste consultable jusqu’à sa fermeture. Une fin survenant dans un panneau déjà ouvert n’est pas automatiquement acquittée. Une fermeture de Novera conserve les fichiers partiels pour une reprise explicite au prochain lancement, sans téléchargement automatique au démarrage.
+
+La configuration prête est enregistrée automatiquement dans **Réglages → Fournisseurs → llama.cpp → Image** ; le même endroit propose Image/Vidéo, import manuel, modification du nom et des composants, sélection et suppression. FLUX, son encodeur Qwen et son VAE forment une seule entrée Image. Les entrées figurent aussi dans le sélecteur de la discussion, avec les filtres Local/Image/Vidéo. **Utiliser cette configuration** choisit le moteur intégré, Qwen sur CPU et génération Auto. Les choix restent propres à la configuration sélectionnée dans chaque discussion. Comme pour les autres modèles importés, retirer une entrée de Novera **conserve les fichiers sur disque**, et le dialogue l’indique. Les modèles texte existants restent gérés par leur moteur habituel.
+
+Le prochain build Windows préparé par le lanceur embarque le moteur C++ et ses bibliothèques CUDA/Vulkan/CPU : laisser le champ exécutable vide utilise le moteur intégré, sans chemin `.build` à sélectionner. Le bouton du moteur intégré efface un ancien remplacement manuel ; un exécutable personnalisé reste possible. Ces fonctions sont dans les sources ; elles nécessitent la prochaine compilation par le mainteneur.
+
 Comportements présents dans les sources au **26 octobre 2026**. Le [tableau de bord](../TABLEAU_DE_BORD_NOVERA.md) précise ce qui est déjà compilé et ce qui reste à valider. Aucun binaire public n’est encore disponible.
 
 [Premier démarrage](#first-run) · [Discussions](#conversations) · [Hub](#hub) · [Cloud](#cloud) · [Confidentialité](#privacy) · [Agent](#agent)

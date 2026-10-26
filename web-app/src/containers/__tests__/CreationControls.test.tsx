@@ -78,6 +78,12 @@ describe('creation choices in the composer', () => {
     expect(mocks.open).toHaveBeenCalledWith({
       directory: false,
       multiple: false,
+      filters: [
+        {
+          name: 'chat:creation.ggufTextEncoder',
+          extensions: ['gguf', 'safetensors'],
+        },
+      ],
     })
   })
   it('offers native FP4 and keeps encoder and generation device choices independent', () => {
@@ -111,15 +117,13 @@ describe('creation choices in the composer', () => {
     })
   })
   it('offers the corrected Qwen3 recommendation and applies placement without replacing local files', () => {
-    useCreation
-      .getState()
-      .setSettings({
-        imageEngine: 'sdcpp',
-        ggufImageModel: 'D:/mine.gguf',
-        ggufTextEncoder: 'D:/my-qwen.gguf',
-        encoderDevice: 'cuda',
-        device: 'cpu',
-      })
+    useCreation.getState().setSettings({
+      imageEngine: 'sdcpp',
+      ggufImageModel: 'D:/mine.gguf',
+      ggufTextEncoder: 'D:/my-qwen.gguf',
+      encoderDevice: 'cuda',
+      device: 'cpu',
+    })
     render(<CreationControls scope="advice" disabled={false} />)
     fireEvent.click(
       screen.getByRole('button', { name: 'chat:creation.settings' })

@@ -124,7 +124,22 @@
     "totalTime": "Total wektu",
     "totalTimeHint": "Total wektu kalebu loading, encoding teks, generasi, sembarang awan nunggu, ngundhuh lan nyimpen. Generasi piyambak ditampilake kanthi kapisah nalika mesin nglaporake.",
     "recommendedSetup": "saran Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Mulai karo model gambar ing GPU lan Qwen3-4B teks enkoding ing CPU kanggo ninggalake liyane VRAM kanggo generasi, plus FLUX.2 VAE resmi. Tombol nyetel encoder kanggo CPU, generasi kanggo Auto, 4 langkah lan CFG 1. Auto nggunakake GPU kasedhiya kanggo mesin milih, utawa CPU yen ora kasedhiya. Download file dhewe lan pilih dalan lokal. Kesesuaian lan kacepetan gumantung ing hardware sampeyan; kombinasi download pas iki durung runtime-dites.",
+    "recommendedSetupNote": "Nggawe ing GPU, Qwen3-4B ing CPU, 4 langkah, CFG 1. Dites ing Windows/Vulkan; kacepetan lan kecocokan gumantung piranti.",
     "applyRecommendedPlacement": "Aplikasi panggonan sing disaranake"
+  },
+  "creationInstall": {
+    "install": "Pasang konfigurasi iki",
+    "confirm": "Undhuh berkas iki menyang folder iki? Lisensi panyedhiya ditrapake.",
+    "background": "Sampeyan bisa terus ngobrol lan nggawe gambar utawa video nalika ngundhuh. Delengen kemajuan liwat ikon ing bilah utama.",
+    "space": "Undhuhan: {{total}} · Kosong: {{free}}",
+    "ready": "Konfigurasi siyap",
+    "use": "Gunakake konfigurasi iki",
+    "engine": "Mesin bawaan: CUDA / Vulkan / CPU otomatis",
+    "note": "Nggawe ing GPU, Qwen3-4B ing CPU, 4 langkah, CFG 1. Dites ing Windows/Vulkan; kacepetan lan kecocokan gumantung piranti.",
+    "pause": "Ngaso",
+    "resume": "Terusake",
+    "paused": "Diendhegake",
+    "verifying": "Mriksa berkas",
+    "error": "Pamasangan gagal. Priksa jaringan, papan kosong, idin akses lan lisensi model, banjur terusake."
   }
 }

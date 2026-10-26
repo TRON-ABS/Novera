@@ -124,7 +124,22 @@
     "totalTime": "Tempo total",
     "totalTimeHint": "O tempo total inclui carregamento, codificação de texto, geração, qualquer espera na nuvem, download e guardar. A geração por si só é mostrada separadamente quando o mecanismo a reporta.",
     "recommendedSetup": "Sugestão Novera: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Comece com o modelo de imagem no GPU e a codificação de texto Qwen3-4B no CPU para deixar mais VRAM para geração, para além do FLUX.2 VAE oficial. O botão define o codificador para CPU, geração para Auto, 4 passos e CFG 1. Auto utiliza o GPU disponível para o motor escolhido, ou CPU se não estiver disponível. Transfira você mesmo os ficheiros e selecione os seus caminhos locais. A adequação e a velocidade dependem do seu hardware; esta combinação exata de download ainda não foi testada em tempo de execução.",
+    "recommendedSetupNote": "Geração na GPU, Qwen3-4B na CPU, 4 passos, CFG 1. Testado no Windows com Vulkan; velocidade e compatibilidade dependem do equipamento.",
     "applyRecommendedPlacement": "Aplicar posicionamento sugerido"
+  },
+  "creationInstall": {
+    "install": "Instalar esta configuração",
+    "confirm": "Transferir estes ficheiros para esta pasta? Aplicam-se as licenças dos fornecedores.",
+    "background": "Pode continuar a conversar e a criar imagens ou vídeos durante as transferências. Acompanhe o progresso pelo ícone da barra principal.",
+    "space": "Transferência: {{total}} · Livre: {{free}}",
+    "ready": "Configuração pronta",
+    "use": "Usar esta configuração",
+    "engine": "Motor integrado: CUDA / Vulkan / CPU automáticos",
+    "note": "Geração na GPU, Qwen3-4B na CPU, 4 passos, CFG 1. Testado no Windows com Vulkan; velocidade e compatibilidade dependem do equipamento.",
+    "pause": "Pausar",
+    "resume": "Retomar",
+    "paused": "Em pausa",
+    "verifying": "A verificar ficheiros",
+    "error": "A instalação falhou. Verifique a rede, o espaço livre, as permissões e as licenças dos modelos e retome."
   }
 }

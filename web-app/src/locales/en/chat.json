@@ -124,7 +124,22 @@
     "totalTime": "Total time",
     "totalTimeHint": "Total time includes loading, text encoding, generation, any cloud waiting, downloading and saving. Generation alone is shown separately when the engine reports it.",
     "recommendedSetup": "Novera suggestion: FLUX.2 Klein 4B",
-    "recommendedSetupNote": "Start with the image model on GPU and Qwen3-4B text encoding on CPU to leave more VRAM for generation, plus the official FLUX.2 VAE. The button sets the encoder to CPU, generation to Auto, 4 steps and CFG 1. Auto uses the GPU available to the chosen engine, or CPU if unavailable. Download the files yourself and select their local paths. Suitability and speed depend on your hardware; this exact download combination is not yet runtime-tested.",
+    "recommendedSetupNote": "GPU generation, Qwen3-4B encoding on CPU, 4 steps, CFG 1. Tested on Windows with Vulkan; speed and compatibility depend on your hardware.",
     "applyRecommendedPlacement": "Apply suggested placement"
+  },
+  "creationInstall": {
+    "install": "Install this configuration",
+    "confirm": "Download these files to this folder? The providers’ licences apply.",
+    "background": "You can keep chatting and creating images or videos during downloads. Follow progress using the main-bar icon.",
+    "space": "Download: {{total}} · Free: {{free}}",
+    "ready": "Configuration ready",
+    "use": "Use this configuration",
+    "engine": "Built-in engine: automatic CUDA / Vulkan / CPU",
+    "note": "GPU generation, Qwen3-4B encoding on CPU, 4 steps, CFG 1. Tested on Windows with Vulkan; speed and compatibility depend on your hardware.",
+    "pause": "Pause",
+    "resume": "Resume",
+    "paused": "Paused",
+    "verifying": "Verifying files",
+    "error": "Installation failed. Check your network, free space, access rights and model licences, then resume."
   }
 }
