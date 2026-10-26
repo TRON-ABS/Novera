@@ -20,7 +20,8 @@ Les capacités livrées dans les sources restent décrites dans le tableau de bo
 - [x] Tester un chemin FP4 CUDA natif pour FLUX.2 Klein 4B Comfy, avec encodeur GGUF et VAE Safetensors.
 - [x] Séparer le placement de l’encodeur et du générateur dans les moteurs à composants ; conserver les durées sous images/vidéos.
 - [x] Ajouter les conseils NVFP4 conditionnés au GPU et les repères GGUF Q6_K/Q4_K_M pour texte/image/vidéo, dans les 70 langues.
-- [ ] Compiler puis tester le flux graphique uniquement sur nouvelle demande ; vérifier la combinaison exacte des trois téléchargements conseillés.
+- [x] Vérifier le trio conseillé GGUF dans le binaire compilé par le mainteneur : image 512² affichée, enregistrée et durée totale 25,5 s, après correction des réglages moteur/exécutable, le 26 octobre.
+- [ ] Valider séparément les parcours graphiques NVFP4, cloud et vidéo ainsi que les dossiers système redirigés et les autres matériels.
 - [ ] Étendre après validation les architectures, 9B, édition native et vidéo NVFP4 ; mesurer les performances sur plusieurs matériels.
 
 [État vérifié](docs/SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026).

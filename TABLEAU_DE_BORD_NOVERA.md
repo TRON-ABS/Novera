@@ -3,6 +3,12 @@
 État des sources au **26 octobre 2026**. Ce fichier est le point d’entrée ; les procédures, tâches et preuves détaillées sont dans les documents ci-dessous.
 
 
+
+## Test réel dans Novera — images GGUF, 26 octobre 2026
+
+Échec diagnostiqué puis corrigé par les réglages : le moteur NVFP4 était associé à un GGUF et l’exécutable C++ pointait vers un fichier d’encodeur. Après choix de stable-diffusion.cpp/Vulkan et de son vrai `sd-cli.exe`, **le trio conseillé FLUX.2 Klein 4B Q4_K_M + Qwen3-4B Q4_K_M CPU + VAE BFL a produit une vraie image 512² dans la discussion**, sauvegardée dans Images/Novera image ; durée totale affichée **25,5 s**. Binaire compilé par le mainteneur, aucune nouvelle compilation ici. Validation limitée à ce parcours GGUF sur ce PC ; cloud, vidéo et NVFP4 graphique restent distincts. [Diagnostic et preuve](docs/SUIVI_MOTEURS.md#diagnostic-graphique-et-trio-gguf-réel--26-octobre-2026).
+
+
 ## Synchronisation du dépôt et de la vitrine — 26 octobre 2026
 
 Le mainteneur a autorisé la publication des nouvelles sources et de la vitrine : **41 profils cloud**, dont **19 avec routes de génération**, **45 préréglages média (25 image / 20 vidéo)**, **70 locales × 1 668 clés**, création dans la discussion, moteurs mixtes et NVFP4 CUDA natif testé. L’ambition publique inclut l’aide aux personnes et les contributions dans tous les secteurs, avec simplicité et accessibilité au savoir à travers le monde ; ces orientations restent distinctes des fonctions déjà validées. Description GitHub, site associé, sujets, README rendus, icônes/liens, absence de binaire public et GitHub Actions désactivé font partie du contrôle de synchronisation. La vérification en ligne de la révision publiée est enregistrée localement avec la publication. Aucune nouvelle compilation déclenchée ici ; le mainteneur teste sa propre compilation. Contrôles de publication : **369 tests web réussis dans 22 fichiers**, TypeScript sans émission, 70 locales à 1 668 clés, frontières et sept tests d’architecture validés. Contrôle documentaire local : 254 références sans cible manquante et 41 icônes par README.

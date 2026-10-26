@@ -120,7 +120,7 @@ Le fil montre l’image ou le lecteur vidéo après la sauvegarde terminée. La 
 
 Sauvegarde automatique : **Images → Novera image** et **Vidéos → Novera vidéo**, via les vrais dossiers connus du système, même déplacés ou redirigés vers OneDrive. Les noms uniques évitent les écrasements. Un fichier JSON voisin conserve les paramètres de reproduction. La discussion garde une référence légère ; déplacer ou supprimer le fichier le rend indisponible dans le fil. Ces créations et leurs prompts restent locaux. Les réponses des moteurs textuels et les fonctions Agent/Cowork restent séparées de l’exécution de diffusion.
 
-Ce parcours est implémenté localement ; aucune nouvelle compilation de l’application ni publication sur le dépôt pour ce lot, à la demande du mainteneur. Les validations techniques ne prouvent pas encore le parcours graphique dans un nouvel exécutable. [Moteurs, preuves et limites](SUIVI_MOTEURS.md).
+Ces sources ont ensuite été publiées à la demande du mainteneur. Le parcours image GGUF/C++ a été validé dans son binaire Windows avec le trio conseillé, l’aperçu et la sauvegarde ; les autres parcours graphiques restent à vérifier séparément. [Moteurs, preuves et limites](SUIVI_MOTEURS.md).
 
 <a id="hub"></a>
 
@@ -302,3 +302,9 @@ Dans les réglages de création, **NVFP4 CUDA · PyTorch** accepte le Comfy FLUX
 Le conseil Novera propose FLUX.2 Klein 4B Q4_K_M sur GPU, Qwen3-4B Q4_K_M sur CPU et le VAE officiel, avec liens et bouton de placement sans téléchargement automatique ni remplacement des chemins choisis. Pour privilégier la fidélité des composants GGUF texte, image et vidéo : Q6_K minimum conseillé ; pour l’équilibre : Q4_K_M. Ces repères ne garantissent pas une précision universelle et ne s’appliquent pas directement à NVFP4. Le Hub explique les prérequis et ne confond pas GPU compatible et moteur prêt.
 
 Sous chaque nouvelle image ou vidéo apparaissent la durée totale et, si le moteur la mesure, la génération seule. Le total inclut chargement, encodage, attente réseau et sauvegarde ; les mesures restent visibles après réouverture. Pas de durée inventée pour les anciennes créations. [Références de téléchargement, résultats et limites](SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026).
+
+### Échec image : vérifier le moteur et son exécutable
+
+Pour une diffusion **GGUF Q4_K_M**, sélectionner **stable-diffusion.cpp · GGUF / Safetensors**. Le champ « Exécutable stable-diffusion.cpp » attend **sd-cli.exe avec ses DLL**, jamais un GGUF d’encodeur. Les champs diffusion, encodeur Qwen3 et VAE restent séparés. Le moteur **NVFP4 CUDA** attend le modèle image Safetensors Comfy NVFP4 reconnu ; un GGUF Q4_K_M n’est pas ce format.
+
+La correction de ces deux réglages a permis la génération réelle du trio conseillé dans Novera : **512 × 512, quatre étapes, Qwen sur CPU, génération Auto/Vulkan, 25,5 s au total**, image affichée et sauvegardée dans Images/Novera image. Le message générique masquait une erreur de validation de format ; aucun modèle n’a été réécrit pour résoudre cet échec. [Preuves et périmètre](SUIVI_MOTEURS.md#diagnostic-graphique-et-trio-gguf-réel--26-octobre-2026).

@@ -3,6 +3,12 @@
 Les entrées ci-dessous décrivent des étapes datées. Elles ne remplacent pas [l’état courant des sources et du binaire](../TABLEAU_DE_BORD_NOVERA.md). Les journaux bruts, caches et exécutables restent locaux.
 
 
+
+## 26 octobre — diagnostic de l’échec image dans le binaire du mainteneur
+
+Contrôle direct de Novera : correction de l’association moteur/format et du chemin d’exécutable dans les réglages, sans modification des modèles. Le trio GGUF conseillé a ensuite généré une image 512 × 512 affichée et sauvegardée, avec durée totale 25,5 s. Ce test valide ce parcours graphique C++/Vulkan sur un PC ; il ne valide pas les parcours cloud, vidéo ou NVFP4 graphique. Aucun nouveau build ou push. [Preuves](SUIVI_MOTEURS.md#diagnostic-graphique-et-trio-gguf-réel--26-octobre-2026).
+
+
 ## 26 octobre — publication des capacités média et nouvelle vitrine
 
 Synchronisation demandée des sources image/vidéo, des 41 profils cloud dont 19 avec routes de génération et 45 préréglages média, des moteurs locaux et du Hub conseillé. README anglais/français restructurés avec les 70 locales à 1 668 clés, les icônes officielles, les sorties réellement implémentées, les preuves natives NVFP4 et les limites des essais cloud simulés. Ambition élargie : aider les personnes et contribuer dans les secteurs de l’éducation, des sciences, de la santé, de l’environnement, de l’agriculture, des entreprises, des services publics, de la création, de l’accessibilité et de la vie quotidienne, avec des parcours simples et un accès mondial au savoir. Cette demande autorise la publication des sources et de la vitrine, sans nouveau build ni binaire public.
