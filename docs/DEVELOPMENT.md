@@ -216,3 +216,15 @@ Les six modèles locaux du Hub et leurs fiches utilisent désormais les icônes 
 | `qwen.png` | [Site](https://qwen.ai/) | [Fichier](https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png) | `cd9390bc4209c319121d111f3a1f535b3c7dd909b8f860d41acc9744138d58df` |
 
 Contrôle complémentaire : les 27 fournisseurs cloud et les six modèles locaux disposent tous d’une icône locale ; aperçu complet clair/sombre, 66/66 images décodées. Les 70 noms natifs sont visibles dans un aperçu distinct et testés dans le sélecteur réel.
+
+### Catalogue Hugging Face direct — 26 octobre 2026
+
+`services/models/huggingfaceCatalog.ts` interroge `https://huggingface.co/api/models` : listes GGUF textuelles, multimodales et récentes, plus requêtes LiquidAI/Qwen pour les éditeurs connus ; une liste MLX supplémentaire est réservée à la plateforme compatible. Le catalogue Jan distant, sa recommandation inutilisée et les deux constantes Vite associées sont retirés. Les six présélections et leurs révisions restent inchangées.
+
+Pagination via les liens `rel="next"`, uniquement sur le domaine et le chemin API Hugging Face attendus. Cache mémoire de dix minutes, partage des requêtes en cours, trois chargements de métadonnées de fichiers en parallèle au maximum ; pas de relance automatique après HTTP 429. Les listes publiques n’utilisent ni compte ni jeton. Le flux direct par identifiant conserve son chemin existant pour les modèles à accès restreint. Pas de téléchargement de poids à la découverte.
+
+La priorité d’éditeur repose sur une liste explicite d’organisations, sans déduire une identité d’un nom de modèle. Pour une présélection convertie, le propriétaire réel du dépôt GGUF reste pris en compte : les deux Qwen3.5 Unsloth ne deviennent pas des dépôts Qwen officiels. Le classement matériel garde en premier l’estimation de compatibilité mémoire. Les tâches incompatibles, dépôts de brouillons seuls et GGUF multiparties seuls sont exclus de la découverte ; les capacités du moteur restent à vérifier pour un modèle donné.
+
+Le store conserve les pages déjà chargées en cas de panne, déduplique les lots et expose un bouton d’essai manuel traduit. La migration invalide uniquement le cache régénérable de l’ancien catalogue ; modèles, profils et conversations ne changent pas. Aucun nouveau texte d’interface à traduire : les contrôles réutilisent les clés présentes dans les 70 locales.
+
+Sources du contrat : [API Hub officielle](https://huggingface.co/docs/hub/api), [client officiel list_models](https://huggingface.co/docs/huggingface_hub/package_reference/hf_api#huggingface_hub.HfApi.list_models). Essai réel public Windows le 26 octobre : **44 dépôts**, tailles présentes pour les 44, **49 requêtes de métadonnées**, page suivante disponible ; aucun poids téléchargé. Ce relevé de lot ne représente pas le nombre total de modèles compatibles. MLX et erreurs réseau sont couverts par des tests simulés, sans validation native Mac pour ce lot.

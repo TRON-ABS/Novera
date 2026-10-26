@@ -80,12 +80,6 @@ export default defineConfig(({ mode }) => {
       POSTHOG_KEY: JSON.stringify(env.NOVERA_ANALYTICS_PROJECT_KEY || ''),
       POSTHOG_HOST: JSON.stringify(env.NOVERA_ANALYTICS_HOST || ''),
       GA_MEASUREMENT_ID: JSON.stringify(''),
-      MODEL_CATALOG_URL: JSON.stringify(
-        'https://raw.githubusercontent.com/janhq/model-catalog/main/model_catalog_v2.json'
-      ),
-      LATEST_JAN_MODEL_URL: JSON.stringify(
-        'https://raw.githubusercontent.com/janhq/model-catalog/main/latest_jan_model.json'
-      ),
       AUTO_UPDATER_DISABLED: JSON.stringify(
         process.env.NOVERA_ENABLE_UPDATER !== 'true'
       ),

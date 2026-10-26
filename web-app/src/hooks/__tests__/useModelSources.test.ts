@@ -26,7 +26,7 @@ const mockFetchModelCatalog = vi.fn()
 vi.mock('@/hooks/useServiceHub', () => ({
   getServiceHub: () => ({
     models: () => ({
-      fetchModelCatalog: mockFetchModelCatalog,
+      fetchModelCatalogPage: async () => ({ models: await mockFetchModelCatalog() }),
     }),
   }),
 }))
@@ -45,6 +45,7 @@ describe('useModelSources', () => {
       sources: [],
       error: null,
       loading: false,
+      nextCursor: undefined,
     })
   })
 

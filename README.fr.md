@@ -34,6 +34,12 @@ L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais
 
 **[Consulter toutes les langues, leurs noms et leur couverture →](docs/LANGUAGES.md)**
 
+## Catalogue de modèles Hugging Face
+
+**Hugging Face : 3 187 159 dépôts de modèles, soit environ 3,19 millions**, relevés le **26 octobre 2026** ([catalogue global](https://huggingface.co/models)). Parmi eux : **214 900 dépôts GGUF** et **27 295 dépôts MLX** ([GGUF](https://huggingface.co/models?library=gguf), [MLX](https://huggingface.co/models?library=mlx)). Ces nombres incluent variantes et conversions ; ils ne mesurent ni les modèles distincts ni une compatibilité garantie avec Novera.
+
+Le Hub découvre les formats compatibles directement auprès de Hugging Face, par lots, avec priorité aux éditeurs d’origine. Les six présélections Novera restent disponibles. La découverte directe nécessite une nouvelle compilation ; le dernier exécutable local la précède.
+
 ## État du projet
 
 **Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 70 catalogues complets en clés (1 516 chacun), le Hub de petits modèles et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.

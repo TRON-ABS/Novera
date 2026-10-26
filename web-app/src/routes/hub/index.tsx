@@ -147,11 +147,14 @@ function HubContent() {
     []
   )
 
-  const { sources, fetchSources, loading } = useModelSources(
+  const { sources, fetchSources, fetchMore, nextCursor, loading, error } = useModelSources(
     useShallow((state) => ({
       sources: state.sources,
       fetchSources: state.fetchSources,
       loading: state.loading,
+      fetchMore: state.fetchMore,
+      nextCursor: state.nextCursor,
+      error: state.error,
     }))
   )
 
@@ -488,6 +491,12 @@ function HubContent() {
           <div className="flex flex-col h-full justify-between gap-4 gap-y-3 w-full md:w-4/5 xl:w-4/6 mx-auto">
             <div ref={prefixRef} className="space-y-3 shrink-0">
               <h1 className="text-lg font-semibold">{t('hub:discovery.title')}</h1>
+              {error && (
+                <div role="alert" className="flex items-center justify-between gap-3 text-sm text-muted-foreground">
+                  <span>{t('common:error')}{/\b[45]\d\d\b/.test(error.message) ? ` · HTTP ${error.message.match(/\b[45]\d\d\b/)![0]}` : ''}</span>
+                  <Button variant="outline" size="sm" disabled={loading} onClick={() => nextCursor ? fetchMore() : fetchSources()}>{t('common:run.tryAgain')}</Button>
+                </div>
+              )}
               <HubComparison models={compared} clear={() => setCompared([])} />
             </div>
             {/* Show skeleton immediately on navigation, then show actual content when loaded */}
@@ -841,6 +850,13 @@ function HubContent() {
                     </div>
                   ))}
                 </div>
+              </div>
+            )}
+            {nextCursor && (
+              <div className="flex justify-center py-4">
+                <Button variant="outline" disabled={loading} onClick={() => fetchMore()}>
+                  {loading ? t('hub:loadingModels') : t('common:next')}
+                </Button>
               </div>
             )}
           </div>

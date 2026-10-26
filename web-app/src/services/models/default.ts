@@ -1,3 +1,4 @@
+import { fetchHuggingFacePage } from './huggingfaceCatalog'
 /**
  * Default Models Service - Web implementation
  */
@@ -58,43 +59,19 @@ export class DefaultModelsService implements ModelsService {
   }
 
   async fetchModelCatalog(): Promise<ModelCatalog> {
-    try {
-      const response = await fetch(MODEL_CATALOG_URL)
-
-      if (!response.ok) {
-        throw new Error(
-          `Failed to fetch model catalog: ${response.status} ${response.statusText}`
-        )
-      }
-
-      const catalog: ModelCatalog = await response.json()
-      return catalog
-    } catch (error) {
-      console.error('Error fetching model catalog:', error)
-      throw new Error(
-        `Failed to fetch model catalog: ${error instanceof Error ? error.message : 'Unknown error'}`
-      )
-    }
+    return (await this.fetchModelCatalogPage()).models
   }
 
-  async fetchLatestJanModel(): Promise<CatalogModel | null> {
+  async fetchModelCatalogPage(cursor?: string): Promise<{ models: ModelCatalog; nextCursor?: string }> {
     try {
-      const response = await fetch(LATEST_JAN_MODEL_URL)
-
-      if (!response.ok) {
-        console.error(
-          `Failed to fetch latest Jan model: ${response.status} ${response.statusText}`
-        )
-        return null
-      }
-
-      const data = await response.json()
-
-      const model: CatalogModel = Array.isArray(data) ? data[0] : data
-      return model ?? null
+      const page = await fetchHuggingFacePage(fetch, IS_MACOS, cursor)
+      const models = page.repos.map((repo) => this.convertHfRepoToCatalogModel(repo)).map((model) => ({
+        ...model,
+        quants: model.quants?.filter((q) => !/-\d{5}-of-\d{5}(?:\.gguf)?$/i.test(q.model_id)),
+      }))
+      return { models, nextCursor: page.nextCursor }
     } catch (error) {
-      console.error('Error fetching latest Jan model:', error)
-      return null
+      throw new Error(`Failed to fetch model catalog: ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
   }
 

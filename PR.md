@@ -1,18 +1,20 @@
-# fix(providers): add nine cloud providers with current chat catalogs
+# fix(hub): discover Hugging Face models directly and update repository counts
 
-Novera omitted Meta AI, Cohere, Z.ai, AI21 Labs, BytePlus, Baidu Qianfan, Tencent TokenHub, Amazon Bedrock and IBM watsonx. Add all nine with official bundled icons and documented API endpoints. Display all 70 language names as autonyms with language/reading-direction attributes and a scrollable wider menu. Add official Liquid AI/Qwen publisher icons to the six curated local Hub models and their detail pages. The catalog now offers 27 providers and 69 curated chat model IDs; IBM obtains deployment-specific aliases from its configured Model Gateway rather than assuming a universal Granite ID.
+The Hub depended on Jan's remote GitHub JSON feed despite supporting direct Hugging Face downloads. Replace that feed with paginated public Hugging Face discovery while keeping all six pinned Novera presets. Prioritize recognized original publishers, retain hardware-fit ordering, and distinguish original model publishers from community GGUF converters.
 
-Use Cohere's native chat catalog with its OpenAI inference endpoint. Route Bedrock Mantle model listing separately from GPT-6/GPT-OSS inference. Preserve custom gateways, existing keys, model settings and provider deletion records; restore Cohere migration compatibility. Expose account/region URLs without new untranslated UI prose. Five services with no verified list-models contract use maintained presets and disable catalog-based key checks.
+Discover text/multimodal GGUF repositories and MLX only on supported platforms. Cache pages for ten minutes, bound file-metadata concurrency to three, validate next-page URLs, deduplicate repositories and retain usable data on failure. HTTP 429 does not trigger automatic retries. Remove the unused Jan recommendation API and Vite catalog constants; invalidate only the regenerable old catalog cache. Installed models, credentials, conversations and profiles remain unchanged.
+
+Promote the dated Hugging Face counts in both READMEs and the dashboard: 3,187,159 total model repositories (about 3.19 million), 214,900 GGUF and 27,295 MLX, observed on 26 October 2026. These are upstream repository counts, including variants, not a claim that every repository works in Novera. All six presets remain documented.
 
 ## Validation
 
-- `node node_modules/typescript/bin/tsc --noEmit -p tsconfig.app.json` (web-app): passed.
-- Targeted Vitest checks for cloud catalogs/endpoints, model factory, utilities, provider store/migrations/tombstones, provider settings UI and Tauri provider service: 310 distinct tests passed across 14 files. This includes the Mantle protocol-filter regression, all 70 native menu names, 27 cloud icons and six local model publisher icons.
-- `python scripts/check-novera-locales.py`: 70/70 catalogs, each 1,516/1,516 keys; no locale JSON changed (980 files compared against origin/main).
-- Documentation audit: 14 main Markdown documents, 177 local links checked, no broken links; language roadmap preserved.
-- Official icons: ten downloaded files with source URLs and SHA-256 recorded, existing Cohere SVG reused; 36/36 initial preview images decoded at 18/40 px; a complete 27-cloud/six-local preview decoded all 66 images on light/dark backgrounds.
-- Remote check: no open pull request overlaps this work; GitHub Actions disabled. Official icon provenance is in docs/DEVELOPMENT.md; model sources and account/region restrictions are in docs/USER_GUIDE.md.
+- Targeted Vitest service, pagination/cache, Hub merge/ranking/conversion, comparison and localization tests: **257 passed across 11 files**.
+- TypeScript app check without emission: passed.
+- Architecture checker: six areas, 13 extracted files, zero violations; seven architecture tests passed.
+- Locale checker: **70 catalogs with 1,516/1,516 keys**. UI controls reuse existing translations; no locale JSON changed.
+- Public API smoke test through the new discovery code: **44 repositories**, all with file sizes, a next-page cursor and 49 metadata requests. No account token or model weights used.
+- Documentation audit: 14 main Markdown files, 178 local links valid, all 980 locale JSONs and six pinned presets unchanged. No open overlapping PR; GitHub Actions disabled.
 
 ## Limits
 
-Documentation and mocked transport tests do not validate live account access. Availability depends on subscription, region and model enablement. No paid inference, user credential access, profile change, executable rebuild or binary release. All 70 locale catalogs retain their existing 1,516 keys. Previous desktop build evidence remains in docs/BUILD_AND_RELEASE.md and the dashboard. GitHub Actions remain disabled.
+The complete upstream index is not downloaded. Name filtering applies to loaded pages; exact repository IDs/URLs retain direct lookup. Unknown architectures and access-restricted weights are not guaranteed to work. Mac/MLX behavior and error cases are mocked for this change; no native Mac validation or desktop executable rebuild. No binary release, telemetry activation or user-profile change. GitHub Actions remain disabled.

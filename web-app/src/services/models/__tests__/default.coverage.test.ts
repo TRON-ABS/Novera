@@ -1,3 +1,4 @@
+import { clearHuggingFaceCatalogCache } from '@/services/models/huggingfaceCatalog'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { DefaultModelsService } from '../default'
 import { EngineManager, events, DownloadEvent, ContentType } from '@janhq/core'
@@ -27,16 +28,6 @@ vi.mock('../tokenCountToolContext', () => ({
 
 global.fetch = vi.fn()
 
-Object.defineProperty(global, 'MODEL_CATALOG_URL', {
-  value: 'https://example.com/models',
-  writable: true,
-  configurable: true,
-})
-Object.defineProperty(global, 'LATEST_JAN_MODEL_URL', {
-  value: 'https://example.com/latest',
-  writable: true,
-  configurable: true,
-})
 
 describe('DefaultModelsService - coverage supplement', () => {
   let svc: DefaultModelsService
@@ -63,6 +54,7 @@ describe('DefaultModelsService - coverage supplement', () => {
   }
 
   beforeEach(() => {
+    clearHuggingFaceCatalogCache()
     svc = new DefaultModelsService()
     vi.clearAllMocks()
     ;(EngineManager.instance as any).mockReturnValue(mockEngineManager)
@@ -72,7 +64,7 @@ describe('DefaultModelsService - coverage supplement', () => {
   // ── fetchModelCatalog ──
   describe('fetchModelCatalog', () => {
     it('returns catalog on success', async () => {
-      const catalog = { models: [{ id: 'm1' }] }
+      const catalog: unknown[] = []
       ;(fetch as any).mockResolvedValue({
         ok: true,
         json: vi.fn().mockResolvedValue(catalog),

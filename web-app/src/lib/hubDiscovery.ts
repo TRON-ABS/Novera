@@ -1,3 +1,4 @@
+import { isOriginalPublisher } from '@/services/models/huggingfaceCatalog'
 import catalog from './noveraHubCatalog.json'
 import type { CatalogModel } from '@/services/models/types'
 import type { HardwareData } from '@/hooks/useHardware'
@@ -13,7 +14,11 @@ export function hubFormatBytes(value: number | null | undefined, locale: string)
   if (value == null || value <= 0) return '—'
   return new Intl.NumberFormat(intlLocale(locale), { style: 'unit', unit: value < 1e9 ? 'megabyte' : 'gigabyte', maximumFractionDigits: 2 }).format(value / (value < 1e9 ? 1e6 : 1e9))
 }
-const family = (m: CatalogModel) => hubKey(m).replace(/-gguf$/i, '')
+const family = (m: CatalogModel) => {
+  const repo = m.hub?.repo ?? m.model_name
+  const parts = repo.split('/')
+  return `${parts.length > 1 ? parts[0] : m.developer ?? ''}/${parts.at(-1)}`.replace(/-gguf$/i, '').toLowerCase()
+}
 
 // Keep the pinned Novera variants if the inherited feed lists the same family.
 // Never merge bare model names across publishers (or text and MLX formats).
@@ -44,8 +49,12 @@ export function sortHubModels(sources: CatalogModel[], sort: string, hardware: H
   const ranks = { green: 0, yellow: 1, unknown: 2, red: 3 }
   const fit = (m: CatalogModel) => ranks[estimateModelFit(hubWeight(m), DEFAULT_CTX_LENGTH, hardware)]
   return [...sources].sort((a,b) => {
+    if (sort === 'adapted' && fit(a) !== fit(b)) return fit(a) - fit(b)
+    const owner = (model: CatalogModel) => model.hub?.repo.split('/')[0] ?? model.developer
+    const publisherOrder = Number(isOriginalPublisher(owner(b))) - Number(isOriginalPublisher(owner(a)))
+    if (publisherOrder) return publisherOrder
     if (sort === 'adapted') {
-      const order = fit(a) - fit(b) || Number(!!b.hub) - Number(!!a.hub) || Number(!!b.hub?.recommended) - Number(!!a.hub?.recommended)
+      const order = Number(!!b.hub) - Number(!!a.hub) || Number(!!b.hub?.recommended) - Number(!!a.hub?.recommended)
       if (order) return order
     }
     if (sort === 'smallest' || sort === 'adapted') {

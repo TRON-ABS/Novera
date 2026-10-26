@@ -10,7 +10,9 @@ type ModelSourcesState = {
   sources: CatalogModel[]
   error: Error | null
   loading: boolean
+  nextCursor?: string
   fetchSources: () => Promise<void>
+  fetchMore: () => Promise<void>
 }
 
 export const useModelSources = create<ModelSourcesState>()(
@@ -19,30 +21,48 @@ export const useModelSources = create<ModelSourcesState>()(
       sources: [],
       error: null,
       loading: false,
+      nextCursor: undefined,
       fetchSources: async () => {
+        if (get().loading) return
         set({ loading: true, error: null })
         try {
           const newSources = await getServiceHub()
             .models()
-            .fetchModelCatalog()
-            .then((catalogs) =>
-              catalogs.map((catalog) => ({
+            .fetchModelCatalogPage()
+            .then((page) => ({ ...page,
+              models: page.models.map((catalog) => ({
                 ...catalog,
                 quants: catalog.quants?.map((quant) => ({
                   ...quant,
                   model_id: sanitizeModelId(quant.model_id),
                 })),
-                is_mlx: catalog.library_name === 'mlx',
-              })).filter(e => IS_MACOS ? true : !e.is_mlx)
+                is_mlx: catalog.is_mlx || catalog.library_name === 'mlx',
+              })).filter(e => IS_MACOS ? true : !e.is_mlx) })
             )
 
           set({
-            sources: newSources.length ? newSources : get().sources,
+            sources: newSources.models.length ? newSources.models : get().sources,
+            nextCursor: newSources.nextCursor,
             loading: false,
           })
         } catch (error) {
           set({ error: error as Error, loading: false })
         }
+      },
+      fetchMore: async () => {
+        const cursor = get().nextCursor
+        if (!cursor || get().loading) return
+        set({ loading: true, error: null })
+        try {
+          const page = await getServiceHub().models().fetchModelCatalogPage(cursor)
+          const models = page.models.map((model) => ({ ...model,
+            quants: model.quants?.map((quant) => ({ ...quant, model_id: sanitizeModelId(quant.model_id) })),
+            is_mlx: model.is_mlx || model.library_name === 'mlx',
+          })).filter((model) => IS_MACOS || !model.is_mlx)
+          const merged = new Map(get().sources.map((model) => [model.model_name, model]))
+          for (const model of models) merged.set(model.model_name, model)
+          set({ sources: [...merged.values()], nextCursor: page.nextCursor === cursor ? undefined : page.nextCursor, loading: false })
+        } catch (error) { set({ error: error as Error, loading: false }) }
       },
     }),
     {
@@ -52,6 +72,10 @@ export const useModelSources = create<ModelSourcesState>()(
       // Hub visit. localStorage is synchronous, so no skipHydration needed.
       name: localStorageKey.modelSources,
       storage: createJSONStorage(() => localStorage),
+      // Discard only the regenerable legacy Jan catalog cache.
+      version: 1,
+      migrate: () => ({ sources: [], nextCursor: undefined, error: null, loading: false }),
+      partialize: (state) => ({ sources: state.sources, nextCursor: state.nextCursor }),
     }
   )
 )

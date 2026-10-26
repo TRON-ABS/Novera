@@ -2,6 +2,12 @@
 
 Les entrées ci-dessous décrivent des étapes datées. Elles ne remplacent pas [l’état courant des sources et du binaire](../TABLEAU_DE_BORD_NOVERA.md). Les journaux bruts, caches et exécutables restent locaux.
 
+## 26 octobre — catalogue Hugging Face direct et chiffres actualisés
+
+Le Hub découvre directement les dépôts Hugging Face compatibles par lots, avec priorité aux éditeurs d’origine, pagination et cache ; il conserve les six présélections Novera et abandonne le flux JSON Jan sur GitHub. Modèles installés, conversations et profils inchangés. Chiffres mis en avant dans les README et le tableau de bord : **3 187 159 dépôts de modèles** au total, environ **3,19 millions**, dont **214 900 GGUF** et **27 295 MLX**, relevés le 26 octobre ; variantes et conversions incluses, sans garantie de compatibilité de tous ces dépôts.
+
+Validation : **257 tests web réussis dans 11 fichiers**, TypeScript sans émission, sept tests d’architecture et contrôle des frontières réussis, 70 locales complètes en clés. Essai réel public : 44 dépôts, 44 tailles disponibles et page suivante récupérés en 49 requêtes de métadonnées ; aucun poids téléchargé. Pas de compilation applicative ou de validation native Mac. [Fonctionnement et limites](USER_GUIDE.md#hub).
+
 ## 26 octobre — neuf fournisseurs cloud et modèles récents
 
 Ajout de Meta AI, Cohere, Z.ai, AI21 Labs, BytePlus, Baidu Qianfan, Tencent TokenHub, Amazon Bedrock et IBM watsonx : **27 fournisseurs** et **69 modèles présélectionnés** au total. Modèles récents vérifiés dans les sources officielles ; IBM utilise les alias réellement activés dans la passerelle du compte. Neuf icônes officielles raccordées, dont le SVG Cohere existant. URL régionales et passerelles modifiables, catalogue Cohere natif et routes Mantle distinctes, migration Cohere sans suppression des clés ou proxy.

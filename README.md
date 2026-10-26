@@ -39,6 +39,12 @@ Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Algerian Arabic, Mor
 
 **[Explore every language, native label and coverage level →](docs/LANGUAGES.md)**
 
+## Hugging Face model catalog
+
+**Hugging Face: 3,187,159 model repositories, about 3.19 million**, observed on **26 October 2026** ([global catalog](https://huggingface.co/models)). This includes **214,900 GGUF repositories** and **27,295 MLX repositories** ([GGUF](https://huggingface.co/models?library=gguf), [MLX](https://huggingface.co/models?library=mlx)). Counts include versions and conversions; they do not represent distinct models or guaranteed Novera compatibility.
+
+The Hub discovers compatible formats directly from Hugging Face in batches, prioritizing original publishers. The six Novera presets remain available. Direct discovery requires a new build; the latest local executable predates it.
+
 ## Project status
 
 **Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 70 interface catalogs with complete key coverage (1,516 keys each), the small-model Hub and updated cloud-provider presets. Native-language review is still needed.

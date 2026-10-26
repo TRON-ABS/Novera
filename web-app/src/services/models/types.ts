@@ -120,7 +120,7 @@ export interface ModelsService {
   getModelContextLimit(modelId: string, provider: string): Promise<number | undefined>
   fetchModels(): Promise<modelInfo[]>
   fetchModelCatalog(): Promise<ModelCatalog>
-  fetchLatestJanModel(): Promise<CatalogModel | null>
+  fetchModelCatalogPage(cursor?: string): Promise<{ models: ModelCatalog; nextCursor?: string }>
   fetchHuggingFaceRepo(
     repoId: string,
     hfToken?: string

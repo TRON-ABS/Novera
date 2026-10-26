@@ -17,7 +17,7 @@ describe('Novera Hub discovery', () => {
   })
   it('replaces inherited duplicates without confusing publishers and formats', () => {
     const m = NOVERA_HUB_MODELS[0]
-    const merged = mergeHubCatalog([{ ...m, hub: undefined, model_name: m.model_name + '-GGUF' }, { ...m, developer: 'Other' }, { ...m, is_mlx: true }])
+    const merged = mergeHubCatalog([{ ...m, hub: undefined, model_name: m.model_name + '-GGUF' }, { ...m, developer: 'Other', hub: { ...m.hub!, repo: `Other/${m.model_name}` } }, { ...m, is_mlx: true }])
     expect(merged).toHaveLength(8)
     expect(merged[0].hub).toBeDefined()
   })

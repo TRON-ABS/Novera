@@ -1,3 +1,4 @@
+import { clearHuggingFaceCatalogCache } from '@/services/models/huggingfaceCatalog'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { DefaultModelsService } from '../models/default'
 import type { HuggingFaceRepo, CatalogModel } from '../models/types'
@@ -16,11 +17,6 @@ vi.mock('@janhq/core', () => ({
 
 global.fetch = vi.fn()
 
-Object.defineProperty(global, 'MODEL_CATALOG_URL', {
-  value: 'https://example.com/models',
-  writable: true,
-  configurable: true,
-})
 
 describe('DefaultModelsService', () => {
   let modelsService: DefaultModelsService
@@ -45,6 +41,7 @@ describe('DefaultModelsService', () => {
   const mockEngineManager = { get: vi.fn().mockReturnValue(mockEngine) }
 
   beforeEach(() => {
+    clearHuggingFaceCatalogCache()
     modelsService = new DefaultModelsService()
     vi.clearAllMocks()
     ;(EngineManager.instance as any).mockReturnValue(mockEngineManager)
@@ -61,14 +58,14 @@ describe('DefaultModelsService', () => {
 
   describe('fetchModelCatalog', () => {
     it('should fetch model catalog successfully', async () => {
-      const mockCatalog = [{ model_name: 'GPT-4', description: 'LLM' }]
+      const mockCatalog: unknown[] = []
       ;(fetch as any).mockResolvedValue({ ok: true, json: vi.fn().mockResolvedValue(mockCatalog) })
       expect(await modelsService.fetchModelCatalog()).toEqual(mockCatalog)
     })
 
     it('should handle fetch error', async () => {
       ;(fetch as any).mockResolvedValue({ ok: false, status: 404, statusText: 'Not Found' })
-      await expect(modelsService.fetchModelCatalog()).rejects.toThrow('Failed to fetch model catalog: 404 Not Found')
+      await expect(modelsService.fetchModelCatalog()).rejects.toThrow('Failed to fetch model catalog: Hugging Face catalog: 404 Not Found')
     })
 
     it('should handle network error', async () => {
@@ -177,7 +174,9 @@ describe('DefaultModelsService', () => {
   })
 
   describe('fetchHuggingFaceRepo', () => {
-    beforeEach(() => { vi.clearAllMocks() })
+    beforeEach(() => {
+    clearHuggingFaceCatalogCache()
+      vi.clearAllMocks() })
 
     it('should fetch HuggingFace repo with blobs=true', async () => {
       const mockRepoData = { modelId: 'microsoft/DialoGPT-medium', siblings: [] }
@@ -343,7 +342,9 @@ describe('DefaultModelsService', () => {
   })
 
   describe('isModelSupported', () => {
-    beforeEach(() => { vi.clearAllMocks() })
+    beforeEach(() => {
+    clearHuggingFaceCatalogCache()
+      vi.clearAllMocks() })
 
     it.each([
       ['GREEN', 'GREEN', '/path/model.gguf', 4096],

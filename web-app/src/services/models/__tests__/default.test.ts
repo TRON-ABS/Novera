@@ -1,3 +1,4 @@
+import { clearHuggingFaceCatalogCache } from '@/services/models/huggingfaceCatalog'
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { DefaultModelsService } from '../default'
 import { EngineManager, events, DownloadEvent, ContentType } from '@janhq/core'
@@ -26,8 +27,6 @@ vi.mock('../tokenCountToolContext', () => ({
 }))
 
 global.fetch = vi.fn()
-Object.defineProperty(global, 'MODEL_CATALOG_URL', { value: 'https://example.com/models', writable: true, configurable: true })
-Object.defineProperty(global, 'LATEST_JAN_MODEL_URL', { value: 'https://example.com/latest', writable: true, configurable: true })
 
 describe('DefaultModelsService - additional coverage', () => {
   let svc: DefaultModelsService
@@ -42,6 +41,7 @@ describe('DefaultModelsService - additional coverage', () => {
   const mockEngineManager = { get: vi.fn().mockReturnValue(mockEngine) }
 
   beforeEach(() => {
+    clearHuggingFaceCatalogCache()
     svc = new DefaultModelsService()
     vi.clearAllMocks()
     ;(EngineManager.instance as any).mockReturnValue(mockEngineManager)
@@ -66,27 +66,6 @@ describe('DefaultModelsService - additional coverage', () => {
     it('returns empty array when engine is missing', async () => {
       mockEngineManager.get.mockReturnValueOnce(undefined)
       expect(await svc.fetchModels()).toEqual([])
-    })
-  })
-
-  describe('fetchLatestJanModel', () => {
-    it.each([
-      ['object response', { model_name: 'jan-nano' }, { model_name: 'jan-nano' }],
-      ['array response', [{ model_name: 'jan-nano' }, { model_name: 'jan-micro' }], { model_name: 'jan-nano' }],
-      ['empty array', [], null],
-    ])('handles %s', async (_label, response, expected) => {
-      ;(fetch as any).mockResolvedValue({ ok: true, json: vi.fn().mockResolvedValue(response) })
-      expect(await svc.fetchLatestJanModel()).toEqual(expected)
-    })
-
-    it('returns null on non-ok response', async () => {
-      ;(fetch as any).mockResolvedValue({ ok: false, status: 500, statusText: 'Error' })
-      expect(await svc.fetchLatestJanModel()).toBeNull()
-    })
-
-    it('returns null on network error', async () => {
-      ;(fetch as any).mockRejectedValue(new Error('network'))
-      expect(await svc.fetchLatestJanModel()).toBeNull()
     })
   })
 
