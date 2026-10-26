@@ -140,7 +140,11 @@
     "upscaleModel": "Model peningkatan resolusi",
     "upscaleInstall": "Instal kedua model resmi",
     "upscaleNote": "Setelah pembuatan. Memerlukan Python/PyTorch. Keluaran maksimum: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Instal model atau pilih berkas .pth yang kompatibel, lalu periksa Python/PyTorch."
+    "upscaleMissing": "Instal model atau pilih berkas .pth yang kompatibel, lalu periksa Python/PyTorch.",
+    "ratio": "Rasio aspek",
+    "resolution": "Resolusi",
+    "customSize": "Adat",
+    "sizeAutoNote": "Mengubah rasio menyesuaikan resolusi saat ini. Dimensi menggunakan kelipatan 16, hingga 2048 piksel."
   },
   "creationInstall": {
     "install": "Pasang konfigurasi ini",
@@ -166,5 +170,33 @@
     "preserve": "Berkas dan percakapan tetap disimpan; model dimuat ulang saat diperlukan. Perubahan berlaku untuk permintaan baru.",
     "waiting": "Menunggu atau membebaskan RAM/VRAM…",
     "failed": "Optimasi memori gagal. Coba lagi atau pilih Manual."
+  },
+  "sharing": {
+    "share": "Bagikan",
+    "scope": "Konten untuk dibagikan",
+    "render": "Hasil ini saja",
+    "conversation": "Seluruh percakapan saat ini",
+    "selection": "Pilih item",
+    "questions": "Pertanyaan",
+    "sources": "Sumber",
+    "parameters": "Pengaturan generasi",
+    "format": "Format",
+    "original": "Berkas asli",
+    "embedded": "gambar tertanam",
+    "imageHint": "Konversi gambar menggunakan still frame. SVG menyematkan gambar raster; ICO terbatas pada 256 piksel.",
+    "videoHint": "Gunakan HTML atau ZIP untuk menyimpan pemutaran video dan file asli.",
+    "prepare": "Siapkan pratinjau",
+    "preview": "Pratinjau",
+    "system": "Bagikan melalui sistem",
+    "ready": "Pratinjau siap",
+    "opened": "Dialog sistem terbuka",
+    "fallback": "Berbagi sistem tidak tersedia di sini untuk format ini. Simpan atau cetak file.",
+    "tooLarge": "Ekspornya terlalu besar. Pilih lebih sedikit item atau bagikan media asli.",
+    "failed": "Tidak dapat menyelesaikan ekspor atau berbagi. Periksa file dan coba format lain.",
+    "localHint": "Tinjau konten yang dipilih sebelum dibagikan. Tidak ada tautan publik yang dibuat.",
+    "user": "kamu",
+    "assistant": "Asisten",
+    "linuxHint": "Linux membuka aplikasi email Anda dengan lampiran. Tidak ada yang dikirim secara otomatis.",
+    "copyFile": "Salin berkas"
   }
 }

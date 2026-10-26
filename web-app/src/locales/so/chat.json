@@ -140,7 +140,11 @@
     "upscaleModel": "Moodelka weyneynta",
     "upscaleInstall": "Rakib labada moodel ee rasmiga ah",
     "upscaleNote": "Kadib abuurista. Waxay u baahan tahay Python/PyTorch. Wax-soo-saarka ugu badan: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Rakib moodeellada ama dooro fayl .pth ku habboon, kadibna hubi Python/PyTorch."
+    "upscaleMissing": "Rakib moodeellada ama dooro fayl .pth ku habboon, kadibna hubi Python/PyTorch.",
+    "ratio": "Saamiga dhinaca",
+    "resolution": "Qaraarka",
+    "customSize": "Caado",
+    "sizeAutoNote": "Beddelka saamiga ayaa la qabsanaya xallinta hadda. Cabbiradu waxay isticmaalaan dhufashada 16, ilaa 2048 px."
   },
   "creationInstall": {
     "install": "Rakib habayntan",
@@ -166,5 +170,33 @@
     "preserve": "Faylasha iyo wadahadalladu way jiraan; moodelladu dib bay u rarmaan marka loo baahdo. Isbeddelladu waxay khuseeyaan codsiyada cusub.",
     "waiting": "Sugid ama sii daynta RAM/VRAM…",
     "failed": "Hagaajinta xusuustu way fashilantay. Isku day mar kale ama dooro Gacanta."
+  },
+  "sharing": {
+    "share": "La wadaag",
+    "scope": "Waxyaabaha la wadaagayo",
+    "render": "Natiijadan kaliya",
+    "conversation": "Wadahadalka hadda socda oo dhan",
+    "selection": "Dooro walxaha",
+    "questions": "Su'aalo",
+    "sources": "Ilaha",
+    "parameters": "Habaynta jiilka",
+    "format": "Qaabka",
+    "original": "Faylka asalka ah",
+    "embedded": "sawirka gundhig",
+    "imageHint": "Beddelida sawirku waxay isticmaashaa jir wali taagan. SVG waxay gundhigaysaa sawirka rasterka; ICO waxay ku kooban tahay 256 px.",
+    "videoHint": "Isticmaal HTML ama ZIP si aad u ilaaliso dib-u-ciyaarista muuqalka iyo faylalka asalka ah.",
+    "prepare": "Diyaari muuqaal horudhac ah",
+    "preview": "Horudhac",
+    "system": "Ku wadaag nidaamka",
+    "ready": "Horudhac waa diyaar",
+    "opened": "Wadahadalka nidaamka ayaa furmay",
+    "fallback": "Nidaamka wadaagga ayaan halkan looga heli karin qaabkan. Kaydi ama daabac faylka",
+    "tooLarge": "Dhoofintu aad bay u badan tahay. Dooro waxyaabo ka yar ama wadaag warbaahinta asalka ah.",
+    "failed": "Aan dhamaystiri karin dhoofinta ama wadaagista Hubi faylasha oo isku day qaab kale.",
+    "localHint": "Dib u eeg waxa la doortay ka hor inta aanad wadaagin Ma jiro xiriir dadweyne oo la abuuray",
+    "user": "Adiga",
+    "assistant": "Kaaliyaha",
+    "linuxHint": "Linux wuxuu ku furaa codsigaaga iimaylka lifaaqa. Wax si toos ah looma diro",
+    "copyFile": "nuqul ka samee"
   }
 }

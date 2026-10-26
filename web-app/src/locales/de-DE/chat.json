@@ -140,7 +140,11 @@
     "upscaleModel": "Vergrößerungsmodell",
     "upscaleInstall": "Beide offiziellen Modelle installieren",
     "upscaleNote": "Nach der Erzeugung. Python/PyTorch erforderlich. Maximale Ausgabe: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Modelle installieren oder eine kompatible .pth-Datei wählen und Python/PyTorch prüfen."
+    "upscaleMissing": "Modelle installieren oder eine kompatible .pth-Datei wählen und Python/PyTorch prüfen.",
+    "ratio": "Seitenverhältnis",
+    "resolution": "Auflösung",
+    "customSize": "Benutzerdefiniert",
+    "sizeAutoNote": "Durch Ändern des Verhältnisses wird die aktuelle Auflösung angepasst. Für die Abmessungen werden Vielfache von 16 verwendet, bis zu 2048 px."
   },
   "creationInstall": {
     "install": "Diese Konfiguration installieren",
@@ -166,5 +170,33 @@
     "preserve": "Dateien und Chats bleiben erhalten; Modelle werden bei Bedarf neu geladen. Änderungen gelten für neue Anfragen.",
     "waiting": "Warten oder RAM/VRAM freigeben…",
     "failed": "Speicheroptimierung fehlgeschlagen. Erneut versuchen oder Manuell wählen."
+  },
+  "sharing": {
+    "share": "Teilen",
+    "scope": "Inhalte zum Teilen",
+    "render": "Nur dieses Ergebnis",
+    "conversation": "Gesamtes aktuelles Gespräch",
+    "selection": "Wählen Sie Artikel aus",
+    "questions": "Fragen",
+    "sources": "Quellen",
+    "parameters": "Generierungseinstellungen",
+    "format": "Formatieren",
+    "original": "Originaldatei",
+    "embedded": "eingebettetes Bild",
+    "imageHint": "Bildkonvertierungen verwenden ein Standbild. SVG bettet das Rasterbild ein; ICO ist auf 256 px beschränkt.",
+    "videoHint": "Verwenden Sie HTML oder ZIP, um die Videowiedergabe und die Originaldateien beizubehalten.",
+    "prepare": "Vorschau vorbereiten",
+    "preview": "Vorschau",
+    "system": "Über das System teilen",
+    "ready": "Vorschau bereit",
+    "opened": "Systemdialog geöffnet",
+    "fallback": "Für dieses Format ist die Systemfreigabe hier nicht verfügbar. Speichern oder drucken Sie die Datei.",
+    "tooLarge": "Der Export ist zu groß. Wählen Sie weniger Elemente aus oder geben Sie die Originalmedien frei.",
+    "failed": "Der Export oder die Freigabe konnte nicht abgeschlossen werden. Überprüfen Sie die Dateien und versuchen Sie es mit einem anderen Format.",
+    "localHint": "Überprüfen Sie den ausgewählten Inhalt, bevor Sie ihn teilen. Es wird kein öffentlicher Link erstellt.",
+    "user": "Du",
+    "assistant": "Assistent",
+    "linuxHint": "Linux öffnet Ihre E-Mail-Anwendung mit einem Anhang. Es wird nichts automatisch gesendet.",
+    "copyFile": "Datei kopieren"
   }
 }

@@ -140,7 +140,11 @@
     "upscaleModel": "Enlargement model",
     "upscaleInstall": "Install di two official models",
     "upscaleNote": "After generation. You need Python/PyTorch. Highest output: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Install di models or choose .pth file wey fit, then check Python/PyTorch."
+    "upscaleMissing": "Install di models or choose .pth file wey fit, then check Python/PyTorch.",
+    "ratio": "Aspect ratio",
+    "resolution": "Resolution",
+    "customSize": "Custom",
+    "sizeAutoNote": "Change ratio and di current resolution go adjust. Dimensions na multiples of 16, up to 2048 px."
   },
   "creationInstall": {
     "install": "Install dis setup",
@@ -166,5 +170,33 @@
     "preserve": "Files and chats go remain; models go load again when need dey. Changes na for new requests.",
     "waiting": "Dey wait or free RAM/VRAM…",
     "failed": "Memory optimisation fail. Try again or choose Manual."
+  },
+  "sharing": {
+    "share": "Share",
+    "scope": "Wetin to share",
+    "render": "Only dis result",
+    "conversation": "Di whole current chat",
+    "selection": "Choose items",
+    "questions": "Questions",
+    "sources": "Sources",
+    "parameters": "Generation settings",
+    "format": "Format",
+    "original": "Original file",
+    "embedded": "image wey dey inside",
+    "imageHint": "Image conversion dey use one still frame. SVG dey carry di raster image inside; ICO limit na 256 px.",
+    "videoHint": "Use HTML or ZIP to keep video playback and di original files.",
+    "prepare": "Prepare preview",
+    "preview": "Preview",
+    "system": "Share through system",
+    "ready": "Preview don ready",
+    "opened": "System dialog don open",
+    "fallback": "System sharing no dey available here for dis format. Save or print di file.",
+    "tooLarge": "Di export too big. Choose fewer items or share di original media.",
+    "failed": "Export or sharing no finish. Check di files and try another format.",
+    "localHint": "Check wetin you choose before sharing. We no create any public link.",
+    "user": "You",
+    "assistant": "Assistant",
+    "linuxHint": "Linux go open your email app with attachment. Nothing go send by itself.",
+    "copyFile": "Copy file"
   }
 }

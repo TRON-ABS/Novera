@@ -140,7 +140,11 @@
     "upscaleModel": "Modél ngagedéan",
     "upscaleInstall": "Pasang dua modél resmi",
     "upscaleNote": "Sanggeus nyieun gambar. Merlukeun Python/PyTorch. Kaluaran maksimum: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Pasang modél atawa pilih berkas .pth nu cocog, tuluy pariksa Python/PyTorch."
+    "upscaleMissing": "Pasang modél atawa pilih berkas .pth nu cocog, tuluy pariksa Python/PyTorch.",
+    "ratio": "Babandingan aspék",
+    "resolution": "Resolusi",
+    "customSize": "Adat",
+    "sizeAutoNote": "Ngarobah rasio adapts resolusi ayeuna. Dimensi ngagunakeun lilipetan 16, nepi ka 2048 px."
   },
   "creationInstall": {
     "install": "Pasang konfigurasi ieu",
@@ -166,5 +170,33 @@
     "preserve": "Berkas sareng obrolan tetep disimpen; modél dimuat deui lamun perlu. Parobahan lumaku pikeun paménta anyar.",
     "waiting": "Ngantosan atanapi ngaleupaskeun RAM/VRAM…",
     "failed": "Optimasi mémori gagal. Cobian deui atanapi pilih Manual."
+  },
+  "sharing": {
+    "share": "Bagikeun",
+    "scope": "Eusi pikeun dibagikeun",
+    "render": "Hasilna ngan ieu",
+    "conversation": "Sakabéh paguneman ayeuna",
+    "selection": "Pilih barang",
+    "questions": "Patarosan",
+    "sources": "Sumber",
+    "parameters": "Setélan generasi",
+    "format": "Formatna",
+    "original": "file aslina",
+    "embedded": "gambar dipasang",
+    "imageHint": "Konvérsi gambar ngagunakeun pigura kénéh. SVG embeds gambar raster; ICO dugi ka 256 px.",
+    "videoHint": "Anggo HTML atanapi ZIP pikeun ngajaga pidéo sareng file asli.",
+    "prepare": "Nyiapkeun sawangan",
+    "preview": "Sawangan",
+    "system": "Bagikeun via sistem",
+    "ready": "Sawangan siap",
+    "opened": "Dialog sistem dibuka",
+    "fallback": "Babagi sistem henteu sayogi di dieu pikeun format ieu. Simpen atanapi nyitak file.",
+    "tooLarge": "Éksporna ageung teuing. Pilih leuwih saeutik item atawa bagikeun media aslina.",
+    "failed": "Teu bisa ngalengkepan ékspor atawa babagi. Pariksa payil jeung coba format sejen.",
+    "localHint": "Pariksa eusi nu dipilih saméméh babagi. Taya link umum dijieun.",
+    "user": "Anjeun",
+    "assistant": "Asisten",
+    "linuxHint": "Linux muka aplikasi surélék anjeun kalawan gagantel. Henteu aya anu dikirim sacara otomatis.",
+    "copyFile": "file salinan"
   }
 }

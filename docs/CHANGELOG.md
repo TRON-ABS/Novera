@@ -1,5 +1,11 @@
 # Novera — historique consolidé
 
+## 26 octobre — partage local, messageries, exports et ratios
+
+Ajout d’une icône de partage sous les réponses/images/vidéos et dans la barre de discussion : résultat seul, branche active complète avec messages hors écran, ou sélection ; aperçu avant copie, sauvegarde, impression/PDF et passage au système. Formats documentaires enrichis DOCX/ODT/RTF/EPUB en plus de Markdown/TXT/HTML/JSON/CSV/ZIP ; onze encodeurs matriciels dont AVIF, SVG incorporé et original préservé. Copie de fichier pour les applications de chat compatibles ; adaptateurs Windows/macOS/Android/iOS et Linux (courriel XDG + presse-papiers), sans envoi automatique ni liens publics hébergés. Dix-neuf ratios et ratio personnalisé, boutons de résolution avec ajustement aux dimensions actuelles, pour profils locaux image/vidéo. Trente nouveaux libellés dans les 70 locales : **1 734 clés**.
+
+Validation : **145 tests web / 14 fichiers**, trois tests Rust isolés, types, build Vite, contrôle natif Windows, architecture, dictionnaires et lecture indépendante des conteneurs/export DOCX. Les plateformes autres que Windows et les transmissions réelles restent à essayer après compilation ; aucun nouvel EXE Novera ni binaire public. [Utilisation, formats et limites](USER_GUIDE.md#partage-des-résultats-et-ratios--sources-du-26-octobre-2026).
+
 ## 26 octobre — graines d’image et agrandissement optionnel
 
 Ajout des graines Aléatoire, Fixe, +1 et −1, graine précédente réutilisable et conservation par profil ; limite de génération 2048 × 2048 visible. Agrandissement Real-ESRGAN activable/désactivable, désactivé initialement, ×2 par défaut ou ×4, deux poids officiels installables après confirmation et choix automatique ou fichier local. Le worker PyTorch intervient après la sortie du générateur et la publication attend la réussite de l’agrandissement. Quinze nouveaux textes dans les 70 locales : **1 704 clés** par catalogue. **82 tests web, quatre tests Python, sept tests Rust d’installation**, types, contrôle natif et build de l’interface ; vrais essais ×2/×4 sur CPU/CUDA avec entrée 16². Aucun nouvel EXE Novera. [Utilisation](USER_GUIDE.md#graines-résolution-et-agrandissement--sources-du-26-octobre-2026) · [Preuves et limites](SUIVI_MOTEURS.md#graines-et-agrandissement-real-esrgan--26-octobre-2026).

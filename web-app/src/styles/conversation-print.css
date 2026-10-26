@@ -9,9 +9,46 @@ body {
   color: #202020;
 }
 pre {
-  font: inherit;
+  font:
+    13px ui-monospace,
+    monospace;
+  padding: 12px;
+  background: #f3f4f6;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+table {
+  border-collapse: collapse;
+  max-width: 100%;
+}
+th,
+td {
+  border: 1px solid #bbb;
+  padding: 6px 10px;
+  text-align: start;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+figure {
+  margin: 16px 0;
+}
+figcaption,
+.role {
+  font-size: 12px;
+  color: #555;
+}
+blockquote {
+  border-inline-start: 3px solid #aaa;
+  padding-inline-start: 16px;
+}
+.katex-html {
+  display: none;
+}
+math {
+  font-size: 1.1em;
 }
 article {
   border-top: 1px solid #ddd;
@@ -28,5 +65,17 @@ h2 {
   }
   h2 {
     break-after: avoid;
+  }
+  img,
+  table,
+  figure {
+    break-inside: avoid;
+  }
+  img {
+    max-height: 24cm;
+    object-fit: contain;
+  }
+  video {
+    display: none;
   }
 }

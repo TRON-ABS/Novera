@@ -18,6 +18,7 @@ export interface CreationSettings {
   videoModel: string
   width: number
   height: number
+  mediaRatio?: string
   steps: number
   frames: number
   fps: number

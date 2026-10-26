@@ -140,7 +140,11 @@
     "upscaleModel": "Model pembesaran",
     "upscaleInstall": "Pasang kedua-dua model rasmi",
     "upscaleNote": "Selepas penjanaan. Memerlukan Python/PyTorch. Output maksimum: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Pasang model atau pilih fail .pth yang serasi, kemudian semak Python/PyTorch."
+    "upscaleMissing": "Pasang model atau pilih fail .pth yang serasi, kemudian semak Python/PyTorch.",
+    "ratio": "Nisbah aspek",
+    "resolution": "Resolusi",
+    "customSize": "Adat",
+    "sizeAutoNote": "Menukar nisbah menyesuaikan resolusi semasa. Dimensi menggunakan gandaan 16, sehingga 2048 px."
   },
   "creationInstall": {
     "install": "Pasang konfigurasi ini",
@@ -166,5 +170,33 @@
     "preserve": "Fail dan perbualan dikekalkan; model dimuatkan semula apabila perlu. Perubahan terpakai pada permintaan baharu.",
     "waiting": "Menunggu atau melepaskan RAM/VRAM…",
     "failed": "Pengoptimuman memori gagal. Cuba lagi atau pilih Manual."
+  },
+  "sharing": {
+    "share": "Kongsi",
+    "scope": "Kandungan untuk dikongsi",
+    "render": "Keputusan ini sahaja",
+    "conversation": "Keseluruhan perbualan semasa",
+    "selection": "Pilih item",
+    "questions": "Soalan",
+    "sources": "Sumber",
+    "parameters": "Tetapan penjanaan",
+    "format": "Format",
+    "original": "Fail asal",
+    "embedded": "imej terbenam",
+    "imageHint": "Penukaran imej menggunakan bingkai pegun. SVG membenamkan imej raster; ICO terhad kepada 256 px.",
+    "videoHint": "Gunakan HTML atau ZIP untuk mengekalkan main balik video dan fail asal.",
+    "prepare": "Sediakan pratonton",
+    "preview": "Pratonton",
+    "system": "Kongsi melalui sistem",
+    "ready": "Pratonton sedia",
+    "opened": "Dialog sistem dibuka",
+    "fallback": "Perkongsian sistem tidak tersedia di sini untuk format ini. Simpan atau cetak fail.",
+    "tooLarge": "Eksport terlalu besar. Pilih lebih sedikit item atau kongsi media asal.",
+    "failed": "Tidak dapat menyelesaikan eksport atau perkongsian. Semak fail dan cuba format lain.",
+    "localHint": "Semak kandungan yang dipilih sebelum berkongsi. Tiada pautan awam dibuat.",
+    "user": "awak",
+    "assistant": "Penolong",
+    "linuxHint": "Linux membuka aplikasi e-mel anda dengan lampiran. Tiada apa-apa dihantar secara automatik.",
+    "copyFile": "Salin fail"
   }
 }

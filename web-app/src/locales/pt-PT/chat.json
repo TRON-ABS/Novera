@@ -140,7 +140,11 @@
     "upscaleModel": "Modelo de ampliação",
     "upscaleInstall": "Instalar os dois modelos oficiais",
     "upscaleNote": "Após gerar. Requer Python/PyTorch. Saída máxima: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Instale os modelos ou escolha um ficheiro .pth compatível e verifique Python/PyTorch."
+    "upscaleMissing": "Instale os modelos ou escolha um ficheiro .pth compatível e verifique Python/PyTorch.",
+    "ratio": "Proporção de aspeto",
+    "resolution": "Resolução",
+    "customSize": "Personalizado",
+    "sizeAutoNote": "Alterar a proporção adapta a resolução atual. As dimensões utilizam múltiplos desde 16, até 2048 px."
   },
   "creationInstall": {
     "install": "Instalar esta configuração",
@@ -166,5 +170,33 @@
     "preserve": "Os ficheiros e conversas são conservados; os modelos são recarregados quando necessário. As alterações aplicam-se a novos pedidos.",
     "waiting": "A aguardar ou libertar RAM/VRAM…",
     "failed": "A otimização da memória falhou. Tente novamente ou escolha Manual."
+  },
+  "sharing": {
+    "share": "Compartilhar",
+    "scope": "Conteúdo para partilhar",
+    "render": "Este resultado apenas",
+    "conversation": "Toda a conversa atual",
+    "selection": "Escolha itens",
+    "questions": "Perguntas",
+    "sources": "Fontes",
+    "parameters": "Configurações de geração",
+    "format": "Formato",
+    "original": "Arquivo original",
+    "embedded": "imagem incorporada",
+    "imageHint": "As conversões de imagens utilizam um quadro estático. SVG incorpora a imagem raster; ICO está limitado a 256 px.",
+    "videoHint": "Utilize HTML ou ZIP para manter a reprodução de vídeo e ficheiros originais.",
+    "prepare": "Preparar visualização",
+    "preview": "Visualização",
+    "system": "Partilhar via sistema",
+    "ready": "Pré-visualização pronta",
+    "opened": "Caixa de diálogo do sistema aberta",
+    "fallback": "A partilha do sistema não está disponível aqui para este formato. Guarde ou imprima o ficheiro.",
+    "tooLarge": "A exportação é muito grande. Selecione menos itens ou partilhe os suportes originais.",
+    "failed": "Não foi possível concluir a exportação ou a partilha. Verifique os ficheiros e tente outro formato.",
+    "localHint": "Reveja o conteúdo selecionado antes de partilhar. Nenhum link público é criado.",
+    "user": "Você",
+    "assistant": "Assistente",
+    "linuxHint": "Linux abre a sua aplicação de e-mail com um anexo. Nada é enviado automaticamente.",
+    "copyFile": "Copiar ficheiro"
   }
 }

@@ -43,7 +43,7 @@ These are directions for contribution and development, not a claim that every se
 | --- | --- |
 | Local and cloud AI | Local model engines alongside connections to remote model providers. Compatibility depends on the model, provider and hardware. |
 | Tools and documents | MCP integrations, document retrieval and assistant workflows inherited from the existing codebase. |
-| Multilingual interface | 70 selectable locales, each covering all 1,704 current English keys. Native-speaker review remains pending. |
+| Multilingual interface | 70 selectable locales, each covering all 1,734 current English keys. Native-speaker review remains pending. |
 | An extensible application | A desktop application with extension points for model engines, tools and future capabilities. |
 
 These describe the source foundation. Earlier 1.0.0 builds were compiled and launched locally on Windows x64. The latest source changes await a new maintainer build; public packaging and broader runtime validation remain in preparation.
@@ -59,6 +59,12 @@ Sources add random/fixed/+1/−1 image seeds, the 2048 × 2048 generation limit,
 
 A real NVFP4 512 × 512 image on RTX 5070 Laptop executed **400 hardware FP4 GEMMs**, with Qwen3 GGUF and a FLUX.2 Safetensors VAE. CPU/GPU/Auto encoder placement was exercised. The C++ compatibility path also produced real CPU/Vulkan images; it uses a larger cache and does not execute native FP4. Tiny local PNG/MP4 fixtures validated media creation and timing. Cloud HTTP contracts are tested with simulated responses, without paid generation or account entitlement validation. The maintainer-built Windows application has now generated and displayed a real 512 × 512 image with the suggested FLUX.2 Klein Q4_K_M + Qwen3 Q4_K_M CPU + official VAE combination, saved in Pictures/Novera image, with 25.5 seconds total time shown. This validates that GGUF/C++/Vulkan desktop path on one PC; other desktop paths remain to be tested. See the [desktop diagnosis](docs/SUIVI_MOTEURS.md#diagnostic-graphique-et-trio-gguf-réel--26-octobre-2026). See [engine evidence and limits](docs/SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026).
 
+## Share results with documents and messaging apps
+
+Use the small Share icon under a text response, image or video, or share the entire current conversation. Choose a result, the full active branch including offscreen messages, or selected items; preview before copying, saving, printing/PDF or opening system sharing. Export Markdown/TXT/HTML/DOCX/ODT/RTF/EPUB/JSON/CSV/ZIP, preserve original media, or convert a single image to eleven raster formats including AVIF and an embedded-image SVG. Local image/video profiles also offer **19 ratios plus custom proportions**, with resolution buttons that fit the current longest edge.
+
+Messaging and chat apps receive files through the OS where supported, with **Copy file** and Save as alternatives. Platform source adapters cover Windows, macOS, Android, iOS and Linux; Linux opens an XDG email composer and offers file copying for compatible apps. Targets depend on installed applications and accepted formats. No automatic sending or hosted public links. **145 targeted web tests, three isolated Rust tests, Windows library checks, TypeScript and Vite passed**; other-platform and full application handoff tests remain pending. Available after rebuilding Novera. [Formats, platform scope and limits](docs/USER_GUIDE.md#partage-des-résultats-et-ratios--sources-du-26-octobre-2026).
+
 ## Advanced automation, simple defaults
 
 Novera aims to handle the technical steps so people worldwide can focus on learning, talking and creating. The source already combines hardware advice, guided verified downloads, categorized media configurations, a bundled Windows image engine and system-folder saving.
@@ -69,13 +75,13 @@ Novera aims to handle the technical steps so people worldwide can focus on learn
 
 ## Guided local media installation
 
-Windows builds now include the private stable-diffusion.cpp **CUDA 13.4.3 / Vulkan / CPU** runtime. Leaving the image executable field empty uses the bundled launcher. Legacy NVIDIA Maxwell/Pascal/Volta GPUs use Vulkan when their driver exposes it, otherwise CPU; this is a routing policy, not a hardware certification.
+Windows builds now include the private stable-diffusion.cpp **CUDA 13.4.3 / Vulkan / CPU** runtime. The image executable field is hidden on Windows; Novera resolves its bundled launcher automatically, ignoring obsolete saved overrides. Legacy NVIDIA Maxwell/Pascal/Volta GPUs use Vulkan when their driver exposes it, otherwise CPU; this is a routing policy, not a hardware certification.
 
 **Install this configuration** previews the complete FLUX.2 Klein 4B image setup, download sizes, free space, provider licences and the system Documents/custom folder before approval. Downloads continue while you chat or create images/videos, with per-file progress, pause/resume and SHA-256 verification. A main-bar icon stays ready until acknowledged, without sound or OS notification. Completed configurations appear under **Image** in the llama.cpp import page, alongside categorized manual Image/Video imports, editing and removal. Imported files stay on disk when an entry is removed.
 
 The default uses FLUX GGUF, **Qwen3-4B GGUF on CPU**, and the official VAE. An optional [official FLUX NVFP4 model](https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-nvfp4) is offered after checking the configured PyTorch runtime, real native FP4 execution and free GPU memory; it keeps the same GGUF CPU encoder. Its native PyTorch CUDA runtime remains separate from the bundled C++ CUDA runtime. Other checkpoints are not automatically certified.
 
-These are source capabilities: **98 targeted web tests, six isolated native download tests, TypeScript and 70 × 1,704 locale keys validated**. The new installer/library still needs testing in the maintainer’s next application build; no new application binary or public release is provided here. [Usage](docs/USER_GUIDE.md#installation-conseillée-et-bibliothèque-média--sources-du-26-octobre-2026) · [Engine evidence and limits](docs/SUIVI_MOTEURS.md#installation-groupée-bibliothèque-et-moteur-embarqué--26-octobre-2026).
+These are source capabilities: **98 targeted web tests, six isolated native download tests, TypeScript and 70 × 1,734 locale keys validated**. The new installer/library still needs testing in the maintainer’s next application build; no new application binary or public release is provided here. [Usage](docs/USER_GUIDE.md#installation-conseillée-et-bibliothèque-média--sources-du-26-octobre-2026) · [Engine evidence and limits](docs/SUIVI_MOTEURS.md#installation-groupée-bibliothèque-et-moteur-embarqué--26-octobre-2026).
 
 ## Cloud providers
 
@@ -135,7 +141,7 @@ The Hub explores 23 navigation categories using Hugging Face metadata, with loca
 
 ## 70 interface language options
 
-All 19 of our language contributions are integrated alongside the 17 inherited locales and 34 new Novera catalogs. The latest ten are Northern Uzbek, Zulu, Saidi Arabic, Northern Pashto, West Central Oromo, Saraiki, Dutch, Somali, Romanian and Assamese. **All 70 catalogs cover 1,704 / 1,704 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. Earlier local Windows builds include the catalogs at their then-current state; the new installer and library texts await validation in the maintainer’s next build; no public binary has been released. Some catalogs are editorial variants partly based on shared written technical text; full vernacular adaptation remains open. See the language guide for their exact scope.
+All 19 of our language contributions are integrated alongside the 17 inherited locales and 34 new Novera catalogs. The latest ten are Northern Uzbek, Zulu, Saidi Arabic, Northern Pashto, West Central Oromo, Saraiki, Dutch, Somali, Romanian and Assamese. **All 70 catalogs cover 1,734 / 1,734 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. Earlier local Windows builds include the catalogs at their then-current state; the new installer and library texts await validation in the maintainer’s next build; no public binary has been released. Some catalogs are editorial variants partly based on shared written technical text; full vernacular adaptation remains open. See the language guide for their exact scope.
 
 Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Algerian Arabic, Moroccan Arabic, Saidi Arabic, Northern Pashto, Saraiki, Sindhi, Dari, Urdu, Western Punjabi and Iranian Persian include right-to-left interface support. Model language capabilities depend on the selected model and are separate from interface localization.
 
@@ -143,7 +149,7 @@ Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Algerian Arabic, Mor
 
 ## Project status
 
-**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 70 interface catalogs with complete key coverage (1,704 keys each), the adaptive model Hub, the local Safetensors/Transformers text engine and updated cloud-provider presets. Native-language review is still needed.
+**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 70 interface catalogs with complete key coverage (1,734 keys each), the adaptive model Hub, the local Safetensors/Transformers text engine and updated cloud-provider presets. Native-language review is still needed.
 
 First launch saves the system language, recommends LFM2.5-2.6B Q6_K on desktop with optional DSpark, and asks separately about error reporting, off by default. Source changes and compiled artifacts are tracked separately; the latest Hub fixes await the maintainer’s build. See the [dashboard](TABLEAU_DE_BORD_NOVERA.md) for exact validation and limitations. GitHub Actions and automatic updates remain disabled.
 

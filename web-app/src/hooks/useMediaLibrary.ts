@@ -151,6 +151,7 @@ export function selectMediaProfile(profile: MediaProfile, scope?: string) {
     ...profile.settings,
     seedMode: profile.settings.seedMode ?? 'fixed',
     lastImageSeed: profile.settings.lastImageSeed,
+    mediaRatio: profile.settings.mediaRatio,
   })
   if (scope) {
     state.setSelection(scope, profile.task, {

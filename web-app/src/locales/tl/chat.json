@@ -140,7 +140,11 @@
     "upscaleModel": "Modelo ng pagpapalaki",
     "upscaleInstall": "I-install ang dalawang opisyal na modelo",
     "upscaleNote": "Pagkatapos gumawa. Kailangan ang Python/PyTorch. Pinakamalaking output: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "I-install ang mga modelo o pumili ng tugmang .pth file, at suriin ang Python/PyTorch."
+    "upscaleMissing": "I-install ang mga modelo o pumili ng tugmang .pth file, at suriin ang Python/PyTorch.",
+    "ratio": "Aspect ratio",
+    "resolution": "Resolusyon",
+    "customSize": "Custom",
+    "sizeAutoNote": "Ang pagbabago ng ratio ay umaangkop sa kasalukuyang resolusyon. Gumagamit ang mga dimensyon ng maramihang 16, hanggang 2048 px."
   },
   "creationInstall": {
     "install": "I-install ang configuration na ito",
@@ -166,5 +170,33 @@
     "preserve": "Nananatili ang mga file at usapan; muling naglo-load ang modelo kapag kailangan. Para sa bagong kahilingan ang mga pagbabago.",
     "waiting": "Naghihintay o nagpapalaya ng RAM/VRAM…",
     "failed": "Nabigo ang pag-optimize ng memory. Subukan muli o piliin ang Manwal."
+  },
+  "sharing": {
+    "share": "Ibahagi",
+    "scope": "Nilalaman na ibabahagi",
+    "render": "Itong resulta lang",
+    "conversation": "Buong kasalukuyang pag-uusap",
+    "selection": "Pumili ng mga item",
+    "questions": "Mga tanong",
+    "sources": "Mga pinagmumulan",
+    "parameters": "Mga setting ng henerasyon",
+    "format": "Format",
+    "original": "Orihinal na file",
+    "embedded": "naka-embed na imahe",
+    "imageHint": "Gumagamit ang mga conversion ng larawan ng still frame. Ini-embed ng SVG ang raster na imahe; Ang ICO ay limitado sa 256 px.",
+    "videoHint": "Gamitin ang HTML o ZIP upang mapanatili ang pag-playback ng video at mga orihinal na file.",
+    "prepare": "Maghanda ng preview",
+    "preview": "Silipin",
+    "system": "Ibahagi sa pamamagitan ng system",
+    "ready": "Handa na ang preview",
+    "opened": "Binuksan ang dialog ng system",
+    "fallback": "Ang pagbabahagi ng system ay hindi magagamit dito para sa format na ito. I-save o i-print ang file.",
+    "tooLarge": "Masyadong malaki ang export. Pumili ng mas kaunting mga item o ibahagi ang orihinal na media.",
+    "failed": "Hindi makumpleto ang pag-export o pagbabahagi. Suriin ang mga file at subukan ang ibang format.",
+    "localHint": "Suriin ang napiling nilalaman bago ibahagi. Walang ginawang pampublikong link.",
+    "user": "Ikaw",
+    "assistant": "Katulong",
+    "linuxHint": "Binubuksan ng Linux ang iyong email application gamit ang isang attachment. Walang awtomatikong ipinapadala.",
+    "copyFile": "Kopyahin ang file"
   }
 }

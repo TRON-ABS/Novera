@@ -140,7 +140,11 @@
     "upscaleModel": "Moodeela guddisuu",
     "upscaleInstall": "Moodeelota seera qabeessa lamaan fe’i",
     "upscaleNote": "Erga uumamee booda. Python/PyTorch barbaachisa. Bu’aa guddaan: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Moodeelota fe’i yookaan faayilii .pth walsimu filadhu, achiis Python/PyTorch mirkaneessi."
+    "upscaleMissing": "Moodeelota fe’i yookaan faayilii .pth walsimu filadhu, achiis Python/PyTorch mirkaneessi.",
+    "ratio": "Reeshiyoo aspeektii",
+    "resolution": "Murtoo",
+    "customSize": "Aadaa",
+    "sizeAutoNote": "Reeshiyoo jijjiiruun furmaata ammaa madaqsa. Dimshaashumatti dachaa 16 fayyadamu, hanga 2048 px."
   },
   "creationInstall": {
     "install": "Qindaa’ina kana fe’i",
@@ -166,5 +170,33 @@
     "preserve": "Faayiloonni fi haasawni ni eegamu; moodeelonni yeroo barbaachisu deebi’anii fe’amu. Jijjiiramni gaaffii haaraa ilaallata.",
     "waiting": "Eegaa ykn RAM/VRAM gad lakkisaa…",
     "failed": "Fooyyessi yaadannoo hin milkoofne. Irra deebi’i ykn Harkaan filadhu."
+  },
+  "sharing": {
+    "share": "Share godhaa",
+    "scope": "Qabiyyee qooduuf",
+    "render": "Bu'aan kun qofa",
+    "conversation": "Haasaa yeroo ammaa guutuu",
+    "selection": "Wantoota filadhu",
+    "questions": "Gaaffilee",
+    "sources": "Maddoonni",
+    "parameters": "Sajoo dhalootaa",
+    "format": "Akkaataa",
+    "original": "Faayila jalqabaa",
+    "embedded": "fakkii ukkaamfame",
+    "imageHint": "Jijjiirraawwan fakkii furmaata dhaabbataa fayyadamu. SVG fakkii raastarichaa keessa galcha; ICO 256 px irratti daangeffama.",
+    "videoHint": "Tapha viidiyoo fi faayiloota jalqabaa eeguuf HTML ykn ZIP fayyadami.",
+    "prepare": "Dursee ilaaluu qopheessi",
+    "preview": "Dursee ilaaluu",
+    "system": "Karaa sirnaatiin qooda",
+    "ready": "Dursee ilaaluu qophaa'eera",
+    "opened": "Qaaqa sirnaa baname",
+    "fallback": "Qoodinsi sirnaa bifa kanaaf asitti hin argamu. Faayilii sana saagi ykn maxxansii.",
+    "tooLarge": "Al-ergiin garmalee guddaadha. Wantoota muraasa filadhu ykn miidiyaa jalqabaa qoodi.",
+    "failed": "Al-ergii ykn qooduun xumuruu hin dandeenye. Faayilota ilaaliitii bifa biraa yaali.",
+    "localHint": "Qabiyyee filatame osoo hin qoodin dura irra deebi'ii ilaali. Hidhiin ummataa hin uumamu.",
+    "user": "Ati",
+    "assistant": "Gargaaraa",
+    "linuxHint": "Linux application email keessan attachment waliin bana. Wanti ofumaan ergamu hin jiru.",
+    "copyFile": "Faayilii waraabi"
   }
 }

@@ -140,7 +140,11 @@
     "upscaleModel": "Ụdị ịbawanye",
     "upscaleInstall": "Wụnye ụdị gọọmentị abụọ ahụ",
     "upscaleNote": "Mgbe emechara onyonyo. Achọrọ Python/PyTorch. Nsonaazụ kacha: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Wụnye ụdị ndị ahụ ma ọ bụ họrọ faịlụ .pth dabara, wee lelee Python/PyTorch."
+    "upscaleMissing": "Wụnye ụdị ndị ahụ ma ọ bụ họrọ faịlụ .pth dabara, wee lelee Python/PyTorch.",
+    "ratio": "Akụkụ akụkụ",
+    "resolution": "Mkpebi",
+    "customSize": "Omenala",
+    "sizeAutoNote": "Ịgbanwe nha na-emegharị mkpebi dị ugbu a. Akụkụ na-eji ọtụtụ 16, ruo 2048 px."
   },
   "creationInstall": {
     "install": "Wụnye nhazi a",
@@ -166,5 +170,33 @@
     "preserve": "Faịlụ na mkparịta ụka na-adị; a na-ebunye ụdị ọzọ mgbe achọrọ. Mgbanwe metụtara arịrịọ ọhụrụ.",
     "waiting": "Na-eche ma ọ bụ na-atọhapụ RAM/VRAM…",
     "failed": "Nkwalite ebe nchekwa dara. Nwaa ọzọ ma ọ bụ họrọ Aka."
+  },
+  "sharing": {
+    "share": "Kekọrịta",
+    "scope": "Ọdịnaya ịkekọrịta",
+    "render": "Nsonaazụ a naanị",
+    "conversation": "Mkparịta ụka niile dị ugbu a",
+    "selection": "Họrọ ihe",
+    "questions": "Ajụjụ",
+    "sources": "Isi mmalite",
+    "parameters": "Ntọala ọgbọ",
+    "format": "Usoro",
+    "original": "Faịlụ izizi",
+    "embedded": "oyiyi agbakwunyere",
+    "imageHint": "Ntughari onyonyo na-eji okpokolo agba. SVG na-etinye ihe oyiyi raster; ICO nwere oke na 256 px.",
+    "videoHint": "Jiri HTML ma ọ bụ ZIP doweghachi vidiyo na faịlụ mbụ.",
+    "prepare": "Kwadebe nlele anya",
+    "preview": "Nhụchalụ",
+    "system": "Kekọrịta site na sistemụ",
+    "ready": "Nhụchalụ dị njikere",
+    "opened": "Meghere mkparịta ụka sistemụ",
+    "fallback": "Nkekọrịta sistemu adịghị ebe a maka usoro a. Chekwaa ma ọ bụ bipụta faịlụ ahụ.",
+    "tooLarge": "Mbupụ ahụ buru oke ibu. Họrọ ihe ole na ole ma ọ bụ kesaa mgbasa ozi izizi.",
+    "failed": "Enweghị ike ịmechaa mbupụ ma ọ bụ nkekọrịta. Lelee faịlụ ma nwalee usoro ọzọ.",
+    "localHint": "Nyochaa ọdịnaya ahọpụtara tupu ikesa. Enweghị njikọ ọhaneze emepụtara.",
+    "user": "Ị",
+    "assistant": "Enyemaka",
+    "linuxHint": "Linux ji mgbakwunye na-emepe ngwa email gị. Ọ dịghị ihe na-eziga na-akpaghị aka.",
+    "copyFile": "Detuo faịlụ"
   }
 }

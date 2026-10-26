@@ -140,7 +140,11 @@
     "upscaleModel": "Modeli ya ukuzaji",
     "upscaleInstall": "Sakinisha modeli zote mbili rasmi",
     "upscaleNote": "Baada ya kutengeneza. Inahitaji Python/PyTorch. Matokeo ya juu: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Sakinisha modeli au chagua faili ya .pth inayofaa, kisha kagua Python/PyTorch."
+    "upscaleMissing": "Sakinisha modeli au chagua faili ya .pth inayofaa, kisha kagua Python/PyTorch.",
+    "ratio": "Uwiano wa kipengele",
+    "resolution": "Azimio",
+    "customSize": "Desturi",
+    "sizeAutoNote": "Kubadilisha uwiano kunabadilisha azimio la sasa. Vipimo hutumia vizidishio vya 16, hadi 2048 px."
   },
   "creationInstall": {
     "install": "Sakinisha usanidi huu",
@@ -166,5 +170,33 @@
     "preserve": "Faili na mazungumzo huhifadhiwa; modeli hupakiwa tena zinapohitajika. Mabadiliko yanatumika kwa maombi mapya.",
     "waiting": "Inasubiri au kuachilia RAM/VRAM…",
     "failed": "Uboreshaji wa kumbukumbu umeshindwa. Jaribu tena au chagua Mwongozo."
+  },
+  "sharing": {
+    "share": "Shiriki",
+    "scope": "Maudhui ya kushiriki",
+    "render": "Matokeo haya tu",
+    "conversation": "Mazungumzo yote ya sasa",
+    "selection": "Chagua vitu",
+    "questions": "Maswali",
+    "sources": "Vyanzo",
+    "parameters": "Mipangilio ya kizazi",
+    "format": "Umbizo",
+    "original": "Faili asili",
+    "embedded": "picha iliyopachikwa",
+    "imageHint": "Ubadilishaji wa picha hutumia fremu tuli. SVG inapachika picha mbaya; ICO ina mipaka ya px ya 256.",
+    "videoHint": "Tumia HTML au ZIP kuweka uchezaji wa video na faili asili.",
+    "prepare": "Tayarisha onyesho la kukagua",
+    "preview": "Hakiki",
+    "system": "Shiriki kupitia mfumo",
+    "ready": "Onyesho la kukagua tayari",
+    "opened": "Kidirisha cha mfumo kimefunguliwa",
+    "fallback": "Kushiriki mfumo hakupatikani hapa kwa umbizo hili. Hifadhi au uchapishe faili.",
+    "tooLarge": "Uhamishaji ni mkubwa mno. Chagua vipengee vichache au ushiriki maudhui asili.",
+    "failed": "Imeshindwa kukamilisha kutuma au kushiriki. Angalia faili na ujaribu umbizo lingine.",
+    "localHint": "Kagua maudhui uliyochagua kabla ya kushiriki. Hakuna kiungo cha umma kilichoundwa.",
+    "user": "Wewe",
+    "assistant": "Msaidizi",
+    "linuxHint": "Linux hufungua ombi lako la barua pepe na kiambatisho. Hakuna kinachotumwa kiotomatiki.",
+    "copyFile": "Nakili faili"
   }
 }

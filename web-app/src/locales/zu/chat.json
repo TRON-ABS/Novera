@@ -140,7 +140,11 @@
     "upscaleModel": "Imodeli yokukhulisa",
     "upscaleInstall": "Faka amamodeli amabili asemthethweni",
     "upscaleNote": "Ngemva kokukhiqiza. Kudingeka Python/PyTorch. Umphumela omkhulu: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Faka amamodeli noma ukhethe ifayela le-.pth elihambisanayo bese uhlola Python/PyTorch."
+    "upscaleMissing": "Faka amamodeli noma ukhethe ifayela le-.pth elihambisanayo bese uhlola Python/PyTorch.",
+    "ratio": "Ukubukeka kwesilinganiso",
+    "resolution": "Isixazululo",
+    "customSize": "Ngokwezifiso",
+    "sizeAutoNote": "Ukushintsha isilinganiso kuvumelanisa ukulungiswa kwamanje. Ubukhulu busebenzisa ukuphindaphinda kwe-16, kufika ku-2048 px."
   },
   "creationInstall": {
     "install": "Faka lokhu kulungiselela",
@@ -166,5 +170,33 @@
     "preserve": "Amafayela nezingxoxo ziyagcinwa; amamodeli alayishwa futhi lapho edingeka. Izinguquko zisebenza ezicelweni ezintsha.",
     "waiting": "Kulindiwe noma kukhululwa i-RAM/VRAM…",
     "failed": "Ukulungisa inkumbulo kwehlulekile. Zama futhi noma khetha Okwenziwa ngesandla."
+  },
+  "sharing": {
+    "share": "Yabelana",
+    "scope": "Okuqukethwe ongakwaba",
+    "render": "Lo mphumela kuphela",
+    "conversation": "Yonke ingxoxo yamanje",
+    "selection": "Khetha izinto",
+    "questions": "Imibuzo",
+    "sources": "Imithombo",
+    "parameters": "Izilungiselelo zesizukulwane",
+    "format": "Ifomethi",
+    "original": "Ifayela langempela",
+    "embedded": "isithombe esishumekiwe",
+    "imageHint": "Ukuguqulwa kwesithombe kusebenzisa uzimele onganyakazi. I-SVG ishumeka isithombe se-raster; I-ICO ikhawulelwe ku-256 px.",
+    "videoHint": "Sebenzisa i-HTML noma i-ZIP ukuze ugcine ukudlalwa kwevidiyo namafayela oqobo.",
+    "prepare": "Lungiselela ukuhlola kuqala",
+    "preview": "Buka kuqala",
+    "system": "Yabelana ngesistimu",
+    "ready": "Ukuhlola kuqala kulungile",
+    "opened": "Ibhokisi lesistimu livuliwe",
+    "fallback": "Ukwabelana kwesistimu akutholakali lapha ngale fomethi. Londoloza noma phrinta ifayela.",
+    "tooLarge": "Ukuthunyelwa kukhulu kakhulu. Khetha izinto ezimbalwa noma wabelane ngemidiya yoqobo.",
+    "failed": "Ayikwazi ukuqedela ukuthumela noma ukwabelana. Hlola amafayela bese uzama enye ifomethi.",
+    "localHint": "Buyekeza okuqukethwe okukhethiwe ngaphambi kokwabelana. Asikho isixhumanisi esisesidlangalaleni esidaliwe.",
+    "user": "Wena",
+    "assistant": "Umsizi",
+    "linuxHint": "I-Linux ivula isicelo sakho se-imeyili ngesinamathiselo. Akukho okuthunyelwa ngokuzenzakalelayo.",
+    "copyFile": "Kopisha ifayela"
   }
 }

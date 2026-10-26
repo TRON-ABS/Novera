@@ -140,7 +140,11 @@
     "upscaleModel": "Model de mărire",
     "upscaleInstall": "Instalează ambele modele oficiale",
     "upscaleNote": "După generare. Necesită Python/PyTorch. Ieșire maximă: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Instalează modelele sau alege un fișier .pth compatibil și verifică Python/PyTorch."
+    "upscaleMissing": "Instalează modelele sau alege un fișier .pth compatibil și verifică Python/PyTorch.",
+    "ratio": "Raportul de aspect",
+    "resolution": "Rezoluție",
+    "customSize": "Personalizat",
+    "sizeAutoNote": "Schimbarea raportului adaptează rezoluția curentă. Dimensiunile folosesc multipli de 16, până la 2048 px."
   },
   "creationInstall": {
     "install": "Instalează această configurație",
@@ -166,5 +170,33 @@
     "preserve": "Fișierele și conversațiile se păstrează; modelele se reîncarcă la nevoie. Modificările se aplică cererilor noi.",
     "waiting": "Se așteaptă sau se eliberează RAM/VRAM…",
     "failed": "Optimizarea memoriei a eșuat. Reîncearcă sau alege Manual."
+  },
+  "sharing": {
+    "share": "Distribuie",
+    "scope": "Conținut de partajat",
+    "render": "Doar acest rezultat",
+    "conversation": "Întreaga conversație curentă",
+    "selection": "Alege articole",
+    "questions": "Întrebări",
+    "sources": "Surse",
+    "parameters": "Setări de generare",
+    "format": "Format",
+    "original": "Dosarul original",
+    "embedded": "imagine încorporată",
+    "imageHint": "Conversiile imaginilor folosesc un cadru fix. SVG încorporează imaginea raster; ICO este limitat la 256 px.",
+    "videoHint": "Utilizați HTML sau ZIP pentru a păstra redarea video și fișierele originale.",
+    "prepare": "Pregătiți previzualizarea",
+    "preview": "Previzualizare",
+    "system": "Partajați prin sistem",
+    "ready": "Previzualizare gata",
+    "opened": "S-a deschis dialogul de sistem",
+    "fallback": "Partajarea sistemului nu este disponibilă aici pentru acest format. Salvați sau imprimați fișierul.",
+    "tooLarge": "Exportul este prea mare. Selectați mai puține articole sau distribuiți media originală.",
+    "failed": "Imposibil de finalizat exportul sau partajarea. Verificați fișierele și încercați alt format.",
+    "localHint": "Examinați conținutul selectat înainte de partajare. Nu este creat niciun link public.",
+    "user": "tu",
+    "assistant": "Asistent",
+    "linuxHint": "Linux deschide aplicația dvs. de e-mail cu un atașament. Nimic nu este trimis automat.",
+    "copyFile": "Copiați fișierul"
   }
 }

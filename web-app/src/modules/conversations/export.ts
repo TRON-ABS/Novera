@@ -58,7 +58,7 @@ function assistantExportText(value: string): string {
 }
 
 /** A file export contains conversation content, never execution traces. */
-function conversationMessage(message: ThreadMessage): ThreadMessage | undefined {
+export function conversationMessage(message: ThreadMessage): ThreadMessage | undefined {
   if (message.role !== 'user' && message.role !== 'assistant') return
   const content = message.content.flatMap<ThreadMessage['content'][number]>((part) => {
     if (part.type === 'text' && part.text) {

@@ -1,5 +1,9 @@
 # Novera — tableau de bord
 
+## Partage, messageries et ratios — 26 octobre 2026
+
+Sources : petite icône sous chaque réponse/création et pour la discussion ; résultat, branche active complète ou sélection, aperçu explicite, copie riche/image/fichier, exports et impression/PDF. DOCX/ODT/RTF/EPUB/ZIP complètent les formats textuels ; original et onze encodeurs d’image, SVG incorporé ; vidéo originale. Messageries via les capacités du système, copie ou pièce jointe ; Linux utilise le portail courriel. Dix-neuf ratios + personnalisé et résolutions ajustées au grand côté courant pour les profils locaux. **70 locales × 1 734 clés ; 145 tests web, trois tests Rust**, TypeScript, Vite, contrôle natif Windows et architecture réussis. Sources des autres adaptateurs présentes, essais natifs correspondants encore nécessaires. Aucun nouveau binaire, aucun envoi automatique ni lien public hébergé. [Guide et limites](docs/USER_GUIDE.md#partage-des-résultats-et-ratios--sources-du-26-octobre-2026).
+
 ## Graines et agrandissement d’image — 26 octobre 2026
 
 Sources : modes de graine aléatoire/fixe/+1/−1, réutilisation, limite de génération **2048 × 2048**, agrandissement **Real-ESRGAN optionnel** ×2 par défaut/×4, modèles officiels installables ou fichier choisi. Désactivé initialement ; Python/PyTorch média requis une fois activé. **70 locales × 1 704 clés**, 82 tests web, quatre tests Python, sept tests Rust d’installation, types et contrôle natif ; vrais essais des deux poids sur CPU et CUDA, sur une entrée 16². Aucun nouveau binaire Novera ; les tailles maximales et le parcours graphique complet restent à valider après compilation. [Utilisation et limites](docs/USER_GUIDE.md#graines-résolution-et-agrandissement--sources-du-26-octobre-2026).

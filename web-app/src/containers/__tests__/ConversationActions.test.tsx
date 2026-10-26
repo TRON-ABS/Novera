@@ -95,10 +95,11 @@ beforeEach(() => {
   mock.drain.mockResolvedValue(undefined)
   mock.save.mockResolvedValue(true)
 })
-it('places save before trash and disables both during generation', () => {
+it('places share and save before trash and disables them during generation', () => {
   renderActions(true)
   const buttons = screen.getAllByRole('button')
   expect(buttons.map((b) => b.getAttribute('aria-label'))).toEqual([
+    'chat:sharing.share',
     'common:save',
     'common:deleteThread',
   ])
@@ -113,23 +114,51 @@ it('keeps empty-home actions disabled', () => {
 })
 it('closes the save menu on an outside click even if the composer consumes the event', async () => {
   const outside = vi.fn()
-  render(<>
-    <ConversationActions thread={thread} busy={false} onReset={mock.reset} />
-    <button onPointerDown={(event) => { event.stopPropagation(); outside() }}>Outside</button>
-  </>)
-  fireEvent.keyDown(screen.getByRole('button', { name: 'common:save' }), { key: 'ArrowDown' })
-  expect(await screen.findByRole('menuitem', { name: 'TXT (.txt)' })).toBeInTheDocument()
+  render(
+    <>
+      <ConversationActions thread={thread} busy={false} onReset={mock.reset} />
+      <button
+        onPointerDown={(event) => {
+          event.stopPropagation()
+          outside()
+        }}
+      >
+        Outside
+      </button>
+    </>
+  )
+  fireEvent.keyDown(screen.getByRole('button', { name: 'common:save' }), {
+    key: 'ArrowDown',
+  })
+  expect(
+    await screen.findByRole('menuitem', { name: 'TXT (.txt)' })
+  ).toBeInTheDocument()
   fireEvent.pointerDown(screen.getByRole('button', { name: 'Outside' }))
-  await waitFor(() => expect(screen.queryByRole('menuitem', { name: 'TXT (.txt)' })).not.toBeInTheDocument())
+  await waitFor(() =>
+    expect(
+      screen.queryByRole('menuitem', { name: 'TXT (.txt)' })
+    ).not.toBeInTheDocument()
+  )
   expect(outside).toHaveBeenCalledOnce()
   expect(mock.save).not.toHaveBeenCalled()
 })
 it('closes the save menu when focus moves to another interface control', async () => {
-  render(<><ConversationActions thread={thread} busy={false} onReset={mock.reset} /><input aria-label="Other field" /></>)
-  fireEvent.keyDown(screen.getByRole('button', { name: 'common:save' }), { key: 'ArrowDown' })
+  render(
+    <>
+      <ConversationActions thread={thread} busy={false} onReset={mock.reset} />
+      <input aria-label="Other field" />
+    </>
+  )
+  fireEvent.keyDown(screen.getByRole('button', { name: 'common:save' }), {
+    key: 'ArrowDown',
+  })
   await screen.findByRole('menuitem', { name: 'TXT (.txt)' })
   fireEvent.focusIn(screen.getByRole('textbox', { name: 'Other field' }))
-  await waitFor(() => expect(screen.queryByRole('menuitem', { name: 'TXT (.txt)' })).not.toBeInTheDocument())
+  await waitFor(() =>
+    expect(
+      screen.queryByRole('menuitem', { name: 'TXT (.txt)' })
+    ).not.toBeInTheDocument()
+  )
 })
 it('requires confirmation and allows cancellation without deleting', () => {
   renderActions()

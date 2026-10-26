@@ -140,7 +140,11 @@
     "upscaleModel": "Vergrotingsmodel",
     "upscaleInstall": "Beide officiële modellen installeren",
     "upscaleNote": "Na het genereren. Vereist Python/PyTorch. Maximale uitvoer: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Installeer de modellen of kies een compatibel .pth-bestand en controleer Python/PyTorch."
+    "upscaleMissing": "Installeer de modellen of kies een compatibel .pth-bestand en controleer Python/PyTorch.",
+    "ratio": "Beeldverhouding",
+    "resolution": "Resolutie",
+    "customSize": "Aangepast",
+    "sizeAutoNote": "Als u de verhouding wijzigt, wordt de huidige resolutie aangepast. Bij afmetingen worden veelvouden van 16 gebruikt, tot 2048 px."
   },
   "creationInstall": {
     "install": "Deze configuratie installeren",
@@ -166,5 +170,33 @@
     "preserve": "Bestanden en gesprekken blijven bewaard; modellen laden opnieuw wanneer nodig. Wijzigingen gelden voor nieuwe verzoeken.",
     "waiting": "Wachten of RAM/VRAM vrijmaken…",
     "failed": "Geheugenoptimalisatie mislukt. Probeer opnieuw of kies Handmatig."
+  },
+  "sharing": {
+    "share": "Deel",
+    "scope": "Inhoud om te delen",
+    "render": "Alleen dit resultaat",
+    "conversation": "Hele huidige gesprek",
+    "selection": "Kies artikelen",
+    "questions": "Vragen",
+    "sources": "Bronnen",
+    "parameters": "Generatie-instellingen",
+    "format": "Formaat",
+    "original": "Origineel bestand",
+    "embedded": "ingebedde afbeelding",
+    "imageHint": "Bij beeldconversies wordt gebruik gemaakt van een stilstaand beeld. SVG sluit de rasterafbeelding in; ICO is beperkt tot 256 px.",
+    "videoHint": "Gebruik HTML of ZIP om videoweergave en originele bestanden te behouden.",
+    "prepare": "Voorvertoning voorbereiden",
+    "preview": "Voorbeeld",
+    "system": "Deel via systeem",
+    "ready": "Voorbeeld klaar",
+    "opened": "Systeemdialoog geopend",
+    "fallback": "Systeem delen is hier niet beschikbaar voor dit formaat. Bewaar of print het bestand.",
+    "tooLarge": "De export is te groot. Selecteer minder items of deel de originele media.",
+    "failed": "Kan het exporteren of delen niet voltooien. Controleer de bestanden en probeer een ander formaat.",
+    "localHint": "Controleer de geselecteerde inhoud voordat u deze deelt. Er wordt geen openbare link gemaakt.",
+    "user": "Jij",
+    "assistant": "Assistent",
+    "linuxHint": "Linux opent uw e-mailapplicatie met een bijlage. Niets wordt automatisch verzonden.",
+    "copyFile": "Kopieer bestand"
   }
 }

@@ -47,6 +47,12 @@ macro_rules! invoke_commands_with_extras {
         core::filesystem::commands::mv,
         core::filesystem::commands::file_stat,
         core::filesystem::commands::write_file_sync,
+        core::sharing::sharing_save,
+        core::sharing::sharing_read_asset,
+        core::sharing::sharing_convert_image,
+        core::sharing::sharing_native,
+        core::sharing::sharing_copy_file,
+        core::sharing::sharing_metadata,
         core::filesystem::commands::write_yaml,
         core::filesystem::commands::read_yaml,
         core::filesystem::commands::decompress,
@@ -286,6 +292,7 @@ pub fn run() {
     let mut app_builder = builder
         .plugin(tauri_plugin_os::init())
         .plugin(tauri_plugin_opener::init())
+        .plugin(tauri_plugin_novera_share::init())
         .plugin(tauri_plugin_http::init())
         .plugin(tauri_plugin_store::Builder::new().build())
         .plugin(tauri_plugin_shell::init())

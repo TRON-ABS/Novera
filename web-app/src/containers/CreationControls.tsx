@@ -23,6 +23,8 @@ import { CreationInstallButton } from './CreationInstall'
 import { klein4bRecommendation } from '@/constants/creationRecommendations'
 import type { ImageSeedMode } from '@/modules/engines/image-seed'
 import { ImageUpscaleControls } from './ImageUpscaleControls'
+import { MediaSizeControls } from './MediaSizeControls'
+import { inferMediaRatio } from '@/modules/engines/media-size'
 
 export function CreationControls({
   scope,
@@ -52,6 +54,7 @@ export function CreationControls({
         ? {
             seedMode: profile.settings.seedMode ?? ('fixed' as const),
             lastImageSeed: profile.settings.lastImageSeed,
+            mediaRatio: profile.settings.mediaRatio,
           }
         : {}),
     },
@@ -217,6 +220,32 @@ export function CreationControls({
           <IconAdjustments size={16} />
         </Button>
       </div>
+      {(mode === 'image' || mode === 'video') && !isCloud && (
+        <div className="flex flex-wrap gap-1">
+          <Button
+            size="xs"
+            variant="ghost"
+            className="border border-transparent"
+            onClick={() => setOpen(true)}
+            aria-label={t('chat:creation.ratio')}
+          >
+            {t('chat:creation.ratio')} ·{' '}
+            {(
+              settings.mediaRatio ??
+              inferMediaRatio(settings.width, settings.height)
+            ).replace(/^custom:/, '')}
+          </Button>
+          <Button
+            size="xs"
+            variant="ghost"
+            className="border border-transparent"
+            onClick={() => setOpen(true)}
+            aria-label={t('chat:creation.resolution')}
+          >
+            {settings.width} × {settings.height}
+          </Button>
+        </div>
+      )}
       {(mode === 'image' || mode === 'video') && (
         <p className="text-xs text-muted-foreground truncate">
           {t('chat:creation.model')}:{' '}
@@ -592,24 +621,35 @@ export function CreationControls({
                           })
                         }
                       >
-                        {(['random', 'fixed', 'increment', 'decrement'] as const).map((value) => (
+                        {(
+                          ['random', 'fixed', 'increment', 'decrement'] as const
+                        ).map((value) => (
                           <option key={value} value={value}>
-                            {t(`chat:creation.seed${value[0].toUpperCase()}${value.slice(1)}`)}
+                            {t(
+                              `chat:creation.seed${value[0].toUpperCase()}${value.slice(1)}`
+                            )}
                           </option>
                         ))}
                       </select>
                     </label>
-                    <p className="text-muted-foreground">{t('chat:creation.seedNote')}</p>
+                    <p className="text-muted-foreground">
+                      {t('chat:creation.seedNote')}
+                    </p>
                     {settings.lastImageSeed !== undefined && (
                       <div className="flex flex-wrap items-center gap-2">
-                        <span>{t('chat:creation.seedLast')}: {settings.lastImageSeed}</span>
+                        <span>
+                          {t('chat:creation.seedLast')}:{' '}
+                          {settings.lastImageSeed}
+                        </span>
                         <Button
                           size="sm"
                           variant="outline"
-                          onClick={() => state.setSettings({
-                            seedMode: 'fixed',
-                            seed: settings.lastImageSeed,
-                          })}
+                          onClick={() =>
+                            state.setSettings({
+                              seedMode: 'fixed',
+                              seed: settings.lastImageSeed,
+                            })
+                          }
                         >
                           {t('chat:creation.seedReuse')}
                         </Button>
@@ -617,6 +657,10 @@ export function CreationControls({
                     )}
                   </div>
                 )}
+                <MediaSizeControls
+                  settings={settings}
+                  setSettings={state.setSettings}
+                />
                 <div className="grid grid-cols-2 gap-3">
                   {numericSettings.map((key) => (
                     <label key={key} className="space-y-1 text-xs">
@@ -624,7 +668,11 @@ export function CreationControls({
                       <input
                         className="block w-full rounded border bg-background p-2"
                         type="number"
-                        disabled={key === 'seed' && mode !== 'video' && settings.seedMode === 'random'}
+                        disabled={
+                          key === 'seed' &&
+                          mode !== 'video' &&
+                          settings.seedMode === 'random'
+                        }
                         min={
                           key === 'seed'
                             ? 0
@@ -648,6 +696,11 @@ export function CreationControls({
                         onChange={(event) =>
                           state.setSettings({
                             [key]: Number(event.target.value),
+                            ...(key === 'width' || key === 'height'
+                              ? {
+                                  mediaRatio: `custom:${key === 'width' ? Number(event.target.value) : settings.width}:${key === 'height' ? Number(event.target.value) : settings.height}`,
+                                }
+                              : {}),
                           })
                         }
                       />

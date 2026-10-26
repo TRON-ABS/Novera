@@ -140,7 +140,11 @@
     "upscaleModel": "Model zvětšení",
     "upscaleInstall": "Nainstalovat oba oficiální modely",
     "upscaleNote": "Po generování. Vyžaduje Python/PyTorch. Maximální výstup: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Nainstalujte modely nebo zvolte kompatibilní soubor .pth a ověřte Python/PyTorch."
+    "upscaleMissing": "Nainstalujte modely nebo zvolte kompatibilní soubor .pth a ověřte Python/PyTorch.",
+    "ratio": "Poměr stran",
+    "resolution": "Rozlišení",
+    "customSize": "Vlastní",
+    "sizeAutoNote": "Změnou poměru se přizpůsobí aktuální rozlišení. Rozměry používají násobky 16 až do 2048 px."
   },
   "creationInstall": {
     "install": "Nainstalovat tuto konfiguraci",
@@ -166,5 +170,33 @@
     "preserve": "Soubory a konverzace zůstanou zachovány; modely se podle potřeby znovu načtou. Změny platí pro nové požadavky.",
     "waiting": "Čekání nebo uvolňování RAM/VRAM…",
     "failed": "Optimalizace paměti selhala. Zkuste znovu nebo zvolte ruční režim."
+  },
+  "sharing": {
+    "share": "Sdílejte",
+    "scope": "Obsah ke sdílení",
+    "render": "Pouze tento výsledek",
+    "conversation": "Celá aktuální konverzace",
+    "selection": "Vyberte položky",
+    "questions": "Otázky",
+    "sources": "Zdroje",
+    "parameters": "Nastavení generování",
+    "format": "Formát",
+    "original": "Původní soubor",
+    "embedded": "vložený obrázek",
+    "imageHint": "Konverze obrázků používají statický snímek. SVG vloží rastrový obrázek; ICO je omezen na 256 px.",
+    "videoHint": "Chcete-li zachovat přehrávání videa a původní soubory, použijte HTML nebo ZIP.",
+    "prepare": "Připravte si náhled",
+    "preview": "Náhled",
+    "system": "Sdílejte přes systém",
+    "ready": "Náhled připraven",
+    "opened": "Otevře se dialogové okno systému",
+    "fallback": "Sdílení systému zde pro tento formát není dostupné. Uložte nebo vytiskněte soubor.",
+    "tooLarge": "Export je příliš velký. Vyberte méně položek nebo sdílejte původní média.",
+    "failed": "Export nebo sdílení nelze dokončit. Zkontrolujte soubory a zkuste jiný formát.",
+    "localHint": "Před sdílením zkontrolujte vybraný obsah. Není vytvořen žádný veřejný odkaz.",
+    "user": "vy",
+    "assistant": "asistent",
+    "linuxHint": "Linux otevře vaši e-mailovou aplikaci s přílohou. Nic se neodesílá automaticky.",
+    "copyFile": "Zkopírujte soubor"
   }
 }

@@ -19,6 +19,8 @@ pub mod state;
 #[cfg(not(feature = "cli"))]
 pub mod system;
 pub mod threads;
+#[cfg(not(feature = "cli"))]
+pub mod sharing;
 #[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
 pub mod transformers;
 #[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]

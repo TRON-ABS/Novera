@@ -63,12 +63,16 @@ desktop = [
 # the graph through `tauri` itself (via muda), so the dependency must be absent,
 # not merely unused.
 tauri-app = [
+    "dep:image",
+    "dep:windows",
+    "dep:windows-collections",
     "dep:tauri",
     "dep:tauri-build",
     "dep:tauri-plugin-http",
     "dep:tauri-plugin-llamacpp",
     "dep:tauri-plugin-log",
     "dep:tauri-plugin-opener",
+    "dep:tauri-plugin-novera-share",
     "dep:tauri-plugin-os",
     "dep:tauri-plugin-rag",
     "dep:tauri-plugin-shell",
@@ -163,6 +167,8 @@ toml_edit = "0.23"
 sha2 = "0.10"
 tar = "0.4"
 zip = "0.6"
+image = { version = "0.25.10", optional = true, default-features = false, features = ["png", "jpeg", "webp", "gif", "bmp", "ico", "tiff", "pnm", "tga", "qoi", "avif"] }
+tauri-plugin-novera-share = { path = "plugins/tauri-plugin-novera-share", optional = true }
 tauri-plugin-deep-link = { version = "2", optional = true }
 tauri-plugin-wdio-webdriver = { version = "1.4", optional = true }
 tauri-plugin-hardware = { path = "./plugins/tauri-plugin-hardware", optional = true }
@@ -273,6 +279,8 @@ zbus = { version = "5", default-features = false, features = ["tokio"], optional
 gtk = { version = "0.18", optional = true }
 
 [target.'cfg(windows)'.dependencies]
+windows = { version = "0.62.2", optional = true, features = ["ApplicationModel_DataTransfer", "Storage", "Storage_Streams", "Foundation", "Win32_Foundation", "Win32_UI_Shell", "Win32_System_WinRT"] }
+windows-collections = { version = "0.3.2", optional = true }
 libc = "0.2.172"
 windows-sys = { version = "0.60.2", features = ["Win32_Storage_FileSystem"] }
 

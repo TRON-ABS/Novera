@@ -140,7 +140,11 @@
     "upscaleModel": "Mô hình phóng lớn",
     "upscaleInstall": "Cài cả hai mô hình chính thức",
     "upscaleNote": "Sau khi tạo ảnh. Cần Python/PyTorch. Đầu ra tối đa: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Cài mô hình hoặc chọn tệp .pth tương thích, rồi kiểm tra Python/PyTorch."
+    "upscaleMissing": "Cài mô hình hoặc chọn tệp .pth tương thích, rồi kiểm tra Python/PyTorch.",
+    "ratio": "tỷ lệ khung hình",
+    "resolution": "Độ phân giải",
+    "customSize": "tùy chỉnh",
+    "sizeAutoNote": "Thay đổi tỷ lệ sẽ điều chỉnh độ phân giải hiện tại. Kích thước sử dụng bội số của 16, tối đa 2048 px."
   },
   "creationInstall": {
     "install": "Cài đặt cấu hình này",
@@ -166,5 +170,33 @@
     "preserve": "Tệp và trò chuyện được giữ lại; mô hình nạp lại khi cần. Thay đổi áp dụng cho yêu cầu mới.",
     "waiting": "Đang chờ hoặc giải phóng RAM/VRAM…",
     "failed": "Tối ưu bộ nhớ thất bại. Thử lại hoặc chọn Thủ công."
+  },
+  "sharing": {
+    "share": "Chia sẻ",
+    "scope": "Nội dung chia sẻ",
+    "render": "Kết quả này chỉ",
+    "conversation": "Toàn bộ cuộc trò chuyện hiện tại",
+    "selection": "Chọn mục",
+    "questions": "Câu hỏi",
+    "sources": "Nguồn",
+    "parameters": "Cài đặt thế hệ",
+    "format": "định dạng",
+    "original": "Tập tin gốc",
+    "embedded": "hình ảnh nhúng",
+    "imageHint": "Chuyển đổi hình ảnh sử dụng khung hình tĩnh. SVG nhúng hình ảnh raster; ICO được giới hạn ở 256 px.",
+    "videoHint": "Sử dụng HTML hoặc ZIP để tiếp tục phát lại video và các tập tin gốc.",
+    "prepare": "Chuẩn bị xem trước",
+    "preview": "Xem trước",
+    "system": "Chia sẻ qua hệ thống",
+    "ready": "Xem trước đã sẵn sàng",
+    "opened": "Đã mở hộp thoại hệ thống",
+    "fallback": "Chia sẻ hệ thống không có sẵn ở đây cho định dạng này. Lưu hoặc in tập tin.",
+    "tooLarge": "Xuất khẩu quá lớn. Chọn ít mục hơn hoặc chia sẻ phương tiện gốc.",
+    "failed": "Không thể hoàn tất việc xuất hoặc chia sẻ. Kiểm tra các tập tin và thử định dạng khác.",
+    "localHint": "Xem lại nội dung đã chọn trước khi chia sẻ. Không có liên kết công khai nào được tạo.",
+    "user": "bạn",
+    "assistant": "Trợ lý",
+    "linuxHint": "Linux mở ứng dụng email của bạn có tệp đính kèm. Không có gì được gửi tự động.",
+    "copyFile": "Sao chép tập tin"
   }
 }

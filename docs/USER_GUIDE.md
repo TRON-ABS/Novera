@@ -1,5 +1,38 @@
 # Novera — guide utilisateur
 
+## Partage des résultats et ratios — sources du 26 octobre 2026
+
+La petite icône **Partager**, à côté des actions existantes sous une réponse ou une création, ouvre un aperçu. Le même bouton dans la barre de discussion partage la conversation. Choisir **Ce résultat uniquement**, **Toute la conversation actuelle** ou **Choisir les éléments** ; préparer l’aperçu, puis Copier, Copier le fichier, Enregistrer, Imprimer/PDF ou Partage système. Modifier la sélection invalide l’aperçu précédent. Questions et sources sont sélectionnables ; les paramètres de génération restent facultatifs et désactivés initialement.
+
+« Toute la conversation » comprend les messages de la branche active, même lorsqu’ils sont hors écran après défilement. Les autres conversations et versions de réponse restent exclues. Le JSON du nouveau bouton porte le schéma `novera-share` version 1 et suit cette sélection ; la disquette conserve son export historique distinct. Le partage retire réflexion interne et traces d’outils ; les titres/liens des sources web peuvent être ajoutés sans leurs traces d’exécution. Il ne modifie pas l’historique. Une création peut être partagée seule, sans le texte de la réponse.
+
+| Contenu | Formats et comportement |
+| --- | --- |
+| Texte et documents | Markdown, TXT, HTML autonome, DOCX, ODT, RTF, EPUB 3, JSON, CSV et ZIP ; tableaux, code et images intégrés selon les possibilités du format. Les équations utilisent MathML en HTML/EPUB/ODT, OMML dans DOCX et du texte en RTF. |
+| PDF | Véritable impression système, puis choix PDF si un pilote est disponible. Pour le joindre à une messagerie, enregistrer le PDF puis le sélectionner dans celle-ci. Aucun autre format n’est renommé en PDF. |
+| Image seule | Original, PNG, JPEG, WebP, GIF, BMP, TIFF, ICO, TGA, PPM P6, QOI, AVIF et SVG avec image incorporée, ainsi que HTML/PDF/ZIP. La conversion SVG ne vectorise pas une image matricielle. Le navigateur seul propose PNG/JPEG/WebP et les formats documentaires ; les autres encodeurs nécessitent l’application native. |
+| Vidéo | Fichier original sans transcodage ; lecture incorporée en HTML/ZIP, avec prise en charge dépendant du lecteur. Les documents imprimés/bureautiques indiquent le nom du fichier. EPUB dépend des capacités du lecteur. |
+| Archive ZIP | Document HTML hors ligne, Markdown, manifeste et médias ; originaux séparés si une image a été convertie pour le document. Décompresser avant d’ouvrir l’HTML. |
+
+Les exports bureautiques utilisent leurs vrais conteneurs ; la fidélité des mises en page et des formules complexes dépend du logiciel lecteur. Les animations restent intactes dans **Original** ; une conversion d’image produit une image fixe. ICO est limité à 256 pixels sur son grand côté. Les conversions peuvent perdre profils couleur, métadonnées et certaines caractéristiques du format initial. Les fichiers de travail comme PSD/XCF et les codecs non disponibles ne sont pas des formats de conversion proposés ; conserver l’original. Ceci couvre les formats courants indiqués, sans promettre tous les formats propriétaires.
+
+| Plateforme | Passage vers les applications installées |
+| --- | --- |
+| Windows | Feuille de partage native et presse-papiers contenant un vrai fichier. |
+| macOS | Sélecteur de services de partage et fichier dans le presse-papiers. |
+| Android | Choix système ACTION_SEND avec URI temporaire autorisée en lecture et copie de fichier. |
+| iOS/iPadOS | Feuille UIActivityViewController et fournisseur de fichier pour le presse-papiers. |
+| Linux | Portail XDG Email avec pièce jointe ; copie d’URI de fichier pour les logiciels compatibles et enregistrement. Un portail/client configuré est nécessaire. |
+| Navigateur | Web Share quand il accepte le contenu, téléchargement et presse-papiers selon les autorisations du navigateur. |
+
+Cela inclut les **messageries, applications de chat, courriel et réseaux sociaux** qui acceptent le format et se déclarent auprès du système. Une application absente du sélecteur peut recevoir un fichier enregistré ou collé si elle le permet. Novera n’envoie aucun message automatiquement ; ouvrir la feuille ne prouve pas l’envoi. Les liens publics hébergés sont reportés à une prochaine étape. Aucun contenu n’est téléversé par Novera pour créer un lien.
+
+Un export contenant des médias distants peut les charger lors de **Préparer**, sans cookies ni référent ; les fichiers générés locaux restent locaux. Les médias incorporés et les exports en mémoire sont limités à 256 Mio ; les vidéos originales locales peuvent être copiées directement sans cette incorporation. Les copies de partage restent dans le cache privé de l’application, avec nettoyage des répertoires marqués datant de plus de sept jours lors d’un prochain partage. Les documents externes utilisés en contexte et les modèles ne sont pas archivés.
+
+**Ratio et résolution** : les boutons rapides Image/Vidéo ouvrent les réglages de dimensions. Dix-neuf proportions sont proposées : 1:1, 16:9, 9:16, 4:3, 3:4, 21:9, 9:21, 16:10, 10:16, 3:2, 2:3, 5:4, 4:5, 2:1, 1:2, 3:1, 1:3, 32:9 et 9:32, plus un rapport personnalisé. Changer de ratio conserve le grand côté de la résolution actuelle ; les dimensions sont arrondies à un multiple de 16, entre 64 et 2048. Les boutons 512/768/1024/1280/1536/1920/2048 recalculent les deux côtés avec le ratio sélectionné. Exemple : 1024² → 16:9 = 1024 × 576. Le ratio peut donc être légèrement approché. Un format très large peut agrandir le grand côté pour garder au moins 64 sur le petit. Les contraintes propres au modèle demeurent ; ces réglages concernent les profils locaux image/vidéo. Les préréglages cloud restent ceux de leur fournisseur. L’agrandissement Real-ESRGAN s’applique ensuite à l’image et conserve ses proportions.
+
+Validation des sources : 145 tests web ciblés, trois tests Rust isolés des commandes de partage, onze encodeurs exercés, TypeScript, build Vite, architecture et 70 catalogues à **1 734 clés**. Contrôle natif Windows `cargo check --lib` réussi ; conteneurs ZIP/XML contrôlés et DOCX relu indépendamment. Les adaptateurs Linux/macOS/Android/iOS sont présents dans les sources et restent à compiler/essayer sur leur plateforme. Aucun nouvel exécutable Novera, aucune validation complète d’envoi vers une messagerie ni certification bureautique n’est annoncée.
+
 ## Graines, résolution et agrandissement — sources du 26 octobre 2026
 
 Les images locales proposent quatre modes de graine : **Aléatoire**, **Fixe**, **Incrémenter (+1)** et **Décrémenter (−1)**. Une seule graine entière est réservée par demande, conservée pendant une attente/reprise du démarrage et enregistrée avec l’image. La graine précédente peut être réutilisée en mode fixe. Les nouvelles configurations démarrent en aléatoire ; les anciens profils sans ce réglage conservent leur graine fixe. Les suites +1/−1 rebouclent aux limites 0 et 4 294 967 295. Une comparaison demande le même modèle et les mêmes réglages ; la graine seule ne garantit pas un résultat identique entre matériels ou versions.
@@ -113,7 +146,7 @@ Web Search, Shell et Raisonnement partagent un contour arrondi, une épaisseur d
 
 Le menu de formats est non modal et contrôlé : un clic ou déplacement du focus ailleurs dans l’interface le ferme, même si un composant parent intercepte l’événement. Le clic extérieur peut aussi activer le contrôle visé. Le bouton, la sélection d’un format et Échap conservent leur comportement normal. Cela concerne le menu de formats ; le dialogue Windows de choix de fichier reste le dialogue natif.
 
-Placement actualisé : disquette puis corbeille immédiatement après Raisonnement, dans le groupe d’outils à gauche de la barre de saisie. Sur une fenêtre étroite, elles suivent ces outils dans le menu de débordement.
+Placement actualisé : Partager, disquette puis corbeille après Raisonnement, dans le groupe d’outils à gauche de la barre de saisie. Sur une fenêtre étroite, ces actions suivent les outils dans le menu de débordement.
 
 | Choix | Contenu |
 | --- | --- |

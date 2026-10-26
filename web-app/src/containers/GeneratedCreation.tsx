@@ -11,6 +11,7 @@ import { useCreation } from '@/hooks/useCreation'
 import { usePrompt } from '@/hooks/usePrompt'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
+import { ShareButton } from './ShareButton'
 
 export function GeneratedCreation({
   url,
@@ -105,6 +106,13 @@ export function GeneratedCreation({
           {reference.name}
         </p>
         <div className="flex flex-wrap gap-2">
+          {threadId && (
+            <ShareButton
+              threadId={threadId}
+              assetUrl={url}
+              disabled={!file || busy}
+            />
+          )}
           <Button
             size="sm"
             variant="outline"

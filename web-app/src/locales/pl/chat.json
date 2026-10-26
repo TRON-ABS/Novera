@@ -140,7 +140,11 @@
     "upscaleModel": "Model powiększania",
     "upscaleInstall": "Zainstaluj oba oficjalne modele",
     "upscaleNote": "Po generowaniu. Wymaga Python/PyTorch. Maksymalny wynik: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Zainstaluj modele lub wybierz zgodny plik .pth i sprawdź Python/PyTorch."
+    "upscaleMissing": "Zainstaluj modele lub wybierz zgodny plik .pth i sprawdź Python/PyTorch.",
+    "ratio": "Proporcje",
+    "resolution": "Rozdzielczość",
+    "customSize": "Niestandardowe",
+    "sizeAutoNote": "Zmiana współczynnika dostosowuje bieżącą rozdzielczość. Wymiary wykorzystują wielokrotności 16, aż do 2048 px."
   },
   "creationInstall": {
     "install": "Zainstaluj tę konfigurację",
@@ -166,5 +170,33 @@
     "preserve": "Pliki i rozmowy zostają zachowane; modele ładują się ponownie w razie potrzeby. Zmiany dotyczą nowych żądań.",
     "waiting": "Oczekiwanie lub zwalnianie RAM/VRAM…",
     "failed": "Optymalizacja pamięci nie powiodła się. Ponów lub wybierz tryb ręczny."
+  },
+  "sharing": {
+    "share": "Udostępnij",
+    "scope": "Treść do udostępnienia",
+    "render": "Tylko ten wynik",
+    "conversation": "Cała bieżąca rozmowa",
+    "selection": "Wybierz przedmioty",
+    "questions": "Pytania",
+    "sources": "Źródła",
+    "parameters": "Ustawienia generacji",
+    "format": "Sformatuj",
+    "original": "Oryginalny plik",
+    "embedded": "osadzony obraz",
+    "imageHint": "Konwersje obrazów wykorzystują nieruchomą klatkę. SVG osadza obraz rastrowy; ICO jest ograniczone do 256 px.",
+    "videoHint": "Użyj HTML lub ZIP, aby zachować odtwarzanie wideo i oryginalne pliki.",
+    "prepare": "Przygotuj podgląd",
+    "preview": "Podgląd",
+    "system": "Udostępnij przez system",
+    "ready": "Podgląd gotowy",
+    "opened": "Otwarto okno dialogowe systemu",
+    "fallback": "Udostępnianie systemu jest tutaj niedostępne dla tego formatu. Zapisz lub wydrukuj plik.",
+    "tooLarge": "Eksport jest za duży. Wybierz mniej elementów lub udostępnij oryginalne multimedia.",
+    "failed": "Nie można dokończyć eksportu lub udostępniania. Sprawdź pliki i wypróbuj inny format.",
+    "localHint": "Przejrzyj wybraną treść przed udostępnieniem. Nie jest tworzone żadne łącze publiczne.",
+    "user": "Ty",
+    "assistant": "Asystent",
+    "linuxHint": "Linux otwiera Twoją aplikację e-mail z załącznikiem. Nic nie jest wysyłane automatycznie.",
+    "copyFile": "Skopiuj plik"
   }
 }

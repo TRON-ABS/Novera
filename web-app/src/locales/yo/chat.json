@@ -140,7 +140,11 @@
     "upscaleModel": "Àwòṣe ìmúgbòòrò",
     "upscaleInstall": "Fi àwọn àwòṣe òṣìṣẹ́ méjèèjì sílẹ̀",
     "upscaleNote": "Lẹ́yìn ṣíṣe àwòrán. Ó nílò Python/PyTorch. Àbájáde tó pọ̀ jù: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Fi àwọn àwòṣe sílẹ̀ tàbí yan fáìlì .pth tó bá a mu, kí o sì ṣàyẹ̀wò Python/PyTorch."
+    "upscaleMissing": "Fi àwọn àwòṣe sílẹ̀ tàbí yan fáìlì .pth tó bá a mu, kí o sì ṣàyẹ̀wò Python/PyTorch.",
+    "ratio": "Ipin ipin",
+    "resolution": "Ipinnu",
+    "customSize": "Aṣa",
+    "sizeAutoNote": "Iyipada ipin ṣe atunṣe ipinnu lọwọlọwọ. Awọn iwọn lo awọn ọpọ ti 16, to 2048 px."
   },
   "creationInstall": {
     "install": "Fi ètò yìí sílẹ̀",
@@ -166,5 +170,33 @@
     "preserve": "Àwọn fáìlì àti ìjíròrò wà láìparẹ́; módẹ́lì á tún wọlé bí a bá nílò rẹ̀. Àyípadà kan ìbéèrè tuntun.",
     "waiting": "Ń dúró tàbí ń tú RAM/VRAM sílẹ̀…",
     "failed": "Ìmúdára ìrántí kùnà. Gbìyànjú lẹ́ẹ̀kan síi tàbí yan Àfọwọ́ṣe."
+  },
+  "sharing": {
+    "share": "Pinpin",
+    "scope": "Akoonu lati pin",
+    "render": "Abajade yii nikan",
+    "conversation": "Gbogbo ibaraẹnisọrọ lọwọlọwọ",
+    "selection": "Yan awọn ohun kan",
+    "questions": "Awọn ibeere",
+    "sources": "Awọn orisun",
+    "parameters": "Eto iran",
+    "format": "Ọna kika",
+    "original": "Faili atilẹba",
+    "embedded": "aworan ifibọ",
+    "imageHint": "Awọn iyipada aworan lo fireemu iduro. SVG ṣe ​​ifibọ aworan raster; ICO ni opin si 256 px.",
+    "videoHint": "Lo HTML tabi ZIP lati tọju ṣiṣiṣẹsẹhin fidio ati awọn faili atilẹba.",
+    "prepare": "Mura awotẹlẹ",
+    "preview": "Awotẹlẹ",
+    "system": "Pin nipasẹ eto",
+    "ready": "Awotẹlẹ ti ṣetan",
+    "opened": "Ibanisọrọ eto ṣi",
+    "fallback": "Pinpin eto ko si nibi fun ọna kika yii. Fipamọ tabi tẹjade faili naa.",
+    "tooLarge": "Ọja okeere ti tobi ju. Yan awọn ohun diẹ tabi pin media atilẹba.",
+    "failed": "Ko le pari okeere tabi pinpin. Ṣayẹwo awọn faili ki o gbiyanju ọna kika miiran.",
+    "localHint": "Ṣe ayẹwo akoonu ti o yan ṣaaju pinpin. Ko si ọna asopọ gbogbo eniyan ti a ṣẹda.",
+    "user": "Iwọ",
+    "assistant": "Iranlọwọ",
+    "linuxHint": "Linux ṣi ohun elo imeeli rẹ pẹlu asomọ kan. Ko si ohun ti a firanṣẹ laifọwọyi.",
+    "copyFile": "Daakọ faili"
   }
 }

@@ -140,7 +140,11 @@
     "upscaleModel": "Model panggedhene",
     "upscaleInstall": "Instal loro model resmi",
     "upscaleNote": "Sawise nggawe gambar. Perlu Python/PyTorch. Output maksimal: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Instal model utawa pilih berkas .pth sing cocog, banjur priksa Python/PyTorch."
+    "upscaleMissing": "Instal model utawa pilih berkas .pth sing cocog, banjur priksa Python/PyTorch.",
+    "ratio": "Rasio aspek",
+    "resolution": "Resolusi",
+    "customSize": "adat",
+    "sizeAutoNote": "Ngganti rasio adapts resolusi saiki. Ukuran nggunakake kelipatan 16, nganti 2048 px."
   },
   "creationInstall": {
     "install": "Pasang konfigurasi iki",
@@ -166,5 +170,33 @@
     "preserve": "Berkas lan obrolan tetep disimpen; model dimuat maneh yen perlu. Owah-owahan ditrapake kanggo panjaluk anyar.",
     "waiting": "Ngenteni utawa ngeculake RAM/VRAM…",
     "failed": "Optimasi memori gagal. Coba maneh utawa pilih Manual."
+  },
+  "sharing": {
+    "share": "Nuduhake",
+    "scope": "Isi kanggo nuduhake",
+    "render": "Hasil iki mung",
+    "conversation": "Kabeh obrolan saiki",
+    "selection": "Pilih item",
+    "questions": "Pitakonan",
+    "sources": "Sumber",
+    "parameters": "Setelan generasi",
+    "format": "Format",
+    "original": "File asli",
+    "embedded": "gambar ditempelake",
+    "imageHint": "Konversi gambar nggunakake pigura isih. SVG nampilake gambar raster; ICO diwatesi 256 px.",
+    "videoHint": "Gunakake HTML utawa ZIP kanggo njaga puter maneh video lan file asli.",
+    "prepare": "Siapke pratinjau",
+    "preview": "Pratinjau",
+    "system": "Nuduhake liwat sistem",
+    "ready": "Pratinjau siap",
+    "opened": "Dialog sistem dibukak",
+    "fallback": "Enggo bareng sistem ora kasedhiya ing kene kanggo format iki. Simpen utawa nyetak file kasebut.",
+    "tooLarge": "Ekspor gedhe banget. Pilih item sing luwih sithik utawa enggo bareng media asli.",
+    "failed": "Ora bisa ngrampungake ekspor utawa enggo bareng. Priksa file lan coba format liyane.",
+    "localHint": "Deleng konten sing dipilih sadurunge nuduhake. Ora ana pranala umum sing digawe.",
+    "user": "Sampeyan",
+    "assistant": "Asisten",
+    "linuxHint": "Linux mbukak aplikasi email sampeyan nganggo lampiran. Ora ana sing dikirim kanthi otomatis.",
+    "copyFile": "file salinan"
   }
 }

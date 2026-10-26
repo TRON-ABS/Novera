@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ComposerIcon } from '@/components/ComposerIcon'
+import { ShareButton } from './ShareButton'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import {
@@ -66,8 +67,11 @@ export function ConversationActions({
     if (!saveMenuOpen) return
     const dismissOutside = (event: Event) => {
       const target = event.target
-      if (target instanceof Node &&
-          !saveTrigger.current?.contains(target) && !saveMenu.current?.contains(target)) {
+      if (
+        target instanceof Node &&
+        !saveTrigger.current?.contains(target) &&
+        !saveMenu.current?.contains(target)
+      ) {
         setSaveMenuOpen(false)
       }
     }
@@ -148,7 +152,12 @@ export function ConversationActions({
 
   return (
     <>
-      <DropdownMenu modal={false} open={saveMenuOpen} onOpenChange={setSaveMenuOpen}>
+      <ShareButton threadId={thread?.id} disabled={disabled} conversation />
+      <DropdownMenu
+        modal={false}
+        open={saveMenuOpen}
+        onOpenChange={setSaveMenuOpen}
+      >
         <Tooltip>
           <TooltipTrigger asChild>
             <DropdownMenuTrigger asChild>

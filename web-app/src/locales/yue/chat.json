@@ -140,7 +140,11 @@
     "upscaleModel": "放大模型",
     "upscaleInstall": "安裝兩個官方模型",
     "upscaleNote": "生成之後放大。需要 Python/PyTorch。最大輸出：×2 4096 × 4096，×4 8192 × 8192。",
-    "upscaleMissing": "請安裝模型或者揀相容嘅 .pth 檔案，再檢查 Python/PyTorch。"
+    "upscaleMissing": "請安裝模型或者揀相容嘅 .pth 檔案，再檢查 Python/PyTorch。",
+    "ratio": "長寬比",
+    "resolution": "決議",
+    "customSize": "自訂",
+    "sizeAutoNote": "改變比例會適應當前嘅解像度。尺寸使用 16 嘅倍數，最多係 2048 px 。"
   },
   "creationInstall": {
     "install": "安裝呢個設定",
@@ -166,5 +170,33 @@
     "preserve": "檔案同對話會保留；有需要會再載入模型。改動適用於新請求。",
     "waiting": "等緊或者釋放 RAM/VRAM…",
     "failed": "記憶體最佳化失敗。請再試或者揀手動。"
+  },
+  "sharing": {
+    "share": "分享",
+    "scope": "要分享嘅內容",
+    "render": "只有呢個結果",
+    "conversation": "整個目前嘅對話",
+    "selection": "揀項目",
+    "questions": "問題",
+    "sources": "來源",
+    "parameters": "生成設定",
+    "format": "格式",
+    "original": "原始檔案",
+    "embedded": "嵌入圖片",
+    "imageHint": "圖片轉換會用靜態相框。 SVG 嵌入栅格圖像； ICO 只限 256 px 。",
+    "videoHint": "使用 HTML 或 ZIP 保留影片播放和原始檔案。",
+    "prepare": "準備預覽",
+    "preview": "預覽",
+    "system": "透過系統分享",
+    "ready": "預覽準備好喇",
+    "opened": "系統對話框打開咗",
+    "fallback": "呢個格式喺呢度唔可以共用系統。儲存或者列印檔案。",
+    "tooLarge": "出口太大喇。揀少啲項目或者分享原始媒體。",
+    "failed": "完成唔到匯出或者分享。檢查啲檔案，然後試下其他格式。",
+    "localHint": "分享之前睇返所選內容。冇建立任何公開連結。",
+    "user": "你",
+    "assistant": "助理",
+    "linuxHint": "Linux 會用附件打開你嘅電郵應用程式。冇嘢會自動傳送。",
+    "copyFile": "複製檔案"
   }
 }

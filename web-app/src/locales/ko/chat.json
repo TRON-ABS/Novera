@@ -140,7 +140,11 @@
     "upscaleModel": "확대 모델",
     "upscaleInstall": "공식 모델 두 개 설치",
     "upscaleNote": "생성 후 확대합니다. Python/PyTorch가 필요합니다. 최대 출력: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "모델을 설치하거나 호환되는 .pth 파일을 선택하고 Python/PyTorch를 확인하세요."
+    "upscaleMissing": "모델을 설치하거나 호환되는 .pth 파일을 선택하고 Python/PyTorch를 확인하세요.",
+    "ratio": "종횡비",
+    "resolution": "해상도",
+    "customSize": "맞춤",
+    "sizeAutoNote": "비율을 변경하면 현재 해상도가 적용됩니다. 치수는 최대 2048 픽셀까지 16의 배수를 사용합니다."
   },
   "creationInstall": {
     "install": "이 구성 설치",
@@ -166,5 +170,33 @@
     "preserve": "파일과 대화는 보존되며 필요할 때 모델을 다시 불러옵니다. 변경 사항은 새 요청부터 적용됩니다.",
     "waiting": "대기 중이거나 RAM/VRAM 해제 중…",
     "failed": "메모리 최적화에 실패했습니다. 다시 시도하거나 수동 모드를 선택하세요."
+  },
+  "sharing": {
+    "share": "공유",
+    "scope": "공유할 콘텐츠",
+    "render": "이 결과만",
+    "conversation": "현재 대화 전체",
+    "selection": "항목 선택",
+    "questions": "질문",
+    "sources": "출처",
+    "parameters": "세대 설정",
+    "format": "형식",
+    "original": "원본 파일",
+    "embedded": "삽입된 이미지",
+    "imageHint": "이미지 변환에는 스틸 프레임이 사용됩니다. SVG는 래스터 이미지를 포함합니다. ICO는 256 px로 제한됩니다.",
+    "videoHint": "비디오 재생 및 원본 파일을 유지하려면 HTML 또는 ZIP를 사용하십시오.",
+    "prepare": "미리보기 준비",
+    "preview": "미리보기",
+    "system": "시스템을 통해 공유",
+    "ready": "미리보기 준비됨",
+    "opened": "시스템 대화 상자가 열렸습니다.",
+    "fallback": "이 형식에서는 시스템 공유를 사용할 수 없습니다. 파일을 저장하거나 인쇄합니다.",
+    "tooLarge": "내보내기가 너무 큽니다. 더 적은 수의 항목을 선택하거나 원본 미디어를 공유하세요.",
+    "failed": "내보내기 또는 공유를 완료할 수 없습니다. 파일을 확인하고 다른 형식을 사용해 보세요.",
+    "localHint": "공유하기 전에 선택한 콘텐츠를 검토하세요. 공개 링크가 생성되지 않습니다.",
+    "user": "당신",
+    "assistant": "어시스턴트",
+    "linuxHint": "Linux는 첨부 파일이 포함된 이메일 애플리케이션을 엽니다. 아무것도 자동으로 전송되지 않습니다.",
+    "copyFile": "파일 복사"
   }
 }

@@ -140,7 +140,11 @@
     "upscaleModel": "Upscaling model",
     "upscaleInstall": "Install both official models",
     "upscaleNote": "After generation. Requires Python/PyTorch. Maximum output: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Install the models or choose a compatible .pth file, then check Python/PyTorch."
+    "upscaleMissing": "Install the models or choose a compatible .pth file, then check Python/PyTorch.",
+    "ratio": "Aspect ratio",
+    "resolution": "Resolution",
+    "customSize": "Custom",
+    "sizeAutoNote": "Changing the ratio adapts the current resolution. Dimensions use multiples of 16, up to 2048 px."
   },
   "creationInstall": {
     "install": "Install this configuration",
@@ -166,5 +170,33 @@
     "preserve": "Files and conversations are kept; models reload when needed. Changes apply to new requests.",
     "waiting": "Waiting or freeing RAM/VRAM…",
     "failed": "Memory optimization failed. Retry or choose Manual."
+  },
+  "sharing": {
+    "share": "Share",
+    "scope": "Content to share",
+    "render": "This result only",
+    "conversation": "Entire current conversation",
+    "selection": "Choose items",
+    "questions": "Questions",
+    "sources": "Sources",
+    "parameters": "Generation settings",
+    "format": "Format",
+    "original": "Original file",
+    "embedded": "embedded image",
+    "imageHint": "Image conversions use a still frame. SVG embeds the raster image; ICO is limited to 256 px.",
+    "videoHint": "Use HTML or ZIP to keep video playback and original files.",
+    "prepare": "Prepare preview",
+    "preview": "Preview",
+    "system": "Share via system",
+    "ready": "Preview ready",
+    "opened": "System dialog opened",
+    "fallback": "System sharing is unavailable here for this format. Save or print the file.",
+    "tooLarge": "The export is too large. Select fewer items or share the original media.",
+    "failed": "Unable to complete export or sharing. Check the files and try another format.",
+    "localHint": "Review the selected content before sharing. No public link is created.",
+    "user": "You",
+    "assistant": "Assistant",
+    "linuxHint": "Linux opens your email application with an attachment. Nothing is sent automatically.",
+    "copyFile": "Copy file"
   }
 }

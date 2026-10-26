@@ -140,7 +140,11 @@
     "upscaleModel": "Modèle ya kokómisa monene",
     "upscaleInstall": "Tya ba modèles mibale ya officiel",
     "upscaleNote": "Nsima ya kosala elilingi. Esengeli Python/PyTorch. Bobimisi ya likoló: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Tya ba modèles to poná fisyé .pth oyo ebongi, mpe talá Python/PyTorch."
+    "upscaleMissing": "Tya ba modèles to poná fisyé .pth oyo ebongi, mpe talá Python/PyTorch.",
+    "ratio": "Ratio ya aspect",
+    "resolution": "Ekateli ya kozwa ekateli",
+    "customSize": "Momeseno ya kosala",
+    "sizeAutoNote": "Kobongola ratio e adaptaka résolution ya lelo. Dimensions esalelaka ba multiples ya 16, tii na 2048 px."
   },
   "creationInstall": {
     "install": "Tyá ebongiseli oyo",
@@ -166,5 +170,33 @@
     "preserve": "Bafichiers mpe masolo ebatelami; modèles etisamaka lisusu soki esengeli. Mbongwana etali bosengi ya sika.",
     "waiting": "Kozela to kopesa RAM/VRAM esika…",
     "failed": "Kobongisa mémoire elongi te. Meka lisusu to poná Na maboko."
+  },
+  "sharing": {
+    "share": "Bokabola",
+    "scope": "Contenu ya kokabola",
+    "render": "Résultat oyo kaka",
+    "conversation": "Masolo mobimba ya lelo",
+    "selection": "Pona biloko",
+    "questions": "Mituna",
+    "sources": "Maziba oyo euti na yango",
+    "parameters": "Ba paramètres ya génération",
+    "format": "Format ya kosala",
+    "original": "Fichier original",
+    "embedded": "elilingi oyo ekɔtisami na kati",
+    "imageHint": "Ba conversions ya bilili esalelaka cadre fixe. SVG ekotisaka elilingi ya raster; ICO ezali limité na 256 px.",
+    "videoHint": "Salelá HTML to ZIP mpo na kobatela lecture ya video mpe ba fichiers originales.",
+    "prepare": "Bongisa aperçu ya liboso",
+    "preview": "Botali liboso",
+    "system": "Kabola na nzela ya système",
+    "ready": "Aperçu prêt",
+    "opened": "Dialogue ya système efungwami",
+    "fallback": "Kokabola système ezali awa te mpo na format oyo. Bomba to imprimer fisyé yango.",
+    "tooLarge": "Exportation ezali monene mingi. Pona biloko moke to kabola media ya ebandeli.",
+    "failed": "Kozanga makoki ya kosilisa bobimisi to kokabola. Tala ba fichiers mpe meka format mosusu.",
+    "localHint": "Talá makambo oyo oponi liboso ya kokabola yango. Lien public moko te esalemi.",
+    "user": "Yo",
+    "assistant": "Mosungi ya mosala",
+    "linuxHint": "Linux efungolaka application ya email na yo na pièce jointe. Eloko moko te etindamaka automatiquement.",
+    "copyFile": "Kopi ya fisyé"
   }
 }

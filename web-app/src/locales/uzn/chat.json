@@ -140,7 +140,11 @@
     "upscaleModel": "Kattalashtirish modeli",
     "upscaleInstall": "Ikkala rasmiy modelni o‘rnatish",
     "upscaleNote": "Yaratilgandan keyin. Python/PyTorch kerak. Eng katta natija: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Modellarni o‘rnating yoki mos .pth faylni tanlang va Python/PyTorch’ni tekshiring."
+    "upscaleMissing": "Modellarni o‘rnating yoki mos .pth faylni tanlang va Python/PyTorch’ni tekshiring.",
+    "ratio": "Tomonlar nisbati",
+    "resolution": "Rezolyutsiya",
+    "customSize": "Maxsus",
+    "sizeAutoNote": "Nisbatni o'zgartirish joriy ruxsatni moslashtiradi. Oʻlchamlar 16 ning koʻpaytmalari, 2048 px gacha."
   },
   "creationInstall": {
     "install": "Ushbu sozlamani oʻrnatish",
@@ -166,5 +170,33 @@
     "preserve": "Fayllar va suhbatlar saqlanadi; modellar kerak boʻlsa qayta yuklanadi. Oʻzgarishlar yangi soʻrovlarga tatbiq etiladi.",
     "waiting": "Kutilmoqda yoki RAM/VRAM boʻshatilmoqda…",
     "failed": "Xotirani optimallashtirib boʻlmadi. Qayta urinib koʻring yoki Qoʻlda rejimini tanlang."
+  },
+  "sharing": {
+    "share": "Ulashish",
+    "scope": "Ulashish uchun kontent",
+    "render": "Faqat bu natija",
+    "conversation": "Butun joriy suhbat",
+    "selection": "Elementlarni tanlang",
+    "questions": "Savollar",
+    "sources": "Manbalar",
+    "parameters": "Avlod sozlamalari",
+    "format": "Format",
+    "original": "Asl fayl",
+    "embedded": "o'rnatilgan rasm",
+    "imageHint": "Tasvirni konvertatsiya qilishda harakatsiz kadrdan foydalaniladi. SVG rastrli tasvirni joylashtiradi; ICO 256 px bilan cheklangan.",
+    "videoHint": "Videoni ijro etish va asl fayllarni saqlash uchun HTML yoki ZIP dan foydalaning.",
+    "prepare": "Oldindan ko'rishni tayyorlang",
+    "preview": "Ko‘rib chiqish",
+    "system": "Tizim orqali ulashing",
+    "ready": "Ko‘rib chiqish tayyor",
+    "opened": "Tizim dialog oynasi ochildi",
+    "fallback": "Bu formatda tizimni ulashish imkonsiz. Faylni saqlang yoki chop eting.",
+    "tooLarge": "Eksport juda katta. Kamroq elementlarni tanlang yoki asl mediani ulashing.",
+    "failed": "Eksport yoki almashishni yakunlab bo‘lmadi. Fayllarni tekshiring va boshqa formatni sinab ko'ring.",
+    "localHint": "Ulashishdan oldin tanlangan tarkibni ko'rib chiqing. Hech qanday umumiy havola yaratilmagan.",
+    "user": "Siz",
+    "assistant": "Yordamchi",
+    "linuxHint": "Linux elektron pochta ilovangizni ilova bilan ochadi. Hech narsa avtomatik ravishda yuborilmaydi.",
+    "copyFile": "Faylni nusxalash"
   }
 }

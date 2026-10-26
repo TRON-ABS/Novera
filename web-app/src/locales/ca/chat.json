@@ -140,7 +140,11 @@
     "upscaleModel": "Model d’ampliació",
     "upscaleInstall": "Instal·la els dos models oficials",
     "upscaleNote": "Després de generar. Requereix Python/PyTorch. Sortida màxima: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Instal·la els models o tria un fitxer .pth compatible i comprova Python/PyTorch."
+    "upscaleMissing": "Instal·la els models o tria un fitxer .pth compatible i comprova Python/PyTorch.",
+    "ratio": "Relació d'aspecte",
+    "resolution": "Resolució",
+    "customSize": "Personalitzat",
+    "sizeAutoNote": "Canviar la relació s'adapta la resolució actual. Les dimensions utilitzen múltiples de 16, fins a 2048 px."
   },
   "creationInstall": {
     "install": "Instal·la aquesta configuració",
@@ -166,5 +170,33 @@
     "preserve": "Es conserven fitxers i converses; els models es tornen a carregar quan cal. Els canvis s’apliquen a les noves peticions.",
     "waiting": "Esperant o alliberant RAM/VRAM…",
     "failed": "L’optimització de memòria ha fallat. Torna-ho a provar o tria Manual."
+  },
+  "sharing": {
+    "share": "Comparteix",
+    "scope": "Contingut per compartir",
+    "render": "Només aquest resultat",
+    "conversation": "Conversa actual sencera",
+    "selection": "Trieu elements",
+    "questions": "Preguntes",
+    "sources": "Fonts",
+    "parameters": "Configuració de generació",
+    "format": "Format",
+    "original": "Fitxa original",
+    "embedded": "imatge incrustada",
+    "imageHint": "Les conversions d'imatge utilitzen un marc fix. SVG incrusta la imatge ràster; ICO està limitat a 256 px.",
+    "videoHint": "Utilitzeu HTML o ZIP per mantenir la reproducció de vídeo i els fitxers originals.",
+    "prepare": "Prepara la vista prèvia",
+    "preview": "Vista prèvia",
+    "system": "Comparteix a través del sistema",
+    "ready": "Vista prèvia a punt",
+    "opened": "S'ha obert el diàleg del sistema",
+    "fallback": "La compartició del sistema no està disponible aquí per a aquest format. Deseu o imprimiu el fitxer.",
+    "tooLarge": "L'exportació és massa gran. Seleccioneu menys elements o compartiu el suport original.",
+    "failed": "No es pot completar l'exportació o la compartició. Comproveu els fitxers i proveu un altre format.",
+    "localHint": "Revisa el contingut seleccionat abans de compartir-ho. No es crea cap enllaç públic.",
+    "user": "tu",
+    "assistant": "Assistent",
+    "linuxHint": "Linux obre la vostra aplicació de correu electrònic amb un fitxer adjunt. No s'envia res automàticament.",
+    "copyFile": "Copia el fitxer"
   }
 }

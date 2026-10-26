@@ -140,7 +140,11 @@
     "upscaleModel": "Samfurin faɗaɗawa",
     "upscaleInstall": "Sanya samfurin hukuma guda biyu",
     "upscaleNote": "Bayan ƙirƙira. Ana buƙatar Python/PyTorch. Mafi girman fitarwa: ×2 4096 × 4096, ×4 8192 × 8192.",
-    "upscaleMissing": "Sanya samfuran ko zaɓi fayil .pth mai dacewa, sannan duba Python/PyTorch."
+    "upscaleMissing": "Sanya samfuran ko zaɓi fayil .pth mai dacewa, sannan duba Python/PyTorch.",
+    "ratio": "Halayen rabo",
+    "resolution": "Ƙaddamarwa",
+    "customSize": "Custom",
+    "sizeAutoNote": "Canza rabo yana daidaita ƙudurin yanzu. Girma suna amfani da nau'ikan 16, har zuwa 2048 px."
   },
   "creationInstall": {
     "install": "Shigar da wannan saiti",
@@ -166,5 +170,33 @@
     "preserve": "Fayiloli da hirarraki suna nan; samfura za su sake loduwa idan ana buƙata. Sauye-sauye na shafar sababbin buƙatu.",
     "waiting": "Ana jira ko sakin RAM/VRAM…",
     "failed": "Inganta ƙwaƙwalwa ya gaza. Sake gwadawa ko zaɓi Da hannu."
+  },
+  "sharing": {
+    "share": "Raba",
+    "scope": "Abun ciki don rabawa",
+    "render": "Wannan sakamakon kawai",
+    "conversation": "Gabaɗayan tattaunawar yanzu",
+    "selection": "Zaɓi abubuwa",
+    "questions": "Tambayoyi",
+    "sources": "Sources",
+    "parameters": "Saitunan tsarawa",
+    "format": "Tsarin",
+    "original": "Fayil na asali",
+    "embedded": "hoton da aka saka",
+    "imageHint": "Canjin hoto yana amfani da firam mai tsayayye. SVG yana sanya hoton raster; ICO an iyakance shi zuwa 256 px.",
+    "videoHint": "Yi amfani da HTML ko ZIP don kiyaye sake kunna bidiyo da fayilolin asali.",
+    "prepare": "Shirya samfoti",
+    "preview": "Dubawa",
+    "system": "Raba ta tsarin",
+    "ready": "Preview shirye",
+    "opened": "An buɗe maganganun tsarin",
+    "fallback": "Babu rabon tsarin anan don wannan tsari. Ajiye ko buga fayil ɗin.",
+    "tooLarge": "Fitarwar ta yi girma da yawa. Zaɓi ƙananan abubuwa ko raba kafofin watsa labarai na asali.",
+    "failed": "An kasa kammala fitarwa ko rabawa. Duba fayilolin kuma gwada wani tsari.",
+    "localHint": "Bincika abubuwan da aka zaɓa kafin rabawa. Babu hanyar haɗin jama'a da aka ƙirƙira.",
+    "user": "Kai",
+    "assistant": "Mataimaki",
+    "linuxHint": "Linux yana buɗe aikace-aikacen imel ɗin ku tare da abin da aka makala. Ba a aika komai ta atomatik.",
+    "copyFile": "Kwafi fayil"
   }
 }

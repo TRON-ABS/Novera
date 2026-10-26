@@ -16,7 +16,10 @@ export async function saveConversationFile(
       filters: [{ name: `Novera (${extension})`, extensions: [extension] }],
     })
     if (!path) return false
-    const destination = path.startsWith('content://') || /\.[^/\\.]+$/.test(path) ? path : `${path}.${extension}`
+    const destination =
+      path.startsWith('content://') || /\.[^/\\.]+$/.test(path)
+        ? path
+        : `${path}.${extension}`
     await core.invoke('write_file_sync', { args: [destination, file.content] })
     return true
   }
@@ -38,19 +41,30 @@ export async function saveConversationFile(
 /** The system print dialog lets the user choose a printer or Save as PDF. */
 export function printConversation(content: string): Promise<void> {
   return new Promise((resolve, reject) => {
+    let expired = false
     const frame = document.createElement('iframe')
     frame.title = 'Novera — PDF'
     frame.className = 'conversation-print-frame'
     const timeout = setTimeout(() => {
+      expired = true
       frame.remove()
       reject(new Error('Print preview unavailable'))
     }, 15_000)
-    frame.onload = () => {
-      clearTimeout(timeout)
+    frame.onload = async () => {
       frame.onload = null
       try {
         const target = frame.contentWindow
         if (!target) throw new Error('Print preview unavailable')
+        await Promise.all(
+          Array.from(target.document.images).map((image) =>
+            typeof image.decode === 'function'
+              ? image.decode()
+              : Promise.resolve()
+          )
+        )
+        if (target.document.fonts?.ready) await target.document.fonts.ready
+        if (expired) return
+        clearTimeout(timeout)
         target.addEventListener('afterprint', () => frame.remove(), {
           once: true,
         })
@@ -58,6 +72,7 @@ export function printConversation(content: string): Promise<void> {
         target.print()
         resolve()
       } catch (error) {
+        clearTimeout(timeout)
         frame.remove()
         reject(error)
       }

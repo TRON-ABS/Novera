@@ -4,15 +4,16 @@ import { GeneratedCreation } from '../GeneratedCreation'
 import { useCreation } from '@/hooks/useCreation'
 import { usePrompt } from '@/hooks/usePrompt'
 const mocks = vi.hoisted(() => ({ invoke: vi.fn(), reveal: vi.fn() }))
-vi.mock('@/hooks/useServiceHub', () => ({
-  useServiceHub: () => ({
+vi.mock('@/hooks/useServiceHub', () => {
+  const service = {
     core: () => ({
       invoke: mocks.invoke,
       convertFileSrc: (path: string) => 'asset:' + path,
     }),
     opener: () => ({ revealItemInDir: mocks.reveal }),
-  }),
-}))
+  }
+  return { useServiceHub: () => service }
+})
 vi.mock('@/i18n/react-i18next-compat', () => ({
   useTranslation: () => ({ t: (key: string) => key }),
 }))
