@@ -1,5 +1,11 @@
 # Novera — historique consolidé
 
+## Confirmation et nettoyage local — 26 octobre 2026
+
+Le mainteneur a ensuite confirmé le bon fonctionnement sur son PC. Ce retour utilisateur ne constitue pas une validation de toutes les messageries ou des autres plateformes.
+
+Nettoyage local terminé : deux anciens caches de compilation/tests supprimés, environ **31,1 Go réellement libérés**, pour **120,2 Go libres sur C:** au contrôle final. Application en cours, modèles, environnements Python, sources et cache Release conservés ; les prochains tests devront reconstruire leur cache de débogage. Aucun fichier temporaire ni binaire ajouté au dépôt.
+
 ## 26 octobre — réactivation du partage système Windows
 
 Réactivation explicite demandée par le mainteneur après reproduction du problème de partage hors Novera et indication qu’il a trouvé un réglage Windows. Retrait des deux protections temporaires (interface et commande native), restauration de l’adaptateur DataTransferManager, maintien de la copie de fichier Win32 dans un worker et de l’enregistrement. Aucun réglage Windows modifié par Novera ; cause système non certifiée à partir d’une capture. Vingt tests web Windows, TypeScript et contrôle natif ; pas de nouveau binaire ni de nouvel envoi réel vers une messagerie. [État courant](USER_GUIDE.md#partage-système-windows-réactivé--26-octobre-2026).

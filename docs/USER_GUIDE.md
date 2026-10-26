@@ -2,6 +2,8 @@
 
 ## Partage système Windows réactivé — 26 octobre 2026
 
+Le mainteneur a ensuite confirmé le bon fonctionnement sur son PC. Ce retour utilisateur ne constitue pas une validation de toutes les messageries ou des autres plateformes.
+
 Le bouton **Partage système** et son adaptateur Windows sont de nouveau activés dans les sources, à la demande du mainteneur : le même dysfonctionnement a été observé hors Novera, puis le mainteneur a indiqué avoir trouvé le réglage concerné. Cette réactivation ne constitue pas une confirmation technique de la cause du problème Windows ; Novera ne modifie aucun réglage du système.
 
 Après Préparer, utiliser **Partage système** pour choisir une application Windows compatible. **Copier le fichier** et **Enregistrer** restent disponibles ; la copie conserve le parcours Win32 CF_HDROP Unicode dans un worker, indépendant du volet WinRT. Le contenu n’est envoyé qu’après les actions explicites dans l’application destinataire. PDF conserve son parcours d’impression/enregistrement.
