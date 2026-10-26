@@ -125,7 +125,22 @@
     "totalTimeHint": "Ngụkọta oge gụnyere ntinye, ntinye ederede, ọgbọ, igwe ojii ọ bụla na-echere, nbudata na ịchekwa. Ọgbọ naanị ka egosiri iche mgbe injin na-akọ ya.",
     "recommendedSetup": "Ntụnye Nova: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Ime na GPU, Qwen3-4B na CPU, nzọụkwụ 4, CFG 1. A nwalere na Windows/Vulkan; ọsọ na ndakọrịta dabere na ngwaike.",
-    "applyRecommendedPlacement": "Tinye ntinye atụ aro"
+    "applyRecommendedPlacement": "Tinye ntinye atụ aro",
+    "seedMode": "Ụdị mkpụrụ",
+    "seedRandom": "Na-enweghị usoro",
+    "seedFixed": "Edoziri",
+    "seedIncrement": "Tinye (+1)",
+    "seedDecrement": "Belata (−1)",
+    "seedLast": "Mkpụrụ gara aga",
+    "seedReuse": "Jiri mkpụrụ ọzọ",
+    "seedNote": "Naanị onyonyo mpaghara. Tụnyere otu ụdị na ntọala ahụ.",
+    "imageResolutionMax": "Mkpebi kacha na Novera: 2048 × 2048 px. Achọrọ ebe nchekwa zuru ezu.",
+    "upscaleTitle": "Ịbawanye Real-ESRGAN",
+    "upscaleFactor": "Ugboro",
+    "upscaleModel": "Ụdị ịbawanye",
+    "upscaleInstall": "Wụnye ụdị gọọmentị abụọ ahụ",
+    "upscaleNote": "Mgbe emechara onyonyo. Achọrọ Python/PyTorch. Nsonaazụ kacha: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Wụnye ụdị ndị ahụ ma ọ bụ họrọ faịlụ .pth dabara, wee lelee Python/PyTorch."
   },
   "creationInstall": {
     "install": "Wụnye nhazi a",

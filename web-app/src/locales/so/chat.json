@@ -125,7 +125,22 @@
     "totalTimeHint": "Wadarta wakhtiga waxa ka mid ah rarista, codaynta qoraalka, jiilka, daruur kasta oo sugaysa, soo dejinta iyo kaydinta. Jiilka oo keliya ayaa si gaar ah loo muujiyaa marka matoorku soo sheego.",
     "recommendedSetup": "Soo jeedin Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Abuurid GPU, Qwen3-4B CPU, 4 tallaabo, CFG 1. Lagu tijaabiyey Windows/Vulkan; xawaare iyo iswaafajin waxay ku xiran yihiin qalabka.",
-    "applyRecommendedPlacement": "Codso meelaynta la soo jeediyay"
+    "applyRecommendedPlacement": "Codso meelaynta la soo jeediyay",
+    "seedMode": "Habka abuurka",
+    "seedRandom": "Aan kala sooc lahayn",
+    "seedFixed": "Joogto ah",
+    "seedIncrement": "Kordhi (+1)",
+    "seedDecrement": "Yaree (−1)",
+    "seedLast": "Abuurkii hore",
+    "seedReuse": "Mar kale isticmaal abuurka",
+    "seedNote": "Sawirrada gudaha oo keliya. Isbarbar dhig moodel iyo dejin isku mid ah.",
+    "imageResolutionMax": "Xallinta ugu badan ee Novera: 2048 × 2048 px. Xasuus ku filan ayaa loo baahan yahay.",
+    "upscaleTitle": "Weyneynta Real-ESRGAN",
+    "upscaleFactor": "Laablaab",
+    "upscaleModel": "Moodelka weyneynta",
+    "upscaleInstall": "Rakib labada moodel ee rasmiga ah",
+    "upscaleNote": "Kadib abuurista. Waxay u baahan tahay Python/PyTorch. Wax-soo-saarka ugu badan: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Rakib moodeellada ama dooro fayl .pth ku habboon, kadibna hubi Python/PyTorch."
   },
   "creationInstall": {
     "install": "Rakib habayntan",

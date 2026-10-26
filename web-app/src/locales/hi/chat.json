@@ -125,7 +125,22 @@
     "totalTimeHint": "कुल समय में लोडिंग, टेक्स्ट एन्कोडिंग, जेनरेशन, किसी भी क्लाउड वेटिंग, डाउनलोडिंग और सेविंग शामिल है। जब इंजन इसकी रिपोर्ट करता है तो अकेले जेनरेशन को अलग से दिखाया जाता है।",
     "recommendedSetup": "नोवेरा सुझाव: फ्लक्स.2 क्लेन 4बी",
     "recommendedSetupNote": "GPU पर निर्माण, CPU पर Qwen3-4B एन्कोडिंग, 4 चरण, CFG 1। Windows/Vulkan पर परीक्षण हुआ; गति और संगतता हार्डवेयर पर निर्भर हैं।",
-    "applyRecommendedPlacement": "सुझाए गए प्लेसमेंट को लागू करें"
+    "applyRecommendedPlacement": "सुझाए गए प्लेसमेंट को लागू करें",
+    "seedMode": "सीड मोड",
+    "seedRandom": "यादृच्छिक",
+    "seedFixed": "निश्चित",
+    "seedIncrement": "बढ़ाएँ (+1)",
+    "seedDecrement": "घटाएँ (−1)",
+    "seedLast": "पिछला सीड",
+    "seedReuse": "सीड दोबारा उपयोग करें",
+    "seedNote": "केवल स्थानीय चित्र। समान मॉडल और सेटिंग से तुलना करें।",
+    "imageResolutionMax": "Novera में अधिकतम रिज़ॉल्यूशन: 2048 × 2048 px। पर्याप्त मेमोरी आवश्यक है।",
+    "upscaleTitle": "Real-ESRGAN अपस्केलिंग",
+    "upscaleFactor": "गुणक",
+    "upscaleModel": "अपस्केलिंग मॉडल",
+    "upscaleInstall": "दोनों आधिकारिक मॉडल स्थापित करें",
+    "upscaleNote": "चित्र बनने के बाद। Python/PyTorch आवश्यक है। अधिकतम आउटपुट: ×2 4096 × 4096, ×4 8192 × 8192।",
+    "upscaleMissing": "मॉडल स्थापित करें या संगत .pth फ़ाइल चुनें, फिर Python/PyTorch जाँचें।"
   },
   "creationInstall": {
     "install": "यह कॉन्फ़िगरेशन इंस्टॉल करें",

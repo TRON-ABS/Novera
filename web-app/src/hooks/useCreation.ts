@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import { backendStorage } from '@/lib/backendStorage'
 import type { OutputMode } from '@/modules/engines/creation'
+import type { ImageSeedMode } from '@/modules/engines/image-seed'
 
 export interface CreationSettings {
   imageEngine?: 'diffusers' | 'sdcpp' | 'nvfp4-cuda'
@@ -21,6 +22,8 @@ export interface CreationSettings {
   frames: number
   fps: number
   seed: number
+  seedMode?: ImageSeedMode
+  lastImageSeed?: number
 }
 export const creationDefaults: CreationSettings = {
   imageEngine: 'diffusers',
@@ -40,6 +43,7 @@ export const creationDefaults: CreationSettings = {
   frames: 17,
   fps: 8,
   seed: 42,
+  seedMode: 'random',
 }
 export type MediaSelection = { provider: string; id: string }
 export const useCreation = create<{

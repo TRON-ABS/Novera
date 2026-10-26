@@ -37,7 +37,15 @@ fn nvfp4_manifest() -> Vec<FileSpec> {
     files
 }
 fn files_for(variant: &str) -> Vec<FileSpec> {
-    if variant == "nvfp4" {
+    if variant == "upscale" {
+        [
+            ("upscale2", "RealESRGAN_x2plus.pth", "v0.2.1", 67061725, "49fafd45f8fd7aa8d31ab2a22d14d91b536c34494a5cfe31eb5d89c2fa266abb"),
+            ("upscale4", "RealESRGAN_x4plus.pth", "v0.1.0", 67040989, "4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1"),
+        ].into_iter().map(|(role,name,tag,size,sha256)| FileSpec {
+            role: role.into(), name: name.into(), size, sha256: sha256.into(),
+            url: format!("https://github.com/xinntao/Real-ESRGAN/releases/download/{tag}/{name}"),
+        }).collect()
+    } else if variant == "nvfp4" {
         nvfp4_manifest()
     } else {
         manifest()
@@ -236,7 +244,7 @@ pub async fn creation_bundle_plan<R: Runtime>(
     python: Option<String>,
 ) -> Result<Plan, String> {
     let variant = variant.unwrap_or_else(|| "gguf".into());
-    if !["gguf", "nvfp4"].contains(&variant.as_str()) {
+    if !["gguf", "nvfp4", "upscale"].contains(&variant.as_str()) {
         return Err("variant".into());
     }
     let python = python.unwrap_or_else(|| "python".into());
@@ -264,7 +272,9 @@ pub async fn creation_bundle_plan<R: Runtime>(
         variant: variant.clone(),
         python,
         token: uuid::Uuid::new_v4().to_string(),
-        directory: parent.join("Novera models").join(if variant == "nvfp4" {
+        directory: parent.join("Novera models").join(if variant == "upscale" {
+            "upscale_models"
+        } else if variant == "nvfp4" {
             "FLUX.2 Klein 4B NVFP4"
         } else {
             SUBFOLDER
@@ -609,6 +619,15 @@ mod tests {
             .contains("black-forest-labs/FLUX.2-klein-4b-nvfp4"));
         assert_eq!(files[1].sha256, gguf[1].sha256);
         assert_eq!(files[2].sha256, gguf[2].sha256);
+    }
+    #[test]
+    fn official_upscalers_are_pinned_and_separate_from_diffusion() {
+        let files = files_for("upscale");
+        assert_eq!(files.len(), 2);
+        assert_eq!(files.iter().map(|f| f.size).sum::<u64>(), 134102714);
+        assert_eq!(files[0].name, "RealESRGAN_x2plus.pth");
+        assert_eq!(files[1].name, "RealESRGAN_x4plus.pth");
+        assert!(files.iter().all(|f| f.sha256.len() == 64 && f.url.starts_with("https://github.com/xinntao/Real-ESRGAN/releases/download/")));
     }
     async fn fixture(partial: bool, honors_range: bool) {
         use std::io::{Read, Write};

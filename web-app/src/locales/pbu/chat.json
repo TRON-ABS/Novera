@@ -125,7 +125,22 @@
     "totalTimeHint": "په ټول وخت کې بار کول، د متن کوډ کول، نسل، هر ډول بادل انتظار، ډاونلوډ او خوندي کول شامل دي. یوازې نسل په جلا توګه ښودل کیږي کله چې انجن راپور ورکوي.",
     "recommendedSetup": "نویرا وړاندیز: FLUX.2 کلین 4B",
     "recommendedSetupNote": "جوړول پر GPU، Qwen3-4B پر CPU، ۴ پړاوونه، CFG 1. په Windows/Vulkan ازمویل شوی؛ چټکتیا او سمون په وسایلو پورې اړه لري.",
-    "applyRecommendedPlacement": "وړاندیز شوي ځای پرځای کول پلي کړئ"
+    "applyRecommendedPlacement": "وړاندیز شوي ځای پرځای کول پلي کړئ",
+    "seedMode": "د تخم حالت",
+    "seedRandom": "تصادفي",
+    "seedFixed": "ثابت",
+    "seedIncrement": "زیاتول (+1)",
+    "seedDecrement": "کمول (−1)",
+    "seedLast": "پخوانی تخم",
+    "seedReuse": "تخم بیا وکاروئ",
+    "seedNote": "یوازې ځايي انځورونه. له هماغه ماډل او امستنو سره پرتله وکړئ.",
+    "imageResolutionMax": "په Novera کې تر ټولو لوړ ریزولوشن: 2048 × 2048 px. کافي حافظه پکار ده.",
+    "upscaleTitle": "Real-ESRGAN لویول",
+    "upscaleFactor": "ضریب",
+    "upscaleModel": "د لویولو ماډل",
+    "upscaleInstall": "دواړه رسمي ماډلونه نصب کړئ",
+    "upscaleNote": "له جوړولو وروسته. Python/PyTorch پکار دی. تر ټولو لوی وتون: ×2 4096 × 4096، ×4 8192 × 8192.",
+    "upscaleMissing": "ماډلونه نصب کړئ یا مناسب .pth فایل وټاکئ، بیا Python/PyTorch وګورئ."
   },
   "creationInstall": {
     "install": "دا امستنه نصب کړئ",

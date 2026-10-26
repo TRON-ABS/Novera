@@ -125,7 +125,22 @@
     "totalTimeHint": "Tổng thời gian bao gồm tải, mã hóa văn bản, tạo, bất kỳ đám mây nào đang chờ, tải xuống và lưu. Riêng thế hệ được hiển thị riêng khi động cơ báo cáo nó.",
     "recommendedSetup": "Gợi ý của Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Tạo trên GPU, Qwen3-4B trên CPU, 4 bước, CFG 1. Đã thử trên Windows/Vulkan; tốc độ và tương thích tùy phần cứng.",
-    "applyRecommendedPlacement": "Áp dụng vị trí được đề xuất"
+    "applyRecommendedPlacement": "Áp dụng vị trí được đề xuất",
+    "seedMode": "Chế độ hạt giống",
+    "seedRandom": "Ngẫu nhiên",
+    "seedFixed": "Cố định",
+    "seedIncrement": "Tăng (+1)",
+    "seedDecrement": "Giảm (−1)",
+    "seedLast": "Hạt giống trước",
+    "seedReuse": "Dùng lại hạt giống",
+    "seedNote": "Chỉ dành cho ảnh cục bộ. So sánh với cùng mô hình và cài đặt.",
+    "imageResolutionMax": "Độ phân giải tối đa trong Novera: 2048 × 2048 px. Cần đủ bộ nhớ.",
+    "upscaleTitle": "Phóng lớn Real-ESRGAN",
+    "upscaleFactor": "Tỷ lệ",
+    "upscaleModel": "Mô hình phóng lớn",
+    "upscaleInstall": "Cài cả hai mô hình chính thức",
+    "upscaleNote": "Sau khi tạo ảnh. Cần Python/PyTorch. Đầu ra tối đa: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Cài mô hình hoặc chọn tệp .pth tương thích, rồi kiểm tra Python/PyTorch."
   },
   "creationInstall": {
     "install": "Cài đặt cấu hình này",

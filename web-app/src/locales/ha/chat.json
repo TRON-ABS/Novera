@@ -125,7 +125,22 @@
     "totalTimeHint": "Jimlar lokacin ya haɗa da lodawa, shigar da rubutu, tsarawa, kowane girgije mai jira, saukewa da adanawa. Generation kadai ana nunawa daban lokacin da injin ya ba da rahotonsa.",
     "recommendedSetup": "Shawarar Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Ƙirƙira a GPU, Qwen3-4B a CPU, matakai 4, CFG 1. An gwada a Windows/Vulkan; sauri da dacewa sun dogara ga na’ura.",
-    "applyRecommendedPlacement": "Aiwatar da shawarar wuri"
+    "applyRecommendedPlacement": "Aiwatar da shawarar wuri",
+    "seedMode": "Yanayin iri",
+    "seedRandom": "Bazuwar",
+    "seedFixed": "Tabbatacce",
+    "seedIncrement": "Ƙara (+1)",
+    "seedDecrement": "Rage (−1)",
+    "seedLast": "Irin da ya gabata",
+    "seedReuse": "Sake amfani da iri",
+    "seedNote": "Hotunan cikin na’ura kawai. Kwatanta da samfur da saituna iri ɗaya.",
+    "imageResolutionMax": "Mafi girman ƙuduri a Novera: 2048 × 2048 px. Ana buƙatar isasshen ƙwaƙwalwa.",
+    "upscaleTitle": "Faɗaɗa Real-ESRGAN",
+    "upscaleFactor": "Ninki",
+    "upscaleModel": "Samfurin faɗaɗawa",
+    "upscaleInstall": "Sanya samfurin hukuma guda biyu",
+    "upscaleNote": "Bayan ƙirƙira. Ana buƙatar Python/PyTorch. Mafi girman fitarwa: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Sanya samfuran ko zaɓi fayil .pth mai dacewa, sannan duba Python/PyTorch."
   },
   "creationInstall": {
     "install": "Shigar da wannan saiti",

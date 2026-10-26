@@ -125,7 +125,22 @@
     "totalTimeHint": "El temps total inclou la càrrega, la codificació de text, la generació, qualsevol espera al núvol, la descàrrega i l'emmagatzematge. La generació sola es mostra per separat quan el motor ho informa.",
     "recommendedSetup": "Novera suggeriment: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Generació amb GPU, Qwen3-4B amb CPU, 4 passos, CFG 1. Provat a Windows amb Vulkan; velocitat i compatibilitat depenen del maquinari.",
-    "applyRecommendedPlacement": "Aplica la ubicació suggerida"
+    "applyRecommendedPlacement": "Aplica la ubicació suggerida",
+    "seedMode": "Mode de llavor",
+    "seedRandom": "Aleatòria",
+    "seedFixed": "Fixa",
+    "seedIncrement": "Incrementa (+1)",
+    "seedDecrement": "Decrementa (−1)",
+    "seedLast": "Llavor anterior",
+    "seedReuse": "Reutilitza la llavor",
+    "seedNote": "Només imatges locals. Compara amb el mateix model i els mateixos ajustos.",
+    "imageResolutionMax": "Resolució màxima al Novera: 2048 × 2048 px. Cal prou memòria.",
+    "upscaleTitle": "Ampliació Real-ESRGAN",
+    "upscaleFactor": "Factor",
+    "upscaleModel": "Model d’ampliació",
+    "upscaleInstall": "Instal·la els dos models oficials",
+    "upscaleNote": "Després de generar. Requereix Python/PyTorch. Sortida màxima: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Instal·la els models o tria un fitxer .pth compatible i comprova Python/PyTorch."
   },
   "creationInstall": {
     "install": "Instal·la aquesta configuració",

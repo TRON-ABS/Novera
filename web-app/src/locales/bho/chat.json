@@ -125,7 +125,22 @@
     "totalTimeHint": "कुल समय में लोडिंग, टेक्स्ट एन्कोडिंग, जनरेशन, कौनों भी क्लाउड के इंतजार, डाउनलोड आ सेविंग सामिल बा। अकेले जनरेशन के अलग से देखावल जाला जब इंजन एकर रिपोर्ट करेला।",
     "recommendedSetup": "नोवेरा के सुझाव: FLUX.2 क्लेन 4B",
     "recommendedSetupNote": "GPU पर बनावल, CPU पर Qwen3-4B एन्कोडिंग, 4 चरण, CFG 1। Windows/Vulkan पर जाँच भइल बा; गति आ मेल हार्डवेयर पर निर्भर बा।",
-    "applyRecommendedPlacement": "सुझावल गइल प्लेसमेंट लागू करीं"
+    "applyRecommendedPlacement": "सुझावल गइल प्लेसमेंट लागू करीं",
+    "seedMode": "सीड मोड",
+    "seedRandom": "बेतरतीब",
+    "seedFixed": "तय",
+    "seedIncrement": "बढ़ाईं (+1)",
+    "seedDecrement": "घटाईं (−1)",
+    "seedLast": "पिछिला सीड",
+    "seedReuse": "सीड फेर इस्तेमाल करीं",
+    "seedNote": "खाली स्थानीय चित्र। उहे मॉडल आ सेटिंग से तुलना करीं।",
+    "imageResolutionMax": "Novera में अधिकतम रिज़ॉल्यूशन: 2048 × 2048 px। भरपूर मेमोरी जरूरी बा।",
+    "upscaleTitle": "Real-ESRGAN से बड़ करीं",
+    "upscaleFactor": "गुणक",
+    "upscaleModel": "बड़ करे के मॉडल",
+    "upscaleInstall": "दूनो आधिकारिक मॉडल इंस्टॉल करीं",
+    "upscaleNote": "चित्र बनला के बाद। Python/PyTorch जरूरी बा। अधिकतम आउटपुट: ×2 4096 × 4096, ×4 8192 × 8192।",
+    "upscaleMissing": "मॉडल इंस्टॉल करीं भा संगत .pth फाइल चुनीं, फेर Python/PyTorch जाँचीं।"
   },
   "creationInstall": {
     "install": "ई कॉन्फ़िगरेशन इंस्टॉल करीं",

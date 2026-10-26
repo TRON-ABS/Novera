@@ -125,7 +125,22 @@
     "totalTimeHint": "Jumla ya muda ni pamoja na kupakia, kusimba maandishi, kutengeneza, kusubiri kwa wingu, kupakua na kuhifadhi. Kizazi pekee huonyeshwa tofauti wakati injini inaripoti.",
     "recommendedSetup": "Pendekezo la Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Uundaji kwenye GPU, Qwen3-4B kwenye CPU, hatua 4, CFG 1. Imejaribiwa Windows/Vulkan; kasi na uoanifu hutegemea vifaa.",
-    "applyRecommendedPlacement": "Tekeleza uwekaji uliopendekezwa"
+    "applyRecommendedPlacement": "Tekeleza uwekaji uliopendekezwa",
+    "seedMode": "Hali ya mbegu",
+    "seedRandom": "Nasibu",
+    "seedFixed": "Isiyobadilika",
+    "seedIncrement": "Ongeza (+1)",
+    "seedDecrement": "Punguza (−1)",
+    "seedLast": "Mbegu iliyotangulia",
+    "seedReuse": "Tumia mbegu tena",
+    "seedNote": "Picha za ndani tu. Linganisha kwa modeli na mipangilio ileile.",
+    "imageResolutionMax": "Mwonekano wa juu katika Novera: 2048 × 2048 px. Kumbukumbu ya kutosha inahitajika.",
+    "upscaleTitle": "Ukuzaji wa Real-ESRGAN",
+    "upscaleFactor": "Kizidishi",
+    "upscaleModel": "Modeli ya ukuzaji",
+    "upscaleInstall": "Sakinisha modeli zote mbili rasmi",
+    "upscaleNote": "Baada ya kutengeneza. Inahitaji Python/PyTorch. Matokeo ya juu: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Sakinisha modeli au chagua faili ya .pth inayofaa, kisha kagua Python/PyTorch."
   },
   "creationInstall": {
     "install": "Sakinisha usanidi huu",

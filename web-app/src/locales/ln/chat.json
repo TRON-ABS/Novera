@@ -125,7 +125,22 @@
     "totalTimeHint": "Tango mobimba esangisi chargement, encodage ya texte, génération, cloud nionso oyo ezali kozela, téléchargement pe kobomba. Génération yango moko elakisami separatement tango moteur e rapporter yango.",
     "recommendedSetup": "Likanisi ya Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Kosala na GPU, Qwen3-4B na CPU, matambe 4, CFG 1. Emekami na Windows/Vulkan; mbangu mpe boyokani etaleli matériel.",
-    "applyRecommendedPlacement": "Salelá esika oyo epesami likanisi"
+    "applyRecommendedPlacement": "Salelá esika oyo epesami likanisi",
+    "seedMode": "Lolenge ya mboto",
+    "seedRandom": "Na mbalakaka",
+    "seedFixed": "Ebongwani te",
+    "seedIncrement": "Bakisa (+1)",
+    "seedDecrement": "Kitisa (−1)",
+    "seedLast": "Mboto ya liboso",
+    "seedReuse": "Salelá mboto lisusu",
+    "seedNote": "Bililingi ya kati ya masini kaka. Kokanisá na modèle mpe mabongisi ndenge moko.",
+    "imageResolutionMax": "Bokonzi ya bililingi ya likoló na Novera: 2048 × 2048 px. Esengeli mémoire ekoka.",
+    "upscaleTitle": "Kokómisa monene Real-ESRGAN",
+    "upscaleFactor": "Mbala",
+    "upscaleModel": "Modèle ya kokómisa monene",
+    "upscaleInstall": "Tya ba modèles mibale ya officiel",
+    "upscaleNote": "Nsima ya kosala elilingi. Esengeli Python/PyTorch. Bobimisi ya likoló: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Tya ba modèles to poná fisyé .pth oyo ebongi, mpe talá Python/PyTorch."
   },
   "creationInstall": {
     "install": "Tyá ebongiseli oyo",

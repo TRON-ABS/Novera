@@ -125,7 +125,22 @@
     "totalTimeHint": "ڪل وقت شامل آهي لوڊ ڪرڻ، ٽيڪسٽ انڪوڊنگ، نسل، ڪنهن به بادل جو انتظار، ڊائون لوڊ ۽ بچت. جنريشن اڪيلو ڏيکاريو ويو آهي الڳ الڳ جڏهن انجڻ ان کي رپورٽ ڪري.",
     "recommendedSetup": "نيورا تجويز: FLUX.2 ڪلين 4B",
     "recommendedSetupNote": "تخليق GPU تي، Qwen3-4B انڪوڊنگ CPU تي، 4 مرحلا، CFG 1. Windows/Vulkan تي آزمائجي چڪو؛ رفتار ۽ مطابقت هارڊويئر تي دارومدار رکن ٿيون.",
-    "applyRecommendedPlacement": "تجويز ڪيل جڳهه لاڳو ڪريو"
+    "applyRecommendedPlacement": "تجويز ڪيل جڳهه لاڳو ڪريو",
+    "seedMode": "سيڊ موڊ",
+    "seedRandom": "بي ترتيب",
+    "seedFixed": "مقرر",
+    "seedIncrement": "وڌايو (+1)",
+    "seedDecrement": "گهٽايو (−1)",
+    "seedLast": "اڳوڻو سيڊ",
+    "seedReuse": "سيڊ ٻيهر استعمال ڪريو",
+    "seedNote": "رڳو مقامي تصويرون. ساڳئي ماڊل ۽ سيٽنگن سان ڀيٽيو.",
+    "imageResolutionMax": "Novera ۾ وڌ ۾ وڌ ريزوليوشن: 2048 × 2048 px. ڪافي ميموري گهربل آهي.",
+    "upscaleTitle": "Real-ESRGAN سان وڏو ڪرڻ",
+    "upscaleFactor": "ضرب",
+    "upscaleModel": "وڏو ڪرڻ وارو ماڊل",
+    "upscaleInstall": "ٻئي سرڪاري ماڊل نصب ڪريو",
+    "upscaleNote": "تصوير ٺهڻ کان پوءِ. Python/PyTorch گهربل آهي. وڌ ۾ وڌ آئوٽ پٽ: ×2 4096 × 4096، ×4 8192 × 8192.",
+    "upscaleMissing": "ماڊل نصب ڪريو يا موافق .pth فائل چونڊيو، پوءِ Python/PyTorch چيڪ ڪريو."
   },
   "creationInstall": {
     "install": "هي ترتيب لڳايو",

@@ -125,7 +125,22 @@
     "totalTimeHint": "মোট সময় লোডিং, টেক্সট এনকোডিং, জেনারেশন, যেকোনো ক্লাউড ওয়েটিং, ডাউনলোড এবং সেভিং অন্তর্ভুক্ত। ইঞ্জিন এটি রিপোর্ট করার সময় একা জেনারেশন আলাদাভাবে দেখানো হয়।",
     "recommendedSetup": "নভেরা পরামর্শ: FLUX.2 Klein 4B",
     "recommendedSetupNote": "GPU-তে তৈরি, CPU-তে Qwen3-4B এনকোডিং, ৪ ধাপ, CFG 1। Windows/Vulkan-এ পরীক্ষিত; গতি ও সামঞ্জস্য হার্ডওয়্যারের উপর নির্ভরশীল।",
-    "applyRecommendedPlacement": "প্রস্তাবিত প্লেসমেন্ট প্রয়োগ করুন"
+    "applyRecommendedPlacement": "প্রস্তাবিত প্লেসমেন্ট প্রয়োগ করুন",
+    "seedMode": "সিড মোড",
+    "seedRandom": "এলোমেলো",
+    "seedFixed": "স্থির",
+    "seedIncrement": "বাড়ান (+1)",
+    "seedDecrement": "কমান (−1)",
+    "seedLast": "আগের সিড",
+    "seedReuse": "সিড আবার ব্যবহার করুন",
+    "seedNote": "শুধু স্থানীয় ছবি। একই মডেল ও সেটিং দিয়ে তুলনা করুন।",
+    "imageResolutionMax": "Novera-তে সর্বোচ্চ রেজোলিউশন: 2048 × 2048 px। পর্যাপ্ত মেমোরি প্রয়োজন।",
+    "upscaleTitle": "Real-ESRGAN বড় করা",
+    "upscaleFactor": "গুণক",
+    "upscaleModel": "বড় করার মডেল",
+    "upscaleInstall": "দুটি অফিসিয়াল মডেল ইনস্টল করুন",
+    "upscaleNote": "ছবি তৈরির পরে। Python/PyTorch প্রয়োজন। সর্বোচ্চ আউটপুট: ×2 4096 × 4096, ×4 8192 × 8192।",
+    "upscaleMissing": "মডেল ইনস্টল করুন বা সামঞ্জস্যপূর্ণ .pth ফাইল বাছুন, তারপর Python/PyTorch পরীক্ষা করুন।"
   },
   "creationInstall": {
     "install": "এই কনফিগারেশন ইনস্টল করুন",

@@ -125,7 +125,22 @@
     "totalTimeHint": "總時間包括載入、文字編碼、生成、任何雲端等待、下載同儲存。當引擎報告嗰陣,單獨顯示一代。",
     "recommendedSetup": "諾維拉建議： FLUX .2克萊恩4B",
     "recommendedSetupNote": "GPU 生成圖片，CPU 跑 Qwen3-4B，4 步，CFG 1。喺 Windows/Vulkan 測試過；速度同相容性視乎硬件。",
-    "applyRecommendedPlacement": "應用建議嘅放置位置"
+    "applyRecommendedPlacement": "應用建議嘅放置位置",
+    "seedMode": "種子模式",
+    "seedRandom": "隨機",
+    "seedFixed": "固定",
+    "seedIncrement": "遞增 (+1)",
+    "seedDecrement": "遞減 (−1)",
+    "seedLast": "上次嘅種子",
+    "seedReuse": "再用呢個種子",
+    "seedNote": "只適用於本機圖片。請用相同模型同設定比較。",
+    "imageResolutionMax": "Novera 最高解像度：2048 × 2048 px。需要足夠記憶體。",
+    "upscaleTitle": "Real-ESRGAN 放大",
+    "upscaleFactor": "倍率",
+    "upscaleModel": "放大模型",
+    "upscaleInstall": "安裝兩個官方模型",
+    "upscaleNote": "生成之後放大。需要 Python/PyTorch。最大輸出：×2 4096 × 4096，×4 8192 × 8192。",
+    "upscaleMissing": "請安裝模型或者揀相容嘅 .pth 檔案，再檢查 Python/PyTorch。"
   },
   "creationInstall": {
     "install": "安裝呢個設定",

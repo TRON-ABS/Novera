@@ -125,7 +125,22 @@
     "totalTimeHint": "एकूण वेळेत लोडिंग, टेक्स्ट एन्कोडिंग, जनरेशन, कोणतेही क्लाउड वेटिंग, डाउनलोड आणि सेव्हिंग यांचा समावेश होतो. जेव्हा इंजिन त्याचा अहवाल देते तेव्हा एकटी जनरेशन स्वतंत्रपणे दर्शविली जाते.",
     "recommendedSetup": "नोवेरा सूचना: FLUX.2 Klein 4B",
     "recommendedSetupNote": "GPU वर निर्मिती, CPU वर Qwen3-4B एन्कोडिंग, 4 टप्पे, CFG 1. Windows/Vulkan वर तपासले; वेग आणि सुसंगतता हार्डवेअरवर अवलंबून आहेत.",
-    "applyRecommendedPlacement": "सुचवलेले प्लेसमेंट लागू करा"
+    "applyRecommendedPlacement": "सुचवलेले प्लेसमेंट लागू करा",
+    "seedMode": "सीड मोड",
+    "seedRandom": "यादृच्छिक",
+    "seedFixed": "निश्चित",
+    "seedIncrement": "वाढवा (+1)",
+    "seedDecrement": "कमी करा (−1)",
+    "seedLast": "मागील सीड",
+    "seedReuse": "सीड पुन्हा वापरा",
+    "seedNote": "फक्त स्थानिक प्रतिमा. समान मॉडेल आणि सेटिंगसह तुलना करा.",
+    "imageResolutionMax": "Novera मधील कमाल रिझोल्यूशन: 2048 × 2048 px. पुरेशी मेमरी आवश्यक आहे.",
+    "upscaleTitle": "Real-ESRGAN मोठे करणे",
+    "upscaleFactor": "गुणक",
+    "upscaleModel": "मोठे करण्याचे मॉडेल",
+    "upscaleInstall": "दोन्ही अधिकृत मॉडेल स्थापित करा",
+    "upscaleNote": "निर्मितीनंतर. Python/PyTorch आवश्यक आहे. कमाल आउटपुट: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "मॉडेल स्थापित करा किंवा सुसंगत .pth फाइल निवडा आणि Python/PyTorch तपासा."
   },
   "creationInstall": {
     "install": "ही संरचना स्थापित करा",

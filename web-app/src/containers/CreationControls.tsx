@@ -21,6 +21,8 @@ import { mediaPreset } from '@/constants/mediaProviders'
 import { modelModalities } from '@/modules/engines/model-modalities'
 import { CreationInstallButton } from './CreationInstall'
 import { klein4bRecommendation } from '@/constants/creationRecommendations'
+import type { ImageSeedMode } from '@/modules/engines/image-seed'
+import { ImageUpscaleControls } from './ImageUpscaleControls'
 
 export function CreationControls({
   scope,
@@ -43,7 +45,16 @@ export function CreationControls({
       : undefined
   const state = {
     ...baseState,
-    settings: { ...baseState.settings, ...profile?.settings },
+    settings: {
+      ...baseState.settings,
+      ...profile?.settings,
+      ...(profile
+        ? {
+            seedMode: profile.settings.seedMode ?? ('fixed' as const),
+            lastImageSeed: profile.settings.lastImageSeed,
+          }
+        : {}),
+    },
     setSettings: (value: Parameters<typeof baseState.setSettings>[0]) => {
       baseState.setSettings(value)
       if (profile)
@@ -238,7 +249,7 @@ export function CreationControls({
         <div role="status" className="space-y-1 text-xs">
           <span>
             {t(
-              `chat:creation.${progress.stage === 'loading' ? 'loading' : 'generating'}`
+              `chat:creation.${progress.stage === 'upscaling' ? 'upscaleTitle' : progress.stage === 'loading' ? 'loading' : 'generating'}`
             )}{' '}
             {progress.progress >= 0 ? ` · ${progress.progress}%` : ''}
           </span>
@@ -567,6 +578,45 @@ export function CreationControls({
                     </p>
                   </>
                 )}
+                {mode !== 'video' && !isCloud && (
+                  <div className="space-y-2 text-xs">
+                    <label className="block space-y-1">
+                      {t('chat:creation.seedMode')}
+                      <select
+                        aria-label={t('chat:creation.seedMode')}
+                        className="block w-full rounded border bg-background p-2"
+                        value={settings.seedMode ?? 'fixed'}
+                        onChange={(event) =>
+                          state.setSettings({
+                            seedMode: event.target.value as ImageSeedMode,
+                          })
+                        }
+                      >
+                        {(['random', 'fixed', 'increment', 'decrement'] as const).map((value) => (
+                          <option key={value} value={value}>
+                            {t(`chat:creation.seed${value[0].toUpperCase()}${value.slice(1)}`)}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <p className="text-muted-foreground">{t('chat:creation.seedNote')}</p>
+                    {settings.lastImageSeed !== undefined && (
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span>{t('chat:creation.seedLast')}: {settings.lastImageSeed}</span>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => state.setSettings({
+                            seedMode: 'fixed',
+                            seed: settings.lastImageSeed,
+                          })}
+                        >
+                          {t('chat:creation.seedReuse')}
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                )}
                 <div className="grid grid-cols-2 gap-3">
                   {numericSettings.map((key) => (
                     <label key={key} className="space-y-1 text-xs">
@@ -574,6 +624,7 @@ export function CreationControls({
                       <input
                         className="block w-full rounded border bg-background p-2"
                         type="number"
+                        disabled={key === 'seed' && mode !== 'video' && settings.seedMode === 'random'}
                         min={
                           key === 'seed'
                             ? 0
@@ -603,6 +654,12 @@ export function CreationControls({
                     </label>
                   ))}
                 </div>
+                {mode !== 'video' && !isCloud && (
+                  <p className="text-xs text-muted-foreground">
+                    {t('chat:creation.imageResolutionMax')}
+                  </p>
+                )}
+                {mode !== 'video' && !isCloud && <ImageUpscaleControls />}
               </div>
             </details>
             <p className="text-xs text-muted-foreground">

@@ -125,7 +125,22 @@
     "totalTimeHint": "કુલ સમયમાં લોડિંગ, ટેક્સ્ટ એન્કોડિંગ, જનરેશન, કોઈપણ ક્લાઉડ વેઇટિંગ, ડાઉનલોડ અને સેવિંગનો સમાવેશ થાય છે. જ્યારે એન્જિન તેની જાણ કરે છે ત્યારે એકલી જનરેશન અલગથી બતાવવામાં આવે છે.",
     "recommendedSetup": "નોવેરા સૂચન: FLUX.2 Klein 4B",
     "recommendedSetupNote": "GPU પર સર્જન, CPU પર Qwen3-4B એન્કોડિંગ, 4 પગલાં, CFG 1. Windows/Vulkan પર ચકાસેલ; ઝડપ અને સુસંગતતા હાર્ડવેર પર આધારિત છે.",
-    "applyRecommendedPlacement": "સૂચવેલ પ્લેસમેન્ટ લાગુ કરો"
+    "applyRecommendedPlacement": "સૂચવેલ પ્લેસમેન્ટ લાગુ કરો",
+    "seedMode": "સીડ મોડ",
+    "seedRandom": "રેન્ડમ",
+    "seedFixed": "નિશ્ચિત",
+    "seedIncrement": "વધારો (+1)",
+    "seedDecrement": "ઘટાડો (−1)",
+    "seedLast": "અગાઉનું સીડ",
+    "seedReuse": "સીડ ફરી વાપરો",
+    "seedNote": "ફક્ત સ્થાનિક છબીઓ. સમાન મોડેલ અને સેટિંગ્સ સાથે સરખાવો.",
+    "imageResolutionMax": "Novera માં મહત્તમ રિઝોલ્યુશન: 2048 × 2048 px. પૂરતી મેમરી જરૂરી છે.",
+    "upscaleTitle": "Real-ESRGAN વડે મોટું કરો",
+    "upscaleFactor": "ગુણક",
+    "upscaleModel": "મોટું કરવાનું મોડેલ",
+    "upscaleInstall": "બંને સત્તાવાર મોડેલ ઇન્સ્ટોલ કરો",
+    "upscaleNote": "બનાવ્યા પછી. Python/PyTorch જરૂરી છે. મહત્તમ આઉટપુટ: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "મોડેલ ઇન્સ્ટોલ કરો અથવા સુસંગત .pth ફાઇલ પસંદ કરો, પછી Python/PyTorch તપાસો."
   },
   "creationInstall": {
     "install": "આ ગોઠવણી ઇન્સ્ટોલ કરો",

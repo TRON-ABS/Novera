@@ -140,6 +140,13 @@ def publish(config, result, pipeline_name, device, diagnostics=None):
     metadata.update(pipeline=pipeline_name, device=device, torch=torch.__version__, diffusers=diffusers.__version__)
     if diagnostics:
         metadata.update(diagnostics)
+    if config.get("upscale_factor"):
+        # The parent starts the bundled upscaler only after this worker exits,
+        # releasing the diffusion model before it loads the ESRGAN weights.
+        with Path(config["upscale_metadata"]).open("x", encoding="utf-8") as handle:
+            json.dump(metadata, handle, ensure_ascii=False, indent=2)
+        emit(stage="generating", progress=99, generation_seconds=metadata.get("generation_seconds"))
+        return
     sidecar = output.with_suffix(output.suffix + ".json")
     with sidecar.open("x", encoding="utf-8") as handle:
         json.dump(metadata, handle, ensure_ascii=False, indent=2)

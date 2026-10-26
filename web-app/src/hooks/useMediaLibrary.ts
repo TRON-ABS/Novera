@@ -77,6 +77,7 @@ export const useMediaLibrary = create<{
         }
       },
       importReady: (job, restore = false) => {
+        if (job.plan.variant === 'upscale') return
         if (
           job.phase !== 'ready' ||
           job.verified.length !== job.plan.files.length ||
@@ -146,7 +147,11 @@ export const useMediaLibrary = create<{
 )
 export function selectMediaProfile(profile: MediaProfile, scope?: string) {
   const state = useCreation.getState()
-  state.setSettings(profile.settings)
+  state.setSettings({
+    ...profile.settings,
+    seedMode: profile.settings.seedMode ?? 'fixed',
+    lastImageSeed: profile.settings.lastImageSeed,
+  })
   if (scope) {
     state.setSelection(scope, profile.task, {
       provider: 'diffusers',

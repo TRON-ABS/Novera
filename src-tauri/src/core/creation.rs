@@ -22,6 +22,9 @@ struct Job {
     delivered: bool,
     cpp: bool,
     pending_cpp: Option<Request>,
+    pending_upscale: Option<Request>,
+    upscale_source: Option<PathBuf>,
+    expected_upscale: Option<(u32, u32)>,
     started: std::time::Instant,
 }
 
@@ -45,6 +48,8 @@ pub struct Request {
     cpp_llm: Option<String>,
     cpp_vae: Option<String>,
     cpp_cfg: Option<f32>,
+    upscale_factor: Option<u32>,
+    upscale_model: Option<String>,
     #[serde(skip)]
     compat_quantize: bool,
     #[serde(default)]
@@ -284,7 +289,26 @@ fn cpp_command(
     Ok(cli)
 }
 
+fn png_dimensions(path: &std::path::Path) -> Result<(u32, u32), String> {
+    use std::io::Read;
+    let mut header = [0u8; 24];
+    std::fs::File::open(path).map_err(|e| e.to_string())?
+        .read_exact(&mut header).map_err(|e| e.to_string())?;
+    if &header[..8] != b"\x89PNG\r\n\x1a\n" || &header[12..16] != b"IHDR" {
+        return Err("CREATION_UPSCALE_INVALID_PNG".into());
+    }
+    Ok((u32::from_be_bytes(header[16..20].try_into().unwrap()),
+        u32::from_be_bytes(header[20..24].try_into().unwrap())))
+}
+
 fn validate(request: &Request) -> Result<(), String> {
+    if let Some(factor) = request.upscale_factor {
+        if request.task != "image" || ![2, 4].contains(&factor) {
+            return Err("CREATION_UPSCALE_INVALID".into());
+        }
+        local_file(request.upscale_model.as_deref().ok_or("CREATION_UPSCALE_MISSING")?, &["pth"])
+            .map_err(|_| "CREATION_UPSCALE_MISSING")?;
+    }
     if !super::creation_policy::valid_memory_policy(request.memory_policy.as_deref())
         || !["image", "video"].contains(&request.task.as_str())
         || request.prompt.trim().is_empty()
@@ -386,6 +410,17 @@ pub async fn creation_start<R: Runtime>(
     app: AppHandle<R>,
     mut request: Request,
 ) -> Result<String, String> {
+    if let Some(factor) = request.upscale_factor {
+        if request.task != "image" || ![2, 4].contains(&factor) {
+            return Err("CREATION_UPSCALE_INVALID".into());
+        }
+        if request.upscale_model.as_deref().is_none_or(|s| s.trim().is_empty()) {
+            let name = format!("RealESRGAN_x{factor}plus.pth");
+            let model = app.path().document_dir().map_err(|e| e.to_string())?
+                .join("Novera models/upscale_models").join(name);
+            request.upscale_model = Some(model.to_string_lossy().into_owned());
+        }
+    }
     // Windows always uses the packaged engine, including for profiles saved with
     // an old absolute development path. Other platforms retain custom runtimes.
     if request.backend.as_deref() == Some("sdcpp")
@@ -499,8 +534,15 @@ pub async fn creation_start<R: Runtime>(
         }
         config["torch_cache"] = json!(directory.join("torch-cache"));
     }
+    if request.upscale_factor.is_some() {
+        config["upscale_metadata"] = json!(directory.join("generated.json"));
+    }
     let config_path = directory.join("request.json");
     std::fs::write(&script, WORKER).map_err(|e| e.to_string())?;
+    if request.upscale_factor.is_some() {
+        std::fs::write(directory.join("upscale.py"), include_str!("../../../media-server/upscale.py"))
+            .map_err(|e| e.to_string())?;
+    }
     std::fs::write(
         &config_path,
         serde_json::to_vec(&config).map_err(|e| e.to_string())?,
@@ -564,6 +606,9 @@ pub async fn creation_start<R: Runtime>(
             } else {
                 None
             },
+            pending_upscale: request.upscale_factor.map(|_| request.clone()),
+            upscale_source: None,
+            expected_upscale: None,
             cpp,
             started,
         },
@@ -579,7 +624,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
         return Ok(json!({"stage":"cancelled"}));
     }
     let log = std::fs::read_to_string(job.directory.join("progress.jsonl")).unwrap_or_default();
-    let progress = if job.cpp && job.pending_cpp.is_none() {
+    let progress = if job.cpp && job.pending_cpp.is_none() && job.expected_upscale.is_none() {
         None
     } else {
         log.lines()
@@ -675,9 +720,57 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             }
         };
     }
+    if matches!(status, Some(status) if status.success()) && job.pending_upscale.is_some() {
+        let transition = (|| -> Result<Child, String> {
+            let request = job.pending_upscale.take().ok_or("CREATION_UPSCALE_INVALID")?;
+            if png_dimensions(&job.staged)? != (request.width, request.height) {
+                return Err("CREATION_UPSCALE_INVALID_PNG".into());
+            }
+            let factor = request.upscale_factor.ok_or("CREATION_UPSCALE_INVALID")?;
+            let output = job.staged.with_file_name(format!(".Novera-{id}.upscaled.partial.png"));
+            let mut config = serde_json::to_value(&request).map_err(|e| e.to_string())?;
+            config["input_image"] = json!(job.staged);
+            config["staged_output"] = json!(output);
+            config["parent_pid"] = json!(std::process::id());
+            let path = job.directory.join("upscale-request.json");
+            std::fs::write(&path, serde_json::to_vec(&config).map_err(|e| e.to_string())?)
+                .map_err(|e| e.to_string())?;
+            let mut command = Command::new(if request.python.trim().is_empty() { "python" } else { &request.python });
+            command.arg("-u").arg(job.directory.join("upscale.py")).arg(path);
+            // From this point parse only the owned Python worker's JSON. Never
+            // reinterpret raw sd-cli output as trusted progress after transition.
+            command.stdout(Stdio::from(std::fs::OpenOptions::new().write(true).truncate(true)
+                    .open(job.directory.join("progress.jsonl")).map_err(|e| e.to_string())?))
+                .stderr(Stdio::from(std::fs::OpenOptions::new().append(true)
+                    .open(job.directory.join("error.log")).map_err(|e| e.to_string())?))
+                .kill_on_drop(true);
+            #[cfg(windows)]
+            command.creation_flags(0x08000000);
+            let child = command.spawn().map_err(|e| e.to_string())?;
+            job.upscale_source = Some(job.staged.clone());
+            job.staged = output;
+            job.expected_upscale = Some((request.width * factor, request.height * factor));
+            // The native publisher now owns final output for every image backend.
+            job.cpp = true;
+            Ok(child)
+        })();
+        return match transition {
+            Ok(child) => { job.child = child; Ok(json!({"stage":"upscaling","progress":-1})) },
+            Err(error) => {
+                job.delivered = true;
+                let _ = std::fs::remove_file(&job.staged);
+                Ok(json!({"stage":"error","error":format!("CREATION_UPSCALE: {error}")}))
+            }
+        };
+    }
     if matches!(status, Some(status) if status.success()) && job.cpp && !job.output.exists() {
         use std::io::{Read, Write};
         let publish = (|| -> Result<(), String> {
+            if let Some(expected) = job.expected_upscale {
+                if png_dimensions(&job.staged)? != expected {
+                    return Err("CREATION_UPSCALE_FACTOR_MISMATCH".into());
+                }
+            }
             let mut head = [0u8; 8];
             std::fs::File::open(&job.staged)
                 .map_err(|_| "GGUF engine did not produce an image")?
@@ -688,14 +781,21 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             }
             let sidecar = job.output.with_extension("png.json");
             let mut metadata: Value = serde_json::from_str(
-                &std::fs::read_to_string(job.directory.join("request.json"))
+                &std::fs::read_to_string(if job.directory.join("generated.json").is_file() {
+                    job.directory.join("generated.json")
+                } else { job.directory.join("request.json") })
                     .map_err(|e| e.to_string())?,
             )
             .map_err(|e| e.to_string())?;
             if let Some(object) = metadata.as_object_mut() {
+                if let Some((width, height)) = job.expected_upscale {
+                    object.insert("output_width".into(), json!(width));
+                    object.insert("output_height".into(), json!(height));
+                }
                 object.remove("input_image");
                 object.remove("staged_output");
                 object.remove("parent_pid");
+                object.remove("upscale_metadata");
                 object.insert(
                     "total_seconds".into(),
                     json!(job.started.elapsed().as_secs_f64()),
@@ -720,27 +820,35 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
                 let _ = std::fs::remove_file(sidecar);
                 return Err(error);
             }
+            if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             Ok(())
         })();
         if let Err(error) = publish {
             job.delivered = true;
             let _ = std::fs::remove_file(&job.staged);
+            if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));
             return Ok(json!({"stage":"error","error":error}));
         }
     }
     match status {
         None => Ok(progress
-            .unwrap_or(json!({"stage":if job.cpp {"generating"} else {"loading"},"progress":if job.cpp {-1} else {0}}))),
+            .unwrap_or(json!({"stage":if job.expected_upscale.is_some() {"upscaling"} else if job.cpp {"generating"} else {"loading"},"progress":if job.cpp {-1} else {0}}))),
         Some(status) if status.success() && job.output.is_file() => {
             job.delivered = true;
+            let generation_seconds = if job.expected_upscale.is_some() {
+                std::fs::read_to_string(job.directory.join("generated.json")).ok()
+                    .and_then(|s| serde_json::from_str::<Value>(&s).ok())
+                    .and_then(|v| v.get("generation_seconds").cloned())
+            } else { progress.as_ref().and_then(|p| p.get("generation_seconds")).cloned() };
             Ok(
-                json!({"stage":"done","progress":100,"task":job.task,"name":job.output.file_name().and_then(|s| s.to_str()),"path":job.output,"generation_seconds":progress.as_ref().and_then(|p| p.get("generation_seconds")).cloned()}),
+                json!({"stage":"done","progress":100,"task":job.task,"name":job.output.file_name().and_then(|s| s.to_str()),"path":job.output,"generation_seconds":generation_seconds}),
             )
         }
         Some(_) => {
             job.delivered = true;
             let _ = std::fs::remove_file(&job.staged);
+            if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));
             Ok(
                 json!({"stage":"error","error":progress.and_then(|p| p.get("error").cloned()).unwrap_or(json!("Python / Diffusers generation failed; check the configured environment and model"))}),
@@ -772,6 +880,7 @@ pub async fn creation_cancel(id: String) -> Result<(), String> {
             job.cancelled = true;
             job.delivered = true;
             let _ = std::fs::remove_file(&job.staged);
+            if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));
         }
     }

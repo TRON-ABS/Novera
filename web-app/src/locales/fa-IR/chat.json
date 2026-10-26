@@ -125,7 +125,22 @@
     "totalTimeHint": "کل زمان شامل بارگیری، رمزگذاری متن، تولید، هر انتظار ابری، دانلود و ذخیره است. هنگامی که موتور آن را گزارش می دهد، نسل به تنهایی به طور جداگانه نشان داده می شود.",
     "recommendedSetup": "پیشنهاد Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "تولید روی GPU، Qwen3-4B روی CPU، ۴ گام، CFG 1. در Windows/Vulkan آزمایش شده؛ سرعت و سازگاری به سخت‌افزار بستگی دارد.",
-    "applyRecommendedPlacement": "مکان پیشنهادی را اعمال کنید"
+    "applyRecommendedPlacement": "مکان پیشنهادی را اعمال کنید",
+    "seedMode": "حالت بذر",
+    "seedRandom": "تصادفی",
+    "seedFixed": "ثابت",
+    "seedIncrement": "افزایش (+1)",
+    "seedDecrement": "کاهش (−1)",
+    "seedLast": "بذر قبلی",
+    "seedReuse": "استفادهٔ دوباره از بذر",
+    "seedNote": "فقط تصاویر محلی. با مدل و تنظیمات یکسان مقایسه کنید.",
+    "imageResolutionMax": "بیشترین وضوح در Novera: 2048 × 2048 px. حافظهٔ کافی لازم است.",
+    "upscaleTitle": "بزرگ‌نمایی Real-ESRGAN",
+    "upscaleFactor": "ضریب",
+    "upscaleModel": "مدل بزرگ‌نمایی",
+    "upscaleInstall": "نصب هر دو مدل رسمی",
+    "upscaleNote": "پس از تولید. نیازمند Python/PyTorch است. بیشترین خروجی: ×2 4096 × 4096، ×4 8192 × 8192.",
+    "upscaleMissing": "مدل‌ها را نصب یا فایل .pth سازگار انتخاب کنید، سپس Python/PyTorch را بررسی کنید."
   },
   "creationInstall": {
     "install": "نصب این پیکربندی",

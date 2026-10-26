@@ -125,7 +125,22 @@
     "totalTimeHint": "Total waktu termasuk pemuatan, pengkodean teks, pembuatan, cloud apa pun yang menunggu, pengunduhan, dan penyimpanan. Generasi sendiri ditampilkan secara terpisah ketika mesin melaporkannya.",
     "recommendedSetup": "Saran Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Pembuatan di GPU, Qwen3-4B di CPU, 4 langkah, CFG 1. Diuji di Windows/Vulkan; kecepatan dan kompatibilitas bergantung pada perangkat keras.",
-    "applyRecommendedPlacement": "Terapkan penempatan yang disarankan"
+    "applyRecommendedPlacement": "Terapkan penempatan yang disarankan",
+    "seedMode": "Mode seed",
+    "seedRandom": "Acak",
+    "seedFixed": "Tetap",
+    "seedIncrement": "Tambah (+1)",
+    "seedDecrement": "Kurangi (−1)",
+    "seedLast": "Seed sebelumnya",
+    "seedReuse": "Gunakan kembali seed",
+    "seedNote": "Hanya gambar lokal. Bandingkan dengan model dan pengaturan yang sama.",
+    "imageResolutionMax": "Resolusi maksimum di Novera: 2048 × 2048 px. Memerlukan memori yang cukup.",
+    "upscaleTitle": "Peningkatan resolusi Real-ESRGAN",
+    "upscaleFactor": "Faktor",
+    "upscaleModel": "Model peningkatan resolusi",
+    "upscaleInstall": "Instal kedua model resmi",
+    "upscaleNote": "Setelah pembuatan. Memerlukan Python/PyTorch. Keluaran maksimum: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Instal model atau pilih berkas .pth yang kompatibel, lalu periksa Python/PyTorch."
   },
   "creationInstall": {
     "install": "Pasang konfigurasi ini",

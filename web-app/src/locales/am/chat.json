@@ -125,7 +125,22 @@
     "totalTimeHint": "ጠቅላላ ጊዜ የመጫን፣ የጽሑፍ ኢንኮዲንግ፣ ትውልድ፣ ማንኛውም ደመና የሚጠብቅ፣ ማውረድ እና ማስቀመጥን ያካትታል። ማመንጨት ብቻውን ሞተር ሲዘግብ በተናጠል ይታያል።",
     "recommendedSetup": "Nova አስተያየት: FLUX.2 Klein 4B",
     "recommendedSetupNote": "ፍጠር በGPU፣ Qwen3-4B በCPU፣ 4 እርምጃዎች፣ CFG 1። በWindows/Vulkan ተፈትኗል፤ ፍጥነትና ተኳሃኝነት በሃርድዌር ይወሰናሉ።",
-    "applyRecommendedPlacement": "የተጠቆመ ቦታን ይተግብሩ"
+    "applyRecommendedPlacement": "የተጠቆመ ቦታን ይተግብሩ",
+    "seedMode": "የዘር ሁነታ",
+    "seedRandom": "የዘፈቀደ",
+    "seedFixed": "ቋሚ",
+    "seedIncrement": "ጨምር (+1)",
+    "seedDecrement": "ቀንስ (−1)",
+    "seedLast": "ያለፈው ዘር",
+    "seedReuse": "ዘሩን እንደገና ተጠቀም",
+    "seedNote": "ለአካባቢያዊ ምስሎች ብቻ። በተመሳሳይ ሞዴል እና ቅንብሮች ያወዳድሩ።",
+    "imageResolutionMax": "በNovera ከፍተኛው ጥራት፦ 2048 × 2048 px። በቂ ማህደረ ትውስታ ያስፈልጋል።",
+    "upscaleTitle": "Real-ESRGAN ማጉላት",
+    "upscaleFactor": "እጥፍ",
+    "upscaleModel": "የማጉላት ሞዴል",
+    "upscaleInstall": "ሁለቱንም ኦፊሴላዊ ሞዴሎች ጫን",
+    "upscaleNote": "ከፈጠራ በኋላ። Python/PyTorch ያስፈልጋል። ከፍተኛ ውጤት፦ ×2 4096 × 4096፣ ×4 8192 × 8192።",
+    "upscaleMissing": "ሞዴሎቹን ይጫኑ ወይም ተስማሚ .pth ፋይል ይምረጡ፣ ከዚያ Python/PyTorch ያረጋግጡ።"
   },
   "creationInstall": {
     "install": "ይህን ውቅር ጫን",

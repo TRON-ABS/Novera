@@ -125,7 +125,22 @@
     "totalTimeHint": "Timpul total include încărcarea, codificarea textului, generarea, orice așteptare în cloud, descărcarea și salvarea. Numai generația este afișată separat atunci când motorul o raportează.",
     "recommendedSetup": "Sugestie Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Generare pe GPU, Qwen3-4B pe CPU, 4 pași, CFG 1. Testat pe Windows cu Vulkan; viteza și compatibilitatea depind de hardware.",
-    "applyRecommendedPlacement": "Aplicați plasarea sugerată"
+    "applyRecommendedPlacement": "Aplicați plasarea sugerată",
+    "seedMode": "Modul seminței",
+    "seedRandom": "Aleatorie",
+    "seedFixed": "Fixă",
+    "seedIncrement": "Incrementează (+1)",
+    "seedDecrement": "Decrementează (−1)",
+    "seedLast": "Sămânța anterioară",
+    "seedReuse": "Reutilizează sămânța",
+    "seedNote": "Doar imagini locale. Compară cu același model și aceleași setări.",
+    "imageResolutionMax": "Rezoluție maximă în Novera: 2048 × 2048 px. Este necesară memorie suficientă.",
+    "upscaleTitle": "Mărire Real-ESRGAN",
+    "upscaleFactor": "Factor",
+    "upscaleModel": "Model de mărire",
+    "upscaleInstall": "Instalează ambele modele oficiale",
+    "upscaleNote": "După generare. Necesită Python/PyTorch. Ieșire maximă: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Instalează modelele sau alege un fișier .pth compatibil și verifică Python/PyTorch."
   },
   "creationInstall": {
     "install": "Instalează această configurație",

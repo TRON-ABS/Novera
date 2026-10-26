@@ -125,7 +125,22 @@
     "totalTimeHint": "Isikhathi esiphelele sihlanganisa ukulayisha, ukubhala ngekhodi kombhalo, ukukhiqiza, noma yiliphi ifu elilindile, ukulanda nokulondoloza. Isizukulwane sisodwa sikhonjiswa ngokwehlukana lapho injini ibika ngaso.",
     "recommendedSetup": "Isiphakamiso se-Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Ukudala ku-GPU, Qwen3-4B ku-CPU, izinyathelo 4, CFG 1. Kuhlolwe ku-Windows/Vulkan; isivinini nokuhambisana kuncike kuzingxenyekazi.",
-    "applyRecommendedPlacement": "Sebenzisa ukubekwa okuphakanyisiwe"
+    "applyRecommendedPlacement": "Sebenzisa ukubekwa okuphakanyisiwe",
+    "seedMode": "Imodi yembewu",
+    "seedRandom": "Okungahleliwe",
+    "seedFixed": "Okungaguquki",
+    "seedIncrement": "Khulisa (+1)",
+    "seedDecrement": "Nciphisa (−1)",
+    "seedLast": "Imbewu yangaphambilini",
+    "seedReuse": "Sebenzisa imbewu futhi",
+    "seedNote": "Izithombe zendawo kuphela. Qhathanisa ngemodeli nezilungiselelo ezifanayo.",
+    "imageResolutionMax": "Ukucaca okuphezulu ku-Novera: 2048 × 2048 px. Kudingeka imemori eyanele.",
+    "upscaleTitle": "Ukukhulisa nge-Real-ESRGAN",
+    "upscaleFactor": "Isiphindaphindi",
+    "upscaleModel": "Imodeli yokukhulisa",
+    "upscaleInstall": "Faka amamodeli amabili asemthethweni",
+    "upscaleNote": "Ngemva kokukhiqiza. Kudingeka Python/PyTorch. Umphumela omkhulu: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Faka amamodeli noma ukhethe ifayela le-.pth elihambisanayo bese uhlola Python/PyTorch."
   },
   "creationInstall": {
     "install": "Faka lokhu kulungiselela",

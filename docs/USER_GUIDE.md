@@ -1,5 +1,19 @@
 # Novera — guide utilisateur
 
+## Graines, résolution et agrandissement — sources du 26 octobre 2026
+
+Les images locales proposent quatre modes de graine : **Aléatoire**, **Fixe**, **Incrémenter (+1)** et **Décrémenter (−1)**. Une seule graine entière est réservée par demande, conservée pendant une attente/reprise du démarrage et enregistrée avec l’image. La graine précédente peut être réutilisée en mode fixe. Les nouvelles configurations démarrent en aléatoire ; les anciens profils sans ce réglage conservent leur graine fixe. Les suites +1/−1 rebouclent aux limites 0 et 4 294 967 295. Une comparaison demande le même modèle et les mêmes réglages ; la graine seule ne garantit pas un résultat identique entre matériels ou versions.
+
+Le message près des dimensions indique la limite de **génération de Novera : 2048 × 2048 pixels**, avec suffisamment de mémoire. Il ne certifie pas cette taille pour chaque modèle ou GPU.
+
+**Agrandissement Real-ESRGAN** est activable/désactivable et reste désactivé initialement. Le facteur proposé est **×2**, avec ×4 au choix. **Automatique** recommande le poids officiel correspondant ; **Parcourir** choisit un fichier local `.pth` compatible avec l’architecture RRDB 23 blocs en ×2 ou ×4. Les autres architectures `.pth` ne sont pas prises en charge par ce parcours.
+
+**Installer les deux modèles officiels** prépare une confirmation avec tailles, espace et destination, puis télécharge [RealESRGAN_x2plus.pth](https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.1/RealESRGAN_x2plus.pth) et [RealESRGAN_x4plus.pth](https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth), avec reprise et SHA-256. Dossier par défaut : `Documents/Novera models/upscale_models`, ou un emplacement choisi. **Utiliser cette configuration** enregistre les deux chemins ; Automatique les retrouve même dans un dossier personnalisé. Aucun téléchargement ne démarre au simple changement de facteur.
+
+L’agrandissement utilise l’exécutable Python média choisi, avec **PyTorch, Pillow et NumPy**, sur CPU ou CUDA. Le processus de diffusion se termine avant le chargement de l’agrandisseur, pour libérer ses modèles. Cela s’applique aux images locales C++, Diffusers et NVFP4 ; ni aux requêtes cloud ni à la vidéo. Après génération 2048², le plafond calculé est 4096² en ×2 ou 8192² en ×4, selon la mémoire disponible. Ces grandes tailles n’ont pas été essayées ici. L’image finale est publiée uniquement après réussite et vérification des dimensions ; Arrêter couvre les deux étapes.
+
+Tous les nouveaux textes existent dans les 70 locales. Sources uniquement : recompiler Novera pour disposer de ces réglages dans le binaire.
+
 ## Mémoire automatique ou modèles en parallèle — 26 octobre 2026
 
 Sur desktop, le réglage **Mémoire des modèles locaux** apparaît dans la discussion et dans **Paramètres → Général**. Il est mémorisé pour le profil et expliqué dans les 70 locales.

@@ -125,7 +125,22 @@
     "totalTimeHint": "เวลาทั้งหมดประกอบด้วยการโหลด การเข้ารหัสข้อความ การสร้าง การรอบนคลาวด์ การดาวน์โหลดและการบันทึก การสร้างเพียงอย่างเดียวจะแสดงแยกกันเมื่อเครื่องยนต์รายงาน",
     "recommendedSetup": "คําแนะนําของ Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "สร้างด้วย GPU เข้ารหัส Qwen3-4B บน CPU, 4 ขั้น, CFG 1 ทดสอบบน Windows/Vulkan แล้ว ความเร็วและความเข้ากันได้ขึ้นอยู่กับฮาร์ดแวร์",
-    "applyRecommendedPlacement": "ใช้ตําแหน่งที่แนะนํา"
+    "applyRecommendedPlacement": "ใช้ตําแหน่งที่แนะนํา",
+    "seedMode": "โหมดเมล็ดสุ่ม",
+    "seedRandom": "สุ่ม",
+    "seedFixed": "คงที่",
+    "seedIncrement": "เพิ่ม (+1)",
+    "seedDecrement": "ลด (−1)",
+    "seedLast": "เมล็ดสุ่มก่อนหน้า",
+    "seedReuse": "ใช้เมล็ดสุ่มซ้ำ",
+    "seedNote": "สำหรับภาพในเครื่องเท่านั้น เปรียบเทียบด้วยโมเดลและการตั้งค่าเดียวกัน",
+    "imageResolutionMax": "ความละเอียดสูงสุดใน Novera: 2048 × 2048 px ต้องมีหน่วยความจำเพียงพอ",
+    "upscaleTitle": "ขยายภาพ Real-ESRGAN",
+    "upscaleFactor": "อัตราขยาย",
+    "upscaleModel": "โมเดลขยายภาพ",
+    "upscaleInstall": "ติดตั้งโมเดลทางการทั้งสอง",
+    "upscaleNote": "ขยายหลังสร้างภาพ ต้องใช้ Python/PyTorch ผลลัพธ์สูงสุด: ×2 4096 × 4096, ×4 8192 × 8192",
+    "upscaleMissing": "ติดตั้งโมเดลหรือเลือกไฟล์ .pth ที่เข้ากันได้ แล้วตรวจสอบ Python/PyTorch"
   },
   "creationInstall": {
     "install": "ติดตั้งการตั้งค่านี้",

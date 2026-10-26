@@ -125,7 +125,22 @@
     "totalTimeHint": "کل ویلے چ لوڈنگ، ٹیکسٹ انکوڈنگ، جنریشن، کوئی وی کلاؤڈ ویٹنگ، ڈاؤن لوڈ تے سیونگ شامل اے۔ جدوں انجن رپورٹ کردا اے تے صرف جنریشن نوں وکھرا وکھایا جاندا اے۔",
     "recommendedSetup": "نوویرا تجویز: FLUX.2 کلین 4B",
     "recommendedSetupNote": "تخلیق GPU تے، Qwen3-4B دی انکوڈنگ CPU تے، 4 مرحلے، CFG 1۔ Windows/Vulkan تے آزمائی اے؛ رفتار تے میل ہارڈویئر تے نربھر نیں۔",
-    "applyRecommendedPlacement": "تجویز کردہ جگہ لاگو کرو"
+    "applyRecommendedPlacement": "تجویز کردہ جگہ لاگو کرو",
+    "seedMode": "سیڈ موڈ",
+    "seedRandom": "بے ترتیب",
+    "seedFixed": "مقرر",
+    "seedIncrement": "ودھاؤ (+1)",
+    "seedDecrement": "گھٹاؤ (−1)",
+    "seedLast": "پچھلا سیڈ",
+    "seedReuse": "سیڈ مُڑ ورتو",
+    "seedNote": "صرف مقامی تصویراں۔ اکو ماڈل تے سیٹنگاں نال مقابلہ کرو۔",
+    "imageResolutionMax": "Novera وچ ودھ توں ودھ ریزولوشن: 2048 × 2048 px۔ کافی میموری چاہیدی اے۔",
+    "upscaleTitle": "Real-ESRGAN نال وڈا کرنا",
+    "upscaleFactor": "گنا",
+    "upscaleModel": "وڈا کرن دا ماڈل",
+    "upscaleInstall": "دونویں سرکاری ماڈل انسٹال کرو",
+    "upscaleNote": "تصویر بنن توں بعد۔ Python/PyTorch چاہیدا اے۔ ودھ توں ودھ آؤٹ پٹ: ×2 4096 × 4096، ×4 8192 × 8192۔",
+    "upscaleMissing": "ماڈل انسٹال کرو یا میل کھاندی .pth فائل چنو، فیر Python/PyTorch ویکھو۔"
   },
   "creationInstall": {
     "install": "ایہہ ترتیب انسٹال کرو",

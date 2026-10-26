@@ -125,7 +125,22 @@
     "totalTimeHint": "کل وقت میں لوڈنگ، ٹیکسٹ انکوڈنگ، جنریشن، کوئی بھی کلاؤڈ ویٹنگ، ڈاؤن لوڈ اور سیونگ شامل ہے۔ جب انجن اس کی اطلاع دیتا ہے تو اکیلے جنریشن کو الگ سے دکھایا جاتا ہے۔",
     "recommendedSetup": "نوویرا تجویز: FLUX.2 Klein 4B",
     "recommendedSetupNote": "تخلیق GPU پر، Qwen3-4B کی انکوڈنگ CPU پر، 4 مراحل، CFG 1۔ Windows/Vulkan پر آزمایا گیا؛ رفتار اور مطابقت ہارڈویئر پر منحصر ہیں۔",
-    "applyRecommendedPlacement": "تجویز کردہ جگہ کا اطلاق کریں۔"
+    "applyRecommendedPlacement": "تجویز کردہ جگہ کا اطلاق کریں۔",
+    "seedMode": "سیڈ موڈ",
+    "seedRandom": "بے ترتیب",
+    "seedFixed": "مقررہ",
+    "seedIncrement": "بڑھائیں (+1)",
+    "seedDecrement": "گھٹائیں (−1)",
+    "seedLast": "پچھلا سیڈ",
+    "seedReuse": "سیڈ دوبارہ استعمال کریں",
+    "seedNote": "صرف مقامی تصاویر۔ ایک ہی ماڈل اور ترتیبات کے ساتھ موازنہ کریں۔",
+    "imageResolutionMax": "Novera میں زیادہ سے زیادہ ریزولوشن: 2048 × 2048 px۔ کافی میموری درکار ہے۔",
+    "upscaleTitle": "Real-ESRGAN سے بڑا کرنا",
+    "upscaleFactor": "عامل",
+    "upscaleModel": "بڑا کرنے کا ماڈل",
+    "upscaleInstall": "دونوں سرکاری ماڈل نصب کریں",
+    "upscaleNote": "تصویر بننے کے بعد۔ Python/PyTorch درکار ہے۔ زیادہ سے زیادہ آؤٹ پٹ: ×2 4096 × 4096، ×4 8192 × 8192۔",
+    "upscaleMissing": "ماڈل نصب کریں یا موافق .pth فائل منتخب کریں، پھر Python/PyTorch جانچیں۔"
   },
   "creationInstall": {
     "install": "یہ ترتیب نصب کریں",

@@ -17,6 +17,8 @@ import { getServiceHub } from '@/hooks/useServiceHub'
 import { mediaPreset } from '@/constants/mediaProviders'
 import { generateCloudMedia, CloudCreationError } from './cloud'
 import { getProviderTitle } from '@/lib/utils'
+import { reserveImageSeed } from './seed'
+import { useImageUpscale } from '@/hooks/useImageUpscale'
 
 export function creationStream(
   task: CreationTask,
@@ -33,6 +35,7 @@ export function creationStream(
       ? useMediaLibrary.getState().profiles.find((p) => p.id === selection.id)
       : undefined
   const settings = { ...state.settings, ...profile?.settings }
+  const upscale = useImageUpscale.getState()
   const cloudController = new AbortController()
   let cloudPrepared = false
   let id: string | undefined
@@ -41,6 +44,7 @@ export function creationStream(
   let finished = false
   let releaseMemory: (() => void) | undefined
   let stopping: Promise<unknown> | undefined
+  let imageSeed: number | undefined
   const memoryPolicy = useMemoryPolicy.getState().policy
   const localizedErrors = new Set<Error>()
   const fail = (key: string): never => {
@@ -62,6 +66,7 @@ export function creationStream(
       const started = performance.now()
       const timing = (generationSeconds?: number) => ({
         novera: {
+          ...(imageSeed !== undefined ? { seed: imageSeed } : {}),
           totalMs: Math.max(0, performance.now() - started),
           ...(typeof generationSeconds === 'number' &&
           Number.isFinite(generationSeconds) &&
@@ -206,6 +211,7 @@ export function creationStream(
           { signal: cloudController.signal, scope, policy: memoryPolicy }
         )
         if (cancelled) throw new DOMException('Aborted', 'AbortError')
+        if (task === 'image') imageSeed = reserveImageSeed(profile?.id)
         for (;;) {
           if (cancelled) throw new DOMException('Aborted', 'AbortError')
           try {
@@ -228,12 +234,18 @@ export function creationStream(
                 steps: settings.steps,
                 frames: settings.frames,
                 fps: settings.fps,
-                seed: settings.seed,
+                seed: imageSeed ?? settings.seed,
+                ...(task === 'image' && upscale.enabled ? {
+                  upscale_factor: upscale.factor,
+                  upscale_model: upscale.models[upscale.factor] || upscale.installedModels[upscale.factor] || null,
+                } : {}),
                 input_image: inputImage ?? null,
               },
             })
             break
           } catch (error) {
+            if (typeof error === 'string' && error.includes('CREATION_UPSCALE'))
+              fail('chat:creation.upscaleMissing')
             if (
               memoryPolicy !== 'auto' ||
               !String(error).includes('CREATION_BUSY')
@@ -267,7 +279,9 @@ export function creationStream(
           })
           if (report.stage === 'error') {
             console.error('Novera creation engine:', report.error)
-            const hint = /out of memory|memoryerror/i.test(report.error ?? '')
+            const hint = /CREATION_UPSCALE/i.test(report.error ?? '')
+              ? 'chat:creation.upscaleMissing'
+              : /out of memory|memoryerror/i.test(report.error ?? '')
               ? 'hub:catalog.tipLimited'
               : nativeFp4
                 ? 'chat:creation.nativeNote'

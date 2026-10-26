@@ -125,7 +125,22 @@
     "totalTimeHint": "Celkový čas zahrnuje načítání, kódování textu, generování, čekání v cloudu, stahování a ukládání. Samotná generace se zobrazuje samostatně, když ji motor hlásí.",
     "recommendedSetup": "Návrh Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Generování na GPU, Qwen3-4B na CPU, 4 kroky, CFG 1. Testováno ve Windows s Vulkan; rychlost a kompatibilita závisí na hardwaru.",
-    "applyRecommendedPlacement": "Použijte navrhované umístění"
+    "applyRecommendedPlacement": "Použijte navrhované umístění",
+    "seedMode": "Režim semínka",
+    "seedRandom": "Náhodné",
+    "seedFixed": "Pevné",
+    "seedIncrement": "Zvýšit (+1)",
+    "seedDecrement": "Snížit (−1)",
+    "seedLast": "Předchozí semínko",
+    "seedReuse": "Použít semínko znovu",
+    "seedNote": "Pouze místní obrázky. Porovnávejte se stejným modelem a nastavením.",
+    "imageResolutionMax": "Maximální rozlišení v Novera: 2048 × 2048 px. Je potřeba dostatek paměti.",
+    "upscaleTitle": "Zvětšení Real-ESRGAN",
+    "upscaleFactor": "Měřítko",
+    "upscaleModel": "Model zvětšení",
+    "upscaleInstall": "Nainstalovat oba oficiální modely",
+    "upscaleNote": "Po generování. Vyžaduje Python/PyTorch. Maximální výstup: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Nainstalujte modely nebo zvolte kompatibilní soubor .pth a ověřte Python/PyTorch."
   },
   "creationInstall": {
     "install": "Nainstalovat tuto konfiguraci",

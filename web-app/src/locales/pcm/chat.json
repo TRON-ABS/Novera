@@ -125,7 +125,22 @@
     "totalTimeHint": "Total time include loading, text encoding, generation, any cloud waiting, download and saving. We show generation time separately when engine measure am.",
     "recommendedSetup": "Novera advice: FLUX.2 Klein 4B",
     "recommendedSetupNote": "GPU go generate, Qwen3-4B go use CPU, 4 steps, CFG 1. Dem test am for Windows/Vulkan; speed and compatibility depend on your machine.",
-    "applyRecommendedPlacement": "Use placement wey we suggest"
+    "applyRecommendedPlacement": "Use placement wey we suggest",
+    "seedMode": "Seed mode",
+    "seedRandom": "Random",
+    "seedFixed": "Fixed",
+    "seedIncrement": "Add (+1)",
+    "seedDecrement": "Remove (−1)",
+    "seedLast": "Seed wey pass",
+    "seedReuse": "Use di seed again",
+    "seedNote": "Na only local image. Compare with di same model and settings.",
+    "imageResolutionMax": "Di highest resolution for Novera: 2048 × 2048 px. You need enough memory.",
+    "upscaleTitle": "Real-ESRGAN enlargement",
+    "upscaleFactor": "Scale",
+    "upscaleModel": "Enlargement model",
+    "upscaleInstall": "Install di two official models",
+    "upscaleNote": "After generation. You need Python/PyTorch. Highest output: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Install di models or choose .pth file wey fit, then check Python/PyTorch."
   },
   "creationInstall": {
     "install": "Install dis setup",

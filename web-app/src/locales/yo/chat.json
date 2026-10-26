@@ -125,7 +125,22 @@
     "totalTimeHint": "Lapapọ akoko pẹlu ikojọpọ, fifi koodu, iran, eyikeyi awọsanma nduro, gbigba lati ayelujara ati fifipamọ. Iran nikan ni a fihan lọtọ nigbati engine ba ṣe ijabọ rẹ.",
     "recommendedSetup": "Nova aba: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Ṣíṣẹ̀dá lórí GPU, Qwen3-4B lórí CPU, ìgbésẹ̀ 4, CFG 1. A dán an wò lórí Windows/Vulkan; iyára àti ìbámu dá lórí ohun èlò.",
-    "applyRecommendedPlacement": "Waye ibi ti a daba"
+    "applyRecommendedPlacement": "Waye ibi ti a daba",
+    "seedMode": "Ìpo irúgbìn",
+    "seedRandom": "Láìlétò",
+    "seedFixed": "Tí ó dúró",
+    "seedIncrement": "Ṣe àfikún (+1)",
+    "seedDecrement": "Dín kù (−1)",
+    "seedLast": "Irúgbìn ìṣáájú",
+    "seedReuse": "Lo irúgbìn lẹ́ẹ̀kan sí i",
+    "seedNote": "Àwọn àwòrán inú ẹ̀rọ nìkan. Fi àwòṣe àti ètò kan náà wé ara wọn.",
+    "imageResolutionMax": "Ìwọ̀n àwòrán tó pọ̀ jù ní Novera: 2048 × 2048 px. A nílò ìrántí tó tó.",
+    "upscaleTitle": "Ìmúgbòòrò Real-ESRGAN",
+    "upscaleFactor": "Ìlọ́po",
+    "upscaleModel": "Àwòṣe ìmúgbòòrò",
+    "upscaleInstall": "Fi àwọn àwòṣe òṣìṣẹ́ méjèèjì sílẹ̀",
+    "upscaleNote": "Lẹ́yìn ṣíṣe àwòrán. Ó nílò Python/PyTorch. Àbájáde tó pọ̀ jù: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Fi àwọn àwòṣe sílẹ̀ tàbí yan fáìlì .pth tó bá a mu, kí o sì ṣàyẹ̀wò Python/PyTorch."
   },
   "creationInstall": {
     "install": "Fi ètò yìí sílẹ̀",

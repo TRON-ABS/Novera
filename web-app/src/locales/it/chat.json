@@ -125,7 +125,22 @@
     "totalTimeHint": "Il tempo totale comprende il caricamento, la codifica del testo, la generazione, l'eventuale attesa nel cloud, il download e il salvataggio. La sola generazione viene mostrata separatamente quando il motore la segnala.",
     "recommendedSetup": "Suggerimento Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Generazione su GPU, Qwen3-4B su CPU, 4 passaggi, CFG 1. Testato su Windows con Vulkan; velocità e compatibilità dipendono dall’hardware.",
-    "applyRecommendedPlacement": "Applicare il posizionamento suggerito"
+    "applyRecommendedPlacement": "Applicare il posizionamento suggerito",
+    "seedMode": "Modalità del seme",
+    "seedRandom": "Casuale",
+    "seedFixed": "Fisso",
+    "seedIncrement": "Incrementa (+1)",
+    "seedDecrement": "Decrementa (−1)",
+    "seedLast": "Seme precedente",
+    "seedReuse": "Riutilizza il seme",
+    "seedNote": "Solo immagini locali. Confronta con lo stesso modello e le stesse impostazioni.",
+    "imageResolutionMax": "Risoluzione massima in Novera: 2048 × 2048 px. Serve memoria sufficiente.",
+    "upscaleTitle": "Ingrandimento Real-ESRGAN",
+    "upscaleFactor": "Fattore",
+    "upscaleModel": "Modello di ingrandimento",
+    "upscaleInstall": "Installa entrambi i modelli ufficiali",
+    "upscaleNote": "Dopo la generazione. Richiede Python/PyTorch. Uscita massima: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Installa i modelli o scegli un file .pth compatibile, poi verifica Python/PyTorch."
   },
   "creationInstall": {
     "install": "Installa questa configurazione",

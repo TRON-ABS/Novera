@@ -1,5 +1,22 @@
 # Suivi des moteurs locaux Novera
 
+## Graines et agrandissement Real-ESRGAN — 26 octobre 2026
+
+Graines locales aléatoire/fixe/+1/−1, réservation unique par demande et par profil, graine concrète transmise aux trois moteurs et enregistrée dans les métadonnées. Les reprises `CREATION_BUSY` gardent la même valeur ; les anciens profils sans mode restent fixes. Le message 2048 × 2048 près des dimensions décrit le plafond de génération de l’application, sous réserve des ressources.
+
+Agrandissement optionnel, désactivé initialement, facteur ×2 par défaut/×4 possible, choix automatique du modèle officiel ou fichier local compatible. L’installateur existant propose les deux poids officiels dans `upscale_models`, confirmation avant téléchargement, reprise et vérification SHA-256 ; aucun nouveau profil de diffusion n’est créé. Registre des chemins installés distinct des remplacements manuels.
+
+Poids officiels vérifiés depuis [le catalogue Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN/blob/master/docs/model_zoo.md) :
+
+| Poids | Octets | SHA-256 |
+| --- | ---: | --- |
+| RealESRGAN_x2plus.pth | 67 061 725 | `49fafd45f8fd7aa8d31ab2a22d14d91b536c34494a5cfe31eb5d89c2fa266abb` |
+| RealESRGAN_x4plus.pth | 67 040 989 | `4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1` |
+
+L’essai du runtime C++ CPU embarqué avec le ×2 a échoué sur la forme de `conv_first.weight` et a renvoyé une image non agrandie malgré un code de sortie nul. Ce runtime n’est donc pas utilisé pour cet ajout. Un worker PyTorch dédié compatible RRDB 23 blocs charge les tenseurs via `weights_only=True`, travaille en tuiles de 128 pixels avec marge de 16, conserve la sortie uint8 côté CPU et publie après contrôle natif des dimensions. Le worker de génération est sorti avant le chargement ESRGAN. Les journaux C++ ne sont jamais interprétés comme du JSON de progression pendant la transition. Pas d’import de code de modèle ni d’exécution arbitraire de checkpoint.
+
+Validation : **82 tests web dans neuf fichiers**, **quatre tests Python** (tuilage, refus des facteurs/poids incompatibles, publication différée), **sept tests Rust d’installation** dans le harnais exact, contrôle Rust de la bibliothèque, TypeScript et compilation Vite, frontières et **70 × 1 704 clés**. Essais réels des deux poids sur CPU et CUDA : entrée 16², sorties 32²/64². Il ne s’agit pas d’une preuve de rendu 2048² ou de sortie 8192², ni d’un parcours graphique complet dans un nouvel EXE. Aucun nouveau binaire Novera construit ou publié pour ce lot. Preuves locales : `.build/image-seeds-2026-10-26/`.
+
 ## Résolution interne du moteur image Windows — 26 octobre 2026
 
 L’interface n’expose plus le champ d’exécutable stable-diffusion.cpp sous Windows. Le flux envoie un remplacement nul et la commande native résout toujours `resources/image-engine/novera-image-engine.exe`, même si un ancien profil contient un chemin absolu de développement. Le lanceur et les bibliothèques CUDA/Vulkan/CPU sont déjà préparés par la compilation Windows et copiés dans les ressources du livrable. Le moteur reste un processus embarqué distinct ; il n’est pas lié statiquement à l’EXE principal. Les autres plateformes conservent leur sélection d’exécutable personnalisé.

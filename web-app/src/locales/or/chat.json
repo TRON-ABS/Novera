@@ -125,7 +125,22 @@
     "totalTimeHint": "ସମୁଦାୟ ସମୟ ଲୋଡିଂ, ଟେକ୍ସଟ୍ ଏନକୋଡିଂ, ପି generation ଼ି, ଯେକ any ଣସି କ୍ଲାଉଡ୍ ଅପେକ୍ଷା, ଡାଉନଲୋଡ୍ ଏବଂ ସଞ୍ଚୟ ଅନ୍ତର୍ଭୁକ୍ତ କରେ | ଇଞ୍ଜିନ୍ ରିପୋର୍ଟ କଲାବେଳେ ଏକାକୀ ଜେନେରେସନ୍ ପୃଥକ ଭାବରେ ଦେଖାଯାଏ |",
     "recommendedSetup": "ନୋଭେରା ପରାମର୍ଶ: FLUX.2 କ୍ଲିନ୍ 4 ବି |",
     "recommendedSetupNote": "GPU ରେ ସୃଷ୍ଟି, CPU ରେ Qwen3-4B ଏନକୋଡିଂ, 4 ପଦକ୍ଷେପ, CFG 1। Windows/Vulkan ରେ ପରୀକ୍ଷିତ; ବେଗ ଓ ସୁସଙ୍ଗତତା ହାର୍ଡୱେର ଉପରେ ନିର୍ଭର କରେ।",
-    "applyRecommendedPlacement": "ପରାମର୍ଶିତ ପ୍ଲେସମେଣ୍ଟ୍ ପ୍ରୟୋଗ କରନ୍ତୁ |"
+    "applyRecommendedPlacement": "ପରାମର୍ଶିତ ପ୍ଲେସମେଣ୍ଟ୍ ପ୍ରୟୋଗ କରନ୍ତୁ |",
+    "seedMode": "ସିଡ୍ ମୋଡ୍",
+    "seedRandom": "ଯାଦୃଚ୍ଛିକ",
+    "seedFixed": "ସ୍ଥିର",
+    "seedIncrement": "ବଢ଼ାନ୍ତୁ (+1)",
+    "seedDecrement": "କମାନ୍ତୁ (−1)",
+    "seedLast": "ପୂର୍ବ ସିଡ୍",
+    "seedReuse": "ସିଡ୍ ପୁଣି ବ୍ୟବହାର କରନ୍ତୁ",
+    "seedNote": "କେବଳ ସ୍ଥାନୀୟ ଚିତ୍ର। ସମାନ ମଡେଲ୍ ଓ ସେଟିଂ ସହ ତୁଳନା କରନ୍ତୁ।",
+    "imageResolutionMax": "Novera ରେ ସର୍ବାଧିକ ରିଜୋଲ୍ୟୁସନ୍: 2048 × 2048 px। ଯଥେଷ୍ଟ ମେମୋରି ଆବଶ୍ୟକ।",
+    "upscaleTitle": "Real-ESRGAN ବଡ଼ କରିବା",
+    "upscaleFactor": "ଗୁଣକ",
+    "upscaleModel": "ବଡ଼ କରିବା ମଡେଲ୍",
+    "upscaleInstall": "ଦୁଇଟି ଅଧିକୃତ ମଡେଲ୍ ସ୍ଥାପନ କରନ୍ତୁ",
+    "upscaleNote": "ତିଆରି ପରେ। Python/PyTorch ଆବଶ୍ୟକ। ସର୍ବାଧିକ ଆଉଟପୁଟ୍: ×2 4096 × 4096, ×4 8192 × 8192।",
+    "upscaleMissing": "ମଡେଲ୍ ସ୍ଥାପନ କରନ୍ତୁ କିମ୍ବା ସୁସଙ୍ଗତ .pth ଫାଇଲ୍ ବାଛି Python/PyTorch ଯାଞ୍ଚ କରନ୍ତୁ।"
   },
   "creationInstall": {
     "install": "ଏହି ବିନ୍ୟାସ ସ୍ଥାପନ କରନ୍ତୁ",

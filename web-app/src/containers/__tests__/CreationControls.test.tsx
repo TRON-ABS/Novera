@@ -53,6 +53,21 @@ describe('creation choices in the composer', () => {
     ).toBeDisabled()
     expect(screen.getByRole('status')).toHaveTextContent('35%')
   })
+  it('offers image seed modes, reuses the previous seed and shows the resolution limit', () => {
+    useCreation.getState().setSettings({ lastImageSeed: 1234 })
+    render(<CreationControls scope="seed-thread" disabled={false} />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.settings' }))
+    const seed = screen.getByLabelText('chat:creation.seed')
+    expect(seed).toBeDisabled()
+    expect(screen.getByText('chat:creation.imageResolutionMax')).toBeInTheDocument()
+    fireEvent.change(screen.getByRole('combobox', { name: 'chat:creation.seedMode' }), {
+      target: { value: 'increment' },
+    })
+    expect(seed).not.toBeDisabled()
+    expect(useCreation.getState().settings.seedMode).toBe('increment')
+    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.seedReuse' }))
+    expect(useCreation.getState().settings).toMatchObject({ seedMode: 'fixed', seed: 1234 })
+  })
   it('offers separate image GGUF, Qwen GGUF and VAE file choices', async () => {
     useCreation.getState().setSettings({
       cppExecutable: 'C:/old-build/runtime/vulkan/sd-cli.exe',

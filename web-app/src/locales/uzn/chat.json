@@ -125,7 +125,22 @@
     "totalTimeHint": "Umumiy vaqtga yuklash, matnni kodlash, yaratish, bulutni kutish, yuklab olish va saqlash kiradi. Dvigatel bu haqda xabar berganda, faqat avlod alohida ko'rsatiladi.",
     "recommendedSetup": "Novera taklifi: FLUX.2 Klein 4B",
     "recommendedSetupNote": "GPUda yaratish, CPUda Qwen3-4B, 4 qadam, CFG 1. Windows/Vulkanda sinalgan; tezlik va moslik qurilmaga bogʻliq.",
-    "applyRecommendedPlacement": "Tavsiya etilgan joylashuvni qo'llash"
+    "applyRecommendedPlacement": "Tavsiya etilgan joylashuvni qo'llash",
+    "seedMode": "Urug‘ rejimi",
+    "seedRandom": "Tasodifiy",
+    "seedFixed": "O‘zgarmas",
+    "seedIncrement": "Oshirish (+1)",
+    "seedDecrement": "Kamaytirish (−1)",
+    "seedLast": "Oldingi urug‘",
+    "seedReuse": "Urug‘ni qayta ishlatish",
+    "seedNote": "Faqat mahalliy rasmlar. Bir xil model va sozlamalar bilan solishtiring.",
+    "imageResolutionMax": "Novera’dagi eng yuqori aniqlik: 2048 × 2048 px. Yetarli xotira kerak.",
+    "upscaleTitle": "Real-ESRGAN kattalashtirish",
+    "upscaleFactor": "Ko‘paytirgich",
+    "upscaleModel": "Kattalashtirish modeli",
+    "upscaleInstall": "Ikkala rasmiy modelni o‘rnatish",
+    "upscaleNote": "Yaratilgandan keyin. Python/PyTorch kerak. Eng katta natija: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Modellarni o‘rnating yoki mos .pth faylni tanlang va Python/PyTorch’ni tekshiring."
   },
   "creationInstall": {
     "install": "Ushbu sozlamani oʻrnatish",

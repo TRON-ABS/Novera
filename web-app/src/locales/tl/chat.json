@@ -125,7 +125,22 @@
     "totalTimeHint": "Kasama sa kabuuang oras ang paglo-load, pag-encode ng teksto, pagbuo, anumang paghihintay sa ulap, pag-download at pag-save. Ang pagbuo lamang ay ipinapakita nang hiwalay kapag iniulat ito ng makina.",
     "recommendedSetup": "Mungkahi ng Novera: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Paglikha sa GPU, Qwen3-4B sa CPU, 4 na hakbang, CFG 1. Nasubok sa Windows/Vulkan; bilis at compatibility ay depende sa hardware.",
-    "applyRecommendedPlacement": "Ilapat ang iminungkahing placement"
+    "applyRecommendedPlacement": "Ilapat ang iminungkahing placement",
+    "seedMode": "Mode ng seed",
+    "seedRandom": "Random",
+    "seedFixed": "Nakapirmi",
+    "seedIncrement": "Dagdagan (+1)",
+    "seedDecrement": "Bawasan (−1)",
+    "seedLast": "Nakaraang seed",
+    "seedReuse": "Gamitin muli ang seed",
+    "seedNote": "Para lang sa lokal na larawan. Ihambing gamit ang parehong modelo at mga setting.",
+    "imageResolutionMax": "Pinakamataas na resolusyon sa Novera: 2048 × 2048 px. Kailangan ng sapat na memorya.",
+    "upscaleTitle": "Pagpapalaki gamit ang Real-ESRGAN",
+    "upscaleFactor": "Antas",
+    "upscaleModel": "Modelo ng pagpapalaki",
+    "upscaleInstall": "I-install ang dalawang opisyal na modelo",
+    "upscaleNote": "Pagkatapos gumawa. Kailangan ang Python/PyTorch. Pinakamalaking output: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "I-install ang mga modelo o pumili ng tugmang .pth file, at suriin ang Python/PyTorch."
   },
   "creationInstall": {
     "install": "I-install ang configuration na ito",

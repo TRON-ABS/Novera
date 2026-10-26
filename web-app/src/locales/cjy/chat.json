@@ -125,7 +125,22 @@
     "totalTimeHint": "总时间包括加载、文本编码、生成、任意云等待、下载和保存。当引擎报告时,单独显示生成。",
     "recommendedSetup": "Novera建议:FLUX.2 Klein 4B",
     "recommendedSetupNote": "GPU 做图，CPU 跑 Qwen3-4B，4 步，CFG 1。在 Windows/Vulkan 上测过；快慢和兼容情况看硬件。",
-    "applyRecommendedPlacement": "应用建议的放置位置"
+    "applyRecommendedPlacement": "应用建议的放置位置",
+    "seedMode": "种子模式",
+    "seedRandom": "随机",
+    "seedFixed": "固定",
+    "seedIncrement": "递增 (+1)",
+    "seedDecrement": "递减 (−1)",
+    "seedLast": "上回的种子",
+    "seedReuse": "再用这个种子",
+    "seedNote": "只用于本地图像。请用一样的模型和设置比较。",
+    "imageResolutionMax": "Novera 最高分辨率：2048 × 2048 px。需要足够的内存。",
+    "upscaleTitle": "Real-ESRGAN 放大",
+    "upscaleFactor": "倍率",
+    "upscaleModel": "放大模型",
+    "upscaleInstall": "安装两个官方模型",
+    "upscaleNote": "生成以后放大。需要 Python/PyTorch。最大输出：×2 4096 × 4096，×4 8192 × 8192。",
+    "upscaleMissing": "请安装模型或选兼容的 .pth 文件，再检查 Python/PyTorch。"
   },
   "creationInstall": {
     "install": "安装这套配置",

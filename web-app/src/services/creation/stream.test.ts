@@ -5,6 +5,7 @@ import { useMemoryPolicy } from '@/hooks/useMemoryPolicy'
 import { useMediaLibrary } from '@/hooks/useMediaLibrary'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import type { UIMessage } from 'ai'
+import { useImageUpscale } from '@/hooks/useImageUpscale'
 
 vi.mock('./memory', () => ({
   beginLocalMemory: async () => () => {},
@@ -35,6 +36,7 @@ async function read(stream: ReturnType<typeof creationStream>) {
 describe('media generation conversation stream', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    useImageUpscale.setState({ enabled: false, factor: 2, models: { 2: '', 4: '' } })
     useMemoryPolicy.setState({ policy: 'auto', waiting: {} })
     useCreation.setState({
       settings: {
@@ -162,6 +164,30 @@ describe('media generation conversation stream', () => {
       })
     )
     expect(chunks.some((chunk) => chunk.type === 'file')).toBe(true)
+  })
+  it('passes optional upscaling only to local image jobs and keeps one seed during busy retries', async () => {
+    useCreation.getState().setSettings({ seedMode: 'increment', seed: 100 })
+    useImageUpscale.setState({ enabled: true, factor: 4, models: { 2: '', 4: 'D:/upscale.pth' } })
+    let starts = 0
+    vi.mocked(invoke).mockImplementation(async (command) => {
+      if (command === 'creation_start') {
+        if (++starts === 1) throw 'CREATION_BUSY'
+        return 'seed-job'
+      }
+      return { stage: 'done', name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.png' }
+    })
+    const chunks = await read(creationStream('image', 'test', messages, 'seeds', undefined, vi.fn()))
+    const requests = vi.mocked(invoke).mock.calls.filter(([cmd]) => cmd === 'creation_start')
+    expect(requests).toHaveLength(2)
+    for (const [, args] of requests) expect(args).toMatchObject({ request: {
+      seed: 100, upscale_factor: 4, upscale_model: 'D:/upscale.pth',
+    } })
+    expect(useCreation.getState().settings.seed).toBe(101)
+    expect(chunks.find((c) => c.type === 'file')).toMatchObject({ providerMetadata: { novera: { seed: 100 } } })
+    await read(creationStream('video', 'test', messages, 'seeds-video', undefined, vi.fn()))
+    const video = vi.mocked(invoke).mock.calls.filter(([cmd]) => cmd === 'creation_start').at(-1)![1] as { request: Record<string, unknown> }
+    expect(video.request.upscale_factor).toBeUndefined()
+    expect(video.request.seed).toBe(101)
   })
   it('emits a file only after native save is complete and uses the selected media model', async () => {
     vi.mocked(invoke).mockImplementation(async (command) =>

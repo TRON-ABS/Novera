@@ -125,7 +125,22 @@
     "totalTimeHint": "De totale tijd omvat het laden, tekstcodering, genereren, wachten in de cloud, downloaden en opslaan. Alleen de generatie wordt afzonderlijk weergegeven wanneer de engine dit meldt.",
     "recommendedSetup": "Novera suggestie: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Genereren op GPU, Qwen3-4B op CPU, 4 stappen, CFG 1. Getest op Windows met Vulkan; snelheid en compatibiliteit hangen af van de hardware.",
-    "applyRecommendedPlacement": "Pas voorgestelde plaatsing toe"
+    "applyRecommendedPlacement": "Pas voorgestelde plaatsing toe",
+    "seedMode": "Seedmodus",
+    "seedRandom": "Willekeurig",
+    "seedFixed": "Vast",
+    "seedIncrement": "Verhogen (+1)",
+    "seedDecrement": "Verlagen (−1)",
+    "seedLast": "Vorige seed",
+    "seedReuse": "Seed hergebruiken",
+    "seedNote": "Alleen lokale afbeeldingen. Vergelijk met hetzelfde model en dezelfde instellingen.",
+    "imageResolutionMax": "Maximale resolutie in Novera: 2048 × 2048 px. Voldoende geheugen vereist.",
+    "upscaleTitle": "Real-ESRGAN-vergroting",
+    "upscaleFactor": "Factor",
+    "upscaleModel": "Vergrotingsmodel",
+    "upscaleInstall": "Beide officiële modellen installeren",
+    "upscaleNote": "Na het genereren. Vereist Python/PyTorch. Maximale uitvoer: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Installeer de modellen of kies een compatibel .pth-bestand en controleer Python/PyTorch."
   },
   "creationInstall": {
     "install": "Deze configuratie installeren",

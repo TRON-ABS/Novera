@@ -125,7 +125,22 @@
     "totalTimeHint": "يشمل إجمالي الوقت التحميل، وترميز النص، والإنشاء، وأي انتظار سحابي، والتنزيل والحفظ. يتم عرض الجيل وحده بشكل منفصل عندما يقوم المحرك بالإبلاغ عنه.",
     "recommendedSetup": "اقتراح نوفيرا: FLUX.2 كلاين 4B",
     "recommendedSetupNote": "التوليد على GPU وترميز Qwen3-4B على CPU، 4 خطوات، CFG 1. اختُبر على Windows مع Vulkan؛ السرعة والتوافق يعتمدان على العتاد.",
-    "applyRecommendedPlacement": "تطبيق الموضع المقترح"
+    "applyRecommendedPlacement": "تطبيق الموضع المقترح",
+    "seedMode": "وضع البذرة",
+    "seedRandom": "عشوائية",
+    "seedFixed": "ثابتة",
+    "seedIncrement": "زيادة (+1)",
+    "seedDecrement": "إنقاص (−1)",
+    "seedLast": "البذرة السابقة",
+    "seedReuse": "إعادة استخدام البذرة",
+    "seedNote": "للصور المحلية فقط. قارن باستخدام النموذج والإعدادات نفسها.",
+    "imageResolutionMax": "أقصى دقة في Novera: 2048 × 2048 px. يلزم توفر ذاكرة كافية.",
+    "upscaleTitle": "تكبير Real-ESRGAN",
+    "upscaleFactor": "المعامل",
+    "upscaleModel": "نموذج التكبير",
+    "upscaleInstall": "تثبيت النموذجين الرسميين",
+    "upscaleNote": "بعد التوليد. يتطلب Python/PyTorch. أقصى إخراج: ×2 4096 × 4096، ×4 8192 × 8192.",
+    "upscaleMissing": "ثبّت النماذج أو اختر ملف .pth متوافقًا، ثم تحقق من Python/PyTorch."
   },
   "creationInstall": {
     "install": "تثبيت هذا الإعداد",

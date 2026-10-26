@@ -1,5 +1,9 @@
 # Novera — historique consolidé
 
+## 26 octobre — graines d’image et agrandissement optionnel
+
+Ajout des graines Aléatoire, Fixe, +1 et −1, graine précédente réutilisable et conservation par profil ; limite de génération 2048 × 2048 visible. Agrandissement Real-ESRGAN activable/désactivable, désactivé initialement, ×2 par défaut ou ×4, deux poids officiels installables après confirmation et choix automatique ou fichier local. Le worker PyTorch intervient après la sortie du générateur et la publication attend la réussite de l’agrandissement. Quinze nouveaux textes dans les 70 locales : **1 704 clés** par catalogue. **82 tests web, quatre tests Python, sept tests Rust d’installation**, types, contrôle natif et build de l’interface ; vrais essais ×2/×4 sur CPU/CUDA avec entrée 16². Aucun nouvel EXE Novera. [Utilisation](USER_GUIDE.md#graines-résolution-et-agrandissement--sources-du-26-octobre-2026) · [Preuves et limites](SUIVI_MOTEURS.md#graines-et-agrandissement-real-esrgan--26-octobre-2026).
+
 ## 26 octobre — moteur image Windows intégré et sélection de sortie visible
 
 Suppression du champ d’exécutable stable-diffusion.cpp sous Windows : Novera utilise automatiquement le lanceur inclus dans ses ressources, même lorsqu’un ancien profil conserve un chemin `.build/.../sd-cli.exe`. Les choix de diffusion, encodeur et VAE restent séparés. Le bouton sélectionné parmi Auto, Texte, Image et Vidéo utilise désormais le cadre, le fond et la couleur des autres commandes actives du compositeur.

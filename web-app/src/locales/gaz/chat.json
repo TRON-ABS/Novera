@@ -125,7 +125,22 @@
     "totalTimeHint": "Yeroon waliigalaa fe'uu, barruu koodii gochuu, dhaloota, duumessa kamiyyuu eeguu, buufachuu fi qusachuu of keessatti qabata. Dhaloonni qofti yeroo motorri gabaasu addatti agarsiifama.",
     "recommendedSetup": "Yaada Noovaaraa: FLUX.2 Klein 4B",
     "recommendedSetupNote": "Uumuu GPU irratti, Qwen3-4B CPU irratti, tarkaanfii 4, CFG 1. Windows/Vulkan irratti qorame; saffisaa fi walsimannaan meeshaa irratti hundaa’u.",
-    "applyRecommendedPlacement": "Bakka kaa’uu yaadame hojiirra oolchuu"
+    "applyRecommendedPlacement": "Bakka kaa’uu yaadame hojiirra oolchuu",
+    "seedMode": "Haala sanyii",
+    "seedRandom": "Carraa",
+    "seedFixed": "Dhaabbataa",
+    "seedIncrement": "Dabali (+1)",
+    "seedDecrement": "Hir’isi (−1)",
+    "seedLast": "Sanyii duraa",
+    "seedReuse": "Sanyii irra deebi’ii fayyadami",
+    "seedNote": "Suuraalee keessaa qofa. Moodeelaa fi qindaa’ina walfakkaatuun wal bira qabi.",
+    "imageResolutionMax": "Qulqullina ol’aanaa Novera keessatti: 2048 × 2048 px. Kuusaan yaadannoo gahaan barbaachisa.",
+    "upscaleTitle": "Guddisuu Real-ESRGAN",
+    "upscaleFactor": "Baay’isaa",
+    "upscaleModel": "Moodeela guddisuu",
+    "upscaleInstall": "Moodeelota seera qabeessa lamaan fe’i",
+    "upscaleNote": "Erga uumamee booda. Python/PyTorch barbaachisa. Bu’aa guddaan: ×2 4096 × 4096, ×4 8192 × 8192.",
+    "upscaleMissing": "Moodeelota fe’i yookaan faayilii .pth walsimu filadhu, achiis Python/PyTorch mirkaneessi."
   },
   "creationInstall": {
     "install": "Qindaa’ina kana fe’i",

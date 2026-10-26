@@ -27,15 +27,18 @@ import { formatBytes } from '@/lib/utils'
 
 export function CreationInstallButton({
   onStarted,
-}: { onStarted?: () => void } = {}) {
+  variant = 'gguf',
+}: { onStarted?: () => void; variant?: 'gguf' | 'upscale' } = {}) {
   const { t } = useTranslation()
   const service = useServiceHub()
   const { parent, setParent, job } = useCreationInstall()
   const python = useCreation((s) => s.settings.python)
   const [fp4, setFp4] = useState(false)
+  const upscale = variant === 'upscale'
   useEffect(() => {
     let active = true
     setFp4(false)
+    if (upscale) return
     void invoke<{ eligible: boolean }>('creation_bundle_nvfp4_probe', {
       python,
     })
@@ -46,18 +49,18 @@ export function CreationInstallButton({
     return () => {
       active = false
     }
-  }, [python])
+  }, [python, upscale])
   const [plan, setPlan] = useState<InstallPlan>()
   const [error, setError] = useState(false)
   const [busy, setBusy] = useState(false)
-  async function prepare(folder = parent, variant = 'gguf') {
+  async function prepare(folder = parent, selectedVariant: string = variant) {
     setBusy(true)
     setError(false)
     try {
       setPlan(
         await invoke<InstallPlan>('creation_bundle_plan', {
           parent: folder || null,
-          variant,
+          variant: selectedVariant,
           python,
         })
       )
@@ -76,9 +79,9 @@ export function CreationInstallButton({
         onClick={() => void prepare()}
       >
         <IconDownload size={14} />
-        {t('chat:creationInstall.install')}
+        {t(upscale ? 'chat:creation.upscaleInstall' : 'chat:creationInstall.install')}
       </Button>
-      <Button
+      {!upscale && <Button
         variant="outline"
         size="sm"
         disabled={
@@ -87,11 +90,11 @@ export function CreationInstallButton({
         onClick={() => void prepare(parent, 'nvfp4')}
       >
         NVFP4 CUDA · FLUX.2 Klein 4B
-      </Button>
+      </Button>}
 
-      <p className="text-xs text-muted-foreground">
+      {!upscale && <p className="text-xs text-muted-foreground">
         {t(fp4 ? 'hub:catalog.nvfp4Prefer' : 'chat:creation.nativeNote')}
-      </p>
+      </p>}
       {job?.phase === 'ready' && (
         <Button variant="outline" size="sm" onClick={() => applyInstalled(job)}>
           {t('chat:creationInstall.use')}
@@ -106,7 +109,7 @@ export function CreationInstallButton({
       >
         <DialogContent className="max-h-[85vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>{t('chat:creationInstall.install')}</DialogTitle>
+            <DialogTitle>{t(upscale ? 'chat:creation.upscaleInstall' : 'chat:creationInstall.install')}</DialogTitle>
             <DialogDescription>
               {t('chat:creationInstall.confirm')}
             </DialogDescription>
@@ -116,7 +119,7 @@ export function CreationInstallButton({
               <p className="text-sm">{t('chat:creationInstall.background')}</p>
               <p className="text-xs text-muted-foreground">
                 {t(
-                  plan.variant === 'nvfp4'
+                  upscale ? 'chat:creation.upscaleNote' : plan.variant === 'nvfp4'
                     ? 'chat:creation.nativeNote'
                     : 'chat:creationInstall.note'
                 )}
@@ -159,7 +162,10 @@ export function CreationInstallButton({
                   </li>
                 ))}
               </ul>
-              <div className="text-xs underline flex gap-3">
+              {upscale ? (
+                <a className="text-xs underline" href="https://github.com/xinntao/Real-ESRGAN/blob/master/docs/model_zoo.md"
+                  target="_blank" rel="noopener noreferrer">Real-ESRGAN</a>
+              ) : <div className="text-xs underline flex gap-3">
                 <a
                   href={
                     plan.variant === 'nvfp4'
@@ -185,7 +191,7 @@ export function CreationInstallButton({
                 >
                   FLUX.2 VAE
                 </a>
-              </div>
+              </div>}
               <p className="text-sm" role="status">
                 {t('chat:creationInstall.space', {
                   total: formatBytes(plan.total),
@@ -287,7 +293,7 @@ export function CreationInstallIndicator() {
         </p>
         <p className="text-xs">
           FLUX.2 Klein 4B
-          {job.plan.variant?.startsWith('nvfp4') ? ' · NVFP4' : ' · GGUF'}
+          {job.plan.variant === 'upscale' ? ' · Real-ESRGAN' : job.plan.variant?.startsWith('nvfp4') ? ' · NVFP4' : ' · GGUF'}
         </p>
         {!ready && (
           <p className="text-xs text-muted-foreground">

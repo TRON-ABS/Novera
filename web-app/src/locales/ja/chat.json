@@ -125,7 +125,22 @@
     "totalTimeHint": "合計時間には、ロード、テキストのエンコード、生成、クラウドの待機、ダウンロード、保存が含まれます。エンジンがレポートする場合、生成のみが個別に表示されます。",
     "recommendedSetup": "ノベラ提案:FLUX.2 Klein 4B",
     "recommendedSetupNote": "GPUで生成、CPUでQwen3-4Bを実行、4ステップ、CFG 1。Windows/Vulkanで検証済み。速度と互換性はハードウェアによります。",
-    "applyRecommendedPlacement": "提案された配置を適用する"
+    "applyRecommendedPlacement": "提案された配置を適用する",
+    "seedMode": "シードのモード",
+    "seedRandom": "ランダム",
+    "seedFixed": "固定",
+    "seedIncrement": "増加 (+1)",
+    "seedDecrement": "減少 (−1)",
+    "seedLast": "前回のシード",
+    "seedReuse": "シードを再利用",
+    "seedNote": "ローカル画像のみ。同じモデルと設定で比較してください。",
+    "imageResolutionMax": "Novera の最大解像度：2048 × 2048 px。十分なメモリが必要です。",
+    "upscaleTitle": "Real-ESRGAN 拡大",
+    "upscaleFactor": "倍率",
+    "upscaleModel": "拡大モデル",
+    "upscaleInstall": "両方の公式モデルをインストール",
+    "upscaleNote": "生成後に拡大します。Python/PyTorch が必要です。最大出力：×2 4096 × 4096、×4 8192 × 8192。",
+    "upscaleMissing": "モデルをインストールするか互換性のある .pth ファイルを選び、Python/PyTorch を確認してください。"
   },
   "creationInstall": {
     "install": "この構成をインストール",

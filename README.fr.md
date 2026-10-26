@@ -36,12 +36,14 @@ Ces domaines constituent une direction de contribution et de développement, pas
 | --- | --- |
 | IA locale et cloud | Un Hub relié directement à Hugging Face et 41 fournisseurs cloud prédéfinis. Les formats et modèles utilisables dépendent du moteur, du compte et du matériel. |
 | Outils et documents | Des intégrations MCP, la recherche dans les documents et des fonctions d’assistant héritées du code existant. |
-| Interface multilingue | 70 locales sélectionnables couvrant chacune les 1 689 clés anglaises actuelles. Relecture native encore nécessaire. |
+| Interface multilingue | 70 locales sélectionnables couvrant chacune les 1 704 clés anglaises actuelles. Relecture native encore nécessaire. |
 | Application extensible | Une application de bureau avec des points d’extension pour les moteurs, les outils et les futures capacités. |
 
 Ces éléments décrivent les sources. Des versions 1.0.0 antérieures ont été compilées et démarrées localement sous Windows x64. Les dernières sources attendent une nouvelle compilation du mainteneur ; la distribution publique et la validation sur davantage de matériels restent à préparer.
 
 ## Texte, images et vidéo dans la même discussion
+
+Les sources ajoutent les graines aléatoire/fixe/+1/−1, la limite de génération 2048 × 2048 et l’agrandissement Real-ESRGAN optionnel ×2/×4, désactivé initialement. Modèles officiels installables avec vérification ou fichier local ; Python/PyTorch requis pour l’agrandissement. [Utilisation et limites](docs/USER_GUIDE.md#graines-résolution-et-agrandissement--sources-du-26-octobre-2026). À retrouver dans la prochaine compilation.
 
 - Choisir Texte, Image, Vidéo ou Multimodal, en Local ou Cloud, sans quitter la discussion. Un modèle qui comprend une image ne sait pas forcément en créer.
 - Sauvegarder automatiquement les créations terminées dans les dossiers système Images/**Novera image** et Vidéos/**Novera vidéo**. Afficher la durée totale sous les images/vidéos, ainsi que le temps de génération lorsque le moteur le fournit.
@@ -66,7 +68,7 @@ Les compilations Windows embarquent désormais le moteur privé stable-diffusion
 
 Le choix initial utilise FLUX GGUF, **Qwen3-4B GGUF sur CPU** et le VAE officiel. La variante [FLUX NVFP4 officielle](https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-nvfp4) est proposée après vérification du moteur PyTorch configuré, d’un vrai calcul FP4 natif et de la mémoire GPU libre ; elle conserve le même encodeur GGUF CPU. Son environnement CUDA PyTorch reste séparé du moteur C++ embarqué. Cela ne certifie pas les autres checkpoints.
 
-Capacités des sources : **98 tests web ciblés, six tests natifs isolés, TypeScript et 70 × 1 689 clés de langue validés**. L’installation et la bibliothèque doivent encore être essayées dans la prochaine compilation du mainteneur ; aucun nouveau binaire ni version publique ici. [Utilisation](docs/USER_GUIDE.md#installation-conseillée-et-bibliothèque-média--sources-du-26-octobre-2026) · [Preuves et limites](docs/SUIVI_MOTEURS.md#installation-groupée-bibliothèque-et-moteur-embarqué--26-octobre-2026).
+Capacités des sources : **98 tests web ciblés, six tests natifs isolés, TypeScript et 70 × 1 704 clés de langue validés**. L’installation et la bibliothèque doivent encore être essayées dans la prochaine compilation du mainteneur ; aucun nouveau binaire ni version publique ici. [Utilisation](docs/USER_GUIDE.md#installation-conseillée-et-bibliothèque-média--sources-du-26-octobre-2026) · [Preuves et limites](docs/SUIVI_MOTEURS.md#installation-groupée-bibliothèque-et-moteur-embarqué--26-octobre-2026).
 
 ## Fournisseurs cloud
 
@@ -126,7 +128,7 @@ Le Hub explore 23 entrées de navigation à partir des métadonnées Hugging Fac
 
 ## 70 langues et variantes d’interface
 
-Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et à 34 nouveaux catalogues Novera. Les dix derniers sont ouzbek du Nord, zoulou, arabe saïdi, pachto du Nord, oromo du Centre-Ouest, saraiki, néerlandais, somali, roumain et assamais. **Les 70 catalogues couvrent chacun les 1 689 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Les anciens builds locaux incluent les catalogues dans leur état d’alors ; les nouveaux textes d’installation et de bibliothèque attendent la prochaine compilation du mainteneur ; aucun binaire public n’est publié. Certains catalogues sont des variantes éditoriales fondées en partie sur des textes techniques écrits communs ; leur adaptation vernaculaire intégrale reste ouverte. Le guide des langues précise leur périmètre.
+Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et à 34 nouveaux catalogues Novera. Les dix derniers sont ouzbek du Nord, zoulou, arabe saïdi, pachto du Nord, oromo du Centre-Ouest, saraiki, néerlandais, somali, roumain et assamais. **Les 70 catalogues couvrent chacun les 1 704 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Les anciens builds locaux incluent les catalogues dans leur état d’alors ; les nouveaux textes d’installation et de bibliothèque attendent la prochaine compilation du mainteneur ; aucun binaire public n’est publié. Certains catalogues sont des variantes éditoriales fondées en partie sur des textes techniques écrits communs ; leur adaptation vernaculaire intégrale reste ouverte. Le guide des langues précise leur périmètre.
 
 L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais, l’arabe algérien, l’arabe marocain, l’arabe saïdi, le pachto du Nord, le saraiki, le sindhi, le dari, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
 
@@ -134,7 +136,7 @@ L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais
 
 ## État du projet
 
-**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 70 catalogues complets en clés (1 689 chacun), le Hub adaptatif, le moteur textuel local Safetensors/Transformers et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
+**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 70 catalogues complets en clés (1 704 chacun), le Hub adaptatif, le moteur textuel local Safetensors/Transformers et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
 
 Le premier démarrage sauvegarde la langue système, propose LFM2.5-2.6B Q6_K sur desktop avec DSpark facultatif, et demande séparément le suivi des erreurs, désactivé par défaut. Les sources et les binaires sont suivis séparément ; les derniers correctifs du Hub attendent la compilation du mainteneur. Voir [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour les validations et limites exactes. GitHub Actions et mises à jour automatiques restent désactivés.
 

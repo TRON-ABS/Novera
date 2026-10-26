@@ -1,5 +1,9 @@
 # Novera — tableau de bord
 
+## Graines et agrandissement d’image — 26 octobre 2026
+
+Sources : modes de graine aléatoire/fixe/+1/−1, réutilisation, limite de génération **2048 × 2048**, agrandissement **Real-ESRGAN optionnel** ×2 par défaut/×4, modèles officiels installables ou fichier choisi. Désactivé initialement ; Python/PyTorch média requis une fois activé. **70 locales × 1 704 clés**, 82 tests web, quatre tests Python, sept tests Rust d’installation, types et contrôle natif ; vrais essais des deux poids sur CPU et CUDA, sur une entrée 16². Aucun nouveau binaire Novera ; les tailles maximales et le parcours graphique complet restent à valider après compilation. [Utilisation et limites](docs/USER_GUIDE.md#graines-résolution-et-agrandissement--sources-du-26-octobre-2026).
+
 ## Moteur image intégré et boutons actifs — 26 octobre 2026
 
 Sources corrigées : sous Windows, plus de champ d’exécutable `sd-cli` ; les anciens chemins enregistrés sont ignorés et le moteur inclus dans Novera est résolu automatiquement. Auto, Texte, Image et Vidéo reprennent le cadre coloré des autres commandes actives. Tests ciblés réussis ; aucun nouvel EXE construit pour ces corrections. Recompiler Novera pour les appliquer au binaire. [Preuves et limites](docs/SUIVI_MOTEURS.md#résolution-interne-du-moteur-image-windows--26-octobre-2026).

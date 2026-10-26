@@ -11,6 +11,7 @@ import {
   type InstallSnapshot,
 } from '@/hooks/useCreationInstall'
 import { useMediaLibrary } from '@/hooks/useMediaLibrary'
+import { useImageUpscale } from '@/hooks/useImageUpscale'
 import { creationDefaults, useCreation } from '@/hooks/useCreation'
 const mocks = vi.hoisted(() => ({
   invoke: vi.fn(),
@@ -105,6 +106,24 @@ describe('recommended configuration installation', () => {
       )
     ).toHaveLength(1)
     expect(useCreationInstall.getState().parent).toBe('')
+  })
+  it('offers the separate official upscaler download and registers both paths without creating an image profile', async () => {
+    const upscalePlan = { ...plan, variant: 'upscale', directory: 'D:/custom/upscale_models', files: [
+      { ...plan.files[0], role: 'upscale2', name: 'RealESRGAN_x2plus.pth' },
+      { ...plan.files[1], role: 'upscale4', name: 'RealESRGAN_x4plus.pth' },
+    ] }
+    mocks.invoke.mockResolvedValue(upscalePlan)
+    render(<CreationInstallButton variant="upscale" />)
+    fireEvent.click(screen.getByText('chat:creation.upscaleInstall'))
+    await screen.findByRole('dialog')
+    expect(mocks.invoke).toHaveBeenCalledWith('creation_bundle_plan', expect.objectContaining({ variant: 'upscale' }))
+    expect(mocks.invoke).not.toHaveBeenCalledWith('creation_bundle_nvfp4_probe', expect.anything())
+    applyInstalled({ ...job('ready'), plan: upscalePlan, verified: [true, true] })
+    expect(useImageUpscale.getState().installedModels).toEqual({
+      2: 'D:/custom/upscale_models/RealESRGAN_x2plus.pth',
+      4: 'D:/custom/upscale_models/RealESRGAN_x4plus.pth',
+    })
+    expect(useMediaLibrary.getState().profiles).toHaveLength(0)
   })
   it('shows byte-weighted progress and keeps ready visible until clicked', async () => {
     useCreationInstall.setState({ job: job() })
