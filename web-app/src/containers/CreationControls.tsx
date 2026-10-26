@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-import { IconPhoto, IconVideo, IconAdjustments } from '@tabler/icons-react'
+import { IconPhoto, IconVideo, IconAdjustments, IconCheck, IconBrain, IconChevronDown } from '@tabler/icons-react'
 import { useMediaLibrary, selectMediaProfile } from '@/hooks/useMediaLibrary'
-import { MemoryModeControl } from './MemoryModeControl'
 import { useCreation } from '@/hooks/useCreation'
 import { useServiceHub } from '@/hooks/useServiceHub'
 import { useTranslation } from '@/i18n/react-i18next-compat'
@@ -24,8 +23,11 @@ import { klein4bRecommendation } from '@/constants/creationRecommendations'
 import type { ImageSeedMode } from '@/modules/engines/image-seed'
 import { ImageUpscaleControls } from './ImageUpscaleControls'
 import { MediaSizeControls } from './MediaSizeControls'
-import { inferMediaRatio } from '@/modules/engines/media-size'
 import { useImageUpscale } from '@/hooks/useImageUpscale'
+import { Sparkles, FileText, Expand } from 'lucide-react'
+import { ComposerStatusSwitch } from '@/components/ComposerStatusSwitch'
+import { ComposerSizeButton } from './ComposerSizeButton'
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu'
 
 export function CreationControls({
   scope,
@@ -83,9 +85,6 @@ export function CreationControls({
       ? state.selections[scope]?.[mode]
       : undefined
   const isCloud = selection && selection.provider !== 'diffusers'
-  const selectedPreset = selection
-    ? mediaPreset(selection.provider, selection.id)
-    : undefined
   const progress = state.progress[scope]
   const desktop = isPlatformTauri()
   const numericSettings =
@@ -168,10 +167,10 @@ export function CreationControls({
     if (typeof selected === 'string') state.setSettings({ [kind]: selected })
   }
   return (
-    <div className="mx-3 mb-1 mt-2 rounded-xl border bg-secondary/20 p-2 space-y-2">
-      <div className="flex flex-wrap items-center gap-2">
+    <div className="composer-creation mx-3 mt-2 flex flex-wrap items-center gap-1.5">
+      <div className="contents">
         <div
-          className="inline-flex flex-wrap gap-1"
+          className="composer-modes inline-flex flex-wrap gap-1"
           role="group"
           aria-label={t('chat:creation.output')}
         >
@@ -181,7 +180,7 @@ export function CreationControls({
               size="sm"
               variant="ghost"
               className={cn(
-                'border border-transparent',
+                'composer-mode border border-transparent',
                 mode === item && 'composer-tool-active'
               )}
               disabled={
@@ -206,13 +205,15 @@ export function CreationControls({
                 <IconPhoto size={14} />
               ) : item === 'video' ? (
                 <IconVideo size={14} />
-              ) : null}
-              {t(`chat:creation.${item}`)}
+              ) : item === 'auto' ? <Sparkles size={16} aria-hidden="true" /> : <FileText size={16} aria-hidden="true" />}
+              <span>{t(`chat:creation.${item}`)}</span>
+              {mode === item ? <IconCheck size={12} aria-hidden="true" /> : <ComposerStatusSwitch active={false} />}
+              <span className="composer-mode-status" aria-hidden="true">{mode === item ? t('common:activeSuffix').replace(/[()]/g, '').trim().toUpperCase() : 'OFF'}</span>
             </Button>
           ))}
         </div>
         <Button
-          className="ml-auto"
+          className="composer-settings ml-auto order-2"
           size="icon-sm"
           variant="ghost"
           disabled={disabled}
@@ -223,52 +224,45 @@ export function CreationControls({
         </Button>
       </div>
       {(mode === 'image' || mode === 'video') && !isCloud && (
-        <div className="flex flex-wrap gap-1">
-          <Button
-            size="xs"
-            variant="ghost"
-            className="border border-transparent"
-            onClick={() => setOpen(true)}
-            aria-label={t('chat:creation.ratio')}
-          >
-            {t('chat:creation.ratio')} ·{' '}
-            {(
-              settings.mediaRatio ??
-              inferMediaRatio(settings.width, settings.height)
-            ).replace(/^custom:/, '')}
-          </Button>
-          <Button
-            size="xs"
-            variant="ghost"
-            className="border border-transparent"
-            onClick={() => setOpen(true)}
-            aria-label={t('chat:creation.resolution')}
-          >
-            {settings.width} × {settings.height}
-          </Button>
-          {mode === 'image' && upscale.enabled && (
+        <div className="composer-size-controls ml-auto flex flex-wrap gap-1">
+          <ComposerSizeButton kind="ratio" settings={settings} setSettings={state.setSettings} disabled={disabled} />
+          <ComposerSizeButton kind="resolution" settings={settings} setSettings={state.setSettings} disabled={disabled} />
+          {mode === 'image' && (
+            <div className="composer-upscale-group inline-flex">
             <Button
               size="xs"
               variant="ghost"
-              className="border border-transparent composer-tool-active ml-auto"
-              onClick={() => setOpen(true)}
-              aria-label={`${t('chat:creation.upscaleTitle')} · ×${upscale.factor} · ${settings.width * upscale.factor} × ${settings.height * upscale.factor}`}
+              className={cn('composer-setting composer-upscale border border-transparent', upscale.enabled && 'composer-tool-active')}
+              disabled={disabled}
+              data-state={upscale.enabled ? 'on' : 'off'}
+              onClick={() => upscale.setEnabled(!upscale.enabled)}
+              aria-pressed={upscale.enabled}
+              aria-label={`${t('chat:creation.upscaleTitle')} · ×${upscale.factor}${upscale.enabled ? ` · ${settings.width * upscale.factor} × ${settings.height * upscale.factor}` : ' · OFF'}`}
+              title={upscale.enabled ? `Real-ESRGAN ×${upscale.factor} · ${settings.width * upscale.factor} × ${settings.height * upscale.factor}` : 'Real-ESRGAN · OFF'}
             >
-              Real-ESRGAN ×{upscale.factor} · {settings.width * upscale.factor}{' '}
-              × {settings.height * upscale.factor}
+              <Expand aria-hidden="true" size={16} />
+              ×{upscale.factor} · {upscale.enabled ? 'ON' : 'OFF'}
+              <ComposerStatusSwitch active={upscale.enabled} />
+              <span className="composer-final-size" aria-hidden="true">{settings.width * (upscale.enabled ? upscale.factor : 1)} × {settings.height * (upscale.enabled ? upscale.factor : 1)}</span>
             </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon-xs" className="composer-factor" disabled={disabled} aria-label={t('chat:creation.upscaleFactor')}>
+                  <IconChevronDown size={12} aria-hidden="true" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {([2, 4] as const).map((factor) => (
+                  <DropdownMenuItem key={factor} onSelect={() => upscale.setFactor(factor)}>
+                    ×{factor} · {settings.width * factor} × {settings.height * factor}
+                    {upscale.factor === factor && <IconCheck size={12} aria-hidden="true" />}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            </div>
           )}
         </div>
-      )}
-      {(mode === 'image' || mode === 'video') && (
-        <p className="text-xs text-muted-foreground truncate">
-          {t('chat:creation.model')}:{' '}
-          {isCloud
-            ? `${getProviderTitle(selection.provider)} · ${selectedPreset?.name ?? selection.id}`
-            : (mode === 'image' ? imagePath : settings.videoModel)
-                .split(/[\\/]/)
-                .pop() || t('chat:creation.configure')}
-        </p>
       )}
       {isCloud && (
         <p className="text-xs text-muted-foreground">
@@ -287,9 +281,8 @@ export function CreationControls({
           </button>
         </div>
       )}
-      <MemoryModeControl scope={scope} />
       {progress && (
-        <div role="status" className="space-y-1 text-xs">
+        <div role="status" className="w-full space-y-1 text-xs">
           <span>
             {t(
               `chat:creation.${progress.stage === 'upscaling' ? 'upscaleTitle' : progress.stage === 'loading' ? 'loading' : 'generating'}`
@@ -742,5 +735,43 @@ export function CreationControls({
         </DialogContent>
       </Dialog>
     </div>
+  )
+}
+
+/** Compact model selector docked beside the conversation actions. */
+export function CreationModelControl({ scope, disabled }: { scope: string; disabled: boolean }) {
+  const { t } = useTranslation()
+  const state = useCreation()
+  const profiles = useMediaLibrary((s) => s.profiles)
+  const mode = state.modes[scope] ?? 'auto'
+  if (mode !== 'image' && mode !== 'video') return null
+  const selection = state.selections[scope]?.[mode]
+  const isCloud = selection && selection.provider !== 'diffusers'
+  const settings = state.settings
+  const modelPath = mode === 'video'
+    ? settings.videoModel
+    : settings.imageEngine === 'sdcpp' || settings.imageEngine === 'nvfp4-cuda'
+      ? settings.ggufImageModel
+      : settings.imageModel
+  const profile = selection?.provider === 'diffusers'
+    ? profiles.find((p) => p.id === selection.id)
+    : undefined
+  const name = isCloud
+    ? `${getProviderTitle(selection.provider)} · ${mediaPreset(selection.provider, selection.id)?.name ?? selection.id}`
+    : profile?.name || modelPath?.split(/[\\/]/).pop() || t('chat:creation.configure')
+  return (
+    <Button
+      size="xs"
+      variant="ghost"
+      className="composer-model min-w-0 max-w-36"
+      disabled={disabled}
+      aria-label={`${t('chat:creation.model')}: ${name}`}
+      title={name}
+      onClick={() => window.dispatchEvent(new Event('novera-creation-settings'))}
+    >
+      <IconBrain size={14} aria-hidden="true" />
+      <span className="truncate">{name.replace(/^flux[-_.]?2[-_.]?klein[-_.]?4b.*$/i, 'FLUX.2 Klein 4B')}</span>
+      <IconChevronDown size={12} aria-hidden="true" />
+    </Button>
   )
 }

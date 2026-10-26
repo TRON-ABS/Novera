@@ -169,7 +169,8 @@
     "manualNote": "Makomi, bililingi mpe bavideo ekoki kosala elongo na masolo ekeseni soki RAM/VRAM ekoki. Mémoire ekoki kosila.",
     "preserve": "Bafichiers mpe masolo ebatelami; modèles etisamaka lisusu soki esengeli. Mbongwana etali bosengi ya sika.",
     "waiting": "Kozela to kopesa RAM/VRAM esika…",
-    "failed": "Kobongisa mémoire elongi te. Meka lisusu to poná Na maboko."
+    "failed": "Kobongisa mémoire elongi te. Meka lisusu to poná Na maboko.",
+    "compactTitle": "Bokundoli ya automatique"
   },
   "sharing": {
     "share": "Bokabola",
@@ -198,5 +199,10 @@
     "assistant": "Mosungi ya mosala",
     "linuxHint": "Linux efungolaka application ya email na yo na pièce jointe. Eloko moko te etindamaka automatiquement.",
     "copyFile": "Kopi ya fisyé"
+  },
+  "instructions": {
+    "textDefault": "Ozali Novera. Yanola na lokota ya mosaleli na polele, na bosikisiki mpe na mokuse. Tosa mibeko na ye, tala makambo ya ntina soki ekoki mpe loba oyo ozali koyeba na ntembe. Kokela te maziba, mbano to misala oyo esalemi te.",
+    "imageDefault": "Tosa likambo, lolenge mpe cadrage oyo basengi. Bongisa elilingi polele, pole oyo eyokani mpe makambo mikemike ya malamu. Bomba bomoto ya bililingi ya ndakisa; boya kobebisa lolenge mpe biloko oyo balingi te. Bakisa makomi kaka soki basengi.",
+    "videoDefault": "Tosa likambo, lolenge mpe ntango oyo basengi. Bomba boyokani ya bato, biloko mpe pole kati na baframe. Salela koningana ya pete mpe kamera oyo ekambami malamu. Boya kongɛnga-kongɛnga, kobebisa lolenge mpe makomi oyo basengi te."
   }
 }

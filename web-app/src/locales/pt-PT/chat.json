@@ -169,7 +169,8 @@
     "manualNote": "Texto, imagem e vídeo podem funcionar em simultâneo em conversas separadas se a RAM/VRAM permitir. A memória pode esgotar-se.",
     "preserve": "Os ficheiros e conversas são conservados; os modelos são recarregados quando necessário. As alterações aplicam-se a novos pedidos.",
     "waiting": "A aguardar ou libertar RAM/VRAM…",
-    "failed": "A otimização da memória falhou. Tente novamente ou escolha Manual."
+    "failed": "A otimização da memória falhou. Tente novamente ou escolha Manual.",
+    "compactTitle": "Memória automática"
   },
   "sharing": {
     "share": "Compartilhar",
@@ -198,5 +199,10 @@
     "assistant": "Assistente",
     "linuxHint": "Linux abre a sua aplicação de e-mail com um anexo. Nada é enviado automaticamente.",
     "copyFile": "Copiar ficheiro"
+  },
+  "instructions": {
+    "textDefault": "És a Novera. Responde com clareza, precisão e concisão na língua do utilizador. Respeita as restrições, verifica os factos essenciais quando possível e indica incertezas. Não inventes fontes, resultados ou ações realizadas.",
+    "imageDefault": "Respeita o tema, estilo e enquadramento pedidos. Cuida da composição, da iluminação coerente e dos pormenores. Preserva as identidades das referências; evita deformações e elementos indesejados. Acrescenta texto apenas quando pedido.",
+    "videoDefault": "Respeita o tema, estilo e duração pedidos. Mantém sujeitos, objetos e iluminação coerentes entre fotogramas. Usa movimentos fluidos e câmara controlada. Evita cintilação, deformações e texto não solicitado."
   }
 }

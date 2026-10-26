@@ -32,7 +32,11 @@ Validation : vingt tests web ciblés sous configuration Windows, un test Rust ut
 
 ## Real-ESRGAN : chemins Windows, Python et taille finale — 26 octobre 2026
 
-Lorsque l’agrandissement est activé pour une image locale, un bouton coloré à droite de **Ratio** et **Résolution** indique **Real-ESRGAN ×2/×4** et les dimensions finales prévues. Il suit immédiatement le facteur, le ratio et la résolution choisis ; cliquer ouvre les réglages. Exemple : 512 × 224 avec ×2 donne 1024 × 448. Il disparaît lorsque l’option est désactivée et n’est pas affiché pour la vidéo ou le cloud.
+Le panneau compact propose des menus directs **Ratio** et **Résolution**. Pour une image locale, l’interrupteur **×2/×4** active ou désactive l’agrandissement ; la flèche voisine choisit le facteur. La taille finale est affichée dans le bouton et suit le facteur et les dimensions de départ. Exemple : 512 × 224 avec ×2 donne 1024 × 448, avec ×4 donne 2048 × 896. Sur OFF, la taille affichée est celle de l’image sans agrandissement. Ce contrôle n’est pas affiché pour la vidéo ou le cloud.
+
+Le bouton en forme de carnet **Novera · Gérer les instructions** ouvre uniquement trois champs : **Texte**, **Image** et **Vidéo**. Il ne modifie aucun paramètre du modèle. Les consignes par défaut suivent les 70 langues de l’interface ; les textes personnalisés sont conservés lors d’un changement de langue. **Réinitialiser** remet les trois consignes par défaut dans l’éditeur ; **Enregistrer** applique le choix, **Annuler** conserve les réglages précédents. Les instructions Texte complètent celles de l’assistant sélectionné ; Image et Vidéo s’appliquent à la génération correspondante.
+
+Le mode **Auto** reconnaît les commandes `/image` et `/video`, ainsi que les demandes explicites de création en français et en anglais, avec des formulations comme « Peux-tu me créer une image ? », « Fais-moi une vidéo » ou « Please draw a castle ». Les demandes de prompt, de script, d’explication ou de site restent du texte. Une description ambiguë comme « une voiture du futur » reste du texte : choisir **Image** ou **Vidéo**, ou préciser l’action souhaitée.
 
 Une correction prend en charge les anciens chemins Windows d’installation combinant le préfixe canonique `\\?\` et un `/` avant le nom du fichier. Les poids pouvaient être installés et vérifiés, mais refusés par l’API Windows. Les nouveaux chemins sont assemblés correctement et les anciens chemins d’agrandissement sont réparés lors de la demande ; la validation native accepte aussi les composants concernés.
 

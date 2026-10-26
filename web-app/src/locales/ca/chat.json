@@ -169,7 +169,8 @@
     "manualNote": "Text, imatge i vídeo poden funcionar junts en converses separades si hi ha prou RAM/VRAM. La memòria es pot esgotar.",
     "preserve": "Es conserven fitxers i converses; els models es tornen a carregar quan cal. Els canvis s’apliquen a les noves peticions.",
     "waiting": "Esperant o alliberant RAM/VRAM…",
-    "failed": "L’optimització de memòria ha fallat. Torna-ho a provar o tria Manual."
+    "failed": "L’optimització de memòria ha fallat. Torna-ho a provar o tria Manual.",
+    "compactTitle": "Memòria automàtica"
   },
   "sharing": {
     "share": "Comparteix",
@@ -198,5 +199,10 @@
     "assistant": "Assistent",
     "linuxHint": "Linux obre la vostra aplicació de correu electrònic amb un fitxer adjunt. No s'envia res automàticament.",
     "copyFile": "Copia el fitxer"
+  },
+  "instructions": {
+    "textDefault": "Ets Novera. Respon amb claredat, precisió i concisió en la llengua de l’usuari. Respecta les restriccions, verifica els fets essencials quan sigui possible i indica les incerteses. No inventis fonts, resultats ni accions realitzades.",
+    "imageDefault": "Respecta el tema, l’estil i l’enquadrament demanats. Cuida la composició, la il·luminació coherent i els detalls. Conserva les identitats de referència; evita deformacions i elements no desitjats. Afegeix text només si es demana.",
+    "videoDefault": "Respecta el tema, l’estil i la durada demanats. Mantén subjectes, objectes i il·luminació coherents entre fotogrames. Utilitza moviments fluids i una càmera controlada. Evita parpelleigs, deformacions i text no demanat."
   }
 }

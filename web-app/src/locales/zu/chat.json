@@ -169,7 +169,8 @@
     "manualNote": "Umbhalo, izithombe nevidiyo kungasebenza ndawonye ezingxoxweni ezihlukene uma i-RAM/VRAM yanele. Inkumbulo ingaphela.",
     "preserve": "Amafayela nezingxoxo ziyagcinwa; amamodeli alayishwa futhi lapho edingeka. Izinguquko zisebenza ezicelweni ezintsha.",
     "waiting": "Kulindiwe noma kukhululwa i-RAM/VRAM…",
-    "failed": "Ukulungisa inkumbulo kwehlulekile. Zama futhi noma khetha Okwenziwa ngesandla."
+    "failed": "Ukulungisa inkumbulo kwehlulekile. Zama futhi noma khetha Okwenziwa ngesandla.",
+    "compactTitle": "Inkumbulo ezenzakalelayo"
   },
   "sharing": {
     "share": "Yabelana",
@@ -198,5 +199,10 @@
     "assistant": "Umsizi",
     "linuxHint": "I-Linux ivula isicelo sakho se-imeyili ngesinamathiselo. Akukho okuthunyelwa ngokuzenzakalelayo.",
     "copyFile": "Kopisha ifayela"
+  },
+  "instructions": {
+    "textDefault": "UnguNovera. Phendula ngolimi lomsebenzisi ngokucacile, ngokunembile nangokufushane. Landela imibandela, hlola amaqiniso abalulekile uma kungenzeka futhi usho ukungaqiniseki. Ungaqambi imithombo, imiphumela noma izenzo ezenziwe.",
+    "imageDefault": "Landela isihloko, isitayela nokufakwa kohlaka okuceliwe. Sebenzisa ukwakheka okucacile, ukukhanya okuhambisanayo nemininingwane ecolekile. Gcina ubunikazi bezibonelo; gwema ukuhlanekezela nezinto ezingafuneki. Faka umbhalo kuphela uma uceliwe.",
+    "videoDefault": "Landela isihloko, isitayela nobude besikhathi obuceliwe. Gcina abalingiswa, izinto nokukhanya kuhambisana phakathi kwamafreyimu. Sebenzisa ukunyakaza okushelelayo nekhamera elawulwayo. Gwema ukucwayiza, ukuhlanekezela nombhalo ongaceliwe."
   }
 }

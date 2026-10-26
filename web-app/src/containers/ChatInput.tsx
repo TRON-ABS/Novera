@@ -1,5 +1,6 @@
 import TextareaAutosize from 'react-textarea-autosize'
-import { CreationControls } from './CreationControls'
+import { CreationControls, CreationModelControl } from './CreationControls'
+import { MemoryModeControl } from './MemoryModeControl'
 import { useCreation } from '@/hooks/useCreation'
 import { resolveOutputMode } from '@/modules/engines/creation'
 import { cn, formatBytes } from '@/lib/utils'
@@ -44,6 +45,7 @@ import { useMessageQueue } from '@/stores/message-queue-store'
 import { QueuedMessageChip } from '@/containers/QueuedMessageBubble'
 import { ConversationActions } from '@/containers/ConversationActions'
 import { SamplerPopover } from '@/containers/SamplerPopover'
+import { NoveraInstructionsButton } from '@/containers/NoveraInstructionsButton'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useGeneralSetting } from '@/hooks/useGeneralSetting'
 import { useModelProvider } from '@/hooks/useModelProvider'
@@ -2087,7 +2089,7 @@ const ChatInput = memo(function ChatInput({
 
           <div
             className={cn(
-              'relative z-20 px-0 border rounded-3xl border-input bg-white dark:bg-input/30',
+              'composer-panel relative z-20 px-0 border rounded-3xl border-input bg-white dark:bg-input/30',
               isFocused && 'ring-1 ring-ring/50',
               isDragOver && 'ring-2 ring-ring/50 border-primary'
             )}
@@ -2228,12 +2230,12 @@ const ChatInput = memo(function ChatInput({
                 ))}
               </div>
             )}
-            <div className="relative">
+            <div className="composer-prompt relative">
               {highlightedPrefix && prompt.startsWith(highlightedPrefix) && (
                 <div
                   ref={highlightRef}
                   aria-hidden="true"
-                  className={cn('pointer-events-none absolute inset-0 overflow-hidden whitespace-pre-wrap break-words px-4 pt-4 text-transparent', className)}
+                  className={cn('pointer-events-none absolute inset-0 overflow-hidden whitespace-pre-wrap break-words px-4 pt-3 text-transparent', className)}
                   style={{ overflowWrap: 'break-word' }}
                 >
                   <mark className="rounded-sm bg-primary/20 text-transparent">{highlightedPrefix}</mark>
@@ -2336,7 +2338,7 @@ const ChatInput = memo(function ChatInput({
               data-gramm_editor={spellCheckChatInput}
               data-gramm_grammarly={spellCheckChatInput}
               className={cn(
-                'bg-transparent pt-4 w-full shrink-0 border-none resize-none outline-0 px-4',
+                'bg-transparent py-3 w-full shrink-0 border-none resize-none outline-0 px-4',
                 rows < maxRows && 'scrollbar-hide',
                 className
               )}
@@ -2358,7 +2360,7 @@ const ChatInput = memo(function ChatInput({
             )}
 
         {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} />}
-        <div className="relative z-20 w-full p-2">
+        <div className="composer-footer relative z-20 w-full p-2">
           <div
             ref={controlRowRef}
             className="flex items-end justify-between gap-2 w-full"
@@ -2464,7 +2466,7 @@ const ChatInput = memo(function ChatInput({
                   setSelectedAssistantId={setSelectedAssistantId}
                   updateCurrentThreadAssistant={updateCurrentThreadAssistant}
                 />
-                <SamplerPopover
+                {!effectiveAgentMode && !scopeKey ? <NoveraInstructionsButton /> : <SamplerPopover
                   providerId={selectedProvider}
                   modelId={selectedModel?.id}
                   assistantSwitcher={{
@@ -2474,7 +2476,7 @@ const ChatInput = memo(function ChatInput({
                     setSelectedAssistantId,
                     updateCurrentThreadAssistant,
                   }}
-                />
+                />}
                 {showToolControls && hasJanBrowserMCPConfig && modelSupportsBrowser && (
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -2607,10 +2609,13 @@ const ChatInput = memo(function ChatInput({
                         size="icon-xs"
                         aria-label={t('common:web_search')}
                         aria-pressed={webSearchEnabled}
+                        data-state={webSearchEnabled ? 'on' : 'off'}
+                        data-tone="web"
                         className={cn('composer-tool', webSearchEnabled && 'composer-tool-active')}
                         onClick={() => setWebSearchEnabled(!webSearchEnabled)}
                       >
                         <ComposerIcon>🌐</ComposerIcon>
+                        <span className="composer-state" aria-hidden="true">{webSearchEnabled ? 'ON' : 'OFF'}</span>
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent>
@@ -2633,10 +2638,13 @@ const ChatInput = memo(function ChatInput({
                           size="icon-xs"
                           aria-pressed={shellEnabled}
                           aria-label={t('common:shell')}
+                          data-state={shellEnabled ? 'on' : 'off'}
+                          data-tone="local"
                           className={cn('composer-tool', shellEnabled && 'composer-tool-active')}
                           onClick={() => setShellEnabled(!shellEnabled)}
                         >
                           <ComposerIcon>💻</ComposerIcon>
+                          <span className="composer-state" aria-hidden="true">{shellEnabled ? 'ON' : 'OFF'}</span>
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -2758,9 +2766,12 @@ const ChatInput = memo(function ChatInput({
                                   variant="ghost"
                                   size="icon-xs"
                                   aria-label={`Reasoning effort: ${effortLabel}`}
+                                  data-tone="thinking"
+                                  data-state={currentEffort ? 'on' : 'auto'}
                                   className={cn('composer-tool', currentEffort && 'composer-tool-active')}
                                 >
                                   <ComposerIcon>⚡</ComposerIcon>
+                                  <span className="composer-state" aria-hidden="true">{currentEffort ? 'ON' : 'AUTO'}</span>
                                 </Button>
                               </DropdownMenuTrigger>
                             </TooltipTrigger>
@@ -2866,11 +2877,14 @@ const ChatInput = memo(function ChatInput({
                                 variant="ghost"
                                 size="icon-xs"
                                 aria-label={`Reasoning: ${label}`}
+                                data-tone="thinking"
+                                data-state={reasoningValue}
                                 className={cn('composer-tool', reasoningValue === 'on' && 'composer-tool-active')}
                               >
                                 <span className={cn(reasoningValue === 'off' && 'opacity-50')}>
                                   <ComposerIcon>⚡</ComposerIcon>
                                 </span>
+                                <span className="composer-state" aria-hidden="true">{reasoningValue.toUpperCase()}</span>
                               </Button>
                             </DropdownMenuTrigger>
                           </TooltipTrigger>
@@ -2980,6 +2994,12 @@ const ChatInput = memo(function ChatInput({
                 </div>
               )}
               </CollapsibleControls>
+              {!effectiveAgentMode && !scopeKey && (
+                <div className="composer-metadata flex min-w-0 flex-wrap items-center gap-1">
+                  <CreationModelControl scope={currentThreadId ?? 'new'} disabled={turnBusy} />
+                  <MemoryModeControl scope={currentThreadId ?? 'new'} />
+                </div>
+              )}
             </div>
 
             <div className="flex shrink-0 items-center gap-1">

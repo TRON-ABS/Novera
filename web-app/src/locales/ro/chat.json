@@ -169,7 +169,8 @@
     "manualNote": "Textul, imaginile și videoclipurile pot rula împreună în conversații separate dacă RAM/VRAM permite. Memoria se poate epuiza.",
     "preserve": "Fișierele și conversațiile se păstrează; modelele se reîncarcă la nevoie. Modificările se aplică cererilor noi.",
     "waiting": "Se așteaptă sau se eliberează RAM/VRAM…",
-    "failed": "Optimizarea memoriei a eșuat. Reîncearcă sau alege Manual."
+    "failed": "Optimizarea memoriei a eșuat. Reîncearcă sau alege Manual.",
+    "compactTitle": "Memorie automată"
   },
   "sharing": {
     "share": "Distribuie",
@@ -198,5 +199,10 @@
     "assistant": "Asistent",
     "linuxHint": "Linux deschide aplicația dvs. de e-mail cu un atașament. Nimic nu este trimis automat.",
     "copyFile": "Copiați fișierul"
+  },
+  "instructions": {
+    "textDefault": "Ești Novera. Răspunde clar, precis și concis în limba utilizatorului. Respectă cerințele, verifică faptele esențiale când este posibil și semnalează incertitudinile. Nu inventa surse, rezultate sau acțiuni efectuate.",
+    "imageDefault": "Respectă subiectul, stilul și încadrarea cerute. Asigură o compoziție clară, lumină coerentă și detalii îngrijite. Păstrează identitățile din referințe; evită deformările și elementele nedorite. Adaugă text doar la cerere.",
+    "videoDefault": "Respectă subiectul, stilul și durata cerute. Menține consecvența subiecților, obiectelor și luminii între cadre. Folosește mișcări fluide și o cameră controlată. Evită pâlpâirea, deformările și textul nesolicitat."
   }
 }

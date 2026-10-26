@@ -167,7 +167,7 @@ export function ConversationActions({
                 size="icon-sm"
                 disabled={disabled}
                 aria-label={t('common:save')}
-                className="composer-action"
+                className="composer-action composer-action-save"
               >
                 <ComposerIcon>💾</ComposerIcon>
               </Button>

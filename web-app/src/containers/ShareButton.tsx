@@ -354,7 +354,9 @@ export function ShareButton({
           disabled={disabled}
           aria-label={t('chat:sharing.share')}
           className={
-            open
+            conversation
+              ? 'composer-action composer-action-share'
+              : open
               ? 'border border-primary/25 bg-primary/10 text-primary'
               : undefined
           }

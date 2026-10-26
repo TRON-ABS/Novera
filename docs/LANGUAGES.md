@@ -1,8 +1,15 @@
 # Langues d’interface Novera
 
+## Consignes par catégorie et panneau compact — 26 octobre 2026
+
+Quatre clés ajoutées dans chacune des 70 locales : le libellé compact de mémoire et les trois consignes par défaut Texte/Image/Vidéo, soit **210 consignes traduites**. Base actuelle : **1 738 clés**. Les instructions par défaut suivent la langue de l’interface ; les textes personnalisés restent inchangés. Réinitialiser, Annuler et Sauvegarder réutilisent les libellés existants. Les indications techniques ON/OFF et ×2/×4 restent identiques dans les langues, comme sur le panneau de référence.
+
+Le contrôle des catalogues et 70 vérifications directes des consignes à l’exécution passent, avec tests de changement de langue et de remise à zéro. Les variantes arabes/chinoises conservent une terminologie technique écrite commune avec des formulations adaptées. Aucune conversation ni clé privée utilisée pour les traductions. Relecture native toujours nécessaire. Le lot est inclus dans un build Windows local ; il ne constitue pas une publication de binaire.
+
+
 ## Partage et dimensions média — 26 octobre 2026
 
-Trente libellés ajoutés dans chacune des 70 locales : sélection/aperçu/format/partage, copie de fichier et aide Linux, ratio/résolution/personnalisé et ajustement automatique. Base actuelle : **1 734 clés**. Anglais/français rédigés directement, pidgin adapté ; autres traductions assistées à partir des seules chaînes publiques de l’interface. Les variantes techniques arabes/chinoises partagent une terminologie ; saraiki et pendjabi occidental conservent leur écriture arabe. Aucun contenu de conversation ni identifiant transmis. La couverture et les variables sont contrôlées ; une relecture native reste nécessaire. Aucun nouveau binaire compilé pour ce lot.
+Trente libellés ajoutés dans chacune des 70 locales : sélection/aperçu/format/partage, copie de fichier et aide Linux, ratio/résolution/personnalisé et ajustement automatique. Base de ce lot : **1 734 clés**. Anglais/français rédigés directement, pidgin adapté ; autres traductions assistées à partir des seules chaînes publiques de l’interface. Les variantes techniques arabes/chinoises partagent une terminologie ; saraiki et pendjabi occidental conservent leur écriture arabe. Aucun contenu de conversation ni identifiant transmis. La couverture et les variables sont contrôlées ; une relecture native reste nécessaire. Aucun nouveau binaire compilé pour ce lot.
 
 ## Graines et agrandissement d’image — 26 octobre 2026
 
@@ -16,7 +23,7 @@ Huit nouveaux textes dans chacune des 70 locales portent la base actuelle à **1
 
 Treize nouveaux textes dans chacune des 70 locales, plus correction du conseil devenu périmé sur la validation Vulkan du trio. Base : **1 681 clés**. Confirmation, dossier/espace, aide sur les discussions et créations pendant le téléchargement, pause/reprise, vérification, état prêt, moteur intégré et erreurs traduits. La bibliothèque Image/Vidéo réutilise les textes d’import, modification et suppression déjà traduits. Réalisé sans transmettre de conversation, clé ou fichier privé à un service de traduction ; la relecture native reste nécessaire. La couverture porte sur les sources, pas sur un nouveau binaire compilé.
 
-État du **26 octobre 2026** : **70 locales sélectionnables**, chacune à **1 734/1 734 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
+État du **26 octobre 2026** : **70 locales sélectionnables**, chacune à **1 738/1 738 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
 
 Le sélecteur présente les **70 langues sous leur nom natif**. Les attributs `lang` et `dir="auto"` accompagnent chaque entrée ; un menu élargi et défilant conserve les noms longs accessibles. Le nom indonésien est **Bahasa Indonesia**. Les noms de marques et identifiants API restent des littéraux invariants ; le premier lot de fournisseurs et d’icônes du 26 octobre réutilisait les traductions existantes. Le lot de création cloud décrit ci-dessous actualise ensuite les 70 catalogues de discussion.
 

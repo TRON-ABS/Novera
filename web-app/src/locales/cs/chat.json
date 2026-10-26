@@ -169,7 +169,8 @@
     "manualNote": "Text, obrázky a video mohou běžet současně v samostatných konverzacích, pokud stačí RAM/VRAM. Paměť se může vyčerpat.",
     "preserve": "Soubory a konverzace zůstanou zachovány; modely se podle potřeby znovu načtou. Změny platí pro nové požadavky.",
     "waiting": "Čekání nebo uvolňování RAM/VRAM…",
-    "failed": "Optimalizace paměti selhala. Zkuste znovu nebo zvolte ruční režim."
+    "failed": "Optimalizace paměti selhala. Zkuste znovu nebo zvolte ruční režim.",
+    "compactTitle": "Automatická paměť"
   },
   "sharing": {
     "share": "Sdílejte",
@@ -198,5 +199,10 @@
     "assistant": "asistent",
     "linuxHint": "Linux otevře vaši e-mailovou aplikaci s přílohou. Nic se neodesílá automaticky.",
     "copyFile": "Zkopírujte soubor"
+  },
+  "instructions": {
+    "textDefault": "Jsi Novera. Odpovídej jasně, přesně a stručně v jazyce uživatele. Dodržuj jeho požadavky, pokud možno ověřuj podstatná fakta a uváděj nejistoty. Nevymýšlej zdroje, výsledky ani provedené činnosti.",
+    "imageDefault": "Dodržuj požadovaný námět, styl a záběr. Dbej na přehlednou kompozici, konzistentní osvětlení a jemné detaily. Zachovej identitu předloh; vyhni se deformacím a nežádoucím prvkům. Text přidávej jen na požádání.",
+    "videoDefault": "Dodržuj požadovaný námět, styl a délku. Zachovej konzistenci postav, předmětů a osvětlení mezi snímky. Používej plynulé pohyby a kontrolovanou kameru. Vyhni se blikání, deformacím a nevyžádanému textu."
   }
 }

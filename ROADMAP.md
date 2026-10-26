@@ -1,5 +1,14 @@
 # Novera — feuille de route
 
+## Panneau compact et consignes — 26 octobre 2026
+
+- [x] Panneau compact coloré, états ON/OFF et menus directs de dimensions et d’agrandissement ×2/×4 avec taille finale.
+- [x] Éditeur limité aux consignes Texte/Image/Vidéo, sauvegarde indépendante des paramètres du modèle et remise à zéro.
+- [x] 210 consignes par défaut dans les 70 locales, personnalisations préservées et 1 738 clés par catalogue.
+- [x] Régressions Auto françaises/anglaises et contrôle du nouveau panneau dans un build Windows local.
+- [ ] Recueillir les nouveaux exemples réels d’échec Auto ; poursuivre les essais de génération du mainteneur et la relecture linguistique native.
+
+
 ## Direction : automatiser la complexité, garder des choix simples
 
 Rendre les capacités avancées utiles au quotidien pour des utilisateurs de langues, niveaux techniques et matériels différents. Les automatismes déjà présents couvrent le diagnostic du Hub, le moteur Windows intégré, les configurations média conseillées, les téléchargements vérifiés, les bibliothèques par catégorie et la sauvegarde système. La gestion de RAM/VRAM ajoute un choix Automatique recommandé et un choix Manuel pour les machines capables de travailler en parallèle.

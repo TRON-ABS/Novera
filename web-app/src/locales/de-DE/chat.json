@@ -169,7 +169,8 @@
     "manualNote": "Text, Bild und Video können bei genügend RAM/VRAM in getrennten Chats gleichzeitig laufen. Der Speicher kann knapp werden.",
     "preserve": "Dateien und Chats bleiben erhalten; Modelle werden bei Bedarf neu geladen. Änderungen gelten für neue Anfragen.",
     "waiting": "Warten oder RAM/VRAM freigeben…",
-    "failed": "Speicheroptimierung fehlgeschlagen. Erneut versuchen oder Manuell wählen."
+    "failed": "Speicheroptimierung fehlgeschlagen. Erneut versuchen oder Manuell wählen.",
+    "compactTitle": "Speicher automatisch"
   },
   "sharing": {
     "share": "Teilen",
@@ -198,5 +199,10 @@
     "assistant": "Assistent",
     "linuxHint": "Linux öffnet Ihre E-Mail-Anwendung mit einem Anhang. Es wird nichts automatisch gesendet.",
     "copyFile": "Datei kopieren"
+  },
+  "instructions": {
+    "textDefault": "Du bist Novera. Antworte klar, präzise und knapp in der Sprache des Nutzers. Beachte seine Vorgaben, prüfe wesentliche Fakten nach Möglichkeit und benenne Unsicherheiten. Erfinde keine Quellen, Ergebnisse oder ausgeführten Handlungen.",
+    "imageDefault": "Beachte das gewünschte Motiv, den Stil und den Bildausschnitt. Achte auf klare Komposition, stimmiges Licht und feine Details. Bewahre die Identität der Vorlagen; vermeide Verzerrungen und unerwünschte Elemente. Füge Text nur auf Wunsch hinzu.",
+    "videoDefault": "Beachte das gewünschte Motiv, den Stil und die Dauer. Halte Figuren, Objekte und Beleuchtung über die Einzelbilder hinweg konsistent. Nutze flüssige Bewegungen und kontrollierte Kameraführung. Vermeide Flimmern, Verzerrungen und unerwünschten Text."
   }
 }

@@ -1,4 +1,5 @@
 import { useTheme } from '@/hooks/useTheme'
+import { useNoveraInstructions } from '@/hooks/useNoveraInstructions'
 import { useMemoryPolicy } from '@/hooks/useMemoryPolicy'
 import { useCreation } from '@/hooks/useCreation'
 import { useErrorTracking } from '@/hooks/useErrorTracking'
@@ -40,6 +41,7 @@ import { useImageAttachmentConfig } from '@/hooks/useImageAttachmentConfig'
 // useInterfaceSettings' onRehydrateStorage reads useTheme.getState().isDark, so
 // theme must hydrate first.
 const secondaryStores = [
+  useNoveraInstructions,
   useCreation,
   useMemoryPolicy,
   useErrorTracking,

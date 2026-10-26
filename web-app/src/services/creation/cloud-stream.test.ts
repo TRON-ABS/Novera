@@ -3,6 +3,7 @@ import { invoke } from '@tauri-apps/api/core'
 import { creationStream } from './stream'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import { generateCloudMedia } from './cloud'
+import { useNoveraInstructions } from '@/hooks/useNoveraInstructions'
 import type { UIMessage } from 'ai'
 
 vi.mock('@tauri-apps/api/core', () => ({ invoke: vi.fn() }))
@@ -43,6 +44,7 @@ async function read(stream: ReturnType<typeof creationStream>) {
 describe('cloud conversation lifecycle', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    useNoveraInstructions.setState({ instructions: { text: 'TEXT ONLY', image: 'IMAGE ONLY', video: 'VIDEO ONLY' } })
     useCreation.setState({
       settings: { ...creationDefaults },
       selections: {
@@ -70,6 +72,8 @@ describe('cloud conversation lifecycle', () => {
     const save = vi
       .mocked(invoke)
       .mock.calls.find(([command]) => command === 'creation_cloud_save')!
+    expect(generateCloudMedia).toHaveBeenCalledWith(expect.objectContaining({ prompt: 'IMAGE ONLY\n\ncreate' }))
+    expect(save[1]).toEqual(expect.objectContaining({ request: expect.objectContaining({ prompt: 'IMAGE ONLY\n\ncreate' }) }))
     expect(JSON.stringify(save)).not.toContain('test-only-key')
     expect(chunks).toContainEqual(
       expect.objectContaining({

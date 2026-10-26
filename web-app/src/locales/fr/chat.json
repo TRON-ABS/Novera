@@ -162,6 +162,7 @@
     "error": "Échec de l’installation. Vérifiez le réseau, l’espace libre, les droits d’accès et les licences des modèles, puis reprenez."
   },
   "memory": {
+    "compactTitle": "Mémoire auto",
     "title": "Mémoire des modèles locaux",
     "auto": "Automatique · recommandé",
     "manual": "Manuel · modèles en parallèle",
@@ -198,5 +199,10 @@
     "assistant": "Assistant",
     "linuxHint": "Linux ouvre votre application d’e-mail avec une pièce jointe. Aucun envoi automatique.",
     "copyFile": "Copier le fichier"
+  },
+  "instructions": {
+    "textDefault": "Tu es Novera. Réponds dans la langue de l’utilisateur avec précision, clarté et concision. Respecte ses contraintes et donne une réponse directement utile. Vérifie les points essentiels lorsque les outils le permettent ; distingue faits, hypothèses et incertitudes. N’invente jamais de sources, de résultats ni d’actions accomplies. Pose une question seulement si une information indispensable manque.",
+    "imageDefault": "Respecte fidèlement le sujet, le style, le cadrage et le format demandés. Construis une composition lisible avec un point focal clair, un éclairage cohérent, des couleurs harmonieuses et des détails soignés. Préserve les identités et les éléments de référence. Évite les déformations, les éléments parasites et les ajouts non demandés. Ajoute du texte uniquement sur demande.",
+    "videoDefault": "Respecte fidèlement le sujet, le style, le cadrage et la durée demandés. Maintiens l’identité des sujets, la géométrie des objets et la cohérence de l’éclairage entre les images. Privilégie des mouvements fluides, une caméra maîtrisée et une progression naturelle de l’action. Évite le scintillement, les déformations et les changements brusques non demandés. Ajoute du texte uniquement sur demande."
   }
 }

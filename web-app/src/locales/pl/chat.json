@@ -169,7 +169,8 @@
     "manualNote": "Tekst, obraz i wideo mogą działać razem w osobnych rozmowach, jeśli wystarczy RAM/VRAM. Pamięć może się wyczerpać.",
     "preserve": "Pliki i rozmowy zostają zachowane; modele ładują się ponownie w razie potrzeby. Zmiany dotyczą nowych żądań.",
     "waiting": "Oczekiwanie lub zwalnianie RAM/VRAM…",
-    "failed": "Optymalizacja pamięci nie powiodła się. Ponów lub wybierz tryb ręczny."
+    "failed": "Optymalizacja pamięci nie powiodła się. Ponów lub wybierz tryb ręczny.",
+    "compactTitle": "Pamięć automatyczna"
   },
   "sharing": {
     "share": "Udostępnij",
@@ -198,5 +199,10 @@
     "assistant": "Asystent",
     "linuxHint": "Linux otwiera Twoją aplikację e-mail z załącznikiem. Nic nie jest wysyłane automatycznie.",
     "copyFile": "Skopiuj plik"
+  },
+  "instructions": {
+    "textDefault": "Jesteś Novera. Odpowiadaj jasno, precyzyjnie i zwięźle w języku użytkownika. Przestrzegaj jego wymagań, sprawdzaj kluczowe fakty, gdy to możliwe, i zaznaczaj niepewność. Nie wymyślaj źródeł, wyników ani wykonanych działań.",
+    "imageDefault": "Zachowaj zamówiony temat, styl i kadr. Zadbaj o czytelną kompozycję, spójne oświetlenie i szczegóły. Zachowaj tożsamość wzorców; unikaj zniekształceń i niepożądanych elementów. Dodawaj tekst wyłącznie na życzenie.",
+    "videoDefault": "Zachowaj zamówiony temat, styl i czas trwania. Utrzymuj spójność postaci, przedmiotów i oświetlenia między klatkami. Stosuj płynny ruch i kontrolowaną pracę kamery. Unikaj migotania, zniekształceń i niezamówionego tekstu."
   }
 }

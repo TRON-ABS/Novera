@@ -169,7 +169,8 @@
     "manualNote": "RAM/VRAM yoo ga’e, barruun, suuraan fi viidiyoon haasawa adda addaatti walumaan hojjachuu danda’u. Yaadannoon dhumuu danda’a.",
     "preserve": "Faayiloonni fi haasawni ni eegamu; moodeelonni yeroo barbaachisu deebi’anii fe’amu. Jijjiiramni gaaffii haaraa ilaallata.",
     "waiting": "Eegaa ykn RAM/VRAM gad lakkisaa…",
-    "failed": "Fooyyessi yaadannoo hin milkoofne. Irra deebi’i ykn Harkaan filadhu."
+    "failed": "Fooyyessi yaadannoo hin milkoofne. Irra deebi’i ykn Harkaan filadhu.",
+    "compactTitle": "Kuusaa ofumaan"
   },
   "sharing": {
     "share": "Share godhaa",
@@ -198,5 +199,10 @@
     "assistant": "Gargaaraa",
     "linuxHint": "Linux application email keessan attachment waliin bana. Wanti ofumaan ergamu hin jiru.",
     "copyFile": "Faayilii waraabi"
+  },
+  "instructions": {
+    "textDefault": "Ati Novera dha. Afaan fayyadamaatiin ifatti, sirriitti fi gabaabinaan deebisi. Ulaagaa isaa kabaji; yoo danda’ame dhugaawwan ijoo mirkaneessi, waan hin mirkanoofnes ibsi. Maddoota, bu’aawwan ykn hojii hojjetame hin uumamin.",
+    "imageDefault": "Mata duree, akkaataa fi daangaa suuraa gaafatame hordofi. Qindaa’ina ifaa, ifa wal simatuu fi bal’ina qulqulluu fayyadami. Eenyummaa wabii eegi; jallina fi wantoota hin barbaachifne irraa fagaadhu. Barruu yoo gaafatame qofa dabali.",
+    "videoDefault": "Mata duree, akkaataa fi yeroo gaafatame hordofi. Namoota, wantootaa fi ifa gidduu suuraawwaniitti wal simsiisi. Sochii lallaafaa fi kaameraa to’atame fayyadami. Calaqqisa deddeebi’u, jallina fi barruu hin gaafatamne irraa fagaadhu."
   }
 }

@@ -20,6 +20,7 @@ import { getProviderTitle } from '@/lib/utils'
 import { reserveImageSeed } from './seed'
 import { useImageUpscale } from '@/hooks/useImageUpscale'
 import { normalizeLocalPath } from '@/modules/platform/local-path'
+import { withNoveraInstructions } from '@/hooks/useNoveraInstructions'
 
 export function creationStream(
   task: CreationTask,
@@ -30,6 +31,7 @@ export function creationStream(
   onFinish: () => void
 ) {
   const state = useCreation.getState()
+  const generationPrompt = withNoveraInstructions(task, prompt.replace(/^\/(?:image|video)\s*/i, ''))
   const selection = state.selections?.[scope]?.[task]
   const profile =
     selection?.provider === 'diffusers'
@@ -167,7 +169,7 @@ export function creationStream(
           const result = await generateCloudMedia({
             provider: provider!,
             preset: preset!,
-            prompt,
+            prompt: generationPrompt,
             inputImage,
             signal: cloudController.signal,
             fetch: getServiceHub().providers().fetch(),
@@ -185,7 +187,7 @@ export function creationStream(
                 task,
                 provider: selection.provider,
                 model: selection.id,
-                prompt,
+                prompt: generationPrompt,
                 url: result.url ?? null,
                 base64: result.base64 ?? null,
               },
@@ -241,7 +243,7 @@ export function creationStream(
                 cpp_llm: settings.ggufTextEncoder ?? null,
                 cpp_vae: settings.ggufVae ?? null,
                 cpp_cfg: settings.ggufGuidance ?? 1,
-                prompt: prompt.replace(/^\/(?:image|video)\s*/i, ''),
+                prompt: generationPrompt,
                 model,
                 python: settings.python,
                 device: settings.device,

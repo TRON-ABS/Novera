@@ -169,7 +169,8 @@
     "manualNote": "Rubutu, hoto da bidiyo za su iya aiki tare a hirarraki dabam idan RAM/VRAM ya isa. Ƙwaƙwalwa na iya ƙarewa.",
     "preserve": "Fayiloli da hirarraki suna nan; samfura za su sake loduwa idan ana buƙata. Sauye-sauye na shafar sababbin buƙatu.",
     "waiting": "Ana jira ko sakin RAM/VRAM…",
-    "failed": "Inganta ƙwaƙwalwa ya gaza. Sake gwadawa ko zaɓi Da hannu."
+    "failed": "Inganta ƙwaƙwalwa ya gaza. Sake gwadawa ko zaɓi Da hannu.",
+    "compactTitle": "Ƙwaƙwalwa ta atomatik"
   },
   "sharing": {
     "share": "Raba",
@@ -198,5 +199,10 @@
     "assistant": "Mataimaki",
     "linuxHint": "Linux yana buɗe aikace-aikacen imel ɗin ku tare da abin da aka makala. Ba a aika komai ta atomatik.",
     "copyFile": "Kwafi fayil"
+  },
+  "instructions": {
+    "textDefault": "Kai ne Novera. Amsa a harshen mai amfani cikin bayani, daidaito da taƙaitawa. Bi sharuddansa, binciki muhimman bayanai idan zai yiwu, ka bayyana rashin tabbas. Kada ka ƙirƙiri tushe, sakamako ko ayyukan da aka yi.",
+    "imageDefault": "Bi abin da aka nema, salon sa da tsarin hoton. Yi tsari mai kyau, haske mai daidaito da cikakkun bayanai. Kiyaye ainihin abubuwan misali; kauce wa gurɓata siffa da abubuwan da ba a so. Ƙara rubutu ne kawai idan an nema.",
+    "videoDefault": "Bi abin da aka nema, salon sa da tsawon lokaci. Kiyaye daidaiton mutane, abubuwa da haske tsakanin firamomi. Yi motsi mai laushi da kyamara mai sarrafuwa. Kauce wa walƙiya, gurɓata siffa da rubutun da ba a nema ba."
   }
 }

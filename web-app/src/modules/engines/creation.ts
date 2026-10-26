@@ -43,38 +43,39 @@ export function resolveOutputMode(
   prompt: string
 ): Exclude<OutputMode, 'auto'> {
   if (mode !== 'auto') return mode
-  // Explicit commands are language-independent; ambiguous questions stay text.
-  if (/^\/image(?:\s|$)/i.test(prompt)) return 'image'
-  if (/^\/video(?:\s|$)/i.test(prompt)) return 'video'
-  if (
-    /^animate\b/i.test(prompt) ||
-    /^(?:anime|animer)\s+(?:cette|cet|une|mon|ma|l['’])/i.test(prompt)
-  )
-    return 'video'
-  if (
-    /^(?:modifie|modifier|retouche|retoucher|edit|modify)\b.{0,80}\b(?:image|photo|picture)\b/iu.test(
-      prompt
-    )
-  )
-    return 'image'
-  if (
-    /^(?:crée|créer|génère|générer|dessine|create|generate|draw)\b.{0,80}\b(?:vidéo|video|clip)\b/iu.test(
-      prompt
-    )
-  )
-    return 'video'
-  if (
-    /^(?:crée|créer|génère|générer|dessine|create|generate|draw)\b.{0,80}\b(?:image|photo|illustration|picture)\b/iu.test(
-      prompt
-    )
-  )
-    return 'image'
+  const request = creationRequestText(prompt)
+  // Explicit slash commands work independently of interface language.
+  if (/^\/image(?:\s|$)/.test(request)) return 'image'
+  if (/^\/video(?:\s|$)/.test(request)) return 'video'
+  const action = /^(?:cree|creer|genere|generer|dessine|dessiner|fais|faire|realise|realiser|produis|produire|create|generate|draw|paint|make|produce|render|design|anime|animer|animate|modifie|modifier|retouche|retoucher|edit|modify)(?:[- ](?:moi|nous|me|us))?(?!\p{L})\s*/u.exec(request)
+  const body = (action ? request.slice(action[0].length) : request).replace(/^(?:pour|for)\s+(?:moi|nous|me|us)\s+/, '')
+  // A request to write a prompt, explanation, script or code stays text even
+  // when it names media later in the sentence. Never inspect global instructions.
+  if (/^(?:(?:un|une|le|la|les|des|a|an|the|this|cette|ce|mon|ma)\s+)?(?:(?:petit|petite|beau|belle|bon|bonne|court|courte|long|longue|simple|complet|complete|good|short|long|detailed|beautiful|small|brief)\s+){0,3}(?:prompt|texte|text|description|explication|explanation|script|scenario|storyboard|code|html|guide|tutoriel|tutorial|reponse|answer|instruction|instructions|site|website|application|app|tableau|dashboard|interface|table|message|lettre|letter|article|histoire|story|poeme|poem|email|e-mail)\b/.test(body)) return 'text'
+  if (/^(?:(?:un|une|a|an|the)\s+)?(?:video|image|photo)\s+(?:prompt|script|description|tutorial|guide)\b/.test(body)) return 'text'
+  if (/^(?:anime|animer|animate)\b/.test(request)) return 'video'
+  const subject = /\b(image|photo|photographie|illustration|picture|painting|portrait|logo|dessin|visuel|video|clip|animation|film)\b/.exec(body)
+  const nounRequest = /^(?:(?:un|une|a|an|the|la|le)\s+)?(?:(?:beau|belle|magnifique|beautiful|realistic|realiste|joli|jolie|court|courte|short)\s+){0,3}(?:image|photo|illustration|portrait|logo|video|clip|animation)\s+(?:de\b|d'|of\b|avec\b|showing\b|montrant\b)/.test(body)
+  if (subject && (action || nounRequest)) {
+    return /^(?:video|clip|animation|film)$/.test(subject[1]) ? 'video' : 'image'
+  }
+  if (/^(?:dessine|dessiner|draw|paint)\b/.test(request)) return 'image'
   return 'text'
 }
+
+function creationRequestText(prompt: string) {
+  let request = prompt.trim().normalize('NFKD').replace(/\p{M}/gu, '').replace(/[’‘]/g, "'").toLowerCase()
+  // Bound the stripping pass, keeping ordinary questions and nouns conservative.
+  const prefix = /^(?:(?:bonjour|salut|hello|hi)[,!:\s]+|(?:s'il (?:te|vous) plait|stp|svp|please|peux[- ]tu|pouvez[- ]vous|pourrais[- ]tu|pourriez[- ]vous|tu peux|vous pouvez|can you|could you|would you|i want you to|je veux|je voudrais|je souhaite|j'aimerais)[,!:\s]+|(?:me|nous|que tu)\s+)/
+  for (let i = 0; i < 6; i++) {
+    const next = request.replace(prefix, '')
+    if (next === request) break
+    request = next.trimStart()
+  }
+  return request
+}
 export function referencesPreviousImage(prompt: string) {
-  return /^(?:animate|anime|animer|modifie|modifier|retouche|retoucher|edit|modify)\b/iu.test(
-    prompt
-  )
+  return /^(?:animate|anime|animer|modifie|modifier|retouche|retoucher|edit|modify)\b/.test(creationRequestText(prompt))
 }
 export const CREATION_PREFIX = 'novera-creation:'
 export function creationReference(task: CreationTask, name: string) {

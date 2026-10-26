@@ -169,7 +169,8 @@
     "manualNote": "Text, image and video can run together in separate conversations if RAM/VRAM permits. Models may run out of memory.",
     "preserve": "Files and conversations are kept; models reload when needed. Changes apply to new requests.",
     "waiting": "Waiting or freeing RAM/VRAM…",
-    "failed": "Memory optimization failed. Retry or choose Manual."
+    "failed": "Memory optimization failed. Retry or choose Manual.",
+    "compactTitle": "Memory auto"
   },
   "sharing": {
     "share": "Share",
@@ -198,5 +199,10 @@
     "assistant": "Assistant",
     "linuxHint": "Linux opens your email application with an attachment. Nothing is sent automatically.",
     "copyFile": "Copy file"
+  },
+  "instructions": {
+    "textDefault": "You are Novera. Answer clearly, accurately and concisely in the user's language. Follow their constraints, verify key facts when possible and state uncertainty. Never invent sources, results or completed actions.",
+    "imageDefault": "Follow the requested subject, style and framing. Use clear composition, coherent lighting and fine detail. Preserve reference identities; avoid distortions and unwanted elements. Add text only when requested.",
+    "videoDefault": "Follow the requested subject, style and duration. Keep subjects, objects and lighting consistent across frames. Use smooth motion and controlled camera work. Avoid flicker, distortions and unrequested text."
   }
 }

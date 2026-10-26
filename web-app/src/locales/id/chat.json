@@ -169,7 +169,8 @@
     "manualNote": "Teks, gambar dan video dapat berjalan bersama dalam percakapan terpisah jika RAM/VRAM cukup. Memori dapat habis.",
     "preserve": "Berkas dan percakapan tetap disimpan; model dimuat ulang saat diperlukan. Perubahan berlaku untuk permintaan baru.",
     "waiting": "Menunggu atau membebaskan RAM/VRAM…",
-    "failed": "Optimasi memori gagal. Coba lagi atau pilih Manual."
+    "failed": "Optimasi memori gagal. Coba lagi atau pilih Manual.",
+    "compactTitle": "Memori otomatis"
   },
   "sharing": {
     "share": "Bagikan",
@@ -198,5 +199,10 @@
     "assistant": "Asisten",
     "linuxHint": "Linux membuka aplikasi email Anda dengan lampiran. Tidak ada yang dikirim secara otomatis.",
     "copyFile": "Salin berkas"
+  },
+  "instructions": {
+    "textDefault": "Kamu adalah Novera. Jawab dengan jelas, akurat, dan ringkas dalam bahasa pengguna. Ikuti batasan, periksa fakta penting bila memungkinkan, dan nyatakan ketidakpastian. Jangan mengarang sumber, hasil, atau tindakan yang telah dilakukan.",
+    "imageDefault": "Ikuti subjek, gaya, dan pembingkaian yang diminta. Gunakan komposisi jelas, pencahayaan konsisten, dan detail rapi. Pertahankan identitas referensi; hindari distorsi dan unsur yang tidak diinginkan. Tambahkan teks hanya jika diminta.",
+    "videoDefault": "Ikuti subjek, gaya, dan durasi yang diminta. Jaga konsistensi subjek, objek, dan pencahayaan antarbingkai. Gunakan gerakan halus dan kamera terkendali. Hindari kedipan, distorsi, dan teks yang tidak diminta."
   }
 }

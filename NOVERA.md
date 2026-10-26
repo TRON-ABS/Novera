@@ -32,6 +32,9 @@ Lire [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour l’état actuel, [le 
 
 ## Autorisations et état courant
 
+Le **26 octobre 2026**, le mainteneur demande la mise à jour des MD, du dépôt et de sa vitrine après le panneau compact, les consignes Texte/Image/Vidéo dans 70 langues, Réinitialiser, Auto amélioré et les tailles finales ×2/×4. La publication des sources et des documents est autorisée. Un build Windows a déjà été compilé et contrôlé localement pour ce lot ; cette synchronisation ne déclenche ni compilation supplémentaire, ni publication de binaire, ni activation des Actions.
+
+
 Le **26 octobre 2026**, le mainteneur demande aussi la publication de l’installation conseillée, de la bibliothèque média, du moteur image embarqué et la mise à jour des MD et de la vitrine. Conserver Qwen3 GGUF CPU ; le Qwen NVFP4 a été explicitement annulé. Cette demande ne lance pas de compilation de Novera ni de publication de binaire.
 
 Le mainteneur a demandé le **25 octobre 2026** que le dépôt reflète toutes les dernières sources et documentations. Les publications de sources sont autorisées ; exclure secrets, configuration locale, données utilisateur, exécutables/APK, caches et diagnostics bruts. Garder GitHub Actions désactivé.

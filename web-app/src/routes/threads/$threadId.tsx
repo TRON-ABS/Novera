@@ -24,6 +24,7 @@ import {
   estimateConversationTokens,
 } from '@/lib/context-manager'
 import { renderInstructions } from '@/lib/instructionTemplate'
+import { useNoveraInstructions, getNoveraInstructions } from '@/hooks/useNoveraInstructions'
 import {
   Conversation,
   ConversationContent,
@@ -359,9 +360,12 @@ function ThreadConversation() {
   // Get system message from thread's assistant instructions (if thread has an assigned assistant)
   // Only use assistant instructions if the thread was created with one (e.g., via a project)
   const threadAssistant = thread?.assistants?.[0]
-  const systemMessage = threadAssistant?.instructions
+  const savedTextInstructions = useNoveraInstructions((s) => s.instructions.text)
+  const textInstructions = savedTextInstructions ?? getNoveraInstructions().text
+  const assistantInstructions = threadAssistant?.instructions
     ? renderInstructions(threadAssistant.instructions)
     : undefined
+  const systemMessage = [assistantInstructions, renderInstructions(textInstructions)].filter(Boolean).join('\n\n') || undefined
 
   useEffect(() => {
     threadRef.current = thread

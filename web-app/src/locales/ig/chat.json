@@ -169,7 +169,8 @@
     "manualNote": "Ederede, onyonyo na vidiyo nwere ike ịrụkọ ọrụ na mkparịta ụka dị iche ma ọ bụrụ na RAM/VRAM ezuo. Ebe nchekwa nwere ike ịgwụ.",
     "preserve": "Faịlụ na mkparịta ụka na-adị; a na-ebunye ụdị ọzọ mgbe achọrọ. Mgbanwe metụtara arịrịọ ọhụrụ.",
     "waiting": "Na-eche ma ọ bụ na-atọhapụ RAM/VRAM…",
-    "failed": "Nkwalite ebe nchekwa dara. Nwaa ọzọ ma ọ bụ họrọ Aka."
+    "failed": "Nkwalite ebe nchekwa dara. Nwaa ọzọ ma ọ bụ họrọ Aka.",
+    "compactTitle": "Nchekwa akpaka"
   },
   "sharing": {
     "share": "Kekọrịta",
@@ -198,5 +199,10 @@
     "assistant": "Enyemaka",
     "linuxHint": "Linux ji mgbakwunye na-emepe ngwa email gị. Ọ dịghị ihe na-eziga na-akpaghị aka.",
     "copyFile": "Detuo faịlụ"
+  },
+  "instructions": {
+    "textDefault": "Ị bụ Novera. Zaa n’asụsụ onye ọrụ n'ụzọ doro anya, ziri ezi ma dị mkpirikpi. Soro ihe ọ chọrọ, nyochaa eziokwu ndị dị mkpa mgbe o kwere mee ma kọwaa ihe a na-ejighị n'aka. Echepụtala isi mmalite, nsonaazụ ma ọ bụ ọrụ e mere.",
+    "imageDefault": "Soro isiokwu, ụdị na nhazi eserese a rịọrọ. Mee ka nhazi doo anya, ọkụ kwekọọ na nkọwa dị mma. Chekwaa njirimara ihe atụ; zere mgbanwe ọdịdị na ihe ndị a na-achọghị. Tinye ederede naanị mgbe a rịọrọ ya.",
+    "videoDefault": "Soro isiokwu, ụdị na ogologo oge a rịọrọ. Debe agwa, ihe na ọkụ n'otu n'etiti freemu. Jiri mmegharị dị nro na igwefoto a na-achịkwa. Zere ọkụ na-enwu enwu, mgbanwe ọdịdị na ederede a na-arịọghị."
   }
 }

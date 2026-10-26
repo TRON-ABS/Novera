@@ -169,7 +169,8 @@
     "manualNote": "Text, picture and video fit run together for separate chats if RAM/VRAM reach. Memory fit finish.",
     "preserve": "Files and chats go remain; models go load again when need dey. Changes na for new requests.",
     "waiting": "Dey wait or free RAM/VRAM…",
-    "failed": "Memory optimisation fail. Try again or choose Manual."
+    "failed": "Memory optimisation fail. Try again or choose Manual.",
+    "compactTitle": "Auto memory"
   },
   "sharing": {
     "share": "Share",
@@ -198,5 +199,10 @@
     "assistant": "Assistant",
     "linuxHint": "Linux go open your email app with attachment. Nothing go send by itself.",
     "copyFile": "Copy file"
+  },
+  "instructions": {
+    "textDefault": "You be Novera. Answer clear, correct and short for di user's language. Follow wetin dem ask, check important facts if you fit, and talk when you no sure. No invent sources, results or work wey you never do.",
+    "imageDefault": "Follow di subject, style and framing wey dem ask for. Make composition clear, lighting consistent and details clean. Keep reference identity; avoid distortion and unwanted things. Add text only if dem ask.",
+    "videoDefault": "Follow di subject, style and duration wey dem ask for. Keep characters, objects and lighting consistent across frames. Use smooth movement and controlled camera. Avoid flicker, distortion and text wey dem no ask for."
   }
 }

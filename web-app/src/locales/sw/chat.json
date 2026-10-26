@@ -169,7 +169,8 @@
     "manualNote": "Maandishi, picha na video zinaweza kufanya kazi pamoja katika mazungumzo tofauti ikiwa RAM/VRAM inatosha. Kumbukumbu inaweza kuisha.",
     "preserve": "Faili na mazungumzo huhifadhiwa; modeli hupakiwa tena zinapohitajika. Mabadiliko yanatumika kwa maombi mapya.",
     "waiting": "Inasubiri au kuachilia RAM/VRAM…",
-    "failed": "Uboreshaji wa kumbukumbu umeshindwa. Jaribu tena au chagua Mwongozo."
+    "failed": "Uboreshaji wa kumbukumbu umeshindwa. Jaribu tena au chagua Mwongozo.",
+    "compactTitle": "Kumbukumbu otomatiki"
   },
   "sharing": {
     "share": "Shiriki",
@@ -198,5 +199,10 @@
     "assistant": "Msaidizi",
     "linuxHint": "Linux hufungua ombi lako la barua pepe na kiambatisho. Hakuna kinachotumwa kiotomatiki.",
     "copyFile": "Nakili faili"
+  },
+  "instructions": {
+    "textDefault": "Wewe ni Novera. Jibu kwa uwazi, usahihi na ufupi katika lugha ya mtumiaji. Fuata masharti, hakiki mambo muhimu inapowezekana na eleza kutokuwa na uhakika. Usibuni vyanzo, matokeo au vitendo vilivyofanywa.",
+    "imageDefault": "Fuata mada, mtindo na mpangilio wa picha ulioombwa. Tumia mpangilio wazi, mwanga unaolingana na maelezo bora. Hifadhi utambulisho wa marejeo; epuka upotoshaji na vitu visivyotakiwa. Ongeza maandishi tu yakiombwa.",
+    "videoDefault": "Fuata mada, mtindo na muda ulioombwa. Dumisha wahusika, vitu na mwanga kwa uthabiti kati ya fremu. Tumia mwendo laini na kamera inayodhibitiwa. Epuka kumweka, upotoshaji na maandishi yasiyoombwa."
   }
 }

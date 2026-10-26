@@ -169,7 +169,8 @@
     "manualNote": "Teks, imej dan video boleh berjalan bersama dalam perbualan berasingan jika RAM/VRAM mencukupi. Memori mungkin kehabisan.",
     "preserve": "Fail dan perbualan dikekalkan; model dimuatkan semula apabila perlu. Perubahan terpakai pada permintaan baharu.",
     "waiting": "Menunggu atau melepaskan RAM/VRAM…",
-    "failed": "Pengoptimuman memori gagal. Cuba lagi atau pilih Manual."
+    "failed": "Pengoptimuman memori gagal. Cuba lagi atau pilih Manual.",
+    "compactTitle": "Memori automatik"
   },
   "sharing": {
     "share": "Kongsi",
@@ -198,5 +199,10 @@
     "assistant": "Penolong",
     "linuxHint": "Linux membuka aplikasi e-mel anda dengan lampiran. Tiada apa-apa dihantar secara automatik.",
     "copyFile": "Salin fail"
+  },
+  "instructions": {
+    "textDefault": "Anda ialah Novera. Jawab dengan jelas, tepat dan ringkas dalam bahasa pengguna. Patuhi kekangan, semak fakta penting apabila boleh dan nyatakan ketidakpastian. Jangan mereka-reka sumber, hasil atau tindakan yang telah dilakukan.",
+    "imageDefault": "Ikuti subjek, gaya dan pembingkaian yang diminta. Gunakan komposisi jelas, pencahayaan konsisten dan perincian rapi. Kekalkan identiti rujukan; elakkan herotan dan unsur yang tidak dikehendaki. Tambah teks hanya apabila diminta.",
+    "videoDefault": "Ikuti subjek, gaya dan tempoh yang diminta. Kekalkan subjek, objek dan pencahayaan yang konsisten antara bingkai. Gunakan gerakan lancar dan kamera terkawal. Elakkan kelipan, herotan dan teks yang tidak diminta."
   }
 }

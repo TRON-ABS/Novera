@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { CreationControls } from '../CreationControls'
+import { CreationControls, CreationModelControl } from '../CreationControls'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import { useImageUpscale } from '@/hooks/useImageUpscale'
 const mocks = vi.hoisted(() => ({ open: vi.fn() }))
@@ -47,17 +47,19 @@ describe('creation choices in the composer', () => {
       name: 'chat:creation.upscaleTitle · ×2 · 1024 × 448',
     })
     expect(badge).toHaveClass('composer-tool-active')
-    expect(badge).toHaveTextContent('Real-ESRGAN ×2 · 1024 × 448')
+    expect(badge).toHaveTextContent('×2 · ON')
+    expect(badge).toHaveTextContent('1024 × 448')
+    expect(badge).toHaveAttribute('title', 'Real-ESRGAN ×2 · 1024 × 448')
     useImageUpscale.setState({ factor: 4 })
     rerender(<CreationControls scope="sized" disabled={false} />)
     expect(
       screen.getByRole('button', {
         name: 'chat:creation.upscaleTitle · ×4 · 2048 × 896',
       })
-    ).toBeInTheDocument()
+    ).toHaveTextContent('2048 × 896')
     useImageUpscale.setState({ enabled: false })
     rerender(<CreationControls scope="sized" disabled={false} />)
-    expect(screen.queryByText(/Real-ESRGAN ×/)).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'chat:creation.upscaleTitle · ×4 · OFF' })).toHaveTextContent('×4 · OFF')
   })
   it('keeps output choice scoped to the current thread and offers local model selection', async () => {
     mocks.open.mockResolvedValue('D:/models/image')
@@ -75,6 +77,18 @@ describe('creation choices in the composer', () => {
       multiple: false,
     })
   })
+  it('opens the creation settings from the compact model selector and marks only the selected mode', () => {
+    useCreation.setState({
+      modes: { compact: 'image' },
+      settings: { ...creationDefaults, imageModel: 'D:/models/klein.gguf' },
+    })
+    render(<><CreationControls scope="compact" disabled={false} /><CreationModelControl scope="compact" disabled={false} /></>)
+    expect(screen.getByRole('button', { name: 'chat:creation.image' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('button', { name: 'chat:creation.text' })).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.model: klein.gguf' }))
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
+  })
   it('locks output changes while a request is running and exposes progress', () => {
     useCreation.setState({
       progress: { 'thread-a': { stage: 'generating', progress: 35 } },
@@ -84,6 +98,19 @@ describe('creation choices in the composer', () => {
       screen.getByRole('button', { name: 'chat:creation.video' })
     ).toBeDisabled()
     expect(screen.getByRole('status')).toHaveTextContent('35%')
+  })
+  it('opens size choices directly and switches upscaling on/off without opening model settings', () => {
+    useCreation.setState({ modes: { direct: 'image' }, settings: { ...creationDefaults, imageModel: 'D:/model', width: 512, height: 512 } })
+    render(<CreationControls scope="direct" disabled={false} />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.upscaleTitle · ×2 · OFF' }))
+    expect(useImageUpscale.getState().enabled).toBe(true)
+    expect(screen.queryByText('chat:creation.localNote')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.upscaleTitle · ×2 · 1024 × 1024' }))
+    expect(useImageUpscale.getState().enabled).toBe(false)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.ratio' }))
+    fireEvent.click(screen.getByRole('button', { name: '16:9' }))
+    expect(useCreation.getState().settings.mediaRatio).toBe('16:9')
+    expect(screen.queryByText('chat:creation.localNote')).not.toBeInTheDocument()
   })
   it('offers image seed modes, reuses the previous seed and shows the resolution limit', () => {
     useCreation.getState().setSettings({ lastImageSeed: 1234 })

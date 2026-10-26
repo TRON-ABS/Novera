@@ -16,8 +16,9 @@ describe('visible memory policy guidance', () => {
   beforeEach(() => useMemoryPolicy.setState({ policy: 'auto', waiting: {} }))
   it('defaults to Automatic and explains Manual parallel text/image/video without resetting model choices', () => {
     render(<MemoryModeControl scope="a" />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:memory.title' }))
     expect(screen.getByText('chat:memory.autoNote')).toBeInTheDocument()
-    fireEvent.change(screen.getByLabelText('chat:memory.title'), {
+    fireEvent.change(screen.getByRole('combobox', { name: 'chat:memory.title' }), {
       target: { value: 'manual' },
     })
     expect(useMemoryPolicy.getState().policy).toBe('manual')
@@ -26,8 +27,8 @@ describe('visible memory policy guidance', () => {
   })
   it('keeps waiting status visible in the collapsed summary and scoped to its conversation', () => {
     useMemoryPolicy.setState({ waiting: { a: 1 } })
-    const { container } = render(<MemoryModeControl scope="a" />)
-    expect(container.querySelector('summary')).toHaveTextContent(
+    render(<MemoryModeControl scope="a" />)
+    expect(screen.getByRole('button', { name: 'chat:memory.title' })).toHaveTextContent(
       'chat:memory.waiting'
     )
     expect(screen.getByRole('status')).toBeInTheDocument()

@@ -6,6 +6,7 @@ import { useMediaLibrary } from '@/hooks/useMediaLibrary'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import type { UIMessage } from 'ai'
 import { useImageUpscale } from '@/hooks/useImageUpscale'
+import { useNoveraInstructions } from '@/hooks/useNoveraInstructions'
 
 vi.mock('./memory', () => ({
   beginLocalMemory: async () => () => {},
@@ -36,6 +37,7 @@ async function read(stream: ReturnType<typeof creationStream>) {
 describe('media generation conversation stream', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    useNoveraInstructions.setState({ instructions: { text: 'TEXT ONLY', image: 'IMAGE ONLY', video: 'VIDEO ONLY' } })
     useImageUpscale.setState({
       enabled: false,
       factor: 2,
@@ -53,6 +55,20 @@ describe('media generation conversation stream', () => {
       sources: {},
       progress: {},
     })
+  })
+  it.each(['image', 'video'] as const)('applies only %s instructions to the native prompt without changing generation parameters', async (task) => {
+    useMediaLibrary.setState({ profiles: [] })
+    useCreation.setState({ selections: {} })
+    vi.mocked(invoke).mockImplementation(async (command) => command === 'creation_start' ? 'instructions-job' : {
+      stage: 'done', name: `Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.${task === 'image' ? 'png' : 'mp4'}`,
+    })
+    const settings = { ...useCreation.getState().settings }
+    await read(creationStream(task, `/${task} a castle`, messages, 'category', undefined, vi.fn()))
+    expect(invoke).toHaveBeenCalledWith('creation_start', expect.objectContaining({ request: expect.objectContaining({
+      prompt: `${task === 'image' ? 'IMAGE ONLY' : 'VIDEO ONLY'}\n\na castle`,
+      width: settings.width, height: settings.height,
+    }) }))
+    expect(useCreation.getState().settings).toMatchObject(settings)
   })
   it('uses the saved media configuration for this thread rather than another thread’s current settings', async () => {
     useMediaLibrary.setState({

@@ -169,7 +169,8 @@
     "manualNote": "Maaaring sabay ang teksto, larawan at video sa magkakahiwalay na usapan kung sapat ang RAM/VRAM. Maaaring maubos ang memory.",
     "preserve": "Nananatili ang mga file at usapan; muling naglo-load ang modelo kapag kailangan. Para sa bagong kahilingan ang mga pagbabago.",
     "waiting": "Naghihintay o nagpapalaya ng RAM/VRAM…",
-    "failed": "Nabigo ang pag-optimize ng memory. Subukan muli o piliin ang Manwal."
+    "failed": "Nabigo ang pag-optimize ng memory. Subukan muli o piliin ang Manwal.",
+    "compactTitle": "Awtomatikong memorya"
   },
   "sharing": {
     "share": "Ibahagi",
@@ -198,5 +199,10 @@
     "assistant": "Katulong",
     "linuxHint": "Binubuksan ng Linux ang iyong email application gamit ang isang attachment. Walang awtomatikong ipinapadala.",
     "copyFile": "Kopyahin ang file"
+  },
+  "instructions": {
+    "textDefault": "Ikaw si Novera. Sumagot nang malinaw, tumpak at maikli sa wika ng gumagamit. Sundin ang mga hinihingi, suriin ang mahahalagang katotohanan kung maaari at sabihin ang hindi tiyak. Huwag mag-imbento ng sanggunian, resulta o natapos na gawain.",
+    "imageDefault": "Sundin ang hinihinging paksa, estilo at pag-frame. Gumamit ng malinaw na komposisyon, magkakatugmang ilaw at maayos na detalye. Panatilihin ang pagkakakilanlan ng sanggunian; iwasan ang pagbaluktot at di-kanais-nais na elemento. Magdagdag lamang ng teksto kung hiniling.",
+    "videoDefault": "Sundin ang hinihinging paksa, estilo at tagal. Panatilihing magkakatugma ang mga tauhan, bagay at ilaw sa bawat frame. Gumamit ng maayos na galaw at kontroladong kamera. Iwasan ang pagkutitap, pagbaluktot at tekstong hindi hiniling."
   }
 }

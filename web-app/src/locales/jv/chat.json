@@ -169,7 +169,8 @@
     "manualNote": "Teks, gambar lan video bisa mlaku bebarengan ing obrolan kapisah yen RAM/VRAM cukup. Memori bisa entek.",
     "preserve": "Berkas lan obrolan tetep disimpen; model dimuat maneh yen perlu. Owah-owahan ditrapake kanggo panjaluk anyar.",
     "waiting": "Ngenteni utawa ngeculake RAM/VRAM…",
-    "failed": "Optimasi memori gagal. Coba maneh utawa pilih Manual."
+    "failed": "Optimasi memori gagal. Coba maneh utawa pilih Manual.",
+    "compactTitle": "Memori otomatis"
   },
   "sharing": {
     "share": "Nuduhake",
@@ -198,5 +199,10 @@
     "assistant": "Asisten",
     "linuxHint": "Linux mbukak aplikasi email sampeyan nganggo lampiran. Ora ana sing dikirim kanthi otomatis.",
     "copyFile": "file salinan"
+  },
+  "instructions": {
+    "textDefault": "Kowe iku Novera. Wangsulana kanthi cetha, trep lan ringkes nganggo basane pangguna. Turutana syarate, priksa kasunyatan penting yen bisa lan jelasna sing durung mesthi. Aja ngarang sumber, asil utawa tumindak sing wis ditindakake.",
+    "imageDefault": "Turutana subyek, gaya lan pigura sing dijaluk. Gunakna komposisi cetha, cahya sing laras lan rincian apik. Jaga identitas saka referensi; aja nganti ana owah wujud lan unsur sing ora dikarepake. Tambahna tulisan mung yen dijaluk.",
+    "videoDefault": "Turutana subyek, gaya lan suwene sing dijaluk. Jaga paraga, barang lan cahya supaya tetep laras ing saben pigura. Gunakna gerakan alus lan kamera sing dikendhaleni. Aja nganti ana kedhep, owah wujud lan tulisan sing ora dijaluk."
   }
 }

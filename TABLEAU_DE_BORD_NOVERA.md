@@ -1,5 +1,16 @@
 # Novera — tableau de bord
 
+## Panneau compact et trois consignes — 26 octobre 2026
+
+Le panneau de discussion est désormais compact, avec un contour dégradé et des états ON/OFF explicites. Les menus Ratio/Résolution règlent directement les dimensions. L’interrupteur d’agrandissement et son menu ×2/×4 affichent la taille finale réelle ; la mémoire automatique indique son état.
+
+Le bouton de carnet Novera ouvre uniquement les trois consignes **Texte, Image et Vidéo** : aucun réglage du modèle n’est accessible dans cet éditeur. Les **210 consignes par défaut** suivent les **70 langues** ; les personnalisations sont conservées au changement de langue. Réinitialiser prépare les valeurs par défaut, Sauvegarder les applique, Annuler conserve les précédentes. Les catalogues couvrent désormais **1 738 clés** chacun.
+
+Auto reconnaît davantage de formulations françaises/anglaises, notamment les demandes polies et de dessin. Les demandes de prompt, script, explication ou site restent du texte. Les exemples d’échec effacés par le mainteneur n’ont pas été reproduits ; les nouveaux cas sont des tests de régression représentatifs.
+
+Validation locale : **420 tests dans 14 fichiers**, TypeScript, build Vite Windows, compilation Release et contrôle visuel dans l’application. Le dialogue à trois champs et les tailles 1024 × 432 → 2048 × 864 en ×2, puis 4096 × 1728 en ×4 ont été vérifiés ; ×2 a été rétabli après l’essai. Aucun nouveau rendu image/vidéo n’est revendiqué pour ce lot. Un build Windows local contient ces changements ; **aucun binaire public ni validation CI**. [Utilisation](docs/USER_GUIDE.md#real-esrgan--chemins-windows-python-et-taille-finale--26-octobre-2026).
+
+
 ## Noms de pièces jointes compatibles — 26 octobre 2026
 
 Les pièces jointes transmises au partage système, au partage navigateur et à **Copier le fichier** utilisent désormais un nom ASCII compatible : accents simplifiés, espaces et caractères spéciaux remplacés, nom de secours `Novera` si nécessaire. L’extension réelle, le titre et le contenu multilingue sont conservés ; l’enregistrement local garde le nom proposé en langue d’origine. Cette protection commune vise les applications destinataires au-delà de WhatsApp. Elle nécessite une nouvelle compilation de Novera.

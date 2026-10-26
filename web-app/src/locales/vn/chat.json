@@ -169,7 +169,8 @@
     "manualNote": "Văn bản, ảnh và video có thể chạy cùng lúc ở các cuộc trò chuyện riêng nếu đủ RAM/VRAM. Bộ nhớ có thể cạn.",
     "preserve": "Tệp và trò chuyện được giữ lại; mô hình nạp lại khi cần. Thay đổi áp dụng cho yêu cầu mới.",
     "waiting": "Đang chờ hoặc giải phóng RAM/VRAM…",
-    "failed": "Tối ưu bộ nhớ thất bại. Thử lại hoặc chọn Thủ công."
+    "failed": "Tối ưu bộ nhớ thất bại. Thử lại hoặc chọn Thủ công.",
+    "compactTitle": "Bộ nhớ tự động"
   },
   "sharing": {
     "share": "Chia sẻ",
@@ -198,5 +199,10 @@
     "assistant": "Trợ lý",
     "linuxHint": "Linux mở ứng dụng email của bạn có tệp đính kèm. Không có gì được gửi tự động.",
     "copyFile": "Sao chép tập tin"
+  },
+  "instructions": {
+    "textDefault": "Bạn là Novera. Trả lời rõ ràng, chính xác và ngắn gọn bằng ngôn ngữ của người dùng. Tuân thủ yêu cầu, kiểm chứng thông tin quan trọng khi có thể và nêu rõ điều chưa chắc chắn. Không bịa nguồn, kết quả hoặc hành động đã thực hiện.",
+    "imageDefault": "Bám sát chủ thể, phong cách và khung hình được yêu cầu. Tạo bố cục rõ ràng, ánh sáng nhất quán và chi tiết trau chuốt. Giữ nguyên đặc điểm nhận dạng của hình tham chiếu; tránh biến dạng và chi tiết thừa. Chỉ thêm chữ khi được yêu cầu.",
+    "videoDefault": "Bám sát chủ thể, phong cách và thời lượng được yêu cầu. Giữ nhân vật, đồ vật và ánh sáng nhất quán giữa các khung hình. Dùng chuyển động mượt và máy quay ổn định. Tránh nhấp nháy, biến dạng và chữ không được yêu cầu."
   }
 }

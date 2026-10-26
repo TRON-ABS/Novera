@@ -330,6 +330,7 @@ vi.mock('@/lib/platform/utils', () => ({
 // Import component AFTER all mocks
 import ChatInput from '../ChatInput'
 import { useImageAttachmentConfig } from '@/hooks/useImageAttachmentConfig'
+import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
 import { toast } from 'sonner'
 
 // Helpers -------------------------------------------------------------------
@@ -844,6 +845,33 @@ describe('ChatInput', () => {
   describe('tool controls', () => {
     const icons = (cls: string) =>
       document.querySelectorAll(`.tabler-icon-${cls}`).length
+
+    it('keeps the visible web status and accessible pressed state synchronized when toggled', () => {
+      useWebSearchConfig.setState({ webSearchEnabled: false })
+      renderInput()
+      const button = screen.getByRole('button', { name: 'common:web_search' })
+      expect(button).toHaveAttribute('aria-pressed', 'false')
+      expect(button).toHaveTextContent('OFF')
+      fireEvent.click(button)
+      expect(button).toHaveAttribute('aria-pressed', 'true')
+      expect(button).toHaveTextContent('ON')
+      fireEvent.click(button)
+      expect(button).toHaveAttribute('aria-pressed', 'false')
+      expect(button).toHaveTextContent('OFF')
+    })
+
+    it.each(['on', 'off', 'auto'] as const)('shows the actual Thinking %s setting without presenting Auto as Off', (value) => {
+      selectedProviderOverride = 'llamacpp'
+      selectedModelOverride = {
+        ...selectedModelOverride,
+        settings: { reasoning: { controller_props: { value } } },
+      }
+      renderInput()
+      const label = value === 'on' ? 'On' : value === 'off' ? 'Off' : 'Auto'
+      const button = screen.getByRole('button', { name: `Reasoning: ${label}` })
+      expect(button).toHaveAttribute('data-state', value)
+      expect(button).toHaveTextContent(value.toUpperCase())
+    })
 
     // Web access is a global capability both surfaces honour -- Cowork reads
     // the same store when it builds its tool set -- so the toggle travels.

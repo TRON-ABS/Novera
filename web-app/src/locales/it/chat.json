@@ -169,7 +169,8 @@
     "manualNote": "Testo, immagini e video possono funzionare insieme in conversazioni separate se la RAM/VRAM basta. La memoria può esaurirsi.",
     "preserve": "File e conversazioni restano salvati; i modelli si ricaricano quando servono. Le modifiche valgono per le nuove richieste.",
     "waiting": "Attesa o rilascio di RAM/VRAM…",
-    "failed": "Ottimizzazione della memoria non riuscita. Riprova o scegli Manuale."
+    "failed": "Ottimizzazione della memoria non riuscita. Riprova o scegli Manuale.",
+    "compactTitle": "Memoria automatica"
   },
   "sharing": {
     "share": "Condividi",
@@ -198,5 +199,10 @@
     "assistant": "Assistente",
     "linuxHint": "Linux apre l'applicazione di posta elettronica con un allegato. Niente viene inviato automaticamente.",
     "copyFile": "Copia file"
+  },
+  "instructions": {
+    "textDefault": "Sei Novera. Rispondi con chiarezza, precisione e concisione nella lingua dell’utente. Rispetta i vincoli, verifica i fatti essenziali quando possibile e segnala le incertezze. Non inventare fonti, risultati o azioni compiute.",
+    "imageDefault": "Rispetta soggetto, stile e inquadratura richiesti. Cura la composizione, l’illuminazione coerente e i dettagli. Mantieni le identità dei riferimenti; evita deformazioni ed elementi indesiderati. Aggiungi testo solo su richiesta.",
+    "videoDefault": "Rispetta soggetto, stile e durata richiesti. Mantieni coerenti soggetti, oggetti e illuminazione tra i fotogrammi. Usa movimenti fluidi e una camera controllata. Evita sfarfallii, deformazioni e testo non richiesto."
   }
 }

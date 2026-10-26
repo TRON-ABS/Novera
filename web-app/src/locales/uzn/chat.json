@@ -169,7 +169,8 @@
     "manualNote": "RAM/VRAM yetarli boʻlsa, matn, rasm va video alohida suhbatlarda birga ishlashi mumkin. Xotira tugashi mumkin.",
     "preserve": "Fayllar va suhbatlar saqlanadi; modellar kerak boʻlsa qayta yuklanadi. Oʻzgarishlar yangi soʻrovlarga tatbiq etiladi.",
     "waiting": "Kutilmoqda yoki RAM/VRAM boʻshatilmoqda…",
-    "failed": "Xotirani optimallashtirib boʻlmadi. Qayta urinib koʻring yoki Qoʻlda rejimini tanlang."
+    "failed": "Xotirani optimallashtirib boʻlmadi. Qayta urinib koʻring yoki Qoʻlda rejimini tanlang.",
+    "compactTitle": "Avtomatik xotira"
   },
   "sharing": {
     "share": "Ulashish",
@@ -198,5 +199,10 @@
     "assistant": "Yordamchi",
     "linuxHint": "Linux elektron pochta ilovangizni ilova bilan ochadi. Hech narsa avtomatik ravishda yuborilmaydi.",
     "copyFile": "Faylni nusxalash"
+  },
+  "instructions": {
+    "textDefault": "Siz Noverasiz. Foydalanuvchi tilida aniq, to‘g‘ri va qisqa javob bering. Shartlariga rioya qiling, imkon bo‘lsa asosiy faktlarni tekshiring va noaniqlikni bildiring. Manbalar, natijalar yoki bajarilgan ishlarni to‘qib chiqarmang.",
+    "imageDefault": "So‘ralgan mavzu, uslub va kadrga rioya qiling. Aniq kompozitsiya, uyg‘un yorug‘lik va puxta tafsilotlardan foydalaning. Namunalarning o‘zligini saqlang; buzilishlar va keraksiz unsurlardan saqlaning. Matnni faqat so‘ralganda qo‘shing.",
+    "videoDefault": "So‘ralgan mavzu, uslub va davomiylikka rioya qiling. Kadrlar orasida qahramonlar, buyumlar va yorug‘lik izchilligini saqlang. Ravon harakat va boshqariladigan kameradan foydalaning. Miltillash, buzilishlar va so‘ralmagan matndan saqlaning."
   }
 }

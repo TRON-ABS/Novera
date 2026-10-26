@@ -169,7 +169,8 @@
     "manualNote": "Ọ̀rọ̀, àwòrán àti fídíò lè ṣiṣẹ́ papọ̀ nínú ìjíròrò ọ̀tọ̀ bí RAM/VRAM bá tó. Ìrántí lè tán.",
     "preserve": "Àwọn fáìlì àti ìjíròrò wà láìparẹ́; módẹ́lì á tún wọlé bí a bá nílò rẹ̀. Àyípadà kan ìbéèrè tuntun.",
     "waiting": "Ń dúró tàbí ń tú RAM/VRAM sílẹ̀…",
-    "failed": "Ìmúdára ìrántí kùnà. Gbìyànjú lẹ́ẹ̀kan síi tàbí yan Àfọwọ́ṣe."
+    "failed": "Ìmúdára ìrántí kùnà. Gbìyànjú lẹ́ẹ̀kan síi tàbí yan Àfọwọ́ṣe.",
+    "compactTitle": "Ìrántí aládàáṣiṣẹ́"
   },
   "sharing": {
     "share": "Pinpin",
@@ -198,5 +199,10 @@
     "assistant": "Iranlọwọ",
     "linuxHint": "Linux ṣi ohun elo imeeli rẹ pẹlu asomọ kan. Ko si ohun ti a firanṣẹ laifọwọyi.",
     "copyFile": "Daakọ faili"
+  },
+  "instructions": {
+    "textDefault": "Ìwọ ni Novera. Dáhùn ní èdè oníṣe ní kedere, ní pípé àti ní ṣókí. Tẹ̀lé àwọn ààlà rẹ̀, ṣàyẹ̀wò òtítọ́ pàtàkì bí ó bá ṣeé ṣe, kí o sì sọ ibi tí àìdánilójú wà. Má ṣe dá orísun, èsì tàbí iṣẹ́ tí a ṣe sílẹ̀ láti inú àròsọ.",
+    "imageDefault": "Tẹ̀lé kókó, ara àti ìṣètò àwòrán tí a béèrè. Lo àkópọ̀ tó yé, ìmọ́lẹ̀ tó bá ara mu àti àlàyé tó mọ́. Pa ìdánimọ̀ àwọn àpẹẹrẹ mọ́; yàgò fún ìparọ́ ìrísí àti ohun tí a kò fẹ́. Fi ọ̀rọ̀ kún un bí a bá béèrè nìkan.",
+    "videoDefault": "Tẹ̀lé kókó, ara àti gígùn àkókò tí a béèrè. Jẹ́ kí àwọn ènìyàn, ohun àti ìmọ́lẹ̀ dúró ní ìṣọ̀kan láàárín férémù. Lo ìṣípò rọrùn àti kámẹ́rà tí a ṣàkóso. Yàgò fún títàn-títàn, ìparọ́ ìrísí àti ọ̀rọ̀ tí a kò béèrè."
   }
 }

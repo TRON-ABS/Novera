@@ -169,7 +169,8 @@
     "manualNote": "Qoraal, sawir iyo muuqaal way wada shaqayn karaan wadahadallo kala duwan haddii RAM/VRAM ku filan yahay. Xusuustu way dhammaan kartaa.",
     "preserve": "Faylasha iyo wadahadalladu way jiraan; moodelladu dib bay u rarmaan marka loo baahdo. Isbeddelladu waxay khuseeyaan codsiyada cusub.",
     "waiting": "Sugid ama sii daynta RAM/VRAM…",
-    "failed": "Hagaajinta xusuustu way fashilantay. Isku day mar kale ama dooro Gacanta."
+    "failed": "Hagaajinta xusuustu way fashilantay. Isku day mar kale ama dooro Gacanta.",
+    "compactTitle": "Xusuus toos ah"
   },
   "sharing": {
     "share": "La wadaag",
@@ -198,5 +199,10 @@
     "assistant": "Kaaliyaha",
     "linuxHint": "Linux wuxuu ku furaa codsigaaga iimaylka lifaaqa. Wax si toos ah looma diro",
     "copyFile": "nuqul ka samee"
+  },
+  "instructions": {
+    "textDefault": "Waxaad tahay Novera. Si cad, sax ah oo kooban ugu jawaab luqadda isticmaalaha. Raac shuruudaha, hubi xaqiiqooyinka muhiimka ah marka ay suurtagal tahay, sheegna hubanti la’aanta. Ha curin ilo, natiijooyin ama hawlo la fuliyey.",
+    "imageDefault": "Raac mawduuca, qaabka iyo xadaynta sawirka la codsaday. Adeegso habayn cad, iftiin isku habboon iyo faahfaahin hagaagsan. Ilaali aqoonsiga tixraacyada; ka fogow qallooc iyo waxyaabo aan la rabin. Qoraal ku dar keliya marka la codsado.",
+    "videoDefault": "Raac mawduuca, qaabka iyo muddada la codsaday. Ilaali joogtaynta jilayaasha, walxaha iyo iftiinka sawir kasta. Adeegso dhaqdhaqaaq siman iyo kamarad la xakameeyey. Ka fogow biligleyn, qallooc iyo qoraal aan la codsan."
   }
 }

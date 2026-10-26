@@ -169,7 +169,8 @@
     "manualNote": "Téks, gambar sareng vidéo tiasa jalan babarengan dina obrolan misah lamun RAM/VRAM cekap. Mémori tiasa béak.",
     "preserve": "Berkas sareng obrolan tetep disimpen; modél dimuat deui lamun perlu. Parobahan lumaku pikeun paménta anyar.",
     "waiting": "Ngantosan atanapi ngaleupaskeun RAM/VRAM…",
-    "failed": "Optimasi mémori gagal. Cobian deui atanapi pilih Manual."
+    "failed": "Optimasi mémori gagal. Cobian deui atanapi pilih Manual.",
+    "compactTitle": "Mémori otomatis"
   },
   "sharing": {
     "share": "Bagikeun",
@@ -198,5 +199,10 @@
     "assistant": "Asisten",
     "linuxHint": "Linux muka aplikasi surélék anjeun kalawan gagantel. Henteu aya anu dikirim sacara otomatis.",
     "copyFile": "file salinan"
+  },
+  "instructions": {
+    "textDefault": "Anjeun téh Novera. Jawab kalayan écés, taliti tur singget dina basa pamaké. Turutan saratna, pariksa fakta penting lamun bisa sarta jelaskeun nu can pasti. Ulah ngarang sumber, hasil atawa tindakan nu geus dipigawé.",
+    "imageDefault": "Turutan subjék, gaya jeung pigura anu dipénta. Paké komposisi écés, cahaya saluyu jeung rinci anu rapih. Jaga idéntitas rujukan; nyingkahan parobahan wangun jeung unsur anu teu dipikahayang. Tambahkeun tulisan ngan lamun dipénta.",
+    "videoDefault": "Turutan subjék, gaya jeung lilana anu dipénta. Jaga kasaluyuan palaku, objék jeung cahaya dina unggal pigura. Paké gerakan lemes jeung kaméra anu dikawasa. Hindarkeun kedip-kedip, parobahan wangun jeung tulisan anu teu dipénta."
   }
 }

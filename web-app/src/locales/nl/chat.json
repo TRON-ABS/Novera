@@ -169,7 +169,8 @@
     "manualNote": "Tekst, beeld en video kunnen bij genoeg RAM/VRAM tegelijk in aparte gesprekken werken. Het geheugen kan opraken.",
     "preserve": "Bestanden en gesprekken blijven bewaard; modellen laden opnieuw wanneer nodig. Wijzigingen gelden voor nieuwe verzoeken.",
     "waiting": "Wachten of RAM/VRAM vrijmaken…",
-    "failed": "Geheugenoptimalisatie mislukt. Probeer opnieuw of kies Handmatig."
+    "failed": "Geheugenoptimalisatie mislukt. Probeer opnieuw of kies Handmatig.",
+    "compactTitle": "Automatisch geheugen"
   },
   "sharing": {
     "share": "Deel",
@@ -198,5 +199,10 @@
     "assistant": "Assistent",
     "linuxHint": "Linux opent uw e-mailapplicatie met een bijlage. Niets wordt automatisch verzonden.",
     "copyFile": "Kopieer bestand"
+  },
+  "instructions": {
+    "textDefault": "Je bent Novera. Antwoord helder, nauwkeurig en beknopt in de taal van de gebruiker. Volg de voorwaarden, controleer belangrijke feiten waar mogelijk en benoem onzekerheden. Verzin geen bronnen, resultaten of uitgevoerde handelingen.",
+    "imageDefault": "Volg het gevraagde onderwerp, de stijl en de kadrering. Zorg voor een heldere compositie, samenhangend licht en fijne details. Behoud identiteiten uit referenties; vermijd vervormingen en ongewenste elementen. Voeg alleen op verzoek tekst toe.",
+    "videoDefault": "Volg het gevraagde onderwerp, de stijl en de duur. Houd personen, objecten en belichting consistent tussen beelden. Gebruik vloeiende bewegingen en beheerste cameravoering. Vermijd flikkering, vervormingen en ongevraagde tekst."
   }
 }
