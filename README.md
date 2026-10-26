@@ -65,6 +65,8 @@ Use the small Share icon under a text response, image or video, or share the ent
 
 Messaging and chat apps receive files through the OS where supported, with **Copy file** and Save as alternatives. The maintainer now reports Windows sharing working on their PC after restoration; this does not validate every messaging app or other platform. Windows system sharing is enabled again after the same issue was observed outside Novera; file copying/saving remain available, with file copying performed outside the UI thread. Source adapters cover macOS, Android, iOS and Linux; Linux opens an XDG email composer and offers file copying for compatible apps. Targets depend on installed applications and accepted formats. No automatic sending or hosted public links. **145 targeted web tests, three isolated Rust tests, Windows library checks, TypeScript and Vite passed**; other-platform and full application handoff tests remain pending. Available after rebuilding Novera. [Formats, platform scope and limits](docs/USER_GUIDE.md#partage-des-résultats-et-ratios--sources-du-26-octobre-2026).
 
+Attachments passed to system sharing, browser sharing and **Copy file** now use portable ASCII filenames to avoid encoding errors in receiving apps. Document titles/content retain their language, extensions are preserved, and local Save retains the original suggested name. Requires rebuilding Novera; individual messaging-app compatibility remains to be tested.
+
 ## Advanced automation, simple defaults
 
 Novera aims to handle the technical steps so people worldwide can focus on learning, talking and creating. The source already combines hardware advice, guided verified downloads, categorized media configurations, a bundled Windows image engine and system-folder saving.

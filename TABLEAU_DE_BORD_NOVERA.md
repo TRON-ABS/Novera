@@ -1,5 +1,13 @@
 # Novera — tableau de bord
 
+## Noms de pièces jointes compatibles — 26 octobre 2026
+
+Les pièces jointes transmises au partage système, au partage navigateur et à **Copier le fichier** utilisent désormais un nom ASCII compatible : accents simplifiés, espaces et caractères spéciaux remplacés, nom de secours `Novera` si nécessaire. L’extension réelle, le titre et le contenu multilingue sont conservés ; l’enregistrement local garde le nom proposé en langue d’origine. Cette protection commune vise les applications destinataires au-delà de WhatsApp. Elle nécessite une nouvelle compilation de Novera.
+
+Diagnostic local : les fichiers HTML Novera existent toujours, avec images incorporées ; la copie reçue dans le dossier de transfert WhatsApp existe aussi, mais son nom est altéré et l’URL d’ouverture encode encore différemment `œ`, ce qui désigne un fichier inexistant. La suppression du cache n’est pas la cause observée. Aucun accès au contenu des messages WhatsApp ni envoi automatique.
+
+Validation : 99 tests web dans sept fichiers (noms Unicode et décodage, extensions, contrats de partage natif/navigateur, copie de fichier, exports et composant), TypeScript et build Vite Windows. Les contrats natif/navigateur passent aussi sous configurations macOS, Linux, Android et iOS : sept tests par configuration, plus un test réservé à Windows ignoré. Pas de nouveau binaire Novera ni d’essai réel dans chaque messagerie ou sur les autres systèmes.
+
 ## Confirmation et nettoyage local — 26 octobre 2026
 
 Le mainteneur a ensuite confirmé le bon fonctionnement sur son PC. Ce retour utilisateur ne constitue pas une validation de toutes les messageries ou des autres plateformes.

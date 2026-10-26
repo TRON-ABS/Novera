@@ -18,6 +18,45 @@ const value: PreparedShare = {
 }
 
 describe('native sharing recovery', () => {
+  it
+    .runIf(IS_WINDOWS || IS_MACOS || IS_LINUX || IS_ANDROID || IS_IOS)
+    .each(['html', 'docx', 'zip', 'png', 'mp4'])(
+    'hands a portable %s name to both native sharing and file copy',
+    async (format) => {
+      const core = {
+        invoke: vi.fn().mockResolvedValue(undefined),
+      } as unknown as CoreService
+      const exported = {
+        ...value,
+        title: 'Cœur étoilé 世界',
+        filename: `Cœur étoilé 世界.${format}`,
+      }
+      await systemShare(exported, core)
+      await copyShareFile(exported, core)
+      expect(core.invoke).toHaveBeenNthCalledWith(
+        1,
+        'sharing_native',
+        expect.objectContaining({
+          title: exported.title,
+          payload: expect.objectContaining({
+            filename: `Coeur-etoile.${format}`,
+            base64: 'AQID',
+          }),
+        })
+      )
+      expect(core.invoke).toHaveBeenNthCalledWith(
+        2,
+        'sharing_copy_file',
+        expect.objectContaining({
+          payload: expect.objectContaining({
+            filename: `Coeur-etoile.${format}`,
+            base64: 'AQID',
+          }),
+        })
+      )
+      expect(exported.filename).toBe(`Cœur étoilé 世界.${format}`)
+    }
+  )
   it.runIf(IS_WINDOWS)(
     'hands Windows system sharing to the native adapter without a browser fallback',
     async () => {

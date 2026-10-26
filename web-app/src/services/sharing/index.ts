@@ -9,6 +9,7 @@ import { exportBasename } from '@/modules/conversations/export'
 import { parseCreationReference } from '@/modules/engines/creation'
 import { isPlatformTauri } from '@/lib/platform/utils'
 import { zipFiles } from './zip'
+import { attachmentFilename } from './filename'
 import { renderShareHtml, markdownImages, escapeXml } from './rich'
 import {
   wordDocument,
@@ -46,6 +47,10 @@ export function bytesBase64(bytes: Uint8Array): string {
 const decode = (s: string) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0))
 const fileFrom = (value: PreparedShare) =>
   new File([value.bytes!.slice().buffer], value.filename, { type: value.mime })
+const attachmentFrom = (value: PreparedShare) =>
+  new File([value.bytes!.slice().buffer], attachmentFilename(value.filename), {
+    type: value.mime,
+  })
 
 async function readAsset(
   asset: ShareAsset,
@@ -531,7 +536,9 @@ export function canSystemShare(value: PreparedShare): boolean {
     return true
   if (!navigator.share) return false
   if (['txt', 'md'].includes(value.format)) return true
-  return !!value.bytes && !!navigator.canShare?.({ files: [fileFrom(value)] })
+  return (
+    !!value.bytes && !!navigator.canShare?.({ files: [attachmentFrom(value)] })
+  )
 }
 export async function systemShare(value: PreparedShare, core: CoreService) {
   if (
@@ -542,7 +549,7 @@ export async function systemShare(value: PreparedShare, core: CoreService) {
       title: value.title,
       text: ['md', 'txt'].includes(value.format) ? value.text : '',
       payload: {
-        filename: value.filename,
+        filename: attachmentFilename(value.filename),
         mime: value.mime,
         base64: value.bytes ? bytesBase64(value.bytes) : null,
         asset: value.original
@@ -552,14 +559,18 @@ export async function systemShare(value: PreparedShare, core: CoreService) {
     })
   } else if (['txt', 'md'].includes(value.format))
     await navigator.share({ title: value.title, text: value.text })
-  else await navigator.share({ title: value.title, files: [fileFrom(value)] })
+  else
+    await navigator.share({
+      title: value.title,
+      files: [attachmentFrom(value)],
+    })
 }
 export async function copyShareFile(value: PreparedShare, core: CoreService) {
   if (!isPlatformTauri() || value.format === 'pdf')
     throw new Error('SHARE_UNSUPPORTED')
   await core.invoke('sharing_copy_file', {
     payload: {
-      filename: value.filename,
+      filename: attachmentFilename(value.filename),
       mime: value.mime,
       base64: value.bytes ? bytesBase64(value.bytes) : null,
       asset: value.original ? parseCreationReference(value.original.url) : null,
