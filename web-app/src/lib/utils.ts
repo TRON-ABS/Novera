@@ -1,4 +1,5 @@
 import { type ClassValue, clsx } from 'clsx'
+import { mediaProviderDefinitions } from '@/constants/mediaProviders'
 import { twMerge } from 'tailwind-merge'
 import type { Node, Position } from 'unist'
 import type { Code, Paragraph, Parent, Text } from 'mdast'
@@ -128,6 +129,8 @@ export function getModelDisplayName(model: Model): string {
 }
 
 export function getProviderLogo(provider: string) {
+  if (mediaProviderDefinitions.some(item => item.id === provider)) return `/images/model-provider/${provider}.png`
+  if (provider === 'diffusers') return '/images/model-provider/huggingface.svg'
   switch (provider) {
     case 'liquidai':
       return '/images/model-provider/liquidai.png'
@@ -201,6 +204,9 @@ export function getProviderLogo(provider: string) {
 }
 
 export const getProviderTitle = (provider: string) => {
+  const media = mediaProviderDefinitions.find(item => item.id === provider)
+  if (media) return media.name
+  if (provider === 'diffusers') return 'Diffusers'
   switch (provider) {
     case 'transformers':
       return 'Safetensors / Transformers'

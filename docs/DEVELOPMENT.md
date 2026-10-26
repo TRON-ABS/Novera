@@ -73,6 +73,8 @@ yarn test:architecture
 
 ## Moteur local
 
+Le parcours local de création réutilise le transport et les parties fichier du fil : règles de mode/références dans `modules/engines/creation.ts`, adaptation native dans `services/creation/stream.ts`, contrôles et aperçus côté interface. `core/creation.rs` possède les jobs, les processus et la résolution des fichiers des dossiers système ; `media-server/worker.py` exécute Diffusers hors réseau. La persistance conserve les références média, y compris vidéo, sans réencoder une URL locale en faux base64. Les fichiers de galerie sont exclus du protocole des moteurs texte. Les réglages/modes utilisent le stockage backend ; la progression reste volatile. Les modèles et environnements restent externes au dépôt. [Installation et limites](../media-server/README.md). Aucun build ni push pour ce lot.
+
 Le [suivi des moteurs CPU/GPU](SUIVI_MOTEURS.md) décrit l’ajout local Safetensors/Transformers du 26 octobre 2026, Python 3.15.1, les versions PyTorch CPU/CUDA et les validations réelles. La publication de ces sources a été autorisée par le mainteneur le 26 octobre 2026 ; elle ne publie aucun environnement ou binaire.
 
 Le Hub sépare les règles pures (`modules/engines/hub-catalog.ts`, `hub-advisor.ts`), la découverte réseau (`services/models/hubCategories.ts`) et les adaptateurs UI/matériels (`HubHardwareDiagnostic`, `HubAdvisor`). Le catalogue de catégories utilise des métadonnées publiques, un cache de dix minutes et au maximum six requêtes de huit résultats par page ; les curseurs restent limités à l’API modèles Hugging Face. Les conseils se calculent localement, sans envoi des relevés matériels. Les points de téléchargement du Hub passent par la revue ; le badge partage son diagnostic. Un observateur du bas de la liste virtualisée, rattaché au conteneur défilant du Hub, charge les pages à moins de 400 px du bas. Chaque curseur ne déclenche qu’une demande ; chargement, erreur et fin des résultats suspendent l’observation. Les observateurs périmés sont ignorés lors du changement de catégorie. `useHubProgressiveOrder` conserve les lignes déjà affichées et ajoute les nouvelles en bas ; le changement de tri ou de filtre réinitialise cet ordre. La découverte de nouvelles tâches ne les rend pas exécutables. Voir le suivi des moteurs pour les tests et limites.
@@ -247,3 +249,44 @@ Les README français et anglais affichent les 27 fournisseurs prédéfinis, avec
 | `.github/assets/providers/meta.png` | `web-app/public/images/model-provider/meta.ico` | `9798cf7f10eee9085b0a7b4b52e3c5555da7d784d37a8d7eec099c9d51ac6805` |
 | `.github/assets/providers/baidu.png` | `web-app/public/images/model-provider/baidu.ico` | `d8197d537f0dd996eeeac08d8a3e6e3953fe54d4e958d6e268f7fc53668b0278` |
 | `.github/assets/providers/tencent.png` | `web-app/public/images/model-provider/tencent.ico` | `dde5822eb6a66a6f7a4e466ea1ca35341a5b0f2239d7a75898bacf22a275585a` |
+
+### Adaptateurs cloud de création — sources locales du 26 octobre 2026
+
+`modules/engines/model-modalities.ts` classe les entrées et sorties sans réseau. `constants/mediaProviders.ts` porte les identifiants, contrats et sources officiels datés ; `services/creation/cloud.ts` construit les demandes et suit les tâches via le transport HTTP existant. Le transport conversationnel sauvegarde le résultat par `core/creation_cloud.rs` avant d’émettre une référence `novera-creation:`. Ne pas router un modèle de génération dans `ModelFactory` comme un modèle texte. Ne pas déplacer les clés entre régions ni essayer automatiquement une deuxième création payante. Voir [le suivi et ses limites](SUIVI_MOTEURS.md#création-cloud-dans-la-discussion--26-octobre-2026).
+
+Les 14 icônes ajoutées proviennent des sites officiels : favicon ou icône d’application, décodée en PNG RGBA sans redessin ni modification de marque. Les URL CDN ci-dessous ont été extraites de ces pages officielles. Les marques appartiennent à leurs ayants droit ; leur présence ne signifie ni partenariat ni certification. Provenance et SHA-256 :
+
+| Icône embarquée | Source officielle | SHA-256 |
+| --- | --- | --- |
+| `web-app/public/images/model-provider/bfl.png` | [source](https://bfl.ai/apple-icon.png?f3e2842f59013de0) | `68b922273cf6c8aa416b3ec73a9327420d0614eed56dd9e4669a4925967e3f9d` |
+| `web-app/public/images/model-provider/stability.png` | [source](https://images.squarespace-cdn.com/content/v1/6213c340453c3f502425776e/804f0e8b-0028-4262-a8b0-b9f1c5de72c0/favicon.ico?format=100w) | `d0daad20f55cc0b885f7cff3f7db7da0ba0966f107ff3d1637db87028228d32f` |
+| `web-app/public/images/model-provider/recraft.png` | [source](https://framerusercontent.com/images/id5ZjKRfENkLEfAMrnKLKJfqfE.png) | `4a999103d08e13ca331e1adce9ca418e559c6ef07e3279837e337f616b92038c` |
+| `web-app/public/images/model-provider/ideogram.png` | [source](https://ideogram.ai/assets/favicon.png) | `261b7592476c881a735d11b7734466ad564d03d2a1f76978d7ab5a09b3af54a3` |
+| `web-app/public/images/model-provider/adobe-firefly.png` | [source](https://firefly.adobe.com/releases/400a25bc5cf6153acdfa05e57a0f51d5f143b9c8/assets/fi_touch_icon_180-BmBtoxt-.png) | `4ab9db73c3c0312285eea07a5567c6e1584bad7e1b5d74db0a93269cef5dd637` |
+| `web-app/public/images/model-provider/runway.png` | [source](https://runway.com/icon.png?icon.35ps9bmugbe1e.png) | `ab06df81d16a85c74c730eb48d309ff326776c2d8ac9ec32837a0c64fa977864` |
+| `web-app/public/images/model-provider/luma.png` | [source](https://lumalabs.ai/favicons/favicon-white.ico) | `f7bf00e1457f96816996881ad58d65e9e56ed1ec33424dcd473d78ad722dd051` |
+| `web-app/public/images/model-provider/ltx.png` | [source](https://cdn.prod.website-files.com/68872d15af29880764eac4aa/6982091f71fd2f946ca88f53_ltx-favicon-256x256.png) | `2e70243a736247c6ad67488d52b5b0309f9ab5b7b17cca893c392d0c237dfe09` |
+| `web-app/public/images/model-provider/fal.png` | [source](https://cdn.prod.website-files.com/6a72ef21c470312422dea9b3/6adae13a20c465c182f9d1d5_fal-icon-favicon.png) | `25275f0bbbd5d91166afb0ce96c4b7338bfc20b435f53f174974f57588dc4142` |
+| `web-app/public/images/model-provider/replicate.png` | [source](https://static.replicateassets.com/fe/44974001ab91965fb9ed929edd36e0055fd18d07/favicon-CKiqAkf2.png) | `8acd48fd11fcfcfa9fd85cf7ff5f7961c24d876861e89f43616497acf62cef90` |
+| `web-app/public/images/model-provider/leonardo.png` | [source](https://docs.leonardo.ai/apple-touch-icon.png?v=cb7842410124) | `55e30489e4f0c30598bd14e12eecd1c5f019bb98c037abec6f160b04ae5bcd1c` |
+| `web-app/public/images/model-provider/krea.png` | [source](https://www.krea.ai/favicon/favicon-32.png) | `d32b2f1c1994961e88c5fa67d840ab1bde59f202533518050867264964b1dacb` |
+| `web-app/public/images/model-provider/vidu.png` | [source](https://www.vidu.com/apple-touch-icon.png) | `b74e5fb124e676e77b70a44d75a381da2a2ff908b8ab5d72b8b73eb532e18f2d` |
+| `web-app/public/images/model-provider/pixverse.png` | [source](https://cdn.pixverse.ai/media/pixverse/favicon.png) | `77e8e165b1ea31f0c9eefe06a720e091384e44391a34c33a1b1c410f39f0cc7e` |
+
+### Native GGUF image backend
+
+`core/creation.rs` accepts the optional `sdcpp` backend for image jobs, validates required local files and runs `sd-cli` via structured argv with no shell. The diffusion GGUF, Qwen3 GGUF encoder and VAE have separate fields. The native child is directly owned so Stop/shutdown do not leave a Python-owned grandchild running. Completed PNG and metadata use the same exclusive publish helper as cloud saving. CLI text is not parsed as trusted JSON. The Diffusers Python worker remains the default and video path. Model roles use bounded GGUF metadata, never names alone. See [engine tracking](SUIVI_MOTEURS.md#images-gguf-et-encodeur-qwen3-gguf--26-octobre-2026) for pinned runtime provenance and the observed ComfyUI NVFP4 incompatibility. No vendored binary or new dependency is added to the application package.
+
+### Mixed GGUF/Safetensors and Comfy NVFP4 bridge
+
+`media-server/nvfp4_compat.py` implements a bounded, read-only-source conversion from the documented Comfy NVFP4 layout to a versioned SHA-256 content cache. Math/layout reference: [Comfy-Org format specification](https://github.com/Comfy-Org/comfy-quants/blob/main/docs/formats/nvfp4.md); interoperability was checked against the installed comfy-kitchen eager implementation, whose source retains its Comfy Org Apache-2.0 and PyTorch-AO/BSD notices. Novera does not redistribute those installed modules or import ComfyUI for conversion. The independent bridge uses existing PyTorch and safetensors dependencies.
+
+Native `creation.rs` sequences an owned converter child and an owned sd-cli child, validates returned cache paths, preserves source paths plus prepared-model metadata, and never accepts CLI text as trusted JSON progress. The diffusion-only Q8_0 runtime rule avoids unnecessarily requantizing the GGUF encoder or VAE. Compatibility cache preparation can run without CUDA; it does not implement native Blackwell FP4 tensor-core inference. The existing exclusive output publication and text/creation boundaries remain in place. Real runtime images succeeded, while native application compilation and graphical end-to-end operation remain explicitly pending. See [engine evidence](SUIVI_MOTEURS.md#formats-mixtes-ggufsafetensors-et-compatibilité-nvfp4--26-octobre-2026).
+
+### Native NVFP4 and creation timing — local sources, 2026-10-26
+
+`creation.rs` embeds the offline native worker and BFL configuration, validates component roles, and starts the same owned/cancellable Python process. `nvfp4_cuda.py` maps Comfy packed weights into native FP4 Linear modules, including QKV block-scale slicing, and uses PyTorch scaled GEMMs. It refuses incompatible devices/layouts rather than silently dequantizing diffusion weights. The separate compatibility bridge remains unchanged in purpose. Optional versions are pinned in `media-server/requirements-nvfp4.txt`.
+
+`encoder_device` is independent of `device` for native FP4 and C++; generic Diffusers retains whole-pipeline placement. Creation file parts persist monotonic total timing under `providerMetadata.novera`; local workers can add generation-only seconds. GeneratedCreation validates numbers and formats durations using the active locale. Native/cloud sidecars record runtime timing without credentials. Hub FP4 advice uses numeric compute capability and a per-GPU memory threshold, retains unknown states and runtime checks, and does not turn an incomplete media download into a ready chat model.
+
+[Measured scope and commands](SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026). No Rust/application build, CI, publication or new-binary GUI validation in this lot.

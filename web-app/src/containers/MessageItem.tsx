@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { memo, useState, useCallback, useEffect, useMemo } from 'react'
+import { GeneratedCreation } from './GeneratedCreation'
+import { CREATION_PREFIX } from '@/modules/engines/creation'
 import type { UIMessage, ChatStatus } from 'ai'
 import { RenderMarkdown } from './RenderMarkdown'
 import { stripToolCallMarkup } from '@/modules/tools/tool-call-markup'
@@ -124,8 +126,7 @@ export const MessageItem = memo(
     const canContinue =
       isStopped &&
       message.parts.some(
-        (p) =>
-          (p.type === 'text' || p.type === 'reasoning') && !!p.text?.trim()
+        (p) => (p.type === 'text' || p.type === 'reasoning') && !!p.text?.trim()
       )
 
     const handleEdit = useCallback(
@@ -177,7 +178,9 @@ export const MessageItem = memo(
       if (!hasPendingToolCall) return false
       return message.parts.some((part) => {
         const toolCallId = (part as { toolCallId?: string }).toolCallId
-        return Boolean(findPendingApproval(pendingApprovals, toolCallId, threadId))
+        return Boolean(
+          findPendingApproval(pendingApprovals, toolCallId, threadId)
+        )
       })
     }, [hasPendingToolCall, message.parts, pendingApprovals, threadId])
 
@@ -342,7 +345,8 @@ export const MessageItem = memo(
                 )}
                 {displayText && (
                   <div dir="auto" className="select-text whitespace-pre-wrap">
-                    {highlightedPrefix && displayText.startsWith(highlightedPrefix) ? (
+                    {highlightedPrefix &&
+                    displayText.startsWith(highlightedPrefix) ? (
                       <>
                         <span
                           data-testid="skill-command-prefix"
@@ -382,6 +386,19 @@ export const MessageItem = memo(
     }
 
     const renderFilePart = (part: MessagePartLike, partIndex: number) => {
+      if (
+        message.role === 'assistant' &&
+        part.url?.startsWith(CREATION_PREFIX)
+      ) {
+        return (
+          <GeneratedCreation
+            key={`${message.id}-${partIndex}`}
+            url={part.url}
+            threadId={threadId}
+            timing={part.providerMetadata?.novera}
+          />
+        )
+      }
       const isImage = part.mediaType?.startsWith('image/')
       const isAudio =
         part.mediaType === 'audio/wav' || part.mediaType === 'audio/mpeg'
@@ -526,29 +543,33 @@ export const MessageItem = memo(
     const versionNav =
       versionInfo && versionInfo.count > 1 && onSwitchVersion ? (
         <div className="flex items-center gap-0.5 text-muted-foreground">
-          <ActionTooltip label={t('chat:messageActions.previousVersion')}><button
-            type="button"
-            data-testid="message-version-prev"
-            className="hover:text-foreground disabled:opacity-40"
-            disabled={versionInfo.index <= 1}
-            onClick={() => onSwitchVersion(message.id, -1)}
-            aria-label={t('chat:messageActions.previousVersion')}
-          >
-            <IconChevronLeft size={14} />
-          </button></ActionTooltip>
+          <ActionTooltip label={t('chat:messageActions.previousVersion')}>
+            <button
+              type="button"
+              data-testid="message-version-prev"
+              className="hover:text-foreground disabled:opacity-40"
+              disabled={versionInfo.index <= 1}
+              onClick={() => onSwitchVersion(message.id, -1)}
+              aria-label={t('chat:messageActions.previousVersion')}
+            >
+              <IconChevronLeft size={14} />
+            </button>
+          </ActionTooltip>
           <span data-testid="message-version-counter" className="tabular-nums">
             {versionInfo.index}/{versionInfo.count}
           </span>
-          <ActionTooltip label={t('chat:messageActions.nextVersion')}><button
-            type="button"
-            data-testid="message-version-next"
-            className="hover:text-foreground disabled:opacity-40"
-            disabled={versionInfo.index >= versionInfo.count}
-            onClick={() => onSwitchVersion(message.id, 1)}
-            aria-label={t('chat:messageActions.nextVersion')}
-          >
-            <IconChevronRight size={14} />
-          </button></ActionTooltip>
+          <ActionTooltip label={t('chat:messageActions.nextVersion')}>
+            <button
+              type="button"
+              data-testid="message-version-next"
+              className="hover:text-foreground disabled:opacity-40"
+              disabled={versionInfo.index >= versionInfo.count}
+              onClick={() => onSwitchVersion(message.id, 1)}
+              aria-label={t('chat:messageActions.nextVersion')}
+            >
+              <IconChevronRight size={14} />
+            </button>
+          </ActionTooltip>
         </div>
       ) : null
 
@@ -667,14 +688,19 @@ export const MessageItem = memo(
               {onRetry &&
                 status !== CHAT_STATUS.STREAMING &&
                 status !== CHAT_STATUS.SUBMITTED && (
-                  <ActionTooltip label={t('chat:actions.askAgain')}><Button
-                    variant="ghost"
-                    size="icon-xs"
-                    onClick={() => onRetry(message.id, getFullTextContent())}
-                    aria-label={t('chat:actions.askAgain')}
-                  >
-                    <IconRefresh size={16} className="text-muted-foreground" />
-                  </Button></ActionTooltip>
+                  <ActionTooltip label={t('chat:actions.askAgain')}>
+                    <Button
+                      variant="ghost"
+                      size="icon-xs"
+                      onClick={() => onRetry(message.id, getFullTextContent())}
+                      aria-label={t('chat:actions.askAgain')}
+                    >
+                      <IconRefresh
+                        size={16}
+                        className="text-muted-foreground"
+                      />
+                    </Button>
+                  </ActionTooltip>
                 )}
 
               {onDelete &&
@@ -720,30 +746,34 @@ export const MessageItem = memo(
                 !isStreaming &&
                 isLastMessage &&
                 canContinue && (
-                  <ActionTooltip label={t('chat:actions.continue')}><Button
-                    variant="ghost"
-                    size="icon-xs"
-                    data-testid="continue-message"
-                    onClick={handleContinue}
-                    aria-label={t('chat:actions.continue')}
-                  >
-                    <IconPlayerPlay size={16} />
-                  </Button></ActionTooltip>
+                  <ActionTooltip label={t('chat:actions.continue')}>
+                    <Button
+                      variant="ghost"
+                      size="icon-xs"
+                      data-testid="continue-message"
+                      onClick={handleContinue}
+                      aria-label={t('chat:actions.continue')}
+                    >
+                      <IconPlayerPlay size={16} />
+                    </Button>
+                  </ActionTooltip>
                 )}
 
               {selectedModel &&
                 onRegenerate &&
                 !isStreaming &&
                 isLastMessage && (
-                  <ActionTooltip label={t('chat:actions.regenerate')}><Button
-                    variant="ghost"
-                    size="icon-xs"
-                    data-testid="regenerate-message"
-                    onClick={handleRegenerate}
-                    aria-label={t('chat:actions.regenerate')}
-                  >
-                    <IconRefresh size={16} />
-                  </Button></ActionTooltip>
+                  <ActionTooltip label={t('chat:actions.regenerate')}>
+                    <Button
+                      variant="ghost"
+                      size="icon-xs"
+                      data-testid="regenerate-message"
+                      onClick={handleRegenerate}
+                      aria-label={t('chat:actions.regenerate')}
+                    >
+                      <IconRefresh size={16} />
+                    </Button>
+                  </ActionTooltip>
                 )}
             </div>
 

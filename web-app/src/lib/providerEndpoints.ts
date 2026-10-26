@@ -1,10 +1,11 @@
 // Regional/account endpoints remain user-controlled; never move a key to another host.
+import { mediaProviderDefinitions } from '@/constants/mediaProviders'
 export const EDITABLE_PROVIDER_ENDPOINTS = new Set([
   'azure', 'alibaba', 'zai', 'byteplus', 'baidu', 'tencent', 'bedrock', 'watsonx',
 ])
 
 // These services publish chat IDs but no verified OpenAI GET /models contract.
-export const CURATED_ONLY_PROVIDERS = new Set(['zai', 'ai21', 'byteplus', 'baidu', 'tencent'])
+export const CURATED_ONLY_PROVIDERS = new Set(['zai', 'ai21', 'byteplus', 'baidu', 'tencent', ...mediaProviderDefinitions.map(item => item.id)])
 
 export function providerCatalogUrl(provider: { provider: string; base_url?: string }): string {
   const base = (provider.base_url ?? '').replace(/\/+$/, '')

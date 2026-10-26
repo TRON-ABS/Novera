@@ -1,3 +1,4 @@
+import { mediaModels, mediaProviderDefinitions } from '@/constants/mediaProviders'
 import { CURATED_ONLY_PROVIDERS, providerCatalogUrl } from './providerEndpoints'
 import { providerRemoteApiKeyChain } from './provider-api-keys'
 import { cloudModelCapabilities, cloudModelPresets } from '@/constants/cloudModels'
@@ -6,6 +7,12 @@ export type RemoteCatalogModel = {
   id: string
   capabilities: string[]
   createdMs: number
+  displayName?: string
+  media_adapter?: string
+  input_modalities?: Model['input_modalities']
+  output_modalities?: Model['output_modalities']
+  verified_at?: string
+  preview?: boolean
 }
 
 type ProviderLike = {
@@ -77,6 +84,7 @@ function resolveCatalogKind(
   const name = typeof provider === 'string' ? provider : provider.provider
   const apiType = typeof provider === 'string' ? undefined : provider.api_type
   if (apiType === 'anthropic') return 'anthropic'
+  if (mediaProviderDefinitions.some(item => item.id === name)) return 'compatible'
   if (name === 'openai' || name === 'anthropic' || name === 'gemini') {
     return name
   }
@@ -198,7 +206,7 @@ async function getJson(
   }
 }
 
-export async function fetchTopRemoteModels(
+async function fetchChatModels(
   provider: ProviderLike,
   fetchImpl: FetchImpl
 ): Promise<RemoteCatalogModel[]> {
@@ -314,4 +322,13 @@ function parseCreated(created: unknown, createdAt: unknown): number {
     if (!Number.isNaN(t)) return t
   }
   return 0
+}
+
+/** Refresh never drops the separately maintained generation catalog. */
+export async function fetchTopRemoteModels(provider: ProviderLike, fetchImpl: FetchImpl): Promise<RemoteCatalogModel[]> {
+  const media = mediaModels(provider.provider).map(model => ({ ...model, capabilities: model.capabilities ?? [], createdMs: 0 }))
+  if (mediaProviderDefinitions.some(item => item.id === provider.provider)) return media
+  const chat = await fetchChatModels(provider, fetchImpl)
+  const ids = new Set(media.map(item => item.id))
+  return [...media, ...chat.filter(item => !ids.has(item.id))]
 }

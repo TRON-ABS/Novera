@@ -21,6 +21,10 @@ pub mod system;
 pub mod threads;
 #[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
 pub mod transformers;
+#[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
+pub mod creation;
+#[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
+pub mod creation_cloud;
 
 // `custom_updater`/`hmac_client` (the HMAC-signed request-signing bits) are
 // also used by the headless CLI's usage ping (`cli::telemetry`); only

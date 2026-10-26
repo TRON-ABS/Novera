@@ -49,7 +49,10 @@
         "extensions/llamacpp-extension",
         "extensions/mlx-extension",
         "src-tauri/plugins/tauri-plugin-llamacpp",
-        "web-app/src/lib/model-factory.ts"
+        "web-app/src/lib/model-factory.ts",
+        "media-server",
+        "src-tauri/src/core/creation.rs",
+        "web-app/src/services/creation"
       ],
       "strictRoots": [
         "web-app/src/modules/engines"

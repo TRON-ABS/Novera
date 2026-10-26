@@ -2,6 +2,7 @@
  * Tauri Providers Service - Desktop implementation
  */
 
+import { mergeMediaModels } from '@/constants/mediaProviders'
 import { predefinedProviders } from '@/constants/providers'
 import { providerModels } from '@/constants/models'
 import { EngineManager, SettingComponentProps } from '@janhq/core'
@@ -50,7 +51,7 @@ export class TauriProvidersService extends DefaultProvidersService {
 
         return {
           ...provider,
-          models,
+          models: mergeMediaModels(provider.provider, models),
         }
       }).filter(Boolean)
 

@@ -1,4 +1,5 @@
 import { useTheme } from '@/hooks/useTheme'
+import { useCreation } from '@/hooks/useCreation'
 import { useErrorTracking } from '@/hooks/useErrorTracking'
 import { useInterfaceSettings } from '@/hooks/useInterfaceSettings'
 import { useGeneralSetting } from '@/hooks/useGeneralSetting'
@@ -38,6 +39,7 @@ import { useImageAttachmentConfig } from '@/hooks/useImageAttachmentConfig'
 // useInterfaceSettings' onRehydrateStorage reads useTheme.getState().isDark, so
 // theme must hydrate first.
 const secondaryStores = [
+  useCreation,
   useErrorTracking,
   useInterfaceSettings,
   useGeneralSetting,

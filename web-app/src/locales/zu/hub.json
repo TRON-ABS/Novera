@@ -118,6 +118,11 @@
     "tipFuture": "Kudingeka injini eyengeziwe ngaphambi kokuthi lo msebenzi usebenze eNovera.",
     "advisorEmpty": "Alikho iphuzu lokuqala elifanelekile elingakhethwa kumethadatha yamanje.",
     "hardwareUnknown": "Ulwazi lwezingxenyekazi zekhompuyutha alukho; izincomo zidinga idatha ye-RAM ne-GPU.",
-    "contextTip": "Okuqukethwe okufushane kusebenzisa inkumbulo encane ngaphandle kokushintsha usayizi wokulanda."
+    "contextTip": "Okuqukethwe okufushane kusebenzisa inkumbulo encane ngaphandle kokushintsha usayizi wokulanda.",
+    "nvfp4Search": "Kutholwe i-Blackwell GPU enenkumbulo eyanele ebikiwe. Uncamela okuhlukile kwe-NVFP4 lapho i-architecture nenjini kuzisekela. Ukulayisha kwe-FLUX.2 Klein 4B Komdabu kuyatholakala emithonjeni yendawo; hlola i-CUDA PyTorch, ukuncika kokuzithandela, amamodeli ahambisanayo nenkumbulo yamahhala ngaphambi kokulanda. Ukutholwa kwezingxenyekazi zekhompuyutha akuqinisekisi isikhathi sokusebenza esimisiwe noma isivinini sokuqinisekisa.",
+    "nvfp4Prefer": "I-NVFP4 iphakanyiselwe le GPU nomndeni we-FLUX.2 Klein 4B. Ukulayisha komdabu kudinga isakhiwo esisekelwayo se-Comfy, i-CUDA PyTorch nokuncika ongakukhetha. Khetha imodeli yesithombe, isifaki khodi se-Qwen3 kanye ne-VAE ngokuhlukene kuzilungiselelo zokuDala. Isikhathi sokusebenza, inhlanganisela ephelele nenkumbulo yamahhala kusadinga ukuqinisekiswa.",
+    "nvfp4Check": "I-NVFP4 itholiwe: Amandla e-GPU, inkumbulo yamahhala, isakhiwo sesisindo noma ukusekelwa kwezakhiwo akuqinisekisiwe. Hlola injini ye-CUDA ngaphambi kokukhetha lokhu okuhlukile. Ifomethi iyodwa ayiqinisekisi ukuhambisana.",
+    "nvfp4Unsupported": "I-NVFP4 yomdabu ayinconywa nge-GPU etholiwe noma i-VRAM yamahhala yamanje. Cabangela ukulinganisa kwe-GGUF okuhambisanayo noma injini ehambisanayo. Leyo ndlela ayinikezi ukusheshisa kwe-FP4 yomdabu.",
+    "quantQualityAdvice": "Isiqondiso se-Novera GGUF sombhalo, isithombe nezingxenye zevidiyo: I-Q6_K noma ngaphezulu iyindawo yethu yokuqala ephakanyisiwe lapho sibeka phambili ukwethembeka; I-Q4_K_M ibhalansisa ikhwalithi nenkumbulo. Lezi izincomo, hhayi umkhawulo wokunemba jikelele. Imiphumela incike kumodeli nomsebenzi. I-NVFP4 nezinye izikimu ze-quantization zidinga ukuhambisana kwazo kanye nokuhlolwa kwekhwalithi."
   }
 }

@@ -1,4 +1,5 @@
 import { providerInferenceUrl } from './providerEndpoints'
+import { mediaPreset } from '@/constants/mediaProviders'
 /**
  * Model Factory
  *
@@ -847,7 +848,8 @@ export class ModelFactory {
     parameters: Record<string, unknown> = {},
     streamThreadId?: string
   ): Promise<LanguageModel> {
-    const providerName = provider.provider.toLowerCase()
+      const providerName = provider.provider.toLowerCase()
+      if (mediaPreset(providerName, modelId)) throw new Error(i18n.t('chat:creation.generationOnly'))
     parameters = stripUnsupportedSamplers(parameters, provider, modelId)
 
     // Wire-format dispatch wins over name-based dispatch — custom providers

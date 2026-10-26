@@ -118,6 +118,11 @@
     "tipFuture": "Cần có một công cụ bổ sung trước khi tác vụ này có thể chạy ở Novera.",
     "advisorEmpty": "Không thể chọn điểm bắt đầu phù hợp từ siêu dữ liệu hiện tại.",
     "hardwareUnknown": "Thiếu thông tin phần cứng; đề xuất cần dữ liệu RAM và GPU.",
-    "contextTip": "Ngữ cảnh ngắn hơn sẽ sử dụng ít bộ nhớ hơn mà không thay đổi kích thước tải xuống."
+    "contextTip": "Ngữ cảnh ngắn hơn sẽ sử dụng ít bộ nhớ hơn mà không thay đổi kích thước tải xuống.",
+    "nvfp4Search": "Đã phát hiện thấy GPU Blackwell có đủ bộ nhớ được báo cáo. Ưu tiên các biến thể NVFP4 khi kiến ​​trúc và công cụ hỗ trợ chúng. Bản địa FLUX.2 Klein 4B Tải thoải mái có sẵn ở các nguồn địa phương; kiểm tra CUDA PyTorch, các phần phụ thuộc tùy chọn, mô hình đồng hành và bộ nhớ trống trước khi tải xuống. Việc phát hiện phần cứng không xác thực thời gian chạy đã định cấu hình hoặc tốc độ đảm bảo.",
+    "nvfp4Prefer": "NVFP4 được đề xuất cho GPU này và dòng FLUX.2 Klein 4B. Tải gốc yêu cầu bố cục Comfy được hỗ trợ, CUDA PyTorch và các phần phụ thuộc tùy chọn. Chọn riêng mô hình hình ảnh, bộ mã hóa Qwen3 và VAE trong cài đặt Sáng tạo. Thời gian chạy, sự kết hợp hoàn chỉnh và bộ nhớ trống vẫn cần được xác minh.",
+    "nvfp4Check": "Đã phát hiện NVFP4: Khả năng GPU, bộ nhớ trống, bố cục trọng lượng hoặc hỗ trợ kiến ​​trúc không được xác nhận. Kiểm tra công cụ CUDA trước khi chọn biến thể này. Chỉ riêng định dạng không thiết lập được tính tương thích.",
+    "nvfp4Unsupported": "NVFP4 gốc không được khuyến nghị với GPU được phát hiện hoặc VRAM miễn phí hiện tại. Hãy xem xét lượng tử hóa GGUF tương thích hoặc công cụ tương thích. Đường dẫn đó không cung cấp khả năng tăng tốc FP4 nguyên bản.",
+    "quantQualityAdvice": "Hướng dẫn của Novera GGUF dành cho các thành phần văn bản, hình ảnh và video: Q6_K trở lên là điểm bắt đầu được đề xuất của chúng tôi khi ưu tiên độ trung thực; Q4_K_M cân bằng chất lượng và bộ nhớ. Đây là những khuyến nghị, không phải là ngưỡng chính xác chung. Kết quả phụ thuộc vào mô hình và nhiệm vụ. NVFP4 và các sơ đồ lượng tử hóa khác cần có đánh giá chất lượng và tính tương thích của riêng chúng."
   }
 }

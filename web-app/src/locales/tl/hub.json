@@ -118,6 +118,11 @@
     "tipFuture": "Kailangan ng karagdagang makina bago tumakbo ang gawaing ito sa Novera.",
     "advisorEmpty": "Walang angkop na panimulang punto ang mapipili mula sa kasalukuyang metadata.",
     "hardwareUnknown": "Nawawala ang impormasyon ng hardware; ang mga rekomendasyon ay nangangailangan ng data ng RAM at GPU.",
-    "contextTip": "Ang isang mas maikling konteksto ay gumagamit ng mas kaunting memorya nang hindi binabago ang laki ng pag-download."
+    "contextTip": "Ang isang mas maikling konteksto ay gumagamit ng mas kaunting memorya nang hindi binabago ang laki ng pag-download.",
+    "nvfp4Search": "May nakitang Blackwell GPU na may sapat na iniulat na memorya. Mas gusto ang mga variant ng NVFP4 kapag sinusuportahan sila ng arkitektura at engine. Ang Native FLUX.2 Klein 4B Comfy loading ay available sa mga lokal na mapagkukunan; suriin ang CUDA PyTorch, mga opsyonal na dependency, kasamang modelo at libreng memorya bago mag-download. Hindi pinapatunayan ng hardware detection ang naka-configure na runtime o garantiya ng bilis.",
+    "nvfp4Prefer": "Iminumungkahi ang NVFP4 para sa GPU at FLUX.2 Klein 4B na pamilyang ito. Ang native loading ay nangangailangan ng sinusuportahang Comfy layout, CUDA PyTorch at mga opsyonal na dependencies. Piliin ang modelo ng larawan, Qwen3 encoder at VAE nang hiwalay sa mga setting ng Paglikha. Ang runtime, kumpletong kumbinasyon at libreng memorya ay nangangailangan pa rin ng pag-verify.",
+    "nvfp4Check": "Natukoy ang NVFP4: Ang kakayahan ng GPU, libreng memorya, layout ng timbang o suporta sa arkitektura ay hindi nakumpirma. Suriin ang CUDA engine bago piliin ang variant na ito. Ang format lamang ay hindi nagtatatag ng pagiging tugma.",
+    "nvfp4Unsupported": "Hindi inirerekomenda ang Native NVFP4 na may nakitang GPU o kasalukuyang libreng VRAM. Isaalang-alang ang isang katugmang GGUF quantization o ang compatibility engine. Ang landas na iyon ay hindi nagbibigay ng katutubong FP4 acceleration.",
+    "quantQualityAdvice": "Patnubay ng Novera GGUF para sa mga bahagi ng teksto, larawan at video: Q6_K o mas mataas ang aming iminungkahing panimulang punto kapag inuuna ang katapatan; Binabalanse ng Q4_K_M ang kalidad at memorya. Ito ay mga rekomendasyon, hindi isang unibersal na threshold ng katumpakan. Ang mga resulta ay nakasalalay sa modelo at gawain. Ang NVFP4 at iba pang mga quantization scheme ay nangangailangan ng sarili nilang compatibility at quality assessment."
   }
 }

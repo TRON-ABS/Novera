@@ -118,6 +118,11 @@
     "tipFuture": "A nilo afikun engine ṣaaju ki iṣẹ yii le ṣiṣẹ ni Novera.",
     "advisorEmpty": "Ko si aaye ibẹrẹ to dara ti a le yan lati inu metadata lọwọlọwọ.",
     "hardwareUnknown": "Alaye hardware sonu; Awọn iṣeduro nilo Ramu ati data GPU.",
-    "contextTip": "A kikuru àrà nlo kere iranti lai yi awọn download iwọn."
+    "contextTip": "A kikuru àrà nlo kere iranti lai yi awọn download iwọn.",
+    "nvfp4Search": "A Blackwell GPU pẹlu to royin iranti ti wa ni ri. Ṣe ayanfẹ awọn iyatọ NVFP4 nigbati faaji ati ẹrọ ṣe atilẹyin wọn. Native FLUX.2 Klein 4B Comfy ikojọpọ wa ni awọn orisun agbegbe; ṣayẹwo CUDA PyTorch, awọn igbẹkẹle iyan, awọn awoṣe ẹlẹgbẹ ati iranti ọfẹ ṣaaju igbasilẹ. Wiwa hardware ko fọwọsi akoko asiko ti a tunto tabi iyara iṣeduro.",
+    "nvfp4Prefer": "NVFP4 ni a daba fun GPU yii ati idile FLUX.2 Klein 4B. Ikojọpọ abinibi nilo ipilẹ Comfy ti o ni atilẹyin, CUDA PyTorch ati awọn igbẹkẹle iyan. Yan awoṣe aworan, koodu Qwen3 ati VAE lọtọ ni awọn eto Ṣiṣẹda. Akoko asiko, akojọpọ pipe ati iranti ọfẹ tun nilo ijẹrisi.",
+    "nvfp4Check": "NVFP4 ṣe awari: Agbara GPU, iranti ọfẹ, ipilẹ iwuwo tabi atilẹyin faaji ko jẹrisi. Ṣayẹwo ẹrọ CUDA ṣaaju yiyan iyatọ yii. Awọn kika nikan ko ni fi idi ibamu.",
+    "nvfp4Unsupported": "NVFP4 abinibi ko ṣe iṣeduro pẹlu GPU ti a rii tabi VRAM ọfẹ lọwọlọwọ. Wo iwọn GGUF ibaramu tabi ẹrọ ibaramu. Ọna yẹn ko pese isare FP4 abinibi.",
+    "quantQualityAdvice": "Novera GGUF itoni fun ọrọ, aworan ati awọn fidio irinše: Q6_K tabi ti o ga ni a daba wa ni ibẹrẹ ojuami nigba ti ayo iṣootọ; Q4_K_M iwọntunwọnsi didara ati iranti. Iwọnyi jẹ awọn iṣeduro, kii ṣe iloro deede gbogbo agbaye. Awọn abajade da lori awoṣe ati iṣẹ-ṣiṣe. NVFP4 ati awọn ero titobi miiran nilo ibaramu tiwọn ati iṣiro didara."
   }
 }

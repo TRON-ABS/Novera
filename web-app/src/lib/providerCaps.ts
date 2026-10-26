@@ -1,3 +1,4 @@
+import { mediaProviderDefinitions } from '@/constants/mediaProviders'
 import {
   paramsSettings,
   type ParamDef,
@@ -227,7 +228,7 @@ export function isPredefinedRemoteProvider(
 ): boolean {
   if (!provider) return false
   const id = typeof provider === 'string' ? provider : provider.provider
-  return id in BUILTIN_CAPS && !LOCAL_PROVIDER_IDS.has(id)
+  return (id in BUILTIN_CAPS || mediaProviderDefinitions.some(item => item.id === id)) && !LOCAL_PROVIDER_IDS.has(id)
 }
 
 /**

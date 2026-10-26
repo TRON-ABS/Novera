@@ -334,6 +334,14 @@ pub fn run() {
         core::transformers::transformers_unload,
         core::transformers::transformers_session,
         core::transformers::transformers_probe,
+        core::creation::creation_start,
+        core::creation::creation_status,
+        core::creation::creation_cancel,
+        core::creation::creation_resolve,
+        core::creation::creation_image_input,
+        core::creation_cloud::creation_cloud_prepare,
+        core::creation_cloud::creation_cloud_save,
+        core::creation_cloud::creation_cloud_release,
     ]);
 
     // Mobile: no updater commands

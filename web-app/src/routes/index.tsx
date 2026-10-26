@@ -56,7 +56,7 @@ function Index() {
     <div className="flex h-full flex-col justify-center">
       <HeaderPage>
         <div className="flex items-center gap-2 w-full">
-          <DropdownModelProvider model={threadModel} />
+          <DropdownModelProvider mediaScope="new" model={threadModel} />
         </div>
       </HeaderPage>
       <div

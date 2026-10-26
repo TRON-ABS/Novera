@@ -46,6 +46,11 @@ type Model = {
   description?: string
   format?: string
   capabilities?: string[]
+  input_modalities?: Array<'text' | 'image' | 'video' | 'audio'>
+  output_modalities?: Array<'text' | 'image' | 'video' | 'audio'>
+  media_adapter?: string
+  verified_at?: string
+  preview?: boolean
   /** Chat-template kwargs the model's template accepts (llamacpp only). */
   template_kwargs?: TemplateKwarg[]
   settings?: Record<string, ProviderSetting>

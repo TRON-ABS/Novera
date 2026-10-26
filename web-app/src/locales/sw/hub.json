@@ -118,6 +118,11 @@
     "tipFuture": "Injini ya ziada inahitajika kabla ya kazi hii kufanya kazi huko Novera.",
     "advisorEmpty": "Hakuna sehemu inayofaa ya kuanzia inayoweza kuchaguliwa kutoka kwa metadata ya sasa.",
     "hardwareUnknown": "Maelezo ya maunzi hayapo; mapendekezo yanahitaji data ya RAM na GPU.",
-    "contextTip": "Muktadha mfupi zaidi hutumia kumbukumbu kidogo bila kubadilisha ukubwa wa upakuaji."
+    "contextTip": "Muktadha mfupi zaidi hutumia kumbukumbu kidogo bila kubadilisha ukubwa wa upakuaji.",
+    "nvfp4Search": "GPU ya Blackwell iliyo na kumbukumbu ya kutosha iliyoripotiwa imetambuliwa. Pendelea vibadala vya NVFP4 wakati usanifu na injini inazisaidia. Upakiaji wa Native FLUX.2 Klein 4B Comfy unapatikana katika vyanzo vya ndani; angalia CUDA PyTorch, utegemezi wa hiari, mifano ya washirika na kumbukumbu ya bure kabla ya kupakua. Ugunduzi wa maunzi hauthibitishi muda wa utekelezaji uliosanidiwa au kasi ya uhakikisho.",
+    "nvfp4Prefer": "NVFP4 inapendekezwa kwa ajili ya familia hii ya GPU na FLUX.2 Klein 4B. Upakiaji asili unahitaji mpangilio wa Comfy unaotumika, CUDA PyTorch na vitegemezi vya hiari. Chagua kielelezo cha picha, kisimbaji cha Qwen3 na VAE kando katika mipangilio ya Uundaji. Muda wa utekelezaji, mchanganyiko kamili na kumbukumbu isiyolipishwa bado zinahitaji kuthibitishwa.",
+    "nvfp4Check": "NVFP4 imetambuliwa: Uwezo wa GPU, kumbukumbu isiyolipishwa, mpangilio wa uzito au usaidizi wa usanifu haujathibitishwa. Angalia injini ya CUDA kabla ya kuchagua lahaja hii. Umbizo pekee halianzishi utangamano.",
+    "nvfp4Unsupported": "Native NVFP4 haipendekezwi kwa kutumia GPU iliyotambuliwa au VRAM ya sasa isiyolipishwa. Zingatia ukadiriaji unaooana wa GGUF au injini uoanifu. Njia hiyo haitoi kuongeza kasi ya asili ya FP4.",
+    "quantQualityAdvice": "Mwongozo wa Novera GGUF wa maandishi, picha na vijenzi vya video: Q6_K au toleo jipya zaidi ndilo tunalopendekeza kuanzia tunapotanguliza uaminifu; Q4_K_M husawazisha ubora na kumbukumbu. Haya ni mapendekezo, sio kizingiti cha usahihi cha wote. Matokeo hutegemea mfano na kazi. NVFP4 na miradi mingine ya kuhesabu kiasi inahitaji utangamano wao wenyewe na tathmini ya ubora."
   }
 }

@@ -24,10 +24,26 @@ import { predefinedProviders } from '@/constants/providers'
 import { providerHasRemoteApiKeys } from '@/lib/provider-api-keys'
 import { useServiceHub } from '@/hooks/useServiceHub'
 import { getLastUsedModel } from '@/utils/getModelToStart'
+import { useCreation } from '@/hooks/useCreation'
+import { useAgentMode } from '@/hooks/useAgentMode'
+import {
+  LOCAL_MODEL_PROVIDERS,
+  matchesModelFilter,
+  modelModalities,
+  type ModelCategory,
+  type ModelSource,
+} from '@/modules/engines/model-modalities'
+import { Button } from '@/components/ui/button'
 import { ChevronsUpDown } from 'lucide-react'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 type DropdownModelProviderProps = {
+  mediaScope?: string
+  allowMedia?: boolean
   model?: ThreadModel
   useLastUsedModel?: boolean
   onModelChange?: (model: ThreadModel) => void
@@ -55,6 +71,8 @@ const setLastUsedModel = (provider: string, model: string) => {
 
 const DropdownModelProvider = memo(function DropdownModelProvider({
   model,
+  mediaScope,
+  allowMedia = true,
   useLastUsedModel = false,
   onModelChange,
 }: DropdownModelProviderProps) {
@@ -73,6 +91,65 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   const { t } = useTranslation()
   const { favoriteModels } = useFavoriteModel()
   const serviceHub = useServiceHub()
+
+  const creation = useCreation()
+  const currentThreadId = useThreads((state) => state.currentThreadId)
+  const scope = mediaScope ?? currentThreadId ?? 'new'
+  const agent = useAgentMode((state) => state.agentThreads[scope] === true)
+  const mediaAllowed = allowMedia && !agent
+  const [category, setCategory] = useState<ModelCategory>('all')
+  const [source, setSource] = useState<ModelSource>('all')
+  const mode = creation.modes[scope] ?? 'auto'
+  const selectedMedia =
+    mediaAllowed && (mode === 'image' || mode === 'video')
+      ? creation.selections[scope]?.[mode]
+      : undefined
+  const allProviders = useMemo(() => {
+    const local: Model[] = (['image', 'video'] as const).flatMap((task) => {
+      const path =
+        task === 'image'
+          ? ['sdcpp', 'nvfp4-cuda'].includes(
+              creation.settings.imageEngine ?? ''
+            )
+            ? creation.settings.ggufImageModel
+            : creation.settings.imageModel
+          : creation.settings.videoModel
+      return path
+        ? [
+            {
+              id: `diffusers-${task}`,
+              displayName: `${task === 'image' && creation.settings.imageEngine === 'sdcpp' ? 'stable-diffusion.cpp · ' : task === 'image' && creation.settings.imageEngine === 'nvfp4-cuda' ? 'NVFP4 CUDA · ' : ''}${path.split(/[\\/]/).pop()}`,
+              output_modalities: [task],
+              input_modalities:
+                task === 'image' &&
+                creation.settings.imageEngine === 'nvfp4-cuda'
+                  ? ['text']
+                  : ['text', 'image'],
+              capabilities: [`${task}-generation`],
+            },
+          ]
+        : []
+    })
+    return [
+      ...providers,
+      ...(local.length
+        ? [
+            {
+              provider: 'diffusers',
+              active: true,
+              settings: [],
+              models: local,
+            } as ModelProvider,
+          ]
+        : []),
+    ]
+  }, [
+    providers,
+    creation.settings.imageModel,
+    creation.settings.videoModel,
+    creation.settings.imageEngine,
+    creation.settings.ggufImageModel,
+  ])
 
   // Search state
   const [open, setOpen] = useState(false)
@@ -263,23 +340,22 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   const searchableItems = useMemo(() => {
     const items: SearchableModel[] = []
 
-    providers.forEach((provider) => {
+    allProviders.forEach((provider) => {
       if (!provider.active) return
 
       provider.models.forEach((modelItem) => {
-        // Skip embedding models - they can't be used for chat
-        if (modelItem.embedding) return
-
-        // Skip models that require API key but don't have one (except llamacpp)
-        // For custom providers, allow if they have at least one model loaded
-        const isPredefined = predefinedProviders.some((e) =>
-          e.provider.includes(provider.provider)
-        )
         if (
-          provider &&
-          provider.provider !== 'llamacpp' &&
-          !providerHasRemoteApiKeys(provider) &&
-          (isPredefined || provider.models.length === 0)
+          !matchesModelFilter(
+            modelItem,
+            provider.provider,
+            mediaAllowed ? category : 'text',
+            source
+          )
+        )
+          return
+        if (
+          !mediaAllowed &&
+          !modelModalities(modelItem).outputs.includes('text')
         )
           return
 
@@ -301,20 +377,23 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
     })
 
     return items
-  }, [providers])
+  }, [allProviders, category, source, mediaAllowed])
 
   // Create Fzf instance for fuzzy search
   const fzfInstance = useMemo(() => {
     return new Fzf(searchableItems, {
       selector: (item) =>
-        `${getModelDisplayName(item.model)} ${item.model.id}`.toLowerCase(),
+        `${getModelDisplayName(item.model)} ${item.searchStr}`.toLowerCase(),
     })
   }, [searchableItems])
 
   // Get favorite models that are currently available
   const favoriteItems = useMemo(() => {
     return searchableItems.filter((item) =>
-      favoriteModels.some((fav) => fav.id === item.model.id && fav.provider === item.provider.provider)
+      favoriteModels.some(
+        (fav) =>
+          fav.id === item.model.id && fav.provider === item.provider.provider
+      )
     )
   }, [searchableItems, favoriteModels])
 
@@ -342,14 +421,14 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   const groupedItems = useMemo(() => {
     const groups: Record<string, SearchableModel[]> = {}
 
-    if (!searchValue) {
+    if (!searchValue && category === 'all' && source === 'all') {
       // When not searching, show all active providers (even without models)
       // Sort: local first, then providers with API keys or custom with models, then others, alphabetically
-      const activeProviders = providers
+      const activeProviders = allProviders
         .filter((p) => p.active)
         .sort((a, b) => {
-          const aIsLocal = a.provider === 'llamacpp' || a.provider === 'mlx'
-          const bIsLocal = b.provider === 'llamacpp' || b.provider === 'mlx'
+          const aIsLocal = LOCAL_MODEL_PROVIDERS.has(a.provider)
+          const bIsLocal = LOCAL_MODEL_PROVIDERS.has(b.provider)
           // Local (llamacpp) first
           if (aIsLocal && !bIsLocal) return -1
           if (!aIsLocal && bIsLocal) return 1
@@ -388,17 +467,57 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
       }
 
       // When not searching, exclude favorite models from regular provider sections
-      const isFavorite = favoriteModels.some((fav) => fav.id === item.model.id && fav.provider === item.provider.provider)
+      const isFavorite = favoriteModels.some(
+        (fav) =>
+          fav.id === item.model.id && fav.provider === item.provider.provider
+      )
       if (!searchValue && isFavorite) return // Skip adding this item to regular provider section
 
       groups[providerKey].push(item)
     })
 
     return groups
-  }, [filteredItems, providers, searchValue, favoriteModels])
+  }, [
+    filteredItems,
+    allProviders,
+    searchValue,
+    favoriteModels,
+    category,
+    source,
+  ])
 
   const handleSelect = useCallback(
     async (searchableModel: SearchableModel) => {
+      const providerId = searchableModel.provider.provider
+      if (
+        !LOCAL_MODEL_PROVIDERS.has(providerId) &&
+        predefinedProviders.some((item) => item.provider === providerId) &&
+        !providerHasRemoteApiKeys(searchableModel.provider)
+      ) {
+        navigate({
+          to: route.settings.providers,
+          params: { providerName: providerId },
+        })
+        setOpen(false)
+        return
+      }
+      const outputs = modelModalities(searchableModel.model).outputs
+      const task = outputs.includes('image')
+        ? 'image'
+        : outputs.includes('video')
+          ? 'video'
+          : undefined
+      if (task && mediaAllowed) {
+        creation.setSelection(scope, task, {
+          provider: providerId,
+          id: searchableModel.model.id,
+        })
+        creation.setMode(scope, task)
+        setSearchValue('')
+        setOpen(false)
+        return
+      }
+      if (mediaAllowed) creation.setMode(scope, 'text')
       // Immediately update display to prevent double-click issues
       setDisplayModel(getModelDisplayName(searchableModel.model))
       setSearchValue('')
@@ -418,7 +537,6 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
         searchableModel.provider.provider,
         searchableModel.model.id
       )
-
 
       // Check mmproj existence for llamacpp models (async, don't block UI)
       if (searchableModel.provider.provider === 'llamacpp') {
@@ -450,6 +568,10 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
       }
     },
     [
+      creation,
+      scope,
+      mediaAllowed,
+      navigate,
       selectModelProvider,
       updateCurrentThreadModel,
       onModelChange,
@@ -466,40 +588,49 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
 
   if (!providers.length) return null
 
-  const provider = getProviderByName(selectedProvider)
-
+  const mediaProvider = selectedMedia
+    ? allProviders.find((item) => item.provider === selectedMedia.provider)
+    : undefined
+  const provider = mediaProvider ?? getProviderByName(selectedProvider)
+  const displayedName = selectedMedia
+    ? getModelDisplayName(
+        mediaProvider?.models.find((item) => item.id === selectedMedia.id) ?? {
+          id: selectedMedia.id,
+        }
+      )
+    : displayModel
 
   return (
     <Popover open={open} onOpenChange={onOpenChange}>
-        <PopoverTrigger asChild>
-          <div
-            data-testid="model-selector-trigger"
-            className="border relative z-20 px-4 py-1.5 flex items-center gap-1.5 rounded-full"
+      <PopoverTrigger asChild>
+        <div
+          data-testid="model-selector-trigger"
+          className="border relative z-20 px-4 py-1.5 flex items-center gap-1.5 rounded-full"
+        >
+          <button
+            type="button"
+            className="font-medium cursor-pointer flex items-center gap-1.5 relative z-20 min-w-0"
           >
-            <button
-              type="button"
-              className="font-medium cursor-pointer flex items-center gap-1.5 relative z-20 min-w-0"
-            >
-              {provider && (
-                <div className="shrink-0">
-                  <ProvidersAvatar provider={provider} />
-                </div>
-              )}
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <span
-                    className={cn(
-                      'text-foreground truncate leading-normal',
-                      !selectedModel?.id && 'text-muted-foreground'
-                    )}
-                  >
-                    {displayModel}
-                  </span>
-                </TooltipTrigger>
-                <TooltipContent>{displayModel}</TooltipContent>
-              </Tooltip>
-              <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground" />
-            </button>
+            {provider && (
+              <div className="shrink-0">
+                <ProvidersAvatar provider={provider} />
+              </div>
+            )}
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span
+                  className={cn(
+                    'text-foreground truncate leading-normal',
+                    !selectedModel?.id && 'text-muted-foreground'
+                  )}
+                >
+                  {displayedName}
+                </span>
+              </TooltipTrigger>
+              <TooltipContent>{displayedName}</TooltipContent>
+            </Tooltip>
+            <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground" />
+          </button>
           {currentModel?.settings &&
             provider &&
             provider.provider === 'llamacpp' && (
@@ -510,20 +641,22 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
                 />
               </div>
             )}
-          <ModelSupportStatus
-            modelId={selectedModel?.id}
-            provider={selectedProvider}
-            contextSize={getContextSize()}
-            className="ml-0.5 shrink-0"
-          />
+          {!selectedMedia && (
+            <ModelSupportStatus
+              modelId={selectedModel?.id}
+              provider={selectedProvider}
+              contextSize={getContextSize()}
+              className="ml-0.5 shrink-0"
+            />
+          )}
         </div>
-        </PopoverTrigger>
+      </PopoverTrigger>
 
       <PopoverContent
         className={cn(
           // Use auto width to fit long model names; keep a sensible minimum.
           'w-auto min-w-70 max-w-[90vw] p-0 backdrop-blur-2xl bg-background/95 border',
-          searchValue.length === 0 && 'h-80'
+          searchValue.length === 0 && 'h-[28rem]'
         )}
         align="start"
         // sideOffset={16}
@@ -552,8 +685,63 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
             )}
           </div>
 
+          <div className="p-2 border-b space-y-1">
+            <div
+              className="flex flex-wrap gap-1"
+              role="group"
+              aria-label={t('chat:creation.category')}
+            >
+              {(
+                [
+                  'all',
+                  'text',
+                  'image',
+                  'video',
+                  'multimodal',
+                ] as ModelCategory[]
+              )
+                .filter(
+                  (item) =>
+                    mediaAllowed ||
+                    item === 'all' ||
+                    item === 'text' ||
+                    item === 'multimodal'
+                )
+                .map((item) => (
+                  <Button
+                    key={item}
+                    size="sm"
+                    variant={category === item ? 'secondary' : 'ghost'}
+                    aria-pressed={category === item}
+                    onClick={() => setCategory(item)}
+                  >
+                    {t(`chat:creation.${item}`)}
+                  </Button>
+                ))}
+            </div>
+            <div
+              className="flex gap-1"
+              role="group"
+              aria-label={t('chat:creation.origin')}
+            >
+              {(['all', 'local', 'cloud'] as ModelSource[]).map((item) => (
+                <Button
+                  key={item}
+                  size="sm"
+                  variant={source === item ? 'secondary' : 'ghost'}
+                  aria-pressed={source === item}
+                  onClick={() => setSource(item)}
+                >
+                  {t(`chat:creation.${item}`)}
+                </Button>
+              ))}
+            </div>
+            <p className="max-w-sm text-xs text-muted-foreground">
+              {t('chat:creation.filterNote')}
+            </p>
+          </div>
           {/* Model list */}
-          <div className="max-h-80 overflow-y-auto">
+          <div className="min-h-0 flex-1 max-h-80 overflow-y-auto">
             {Object.keys(groupedItems).length === 0 && searchValue ? (
               <div className="py-3 px-4 text-sm ">
                 {t('common:noModelsFoundFor', { searchValue })}
@@ -608,6 +796,21 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
                               </TooltipContent>
                             </Tooltip>
                             <div className="flex-1"></div>
+                            {searchableModel.model.preview && (
+                              <span className="text-xs text-muted-foreground">
+                                {t('chat:creation.preview')}
+                              </span>
+                            )}
+                            {!LOCAL_MODEL_PROVIDERS.has(
+                              searchableModel.provider.provider
+                            ) &&
+                              !providerHasRemoteApiKeys(
+                                searchableModel.provider
+                              ) && (
+                                <span className="text-xs text-muted-foreground">
+                                  {t('chat:creation.keyRequired')}
+                                </span>
+                              )}
                             {capabilities.length > 0 && (
                               <div className="shrink-0 -mr-1.5">
                                 <Capabilities capabilities={capabilities} />
@@ -627,7 +830,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
 
                 {/* Regular provider sections */}
                 {Object.entries(groupedItems).map(([providerKey, models]) => {
-                  const providerInfo = providers.find(
+                  const providerInfo = allProviders.find(
                     (p) => p.provider === providerKey
                   )
 
@@ -643,7 +846,9 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
                         <div className="flex items-center gap-1.5">
                           <ProvidersAvatar provider={providerInfo} />
                           <span className="capitalize text-sm font-medium text-muted-foreground">
-                            {getProviderTitle(providerInfo.provider)}
+                            {providerInfo.provider === 'diffusers'
+                              ? t('chat:creation.local')
+                              : getProviderTitle(providerInfo.provider)}
                           </span>
                         </div>
 
@@ -651,6 +856,13 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
                           className="size-6 cursor-pointer flex items-center justify-center rounded-sm bg-secondary-foreground/8 transition-all duration-200 ease-in-out"
                           onClick={(e) => {
                             e.stopPropagation()
+                            if (providerInfo.provider === 'diffusers') {
+                              setOpen(false)
+                              window.dispatchEvent(
+                                new CustomEvent('novera-creation-settings')
+                              )
+                              return
+                            }
                             navigate({
                               to: route.settings.providers,
                               params: { providerName: providerInfo.provider },
@@ -704,6 +916,21 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
                                   </TooltipContent>
                                 </Tooltip>
                                 <div className="flex-1"></div>
+                                {searchableModel.model.preview && (
+                                  <span className="text-xs text-muted-foreground">
+                                    {t('chat:creation.preview')}
+                                  </span>
+                                )}
+                                {!LOCAL_MODEL_PROVIDERS.has(
+                                  searchableModel.provider.provider
+                                ) &&
+                                  !providerHasRemoteApiKeys(
+                                    searchableModel.provider
+                                  ) && (
+                                    <span className="text-xs text-muted-foreground">
+                                      {t('chat:creation.keyRequired')}
+                                    </span>
+                                  )}
                                 {capabilities.length > 0 && (
                                   <div className="shrink-0 -mr-1.5">
                                     <Capabilities capabilities={capabilities} />

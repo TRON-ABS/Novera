@@ -118,6 +118,11 @@
     "tipFuture": "Noverada bu vazifani bajarish uchun qoʻshimcha dvigatel kerak boʻladi.",
     "advisorEmpty": "Joriy metama'lumotlardan mos keladigan boshlang'ich nuqtani tanlab bo'lmaydi.",
     "hardwareUnknown": "Uskuna haqida ma'lumot yo'q; tavsiyalar RAM va GPU ma'lumotlarini talab qiladi.",
-    "contextTip": "Qisqaroq kontekst yuklab olish hajmini o'zgartirmasdan kamroq xotiradan foydalanadi."
+    "contextTip": "Qisqaroq kontekst yuklab olish hajmini o'zgartirmasdan kamroq xotiradan foydalanadi.",
+    "nvfp4Search": "Etarli xotiraga ega Blackwell GPU aniqlandi. Arxitektura va vosita ularni qo'llab-quvvatlasa, NVFP4 variantlarini afzal ko'ring. Native FLUX.2 Klein 4B Comfy yuklash mahalliy manbalarda mavjud; Yuklab olishdan oldin CUDA PyTorch, ixtiyoriy bog'liqliklar, qo'shimcha modellar va bo'sh xotirani tekshiring. Uskunani aniqlash sozlangan ish vaqtini tasdiqlamaydi yoki tezlikni kafolatlamaydi.",
+    "nvfp4Prefer": "NVFP4 ushbu GPU va FLUX.2 Klein 4B oilasi uchun tavsiya etiladi. Mahalliy yuklash uchun qo'llab-quvvatlanadigan Comfy layout, CUDA PyTorch va ixtiyoriy bog'liqliklar kerak. Yaratish sozlamalarida tasvir modelini, Qwen3 kodlovchisini va VAE ni alohida tanlang. Ish vaqti, to'liq kombinatsiya va bo'sh xotira hali ham tekshirishni talab qiladi.",
+    "nvfp4Check": "NVFP4 aniqlandi: GPU qobiliyati, bo'sh xotira, vazn tartibi yoki arxitekturani qo'llab-quvvatlash tasdiqlanmagan. Ushbu variantni tanlashdan oldin CUDA dvigatelini tekshiring. Faqatgina format moslikni o'rnatmaydi.",
+    "nvfp4Unsupported": "Mahalliy NVFP4 aniqlangan GPU yoki joriy bepul VRAM bilan tavsiya etilmaydi. Mos keladigan GGUF kvantlash yoki moslik mexanizmini ko'rib chiqing. Bu yo'l mahalliy FP4 tezlashuvini ta'minlamaydi.",
+    "quantQualityAdvice": "Matn, rasm va video komponentlar uchun Novera GGUF yoʻriqnomasi: Q6_K yoki undan yuqorisi biz uchun sodiqlikni birinchi oʻringa qoʻyishda tavsiya etilgan boshlangʻich nuqtadir; Q4_K_M sifat va xotirani muvozanatlashtiradi. Bu universal aniqlik chegarasi emas, balki tavsiyalardir. Natijalar model va vazifaga bog'liq. NVFP4 va boshqa kvantlash sxemalari o'zlarining muvofiqligi va sifatini baholashga muhtoj."
   }
 }

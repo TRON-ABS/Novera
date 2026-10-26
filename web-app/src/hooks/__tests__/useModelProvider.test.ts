@@ -33,6 +33,15 @@ Object.defineProperty(window, 'localStorage', {
 })
 
 describe('useModelProvider - displayName functionality', () => {
+  it('updates generation metadata while preserving user settings, deleted models and Adobe client ID', () => {
+    const saved = { provider: 'adobe-firefly', active: true, settings: [], api_key: 'test-only-key', custom_header: [{header:'x-api-key',value:'test-client-id'}], models: [{id:'firefly_image',displayName:'My image model',settings:{},capabilities:['completion']}] }
+    useModelProvider.setState({ providers:[saved],deletedModels:[] })
+    useModelProvider.getState().setProviders([{...saved,api_key:'',custom_header:[],models:[{id:'firefly_image',media_adapter:'adobe',output_modalities:['image'],capabilities:['image-generation']}]}])
+    const provider = useModelProvider.getState().providers[0]
+    expect(provider.models[0]).toMatchObject({displayName:'My image model',media_adapter:'adobe',output_modalities:['image'],capabilities:['image-generation']})
+    expect(provider.api_key).toBe('test-only-key')
+    expect(provider.custom_header?.[0].value).toBe('test-client-id')
+  })
   beforeEach(() => {
     // Reset the mock implementations instead of clearing them
     localStorageMock.getItem.mockReturnValue(null)

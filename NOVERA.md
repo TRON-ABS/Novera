@@ -23,6 +23,8 @@ Lire [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour l’état actuel, [le 
 
 Le mainteneur a demandé le **25 octobre 2026** que le dépôt reflète toutes les dernières sources et documentations. Les publications de sources sont autorisées ; exclure secrets, configuration locale, données utilisateur, exécutables/APK, caches et diagnostics bruts. Garder GitHub Actions désactivé.
 
+Le mainteneur a demandé ensuite le **26 octobre 2026** de **mettre à jour le dépôt et sa vitrine avec les fournisseurs cloud et les nouvelles capacités**. Cette demande autorise la publication des sources et des documents, et remplace la pause de publication précédente. Elle ne déclenche aucune compilation supplémentaire de l’application, publication de binaire ou activation de GitHub Actions. Les tests de l’exécutable compilé par le mainteneur restent distincts des validations des sources.
+
 Les compilations locales demandées les 23–25 octobre et le test synthétique Europe sont historiques et décrits dans [l’historique](docs/CHANGELOG.md). Une synchronisation de sources ou de documentation ne déclenche aucune nouvelle compilation, installation ni publication de binaire.
 
 Les mises à jour automatiques restent désactivées avant validation de la chaîne signée Novera. Statistiques et suivi des erreurs sont indépendants et désactivés par défaut ; ne pas modifier les consentements du profil utilisateur pendant les tests. Le paramètre desktop explicite `-WithTelemetry` lit uniquement la configuration publique du fichier local ignoré `web-app/.env.local`, sans publier ses valeurs ni accorder de consentement. Android reste désactivé dans le lanceur.

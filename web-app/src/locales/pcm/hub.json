@@ -118,6 +118,11 @@
     "tipFuture": "This work need another engine before e fit run for Novera.",
     "advisorEmpty": "The metadata wey dey now no reach to choose suitable model to start.",
     "hardwareUnknown": "Hardware information no dey; advice need RAM and GPU data.",
-    "contextTip": "Shorter context use less memory but download size no go change."
+    "contextTip": "Shorter context use less memory but download size no go change.",
+    "nvfp4Search": "We detect Blackwell GPU with enough memory wey hardware report. Prefer NVFP4 when architecture and engine support am. Local sources fit load Comfy FLUX.2 Klein 4B natively. Check CUDA PyTorch, dependencies, companion models and free memory before download. Hardware detection no prove runtime ready or guarantee speed.",
+    "nvfp4Prefer": "We suggest NVFP4 for this GPU and FLUX.2 Klein 4B family. Native loading need Comfy layout wey we support, CUDA PyTorch and optional dependencies. Choose image model, Qwen3 encoder and VAE separately for Creation settings. Runtime, full combination and free memory still need check.",
+    "nvfp4Check": "NVFP4 dey, but we never confirm GPU capability, free memory, weights layout or architecture. Check CUDA engine before you choose this variant. Format alone no prove compatibility.",
+    "nvfp4Unsupported": "We no recommend native NVFP4 for GPU wey we detect or free VRAM wey remain. Try GGUF quantization wey match or compatibility engine. Compatibility engine no give native FP4 acceleration.",
+    "quantQualityAdvice": "Novera GGUF advice for text, picture and video components: start from Q6_K or higher when fidelity matter most; Q4_K_M balance quality and memory. Na advice, no be accuracy rule for every model. Result depend on model and task. NVFP4 and other quantization need their own quality and compatibility check."
   }
 }

@@ -291,7 +291,7 @@ export function convertThreadMessageToUIMessage(
       parts.push({
         type: 'file',
         mediaType,
-        url: `data:${mediaType};base64,${content.input_video.data}`,
+        url: content.input_video.data.startsWith('novera-creation:') ? content.input_video.data : `data:${mediaType};base64,${content.input_video.data}`,
       })
     } else if (content.type === 'tool_call') {
       // Handle tool call content items - direct conversion from flat structure

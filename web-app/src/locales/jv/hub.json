@@ -118,6 +118,11 @@
     "tipFuture": "Mesin tambahan dibutuhake sadurunge tugas iki bisa mlaku ing Novera.",
     "advisorEmpty": "Ora ana titik wiwitan sing cocog sing bisa dipilih saka metadata saiki.",
     "hardwareUnknown": "Informasi hardware ilang; Rekomendasi mbutuhake data RAM lan GPU.",
-    "contextTip": "Konteks sing luwih cendhek nggunakake memori sing kurang tanpa ngganti ukuran download."
+    "contextTip": "Konteks sing luwih cendhek nggunakake memori sing kurang tanpa ngganti ukuran download.",
+    "nvfp4Search": "A GPU Blackwell karo memori kacarita cekap dideteksi. Luwih seneng varian NVFP4 nalika arsitektur lan mesin ndhukung. Native FLUX.2 Klein 4B Nyaman loading kasedhiya ing sumber lokal; mriksa CUDA PyTorch, dependensi opsional, model pendamping lan memori gratis sadurunge ngundhuh. Deteksi hardware ora validasi runtime diatur utawa njamin kacepetan.",
+    "nvfp4Prefer": "NVFP4 disaranake kanggo kulawarga GPU lan FLUX.2 Klein 4B iki. Muatan asli mbutuhake tata letak nyaman sing didhukung, CUDA PyTorch lan dependensi opsional. Pilih model gambar, ngodhe Qwen3 lan VAE kanthi kapisah ing setelan Penciptaan. Runtime, kombinasi lengkap lan memori gratis isih mbutuhake verifikasi.",
+    "nvfp4Check": "NVFP4 dideteksi: Kapabilitas GPU, memori free, tata bobot utawa support arsitektur ora dikonfirmasi. Priksa mesin CUDA sadurunge milih varian iki. Format mung ora nggawe kompatibilitas.",
+    "nvfp4Unsupported": "Native NVFP4 ora dianjurake karo GPU dideteksi utawa saiki free VRAM. Coba kuantisasi GGUF sing kompatibel utawa mesin kompatibilitas. Jalur kasebut ora nyedhiyakake akselerasi FP4 asli.",
+    "quantQualityAdvice": "Panuntun Novera GGUF kanggo komponen teks, gambar lan video: Q6_K utawa luwih dhuwur minangka titik wiwitan sing disaranake nalika ngutamakake kasetyan; Q4_K_M ngimbangi kualitas lan memori. Iki minangka rekomendasi, dudu ambang akurasi universal. Asil gumantung ing model lan tugas. NVFP4 lan skema kuantisasi liyane mbutuhake kompatibilitas lan penilaian kualitas dhewe."
   }
 }

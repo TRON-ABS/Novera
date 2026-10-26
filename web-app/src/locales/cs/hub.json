@@ -118,6 +118,11 @@
     "tipFuture": "Před spuštěním této úlohy v Novera je zapotřebí další engine.",
     "advisorEmpty": "Z aktuálních metadat nelze vybrat žádný vhodný výchozí bod.",
     "hardwareUnknown": "Chybí informace o hardwaru; doporučení vyžadují data RAM a GPU.\nKratší kontext využívá méně paměti bez změny velikosti stahování.",
-    "contextTip": "Kratší kontext využívá méně paměti bez změny velikosti stahování."
+    "contextTip": "Kratší kontext využívá méně paměti bez změny velikosti stahování.",
+    "nvfp4Search": "Je detekován Blackwell GPU s dostatečnou hlášenou pamětí. Preferujte varianty NVFP4, pokud je architektura a engine podporují. Nativní načítání FLUX.2 Klein 4B Comfy je dostupné v místních zdrojích; před stažením zkontrolujte CUDA PyTorch, volitelné závislosti, doprovodné modely a volnou paměť. Detekce hardwaru neověřuje nakonfigurované běhové prostředí ani nezaručuje rychlost.",
+    "nvfp4Prefer": "Pro tuto GPU a rodinu FLUX.2 Klein 4B je navrženo NVFP4. Nativní načítání vyžaduje podporované rozložení Comfy, CUDA PyTorch a volitelné závislosti. Vyberte model obrazu, kodér Qwen3 a VAE samostatně v nastavení vytváření. Runtime, úplná kombinace a volná paměť stále vyžadují ověření.",
+    "nvfp4Check": "Zjištěno NVFP4: Funkce GPU, volná paměť, rozložení hmotnosti nebo podpora architektury nejsou potvrzeny. Před výběrem této varianty zkontrolujte motor CUDA. Samotný formát nezaručuje kompatibilitu.",
+    "nvfp4Unsupported": "Nativní NVFP4 se nedoporučuje s detekovaným GPU nebo aktuální volnou VRAM. Zvažte kompatibilní kvantizaci GGUF nebo modul kompatibility. Tato cesta neposkytuje nativní akceleraci FP4.",
+    "quantQualityAdvice": "Pokyny Novera GGUF pro textové, obrazové a video komponenty: Q6_K nebo vyšší je námi navrhovaným výchozím bodem při upřednostňování věrnosti; Q4_K_M vyvažuje kvalitu a paměť. Toto jsou doporučení, nikoli univerzální práh přesnosti. Výsledky závisí na modelu a úkolu. NVFP4 a další kvantizační schémata potřebují vlastní posouzení kompatibility a kvality."
   }
 }

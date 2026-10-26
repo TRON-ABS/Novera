@@ -118,6 +118,11 @@
     "tipFuture": "Este necesar un motor suplimentar înainte ca această sarcină să poată rula în Novera.",
     "advisorEmpty": "Niciun punct de plecare adecvat nu poate fi selectat din metadatele curente.",
     "hardwareUnknown": "Lipsesc informații despre hardware; recomandările necesită date RAM și GPU.",
-    "contextTip": "Un context mai scurt utilizează mai puțină memorie fără a modifica dimensiunea de descărcare."
+    "contextTip": "Un context mai scurt utilizează mai puțină memorie fără a modifica dimensiunea de descărcare.",
+    "nvfp4Search": "Este detectat un GPU Blackwell cu suficientă memorie raportată. Preferați variantele NVFP4 atunci când arhitectura și motorul le acceptă. Încărcarea nativă FLUX.2 Klein 4B Comfy este disponibilă în surse locale; verificați CUDA PyTorch, dependențele opționale, modelele însoțitoare și memoria liberă înainte de descărcare. Detectarea hardware-ului nu validează durata de rulare configurată sau garantează viteza.",
+    "nvfp4Prefer": "NVFP4 este sugerat pentru acest GPU și familia FLUX.2 Klein 4B. Încărcarea nativă necesită aspectul Comfy acceptat, CUDA PyTorch și dependențe opționale. Selectați separat modelul imaginii, codificatorul Qwen3 și VAE în setările de creare. Timpul de rulare, combinația completă și memoria liberă mai necesită verificare.",
+    "nvfp4Check": "NVFP4 detectat: capacitatea GPU, memoria liberă, aspectul greutății sau suportul arhitecturii nu sunt confirmate. Verificați motorul CUDA înainte de a alege această variantă. Formatul singur nu stabilește compatibilitatea.",
+    "nvfp4Unsupported": "NVFP4 nativ nu este recomandat cu GPU-ul detectat sau cu VRAM-ul liber curent. Luați în considerare o cuantizare GGUF compatibilă sau un motor de compatibilitate. Această cale nu oferă accelerație nativă FP4.",
+    "quantQualityAdvice": "Ghid Novera GGUF pentru componentele text, imagine și video: Q6_K sau mai mare este punctul nostru de pornire sugerat atunci când acordăm prioritate fidelității; Q4_K_M echilibrează calitatea și memoria. Acestea sunt recomandări, nu un prag universal de precizie. Rezultatele depind de model și sarcină. NVFP4 și alte scheme de cuantizare au nevoie de propria lor evaluare a compatibilității și a calității."
   }
 }

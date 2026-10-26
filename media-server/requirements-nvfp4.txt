@@ -1,0 +1,4 @@
+# Optional native NVFP4 CUDA path; install with the CUDA PyTorch environment.
+accelerate==1.15.0
+gguf==0.19.0
+comfy-kitchen==0.2.35

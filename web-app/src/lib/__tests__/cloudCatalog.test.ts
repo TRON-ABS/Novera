@@ -1,18 +1,20 @@
 import { describe, expect, it, vi } from 'vitest'
 import { predefinedProviders } from '@/constants/providers'
 import { cloudModelPresets } from '@/constants/cloudModels'
+import { mediaModels } from '@/constants/mediaProviders'
 import { providerModels } from '@/constants/models'
 import { fetchTopRemoteModels, supportsRemoteCatalog } from '../remoteModelCatalog'
 import { buildsOwnToolImageRequest, isPredefinedRemoteProvider } from '../providerCaps'
 
 describe('maintained cloud catalog', () => {
-  it('offers 27 distinct providers, with chat shortlists except account-specific gateways', () => {
-    expect(predefinedProviders).toHaveLength(27)
-    expect(new Set(predefinedProviders.map((p) => p.provider)).size).toBe(27)
+  it('offers 41 distinct providers, with modality shortlists except account-specific gateways', () => {
+    expect(predefinedProviders).toHaveLength(41)
+    expect(new Set(predefinedProviders.map((p) => p.provider)).size).toBe(41)
     for (const provider of predefinedProviders) {
       expect(isPredefinedRemoteProvider(provider.provider)).toBe(true)
       if (['azure', 'watsonx'].includes(provider.provider)) continue
       expect(supportsRemoteCatalog(provider.provider)).toBe(true)
+      if (mediaModels(provider.provider).length && !(provider.provider in providerModels)) continue
       const config = providerModels[provider.provider as keyof typeof cloudModelPresets]
       expect(config.models.length).toBeGreaterThan(0)
       expect(new Set(config.models).size).toBe(config.models.length)
@@ -29,8 +31,8 @@ describe('maintained cloud catalog', () => {
       { id: 'gpt-image-2.5', created: 3 }, { id: 'text-embedding-3-small', created: 4 },
     ] })))
     const models = await fetchTopRemoteModels({ provider: 'openai', base_url: 'https://example.test/v1' }, fetchImpl)
-    expect(models.map((m) => m.id)).toEqual(['gpt-6.1-sol', 'gpt-6-astra'])
-    expect(models[0].capabilities).toEqual(['completion', 'tools', 'vision'])
+    expect(models.filter(m => !m.media_adapter).map((m) => m.id)).toEqual(['gpt-6.1-sol', 'gpt-6-astra'])
+    expect(models.find(m => m.id === 'gpt-6.1-sol')?.capabilities).toEqual(['completion', 'tools', 'vision'])
   })
 
   it('filters non-chat Gemini variants even when their name shares the newest version', async () => {
@@ -39,7 +41,7 @@ describe('maintained cloud catalog', () => {
       { id: 'gemini-3.8-flash' }, { id: 'gemini-nano-banana-2.1' },
     ] })))
     const models = await fetchTopRemoteModels({ provider: 'gemini', base_url: 'https://example.test/v1' }, fetchImpl)
-    expect(models.map((m) => m.id)).toEqual(['gemini-4-argon', 'gemini-3.8-flash'])
+    expect(models.filter(m => !m.media_adapter).map((m) => m.id)).toEqual(['gemini-4-argon', 'gemini-3.8-flash'])
   })
 
   it('reads OpenRouter metadata, deduplicates and orders new chat models ahead of older ones', async () => {

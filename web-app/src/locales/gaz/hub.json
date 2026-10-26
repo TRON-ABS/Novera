@@ -118,6 +118,11 @@
     "tipFuture": "Hojiin kun Novera keessatti hojjechuu isaa dura motorri dabalataa barbaachisa.",
     "advisorEmpty": "Meetadaataa amma jiru irraa qabxiin jalqabaa mijaawaa ta’e filatamuu hin danda’u.",
     "hardwareUnknown": "Odeeffannoon haardwaarii dhabameera; yaadonni RAM fi GPU data barbaadu.",
-    "contextTip": "Yaadni gabaabaan guddina buufannaa osoo hin jijjiirin mimoorii xiqqaa fayyadama."
+    "contextTip": "Yaadni gabaabaan guddina buufannaa osoo hin jijjiirin mimoorii xiqqaa fayyadama.",
+    "nvfp4Search": "GPU Blackwell kan yaadannoo gahaa gabaafame qabu ni argama. Yeroo arkiteekcharii fi motorri isaan deeggaran garaagarummaa NVFP4 filadhu. Native FLUX.2 Klein 4B Fe’iinsi mijataa maddoota naannoo irraa argama; CUDA PyTorch, hirkattummaa filannoo, moodeelota hiriyyaa fi yaadannoo bilisaa osoo buufachuu dura ilaali. Hardware detection yeroo gaggeeffama qindaa'e hin mirkaneessitu ykn saffisa wabii hin kennu.",
+    "nvfp4Prefer": "NVFP4 maatii GPU fi FLUX.2 Klein 4B kanaaf yaadameera. Fe'iinsi dhalootaa haalata Comfy deeggarame, CUDA PyTorch fi hirkattummaa filannoo barbaada. Sajoo Uumama keessatti moodeela fakkii, enkoodara Qwen3 fi VAE addaan fili. Yeroon gaggeeffamaa, walnyaatinsi guutuu fi yaadannoo bilisaa ammallee mirkaneessuu barbaachisa.",
+    "nvfp4Check": "NVFP4 adda baafame: Dandeettiin GPU, yaadannoo bilisaa, haala ulfaatinaa ykn deeggarsa arkitekcharii hin mirkanoofne. Garaagarummaa kana filachuu kee dura motora CUDA ilaali. Akkaataan qofti walsimsiisaa hin hundeessu.",
+    "nvfp4Unsupported": "NVFP4 dhalootaan GPU argame ykn VRAM bilisaa ammaa wajjin hin gorfamu. Kuwantiizimii GGUF walsimsiisu ykn motora walsimsiisaa ilaali. Daandiin sun saffisa FP4 dhalootaa hin kennu.",
+    "quantQualityAdvice": "Qajeelfama Novera GGUF qaamolee barruu, fakkii fi viidiyoo: Q6_K fi isaa ol yeroo amanamummaa dursa kenninu qabxii jalqabaa yaada nuuf kenninedha; Q4_K_M qulqullinaa fi yaadannoo madaala. Kunniin yaada murtii malee ulaagaa sirrii ta’uu waliigalaa miti. Bu’aan argamu moodeela fi hojii irratti hundaa’a. NVFP4 fi iskiimoonni kuwantaayizeeshinii biroo walsimsiisaa fi madaallii qulqullinaa mataa isaanii barbaadu."
   }
 }

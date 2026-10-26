@@ -1,3 +1,5 @@
+import { mediaProviderDefinitions, mediaModels } from './mediaProviders'
+
 export const anthropicProviderSettings = [
   {
     key: 'api-key',
@@ -52,6 +54,7 @@ export const openAIProviderSettings = [
   },
 ]
 export const predefinedProviders = [
+  ...mediaProviderDefinitions.map(item => ({ active: true, api_key: '', base_url: item.base, explore_models_url: item.docs, provider: item.id, settings: [{ key: 'api-key', title: 'API Key', description: `[${item.name}](${item.docs})`, controller_type: 'input', controller_props: { placeholder: '', value: '', type: 'password', input_actions: ['unobscure', 'copy'] } }], models: mediaModels(item.id) })),
   {
     active: true,
     api_key: '',

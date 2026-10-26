@@ -76,7 +76,7 @@ describe('fetchTopRemoteModels gemini', () => {
         ],
       })
     )
-    const result = await fetchTopRemoteModels(mkGeminiProvider(), fetchImpl)
+    const result = (await fetchTopRemoteModels(mkGeminiProvider(), fetchImpl)).filter(model => !model.media_adapter)
     const ids = result.map((m) => m.id)
 
     expect(ids).not.toContain('models/gemini-embedding-001')
@@ -117,7 +117,7 @@ describe('fetchTopRemoteModels openai', () => {
       })
     )
 
-    const result = await fetchTopRemoteModels(mkOpenAIProvider(), fetchImpl)
+    const result = (await fetchTopRemoteModels(mkOpenAIProvider(), fetchImpl)).filter(model => !model.media_adapter)
 
     expect(result.map((m) => m.id)).not.toContain('text-embedding-3-small')
     expect(result.map((m) => m.id)).not.toContain('whisper-1')
@@ -150,10 +150,10 @@ describe('fetchTopRemoteModels openai', () => {
       .fn()
       .mockResolvedValueOnce(mkResponse({ error: 'bad key' }, 401))
       .mockResolvedValueOnce(mkResponse({ data: [{ id: 'gpt-4o', created: 1 }] }))
-    const result = await fetchTopRemoteModels(
+    const result = (await fetchTopRemoteModels(
       mkOpenAIProvider({ api_key_fallbacks: ['sk-backup'] }),
       fetchImpl
-    )
+    )).filter(model => !model.media_adapter)
     expect(result.map((m) => m.id)).toEqual(['gpt-4o'])
     expect(fetchImpl).toHaveBeenCalledTimes(2)
   })
@@ -168,7 +168,7 @@ describe('fetchTopRemoteModels openai', () => {
         ],
       })
     )
-    const result = await fetchTopRemoteModels(mkOpenAIProvider(), fetchImpl)
+    const result = (await fetchTopRemoteModels(mkOpenAIProvider(), fetchImpl)).filter(model => !model.media_adapter)
     expect(result.map((m) => m.id)).toEqual(['gpt-4o'])
   })
 
@@ -193,7 +193,7 @@ describe('fetchTopRemoteModels anthropic', () => {
         ],
       })
     )
-    const result = await fetchTopRemoteModels(mkAnthropicProvider(), fetchImpl)
+    const result = (await fetchTopRemoteModels(mkAnthropicProvider(), fetchImpl)).filter(model => !model.media_adapter)
     expect(result.map((m) => m.id)).not.toContain('gpt-4')
     expect(result[0].id).toBe('claude-3-5-sonnet-20240620')
     const c35 = result.find((m) => m.id === 'claude-3-5-sonnet-20240620')!
@@ -213,7 +213,7 @@ describe('fetchTopRemoteModels anthropic', () => {
       base_url: 'https://gateway.corp.com/v1',
       api_type: 'anthropic',
     })
-    const result = await fetchTopRemoteModels(provider, fetchImpl)
+    const result = (await fetchTopRemoteModels(provider, fetchImpl)).filter(model => !model.media_adapter)
     expect(result[0].id).toBe('claude-3-5-sonnet-20240620')
     expect(result[0].capabilities).toEqual(['completion', 'tools', 'vision'])
   })

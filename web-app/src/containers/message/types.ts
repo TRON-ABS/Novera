@@ -23,6 +23,7 @@ export type MessagePartLike = {
   error?: string
   filename?: string
   url?: string
+  providerMetadata?: Record<string, Record<string, unknown>>
   mediaType?: string
 }
 

@@ -118,6 +118,11 @@
     "tipFuture": "Matoor dheeraad ah ayaa loo baahan yahay ka hor inta aanay hawshani socon Novera.",
     "advisorEmpty": "Ma jiro meel ku habboon oo laga dooran karo xogta badan ee hadda jirta.",
     "hardwareUnknown": "Macluumaadka qalabku waa maqan yahay; Talooyinka waxay u baahan yihiin RAM iyo xogta GPU.",
-    "contextTip": "Xaaladda gaaban waxay isticmaashaa xusuusta yar iyada oo aan la beddelin cabbirka soo dejinta."
+    "contextTip": "Xaaladda gaaban waxay isticmaashaa xusuusta yar iyada oo aan la beddelin cabbirka soo dejinta.",
+    "nvfp4Search": "Blackwell GPU oo leh xasuus ku filan oo la soo sheegay ayaa la helay. Doorbida kala duwanaanta NVFP4 marka naqshadaha iyo mishiinka ay taageeraan. Dhaladka FLUX.2 Klein 4B Raritaan raaxo leh ayaa laga heli karaa ilo maxalli ah; hubi CUDA PyTorch, ku tiirsanaanta ikhtiyaariga ah, moodooyinka wehelka iyo xusuusta bilaashka ah ka hor inta aanad soo dejin. Helitaanka qalabku ma xaqiijinayo runtime-ga la habeeyey ama dammaanad qaadida xawaaraha.",
+    "nvfp4Prefer": "NVFP4 ayaa loo soo jeediyay GPU-gan iyo qoyska FLUX.2 Klein 4B. Soo dejinta hooyo waxay u baahan tahay qaabka Comfy ee la taageeray, CUDA PyTorch iyo ku tiirsanaanta ikhtiyaarka ah. Kala dooro qaabka sawirka, Qwen3 codeer iyo VAE si gooni gooni ah goobaha abuurista. Wakhtiga runtime, isku darka dhamaystiran iyo xusuusta xorta ah ayaa wali u baahan xaqiijin.",
+    "nvfp4Check": "NVFP4 waa la ogaaday: Kartida GPU, xusuusta bilaashka ah, qaabaynta miisaanka ama taageerada dhismaha lama xaqiijin. Hubi mishiinka CUDA ka hor intaadan dooran kala duwanaanshahan. Qaabka kaligiis ma dejiyo waafaqid.",
+    "nvfp4Unsupported": "Dhaladka NVFP4 laguma talinayo GPU-ga la ogaaday ama VRAM-ka bilaashka ah ee hadda. Tixgeli qiyaasaha GGUF ee ku habboon ama mishiinka ku habboon. Jidkaas ma bixinayo dardargelinta FP4 hooyo.",
+    "quantQualityAdvice": "Novera GGUF hagida qoraalka, sawirka iyo qaybaha muuqaalka: Q6_K ama ka sareeya ayaa ah meesha aan soo jeedinay ee bilawga ah marka mudnaanta la siinayo daacadnimada; Q4_K_M waxay dheellitirtaa tayada iyo xusuusta. Kuwani waa talooyin, maaha heerka saxda ah ee caalamiga ah. Natiijadu waxay ku xidhan tahay qaabka iyo hawsha. NVFP4 iyo nidaamyada kale ee qiyaasidda waxay u baahan yihiin iswaafajintooda iyo qiimeynta tayada."
   }
 }

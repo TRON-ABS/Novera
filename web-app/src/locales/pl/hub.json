@@ -118,6 +118,11 @@
     "tipFuture": "Aby to zadanie mogło zostać uruchomione w Noverze, potrzebny jest dodatkowy silnik.",
     "advisorEmpty": "Z bieżących metadanych nie można wybrać odpowiedniego punktu początkowego.",
     "hardwareUnknown": "Brak informacji o sprzęcie; zalecenia wymagają danych RAM i GPU.",
-    "contextTip": "Krótszy kontekst zużywa mniej pamięci bez zmiany rozmiaru pobierania."
+    "contextTip": "Krótszy kontekst zużywa mniej pamięci bez zmiany rozmiaru pobierania.",
+    "nvfp4Search": "Wykryto procesor graficzny Blackwell z wystarczającą ilością zgłaszanej pamięci. Preferuj warianty NVFP4, jeśli architektura i silnik je obsługują. Natywne ładowanie FLUX.2 Klein 4B Comfy jest dostępne w lokalnych źródłach; przed pobraniem sprawdź CUDA PyTorch, opcjonalne zależności, modele towarzyszące i wolną pamięć. Wykrywanie sprzętu nie sprawdza skonfigurowanego czasu działania ani nie gwarantuje szybkości.",
+    "nvfp4Prefer": "Dla tego procesora graficznego i rodziny FLUX.2 Klein 4B sugerowany jest NVFP4. Ładowanie natywne wymaga obsługiwanego układu Comfy, CUDA PyTorch i opcjonalnych zależności. Wybierz osobno model obrazu, koder Qwen3 i VAE w ustawieniach tworzenia. Środowisko wykonawcze, kompletna kombinacja i wolna pamięć nadal wymagają weryfikacji.",
+    "nvfp4Check": "Wykryto NVFP4: wydajność procesora graficznego, wolna pamięć, układ wagi lub obsługa architektury nie zostały potwierdzone. Zanim wybierzesz ten wariant, sprawdź silnik CUDA. Sam format nie gwarantuje kompatybilności.",
+    "nvfp4Unsupported": "Natywny NVFP4 nie jest zalecany w przypadku wykrytego procesora graficznego lub aktualnie wolnej pamięci VRAM. Rozważ kompatybilną kwantyzację GGUF lub silnik zgodności. Ścieżka ta nie zapewnia natywnego przyspieszenia FP4.",
+    "quantQualityAdvice": "Wytyczne Novera GGUF dotyczące komponentów tekstowych, obrazowych i wideo: Q6_K lub wyższy to nasz sugerowany punkt wyjścia przy ustalaniu priorytetu wierności; Q4_K_M równoważy jakość i pamięć. Są to zalecenia, a nie uniwersalny próg dokładności. Wyniki zależą od modelu i zadania. NVFP4 i inne schematy kwantyzacji wymagają własnej oceny zgodności i jakości."
   }
 }

@@ -1,0 +1,5 @@
+# Offline FLUX.2 Klein 4B configuration
+
+These small JSON configurations originate from [Black Forest Labs FLUX.2 Klein 4B](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/tree/main), retrieved 2026-10-26. Black Forest Labs and the original component authors retain their rights; the upstream Apache 2.0 license is preserved in LICENSE. No model weights or tokenizer vocabulary are shipped here. Local path/version bookkeeping fields were removed; architecture values are preserved.
+
+They define the 4B transformer, FLUX.2 VAE, Qwen3-4B encoder and flow-matching scheduler used by the strict native CUDA worker. They do not establish compatibility with a 9B model, another NVFP4 layout or arbitrary model code. Runtime uses only the user-selected local Safetensors/GGUF files with remote code disabled. Comfy weight-format reference: https://github.com/Comfy-Org/comfy-quants/blob/main/docs/formats/nvfp4.md . Activation quantization comes from the separately installed Apache-2.0 comfy-kitchen package, not a ComfyUI process or copied installation.

@@ -119,6 +119,11 @@
     "tipFuture": "Bevor diese Aufgabe in Novera ausgeführt werden kann, ist eine zusätzliche Engine erforderlich.",
     "advisorEmpty": "Aus den aktuellen Metadaten kann kein geeigneter Ausgangspunkt ausgewählt werden.",
     "hardwareUnknown": "Hardwareinformationen fehlen; Empfehlungen benötigen RAM- und GPU-Daten.",
-    "contextTip": "Ein kürzerer Kontext verbraucht weniger Speicher, ohne die Downloadgröße zu ändern."
+    "contextTip": "Ein kürzerer Kontext verbraucht weniger Speicher, ohne die Downloadgröße zu ändern.",
+    "nvfp4Search": "Es wurde eine Blackwell-GPU mit ausreichend gemeldetem Speicher erkannt. Bevorzugen Sie NVFP4-Varianten, wenn die Architektur und die Engine sie unterstützen. Natives Laden von FLUX.2 Klein 4B Comfy ist in lokalen Quellen verfügbar; Überprüfen Sie vor dem Herunterladen CUDA PyTorch, optionale Abhängigkeiten, Begleitmodelle und freien Speicher. Die Hardwareerkennung validiert die konfigurierte Laufzeit nicht und garantiert keine Geschwindigkeit.",
+    "nvfp4Prefer": "NVFP4 wird für diese GPU und die FLUX.2 Klein 4B-Familie empfohlen. Für das native Laden sind das unterstützte Comfy-Layout, CUDA PyTorch und optionale Abhängigkeiten erforderlich. Wählen Sie das Bildmodell, den Qwen3-Encoder und VAE separat in den Erstellungseinstellungen aus. Die Laufzeit, die vollständige Kombination und der freie Speicher müssen noch überprüft werden.",
+    "nvfp4Check": "NVFP4 erkannt: GPU-Fähigkeit, freier Speicher, Gewichtslayout oder Architekturunterstützung wurden nicht bestätigt. Überprüfen Sie die CUDA-Engine, bevor Sie diese Variante wählen. Das Format allein stellt keine Kompatibilität her.",
+    "nvfp4Unsupported": "Natives NVFP4 wird mit der erkannten GPU oder dem aktuellen freien VRAM nicht empfohlen. Erwägen Sie eine kompatible GGUF-Quantisierung oder die Kompatibilitäts-Engine. Dieser Pfad bietet keine native FP4-Beschleunigung.",
+    "quantQualityAdvice": "Novera GGUF-Anleitung für Text-, Bild- und Videokomponenten: Q6_K oder höher ist unser empfohlener Ausgangspunkt für die Priorisierung der Wiedergabetreue; Q4_K_M bringt Qualität und Gedächtnis in Einklang. Hierbei handelt es sich um Empfehlungen, nicht um eine allgemeingültige Genauigkeitsschwelle. Die Ergebnisse hängen vom Modell und der Aufgabe ab. NVFP4 und andere Quantisierungsschemata benötigen eine eigene Kompatibilitäts- und Qualitätsbewertung."
   }
 }

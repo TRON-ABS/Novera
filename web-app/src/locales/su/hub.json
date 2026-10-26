@@ -118,6 +118,11 @@
     "tipFuture": "Diperlukeun mesin tambahan sateuacan tugas ieu tiasa dijalankeun di Novera.",
     "advisorEmpty": "Teu aya titik awal anu cocog anu tiasa dipilih tina metadata ayeuna.",
     "hardwareUnknown": "Inpo hardware leungit; Rekomendasi peryogi data RAM sareng GPU.",
-    "contextTip": "Kontéks anu langkung pondok ngagunakeun memori anu kirang tanpa ngarobih ukuran unduhan."
+    "contextTip": "Kontéks anu langkung pondok ngagunakeun memori anu kirang tanpa ngarobih ukuran unduhan.",
+    "nvfp4Search": "A GPU Blackwell kalawan memori dilaporkeun cukup dideteksi. Resep varian NVFP4 nalika arsitéktur sareng mesin ngadukung aranjeunna. Asli FLUX.2 Klein 4B Comfy loading sadia dina sumber lokal; pariksa CUDA PyTorch, katergantungan pilihan, modél pendamping sareng mémori gratis sateuacan diunduh. Deteksi hardware henteu ngesahkeun runtime anu dikonpigurasikeun atanapi ngajamin laju.",
+    "nvfp4Prefer": "NVFP4 disarankeun pikeun GPU ieu sareng kulawarga FLUX.2 Klein 4B. Muatan asli butuh perenah nyaman anu dirojong, CUDA PyTorch sareng kagumantungan pilihan. Pilih modél gambar, encoder Qwen3 sareng VAE nyalira dina setélan Penciptaan. Runtime, kombinasi lengkep sareng mémori bébas masih peryogi verifikasi.",
+    "nvfp4Check": "NVFP4 kauninga: Kamampuh GPU, memori bébas, perenah beurat atawa rojongan arsitéktur teu dikonfirmasi. Pariksa mesin CUDA sateuacan milih varian ieu. Formatna nyalira henteu netepkeun kasaluyuan.",
+    "nvfp4Unsupported": "NVFP4 pribumi henteu disarankeun sareng GPU anu dideteksi atanapi VRAM gratis ayeuna. Pertimbangkeun kuantisasi GGUF anu cocog atanapi mesin kasaluyuan. Jalur éta henteu nyayogikeun akselerasi FP4 asli.",
+    "quantQualityAdvice": "Pitunjuk Novera GGUF pikeun téks, gambar sareng komponén video: Q6_K atanapi langkung luhur mangrupikeun titik awal anu disarankeun nalika prioritas kasatiaan; Q4_K_M nyaimbangkeun kualitas sareng mémori. Ieu mangrupikeun saran, sanés ambang akurasi universal. Hasilna gumantung kana modél sareng tugas. NVFP4 sareng skéma kuantisasi sanésna peryogi kasaluyuan sareng penilaian kualitas sorangan."
   }
 }

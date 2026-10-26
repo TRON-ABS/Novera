@@ -118,6 +118,11 @@
     "tipFuture": "Ana buƙatar ƙarin injin kafin wannan aikin ya fara aiki a Novera.",
     "advisorEmpty": "Ba za a iya zaɓar wurin da ya dace daga metadata na yanzu.",
     "hardwareUnknown": "Bayanin kayan aiki ya ɓace; shawarwarin suna buƙatar RAM da bayanan GPU.",
-    "contextTip": "Gajerun mahallin yana amfani da ƙarancin ƙwaƙwalwar ajiya ba tare da canza girman zazzagewa ba."
+    "contextTip": "Gajerun mahallin yana amfani da ƙarancin ƙwaƙwalwar ajiya ba tare da canza girman zazzagewa ba.",
+    "nvfp4Search": "An gano Blackwell GPU mai isasshiyar ƙwaƙwalwar ajiya da aka ruwaito. Fi son bambance-bambancen NVFP4 lokacin da gine-gine da injin ke tallafa musu. Native FLUX.2 Klein 4B Comfy loading yana samuwa a cikin kafofin gida; duba CUDA PyTorch, abubuwan dogaro na zaɓi, ƙirar abokan hulɗa da ƙwaƙwalwar ajiya kyauta kafin saukewa. Gano kayan aiki baya tabbatar da saita lokacin aiki ko garantin saurin gudu.",
+    "nvfp4Prefer": "An ba da shawarar NVFP4 don wannan GPU da FLUX.2 Klein 4B iyali. Load ɗin ƙasa yana buƙatar shimfidar Comfy mai goyan baya, CUDA PyTorch da abin dogaro na zaɓi. Zaɓi samfurin hoton, Qwen3 encoder da VAE daban a cikin saitunan Ƙirƙiri. Lokacin gudu, cikakken haɗin gwiwa da ƙwaƙwalwar ajiyar kyauta har yanzu suna buƙatar tabbaci.",
+    "nvfp4Check": "An gano NVFP4: Ƙarfin GPU, ƙwaƙwalwar ajiya kyauta, shimfidar nauyi ko tallafin gine-gine ba a tabbatar da shi ba. Bincika injin CUDA kafin zabar wannan bambance-bambancen. Tsarin shi kaɗai baya kafa dacewa.",
+    "nvfp4Unsupported": "Ba a ba da shawarar NVFP4 na asali tare da GPU da aka gano ko VRAM kyauta na yanzu. Yi la'akari da ƙididdige GGUF mai jituwa ko injin dacewa. Wannan hanyar ba ta samar da hanzarin FP4 na asali ba.",
+    "quantQualityAdvice": "Novera GGUF jagora don rubutu, hoto da abubuwan haɗin bidiyo: Q6_K ko mafi girma shine farkon abin da aka ba da shawarar yayin ba da fifiko; Q4_K_M yana daidaita inganci da ƙwaƙwalwar ajiya. Waɗannan shawarwari ne, ba madaidaicin kofa ba. Sakamako ya dogara da samfurin da aiki. NVFP4 da sauran tsare-tsaren ƙididdigewa suna buƙatar dacewarsu da ƙimar ƙimar su."
   }
 }

@@ -118,6 +118,11 @@
     "tipFuture": "È necessario un motore aggiuntivo prima che questa attività possa essere eseguita in Novera.",
     "advisorEmpty": "Dai metadati attuali non è possibile selezionare un punto di partenza adatto.",
     "hardwareUnknown": "Mancano informazioni sull'hardware; le raccomandazioni richiedono dati RAM e GPU.",
-    "contextTip": "Un contesto più breve utilizza meno memoria senza modificare la dimensione del download."
+    "contextTip": "Un contesto più breve utilizza meno memoria senza modificare la dimensione del download.",
+    "nvfp4Search": "Viene rilevata una GPU Blackwell con memoria segnalata sufficiente. Preferire le varianti NVFP4 quando l'architettura e il motore le supportano. Native FLUX.2 Klein 4B Il caricamento comodo è disponibile nelle fonti locali; controlla CUDA PyTorch, dipendenze opzionali, modelli complementari e memoria libera prima del download. Il rilevamento dell'hardware non convalida il runtime configurato né garantisce la velocità.",
+    "nvfp4Prefer": "Per questa GPU e la famiglia FLUX.2 Klein 4B è suggerito NVFP4. Il caricamento nativo richiede il layout Comfy supportato, CUDA PyTorch e dipendenze opzionali. Seleziona il modello di immagine, il codificatore Qwen3 e VAE separatamente nelle Impostazioni di creazione. Il tempo di esecuzione, la combinazione completa e la memoria libera necessitano ancora di verifica.",
+    "nvfp4Check": "Rilevato NVFP4: la capacità della GPU, la memoria libera, il layout del peso o il supporto dell'architettura non sono confermati. Controlla il motore CUDA prima di scegliere questa variante. Il formato da solo non stabilisce la compatibilità.",
+    "nvfp4Unsupported": "NVFP4 nativo non è consigliato con la GPU rilevata o la VRAM attualmente libera. Considera una quantizzazione GGUF compatibile o il motore di compatibilità. Questo percorso non fornisce l’accelerazione nativa delle FP4.",
+    "quantQualityAdvice": "Guida Novera GGUF per componenti di testo, immagine e video: Q6_K o superiore è il nostro punto di partenza suggerito quando si dà priorità alla fedeltà; Q4_K_M bilancia qualità e memoria. Queste sono raccomandazioni, non una soglia di precisione universale. I risultati dipendono dal modello e dall'attività. NVFP4 e altri schemi di quantizzazione necessitano di una propria valutazione di compatibilità e qualità."
   }
 }

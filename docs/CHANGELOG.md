@@ -2,6 +2,17 @@
 
 Les entrées ci-dessous décrivent des étapes datées. Elles ne remplacent pas [l’état courant des sources et du binaire](../TABLEAU_DE_BORD_NOVERA.md). Les journaux bruts, caches et exécutables restent locaux.
 
+
+## 26 octobre — publication des capacités média et nouvelle vitrine
+
+Synchronisation demandée des sources image/vidéo, des 41 profils cloud dont 19 avec routes de génération et 45 préréglages média, des moteurs locaux et du Hub conseillé. README anglais/français restructurés avec les 70 locales à 1 668 clés, les icônes officielles, les sorties réellement implémentées, les preuves natives NVFP4 et les limites des essais cloud simulés. Ambition élargie : aider les personnes et contribuer dans les secteurs de l’éducation, des sciences, de la santé, de l’environnement, de l’agriculture, des entreprises, des services publics, de la création, de l’accessibilité et de la vie quotidienne, avec des parcours simples et un accès mondial au savoir. Cette demande autorise la publication des sources et de la vitrine, sans nouveau build ni binaire public.
+
+
+## 26 octobre — NVFP4 CUDA natif, placement et durées (local uniquement)
+
+Ajout du chemin NVFP4 natif FLUX.2 Klein 4B, testé avec une vraie image sur RTX 5070 Laptop. Placement CPU/GPU séparé de Qwen et du générateur, Auto prudent, durées persistées sous images et vidéos, conseil Qwen3 corrigé, conseils Hub NVFP4 et GGUF Q6_K/Q4_K_M. Sources et 70 langues actualisées ; aucun nouvel exécutable ni publication. [Preuves](SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026).
+
+
 ## 26 octobre — les fournisseurs cloud dans la vitrine GitHub
 
 Les README français et anglais mettent en avant les 27 fournisseurs cloud avec leurs icônes et liens officiels, la découverte Hugging Face et les 70 langues. Ajout de liens directs depuis l’en-tête. Quatre dérivés PNG des ICO existants servent uniquement au rendu de la documentation. Aucun changement de l’application, des modèles, des traductions ou des consentements.

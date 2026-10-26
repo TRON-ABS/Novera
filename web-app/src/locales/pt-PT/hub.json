@@ -118,6 +118,11 @@
     "tipFuture": "É necessário um mecanismo adicional antes que esta tarefa possa ser executada no Novera.",
     "advisorEmpty": "Nenhum ponto de partida adequado pode ser selecionado a partir dos metadados atuais.",
     "hardwareUnknown": "Falta informação de hardware; as recomendações precisam de dados de RAM e GPU.",
-    "contextTip": "Um contexto mais curto utiliza menos memória sem alterar o tamanho do download."
+    "contextTip": "Um contexto mais curto utiliza menos memória sem alterar o tamanho do download.",
+    "nvfp4Search": "É detetada uma GPU Blackwell com memória reportada suficiente. Prefira as variantes NVFP4 quando a arquitetura e o motor as suportam. O carregamento Native FLUX.2 Klein 4B Comfy está disponível em fontes locais; verifique o CUDA PyTorch, as dependências opcionais, os modelos complementares e a memória livre antes de fazer o download. A deteção de hardware não valida o tempo de execução configurado nem garante a velocidade.",
+    "nvfp4Prefer": "O NVFP4 é sugerido para este GPU e família FLUX.2 Klein 4B. O carregamento nativo requer o layout Comfy compatível, CUDA PyTorch e dependências opcionais. Selecione o modelo de imagem, o codificador Qwen3 e o VAE separadamente nas definições de criação. O tempo de execução, a combinação completa e a memória livre ainda necessitam de verificação.",
+    "nvfp4Check": "NVFP4 detetado: a capacidade da GPU, a memória livre, o layout de peso ou o suporte de arquitetura não são confirmados. Verifique o mecanismo CUDA antes de escolher esta variante. O formato por si só não estabelece compatibilidade.",
+    "nvfp4Unsupported": "O NVFP4 nativo não é recomendado com a GPU detetada ou VRAM livre atual. Considere uma quantização GGUF compatível ou o mecanismo de compatibilidade. Este caminho não fornece aceleração nativa do FP4.",
+    "quantQualityAdvice": "Orientação Novera GGUF para componentes de texto, imagem e vídeo: Q6_K ou superior é o nosso ponto de partida sugerido ao priorizar a fidelidade; Q4_K_M equilibra a qualidade e a memória. Estas são recomendações, não um limite de precisão universal. Os resultados dependem do modelo e da tarefa. O NVFP4 e outros esquemas de quantização necessitam da sua própria avaliação de compatibilidade e qualidade."
   }
 }

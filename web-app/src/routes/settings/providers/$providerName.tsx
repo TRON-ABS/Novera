@@ -489,7 +489,8 @@ function ProviderDetail() {
       if (supportsRemoteCatalog(provider)) {
         const catalog = await fetchTopRemoteModels(provider, serviceHub.providers().fetch())
         newModels = catalog.map((m) => ({
-          id: m.id,
+          ...m,
+            id: m.id,
           model: m.id,
           name: m.id,
           capabilities: m.capabilities,
@@ -664,6 +665,8 @@ function ProviderDetail() {
               )}
 
             {isLlamacpp && <LlamacppEngineInfo />}
+            {provider && CURATED_ONLY_PROVIDERS.has(provider.provider) && <p className="text-xs text-muted-foreground">{t('chat:creation.catalogNote')}</p>}
+            {provider?.provider === 'adobe-firefly' && <label className="space-y-1 text-sm"><span>{t('chat:creation.adobeCredentials')}</span><input aria-label="x-api-key" className="block w-full rounded border bg-background p-2" value={provider.custom_header?.find(item => item.header.toLowerCase() === 'x-api-key')?.value ?? ''} onChange={event => updateProvider(providerName, { custom_header: [{ header: 'x-api-key', value: event.target.value.trim() }] })} /></label>}
 
             {provider?.provider === 'mlx' && (
               <div className="flex items-start gap-2 rounded-md border border-main-view-fg/10 bg-main-view-fg/5 px-3 py-2 text-xs text-muted-foreground">

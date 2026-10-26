@@ -2146,7 +2146,7 @@ function ThreadConversation() {
     <div className="flex flex-col h-[calc(100dvh-(env(safe-area-inset-bottom)+env(safe-area-inset-top)))]">
       <HeaderPage>
         <div className="flex items-center justify-between w-full pr-2">
-          <DropdownModelProvider model={threadModel} />
+          <DropdownModelProvider mediaScope={threadId} model={threadModel} />
         </div>
       </HeaderPage>
       <div className="flex flex-1 flex-col h-full overflow-hidden">

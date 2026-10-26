@@ -118,6 +118,11 @@
     "tipFuture": "Esengeli na moteur ya kobakisa yambo mosala oyo ekoki kotambola na Novera.",
     "advisorEmpty": "Point de départ oyo ebongi ekoki koponama te na kati ya ba métadonnées ya lelo.",
     "hardwareUnknown": "Ba sango ya matériel ezali te; ba recommandations esengeli na ba données RAM na GPU.",
-    "contextTip": "Contexte ya mokuse esalela mémoire moke kozanga kobongola bonene ya téléchargement."
+    "contextTip": "Contexte ya mokuse esalela mémoire moke kozanga kobongola bonene ya téléchargement.",
+    "nvfp4Search": "GPU ya Blackwell oyo ezali na mémoire oyo elobami ekoki ezwami. Preferer ba variantes NVFP4 tango architecture na moteur ezo soutenir yango. Native FLUX.2 Klein 4B Chargement confortable ezali na ba sources locales; vérifier CUDA PyTorch, ba dépendances optionnelles, ba modèles ya compagnon na mémoire ya ofele avant ya ko télécharger. Détection ya matériel e validaka te temps d'exécution configuré to e garantir vitesse te.",
+    "nvfp4Prefer": "NVFP4 epesami likanisi mpo na libota oyo ya GPU mpe FLUX.2 Klein 4B. Chargement native esengaka layout ya Comfy oyo esungami, CUDA PyTorch mpe ba dépendances optionnelles. Pona modèle ya image, encodeur Qwen3 na VAE separatement na ba paramètres ya Création. Tango ya kosala, combinaison complet na mémoire ya ofele esengeli kaka na vérification.",
+    "nvfp4Check": "NVFP4 ezwami: Makoki ya GPU, mémoire ya ofele, bobongisi ya kilo to lisungi ya architecture endimami te. Vérifier moteur CUDA avant ya kopona variante oyo. Format yango moko e établir compatibilité te.",
+    "nvfp4Unsupported": "NVFP4 native esengami te na GPU oyo ezwami to VRAM ya ofele ya lelo. Tala quantisation ya GGUF oyo ekokani to moteur ya compatibilité. Nzela wana epesaka accélération FP4 native te.",
+    "quantQualityAdvice": "Bokambami ya Novera GGUF mpo na biloko ya makomi, bilili mpe ya video: Q6_K to koleka ezali esika na biso ya kobanda oyo topesi likanisi ntango tozali kopesa motuya na bosembo; Q4_K_M e équilibrer qualité na mémoire. Wana ezali makanisi, kasi te ndelo ya bosikisiki oyo bato nyonso basalelaka. Ba résultats etali modèle na mosala. NVFP4 pe ba schemes misusu ya quantisation esengeli na compatibilité na yango moko pe évaluation ya qualité."
   }
 }

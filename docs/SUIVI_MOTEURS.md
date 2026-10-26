@@ -1,12 +1,15 @@
 # Suivi des moteurs locaux Novera
 
-État local au **26 octobre 2026**. Ce suivi distingue capacités des sources, tests exécutés et binaires disponibles. Le mainteneur a autorisé la mise à jour du dépôt de sources le **26 octobre 2026**, après les validations locales. Environnements, modèles, exécutables et journaux restent locaux ; aucune publication binaire ni compilation supplémentaire n’est demandée.
+État local au **26 octobre 2026**. Ce suivi distingue capacités des sources, tests exécutés et binaires disponibles. Une publication de sources a été autorisée et effectuée précédemment ; la **dernière consigne maintient les ajouts image/vidéo, cloud et NVFP4 locaux, sans nouvelle compilation de Novera ni publication du dépôt**. Environnements, modèles, exécutables et journaux restent locaux.
 
 | Moteur | Formats et matériel | Version / état |
 | --- | --- | --- |
 | llama.cpp | GGUF ; CPU et accélérateurs selon la construction | Moteur 0.7.0, llama.cpp b11823 ; [état existant](DEVELOPMENT.md#engine). Non mis à jour par ce travail. |
 | MLX | Dossiers MLX sur Mac Apple Silicon | Intégration existante ; aucune nouvelle validation Mac ici. |
-| Transformers / Safetensors | Dossiers Hugging Face textuels, poids simples ou découpés ; CPU et NVIDIA CUDA | Nouveau moteur desktop Windows/Linux dans les sources locales. |
+| Transformers / Safetensors | Dossiers Hugging Face textuels, poids simples ou découpés ; CPU et NVIDIA CUDA | Ajout de sources publié précédemment ; distinct du nouveau parcours multimédia local. |
+| Diffusers / créations | Dossiers Diffusers image/vidéo reconnus ; CPU ou CUDA, hors réseau | Nouvel adaptateur local, non compilé dans l’application et non publié, à la demande du mainteneur. |
+| NVFP4 CUDA natif / image | FLUX.2 Klein 4B Comfy NVFP4 + Qwen3 GGUF + VAE Safetensors ; GPU Blackwell | PNG réel RTX 5070 Laptop, 400 GEMM FP4 ; Qwen CPU/GPU/Auto validés. Sources locales, interface native à valider après compilation. |
+| stable-diffusion.cpp / créations mixtes | Composants GGUF/Safetensors compatibles, choisis séparément ; NVFP4 ComfyUI reconnu via cache BF16 puis représentation de diffusion Q8_0 ; CPU ou backend GPU disponible | Runtime officiel master-1015-e41fbcf ; PNG réels CPU et Vulkan avec l’encodeur GGUF « uncensored ». Sources Novera locales, compilation native et interface complète encore à valider. |
 
 ## Versions CPU et GPU
 
@@ -69,3 +72,192 @@ Le badge de compatibilité utilise désormais le même diagnostic que la vérifi
 Validation précédente du badge et de la pagination manuelle : 6 tests réussis. Nouveau défilement progressif : 16 tests ciblés réussis dans 5 fichiers (défilement, ordre stable, catégories, catalogue et badge), contrôle TypeScript sans émission réussi. Les libellés réutilisent les 70 catalogues existants, 1 587 clés par locale. Aucune compilation lancée pour ce correctif : le mainteneur prend en charge la compilation. Publication des sources autorisée ensuite par le mainteneur le 26 octobre ; aucun binaire publié.
 
 Contrôle final avant publication des sources : **309 tests réussis dans 17 fichiers**, TypeScript sans émission réussi ; contrôles des 70 locales et des frontières d’architecture sans erreur. Aucun nouveau build ni binaire publié pour cette synchronisation.
+
+## Créations dans la discussion — travail local du 26 octobre 2026
+
+Dernière consigne du mainteneur : **aucune nouvelle compilation de l’application, aucun commit, push ni mise à jour du dépôt pour ce lot**. L’autorisation de publication des étapes précédentes ne s’applique pas à ce travail.
+
+Le compositeur réunit Auto, Texte, Image et Vidéo ; le transport choisit le moteur de diffusion avant toute création de modèle textuel. Le choix manuel prime et les réglages/modes sont persistants, par conversation pour le mode. Agent/Cowork restent sur leur parcours existant. Les nouvelles commandes, aides et erreurs sont présentes dans les **70 locales**, désormais **1 620 clés par locale** (33 ajouts). Les erreurs détaillées du moteur restent dans les diagnostics locaux ; l’interface présente les messages traduits. Auto reconnaît les demandes explicites françaises/anglaises et les commandes `/image`/`/video` ; les autres langues disposent des boutons explicites. La relecture native reste nécessaire.
+
+Moteur **Diffusers 0.42.0**, **Python 3.15.1**, PyTorch CPU **2.14.1+cpu** et CUDA **2.14.1+cu130**. Bibliothèques installées dans les deux environnements isolés existants : Pillow **13.0.0**, imageio **2.38.1**, imageio-ffmpeg **0.6.0**. Aucun Python global ni toolkit CUDA modifié, aucun poids de modèle téléchargé. Installation optionnelle reproductible : `transformers-server/setup.ps1 -Backend cu130 -Media` ou `cpu`. Le dossier complet du modèle et cet exécutable Python se choisissent dans les réglages de création. [Installation, familles reconnues et limites](../media-server/README.md).
+
+Résultats réels locaux : fixtures Stable Diffusion et CogVideoX non entraînées, construites sur place. **PNG et MP4 produits sur CPU et CUDA**, puis variante image-à-image produite sur CPU et animation image-à-vidéo produite sur CUDA avec une fixture CogVideoXImageToVideo distincte. Les vidéos de test, y compris l’animation, contiennent cinq images 64×64 à 8 FPS ; ce sont des tests techniques, pas des preuves de qualité ou de performance de grands modèles. Preuves privées sous `.build/media-creation-2026-10-26/runtime-proof.json` et journaux voisins. Les tests écrivent dans une galerie de test confinée à `.build`, sans créer de fichiers dans les dossiers personnels Images/Vidéos.
+
+En fonctionnement natif, les dossiers connus du système déterminent **Images/Novera image** et **Vidéos/Novera vidéo**, y compris leurs redirections. Un nom UUID et une publication exclusive évitent les écrasements ; un JSON voisin garde les paramètres. Le fil conserve une référence légère rechargée via un résolveur limité à ces fichiers. Aperçu/agrandissement, lecteur vidéo, affichage dans le dossier et préparation d’une variante sont intégrés. Déplacer/supprimer le fichier laisse un état indisponible explicite. Les fichiers ne sont pas envoyés à un moteur texte pour lui attribuer une capacité visuelle inexistante.
+
+Un seul job de création à la fois. Stop annule le processus concerné, la fermeture de Novera arrête les workers possédés et un observateur du parent traite la disparition de l’application. Mémoire sans offload automatique ; modèles quantifiés/custom non certifiés. L’adaptateur vidéo traite le texte-à-vidéo et l’image-à-vidéo avec des dossiers conditionnés par image explicitement reconnus ; il ne convertit pas automatiquement les poids texte-à-vidéo. Le montage et les variantes de vidéos existantes restent à intégrer. Le Hub n’installe pas encore automatiquement les dossiers Diffusers et son diagnostic général ne certifie pas ces pipelines.
+
+Vérifications enregistrées : **8 tests Python de validation réussis** ; lot final de discussion/transport/messages/contrôles/locales à **370 tests réussis dans 17 fichiers**. Une sélection intermédiaire de 188 tests avait également passé ; ces lots ne doivent pas être additionnés comme des tests uniques. TypeScript sans émission et contrôles des 70 catalogues et des frontières d’architecture sont exécutés localement. Un contrôle Rust initial a passé avant les derniers ajustements ; aucune nouvelle compilation native depuis la consigne du mainteneur. Le parcours graphique complet dans un nouveau binaire reste à valider après sa compilation par le mainteneur.
+
+## Création cloud dans la discussion — 26 octobre 2026
+
+**Sources locales en cours de validation, sans compilation ni publication.** Le sélecteur commun propose **Tous / Texte / Image / Vidéo / Multimodal**, avec **Tous / Local / Cloud** pour l’emplacement. Comprendre une image est une capacité d’entrée ; créer une image ou une vidéo est une capacité de sortie distincte. Un modèle de vision textuel ne devient pas un générateur d’images. Les modèles de recherche vectorielle restent exclus du sélecteur de discussion.
+
+**41 profils cloud distincts**, dont 14 ajouts : Black Forest Labs, Stability AI, Recraft, Ideogram, Adobe Firefly, Runway, Luma, LTX/Lightricks, fal, Replicate, Leonardo.Ai, Krea, Vidu et PixVerse. Les profils OpenAI, Google Gemini, xAI, MiniMax et BytePlus existants sont réutilisés. **45 présélections de génération** documentées ; il s’agit d’un catalogue entretenu, pas d’une garantie d’accès au compte. Kling, Pika et Qwen Image sont aussi proposés via fal : la clé, le prestataire qui reçoit le texte et sa facturation sont ceux de fal. Replicate héberge sa propre entrée FLUX. Les identifiants et sources exactes se trouvent dans [mediaProviders.ts](../web-app/src/constants/mediaProviders.ts), vérifiés le 26 octobre 2026.
+
+| Profil | Présélections de génération |
+| --- | --- |
+| byteplus | `dola-seedream-5-0-pro-260628`, `dreamina-seedance-2-5-260628` |
+| fal | `fal-ai/pika/v2.2/text-to-video`, `fal-ai/qwen-image-2512`, `fal-ai/flux-2-max`, `fal-ai/kling-video/v3/pro/text-to-video`, `fal-ai/kling-video/v3/standard/text-to-video` |
+| adobe-firefly | `firefly_image`, `firefly-video` |
+| gemini | `gemini-omni-1.1-flash`, `gemini-nano-banana-2.1` |
+| krea | `krea-3` |
+| leonardo | `lucid-origin`, `krea-2-turbo`, `ideogram-v3.0` |
+| replicate | `black-forest-labs/flux-2-max` |
+| vidu | `viduq4-preview`, `viduq3-pro`, `viduq3-turbo` |
+| openai | `gpt-image-2.5-sunburst`, `gpt-image-2.5-flare` |
+| xai | `grok-imagine-image-2.0`, `grok-imagine-video-1.5`, `grok-imagine-video-1.5-lite` |
+| bfl | `flux-2-max`, `flux-2-pro`, `flux-2-klein-9b` |
+| stability | `stable-image/generate/ultra`, `stable-image/generate/core` |
+| recraft | `recraftv4_1`, `recraftv4_1_flash`, `recraftv4_1_pro` |
+| ideogram | `ideogram-4-5` |
+| runway | `gen4.5` |
+| luma | `uni-1-max`, `uni-1`, `ray-3.2` |
+| ltx | `ltx-2-5-pro`, `ltx-2-5-fast` |
+| minimax | `MiniMax-H3-Max`, `MiniMax-H3`, `MiniMax-H3-Highspeed`, `image-01` |
+| pixverse | `v6-max`, `v6` |
+
+Le plus récent modèle documenté est placé avant les variantes conservées, sous réserve des familles et de l’ordre propre à chaque fournisseur. Vidu Q4 est explicitement un **aperçu exigeant une image** ; Q3 conserve le texte-vers-vidéo. Adobe Image utilise le modèle géré `firefly_image` de l’API v4 (Image 5) ; Adobe Video utilise le service géré v3, sans inventer un numéro de modèle. Les variantes vectorielles SVG de Recraft ne sont pas proposées par cet adaptateur raster. Le modèle le plus récent disponible dans une application web n’est pas nécessairement accessible dans une API publique.
+
+**Modèles retirés exclus** : les anciennes API OpenAI GPT Image 1 et DALL-E ne sont pas réintroduites ; Sora/Videos API est arrêtée depuis le 24 septembre 2026, donc aucune entrée Sora utilisable. Sources : [images OpenAI](https://developers.openai.com/api/docs/guides/image-generation), [arrêt vidéo OpenAI](https://developers.openai.com/api/docs/guides/video-generation). Les changements de catalogue nécessitent une nouvelle vérification officielle datée ; aucun modèle n’est déclaré disponible sur la seule base de son nom.
+
+### Routage, enregistrement et identifiants
+
+Un choix image/vidéo reste propre à la discussion et à sa sortie, séparé du modèle texte. Les choix de la page d’accueil sont transférés à la nouvelle discussion. Agent/Cowork restent sur leur chemin texte. Une catégorie filtre les capacités ; le choix d’un modèle de création configure la sortie correspondante. Les clés sont celles des profils existants, stockées par le mécanisme de trousseau du système ; aucune clé supplémentaire dans les paramètres de création ni dans les fichiers générés. Adobe utilise le jeton d’accès dans le champ clé et l’identifiant client public `x-api-key` dans son champ dédié.
+
+L’adaptateur soumet une seule demande payante et ne bascule pas automatiquement vers un autre compte ou fournisseur. Les tâches asynchrones sont suivies toutes les cinq secondes, au plus trente minutes. Arrêter tente l’annulation documentée pour Runway, fal, Replicate et Adobe lorsque l’URL est disponible ; un arrêt local ne garantit pas l’annulation de la facturation distante. Après délai dépassé, vérifier le tableau de bord du prestataire avant de relancer. La liste statique peut être actualisée sans clé : cela **ne teste pas** l’authentification ni les droits du compte et ne lance aucune création payante.
+
+Les résultats terminés sont téléchargés immédiatement et sauvegardés dans les dossiers système **Images/Novera image** et **Vidéos/Novera vidéo**, comme les résultats locaux ; la discussion garde une référence légère. Formats acceptés : PNG, JPEG, WebP, MP4. Pas de SVG exécutable ni de fichier HTML présenté comme une image. Le téléchargement natif exige HTTPS, vérifie les adresses publiques et chaque redirection, fixe la résolution DNS validée, n’envoie aucune clé du fournisseur au CDN, limite à 32 Mio par image / 512 Mio par vidéo et écrit d’abord un fichier provisoire. Publication sans écrasement ; métadonnées avec texte, fournisseur et modèle, sans URL signée ni identifiant secret.
+
+Les paramètres numériques locaux concernent Diffusers. Le cloud utilise des préréglages propres aux contrats API (notamment vidéos de 5 s, LTX 8 s, ou valeurs par défaut du fournisseur). Une seule image de départ est acceptée lorsque le modèle et l’adaptateur l’annoncent ; aucune conversion silencieuse d’un modèle texte vers une variante conditionnée. Les adaptateurs Luma/PixVerse de ce lot exposent la création depuis le texte ; leurs autres fonctions ne sont pas annoncées comme implémentées. Les éditions vidéo, références multiples, montage, streaming vidéo et paramètres avancés restent hors de ce lot.
+
+### Niveau de confiance et validation
+
+Sélection fondée sur une identité publique établie, une documentation API officielle, un canal de compte identifiable et une génération documentée ; cela ne certifie ni la sécurité du fournisseur ni sa disponibilité dans toutes les régions. Les plateformes d’hébergement indiquent clairement le service réellement appelé. Pas de profil direct Kling/Pika inventé à partir d’un site non documenté ; les accès hébergés vérifiés sont distincts. Les passerelles Azure/AWS/Alibaba/IBM et autres API déjà présentes ne reçoivent pas de capacités de génération fictives sur leur seul endpoint texte. Leur intégration média supplémentaire attend un contrat d’authentification et de déploiement vérifié.
+
+Contrôles locaux : tests de contrat HTTP simulés, routage, annulation, persistance et interface ; chiffres finaux consignés ci-dessous. **Aucun appel cloud réel avec compte fournisseur, aucune création cloud facturée, aucune validation d’un nouvel exécutable ni compilation Rust de ce lot.** L’analyse rustfmt vérifie seulement la syntaxe/présentation. Les preuves CPU/CUDA précédentes concernent les créations locales et ne valident pas le cloud.
+
+
+Validation finale locale du lot cloud (26 octobre 2026) : **576 tests web réussis dans 26 fichiers**, couvrant les 20 recettes API simulées, le flux de sauvegarde, les arrêts pendant la préparation, les filtres et le maintien du modèle texte, la reprise des profils/identifiants, les 41 icônes fournisseurs et les régressions de conversation. **TypeScript `--noEmit` réussi**, **70 × 1 645 clés validées sans erreur**, contrôle des six frontières d’architecture (17 fichiers stricts, zéro violation) et **7 tests d’architecture réussis**. `rustfmt --edition 2021 --check` réussi pour les deux sources natives modifiées ; aucune compilation native ni test cloud réel. Preuves locales ignorées du dépôt : `.build/cloud-media-2026-10-26/{final-tests.log,types.log,locales.log,official-icons.json}`. Les messages d’erreur simulés dans les tests sont attendus, sans échec de test.
+
+
+## Images GGUF et encodeur Qwen3 GGUF — 26 octobre 2026
+
+État initial du lot ; le correctif et les générations réussies sont documentés plus bas dans « Formats mixtes GGUF/Safetensors et compatibilité NVFP4 ».
+
+**Adaptateur ajouté aux sources locales, sans nouvelle compilation ni publication.** Le moteur image se choisit entre Diffusers et **stable-diffusion.cpp**. La vidéo conserve Diffusers et son environnement Python 3.15.1 ; le moteur C++ ne dépend pas de Python. La discussion, les aperçus, l’arrêt du processus possédé et les dossiers système de sauvegarde restent communs.
+
+Pour FLUX.2 Klein 4B, les réglages sélectionnent séparément :
+
+1. L’exécutable `sd-cli.exe`, conservé avec les DLL de son archive.
+2. Le **véritable GGUF de diffusion image**.
+3. L’**encodeur de texte Qwen3-4B GGUF** (dont la quantification peut différer de celle du modèle image).
+4. Le **VAE FLUX.2**, Safetensors ou GGUF compatible.
+
+Source du montage : [documentation FLUX.2 officielle de stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/flux2.md). Le format GGUF ne détermine pas le rôle d’un fichier. Un encodeur Qwen3 GGUF peut fonctionner dans le nœud d’encodage de ComfyUI tout en étant impropre au champ diffusion. Le contrôle natif détecte les architectures textuelles courantes depuis les métadonnées GGUF bornées et renvoie un diagnostic traduit, sans déduire le rôle du seul nom. Les autres incompatibilités de tenseurs restent vérifiées par le moteur.
+
+### Runtime préparé et paramètres
+
+Version officielle épinglée **master-1015-e41fbcf**, commit `e41fbcf` ; [version publiée](https://github.com/leejet/stable-diffusion.cpp/releases/tag/master-1015-e41fbcf). Archives Windows x64 CPU et Vulkan téléchargées et extraites uniquement sous `.build/gguf-image-2026-10-26/runtime/`, sans installation globale, recompilation, téléchargement de poids ni changement du SDK CUDA 13.4 existant. SHA-256 comparés aux empreintes de la publication :
+
+| Runtime | Octets de l’archive | SHA-256 |
+| --- | --- | --- |
+| CPU | 18 080 790 | `bfc02f16df7744296ecc7720503a2b633575490dd7d8b448aee035c1fc836bec` |
+| Vulkan | 29 744 345 | `259ceeb62f1069190d24c85ea1c4549d2d61deb0ef712510dbe98d79ce93a38b` |
+
+Ces fichiers ignorés restent locaux ; ils ne sont ni empaquetés dans l’installeur ni publiés dans le dépôt. La sélection explicite de leur exécutable est nécessaire. Conserver les licences et DLL fournies. Auto utilise les périphériques du binaire sélectionné ; CPU ajoute `--backend cpu`, CUDA demande `cuda0` et nécessite un binaire CUDA, distinct du runtime Vulkan préparé. L’énumération réelle du runtime Vulkan a reconnu **NVIDIA GeForce RTX 5070 Laptop GPU**, **Intel Graphics** et **Intel Core Ultra 7 255HX**. Aucun modèle n’a été exécuté avec succès du seul fait de cette détection.
+
+Le profil de départ Klein distillé propose **4 étapes, CFG 1, Euler** ; il ne certifie pas les réglages d’une variante base ou personnalisée. Largeur/hauteur/graine/étapes et CFG sont transmis explicitement, avec offload RAM et tuilage VAE. Arguments structurés, sans shell ; vérification des chemins locaux, en-têtes GGUF, limites et modalité image. Une seule image de référence est transmise quand demandée. Le texte du processus CLI n’est pas interprété comme un résultat de génération : progression indéterminée, puis PNG complet et métadonnées publiés sans écrasement, avant insertion dans la conversation. L’arrêt couvre aussi une sortie de processus pas encore publiée.
+
+### Essais avec les fichiers du mainteneur : limites constatées
+
+Inspection en lecture seule des fichiers du dossier indiqué puis de ComfyUI ; aucun original modifié. `flux2-klein-4b-uncensored-q4_k_m.gguf` annonce **`general.architecture=qwen3`**, **« Flux2 Klein 4b Uncensored Text Encoder »**, 36 blocs et dimension 2 560. C’est un **encodeur**, utilisable dans ce rôle selon le mainteneur dans ComfyUI. Il ne remplace pas le modèle de diffusion. `Qwen3-4B-Q5_K_M.gguf` est également un encodeur textuel Qwen3 ; `flux2-vae.safetensors` est présent.
+
+Les workflows ComfyUI observés séparent un `CLIPLoaderGGUF` Qwen3-4B, un VAE FLUX.2 et un `UNETLoader` de modèle image **Safetensors NVFP4**. La tentative CLI utilisant l’encodeur comme diffusion échoue, conformément au rôle réel du fichier. Une seconde tentative, avec le modèle de diffusion local `flux-2-4b-nvpfp4.safetensors` et le GGUF « uncensored » au bon rôle d’encodeur, reconnaît **Flux.2 klein**, puis échoue sur une assertion des échelles de quantification NVFP4 (`scale_nelements`). **Aucune image réelle produite par ces essais.** La réussite dans ComfyUI ne valide donc pas ce fichier NVFP4 avec ce runtime stable-diffusion.cpp. Le nouvel adaptateur Novera expose ici le chemin image **GGUF** ; il n’annonce pas la compatibilité de cette quantification Safetensors NVFP4.
+
+Les binaires CPU/Vulkan ont aussi accepté les options prévues et refusé des poids volontairement invalides sans écrire de PNG. Preuves locales : `runtime-proof.json`, `devices.txt`, `real-vulkan.log`, `real-vulkan-nvfp4.log` et inspection de métadonnées sous `.build/gguf-image-2026-10-26/`. Une génération avec un vrai GGUF de diffusion compatible, la retouche image, l’arrêt natif et le flux complet dans un nouvel exécutable restent à valider. **Ne pas annoncer une génération CPU/GPU réussie pour ce lot.**
+
+
+Validation finale des sources de ce lot : **579 tests web réussis dans 26 fichiers**, contrôle TypeScript **sans émission** réussi, **70 × 1 653 clés** sans erreur, 7 tests d’architecture réussis et aucune violation dans les 17 fichiers stricts. `rustfmt --edition 2021 --check` réussi pour les sources natives concernées. Logs locaux : `final-tests.log`, `types-final.log`, `locales.log`, `architecture-tests.log` sous `.build/gguf-image-2026-10-26/`. Ces contrôles ne remplacent ni une compilation Rust/application ni une génération réelle avec des poids de diffusion compatibles. Les originaux ComfyUI et les modèles du mainteneur restent intacts.
+
+
+## Formats mixtes GGUF/Safetensors et compatibilité NVFP4 — 26 octobre 2026
+
+**Correctif du lot initial ci-dessus : réussite réelle du runtime avec les fichiers du mainteneur. Les sources Novera restent locales, sans compilation de l’application ni publication.** Le choix du modèle image, de l’encodeur et du VAE est indépendant : GGUF ou Safetensors, lorsque leur architecture et leur disposition sont prises en charge par stable-diffusion.cpp. Un fichier de poids seul n’acquiert pas une autre architecture en changeant d’extension ; les composants doivent correspondre à la famille de pipeline.
+
+### Correctif du NVFP4 ComfyUI
+
+Le crash initial venait des échelles NVFP4 : poids FP4 E2M1 empaquetés deux par octet, échelles FP8 par blocs de 16 dans une disposition tuilée cuBLAS et échelle globale FP32. Le binaire C++ ne consommait pas directement cette disposition. Le normaliseur local [nvfp4_compat.py](../media-server/nvfp4_compat.py), sous **Python 3.15.1 / PyTorch**, décode cette disposition sur CPU, couche par couche, et écrit une copie **BF16 Safetensors** dans un cache détenu par Novera. Spécification : [format Comfy-Org officiel](https://github.com/Comfy-Org/comfy-quants/blob/main/docs/formats/nvfp4.md). Aucun import de ComfyUI, code de modèle distant, téléchargement de poids ni écrasement de source.
+
+Le décodage a été comparé à la référence eager ComfyUI/comfy-kitchen en float32 puis BF16 sur une couche réelle `double_blocks.0.img_attn.proj` : tenseurs BF16 **identiques**, écart maximal nul. Les tests couvrent aussi les 16 valeurs FP4 et une disposition d’échelles non uniforme pour détecter une permutation erronée. Cette comparaison locale n’est pas une certification indépendante de toutes les quantifications.
+
+L’identifiant du cache combine la version de conversion et le **SHA-256 intégral du fichier source**. Validation du fichier terminé avant réutilisation ; refus d’un cache incomplet, contrôle d’espace libre et de changement du fichier source pendant la préparation. Publication exclusive depuis un fichier temporaire. La copie préparée pour ce modèle occupe **7 751 105 584 octets, environ 7,22 Gio** ; prévoir plus de disque et de RAM que pour le seul fichier NVFP4. Le rendu C++ utilise ensuite une représentation Q8_0 **limitée à la diffusion** (`--tensor-type-rules ^model\.=q8_0`), sans forcer une nouvelle quantification de l’encodeur GGUF ni du VAE. Ce chemin ajoute une étape de compatibilité et ne promet ni identité pixel par pixel avec ComfyUI ni gain de performances NVFP4 natif.
+
+### Flux dans Novera
+
+Le natif détecte les métadonnées NVFP4 reconnues dans les composants image/encodeur Safetensors. Il lance d’abord le préparateur Python possédé, expose sa progression, vérifie les chemins retournés dans son cache, puis lance le processus CLI possédé. Stop empêche le passage à la phase suivante et nettoie le fichier temporaire du travail ; arrêt normal de l’application et surveillance parent du préparateur conservent la séparation des processus. Les composants ordinaires GGUF/Safetensors passent directement au moteur sans préparation Python. Le chemin Diffusers et la vidéo conservent leur fonctionnement.
+
+Le JSON de génération conserve les chemins originaux et les chemins de compatibilité, ainsi que la représentation de calcul choisie. Le PNG n’est inséré dans la conversation qu’après son enregistrement complet et sa publication exclusive dans le dossier Images/Novera image. Les profils et modèles ComfyUI existants ne sont pas modifiés. Les six aides actualisées sont présentes dans les **70 locales**, toujours **1 653 clés** chacune ; revue linguistique native encore ouverte.
+
+### Matériel : NVFP4 natif et compatibilité
+
+Ce chemin **n’exige pas une RTX 50** : le décodage se fait sur CPU et le rendu peut utiliser le runtime CPU ou un GPU pris en charge par son backend. Le NVFP4 matériel natif dépend en revanche de GPU et noyaux compatibles, notamment Blackwell ; les GeForce RTX 50 sont Blackwell, mais un nom professionnel « RTX 5000 » ne suffit pas à identifier cette architecture. Sources : [table NVIDIA des architectures](https://developer.nvidia.com/cuda/gpus), [précondition du format Comfy-Org](https://github.com/Comfy-Org/comfy-quants/blob/main/docs/quantization/nvfp4.md).
+
+La préparation a passé les tests dans l’environnement **PyTorch 2.14.1+cpu**, avec `torch.cuda.is_available() == False`, ainsi que dans l’environnement CUDA où les opérations du préparateur restent sur CPU. Cela valide l’absence de besoin CUDA pour le décodage testé, pas le fonctionnement de tout fichier NVFP4 sur tout processeur. La RAM, le disque, les instructions CPU et le backend disponible restent déterminants. Les autres modèles, GPU AMD/Intel/anciennes RTX et plateformes n’ont pas été exécutés dans ce lot.
+
+### Générations réelles avec l’encodeur « uncensored »
+
+Combinaison utilisée : diffusion d’origine `flux-2-4b-nvpfp4.safetensors` (copie de compatibilité), **encodeur `flux2-klein-4b-uncensored-q4_k_m.gguf`**, VAE `flux2-vae.safetensors`. L’encodeur conserve son rôle et sa quantification GGUF. Les deux sorties finales ont été décodées et leurs SHA-256 enregistrés :
+
+| Runtime | Sortie | Paramètres | Temps de phase `generate_image` rapporté par le CLI |
+| --- | --- | --- | --- |
+| Vulkan0 — RTX 5070 Laptop | PNG 512 × 512, cabane au bord d’un lac | 4 étapes, Euler, CFG 1, graine 42 | 31,08 s |
+| CPU — Core Ultra 7 255HX | PNG 64 × 64, essai technique | 1 étape, Euler, CFG 1, graine 42, 8 threads | 17,66 s |
+
+Dimensions et étapes différentes : **ces durées ne comparent pas les performances CPU/GPU**. Elles excluent la préparation initiale et ne constituent pas une latence totale de la discussion. Les premiers essais Q8 global (48,06 s GPU / 21,96 s CPU) sont remplacés par la règle limitée à la diffusion, qui conserve mieux la configuration de l’encodeur et réduit la mémoire de paramètres annoncée de 8 209,83 Mo à **6 515,18 Mo**. Ce chiffre de stockage RAM avec offload ne mesure pas un pic global RAM/VRAM.
+
+Preuves locales ignorées du dépôt : `.build/nvfp4-fix-2026-10-26/runtime-proof.json`, `mixed-rules-vulkan.log`, `mixed-rules-cpu.log`, deux PNG, copie mise en cache et paramètres d’essai. Le succès du runtime corrige l’échec initial, mais **le flux natif complet dans un nouvel exécutable Novera reste à tester après une compilation autorisée**. Aucun nouvel exécutable Novera, commit, push ou changement de métadonnées GitHub. Les runtimes officiels téléchargés lors du lot initial ne sont pas nouvellement compilés ni intégrés à l’installeur.
+
+### Contrôles des sources
+
+**581 tests web réussis dans 26 fichiers**, **15 tests Python réussis** dans l’environnement CPU et dans l’environnement CUDA (même suite, pas 30 tests uniques), TypeScript `--noEmit`, **70 × 1 653 clés**, frontières et 7 tests d’architecture validés. Les tests Python vérifient décodage/tuilage, source intacte, cache réutilisé, refus de cache incomplet ou d’espace insuffisant, publication temporaire et association image/encodeur. Les tests de transport couvrent les mélanges GGUF/Safetensors et la transition préparation/rendu avant émission du fichier. Le contrôle rustfmt parse les sources Rust ; **aucune compilation Rust/application de ce lot**, donc pas de validation de liaison native ni d’interface graphique dans un nouveau binaire. Logs dans `.build/nvfp4-fix-2026-10-26/`.
+
+## NVFP4 CUDA natif, placement et durées — 26 octobre 2026
+
+Un chemin **NVFP4 CUDA · PyTorch** est ajouté aux sources locales pour le modèle **FLUX.2 Klein 4B au format Comfy NVFP4**, avec encodeur **Qwen3-4B GGUF** et VAE **FLUX.2 Safetensors**. Il conserve les poids quantifiés E2M1 et les échelles par blocs ; les 100 couches linéaires quantifiées utilisent `torch.nn.functional.scaled_mm` avec la recette NVFP4. La quantification des activations utilise comfy-kitchen. Les autres opérations, le VAE et l’encodeur ne sont pas tous en FP4. Aucun cache BF16 du modèle de diffusion et aucun repli de ces GEMM vers un poids BF16 ; un matériel ou format incompatible échoue explicitement. Le mode de compatibilité C++ précédent reste distinct.
+
+**Preuves réelles sur RTX 5070 Laptop, SM 12.0, Python 3.15.1 et PyTorch 2.14.1+cu130 :** une image significative 512 × 512, quatre étapes, a exécuté **400 GEMM NVFP4 natives**. Un profilage séparé identifie le noyau Tensor Core `cutlass3x_sm120_bstensorop_…e2m1…`. Une multiplication réelle et un test CUDA indépendant concordent avec la référence BF16 des mêmes valeurs quantifiées. Le fichier diffusion original conserve son SHA-256 `d8c5007b6a3bbbdfd38538bbcef5101a55dfde81894f58d2e3c8701cdef3542b`.
+
+Les choix **Encodeur de texte : CPU / GPU** et **Génération : CPU / GPU** sont indépendants dans les moteurs à composants séparés. Chaque sélecteur offre Auto, CPU et CUDA. C++ transmet les affectations `te=…`, `diffusion=…` et `vae=…` séparément ; Auto conserve le choix disponible du runtime, dont Vulkan. Un vrai PNG 64²/une étape a réussi avec `te=cpu` et le runtime Vulkan. Dans le chemin natif, la génération exige Blackwell et CUDA. Qwen sur GPU transfère ses couches à la demande ; Auto conserve Qwen sur CPU si moins de **10 Gio de VRAM libre** sont signalés, repère prudent pour un encodeur 4B pouvant occuper environ 8 Go en BF16 plus ses activations. Ce seuil est une heuristique de placement, pas un optimiseur de vitesse certifié. Le choix manuel reste prioritaire. Le parcours Diffusers générique conserve un choix global pour son pipeline ; son encodeur n’est pas déplacé séparément par ces contrôles.
+
+Des générations réelles ont réussi avec Qwen CPU et GPU, ainsi qu’Auto choisissant CPU. Pour le dernier essai explicite Qwen GPU : **66,40 s** de chargement/encodage, **1,50 s** de génération avec décodage VAE et **83,88 s** au total dans le worker. Le pic d’allocations PyTorch est **3 349 144 576 octets**, environ **3,12 Gio** ; ce n’est pas la mémoire totale du pilote ou des autres processus. Le test Auto/encodeur CPU a mesuré 48,42 s de chargement/encodage et 16,55 s de génération incluant une initialisation GPU à froid. Ces essais ne forment pas un benchmark contrôlé et ne prouvent aucun gain universel ou facteur d’accélération face au chemin C++.
+
+Les créations image **et vidéo**, locales et cloud, transportent désormais une durée totale monotone dans `providerMetadata.novera.totalMs`. Le composant de média l’affiche sous l’image ou le lecteur, y compris après sérialisation/réouverture. Lorsque le worker fournit `generation_seconds`, le temps de génération apparaît séparément. La durée totale comprend chargement, encodage, attente cloud éventuelle, téléchargement et sauvegarde ; elle ne prétend pas mesurer uniquement le calcul du fournisseur. Les sidecars locaux/cloud enregistrent également leurs mesures de durée. Les anciennes créations sans mesure n’affichent pas de durée inventée. Deux nouvelles fixtures PNG/MP4 réelles ont confirmé l’enregistrement des temps ; la vidéo utilise une petite fixture technique, pas un modèle entraîné de production.
+
+### Conseil de téléchargement et Hub
+
+Le conseil FLUX.2 Klein utilise les références publiques corrigées du mainteneur :
+
+| Composant | Variante et placement conseillé | Référence |
+| --- | --- | --- |
+| Image | FLUX.2 Klein 4B Q4_K_M, GPU | [Unsloth GGUF](https://huggingface.co/unsloth/FLUX.2-klein-4B-GGUF/resolve/main/flux-2-klein-4b-Q4_K_M.gguf?download=true) |
+| Texte | **Qwen3-4B**, Q4_K_M, CPU | [Qwen officiel](https://huggingface.co/Qwen/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf?download=true) |
+| VAE | FLUX.2 Safetensors officiel | [Black Forest Labs](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/main/vae/diffusion_pytorch_model.safetensors?download=true) |
+
+Les pages/fichiers ont été vérifiés publiquement le 26 octobre, sans télécharger ces trois poids. Leur combinaison exacte reste à tester : les preuves natives utilisent le modèle NVFP4 et l’encodeur « uncensored » déjà présents sur le PC. Le bouton de conseil règle Qwen sur CPU, la génération sur Auto, quatre étapes et CFG 1 ; il conserve les chemins locaux et ne télécharge rien. Le montage GGUF utilise C++, pas le chargeur NVFP4 natif.
+
+Le Hub suggère NVFP4 lorsque les métadonnées indiquent cette quantification, la famille FLUX.2 Klein 4B est reconnue, **un même GPU NVIDIA** signale une capacité SM ≥ 10 et au moins **4,5 Gio** disponibles/déclarés. Il n’additionne pas les GPU et ne déduit pas la capacité du seul nom RTX. Les autres cas sont « à vérifier » ou déconseillés. CUDA seul, un tag NVFP4 ou une taille réduite ne suffisent pas ; l’aide demande encore de vérifier le moteur, PyTorch CUDA, les dépendances, l’organisation Comfy des poids et les compagnons. Ce conseil matériel ne déclare pas le runtime prêt, ne remplace pas le diagnostic mémoire complet et n’active pas l’import automatique d’un modèle média incomplet.
+
+Repère **GGUF Novera**, commun aux composants texte/image/vidéo : **Q6_K minimum conseillé pour privilégier la fidélité, Q4_K_M pour l’équilibre qualité/mémoire**. Ce n’est ni un seuil universel de précision ni une conversion imposée. La qualité dépend du modèle, de la tâche et de la calibration ; seules les variantes réellement proposées et acceptées par leur moteur sont pertinentes. NVFP4, les projecteurs multimodaux et les VAE conservent leur propre évaluation. [Référence sur la quantification](https://github.com/ggml-org/llama.cpp/blob/master/tools/quantize/README.md).
+
+### Dépendances, vérifications et limites
+
+Versions optionnelles testées dans l’environnement CUDA isolé : **accelerate 1.15.0**, **gguf 0.19.0**, **comfy-kitchen 0.2.35**. `transformers-server/setup.ps1 -Backend cu130 -NativeNvfp4` prépare cette option avec le parcours média. Les configurations BFL sont embarquées hors réseau avec leur licence ; aucun poids n’est embarqué. Le SDK CUDA 13.4.3 du PC reste intact ; PyTorch utilise son runtime CUDA 13.0. Voir [installation](../media-server/README.md) et [provenance des configurations](../media-server/native-flux2-klein-4b/README.md).
+
+**106 tests web dans 10 fichiers**, **21 tests Python réussis sous CUDA**, et la même suite sous PyTorch CPU avec **20 réussis / un test matériel ignoré**. Sept tests d’architecture, frontières, TypeScript `--noEmit`, syntaxe/format Rust et **70 locales × 1 668 clés** vérifiés. Tests cloud simulés, sans dépense ni accès de compte validé. Journaux, images et preuves restent dans `.build/native-nvfp4-2026-10-26/`.
+
+**Aucune compilation de Novera/Rust, aucun commit/push ni mise à jour GitHub.** Le nouveau flux graphique/natif attend la compilation et le test du mainteneur. Le 9B, d’autres architectures NVFP4, l’édition d’image native, la vidéo NVFP4, les autres GPU et les autres systèmes n’ont pas été validés par ce lot.
+
+## Synchronisation des sources et de la vitrine — 26 octobre 2026
+
+Le mainteneur autorise ensuite la publication des sources média et de la vitrine GitHub, en conservant la séparation avec le binaire qu’il compile et teste lui-même. Contrôles de cette publication : **369 tests web dans 22 fichiers**, TypeScript sans émission, 70 × 1 668 clés, frontières et sept tests d’architecture. Les preuves Python et runtime ci-dessus restent celles exécutées pour les moteurs ; elles ne sont pas présentées comme une nouvelle compilation applicative. Les 41 profils cloud incluent 19 profils de génération, 25 préréglages image et 20 vidéo ; contrats cloud simulés. Aucun build ni binaire n’est déclenché par cette synchronisation, et GitHub Actions reste désactivé. L’ambition d’aide dans tous les secteurs est une orientation publique distincte des capacités validées. Les preuves de synchronisation en ligne restent locales sous `.build/publish-capabilities-2026-10-26/`.

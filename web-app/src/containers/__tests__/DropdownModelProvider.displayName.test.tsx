@@ -1,10 +1,12 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
-import { render, screen, cleanup } from '@testing-library/react'
+import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import DropdownModelProvider from '../DropdownModelProvider'
 import { getModelDisplayName } from '@/lib/utils'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { useFavoriteModel } from '@/hooks/useFavoriteModel'
+import { useCreation } from '@/hooks/useCreation'
+import { mediaModels } from '@/constants/mediaProviders'
 
 // Define basic types to avoid missing declarations
 type ModelProvider = {
@@ -163,6 +165,35 @@ describe('DropdownModelProvider - Display Name Integration', () => {
 
   afterEach(() => {
     cleanup()
+    useCreation.setState({ selections: {}, modes: {} })
+  })
+
+  it('filters image output independently of image understanding and preserves the text model', () => {
+    const state = useModelProvider()
+    const image = mediaModels('openai')[0]
+    const text = { id: 'vision-chat', capabilities: ['completion', 'vision'] }
+    const cloud = { provider: 'openai', active: true, settings: [], api_key: 'test-only-key', models: [text,image] }
+    vi.mocked(useModelProvider).mockReturnValue({ ...state, providers: [...mockProviders,cloud] } as never)
+    render(<DropdownModelProvider mediaScope="media-test" />)
+    fireEvent.click(screen.getByRole('button',{name:'chat:creation.image'}))
+    expect(screen.queryByTestId('model-option-vision-chat')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByTestId(`model-option-${image.id}`))
+    expect(useCreation.getState().selections['media-test'].image).toEqual({provider:'openai',id:image.id})
+    expect(useCreation.getState().modes['media-test']).toBe('image')
+    expect(state.selectModelProvider).not.toHaveBeenCalled()
+  })
+
+  it('filters cloud models out of Local and hides generators on text-only surfaces', () => {
+    const state = useModelProvider()
+    const image = mediaModels('openai')[0]
+    const cloud = { provider:'openai',active:true,settings:[],api_key:'test-only-key',models:[image] }
+    vi.mocked(useModelProvider).mockReturnValue({...state,providers:[...mockProviders,cloud]} as never)
+    const view=render(<DropdownModelProvider mediaScope="media-test" />)
+    fireEvent.click(screen.getByRole('button',{name:'chat:creation.local'}))
+    expect(screen.queryByTestId(`model-option-${image.id}`)).not.toBeInTheDocument()
+    expect(screen.getByTestId('model-option-model1.gguf')).toBeInTheDocument()
+    view.unmount(); render(<DropdownModelProvider allowMedia={false} />)
+    expect(screen.queryByTestId(`model-option-${image.id}`)).not.toBeInTheDocument()
   })
 
   it('keeps another provider with the same model ID outside Favorites', () => {
@@ -287,7 +318,7 @@ describe('DropdownModelProvider - Display Name Integration', () => {
     render(<DropdownModelProvider />)
 
     // Check trigger shows Short Name
-    expect(screen.getByRole('button')).toHaveTextContent('Short Name')
+    expect(screen.getByTestId('model-selector-trigger')).toHaveTextContent('Short Name')
     // Short Name appears in dropdown (at least 1 occurrence)
     expect(screen.getAllByText('Short Name').length).toBeGreaterThanOrEqual(1)
     // Custom Model 1 is also in the dropdown

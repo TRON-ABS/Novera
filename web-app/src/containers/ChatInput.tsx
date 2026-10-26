@@ -1,4 +1,7 @@
 import TextareaAutosize from 'react-textarea-autosize'
+import { CreationControls } from './CreationControls'
+import { useCreation } from '@/hooks/useCreation'
+import { resolveOutputMode } from '@/modules/engines/creation'
 import { cn, formatBytes } from '@/lib/utils'
 import { usePrompt } from '@/hooks/usePrompt'
 import { useThreads } from '@/hooks/useThreads'
@@ -475,7 +478,9 @@ const ChatInput = memo(function ChatInput({
     'tools' | 'assistants' | false
   >(false)
   const [isDragOver, setIsDragOver] = useState(false)
-  const [hasMmproj, setHasMmproj] = useState(false)
+  const [hasTextMmproj, setHasMmproj] = useState(false)
+  const creationMode = useCreation(state => state.modes[currentThreadId ?? 'new'] ?? 'auto')
+  const hasMmproj = hasTextMmproj || (IS_TAURI && !effectiveAgentMode && !scopeKey && resolveOutputMode(creationMode, prompt) !== 'text')
   const activeModels = useAppState(useShallow((state) => state.activeModels))
   // Check if selected model is currently loaded/active
   const isModelActive = selectedModel?.id ? activeModels.includes(selectedModel.id) : false
@@ -634,7 +639,10 @@ const ChatInput = memo(function ChatInput({
   const MCPToolComponent = mcpExtension?.getToolComponent?.()
 
   const handleSendMessage = async (prompt: string) => {
-    if (!selectedModel) {
+    const creationScope = currentThreadId ?? 'new'
+    const creationState = useCreation.getState()
+    const outputMode = effectiveAgentMode || scopeKey ? 'text' : resolveOutputMode(creationState.modes[creationScope] ?? 'auto', prompt)
+    if (!selectedModel && outputMode === 'text') {
       setMessage('Please select a model to start chatting.')
       return
     }
@@ -731,6 +739,10 @@ const ChatInput = memo(function ChatInput({
       }
 
       if (isTemporaryChat) {
+        useCreation.getState().copySelections('new', TEMPORARY_CHAT_ID)
+        useCreation.getState().setMode(TEMPORARY_CHAT_ID, creationState.modes.new ?? 'auto')
+        useCreation.getState().setSource(TEMPORARY_CHAT_ID, creationState.sources.new)
+        useCreation.getState().setSource('new')
         // For temporary chat, store message and navigate to temporary thread
         sessionStorage.setItem(
           SESSION_STORAGE_KEY.INITIAL_MESSAGE_TEMPORARY,
@@ -797,6 +809,11 @@ const ChatInput = memo(function ChatInput({
           return
         }
 
+        // Keep the chosen output and editing source when opening the first conversation.
+        useCreation.getState().copySelections('new', newThread.id)
+        useCreation.getState().setMode(newThread.id, creationState.modes.new ?? 'auto')
+        useCreation.getState().setSource(newThread.id, creationState.sources.new)
+        useCreation.getState().setSource('new')
         // Transfer agent mode from home screen to the new thread
         if (isAgentMode) {
           useAgentMode.getState().setAgentMode(newThread.id, true)
@@ -2340,6 +2357,7 @@ const ChatInput = memo(function ChatInput({
               </div>
             )}
 
+        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} />}
         <div className="relative z-20 w-full p-2">
           <div
             ref={controlRowRef}
@@ -3004,7 +3022,7 @@ const ChatInput = memo(function ChatInput({
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>{queueLength > 0 ? `Clear ${queueLength} queued message(s)` : 'Stop generating'}</p>
+                    <p>{t(queueLength > 0 ? 'common:clearRecent' : 'common:stop')}</p>
                   </TooltipContent>
                 </Tooltip>
               ) : (

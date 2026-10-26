@@ -80,6 +80,10 @@ import { isPredefinedRemoteProvider } from '@/lib/providerCaps'
 import { PING_OPEN } from '@/lib/coworkPing'
 import { paramsSettings } from '@/lib/predefinedParams'
 import { CHAT_SLOT_ID } from '@/constants/models'
+import { useCreation } from '@/hooks/useCreation'
+import { useAgentMode } from '@/hooks/useAgentMode'
+import { resolveOutputMode, CREATION_PREFIX } from '@/modules/engines/creation'
+import { creationStream } from '@/services/creation/stream'
 import { createStepMetadata } from '@/lib/stepMetadata'
 
 export type TokenUsageCallback = (
@@ -1354,6 +1358,21 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
   ): Promise<ReadableStream<UIMessageChunk>> {
     const threadId = this.threadId ?? options.chatId
     const myGeneration = ++this.streamGeneration
+    const prompt = extractLatestUserText(options.messages)
+    const agentOnly = useAgentMode.getState().isAgentMode(threadId) && !useThreads.getState().threads?.[threadId]?.metadata?.project
+    const outputMode = this.streamRoutesToCowork || agentOnly ? 'text' : resolveOutputMode(useCreation.getState().modes[threadId] ?? 'auto', prompt)
+    if (outputMode !== 'text') {
+      useAppState.getState().setCurrentStreamThreadId(threadId, false)
+      return creationStream(outputMode, prompt, options.messages, threadId, options.abortSignal, () => {
+        if (this.streamGeneration === myGeneration && useAppState.getState().currentStreamThreadId === threadId) {
+          useAppState.getState().setCurrentStreamThreadId(undefined)
+        }
+      })
+    }
+    // Generated media references belong to the gallery, not to a text engine's wire format.
+    options = { ...options, messages: options.messages.map(message => message.role !== 'assistant' ? message : ({
+      ...message, parts: message.parts.filter(part => !(part.type === 'file' && part.url.startsWith(CREATION_PREFIX))),
+    })).filter(message => message.role !== 'assistant' || message.parts.length > 0) }
     useAppState
       .getState()
       .setCurrentStreamThreadId(threadId, this.streamRoutesToCowork)

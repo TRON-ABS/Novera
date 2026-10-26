@@ -118,6 +118,11 @@
     "tipFuture": "Er is een extra engine nodig voordat deze taak in Novera kan worden uitgevoerd.",
     "advisorEmpty": "Uit de huidige metadata kan geen geschikt startpunt worden geselecteerd.",
     "hardwareUnknown": "Hardware-informatie ontbreekt; Voor aanbevelingen zijn RAM- en GPU-gegevens nodig.",
-    "contextTip": "Een kortere context gebruikt minder geheugen zonder de downloadgrootte te wijzigen."
+    "contextTip": "Een kortere context gebruikt minder geheugen zonder de downloadgrootte te wijzigen.",
+    "nvfp4Search": "Er is een Blackwell GPU met voldoende gerapporteerd geheugen gedetecteerd. Geef de voorkeur aan NVFP4-varianten wanneer de architectuur en engine deze ondersteunen. Native FLUX.2 Klein 4B Comfy laden is beschikbaar in lokale bronnen; controleer CUDA PyTorch, optionele afhankelijkheden, begeleidende modellen en vrij geheugen voordat u gaat downloaden. Hardwaredetectie valideert de geconfigureerde runtime niet en garandeert geen snelheid.",
+    "nvfp4Prefer": "NVFP4 wordt voorgesteld voor deze GPU en FLUX.2 Klein 4B-familie. Native laden vereist de ondersteunde Comfy-indeling, CUDA PyTorch en optionele afhankelijkheden. Selecteer het afbeeldingsmodel, de Qwen3-encoder en VAE afzonderlijk in de Aanmaakinstellingen. De runtime, volledige combinatie en vrij geheugen moeten nog worden geverifieerd.",
+    "nvfp4Check": "NVFP4 gedetecteerd: GPU-capaciteit, vrij geheugen, gewichtsindeling of architectuurondersteuning is niet bevestigd. Controleer de CUDA-motor voordat u voor deze variant kiest. Het formaat alleen zorgt niet voor compatibiliteit.",
+    "nvfp4Unsupported": "Native NVFP4 wordt niet aanbevolen met de gedetecteerde GPU of het huidige vrije VRAM. Overweeg een compatibele GGUF-kwantisering of de compatibiliteitsengine. Dat pad biedt geen native FP4-versnelling.",
+    "quantQualityAdvice": "Novera GGUF-richtlijnen voor tekst-, beeld- en videocomponenten: Q6_K of hoger is ons aanbevolen startpunt bij het prioriteren van betrouwbaarheid; Q4_K_M brengt kwaliteit en geheugen in evenwicht. Dit zijn aanbevelingen, geen universele nauwkeurigheidsdrempel. Resultaten zijn afhankelijk van het model en de taak. NVFP4 en andere kwantiseringsschema's hebben hun eigen compatibiliteits- en kwaliteitsbeoordeling nodig."
   }
 }

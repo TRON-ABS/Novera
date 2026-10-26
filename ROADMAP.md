@@ -2,6 +2,38 @@
 
 Mise à jour du **26 octobre 2026**. Cette liste centralise les tâches ; elle n’annonce aucune date de sortie. L’état des sources et du dernier binaire est dans [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md).
 
+
+## Ambition : aider et contribuer dans tous les secteurs
+
+Au-delà de l’école, développer avec les utilisateurs et les professionnels des usages utiles à la recherche, la santé, l’accompagnement social, l’agriculture, l’environnement, l’énergie, l’industrie, l’artisanat, les entreprises, les services publics, le droit, l’informatique, la cybersécurité, la robotique, la création, les langues, les transports, le sport, l’action humanitaire et la vie quotidienne. La liste est ouverte ; elle décrit une direction de contribution mondiale, pas un catalogue d’usages déjà validés.
+
+- [ ] Co-construire les usages avec les personnes concernées et les spécialistes de chaque domaine et contexte local.
+- [ ] Réduire les étapes de configuration, améliorer les conseils matériels et rendre les exigences cloud/coût compréhensibles.
+- [ ] Améliorer l’accessibilité, les traductions relues nativement, les guides et les parcours adaptés aux débutants.
+- [ ] Intégrer les avancées IA utiles après vérification des modèles, moteurs, licences, API et limites réelles.
+
+Les capacités livrées dans les sources restent décrites dans le tableau de bord ; ces objectifs ne déclenchent ni entraînement spécialisé ni publication binaire.
+
+
+## NVFP4 natif et conseils — 26 octobre 2026
+
+- [x] Tester un chemin FP4 CUDA natif pour FLUX.2 Klein 4B Comfy, avec encodeur GGUF et VAE Safetensors.
+- [x] Séparer le placement de l’encodeur et du générateur dans les moteurs à composants ; conserver les durées sous images/vidéos.
+- [x] Ajouter les conseils NVFP4 conditionnés au GPU et les repères GGUF Q6_K/Q4_K_M pour texte/image/vidéo, dans les 70 langues.
+- [ ] Compiler puis tester le flux graphique uniquement sur nouvelle demande ; vérifier la combinaison exacte des trois téléchargements conseillés.
+- [ ] Étendre après validation les architectures, 9B, édition native et vidéo NVFP4 ; mesurer les performances sur plusieurs matériels.
+
+[État vérifié](docs/SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026).
+
+
+## Création cloud — état des sources du 26 octobre 2026
+
+- [x] Préparer le catalogue documenté, 14 profils supplémentaires et icônes officielles, avec filtres de modalité et choix séparés par sortie dans la discussion.
+- [x] Implémenter les adaptateurs HTTP de génération et la sauvegarde système sans identifiant dans les fichiers ; traduire les nouveaux contrôles dans les 70 locales.
+- [ ] Valider les adaptateurs avec des comptes autorisés, quotas et crédits réels, y compris annulation et restrictions régionales ; les tests actuels sont simulés.
+- [ ] Compiler uniquement sur nouvelle demande du mainteneur, puis vérifier l’interface et la sauvegarde native dans un nouvel exécutable.
+- [ ] Ajouter paramètres cloud avancés, entrées multiples, montage vidéo et autres déploiements régionaux après vérification des contrats.
+
 ## Priorité : valider les sources actuelles en fonctionnement
 
 - [x] Construire un candidat local avec les 70 catalogues, les noms internes et les options DSpark/consentement : terminé le 26 octobre après correction de la préparation du worker et des DLL CUDA x64. Les essais fonctionnels ci-dessous restent ouverts.
@@ -100,3 +132,33 @@ Référence : [Windows portable](docs/BUILD_AND_RELEASE.md#portable).
 Rendre les fournisseurs et capacités de modèles plus faciles à faire évoluer par des contrats explicites. Explorer outils, agents et multimodalité dans un cadre expérimental, avec validation avant promotion. Améliorer l’accessibilité, les petits matériels et les connexions limitées ; évaluer les usages éducatifs avec enseignants et apprenants avant toute promesse de disponibilité scolaire.
 
 La feuille de route historique des 100 langues est conservée dans [le document des langues](docs/LANGUAGES.md#roadmap-100). Les nouvelles langues demandent une vérification des contributions existantes et une intégration complète.
+
+## Créations dans la discussion — sources locales du 26 octobre 2026
+
+- [x] Unifier Auto/Texte/Image/Vidéo dans le compositeur, avec réglages et progression.
+- [x] Ajouter un adaptateur Diffusers hors réseau, CPU/CUDA, modèle local complet et arrêt limité au job.
+- [x] Sauvegarder via les dossiers système Images/Novera image et Vidéos/Novera vidéo, avec paramètres et références persistantes dans le fil.
+- [x] Préparer variantes image et animation image-à-vidéo avec modèles conditionnés adaptés ; valider de petites fixtures réelles CPU/CUDA.
+- [x] Ajouter les contrôles, aides et erreurs aux 70 locales (1 620 clés chacune), vérifier types et régressions.
+- [ ] Vérifier le parcours graphique et les dossiers personnels redirigés dans un nouvel exécutable, lorsque le mainteneur demandera sa compilation.
+- [ ] Valider des modèles représentatifs de grande taille, mémoire disponible et matériels supplémentaires ; ne pas extrapoler les fixtures.
+- [ ] Intégrer la gestion de dossiers Diffusers complets au Hub et affiner le diagnostic matériel par pipeline.
+- [ ] Ajouter montage et variantes de vidéos existantes, autres modalités et reconnaissance d’intention au-delà du français/anglais.
+
+**Pas de compilation de l’application, de commit, push ou mise à jour de la vitrine pour ce lot**, selon la dernière demande du mainteneur.
+
+## Images GGUF et encodeur GGUF
+
+- [x] Ajouter l’adaptateur natif stable-diffusion.cpp, les fichiers distincts diffusion/encodeur/VAE et le diagnostic de rôle dans 70 locales.
+- [x] Préparer les binaires officiels CPU/Vulkan avec contrôle SHA-256 ; vérifier l’énumération GPU et le rejet de poids invalides.
+- [ ] Obtenir un vrai GGUF de diffusion FLUX.2 Klein compatible et valider génération CPU/GPU, retouche et arrêt dans le nouvel exécutable après demande de compilation.
+- [x] Corriger le format NVFP4 ComfyUI reconnu par un cache de compatibilité non destructif ; générations réelles réussies sur CPU et Vulkan avec l’encodeur « uncensored » GGUF. Ce chemin ne fournit pas l’accélération NVFP4 matérielle native.
+- [ ] Définir un empaquetage redistribuable et une acquisition explicite de runtime avec licences et intégrité ; aucun binaire local ignoré n’est livré automatiquement.
+
+### Validation restante du correctif mixte
+
+- [x] Préparer automatiquement les composants NVFP4 reconnus, conserver les originaux et la quantification de l’encodeur GGUF, traduire les aides dans les 70 locales.
+- [x] Décoder et vérifier les PNG réels CPU/Vulkan, contrôler la préparation sans CUDA et le cache avec tests de référence.
+- [ ] Compiler sur demande puis valider sélection des fichiers, préparation/cache, génération, Stop et rechargement de discussion dans un nouvel exécutable Novera.
+- [ ] Étendre les essais à d’autres modèles, architectures et matériels. Le succès d’un mélange ne valide pas toutes les quantifications.
+- [ ] Étudier séparément un chemin NVFP4 matériel natif pour les GPU et noyaux compatibles ; ne pas confondre prise en charge d’un fichier et exécution native FP4.

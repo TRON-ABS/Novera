@@ -224,12 +224,16 @@ export const useModelProvider = create<ModelProviderState>()(
             // keyring-seeded incoming provider (DataProvider).
             return {
               ...provider,
-              models: provider.persist ? updatedModels : mergedModels,
+              models: provider.persist ? updatedModels : mergedModels.map(saved => {
+                const curated = provider.models?.find(item => item.id === saved.id && item.media_adapter)
+                return curated ? { ...saved, ...curated, settings: saved.settings, displayName: saved.displayName || curated.displayName } : saved
+              }),
               settings: mergedSettings,
               api_key: existingProvider?.api_key || provider.api_key,
               api_key_fallbacks:
                 existingProvider?.api_key_fallbacks ?? provider.api_key_fallbacks,
               base_url: existingProvider?.base_url || provider.base_url,
+              ...(provider.provider === 'adobe-firefly' ? { custom_header: existingProvider?.custom_header ?? provider.custom_header } : {}),
               active: existingProvider ? existingProvider?.active : true,
             }
           })

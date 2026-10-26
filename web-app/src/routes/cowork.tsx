@@ -1475,7 +1475,7 @@ function CoworkPage() {
     >
       <HeaderPage>
         <div className="flex items-center justify-between w-full pr-2">
-          <DropdownModelProvider
+          <DropdownModelProvider allowMedia={false}
             key={session?.id ?? 'new'}
             model={session?.model}
             useLastUsedModel={!session?.model}

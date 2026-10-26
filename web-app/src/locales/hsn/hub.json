@@ -118,6 +118,11 @@
     "tipFuture": "在该任务可以在Nevera中运行之前需要额外的引擎。",
     "advisorEmpty": "无法从当前元数据中选择合适的起点。",
     "hardwareUnknown": "硬件信息缺失;建议需要 RAM 和 GPU 数据。",
-    "contextTip": "较短的上下文使用较少的存储器而不改变下载大小。"
+    "contextTip": "较短的上下文使用较少的存储器而不改变下载大小。",
+    "nvfp4Search": "检测到具有足够报告内存的 Blackwell GPU。当架构和引擎支持时,首选 NVFP4 变体。 Native FLUX.2 Klein 4B 舒适装载可在本地来源获得;下载前检查 CUDA PyTorch、可选依赖项、配套模型和可用内存。硬件检测不会验证配置的运行时间或保证速度。\n[0001] 建议该 GPU 和 FLUX.2 Klein 4B 系列使用 NVFP4。本机加载需要受支持的 Comfy 布局、CUDA PyTorch 和可选依赖项。在创建设置中分别选择图像模型、Qwen3编码器和VAE。运行时间、完整组合和可用内存仍需要验证。",
+    "nvfp4Prefer": "建议此 GPU 和 FLUX.2 Klein 4B 系列使用 NVFP4。本机加载需要受支持的 Comfy 布局、CUDA PyTorch 和可选依赖项。在创建设置中分别选择图像模型、Qwen3编码器和VAE。运行时间、完整组合和可用内存仍需要验证。",
+    "nvfp4Check": "NVFP4检测到:GPU能力、可用内存、权重布局或架构支持未确认。在选择此变体之前检查 CUDA 引擎。仅凭格式并不能建立兼容性。\n[0003] 不建议将本机 NVFP4 与检测到的 GPU 或当前空闲 VRAM 一起使用。考虑兼容的 GGUF 量化或兼容性引擎。该路径不提供本机 FP4 加速。",
+    "nvfp4Unsupported": "不建议将本机 NVFP4 与检测到的 GPU 或当前可用 VRAM 一起使用。考虑兼容的 GGUF 量化或兼容性引擎。该路径不提供本机 FP4 加速。",
+    "quantQualityAdvice": "Novera GGUF 针对文本、图像和视频组件的指南:Q6_K 或更高版本是我们在优先考虑保真度时建议的起点; Q4_K_M 平衡质量和内存。这些是建议,而不是通用的准确性阈值。结果取决于模型和任务。 NVFP4 和其他量化方案需要自己的兼容性和质量评估。"
   }
 }

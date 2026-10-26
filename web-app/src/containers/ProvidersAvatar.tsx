@@ -12,8 +12,8 @@ const ProvidersAvatar = ({ provider }: { provider: ProviderObject }) => {
       ) : (
         <img
           src={getProviderLogo(provider.provider)}
-          alt={`${provider.provider} - Logo`}
-          className="size-4.5 object-contain rounded-full"
+          alt={getProviderTitle(provider.provider)}
+          className={`size-4.5 object-contain rounded-full ${provider.provider === 'luma' ? 'bg-neutral-900' : ''}`}
           style={{
             imageRendering: '-webkit-optimize-contrast',
           }}

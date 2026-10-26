@@ -118,6 +118,11 @@
     "tipFuture": "A chọrọ injin ọzọ tupu ọrụ a arụ ọrụ na Novera.",
     "advisorEmpty": "Ọ nweghị ebe mmalite dabara adaba enwere ike ịhọrọ site na metadata dị ugbu a.",
     "hardwareUnknown": "Ozi ngwaike na-efu; Atụmatụ chọrọ RAM na data GPU.",
-    "contextTip": "Ọnọdụ dị mkpụmkpụ na-eji obere ebe nchekwa na-agbanweghị nha nbudata."
+    "contextTip": "Ọnọdụ dị mkpụmkpụ na-eji obere ebe nchekwa na-agbanweghị nha nbudata.",
+    "nvfp4Search": "Achọpụtara Blackwell GPU nwere ebe nchekwa akọpụtara zuru oke. Na-ahọrọ NVFP4 dị iche iche mgbe ụlọ na injin na-akwado ha. Native FLUX.2 Klein 4B Comfy loading dị na mpaghara isi mmalite; lelee CUDA PyTorch, ndabere nhọrọ, ụdị enyi na ebe nchekwa efu tupu nbudata. Nchọpụta ngwaike anaghị akwado oge ojiri mara ma ọ bụ ọsọ ekwe nkwa.",
+    "nvfp4Prefer": "NVFP4 ka akwadoro maka GPU na FLUX.2 Klein 4B ezinụlọ. Nbudata nke ala chọrọ nhazi Comfy akwadoro, CUDA PyTorch na ndabere nhọrọ. Họrọ ụdị onyonyo, koodu Qwen3 na VAE iche na ntọala okike. Oge ịgba ọsọ, nchikota zuru oke na ebe nchekwa efu ka chọrọ nkwenye.",
+    "nvfp4Check": "Achọpụtara NVFP4: Achọpụtaghị ike GPU, ebe nchekwa efu, nhazi ibu ma ọ bụ nkwado ihe owuwu. Lelee injin CUDA tupu ịhọrọ ụdị a. Usoro naanị anaghị ewepụta ndakọrịta.",
+    "nvfp4Unsupported": "A naghị atụ aro NVFP4 ala ala na GPU achọpụtara ma ọ bụ VRAM efu ugbu a. Tụlee ọnụọgụgụ GGUF dakọtara ma ọ bụ injin ndakọrịta. Ụzọ ahụ anaghị enye ngwangwa FP4 ala.",
+    "quantQualityAdvice": "Novera GGUF nduzi maka ederede, onyonyo na ihe vidiyo: Q6_K ma ọ bụ karịa bụ mmalite mmalite anyị tụrụ aro mgbe a na-ebute ntụkwasị obi; Q4_K_M na-edozi ogo na ebe nchekwa. Ndị a bụ ndụmọdụ, ọ bụghị ọnụ ụzọ izizi zuru ụwa ọnụ. Nsonaazụ dabere na ihe nlereanya na ọrụ. NVFP4 na atụmatụ nha nha ndị ọzọ chọrọ ndakọrịta na nleba anya nke ha."
   }
 }

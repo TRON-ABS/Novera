@@ -1,0 +1,47 @@
+# Local creations inside the conversation
+
+This desktop adapter uses an offline **Diffusers 0.42.0** worker under **Python 3.15.1** with the existing PyTorch CPU/CUDA environment. It is separate from the causal-text Transformers server. A `.safetensors` file alone is not a complete diffusion model.
+
+Install the optional dependencies into an isolated environment, never into the global Python installation:
+
+```powershell
+./transformers-server/setup.ps1 -Backend cu130 -Media
+```
+
+Use `-Backend cpu` for CPU. In the conversation, open Creation settings and select the resulting Python executable and complete local Diffusers model folders containing `model_index.json`. The Diffusers adapter does not download weights, execute remote model code or convert GGUF files. A separate native stable-diffusion.cpp image path is described below.
+
+Supported pipeline families are explicitly listed in `worker.py`: Stable Diffusion, SDXL, Flux, Flux2 and QwenImage for images; CogVideoX, Wan, HunyuanVideo, LTX and LTX2 for text-to-video. Recognition is not a certification of every checkpoint, quantization, control adapter or hardware configuration. The model must fit available memory; there is no automatic CPU/GPU offload. Diffusers image-to-image conversion is attempted for one input image and can reject a family without that capability. Image-to-video requires a specifically supported image-conditioned folder (CogVideoX, Wan, HunyuanVideo or LTX image-to-video class); text-to-video checkpoints are not silently converted into image-conditioned models. Video editing remains unsupported.
+
+Auto mode recognizes explicit French/English creation, modification and animation requests and language-independent `/image` and `/video` commands. All 70 interface languages can use the explicit Text/Image/Video buttons. This is deterministic routing, not a claim of semantic intent detection in every model language. A manual output choice takes priority.
+
+Each job runs in its own hidden Python process, with PyTorch operations on the main thread. Stop kills only that job; application shutdown and a parent-process watcher stop owned workers. One generation runs at a time. CPU uses float32; CUDA selects bfloat16 where supported, otherwise float16. Native validation bounds dimensions, steps, frames, FPS and prompt size.
+
+Completed images go to the OS Pictures known folder under **Novera image**; videos go to the OS Videos known folder under **Novera vidéo**. This follows OS redirection, including OneDrive. Missing known folders cause an explicit failure rather than an invented path. Temporary encoding stays beside the destination; exclusive publication never replaces an existing creation. A JSON sidecar stores the prompt, model, seed, dimensions, frame settings and runtime versions. These are local personal creation data, not telemetry.
+
+The conversation stores a compact creation reference, not video/image bytes. On reload, the native resolver restricts access to named generated files in the appropriate output folder. Files moved or deleted outside Novera show as unavailable. Image previews can expand and prepare an editable variant in the same conversation; video outputs have a player. Generated media references are excluded from text-model wire requests, so their presence does not falsely imply vision support.
+
+## Local validation
+
+Untrained tiny Stable Diffusion and CogVideoX fixtures were created locally without downloading model weights. Real PNG and MP4 creation succeeded on CPU and CUDA; image-to-image succeeded on CPU, and image-to-video succeeded on CUDA using a separate tiny CogVideoXImageToVideo fixture. The tiny MP4 files, including the animation, contain five decoded 64×64 frames at 8 FPS. Six completed output files were decoded and their hashes recorded locally. Outputs are technical tests, not meaningful generated artwork or benchmarks for full models. Private fixtures, logs, settings and output hashes stay under `.build/media-creation-2026-10-26/`.
+
+`test_worker.py` validates supported local folders, modality, component allowlists and parameter bounds. Frontend tests cover routing, native job errors/cancellation, persisted references and inline creation actions. See [engine tracking](../docs/SUIVI_MOTEURS.md) for actual results and limits. No new application build or repository publication is authorized for this work.
+
+## Separate GGUF image engine
+
+The native creation service can run a user-selected `sd-cli` executable directly, with a diffusion GGUF, Qwen3-4B text encoder GGUF and FLUX.2 VAE. This path does not start the Python worker. Keep the executable with its original libraries. It preserves job cancellation, staged PNG publication and generated conversation references. Raw CLI output is never accepted as JSON progress. The image model is distinct from the text encoder even when both filenames contain FLUX. A metadata check rejects common text architectures mistakenly selected for diffusion.
+
+CPU and Vulkan binaries for upstream master-1015-e41fbcf were prepared locally with verified archive hashes; Vulkan enumerated the RTX 5070 Laptop GPU. Runtime tests rejected invalid weights. The maintainer’s misleadingly named “uncensored” GGUF is a Qwen3 text encoder. A test using the actual ComfyUI NVFP4 image model failed in the C++ quantization loader; no successful generation is claimed. Full generation using compatible diffusion GGUF weights and native end-to-end operation in a new Novera executable remain unvalidated. See [engine tracking](../docs/SUIVI_MOTEURS.md#images-gguf-et-encodeur-qwen3-gguf--26-octobre-2026).
+
+## Comfy NVFP4 compatibility bridge (current sources)
+
+The native sdcpp path now accepts separate compatible GGUF/Safetensors diffusion, text-encoder and VAE files. Recognized Comfy NVFP4 metadata triggers `nvfp4_compat.py` under Python 3.15.1/PyTorch before rendering. It decodes packed E2M1 weights and tiled block-16 scales, one layer at a time, to a content-addressed BF16 Safetensors cache. It never imports ComfyUI, downloads model weights or overwrites the source. A complete matching cache is reused; disk bounds, source-change detection and exclusive publication guard preparation. The native parent owns preparation and rendering as sequential child processes, with cancellation between phases and cleanup of the owned staging file. Ordinary compatible inputs need no Python preparation.
+
+The renderer applies Q8_0 only to diffusion via `--tensor-type-rules ^model\.=q8_0`, preserving the selected GGUF encoder quantization. This is a compatibility path, not native NVFP4 hardware execution. It also works with a CPU-only PyTorch environment. The tested cache occupies 7,751,105,584 bytes; extra disk/RAM is required. The initial failure described above is historical: the maintainer's original NVFP4 image file, “uncensored” Qwen3 GGUF encoder and FLUX.2 VAE produced real PNGs on Vulkan (512²/4 steps) and CPU (64²/1 step). The application itself has not been rebuilt or validated end-to-end. See [current evidence](../docs/SUIVI_MOTEURS.md#formats-mixtes-ggufsafetensors-et-compatibilité-nvfp4--26-octobre-2026). Fifteen Python tests pass in CPU-only and CUDA environments; they are the same test suite, not thirty unique tests.
+
+## Native NVFP4 CUDA and independent component placement
+
+Optional setup: `./transformers-server/setup.ps1 -Backend cu130 -NativeNvfp4`. This uses the pinned media stack plus accelerate 1.15.0, gguf 0.19.0 and comfy-kitchen 0.2.35 in an isolated Python 3.15.1 environment. Select **NVFP4 CUDA · PyTorch**, Comfy FLUX.2 Klein 4B NVFP4 Safetensors, Qwen3-4B GGUF and the FLUX.2 Safetensors VAE. This backend retains packed diffusion weights and uses native CUDA FP4 GEMMs; it does not build the BF16 compatibility cache. Blackwell, CUDA PyTorch and the supported weight layout are required. Text-to-image only; other architectures, 9B and native editing/video are not enabled by this addition.
+
+Encoder CPU/CUDA/Auto is separate from generator CPU/CUDA/Auto in component engines. Native generation always requires CUDA; encoder CUDA uses layer offload. Auto prefers CPU for Qwen below 10 GiB reported free VRAM, a conservative heuristic rather than a speed guarantee. The C++ path emits per-component backend assignments; generic Diffusers keeps whole-pipeline placement. Images/videos persist total time in conversation metadata; Python workers additionally report generation-only time. Old outputs have no invented duration. Both native and cloud sidecars record their available timing.
+
+Real native 512²/4-step generation executed 400 FP4 GEMMs on RTX 5070 Laptop with the original user models. CPU/GPU/Auto Qwen placement succeeded. The last explicit GPU run measured 83.88 s total, including 66.40 s loading/encoding and 1.50 s generation/decoding; these are isolated cold runs, not a comparative benchmark. Tiny PNG and MP4 jobs verified timing. Current targeted validation: 106 web tests, 21 CUDA Python tests, 20 CPU tests plus one hardware skip, TypeScript, architecture and all 70 locales. No Novera/Rust compilation or publication. See [full evidence](../docs/SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026).

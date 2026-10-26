@@ -118,6 +118,11 @@
     "tipFuture": "An additional engine is needed before this task can run in Novera.",
     "advisorEmpty": "No suitable starting point can be selected from the current metadata.",
     "hardwareUnknown": "Hardware information is missing; recommendations need RAM and GPU data.",
-    "contextTip": "A shorter context uses less memory without changing the download size."
+    "contextTip": "A shorter context uses less memory without changing the download size.",
+    "nvfp4Search": "A Blackwell GPU with sufficient reported memory is detected. Prefer NVFP4 variants when the architecture and engine support them. Native FLUX.2 Klein 4B Comfy loading is available in local sources; check CUDA PyTorch, optional dependencies, companion models and free memory before downloading. Hardware detection does not validate the configured runtime or guarantee speed.",
+    "nvfp4Prefer": "NVFP4 is suggested for this GPU and FLUX.2 Klein 4B family. Native loading requires the supported Comfy layout, CUDA PyTorch and optional dependencies. Select the image model, Qwen3 encoder and VAE separately in Creation settings. The runtime, complete combination and free memory still need verification.",
+    "nvfp4Check": "NVFP4 detected: GPU capability, free memory, weight layout or architecture support is not confirmed. Check the CUDA engine before choosing this variant. The format alone does not establish compatibility.",
+    "nvfp4Unsupported": "Native NVFP4 is not recommended with the detected GPU or current free VRAM. Consider a compatible GGUF quantization or the compatibility engine. That path does not provide native FP4 acceleration.",
+    "quantQualityAdvice": "Novera GGUF guidance for text, image and video components: Q6_K or higher is our suggested starting point when prioritizing fidelity; Q4_K_M balances quality and memory. These are recommendations, not a universal accuracy threshold. Results depend on the model and task. NVFP4 and other quantization schemes need their own compatibility and quality assessment."
   }
 }

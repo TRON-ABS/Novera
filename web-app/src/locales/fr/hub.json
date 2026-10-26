@@ -118,6 +118,11 @@
     "tipFuture": "Un moteur supplémentaire est nécessaire pour exécuter cette tâche dans Novera.",
     "advisorEmpty": "Les métadonnées actuelles ne permettent pas de choisir un point de départ adapté.",
     "hardwareUnknown": "Les informations matérielles manquent : les conseils nécessitent les données RAM et GPU.",
-    "contextTip": "Un contexte plus court utilise moins de mémoire sans modifier la taille du téléchargement."
+    "contextTip": "Un contexte plus court utilise moins de mémoire sans modifier la taille du téléchargement.",
+    "nvfp4Search": "Un GPU Blackwell avec une mémoire déclarée suffisante est détecté. Privilégiez les variantes NVFP4 lorsque l’architecture et le moteur les acceptent. Le chargement natif Comfy FLUX.2 Klein 4B existe dans les sources locales ; vérifiez PyTorch CUDA, les dépendances facultatives, les modèles compagnons et la mémoire libre avant téléchargement. La détection matérielle ne valide pas le moteur configuré et ne garantit pas la vitesse.",
+    "nvfp4Prefer": "NVFP4 conseillé pour ce GPU et la famille FLUX.2 Klein 4B. Le chargement natif exige le format Comfy reconnu, PyTorch CUDA et les dépendances facultatives. Choisissez séparément le modèle image, l’encodeur Qwen3 et le VAE dans les réglages de création. Le moteur, la combinaison complète et la mémoire libre restent à vérifier.",
+    "nvfp4Check": "NVFP4 détecté : capacité du GPU, mémoire libre, organisation des poids ou architecture non confirmée. Vérifiez le moteur CUDA avant de choisir cette variante. Le format seul ne suffit pas à établir la compatibilité.",
+    "nvfp4Unsupported": "Le NVFP4 natif n’est pas conseillé avec le GPU détecté ou la VRAM libre actuelle. Envisagez une quantification GGUF compatible ou le moteur de compatibilité. Ce dernier n’apporte pas d’accélération FP4 native.",
+    "quantQualityAdvice": "Conseil GGUF Novera pour les composants texte, image et vidéo : Q6_K minimum conseillé pour privilégier la fidélité ; Q4_K_M pour l’équilibre qualité/mémoire. Ce sont des repères, pas un seuil universel de précision. Les résultats dépendent du modèle et de la tâche. NVFP4 et les autres quantifications nécessitent leur propre évaluation de compatibilité et de qualité."
   }
 }

@@ -2,7 +2,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone. Cyan holographic hand above a connected world." width="100%" />
   <p><strong>Knowledge for everyone. AI that keeps moving forward.</strong></p>
   <p>An independent AI assistant by TRON-ABS, bringing local models, cloud providers and evolving tools into one project.</p>
-  <p><strong>In development</strong> · 70 interface language options · 27 cloud providers · Apache 2.0</p>
+  <p><strong>In development</strong> · 70 interface language options · 41 cloud providers · Apache 2.0</p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p>
     <a href="#cloud-providers">Cloud providers</a> ·
@@ -16,11 +16,26 @@
 
 ---
 
-## Why Novera
+## Helping people, in every sector
 
-Our goal is to make knowledge and useful AI capabilities accessible to as many people as possible, across languages and levels of technical experience. We want Novera to grow into a tool for learning, creating and understanding, with education and schools part of its long-term direction.
+Beyond school and education, our ambition is to help people learn, solve problems, create and develop useful projects worldwide. Novera aims to make current AI advances easier to understand and use, across languages, levels of experience and available hardware.
 
-We are building around a clear product direction: keep a dependable foundation, explore new capabilities quickly, and turn useful experiments into features people can understand and use.
+| Sectors we want to help develop | Examples of useful contributions |
+| --- | --- |
+| Schools, education and lifelong learning | Explain concepts, adapt learning materials and support teachers, students and families. |
+| Research, science and space | Explore literature, explain methods, analyse data and share knowledge. |
+| Health, care and social support | Make information easier to understand and support research and professional workflows. |
+| Agriculture, food and rural communities | Share practical knowledge, support planning and develop locally useful tools. |
+| Environment, climate, water and biodiversity | Explain evidence, support observation and help communities plan projects. |
+| Energy, industry, construction and crafts | Support documentation, design, maintenance, technical learning and process improvement. |
+| Businesses, commerce, finance and employment | Help organise work, understand information, develop projects and learn professional skills. |
+| Public services, law and civic participation | Make documents and procedures easier to understand and information easier to access. |
+| Computing, cybersecurity, robotics and telecommunications | Help develop software, understand systems and build useful tools. |
+| Arts, culture, media, languages and heritage | Support writing, translation, images, video, creative projects and cultural sharing. |
+| Transport, logistics, tourism, sport and community life | Help with planning, communication, learning and local initiatives. |
+| Accessibility, humanitarian work and everyday life | Reduce language and knowledge barriers and support people with practical assistance. |
+
+These are directions for contribution and development, not a claim that every sector-specific application is already delivered or validated. We want simple guidance for everyday use, clear advanced options when needed, transparent hardware and cloud requirements, and collaboration with the people who know each field and local context.
 
 ## The foundation
 
@@ -28,14 +43,23 @@ We are building around a clear product direction: keep a dependable foundation, 
 | --- | --- |
 | Local and cloud AI | Local model engines alongside connections to remote model providers. Compatibility depends on the model, provider and hardware. |
 | Tools and documents | MCP integrations, document retrieval and assistant workflows inherited from the existing codebase. |
-| Multilingual interface | 70 selectable locales, each covering all 1,587 current English keys. Native-speaker review remains pending. |
+| Multilingual interface | 70 selectable locales, each covering all 1,668 current English keys. Native-speaker review remains pending. |
 | An extensible application | A desktop application with extension points for model engines, tools and future capabilities. |
 
 These describe the source foundation. Earlier 1.0.0 builds were compiled and launched locally on Windows x64. The latest source changes await a new maintainer build; public packaging and broader runtime validation remain in preparation.
 
+## Text, images and video in one conversation
+
+- Choose Text, Image, Video or Multimodal, and Local or Cloud, while keeping the conversation in one place. A model that understands an image does not automatically generate images.
+- Save completed creations automatically to the operating system’s Pictures/**Novera image** and Videos/**Novera vidéo** folders. Display total time below images/videos and measured generation time when the engine supplies it.
+- Use complete local Diffusers folders, compatible GGUF/Safetensors components with stable-diffusion.cpp, or the supported **native NVFP4 CUDA** path for Comfy FLUX.2 Klein 4B. Encoder and generator placement can be selected independently in component engines.
+- Get Hub advice before downloading: model roles, hardware/memory, NVFP4 eligibility and GGUF fidelity/balance choices. Q6_K or higher is Novera’s suggested fidelity starting point; Q4_K_M balances quality and memory. These are model-dependent guidelines.
+
+A real NVFP4 512 × 512 image on RTX 5070 Laptop executed **400 hardware FP4 GEMMs**, with Qwen3 GGUF and a FLUX.2 Safetensors VAE. CPU/GPU/Auto encoder placement was exercised. The C++ compatibility path also produced real CPU/Vulkan images; it uses a larger cache and does not execute native FP4. Tiny local PNG/MP4 fixtures validated media creation and timing. Cloud HTTP contracts are tested with simulated responses, without paid generation or account entitlement validation. A complete new desktop build still needs the maintainer’s graphical and native-save tests. See [engine evidence and limits](docs/SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026).
+
 ## Cloud providers
 
-**27 predefined cloud providers** in the Novera source, with their official bundled icons. Available models depend on your account and region.
+**41 predefined cloud providers** in the Novera source, with their official bundled icons. Available models depend on your account and region.
 
 | | | |
 | --- | --- | --- |
@@ -51,15 +75,47 @@ These describe the source foundation. Earlier 1.0.0 builds were compiled and lau
 
 [Current models and setup](docs/USER_GUIDE.md#cloud) · [Icon provenance and trademarks](docs/DEVELOPMENT.md#logos)
 
+| | | |
+| --- | --- | --- |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="28" height="28" /> [Black Forest Labs](https://blackforestlabs.ai) | <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="28" height="28" /> [Stability AI](https://stability.ai) | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai) |
+| <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://ideogram.ai) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://firefly.adobe.com) | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://runwayml.com) |
+| <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://lumalabs.ai) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://ltx.io) | <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai) |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/getting-started) | <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai) |
+| <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://www.vidu.com) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://pixverse.ai) |  |
+
+**19 provider profiles expose generation routes**, with **45 media presets: 25 image and 20 video**. Fourteen dedicated generation-provider profiles join the existing cloud catalog. The table below describes the routes implemented in Novera, not every capability offered by each provider. Account, region, quota and billing still apply. Catalog checked on **26 October 2026**; no paid generation was used for validation.
+
+| Provider | Novera output routes | Selected catalog models |
+| --- | --- | --- |
+| [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Image | GPT Image 2.5 Sunburst · GPT Image 2.5 Flare |
+| [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Image / Video | Gemini Omni 1.1 Flash · Gemini Nano Banana 2.1 |
+| [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | Image / Video | Grok Imagine Image 2.0 · Grok Imagine Video 1.5 · Grok Imagine Video 1.5 Lite |
+| [MiniMax](https://platform.minimax.io/docs/api-reference/video-generation-v2-create) | Image / Video | MiniMax H3 Max · MiniMax H3 · MiniMax H3 Highspeed |
+| [BytePlus](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | Image / Video | Dola Seedream 5 Pro · Dreamina Seedance 2.5 |
+| [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Image | FLUX.2 [max] · FLUX.2 [pro] · FLUX.2 [klein] 9B |
+| [Stability AI](https://docs.stability.ai/api-reference) | Image | Stable Image Ultra · Stable Image Core |
+| [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | Image | Recraft V4.1 · Recraft V4.1 Flash · Recraft V4.1 Pro |
+| [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | Image | Ideogram 4.5 |
+| [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | Image / Video | Adobe Firefly Image 5 · Adobe Firefly Video |
+| [Runway](https://docs.dev.runwayml.com/api/) | Video | Runway Gen-4.5 |
+| [Luma AI](https://docs.agents.lumalabs.ai/guides/model/) | Image / Video | Luma Uni-1 Max · Luma Uni-1 · Luma Ray 3.2 |
+| [LTX](https://docs.ltx.io/models) | Video | LTX-2.5 Pro · LTX-2.5 Fast |
+| [fal.ai](https://fal.ai/models/fal-ai/pika/v2.2/text-to-video) | Image / Video | Pika 2.2 · fal · Qwen Image 2512 · fal · FLUX.2 Max · fal |
+| [Replicate](https://replicate.com/black-forest-labs/flux-2-max/api) | Image | FLUX.2 Max · Replicate |
+| [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | Image | Lucid Origin · Krea 2 Turbo · Leonardo · Ideogram 3 · Leonardo |
+| [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | Image | Krea 3 |
+| [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | Video | Vidu Q4 Preview · Vidu Q3 Pro · Vidu Q3 Turbo |
+| [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) | Video | PixVerse V6 Max · PixVerse V6 |
+
 ## Hugging Face model catalog
 
 **Hugging Face: 3,187,159 model repositories, about 3.19 million**, observed on **26 October 2026** ([global catalog](https://huggingface.co/models)). Format snapshots include **214,900 GGUF repositories**, **27,295 MLX repositories** and **1,440,138 Safetensors repositories** ([GGUF](https://huggingface.co/models?library=gguf), [MLX](https://huggingface.co/models?library=mlx), [Safetensors](https://huggingface.co/models?library=safetensors)), observed on **26 October 2026**. These format counts can overlap. Counts include versions and conversions; they do not represent distinct models or guaranteed Novera compatibility. Novera’s Safetensors engine currently runs supported causal text architectures from complete local folders; the Safetensors catalog also includes image, audio, adapters and quantized models that this engine cannot run.
 
-The Hub explores 23 navigation categories using Hugging Face metadata, with local hardware advice and a review before downloading. Models in the selected category load progressively as you scroll, with new results appended below existing rows. The six Novera presets remain available. Discovery does not imply execution support: image, video and other tasks still need their own engines. Safetensors text models use the new local Transformers engine; see [tested capabilities and limitations](docs/SUIVI_MOTEURS.md). The latest progressive-scrolling and compatibility-label fixes require a new build, which the maintainer will perform.
+The Hub explores 23 navigation categories using Hugging Face metadata, with local hardware advice and a review before downloading. Models in the selected category load progressively as you scroll, with new results appended below existing rows. The six Novera presets remain available. Discovery does not imply execution support: media needs a configured supported engine and its required local components, or a cloud account; other tasks still need their own engines. Safetensors text models use the local Transformers engine; local Diffusers image/video folders can now run from the conversation through a separate adapter, with the latest desktop integration still awaiting maintainer build validation; see [tested capabilities and limitations](docs/SUIVI_MOTEURS.md). The latest progressive-scrolling and compatibility-label fixes require a new build, which the maintainer will perform.
 
 ## 70 interface language options
 
-All 19 of our language contributions are integrated alongside the 17 inherited locales and 34 new Novera catalogs. The latest ten are Northern Uzbek, Zulu, Saidi Arabic, Northern Pashto, West Central Oromo, Saraiki, Dutch, Somali, Romanian and Assamese. **All 70 catalogs cover 1,587 / 1,587 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. The local Windows build completed on 26 October includes these translations; no public binary has been released. Some catalogs are editorial variants partly based on shared written technical text; full vernacular adaptation remains open. See the language guide for their exact scope.
+All 19 of our language contributions are integrated alongside the 17 inherited locales and 34 new Novera catalogs. The latest ten are Northern Uzbek, Zulu, Saidi Arabic, Northern Pashto, West Central Oromo, Saraiki, Dutch, Somali, Romanian and Assamese. **All 70 catalogs cover 1,668 / 1,668 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. Earlier local Windows builds include the catalogs at their then-current state; the 48 latest media/Hub keys await validation in the maintainer’s next build; no public binary has been released. Some catalogs are editorial variants partly based on shared written technical text; full vernacular adaptation remains open. See the language guide for their exact scope.
 
 Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Algerian Arabic, Moroccan Arabic, Saidi Arabic, Northern Pashto, Saraiki, Sindhi, Dari, Urdu, Western Punjabi and Iranian Persian include right-to-left interface support. Model language capabilities depend on the selected model and are separate from interface localization.
 
@@ -67,7 +123,7 @@ Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Algerian Arabic, Mor
 
 ## Project status
 
-**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 70 interface catalogs with complete key coverage (1,587 keys each), the adaptive model Hub, the local Safetensors/Transformers text engine and updated cloud-provider presets. Native-language review is still needed.
+**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 70 interface catalogs with complete key coverage (1,668 keys each), the adaptive model Hub, the local Safetensors/Transformers text engine and updated cloud-provider presets. Native-language review is still needed.
 
 First launch saves the system language, recommends LFM2.5-2.6B Q6_K on desktop with optional DSpark, and asks separately about error reporting, off by default. Source changes and compiled artifacts are tracked separately; the latest Hub fixes await the maintainer’s build. See the [dashboard](TABLEAU_DE_BORD_NOVERA.md) for exact validation and limitations. GitHub Actions and automatic updates remain disabled.
 

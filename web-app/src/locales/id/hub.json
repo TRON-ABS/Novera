@@ -118,6 +118,11 @@
     "tipFuture": "Mesin tambahan diperlukan sebelum tugas ini dapat dijalankan di Novera.",
     "advisorEmpty": "Tidak ada titik awal yang sesuai yang dapat dipilih dari metadata saat ini.",
     "hardwareUnknown": "Informasi perangkat keras tidak ada; rekomendasi membutuhkan data RAM dan GPU.",
-    "contextTip": "Konteks yang lebih pendek menggunakan lebih sedikit memori tanpa mengubah ukuran unduhan."
+    "contextTip": "Konteks yang lebih pendek menggunakan lebih sedikit memori tanpa mengubah ukuran unduhan.",
+    "nvfp4Search": "GPU Blackwell dengan memori yang dilaporkan mencukupi terdeteksi. Lebih memilih varian NVFP4 jika arsitektur dan mesin mendukungnya. Pemuatan asli FLUX.2 Klein 4B Nyaman tersedia di sumber lokal; periksa CUDA PyTorch, dependensi opsional, model pendamping, dan memori bebas sebelum mengunduh. Deteksi perangkat keras tidak memvalidasi runtime yang dikonfigurasi atau kecepatan jaminan.",
+    "nvfp4Prefer": "NVFP4 disarankan untuk GPU ini dan keluarga FLUX.2 Klein 4B. Pemuatan asli memerlukan tata letak Comfy yang didukung, CUDA PyTorch, dan dependensi opsional. Pilih model gambar, encoder Qwen3, dan VAE secara terpisah di pengaturan Penciptaan. Runtime, kombinasi lengkap, dan memori bebas masih memerlukan verifikasi.",
+    "nvfp4Check": "NVFP4 terdeteksi: kemampuan GPU, memori bebas, tata letak bobot, atau dukungan arsitektur tidak dikonfirmasi. Periksa mesin CUDA sebelum memilih varian ini. Formatnya saja tidak menjamin kompatibilitas.",
+    "nvfp4Unsupported": "NVFP4 asli tidak disarankan dengan GPU yang terdeteksi atau VRAM bebas saat ini. Pertimbangkan kuantisasi GGUF yang kompatibel atau mesin kompatibilitas. Jalur itu tidak memberikan akselerasi FP4 asli.",
+    "quantQualityAdvice": "Panduan Novera GGUF untuk komponen teks, gambar, dan video: Q6_K atau lebih tinggi adalah titik awal yang kami sarankan saat memprioritaskan fidelitas; Q4_K_M menyeimbangkan kualitas dan memori. Ini adalah rekomendasi, bukan ambang batas akurasi universal. Hasil bergantung pada model dan tugas. NVFP4 dan skema kuantisasi lainnya memerlukan penilaian kompatibilitas dan kualitasnya sendiri."
   }
 }

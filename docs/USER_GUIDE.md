@@ -110,6 +110,18 @@ Quand la recherche est désactivée, une instruction explicite demande au modèl
 
 Certains modèles peuvent écrire `<|tool_call_start|>[google(...)]<|tool_call_end|>` comme du texte. Ce texte n’est jamais interprété ou exécuté. Il est retiré du rendu assistant, de la copie, de la sauvegarde des nouveaux messages, du rechargement de l’historique et des exports. Les balises incomplètes sont masquées pendant la génération. Les questions utilisateur et les exemples explicitement placés dans du code sont conservés. Le filtrage ne garantit pas qu’un modèle produira toujours une réponse correcte ni une réponse exploitable s’il ne génère que ce protocole invalide.
 
+## Texte, image et vidéo dans la même discussion
+
+Les sources locales ajoutent **Auto · Texte · Image · Vidéo** dans le compositeur. Le champ de saisie et le fil restent communs. Le choix manuel prime ; Auto reconnaît les demandes explicites en français/anglais et les commandes `/image` et `/video`. Pour les autres langues, les boutons traduits permettent de choisir explicitement la sortie.
+
+Ouvrir les réglages de création, choisir l’exécutable de l’environnement **Python 3.15.1** équipé de **PyTorch et Diffusers 0.42.0**, puis les dossiers complets de modèles image/vidéo reconnus. L’installation isolée peut utiliser `transformers-server/setup.ps1 -Backend cu130 -Media` (ou `cpu`). Aucun poids n’est téléchargé automatiquement. Régler dimensions, étapes, graine et, pour la vidéo, nombre d’images et fréquence. CPU/GPU peut être imposé ; Auto utilise CUDA lorsque disponible. Les modèles doivent tenir en mémoire.
+
+Le fil montre l’image ou le lecteur vidéo après la sauvegarde terminée. La progression apparaît près du champ ; le bouton d’arrêt existant annule uniquement la création en cours. Un bouton permet d’afficher le fichier enregistré ; une image peut être agrandie, servir à préparer une variante ou une vidéo dans cette même discussion. Les demandes explicites de modification/animation peuvent reprendre la dernière image créée dans le fil. La retouche accepte une seule image si le pipeline dispose d’une conversion image-à-image ; l’animation image-à-vidéo nécessite un modèle local conditionné par image ; le montage vidéo reste à intégrer.
+
+Sauvegarde automatique : **Images → Novera image** et **Vidéos → Novera vidéo**, via les vrais dossiers connus du système, même déplacés ou redirigés vers OneDrive. Les noms uniques évitent les écrasements. Un fichier JSON voisin conserve les paramètres de reproduction. La discussion garde une référence légère ; déplacer ou supprimer le fichier le rend indisponible dans le fil. Ces créations et leurs prompts restent locaux. Les réponses des moteurs textuels et les fonctions Agent/Cowork restent séparées de l’exécution de diffusion.
+
+Ce parcours est implémenté localement ; aucune nouvelle compilation de l’application ni publication sur le dépôt pour ce lot, à la demande du mainteneur. Les validations techniques ne prouvent pas encore le parcours graphique dans un nouvel exécutable. [Moteurs, preuves et limites](SUIVI_MOTEURS.md).
+
 <a id="hub"></a>
 
 ## Découvrir et comparer des modèles
@@ -232,6 +244,33 @@ L’accès réel dépend de la clé, du compte, des droits et de la région. Con
 
 <a id="privacy"></a>
 
+### Modèles texte, image, vidéo et multimodaux dans la même discussion
+
+Le sélecteur se filtre par **Tous / Texte / Image / Vidéo / Multimodal**, puis par **Tous / Local / Cloud**. Image/Vidéo désignent la sortie créée ; Multimodal désigne plusieurs types d’entrée ou de sortie. Un modèle qui analyse une photo peut répondre uniquement en texte.
+
+Choisir un générateur active sa sortie Image ou Vidéo et conserve le modèle texte de la discussion. Les réglages de création permettent aussi de choisir séparément les modèles image et vidéo, locaux ou cloud. Un seul profil et une seule configuration de clés sont conservés par fournisseur. Un modèle sans clé affiche « Configurer une clé API » et renvoie aux réglages du prestataire ; les droits, crédits et restrictions régionales dépendent du compte. Adobe Firefly requiert un jeton d’accès et son identifiant client `x-api-key`.
+
+**Cloud :** votre texte et, si vous en ajoutez une, votre image de départ sont envoyés au prestataire sélectionné. Les créations peuvent être facturées. Le bouton d’arrêt local ne garantit pas l’annulation de cette facturation. Le modèle d’un éditeur hébergé chez fal ou Replicate utilise la clé et la facturation de cet hébergeur, explicitement nommé dans la liste. Les modèles en aperçu sont signalés ; Vidu Q4 nécessite une image de départ. Le catalogue et sa date de vérification sont décrits dans [le suivi des moteurs](SUIVI_MOTEURS.md#création-cloud-dans-la-discussion--26-octobre-2026).
+
+Les résultats terminés apparaissent dans la discussion et se sauvegardent dans les mêmes dossiers système « Novera image » et « Novera vidéo » que les créations locales. Une URL de résultat temporaire n’est pas utilisée comme sauvegarde durable. Une erreur ne crée pas de réponse média fictive. Les paramètres Diffusers restent réservés aux modèles locaux ; les adaptateurs cloud utilisent leurs préréglages. Retouche depuis une image uniquement sur les modèles annoncés compatibles ; montage vidéo et entrées multiples ne sont pas pris en charge dans ce lot.
+
+
+### FLUX.2 Klein : deux rôles GGUF distincts
+
+Dans les réglages de création, choisir le moteur image **stable-diffusion.cpp · GGUF**, puis l’exécutable `sd-cli`, le GGUF de diffusion image, le GGUF encodeur **Qwen3-4B** et le VAE FLUX.2. Le modèle image et l’encodeur peuvent être quantifiés séparément. Garder les DLL fournies à côté de l’exécutable. Les réglages de départ pour Klein distillé sont 4 étapes et CFG 1 ; vérifier ceux du modèle choisi. Auto utilise le matériel du binaire ; le binaire Vulkan préparé utilise le GPU sans installer CUDA. La vidéo conserve les réglages Diffusers/Python.
+
+Un fichier nommé comme FLUX peut contenir seulement un encodeur Qwen3 : se fier aux métadonnées et au rôle du modèle. Le fichier « uncensored » examiné dans ce lot appartient au champ encodeur. Le premier essai NVFP4 direct a échoué ; le correctif de compatibilité décrit ci-dessous permet désormais la combinaison réelle testée. Voir [les résultats et les chemins de runtime locaux](SUIVI_MOTEURS.md#images-gguf-et-encodeur-qwen3-gguf--26-octobre-2026). Les binaires ignorés doivent être sélectionnés explicitement ; ils ne sont pas inclus dans l’installeur. Aucune nouvelle compilation de Novera pour ce lot.
+
+
+
+### Mélanger GGUF et Safetensors, y compris le NVFP4 reconnu
+
+Le moteur **stable-diffusion.cpp · GGUF / Safetensors** propose trois fichiers séparés : modèle de diffusion, encodeur de texte et VAE. Chacun accepte le format compatible avec le moteur et la famille choisie. Pour le montage FLUX.2 Klein testé, choisir le modèle image NVFP4 Safetensors, l’encodeur Qwen3-4B GGUF — y compris la variante « uncensored » examinée — et le VAE FLUX.2 Safetensors. Le fichier « uncensored » est un encodeur ; il ne va pas dans le champ diffusion.
+
+Les métadonnées NVFP4 reconnues déclenchent une préparation locale en cache, une seule fois par contenu et version. Choisir l’environnement **Python 3.15.1 avec PyTorch** pour cette étape. Les originaux restent intacts ; les demandes suivantes réutilisent la copie terminée. Pour le modèle 4B essayé, prévoir environ **7,22 Gio de cache supplémentaire**, plus les besoins de rendu. La progression distingue le chargement/préparation du rendu ; Stop arrête le travail possédé. Un manque d’espace ou un cache incomplet provoque une erreur, sans écrasement de modèle.
+
+Ce mode de compatibilité peut fonctionner **sur CPU sans CUDA**. Il ne constitue pas une accélération NVFP4 matérielle native et peut demander davantage de RAM/disque. Le runtime Vulkan a produit l’image 512 × 512 avec la RTX 5070 Laptop ; un rendu technique 64 × 64 a aussi réussi sur CPU. Les autres matériels ne sont pas certifiés. Voir [résultats, formats et limites](SUIVI_MOTEURS.md#formats-mixtes-ggufsafetensors-et-compatibilité-nvfp4--26-octobre-2026). Ce fonctionnement du runtime est vérifié ; l’interface et la chaîne native du nouvel exécutable doivent encore être testées après compilation par le mainteneur.
+
 ## Confidentialité
 
 Les statistiques et le suivi des erreurs ont des consentements **indépendants**, désactivés par défaut et liés à l’hôte/projet destinataire. Le suivi des erreurs est demandé au premier démarrage ; l’accord aux statistiques ne l’active jamais. Le refus est mémorisé. Sans destination configurée, aucun envoi n’est possible. Un changement de destinataire demande une nouvelle décision. Le retrait dans Paramètres → Confidentialité annule les requêtes en attente et les envois suivants.
@@ -254,3 +293,12 @@ La configuration de construction et les essais réalisés sont décrits dans [co
 Depuis Bash, `./novera-agent.sh` lance l’interface de l’agent sans argument et transmet les arguments sinon. Il utilise une CLI déjà placée dans `src-tauri/resources/bin/`, sous les noms Novera ou les noms internes `jan` compatibles. Il ne télécharge ni ne compile automatiquement.
 
 La construction et l’appel direct du binaire sont décrits dans [le guide de construction](BUILD_AND_RELEASE.md#cli). Les références techniques restent séparées car les tests ADK utilisent leurs exemples : [CLI](agent/cli.md), [protocole](agent/protocol.md).
+
+
+### NVFP4 CUDA, placement et durée des créations
+
+Dans les réglages de création, **NVFP4 CUDA · PyTorch** accepte le Comfy FLUX.2 Klein 4B NVFP4 Safetensors, Qwen3-4B GGUF et le VAE FLUX.2 Safetensors. Utiliser Python 3.15.1 avec PyTorch CUDA et les dépendances NVFP4 facultatives. Le générateur exige un GPU Blackwell ; Qwen peut utiliser CPU ou CUDA indépendamment. Auto conserve Qwen sur CPU si la VRAM libre est limitée. Le moteur C++ conserve ses composants GGUF/Safetensors et son mode de compatibilité. Le parcours vidéo Diffusers garde son réglage global.
+
+Le conseil Novera propose FLUX.2 Klein 4B Q4_K_M sur GPU, Qwen3-4B Q4_K_M sur CPU et le VAE officiel, avec liens et bouton de placement sans téléchargement automatique ni remplacement des chemins choisis. Pour privilégier la fidélité des composants GGUF texte, image et vidéo : Q6_K minimum conseillé ; pour l’équilibre : Q4_K_M. Ces repères ne garantissent pas une précision universelle et ne s’appliquent pas directement à NVFP4. Le Hub explique les prérequis et ne confond pas GPU compatible et moteur prêt.
+
+Sous chaque nouvelle image ou vidéo apparaissent la durée totale et, si le moteur la mesure, la génération seule. Le total inclut chargement, encodage, attente réseau et sauvegarde ; les mesures restent visibles après réouverture. Pas de durée inventée pour les anciennes créations. [Références de téléchargement, résultats et limites](SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026).

@@ -118,6 +118,11 @@
     "tipFuture": "Se necesita un motor adicional antes de que esta tarea pueda ejecutarse en Novera.",
     "advisorEmpty": "No se puede seleccionar ningún punto de partida adecuado a partir de los metadatos actuales.",
     "hardwareUnknown": "Falta información de hardware; Las recomendaciones necesitan datos de RAM y GPU.",
-    "contextTip": "Un contexto más corto utiliza menos memoria sin cambiar el tamaño de descarga."
+    "contextTip": "Un contexto más corto utiliza menos memoria sin cambiar el tamaño de descarga.",
+    "nvfp4Search": "Se detecta una GPU Blackwell con suficiente memoria informada. Prefiera las variantes de NVFP4 cuando la arquitectura y el motor las admitan. La carga nativa FLUX.2 Klein 4B Comfy está disponible en fuentes locales; consulte CUDA PyTorch, las dependencias opcionales, los modelos complementarios y la memoria libre antes de descargar. La detección de hardware no valida el tiempo de ejecución configurado ni garantiza la velocidad.",
+    "nvfp4Prefer": "Se sugiere NVFP4 para esta GPU y la familia FLUX.2 Klein 4B. La carga nativa requiere el diseño Comfy compatible, CUDA PyTorch y dependencias opcionales. Seleccione el modelo de imagen, el codificador Qwen3 y VAE por separado en la configuración de Creación. El tiempo de ejecución, la combinación completa y la memoria libre aún necesitan verificación.",
+    "nvfp4Check": "NVFP4 detectado: la capacidad de GPU, la memoria libre, el diseño de peso o la compatibilidad con la arquitectura no están confirmados. Verifique el motor CUDA antes de elegir esta variante. El formato por sí solo no establece la compatibilidad.",
+    "nvfp4Unsupported": "No se recomienda NVFP4 nativo con la GPU detectada o la VRAM libre actual. Considere una cuantificación GGUF compatible o el motor de compatibilidad. Ese camino no proporciona aceleración nativa del FP4.",
+    "quantQualityAdvice": "Guía Novera GGUF para componentes de texto, imagen y video: Q6_K o superior es nuestro punto de partida sugerido al priorizar la fidelidad; Q4_K_M equilibra calidad y memoria. Estas son recomendaciones, no un umbral de precisión universal. Los resultados dependen del modelo y la tarea. NVFP4 y otros esquemas de cuantificación necesitan su propia evaluación de compatibilidad y calidad."
   }
 }

@@ -118,6 +118,11 @@
     "tipFuture": "Es necessita un motor addicional abans que aquesta tasca pugui executar-se a Novera.",
     "advisorEmpty": "No es pot seleccionar cap punt de partida adequat de les metadades actuals.",
     "hardwareUnknown": "Falta informació de maquinari; les recomanacions necessiten dades de RAM i GPU.",
-    "contextTip": "Un context més curt utilitza menys memòria sense canviar la mida de la descàrrega."
+    "contextTip": "Un context més curt utilitza menys memòria sense canviar la mida de la descàrrega.",
+    "nvfp4Search": "S'ha detectat una GPU Blackwell amb suficient memòria informada. Preferiu les variants NVFP4 quan l'arquitectura i el motor les admeten. La càrrega nativa FLUX.2 Klein 4B Comfy està disponible en fonts locals; comproveu CUDA PyTorch, dependències opcionals, models d'acompanyament i memòria lliure abans de descarregar. La detecció de maquinari no valida el temps d'execució configurat ni garanteix la velocitat.",
+    "nvfp4Prefer": "Es recomana NVFP4 per a aquesta GPU i la família FLUX.2 Klein 4B. La càrrega nativa requereix el disseny Comfy compatible, CUDA PyTorch i dependències opcionals. Seleccioneu el model d'imatge, el codificador Qwen3 i el VAE per separat a la configuració de creació. El temps d'execució, la combinació completa i la memòria lliure encara necessiten verificació.",
+    "nvfp4Check": "NVFP4 detectat: la capacitat de la GPU, la memòria lliure, el disseny de pes o el suport de l'arquitectura no està confirmat. Comproveu el motor CUDA abans de triar aquesta variant. El format per si sol no estableix la compatibilitat.",
+    "nvfp4Unsupported": "No es recomana NVFP4 natiu amb la GPU detectada o la VRAM lliure actual. Considereu una quantificació GGUF compatible o el motor de compatibilitat. Aquest camí no proporciona acceleració FP4 nativa.",
+    "quantQualityAdvice": "Guia de Novera GGUF per a components de text, imatge i vídeo: Q6_K o superior és el nostre punt de partida suggerit per prioritzar la fidelitat; Q4_K_M equilibra la qualitat i la memòria. Aquestes són recomanacions, no un llindar de precisió universal. Els resultats depenen del model i de la tasca. NVFP4 i altres esquemes de quantificació necessiten la seva pròpia avaluació de compatibilitat i qualitat."
   }
 }

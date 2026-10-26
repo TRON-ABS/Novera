@@ -118,6 +118,11 @@
     "tipFuture": "Enjin tambahan diperlukan sebelum tugas ini boleh dijalankan di Novera.",
     "advisorEmpty": "Tiada titik permulaan yang sesuai boleh dipilih daripada metadata semasa.",
     "hardwareUnknown": "Maklumat perkakasan tiada; pengesyoran memerlukan data RAM dan GPU.",
-    "contextTip": "Konteks yang lebih pendek menggunakan kurang memori tanpa mengubah saiz muat turun."
+    "contextTip": "Konteks yang lebih pendek menggunakan kurang memori tanpa mengubah saiz muat turun.",
+    "nvfp4Search": "GPU Blackwell dengan memori yang dilaporkan mencukupi dikesan. Lebih suka varian NVFP4 apabila seni bina dan enjin menyokongnya. Native FLUX.2 Klein 4B Comfy loading tersedia dalam sumber tempatan; semak CUDA PyTorch, kebergantungan pilihan, model pendamping dan memori percuma sebelum memuat turun. Pengesanan perkakasan tidak mengesahkan masa jalan yang dikonfigurasikan atau menjamin kelajuan.",
+    "nvfp4Prefer": "NVFP4 dicadangkan untuk keluarga GPU dan FLUX.2 Klein 4B ini. Pemuatan asli memerlukan susun atur Comfy yang disokong, CUDA PyTorch dan kebergantungan pilihan. Pilih model imej, pengekod Qwen3 dan VAE secara berasingan dalam tetapan Penciptaan. Masa jalanan, gabungan lengkap dan memori percuma masih memerlukan pengesahan.",
+    "nvfp4Check": "NVFP4 dikesan: Keupayaan GPU, memori percuma, susun atur berat atau sokongan seni bina tidak disahkan. Periksa enjin CUDA sebelum memilih varian ini. Format sahaja tidak mewujudkan keserasian.",
+    "nvfp4Unsupported": "NVFP4 asli tidak disyorkan dengan GPU yang dikesan atau VRAM percuma semasa. Pertimbangkan pengkuantitian GGUF yang serasi atau enjin keserasian. Laluan itu tidak menyediakan pecutan FP4 asli.",
+    "quantQualityAdvice": "Panduan Novera GGUF untuk komponen teks, imej dan video: Q6_K atau lebih tinggi ialah titik permulaan yang kami cadangkan apabila mengutamakan kesetiaan; Q4_K_M mengimbangi kualiti dan ingatan. Ini adalah cadangan, bukan ambang ketepatan sejagat. Keputusan bergantung pada model dan tugas. NVFP4 dan skim pengkuantitian lain memerlukan keserasian dan penilaian kualiti mereka sendiri."
   }
 }
