@@ -157,7 +157,7 @@ describe('media generation conversation stream', () => {
       expect.objectContaining({
         request: expect.objectContaining({
           backend: 'sdcpp',
-          cpp_executable: '',
+          cpp_executable: IS_WINDOWS ? null : '',
         }),
       })
     )
@@ -293,7 +293,7 @@ describe('media generation conversation stream', () => {
           model: 'D:/models/flux2-klein-4b-q4.gguf',
           cpp_llm: 'D:/models/Qwen3-4B-Q4_K_M.gguf',
           cpp_vae: 'D:/models/flux2_ae.safetensors',
-          cpp_executable: 'D:/engine/sd-cli.exe',
+          cpp_executable: IS_WINDOWS ? null : 'D:/engine/sd-cli.exe',
           cpp_cfg: 1,
         }),
       })

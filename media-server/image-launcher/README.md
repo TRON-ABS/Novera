@@ -12,7 +12,7 @@ Run from PowerShell 7 with MSVC 2022 x64 Build Tools, Git and NVIDIA CUDA Toolki
 
 The script pins upstream stable-diffusion.cpp and GGML, compiles the CUDA engine for the architecture list in `toolchain.json`, verifies the official Vulkan/CPU release archive SHA-256 values, and copies the required local CUDA runtime/cuBLAS libraries and licenses. It creates an ignored local runtime folder under `.build/`; no model weights, global Python packages, system drivers or Windows settings are changed. No application build, upload or release is triggered. A fresh build across multiple GPU architectures can be lengthy. `-Jobs` bounds compiler concurrency; the default is four for machines with limited RAM.
 
-Windows application builds stage this runtime under `resources/image-engine/` automatically. Leave the executable field empty to use that bundled launcher. For an explicit custom runtime, select the produced **novera-image-engine.exe** and keep its entire folder. Keep diffusion, Qwen encoder and VAE fields separate. Choose **Auto** for GPU routing and **CPU** for Qwen when that is desired. The ordinary raw `sd-cli.exe` executables remain inside `cuda/`, `vulkan/` and `cpu/` for explicit testing.
+Windows application builds stage this runtime under `resources/image-engine/` automatically. Novera always resolves the bundled launcher internally on Windows; no executable field is displayed, and old absolute executable paths saved in profiles are ignored. Keep diffusion, Qwen encoder and VAE fields separate. Choose **Auto** for GPU routing and **CPU** for Qwen when that is desired. The ordinary raw `sd-cli.exe` executables remain inside `cuda/`, `vulkan/` and `cpu/` for direct command-line testing.
 
 ## Device policy
 

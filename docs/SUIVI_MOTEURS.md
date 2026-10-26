@@ -1,5 +1,11 @@
 # Suivi des moteurs locaux Novera
 
+## Résolution interne du moteur image Windows — 26 octobre 2026
+
+L’interface n’expose plus le champ d’exécutable stable-diffusion.cpp sous Windows. Le flux envoie un remplacement nul et la commande native résout toujours `resources/image-engine/novera-image-engine.exe`, même si un ancien profil contient un chemin absolu de développement. Le lanceur et les bibliothèques CUDA/Vulkan/CPU sont déjà préparés par la compilation Windows et copiés dans les ressources du livrable. Le moteur reste un processus embarqué distinct ; il n’est pas lié statiquement à l’EXE principal. Les autres plateformes conservent leur sélection d’exécutable personnalisé.
+
+Les boutons Auto, Texte, Image et Vidéo réutilisent `composer-tool-active` pour le cadre, le fond et le texte de la sélection, y compris au survol. Validation : 23 tests ciblés sous Windows et 23 avec la configuration par défaut, TypeScript et build Vite Windows/Tauri réussis avant l’ajustement visuel ; les cinq tests du composant passent aussi après cet ajustement. Aucun nouvel EXE Novera ni essai réel de génération pour cette correction. Le binaire existant doit être recompilé.
+
 ## Gestion mémoire entre texte, image et vidéo — 26 octobre 2026
 
 Sur desktop, Automatique est la préférence globale par défaut, persistée séparément des configurations média ; importer ou sélectionner une configuration ne la remet pas à zéro. Une file pure de baux d’inférence protège les travaux actifs, permet le partage du même modèle texte, attend les modèles différents et accorde un passage réentrant aux chargements internes. Une préparation partagée empêche un second utilisateur du même modèle de démarrer avant la fin de l’éviction ; annuler un demandeur ne casse pas l’autre. Les baux sont libérés à la fin, à l’erreur ou à l’annulation du flux.

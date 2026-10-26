@@ -47,7 +47,7 @@ export default defineConfig({
     IS_TAURI: JSON.stringify(false),
     IS_WEB_APP: JSON.stringify(false),
     IS_MACOS: JSON.stringify(false),
-    IS_WINDOWS: JSON.stringify(false),
+    IS_WINDOWS: JSON.stringify(process.env.TAURI_ENV_PLATFORM === 'windows'),
     IS_LINUX: JSON.stringify(false),
     IS_IOS: JSON.stringify(false),
     IS_ANDROID: JSON.stringify(false),

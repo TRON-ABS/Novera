@@ -1,5 +1,11 @@
 # Novera — historique consolidé
 
+## 26 octobre — moteur image Windows intégré et sélection de sortie visible
+
+Suppression du champ d’exécutable stable-diffusion.cpp sous Windows : Novera utilise automatiquement le lanceur inclus dans ses ressources, même lorsqu’un ancien profil conserve un chemin `.build/.../sd-cli.exe`. Les choix de diffusion, encodeur et VAE restent séparés. Le bouton sélectionné parmi Auto, Texte, Image et Vidéo utilise désormais le cadre, le fond et la couleur des autres commandes actives du compositeur.
+
+Validation : 23 tests ciblés réussis sous configuration Windows et 23 sous configuration par défaut ; les cinq tests du composant réussissent après le changement visuel. Compilation TypeScript et Vite Windows/Tauri réussie avant ce dernier ajustement de style. Aucun nouvel exécutable Novera construit ou publié pour ces corrections ; une recompilation est nécessaire pour les retrouver dans l’application. [Détails](SUIVI_MOTEURS.md#résolution-interne-du-moteur-image-windows--26-octobre-2026).
+
 Les entrées ci-dessous décrivent des étapes datées. Elles ne remplacent pas [l’état courant des sources et du binaire](../TABLEAU_DE_BORD_NOVERA.md). Les journaux bruts, caches et exécutables restent locaux.
 
 

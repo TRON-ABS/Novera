@@ -1,5 +1,9 @@
 # Novera — tableau de bord
 
+## Moteur image intégré et boutons actifs — 26 octobre 2026
+
+Sources corrigées : sous Windows, plus de champ d’exécutable `sd-cli` ; les anciens chemins enregistrés sont ignorés et le moteur inclus dans Novera est résolu automatiquement. Auto, Texte, Image et Vidéo reprennent le cadre coloré des autres commandes actives. Tests ciblés réussis ; aucun nouvel EXE construit pour ces corrections. Recompiler Novera pour les appliquer au binaire. [Preuves et limites](docs/SUIVI_MOTEURS.md#résolution-interne-du-moteur-image-windows--26-octobre-2026).
+
 ## Automatisation mémoire et contrôle manuel — 26 octobre 2026
 
 Gestion **Automatique par défaut**, dans les deux sens entre texte, image et vidéo : attente des travaux locaux actifs, déchargement des modèles devenus inutiles, rechargement à la demande et conservation des conversations/fichiers. Mode **Manuel** pour demandes texte/image/vidéo simultanées dans des discussions distinctes selon la RAM/VRAM ; les workers média restent des processus par génération. Contrôle visible dans la discussion et les paramètres généraux, traduit dans les 70 locales. **369 tests web / 24 fichiers**, trois tests natifs de politique, types et architecture ; **1 689 clés par locale**. Publication des sources/vitrine autorisée, sans nouveau build de Novera ni binaire. [Détails et limites](docs/SUIVI_MOTEURS.md#gestion-mémoire-entre-texte-image-et-vidéo--26-octobre-2026).

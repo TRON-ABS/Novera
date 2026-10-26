@@ -114,7 +114,7 @@
     "ggufTextEncoder": "Text encoder (GGUF or compatible Safetensors)",
     "ggufVae": "VAE (GGUF or compatible Safetensors)",
     "ggufGuidance": "Guidance (CFG)",
-    "ggufNote": "Choose the diffusion model, text encoder and VAE separately. For FLUX.2 Klein 4B, use a compatible Qwen3-4B encoder, including its GGUF variants. Supported NVFP4 files are prepared once with Python 3.15.1 and PyTorch into a larger compatibility cache; originals stay unchanged. This needs extra disk space and RAM. Keep sd-cli with its libraries. Auto uses available hardware; CUDA needs a CUDA build. Distilled Klein normally uses 4 steps and CFG 1. No weights are downloaded.",
+    "ggufNote": "Choose the diffusion model, text encoder and VAE separately. For FLUX.2 Klein 4B, use a compatible Qwen3-4B encoder, including its GGUF variants. Supported NVFP4 files are prepared once with Python 3.15.1 and PyTorch into a larger compatibility cache; originals stay unchanged. This needs extra disk space and RAM. On Windows, Novera includes and manages the engine automatically. Auto uses available hardware; CUDA needs a CUDA build. Distilled Klein normally uses 4 steps and CFG 1. No weights are downloaded.",
     "ggufWrongModel": "This GGUF contains a text encoder. Select it in the encoder field and choose a separate diffusion model in the image field.",
     "nativeNote": "Native NVFP4 CUDA: FLUX.2 Klein 4B Comfy weights, Qwen3-4B GGUF encoder and FLUX.2 Safetensors VAE. Requires Blackwell (RTX 50 series or compatible), Python 3.15.1, CUDA PyTorch and the optional NVFP4 dependencies. Text-to-image only. Unsupported hardware fails explicitly; select stable-diffusion.cpp for compatibility. No BF16 diffusion cache.",
     "encoderDevice": "Text encoder: CPU / GPU",

@@ -215,7 +215,7 @@ export function creationStream(
                 memory_policy: memoryPolicy,
                 backend: cpp ? 'sdcpp' : nativeFp4 ? 'nvfp4-cuda' : 'diffusers',
                 encoder_device: settings.encoderDevice ?? 'auto',
-                cpp_executable: settings.cppExecutable ?? null,
+                cpp_executable: IS_WINDOWS ? null : (settings.cppExecutable ?? null),
                 cpp_llm: settings.ggufTextEncoder ?? null,
                 cpp_vae: settings.ggufVae ?? null,
                 cpp_cfg: settings.ggufGuidance ?? 1,

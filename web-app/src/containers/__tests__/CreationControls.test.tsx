@@ -54,6 +54,9 @@ describe('creation choices in the composer', () => {
     expect(screen.getByRole('status')).toHaveTextContent('35%')
   })
   it('offers separate image GGUF, Qwen GGUF and VAE file choices', async () => {
+    useCreation.getState().setSettings({
+      cppExecutable: 'C:/old-build/runtime/vulkan/sd-cli.exe',
+    })
     render(<CreationControls scope="gguf-thread" disabled={false} />)
     fireEvent.click(
       screen.getByRole('button', { name: 'chat:creation.settings' })
@@ -64,6 +67,18 @@ describe('creation choices in the composer', () => {
     )
     expect(useCreation.getState().settings.imageEngine).toBe('sdcpp')
     expect(useCreation.getState().settings.steps).toBe(4)
+    if (IS_WINDOWS) {
+      expect(
+        screen.queryByLabelText('chat:creation.cppExecutable')
+      ).not.toBeInTheDocument()
+      expect(
+        screen.queryByDisplayValue('C:/old-build/runtime/vulkan/sd-cli.exe')
+      ).not.toBeInTheDocument()
+    } else {
+      expect(
+        screen.getByLabelText('chat:creation.cppExecutable')
+      ).toBeInTheDocument()
+    }
     expect(
       screen.getByLabelText('chat:creation.ggufTextEncoder')
     ).toBeInTheDocument()

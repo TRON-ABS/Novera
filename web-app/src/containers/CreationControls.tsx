@@ -16,7 +16,7 @@ import {
 } from '@/components/ui/dialog'
 import { isPlatformTauri } from '@/lib/platform/utils'
 import { useModelProvider } from '@/hooks/useModelProvider'
-import { getProviderTitle } from '@/lib/utils'
+import { cn, getProviderTitle } from '@/lib/utils'
 import { mediaPreset } from '@/constants/mediaProviders'
 import { modelModalities } from '@/modules/engines/model-modalities'
 import { CreationInstallButton } from './CreationInstall'
@@ -163,7 +163,11 @@ export function CreationControls({
             <Button
               key={item}
               size="sm"
-              variant={mode === item ? 'secondary' : 'ghost'}
+              variant="ghost"
+              className={cn(
+                'border border-transparent',
+                mode === item && 'composer-tool-active'
+              )}
               disabled={
                 disabled || (!desktop && (item === 'image' || item === 'video'))
               }
@@ -423,7 +427,10 @@ export function CreationControls({
                         'ggufVae',
                       ] as const
                     )
-                      .filter((key) => !nativeFp4 || key !== 'cppExecutable')
+                      .filter(
+                        (key) =>
+                          key !== 'cppExecutable' || (!nativeFp4 && !IS_WINDOWS)
+                      )
                       .map((key) => (
                         <label
                           key={key}

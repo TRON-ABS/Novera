@@ -386,10 +386,20 @@ pub async fn creation_start<R: Runtime>(
     app: AppHandle<R>,
     mut request: Request,
 ) -> Result<String, String> {
-    if request.backend.as_deref() == Some("sdcpp") && request.cpp_executable.as_deref().is_none_or(|s| s.trim().is_empty()) {
+    // Windows always uses the packaged engine, including for profiles saved with
+    // an old absolute development path. Other platforms retain custom runtimes.
+    if request.backend.as_deref() == Some("sdcpp")
+        && (cfg!(windows)
+            || request
+                .cpp_executable
+                .as_deref()
+                .is_none_or(|s| s.trim().is_empty()))
+    {
         let root = app.path().resource_dir().map_err(|e| e.to_string())?;
         let executable = root.join("resources/image-engine/novera-image-engine.exe");
-        if !executable.is_file() { return Err("CREATION_BUNDLED_ENGINE_MISSING".into()); }
+        if !executable.is_file() {
+            return Err("CREATION_BUNDLED_ENGINE_MISSING".into());
+        }
         request.cpp_executable = Some(executable.to_string_lossy().into_owned());
     }
     let started = std::time::Instant::now();
