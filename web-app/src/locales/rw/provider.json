@@ -1,0 +1,18 @@
+{
+  "addProvider": "Ongera utanga",
+  "addOpenAIProvider": "Ongeraho Customer Provider",
+  "enterNameForProvider": "Izina ryabatanga (urugero: my-llm-seriveri)",
+  "apiTypeLabel": "API imiterere",
+  "apiTypeOpenAI": "OpenAI-ihuza",
+  "apiTypeAnthropic": "Anthropic-ihuza",
+  "baseUrlLabel": "Shingiro URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API urufunguzo",
+  "apiKeyPlaceholder": "Shyira urufunguzo rwa API",
+  "invalidBaseUrl": "Shingiro URL igomba kuba http (s) yemewe URL",
+  "globalSettings": "Igenamiterere ryisi",
+  "stripReasoning": "Kwandika ibitekerezo uhereye kumirongo",
+  "stripReasoningDesc": "Kuraho ibyabanje guhinduka 'gutekereza / gutekereza kubitekerezo mbere yo kohereza amateka, kubatanga bose. Itezimbere KV-cache yongeye gukoresha moderi zaho, ariko moderi zimwe (urugero: Qwenasohotse) zirasaba kugumya kubitekerezo byiza byinshi.",
+  "providerAlreadyExists": "Utanga witwa {{name}} asanzweho."
+}

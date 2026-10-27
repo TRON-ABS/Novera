@@ -1,0 +1,18 @@
+{
+  "addProvider": "Провайдерді қосыңыз",
+  "addOpenAIProvider": "Пайдаланушы провайдерін қосыңыз",
+  "enterNameForProvider": "Провайдер атауы (мысалы, my-llm-server)",
+  "apiTypeLabel": "API пішімі",
+  "apiTypeOpenAI": "OpenAI-үйлесімді",
+  "apiTypeAnthropic": "Anthropic-үйлесімді",
+  "baseUrlLabel": "Негізгі URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API пернесі",
+  "apiKeyPlaceholder": "API кілтін қойыңыз",
+  "invalidBaseUrl": "Негізгі URL жарамды http(лар) URL болуы керек",
+  "globalSettings": "Ғаламдық параметрлер",
+  "stripReasoning": "Мәтінмәннен пайымдауды алып тастаңыз",
+  "stripReasoningDesc": "Барлық провайдерлерге тарихты қайта жіберу алдында алдыңғы бұрылыстардың ойлау/дәлелдеу мазмұнын жойыңыз. Жергілікті үлгілер үшін KV-cache қайта пайдалануын жақсартады, бірақ кейбір үлгілер (мысалы, жаңа Qwen шығарылымдары) көп айналымды дәлелдеу үшін оны сақтауды ұсынады.",
+  "providerAlreadyExists": "{{name}} деп аталатын провайдер бұрыннан бар."
+}

@@ -1,5 +1,14 @@
 # Novera — tableau de bord
 
+## Langues — sources du 27 octobre 2026
+
+Dix catalogues ajoutés : cebuano, kazakh, cingalais, xhosa, khmer, afrikaans, maïthili, wolof, kurmandji et kinyarwanda. **80 locales × 1 738 clés**, dans 14 espaces de noms ; contrôle technique sans erreur. Brouillons assistés par Google ; Microsoft complète le kinyarwanda via son interface web. Relecture native requise. Les essais Lara sans clé couvrent trois phrases dans chacune des six langues rares proposées ; le magahi a produit un fragment parasite. Ces six catalogues ne sont pas ajoutés à ce lot et aucune certification linguistique n’est annoncée.
+
+Le précédent build Windows reste à 70 locales. Aucune compilation ni publication de binaire pour ce lot ; GitHub Actions reste désactivé. Voir [le suivi des langues](docs/LANGUAGES.md).
+
+
+Validation locale du lot : **589 tests réussis dans sept fichiers**, TypeScript sans émission et contrôle de **80 × 1 738 clés**, sans erreur. Aucun contrôle CI ni binaire supplémentaire.
+
 ## Temps signalé et périphérique Real-ESRGAN — 26 octobre 2026
 
 Le mainteneur signale **11,3 secondes sans agrandissement Real-ESRGAN** pour le rendu GGUF/C++ évoqué dans le suivi. La mesure initiale instrumentée de 25,5 s est conservée comme historique ; aucun gain contrôlé entre ces deux essais n’est annoncé.

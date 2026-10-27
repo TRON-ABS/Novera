@@ -4,7 +4,7 @@
 
 - [x] Panneau compact coloré, états ON/OFF et menus directs de dimensions et d’agrandissement ×2/×4 avec taille finale.
 - [x] Éditeur limité aux consignes Texte/Image/Vidéo, sauvegarde indépendante des paramètres du modèle et remise à zéro.
-- [x] 210 consignes par défaut dans les 70 locales, personnalisations préservées et 1 738 clés par catalogue.
+- [x] 240 consignes par défaut dans les 80 locales, personnalisations préservées et 1 738 clés par catalogue.
 - [x] Régressions Auto françaises/anglaises et contrôle du nouveau panneau dans un build Windows local.
 - [ ] Recueillir les nouveaux exemples réels d’échec Auto ; poursuivre les essais de génération du mainteneur et la relecture linguistique native.
 
@@ -161,6 +161,8 @@ Référence : [Windows portable](docs/BUILD_AND_RELEASE.md#portable).
 ## Direction du projet
 
 Rendre les fournisseurs et capacités de modèles plus faciles à faire évoluer par des contrats explicites. Explorer outils, agents et multimodalité dans un cadre expérimental, avec validation avant promotion. Améliorer l’accessibilité, les petits matériels et les connexions limitées ; évaluer les usages éducatifs avec enseignants et apprenants avant toute promesse de disponibilité scolaire.
+
+**80 locales sources couvrent désormais les 1 738 clés** ; la relecture native reste ouverte. Les six essais Lara sans clé ne sont pas six catalogues supplémentaires.
 
 La feuille de route historique des 100 langues est conservée dans [le document des langues](docs/LANGUAGES.md#roadmap-100). Les nouvelles langues demandent une vérification des contributions existantes et une intégration complète.
 

@@ -1,0 +1,18 @@
+{
+  "addProvider": "Yokk ki lay jox",
+  "addOpenAIProvider": "Yokk ki lay jox",
+  "enterNameForProvider": "Tur ki koy joxe (lu melni sama-llm-serwër)",
+  "apiTypeLabel": "API format",
+  "apiTypeOpenAI": "OpenAI-compatible",
+  "apiTypeAnthropic": "Anthropic-compatible",
+  "baseUrlLabel": "Base URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API key",
+  "apiKeyPlaceholder": "Def sa caabi API",
+  "invalidBaseUrl": "Base URL dafa wara nekk http(s) bu baax URL",
+  "globalSettings": "Jekkal àdduna",
+  "stripReasoning": "Dindi xalaat ci muy tekki",
+  "stripReasoningDesc": "Dindil ëmbiitu xalaat/xalaat bu njëkk balaa ngay yónneewaat jaar-jaar, ci bépp joxekat. Dafay gëna yokk jëfandikoowaat KV-cache ngir model yu dëkk bi, waaye yenn model (lu melni Qwen yu bees yi) dañu digal ñu denc ko ngir gëna mëna xalaat lu bari.",
+  "providerAlreadyExists": "Amna ab joxekat bu tuddu {{name}}."
+}

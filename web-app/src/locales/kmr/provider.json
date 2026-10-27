@@ -1,0 +1,18 @@
+{
+  "addProvider": "Pêşkêşker lê zêde bike",
+  "addOpenAIProvider": "Pêşkêşkarê Xweser lê zêde bike",
+  "enterNameForProvider": "Navê pêşkêşker (mînak my-llm-server)\nForma",
+  "apiTypeLabel": "API",
+  "apiTypeOpenAI": "OpenAI-lihevhatî",
+  "apiTypeAnthropic": "Anthropic-lihevhatî",
+  "baseUrlLabel": "Bingeh URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API key",
+  "apiKeyPlaceholder": "Mifteya xweya API bişkînin",
+  "invalidBaseUrl": "Bingeha URL divê http(s) URL derbasdar be",
+  "globalSettings": "Mîhengên gerdûnî",
+  "stripReasoning": "Aqilê ji çarçovê derxe",
+  "stripReasoningDesc": "Berî ku dîrokê ji nû ve bişîne, li hemî pêşkêşvanan, naveroka ramana/aqilê ya berê rake. Ji bo modelên herêmî ji nû ve karanîna KV-cache çêtir dike, lê hin model (mînak nûvekirinên Qwen) pêşniyar dikin ku wê ji bo ramana pir-zivirandinê çêtir biparêzin.",
+  "providerAlreadyExists": "Pêşkêşkerek bi navê {{name}} jixwe heye."
+}

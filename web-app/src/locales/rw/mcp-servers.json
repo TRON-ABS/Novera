@@ -1,0 +1,101 @@
+{
+  "editServer": "Hindura MCP Seriveri",
+  "addServer": "Ongeramo MCP Seriveri",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Kugenzura imiterere yo kwagura ..."
+    },
+    "notInstalled": {
+      "title": "Novera arangiza imirimo muri mushakisha yawe",
+      "description": "Shyira umugereka kugirango utange Novera",
+      "getExtension": "Kubona Kwaguka"
+    }
+  },
+  "serverName": "Izina rya Serveri",
+  "enterServerName": "Andika izina rya seriveri",
+  "command": "Itegeko",
+  "enterCommand": "Injira itegeko (uvx cyangwa npx)",
+  "arguments": "Impaka",
+  "argument": "Impaka {{index}}",
+  "envVars": "Ibihinduka Ibidukikije",
+  "key": "Urufunguzo",
+  "value": "Agaciro",
+  "save": "Bika",
+  "status": "Imiterere",
+  "connected": "Byahujwe",
+  "disconnected": "Yahagaritswe",
+  "deleteServer": {
+    "title": "Siba MCP Seriveri",
+    "description": "Uzi neza ko ushaka gusiba MCP seriveri {{serverName}}? Iki gikorwa ntigishobora gusubirwaho.",
+    "delete": "Gusiba",
+    "success": "MCP seriveri {{serverName}} yasibwe neza"
+  },
+  "editJson": {
+    "title": "Hindura JSON kuri MCP Seriveri: {{serverName}}",
+    "titleAll": "Hindura MCP Seriveri JSON",
+    "placeholder": "Injira JSON iboneza",
+    "errorParse": "Kunanirwa gusesengura amakuru yambere",
+    "errorPaste": "Imiterere ya JSON itemewe mubirimo byanditse",
+    "errorFormat": "Imiterere JSON itemewe",
+    "errorServerName": "Izina rya seriveri rirasabwa kandi ntirishobora kuba ubusa",
+    "errorMissingServerNameKey": "JSON igomba kuba yubatswe nka {\"seriveri Izina\": {config}} - urufunguzo rwizina rya seriveri",
+    "errorInvalidType": "Ubwoko butemewe '{{type}}' kuri seriveri '{{serverName}}'. Ubwoko bugomba kuba 'stdio', 'http', cyangwa 'sse'",
+    "save": "Bika"
+  },
+  "checkParams": "Nyamuneka reba ibipimo ukurikije inyigisho.",
+  "title": "MCP Seriveri",
+  "experimental": "Ubushakashatsi",
+  "editAllJson": "Hindura Seriveri JSON",
+  "findMore": "Shakisha izindi seriveri MCP kuri",
+  "allowPermissions": "Emerera MCP Uruhushya rwibikoresho",
+  "allowPermissionsDesc": "Iyo bishobotse, guhamagara ibikoresho MCP byose bizahita byemerwa nta kwerekana uruhushya. Igenamiterere rikoreshwa kwisi yose mubiganiro byose, harimo ibiganiro bishya.",
+  "noServers": "No MCP seriveri yabonetse",
+  "args": "Impaka",
+  "env": "Env",
+  "serverStatusActive": "Seriveri {{serverKey}} ikora neza",
+  "serverStatusInactive": "Seriveri {{serverKey}} yahagaritswe neza",
+  "runtimeSettings": {
+    "title": "Igenamiterere ryigihe",
+    "description": "Hindura uburyo Novera icunga kandi igerageza seriveri MCP.",
+    "toolCallTimeout": "Igikoresho cyo guhamagara igihe cyateganijwe (amasegonda)",
+    "toolCallTimeoutDesc": "Igihe ntarengwa cyo gutegereza MCP igikoresho gisubiza mbere yigihe.",
+    "maxToolOutputChars": "Igikoresho kinini gisohoka inyuguti",
+    "maxToolOutputCharsDesc": "Ibisubizo birebire byabitswe mubiganiro. Ikintu cyose cyashize ibi byaragabanijwe kandi bigashyirwaho ikimenyetso, bityo igisubizo kinini ntigishobora kunaniza imiterere yicyitegererezo. Shyira kuri 0 kugirango ukomeze ibisubizo byose.",
+    "smartToolRouting": "Ubwenge MCP kuyobora ibikoresho",
+    "smartToolRoutingDesc": "Iyo ishoboye, Novera ihitamo seriveri MCP bijyanye mbere yo gupakira ibikoresho. Hagarika guhora wuzuza urutonde rwibikoresho MCP.",
+    "useLightweightRouterModel": "Koresha icyitegererezo cyabigenewe",
+    "useLightweightRouterModelDesc": "Iyo inzira yubwenge iriho, koresha intambwe yo kugendana hamwe na moderi itandukanye (akenshi iba nto) aho kwerekana uburyo bwo kuganira. Zimya kugirango uhore ukoresha moderi ikora yo kuganira kugirango ikoreshwe.",
+    "routerModel": "Icyitegererezo",
+    "routerModelDesc": "Hitamo utanga nicyitegererezo ahantu hamwe. Gusa moderi yoroheje urutonde kuburyo inzira igumaho vuba kandi ihendutse.",
+    "selectRouterModelPlaceholder": "Hitamo inzira yerekana inzira…",
+    "routerModelSearchPlaceholder": "Shakisha icyitegererezo…",
+    "routerModelEmptyList": "Nta moderi yoroheje ihari. Ongeraho moderi ntoya cyangwa ugene API urufunguzo muri Model.",
+    "routerModelEmptySearch": "Ntaho bihuriye na “{{query}}”."
+  },
+  "auth": {
+    "label": "Ubwanditsi:",
+    "state": {
+      "notApplicable": "ntabwo bisabwa",
+      "staticHeader": "Umutwe wemewe",
+      "authenticated": "byemewe",
+      "expired": "cyarangiye",
+      "staleResource": "yatanzwe kubindi URL",
+      "unauthenticated": "ntabwo byemewe"
+    },
+    "expiresIn": "irangira muri {{duration}}",
+    "authenticate": "Injira",
+    "reauthenticate": "Ongera wemeze",
+    "clear": "Gusobanura neza",
+    "waiting": "Gutegereza mushakisha ...",
+    "openSignInPage": "Fungura urupapuro rwinjira",
+    "needsAuth": "{{serverName}} ikeneye kwemeza",
+    "needsAuthHint": "Injira muri iyi seriveri kugirango uhuze.",
+    "authorized": "Yinjiye muri {{serverName}}",
+    "authorizeFailed": "Kwinjira muri {{serverName}} byarananiranye",
+    "cleared": "Kuraho ibyangombwa byabitswe kuri {{serverName}}",
+    "nothingToClear": "{{serverName}} nta byangombwa byabitswe",
+    "clearFailed": "Ntushobora gukuraho ibyangombwa kuri {{serverName}}",
+    "renew": "Kuvugurura isomo",
+    "expiredAgo": "yarangiye {{duration}} ishize"
+  }
+}

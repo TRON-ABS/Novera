@@ -2,7 +2,7 @@
 
 ## Direction produit : automatisation avancée, simplicité mondiale
 
-Novera prend en charge la complexité technique pour que chacun puisse discuter, créer et apprendre au même endroit. Concevoir les parcours autour de l’intention de l’utilisateur, avec des choix automatiques utiles, des explications compréhensibles dans les 70 locales et un accès direct aux réglages avancés.
+Novera prend en charge la complexité technique pour que chacun puisse discuter, créer et apprendre au même endroit. Concevoir les parcours autour de l’intention de l’utilisateur, avec des choix automatiques utiles, des explications compréhensibles dans les 80 locales et un accès direct aux réglages avancés.
 
 - Automatiser les tâches déjà prises en charge : diagnostic matériel, sélection du moteur compatible, installation confirmée des configurations conseillées, vérification des fichiers, progression, mémoire des modèles et sauvegarde dans les bons dossiers système.
 - La gestion mémoire est **Automatique par défaut** : attendre les travaux locaux actifs, préserver leurs modèles auxiliaires, décharger les modèles inutilisés puis charger le modèle demandé. Garder les fichiers, conversations, sélections et réglages ; recharger à la prochaine demande. Les appels cloud seuls ne nécessitent pas d’éviction locale.
@@ -23,7 +23,7 @@ Lire [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour l’état actuel, [le 
 
 - Sources principales : `C:\msys64\home\jmsga\Novera`. Préserver modifications locales, modèles, conversations, profils et identifiants. Ne pas importer ni effacer automatiquement les profils Jan.
 - Application : `Novera-Desktop.exe`, identifiant `io.github.tronabs.novera`. Nouvel état d’agent : `~/.novera`. Instructions prioritaires : `NOVERA.md`, repli configurable sur `AGENTS.md`.
-- Tout texte visible ajouté **ou modifié** doit être traduit dans les **70 locales** dans la même modification. Actualiser l’inventaire et exécuter `python scripts/check-novera-locales.py` ; le repli anglais ne remplace pas une traduction. Actualiser les nombres de locales de façon ciblée, sans remplacement global des valeurs numériques ni modification des chiffres historiques.
+- Tout texte visible ajouté **ou modifié** doit être traduit dans les **80 locales** dans la même modification. Actualiser l’inventaire et exécuter `python scripts/check-novera-locales.py` ; le repli anglais ne remplace pas une traduction. Actualiser les nombres de locales de façon ciblée, sans remplacement global des valeurs numériques ni modification des chiffres historiques.
 - À chaque mise à jour du dépôt, contrôler et actualiser aussi sa **vitrine GitHub** : description « À propos » et site associé (réglages distincts du README), README anglais/français rendus, chiffres des langues/fournisseurs/catégories, liens et images, sujets et état des versions publiques. Aligner les affirmations sur les sources et validations réelles ; distinguer sources publiées, builds locaux et binaires publics. Vérifier le résultat en ligne après publication. Ne pas annoncer la synchronisation terminée si la vitrine reste périmée ; signaler précisément tout champ impossible à modifier. Ce contrôle ne déclenche ni compilation, ni publication de binaire, ni activation de GitHub Actions.
 - Respecter les six domaines de `architecture/modules.json`. Utiliser les règles pures et les adaptateurs ; vérifier `yarn check:architecture` et `yarn test:architecture` après modification des frontières. La migration du code historique reste progressive.
 - Les versions Android proviennent uniquement de `scripts/android/toolchain.json`, des scripts et modèles associés. Les fichiers générés et caches ne sont pas la source des réglages. Une compilation locale ne prouve ni une validation officielle de la combinaison ni le fonctionnement sur téléphone.
@@ -31,6 +31,8 @@ Lire [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour l’état actuel, [le 
 - Conserver licences, notices, auteurs et attributions ; un renommage ne transfère pas les droits. Préserver les interfaces de compatibilité et l’identité des services tiers selon [le guide](docs/DEVELOPMENT.md#compatibility).
 
 ## Autorisations et état courant
+
+Le **27 octobre 2026**, le mainteneur demande de publier les dix nouvelles langues et de mettre à jour les Markdown, le dépôt et la vitrine. Les sources passent à 80 locales ; les essais Lara sans clé ne constituent pas six catalogues supplémentaires. Aucune compilation ni publication de binaire pour ce lot.
 
 Le **26 octobre 2026**, le mainteneur demande la mise à jour des MD, du dépôt et de sa vitrine après le panneau compact, les consignes Texte/Image/Vidéo dans 70 langues, Réinitialiser, Auto amélioré et les tailles finales ×2/×4. La publication des sources et des documents est autorisée. Un build Windows a déjà été compilé et contrôlé localement pour ce lot ; cette synchronisation ne déclenche ni compilation supplémentaire, ni publication de binaire, ni activation des Actions.
 

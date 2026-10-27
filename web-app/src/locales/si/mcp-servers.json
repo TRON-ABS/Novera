@@ -1,0 +1,101 @@
+{
+  "editServer": "MCP සේවාදායකය සංස්කරණය කරන්න",
+  "addServer": "MCP සේවාදායකය එක් කරන්න",
+  "browserExtension": {
+    "connecting": {
+      "checking": "දිගු තත්ත්වය පරීක්ෂා කරමින්..."
+    },
+    "notInstalled": {
+      "title": "Novera ඔබගේ බ්‍රවුසරයේ කාර්යයන් සම්පූර්ණ කරයි",
+      "description": "Novera බ්‍රවුසර ප්‍රවේශය ලබා දීමට දිගුව ස්ථාපනය කරන්න",
+      "getExtension": "දිගුව ලබා ගන්න"
+    }
+  },
+  "serverName": "සේවාදායකයේ නම",
+  "enterServerName": "සේවාදායකයේ නම ඇතුලත් කරන්න",
+  "command": "විධානය",
+  "enterCommand": "විධානය ඇතුල් කරන්න (uvx හෝ npx)",
+  "arguments": "තර්ක",
+  "argument": "තර්කය {{index}}",
+  "envVars": "පරිසර විචල්‍යයන්",
+  "key": "යතුර",
+  "value": "අගය",
+  "save": "සුරකින්න",
+  "status": "තත්ත්වය",
+  "connected": "සම්බන්ධයි",
+  "disconnected": "විසන්ධි විය",
+  "deleteServer": {
+    "title": "MCP සේවාදායකය මකන්න",
+    "description": "ඔබට MCP සේවාදායකය {{serverName}} මැකීමට අවශ්‍ය බව විශ්වාසද? මෙම ක්‍රියාව පසුගමනය කළ නොහැක.",
+    "delete": "මකන්න",
+    "success": "MCP සේවාදායකය {{serverName}} සාර්ථකව මකා ඇත"
+  },
+  "editJson": {
+    "title": "MCP සේවාදායකය සඳහා JSON සංස්කරණය කරන්න: {{serverName}}",
+    "titleAll": "සියලුම MCP සේවාදායකයන් සංස්කරණය කරන්න JSON",
+    "placeholder": "JSON වින්‍යාසය ඇතුළු කරන්න",
+    "errorParse": "මූලික දත්ත විග්‍රහ කිරීමට අසමත් විය",
+    "errorPaste": "ඇලවූ අන්තර්ගතයේ වලංගු නොවන JSON ආකෘතිය",
+    "errorFormat": "වලංගු නොවන JSON ආකෘතිය",
+    "errorServerName": "සේවාදායකයේ නම අවශ්‍ය වන අතර හිස් විය නොහැක",
+    "errorMissingServerNameKey": "JSON {\"serverName\": {config}} ලෙස ව්‍යුහගත විය යුතුය - සේවාදායක නාම යතුර අතුරුදහන්",
+    "errorInvalidType": "'{{serverName}}' සේවාදායකය සඳහා වලංගු නොවන වර්ගය '{{type}}'. වර්ගය 'stdio', 'http', හෝ 'sse' විය යුතුය",
+    "save": "සුරකින්න"
+  },
+  "checkParams": "කරුණාකර නිබන්ධනයට අනුව පරාමිති පරීක්ෂා කරන්න.",
+  "title": "MCP සේවාදායකයන්",
+  "experimental": "පර්යේෂණාත්මක",
+  "editAllJson": "සියලුම සර්වර් JSON සංස්කරණය කරන්න",
+  "findMore": "තවත් MCP සේවාදායකයන් සොයන්න",
+  "allowPermissions": "සියලුම MCP මෙවලම් අවසර වලට ඉඩ දෙන්න",
+  "allowPermissionsDesc": "සබල කළ විට, සියලුම MCP මෙවලම් ඇමතුම් අවසර සංවාද නොපෙන්වා ස්වයංක්‍රීයව අනුමත වනු ඇත. මෙම සැකසීම නව කතාබස් ඇතුළුව සියලුම සංවාද සඳහා ගෝලීය වශයෙන් අදාළ වේ.",
+  "noServers": "MCP සේවාදායකයන් හමු නොවීය",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "සේවාදායකය {{serverKey}} සාර්ථකව සක්‍රිය විය",
+  "serverStatusInactive": "සේවාදායකය {{serverKey}} සාර්ථකව අක්‍රිය විය",
+  "runtimeSettings": {
+    "title": "ධාවන කාල සැකසුම්",
+    "description": "Novera MCP සේවාදායකයන් කළමනාකරණය කරන ආකාරය සහ නැවත උත්සාහ කරන ආකාරය වින්‍යාස කරන්න.",
+    "toolCallTimeout": "මෙවලම් ඇමතුම් කල් ඉකුත්වීම (තත්පර)",
+    "toolCallTimeoutDesc": "කාලය අවසන් වීමට පෙර MCP මෙවලම් ප්‍රතිචාරයක් සඳහා රැඳී සිටීමට උපරිම කාලය.",
+    "maxToolOutputChars": "උපරිම මෙවලම් ප්‍රතිදාන අක්ෂර",
+    "maxToolOutputCharsDesc": "දීර්ඝතම මෙවලම් ප්‍රතිඵලය සංවාදයේ තබා ඇත. මෙයට එහා ගිය ඕනෑම දෙයක් කප්පාදු කර කපා ඇති ලෙස සලකුණු කර ඇත, එබැවින් එක් විශාල ප්‍රතිඵලයක් ආකෘතියේ සන්දර්භය අවසන් කළ නොහැක. ප්‍රතිඵල සම්පූර්ණව තබා ගැනීමට 0 ලෙස සකසන්න.",
+    "smartToolRouting": "Smart MCP මෙවලම් මාර්ගගත කිරීම",
+    "smartToolRoutingDesc": "සබල කළ විට, මෙවලම් පූරණය කිරීමට පෙර Novera අදාළ MCP සේවාදායකයන් තෝරා ගනී. සෑම විටම සම්පූර්ණ MCP මෙවලම් ලැයිස්තුව පූරණය කිරීමට අබල කරන්න.",
+    "useLightweightRouterModel": "මාර්ගගත කිරීම සඳහා විශේෂිත ආකෘතියක් භාවිතා කරන්න",
+    "useLightweightRouterModelDesc": "ස්මාර්ට් රවුටින් ක්‍රියාත්මක විට, කතාබස් ආකෘතිය වෙනුවට වෙනම (බොහෝ විට කුඩා) ආකෘතියක් සමඟින් මාර්ගගත කිරීමේ පියවර ධාවනය කරන්න. මාර්ගගත කිරීම සඳහා සැමවිටම සක්‍රිය කතාබස් ආකෘතිය භාවිත කිරීමට ක්‍රියාවිරහිත කරන්න.",
+    "routerModel": "රවුටින් ආකෘතිය",
+    "routerModelDesc": "එක් ස්ථානයක සැපයුම්කරු සහ ආකෘතිය තෝරන්න. සැහැල්ලු මාදිලි පමණක් ලැයිස්තුගත කර ඇති බැවින් මාර්ගගත කිරීම වේගවත් හා ලාභදායී වේ.",
+    "selectRouterModelPlaceholder": "රවුටින් ආකෘතිය තෝරන්න...",
+    "routerModelSearchPlaceholder": "මාදිලි සොයන්න...",
+    "routerModelEmptyList": "සැහැල්ලු මාදිලි නොමැත. කුඩා ආකෘතියක් එක් කරන්න හෝ මාදිලිවල API යතුරු වින්‍යාස කරන්න.",
+    "routerModelEmptySearch": "\"{{query}}\" සඳහා ගැලපීම් නැත."
+  },
+  "auth": {
+    "label": "Aut:",
+    "state": {
+      "notApplicable": "අවශ්‍ය නොවේ",
+      "staticHeader": "අවසර ශීර්ෂය",
+      "authenticated": "සත්‍යාපනය කර ඇත",
+      "expired": "කල් ඉකුත් විය",
+      "staleResource": "තවත් URL සඳහා නිකුත් කරන ලදී",
+      "unauthenticated": "සත්‍යාපනය කර නැත"
+    },
+    "expiresIn": "{{duration}} හි කල් ඉකුත් වේ",
+    "authenticate": "පුරනය වන්න",
+    "reauthenticate": "නැවත සත්‍යාපනය කරන්න",
+    "clear": "පැහැදිලි සත්‍යාපනය",
+    "waiting": "බ්‍රවුසරය සඳහා රැඳී සිටිමින්...",
+    "openSignInPage": "පුරනය වීමේ පිටුව විවෘත කරන්න",
+    "needsAuth": "{{serverName}} හට සත්‍යාපනය අවශ්‍යයි",
+    "needsAuthHint": "සම්බන්ධ වීමට මෙම සේවාදායකයට පුරන්න.",
+    "authorized": "{{serverName}} වෙත පුරනය වී ඇත",
+    "authorizeFailed": "{{serverName}} සඳහා පුරනය වීම අසාර්ථක විය",
+    "cleared": "{{serverName}} සඳහා ගබඩා කළ අක්තපත්‍ර හිස් කරන ලදී",
+    "nothingToClear": "{{serverName}} ගබඩා කළ අක්තපත්‍ර තිබුණේ නැත",
+    "clearFailed": "{{serverName}} සඳහා අක්තපත්‍ර හිස් කළ නොහැකි විය",
+    "renew": "සැසිය අලුත් කරන්න",
+    "expiredAgo": "{{duration}} පෙර කල් ඉකුත් විය"
+  }
+}

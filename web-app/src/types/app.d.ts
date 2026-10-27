@@ -69,6 +69,16 @@ type Language =
   | 'ja'
   | 'ru'
   | 'ca'
+  | 'ceb'
+  | 'kk'
+  | 'si'
+  | 'xh'
+  | 'km'
+  | 'af'
+  | 'mai'
+  | 'wo'
+  | 'kmr'
+  | 'rw'
 interface LogEntry {
   timestamp: string | number
   level: 'info' | 'warn' | 'error' | 'debug'

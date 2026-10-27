@@ -1,0 +1,10 @@
+{
+  "newVersion": "កំណែថ្មី {{version}}",
+  "updateAvailable": "មានការអាប់ដេត",
+  "nightlyBuild": "សាងសង់ពេលយប់",
+  "showReleaseNotes": "បង្ហាញកំណត់ចំណាំចេញផ្សាយ",
+  "hideReleaseNotes": "លាក់កំណត់ចំណាំចេញផ្សាយ",
+  "remindMeLater": "រំលឹកខ្ញុំពេលក្រោយ",
+  "downloading": "កំពុងទាញយក...",
+  "updateNow": "ធ្វើបច្ចុប្បន្នភាពឥឡូវនេះ"
+}

@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Kodigo",
+    "preview": "Paglantaw",
+    "previewStreaming": "Anaa kung mahuman ang henerasyon",
+    "unresolvedAssets_one": "1 asset reference dili ma-load sa preview. Ang mga relatibong agianan walay base nga URL aron masulbad.",
+    "unresolvedAssets_other": "{{count}} asset reference dili ma-load sa preview. Ang mga relatibong agianan walay base nga URL aron masulbad."
+  },
+  "assistants": "Mga katabang",
+  "hardware": "Hardware",
+  "mcp-servers": "MCP Mga Server",
+  "local_api_server": "Lokal nga API Server",
+  "remote_access": "Hilit nga Pag-access",
+  "integrations": "Mga panagsama",
+  "experimental": "Eksperimento",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Proxy",
+  "web_search": "Pagpangita sa Web",
+  "shell": "Shell",
+  "browse": "Pag-browse",
+  "moreControls": "Dugang kontrol",
+  "starting": "Sugod...",
+  "activeSuffix": "(Aktibo)",
+  "extensions": "Mga Extension",
+  "attachments": "Mga kadugtong",
+  "general": "Kinatibuk-an",
+  "settings": "Mga setting",
+  "modelProviders": "Mga Modelong Tagahatag",
+  "localProviders": "Lokal",
+  "remoteProviders": "Hilit nga",
+  "manageProviders": "Pagdumala sa mga tighatag",
+  "hiddenProviders": "{{count}} disabled",
+  "hideProvider": "Tagoa ang tighatag",
+  "showProvider": "Ipakita ang tighatag",
+  "interface": "Interface",
+  "appearance": "Panagway",
+  "privacy": "Pagkapribado",
+  "keyboardShortcuts": "Mga Shortcut",
+  "home": "Panimalay",
+  "cowork": "Cowork",
+  "newSession": "Bag-ong sesyon",
+  "artifacts": "Mga artifact",
+  "customize": "Ipasibo",
+  "local": "Lokal",
+  "selectFolder": "Pilia ang folder",
+  "selectModel": "Pagpili una og modelo",
+  "commands": "Mga Sugo",
+  "cmdHelp": "Ilista ang anaa nga mga sugo",
+  "cmdClear": "Hawani kini nga sesyon",
+  "cmdModels": "Ibalhin ang aktibo nga modelo",
+  "cmdModelsHint": "I-type ang /models unya pagpili og modelo gikan sa listahan",
+  "cmdModelSwitched": "Gibalhin sa {{name}}",
+  "cmdUnknown": "Wala mailhi nga sugo: {{name}}. Sulayi ang /help",
+  "cmdBusy": "Dili kana mahimo samtang ang ahente nagdagan",
+  "cmdCompact": "I-compact ang konteksto sa sesyon ngadto sa usa ka summary",
+  "cmdCompacted": "Mga mensahe nga {{before}} -> {{after}}",
+  "cmdNothingToCompact": "Wala pa ma-compact",
+  "cmdCompactFailed": "Napakyas ang pag-compaction: {{error}}",
+  "cmdPlan": "I-toggle ang mode sa plano (read-only: ang ahente nagsugyot nga walay pagsulat)",
+  "cmdPlanOn": "Plano mode on: ang ahente mobasa ug mosugyot nga walay pagsulat",
+  "cmdPlanOff": "Plan mode off: normal nga pagpatuman",
+  "cmdTodo": "Ablihi ang panel sa pag-uswag",
+  "cmdTasks": "Ablihi ang panel sa mga buluhaton sa background",
+  "cmdInit": "Tun-i ang proyekto ug isulat ang mga kahanas ug memorya",
+  "cmdInitRunning": "Pagsakay niini nga proyekto",
+  "skills": "Mga kahanas",
+  "skillsInContext": "Mga kahanas nga magamit sa ahente niini nga pagdagan",
+  "skillsTitle": "Pagdumala sa mga kahanas",
+  "skillsScopeProject": "Mga kahanas para sa {{folder}}",
+  "skillsScopeGlobal": "Kinatibuk-ang kahanas, anaa sa matag sesyon",
+  "skillsScopeMerged": "Mga kahanas alang sa {{folder}}, dugang ang mga kahanas sa kalibutan nga gipaambit sa matag sesyon",
+  "skillOriginFolder": "folder",
+  "skillOriginGlobal": "tibuok kalibutan",
+  "skillsEmpty": "Wala pay kahanas",
+  "skillsPickOrNew": "Pagpili og kahanas nga i-edit, o paghimo og bag-o.",
+  "skillNew": "Bag-ong kahanas",
+  "skillDelete": "Pagtangtang sa kahanas",
+  "skillSave": "Luwasa",
+  "skillSaved": "Kahanas naluwas",
+  "skillNameRequired": "Kinahanglan ang ngalan sa kahanas",
+  "skillNamePlaceholder": "kahanas-ngalan",
+  "skillContentPlaceholder": "Ihulagway ang magamit nga pamaagi sa Markdown…",
+  "skillHubImport": "Import gikan sa hub",
+  "skillHubTitle": "Anthropic skill hub",
+  "skillHubEmpty": "Walay kahanas nga makita sa hub",
+  "skillImport": "Import",
+  "skillReimport": "Pag-import pag-usab",
+  "skillImported": "Gi-import nga {{name}}",
+  "sessions": "Mga Sesyon",
+  "deleteSession": "Pagtangtang sa sesyon",
+  "deleteSessionTitle": "Pagtangtang sa sesyon?",
+  "deleteSessionBody": "\"{{title}}\" ug ang transcript niini permanenteng mapapas. Kini dili na mabawi.",
+  "newChat": "Bag-ong Chat",
+  "newAgentChat": "Bag-ong Ahente Chat",
+  "chats": "Mga chat",
+  "favorites": "Mga Paborito",
+  "recents": "Bag-o",
+  "hub": "Hub",
+  "helpSupport": "Tabang & Suporta",
+  "helpUsImproveJan": "Tabangi Kami sa Pagpauswag sa Novera",
+  "analyticsConsentDetail": "Nagkolekta kami og anonymous nga datos aron masabtan ang paggamit sa feature. Ang imong mga chat ug personal nga impormasyon dili masubay. Mahimo nimo kini usbon bisan unsang orasa sa Settings> Privacy.",
+  "analyticsConsentQuestion": "Gusto ba nimong tabangan kami sa pagpauswag sa Novera?",
+  "unstarAll": "Unstar Tanan",
+  "unstar": "Unstar",
+  "deleteAll": "Kuhaa ang Tanan",
+  "star": "Bituon",
+  "rename": "Usba ang ngalan",
+  "delete": "Pagtangtang",
+  "copied": "Gikopya!",
+  "dataFolder": "Data Folder",
+  "others": "Uban pa",
+  "language": "Pinulongan",
+  "login": "Log In",
+  "loginWith": "Log In Gamit ang {{provider}}",
+  "loginFailed": "Napakyas sa Pag-log In",
+  "logout": "Log Out",
+  "loggingOut": "Pag-log Out...",
+  "loggedOut": "Malampuson nga Naka-log Out",
+  "logoutFailed": "Napakyas sa Pag-log Out",
+  "profile": "Profile",
+  "reset": "I-reset",
+  "search": "Pangitaa",
+  "searchThreads": "Pangitaa ang mga thread...",
+  "toNavigate": "para mag-navigate",
+  "toSelect": "para makapili",
+  "toClose": "sa pagsira",
+  "clearRecent": "Klaro",
+  "name": "Ngalan",
+  "cancel": "Pagkansela",
+  "dismiss": "Isalikway",
+  "create": "Paghimo",
+  "save": "Luwasa",
+  "edit": "I-edit",
+  "copy": "Kopyaha",
+  "back": "Balik",
+  "close": "Sirad-i",
+  "done": "Tapos na",
+  "next": "Sunod",
+  "finish": "Tapuson",
+  "skip": "Laktaw",
+  "allow": "Tugoti",
+  "deny": "Ipanghimakak",
+  "start": "Sugdi",
+  "stop": "Hunong",
+  "preview": {
+    "loading": "Pag-abli…",
+    "unsupported": "Ang Novera dili makapakita niining matang sa file. Ablihi kini aron makita kini sa laing app.",
+    "outside": "Kini nga file wala na sa session workspace.",
+    "tooLarge": "Dako kaayo para ma-preview. Ablihi kini aron makita kini sa laing app.",
+    "reload": "I-reload",
+    "allowNetwork": "Tugoti ang network",
+    "unsandboxed": "Pagdagan nga wala na-sandbox: ang natipig nga datos ug ang mga lokal nga file nagtrabaho",
+    "unresolvedRefs_one": "1 file nga gisumpayan niining panid nga dili makarga sa preview. Ablihi kini aron makita kini sa usa ka browser.",
+    "unresolvedRefs_other": "{{count}} nga mga file nga gisumpay niini nga panid dili makarga sa preview. Ablihi kini aron makita kini sa usa ka browser.",
+    "externalRefs_one": "1 nga kapanguhaan nga gi-load sa kini nga panid gikan sa web gibabagan. I-on ang \"Allow network\" aron ma-load kini.",
+    "externalRefs_other": "Ang mga kapanguhaan sa {{count}} nga kini nga panid gikarga gikan sa web gibabagan. I-on ang \"Allow network\" aron ma-load kini.",
+    "scriptErrors_one": "Ang panid nagtaho og sayop: {{message}}",
+    "scriptErrors_other": "Gi-report sa panid ang {{count}} nga mga sayup. Una: {{message}}"
+  },
+  "changes": {
+    "title": "Mga pagbag-o sa ahente",
+    "empty": "Ang mga file nga gisulat o gi-edit sa ahente makita dinhi.",
+    "a11y": "Mga pagbag-o sa ahente: {{files}} file, {{additions}} gidugang, {{deletions}} gikuha"
+  },
+  "modelPanel": {
+    "title": "Mga setting sa modelo",
+    "a11y": "Ablihi ang mga setting sa modelo",
+    "contextTooltip": "Context window: {{value}} sa {{max}} nga mga token"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Kahanas '{{name}}' dili magamit",
+    "kind": {
+      "skill": "Kahanas",
+      "command": "Sugo",
+      "model": "Modelo"
+    }
+  },
+  "compactWidth": "Compact nga Lapad",
+  "fullWidth": "Bug-os nga Lapad",
+  "dark": "Ngitngit",
+  "light": "Kahayag",
+  "system": "Sistema",
+  "auto": "Auto",
+  "english": "Iningles",
+  "medium": "Medium",
+  "newThread": "Bag-ong Thread",
+  "noResultsFound": "Walay resulta nga nakit-an",
+  "noThreadsYet": "Wala pay thread",
+  "noThreadsYetDesc": "Pagsugod ug bag-ong panag-istoryahanay aron makita ang imong kasaysayan sa thread dinhi.",
+  "downloads": "Mga Pag-download",
+  "downloading": "Nag-download",
+  "uploadingAttachments": "Nag-upload og mga attachment...",
+  "cancelDownload": "Ikansela ang pag-download",
+  "downloadCancelled": "Gikansela ang Pag-download",
+  "downloadComplete": "Kompleto na ang Pag-download",
+  "thinking": "Naghunahuna...",
+  "thought": "Hunahuna",
+  "callingTool": "Himan sa pagtawag",
+  "completed": "Nakompleto",
+  "image": "Hulagway",
+  "vision": "Panan-awon",
+  "multimodal": "Multimodal",
+  "embeddings": "Mga embedding",
+  "tools": "Mga galamiton",
+  "webSearch": "Pagpangita sa Web",
+  "reasoning": "Pangatarungan",
+  "proactive": "Aktibo",
+  "selectAModel": "Pagpili og modelo",
+  "noToolsAvailable": "Walay gamit nga magamit",
+  "noModelsFoundFor": "Walay mga modelo nga nakit-an para sa \"{{searchValue}}\"",
+  "failedToLoadModels": "Napakyas sa pagkarga sa mga modelo",
+  "noModels": "Walay mga modelo nga nakit-an",
+  "noAssistant": "Walay katabang",
+  "customAvatar": "Pasadya nga avatar",
+  "editAssistant": "I-edit ang Katabang",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "I-regenerate",
+  "threadImage": "Thread nga hulagway",
+  "editMessage": "I-edit ang Mensahe",
+  "deleteMessage": "Pagtangtang sa Mensahe",
+  "deleteThread": "Pagtangtang sa Thread",
+  "renameThread": "Usba ang ngalan sa Thread",
+  "threadTitle": "Ulohan sa Thread",
+  "deleteAllThreads": "Kuhaa ang Tanang Thread",
+  "allThreadsUnfavorited": "Tanan nga mga Thread Dili Gipalabi",
+  "deleteAllThreadsConfirm": "Sigurado ka ba nga gusto nimong papason ang tanang thread? Kini nga aksyon dili mabawi.",
+  "addProvider": "Idugang ang Provider",
+  "addOpenAIProvider": "Idugang ang OpenAI Provider",
+  "enterNameForProvider": "Pagsulod ug ngalan para sa imong provider",
+  "providerAlreadyExists": "Ang provider nga adunay ngalan nga \"{{name}}\" anaa na. Palihug pagpili og lain nga ngalan.",
+  "adjustFontSize": "I-adjust ang Gidak-on sa Font",
+  "changeLanguage": "Usba ang Pinulongan",
+  "editTheme": "I-edit ang Tema",
+  "editCodeBlockStyle": "I-edit ang Code Block Style",
+  "editServerHost": "I-edit ang Host sa Server",
+  "pickColorWindowBackground": "Pilia ang Kolor nga Bintana sa Background",
+  "pickColorAppMainView": "Pilia ang Panguna nga Pagtan-aw sa Color App",
+  "pickColorAppPrimary": "Pilia ang Panguna nga App sa Kolor",
+  "pickColorAppAccent": "Pilia ang Color App Accent",
+  "pickColorAppDestructive": "Pilia ang Color App nga Makadaot",
+  "apiKeyRequired": "API Key gikinahanglan",
+  "enterTrustedHosts": "Pagsulod sa kasaligan nga mga host",
+  "placeholder": {
+    "chatInput": "Pangutana ko bisan unsa..."
+  },
+  "confirm": "Kumpirma",
+  "continue": "Padayon",
+  "loading": "Nagkarga...",
+  "settingUpJan": "Pag-boot sa Novera…",
+  "registeringExtensions": "Pagparehistro sa mga extension…",
+  "loadingExtensions": "Nagkarga sa mga extension… ({{done}}/{{total}})",
+  "error": "Sayop",
+  "success": "Kalampusan",
+  "warning": "Pasidaan",
+  "conversationNotAvailable": "Dili magamit ang panag-istoryahanay",
+  "conversationNotAvailableDescription": "Ang panag-istoryahanay nga imong gisulayan nga ma-access dili magamit o natangtang na.",
+  "temporaryChat": "Temporaryong Chat",
+  "temporaryChatTooltip": "Ang temporaryo nga chat dili makita sa imong kasaysayan",
+  "noResultsFoundDesc": "Wala kami makit-an nga bisan unsang mga chat nga katumbas sa imong gipangita. Sulayi ang laing keyword.",
+  "searchModels": "Pangitaa ang mga modelo...",
+  "searchStyles": "Mga estilo sa pagpangita...",
+  "createAssistant": "Paghimo og Katabang",
+  "enterApiKey": "Isulod ang API Key",
+  "scrollToBottom": "Pag-scroll sa ubos",
+  "generateAiResponse": "Paghimo og AI nga Tubag",
+  "continueAiResponse": "Padayon sa AI nga Tubag",
+  "addModel": {
+    "title": "Pagdugang Modelo",
+    "modelId": "Modelo nga ID",
+    "enterModelId": "Pagsulod sa Modelong ID",
+    "addModel": "Pagdugang Modelo",
+    "description": "Pagdugang og bag-ong modelo sa provider",
+    "exploreModels": "Tan-awa ang listahan sa modelo gikan sa provider"
+  },
+  "mcpServers": {
+    "editServer": "I-edit ang Server",
+    "addServer": "Idugang ang Server",
+    "serverName": "Ngalan sa Server",
+    "enterServerName": "Pagsulod sa ngalan sa server",
+    "command": "Sugo",
+    "enterCommand": "Pagsulod sa command",
+    "arguments": "Mga argumento",
+    "argument": "Pangatarungan {{index}}",
+    "envVars": "Mga Variable sa Kalikopan",
+    "key": "Yawe",
+    "value": "Bili",
+    "save": "Luwasa"
+  },
+  "deleteServer": {
+    "title": "Pagtangtang sa Server",
+    "delete": "Pagtangtang"
+  },
+  "editJson": {
+    "errorParse": "Napakyas sa pag-parse sa JSON",
+    "errorPaste": "Napakyas sa pagdikit sa JSON",
+    "errorFormat": "Dili balido nga JSON nga pormat",
+    "titleAll": "I-edit ang Tanang Konfigurasyon sa mga Server",
+    "placeholder": "Pagsulod sa JSON configuration...",
+    "save": "Luwasa"
+  },
+  "editModel": {
+    "title": "I-edit ang Modelo: {{modelId}}",
+    "description": "I-configure ang mga kapabilidad sa modelo pinaagi sa pag-toggle sa mga opsyon sa ubos.",
+    "capabilities": "Mga Kapabilidad",
+    "tools": "Mga galamiton",
+    "vision": "Panan-awon",
+    "embeddings": "Mga embedding",
+    "notAvailable": "Dili pa magamit"
+  },
+  "outOfContextError": {
+    "truncateInput": "Pagputol sa Input",
+    "title": "Wala sa konteksto nga sayop",
+    "description": "Kini nga chat nakaabot sa AI nga limitasyon sa panumduman, sama sa pagpuno sa whiteboard. Mahimo natong palapdan ang bintana sa panumduman (gitawag nga gidak-on sa konteksto) aron mas makahinumdom kini, apan mahimong mogamit kini og dugang nga panumduman sa imong computer. Mahimo usab namon nga putlon ang input, nga nagpasabut nga makalimtan ang pipila sa kasaysayan sa chat aron mahatagan lugar alang sa mga bag-ong mensahe.",
+    "increaseContextSizeDescription": "Gusto ba nimong dugangan ang gidak-on sa konteksto?",
+    "increaseContextSize": "Dugangi ang Gidak-on sa Konteksto"
+  },
+  "toolApproval": {
+    "title": "Paghangyo sa Pagtugot sa Himan",
+    "description": "Gustong gamiton sa katabang ang <strong>{{toolName}}</strong>",
+    "securityNotice": "Tugoti lang ang mga himan nga imong gisaligan. Ang mga himan maka-access sa imong sistema ug data.",
+    "deny": "Ipanghimakak",
+    "allowOnce": "Tugoti ang Kausa",
+    "alwaysAllow": "Kanunay Itugot"
+  },
+  "deleteModel": {
+    "title": "Pagtangtang sa Modelo: {{modelId}}",
+    "description": "Sigurado ka ba nga gusto nimong papason kini nga modelo? Kini nga aksyon dili mabawi.",
+    "success": "Ang modelo nga {{modelId}} permanenteng natangtang.",
+    "cancel": "Pagkansela",
+    "delete": "Pagtangtang"
+  },
+  "deleteProvider": {
+    "title": "Pagtangtang sa Provider",
+    "description": "Kuhaa kini nga tighatag ug ang tanan nga mga modelo niini. Kini nga aksyon dili mabawi.",
+    "success": "Ang provider nga {{provider}} permanenteng natangtang.",
+    "confirmTitle": "Pagtangtang sa Provider: {{provider}}",
+    "confirmDescription": "Sigurado ka ba nga gusto nimong papason kini nga provider? Kini nga aksyon dili mabawi.",
+    "cancel": "Pagkansela",
+    "delete": "Pagtangtang"
+  },
+  "modelSettings": {
+    "title": "Mga Setting sa Modelo - {{modelId}}",
+    "description": "I-configure ang mga setting sa modelo aron ma-optimize ang performance ug pamatasan.",
+    "nglDisabledByFit": "Auto-fit mao ang pagpili sa GPU layers. I-off ang Auto-fit aron i-set kini nga mano-mano.",
+    "samplingDefaults": {
+      "title": "Default nga mga parametro sa sampling",
+      "description": "Default nga mga setting sa sampler alang niini nga modelo. Gigamit gawas kung gi-override sa matag-assistant o matag-hangyo nga mga kantidad."
+    },
+    "specDraft": {
+      "section": "Ispekulatibo nga pag-decode",
+      "enable": "I-enable ang speculative decoding",
+      "enableDescription": "Pag-draft og daghang mga token matag lakang ug pamatud-i kini sa usa ka pass, nga makapadali sa henerasyon. Gigamit ang built-in nga MTP nga mga ulo sa modelo, o ang draft nga modelo nga gi-download kauban niini (MTP, Eagle3, DFlash o DSpark).",
+      "nMax": "Max nga draft token",
+      "nMaxDescription": "Maximum nga gidaghanon sa mga token nga i-draft kada lakang. Default 16.",
+      "nMin": "Min nga draft token",
+      "nMinDescription": "Minimum nga gidaghanon sa mga token nga i-draft matag lakang. Default 0.",
+      "pMin": "Min draft nga posibilidad",
+      "pMinDescription": "Minimum nga posibilidad alang sa hakog nga pag-draft (0–1). Default nga 0.75."
+    },
+    "templateKwargs": {
+      "section": "Mga kapilian sa template sa chat",
+      "description": "Dugang nga mga kapilian gidawat sa template sa chat niini nga modelo. Gipadala isip chat_template_kwargs sa matag hangyo; ibilin ang usa ka bili sa default niini aron ang template modesisyon.",
+      "addCustom": "Pagdugang custom nga kapilian",
+      "keyPlaceholder": "ngalan",
+      "valuePlaceholder": "bili",
+      "add": "Idugang",
+      "cancel": "Pagkansela",
+      "remove": "Kuhaa"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Dili ma-update ang mga setting sa modelo"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Usba ang lokasyon sa Folder sa Data",
+      "description": "Sigurado ka ba nga gusto nimong usbon ang lokasyon sa folder sa data? Ibalhin niini ang tanan nimong data sa bag-ong lokasyon ug i-restart ang aplikasyon.",
+      "currentLocation": "Kasamtangang Lokasyon:",
+      "newLocation": "Bag-ong Lokasyon:",
+      "cancel": "Pagkansela",
+      "changeLocation": "Usba ang Lokasyon"
+    },
+    "deleteAllThreads": {
+      "title": "Kuhaa ang Tanang Thread",
+      "description": "Ang tanang mga thread mapapas. Kini nga aksyon dili mabawi."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "I-delete ang Tanang Pag-istoryahanay",
+      "description": "Ang {{count}} nga mga panag-istoryahanay sa \"{{projectName}}\" mapapas. Kini nga aksyon dili mabawi."
+    },
+    "deleteThread": {
+      "description": "Sigurado ka ba nga gusto nimong papason kini nga thread? Kini nga aksyon dili mabawi."
+    },
+    "editMessage": {
+      "title": "I-edit ang Mensahe"
+    },
+    "messageMetadata": {
+      "title": "Metadata sa Mensahe"
+    },
+    "deleteMessage": {
+      "description": "Sigurado ka ba nga gusto nimong papason kini nga mensahe? Kini nga aksyon dili mabawi."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Naay nahitabo",
+    "details": "Mga Detalye"
+  },
+  "missingDependenciesDialog": {
+    "title": "Nawala nga System Libraries",
+    "description": "Ang {{backend}} gi-install apan ang pipila nga gikinahanglan nga mga librarya sa sistema dili makit-an. Mahimong mahulog kini balik sa CPU o dili modagan sa husto.",
+    "installLabel": "Aron ayuhon kini, i-install ang mosunod:",
+    "download": "Pag-download",
+    "additionalLibraries": "Dugang nga nawala nga mga librarya:",
+    "missingLibraries": "Nawala nga mga librarya:",
+    "showRawLibraries": "Ipakita ang {{count}} nga nawala nga mga ngalan sa library"
+  },
+  "projects": {
+    "title": "Mga Proyekto",
+    "new": "Bag-ong mga Proyekto",
+    "addProject": "Pagdugang Proyekto",
+    "addToProject": "Idugang sa proyekto",
+    "removeFromProject": "Kuhaa gikan sa proyekto",
+    "createNewProject": "Paghimo og Bag-ong Proyekto",
+    "editProject": "I-edit ang Proyekto",
+    "deleteProject": "Pagtangtang sa Proyekto",
+    "projectName": "Ngalan sa Proyekto",
+    "enterProjectName": "Ibutang ang ngalan sa proyekto...",
+    "noProjectsAvailable": "Walay mga proyekto nga magamit",
+    "noProjectsYet": "Wala pay Proyekto",
+    "noProjectsYetDesc": "Pagsugod ug bag-ong proyekto pinaagi sa pag-klik sa Add Project button.",
+    "projectNotFound": "Proyekto Wala Makita",
+    "projectNotFoundDesc": "Ang proyekto nga imong gipangita wala na o natangtang na.",
+    "selectAssistant": "Pagpili og katabang",
+    "noAssistantAssigned": "Walay assistant nga gi-assign niini nga proyekto",
+    "files": "Mga file",
+    "filesDescription": "Pagdugang og mga PDF, mga dokumento, o uban pang teksto nga reperensiya niini nga proyekto.",
+    "uploadingFiles": "Pagproseso sa mga file…",
+    "processButton": "Idugang",
+    "deleteProjectDialog": {
+      "title": "Pagtangtang sa Proyekto",
+      "permanentDelete": "Kini permanente nga mapapas ang tanang mga thread.",
+      "permanentDeleteWarning": "Kini nga aksyon permanenteng magtangtang sa ALL nga mga thread sulod sa proyekto!",
+      "deleteEmptyProject": "Kini nga aksyon magtangtang sa proyekto nga \"{{projectName}}\".",
+      "saveThreadsAdvice": "Aron makatipig sa mga thread, ibalhin kini sa imong listahan sa thread o sa laing proyekto sa dili pa i-delete.",
+      "starredWarning": "Naa pa kay starred thread sulod sa project.",
+      "deleteButton": "Pagtangtang",
+      "successWithName": "Ang proyekto nga \"{{projectName}}\" malampusong natangtang",
+      "successWithoutName": "Malampuson nga natangtang ang proyekto",
+      "error": "Napakyas sa pagtangtang sa proyekto. Palihug sulayi pag-usab.",
+      "ariaLabel": "Kuhaa ang {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Paghimo og Bag-ong Proyekto",
+      "editTitle": "I-edit ang Proyekto",
+      "nameLabel": "Ngalan sa Proyekto",
+      "namePlaceholder": "Ibutang ang ngalan sa proyekto...",
+      "assistant": "Katabang",
+      "selectAssistant": "Pagpili og katabang (opsyonal)",
+      "noAssistant": "Walay katabang",
+      "addAssistant": "Idugang ang Katabang",
+      "createButton": "Paghimo",
+      "updateButton": "Pag-update",
+      "alreadyExists": "Project \"{{projectName}}\" anaa na",
+      "createSuccess": "Ang proyekto nga \"{{projectName}}\" malampuson nga nahimo",
+      "updateSuccess": "Proyekto nga \"{{projectName}}\" malampuson nga na-update",
+      "saveError": "Dili ma-save ang proyekto. Palihug sulayi pag-usab."
+    },
+    "noConversationsIn": "Walay Pag-istoryahanay sa {{projectName}}",
+    "startNewConversation": "Pagsugod ug bag-ong panag-istoryahanay sa {{projectName}} sa ubos",
+    "conversationsIn": "Mga panag-istoryahanay sa {{projectName}}",
+    "conversationsDescription": "Pag-klik sa bisan unsang panag-istoryahanay aron magpadayon sa pag-chat, o pagsugod og bag-o sa ubos.",
+    "conversation": "Pag-istoryahanay",
+    "instructions": "Mga instruksyon",
+    "setup": "Setup",
+    "instructionsDescription": "Ipasibo ang tono ug estilo sa pagtubag",
+    "manageInstructions": "Pagdumala sa mga Instruksyon",
+    "thread": "hilo",
+    "threads": "mga hilo",
+    "updated": "Gi-update:",
+    "collapseProject": "I-collapse ang proyekto",
+    "expandProject": "Pagpalapad sa proyekto",
+    "update": "Pag-update",
+    "searchProjects": "Pangitag proyekto...",
+    "noProjectsFound": "Walay proyekto nga nakit-an",
+    "tryDifferentSearch": "Sulayi ang laing termino sa pagpangita"
+  },
+  "attachmentsIngestion": {
+    "title": "Pilia kung unsaon pag-ingest ang mga attachment",
+    "description": "Pilia kung iapil ba kini nga mga file direkta sa chat o i-index kini isip mga embeddings.",
+    "inline": "Pag-inject sa chat",
+    "embeddings": "Gamita ang mga embeddings"
+  },
+  "attachmentInjectedIndicator": "Gi-inject sa chat",
+  "attachmentEmbeddedIndicator": "Gi-embed para sa RAG",
+  "viewInjectedContent": "Tan-awa ang gi-inject nga sulod",
+  "injectedContentTitle": "Gi-inject nga sulod sa file",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Tanan nga mga Thread Dili Gipalabi",
+      "description": "Ang tanan nga mga hilo gitangtang sa imong mga paborito."
+    },
+    "deleteAllThreads": {
+      "title": "Kuhaa ang Tanang Thread",
+      "description": "Ang tanan nga mga thread permanente nang natangtang."
+    },
+    "renameThread": {
+      "title": "Usba ang ngalan sa Thread",
+      "description": "Ang ulohan sa thread giilisan og '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Pagtangtang sa Thread",
+      "description": "Kini nga thread permanente nang natangtang."
+    },
+    "errorCopied": {
+      "title": "Malampuson ang pagkopya",
+      "description": "Ang impormasyon sa sayop gikopya sa clipboard"
+    },
+    "errorCopyFailed": {
+      "title": "Napakyas sa pagkopya",
+      "description": "Napakyas sa pagkopya sa impormasyon sa sayop ngadto sa clipboard"
+    },
+    "editMessage": {
+      "title": "I-edit ang Mensahe",
+      "description": "Malampusong na-edit ang mensahe. Palihug hulata ang modelo nga motubag."
+    },
+    "appUpdateDownloaded": {
+      "title": "Na-download ang Update sa App",
+      "description": "Malampuson nga na-download ang update sa app."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Napakyas ang Pag-download sa App Update",
+      "description": "Napakyas sa pag-download sa update sa app. Palihug sulayi pag-usab."
+    },
+    "downloadComplete": {
+      "title": "Kompleto na ang Pag-download",
+      "description": "{{item}} na-download na"
+    },
+    "downloadCancelled": {
+      "title": "Gikansela ang Pag-download",
+      "description": "Ang proseso sa pag-download gikansela"
+    },
+    "downloadFailed": {
+      "title": "Napakyas ang Pag-download",
+      "description": "Ang {{item}} napakyas sa pag-download",
+      "descriptionWithReason": "{{item}} napakyas sa pag-download: {{reason}}",
+      "reason": {
+        "dns": "ang ngalan sa server dili masulbad",
+        "refused": "ang koneksyon gibalibaran",
+        "timeout": "natapos ang koneksyon",
+        "tls": "dili ma-establisar ang luwas nga koneksyon",
+        "proxy": "dili maabot ang proxy",
+        "unreachable": "dili maabot ang server"
+      }
+    },
+    "openSettings": "Ablihi ang Mga Setting",
+    "openLogs": "Ablihi ang mga troso",
+    "downloadTokenRequired": {
+      "title": "Hugging Face token gikinahanglan",
+      "description": "Kini nga modelo nagkinahanglan ug Hugging Face access token. Idugang ang imong token sa Settings ug sulayi pag-usab."
+    },
+    "downloadLicenseRequired": {
+      "title": "Dawata ang lisensya sa modelo sa Hugging Face",
+      "description": "Kinahanglan nimong dawaton ang lisensya sa modelo sa Hugging Face nga panid niini sa dili pa mag-download."
+    },
+    "downloadRateLimited": {
+      "title": "Rate limitado sa Hugging Face",
+      "description": "Gilimitahan ka sa rate. Ang pagdugang og token makadugang sa mga limitasyon sa rate. Palihug sulayi pag-usab unya."
+    },
+    "modelValidationStarted": {
+      "title": "Pag-validate nga Modelo",
+      "description": "Na-download nga modelo nga \"{{modelId}}\" malampuson. Pagpamatuod sa integridad..."
+    },
+    "modelValidationFailed": {
+      "title": "Napakyas ang Pag-validate sa Modelo",
+      "description": "Ang na-download nga modelo nga \"{{modelId}}\" napakyas sa pag-verify sa integridad ug gitangtang. Ang file mahimong madaot o madaot."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Kompleto na ang Pag-download",
+      "description": "Ang modelo nga \"{{item}}\" na-download ug malampusong na-verify"
+    },
+    "projectCreated": {
+      "title": "Nahimo ang Proyekto",
+      "description": "Ang proyekto nga \"{{projectName}}\" malampuson nga nahimo"
+    },
+    "projectRenamed": {
+      "title": "Proyekto Giusab ang ngalan",
+      "description": "Giilisan ang ngalan sa proyekto gikan sa \"{{oldName}}\" ngadto sa \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Proyekto Natangtang",
+      "description": "Ang proyekto nga \"{{projectName}}\" malampusong natangtang"
+    },
+    "projectAlreadyExists": {
+      "title": "Naglungtad na ang Proyekto",
+      "description": "Project \"{{projectName}}\" anaa na"
+    },
+    "projectDeleteFailed": {
+      "title": "Pagtangtang Napakyas",
+      "description": "Napakyas sa pagtangtang sa proyekto. Palihug sulayi pag-usab."
+    },
+    "threadAssignedToProject": {
+      "title": "Gi-assign ang Thread",
+      "description": "Na-assign ang thread sa \"{{projectName}}\" nga malampuson"
+    },
+    "threadRemovedFromProject": {
+      "title": "Gitangtang ang Thread",
+      "description": "Natangtang ang thread gikan sa \"{{projectName}}\" nga malampuson"
+    },
+    "fileUploaded": {
+      "title": "Giproseso ang File",
+      "description": "Ang file naproseso ug malampusong na-index"
+    },
+    "uploadFailed": {
+      "title": "Napakyas ang Pagproseso",
+      "description": "Napakyas sa pagproseso sa file",
+      "subjectThisFile": "Kini nga payl",
+      "pdfMalformedXref": "Ang {{subject}} adunay depekto nga PDF nga cross-reference nga lamesa ug dili ma-parse. Sulayi ang pag-abli niini sa PDF viewer ug i-save kini pag-usab (File → Print → Save as PDF), unya i-upload pag-usab.\nAng",
+      "pdfScanned": "{{subject}} makita nga usa ka gi-scan o gibase sa imahe nga PDF. Wala pa gisuportahan ang OCR — palihug pag-upload ug PDF nga gibase sa text.",
+      "pdfEncrypted": "Ang {{subject}} gipanalipdan sa password. Kuhaa ang password ug sulayi pag-usab.\nAng",
+      "pdfUnsupportedFeature": "Ang {{subject}} naggamit ug PDF nga feature nga Novera dili pa ma-parse (eg PostScript color/shading functions). Sulayi i-save kini pag-usab (File → Print → Save as PDF) aron ma-flatt kini, dayon i-upload pag-usab.\nAng",
+      "pdfGeneric": "{{subject}} dili ma-parse isip PDF. Mahimong nadaot ang payl o naggamit ug dili suportadong PDF nga bahin.",
+      "fileTooLarge": "Ang {{subject}} dako kaayo. {{message}}.",
+      "unsupportedType": "Ang tipo sa file nga \"{{type}}\" wala gisuportahan.",
+      "ioError": "Dili mabasa ang {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} dili ma-parse: {{message}}",
+      "fallback": "Napakyas sa pagproseso sa {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "File Natangtang",
+      "description": "Ang file gikuha gikan sa proyekto"
+    },
+    "deleteFailed": {
+      "title": "Pagtangtang Napakyas",
+      "description": "Napakyas sa pagtangtang sa file"
+    },
+    "fileAlreadyExists": {
+      "title": "Naa na ang File",
+      "description": "Ang file gilakip na niini nga proyekto"
+    },
+    "unsupportedFileType": {
+      "title": "Dili Gisuportahan nga Uri sa File",
+      "description": "Ang extension sa file nga \".{{extension}}\" wala gisuportahan para sa Project reference."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Mga Attachment Na-disable",
+      "description": "Gi-disable ang mga attachment sa Settings"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Dako kaayo ang file",
+    "fileTooLargeDescription": "Ang {{fileName}} milapas sa {{maxFileSizeMB}}MB nga limitasyon"
+  },
+  "files": {
+    "chunksCount": "{{count}} mga tipak",
+    "title": "Mga file",
+    "empty": "Ang mga file nga imong gilakip ug mga file nga gihimo sa ahente makita dinhi.",
+    "a11y": "Mga payl: {{count}}",
+    "attachments": "Mga kadugtong",
+    "notImported": "wala sa workspace"
+  },
+  "llamacppBusyOnExit": {
+    "title": "Ang llama.cpp busy gihapon",
+    "description": "Usa o daghan pa nga mga modelo ang wala nadiskarga sa oras. Ang force-quitting mohunong sa llama.cpp ug mahimong makabalda sa aktibong mga tubag.",
+    "forceQuit": "Puwersa nga moundang",
+    "forcing": "Puwersa nga moundang…",
+    "shuttingDown": "Gipalong…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Nahugno",
+  "expand": "Pagpalapad",
+  "todoPanelTitle": "Pag-uswag",
+  "todoPanelEmpty": "Wala pay listahan sa todo.",
+  "backgroundTasks": "Mga buluhaton sa background",
+  "subagentsRunning_one": "{{count}} subagent nga nagdagan",
+  "subagentsRunning_other": "{{count}} subagents nga nagdagan",
+  "monitorsRunning_one": "{{count}} monitor nga nagdagan",
+  "monitorsRunning_other": "{{count}} monitor nga nagdagan",
+  "backgroundRunning_one": "{{count}} nga buluhaton sa background nga nagdagan",
+  "backgroundRunning_other": "{{count}} mga buluhaton sa background nga nagdagan",
+  "monitors": "Mga monitor",
+  "monitorPolling": "Pagboto",
+  "monitorMatched": "Gipares",
+  "monitorTimedOut": "Na-time out",
+  "monitorStopped": "Mihunong",
+  "monitorEnded": "Natapos na",
+  "coworkWatching_one": "Pagtan-aw sa {{count}} monitor…",
+  "coworkWatching_other": "Pagtan-aw sa {{count}} monitor…",
+  "coworkWaitingBackground": "Naghulat sa mga buluhaton sa background…",
+  "noBackgroundTasks": "Wala pay mga buluhaton sa background.",
+  "running": "Nagdagan",
+  "queued": "Gipila",
+  "waiting": "Naghulat",
+  "finished": "Nahuman na",
+  "subagentPhase": "hugna {{phase}}",
+  "subagentWaiting": "naghulat",
+  "viewTranscript": "Tan-awa ang transcript",
+  "taskWorking": "Nagtrabaho…",
+  "taskNoOutput": "Ang subagent walay makita nga output.",
+  "subagentToolUses_one": "{{count}} paggamit sa himan",
+  "subagentToolUses_other": "{{count}} gamit gamit",
+  "artifactGroupCode": "Kodigo",
+  "artifactGroupImage": "Hulagway",
+  "artifactGroupDocument": "Dokumento",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Ablihi ang preview",
+  "artifactOpenExternal": "Buksi",
+  "artifactMoreActions": "Dugang nga mga aksyon",
+  "artifactShowInFolder": "Ipakita sa Folder",
+  "skillsUsedLabel": "Mga kahanas nga gigamit",
+  "skillsUsed": "Mga kahanas nga gigamit: {{skills}}",
+  "artifactsAll": "Tanan",
+  "artifactsEmpty": "Wala pa giprodyus. Ang mga artifact gikan sa Cowork run makita dinhi.",
+  "artifactsNoMatch": "Walay artifact nga tugma.",
+  "artifactsSearch": "Pangitaa ang mga artifact",
+  "artifactsShowMore": "Ipakita ang {{count}} pa",
+  "workspace": {
+    "readsFrom": "Nagtrabaho sa",
+    "writable": "pagbasa ug pagsulat",
+    "footnote": "Ang ahente nagbasa ug nag-edit niini nga folder direkta. Ribyuha ang nabag-o sa diff panel.",
+    "footnoteEmpty": "Ilakip ang usa ka folder aron ang ahente magtrabaho sa imong proyekto. Makabasa ug maka-edit kini sa mga file sa sulod niini.",
+    "attach": "Pag-attach ug folder",
+    "change": "Usba ang folder",
+    "detach": "Kuhaa ang folder",
+    "open": "Buksi",
+    "reveal": "Ipadayag",
+    "unavailable": "Workspace dili magamit",
+    "missing": "Dili na magamit ang folder sa workspace {{folder}}. Pagpili og laing folder.",
+    "openFailed": "Dili maablihan ang workspace",
+    "revealFailed": "Dili mapadayag ang workspace",
+    "a11yWithFolder": "Project folder {{folder}}, gilakip sa pagbasa ug pagsulat access. Usba o ibulag kini.",
+    "a11yNoFolder": "Walay project folder nga gilakip. Ilakip ang usa."
+  },
+  "coworkEmpty": {
+    "title": "Unsa ang atong ginabuhat?",
+    "subtitleSandbox": "Hatagi ug buluhaton ang Novera. Nagbasa ug nagsulat kini sa mga file, nagpadagan sa mga mando, ug naglihok sa mga lakang sa kaugalingon.",
+    "subtitleFolder": "Hatagi ug buluhaton ang Novera. Direkta kini nga nagtrabaho sa {{folder}}, nagbasa ug nag-edit sa mga file sa kaugalingon.",
+    "try": "Sulayi",
+    "sandbox": {
+      "first": "Pagsulat ug Python script nga nag-usab sa ngalan sa mga file sa petsa nga kini gikuha",
+      "second": "Paghimo og usa ka panid nga dashboard gikan sa CSV nga akong idikit",
+      "third": "Paghimo og README alang sa proyekto nga akong gihulagway kanimo"
+    },
+    "folder": {
+      "first": "Ipasabut kung giunsa ang {{folder}} gihiusa",
+      "second": "Pangitaa ang matag TODO sa {{folder}} ug grupoha sila sa lugar",
+      "third": "Pagsulat og mga pagsulay alang sa bahin sa {{folder}} nga akong gitudlo kanimo"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Walay terminal",
+    "a11y": "Ang pagpadagan sa mga sugo gipalong. Mga Detalye.",
+    "title": "Ang pagpadagan sa mga sugo gipalong",
+    "body": "Gitugotan sa Novera ang ahente sa pagpadagan sa mga command sa shell kung ang imong sistema makapugong niini. Walay sandbox nga magamit dinhi, aron ang ahente makabasa, makasulat ug maka-edit sa mga file sa sandbox niini — apan dili makadagan sa bisan unsa.",
+    "fixLinux": "Gigamit sa Linux ang bubblewrap. I-install kini, unya i-restart ang Novera.\nAng",
+    "fixMac": "macOS naggamit sa built-in nga sandbox sa /usr/bin/sandbox-exec. I-restart ang Novera kung magamit na kini.",
+    "fixWindows": "Gigamit sa Windows ang AppContainer. I-restart ang Novera aron sulayan pag-usab.",
+    "recheck": "Susiha pag-usab"
+  },
+  "planMode": {
+    "label": "Plano",
+    "tooltipOff": "Pagplano una — ang ahente mobasa ug mosugyot, nga walay pagsulat.",
+    "tooltipOn": "Pagplano. I-off kini aron ang ahente magsulat og mga file.",
+    "onAnnounce": "Ang mode sa pagplano gipalihok",
+    "placeholder": "Pangayo og plano. Ang ahente dili mag-usab sa bisan unsang mga file."
+  },
+  "budget": {
+    "stoppedSteps": "Mihunong sa {{max}} nga mga lakang. Ang ahente wala pa nahuman.",
+    "keepGoing": "Padayon",
+    "stoppedTokens": "Gihunong — kini nga sesyon naigo sa iyang token nga badyet.",
+    "compact": "Compact",
+    "newSession": "Bag-ong sesyon"
+  },
+  "run": {
+    "stopped": "Mihunong.",
+    "failed": "Ang dagan sayo nga mihunong.",
+    "tryAgain": "Sulayi pag-usab"
+  },
+  "modelNoTools": "Ang {{model}} dili makatawag sa mga himan, mao nga dili kini makalihok isip ahente. Pagpili usa ka modelo sa pagtawag sa himan.",
+  "askContinue": "Padayon",
+  "askNext": "Sunod nga pangutana",
+  "askPrev": "Miagi nga pangutana",
+  "askRecommended": "Girekomenda",
+  "askSelectedCount": "{{count}} gipili",
+  "askSomethingElse": "Laing butang",
+  "askSomethingElsePlaceholder": "Isulat ang imong kaugalingong tubag",
+  "submit": "Isumite",
+  "composer": {
+    "advanced": "Mga advanced nga parameter",
+    "modelDefaults": "Mga default sa modelo",
+    "assistantOverrides": "Ang katabang nag-override",
+    "printPdf": "I-print / I-save isip PDF",
+    "exportHint": "Mabasa nga mga pormat: aktibo nga sanga. JSON: tanang bersyon sa mensahe. Ang mga eksternal nga file wala gi-bundle."
+  },
+  "telemetry": {
+    "summary": "Uban sa imong pagtugot, ang {{host}} makadawat lamang sa Novera nga bersyon ug operating system, nga walay mga panag-istoryahanay o usa ka padayon nga identifier.",
+    "unavailable": "Ang mga estadistika wala ma-configure. Walay data nga gipadala."
+  },
+  "errorTracking": {
+    "title": "Sayop sa pagsubay",
+    "summary": "Opsyonal nga mga taho sa {{host}}: tipo sa sayup, posisyon sa code, bersyon ug operating system. Walay mga panag-istoryahanay, hilaw nga mga mensahe sa sayop o mga yawe. Pag-disable bisan kanus-a.",
+    "unavailable": "Ang pagsubay sa sayop wala ma-configure. Walay report nga gipadala."
+  }
+}

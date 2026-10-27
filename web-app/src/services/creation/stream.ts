@@ -63,7 +63,7 @@ export function creationStream(
         ? 'chat:creation.upscaleMissing'
         : 'chat:creation.upscaleTitle'
     const error = new Error(
-      `${i18n.t('chat:creation.failed')} ${i18n.t(hint)}\n${i18n.t('common:details')}: ${detail}`
+      `${i18n.t('chat:creation.failed')} ${i18n.t(hint)}\n${i18n.t('common:errorDialog.details')}: ${detail}`
     )
     localizedErrors.add(error)
     throw error

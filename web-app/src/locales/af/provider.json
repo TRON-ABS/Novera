@@ -1,0 +1,18 @@
+{
+  "addProvider": "Voeg verskaffer by",
+  "addOpenAIProvider": "Voeg pasgemaakte verskaffer by",
+  "enterNameForProvider": "Verskaffernaam (bv. my-llm-bediener)",
+  "apiTypeLabel": "API-formaat",
+  "apiTypeOpenAI": "OpenAI-versoenbaar",
+  "apiTypeAnthropic": "Anthropic-versoenbaar",
+  "baseUrlLabel": "Basis URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API sleutel",
+  "apiKeyPlaceholder": "Plak jou API sleutel",
+  "invalidBaseUrl": "Basis URL moet 'n geldige http(s) URL wees",
+  "globalSettings": "Globale instellings",
+  "stripReasoning": "Stroop redenasie uit konteks",
+  "stripReasoningDesc": "Verwyder vorige beurte se denke/redenasie-inhoud voordat geskiedenis weer gestuur word, oor alle verskaffers heen. Verbeter KV-cache-hergebruik vir plaaslike modelle, maar sommige modelle (bv. nuwer Qwen-vrystellings) beveel aan om dit te hou vir beter multi-draai redenasie.",
+  "providerAlreadyExists": "'n Verskaffer met die naam {{name}} bestaan ​​reeds."
+}

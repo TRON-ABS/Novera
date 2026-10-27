@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "коды",
+    "preview": "Алдын ала қарау",
+    "previewStreaming": "Жасау аяқталған кезде қолжетімді",
+    "unresolvedAssets_one": "1 актив анықтамасын алдын ала қарауда жүктеу мүмкін емес. Қатысты жолдарда шешуге арналған URL негізі жоқ.",
+    "unresolvedAssets_other": "{{count}} актив сілтемелерін алдын ала қарауда жүктеу мүмкін емес. Қатысты жолдарда шешуге болатын URL негізі жоқ."
+  },
+  "assistants": "Көмекшілер",
+  "hardware": "Аппараттық құрал",
+  "mcp-servers": "MCP серверлері",
+  "local_api_server": "Жергілікті API сервері",
+  "remote_access": "Қашықтан қол жеткізу",
+  "integrations": "Интеграциялар",
+  "experimental": "Эксперименттік",
+  "claude_code": "Клод коды",
+  "https_proxy": "HTTPS прокси",
+  "web_search": "Веб-іздеу",
+  "shell": "Shell",
+  "browse": "Шолу",
+  "moreControls": "Қосымша басқару элементтері",
+  "starting": "Басталуы...",
+  "activeSuffix": "(Белсенді)",
+  "extensions": "Кеңейтімдер",
+  "attachments": "Қосымшалар",
+  "general": "Жалпы",
+  "settings": "Параметрлер",
+  "modelProviders": "Үлгі провайдерлері",
+  "localProviders": "Жергілікті",
+  "remoteProviders": "Қашықтан басқару",
+  "manageProviders": "Провайдерлерді басқарыңыз",
+  "hiddenProviders": "{{count}} өшірілген",
+  "hideProvider": "Провайдерді жасыру",
+  "showProvider": "Провайдерді көрсету",
+  "interface": "Интерфейс",
+  "appearance": "Сыртқы түрі",
+  "privacy": "Құпиялылық",
+  "keyboardShortcuts": "Таңбашалар",
+  "home": "Үй",
+  "cowork": "Cowork",
+  "newSession": "Жаңа сеанс",
+  "artifacts": "Артефактілер",
+  "customize": "Теңшеу",
+  "local": "Жергілікті",
+  "selectFolder": "Қалтаны таңдаңыз",
+  "selectModel": "Алдымен үлгіні таңдаңыз",
+  "commands": "Пәрмендер",
+  "cmdHelp": "Қол жетімді пәрмендердің тізімі",
+  "cmdClear": "Осы сеансты өшіріңіз",
+  "cmdModels": "Белсенді үлгіні ауыстырыңыз",
+  "cmdModelsHint": "/models теріп, тізімнен үлгіні таңдаңыз",
+  "cmdModelSwitched": "{{name}} түріне ауыстырылды",
+  "cmdUnknown": "Белгісіз пәрмен: {{name}}. /help қолданып көріңіз",
+  "cmdBusy": "Агент жұмыс істеп тұрғанда мұны істеу мүмкін емес",
+  "cmdCompact": "Сеанстың мәтінмәнін қысқаша қорытындыға айналдырыңыз",
+  "cmdCompacted": "Тығыздалған {{before}} -> {{after}} хабарлары",
+  "cmdNothingToCompact": "ықшамдалатын ештеңе жоқ",
+  "cmdCompactFailed": "Тығыздау сәтсіз аяқталды: {{error}}",
+  "cmdPlan": "Жоспар режимін ауыстырып қосу (тек оқуға арналған: агент жазбай ұсынады)",
+  "cmdPlanOn": "Жоспар режимі қосулы: агент жазбай оқиды және ұсынады",
+  "cmdPlanOff": "Жоспар режимі өшірулі: қалыпты орындау",
+  "cmdTodo": "Орындалу барысы тақтасын ашыңыз",
+  "cmdTasks": "Фондық тапсырмалар тақтасын ашыңыз",
+  "cmdInit": "Жобаны зерттеп, жазу дағдылары мен жадыны үйреніңіз",
+  "cmdInitRunning": "Осы жобаны қосу",
+  "skills": "Дағдылар",
+  "skillsInContext": "Осы орында агентке қол жетімді дағдылар",
+  "skillsTitle": "Дағдыларды басқарыңыз",
+  "skillsScopeProject": "{{folder}} үшін дағдылар",
+  "skillsScopeGlobal": "Жаһандық дағдылар, әр сеанс үшін қолжетімді",
+  "skillsScopeMerged": "{{folder}} дағдылары, сонымен қатар әр сеанс бөлісетін жаһандық дағдылар",
+  "skillOriginFolder": "қалтасы",
+  "skillOriginGlobal": "жаһандық",
+  "skillsEmpty": "Әзірге дағдылар жоқ",
+  "skillsPickOrNew": "Өңдеу үшін дағдыны таңдаңыз немесе жаңасын жасаңыз.",
+  "skillNew": "Жаңа дағды",
+  "skillDelete": "Дағдыны жою",
+  "skillSave": "Сақтау",
+  "skillSaved": "Дағды сақталды",
+  "skillNameRequired": "Дағды атауы қажет",
+  "skillNamePlaceholder": "шеберлік атауы",
+  "skillContentPlaceholder": "Markdown ішінде қайта пайдалануға болатын процедураны сипаттаңыз…",
+  "skillHubImport": "Хабтан импорттау",
+  "skillHubTitle": "Anthropic шеберлік орталығы",
+  "skillHubEmpty": "Хабта ешқандай дағдылар табылмады",
+  "skillImport": "Импорттау",
+  "skillReimport": "Қайта импорттау",
+  "skillImported": "Импортталған {{name}}",
+  "sessions": "Сеанстар",
+  "deleteSession": "Сеансты жою",
+  "deleteSessionTitle": "Сеансты жою қажет пе?",
+  "deleteSessionBody": "\"{{title}}\" және оның транскрипті біржола жойылады. Мұны қайтару мүмкін емес.",
+  "newChat": "Жаңа чат",
+  "newAgentChat": "Жаңа агент чаты",
+  "chats": "Чат",
+  "favorites": "Таңдаулылар",
+  "recents": "Соңғылар",
+  "hub": "хаб",
+  "helpSupport": "Анықтама және қолдау",
+  "helpUsImproveJan": "Novera жақсартуға көмектесіңіз",
+  "analyticsConsentDetail": "Біз мүмкіндіктерді пайдалануды түсіну үшін анонимді деректерді жинаймыз. Сіздің чаттарыңыз және жеке ақпараттарыңыз ешқашан бақыланбайды. Мұны кез келген уақытта \"Параметрлер > Құпиялылық\" бөлімінен өзгертуге болады.",
+  "analyticsConsentQuestion": "Novera жақсартуға көмектескіңіз келе ме?",
+  "unstarAll": "Барлық жұлдызшаны алып тастау",
+  "unstar": "Жұлдызшаны алып тастау",
+  "deleteAll": "Барлығын жою",
+  "star": "Жұлдыз",
+  "rename": "Атын өзгерту",
+  "delete": "Жою",
+  "copied": "Көшірілген!",
+  "dataFolder": "Деректер қалтасы",
+  "others": "Басқа",
+  "language": "Тіл",
+  "login": "Жүйеге кіріңіз",
+  "loginWith": "{{provider}} арқылы кіріңіз",
+  "loginFailed": "Жүйеге кіру мүмкін болмады",
+  "logout": "Шығу",
+  "loggingOut": "Шығу...",
+  "loggedOut": "Жүйеден сәтті шықты",
+  "logoutFailed": "Шығу сәтсіз аяқталды",
+  "profile": "Профиль",
+  "reset": "Қалпына келтіру",
+  "search": "Іздеу",
+  "searchThreads": "Тақырыптарды іздеу...",
+  "toNavigate": "шарлау үшін\nтаңдау үшін",
+  "toSelect": "таңдау үшін",
+  "toClose": "жабу үшін",
+  "clearRecent": "Таза",
+  "name": "Аты-жөні",
+  "cancel": "Бас тарту",
+  "dismiss": "Бас тарту",
+  "create": "Жасау",
+  "save": "Сақтау",
+  "edit": "Өңдеу",
+  "copy": "Көшіру",
+  "back": "Артқа",
+  "close": "Жабу",
+  "done": "Дайын",
+  "next": "Келесі",
+  "finish": "Аяқтау",
+  "skip": "Өткізіп жіберу",
+  "allow": "Рұқсат ету",
+  "deny": "Бас тарту",
+  "start": "Бастау",
+  "stop": "Тоқта",
+  "preview": {
+    "loading": "Ашылуда…",
+    "unsupported": "Novera мұндай файл түрін көрсете алмайды. Оны басқа қолданбада көру үшін ашыңыз.",
+    "outside": "Бұл файл енді сеанс жұмыс кеңістігінде емес.",
+    "tooLarge": "Алдын ала қарау үшін тым үлкен. Оны басқа қолданбада көру үшін ашыңыз.",
+    "reload": "Қайта жүктеңіз",
+    "allowNetwork": "Желіге рұқсат беру",
+    "unsandboxed": "Құм жәшігінен тыс іске қосу: сақталған деректер мен жергілікті файлдар жұмыс істейді",
+    "unresolvedRefs_one": "Бұл бет сілтеме жасайтын 1 файлды алдын ала қарауда жүктеу мүмкін емес. Оны браузерде көру үшін ашыңыз.",
+    "unresolvedRefs_other": "{{count}} осы бет сілтеме жасайтын файлдарды алдын ала қарауда жүктей алмайды. Оны браузерде көру үшін ашыңыз.",
+    "externalRefs_one": "Бұл бет интернеттен жүктейтін 1 ресурс блокталған. Оны жүктеу үшін «Желіге рұқсат беру» параметрін қосыңыз.",
+    "externalRefs_other": "{{count}} ресурстары бұл бетті вебтен жүктейді. Оларды жүктеу үшін «Желіге рұқсат беру» параметрін қосыңыз.",
+    "scriptErrors_one": "Бет қате туралы хабарлады: {{message}}",
+    "scriptErrors_other": "Бет {{count}} қателері туралы хабарлады. Бірінші: {{message}}"
+  },
+  "changes": {
+    "title": "Агент өзгерістері",
+    "empty": "Агент жазатын немесе өңдейтін файлдар осы жерде көрсетіледі.",
+    "a11y": "Агент өзгерістері: {{files}} файлдары, {{additions}} қосылды, {{deletions}} жойылды"
+  },
+  "modelPanel": {
+    "title": "Үлгі параметрлері",
+    "a11y": "Үлгі параметрлерін ашыңыз",
+    "contextTooltip": "Мәтінмәндік терезе: {{value}} {{max}} таңбалауышы"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "\"{{name}}\" дағдысы қолжетімді емес",
+    "kind": {
+      "skill": "Шеберлік",
+      "command": "Пәрмені",
+      "model": "Үлгі"
+    }
+  },
+  "compactWidth": "Шағын ені",
+  "fullWidth": "Толық ені",
+  "dark": "Қараңғы",
+  "light": "Жарық",
+  "system": "Жүйе",
+  "auto": "Авто",
+  "english": "Ағылшын",
+  "medium": "Орташа",
+  "newThread": "Жаңа тақырып",
+  "noResultsFound": "Нәтиже табылмады",
+  "noThreadsYet": "Әзірге ағындар жоқ",
+  "noThreadsYetDesc": "Жіп тарихын осы жерден көру үшін жаңа әңгіме бастаңыз.",
+  "downloads": "Жүктеулер",
+  "downloading": "Жүктеп алынуда",
+  "uploadingAttachments": "Тіркемелер жүктеп салынуда…",
+  "cancelDownload": "Жүктеп алудан бас тарту",
+  "downloadCancelled": "Жүктеп алу тоқтатылды",
+  "downloadComplete": "Жүктеп алу аяқталды",
+  "thinking": "Ойлау...",
+  "thought": "Ой",
+  "callingTool": "Қоңырау шалу құралы",
+  "completed": "Аяқталды",
+  "image": "Сурет",
+  "vision": "Көрініс",
+  "multimodal": "мультимодальды",
+  "embeddings": "Енгізулер",
+  "tools": "Құралдар",
+  "webSearch": "Веб-іздеу",
+  "reasoning": "Ой қозғау",
+  "proactive": "Проактивті",
+  "selectAModel": "Үлгіні таңдаңыз",
+  "noToolsAvailable": "Құралдар жоқ",
+  "noModelsFoundFor": "\"{{searchValue}}\" үшін үлгілер табылмады",
+  "failedToLoadModels": "Үлгілерді жүктеу сәтсіз аяқталды",
+  "noModels": "Модельдер табылмады",
+  "noAssistant": "Көмекші жоқ",
+  "customAvatar": "Арнаулы аватар",
+  "editAssistant": "Edit Assistant",
+  "jan": "Novera",
+  "metadata": "Метадеректер",
+  "regenerate": "Қалпына келтіру",
+  "threadImage": "Жіп кескіні",
+  "editMessage": "Хабарды өңдеу",
+  "deleteMessage": "Хабарды жою",
+  "deleteThread": "Тақырыпты жою",
+  "renameThread": "Тақырыптың атын өзгерту",
+  "threadTitle": "Тақырып тақырыбы",
+  "deleteAllThreads": "Барлық ағындарды жою",
+  "allThreadsUnfavorited": "Барлық тақырыптар таңдаудан шығарылды",
+  "deleteAllThreadsConfirm": "Барлық ағындарды шынымен жойғыңыз келе ме? Бұл әрекетті қайтару мүмкін емес.",
+  "addProvider": "Провайдерді қосыңыз",
+  "addOpenAIProvider": "OpenAI провайдерін қосыңыз",
+  "enterNameForProvider": "Провайдеріңіздің атын енгізіңіз",
+  "providerAlreadyExists": "\"{{name}}\" аты бар провайдер бұрыннан бар. Басқа атау таңдаңыз.",
+  "adjustFontSize": "Қаріп өлшемін реттеңіз",
+  "changeLanguage": "Тілді өзгерту",
+  "editTheme": "Тақырыпты өңдеу",
+  "editCodeBlockStyle": "Код блогының мәнерін өңдеу",
+  "editServerHost": "Сервер хостын өңдеу",
+  "pickColorWindowBackground": "Түсті терезе фонын таңдау",
+  "pickColorAppMainView": "Түс қолданбасының негізгі көрінісін таңдаңыз",
+  "pickColorAppPrimary": "Негізгі түсті қолданбаны таңдаңыз",
+  "pickColorAppAccent": "Түс қолданбасының екпінін таңдаңыз",
+  "pickColorAppDestructive": "Деструктивтік түсті қолданбаны таңдаңыз",
+  "apiKeyRequired": "API кілті қажет",
+  "enterTrustedHosts": "Сенімді хосттарды енгізіңіз",
+  "placeholder": {
+    "chatInput": "Маған кез келген нәрсені сұраңыз..."
+  },
+  "confirm": "Растау",
+  "continue": "Жалғастыру",
+  "loading": "Жүктелуде...",
+  "settingUpJan": "Novera жүктелуде…",
+  "registeringExtensions": "Кеңейтімдер тіркелуде…",
+  "loadingExtensions": "Кеңейтімдер жүктелуде… ({{done}}/{{total}})",
+  "error": "Қате",
+  "success": "Сәттілік",
+  "warning": "Ескерту",
+  "conversationNotAvailable": "Әңгімелесу қолжетімді емес",
+  "conversationNotAvailableDescription": "Сіз қол жеткізгіңіз келетін әңгіме қолжетімді емес немесе жойылған.",
+  "temporaryChat": "Уақытша чат",
+  "temporaryChatTooltip": "Уақытша чат тарихыңызда көрсетілмейді",
+  "noResultsFoundDesc": "Іздеуіңізге сәйкес ешбір чатты таба алмадық. Басқа кілт сөзді қолданып көріңіз.",
+  "searchModels": "Үлгілерді іздеу...",
+  "searchStyles": "Мәнерлерді іздеу...",
+  "createAssistant": "Assistant жасау",
+  "enterApiKey": "API пернесін енгізіңіз",
+  "scrollToBottom": "Төменге жылжытыңыз",
+  "generateAiResponse": "AI жауабын жасаңыз",
+  "continueAiResponse": "AI жауабымен жалғастыру",
+  "addModel": {
+    "title": "Үлгі қосу",
+    "modelId": "ID үлгісі",
+    "enterModelId": "ID үлгісін енгізіңіз",
+    "addModel": "Үлгі қосу",
+    "description": "Провайдерге жаңа үлгі қосыңыз",
+    "exploreModels": "Провайдерден үлгілер тізімін қараңыз"
+  },
+  "mcpServers": {
+    "editServer": "Серверді өңдеу",
+    "addServer": "Сервер қосыңыз",
+    "serverName": "Сервер атауы",
+    "enterServerName": "Сервер атын енгізіңіз",
+    "command": "Пәрмені",
+    "enterCommand": "Пәрменді енгізіңіз",
+    "arguments": "Аргументтер",
+    "argument": "Аргументі {{index}}",
+    "envVars": "Ортаның айнымалы мәндері",
+    "key": "кілті",
+    "value": "Мән",
+    "save": "Сақтау"
+  },
+  "deleteServer": {
+    "title": "Серверді жою",
+    "delete": "Жою"
+  },
+  "editJson": {
+    "errorParse": "JSON талдау сәтсіз аяқталды",
+    "errorPaste": "JSON қою сәтсіз аяқталды",
+    "errorFormat": "JSON пішімі жарамсыз",
+    "titleAll": "Барлық сервер конфигурациясын өңдеу",
+    "placeholder": "JSON конфигурациясын енгізіңіз...",
+    "save": "Сақтау"
+  },
+  "editModel": {
+    "title": "Өңдеу үлгісі: {{modelId}}",
+    "description": "Төмендегі опцияларды ауыстырып қосу арқылы үлгі мүмкіндіктерін конфигурациялаңыз.",
+    "capabilities": "Мүмкіндіктер",
+    "tools": "Құралдар",
+    "vision": "Көрініс",
+    "embeddings": "Енгізулер",
+    "notAvailable": "Әлі қолжетімді емес"
+  },
+  "outOfContextError": {
+    "truncateInput": "Енгізуді қысқарту",
+    "title": "Мәтінмәннен тыс қате",
+    "description": "Бұл чат AI жад шегіне жетті, мысалы, тақта толтырылады. Біз жад терезесін (контекст өлшемі деп аталады) кеңейте аламыз, сондықтан ол көбірек есте сақтайды, бірақ ол компьютер жадын көбірек пайдалануы мүмкін. Біз сондай-ақ енгізуді қысқарта аламыз, яғни ол жаңа хабарларға орын босату үшін чат тарихының бір бөлігін ұмытады.",
+    "increaseContextSizeDescription": "Мәтінмән өлшемін ұлғайтқыңыз келе ме?",
+    "increaseContextSize": "Мәтінмән өлшемін үлкейту"
+  },
+  "toolApproval": {
+    "title": "Құралға рұқсат сұрауы",
+    "description": "Көмекші <strong>{{toolName}}</strong> пайдаланғысы келеді",
+    "securityNotice": "Тек сенетін құралдарға рұқсат етіңіз. Құралдар жүйеге және деректерге қол жеткізе алады.",
+    "deny": "Бас тарту",
+    "allowOnce": "Бір рет рұқсат ету",
+    "alwaysAllow": "Әрқашан рұқсат етіңіз"
+  },
+  "deleteModel": {
+    "title": "Үлгіні жою: {{modelId}}",
+    "description": "Осы үлгіні шынымен жойғыңыз келе ме? Бұл әрекетті қайтару мүмкін емес.",
+    "success": "{{modelId}} үлгісі біржола жойылды.",
+    "cancel": "Бас тарту",
+    "delete": "Жою"
+  },
+  "deleteProvider": {
+    "title": "Провайдерді жою",
+    "description": "Осы провайдерді және оның барлық үлгілерін жойыңыз. Бұл әрекетті қайтару мүмкін емес.",
+    "success": "{{provider}} провайдері біржола жойылды.",
+    "confirmTitle": "Провайдерді жою: {{provider}}",
+    "confirmDescription": "Осы провайдерді шынымен жойғыңыз келе ме? Бұл әрекетті қайтару мүмкін емес.",
+    "cancel": "Бас тарту",
+    "delete": "Жою"
+  },
+  "modelSettings": {
+    "title": "Үлгі параметрлері - {{modelId}}",
+    "description": "Өнімділік пен әрекетті оңтайландыру үшін үлгі параметрлерін конфигурациялаңыз.",
+    "nglDisabledByFit": "Автоматты сәйкестендіру GPU қабаттарын таңдау болып табылады. Мұны қолмен орнату үшін Автоматты сәйкестендіруді өшіріңіз.",
+    "samplingDefaults": {
+      "title": "Әдепкі іріктеу параметрлері",
+      "description": "Осы үлгіге арналған әдепкі үлгі параметрлері. Әр көмекші немесе әр сұрау мәндері арқылы қайта анықталмаған жағдайда пайдаланылады."
+    },
+    "specDraft": {
+      "section": "Спекуляциялық декодтау",
+      "enable": "Спекуляциялық декодтауды қосыңыз",
+      "enableDescription": "Әр қадамға бірнеше таңбалауышты жобалаңыз және оларды бір өтуде тексеріңіз, бұл генерацияны жылдамдатады. Модельдің кірістірілген MTP бастарын немесе онымен жүктеп алынған жоба жобасын (MTP, Eagle3, DFlash немесе DSpark) пайдаланады.",
+      "nMax": "Максималды жоба нобайлары",
+      "nMaxDescription": "Әр қадамға нобай үшін таңбалауыштардың ең көп саны. Әдепкі 16.",
+      "nMin": "Ең аз жобалық белгілер",
+      "nMinDescription": "Әр қадамға нобай үшін таңбалауыштардың ең аз саны. Әдепкі 0.",
+      "pMin": "Минималды жоба ықтималдығы",
+      "pMinDescription": "Ашкөздік жобасының ең аз ықтималдығы (0–1). Әдепкі 0,75."
+    },
+    "templateKwargs": {
+      "section": "Чат үлгісі опциялары",
+      "description": "Қосымша опцияларды осы модельдің чат үлгісі қабылдайды. Әрбір сұрау бойынша chat_template_kwargs ретінде жіберіледі; үлгі шешуге мүмкіндік беру үшін мәнді әдепкі бойынша қалдырыңыз.",
+      "addCustom": "Арнаулы опцияны қосыңыз",
+      "keyPlaceholder": "аты",
+      "valuePlaceholder": "мәні",
+      "add": "Қосу",
+      "cancel": "Бас тарту",
+      "remove": "Жою"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Үлгі параметрлерін жаңарту мүмкін болмады"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Деректер қалтасының орнын өзгерту",
+      "description": "Деректер қалтасының орнын шынымен өзгерткіңіз келе ме? Бұл барлық деректеріңізді жаңа орынға жылжытады және қолданбаны қайта іске қосады.",
+      "currentLocation": "Ағымдағы орны:",
+      "newLocation": "Жаңа орын:",
+      "cancel": "Бас тарту",
+      "changeLocation": "Орынды өзгерту"
+    },
+    "deleteAllThreads": {
+      "title": "Барлық ағындарды жою",
+      "description": "Барлық ағындар жойылады. Бұл әрекетті қайтару мүмкін емес."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Барлық сөйлесулерді жою",
+      "description": "\"{{projectName}}\" ішіндегі {{count}} сөйлесулері жойылады. Бұл әрекетті қайтару мүмкін емес."
+    },
+    "deleteThread": {
+      "description": "Осы тарауды шынымен жойғыңыз келе ме? Бұл әрекетті қайтару мүмкін емес."
+    },
+    "editMessage": {
+      "title": "Хабарды өңдеу"
+    },
+    "messageMetadata": {
+      "title": "Хабар метадеректері"
+    },
+    "deleteMessage": {
+      "description": "Осы хабарды шынымен жойғыңыз келе ме? Бұл әрекетті қайтару мүмкін емес."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Бірдеңе дұрыс болмады",
+    "details": "Толығырақ"
+  },
+  "missingDependenciesDialog": {
+    "title": "Жүйе кітапханалары жоқ",
+    "description": "{{backend}} орнатылды, бірақ кейбір қажетті жүйелік кітапханалар табылмады. Ол CPU қалпына түсуі немесе дұрыс жұмыс істемеуі мүмкін.",
+    "installLabel": "Мұны түзету үшін келесіні орнатыңыз:",
+    "download": "Жүктеп алу",
+    "additionalLibraries": "Қосымша жетіспейтін кітапханалар:",
+    "missingLibraries": "жетіспейтін кітапханалар:",
+    "showRawLibraries": "{{count}} жетіспейтін кітапхана атауларын көрсету"
+  },
+  "projects": {
+    "title": "Жобалар",
+    "new": "Жаңа жобалар",
+    "addProject": "Жоба қосу",
+    "addToProject": "Жобаға қосу",
+    "removeFromProject": "Жобадан жою",
+    "createNewProject": "Жаңа жоба жасау",
+    "editProject": "Жобаны өңдеу",
+    "deleteProject": "Жобаны жою",
+    "projectName": "Жоба атауы",
+    "enterProjectName": "Жоба атын енгізіңіз...",
+    "noProjectsAvailable": "Қолжетімді жобалар жоқ",
+    "noProjectsYet": "Әзірге жобалар жоқ",
+    "noProjectsYetDesc": "Жоба қосу түймесін басу арқылы жаңа жобаны бастаңыз.",
+    "projectNotFound": "Жоба табылмады",
+    "projectNotFoundDesc": "Сіз іздеп жатқан жоба жоқ немесе жойылған.",
+    "selectAssistant": "Көмекшіні таңдаңыз",
+    "noAssistantAssigned": "Бұл жобаға ассистент тағайындалмаған",
+    "files": "Файлдар",
+    "filesDescription": "Осы жобаға сілтеме жасау үшін PDF файлдарын, құжаттарды немесе басқа мәтінді қосыңыз.",
+    "uploadingFiles": "Файлдар өңделуде…",
+    "processButton": "Қосу",
+    "deleteProjectDialog": {
+      "title": "Жобаны жою",
+      "permanentDelete": "Бұл барлық ағындарды біржола жояды.",
+      "permanentDeleteWarning": "Бұл әрекет жобадағы ALL ағындарын біржола жояды!",
+      "deleteEmptyProject": "Бұл әрекет \"{{projectName}}\" жобасын жояды.",
+      "saveThreadsAdvice": "Ағындарды сақтау үшін жою алдында оларды ағындар тізіміне немесе басқа жобаға жылжытыңыз.",
+      "starredWarning": "Сізде әлі жобада жұлдызшамен белгіленген ағындар бар.",
+      "deleteButton": "Жою",
+      "successWithName": "\"{{projectName}}\" жобасы сәтті жойылды",
+      "successWithoutName": "Жоба сәтті жойылды",
+      "error": "Жоба жойылмады. Қайталап көріңіз.",
+      "ariaLabel": "{{projectName}} жою"
+    },
+    "addProjectDialog": {
+      "createTitle": "Жаңа жоба жасау",
+      "editTitle": "Жобаны өңдеу",
+      "nameLabel": "Жоба атауы",
+      "namePlaceholder": "Жоба атын енгізіңіз...",
+      "assistant": "Көмекші",
+      "selectAssistant": "Көмекшіні таңдау (міндетті емес)",
+      "noAssistant": "Көмекші жоқ",
+      "addAssistant": "Assistant қосыңыз",
+      "createButton": "Жасау",
+      "updateButton": "Жаңарту",
+      "alreadyExists": "\"{{projectName}}\" жобасы бұрыннан бар",
+      "createSuccess": "\"{{projectName}}\" жобасы сәтті жасалды",
+      "updateSuccess": "\"{{projectName}}\" жобасы сәтті жаңартылды",
+      "saveError": "Жобаны сақтау мүмкін болмады. Қайталап көріңіз."
+    },
+    "noConversationsIn": "{{projectName}} форматында сөйлесулер жоқ",
+    "startNewConversation": "Төменде {{projectName}} арқылы жаңа сөйлесуді бастаңыз",
+    "conversationsIn": "{{projectName}} форматындағы әңгімелер",
+    "conversationsDescription": "Чатты жалғастыру үшін кез келген әңгімені басыңыз немесе төменде жаңасын бастаңыз.",
+    "conversation": "Әңгімелесу",
+    "instructions": "Нұсқаулар",
+    "setup": "Орнату",
+    "instructionsDescription": "Жауап үні мен мәнерін реттеңіз",
+    "manageInstructions": "Нұсқауларды басқару",
+    "thread": "жіп",
+    "threads": "ағындары",
+    "updated": "Жаңартылған:",
+    "collapseProject": "Жобаны жабу",
+    "expandProject": "Жобаны кеңейту",
+    "update": "Жаңарту",
+    "searchProjects": "Жобаларды іздеу...",
+    "noProjectsFound": "Жобалар табылмады",
+    "tryDifferentSearch": "Басқа іздеу сөзін қолданып көріңіз"
+  },
+  "attachmentsIngestion": {
+    "title": "Тіркемелерді қабылдау жолын таңдаңыз",
+    "description": "Бұл файлдарды тікелей чатта қосуды немесе олардың орнына ендірілгендер ретінде индекстеуді таңдаңыз.",
+    "inline": "Чатқа енгізіңіз",
+    "embeddings": "Енгізулерді пайдаланыңыз"
+  },
+  "attachmentInjectedIndicator": "Чатқа енгізілді",
+  "attachmentEmbeddedIndicator": "RAG үшін ендірілген",
+  "viewInjectedContent": "енгізілген мазмұнды көру",
+  "injectedContentTitle": "енгізілген файл мазмұны",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Барлық тақырыптар таңдаудан шығарылды",
+      "description": "Барлық тараулар таңдаулылардан жойылды."
+    },
+    "deleteAllThreads": {
+      "title": "Барлық ағындарды жою",
+      "description": "Барлық ағындар біржола жойылды."
+    },
+    "renameThread": {
+      "title": "Тақырыптың атын өзгерту",
+      "description": "Тақырып атауы \"{{title}}\" болып өзгертілді"
+    },
+    "deleteThread": {
+      "title": "Тақырыпты жою",
+      "description": "Бұл ағын біржола жойылды."
+    },
+    "errorCopied": {
+      "title": "Көшіру сәтті аяқталды",
+      "description": "Қате туралы ақпарат алмасу буферіне көшірілді"
+    },
+    "errorCopyFailed": {
+      "title": "Көшіру мүмкін болмады",
+      "description": "Қате туралы ақпаратты алмасу буферіне көшіру сәтсіз аяқталды"
+    },
+    "editMessage": {
+      "title": "Хабарды өңдеу",
+      "description": "Хабар сәтті өңделді. Үлгінің жауап беруін күтіңіз."
+    },
+    "appUpdateDownloaded": {
+      "title": "Қолданбаны жаңарту жүктеп алынды",
+      "description": "Қолданба жаңартуы сәтті жүктелді."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Қолданбаны жаңарту жүктеп алу сәтсіз аяқталды",
+      "description": "Қолданба жаңартуын жүктеп алу мүмкін болмады. Қайталап көріңіз."
+    },
+    "downloadComplete": {
+      "title": "Жүктеп алу аяқталды",
+      "description": "{{item}} жүктелді"
+    },
+    "downloadCancelled": {
+      "title": "Жүктеп алу тоқтатылды",
+      "description": "Жүктеп алу процесі тоқтатылды"
+    },
+    "downloadFailed": {
+      "title": "Жүктеп алу сәтсіз аяқталды",
+      "description": "{{item}} жүктеп алу сәтсіз аяқталды",
+      "descriptionWithReason": "{{item}} жүктелмеді: {{reason}}",
+      "reason": {
+        "dns": "сервер атауын шешу мүмкін болмады",
+        "refused": "қосылудан бас тартылды",
+        "timeout": "қосылым уақыты аяқталды",
+        "tls": "қауіпсіз қосылымды орнату мүмкін болмады",
+        "proxy": "проксиге қол жеткізу мүмкін болмады",
+        "unreachable": "серверге қол жеткізу мүмкін болмады"
+      }
+    },
+    "openSettings": "Параметрлерді ашыңыз",
+    "openLogs": "Журналдарды ашыңыз",
+    "downloadTokenRequired": {
+      "title": "Hugging Face таңбалауышы қажет",
+      "description": "Бұл үлгіге Hugging Face кіру таңбалауышы қажет. «Параметрлер» тармағында белгіні қосып, әрекетті қайталаңыз."
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face үлгі лицензиясын қабылдаңыз",
+      "description": "Жүктеп алудан бұрын үлгі лицензиясын Hugging Face бетінде қабылдауыңыз керек."
+    },
+    "downloadRateLimited": {
+      "title": "Тариф Hugging Face арқылы шектелген",
+      "description": "Сізге тарифтік шектеу қойылды. Токенді қосу тарифтік шектеулерді арттыруы мүмкін. Тағы жасауды сәл кейінірек көріңізді өтінеміз."
+    },
+    "modelValidationStarted": {
+      "title": "Тексеру үлгісі",
+      "description": "\"{{modelId}}\" үлгісі сәтті жүктелді. Тұтастық тексерілуде..."
+    },
+    "modelValidationFailed": {
+      "title": "Үлгіні тексеру сәтсіз аяқталды",
+      "description": "Жүктеп алынған \"{{modelId}}\" үлгісі тұтастығын тексеруден өтпеді және жойылды. Файл бүлінген немесе бұрмаланған болуы мүмкін."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Жүктеп алу аяқталды",
+      "description": "\"{{item}}\" үлгісі жүктеп алынды және сәтті расталды"
+    },
+    "projectCreated": {
+      "title": "Жоба жасалды",
+      "description": "\"{{projectName}}\" жобасы сәтті жасалды"
+    },
+    "projectRenamed": {
+      "title": "Жоба атауы өзгертілді",
+      "description": "Жоба атауы \"{{oldName}}\" дегеннен \"{{newName}}\" болып өзгертілді"
+    },
+    "projectDeleted": {
+      "title": "Жоба жойылды",
+      "description": "\"{{projectName}}\" жобасы сәтті жойылды"
+    },
+    "projectAlreadyExists": {
+      "title": "Жоба әлдеқашан бар",
+      "description": "\"{{projectName}}\" жобасы бұрыннан бар"
+    },
+    "projectDeleteFailed": {
+      "title": "Жою сәтсіз аяқталды",
+      "description": "Жоба жойылмады. Қайталап көріңіз."
+    },
+    "threadAssignedToProject": {
+      "title": "Жіп тағайындалды",
+      "description": "Жіп \"{{projectName}}\" үшін сәтті тағайындалды"
+    },
+    "threadRemovedFromProject": {
+      "title": "Жіп жойылды",
+      "description": "Жіп \"{{projectName}}\" ішінен сәтті жойылды"
+    },
+    "fileUploaded": {
+      "title": "Файл өңделді",
+      "description": "Файл өңделді және сәтті индекстелді"
+    },
+    "uploadFailed": {
+      "title": "Өңдеу сәтсіз аяқталды",
+      "description": "Файлды өңдеу мүмкін болмады",
+      "subjectThisFile": "Бұл файл",
+      "pdfMalformedXref": "{{subject}} дұрыс емес PDF айқас анықтамалық кестесі бар және оны талдау мүмкін емес. Оны PDF қарау құралында ашып, қайта сақтап көріңіз (Файл → Басып шығару → PDF ретінде сақтау), содан кейін қайта жүктеп салыңыз.",
+      "pdfScanned": "{{subject}} сканерленген немесе кескінге негізделген PDF сияқты. OCR әлі қолдау көрсетілмейді — мәтінге негізделген PDF жүктеп салыңыз.",
+      "pdfEncrypted": "{{subject}} құпия сөзбен қорғалған. Құпия сөзді алып тастап, әрекетті қайталаңыз.",
+      "pdfUnsupportedFeature": "{{subject}} PDF мүмкіндігін пайдаланады Novera әлі талдай алмайды (мысалы, PostScript түс/көлеңке функциялары). Оны тегістеу үшін қайта сақтап көріңіз (Файл → Басып шығару → PDF ретінде сақтау), содан кейін қайта жүктеп салыңыз.",
+      "pdfGeneric": "{{subject}} PDF ретінде талдау мүмкін емес. Файл бүлінген болуы немесе қолдау көрсетілмейтін PDF мүмкіндігін пайдалануы мүмкін.",
+      "fileTooLarge": "{{subject}} тым үлкен. {{message}}.",
+      "unsupportedType": "\"{{type}}\" файл түріне қолдау көрсетілмейді.",
+      "ioError": "{{subject}} оқу мүмкін емес: {{message}}",
+      "parseGeneric": "{{subject}} талдау мүмкін емес: {{message}}",
+      "fallback": "{{subject}} өңдеу сәтсіз аяқталды."
+    },
+    "fileDeleted": {
+      "title": "Файл жойылды",
+      "description": "Файл жобадан жойылды"
+    },
+    "deleteFailed": {
+      "title": "Жою сәтсіз аяқталды",
+      "description": "Файл жойылмады"
+    },
+    "fileAlreadyExists": {
+      "title": "Файл бұрыннан бар",
+      "description": "Файл осы жобаға әлдеқашан тіркелген"
+    },
+    "unsupportedFileType": {
+      "title": "Қолдау көрсетілмейтін файл түрі",
+      "description": "\".{{extension}}\" файл кеңейтіміне жоба анықтамасы үшін қолдау көрсетілмейді."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Тіркемелер өшірілген",
+      "description": "Тіркемелер \"Параметрлер\" бөлімінде өшірілген"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Файл тым үлкен",
+    "fileTooLargeDescription": "{{fileName}} {{maxFileSizeMB}}MB шегінен асып кетті"
+  },
+  "files": {
+    "chunksCount": "{{count}} бөліктері",
+    "title": "Файлдар",
+    "empty": "Сіз тіркейтін файлдар мен агент жасайтын файлдар осы жерде көрсетіледі.",
+    "a11y": "Файлдар: {{count}}",
+    "attachments": "Қосымшалар",
+    "notImported": "жұмыс кеңістігінде емес"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp әлі бос емес",
+    "description": "Бір немесе бірнеше үлгілер уақытында жүктелмеді. Мәжбүрлеп шығу llama.cpp жұмысын тоқтатады және белсенді жауаптарды үзуі мүмкін.",
+    "forceQuit": "Шығуға мәжбүрлеу",
+    "forcing": "Шығуға мәжбүрлеу…",
+    "shuttingDown": "Өшіруде…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Тарту",
+  "expand": "Кеңейту",
+  "todoPanelTitle": "Прогресс",
+  "todoPanelEmpty": "Әлі орындалатын істер тізімі жоқ.",
+  "backgroundTasks": "Фондық тапсырмалар",
+  "subagentsRunning_one": "{{count}} субагент іске қосылды",
+  "subagentsRunning_other": "{{count}} қосалқы агенттері жұмыс істейді",
+  "monitorsRunning_one": "{{count}} мониторы жұмыс істеп тұр",
+  "monitorsRunning_other": "{{count}} мониторлары жұмыс істеп тұр",
+  "backgroundRunning_one": "{{count}} фондық тапсырма орындалуда",
+  "backgroundRunning_other": "{{count}} фондық тапсырмалар орындалуда",
+  "monitors": "Мониторлар",
+  "monitorPolling": "Дауыс беру",
+  "monitorMatched": "Сәйкес келеді",
+  "monitorTimedOut": "Уақыт бітті",
+  "monitorStopped": "Тоқтатылды",
+  "monitorEnded": "Аяқталды",
+  "coworkWatching_one": "{{count}} мониторын көру…",
+  "coworkWatching_other": "{{count}} мониторларын көру…",
+  "coworkWaitingBackground": "Фондық тапсырмалар күтілуде…",
+  "noBackgroundTasks": "Фондық тапсырмалар әлі жоқ.",
+  "running": "Жүгіру",
+  "queued": "Кезекте",
+  "waiting": "Күтуде",
+  "finished": "Аяқталды",
+  "subagentPhase": "фазасы {{phase}}",
+  "subagentWaiting": "күтуде",
+  "viewTranscript": "Транскриптті қарау",
+  "taskWorking": "Жұмыс…",
+  "taskNoOutput": "Субагент көрінетін нәтиже бермеді.",
+  "subagentToolUses_one": "{{count}} құралын пайдалану",
+  "subagentToolUses_other": "{{count}} құралы пайдаланылады",
+  "artifactGroupCode": "коды",
+  "artifactGroupImage": "Сурет",
+  "artifactGroupDocument": "Құжат",
+  "artifactGroupVideo": "Бейне",
+  "artifactGroupAudio": "Аудио",
+  "artifactOpenPreview": "Алдын ала қарауды ашу",
+  "artifactOpenExternal": "Ашық",
+  "artifactMoreActions": "Қосымша әрекеттер",
+  "artifactShowInFolder": "Қалтада көрсету",
+  "skillsUsedLabel": "Қолданылған дағдылар",
+  "skillsUsed": "Қолданылатын дағдылар: {{skills}}",
+  "artifactsAll": "Барлығы",
+  "artifactsEmpty": "Әзірге ештеңе өндірілген жоқ. Cowork жұмысының артефактілері осы жерде көрсетіледі.",
+  "artifactsNoMatch": "Сәйкес артефактілер жоқ.",
+  "artifactsSearch": "Артефактілерді іздеу",
+  "artifactsShowMore": "{{count}} көбірек көрсету",
+  "workspace": {
+    "readsFrom": "Жұмыс істейді",
+    "writable": "оқу және жазу",
+    "footnote": "Агент бұл қалтаны тікелей оқиды және өңдейді. Айырмашылық тақтасында не өзгергенін қарап шығыңыз.",
+    "footnoteEmpty": "Агентке жобаңызда жұмыс істеуге мүмкіндік беру үшін қалтаны тіркеңіз. Ол ішіндегі файлдарды оқи және өңдей алады.",
+    "attach": "Қалтаны тіркеңіз",
+    "change": "Қалтаны өзгерту",
+    "detach": "Қалтаны ажыратыңыз",
+    "open": "Ашық",
+    "reveal": "Ашу",
+    "unavailable": "Жұмыс кеңістігі қолжетімсіз",
+    "missing": "{{folder}} жұмыс кеңістігі қалтасы енді қолжетімсіз. Басқа қалтаны таңдаңыз.",
+    "openFailed": "Жұмыс кеңістігін ашу мүмкін болмады",
+    "revealFailed": "Жұмыс кеңістігін көрсету мүмкін болмады",
+    "a11yWithFolder": "{{folder}} жоба қалтасы, оқу және жазу рұқсатымен тіркелген. Оны өзгертіңіз немесе ажыратыңыз.",
+    "a11yNoFolder": "Жоба қалтасы тіркелмеген. Біреуін бекітіңіз."
+  },
+  "coworkEmpty": {
+    "title": "Біз немен жұмыс істеп жатырмыз?",
+    "subtitleSandbox": "Novera тапсырмасын беріңіз. Ол файлдарды оқиды және жазады, пәрмендерді орындайды және қадамдар арқылы өздігінен жұмыс істейді.",
+    "subtitleFolder": "Novera тапсырма беріңіз. Ол тікелей {{folder}} ішінде жұмыс істейді, файлдарды өздігінен оқиды және өңдейді.",
+    "try": "Байқап көріңіз",
+    "sandbox": {
+      "first": "Файлдарды түсірілген күні бойынша өзгертетін Python сценарийін жазыңыз",
+      "second": "Мен қоятын CSV бір беттік бақылау тақтасын жасаңыз",
+      "third": "Мен сізге сипаттайтын жоба үшін README жобасын жасаңыз"
+    },
+    "folder": {
+      "first": "{{folder}} қалай біріктірілетінін түсіндіріңіз",
+      "second": "{{folder}} ішінен әрбір TODO тауып, оларды аумақ бойынша топтаңыз",
+      "third": "{{folder}} бөліміне тесттер жазыңыз."
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Терминал жоқ",
+    "a11y": "Пәрмендерді іске қосу өшірілген. Мәліметтер.",
+    "title": "Іске қосу пәрмендері өшірілген",
+    "body": "Novera агентке қабық пәрмендерін жүйе оларды шектей алатын кезде ғана іске қосуға мүмкіндік береді. Мұнда ешқандай құм жәшік қолжетімді емес, сондықтан агент өзінің құм жәшігіндегі файлдарды оқи, жаза және өңдей алады, бірақ ештеңені іске қоса алмайды.",
+    "fixLinux": "Linux bubblewrap пайдаланады. Оны орнатыңыз, содан кейін Novera қайта іске қосыңыз.",
+    "fixMac": "macOS жүйесі /usr/bin/sandbox-exec мекенжайындағы кірістірілген құм жәшігін пайдаланады. Novera ол қолжетімді болғаннан кейін қайта іске қосыңыз.",
+    "fixWindows": "Windows жүйесі AppContainer пайдаланады. Қайталап көру үшін Novera қайта іске қосыңыз.",
+    "recheck": "Қайтадан тексеріңіз"
+  },
+  "planMode": {
+    "label": "Жоспар",
+    "tooltipOff": "Алдымен жоспарлаңыз — агент жазбай оқиды және ұсынады.",
+    "tooltipOn": "Жоспарлау. Агентке файлдарды жазуға рұқсат беру үшін оны өшіріңіз.",
+    "onAnnounce": "Жоспар режимі қосулы",
+    "placeholder": "Жоспар сұраңыз. Агент ешбір файлды өзгертпейді."
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} қадамдарында тоқтады. Агент аяқтаған жоқ.",
+    "keepGoing": "Жалғастырыңыз",
+    "stoppedTokens": "Тоқталды — бұл сеанс таңбалауыш бюджетіне жетті.",
+    "compact": "Шағын",
+    "newSession": "Жаңа сеанс"
+  },
+  "run": {
+    "stopped": "Тоқтатылды.",
+    "failed": "Жүгіру ерте тоқтады.",
+    "tryAgain": "Қайталап көріңіз"
+  },
+  "modelNoTools": "{{model}} құралдарды шақыра алмайды, сондықтан ол агент ретінде әрекет ете алмайды. Құрал шақыру үлгісін таңдаңыз.",
+  "askContinue": "Жалғастыру",
+  "askNext": "Келесі сұрақ",
+  "askPrev": "Алдыңғы сұрақ",
+  "askRecommended": "Ұсынылады",
+  "askSelectedCount": "{{count}} таңдалды",
+  "askSomethingElse": "Басқа нәрсе",
+  "askSomethingElsePlaceholder": "Өз жауабыңызды теріңіз",
+  "submit": "Жіберу",
+  "composer": {
+    "advanced": "Қосымша параметрлер",
+    "modelDefaults": "Үлгінің әдепкі мәндері",
+    "assistantOverrides": "Assistant қайта анықтау",
+    "printPdf": "Басып шығару / PDF ретінде сақтау",
+    "exportHint": "Оқуға болатын форматтар: белсенді тармақ. JSON: хабардың барлық нұсқалары. Сыртқы файлдар жинақталмаған."
+  },
+  "telemetry": {
+    "summary": "Сіздің келісіміңізбен {{host}} сөйлесусіз немесе тұрақты идентификаторсыз тек Novera нұсқасы мен операциялық жүйені алады.",
+    "unavailable": "Статистика конфигурацияланбаған. Ешқандай деректер жіберілмейді."
+  },
+  "errorTracking": {
+    "title": "Қатені бақылау",
+    "summary": "{{host}} қосымша есептері: қате түрі, код орны, нұсқа және операциялық жүйе. Сөйлесулер, өңделмеген қате туралы хабарлар немесе кілттер жоқ. Кез келген уақытта өшіріңіз.",
+    "unavailable": "Қатені бақылау конфигурацияланбаған. Есептер жіберілмейді."
+  }
+}

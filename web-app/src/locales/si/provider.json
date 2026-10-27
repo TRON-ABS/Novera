@@ -1,0 +1,18 @@
+{
+  "addProvider": "සපයන්නා එක් කරන්න",
+  "addOpenAIProvider": "අභිරුචි සැපයුම්කරු එක් කරන්න",
+  "enterNameForProvider": "සැපයුම්කරුගේ නම (උදා: my-llm-server)",
+  "apiTypeLabel": "API ආකෘතිය",
+  "apiTypeOpenAI": "OpenAI-අනුකූල",
+  "apiTypeAnthropic": "Anthropic-අනුකූල",
+  "baseUrlLabel": "පදනම URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API යතුර",
+  "apiKeyPlaceholder": "ඔබේ API යතුර අලවන්න",
+  "invalidBaseUrl": "පදනම URL වලංගු http(s) URL විය යුතුය",
+  "globalSettings": "ගෝලීය සැකසුම්",
+  "stripReasoning": "සන්දර්භයෙන් තීරු තර්ක කිරීම",
+  "stripReasoningDesc": "ඉතිහාසය නැවත යැවීමට පෙර, සියලු සපයන්නන් හරහා පෙර හැරීම් සිතුවිලි/තර්ක කිරීමේ අන්තර්ගතය ඉවත් කරන්න. දේශීය මාදිලි සඳහා KV-cache නැවත භාවිතය වැඩි දියුණු කරයි, නමුත් සමහර මාදිලි (උදා: නව Qwen නිකුතු) වඩා හොඳ බහු-හැරීම් තර්කයක් සඳහා එය තබා ගැනීමට නිර්දේශ කරයි.",
+  "providerAlreadyExists": "{{name}} නම් සැපයුම්කරුවෙකු දැනටමත් පවතී."
+}

@@ -10,6 +10,9 @@ afterEach(() => { vi.restoreAllMocks(); h.native = false; h.locale.mockReset() }
 
 describe('system language matching', () => {
   it.each([
+    ['ceb', 'ceb'], ['kk', 'kk'], ['si', 'si'], ['xh', 'xh'], ['km', 'km'],
+    ['af', 'af'], ['mai', 'mai'], ['wo', 'wo'], ['kmr', 'kmr'], ['rw', 'rw'],
+    ['ku-Latn-TR', 'kmr'], ['ku-Arab-IQ', 'en'],
     ['uzn', 'uzn'], ['uz-UZ', 'uzn'], ['uz-Latn-UZ', 'uzn'], ['uz-Cyrl-UZ', 'en'], ['uz-Arab-AF', 'en'],
     ['pbu-AF', 'pbu'], ['ps-PK', 'pbu'], ['ps-Arab-AF', 'pbu'], ['ps-Latn', 'en'], ['pbt-AF', 'en'],
     ['gaz-ET', 'gaz'], ['om-ET', 'gaz'], ['om-Latn-KE', 'gaz'], ['om-Ethi', 'en'],

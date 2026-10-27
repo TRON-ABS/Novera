@@ -1,0 +1,18 @@
+{
+  "addProvider": "Yongeza uMboneleli",
+  "addOpenAIProvider": "Yongeza uMboneleli ngokweSiko",
+  "enterNameForProvider": "Igama lomboneleli (umzekelo. my-llm-server)",
+  "apiTypeLabel": "API ifomathi",
+  "apiTypeOpenAI": "OpenAI-ehambelanayo",
+  "apiTypeAnthropic": "Anthropic-ehambelanayo",
+  "baseUrlLabel": "Isiseko URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API isitshixo",
+  "apiKeyPlaceholder": "Ncamathelisa isitshixo sakho se-API",
+  "invalidBaseUrl": "Isiseko URL kufuneka ibe yi http(s) esebenzayo URL",
+  "globalSettings": "Useto lwehlabathi",
+  "stripReasoning": "Hlula ukuqiqa kumongo",
+  "stripReasoningDesc": "Susa ukucinga kwangaphambili / umxholo wokuqiqa ngaphambi kokuthumela imbali, kubo bonke ababoneleli. Ukuphucula ukusetyenziswa kwakhona kwe-KV-cache kwiimodeli zasekhaya, kodwa ezinye iimodeli (umzekelo ukukhutshwa kwe-Qwen entsha) incoma ukuyigcina ngengqiqo engcono yokujika okuninzi.",
+  "providerAlreadyExists": "Umboneleli ogama lingu-{{name}} sele ekhona."
+}

@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "कोड",
+    "preview": "पूर्वावलोकन",
+    "previewStreaming": "पीढ़ी समाप्त भेला पर उपलब्ध",
+    "unresolvedAssets_one": "1 संपत्ति संदर्भ पूर्वावलोकन मे लोड नहि भ सकैत अछि. सापेक्षिक पथ कें कोनों आधार URL कें खिलाफ हल करय कें लेल नहि छै.",
+    "unresolvedAssets_other": "{{count}} संपत्ति संदर्भ पूर्वावलोकन मे लोड नहि भ सकैत अछि. सापेक्षिक पथ कें कोनों आधार URL कें खिलाफ हल करय कें लेल नहि छै."
+  },
+  "assistants": "सहायक",
+  "hardware": "हार्डवेयर",
+  "mcp-servers": "MCP सर्वर",
+  "local_api_server": "स्थानीय API सर्वर",
+  "remote_access": "दूरस्थ पहुँच",
+  "integrations": "एकीकरण",
+  "experimental": "प्रयोगात्मक",
+  "claude_code": "क्लाउड कोड",
+  "https_proxy": "HTTPS प्रॉक्सी",
+  "web_search": "वेब खोज",
+  "shell": "खोल",
+  "browse": "ब्राउज़ करें",
+  "moreControls": "अधिक नियंत्रण",
+  "starting": "शुरू भ रहल अछि...",
+  "activeSuffix": "(सक्रिय) २.",
+  "extensions": "विस्तार",
+  "attachments": "संलग्नक",
+  "general": "सामान्य",
+  "settings": "सेटिंग्स",
+  "modelProviders": "मॉडल प्रदाता",
+  "localProviders": "स्थानीय",
+  "remoteProviders": "रिमोट",
+  "manageProviders": "प्रदाता के प्रबंधन",
+  "hiddenProviders": "{{count}} अक्षम",
+  "hideProvider": "प्रदाता छिपाएँ",
+  "showProvider": "प्रदाता दिखाएँ",
+  "interface": "इंटरफेस",
+  "appearance": "रूप",
+  "privacy": "गोपनीयता",
+  "keyboardShortcuts": "शॉर्टकट",
+  "home": "घर",
+  "cowork": "Cowork",
+  "newSession": "नया सत्र",
+  "artifacts": "कलाकृति",
+  "customize": "अनुकूलित करू",
+  "local": "स्थानीय",
+  "selectFolder": "फोल्डर चुनें",
+  "selectModel": "पहिने कोनो मॉडल चुनू",
+  "commands": "आदेश",
+  "cmdHelp": "उपलब्ध कमांड के सूची बनाउ",
+  "cmdClear": "ई सत्र साफ करू",
+  "cmdModels": "सक्रिय मॉडल स्विच करू",
+  "cmdModelsHint": "/models टाइप करू तखन सूची स एकटा मॉडल चुनू",
+  "cmdModelSwitched": "{{name}} मे स्विच कएल गेल",
+  "cmdUnknown": "अज्ञात कमांड: {{name}}। /help के कोशिश करू",
+  "cmdBusy": "एजेंट चलैत काल से नहि क' सकैत अछि",
+  "cmdCompact": "सत्र के संदर्भ को सारांश में संकुचित करें |",
+  "cmdCompacted": "संकुचित {{before}} -> {{after}} संदेश",
+  "cmdNothingToCompact": "एखन धरि कॉम्पैक्ट करबाक लेल किछु नहि",
+  "cmdCompactFailed": "संपीड़न विफल: {{error}}",
+  "cmdPlan": "टॉगल योजना मोड (केवल-पढ़य लेल: एजेंट बिना लिखने प्रस्ताव दैत अछि)",
+  "cmdPlanOn": "योजना मोड पर: एजेंट बिना लिखने पढ़ैत अछि आ प्रस्ताव दैत अछि |",
+  "cmdPlanOff": "योजना मोड बंद: सामान्य निष्पादन",
+  "cmdTodo": "प्रगति पैनल खोलू",
+  "cmdTasks": "बैकग्राउंड टास्क पैनल खोलू",
+  "cmdInit": "परियोजना का अध्ययन एवं लेखन कौशल एवं स्मृति |",
+  "cmdInitRunning": "एहि परियोजना के ऑनबोर्डिंग",
+  "skills": "कौशल",
+  "skillsInContext": "इस रन मे एजेंट के उपलब्ध कौशल |",
+  "skillsTitle": "कौशल प्रबंधन",
+  "skillsScopeProject": "{{folder}} के लिये कौशल |",
+  "skillsScopeGlobal": "वैश्विक कौशल, हर सत्र के लिये उपलब्ध |",
+  "skillsScopeMerged": "{{folder}} के लेल कौशल, प्लस हर सत्र साझा करय वाला वैश्विक कौशल",
+  "skillOriginFolder": "फोल्डर",
+  "skillOriginGlobal": "वैश्विक",
+  "skillsEmpty": "अभी तक कोई कौशल नहीं",
+  "skillsPickOrNew": "संपादन करबाक लेल कोनो कौशल चुनू, अथवा नव बनाउ।",
+  "skillNew": "नया कौशल",
+  "skillDelete": "मेटाबय के कौशल",
+  "skillSave": "बचाउ",
+  "skillSaved": "कौशल सहेजल गेल",
+  "skillNameRequired": "कौशल नाम आवश्यक अछि",
+  "skillNamePlaceholder": "कौशल-नाम",
+  "skillContentPlaceholder": "Markdown मे पुन: उपयोग योग्य प्रक्रिया का वर्णन कीजिए |",
+  "skillHubImport": "हब स आयात करू",
+  "skillHubTitle": "Anthropic कौशल केंद्र",
+  "skillHubEmpty": "हब पर कोनो कौशल नहि भेटल",
+  "skillImport": "आयात",
+  "skillReimport": "पुनः आयात",
+  "skillImported": "आयातित {{name}}",
+  "sessions": "सत्र",
+  "deleteSession": "सत्र मेटाउ",
+  "deleteSessionTitle": "सत्र मेटाउ?",
+  "deleteSessionBody": "\"{{title}}\" आ ओकर प्रतिलिपि स्थायी रूप स मेटा देल जाएत। ई पूर्ववत नहि कएल जा सकैत अछि।",
+  "newChat": "नया चैट",
+  "newAgentChat": "नव एजेंट चैट",
+  "chats": "गपशप",
+  "favorites": "पसंदीदा",
+  "recents": "हाल के",
+  "hub": "हब",
+  "helpSupport": "मदद एवं समर्थन",
+  "helpUsImproveJan": "Novera सुधारने में हमारी मदद करें |",
+  "analyticsConsentDetail": "हम फीचर उपयोग को समझने के लिए अनाम डेटा एकत्रित करते हैं | अहां कें चैट आ व्यक्तिगत जानकारी कें कहियो ट्रैक नहि कैल जायत छै. अहां एकरा सेटिंग्स > गोपनीयता मे कहियो बदलि सकय छी.",
+  "analyticsConsentQuestion": "क्या आप Novera को सुधारने में हमारी मदद करना चाहते हैं?",
+  "unstarAll": "अनस्टार ऑल",
+  "unstar": "अनस्टार",
+  "deleteAll": "सब मेटाउ",
+  "star": "तारा",
+  "rename": "नाम बदलें",
+  "delete": "मेटाउ",
+  "copied": "प्रतिलिपि कएल गेल!",
+  "dataFolder": "डाटा फोल्डर",
+  "others": "अन्य",
+  "language": "भाषा",
+  "login": "लॉग इन करू",
+  "loginWith": "{{provider}} के साथ लॉग इन करें |",
+  "loginFailed": "लॉग इन करबा मे विफल",
+  "logout": "लॉग आउट",
+  "loggingOut": "लॉग आउट करब...",
+  "loggedOut": "सफलतापूर्वक लॉग आउट",
+  "logoutFailed": "लॉग आउट करबा मे असफल",
+  "profile": "प्रोफाइल",
+  "reset": "रीसेट करब",
+  "search": "खोज",
+  "searchThreads": "खोज थ्रेड...",
+  "toNavigate": "नेविगेट करने के लिये",
+  "toSelect": "चयन करबाक लेल",
+  "toClose": "बंद करबाक लेल",
+  "clearRecent": "साफ",
+  "name": "नाम",
+  "cancel": "रद्द करब",
+  "dismiss": "बर्खास्त करब",
+  "create": "बनाये",
+  "save": "बचाउ",
+  "edit": "संपादन",
+  "copy": "प्रतिलिपि",
+  "back": "वापस",
+  "close": "बंद करू",
+  "done": "कयल गेल",
+  "next": "अगला",
+  "finish": "समाप्त",
+  "skip": "छोड़ि दियौ",
+  "allow": "अनुमति देब",
+  "deny": "इनकार करब",
+  "start": "शुरू",
+  "stop": "रुक जाउ",
+  "preview": {
+    "loading": "उद्घाटन...",
+    "unsupported": "Novera एहि तरहक फाइल नहि देखा सकैत अछि. एकरा दोसर ऐप मे देखबाक लेल खोलू।",
+    "outside": "ई फाइल आब सत्र कार्यक्षेत्र मे नहि अछि.",
+    "tooLarge": "पूर्वावलोकन के लेल बहुत पैघ। एकरा दोसर ऐप मे देखबाक लेल खोलू।",
+    "reload": "पुनः लोड करे",
+    "allowNetwork": "नेटवर्क के अनुमति दियौ",
+    "unsandboxed": "अनसैंडबॉक्स चलाउ: सहेजल गेल डाटा आ स्थानीय फाइल काज करैत अछि",
+    "unresolvedRefs_one": "1 फाइल जकर लिंक ई पृष्ठ पूर्वावलोकन मे लोड नहि भ' सकैत अछि. एकरा ब्राउज़र मे देखबाक लेल खोलू।",
+    "unresolvedRefs_other": "{{count}} फाइल जेकरा स॑ ई पन्ना लिंक करै छै, पूर्वावलोकन म॑ लोड नै होय सकै छै. एकरा ब्राउज़र मे देखबाक लेल खोलू।",
+    "externalRefs_one": "1 संसाधन जे ई पृष्ठ वेब स लोड करैत अछि अवरुद्ध अछि. एकरा लोड करय लेल \"नेटवर्क के अनुमति दियौ\" चालू करू.",
+    "externalRefs_other": "{{count}} संसाधन जे ई पृष्ठ वेब स लोड करैत अछि अवरुद्ध अछि. ओकरा लोड करय लेल \"नेटवर्क के अनुमति दियौ\" चालू करू.",
+    "scriptErrors_one": "पृष्ठ एक त्रुटि रिपोर्ट केलक: {{message}}",
+    "scriptErrors_other": "पेज रिपोर्ट केलक {{count}} त्रुटियाँ। पहिल: {{message}}"
+  },
+  "changes": {
+    "title": "एजेंट परिवर्तन",
+    "empty": "एजेंट जे फाइल लिखैत अछि या संपादित करैत अछि से एतय देखायत।",
+    "a11y": "एजेंट परिवर्तन: {{files}} फाइल, {{additions}} जोड़ा गेल, {{deletions}} हटा देल गेल"
+  },
+  "modelPanel": {
+    "title": "मॉडल सेटिंग्स",
+    "a11y": "मॉडल सेटिंग्स खोलू",
+    "contextTooltip": "संदर्भ विंडो: {{max}} टोकन के {{value}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "कौशल '{{name}}' उपलब्ध नहि अछि |",
+    "kind": {
+      "skill": "कौशल",
+      "command": "कमांड",
+      "model": "मॉडल"
+    }
+  },
+  "compactWidth": "कॉम्पैक्ट चौड़ाई",
+  "fullWidth": "पूर्ण चौड़ाई",
+  "dark": "अन्हार",
+  "light": "प्रकाश",
+  "system": "प्रणाली",
+  "auto": "ऑटो",
+  "english": "अंग्रेजी",
+  "medium": "मध्यम",
+  "newThread": "नया धागा",
+  "noResultsFound": "कोई परिणाम नहीं मिला",
+  "noThreadsYet": "अभी तक कोई धागा नहीं",
+  "noThreadsYetDesc": "एतय अपन थ्रेड हिस्ट्री देखबाक लेल एकटा नव गप्प शुरू करू।",
+  "downloads": "डाउनलोड",
+  "downloading": "डाउनलोड हो रहल अछि",
+  "uploadingAttachments": "संलग्नक अपलोड करब...",
+  "cancelDownload": "डाउनलोड रद्द करू",
+  "downloadCancelled": "डाउनलोड रद्द",
+  "downloadComplete": "डाउनलोड सम्पूर्ण",
+  "thinking": "सोचि रहल छी...",
+  "thought": "विचार",
+  "callingTool": "कॉलिंग टूल",
+  "completed": "सम्पन्न",
+  "image": "छवि",
+  "vision": "दृष्टि",
+  "multimodal": "बहुविध",
+  "embeddings": "एम्बेडिंग",
+  "tools": "औजार",
+  "webSearch": "वेब खोज",
+  "reasoning": "तर्क",
+  "proactive": "सक्रिय",
+  "selectAModel": "कोनो मॉडल चुनू",
+  "noToolsAvailable": "कोनो औजार उपलब्ध नहि अछि",
+  "noModelsFoundFor": "\"{{searchValue}}\" के लिए कोई मॉडल नहीं मिला।",
+  "failedToLoadModels": "मॉडल लोड करबा मे विफल",
+  "noModels": "कोनो मॉडल नहि भेटल",
+  "noAssistant": "कोनो सहायक नहि",
+  "customAvatar": "कस्टम अवतार",
+  "editAssistant": "संपादन सहायक",
+  "jan": "Novera",
+  "metadata": "मेटाडाटा",
+  "regenerate": "पुनर्जन्म",
+  "threadImage": "धागा छवि",
+  "editMessage": "संपादन संदेश",
+  "deleteMessage": "संदेश मेटाउ",
+  "deleteThread": "थ्रेड मेटाउ",
+  "renameThread": "थ्रेड के नाम बदलें",
+  "threadTitle": "धागा शीर्षक",
+  "deleteAllThreads": "सभी थ्रेड मेटाउ",
+  "allThreadsUnfavorited": "सभी धागा अप्रिय",
+  "deleteAllThreadsConfirm": "की अहाँ निश्चित छी जे अहाँ सभ थ्रेड मेटाबय चाहैत छी? ई क्रिया पूर्ववत नहि कएल जा सकैत अछि ।",
+  "addProvider": "प्रदाता जोड़ू",
+  "addOpenAIProvider": "OpenAI प्रदाता जोड़ू",
+  "enterNameForProvider": "अपन प्रदाता के लेल एकटा नाम दर्ज करू",
+  "providerAlreadyExists": "\"{{name}}\" नाम के साथ प्रदाता पहले से ही मौजूद है | कृपया एकटा अलग नाम चुनू।",
+  "adjustFontSize": "फॉन्ट साइज समायोजित करू",
+  "changeLanguage": "भाषा परिवर्तन",
+  "editTheme": "संपादन विषय",
+  "editCodeBlockStyle": "कोड ब्लॉक शैली संपादित करू",
+  "editServerHost": "सर्वर होस्ट संपादित करू",
+  "pickColorWindowBackground": "रंग विंडो पृष्ठभूमि चुनें",
+  "pickColorAppMainView": "रंग ऐप मुख्य दृश्य चुनें",
+  "pickColorAppPrimary": "रंग ऐप प्राथमिक चुनें",
+  "pickColorAppAccent": "रंग ऐप उच्चारण चुनें",
+  "pickColorAppDestructive": "रंग ऐप विनाशकारी चुनें",
+  "apiKeyRequired": "API कुंजी आवश्यक अछि",
+  "enterTrustedHosts": "विश्वसनीय मेजबान दर्ज करू",
+  "placeholder": {
+    "chatInput": "हमरा स किछु पूछू..."
+  },
+  "confirm": "पुष्टि करब",
+  "continue": "जारी रखें",
+  "loading": "लोड हो रहा है...",
+  "settingUpJan": "Novera अप बूट कर रहल अछि...",
+  "registeringExtensions": "विस्तार पंजीकृत करब...",
+  "loadingExtensions": "एक्सटेंशन लोड भ रहल अछि... ({{done}}/{{total}})",
+  "error": "त्रुटि",
+  "success": "सफलता",
+  "warning": "चेतावनी",
+  "conversationNotAvailable": "गप्प-सप्प उपलब्ध नहि अछि",
+  "conversationNotAvailableDescription": "जे गप्प-सप्प अहाँ पहुँचबाक प्रयास क' रहल छी से उपलब्ध नहि अछि वा मेटा देल गेल अछि ।",
+  "temporaryChat": "अस्थायी गपशप",
+  "temporaryChatTooltip": "अस्थायी चैट अहाँक इतिहास मे नहि देखायत",
+  "noResultsFoundDesc": "हमरा सभकेँ अहाँक खोजसँ मेल खाइत कोनो चैट नहि भेटल। एकटा अलग कीवर्ड के ट्राई करू।",
+  "searchModels": "खोज मॉडल...",
+  "searchStyles": "खोज शैली...",
+  "createAssistant": "सहायक बनाये",
+  "enterApiKey": "API कुंजी दर्ज करू",
+  "scrollToBottom": "नीचाँ स्क्रॉल करू",
+  "generateAiResponse": "AI प्रतिक्रिया उत्पन्न करे |",
+  "continueAiResponse": "AI प्रतिक्रिया के साथ जारी रखें |",
+  "addModel": {
+    "title": "मॉडल जोड़ू",
+    "modelId": "आदर्श ID",
+    "enterModelId": "मॉडल ID दर्ज करू",
+    "addModel": "मॉडल जोड़ू",
+    "description": "प्रदाता मे एकटा नव मॉडल जोड़ू",
+    "exploreModels": "प्रदाता स मॉडल सूची देखू"
+  },
+  "mcpServers": {
+    "editServer": "संपादन सर्वर",
+    "addServer": "सर्वर जोड़ू",
+    "serverName": "सर्वर नाम",
+    "enterServerName": "सर्वर नाम दर्ज करू",
+    "command": "कमांड",
+    "enterCommand": "कमांड दर्ज करू",
+    "arguments": "तर्क",
+    "argument": "तर्क {{index}}",
+    "envVars": "पर्यावरण चर",
+    "key": "कुंजी",
+    "value": "मूल्य",
+    "save": "बचाउ"
+  },
+  "deleteServer": {
+    "title": "सर्वर मेटाउ",
+    "delete": "मेटाउ"
+  },
+  "editJson": {
+    "errorParse": "JSON क पार्स करबा मे विफल",
+    "errorPaste": "JSON पेस्ट करबा मे विफल",
+    "errorFormat": "अमान्य JSON प्रारूप",
+    "titleAll": "सब सर्वर विन्यास संपादित करू",
+    "placeholder": "JSON विन्यास दर्ज करू...",
+    "save": "बचाउ"
+  },
+  "editModel": {
+    "title": "संपादन मॉडल: {{modelId}}",
+    "description": "निम्नलिखित विकल्पों कको टॉगल करकके मॉडल क्षमताओं कको कॉन्फ़िगर करक |",
+    "capabilities": "क्षमता",
+    "tools": "औजार",
+    "vision": "दृष्टि",
+    "embeddings": "एम्बेडिंग",
+    "notAvailable": "एखन धरि उपलब्ध नहि अछि"
+  },
+  "outOfContextError": {
+    "truncateInput": "इनपुट काटना",
+    "title": "संदर्भ स बाहर त्रुटि",
+    "description": "ई चैट AI केरऽ मेमोरी लिमिट तक पहुँची रहलऽ छै, जेना कि व्हाइटबोर्ड भरलऽ जाय छै । हम मेमोरी विंडो (जेकरा संदर्भ आकार कहल जाइत अछि) के विस्तार क सकैत छी जाहि सं ओ बेसी याद राखय, मुदा ई अहां के कंप्यूटर के मेमोरी के बेसी उपयोग क सकैत अछि. हम इनपुट कए सेहो ट्रंक क सकैत छी, मतलब इ चैट हिस्ट्री क किछु बिसरि जाएत ताकि नव संदेश क लेल जगह भ सकए।",
+    "increaseContextSizeDescription": "की अहाँ संदर्भ आकार बढ़ाबय चाहैत छी ?",
+    "increaseContextSize": "संदर्भ आकार बढ़ाना"
+  },
+  "toolApproval": {
+    "title": "टूल अनुमति अनुरोध",
+    "description": "सहायक <strong>{{toolName}}</strong> का प्रयोग करना चाहते हैं |",
+    "securityNotice": "केवल ओहि उपकरणक अनुमति दियौक जकरा अहाँ भरोसा करैत छी। टूल अहां कें सिस्टम आ डाटा कें एक्सेस कयर सकय छै.",
+    "deny": "इनकार करब",
+    "allowOnce": "एक बेर अनुमति दियौ",
+    "alwaysAllow": "हमेशा अनुमति दे"
+  },
+  "deleteModel": {
+    "title": "हटाउ मॉडल: {{modelId}}",
+    "description": "की अहाँ निश्चित छी जे अहाँ एहि मॉडल के हटाबय चाहैत छी? ई क्रिया पूर्ववत नहि कएल जा सकैत अछि ।",
+    "success": "मॉडल {{modelId}} स्थायी रूप स हटा देल गेल अछि।",
+    "cancel": "रद्द करब",
+    "delete": "मेटाउ"
+  },
+  "deleteProvider": {
+    "title": "प्रदाता मेटाउ",
+    "description": "एहि प्रदाता आ ओकर सभ मॉडल केँ मेटा दियौक। ई क्रिया पूर्ववत नहि कएल जा सकैत अछि ।",
+    "success": "प्रदाता {{provider}} स्थायी रूप स मेटा देल गेल अछि।",
+    "confirmTitle": "प्रदाता हटाउ: {{provider}}",
+    "confirmDescription": "की अहाँ निश्चित छी जे अहाँ एहि प्रदाता केँ मेटाबए चाहैत छी? ई क्रिया पूर्ववत नहि कएल जा सकैत अछि ।",
+    "cancel": "रद्द करब",
+    "delete": "मेटाउ"
+  },
+  "modelSettings": {
+    "title": "मॉडल सेटिंग्स - {{modelId}}",
+    "description": "प्रदर्शन आ व्यवहार कें अनुकूलित करय कें लेल मॉडल सेटिंग्स कें कॉन्फ़िगर करय.",
+    "nglDisabledByFit": "ऑटो-फिट GPU परत चुन रहल अछि | एकरा मैन्युअल रूप सँ सेट करबाक लेल ऑटो-फिट बंद करू.",
+    "samplingDefaults": {
+      "title": "डिफ़ॉल्ट नमूना पैरामीटर",
+      "description": "इस मॉडल के सलए डिफ़ॉल्ट सैंपलर सेटिंग्स | जखन तक प्रति-सहायक या प्रति-अनुरोध मान द्वारा ओवरराइड नहि कएल गेल अछि, तखन धरि प्रयोग कएल जाएत."
+    },
+    "specDraft": {
+      "section": "सट्टा डिकोडिंग",
+      "enable": "सट्टा डिकोडिंग सक्षम करू",
+      "enableDescription": "प्रति चरण मे कई टोकन कें मसौदा तैयार करूं आ एकटा पास मे ओकर सत्यापन करूं, जे जनरेशन कें गति प्रदान करय छै. मॉडल कें अंतर्निहित MTP हेड, या ओकरा साथ डाउनलोड करल गेलय ड्राफ्ट मॉडल (MTP, Eagle3, DFlash या DSpark) कें उपयोग करय छै.",
+      "nMax": "अधिकतम ड्राफ्ट टोकन",
+      "nMaxDescription": "प्रति चरण मे मसौदा तैयार करय कें लेल टोकन कें अधिकतम संख्या. डिफ़ॉल्ट 16।",
+      "nMin": "न्यूनतम ड्राफ्ट टोकन",
+      "nMinDescription": "प्रति चरण मसौदा तैयार करय कें लेल टोकन कें न्यूनतम संख्या. डिफ़ॉल्ट 0।",
+      "pMin": "न्यूनतम मसौदा संभावना",
+      "pMinDescription": "लोभी मसौदा तैयार करने के लिये न्यूनतम संभावना (0–1)। पूर्वनिर्धारित 0.75।"
+    },
+    "templateKwargs": {
+      "section": "चैट टेम्पलेट विकल्प",
+      "description": "अतिरिक्त विकल्प इस मॉडल के चैट टेम्पलेट स्वीकार करता है | प्रत्येक अनुरोध पर chat_template_kwargs के रूप मे भेजल गेल; टेम्पलेट कए निर्णय लेबाक लेल एकटा मान अपन डिफ़ॉल्ट पर छोड़ू.",
+      "addCustom": "कस्टम विकल्प जोड़ू",
+      "keyPlaceholder": "नाम",
+      "valuePlaceholder": "मान",
+      "add": "जोड़ू",
+      "cancel": "रद्द करब",
+      "remove": "हटाउ"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "मॉडल सेटिंग्स अपडेट नहि क सकल"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "डाटा फोल्डर स्थान बदलें |",
+      "description": "क्या आप निश्चित हैं कि आप डाटा फोल्डर स्थान बदलना चाहते हैं? एहि सं अहां के सभ डाटा नवका स्थान पर ल जाएत आओर एप्लीकेशन के फेर सं शुरू भ जाएत.",
+      "currentLocation": "वर्तमान स्थान:",
+      "newLocation": "नया स्थान: १.",
+      "cancel": "रद्द करब",
+      "changeLocation": "स्थान परिवर्तन"
+    },
+    "deleteAllThreads": {
+      "title": "सभी थ्रेड मेटाउ",
+      "description": "सभ थ्रेड मेटा देल जाएत। ई क्रिया पूर्ववत नहि कएल जा सकैत अछि ।"
+    },
+    "deleteAllThreadsInProject": {
+      "title": "सभी वार्तालाप मेटा दियौ",
+      "description": "\"{{projectName}}\" मे {{count}} बातचीत मेटा देल जाएत. ई क्रिया पूर्ववत नहि कएल जा सकैत अछि ।"
+    },
+    "deleteThread": {
+      "description": "की अहाँ निश्चित छी जे अहाँ ई थ्रेड मेटाबय चाहैत छी? ई क्रिया पूर्ववत नहि कएल जा सकैत अछि ।"
+    },
+    "editMessage": {
+      "title": "संपादन संदेश"
+    },
+    "messageMetadata": {
+      "title": "संदेश मेटाडाटा"
+    },
+    "deleteMessage": {
+      "description": "की अहाँ निश्चित छी जे अहाँ ई संदेश मेटाबय चाहैत छी? ई क्रिया पूर्ववत नहि कएल जा सकैत अछि ।"
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "किछु गड़बड़ भ गेल",
+    "details": "विवरण"
+  },
+  "missingDependenciesDialog": {
+    "title": "सिस्टम पुस्तकालय गायब",
+    "description": "{{backend}} इंस्टॉल कएल गेल छल मुदा किछु आवश्यक सिस्टम लाइब्रेरी नहि भेट सकल. ई वापस CPU पर खसि सकैत अछि अथवा सही तरीका सँ नहि चल सकैत अछि.",
+    "installLabel": "एकरा ठीक करबाक लेल, निम्नलिखित इंस्टॉल करू:",
+    "download": "डाउनलोड करे",
+    "additionalLibraries": "अतिरिक्त गायब पुस्तकालय:",
+    "missingLibraries": "गायब पुस्तकालय : १.",
+    "showRawLibraries": "{{count}} गायब पुस्तकालय नाम दिखाएँ |"
+  },
+  "projects": {
+    "title": "परियोजनाएँ",
+    "new": "नए परियोजनाएँ",
+    "addProject": "परियोजना जोड़ू",
+    "addToProject": "परियोजना में जोड़ें",
+    "removeFromProject": "परियोजना स हटाउ",
+    "createNewProject": "नया परियोजना बनाइए",
+    "editProject": "संपादन परियोजना",
+    "deleteProject": "परियोजना मेटाउ",
+    "projectName": "परियोजना नाम",
+    "enterProjectName": "परियोजना नाम दर्ज करू...",
+    "noProjectsAvailable": "कोनो परियोजना उपलब्ध नहि अछि",
+    "noProjectsYet": "अभी तक कोई परियोजना नहीं",
+    "noProjectsYetDesc": "प्रोजेक्ट जोड़ू बटन पर क्लिक कए एकटा नव प्रोजेक्ट शुरू करू।",
+    "projectNotFound": "परियोजना नहि भेटल",
+    "projectNotFoundDesc": "जे प्रोजेक्ट अहाँ ताकि रहल छी ओ मौजूद नै अछि या हटा देल गेल अछि।",
+    "selectAssistant": "सहायक के चयन",
+    "noAssistantAssigned": "एहि परियोजना मे कोनो सहायक नहि देल गेल अछि",
+    "files": "फाइल",
+    "filesDescription": "अइ परियोजना मे संदर्भ कें लेल पीडीएफ, दस्तावेज, या अन्य पाठ जोड़ू.",
+    "uploadingFiles": "फाइल के प्रोसेसिंग...",
+    "processButton": "जोड़ू",
+    "deleteProjectDialog": {
+      "title": "परियोजना मेटाउ",
+      "permanentDelete": "एहि सँ सभ थ्रेड स्थायी रूप सँ मेटाओल जायत।",
+      "permanentDeleteWarning": "ई क्रिया परियोजना के भीतर ALL थ्रेड के स्थायी रूप स हटा देत !",
+      "deleteEmptyProject": "ई क्रिया प्रोजेक्ट \"{{projectName}}\" मेटा देत।",
+      "saveThreadsAdvice": "थ्रेड क॑ सेव करै लेली, हटाबै स॑ पहल॑ ओकरा अपनऽ थ्रेड सूची या कोनो अन्य प्रोजेक्ट म॑ स्थानांतरित करी दियौ ।",
+      "starredWarning": "अहाँ के एखनो प्रोजेक्ट के भीतर स्टार थ्रेड अछि।",
+      "deleteButton": "मेटाउ",
+      "successWithName": "परियोजना \"{{projectName}}\" सफलतापूर्वक मेटा देल गेल",
+      "successWithoutName": "परियोजना सफलतापूर्वक मेटा देल गेल",
+      "error": "परियोजना मेटाबय मे विफल. कृपया पुनः प्रयास करू।",
+      "ariaLabel": "{{projectName}} मेटा दियौ"
+    },
+    "addProjectDialog": {
+      "createTitle": "नया परियोजना बनाइए",
+      "editTitle": "संपादन परियोजना",
+      "nameLabel": "परियोजना नाम",
+      "namePlaceholder": "परियोजना नाम दर्ज करू...",
+      "assistant": "सहायक",
+      "selectAssistant": "एकटा सहायक चुनू (वैकल्पिक)",
+      "noAssistant": "कोनो सहायक नहि",
+      "addAssistant": "सहायक जोड़ें",
+      "createButton": "बनाये",
+      "updateButton": "अपडेट",
+      "alreadyExists": "परियोजना \"{{projectName}}\" पहिने स मौजूद अछि |",
+      "createSuccess": "परियोजना \"{{projectName}}\" सफलतापूर्वक बनाओल गेल",
+      "updateSuccess": "परियोजना \"{{projectName}}\" सफलतापूर्वक अपडेट कएल गेल",
+      "saveError": "परियोजना सहेजल नहि जा सकल। कृपया पुनः प्रयास करू।"
+    },
+    "noConversationsIn": "{{projectName}} मे कोनो बातचीत नहि",
+    "startNewConversation": "नीचाँ {{projectName}} के संग एकटा नव गप्प शुरू करू",
+    "conversationsIn": "{{projectName}} मे बातचीत",
+    "conversationsDescription": "गप्प-सप्प जारी रखबाक लेल कोनो गप्प पर क्लिक करू, वा नीचाँ नव शुरू करू।",
+    "conversation": "गप्प-सप्प",
+    "instructions": "निर्देश",
+    "setup": "सेटअप",
+    "instructionsDescription": "प्रतिक्रिया के स्वर और शैली अनुकूलित |",
+    "manageInstructions": "निर्देश प्रबंधित करू",
+    "thread": "धागा",
+    "threads": "धागे",
+    "updated": "अद्यतन:",
+    "collapseProject": "ढहना परियोजना",
+    "expandProject": "परियोजना के विस्तार",
+    "update": "अपडेट",
+    "searchProjects": "खोज परियोजना...",
+    "noProjectsFound": "कोनो परियोजना नहि भेटल",
+    "tryDifferentSearch": "एकटा अलग खोज शब्द के कोशिश करू"
+  },
+  "attachmentsIngestion": {
+    "title": "संलग्नक कोना निगलब से चुनू",
+    "description": "चुनू जे इ फाइल कें सीधा चैट मे शामिल करनाय या एकर बजाय एम्बेडिंग कें रूप मे अनुक्रमित करनाय.",
+    "inline": "चैट में इंजेक्शन",
+    "embeddings": "एम्बेडिंग के प्रयोग करू"
+  },
+  "attachmentInjectedIndicator": "चैट में इंजेक्शन लगाया",
+  "attachmentEmbeddedIndicator": "RAG के लिये एम्बेडेड |",
+  "viewInjectedContent": "इंजेक्शन सामग्री देखें",
+  "injectedContentTitle": "इंजेक्शन फाइल सामग्री",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "सभी धागा अप्रिय",
+      "description": "सब थ्रेड अपनेक पसंदीदा स हटा देल गेल अछि।"
+    },
+    "deleteAllThreads": {
+      "title": "सभी थ्रेड मेटाउ",
+      "description": "सब थ्रेड स्थायी रूप स मेटा देल गेल अछि।"
+    },
+    "renameThread": {
+      "title": "थ्रेड के नाम बदलें",
+      "description": "थ्रेड के शीर्षक के नाम बदल के '{{title}}' क देल गेल अछि |"
+    },
+    "deleteThread": {
+      "title": "थ्रेड मेटाउ",
+      "description": "ई थ्रेड स्थायी रूप स मेटा देल गेल अछि।"
+    },
+    "errorCopied": {
+      "title": "प्रतिलिपि सफल",
+      "description": "त्रुटि जानकारी क्लिपबोर्ड पर प्रतिलिपि कएल गेल"
+    },
+    "errorCopyFailed": {
+      "title": "प्रतिलिपि करबामे विफल",
+      "description": "त्रुटि जानकारी क्लिपबोर्ड पर कॉपी करबा मे विफल"
+    },
+    "editMessage": {
+      "title": "संपादन संदेश",
+      "description": "संदेश सफलतापूर्वक संपादित। कृपया मॉडल के प्रतिक्रिया के इंतजार करू।"
+    },
+    "appUpdateDownloaded": {
+      "title": "ऐप अपडेट डाउनलोड",
+      "description": "ऐप अपडेट सफलतापूर्वक डाउनलोड भ गेल अछि।"
+    },
+    "appUpdateDownloadFailed": {
+      "title": "ऐप अपडेट डाउनलोड विफल",
+      "description": "ऐप अपडेट डाउनलोड करबा मे विफल। कृपया पुनः प्रयास करू।"
+    },
+    "downloadComplete": {
+      "title": "डाउनलोड सम्पूर्ण",
+      "description": "{{item}} डाउनलोड कएल गेल अछि"
+    },
+    "downloadCancelled": {
+      "title": "डाउनलोड रद्द",
+      "description": "डाउनलोड प्रक्रिया रद्द क देल गेल"
+    },
+    "downloadFailed": {
+      "title": "डाउनलोड विफल",
+      "description": "{{item}} डाउनलोड विफल",
+      "descriptionWithReason": "{{item}} डाउनलोड विफल: {{reason}}",
+      "reason": {
+        "dns": "सर्वर नाम हल नहि कएल जा सकल",
+        "refused": "कनेक्शन मना क देल गेल",
+        "timeout": "कनेक्शन के समय समाप्त",
+        "tls": "सुरक्षित कनेक्शन स्थापित नहि भ सकल",
+        "proxy": "प्रॉक्सी तक नहि पहुंच सकल",
+        "unreachable": "सर्वर तक नहि पहुँचल जा सकल"
+      }
+    },
+    "openSettings": "सेटिंग्स खोलू",
+    "openLogs": "लॉग खोलें",
+    "downloadTokenRequired": {
+      "title": "Hugging Face टोकन आवश्यक",
+      "description": "इस मॉडल कें लेल Hugging Face एक्सेस टोकन कें आवश्यकता छै. सेटिंग्स मे अपन टोकन जोड़ू आओर फेर कोशिश करू."
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face पर मॉडल लाइसेंस स्वीकार करू",
+      "description": "डाउनलोड करय स पहिने अहां के मॉडल के लाइसेंस ओकर Hugging Face पेज पर स्वीकार करय पड़त."
+    },
+    "downloadRateLimited": {
+      "title": "दर Hugging Face द्वारा सीमित",
+      "description": "अहाँ रेट-लिमिटेड भ गेल छी। टोकन जोड़ला सं दर सीमा बढ़ि सकैत अछि. कृपया बाद मे दोबारा प्रयास करू।"
+    },
+    "modelValidationStarted": {
+      "title": "मान्य मॉडल",
+      "description": "मॉडल \"{{modelId}}\" सफलतापूर्वक डाउनलोड कएल गेल। अखंडता के सत्यापन..."
+    },
+    "modelValidationFailed": {
+      "title": "मॉडल सत्यापन विफल",
+      "description": "डाउनलोड कएल गेल मॉडल \"{{modelId}}\" अखंडता सत्यापन मे विफल भ गेल आओर हटा देल गेल. फाइल दूषित अथवा छेड़छाड़ कएल जा सकैत अछि."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "डाउनलोड सम्पूर्ण",
+      "description": "मॉडल \"{{item}}\" डाउनलोड और सफलतापूर्वक सत्यापित |"
+    },
+    "projectCreated": {
+      "title": "परियोजना निर्मित",
+      "description": "परियोजना \"{{projectName}}\" सफलतापूर्वक बनाओल गेल"
+    },
+    "projectRenamed": {
+      "title": "परियोजना के नाम बदलल गेल",
+      "description": "परियोजना के नाम \"{{oldName}}\" स \"{{newName}}\" क देल गेल।"
+    },
+    "projectDeleted": {
+      "title": "परियोजना मेटा देल गेल",
+      "description": "परियोजना \"{{projectName}}\" सफलतापूर्वक मेटा देल गेल"
+    },
+    "projectAlreadyExists": {
+      "title": "परियोजना पहिने स अछि",
+      "description": "परियोजना \"{{projectName}}\" पहिने स मौजूद अछि |"
+    },
+    "projectDeleteFailed": {
+      "title": "मेटाबय मे असफल",
+      "description": "परियोजना मेटाबय मे विफल. कृपया पुनः प्रयास करू।"
+    },
+    "threadAssignedToProject": {
+      "title": "थ्रेड असाइन कएल गेल",
+      "description": "थ्रेड सफलतापूर्वक \"{{projectName}}\" क' लेल असाइन कएल गेल"
+    },
+    "threadRemovedFromProject": {
+      "title": "धागा हटा देल गेल",
+      "description": "\"{{projectName}}\" स थ्रेड सफलतापूर्वक हटा देल गेल"
+    },
+    "fileUploaded": {
+      "title": "फाइल संसाधित",
+      "description": "फाइल क॑ सफलतापूर्वक संसाधित आरू अनुक्रमित करलऽ गेलऽ छै"
+    },
+    "uploadFailed": {
+      "title": "प्रसंस्करण विफल",
+      "description": "फाइल के प्रोसेस करय मे विफल",
+      "subjectThisFile": "ई फाइल",
+      "pdfMalformedXref": "{{subject}} मे एकटा विकृत PDF क्रॉस-संदर्भ तालिका अछि आओर पार्स नहि कएल जा सकल. एकरा PDF दर्शक मे खोलय के कोशिश करू आओर एकरा फेर सं सेव करू (फाइल → प्रिंट → PDF के रूप मे सेव करू), फेर फेर अपलोड करू.",
+      "pdfScanned": "{{subject}} एक स्कैन या छवि आधारित PDF प्रतीत होता है | OCR एखन धरि समर्थित नहि अछि — कृपया एकटा पाठ-आधारित PDF अपलोड करू.",
+      "pdfEncrypted": "{{subject}} पासवर्ड-सुरक्षित अछि | पासवर्ड हटाउ आओर फेर कोशिश करू.",
+      "pdfUnsupportedFeature": "{{subject}} एकटा PDF सुविधा कें उपयोग करयत छै Novera एखन तइक पार्स नहि कयर सकय छै (जैना PostScript रंग/शेडिंग फंक्शन)। एकरा समतल करबाक लेल एकरा (फाइल → प्रिंट → PDF क रूप मे सहेजू) फेर सँ सेव करबाक प्रयास करू, फेर फेर अपलोड करू.",
+      "pdfGeneric": "{{subject}} क॑ PDF के रूप म॑ पार्स नै करलऽ जाब॑ सकलऽ छेलै । फाइल दूषित भ' सकैत अछि अथवा असमर्थित PDF सुविधा क उपयोग करैत अछि.",
+      "fileTooLarge": "{{subject}} बहुत पैघ अछि। {{message}}.",
+      "unsupportedType": "फाइल प्रकार \"{{type}}\" समर्थित नहि अछि.",
+      "ioError": "{{subject}}: {{message}} नहि पढ़ि सकल",
+      "parseGeneric": "{{subject}} पार्स नहि कएल जा सकल: {{message}}",
+      "fallback": "{{subject}} कें संसाधित करय मे विफल."
+    },
+    "fileDeleted": {
+      "title": "फाइल मेटा देल गेल",
+      "description": "परियोजना स फाइल हटा देल गेल अछि"
+    },
+    "deleteFailed": {
+      "title": "मेटाबय मे असफल",
+      "description": "फाइल मेटाबै मे विफल"
+    },
+    "fileAlreadyExists": {
+      "title": "फाइल पहिने सँ मौजूद अछि",
+      "description": "फाइल पहिने सँ एहि प्रोजेक्ट सँ संलग्न अछि |"
+    },
+    "unsupportedFileType": {
+      "title": "असमर्थित फाइल प्रकार",
+      "description": "फ़ाइल एक्सटेंशन \".{{extension}}\" परियोजना संदर्भ क लेल समर्थित नहि अछि."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "संलग्नक अक्षम",
+      "description": "सेटिंग्स मे संलग्नक अक्षम अछि |"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "फाइल बहुत पैघ",
+    "fileTooLargeDescription": "{{fileName}} {{maxFileSizeMB}}MB सीमा स बेसी भ गेल अछि"
+  },
+  "files": {
+    "chunksCount": "{{count}} चंक्स",
+    "title": "फाइल",
+    "empty": "अहाँ संलग्न फाइल आ एजेंट द्वारा बनाओल गेल फाइल एतय देखायत।",
+    "a11y": "फाइल: {{count}}",
+    "attachments": "संलग्नक",
+    "notImported": "कार्यक्षेत्र मे नहि"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp एखनो व्यस्त अछि",
+    "description": "एक या एक स बेसी मॉडल समय पर अनलोड नै भेल। बल-छोड़नाय llama.cpp कें समाप्त करतय आ सक्रिय प्रतिक्रियाक कें बाधित कयर सकय छै.",
+    "forceQuit": "बल छोड़ि देलक",
+    "forcing": "बल छोड़ने के...",
+    "shuttingDown": "बंद भ रहल अछि..."
+  },
+  "duration": {
+    "seconds": "{{count}}स",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "पतन",
+  "expand": "विस्तार करब",
+  "todoPanelTitle": "प्रगति",
+  "todoPanelEmpty": "अभी तक कोई टोडो लिस्ट नहीं।",
+  "backgroundTasks": "पृष्ठभूमि कार्य",
+  "subagentsRunning_one": "{{count}} सबएजेंट चल रहल अछि",
+  "subagentsRunning_other": "{{count}} उपएजेंट चल रहल अछि",
+  "monitorsRunning_one": "{{count}} मॉनिटर चल रहल अछि",
+  "monitorsRunning_other": "{{count}} मॉनिटर चल रहल अछि",
+  "backgroundRunning_one": "{{count}} पृष्ठभूमि कार्य चल रहा है |",
+  "backgroundRunning_other": "{{count}} पृष्ठभूमि कार्य चल रहे |",
+  "monitors": "मॉनिटर",
+  "monitorPolling": "मतदान",
+  "monitorMatched": "मिलान",
+  "monitorTimedOut": "समय समाप्त",
+  "monitorStopped": "बंद भ गेल",
+  "monitorEnded": "समाप्त",
+  "coworkWatching_one": "{{count}} मॉनिटर देख रहल छी...",
+  "coworkWatching_other": "{{count}} मॉनिटर देख रहल अछि...",
+  "coworkWaitingBackground": "पृष्ठभूमि कार्य पर प्रतीक्षा...",
+  "noBackgroundTasks": "एखन धरि कोनो बैकग्राउंड टास्क नहि।",
+  "running": "चल रहल अछि",
+  "queued": "कतार मे",
+  "waiting": "प्रतीक्षा मे",
+  "finished": "समाप्त",
+  "subagentPhase": "चरण {{phase}}",
+  "subagentWaiting": "प्रतीक्षा मे",
+  "viewTranscript": "प्रतिलिपि देखें",
+  "taskWorking": "काम कर रहे...",
+  "taskNoOutput": "सबएजेंट कोनो दृश्यमान आउटपुट नहि पैदा केलक।",
+  "subagentToolUses_one": "{{count}} उपकरण उपयोग",
+  "subagentToolUses_other": "{{count}} उपकरण उपयोग करता है |",
+  "artifactGroupCode": "कोड",
+  "artifactGroupImage": "छवि",
+  "artifactGroupDocument": "दस्तावेज़",
+  "artifactGroupVideo": "वीडियो",
+  "artifactGroupAudio": "ऑडियो",
+  "artifactOpenPreview": "पूर्वावलोकन खोलू",
+  "artifactOpenExternal": "खुला",
+  "artifactMoreActions": "अधिक क्रिया",
+  "artifactShowInFolder": "फोल्डर में दिखाएँ",
+  "skillsUsedLabel": "कौशल प्रयुक्त",
+  "skillsUsed": "प्रयुक्त कौशल : {{skills}}",
+  "artifactsAll": "सब",
+  "artifactsEmpty": "एखन धरि किछु उत्पादन नहि भेल अछि। Cowork रन स आर्टिफैक्ट एतय देखाइत अछि।",
+  "artifactsNoMatch": "कोनो आर्टिफैक्ट मेल नहि खाइत अछि।",
+  "artifactsSearch": "कलाकृति खोजें",
+  "artifactsShowMore": "{{count}} अधिक दिखाएँ",
+  "workspace": {
+    "readsFrom": "में काम करता है",
+    "writable": "पढ़ना एवं लिखना",
+    "footnote": "एजेंट सीधा एहि फोल्डर केँ पढ़ैत अछि आ संपादित करैत अछि | डिफ पैनल मे की बदलल अछि ओकर समीक्षा करू।",
+    "footnoteEmpty": "एजेंट कें अपन प्रोजेक्ट पर काज करय कें लेल एकटा फोल्डर संलग्न करूं. ई अपन भीतरक फाइल पढ़ि आ संपादित क' सकैत अछि.",
+    "attach": "एकटा फोल्डर संलग्न करू",
+    "change": "फोल्डर बदलू",
+    "detach": "फोल्डर अलग करू",
+    "open": "खुला",
+    "reveal": "खुलासा",
+    "unavailable": "कार्यक्षेत्र अनुपलब्ध अछि",
+    "missing": "कार्यक्षेत्र फोल्डर {{folder}} आब उपलब्ध नहि अछि. एकटा अलग फोल्डर चुनू।",
+    "openFailed": "कार्यक्षेत्र नहि खोलि सकल",
+    "revealFailed": "कार्यक्षेत्र प्रकट नहि क' सकल",
+    "a11yWithFolder": "परियोजना फोल्डर {{folder}}, पढ़ने और लिखने की पहुँच के साथ संलग्न | एकरा बदलू वा अलग करू।",
+    "a11yNoFolder": "कोनो प्रोजेक्ट फोल्डर संलग्न नहि अछि। एकटा संलग्न करू।"
+  },
+  "coworkEmpty": {
+    "title": "हम की काज क रहल छी?",
+    "subtitleSandbox": "Novera को एक कार्य दे | ई फाइल पढ़ै आरू लिखै छै, कमांड चलाबै छै, आरू स्टेप के माध्यम स॑ अपनऽ दम प॑ काम करै छै ।",
+    "subtitleFolder": "Novera को एक कार्य दे | ई सीधा {{folder}} म॑ काम करै छै, फाइल क॑ अपनऽ दम प॑ पढ़ै आरू संपादित करै छै ।",
+    "try": "कोशिश करू",
+    "sandbox": {
+      "first": "एकटा पायथन स्क्रिप्ट लिखू जे फाइल कें नाम बदलय कें तारीख तइक ओकरा लेल गेलय छै",
+      "second": "एकटा CSV स एकल-पृष्ठ डैशबोर्ड बनाउ जे हम पेस्ट करब",
+      "third": "एकटा परियोजना के लेल एकटा README के मसौदा बनाउ जे हम अहाँ के वर्णन करैत छी |"
+    },
+    "folder": {
+      "first": "बताइए कि {{folder}} को एक साथ कैसे रखा जाता है |",
+      "second": "{{folder}} मे हर TODO खोजें और क्षेत्रफल के अनुसार समूहबद्ध करें |",
+      "third": "{{folder}} के भाग के लिए परीक्षण लिखें हम आपको इशारा करते हैं |"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "कोनो टर्मिनल नहि",
+    "a11y": "चल रहल कमांड बंद अछि। विवरण।",
+    "title": "चल रहल कमांड बंद अछि",
+    "body": "Novera एजेंट कें शेल कमांड कें तखनहि चलावय दयत छै जखन अहां कें सिस्टम ओकरा सीमित कयर सकय छै. एतय कोनो सैंडबॉक्स उपलब्ध नहि अछि, तें एजेंट अपन सैंडबॉक्स मे फाइल पढ़ि सकैत अछि, लिखि सकैत अछि आ संपादित क' सकैत अछि — मुदा किछु नहि चला सकैत अछि.",
+    "fixLinux": "लिनक्स bubblewrap क उपयोग करैत अछि | एकरा इंस्टॉल करू, फेर Novera केँ पुनः आरंभ करू.",
+    "fixMac": "macOS /usr/bin/sandbox-exec पर अंतर्निहित सैंडबॉक्स कें उपयोग करयत छै. एक बेर उपलब्ध भ गेलाक बाद Novera कें पुनः आरंभ करू.",
+    "fixWindows": "विंडोज AppContainer क उपयोग करैत अछि | पुनः प्रयास करबाक लेल Novera केँ पुनः आरंभ करू.",
+    "recheck": "पुनः जाँच करू"
+  },
+  "planMode": {
+    "label": "योजना",
+    "tooltipOff": "पहिने योजना बनाउ — एजेंट पढ़ैत अछि आ प्रस्ताव दैत अछि, बिना लिखने।",
+    "tooltipOn": "योजना बनाना। एजेंट केँ फाइल लिखबाक लेल एकरा बंद करू.",
+    "onAnnounce": "योजना मोड चालू",
+    "placeholder": "योजना पूछू। एजेंट कोनो फाइल मे बदलाव नहि करत."
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} चरणों पर बंद। एजेंट समाप्त नहि क’ सकल अछि.",
+    "keepGoing": "चलैत रहू",
+    "stoppedTokens": "बंद भ गेल — ई सत्र अपन टोकन बजट पर मारि देलक।",
+    "compact": "कॉम्पैक्ट",
+    "newSession": "नया सत्र"
+  },
+  "run": {
+    "stopped": "बंद भ गेल।",
+    "failed": "रन जल्दी रुकि गेल।",
+    "tryAgain": "पुनः प्रयास करू"
+  },
+  "modelNoTools": "{{model}} टूल क॑ कॉल नै करी सकै छै, ई लेली ई एजेंट के रूप म॑ काम नै करी सकै छै । एकटा टूल-कॉलिंग मॉडल चुनू।",
+  "askContinue": "जारी रखें",
+  "askNext": "अगला प्रश्न",
+  "askPrev": "पिछला प्रश्न",
+  "askRecommended": "अनुशंसित",
+  "askSelectedCount": "{{count}} चयनित",
+  "askSomethingElse": "किछु आओर",
+  "askSomethingElsePlaceholder": "अपन उत्तर टाइप करू",
+  "submit": "जमा करब",
+  "composer": {
+    "advanced": "उन्नत पैरामीटर",
+    "modelDefaults": "मॉडल डिफ़ॉल्ट",
+    "assistantOverrides": "सहायक ओवरराइड करैत अछि",
+    "printPdf": "प्रिंट / PDF के रूप में सहेजें |",
+    "exportHint": "पठनीय प्रारूप: सक्रिय शाखा। JSON: सभ संदेश संस्करण। बाहरी फाइल बंडल नहि अछि."
+  },
+  "telemetry": {
+    "summary": "अहां कें सहमति सं, {{host}} केवल Novera संस्करण आ ऑपरेटिंग सिस्टम प्राप्त करयत छै, बिना बातचीत या कोनों लगातार पहचानकर्ता कें.",
+    "unavailable": "आँकड़ा विन्यस्त नहि कएल गेल अछि. कोनो डाटा नहि पठाओल जाइत अछि।"
+  },
+  "errorTracking": {
+    "title": "त्रुटि ट्रैकिंग",
+    "summary": "{{host}} कें वैकल्पिक रिपोर्ट: त्रुटि प्रकार, कोड स्थिति, संस्करण आरू ऑपरेटिंग सिस्टम. कोनो गप्प-सप्प, कच्चा त्रुटि संदेश वा कुंजी नहि। कखनो अक्षम करू।",
+    "unavailable": "त्रुटि ट्रैकिंग कॉन्फ़िगर नहि कएल गेल अछि. कोनो रिपोर्ट नहि पठाओल जाइत अछि।"
+  }
+}

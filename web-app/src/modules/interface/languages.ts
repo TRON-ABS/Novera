@@ -6,6 +6,7 @@ export const supportedLanguages = [
   'uzn', 'zu', 'aec', 'pbu', 'gaz', 'skr', 'nl', 'so', 'ro', 'as',
   'es', 'fr', 'it', 'hi', 'id', 'pl', 'vn', 'zh-CN', 'zh-TW',
   'de-DE', 'cs', 'pt-BR', 'ko', 'ja', 'ru', 'ca',
+  'ceb', 'kk', 'si', 'xh', 'km', 'af', 'mai', 'wo', 'kmr', 'rw',
 ] as const satisfies readonly Language[]
 
 export const isSupportedLanguage = (value: unknown): value is Language =>
@@ -22,9 +23,14 @@ export function matchSystemLanguage(preferences: readonly string[]): Language {
       if (tag.language === 'uz' && tag.script && tag.script !== 'Latn') continue
       if (tag.language === 'ps' && tag.script && tag.script !== 'Arab') continue
       if (tag.language === 'om' && tag.script && tag.script !== 'Latn') continue
+      if (normalized.split('-')[0].toLowerCase() === 'kmr') {
+        if (tag.script && tag.script !== 'Latn') continue
+        return 'kmr'
+      }
       const exact = supportedLanguages.find((language) => language.toLowerCase() === tag.baseName.toLowerCase())
       if (exact) return exact
       const language = tag.language
+      if (language === 'ku' && tag.script === 'Latn') return 'kmr'
       if (language === 'uz') return 'uzn'
       if (language === 'ps') return 'pbu'
       if (language === 'om') return 'gaz'

@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Kode",
+    "preview": "Imbere",
+    "previewStreaming": "Iraboneka mugihe ibisekuru birangiye",
+    "unresolvedAssets_one": "Umutungo 1 ntushobora kwikorera mubireba. Inzira zifitanye isano ntizifite URL kugirango ikemure.",
+    "unresolvedAssets_other": "Umutungo wa {{count}} ntushobora kwikorera mubireba. Inzira zifitanye isano ntizifite URL kugirango ikemure."
+  },
+  "assistants": "Abafasha",
+  "hardware": "Ibyuma",
+  "mcp-servers": "MCP Seriveri",
+  "local_api_server": "Seriveri API",
+  "remote_access": "Kwinjira kure",
+  "integrations": "Kwishyira hamwe",
+  "experimental": "Ubushakashatsi",
+  "claude_code": "Amategeko ya Claude",
+  "https_proxy": "HTTPS Porokireri",
+  "web_search": "Gushakisha Urubuga",
+  "shell": "Igikonoshwa",
+  "browse": "Gushakisha",
+  "moreControls": "Igenzura ryinshi",
+  "starting": "Gutangira ...",
+  "activeSuffix": "(Igikorwa)",
+  "extensions": "Kwagura",
+  "attachments": "Umugereka",
+  "general": "Rusange",
+  "settings": "Igenamiterere",
+  "modelProviders": "Abatanga icyitegererezo",
+  "localProviders": "Byaho",
+  "remoteProviders": "Remote",
+  "manageProviders": "Gucunga abatanga",
+  "hiddenProviders": "{{count}} yarahagaritswe",
+  "hideProvider": "Hisha utanga",
+  "showProvider": "Erekana utanga",
+  "interface": "Imigaragarire",
+  "appearance": "Kugaragara",
+  "privacy": "Ibanga",
+  "keyboardShortcuts": "Amahinanzira",
+  "home": "Murugo",
+  "cowork": "Cowork",
+  "newSession": "Isomo rishya",
+  "artifacts": "Ibicuruzwa",
+  "customize": "Hindura",
+  "local": "Byaho",
+  "selectFolder": "Hitamo ububiko",
+  "selectModel": "Hitamo icyitegererezo mbere",
+  "commands": "Amabwiriza",
+  "cmdHelp": "Andika amategeko aboneka",
+  "cmdClear": "Kuraho iki cyiciro",
+  "cmdModels": "Hindura icyitegererezo gikora",
+  "cmdModelsHint": "Andika /models hanyuma hitamo icyitegererezo kurutonde",
+  "cmdModelSwitched": "Yahinduwe kuri {{name}}",
+  "cmdUnknown": "Itegeko ritazwi: {{name}}. Gerageza /help",
+  "cmdBusy": "Ntushobora kubikora mugihe umukozi akora",
+  "cmdCompact": "Gereranya imiterere yicyiciro muri make",
+  "cmdCompacted": "Yegeranye {{before}} -> ubutumwa bwa {{after}}",
+  "cmdNothingToCompact": "Nta kintu na kimwe cyo guhuza",
+  "cmdCompactFailed": "Kwishyira hamwe byarananiranye: {{error}}",
+  "cmdPlan": "Toggle gahunda yuburyo (soma-gusa: umukozi atanga igitekerezo atanditse)",
+  "cmdPlanOn": "Gahunda yuburyo kuri: umukozi asoma kandi agasaba atanditse",
+  "cmdPlanOff": "Gahunda yuburyo buteganijwe: kurangiza bisanzwe",
+  "cmdTodo": "Fungura akanama gatera imbere",
+  "cmdTasks": "Fungura umwanya wimirimo yibikorwa",
+  "cmdInit": "Wige umushinga wandike ubuhanga no kwibuka",
+  "cmdInitRunning": "Kwinjira muri uyu mushinga",
+  "skills": "Ubuhanga",
+  "skillsInContext": "Ubuhanga burahari kubakozi iyi mikorere",
+  "skillsTitle": "Gucunga ubuhanga",
+  "skillsScopeProject": "Ubuhanga bwa {{folder}}",
+  "skillsScopeGlobal": "Ubuhanga bwisi yose, buraboneka kuri buri somo",
+  "skillsScopeMerged": "Ubuhanga bwa {{folder}}, wongeyeho ubuhanga bwisi yose isomo risangiye",
+  "skillOriginFolder": "ububiko",
+  "skillOriginGlobal": "kwisi yose",
+  "skillsEmpty": "Nta buhanga",
+  "skillsPickOrNew": "Hitamo ubuhanga bwo guhindura, cyangwa gukora bundi bushya.",
+  "skillNew": "Ubuhanga bushya",
+  "skillDelete": "Siba ubuhanga",
+  "skillSave": "Bika",
+  "skillSaved": "Ubuhanga bwakijijwe",
+  "skillNameRequired": "Izina ry'ubuhanga rirakenewe",
+  "skillNamePlaceholder": "ubuhanga-izina",
+  "skillContentPlaceholder": "Sobanura uburyo bwakoreshwa muri Markdown…",
+  "skillHubImport": "Kuzana muri hub",
+  "skillHubTitle": "Anthropic ubuhanga hub",
+  "skillHubEmpty": "Nta buhanga buboneka kuri hub",
+  "skillImport": "Kuzana",
+  "skillReimport": "Ongera winjize",
+  "skillImported": "Yatumijwe muri {{name}}",
+  "sessions": "Amasomo",
+  "deleteSession": "Gusiba isomo",
+  "deleteSessionTitle": "Gusiba isomo?",
+  "deleteSessionBody": "\"{{title}}\" kandi inyandiko-mvugo yayo izasibwa burundu. Ibi ntibishobora gusubirwaho.",
+  "newChat": "Ikiganiro gishya",
+  "newAgentChat": "Ikiganiro gishya cyabakozi",
+  "chats": "Kuganira",
+  "favorites": "Bikunzwe",
+  "recents": "Kwakira",
+  "hub": "Hub",
+  "helpSupport": "Gufasha & Inkunga",
+  "helpUsImproveJan": "Dufashe Kunoza Novera",
+  "analyticsConsentDetail": "Turakusanya amakuru atazwi kugirango twumve imikoreshereze yimiterere. Ibiganiro byanyu hamwe namakuru yihariye ntabwo akurikiranwa. Urashobora guhindura ibi umwanya uwariwo wose muri Igenamiterere> Ibanga.",
+  "analyticsConsentQuestion": "Urashaka kudufasha kunoza Novera?",
+  "unstarAll": "Unstar Byose",
+  "unstar": "Inyenyeri",
+  "deleteAll": "Siba Byose",
+  "star": "Inyenyeri",
+  "rename": "Guhindura izina",
+  "delete": "Gusiba",
+  "copied": "Yandukuwe!",
+  "dataFolder": "Ububiko bwamakuru",
+  "others": "Ibindi",
+  "language": "Ururimi",
+  "login": "Injira",
+  "loginWith": "Injira hamwe na {{provider}}",
+  "loginFailed": "Kunanirwa kwinjira",
+  "logout": "Sohoka",
+  "loggingOut": "Kwinjira hanze ...",
+  "loggedOut": "Yinjiye hanze",
+  "logoutFailed": "Kunanirwa gusohoka",
+  "profile": "Umwirondoro",
+  "reset": "Gusubiramo",
+  "search": "Shakisha",
+  "searchThreads": "Shakisha insanganyamatsiko ...",
+  "toNavigate": "kuyobora",
+  "toSelect": "guhitamo",
+  "toClose": "gufunga",
+  "clearRecent": "Biragaragara",
+  "name": "Izina",
+  "cancel": "Hagarika",
+  "dismiss": "Kwirukana",
+  "create": "Kurema",
+  "save": "Bika",
+  "edit": "Hindura",
+  "copy": "Gukoporora",
+  "back": "Inyuma",
+  "close": "Gufunga",
+  "done": "Byakozwe",
+  "next": "Ibikurikira",
+  "finish": "Kurangiza",
+  "skip": "Simbuka",
+  "allow": "Emerera",
+  "deny": "Guhakana",
+  "start": "Tangira",
+  "stop": "Hagarara",
+  "preview": {
+    "loading": "Gufungura…",
+    "unsupported": "Novera ntishobora kwerekana ubwoko bwa dosiye. Fungura kugirango ubone muyindi porogaramu.",
+    "outside": "Iyi dosiye ntikiri mumwanya wakazi.",
+    "tooLarge": "Nini cyane kubireba. Fungura kugirango ubone muyindi porogaramu.",
+    "reload": "Ongera usubiremo",
+    "allowNetwork": "Emerera umuyoboro",
+    "unsandboxed": "Koresha udasanduku: kubika amakuru hamwe namadosiye yaho arakora",
+    "unresolvedRefs_one": "1 dosiye iyi page ihuza ntishobora kwikorera mubireba. Fungura kugirango ubone muri mushakisha.",
+    "unresolvedRefs_other": "{{count}} dosiye iyi page ihuza ntishobora kwikorera mubireba. Fungura kugirango ubone muri mushakisha.",
+    "externalRefs_one": "1 ibikoresho iyi page yikoreye kurubuga irahagaritswe. Fungura \"Emerera umuyoboro\" kugirango uyikore.",
+    "externalRefs_other": "{{count}} ibikoresho iyi page yikoreye kurubuga irahagaritswe. Fungura \"Emerera umuyoboro\" kugirango ubatware.",
+    "scriptErrors_one": "Urupapuro rwatangaje ikosa: {{message}}",
+    "scriptErrors_other": "Urupapuro rwatangaje amakosa ya {{count}}. Icyambere: {{message}}"
+  },
+  "changes": {
+    "title": "Guhindura abakozi",
+    "empty": "Amadosiye umukozi yanditse cyangwa ahindura azerekanwa hano.",
+    "a11y": "Guhindura abakozi: dosiye {{files}}, {{additions}} yongeyeho, {{deletions}} yakuweho"
+  },
+  "modelPanel": {
+    "title": "Igenamiterere ry'icyitegererezo",
+    "a11y": "Fungura igenamiterere ry'icyitegererezo",
+    "contextTooltip": "Idirishya rikubiyemo: {{value}} ya {{max}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Ubuhanga '{{name}}' ntibuboneka",
+    "kind": {
+      "skill": "Ubuhanga",
+      "command": "Itegeko",
+      "model": "Icyitegererezo"
+    }
+  },
+  "compactWidth": "Ubugari bwuzuye",
+  "fullWidth": "Ubugari Bwuzuye",
+  "dark": "Umwijima",
+  "light": "Umucyo",
+  "system": "Sisitemu",
+  "auto": "Imodoka",
+  "english": "Icyongereza",
+  "medium": "Hagati",
+  "newThread": "Ingingo nshya",
+  "noResultsFound": "Nta bisubizo byabonetse",
+  "noThreadsYet": "Nta nsanganyamatsiko",
+  "noThreadsYetDesc": "Tangira ikiganiro gishya kugirango urebe amateka yawe hano.",
+  "downloads": "Gukuramo",
+  "downloading": "Gukuramo",
+  "uploadingAttachments": "Gukuramo imigereka…",
+  "cancelDownload": "Hagarika gukuramo",
+  "downloadCancelled": "Gukuramo",
+  "downloadComplete": "Gukuramo Byuzuye",
+  "thinking": "Gutekereza ...",
+  "thought": "Igitekerezo",
+  "callingTool": "Igikoresho cyo guhamagara",
+  "completed": "Byarangiye",
+  "image": "Ishusho",
+  "vision": "Icyerekezo",
+  "multimodal": "Multimodal",
+  "embeddings": "Ibishushanyo",
+  "tools": "Ibikoresho",
+  "webSearch": "Gushakisha Urubuga",
+  "reasoning": "Gutekereza",
+  "proactive": "Igikorwa",
+  "selectAModel": "Hitamo icyitegererezo",
+  "noToolsAvailable": "Nta bikoresho bihari",
+  "noModelsFoundFor": "Nta moderi yabonetse kuri \"{{searchValue}}\"",
+  "failedToLoadModels": "Kunanirwa gupakira moderi",
+  "noModels": "Nta moderi yabonetse",
+  "noAssistant": "Nta mufasha",
+  "customAvatar": "Custom avatar",
+  "editAssistant": "Hindura umufasha",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Kuvugurura",
+  "threadImage": "Ishusho yumutwe",
+  "editMessage": "Hindura ubutumwa",
+  "deleteMessage": "Gusiba Ubutumwa",
+  "deleteThread": "Siba Ingingo",
+  "renameThread": "Hindura izina",
+  "threadTitle": "Umutwe",
+  "deleteAllThreads": "Siba ingingo zose",
+  "allThreadsUnfavorited": "Imitwe yose idakunzwe",
+  "deleteAllThreadsConfirm": "Uzi neza ko ushaka gusiba insanganyamatsiko zose? Iki gikorwa ntigishobora gusubirwaho.",
+  "addProvider": "Ongera utanga",
+  "addOpenAIProvider": "Ongeramo OpenAI Utanga",
+  "enterNameForProvider": "Andika izina kubaguha",
+  "providerAlreadyExists": "Utanga izina \"{{name}}\" asanzweho. Nyamuneka hitamo irindi zina.",
+  "adjustFontSize": "Guhindura Ingano yimyandikire",
+  "changeLanguage": "Hindura Ururimi",
+  "editTheme": "Hindura insanganyamatsiko",
+  "editCodeBlockStyle": "Hindura uburyo bwo guhagarika kode",
+  "editServerHost": "Hindura Seriveri",
+  "pickColorWindowBackground": "Tora Ibara Idirishya",
+  "pickColorAppMainView": "Tora Ibara rya porogaramu nyamukuru Reba",
+  "pickColorAppPrimary": "Tora Ibara ryibanze",
+  "pickColorAppAccent": "Tora Ibara rya Porogaramu",
+  "pickColorAppDestructive": "Tora Amabara Yangiza",
+  "apiKeyRequired": "API Urufunguzo rurakenewe",
+  "enterTrustedHosts": "Injira abashyitsi bizewe",
+  "placeholder": {
+    "chatInput": "Mubaze ikintu cyose ..."
+  },
+  "confirm": "Emeza",
+  "continue": "Komeza",
+  "loading": "Gutwara ...",
+  "settingUpJan": "Gutangiza Novera…",
+  "registeringExtensions": "Kwiyandikisha kwagura…",
+  "loadingExtensions": "Kwagura umugereka… ({{done}} / {{total}})",
+  "error": "Ikosa",
+  "success": "Intsinzi",
+  "warning": "Kuburira",
+  "conversationNotAvailable": "Ikiganiro ntikiboneka",
+  "conversationNotAvailableDescription": "Ikiganiro ugerageza kubona ntikiboneka cyangwa cyasibwe.",
+  "temporaryChat": "Ikiganiro cyigihe gito",
+  "temporaryChatTooltip": "Ikiganiro cyigihe gito ntikizagaragara mumateka yawe",
+  "noResultsFoundDesc": "Ntabwo twashoboye kubona ibiganiro bihuye nubushakashatsi bwawe. Gerageza ijambo ryibanze.",
+  "searchModels": "Shakisha icyitegererezo ...",
+  "searchStyles": "Uburyo bwo gushakisha ...",
+  "createAssistant": "Kurema umufasha",
+  "enterApiKey": "Injira API Urufunguzo",
+  "scrollToBottom": "Kanda hasi",
+  "generateAiResponse": "Kubyara AI Igisubizo",
+  "continueAiResponse": "Komeza hamwe AI Igisubizo",
+  "addModel": {
+    "title": "Ongeraho Icyitegererezo",
+    "modelId": "Icyitegererezo ID",
+    "enterModelId": "Injira Model ID",
+    "addModel": "Ongeraho Icyitegererezo",
+    "description": "Ongeraho icyitegererezo gishya kubitanga",
+    "exploreModels": "Reba urutonde rwicyitegererezo uhereye kubitanga"
+  },
+  "mcpServers": {
+    "editServer": "Hindura Seriveri",
+    "addServer": "Ongeramo Seriveri",
+    "serverName": "Izina rya Serveri",
+    "enterServerName": "Andika izina rya seriveri",
+    "command": "Itegeko",
+    "enterCommand": "Injira itegeko",
+    "arguments": "Impaka",
+    "argument": "Impaka {{index}}",
+    "envVars": "Ibihinduka Ibidukikije",
+    "key": "Urufunguzo",
+    "value": "Agaciro",
+    "save": "Bika"
+  },
+  "deleteServer": {
+    "title": "Gusiba Seriveri",
+    "delete": "Gusiba"
+  },
+  "editJson": {
+    "errorParse": "Kunanirwa gusesengura JSON",
+    "errorPaste": "Kunanirwa gushira JSON",
+    "errorFormat": "Imiterere JSON itemewe",
+    "titleAll": "Hindura Seriveri zose Iboneza",
+    "placeholder": "Injira JSON iboneza ...",
+    "save": "Bika"
+  },
+  "editModel": {
+    "title": "Hindura Model: {{modelId}}",
+    "description": "Hindura ubushobozi bwikitegererezo uhinduranya amahitamo hepfo.",
+    "capabilities": "Ubushobozi",
+    "tools": "Ibikoresho",
+    "vision": "Icyerekezo",
+    "embeddings": "Ibishushanyo",
+    "notAvailable": "Ntaraboneka"
+  },
+  "outOfContextError": {
+    "truncateInput": "Gabanya ibyinjira",
+    "title": "Bitewe n'ikosa ry'imiterere",
+    "description": "Iki kiganiro kigera kuri AI ntarengwa yo kwibuka, nkibibaho byuzura. Turashobora kwagura idirishya ryo kwibuka (ryitwa ingano yubunini) kugirango ryibuke byinshi, ariko rirashobora gukoresha byinshi mububiko bwa mudasobwa yawe. Turashobora kandi kugabanya ibyinjijwe, bivuze ko bizibagirwa amwe mumateka yo kuganira kugirango tubone umwanya wubutumwa bushya.",
+    "increaseContextSizeDescription": "Urashaka kongera ingano yimiterere?",
+    "increaseContextSize": "Ongera Ingano yimiterere"
+  },
+  "toolApproval": {
+    "title": "Gusaba Uruhushya",
+    "description": "Umufasha arashaka gukoresha <strong>{{toolName}}</strong>",
+    "securityNotice": "Emera gusa ibikoresho wizeye. Ibikoresho birashobora kugera kuri sisitemu hamwe namakuru.",
+    "deny": "Guhakana",
+    "allowOnce": "Emerera rimwe",
+    "alwaysAllow": "Buri gihe Emera"
+  },
+  "deleteModel": {
+    "title": "Gusiba Model: {{modelId}}",
+    "description": "Uzi neza ko ushaka gusiba iyi moderi? Iki gikorwa ntigishobora gusubirwaho.",
+    "success": "Model {{modelId}} yasibwe burundu.",
+    "cancel": "Hagarika",
+    "delete": "Gusiba"
+  },
+  "deleteProvider": {
+    "title": "Gusiba Utanga",
+    "description": "Siba uyitanga hamwe na moderi zayo zose. Iki gikorwa ntigishobora gusubirwaho.",
+    "success": "Utanga {{provider}} yasibwe burundu.",
+    "confirmTitle": "Gusiba utanga: {{provider}}",
+    "confirmDescription": "Uzi neza ko ushaka gusiba uyitanga? Iki gikorwa ntigishobora gusubirwaho.",
+    "cancel": "Hagarika",
+    "delete": "Gusiba"
+  },
+  "modelSettings": {
+    "title": "Igenamiterere ry'icyitegererezo - {{modelId}}",
+    "description": "Kugena imiterere yicyitegererezo kugirango uhindure imikorere nimyitwarire.",
+    "nglDisabledByFit": "Auto-fit ihitamo GPU ibice. Zimya Auto-fit kugirango ushireho intoki.",
+    "samplingDefaults": {
+      "title": "Ibipimo byerekana icyitegererezo",
+      "description": "Igenamiterere risanzwe ryerekana iyi moderi. Byakoreshejwe keretse birenze kuri buri mufasha cyangwa indangagaciro."
+    },
+    "specDraft": {
+      "section": "Gukoresha decoding",
+      "enable": "Gushoboza decoding",
+      "enableDescription": "Tegura ibimenyetso byinshi kuri buri ntambwe hanyuma ubigenzure muri pass imwe, byihuta ibisekuruza. Koresha icyitegererezo cyubatswe muri MTP, cyangwa umushinga wicyitegererezo wakuweho (MTP, Eagle3, DFlash cyangwa DSpark).",
+      "nMax": "Inyandiko yerekana ibimenyetso",
+      "nMaxDescription": "Umubare ntarengwa wibimenyetso byo gutegura intambwe. Mburabuzi 16.",
+      "nMin": "Min yerekana ibimenyetso",
+      "nMinDescription": "Umubare ntarengwa wibimenyetso byo gutegura intambwe. Mburabuzi 0.",
+      "pMin": "Min umushinga ushobora kuba",
+      "pMinDescription": "Ibishoboka ntarengwa byo gutegura umururumba (0–1). Ibisanzwe 0.75."
+    },
+    "templateKwargs": {
+      "section": "Amahitamo yicyitegererezo",
+      "description": "Amahitamo yinyongera iyi moderi yo kuganira yerekana. Yoherejwe nka chat_template_kwargs kuri buri cyifuzo; gusiga agaciro kubisanzwe kugirango ureke inyandikorugero ifate umwanzuro.",
+      "addCustom": "Ongeraho amahitamo yihariye",
+      "keyPlaceholder": "izina",
+      "valuePlaceholder": "agaciro",
+      "add": "Ongeraho",
+      "cancel": "Hagarika",
+      "remove": "Kuraho"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Ntushobora kuvugurura igenamiterere ry'icyitegererezo"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Hindura Data Ububiko",
+      "description": "Uzi neza ko ushaka guhindura ububiko bwububiko? Ibi bizimura amakuru yawe yose ahantu hashya hanyuma utangire porogaramu.",
+      "currentLocation": "Aho uherereye:",
+      "newLocation": "Ahantu hashya:",
+      "cancel": "Hagarika",
+      "changeLocation": "Hindura aho uherereye"
+    },
+    "deleteAllThreads": {
+      "title": "Siba ingingo zose",
+      "description": "Insanganyamatsiko zose zizasibwa. Iki gikorwa ntigishobora gusubirwaho."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Siba Ibiganiro Byose",
+      "description": "{{count}} ibiganiro muri \"{{projectName}}\" bizasibwa. Iki gikorwa ntigishobora gusubirwaho."
+    },
+    "deleteThread": {
+      "description": "Uzi neza ko ushaka gusiba iyi nsanganyamatsiko? Iki gikorwa ntigishobora gusubirwaho."
+    },
+    "editMessage": {
+      "title": "Hindura ubutumwa"
+    },
+    "messageMetadata": {
+      "title": "Ubutumwa Metadata"
+    },
+    "deleteMessage": {
+      "description": "Uzi neza ko ushaka gusiba ubu butumwa? Iki gikorwa ntigishobora gusubirwaho."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Ikintu kitagenze neza",
+    "details": "Ibisobanuro"
+  },
+  "missingDependenciesDialog": {
+    "title": "Kubura amasomero ya sisitemu",
+    "description": "{{backend}} yarashizweho ariko amasomero ya sisitemu asabwa ntashobora kuboneka. Irashobora gusubira kuri CPU cyangwa idakora neza.",
+    "installLabel": "Kugira ngo ukemure ibi, shyiramo ibi bikurikira:",
+    "download": "Gukuramo",
+    "additionalLibraries": "Amasomero yinyongera yabuze:",
+    "missingLibraries": "Amasomero yabuze:",
+    "showRawLibraries": "Erekana {{count}} wabuze amazina y'ibitabo"
+  },
+  "projects": {
+    "title": "Imishinga",
+    "new": "Imishinga mishya",
+    "addProject": "Ongeraho Umushinga",
+    "addToProject": "Ongera kumushinga",
+    "removeFromProject": "Kura mu mushinga",
+    "createNewProject": "Kora umushinga mushya",
+    "editProject": "Hindura umushinga",
+    "deleteProject": "Gusiba Umushinga",
+    "projectName": "Izina ryumushinga",
+    "enterProjectName": "Andika izina ry'umushinga ...",
+    "noProjectsAvailable": "Nta mushinga uhari",
+    "noProjectsYet": "Nta mushinga uracyariho",
+    "noProjectsYetDesc": "Tangira umushinga mushya ukanze buto yo kongeramo umushinga.",
+    "projectNotFound": "Umushinga Utabonetse",
+    "projectNotFoundDesc": "Umushinga urimo ntubaho cyangwa wasibwe.",
+    "selectAssistant": "Hitamo umufasha",
+    "noAssistantAssigned": "Nta mufasha wahawe uyu mushinga",
+    "files": "Amadosiye",
+    "filesDescription": "Ongeraho PDF, inyandiko, cyangwa indi nyandiko kugirango ukoreshwe muri uyu mushinga.",
+    "uploadingFiles": "Gutunganya dosiye…",
+    "processButton": "Ongeraho",
+    "deleteProjectDialog": {
+      "title": "Gusiba Umushinga",
+      "permanentDelete": "Ibi bizasiba burundu insanganyamatsiko zose.",
+      "permanentDeleteWarning": "Iki gikorwa kizasiba burundu insanganyamatsiko ALL mumushinga!",
+      "deleteEmptyProject": "Iki gikorwa kizasiba umushinga \"{{projectName}}\".",
+      "saveThreadsAdvice": "Kugirango ubike insanganyamatsiko, iyimure kurutonde rwawe cyangwa undi mushinga mbere yo gusiba.",
+      "starredWarning": "Uracyafite inyenyeri mumutwe.",
+      "deleteButton": "Gusiba",
+      "successWithName": "Umushinga \"{{projectName}}\" wasibwe neza",
+      "successWithoutName": "Umushinga wasibwe neza",
+      "error": "Kunanirwa gusiba umushinga. Nyamuneka gerageza.",
+      "ariaLabel": "Siba {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Kora umushinga mushya",
+      "editTitle": "Hindura umushinga",
+      "nameLabel": "Izina ryumushinga",
+      "namePlaceholder": "Andika izina ry'umushinga ...",
+      "assistant": "Umufasha",
+      "selectAssistant": "Hitamo umufasha (ubishaka)",
+      "noAssistant": "Nta mufasha",
+      "addAssistant": "Ongera umufasha",
+      "createButton": "Kurema",
+      "updateButton": "Kuvugurura",
+      "alreadyExists": "Umushinga \"{{projectName}}\" urahari",
+      "createSuccess": "Umushinga \"{{projectName}}\" wakozwe neza",
+      "updateSuccess": "Umushinga \"{{projectName}}\" wavuguruwe neza",
+      "saveError": "Ntushobora kubika umushinga. Nyamuneka gerageza."
+    },
+    "noConversationsIn": "Nta biganiro muri {{projectName}}",
+    "startNewConversation": "Tangira ikiganiro gishya hamwe {{projectName}} hepfo",
+    "conversationsIn": "Ibiganiro muri {{projectName}}",
+    "conversationsDescription": "Kanda ku kiganiro icyo ari cyo cyose kugirango ukomeze kuganira, cyangwa utangire bundi bushya.",
+    "conversation": "Ikiganiro",
+    "instructions": "Amabwiriza",
+    "setup": "Gushiraho",
+    "instructionsDescription": "Hindura amajwi nuburyo bwo gusubiza",
+    "manageInstructions": "Gucunga Amabwiriza",
+    "thread": "urudodo",
+    "threads": "insanganyamatsiko",
+    "updated": "Yavuguruwe:",
+    "collapseProject": "Gusenya umushinga",
+    "expandProject": "Kwagura umushinga",
+    "update": "Kuvugurura",
+    "searchProjects": "Shakisha imishinga ...",
+    "noProjectsFound": "Nta mushinga wabonetse",
+    "tryDifferentSearch": "Gerageza ijambo ritandukanye"
+  },
+  "attachmentsIngestion": {
+    "title": "Hitamo uburyo bwo kwinjiza imigereka",
+    "description": "Hitamo niba washyiramo ayo madosiye mu buryo butaziguye mu kiganiro cyangwa ukayashyiraho nk'ibisobanuro aho.",
+    "inline": "Injira mukiganiro",
+    "embeddings": "Koresha gushiramo"
+  },
+  "attachmentInjectedIndicator": "Yatewe mukiganiro",
+  "attachmentEmbeddedIndicator": "Yashyizwe kuri RAG",
+  "viewInjectedContent": "Reba ibirimo byatewe",
+  "injectedContentTitle": "Ibirimo dosiye",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Imitwe yose idakunzwe",
+      "description": "Insanganyamatsiko zose zavanyweho mubyo ukunda."
+    },
+    "deleteAllThreads": {
+      "title": "Siba ingingo zose",
+      "description": "Insanganyamatsiko zose zasibwe burundu."
+    },
+    "renameThread": {
+      "title": "Hindura izina",
+      "description": "Umutwe winsanganyamatsiko wahinduwe kuri '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Siba Ingingo",
+      "description": "Iyi nsanganyamatsiko yasibwe burundu.\nGukoporora neza"
+    },
+    "errorCopied": {
+      "title": "Gukoporora neza",
+      "description": "Amakuru yamakosa yimuwe kuri clip clip"
+    },
+    "errorCopyFailed": {
+      "title": "Kunanirwa kwigana",
+      "description": "Kunanirwa gukoporora amakuru yamakosa kuri clip clip"
+    },
+    "editMessage": {
+      "title": "Hindura ubutumwa",
+      "description": "Ubutumwa bwahinduwe neza. Nyamuneka tegereza icyitegererezo gisubize."
+    },
+    "appUpdateDownloaded": {
+      "title": "Kuvugurura porogaramu",
+      "description": "Ivugurura rya porogaramu ryakuweho neza."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Kuvugurura porogaramu Gukuramo birananirana",
+      "description": "Kunanirwa gukuramo ivugurura rya porogaramu. Nyamuneka gerageza."
+    },
+    "downloadComplete": {
+      "title": "Gukuramo Byuzuye",
+      "description": "{{item}} yakuweho"
+    },
+    "downloadCancelled": {
+      "title": "Gukuramo",
+      "description": "Igikorwa cyo gukuramo cyahagaritswe"
+    },
+    "downloadFailed": {
+      "title": "Gukuramo birananirana",
+      "description": "{{item}} gukuramo byarananiranye",
+      "descriptionWithReason": "{{item}} gukuramo byananiranye: {{reason}}",
+      "reason": {
+        "dns": "izina rya seriveri ntirishobora gukemurwa",
+        "refused": "ihuriro ryaranze",
+        "timeout": "ihuriro ryarengeje igihe",
+        "tls": "ihuza ryizewe ntirishobora gushirwaho",
+        "proxy": "porokisi ntishobora kuboneka",
+        "unreachable": "seriveri ntishobora kugerwaho"
+      }
+    },
+    "openSettings": "Gufungura Igenamiterere",
+    "openLogs": "Fungura ibiti",
+    "downloadTokenRequired": {
+      "title": "Hugging Face ikimenyetso gikenewe",
+      "description": "Iyi moderi isaba ikimenyetso cya Hugging Face. Ongeraho ikimenyetso cyawe muri Igenamiterere hanyuma ugerageze."
+    },
+    "downloadLicenseRequired": {
+      "title": "Emera uruhushya rwicyitegererezo kuri Hugging Face",
+      "description": "Ugomba kwemera uruhushya rwicyitegererezo kurupapuro rwa Hugging Face mbere yo gukuramo."
+    },
+    "downloadRateLimited": {
+      "title": "Igipimo kigarukira kuri Hugging Face",
+      "description": "Wabaye ntarengwa-igipimo. Ongeraho ikimenyetso gishobora kongera igipimo cyibipimo. Nyamuneka gerageza nyuma."
+    },
+    "modelValidationStarted": {
+      "title": "Kwemeza Icyitegererezo",
+      "description": "Yakuweho moderi \"{{modelId}}\" neza. Kugenzura ubunyangamugayo ..."
+    },
+    "modelValidationFailed": {
+      "title": "Kwemeza Icyitegererezo Byatsinzwe",
+      "description": "Moderi yakuweho \"{{modelId}}\" yananiwe kugenzura ubunyangamugayo ikurwaho. Idosiye irashobora kwangirika cyangwa guhindurwa."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Gukuramo Byuzuye",
+      "description": "Model \"{{item}}\" yakuweho kandi igenzurwa neza"
+    },
+    "projectCreated": {
+      "title": "Umushinga washyizweho",
+      "description": "Umushinga \"{{projectName}}\" wakozwe neza"
+    },
+    "projectRenamed": {
+      "title": "Umushinga wahinduwe",
+      "description": "Umushinga wahinduwe kuva \"{{oldName}}\" uhinduka \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Umushinga wasibwe",
+      "description": "Umushinga \"{{projectName}}\" wasibwe neza"
+    },
+    "projectAlreadyExists": {
+      "title": "Umushinga umaze kubaho",
+      "description": "Umushinga \"{{projectName}}\" urahari"
+    },
+    "projectDeleteFailed": {
+      "title": "Gusiba byatsinzwe",
+      "description": "Kunanirwa gusiba umushinga. Nyamuneka gerageza."
+    },
+    "threadAssignedToProject": {
+      "title": "Ingingo Yashizweho",
+      "description": "Urudodo rwahawe \"{{projectName}}\" neza"
+    },
+    "threadRemovedFromProject": {
+      "title": "Ingingo yakuweho",
+      "description": "Ingingo yakuwe kuri \"{{projectName}}\" neza"
+    },
+    "fileUploaded": {
+      "title": "Idosiye Yatunganijwe",
+      "description": "Idosiye yatunganijwe kandi irerekanwa neza"
+    },
+    "uploadFailed": {
+      "title": "Gutunganya byarananiranye",
+      "description": "Kunanirwa gutunganya dosiye",
+      "subjectThisFile": "Iyi dosiye",
+      "pdfMalformedXref": "{{subject}} ifite imbonerahamwe ya PDF yambukiranya imipaka kandi ntishobora gusesengurwa. Gerageza kuyifungura muri PDF uyirebe hanyuma wongere uyibike (File → Icapa → Uzigame nka PDF), hanyuma wongere wohereze.",
+      "pdfScanned": "{{subject}} bigaragara ko ari scanne cyangwa ishingiye ku mashusho PDF. OCR ntabwo irashyigikirwa - nyamuneka ohereza inyandiko ishingiye kuri PDF.",
+      "pdfEncrypted": "{{subject}} irinzwe ijambo ryibanga. Kuraho ijambo ryibanga hanyuma ugerageze.",
+      "pdfUnsupportedFeature": "{{subject}} ikoresha PDF ibiranga Novera ntishobora gusobanura (urugero: PostScript ibara / ibikorwa byo kugicucu). Gerageza kongera kuzigama (File → Icapa → Uzigame nka PDF) kugirango uyitunganyirize, hanyuma wongere wohereze.",
+      "pdfGeneric": "{{subject}} ntishobora kugereranywa nka PDF. Idosiye irashobora kwangirika cyangwa igakoresha PDF idashyigikiwe.",
+      "fileTooLarge": "{{subject}} nini cyane. {{message}}.",
+      "unsupportedType": "Ubwoko bwa dosiye \"{{type}}\" ntabwo bushigikiwe.",
+      "ioError": "Ntushobora gusoma {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} ntishobora gusesengurwa: {{message}}",
+      "fallback": "Kunanirwa gutunganya {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Idosiye Yasibwe",
+      "description": "Idosiye yakuwe mu mushinga"
+    },
+    "deleteFailed": {
+      "title": "Gusiba byatsinzwe",
+      "description": "Kunanirwa gusiba dosiye"
+    },
+    "fileAlreadyExists": {
+      "title": "Idosiye isanzweho",
+      "description": "Idosiye yamaze kwomekwa kuri uyu mushinga"
+    },
+    "unsupportedFileType": {
+      "title": "Ubwoko bwa dosiye idashyigikiwe",
+      "description": "Kwagura dosiye \".{{extension}}\" ntabwo ashyigikiwe kubikorwa byumushinga."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Umugereka wahagaritswe",
+      "description": "Umugereka urahagarikwa muri Igenamiterere"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Idosiye nini cyane",
+    "fileTooLargeDescription": "{{fileName}} irenga {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} uduce",
+    "title": "Amadosiye",
+    "empty": "Idosiye wometse hamwe namadosiye umukozi akora azerekana hano.",
+    "a11y": "Amadosiye: {{count}}",
+    "attachments": "Umugereka",
+    "notImported": "ntabwo ari mukazi"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp aracyahuze",
+    "description": "Moderi imwe cyangwa nyinshi ntabwo yapakuruye mugihe. Kureka ingufu bizarangira llama.cpp kandi birashobora guhagarika ibisubizo bifatika.",
+    "forceQuit": "Kureka",
+    "forcing": "Kureka ingufu…",
+    "shuttingDown": "Gufunga…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Gusenyuka",
+  "expand": "Kwagura",
+  "todoPanelTitle": "Iterambere",
+  "todoPanelEmpty": "Nta rutonde rwa todo.",
+  "backgroundTasks": "Imirimo yibanze",
+  "subagentsRunning_one": "{{count}} subagent ikora",
+  "subagentsRunning_other": "{{count}} subagents ikora",
+  "monitorsRunning_one": "{{count}} monitor ikora",
+  "monitorsRunning_other": "{{count}} ikurikirana ikora",
+  "backgroundRunning_one": "{{count}} imirimo yinyuma ikora",
+  "backgroundRunning_other": "{{count}} imirimo yinyuma ikora",
+  "monitors": "Abakurikirana",
+  "monitorPolling": "Amatora",
+  "monitorMatched": "Bihuye",
+  "monitorTimedOut": "Igihe cyagenwe",
+  "monitorStopped": "Yahagaritswe",
+  "monitorEnded": "Byarangiye",
+  "coworkWatching_one": "Kureba monitor ya {{count}}…",
+  "coworkWatching_other": "Kureba monitor ya {{count}}…",
+  "coworkWaitingBackground": "Gutegereza imirimo yibanze…",
+  "noBackgroundTasks": "Nta mirimo yibanze iracyariho.",
+  "running": "Kwiruka",
+  "queued": "Umurongo",
+  "waiting": "Gutegereza",
+  "finished": "Byarangiye",
+  "subagentPhase": "icyiciro {{phase}}",
+  "subagentWaiting": "gutegereza",
+  "viewTranscript": "Reba inyandiko-mvugo",
+  "taskWorking": "Gukora…",
+  "taskNoOutput": "Subagent nta bisohoka bigaragara.",
+  "subagentToolUses_one": "{{count}} gukoresha ibikoresho",
+  "subagentToolUses_other": "{{count}} igikoresho ikoresha",
+  "artifactGroupCode": "Kode",
+  "artifactGroupImage": "Ishusho",
+  "artifactGroupDocument": "Inyandiko",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Ijwi",
+  "artifactOpenPreview": "Gufungura ibanziriza",
+  "artifactOpenExternal": "Fungura",
+  "artifactMoreActions": "Ibikorwa byinshi",
+  "artifactShowInFolder": "Erekana mububiko",
+  "skillsUsedLabel": "Ubuhanga bwakoreshejwe",
+  "skillsUsed": "Ubuhanga bwakoreshejwe: {{skills}}",
+  "artifactsAll": "Byose",
+  "artifactsEmpty": "Nta kintu na kimwe cyakozwe kugeza ubu. Ibicuruzwa kuva Cowork biruka hano.",
+  "artifactsNoMatch": "Nta bihangano bihuye.",
+  "artifactsSearch": "Shakisha ibihangano",
+  "artifactsShowMore": "Erekana {{count}} birenze",
+  "workspace": {
+    "readsFrom": "Akora muri",
+    "writable": "soma & wandike",
+    "footnote": "Umukozi asoma kandi agahindura ubu bubiko mu buryo butaziguye. Ongera uhindure ibyahinduwe muburyo butandukanye.",
+    "footnoteEmpty": "Ongeraho ububiko kugirango ureke umukozi akore umushinga wawe. Irashobora gusoma no guhindura dosiye imbere.",
+    "attach": "Ongeraho ububiko",
+    "change": "Hindura ububiko",
+    "detach": "Kuramo ububiko",
+    "open": "Fungura",
+    "reveal": "Guhishura",
+    "unavailable": "Umwanya wakazi ntushobora kuboneka",
+    "missing": "Ububiko bwakazi {{folder}} ntibukiboneka. Hitamo ububiko butandukanye.",
+    "openFailed": "Ntushobora gufungura umwanya wakazi",
+    "revealFailed": "Ntushobora kwerekana umwanya wakazi",
+    "a11yWithFolder": "Ububiko bwumushinga {{folder}}, bujyanye no gusoma no kwandika. Hindura cyangwa ubitandukanye.",
+    "a11yNoFolder": "Nta bubiko bwumushinga bufatanije. Ongeraho imwe."
+  },
+  "coworkEmpty": {
+    "title": "Turimo gukora iki?",
+    "subtitleSandbox": "Tanga Novera umurimo. Irasoma kandi ikandika dosiye, ikora amategeko, kandi ikora ikoresheje intambwe yonyine.",
+    "subtitleFolder": "Tanga Novera umurimo. Ikora mu buryo butaziguye muri {{folder}}, gusoma no guhindura dosiye wenyine.",
+    "try": "Gerageza",
+    "sandbox": {
+      "first": "Andika inyandiko ya Python ihindura amazina kumatariki yafashwe",
+      "second": "Kubaka urupapuro rumwe rwa page kuva CSV Nzashyiramo",
+      "third": "Tegura README kumushinga ndagusobanurira"
+    },
+    "folder": {
+      "first": "Sobanura uburyo {{folder}} yashyizwe hamwe",
+      "second": "Shakisha buri TODO muri {{folder}} hanyuma ubashyire hamwe mukarere",
+      "third": "Andika ibizamini igice cya {{folder}} Ndakwerekejeho"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Nta terefone",
+    "a11y": "Gukoresha amategeko bizimya. Ibisobanuro.",
+    "title": "Gukoresha amategeko bizimya",
+    "body": "Novera ireka umukozi akora shell amategeko gusa mugihe sisitemu yawe ishobora kubifunga. Nta sandbox iboneka hano, kuburyo umukozi ashobora gusoma, kwandika no guhindura dosiye muri sandbox yayo - ariko ntacyo ikora.",
+    "fixLinux": "Linux ikoresha bubblewrap. Shyira, hanyuma utangire Novera.",
+    "fixMac": "macOS ikoresha sandbox yubatswe kuri /usr/bin/sandbox-exec. Ongera utangire Novera umaze kuboneka.",
+    "fixWindows": "Windows ikoresha AppContainer. Ongera utangire Novera kugirango ugerageze.",
+    "recheck": "Ongera usuzume"
+  },
+  "planMode": {
+    "label": "Gahunda",
+    "tooltipOff": "Teganya mbere - umukozi asoma kandi agasaba, atanditse.",
+    "tooltipOn": "Gutegura. Zimya ibi kugirango ureke umukozi yandike dosiye.",
+    "onAnnounce": "Gahunda yuburyo kuri",
+    "placeholder": "Saba gahunda. Intumwa ntishobora guhindura dosiye."
+  },
+  "budget": {
+    "stoppedSteps": "Yahagaritswe kuri {{max}} intambwe. Intumwa ntabwo yarangije.",
+    "keepGoing": "Komeza",
+    "stoppedTokens": "Yahagaritswe - iki cyiciro cyibanze kuri bije yacyo.",
+    "compact": "Kwiyunga",
+    "newSession": "Isomo rishya"
+  },
+  "run": {
+    "stopped": "Yahagaritswe.",
+    "failed": "Kwiruka byahagaze kare.",
+    "tryAgain": "Ongera ugerageze"
+  },
+  "modelNoTools": "{{model}} ntishobora guhamagara ibikoresho, ntishobora rero kuba umukozi. Toranya igikoresho cyo guhamagara.",
+  "askContinue": "Komeza",
+  "askNext": "Ikibazo gikurikira",
+  "askPrev": "Ikibazo kibanza",
+  "askRecommended": "Basabwe",
+  "askSelectedCount": "{{count}} yatoranijwe",
+  "askSomethingElse": "Ikindi",
+  "askSomethingElsePlaceholder": "Andika igisubizo cyawe",
+  "submit": "Tanga",
+  "composer": {
+    "advanced": "Ibipimo byambere",
+    "modelDefaults": "Icyitegererezo",
+    "assistantOverrides": "Umufasha ararenze",
+    "printPdf": "Gucapa / Kubika nka PDF",
+    "exportHint": "Imiterere isomeka: ishami rikora. JSON: verisiyo zose zubutumwa. Amadosiye yo hanze ntabwo ahujwe."
+  },
+  "telemetry": {
+    "summary": "Uruhushya rwawe, {{host}} yakira gusa Novera verisiyo na sisitemu y'imikorere, nta biganiro cyangwa umwirondoro uhoraho.",
+    "unavailable": "Imibare ntabwo yashyizweho. Nta makuru yoherejwe."
+  },
+  "errorTracking": {
+    "title": "Gukurikirana amakosa",
+    "summary": "Raporo zishaka kuri {{host}}: ubwoko bwikosa, imyanya ya code, verisiyo na sisitemu y'imikorere. Nta biganiro, ubutumwa bwibeshya cyangwa urufunguzo. Hagarika igihe icyo aricyo cyose.",
+    "unavailable": "Gukurikirana amakosa ntabwo byashyizweho. Nta raporo zoherejwe."
+  }
+}

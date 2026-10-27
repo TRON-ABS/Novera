@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "කේතය",
+    "preview": "පෙරදසුන",
+    "previewStreaming": "උත්පාදනය අවසන් වූ විට ලබා ගත හැක",
+    "unresolvedAssets_one": "1 වත්කම් යොමුවක් පෙරදසුනෙහි පූරණය කළ නොහැක. සාපේක්ෂ මාර්ගවලට එරෙහිව විසඳීමට URL පදනමක් නොමැත.",
+    "unresolvedAssets_other": "{{count}} වත්කම් යොමු පෙරදසුන තුළ පූරණය කළ නොහැක. සාපේක්ෂ මාර්ගවලට එරෙහිව විසඳීමට URL පදනමක් නොමැත."
+  },
+  "assistants": "සහායකයින්",
+  "hardware": "දෘඪාංග",
+  "mcp-servers": "MCP සේවාදායකයන්",
+  "local_api_server": "දේශීය API සේවාදායකය",
+  "remote_access": "දුරස්ථ ප්‍රවේශය",
+  "integrations": "ඒකාබද්ධ කිරීම්",
+  "experimental": "පර්යේෂණාත්මක",
+  "claude_code": "ක්ලෝඩ් කේතය",
+  "https_proxy": "HTTPS ප්‍රොක්සිය",
+  "web_search": "වෙබ් සෙවුම",
+  "shell": "ෂෙල්",
+  "browse": "බ්‍රවුස් කරන්න",
+  "moreControls": "තවත් පාලන",
+  "starting": "ආරම්භ වේ...",
+  "activeSuffix": "(ක්‍රියාකාරී)",
+  "extensions": "දිගු",
+  "attachments": "ඇමුණුම්",
+  "general": "ජෙනරාල්",
+  "settings": "සැකසුම්",
+  "modelProviders": "ආදර්ශ සපයන්නන්",
+  "localProviders": "දේශීය",
+  "remoteProviders": "දුරස්ථ",
+  "manageProviders": "සපයන්නන් කළමනාකරණය කරන්න",
+  "hiddenProviders": "{{count}} අබල කර ඇත",
+  "hideProvider": "සපයන්නා සඟවන්න",
+  "showProvider": "සපයන්නා පෙන්වන්න",
+  "interface": "අතුරු මුහුණත",
+  "appearance": "පෙනුම",
+  "privacy": "පෞද්ගලිකත්වය",
+  "keyboardShortcuts": "කෙටිමං",
+  "home": "නිවස",
+  "cowork": "Cowork",
+  "newSession": "නව සැසිය",
+  "artifacts": "කෞතුක භාණ්ඩ",
+  "customize": "අභිරුචිකරණය කරන්න",
+  "local": "දේශීය",
+  "selectFolder": "ෆෝල්ඩරය තෝරන්න",
+  "selectModel": "පළමුව ආකෘතියක් තෝරන්න",
+  "commands": "විධාන",
+  "cmdHelp": "පවතින විධාන ලැයිස්තුගත කරන්න",
+  "cmdClear": "මෙම සැසිය හිස් කරන්න",
+  "cmdModels": "සක්‍රිය ආකෘතිය මාරු කරන්න",
+  "cmdModelsHint": "/models ටයිප් කර ලැයිස්තුවෙන් ආකෘතියක් තෝරන්න",
+  "cmdModelSwitched": "{{name}} වෙත මාරු විය",
+  "cmdUnknown": "නොදන්නා විධානය: {{name}}. /help උත්සාහ කරන්න",
+  "cmdBusy": "නියෝජිතයා ක්‍රියාත්මක වන විට එය කළ නොහැක",
+  "cmdCompact": "සැසියේ සන්දර්භය සාරාංශයකට සංයුක්ත කරන්න",
+  "cmdCompacted": "සංයුක්ත {{before}} -> {{after}} පණිවිඩ",
+  "cmdNothingToCompact": "තවමත් සංයුක්ත කිරීමට කිසිවක් නැත",
+  "cmdCompactFailed": "සංයුක්ත කිරීම අසාර්ථක විය: {{error}}",
+  "cmdPlan": "සැලසුම් මාදිලිය ටොගල් කරන්න (කියවීමට පමණි: නියෝජිතයා ලිවීමෙන් තොරව යෝජනා කරයි)",
+  "cmdPlanOn": "සැලසුම් මාදිලිය ක්‍රියාත්මකයි: නියෝජිතයා ලිවීමෙන් තොරව කියවා යෝජනා කරයි",
+  "cmdPlanOff": "සැලසුම් මාදිලිය අක්‍රියයි: සාමාන්‍ය ක්‍රියාත්මක කිරීම",
+  "cmdTodo": "ප්‍රගති පැනලය විවෘත කරන්න",
+  "cmdTasks": "පසුබිම් කාර්ය පුවරුව විවෘත කරන්න",
+  "cmdInit": "ව්‍යාපෘතිය අධ්‍යයනය කර කුසලතා සහ මතකය ලියන්න",
+  "cmdInitRunning": "මෙම ව්‍යාපෘතියට ඇතුල් වීම",
+  "skills": "කුසලතා",
+  "skillsInContext": "මෙම දිවීමේ නියෝජිතයාට ඇති කුසලතා",
+  "skillsTitle": "කුසලතා කළමනාකරණය කරන්න",
+  "skillsScopeProject": "{{folder}} සඳහා කුසලතා",
+  "skillsScopeGlobal": "ගෝලීය කුසලතා, සෑම සැසියකටම ලබා ගත හැකිය",
+  "skillsScopeMerged": "{{folder}} සඳහා කුසලතා, සහ සෑම සැසියක්ම බෙදා ගන්නා ගෝලීය කුසලතා",
+  "skillOriginFolder": "ෆෝල්ඩරය",
+  "skillOriginGlobal": "ගෝලීය",
+  "skillsEmpty": "තවමත් කුසලතා නොමැත",
+  "skillsPickOrNew": "සංස්කරණය කිරීමට හෝ අලුත් එකක් සෑදීමට කුසලතාවක් තෝරන්න.",
+  "skillNew": "නව කුසලතා",
+  "skillDelete": "කුසලතාව මකන්න",
+  "skillSave": "සුරකින්න",
+  "skillSaved": "කුසලතා සුරකින ලදී",
+  "skillNameRequired": "කුසලතා නම අවශ්‍යයි",
+  "skillNamePlaceholder": "කුසලතා-නම",
+  "skillContentPlaceholder": "Markdown හි නැවත භාවිතා කළ හැකි ක්‍රියා පටිපාටිය විස්තර කරන්න...",
+  "skillHubImport": "හබ් එකෙන් ආයාත කරන්න",
+  "skillHubTitle": "Anthropic කුසලතා මධ්‍යස්ථානය",
+  "skillHubEmpty": "මධ්‍යස්ථානයේ නිපුණතා කිසිවක් හමු නොවීය",
+  "skillImport": "ආනයනය",
+  "skillReimport": "නැවත ආයාත කරන්න",
+  "skillImported": "ආනයනය කරන ලද {{name}}",
+  "sessions": "සැසි",
+  "deleteSession": "සැසිය මකන්න",
+  "deleteSessionTitle": "සැසිය මකන්නද?",
+  "deleteSessionBody": "\"{{title}}\" සහ එහි පිටපත ස්ථිරවම මකනු ඇත. මෙය පසුගමනය කළ නොහැක.",
+  "newChat": "නව කතාබස්",
+  "newAgentChat": "නව නියෝජිත කතාබස්",
+  "chats": "කතාබස්",
+  "favorites": "ප්‍රියතමයන්",
+  "recents": "මෑතක",
+  "hub": "Hub",
+  "helpSupport": "උදව් සහ සහාය",
+  "helpUsImproveJan": "Novera වැඩිදියුණු කිරීමට අපට උදවු කරන්න",
+  "analyticsConsentDetail": "විශේෂාංග භාවිතය තේරුම් ගැනීමට අපි නිර්නාමික දත්ත රැස් කරමු. ඔබගේ කතාබස් සහ පුද්ගලික තොරතුරු කිසිවිටෙක නිරීක්ෂණය නොකෙරේ. ඔබට මෙය ඕනෑම වේලාවක සැකසීම් > පෞද්ගලිකත්වය තුළ වෙනස් කළ හැක.",
+  "analyticsConsentQuestion": "Novera වැඩිදියුණු කිරීමට අපට උදවු කිරීමට ඔබ කැමතිද?",
+  "unstarAll": "සියලුම තරු ඉවත් කරන්න",
+  "unstar": "තරුව ඉවත් කරන්න",
+  "deleteAll": "සියල්ල මකන්න",
+  "star": "තරුව",
+  "rename": "නැවත නම් කරන්න",
+  "delete": "මකන්න",
+  "copied": "පිටපත් කරන ලදී!",
+  "dataFolder": "දත්ත ෆෝල්ඩරය",
+  "others": "වෙනත්",
+  "language": "භාෂාව",
+  "login": "පුරනය වන්න",
+  "loginWith": "{{provider}} සමඟ ලොග් වන්න",
+  "loginFailed": "පුරනය වීමට අසමත් විය",
+  "logout": "ලොග් අවුට් වන්න",
+  "loggingOut": "ලොග් අවුට් වෙමින්...",
+  "loggedOut": "සාර්ථකව ලොග් අවුට් විය",
+  "logoutFailed": "ලොග් අවුට් වීමට අසමත් විය",
+  "profile": "පැතිකඩ",
+  "reset": "යළි පිහිටුවන්න",
+  "search": "සොයන්න",
+  "searchThreads": "නූල් සොයන්න...\nසැරිසැරීමට",
+  "toNavigate": "තෝරා ගැනීමට",
+  "toSelect": "තෝරා ගැනීමට",
+  "toClose": "වැසීමට",
+  "clearRecent": "පැහැදිලි",
+  "name": "නම",
+  "cancel": "අවලංගු කරන්න",
+  "dismiss": "ඉවත් කරන්න",
+  "create": "සාදන්න",
+  "save": "සුරකින්න",
+  "edit": "සංස්කරණය කරන්න",
+  "copy": "පිටපත",
+  "back": "ආපසු",
+  "close": "වසන්න",
+  "done": "නිමයි",
+  "next": "ඊළඟට",
+  "finish": "අවසන් කරන්න",
+  "skip": "Skip",
+  "allow": "ඉඩ දෙන්න",
+  "deny": "ප්‍රතික්ෂේප කරන්න",
+  "start": "ආරම්භය",
+  "stop": "නවත්වන්න",
+  "preview": {
+    "loading": "විවෘත කරමින්...",
+    "unsupported": "Novera හට මෙවැනි ගොනු පෙන්විය නොහැක. එය වෙනත් යෙදුමකින් බැලීමට එය විවෘත කරන්න.",
+    "outside": "මෙම ගොනුව තවදුරටත් සැසි වැඩබිමෙහි නොමැත.",
+    "tooLarge": "පෙරදසුන් කිරීමට විශාල වැඩිය. එය වෙනත් යෙදුමකින් බැලීමට එය විවෘත කරන්න.",
+    "reload": "නැවත පූරණය කරන්න",
+    "allowNetwork": "ජාලයට ඉඩ දෙන්න",
+    "unsandboxed": "unsandboxed ධාවනය කරන්න: සුරකින ලද දත්ත සහ දේශීය ගොනු ක්‍රියා කරයි",
+    "unresolvedRefs_one": "මෙම පිටුව සම්බන්ධ කරන ගොනු 1ක් පෙරදසුනෙහි පූරණය කළ නොහැක. එය බ්‍රවුසරයකින් බැලීමට එය විවෘත කරන්න.",
+    "unresolvedRefs_other": "{{count}} මෙම පිටුව සම්බන්ධ කරන ගොනු පෙරදසුන තුළ පූරණය කළ නොහැක. එය බ්‍රවුසරයකින් බැලීමට එය විවෘත කරන්න.",
+    "externalRefs_one": "මෙම පිටුව වෙබයෙන් පූරණය වන 1 සම්පත අවහිර කර ඇත. එය පූරණය කිරීමට \"ජාලයට ඉඩ දෙන්න\" ක්‍රියාත්මක කරන්න.",
+    "externalRefs_other": "{{count}} මෙම පිටුව වෙබයෙන් පූරණය වන සම්පත් අවහිර කර ඇත. ඒවා පූරණය කිරීමට \"ජාලයට ඉඩ දෙන්න\" ක්‍රියාත්මක කරන්න.",
+    "scriptErrors_one": "පිටුව දෝෂයක් වාර්තා කර ඇත: {{message}}",
+    "scriptErrors_other": "පිටුව {{count}} දෝෂ වාර්තා කර ඇත. පළමු: {{message}}"
+  },
+  "changes": {
+    "title": "නියෝජිත වෙනස්කම්",
+    "empty": "නියෝජිතයා ලියන හෝ සංස්කරණය කරන ගොනු මෙහි පෙන්වනු ඇත.",
+    "a11y": "නියෝජිත වෙනස්කම්: {{files}} ගොනු, {{additions}} එකතු කරන ලදී, {{deletions}} ඉවත් කරන ලදී"
+  },
+  "modelPanel": {
+    "title": "ආදර්ශ සැකසුම්",
+    "a11y": "මාදිලි සැකසුම් විවෘත කරන්න",
+    "contextTooltip": "සන්දර්භය කවුළුව: {{max}} ටෝකන් වල {{value}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "කුසලතා '{{name}}' නොමැත",
+    "kind": {
+      "skill": "කුසලතා",
+      "command": "විධානය",
+      "model": "මාදිලිය"
+    }
+  },
+  "compactWidth": "සංයුක්ත පළල",
+  "fullWidth": "සම්පූර්ණ පළල",
+  "dark": "අඳුරු",
+  "light": "ආලෝකය",
+  "system": "පද්ධතිය",
+  "auto": "ඔටෝ",
+  "english": "ඉංග්‍රීසි",
+  "medium": "මධ්‍යම",
+  "newThread": "නව නූල්",
+  "noResultsFound": "ප්‍රතිඵල කිසිවක් හමු නොවිණි",
+  "noThreadsYet": "තවම නූල් නැත",
+  "noThreadsYetDesc": "ඔබේ නූල් ඉතිහාසය මෙතැනින් බැලීමට නව සංවාදයක් ආරම්භ කරන්න.",
+  "downloads": "බාගැනීම්",
+  "downloading": "බාගනිමින්",
+  "uploadingAttachments": "ඇමුණුම් උඩුගත කරමින්...",
+  "cancelDownload": "බාගැනීම අවලංගු කරන්න",
+  "downloadCancelled": "බාගැනීම අවලංගුයි",
+  "downloadComplete": "බාගැනීම සම්පූර්ණයි",
+  "thinking": "සිතමින්...",
+  "thought": "සිතුවිල්ල",
+  "callingTool": "ඇමතුම් මෙවලම",
+  "completed": "සම්පූර්ණයි",
+  "image": "රූපය",
+  "vision": "දැක්ම",
+  "multimodal": "බහුවිධ",
+  "embeddings": "Embeddings",
+  "tools": "මෙවලම්",
+  "webSearch": "වෙබ් සෙවුම",
+  "reasoning": "තර්කනය",
+  "proactive": "ක්‍රියාශීලී",
+  "selectAModel": "ආකෘතියක් තෝරන්න",
+  "noToolsAvailable": "මෙවලම් නොමැත",
+  "noModelsFoundFor": "\"{{searchValue}}\" සඳහා මාදිලි කිසිවක් හමු නොවීය",
+  "failedToLoadModels": "මාදිලි පූරණය කිරීමට අසමත් විය",
+  "noModels": "මාදිලි කිසිවක් හමු නොවිණි",
+  "noAssistant": "සහායක නැත",
+  "customAvatar": "අභිරුචි අවතාරය",
+  "editAssistant": "සංස්කරණ සහකාර",
+  "jan": "Novera",
+  "metadata": "පාරදත්ත",
+  "regenerate": "නැවත උත්පාදනය කරන්න",
+  "threadImage": "නූල් රූපය",
+  "editMessage": "පණිවිඩය සංස්කරණය කරන්න",
+  "deleteMessage": "පණිවිඩය මකන්න",
+  "deleteThread": "ත්‍රෙඩ් එක මකන්න",
+  "renameThread": "ත්‍රෙඩ් නැවත නම් කරන්න",
+  "threadTitle": "නූල් මාතෘකාව",
+  "deleteAllThreads": "සියලුම නූල් මකන්න",
+  "allThreadsUnfavorited": "සියලුම නූල් ප්‍රියතම නොවේ",
+  "deleteAllThreadsConfirm": "ඔබට සියලු නූල් මකා දැමීමට අවශ්‍ය බව විශ්වාසද? මෙම ක්‍රියාව පසුගමනය කළ නොහැක.",
+  "addProvider": "සපයන්නා එක් කරන්න",
+  "addOpenAIProvider": "OpenAI සපයන්නා එක් කරන්න",
+  "enterNameForProvider": "ඔබේ සැපයුම්කරු සඳහා නමක් ඇතුළත් කරන්න",
+  "providerAlreadyExists": "\"{{name}}\" නම සහිත සැපයුම්කරු දැනටමත් පවතී. කරුණාකර වෙනත් නමක් තෝරන්න.",
+  "adjustFontSize": "අකුරු ප්‍රමාණය සීරුමාරු කරන්න",
+  "changeLanguage": "භාෂාව වෙනස් කරන්න",
+  "editTheme": "තේමාව සංස්කරණය කරන්න",
+  "editCodeBlockStyle": "කේත වාරණ විලාසය සංස්කරණය කරන්න",
+  "editServerHost": "Server Host සංස්කරණය කරන්න",
+  "pickColorWindowBackground": "වර්ණ කවුළු පසුබිම තෝරන්න",
+  "pickColorAppMainView": "වර්ණ යෙදුම් ප්‍රධාන දර්ශනය තෝරන්න",
+  "pickColorAppPrimary": "වර්ණ යෙදුම් ප්‍රාථමික තෝරන්න",
+  "pickColorAppAccent": "වර්ණ යෙදුම් උච්චාරණය තෝරන්න",
+  "pickColorAppDestructive": "විනාශකාරී වර්ණ යෙදුම තෝරන්න",
+  "apiKeyRequired": "API යතුර අවශ්‍යයි",
+  "enterTrustedHosts": "විශ්වාසදායක සත්කාරක ඇතුලත් කරන්න",
+  "placeholder": {
+    "chatInput": "මගෙන් ඕන දෙයක් අහන්න..."
+  },
+  "confirm": "තහවුරු කරන්න",
+  "continue": "ඉදිරියට යන්න",
+  "loading": "පූරණය වෙමින්...",
+  "settingUpJan": "Novera ආරම්භ කරමින්...",
+  "registeringExtensions": "දිගු ලියාපදිංචි කරමින්...",
+  "loadingExtensions": "දිගු පූරණය වෙමින්... ({{done}}/{{total}})",
+  "error": "දෝෂයකි",
+  "success": "සාර්ථකත්වය",
+  "warning": "අවවාදයයි",
+  "conversationNotAvailable": "සංවාදය නොමැත",
+  "conversationNotAvailableDescription": "ඔබ පිවිසීමට උත්සාහ කරන සංවාදය නොපවතී හෝ මකා ඇත.",
+  "temporaryChat": "තාවකාලික කතාබස්",
+  "temporaryChatTooltip": "තාවකාලික කතාබස් ඔබගේ ඉතිහාසයේ දිස් නොවනු ඇත",
+  "noResultsFoundDesc": "අපට ඔබගේ සෙවුමට ගැළපෙන කතාබස් කිසිවක් සොයාගත නොහැකි විය. වෙනස් මූල පදයක් උත්සාහ කරන්න.",
+  "searchModels": "මාදිලි සොයන්න...",
+  "searchStyles": "සෙවුම් විලාස...",
+  "createAssistant": "සහකරු සාදන්න",
+  "enterApiKey": "API යතුර ඇතුළත් කරන්න",
+  "scrollToBottom": "පහළට අනුචලනය කරන්න",
+  "generateAiResponse": "AI ප්‍රතිචාරය ජනනය කරන්න",
+  "continueAiResponse": "AI ප්‍රතිචාරය සමඟින් ඉදිරියට යන්න",
+  "addModel": {
+    "title": "ආකෘතිය එක් කරන්න",
+    "modelId": "මාදිලිය ID",
+    "enterModelId": "මාදිලිය ID ඇතුලත් කරන්න",
+    "addModel": "ආකෘතිය එක් කරන්න",
+    "description": "සපයන්නාට නව මාදිලියක් එක් කරන්න",
+    "exploreModels": "සපයන්නා වෙතින් ආකෘති ලැයිස්තුව බලන්න"
+  },
+  "mcpServers": {
+    "editServer": "Edit Server",
+    "addServer": "සේවාදායකය එක් කරන්න",
+    "serverName": "සේවාදායකයේ නම",
+    "enterServerName": "සේවාදායකයේ නම ඇතුලත් කරන්න",
+    "command": "විධානය",
+    "enterCommand": "විධානය ඇතුල් කරන්න",
+    "arguments": "තර්ක",
+    "argument": "තර්කය {{index}}",
+    "envVars": "පරිසර විචල්‍යයන්",
+    "key": "යතුර",
+    "value": "අගය",
+    "save": "සුරකින්න"
+  },
+  "deleteServer": {
+    "title": "සේවාදායකය මකන්න",
+    "delete": "මකන්න"
+  },
+  "editJson": {
+    "errorParse": "JSON විග්‍රහ කිරීමට අසමත් විය",
+    "errorPaste": "JSON ඇලවීම අසාර්ථක විය",
+    "errorFormat": "වලංගු නොවන JSON ආකෘතිය",
+    "titleAll": "සියලුම සර්වර් වින්‍යාසය සංස්කරණය කරන්න",
+    "placeholder": "JSON වින්‍යාසය ඇතුලත් කරන්න...",
+    "save": "සුරකින්න"
+  },
+  "editModel": {
+    "title": "සංස්කරණය ආකෘතිය: {{modelId}}",
+    "description": "පහත විකල්ප ටොගල් කිරීමෙන් ආකෘති හැකියාවන් වින්‍යාස කරන්න.",
+    "capabilities": "හැකියාවන්",
+    "tools": "මෙවලම්",
+    "vision": "දැක්ම",
+    "embeddings": "Embeddings",
+    "notAvailable": "තවම නොමැත"
+  },
+  "outOfContextError": {
+    "truncateInput": "ආදානය කප්පාදු කරන්න",
+    "title": "සන්දර්භයෙන් බැහැර දෝෂයකි",
+    "description": "මෙම කතාබහ AI හි මතක සීමාවට ළඟා වෙමින් තිබේ, වයිට්බෝඩ් එකක් පුරවනවා වැනි. අපට මතක කවුළුව පුළුල් කළ හැක (සන්දර්භය ප්‍රමාණය ලෙස හැඳින්වේ) එබැවින් එය වැඩිපුර මතක තබා ගනී, නමුත් එය ඔබේ පරිගණකයේ මතකයෙන් වැඩි ප්‍රමාණයක් භාවිතා කළ හැකිය. අපට ආදානය ද කප්පාදු කළ හැකිය, එයින් අදහස් කරන්නේ නව පණිවිඩ සඳහා ඉඩ ලබා දීම සඳහා එය සමහර කතාබස් ඉතිහාසය අමතක කරනු ඇති බවයි.",
+    "increaseContextSizeDescription": "ඔබට සන්දර්භය ප්‍රමාණය වැඩි කිරීමට අවශ්‍යද?",
+    "increaseContextSize": "සන්දර්භය ප්‍රමාණය වැඩි කරන්න"
+  },
+  "toolApproval": {
+    "title": "මෙවලම් අවසර ඉල්ලීම",
+    "description": "සහායකයාට <strong>{{toolName}}</strong> භාවිත කිරීමට අවශ්‍යයි",
+    "securityNotice": "ඔබ විශ්වාස කරන මෙවලම් වලට පමණක් ඉඩ දෙන්න. මෙවලම්වලට ඔබේ පද්ධතියට සහ දත්තවලට ප්‍රවේශ විය හැක.",
+    "deny": "ප්‍රතික්ෂේප කරන්න",
+    "allowOnce": "වරක් ඉඩ දෙන්න",
+    "alwaysAllow": "සැම විටම ඉඩ දෙන්න"
+  },
+  "deleteModel": {
+    "title": "මාදිලිය මකන්න: {{modelId}}",
+    "description": "ඔබට මෙම ආකෘතිය මැකීමට අවශ්‍ය බව විශ්වාසද? මෙම ක්‍රියාව පසුගමනය කළ නොහැක.",
+    "success": "මාදිලිය {{modelId}} ස්ථිරවම මකා ඇත.",
+    "cancel": "අවලංගු කරන්න",
+    "delete": "මකන්න"
+  },
+  "deleteProvider": {
+    "title": "සපයන්නා මකන්න",
+    "description": "මෙම සැපයුම්කරු සහ එහි සියලුම මාදිලි මකන්න. මෙම ක්‍රියාව පසුගමනය කළ නොහැක.",
+    "success": "සැපයුම්කරු {{provider}} ස්ථිරවම මකා ඇත.",
+    "confirmTitle": "මකන්න සපයන්නා: {{provider}}",
+    "confirmDescription": "ඔබට මෙම සැපයුම්කරු මැකීමට අවශ්‍ය බව විශ්වාසද? මෙම ක්‍රියාව පසුගමනය කළ නොහැක.",
+    "cancel": "අවලංගු කරන්න",
+    "delete": "මකන්න"
+  },
+  "modelSettings": {
+    "title": "ආදර්ශ සැකසුම් - {{modelId}}",
+    "description": "කාර්ය සාධනය සහ හැසිරීම ප්‍රශස්ත කිරීම සඳහා ආකෘති සැකසුම් වින්‍යාස කරන්න.",
+    "nglDisabledByFit": "Auto-fit යනු GPU ස්ථර තෝරා ගැනීමයි. මෙය අතින් සැකසීමට ස්වයංක්‍රීය ගැළපුම අක්‍රිය කරන්න.",
+    "samplingDefaults": {
+      "title": "පෙරනිමි නියැදි පරාමිතීන්",
+      "description": "මෙම ආකෘතිය සඳහා පෙරනිමි නියැදි සැකසුම්. එක්-සහායක හෝ එක්-ඉල්ලීමක් අගයන් විසින් අභිබවා ගියහොත් මිස භාවිතා වේ."
+    },
+    "specDraft": {
+      "section": "සමපේක්ෂන විකේතනය",
+      "enable": "සමපේක්ෂන විකේතනය සබල කරන්න",
+      "enableDescription": "එක් පියවරකට ටෝකන කිහිපයක් කෙටුම්පත් කර ඒවා එක ප්‍රවේශයකින් සත්‍යාපනය කරන්න, එය උත්පාදනය වේගවත් කරයි. ආකෘතියේ බිල්ට්-ඉන් MTP හිස්, හෝ එය සමඟ බාගත කර ඇති කෙටුම්පත් ආකෘතිය (MTP, Eagle3, DFlash හෝ DSpark) භාවිතා කරයි.",
+      "nMax": "උපරිම කෙටුම්පත් ටෝකන",
+      "nMaxDescription": "එක් පියවරකට කෙටුම්පත් කිරීමට උපරිම ටෝකන ගණන. පෙරනිමි 16.",
+      "nMin": "අවම කෙටුම්පත ටෝකන",
+      "nMinDescription": "පියවරකට කෙටුම්පත් කිරීමට අවම ටෝකන ගණන. පෙරනිමි 0.",
+      "pMin": "අවම කෙටුම්පත සම්භාවිතාව",
+      "pMinDescription": "කෑදර කෙටුම්පත් සඳහා අවම සම්භාවිතාව (0-1). පෙරනිමි 0.75."
+    },
+    "templateKwargs": {
+      "section": "කතාබස් අච්චු විකල්ප",
+      "description": "මෙම ආකෘතියේ කතාබස් අච්චුව පිළිගන්නා අමතර විකල්ප. එක් එක් ඉල්ලීම මත chat_template_kwargs ලෙස යවන ලදී; අච්චුවට තීරණය කිරීමට ඉඩ දීම සඳහා එහි පෙරනිමි අගයක් තබන්න.",
+      "addCustom": "අභිරුචි විකල්පය එක් කරන්න",
+      "keyPlaceholder": "නම",
+      "valuePlaceholder": "අගය",
+      "add": "එකතු කරන්න",
+      "cancel": "අවලංගු කරන්න",
+      "remove": "ඉවත් කරන්න"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "මාදිලි සැකසීම් යාවත්කාලීන කළ නොහැකි විය"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "දත්ත ෆෝල්ඩර ස්ථානය වෙනස් කරන්න",
+      "description": "ඔබට දත්ත ෆෝල්ඩර ස්ථානය වෙනස් කිරීමට අවශ්‍ය බව විශ්වාසද? මෙය ඔබගේ සියලු දත්ත නව ස්ථානයට ගෙන ගොස් යෙදුම නැවත ආරම්භ කරනු ඇත.",
+      "currentLocation": "වත්මන් ස්ථානය:",
+      "newLocation": "නව ස්ථානය:",
+      "cancel": "අවලංගු කරන්න",
+      "changeLocation": "ස්ථානය වෙනස් කරන්න"
+    },
+    "deleteAllThreads": {
+      "title": "සියලුම නූල් මකන්න",
+      "description": "සියලුම නූල් මකා දැමෙනු ඇත. මෙම ක්‍රියාව පසුගමනය කළ නොහැක."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "සියලුම සංවාද මකන්න",
+      "description": "\"{{projectName}}\" හි {{count}} සංවාද මකනු ඇත. මෙම ක්‍රියාව පසුගමනය කළ නොහැක."
+    },
+    "deleteThread": {
+      "description": "ඔබට මෙම පොට මැකීමට අවශ්‍ය බව විශ්වාසද? මෙම ක්‍රියාව පසුගමනය කළ නොහැක."
+    },
+    "editMessage": {
+      "title": "පණිවිඩය සංස්කරණය කරන්න"
+    },
+    "messageMetadata": {
+      "title": "පණිවිඩ පාරදත්ත"
+    },
+    "deleteMessage": {
+      "description": "ඔබට මෙම පණිවිඩය මැකීමට අවශ්‍ය බව විශ්වාසද? මෙම ක්‍රියාව පසුගමනය කළ නොහැක."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "යමක් වැරදී ඇත",
+    "details": "විස්තර"
+  },
+  "missingDependenciesDialog": {
+    "title": "පද්ධති පුස්තකාල අතුරුදහන්",
+    "description": "{{backend}} ස්ථාපනය කර ඇති නමුත් සමහර අවශ්‍ය පද්ධති පුස්තකාල සොයා ගත නොහැකි විය. එය CPU වෙත ආපසු වැටීමට හෝ නිවැරදිව ක්‍රියාත්මක නොවිය හැක.",
+    "installLabel": "මෙය නිවැරදි කිරීමට, පහත සඳහන් දෑ ස්ථාපනය කරන්න:",
+    "download": "බාගන්න",
+    "additionalLibraries": "අතිරේක නැතිවූ පුස්තකාල:",
+    "missingLibraries": "නැතිවූ පුස්තකාල:",
+    "showRawLibraries": "{{count}} නැතිවූ පුස්තකාල නම් පෙන්වන්න"
+  },
+  "projects": {
+    "title": "ව්‍යාපෘති",
+    "new": "නව ව්‍යාපෘති",
+    "addProject": "ව්‍යාපෘතිය එක් කරන්න",
+    "addToProject": "ව්‍යාපෘතියට එක් කරන්න",
+    "removeFromProject": "ව්‍යාපෘතියෙන් ඉවත් කරන්න",
+    "createNewProject": "නව ව්‍යාපෘතියක් සාදන්න",
+    "editProject": "ව්‍යාපෘතිය සංස්කරණය කරන්න",
+    "deleteProject": "ව්‍යාපෘතිය මකන්න",
+    "projectName": "ව්‍යාපෘතියේ නම",
+    "enterProjectName": "ව්‍යාපෘතියේ නම ඇතුලත් කරන්න...",
+    "noProjectsAvailable": "ව්‍යාපෘති නොමැත",
+    "noProjectsYet": "තවම ව්‍යාපෘති නැත",
+    "noProjectsYetDesc": "Add Project බොත්තම ක්ලික් කිරීමෙන් නව ව්‍යාපෘතියක් ආරම්භ කරන්න.",
+    "projectNotFound": "ව්‍යාපෘතිය හමු නොවීය",
+    "projectNotFoundDesc": "ඔබ සොයන ව්‍යාපෘතිය නොපවතී හෝ මකා ඇත.",
+    "selectAssistant": "සහායක තෝරන්න",
+    "noAssistantAssigned": "මෙම ව්‍යාපෘතියට සහායකයකු අනුයුක්ත කර නොමැත",
+    "files": "ගොනු",
+    "filesDescription": "මෙම ව්‍යාපෘතියේ යොමු කිරීමට PDF, ලේඛන, හෝ වෙනත් පෙළ එක් කරන්න.",
+    "uploadingFiles": "ගොනු සකසමින්...",
+    "processButton": "එකතු කරන්න",
+    "deleteProjectDialog": {
+      "title": "ව්‍යාපෘතිය මකන්න",
+      "permanentDelete": "මෙය සියලු නූල් ස්ථිරවම මකනු ඇත.",
+      "permanentDeleteWarning": "මෙම ක්‍රියාව ව්‍යාපෘතිය තුළ ALL නූල් ස්ථිරවම මකනු ඇත!",
+      "deleteEmptyProject": "මෙම ක්‍රියාව \"{{projectName}}\" ව්‍යාපෘතිය මකනු ඇත.",
+      "saveThreadsAdvice": "නූල් සුරැකීමට, මැකීමට පෙර ඒවා ඔබේ නූල් ලැයිස්තුවට හෝ වෙනත් ව්‍යාපෘතියකට ගෙන යන්න.",
+      "starredWarning": "ඔබ තවමත් ව්‍යාපෘතිය තුළ තරු ලකුණු කළ නූල් ඇත.",
+      "deleteButton": "මකන්න",
+      "successWithName": "ව්‍යාපෘතිය \"{{projectName}}\" සාර්ථකව මකන ලදී",
+      "successWithoutName": "ව්‍යාපෘතිය සාර්ථකව මකන ලදී",
+      "error": "ව්‍යාපෘතිය මැකීමට අසමත් විය. කරුණාකර නැවත උත්සාහ කරන්න.",
+      "ariaLabel": "{{projectName}} මකන්න"
+    },
+    "addProjectDialog": {
+      "createTitle": "නව ව්‍යාපෘතියක් සාදන්න",
+      "editTitle": "ව්‍යාපෘතිය සංස්කරණය කරන්න",
+      "nameLabel": "ව්‍යාපෘතියේ නම",
+      "namePlaceholder": "ව්‍යාපෘතියේ නම ඇතුලත් කරන්න...",
+      "assistant": "සහකාර",
+      "selectAssistant": "සහායකයකු තෝරන්න (විකල්ප)",
+      "noAssistant": "සහායක නැත",
+      "addAssistant": "සහකාර එක් කරන්න",
+      "createButton": "සාදන්න",
+      "updateButton": "යාවත්කාලීන කිරීම",
+      "alreadyExists": "ව්‍යාපෘතිය \"{{projectName}}\" දැනටමත් පවතී",
+      "createSuccess": "ව්‍යාපෘතිය \"{{projectName}}\" සාර්ථකව නිර්මාණය කරන ලදී",
+      "updateSuccess": "ව්‍යාපෘතිය \"{{projectName}}\" සාර්ථකව යාවත්කාලීන කරන ලදී",
+      "saveError": "ව්‍යාපෘතිය සුරැකීමට නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න."
+    },
+    "noConversationsIn": "{{projectName}} හි සංවාද නැත",
+    "startNewConversation": "පහත {{projectName}} සමඟ නව සංවාදයක් ආරම්භ කරන්න",
+    "conversationsIn": "{{projectName}} හි සංවාද",
+    "conversationsDescription": "දිගටම කතාබස් කිරීමට හෝ පහතින් අලුත් එකක් ආරම්භ කිරීමට ඕනෑම සංවාදයක් මත ක්ලික් කරන්න.",
+    "conversation": "සංවාදය",
+    "instructions": "උපදෙස්",
+    "setup": "සැකසුම",
+    "instructionsDescription": "ස්වරය සහ ප්‍රතිචාර විලාසය අභිරුචිකරණය කරන්න",
+    "manageInstructions": "උපදෙස් කළමනාකරණය කරන්න",
+    "thread": "නූල්",
+    "threads": "නූල්",
+    "updated": "යාවත්කාලීන:",
+    "collapseProject": "ව්‍යාපෘතිය හකුළන්න",
+    "expandProject": "ව්‍යාපෘතිය පුළුල් කරන්න",
+    "update": "යාවත්කාලීන කිරීම",
+    "searchProjects": "ව්‍යාපෘති සොයන්න...",
+    "noProjectsFound": "ව්‍යාපෘති කිසිවක් හමු නොවිණි",
+    "tryDifferentSearch": "වෙනස් සෙවුම් පදයක් උත්සාහ කරන්න"
+  },
+  "attachmentsIngestion": {
+    "title": "ඇමුණුම් ඇතුල් කරන ආකාරය තෝරන්න",
+    "description": "මෙම ගොනු සෘජුවම කතාබස් තුළට ඇතුළත් කළ යුතුද නැතහොත් ඒ වෙනුවට ඒවා කාවැද්දීම් ලෙස සුචිගත කළ යුතුද යන්න තෝරන්න.",
+    "inline": "කතාබහට එන්නත් කරන්න",
+    "embeddings": "කාවැද්දීම භාවිතා කරන්න"
+  },
+  "attachmentInjectedIndicator": "කතාබස් වෙත එන්නත් කරන ලදී",
+  "attachmentEmbeddedIndicator": "RAG සඳහා කාවැද්දූ",
+  "viewInjectedContent": "එන්නත් කළ අන්තර්ගතය බලන්න",
+  "injectedContentTitle": "එන්නත් කළ ගොනු අන්තර්ගතය",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "සියලුම නූල් ප්‍රියතම නොවේ",
+      "description": "සියලුම නූල් ඔබගේ ප්‍රියතම වලින් ඉවත් කර ඇත."
+    },
+    "deleteAllThreads": {
+      "title": "සියලුම නූල් මකන්න",
+      "description": "සියලුම නූල් ස්ථිරවම මකා ඇත."
+    },
+    "renameThread": {
+      "title": "ත්‍රෙඩ් නැවත නම් කරන්න",
+      "description": "නූල් මාතෘකාව '{{title}}' ලෙස නැවත නම් කර ඇත"
+    },
+    "deleteThread": {
+      "title": "ත්‍රෙඩ් එක මකන්න",
+      "description": "මෙම පොට ස්ථිරවම මකා ඇත."
+    },
+    "errorCopied": {
+      "title": "පිටපත සාර්ථකයි",
+      "description": "දෝෂ තොරතුරු පසුරු පුවරුවට පිටපත් කර ඇත"
+    },
+    "errorCopyFailed": {
+      "title": "පිටපත් කිරීමට අසමත් විය",
+      "description": "දෝෂ තොරතුරු පසුරු පුවරුවට පිටපත් කිරීමට අසමත් විය"
+    },
+    "editMessage": {
+      "title": "පණිවිඩය සංස්කරණය කරන්න",
+      "description": "පණිවිඩය සාර්ථකව සංස්කරණය කරන ලදී. කරුණාකර ආකෘතිය ප්‍රතිචාර දක්වන තෙක් රැඳී සිටින්න."
+    },
+    "appUpdateDownloaded": {
+      "title": "යෙදුම් යාවත්කාලීනය බාගත කර ඇත",
+      "description": "යෙදුම් යාවත්කාලීනය සාර්ථකව බාගත කර ඇත."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "යෙදුම් යාවත්කාලීන බාගැනීම අසාර්ථක විය",
+      "description": "යෙදුම් යාවත්කාලීනය බාගැනීම අසාර්ථක විය. කරුණාකර නැවත උත්සාහ කරන්න."
+    },
+    "downloadComplete": {
+      "title": "බාගැනීම සම්පූර්ණයි",
+      "description": "{{item}} බාගත කර ඇත"
+    },
+    "downloadCancelled": {
+      "title": "බාගැනීම අවලංගුයි",
+      "description": "බාගැනීම් ක්‍රියාවලිය අවලංගු කරන ලදී"
+    },
+    "downloadFailed": {
+      "title": "බාගැනීම අසාර්ථක විය",
+      "description": "{{item}} බාගැනීම අසාර්ථක විය",
+      "descriptionWithReason": "{{item}} බාගැනීම අසාර්ථක විය: {{reason}}",
+      "reason": {
+        "dns": "සේවාදායකයේ නම විසඳිය නොහැක",
+        "refused": "සම්බන්ධතාවය ප්‍රතික්ෂේප විය",
+        "timeout": "සම්බන්ධතාවයේ කාලය අවසන් විය",
+        "tls": "ආරක්ෂිත සම්බන්ධතාවයක් ස්ථාපිත කළ නොහැක",
+        "proxy": "ප්‍රොක්සි වෙත ළඟා විය නොහැක",
+        "unreachable": "සේවාදායකය වෙත ළඟා විය නොහැකි විය"
+      }
+    },
+    "openSettings": "විවෘත සැකසුම්",
+    "openLogs": "ලඝු-සටහන් විවෘත කරන්න",
+    "downloadTokenRequired": {
+      "title": "Hugging Face ටෝකනය අවශ්‍යයි",
+      "description": "මෙම ආකෘතියට Hugging Face ප්‍රවේශ ටෝකනයක් අවශ්‍ය වේ. සැකසීම් තුළ ඔබේ ටෝකනය එක් කර නැවත උත්සාහ කරන්න."
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face මත ආකෘති බලපත්‍රය පිළිගන්න",
+      "description": "ඔබ බාගත කිරීමට පෙර එහි Hugging Face පිටුවෙහි ආකෘතියේ බලපත්‍රය පිළිගත යුතුය."
+    },
+    "downloadRateLimited": {
+      "title": "අගය Hugging Face මගින් සීමා වේ",
+      "description": "ඔබ ගාස්තු සීමා කර ඇත. ටෝකනයක් එකතු කිරීමෙන් අනුපාත සීමාවන් වැඩි කළ හැක. කරුණාකර පසුව නැවත උත්සාහ කරන්න."
+    },
+    "modelValidationStarted": {
+      "title": "වලංගු කිරීමේ ආකෘතිය",
+      "description": "මාදිලිය \"{{modelId}}\" සාර්ථකව බාගන්නා ලදී. අඛණ්ඩතාව තහවුරු කරමින්..."
+    },
+    "modelValidationFailed": {
+      "title": "මාදිලිය වලංගු කිරීම අසාර්ථක විය",
+      "description": "බාගත කළ මාදිලිය \"{{modelId}}\" අඛණ්ඩතාව තහවුරු කිරීම අසාර්ථක වූ අතර ඉවත් කරන ලදී. ගොනුව දූෂිත හෝ විකෘති වී තිබිය හැක."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "බාගැනීම සම්පූර්ණයි",
+      "description": "මාදිලිය \"{{item}}\" බාගත කර සාර්ථකව සත්‍යාපනය කරන ලදී"
+    },
+    "projectCreated": {
+      "title": "ව්‍යාපෘතිය නිර්මාණය කරන ලදී",
+      "description": "ව්‍යාපෘතිය \"{{projectName}}\" සාර්ථකව නිර්මාණය කරන ලදී"
+    },
+    "projectRenamed": {
+      "title": "ව්‍යාපෘතිය නැවත නම් කරන ලදී",
+      "description": "ව්‍යාපෘතිය \"{{oldName}}\" සිට \"{{newName}}\" ලෙස නම් කරන ලදී"
+    },
+    "projectDeleted": {
+      "title": "ව්‍යාපෘතිය මකන ලදී",
+      "description": "ව්‍යාපෘතිය \"{{projectName}}\" සාර්ථකව මකන ලදී"
+    },
+    "projectAlreadyExists": {
+      "title": "ව්‍යාපෘතිය දැනටමත් පවතී",
+      "description": "ව්‍යාපෘතිය \"{{projectName}}\" දැනටමත් පවතී"
+    },
+    "projectDeleteFailed": {
+      "title": "මකන්න අසාර්ථකයි",
+      "description": "ව්‍යාපෘතිය මැකීමට අසමත් විය. කරුණාකර නැවත උත්සාහ කරන්න."
+    },
+    "threadAssignedToProject": {
+      "title": "ත්‍රෙඩ් පවරා ඇත",
+      "description": "නූල් \"{{projectName}}\" වෙත සාර්ථකව පවරන ලදී"
+    },
+    "threadRemovedFromProject": {
+      "title": "නූල් ඉවත් කරන ලදී",
+      "description": "නූල් \"{{projectName}}\" වෙතින් සාර්ථකව ඉවත් කරන ලදී"
+    },
+    "fileUploaded": {
+      "title": "ගොනුව සකසන ලදී",
+      "description": "ගොනුව සකසන ලද අතර සාර්ථකව සුචිගත කර ඇත"
+    },
+    "uploadFailed": {
+      "title": "සැකසීම අසාර්ථක විය",
+      "description": "ගොනුව සැකසීමට අසමත් විය",
+      "subjectThisFile": "මෙම ගොනුව",
+      "pdfMalformedXref": "{{subject}} හි විකෘති වූ PDF හරස් යොමු වගුවක් ඇති අතර එය විග්‍රහ කළ නොහැක. එය PDF නරඹන්නෙකු තුළ විවෘත කර එය නැවත සුරැකීමට උත්සාහ කරන්න (ගොනුව → මුද්‍රණය → PDF ලෙස සුරකින්න), ඉන්පසු නැවත උඩුගත කරන්න.",
+      "pdfScanned": "{{subject}} ස්කෑන් කරන ලද හෝ රූප මත පදනම් වූ PDF බව පෙනේ. OCR තවමත් සහය නොදක්වයි — කරුණාකර පෙළ පදනම් වූ PDF උඩුගත කරන්න.",
+      "pdfEncrypted": "{{subject}} මුරපදය-ආරක්ෂිතයි. මුරපදය ඉවත් කර නැවත උත්සාහ කරන්න.",
+      "pdfUnsupportedFeature": "{{subject}} PDF විශේෂාංගයක් භාවිතා කරයි Novera හට තවම විග්‍රහ කළ නොහැක (උදා. PostScript වර්ණ/සෙවන ක්‍රියාවන්). එය සමතලා කිරීමට (ගොනුව → මුද්‍රණය → PDF ලෙස සුරකින්න) නැවත සුරැකීමට උත්සාහ කරන්න, ඉන්පසු නැවත උඩුගත කරන්න.",
+      "pdfGeneric": "{{subject}} PDF ලෙස විග්‍රහ කළ නොහැක. ගොනුව දූෂිත වී හෝ සහාය නොදක්වන PDF විශේෂාංගයක් භාවිත කරයි.",
+      "fileTooLarge": "{{subject}} විශාල වැඩිය. {{message}}.",
+      "unsupportedType": "ගොනු වර්ගය \"{{type}}\" සහාය නොදක්වයි.",
+      "ioError": "{{subject}}: {{message}} කියවිය නොහැක",
+      "parseGeneric": "{{subject}} විග්‍රහ කළ නොහැක: {{message}}",
+      "fallback": "{{subject}} සැකසීමට අසමත් විය."
+    },
+    "fileDeleted": {
+      "title": "ගොනුව මකා දමන ලදී",
+      "description": "ගොනුව ව්‍යාපෘතියෙන් ඉවත් කර ඇත"
+    },
+    "deleteFailed": {
+      "title": "මකන්න අසාර්ථකයි",
+      "description": "ගොනුව මැකීමට අසමත් විය"
+    },
+    "fileAlreadyExists": {
+      "title": "ගොනුව දැනටමත් පවතී",
+      "description": "ගොනුව දැනටමත් මෙම ව්‍යාපෘතියට අමුණා ඇත"
+    },
+    "unsupportedFileType": {
+      "title": "සහාය නොදක්වන ගොනු වර්ගය",
+      "description": "ගොනු දිගුව \".{{extension}}\" ව්‍යාපෘති යොමු සඳහා සහය නොදක්වයි."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "ඇමුණුම් අබල කර ඇත",
+      "description": "ඇමුණුම් සැකසීම් තුළ අබල කර ඇත"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "ගොනුව විශාල වැඩිය",
+    "fileTooLargeDescription": "{{fileName}} {{maxFileSizeMB}}MB සීමාව ඉක්මවයි"
+  },
+  "files": {
+    "chunksCount": "{{count}} කුට්ටි",
+    "title": "ගොනු",
+    "empty": "ඔබ අමුණන ගොනු සහ නියෝජිතයා සාදන ගොනු මෙහි පෙන්වනු ඇත.",
+    "a11y": "ගොනු: {{count}}",
+    "attachments": "ඇමුණුම්",
+    "notImported": "වැඩබිමේ නැත"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp තවමත් කාර්යබහුලයි",
+    "description": "මාදිලි එකක් හෝ කිහිපයක් නියමිත වේලාවට ගොඩ නොනැගිණි. බලහත්කාරයෙන් ඉවත්වීම llama.cpp අවසන් වන අතර සක්‍රිය ප්‍රතිචාරවලට බාධා කළ හැක.",
+    "forceQuit": "බලෙන් ඉවත් විය",
+    "forcing": "බලෙන් ඉවත් වීම...",
+    "shuttingDown": "වසා දමමින්..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "හකුළන්න",
+  "expand": "පුළුල් කරන්න",
+  "todoPanelTitle": "ප්‍රගතිය",
+  "todoPanelEmpty": "තවම ටොඩෝ ලැයිස්තුවක් නැත.",
+  "backgroundTasks": "පසුබිම් කාර්යයන්",
+  "subagentsRunning_one": "{{count}} උපකාරක ධාවනය",
+  "subagentsRunning_other": "{{count}} උප නියෝජිතයන් ධාවනය වේ",
+  "monitorsRunning_one": "{{count}} මොනිටරය ධාවනය වේ",
+  "monitorsRunning_other": "{{count}} මොනිටර ධාවනය වේ",
+  "backgroundRunning_one": "{{count}} පසුබිම් කාර්ය ධාවනය",
+  "backgroundRunning_other": "{{count}} පසුබිම් කාර්යයන් ධාවනය වේ",
+  "monitors": "මොනිටර",
+  "monitorPolling": "ඡන්ද විමසීම",
+  "monitorMatched": "ගැලපේ",
+  "monitorTimedOut": "කල් ඉකුත් විය",
+  "monitorStopped": "නතර විය",
+  "monitorEnded": "අවසන්",
+  "coworkWatching_one": "{{count}} මොනිටරය නරඹමින්...",
+  "coworkWatching_other": "{{count}} මොනිටර නරඹමින්...",
+  "coworkWaitingBackground": "පසුබිම් කාර්යයන් සඳහා රැඳී සිටිමින්...",
+  "noBackgroundTasks": "තවමත් පසුබිම් කාර්යයන් නොමැත.",
+  "running": "ධාවනය",
+  "queued": "පෝලිමේ",
+  "waiting": "රැඳී සිටීම",
+  "finished": "අවසන්",
+  "subagentPhase": "අදියර {{phase}}",
+  "subagentWaiting": "බලා සිටී",
+  "viewTranscript": "පිටපත බලන්න",
+  "taskWorking": "වැඩ කරමින්...",
+  "taskNoOutput": "උපකාරකය දෘශ්‍ය ප්‍රතිදානයක් නිපදවා නැත.",
+  "subagentToolUses_one": "{{count}} මෙවලම් භාවිතය",
+  "subagentToolUses_other": "{{count}} මෙවලම භාවිතා කරයි",
+  "artifactGroupCode": "කේතය",
+  "artifactGroupImage": "රූපය",
+  "artifactGroupDocument": "ලේඛනය",
+  "artifactGroupVideo": "වීඩියෝව",
+  "artifactGroupAudio": "ශ්‍රව්‍ය",
+  "artifactOpenPreview": "පෙරදසුන විවෘත කරන්න",
+  "artifactOpenExternal": "විවෘතයි",
+  "artifactMoreActions": "තවත් ක්‍රියා",
+  "artifactShowInFolder": "ෆෝල්ඩරයේ පෙන්වන්න",
+  "skillsUsedLabel": "භාවිතා කළ කුසලතා",
+  "skillsUsed": "භාවිතා කළ කුසලතා: {{skills}}",
+  "artifactsAll": "සියල්ල",
+  "artifactsEmpty": "තවමත් කිසිවක් නිෂ්පාදනය කර නැත. Cowork ධාවන වලින් කෞතුක වස්තු මෙහි පෙන්වයි.",
+  "artifactsNoMatch": "කෞතුක භාණ්ඩ නොගැලපේ.",
+  "artifactsSearch": "පුරාවස්තු සොයන්න",
+  "artifactsShowMore": "{{count}} තවත් පෙන්වන්න",
+  "workspace": {
+    "readsFrom": "වැඩ කරයි",
+    "writable": "කියවීම සහ ලිවීම",
+    "footnote": "නියෝජිතයා මෙම ෆෝල්ඩරය කෙලින්ම කියවා සංස්කරණය කරයි. ඩිෆ් පැනලයේ වෙනස් වූ දේ සමාලෝචනය කරන්න.",
+    "footnoteEmpty": "නියෝජිතයාට ඔබේ ව්‍යාපෘතියේ වැඩ කිරීමට ඉඩ දීමට ෆෝල්ඩරයක් අමුණන්න. එය තුළ ඇති ගොනු කියවීමට සහ සංස්කරණය කිරීමට හැකිය.",
+    "attach": "ෆෝල්ඩරයක් අමුණන්න",
+    "change": "ෆෝල්ඩරය වෙනස් කරන්න",
+    "detach": "ෆෝල්ඩරය වෙන් කරන්න",
+    "open": "විවෘතයි",
+    "reveal": "හෙළි කරන්න",
+    "unavailable": "වැඩබිම නොමැත",
+    "missing": "{{folder}} කාර්ය ඉඩ ෆෝල්ඩරය තවදුරටත් නොමැත. වෙනස් ෆෝල්ඩරයක් තෝරන්න.",
+    "openFailed": "වැඩබිම විවෘත කළ නොහැකි විය",
+    "revealFailed": "වැඩබිම හෙළිදරව් කළ නොහැකි විය",
+    "a11yWithFolder": "ව්‍යාපෘති ෆෝල්ඩරය {{folder}}, කියවීමට සහ ලිවීමට ප්‍රවේශය සමඟ අමුණා ඇත. එය වෙනස් කරන්න හෝ වෙන් කරන්න.",
+    "a11yNoFolder": "ව්‍යාපෘති ෆෝල්ඩරයක් අමුණා නැත. එකක් අමුණන්න."
+  },
+  "coworkEmpty": {
+    "title": "අප වැඩ කරන්නේ කුමක් ද?",
+    "subtitleSandbox": "Novera ට කාර්යයක් දෙන්න. එය ගොනු කියවීම සහ ලිවීම, විධාන ක්රියාත්මක කිරීම සහ තනිවම පියවර හරහා ක්රියා කරයි.",
+    "subtitleFolder": "Novera ට කාර්යයක් දෙන්න. එය කෙලින්ම {{folder}} හි ක්‍රියා කරයි, ගොනු තනිවම කියවා සංස්කරණය කරයි.",
+    "try": "උත්සාහ කරන්න",
+    "sandbox": {
+      "first": "ගොනු ගත් දිනය අනුව ඒවා නැවත නම් කරන පයිතන් ස්ක්‍රිප්ට් එකක් ලියන්න",
+      "second": "CSV එකකින් තනි පිටු උපකරණ පුවරුවක් සාදන්න මම අලවන්නම්",
+      "third": "මම ඔබට විස්තර කරන ව්‍යාපෘතියක් සඳහා README කෙටුම්පත් කරන්න"
+    },
+    "folder": {
+      "first": "{{folder}} එකට එකතු කරන ආකාරය පැහැදිලි කරන්න",
+      "second": "{{folder}} හි සෑම TODO සොයා ප්‍රදේශය අනුව ඒවා කාණ්ඩ කරන්න",
+      "third": "{{folder}} කොටස සඳහා පරීක්ෂණ ලියන්න මම ඔබට පෙන්වා දෙන්නේ"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "පර්යන්තයක් නැත",
+    "a11y": "ධාවන විධාන අක්‍රිය කර ඇත. විස්තර.",
+    "title": "ධාවන විධාන අක්‍රිය කර ඇත",
+    "body": "Novera මඟින් නියෝජිතයාට ෂෙල් විධාන ක්‍රියාත්මක කිරීමට ඉඩ දෙන්නේ ඔබේ පද්ධතියට ඒවා සීමා කළ හැකි විට පමණි. මෙහි වැලිපිල්ලක් නොමැත, එබැවින් නියෝජිතයාට එහි වැලිපිල්ල තුළ ඇති ගොනු කියවීමට, ලිවීමට සහ සංස්කරණය කිරීමට හැකිය — නමුත් කිසිවක් ධාවනය නොවේ.",
+    "fixLinux": "Linux bubblewrap භාවිතා කරයි. එය ස්ථාපනය කරන්න, ඉන්පසු Novera නැවත ආරම්භ කරන්න.",
+    "fixMac": "macOS /usr/bin/sandbox-exec හි ඇති සෑන්ඩ්බොක්ස් භාවිතා කරයි. Novera ලද පසු නැවත ආරම්භ කරන්න.",
+    "fixWindows": "Windows AppContainer භාවිතා කරයි. නැවත උත්සාහ කිරීමට Novera නැවත ආරම්භ කරන්න.",
+    "recheck": "නැවත පරීක්ෂා කරන්න"
+  },
+  "planMode": {
+    "label": "සැලැස්ම",
+    "tooltipOff": "පළමුව සැලසුම් කරන්න - නියෝජිතයා ලිවීමෙන් තොරව කියවා යෝජනා කරයි.",
+    "tooltipOn": "සැලසුම් කිරීම. නියෝජිතයාට ලිපිගොනු ලිවීමට ඉඩ දීමට මෙය අක්‍රිය කරන්න.",
+    "onAnnounce": "සැලසුම් මාදිලිය ක්‍රියාත්මකයි",
+    "placeholder": "සැලසුමක් ඉල්ලන්න. නියෝජිතයා කිසිදු ගොනුවක් වෙනස් නොකරනු ඇත."
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} පියවරෙහි නතර විය. නියෝජිතයා අවසන් කර නැත.",
+    "keepGoing": "දිගටම කරගෙන යන්න",
+    "stoppedTokens": "නතර විය - මෙම සැසිය එහි සංකේත අයවැයට පහර දුන්නේය.",
+    "compact": "සංයුක්ත",
+    "newSession": "නව සැසිය"
+  },
+  "run": {
+    "stopped": "නතර විය.",
+    "failed": "ධාවනය වේලාසනින් නතර විය.",
+    "tryAgain": "නැවත උත්සාහ කරන්න"
+  },
+  "modelNoTools": "{{model}} හට මෙවලම් ඇමතීමට නොහැකිය, එබැවින් එයට නියෝජිතයෙකු ලෙස ක්‍රියා කළ නොහැක. මෙවලම්-ඇමතුම් ආකෘතියක් තෝරන්න.",
+  "askContinue": "ඉදිරියට යන්න",
+  "askNext": "ඊළඟ ප්‍රශ්නය",
+  "askPrev": "පෙර ප්‍රශ්නය",
+  "askRecommended": "නිර්දේශිතයි",
+  "askSelectedCount": "{{count}} තෝරා ඇත",
+  "askSomethingElse": "වෙනත් දෙයක්",
+  "askSomethingElsePlaceholder": "ඔබේම පිළිතුර ටයිප් කරන්න",
+  "submit": "ඉදිරිපත් කරන්න",
+  "composer": {
+    "advanced": "උසස් පරාමිතීන්",
+    "modelDefaults": "මාදිලියේ පෙරනිමි",
+    "assistantOverrides": "සහකරු අභිබවා යයි",
+    "printPdf": "මුද්‍රණය / PDF ලෙස සුරකින්න",
+    "exportHint": "කියවිය හැකි ආකෘති: ක්රියාකාරී ශාඛාව. JSON: සියලුම පණිවිඩ අනුවාද. බාහිර ගොනු බණ්ඩල් කර නැත."
+  },
+  "telemetry": {
+    "summary": "ඔබගේ කැමැත්ත ඇතිව, {{host}} හට ලැබෙන්නේ සංවාද හෝ ස්ථීර හඳුනාගැනීමක් නොමැතිව Novera අනුවාදය සහ මෙහෙයුම් පද්ධතිය පමණි.",
+    "unavailable": "සංඛ්‍යාලේඛන වින්‍යාස කර නොමැත. දත්ත යවන්නේ නැත."
+  },
+  "errorTracking": {
+    "title": "දෝෂ ලුහුබැඳීම",
+    "summary": "{{host}} වෙත විකල්ප වාර්තා: දෝෂ වර්ගය, කේත පිහිටීම, අනුවාදය සහ මෙහෙයුම් පද්ධතිය. සංවාද, අමු දෝෂ පණිවිඩ හෝ යතුරු නැත. ඕනෑම වේලාවක අක්රිය කරන්න.",
+    "unavailable": "දෝෂ ලුහුබැඳීම වින්‍යාස කර නොමැත. වාර්තා යවන්නේ නැත."
+  }
+}

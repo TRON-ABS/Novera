@@ -26,15 +26,15 @@ const completedLocales = ['es', 'fr', 'it', 'hi', 'id', 'pl', 'vn', 'zh-CN', 'zh
   'de-DE', 'cs', 'pt-BR', 'ko', 'ja', 'ru', 'ca', 'gu', 'kn', 'apc', 'apd',
   'yo', 'bho', 'cjy', 'nan', 'my', 'arq', 'hak', 'ln', 'ary', 'or',
   'uk', 'hsn', 'ml', 'sd', 'pa', 'su', 'ig', 'prs', 'ne', 'ms',
-  'uzn', 'zu', 'aec', 'pbu', 'gaz', 'skr', 'nl', 'so', 'ro', 'as']
+  'uzn', 'zu', 'aec', 'pbu', 'gaz', 'skr', 'nl', 'so', 'ro', 'as', 'ceb', 'kk', 'si', 'xh', 'km', 'af', 'mai', 'wo', 'kmr', 'rw']
 
 describe('complete interface catalogs', () => {
-  it('documents all 70 shipped locales as complete', () => {
+  it('documents all 80 shipped locales as complete', () => {
     const directories = readdirSync(root, { withFileTypes: true })
       .filter((entry) => entry.isDirectory() && !entry.name.startsWith('__'))
       .map((entry) => entry.name).sort()
     expect(inventory.map((entry) => entry.locale).sort()).toEqual(directories)
-    expect(inventory).toHaveLength(70)
+    expect(inventory).toHaveLength(80)
     for (const entry of inventory) {
       expect(entry, entry.locale).toMatchObject({ keys: total, total, partial: false })
     }

@@ -1,0 +1,101 @@
+{
+  "editServer": "Pêşkêşkara MCP biguherîne",
+  "addServer": "Pêşkêşkara MCP zêde bike",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Rewşa dirêjkirinê kontrol dike..."
+    },
+    "notInstalled": {
+      "title": "Novera di geroka we de peywiran temam dike",
+      "description": "Berfirehkirinê saz bikin da ku bigihîje geroka Novera",
+      "getExtension": "Berfirehkirinê bistînin"
+    }
+  },
+  "serverName": "Navê Pêşkêşkar",
+  "enterServerName": "Navê serverê binivîse",
+  "command": "Ferman",
+  "enterCommand": "Fermana binivîse (uvx an npx)",
+  "arguments": "Arguman",
+  "argument": "Argument {{index}}",
+  "envVars": "Guherbarên Jîngehê",
+  "key": "Key",
+  "value": "Nirx",
+  "save": "Tomar bike",
+  "status": "Rewş",
+  "connected": "Girêdayî",
+  "disconnected": "Veqetandî",
+  "deleteServer": {
+    "title": "Pêşkêşkara MCP jêbirin",
+    "description": "Hûn bawer in ku hûn dixwazin servera MCP {{serverName}} jêbirin? Ev kiryar nayê betal kirin.",
+    "delete": "Jêbirin",
+    "success": "MCP server {{serverName}} bi serkeftî hate jêbirin"
+  },
+  "editJson": {
+    "title": "Biguherîne JSON ji bo MCP Pêşkêşkar: {{serverName}}",
+    "titleAll": "Hemû Pêşkêşkerên MCP JSON biguherînin",
+    "placeholder": "Têkeve veavakirina JSON",
+    "errorParse": "Daneyên destpêkê nehat parkirin",
+    "errorPaste": "di naverokê de nederbasdar formata JSON",
+    "errorFormat": "Forma JSON nederbasdar e",
+    "errorServerName": "Navê pêşkêşkarê pêdivî ye û nabe vala be",
+    "errorMissingServerNameKey": "JSON divê wekî {\"serverName\" were saz kirin: {config}} - mifteya navê serverê winda ye",
+    "errorInvalidType": "Cureya nederbasdar '{{type}}' ji bo servera '{{serverName}}'. Divê tîp 'stdio', 'http', an 'sse' be",
+    "save": "Tomar bike"
+  },
+  "checkParams": "Ji kerema xwe pîvanan li gorî dersê kontrol bikin.",
+  "title": "MCP",
+  "experimental": "Ceribandin",
+  "editAllJson": "Hemî Server JSON biguherîne",
+  "findMore": "Zêdetir pêşkêşkerên MCP li ser bibînin",
+  "allowPermissions": "Destûrê bide Hemî Destûrên Amûra MCP",
+  "allowPermissionsDesc": "Dema ku were çalak kirin, hemî bangên amûrê MCP dê bixweber bêne pejirandin bêyî ku diyalogên destûr nîşan bidin. Ev mîheng bi gerdûnî ji bo hemî danûstendinan, tevî sohbetên nû, derbas dibe.",
+  "noServers": "Pêşkêşkerên MCP nehatin dîtin",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Server {{serverKey}} bi serfirazî hate aktîfkirin",
+  "serverStatusInactive": "Pêşkêşkara {{serverKey}} bi serkeftî hate betal kirin",
+  "runtimeSettings": {
+    "title": "Mîhengên Dema xebitandinê",
+    "description": "Mîheng bikin ka Novera çawa serverên MCP rêve dibe û ji nû ve diceribîne.",
+    "toolCallTimeout": "Demjimêra banga amûrê (çirk)",
+    "toolCallTimeoutDesc": "Dema herî zêde ya ku li benda bersivek amûrek MCP berî ku dem biqede.",
+    "maxToolOutputChars": "Karakterên derketina amûrê herî zêde",
+    "maxToolOutputCharsDesc": "Encama amûrê ya herî dirêj ku di axaftinê de hatî girtin. Tiştê ku ji vê yekê derbas dibe tê qut kirin û wekî qutkirî tê nîşankirin, ji ber vê yekê encamek mezin nikare çarçoweya modelê westîne. Li ser 0-ê bicîh bikin da ku encam bi tevahî bimînin.",
+    "smartToolRouting": "Rêvekirina amûrê Smart MCP",
+    "smartToolRoutingDesc": "Dema ku were çalak kirin, Novera pêşkêşkerên MCP yên têkildar berî amûran hildibijêre. Neçalak bike ku her gav navnîşa amûrên tevahî MCP bar bike.",
+    "useLightweightRouterModel": "Ji bo rêvekirinê modelek taybetî bikar bînin",
+    "useLightweightRouterModelDesc": "Dema ku rêveçûna biaqil aktîf e, li şûna modela chatê, pêngava rêçkirinê bi modelek veqetandî (pir caran piçûktir) bimeşînin. Veqetînin da ku her gav modela chatê ya çalak ji bo rêvekirinê bikar bînin.",
+    "routerModel": "Modela rêvekirinê",
+    "routerModelDesc": "Pêşkêşkar û modelê li yek cîhek hilbijêrin. Tenê modelên sivik têne navnîş kirin ji ber vê yekê rêveçûn zû û erzan dimîne.",
+    "selectRouterModelPlaceholder": "Modela rêvekirinê hilbijêrin…",
+    "routerModelSearchPlaceholder": "Modelan bigerin…",
+    "routerModelEmptyList": "Modelên sivik tune. Modelek piçûktir zêde bikin an bişkojkên API di Modelan de mîheng bikin.",
+    "routerModelEmptySearch": "Ji bo \"{{query}}\" ti hevber tune."
+  },
+  "auth": {
+    "label": "Rastî:",
+    "state": {
+      "notApplicable": "ne hewce ye",
+      "staticHeader": "Sernavê Destûrnameyê",
+      "authenticated": "piştrast kirin",
+      "expired": "qediya",
+      "staleResource": "ji bo URL din hat weşandin",
+      "unauthenticated": "ne rasthatinî ye"
+    },
+    "expiresIn": "di {{duration}} de diqede",
+    "authenticate": "Têkeve",
+    "reauthenticate": "Ji nû ve piştrast bikin",
+    "clear": "Nasname paqij bike",
+    "waiting": "Li benda gerokê...",
+    "openSignInPage": "Rûpelê têketinê veke",
+    "needsAuth": "{{serverName}} pêdivî bi verastkirinê heye",
+    "needsAuthHint": "Têkeve vê serverê ji bo girêdanê.",
+    "authorized": "Têkeve {{serverName}}",
+    "authorizeFailed": "Têketin ji bo {{serverName}} têk çû",
+    "cleared": "Ji bo {{serverName}} pêbaweriyên hilanîn paqij kirin",
+    "nothingToClear": "{{serverName}} pêbaweriyên hilanînê tune bû",
+    "clearFailed": "Nekarî pêbaweriyên ji bo {{serverName}} paqij bike",
+    "renew": "Rûniştinê nûve bike",
+    "expiredAgo": "{{duration}} berê derbas bû"
+  }
+}

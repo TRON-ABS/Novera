@@ -1,0 +1,101 @@
+{
+  "editServer": "Wysig MCP-bediener",
+  "addServer": "Voeg MCP-bediener by",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Gaan tans uitbreidingstatus na..."
+    },
+    "notInstalled": {
+      "title": "Novera voltooi take in jou blaaier",
+      "description": "Installeer die uitbreiding om Novera blaaiertoegang te gee",
+      "getExtension": "Kry uitbreiding"
+    }
+  },
+  "serverName": "Bedienernaam",
+  "enterServerName": "Voer bedienernaam in",
+  "command": "Opdrag",
+  "enterCommand": "Voer opdrag in (uvx of npx)",
+  "arguments": "Argumente",
+  "argument": "Argument {{index}}",
+  "envVars": "Omgewingsveranderlikes",
+  "key": "Sleutel",
+  "value": "Waarde",
+  "save": "Stoor",
+  "status": "Status",
+  "connected": "Gekoppel",
+  "disconnected": "Ontkoppel",
+  "deleteServer": {
+    "title": "Vee MCP-bediener uit",
+    "description": "Is jy seker jy wil die MCP-bediener {{serverName}} uitvee? Hierdie handeling kan nie ontdoen word nie.",
+    "delete": "Vee uit",
+    "success": "MCP bediener {{serverName}} suksesvol uitgevee"
+  },
+  "editJson": {
+    "title": "Wysig JSON vir MCP Server: {{serverName}}",
+    "titleAll": "Wysig alle MCP-bedieners JSON",
+    "placeholder": "Voer JSON-konfigurasie in",
+    "errorParse": "Kon nie aanvanklike data ontleed nie",
+    "errorPaste": "Ongeldige JSON-formaat in geplakte inhoud",
+    "errorFormat": "Ongeldige JSON-formaat",
+    "errorServerName": "Bedienernaam word vereis en kan nie leeg wees nie",
+    "errorMissingServerNameKey": "JSON moet gestruktureer wees as {\"bedienernaam\": {config}} - ontbrekende bedienernaamsleutel",
+    "errorInvalidType": "Ongeldige tipe '{{type}}' vir bediener '{{serverName}}'. Tipe moet 'stdio', 'http' of 'sse' wees",
+    "save": "Stoor"
+  },
+  "checkParams": "Kontroleer asseblief die parameters volgens die tutoriaal.",
+  "title": "MCP Bedieners",
+  "experimental": "Eksperimenteel",
+  "editAllJson": "Wysig alle bedieners JSON",
+  "findMore": "Vind meer MCP-bedieners by",
+  "allowPermissions": "Laat alle MCP-nutsgoedtoestemmings toe",
+  "allowPermissionsDesc": "Wanneer dit geaktiveer is, sal alle MCP-hulpmiddeloproepe outomaties goedgekeur word sonder om toestemmingsdialoogvensters te wys. Hierdie instelling is wêreldwyd van toepassing op alle gesprekke, insluitend nuwe kletse.",
+  "noServers": "Geen MCP-bedieners gevind nie",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Bediener {{serverKey}} suksesvol geaktiveer",
+  "serverStatusInactive": "Bediener {{serverKey}} is suksesvol gedeaktiveer",
+  "runtimeSettings": {
+    "title": "Looptydinstellings",
+    "description": "Stel op hoe Novera MCP-bedieners bestuur en herprobeer.",
+    "toolCallTimeout": "Gereedskap-oproep-time-out (sekondes)",
+    "toolCallTimeoutDesc": "Maksimum tyd om te wag vir 'n MCP-gereedskapreaksie voordat dit uittel.",
+    "maxToolOutputChars": "Maksimum gereedskapuitsetkarakters",
+    "maxToolOutputCharsDesc": "Langste hulpmiddelresultaat wat in die gesprek gehou is. Enigiets wat hier verby is, word afgesny en as afgekap gemerk, so een groot resultaat kan nie die model se konteks uitput nie. Stel op 0 om resultate volledig te hou.",
+    "smartToolRouting": "Slim MCP-gereedskaproetering",
+    "smartToolRoutingDesc": "Wanneer dit geaktiveer is, kies Novera relevante MCP-bedieners voordat nutsgoed gelaai word. Deaktiveer om altyd die volledige MCP-gereedskaplys te laai.",
+    "useLightweightRouterModel": "Gebruik 'n toegewyde model vir roetering",
+    "useLightweightRouterModelDesc": "Wanneer slim roetering aan is, voer die roeteerstap uit met 'n aparte (dikwels kleiner) model in plaas van die kletsmodel. Skakel af om altyd die aktiewe kletsmodel vir roetering te gebruik.",
+    "routerModel": "Roeteringsmodel",
+    "routerModelDesc": "Kies verskaffer en model op een plek. Slegs liggewigmodelle word gelys, sodat roetes vinnig en goedkoop bly.",
+    "selectRouterModelPlaceholder": "Kies roeteermodel...",
+    "routerModelSearchPlaceholder": "Soek modelle...",
+    "routerModelEmptyList": "Geen liggewigmodelle beskikbaar nie. Voeg 'n kleiner model by of stel API-sleutels in Models op.",
+    "routerModelEmptySearch": "Geen passings vir “{{query}}” nie."
+  },
+  "auth": {
+    "label": "Gesag:",
+    "state": {
+      "notApplicable": "nie nodig nie",
+      "staticHeader": "Magtigingopskrif",
+      "authenticated": "geverifieer",
+      "expired": "het verval",
+      "staleResource": "uitgereik vir 'n ander URL",
+      "unauthenticated": "nie geverifieer nie"
+    },
+    "expiresIn": "verval in {{duration}}",
+    "authenticate": "Meld aan",
+    "reauthenticate": "Herverifieer",
+    "clear": "Vee verifikasie uit",
+    "waiting": "Wag tans vir blaaier...",
+    "openSignInPage": "Maak die aanmeldbladsy oop",
+    "needsAuth": "{{serverName}} benodig verifikasie",
+    "needsAuthHint": "Meld aan by hierdie bediener om te koppel.",
+    "authorized": "Aangeteken by {{serverName}}",
+    "authorizeFailed": "Aanmelding vir {{serverName}} het misluk",
+    "cleared": "Gestoorde geloofsbriewe vir {{serverName}} uitgevee",
+    "nothingToClear": "{{serverName}} het geen gestoorde geloofsbriewe gehad nie",
+    "clearFailed": "Kon nie geloofsbriewe vir {{serverName}} uitvee nie",
+    "renew": "Hernu sessie",
+    "expiredAgo": "het {{duration}} gelede verval"
+  }
+}

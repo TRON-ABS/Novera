@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Kod",
+    "preview": "Xoolaat",
+    "previewStreaming": "Dina am su generation bi jeexee",
+    "unresolvedAssets_one": "1 royuwaay mënul sarse ci preview bi. Yooni relatif amul benn fondaasioŋ URL ngir saafara.",
+    "unresolvedAssets_other": "{{count}} royuwaayi alal mënu ñu sarse ci preview bi. Yooni lëkkaloo amul benn fondaasioŋ URL ngir saafara."
+  },
+  "assistants": "Jàppalekat yi",
+  "hardware": "jumtukaay",
+  "mcp-servers": "Serveur MCP",
+  "local_api_server": "Serveur API",
+  "remote_access": "Accès à distance",
+  "integrations": "Mboolem",
+  "experimental": "Jàngat",
+  "claude_code": "Code Claude",
+  "https_proxy": "HTTPS",
+  "web_search": "Seetug Web",
+  "shell": "Coquillage",
+  "browse": "Saytu",
+  "moreControls": "Yeneen doxalin",
+  "starting": "Tàmbali...",
+  "activeSuffix": "(Aktif)",
+  "extensions": "Yokkateg",
+  "attachments": "Mbir yiñ ci boole",
+  "general": "Général",
+  "settings": "Jekkal",
+  "modelProviders": "Fournisseur model",
+  "localProviders": "ci dëkk bi",
+  "remoteProviders": "Telecommande",
+  "manageProviders": "Saytu ñiy joxé",
+  "hiddenProviders": "{{count}}",
+  "hideProvider": "nëbb ki koy jox",
+  "showProvider": "Wane ki koy jox",
+  "interface": "Jaay",
+  "appearance": "Melokaan",
+  "privacy": "Njaboot",
+  "keyboardShortcuts": "Gaawaay",
+  "home": "Daara",
+  "cowork": "Cowork",
+  "newSession": "Sesioŋ bu bees",
+  "artifacts": "Ay mbiri art",
+  "customize": "Personnaliser",
+  "local": "ci dëkk bi",
+  "selectFolder": "Tannal dosiye bi",
+  "selectModel": "Tannal benn model",
+  "commands": "Ndigal",
+  "cmdHelp": "Lim ndigal yi jàppandi",
+  "cmdClear": "Futti sesioŋ bii",
+  "cmdModels": "Soppi model biy dox",
+  "cmdModelsHint": "Bindal /models nga daal di tànn benn ci limu model yi",
+  "cmdModelSwitched": "soppi ci {{name}}",
+  "cmdUnknown": "Komànd buñu xamul: {{name}}. Jéem /help",
+  "cmdBusy": "Mënu ma def loolu bi agent bi di dox",
+  "cmdCompact": "Dajale sesioŋ bi ci ab tënk",
+  "cmdCompacted": "{{before}} -> {{after}}",
+  "cmdNothingToCompact": "Amagul dara luñu wara compact",
+  "cmdCompactFailed": "Kompaktaasioŋ bi mënul: {{error}}",
+  "cmdPlan": "Baxal mode plan (lire-seulement: agent bi dafay proposé sans écrire)",
+  "cmdPlanOn": "Mode plan ci: ndawu liggéey bi dafay jàng te dafay proposé te du bind",
+  "cmdPlanOff": "Mode plan defa des: def normal",
+  "cmdTodo": "Ubbi paanelu yokkute",
+  "cmdTasks": "Ubbi paanelu liggéey yi ci ginaaw",
+  "cmdInit": "Jàngaleel projet bi nga bind xam-xam ak fàttaliku",
+  "cmdInitRunning": "Dugal projet bii",
+  "skills": "Xam-xam",
+  "skillsInContext": "Xam-xam bi ndawu liggéey bi am ci daw bii",
+  "skillsTitle": "Saytu xam-xam",
+  "skillsScopeProject": "xam-xam ngir {{folder}}",
+  "skillsScopeGlobal": "Xam-xam bu ëpp solo, mën nañu ko am ci sesioŋ bu nekk",
+  "skillsScopeMerged": "Xam-xam ngir {{folder}}, boole ci xam-xam àdduna bi sesioŋ bu nekk di séddoo",
+  "skillOriginFolder": "dosiye",
+  "skillOriginGlobal": "àdduna",
+  "skillsEmpty": "Ba tay amul xam-xam",
+  "skillsPickOrNew": "Tannal benn mën-mën boo bëgga soppali, wala nga sos beneen.",
+  "skillNew": "Xam-xam bu bees",
+  "skillDelete": "efaase mën mën yi",
+  "skillSave": "Sakkanal",
+  "skillSaved": "Xam-xam biñ denc",
+  "skillNameRequired": "Tur mën mën lañu soxla",
+  "skillNamePlaceholder": "turu mën mën",
+  "skillContentPlaceholder": "Tegtal anam yi ñuy jëfandikoowaat ci Markdown...",
+  "skillHubImport": "Yobbu ci hub bi",
+  "skillHubTitle": "Anthropic",
+  "skillHubEmpty": "Amul benn xam-xam buñ gis ci hub bi",
+  "skillImport": "Yobbu",
+  "skillReimport": "Yokkaat",
+  "skillImported": "{{name}} buñ indi",
+  "sessions": "Sesioŋ yi",
+  "deleteSession": "efaase sesioŋ bi",
+  "deleteSessionTitle": "Efaase sesioŋ bi?",
+  "deleteSessionBody": "\"{{title}}\" ak liñu ci bind dina ñu ko efaase ba fàww. Mënu ñu delloo lii.",
+  "newChat": "Waxtaan bu bees",
+  "newAgentChat": "Chat Agent bu Bees",
+  "chats": "Waxtaan",
+  "favorites": "Lima taamu",
+  "recents": "Yi mujjee\n0050",
+  "hub": "Digg",
+  "helpSupport": "Ndimbal ak Jàppale",
+  "helpUsImproveJan": "Dimbali ñu ci gëna baaxal Novera",
+  "analyticsConsentDetail": "Danuy seddale ay done yuñ nëbb ngir xam ni ñuy jëfandikoo man-man yi. Duñu musa topp say waxtaan ak say leerali bopp. Mën nga ko soppi saa yu la neexee ci Jekkal > Sutura.",
+  "analyticsConsentQuestion": "Bëgg nga nu jàppale nu gëna baaxal Novera?",
+  "unstarAll": "Delloosi lépp",
+  "unstar": "Bàyyi",
+  "deleteAll": "Efaase lépp",
+  "star": "Biddéew",
+  "rename": "Soppi tur wi",
+  "delete": "Efaase",
+  "copied": "Kopie nañu ko!",
+  "dataFolder": "Dosie done",
+  "others": "Leneen",
+  "language": "Làkk wi",
+  "login": "Duggal ci",
+  "loginWith": "Duggal ci {{provider}}",
+  "loginFailed": "Mënul dugg",
+  "logout": "Dellu ci",
+  "loggingOut": "Dellu...",
+  "loggedOut": "génne nañu ko bu baax",
+  "logoutFailed": "Mënul genn",
+  "profile": "Profil",
+  "reset": "Reset",
+  "search": "Seetlu",
+  "searchThreads": "Seetal buum yi...",
+  "toNavigate": "ngir jaar",
+  "toSelect": "ngir tànn",
+  "toClose": "ngir tëj",
+  "clearRecent": "Leer",
+  "name": "Tur",
+  "cancel": "Fomm",
+  "dismiss": "Dëddu",
+  "create": "Defar",
+  "save": "Sakkanal",
+  "edit": "Soppi",
+  "copy": "Kopie",
+  "back": "Dellu",
+  "close": "Tëj",
+  "done": "Defna",
+  "next": "Bi ci topp",
+  "finish": "Jeexal",
+  "skip": "Teg",
+  "allow": "Nangu",
+  "deny": "Weddi",
+  "start": "Tàmbali",
+  "stop": "Taxawal",
+  "preview": {
+    "loading": "Ubbi...",
+    "unsupported": "Novera mënul wane xeetu fichier bii. Ubbi ko ngir gis ko ci beneen aplikaasioŋ.",
+    "outside": "Fichier bii amatul ci barabu liggéeyu sesioŋ bi.",
+    "tooLarge": "Dafa rëy lool ngir ñu mëna ko xoolaat. Ubbi ko ngir gis ko ci beneen aplikaasioŋ.",
+    "reload": "Sarsewaat",
+    "allowNetwork": "Nangu reso bi",
+    "unsandboxed": "Doxal sandboxed: done yiñ denc ak fichier lokal yi dañuy dox",
+    "unresolvedRefs_one": "1 fichier bi xët wii lëkkale mënul sarse ci preview bi. Ubbi ko ngir gis ko ci sa nawigatër.",
+    "unresolvedRefs_other": "{{count}} Fichier yi xët wii lëkkale mënu ñu sarse ci preview bi. Ubbi ko ngir gis ko ci sa nawigatër.",
+    "externalRefs_one": "1 jumtukaay bi xët wii di jëlee ci web bi dañu ko tëj. Taalal \"Nangu reso bi\" ngir sarse ko.",
+    "externalRefs_other": "{{count}} jumtukaay yi xët wii di jëlee ci web bi dañu leen tëj. Taalal \"Nangu reso bi\" ngir sarse leen.",
+    "scriptErrors_one": "Xët wi dafa wane njuumte: {{message}}",
+    "scriptErrors_other": "Xët wi dafa wane njuumte {{count}}. Bi njëkk: {{message}}"
+  },
+  "changes": {
+    "title": "Coppite yi ci ndawu liggéey bi",
+    "empty": "Dosie yi agent bi bind wala soppali dina ñu feeñ fii.",
+    "a11y": "Coppite yiñ amal ci ndawu liggéey bi: Dosie {{files}}, yokk {{additions}}, dindi {{deletions}}"
+  },
+  "modelPanel": {
+    "title": "Jekkal model",
+    "a11y": "Ubbi jekkal model",
+    "contextTooltip": "Palanteer biy wax ci mbir mi: {{value}} ci jeton {{max}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Xam-xam '{{name}}' amul",
+    "kind": {
+      "skill": "Xam-xam",
+      "command": "Komando",
+      "model": "Modèle"
+    }
+  },
+  "compactWidth": "Yaatu bu dëgër",
+  "fullWidth": "Largeur complète",
+  "dark": "Lëndëm",
+  "light": "Leer\n0062",
+  "system": "Tëralin",
+  "auto": "Oto",
+  "english": "Wolof",
+  "medium": "Digg",
+  "newThread": "Buum bu bees",
+  "noResultsFound": "Gisu ñu benn njariñ",
+  "noThreadsYet": "Ba tay amagul ay buum",
+  "noThreadsYetDesc": "Tàmbalil waxtaan bu bees ngir gis jaar-jaaru sa thread fii.",
+  "downloads": "Téléchargements",
+  "downloading": "di yebbi",
+  "uploadingAttachments": "Yebbi ay mbind yuñ ci boole...",
+  "cancelDownload": "Fomm yebbi",
+  "downloadCancelled": "Tebbi nañu ko fomm",
+  "downloadComplete": "Télécharger",
+  "thinking": "Xalaat...",
+  "thought": "Xalaat",
+  "callingTool": "Jumtukaayu woote",
+  "completed": "Jeexal na",
+  "image": "Nataal",
+  "vision": "Gis-gis",
+  "multimodal": "Modal yu bari",
+  "embeddings": "dugal",
+  "tools": "Jumtukaay",
+  "webSearch": "Seetug Web",
+  "reasoning": "Xalaat",
+  "proactive": "Proaktif",
+  "selectAModel": "Tannal benn model",
+  "noToolsAvailable": "Amul jumtukaay",
+  "noModelsFoundFor": "Amul benn model buñu gis ngir \"{{searchValue}}\"",
+  "failedToLoadModels": "Modèle yi mënatul sarse",
+  "noModels": "Gisu ñu benn model",
+  "noAssistant": "Amul ndimbalkat",
+  "customAvatar": "Avatar buñ jagleel",
+  "editAssistant": "Jàppalekatu Soppali",
+  "jan": "Novera",
+  "metadata": "Métadone",
+  "regenerate": "Yeesal",
+  "threadImage": "Nataalu fiil bi",
+  "editMessage": "Soppi mesaas bi",
+  "deleteMessage": "efaase mesaas bi",
+  "deleteThread": "efaase buum gi",
+  "renameThread": "Soppi tur buum gi",
+  "threadTitle": "Titre du thread",
+  "deleteAllThreads": "Effacer tout la thread",
+  "allThreadsUnfavorited": "Bépp thread buñu bëggul",
+  "deleteAllThreadsConfirm": "Ndax gëm nga ni bëgg nga efaase thread yépp? Mënu ñu delloo jëf jii.",
+  "addProvider": "Yokk ki lay jox",
+  "addOpenAIProvider": "Yokk OpenAI Fournisseur",
+  "enterNameForProvider": "Bindal ab tur ngir sa joxekat",
+  "providerAlreadyExists": "Fournisseur bu am tur \"{{name}}\" amna fi ba noppi. Tannal beneen tur.",
+  "adjustFontSize": "Defar dayo font bi",
+  "changeLanguage": "Soppi làkk",
+  "editTheme": "Soppi theme bi",
+  "editCodeBlockStyle": "Soppi Kodu Stilu Blok",
+  "editServerHost": "Soppi serwër bi",
+  "pickColorWindowBackground": "Tannal melo palanteer bi ci ginaaw",
+  "pickColorAppMainView": "Tannal Kulòoru App bi",
+  "pickColorAppPrimary": "Tannal Kulòoru App bu njëkk",
+  "pickColorAppAccent": "Tannal Kulòoru App Accent",
+  "pickColorAppDestructive": "Tannal Kulòoru App Yaxx",
+  "apiKeyRequired": "API Caabi lañu soxla",
+  "enterTrustedHosts": "Dugalal ay host yu wóor",
+  "placeholder": {
+    "chatInput": "Laaj ma dara..."
+  },
+  "confirm": "Firndelal",
+  "continue": "Wéyal",
+  "loading": "Dafay yobbu...",
+  "settingUpJan": "Démarrer Novera...",
+  "registeringExtensions": "Bindu ay yokk...",
+  "loadingExtensions": "Yobbu ay yokk... ({{done}}/{{total}})",
+  "error": "Jumtukaay",
+  "success": "Tekki",
+  "warning": "Àrtu",
+  "conversationNotAvailable": "Waxtaan amul",
+  "conversationNotAvailableDescription": "Waxtaan wi ngay jéema dugg amul wala dañu ko efaase.",
+  "temporaryChat": "Waxtaan bu yàgg",
+  "temporaryChatTooltip": "Waxtaan bu yàgg du feeñ ci sa jaar-jaar",
+  "noResultsFoundDesc": "Gisu nu benn waxtaan bu méngoo ak sa seet. Jéemal beneen baatu-caabi.",
+  "searchModels": "Modèle de recherche...",
+  "searchStyles": "Xeetu seetlu...",
+  "createAssistant": "Sosal ndimbalkat",
+  "enterApiKey": "Dugalal butoŋu API",
+  "scrollToBottom": "Dellu ci suuf",
+  "generateAiResponse": "Defar tontu AI",
+  "continueAiResponse": "Wéyal ak tontu AI",
+  "addModel": {
+    "title": "Yokk ci xeetu",
+    "modelId": "Modèle ID",
+    "enterModelId": "Dugalal xeetu ID",
+    "addModel": "Yokk ci xeetu",
+    "description": "Yokk model bu bees ci ki koy jox",
+    "exploreModels": "Xoolal limu model yi ci ki leen jox"
+  },
+  "mcpServers": {
+    "editServer": "Soppi serwër",
+    "addServer": "Yokk serwër",
+    "serverName": "Turu serwër bi",
+    "enterServerName": "Bindal turu serwër bi",
+    "command": "Komando",
+    "enterCommand": "Dugalal ndigal",
+    "arguments": "Argument",
+    "argument": "Waxtaan {{index}}",
+    "envVars": "Mbir yiy soppiku ci environmaa bi",
+    "key": "Caabi",
+    "value": "Valeur",
+    "save": "Sakkanal"
+  },
+  "deleteServer": {
+    "title": "efaase serwër bi",
+    "delete": "Efaase"
+  },
+  "editJson": {
+    "errorParse": "Ñàkka mëna jàngat JSON",
+    "errorPaste": "Dañu mënatul jëfandikoo JSON",
+    "errorFormat": "Format JSON bu baaxul",
+    "titleAll": "Soppi bépp tànneefu serwër",
+    "placeholder": "Dugalal tabb JSON...",
+    "save": "Sakkanal"
+  },
+  "editModel": {
+    "title": "Soppi model bi: {{modelId}}",
+    "description": "Taxawal kàttanu model bi ci baxaale tànneef yi ci suuf.",
+    "capabilities": "Kàttan",
+    "tools": "Jumtukaay",
+    "vision": "Gis-gis",
+    "embeddings": "dugal",
+    "notAvailable": "Amagul ba leegi"
+  },
+  "outOfContextError": {
+    "truncateInput": "Dagg dugal",
+    "title": "Jumtukaay bu génn ci muy tekki",
+    "description": "Waxtaan bii mingi dem ba ci memory bu AI, melni tablo bu weex buy fees. Mën nanu yaatal palanteeru mémoire bi (ñu koy woowe dayo contexte) suko defee mu mëna fàttaliku lu gëna bari, waaye mën na jëfandikoo mémoire bu gëna bari ci sa ordinatër. Mën nanu itam dagg li nga dugal, loolu dafay tekki ni dina fàtte yenn ci jaar-jaaru waxtaan yi ngir mëna joxe palaas ngir mesaas yu bees.",
+    "increaseContextSizeDescription": "Bëgg nga yokk dayo contexte bi?",
+    "increaseContextSize": "Yokk dayo ëmbiit li"
+  },
+  "toolApproval": {
+    "title": "Laaj ndigalu jumtukaay",
+    "description": "Jàppalekat bi dafa bëgga jëfandikoo <strong>{{toolName}}</strong>",
+    "securityNotice": "May jumtukaay yi nga wóolu kese. Jumtukaay yi mën nañu dugg ci sa sistem ak say done.",
+    "deny": "Weddi",
+    "allowOnce": "Nangu benn yoon",
+    "alwaysAllow": "Nangu saa yu nekk"
+  },
+  "deleteModel": {
+    "title": "Efaase model bi: {{modelId}}",
+    "description": "Ndax gëm nga ni bëgg nga efaase model bii? Mënu ñu delloo jëf jii.",
+    "success": "Modèle {{modelId}} dañu ko efaase ba fàww.",
+    "cancel": "Fomm",
+    "delete": "Efaase"
+  },
+  "deleteProvider": {
+    "title": "effacer fournisseur",
+    "description": "Efaase furnisër bii ak ay modelam yépp. Mënu ñu delloo jëf jii.",
+    "success": "Fournisseur {{provider}} dañu ko efaase ba fàww.",
+    "confirmTitle": "effacer fournisseur: {{provider}}",
+    "confirmDescription": "Ndax gëm nga ni bëgg nga efaase furnisër bii? Mënu ñu delloo jëf jii.",
+    "cancel": "Fomm",
+    "delete": "Efaase"
+  },
+  "modelSettings": {
+    "title": "- {{modelId}}",
+    "description": "Taxawal jekkal model ngir gëna baaxal liggéey bi ak doxalin wi.",
+    "nglDisabledByFit": "Fit automatik mooy tànn diisaayi GPU. Def Auto-fit ngir mëna def lii ak loxo.",
+    "samplingDefaults": {
+      "title": "Parametru jël misaal yiñ jagleel",
+      "description": "Jekkal sampler biñ jagleel model bii. Dañu koy jëfandikoo fileek assistant bu nekk wala valeur bu laaj bi moo ko soppi."
+    },
+    "specDraft": {
+      "section": "Dekodage spekulatif",
+      "enable": "Aktiwise dekodage spekulatif",
+      "enableDescription": "Defar ay jeton yu bari ci jéego bu nekk nga xool leen ci benn yoon, loolu mooy gaawlu defar. Jëfandikool boppu MTP biñ tabax ci biir model bi, wala modelu projet biñ yebbi ak moom (MTP, Eagle3, DFlash wala DSpark).",
+      "nMax": "Jetons yu gëna bari",
+      "nMaxDescription": "Limu gëna bari ci jeton yiñ wara bind ci jéego bu nekk. Jamono 16.",
+      "nMin": "Jetons yu ndaw",
+      "nMinDescription": "Limu gëna ndaw ci jetons yiñ wara bind ci jéego bu nekk. biñ jagleel 0.",
+      "pMin": "Probabilite bu gëna ndaw",
+      "pMinDescription": "Probabilite bu gëna ndaw ngir bind (0–1). 0.75 biñ jagleel."
+    },
+    "templateKwargs": {
+      "section": "Tànneefi gaaraasu waxtaan",
+      "description": "Modèle chat model bii dafay nangu yeneen tànneef. Yonnee nañu ko ni chat_template_kwargs ci laaj bu nekk; bàyyi benn valeur ci default bi ngir template bi jël dogal.",
+      "addCustom": "Yokk tànneef buñ jagleel",
+      "keyPlaceholder": "tur",
+      "valuePlaceholder": "njariñ xayma",
+      "add": "Yokk",
+      "cancel": "Fomm",
+      "remove": "Dindi"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Mënul yeesal jekkal model bi"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Soppi barabu dosiye done",
+      "description": "Ndax gëm nga ni bëgg nga soppi barabu dosiye done yi? Loolu mooy toxal sa done yépp ci barab bu bees bi ba noppi tàmbaliwaat aplikaasioŋ bi.",
+      "currentLocation": "Barab bi fi nekk:",
+      "newLocation": "Barab bu bees:",
+      "cancel": "Fomm",
+      "changeLocation": "Soppi barab"
+    },
+    "deleteAllThreads": {
+      "title": "Effacer tout la thread",
+      "description": "Dina ñu efaase thread yépp. Mënu ñu delloo jëf jii."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "efaase bépp waxtaan",
+      "description": "{{count}} waxtaan yi ci \"{{projectName}}\" dina ñu efaase. Mënu ñu delloo jëf jii."
+    },
+    "deleteThread": {
+      "description": "Ndax bëgg nga efaase thread bii? Mënu ñu delloo jëf jii."
+    },
+    "editMessage": {
+      "title": "Soppi mesaas bi"
+    },
+    "messageMetadata": {
+      "title": "Métadone yu mesaas bi"
+    },
+    "deleteMessage": {
+      "description": "Ndax bëgg nga efaase mesaas bii? Mënu ñu delloo jëf jii."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Amna lu jaarul yoon",
+    "details": "Ay leeral"
+  },
+  "missingDependenciesDialog": {
+    "title": "Biblioteek yu sistem yi ñàkk",
+    "description": "{{backend}} dañu ko samp waaye mënu ñu woon gis yenn bibliotek yiñ soxla ci sistem bi. Mën na wàcci ci CPU wala mu baña dox bu baax.",
+    "installLabel": "Ngir saafara lii, samp li ci topp:",
+    "download": "Télécharger",
+    "additionalLibraries": "Yeneen bibliotek yu ñàkk:",
+    "missingLibraries": "Bibliothèque yi amul:",
+    "showRawLibraries": "Wane {{count}} tur yi bibliotek yi ñàkk"
+  },
+  "projects": {
+    "title": "ay projet",
+    "new": "Projet yu bees",
+    "addProject": "Yokk projet",
+    "addToProject": "Yokk ci projet bi",
+    "removeFromProject": "Dindi ko ci projet bi",
+    "createNewProject": "Defar projet bu bees",
+    "editProject": "Soppi projet bi",
+    "deleteProject": "efaase projet bi",
+    "projectName": "Turu projet bi",
+    "enterProjectName": "Bindal turu projet bi...",
+    "noProjectsAvailable": "Amul ay projet",
+    "noProjectsYet": "Amagul ay projet",
+    "noProjectsYetDesc": "Soo bëggee tàmbali projet bu bees, bësal mbusu Yokk projet.",
+    "projectNotFound": "Gisu ñu projet bi",
+    "projectNotFoundDesc": "Projet bi ngay seet amul wala dañu ko efaase.",
+    "selectAssistant": "Tannal ndimbal",
+    "noAssistantAssigned": "Amul benn assistant buñu jox projet bii",
+    "files": "Dosie yi",
+    "filesDescription": "Yokk ay PDF, ay këyit wala yeneen mbind ngir royuwaay ci projet bii.",
+    "uploadingFiles": "Dosie yiy liggéey...",
+    "processButton": "Yokk",
+    "deleteProjectDialog": {
+      "title": "efaase projet bi",
+      "permanentDelete": "Loolu dina efaase thread yépp ba fàww.",
+      "permanentDeleteWarning": "Jëf bii dina efaase ba fàww thread ALL yi ci biir projet bi!",
+      "deleteEmptyProject": "Jëf bii dafay efaase projet \"{{projectName}}\".",
+      "saveThreadsAdvice": "Soo bëggee denc ay thread, toxal leen ci sa limu thread wala ci beneen projet balaa ngay efaase.",
+      "starredWarning": "Ba leegi am nga ay thread yu am biddiiw ci biir projet bi.",
+      "deleteButton": "Efaase",
+      "successWithName": "Projet \"{{projectName}}\" efaase nañu ko bu baax",
+      "successWithoutName": "Projet bi efaase nañu ko bu baax",
+      "error": "Ñàkka mëna efaase projet bi. Jéemaat.",
+      "ariaLabel": "efaase {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Defar projet bu bees",
+      "editTitle": "Soppi projet bi",
+      "nameLabel": "Turu projet bi",
+      "namePlaceholder": "Bindal turu projet bi...",
+      "assistant": "Jàppalekat",
+      "selectAssistant": "Tannal assistant (mën nga ko bëgg)",
+      "noAssistant": "Amul ndimbalkat",
+      "addAssistant": "Yokk jàppalekat\n0008 Emoji",
+      "createButton": "Defar",
+      "updateButton": "yeesal",
+      "alreadyExists": "Projet «{{projectName}}» amna déjà",
+      "createSuccess": "Projet \"{{projectName}}\" defar nañu ko bu baax",
+      "updateSuccess": "Projet \"{{projectName}}\" yeesal nañu ko bu baax",
+      "saveError": "Mënu ñu denc projet bi. Jéemaat."
+    },
+    "noConversationsIn": "Amul waxtaan ci {{projectName}}",
+    "startNewConversation": "Tambalil waxtaan bu bees ak {{projectName}} ci suuf",
+    "conversationsIn": "Waxtaan ci {{projectName}}",
+    "conversationsDescription": "Bësal ci bépp waxtaan ngir wéyal waxtaan wi, wala nga tàmbali beneen ci suuf.",
+    "conversation": "Waxtaan",
+    "instructions": "Tegtal yi",
+    "setup": "Tabb",
+    "instructionsDescription": "Personnaliser ton et stil de réponse",
+    "manageInstructions": "Saytu tegtal yi",
+    "thread": "buum",
+    "threads": "buum",
+    "updated": "yeesal:",
+    "collapseProject": "Dakkal projet bi",
+    "expandProject": "Yaatalal projet bi",
+    "update": "yeesal",
+    "searchProjects": "Seetlu ay projet...",
+    "noProjectsFound": "Gisu ñu benn projet",
+    "tryDifferentSearch": "Jéem wut beneen baat"
+  },
+  "attachmentsIngestion": {
+    "title": "Tannal ni ngay jëlee ay mbind",
+    "description": "Tannal ndax dangay boole fichier yii ci chat bi wala nga indexe leen ñuy embeddings.",
+    "inline": "Duggal ci waxtaan",
+    "embeddings": "Jëfandikool ay lëkkale"
+  },
+  "attachmentInjectedIndicator": "Duggal ci waxtaan",
+  "attachmentEmbeddedIndicator": "Dafa samp ci RAG",
+  "viewInjectedContent": "Xoolal ëmbiit liñ dugal",
+  "injectedContentTitle": "ëmbiitu fichier biñ dugal",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Bépp thread buñu bëggul",
+      "description": "Dindi nañu thread yépp ci say bëgg-bëgg."
+    },
+    "deleteAllThreads": {
+      "title": "Effacer tout la thread",
+      "description": "Thread yépp dañu leen efaase ba fàww."
+    },
+    "renameThread": {
+      "title": "Soppi tur buum gi",
+      "description": "Soppi nañu tur wi tuddu '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "efaase buum gi",
+      "description": "Buum bii dañu ko efaase ba fàww."
+    },
+    "errorCopied": {
+      "title": "Kopie bi baaxna",
+      "description": "Leeral yiñ kopie ci clipboard"
+    },
+    "errorCopyFailed": {
+      "title": "Ñàkka mëna kopie",
+      "description": "Ñàkka mëna kopie leerali njuumte ci clipboard"
+    },
+    "editMessage": {
+      "title": "Soppi mesaas bi",
+      "description": "Soppali nañu bataaxal bi bu baax. Xaaral model bi tontu."
+    },
+    "appUpdateDownloaded": {
+      "title": "yeesal app bi",
+      "description": "Yebbi app bi baaxna."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Yeesal App bi yebbiwul",
+      "description": "Mënul yebbi yeesali aplikaasioŋ bi. Jéemaat."
+    },
+    "downloadComplete": {
+      "title": "Télécharger",
+      "description": "{{item}} dafa yebbi"
+    },
+    "downloadCancelled": {
+      "title": "Tebbi nañu ko fomm",
+      "description": "Processus de téléchargement bi dafa fomm"
+    },
+    "downloadFailed": {
+      "title": "Yebbitewul",
+      "description": "{{item}} télécharger bi mënul",
+      "descriptionWithReason": "{{item}} téléchargement défaillé: {{reason}}",
+      "reason": {
+        "dns": "tur serwër bi mënu ñu ko saafara",
+        "refused": "bañ nañu lëkkaloo bi",
+        "timeout": "lëkkaloo bi jeexna",
+        "tls": "mënu ñu defar lëkkaloo bu wóor",
+        "proxy": "mënu ñu jokkoo ak proxy bi",
+        "unreachable": "mënu ñu jokkoo ak serwër bi"
+      }
+    },
+    "openSettings": "Ubbi jekkal yi",
+    "openLogs": "Ubbi xët yi",
+    "downloadTokenRequired": {
+      "title": "jeton Hugging Face",
+      "description": "Xeet wii dafay laaj jeton jëfandikoo Hugging Face. Yokk sa token ci Jekkal yi nga jéemaat."
+    },
+    "downloadLicenseRequired": {
+      "title": "Nangu lisence model ci Hugging Face",
+      "description": "Danga wara nangu lisence model bi ci xëtam Hugging Face balaa ngay yebbi."
+    },
+    "downloadRateLimited": {
+      "title": "Taux limité par Hugging Face",
+      "description": "Dañu la wàññil njëg yi. Yokk benn token mën na yokk njëg yi. Jéemaat ci kanam."
+    },
+    "modelValidationStarted": {
+      "title": "Modèle buy saytu",
+      "description": "Yebbi nañu xeetu \"{{modelId}}\" bi baaxna. Saytu njub..."
+    },
+    "modelValidationFailed": {
+      "title": "Model bi baaxul",
+      "description": "Modèle biñ yebbi \"{{modelId}}\" mënatul woon saytu njub, ñu dindi ko. Dosie bi mën na yàqu wala ñu soppali ko."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Télécharger",
+      "description": "Modèle \"{{item}}\" yebbi nañu ko ba noppi xool bu baax"
+    },
+    "projectCreated": {
+      "title": "Dañu defar projet bi",
+      "description": "Projet \"{{projectName}}\" defar nañu ko bu baax"
+    },
+    "projectRenamed": {
+      "title": "Soppi tur wi ci projet bi",
+      "description": "Projet bi soppi tur ci \"{{oldName}}\" mu nekk \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Dañu efaase projet bi",
+      "description": "Projet \"{{projectName}}\" efaase nañu ko bu baax"
+    },
+    "projectAlreadyExists": {
+      "title": "Projet bi amna",
+      "description": "Projet «{{projectName}}» amna déjà"
+    },
+    "projectDeleteFailed": {
+      "title": "Efaase bi mënul",
+      "description": "Ñàkka mëna efaase projet bi. Jéemaat."
+    },
+    "threadAssignedToProject": {
+      "title": "Fiil biñ jox",
+      "description": "Buum biñ jox \"{{projectName}}\""
+    },
+    "threadRemovedFromProject": {
+      "title": "Dindi nañu buum gi",
+      "description": "Dindi nañu buum gi ci \"{{projectName}}\""
+    },
+    "fileUploaded": {
+      "title": "Fichier bi",
+      "description": "Dosie bi defar nañu ko bu baax ba noppi indexe ko"
+    },
+    "uploadFailed": {
+      "title": "Liggéeyukaay bi deful",
+      "description": "Dosie bi mënatul def",
+      "subjectThisFile": "Dosie bii",
+      "pdfMalformedXref": "{{subject}} amna tablo royuwaay PDF bu jaarul yoon, te mënu ñu ko jàngat. Jéemal ubbi ko ci seetaankatu PDF nga denc ko (Fichier → Imprimeer → Denc ni PDF), ba noppi nga yebbiwaat ko.",
+      "pdfScanned": "{{subject}} dafa melni PDF buñ skane wala buñ sukkandikoo ci nataal. OCR ba tay nangu wuñu ko — yebbi PDF bu lalu ci bind.",
+      "pdfEncrypted": "{{subject}} dañu ko aar ci baatu-jàll. Dindil baatu-jàll bi nga jéemaat.",
+      "pdfUnsupportedFeature": "{{subject}} dafay jëfandikoo man-manu PDF bi Novera mënagul jàngat (lu melni PostScript melo/màndarga lëndëm). Jéemal denc ko (Fichier → Imprimer → Enregistrer comme PDF) ngir dakkal ko, ba noppi nga yebbiwaat ko.",
+      "pdfGeneric": "{{subject}} mënu ñu ko jàngat ni PDF. Fichier bi mën na yàqu wala mu jëfandikoo man-manu PDF buñu jàppalewul.",
+      "fileTooLarge": "{{subject}} dafa rëy lool. {{message}}.",
+      "unsupportedType": "Xeetu fichier \"{{type}}\" mënul jàppale.",
+      "ioError": "Mënu ma lire {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} mënul jàngat: {{message}}",
+      "fallback": "Ñàkka mëna def {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Dosie bi dafa efaase",
+      "description": "Dindi nañu fichier bi ci projet bi"
+    },
+    "deleteFailed": {
+      "title": "Efaase bi mënul",
+      "description": "Dosie bi mënatul efaase"
+    },
+    "fileAlreadyExists": {
+      "title": "Fichier bi amna",
+      "description": "Dosie bi dafa jota takk ci projet bi"
+    },
+    "unsupportedFileType": {
+      "title": "Xeetu fichier buñu mënul jàppale",
+      "description": "Fichier biy yokk \".{{extension}}\" mënul ànd ak royuwaayu projet bi."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Teg ci",
+      "description": "Tegtal yi deñu leen dindi ci Jekkal yi"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Dosie bi dafa yaatu lool",
+    "fileTooLargeDescription": "{{fileName}} dafa weesu {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}}",
+    "title": "Dosie yi",
+    "empty": "Fichier yi nga taf ak fichier yi agent bi defar dina ñu feeñ fii.",
+    "a11y": "Dosie yi: {{count}}",
+    "attachments": "Mbir yiñ ci boole",
+    "notImported": "nekkul ci barabu liggéey bi"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp ba tay dafa am liggéey",
+    "description": "Benn wala model yu bari dese wuñu ci waxtu. Force-quitting dina jeexal llama.cpp te mën na dakkal tontu yu am solo.",
+    "forceQuit": "Forse bàyyi",
+    "forcing": "Forse bàyyi...",
+    "shuttingDown": "Tëj...\n0007"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Daanu",
+  "expand": "Yaatal",
+  "todoPanelTitle": "Yokkateg",
+  "todoPanelEmpty": "Amagul benn limu mbir yuñ wara def.",
+  "backgroundTasks": "Liggéey yi ci ginaaw",
+  "subagentsRunning_one": "{{count}} subagent",
+  "subagentsRunning_other": "{{count}} sous agents",
+  "monitorsRunning_one": "{{count}} monitër biy dox",
+  "monitorsRunning_other": "{{count}} monitër yiy daw",
+  "backgroundRunning_one": "{{count}} liggéey ci ginaaw",
+  "backgroundRunning_other": "{{count}} liggéey yi ci ginaaw",
+  "monitors": "monitër",
+  "monitorPolling": "Sondage",
+  "monitorMatched": "méngoo",
+  "monitorTimedOut": "Waxtu jeexna",
+  "monitorStopped": "Taxaw",
+  "monitorEnded": "Jeexna",
+  "coworkWatching_one": "Seetaan monitër {{count}}...",
+  "coworkWatching_other": "Seetaan monitër {{count}}...",
+  "coworkWaitingBackground": "Xaar liggéey yi ci ginaaw...",
+  "noBackgroundTasks": "Ba leegi amagul ay liggéey ci ginaaw.",
+  "running": "Daw",
+  "queued": "Raŋ",
+  "waiting": "Xaar",
+  "finished": "Jeexna",
+  "subagentPhase": "fase {{phase}}",
+  "subagentWaiting": "xaar",
+  "viewTranscript": "Xoolal transkripsioŋ bi",
+  "taskWorking": "Liggéey...",
+  "taskNoOutput": "Subagent bi génnewul lenn luñuy gis.",
+  "subagentToolUses_one": "Jëfandikoo jumtukaay {{count}}",
+  "subagentToolUses_other": "{{count}} jumtukaay jëfandikoo",
+  "artifactGroupCode": "Kod",
+  "artifactGroupImage": "Nataal",
+  "artifactGroupDocument": "Këyit",
+  "artifactGroupVideo": "Wideo",
+  "artifactGroupAudio": "Odio",
+  "artifactOpenPreview": "Ubbi xoolaat",
+  "artifactOpenExternal": "Ubbi",
+  "artifactMoreActions": "Yeneen jëf",
+  "artifactShowInFolder": "Wane ci dosiye bi",
+  "skillsUsedLabel": "Xam-xam yiñ jëfandikoo",
+  "skillsUsed": "Xam-xam biñu jëfandikoo: {{skills}}",
+  "artifactsAll": "Ñépp",
+  "artifactsEmpty": "Ba leegi defaragul dara. Ay mbiri art yu bawoo ci Cowork dañu feeñ fii.",
+  "artifactsNoMatch": "Amul benn mbiri art bu méngoo.",
+  "artifactsSearch": "Seetal mbiri art",
+  "artifactsShowMore": "Wane {{count}}",
+  "workspace": {
+    "readsFrom": "Liggéey ci",
+    "writable": "jàng ak bind",
+    "footnote": "Agent bi dafay jàng ak soppali dosiye bii ci saasi. Xoolaat li soppeeku ci paanelu diff.",
+    "footnoteEmpty": "Takkal benn dosiye ngir may ndawu liggéey bi mu liggéey ci sa projet. Mën na jàng ak soppali fichier yi ci biir.",
+    "attach": "Takkal ab dosiye",
+    "change": "Soppi dosiye",
+    "detach": "Dindi dosiye bi",
+    "open": "Ubbi",
+    "reveal": "Feeñal",
+    "unavailable": "Barabu liggéey bi amul",
+    "missing": "Dossier barabu liggéey bi {{folder}} amatul. Tannal beneen dosiye.",
+    "openFailed": "Mënul ubbi barabu liggéey bi",
+    "revealFailed": "Mënul wane barabu liggéey bi",
+    "a11yWithFolder": "Dossier projet {{folder}}, boole ci lire ak bind. Soppi ko wala nga dindi ko.",
+    "a11yNoFolder": "Amul benn dosiye projet buñu ci takk. Takkal benn."
+  },
+  "coworkEmpty": {
+    "title": "Ci lan lanuy liggéey?",
+    "subtitleSandbox": "Jox Novera benn liggéey. Dafay jàng ak bind fichier yi, def ay komand, ba noppi def jéego yi ci boppam.",
+    "subtitleFolder": "Jox Novera benn liggéey. Dafay liggéey ci {{folder}}, di jàng ak soppali fichier yi ci boppam.",
+    "try": "Jéem",
+    "sandbox": {
+      "first": "Bindal ab script Python buy soppi tur fichier yi ci bis biñu leen jëlee",
+      "second": "Defar benn tablo dashboard bu am benn xët ci CSV dinaa ko jëfandikoo",
+      "third": "Defar benn README ngir benn projet buma lay leeralal"
+    },
+    "folder": {
+      "first": "Leeralal ni ñuy boolee {{folder}}",
+      "second": "Wut bépp TODO ci {{folder}} nga boole leen ci barab",
+      "third": "Bindal ay test ci wàllu {{folder}} maa ngi lay wan"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "amul terminal",
+    "a11y": "Doxal komand yi dañu fay. Yu sew.",
+    "title": "Doxal komand yi dañu fay",
+    "body": "Novera du may agent bi mu def ay komandu shell sudee sa sistem mën leen tëj. Amul benn sandbox bu jàppandi fii, kon agent bi mën na jàng, bind ak soppali fichier yi ci sandbox bi — waaye du doxal dara.",
+    "fixLinux": "Linux dafay jëfandikoo bubblewrap. Sampaale ko, ba noppi tàmbaliwaat Novera.",
+    "fixMac": "macOS dafay jëfandikoo sandbox biñ tabax ci /usr/bin/sandbox-exec. Tambaliwaat Novera buñu ko jàppee.",
+    "fixWindows": "Windows dafay jëfandikoo AppContainer. Tambaliwaat Novera ngir jéemaat.",
+    "recheck": "Xoolaat"
+  },
+  "planMode": {
+    "label": "Ay pexe",
+    "tooltipOff": "Waaj bu njëkk — ndawu liggéey bi dafay jàng ba noppi digle, te bindul.",
+    "tooltipOn": "Waajal. Def lii ngir may ndawu liggéey bi mu bind fichier yi.",
+    "onAnnounce": "Mode plan ci",
+    "placeholder": "Laajteel ab pexe. Agent bi du soppi benn fichier."
+  },
+  "budget": {
+    "stoppedSteps": "taxaw ci jéego {{max}}. Agent bi jeexagul.",
+    "keepGoing": "Weyal",
+    "stoppedTokens": "Taxaw — sesioŋ bii defna budget token bi.",
+    "compact": "Kompakt",
+    "newSession": "Sesioŋ bu bees"
+  },
+  "run": {
+    "stopped": "Taxaw.",
+    "failed": "Daw bi teela taxaw.",
+    "tryAgain": "Jéemaat"
+  },
+  "modelNoTools": "{{model}} mënul woo jumtukaay, kon mënul nekk ab ndawu liggéey. Tannal xeetu woote jumtukaay.",
+  "askContinue": "Wéyal",
+  "askNext": "Laaj bi ci topp",
+  "askPrev": "Laaj bu njëkk",
+  "askRecommended": "Ñu ngi lay digal",
+  "askSelectedCount": "{{count}} tànn",
+  "askSomethingElse": "Leneen",
+  "askSomethingElsePlaceholder": "Bindal sa tontu",
+  "submit": "Yonnee",
+  "composer": {
+    "advanced": "Parametre yu xóot",
+    "modelDefaults": "Modèle yiñ jagleel",
+    "assistantOverrides": "Jàppalekat bi dafay soppi\n0002",
+    "printPdf": "Imprimeer / Enregistrer comme PDF",
+    "exportHint": "Format yiñ mëna jàng: bànxaas buy dox. JSON: bépp xeetu mesaas. Fichier yi bawoo ci biti bokku ñu ci."
+  },
+  "telemetry": {
+    "summary": "Soo nangu, {{host}} du jot ludul xeetu Novera ak sistem bimuy doxalee, te du am waxtaan wala ràññeekaay buy yàgg.",
+    "unavailable": "Statistique yi defaru ñu. Yonnee wuñu benn done."
+  },
+  "errorTracking": {
+    "title": "Topp njuumte",
+    "summary": "Rapport yiñ mëna tànn ngir {{host}}: xeetu njuumte, barabu kod bi, xeetu ak sistem biy doxal. Amul waxtaan, mesaasu njuumte bu ñor wala caabi. Def saa yu nekk.",
+    "unavailable": "Topp njuumte bi defaruwul. Yonnee wuñu benn rapoor."
+  }
+}

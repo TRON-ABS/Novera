@@ -1,0 +1,18 @@
+{
+  "addProvider": "Idugang ang Provider",
+  "addOpenAIProvider": "Idugang ang Custom Provider",
+  "enterNameForProvider": "Ngalan sa provider (eg. my-llm-server)",
+  "apiTypeLabel": "API nga pormat",
+  "apiTypeOpenAI": "OpenAI-compatible",
+  "apiTypeAnthropic": "Anthropic-compatible",
+  "baseUrlLabel": "Base URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API yawe",
+  "apiKeyPlaceholder": "Idikit ang imong API nga yawe",
+  "invalidBaseUrl": "Base nga URL kinahanglang balido nga http(s) URL",
+  "globalSettings": "Mga setting sa kalibutan",
+  "stripReasoning": "Kuhaa ang pangatarungan gikan sa konteksto",
+  "stripReasoningDesc": "Kuhaa ang una nga pagliko sa panghunahuna/pangatarungan nga sulud sa dili pa ipadala pag-usab ang kasaysayan, sa tanan nga mga provider. Gipaayo ang KV-cache nga paggamit pag-usab alang sa lokal nga mga modelo, apan pipila ka mga modelo (eg mas bag-o nga Qwen releases) nagrekomendar sa pagtipig niini alang sa mas maayo nga multi-turn nga pangatarungan.",
+  "providerAlreadyExists": "Usa ka provider nga ginganlag {{name}} anaa na."
+}

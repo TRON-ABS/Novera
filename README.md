@@ -2,7 +2,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone. Cyan holographic hand above a connected world." width="100%" />
   <p><strong>Knowledge for everyone. AI that keeps moving forward.</strong></p>
   <p>An independent AI assistant by TRON-ABS, bringing local models, cloud providers and evolving tools into one project.</p>
-  <p><strong>In development</strong> · 70 interface language options · 41 cloud providers · Apache 2.0</p>
+  <p><strong>In development</strong> · 80 interface language options · 41 cloud providers · Apache 2.0</p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p>
     <a href="#compact-composer-and-focused-instructions">Compact composer</a> ·
@@ -26,7 +26,7 @@
 - See active choices at a glance: colored selection, checkmarks and explicit ON/OFF labels.
 - Set ratio and resolution directly; switch upscaling on/off and choose ×2/×4 with the final output size displayed.
 - Edit only three instruction categories—Text, Image and Video—from the notebook button. It cannot change model parameters. Restore defaults, save or cancel.
-- Use 210 translated default instructions across 70 interface locales; personal edits survive language changes. Auto accepts more French/English creation requests while writing and explanation requests stay text.
+- Use 240 translated default instructions across 80 interface locales; personal edits survive language changes. Auto accepts more French/English creation requests while writing and explanation requests stay text.
 
 **Locally validated:** 420 tests, TypeScript, Windows frontend and Release builds, plus visual checks of the panel and instructions dialog. This is a local build, not a public binary release or validation of every model, language or hardware combination. [Usage and limits](docs/USER_GUIDE.md#real-esrgan--chemins-windows-python-et-taille-finale--26-octobre-2026).
 
@@ -57,7 +57,7 @@ These are directions for contribution and development, not a claim that every se
 | --- | --- |
 | Local and cloud AI | Local model engines alongside connections to remote model providers. Compatibility depends on the model, provider and hardware. |
 | Tools and documents | MCP integrations, document retrieval and assistant workflows inherited from the existing codebase. |
-| Multilingual interface | 70 selectable locales, each covering all 1,738 current English keys. Native-speaker review remains pending. |
+| Multilingual interface | 80 selectable locales, each covering all 1,738 current English keys. Native-speaker review remains pending. |
 | An extensible application | A desktop application with extension points for model engines, tools and future capabilities. |
 
 These describe the source foundation. The latest 1.0.0 Windows x64 build was compiled and launched locally on 26 October 2026, including the compact composer and category instructions. Public packaging and broader runtime validation remain in preparation.
@@ -85,7 +85,7 @@ Attachments passed to system sharing, browser sharing and **Copy file** now use 
 
 Novera aims to handle the technical steps so people worldwide can focus on learning, talking and creating. The source already combines hardware advice, guided verified downloads, categorized media configurations, a bundled Windows image engine and system-folder saving.
 
-**Automatic memory management is enabled by default.** Local text/image/video requests wait for active work, release unneeded models and reload the selected model when needed. Files, conversations and selections are retained. **Manual mode** permits text, image and video together in separate conversations when RAM/VRAM and engine support allow it. The current media workers naturally exit after generation; this does not add a permanent media cache. Both modes and their limits are explained in all 70 interface locales, with a visible waiting state and a shared General setting.
+**Automatic memory management is enabled by default.** Local text/image/video requests wait for active work, release unneeded models and reload the selected model when needed. Files, conversations and selections are retained. **Manual mode** permits text, image and video together in separate conversations when RAM/VRAM and engine support allow it. The current media workers naturally exit after generation; this does not add a permanent media cache. Both modes and their limits are explained in all 80 interface locales, with a visible waiting state and a shared General setting.
 
 369 targeted web tests, three native policy tests, types and locale checks validate the orchestration sources. Full application testing with three heavy models remains hardware-dependent. No new application binary is published. [Memory guide](docs/USER_GUIDE.md#mémoire-automatique-ou-modèles-en-parallèle--26-octobre-2026) · [Product direction](NOVERA.md#direction-produit--automatisation-avancée-simplicité-mondiale).
 
@@ -155,9 +155,9 @@ These are source capabilities: **98 targeted web tests, six isolated native down
 
 The Hub explores 23 navigation categories using Hugging Face metadata, with local hardware advice and a review before downloading. Models in the selected category load progressively as you scroll, with new results appended below existing rows. The six Novera presets remain available. Discovery does not imply execution support: media needs a configured supported engine and its required local components, or a cloud account; other tasks still need their own engines. Safetensors text models use the local Transformers engine; local Diffusers image/video folders can now run from the conversation through a separate adapter, with the latest desktop integration still awaiting maintainer build validation; see [tested capabilities and limitations](docs/SUIVI_MOTEURS.md). These fixes are included in the latest local Windows build; the full Hub workflow still needs maintainer testing.
 
-## 70 interface language options
+## 80 interface language options
 
-All 19 of our language contributions are integrated alongside the 17 inherited locales and 34 new Novera catalogs. The latest ten are Northern Uzbek, Zulu, Saidi Arabic, Northern Pashto, West Central Oromo, Saraiki, Dutch, Somali, Romanian and Assamese. **All 70 catalogs cover 1,738 / 1,738 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. Earlier local Windows builds include the catalogs at their then-current state; the latest local build includes the instruction, installer and library texts; no public binary has been released. Some catalogs are editorial variants partly based on shared written technical text; full vernacular adaptation remains open. See the language guide for their exact scope.
+All 19 of our language contributions are integrated alongside the 17 inherited locales and 44 new Novera catalogs. The latest ten source catalogs are Cebuano, Kazakh, Sinhala, Xhosa, Khmer, Afrikaans, Maithili, Wolof, Northern Kurdish and Kinyarwanda. **All 80 catalogs cover 1,738 / 1,738 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. Earlier local Windows builds include the catalogs at their then-current state; the latest local build includes the instruction, installer and library texts; no public binary has been released. Some catalogs are editorial variants partly based on shared written technical text; full vernacular adaptation remains open. See the language guide for their exact scope.
 
 Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Algerian Arabic, Moroccan Arabic, Saidi Arabic, Northern Pashto, Saraiki, Sindhi, Dari, Urdu, Western Punjabi and Iranian Persian include right-to-left interface support. Model language capabilities depend on the selected model and are separate from interface localization.
 
@@ -165,7 +165,7 @@ Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Algerian Arabic, Mor
 
 ## Project status
 
-**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 70 interface catalogs with complete key coverage (1,738 keys each), the adaptive model Hub, the local Safetensors/Transformers text engine and updated cloud-provider presets. Native-language review is still needed.
+**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 80 interface catalogs with complete key coverage (1,738 keys each), the adaptive model Hub, the local Safetensors/Transformers text engine and updated cloud-provider presets. Native-language review is still needed.
 
 First launch saves the system language, recommends LFM2.5-2.6B Q6_K on desktop with optional DSpark, and asks separately about error reporting, off by default. Source changes and compiled artifacts are tracked separately; the latest local build includes the Hub fixes, with end-to-end maintainer testing still pending. See the [dashboard](TABLEAU_DE_BORD_NOVERA.md) for exact validation and limitations. GitHub Actions and automatic updates remain disabled.
 
@@ -180,3 +180,6 @@ First launch saves the system language, recommends LFM2.5-2.6B Q6_K on desktop w
 Novera is maintained by **TRON-ABS** in [this repository](https://github.com/TRON-ABS/Novera). See the [identity policy](BRANDING.md) and [official release policy](OFFICIAL_RELEASES.md).
 
 Novera builds on [Jan](https://github.com/janhq/jan), created by Menlo Research and its contributors. Original and third-party attributions and the [Apache 2.0 license](LICENSE) are retained. Jan downloads are not Novera releases.
+
+
+Source update on 27 October 2026: ten additional Google/Microsoft-assisted catalogs bring the total to **80 locales × 1,738 keys**. Native review remains pending. The previous Windows build contains 70 locales; this batch does not rebuild or publish a binary. See [language support](docs/LANGUAGES.md).

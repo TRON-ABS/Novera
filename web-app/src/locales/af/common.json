@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Kode",
+    "preview": "Voorskou",
+    "previewStreaming": "Beskikbaar wanneer generasie klaar is",
+    "unresolvedAssets_one": "1 bateverwysing kan nie in die voorskou laai nie. Relatiewe paaie het geen basis URL om op te los nie.",
+    "unresolvedAssets_other": "{{count}} bateverwysings kan nie in die voorskou laai nie. Relatiewe paaie het geen basis URL om op te los nie."
+  },
+  "assistants": "Assistente",
+  "hardware": "Hardeware",
+  "mcp-servers": "MCP Bedieners",
+  "local_api_server": "Plaaslike API-bediener",
+  "remote_access": "Afstandtoegang",
+  "integrations": "Integrasies",
+  "experimental": "Eksperimenteel",
+  "claude_code": "Claude-kode",
+  "https_proxy": "HTTPS Proxy",
+  "web_search": "Websoektog",
+  "shell": "Skulp",
+  "browse": "Blaai",
+  "moreControls": "Meer kontroles",
+  "starting": "Begin tans...",
+  "activeSuffix": "(Aktief)",
+  "extensions": "Uitbreidings",
+  "attachments": "Aanhegsels",
+  "general": "Algemeen",
+  "settings": "Instellings",
+  "modelProviders": "Modelverskaffers",
+  "localProviders": "Plaaslik",
+  "remoteProviders": "Afstandbeheer",
+  "manageProviders": "Bestuur verskaffers",
+  "hiddenProviders": "{{count}} gedeaktiveer",
+  "hideProvider": "Versteek verskaffer",
+  "showProvider": "Wys verskaffer",
+  "interface": "Interface",
+  "appearance": "Voorkoms",
+  "privacy": "Privaatheid",
+  "keyboardShortcuts": "Kortpaaie",
+  "home": "Tuis",
+  "cowork": "Cowork",
+  "newSession": "Nuwe sessie",
+  "artifacts": "Artefakte",
+  "customize": "Pasmaak",
+  "local": "Plaaslik",
+  "selectFolder": "Kies vouer",
+  "selectModel": "Kies eers 'n model",
+  "commands": "Opdragte",
+  "cmdHelp": "Lys beskikbare opdragte",
+  "cmdClear": "Vee hierdie sessie uit",
+  "cmdModels": "Verander die aktiewe model",
+  "cmdModelsHint": "Tik /models en kies dan 'n model uit die lys",
+  "cmdModelSwitched": "Oorgeskakel na {{name}}",
+  "cmdUnknown": "Onbekende opdrag: {{name}}. Probeer /help",
+  "cmdBusy": "Kan dit nie doen terwyl die agent aan die gang is nie",
+  "cmdCompact": "Kompakteer die sessie se konteks in 'n opsomming",
+  "cmdCompacted": "Gekomprimeerde {{before}} -> {{after}} boodskappe",
+  "cmdNothingToCompact": "Nog niks om te kompak nie",
+  "cmdCompactFailed": "Kompaktering het misluk: {{error}}",
+  "cmdPlan": "Wissel planmodus (leesalleen: die agent stel voor sonder om te skryf)",
+  "cmdPlanOn": "Beplanmodus aan: die agent lees en stel voor sonder om te skryf",
+  "cmdPlanOff": "Beplanmodus af: normale uitvoering",
+  "cmdTodo": "Maak die vorderingspaneel oop",
+  "cmdTasks": "Maak die agtergrondtakepaneel oop",
+  "cmdInit": "Bestudeer die projek en skryf vaardighede en geheue",
+  "cmdInitRunning": "Aan boord van hierdie projek",
+  "skills": "Vaardighede",
+  "skillsInContext": "Vaardighede beskikbaar vir die agent hierdie lopie",
+  "skillsTitle": "Bestuur vaardighede",
+  "skillsScopeProject": "Vaardighede vir {{folder}}",
+  "skillsScopeGlobal": "Globale vaardighede, beskikbaar vir elke sessie",
+  "skillsScopeMerged": "Vaardighede vir {{folder}}, plus die globale vaardighede wat elke sessie deel",
+  "skillOriginFolder": "gids",
+  "skillOriginGlobal": "wêreldwyd",
+  "skillsEmpty": "Nog geen vaardighede nie",
+  "skillsPickOrNew": "Kies 'n vaardigheid om te wysig, of skep 'n nuwe een.",
+  "skillNew": "Nuwe vaardigheid",
+  "skillDelete": "Vee vaardigheid uit",
+  "skillSave": "Stoor",
+  "skillSaved": "Vaardigheid gestoor",
+  "skillNameRequired": "Vaardigheidsnaam word vereis",
+  "skillNamePlaceholder": "vaardigheidsnaam",
+  "skillContentPlaceholder": "Beskryf die herbruikbare prosedure in Markdown...",
+  "skillHubImport": "Voer in vanaf spilpunt",
+  "skillHubTitle": "Anthropic vaardigheidspil",
+  "skillHubEmpty": "Geen vaardighede op die spilpunt gevind nie",
+  "skillImport": "Invoer",
+  "skillReimport": "Herinvoer",
+  "skillImported": "Ingevoerde {{name}}",
+  "sessions": "Sessies",
+  "deleteSession": "Vee sessie uit",
+  "deleteSessionTitle": "Vee sessie uit?",
+  "deleteSessionBody": "\"{{title}}\" en sy transkripsie sal permanent uitgevee word. Dit kan nie ongedaan gemaak word nie.",
+  "newChat": "Nuwe klets",
+  "newAgentChat": "Nuwe agentklets",
+  "chats": "Geselsies",
+  "favorites": "Gunstelinge",
+  "recents": "Onlangse",
+  "hub": "Hub",
+  "helpSupport": "Hulp en ondersteuning",
+  "helpUsImproveJan": "Help ons om Novera te verbeter",
+  "analyticsConsentDetail": "Ons samel anonieme data in om kenmerkgebruik te verstaan. Jou geselsies en persoonlike inligting word nooit opgespoor nie. Jy kan dit enige tyd verander in Instellings > Privaatheid.",
+  "analyticsConsentQuestion": "Wil jy ons help om Novera te verbeter?",
+  "unstarAll": "Ontster alles",
+  "unstar": "Ontster",
+  "deleteAll": "Vee alles uit",
+  "star": "Ster",
+  "rename": "Hernoem",
+  "delete": "Vee uit",
+  "copied": "Gekopieer!",
+  "dataFolder": "Data-lêergids",
+  "others": "Ander",
+  "language": "Taal",
+  "login": "Meld aan",
+  "loginWith": "Meld aan met {{provider}}",
+  "loginFailed": "Kon nie aanmeld nie",
+  "logout": "Teken uit",
+  "loggingOut": "Meld af...",
+  "loggedOut": "Suksesvol afgemeld",
+  "logoutFailed": "Kon nie uitlog nie",
+  "profile": "Profiel",
+  "reset": "Stel terug",
+  "search": "Soek",
+  "searchThreads": "Soek drade...",
+  "toNavigate": "om te navigeer",
+  "toSelect": "om te kies",
+  "toClose": "om toe te maak",
+  "clearRecent": "Duidelik",
+  "name": "Naam",
+  "cancel": "Kanselleer",
+  "dismiss": "Verwerp",
+  "create": "Skep",
+  "save": "Stoor",
+  "edit": "Wysig",
+  "copy": "Kopieer",
+  "back": "Terug",
+  "close": "Maak toe",
+  "done": "Klaar",
+  "next": "Volgende",
+  "finish": "Voltooi",
+  "skip": "Slaan oor",
+  "allow": "Laat toe",
+  "deny": "Ontken",
+  "start": "Begin",
+  "stop": "Stop",
+  "preview": {
+    "loading": "Maak oop...",
+    "unsupported": "Novera kan nie hierdie soort lêer wys nie. Maak dit oop om dit in 'n ander toepassing te sien.",
+    "outside": "Hierdie lêer is nie meer in die sessiewerkspasie nie.",
+    "tooLarge": "Te groot om voor te bekyk. Maak dit oop om dit in 'n ander toepassing te sien.",
+    "reload": "Herlaai",
+    "allowNetwork": "Laat netwerk toe",
+    "unsandboxed": "Hardloop unsandboxed: gestoorde data en plaaslike lêers werk",
+    "unresolvedRefs_one": "1 lêer waarna hierdie bladsy skakel, kan nie in die voorskou laai nie. Maak dit oop om dit in 'n blaaier te sien.",
+    "unresolvedRefs_other": "{{count}}-lêers waarna hierdie bladsy skakel, kan nie in die voorskou laai nie. Maak dit oop om dit in 'n blaaier te sien.",
+    "externalRefs_one": "1 hulpbron wat hierdie bladsy van die web af laai, is geblokkeer. Skakel \"Laat netwerk toe\" aan om dit te laai.",
+    "externalRefs_other": "{{count}} hulpbronne wat hierdie bladsy van die web af laai, is geblokkeer. Skakel \"Laat netwerk toe\" aan om hulle te laai.",
+    "scriptErrors_one": "Die bladsy het 'n fout gerapporteer: {{message}}",
+    "scriptErrors_other": "Die bladsy het {{count}}-foute gerapporteer. Eerste: {{message}}"
+  },
+  "changes": {
+    "title": "Agentveranderinge",
+    "empty": "Lêers wat die agent skryf of wysig, sal hier verskyn.",
+    "a11y": "Agentveranderinge: {{files}}-lêers, {{additions}} bygevoeg, {{deletions}} verwyder"
+  },
+  "modelPanel": {
+    "title": "Modelinstellings",
+    "a11y": "Maak modelinstellings oop",
+    "contextTooltip": "Konteksvenster: {{value}} van {{max}}-tokens"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Vaardigheid '{{name}}' is nie beskikbaar nie",
+    "kind": {
+      "skill": "Vaardigheid",
+      "command": "Opdrag",
+      "model": "Model"
+    }
+  },
+  "compactWidth": "Kompakte breedte",
+  "fullWidth": "Volle breedte",
+  "dark": "Donker",
+  "light": "Lig",
+  "system": "Stelsel",
+  "auto": "Outo",
+  "english": "Engels",
+  "medium": "Medium",
+  "newThread": "Nuwe draad",
+  "noResultsFound": "Geen resultate gevind nie",
+  "noThreadsYet": "Nog geen drade nie",
+  "noThreadsYetDesc": "Begin 'n nuwe gesprek om jou draadgeskiedenis hier te sien.",
+  "downloads": "Aflaaie",
+  "downloading": "Laai af",
+  "uploadingAttachments": "Laai tans aanhegsels op...",
+  "cancelDownload": "Kanselleer aflaai",
+  "downloadCancelled": "Aflaai is gekanselleer",
+  "downloadComplete": "Aflaai voltooi",
+  "thinking": "Dink...",
+  "thought": "Gedagte",
+  "callingTool": "Oproepinstrument",
+  "completed": "Voltooi",
+  "image": "Beeld",
+  "vision": "Visie",
+  "multimodal": "Multimodaal",
+  "embeddings": "Inbeddings",
+  "tools": "Gereedskap",
+  "webSearch": "Websoektog",
+  "reasoning": "Redenering",
+  "proactive": "Proaktief",
+  "selectAModel": "Kies 'n model",
+  "noToolsAvailable": "Geen gereedskap beskikbaar nie",
+  "noModelsFoundFor": "Geen modelle gevind vir \"{{searchValue}}\"",
+  "failedToLoadModels": "Kon nie modelle laai nie",
+  "noModels": "Geen modelle gevind nie",
+  "noAssistant": "Geen assistent nie",
+  "customAvatar": "Pasgemaakte avatar",
+  "editAssistant": "Redigeer assistent",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Hergenereer",
+  "threadImage": "Draadbeeld",
+  "editMessage": "Wysig boodskap",
+  "deleteMessage": "Vee boodskap uit",
+  "deleteThread": "Vee draad uit",
+  "renameThread": "Hernoem draad",
+  "threadTitle": "Draadtitel",
+  "deleteAllThreads": "Vee alle drade uit",
+  "allThreadsUnfavorited": "Alle drade is ongegunste",
+  "deleteAllThreadsConfirm": "Is jy seker jy wil alle drade uitvee? Hierdie handeling kan nie ontdoen word nie.",
+  "addProvider": "Voeg verskaffer by",
+  "addOpenAIProvider": "Voeg OpenAI-verskaffer by",
+  "enterNameForProvider": "Voer 'n naam vir jou verskaffer in",
+  "providerAlreadyExists": "Verskaffer met die naam \"{{name}}\" bestaan reeds. Kies asseblief 'n ander naam.",
+  "adjustFontSize": "Pas lettergrootte aan",
+  "changeLanguage": "Verander taal",
+  "editTheme": "Wysig tema",
+  "editCodeBlockStyle": "Wysig kodeblokstyl",
+  "editServerHost": "Wysig bedienergasheer",
+  "pickColorWindowBackground": "Kies kleurvenster-agtergrond",
+  "pickColorAppMainView": "Kies kleur-app se hoofaansig",
+  "pickColorAppPrimary": "Kies Kleur App Primêr",
+  "pickColorAppAccent": "Kies kleur-app-aksent",
+  "pickColorAppDestructive": "Kies kleur-app vernietigend",
+  "apiKeyRequired": "API-sleutel word vereis",
+  "enterTrustedHosts": "Voer betroubare gashere in",
+  "placeholder": {
+    "chatInput": "Vra my enigiets..."
+  },
+  "confirm": "Bevestig",
+  "continue": "Gaan voort",
+  "loading": "Laai tans...",
+  "settingUpJan": "Begin tans Novera op...",
+  "registeringExtensions": "Registreer uitbreidings...",
+  "loadingExtensions": "Laai uitbreidings … ({{done}}/{{total}})",
+  "error": "Fout",
+  "success": "Sukses",
+  "warning": "Waarskuwing",
+  "conversationNotAvailable": "Gesprek nie beskikbaar nie",
+  "conversationNotAvailableDescription": "Die gesprek waartoe jy toegang probeer kry, is nie beskikbaar nie of is uitgevee.",
+  "temporaryChat": "Tydelike klets",
+  "temporaryChatTooltip": "Tydelike klets sal nie in jou geskiedenis verskyn nie",
+  "noResultsFoundDesc": "Ons kon geen kletse vind wat by jou soektog pas nie. Probeer 'n ander sleutelwoord.",
+  "searchModels": "Soek modelle...",
+  "searchStyles": "Soek style...",
+  "createAssistant": "Skep assistent",
+  "enterApiKey": "Voer API-sleutel in",
+  "scrollToBottom": "Blaai na onder",
+  "generateAiResponse": "Genereer AI-reaksie",
+  "continueAiResponse": "Gaan voort met AI-reaksie",
+  "addModel": {
+    "title": "Voeg model by",
+    "modelId": "Model ID",
+    "enterModelId": "Voer Model ID in",
+    "addModel": "Voeg model by",
+    "description": "Voeg 'n nuwe model by die verskaffer",
+    "exploreModels": "Sien modellys van verskaffer"
+  },
+  "mcpServers": {
+    "editServer": "Wysig bediener",
+    "addServer": "Voeg bediener by",
+    "serverName": "Bedienernaam",
+    "enterServerName": "Voer bedienernaam in",
+    "command": "Opdrag",
+    "enterCommand": "Voer opdrag in",
+    "arguments": "Argumente",
+    "argument": "Argument {{index}}",
+    "envVars": "Omgewingsveranderlikes",
+    "key": "Sleutel",
+    "value": "Waarde",
+    "save": "Stoor"
+  },
+  "deleteServer": {
+    "title": "Vee bediener uit",
+    "delete": "Vee uit"
+  },
+  "editJson": {
+    "errorParse": "Kon nie JSON ontleed nie",
+    "errorPaste": "Kon nie JSON plak nie",
+    "errorFormat": "Ongeldige JSON-formaat",
+    "titleAll": "Wysig alle bedienerskonfigurasie",
+    "placeholder": "Voer JSON-konfigurasie in...",
+    "save": "Stoor"
+  },
+  "editModel": {
+    "title": "Wysig model: {{modelId}}",
+    "description": "Stel modelvermoëns op deur die opsies hieronder te wissel.",
+    "capabilities": "Vermoë",
+    "tools": "Gereedskap",
+    "vision": "Visie",
+    "embeddings": "Inbeddings",
+    "notAvailable": "Nog nie beskikbaar nie"
+  },
+  "outOfContextError": {
+    "truncateInput": "Knip invoer",
+    "title": "Buite konteks fout",
+    "description": "Hierdie klets bereik die AI se geheuelimiet, soos 'n witbord wat vol raak. Ons kan die geheuevenster (wat konteksgrootte genoem word) uitbrei sodat dit meer onthou, maar dit kan dalk meer van jou rekenaar se geheue gebruik. Ons kan ook die invoer afkap, wat beteken dat dit van die kletsgeskiedenis sal vergeet om plek te maak vir nuwe boodskappe.",
+    "increaseContextSizeDescription": "Wil jy die konteksgrootte vergroot?",
+    "increaseContextSize": "Verhoog konteksgrootte"
+  },
+  "toolApproval": {
+    "title": "Gereedskaptoestemmingversoek",
+    "description": "Die assistent wil <strong>{{toolName}}</strong> gebruik",
+    "securityNotice": "Laat slegs gereedskap toe wat jy vertrou. Gereedskap kan toegang tot jou stelsel en data kry.",
+    "deny": "Ontken",
+    "allowOnce": "Laat een keer toe",
+    "alwaysAllow": "Laat altyd toe"
+  },
+  "deleteModel": {
+    "title": "Vee model uit: {{modelId}}",
+    "description": "Is jy seker jy wil hierdie model uitvee? Hierdie handeling kan nie ontdoen word nie.",
+    "success": "Model {{modelId}} is permanent uitgevee.",
+    "cancel": "Kanselleer",
+    "delete": "Vee uit"
+  },
+  "deleteProvider": {
+    "title": "Vee verskaffer uit",
+    "description": "Vee hierdie verskaffer en al sy modelle uit. Hierdie handeling kan nie ontdoen word nie.",
+    "success": "Verskaffer {{provider}} is permanent uitgevee.",
+    "confirmTitle": "Vee Verskaffer uit: {{provider}}",
+    "confirmDescription": "Is jy seker jy wil hierdie verskaffer uitvee? Hierdie handeling kan nie ontdoen word nie.",
+    "cancel": "Kanselleer",
+    "delete": "Vee uit"
+  },
+  "modelSettings": {
+    "title": "Modelinstellings - {{modelId}}",
+    "description": "Stel modelinstellings op om werkverrigting en gedrag te optimaliseer.",
+    "nglDisabledByFit": "Outo-pas is die keuse van GPU-lae. Skakel Outo-pas af om dit handmatig in te stel.",
+    "samplingDefaults": {
+      "title": "Versteksteekproefparameters",
+      "description": "Verstek monsternemer instellings vir hierdie model. Word gebruik tensy dit deur per-assistent- of per-versoekwaardes oorheers word."
+    },
+    "specDraft": {
+      "section": "Spekulatiewe dekodering",
+      "enable": "Aktiveer spekulatiewe dekodering",
+      "enableDescription": "Stel verskeie tekens per stap op en verifieer dit in een pas, wat generasie versnel. Gebruik die model se ingeboude MTP-koppe, of die konsepmodel wat daarmee afgelaai is (MTP, Eagle3, DFlash of DSpark).",
+      "nMax": "Maksimum konsep-tokens",
+      "nMaxDescription": "Maksimum aantal tekens om per stap op te stel. Verstek 16.",
+      "nMin": "Min konseptekens",
+      "nMinDescription": "Minimum aantal tekens om per stap op te stel. Verstek 0.",
+      "pMin": "Minimum konsepwaarskynlikheid",
+      "pMinDescription": "Minimum waarskynlikheid vir gulsige opstel (0–1). Verstek 0.75."
+    },
+    "templateKwargs": {
+      "section": "Chat sjabloon opsies",
+      "description": "Ekstra opsies wat hierdie model se kletsjabloon aanvaar. Gestuur as chat_template_kwargs op elke versoek; laat 'n waarde by sy verstek om die sjabloon te laat besluit.",
+      "addCustom": "Voeg pasgemaakte opsie by",
+      "keyPlaceholder": "naam",
+      "valuePlaceholder": "waarde",
+      "add": "Voeg by",
+      "cancel": "Kanselleer",
+      "remove": "Verwyder"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Kon nie modelinstellings opdateer nie"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Verander datavouerligging",
+      "description": "Is jy seker jy wil die datavouerligging verander? Dit sal al jou data na die nuwe ligging skuif en die toepassing herbegin.",
+      "currentLocation": "Huidige ligging:",
+      "newLocation": "Nuwe ligging:",
+      "cancel": "Kanselleer",
+      "changeLocation": "Verander ligging"
+    },
+    "deleteAllThreads": {
+      "title": "Vee alle drade uit",
+      "description": "Alle drade sal uitgevee word. Hierdie handeling kan nie ontdoen word nie."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Vee alle gesprekke uit",
+      "description": "{{count}}-gesprekke in \"{{projectName}}\" sal uitgevee word. Hierdie handeling kan nie ontdoen word nie."
+    },
+    "deleteThread": {
+      "description": "Is jy seker jy wil hierdie draad uitvee? Hierdie handeling kan nie ontdoen word nie."
+    },
+    "editMessage": {
+      "title": "Wysig boodskap"
+    },
+    "messageMetadata": {
+      "title": "Boodskap-metadata"
+    },
+    "deleteMessage": {
+      "description": "Is jy seker jy wil hierdie boodskap uitvee? Hierdie handeling kan nie ontdoen word nie."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Iets het verkeerd geloop",
+    "details": "Besonderhede"
+  },
+  "missingDependenciesDialog": {
+    "title": "Ontbrekende stelselbiblioteke",
+    "description": "Die {{backend}} is geïnstalleer, maar sommige vereiste stelselbiblioteke kon nie gevind word nie. Dit kan terugval na CPU of nie korrek loop nie.",
+    "installLabel": "Om dit reg te stel, installeer die volgende:",
+    "download": "Laai af",
+    "additionalLibraries": "Bykomende ontbrekende biblioteke:",
+    "missingLibraries": "Ontbrekende biblioteke:",
+    "showRawLibraries": "Wys {{count}} ontbrekende biblioteekname"
+  },
+  "projects": {
+    "title": "Projekte",
+    "new": "Nuwe projekte",
+    "addProject": "Voeg projek by",
+    "addToProject": "Voeg by projek",
+    "removeFromProject": "Verwyder van projek",
+    "createNewProject": "Skep nuwe projek",
+    "editProject": "Wysig projek",
+    "deleteProject": "Vee projek uit",
+    "projectName": "Projeknaam",
+    "enterProjectName": "Voer projeknaam in...",
+    "noProjectsAvailable": "Geen projekte beskikbaar nie",
+    "noProjectsYet": "Nog geen projekte nie",
+    "noProjectsYetDesc": "Begin 'n nuwe projek deur op die Voeg projek by-knoppie te klik.",
+    "projectNotFound": "Projek nie gevind nie",
+    "projectNotFoundDesc": "Die projek waarna jy soek bestaan nie of is uitgevee.",
+    "selectAssistant": "Kies assistent",
+    "noAssistantAssigned": "Geen assistent is aan hierdie projek toegewys nie",
+    "files": "Lêers",
+    "filesDescription": "Voeg PDF's, dokumente of ander teks by om in hierdie projek te verwys.",
+    "uploadingFiles": "Verwerk tans lêers...",
+    "processButton": "Voeg by",
+    "deleteProjectDialog": {
+      "title": "Vee projek uit",
+      "permanentDelete": "Dit sal alle drade permanent uitvee.",
+      "permanentDeleteWarning": "Hierdie aksie sal ALL-drade binne die projek permanent uitvee!",
+      "deleteEmptyProject": "Hierdie aksie sal projek \"{{projectName}}\" uitvee.",
+      "saveThreadsAdvice": "Om drade te stoor, skuif hulle na jou draadlys of 'n ander projek voordat jy dit uitvee.",
+      "starredWarning": "Jy het steeds gesterde drade binne die projek.",
+      "deleteButton": "Vee uit",
+      "successWithName": "Projek \"{{projectName}}\" is suksesvol uitgevee",
+      "successWithoutName": "Projek is suksesvol uitgevee",
+      "error": "Kon nie projek uitvee nie. Probeer asseblief weer.",
+      "ariaLabel": "Vee {{projectName}} uit"
+    },
+    "addProjectDialog": {
+      "createTitle": "Skep nuwe projek",
+      "editTitle": "Wysig projek",
+      "nameLabel": "Projeknaam",
+      "namePlaceholder": "Voer projeknaam in...",
+      "assistant": "Assistent",
+      "selectAssistant": "Kies 'n assistent (opsioneel)",
+      "noAssistant": "Geen assistent nie",
+      "addAssistant": "Voeg assistent by",
+      "createButton": "Skep",
+      "updateButton": "Opdatering",
+      "alreadyExists": "Projek \"{{projectName}}\" bestaan reeds",
+      "createSuccess": "Projek \"{{projectName}}\" suksesvol geskep",
+      "updateSuccess": "Projek \"{{projectName}}\" suksesvol opgedateer",
+      "saveError": "Kon nie projek stoor nie. Probeer asseblief weer."
+    },
+    "noConversationsIn": "Geen gesprekke in {{projectName}} nie",
+    "startNewConversation": "Begin 'n nuwe gesprek met {{projectName}} hieronder",
+    "conversationsIn": "Gesprekke in {{projectName}}",
+    "conversationsDescription": "Klik op enige gesprek om verder te klets, of begin 'n nuwe een hieronder.",
+    "conversation": "Gesprek",
+    "instructions": "Instruksies",
+    "setup": "Opstelling",
+    "instructionsDescription": "Pas toon en styl van reaksie aan",
+    "manageInstructions": "Bestuur instruksies",
+    "thread": "draad",
+    "threads": "drade",
+    "updated": "Opgedateer:",
+    "collapseProject": "Ineenstort projek",
+    "expandProject": "Brei projek uit",
+    "update": "Opdatering",
+    "searchProjects": "Soek projekte...",
+    "noProjectsFound": "Geen projekte gevind nie",
+    "tryDifferentSearch": "Probeer 'n ander soekterm"
+  },
+  "attachmentsIngestion": {
+    "title": "Kies hoe om aanhegsels in te neem",
+    "description": "Kies of hierdie lêers direk by die klets ingesluit moet word of om hulle eerder as inbeddings te indekseer.",
+    "inline": "Spuit in klets",
+    "embeddings": "Gebruik inbeddings"
+  },
+  "attachmentInjectedIndicator": "In gesels ingespuit",
+  "attachmentEmbeddedIndicator": "Ingebed vir RAG",
+  "viewInjectedContent": "Bekyk ingespuite inhoud",
+  "injectedContentTitle": "Ingespuite lêerinhoud",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Alle drade is ongegunste",
+      "description": "Alle drade is van jou gunstelinge verwyder."
+    },
+    "deleteAllThreads": {
+      "title": "Vee alle drade uit",
+      "description": "Alle drade is permanent uitgevee."
+    },
+    "renameThread": {
+      "title": "Hernoem draad",
+      "description": "Draadtitel is hernoem na '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Vee draad uit",
+      "description": "Hierdie draad is permanent uitgevee."
+    },
+    "errorCopied": {
+      "title": "Kopieer suksesvol",
+      "description": "Foutinligting na knipbord gekopieer"
+    },
+    "errorCopyFailed": {
+      "title": "Kon nie kopieer nie",
+      "description": "Kon nie foutinligting na knipbord kopieer nie"
+    },
+    "editMessage": {
+      "title": "Wysig boodskap",
+      "description": "Boodskap is suksesvol geredigeer. Wag asseblief vir die model om te reageer."
+    },
+    "appUpdateDownloaded": {
+      "title": "Programopdatering afgelaai",
+      "description": "Die programopdatering is suksesvol afgelaai."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Aflaai van toepassingopdatering het misluk",
+      "description": "Kon nie die programopdatering aflaai nie. Probeer asseblief weer."
+    },
+    "downloadComplete": {
+      "title": "Aflaai voltooi",
+      "description": "{{item}} is afgelaai"
+    },
+    "downloadCancelled": {
+      "title": "Aflaai is gekanselleer",
+      "description": "Die aflaaiproses is gekanselleer"
+    },
+    "downloadFailed": {
+      "title": "Aflaai het misluk",
+      "description": "{{item}} aflaai het misluk",
+      "descriptionWithReason": "{{item}} aflaai het misluk: {{reason}}",
+      "reason": {
+        "dns": "die bedienernaam kon nie opgelos word nie",
+        "refused": "die verbinding is geweier",
+        "timeout": "die verbinding het uitgetel",
+        "tls": "'n veilige verbinding kon nie tot stand gebring word nie",
+        "proxy": "die gevolmagtigde kon nie bereik word nie",
+        "unreachable": "die bediener kon nie bereik word nie"
+      }
+    },
+    "openSettings": "Maak instellings oop",
+    "openLogs": "Maak logs oop",
+    "downloadTokenRequired": {
+      "title": "Hugging Face-token vereis",
+      "description": "Hierdie model vereis 'n Hugging Face-toegangtoken. Voeg jou teken by Instellings en probeer weer."
+    },
+    "downloadLicenseRequired": {
+      "title": "Aanvaar modellisensie op Hugging Face",
+      "description": "Jy moet die model se lisensie op sy Hugging Face-bladsy aanvaar voordat jy dit aflaai."
+    },
+    "downloadRateLimited": {
+      "title": "Tarief beperk deur Hugging Face",
+      "description": "Jy is tariefbeperk. Die byvoeging van 'n teken kan koerslimiete verhoog. Probeer asseblief later weer."
+    },
+    "modelValidationStarted": {
+      "title": "Validerende model",
+      "description": "Het model \"{{modelId}}\" suksesvol afgelaai. Verifieer tans integriteit …"
+    },
+    "modelValidationFailed": {
+      "title": "Modelvalidering het misluk",
+      "description": "Die afgelaaide model \"{{modelId}}\" het nie integriteitsverifikasie misluk nie en is verwyder. Die lêer kan beskadig of daarmee gepeuter word."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Aflaai voltooi",
+      "description": "Model \"{{item}}\" is suksesvol afgelaai en geverifieer"
+    },
+    "projectCreated": {
+      "title": "Projek geskep",
+      "description": "Projek \"{{projectName}}\" suksesvol geskep"
+    },
+    "projectRenamed": {
+      "title": "Projek hernoem",
+      "description": "Projek hernoem van \"{{oldName}}\" na \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Projek is uitgevee",
+      "description": "Projek \"{{projectName}}\" is suksesvol uitgevee"
+    },
+    "projectAlreadyExists": {
+      "title": "Projek bestaan reeds",
+      "description": "Projek \"{{projectName}}\" bestaan reeds"
+    },
+    "projectDeleteFailed": {
+      "title": "Uitvee het misluk",
+      "description": "Kon nie projek uitvee nie. Probeer asseblief weer."
+    },
+    "threadAssignedToProject": {
+      "title": "Draad toegewys",
+      "description": "Draad suksesvol toegewys aan \"{{projectName}}\""
+    },
+    "threadRemovedFromProject": {
+      "title": "Draad verwyder",
+      "description": "Draad is suksesvol van \"{{projectName}}\" verwyder"
+    },
+    "fileUploaded": {
+      "title": "Lêer verwerk",
+      "description": "Lêer is suksesvol verwerk en geïndekseer"
+    },
+    "uploadFailed": {
+      "title": "Verwerking het misluk",
+      "description": "Kon nie lêer verwerk nie",
+      "subjectThisFile": "Hierdie lêer",
+      "pdfMalformedXref": "{{subject}} het 'n misvormde PDF kruisverwysingstabel en kon nie ontleed word nie. Probeer dit in 'n PDF-kyker oopmaak en dit weer stoor (Lêer → Druk → Stoor as PDF), laai dan weer op.",
+      "pdfScanned": "{{subject}} blyk 'n geskandeerde of beeldgebaseerde PDF te wees. OCR word nog nie ondersteun nie — laai asseblief 'n teksgebaseerde PDF op.",
+      "pdfEncrypted": "{{subject}} is wagwoordbeskerm. Verwyder die wagwoord en probeer weer.",
+      "pdfUnsupportedFeature": "{{subject}} gebruik 'n PDF-kenmerk. Novera kan nog nie ontleed nie (bv. PostScript-kleur-/skadufunksies). Probeer om dit weer te stoor (Lêer → Druk → Stoor as PDF) om dit plat te maak, en laai dan weer op.",
+      "pdfGeneric": "{{subject}} kon nie as 'n PDF ontleed word nie. Die lêer is dalk korrup of gebruik 'n ongesteunde PDF-kenmerk.",
+      "fileTooLarge": "{{subject}} is te groot. {{message}}.",
+      "unsupportedType": "Lêertipe \"{{type}}\" word nie ondersteun nie.",
+      "ioError": "Kon nie {{subject}}: {{message}} lees nie",
+      "parseGeneric": "{{subject}} kon nie ontleed word nie: {{message}}",
+      "fallback": "Kon nie {{subject}} verwerk nie."
+    },
+    "fileDeleted": {
+      "title": "Lêer uitgevee",
+      "description": "Lêer is van die projek verwyder"
+    },
+    "deleteFailed": {
+      "title": "Uitvee het misluk",
+      "description": "Kon nie lêer uitvee nie"
+    },
+    "fileAlreadyExists": {
+      "title": "Lêer bestaan reeds",
+      "description": "Lêer is reeds aan hierdie projek geheg"
+    },
+    "unsupportedFileType": {
+      "title": "Nie-ondersteunde lêertipe",
+      "description": "Lêeruitbreiding \".{{extension}}\" word nie vir Projekverwysing ondersteun nie."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Aanhegsels gedeaktiveer",
+      "description": "Aanhegsels is in Instellings gedeaktiveer"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Lêer te groot",
+    "fileTooLargeDescription": "{{fileName}} oorskry die {{maxFileSizeMB}}MB limiet"
+  },
+  "files": {
+    "chunksCount": "{{count}} stukke",
+    "title": "Lêers",
+    "empty": "Lêers wat jy aanheg en lêers wat die agent skep, sal hier verskyn.",
+    "a11y": "Lêers: {{count}}",
+    "attachments": "Aanhegsels",
+    "notImported": "nie in werkspasie nie"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp is steeds besig",
+    "description": "Een of meer modelle het nie betyds afgelaai nie. Geforseerde ophou sal llama.cpp beëindig en kan aktiewe reaksies onderbreek.",
+    "forceQuit": "Dwing om op te hou",
+    "forcing": "Dwing om op te hou...",
+    "shuttingDown": "Sluit af..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Ineenstort",
+  "expand": "Brei uit",
+  "todoPanelTitle": "Vordering",
+  "todoPanelEmpty": "Nog geen doenlys nie.",
+  "backgroundTasks": "Agtergrond take",
+  "subagentsRunning_one": "{{count}} subagent loop",
+  "subagentsRunning_other": "{{count}} subagente loop",
+  "monitorsRunning_one": "{{count}}-monitor loop",
+  "monitorsRunning_other": "{{count}}-monitors loop",
+  "backgroundRunning_one": "{{count}} agtergrondtaak loop",
+  "backgroundRunning_other": "{{count}} agtergrondtake loop",
+  "monitors": "Monitors",
+  "monitorPolling": "Peiling",
+  "monitorMatched": "Ooreengestem",
+  "monitorTimedOut": "Uitteltyd",
+  "monitorStopped": "Gestop",
+  "monitorEnded": "Geëindig",
+  "coworkWatching_one": "Kyk na {{count}}-monitor …",
+  "coworkWatching_other": "Kyk na {{count}}-monitors ...",
+  "coworkWaitingBackground": "Wag tans op agtergrondtake...",
+  "noBackgroundTasks": "Nog geen agtergrondtake nie.",
+  "running": "Hardloop",
+  "queued": "In die ry",
+  "waiting": "Wag",
+  "finished": "Klaar",
+  "subagentPhase": "fase {{phase}}",
+  "subagentWaiting": "wag",
+  "viewTranscript": "Bekyk transkripsie",
+  "taskWorking": "Werk …",
+  "taskNoOutput": "Die subagent het geen sigbare uitset geproduseer nie.",
+  "subagentToolUses_one": "{{count}} gereedskapgebruik",
+  "subagentToolUses_other": "{{count}}-instrument gebruik",
+  "artifactGroupCode": "Kode",
+  "artifactGroupImage": "Beeld",
+  "artifactGroupDocument": "Dokument",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Oudio",
+  "artifactOpenPreview": "Maak voorskou oop",
+  "artifactOpenExternal": "Oop",
+  "artifactMoreActions": "Meer aksies",
+  "artifactShowInFolder": "Wys in gids",
+  "skillsUsedLabel": "Vaardighede wat gebruik word",
+  "skillsUsed": "Vaardighede wat gebruik word: {{skills}}",
+  "artifactsAll": "Almal",
+  "artifactsEmpty": "Nog niks vervaardig nie. Artefakte van Cowork-lopies verskyn hier.",
+  "artifactsNoMatch": "Geen artefakte pas nie.",
+  "artifactsSearch": "Soek artefakte",
+  "artifactsShowMore": "Wys {{count}} meer",
+  "workspace": {
+    "readsFrom": "Werk in",
+    "writable": "lees en skryf",
+    "footnote": "Die agent lees en wysig hierdie vouer direk. Hersien wat in die verskilpaneel verander het.",
+    "footnoteEmpty": "Heg 'n gids aan om die agent aan jou projek te laat werk. Dit kan lêers daarin lees en redigeer.",
+    "attach": "Heg 'n gids aan",
+    "change": "Verander gids",
+    "detach": "Maak vouer los",
+    "open": "Oop",
+    "reveal": "Onthul",
+    "unavailable": "Werkspasie nie beskikbaar nie",
+    "missing": "Die werkruimtevouer {{folder}} is nie meer beskikbaar nie. Kies 'n ander vouer.",
+    "openFailed": "Kon nie werkspasie oopmaak nie",
+    "revealFailed": "Kon nie werkspasie openbaar nie",
+    "a11yWithFolder": "Projeklêer {{folder}}, aangeheg met lees- en skryftoegang. Verander of maak dit los.",
+    "a11yNoFolder": "Geen projeklêer aangeheg nie. Heg een aan."
+  },
+  "coworkEmpty": {
+    "title": "Waaraan werk ons?",
+    "subtitleSandbox": "Gee Novera 'n taak. Dit lees en skryf lêers, voer opdragte uit en werk deur die stappe op sy eie.",
+    "subtitleFolder": "Gee Novera 'n taak. Dit werk direk in {{folder}}, lees en redigeer lêers op sy eie.",
+    "try": "Probeer",
+    "sandbox": {
+      "first": "Skryf 'n Python-skrip wat lêers hernoem teen die datum waarop dit geneem is",
+      "second": "Bou 'n enkelbladsy-kontroleskerm van 'n CSV wat ek in sal plak",
+      "third": "Stel 'n README op vir 'n projek wat ek vir jou beskryf"
+    },
+    "folder": {
+      "first": "Verduidelik hoe {{folder}} saamgestel is",
+      "second": "Vind elke TODO in {{folder}} en groepeer hulle volgens area",
+      "third": "Skryf toetse vir die deel van {{folder}} waarna ek jou wys"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Geen terminaal nie",
+    "a11y": "Lopende opdragte is afgeskakel. Besonderhede.",
+    "title": "Lopende opdragte is afgeskakel",
+    "body": "Novera laat die agent toe om dopopdragte uit te voer slegs wanneer jou stelsel dit kan beperk. Geen sandbox is hier beskikbaar nie, so die agent kan lêers in sy sandbox lees, skryf en redigeer – maar niks laat loop nie.",
+    "fixLinux": "Linux gebruik bubblewrap. Installeer dit en herbegin Novera.",
+    "fixMac": "macOS gebruik die ingeboude sandbox by /usr/bin/sandbox-exec. Herbegin Novera sodra dit beskikbaar is.",
+    "fixWindows": "Windows gebruik AppContainer. Herbegin Novera om weer te probeer.",
+    "recheck": "Kyk weer"
+  },
+  "planMode": {
+    "label": "Beplan",
+    "tooltipOff": "Beplan eers — die agent lees en stel voor, sonder om te skryf.",
+    "tooltipOn": "Beplanning. Skakel dit af om die agent lêers te laat skryf.",
+    "onAnnounce": "Beplan-modus aan",
+    "placeholder": "Vra vir 'n plan. Die agent sal geen lêers verander nie."
+  },
+  "budget": {
+    "stoppedSteps": "Gestop by {{max}} stappe. Die agent is nie klaar nie.",
+    "keepGoing": "Gaan voort",
+    "stoppedTokens": "Gestop — hierdie sessie het sy tekenbegroting bereik.",
+    "compact": "Kompak",
+    "newSession": "Nuwe sessie"
+  },
+  "run": {
+    "stopped": "Gestop.",
+    "failed": "Die hardloop het vroeg gestop.",
+    "tryAgain": "Probeer weer"
+  },
+  "modelNoTools": "{{model}} kan nie gereedskap bel nie, so dit kan nie as 'n agent optree nie. Kies 'n instrument-oproepmodel.",
+  "askContinue": "Gaan voort",
+  "askNext": "Volgende vraag",
+  "askPrev": "Vorige vraag",
+  "askRecommended": "Aanbeveel",
+  "askSelectedCount": "{{count}} gekies",
+  "askSomethingElse": "Iets anders",
+  "askSomethingElsePlaceholder": "Tik jou eie antwoord",
+  "submit": "Dien in",
+  "composer": {
+    "advanced": "Gevorderde parameters",
+    "modelDefaults": "Model verstekke",
+    "assistantOverrides": "Assistent ignoreer",
+    "printPdf": "Druk / Stoor as PDF",
+    "exportHint": "Leesbare formate: aktiewe tak. JSON: alle boodskapweergawes. Eksterne lêers word nie gebundel nie."
+  },
+  "telemetry": {
+    "summary": "Met jou toestemming ontvang {{host}} slegs die Novera weergawe en bedryfstelsel, sonder gesprekke of 'n aanhoudende identifiseerder.",
+    "unavailable": "Statistiek is nie opgestel nie. Geen data word gestuur nie."
+  },
+  "errorTracking": {
+    "title": "Foutopsporing",
+    "summary": "Opsionele verslae aan {{host}}: tipe fout, kodeposisie, weergawe en bedryfstelsel. Geen gesprekke, rou foutboodskappe of sleutels nie. Deaktiveer enige tyd.",
+    "unavailable": "Foutopsporing is nie opgestel nie. Geen verslae word gestuur nie."
+  }
+}

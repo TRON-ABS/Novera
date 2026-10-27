@@ -19,6 +19,16 @@ afterEach(() => {
 })
 
 it.each([
+  ["ceb", "Sinugbuanon", "Sirad-i", "ltr"],
+  ["kk", "Қазақша", "Жабу", "ltr"],
+  ["si", "සිංහල", "වසන්න", "ltr"],
+  ["xh", "isiXhosa", "Vala", "ltr"],
+  ["km", "ខ្មែរ", "បិទ", "ltr"],
+  ["af", "Afrikaans", "Maak toe", "ltr"],
+  ["mai", "मैथिली", "बंद करू", "ltr"],
+  ["wo", "Wolof", "Tëj", "ltr"],
+  ["kmr", "Kurmancî", "Girtin", "ltr"],
+  ["rw", "Ikinyarwanda", "Gufunga", "ltr"],
   ['gu', 'ગુજરાતી', 'બંધ કરો', 'ltr'],
   ['kn', 'ಕನ್ನಡ', 'ಮುಚ್ಚಿ', 'ltr'],
   ['apc', 'عربي شامي', 'سكّر', 'rtl'],
@@ -88,7 +98,10 @@ it.each([
   expect(screen.getByRole('menu')).toHaveAttribute('dir', 'ltr')
 })
 
-it.each([['apc', 'ar-LB'], ['apd', 'ar-SD'], ['arq', 'ar-DZ'], ['ary', 'ar-MA'],
+it.each([
+  ['ceb', 'ceb'], ['kk', 'kk'], ['si', 'si'], ['xh', 'xh'], ['km', 'km'],
+  ['af', 'af'], ['mai', 'mai'], ['wo', 'wo'], ['kmr', 'ku-Latn-TR'], ['rw', 'rw'],
+  ['apc', 'ar-LB'], ['apd', 'ar-SD'], ['arq', 'ar-DZ'], ['ary', 'ar-MA'],
   ['cjy', 'zh-CN'], ['nan', 'zh-TW'], ['hak', 'zh-TW'], ['hsn', 'zh-CN'], ['prs', 'fa-AF'],
   ['sd', 'sd-Arab-PK'], ['pa', 'pa-Guru-IN'], ['uzn', 'uz-Latn-UZ'],
   ['pbu', 'ps-AF'], ['gaz', 'om-ET'], ['aec', 'ar-EG'], ['skr', 'ur-PK']])('formats %s using a supported regional locale rather than English fallback', (locale, regional) => {

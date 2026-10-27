@@ -1,0 +1,101 @@
+{
+  "editServer": "Soppi Serwëru MCP",
+  "addServer": "Yokk Serwëru MCP",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Xool tolluwaayu yokk gi..."
+    },
+    "notInstalled": {
+      "title": "Novera dafay jeexal liggéey yi ci sa nawigatër",
+      "description": "Def ci extension bi ngir may Novera mu dugg ci navigateur bi",
+      "getExtension": "Am yokk"
+    }
+  },
+  "serverName": "Turu serwër bi",
+  "enterServerName": "Bindal turu serwër bi",
+  "command": "Komando",
+  "enterCommand": "Dugalal ndigal (uvx wala npx)",
+  "arguments": "Argument",
+  "argument": "Waxtaan {{index}}",
+  "envVars": "Mbir yiy soppiku ci environmaa bi",
+  "key": "Caabi",
+  "value": "Valeur",
+  "save": "Sakkanal",
+  "status": "Tolluwaay nekkin",
+  "connected": "Jokko",
+  "disconnected": "Dafa tas",
+  "deleteServer": {
+    "title": "Efaase Serveur MCP",
+    "description": "Yaakaar nga ni bëgg nga efaase MCP serwër {{serverName}}? Mënu ñu delloo jëf jii.",
+    "delete": "Efaase",
+    "success": "MCP Serveur {{serverName}} efaase nañu ko"
+  },
+  "editJson": {
+    "title": "Soppi JSON ngir MCP Serveur: {{serverName}}",
+    "titleAll": "Soppi lépp MCP Serveur yi JSON",
+    "placeholder": "Dugalal tabb JSON",
+    "errorParse": "Ñàkka mëna jàngat done yu njëkk yi",
+    "errorPaste": "Format JSON bu baaxul ci ëmbiit biñ taf",
+    "errorFormat": "Format JSON bu baaxul",
+    "errorServerName": "Turu serwër bi dafay laaj te mënul nekk amul dara",
+    "errorMissingServerNameKey": "JSON dafa wara nekk {\"Turu serwër\": {config}} - caabi tur serwër bi ñàkk",
+    "errorInvalidType": "Xeetu '{{type}}' bu baaxul ngir serwër '{{serverName}}'. Dafa wara nekk 'stdio', 'http', wala 'sse'",
+    "save": "Sakkanal"
+  },
+  "checkParams": "Saytu parametre yi méngoo ak jàngat bi.",
+  "title": "Serveur MCP",
+  "experimental": "Jàngat",
+  "editAllJson": "Soppi bépp serwër JSON",
+  "findMore": "Wut yeneen serwër MCP ci",
+  "allowPermissions": "Nangu bépp ndigalu jumtukaayu MCP",
+  "allowPermissionsDesc": "Suñu ko amalee, bépp wootu jumtukaayu MCP dina ñu ko nangu ci saasi te du wane dialog yiy may ndigal. Jekkal bii dafay tënku ci bépp waxtaan, ba ci waxtaan yu bees yi.",
+  "noServers": "Gisu ñu benn serwër MCP\n0030",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Serveur {{serverKey}} defa tàmbali",
+  "serverStatusInactive": "Serveur {{serverKey}} defa deaktiwe bu baax",
+  "runtimeSettings": {
+    "title": "Runtime Settings",
+    "description": "Taxawal ni Novera di yoree ak di jéemaat serveur MCP.",
+    "toolCallTimeout": "Wootu jumtukaay (segond)",
+    "toolCallTimeoutDesc": "Diir bi gëna mag ngir xaar tontu jumtukaay MCP balaa waxtu bi di jeex.",
+    "maxToolOutputChars": "Arafu jumtukaay bi gëna mag",
+    "maxToolOutputCharsDesc": "Jumtukaay bi gëna gudd biñ denc ci waxtaan wi. Lépp lu weesu lii dañu koy dagg ba noppi màrkee ko ni dafa dagg, kon benn resultaa bu rëy mënul jeexal contexte model bi. Set to 0 to keep results whole.",
+    "smartToolRouting": "MCP",
+    "smartToolRoutingDesc": "Suñu ko tëyee, Novera dafay tànn serveur MCP yi laata muy jëfandikoo jumtukaay yi. Deactivé ngir sarse saa yu nekk limu jumtukaayi MCP yépp.",
+    "useLightweightRouterModel": "Jëfandikool ab model buñ jagleel yoon wi",
+    "useLightweightRouterModelDesc": "Sudee smart routing tafu, defal jéego routing bi ak model bu wuute (bu gëna ndaw) ci barabu model chat bi. Def ko ngir jëfandikoo saa yu nekk model chat biy dox ngir routing.",
+    "routerModel": "Modèlu yoon",
+    "routerModelDesc": "Tannal furnisër ak model ci benn barab. Modèle yu woyof yi kese lañu lim ngir routing bi gëna gaaw te yomb.",
+    "selectRouterModelPlaceholder": "Tannal xeetu yoon...",
+    "routerModelSearchPlaceholder": "Search models…",
+    "routerModelEmptyList": "No lightweight models available. Yokk benn model bu gëna ndaw wala nga defar caabi API ci Model yi.",
+    "routerModelEmptySearch": "Amul benn méngoo ak \"{{query}}\"."
+  },
+  "auth": {
+    "label": "Njàngat:",
+    "state": {
+      "notApplicable": "soxlawul",
+      "staticHeader": "Authorization header",
+      "authenticated": "gëm",
+      "expired": "jeexna",
+      "staleResource": "génne ngir beneen URL",
+      "unauthenticated": "gëmu ñu ko"
+    },
+    "expiresIn": "expires in {{duration}}",
+    "authenticate": "Duggal",
+    "reauthenticate": "Re-authenticate",
+    "clear": "Leeral xam-xam",
+    "waiting": "Xaar nawigatër...",
+    "openSignInPage": "Ubbi xëtu dugg bi",
+    "needsAuth": "{{serverName}} needs authentication",
+    "needsAuthHint": "Duggal ci serwër bii ngir mëna déngoo.",
+    "authorized": "Duggal naa ci {{serverName}}",
+    "authorizeFailed": "Dugg ci {{serverName}} deful",
+    "cleared": "Dindi nañu ay leeral yuñ denc ngir {{serverName}}",
+    "nothingToClear": "{{serverName}} amul woon ay leeral yuñ denc",
+    "clearFailed": "Mënu ñu fomp ay leerali {{serverName}}",
+    "renew": "Yeesal sesioŋ bi",
+    "expiredAgo": "jeexna {{duration}}"
+  }
+}

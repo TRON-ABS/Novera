@@ -1,0 +1,10 @@
+{
+  "newVersion": "Жаңа нұсқасы {{version}}",
+  "updateAvailable": "Жаңарту қолжетімді",
+  "nightlyBuild": "Түнгі құрастыру",
+  "showReleaseNotes": "Шығарылым жазбаларын көрсету",
+  "hideReleaseNotes": "Шығарылым жазбаларын жасыру",
+  "remindMeLater": "Кейінірек еске түсіру",
+  "downloading": "Жүктеп алынуда...",
+  "updateNow": "Қазір жаңартыңыз"
+}

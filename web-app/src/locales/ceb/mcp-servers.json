@@ -1,0 +1,101 @@
+{
+  "editServer": "I-edit ang MCP Server",
+  "addServer": "Idugang ang MCP Server",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Pagsusi sa kahimtang sa extension..."
+    },
+    "notInstalled": {
+      "title": "Gikompleto sa Novera ang mga buluhaton sa imong browser",
+      "description": "I-install ang extension para mahatagan ug access sa browser ang Novera",
+      "getExtension": "Pagkuha og Extension"
+    }
+  },
+  "serverName": "Ngalan sa Server",
+  "enterServerName": "Pagsulod sa ngalan sa server",
+  "command": "Sugo",
+  "enterCommand": "Pagsulod sa command (uvx o npx)",
+  "arguments": "Mga argumento",
+  "argument": "Pangatarungan {{index}}",
+  "envVars": "Mga Variable sa Kalikopan",
+  "key": "Yawe",
+  "value": "Bili",
+  "save": "Luwasa",
+  "status": "Kahimtang",
+  "connected": "Konektado",
+  "disconnected": "Nadiskonekta",
+  "deleteServer": {
+    "title": "Kuhaa ang MCP Server",
+    "description": "Sigurado ka ba nga gusto nimong papason ang MCP server {{serverName}}? Kini nga aksyon dili mabawi.",
+    "delete": "Pagtangtang",
+    "success": "MCP server {{serverName}} malampuson nga natangtang"
+  },
+  "editJson": {
+    "title": "I-edit ang JSON para sa MCP Server: {{serverName}}",
+    "titleAll": "I-edit ang Tanang MCP Servers JSON",
+    "placeholder": "Pagsulod sa JSON configuration",
+    "errorParse": "Napakyas sa pag-parse sa inisyal nga datos",
+    "errorPaste": "Dili balido nga JSON nga format sa gipapilit nga sulod",
+    "errorFormat": "Dili balido nga JSON nga pormat",
+    "errorServerName": "Ang ngalan sa server gikinahanglan ug dili mahimong walay sulod",
+    "errorMissingServerNameKey": "Ang JSON kinahanglang ma-istruktura isip {\"serverName\": {config}} - nawala nga server name key",
+    "errorInvalidType": "Dili balido nga tipo '{{type}}' para sa server '{{serverName}}'. Ang tipo kinahanglan nga 'stdio', 'http', o 'sse'",
+    "save": "Luwasa"
+  },
+  "checkParams": "Palihug susiha ang mga parameter sumala sa tutorial.",
+  "title": "MCP Mga Server",
+  "experimental": "Eksperimento",
+  "editAllJson": "I-edit ang Tanang Server JSON",
+  "findMore": "Pangitag dugang MCP server sa",
+  "allowPermissions": "Tugoti ang Tanang MCP Tool Permissions",
+  "allowPermissionsDesc": "Kung mahimo, ang tanan nga MCP nga mga tawag sa himan awtomatik nga maaprobahan nga wala magpakita sa mga dialog sa pagtugot. Kini nga setting magamit sa tibuuk kalibutan sa tanan nga mga panag-istoryahanay, lakip ang mga bag-ong chat.",
+  "noServers": "Walay MCP server nga nakit-an",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Ang server {{serverKey}} malampuson nga na-activate",
+  "serverStatusInactive": "Ang server {{serverKey}} malampuson nga na-deactivate",
+  "runtimeSettings": {
+    "title": "Mga Setting sa Runtime",
+    "description": "I-configure kung giunsa pagdumala ug pag-usab sa Novera ang mga server sa MCP.",
+    "toolCallTimeout": "Oras sa tawag sa himan (mga segundo)",
+    "toolCallTimeoutDesc": "Kinatas-ang panahon sa paghulat sa MCP nga tubag sa himan sa dili pa mohunong.",
+    "maxToolOutputChars": "Max tool nga output nga mga karakter",
+    "maxToolOutputCharsDesc": "Labing taas nga resulta sa himan nga gitipigan sa panag-istoryahanay. Ang bisan unsa nga miagi niini giputol ug gimarkahan nga giputol, busa ang usa ka dako nga resulta dili makahurot sa konteksto sa modelo. Ibutang sa 0 aron mapabilin ang tibuok resulta.",
+    "smartToolRouting": "Smart routing sa MCP nga mga himan",
+    "smartToolRoutingDesc": "Kung ma-enable, ang Novera mopili ug may kalabotan nga MCP server sa dili pa mag-load sa mga himan. I-disable ang kanunay nga pagkarga sa tibuok MCP tool list.",
+    "useLightweightRouterModel": "Gamit ug dedikadong modelo para sa pagruta",
+    "useLightweightRouterModelDesc": "Sa diha nga ang smart routing on, padagana ang routing step gamit ang bulag nga (kasagaran mas gamay) nga modelo imbes sa chat model. I-off aron kanunay gamiton ang aktibong modelo sa chat para sa pagruta.",
+    "routerModel": "Ruta nga modelo",
+    "routerModelDesc": "Pilia ang tighatag ug modelo sa usa ka lugar. Ang mga lightweight nga modelo ra ang gilista aron ang pag-ruta magpabilin nga paspas ug barato.",
+    "selectRouterModelPlaceholder": "Pilia ang modelo sa ruta…",
+    "routerModelSearchPlaceholder": "Pangitaa ang mga modelo…",
+    "routerModelEmptyList": "Walay gaan nga mga modelo nga magamit. Pagdugang og mas gamay nga modelo o i-configure ang API nga mga yawe sa Mga Modelo.",
+    "routerModelEmptySearch": "Walay tugma alang sa “{{query}}”."
+  },
+  "auth": {
+    "label": "Pagpamatuod:",
+    "state": {
+      "notApplicable": "dili gikinahanglan",
+      "staticHeader": "Ulohan sa pagtugot",
+      "authenticated": "gipamatud-an",
+      "expired": "expire na",
+      "staleResource": "gi-isyu alang sa laing URL",
+      "unauthenticated": "dili authenticated"
+    },
+    "expiresIn": "matapos sa {{duration}}",
+    "authenticate": "Sign in",
+    "reauthenticate": "Pag-authenticate pag-usab",
+    "clear": "Tin-aw nga panghimatuud",
+    "waiting": "Naghulat sa browser...",
+    "openSignInPage": "Ablihi ang sign-in page",
+    "needsAuth": "Ang {{serverName}} nagkinahanglan og panghimatuod",
+    "needsAuthHint": "Sign in niini nga server aron makakonektar.",
+    "authorized": "Naka-sign in sa {{serverName}}",
+    "authorizeFailed": "Napakyas ang pag-sign-in para sa {{serverName}}",
+    "cleared": "Gi-clear ang gitipigan nga mga kredensyal para sa {{serverName}}",
+    "nothingToClear": "{{serverName}} walay gitipigan nga mga kredensyal",
+    "clearFailed": "Dili maklaro ang mga kredensyal para sa {{serverName}}",
+    "renew": "I-renew ang sesyon",
+    "expiredAgo": "expire {{duration}} ang milabay"
+  }
+}

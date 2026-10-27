@@ -698,5 +698,105 @@
     "total": 1738,
     "partial": false,
     "source_pr": null
+  },
+  {
+    "locale": "ceb",
+    "language": "Cebuano",
+    "label": "Sinugbuanon",
+    "direction": "ltr",
+    "keys": 1738,
+    "total": 1738,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "kk",
+    "language": "Kazakh",
+    "label": "Қазақша",
+    "direction": "ltr",
+    "keys": 1738,
+    "total": 1738,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "si",
+    "language": "Sinhala",
+    "label": "සිංහල",
+    "direction": "ltr",
+    "keys": 1738,
+    "total": 1738,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "xh",
+    "language": "Xhosa",
+    "label": "isiXhosa",
+    "direction": "ltr",
+    "keys": 1738,
+    "total": 1738,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "km",
+    "language": "Khmer",
+    "label": "ខ្មែរ",
+    "direction": "ltr",
+    "keys": 1738,
+    "total": 1738,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "af",
+    "language": "Afrikaans",
+    "label": "Afrikaans",
+    "direction": "ltr",
+    "keys": 1738,
+    "total": 1738,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "mai",
+    "language": "Maithili",
+    "label": "मैथिली",
+    "direction": "ltr",
+    "keys": 1738,
+    "total": 1738,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "wo",
+    "language": "Wolof",
+    "label": "Wolof",
+    "direction": "ltr",
+    "keys": 1738,
+    "total": 1738,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "kmr",
+    "language": "Northern Kurdish (Kurmanji)",
+    "label": "Kurmancî",
+    "direction": "ltr",
+    "keys": 1738,
+    "total": 1738,
+    "partial": false,
+    "source_pr": null
+  },
+  {
+    "locale": "rw",
+    "language": "Kinyarwanda",
+    "label": "Ikinyarwanda",
+    "direction": "ltr",
+    "keys": 1738,
+    "total": 1738,
+    "partial": false,
+    "source_pr": null
   }
 ]

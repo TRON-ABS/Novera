@@ -1,0 +1,18 @@
+{
+  "addProvider": "បន្ថែមអ្នកផ្តល់សេវា",
+  "addOpenAIProvider": "បន្ថែមអ្នកផ្តល់សេវាផ្ទាល់ខ្លួន",
+  "enterNameForProvider": "ឈ្មោះអ្នកផ្តល់សេវា (ឧ. my-llm-server)\nទម្រង់",
+  "apiTypeLabel": "API",
+  "apiTypeOpenAI": "OpenAI ឆបគ្នា។",
+  "apiTypeAnthropic": "Anthropic ឆបគ្នា។",
+  "baseUrlLabel": "មូលដ្ឋាន URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "គ្រាប់ចុច API",
+  "apiKeyPlaceholder": "បិទភ្ជាប់សោ API របស់អ្នក។",
+  "invalidBaseUrl": "មូលដ្ឋាន URL ត្រូវតែជា http(s) URL ត្រឹមត្រូវ",
+  "globalSettings": "ការកំណត់សកល",
+  "stripReasoning": "ដកហេតុផលចេញពីបរិបទ",
+  "stripReasoningDesc": "លុបខ្លឹមសារនៃការគិត/ការវែកញែកមុនវេនមុនពេលបញ្ជូនប្រវត្តិឡើងវិញ តាមរយៈអ្នកផ្តល់សេវាទាំងអស់។ កែលម្អការប្រើប្រាស់ KV-cache ឡើងវិញសម្រាប់ម៉ូដែលក្នុងស្រុក ប៉ុន្តែម៉ូដែលមួយចំនួន (ឧ. ការចេញផ្សាយ Qwen ថ្មីជាង) ណែនាំឱ្យរក្សាទុកវាសម្រាប់ហេតុផលច្រើនវេនកាន់តែប្រសើរ។",
+  "providerAlreadyExists": "អ្នកផ្តល់សេវាឈ្មោះ {{name}} មានរួចហើយ។"
+}

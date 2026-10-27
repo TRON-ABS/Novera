@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "កូដ",
+    "preview": "មើលជាមុន",
+    "previewStreaming": "អាចប្រើបាននៅពេលជំនាន់បញ្ចប់",
+    "unresolvedAssets_one": "1 ឯកសារយោងទ្រព្យសកម្មមិនអាចផ្ទុកនៅក្នុងការមើលជាមុនបានទេ។ ផ្លូវដែលទាក់ទងមិនមានមូលដ្ឋាន URL ដើម្បីដោះស្រាយ។",
+    "unresolvedAssets_other": "ឯកសារយោងទ្រព្យសកម្ម {{count}} មិនអាចផ្ទុកនៅក្នុងការមើលជាមុនបានទេ។ ផ្លូវដែលទាក់ទងមិនមានមូលដ្ឋាន URL ដើម្បីដោះស្រាយ។"
+  },
+  "assistants": "ជំនួយការ",
+  "hardware": "ផ្នែករឹង",
+  "mcp-servers": "MCP ម៉ាស៊ីនមេ",
+  "local_api_server": "ម៉ាស៊ីនមេ API ក្នុងស្រុក",
+  "remote_access": "ការចូលប្រើពីចម្ងាយ",
+  "integrations": "សមាហរណកម្ម",
+  "experimental": "ពិសោធន៍",
+  "claude_code": "កូដ Claude",
+  "https_proxy": "HTTPS ប្រូកស៊ី",
+  "web_search": "ការស្វែងរកតាមអ៊ីនធឺណិត",
+  "shell": "សែល",
+  "browse": "រុករក",
+  "moreControls": "ការគ្រប់គ្រងច្រើនទៀត",
+  "starting": "ចាប់ផ្តើម...",
+  "activeSuffix": "(សកម្ម)",
+  "extensions": "ផ្នែកបន្ថែម",
+  "attachments": "ឯកសារភ្ជាប់",
+  "general": "ទូទៅ",
+  "settings": "ការកំណត់",
+  "modelProviders": "អ្នកផ្តល់គំរូ",
+  "localProviders": "ក្នុងស្រុក",
+  "remoteProviders": "ពីចម្ងាយ",
+  "manageProviders": "គ្រប់គ្រងអ្នកផ្តល់សេវា",
+  "hiddenProviders": "{{count}} ត្រូវបានបិទ",
+  "hideProvider": "លាក់អ្នកផ្តល់សេវា",
+  "showProvider": "បង្ហាញអ្នកផ្តល់សេវា",
+  "interface": "ចំណុចប្រទាក់",
+  "appearance": "រូបរាង",
+  "privacy": "ភាពឯកជន",
+  "keyboardShortcuts": "ផ្លូវកាត់",
+  "home": "ផ្ទះ",
+  "cowork": "Cowork",
+  "newSession": "វគ្គថ្មី។",
+  "artifacts": "វត្ថុបុរាណ",
+  "customize": "ប្ដូរតាមបំណង",
+  "local": "ក្នុងស្រុក",
+  "selectFolder": "ជ្រើសរើសថត",
+  "selectModel": "ជ្រើសរើសម៉ូដែលជាមុនសិន",
+  "commands": "ពាក្យបញ្ជា",
+  "cmdHelp": "រាយពាក្យបញ្ជាដែលមាន",
+  "cmdClear": "ជម្រះវគ្គនេះ។",
+  "cmdModels": "ប្តូរគំរូសកម្ម",
+  "cmdModelsHint": "វាយ /models បន្ទាប់មកជ្រើសរើសម៉ូដែលពីបញ្ជី",
+  "cmdModelSwitched": "បានប្តូរទៅ {{name}}",
+  "cmdUnknown": "មិនស្គាល់ពាក្យបញ្ជា៖ {{name}} ។ សាកល្បង /help",
+  "cmdBusy": "មិន​អាច​ធ្វើ​ដូច្នេះ​បាន​ខណៈ​ពេល​ដែល​ភ្នាក់ងារ​កំពុង​ដំណើរការ",
+  "cmdCompact": "បង្រួមបរិបទនៃវគ្គទៅជាសេចក្តីសង្ខេប",
+  "cmdCompacted": "បង្រួម {{before}} -> សារ {{after}}",
+  "cmdNothingToCompact": "មិនមានអ្វីបង្រួមនៅឡើយទេ",
+  "cmdCompactFailed": "ការបង្រួមបានបរាជ័យ៖ {{error}}",
+  "cmdPlan": "បិទបើករបៀបផែនការ (បានតែអាន៖ ភ្នាក់ងារស្នើដោយមិនចាំបាច់សរសេរ)",
+  "cmdPlanOn": "បើករបៀបផែនការ៖ ភ្នាក់ងារអាន និងស្នើដោយមិនសរសេរ",
+  "cmdPlanOff": "បិទមុខងារផែនការ៖ ដំណើរការធម្មតា។",
+  "cmdTodo": "បើកផ្ទាំងដំណើរការ",
+  "cmdTasks": "បើកផ្ទាំងកិច្ចការផ្ទៃខាងក្រោយ",
+  "cmdInit": "សិក្សាគម្រោង និងជំនាញសរសេរ និងការចងចាំ",
+  "cmdInitRunning": "ចាប់ផ្តើមគម្រោងនេះ។",
+  "skills": "ជំនាញ",
+  "skillsInContext": "ជំនាញដែលមានសម្រាប់ភ្នាក់ងារដំណើរការនេះ។",
+  "skillsTitle": "គ្រប់គ្រងជំនាញ",
+  "skillsScopeProject": "ជំនាញសម្រាប់ {{folder}}",
+  "skillsScopeGlobal": "ជំនាញសកល អាចប្រើបានគ្រប់វគ្គ",
+  "skillsScopeMerged": "ជំនាញសម្រាប់ {{folder}} បូករួមទាំងជំនាញសកលរាល់វគ្គចែករំលែក\nថតឯកសារ",
+  "skillOriginFolder": "ថតឯកសារ",
+  "skillOriginGlobal": "សកល",
+  "skillsEmpty": "មិនទាន់មានជំនាញ",
+  "skillsPickOrNew": "ជ្រើសរើសជំនាញដើម្បីកែសម្រួល ឬបង្កើតថ្មីមួយ។",
+  "skillNew": "ជំនាញថ្មី។",
+  "skillDelete": "លុបជំនាញ",
+  "skillSave": "រក្សាទុក",
+  "skillSaved": "បានរក្សាទុកជំនាញ",
+  "skillNameRequired": "ឈ្មោះជំនាញត្រូវបានទាមទារ",
+  "skillNamePlaceholder": "ជំនាញ-ឈ្មោះ",
+  "skillContentPlaceholder": "ពិពណ៌នាអំពីនីតិវិធីដែលអាចប្រើឡើងវិញបាននៅក្នុង Markdown…",
+  "skillHubImport": "នាំចូលពីមជ្ឈមណ្ឌល",
+  "skillHubTitle": "Anthropic មជ្ឈមណ្ឌលជំនាញ",
+  "skillHubEmpty": "រកមិនឃើញជំនាញនៅលើមជ្ឈមណ្ឌលទេ។",
+  "skillImport": "នាំចូល",
+  "skillReimport": "នាំចូលឡើងវិញ",
+  "skillImported": "នាំចូល {{name}}\nវគ្គ",
+  "sessions": "វគ្គ",
+  "deleteSession": "លុបវគ្គ",
+  "deleteSessionTitle": "លុបវគ្គ?",
+  "deleteSessionBody": "\"{{title}}\" ហើយប្រតិចារិករបស់វានឹងត្រូវបានលុបជាអចិន្ត្រៃយ៍។ នេះមិនអាចត្រឡប់វិញបានទេ។",
+  "newChat": "ជជែកថ្មី។",
+  "newAgentChat": "ភ្នាក់ងារជជែកថ្មី។",
+  "chats": "ជជែក",
+  "favorites": "ចំណូលចិត្ត",
+  "recents": "ថ្មីៗ",
+  "hub": "មជ្ឈមណ្ឌល",
+  "helpSupport": "ជួយ និងគាំទ្រ",
+  "helpUsImproveJan": "ជួយយើងកែលម្អ Novera",
+  "analyticsConsentDetail": "យើងប្រមូលទិន្នន័យអនាមិក ដើម្បីយល់ពីការប្រើប្រាស់មុខងារ។ ការជជែក និងព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នកមិនត្រូវបានតាមដានឡើយ។ អ្នកអាចផ្លាស់ប្តូរវាបានគ្រប់ពេលនៅក្នុងការកំណត់ > ឯកជនភាព។",
+  "analyticsConsentQuestion": "តើអ្នកចង់ជួយពួកយើងដើម្បីកែលម្អ Novera ទេ?",
+  "unstarAll": "ដកផ្កាយទាំងអស់។",
+  "unstar": "ដកផ្កាយ",
+  "deleteAll": "លុបទាំងអស់។",
+  "star": "តារា",
+  "rename": "ប្តូរឈ្មោះ",
+  "delete": "លុប",
+  "copied": "ចម្លង!",
+  "dataFolder": "ថតទិន្នន័យ",
+  "others": "ផ្សេងៗ",
+  "language": "ភាសា",
+  "login": "ចូល",
+  "loginWith": "ចូលជាមួយ {{provider}}",
+  "loginFailed": "បរាជ័យក្នុងការចូល",
+  "logout": "ចេញ",
+  "loggingOut": "ចេញ...",
+  "loggedOut": "ចេញដោយជោគជ័យ",
+  "logoutFailed": "បរាជ័យក្នុងការចេញ",
+  "profile": "ប្រវត្តិរូប",
+  "reset": "កំណត់ឡើងវិញ",
+  "search": "ស្វែងរក",
+  "searchThreads": "ស្វែងរកប្រធានបទ...",
+  "toNavigate": "ដើម្បីរុករក",
+  "toSelect": "ដើម្បីជ្រើសរើស",
+  "toClose": "ដើម្បីបិទ",
+  "clearRecent": "ច្បាស់",
+  "name": "ឈ្មោះ",
+  "cancel": "បោះបង់",
+  "dismiss": "ច្រានចោល",
+  "create": "បង្កើត",
+  "save": "រក្សាទុក",
+  "edit": "កែសម្រួល",
+  "copy": "ចម្លង",
+  "back": "ត្រឡប់មកវិញ",
+  "close": "បិទ",
+  "done": "រួចរាល់",
+  "next": "បន្ទាប់",
+  "finish": "បញ្ចប់",
+  "skip": "រំលង",
+  "allow": "អនុញ្ញាត",
+  "deny": "បដិសេធ",
+  "start": "ចាប់ផ្តើម",
+  "stop": "ឈប់",
+  "preview": {
+    "loading": "បើកដំណើរការ…",
+    "unsupported": "Novera មិនអាចបង្ហាញឯកសារប្រភេទនេះបានទេ។ បើកវាដើម្បីមើលវានៅក្នុងកម្មវិធីផ្សេងទៀត។",
+    "outside": "ឯកសារនេះលែងស្ថិតនៅក្នុងកន្លែងធ្វើការសម័យទៀតហើយ។",
+    "tooLarge": "ធំពេកក្នុងការមើលជាមុន។ បើកវាដើម្បីមើលវានៅក្នុងកម្មវិធីផ្សេងទៀត។",
+    "reload": "ផ្ទុកឡើងវិញ",
+    "allowNetwork": "អនុញ្ញាតបណ្តាញ",
+    "unsandboxed": "ដំណើរការ unsandboxed៖ ទិន្នន័យដែលបានរក្សាទុក ហើយឯកសារមូលដ្ឋានដំណើរការ",
+    "unresolvedRefs_one": "1 ឯកសារទំព័រនេះភ្ជាប់ទៅមិនអាចផ្ទុកនៅក្នុងការមើលជាមុនបានទេ។ បើកវាដើម្បីមើលវានៅក្នុងកម្មវិធីរុករក។",
+    "unresolvedRefs_other": "{{count}} ឯកសារភ្ជាប់ទំព័រនេះ ដើម្បីមិនអាចផ្ទុកនៅក្នុងការមើលជាមុនបានទេ។ បើកវាដើម្បីមើលវានៅក្នុងកម្មវិធីរុករក។",
+    "externalRefs_one": "1 ធនធានទំព័រនេះផ្ទុកពីបណ្តាញត្រូវបានរារាំង។ បើក \"អនុញ្ញាតបណ្តាញ\" ដើម្បីផ្ទុកវា។",
+    "externalRefs_other": "ធនធាន {{count}} ទំព័រនេះផ្ទុកពីបណ្តាញត្រូវបានរារាំង។ បើក \"អនុញ្ញាតបណ្តាញ\" ដើម្បីផ្ទុកពួកវា។",
+    "scriptErrors_one": "ទំព័របានរាយការណ៍អំពីកំហុស៖ {{message}}",
+    "scriptErrors_other": "ទំព័របានរាយការណ៍អំពីកំហុស {{count}} ។ ទីមួយ៖ {{message}}"
+  },
+  "changes": {
+    "title": "ការផ្លាស់ប្តូរភ្នាក់ងារ",
+    "empty": "ឯកសារដែលភ្នាក់ងារសរសេរ ឬកែសម្រួលនឹងបង្ហាញនៅទីនេះ។",
+    "a11y": "ការផ្លាស់ប្តូរភ្នាក់ងារ៖ ឯកសារ {{files}}, {{additions}} បានបន្ថែម, {{deletions}} បានដកចេញ"
+  },
+  "modelPanel": {
+    "title": "ការកំណត់ម៉ូដែល",
+    "a11y": "បើកការកំណត់ម៉ូដែល",
+    "contextTooltip": "បង្អួចបរិបទ៖ {{value}} នៃនិមិត្តសញ្ញា {{max}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "ជំនាញ '{{name}}' មិនមានទេ",
+    "kind": {
+      "skill": "ជំនាញ",
+      "command": "ពាក្យបញ្ជា",
+      "model": "ម៉ូដែល"
+    }
+  },
+  "compactWidth": "ទទឹងបង្រួម",
+  "fullWidth": "ទទឹងពេញ",
+  "dark": "ងងឹត",
+  "light": "ពន្លឺ\nប្រព័ន្ធ",
+  "system": "ប្រព័ន្ធ",
+  "auto": "ស្វ័យប្រវត្តិ",
+  "english": "ភាសាអង់គ្លេស",
+  "medium": "មធ្យម",
+  "newThread": "ខ្សែស្រឡាយថ្មី។",
+  "noResultsFound": "រកមិនឃើញលទ្ធផលទេ។",
+  "noThreadsYet": "មិន​ទាន់​មាន​ខ្សែ",
+  "noThreadsYetDesc": "ចាប់ផ្តើមការសន្ទនាថ្មី ដើម្បីមើលប្រវត្តិខ្សែស្រឡាយរបស់អ្នកនៅទីនេះ។",
+  "downloads": "ទាញយក",
+  "downloading": "កំពុងទាញយក",
+  "uploadingAttachments": "កំពុងផ្ទុកឯកសារភ្ជាប់...",
+  "cancelDownload": "បោះបង់ការទាញយក",
+  "downloadCancelled": "ការទាញយកត្រូវបានលុបចោល",
+  "downloadComplete": "បញ្ចប់ការទាញយក",
+  "thinking": "គិត...",
+  "thought": "គំនិត",
+  "callingTool": "ឧបករណ៍ហៅទូរសព្ទ",
+  "completed": "បានបញ្ចប់",
+  "image": "រូបភាព",
+  "vision": "ចក្ខុវិស័យ",
+  "multimodal": "ពហុម៉ូត",
+  "embeddings": "ការបង្កប់",
+  "tools": "ឧបករណ៍",
+  "webSearch": "ការស្វែងរកតាមអ៊ីនធឺណិត",
+  "reasoning": "ហេតុផល",
+  "proactive": "សកម្ម",
+  "selectAModel": "ជ្រើសរើសម៉ូដែល",
+  "noToolsAvailable": "មិនមានឧបករណ៍ទេ។",
+  "noModelsFoundFor": "រកមិនឃើញម៉ូដែលសម្រាប់ \"{{searchValue}}\" ទេ",
+  "failedToLoadModels": "បរាជ័យក្នុងការផ្ទុកម៉ូដែល",
+  "noModels": "រកមិនឃើញម៉ូដែលទេ។",
+  "noAssistant": "គ្មានជំនួយការ",
+  "customAvatar": "រូបតំណាងផ្ទាល់ខ្លួន",
+  "editAssistant": "កែសម្រួលជំនួយការ",
+  "jan": "Novera",
+  "metadata": "ទិន្នន័យមេតា",
+  "regenerate": "បង្កើតឡើងវិញ",
+  "threadImage": "រូបភាពខ្សែស្រឡាយ",
+  "editMessage": "កែសម្រួលសារ",
+  "deleteMessage": "លុបសារ",
+  "deleteThread": "លុបខ្សែស្រឡាយ",
+  "renameThread": "ប្តូរឈ្មោះខ្សែស្រឡាយ",
+  "threadTitle": "ចំណង​ជើង",
+  "deleteAllThreads": "លុប​ Threads ទាំងអស់។",
+  "allThreadsUnfavorited": "ខ្សែស្រឡាយទាំងអស់ដែលមិនពេញចិត្ត",
+  "deleteAllThreadsConfirm": "តើ​អ្នក​ប្រាកដ​ជា​ចង់​លុប​ខ្សែ​ស្រឡាយ​ទាំង​អស់​ឬ? សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។",
+  "addProvider": "បន្ថែមអ្នកផ្តល់សេវា",
+  "addOpenAIProvider": "បន្ថែមអ្នកផ្តល់ OpenAI",
+  "enterNameForProvider": "បញ្ចូលឈ្មោះសម្រាប់អ្នកផ្តល់សេវារបស់អ្នក។",
+  "providerAlreadyExists": "អ្នកផ្តល់សេវាដែលមានឈ្មោះ \"{{name}}\" មានរួចហើយ។ សូមជ្រើសរើសឈ្មោះផ្សេង។",
+  "adjustFontSize": "លៃតម្រូវទំហំពុម្ពអក្សរ",
+  "changeLanguage": "ប្តូរភាសា",
+  "editTheme": "កែសម្រួលស្បែក",
+  "editCodeBlockStyle": "កែសម្រួលរចនាប័ទ្មប្លុកកូដ",
+  "editServerHost": "កែសម្រួលម៉ាស៊ីនមេ",
+  "pickColorWindowBackground": "ជ្រើសរើសពណ៌ផ្ទៃខាងក្រោយបង្អួច",
+  "pickColorAppMainView": "ជ្រើសរើសកម្មវិធីពណ៌ ទិដ្ឋភាពចម្បង",
+  "pickColorAppPrimary": "ជ្រើសរើសកម្មវិធីពណ៌ចម្បង",
+  "pickColorAppAccent": "ជ្រើសរើសការសង្កត់សំឡេងកម្មវិធីពណ៌",
+  "pickColorAppDestructive": "ជ្រើសរើសកម្មវិធីពណ៌ដែលបំផ្លិចបំផ្លាញ",
+  "apiKeyRequired": "API ត្រូវការសោ",
+  "enterTrustedHosts": "បញ្ចូលម៉ាស៊ីនដែលទុកចិត្ត",
+  "placeholder": {
+    "chatInput": "សួរស្តី..."
+  },
+  "confirm": "បញ្ជាក់",
+  "continue": "បន្ត",
+  "loading": "កំពុងផ្ទុក...",
+  "settingUpJan": "កំពុងចាប់ផ្ដើម Novera…",
+  "registeringExtensions": "ការចុះឈ្មោះផ្នែកបន្ថែម...",
+  "loadingExtensions": "កំពុងផ្ទុកផ្នែកបន្ថែម… ({{done}}/{{total}})",
+  "error": "កំហុស",
+  "success": "ជោគជ័យ",
+  "warning": "ការព្រមាន",
+  "conversationNotAvailable": "ការសន្ទនាមិនមានទេ។",
+  "conversationNotAvailableDescription": "ការសន្ទនាដែលអ្នកកំពុងព្យាយាមចូលគឺមិនមានទេ ឬត្រូវបានលុបចេញ។",
+  "temporaryChat": "ការជជែកបណ្តោះអាសន្ន",
+  "temporaryChatTooltip": "ការជជែកបណ្តោះអាសន្ននឹងមិនបង្ហាញក្នុងប្រវត្តិរបស់អ្នកទេ។",
+  "noResultsFoundDesc": "យើងមិនអាចរកឃើញការជជែកណាមួយដែលត្រូវនឹងការស្វែងរករបស់អ្នកទេ។ សាកល្បងពាក្យគន្លឹះផ្សេង។",
+  "searchModels": "ស្វែងរកម៉ូដែល...",
+  "searchStyles": "រចនាប័ទ្មស្វែងរក...",
+  "createAssistant": "បង្កើតជំនួយការ",
+  "enterApiKey": "បញ្ចូល API Key",
+  "scrollToBottom": "រំកិលចុះក្រោម",
+  "generateAiResponse": "បង្កើតការឆ្លើយតប AI",
+  "continueAiResponse": "បន្តជាមួយនឹងការឆ្លើយតប AI",
+  "addModel": {
+    "title": "បន្ថែមគំរូ",
+    "modelId": "ម៉ូដែល ID",
+    "enterModelId": "បញ្ចូលម៉ូដែល ID",
+    "addModel": "បន្ថែមគំរូ",
+    "description": "បន្ថែមគំរូថ្មីទៅកាន់អ្នកផ្តល់សេវា",
+    "exploreModels": "មើលបញ្ជីគំរូពីអ្នកផ្តល់សេវា"
+  },
+  "mcpServers": {
+    "editServer": "កែសម្រួលម៉ាស៊ីនមេ",
+    "addServer": "បន្ថែមម៉ាស៊ីនមេ",
+    "serverName": "ឈ្មោះម៉ាស៊ីនមេ",
+    "enterServerName": "បញ្ចូលឈ្មោះម៉ាស៊ីនមេ",
+    "command": "ពាក្យបញ្ជា",
+    "enterCommand": "បញ្ចូលពាក្យបញ្ជា",
+    "arguments": "អាគុយម៉ង់",
+    "argument": "អាគុយម៉ង់ {{index}}",
+    "envVars": "អថេរបរិស្ថាន",
+    "key": "គន្លឹះ",
+    "value": "តម្លៃ",
+    "save": "រក្សាទុក"
+  },
+  "deleteServer": {
+    "title": "លុបម៉ាស៊ីនមេ",
+    "delete": "លុប"
+  },
+  "editJson": {
+    "errorParse": "បរាជ័យក្នុងការញែក JSON",
+    "errorPaste": "បរាជ័យក្នុងការបិទភ្ជាប់ JSON",
+    "errorFormat": "ទម្រង់ JSON មិនត្រឹមត្រូវ",
+    "titleAll": "កែសម្រួលការកំណត់រចនាសម្ព័ន្ធម៉ាស៊ីនមេទាំងអស់។",
+    "placeholder": "បញ្ចូលការកំណត់រចនាសម្ព័ន្ធ JSON...",
+    "save": "រក្សាទុក"
+  },
+  "editModel": {
+    "title": "កែសម្រួលម៉ូដែល៖ {{modelId}}",
+    "description": "កំណត់រចនាសម្ព័ន្ធសមត្ថភាពម៉ូដែលដោយបិទបើកជម្រើសខាងក្រោម។",
+    "capabilities": "សមត្ថភាព",
+    "tools": "ឧបករណ៍",
+    "vision": "ចក្ខុវិស័យ",
+    "embeddings": "ការបង្កប់",
+    "notAvailable": "មិនទាន់មាននៅឡើយទេ"
+  },
+  "outOfContextError": {
+    "truncateInput": "បង្រួមការបញ្ចូល",
+    "title": "កំហុសក្រៅបរិបទ",
+    "description": "ការជជែកនេះកំពុងឈានដល់ដែនកំណត់នៃការចងចាំរបស់ AI ដូចជាការបំពេញក្តារខៀន។ យើងអាចពង្រីកវិនដូមេម៉ូរី (ហៅថាទំហំបរិបទ) ដូច្នេះវាចងចាំបានកាន់តែច្រើន ប៉ុន្តែវាប្រហែលជាប្រើប្រាស់អង្គចងចាំក្នុងកុំព្យូទ័ររបស់អ្នកកាន់តែច្រើន។ យើងក៏អាចកាត់បន្ថយការបញ្ចូល ដែលមានន័យថា វានឹងភ្លេចប្រវត្តិជជែកខ្លះ ដើម្បីបង្កើតកន្លែងសម្រាប់សារថ្មី។",
+    "increaseContextSizeDescription": "តើអ្នកចង់បង្កើនទំហំបរិបទទេ?",
+    "increaseContextSize": "បង្កើនទំហំបរិបទ"
+  },
+  "toolApproval": {
+    "title": "សំណើការអនុញ្ញាតឧបករណ៍",
+    "description": "ជំនួយការចង់ប្រើ <strong>{{toolName}}</strong>",
+    "securityNotice": "អនុញ្ញាតតែឧបករណ៍ដែលអ្នកជឿទុកចិត្តប៉ុណ្ណោះ។ ឧបករណ៍អាចចូលប្រើប្រព័ន្ធ និងទិន្នន័យរបស់អ្នក។",
+    "deny": "បដិសេធ",
+    "allowOnce": "អនុញ្ញាតម្តង",
+    "alwaysAllow": "អនុញ្ញាតជានិច្ច"
+  },
+  "deleteModel": {
+    "title": "លុបម៉ូដែល៖ {{modelId}}",
+    "description": "តើអ្នកប្រាកដថាចង់លុបម៉ូដែលនេះទេ? សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។",
+    "success": "ម៉ូដែល {{modelId}} ត្រូវបានលុបជាអចិន្ត្រៃយ៍។",
+    "cancel": "បោះបង់",
+    "delete": "លុប"
+  },
+  "deleteProvider": {
+    "title": "លុបអ្នកផ្តល់សេវា",
+    "description": "លុបអ្នកផ្តល់សេវានេះ និងម៉ូដែលទាំងអស់របស់វា។ សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។",
+    "success": "អ្នកផ្តល់ {{provider}} ត្រូវបានលុបជាអចិន្ត្រៃយ៍។",
+    "confirmTitle": "លុបអ្នកផ្តល់សេវា៖ {{provider}}",
+    "confirmDescription": "តើអ្នកប្រាកដថាចង់លុបអ្នកផ្តល់សេវានេះទេ? សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។",
+    "cancel": "បោះបង់",
+    "delete": "លុប"
+  },
+  "modelSettings": {
+    "title": "ការកំណត់ម៉ូដែល - {{modelId}}",
+    "description": "កំណត់រចនាសម្ព័ន្ធការកំណត់គំរូ ដើម្បីបង្កើនប្រសិទ្ធភាពប្រតិបត្តិការ និងឥរិយាបថ។",
+    "nglDisabledByFit": "Auto-fit កំពុងជ្រើសរើសស្រទាប់ GPU ។ បិទ Auto-fit ដើម្បីកំណត់វាដោយដៃ។",
+    "samplingDefaults": {
+      "title": "ប៉ារ៉ាម៉ែត្រគំរូលំនាំដើម",
+      "description": "ការកំណត់គំរូលំនាំដើមសម្រាប់ម៉ូដែលនេះ។ ប្រើ លុះត្រាតែបដិសេធដោយតម្លៃក្នុងមួយជំនួយ ឬតាមសំណើ។"
+    },
+    "specDraft": {
+      "section": "ការឌិកូដស្មាន",
+      "enable": "បើកការឌិកូដប៉ាន់ស្មាន",
+      "enableDescription": "ព្រាងថូខឹនជាច្រើនក្នុងមួយជំហាន ហើយផ្ទៀងផ្ទាត់ពួកវាក្នុងមួយវគ្គ ដែលបង្កើនល្បឿននៃការបង្កើត។ ប្រើក្បាល MTP ដែលមានស្រាប់របស់ម៉ូដែល ឬគំរូព្រាងដែលបានទាញយកជាមួយវា (MTP, Eagle3, DFlash ឬ DSpark) ។",
+      "nMax": "ថូខឹនព្រាងអតិបរមា",
+      "nMaxDescription": "ចំនួនអតិបរមានៃសញ្ញាសម្ងាត់ដែលត្រូវព្រាងក្នុងមួយជំហាន។ លំនាំដើម ១៦.",
+      "nMin": "ថូខឹនព្រាងអប្បបរមា",
+      "nMinDescription": "ចំនួនថូខឹនអប្បបរមាដែលត្រូវព្រាងក្នុងមួយជំហាន។ លំនាំដើម 0 ។",
+      "pMin": "ប្រូបាប៊ីលីតេនៃសេចក្តីព្រាងអប្បបរមា",
+      "pMinDescription": "ប្រូបាប៊ីលីតេអប្បបរមាសម្រាប់ការព្រាងលោភលន់ (0–1)។ លំនាំដើម 0.75 ។"
+    },
+    "templateKwargs": {
+      "section": "ជម្រើសគំរូជជែក",
+      "description": "ជម្រើសបន្ថែម គំរូជជែករបស់ម៉ូដែលនេះទទួលយក។ បានផ្ញើជា chat_template_kwargs លើសំណើនីមួយៗ។ ទុកតម្លៃនៅលំនាំដើមរបស់វា ដើម្បីអនុញ្ញាតឱ្យគំរូសម្រេចចិត្ត។",
+      "addCustom": "បន្ថែមជម្រើសផ្ទាល់ខ្លួន",
+      "keyPlaceholder": "ឈ្មោះ",
+      "valuePlaceholder": "តម្លៃ",
+      "add": "បន្ថែម",
+      "cancel": "បោះបង់",
+      "remove": "ដកចេញ"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "មិនអាចធ្វើបច្ចុប្បន្នភាពការកំណត់ម៉ូដែលបានទេ។"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "ផ្លាស់ប្តូរទីតាំងថតទិន្នន័យ",
+      "description": "តើអ្នកប្រាកដថាចង់ផ្លាស់ប្តូរទីតាំងថតទិន្នន័យមែនទេ? វានឹងផ្លាស់ទីទិន្នន័យរបស់អ្នកទាំងអស់ទៅកាន់ទីតាំងថ្មី ហើយចាប់ផ្តើមកម្មវិធីឡើងវិញ។",
+      "currentLocation": "ទីតាំងបច្ចុប្បន្ន៖",
+      "newLocation": "ទីតាំងថ្មី៖",
+      "cancel": "បោះបង់",
+      "changeLocation": "ផ្លាស់ប្តូរទីតាំង"
+    },
+    "deleteAllThreads": {
+      "title": "លុប​ Threads ទាំងអស់។",
+      "description": "ខ្សែស្រឡាយទាំងអស់នឹងត្រូវបានលុប។ សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។"
+    },
+    "deleteAllThreadsInProject": {
+      "title": "លុបការសន្ទនាទាំងអស់។",
+      "description": "{{count}} ការសន្ទនានៅក្នុង \"{{projectName}}\" នឹងត្រូវបានលុប។ សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។"
+    },
+    "deleteThread": {
+      "description": "តើអ្នកប្រាកដថាចង់លុបខ្សែនេះទេ? សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។"
+    },
+    "editMessage": {
+      "title": "កែសម្រួលសារ"
+    },
+    "messageMetadata": {
+      "title": "ទិន្នន័យមេតាសារ"
+    },
+    "deleteMessage": {
+      "description": "តើអ្នកប្រាកដថាចង់លុបសារនេះទេ? សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។"
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "មានអ្វីមួយខុសប្រក្រតី",
+    "details": "ព័ត៌មានលម្អិត"
+  },
+  "missingDependenciesDialog": {
+    "title": "បាត់បណ្ណាល័យប្រព័ន្ធ",
+    "description": "{{backend}} ត្រូវបានដំឡើង ប៉ុន្តែមិនអាចរកឃើញបណ្ណាល័យប្រព័ន្ធដែលត្រូវការមួយចំនួនទេ។ វាអាចត្រឡប់ទៅ CPU ឬមិនដំណើរការត្រឹមត្រូវ។",
+    "installLabel": "ដើម្បីជួសជុលវា សូមដំឡើងដូចខាងក្រោម៖",
+    "download": "ទាញយក",
+    "additionalLibraries": "បណ្ណាល័យដែលបាត់បន្ថែម៖",
+    "missingLibraries": "បាត់បណ្ណាល័យ៖",
+    "showRawLibraries": "បង្ហាញ {{count}} ដែលបាត់ឈ្មោះបណ្ណាល័យ"
+  },
+  "projects": {
+    "title": "គម្រោង",
+    "new": "គម្រោងថ្មី។",
+    "addProject": "បន្ថែមគម្រោង",
+    "addToProject": "បន្ថែមទៅគម្រោង",
+    "removeFromProject": "យកចេញពីគម្រោង",
+    "createNewProject": "បង្កើតគម្រោងថ្មី។",
+    "editProject": "កែសម្រួលគម្រោង",
+    "deleteProject": "លុបគម្រោង",
+    "projectName": "ឈ្មោះគម្រោង",
+    "enterProjectName": "បញ្ចូលឈ្មោះគម្រោង...",
+    "noProjectsAvailable": "មិនមានគម្រោងទេ។",
+    "noProjectsYet": "មិនទាន់មានគម្រោងនៅឡើយ",
+    "noProjectsYetDesc": "ចាប់ផ្តើមគម្រោងថ្មីដោយចុចប៊ូតុង បន្ថែមគម្រោង។",
+    "projectNotFound": "រកមិនឃើញគម្រោង",
+    "projectNotFoundDesc": "គម្រោងដែលអ្នកកំពុងស្វែងរកមិនមានទេ ឬត្រូវបានលុបចេញ។",
+    "selectAssistant": "ជ្រើសរើសជំនួយការ",
+    "noAssistantAssigned": "គ្មានជំនួយការដែលត្រូវបានចាត់តាំងក្នុងគម្រោងនេះទេ។",
+    "files": "ឯកសារ",
+    "filesDescription": "បន្ថែម PDF ឯកសារ ឬអត្ថបទផ្សេងទៀតដើម្បីយោងនៅក្នុងគម្រោងនេះ។",
+    "uploadingFiles": "កំពុងដំណើរការឯកសារ…",
+    "processButton": "បន្ថែម",
+    "deleteProjectDialog": {
+      "title": "លុបគម្រោង",
+      "permanentDelete": "វានឹងលុបខ្សែស្រឡាយទាំងអស់ជាអចិន្ត្រៃយ៍។",
+      "permanentDeleteWarning": "សកម្មភាពនេះនឹងលុបខ្សែស្រឡាយ ALL ជាអចិន្ត្រៃយ៍នៅក្នុងគម្រោង!",
+      "deleteEmptyProject": "សកម្មភាពនេះនឹងលុបគម្រោង \"{{projectName}}\"។",
+      "saveThreadsAdvice": "ដើម្បីរក្សាទុកខ្សែស្រឡាយ សូមផ្លាស់ទីពួកវាទៅបញ្ជីខ្សែស្រឡាយរបស់អ្នក ឬគម្រោងផ្សេងទៀតមុនពេលលុប។",
+      "starredWarning": "អ្នក​នៅ​តែ​មាន​ការ​ដាក់​ផ្កាយ​ក្នុង​គម្រោង។",
+      "deleteButton": "លុប",
+      "successWithName": "គម្រោង \"{{projectName}}\" ត្រូវបានលុបដោយជោគជ័យ",
+      "successWithoutName": "គម្រោងត្រូវបានលុបដោយជោគជ័យ",
+      "error": "បរាជ័យក្នុងការលុបគម្រោង។ សូមព្យាយាមម្តងទៀត។",
+      "ariaLabel": "លុប {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "បង្កើតគម្រោងថ្មី។",
+      "editTitle": "កែសម្រួលគម្រោង",
+      "nameLabel": "ឈ្មោះគម្រោង",
+      "namePlaceholder": "បញ្ចូលឈ្មោះគម្រោង...",
+      "assistant": "ជំនួយការ",
+      "selectAssistant": "ជ្រើសរើសជំនួយការ (ជាជម្រើស)",
+      "noAssistant": "គ្មានជំនួយការ",
+      "addAssistant": "បន្ថែមជំនួយការ",
+      "createButton": "បង្កើត",
+      "updateButton": "អាប់ដេត",
+      "alreadyExists": "គម្រោង \"{{projectName}}\" មានរួចហើយ",
+      "createSuccess": "គម្រោង \"{{projectName}}\" បានបង្កើតដោយជោគជ័យ",
+      "updateSuccess": "គម្រោង \"{{projectName}}\" បានធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ",
+      "saveError": "មិនអាចរក្សាទុកគម្រោងបានទេ។ សូមព្យាយាមម្តងទៀត។"
+    },
+    "noConversationsIn": "គ្មានការសន្ទនានៅក្នុង {{projectName}} ទេ។",
+    "startNewConversation": "ចាប់ផ្តើមការសន្ទនាថ្មីជាមួយ {{projectName}} ខាងក្រោម",
+    "conversationsIn": "ការសន្ទនាក្នុង {{projectName}}",
+    "conversationsDescription": "ចុចលើការសន្ទនាណាមួយដើម្បីបន្តការជជែក ឬចាប់ផ្តើមការសន្ទនាថ្មីខាងក្រោម។",
+    "conversation": "ការសន្ទនា",
+    "instructions": "សេចក្តីណែនាំ",
+    "setup": "រៀបចំ",
+    "instructionsDescription": "ប្ដូរសម្លេង និងរចនាប័ទ្មនៃការឆ្លើយតបតាមបំណង",
+    "manageInstructions": "គ្រប់គ្រងការណែនាំ",
+    "thread": "ខ្សែស្រឡាយ",
+    "threads": "ខ្សែស្រឡាយ",
+    "updated": "បានធ្វើបច្ចុប្បន្នភាព៖",
+    "collapseProject": "ដួលរលំគម្រោង",
+    "expandProject": "ពង្រីកគម្រោង",
+    "update": "អាប់ដេត",
+    "searchProjects": "គម្រោងស្វែងរក...",
+    "noProjectsFound": "រកមិនឃើញគម្រោងទេ។",
+    "tryDifferentSearch": "សាកល្បងពាក្យស្វែងរកផ្សេង"
+  },
+  "attachmentsIngestion": {
+    "title": "ជ្រើសរើសរបៀបបញ្ចូលឯកសារភ្ជាប់",
+    "description": "ជ្រើសរើសថាតើត្រូវបញ្ចូលឯកសារទាំងនេះដោយផ្ទាល់នៅក្នុងការជជែក ឬដាក់សន្ទស្សន៍ពួកវាជាការបង្កប់ជំនួសវិញ។",
+    "inline": "បញ្ចូលទៅក្នុងជជែក",
+    "embeddings": "ប្រើការបង្កប់"
+  },
+  "attachmentInjectedIndicator": "ចាក់ចូលការជជែក",
+  "attachmentEmbeddedIndicator": "បង្កប់សម្រាប់ RAG",
+  "viewInjectedContent": "មើលមាតិកាដែលបានចាក់",
+  "injectedContentTitle": "បញ្ចូលមាតិកាឯកសារ",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "ខ្សែស្រឡាយទាំងអស់ដែលមិនពេញចិត្ត",
+      "description": "ខ្សែស្រលាយទាំងអស់ត្រូវបានដកចេញពីចំណូលចិត្តរបស់អ្នក។"
+    },
+    "deleteAllThreads": {
+      "title": "លុប​ Threads ទាំងអស់។",
+      "description": "ខ្សែស្រឡាយទាំងអស់ត្រូវបានលុបជាអចិន្ត្រៃយ៍។"
+    },
+    "renameThread": {
+      "title": "ប្តូរឈ្មោះខ្សែស្រឡាយ",
+      "description": "ចំណងជើងខ្សែស្រឡាយត្រូវបានប្តូរឈ្មោះទៅជា '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "លុបខ្សែស្រឡាយ",
+      "description": "ខ្សែអក្សរនេះត្រូវបានលុបជាអចិន្ត្រៃយ៍។"
+    },
+    "errorCopied": {
+      "title": "ចម្លងបានជោគជ័យ",
+      "description": "ព័ត៌មានកំហុសត្រូវបានចម្លងទៅក្ដារតម្បៀតខ្ទាស់"
+    },
+    "errorCopyFailed": {
+      "title": "បរាជ័យក្នុងការចម្លង",
+      "description": "បរាជ័យក្នុងការចម្លងព័ត៌មានកំហុសទៅក្ដារតម្បៀតខ្ទាស់"
+    },
+    "editMessage": {
+      "title": "កែសម្រួលសារ",
+      "description": "សារត្រូវបានកែសម្រួលដោយជោគជ័យ។ សូមរង់ចាំសម្រាប់ម៉ូដែលឆ្លើយតប។"
+    },
+    "appUpdateDownloaded": {
+      "title": "អាប់ដេតកម្មវិធីត្រូវបានទាញយក",
+      "description": "ការអាប់ដេតកម្មវិធីត្រូវបានទាញយកដោយជោគជ័យ។"
+    },
+    "appUpdateDownloadFailed": {
+      "title": "ការទាញយកអាប់ដេតកម្មវិធីបានបរាជ័យ",
+      "description": "បរាជ័យក្នុងការទាញយកអាប់ដេតកម្មវិធី។ សូមព្យាយាមម្តងទៀត។"
+    },
+    "downloadComplete": {
+      "title": "បញ្ចប់ការទាញយក",
+      "description": "{{item}} ត្រូវបានទាញយក"
+    },
+    "downloadCancelled": {
+      "title": "ការទាញយកត្រូវបានលុបចោល",
+      "description": "ដំណើរការទាញយកត្រូវបានលុបចោល"
+    },
+    "downloadFailed": {
+      "title": "ការទាញយកបរាជ័យ",
+      "description": "ការទាញយក {{item}} បានបរាជ័យ",
+      "descriptionWithReason": "ការទាញយក {{item}} បានបរាជ័យ៖ {{reason}}",
+      "reason": {
+        "dns": "ឈ្មោះម៉ាស៊ីនមេមិនអាចដោះស្រាយបានទេ។",
+        "refused": "ការតភ្ជាប់ត្រូវបានបដិសេធ",
+        "timeout": "ការតភ្ជាប់បានអស់ពេល",
+        "tls": "ការតភ្ជាប់សុវត្ថិភាពមិនអាចបង្កើតបានទេ។",
+        "proxy": "ប្រូកស៊ីមិនអាចទាក់ទងបានទេ។",
+        "unreachable": "ម៉ាស៊ីនមេមិនអាចទាក់ទងបានទេ។"
+      }
+    },
+    "openSettings": "បើកការកំណត់",
+    "openLogs": "បើកកំណត់ហេតុ",
+    "downloadTokenRequired": {
+      "title": "Hugging Face ត្រូវការសញ្ញាសម្ងាត់",
+      "description": "ម៉ូដែលនេះតម្រូវឱ្យមានសញ្ញាសម្ងាត់ចូលប្រើ Hugging Face ។ បន្ថែមសញ្ញាសម្ងាត់របស់អ្នកនៅក្នុងការកំណត់ ហើយព្យាយាមម្តងទៀត។"
+    },
+    "downloadLicenseRequired": {
+      "title": "ទទួលយកអាជ្ញាប័ណ្ណគំរូនៅលើ Hugging Face",
+      "description": "អ្នកត្រូវតែទទួលយកអាជ្ញាប័ណ្ណរបស់ម៉ូដែលនៅលើទំព័រ Hugging Face របស់វាមុនពេលទាញយក។"
+    },
+    "downloadRateLimited": {
+      "title": "អត្រាកំណត់ដោយ Hugging Face",
+      "description": "អ្នកត្រូវបានអត្រាមានកំណត់។ ការបន្ថែមសញ្ញាសម្ងាត់អាចបង្កើនដែនកំណត់អត្រា។ សូមព្យាយាមម្តងទៀតនៅពេលក្រោយ។"
+    },
+    "modelValidationStarted": {
+      "title": "ធ្វើឱ្យមានសុពលភាពគំរូ",
+      "description": "បានទាញយកគំរូ \"{{modelId}}\" ដោយជោគជ័យ។ ផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវ..."
+    },
+    "modelValidationFailed": {
+      "title": "សុពលភាពគំរូបានបរាជ័យ",
+      "description": "ម៉ូដែលដែលបានទាញយក \"{{modelId}}\" បានបរាជ័យក្នុងការផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវ ហើយត្រូវបានដកចេញ។ ឯកសារអាចខូច ឬរំខាន។"
+    },
+    "downloadAndVerificationComplete": {
+      "title": "បញ្ចប់ការទាញយក",
+      "description": "ម៉ូដែល \"{{item}}\" បានទាញយក និងផ្ទៀងផ្ទាត់ដោយជោគជ័យ"
+    },
+    "projectCreated": {
+      "title": "គម្រោងត្រូវបានបង្កើត",
+      "description": "គម្រោង \"{{projectName}}\" បានបង្កើតដោយជោគជ័យ"
+    },
+    "projectRenamed": {
+      "title": "គម្រោងប្តូរឈ្មោះ",
+      "description": "គម្រោងប្តូរឈ្មោះពី \"{{oldName}}\" ទៅ \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "គម្រោងត្រូវបានលុប",
+      "description": "គម្រោង \"{{projectName}}\" ត្រូវបានលុបដោយជោគជ័យ"
+    },
+    "projectAlreadyExists": {
+      "title": "គម្រោងមានរួចហើយ",
+      "description": "គម្រោង \"{{projectName}}\" មានរួចហើយ"
+    },
+    "projectDeleteFailed": {
+      "title": "លុបបរាជ័យ",
+      "description": "បរាជ័យក្នុងការលុបគម្រោង។ សូមព្យាយាមម្តងទៀត។"
+    },
+    "threadAssignedToProject": {
+      "title": "ខ្សែស្រឡាយត្រូវបានចាត់តាំង",
+      "description": "ខ្សែស្រឡាយដែលបានកំណត់ទៅ \"{{projectName}}\" ដោយជោគជ័យ"
+    },
+    "threadRemovedFromProject": {
+      "title": "ខ្សែស្រឡាយត្រូវបានដកចេញ",
+      "description": "ខ្សែស្រឡាយត្រូវបានដកចេញពី \"{{projectName}}\" ដោយជោគជ័យ"
+    },
+    "fileUploaded": {
+      "title": "ដំណើរការឯកសារ\nឯកសារ",
+      "description": "ត្រូវបានដំណើរការ និងធ្វើលិបិក្រមដោយជោគជ័យ"
+    },
+    "uploadFailed": {
+      "title": "ដំណើរការបានបរាជ័យ",
+      "description": "បរាជ័យក្នុងដំណើរការឯកសារ",
+      "subjectThisFile": "ឯកសារនេះ។",
+      "pdfMalformedXref": "{{subject}} មានតារាងយោងឆ្លង PDF មិនត្រឹមត្រូវ ហើយមិនអាចញែកបានទេ។ សាកល្បងបើកវានៅក្នុងកម្មវិធីមើល PDF ហើយរក្សាទុកវាឡើងវិញ (ឯកសារ → បោះពុម្ព → រក្សាទុកជា PDF) បន្ទាប់មកបង្ហោះម្តងទៀត។",
+      "pdfScanned": "{{subject}} មើលទៅដូចជា PDF ដែលស្កេន ឬផ្អែកលើរូបភាព។ OCR មិន​ទាន់​គាំទ្រ​នៅឡើយ​ទេ — សូម​បង្ហោះ PDF ផ្អែកលើ​អត្ថបទ។",
+      "pdfEncrypted": "{{subject}} ត្រូវបានការពារដោយពាក្យសម្ងាត់។ ដកពាក្យសម្ងាត់ចេញ ហើយព្យាយាមម្តងទៀត។",
+      "pdfUnsupportedFeature": "{{subject}} ប្រើមុខងារ PDF Novera មិនទាន់អាចញែកបានទេ (ឧ. PostScript color/shading functions)។ ព្យាយាមរក្សាទុកវាឡើងវិញ (ឯកសារ → បោះពុម្ព → រក្សាទុកជា PDF) ដើម្បីបង្រួមវា រួចបង្ហោះម្តងទៀត។",
+      "pdfGeneric": "{{subject}} មិនអាចញែកជា PDF បានទេ។ ឯកសារអាចខូច ឬប្រើមុខងារ PDF ដែលមិនគាំទ្រ។",
+      "fileTooLarge": "{{subject}} ធំពេក។ {{message}} ។",
+      "unsupportedType": "ប្រភេទឯកសារ \"{{type}}\" មិនត្រូវបានគាំទ្រទេ។",
+      "ioError": "មិនអាចអាន {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} មិនអាចញែកបានទេ៖ {{message}}",
+      "fallback": "បរាជ័យក្នុងដំណើរការ {{subject}} ។"
+    },
+    "fileDeleted": {
+      "title": "ឯកសារត្រូវបានលុប",
+      "description": "ឯកសារត្រូវបានដកចេញពីគម្រោង"
+    },
+    "deleteFailed": {
+      "title": "លុបបរាជ័យ",
+      "description": "បរាជ័យក្នុងការលុបឯកសារ\nឯកសារ"
+    },
+    "fileAlreadyExists": {
+      "title": "មានរួចហើយ",
+      "description": "ឯកសារត្រូវបានភ្ជាប់ជាមួយគម្រោងនេះរួចហើយ"
+    },
+    "unsupportedFileType": {
+      "title": "ប្រភេទឯកសារដែលមិនគាំទ្រ",
+      "description": "ផ្នែកបន្ថែមឯកសារ \".{{extension}}\" មិនត្រូវបានគាំទ្រសម្រាប់ឯកសារយោងគម្រោងទេ។"
+    },
+    "attachmentsDisabledInfo": {
+      "title": "ឯកសារភ្ជាប់ត្រូវបានបិទ",
+      "description": "ឯកសារភ្ជាប់ត្រូវបានបិទនៅក្នុងការកំណត់"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "ឯកសារធំពេក",
+    "fileTooLargeDescription": "{{fileName}} លើសពីដែនកំណត់ {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} កំណាត់",
+    "title": "ឯកសារ",
+    "empty": "ឯកសារដែលអ្នកភ្ជាប់ និងឯកសារដែលភ្នាក់ងារបង្កើតនឹងបង្ហាញនៅទីនេះ។",
+    "a11y": "ឯកសារ៖ {{count}}",
+    "attachments": "ឯកសារភ្ជាប់",
+    "notImported": "មិននៅក្នុងកន្លែងធ្វើការទេ។"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp នៅតែរវល់",
+    "description": "ម៉ូដែលមួយ ឬច្រើនមិនបានផ្ទុកទាន់ពេលទេ។ ការបញ្ឈប់ដោយបង្ខំនឹងបញ្ចប់ llama.cpp ហើយអាចរំខានការឆ្លើយតបសកម្ម។",
+    "forceQuit": "បង្ខំឱ្យចាកចេញ",
+    "forcing": "បង្ខំឲ្យឈប់…",
+    "shuttingDown": "បិទ..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "ដួលរលំ",
+  "expand": "ពង្រីក",
+  "todoPanelTitle": "វឌ្ឍនភាព",
+  "todoPanelEmpty": "មិនទាន់មានបញ្ជីការងារត្រូវធ្វើនៅឡើយ។",
+  "backgroundTasks": "កិច្ចការផ្ទៃខាងក្រោយ",
+  "subagentsRunning_one": "{{count}} កំពុងដំណើរការ",
+  "subagentsRunning_other": "{{count}} កំពុងដំណើរការ",
+  "monitorsRunning_one": "ម៉ូនីទ័រ {{count}} កំពុងដំណើរការ",
+  "monitorsRunning_other": "ម៉ូនីទ័រ {{count}} កំពុងដំណើរការ",
+  "backgroundRunning_one": "កិច្ចការផ្ទៃខាងក្រោយ {{count}} កំពុងដំណើរការ",
+  "backgroundRunning_other": "កិច្ចការផ្ទៃខាងក្រោយ {{count}} កំពុងដំណើរការ",
+  "monitors": "ម៉ូនីទ័រ",
+  "monitorPolling": "ការបោះឆ្នោត",
+  "monitorMatched": "ត្រូវគ្នា។",
+  "monitorTimedOut": "អស់ពេលហើយ។",
+  "monitorStopped": "ឈប់",
+  "monitorEnded": "ចប់",
+  "coworkWatching_one": "កំពុងមើលម៉ូនីទ័រ {{count}}…",
+  "coworkWatching_other": "កំពុងមើលម៉ូនីទ័រ {{count}}…",
+  "coworkWaitingBackground": "កំពុងរង់ចាំកិច្ចការផ្ទៃខាងក្រោយ…",
+  "noBackgroundTasks": "មិនទាន់មានកិច្ចការផ្ទៃខាងក្រោយនៅឡើយទេ។",
+  "running": "កំពុងរត់",
+  "queued": "ជាប់ជួរ",
+  "waiting": "រង់ចាំ",
+  "finished": "ចប់",
+  "subagentPhase": "ដំណាក់កាល {{phase}}",
+  "subagentWaiting": "រង់ចាំ",
+  "viewTranscript": "មើលប្រតិចារិក",
+  "taskWorking": "កំពុងធ្វើការ…",
+  "taskNoOutput": "ភ្នាក់ងាររងបានផលិតមិនឃើញលទ្ធផល។",
+  "subagentToolUses_one": "{{count}} ការប្រើប្រាស់ឧបករណ៍",
+  "subagentToolUses_other": "{{count}} ប្រើឧបករណ៍",
+  "artifactGroupCode": "កូដ",
+  "artifactGroupImage": "រូបភាព",
+  "artifactGroupDocument": "ឯកសារ",
+  "artifactGroupVideo": "វីដេអូ",
+  "artifactGroupAudio": "អូឌីយ៉ូ",
+  "artifactOpenPreview": "បើកការមើលជាមុន",
+  "artifactOpenExternal": "បើក",
+  "artifactMoreActions": "សកម្មភាពច្រើនទៀត",
+  "artifactShowInFolder": "បង្ហាញក្នុងថតឯកសារ",
+  "skillsUsedLabel": "ជំនាញដែលបានប្រើ",
+  "skillsUsed": "ជំនាញដែលប្រើ៖ {{skills}}",
+  "artifactsAll": "ទាំងអស់។",
+  "artifactsEmpty": "មិនទាន់ផលិតនៅឡើយ។ វត្ថុបុរាណពី Cowork ដំណើរការនៅទីនេះ។",
+  "artifactsNoMatch": "គ្មានវត្ថុបុរាណដែលត្រូវគ្នា។",
+  "artifactsSearch": "ស្វែងរកវត្ថុបុរាណ",
+  "artifactsShowMore": "បង្ហាញ {{count}} ច្រើនទៀត",
+  "workspace": {
+    "readsFrom": "ធ្វើការនៅ",
+    "writable": "អាន និងសរសេរ",
+    "footnote": "ភ្នាក់ងារអាន និងកែសម្រួលថតនេះដោយផ្ទាល់។ ពិនិត្យមើលអ្វីដែលបានផ្លាស់ប្តូរនៅក្នុងបន្ទះ diff ។",
+    "footnoteEmpty": "ភ្ជាប់ថតឯកសារដើម្បីឱ្យភ្នាក់ងារធ្វើការលើគម្រោងរបស់អ្នក។ វាអាចអាន និងកែសម្រួលឯកសារនៅក្នុងវា។",
+    "attach": "ភ្ជាប់ថតឯកសារ",
+    "change": "ផ្លាស់ប្តូរថត",
+    "detach": "ផ្ដាច់ថត",
+    "open": "បើក",
+    "reveal": "បង្ហាញ",
+    "unavailable": "មិនមានកន្លែងធ្វើការទេ។",
+    "missing": "ថតកន្លែងធ្វើការ {{folder}} លែងមានទៀតហើយ។ ជ្រើសរើសថតផ្សេង។",
+    "openFailed": "មិនអាចបើកកន្លែងធ្វើការបានទេ។",
+    "revealFailed": "មិនអាចបង្ហាញកន្លែងធ្វើការបានទេ។",
+    "a11yWithFolder": "ថតគម្រោង {{folder}} ភ្ជាប់ជាមួយការចូលអាន និងសរសេរ។ ផ្លាស់ប្តូរឬផ្តាច់វា។",
+    "a11yNoFolder": "គ្មានឯកសារភ្ជាប់គម្រោងទេ។ ភ្ជាប់មួយ។"
+  },
+  "coworkEmpty": {
+    "title": "តើយើងកំពុងធ្វើអ្វី?",
+    "subtitleSandbox": "ផ្តល់ភារកិច្ច Novera ។ វាអាន និងសរសេរឯកសារ ដំណើរការពាក្យបញ្ជា និងដំណើរការតាមជំហានដោយខ្លួនឯង។",
+    "subtitleFolder": "ផ្តល់ភារកិច្ច Novera ។ វាដំណើរការដោយផ្ទាល់នៅក្នុង {{folder}} អាន និងកែសម្រួលឯកសារដោយខ្លួនឯង។",
+    "try": "សាកល្បង",
+    "sandbox": {
+      "first": "សរសេរអក្សរ Python ដែលប្តូរឈ្មោះឯកសារតាមកាលបរិច្ឆេទដែលពួកគេត្រូវបានថត",
+      "second": "បង្កើតផ្ទាំងគ្រប់គ្រងទំព័រតែមួយពី CSV ខ្ញុំនឹងបិទភ្ជាប់",
+      "third": "ព្រាង README សម្រាប់គម្រោងដែលខ្ញុំពណ៌នាដល់អ្នក"
+    },
+    "folder": {
+      "first": "ពន្យល់ពីរបៀបដែល {{folder}} ត្រូវបានដាក់បញ្ចូលគ្នា",
+      "second": "ស្វែងរករាល់ TODO ក្នុង {{folder}} ហើយដាក់ក្រុមតាមតំបន់",
+      "third": "សរសេរការធ្វើតេស្តសម្រាប់ផ្នែកនៃ {{folder}} ខ្ញុំចង្អុលបង្ហាញអ្នកនៅ"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "គ្មានស្ថានីយ",
+    "a11y": "ការរត់ពាក្យបញ្ជាត្រូវបានបិទ។ ព័ត៌មានលម្អិត។",
+    "title": "ការរត់ពាក្យបញ្ជាត្រូវបានបិទ",
+    "body": "Novera អនុញ្ញាតឱ្យភ្នាក់ងារដំណើរការពាក្យបញ្ជាសែលនៅពេលដែលប្រព័ន្ធរបស់អ្នកអាចបង្ខាំងពួកគេ។ មិនមានប្រអប់ខ្សាច់នៅទីនេះទេ ដូច្នេះភ្នាក់ងារអាចអាន សរសេរ និងកែសម្រួលឯកសារនៅក្នុងប្រអប់ខ្សាច់របស់វា ប៉ុន្តែមិនដំណើរការអ្វីទាំងអស់។",
+    "fixLinux": "លីនុចប្រើ bubblewrap ។ ដំឡើងវា បន្ទាប់មកចាប់ផ្តើម Novera ឡើងវិញ។",
+    "fixMac": "macOS ប្រើប្រអប់ខ្សាច់ដែលភ្ជាប់មកជាមួយនៅ /usr/bin/sandbox-exec ។ ចាប់ផ្តើម Novera ឡើងវិញ នៅពេលដែលវាមាន។",
+    "fixWindows": "វីនដូប្រើ AppContainer ។ ចាប់ផ្ដើម Novera ឡើងវិញ ដើម្បីព្យាយាមម្តងទៀត។",
+    "recheck": "ពិនិត្យម្តងទៀត"
+  },
+  "planMode": {
+    "label": "ផែនការ",
+    "tooltipOff": "រៀបចំផែនការជាមុនសិន — ភ្នាក់ងារអាន និងស្នើដោយមិនសរសេរ។",
+    "tooltipOn": "ការធ្វើផែនការ។ បិទវាដើម្បីឱ្យភ្នាក់ងារសរសេរឯកសារ។",
+    "onAnnounce": "បើករបៀបផែនការ",
+    "placeholder": "សុំផែនការ។ ភ្នាក់ងារនឹងមិនផ្លាស់ប្តូរឯកសារណាមួយឡើយ។"
+  },
+  "budget": {
+    "stoppedSteps": "ឈប់នៅជំហាន {{max}} ។ ភ្នាក់ងារមិនទាន់ចប់ទេ។",
+    "keepGoing": "បន្ត",
+    "stoppedTokens": "បានបញ្ឈប់ — វគ្គនេះឈានដល់ថវិកានិមិត្តសញ្ញារបស់វា។",
+    "compact": "បង្រួម",
+    "newSession": "វគ្គថ្មី។"
+  },
+  "run": {
+    "stopped": "ឈប់។",
+    "failed": "ការរត់បានឈប់លឿន។",
+    "tryAgain": "ព្យាយាមម្តងទៀត"
+  },
+  "modelNoTools": "{{model}} មិនអាចហៅឧបករណ៍បានទេ ដូច្នេះវាមិនអាចដើរតួជាភ្នាក់ងារបានទេ។ ជ្រើសរើសម៉ូដែលហៅឧបករណ៍។",
+  "askContinue": "បន្ត",
+  "askNext": "សំណួរបន្ទាប់",
+  "askPrev": "សំណួរមុន។",
+  "askRecommended": "បានណែនាំ",
+  "askSelectedCount": "{{count}} បានជ្រើសរើស",
+  "askSomethingElse": "អ្វីផ្សេងទៀត។",
+  "askSomethingElsePlaceholder": "វាយបញ្ចូលចម្លើយរបស់អ្នក។",
+  "submit": "ដាក់ស្នើ",
+  "composer": {
+    "advanced": "ប៉ារ៉ាម៉ែត្រកម្រិតខ្ពស់",
+    "modelDefaults": "លំនាំដើមគំរូ",
+    "assistantOverrides": "ជំនួយការបដិសេធ",
+    "printPdf": "បោះពុម្ព / រក្សាទុកជា PDF",
+    "exportHint": "ទម្រង់ដែលអាចអានបាន៖ សាខាសកម្ម។ JSON៖ កំណែសារទាំងអស់។ ឯកសារខាងក្រៅមិនត្រូវបានខ្ចប់ទេ។"
+  },
+  "telemetry": {
+    "summary": "ដោយមានការយល់ព្រមពីអ្នក {{host}} ទទួលបានតែកំណែ និងប្រព័ន្ធប្រតិបត្តិការ Novera ដោយគ្មានការសន្ទនា ឬឧបករណ៍កំណត់អត្តសញ្ញាណជាប់លាប់។",
+    "unavailable": "ស្ថិតិមិនត្រូវបានកំណត់ទេ។ គ្មានទិន្នន័យត្រូវបានផ្ញើទេ។"
+  },
+  "errorTracking": {
+    "title": "កំហុសក្នុងការតាមដាន",
+    "summary": "របាយការណ៍ជាជម្រើសទៅកាន់ {{host}}៖ ប្រភេទកំហុស ទីតាំងកូដ កំណែ និងប្រព័ន្ធប្រតិបត្តិការ។ គ្មានការសន្ទនា សារកំហុសដើម ឬសោ។ បិទនៅពេលណាក៏បាន។",
+    "unavailable": "ការតាមដានកំហុសមិនត្រូវបានកំណត់រចនាសម្ព័ន្ធទេ។ គ្មានរបាយការណ៍ត្រូវបានផ្ញើទេ។"
+  }
+}

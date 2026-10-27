@@ -1,0 +1,809 @@
+{
+  "htmlArtifact": {
+    "code": "Kod",
+    "preview": "Pêşdîtin",
+    "previewStreaming": "Dema ku nifş qediya peyda dibe",
+    "unresolvedAssets_one": "1 referansa maliyetê di pêşdîtinê de nikare were barkirin. Rêyên têkildar xwedî bingehek URL tune ku li hember çareser bikin.",
+    "unresolvedAssets_other": "{{count}} referansên maldariyê nikarin di pêşdîtinê de werin barkirin. Rêçên têkildar xwedî bingehek URL tune ku li hember çareser bikin."
+  },
+  "assistants": "Alîkar",
+  "hardware": "Hardware\nPêşkêşkerên",
+  "mcp-servers": "MCP",
+  "local_api_server": "Pêşkêşkara API ya Herêmî",
+  "remote_access": "Gihîştina Dûr",
+  "integrations": "Entegrasyonên",
+  "experimental": "Ceribandin",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Proxy",
+  "web_search": "Lêgerîna Webê",
+  "shell": "Şel",
+  "browse": "Bigerin",
+  "moreControls": "Kontrolên Zêdetir",
+  "starting": "Destpêk ...",
+  "activeSuffix": "(Çalak)",
+  "extensions": "Berfirehkirin",
+  "attachments": "Pêvek",
+  "general": "Giştî",
+  "settings": "Mîhengên",
+  "modelProviders": "Pêşkêşkerên Model",
+  "localProviders": "Herêmî",
+  "remoteProviders": "Dûr",
+  "manageProviders": "Pêşkêşkeran birêve bibin",
+  "hiddenProviders": "{{count}} neçalak",
+  "hideProvider": "Pêşkêşker veşêre",
+  "showProvider": "Pêşkêşker nîşan bide\nNavbera",
+  "interface": "Interface",
+  "appearance": "Xuyabûn",
+  "privacy": "Nepenî",
+  "keyboardShortcuts": "Kurtebir",
+  "home": "Mal",
+  "cowork": "Cowork",
+  "newSession": "Danişîna nû",
+  "artifacts": "Berhem",
+  "customize": "Xweser bike",
+  "local": "Herêmî",
+  "selectFolder": "Peldanka hilbijêre",
+  "selectModel": "Pêşî modelek hilbijêre",
+  "commands": "Ferman",
+  "cmdHelp": "Fermanên berdest navnîş bikin",
+  "cmdClear": "Vê danişînê paqij bike",
+  "cmdModels": "Modela çalak biguherînin",
+  "cmdModelsHint": "/models binivîsin paşê ji navnîşê modelek hilbijêrin",
+  "cmdModelSwitched": "Veguherî {{name}}",
+  "cmdUnknown": "Fermana nenas: {{name}}. /help biceribînin",
+  "cmdBusy": "Dema ku ajan dixebite nikare wiya bike",
+  "cmdCompact": "Çarçoveya danişînê bi kurtasî berhev bikin",
+  "cmdCompacted": "{{before}} Compacted -> Peyamên {{after}}",
+  "cmdNothingToCompact": "Hê tiştek ji bo berhevkirinê tune",
+  "cmdCompactFailed": "Komkirin têk çû: {{error}}",
+  "cmdPlan": "Moda planê biguherîne (tenê-xwendin: ajan bêyî nivîsandinê pêşniyar dike)",
+  "cmdPlanOn": "Moda planê li ser: ajan bêyî nivîsandinê dixwîne û pêşniyar dike",
+  "cmdPlanOff": "Moda plansaziyê veqetandî: darvekirina normal",
+  "cmdTodo": "Panela pêşveçûnê veke",
+  "cmdTasks": "Panela peywirên paşîn veke",
+  "cmdInit": "Projeyê bixwînin û jêhatîbûn û bîranînê binivîsin",
+  "cmdInitRunning": "Li ser vê projeyê",
+  "skills": "Skills",
+  "skillsInContext": "Zehmetiyên ku ji nûnerê vê rêvekirinê re peyda dibin",
+  "skillsTitle": "Zehmetiyan birêve bibin",
+  "skillsScopeProject": "Ji bo {{folder}}",
+  "skillsScopeGlobal": "Zehmetiyên gerdûnî, ji bo her danişînê peyda dibin",
+  "skillsScopeMerged": "Ji bo {{folder}} jêhatîbûn, û jêhatîbûna gerdûnî ya her danişînê parve dike\nPeldanka",
+  "skillOriginFolder": "pêçek",
+  "skillOriginGlobal": "gerdûnî",
+  "skillsEmpty": "Hê jêhatîbûn tune",
+  "skillsPickOrNew": "Ji bo guherandinê jêhatîbûnek hilbijêrin, an jî yekî nû biafirînin.",
+  "skillNew": "jêhatîbûna nû",
+  "skillDelete": "jêbirina jêbirinê",
+  "skillSave": "Tomar bike",
+  "skillSaved": "Jêhatî xilas bû",
+  "skillNameRequired": "Navê jêhatîbûnê pêwîst e",
+  "skillNamePlaceholder": "skill-name",
+  "skillContentPlaceholder": "Di Markdown de prosedûra ji nû ve bikaranîna rave bike…",
+  "skillHubImport": "Ji navendê derxînin",
+  "skillHubTitle": "Anthropic navenda jêhatîbûnê",
+  "skillHubEmpty": "Tu jêhatîbûn li ser navendê nehatin dîtin",
+  "skillImport": "Import",
+  "skillReimport": "Ji nû ve import",
+  "skillImported": "{{name}} îthalkirî",
+  "sessions": "Rûniştin",
+  "deleteSession": "Danişîn jêbirin",
+  "deleteSessionTitle": "Danişîn jê bibe?",
+  "deleteSessionBody": "\"{{title}}\" û transkrîpta wê dê bi domdarî were jêbirin. Ev nayê betalkirin.",
+  "newChat": "Chat Nû",
+  "newAgentChat": "Agent Chat Nû",
+  "chats": "Sohbet",
+  "favorites": "Favorites",
+  "recents": "Recents",
+  "hub": "Hub",
+  "helpSupport": "Alîkarî & Piştgirî",
+  "helpUsImproveJan": "Ji me re bibin alîkar ku Novera çêtir bikin",
+  "analyticsConsentDetail": "Em daneyên nenas berhev dikin da ku karanîna taybetmendiyê fam bikin. Sohbet û agahdariya kesane ya we qet nayê şopandin. Hûn dikarin vê yekê her dem di Settings > Nepenî de biguherînin.",
+  "analyticsConsentQuestion": "Ma hûn dixwazin ji me re bibin alîkar ku em Novera çêtir bikin?",
+  "unstarAll": "Hemî stêrk rakin",
+  "unstar": "Nestêr",
+  "deleteAll": "Hemî jêbirin",
+  "star": "Stêrk",
+  "rename": "Biguherîne",
+  "delete": "Jêbirin",
+  "copied": "kopî kirin!",
+  "dataFolder": "Peldanka Daneyê",
+  "others": "Yên din",
+  "language": "Ziman",
+  "login": "Têkeve",
+  "loginWith": "Bi {{provider}} re Têkeve",
+  "loginFailed": "Têkeve Neket",
+  "logout": "Derkeve",
+  "loggingOut": "Derketin...",
+  "loggedOut": "Bi Serkeftin Derketî",
+  "logoutFailed": "Derketin Neket",
+  "profile": "Profîl",
+  "reset": "Vegere",
+  "search": "Lêgerîn",
+  "searchThreads": "Mijarên lêgerînê...",
+  "toNavigate": "ji bo navîgasyonê",
+  "toSelect": "hilbijêre",
+  "toClose": "bigire",
+  "clearRecent": "Zelal",
+  "name": "Nav",
+  "cancel": "Betal bike",
+  "dismiss": "Derxistin",
+  "create": "Biafirîne",
+  "save": "Tomar bike",
+  "edit": "Biguherîne",
+  "copy": "Kopî",
+  "back": "Vegere",
+  "close": "Girtin",
+  "done": "Kir",
+  "next": "Paşê",
+  "finish": "Biqedîne",
+  "skip": "Skip",
+  "allow": "Destûr bide",
+  "deny": "Înkar bike",
+  "start": "Destpêk",
+  "stop": "Raweste",
+  "preview": {
+    "loading": "Vekirina…",
+    "unsupported": "Novera nikare bi vî rengî pelê nîşan bide. Wê vekin da ku wê di sepanek din de bibînin.",
+    "outside": "Ev pel êdî di qada xebatê ya danişînê de nîne.",
+    "tooLarge": "Ji bo pêşdîtinê pir mezin e. Wê vekin da ku wê di sepanek din de bibînin.",
+    "reload": "Ji nû ve barkirin",
+    "allowNetwork": "Destûrê bide torê",
+    "unsandboxed": "Bêsandbox bixebite: Daneyên tomarkirî û pelên herêmî dixebitin",
+    "unresolvedRefs_one": "1 pelê lînkên vê rûpelê ku nikarin di pêşdîtinê de werin barkirin. Wê vekin da ku wê di gerokek de bibînin.",
+    "unresolvedRefs_other": "{{count}} pelên vê rûpelê girêdidin ku nikarin di pêşdîtinê de werin barkirin. Wê vekin da ku wê di gerokek de bibînin.",
+    "externalRefs_one": "1 çavkaniyek ku ev rûpel ji tevneyê bar dike, tê asteng kirin. Ji bo barkirina wê \"Destûrê bide torê\" vekin.\nÇavkaniyên",
+    "externalRefs_other": "{{count}} ev rûpela ku ji tevneyê bar dike têne asteng kirin. Ji bo barkirina wan \"Destûrê bide torê\" vekin.",
+    "scriptErrors_one": "Rûpelê xeletiyek ragihand: {{message}}",
+    "scriptErrors_other": "Rûpelê xeletiyên {{count}} ragihand. Yekem: {{message}}"
+  },
+  "changes": {
+    "title": "Agent Guherandinên",
+    "empty": "Pelên ku ajan dinivîse an diguherîne dê li vir xuya bibin.",
+    "a11y": "Guhertinên agent: Pelên {{files}}, {{additions}} zêde kirin, {{deletions}} rakirin"
+  },
+  "modelPanel": {
+    "title": "Mîhengên modelê",
+    "a11y": "Mîhengên modelê vekin",
+    "contextTooltip": "Pencereya hevokê: {{value}} ji nîşaneyên {{max}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Skill '{{name}}' ne berdest e",
+    "kind": {
+      "skill": "Şareza",
+      "command": "Ferman",
+      "model": "Model"
+    }
+  },
+  "compactWidth": "Berfirehiya Tevhev",
+  "fullWidth": "Tevahiya Firehiya",
+  "dark": "Tarî",
+  "light": "Ronahî\nPergala",
+  "system": "Sîstem",
+  "auto": "Auto",
+  "english": "Îngilîzî",
+  "medium": "Navîn",
+  "newThread": "Mijara Nû",
+  "noResultsFound": "Encam nehat dîtin",
+  "noThreadsYet": "Hê ti mijar nîne",
+  "noThreadsYetDesc": "Axaftinek nû dest pê bikin da ku hûn li vir dîroka xweya mijarê bibînin.",
+  "downloads": "Daxistin",
+  "downloading": "Daxistin",
+  "uploadingAttachments": "Barkirina pêvekan…",
+  "cancelDownload": "Daxistinê betal bike",
+  "downloadCancelled": "Daxistin Betal bû",
+  "downloadComplete": "Daxistin Biqede",
+  "thinking": "Difikirî...",
+  "thought": "Fikir",
+  "callingTool": "Amûra bangkirinê",
+  "completed": "Qediya",
+  "image": "Wêne",
+  "vision": "Dîtin",
+  "multimodal": "Multimodal",
+  "embeddings": "Bicîhkirin",
+  "tools": "Amûr",
+  "webSearch": "Lêgerîna Webê",
+  "reasoning": "Aqlkirin",
+  "proactive": "Proaktîf",
+  "selectAModel": "Modelek hilbijêrin",
+  "noToolsAvailable": "Amûr tune",
+  "noModelsFoundFor": "Modelek ji bo \"{{searchValue}}\" nehat dîtin",
+  "failedToLoadModels": "Barkirina modelan têk çû",
+  "noModels": "Model nehat dîtin",
+  "noAssistant": "Alîkar nîne",
+  "customAvatar": "avatara xwerû",
+  "editAssistant": "Alîkarê Biguherîne",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Ji nû ve çêbibe",
+  "threadImage": "Wêneyê Mijarê",
+  "editMessage": "Peyam biguherîne",
+  "deleteMessage": "Peyam jêbirin",
+  "deleteThread": "Mijarek jêbirin",
+  "renameThread": "Navê Mijarê biguherîne",
+  "threadTitle": "Sernav",
+  "deleteAllThreads": "Hemî Mijaran jêbirin",
+  "allThreadsUnfavorited": "Hemû Mijar Nehezkirî ne",
+  "deleteAllThreadsConfirm": "Hûn bawer in ku hûn dixwazin hemî mijaran jêbirin? Ev kiryar nayê betal kirin.",
+  "addProvider": "Pêşkêşker lê zêde bike",
+  "addOpenAIProvider": "Pêşkêşker OpenAI zêde bike",
+  "enterNameForProvider": "Navekî pêşkêşkarê xwe binivîse",
+  "providerAlreadyExists": "Pêşkêşvanê bi navê \"{{name}}\" jixwe heye. Ji kerema xwe navekî din hilbijêrin.",
+  "adjustFontSize": "Mezinahiya Curenivîsê Biguherîne",
+  "changeLanguage": "Ziman biguherînin",
+  "editTheme": "Mijar biguherîne",
+  "editCodeBlockStyle": "Şêweya Bloka Kodê Biguherîne",
+  "editServerHost": "Mêvandarê Serverê Biguherîne",
+  "pickColorWindowBackground": "Paşnava pencereya rengîn hilbijêrin",
+  "pickColorAppMainView": "Dîtina Sereke ya Serlêdana Rengê Hilbijêre",
+  "pickColorAppPrimary": "Sereke Serlêdana Rengê Hilbijêre",
+  "pickColorAppAccent": "Destûra App Rengê Hilbijêre",
+  "pickColorAppDestructive": "Hilbijêre Serlêdana Rengê Wêranker",
+  "apiKeyRequired": "API Key hewce ye",
+  "enterTrustedHosts": "Mêvandarên pêbawer têkevin",
+  "placeholder": {
+    "chatInput": "Tiştekî ji min bipirse..."
+  },
+  "confirm": "Piştrast bike",
+  "continue": "Berdewam bike",
+  "loading": "Barkirin...",
+  "settingUpJan": "Novera dest pê dike…",
+  "registeringExtensions": "Qeydkirina dirêjkirinê…",
+  "loadingExtensions": "Berfirehkirin tê barkirin… ({{done}}/{{total}})",
+  "error": "Çewtî",
+  "success": "Serkeftin",
+  "warning": "Hişyarî",
+  "conversationNotAvailable": "Axaftin peyda nabe",
+  "conversationNotAvailableDescription": "Axaftina ku hûn hewl didin xwe bigihînin tune ye an jî jêbirin.",
+  "temporaryChat": "Sohbeta Demkî",
+  "temporaryChatTooltip": "Sohbeta demkî dê di dîroka we de xuya neke",
+  "noResultsFoundDesc": "Me nekarî sohbetên ku li gorî lêgerîna te bigerin bibînin. Keywordek cûda biceribîne.",
+  "searchModels": "Modelan bigerin...",
+  "searchStyles": "Şêweyên lêgerînê...",
+  "createAssistant": "Alîkarê Biafirîne",
+  "enterApiKey": "Bişkojka API bikeve",
+  "scrollToBottom": "Ber bi jêr ve bigerin",
+  "generateAiResponse": "Bersiva AI biafirîne",
+  "continueAiResponse": "Bi Bersiva AI re bidomînin",
+  "addModel": {
+    "title": "Modelê zêde bike",
+    "modelId": "Model ID",
+    "enterModelId": "Modela ID bikeve",
+    "addModel": "Modelê zêde bike",
+    "description": "Modelek nû li pêşkêşkerê zêde bike",
+    "exploreModels": "Lîsteya modelê ji pêşkêşkerê bibînin"
+  },
+  "mcpServers": {
+    "editServer": "Pêşkêşkar biguherîne",
+    "addServer": "Pêşkêşkar zêde bike",
+    "serverName": "Navê Pêşkêşkar",
+    "enterServerName": "Navê serverê binivîse",
+    "command": "Ferman",
+    "enterCommand": "Ferman binivîse",
+    "arguments": "Arguman",
+    "argument": "Argument {{index}}",
+    "envVars": "Guherbarên Jîngehê",
+    "key": "Key",
+    "value": "Nirx",
+    "save": "Tomar bike"
+  },
+  "deleteServer": {
+    "title": "Pêşkêşkar jêbirin",
+    "delete": "Jêbirin"
+  },
+  "editJson": {
+    "errorParse": "Parçekirina JSON têk çû",
+    "errorPaste": "Zebûra JSON biqede",
+    "errorFormat": "Forma JSON nederbasdar e",
+    "titleAll": "Veavakirina Hemî Pêşkêşker biguherîne",
+    "placeholder": "Têkeve veavakirina JSON...",
+    "save": "Tomar bike"
+  },
+  "editModel": {
+    "title": "Modelê biguherîne: {{modelId}}",
+    "description": "Bi guheztina vebijarkên li jêr, kapasîteyên modelê mîheng bikin.",
+    "capabilities": "kapasîteyên",
+    "tools": "Amûr",
+    "vision": "Dîtin",
+    "embeddings": "Bicîhkirin",
+    "notAvailable": "Hê ne berdest e"
+  },
+  "outOfContextError": {
+    "truncateInput": "Têketinê qut bike",
+    "title": "Çewtiya derveyî çarçoveyê",
+    "description": "Ev sohbet digihîje sînorê bîra AI, mîna tabloyek spî ku tijî dibe. Em dikarin pencereya bîranînê (ku jê re mezinahiya kontekstê tê gotin) berfireh bikin da ku ew bêtir bi bîr bîne, lê dibe ku ew bêtir bîranîna komputera we bikar bîne. Em dikarin têketinê jî qut bikin, ku tê vê wateyê ku ew ê hin dîroka chatê ji bîr bike da ku cîh ji peyamên nû re çêbike.",
+    "increaseContextSizeDescription": "Ma hûn dixwazin qebareya çarçoveyê zêde bikin?",
+    "increaseContextSize": "Mezinahiya Têkoşînê Zêde Bike"
+  },
+  "toolApproval": {
+    "title": "Daxwaza Destûra Amûrê",
+    "description": "Alîkar dixwaze <strong>{{toolName}}</strong> bikar bîne",
+    "securityNotice": "Tenê destûrê bidin amûrên ku hûn pê bawer in. Amûr dikarin bigihîjin pergalê û daneyên we.",
+    "deny": "Înkar bike",
+    "allowOnce": "Carekê Destûrê bide",
+    "alwaysAllow": "Herdem Destûr bide"
+  },
+  "deleteModel": {
+    "title": "Model jêbirin: {{modelId}}",
+    "description": "Hûn bawer in ku hûn dixwazin vê modelê jêbirin? Ev kiryar nayê betal kirin.",
+    "success": "Model {{modelId}} bi daîmî hat jêbirin.",
+    "cancel": "Betal bike",
+    "delete": "Jêbirin"
+  },
+  "deleteProvider": {
+    "title": "Pêşkêşkar jêbirin",
+    "description": "Vê pêşkêşker û hemî modelên wê jêbirin. Ev kiryar nayê betal kirin.",
+    "success": "Pêşkêşker {{provider}} bi domdarî hate jêbirin.",
+    "confirmTitle": "Pêşkêşkar jêbirin: {{provider}}",
+    "confirmDescription": "Hûn bawer in ku hûn dixwazin vê pêşkêşker jêbirin? Ev kiryar nayê betal kirin.",
+    "cancel": "Betal bike",
+    "delete": "Jêbirin"
+  },
+  "modelSettings": {
+    "title": "Mîhengên Model - {{modelId}}",
+    "description": "Mîhengên modelê mîheng bikin ku performans û tevgerê xweştir bikin.",
+    "nglDisabledByFit": "Xweserî qatên GPU hildibijêre. Ji bo ku vê yekê bi destan saz bikin, Xweser-fîtkirinê nemirînin.",
+    "samplingDefaults": {
+      "title": "Parametreyên nimûneyê yên xwerû",
+      "description": "Mîhengên nimûneya xwerû ji bo vê modelê. Heya ku ji hêla her-alîkar an nirxên her-daxwazê ​​ve neyê derbas kirin tê bikar anîn."
+    },
+    "specDraft": {
+      "section": "Deşîfrekirina spekulatîf",
+      "enable": "Deşîfrekirina spekulatîf çalak bike",
+      "enableDescription": "Di her gavê de çend nîşanan derxînin û wan bi yek derbasbûnê verast bikin, ku nifşê lez dike. Serên MTP-yên çêkirî yên modelê, an modela pêşnûmeya ku pê re hatî dakêşandin bikar tîne (MTP, Eagle3, DFlash an DSpark).",
+      "nMax": "Nîşaneyên pêşnivîsa herî zêde",
+      "nMaxDescription": "Hejmara herî zêde nîşaneyên ku di her gavê de têne pêşandan. Bersiv 16.",
+      "nMin": "Nîşaneyên pêşnûmeyê yên min",
+      "nMinDescription": "Hejmara kêmtirîn nîşaneyên ku ji bo her gavê têne amadekirin. Bersiv 0.",
+      "pMin": "Ihtîmala pêşnivîsa min",
+      "pMinDescription": "Îhtîmala hindiktirîn ji bo pêşnûmeya bi çavbirçî (0–1). Bingehîn 0.75.\nVebijarkên şablonê"
+    },
+    "templateKwargs": {
+      "section": "Vebijarkên şablonê Chat",
+      "description": "Vebijarkên zêde ku şablona sohbetê ya vê modelê qebûl dike. Li ser her daxwazê ​​wekî chat_template_kwargs şandin; nirxek li xwerûya xwe bihêle da ku bila şablon biryar bide.",
+      "addCustom": "Vebijêrkek xwerû lê zêde bike",
+      "keyPlaceholder": "nav\nnirxa",
+      "valuePlaceholder": "giranî",
+      "add": "Zêde bike",
+      "cancel": "Betal bike",
+      "remove": "Rake"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Mîhengên modelê nehat nûvekirin"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Cihê Peldanka Daneyê biguherîne",
+      "description": "Ma tu bi rastî dixwazî cîhê peldanka daneyê biguherînî? Ev ê hemî daneyên we biguhezîne cîhê nû û serîlêdanê ji nû ve bide destpêkirin.",
+      "currentLocation": "Cihê niha:",
+      "newLocation": "Cihê Nû:",
+      "cancel": "Betal bike",
+      "changeLocation": "Cih biguherînin"
+    },
+    "deleteAllThreads": {
+      "title": "Hemî Mijaran jêbirin",
+      "description": "Hemû mijar dê bên jêbirin. Ev kiryar nayê betal kirin."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Hemî Axaftinan jêbirin\nAxaftinên",
+      "description": "{{count}} di \"{{projectName}}\" de dê werin jêbirin. Ev kiryar nayê betal kirin."
+    },
+    "deleteThread": {
+      "description": "Hûn bawer in ku hûn dixwazin vê mijarê jêbikin? Ev kiryar nayê betal kirin."
+    },
+    "editMessage": {
+      "title": "Peyam biguherîne"
+    },
+    "messageMetadata": {
+      "title": "Metadata Peyamê"
+    },
+    "deleteMessage": {
+      "description": "Ma tu bi rastî dixwazî vê peyamê jê bibî? Ev kiryar nayê betal kirin."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Tiştek xelet derket",
+    "details": "hûragahiyan"
+  },
+  "missingDependenciesDialog": {
+    "title": "Pirtûkxaneyên Sîstema Wenda",
+    "description": "{{backend}} hate saz kirin lê hin pirtûkxaneyên pergalê yên pêwîst nehatin dîtin. Dibe ku ew vegere CPU an jî rast neyê xebitandin.",
+    "installLabel": "Ji bo rastkirina vê, jêrîn saz bikin:",
+    "download": "Daxistin",
+    "additionalLibraries": "Pirtûkxaneyên din ên winda:",
+    "missingLibraries": "pirtûkxaneyên wenda:",
+    "showRawLibraries": "{{count}} navên pirtûkxaneyê yên wenda nîşan bide"
+  },
+  "projects": {
+    "title": "Proje",
+    "new": "Projeyên Nû",
+    "addProject": "Projeyê lê zêde bike",
+    "addToProject": "Projeyê zêde bike",
+    "removeFromProject": "Ji projeyê rake",
+    "createNewProject": "Projeya Nû Biafirîne",
+    "editProject": "Projeya Biguherîne",
+    "deleteProject": "Projeyê jêbirin",
+    "projectName": "Navê Projeyê",
+    "enterProjectName": "Navê projeyê binivîse...",
+    "noProjectsAvailable": "Proje tune",
+    "noProjectsYet": "Hîn proje tune",
+    "noProjectsYetDesc": "Projeyek nû bi tikandina bişkoja Zêde Projeyê dest pê bikin.",
+    "projectNotFound": "Proje nehat dîtin",
+    "projectNotFoundDesc": "Projeya ku hûn lê digerin tune ye an jî jêbirin.",
+    "selectAssistant": "Alîkarê hilbijêre",
+    "noAssistantAssigned": "Ji vê projeyê re arîkarek nehatiye tayîn kirin",
+    "files": "Pelên",
+    "filesDescription": "PDF, belge, an nivîsarek din ji bo referansa vê projeyê zêde bikin.",
+    "uploadingFiles": "Pelên pêvajoyê…",
+    "processButton": "Zêde bike",
+    "deleteProjectDialog": {
+      "title": "Projeyê jêbirin",
+      "permanentDelete": "Ev ê bi domdarî hemî babetan jê bibe.",
+      "permanentDeleteWarning": "Ev çalakî dê mijarên ALL bi domdarî di nav projeyê de jê bibe!",
+      "deleteEmptyProject": "Ev çalakî dê projeya \"{{projectName}}\" jê bibe.",
+      "saveThreadsAdvice": "Ji bo tomarkirina mijaran, berî jêbirinê wan biguhezînin navnîşa xweya mijarê an projeyek din.",
+      "starredWarning": "Te hîn jî di nav projeyê de mijarên stêrk hene.",
+      "deleteButton": "Jêbirin",
+      "successWithName": "Projeya \"{{projectName}}\" bi serkeftî hat jêbirin",
+      "successWithoutName": "Proje bi serkeftî hat jêbirin",
+      "error": "Proje nehat jêbirin. Ji kerema xwe dîsa biceribîne.",
+      "ariaLabel": "{{projectName}} jêbirin"
+    },
+    "addProjectDialog": {
+      "createTitle": "Projeya Nû Biafirîne",
+      "editTitle": "Projeya Biguherîne",
+      "nameLabel": "Navê Projeyê",
+      "namePlaceholder": "Navê projeyê binivîse...",
+      "assistant": "Alîkar",
+      "selectAssistant": "Alîkarek hilbijêre (vebijarkî)",
+      "noAssistant": "Alîkar nîne",
+      "addAssistant": "Alîkarê zêde bike",
+      "createButton": "Biafirîne",
+      "updateButton": "Nûvekirin",
+      "alreadyExists": "Projeya \"{{projectName}}\" jixwe heye",
+      "createSuccess": "Projeya \"{{projectName}}\" bi serkeftî hate afirandin",
+      "updateSuccess": "Projeya \"{{projectName}}\" bi serkeftî hate nûve kirin",
+      "saveError": "Proje nehat tomarkirin. Ji kerema xwe dîsa biceribîne."
+    },
+    "noConversationsIn": "Di {{projectName}} de Axaftin tune",
+    "startNewConversation": "Bi {{projectName}} re li jêr danûstendinek nû dest pê bikin",
+    "conversationsIn": "Axaftinên li {{projectName}}",
+    "conversationsDescription": "Li ser her danûstendinê bikirtînin da ku sohbetê bidomînin, an li jêr yek nû dest pê bikin.",
+    "conversation": "Axaftin",
+    "instructions": "Talîmatên",
+    "setup": "Sazkirin",
+    "instructionsDescription": "Deng û şêwaza bersivê xweş bikin",
+    "manageInstructions": "Talîmatên Birêvebirin\nMijara",
+    "thread": "Mijarên",
+    "threads": "threads",
+    "updated": "Hat nûkirin:",
+    "collapseProject": "Proje hilweşe",
+    "expandProject": "Projeya berfireh bike",
+    "update": "Nûvekirin",
+    "searchProjects": "Projeyên lêgerînê...",
+    "noProjectsFound": "Proje nehat dîtin",
+    "tryDifferentSearch": "Peyveke lêgerînê ya cihê biceribîne"
+  },
+  "attachmentsIngestion": {
+    "title": "Hilbijêre ka meriv pêvedan çawa vedixwe",
+    "description": "Hilbijêre ka meriv van pelan rasterast di sohbetê de bihewîne an li şûna wan wan wekî bicîhkirinê nîşan bide.",
+    "inline": "Di chatê de derziyê bikin",
+    "embeddings": "Bikarhêneran bikar bînin"
+  },
+  "attachmentInjectedIndicator": "Di sohbetê de derzî kirin",
+  "attachmentEmbeddedIndicator": "Ji bo RAG vegirtî",
+  "viewInjectedContent": "Naveroka derzîkirî bibînin",
+  "injectedContentTitle": "Naveroka pelê derzîkirî",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Hemû Mijar Nehezkirî ne",
+      "description": "Hemû mijar ji bijareyên we hatin rakirin."
+    },
+    "deleteAllThreads": {
+      "title": "Hemî Mijaran jêbirin",
+      "description": "Hemû mijar bi awayekî domdar hatin jêbirin."
+    },
+    "renameThread": {
+      "title": "Navê Mijarê biguherîne",
+      "description": "Sernavê mijarê hat guherandin \"{{title}}\""
+    },
+    "deleteThread": {
+      "title": "Mijarek jêbirin",
+      "description": "Ev mijar bi domdarî hat jêbirin."
+    },
+    "errorCopied": {
+      "title": "Kopî serketî",
+      "description": "Agahdariya çewtiyê li clipboardê hate kopî kirin"
+    },
+    "errorCopyFailed": {
+      "title": "Kopî bi ser neket",
+      "description": "Kopîkirina agahdariya çewtiyê li klîpboardê bi ser neket"
+    },
+    "editMessage": {
+      "title": "Peyam biguherîne",
+      "description": "Peyam bi serkeftî hate guherandin. Ji kerema xwe li benda bersiva modelê bisekinin."
+    },
+    "appUpdateDownloaded": {
+      "title": "Nûvekirina Serlêdanê Daxistin",
+      "description": "Nûvekirina sepanê bi serkeftî hate daxistin."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Nûvekirina Serlêdanê Dakêşand Bi Ser Neket",
+      "description": "Daxistina nûvekirina sepanê têk çû. Ji kerema xwe dîsa biceribîne."
+    },
+    "downloadComplete": {
+      "title": "Daxistin Biqede",
+      "description": "{{item}} hatiye daxistin"
+    },
+    "downloadCancelled": {
+      "title": "Daxistin Betal bû",
+      "description": "Pêvajoya dakêşandinê hate betal kirin"
+    },
+    "downloadFailed": {
+      "title": "Daxistin Biserneket",
+      "description": "{{item}} dakêşandin bi ser neket",
+      "descriptionWithReason": "{{item}} dakêşandin bi ser neket: {{reason}}",
+      "reason": {
+        "dns": "navê serverê nehat çareser kirin",
+        "refused": "girêdan red kirin",
+        "timeout": "dema girêdanê qediya",
+        "tls": "pêwendiyek ewle nehat saz kirin",
+        "proxy": "proxy nehate gihîştin",
+        "unreachable": "pêşkêşkar nehate gihîştin"
+      }
+    },
+    "openSettings": "Mîhengan vekin",
+    "openLogs": "Têketin veke",
+    "downloadTokenRequired": {
+      "title": "Hugging Face nîşanek pêdivî ye",
+      "description": "Vê modelê nîşanek gihîştina Hugging Face hewce dike. Nîşana xwe li Mîhengan zêde bikin û ji nû ve biceribînin."
+    },
+    "downloadLicenseRequired": {
+      "title": "Li ser Hugging Face lîsansa modelê qebûl bikin",
+      "description": "Berî dakêşandinê divê hûn lîsansa modelê li ser rûpela wê ya Hugging Face qebûl bikin."
+    },
+    "downloadRateLimited": {
+      "title": "Rêjeya ji hêla Hugging Face ve hatî sînorkirin",
+      "description": "Rêjeya te bisînor bûyî. Zêdekirina nîşanek dikare sînorên rêjeyê zêde bike. Ji kerema xwe paşê dîsa biceribîne."
+    },
+    "modelValidationStarted": {
+      "title": "Modela erêkirin",
+      "description": "Modela \"{{modelId}}\" bi serkeftî dakêşand. Verastkirina yekitiyê..."
+    },
+    "modelValidationFailed": {
+      "title": "Verastkirina Modelê Biserneket",
+      "description": "Modela dakêşandî \"{{modelId}}\" verastkirina yekitiyê têk çû û hate rakirin. Dibe ku pel xera bibe an jî were desteser kirin."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Daxistin Biqede",
+      "description": "Model \"{{item}}\" bi serkeftî hate dakêşandin û verast kirin"
+    },
+    "projectCreated": {
+      "title": "Proje hate afirandin",
+      "description": "Projeya \"{{projectName}}\" bi serkeftî hate afirandin"
+    },
+    "projectRenamed": {
+      "title": "Projeyê hate guhertin",
+      "description": "Proje ji \"{{oldName}}\" hate guherandin \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Proje hate jêbirin",
+      "description": "Projeya \"{{projectName}}\" bi serkeftî hat jêbirin"
+    },
+    "projectAlreadyExists": {
+      "title": "Proje Jixwe Heye",
+      "description": "Projeya \"{{projectName}}\" jixwe heye"
+    },
+    "projectDeleteFailed": {
+      "title": "Jêbirin Biserneket",
+      "description": "Proje nehat jêbirin. Ji kerema xwe dîsa biceribîne."
+    },
+    "threadAssignedToProject": {
+      "title": "Mijara hatî destnîşan kirin",
+      "description": "Mijarek ji \"{{projectName}}\" re bi serkeftî hate peywirdarkirin"
+    },
+    "threadRemovedFromProject": {
+      "title": "Mijar Rakir",
+      "description": "Mijara ji \"{{projectName}}\" bi serkeftî hat rakirin"
+    },
+    "fileUploaded": {
+      "title": "Pelê pêvajo kirin",
+      "description": "Pelê bi serkeftî hate pêvajo kirin û îndeks kirin"
+    },
+    "uploadFailed": {
+      "title": "Pêvajo bi ser neket",
+      "description": "Pêvajoya pelê têk çû",
+      "subjectThisFile": "Ev pel",
+      "pdfMalformedXref": "{{subject}} xwedan tabloyek PDF-ya xaça referansê ya xelet e û nehat pars kirin. Biceribînin ku wê di temaşevanek PDF de vekin û ji nû ve hilînin (Pel → Çap → Wekî PDF tomar bikin), dûv re dîsa bar bikin.",
+      "pdfScanned": "{{subject}} dixuye ku PDF-ya skenkirî an li ser wêneyê ye. OCR hîn nayê piştgirî kirin - ji kerema xwe PDF-ya-based nivîsê bar bikin.",
+      "pdfEncrypted": "{{subject}} bi şîfreyê parastî ye. Şîfreyê jêbirin û dîsa biceribîne.",
+      "pdfUnsupportedFeature": "{{subject}} bikar tîne a PDF taybetî Novera hîn nikare parsek bike (mînak. PostScript fonksiyonên reng/siyabûnê). Ji nû ve tomarkirina wê biceribînin (Pel → Çap → Wek tomar bike PDF) da ku wê bihejînin, dûv re dîsa bar bikin.",
+      "pdfGeneric": "{{subject}} nekarî wekî PDF were pars kirin. Dibe ku pel xera bibe an taybetmendiyek PDF ya ku nayê piştgirî kirin bikar tîne.",
+      "fileTooLarge": "{{subject}} pir mezin e. {{message}}.",
+      "unsupportedType": "Cureyê pelê \"{{type}}\" nayê piştgirî kirin.",
+      "ioError": "{{subject}} nehat xwendin: {{message}}",
+      "parseGeneric": "{{subject}} nehat pars kirin: {{message}}",
+      "fallback": "Pêvajoya {{subject}} têk çû."
+    },
+    "fileDeleted": {
+      "title": "Pelê jêbirin",
+      "description": "Pela ji projeyê hat rakirin"
+    },
+    "deleteFailed": {
+      "title": "Jêbirin Biserneket",
+      "description": "Pelê jêbirin têk çû"
+    },
+    "fileAlreadyExists": {
+      "title": "Pela Jixwe Heye",
+      "description": "Dosya jixwe bi vê projeyê ve girêdayî ye"
+    },
+    "unsupportedFileType": {
+      "title": "Cureya Pelê Ne Piştevan",
+      "description": "Berfirehkirina pelê \".{{extension}}\" ji bo referansa Projeyê nayê piştgirî kirin."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Pêvek Neçalak",
+      "description": "Pêvekirin di Mîhengan de neçalak in"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Pelê pir mezin e",
+    "fileTooLargeDescription": "{{fileName}} sînorê {{maxFileSizeMB}}MB derbas dike"
+  },
+  "files": {
+    "chunksCount": "{{count}} perçe",
+    "title": "Pelên",
+    "empty": "Pelên ku hûn pê ve girêdidin û pelên ku nûner diafirîne dê li vir xuya bibin.",
+    "a11y": "Pelên: {{count}}",
+    "attachments": "Pêvek",
+    "notImported": "ne di qada xebatê de ye"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp hîn jî mijûl e",
+    "description": "Yek an çend model di wextê xwe de nehatin barkirin. Dev ji zorê dê llama.cpp biqedîne û dibe ku bersivên çalak qut bike.",
+    "forceQuit": "Bi zorê vekişe",
+    "forcing": "Bi zorê terka…",
+    "shuttingDown": "Girtin…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Hilweşîn",
+  "expand": "Berfireh bike",
+  "todoPanelTitle": "Pêşveçûn",
+  "todoPanelEmpty": "Hîn lîsteya karan tune.",
+  "backgroundTasks": "Karên paşîn",
+  "subagentsRunning_one": "{{count}} subagent dixebite",
+  "subagentsRunning_other": "{{count}} subagents dixebitin",
+  "monitorsRunning_one": "{{count}} monitor dimeşe",
+  "monitorsRunning_other": "{{count}} çavdêran dixebitin",
+  "backgroundRunning_one": "{{count}} peywira paşîn dimeşe",
+  "backgroundRunning_other": "{{count}} peywirên paşperdeyê dimeşin",
+  "monitors": "Çavdêr",
+  "monitorPolling": "Dengdan",
+  "monitorMatched": "Lihevhatî",
+  "monitorTimedOut": "Dem bi dawî bû",
+  "monitorStopped": "Rawestiya",
+  "monitorEnded": "qediya",
+  "coworkWatching_one": "Temaşekirina çavdêriya {{count}}…",
+  "coworkWatching_other": "Temaşekirina çavdêrên {{count}}…",
+  "coworkWaitingBackground": "Li benda karên paşîn…",
+  "noBackgroundTasks": "hîna peywirên paşîn tune.",
+  "running": "Dimeşe",
+  "queued": "Dorê",
+  "waiting": "Li benda",
+  "finished": "Qediya",
+  "subagentPhase": "qonaxa {{phase}}",
+  "subagentWaiting": "li benda",
+  "viewTranscript": "Danûstendinê bibînin",
+  "taskWorking": "Xebat…",
+  "taskNoOutput": "Subagent tu encamek xuya çênekir.",
+  "subagentToolUses_one": "{{count}} bikaranîna amûrê\nAmûra",
+  "subagentToolUses_other": "{{count}} bikar tîne",
+  "artifactGroupCode": "Kod",
+  "artifactGroupImage": "Wêne",
+  "artifactGroupDocument": "Belge",
+  "artifactGroupVideo": "Vîdyo",
+  "artifactGroupAudio": "Deng",
+  "artifactOpenPreview": "Pêşdîtina vekirî",
+  "artifactOpenExternal": "Vekirî",
+  "artifactMoreActions": "Çalakiyên Zêdetir",
+  "artifactShowInFolder": "Di Peldankê de nîşan bide",
+  "skillsUsedLabel": "Zehmetiyên hatine bikar anîn",
+  "skillsUsed": "Karînên hatine bikar anîn: {{skills}}",
+  "artifactsAll": "Hemû",
+  "artifactsEmpty": "Hê tiştek nehatiye çêkirin. Artifactên ji rêzikên Cowork li vir têne xuyang kirin.",
+  "artifactsNoMatch": "Tiştek li hev nayê.",
+  "artifactsSearch": "Hunermendan bigerin",
+  "artifactsShowMore": "{{count}} bêtir nîşan bide",
+  "workspace": {
+    "readsFrom": "Dixebite",
+    "writable": "xwendin û nivîsandin",
+    "footnote": "Ajan rasterast vê peldankê dixwîne û diguherîne. Di panela cûda de çi guherî binihêrin.",
+    "footnoteEmpty": "Peldankek girêdin da ku ajan li ser projeya we bixebite. Ew dikare pelên di hundurê wê de bixwîne û biguherîne.",
+    "attach": "Peldankek pêvebike",
+    "change": "Peldanka biguherîne",
+    "detach": "Peldanka veqetîne",
+    "open": "Vekirî",
+    "reveal": "Eşkere bike",
+    "unavailable": "Cihê xebatê ne berdest e",
+    "missing": "Peldanka cîhê xebatê {{folder}} nema peyda dibe. Peldankek cûda hilbijêrin.",
+    "openFailed": "Cihê xebatê nehat vekirin",
+    "revealFailed": "Cihê xebatê nehat eşkere kirin",
+    "a11yWithFolder": "Peldanka projeyê {{folder}}, bi gihîştina xwendin û nivîsandinê ve girêdayî ye. Biguherînin an jê veqetînin.",
+    "a11yNoFolder": "Peldanka projeyê pêve nehatiye. Yek girêbide."
+  },
+  "coworkEmpty": {
+    "title": "Em li ser çi dixebitin?",
+    "subtitleSandbox": "Karekî bidin Novera. Ew pelan dixwîne û dinivîse, fermanan dimeşîne, û gavan bi serê xwe dixebite.",
+    "subtitleFolder": "Karekî bidin Novera. Ew rasterast di {{folder}} de dixebite, pelan bixwe dixwîne û biguherîne.",
+    "try": "Biceribîne",
+    "sandbox": {
+      "first": "Nivîsarek Python binivîsin ku navê pelan li gorî roja ku hatine girtin biguherîne",
+      "second": "Ji CSV dashboardek yek-rûpelî ava bikin ku ez ê tê de biçim",
+      "third": "Ji bo projeyek ku ez ji we re diyar dikim README binivîsin"
+    },
+    "folder": {
+      "first": "Vebêjin ka {{folder}} çawa li hev hatiye danîn",
+      "second": "Her TODO di {{folder}} de bibînin û li gorî deverê kom bikin",
+      "third": "Ji bo beşa {{folder}} îmtîhanan binivîsin ku ez nîşanî we bidim"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Termînalê tune",
+    "a11y": "Fermanên xebitandinê têne girtin. Details.",
+    "title": "Fermanên xebitandinê têne girtin",
+    "body": "Novera dihêle ku ajan fermanên şêlê bimeşîne tenê gava ku pergala we dikare wan sînordar bike. Li vir sandbox tune, ji ber vê yekê ajan dikare pelan di sandboxa xwe de bixwîne, binivîsîne û biguherîne - lê tiştek nexebite.",
+    "fixLinux": "Linux bubblewrap bikar tîne. Wê saz bikin, dûv re Novera ji nû ve bidin destpêkirin.",
+    "fixMac": "macOS li /usr/bin/sandbox-exec sandbox-ya çêkirî bikar tîne. Dema ku Novera peyda bû ji nû ve bidin destpêkirin.",
+    "fixWindows": "Windows AppContainer bikar tîne. Novera ji nû ve bidin destpêkirin da ku dîsa biceribîne.",
+    "recheck": "Dîsa kontrol bikin"
+  },
+  "planMode": {
+    "label": "Plan",
+    "tooltipOff": "Pêşî plan bikin - ajan bêyî nivîsandinê dixwîne û pêşniyar dike.",
+    "tooltipOn": "Plankirin. Vê yekê vekin da ku ajan pelan binivîsîne.",
+    "onAnnounce": "moda planê çalak e",
+    "placeholder": "Planek bipirsin. Ajan dê tu pelan neguherîne."
+  },
+  "budget": {
+    "stoppedSteps": "Li gavên {{max}} sekinîn. Ajan neqediyaye.",
+    "keepGoing": "Berdewam bike",
+    "stoppedTokens": "Rawestiya - vê danişînê li budçeya xwe ya nîşankirî xist.",
+    "compact": "Tevhev",
+    "newSession": "Danişîna nû"
+  },
+  "run": {
+    "stopped": "Rawestiya.",
+    "failed": "Rêz zû rawestiya.",
+    "tryAgain": "Dîsa biceribîne"
+  },
+  "modelNoTools": "{{model}} nikare gazî amûran bike, ji ber vê yekê ew nikare wekî nûnerek tevbigere. Modelek bangkirina amûrê hilbijêrin.",
+  "askContinue": "Berdewam bike",
+  "askNext": "Pirsa paşîn",
+  "askPrev": "Pirsa berê",
+  "askRecommended": "Pêşniyar kirin",
+  "askSelectedCount": "{{count}} hat hilbijartin",
+  "askSomethingElse": "Tiştekî din",
+  "askSomethingElsePlaceholder": "Bersiva xwe binivîsin",
+  "submit": "Bişînin",
+  "composer": {
+    "advanced": "Parametreyên pêşkeftî",
+    "modelDefaults": "Pêşniyarên modelê",
+    "assistantOverrides": "Arîkarê bihurîne",
+    "printPdf": "Çap / wekî PDF hilîne",
+    "exportHint": "Formatên xwendinê: şaxê çalak. JSON: hemî guhertoyên peyamê. Pelên derve ne komkirî ne."
+  },
+  "telemetry": {
+    "summary": "Bi razîbûna we, {{host}} tenê guhertoya Novera û pergala xebitandinê, bêyî danûstandin an nasnameyek domdar, distîne.",
+    "unavailable": "Statîstîk nehatine mîheng kirin. Ti data nayê şandin."
+  },
+  "errorTracking": {
+    "title": "Şopandina çewtiyê",
+    "summary": "Raporên vebijarkî ji {{host}} re: celeb xelet, cîhê kodê, guherto û pergala xebitandinê. No danûstendin, peyamên xeletiya xav an bişkok. Her dem neçalak bike.",
+    "unavailable": "Şopandina çewtiyê nehatiye mîheng kirin. Rapor nayên şandin."
+  }
+}

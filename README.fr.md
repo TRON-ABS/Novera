@@ -2,7 +2,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone. Cyan holographic hand above a connected world." width="100%" />
   <p><strong>Le savoir pour tous. Une IA qui avance avec son temps.</strong></p>
   <p>Un assistant IA indépendant porté par TRON-ABS, réunissant modèles locaux, fournisseurs cloud et outils évolutifs.</p>
-  <p><strong>En développement</strong> · 70 langues et variantes d’interface · 41 fournisseurs cloud · Apache 2.0</p>
+  <p><strong>En développement</strong> · 80 langues et variantes d’interface · 41 fournisseurs cloud · Apache 2.0</p>
   <p>Contact officiel : <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p><a href="#panneau-compact-et-consignes-ciblées">Panneau compact</a> ·
     <a href="#fournisseurs-cloud">Fournisseurs cloud</a> · <a href="#catalogue-de-modèles-hugging-face">Modèles locaux</a> · <a href="README.md">English</a> · <a href="docs/LANGUAGES.md">Langues</a> · <a href="ROADMAP.md">Feuille de route</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
@@ -19,7 +19,7 @@
 - Distinguer les choix actifs : fond coloré, coche et mentions ON/OFF explicites.
 - Régler directement ratio et résolution ; activer ou désactiver l’agrandissement ×2/×4 en voyant la taille finale.
 - Modifier uniquement les trois consignes Texte, Image et Vidéo depuis le bouton de carnet. Aucun paramètre du modèle dans cet éditeur. Réinitialiser, sauvegarder ou annuler.
-- Utiliser 210 consignes par défaut traduites dans les 70 locales ; les personnalisations résistent aux changements de langue. Auto reconnaît davantage de demandes françaises/anglaises ; la rédaction et les explications restent du texte.
+- Utiliser 240 consignes par défaut traduites dans les 80 locales ; les personnalisations résistent aux changements de langue. Auto reconnaît davantage de demandes françaises/anglaises ; la rédaction et les explications restent du texte.
 
 **Validation locale :** 420 tests, TypeScript, builds interface et Release Windows, et contrôle visuel du panneau et du dialogue. Build local, sans publication de binaire ni validation de tous les modèles, langues et matériels. [Utilisation et limites](docs/USER_GUIDE.md#real-esrgan--chemins-windows-python-et-taille-finale--26-octobre-2026).
 
@@ -51,7 +51,7 @@ Ces domaines constituent une direction de contribution et de développement, pas
 | --- | --- |
 | IA locale et cloud | Un Hub relié directement à Hugging Face et 41 fournisseurs cloud prédéfinis. Les formats et modèles utilisables dépendent du moteur, du compte et du matériel. |
 | Outils et documents | Des intégrations MCP, la recherche dans les documents et des fonctions d’assistant héritées du code existant. |
-| Interface multilingue | 70 locales sélectionnables couvrant chacune les 1 738 clés anglaises actuelles. Relecture native encore nécessaire. |
+| Interface multilingue | 80 locales sélectionnables couvrant chacune les 1 738 clés anglaises actuelles. Relecture native encore nécessaire. |
 | Application extensible | Une application de bureau avec des points d’extension pour les moteurs, les outils et les futures capacités. |
 
 Ces éléments décrivent les sources. Le dernier build 1.0.0 Windows x64 a été compilé et démarré localement le 26 octobre 2026, avec le panneau compact et les consignes par catégorie. La distribution publique et la validation sur davantage de matériels restent à préparer.
@@ -79,7 +79,7 @@ Les pièces jointes transmises au partage système, au partage navigateur et à 
 
 Novera vise à prendre en charge les étapes techniques pour que chacun, partout dans le monde, puisse se concentrer sur l’apprentissage, la discussion et la création. Les sources réunissent déjà conseils matériels, téléchargements guidés et vérifiés, configurations média par catégorie, moteur image Windows embarqué et sauvegarde dans les dossiers système.
 
-**La gestion automatique de la mémoire est activée par défaut.** Les demandes locales texte/image/vidéo attendent le travail actif, libèrent les modèles inutiles et rechargent le modèle sélectionné au besoin. Fichiers, conversations et sélections sont conservés. Le **mode Manuel** permet texte, image et vidéo ensemble dans des discussions distinctes selon la RAM/VRAM et les moteurs. Les workers média actuels se terminent après la génération ; aucun cache média permanent n’est ajouté. Les deux modes et leurs limites sont expliqués dans les 70 locales, avec état d’attente visible et réglage commun dans Général.
+**La gestion automatique de la mémoire est activée par défaut.** Les demandes locales texte/image/vidéo attendent le travail actif, libèrent les modèles inutiles et rechargent le modèle sélectionné au besoin. Fichiers, conversations et sélections sont conservés. Le **mode Manuel** permet texte, image et vidéo ensemble dans des discussions distinctes selon la RAM/VRAM et les moteurs. Les workers média actuels se terminent après la génération ; aucun cache média permanent n’est ajouté. Les deux modes et leurs limites sont expliqués dans les 80 locales, avec état d’attente visible et réglage commun dans Général.
 
 369 tests web ciblés, trois tests natifs de politique, types et langues valident les sources d’orchestration. Le test complet de trois modèles lourds dans l’application dépend encore du matériel. Aucun nouveau binaire publié. [Guide mémoire](docs/USER_GUIDE.md#mémoire-automatique-ou-modèles-en-parallèle--26-octobre-2026) · [Direction produit](NOVERA.md#direction-produit--automatisation-avancée-simplicité-mondiale).
 
@@ -149,9 +149,9 @@ Capacités des sources : **98 tests web ciblés, six tests natifs isolés, TypeS
 
 Le Hub explore 23 entrées de navigation à partir des métadonnées Hugging Face, avec conseils matériels locaux et vérification avant téléchargement. Les modèles de la catégorie sélectionnée se chargent progressivement au défilement, avec ajout des résultats sous les lignes existantes. Les six présélections restent disponibles. Image et vidéo nécessitent un environnement Diffusers configuré et un dossier local reconnu ; les autres tâches nécessitent encore leurs moteurs. Découvrir un modèle ne garantit pas son exécution. Les modèles textuels Safetensors utilisent le moteur Transformers ; un adaptateur distinct permet les dossiers Diffusers image/vidéo depuis la discussion, dans les sources dont la nouvelle intégration desktop reste à valider après compilation : voir les [capacités et limites testées](docs/SUIVI_MOTEURS.md). Ces correctifs sont inclus dans le dernier build Windows local ; le parcours complet du Hub reste à tester par le mainteneur.
 
-## 70 langues et variantes d’interface
+## 80 langues et variantes d’interface
 
-Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et à 34 nouveaux catalogues Novera. Les dix derniers sont ouzbek du Nord, zoulou, arabe saïdi, pachto du Nord, oromo du Centre-Ouest, saraiki, néerlandais, somali, roumain et assamais. **Les 70 catalogues couvrent chacun les 1 738 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Les anciens builds locaux incluent les catalogues dans leur état d’alors ; le dernier build local inclut les textes de consignes, d’installation et de bibliothèque ; aucun binaire public n’est publié. Certains catalogues sont des variantes éditoriales fondées en partie sur des textes techniques écrits communs ; leur adaptation vernaculaire intégrale reste ouverte. Le guide des langues précise leur périmètre.
+Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et à 44 nouveaux catalogues Novera. Les dix derniers catalogues sources sont cebuano, kazakh, cingalais, xhosa, khmer, afrikaans, maïthili, wolof, kurmandji et kinyarwanda. **Les 80 catalogues couvrent chacun les 1 738 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Les anciens builds locaux incluent les catalogues dans leur état d’alors ; le dernier build local inclut les textes de consignes, d’installation et de bibliothèque ; aucun binaire public n’est publié. Certains catalogues sont des variantes éditoriales fondées en partie sur des textes techniques écrits communs ; leur adaptation vernaculaire intégrale reste ouverte. Le guide des langues précise leur périmètre.
 
 L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais, l’arabe algérien, l’arabe marocain, l’arabe saïdi, le pachto du Nord, le saraiki, le sindhi, le dari, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
 
@@ -159,7 +159,7 @@ L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais
 
 ## État du projet
 
-**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 70 catalogues complets en clés (1 738 chacun), le Hub adaptatif, le moteur textuel local Safetensors/Transformers et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
+**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 80 catalogues complets en clés (1 738 chacun), le Hub adaptatif, le moteur textuel local Safetensors/Transformers et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
 
 Le premier démarrage sauvegarde la langue système, propose LFM2.5-2.6B Q6_K sur desktop avec DSpark facultatif, et demande séparément le suivi des erreurs, désactivé par défaut. Les sources et les binaires sont suivis séparément ; le dernier build local inclut les correctifs du Hub, dont le parcours complet reste à tester par le mainteneur. Voir [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour les validations et limites exactes. GitHub Actions et mises à jour automatiques restent désactivés.
 
@@ -174,3 +174,6 @@ Le premier démarrage sauvegarde la langue système, propose LFM2.5-2.6B Q6_K su
 Novera est maintenu par **TRON-ABS** dans [ce dépôt](https://github.com/TRON-ABS/Novera). [Politique d’identité](BRANDING.md), [versions officielles](OFFICIAL_RELEASES.md).
 
 Novera s’appuie sur [Jan](https://github.com/janhq/jan), créé par Menlo Research et ses contributeurs. Les attributions d’origine, celles des projets tiers et la [licence Apache 2.0](LICENSE) sont conservées. Les téléchargements Jan ne sont pas des versions Novera.
+
+
+Ajout aux sources du 27 octobre 2026 : dix catalogues Google/Microsoft supplémentaires portent le total à **80 locales × 1 738 clés**. Relecture native requise. Le précédent build Windows reste à 70 locales ; ce lot ne recompile ni ne publie de binaire. Voir [le suivi des langues](docs/LANGUAGES.md).

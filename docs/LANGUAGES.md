@@ -1,5 +1,16 @@
 # Langues d’interface Novera
 
+## Dix nouveaux catalogues — 27 octobre 2026
+
+Les sources proposent désormais **80 locales**, chacune couvrant **1738 clés** dans **14 espaces de noms**. Ce lot ajoute cebuano, kazakh, cingalais, xhosa, khmer, afrikaans, maïthili, wolof, kurmandji et kinyarwanda. Il suit l’ordre de la feuille de route parmi les langues accessibles avec les services demandés. Les variantes non explicitement disponibles ne sont pas remplacées par une langue proche.
+
+L’accès direct testé de Microsoft a renvoyé HTTP 401, mais son interface web fonctionne sans compte, par lots de 1 000 caractères. Google Translate a fourni les neuf premiers catalogues et la majeure partie du kinyarwanda (kurmandji : code de service `ku`). Après une limitation HTTP 429 de Google, Microsoft a fourni les 221 textes distincts restants en kinyarwanda, avec reprise des lignes rejetées et clarification de plusieurs termes IA. Deux commandes courtes ont reçu une correction éditoriale de l’assistant. Tous ces catalogues restent des brouillons. Variables, code, marques et sauts de ligne sont protégés. La relecture native reste nécessaire ; présence des clés et validation technique ne constituent pas une certification linguistique. Les nouveaux catalogues ne sont pas inclus dans le précédent binaire Windows ; aucune compilation ni publication de binaire pour ce lot.
+
+Les essais Lara sans clé sont séparés : ils ne certifient aucun catalogue et n’ajoutent pas les six langues rares à ce lot. Les langues à traiter restent notamment gan, pachto du Sud, magahi, arabes najdi/mésopotamien, peul du Nigéria et chhattisgarhi, ce dernier restant hors du lot de dix catalogues. Les six essais Lara ont renvoyé du texte sans compte ni clé ; le magahi contenait un fragment parasite `WithOptions`. Ces essais courts ne prouvent pas la capacité gratuite à traiter six catalogues entiers.
+
+
+Validation locale du lot : **589 tests réussis dans sept fichiers**, TypeScript sans émission et contrôle de **80 × 1 738 clés**, sans erreur. Aucun contrôle CI ni binaire supplémentaire.
+
 ## Consignes par catégorie et panneau compact — 26 octobre 2026
 
 Quatre clés ajoutées dans chacune des 70 locales : le libellé compact de mémoire et les trois consignes par défaut Texte/Image/Vidéo, soit **210 consignes traduites**. Base actuelle : **1 738 clés**. Les instructions par défaut suivent la langue de l’interface ; les textes personnalisés restent inchangés. Réinitialiser, Annuler et Sauvegarder réutilisent les libellés existants. Les indications techniques ON/OFF et ×2/×4 restent identiques dans les langues, comme sur le panneau de référence.
@@ -23,9 +34,9 @@ Huit nouveaux textes dans chacune des 70 locales portent la base actuelle à **1
 
 Treize nouveaux textes dans chacune des 70 locales, plus correction du conseil devenu périmé sur la validation Vulkan du trio. Base : **1 681 clés**. Confirmation, dossier/espace, aide sur les discussions et créations pendant le téléchargement, pause/reprise, vérification, état prêt, moteur intégré et erreurs traduits. La bibliothèque Image/Vidéo réutilise les textes d’import, modification et suppression déjà traduits. Réalisé sans transmettre de conversation, clé ou fichier privé à un service de traduction ; la relecture native reste nécessaire. La couverture porte sur les sources, pas sur un nouveau binaire compilé.
 
-État du **26 octobre 2026** : **70 locales sélectionnables**, chacune à **1 738/1 738 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
+État des sources du **27 octobre 2026** : **80 locales sélectionnables**, chacune à **1 738/1 738 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
 
-Le sélecteur présente les **70 langues sous leur nom natif**. Les attributs `lang` et `dir="auto"` accompagnent chaque entrée ; un menu élargi et défilant conserve les noms longs accessibles. Le nom indonésien est **Bahasa Indonesia**. Les noms de marques et identifiants API restent des littéraux invariants ; le premier lot de fournisseurs et d’icônes du 26 octobre réutilisait les traductions existantes. Le lot de création cloud décrit ci-dessous actualise ensuite les 70 catalogues de discussion.
+Le sélecteur présente les **80 langues sous leur nom natif**. Les attributs `lang` et `dir="auto"` accompagnent chaque entrée ; un menu élargi et défilant conserve les noms longs accessibles. Le nom indonésien est **Bahasa Indonesia**. Les noms de marques et identifiants API restent des littéraux invariants ; le premier lot de fournisseurs et d’icônes du 26 octobre réutilisait les traductions existantes. Le lot de création cloud décrit ci-dessous actualise ensuite les 70 catalogues de discussion.
 
 ## Sélecteur et création cloud — 26 octobre 2026
 
@@ -41,7 +52,7 @@ Six aides et libellés actualisés dans les 70 catalogues de discussion : choix 
 
 ## Règle pour tout texte visible
 
-Tout texte d’interface ajouté **ou modifié** doit être traduit dans les 70 locales dans la même modification : boutons, infobulles, menus, aides, confirmations, succès et erreurs. Le repli anglais ne remplace pas une traduction. Préserver variables, littéraux de code et identifiants techniques ; actualiser [language-support.json](language-support.json) puis exécuter depuis la racine :
+Tout texte d’interface ajouté **ou modifié** doit être traduit dans les 80 locales dans la même modification : boutons, infobulles, menus, aides, confirmations, succès et erreurs. Le repli anglais ne remplace pas une traduction. Préserver variables, littéraux de code et identifiants techniques ; actualiser [language-support.json](language-support.json) puis exécuter depuis la racine :
 
 ```sh
 python scripts/check-novera-locales.py
@@ -109,82 +120,93 @@ Arabe, arabe égyptien, arabe levantin, arabe soudanais, arabe algérien, arabe 
 
 | Locale | Language | Native selector label | Direction | English keys covered | Source |
 | --- | --- | --- | --- | ---: | --- |
-| `en` | English | English | LTR | 1653 / 1,653 | Inherited from Jan |
-| `bn` | Bengali | বাংলা | LTR | 1653 / 1,653 | [Contribution 9381](https://github.com/TRON-ABS/Novera/commit/5affd45c30b10057f5f7751f5550ce148a7adcfc) |
-| `ar` | Modern Standard Arabic | العربية | RTL | 1653 / 1,653 | [Contribution 9382](https://github.com/TRON-ABS/Novera/commit/a4bca7f321e6ea296de0e9d4fa45923e6828b689) |
-| `ur` | Urdu | اردو | RTL | 1653 / 1,653 | [Contribution 9397](https://github.com/TRON-ABS/Novera/commit/8aefadf68b30506d7327e55a978c85d68607d762) |
-| `pcm` | Nigerian Pidgin | Naijíriá Píjin | LTR | 1653 / 1,653 | [Contribution 9398](https://github.com/TRON-ABS/Novera/commit/9c6f6ae3caf4c9dd85f715ca38d44157bca2a245) |
-| `arz` | Egyptian Arabic | مصري | RTL | 1653 / 1,653 | [Contribution 9400](https://github.com/TRON-ABS/Novera/commit/482d429940d2cbdb68d5a0b3c7d685667c73533b) |
-| `mr` | Marathi | मराठी | LTR | 1653 / 1,653 | [Contribution 9401](https://github.com/TRON-ABS/Novera/commit/5d1787d233aa8edb6afed65985749fd970ea5dba) |
-| `te` | Telugu | తెలుగు | LTR | 1653 / 1,653 | [Contribution 9402](https://github.com/TRON-ABS/Novera/commit/039bf57e59537eaa043ab22ddc4a75e7a5567f8b) |
-| `ta` | Tamil | தமிழ் | LTR | 1653 / 1,653 | [Contribution 9403](https://github.com/TRON-ABS/Novera/commit/df665fdf9b70d06b9f10203d53eb5167bbd21e03) |
-| `sw` | Swahili | Kiswahili | LTR | 1653 / 1,653 | [Contribution 9404](https://github.com/TRON-ABS/Novera/commit/fc7127b9e45db9bd2c150b448c15edfe23f94123) |
-| `ha` | Hausa | Hausa | LTR | 1653 / 1,653 | [Contribution 9406](https://github.com/TRON-ABS/Novera/commit/e4259f6a100b26f71fa2e775fe43c054671149d8) |
-| `pnb` | Western Punjabi (Shahmukhi) | پنجابی (شاہ مکھی) | RTL | 1653 / 1,653 | [Contribution 9408](https://github.com/TRON-ABS/Novera/commit/cef56cd697fe9edfbcc1441ae97b69f03f0ea7a6) |
-| `tl` | Tagalog | Tagalog | LTR | 1653 / 1,653 | [Contribution 9409](https://github.com/TRON-ABS/Novera/commit/9a5c67ec3631d45bf9d093523c46c239ae6f3ea7) |
-| `pt-PT` | Portuguese (Portugal) | Português (Portugal) | LTR | 1653 / 1,653 | [Contribution 9410](https://github.com/TRON-ABS/Novera/commit/feebfd09e9790284a48c4412eec8bd0a1c725d48) |
-| `yue` | Cantonese | 粵語 | LTR | 1653 / 1,653 | [Contribution 9411](https://github.com/TRON-ABS/Novera/commit/c08f3313b074d6449fb4d08f9d6a7a1a10973723) |
-| `wuu` | Wu (Shanghainese) | 吴语（上海话） | LTR | 1653 / 1,653 | [Contribution 9412](https://github.com/TRON-ABS/Novera/commit/cea04c0e641ce91656c02ca79d11db318508afa7), completed on 25 October 2026 |
-| `fa-IR` | Iranian Persian | فارسی (ایران) | RTL | 1653 / 1,653 | [Contribution 9413](https://github.com/TRON-ABS/Novera/commit/7390c493df3373aae20a3598d6942fc59db71e3c) |
-| `am` | Amharic | አማርኛ | LTR | 1653 / 1,653 | [Contribution 9414](https://github.com/TRON-ABS/Novera/commit/5834c83c2c0134af807454ba5f9d155dd0c0cfae) |
-| `th` | Thai | ไทย | LTR | 1653 / 1,653 | [Contribution 9415](https://github.com/TRON-ABS/Novera/commit/9b9a4cab272ad9b96ae52a0c9c33f3d6ca891e70) |
-| `jv` | Javanese | Basa Jawa | LTR | 1653 / 1,653 | [Contribution 9416](https://github.com/TRON-ABS/Novera/commit/ea9a66394fcbee0da167ab8776fbb857285aa865) |
-| `es` | Spanish | Español | LTR | 1653 / 1,653 | Inherited from Jan |
-| `fr` | French | Français | LTR | 1653 / 1,653 | Inherited from Jan |
-| `it` | Italian | Italiano | LTR | 1653 / 1,653 | Inherited from Jan |
-| `hi` | Hindi | हिंदी | LTR | 1653 / 1,653 | Inherited from Jan |
-| `id` | Indonesian | Bahasa | LTR | 1653 / 1,653 | Inherited from Jan |
-| `pl` | Polish | Polski | LTR | 1653 / 1,653 | Inherited from Jan |
-| `vn` | Vietnamese | Tiếng Việt | LTR | 1653 / 1,653 | Inherited from Jan |
-| `zh-CN` | Chinese (Simplified) | 简体中文 | LTR | 1653 / 1,653 | Inherited from Jan |
-| `zh-TW` | Chinese (Traditional) | 繁體中文 | LTR | 1653 / 1,653 | Inherited from Jan |
-| `de-DE` | German | Deutsch | LTR | 1653 / 1,653 | Inherited from Jan |
-| `cs` | Czech | Čeština | LTR | 1653 / 1,653 | Inherited from Jan |
-| `pt-BR` | Portuguese (Brazil) | Português (Brasil) | LTR | 1653 / 1,653 | Inherited from Jan |
-| `ko` | Korean | 한국어 | LTR | 1653 / 1,653 | Inherited from Jan |
-| `ja` | Japanese | 日本語 | LTR | 1653 / 1,653 | Inherited from Jan |
-| `ru` | Russian | Русский | LTR | 1653 / 1,653 | Inherited from Jan |
-| `ca` | Catalan | Català | LTR | 1653 / 1,653 | Inherited from Jan |
-| `gu` | Gujarati | ગુજરાતી | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `kn` | Kannada | ಕನ್ನಡ | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `apc` | Levantine Arabic | عربي شامي | RTL | 1653 / 1,653 | Novera — draft, native review pending |
-| `apd` | Sudanese Arabic | عربي سوداني | RTL | 1653 / 1,653 | Novera — draft, native review pending |
-| `yo` | Yoruba | Yorùbá | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `bho` | Bhojpuri | भोजपुरी | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `cjy` | Jin Chinese | 晋语 | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `nan` | Min Nan Chinese | 閩南語 | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `my` | Burmese | မြန်မာ | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `arq` | Algerian Arabic | دارجة جزائرية | RTL | 1653 / 1,653 | Novera — draft, native review pending |
-| `hak` | Hakka Chinese | 客家話 | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `ln` | Lingala | Lingála | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `ary` | Moroccan Arabic | الدارجة المغربية | RTL | 1653 / 1,653 | Novera — draft, native review pending |
-| `or` | Odia | ଓଡ଼ିଆ | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `uk` | Ukrainian | Українська | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `hsn` | Xiang Chinese | 湘语 | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `ml` | Malayalam | മലയാളം | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `sd` | Sindhi | سنڌي | RTL | 1653 / 1,653 | Novera — draft, native review pending |
-| `pa` | Eastern Punjabi | ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ) | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `su` | Sundanese | Basa Sunda | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `ig` | Igbo | Ìgbò | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `prs` | Dari | دری | RTL | 1653 / 1,653 | Novera — draft, native review pending |
-| `ne` | Nepali | नेपाली | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `ms` | Malay | Bahasa Melayu | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `uzn` | Northern Uzbek | O‘zbekcha (shimoliy) | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `zu` | Zulu | isiZulu | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `aec` | Saidi Arabic | عربي صعيدي | RTL | 1653 / 1,653 | Novera — draft, native review pending |
-| `pbu` | Northern Pashto | پښتو (شمالي) | RTL | 1653 / 1,653 | Novera — draft, native review pending |
-| `gaz` | West Central Oromo | Oromoo (Giddugaleessa-Lixaa) | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `skr` | Saraiki | سرائیکی | RTL | 1653 / 1,653 | Novera — draft, native review pending |
-| `nl` | Dutch | Nederlands | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `so` | Somali | Soomaali | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `ro` | Romanian | Română | LTR | 1653 / 1,653 | Novera — draft, native review pending |
-| `as` | Assamese | অসমীয়া | LTR | 1653 / 1,653 | Novera — draft, native review pending |
+| `en` | English | English | LTR | 1738 / 1,738 | Inherited from Jan |
+| `bn` | Bengali | বাংলা | LTR | 1738 / 1,738 | [Contribution 9381](https://github.com/TRON-ABS/Novera/commit/5affd45c30b10057f5f7751f5550ce148a7adcfc) |
+| `ar` | Modern Standard Arabic | العربية | RTL | 1738 / 1,738 | [Contribution 9382](https://github.com/TRON-ABS/Novera/commit/a4bca7f321e6ea296de0e9d4fa45923e6828b689) |
+| `ur` | Urdu | اردو | RTL | 1738 / 1,738 | [Contribution 9397](https://github.com/TRON-ABS/Novera/commit/8aefadf68b30506d7327e55a978c85d68607d762) |
+| `pcm` | Nigerian Pidgin | Naijíriá Píjin | LTR | 1738 / 1,738 | [Contribution 9398](https://github.com/TRON-ABS/Novera/commit/9c6f6ae3caf4c9dd85f715ca38d44157bca2a245) |
+| `arz` | Egyptian Arabic | مصري | RTL | 1738 / 1,738 | [Contribution 9400](https://github.com/TRON-ABS/Novera/commit/482d429940d2cbdb68d5a0b3c7d685667c73533b) |
+| `mr` | Marathi | मराठी | LTR | 1738 / 1,738 | [Contribution 9401](https://github.com/TRON-ABS/Novera/commit/5d1787d233aa8edb6afed65985749fd970ea5dba) |
+| `te` | Telugu | తెలుగు | LTR | 1738 / 1,738 | [Contribution 9402](https://github.com/TRON-ABS/Novera/commit/039bf57e59537eaa043ab22ddc4a75e7a5567f8b) |
+| `ta` | Tamil | தமிழ் | LTR | 1738 / 1,738 | [Contribution 9403](https://github.com/TRON-ABS/Novera/commit/df665fdf9b70d06b9f10203d53eb5167bbd21e03) |
+| `sw` | Swahili | Kiswahili | LTR | 1738 / 1,738 | [Contribution 9404](https://github.com/TRON-ABS/Novera/commit/fc7127b9e45db9bd2c150b448c15edfe23f94123) |
+| `ha` | Hausa | Hausa | LTR | 1738 / 1,738 | [Contribution 9406](https://github.com/TRON-ABS/Novera/commit/e4259f6a100b26f71fa2e775fe43c054671149d8) |
+| `pnb` | Western Punjabi (Shahmukhi) | پنجابی (شاہ مکھی) | RTL | 1738 / 1,738 | [Contribution 9408](https://github.com/TRON-ABS/Novera/commit/cef56cd697fe9edfbcc1441ae97b69f03f0ea7a6) |
+| `tl` | Tagalog | Tagalog | LTR | 1738 / 1,738 | [Contribution 9409](https://github.com/TRON-ABS/Novera/commit/9a5c67ec3631d45bf9d093523c46c239ae6f3ea7) |
+| `pt-PT` | Portuguese (Portugal) | Português (Portugal) | LTR | 1738 / 1,738 | [Contribution 9410](https://github.com/TRON-ABS/Novera/commit/feebfd09e9790284a48c4412eec8bd0a1c725d48) |
+| `yue` | Cantonese | 粵語 | LTR | 1738 / 1,738 | [Contribution 9411](https://github.com/TRON-ABS/Novera/commit/c08f3313b074d6449fb4d08f9d6a7a1a10973723) |
+| `wuu` | Wu (Shanghainese) | 吴语（上海话） | LTR | 1738 / 1,738 | [Contribution 9412](https://github.com/TRON-ABS/Novera/commit/cea04c0e641ce91656c02ca79d11db318508afa7), completed on 25 October 2026 |
+| `fa-IR` | Iranian Persian | فارسی (ایران) | RTL | 1738 / 1,738 | [Contribution 9413](https://github.com/TRON-ABS/Novera/commit/7390c493df3373aae20a3598d6942fc59db71e3c) |
+| `am` | Amharic | አማርኛ | LTR | 1738 / 1,738 | [Contribution 9414](https://github.com/TRON-ABS/Novera/commit/5834c83c2c0134af807454ba5f9d155dd0c0cfae) |
+| `th` | Thai | ไทย | LTR | 1738 / 1,738 | [Contribution 9415](https://github.com/TRON-ABS/Novera/commit/9b9a4cab272ad9b96ae52a0c9c33f3d6ca891e70) |
+| `jv` | Javanese | Basa Jawa | LTR | 1738 / 1,738 | [Contribution 9416](https://github.com/TRON-ABS/Novera/commit/ea9a66394fcbee0da167ab8776fbb857285aa865) |
+| `es` | Spanish | Español | LTR | 1738 / 1,738 | Inherited from Jan |
+| `fr` | French | Français | LTR | 1738 / 1,738 | Inherited from Jan |
+| `it` | Italian | Italiano | LTR | 1738 / 1,738 | Inherited from Jan |
+| `hi` | Hindi | हिंदी | LTR | 1738 / 1,738 | Inherited from Jan |
+| `id` | Indonesian | Bahasa | LTR | 1738 / 1,738 | Inherited from Jan |
+| `pl` | Polish | Polski | LTR | 1738 / 1,738 | Inherited from Jan |
+| `vn` | Vietnamese | Tiếng Việt | LTR | 1738 / 1,738 | Inherited from Jan |
+| `zh-CN` | Chinese (Simplified) | 简体中文 | LTR | 1738 / 1,738 | Inherited from Jan |
+| `zh-TW` | Chinese (Traditional) | 繁體中文 | LTR | 1738 / 1,738 | Inherited from Jan |
+| `de-DE` | German | Deutsch | LTR | 1738 / 1,738 | Inherited from Jan |
+| `cs` | Czech | Čeština | LTR | 1738 / 1,738 | Inherited from Jan |
+| `pt-BR` | Portuguese (Brazil) | Português (Brasil) | LTR | 1738 / 1,738 | Inherited from Jan |
+| `ko` | Korean | 한국어 | LTR | 1738 / 1,738 | Inherited from Jan |
+| `ja` | Japanese | 日本語 | LTR | 1738 / 1,738 | Inherited from Jan |
+| `ru` | Russian | Русский | LTR | 1738 / 1,738 | Inherited from Jan |
+| `ca` | Catalan | Català | LTR | 1738 / 1,738 | Inherited from Jan |
+| `gu` | Gujarati | ગુજરાતી | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `kn` | Kannada | ಕನ್ನಡ | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `apc` | Levantine Arabic | عربي شامي | RTL | 1738 / 1,738 | Novera — draft, native review pending |
+| `apd` | Sudanese Arabic | عربي سوداني | RTL | 1738 / 1,738 | Novera — draft, native review pending |
+| `yo` | Yoruba | Yorùbá | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `bho` | Bhojpuri | भोजपुरी | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `cjy` | Jin Chinese | 晋语 | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `nan` | Min Nan Chinese | 閩南語 | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `my` | Burmese | မြန်မာ | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `arq` | Algerian Arabic | دارجة جزائرية | RTL | 1738 / 1,738 | Novera — draft, native review pending |
+| `hak` | Hakka Chinese | 客家話 | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `ln` | Lingala | Lingála | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `ary` | Moroccan Arabic | الدارجة المغربية | RTL | 1738 / 1,738 | Novera — draft, native review pending |
+| `or` | Odia | ଓଡ଼ିଆ | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `uk` | Ukrainian | Українська | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `hsn` | Xiang Chinese | 湘语 | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `ml` | Malayalam | മലയാളം | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `sd` | Sindhi | سنڌي | RTL | 1738 / 1,738 | Novera — draft, native review pending |
+| `pa` | Eastern Punjabi | ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ) | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `su` | Sundanese | Basa Sunda | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `ig` | Igbo | Ìgbò | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `prs` | Dari | دری | RTL | 1738 / 1,738 | Novera — draft, native review pending |
+| `ne` | Nepali | नेपाली | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `ms` | Malay | Bahasa Melayu | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `uzn` | Northern Uzbek | O‘zbekcha (shimoliy) | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `zu` | Zulu | isiZulu | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `aec` | Saidi Arabic | عربي صعيدي | RTL | 1738 / 1,738 | Novera — draft, native review pending |
+| `pbu` | Northern Pashto | پښتو (شمالي) | RTL | 1738 / 1,738 | Novera — draft, native review pending |
+| `gaz` | West Central Oromo | Oromoo (Giddugaleessa-Lixaa) | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `skr` | Saraiki | سرائیکی | RTL | 1738 / 1,738 | Novera — draft, native review pending |
+| `nl` | Dutch | Nederlands | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `so` | Somali | Soomaali | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `ro` | Romanian | Română | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+| `as` | Assamese | অসমীয়া | LTR | 1738 / 1,738 | Novera — draft, native review pending |
+
+| `ceb` | Cebuano | Sinugbuanon | LTR | 1738 / 1,738 | Google — draft, native review pending |
+| `kk` | Kazakh | Қазақша | LTR | 1738 / 1,738 | Google — draft, native review pending |
+| `si` | Sinhala | සිංහල | LTR | 1738 / 1,738 | Google — draft, native review pending |
+| `xh` | Xhosa | isiXhosa | LTR | 1738 / 1,738 | Google — draft, native review pending |
+| `km` | Khmer | ខ្មែរ | LTR | 1738 / 1,738 | Google — draft, native review pending |
+| `af` | Afrikaans | Afrikaans | LTR | 1738 / 1,738 | Google — draft, native review pending |
+| `mai` | Maithili | मैथिली | LTR | 1738 / 1,738 | Google — draft, native review pending |
+| `wo` | Wolof | Wolof | LTR | 1738 / 1,738 | Google — draft, native review pending |
+| `kmr` | Northern Kurdish (Kurmanji) | Kurmancî | LTR | 1738 / 1,738 | Google — draft, native review pending |
+| `rw` | Kinyarwanda | Ikinyarwanda | LTR | 1738 / 1,738 | Google + Microsoft — draft, native review pending |
 
 <a id="roadmap-100"></a>
 
 ## Feuille de route historique des 100 langues
 
-Le tableau de planification ci-dessous conserve ses 100 langues ; l’état d’intégration et l’ordre des travaux sont actualisés. Ses estimations de locuteurs mélangent les relevés 2025/2026 et ne constituent ni un classement officiel actualisé ni 100 langues prises en charge. Les 70 locales effectives sont celles de l’inventaire ci-dessus. Portugal et Brésil ont des catalogues distincts mais ne comptent pas deux langues dans ce classement.
+Le tableau de planification ci-dessous conserve ses 100 langues ; l’état d’intégration et l’ordre des travaux sont actualisés. Ses estimations de locuteurs mélangent les relevés 2025/2026 et ne constituent ni un classement officiel actualisé ni 100 langues prises en charge. Les 80 locales effectives sont celles de l’inventaire ci-dessus. Portugal et Brésil ont des catalogues distincts mais ne comptent pas deux langues dans ce classement.
 
 Les statuts des PR externes correspondent au relevé historique sur Jan `44aee093ae5a974c31ec43d24ceca163c0e59c14`, sans nouvelle vérification le 25 octobre. Les contributions Novera sont intégrées. Avant toute nouvelle traduction, vérifier les contributions existantes ; une recherche par titre ne garantit pas leur absence.
 
@@ -259,37 +281,37 @@ Les statuts des PR externes correspondent au relevé historique sur Jan `44aee09
 | 67* | Assamais | 23,6 | 2025 | Intégrée dans Novera — 1 653/1 653 clés ; relecture requise | — | — |
 | 68* | Gan | 22,6 | 2025 | À faire | 1 | — |
 | 69* | Pachto du Sud | 21,7 | 2025 | À faire | 2 | — |
-| 70* | Cebuano | 21,4 | 2025 | À faire | 3 | — |
-| 71* | Kazakh | 21,4 | 2025 | À faire | 4 | — |
-| 72* | Magahi | 21,0 | 2025 | À faire | 5 | — |
-| 73* | Arabe najdi | 20,9 | 2025 | À faire | 6 | — |
-| 74* | Cingalais | 20,2 | 2025 | À faire | 7 | — |
-| 75* | Arabe mésopotamien | 20,1 | 2025 | À faire | 8 | — |
-| 76* | Xhosa | 19,2 | 2025 | À faire | 9 | — |
-| 77* | Khmer | 19,0 | 2025 | À faire | 10 | — |
-| 78* | Afrikaans | 18,1 | 2025 | À faire | 11 | — |
-| 79* | Peul du Nigéria | 18,0 | 2025 | À faire | 12 | — |
-| 80* | Maïthili | 17,6 | 2025 | À faire | 13 | — |
-| 81* | Wolof | 17,3 | 2025 | À faire | 14 | — |
-| 82* | Kurde du Nord (kurmandji) | 17,2 | 2025 | À faire | 15 | — |
-| 83* | Chhattisgarhi | 16,3 | 2025 | À faire | 16 | — |
-| 84* | Kinyarwanda | 15,3 | 2025 | À faire | 17 | — |
-| 85* | Thaï du Nord-Est (isan) | 15,1 | 2025 | À faire | 18 | — |
-| 86* | Chichewa | 14,5 | 2025 | À faire | 19 | — |
-| 87* | Bambara | 14,4 | 2025 | À faire | 20 | — |
-| 88* | Shona | 14,1 | 2025 | À faire | 21 | — |
-| 89* | Azéri du Sud | 13,8 | 2025 | À faire | 22 | — |
-| 90* | Tswana | 13,7 | 2025 | À faire | 23 | — |
-| 91* | Sotho du Nord | 13,7 | 2025 | À faire | 24 | — |
-| 92* | Bavarois | 13,7 | 2025 | À faire | 25 | — |
-| 93* | Créole haïtien | 13,7 | 2025 | À faire | 26 | — |
-| 94* | Ouïghour | 13,6 | 2025 | À faire | 27 | — |
-| 95* | Sotho du Sud | 13,5 | 2025 | À faire | 28 | — |
-| 96* | Grec | 13,3 | 2025 | À faire | 29 | — |
+| 70* | Cebuano | 21,4 | 2025 | Intégrée dans Novera — 1738/1738 clés ; brouillon Google, relecture requise | — | — |
+| 71* | Kazakh | 21,4 | 2025 | Intégrée dans Novera — 1738/1738 clés ; brouillon Google, relecture requise | — | — |
+| 72* | Magahi | 21,0 | 2025 | À faire | 3 | — |
+| 73* | Arabe najdi | 20,9 | 2025 | À faire | 4 | — |
+| 74* | Cingalais | 20,2 | 2025 | Intégrée dans Novera — 1738/1738 clés ; brouillon Google, relecture requise | — | — |
+| 75* | Arabe mésopotamien | 20,1 | 2025 | À faire | 5 | — |
+| 76* | Xhosa | 19,2 | 2025 | Intégrée dans Novera — 1738/1738 clés ; brouillon Google, relecture requise | — | — |
+| 77* | Khmer | 19,0 | 2025 | Intégrée dans Novera — 1738/1738 clés ; brouillon Google, relecture requise | — | — |
+| 78* | Afrikaans | 18,1 | 2025 | Intégrée dans Novera — 1738/1738 clés ; brouillon Google, relecture requise | — | — |
+| 79* | Peul du Nigéria | 18,0 | 2025 | À faire | 6 | — |
+| 80* | Maïthili | 17,6 | 2025 | Intégrée dans Novera — 1738/1738 clés ; brouillon Google, relecture requise | — | — |
+| 81* | Wolof | 17,3 | 2025 | Intégrée dans Novera — 1738/1738 clés ; brouillon Google, relecture requise | — | — |
+| 82* | Kurde du Nord (kurmandji) | 17,2 | 2025 | Intégrée dans Novera — 1738/1738 clés ; brouillon Google, relecture requise | — | — |
+| 83* | Chhattisgarhi | 16,3 | 2025 | À faire | 7 | — |
+| 84* | Kinyarwanda | 15,3 | 2025 | Intégrée dans Novera — 1738/1738 clés ; brouillon Google, relecture requise | — | — |
+| 85* | Thaï du Nord-Est (isan) | 15,1 | 2025 | À faire | 8 | — |
+| 86* | Chichewa | 14,5 | 2025 | À faire | 9 | — |
+| 87* | Bambara | 14,4 | 2025 | À faire | 10 | — |
+| 88* | Shona | 14,1 | 2025 | À faire | 11 | — |
+| 89* | Azéri du Sud | 13,8 | 2025 | À faire | 12 | — |
+| 90* | Tswana | 13,7 | 2025 | À faire | 13 | — |
+| 91* | Sotho du Nord | 13,7 | 2025 | À faire | 14 | — |
+| 92* | Bavarois | 13,7 | 2025 | À faire | 15 | — |
+| 93* | Créole haïtien | 13,7 | 2025 | À faire | 16 | — |
+| 94* | Ouïghour | 13,6 | 2025 | À faire | 17 | — |
+| 95* | Sotho du Sud | 13,5 | 2025 | À faire | 18 | — |
+| 96* | Grec | 13,3 | 2025 | À faire | 19 | — |
 | 97* | Suédois | 13,3 | 2025 | PR tierce — en attente de fusion | — | [#8829](https://github.com/janhq/jan/pull/8829) |
-| 98* | Chittagonien | 13,0 | 2025 | À faire | 30 | — |
-| 99* | Kirundi | 12,9 | 2025 | À faire | 31 | — |
-| 100* | Dioula | 12,8 | 2025 | À faire | 32 | — |
+| 98* | Chittagonien | 13,0 | 2025 | À faire | 20 | — |
+| 99* | Kirundi | 12,9 | 2025 | À faire | 21 | — |
+| 100* | Dioula | 12,8 | 2025 | À faire | 22 | — |
 
 Sources : positions 1–38, [tableau 2026 attribué à Ethnologue](https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers) ; positions 39–100*, [compilation communautaire 2025](https://www.jetpunk.com/user-quizzes/2026529/top-200-languages-ethnologue-2025). **Les positions marquées * sont provisoires, à confirmer ; ce tableau mélange deux années et ne constitue pas un top 100 officiel 2026.** Les variétés arabes et chinoises sont distinguées ; les deux écritures chinoises de Jan comptent ensemble ici.
 
