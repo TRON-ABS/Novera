@@ -805,5 +805,11 @@
     "title": "Foutregistratie",
     "summary": "Optionele rapporten naar {{host}}: fouttype, code-positie, versie en besturingssysteem. Geen gesprekken, onbewerkte foutmeldingen of sleutels. Op elk moment uitschakelbaar.",
     "unavailable": "Foutregistratie is niet geconfigureerd. Er worden geen rapporten verzonden."
+  },
+  "access": {
+    "read": "Alleen lezen",
+    "ask": "Vragen vóór bewerken of verwijderen",
+    "allow": "Bewerken en verwijderen toestaan",
+    "folderNote": "Kies de toegang van Novera tot deze map."
   }
 }

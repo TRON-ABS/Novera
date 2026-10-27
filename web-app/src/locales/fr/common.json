@@ -806,5 +806,11 @@
   "askSelectedCount": "{{count}} sélectionné",
   "askSomethingElse": "Autre chose",
   "askSomethingElsePlaceholder": "Tapez votre propre réponse",
-  "submit": "Soumettre"
+  "submit": "Soumettre",
+  "access": {
+    "read": "Lecture seule",
+    "ask": "Demander avant de modifier ou supprimer",
+    "allow": "Autoriser la modification et la suppression",
+    "folderNote": "Choisissez les accès de Novera à ce dossier."
+  }
 }

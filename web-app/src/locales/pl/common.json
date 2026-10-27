@@ -807,5 +807,11 @@
   "askSelectedCount": "{{count}}",
   "askSomethingElse": "Coś innego",
   "askSomethingElsePlaceholder": "Wpisz własną odpowiedź",
-  "submit": "Prześlij"
+  "submit": "Prześlij",
+  "access": {
+    "read": "Tylko odczyt",
+    "ask": "Pytaj przed edycją lub usunięciem",
+    "allow": "Zezwalaj na edycję i usuwanie",
+    "folderNote": "Wybierz dostęp Novera do tego folderu."
+  }
 }

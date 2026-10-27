@@ -1,5 +1,17 @@
 # Novera — guide utilisateur
 
+## Nouveau projet et choix d’accès — sources du 27 octobre 2026
+
+1. Cliquer sur **Nouveau projet** dans la barre latérale, ou utiliser le raccourci correspondant. Choisir un dossier existant ou en créer un dans le sélecteur système.
+2. Confirmer le mode : **Lecture seule**, **Demander avant modification ou suppression**, ou **Autoriser la modification et la suppression**. Annuler abandonne l’ouverture. Lecture seule est sélectionné initialement.
+3. Retrouver le projet dans la liste, même avant le premier message. Utiliser le bouton bouclier pour revoir les autorisations. **Réinitialiser** retire les accords du shell et remet le dossier en lecture seule.
+
+Avant la première commande du shell, Novera affiche la commande et ses paramètres : **Refuser**, **Autoriser une fois**, ou **Autoriser dans la conversation**. Le dernier choix ne vaut que pour cette conversation et jusqu’au redémarrage de Novera. Il reste indépendant du choix du dossier et des autorisations MCP. Une fermeture ou un arrêt de tâche ne vaut jamais acceptation. Le choix explicite d’accès au dossier est sauvegardé avec le projet ; les accords temporaires du shell ne le sont pas.
+
+Les écritures sans accès au projet restent confinées à l’espace de travail privé par la protection native existante. En mode de confirmation, un moniteur de fond reste en lecture seule. Changer ou réinitialiser les accès s’applique aux appels suivants et annule les confirmations en attente ; utiliser **Arrêter** pour interrompre les commandes déjà lancées.
+
+La discussion conserve les modes Automatique/Texte/Image/Vidéo. Le bouton vidéo compact règle le nombre d’images et la cadence à côté du format et de la résolution pour les profils locaux. Le travail sur dossier utilise encore les outils texte ; la génération vidéo et le parcours visuel dans une nouvelle application compilée restent à valider. Tous les textes sont fournis dans les langues déjà disponibles. Ce lot met à jour les sources, sans nouvelle compilation de Novera.
+
 ## Noms de pièces jointes compatibles — 26 octobre 2026
 
 Les pièces jointes transmises au partage système, au partage navigateur et à **Copier le fichier** utilisent désormais un nom ASCII compatible : accents simplifiés, espaces et caractères spéciaux remplacés, nom de secours `Novera` si nécessaire. L’extension réelle, le titre et le contenu multilingue sont conservés ; l’enregistrement local garde le nom proposé en langue d’origine. Cette protection commune vise les applications destinataires au-delà de WhatsApp. Elle nécessite une nouvelle compilation de Novera.

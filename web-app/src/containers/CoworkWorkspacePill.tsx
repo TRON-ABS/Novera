@@ -11,10 +11,12 @@ import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useServiceHub } from '@/hooks/useServiceHub'
 import { basenameOf } from '@/lib/coworkPreview'
 import { truncateMiddle } from '@/lib/utils'
+import type { FolderAccess } from '@/hooks/useNativeAccess'
 
 type Props = {
   /** Attached project folder, or null when the session is sandbox-only. */
   folder: string | null
+  access?: FolderAccess
   gitBranch?: string | null
   onAttach: () => void
   onDetach: () => void
@@ -26,7 +28,7 @@ type Props = {
  * The sandbox is deliberately unnamed: it is an implementation detail the user
  * never picks or opens, and surfacing it invited the reading that the folder
  * and the sandbox are two halves of one choice. What has to stay visible is the
- * access contract on the folder — the agent reads AND edits it in place.
+ * access contract on the folder, chosen explicitly by the user.
  *
  * The trigger is icon-only until a folder is attached, matching the composer
  * row's other controls: with nothing attached there is no name to print, and a
@@ -34,6 +36,7 @@ type Props = {
  */
 export function CoworkWorkspacePill({
   folder,
+  access = 'read',
   gitBranch,
   onAttach,
   onDetach,
@@ -94,7 +97,7 @@ export function CoworkWorkspacePill({
           className="shrink-0 text-muted-foreground"
           aria-label={
             folderName
-              ? t('common:workspace.a11yWithFolder', { folder: folderName })
+            ? `${folderName} · ${t(`common:access.${access}`)}`
               : t('common:workspace.a11yNoFolder')
           }
         >
@@ -118,12 +121,12 @@ export function CoworkWorkspacePill({
             <p className="text-xs font-medium text-muted-foreground">
               {t('common:workspace.readsFrom')}
             </p>
-            <div className="mt-1 flex items-center gap-2">
+            <div className="mt-1 flex flex-wrap items-center gap-2">
               <Folder size={14} className="shrink-0 text-muted-foreground" />
               <span className="truncate text-sm font-medium">{folderName}</span>
-              <span className="ml-auto inline-flex shrink-0 items-center gap-1 rounded-full bg-muted px-1.5 py-0.5 text-xs font-mono text-muted-foreground">
+              <span className="inline-flex max-w-full items-center gap-1 rounded-lg bg-muted px-1.5 py-0.5 text-xs text-muted-foreground">
                 <PencilLine size={10} />
-                {t('common:workspace.writable')}
+                {t(`common:access.${access}`)}
               </span>
             </div>
             <p
@@ -161,9 +164,7 @@ export function CoworkWorkspacePill({
         ) : null}
 
         <p className="text-xs text-muted-foreground">
-          {folder
-            ? t('common:workspace.footnote')
-            : t('common:workspace.footnoteEmpty')}
+          {t('common:access.folderNote')}
         </p>
 
         <div className="mt-3 flex items-center gap-2">

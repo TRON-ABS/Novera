@@ -805,5 +805,11 @@
     "title": "Urmărirea erorilor",
     "summary": "Rapoarte opționale către {{host}}: tipul de eroare, poziția codului, versiunea și sistemul de operare. Fără conversații, mesaje de eroare brute sau chei. Dezactivați oricând.",
     "unavailable": "Urmărirea erorilor nu este configurată. Nu sunt trimise rapoarte."
+  },
+  "access": {
+    "read": "Doar citire",
+    "ask": "Întreabă înainte de editare sau ștergere",
+    "allow": "Permite editarea și ștergerea",
+    "folderNote": "Alege accesul Novera la acest dosar."
   }
 }

@@ -1,3 +1,4 @@
+import { useNativeAccess } from '@/hooks/useNativeAccess'
 import { create } from 'zustand'
 import { ulid } from 'ulidx'
 import { getServiceHub } from '@/hooks/useServiceHub'
@@ -201,6 +202,7 @@ export const useThreads = create<ThreadState>()((set, get) => ({
     })
   },
   deleteThread: async (threadId) => {
+    useNativeAccess.getState().reset(threadId)
     // Stop producing new content before removing its storage. Keep the session
     // itself available if deletion fails, along with its generated messages.
     const session = useChatSessions.getState().sessions[threadId]

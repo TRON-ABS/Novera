@@ -32,6 +32,8 @@ Lire [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour l’état actuel, [le 
 
 ## Autorisations et état courant
 
+Le **27 octobre 2026**, le mainteneur demande aussi l’application de la fenêtre commune, Nouveau projet sur dossier, choix initial des accès au dossier et au shell, toutes les langues déjà disponibles et préparation de l’interface vidéo. Le consentement au dossier ne vaut jamais accord implicite de modification/suppression ; le shell exige son propre premier choix. Le lot met à jour les sources, MD, dépôt et vitrine sans nouvelle compilation ni publication de binaire.
+
 Le **27 octobre 2026**, le mainteneur demande de publier les dix nouvelles langues et de mettre à jour les Markdown, le dépôt et la vitrine. Les sources passent à 80 locales ; les essais Lara sans clé ne constituent pas six catalogues supplémentaires. Aucune compilation ni publication de binaire pour ce lot.
 
 Le **26 octobre 2026**, le mainteneur demande la mise à jour des MD, du dépôt et de sa vitrine après le panneau compact, les consignes Texte/Image/Vidéo dans 70 langues, Réinitialiser, Auto amélioré et les tailles finales ×2/×4. La publication des sources et des documents est autorisée. Un build Windows a déjà été compilé et contrôlé localement pour ce lot ; cette synchronisation ne déclenche ni compilation supplémentaire, ni publication de binaire, ni activation des Actions.

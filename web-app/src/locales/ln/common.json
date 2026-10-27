@@ -805,5 +805,11 @@
     "title": "Kolanda mabunga",
     "summary": "Ba rapports optionnels na {{host}}: type ya erreur, position ya code, version na système d’exploitation. Masolo te, ba messages ya erreur brute to ba clés te. Désactiver tango nionso.",
     "unavailable": "Suivi ya ba erreurs e configuré te. Ba rapports etindamaka te."
+  },
+  "access": {
+    "read": "Kotanga kaka",
+    "ask": "Tuna liboso ya kobongola to kolongola",
+    "allow": "Pesa nzela ya kobongola mpe kolongola",
+    "folderNote": "Pona ndenge Novera ekoki kokɔta na dosye oyo."
   }
 }

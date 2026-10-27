@@ -1,5 +1,15 @@
 # Novera — tableau de bord
 
+## Fenêtre commune, projets et autorisations — sources du 27 octobre 2026
+
+Le compositeur existant reste au bas de la fenêtre, avec une navigation repliable et un habillage sombre cyan/violet. **Nouveau projet** ouvre un sélecteur de dossier puis un choix explicite : **lecture seule** par défaut, **demander avant modification ou suppression**, ou **autoriser ces changements**. Les projets sans message restent dans la liste. Le choix d’un dossier ne suffit jamais à autoriser des écritures.
+
+Le shell demande un premier accord distinct : refus, une commande, ou les commandes de cette conversation pendant l’exécution courante de l’application. Les accords MCP ne valent pas accord du shell. Fermer la confirmation ou arrêter la tâche refuse les demandes en attente. Le bouton bouclier permet de revoir l’accès au dossier et de réinitialiser les accords. Les outils natifs reçoivent l’accès effectif à chaque appel ; les anciens dossiers sans choix explicite restent en lecture seule.
+
+Le panneau vidéo de la discussion ajoute le nombre d’images et la cadence aux commandes de format/résolution. Les projets sur dossier conservent leur parcours d’outils texte dans la même fenêtre ; leur transport ne génère pas de médias. Les moteurs vidéo et leur validation réelle feront l’objet d’un lot séparé. Tous les nouveaux textes sont présents dans **toutes les langues déjà disponibles** ; il ne s’agit pas d’une certification linguistique.
+
+Validation locale : **768 tests web réussis dans 51 fichiers** (dernier état de chaque fichier), TypeScript sans émission, sept tests d’architecture et contrôle des **80 locales × 1 742 clés** sans erreur. Contrôle visuel complet dans une application recompilée encore à réaliser : le navigateur intégré ne joint pas le serveur local. Aucun nouveau binaire, aucune validation CI ni nouveau rendu vidéo.
+
 ## Langues — sources du 27 octobre 2026
 
 Dix catalogues ajoutés : cebuano, kazakh, cingalais, xhosa, khmer, afrikaans, maïthili, wolof, kurmandji et kinyarwanda. **80 locales × 1 738 clés**, dans 14 espaces de noms ; contrôle technique sans erreur. Brouillons assistés par Google ; Microsoft complète le kinyarwanda via son interface web. Relecture native requise. Les essais Lara sans clé couvrent trois phrases dans chacune des six langues rares proposées ; le magahi a produit un fragment parasite. Ces six catalogues ne sont pas ajoutés à ce lot et aucune certification linguistique n’est annoncée.

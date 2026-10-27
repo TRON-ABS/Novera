@@ -1,7 +1,6 @@
 import { useKeyboardShortcut } from '@/hooks/useHotkeys'
 import { useLeftPanel } from '@/hooks/useLeftPanel'
 import { useSearchDialog } from '@/hooks/useSearchDialog'
-import { useProjectDialog } from '@/hooks/useProjectDialog'
 import { useRouter } from '@tanstack/react-router'
 import { route } from '@/constants/routes'
 import { PlatformShortcuts, ShortcutAction } from '@/lib/shortcuts'
@@ -13,7 +12,6 @@ import { TEMPORARY_CHAT_ID } from '@/constants/chat'
 export function KeyboardShortcutsProvider() {
   const { open, setLeftPanel } = useLeftPanel()
   const { setOpen: setSearchOpen } = useSearchDialog()
-  const { setOpen: setProjectDialogOpen } = useProjectDialog()
   const router = useRouter()
 
   // Get shortcut specs from centralized configuration
@@ -55,7 +53,7 @@ export function KeyboardShortcutsProvider() {
   useKeyboardShortcut({
     ...newProjectShortcut,
     callback: () => {
-      setProjectDialogOpen(true)
+      window.dispatchEvent(new Event('novera-new-workspace-project'))
     },
   })
 

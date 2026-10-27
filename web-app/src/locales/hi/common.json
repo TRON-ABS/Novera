@@ -807,5 +807,11 @@
   "askSelectedCount": "{{count}} चयनित",
   "askSomethingElse": "कुछ और",
   "askSomethingElsePlaceholder": "अपना उत्तर स्वयं टाइप करें",
-  "submit": "सबमिट करें"
+  "submit": "सबमिट करें",
+  "access": {
+    "read": "केवल पढ़ें",
+    "ask": "बदलने या हटाने से पहले पूछें",
+    "allow": "बदलने और हटाने की अनुमति दें",
+    "folderNote": "इस फ़ोल्डर के लिए Novera की पहुँच चुनें।"
+  }
 }

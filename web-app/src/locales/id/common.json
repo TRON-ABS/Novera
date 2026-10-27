@@ -807,5 +807,11 @@
   "askSelectedCount": "{{count}} dipilih",
   "askSomethingElse": "Sesuatu yang lain",
   "askSomethingElsePlaceholder": "Ketik jawaban Anda sendiri",
-  "submit": "Kirim"
+  "submit": "Kirim",
+  "access": {
+    "read": "Hanya baca",
+    "ask": "Tanya sebelum mengedit atau menghapus",
+    "allow": "Izinkan pengeditan dan penghapusan",
+    "folderNote": "Pilih akses Novera ke folder ini."
+  }
 }

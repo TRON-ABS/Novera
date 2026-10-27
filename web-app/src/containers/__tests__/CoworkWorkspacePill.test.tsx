@@ -43,11 +43,7 @@ describe('CoworkWorkspacePill', () => {
     ).toBeGreaterThan(0)
   })
 
-  // The honesty requirement, inverted from the read-only days: the folder is
-  // mounted writable now, so the popover must say the agent edits it in place.
-  // A regression here would have the UI promising an untouched project while
-  // the agent changes real files.
-  it('names the folder and marks it read & write', async () => {
+  it('names the folder and defaults to read-only access', async () => {
     render(
       <CoworkWorkspacePill
         folder="/home/u/Projects/jan-app"
@@ -56,15 +52,15 @@ describe('CoworkWorkspacePill', () => {
         onDetach={vi.fn()}
       />
     )
-    await userEvent.click(screen.getByRole('button', { name: /a11yWithFolder/ }))
+    await userEvent.click(screen.getByRole('button', { name: /jan-app/ }))
 
     expect(screen.getByText('common:workspace.readsFrom')).toBeInTheDocument()
     expect(
-      screen.getAllByText('common:workspace.writable').length
+      screen.getAllByText('common:access.read').length
     ).toBeGreaterThan(0)
     expect(screen.queryByText('common:workspace.readOnly')).toBeNull()
     expect(screen.getByText('dev')).toBeInTheDocument()
-    expect(screen.getByText('common:workspace.footnote')).toBeInTheDocument()
+    expect(screen.getByText('common:access.folderNote')).toBeInTheDocument()
   })
 
   it('opens the folder and reveals it through the right opener calls', async () => {
@@ -75,7 +71,7 @@ describe('CoworkWorkspacePill', () => {
         onDetach={vi.fn()}
       />
     )
-    await userEvent.click(screen.getByRole('button', { name: /a11yWithFolder/ }))
+    await userEvent.click(screen.getByRole('button', { name: /jan-app/ }))
 
     await userEvent.click(screen.getAllByText('common:workspace.open')[0])
     expect(openPath).toHaveBeenCalledWith('/home/u/Projects/jan-app')
@@ -94,7 +90,7 @@ describe('CoworkWorkspacePill', () => {
         onDetach={vi.fn()}
       />
     )
-    await userEvent.click(screen.getByRole('button', { name: /a11yWithFolder/ }))
+    await userEvent.click(screen.getByRole('button', { name: /jan-app/ }))
     await userEvent.click(screen.getAllByText('common:workspace.open')[0])
 
     await vi.waitFor(() => {
@@ -124,7 +120,7 @@ describe('CoworkWorkspacePill', () => {
         onDetach={vi.fn()}
       />
     )
-    await userEvent.click(screen.getByRole('button', { name: /a11yWithFolder/ }))
+    await userEvent.click(screen.getByRole('button', { name: /jan-app/ }))
     await userEvent.click(screen.getByText('common:workspace.reveal'))
 
     await vi.waitFor(() => {
@@ -150,7 +146,7 @@ describe('CoworkWorkspacePill', () => {
         onDetach={onDetach}
       />
     )
-    await userEvent.click(screen.getByRole('button', { name: /a11yWithFolder/ }))
+    await userEvent.click(screen.getByRole('button', { name: /jan-app/ }))
     await userEvent.click(screen.getByText('common:workspace.detach'))
     expect(onDetach).toHaveBeenCalled()
   })

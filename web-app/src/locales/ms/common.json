@@ -805,5 +805,11 @@
     "title": "Penjejakan ralat",
     "summary": "Laporan pilihan kepada {{host}}: jenis ralat, kedudukan kod, versi dan sistem pengendalian. Tiada perbualan, mesej ralat mentah atau kunci. Lumpuhkan bila-bila masa.",
     "unavailable": "Penjejakan ralat tidak dikonfigurasikan. Tiada laporan dihantar."
+  },
+  "access": {
+    "read": "Baca sahaja",
+    "ask": "Tanya sebelum menyunting atau memadam",
+    "allow": "Benarkan penyuntingan dan pemadaman",
+    "folderNote": "Pilih akses Novera kepada folder ini."
   }
 }

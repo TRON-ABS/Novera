@@ -807,5 +807,11 @@
   "askSelectedCount": "{{count}} 已选择",
   "askSomethingElse": "其他",
   "askSomethingElsePlaceholder": "输入您自己的答案",
-  "submit": "提交"
+  "submit": "提交",
+  "access": {
+    "read": "只读",
+    "ask": "修改或删除前询问",
+    "allow": "允许修改和删除",
+    "folderNote": "选择 Novera 对此文件夹的访问权限。"
+  }
 }

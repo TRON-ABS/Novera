@@ -805,5 +805,11 @@
     "title": "Pagsubaybay sa mga error",
     "summary": "Opsyonal na ulat sa {{host}}: uri ng error, lokasyon sa code, bersyon at operating system. Walang pag-uusap, orihinal na mensahe ng error o key. Maaaring i-off anumang oras.",
     "unavailable": "Hindi pa naka-configure ang pagsubaybay sa error. Walang ipinapadalang ulat."
+  },
+  "access": {
+    "read": "Pagbasa lamang",
+    "ask": "Magtanong bago mag-edit o magtanggal",
+    "allow": "Payagan ang pag-edit at pagtanggal",
+    "folderNote": "Piliin ang access ng Novera sa folder na ito."
   }
 }

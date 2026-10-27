@@ -18,6 +18,7 @@ import { cn } from '@/lib/utils'
 import { useTitlebarLayout } from '@/stores/titlebar-layout-store'
 import { useLocation } from '@tanstack/react-router'
 import { isCoworkRoute, route } from '@/constants/routes'
+import { NewWorkspaceProject, WorkspaceProjects } from './WorkspaceProjects'
 import { isCoworkEnabled } from '@/lib/version'
 
 export function LeftSidebar() {
@@ -35,19 +36,21 @@ export function LeftSidebar() {
   const reserveLeft = IS_MACOS || leftButtons > 0
   return (
     <div className='relative z-50'>
-      <Sidebar variant="floating" collapsible="offcanvas">
+      <Sidebar variant="floating" collapsible="icon" className="novera-sidebar">
         <SidebarHeader className="flex px-1">
           <div className={cn("flex items-center w-full justify-between", reserveLeft && "justify-end")}>
-            {!reserveLeft && <span className="ml-2 font-medium font-studio">Novera</span>}
+            {!reserveLeft && <span className="novera-wordmark ml-2 font-medium font-studio group-data-[collapsible=icon]:hidden">Novera</span>}
             <div className="flex items-center">
               {isLeftPanelOpen && <DownloadManagement />}
               <SidebarTrigger className="text-muted-foreground rounded-full hover:bg-sidebar-foreground/8! -mt-0.5 relative z-50 ml-0.5" />
             </div>
           </div>
           <NavTabs surfacePath={surfacePath} />
+          <NewWorkspaceProject />
           {isCowork ? <NavCowork /> : <NavMain />}
         </SidebarHeader>
         <SidebarContent className="mask-b-from-95% mask-t-from-98%">
+          <WorkspaceProjects />
           {!isCowork && (
             <>
               <NavProjects />

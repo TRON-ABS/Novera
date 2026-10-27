@@ -806,5 +806,11 @@
   "askSelectedCount": "{{count}} selezionato",
   "askSomethingElse": "Qualcos'altro",
   "askSomethingElsePlaceholder": "Digita la tua risposta",
-  "submit": "Invia"
+  "submit": "Invia",
+  "access": {
+    "read": "Sola lettura",
+    "ask": "Chiedi prima di modificare o eliminare",
+    "allow": "Consenti modifica ed eliminazione",
+    "folderNote": "Scegli l’accesso di Novera a questa cartella."
+  }
 }

@@ -24,6 +24,8 @@ import {
   type WorkspaceScope,
 } from '@janhq/tauri-plugin-agent-tools-api'
 import { getServiceHub } from '@/hooks/useServiceHub'
+import { nativeToolAccess } from './nativeToolAccess'
+import { useNativeAccess } from '@/hooks/useNativeAccess'
 
 /**
  * The built-in agent tools the desktop can dispatch.
@@ -282,13 +284,19 @@ export async function executeAgentTool(
    */
   skillProject?: string | null
 ): Promise<AgentToolResult> {
+  const generation = useNativeAccess.getState().generation[threadId] ?? 0
   try {
     const dataFolder = await getServiceHub().app().getJanDataFolder()
+    if ((useNativeAccess.getState().generation[threadId] ?? 0) !== generation) return { error: 'Operation cancelled.' }
     if (!dataFolder) return { error: 'Novera data folder is unavailable' }
     const args =
       input && typeof input === 'object'
         ? (input as Record<string, unknown>)
         : {}
+    const access = await nativeToolAccess(threadId, toolName, args, scope === 'session' ? readOnlyProject : null)
+    if (!access.allowed || (useNativeAccess.getState().generation[threadId] ?? 0) !== generation) {
+      return { error: 'User permission was denied or the operation was cancelled.' }
+    }
     const result = await executeTool(
       dataFolder,
       threadId,
@@ -298,7 +306,7 @@ export async function executeAgentTool(
       undefined,
       allowNetwork,
       readOnlyProject ?? undefined,
-      projectWritable,
+      projectWritable && access.writable,
       scope
     )
     if (result.isError) return { error: result.content }
@@ -331,15 +339,19 @@ export async function startAgentMonitor(
   allowNetwork = false,
   projectWritable = false
 ): Promise<{ output: string; isError?: boolean }> {
+  const generation = useNativeAccess.getState().generation[sessionId] ?? 0
   try {
     const dataFolder = await getServiceHub().app().getJanDataFolder()
+    if ((useNativeAccess.getState().generation[sessionId] ?? 0) !== generation) return { output: 'ERROR: Operation cancelled.', isError: true }
     if (!dataFolder) return { output: 'ERROR: Novera data folder is unavailable', isError: true }
     const input =
       args && typeof args === 'object' ? (args as Record<string, unknown>) : {}
+    const access = await nativeToolAccess(sessionId, 'monitor', input, readOnlyProject)
+    if (!access.allowed || (useNativeAccess.getState().generation[sessionId] ?? 0) !== generation) return { output: 'ERROR: User permission denied or operation cancelled.', isError: true }
     const output = await startMonitor(dataFolder, sessionId, input, onUpdate, {
       allowNetwork,
       readOnlyProject: readOnlyProject ?? undefined,
-      projectWritable,
+      projectWritable: projectWritable && access.writable,
       scope: 'session',
     })
     return { output }
@@ -402,6 +414,7 @@ export async function stopAgentSessionMonitors(sessionId: string): Promise<void>
  * only means a shell keeps running, not user-visible damage.
  */
 export async function cancelAgentThreadBash(sessionId: string): Promise<void> {
+  useNativeAccess.getState().cancel(sessionId)
   try {
     await cancelThreadBash(sessionId)
   } catch (e) {

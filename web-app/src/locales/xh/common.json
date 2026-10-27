@@ -805,5 +805,11 @@
     "title": "Ukulandelela impazamo",
     "summary": "Iingxelo ezikhethiweyo kwi-{{host}}: uhlobo lwephutha, indawo yekhowudi, inguqulelo kunye nenkqubo yokusebenza. Akukho ncoko, imiyalezo yemposiso ekrwada okanye izitshixo. Khubaza nanini na.",
     "unavailable": "Ukulandelela impazamo akumiselwanga. Akukho zingxelo zithunyelwayo."
+  },
+  "access": {
+    "read": "Ukufunda kuphela",
+    "ask": "Buza ngaphambi kokuhlela okanye ukucima",
+    "allow": "Vumela ukuhlela nokucima",
+    "folderNote": "Khetha ukufikelela kweNovera kule folda."
   }
 }

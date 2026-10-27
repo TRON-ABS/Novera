@@ -805,5 +805,11 @@
     "title": "Titele aṣiṣe",
     "summary": "Awọn ijabọ aṣayan si {{host}}: iru aṣiṣe, ipo koodu, ẹya ati ẹrọ ṣiṣe. Ko si awọn ibaraẹnisọrọ, awọn ifiranṣẹ aṣiṣe aise tabi awọn bọtini. Pa nigbakugba.",
     "unavailable": "Titele aṣiṣe ko tunto. Ko si iroyin ti wa ni rán."
+  },
+  "access": {
+    "read": "Kíkà nìkan",
+    "ask": "Béèrè kí o tó ṣàtúnṣe tàbí parẹ́",
+    "allow": "Gba àtúnṣe àti píparẹ́ láàyè",
+    "folderNote": "Yan bí Novera ṣe lè wọ fódà yìí."
   }
 }

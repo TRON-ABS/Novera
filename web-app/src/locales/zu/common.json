@@ -805,5 +805,11 @@
     "title": "Ukulandela amaphutha",
     "summary": "Izibalo ezizikhethela {{host}}: uhlobo lwephutha, indawo yekhodi, uguqulo nohlu lohlelo lokusebenza. Azikho izingxoxo, imiyalezo eqondile yamaphutha noma okhiye. Ungayivala noma nini.",
     "unavailable": "Ukulandela amaphutha akulungisiwe. Azikho izibalo ezithunyelwe."
+  },
+  "access": {
+    "read": "Ukufunda kuphela",
+    "ask": "Buza ngaphambi kokuhlela noma ukususa",
+    "allow": "Vumela ukuhlela nokususa",
+    "folderNote": "Khetha ukufinyelela kwe-Novera kule folda."
   }
 }

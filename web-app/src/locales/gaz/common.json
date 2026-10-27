@@ -805,5 +805,11 @@
     "title": "Hordoffii dogoggoraa",
     "summary": "Gabaasa filannoo gara {{host}}: gosa dogoggoraa, iddoo koodii, gitaafi sirna hojii. Mariiwwan, ergaawwan dogoggoraa hin qindaa'in yookiin furtuuwwan hin ergan. Yeroo barbaaddetti cufuu dandeessa.",
     "unavailable": "Hordoffiin dogoggoraa hin qindaa'ine. Gabaasni hin ergamu."
+  },
+  "access": {
+    "read": "Dubbisuu qofa",
+    "ask": "Gulaaluu yookaan haquu dura gaafadhu",
+    "allow": "Gulaaluu fi haquu hayyami",
+    "folderNote": "Novera akkamitti galmee kana akka seenu filadhu."
   }
 }

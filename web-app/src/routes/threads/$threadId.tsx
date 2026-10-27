@@ -100,6 +100,7 @@ import { Button } from '@/components/ui/button'
 import { IconAlertCircle, IconRefresh, IconLoader2 } from '@tabler/icons-react'
 import { useToolApproval } from '@/hooks/useToolApproval'
 import { useToolApprovalRequests } from '@/hooks/useToolApprovalRequests'
+import { useNativeAccess } from '@/hooks/useNativeAccess'
 import { useToolCallRuntime } from '@/hooks/useToolCallRuntime'
 import { WEB_TOOL_NAMES, executeWebTool } from '@/lib/webSearchTool'
 import { CHAT_AGENT_TOOL_NAMES, executeAgentTool } from '@/lib/agentTools'
@@ -329,6 +330,7 @@ function ThreadConversation() {
     toolLoopControllers.delete(threadId)
     forgetApprovals(threadId)
     useToolApprovalRequests.getState().clearPendingForThread(threadId)
+    useNativeAccess.getState().cancel(threadId)
     useAppState.getState().setThreadBusy(threadId, false)
   }, [threadId])
   sessionData.dispose = cancelToolLoop
@@ -653,6 +655,7 @@ function ThreadConversation() {
         forgetApprovals(threadId)
         sessionData.tools = []
         useToolApprovalRequests.getState().clearPendingForThread(threadId)
+        useNativeAccess.getState().cancel(threadId)
         return
       }
 
@@ -1050,6 +1053,7 @@ function ThreadConversation() {
     toolLoopControllers.get(threadId)?.abort()
     running?.abort()
     useToolApprovalRequests.getState().clearPendingForThread(threadId)
+    useNativeAccess.getState().cancel(threadId)
     stop()
 
     // Only the turn being stopped. Taken from the SDK's own chat state, which
@@ -2165,7 +2169,7 @@ function ThreadConversation() {
         >
           <Conversation className="absolute inset-0 text-start">
             <ConversationContent
-              className={cn('mx-auto w-full md:w-4/5 xl:w-4/6')}
+              className={cn('mx-auto w-full max-w-6xl px-3 md:px-6')}
             >
               {chatMessages.map((message, index) => {
                 const isLastMessage = index === chatMessages.length - 1
@@ -2314,7 +2318,7 @@ function ThreadConversation() {
         </div>
 
         {/* Chat Input - Fixed at bottom */}
-        <div className="py-4 mx-auto w-full md:w-4/5 xl:w-4/6">
+        <div className="py-4 mx-auto w-full max-w-6xl px-3 md:px-6">
           {currentHistoryError ? (
             <div role="alert" className="rounded-lg border p-4">
               <p>Unable to load conversation history.</p>

@@ -10,6 +10,15 @@
 
 ---
 
+## Fenêtre commune et accès explicites
+
+Sources du 27 octobre 2026 : le compositeur existant reste en bas d’une seule fenêtre, avec navigation repliable cyan/violet et **Nouveau projet** sur dossier. Avant l’ouverture, choisir lecture seule (par défaut), confirmation avant modification/suppression, ou autorisation explicite de ces changements. Le shell demande son propre premier accord : une commande, ou cette conversation jusqu’au redémarrage. Le bouton bouclier permet de revoir l’accès au dossier et de réinitialiser les accords. Les accords MCP ne donnent aucun accord implicite au shell natif.
+
+Les commandes vidéo de la discussion ajoutent nombre d’images et cadence au format et à la résolution des profils locaux. Les projets sur dossier gardent leur parcours d’outils texte dans la même fenêtre. Les nouveaux textes couvrent toutes les langues déjà disponibles : 80 catalogues × 1 742 clés. Relecture native toujours nécessaire.
+
+Validation locale : 768 tests web dans 51 fichiers, TypeScript, sept tests d’architecture et contrôle des catalogues. Le contrôle visuel complet dans une application recompilée, les commandes réelles sur chaque plateforme et les nouveaux rendus vidéo restent à réaliser. **Sources uniquement ; aucun nouveau binaire ni validation CI.** Voir le [guide](docs/USER_GUIDE.md#nouveau-projet-et-choix-daccès--sources-du-27-octobre-2026).
+
+
 ## Panneau compact et consignes ciblées
 
 ![Panneau compact Novera dans le build Windows local](.github/assets/novera-composer.jpg)
@@ -51,7 +60,7 @@ Ces domaines constituent une direction de contribution et de développement, pas
 | --- | --- |
 | IA locale et cloud | Un Hub relié directement à Hugging Face et 41 fournisseurs cloud prédéfinis. Les formats et modèles utilisables dépendent du moteur, du compte et du matériel. |
 | Outils et documents | Des intégrations MCP, la recherche dans les documents et des fonctions d’assistant héritées du code existant. |
-| Interface multilingue | 80 locales sélectionnables couvrant chacune les 1 738 clés anglaises actuelles. Relecture native encore nécessaire. |
+| Interface multilingue | 80 locales sélectionnables couvrant chacune les 1 742 clés anglaises actuelles. Relecture native encore nécessaire. |
 | Application extensible | Une application de bureau avec des points d’extension pour les moteurs, les outils et les futures capacités. |
 
 Ces éléments décrivent les sources. Le dernier build 1.0.0 Windows x64 a été compilé et démarré localement le 26 octobre 2026, avec le panneau compact et les consignes par catégorie. La distribution publique et la validation sur davantage de matériels restent à préparer.
@@ -151,7 +160,7 @@ Le Hub explore 23 entrées de navigation à partir des métadonnées Hugging Fac
 
 ## 80 langues et variantes d’interface
 
-Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et à 44 nouveaux catalogues Novera. Les dix derniers catalogues sources sont cebuano, kazakh, cingalais, xhosa, khmer, afrikaans, maïthili, wolof, kurmandji et kinyarwanda. **Les 80 catalogues couvrent chacun les 1 738 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Les anciens builds locaux incluent les catalogues dans leur état d’alors ; le dernier build local inclut les textes de consignes, d’installation et de bibliothèque ; aucun binaire public n’est publié. Certains catalogues sont des variantes éditoriales fondées en partie sur des textes techniques écrits communs ; leur adaptation vernaculaire intégrale reste ouverte. Le guide des langues précise leur périmètre.
+Nos 19 contributions linguistiques sont intégrées aux 17 locales héritées et à 44 nouveaux catalogues Novera. Les dix derniers catalogues sources sont cebuano, kazakh, cingalais, xhosa, khmer, afrikaans, maïthili, wolof, kurmandji et kinyarwanda. **Les 80 catalogues couvrent chacun les 1 742 clés anglaises actuelles (100 %)**, y compris le wu / shanghaïen. Les dernières 9 219 entrées des locales héritées et 757 entrées wu ont été complétées le 25 octobre 2026. Ce chiffre mesure la présence des clés ; une relecture par des locuteurs natifs reste nécessaire. Les anciens builds locaux incluent les catalogues dans leur état d’alors ; le dernier build local inclut les textes de consignes, d’installation et de bibliothèque ; aucun binaire public n’est publié. Certains catalogues sont des variantes éditoriales fondées en partie sur des textes techniques écrits communs ; leur adaptation vernaculaire intégrale reste ouverte. Le guide des langues précise leur périmètre.
 
 L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais, l’arabe algérien, l’arabe marocain, l’arabe saïdi, le pachto du Nord, le saraiki, le sindhi, le dari, l’ourdou, le pendjabi occidental et le persan iranien bénéficient du support de l’écriture de droite à gauche. Les capacités linguistiques des modèles dépendent du modèle choisi et sont distinctes de la traduction de l’interface.
 
@@ -159,7 +168,7 @@ L’arabe standard, l’arabe égyptien, l’arabe levantin, l’arabe soudanais
 
 ## État du projet
 
-**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 80 catalogues complets en clés (1 738 chacun), le Hub adaptatif, le moteur textuel local Safetensors/Transformers et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
+**Novera 1.0.0 est en développement ; aucun binaire public n’est encore publié.** Les sources intègrent 35 corrections Windows, 80 catalogues complets en clés (1 742 chacun), le Hub adaptatif, le moteur textuel local Safetensors/Transformers et les fournisseurs cloud actualisés. La relecture native des traductions reste nécessaire.
 
 Le premier démarrage sauvegarde la langue système, propose LFM2.5-2.6B Q6_K sur desktop avec DSpark facultatif, et demande séparément le suivi des erreurs, désactivé par défaut. Les sources et les binaires sont suivis séparément ; le dernier build local inclut les correctifs du Hub, dont le parcours complet reste à tester par le mainteneur. Voir [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour les validations et limites exactes. GitHub Actions et mises à jour automatiques restent désactivés.
 

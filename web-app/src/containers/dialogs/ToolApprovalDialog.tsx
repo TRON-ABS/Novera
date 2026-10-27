@@ -29,6 +29,8 @@ export function ToolApprovalDialog({
   description,
   offersAlways = true,
   showSecurityNotice = false,
+  focusDeny = false,
+  alwaysLabel,
   children,
   onDecision,
 }: {
@@ -39,6 +41,8 @@ export function ToolApprovalDialog({
   /** Show the allow-always button (defaults to true, matching the chat flow). */
   offersAlways?: boolean
   showSecurityNotice?: boolean
+  focusDeny?: boolean
+  alwaysLabel?: string
   children?: ReactNode
   onDecision: (decision: ApprovalDecision) => void
 }) {
@@ -89,6 +93,7 @@ export function ToolApprovalDialog({
             variant="ghost"
             size="sm"
             onClick={() => onDecision('deny')}
+            autoFocus={focusDeny}
             className="flex-1 text-right sm:flex-none"
           >
             {t('tools:toolApproval.deny')}
@@ -97,7 +102,7 @@ export function ToolApprovalDialog({
             <Button
               variant="ghost"
               size="sm"
-              autoFocus={!offersAlways}
+              autoFocus={!offersAlways && !focusDeny}
               onClick={() => onDecision('allow-once')}
             >
               {t('tools:toolApproval.allowOnce')}
@@ -106,11 +111,11 @@ export function ToolApprovalDialog({
               <Button
                 variant="default"
                 size="sm"
-                autoFocus
+                autoFocus={!focusDeny}
                 className="capitalize"
                 onClick={() => onDecision('allow-always')}
               >
-                {t('tools:toolApproval.alwaysAllow')}
+                {alwaysLabel ?? t('tools:toolApproval.alwaysAllow')}
               </Button>
             )}
           </div>

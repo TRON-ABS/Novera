@@ -805,5 +805,11 @@
     "title": "Sayop sa pagsubay",
     "summary": "Opsyonal nga mga taho sa {{host}}: tipo sa sayup, posisyon sa code, bersyon ug operating system. Walay mga panag-istoryahanay, hilaw nga mga mensahe sa sayop o mga yawe. Pag-disable bisan kanus-a.",
     "unavailable": "Ang pagsubay sa sayop wala ma-configure. Walay report nga gipadala."
+  },
+  "access": {
+    "read": "Pagbasa lamang",
+    "ask": "Pangutana una sa pag-usab o pagtangtang",
+    "allow": "Tugoti ang pag-usab ug pagtangtang",
+    "folderNote": "Pilia ang pagtugot sa Novera alang niining folder."
   }
 }

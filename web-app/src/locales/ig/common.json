@@ -805,5 +805,11 @@
     "title": "Njehie nsuso",
     "summary": "Nkwupụta nhọrọ na {{host}}: ụdị njehie, ọnọdụ koodu, ụdị na sistemụ arụmọrụ. Enweghị mkparịta ụka, ozi mperi ma ọ bụ igodo. Gbanyụọ oge ọ bụla.",
     "unavailable": "Ahazighị mperi nsochi. Ọ dịghị akụkọ ezipụ."
+  },
+  "access": {
+    "read": "Naanị ịgụ",
+    "ask": "Jụọ tupu idezi ma ọ bụ ihichapụ",
+    "allow": "Kwe ka edezi ma hichapụ",
+    "folderNote": "Họrọ otú Novera ga-esi nweta folda a."
   }
 }

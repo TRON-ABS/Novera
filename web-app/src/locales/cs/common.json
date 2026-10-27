@@ -806,5 +806,11 @@
   "askSelectedCount": "{{count}}",
   "askSomethingElse": "Něco jiného",
   "askSomethingElsePlaceholder": "Napište vlastní odpověď",
-  "submit": "Odeslat"
+  "submit": "Odeslat",
+  "access": {
+    "read": "Pouze čtení",
+    "ask": "Ptát se před úpravou nebo smazáním",
+    "allow": "Povolit úpravy a mazání",
+    "folderNote": "Vyberte přístup aplikace Novera k této složce."
+  }
 }

@@ -127,7 +127,7 @@ const getNavMainItems = (
     ),
   },
   {
-    title: 'common:hub',
+    title: 'providers:models',
     url: route.hub.index,
     animatedIcon: BlocksIcon,
   },
@@ -162,6 +162,7 @@ function NavMainItemWithAnimatedIcon({
         asChild={!!item.url}
         isActive={item.isActive}
         data-testid={item.testId}
+        tooltip={label}
         onMouseEnter={() => iconRef.current?.startAnimation()}
         onMouseLeave={() => iconRef.current?.stopAnimation()}
         onClick={item.onClick}
@@ -204,7 +205,7 @@ export function NavMain() {
   return (
     <>
       <SidebarMenu>
-        {navMainItems.map((item) => {
+        {navMainItems.filter((item) => item.title !== 'common:projects.new').map((item) => {
           if (item.animatedIcon) {
             return (
               <NavMainItemWithAnimatedIcon

@@ -28,6 +28,9 @@ vi.mock('@/hooks/useServiceHub', () => ({
   getServiceHub: () => ({ app: () => ({ getJanDataFolder }) }),
 }))
 
+// These tests cover IPC plumbing. Native consent is exercised separately.
+vi.mock('@/lib/nativeToolAccess', () => ({ nativeToolAccess: vi.fn().mockResolvedValue({ allowed: true, writable: true }) }))
+
 const schemaFor = (name: string) => ({
   type: 'function' as const,
   function: { name, description: `${name} desc`, parameters: {} },

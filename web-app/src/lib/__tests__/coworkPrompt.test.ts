@@ -23,28 +23,13 @@ describe('buildCoworkSystemPrompt', () => {
     expect(p).toContain('No project folder is attached')
   })
 
-  // The shared folder is writable on this surface. The prompt has to say so —
-  // a model that assumes read-only copies files into the sandbox and hands the
-  // user stale duplicates — and to say it is real user data, since the
-  // sandbox's anything-goes norms no longer apply.
-  it('spells out that an attached folder is writable, in place, and real data', () => {
+  it('requires user consent for attached folder changes and explains path resolution', () => {
     const p = buildCoworkSystemPrompt(opts({ readOnlyFolder: '/home/u/repo' }))
     expect(p).toContain('/home/u/repo')
-    expect(p).toMatch(/writable/i)
-    expect(p).toMatch(/IN PLACE/)
-    expect(p).toMatch(/real user\s+data/i)
-    expect(p).not.toContain('READ-ONLY')
-  })
-
-  // #8882: an attached folder is the working directory, so the prompt names it
-  // as the root relative paths resolve against -- not the sandbox, which would
-  // send bare-named artifacts into Jan's data folder.
-  it('makes the attached folder the working directory relative paths resolve against', () => {
-    const p = buildCoworkSystemPrompt(opts({ readOnlyFolder: '/home/u/repo' }))
-    expect(p).toMatch(/working directory[^]*\/home\/u\/repo/)
-    expect(p).toMatch(/[Rr]elative paths resolve against it/)
-    // The sandbox path is not presented as the workspace when a folder is set.
-    expect(p).not.toContain('/data/agent-workspace/sessions/s1')
+    expect(p).toContain('attachment alone does not grant writes')
+    expect(p).toContain('private sandbox as the relative working directory')
+    expect(p).toContain('explicitly granted write access')
+    expect(p).toContain('Never treat a denied or dismissed request as consent')
   })
 
   it('explains a missing shell rather than staying silent about it', () => {
@@ -163,7 +148,7 @@ describe('buildSubagentSystemPrompt', () => {
     // for the CLI (cwd is the project) but leaves a desktop child unable to
     // guess its working directory -- the attached folder here (#8882).
     expect(out).toContain('/home/me/repo')
-    expect(out).toMatch(/writable/i)
+    expect(out).toContain('attachment alone does not grant writes')
   })
 
   it('names the sandbox as the child workspace when no folder is attached', () => {

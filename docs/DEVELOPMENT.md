@@ -1,5 +1,15 @@
 # Novera — développement
 
+## Projets sur dossier et consentement natif — 27 octobre 2026
+
+`WorkspaceProjects` rattache le dossier uniquement après confirmation de `FolderAccessDialog`. `useCoworkSessions.folderAccess` sauvegarde `read`, `ask` ou `allow` ; l’absence du champ dans un ancien profil signifie `read`. Les dossiers sont conservés même sans message. Le garde Cowork autorise les projets explicitement configurés dans le canal stable, sans activer globalement les fonctionnalités de préversion.
+
+`nativeToolAccess` protège les deux points d’invocation de `agentTools` : exécution et démarrage de moniteur. Les appels parents/enfants partagent le propriétaire de session. `useNativeAccess` contient une file de décisions, des accords temporaires par conversation/type et un compteur d’annulation. Le compteur est vérifié autour des attentes et juste avant l’appel natif : arrêt, changement de dossier ou suppression ne doivent pas réactiver une ancienne demande. Le drapeau effectif `projectWritable` exige à la fois la demande du client et l’accès choisi. La protection de chemins et le confinement restent dans le plugin natif existant.
+
+Les accords MCP n’accordent jamais le shell natif. Refus sélectionné initialement, Échap/fermeture = refus ; chaque nouvelle demande réinitialise ce focus. Les moniteurs d’un dossier en mode `ask` restent en lecture seule. Réinitialiser retire les accords futurs ; cela ne remplace pas l’arrêt des commandes déjà exécutées. Aucun moteur, format de média ni contrat Rust supplémentaire pour le bouton compact images/cadence vidéo.
+
+Validation locale : **768 tests web réussis dans 51 fichiers** (dernier état de chaque fichier), TypeScript sans émission, sept tests d’architecture et contrôle des **80 locales × 1 742 clés** sans erreur. Contrôle visuel complet dans une application recompilée encore à réaliser : le navigateur intégré ne joint pas le serveur local. Aucun nouveau binaire, aucune validation CI ni nouveau rendu vidéo.
+
 ## Partage local et dimensions média — 26 octobre 2026
 
 Les règles de sélection de la branche et du contenu appartiennent à `modules/conversations/share.ts`, le calcul des dimensions à `modules/engines/media-size.ts`. `services/sharing/` produit les documents et archives ; `ShareButton` orchestre un instantané, la sélection et l’aperçu avant action. Les archives ZIP sont bornées et refusent traversée et doublons. Le rendu Markdown échappe le HTML brut, conserve du MathML, puis les convertisseurs produisent les structures OOXML/ODF/EPUB. L’export historique par disquette reste disponible, avec son propre schéma JSON ; le nouveau JSON de partage utilise `novera-share`, version 1.

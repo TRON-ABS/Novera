@@ -30,6 +30,7 @@ import ErrorDialog from '@/containers/dialogs/ErrorDialog'
 import LlamacppBusyOnExitDialog from '@/containers/dialogs/LlamacppBusyOnExitDialog'
 import LlamacppOomListener from '@/containers/dialogs/LlamacppOomListener'
 import MissingDependenciesDialog from '@/containers/dialogs/MissingDependenciesDialog'
+import { NativeAccessDialog } from '@/containers/dialogs/NativeAccessDialog'
 
 export const Route = createRootRoute({
   component: RootLayout,
@@ -49,7 +50,7 @@ const AppLayout = () => {
   } = useLeftPanel()
 
   return (
-    <div className="bg-neutral-50 dark:bg-background size-full relative">
+    <div className="novera-workspace bg-neutral-50 dark:bg-background size-full relative">
       <SidebarProvider
         open={isLeftPanelOpen}
         onOpenChange={setLeftPanel}
@@ -72,7 +73,7 @@ const AppLayout = () => {
         <DialogAppUpdater />
         <LeftSidebar />
         <SidebarInset>
-          <div className="bg-neutral-50 dark:bg-background size-full">
+          <div className="bg-neutral-50 dark:bg-transparent size-full">
             <Outlet />
           </div>
         </SidebarInset>
@@ -131,6 +132,7 @@ function RootLayout() {
           <LlamacppBusyOnExitDialog />
           <LlamacppOomListener />
           <MissingDependenciesDialog />
+          <NativeAccessDialog />
           <OutOfContextPromiseModal />
         </TranslationProvider>
       </ServiceHubProvider>

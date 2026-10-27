@@ -1,10 +1,9 @@
 /**
  * System prompt for a Cowork run.
  *
- * The workspace block is the load-bearing part. The agent writes into a sandbox
- * and, when a project folder is attached, works on it in place (the shared
- * folder is mounted writable on this surface) — an arrangement no model
- * assumes, so it is spelled out along with where scratch work belongs.
+ * The workspace block explains private scratch space and the user-selected
+ * access to an attached folder. Native calls enforce that choice independently
+ * of the model's instructions.
  */
 
 const IDENTITY =
@@ -56,9 +55,8 @@ export type CoworkEnvironment = {
 export type CoworkPromptOptions = {
   /** The sandbox directory: the only writable location. */
   workspacePath: string | null
-  /** An attached project folder. Despite the historical name (it is the
-   * plugin's validated read root), Cowork mounts it writable and, when set, it
-   * is the workspace root that relative paths resolve against (#8882). */
+  /** Historical field name for the validated project read root. Write access
+   * is selected by the user and checked per native invocation. */
   readOnlyFolder: string | null
   planMode: boolean
   /** False when no OS sandbox enforces, in which case `shell` is not offered. */
@@ -122,18 +120,14 @@ function environmentBlock(env: CoworkEnvironment): string {
 function workspaceBlock(opts: CoworkPromptOptions): string {
   const lines = ['# Workspace', '']
   if (opts.readOnlyFolder) {
-    // #8882: the attached folder is the working directory itself, so relative
-    // paths resolve into it -- a file created by a bare name lands where the
-    // user selected it, not in Novera's data folder. Real user data, so the
-    // sandbox's anything-goes norms no longer apply.
     lines.push(
-      `Your working directory is the shared project folder the user attached: \`${opts.readOnlyFolder}\`.`,
-      'Relative paths resolve against it, so a file you create with a bare name',
-      'lands there, in the directory the user selected. It is writable: read,',
-      'search, and edit its files IN PLACE with targeted edits, and put everything',
-      'that belongs to the project directly inside it. This is real user data with',
-      'no undo, so re-read a file before editing it and keep changes minimal.'
+      `The user attached this shared project folder: \`${opts.readOnlyFolder}\`.`,
+      'Use absolute paths to read it. Folder attachment alone does not grant writes.',
+      'Read-only calls use your private sandbox as the relative working directory.',
+      'Only a tool call explicitly granted write access works in the attached folder.',
+      'Read before editing, keep targeted changes minimal and obey user approvals.'
     )
+    lines.push('Folder access is controlled by the user. Attaching alone does not grant editing or deletion. Read-only access is the default; native tool calls enforce the selected access and may require approval. Never treat a denied or dismissed request as consent.')
   } else if (opts.workspacePath) {
     lines.push(
       `You have one writable directory, your workspace: \`${opts.workspacePath}\`.`,

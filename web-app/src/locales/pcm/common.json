@@ -805,5 +805,11 @@
     "title": "Track error",
     "summary": "Optional report to {{host}}: error type, code position, version and operating system. No conversation, original error message or key. You fit off am anytime.",
     "unavailable": "Error tracking never get configuration. No report dey send."
+  },
+  "access": {
+    "read": "Read only",
+    "ask": "Ask before you edit or delete",
+    "allow": "Allow edit and delete",
+    "folderNote": "Choose how Novera fit access this folder."
   }
 }

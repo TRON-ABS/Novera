@@ -805,5 +805,11 @@
     "title": "Ufuatiliaji wa hitilafu",
     "summary": "Ripoti za hiari kwa {{host}}: aina ya hitilafu, nafasi ya msimbo, toleo na mfumo wa uendeshaji. Hakuna mazungumzo, ujumbe asili wa hitilafu au funguo. Zima wakati wowote.",
     "unavailable": "Ufuatiliaji wa hitilafu haujasanidiwa. Hakuna ripoti zinazotumwa."
+  },
+  "access": {
+    "read": "Kusoma tu",
+    "ask": "Uliza kabla ya kuhariri au kufuta",
+    "allow": "Ruhusu kuhariri na kufuta",
+    "folderNote": "Chagua jinsi Novera itakavyofikia folda hii."
   }
 }

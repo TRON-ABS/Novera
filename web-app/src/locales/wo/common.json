@@ -805,5 +805,11 @@
     "title": "Topp njuumte",
     "summary": "Rapport yiñ mëna tànn ngir {{host}}: xeetu njuumte, barabu kod bi, xeetu ak sistem biy doxal. Amul waxtaan, mesaasu njuumte bu ñor wala caabi. Def saa yu nekk.",
     "unavailable": "Topp njuumte bi defaruwul. Yonnee wuñu benn rapoor."
+  },
+  "access": {
+    "read": "Jàng rekk",
+    "ask": "Laaj bala ngay soppi walla far",
+    "allow": "May soppi ak far",
+    "folderNote": "Tànnal sañ-sañu Novera ci wayndare bii."
   }
 }

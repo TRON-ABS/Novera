@@ -28,6 +28,7 @@ import { Sparkles, FileText, Expand } from 'lucide-react'
 import { ComposerStatusSwitch } from '@/components/ComposerStatusSwitch'
 import { ComposerSizeButton } from './ComposerSizeButton'
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu'
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 
 export function CreationControls({
   scope,
@@ -227,6 +228,28 @@ export function CreationControls({
         <div className="composer-size-controls ml-auto flex flex-wrap gap-1">
           <ComposerSizeButton kind="ratio" settings={settings} setSettings={state.setSettings} disabled={disabled} />
           <ComposerSizeButton kind="resolution" settings={settings} setSettings={state.setSettings} disabled={disabled} />
+          {mode === 'video' && (
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button className="composer-setting" variant="ghost" size="xs" disabled={disabled}
+                  aria-label={`${t('chat:creation.frames')} · ${t('chat:creation.fps')}`}>
+                  <IconVideo size={14} aria-hidden="true" />
+                  {settings.frames} / {settings.fps} FPS
+                  <IconChevronDown size={12} aria-hidden="true" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-64 space-y-3" align="end">
+                {(['frames', 'fps'] as const).map((key) => <label key={key} className="block text-sm">
+                  {t(`chat:creation.${key}`)}
+                  <input className="mt-1 w-full rounded border bg-background p-2" type="number" min={1} step={1}
+                    value={settings[key]} disabled={disabled} onChange={(event) => {
+                      const value = Number(event.target.value)
+                      if (Number.isSafeInteger(value) && value > 0) state.setSettings({ [key]: value })
+                    }} />
+                </label>)}
+              </PopoverContent>
+            </Popover>
+          )}
           {mode === 'image' && (
             <div className="composer-upscale-group inline-flex">
             <Button

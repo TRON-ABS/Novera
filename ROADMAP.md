@@ -1,5 +1,15 @@
 # Novera — feuille de route
 
+## Fenêtre commune et contrôle utilisateur — 27 octobre 2026
+
+- [x] Sources : navigation repliable, compositeur conservé en bas et Nouveau projet sur dossier avec choix d’accès préalable.
+- [x] Sources : lecture seule par défaut, confirmation des modifications, accord explicite possible et permissions du shell indépendantes des accords MCP.
+- [x] Sources : révocation des accords, annulation des demandes en attente et conservation des projets sans message.
+- [x] Textes dans toutes les langues déjà disponibles ; inventaire courant de 80 locales × 1 742 clés.
+- [x] Interface vidéo de la discussion : format, résolution, nombre d’images et cadence ; réutilisation des profils et réglages existants.
+- [ ] Vérifier visuellement ce nouvel ensemble dans une application recompilée, sur plusieurs tailles et langues ; tester les commandes réelles sur les plateformes prises en charge.
+- [ ] Poursuivre le moteur vidéo et ses rendus réels ; le transport des projets sur dossier reste consacré aux outils texte.
+
 ## Panneau compact et consignes — 26 octobre 2026
 
 - [x] Panneau compact coloré, états ON/OFF et menus directs de dimensions et d’agrandissement ×2/×4 avec taille finale.

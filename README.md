@@ -17,6 +17,15 @@
 
 ---
 
+## Unified workspace and explicit access
+
+Source update, 27 October 2026: the existing composer stays at the bottom of one window, with collapsible cyan/violet navigation and **New project** for a folder. Choose read-only (default), approval before editing/deleting, or explicit write access before opening the project. The shell separately asks before its first command; allow once or for this conversation until the app restarts. The shield control reviews folder access and resets grants. MCP trust never grants native shell access.
+
+The conversation's video controls add frame count and cadence beside ratio and resolution for local profiles. Folder projects still use the text-tool workflow in the same window. All new text covers every currently available locale: 80 catalogs × 1,742 keys. Native-language review remains pending.
+
+Validated locally: 768 web tests across 51 files, TypeScript, seven architecture tests and locale structure checks. Full visual review in a newly compiled app, real shell/platform runs and new video renders remain pending. **Source update only; no new application binary or CI approval.** See the [user guide](docs/USER_GUIDE.md#nouveau-projet-et-choix-daccès--sources-du-27-octobre-2026).
+
+
 ## Compact composer and focused instructions
 
 ![Novera compact composer in the local Windows build](.github/assets/novera-composer.jpg)
@@ -57,7 +66,7 @@ These are directions for contribution and development, not a claim that every se
 | --- | --- |
 | Local and cloud AI | Local model engines alongside connections to remote model providers. Compatibility depends on the model, provider and hardware. |
 | Tools and documents | MCP integrations, document retrieval and assistant workflows inherited from the existing codebase. |
-| Multilingual interface | 80 selectable locales, each covering all 1,738 current English keys. Native-speaker review remains pending. |
+| Multilingual interface | 80 selectable locales, each covering all 1,742 current English keys. Native-speaker review remains pending. |
 | An extensible application | A desktop application with extension points for model engines, tools and future capabilities. |
 
 These describe the source foundation. The latest 1.0.0 Windows x64 build was compiled and launched locally on 26 October 2026, including the compact composer and category instructions. Public packaging and broader runtime validation remain in preparation.
@@ -157,7 +166,7 @@ The Hub explores 23 navigation categories using Hugging Face metadata, with loca
 
 ## 80 interface language options
 
-All 19 of our language contributions are integrated alongside the 17 inherited locales and 44 new Novera catalogs. The latest ten source catalogs are Cebuano, Kazakh, Sinhala, Xhosa, Khmer, Afrikaans, Maithili, Wolof, Northern Kurdish and Kinyarwanda. **All 80 catalogs cover 1,738 / 1,738 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. Earlier local Windows builds include the catalogs at their then-current state; the latest local build includes the instruction, installer and library texts; no public binary has been released. Some catalogs are editorial variants partly based on shared written technical text; full vernacular adaptation remains open. See the language guide for their exact scope.
+All 19 of our language contributions are integrated alongside the 17 inherited locales and 44 new Novera catalogs. The latest ten source catalogs are Cebuano, Kazakh, Sinhala, Xhosa, Khmer, Afrikaans, Maithili, Wolof, Northern Kurdish and Kinyarwanda. **All 80 catalogs cover 1,742 / 1,742 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. Earlier local Windows builds include the catalogs at their then-current state; the latest local build includes the instruction, installer and library texts; no public binary has been released. Some catalogs are editorial variants partly based on shared written technical text; full vernacular adaptation remains open. See the language guide for their exact scope.
 
 Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Algerian Arabic, Moroccan Arabic, Saidi Arabic, Northern Pashto, Saraiki, Sindhi, Dari, Urdu, Western Punjabi and Iranian Persian include right-to-left interface support. Model language capabilities depend on the selected model and are separate from interface localization.
 
@@ -165,7 +174,7 @@ Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Algerian Arabic, Mor
 
 ## Project status
 
-**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 80 interface catalogs with complete key coverage (1,738 keys each), the adaptive model Hub, the local Safetensors/Transformers text engine and updated cloud-provider presets. Native-language review is still needed.
+**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 80 interface catalogs with complete key coverage (1,742 keys each), the adaptive model Hub, the local Safetensors/Transformers text engine and updated cloud-provider presets. Native-language review is still needed.
 
 First launch saves the system language, recommends LFM2.5-2.6B Q6_K on desktop with optional DSpark, and asks separately about error reporting, off by default. Source changes and compiled artifacts are tracked separately; the latest local build includes the Hub fixes, with end-to-end maintainer testing still pending. See the [dashboard](TABLEAU_DE_BORD_NOVERA.md) for exact validation and limitations. GitHub Actions and automatic updates remain disabled.
 

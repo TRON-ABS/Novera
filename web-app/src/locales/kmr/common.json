@@ -805,5 +805,11 @@
     "title": "Şopandina çewtiyê",
     "summary": "Raporên vebijarkî ji {{host}} re: celeb xelet, cîhê kodê, guherto û pergala xebitandinê. No danûstendin, peyamên xeletiya xav an bişkok. Her dem neçalak bike.",
     "unavailable": "Şopandina çewtiyê nehatiye mîheng kirin. Rapor nayên şandin."
+  },
+  "access": {
+    "read": "Tenê xwendin",
+    "ask": "Berî guherandin an jêbirinê bipirse",
+    "allow": "Destûra guherandin û jêbirinê bide",
+    "folderNote": "Destûrên Novera ji bo vê peldankê hilbijêre."
   }
 }

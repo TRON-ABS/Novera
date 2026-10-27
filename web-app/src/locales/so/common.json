@@ -805,5 +805,11 @@
     "title": "La socodka khaladaadka",
     "summary": "Warbixinno ikhtiyaari ah oo loo diro {{host}}: nooca khaladka, goobta koodhka, nooca iyo nidaamka hawlgalka. Wada sheekaysiyo, fariimaha khaladka ceyriinka ah ama furayaasha lama diro. Mar kasta waa la naaqu karaa.",
     "unavailable": "La socodka khaladaadka lama habeeyey. Warbixino lama diro."
+  },
+  "access": {
+    "read": "Akhris keliya",
+    "ask": "Weydii ka hor tafatirka ama tirtiridda",
+    "allow": "Oggolow tafatirka iyo tirtiridda",
+    "folderNote": "Dooro sida Novera u geli karto galkan."
   }
 }

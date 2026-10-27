@@ -6,6 +6,7 @@ import { isCoworkEnabled } from '@/lib/version'
 import { cn } from '@/lib/utils'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useThreads } from '@/hooks/useThreads'
+import { useCoworkSessions } from '@/hooks/useCoworkSessions'
 import {
   AnimatedLucideIcon,
   type AnimatedLucideIconHandle,
@@ -26,6 +27,8 @@ function NavTab({ tab }: { tab: TabItem }) {
   return (
     <Link
       to={tab.to}
+      title={tab.label}
+      aria-label={tab.label}
       aria-current={tab.isActive ? 'page' : undefined}
       className={cn(
         'flex flex-1 items-center justify-center gap-1.5 rounded-md px-2 py-1 text-sm font-medium transition-colors',
@@ -44,7 +47,7 @@ function NavTab({ tab }: { tab: TabItem }) {
         preset={tab.preset}
         size={15}
       />
-      <span>{tab.label}</span>
+      <span className="group-data-[collapsible=icon]:hidden">{tab.label}</span>
     </Link>
   )
 }
@@ -70,7 +73,8 @@ export function NavTabs({ surfacePath }: { surfacePath: string }) {
 
   // Home is the only surface outside the channels that ship Cowork, so there is
   // no switcher to render - a lone Home pill is not a choice.
-  if (!isCoworkEnabled()) return null
+  const explicitProject = useCoworkSessions((s) => s.sessions.some((p) => p.id === s.currentId && p.folder && p.folderAccess))
+  if (!isCoworkEnabled() && !explicitProject) return null
 
   const tabs: TabItem[] = [
     {
@@ -81,7 +85,7 @@ export function NavTabs({ surfacePath }: { surfacePath: string }) {
       isActive: isHome,
     },
     {
-      label: t('common:cowork'),
+      label: t(isCoworkEnabled() ? 'common:cowork' : 'common:projects.title'),
       to: route.cowork,
       icon: Handshake,
       preset: 'handshake',
@@ -90,7 +94,7 @@ export function NavTabs({ surfacePath }: { surfacePath: string }) {
   ]
 
   return (
-    <div className="mt-1 flex items-center gap-0.5 rounded-lg bg-sidebar-foreground/5 p-0.5">
+    <div className="mt-1 flex items-center gap-0.5 rounded-lg bg-sidebar-foreground/5 p-0.5 group-data-[collapsible=icon]:flex-col">
       {tabs.map((tab) => (
         <NavTab key={tab.to} tab={tab} />
       ))}

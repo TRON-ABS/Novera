@@ -805,5 +805,11 @@
     "title": "Gukurikirana amakosa",
     "summary": "Raporo zishaka kuri {{host}}: ubwoko bwikosa, imyanya ya code, verisiyo na sisitemu y'imikorere. Nta biganiro, ubutumwa bwibeshya cyangwa urufunguzo. Hagarika igihe icyo aricyo cyose.",
     "unavailable": "Gukurikirana amakosa ntabwo byashyizweho. Nta raporo zoherejwe."
+  },
+  "access": {
+    "read": "Gusoma gusa",
+    "ask": "Banza ubaze mbere yo guhindura cyangwa gusiba",
+    "allow": "Emera guhindura no gusiba",
+    "folderNote": "Hitamo uburenganzira bwa Novera kuri ubu bubiko."
   }
 }

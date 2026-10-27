@@ -5,6 +5,7 @@ import { localStorageKey } from '@/constants/localStorage'
 import { backendStorage } from '@/lib/backendStorage'
 import { coworkTurnsToUIMessages } from '@/lib/coworkTurns'
 import { isPingOnly } from '@/lib/coworkPing'
+import { useNativeAccess, type FolderAccess } from './useNativeAccess'
 import type {
   CoworkTurn,
   SubagentRun,
@@ -43,9 +44,11 @@ export type CoworkSession = {
   title: string
   /** The selected provider/model pair, matching normal chat threads. */
   model?: ThreadModel
-  /** An attached project folder, mounted read-only. Writes always land in the
-   * session's own sandbox, never here. */
+  /** An attached project folder; read-only unless the user explicitly chooses
+   * an access mode that permits changes. */
   folder: string | null
+  /** Absent legacy grants are read-only. Attaching never grants writes implicitly. */
+  folderAccess?: FolderAccess
   turns: CoworkTurn[]
   /** The authoritative conversation, sent to the model each turn. */
   messages: UIMessage[]
@@ -70,7 +73,7 @@ type CoworkSessionsState = {
   createSession: () => string
   selectSession: (id: string) => void
   deleteSession: (id: string) => void
-  setFolder: (id: string, folder: string | null) => void
+  setFolder: (id: string, folder: string | null, access?: FolderAccess) => void
   setModel: (id: string, model: ThreadModel) => void
   setPlanMode: (id: string, planMode: boolean) => void
   setTitle: (id: string, title: string) => void
@@ -151,7 +154,7 @@ export const useCoworkSessions = create<CoworkSessionsState>()(
         // up empty ones (e.g. from repeated clicks on "New session").
         const { currentId, sessions } = get()
         const current = sessions.find((s) => s.id === currentId)
-        if (current && current.turns.length === 0) return current.id
+        if (current && current.turns.length === 0 && !current.folder) return current.id
 
         const id = crypto.randomUUID()
         const session: CoworkSession = {
@@ -175,20 +178,24 @@ export const useCoworkSessions = create<CoworkSessionsState>()(
           ),
         })),
 
-      deleteSession: (id) =>
+      deleteSession: (id) => {
+        useNativeAccess.getState().reset(id)
         set((s) => {
           const sessions = s.sessions.filter((x) => x.id !== id)
           const currentId =
             s.currentId === id ? (sessions[0]?.id ?? null) : s.currentId
           return { sessions, currentId }
-        }),
+        })
+      },
 
-      setFolder: (id, folder) =>
+      setFolder: (id, folder, access = 'read') => {
+        useNativeAccess.getState().reset(id)
         set((s) => ({
           sessions: s.sessions.map((x) =>
-            x.id === id ? { ...x, folder, updated: now() } : x
+            x.id === id ? { ...x, folder, folderAccess: access, updated: now() } : x
           ),
-        })),
+        }))
+      },
 
       setMessages: (id, messages) =>
         set((s) => ({
@@ -294,7 +301,8 @@ export const useCoworkSessions = create<CoworkSessionsState>()(
           }),
         })),
 
-      clearSession: (id) =>
+      clearSession: (id) => {
+        useNativeAccess.getState().reset(id)
         set((s) => ({
           sessions: s.sessions.map((x) =>
             x.id === id
@@ -308,13 +316,14 @@ export const useCoworkSessions = create<CoworkSessionsState>()(
                 }
               : x
           ),
-        })),
+        }))
+      },
 
       pruneEmptySessions: (keepIds) =>
         set((s) => {
           const keep = new Set(keepIds)
           const sessions = s.sessions.filter(
-            (x) => x.turns.length > 0 || x.id === s.currentId || keep.has(x.id)
+            (x) => Boolean(x.folder) || x.turns.length > 0 || x.id === s.currentId || keep.has(x.id)
           )
           return sessions.length === s.sessions.length ? {} : { sessions }
         }),

@@ -44,7 +44,7 @@ export function CoworkEmptyState({ folder, onPick }: Props) {
           </h1>
           <p className="mt-1.5 max-w-lg text-sm text-muted-foreground">
             {name
-              ? t('common:coworkEmpty.subtitleFolder', { folder: name })
+              ? t('common:access.folderNote')
               : t('common:coworkEmpty.subtitleSandbox')}
           </p>
 

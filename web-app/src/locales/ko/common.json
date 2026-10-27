@@ -807,5 +807,11 @@
   "askSelectedCount": "{{count}} 선택됨",
   "askSomethingElse": "다른 것",
   "askSomethingElsePlaceholder": "답을 직접 입력하세요",
-  "submit": "제출"
+  "submit": "제출",
+  "access": {
+    "read": "읽기 전용",
+    "ask": "편집하거나 삭제하기 전에 묻기",
+    "allow": "편집 및 삭제 허용",
+    "folderNote": "이 폴더에 대한 Novera의 접근 권한을 선택하세요."
+  }
 }

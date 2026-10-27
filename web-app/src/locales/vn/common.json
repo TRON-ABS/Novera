@@ -807,5 +807,11 @@
   "askSelectedCount": "{{count}} đã chọn",
   "askSomethingElse": "Cái gì khác",
   "askSomethingElsePlaceholder": "Nhập câu trả lời của riêng bạn",
-  "submit": "Gửi"
+  "submit": "Gửi",
+  "access": {
+    "read": "Chỉ đọc",
+    "ask": "Hỏi trước khi sửa hoặc xóa",
+    "allow": "Cho phép sửa và xóa",
+    "folderNote": "Chọn quyền truy cập của Novera vào thư mục này."
+  }
 }

@@ -806,5 +806,11 @@
   "askSelectedCount": "{{count}} выбрано",
   "askSomethingElse": "Что-то еще",
   "askSomethingElsePlaceholder": "Введите свой ответ",
-  "submit": "Отправить"
+  "submit": "Отправить",
+  "access": {
+    "read": "Только чтение",
+    "ask": "Спрашивать перед изменением или удалением",
+    "allow": "Разрешить изменение и удаление",
+    "folderNote": "Выберите права доступа Novera к этой папке."
+  }
 }

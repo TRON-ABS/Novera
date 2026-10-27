@@ -805,5 +805,11 @@
     "title": "Xato izlash",
     "summary": "{{host}}ga ixtiyoriy hisobotlar: xato turi, kod o‘rni, versiyasi va operatsion tizimi. Muloqotlar, sof xato xabarlari yoki qulflar yo‘q. Har qachon o‘chirib qo‘yish mumkin.",
     "unavailable": "Xato kuzatish sozlanmagan. Hech qanday hisobot yuborilmaydi."
+  },
+  "access": {
+    "read": "Faqat o‘qish",
+    "ask": "Tahrirlash yoki o‘chirishdan oldin so‘rash",
+    "allow": "Tahrirlash va o‘chirishga ruxsat berish",
+    "folderNote": "Bu jild uchun Novera kirish huquqlarini tanlang."
   }
 }

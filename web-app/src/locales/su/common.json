@@ -805,5 +805,11 @@
     "title": "Kasalahan nyukcruk",
     "summary": "Laporan opsional ka {{host}}: jinis kasalahan, posisi kode, versi sareng sistem operasi. Taya paguneman, talatah kasalahan atah atawa konci. Pareuman iraha waé.",
     "unavailable": "Pelacakan kasalahan henteu dikonpigurasi. Taya laporan anu dikirim."
+  },
+  "access": {
+    "read": "Ngan maca",
+    "ask": "Tanya sateuacan ngédit atanapi mupus",
+    "allow": "Idinan ngédit sareng mupus",
+    "folderNote": "Pilih aksés Novera kana polder ieu."
   }
 }

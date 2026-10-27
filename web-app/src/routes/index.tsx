@@ -53,7 +53,7 @@ function Index() {
   }
 
   return (
-    <div className="flex h-full flex-col justify-center">
+    <div className="novera-canvas flex h-full flex-col">
       <HeaderPage>
         <div className="flex items-center gap-2 w-full">
           <DropdownModelProvider mediaScope="new" model={threadModel} />
@@ -61,15 +61,15 @@ function Index() {
       </HeaderPage>
       <div
         className={cn(
-          'h-full overflow-y-auto inline-flex flex-col gap-2 justify-center px-3'
+          'min-h-0 flex-1 overflow-y-auto flex flex-col gap-2 px-3 pb-4 md:px-6'
         )}
       >
         <div
           className={cn(
-            'mx-auto w-full md:w-4/5 xl:w-4/6 -mt-20',
+            'mx-auto flex min-h-full w-full max-w-6xl flex-col',
           )}
         >
-          <div className={cn('text-center mb-4')}>
+          <div className={cn('flex flex-1 items-center justify-center text-center py-10')}>
             <h1
               className={cn(
                 'text-2xl mt-2 font-studio font-medium',
@@ -78,7 +78,7 @@ function Index() {
               {t('chat:description')}
             </h1>
           </div>
-          <div className="flex-1 shrink-0">
+          <div className="shrink-0">
             <ChatInput
               showSpeedToken={false}
               model={threadModel}

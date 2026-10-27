@@ -32,7 +32,7 @@ describe('CoworkEmptyState', () => {
     )
 
     expect(
-      screen.getByText('common:coworkEmpty.subtitleFolder[jan-app]')
+      screen.getByText('common:access.folderNote')
     ).toBeInTheDocument()
     for (const key of ['first', 'second', 'third']) {
       expect(

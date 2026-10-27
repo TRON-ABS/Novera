@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { UIMessage, UIMessageChunk } from 'ai'
+import { useNativeAccess } from '@/hooks/useNativeAccess'
 import type { AskAnswer, CoworkTurn, Usage } from '@/types/coworkSession'
 import type { ToolImage } from '@/lib/agentTools'
 import {
@@ -106,6 +107,7 @@ export function releaseHandle(sid: string, handle: RunHandle): void {
  * reaps the session's shells in Rust (`proc::kill_thread`).
  */
 export function abortRun(sid: string, reason = 'cancelled'): void {
+  useNativeAccess.getState().cancel(sid)
   const handle = handles.get(sid)
   if (!handle) return
   handle.outer.abort(reason)

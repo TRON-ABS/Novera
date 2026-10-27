@@ -39,6 +39,7 @@ vi.mock('../NavCowork', () => ({ NavCowork: () => <div>Cowork sessions</div> }))
 vi.mock('../NavMain', () => ({ NavMain: () => <div>Chat navigation</div> }))
 vi.mock('../NavChats', () => ({ NavChats: () => <div>Chat threads</div> }))
 vi.mock('../NavProjects', () => ({ NavProjects: () => null }))
+vi.mock('../WorkspaceProjects', () => ({ NewWorkspaceProject: () => <button>New folder project</button>, WorkspaceProjects: () => null }))
 vi.mock('@/components/ui/sidebar', () => {
   const Box = ({ children }: { children: ReactNode }) => <div>{children}</div>
   return {

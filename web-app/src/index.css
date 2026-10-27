@@ -455,3 +455,23 @@
 }
 
 .conversation-print-frame { position: fixed; width: 0; height: 0; border: 0; bottom: 0; right: 0; }
+
+/* Unified Novera workspace: existing text/image/video composer stays intact. */
+.novera-workspace { isolation: isolate; color-scheme: light; }
+.dark .novera-workspace { background: #080e18; color-scheme: dark; }
+.dark .novera-workspace main, .dark .novera-workspace .novera-canvas {
+  background: radial-gradient(ellipse at 60% 0%, #11233d55, transparent 65%), #090f1a;
+}
+.novera-sidebar { --sidebar: light-dark(#f5f8ff, #0b1423); }
+.novera-sidebar [data-sidebar="sidebar"] { border: 1px solid color-mix(in srgb, #22d3ee 20%, var(--border)); border-radius: 18px; }
+.novera-sidebar [data-sidebar="header"] { gap: 12px; padding: 14px 10px; }
+.group[data-collapsible="icon"] .novera-sidebar [data-sidebar="header"] { padding-inline: 4px; }
+.novera-wordmark { letter-spacing: -.04em; font-size: 20px; }
+.novera-new-project { border-color: #22d3ee88; border-radius: 12px; min-height: 42px; color: light-dark(#0e7490, #67e8f9); }
+.novera-sidebar [data-active="true"] { background: color-mix(in srgb, #6366f1 16%, var(--sidebar)); border-inline-start: 2px solid #22d3ee; }
+.novera-sidebar [data-sidebar="menu-button"] { min-height: 36px; border-radius: 10px; }
+.novera-access-dialog { border-color: #22d3ee55; }
+.novera-workspace .composer-shell { max-width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .novera-workspace * { scroll-behavior: auto; }
+}

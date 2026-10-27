@@ -805,5 +805,11 @@
     "title": "Pelacakan kesalahan",
     "summary": "Laporan opsional menyang {{host}}: jinis kesalahan, panggonan kode, versi lan sistem operasi. Tanpa pacelathon, pesen kesalahan asli utawa kunci. Bisa dipateni kapan wae.",
     "unavailable": "Pelacakan kesalahan durung dikonfigurasi. Ora ana laporan sing dikirim."
+  },
+  "access": {
+    "read": "Mung maca",
+    "ask": "Takon sadurunge ngowahi utawa mbusak",
+    "allow": "Idini ngowahi lan mbusak",
+    "folderNote": "Pilih akses Novera menyang folder iki."
   }
 }

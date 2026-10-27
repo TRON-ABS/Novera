@@ -805,5 +805,11 @@
     "title": "Foutopsporing",
     "summary": "Opsionele verslae aan {{host}}: tipe fout, kodeposisie, weergawe en bedryfstelsel. Geen gesprekke, rou foutboodskappe of sleutels nie. Deaktiveer enige tyd.",
     "unavailable": "Foutopsporing is nie opgestel nie. Geen verslae word gestuur nie."
+  },
+  "access": {
+    "read": "Slegs lees",
+    "ask": "Vra voor wysiging of uitvee",
+    "allow": "Laat wysiging en uitvee toe",
+    "folderNote": "Kies Novera se toegang tot hierdie vouer."
   }
 }

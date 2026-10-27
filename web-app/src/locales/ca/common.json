@@ -806,5 +806,11 @@
   "askSelectedCount": "{{count}} seleccionat",
   "askSomethingElse": "Una altra cosa",
   "askSomethingElsePlaceholder": "Escriu la teva pròpia resposta",
-  "submit": "Envia"
+  "submit": "Envia",
+  "access": {
+    "read": "Només lectura",
+    "ask": "Pregunta abans de modificar o suprimir",
+    "allow": "Permet modificar i suprimir",
+    "folderNote": "Tria l’accés de Novera a aquesta carpeta."
+  }
 }

@@ -1,17 +1,17 @@
-# feat(i18n): add ten interface language catalogs
+# fix(workspace): require explicit folder and shell access
 
-Novera previously exposed 70 interface locales. Add Cebuano, Kazakh, Sinhala, Xhosa, Khmer, Afrikaans, Maithili, Wolof, Northern Kurdish and Kinyarwanda, bringing the source catalogs to 80 locales with all 1,738 English keys across 14 namespaces.
+Attaching a folder previously made it writable without a separate access choice, while native shell execution did not use the MCP approval dialog. Add New project on a folder with read-only selected initially, approval before changes, or explicit editing/deletion access. Preserve projects without messages and keep project setup in the existing window.
 
-Register native selector labels, persist the selections, recognize the new system locales and handle Northern Kurdish explicitly without selecting it for Arabic-script Kurdish. Preserve placeholders, code literals and technical identifiers. Use the existing translated errorDialog.details key for upscaler diagnostics instead of the missing common:details key.
+Enforce consent at both native invocation boundaries, including parent/child tool calls and monitors. Shell grants are scoped to a conversation and the current app runtime, independent of MCP trust. Folder access is saved explicitly; legacy sessions default to read-only. Denial, Escape, Stop, folder changes and deletion invalidate pending decisions. The shield control reviews folder access and resets grants. Ask-mode background monitors stay read-only. Revocation affects future calls; stopping an already-running command remains the Stop action.
 
-The new catalogs are machine-assisted drafts: Google provides most translations, Microsoft's public web interface completes Kinyarwanda, and two short commands receive assistant editorial corrections. Native review is pending. Six rare-language Lara smoke tests work without a key or login; the Magahi test returns an artifact, so those tests do not add six catalogs or certify linguistic quality.
-
-Update the English/French README, language inventory and roadmap, dashboard, changelog and project rules. Source publication and GitHub showcase synchronization do not create a new application binary, enable GitHub Actions or establish CI approval. The previous Windows build contains 70 locales.
+Keep the existing composer, add collapsible cyan/violet navigation, align the home and conversation canvas, and expose compact frame-count/cadence controls for local video profiles. Folder-project transports remain text-tool workflows. Add four permission texts to every existing locale (80 catalogs, 1,742 keys each), with native review pending. Refresh the reference docs and GitHub showcase without a new binary or enabling Actions.
 
 ## Validation
 
-- python scripts/check-novera-locales.py: 80 locales, 1,738 keys each, zero structural errors.
-- TypeScript: node node_modules/typescript/bin/tsc --noEmit -p tsconfig.app.json --pretty false passes.
-- Targeted locale, system-language, persistence, selector and creation-stream tests: 589 tests pass across 7 files (combined final results after the selector-fixture correction and existing missing-key fix).
+- Before: folder selection alone enabled project writes; native shell execution did not require a first user choice. After: project setup awaits a separate choice and the shell cannot reach native execution before consent. Tests assert the native writable flag stays false for read-only projects even after shell approval.
+- node node_modules/vitest/vitest.mjs run src/lib/__tests__/cowork src/lib/__tests__/agentTools src/lib/__tests__/native src/containers/__tests__/Cowork src/containers/__tests__/ChatInput src/containers/__tests__/CreationControls src/containers/dialogs/__tests__/Native src/hooks/__tests__/useCowork src/hooks/__tests__/useThreads src/components/left-sidebar/__tests__ src/locales/__tests__/complete-catalogs --maxWorkers=2: 768 tests pass in 51 files.
+- node node_modules/typescript/bin/tsc --noEmit -p tsconfig.app.json --pretty false: passes.
+- node scripts/check-architecture.mjs: no violations; node --test scripts/__tests__/architecture.test.mjs: seven pass.
+- python scripts/check-novera-locales.py: 80 locales × 1,742 keys, no structural errors.
 
-No external issue is closed. No PR dependency or required merge order is introduced; linguistic review and real visual checks for the ten new locales remain open.
+Full visual QA in a newly compiled application is pending: the embedded browser cannot reach the local dev server. No new Novera binary, real shell/platform verification, video render or CI approval is claimed. Existing screenshot assets still show the earlier local build. No external issue is closed; no PR dependency, required merge order or known overlapping contribution is introduced.

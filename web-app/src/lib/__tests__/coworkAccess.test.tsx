@@ -15,6 +15,7 @@ vi.mock('@/lib/version', async (importOriginal) => ({
 
 import { ensureCoworkEnabled } from '../coworkAccess'
 import { route } from '@/constants/routes'
+import { useCoworkSessions } from '@/hooks/useCoworkSessions'
 
 /**
  * The real router over the guarded routes, so a redirect is observable as the
@@ -46,9 +47,15 @@ async function routerAt(pathname: string) {
 
 beforeEach(() => {
   channel.cowork = false
+  useCoworkSessions.setState({ sessions: [], currentId: null })
 })
 
 describe('ensureCoworkEnabled', () => {
+  it('opens an explicitly consented folder project in the regular build', async () => {
+    const id = useCoworkSessions.getState().createSession()
+    useCoworkSessions.getState().setFolder(id, 'C:/project', 'read')
+    expect(await routerAt(route.cowork)).toBe(route.cowork)
+  })
   it('lands a bookmarked Cowork URL on Home', async () => {
     expect(await routerAt(route.cowork)).toBe(route.home)
   })

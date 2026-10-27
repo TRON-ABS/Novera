@@ -1,5 +1,11 @@
 # Langues d’interface Novera
 
+## Autorisations dans toutes les langues disponibles — 27 octobre 2026
+
+Quatre textes publics ajoutés dans chacune des 80 locales : lecture seule, demander avant modification/suppression, autoriser ces changements, et choix d’accès au dossier. La base courante passe à **1 742 clés par catalogue**, dans 14 espaces de noms. Les autres commandes de projets, autorisations et vidéo réutilisent les traductions existantes.
+
+Ces quatre textes sont des brouillons rédigés/adaptés par l’assistant, sans nouvelle certification Google, Microsoft ou Lara. Les variantes arabes/chinoises utilisent leur terminologie technique écrite commune ; dari et saraiki suivent les formulations techniques documentées des catalogues associés. Leur adaptation vernaculaire complète et la relecture native restent ouvertes. Le validateur confirme les clés et les variables, pas la qualité linguistique. Aucun fichier utilisateur ni conversation transmis à un service de traduction pour ce lot.
+
 ## Dix nouveaux catalogues — 27 octobre 2026
 
 Les sources proposent désormais **80 locales**, chacune couvrant **1738 clés** dans **14 espaces de noms**. Ce lot ajoute cebuano, kazakh, cingalais, xhosa, khmer, afrikaans, maïthili, wolof, kurmandji et kinyarwanda. Il suit l’ordre de la feuille de route parmi les langues accessibles avec les services demandés. Les variantes non explicitement disponibles ne sont pas remplacées par une langue proche.
@@ -34,7 +40,7 @@ Huit nouveaux textes dans chacune des 70 locales portent la base actuelle à **1
 
 Treize nouveaux textes dans chacune des 70 locales, plus correction du conseil devenu périmé sur la validation Vulkan du trio. Base : **1 681 clés**. Confirmation, dossier/espace, aide sur les discussions et créations pendant le téléchargement, pause/reprise, vérification, état prêt, moteur intégré et erreurs traduits. La bibliothèque Image/Vidéo réutilise les textes d’import, modification et suppression déjà traduits. Réalisé sans transmettre de conversation, clé ou fichier privé à un service de traduction ; la relecture native reste nécessaire. La couverture porte sur les sources, pas sur un nouveau binaire compilé.
 
-État des sources du **27 octobre 2026** : **80 locales sélectionnables**, chacune à **1 738/1 738 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
+État des sources du **27 octobre 2026** : **80 locales sélectionnables**, chacune à **1 742/1 742 clés anglaises (100 %)** dans **14 espaces de noms**. Cette mesure porte sur la présence des clés, pas sur la qualité linguistique ; la relecture native reste nécessaire. Les langues comprises et produites par l’IA dépendent du modèle choisi.
 
 Le sélecteur présente les **80 langues sous leur nom natif**. Les attributs `lang` et `dir="auto"` accompagnent chaque entrée ; un menu élargi et défilant conserve les noms longs accessibles. Le nom indonésien est **Bahasa Indonesia**. Les noms de marques et identifiants API restent des littéraux invariants ; le premier lot de fournisseurs et d’icônes du 26 octobre réutilisait les traductions existantes. Le lot de création cloud décrit ci-dessous actualise ensuite les 70 catalogues de discussion.
 

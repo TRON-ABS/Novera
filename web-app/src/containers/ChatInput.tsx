@@ -1,3 +1,4 @@
+import { ResetWorkspacePermissions } from '@/containers/NativeAccessControl'
 import TextareaAutosize from 'react-textarea-autosize'
 import { CreationControls, CreationModelControl } from './CreationControls'
 import { MemoryModeControl } from './MemoryModeControl'
@@ -2656,6 +2657,8 @@ const ChatInput = memo(function ChatInput({
                       </TooltipContent>
                     </Tooltip>
                   )}
+
+                {showToolControls && currentThreadId && <ResetWorkspacePermissions owner={currentThreadId} />}
 
                 {!effectiveAgentMode &&
                   (selectedProvider === 'llamacpp' ||

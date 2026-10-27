@@ -6,6 +6,8 @@ import { useTranslation } from '@/i18n/react-i18next-compat'
 import { route } from '@/constants/routes'
 import { ensureCoworkEnabled } from '@/lib/coworkAccess'
 import { useServiceHub } from '@/hooks/useServiceHub'
+import { FolderAccessDialog } from '@/containers/dialogs/FolderAccessDialog'
+import { ResetWorkspacePermissions } from '@/containers/NativeAccessControl'
 import {
   Fragment,
   useCallback,
@@ -203,6 +205,7 @@ function CoworkPage() {
     [sessions, currentId]
   )
   const folder = session?.folder ?? null
+  const [pendingFolder, setPendingFolder] = useState<string | null>(null)
 
   const { skills: skillCommands, invoke: invokeSkillCommand } = useSkills(folder)
   const planMode = session?.planMode ?? false
@@ -313,8 +316,7 @@ function CoworkPage() {
   const attachFolder = useCallback(async () => {
     const picked = await serviceHub.dialog().open({ directory: true })
     if (typeof picked !== 'string') return
-    const sid = ensureCurrentSession()
-    useCoworkSessions.getState().setFolder(sid, picked)
+    setPendingFolder(picked)
   }, [serviceHub])
 
   const detachFolder = useCallback(() => {
@@ -1473,6 +1475,10 @@ function CoworkPage() {
       data-testid="cowork-surface"
       className="flex flex-col h-[calc(100dvh-(env(safe-area-inset-bottom)+env(safe-area-inset-top)))]"
     >
+      <FolderAccessDialog key={pendingFolder ?? 'closed'} path={pendingFolder} onCancel={() => setPendingFolder(null)} onConfirm={(access) => {
+        if (pendingFolder) useCoworkSessions.getState().setFolder(ensureCurrentSession(), pendingFolder, access)
+        setPendingFolder(null)
+      }} />
       <HeaderPage>
         <div className="flex items-center justify-between w-full pr-2">
           <DropdownModelProvider allowMedia={false}
@@ -1483,6 +1489,7 @@ function CoworkPage() {
               useCoworkSessions.getState().setModel(ensureCurrentSession(), model)
             }
           />
+          {session && <ResetWorkspacePermissions owner={session.id} />}
         </div>
       </HeaderPage>
 
@@ -1706,6 +1713,7 @@ function CoworkPage() {
                       />
                       <CoworkWorkspacePill
                         folder={folder}
+                        access={session?.folderAccess ?? 'read'}
                         gitBranch={gitBranch}
                         onAttach={() => void attachFolder()}
                         onDetach={detachFolder}

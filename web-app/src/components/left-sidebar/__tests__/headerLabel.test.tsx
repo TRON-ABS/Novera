@@ -43,6 +43,8 @@ vi.mock('@/components/ui/sidebar', () => {
   }
 })
 
+vi.mock('../WorkspaceProjects', () => ({ NewWorkspaceProject: () => <button>New folder project</button>, WorkspaceProjects: () => null }))
+
 import { LeftSidebar } from '..'
 
 beforeEach(() => {

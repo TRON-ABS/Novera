@@ -99,6 +99,17 @@ describe('creation choices in the composer', () => {
     ).toBeDisabled()
     expect(screen.getByRole('status')).toHaveTextContent('35%')
   })
+  it('offers video frame count and cadence beside the size controls without image upscaling', () => {
+    useCreation.setState({ modes: { video: 'video' }, settings: { ...creationDefaults, videoModel: 'D:/video', frames: 49, fps: 16 } })
+    render(<CreationControls scope="video" disabled={false} />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.frames · chat:creation.fps' }))
+    fireEvent.change(screen.getByLabelText('chat:creation.frames'), { target: { value: '81' } })
+    fireEvent.change(screen.getByLabelText('chat:creation.fps'), { target: { value: '24' } })
+    expect(useCreation.getState().settings).toMatchObject({ frames: 81, fps: 24 })
+    expect(screen.queryByRole('button', { name: /upscaleTitle/ })).not.toBeInTheDocument()
+    fireEvent.change(screen.getByLabelText('chat:creation.fps'), { target: { value: '0' } })
+    expect(useCreation.getState().settings.fps).toBe(24)
+  })
   it('opens size choices directly and switches upscaling on/off without opening model settings', () => {
     useCreation.setState({ modes: { direct: 'image' }, settings: { ...creationDefaults, imageModel: 'D:/model', width: 512, height: 512 } })
     render(<CreationControls scope="direct" disabled={false} />)
