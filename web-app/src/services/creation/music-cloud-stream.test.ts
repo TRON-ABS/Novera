@@ -6,6 +6,8 @@ import { useCreation } from '@/hooks/useCreation'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { useMusicCreation } from '@/hooks/useMusicCreation'
 import { musicDefaults } from '@/modules/engines/music'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 vi.mock('@tauri-apps/api/core', () => ({ invoke: vi.fn() }))
 vi.mock('./cloud', async (original) => ({
   ...(await original<typeof import('./cloud')>()),
@@ -116,8 +118,12 @@ it('saves a playable cloud song without local weights and keeps credentials out 
     .mocked(invoke)
     .mock.calls.find(([command]) => command === 'creation_cloud_save')
   expect(JSON.stringify(save)).not.toContain('test-secret')
+  const native = readFileSync(resolve(__dirname, '../../../../src-tauri/src/core/creation_cloud.rs'), 'utf8')
+  const argument = native.match(/pub async fn creation_cloud_save\((\w+):\s*CloudResult\)/)?.[1]
+  expect(argument).toBeTruthy()
+  expect(Object.keys(save?.[1] ?? {})).toEqual([argument])
   expect(save?.[1]).toMatchObject({
-    result: { task: 'music', provider: 'elevenlabs' },
+    request: { task: 'music', provider: 'elevenlabs' },
   })
   expect(chunks.find((chunk) => chunk.type === 'file')).toMatchObject({
     mediaType: 'audio/mpeg',

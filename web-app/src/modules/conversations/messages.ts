@@ -7,6 +7,8 @@ import {
 } from '@janhq/core'
 import type { UIMessage } from '@ai-sdk/react'
 import { stripToolCallMarkup } from '@/modules/tools/tool-call-markup'
+import { creationInfoOf, savedCreationInfo } from './creation-info'
+export { creationInfoOf } from './creation-info'
 // Attachments are now handled upstream in newUserThreadContent
 
 type ThreadContent = NonNullable<ThreadMessage['content']>[number]
@@ -117,6 +119,7 @@ export function convertUIMessageToThreadMessage(
     })
 
   const metadata = uiMessage.metadata as Record<string, unknown> | undefined
+  const creationInfo = creationInfoOf(uiMessage)
   const createdAt =
     metadata?.createdAt instanceof Date ? metadata.createdAt.getTime() : Date.now()
 
@@ -129,7 +132,10 @@ export function convertUIMessageToThreadMessage(
     status: MessageStatus.Ready,
     created_at: createdAt,
     completed_at: createdAt,
-    metadata: toolCalls.length > 0 ? { tool_calls: toolCalls } : undefined,
+    metadata: toolCalls.length > 0 || creationInfo ? {
+      ...(toolCalls.length > 0 ? { tool_calls: toolCalls } : {}),
+      ...(creationInfo ? { creationInfo } : {}),
+    } : undefined,
   }
 }
 
@@ -386,6 +392,12 @@ export function convertThreadMessageToUIMessage(
         })
       }
     }
+  }
+
+  for (const part of parts) {
+    if (part.type !== 'file') continue
+    const info = savedCreationInfo(threadMessage.metadata, part.url)
+    if (info) part.providerMetadata = { novera: info }
   }
 
   // Ensure at least one text part exists

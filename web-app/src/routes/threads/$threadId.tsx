@@ -36,6 +36,7 @@ import { getThreadSessionRuntime, useChatSessions } from '@/stores/chat-session-
 import {
   convertThreadMessagesToUIMessages,
   extractContentPartsFromUIMessage,
+  creationInfoOf,
   toolErrorsOf,
   uiMessageHasMeaningfulContent,
   threadMessageIsEmpty,
@@ -190,6 +191,7 @@ function rewriteStoredTurn(
   const stored = getMessages(threadId).find((m) => m.id === message.id)
   if (!stored) return
   const toolErrors = toolErrorsOf(message)
+  const creationInfo = creationInfoOf(message)
   updateMessage({
     ...stored,
     content: extractContentPartsFromUIMessage(message),
@@ -197,6 +199,7 @@ function rewriteStoredTurn(
       ...stored.metadata,
       ...(stopped ? { stopped: true } : {}),
       ...(toolErrors ? { toolErrors } : {}),
+      ...(creationInfo ? { creationInfo } : {}),
     },
   })
 }
@@ -537,10 +540,12 @@ function ThreadConversation() {
       ) {
         const contentParts = extractContentPartsFromUIMessage(message)
         const toolErrors = toolErrorsOf(message)
+        const creationInfo = creationInfoOf(message)
         const messageMetadata = {
           ...((message.metadata || {}) as Record<string, unknown>),
           ...(isStoppedTurn ? { stopped: true } : {}),
           ...(toolErrors ? { toolErrors } : {}),
+          ...(creationInfo ? { creationInfo } : {}),
         }
 
         if (isStoppedTurn) {

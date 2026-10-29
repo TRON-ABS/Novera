@@ -35,6 +35,18 @@ async function read(stream: ReturnType<typeof creationStream>) {
   }
 }
 describe('media generation conversation stream', () => {
+  it.each(['image', 'video'] as const)('preserves the startup failure and finishes a %s turn cleanly', async task => {
+    useCreation.setState({ selections: {} })
+    useMediaLibrary.setState({ profiles: [] })
+    const failure = new Error('CUDA out of memory while allocating device buffer')
+    vi.mocked(invoke).mockRejectedValue(failure)
+    const finish = vi.fn()
+    await expect(read(creationStream(task, 'create', messages, 'startup-error', undefined, finish)))
+      .rejects.toThrow('CUDA out of memory')
+    expect(invoke).toHaveBeenCalledTimes(1)
+    expect(invoke).toHaveBeenCalledWith('creation_start', expect.anything())
+    expect(finish).toHaveBeenCalledTimes(1)
+  })
   it.each(['image', 'video'] as const)('generates three %s results in one message with advancing seeds and a fixed settings snapshot', async task => {
     useMediaLibrary.setState({ profiles: [] })
     useCreation.setState({ selections: {} })

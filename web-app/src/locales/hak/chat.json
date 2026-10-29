@@ -72,7 +72,7 @@
     "setupImageNote": "影像 — FLUX.2 Klein 4B · Q4_K_M. 正文: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. 縱橫比: 21:9; 解析度: 1024 × 432; 產生步驟: 4; 種子模式: 隨機.",
     "setupMusicNote": "音樂 — ACE-Step 1.5 Turbo. 音樂生成模型: 2B · Q4_K_M; 音樂規劃模型: 1.7B · Q8_0; 正文: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. 音樂長度: 10–600 s; 音訊品質: 48 kHz · 2.0; 純音樂 / 歌詞; 隨機.",
     "setupVideoNote": "視頻 — Wan2.1 T2V 1.3B · Q4_K_M. 正文: UMT5-XXL · Q4_K_M. 影片長度: 5 s; 縱橫比: 21:9; 每秒影格數: 16. 長影片係用短片段接起來个。接頭可能看得出，生成可能愛當久時間。 · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "下載並配置建議个模型：文字用 Nemotron，多語言檢索用 Qwen3-Embedding Q8_0 (預設 CPU)，FLUX.2 Klein 4B 及其組件，Real-ESRGAN ×2/×4，音樂用 ACE-Step (預設器樂)，影片用 Wan2.1。請查看下方檔案大小、磁碟空間和影片先決條件。分開下載和瀏覽功能仍可用。",
+    "setupAllNote": "下載並配置建議个模型：文字用 Nemotron，多語言檢索用 Qwen3-Embedding Q8_0 (預設 CPU)，FLUX.2 Klein 4B (影像) 及其組件，Real-ESRGAN ×2/×4，音樂用 ACE-Step，影片用 Wan2.1。請查看下方檔案大小、磁碟空間和影片先決條件。分開下載和瀏覽功能仍可用。",
     "finalizing": "影片完成處理中",
     "videoDuration": "影片長度",
     "videoDurationNote": "長影片係用短片段接起來个。接頭可能看得出，生成可能愛當久時間。",

@@ -72,7 +72,7 @@
     "setupImageNote": "Obraz — FLUX.2 Klein 4B · Q4_K_M. Tekst: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Proporcje: 21:9; Rozdzielczość: 1024 × 432; Etapy generowania: 4; Tryb ziarna: Losowe.",
     "setupMusicNote": "Muzyka — ACE-Step 1.5 Turbo. Generator muzyki: 2B · Q4_K_M; Planer muzyki: 1.7B · Q8_0; Tekst: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Długość muzyki: 10–600 s; Jakość dźwięku: 48 kHz · 2.0; Instrumentalna / Tekst piosenki; Losowe.",
     "setupVideoNote": "Wideo — Wan2.1 T2V 1.3B · Q4_K_M. Tekst: UMT5-XXL · Q4_K_M. Długość filmu: 5 s; Proporcje: 21:9; Klatki na sekundę: 16. Długie filmy są składane z krótkich klipów. Cięcia mogą być widoczne, a generowanie może trwać długo. · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "Pobiera i konfiguruje zalecane modele: Nemotron dla tekstu, Qwen3-Embedding Q8_0 dla pobierania wielojęzycznego (domyślnie CPU), FLUX.2 Klein 4B i jego komponenty, Real-ESRGAN ×2/×4, ACE-Step dla muzyki (domyślnie włączona wersja instrumentalna) i Wan2.1 dla wideo. Sprawdź poniżej rozmiary plików, miejsce na dysku i wymagania wstępne wideo. Oddzielne pobieranie i przeglądanie pozostają dostępne.",
+    "setupAllNote": "Pobiera i konfiguruje zalecane modele: Nemotron dla tekstu, Qwen3-Embedding Q8_0 dla pobierania wielojęzycznego (domyślnie CPU), FLUX.2 Klein 4B (Obraz) i jego komponenty, Real-ESRGAN ×2/×4, ACE-Step dla muzyki i Wan2.1 dla wideo. Sprawdź poniżej rozmiary plików, miejsce na dysku i wymagania wstępne wideo. Oddzielne pobieranie i przeglądanie pozostają dostępne.",
     "finalizing": "Finalizowanie filmu",
     "videoDuration": "Długość filmu",
     "videoDurationNote": "Długie filmy są składane z krótkich klipów. Cięcia mogą być widoczne, a generowanie może trwać długo.",

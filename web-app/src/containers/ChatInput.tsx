@@ -2233,6 +2233,7 @@ const ChatInput = memo(function ChatInput({
               </div>
             )}
             <div className="composer-prompt relative">
+            <div className="composer-input-area relative min-w-0">
               {highlightedPrefix && prompt.startsWith(highlightedPrefix) && (
                 <div
                   ref={highlightRef}
@@ -2346,6 +2347,56 @@ const ChatInput = memo(function ChatInput({
               )}
             />
             </div>
+            <div className="composer-submit-area">
+              {isStreaming || toolsRunning ? (
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant="destructive"
+                      size="icon-sm"
+                      data-testid="stop-message-button"
+                      aria-label={t(queueLength > 0 ? 'common:clearRecent' : 'common:stop')}
+                      className="composer-submit-button"
+                      onClick={() => {
+                        // Stopping with messages queued clears the queue —
+                        // there is nothing to interrupt yet. The old
+                        // `if (!currentThreadId) return` guard made this button
+                        // inert for any surface without a thread id.
+                        if (queueId) {
+                          const queue = useMessageQueue
+                            .getState()
+                            .getQueue(queueId)
+                          if (queue.length > 0) {
+                            useMessageQueue.getState().clearQueue(queueId)
+                            return
+                          }
+                        }
+                        stopStreaming(currentThreadId ?? '')
+                      }}
+                    >
+                      <IconPlayerStopFilled />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{t(queueLength > 0 ? 'common:clearRecent' : 'common:stop')}</p>
+                  </TooltipContent>
+                </Tooltip>
+              ) : (
+                <Button
+                  variant="default"
+                  size="icon-sm"
+                  disabled={(!prompt.trim() && !hasSendableMedia) || ingestingAny}
+                  data-test-id="send-message-button"
+                  data-testid="send-message-button"
+                  aria-label={t('chat:sendMessage')}
+                  onClick={() => handleSendMessage(prompt)}
+                  className="composer-submit-button"
+                >
+                  <ArrowRight className="text-primary-fg" />
+                </Button>
+              )}
+            </div>
+            </div>
             {/* @path file reference picker popover */}
             {filePickerOpen && effectiveAgentMode && (
               <div className="relative">
@@ -2365,9 +2416,9 @@ const ChatInput = memo(function ChatInput({
         <div className="composer-footer relative z-20 w-full p-2">
           <div
             ref={controlRowRef}
-            className="flex items-end justify-between gap-2 w-full"
+            className="composer-footer-row flex items-end justify-between gap-2 w-full"
           >
-            <div className="px-1 flex flex-wrap items-center gap-1 flex-1 min-w-0">
+            <div className="composer-footer-content px-1 flex flex-wrap items-center gap-1 flex-1 min-w-0">
               <CollapsibleControls
                 collapsed={collapseControls}
                 label={t('common:moreControls')}
@@ -3015,51 +3066,6 @@ const ChatInput = memo(function ChatInput({
                 </div>
               )}
 
-              {isStreaming || toolsRunning ? (
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant="destructive"
-                      size="icon-sm"
-                      data-testid="stop-message-button"
-                      className="rounded-full mr-1 mb-1"
-                      onClick={() => {
-                        // Stopping with messages queued clears the queue —
-                        // there is nothing to interrupt yet. The old
-                        // `if (!currentThreadId) return` guard made this button
-                        // inert for any surface without a thread id.
-                        if (queueId) {
-                          const queue = useMessageQueue
-                            .getState()
-                            .getQueue(queueId)
-                          if (queue.length > 0) {
-                            useMessageQueue.getState().clearQueue(queueId)
-                            return
-                          }
-                        }
-                        stopStreaming(currentThreadId ?? '')
-                      }}
-                    >
-                      <IconPlayerStopFilled />
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{t(queueLength > 0 ? 'common:clearRecent' : 'common:stop')}</p>
-                  </TooltipContent>
-                </Tooltip>
-              ) : (
-                <Button
-                  variant="default"
-                  size="icon-sm"
-                  disabled={(!prompt.trim() && !hasSendableMedia) || ingestingAny}
-                  data-test-id="send-message-button"
-                  data-testid="send-message-button"
-                  onClick={() => handleSendMessage(prompt)}
-                  className="rounded-full mr-1 mb-1"
-                >
-                  <ArrowRight className="text-primary-fg" />
-                </Button>
-              )}
             </div>
           </div>
         </div>

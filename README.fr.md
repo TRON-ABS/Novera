@@ -95,26 +95,26 @@ L’encodeur Qwen du profil musical et le modèle Qwen de recherche sont **deux 
 
 | Fournisseur | Sorties dans Novera | Modèles du catalogue |
 | --- | --- | --- |
-| [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | Musique | `ElevenMusic v2.5` |
-| [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Image / Musique | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
-| [fal](https://fal.ai/models/fal-ai/ace-step/api) | Image / Musique / Vidéo | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
-| [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Image / Musique | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
-| [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | Image / Vidéo | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
-| [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | Image / Vidéo | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
-| [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Image / Vidéo | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
-| [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | Image | `Krea 3` |
-| [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | Image | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
-| [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | Vidéo | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
-| [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Image | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
-| [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | Image / Vidéo | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
-| [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Image | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
-| [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | Image | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
-| [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | Image | `Ideogram 4.5` |
-| [Runway](https://docs.dev.runwayml.com/api/) | Vidéo | `Runway Gen-4.5` |
-| [Luma](https://docs.agents.lumalabs.ai/guides/model/) | Image / Vidéo | `Luma Uni-1 Max` · `Luma Uni-1` · `Luma Ray 3.2` |
-| [LTX (Lightricks)](https://docs.ltx.io/models) | Vidéo | `LTX-2.5 Pro` · `LTX-2.5 Fast` |
-| [MiniMax](https://platform.minimax.io/docs/api-reference/video-generation-v2-create) | Image / Vidéo | `MiniMax H3 Max` · `MiniMax H3` · `MiniMax H3 Highspeed` · `MiniMax Image-01` |
-| [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) | Vidéo | `PixVerse V6 Max` · `PixVerse V6` |
+| <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="24" height="24" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | Musique | `ElevenMusic v2.5` |
+| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Image / Musique | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Image / Musique / Vidéo | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Image / Musique | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
+| <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="24" height="24" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | Image / Vidéo | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
+| <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="24" height="24" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | Image / Vidéo | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
+| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Image / Vidéo | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="24" height="24" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | Image | `Krea 3` |
+| <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="24" height="24" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | Image | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
+| <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="24" height="24" /> [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | Vidéo | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Image | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="24" height="24" /> [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | Image / Vidéo | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Image | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="24" height="24" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | Image | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
+| <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="24" height="24" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | Image | `Ideogram 4.5` |
+| <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="24" height="24" /> [Runway](https://docs.dev.runwayml.com/api/) | Vidéo | `Runway Gen-4.5` |
+| <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="24" height="24" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | Image / Vidéo | `Luma Uni-1 Max` · `Luma Uni-1` · `Luma Ray 3.2` |
+| <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="24" height="24" /> [LTX (Lightricks)](https://docs.ltx.io/models) | Vidéo | `LTX-2.5 Pro` · `LTX-2.5 Fast` |
+| <img src="web-app/public/images/model-provider/minimax.svg" alt="MiniMax" width="24" height="24" /> [MiniMax](https://platform.minimax.io/docs/api-reference/video-generation-v2-create) | Image / Vidéo | `MiniMax H3 Max` · `MiniMax H3` · `MiniMax H3 Highspeed` · `MiniMax Image-01` |
+| <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="24" height="24" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) | Vidéo | `PixVerse V6 Max` · `PixVerse V6` |
 
 <details>
 <summary><strong>Voir les modèles texte et vision proposés par fournisseur</strong></summary>

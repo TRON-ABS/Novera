@@ -679,13 +679,15 @@ export function CreationControls({
                   setOpen(true)
               }}
             >
+              <span className="composer-mode-main">
               {item === 'image' ? (
                 <IconPhoto size={14} />
               ) : item === 'music' ? <Music2 size={14}/> : item === 'video' ? (
                 <IconVideo size={14} />
               ) : item === 'auto' ? <Sparkles size={16} aria-hidden="true" /> : <FileText size={16} aria-hidden="true" />}
-              <span>{t(`chat:creation.${item}`)}</span>
+              <span className="composer-mode-label">{t(`chat:creation.${item}`)}</span>
               {mode === item || (item === 'auto' && selectedMode === 'auto') ? <IconCheck size={12} aria-hidden="true" /> : <ComposerStatusSwitch active={false} />}
+              </span>
               <span className="composer-mode-status" aria-hidden="true">{mode === item || (item === 'auto' && selectedMode === 'auto') ? t('common:activeSuffix').replace(/[()]/g, '').trim().toUpperCase() : t('ui:off')}</span>
             </Button>
           ))}

@@ -72,7 +72,7 @@
     "setupImageNote": "Nataal — FLUX.2 Klein 4B · Q4_K_M. Bind: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Rasio: 21:9; Dayo: 1024 × 432; Jéego yu am solo: 4; Modu jiwwu: Yenn saa.",
     "setupMusicNote": "Woy — ACE-Step 1.5 Turbo. Soskatub misik: 2B · Q4_K_M; Tëralekatub misik: 1.7B · Q8_0; Bind: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Guddaayu woy wi: 10–600 s; Baaxaayu déggin wi: 48 kHz · 2.0; Misik bu amul woy / Kàdduy woy; Yenn saa.",
     "setupVideoNote": "Wideo — Wan2.1 T2V 1.3B · Q4_K_M. Bind: UMT5-XXL · Q4_K_M. Guddaayu wideo bi: 5 s; Rasio: 21:9; Kadre ci segond bu nekk: 16. Wideo yu gudd dañuy boole ay dog yu gàtt. Barabu boole yi mën nañu feeñ te sos gi mën na jël lu bare ci waxtu. · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "Dafa jàppale ak jéggal ay modèl yu jàppale: Nemotron ci text, Qwen3-Embedding Q8_0 ci multilingual retrieval (CPU bu default), FLUX.2 Klein 4B ak ay composants yi, Real-ESRGAN ×2/×4, ACE-Step ci musique (Instrumental bu default), ak Wan2.1 ci video. Xoolal ay taille file, espace disk ak prerequisites video ci li guiss ci ci. Downloads ak Browse yu jàppale.",
+    "setupAllNote": "Dafa jàppale ak jéggal ay modèl yu jàppale: Nemotron ci text, Qwen3-Embedding Q8_0 ci multilingual retrieval (CPU bu default), FLUX.2 Klein 4B (Nataal) ak ay composants yi, Real-ESRGAN ×2/×4, ACE-Step ci musique, ak Wan2.1 ci video. Xoolal ay taille file, espace disk ak prerequisites video ci li guiss ci ci. Downloads ak Browse yu jàppale.",
     "finalizing": "Mi ngi jeexal wideo bi",
     "videoDuration": "Guddaayu wideo bi",
     "videoDurationNote": "Wideo yu gudd dañuy boole ay dog yu gàtt. Barabu boole yi mën nañu feeñ te sos gi mën na jël lu bare ci waxtu.",

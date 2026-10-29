@@ -1,4 +1,41 @@
-# fix(workspace): require explicit folder and shell access
+# fix(creation): adapt the composer and preserve generation information
+
+## Current change — 2026-10-29
+
+Long translated controls could crowd the composer, creation durations disappeared when history was reloaded, and unexpected failures were presented as missing configuration. Keep the approved dashboard appearance and its 1,256 px cap, let its rows wrap within the panel, and reserve a separate send/stop rail inside the prompt frame. Mode status text now participates in normal layout instead of overlapping labels.
+
+Persist measured timing and seed information per media file in conversation metadata, including the normal streaming completion path. Restore it after serialized history reloads. Older files may recover recorded numeric information from their existing bounded, path-validated sidecars; missing timings remain absent. Do not expose prompts or model paths through the recovery command.
+
+Preserve the actual unexpected error with configured API keys redacted and an existing translated memory hint when appropriate. Keep preflight setup errors and cancellation handling. Fix a concrete cloud-music invocation mismatch: `creation_cloud_save` expects `request`, whereas its caller supplied `result`. This resolves that contract error; it does not prove the cause of every intermittent GPU or provider failure.
+
+Clarify FLUX.2 Klein 4B's image role in all 80 setup notes and remove their obsolete Instrumental-enabled-by-default claim. Reuse existing translated keys. Add official bundled provider icons to all 20 media-provider rows in both README versions. Expand the user guide with startup, model/component roles, local/cloud prerequisites, controls, quantity, measured times and actionable troubleshooting. Add the maintainer's detailed product and user-information golden rules in `docs/REGLES_D_OR.md`, referenced from `NOVERA.md`.
+
+### Reproduction and evidence
+
+- Previously, reload a generated-media conversation: the file survives but its timing metadata is lost. Tests now serialize and reload image/music/video histories repeatedly and preserve each result's measured values, including a multi-result message.
+- Previously, cloud music supplies the wrong native argument name. The regression test now checks the argument against the Rust command signature and verifies the saved result.
+- Previously, an unknown native allocation or save failure becomes a setup instruction. Regression tests now retain the actual detail, redact secrets and finish the stream once.
+- The composer retains one send/stop control and the existing stop/queue behavior; the existing interaction tests pass after moving it into the prompt.
+
+### Local validation
+
+- Targeted Vitest run across diagnostics, streams, composer controls, generated media, conversation persistence and thread completion: **228 tests pass in 9 files**.
+- `node node_modules/vitest/vitest.mjs run --project @janhq/web-app web-app/src/locales/__tests__/complete-catalogs.test.ts`: **140 tests pass**.
+- From `web-app`: `node node_modules/typescript/bin/tsc --noEmit -p tsconfig.app.json --pretty false`: passes.
+- ESLint on the 9 changed production TypeScript files: no errors; two existing dependency warnings in CreationControls remain.
+- `node scripts/check-architecture.mjs`: no violations. `node scripts/check-ui-localization.mjs`: no missing static keys or unreviewed literals. `python scripts/check-novera-locales.py`: 80 catalogs, 2,400 keys each, no structural errors.
+- `python .build/check-showcase.py`: both README inventories, model/provider references, local assets and original screenshot match. New media rows reuse the official assets already in the provider grid.
+- Actual CSS and its imports process through the existing Tailwind tooling without an application bundle. `rustfmt --edition 2021 --emit stdout src-tauri/src/core/creation.rs`: Rust syntax parses; this is not a native compilation or execution of Rust tests.
+
+### Limits and publication
+
+The maintainer will compile the application. No application/extension build, paid generation, new binary, native runtime test, CI approval or cross-device certification is claimed. A standalone layout fixture was prepared, but browser visual verification is unavailable: the in-app browser cannot reach the local server and its URL policy rejects a self-contained data URL. Small-screen, zoom and RTL behavior still require visual confirmation in the compiled app. Structural checks do not certify linguistic quality in every language. Old results recover times only when recorded information still exists.
+
+PR #1 is already merged and is the base; this follow-up does not depend on another unmerged PR or close an issue. No known overlapping PR is identified. Branch protection remains unchanged; the owner's bypass authorization for PR #1 does not authorize a bypass for this follow-up.
+
+---
+
+## Historical change — explicit folder and shell access
 
 Attaching a folder previously made it writable without a separate access choice, while native shell execution did not use the MCP approval dialog. Add New project on a folder with read-only selected initially, approval before changes, or explicit editing/deletion access. Preserve projects without messages and keep project setup in the existing window.
 
