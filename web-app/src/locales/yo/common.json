@@ -340,6 +340,7 @@
     "delete": "Pa rẹ́"
   },
   "modelSettings": {
+    "label": "Eto Awoṣe",
     "title": "Eto Awoṣe - {{modelId}}",
     "description": "Ṣe atunto awọn eto awoṣe lati mu iṣẹ ṣiṣe ati ihuwasi pọ si.",
     "nglDisabledByFit": "Ibamu adaṣe jẹ yiyan awọn fẹlẹfẹlẹ GPU. Pa a dada-aifọwọyi lati ṣeto eyi pẹlu ọwọ.",

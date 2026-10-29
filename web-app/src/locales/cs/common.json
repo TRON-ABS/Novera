@@ -237,6 +237,7 @@
     "delete": "Smazat"
   },
   "modelSettings": {
+    "label": "Nastavení modelu",
     "nglDisabledByFit": "Automatické přizpůsobení vybírá GPU vrstev. Chcete-li to nastavit ručně, vypněte Automatické přizpůsobení.",
     "title": "Nastavení modelu - {{modelId}}",
     "description": "Nakonfigurujte nastavení modelu pro optimalizaci výkonu a chování.",

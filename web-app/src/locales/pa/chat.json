@@ -6,6 +6,8 @@
   "status": {
     "empty": "ਕੋਈ ਗੱਲਬਾਤ ਨਹੀਂ ਮਿਲੀ"
   },
+  "send": "ਭੇਜੋ",
+
   "sendMessage": "ਸੁਨੇਹਾ ਭੇਜੋ",
   "newConversation": "ਨਵੀਂ ਗੱਲਬਾਤ",
   "clearHistory": "ਇਤਿਹਾਸ ਸਾਫ਼ ਕਰੋ",

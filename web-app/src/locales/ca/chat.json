@@ -6,6 +6,8 @@
   "status": {
     "empty": "No s’ha trobat cap xat"
   },
+  "send": "Envia",
+
   "sendMessage": "Envia el missatge",
   "newConversation": "Conversa nova",
   "clearHistory": "Neteja l’historial",

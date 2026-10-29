@@ -6,6 +6,8 @@
   "status": {
     "empty": "কোনো চেট পোৱা নগল"
   },
+  "send": "পঠিয়াওক",
+
   "sendMessage": "বাৰ্তা প্ৰেৰণ কৰক",
   "newConversation": "নতুন কথোপকথন",
   "clearHistory": "ইতিহাস আঁতৰাওক",

@@ -235,6 +235,7 @@
     "confirmDescription": "侬确定要删脱搿个提供商𠲎？搿个操作撤销勿来。"
   },
   "modelSettings": {
+    "label": "模型设置",
     "title": "模型设置 - {{modelId}}",
     "templateKwargs": {
       "keyPlaceholder": "名称",

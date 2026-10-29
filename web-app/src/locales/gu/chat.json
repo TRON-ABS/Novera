@@ -6,6 +6,8 @@
   "status": {
     "empty": "કોઈ ચેટ્સ મળી નથી"
   },
+  "send": "મોકલો",
+
   "sendMessage": "સંદેશ મોકલો",
   "newConversation": "નવી વાતચીત",
   "clearHistory": "ઇતિહાસ સાફ કરો",

@@ -6,6 +6,8 @@
   "status": {
     "empty": "Nenhuma conversa encontrada"
   },
+  "send": "Enviar",
+
   "sendMessage": "Enviar Mensagem",
   "newConversation": "Nova Conversa",
   "clearHistory": "Limpar Histórico",

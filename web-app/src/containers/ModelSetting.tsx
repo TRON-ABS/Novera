@@ -4,13 +4,14 @@ import debounce from 'lodash.debounce'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet'
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import { useDashboardPanel } from '@/hooks/useDashboardPanel'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
@@ -31,7 +32,7 @@ type ModelSettingProps = {
 }
 
 /**
- * Shared model-settings form + persistence, driven by both the header Sheet
+ * Shared model-settings form + persistence, driven by both the global window
  * (ModelSetting) and the Cowork right rail (CoworkModelPanel). Keeping the
  * handlers here avoids two copies of the debounced yaml-write / router-restart
  * logic diverging.
@@ -125,7 +126,7 @@ function useModelSettingControls(model: Model, provider: ProviderObject) {
   useEffect(() => {
     return () => {
       // Flush — not cancel — so a pending ctx_len/ngl edit still gets
-      // written to model.yml and the router restarted after the sheet closes.
+      // written to model.yml and the router restarted after the window closes.
       flushPendingPatches.flush()
       debouncedStopModel.flush()
     }
@@ -264,7 +265,7 @@ function useModelSettingControls(model: Model, provider: ProviderObject) {
   }
 }
 
-/** The settings body, shared by the header Sheet and the Cowork rail. */
+/** The settings body, shared by the global window and the Cowork rail. */
 export function ModelSettingFields({ model, provider }: ModelSettingProps) {
   const { t } = useTranslation()
   const {
@@ -276,7 +277,7 @@ export function ModelSettingFields({ model, provider }: ModelSettingProps) {
   } = useModelSettingControls(model, provider)
 
   return (
-    <div className="px-4 space-y-8 pb-4 flex-1 min-h-0 overflow-y-auto">
+    <div className="novera-model-settings-fields px-4 space-y-8 pb-4 flex-1 min-h-0 overflow-y-auto">
           {provider.provider === 'llamacpp' && (
             <SpecDraftPanel modelId={model.id} />
           )}
@@ -399,26 +400,46 @@ export function ModelSettingFields({ model, provider }: ModelSettingProps) {
 export function ModelSetting({ model, provider }: ModelSettingProps) {
   const { t } = useTranslation()
   return (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button variant="ghost" size="icon-xs">
-          <IconSettings size={18} className="text-muted-foreground" />
-        </Button>
-      </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>
+    <Tooltip>
+      <TooltipTrigger asChild>
+    <Button type="button" variant="ghost" size="icon-xs"
+      aria-label={t('common:modelSettings.label')}
+      onClick={() => useDashboardPanel.getState().openModelSettings(model, provider)}>
+      <IconSettings size={18} className="text-muted-foreground" />
+    </Button>
+      </TooltipTrigger>
+      <TooltipContent>{t('common:modelSettings.label')}</TooltipContent>
+    </Tooltip>
+  )
+}
+
+/** A single global window survives the originating model menu being unmounted. */
+export function ModelSettingWindow() {
+  const { t } = useTranslation()
+  const info = useDashboardPanel(state => state.modelSettings)
+  const panel = useDashboardPanel(state => state.panel)
+  const latestProvider = useModelProvider(state => info ? state.getProviderByName(info.provider.provider) : undefined)
+  if (!info || panel !== 'model-settings') return null
+  const provider = latestProvider ?? info.provider
+  const model = provider.models.find(value => value.id === info.model.id) ?? info.model
+  return (
+    <Dialog open modal={false} onOpenChange={open => {
+      if (!open) useDashboardPanel.getState().closePanel('model-settings')
+    }}>
+      <DialogContent docked className="novera-model-settings flex flex-col gap-0 p-0 overflow-hidden">
+        <DialogHeader className="p-4 border-b border-cyan-400/30 mb-4 shrink-0">
+          <DialogTitle>
             {t('common:modelSettings.title', {
               modelId: getModelDisplayName(model),
             })}
-          </SheetTitle>
-          <SheetDescription className="text-xs leading-normal">
+          </DialogTitle>
+          <DialogDescription className="text-xs leading-normal">
             {t('common:modelSettings.description')}
-          </SheetDescription>
-        </SheetHeader>
+          </DialogDescription>
+        </DialogHeader>
         <ModelSettingFields model={model} provider={provider} />
-      </SheetContent>
-    </Sheet>
+      </DialogContent>
+    </Dialog>
   )
 }
 

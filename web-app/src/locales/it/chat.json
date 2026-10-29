@@ -6,6 +6,8 @@
   "status": {
     "empty": "Nessuna chat trovata"
   },
+  "send": "Invia",
+
   "sendMessage": "Invia messaggio",
   "newConversation": "Nuova conversazione",
   "clearHistory": "Cancella cronologia",

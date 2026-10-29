@@ -340,6 +340,7 @@
     "delete": "ลบ"
   },
   "modelSettings": {
+    "label": "การตั้งค่าโมเดล",
     "title": "การตั้งค่าโมเดล - {{modelId}}",
     "description": "กำหนดการตั้งค่าโมเดลเพื่อเพิ่มประสิทธิภาพและพฤติกรรม",
     "nglDisabledByFit": "การปรับพอดีอัตโนมัติกำลังเลือก GPU เลเยอร์ ปิดการปรับพอดีอัตโนมัติเพื่อตั้งค่านี้ด้วยตนเอง",
@@ -667,9 +668,9 @@
     "shuttingDown": "กำลังปิดเครื่อง…"
   },
   "duration": {
-    "seconds": "{{count}}ส",
-    "minutes": "{{count}}ม",
-    "hours": "{{count}}ชม"
+    "seconds": "{{count}} วินาที",
+    "minutes": "{{count}} นาที",
+    "hours": "{{count}} ชม."
   },
   "collapse": "ยุบ",
   "expand": "ขยาย",

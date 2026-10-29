@@ -9,6 +9,17 @@ const inventory = JSON.parse(readFileSync(join(root, '../../../docs/language-sup
   locale: string; keys: number; total: number; partial: boolean
 }[]
 
+it('provides the short model-settings tooltip in all 80 languages without the model name', () => {
+  expect(inventory).toHaveLength(80)
+  for (const { locale } of inventory) {
+    const common = JSON.parse(readFileSync(join(root, locale, 'common.json'), 'utf8'))
+    expect(common.modelSettings.label.trim().length, locale).toBeGreaterThan(0)
+    expect(common.modelSettings.label, locale).not.toMatch(/\{\{|\}\}/)
+  }
+  const french = JSON.parse(readFileSync(join(root, 'fr/common.json'), 'utf8'))
+  expect(french.modelSettings.label).toBe('Paramètres du modèle')
+})
+
 function leaves(value: unknown, prefix = ''): Record<string, string> {
   if (typeof value === 'string') return { [prefix]: value }
   return Object.fromEntries(Object.entries(value as Record<string, unknown>)

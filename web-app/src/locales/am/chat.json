@@ -6,6 +6,8 @@
   "status": {
     "empty": "ምንም ቻቶች አልተገኙም።"
   },
+  "send": "ላክ",
+
   "sendMessage": "መልእክት ላክ",
   "newConversation": "አዲስ ውይይት",
   "clearHistory": "ታሪክ አጽዳ",

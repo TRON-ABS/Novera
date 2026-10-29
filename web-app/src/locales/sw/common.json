@@ -340,6 +340,7 @@
     "delete": "Futa"
   },
   "modelSettings": {
+    "label": "Mipangilio ya Muundo",
     "title": "Mipangilio ya Muundo - {{modelId}}",
     "description": "Sanidi mipangilio ya modeli ili kuboresha utendaji na tabia.",
     "nglDisabledByFit": "Kutoshea kiotomatiki ni kuchagua tabaka GPU. Zima kipengele cha Kutoshea Kiotomatiki ili kuweka hii mwenyewe.",

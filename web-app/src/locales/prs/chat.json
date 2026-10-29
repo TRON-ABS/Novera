@@ -6,6 +6,8 @@
   "status": {
     "empty": "هیچ گفت‌وگویی پیدا نشد"
   },
+  "send": "ارسال",
+
   "sendMessage": "پیام بفرستید",
   "newConversation": "گفت‌وگوی نو",
   "clearHistory": "پاک کردن تاریخچه",

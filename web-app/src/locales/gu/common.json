@@ -340,6 +340,7 @@
     "delete": "કાઢી નાખો"
   },
   "modelSettings": {
+    "label": "મોડલ સેટિંગ્સ",
     "title": "મોડલ સેટિંગ્સ - {{modelId}}",
     "description": "પ્રદર્શન અને વર્તનને ઑપ્ટિમાઇઝ કરવા માટે મોડેલ સેટિંગ્સને ગોઠવો.",
     "nglDisabledByFit": "સ્વતઃ-ફીટ GPU સ્તરો પસંદ કરી રહ્યું છે. આને મેન્યુઅલી સેટ કરવા માટે ઑટો-ફિટ બંધ કરો.",
@@ -667,7 +668,7 @@
     "shuttingDown": "બંધ કરી રહ્યું છે..."
   },
   "duration": {
-    "seconds": "{{count}}",
+    "seconds": "{{count}} સેકં",
     "minutes": "{{count}}m",
     "hours": "{{count}} કલાક"
   },

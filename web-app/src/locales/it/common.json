@@ -250,6 +250,7 @@
     "delete": "Elimina"
   },
   "modelSettings": {
+    "label": "Impostazioni modello",
     "nglDisabledByFit": "L'adattamento automatico sceglie GPU livelli. Disattiva Adattamento automatico per impostarlo manualmente.",
     "title": "Impostazioni modello - {{modelId}}",
     "description": "Configura le impostazioni del modello per ottimizzarne le prestazioni e il comportamento.",

@@ -340,6 +340,7 @@
     "delete": "Hichapụ"
   },
   "modelSettings": {
+    "label": "Ntọala Model",
     "title": "Ntọala Model - {{modelId}}",
     "description": "Hazie ntọala ụdị ka ebuli arụmọrụ na omume.",
     "nglDisabledByFit": "Auto-dabara na-ahọrọ GPU n'ígwé. Gbanyụọ akpaghị aka ka iji aka gị tọọ nke a.",

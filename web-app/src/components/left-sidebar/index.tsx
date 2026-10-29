@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { NavChats } from './NavChats'
 import { NavCowork } from './NavCowork'
-import { NavMain } from './NavMain'
 import { NavProjects } from './NavProjects'
 import { NavTabs } from './NavTabs'
 
@@ -16,7 +15,7 @@ import { cn } from '@/lib/utils'
 import { useTitlebarLayout } from '@/stores/titlebar-layout-store'
 import { useLocation } from '@tanstack/react-router'
 import { isCoworkRoute, route } from '@/constants/routes'
-import { NewWorkspaceProject, WorkspaceProjects } from './WorkspaceProjects'
+import { WorkspaceProjects } from './WorkspaceProjects'
 import { isCoworkEnabled } from '@/lib/version'
 
 export function LeftSidebar() {
@@ -42,8 +41,7 @@ export function LeftSidebar() {
             </div>
           </div>
           <NavTabs surfacePath={surfacePath} />
-          <NewWorkspaceProject />
-          {isCowork ? <NavCowork /> : <NavMain />}
+          {isCowork && <NavCowork />}
         </SidebarHeader>
         <SidebarContent className="mask-b-from-95% mask-t-from-98%">
           <WorkspaceProjects />

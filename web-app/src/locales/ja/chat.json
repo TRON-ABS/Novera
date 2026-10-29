@@ -6,6 +6,8 @@
   "status": {
     "empty": "チャットが見つかりません"
   },
+  "send": "送信",
+
   "sendMessage": "メッセージを送信",
   "newConversation": "新しい会話",
   "clearHistory": "履歴を消去",

@@ -1,5 +1,47 @@
 # Novera — instructions du projet
 
+## Sélecteur de modèle unique dans le tableau de bord — 29 octobre 2026
+
+Demande explicite avec les deux captures : déplacer le sélecteur complet du haut à la place du petit bouton de modèle du tableau de bord, en conservant le style compact de celui du bas, le petit engrenage et le voyant d’évaluation matériel original. Supprimer le doublon du haut sur l’accueil, les conversations et les projets. Garder un seul choix dans ces vues. Ouvrir la liste vers le haut et afficher le modèle réellement sélectionné (ou la sélection média de la tâche active), sans remplacer le voyant estimatif par un vert forcé.
+
+Ordre demandé : modèles locaux en premier avec l’accès aux paramètres des moteurs locaux, puis modèles cloud regroupés **Texte → Image → Musique → Vidéo**. Garder les filtres, la recherche et les choix de fournisseurs. Les profils musicaux locaux et les modèles cloud audio sont sélectionnables sans changer le modèle de conversation. Une clé cloud manquante ouvre les paramètres du fournisseur au-dessus du tableau de bord. Le petit engrenage affiche exactement **Paramètres du modèle** en français, traduit via une clé courte dans les 80 langues, sans nom de modèle dans l’infobulle. Le titre de sa fenêtre garde le nom du modèle. Inventaire : 2 402 clés par langue.
+
+## Paramètres du modèle : fenêtre Novera au-dessus du tableau de bord — 29 octobre 2026
+
+Demande explicite à partir de la capture Nemotron : appliquer le style Novera à **Paramètres du modèle** et ouvrir aussi cette fenêtre au-dessus du tableau de bord. Remplacer le volet latéral par la même fenêtre non bloquante, avec fond bleu nuit, cadre cyan/violet, sections arrondies et curseurs/interrupteurs/champs assortis. Garder la saisie et les petits boutons visibles et utilisables. Un propriétaire global unique conserve la fenêtre quand le menu de modèles d’origine se ferme ; changer de panneau la remplace. Lire les dernières valeurs du modèle depuis le fournisseur et conserver tous les réglages, temporisations de sauvegarde et actions existantes. Réutiliser les libellés déjà traduits dans les 80 langues.
+
+## Fenêtres Novera au-dessus du tableau de bord — 29 octobre 2026
+
+Fonctionnement explicitement approuvé : ouvrir Modèles, Configuration, Recherche et la confirmation de Nouveau projet dans une fenêtre Novera **au-dessus** du tableau de bord, sans le recouvrir, avec la saisie et les quatre petits boutons toujours visibles et utilisables. Un seul panneau à la fois ; un autre bouton remplace celui qui est ouvert. Cadre cyan/violet arrondi et fond bleu nuit en thème sombre, équivalent clair, hauteur bornée avec défilement. Suivre la position et la taille réelles du tableau de bord et la fenêtre ; aucun voile bloquant derrière ces panneaux.
+
+Réutiliser toutes les pages existantes de Modèles et Configuration et leurs sous-pages dans une navigation interne indépendante, sans remplacer la conversation ni sa saisie. Choisir un modèle applique le choix à la conversation et referme le panneau. Rechercher puis choisir une conversation garde le parcours normal. Nouveau projet conserve le sélecteur de dossier Windows (apparence système), puis une confirmation Novera explicite avec lecture seule par défaut. Changer de panneau abandonne la sélection de projet en attente sans accorder d’accès. Les autres fenêtres modales de l’application conservent leur comportement ; aucune autorisation d’accès ni validation sensible n’est supprimée.
+
+## Navigation intégrée autour de la saisie — 29 octobre 2026
+
+Disposition explicitement validée : entre le cadre extérieur du tableau de bord et le cadre de saisie, deux boutons superposés à gauche, **Recherche puis Nouveau projet**, et deux à droite, **Modèles puis Configuration**. Garder Nouvelle discussion et Envoyer/Arrêter dans leurs zones actuelles, sans superposer les nouvelles commandes au texte. Reprendre le style Novera, les noms accessibles et les infobulles déjà traduites dans les 80 langues.
+
+Retirer ces quatre accès de la barre latérale, y compris Configuration côté Cowork. Le raccourci Configuration du nouveau rail ouvre la page générale existante ; le réglage de création dans la rangée basse conserve son rôle distinct. Nouveau projet garde le sélecteur de dossier et l’approbation d’accès, avec lecture seule par défaut, et non la création silencieuse d’un dossier ou une autorisation d’écriture. Recherche et les fenêtres de projet ont un propriétaire global unique, indépendant des montages du tableau de bord et de la barre latérale, pour préserver les raccourcis clavier et le parcours existant.
+
+## Unités des durées dans les 80 langues — 29 octobre 2026
+
+Correction demandée après capture « A travaillé pour 21 » : les durées doivent toujours porter leur unité (secondes, minutes, heures), dans les 80 langues. Corriger les unités absentes et les traductions de minutes confondues avec des mètres ; en français afficher par exemple `21 s`, `1 min 30 s`, `1 h 20 min`. Garder les durées réellement mesurées et le format compact existant. Vérifier les unités distinctes et non vides dans les 80 catalogues réels, en complément des tests avec traductions simulées. Aucun changement du calcul ni compilation applicative dans ce lot.
+
+## Compilation locale sur 8 tâches — 29 octobre 2026
+
+Demande explicite du mainteneur : passer le lanceur `Compiler-Novera.bat` à huit tâches de compilation Rust en parallèle. Le BAT du dossier parent appelle `scripts/distribution/build-novera-local.ps1`, qui fixe désormais `CARGO_BUILD_JOBS=8` au lieu de 4. Il s’agit du parallélisme Cargo, pas d’une affinité CPU ni d’une modification du nombre de threads d’inférence. Aucune compilation déclenchée par ce réglage.
+
+## Cadre des réponses du modèle — 29 octobre 2026
+
+Style explicitement validé : donner aux réponses du modèle leur propre cadre arrondi à bordure cyan bien visible et fond bleu ardoise, distinct des messages utilisateur bleu nuit/indigo à droite. Adapter le fond au thème clair. Conserver le même cadre fixe pendant la rédaction et après la réponse, avec espace intérieur pour texte, listes, code et contenu multimédia, sans animation. Un seul cadre regroupe les parties d’une réponse ; les actions restent disponibles. Aucune modification des messages utilisateur ni nouveau libellé à traduire. Compilation applicative à réaliser par le mainteneur.
+
+## Doubles cercles des boutons — 29 octobre 2026
+
+Disposition explicitement validée : anneaux concentriques autour des boutons Envoyer et Nouvelle discussion, sans déplacer leurs zones réservées. Correction explicite du mainteneur après essai : les couleurs indiquent si une réponse est en cours, pas si la saisie est prête à envoyer. Au repos, les deux anneaux sont verts, même avant le premier envoi, avec une saisie vide ou une pièce jointe en préparation. De la soumission jusqu’à la fin de la réponse ou des outils, Envoyer est rouge et Nouvelle discussion jaune. Revenir au vert/vert lorsque le tour se termine ou s’arrête. Conserver les verrouillages du bouton Envoyer, le carré Arrêter et les actions existantes. Les anneaux restent fixes, visibles quand Envoyer est désactivé, sans halo animé ni nouveau texte à traduire.
+
+## Infobulle Envoyer — 29 octobre 2026
+
+Correction explicitement approuvée : afficher uniquement **Envoyer**, traduit dans les 80 langues, au survol du bouton d’envoi, y compris lorsqu’il est désactivé. Employer la clé dédiée `chat:send` pour cette infobulle ; conserver le nom accessible et les autres usages de `chat:sendMessage`. Le déclencheur englobe le bouton désactivé sans changer son verrouillage, son action ou son apparence. Aucun changement du bouton Arrêter ni compilation applicative dans ce lot.
+
 ## Direction finale : tout autour du tableau de bord — 29 octobre 2026
 
 Objectif explicite pour les prochaines améliorations : **rendre toutes les fonctions accessibles dans le tableau de bord ou juste à côté, puis supprimer le panneau latéral permanent**. Cela inclut conversations et historique, recherche, projets, fichiers, modèles, configurations, téléchargements et outils. Préserver chaque possibilité pendant son déplacement ; ne pas supprimer un accès tant que son remplacement n’est pas disponible et validé.

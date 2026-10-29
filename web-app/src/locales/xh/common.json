@@ -340,6 +340,7 @@
     "delete": "Cima"
   },
   "modelSettings": {
+    "label": "Iisetingi zeModeli",
     "title": "Iisetingi zeModeli - {{modelId}}",
     "description": "Cwangcisa iisetingi zemodeli ukulungiselela ukusebenza kakuhle kunye nokuziphatha.",
     "nglDisabledByFit": "Ukuzifakela ngokuzenzekelayo kukhetha iileya ze-GPU. Cima i-Auto-fit ukuseta oku ngesandla.",

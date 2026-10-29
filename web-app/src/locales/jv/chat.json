@@ -6,6 +6,8 @@
   "status": {
     "empty": "Ora ana obrolan sing ditemokake"
   },
+  "send": "Kirim",
+
   "sendMessage": "Kirimi Pesen",
   "newConversation": "Obrolan Anyar",
   "clearHistory": "Clear History",

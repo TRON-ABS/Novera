@@ -340,6 +340,7 @@
     "delete": "Goge"
   },
   "modelSettings": {
+    "label": "Saitunan Samfura",
     "title": "Saitunan Samfura - {{modelId}}",
     "description": "Sanya saitunan ƙira don haɓaka aiki da ɗabi'a.",
     "nglDisabledByFit": "Auto-fit yana zabar yadudduka na GPU. Kashe Auto-fit don saita wannan da hannu.",
@@ -667,9 +668,9 @@
     "shuttingDown": "Ana rufewa…"
   },
   "duration": {
-    "seconds": "Saukewa: {{count}}",
+    "seconds": "{{count}} s",
     "minutes": "{{count}}m",
-    "hours": "Saukewa: {{count}}"
+    "hours": "{{count}} h"
   },
   "collapse": "Rushewa",
   "expand": "Fadada",

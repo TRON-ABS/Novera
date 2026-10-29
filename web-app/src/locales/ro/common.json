@@ -340,6 +340,7 @@
     "delete": "Șterge"
   },
   "modelSettings": {
+    "label": "Setările modelului",
     "title": "Setările modelului - {{modelId}}",
     "description": "Configurați setările modelului pentru a optimiza performanța și comportamentul.",
     "nglDisabledByFit": "Auto-fit alege GPU straturi. Dezactivați Auto-fit pentru a seta acest lucru manual.",

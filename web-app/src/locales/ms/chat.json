@@ -6,6 +6,8 @@
   "status": {
     "empty": "Tiada Sembang Ditemui"
   },
+  "send": "Hantar",
+
   "sendMessage": "Hantar Mesej",
   "newConversation": "Perbualan Baru",
   "clearHistory": "Kosongkan Sejarah",

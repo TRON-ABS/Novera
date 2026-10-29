@@ -6,6 +6,8 @@
   "status": {
     "empty": "कवनो गपशप ना मिलल"
   },
+  "send": "भेजीं",
+
   "sendMessage": "संदेश भेजल जाला",
   "newConversation": "नया बातचीत भइल",
   "clearHistory": "इतिहास के साफ कर दिहल जाव",

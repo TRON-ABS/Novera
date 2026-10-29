@@ -6,6 +6,8 @@
   "status": {
     "empty": "Walang nahanap na usapan"
   },
+  "send": "Ipadala",
+
   "sendMessage": "Ipadala ang mensahe",
   "newConversation": "Bagong usapan",
   "clearHistory": "Burahin ang kasaysayan",

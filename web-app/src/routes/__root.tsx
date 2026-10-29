@@ -25,6 +25,7 @@ import { DownloadManagement } from '@/containers/DownloadManegement'
 import { ServiceHubProvider } from '@/providers/ServiceHubProvider'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { LeftSidebar } from '@/components/left-sidebar'
+import { GlobalNavigationDialogs } from '@/containers/GlobalNavigationDialogs'
 import { WindowControls } from '@/components/WindowControls'
 import { WindowResizeGrips } from '@/components/WindowResizeGrips'
 import ErrorDialog from '@/containers/dialogs/ErrorDialog'
@@ -60,6 +61,7 @@ const AppLayout = () => {
       >
         <AnalyticProvider />
         <KeyboardShortcutsProvider />
+        <GlobalNavigationDialogs />
         {/* Fake absolute panel top to enable window drag */}
         {(IS_WINDOWS || IS_LINUX) && <WindowControls />}
         {IS_LINUX && <WindowResizeGrips />}

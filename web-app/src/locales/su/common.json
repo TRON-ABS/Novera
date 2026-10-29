@@ -340,6 +340,7 @@
     "delete": "Pupus"
   },
   "modelSettings": {
+    "label": "Setélan modél",
     "title": "Setélan modél - {{modelId}}",
     "description": "Konpigurasikeun setélan modél pikeun ngaoptimalkeun kinerja sareng paripolah.",
     "nglDisabledByFit": "Auto-fit nyaéta milih GPU lapisan. Pareuman Auto-fit pikeun nyetél ieu sacara manual.",

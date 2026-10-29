@@ -249,6 +249,7 @@
     "delete": "Eliminar"
   },
   "modelSettings": {
+    "label": "Configuración del modelo",
     "nglDisabledByFit": "El ajuste automático consiste en elegir GPU capas. Desactive Ajuste automático para configurar esto manualmente.",
     "title": "Configuración del modelo - {{modelId}}",
     "description": "Configura los ajustes del modelo para optimizar el rendimiento y el comportamiento.",

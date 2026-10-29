@@ -45,7 +45,6 @@ vi.mock('@/containers/DownloadManegement', () => ({
   DownloadManagement: () => null,
 }))
 vi.mock('../NavCowork', () => ({ NavCowork: () => <div>Cowork sessions</div> }))
-vi.mock('../NavMain', () => ({ NavMain: () => <div>Chat navigation</div> }))
 vi.mock('../NavChats', () => ({ NavChats: () => <div>Chat threads</div> }))
 vi.mock('../NavProjects', () => ({ NavProjects: () => null }))
 vi.mock('@/components/ui/sidebar', () => {
@@ -70,6 +69,8 @@ beforeEach(() => {
 
 it('keeps Cowork navigation across Settings pages and returns without starting a session', () => {
   const view = render(<LeftSidebar />)
+  expect(screen.queryByRole('button', { name: 'New folder project' })).not.toBeInTheDocument()
+  expect(screen.queryByText('Chat navigation')).not.toBeInTheDocument()
   navigation.pathname = '/settings/general'
   view.rerender(<LeftSidebar />)
   expect(screen.getByText('Cowork sessions')).toBeInTheDocument()

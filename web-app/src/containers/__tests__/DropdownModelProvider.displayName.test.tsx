@@ -86,8 +86,8 @@ vi.mock('@/components/ui/popover', () => ({
   PopoverTrigger: ({ children }: { children: React.ReactNode }) => (
     <div data-testid="popover-trigger">{children}</div>
   ),
-  PopoverContent: ({ children }: { children: React.ReactNode }) => (
-    <div data-testid="popover-content">{children}</div>
+  PopoverContent: ({ children, side }: { children: React.ReactNode; side?: string }) => (
+    <div data-testid="popover-content" data-side={side}>{children}</div>
   ),
 }))
 
@@ -112,6 +112,30 @@ vi.mock('../ModelSupportStatus', () => ({
 }))
 
 describe('DropdownModelProvider - Display Name Integration', () => {
+  it('shows one compact active-model selector opening upward, then local models and cloud tasks in order', () => {
+    const state = useModelProvider()
+    const local = { ...mockProviders[0], models: mockProviders[0].models.map(model => ({ ...model, settings: {} })) }
+    const cloud = { provider: 'custom-cloud', active: true, settings: [], models: [
+      { id: 'cloud-text', capabilities: ['completion'] },
+      { id: 'cloud-image', capabilities: ['image-generation'] },
+      { id: 'cloud-music', capabilities: ['audio-generation'] },
+      { id: 'cloud-video', capabilities: ['video-generation'] },
+    ] }
+    vi.mocked(useModelProvider).mockReturnValue({ ...state, providers: [cloud, local] } as never)
+    render(<DropdownModelProvider variant="composer" mediaScope="unified-test" />)
+    expect(screen.getByTestId('model-selector-trigger')).toHaveClass('composer-model')
+    expect(screen.getByTestId('model-selector-trigger')).toHaveTextContent('Custom Model 1')
+    expect(screen.getByTestId('model-support-status')).toBeInTheDocument()
+    expect(screen.getByTestId('popover-content')).toHaveAttribute('data-side', 'top')
+    expect(Array.from(document.querySelectorAll('[data-model-group]')).map(node => node.getAttribute('data-model-group')))
+      .toEqual(['local', 'text', 'image', 'music', 'video'])
+    expect(document.querySelector('[data-model-group="local"] [data-testid="model-setting"]')).not.toBeNull()
+    fireEvent.click(screen.getByTestId('model-option-cloud-music'))
+    expect(useCreation.getState().selections['unified-test'].music).toEqual({ provider: 'custom-cloud', id: 'cloud-music' })
+    expect(useCreation.getState().modes['unified-test']).toBe('music')
+    expect(screen.getByTestId('model-selector-trigger')).toHaveTextContent('cloud-music')
+    expect(state.selectModelProvider).not.toHaveBeenCalled()
+  })
   const mockProviders: ModelProvider[] = [
     {
       provider: 'llamacpp',

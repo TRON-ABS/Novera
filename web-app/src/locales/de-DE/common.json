@@ -236,6 +236,7 @@
     "delete": "Löschen"
   },
   "modelSettings": {
+    "label": "Modell Einstellungen",
     "nglDisabledByFit": "Bei der automatischen Anpassung werden GPU Ebenen ausgewählt. Deaktivieren Sie die automatische Anpassung, um dies manuell festzulegen.",
     "title": "Modell Einstellungen - {{modelId}}",
     "description": "Modeleinstellungen konfigurieren, um die Leistung und das Verhalten zu optimieren.",

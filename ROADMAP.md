@@ -2,6 +2,9 @@
 
 ## Direction future du tableau de bord — 29 octobre 2026
 
+- [x] Préparer les accès Recherche, Nouveau projet, Modèles et Configuration autour de la saisie, les fenêtres au-dessus du tableau de bord et le sélecteur de modèle unique, sur les demandes explicitement validées.
+- [ ] Vérifier ces changements dans l’application recompilée : tailles d’écran, positions, focus, clavier, RTL et parcours réels des modèles/fournisseurs. Les tests de sources ne remplacent pas cette validation.
+
 Objectif du mainteneur : **tout dans le tableau de bord ou juste à côté, sans panneau latéral permanent à terme**. Aucune nouvelle modification d’interface n’est engagée par cette inscription.
 
 - [ ] Préparer, une fonction à la fois, une proposition d’accès depuis le tableau de bord ou son voisinage immédiat.

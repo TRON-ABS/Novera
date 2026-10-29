@@ -6,6 +6,8 @@
   "status": {
     "empty": "ไม่พบการแชท"
   },
+  "send": "ส่ง",
+
   "sendMessage": "ส่งข้อความ",
   "newConversation": "บทสนทนาใหม่",
   "clearHistory": "ล้างประวัติ",

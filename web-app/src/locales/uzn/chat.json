@@ -6,6 +6,8 @@
   "status": {
     "empty": "Suhbat topilmadi"
   },
+  "send": "Yuborish",
+
   "sendMessage": "Xabar yuborish",
   "newConversation": "Yangi suhbat",
   "clearHistory": "Tarixni tozalash",

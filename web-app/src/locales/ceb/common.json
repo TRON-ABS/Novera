@@ -340,6 +340,7 @@
     "delete": "Pagtangtang"
   },
   "modelSettings": {
+    "label": "Mga Setting sa Modelo",
     "title": "Mga Setting sa Modelo - {{modelId}}",
     "description": "I-configure ang mga setting sa modelo aron ma-optimize ang performance ug pamatasan.",
     "nglDisabledByFit": "Auto-fit mao ang pagpili sa GPU layers. I-off ang Auto-fit aron i-set kini nga mano-mano.",

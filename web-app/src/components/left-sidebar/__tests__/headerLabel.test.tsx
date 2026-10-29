@@ -28,7 +28,6 @@ vi.mock('@/containers/DownloadManegement', () => ({
   DownloadManagement: () => null,
 }))
 vi.mock('../NavCowork', () => ({ NavCowork: () => null }))
-vi.mock('../NavMain', () => ({ NavMain: () => null }))
 vi.mock('../NavChats', () => ({ NavChats: () => null }))
 vi.mock('../NavProjects', () => ({ NavProjects: () => null }))
 vi.mock('../NavTabs', () => ({ NavTabs: () => null }))

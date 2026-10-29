@@ -340,6 +340,7 @@
     "delete": "حذف کنید"
   },
   "modelSettings": {
+    "label": "تنظیمات مدل",
     "title": "تنظیمات مدل - {{modelId}}",
     "description": "تنظیمات مدل را برای بهینه سازی عملکرد و رفتار پیکربندی کنید.",
     "nglDisabledByFit": "تناسب خودکار انتخاب GPU لایه است. برای تنظیم دستی، Auto-fit را خاموش کنید.",
@@ -668,7 +669,7 @@
   },
   "duration": {
     "seconds": "{{count}} ثانیه",
-    "minutes": "{{count}} متر",
+    "minutes": "{{count}} دقیقه",
     "hours": "{{count}} ساعت"
   },
   "collapse": "فرو ریختن",

@@ -4,6 +4,8 @@
   "status": {
     "empty": "Nie znaleziono czatów"
   },
+  "send": "Wyślij",
+
   "sendMessage": "Wyślij Wiadomość",
   "newConversation": "Nowa Rozmowa",
   "clearHistory": "Wyczyść Historię",

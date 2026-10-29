@@ -36,7 +36,6 @@ vi.mock('@/containers/DownloadManegement', () => ({
   DownloadManagement: () => null,
 }))
 vi.mock('../NavCowork', () => ({ NavCowork: () => <div>Cowork sessions</div> }))
-vi.mock('../NavMain', () => ({ NavMain: () => <div>Chat navigation</div> }))
 vi.mock('../NavChats', () => ({ NavChats: () => <div>Chat threads</div> }))
 vi.mock('../NavProjects', () => ({ NavProjects: () => null }))
 vi.mock('../WorkspaceProjects', () => ({ NewWorkspaceProject: () => <button>New folder project</button>, WorkspaceProjects: () => null }))
@@ -62,7 +61,8 @@ it('keeps a Cowork URL on the chat surface on builds that do not ship Cowork', (
   navigation.pathname = '/cowork'
   render(<LeftSidebar />)
 
-  expect(screen.getByText('Chat navigation')).toBeInTheDocument()
+  expect(screen.queryByText('Chat navigation')).not.toBeInTheDocument()
+  expect(screen.queryByRole('button', { name: 'New folder project' })).not.toBeInTheDocument()
   expect(screen.getByText('Chat threads')).toBeInTheDocument()
   expect(screen.queryByText('Cowork sessions')).not.toBeInTheDocument()
   expect(screen.queryByRole('link', { name: 'common:cowork' })).not.toBeInTheDocument()

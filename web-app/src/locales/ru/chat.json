@@ -6,6 +6,8 @@
   "status": {
     "empty": "Нет чатов"
   },
+  "send": "Отправить",
+
   "sendMessage": "Отправить сообщение",
   "newConversation": "Новый диалог",
   "clearHistory": "Очистить историю",

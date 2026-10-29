@@ -340,6 +340,7 @@
     "delete": "Busak"
   },
   "modelSettings": {
+    "label": "Setelan model",
     "title": "Setelan model - {{modelId}}",
     "description": "Ngatur setelan model kanggo ngoptimalake kinerja lan prilaku.",
     "nglDisabledByFit": "Auto-fit milih GPU lapisan. Pateni Auto-fit kanggo nyetel iki kanthi manual.",

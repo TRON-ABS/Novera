@@ -248,6 +248,7 @@
     "delete": "삭제"
   },
   "modelSettings": {
+    "label": "모델 설정",
     "nglDisabledByFit": "자동 맞춤은 GPU 레이어를 선택합니다. 수동으로 설정하려면 자동 맞춤을 끄세요.",
     "title": "모델 설정 - {{modelId}}",
     "description": "모델 설정을 구성하여 성능과 동작을 최적화합니다.",

@@ -6,6 +6,8 @@
   "status": {
     "empty": "لم يُعثر على محادثات"
   },
+  "send": "إرسال",
+
   "sendMessage": "إرسال رسالة",
   "newConversation": "محادثة جديدة",
   "clearHistory": "مسح السجل",

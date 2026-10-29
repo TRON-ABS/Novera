@@ -340,6 +340,7 @@
     "delete": "Burahin"
   },
   "modelSettings": {
+    "label": "Mga setting ng modelo",
     "title": "Mga setting ng modelo - {{modelId}}",
     "description": "Itakda ang mga setting ng modelo para mapahusay ang pagganap at asal nito.",
     "nglDisabledByFit": "Ang Auto-fit ang pumipili ng mga GPU layer. I-off ang Auto-fit para maitakda ito nang manu-mano.",

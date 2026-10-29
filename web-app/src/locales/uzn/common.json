@@ -340,6 +340,7 @@
     "delete": "O‘chirish"
   },
   "modelSettings": {
+    "label": "Model parametrlari",
     "title": "Model parametrlari - {{modelId}}",
     "description": "Model parametrlarini samaradorlik va harakatni optimallashtirish uchun sozlash.",
     "nglDisabledByFit": "Avtomoslashtirish GPU qatlamlarni tanlaydi. Buni qo‘lda o‘rnatish uchun Avtomoslashtirishni o‘chiring.",

@@ -236,6 +236,7 @@
     "delete": "Supprimer"
   },
   "modelSettings": {
+    "label": "Paramètres du modèle",
     "nglDisabledByFit": "L'ajustement automatique consiste à choisir GPU couches. Désactivez l'ajustement automatique pour le définir manuellement.",
     "title": "Paramètres du modèle - {{modelId}}",
     "description": "Configurez les paramètres du modèle pour optimiser les performances et le comportement.",
@@ -684,9 +685,9 @@
     "notImported": "pas dans l'espace de travail"
   },
   "duration": {
-    "seconds": "{{count}}",
-    "minutes": "{{count}}m",
-    "hours": "{{count}}h"
+    "seconds": "{{count}} s",
+    "minutes": "{{count}} min",
+    "hours": "{{count}} h"
   },
   "collapse": "Réduire",
   "expand": "Développer",

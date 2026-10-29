@@ -6,6 +6,8 @@
   "status": {
     "empty": "কোনো চ্যাট পাওয়া যায়নি"
   },
+  "send": "পাঠান",
+
   "sendMessage": "বার্তা পাঠান",
   "newConversation": "নতুন কথোপকথন",
   "clearHistory": "ইতিহাস সাফ করুন",

@@ -1,5 +1,9 @@
 # Langues d’interface Novera
 
+## Infobulles et unités de durée — 29 octobre 2026
+
+Inventaire courant : **80 catalogues × 2 402 clés**. Les clés courtes `chat:send` et `common:modelSettings.label` affichent « Envoyer » et « Paramètres du modèle » en français, avec une valeur explicite dans chaque langue. Le titre des paramètres garde séparément le nom du modèle. Les unités de secondes absentes et plusieurs unités de minutes erronées sont corrigées ; les tests vérifient secondes, minutes et heures dans les 80 catalogues réels. Les commandes déplacées autour du tableau de bord réutilisent leurs traductions existantes. Contrôle structurel sans erreur ; relecture native et vérification visuelle du binaire restent distinctes.
+
 ## Audit global de l’interface et quantités — 29 octobre 2026
 
 Les **80 catalogues** contiennent explicitement les **2 400 clés** de la

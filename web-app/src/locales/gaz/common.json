@@ -340,6 +340,7 @@
     "delete": "Balleessi"
   },
   "modelSettings": {
+    "label": "Qindaa'ina Moodeelaa",
     "title": "Qindaa'ina Moodeelaa - {{modelId}}",
     "description": "Raawwii fi amala fooyyessuuf qindaa'ina moodeelaa qindeessi.",
     "nglDisabledByFit": "Auto-fit baqaana GPU filachaa jira. Kana harkaanaan qindeessuuf Auto-fit cufi.",

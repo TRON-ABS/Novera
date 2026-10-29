@@ -474,6 +474,23 @@
 .composer-action { border-radius: 10px; border-color: color-mix(in srgb, #818cf8 30%, var(--border)); }
 .composer-instructions { color: light-dark(#5b21b6, #c4b5fd); }
 .composer-model, .composer-memory { height: 30px; }
+.composer-model-selector { gap: 4px; font-size: 11px; }
+.composer-model-selector > button { min-width: 0; max-width: min(45cqi, 280px); font-size: inherit; }
+.composer-model-selector [data-slot="button"] { flex-shrink: 0; }
+.novera-model-selector-menu {
+  --background: #f0f9ff;
+  --secondary: #e5eafa;
+  border-color: #818cf8;
+  border-radius: 14px;
+  max-height: var(--radix-popover-content-available-height);
+  background: linear-gradient(135deg, #f0f9ff, #e9eafa);
+  color: var(--foreground);
+}
+.dark .novera-model-selector-menu {
+  --background: #101f35;
+  --secondary: #1d2d4c;
+  background: linear-gradient(135deg, #10283b, #161a35);
+}
 .composer-memory-state { color: var(--muted-foreground); font-size: 10px; }
 .composer-memory-state[data-active="true"] { color: light-dark(#0e7490, #22d3ee); }
 .composer-metadata { border-inline-start: 1px solid #818cf833; margin-inline-start: 3px; }
@@ -482,6 +499,61 @@
 }
 
 /* Keep the existing appearance while rows respond to the panel, not the screen. */
+.novera-dashboard-window {
+  --background: #f0f9ff;
+  --card: #e8f2fb;
+  --popover: #e9f0fa;
+  border-color: #38bdf8;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f0f9ff, #e9eafa);
+  color: var(--foreground);
+  box-shadow: 0 -6px 24px #0c142b33, inset 0 0 0 1px #818cf833;
+  overscroll-behavior: contain;
+}
+.dark .novera-dashboard-window {
+  --background: #101f35;
+  --card: #15283d;
+  --secondary: #1d2d4c;
+  --popover: #14253a;
+  --border: #38bdf84d;
+  background: linear-gradient(135deg, #10283b, #161a35);
+}
+.novera-dashboard-window [data-slot="dialog-footer"] { background: transparent; }
+.novera-dashboard-window [data-slot="dialog-header"] { padding-inline-end: 40px; }
+.novera-dashboard-pages {
+  height: min(55dvh, 560px);
+  min-height: 0;
+  overflow: auto;
+  flex: 1 1 auto;
+}
+.novera-dashboard-pages > div { height: 100%; min-height: 0; background: transparent; }
+.novera-dashboard-pages [class~="h-svh"] { height: 100%; }
+.novera-dashboard-pages input { min-width: 0; }
+.composer-navigation-frame {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) 32px;
+  align-items: stretch;
+  gap: 6px;
+  margin: 10px 8px 0;
+}
+.composer-navigation-frame > .composer-prompt { margin: 0; min-width: 0; }
+.composer-navigation-rail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding-block: 2px;
+}
+.composer-navigation-button {
+  flex-shrink: 0;
+  border: 1px solid color-mix(in srgb, #38bdf8 65%, var(--border));
+  border-radius: 10px;
+  color: var(--foreground);
+  background: linear-gradient(145deg, color-mix(in srgb, #38bdf8 8%, var(--background)), color-mix(in srgb, #818cf8 10%, var(--background)));
+}
+.composer-navigation-button:hover { background: color-mix(in srgb, #38bdf8 18%, var(--background)); }
+.composer-navigation-button[aria-expanded="true"] { border-color: #a78bfa; box-shadow: inset 0 0 0 1px #38bdf866; }
+.composer-navigation-button:focus-visible { outline: 2px solid #38bdf8; outline-offset: 1px; }
 .composer-prompt {
   display: grid;
   grid-template-columns: clamp(44px, 5cqi, 60px) minmax(0, 1fr) clamp(44px, 5cqi, 60px);
@@ -491,6 +563,7 @@
 .composer-input-area { min-inline-size: 0; }
 .composer-input-area textarea { min-inline-size: 0; max-inline-size: 100%; box-sizing: border-box; }
 .composer-submit-area {
+  position: relative;
   display: flex;
   min-inline-size: 0;
   border-inline-start: 1px solid color-mix(in srgb, #818cf8 35%, var(--border));
@@ -499,6 +572,7 @@
   overflow: hidden;
 }
 .composer-new-chat-area {
+  position: relative;
   display: flex;
   min-inline-size: 0;
   border-inline-end: 1px solid color-mix(in srgb, #818cf8 35%, var(--border));
@@ -526,6 +600,26 @@
   color: #eff6ff;
 }
 .composer-submit-area .composer-submit-button > svg { color: inherit; }
+/* Concentric status rings stay visible even when the send button is disabled. */
+:is(.composer-submit-area, .composer-new-chat-area)::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  border: 2px solid var(--composer-action-ring);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #17375a, 0 0 0 4px #818cf8;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.composer-submit-area { --composer-action-ring: #f87171; }
+.composer-new-chat-area { --composer-action-ring: #facc15; }
+.composer-prompt[data-turn-busy="false"] :is(.composer-submit-area, .composer-new-chat-area) {
+  --composer-action-ring: #4ade80;
+}
 /* Keep the dashboard's appearance steady while its controls are locked. */
 .composer-panel[data-busy="true"] :is(button, input, select, textarea):disabled { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
@@ -596,6 +690,21 @@
   color: #edf2ff;
   background: linear-gradient(125deg, #102b49, #24214b) padding-box,
     linear-gradient(110deg, #38bdf8, #818cf8 55%, #e879f9) border-box;
+}
+.novera-assistant-message {
+  min-width: 0;
+  max-width: 100%;
+  padding: clamp(12px, 2vw, 20px);
+  border: 1px solid #0891b2;
+  border-inline-start-width: 3px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f0f9ff, #e8f0f7);
+  color: var(--foreground);
+  overflow-wrap: anywhere;
+}
+.dark .novera-assistant-message {
+  border-color: #38bdf8;
+  background: linear-gradient(135deg, #142b3b, #1c2a3d);
 }
 .novera-media-card {
   background: linear-gradient(var(--background), var(--background)) padding-box,

@@ -6,6 +6,8 @@
   "status": {
     "empty": "Haasofni Hin Argamne"
   },
+  "send": "Ergi",
+
   "sendMessage": "Ergaa Ergi",
   "newConversation": "Haasaa Haaraa",
   "clearHistory": "Seenaa Haqaa",

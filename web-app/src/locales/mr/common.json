@@ -340,6 +340,7 @@
     "delete": "हटवा"
   },
   "modelSettings": {
+    "label": "मॉडेल सेटिंग्ज",
     "title": "मॉडेल सेटिंग्ज - {{modelId}}",
     "description": "कार्यप्रदर्शन आणि वर्तन ऑप्टिमाइझ करण्यासाठी मॉडेल सेटिंग्ज कॉन्फिगर करा.",
     "nglDisabledByFit": "स्वयं-फिट GPU स्तर निवडत आहे. हे व्यक्तिचलितपणे सेट करण्यासाठी ऑटो-फिट बंद करा.",
@@ -667,7 +668,7 @@
     "shuttingDown": "बंद करत आहे..."
   },
   "duration": {
-    "seconds": "{{count}}",
+    "seconds": "{{count}} से",
     "minutes": "{{count}}m",
     "hours": "{{count}} ता"
   },

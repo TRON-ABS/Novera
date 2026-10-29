@@ -6,6 +6,8 @@
   "status": {
     "empty": "ملقيناش محادثات"
   },
+  "send": "ابعت",
+
   "sendMessage": "ابعت رسالة",
   "newConversation": "محادثة جديدة",
   "clearHistory": "مسح السجل",

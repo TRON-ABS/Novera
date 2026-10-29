@@ -340,6 +340,7 @@
     "delete": "Tirtir"
   },
   "modelSettings": {
+    "label": "Dejinta Moodalka",
     "title": "Dejinta Moodalka - {{modelId}}",
     "description": "Deji dejimaha moodalka si uu u wanaajiyo waxqabadka iyo dhaqanka.",
     "nglDisabledByFit": "Auto-fit wuxuu dooranayaa GPU lakab. Jooji Auto-fit si aad tan u dejiso gacanta.",

@@ -340,6 +340,7 @@
     "delete": "Sukisa"
   },
   "modelSettings": {
+    "label": "Paramètres ya modèle",
     "title": "Paramètres ya modèle - {{modelId}}",
     "description": "Configurer ba paramètres ya modèle pona ko optimiser performance na comportement.",
     "nglDisabledByFit": "Auto-fit ezali kopona GPU couches. Boma Auto-fit mpo na kosala yango na maboko.",

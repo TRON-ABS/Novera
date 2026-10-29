@@ -340,6 +340,7 @@
     "delete": "刪掉"
   },
   "modelSettings": {
+    "label": "模型設定",
     "title": "模型設定 - {{modelId}}",
     "description": "設定模型設定以最佳化效能和行為。",
     "nglDisabledByFit": "自動擬合閣閣選擇 GPU 層。閣關閉自動擬合閣閣可手動設定。",

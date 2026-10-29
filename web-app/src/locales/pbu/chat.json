@@ -6,6 +6,8 @@
   "status": {
     "empty": "هیڅ چیټ ونه موندل شو"
   },
+  "send": "ولېږئ",
+
   "sendMessage": "پیغام واستوئ",
   "newConversation": "نوې خبرې اترې",
   "clearHistory": "تاریخ پاک کړئ",

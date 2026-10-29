@@ -340,6 +340,7 @@
     "delete": "Gusiba"
   },
   "modelSettings": {
+    "label": "Igenamiterere ry'icyitegererezo",
     "title": "Igenamiterere ry'icyitegererezo - {{modelId}}",
     "description": "Kugena imiterere yicyitegererezo kugirango uhindure imikorere nimyitwarire.",
     "nglDisabledByFit": "Auto-fit ihitamo GPU ibice. Zimya Auto-fit kugirango ushireho intoki.",

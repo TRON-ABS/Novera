@@ -6,6 +6,8 @@
   "status": {
     "empty": "ချတ်များမတွေ့ပါ။"
   },
+  "send": "ပို့ရန်",
+
   "sendMessage": "Message ပို့ပါ။",
   "newConversation": "စကားဝိုင်းအသစ်",
   "clearHistory": "သမိုင်းကို ရှင်းလင်းပါ။",

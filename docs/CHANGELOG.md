@@ -1,5 +1,13 @@
 # Novera — historique consolidé
 
+## Tableau de bord, modèles et durées — sources du 29 octobre 2026
+
+Déplacer Recherche/Nouveau projet à gauche et Modèles/Configuration à droite de la saisie ; retirer leurs doublons latéraux. Ouvrir ces panneaux et les paramètres du modèle dans des fenêtres Novera au-dessus du tableau de bord, avec saisie conservée et boutons utilisables. Réunir le choix du modèle dans un seul contrôle compact : locaux, puis cloud Texte/Image/Musique/Vidéo, recherche et filtres conservés. Préserver l’approbation d’accès aux dossiers, les paramètres des moteurs et le voyant matériel original.
+
+Ajouter le cadre propre aux réponses du modèle et les anneaux verts au repos, jaune/rouge pendant la réponse. Compléter les infobulles Envoyer/Paramètres du modèle dans les 80 langues et corriger les unités de durée ; inventaire **2 402 clés**. Passer le parallélisme Cargo du lanceur local de 4 à 8 tâches.
+
+Validation : **449 tests dans 15 fichiers**, **7 tests d’architecture**, TypeScript, contrôles statiques de localisation/architecture, 80 catalogues complets, traitement CSS et `git diff --check` réussis. Publication des sources sur une branche dédiée ; aucune compilation applicative, publication de binaire, validation CI, fusion nouvelle ni certification visuelle compilée dans ce lot.
+
 ## Fenêtre commune, projets et autorisations — sources du 27 octobre 2026
 
 Le compositeur existant reste au bas de la fenêtre, avec une navigation repliable et un habillage sombre cyan/violet. **Nouveau projet** ouvre un sélecteur de dossier puis un choix explicite : **lecture seule** par défaut, **demander avant modification ou suppression**, ou **autoriser ces changements**. Les projets sans message restent dans la liste. Le choix d’un dossier ne suffit jamais à autoriser des écritures.
