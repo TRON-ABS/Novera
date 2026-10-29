@@ -10,6 +10,8 @@ export interface TokenCounterVisibilityInput {
    * counting yet"; reported usage answers that outright.
    */
   hasReportedUsage?: boolean
+  /** A local context indicator remains visible before the first turn. */
+  showWhenIdle?: boolean
 }
 
 /**
@@ -25,7 +27,8 @@ export const shouldShowTokenCounter = ({
   hasMessages,
   hasPromptText,
   hasReportedUsage = false,
+  showWhenIdle = false,
 }: TokenCounterVisibilityInput): boolean =>
   hasSelectedModel &&
   !isAgentMode &&
-  (hasReportedUsage || (!isInitialMessage && (hasMessages || hasPromptText)))
+  (showWhenIdle || hasReportedUsage || (!isInitialMessage && (hasMessages || hasPromptText)))

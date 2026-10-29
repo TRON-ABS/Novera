@@ -1,5 +1,11 @@
 # Novera — construction et distribution
 
+## Préparation sans compilation — 29 octobre 2026
+
+Les onze variantes, **portable Windows compris**, disposent d’un [plan de préparation commun](PREPARATION_DISTRIBUTIONS.md). `node scripts/distribution/check-release-readiness.mjs` vérifie les sources et versions sans compiler, installer, télécharger, activer Actions ou publier. Il conserve explicitement les prérequis et validations restant à faire ; un résultat valide n’est pas une certification des binaires.
+
+Instruction actuelle du mainteneur : préparer Novera, **sans lancer la compilation multiplateforme pour le moment**. Les commandes de construction décrites ci-dessous restent des procédures futures à exécuter seulement dans le périmètre demandé.
+
 ## Moteur image embarqué Windows — 26 octobre 2026
 
 `Prepare-NoveraImageEngine` est appelé avant la résolution des ressources Tauri par le lanceur Windows. `yarn build:tauri:win32` appelle aussi `yarn prepare:image:win32`. Pour une commande Tauri directe, exécuter cette préparation au préalable. Le script réutilise `.build/novera-image-cuda134/runtime` après vérification de son manifeste SHA-256 et de la révision épinglée, ou lance la préparation reproductible décrite dans [le moteur image](../media-server/image-launcher/README.md). Un runtime local contrôlé peut être fourni au processus de compilation avec `NOVERA_IMAGE_RUNTIME`.

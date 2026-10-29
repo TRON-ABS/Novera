@@ -1,5 +1,24 @@
 # Novera — feuille de route
 
+## Direction future du tableau de bord — 29 octobre 2026
+
+Objectif du mainteneur : **tout dans le tableau de bord ou juste à côté, sans panneau latéral permanent à terme**. Aucune nouvelle modification d’interface n’est engagée par cette inscription.
+
+- [ ] Préparer, une fonction à la fois, une proposition d’accès depuis le tableau de bord ou son voisinage immédiat.
+- [ ] Faire valider chaque proposition avant son application ; conserver les capacités, raccourcis, traductions et accès existants jusqu’au remplacement validé.
+- [ ] Déplacer progressivement les accès aux discussions/historique, à la recherche, aux projets, fichiers, modèles, configurations et outils.
+- [ ] Retirer le panneau latéral seulement après validation des accès de remplacement et vérification qu’aucune fonction n’est perdue.
+
+## Préparation des distributions — 29 octobre 2026
+
+- [x] Définir les onze variantes du lanceur, dont le ZIP portable Windows et son empreinte, dans un manifeste commun.
+- [x] Ajouter un contrôle de sources/versions sans compilation, installation, réseau, activation CI ou publication.
+- [x] Documenter les ressources, signatures et essais requis pour chaque cible ; conserver les blocages Android/iOS visibles.
+- [ ] Préparer et valider les jobs GitHub Actions Novera sur une demande ultérieure ; les workflows historiques ne sont pas tous prêts à être activés.
+- [ ] Construire et tester chaque cible sur son environnement, puis préparer les distributions signées et la publication autorisée.
+
+La préparation est distincte d’une compilation réussie. [Plan détaillé et portable](docs/PREPARATION_DISTRIBUTIONS.md).
+
 ## Lecteurs communs et saisie manuelle — 28 octobre 2026
 
 - [x] Sources : commandes Novera pour musique/vidéo, zoom image, adaptation tactile/clavier et replis de plein écran.

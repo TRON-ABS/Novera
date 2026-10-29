@@ -484,7 +484,7 @@
 /* Keep the existing appearance while rows respond to the panel, not the screen. */
 .composer-prompt {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(44px, 5cqi, 60px);
+  grid-template-columns: clamp(44px, 5cqi, 60px) minmax(0, 1fr) clamp(44px, 5cqi, 60px);
   align-items: stretch;
   overflow: clip;
 }
@@ -498,7 +498,15 @@
   border-end-end-radius: 14px;
   overflow: hidden;
 }
-.composer-submit-area .composer-submit-button {
+.composer-new-chat-area {
+  display: flex;
+  min-inline-size: 0;
+  border-inline-end: 1px solid color-mix(in srgb, #818cf8 35%, var(--border));
+  border-start-start-radius: 14px;
+  border-end-start-radius: 14px;
+  overflow: hidden;
+}
+:is(.composer-submit-area, .composer-new-chat-area) .composer-submit-button {
   width: 100%;
   height: 100%;
   min-height: 56px;
@@ -506,12 +514,23 @@
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  background: linear-gradient(150deg, #0891b2, #6d28d9);
+  background: linear-gradient(150deg, #17375a, #223b60);
   color: #fff;
+  transition: background-color 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
-.composer-submit-area .composer-submit-button:hover:not(:disabled) { filter: brightness(1.15); }
-.composer-submit-area .composer-submit-button:focus-visible { outline: 2px solid #a5f3fc; outline-offset: -4px; }
-.composer-submit-area .composer-submit-button[data-testid="stop-message-button"] { background: linear-gradient(150deg, #9f1239, #b91c1c); }
+:is(.composer-submit-area, .composer-new-chat-area) .composer-submit-button:hover:not(:disabled) { filter: brightness(1.15); }
+:is(.composer-submit-area, .composer-new-chat-area) .composer-submit-button:focus-visible { outline: 2px solid #a5f3fc; outline-offset: -4px; }
+.composer-submit-area .composer-submit-button[data-state="running"] {
+  background: linear-gradient(150deg, #263e60, #304b70);
+  box-shadow: inset 0 0 0 1px #93c5fd44;
+  color: #eff6ff;
+}
+.composer-submit-area .composer-submit-button > svg { color: inherit; }
+/* Keep the dashboard's appearance steady while its controls are locked. */
+.composer-panel[data-busy="true"] :is(button, input, select, textarea):disabled { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .composer-submit-area .composer-submit-button { transition: none; }
+}
 .composer-creation, .composer-modes, .composer-size-controls, .composer-toolbar, .composer-metadata {
   min-inline-size: 0;
   max-inline-size: 100%;
@@ -540,6 +559,14 @@
 .composer-footer-content { flex: 1 1 20rem; row-gap: 10px; }
 .composer-toolbar { row-gap: 8px; }
 .composer-metadata > [role="status"] { max-inline-size: 100%; }
+.composer-metadata :is(.composer-settings, .composer-downloads) {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  margin: 0;
+  border: 1px solid color-mix(in srgb, #818cf8 28%, var(--border));
+  border-radius: 10px;
+}
 .composer-model, .composer-memory { min-inline-size: 0; max-inline-size: min(100%, 16rem); height: auto; min-height: 34px; }
 .composer-memory { max-inline-size: min(100%, 12rem); }
 .composer-model > svg, .composer-memory > svg { flex: none; }

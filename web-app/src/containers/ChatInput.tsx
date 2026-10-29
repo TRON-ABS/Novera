@@ -1,7 +1,8 @@
 import { ResetWorkspacePermissions } from '@/containers/NativeAccessControl'
 import TextareaAutosize from 'react-textarea-autosize'
 import { MediaPlayer } from '@/components/MediaPlayer'
-import { CreationControls, CreationModelControl } from './CreationControls'
+import { CreationControls, CreationModelControl, CreationSettingsControl } from './CreationControls'
+import { DownloadManagement } from './DownloadManegement'
 import { MemoryModeControl } from './MemoryModeControl'
 import { useCreation } from '@/hooks/useCreation'
 import { resolveOutputMode } from '@/modules/engines/creation'
@@ -28,7 +29,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
 } from '@/components/ui/dropdown-menu'
-import { ArrowRight, PlusIcon } from 'lucide-react'
+import { ArrowRight, PlusIcon, MessageSquarePlus } from 'lucide-react'
 import {
   IconPhoto,
   IconMusic,
@@ -63,7 +64,6 @@ import {
 import { useReconcileVideoCapability } from '@/hooks/useReconcileVideoCapability'
 
 import { useAppState } from '@/hooks/useAppState'
-import { MovingBorder } from './MovingBorder'
 import type { ChatStatus } from 'ai'
 import { useRouter } from '@tanstack/react-router'
 import { route } from '@/constants/routes'
@@ -495,6 +495,7 @@ const ChatInput = memo(function ChatInput({
   useReconcileVideoCapability(selectedModel?.id, selectedProvider, isModelActive)
 
   const tokenCounterVisible = shouldShowTokenCounter({
+    showWhenIdle: selectedProvider === 'llamacpp' || selectedProvider === 'mlx',
     hasSelectedModel: !!selectedModel,
     isAgentMode: effectiveAgentMode,
     isInitialMessage: !!initialMessage,
@@ -2072,25 +2073,13 @@ const ChatInput = memo(function ChatInput({
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-[1256px]">
+    <div className="relative mx-auto w-full max-w-[1024px]">
       <div className="relative">
         <div
           className={cn(
             'relative overflow-hidden p-0.5 rounded-3xl'
           )}
         >
-          {isStreaming && (
-            <div className="absolute inset-0">
-              <MovingBorder rx="10%" ry="10%">
-                <div
-                  className={cn(
-                    'h-100 w-100 bg-[radial-gradient(var(--app-primary),transparent_60%)]'
-                  )}
-                />
-              </MovingBorder>
-            </div>
-          )}
-
           <div
             className={cn(
               'composer-panel relative z-20 px-0 border rounded-3xl border-input bg-white dark:bg-input/30',
@@ -2098,6 +2087,7 @@ const ChatInput = memo(function ChatInput({
               isDragOver && 'ring-2 ring-ring/50 border-primary'
             )}
             data-drop-zone={dropAcceptsAnything ? 'true' : undefined}
+            data-busy={turnBusy}
             onDragEnter={dropAcceptsAnything ? handleDragEnter : undefined}
             onDragLeave={dropAcceptsAnything ? handleDragLeave : undefined}
             onDragOver={dropAcceptsAnything ? handleDragOver : undefined}
@@ -2233,6 +2223,16 @@ const ChatInput = memo(function ChatInput({
               </div>
             )}
             <div className="composer-prompt relative">
+            <div className="composer-new-chat-area">
+              <Button variant="ghost" size="icon-sm" className="composer-submit-button"
+                data-testid="new-chat-button" aria-label={t('common:newChat')} title={t('common:newChat')}
+                onClick={() => {
+                  useAgentMode.getState().removeThread(TEMPORARY_CHAT_ID)
+                  void router.navigate({ to: route.home })
+                }}>
+                <MessageSquarePlus className="size-4" aria-hidden="true" />
+              </Button>
+            </div>
             <div className="composer-input-area relative min-w-0">
               {highlightedPrefix && prompt.startsWith(highlightedPrefix) && (
                 <div
@@ -2352,9 +2352,10 @@ const ChatInput = memo(function ChatInput({
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button
-                      variant="destructive"
+                      variant="ghost"
                       size="icon-sm"
                       data-testid="stop-message-button"
+                      data-state="running"
                       aria-label={t(queueLength > 0 ? 'common:clearRecent' : 'common:stop')}
                       className="composer-submit-button"
                       onClick={() => {
@@ -2374,7 +2375,7 @@ const ChatInput = memo(function ChatInput({
                         stopStreaming(currentThreadId ?? '')
                       }}
                     >
-                      <IconPlayerStopFilled />
+                      <IconPlayerStopFilled className="size-3" aria-hidden="true" />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -2388,6 +2389,7 @@ const ChatInput = memo(function ChatInput({
                   disabled={(!prompt.trim() && !hasSendableMedia) || ingestingAny}
                   data-test-id="send-message-button"
                   data-testid="send-message-button"
+                  data-state="idle"
                   aria-label={t('chat:sendMessage')}
                   onClick={() => handleSendMessage(prompt)}
                   className="composer-submit-button"
@@ -2412,7 +2414,7 @@ const ChatInput = memo(function ChatInput({
               </div>
             )}
 
-        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} />}
+        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} showSettingsButton={false} />}
         <div className="composer-footer relative z-20 w-full p-2">
           <div
             ref={controlRowRef}
@@ -2426,7 +2428,7 @@ const ChatInput = memo(function ChatInput({
               <div
                 className={cn(
                   'composer-toolbar px-1 flex flex-wrap items-center gap-2',
-                  turnBusy && 'opacity-50 pointer-events-none'
+                  turnBusy && 'pointer-events-none'
                 )}
               >
                 {/* Dropdown for attachments — hidden in agent mode */}
@@ -3051,6 +3053,8 @@ const ChatInput = memo(function ChatInput({
                     <CreationModelControl scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} />
                   </span>
                   <MemoryModeControl scope={currentThreadId ?? 'new'} />
+                  <CreationSettingsControl scope={currentThreadId ?? 'new'} disabled={turnBusy} />
+                  <DownloadManagement composer />
                 </div>
               )}
             </div>
@@ -3059,6 +3063,7 @@ const ChatInput = memo(function ChatInput({
               {tokenCounterVisible && tokenCounterCompact && (
                 <div className="flex-1 flex justify-center">
                   <TokenCounter
+                    showPending={selectedProvider === 'llamacpp' || selectedProvider === 'mlx'}
                     messages={threadMessages || []}
                     source={tokenSource}
                     compact={true}
@@ -3093,7 +3098,8 @@ const ChatInput = memo(function ChatInput({
 
       {tokenCounterVisible && !tokenCounterCompact && (
         <div className="flex-1 w-full flex justify-start px-2">
-          <TokenCounter messages={threadMessages || []} source={tokenSource} />
+          <TokenCounter messages={threadMessages || []} source={tokenSource}
+            showPending={selectedProvider === 'llamacpp' || selectedProvider === 'mlx'} />
         </div>
       )}
 

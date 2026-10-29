@@ -21,6 +21,7 @@ import AttachmentIngestionDialog from '@/containers/dialogs/AttachmentIngestionD
 import GlobalError from '@/containers/GlobalError'
 import { GlobalEventHandler } from '@/providers/GlobalEventHandler'
 import { DownloadEventListener } from '@/providers/DownloadEventListener'
+import { DownloadManagement } from '@/containers/DownloadManegement'
 import { ServiceHubProvider } from '@/providers/ServiceHubProvider'
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
 import { LeftSidebar } from '@/components/left-sidebar'
@@ -124,6 +125,7 @@ function RootLayout() {
             <DataProvider />
             <GlobalEventHandler />
             <DownloadEventListener />
+            {!IS_LOGS_ROUTE && <DownloadManagement notificationsOnly />}
             {IS_LOGS_ROUTE ? <LogsLayout /> : <AppLayout />}
           </ExtensionProvider>
           {/* <TanStackRouterDevtools position="bottom-right" /> */}

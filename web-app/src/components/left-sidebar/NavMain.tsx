@@ -21,10 +21,6 @@ import {
   type FolderPlusIconHandle,
 } from '@/components/animated-icon/folder-plus'
 import {
-  MessageCircleIcon,
-  type MessageCircleIconHandle,
-} from '@/components/animated-icon/message-circle'
-import {
   SettingsIcon,
   type SettingsIconHandle,
 } from '@/components/animated-icon/settings'
@@ -45,7 +41,6 @@ import { PlatformShortcuts, ShortcutAction } from '@/lib/shortcuts'
 type AnimatedIconHandle =
   | SearchIconHandle
   | FolderPlusIconHandle
-  | MessageCircleIconHandle
   | SettingsIconHandle
   | BlocksIconHandle
   | BotIconHandle
@@ -70,23 +65,8 @@ type NavMainItem = {
 const getNavMainItems = (
   onNewProject: () => void,
   onSearch: () => void,
-  onNewChat: () => void,
   onJanClaw: () => void
 ): NavMainItem[] => [
-  {
-    title: 'common:newChat',
-    animatedIcon: MessageCircleIcon,
-    onClick: onNewChat,
-    testId: 'new-chat-button',
-    shortcut: (
-      <KbdGroup className="ml-auto scale-90 gap-0">
-        <Kbd className="bg-transparent size-3">
-          <PlatformMetaKey />
-        </Kbd>
-        <Kbd className="bg-transparent size-3 uppercase">{PlatformShortcuts[ShortcutAction.NEW_CHAT].key}</Kbd>
-      </KbdGroup>
-    ),
-  },
   {
     title: 'common:newAgentChat',
     animatedIcon: BotIcon,
@@ -183,10 +163,6 @@ export function NavMain() {
   const navMainItems = getNavMainItems(
     () => setProjectDialogOpen(true),
     () => setSearchOpen(true),
-    () => {
-      useAgentMode.getState().removeThread(TEMPORARY_CHAT_ID)
-      navigate({ to: route.home })
-    },
     () => {
       useAgentMode.getState().setAgentMode(TEMPORARY_CHAT_ID, true)
       navigate({ to: route.home })

@@ -2,6 +2,16 @@
 
 ## Informations utilisateur — tableau de bord et créations, 29 octobre 2026
 
+Le tableau de bord conserve une largeur maximale de **1 024 px** et s’adapte aux fenêtres plus petites. Dans la rangée basse, les commandes suivent cet ordre : **Mémoire auto → Réglages → Téléchargements**. Réglages ouvre la même configuration commune ; Téléchargements donne accès à la progression et aux commandes des téléchargements en cours. **L’icône Téléchargements est uniquement dans le tableau de bord**, sans doublon dans l’en-tête ou le panneau latéral, y compris sur Configurations. Revenez au tableau de bord pour consulter les téléchargements ; leur suivi continue en arrière-plan. Ce raccourci n’active aucune compilation ni mise à jour automatique.
+
+**Nouvelle discussion** se trouve dans une zone réservée à gauche du cadre de saisie, face au bouton Envoyer à droite. Son nom apparaît au survol et reste disponible aux lecteurs d’écran dans la langue choisie. Ce bouton remplace celui du panneau latéral et ouvre l’accueil pour une nouvelle discussion normale ; le raccourci clavier habituel est conservé. Les commandes latérales et le texte saisi ne se recouvrent pas.
+
+Pendant la réponse, le cadre reste fixe et le tableau de bord garde sa luminosité, sans halo animé. Seul le bouton d’envoi change légèrement de teinte et présente le petit carré Arrêter. Les commandes incompatibles avec le travail en cours restent verrouillées ; les informations de progression continuent de s’actualiser.
+
+Le bouton d’envoi conserve une teinte **bleu sombre** pendant le travail ; un **petit carré** indique la commande Arrêter. Le compteur de contexte local reste visible dès l’écran initial lorsqu’un modèle est sélectionné : **« — » signifie que la capacité réelle n’est pas encore disponible**. Il est remplacé par le pourcentage dès que le moteur fournit cette information. Le cercle associé est une jauge ; ce pourcentage n’est ni une progression de téléchargement ni un taux d’utilisation du GPU. Les libellés d’attente réutilisent les traductions disponibles dans les 80 catalogues.
+
+La [version portable Windows](BUILD_AND_RELEASE.md#portable) est incluse dans la préparation des distributions : ZIP complet à extraire, sans installateur, avec empreinte SHA-256. Les modèles ne sont pas fournis et les données utilisent les emplacements Novera habituels. Aucune compilation de ces nouvelles sources n’est lancée par cette préparation.
+
 Cette section décrit les sources mises à jour ; leur présence dans votre application dépend de sa compilation avec ces sources. Les [règles d’or](REGLES_D_OR.md) imposent une information claire dans les 80 langues pour les fonctions de Novera. La traduction structurelle ne remplace pas une relecture par des locuteurs de chaque langue. Les notes datées qui suivent cette section décrivent des états antérieurs ; cette section présente le fonctionnement courant.
 
 ### Du démarrage au premier résultat

@@ -10,6 +10,12 @@ const base = {
 }
 
 describe('shouldShowTokenCounter', () => {
+  it('keeps a requested local indicator visible on the empty startup screen', () => {
+    const startup = { ...base, isInitialMessage: true, hasMessages: false, hasPromptText: false, showWhenIdle: true }
+    expect(shouldShowTokenCounter(startup)).toBe(true)
+    expect(shouldShowTokenCounter({ ...startup, hasSelectedModel: false })).toBe(false)
+    expect(shouldShowTokenCounter({ ...startup, isAgentMode: true })).toBe(false)
+  })
   it('shows when a model is selected and the thread has messages', () => {
     expect(shouldShowTokenCounter(base)).toBe(true)
   })

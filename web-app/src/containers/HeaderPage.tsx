@@ -5,7 +5,6 @@ import { IconLayoutSidebar } from '@tabler/icons-react'
 import { ReactNode, memo } from 'react'
 import { Button } from '@/components/ui/button'
 import { CreationInstallIndicator } from './CreationInstall'
-import { DownloadManagement } from '@/containers/DownloadManegement'
 import { useTitlebarLayout } from '@/stores/titlebar-layout-store'
 
 type HeaderPageProps = {
@@ -40,7 +39,6 @@ const HeaderPage = memo(function HeaderPage({ children }: HeaderPageProps) {
       <div className={cn('flex items-center w-full gap-1')}>
         {!open && (
           <>
-            <DownloadManagement />
             <Button
               variant="ghost"
               size="icon-sm"

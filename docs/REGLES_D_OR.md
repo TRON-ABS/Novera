@@ -18,11 +18,19 @@ Une chaîne anglaise copiée ou un repli anglais ne constitue pas une traduction
 
 ## 3. Un seul tableau de bord adaptable
 
-Conserver l’apparence approuvée, les couleurs et les états explicites. Les rangées s’adaptent à la largeur disponible : retour à la ligne, regroupement cohérent et commandes secondaires accessibles. La taille maximale actuelle du cadre est de 1 256 px ; un petit écran ne reçoit pas une largeur fixe de bureau.
+**Direction finale des prochaines améliorations :** toutes les fonctions doivent devenir accessibles dans le tableau de bord ou juste à côté, avec disparition du panneau latéral permanent à terme. Inclure l’historique des discussions, la recherche, les projets, fichiers, modèles, configurations, téléchargements et outils. Préserver les fonctions et un accès utilisable à chaque étape ; remplacer un accès avant de supprimer l’ancien. Le choix des emplacements se valide progressivement avec le mainteneur, sans présumer de la maquette finale. Cette direction n’autorise aucun changement immédiat de l’interface.
+
+**Validation progressive obligatoire.** Pour chaque nouvelle modification du tableau de bord, présenter d’abord une proposition concrète et attendre l’accord explicite du mainteneur avant de l’appliquer. Avancer une modification à la fois ; attendre une nouvelle validation avant la suivante. Cela couvre couleurs, largeur, disposition, icônes, comportements et capacités. Conserver une comparaison lisible et ne pas assimiler un objectif général à l’approbation de tous ses détails. Les changements déjà expressément demandés restent documentés ; aucune évolution générale « OVNI » n’est autorisée pour le moment.
+
+Conserver l’apparence approuvée, les couleurs et les états explicites. Les rangées s’adaptent à la largeur disponible : retour à la ligne, regroupement cohérent et commandes secondaires accessibles. La taille maximale actuelle du tableau de bord est de **1 024 px** ; un petit écran ne reçoit pas une largeur fixe de bureau. Placer Réglages à droite de Mémoire auto, puis le raccourci Téléchargements ; conserver l’ordre lorsque la rangée passe à la ligne.
 
 Les mots traduits ne doivent ni se toucher ni recouvrir un interrupteur ou une commande. Préserver les espaces, permettre la hauteur nécessaire et conserver le nom accessible complet en mode compact. Les noms longs de modèles restent utilisables. Tenir compte du zoom, du clavier, du focus, du contraste, du tactile et de la réduction des animations.
 
-Envoyer/Arrêter occupe une zone réservée à droite dans le cadre de saisie, sans masquer le texte ou la bordure. Le passage Envoyer → Arrêter conserve l’annulation et les comportements de file d’attente. Toutes les commandes restent accessibles quand les outils sont regroupés sur petit écran.
+Envoyer/Arrêter occupe une zone réservée à droite dans le cadre de saisie, sans masquer le texte ou la bordure. Utiliser le **bleu sombre**, avec un **petit carré de 12 px** pendant l’exécution, plutôt qu’un état rouge. Le passage Envoyer → Arrêter conserve l’annulation et les comportements de file d’attente. Toutes les commandes restent accessibles quand les outils sont regroupés sur petit écran.
+
+Pendant l’exécution, garder le cadre et les commandes à leur luminosité habituelle, sans halo tournant. Seul Envoyer/Arrêter change légèrement de teinte. Les valeurs et informations de progression restent actualisées ; les commandes indisponibles conservent leurs verrouillages malgré l’absence d’atténuation visuelle.
+
+Conserver un seul accès visible à Téléchargements, dans le tableau de bord ; aucun déclencheur dans l’en-tête ou le panneau latéral, y compris sur Configurations. Maintenir le suivi et les notifications indépendamment de cet accès. Nouvelle discussion occupe une zone réservée à gauche dans le cadre de saisie, Envoyer/Arrêter celle de droite ; ne pas doubler Nouvelle discussion dans le panneau latéral et préserver le raccourci clavier.
 
 ## 4. Un démarrage guidé et une automatisation explicable
 

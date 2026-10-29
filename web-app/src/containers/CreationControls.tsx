@@ -43,11 +43,13 @@ export function CreationControls({
   disabled,
   panelTask,
   prompt = '',
+  showSettingsButton = true,
 }: {
   scope: string
   disabled: boolean
   panelTask?: 'image' | 'video'
   prompt?: string
+  showSettingsButton?: boolean
 }) {
 
   const { t } = useTranslation()
@@ -138,6 +140,7 @@ export function CreationControls({
   useEffect(() => {
     if (panelTask) return
     const show = (event: Event) => {
+      if (event instanceof CustomEvent && event.detail?.scope && event.detail.scope !== scope) return
       const requestedTask = event instanceof CustomEvent && event.detail?.task ? event.detail.task : mode === 'video' ? 'video' : 'image'
       setSettingsTask(requestedTask === 'video' ? 'video' : 'image')
       if (event instanceof CustomEvent && event.detail?.installed) {
@@ -692,10 +695,7 @@ export function CreationControls({
             </Button>
           ))}
         </div>
-        <Button className="composer-settings ml-auto order-2" size="icon-sm" variant="ghost" disabled={disabled}
-          aria-label={t('chat:creation.settings')}
-          title={`${t('common:settings')} · ${t('chat:creation.text')} / ${t('chat:creation.image')} / ${t('chat:creation.music')} / ${t('chat:creation.video')} · ${t('chat:creation.auto')} / ${t('common:browse')}`}
-          onClick={() => setOpen(true)}><SlidersHorizontal size={16} aria-hidden="true" /></Button>
+        {showSettingsButton && <CreationSettingsControl scope={scope} disabled={disabled} onOpen={() => setOpen(true)} />}
       </div>
       {mode==='music'&&<MusicDashboardControls scope={scope} disabled={disabled} prompt={prompt}/>}
       {(mode === 'image' || mode === 'video') && !isCloud && (
@@ -874,6 +874,16 @@ export function CreationControls({
 }
 
 /** Compact model selector docked beside the conversation actions. */
+export function CreationSettingsControl({ scope, disabled, onOpen }: { scope: string; disabled: boolean; onOpen?: () => void }) {
+  const { t } = useTranslation()
+  return <Button className="composer-settings" size="icon-sm" variant="ghost" disabled={disabled}
+    aria-label={t('chat:creation.settings')}
+    title={`${t('common:settings')} · ${t('chat:creation.text')} / ${t('chat:creation.image')} / ${t('chat:creation.music')} / ${t('chat:creation.video')} · ${t('chat:creation.auto')} / ${t('common:browse')}`}
+    onClick={onOpen ?? (() => window.dispatchEvent(new CustomEvent('novera-creation-settings', { detail: { scope } })))}>
+    <SlidersHorizontal size={16} aria-hidden="true" />
+  </Button>
+}
+
 export function CreationModelControl({ scope, disabled, prompt = '' }: { scope: string; disabled: boolean; prompt?: string }) {
   const { t } = useTranslation()
   const state = useCreation()

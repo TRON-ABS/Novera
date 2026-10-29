@@ -1,5 +1,33 @@
 # Novera — instructions du projet
 
+## Direction finale : tout autour du tableau de bord — 29 octobre 2026
+
+Objectif explicite pour les prochaines améliorations : **rendre toutes les fonctions accessibles dans le tableau de bord ou juste à côté, puis supprimer le panneau latéral permanent**. Cela inclut conversations et historique, recherche, projets, fichiers, modèles, configurations, téléchargements et outils. Préserver chaque possibilité pendant son déplacement ; ne pas supprimer un accès tant que son remplacement n’est pas disponible et validé.
+
+Cette direction est un objectif futur, pas une autorisation de réorganisation immédiate. Avancer progressivement : une proposition concrète, la validation explicite du mainteneur, puis ce seul changement. Conserver la compacité, les 80 langues, l’accessibilité et l’adaptation aux tailles d’écran. Ne pas imposer dès maintenant une nouvelle maquette ou retirer le panneau latéral.
+
+## Validation progressive du tableau de bord — règle du 29 octobre 2026
+
+Dernière demande explicite : retirer **toutes** les icônes Téléchargements de l’en-tête et du panneau latéral, même dans Configurations. L’ancien masquage conditionnel ne suffit plus. Garder uniquement le déclencheur du tableau de bord et un gestionnaire de notifications sans interface à la racine de la fenêtre principale. Déplacer aussi **Nouvelle discussion** du panneau latéral vers une zone intégrée à gauche de la saisie, symétrique à Envoyer à droite, sans recouvrir le texte. Préserver l’action de nouvelle discussion normale et son raccourci clavier. Ces deux déplacements sont autorisés par cette demande précise, sans autre changement du tableau de bord.
+
+Changement explicitement validé par la demande suivante : pendant la réponse du modèle, conserver le tableau de bord sans assombrissement et sans halo animé. Seul le bouton d’envoi change légèrement de teinte avec le petit carré Arrêter. Conserver les verrouillages des commandes indisponibles ; leur état désactivé ne doit plus atténuer visuellement l’ensemble du tableau de bord.
+
+Changement explicitement demandé ensuite : supprimer le doublon Téléchargements en haut lorsque le raccourci du tableau de bord est présent. Conserver l’accès du haut sur les autres pages et le gestionnaire de notifications actif. Il s’agit uniquement de retirer cette icône dupliquée ; aucune autre réorganisation n’est autorisée par cette demande.
+
+Le mainteneur demande désormais une progression **changement par changement** pour le tableau de bord. Présenter une proposition concrète, avec aperçu ou comparaison compréhensible, puis **attendre sa validation explicite avant de modifier le tableau de bord**. Ne pas regrouper plusieurs nouvelles évolutions sous une seule validation implicite et ne pas passer au changement suivant sans accord. Une proposition ou un objectif général ne vaut pas autorisation de toutes ses étapes. Cette règle concerne aussi les déplacements, dimensions, couleurs, icônes et nouvelles commandes.
+
+Les ajustements expressément demandés avant cette règle sont consignés ci-dessous ; les travaux déjà préparés doivent rester identifiables et vérifiables. Une validation d’interface, une autorisation de fusion, une compilation et une publication de binaire restent des décisions distinctes.
+
+## Préparation des distributions et compteur au démarrage — 29 octobre 2026
+
+Le mainteneur demande de préparer Novera pour une future automatisation, **sans compilation multiplateforme pour le moment**, avec la version **portable Windows** incluse. Le [plan des distributions](docs/PREPARATION_DISTRIBUTIONS.md), son manifeste et le diagnostic de sources couvrent les onze variantes du lanceur. Ne pas activer Actions ou déclencher les anciens workflows sur la base de cette préparation. Les audits mobiles, runtimes par architecture, signatures et essais restent explicitement à terminer.
+
+Le compteur de contexte doit être présent dès l’écran initial lorsqu’un modèle local est sélectionné : afficher un repère d’attente tant que la capacité réelle n’est pas connue, puis le pourcentage mesuré. Ne pas inventer de capacité ou de taux d’occupation. Le petit cercle du pourcentage est une jauge de contexte, pas une animation de téléchargement.
+
+Dernier choix visuel du mainteneur : bouton d’envoi **bleu sombre**, mode Arrêter dans la même palette et **petit carré de 12 px**. Cette demande remplace les propositions rouge/rosé/violet de cet échange. Conserver sa zone réservée dans la saisie, les noms accessibles traduits et le fonctionnement d’arrêt.
+
+La largeur maximale commune est désormais **1 024 px**, avec retour à la ligne sous cette limite. Dans la rangée basse : **Mémoire auto → Réglages → Téléchargements**. Le raccourci de téléchargement consulte le même état partagé, sans doubler les notifications de mise à jour. L’accès global aux téléchargements reste disponible ailleurs dans l’application. L’évolution générale « OVNI » est reportée à la demande du mainteneur ; ne pas l’inclure dans ce lot.
+
 ## Règles d’or et information utilisateur — 29 octobre 2026
 
 Les [règles d’or détaillées de Novera](docs/REGLES_D_OR.md) constituent la référence durable pour l’ensemble du produit. Elles incluent explicitement **la qualité des informations fournies aux utilisateurs**, du premier démarrage à l’exécution complète : rôle des modèles et composants, local/cloud, réglages, automatismes, coûts éventuels, résultats, durées conservées, erreurs et solutions.
