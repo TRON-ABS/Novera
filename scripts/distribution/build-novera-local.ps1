@@ -78,7 +78,7 @@ try {
         $telemetryConfigured = $true
         Write-Output "Telemetry destination configured: $($telemetry.Host). User consent remains required."
     }
-    $env:CARGO_BUILD_JOBS = '4'
+    $env:CARGO_BUILD_JOBS = '8'
     if (!$env:CARGO_TARGET_DIR) {
         $env:CARGO_TARGET_DIR = if (Test-Path -LiteralPath 'C:/jb' -PathType Container) { 'C:/jb' } else { Join-Path $repo 'src-tauri/target' }
     }
