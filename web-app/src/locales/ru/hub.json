@@ -23,6 +23,8 @@
     "from1to2": "1–2 ГБ",
     "from2to4": "2–4 ГБ",
     "over4": "От 4 ГБ",
+    "sizeRange": "{{min}}–{{max}} ГБ",
+    "sizeOver": "От {{min}} ГБ",
     "compare": "Сравнить",
     "parameters": "Параметры",
     "weight": "Размер загрузки",

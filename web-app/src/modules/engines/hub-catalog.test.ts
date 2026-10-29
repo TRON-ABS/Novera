@@ -6,6 +6,8 @@ import {
   modelCategories,
   modelEngine,
   nvfp4ModelAdvice,
+  estimateHubKvCache,
+  estimateHubMemory,
 } from './hub-catalog'
 
 const GiB = 1024 ** 3
@@ -25,6 +27,32 @@ const sf = {
 }
 
 describe('Hub taxonomy and hardware checks', () => {
+  it('scales FP16 KV memory with context, layers and grouped attention', () => {
+    const model = { ...gguf, model_config: { model_type: 'llama', num_hidden_layers: 32, num_attention_heads: 32, num_key_value_heads: 8, hidden_size: 4096 } }
+    expect(estimateHubKvCache(model, 8192)).toBe(GiB)
+    expect(estimateHubKvCache(model, 32768)).toBe(4 * GiB)
+    expect(estimateHubKvCache({ ...sf, model_config: { ...model.model_config, dtype: 'float32' } }, 8192)).toBe(2 * GiB)
+    const short = diagnoseHubModel(model, hardware, { weightsBytes: 4 * GiB, context: 8192 })
+    const long = diagnoseHubModel(model, hardware, { weightsBytes: 4 * GiB, context: 32768 })
+    expect(long.requiredBytes! - short.requiredBytes!).toBe(3 * GiB)
+    expect(estimateHubKvCache({ ...gguf, model_config: { num_hidden_layers: 32 } }, 8192)).toBeNull()
+    expect(estimateHubKvCache({ ...model, model_config: { ...model.model_config, model_type: 'qwen3_next' } }, 8192)).toBeNull()
+  })
+  it('keeps runtime overhead for tiny models and includes all companion bytes', () => {
+    expect(estimateHubMemory(100e6)).toBeGreaterThan(350e6)
+    const plain = diagnoseHubModel(gguf, hardware, { weightsBytes: GiB })
+    const vision = diagnoseHubModel(gguf, hardware, { weightsBytes: GiB, projectorBytes: 2 * GiB })
+    expect(vision.requiredBytes! - plain.requiredBytes!).toBe(2 * GiB)
+  })
+  it('does not count integrated or unified GPU memory as extra RAM', () => {
+    const pc = { ...hardware, ramBytes: 8 * GiB, gpus: [{ ...hardware.gpus[0], sharedMemory: true }] }
+    expect(diagnoseHubModel(gguf, pc, { weightsBytes: 6 * GiB })).toMatchObject({ memory: 'insufficient', gpuBudgetBytes: null })
+    expect(diagnoseHubModel(gguf, { ...pc, platform: 'macos', gpus: [{ name: 'Apple M4', vendor: 'Apple', totalBytes: 8 * GiB }] }, { weightsBytes: 6 * GiB }).memory).toBe('insufficient')
+  })
+  it('uses remaining GPU memory rather than its advertised capacity', () => {
+    const pc = { ...hardware, availableRamBytes: 3 * GiB, gpus: [{ ...hardware.gpus[0], availableBytes: 2 * GiB }] }
+    expect(diagnoseHubModel(gguf, pc, { weightsBytes: 4 * GiB }).memory).toBe('insufficient')
+  })
   it('separates medical/scientific domains from the model task', () => {
     expect(modelCategories({ ...sf, tags: ['medical', 'science'] })).toEqual(
       expect.arrayContaining(['text', 'medical', 'science'])

@@ -25,6 +25,8 @@
     "from1to2": "1–2 GB",
     "from2to4": "2–4 GB",
     "over4": "4 GB සහ ඊට වැඩි",
+    "sizeRange": "{{min}}–{{max}} GB",
+    "sizeOver": "{{min}} GB සහ ඊට වැඩි",
     "compare": "සසඳන්න",
     "parameters": "පරාමිතීන්",
     "weight": "බාගැනීම් ප්‍රමාණය",

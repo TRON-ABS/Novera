@@ -25,6 +25,8 @@
     "from1to2": "1–2 جی بی",
     "from2to4": "2–4 جی بی",
     "over4": "4 جی بی یا ودھ",
+    "sizeRange": "{{min}}–{{max}} جی بی",
+    "sizeOver": "{{min}} جی بی یا ودھ",
     "compare": "مقابلہ کرو",
     "parameters": "پیرامیٹر",
     "weight": "ڈاؤن لوڈ دا سائز",

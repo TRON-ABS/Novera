@@ -5,6 +5,7 @@
 import { SessionInfo, modelInfo, ThreadMessage, UnloadResult } from '@janhq/core'
 import type { SpecDraftKind } from '@janhq/core'
 import { Model as CoreModel } from '@janhq/core'
+import type { HubTextConfig } from '@/modules/engines/hub-catalog'
 
 // Types for model catalog
 export interface ModelQuant {
@@ -33,7 +34,7 @@ export interface CatalogModel {
   revision?: string
   license?: string
   gated?: boolean | string
-  model_config?: { model_type?: string; architectures?: string[]; dtype?: string; torch_dtype?: string; quantization_config?: unknown }
+  model_config?: HubTextConfig & { model_type?: string; architectures?: string[]; dtype?: string; torch_dtype?: string; quantization_config?: unknown }
   files?: { name: string; size?: number }[]
   hub?: {
     parametersB: number
@@ -70,7 +71,7 @@ export type ModelCatalog = CatalogModel[]
 
 // HuggingFace repository information
 export interface HuggingFaceRepo {
-  config?: { model_type?: string; architectures?: string[]; dtype?: string; torch_dtype?: string; quantization_config?: unknown }
+  config?: HubTextConfig & { model_type?: string; architectures?: string[]; dtype?: string; torch_dtype?: string; quantization_config?: unknown }
   id: string
   modelId: string
   sha: string

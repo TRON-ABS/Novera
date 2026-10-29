@@ -5,7 +5,6 @@ import { route } from '@/constants/routes'
 import { useModelSources } from '@/hooks/useModelSources'
 import { cn, sanitizeModelId } from '@/lib/utils'
 import { parseFileSize } from '@/lib/modelCompatibility'
-import { sumMlxModelBytes } from '@/lib/modelCompatibility'
 import { isSpecSidecar } from '@/lib/specDraft'
 import {
   useState,
@@ -66,14 +65,13 @@ import { DEFAULT_MODEL_QUANTIZATIONS } from '@/constants/models'
 import { Button } from '@/components/ui/button'
 import { RenderMarkdown } from '@/containers/RenderMarkdown'
 import { useHardware } from '@/hooks/useHardware'
-import { mergeHubCatalog, sortHubModels, hubSizeMatches, hubKey, hubFormatBytes } from '@/lib/hubDiscovery'
+import { mergeHubCatalog, sortHubModels, hubSizeMatches, hubKey, hubFormatBytes, hubWeight, HUB_SIZE_BANDS } from '@/lib/hubDiscovery'
 import { HubComparison, HubModelFacts } from '@/containers/HubModelInsights'
 import ModelPublisherAvatar from '@/containers/ModelPublisherAvatar'
 import { HubCategoryExplorer } from '@/containers/HubCategoryExplorer'
 import { HubAdvisor } from '@/containers/HubAdvisor'
 import { categoryMatches, modelEngine, type HubCategory } from '@/modules/engines/hub-catalog'
 import { fetchHubCategoryPage } from '@/services/models/hubCategories'
-import { useHubProgressiveOrder } from '@/hooks/useHubProgressiveOrder'
 
 type SearchParams = {
   repo: string
@@ -168,6 +166,7 @@ function HubContent() {
   const [searchValue, setSearchValue] = useState('')
   const [sortSelected, setSortSelected] = useState('adapted')
   const hardware = useHardware(s => s.hardwareData)
+  const systemUsage = useHardware(s => s.systemUsage)
   const [sizeBand, setSizeBand] = useState('all')
   const [category, setCategory] = useState<HubCategory>('all')
   const [format, setFormat] = useState('all')
@@ -199,7 +198,7 @@ function HubContent() {
   // Sorting functionality
   const sortedModels = useMemo(() => {
     const discovered = categoryPage.category === category ? categoryPage.models : []
-    const unique = [...new Map([...discovered, ...sources].map(model => [hubKey(model), model])).values()]
+    const unique = [...new Map([...sources, ...discovered].map(model => [hubKey(model), model])).values()]
     let sorted = mergeHubCatalog(unique).filter(m => hubSizeMatches(m, sizeBand) && categoryMatches(m, category))
     if (format === 'gguf') sorted = sorted.filter(model => !!model.quants?.length && !model.is_mlx)
     if (format === 'safetensors') sorted = sorted.filter(model => !!model.safetensors_files?.length && !model.is_mlx)
@@ -215,13 +214,11 @@ function HubContent() {
       sorted = sorted.filter((m) => !m.is_mlx)
     }
 
-    return sortHubModels(sorted, sortSelected, hardware)
-  }, [sortSelected, sources, hardware, sizeBand, categoryPage, category, format, availability])
+    return sortHubModels(sorted, sortSelected, hardware, systemUsage)
+  }, [sortSelected, sources, hardware, systemUsage, sizeBand, categoryPage, category, format, availability])
 
   // Filtered models (debounced search)
   const [debouncedSearchValue, setDebouncedSearchValue] = useState(searchValue)
-  const progressiveModels = useHubProgressiveOrder(sortedModels,
-    JSON.stringify([category, debouncedSearchValue, sortSelected, sizeBand, format, availability, showOnlyDownloaded, categoryReload]))
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -234,11 +231,11 @@ function HubContent() {
     let active = true
     ++categorySequence.current
     setCategoryPage({ category, models: [], loading: true, error: false })
-    void fetchHubCategoryPage(fetch, category, undefined, cleanHubSearchQuery(debouncedSearchValue))
+    void fetchHubCategoryPage(fetch, category, undefined, cleanHubSearchQuery(debouncedSearchValue), sortSelected)
       .then(page => { if (active) setCategoryPage({ category, models: page.repos.map(repo => serviceHub.models().convertHfRepoToCatalogModel(repo)), cursor: page.nextCursor, loading: false, error: false }) })
       .catch(() => { if (active) setCategoryPage({ category, models: [], loading: false, error: true }) })
     return () => { active = false }
-  }, [category, debouncedSearchValue, serviceHub, categoryReload])
+  }, [category, debouncedSearchValue, serviceHub, categoryReload, sortSelected])
 
   async function fetchMoreInCategory() {
     if (categoryPage.category !== category || categoryPage.loading || categoryPage.error || !categoryPage.cursor) return
@@ -246,7 +243,7 @@ function HubContent() {
     const sequence = categorySequence.current
     setCategoryPage(previous => ({ ...previous, loading: true, error: false }))
     try {
-      const page = await fetchHubCategoryPage(fetch, selected, categoryPage.cursor, cleanHubSearchQuery(debouncedSearchValue))
+      const page = await fetchHubCategoryPage(fetch, selected, categoryPage.cursor, cleanHubSearchQuery(debouncedSearchValue), sortSelected)
       setCategoryPage(previous => previous.category !== selected || sequence !== categorySequence.current ? previous : ({ ...previous,
         models: [...new Map([...previous.models, ...page.repos.map(repo => serviceHub.models().convertHfRepoToCatalogModel(repo))].map(model => [hubKey(model), model])).values()],
         cursor: page.nextCursor === previous.cursor ? undefined : page.nextCursor, loading: false,
@@ -257,14 +254,14 @@ function HubContent() {
   // A new category or query starts at its own first results.
   useLayoutEffect(() => {
     parentRef.current?.scrollTo({ top: 0 })
-  }, [category, debouncedSearchValue, sizeBand, format, availability, showOnlyDownloaded])
+  }, [category, debouncedSearchValue, sizeBand, format, availability, showOnlyDownloaded, sortSelected])
 
   const filteredModels = useMemo(() => {
     // Speculative draft companions (mtp/eagle3/dflash/dspark) are draft models,
     // not standalone variants — move them out of `quants` (so they don't show
     // as downloadable) into `specQuants`, where DownloadButton resolves them
     // against the chosen quant.
-    let filtered: CatalogModel[] = progressiveModels.map((model) => ({
+    let filtered: CatalogModel[] = sortedModels.map((model) => ({
       ...model,
       quants: model.quants?.filter((q) => !isSpecSidecar(q)),
       specQuants: model.quants?.filter((q) => isSpecSidecar(q)),
@@ -276,8 +273,9 @@ function HubContent() {
       const cleanedSearchValue = cleanHubSearchQuery(debouncedSearchValue)
       // Fuse scores fuzzy relevance; re-rank so an exact HF id/name is first
       // (see #8447 — precise queries were not always top of list).
+      const matches = fuse.search(cleanedSearchValue).map((result) => result.item)
       filtered = prioritizeExactModelMatches(
-        fuse.search(cleanedSearchValue).map((result) => result.item),
+        sortHubModels(matches, sortSelected, hardware, systemUsage),
         cleanedSearchValue
       )
     }
@@ -317,13 +315,16 @@ function HubContent() {
     }
     return filtered
   }, [
-    progressiveModels,
+    sortedModels,
     debouncedSearchValue,
     showOnlyDownloaded,
     huggingFaceRepo,
     searchOptions,
     sizeBand,
     category,
+    sortSelected,
+    hardware,
+    systemUsage,
   ])
 
   useLayoutEffect(() => {
@@ -461,7 +462,12 @@ function HubContent() {
     return (
       <>
         <select className="text-xs border rounded p-1 bg-background max-w-36" aria-label={t('hub:discovery.weight')} value={sizeBand} onChange={e => setSizeBand(e.target.value)}>
-          {['all', 'under1', 'from1to2', 'from2to4', 'over4'].map(band => <option key={band} value={band}>{t(`hub:discovery.${band}`)}</option>)}
+          <option value="all">{t('hub:discovery.all')}</option>
+          {HUB_SIZE_BANDS.map(band => <option key={band.id} value={band.id}>{band.id === 'under1'
+            ? t('hub:discovery.under1')
+            : band.id === 'over500'
+              ? t('hub:discovery.sizeOver', { min: band.min })
+              : t('hub:discovery.sizeRange', { min: band.min, max: band.max })}</option>)}
         </select>
         {/* Sort dropdown - always visible */}
         <DropdownMenu>
@@ -675,16 +681,7 @@ function HubContent() {
                             <div className="shrink-0 flex flex-col items-end gap-2">
                               <div className="flex items-center gap-2">
                                 <span className="text-muted-foreground font-medium text-xs">
-                                  {filteredModels[virtualItem.index].is_mlx
-                                    ? hubFormatBytes(
-                                        sumMlxModelBytes(
-                                          filteredModels[virtualItem.index]
-                                        ) || undefined, i18n.language
-                                      )
-                                    : hubFormatBytes(parseFileSize(selectDefaultQuant(
-                                        filteredModels[virtualItem.index].quants,
-                                        DEFAULT_MODEL_QUANTIZATIONS
-                                      )?.file_size), i18n.language)}
+                                  {hubFormatBytes(hubWeight(filteredModels[virtualItem.index]), i18n.language)}
                                 </span>
                                 <ModelInfoHoverCard
                                   model={filteredModels[virtualItem.index]}

@@ -9,18 +9,18 @@ const safeUrl = (raw: string) => {
 }
 
 /** Broad discovery is metadata-only. Task support is assessed separately from format. */
-export function fetchHubCategoryPage(fetchImpl: typeof fetch, category: HubCategory, cursor?: string, search = ''): Promise<Page> {
-  const key = `${category}:${search}:${cursor ?? ''}`
+export function fetchHubCategoryPage(fetchImpl: typeof fetch, category: HubCategory, cursor?: string, search = '', sort = 'adapted'): Promise<Page> {
+  const key = `${category}:${search}:${sort}:${cursor ?? ''}`
   const cached = cache.get(key)
   if (cached && cached.expires > Date.now()) return cached.page
-  const page = load(fetchImpl, category, cursor, search)
+  const page = load(fetchImpl, category, cursor, search, sort)
   cache.set(key, { expires: Date.now() + 600000, page })
   void page.catch(() => cache.delete(key))
   if (cache.size > 30) cache.delete(cache.keys().next().value!)
   return page
 }
 
-async function load(fetchImpl: typeof fetch, category: HubCategory, cursor?: string, search = ''): Promise<Page> {
+async function load(fetchImpl: typeof fetch, category: HubCategory, cursor?: string, search = '', sort = 'adapted'): Promise<Page> {
   const definition = HUB_CATEGORIES.find(item => item.id === category)
   if (!definition) throw new Error('Unknown Hub category')
   let urls: string[]
@@ -34,8 +34,10 @@ async function load(fetchImpl: typeof fetch, category: HubCategory, cursor?: str
       ...definition.tags.slice(0, 2).map(tag => ({ filter: tag })),
     ]
     const popular = queries.length ? queries.slice(0, 5) : [{}]
-    const newest = { ...popular[0], sort: 'lastModified' }
-    const batches: Record<string, string>[] = [...popular, newest]
+    const newest = { ...popular[0], sort: 'createdAt' }
+    const batches: Record<string, string>[] = sort === 'newest'
+      ? popular.map(query => ({ ...query, sort: 'createdAt' }))
+      : sort === 'most-downloaded' ? popular : [...popular, newest]
     urls = batches.map(query => {
       const { sort = 'downloads', ...filters } = query
       return `${API}?${new URLSearchParams({ limit: '8', sort, direction: '-1', full: 'true', config: 'true', ...(search ? { search: search.slice(0, 120) } : {}), ...filters })}`
@@ -56,5 +58,26 @@ async function load(fetchImpl: typeof fetch, category: HubCategory, cursor?: str
     const match = response.headers.get('Link')?.match(/<([^>]+)>;\s*rel="next"/)
     if (match && safeUrl(match[1])) next.push(match[1])
   }
-  return { repos: [...repos.values()], ...(next.length ? { nextCursor: JSON.stringify([...new Set(next)]) } : {}) }
+  // List responses often omit file sizes. Hydrate public metadata only, with
+  // bounded concurrency; incomplete metadata remains unknown after failures.
+  const rows = [...repos.values()]
+  let index = 0
+  let rateLimited = false
+  await Promise.all(Array.from({ length: Math.min(3, rows.length) }, async () => {
+    while (index < rows.length) {
+      const current = index++
+      const repo = rows[current]
+      if (rateLimited || (repo.siblings?.length && repo.siblings.every(file => (file.size ?? file.lfs?.size ?? 0) > 0))) continue
+      try {
+        const response = await fetchImpl(`${API}/${repo.modelId}?blobs=true`, { credentials: 'omit', redirect: 'error', signal: AbortSignal.timeout(20000) })
+        if (response.status === 429) rateLimited = true
+        if (!response.ok) continue
+        const detail = await response.json()
+        if (detail && !Array.isArray(detail) && (detail.id === repo.modelId || detail.modelId === repo.modelId)) {
+          rows[current] = { ...repo, ...detail, id: repo.id, modelId: repo.modelId, author: repo.author }
+        }
+      } catch { /* A detail failure must not discard the discoverable model. */ }
+    }
+  }))
+  return { repos: rows, ...(next.length ? { nextCursor: JSON.stringify([...new Set(next)]) } : {}) }
 }

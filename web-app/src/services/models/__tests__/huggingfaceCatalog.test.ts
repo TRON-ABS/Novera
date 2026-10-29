@@ -97,8 +97,14 @@ describe('direct Hugging Face discovery', () => {
     expect(peak).toBe(3)
   })
 
-  it('prioritizes original publishers over community conversions at equal hardware fit', () => {
+  it('honors download counts across original publishers and community conversions', () => {
     const make = (developer: string) => ({ model_name: 'Chat', developer, downloads: developer === 'community' ? 1e9 : 1, description: '', quants: [{ model_id: 'q4', path: '', file_size: '1 GB' }] })
-    expect(sortHubModels([make('community'), make('Qwen')], 'most-downloaded', {} as never)[0].developer).toBe('Qwen')
+    expect(sortHubModels([make('community'), make('Qwen')], 'most-downloaded', {} as never)[0].developer).toBe('community')
+  })
+  it('preserves byte-exact weights at small and large filter boundaries', () => {
+    for (const size of [999999999, 1e9, 500e9, 501e9]) {
+      const row = { ...repo(), siblings: [{ rfilename: 'model-Q4_K_M.gguf', size }] }
+      expect(new DefaultModelsService().convertHfRepoToCatalogModel(row as never).quants?.[0].file_size).toBe(`${size} B`)
+    }
   })
 })

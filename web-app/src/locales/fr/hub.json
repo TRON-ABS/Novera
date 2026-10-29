@@ -23,6 +23,8 @@
     "from1to2": "1–2 Go",
     "from2to4": "2–4 Go",
     "over4": "4 Go et plus",
+    "sizeRange": "{{min}}–{{max}} Go",
+    "sizeOver": "{{min}} Go et plus",
     "compare": "Comparer",
     "parameters": "Paramètres",
     "weight": "Poids à télécharger",

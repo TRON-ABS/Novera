@@ -4,14 +4,14 @@ import { fetchHubCategoryPage } from '../hubCategories'
 describe('multimodal Hub metadata discovery', () => {
   it('fetches bounded image metadata and a recent-model page without weights or credentials', async () => {
     const fetch = vi.fn().mockImplementation(async (url: string) => new Response(JSON.stringify([
-      { id: 'publisher/image-model', pipeline_tag: new URL(url).searchParams.get('pipeline_tag'), tags: [], siblings: [{ rfilename: 'model.safetensors' }] },
+      { id: 'publisher/image-model', pipeline_tag: new URL(url).searchParams.get('pipeline_tag'), tags: [], siblings: [{ rfilename: 'model.safetensors', size: 1000000000 }] },
     ])))
     const page = await fetchHubCategoryPage(fetch, 'image', undefined, 'landscape')
     expect(page.repos).toHaveLength(1)
     expect(fetch.mock.calls.length).toBeLessThanOrEqual(6)
     const urls = fetch.mock.calls.map(([url]) => new URL(url))
     expect(urls.some(url => url.searchParams.get('pipeline_tag') === 'text-to-image')).toBe(true)
-    expect(urls.some(url => url.searchParams.get('sort') === 'lastModified')).toBe(true)
+    expect(urls.some(url => url.searchParams.get('sort') === 'createdAt')).toBe(true)
     for (const [url, options] of fetch.mock.calls) {
       expect(url).toContain('https://huggingface.co/api/models?')
       expect(new URL(url).searchParams.get('search')).toBe('landscape')
@@ -37,4 +37,19 @@ describe('multimodal Hub metadata discovery', () => {
     expect(page.repos).toHaveLength(1)
     expect(page.repos[0].pipeline_tag).toBe('future-modality')
   })
+})
+
+it('requests releases and downloads separately and hydrates large-model shards', async () => {
+  const fetch = vi.fn(async (input: string) => {
+    const url = new URL(input)
+    return new Response(JSON.stringify(url.pathname === '/api/models'
+      ? [{ id: 'publisher/large', siblings: [{ rfilename: 'model-1.safetensors' }] }]
+      : { id: 'publisher/large', siblings: [{ rfilename: 'model-1.safetensors', size: 300e9 }, { rfilename: 'model-2.safetensors', size: 300e9 }] }))
+  })
+  const newest = await fetchHubCategoryPage(fetch, 'all', undefined, 'sort-regression', 'newest')
+  expect(newest.repos[0].siblings?.reduce((sum, f) => sum + (f.size ?? 0), 0)).toBe(600e9)
+  expect(new URL(fetch.mock.calls[0][0]).searchParams.get('sort')).toBe('createdAt')
+  fetch.mockClear()
+  await fetchHubCategoryPage(fetch, 'all', undefined, 'sort-regression', 'most-downloaded')
+  expect(new URL(fetch.mock.calls[0][0]).searchParams.get('sort')).toBe('downloads')
 })

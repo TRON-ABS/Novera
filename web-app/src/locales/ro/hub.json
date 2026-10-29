@@ -25,6 +25,8 @@
     "from1to2": "1–2 GB",
     "from2to4": "2–4 GB",
     "over4": "4 GB și peste",
+    "sizeRange": "{{min}}–{{max}} GB",
+    "sizeOver": "{{min}} GB și peste",
     "compare": "Compară",
     "parameters": "Parametri",
     "weight": "Dimensiune de descărcare",

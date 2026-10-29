@@ -25,6 +25,8 @@
     "from1to2": "GB 1–2",
     "from2to4": "GB 2–4",
     "over4": "GB 4 na zaidi",
+    "sizeRange": "GB {{min}}–{{max}}",
+    "sizeOver": "GB {{min}} na zaidi",
     "compare": "Linganisha",
     "parameters": "Vigezo",
     "weight": "Ukubwa wa kupakua",

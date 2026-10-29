@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { CatalogModel } from '@/services/models/types'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { intlLocale } from '@/utils/intlLocale'
-import { hubMemory, hubWeight, hubKey, hubFormatBytes } from '@/lib/hubDiscovery'
+import { hubWeight, hubKey, hubFormatBytes } from '@/lib/hubDiscovery'
 import { useHardware } from '@/hooks/useHardware'
 import { useAppState } from '@/hooks/useAppState'
 import { useCoworkRun } from '@/hooks/useCoworkRun'
@@ -10,18 +10,19 @@ import { useServiceHub } from '@/hooks/useServiceHub'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { measureHubModel, type HubMeasurement } from '@/lib/hubBenchmark'
 import { Button } from '@/components/ui/button'
-import { HubHardwareDiagnostic } from './HubHardwareDiagnostic'
+import { HubHardwareDiagnostic, useHubDiagnosis } from './HubHardwareDiagnostic'
 import { modelEngine } from '@/modules/engines/hub-catalog'
 
 export function HubModelFacts({ model }: { model: CatalogModel }) {
   const { t, i18n } = useTranslation()
+  const diagnosis = useHubDiagnosis(model)
   const numbers = new Intl.NumberFormat(intlLocale(i18n.language), { maximumFractionDigits: 2 })
   const bytes = (value: number | null) => hubFormatBytes(value, i18n.language)
   return <div className="mt-3 space-y-2 text-xs">
     <div className="flex flex-wrap gap-x-4 gap-y-1">
       {model.hub && <span>{t('hub:discovery.parameters')}: {numbers.format(model.hub.parametersB)} B</span>}
       <span>{t('hub:discovery.weight')}: {bytes(hubWeight(model))}</span>
-      {modelEngine(model) !== 'future' && <span>{t('hub:discovery.memory')}: {bytes(hubMemory(model))}</span>}
+      {modelEngine(model) !== 'future' && <span>{t('hub:discovery.memory')}: {bytes(diagnosis.requiredBytes)}</span>}
     </div>
     <p className="text-muted-foreground">{t('hub:discovery.estimated')}</p>
     <HubHardwareDiagnostic model={model} />

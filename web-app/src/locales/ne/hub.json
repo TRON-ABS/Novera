@@ -25,6 +25,8 @@
     "from1to2": "1–2 GB",
     "from2to4": "2–4 GB",
     "over4": "4GB र माथि",
+    "sizeRange": "{{min}}–{{max}} GB",
+    "sizeOver": "{{min}}GB र माथि",
     "compare": "तुलना गर्नुहोस्",
     "parameters": "प्यारामिटरहरू",
     "weight": "डाउनलोड आकार",

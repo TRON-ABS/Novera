@@ -25,6 +25,8 @@
     "from1to2": "1–2 GB",
     "from2to4": "2–4 GB",
     "over4": "৪ GB আৰু অধিক",
+    "sizeRange": "{{min}}–{{max}} GB",
+    "sizeOver": "{{min}} GB আৰু অধিক",
     "compare": "তুলনা কৰক",
     "parameters": "প্ৰাচলসমূহ",
     "weight": "ডাউনল'ডৰ মাপ",

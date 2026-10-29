@@ -12,11 +12,7 @@ import {
   type HubRuntime,
 } from '@/modules/engines/hub-catalog'
 import { ExtensionManager } from '@/lib/extension'
-import { hubFormatBytes, hubWeight } from '@/lib/hubDiscovery'
-import { parseFileSize } from '@/lib/modelCompatibility'
-import { selectDefaultQuant } from '@/lib/models'
-import { DEFAULT_MODEL_QUANTIZATIONS } from '@/constants/models'
-import { pickSpecSibling } from '@/lib/specDraft'
+import { hubFormatBytes, hubHardwareSnapshot, hubMemoryOptions } from '@/lib/hubDiscovery'
 import {
   Dialog,
   DialogContent,
@@ -26,7 +22,6 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 
-const MiB = 1024 ** 2
 const engineNames = {
   llamacpp: 'llama.cpp / GGUF',
   mlx: 'MLX / Apple Silicon',
@@ -46,69 +41,11 @@ export function useHubDiagnosis(
     used_memory: 0,
     gpus: [],
   }
-  const selected = variant?.path
-    ? (model.quants?.find((quant) => quant.path === variant.path) ?? variant)
-    : selectDefaultQuant(model.quants, DEFAULT_MODEL_QUANTIZATIONS)
-  const weights = selected
-    ? parseFileSize(selected.file_size)
-    : hubWeight(model)
-  const projector =
-    model.mmproj_models?.find(
-      (file) => file.model_id.toLowerCase() === 'mmproj-f16'
-    ) ?? model.mmproj_models?.[0]
-  const draft =
-    selected?.model_id && selected.path && selected.file_size
-      ? pickSpecSibling(
-          model.specQuants ?? model.quants,
-          selected as ModelQuant
-        )
-      : undefined
-  const projectorBytes = projector ? parseFileSize(projector.file_size) : 0
-  const draftBytes = draft ? parseFileSize(draft.quant.file_size) : 0
-  return diagnoseHubModel(
-    model,
-    {
-      platform: IS_WINDOWS
-        ? 'windows'
-        : IS_MACOS
-          ? 'macos'
-          : IS_LINUX
-            ? 'linux'
-            : hardware.os_type || 'web',
-      ramBytes: hardware.total_memory > 0 ? hardware.total_memory * MiB : null,
-      availableRamBytes:
-        usage.total_memory > 0
-          ? Math.max(0, usage.total_memory - usage.used_memory) * MiB
-          : null,
-      gpus: hardware.gpus
-        .filter((gpu) => gpu.activated !== false)
-        .map((gpu) => {
-          const live = usage.gpus.find((item) => item.uuid === gpu.uuid)
-          return {
-            name: gpu.name,
-            vendor: gpu.vendor,
-            computeCapability: gpu.nvidia_info?.compute_capability,
-            totalBytes: gpu.total_memory * MiB,
-            ...(live && live.total_memory > 0
-              ? {
-                  availableBytes:
-                    Math.max(0, live.total_memory - live.used_memory) * MiB,
-                }
-              : {}),
-          }
-        }),
-    },
-    {
-      weightsBytes: weights,
-      variantPath: selected?.path,
-      projectorBytes:
-        projectorBytes === null || draftBytes === null
-          ? null
-          : projectorBytes + draftBytes,
-      context,
-      runtime,
-    }
-  )
+  const snapshot = hubHardwareSnapshot(hardware, usage)
+  return diagnoseHubModel(model, {
+    ...snapshot,
+    platform: IS_WINDOWS ? 'windows' : IS_MACOS ? 'macos' : IS_LINUX ? 'linux' : snapshot.platform || 'web',
+  }, { ...hubMemoryOptions(model, variant, context), runtime })
 }
 
 function DiagnosisDetails({

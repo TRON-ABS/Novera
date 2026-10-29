@@ -25,6 +25,8 @@
     "from1to2": "1–2 GB",
     "from2to4": "2–4 GB",
     "over4": "4GB ۽ مٿي",
+    "sizeRange": "{{min}}–{{max}} GB",
+    "sizeOver": "{{min}}GB ۽ مٿي",
     "compare": "ڀيٽيو",
     "parameters": "پيرا ميٽرز",
     "weight": "ڊائون لوڊ سائيز",

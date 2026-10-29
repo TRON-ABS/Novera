@@ -25,6 +25,8 @@
     "from1to2": "1–2 GB",
     "from2to4": "2–4 GB",
     "over4": "4 GB లేదా ఎక్కువ",
+    "sizeRange": "{{min}}–{{max}} GB",
+    "sizeOver": "{{min}} GB లేదా ఎక్కువ",
     "compare": "పోల్చండి",
     "parameters": "పరామితులు",
     "weight": "డౌన్‌లోడ్ పరిమాణం",

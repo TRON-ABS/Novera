@@ -25,6 +25,8 @@
     "from1to2": "1–2 GB",
     "from2to4": "2–4 GB",
     "over4": "4 GB နှင့်အထက်",
+    "sizeRange": "{{min}}–{{max}} GB",
+    "sizeOver": "{{min}} GB နှင့်အထက်",
     "compare": "နှိုင်းယှဥ်ပါ။",
     "parameters": "ကန့်သတ်ချက်များ",
     "weight": "ဒေါင်းလုဒ်အရွယ်အစား",

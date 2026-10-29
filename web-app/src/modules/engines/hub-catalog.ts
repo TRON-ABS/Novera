@@ -153,6 +153,15 @@ export const HUB_CATEGORIES = [
 ] as const
 export type HubCategory = (typeof HUB_CATEGORIES)[number]['id']
 
+export interface HubTextConfig {
+  num_hidden_layers?: number
+  num_attention_heads?: number
+  num_key_value_heads?: number
+  hidden_size?: number
+  head_dim?: number
+  text_config?: HubTextConfig
+}
+
 export interface HubModelMetadata {
   model_name?: string
   display_name?: string
@@ -163,7 +172,7 @@ export interface HubModelMetadata {
   quants?: readonly { path: string; model_id: string; file_size?: string }[]
   safetensors_files?: readonly { path: string; file_size?: string }[]
   mmproj_models?: readonly { path: string; file_size?: string }[]
-  model_config?: {
+  model_config?: HubTextConfig & {
     model_type?: string
     architectures?: string[]
     dtype?: string
@@ -224,6 +233,7 @@ export interface HubHardware {
     vendor: string
     totalBytes: number
     availableBytes?: number
+    sharedMemory?: boolean
     computeCapability?: string
   }[]
 }
@@ -298,10 +308,31 @@ const GiB = 1024 ** 3
 export function estimateHubMemory(
   weights: number | null,
   context = 8192,
-  companions: number | null = 0
+  companions: number | null = 0,
+  kvBytes?: number | null
 ): number | null {
   if (!weights || weights <= 0 || companions === null) return null
-  return weights * (1.2 + (0.1 * Math.max(128, context)) / 4096) + companions
+  const kv = kvBytes ?? weights * 0.1 * Math.max(128, context) / 4096
+  return Math.ceil(weights + Math.max(weights * 0.2, 256 * 1024 ** 2) + kv + companions)
+}
+
+/** K and V caches for a conventional attention decoder, one sequence.
+ * GGUF defaults to FP16; explicit FP32 Safetensors caches use four bytes.
+ * Incomplete, recurrent and compressed-attention architectures use the fallback.
+ */
+export function estimateHubKvCache(model: HubModelMetadata, context: number): number | null {
+  const config = model.model_config?.text_config ?? model.model_config
+  if (!config || /mla|deepseek|mamba|jamba|lfm|hybrid|qwen3_next|qwen3_5/i.test(model.model_config?.model_type ?? '')) return null
+  const layers = config.num_hidden_layers
+  const heads = config.num_attention_heads
+  const kvHeads = config.num_key_value_heads ?? heads
+  const dimension = config.head_dim ?? (config.hidden_size && heads ? config.hidden_size / heads : undefined)
+  if (![layers, heads, kvHeads, dimension].every(value => typeof value === 'number' && Number.isSafeInteger(value) && value > 0)) return null
+  if (kvHeads! > heads!) return null
+  const dtype = model.model_config?.dtype ?? model.model_config?.torch_dtype
+  const elementBytes = !model.quants?.length && /^(?:torch\.)?(?:float32|fp32|float)$/i.test(dtype ?? '') ? 4 : 2
+  const bytes = 2 * elementBytes * Math.max(128, context) * layers! * kvHeads! * dimension!
+  return Number.isSafeInteger(bytes) ? bytes : null
 }
 
 export function diagnoseHubModel(
@@ -333,7 +364,7 @@ export function diagnoseHubModel(
       ? hardware.gpus.filter((gpu) =>
           /nvidia/i.test(`${gpu.vendor} ${gpu.name}`)
         )
-      : hardware.gpus
+      : hardware.gpus.filter(gpu => !gpu.sharedMemory && !(hardware.platform === 'macos' && /apple/i.test(`${gpu.vendor} ${gpu.name}`)))
   // Never sum unrelated GPUs; Transformers has no tensor parallelism/offload here.
   const detectedGpuBudget = eligibleGpus.length
     ? Math.max(
@@ -355,13 +386,17 @@ export function diagnoseHubModel(
       ? 2
       : 1
   // A heuristic is labelled an estimate by the caller, never a guarantee.
+  const kvBytes = estimateHubKvCache(model, context)
   const required = estimateHubMemory(
     weights,
     context,
-    options.projectorBytes ?? (options.projectorBytes === null ? null : 0)
+    options.projectorBytes ?? (options.projectorBytes === null ? null : 0),
+    kvBytes
   )
   const cpuRequired =
-    required && weights ? required + weights * (cpuExpansion - 1) : null
+    required && weights
+      ? Math.ceil(required + (weights + (kvBytes ?? weights * 0.1 * context / 4096)) * (cpuExpansion - 1))
+      : null
   let memory: HubDiagnosis['memory'] = 'unknown'
   if (required && ramBudget !== null && engine !== 'future') {
     if (engine === 'transformers') {

@@ -25,6 +25,8 @@
     "from1to2": "1–2 جی بی",
     "from2to4": "2–4 جی بی",
     "over4": "4 جی بی یا زیادہ",
+    "sizeRange": "{{min}}–{{max}} جی بی",
+    "sizeOver": "{{min}} جی بی یا زیادہ",
     "compare": "موازنہ",
     "parameters": "پیرامیٹرز",
     "weight": "ڈاؤن لوڈ کا حجم",

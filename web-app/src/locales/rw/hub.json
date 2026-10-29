@@ -25,6 +25,8 @@
     "from1to2": "1-22 GB",
     "from2to4": "2–4 GB",
     "over4": "4 GB no kurenga",
+    "sizeRange": "{{min}}–{{max}} GB",
+    "sizeOver": "{{min}} GB no kurenga",
     "compare": "Gereranya",
     "parameters": "Ibipimo",
     "weight": "Gukuramo ingano",
