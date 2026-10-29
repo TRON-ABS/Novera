@@ -1,5 +1,11 @@
 # Novera — tableau de bord
 
+## Navigation et modèles intégrés — sources du 29 octobre 2026
+
+Les sources intègrent Recherche/Nouveau projet à gauche de la saisie et Modèles/Configuration à droite, avec des fenêtres Novera au-dessus du tableau de bord et un sélecteur de modèle compact unique. Les paramètres du modèle suivent le même parcours. Les anneaux sont verts au repos, jaune/rouge pendant la réponse ; les réponses du modèle ont leur propre cadre. Les infobulles et unités de durée couvrent les **80 langues / 2 402 clés**. Le lanceur local passe à **8 tâches Cargo**.
+
+Validation locale de publication : **449 tests ciblés dans 15 fichiers**, TypeScript, contrôles de sources/architecture, catalogues et traitement CSS réussis ; **7 tests des règles d’architecture** passent également. Les changements de sources sont sur `codex/dashboard-navigation-and-model-selector`, depuis `main` après PR #3. Aucun nouveau binaire, compilation applicative, validation CI, fusion supplémentaire ni contrôle visuel compilé n’est annoncé. Le mainteneur compile et vérifie le rendu. Voir [PR.md](PR.md).
+
 ## Stockage commun et catalogue automatique — 28 octobre 2026
 
 Build courant : [Novera Windows local](deliverables/Novera-desktop-1.0.0-2026-10-28_03-08-27-045/).

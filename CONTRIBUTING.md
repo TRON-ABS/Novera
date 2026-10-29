@@ -13,7 +13,7 @@ Use versions declared by `package.json`, `rust-toolchain.toml` and the relevant 
 
 ## Required translations
 
-Every new or changed user-facing text must be translated in **all 60 supported interface locales** in the same change: buttons, tooltips, menus, hints, confirmations, success messages and errors. Use translation keys, preserve interpolation variables and technical identifiers, and update `docs/language-support.json` and [the language inventory](docs/LANGUAGES.md). English fallback does not count as a translation. All catalogs currently have complete key coverage; native-language review remains open.
+Every new or changed user-facing text must be translated in **all 80 supported interface locales** in the same change: buttons, tooltips, menus, hints, confirmations, success messages and errors. Use translation keys, preserve interpolation variables and technical identifiers, and update `docs/language-support.json` and [the language inventory](docs/LANGUAGES.md). English fallback does not count as a translation. All catalogs currently have complete key coverage; native-language review remains open.
 
 Run `python scripts/check-novera-locales.py` after changing interface text. Review assistance by native speakers is welcome; explain terminology changes and preserve message variables.
 

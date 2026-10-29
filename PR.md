@@ -25,6 +25,7 @@ Opening Models or Settings replaced the conversation, model selection appeared i
 - `node node_modules/typescript/bin/tsc --noEmit -p tsconfig.app.json --pretty false` from `web-app`: passes.
 - Targeted ESLint on the changed production components and hooks: no errors or warnings in the final checks.
 - `node scripts/check-architecture.mjs`: no violations.
+- `node --test scripts/__tests__/architecture.test.mjs`: 7 tests pass.
 - `node scripts/check-ui-localization.mjs`: no missing static keys or unreviewed literals.
 - `python scripts/check-novera-locales.py`: 80 complete catalogs, 2,402 keys, no structural errors.
 - Existing Tailwind tooling processes the actual CSS imports without an application bundle; `git diff --check` passes.
