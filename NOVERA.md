@@ -1,5 +1,11 @@
 # Novera — instructions du projet
 
+## Direction finale : tout autour du tableau de bord — 29 octobre 2026
+
+Objectif explicite pour les prochaines améliorations : **rendre toutes les fonctions accessibles dans le tableau de bord ou juste à côté, puis supprimer le panneau latéral permanent**. Cela inclut conversations et historique, recherche, projets, fichiers, modèles, configurations, téléchargements et outils. Préserver chaque possibilité pendant son déplacement ; ne pas supprimer un accès tant que son remplacement n’est pas disponible et validé.
+
+Cette direction est un objectif futur, pas une autorisation de réorganisation immédiate. Avancer progressivement : une proposition concrète, la validation explicite du mainteneur, puis ce seul changement. Conserver la compacité, les 80 langues, l’accessibilité et l’adaptation aux tailles d’écran. Ne pas imposer dès maintenant une nouvelle maquette ou retirer le panneau latéral.
+
 ## Validation progressive du tableau de bord — règle du 29 octobre 2026
 
 Dernière demande explicite : retirer **toutes** les icônes Téléchargements de l’en-tête et du panneau latéral, même dans Configurations. L’ancien masquage conditionnel ne suffit plus. Garder uniquement le déclencheur du tableau de bord et un gestionnaire de notifications sans interface à la racine de la fenêtre principale. Déplacer aussi **Nouvelle discussion** du panneau latéral vers une zone intégrée à gauche de la saisie, symétrique à Envoyer à droite, sans recouvrir le texte. Préserver l’action de nouvelle discussion normale et son raccourci clavier. Ces deux déplacements sont autorisés par cette demande précise, sans autre changement du tableau de bord.

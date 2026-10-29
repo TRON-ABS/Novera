@@ -1,5 +1,14 @@
 # Novera — feuille de route
 
+## Direction future du tableau de bord — 29 octobre 2026
+
+Objectif du mainteneur : **tout dans le tableau de bord ou juste à côté, sans panneau latéral permanent à terme**. Aucune nouvelle modification d’interface n’est engagée par cette inscription.
+
+- [ ] Préparer, une fonction à la fois, une proposition d’accès depuis le tableau de bord ou son voisinage immédiat.
+- [ ] Faire valider chaque proposition avant son application ; conserver les capacités, raccourcis, traductions et accès existants jusqu’au remplacement validé.
+- [ ] Déplacer progressivement les accès aux discussions/historique, à la recherche, aux projets, fichiers, modèles, configurations et outils.
+- [ ] Retirer le panneau latéral seulement après validation des accès de remplacement et vérification qu’aucune fonction n’est perdue.
+
 ## Préparation des distributions — 29 octobre 2026
 
 - [x] Définir les onze variantes du lanceur, dont le ZIP portable Windows et son empreinte, dans un manifeste commun.

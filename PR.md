@@ -29,6 +29,8 @@ No application/native/extension compilation, GitHub Actions activation, paid clo
 
 The maintainer now requires explicit approval before each future dashboard change, one change at a time. Record that requirement in NOVERA.md and the golden rules. The adjustments above were individually requested before this new workflow rule; keep this follow-up available for review rather than treating it as approval of a broader redesign.
 
+Record the subsequent long-term direction in the roadmap and golden rules: all capabilities should eventually be accessible within or immediately beside the dashboard, with no permanent sidebar. This is documentation of a future objective only. It does not implement a redesign or authorize removing the remaining sidebar before replacement access is individually approved and available.
+
 ---
 
 ## Previous merged change — adaptive composer and generation information (PR #2)
