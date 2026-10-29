@@ -518,6 +518,8 @@
   color: #eff6ff;
 }
 .composer-submit-area .composer-submit-button > svg { color: inherit; }
+/* Keep the dashboard's appearance steady while its controls are locked. */
+.composer-panel[data-busy="true"] :is(button, input, select, textarea):disabled { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   .composer-submit-area .composer-submit-button { transition: none; }
 }

@@ -26,6 +26,8 @@ Les mots traduits ne doivent ni se toucher ni recouvrir un interrupteur ou une c
 
 Envoyer/Arrêter occupe une zone réservée à droite dans le cadre de saisie, sans masquer le texte ou la bordure. Utiliser le **bleu sombre**, avec un **petit carré de 12 px** pendant l’exécution, plutôt qu’un état rouge. Le passage Envoyer → Arrêter conserve l’annulation et les comportements de file d’attente. Toutes les commandes restent accessibles quand les outils sont regroupés sur petit écran.
 
+Pendant l’exécution, garder le cadre et les commandes à leur luminosité habituelle, sans halo tournant. Seul Envoyer/Arrêter change légèrement de teinte. Les valeurs et informations de progression restent actualisées ; les commandes indisponibles conservent leurs verrouillages malgré l’absence d’atténuation visuelle.
+
 ## 4. Un démarrage guidé et une automatisation explicable
 
 Guider du démarrage au résultat : choix du mode, installation des composants nécessaires, vérification, sélection du modèle, exécution, affichage et enregistrement. Montrer ce qui manque avec une action correspondante.

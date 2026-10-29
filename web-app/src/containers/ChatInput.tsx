@@ -64,7 +64,6 @@ import {
 import { useReconcileVideoCapability } from '@/hooks/useReconcileVideoCapability'
 
 import { useAppState } from '@/hooks/useAppState'
-import { MovingBorder } from './MovingBorder'
 import type { ChatStatus } from 'ai'
 import { useRouter } from '@tanstack/react-router'
 import { route } from '@/constants/routes'
@@ -2081,18 +2080,6 @@ const ChatInput = memo(function ChatInput({
             'relative overflow-hidden p-0.5 rounded-3xl'
           )}
         >
-          {isStreaming && (
-            <div className="absolute inset-0">
-              <MovingBorder rx="10%" ry="10%">
-                <div
-                  className={cn(
-                    'h-100 w-100 bg-[radial-gradient(var(--app-primary),transparent_60%)]'
-                  )}
-                />
-              </MovingBorder>
-            </div>
-          )}
-
           <div
             className={cn(
               'composer-panel relative z-20 px-0 border rounded-3xl border-input bg-white dark:bg-input/30',
@@ -2100,6 +2087,7 @@ const ChatInput = memo(function ChatInput({
               isDragOver && 'ring-2 ring-ring/50 border-primary'
             )}
             data-drop-zone={dropAcceptsAnything ? 'true' : undefined}
+            data-busy={turnBusy}
             onDragEnter={dropAcceptsAnything ? handleDragEnter : undefined}
             onDragLeave={dropAcceptsAnything ? handleDragLeave : undefined}
             onDragOver={dropAcceptsAnything ? handleDragOver : undefined}
@@ -2430,7 +2418,7 @@ const ChatInput = memo(function ChatInput({
               <div
                 className={cn(
                   'composer-toolbar px-1 flex flex-wrap items-center gap-2',
-                  turnBusy && 'opacity-50 pointer-events-none'
+                  turnBusy && 'pointer-events-none'
                 )}
               >
                 {/* Dropdown for attachments — hidden in agent mode */}
