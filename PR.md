@@ -1,4 +1,28 @@
-# fix(creation): adapt the composer and preserve generation information
+# fix(composer): show startup context and arrange compact controls
+
+## Current follow-up — 2026-10-29
+
+The local context indicator disappeared on the empty startup screen and until the lazily loaded engine reported its capacity. Keep a pending indicator for a selected local model, then show the actual percentage once available. Do not invent a denominator, display a false zero, or change remote-provider count-only behavior and agent-mode visibility. Reuse labels already translated in all 80 catalogs.
+
+Apply the maintainer's final layout choices: a responsive 1,024 px composer cap; settings immediately after automatic memory; a download shortcut immediately after settings; dark blue send/stop colors with a small 12 px stop square. The scoped settings shortcut opens the existing dialog. The downloads shortcut shares the existing store, retains pause/resume/cancel, and does not register another set of update-completion notifications. Global download access is retained on other application surfaces. The broader futuristic-dashboard redesign is explicitly deferred.
+
+Prepare future distributions without compiling them. Add a declarative inventory of the local launcher's eleven variants, including Windows portable ZIP/checksum, and a read-only Node audit. Verify referenced sources, package scripts, JSON configuration, application identity and desktop/web/native/CLI versions. Report Android review flags and missing Apple provisioning separately from source-reference validity; never certify an unbuilt target. The checker performs no network calls, installs, builds, CI changes or publication. Document prerequisites and the portable package's normal profile storage and separately downloaded model weights.
+
+### Evidence and local validation
+
+- Before: an empty initial local-model input hides the meter; after: tests cover an idle indicator, unavailable capacity and transition to 2.6% from reported data. Existing hook tests retain the engine's actual context as the denominator.
+- Layout/control tests verify memory → settings → downloads order, a single settings trigger, scoped dialog access, the stop control inside the prompt and an actual stop callback.
+- `node node_modules/vitest/vitest.mjs run --project @janhq/web-app` with the six affected test paths: **148 tests pass**. Paths: TokenCounter, tokenCounterVisibility, ChatInput, useTokensCount, CreationControls and DownloadManegement.
+- `node --test scripts/distribution/__tests__/check-release-readiness.test.mjs`: **9 tests pass**, including version drift, missing configurations/scripts, invalid paths and no false build certification.
+- `node scripts/distribution/check-release-readiness.mjs`: all eleven source definitions valid; all target build statuses remain `not-verified`, with pending prerequisites listed.
+- From `web-app`, `node node_modules/typescript/bin/tsc --noEmit -p tsconfig.app.json --pretty false`: passes. Targeted ESLint has no errors; two existing CreationControls effect-dependency warnings remain.
+- UI localization audit: no missing static keys or unreviewed literals. Architecture: no violations. Actual CSS imports process with existing Tailwind tooling without an application bundle. `git diff --check` passes.
+
+No application/native/extension compilation, GitHub Actions activation, paid cloud generation, installer/archive production, code signing or official release is included. Small-screen and startup behavior still require visual verification in the maintainer's compiled application; browser access to the local preview was unavailable in the preceding layout check. This preparation does not resolve mobile audits or certify target-specific engine compatibility. PR #2 is already merged and provides the base; no unmerged prerequisite or external issue closure is introduced.
+
+---
+
+## Previous merged change — adaptive composer and generation information (PR #2)
 
 ## Current change — 2026-10-29
 

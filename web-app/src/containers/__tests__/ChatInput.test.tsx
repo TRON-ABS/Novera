@@ -292,6 +292,9 @@ vi.mock('@/containers/MovingBorder', () => ({
 vi.mock('@/components/TokenCounter', () => ({
   TokenCounter: () => <div data-testid="stub-token-counter" />,
 }))
+vi.mock('@/containers/DownloadManegement', () => ({
+  DownloadManagement: () => <button className="composer-downloads" aria-label="Downloads" />,
+}))
 vi.mock('@/components/AssistantsMenu', () => ({
   AssistantsMenu: () => <div data-testid="stub-assistants-menu" />,
 }))
@@ -498,30 +501,19 @@ describe('ChatInput', () => {
     expect(
       document.querySelector('[data-test-id="send-message-button"]')
     ).toBeNull()
-    // The stop button has variant destructive; simply ensure some button is in the stop region.
-    const btns = document.querySelectorAll('button')
-    expect(btns.length).toBeGreaterThan(0)
+    const stop = screen.getByTestId('stop-message-button')
+    expect(stop).toHaveAttribute('data-state', 'running')
+    expect(stop.closest('.composer-prompt')).not.toBeNull()
+    expect(stop.querySelector('svg')).toHaveClass('size-3')
   })
 
   it('calls onStop when stop button clicked during streaming', () => {
     promptState = ''
     const onStop = vi.fn()
     renderInput({ chatStatus: 'streaming', onStop })
-    // Stop logic lives in stopStreaming — triggered by clicking the destructive button.
-    // Find it by querying buttons whose className contains 'destructive'-like classes is fragile;
-    // we simulate by invoking clearQueue path: ensure queue empty first.
     getQueueMock.mockReturnValueOnce([])
-    // Find stop button: it's the only rendered submit/icon button when streaming.
-    const allButtons = Array.from(document.querySelectorAll('button'))
-    const stopBtn = allButtons.find((b) =>
-      b.className.includes('destructive') || b.innerHTML.includes('svg')
-    )
-    // fallback: click the last button (stop is last in right-side container)
-    fireEvent.click(stopBtn ?? allButtons[allButtons.length - 1])
-    // onStop is called inside stopStreaming; but only when queue is empty AND click hits stop button.
-    // Accept either onStop called OR clearQueue called (both are valid stop-click paths).
-    const clicked = onStop.mock.calls.length + clearQueueMock.mock.calls.length
-    expect(clicked).toBeGreaterThanOrEqual(0) // smoke: no crash
+    fireEvent.click(screen.getByTestId('stop-message-button'))
+    expect(onStop).toHaveBeenCalledTimes(1)
   })
 
   it('queues the message when streaming with a currentThreadId', async () => {
@@ -778,6 +770,21 @@ describe('ChatInput', () => {
   })
 
   describe('token counter visibility', () => {
+    it('places settings and downloads in order immediately after memory', () => {
+      const view = renderInput()
+      const memory = view.container.querySelector('.composer-memory')
+      expect(memory).not.toBeNull()
+      expect(memory?.nextElementSibling).toHaveClass('composer-settings')
+      expect(memory?.nextElementSibling?.nextElementSibling).toHaveClass('composer-downloads')
+      expect(view.container.querySelectorAll('.composer-settings')).toHaveLength(1)
+    })
+    it.each(['llamacpp', 'mlx'])('shows the local indicator at startup for %s before any prompt', provider => {
+      selectedProviderOverride = provider
+      appStateOverrides = { activeModels: [] }
+      promptState = ''
+      renderInput({ initialMessage: true })
+      expect(screen.getByTestId('stub-token-counter')).toBeInTheDocument()
+    })
     // Regression: llama.cpp is a string provider ('llamacpp') and loads lazily,
     // so it is never present in `activeModels` during a chat turn. The counter
     // must still render off model selection + prompt/messages alone.

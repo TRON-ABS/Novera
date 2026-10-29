@@ -18,11 +18,11 @@ Une chaîne anglaise copiée ou un repli anglais ne constitue pas une traduction
 
 ## 3. Un seul tableau de bord adaptable
 
-Conserver l’apparence approuvée, les couleurs et les états explicites. Les rangées s’adaptent à la largeur disponible : retour à la ligne, regroupement cohérent et commandes secondaires accessibles. La taille maximale actuelle du cadre est de 1 256 px ; un petit écran ne reçoit pas une largeur fixe de bureau.
+Conserver l’apparence approuvée, les couleurs et les états explicites. Les rangées s’adaptent à la largeur disponible : retour à la ligne, regroupement cohérent et commandes secondaires accessibles. La taille maximale actuelle du tableau de bord est de **1 024 px** ; un petit écran ne reçoit pas une largeur fixe de bureau. Placer Réglages à droite de Mémoire auto, puis le raccourci Téléchargements ; conserver l’ordre lorsque la rangée passe à la ligne.
 
 Les mots traduits ne doivent ni se toucher ni recouvrir un interrupteur ou une commande. Préserver les espaces, permettre la hauteur nécessaire et conserver le nom accessible complet en mode compact. Les noms longs de modèles restent utilisables. Tenir compte du zoom, du clavier, du focus, du contraste, du tactile et de la réduction des animations.
 
-Envoyer/Arrêter occupe une zone réservée à droite dans le cadre de saisie, sans masquer le texte ou la bordure. Le passage Envoyer → Arrêter conserve l’annulation et les comportements de file d’attente. Toutes les commandes restent accessibles quand les outils sont regroupés sur petit écran.
+Envoyer/Arrêter occupe une zone réservée à droite dans le cadre de saisie, sans masquer le texte ou la bordure. Utiliser le **bleu sombre**, avec un **petit carré de 12 px** pendant l’exécution, plutôt qu’un état rouge. Le passage Envoyer → Arrêter conserve l’annulation et les comportements de file d’attente. Toutes les commandes restent accessibles quand les outils sont regroupés sur petit écran.
 
 ## 4. Un démarrage guidé et une automatisation explicable
 

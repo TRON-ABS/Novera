@@ -58,9 +58,10 @@ vi.mock('@/hooks/useServiceHub', () => ({
   }),
 }))
 
-vi.mock('@/i18n/react-i18next-compat', () => ({
-  useTranslation: () => ({ t: (k: string) => k }),
-}))
+vi.mock('@/i18n/react-i18next-compat', async () => {
+  const { translateUiForTest } = await import('@/test/translate-ui')
+  return { useTranslation: () => ({ t: translateUiForTest }) }
+})
 
 vi.mock('@tanstack/react-router', () => ({
   useNavigate: () => hoisted.navigateMock,
@@ -122,6 +123,12 @@ window.core = {
 import { DownloadManagement } from '../DownloadManegement'
 
 describe('DownloadManagement', () => {
+  it('adds an accessible composer shortcut without duplicate update notifications', () => {
+    render(<DownloadManagement composer />)
+    expect(screen.getByRole('button', { name: 'common:downloads' })).toHaveClass('composer-downloads')
+    expect(Object.keys(hoisted.eventHandlers)).toHaveLength(0)
+  })
+
   beforeEach(() => {
     vi.clearAllMocks()
     hoisted.downloadStore.downloads = {}
@@ -167,7 +174,7 @@ describe('DownloadManagement', () => {
       'model-c': { name: 'model-c', progress: 0, current: 500, total: 0 },
     }
     render(<DownloadManagement />)
-    expect(screen.getByText('Downloading...')).toBeInTheDocument()
+    expect(screen.getByText('updater:downloading')).toBeInTheDocument()
   })
 
   it('renders App Update progress when updater is downloading', () => {
@@ -192,7 +199,7 @@ describe('DownloadManagement', () => {
       },
     }
     render(<DownloadManagement />)
-    const cancelBtn = screen.getByTitle('Cancel download')
+    const cancelBtn = screen.getByTitle('common:cancelDownload')
     fireEvent.click(cancelBtn.closest('button')!)
     expect(hoisted.cancelDownloadMock).toHaveBeenCalledWith('llamacpp/foo')
   })
@@ -207,7 +214,7 @@ describe('DownloadManagement', () => {
       },
     }
     render(<DownloadManagement />)
-    const cancelBtn = screen.getByTitle('Cancel download')
+    const cancelBtn = screen.getByTitle('common:cancelDownload')
     fireEvent.click(cancelBtn.closest('button')!)
     await waitFor(() => expect(hoisted.abortDownloadMock).toHaveBeenCalledWith('cloud-model'))
   })
@@ -311,6 +318,6 @@ describe('DownloadManagement', () => {
     }
     render(<DownloadManagement />)
     expect(screen.queryByTitle('Pause download')).not.toBeInTheDocument()
-    expect(screen.getByTitle('Cancel download')).toBeInTheDocument()
+    expect(screen.getByTitle('common:cancelDownload')).toBeInTheDocument()
   })
 })

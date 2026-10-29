@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { CreationControls, CreationModelControl } from '../CreationControls'
+import { CreationControls, CreationModelControl, CreationSettingsControl } from '../CreationControls'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import { useImageUpscale } from '@/hooks/useImageUpscale'
 import { useMusicCreation } from '@/hooks/useMusicCreation'
@@ -178,6 +178,17 @@ describe('creation choices in the composer', () => {
     expect(input).toBeEnabled()
     expect(useCreation.getState().videoSettings?.durationAuto).toBe(false)
   })
+  it('opens the same scoped setup from the relocated footer control', () => {
+    render(<><CreationControls scope="relocated" disabled={false} showSettingsButton={false} /><CreationSettingsControl scope="relocated" disabled={false} /></>)
+    const buttons = screen.getAllByRole('button', { name: 'chat:creation.settings' })
+    expect(buttons).toHaveLength(1)
+    fireEvent(window, new CustomEvent('novera-creation-settings', { detail: { scope: 'other-composer' } }))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    fireEvent.click(buttons[0])
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: 'chat:creation.image' })).toBeInTheDocument()
+  })
+
   it('opens one setup page with all three sections and empty model paths until chosen', () => {
     render(<CreationControls scope="fresh" disabled={false} />)
     const setup = screen.getByRole('button', { name: 'chat:creation.settings' })

@@ -104,6 +104,18 @@ describe('TokenCounter', () => {
     expect(container.firstChild).toBeNull()
   })
 
+  it('keeps a pending local indicator at startup without inventing a percentage', () => {
+    mockTokens({ tokenCount: 0, maxTokens: undefined })
+    const view = render(<TokenCounter showPending messages={[]} />)
+    expect(view.container.textContent).toContain('—')
+    expect(view.container.textContent).not.toContain('%')
+    expect(view.container.querySelector('[aria-label]')?.getAttribute('aria-label')).toContain('Context window')
+    mockTokens({ tokenCount: 26, maxTokens: 1000 })
+    view.rerender(<TokenCounter showPending messages={[]} />)
+    expect(screen.getAllByText('2.6%').length).toBeGreaterThan(0)
+    expect(view.container.textContent).not.toContain('—')
+  })
+
   it('renders nothing when maxTokens is 0', () => {
     mockTokens({ tokenCount: 0, maxTokens: 0 })
     const { container } = render(<TokenCounter />)

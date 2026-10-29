@@ -1,7 +1,8 @@
 import { ResetWorkspacePermissions } from '@/containers/NativeAccessControl'
 import TextareaAutosize from 'react-textarea-autosize'
 import { MediaPlayer } from '@/components/MediaPlayer'
-import { CreationControls, CreationModelControl } from './CreationControls'
+import { CreationControls, CreationModelControl, CreationSettingsControl } from './CreationControls'
+import { DownloadManagement } from './DownloadManegement'
 import { MemoryModeControl } from './MemoryModeControl'
 import { useCreation } from '@/hooks/useCreation'
 import { resolveOutputMode } from '@/modules/engines/creation'
@@ -495,6 +496,7 @@ const ChatInput = memo(function ChatInput({
   useReconcileVideoCapability(selectedModel?.id, selectedProvider, isModelActive)
 
   const tokenCounterVisible = shouldShowTokenCounter({
+    showWhenIdle: selectedProvider === 'llamacpp' || selectedProvider === 'mlx',
     hasSelectedModel: !!selectedModel,
     isAgentMode: effectiveAgentMode,
     isInitialMessage: !!initialMessage,
@@ -2072,7 +2074,7 @@ const ChatInput = memo(function ChatInput({
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-[1256px]">
+    <div className="relative mx-auto w-full max-w-[1024px]">
       <div className="relative">
         <div
           className={cn(
@@ -2352,9 +2354,10 @@ const ChatInput = memo(function ChatInput({
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button
-                      variant="destructive"
+                      variant="ghost"
                       size="icon-sm"
                       data-testid="stop-message-button"
+                      data-state="running"
                       aria-label={t(queueLength > 0 ? 'common:clearRecent' : 'common:stop')}
                       className="composer-submit-button"
                       onClick={() => {
@@ -2374,7 +2377,7 @@ const ChatInput = memo(function ChatInput({
                         stopStreaming(currentThreadId ?? '')
                       }}
                     >
-                      <IconPlayerStopFilled />
+                      <IconPlayerStopFilled className="size-3" aria-hidden="true" />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -2388,6 +2391,7 @@ const ChatInput = memo(function ChatInput({
                   disabled={(!prompt.trim() && !hasSendableMedia) || ingestingAny}
                   data-test-id="send-message-button"
                   data-testid="send-message-button"
+                  data-state="idle"
                   aria-label={t('chat:sendMessage')}
                   onClick={() => handleSendMessage(prompt)}
                   className="composer-submit-button"
@@ -2412,7 +2416,7 @@ const ChatInput = memo(function ChatInput({
               </div>
             )}
 
-        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} />}
+        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} showSettingsButton={false} />}
         <div className="composer-footer relative z-20 w-full p-2">
           <div
             ref={controlRowRef}
@@ -3051,6 +3055,8 @@ const ChatInput = memo(function ChatInput({
                     <CreationModelControl scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} />
                   </span>
                   <MemoryModeControl scope={currentThreadId ?? 'new'} />
+                  <CreationSettingsControl scope={currentThreadId ?? 'new'} disabled={turnBusy} />
+                  <DownloadManagement composer />
                 </div>
               )}
             </div>
@@ -3059,6 +3065,7 @@ const ChatInput = memo(function ChatInput({
               {tokenCounterVisible && tokenCounterCompact && (
                 <div className="flex-1 flex justify-center">
                   <TokenCounter
+                    showPending={selectedProvider === 'llamacpp' || selectedProvider === 'mlx'}
                     messages={threadMessages || []}
                     source={tokenSource}
                     compact={true}
@@ -3093,7 +3100,8 @@ const ChatInput = memo(function ChatInput({
 
       {tokenCounterVisible && !tokenCounterCompact && (
         <div className="flex-1 w-full flex justify-start px-2">
-          <TokenCounter messages={threadMessages || []} source={tokenSource} />
+          <TokenCounter messages={threadMessages || []} source={tokenSource}
+            showPending={selectedProvider === 'llamacpp' || selectedProvider === 'mlx'} />
         </div>
       )}
 

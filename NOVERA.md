@@ -1,5 +1,15 @@
 # Novera — instructions du projet
 
+## Préparation des distributions et compteur au démarrage — 29 octobre 2026
+
+Le mainteneur demande de préparer Novera pour une future automatisation, **sans compilation multiplateforme pour le moment**, avec la version **portable Windows** incluse. Le [plan des distributions](docs/PREPARATION_DISTRIBUTIONS.md), son manifeste et le diagnostic de sources couvrent les onze variantes du lanceur. Ne pas activer Actions ou déclencher les anciens workflows sur la base de cette préparation. Les audits mobiles, runtimes par architecture, signatures et essais restent explicitement à terminer.
+
+Le compteur de contexte doit être présent dès l’écran initial lorsqu’un modèle local est sélectionné : afficher un repère d’attente tant que la capacité réelle n’est pas connue, puis le pourcentage mesuré. Ne pas inventer de capacité ou de taux d’occupation. Le petit cercle du pourcentage est une jauge de contexte, pas une animation de téléchargement.
+
+Dernier choix visuel du mainteneur : bouton d’envoi **bleu sombre**, mode Arrêter dans la même palette et **petit carré de 12 px**. Cette demande remplace les propositions rouge/rosé/violet de cet échange. Conserver sa zone réservée dans la saisie, les noms accessibles traduits et le fonctionnement d’arrêt.
+
+La largeur maximale commune est désormais **1 024 px**, avec retour à la ligne sous cette limite. Dans la rangée basse : **Mémoire auto → Réglages → Téléchargements**. Le raccourci de téléchargement consulte le même état partagé, sans doubler les notifications de mise à jour. L’accès global aux téléchargements reste disponible ailleurs dans l’application. L’évolution générale « OVNI » est reportée à la demande du mainteneur ; ne pas l’inclure dans ce lot.
+
 ## Règles d’or et information utilisateur — 29 octobre 2026
 
 Les [règles d’or détaillées de Novera](docs/REGLES_D_OR.md) constituent la référence durable pour l’ensemble du produit. Elles incluent explicitement **la qualité des informations fournies aux utilisateurs**, du premier démarrage à l’exécution complète : rôle des modèles et composants, local/cloud, réglages, automatismes, coûts éventuels, résultats, durées conservées, erreurs et solutions.

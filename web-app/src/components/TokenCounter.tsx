@@ -30,6 +30,8 @@ interface TokenCounterProps {
   additionalTokens?: number
   /** Usage reported directly, for a surface that keeps no thread messages. */
   source?: TokenUsageSource
+  /** Keep a stable local-context indicator before the engine reports its capacity. */
+  showPending?: boolean
 }
 
 const WARN_PCT = 85
@@ -42,6 +44,7 @@ export const TokenCounter = memo(function TokenCounter({
   className,
   additionalTokens = 0,
   source,
+  showPending = false,
 }: TokenCounterProps) {
 
   const { t } = useTranslation()
@@ -100,7 +103,17 @@ export const TokenCounter = memo(function TokenCounter({
   // Remote providers report no context-window denominator, so a percentage is
   // meaningless. Show a plain total-tokens badge once a turn has counted tokens.
   if (!tokenData.maxTokens) {
-    if (totalTokens <= 0) return null
+    if (totalTokens <= 0) {
+      if (!showPending) return null
+      const label = `${t('ui:contextWindow')} · ${t('common:editModel.notAvailable')}`
+      return (
+        <div className={cn('inline-flex items-center gap-2 rounded-md border border-border bg-background px-2 py-1 text-xs text-muted-foreground', className)}
+          aria-label={label} title={label}>
+          <IconBrain className="size-3.5 shrink-0" aria-hidden="true" />
+          <span aria-hidden="true">—</span>
+        </div>
+      )
+    }
     return (
       <TokenCountOnly
         totalTokens={totalTokens}
