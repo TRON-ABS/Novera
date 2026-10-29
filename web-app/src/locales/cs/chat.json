@@ -6,6 +6,8 @@
   "status": {
     "empty": "Nebyly nalezeny žádné chaty"
   },
+  "send": "Odeslat",
+
   "sendMessage": "Odeslat zprávu",
   "newConversation": "Nová konverzace",
   "clearHistory": "Vymazat historii",

@@ -6,6 +6,8 @@
   "status": {
     "empty": "هیچ چتی پیدا نشد"
   },
+  "send": "ارسال",
+
   "sendMessage": "ارسال پیام",
   "newConversation": "مکالمه جدید",
   "clearHistory": "پاک کردن تاریخچه",

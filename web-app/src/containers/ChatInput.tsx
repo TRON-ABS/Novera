@@ -1,8 +1,10 @@
 import { ResetWorkspacePermissions } from '@/containers/NativeAccessControl'
 import TextareaAutosize from 'react-textarea-autosize'
 import { MediaPlayer } from '@/components/MediaPlayer'
-import { CreationControls, CreationModelControl, CreationSettingsControl } from './CreationControls'
+import { CreationControls, CreationSettingsControl } from './CreationControls'
+import DropdownModelProvider from './DropdownModelProvider'
 import { DownloadManagement } from './DownloadManegement'
+import { ComposerNavigation } from './ComposerNavigation'
 import { MemoryModeControl } from './MemoryModeControl'
 import { useCreation } from '@/hooks/useCreation'
 import { resolveOutputMode } from '@/modules/engines/creation'
@@ -263,6 +265,7 @@ function CollapsibleControls({
 
 const ChatInput = memo(function ChatInput({
   className,
+  model,
   initialMessage,
   projectId,
   projectAssistantId,
@@ -2073,7 +2076,7 @@ const ChatInput = memo(function ChatInput({
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-[1024px]">
+    <div className="relative mx-auto w-full max-w-[1024px]" data-dashboard-composer>
       <div className="relative">
         <div
           className={cn(
@@ -2222,7 +2225,12 @@ const ChatInput = memo(function ChatInput({
                 ))}
               </div>
             )}
-            <div className="composer-prompt relative">
+            <div className="composer-navigation-frame">
+            <ComposerNavigation side="left" />
+            <div
+              className="composer-prompt relative"
+              data-turn-busy={turnBusy}
+            >
             <div className="composer-new-chat-area">
               <Button variant="ghost" size="icon-sm" className="composer-submit-button"
                 data-testid="new-chat-button" aria-label={t('common:newChat')} title={t('common:newChat')}
@@ -2383,21 +2391,32 @@ const ChatInput = memo(function ChatInput({
                   </TooltipContent>
                 </Tooltip>
               ) : (
-                <Button
-                  variant="default"
-                  size="icon-sm"
-                  disabled={(!prompt.trim() && !hasSendableMedia) || ingestingAny}
-                  data-test-id="send-message-button"
-                  data-testid="send-message-button"
-                  data-state="idle"
-                  aria-label={t('chat:sendMessage')}
-                  onClick={() => handleSendMessage(prompt)}
-                  className="composer-submit-button"
-                >
-                  <ArrowRight className="text-primary-fg" />
-                </Button>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span className="flex flex-1">
+                      <Button
+                        variant="default"
+                        size="icon-sm"
+                        disabled={(!prompt.trim() && !hasSendableMedia) || ingestingAny}
+                        data-test-id="send-message-button"
+                        data-testid="send-message-button"
+                        data-state="idle"
+                        aria-label={t('chat:sendMessage')}
+                        onClick={() => handleSendMessage(prompt)}
+                        className="composer-submit-button"
+                      >
+                        <ArrowRight className="text-primary-fg" />
+                      </Button>
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{t('chat:send')}</p>
+                  </TooltipContent>
+                </Tooltip>
               )}
             </div>
+            </div>
+            <ComposerNavigation side="right" />
             </div>
             {/* @path file reference picker popover */}
             {filePickerOpen && effectiveAgentMode && (
@@ -2506,14 +2525,6 @@ const ChatInput = memo(function ChatInput({
                     </DropdownMenuContent>
                   </DropdownMenu>
                 )}
-                {/* {model?.provider === 'llamacpp' && loadingModel ? (
-                  <ModelLoader />
-                ) : (
-                  <DropdownModelProvider
-                    model={model}
-                    useLastUsedModel={initialMessage}
-                  />
-                )} */}
                 <AssistantSwitcher
                   assistants={assistants}
                   currentThread={currentThread}
@@ -3049,9 +3060,10 @@ const ChatInput = memo(function ChatInput({
               </CollapsibleControls>
               {!effectiveAgentMode && !scopeKey && (
                 <div className="composer-metadata flex min-w-0 flex-wrap items-center gap-1">
-                  <span role="status" aria-live="polite" aria-atomic="true" className="min-w-0">
-                    <CreationModelControl scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} />
-                  </span>
+                  <div className="min-w-0 max-w-full">
+                    <DropdownModelProvider variant="composer" mediaScope={currentThreadId ?? 'new'}
+                      model={model} useLastUsedModel={initialMessage} disabled={turnBusy} />
+                  </div>
                   <MemoryModeControl scope={currentThreadId ?? 'new'} />
                   <CreationSettingsControl scope={currentThreadId ?? 'new'} disabled={turnBusy} />
                   <DownloadManagement composer />

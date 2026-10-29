@@ -340,6 +340,7 @@
     "delete": "Efaase"
   },
   "modelSettings": {
+    "label": "Tànneefi model bi",
     "title": "- {{modelId}}",
     "description": "Taxawal jekkal model ngir gëna baaxal liggéey bi ak doxalin wi.",
     "nglDisabledByFit": "Fit automatik mooy tànn diisaayi GPU. Def Auto-fit ngir mëna def lii ak loxo.",

@@ -6,6 +6,8 @@
   "status": {
     "empty": "ڪابه چيٽ نه ملي"
   },
+  "send": "موڪليو",
+
   "sendMessage": "پيغام موڪليو",
   "newConversation": "نئين ڳالهه ٻولهه",
   "clearHistory": "صاف تاريخ",

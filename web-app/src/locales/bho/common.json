@@ -340,6 +340,7 @@
     "delete": "मिटाईं"
   },
   "modelSettings": {
+    "label": "मॉडल सेटिंग्स",
     "title": "मॉडल सेटिंग्स - {{modelId}} के बा।",
     "description": "प्रदर्शन आ व्यवहार के अनुकूलित करे खातिर मॉडल सेटिंग कॉन्फ़िगर करीं।",
     "nglDisabledByFit": "ऑटो-फिट GPU परत चुन रहल बा। एकरा के मैन्युअल रूप से सेट करे खातिर ऑटो-फिट बंद कर दीं।",
@@ -667,9 +668,9 @@
     "shuttingDown": "बंद हो रहल बा..."
   },
   "duration": {
-    "seconds": "{{count}}s के बा",
-    "minutes": "{{count}}m के बा",
-    "hours": "{{count}}h के बा"
+    "seconds": "{{count}} सेकंड",
+    "minutes": "{{count}} मिनट",
+    "hours": "{{count}} घंटा"
   },
   "collapse": "ढह गइल",
   "expand": "विस्तार कइल जाव",

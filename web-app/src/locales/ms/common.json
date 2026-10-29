@@ -340,6 +340,7 @@
     "delete": "Padam"
   },
   "modelSettings": {
+    "label": "Tetapan Model",
     "title": "Tetapan Model - {{modelId}}",
     "description": "Konfigurasikan tetapan model untuk mengoptimumkan prestasi dan tingkah laku.",
     "nglDisabledByFit": "Auto-muat sedang memilih GPU lapisan. Matikan Automuat untuk menetapkan ini secara manual.",

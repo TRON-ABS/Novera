@@ -6,6 +6,8 @@
   "status": {
     "empty": "کوئی گفتگو نہیں ملی"
   },
+  "send": "بھیجیں",
+
   "sendMessage": "پیغام بھیجیں",
   "newConversation": "نئی گفتگو",
   "clearHistory": "سرگزشت صاف کریں",

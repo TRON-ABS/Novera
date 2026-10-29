@@ -230,6 +230,7 @@
     "delete": "Usuń"
   },
   "modelSettings": {
+    "label": "Ustawienia Modelu",
     "nglDisabledByFit": "Automatyczne dopasowanie wybiera GPU warstw. Wyłącz opcję Automatyczne dopasowanie, aby ustawić tę opcję ręcznie.",
     "title": "Ustawienia Modelu - {{modelId}}",
     "description": "Zmień ustawienia modelu aby poprawić jego wydajność i zachowanie",
@@ -685,7 +686,7 @@
     "notImported": "nie znajduje się w obszarze roboczym"
   },
   "duration": {
-    "seconds": "{{count}}",
+    "seconds": "{{count}} s",
     "minutes": "{{count}}m",
     "hours": "{{count}}h"
   },

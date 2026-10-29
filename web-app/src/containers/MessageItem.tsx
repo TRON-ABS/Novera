@@ -602,7 +602,14 @@ export const MessageItem = memo(
       >
         {/* Render message parts. A turn alternates collapsed traces with
             answer paragraphs, and with no gap the two read as one block. */}
-        <div className="flex flex-col gap-3">{renderedParts}</div>
+        <div
+          className={cn(
+            'flex flex-col gap-3',
+            message.role === 'assistant' && 'novera-assistant-message'
+          )}
+        >
+          {renderedParts}
+        </div>
 
         {message.role === 'assistant' &&
           !isStreaming &&

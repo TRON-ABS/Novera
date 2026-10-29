@@ -6,6 +6,8 @@
   "status": {
     "empty": "Чат табылмады"
   },
+  "send": "Жіберу",
+
   "sendMessage": "Хабарлама жіберу",
   "newConversation": "Жаңа әңгіме",
   "clearHistory": "Тарихты тазалау",

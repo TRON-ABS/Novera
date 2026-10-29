@@ -6,6 +6,8 @@
   "status": {
     "empty": "Taya obrolan kapanggih"
   },
+  "send": "Kirim",
+
   "sendMessage": "Kirim Pesen",
   "newConversation": "Paguneman Anyar",
   "clearHistory": "Hapus Sajarah",

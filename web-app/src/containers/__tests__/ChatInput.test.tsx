@@ -338,6 +338,12 @@ import ChatInput from '../ChatInput'
 import { useImageAttachmentConfig } from '@/hooks/useImageAttachmentConfig'
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
 import { toast } from 'sonner'
+vi.mock('../DropdownModelProvider', () => ({
+  default: ({ model, variant }: { model?: ThreadModel; variant?: string }) =>
+    <div data-testid="composer-model-selector" data-variant={variant}>{model?.id}</div>,
+}))
+import { useSearchDialog } from '@/hooks/useSearchDialog'
+import { useDashboardPanel } from '@/hooks/useDashboardPanel'
 
 // Helpers -------------------------------------------------------------------
 
@@ -372,6 +378,48 @@ const renderInput = (props: any = {}) =>
   render(<ChatInput onSubmit={props.onSubmit} onStop={props.onStop} {...props} />)
 
 describe('ChatInput', () => {
+  it('mounts a single compact model selector in the dashboard with the current conversation model', () => {
+    renderInput({ model: { id: 'current-model', provider: 'llamacpp' } })
+    const selector = screen.getByTestId('composer-model-selector')
+    expect(screen.getAllByTestId('composer-model-selector')).toHaveLength(1)
+    expect(selector).toHaveAttribute('data-variant', 'composer')
+    expect(selector).toHaveTextContent('current-model')
+    expect(selector.closest('.composer-metadata')).not.toBeNull()
+  })
+  it('places the navigation stacks outside the prompt and preserves their actions', () => {
+    navigateMock.mockClear()
+    useSearchDialog.getState().setOpen(false)
+    const projectEvent = vi.fn()
+    window.addEventListener('novera-new-workspace-project', projectEvent)
+    renderInput()
+    const search = screen.getByTestId('composer-nav-search')
+    const project = screen.getByTestId('composer-nav-project')
+    const models = screen.getByTestId('composer-nav-models')
+    const settings = screen.getByTestId('composer-nav-settings')
+    expect(search.closest('.composer-navigation-left')).not.toBeNull()
+    expect(project.closest('.composer-navigation-left')).not.toBeNull()
+    expect(models.closest('.composer-navigation-right')).not.toBeNull()
+    expect(settings.closest('.composer-navigation-right')).not.toBeNull()
+    expect(search.compareDocumentPosition(project) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(models.compareDocumentPosition(settings) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    for (const button of [search, project, models, settings]) {
+      expect(button.closest('.composer-prompt')).toBeNull()
+      expect(button.closest('.composer-panel')).not.toBeNull()
+    }
+    fireEvent.click(search)
+    expect(useSearchDialog.getState().open).toBe(true)
+    fireEvent.click(project)
+    expect(projectEvent).toHaveBeenCalledTimes(1)
+    fireEvent.click(models)
+    expect(useDashboardPanel.getState().panel).toBe('models')
+    fireEvent.click(settings)
+    expect(useDashboardPanel.getState().panel).toBe('settings')
+    expect(navigateMock).not.toHaveBeenCalled()
+    expect(screen.getByTestId('chat-input')).toBeInTheDocument()
+    window.removeEventListener('novera-new-workspace-project', projectEvent)
+    useSearchDialog.getState().setOpen(false)
+    useDashboardPanel.getState().closePanel()
+  })
   beforeEach(() => {
     resetAll()
   })
@@ -437,6 +485,7 @@ describe('ChatInput', () => {
       '[data-test-id="send-message-button"]'
     ) as HTMLButtonElement
     expect(btn.disabled).toBe(true)
+    expect(btn.closest('.composer-prompt')).toHaveAttribute('data-turn-busy', 'false')
   })
 
   it('enables the send button when prompt has content', () => {
@@ -446,6 +495,29 @@ describe('ChatInput', () => {
       '[data-test-id="send-message-button"]'
     ) as HTMLButtonElement
     expect(btn.disabled).toBe(false)
+    expect(btn.closest('.composer-prompt')).toHaveAttribute('data-turn-busy', 'false')
+  })
+
+  it('keeps idle rings green with an empty prompt and restores them after the whole response', () => {
+    const { rerender } = renderInput({ chatStatus: 'ready' })
+    const promptFrame = () => screen.getByTestId('chat-input').closest('.composer-prompt')
+    expect(promptFrame()).toHaveAttribute('data-turn-busy', 'false')
+    expect(screen.getByTestId('send-message-button')).toBeDisabled()
+
+    for (const props of [
+      { chatStatus: 'submitted' },
+      { chatStatus: 'streaming' },
+      { chatStatus: 'ready', toolsRunning: true },
+    ]) {
+      rerender(<ChatInput {...props} />)
+      expect(promptFrame()).toHaveAttribute('data-turn-busy', 'true')
+      expect(screen.getByTestId('stop-message-button')).toBeInTheDocument()
+    }
+
+    rerender(<ChatInput chatStatus="ready" toolsRunning={false} />)
+    expect(promptFrame()).toHaveAttribute('data-turn-busy', 'false')
+    expect(screen.getByTestId('send-message-button')).toBeDisabled()
+    expect(screen.queryByTestId('stop-message-button')).not.toBeInTheDocument()
   })
 
   it('calls setPrompt on textarea change', () => {
@@ -516,6 +588,7 @@ describe('ChatInput', () => {
     ).toBeNull()
     const stop = screen.getByTestId('stop-message-button')
     expect(stop).toHaveAttribute('data-state', 'running')
+    expect(stop.closest('.composer-prompt')).toHaveAttribute('data-turn-busy', 'true')
     expect(stop.closest('.composer-prompt')).not.toBeNull()
     expect(stop.querySelector('svg')).toHaveClass('size-3')
   })

@@ -6,6 +6,8 @@
   "status": {
     "empty": "没寻见聊天"
   },
+  "send": "发送",
+
   "sendMessage": "发个消息",
   "newConversation": "新聊天",
   "clearHistory": "清除历史记录",

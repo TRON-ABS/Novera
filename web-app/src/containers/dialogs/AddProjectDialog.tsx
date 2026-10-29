@@ -24,6 +24,7 @@ import { ChevronDown, Plus } from 'lucide-react'
 import AddEditAssistant from './AddEditAssistant'
 
 interface AddProjectDialogProps {
+  docked?: boolean
   open: boolean
   onOpenChange: (open: boolean) => void
   editingKey: string | null
@@ -37,6 +38,7 @@ interface AddProjectDialogProps {
 }
 
 export default function AddProjectDialog({
+  docked = false,
   open,
   onOpenChange,
   editingKey,
@@ -112,10 +114,10 @@ export default function AddProjectDialog({
 
   return (
     <>
-    <Dialog open={open} onOpenChange={(nextOpen) => {
+    <Dialog open={open} modal={!docked} onOpenChange={(nextOpen) => {
       if (!savingRef.current) onOpenChange(nextOpen)
     }}>
-      <DialogContent>
+      <DialogContent docked={docked} positionEnabled={open}>
         <DialogHeader>
           <DialogTitle>
             {editingKey ? t('projects.addProjectDialog.editTitle') : t('projects.addProjectDialog.createTitle')}

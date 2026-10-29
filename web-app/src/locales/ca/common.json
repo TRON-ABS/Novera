@@ -230,6 +230,7 @@
     "delete": "Suprimeix"
   },
   "modelSettings": {
+    "label": "Paràmetres del model",
     "nglDisabledByFit": "L'ajust automàtic és triar GPU capes. Desactiveu l'ajust automàtic per configurar-ho manualment.",
     "title": "Paràmetres del model - {{modelId}}",
     "description": "Configura els paràmetres del model per optimitzar el rendiment i el comportament.",

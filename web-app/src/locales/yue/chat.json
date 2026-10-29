@@ -6,6 +6,8 @@
   "status": {
     "empty": "搵唔到即時通訊"
   },
+  "send": "傳送",
+
   "sendMessage": "發送訊息",
   "newConversation": "新對話",
   "clearHistory": "清除記錄",

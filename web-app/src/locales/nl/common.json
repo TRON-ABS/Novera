@@ -340,6 +340,7 @@
     "delete": "Verwijderen"
   },
   "modelSettings": {
+    "label": "Modelinstellingen",
     "title": "Modelinstellingen - {{modelId}}",
     "description": "Configureer de modelinstellingen om de prestaties en het gedrag te optimaliseren.",
     "nglDisabledByFit": "Automatisch aanpassen kiest GPU lagen. Schakel ‘Auto-fit’ uit om dit handmatig in te stellen.",

@@ -6,6 +6,8 @@
   "status": {
     "empty": "کوئی گل بات نئیں لبھی"
   },
+  "send": "بھیجو",
+
   "sendMessage": "سنیہا گھلو",
   "newConversation": "نویں گل بات",
   "clearHistory": "تاریخ مٹاؤ",

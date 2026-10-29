@@ -236,6 +236,7 @@
     "delete": "Xóa"
   },
   "modelSettings": {
+    "label": "Cài đặt mô hình",
     "nglDisabledByFit": "Auto-fit đang chọn GPU lớp. Tắt tính năng Tự động điều chỉnh để cài đặt thủ công.",
     "title": "Cài đặt mô hình - {{modelId}}",
     "description": "Định cấu hình cài đặt mô hình để tối ưu hóa hiệu suất và hành vi.",
@@ -685,7 +686,7 @@
     "notImported": "không có trong không gian làm việc"
   },
   "duration": {
-    "seconds": "{{count}}",
+    "seconds": "{{count}} giây",
     "minutes": "{{count}}m",
     "hours": "{{count}}h"
   },

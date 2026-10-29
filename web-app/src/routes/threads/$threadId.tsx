@@ -105,7 +105,6 @@ import { useNativeAccess } from '@/hooks/useNativeAccess'
 import { useToolCallRuntime } from '@/hooks/useToolCallRuntime'
 import { WEB_TOOL_NAMES, executeWebTool } from '@/lib/webSearchTool'
 import { CHAT_AGENT_TOOL_NAMES, executeAgentTool } from '@/lib/agentTools'
-import DropdownModelProvider from '@/containers/DropdownModelProvider'
 import { ExtensionTypeEnum, VectorDBExtension } from '@janhq/core'
 import { ExtensionManager } from '@/lib/extension'
 import { Shimmer } from '@/components/ai-elements/shimmer'
@@ -2158,11 +2157,7 @@ function ThreadConversation() {
 
   return (
     <div className="flex flex-col h-[calc(100dvh-(env(safe-area-inset-bottom)+env(safe-area-inset-top)))]">
-      <HeaderPage>
-        <div className="flex items-center justify-between w-full pr-2">
-          <DropdownModelProvider mediaScope={threadId} model={threadModel} />
-        </div>
-      </HeaderPage>
+      <HeaderPage />
       <div className="flex flex-1 flex-col h-full overflow-hidden">
         {/* Messages Area */}
         <div

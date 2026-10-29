@@ -340,6 +340,7 @@
     "delete": "Vee uit"
   },
   "modelSettings": {
+    "label": "Modelinstellings",
     "title": "Modelinstellings - {{modelId}}",
     "description": "Stel modelinstellings op om werkverrigting en gedrag te optimaliseer.",
     "nglDisabledByFit": "Outo-pas is die keuse van GPU-lae. Skakel Outo-pas af om dit handmatig in te stel.",

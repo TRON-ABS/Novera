@@ -70,6 +70,9 @@ vi.mock('@/i18n/TranslationContext', () => ({
 }))
 
 // Dialogs / containers
+vi.mock('@/containers/GlobalNavigationDialogs', () => ({
+  GlobalNavigationDialogs: () => <div data-testid="global-navigation-dialogs" />,
+}))
 vi.mock('@/containers/dialogs/AppUpdater', () => ({
   default: () => <div data-testid="app-updater" />,
 }))
@@ -177,6 +180,7 @@ describe('__root route', () => {
   it('listens for download events for the whole app lifetime', () => {
     renderComponent()
     expect(screen.getByTestId('download-events')).toBeInTheDocument()
+    expect(screen.getAllByTestId('global-navigation-dialogs')).toHaveLength(1)
   })
 
   it('renders PromptAnalytic when productAnalyticPrompt is true', () => {
@@ -206,6 +210,7 @@ describe('__root route', () => {
     renderComponent()
     expect(screen.queryByTestId('left-sidebar')).not.toBeInTheDocument()
     expect(screen.queryByTestId('sidebar-provider')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('global-navigation-dialogs')).not.toBeInTheDocument()
     expect(screen.getByTestId('outlet')).toBeInTheDocument()
   })
 

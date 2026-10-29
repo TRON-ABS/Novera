@@ -340,6 +340,7 @@
     "delete": "删掉"
   },
   "modelSettings": {
+    "label": "模型设置",
     "title": "模型设置 - {{modelId}}",
     "description": "配置模型设置以优化性能和行为。",
     "nglDisabledByFit": "自动适配正在选择 GPU 层。想手动设置，请关闭自动适配。",

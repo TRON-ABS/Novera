@@ -8,6 +8,7 @@ import { useAgentMode } from '@/hooks/useAgentMode'
 import { useAssistantSwitcher } from '@/hooks/useAssistantSwitcher'
 import { useMessageZoom } from '@/hooks/useMessageZoom'
 import { TEMPORARY_CHAT_ID } from '@/constants/chat'
+import { useDashboardPanel } from '@/hooks/useDashboardPanel'
 
 export function KeyboardShortcutsProvider() {
   const { open, setLeftPanel } = useLeftPanel()
@@ -61,7 +62,7 @@ export function KeyboardShortcutsProvider() {
   useKeyboardShortcut({
     ...settingsShortcut,
     callback: () => {
-      router.navigate({ to: route.settings.general })
+      useDashboardPanel.getState().openPanel('settings')
     },
   })
 

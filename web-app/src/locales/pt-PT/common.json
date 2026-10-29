@@ -340,6 +340,7 @@
     "delete": "Eliminar"
   },
   "modelSettings": {
+    "label": "Definições do Modelo",
     "title": "Definições do Modelo - {{modelId}}",
     "description": "Configure as definições do modelo para otimizar o desempenho e o comportamento.",
     "nglDisabledByFit": "O ajuste automático está a escolher as camadas de GPU. Desative-o para definir este valor manualmente.",

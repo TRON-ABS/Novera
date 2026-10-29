@@ -6,6 +6,8 @@
   "status": {
     "empty": "Geen chats gevonden"
   },
+  "send": "Verzenden",
+
   "sendMessage": "Bericht verzenden",
   "newConversation": "Nieuw gesprek",
   "clearHistory": "Geschiedenis wissen",

@@ -139,16 +139,17 @@ describe('MessageItem', () => {
     pendingApprovalsRef.current = {}
   })
 
-  it('renders assistant text via RenderMarkdown', () => {
+  it.each(['ready', 'streaming'])('renders assistant text in its own frame while %s', (status) => {
     render(
       <MessageItem
         message={makeMsg() as any}
         isFirstMessage
         isLastMessage
-        status={'ready' as any}
+        status={status as any}
       />
     )
     expect(screen.getByTestId('render-markdown')).toHaveTextContent('Hello assistant')
+    expect(screen.getByTestId('render-markdown').closest('.novera-assistant-message')).not.toBeNull()
   })
 
   it('renders user message in a bubble (no markdown renderer)', () => {
@@ -163,6 +164,7 @@ describe('MessageItem', () => {
     )
     expect(screen.getByText('Hi there')).toBeInTheDocument()
     expect(screen.queryByTestId('render-markdown')).not.toBeInTheDocument()
+    expect(document.querySelector('.novera-assistant-message')).toBeNull()
   })
   it('highlights a recognized skill prefix in a submitted user message', () => {
     render(

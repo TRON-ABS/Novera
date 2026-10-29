@@ -6,6 +6,8 @@
   "status": {
     "empty": "Чати не знайдено"
   },
+  "send": "Надіслати",
+
   "sendMessage": "Надіслати повідомлення",
   "newConversation": "Нова розмова",
   "clearHistory": "Очистити історію",

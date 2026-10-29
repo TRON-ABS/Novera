@@ -6,6 +6,8 @@
   "status": {
     "empty": "尋無對話"
   },
+  "send": "傳送",
+
   "sendMessage": "送出訊息",
   "newConversation": "新對話",
   "clearHistory": "清除歷史記錄",

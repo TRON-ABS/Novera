@@ -340,6 +340,7 @@
     "delete": "刪除"
   },
   "modelSettings": {
+    "label": "型號設定",
     "title": "型號設定 - {{modelId}}",
     "description": "設定模型設定嚟優化效能同行為。",
     "nglDisabledByFit": "自動貼合係揀 GPU 層。閂自動配合就可以手動設定。",
@@ -668,7 +669,7 @@
   },
   "duration": {
     "seconds": "{{count}} 秒",
-    "minutes": "{{count}} 米",
+    "minutes": "{{count}} 分鐘",
     "hours": "{{count}} 小時"
   },
   "collapse": "崩潰",

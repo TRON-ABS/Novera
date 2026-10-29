@@ -340,6 +340,7 @@
     "delete": "Susa"
   },
   "modelSettings": {
+    "label": "Izilungiselelo Zomodeli",
     "title": "Izilungiselelo Zomodeli - {{modelId}}",
     "description": "Lungisa izilungiselelo zomodeli ukuze uthuthukise ukusebenza nokuziphatha.",
     "nglDisabledByFit": "I-Auto-fit ikhetha izendlalelo GPU. Vala i-Auto-fit ukuze usethe lokhu ngesandla.",

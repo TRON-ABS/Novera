@@ -1,4 +1,25 @@
 /* Shared configuration surfaces follow the Novera composer and media cards. */
+.novera-model-settings .novera-model-settings-fields {
+  max-height: min(55dvh, 560px);
+}
+.novera-model-settings .novera-model-settings-fields > div {
+  padding: 14px;
+  border: 1px solid color-mix(in srgb, #818cf8 40%, var(--border));
+  border-radius: 14px;
+  background: var(--card);
+}
+.novera-model-settings [data-slot="slider-track"] { background: color-mix(in srgb, #818cf8 22%, var(--background)); }
+.novera-model-settings [data-slot="slider-range"],
+.novera-model-settings [data-slot="switch"][data-state="checked"] { background: linear-gradient(110deg, #0891b2, #818cf8); }
+.novera-model-settings [data-slot="slider-thumb"] { border-color: #38bdf8; background: #f0f9ff; }
+.novera-model-settings [data-slot="switch-thumb"] { background: #f0f9ff; }
+.novera-model-settings [data-slot="input"] {
+  border-color: color-mix(in srgb, #38bdf8 45%, var(--border));
+  background: var(--background);
+  border-radius: 10px;
+}
+.novera-model-settings [data-slot="button"][data-variant="link"] { color: light-dark(#0e7490, #67e8f9); }
+.novera-model-settings :is(button, input, textarea, [role="slider"]):focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
 .novera-interface,
 .novera-settings-card,
 .novera-settings-menu {

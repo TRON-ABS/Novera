@@ -4,6 +4,8 @@
   "status": {
     "empty": "未找到聊天"
   },
+  "send": "发送",
+
   "sendMessage": "发送消息",
   "newConversation": "新对话",
   "clearHistory": "清除历史记录",

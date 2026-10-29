@@ -260,6 +260,7 @@
     "delete": "削除"
   },
   "modelSettings": {
+    "label": "モデル設定",
     "title": "モデル設定 - {{modelId}}",
     "description": "パフォーマンスと動作を最適化するためにモデル設定を構成します。",
     "nglDisabledByFit": "自動フィットでは GPU レイヤーが選択されています。これを手動で設定するには、自動フィットをオフにします。",

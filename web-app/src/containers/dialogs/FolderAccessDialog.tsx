@@ -5,15 +5,17 @@ import { Button } from '@/components/ui/button'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import type { FolderAccess } from '@/hooks/useNativeAccess'
 
-export function FolderAccessDialog({ path, onConfirm, onCancel }: {
+export function FolderAccessDialog({ path, onConfirm, onCancel, docked = false, visible = true }: {
   path: string | null
   onConfirm: (access: FolderAccess) => void
   onCancel: () => void
+  docked?: boolean
+  visible?: boolean
 }) {
   const { t } = useTranslation()
   const [access, setAccess] = useState<FolderAccess>('read')
-  return <Dialog open={path !== null} onOpenChange={(open) => { if (!open) onCancel() }}>
-    <DialogContent className="novera-access-dialog">
+  return <Dialog open={path !== null && visible} modal={!docked} onOpenChange={(open) => { if (!open) onCancel() }}>
+    <DialogContent docked={docked} positionEnabled={path !== null && visible} className="novera-access-dialog">
       <DialogHeader>
         <DialogTitle>{t('tools:toolApproval.title')}</DialogTitle>
         <DialogDescription>{t('common:access.folderNote')}</DialogDescription>

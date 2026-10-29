@@ -24,9 +24,10 @@ const MAX_RECENT_SEARCHES = 5
 interface SearchDialogProps {
   open: boolean
   onOpenChange: (open: boolean) => void
+  docked?: boolean
 }
 
-export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
+export function SearchDialog({ open, onOpenChange, docked = false }: SearchDialogProps) {
   const navigate = useNavigate()
   const { t } = useTranslation()
   const [searchQuery, setSearchQuery] = useState('')
@@ -203,10 +204,12 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
     searchResults.withoutProject.length > 0
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={onOpenChange} modal={!docked}>
       <DialogContent
-        className="sm:max-w-xl p-0 gap-0 overflow-hidden"
-        showCloseButton={false}
+        className={cn('p-0 gap-0 overflow-hidden', !docked && 'sm:max-w-xl')}
+        docked={docked}
+        positionEnabled={open}
+        showCloseButton={docked}
         aria-describedby={undefined}
       >
         <VisuallyHidden>
@@ -214,7 +217,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
         </VisuallyHidden>
 
         {/* Search Input */}
-        <div className="flex items-center border-b  px-3">
+        <div className={cn('flex items-center border-b px-3', docked && 'pr-10')}>
           <IconSearch className="size-4 text-muted-foreground shrink-0" />
           <input
             ref={inputRef}

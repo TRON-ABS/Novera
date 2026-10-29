@@ -6,6 +6,8 @@
   "status": {
     "empty": "Hakuna gumzo lililopatikana"
   },
+  "send": "Tuma",
+
   "sendMessage": "Tuma ujumbe",
   "newConversation": "Mazungumzo mapya",
   "clearHistory": "Futa historia",

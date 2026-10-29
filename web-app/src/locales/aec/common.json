@@ -340,6 +340,7 @@
     "delete": "امسح"
   },
   "modelSettings": {
+    "label": "إعدادات النموذج",
     "title": "إعدادات النموذج - {{modelId}}",
     "description": "ظبّط إعدادات النموذج عشان تحسّن أداءه وطريقة شغله.",
     "nglDisabledByFit": "Auto-fit بيختار طبقات GPU. اقفل Auto-fit عشان تحدّدها بنفسك.",

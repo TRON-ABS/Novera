@@ -21,7 +21,6 @@ type SearchParams = {
 }
 import { useEffect } from 'react'
 import { useThreads } from '@/hooks/useThreads'
-import DropdownModelProvider from '@/containers/DropdownModelProvider'
 
 export const Route = createFileRoute(route.home as any)({
   component: Index,
@@ -54,11 +53,7 @@ function Index() {
 
   return (
     <div className="novera-canvas flex h-full flex-col">
-      <HeaderPage>
-        <div className="flex items-center gap-2 w-full">
-          <DropdownModelProvider mediaScope="new" model={threadModel} />
-        </div>
-      </HeaderPage>
+      <HeaderPage />
       <div
         className={cn(
           'min-h-0 flex-1 overflow-y-auto flex flex-col gap-2 px-3 pb-4 md:px-6'

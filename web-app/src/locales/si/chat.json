@@ -6,6 +6,8 @@
   "status": {
     "empty": "කතාබස් හමු නොවිණි"
   },
+  "send": "යවන්න",
+
   "sendMessage": "පණිවිඩය යවන්න",
   "newConversation": "නව සංවාදය",
   "clearHistory": "ඉතිහාසය හිස් කරන්න",

@@ -6,6 +6,8 @@
   "status": {
     "empty": "Laguma helin sheekooyin"
   },
+  "send": "Dir",
+
   "sendMessage": "Dir Fariin",
   "newConversation": "Sheeko Cusub",
   "clearHistory": "Tirtir Taariikhda",

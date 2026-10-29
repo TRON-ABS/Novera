@@ -6,6 +6,8 @@
   "status": {
     "empty": "Tidak Ada Obrolan Ditemukan"
   },
+  "send": "Kirim",
+
   "sendMessage": "Kirim Pesan",
   "newConversation": "Percakapan Baru",
   "clearHistory": "Hapus Riwayat",

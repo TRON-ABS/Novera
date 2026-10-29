@@ -581,10 +581,10 @@ describe('ThreadDetail route', () => {
     expect(result.threadModel).toBeUndefined()
   })
 
-  it('renders header, model dropdown, and chat input', () => {
+  it('renders header and chat input without a duplicate header model selector', () => {
     renderComponent()
     expect(screen.getByTestId('header-page')).toBeInTheDocument()
-    expect(screen.getByTestId('model-dropdown')).toHaveTextContent('gpt-x')
+    expect(screen.queryByTestId('model-dropdown')).not.toBeInTheDocument()
     expect(screen.getByTestId('chat-input')).toBeInTheDocument()
     expect(screen.getByTestId('chat-status')).toHaveTextContent('ready')
   })

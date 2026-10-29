@@ -6,6 +6,8 @@
   "status": {
     "empty": "Geen kletse gevind nie"
   },
+  "send": "Stuur",
+
   "sendMessage": "Stuur boodskap",
   "newConversation": "Nuwe gesprek",
   "clearHistory": "Vee geskiedenis uit",

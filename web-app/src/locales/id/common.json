@@ -236,6 +236,7 @@
     "delete": "Hapus"
   },
   "modelSettings": {
+    "label": "Pengaturan Model",
     "nglDisabledByFit": "Penyesuaian otomatis memilih GPU lapisan. Matikan Pas Otomatis untuk mengaturnya secara manual.",
     "title": "Pengaturan Model - {{modelId}}",
     "description": "Konfigurasikan pengaturan model untuk mengoptimalkan kinerja dan perilaku.",
@@ -685,7 +686,7 @@
     "notImported": "tidak berada di ruang kerja"
   },
   "duration": {
-    "seconds": "{{count}}",
+    "seconds": "{{count}} dtk",
     "minutes": "{{count}}m",
     "hours": "{{count}}h"
   },

@@ -27,6 +27,9 @@ import { getLastUsedModel } from '@/utils/getModelToStart'
 import { useMediaLibrary, selectMediaProfile } from '@/hooks/useMediaLibrary'
 import { useCreation, videoSettingsFor } from '@/hooks/useCreation'
 import { useAgentMode } from '@/hooks/useAgentMode'
+import { useMusicCreation } from '@/hooks/useMusicCreation'
+import { mediaModels } from '@/constants/mediaProviders'
+import { useDashboardPanel } from '@/hooks/useDashboardPanel'
 import {
   LOCAL_MODEL_PROVIDERS,
   matchesModelFilter,
@@ -43,6 +46,8 @@ import {
 } from '@/components/ui/tooltip'
 
 type DropdownModelProviderProps = {
+  variant?: 'default' | 'composer'
+  disabled?: boolean
   mediaScope?: string
   allowMedia?: boolean
   model?: ThreadModel
@@ -58,6 +63,18 @@ interface SearchableModel {
   highlightedId?: string
 }
 
+function MediaSettingsButton({ onClick }: { onClick: () => void }) {
+  const { t } = useTranslation()
+  return <Tooltip>
+    <TooltipTrigger asChild>
+      <Button type="button" variant="ghost" size="icon-xs" aria-label={t('common:modelSettings.label')} onClick={onClick}>
+        <IconSettings size={18} className="text-muted-foreground" />
+      </Button>
+    </TooltipTrigger>
+    <TooltipContent>{t('common:modelSettings.label')}</TooltipContent>
+  </Tooltip>
+}
+
 // Helper functions for localStorage
 const setLastUsedModel = (provider: string, model: string) => {
   try {
@@ -71,6 +88,8 @@ const setLastUsedModel = (provider: string, model: string) => {
 }
 
 const DropdownModelProvider = memo(function DropdownModelProvider({
+  variant = 'default',
+  disabled = false,
   model,
   mediaScope,
   allowMedia = true,
@@ -94,6 +113,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   const serviceHub = useServiceHub()
 
   const creation = useCreation()
+  const music = useMusicCreation()
   const mediaProfiles = useMediaLibrary((s) => s.profiles)
   const currentThreadId = useThreads((state) => state.currentThreadId)
   const scope = mediaScope ?? currentThreadId ?? 'new'
@@ -101,10 +121,13 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   const mediaAllowed = allowMedia && !agent
   const [category, setCategory] = useState<ModelCategory>('all')
   const [source, setSource] = useState<ModelSource>('all')
-  const mode = creation.modes[scope] ?? 'auto'
+  const configuredMode = creation.modes[scope] ?? 'auto'
+  const mode = variant === 'composer' && disabled && configuredMode === 'auto'
+    ? creation.resolvedModes[scope] ?? configuredMode : configuredMode
+  const localMusicProfile = music.profiles.find(profile => profile.id === music.selections[scope])
   const selectedMedia =
-    mediaAllowed && (mode === 'image' || mode === 'video')
-      ? creation.selections[scope]?.[mode]
+    mediaAllowed && (mode === 'image' || mode === 'video' || mode === 'music')
+      ? creation.selections[scope]?.[mode] ?? (mode === 'music' && localMusicProfile ? { provider: 'novera-music', id: localMusicProfile.id } : undefined)
       : undefined
   const allProviders = useMemo(() => {
     const fallback: Model[] = (['image', 'video'] as const).flatMap((task) => {
@@ -154,7 +177,15 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
       ...fallback,
     ]
     return [
-      ...providers,
+      ...providers.map(provider => variant === 'composer' && mediaAllowed ? {
+        ...provider,
+        models: [...provider.models, ...mediaModels(provider.provider).filter(model => !provider.models.some(item => item.id === model.id))],
+      } : provider),
+      ...(variant === 'composer' && mediaAllowed && music.profiles.length ? [{
+        provider: 'novera-music', active: true, settings: [],
+        models: music.profiles.map(profile => ({ id: profile.id, displayName: profile.name,
+          output_modalities: ['audio'], capabilities: ['audio-generation'] } as Model)),
+      } as ModelProvider] : []),
       ...(local.length
         ? [
             {
@@ -169,11 +200,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   }, [
     providers,
     mediaProfiles,
-    creation.settings.imageModel,
-    creation.videoSettings,
-    creation.settings.videoModel,
-    creation.settings.imageEngine,
-    creation.settings.ggufImageModel,
+    variant, mediaAllowed, music.profiles, creation,
   ])
 
   // Search state
@@ -519,7 +546,8 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
         predefinedProviders.some((item) => item.provider === providerId) &&
         !providerHasRemoteApiKeys(searchableModel.provider)
       ) {
-        navigate({
+        if (variant === 'composer') useDashboardPanel.getState().openProviderSettings(providerId)
+        else navigate({
           to: route.settings.providers,
           params: { providerName: providerId },
         })
@@ -531,8 +559,17 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
         ? 'image'
         : outputs.includes('video')
           ? 'video'
+          : outputs.includes('audio') ? 'music'
           : undefined
       if (task && mediaAllowed) {
+        if (providerId === 'novera-music') {
+          music.select(searchableModel.model.id, scope)
+          creation.setSelection(scope, 'music', undefined)
+          creation.setMode(scope, 'music')
+          setSearchValue('')
+          setOpen(false)
+          return
+        }
         const profile = useMediaLibrary
           .getState()
           .profiles.find(
@@ -601,6 +638,8 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
     },
     [
       creation,
+      music,
+      variant,
       scope,
       mediaAllowed,
       navigate,
@@ -623,24 +662,28 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   const mediaProvider = selectedMedia
     ? allProviders.find((item) => item.provider === selectedMedia.provider)
     : undefined
-  const provider = mediaProvider ?? getProviderByName(selectedProvider)
+  const provider = mediaProvider ?? (mode === 'music' && mediaAllowed ? undefined : getProviderByName(selectedProvider))
   const displayedName = selectedMedia
     ? getModelDisplayName(
         mediaProvider?.models.find((item) => item.id === selectedMedia.id) ?? {
           id: selectedMedia.id,
         }
       )
-    : displayModel
+    : mode === 'music' && mediaAllowed
+      ? music.profiles.find(profile => profile.id === music.selections[scope])?.name || music.settings.generator || t('common:selectAModel')
+      : displayModel
 
   return (
     <Popover open={open} onOpenChange={onOpenChange}>
-      <PopoverTrigger asChild>
         <div
           data-testid="model-selector-trigger"
-          className="border relative z-20 px-4 py-1.5 flex items-center gap-1.5 rounded-full"
+          className={cn('border relative z-20 px-4 py-1.5 flex items-center gap-1.5 rounded-full',
+            variant === 'composer' && 'composer-model composer-model-selector min-w-0 max-w-full px-2 py-0')}
         >
+          <PopoverTrigger asChild>
           <button
             type="button"
+            disabled={disabled}
             className="font-medium cursor-pointer flex items-center gap-1.5 relative z-20 min-w-0"
           >
             {provider && (
@@ -663,9 +706,10 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
             </Tooltip>
             <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground" />
           </button>
-          {currentModel?.settings &&
+          </PopoverTrigger>
+          {!selectedMedia && !(mode === 'music' && mediaAllowed) && currentModel &&
             provider &&
-            provider.provider === 'llamacpp' && (
+            LOCAL_MODEL_PROVIDERS.has(provider.provider) && (
               <div onClick={(e) => e.stopPropagation()}>
                 <ModelSetting
                   model={currentModel as Model}
@@ -673,7 +717,11 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
                 />
               </div>
             )}
-          {!selectedMedia && (
+          {selectedMedia && <MediaSettingsButton onClick={() => {
+            setOpen(false)
+            window.dispatchEvent(new CustomEvent('novera-creation-settings', { detail: { scope, task: mode } }))
+          }} />}
+          {!selectedMedia && !(mode === 'music' && mediaAllowed) && (
             <ModelSupportStatus
               modelId={selectedModel?.id}
               provider={selectedProvider}
@@ -682,19 +730,19 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
             />
           )}
         </div>
-      </PopoverTrigger>
 
       <PopoverContent
         className={cn(
           // Use auto width to fit long model names; keep a sensible minimum.
           'w-auto min-w-70 max-w-[90vw] p-0 backdrop-blur-2xl bg-background/95 border',
+          variant === 'composer' && 'novera-model-selector-menu',
           searchValue.length === 0 && 'h-[28rem]'
         )}
         align="start"
         // sideOffset={16}
         // alignOffset={-10}
-        side="bottom"
-        avoidCollisions={searchValue.length === 0 ? true : false}
+        side={variant === 'composer' ? 'top' : 'bottom'}
+        avoidCollisions={variant === 'composer' ? true : searchValue.length === 0}
       >
         <div className="flex flex-col size-full">
           {/* Search input */}
@@ -728,6 +776,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
                   'all',
                   'text',
                   'image',
+                  'music',
                   'video',
                   'multimodal',
                 ] as ModelCategory[]
@@ -774,7 +823,47 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
           </div>
           {/* Model list */}
           <div className="min-h-0 flex-1 max-h-80 overflow-y-auto">
-            {Object.keys(groupedItems).length === 0 && searchValue ? (
+            {variant === 'composer' ? (
+              <div className="p-2 space-y-3">
+                {(['local', 'text', 'image', 'music', 'video'] as const).map(group => {
+                  const models = filteredItems.filter(item => group === 'local'
+                    ? LOCAL_MODEL_PROVIDERS.has(item.provider.provider)
+                    : !LOCAL_MODEL_PROVIDERS.has(item.provider.provider) && modelModalities(item.model).outputs.includes(group === 'music' ? 'audio' : group))
+                  if (!models.length) return null
+                  return <section key={group} data-model-group={group}>
+                    <h3 className="px-2 py-1 text-xs font-medium text-muted-foreground">
+                      {group === 'local' ? t('chat:creation.local') : `${t('chat:creation.cloud')} · ${t(`chat:creation.${group}`)}`}
+                    </h3>
+                    {models.map(item => {
+                      const selected = selectedMedia
+                        ? selectedMedia.id === item.model.id && selectedMedia.provider === item.provider.provider
+                        : mode === 'music' && item.provider.provider === 'novera-music'
+                          ? music.selections[scope] === item.model.id
+                          : !selectedMedia && selectedModel?.id === item.model.id && selectedProvider === item.provider.provider
+                      return <div key={item.value} className="flex items-center gap-1 rounded-lg hover:bg-secondary/50">
+                        <button type="button" data-testid={`model-option-${item.model.id}`} aria-pressed={selected}
+                          className={cn('flex min-w-0 flex-1 items-center gap-2 px-2 py-2 text-start text-sm rounded-lg', selected && 'bg-cyan-400/10 ring-1 ring-cyan-400/50')}
+                          onClick={() => handleSelect(item)}>
+                          <ProvidersAvatar provider={item.provider} />
+                          <span className="truncate">{getModelDisplayName(item.model)}</span>
+                          <span className="ml-auto text-xs text-muted-foreground">{item.provider.provider === 'novera-music' ? t('chat:creation.music') : getProviderTitle(item.provider.provider)}</span>
+                        </button>
+                        {group === 'local' && ['llamacpp', 'mlx', 'transformers'].includes(item.provider.provider) && <ModelSetting model={item.model} provider={item.provider} />}
+                        {group === 'local' && ['diffusers', 'novera-music'].includes(item.provider.provider) &&
+                          <MediaSettingsButton onClick={() => {
+                            void handleSelect(item).then(() => {
+                              const outputs = modelModalities(item.model).outputs
+                              const task = outputs.includes('image') ? 'image' : outputs.includes('video') ? 'video' : 'music'
+                              window.dispatchEvent(new CustomEvent('novera-creation-settings', { detail: { scope, task } }))
+                            })
+                          }} />}
+                      </div>
+                    })}
+                  </section>
+                })}
+                {filteredItems.length === 0 && <p className="p-2 text-sm">{t('common:noModelsFoundFor', { searchValue })}</p>}
+              </div>
+            ) : Object.keys(groupedItems).length === 0 && searchValue ? (
               <div className="py-3 px-4 text-sm ">
                 {t('common:noModelsFoundFor', { searchValue })}
               </div>

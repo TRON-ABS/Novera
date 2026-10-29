@@ -340,6 +340,7 @@
     "delete": "Jêbirin"
   },
   "modelSettings": {
+    "label": "Mîhengên Model",
     "title": "Mîhengên Model - {{modelId}}",
     "description": "Mîhengên modelê mîheng bikin ku performans û tevgerê xweştir bikin.",
     "nglDisabledByFit": "Xweserî qatên GPU hildibijêre. Ji bo ku vê yekê bi destan saz bikin, Xweser-fîtkirinê nemirînin.",

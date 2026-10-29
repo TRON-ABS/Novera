@@ -6,6 +6,8 @@
   "status": {
     "empty": "कोणतेही चॅट आढळले नाहीत"
   },
+  "send": "पाठवा",
+
   "sendMessage": "संदेश पाठवा",
   "newConversation": "नवीन संभाषण",
   "clearHistory": "इतिहास साफ करा",

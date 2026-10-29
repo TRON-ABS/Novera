@@ -1,6 +1,6 @@
 /** Input understanding and output creation are separate capabilities. */
 export type Modality = 'text' | 'image' | 'video' | 'audio'
-export type ModelCategory = 'all' | 'text' | 'image' | 'video' | 'multimodal'
+export type ModelCategory = 'all' | 'text' | 'image' | 'music' | 'video' | 'multimodal'
 export type ModelSource = 'all' | 'local' | 'cloud'
 export interface ModalModel {
   embedding?: boolean
@@ -13,6 +13,7 @@ export const LOCAL_MODEL_PROVIDERS = new Set([
   'mlx',
   'transformers',
   'diffusers',
+  'novera-music',
 ])
 export function modelModalities(model: ModalModel) {
   const capabilities = model.capabilities ?? []
@@ -50,6 +51,6 @@ export function matchesModelFilter(
     category === 'all' ||
     (category === 'multimodal'
       ? modes.multimodal
-      : modes.outputs.includes(category))
+      : modes.outputs.includes(category === 'music' ? 'audio' : category))
   )
 }

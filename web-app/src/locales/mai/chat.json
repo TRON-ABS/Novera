@@ -6,6 +6,8 @@
   "status": {
     "empty": "कोनो चैट नहि भेटल"
   },
+  "send": "पठाउ",
+
   "sendMessage": "संदेश भेजें",
   "newConversation": "नव गप्प",
   "clearHistory": "स्पष्ट इतिहास",

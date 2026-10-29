@@ -234,6 +234,7 @@
     "delete": "Remover"
   },
   "modelSettings": {
+    "label": "Configurações do Modelo",
     "nglDisabledByFit": "O ajuste automático é escolher GPU camadas. Desative o ajuste automático para definir isso manualmente.",
     "title": "Configurações do Modelo - {{modelId}}",
     "description": "Configure as configurações do modelo para otimizar desempenho e comportamento.",

@@ -6,6 +6,8 @@
   "status": {
     "empty": "Không tìm thấy cuộc trò chuyện nào"
   },
+  "send": "Gửi",
+
   "sendMessage": "Gửi tin nhắn",
   "newConversation": "Cuộc trò chuyện mới",
   "clearHistory": "Xóa lịch sử",

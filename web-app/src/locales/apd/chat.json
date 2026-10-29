@@ -6,6 +6,8 @@
   "status": {
     "empty": "ما لقينا دردشات"
   },
+  "send": "إرسال",
+
   "sendMessage": "أرسل رسالة",
   "newConversation": "دردشة جديدة",
   "clearHistory": "امسح السجل",
