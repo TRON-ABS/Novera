@@ -311,7 +311,8 @@ vi.mock('@/lib/extension', () => ({
   },
 }))
 
-vi.mock('@/lib/messages', () => ({
+vi.mock('@/lib/messages', async () => ({
+  creationInfoOf: (await import('@/modules/conversations/creation-info')).creationInfoOf,
   threadMessageIsEmpty: () => false,
   convertThreadMessagesToUIMessages: (msgs: any[]) =>
     msgs.map((m) => ({
@@ -600,7 +601,7 @@ describe('ThreadDetail route', () => {
     await waitFor(() => expect(screen.getByRole('alert')).toHaveTextContent('history file is locked'))
     expect(screen.queryByTestId('chat-input')).not.toBeInTheDocument()
     expect(h.messagesState.setMessages).not.toHaveBeenCalled()
-    await act(async () => screen.getByRole('button', { name: 'common:run.tryAgain' }).click())
+    await act(async () => screen.getByRole('button', { name: 'Try again' }).click())
     await waitFor(() => expect(screen.getByTestId('chat-input')).toBeInTheDocument())
     expect(fetchMessages).toHaveBeenCalledTimes(2)
     expect(h.messagesState.setMessages).toHaveBeenCalledWith('thread-1', expect.arrayContaining([
@@ -1065,6 +1066,30 @@ describe('ThreadDetail route', () => {
     expect(persisted).toBeTruthy()
     expect(persisted.metadata.parentId).toBe('u2')
     expect(persisted.metadata.parentId).not.toBeNull()
+  })
+
+  it('persists creation timing when the completed assistant message is saved', async () => {
+    renderComponent()
+    const url = 'novera-creation:image/12345678-1234-1234-1234-123456789abc.png'
+    await act(async () => {
+      ;(h as any).capturedOnFinish({
+        message: {
+          id: 'timed-creation', role: 'assistant', metadata: {},
+          parts: [
+            { type: 'text', text: 'Generated image' },
+            { type: 'file', mediaType: 'image/png', url,
+              providerMetadata: { novera: { totalMs: 36000, generationMs: 30000, seed: 7 } } },
+          ],
+        },
+        isAbort: false,
+      })
+    })
+    expect(h.messagesState.addMessage).toHaveBeenCalledWith(expect.objectContaining({
+      id: 'timed-creation',
+      metadata: expect.objectContaining({
+        creationInfo: { [url]: { totalMs: 36000, generationMs: 30000, seed: 7 } },
+      }),
+    }))
   })
 
   describe('finishReason length (#9228)', () => {

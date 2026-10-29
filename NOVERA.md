@@ -1,5 +1,11 @@
 # Novera — instructions du projet
 
+## Règles d’or et information utilisateur — 29 octobre 2026
+
+Les [règles d’or détaillées de Novera](docs/REGLES_D_OR.md) constituent la référence durable pour l’ensemble du produit. Elles incluent explicitement **la qualité des informations fournies aux utilisateurs**, du premier démarrage à l’exécution complète : rôle des modèles et composants, local/cloud, réglages, automatismes, coûts éventuels, résultats, durées conservées, erreurs et solutions.
+
+Toute nouvelle aide visible doit être disponible dans les 80 langues et rester lisible dans le tableau de bord adaptable. Le [guide utilisateur](docs/USER_GUIDE.md) décrit les usages concrets. Les règles distinguent exigences du produit, vérifications effectuées et limites encore à essayer ; les anciennes notes datées ci-dessous restent historiques. Pour le lot en cours, le mainteneur s’occupe de la compilation applicative.
+
 ## Téléchargement du Hub vers Documents — correction du 28 octobre 2026
 
 La tentative Qwen3.5-2B Q6_K révélait une incohérence : la destination était bien `Documents/Novera models/Qwen3.5-2B-Q6_K/model.gguf`, mais le gestionnaire natif refusait encore toute sortie du dossier interne de données. Le téléchargement échouait avant l’écriture du modèle avec « outside of Jan data folder ».

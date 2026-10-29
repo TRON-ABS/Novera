@@ -72,7 +72,7 @@
     "setupImageNote": "ምስል — FLUX.2 Klein 4B · Q4_K_M. ጽሑፍ: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. ምጥጥነ ገጽታ: 21:9; ጥራት: 1024 × 432; የትውልድ ደረጃዎች: 4; የዘር ሁነታ: የዘፈቀደ.",
     "setupMusicNote": "ሙዚቃ — ACE-Step 1.5 Turbo. ሙዚቃ አመንጪ: 2B · Q4_K_M; ሙዚቃ አቀናባሪ: 1.7B · Q8_0; ጽሑፍ: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. የሙዚቃ ቆይታ: 10–600 s; የድምፅ ጥራት: 48 kHz · 2.0; ያለ ዘፈን / የዘፈን ግጥም; የዘፈቀደ.",
     "setupVideoNote": "ቪዲዮ — Wan2.1 T2V 1.3B · Q4_K_M. ጽሑፍ: UMT5-XXL · Q4_K_M. የቪዲዮ ቆይታ: 5 s; ምጥጥነ ገጽታ: 21:9; ክፈፎች በሰከንድ: 16. ረጅም ቪዲዮዎች ከአጫጭር ቅንጭቦች ይገጣጠማሉ። መገናኛዎቹ ሊታዩ ይችላሉ፤ ማመንጨትም ረጅም ጊዜ ሊወስድ ይችላል። · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "የሚመከሩ ሞዴሎችን ያወርዳል እና ያዘጋጃል፡ ለጽሑፍ Nemotron፣ ለባለብዙ ቋንቋ መልሶ ማግኘት Qwen3-Embedding Q8_0 (በነባሪ CPU)፣ FLUX.2 Klein 4B እና ክፍሎቹ፣ Real-ESRGAN ×2/×4፣ ለሙዚቃ ACE-Step (በነባሪ Instrumental በርቷል) እና ለቪዲዮ Wan2.1። የፋይል መጠኖችን፣ የዲስክ ቦታን እና የቪዲዮ ቅድመ ሁኔታዎችን ከታች ይፈትሹ። የተለየ ማውረድ እና አሰሳ ይገኛሉ።",
+    "setupAllNote": "የሚመከሩ ሞዴሎችን ያወርዳል እና ያዘጋጃል፡ ለጽሑፍ Nemotron፣ ለባለብዙ ቋንቋ መልሶ ማግኘት Qwen3-Embedding Q8_0 (በነባሪ CPU)፣ FLUX.2 Klein 4B (ምስል) እና ክፍሎቹ፣ Real-ESRGAN ×2/×4፣ ለሙዚቃ ACE-Step (በነባሪ Instrumental በርቷል) እና ለቪዲዮ Wan2.1። የፋይል መጠኖችን፣ የዲስክ ቦታን እና የቪዲዮ ቅድመ ሁኔታዎችን ከታች ይፈትሹ። የተለየ ማውረድ እና አሰሳ ይገኛሉ።",
     "finalizing": "ቪዲዮውን በማጠናቀቅ ላይ",
     "videoDuration": "የቪዲዮ ቆይታ",
     "videoDurationNote": "ረጅም ቪዲዮዎች ከአጫጭር ቅንጭቦች ይገጣጠማሉ። መገናኛዎቹ ሊታዩ ይችላሉ፤ ማመንጨትም ረጅም ጊዜ ሊወስድ ይችላል።",

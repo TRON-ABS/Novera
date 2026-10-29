@@ -115,4 +115,18 @@ describe('saved creation in the conversation', () => {
       expect(screen.getByText('chat:creation.openFolder')).toBeEnabled()
     )
   })
+  it('recovers recorded timings from an older creation sidecar after restart', async () => {
+    mocks.invoke.mockImplementation(async command => command === 'creation_info'
+      ? { totalMs: 36000, generationMs: 30000, seed: 42 }
+      : 'C:/Pictures/Novera image/test.png')
+    const { container } = render(<GeneratedCreation url={reference} />)
+    await waitFor(() => expect(container.querySelector('figcaption')).toHaveTextContent('chat:creation.totalTime: 36 sec'))
+    expect(container.querySelector('figcaption')).toHaveTextContent('chat:creation.generationTime: 30 sec')
+  })
+  it('uses exact saved conversation timings before falling back to older engine records', async () => {
+    render(<GeneratedCreation url={reference} timing={{ totalMs: 40000 }} />)
+    await waitFor(() => expect(screen.getByText('chat:creation.openFolder')).toBeEnabled())
+    expect(mocks.invoke).not.toHaveBeenCalledWith('creation_info', expect.anything())
+    expect(screen.getByText(/chat:creation.totalTime/)).toHaveTextContent('40 sec')
+  })
 })

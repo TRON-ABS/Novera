@@ -108,7 +108,7 @@ describe('cloud conversation lifecycle', () => {
     )
     const reader = stream.getReader()
     expect((await reader.read()).value?.type).toBe('start')
-    await expect(reader.read()).rejects.toThrow('chat:creation.failed')
+    await expect(reader.read()).rejects.toThrow('Disk full')
     await vi.waitFor(() =>
       expect(invoke).toHaveBeenCalledWith(
         'creation_cloud_release',

@@ -72,7 +72,7 @@
     "setupImageNote": "Beeld — FLUX.2 Klein 4B · Q4_K_M. Teks: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Aspekverhouding: 21:9; Resolusie: 1024 × 432; Generasiestappe: 4; Saadmodus: Willekeurig.",
     "setupMusicNote": "Musiek — ACE-Step 1.5 Turbo. Musiekopwekker: 2B · Q4_K_M; Musiekbeplanner: 1.7B · Q8_0; Teks: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Musiekduur: 10–600 s; Oudiogehalte: 48 kHz · 2.0; Instrumentaal / Lirieke; Willekeurig.",
     "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Teks: UMT5-XXL · Q4_K_M. Videolengte: 5 s; Aspekverhouding: 21:9; Rame per sekonde: 16. Lang video's word uit kort snitte saamgestel. Oorgange kan sigbaar wees en die skep daarvan kan lank duur. · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "Laai af en konfigureer die aanbevole modelle: Nemotron vir teks, Qwen3-Embedding Q8_0 vir meertalige terugvordering (CPU standaard), FLUX.2 Klein 4B en sy komponente, Real-ESRGAN ×2/×4, ACE-Step vir musiek (Instrumentaal standaard aan), en Wan2.1 vir video. Kontroleer lêergroottes, skyfspasie en video-voorwaardes hieronder. Afsonderlike aflaai en Browse bly beskikbaar.",
+    "setupAllNote": "Laai af en konfigureer die aanbevole modelle: Nemotron vir teks, Qwen3-Embedding Q8_0 vir meertalige terugvordering (CPU standaard), FLUX.2 Klein 4B (Beeld) en sy komponente, Real-ESRGAN ×2/×4, ACE-Step vir musiek (Instrumentaal standaard aan), en Wan2.1 vir video. Kontroleer lêergroottes, skyfspasie en video-voorwaardes hieronder. Afsonderlike aflaai en Browse bly beskikbaar.",
     "finalizing": "Video word voltooi",
     "videoDuration": "Videolengte",
     "videoDurationNote": "Lang video's word uit kort snitte saamgestel. Oorgange kan sigbaar wees en die skep daarvan kan lank duur.",

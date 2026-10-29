@@ -357,6 +357,7 @@ pub fn run() {
         core::creation::creation_status,
         core::creation::creation_cancel,
         core::creation::creation_resolve,
+        core::creation::creation_info,
         core::creation::creation_image_input,
         core::creation_cloud::creation_cloud_prepare,
         core::creation_cloud::creation_cloud_save,

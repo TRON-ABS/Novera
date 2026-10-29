@@ -72,7 +72,7 @@
     "setupImageNote": "Aworan — FLUX.2 Klein 4B · Q4_K_M. Ọrọ: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Ipin ipin: 21:9; Ipinnu: 1024 × 432; Awọn igbesẹ ti iran: 4; Ìpo irúgbìn: Láìlétò.",
     "setupMusicNote": "Orin — ACE-Step 1.5 Turbo. Ẹ̀rọ ìṣẹ̀dá orin: 2B · Q4_K_M; Ẹ̀rọ ìṣètò orin: 1.7B · Q8_0; Ọrọ: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Gígùn orin: 10–600 s; Dídára ohùn: 48 kHz · 2.0; Orin ohun èlò / Ọ̀rọ̀ orin; Láìlétò.",
     "setupVideoNote": "Fidio — Wan2.1 T2V 1.3B · Q4_K_M. Ọrọ: UMT5-XXL · Q4_K_M. Gígùn fídíò: 5 s; Ipin ipin: 21:9; Awọn fireemu fun keji: 16. A ń so àwọn kílíìpù kúkúrú pọ̀ láti ṣe fídíò gígùn. Àwọn ibi ìsopọ̀ lè hàn, ṣíṣe rẹ̀ sì lè gba àkókò púpọ̀. · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "Ṣe ìdìbò àti ṣàkóso awọn aṣiṣe tí a ṣe ireti: Nemotron fun tẹ́xti, Qwen3-Embedding Q8_0 fun ìwọlé ọrọ-ọ̀rọ̀ (CPU ni aṣiṣe), FLUX.2 Klein 4B ati awọn ẹya rẹ, Real-ESRGAN ×2/×4, ACE-Step fun imu (Instrumental ni aṣiṣe), ati Wan2.1 fun iṣẹ-iṣe. Ṣayẹwo awọn iṣa file, awọn agbegbe disk, ati awọn aṣeyọri video ni awọn ẹsẹ. Ìdìbò ati Browse ni awọn ẹsẹ ni a ṣiṣe.",
+    "setupAllNote": "Ṣe ìdìbò àti ṣàkóso awọn aṣiṣe tí a ṣe ireti: Nemotron fun tẹ́xti, Qwen3-Embedding Q8_0 fun ìwọlé ọrọ-ọ̀rọ̀ (CPU ni aṣiṣe), FLUX.2 Klein 4B (Aworan) ati awọn ẹya rẹ, Real-ESRGAN ×2/×4, ACE-Step fun imu (Instrumental ni aṣiṣe), ati Wan2.1 fun iṣẹ-iṣe. Ṣayẹwo awọn iṣa file, awọn agbegbe disk, ati awọn aṣeyọri video ni awọn ẹsẹ. Ìdìbò ati Browse ni awọn ẹsẹ ni a ṣiṣe.",
     "finalizing": "Ń parí fídíò",
     "videoDuration": "Gígùn fídíò",
     "videoDurationNote": "A ń so àwọn kílíìpù kúkúrú pọ̀ láti ṣe fídíò gígùn. Àwọn ibi ìsopọ̀ lè hàn, ṣíṣe rẹ̀ sì lè gba àkókò púpọ̀.",

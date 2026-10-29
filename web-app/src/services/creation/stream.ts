@@ -23,6 +23,8 @@ import { withNoveraInstructions } from '@/hooks/useNoveraInstructions'
 import { musicStream } from './music-stream'
 import { musicDurationFromPrompt } from '@/modules/engines/music'
 import { generationSequence } from './sequence'
+import { creationFailure } from './diagnostics'
+import { providerRemoteApiKeyChain } from '@/lib/provider-api-keys'
 
 export function creationStream(
   task: CreationTask,
@@ -360,11 +362,9 @@ export function creationStream(
                   ? new Error(i18n.t('chat:creation.ggufWrongModel'))
                   : String(error).includes('CREATION_BUSY')
                     ? new Error(i18n.t('hub:discovery.busy'))
-                    : new Error(
-                        `${i18n.t('chat:creation.failed')} ${i18n.t('chat:creation.configure')}`
-                      )
+                    : creationFailure(error, useModelProvider.getState().providers.flatMap(providerRemoteApiKeyChain))
         if (visible !== error)
-          console.error('Novera creation diagnostics:', error)
+          console.error('Novera creation diagnostics:', visible)
         if (!closed) {
           controller.error(visible)
           closed = true

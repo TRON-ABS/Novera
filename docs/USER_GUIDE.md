@@ -1,5 +1,76 @@
 # Novera — guide utilisateur
 
+## Informations utilisateur — tableau de bord et créations, 29 octobre 2026
+
+Cette section décrit les sources mises à jour ; leur présence dans votre application dépend de sa compilation avec ces sources. Les [règles d’or](REGLES_D_OR.md) imposent une information claire dans les 80 langues pour les fonctions de Novera. La traduction structurelle ne remplace pas une relecture par des locuteurs de chaque langue. Les notes datées qui suivent cette section décrivent des états antérieurs ; cette section présente le fonctionnement courant.
+
+### Du démarrage au premier résultat
+
+1. Ouvrez **Novera · Configurations** pour choisir les fonctions souhaitées. Le mode local demande les modèles et leurs composants ; le cloud demande un fournisseur, un modèle accessible et votre clé API.
+2. Terminez les téléchargements et vérifiez que les composants sont prêts. Un fichier de modèle seul ne suffit pas toujours : l’encodeur et le VAE doivent correspondre au moteur choisi.
+3. Dans le tableau de bord, choisissez **Texte**, **Image**, **Musique** ou **Vidéo**, ou utilisez **Auto** pour laisser Novera orienter votre demande. Un choix de mode explicite garde priorité.
+4. Vérifiez le modèle affiché, les réglages et la quantité, puis envoyez votre demande. Le bouton intégré à droite de la saisie devient Arrêter pendant l’exécution ; il reste séparé de la zone de texte.
+5. Consultez le résultat, ses informations et les commandes de fichier. L’emplacement enregistré permet de retrouver l’original ; le partage transmet le média sélectionné.
+
+Auto facilite l’orientation et la gestion des réglages disponibles ; il ne fournit pas de clé API et ne supprime pas les contraintes matérielles. Les rangées du tableau de bord reviennent à la ligne lorsque l’espace manque. Sur une petite fenêtre, certains outils restent accessibles dans leur menu regroupé.
+
+### Quel modèle sert à quoi ?
+
+| Fonction | Modèle ou composants du parcours local | À comprendre |
+| --- | --- | --- |
+| Conversation | Modèle de texte sélectionné, par exemple Nemotron-3.5-Bolt-E4B | Rédaction, compréhension et réponses textuelles. |
+| Recherche dans les documents | Modèle d’embeddings, par exemple Qwen3-Embedding 0.6B | Représentation des textes pour la recherche ; ce n’est pas un générateur d’image. |
+| Image | FLUX.2 Klein 4B, encodeur Qwen3-4B et VAE correspondant | Le générateur, l’encodeur et le VAE ont des rôles complémentaires. La note commune des Configurations précise désormais que cet ensemble sert à l’image. |
+| Musique | ACE-Step 1.5 Turbo, planificateur, encodeur et VAE dédiés | Le texte peut décrire le style et fournir des paroles ; vérifiez le choix Instrumental. |
+| Vidéo | Wan2.1 T2V 1.3B, encodeur UMT5 et VAE correspondant | La résolution, le nombre d’images et la cadence influencent la charge et la durée du clip. |
+| Agrandissement d’image | RealESRGAN, selon les fichiers installés | Traitement supplémentaire pour augmenter la taille d’une image. |
+
+Les noms ci-dessus décrivent le parcours présenté par Novera, pas une liste de tous les modèles compatibles. Les choix réels restent ceux de vos réglages et du catalogue. Les besoins dépendent aussi de la précision, de la taille de sortie et de la mémoire déjà occupée.
+
+**RAM** désigne la mémoire principale de la machine ; **VRAM**, celle du processeur graphique. L’**encodeur** prépare la consigne pour le générateur ; le **VAE** participe à la conversion des représentations vers le média final. Le réglage de mémoire automatique adapte la gestion disponible ; il ne crée pas de mémoire supplémentaire.
+
+### Local ou cloud
+
+Le moteur local utilise les composants installés sur votre machine. Un modèle cloud envoie la demande au fournisseur choisi ; celui-ci impose son accès au modèle, ses quotas, crédits, formats et conditions. Consultez votre compte avant de lancer plusieurs résultats. La clé se règle dans le profil du fournisseur ; ne la copiez pas dans une demande ou une capture publique.
+
+Une clé valide pour la conversation ne garantit pas l’accès aux modèles d’image, de musique ou de vidéo. Le fournisseur et le modèle doivent correspondre à la fonction sélectionnée. Le dépôt présente leurs noms et icônes dans le tableau des fournisseurs multimédias ; cette présentation n’implique pas de partenariat.
+
+### Comprendre les commandes
+
+| Commande | Effet et conseil |
+| --- | --- |
+| Ratio | Forme du cadre, par exemple 21:9 ; à distinguer du nombre de pixels. |
+| Résolution | Dimensions en pixels ; les augmenter peut accroître le temps de calcul et la mémoire nécessaire. |
+| Agrandissement | Ajoute un traitement pour agrandir l’image ; la taille finale et le temps total peuvent augmenter. |
+| Graine | Valeur qui contrôle une partie de l’aléatoire. Fixez-la pour comparer des essais dans un environnement identique ; une reproduction exacte entre moteurs ou versions n’est pas garantie. |
+| Quantité | De **1 à 10**, **1 par défaut**, réglage indépendant pour Image, Musique et Vidéo. Les résultats sont demandés successivement ; le temps et les frais cloud éventuels peuvent augmenter. |
+| Durée du média | Longueur de la musique ou du clip ; les limites dépendent du moteur. Un choix manuel valide reste prioritaire sur l’interprétation automatique du texte. |
+| Images / FPS | Nombre d’images et cadence vidéo. Ils participent à la durée du clip et à la charge de génération. |
+| Instrumental | Demande une musique sans chant lorsqu’il est activé. Pour chanter, désactivez-le et fournissez les paroles souhaitées. |
+
+Le profil musical recommandé actuel active **Instrumental**. Vous pouvez le désactiver pour demander une chanson avec voix. Les choix déjà enregistrés dans vos profils sont conservés ; un réglage existant peut donc différer de la recommandation initiale.
+
+### Les temps affichés restent des informations du résultat
+
+Le **temps de génération** indique la phase de calcul lorsqu’elle est mesurée. Le **temps total** couvre le parcours mesuré jusqu’au résultat ; il peut inclure préparation et traitements complémentaires. Aucun de ces temps n’est la durée de lecture d’une musique ou d’une vidéo.
+
+Les nouveaux résultats conservent leurs temps avec l’historique, séparément pour chaque fichier. Après redémarrage, ils sont réaffichés. Pour les anciens résultats, Novera peut récupérer les valeurs encore présentes dans le fichier d’informations associé ; si elles n’ont jamais été enregistrées ou ne sont plus disponibles, aucune durée n’est inventée. Gardez le média et ses fichiers associés à leur emplacement pour conserver cet accès.
+
+### Si une génération échoue
+
+Le message doit conserver le détail utile de l’erreur. Une erreur de mémoire ou d’écriture ne doit plus être remplacée systématiquement par une invitation à configurer un modèle.
+
+| Situation signalée | Vérification utile |
+| --- | --- |
+| Modèle ou composant manquant | Ouvrez Configurations, vérifiez le moteur sélectionné et ses fichiers requis. Attendez la fin du téléchargement. |
+| Clé, accès ou quota cloud | Vérifiez le profil du bon fournisseur, l’accès au modèle et les crédits. Un nouvel essai peut être facturé selon le fournisseur. |
+| Mémoire insuffisante | Réduisez la résolution ou la charge de génération, fermez les applications gourmandes et vérifiez les réglages mémoire. |
+| Impossible d’enregistrer / disque plein | Vérifiez l’espace libre et l’accès au dossier de sortie. Un calcul terminé ne signifie pas que son fichier a pu être écrit. |
+| Fichier ancien indisponible | Vérifiez qu’il n’a pas été déplacé ou supprimé ; la référence de l’historique ne remplace pas le fichier original. |
+| Réseau ou service distant indisponible | Vérifiez la connexion et l’état de votre fournisseur avant de relancer. |
+
+Pour demander de l’aide, indiquez le mode, le modèle, les réglages principaux et le détail affiché, en retirant toute donnée personnelle. Ne transmettez jamais votre clé API. Les correctifs de diagnostic n’assurent pas la réussite d’une génération sur toute machine : ils permettent de comprendre et traiter sa cause réelle.
+
 ## Coller des paroles en mode Auto — 28 octobre 2026
 
 Vous pouvez coller une chanson structurée qui commence directement par `[Intro]`, puis comporte par exemple `[Verse]`, `[Chorus]`, `[Bridge]` et `[Outro]`, avec vos lignes sous chaque balise. Auto l'oriente vers Musique. Un titre et un en-tête Paroles sont facultatifs ; une description « Style & ambiance » peut être ajoutée séparément dans le même texte. Les sections chantées sont envoyées comme paroles, la description comme consigne musicale. Le réglage Instrumental explicite reste pris en compte.

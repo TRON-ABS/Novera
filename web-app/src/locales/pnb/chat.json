@@ -72,7 +72,7 @@
     "setupImageNote": "تصویر — FLUX.2 Klein 4B · Q4_K_M. متن: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. پاسیاں دا تناسب: 21:9; ریزولوشن: 1024 × 432; نسل دے اقدامات: 4; سیڈ موڈ: بے ترتیب.",
     "setupMusicNote": "موسیقی — ACE-Step 1.5 Turbo. موسیقی بناؤن والا: 2B · Q4_K_M; موسیقی دا منصوبہ ساز: 1.7B · Q8_0; متن: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. موسیقی دا دورانیہ: 10–600 s; آڈیو دا معیار: 48 kHz · 2.0; سازاں دی موسیقی / گانے دے بول; بے ترتیب.",
     "setupVideoNote": "ویڈیو — Wan2.1 T2V 1.3B · Q4_K_M. متن: UMT5-XXL · Q4_K_M. ویڈیو دا دورانیہ: 5 s; پاسیاں دا تناسب: 21:9; فریم فی سیکنڈ: 16. لمیاں ویڈیواں چھوٹے کلپ جوڑ کے بنائیاں جاندیاں نیں۔ جوڑ نظر آ سکدے نیں تے بناؤن وچ کافی ویلا لگ سکدا اے۔ · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "Recommended models (Nemotron for text, Qwen3-Embedding Q8_0 for multilingual retrieval (CPU by default), FLUX.2 Klein 4B and its components, Real-ESRGAN ×2/×4, ACE-Step for music (Instrumental on by default), and Wan2.1 for video) download aur configure karde ne. File sizes, disk space, aur video prerequisites neeche check karo. Alag downloads aur Browse maujood hain.",
+    "setupAllNote": "Recommended models (Nemotron for text, Qwen3-Embedding Q8_0 for multilingual retrieval (CPU by default), FLUX.2 Klein 4B (تصویر) and its components, Real-ESRGAN ×2/×4, ACE-Step for music (Instrumental on by default), and Wan2.1 for video) download aur configure karde ne. File sizes, disk space, aur video prerequisites neeche check karo. Alag downloads aur Browse maujood hain.",
     "finalizing": "ویڈیو نوں آخری شکل دتی جا رہی اے",
     "videoDuration": "ویڈیو دا دورانیہ",
     "videoDurationNote": "لمیاں ویڈیواں چھوٹے کلپ جوڑ کے بنائیاں جاندیاں نیں۔ جوڑ نظر آ سکدے نیں تے بناؤن وچ کافی ویلا لگ سکدا اے۔",

@@ -97,7 +97,7 @@ export function musicCloudStream(
         const saved = await invoke<{ name: string; mediaType: string }>(
           'creation_cloud_save',
           {
-            result: {
+            request: {
               id,
               task: 'music',
               provider: provider.provider,

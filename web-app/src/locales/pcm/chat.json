@@ -72,7 +72,7 @@
     "setupImageNote": "Picture — FLUX.2 Klein 4B · Q4_K_M. Text: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Aspect ratio: 21:9; Resolution: 1024 × 432; Steps to create am: 4; Seed mode: Random.",
     "setupMusicNote": "Music — ACE-Step 1.5 Turbo. Music maker: 2B · Q4_K_M; Music planner: 1.7B · Q8_0; Text: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Music length: 10–600 s; Audio quality: 48 kHz · 2.0; Only instruments / Song words; Random.",
     "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Text: UMT5-XXL · Q4_K_M. Video length: 5 s; Aspect ratio: 21:9; Frames for one second: 16. Na short clips dem dey join to make long video. You fit see where dem join, and e fit take long time to create. · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "Downloads and configures recommended models: Nemotron for text, Qwen3-Embedding Q8_0 for multilingual retrieval (CPU by default), FLUX.2 Klein 4B and its components, Real-ESRGAN ×2/×4, ACE-Step for music (Instrumental on by default), and Wan2.1 for video. Check file sizes, disk space and video prerequisites below. Separate downloads and Browse still dey available.",
+    "setupAllNote": "Downloads and configures recommended models: Nemotron for text, Qwen3-Embedding Q8_0 for multilingual retrieval (CPU by default), FLUX.2 Klein 4B (Picture) and its components, Real-ESRGAN ×2/×4, ACE-Step for music (Instrumental on by default), and Wan2.1 for video. Check file sizes, disk space and video prerequisites below. Separate downloads and Browse still dey available.",
     "finalizing": "Dey finish the video",
     "videoDuration": "Video length",
     "videoDurationNote": "Na short clips dem dey join to make long video. You fit see where dem join, and e fit take long time to create.",

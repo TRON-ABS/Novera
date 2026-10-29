@@ -1073,6 +1073,55 @@ pub fn creation_resolve(task: String, name: String) -> Result<String, String> {
     Ok(resolve(&task, &name)?.to_string_lossy().to_string())
 }
 
+fn public_creation_info(metadata: &Value) -> Value {
+    let milliseconds = |key: &str| metadata.get(key).and_then(Value::as_f64)
+        .filter(|seconds| seconds.is_finite() && (0.0..=604800.0).contains(seconds))
+        .map(|seconds| seconds * 1000.0);
+    let Some(total) = milliseconds("total_seconds") else { return Value::Null };
+    let mut info = json!({"totalMs": total});
+    if let Some(generation) = milliseconds("generation_seconds").filter(|value| *value <= total) {
+        info["generationMs"] = json!(generation);
+    }
+    if let Some(seed) = metadata.get("seed").and_then(Value::as_u64).filter(|value| *value <= u32::MAX as u64) {
+        info["seed"] = json!(seed);
+    }
+    info
+}
+
+/// Recover recorded timings for older history without exposing the prompt or model paths.
+#[tauri::command]
+pub fn creation_info(task: String, name: String) -> Result<Value, String> {
+    use std::io::Read;
+    let file = resolve(&task, &name)?;
+    let extension = file.extension().and_then(|value| value.to_str()).unwrap_or("");
+    let candidate = file.with_extension(format!("{extension}.json"));
+    let sidecar = match candidate.canonicalize() {
+        Ok(path) if file.parent().is_some_and(|parent| path.starts_with(parent)) => path,
+        _ => return Ok(Value::Null),
+    };
+    let Ok(source) = std::fs::File::open(sidecar) else { return Ok(Value::Null) };
+    let mut text = String::new();
+    if source.take(131073).read_to_string(&mut text).is_err() || text.len() > 131072 {
+        return Ok(Value::Null);
+    }
+    Ok(serde_json::from_str::<Value>(&text).ok().map(|metadata| public_creation_info(&metadata)).unwrap_or(Value::Null))
+}
+
+#[cfg(test)]
+mod persisted_creation_info_tests {
+    use super::*;
+    #[test]
+    fn returns_only_recorded_numeric_information() {
+        assert_eq!(public_creation_info(&json!({"total_seconds":36.25,"generation_seconds":30,"seed":0,"prompt":"private text","model":"private path"})), json!({"totalMs":36250.0,"generationMs":30000.0,"seed":0}));
+    }
+    #[test]
+    fn does_not_invent_old_or_invalid_timings() {
+        assert!(public_creation_info(&json!({"seed":42})).is_null());
+        assert!(public_creation_info(&json!({"total_seconds":-1})).is_null());
+        assert_eq!(public_creation_info(&json!({"total_seconds":2,"generation_seconds":3})),json!({"totalMs":2000.0}));
+    }
+}
+
 #[tauri::command]
 pub fn creation_image_input(name: String) -> Result<String, String> {
     use base64::Engine;

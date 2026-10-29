@@ -24,7 +24,10 @@ export function GeneratedCreation({
   timing?: unknown
 }) {
   const { t, i18n } = useTranslation()
-  const duration = creationTiming(timing)
+  const currentDuration = creationTiming(timing)
+  const [recordedInfo, setRecordedInfo] = useState<{ url: string; value: unknown }>()
+  const duration = currentDuration ?? (recordedInfo?.url === url ? creationTiming(recordedInfo.value) : undefined)
+  const hasCurrentDuration = !!currentDuration
   const locale = intlLocale(i18n?.language ?? 'en')
   const service = useServiceHub()
   const [file, setFile] = useState<{ path: string; src: string }>()
@@ -35,6 +38,16 @@ export function GeneratedCreation({
     threadId ? !!state.progress[threadId] : false
   )
   const reference = parseCreationReference(url)
+  useEffect(() => {
+    if (hasCurrentDuration) return
+    const reference = parseCreationReference(url)
+    if (!reference) return
+    let active = true
+    void service.core().invoke<unknown>('creation_info', reference)
+      .then(value => { if (active) setRecordedInfo({ url, value }) })
+      .catch(() => { /* Older binaries or files may have no recorded timing. */ })
+    return () => { active = false }
+  }, [url, service, hasCurrentDuration])
   useEffect(() => {
     let active = true
     setFile(undefined)
