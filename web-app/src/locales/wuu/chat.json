@@ -72,7 +72,7 @@
     "setupImageNote": "图像 — FLUX.2 Klein 4B · Q4_K_M. 正文: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. 纵横比: 21:9; 分辨率: 1024 × 432; 生成步骤: 4; 种子模式: 随机.",
     "setupMusicNote": "音乐 — ACE-Step 1.5 Turbo. 音乐生成模型: 2B · Q4_K_M; 音乐规划模型: 1.7B · Q8_0; 正文: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. 音乐时长: 10–600 s; 音频质量: 48 kHz · 2.0; 纯音乐 / 歌词; 随机.",
     "setupVideoNote": "视频 — Wan2.1 T2V 1.3B · Q4_K_M. 正文: UMT5-XXL · Q4_K_M. 视频时长: 5 s; 纵横比: 21:9; 每秒帧数: 16. 长视频是短片段拼起来个。接头可能看得出，生成可能要蛮长辰光。 · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "下载搭配置推荐模型：文本用 Nemotron，多语言检索用 Qwen3-Embedding Q8_0（默认 CPU），FLUX.2 Klein 4B (图像) 搭伊个组件，Real-ESRGAN ×2/×4，音乐用 ACE-Step，视频用 Wan2.1。看看文件大小、磁盘空间搭视频前提条件。单独下载搭浏览功能侪有。",
+    "setupAllNote": "下载搭配置推荐模型：文本用 Nemotron，多语言检索用 Qwen3-Embedding Q8_0（默认 CPU），FLUX.2 Klein 4B (图像) 搭伊个组件，Real-ESRGAN ×2/×4，音乐用 ACE-Step（默认器乐），视频用 Wan2.1。看看文件大小、磁盘空间搭视频前提条件。单独下载搭浏览功能侪有。",
     "finalizing": "视频完成处理中",
     "videoDuration": "视频时长",
     "videoDurationNote": "长视频是短片段拼起来个。接头可能看得出，生成可能要蛮长辰光。",

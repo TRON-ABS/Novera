@@ -72,7 +72,7 @@
     "setupImageNote": "Wêne — FLUX.2 Klein 4B · Q4_K_M. Nivîs: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Rêjeya aspect: 21:9; Resolution: 1024 × 432; gavên nifş: 4; Moda tovê: Tesadufî.",
     "setupMusicNote": "Muzîk — ACE-Step 1.5 Turbo. Afirînerê muzîkê: 2B · Q4_K_M; Plansazê muzîkê: 1.7B · Q8_0; Nivîs: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Dirêjahiya muzîkê: 10–600 s; Kalîteya deng: 48 kHz · 2.0; Enstrumantal / Gotinên stranê; Tesadufî.",
     "setupVideoNote": "Vîdyo — Wan2.1 T2V 1.3B · Q4_K_M. Nivîs: UMT5-XXL · Q4_K_M. Dirêjahiya vîdyoyê: 5 s; Rêjeya aspect: 21:9; Çarçove di çirkekê de: 16. Vîdyoyên dirêj ji klîpên kurt tên girêdan. Cihên girêdanê dibe ku xuya bibin û afirandin demeke dirêj bigire. · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "Dîrokirina û çêkirina modelên pêşniyarkirî: Nemotron ji bo nivîsê, Qwen3-Embedding Q8_0 ji bo wergirtina pirzimanî (CPU bi xwerûyê ve), FLUX.2 Klein 4B (Wêne) û beşên wê, Real-ESRGAN ×2/×4, ACE-Step ji bo muzîk, û Wan2.1 ji bo vîdyo. Pirsa asta lêker, belperîka disk û pêdivîstên vîdyo li jêr kontrol bikin. Dîrokirin û Browse alîkariya xwe didin.",
+    "setupAllNote": "Dîrokirina û çêkirina modelên pêşniyarkirî: Nemotron ji bo nivîsê, Qwen3-Embedding Q8_0 ji bo wergirtina pirzimanî (CPU bi xwerûyê ve), FLUX.2 Klein 4B (Wêne) û beşên wê, Real-ESRGAN ×2/×4, ACE-Step ji bo muzîk (Instrumental bi xwerûyê ve), û Wan2.1 ji bo vîdyo. Pirsa asta lêker, belperîka disk û pêdivîstên vîdyo li jêr kontrol bikin. Dîrokirin û Browse alîkariya xwe didin.",
     "finalizing": "Vîdyo tê temamkirin",
     "videoDuration": "Dirêjahiya vîdyoyê",
     "videoDurationNote": "Vîdyoyên dirêj ji klîpên kurt tên girêdan. Cihên girêdanê dibe ku xuya bibin û afirandin demeke dirêj bigire.",

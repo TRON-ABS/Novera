@@ -196,7 +196,7 @@ La vitrine est actualisée sans nouvelle compilation. Les canaux de distribution
 
 ## Documentation et contribution
 
-- [Guide utilisateur](docs/USER_GUIDE.md), [modèles et moteurs](docs/SUIVI_MOTEURS.md).
+- [Guide utilisateur détaillé](docs/USER_GUIDE.md), [règles d’or du produit et de l’information utilisateur](docs/REGLES_D_OR.md), [modèles et moteurs](docs/SUIVI_MOTEURS.md).
 - [Développement](docs/DEVELOPMENT.md), [construction et distribution](docs/BUILD_AND_RELEASE.md).
 - [Tableau de bord du projet](TABLEAU_DE_BORD_NOVERA.md), [feuille de route](ROADMAP.md), [historique](docs/CHANGELOG.md).
 - [Contribuer](CONTRIBUTING.md) : code, tests, relecture des 80 langues et retours sur les parcours réels.

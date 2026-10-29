@@ -8,7 +8,7 @@ Persist measured timing and seed information per media file in conversation meta
 
 Preserve the actual unexpected error with configured API keys redacted and an existing translated memory hint when appropriate. Keep preflight setup errors and cancellation handling. Fix a concrete cloud-music invocation mismatch: `creation_cloud_save` expects `request`, whereas its caller supplied `result`. This resolves that contract error; it does not prove the cause of every intermittent GPU or provider failure.
 
-Clarify FLUX.2 Klein 4B's image role in all 80 setup notes and remove their obsolete Instrumental-enabled-by-default claim. Reuse existing translated keys. Add official bundled provider icons to all 20 media-provider rows in both README versions. Expand the user guide with startup, model/component roles, local/cloud prerequisites, controls, quantity, measured times and actionable troubleshooting. Add the maintainer's detailed product and user-information golden rules in `docs/REGLES_D_OR.md`, referenced from `NOVERA.md`.
+Clarify FLUX.2 Klein 4B's image role in all 80 setup notes. Preserve the current Instrumental recommendation and saved user choices. Reuse existing translated keys. Add official bundled provider icons to all 20 media-provider rows in both README versions. Expand the user guide with startup, model/component roles, local/cloud prerequisites, controls, quantity, measured times and actionable troubleshooting. Add the maintainer's detailed product and user-information golden rules in `docs/REGLES_D_OR.md`, referenced from `NOVERA.md`.
 
 ### Reproduction and evidence
 
@@ -31,7 +31,7 @@ Clarify FLUX.2 Klein 4B's image role in all 80 setup notes and remove their obso
 
 The maintainer will compile the application. No application/extension build, paid generation, new binary, native runtime test, CI approval or cross-device certification is claimed. A standalone layout fixture was prepared, but browser visual verification is unavailable: the in-app browser cannot reach the local server and its URL policy rejects a self-contained data URL. Small-screen, zoom and RTL behavior still require visual confirmation in the compiled app. Structural checks do not certify linguistic quality in every language. Old results recover times only when recorded information still exists.
 
-PR #1 is already merged and is the base; this follow-up does not depend on another unmerged PR or close an issue. No known overlapping PR is identified. Branch protection remains unchanged; the owner's bypass authorization for PR #1 does not authorize a bypass for this follow-up.
+PR #1 is already merged and is the base; this follow-up is PR #2 and does not depend on another unmerged PR or close an issue. No known overlapping PR is identified. The source branch is published; GitHub blocks merging into the protected main branch. Branch protection remains unchanged; the owner's bypass authorization for PR #1 does not authorize a bypass for this follow-up.
 
 ---
 

@@ -72,7 +72,7 @@
     "setupImageNote": "Foto — FLUX.2 Klein 4B · Q4_K_M. Ederede: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Akụkụ akụkụ: 21:9; Mkpebi: 1024 × 432; Usoro nke ọgbọ: 4; Ụdị mkpụrụ: Na-enweghị usoro.",
     "setupMusicNote": "Egwu — ACE-Step 1.5 Turbo. Onye na-emepụta egwu: 2B · Q4_K_M; Onye na-ahazi egwu: 1.7B · Q8_0; Ederede: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Ogologo egwu: 10–600 s; Ogo ụda: 48 kHz · 2.0; Egwu akụrụngwa / Okwu abụ; Na-enweghị usoro.",
     "setupVideoNote": "Vidiyo — Wan2.1 T2V 1.3B · Q4_K_M. Ederede: UMT5-XXL · Q4_K_M. Ogologo vidio: 5 s; Akụkụ akụkụ: 21:9; Frames kwa nkeji: 16. A na-ejikọta obere klip mee vidio ogologo. Njikọ nwere ike ịpụta, imepụta ya nwekwara ike iwe ogologo oge. · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "Ịtụta na ịgbanwe ụdị ndị a kpọrọ: Nemotron maka tekst, Qwen3-Embedding Q8_0 maka ịkpọta ọrịa ọtụtụ asụsụ (CPU banyere ndabara), FLUX.2 Klein 4B (Foto) na ụdị ndị a, Real-ESRGAN ×2/×4, ACE-Step maka nhạc, na Wan2.1 maka video. Lelee ọnụ ọnụ file, ọnụ disk, na ihe ndị dị mkpa maka video n'ihu. Ịtụta na Browse dị n'ebe dị iche.",
+    "setupAllNote": "Ịtụta na ịgbanwe ụdị ndị a kpọrọ: Nemotron maka tekst, Qwen3-Embedding Q8_0 maka ịkpọta ọrịa ọtụtụ asụsụ (CPU banyere ndabara), FLUX.2 Klein 4B (Foto) na ụdị ndị a, Real-ESRGAN ×2/×4, ACE-Step maka nhạc (Instrumental banyere ndabara), na Wan2.1 maka video. Lelee ọnụ ọnụ file, ọnụ disk, na ihe ndị dị mkpa maka video n'ihu. Ịtụta na Browse dị n'ebe dị iche.",
     "finalizing": "A na-emecha vidio",
     "videoDuration": "Ogologo vidio",
     "videoDurationNote": "A na-ejikọta obere klip mee vidio ogologo. Njikọ nwere ike ịpụta, imepụta ya nwekwara ike iwe ogologo oge.",

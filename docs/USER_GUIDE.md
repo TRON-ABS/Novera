@@ -2,7 +2,7 @@
 
 ## Informations utilisateur — tableau de bord et créations, 29 octobre 2026
 
-Cette section décrit les sources mises à jour ; leur présence dans votre application dépend de sa compilation avec ces sources. Les [règles d’or](REGLES_D_OR.md) imposent une information claire dans les 80 langues pour les fonctions de Novera. La traduction structurelle ne remplace pas une relecture par des locuteurs de chaque langue.
+Cette section décrit les sources mises à jour ; leur présence dans votre application dépend de sa compilation avec ces sources. Les [règles d’or](REGLES_D_OR.md) imposent une information claire dans les 80 langues pour les fonctions de Novera. La traduction structurelle ne remplace pas une relecture par des locuteurs de chaque langue. Les notes datées qui suivent cette section décrivent des états antérieurs ; cette section présente le fonctionnement courant.
 
 ### Du démarrage au premier résultat
 
@@ -47,6 +47,8 @@ Une clé valide pour la conversation ne garantit pas l’accès aux modèles d�
 | Durée du média | Longueur de la musique ou du clip ; les limites dépendent du moteur. Un choix manuel valide reste prioritaire sur l’interprétation automatique du texte. |
 | Images / FPS | Nombre d’images et cadence vidéo. Ils participent à la durée du clip et à la charge de génération. |
 | Instrumental | Demande une musique sans chant lorsqu’il est activé. Pour chanter, désactivez-le et fournissez les paroles souhaitées. |
+
+Le profil musical recommandé actuel active **Instrumental**. Vous pouvez le désactiver pour demander une chanson avec voix. Les choix déjà enregistrés dans vos profils sont conservés ; un réglage existant peut donc différer de la recommandation initiale.
 
 ### Les temps affichés restent des informations du résultat
 

@@ -196,7 +196,7 @@ This showcase update does not compile a new application. Distribution channels a
 
 ## Documentation and contributions
 
-- [User guide](docs/USER_GUIDE.md), [models and engines](docs/SUIVI_MOTEURS.md).
+- [Detailed user guide](docs/USER_GUIDE.md), [product and user-information golden rules (French)](docs/REGLES_D_OR.md), [models and engines](docs/SUIVI_MOTEURS.md).
 - [Development](docs/DEVELOPMENT.md), [build and release guide](docs/BUILD_AND_RELEASE.md).
 - [Project dashboard](TABLEAU_DE_BORD_NOVERA.md), [roadmap](ROADMAP.md), [changelog](docs/CHANGELOG.md).
 - [Contributing](CONTRIBUTING.md): code, tests, native review across 80 languages and real workflow feedback.
