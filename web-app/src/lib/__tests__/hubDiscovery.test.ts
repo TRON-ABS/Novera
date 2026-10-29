@@ -2,9 +2,18 @@ import { describe, it, expect } from 'vitest'
 import { NOVERA_HUB_MODELS, mergeHubCatalog, hubSizeMatches, hubWeight, sortHubModels, hubMemory, HUB_SIZE_BANDS, hubHardwareSnapshot, hubMemoryOptions } from '../hubDiscovery'
 import type { CatalogModel } from '@/services/models/types'
 import type { HardwareData } from '@/hooks/useHardware'
+import { diagnoseHubModel } from '@/modules/engines/hub-catalog'
 const hardware = { total_memory: 16384, cpu: { arch: 'x86_64' }, gpus: [], os_type: 'windows' } as unknown as HardwareData
 const model = (size?: string): CatalogModel => ({ model_name: 'Other', developer: 'Other', downloads: 1, description: '', quants: size ? [{ model_id: 'Other-Q4_K_M', file_size: size, path: '' }] : [] })
 describe('Novera Hub discovery', () => {
+  it('does not report the screenshot 731 MB model or LFM3 as insufficient when RTX VRAM is available', () => {
+    const pc = { ...hardware, total_memory: 15789, gpus: [{ name: 'NVIDIA GeForce RTX 5070 Laptop GPU', vendor: 'NVIDIA', uuid: 'rtx', total_memory: 8151 }] } as HardwareData
+    const usage = { cpu: 0, total_memory: 15789, used_memory: 13778, gpus: [{ uuid: 'rtx', total_memory: 8151, used_memory: 4769 }] }
+    const snapshot = hubHardwareSnapshot(pc, usage)
+    for (const candidate of [model('730.9 MB'), NOVERA_HUB_MODELS.find(m => m.model_name === 'LFM3-1.7B')!]) {
+      expect(diagnoseHubModel(candidate, snapshot, hubMemoryOptions(candidate)).memory).toBe('fits')
+    }
+  })
   it('changes hardware ranking when live free memory drops and includes projector sizes', () => {
     const official = { ...model('6 GB'), developer: 'Qwen' }
     const tiny = { ...model('800 MB'), developer: 'community' }
@@ -50,8 +59,8 @@ describe('Novera Hub discovery', () => {
     const mlx = { ...model('1 GB'), is_mlx: true }
     expect(sortHubModels([huge, mlx, fit], 'adapted', hardware)).toEqual([fit, huge, mlx])
   })
-  it('makes six pinned, usable text GGUF models available without a network feed', () => {
-    expect(mergeHubCatalog([])).toHaveLength(6)
+  it('makes seven pinned, usable text GGUF models available without a network feed', () => {
+    expect(mergeHubCatalog([])).toHaveLength(7)
     for (const m of NOVERA_HUB_MODELS) {
       expect(m.quants?.length).toBeGreaterThan(0)
       expect(hubWeight(m)).toBeGreaterThan(1e8)
@@ -63,7 +72,7 @@ describe('Novera Hub discovery', () => {
   it('replaces inherited duplicates without confusing publishers and formats', () => {
     const m = NOVERA_HUB_MODELS[0]
     const merged = mergeHubCatalog([{ ...m, hub: undefined, model_name: m.model_name + '-GGUF' }, { ...m, developer: 'Other', hub: { ...m.hub!, repo: `Other/${m.model_name}` } }, { ...m, is_mlx: true }])
-    expect(merged).toHaveLength(8)
+    expect(merged).toHaveLength(9)
     expect(merged[0].hub).toBeDefined()
   })
   it('sorts actual selected downloads numerically and unknown sizes last', () => {
@@ -81,7 +90,7 @@ describe('Novera Hub discovery', () => {
   it('does not promote Jan by brand or downloads and uses memory fit before curation', () => {
     const jan = { ...model('40 GB'), developer: 'Jan', model_name: 'Jan', downloads: 1e10 }
     const sorted = sortHubModels(mergeHubCatalog([jan]), 'adapted', hardware)
-    expect(sorted[0].model_name).toBe('LFM2.5-1.2B-Instruct')
+    expect(sorted[0].model_name).toBe('LFM3-1.7B')
     expect(sorted.at(-1)?.developer).toBe('Jan')
     const tinyPC = { ...hardware, total_memory: 2500 }
     expect(sortHubModels(mergeHubCatalog([]),'adapted',tinyPC)[0].model_name).toBe('LFM2.5-230M')

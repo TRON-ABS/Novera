@@ -184,7 +184,9 @@ export const useHardware = create<HardwareStore>()(
             },
             gpus: data.gpus.map((gpu) => ({
               ...gpu,
-              activated: gpu.activated ?? false,
+              // The hardware plugin detects physical GPUs; activation belongs
+              // to the engine's device list. Do not invent an inactive state.
+              activated: gpu.activated,
             })),
           },
         }),
@@ -212,6 +214,18 @@ export const useHardware = create<HardwareStore>()(
       name: localStorageKey.settingHardware,
       storage: createJSONStorage(() => backendStorage),
       skipHydration: true,
+      // Usage is a live sample, not a setting to restore after a restart.
+      version: 1,
+      migrate: (persisted) => {
+        const previous = persisted as Partial<HardwareStore>
+        return { ...previous,
+          hardwareData: previous.hardwareData ? { ...previous.hardwareData,
+            gpus: previous.hardwareData.gpus.map(gpu => ({ ...gpu, activated: undefined })),
+          } : defaultHardwareData,
+          systemUsage: defaultSystemUsage,
+        }
+      },
+      partialize: (state) => ({ hardwareData: state.hardwareData }),
     }
   )
 )

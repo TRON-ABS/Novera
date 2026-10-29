@@ -30,10 +30,10 @@ describe('direct Hugging Face discovery', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(7) // five lists + two unique details
   })
 
-  it('retains six pinned presets and deduplicates their complete HF repository IDs', () => {
+  it('retains seven pinned presets and deduplicates their complete HF repository IDs', () => {
     const converted = new DefaultModelsService().convertHfRepoToCatalogModel(repo('LiquidAI', 'LFM2.5-230M-GGUF'))
     const merged = mergeHubCatalog([converted])
-    expect(merged).toHaveLength(6)
+    expect(merged).toHaveLength(7)
     expect(merged).toEqual(NOVERA_HUB_MODELS)
   })
 

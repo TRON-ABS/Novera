@@ -67,18 +67,70 @@ fn write_models(directory: &Path, models: &[Model]) -> Result<(), String> {
     std::fs::write(directory.join("models.json"), data).map_err(|e| e.to_string())
 }
 
+fn inspect_quantization(config: &serde_json::Value) -> Result<(), String> {
+    let Some(quant) = config.get("quantization_config").filter(|v| !v.is_null()) else {
+        return Ok(());
+    };
+    let quant = quant
+        .as_object()
+        .ok_or("quantization_config must be an object")?;
+    let valid = match quant.get("quant_method").and_then(|v| v.as_str()) {
+        Some("awq") => {
+            quant.get("bits").and_then(|v| v.as_u64()) == Some(4)
+                && quant.get("version").map_or(true, |v| {
+                    v.as_str().is_some_and(|s| s.eq_ignore_ascii_case("gemm"))
+                })
+                && quant
+                    .get("do_fuse")
+                    .map_or(true, |v| v.as_bool() == Some(false))
+        }
+        Some("gptq") => {
+            quant
+                .get("bits")
+                .and_then(|v| v.as_u64())
+                .is_some_and(|v| [2, 3, 4, 8].contains(&v))
+                && quant
+                    .get("checkpoint_format")
+                    .map_or(true, |v| matches!(v.as_str(), Some("gptq" | "gptq_v2")))
+        }
+        Some("bitsandbytes") => {
+            let flag = |bits| -> Option<bool> {
+                let plain = quant.get(&format!("load_in_{bits}bit"));
+                let private = quant.get(&format!("_load_in_{bits}bit"));
+                let value = plain.or(private).map_or(Some(false), |v| v.as_bool());
+                if private.is_some_and(|v| v.as_bool() != value) {
+                    None
+                } else {
+                    value
+                }
+            };
+            matches!(
+                (flag(4), flag(8)),
+                (Some(true), Some(false)) | (Some(false), Some(true))
+            ) && quant
+                .get("llm_int8_enable_fp32_cpu_offload")
+                .map_or(true, |v| v.as_bool() == Some(false))
+                && (flag(4) != Some(true)
+                    || quant
+                        .get("bnb_4bit_quant_type")
+                        .map_or(true, |v| matches!(v.as_str(), Some("fp4" | "nf4"))))
+        }
+        _ => false,
+    };
+    if valid {
+        Ok(())
+    } else {
+        Err("Unsupported or invalid quantization configuration. Supported: AWQ GEMM 4-bit, GPTQ 2/3/4/8-bit, bitsandbytes 4/8-bit; CUDA and optional loaders required.".into())
+    }
+}
+
 fn inspect(path: &Path) -> Result<u64, String> {
     let read_json = |name: &str| -> Result<serde_json::Value, String> {
         serde_json::from_slice(&std::fs::read(path.join(name)).map_err(|e| format!("{name}: {e}"))?)
             .map_err(|e| e.to_string())
     };
     let config = read_json("config.json")?;
-    if config
-        .get("quantization_config")
-        .is_some_and(|v| !v.is_null())
-    {
-        return Err("Quantized AWQ/GPTQ/MLX models are not supported by this engine".into());
-    }
+    inspect_quantization(&config)?;
     if ![
         "tokenizer.json",
         "tokenizer.model",
@@ -272,6 +324,7 @@ pub async fn transformers_load<R: Runtime>(
         .env("TORCHINDUCTOR_CACHE_DIR", directory.join("torch-cache"))
         .env("HF_HUB_OFFLINE", "1")
         .env("TRANSFORMERS_OFFLINE", "1")
+        .env("TORCHDYNAMO_DISABLE", "1")
         .stdout(Stdio::null())
         .stderr(log)
         .kill_on_drop(true);
@@ -358,6 +411,7 @@ pub async fn transformers_probe<R: Runtime>(
         .arg("--probe")
         .env("HF_HUB_OFFLINE", "1")
         .env("TRANSFORMERS_OFFLINE", "1")
+        .env("TORCHDYNAMO_DISABLE", "1")
         .env("TORCHINDUCTOR_CACHE_DIR", directory.join("torch-cache"))
         .kill_on_drop(true);
     #[cfg(windows)]
@@ -383,6 +437,21 @@ pub async fn transformers_probe<R: Runtime>(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn shares_quantization_policy_with_python_and_hub() {
+        let cases: Vec<serde_json::Value> = serde_json::from_str(include_str!(
+            "../../../transformers-server/quantization-cases.json"
+        ))
+        .unwrap();
+        for case in cases {
+            assert_eq!(
+                inspect_quantization(&case["config"]).is_err(),
+                case["expected"] == "unsupported",
+                "{}",
+                case["name"]
+            );
+        }
+    }
     #[tokio::test]
     #[ignore = "Requires NOVERA_SAFETENSORS_TEST_PYTHON and NOVERA_SAFETENSORS_TEST_MODEL"]
     async fn imports_loads_generates_and_unregisters_without_deleting_weights() {

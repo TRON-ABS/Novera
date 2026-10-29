@@ -202,6 +202,32 @@ export function categoryMatches(
   return category === 'all' || modelCategories(model).includes(category)
 }
 
+export type HubQuantization = 'awq' | 'gptq' | 'bitsandbytes-4bit' | 'bitsandbytes-8bit'
+
+export function hubQuantization(model: HubModelMetadata): HubQuantization | 'unsupported' | null {
+  const raw = model.model_config?.quantization_config
+  if (raw == null) return null
+  if (typeof raw !== 'object' || Array.isArray(raw)) return 'unsupported'
+  const q = raw as Record<string, unknown>
+  if (q.quant_method === 'awq') return q.bits === 4 &&
+    (q.version === undefined || (typeof q.version === 'string' && q.version.toLowerCase() === 'gemm')) &&
+    (q.do_fuse === undefined || q.do_fuse === false) ? 'awq' : 'unsupported'
+  if (q.quant_method === 'gptq') return typeof q.bits === 'number' && [2, 3, 4, 8].includes(q.bits) &&
+    (q.checkpoint_format === undefined || ['gptq', 'gptq_v2'].includes(String(q.checkpoint_format))) ? 'gptq' : 'unsupported'
+  if (q.quant_method === 'bitsandbytes') {
+    const flag = (bits: number) => {
+      const value = Object.prototype.hasOwnProperty.call(q, `load_in_${bits}bit`) ? q[`load_in_${bits}bit`] : Object.prototype.hasOwnProperty.call(q, `_load_in_${bits}bit`) ? q[`_load_in_${bits}bit`] : false
+      return typeof value === 'boolean' && (q[`_load_in_${bits}bit`] === undefined || q[`_load_in_${bits}bit`] === value) ? value : null
+    }
+    const four = flag(4), eight = flag(8)
+    if (four === null || eight === null || four === eight ||
+      (q.llm_int8_enable_fp32_cpu_offload !== undefined && q.llm_int8_enable_fp32_cpu_offload !== false) ||
+      (four && q.bnb_4bit_quant_type !== undefined && !['fp4', 'nf4'].includes(String(q.bnb_4bit_quant_type)))) return 'unsupported'
+    return four ? 'bitsandbytes-4bit' : 'bitsandbytes-8bit'
+  }
+  return 'unsupported'
+}
+
 export function modelEngine(
   model: HubModelMetadata
 ): 'llamacpp' | 'mlx' | 'transformers' | 'future' {
@@ -218,7 +244,7 @@ export function modelEngine(
   if (
     model.safetensors_files?.length &&
     task === 'text-generation' &&
-    !model.model_config?.quantization_config
+    hubQuantization(model) !== 'unsupported'
   )
     return 'transformers'
   return 'future'
@@ -250,6 +276,8 @@ export interface HubDiagnosis {
   canDownload: boolean
   medical: boolean
   nvfp4Advice?: 'nvfp4Prefer' | 'nvfp4Check' | 'nvfp4Unsupported'
+  quantization?: HubQuantization
+  quantizationError?: string
 }
 /** Hardware advice, never a declaration that the selected Python/runtime is ready. */
 export function nvfp4Hardware(gpu: HubHardware['gpus'][number]): boolean {
@@ -302,6 +330,7 @@ export interface HubRuntime {
   python?: string
   torch?: string
   gpu?: { name: string; totalBytes: number; freeBytes: number } | null
+  quantization?: Partial<Record<HubQuantization, { available: boolean; reason?: string }>>
 }
 const GiB = 1024 ** 3
 
@@ -347,6 +376,9 @@ export function diagnoseHubModel(
   }
 ): HubDiagnosis {
   const engine = modelEngine(model)
+  const method = hubQuantization(model)
+  const quantization = engine === 'transformers' && method && method !== 'unsupported' ? method : undefined
+  const quantizationReady = !quantization || (!!options.runtime?.cudaAvailable && options.runtime?.quantization?.[quantization]?.available === true)
   const nvfp4Advice = nvfp4ModelAdvice(model, hardware, options.variantPath)
   const context = Math.max(128, options.context ?? 8192)
   const weights =
@@ -381,7 +413,7 @@ export function diagnoseHubModel(
         : null
   const dtype = model.model_config?.dtype ?? model.model_config?.torch_dtype
   const cpuExpansion =
-    engine === 'transformers' &&
+    engine === 'transformers' && !quantization &&
     (!dtype || /^(?:torch\.)?(?:b?float16|fp16|bf16|half)$/i.test(dtype))
       ? 2
       : 1
@@ -400,7 +432,11 @@ export function diagnoseHubModel(
   let memory: HubDiagnosis['memory'] = 'unknown'
   if (required && ramBudget !== null && engine !== 'future') {
     if (engine === 'transformers') {
-      if (gpuBudget !== null && required <= gpuBudget * 0.85) memory = 'fits'
+      if (quantization) {
+        // Packed CUDA models cannot use the full-precision CPU fallback.
+        if (gpuBudget !== null) memory = required <= gpuBudget * 0.85 ? 'fits' : required <= gpuBudget ? 'tight' : 'insufficient'
+        if (!quantizationReady && memory !== 'insufficient') memory = 'unknown'
+      } else if (gpuBudget !== null && required <= gpuBudget * 0.85) memory = 'fits'
       else if (cpuRequired && cpuRequired <= ramBudget * 0.85)
         memory = gpuBudget !== null ? 'tight' : 'fits'
       else if (
@@ -435,10 +471,12 @@ export function diagnoseHubModel(
           : 'planned'
         : platformBlocked
           ? 'platform'
-          : engine === 'transformers' && !options.runtime?.ready
+          : engine === 'transformers' && (!options.runtime?.ready || !quantizationReady)
             ? 'runtime'
             : 'check',
     nvfp4Advice,
+    quantization,
+    quantizationError: quantization ? options.runtime?.quantization?.[quantization]?.reason : undefined,
     memory,
     weightsBytes: weights,
     downloadBytes:

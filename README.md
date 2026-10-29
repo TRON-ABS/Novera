@@ -3,7 +3,7 @@
   <p><strong>You describe. Novera prepares, runs and organizes.</strong></p>
   <p>An independent AI assistant by TRON-ABS, from first launch to results: text, images, music and video in one conversation.</p>
   <p><strong>In development</strong> · 80 interface languages · 42 cloud providers · 49 media presets · Apache 2.0</p>
-  <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Local models</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
+  <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Local models</a> · <a href="#hub-and-compatible-models">Formats &amp; Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
 </div>
 
@@ -157,13 +157,28 @@ Inventory checked against the source on **29 October 2026**. These names describ
 
 ## Hub and compatible models
 
-Explore Hugging Face Hub categories, **GGUF, MLX and Safetensors** formats, model roles and hardware advice before downloading. Results load progressively as you scroll. Engines include llama.cpp, MLX on supported platforms and Transformers for recognized text architectures; image and video use their own engines and components.
+**GGUF, standard and quantized Safetensors, and MLX**: explore models by task and choose variants compatible with the engine and your hardware.
 
-A catalog listing does not guarantee compatibility or execution on your hardware. See the actual tested workflows in [engine tracking](docs/SUIVI_MOTEURS.md).
+| Family | Support in the source | Requirements |
+| --- | --- | --- |
+| **GGUF** | Text through llama.cpp; image/video components for supported profiles. | Architecture recognized by the bundled engine. |
+| **Standard Safetensors** | Complete folders through Transformers, causal text on CPU or NVIDIA CUDA. | Configuration, tokenizer and every required shard. |
+| **AWQ** | Unfused 4-bit GEMM checkpoints. | NVIDIA CUDA and optional GPTQModel/Transformers loaders. |
+| **GPTQ** | 2/3/4/8-bit configurations, gptq/gptq_v2 formats. | NVIDIA CUDA, GPTQModel and Optimum; real execution tested at 4 bits. |
+| **bitsandbytes** | 4-bit NF4/FP4 or 8-bit INT8. | NVIDIA CUDA and optional dependencies; real NF4 and INT8 tests. |
+| **MLX** | Compatible models on Apple Silicon. | MLX engine and supported platform. |
+
+The Hub now pins **LFM3-1.7B** as its LiquidAI recommendation for compatible configurations, with Q4_K_M, Q6_K and Q8_0 variants. The first-run model remains the one listed in the guided configuration above.
+
+Filter download weights from **under 1 GB to 500 GB and above**, then sort by hardware fit, size, recency or downloads. Results load progressively; filters apply to fetched models and their default variant. Memory advice uses available RAM/VRAM, context and companion components, without double-counting shared GPU memory.
+
+AWQ 4-bit, GPTQ 4-bit, NF4 and INT8 each generated text on an RTX 5070 Laptop using tiny untrained models created offline. This validates loading and execution, not the quality or performance of every model. **These additions are in the source: rebuilding and compatible dependencies are required; this README update does not upgrade an installed binary.**
+
+[Quantized Safetensors setup](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorities and validation](docs/SUIVI_MOTEURS.md)
 
 ## 80 interface languages and variants
 
-**All 80 catalogs cover the current 2,400 English keys** across 15 namespaces, including menus, configurations, settings, help and media controls. Plural forms and interface direction follow the selected language. Response and voice languages depend separately on the model.
+**All 80 catalogs cover the current 2,404 English keys** across 15 namespaces, including menus, configurations, settings, help and media controls. Plural forms and interface direction follow the selected language. Response and voice languages depend separately on the model.
 
 This technical coverage does not certify linguistic quality: **native review and regional adaptation remain necessary**. See native labels and known limits in the [language guide](docs/LANGUAGES.md) and [audit report](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -206,3 +221,19 @@ This showcase update does not compile a new application. Distribution channels a
 Novera is maintained by **TRON-ABS** in [this repository](https://github.com/TRON-ABS/Novera). See the [identity policy](BRANDING.md) and [official release policy](OFFICIAL_RELEASES.md).
 
 Novera builds on [Jan](https://github.com/janhq/jan), created by Menlo Research and its contributors. Original and third-party attributions and the [Apache 2.0 license](LICENSE) are retained. Jan downloads are not Novera releases.
+
+## Support Novera
+
+As an independent researcher, I know how a lack of funding can make it difficult to pursue research.
+
+If you would like to be part of the Novera adventure, you can support my research and the project's development with a voluntary bitcoin contribution.
+
+Thank you to everyone for your support, contributions, feedback and encouragement. Every gesture counts in this adventure!
+
+**Bitcoin (BTC) — Bitcoin network**
+
+Receiving address: `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
+
+To contribute, scan this QR code with your wallet or copy the address above. Select **Bitcoin (BTC), on the Bitcoin network**, then choose any amount you wish.
+
+<img src=".github/assets/novera-bitcoin-support.png" alt="QR code for the Novera Bitcoin support address" width="240" />

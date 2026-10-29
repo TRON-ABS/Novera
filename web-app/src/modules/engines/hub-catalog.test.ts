@@ -8,7 +8,9 @@ import {
   nvfp4ModelAdvice,
   estimateHubKvCache,
   estimateHubMemory,
+  hubQuantization,
 } from './hub-catalog'
+import quantizationCases from '../../../../transformers-server/quantization-cases.json'
 
 const GiB = 1024 ** 3
 const hardware = {
@@ -27,6 +29,22 @@ const sf = {
 }
 
 describe('Hub taxonomy and hardware checks', () => {
+  it.each(quantizationCases)('shares the native/Python quantization policy: $name', ({ config, expected }) => {
+    expect(hubQuantization({ model_config: config })).toBe(expected)
+    expect(modelEngine({ ...sf, model_config: config })).toBe(expected === 'unsupported' ? 'future' : 'transformers')
+  })
+  it('requires a ready CUDA loader and never fits packed weights using CPU RAM', () => {
+    const model = { ...sf, model_config: { dtype: 'float16', quantization_config: { quant_method: 'awq', bits: 4 } } }
+    const pending = diagnoseHubModel(model, hardware, { weightsBytes: GiB })
+    expect(pending).toMatchObject({ quantization: 'awq', engineState: 'runtime', memory: 'unknown' })
+    const runtime = { ready: true, cudaAvailable: true, gpu: { name: 'RTX', totalBytes: 8 * GiB, freeBytes: 7 * GiB }, quantization: { awq: { available: true } } }
+    expect(diagnoseHubModel(model, hardware, { weightsBytes: GiB, runtime })).toMatchObject({ engineState: 'check', memory: 'fits' })
+    const fullGpu = { ...runtime, gpu: { ...runtime.gpu, freeBytes: GiB } }
+    const result = diagnoseHubModel(model, hardware, { weightsBytes: 2 * GiB, runtime: fullGpu })
+    expect(result.memory).toBe('insufficient')
+    expect(result.requiredBytes).toBeLessThan(4 * GiB)
+    expect(diagnoseHubModel(model, hardware, { weightsBytes: GiB, runtime: { ...runtime, quantization: { awq: { available: false, reason: 'missing gptqmodel' } } } })).toMatchObject({ engineState: 'runtime', memory: 'unknown', quantizationError: 'missing gptqmodel' })
+  })
   it('scales FP16 KV memory with context, layers and grouped attention', () => {
     const model = { ...gguf, model_config: { model_type: 'llama', num_hidden_layers: 32, num_attention_heads: 32, num_key_value_heads: 8, hidden_size: 4096 } }
     expect(estimateHubKvCache(model, 8192)).toBe(GiB)

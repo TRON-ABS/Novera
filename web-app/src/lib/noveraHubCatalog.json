@@ -118,7 +118,7 @@
       "repo": "LiquidAI/LFM2.5-1.2B-Instruct-GGUF",
       "revision": "8ed288026e23958ad9dfa92d53ed773a8eee7125",
       "verifiedAt": "2026-10-24",
-      "recommended": true,
+      "recommended": false,
       "source": "https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct",
       "benchmarks": [
         {
@@ -163,7 +163,7 @@
       "repo": "LiquidAI/LFM2.5-2.6B-GGUF",
       "revision": "e7caca5d835a3901a8e0d63e94009429bafafdfc",
       "verifiedAt": "2026-10-24",
-      "recommended": true,
+      "recommended": false,
       "source": "https://huggingface.co/LiquidAI/LFM2.5-2.6B",
       "benchmarks": [
         {
@@ -267,6 +267,60 @@
           "mode": "nonThinking"
         }
       ]
+    }
+  },
+  {
+    "model_name": "LFM3-1.7B",
+    "display_name": "LFM3-1.7B",
+    "developer": "LiquidAI",
+    "description": "LFM3-1.7B",
+    "downloads": 61499,
+    "pipeline_tag": "text-generation",
+    "languages": [
+      "en",
+      "ar",
+      "zh",
+      "fr",
+      "de",
+      "it",
+      "ja",
+      "ko",
+      "pt",
+      "es",
+      "vi",
+      "th",
+      "id",
+      "hi",
+      "ru",
+      "pl"
+    ],
+    "quants": [
+      {
+        "model_id": "LFM3-1.7B-Q4_K_M",
+        "path": "https://huggingface.co/LiquidAI/LFM3-1.7B-GGUF/resolve/bad5729bba61d076fff20d2548e62526665af215/LFM3-1.7B-Q4_K_M.gguf?download=true",
+        "file_size": "1099627808"
+      },
+      {
+        "model_id": "LFM3-1.7B-Q6_K",
+        "path": "https://huggingface.co/LiquidAI/LFM3-1.7B-GGUF/resolve/bad5729bba61d076fff20d2548e62526665af215/LFM3-1.7B-Q6_K.gguf?download=true",
+        "file_size": "1427638304"
+      },
+      {
+        "model_id": "LFM3-1.7B-Q8_0",
+        "path": "https://huggingface.co/LiquidAI/LFM3-1.7B-GGUF/resolve/bad5729bba61d076fff20d2548e62526665af215/LFM3-1.7B-Q8_0.gguf?download=true",
+        "file_size": "1846238496"
+      }
+    ],
+    "created_at": "2026-10-24T00:46:40Z",
+    "updated_at": "2026-10-28T22:16:43Z",
+    "hub": {
+      "parametersB": 1.7,
+      "repo": "LiquidAI/LFM3-1.7B-GGUF",
+      "revision": "bad5729bba61d076fff20d2548e62526665af215",
+      "verifiedAt": "2026-10-29",
+      "recommended": true,
+      "source": "https://huggingface.co/LiquidAI/LFM3-1.7B",
+      "benchmarks": []
     }
   }
 ]

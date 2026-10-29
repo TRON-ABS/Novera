@@ -3,7 +3,7 @@
   <p><strong>Vous décrivez. Novera prépare, exécute et organise.</strong></p>
   <p>Un assistant IA indépendant de TRON-ABS, du premier démarrage aux résultats : texte, images, musique et vidéo dans la même discussion.</p>
   <p><strong>En développement</strong> · 80 langues d’interface · 42 fournisseurs cloud · 49 préréglages média · Apache 2.0</p>
-  <p><a href="#du-démarrage-au-résultat">Automatisation</a> · <a href="#un-tableau-de-bord-pour-tout-créer">Tableau de bord</a> · <a href="#modèles-locaux-utilisés">Modèles locaux</a> · <a href="#fournisseurs-cloud">Cloud</a> · <a href="README.md">English</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
+  <p><a href="#du-démarrage-au-résultat">Automatisation</a> · <a href="#un-tableau-de-bord-pour-tout-créer">Tableau de bord</a> · <a href="#modèles-locaux-utilisés">Modèles locaux</a> · <a href="#hub-et-modèles-compatibles">Formats et Hub</a> · <a href="#fournisseurs-cloud">Cloud</a> · <a href="README.md">English</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
   <p>Contact officiel : <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
 </div>
 
@@ -157,13 +157,28 @@ Inventaire relu dans les sources le **29 octobre 2026**. Ces noms décrivent les
 
 ## Hub et modèles compatibles
 
-Explorez les catégories du Hub Hugging Face, les formats **GGUF, MLX et Safetensors**, les rôles des modèles et les conseils matériels avant de télécharger. Les résultats se chargent progressivement au défilement. Les moteurs comprennent llama.cpp, MLX sur les plateformes prises en charge et Transformers pour les architectures textuelles reconnues ; l’image et la vidéo utilisent leurs moteurs et composants dédiés.
+**GGUF, Safetensors classiques et quantifiés, et MLX** : explorez les modèles par usage et choisissez parmi les variantes compatibles avec le moteur et votre matériel.
 
-La présence d’un modèle dans le catalogue ne garantit ni sa compatibilité ni son exécution sur votre machine. Le guide présente les parcours réellement testés : [suivi des moteurs](docs/SUIVI_MOTEURS.md).
+| Famille | Prise en charge dans les sources | Conditions |
+| --- | --- | --- |
+| **GGUF** | Texte via llama.cpp ; composants image/vidéo selon le profil. | Architecture reconnue par le moteur embarqué. |
+| **Safetensors classiques** | Dossier complet via Transformers, texte causal sur CPU ou NVIDIA CUDA. | Configuration, tokenizer et tous les fragments requis. |
+| **AWQ** | Checkpoints 4 bits GEMM non fusionnés. | NVIDIA CUDA et chargeurs optionnels GPTQModel/Transformers. |
+| **GPTQ** | Configurations 2/3/4/8 bits, formats gptq/gptq_v2. | NVIDIA CUDA, GPTQModel et Optimum ; essai réel effectué en 4 bits. |
+| **bitsandbytes** | 4 bits NF4/FP4 ou 8 bits INT8. | NVIDIA CUDA et dépendances optionnelles ; essais réels NF4 et INT8. |
+| **MLX** | Modèles compatibles sur Apple Silicon. | Moteur et plateforme MLX requis. |
+
+Le Hub propose **LFM3-1.7B** comme recommandation LiquidAI épinglée pour les configurations compatibles, avec ses variantes Q4_K_M, Q6_K et Q8_0. Le modèle du premier démarrage reste celui indiqué dans la configuration guidée ci-dessus.
+
+Filtrez les poids de **moins de 1 Go à 500 Go et plus**, puis triez par adaptation au matériel, taille, nouveauté ou téléchargements. Les résultats arrivent progressivement ; les filtres portent sur les modèles chargés et leur variante par défaut. Le diagnostic utilise la RAM/VRAM disponible, le contexte et les composants associés, sans compter deux fois la mémoire partagée du GPU.
+
+Les quatre parcours quantifiés AWQ 4 bits, GPTQ 4 bits, NF4 et INT8 ont généré du texte sur une RTX 5070 Laptop avec de petits modèles non entraînés créés hors ligne. Cela valide le chargement et l’exécution, pas la qualité ou les performances de tous les modèles. **Ces nouveautés sont dans les sources : une recompilation et les dépendances adaptées sont nécessaires ; le binaire déjà installé ne se met pas à jour par cette modification du README.**
+
+[Installation Safetensors quantifiés](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorités et validations](docs/SUIVI_MOTEURS.md)
 
 ## 80 langues et variantes d’interface
 
-Les **80 catalogues couvrent les 2 400 clés anglaises actuelles**, dans 15 espaces de noms : menus, configurations, réglages, aides et contrôles média. Les formes plurielles et la direction de l’interface suivent la langue choisie. La langue des réponses et des voix dépend séparément du modèle.
+Les **80 catalogues couvrent les 2 404 clés anglaises actuelles**, dans 15 espaces de noms : menus, configurations, réglages, aides et contrôles média. Les formes plurielles et la direction de l’interface suivent la langue choisie. La langue des réponses et des voix dépend séparément du modèle.
 
 Cette couverture technique ne certifie pas la qualité linguistique : **relecture native et adaptation régionale restent nécessaires**. Consultez les langues, leurs noms et les limites connues dans le [guide des langues](docs/LANGUAGES.md) et le [rapport d’audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -206,3 +221,19 @@ La vitrine est actualisée sans nouvelle compilation. Les canaux de distribution
 Novera est maintenu par **TRON-ABS** dans [ce dépôt](https://github.com/TRON-ABS/Novera). [Politique d’identité](BRANDING.md), [versions officielles](OFFICIAL_RELEASES.md).
 
 Novera s’appuie sur [Jan](https://github.com/janhq/jan), créé par Menlo Research et ses contributeurs. Les attributions d’origine, celles des projets tiers et la [licence Apache 2.0](LICENSE) sont conservées. Les téléchargements Jan ne sont pas des versions Novera.
+
+## Soutenir Novera
+
+En tant que chercheur indépendant, je connais les difficultés que le manque de moyens peut poser pour poursuivre ses recherches.
+
+Si vous souhaitez participer à l’aventure Novera, vous pouvez soutenir mes recherches et le développement du projet par une contribution libre en bitcoin.
+
+Merci à toutes et à tous pour votre soutien, vos contributions, vos retours et vos encouragements. Chaque geste compte dans cette aventure !
+
+**Bitcoin (BTC) — Réseau Bitcoin**
+
+Adresse de réception : `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
+
+Pour contribuer, scannez ce QR code avec votre portefeuille ou copiez l’adresse ci-dessus. Sélectionnez **Bitcoin (BTC), sur le réseau Bitcoin**, puis choisissez librement votre montant.
+
+<img src=".github/assets/novera-bitcoin-support.png" alt="QR code de l’adresse Bitcoin de soutien à Novera" width="240" />

@@ -437,11 +437,6 @@ function HubContent() {
 
   const navigate = useNavigate()
 
-  const isRecommendedModel = useCallback((modelId: string) => {
-    return (extractModelName(modelId)?.toLowerCase() ===
-      'lfm2.5-1.2b-instruct') as boolean
-  }, [])
-
   const handleUseModel = useCallback(
     (modelId: string) => {
       navigate({
@@ -658,10 +653,7 @@ function HubContent() {
                               <h1
                                 className={cn(
                                   'text-foreground font-medium text-base capitalize sm:max-w-none',
-                                  isRecommendedModel(
-                                    filteredModels[virtualItem.index]
-                                      .model_name
-                                  )
+                                  filteredModels[virtualItem.index].hub?.recommended
                                     ? 'hub-model-card-step'
                                     : ''
                                 )}

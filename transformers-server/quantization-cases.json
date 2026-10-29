@@ -1,0 +1,263 @@
+[
+  {
+    "name": "plain",
+    "config": {},
+    "expected": null
+  },
+  {
+    "name": "null",
+    "config": {
+      "quantization_config": null
+    },
+    "expected": null
+  },
+  {
+    "name": "awq-4",
+    "config": {
+      "quantization_config": {
+        "quant_method": "awq",
+        "bits": 4
+      }
+    },
+    "expected": "awq"
+  },
+  {
+    "name": "gptq-2",
+    "config": {
+      "quantization_config": {
+        "quant_method": "gptq",
+        "bits": 2
+      }
+    },
+    "expected": "gptq"
+  },
+  {
+    "name": "gptq-3",
+    "config": {
+      "quantization_config": {
+        "quant_method": "gptq",
+        "bits": 3
+      }
+    },
+    "expected": "gptq"
+  },
+  {
+    "name": "gptq-4",
+    "config": {
+      "quantization_config": {
+        "quant_method": "gptq",
+        "bits": 4
+      }
+    },
+    "expected": "gptq"
+  },
+  {
+    "name": "gptq-8",
+    "config": {
+      "quantization_config": {
+        "quant_method": "gptq",
+        "bits": 8
+      }
+    },
+    "expected": "gptq"
+  },
+  {
+    "name": "bnb--4",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes",
+        "load_in_4bit": true
+      }
+    },
+    "expected": "bitsandbytes-4bit"
+  },
+  {
+    "name": "bnb-_-4",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes",
+        "_load_in_4bit": true
+      }
+    },
+    "expected": "bitsandbytes-4bit"
+  },
+  {
+    "name": "bnb--8",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes",
+        "load_in_8bit": true
+      }
+    },
+    "expected": "bitsandbytes-8bit"
+  },
+  {
+    "name": "bnb-_-8",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes",
+        "_load_in_8bit": true
+      }
+    },
+    "expected": "bitsandbytes-8bit"
+  },
+  {
+    "name": "invalid-0",
+    "config": {
+      "quantization_config": []
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-1",
+    "config": {
+      "quantization_config": {}
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-2",
+    "config": {
+      "quantization_config": {
+        "quant_method": "mlx",
+        "bits": 4
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-3",
+    "config": {
+      "quantization_config": {
+        "quant_method": "fp8"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-4",
+    "config": {
+      "quantization_config": {
+        "quant_method": "awq",
+        "bits": 8
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-5",
+    "config": {
+      "quantization_config": {
+        "quant_method": "awq",
+        "bits": 4,
+        "version": "gemv"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-6",
+    "config": {
+      "quantization_config": {
+        "quant_method": "awq",
+        "bits": 4,
+        "do_fuse": true
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-7",
+    "config": {
+      "quantization_config": {
+        "quant_method": "gptq",
+        "bits": true
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-8",
+    "config": {
+      "quantization_config": {
+        "quant_method": "gptq",
+        "bits": 4,
+        "checkpoint_format": "marlin"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-9",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-10",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes",
+        "load_in_4bit": true,
+        "load_in_8bit": true
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-11",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes",
+        "load_in_4bit": 1
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-12",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes",
+        "load_in_4bit": null
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-13",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes",
+        "load_in_4bit": true,
+        "_load_in_4bit": false
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-14",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes",
+        "load_in_8bit": true,
+        "llm_int8_enable_fp32_cpu_offload": true
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "invalid-15",
+    "config": {
+      "quantization_config": {
+        "quant_method": "bitsandbytes",
+        "load_in_4bit": true,
+        "bnb_4bit_quant_type": "unknown"
+      }
+    },
+    "expected": "unsupported"
+  }
+]

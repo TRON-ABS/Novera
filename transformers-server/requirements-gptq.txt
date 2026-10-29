@@ -1,0 +1,4 @@
+# Transformers 5.20.2 uses GPTQModel for AWQ as well as GPTQ.
+# Native extensions may require a matching wheel or a CUDA build toolchain.
+gptqmodel==7.7.0
+optimum==2.3.0

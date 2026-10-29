@@ -89,6 +89,7 @@ function DiagnosisDetails({
           {diagnosis.nvfp4Advice === 'nvfp4Prefer'
             ? 'NVFP4 CUDA · PyTorch'
             : engineNames[diagnosis.engine]}{' '}
+          {diagnosis.quantization && ` · ${diagnosis.quantization} `}
           · {t(`hub:catalog.${diagnosis.engineState}`)}
         </p>
       </div>
@@ -97,6 +98,7 @@ function DiagnosisDetails({
           {t(`hub:catalog.${diagnosis.nvfp4Advice}`)}
         </p>
       )}
+      {diagnosis.quantizationError && <p className="rounded border p-2 text-xs" role="status">{diagnosis.quantizationError}</p>}
       {model.quants?.length ? (
         <p className="text-xs text-muted-foreground">
           {t('hub:catalog.quantQualityAdvice')}

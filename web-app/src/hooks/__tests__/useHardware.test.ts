@@ -10,6 +10,11 @@ import {
   RAM,
 } from '../useHardware'
 
+const persistence = vi.hoisted(() => ({ options: undefined as undefined | {
+  migrate: (state: unknown) => { hardwareData: HardwareData; systemUsage: SystemUsage }
+  partialize: (state: unknown) => { hardwareData: HardwareData }
+} }))
+
 // Mock dependencies
 vi.mock('@/constants/localStorage', () => ({
   localStorageKey: {
@@ -19,7 +24,7 @@ vi.mock('@/constants/localStorage', () => ({
 
 // Mock zustand persist
 vi.mock('zustand/middleware', () => ({
-  persist: (fn: any) => fn,
+  persist: (fn: any, options: NonNullable<typeof persistence.options>) => { persistence.options = options; return fn },
   createJSONStorage: () => ({
     getItem: vi.fn(),
     setItem: vi.fn(),
@@ -28,6 +33,18 @@ vi.mock('zustand/middleware', () => ({
 }))
 
 describe('useHardware', () => {
+  it('discards stale usage and synthetic inactive GPU flags from the legacy cache', () => {
+    const hardware = { ...useHardware.getState().hardwareData, total_memory: 15789,
+      gpus: [{ name: 'RTX', uuid: 'rtx', total_memory: 8151, activated: false } as GPU] }
+    const migrated = persistence.options!.migrate({ hardwareData: hardware,
+      systemUsage: { total_memory: 15789, used_memory: 15789, gpus: [] } })
+    expect(migrated.hardwareData.gpus[0].activated).toBeUndefined()
+    expect(migrated.systemUsage.total_memory).toBe(0)
+  })
+  it('persists hardware information without live usage samples', () => {
+    const state = useHardware.getState()
+    expect(persistence.options!.partialize(state)).toEqual({ hardwareData: state.hardwareData })
+  })
   beforeEach(() => {
     vi.clearAllMocks()
   })
@@ -367,7 +384,7 @@ describe('useHardware', () => {
   })
 
   describe('setHardwareData with GPU activation', () => {
-    it('should initialize GPUs as inactive when activated is not specified', () => {
+    it('does not mark physical GPUs inactive when the probe has no engine activation state', () => {
       const { result } = renderHook(() => useHardware())
 
       const hardwareData: HardwareData = {
@@ -403,7 +420,7 @@ describe('useHardware', () => {
         result.current.setHardwareData(hardwareData)
       })
 
-      expect(result.current.hardwareData.gpus[0].activated).toBe(false)
+      expect(result.current.hardwareData.gpus[0].activated).toBeUndefined()
     })
 
     it('should preserve existing activation states when set', () => {

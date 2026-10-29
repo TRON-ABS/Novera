@@ -1,6 +1,7 @@
 import { clearHuggingFaceCatalogCache } from '@/services/models/huggingfaceCatalog'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { DefaultModelsService } from '../default'
+import { parseFileSize } from '@/lib/modelCompatibility'
 import { EngineManager, events, DownloadEvent, ContentType } from '@janhq/core'
 
 const { mockEvents } = vi.hoisted(() => ({
@@ -205,8 +206,8 @@ describe('DefaultModelsService - coverage supplement', () => {
       expect(result.downloads).toBe(1000)
       expect(result.num_quants).toBe(1)
       expect(result.num_mmproj).toBe(1)
-      expect(result.quants[0].file_size).toContain('GB')
-      expect(result.mmproj_models[0].file_size).toContain('MB')
+      expect(parseFileSize(result.quants[0].file_size)).toBe(4 * 1024 ** 3)
+      expect(parseFileSize(result.mmproj_models[0].file_size)).toBe(500 * 1024 ** 2)
     })
 
     it('handles repo with no siblings', () => {
@@ -251,7 +252,7 @@ describe('DefaultModelsService - coverage supplement', () => {
       expect(result.quants[0].file_size).toBe('Unknown size')
     })
 
-    it('formats file size in MB for small files', () => {
+    it('preserves exact byte size for small files', () => {
       const repo = {
         modelId: 'org/repo',
         author: 'org',
@@ -260,7 +261,7 @@ describe('DefaultModelsService - coverage supplement', () => {
       } as any
 
       const result = svc.convertHfRepoToCatalogModel(repo)
-      expect(result.quants[0].file_size).toContain('MB')
+      expect(parseFileSize(result.quants[0].file_size)).toBe(500 * 1024 ** 2)
     })
 
     it('downloads defaults to 0', () => {
