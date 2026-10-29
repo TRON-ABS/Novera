@@ -47,7 +47,35 @@
     "tokens": "Awọn ami-ami",
     "perSecond": "àmi / s"
   },
+  "player": {
+    "play": "Ṣeré",
+    "pause": "Dá dúró díẹ̀",
+    "seek": "Ipò ìṣeré",
+    "mute": "Pa ohùn",
+    "volume": "Ìwọ̀n ohùn",
+    "speed": "Ìyára ìṣeré"
+  },
   "creation": {
+    "musicLyricsGuide": "Ṣàpèjúwe irú orin àti ohùn nínú ìbéèrè rẹ. Kọ ọ̀rọ̀ orin sí abẹ́ àwọn àmì tó wà nísàlẹ̀. Pa {{instrumental}} kí ohùn orin lè wà.",
+    "music": "Orin",
+    "musicDuration": "Gígùn orin",
+    "musicQuality": "Dídára ohùn",
+    "musicInstrumental": "Orin ohun èlò",
+    "musicLyrics": "Ọ̀rọ̀ orin",
+    "musicGenerator": "Ẹ̀rọ ìṣẹ̀dá orin",
+    "musicPlanner": "Ẹ̀rọ ìṣètò orin",
+    "setupAllDownload": "Ṣe ìgbàsílẹ̀ àti ìṣètò gbogbo rẹ̀ láìfọwọ́yí",
+    "setupConfiguring": "Ń ṣètò àwọn àwòṣe tí a dábàá",
+    "setupStorage": "Gbogbo fáìlì: {{download}}. Àfikún ààbò: {{reserve}}. Àyè míì tí a nílò: {{required}}. Àyè òfo lórí díísì tí a yàn: {{free}}.",
+    "setupSpaceMissing": "{{missing}} ṣì kù. Ṣí àyè sílẹ̀ tàbí yan díísì mìíràn tí ó ní àyè tó.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M jẹ apẹrẹ ọrọ agbegbe ti a ṣe iṣeduro fun ibaraẹnisọrọ, kikọ, awọn ipe irinṣẹ ati awọn igbejade ti a ṣeto. Awọn ni ibẹrẹ o tọ ni 16K àmi; ṣayẹwo iranti to wa ṣaaju ki o to pọ si. Iṣagbewọle ọrọ ati iṣejade nikan, laisi awoṣe apẹrẹ. Lo wiwa tabi awọn iwe aṣẹ rẹ lati mọ daju awọn iṣeduro otitọ.",
+    "setupImageNote": "Aworan — FLUX.2 Klein 4B · Q4_K_M. Ọrọ: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Ipin ipin: 21:9; Ipinnu: 1024 × 432; Awọn igbesẹ ti iran: 4; Ìpo irúgbìn: Láìlétò.",
+    "setupMusicNote": "Orin — ACE-Step 1.5 Turbo. Ẹ̀rọ ìṣẹ̀dá orin: 2B · Q4_K_M; Ẹ̀rọ ìṣètò orin: 1.7B · Q8_0; Ọrọ: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Gígùn orin: 10–600 s; Dídára ohùn: 48 kHz · 2.0; Orin ohun èlò / Ọ̀rọ̀ orin; Láìlétò.",
+    "setupVideoNote": "Fidio — Wan2.1 T2V 1.3B · Q4_K_M. Ọrọ: UMT5-XXL · Q4_K_M. Gígùn fídíò: 5 s; Ipin ipin: 21:9; Awọn fireemu fun keji: 16. A ń so àwọn kílíìpù kúkúrú pọ̀ láti ṣe fídíò gígùn. Àwọn ibi ìsopọ̀ lè hàn, ṣíṣe rẹ̀ sì lè gba àkókò púpọ̀. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Ṣe ìdìbò àti ṣàkóso awọn aṣiṣe tí a ṣe ireti: Nemotron fun tẹ́xti, Qwen3-Embedding Q8_0 fun ìwọlé ọrọ-ọ̀rọ̀ (CPU ni aṣiṣe), FLUX.2 Klein 4B ati awọn ẹya rẹ, Real-ESRGAN ×2/×4, ACE-Step fun imu (Instrumental ni aṣiṣe), ati Wan2.1 fun iṣẹ-iṣe. Ṣayẹwo awọn iṣa file, awọn agbegbe disk, ati awọn aṣeyọri video ni awọn ẹsẹ. Ìdìbò ati Browse ni awọn ẹsẹ ni a ṣiṣe.",
+    "finalizing": "Ń parí fídíò",
+    "videoDuration": "Gígùn fídíò",
+    "videoDurationNote": "A ń so àwọn kílíìpù kúkúrú pọ̀ láti ṣe fídíò gígùn. Àwọn ibi ìsopọ̀ lè hàn, ṣíṣe rẹ̀ sì lè gba àkókò púpọ̀.",
     "output": "Idahun kika",
     "auto": "Aifọwọyi",
     "text": "Ọrọ",
@@ -144,7 +172,8 @@
     "ratio": "Ipin ipin",
     "resolution": "Ipinnu",
     "customSize": "Aṣa",
-    "sizeAutoNote": "Iyipada ipin ṣe atunṣe ipinnu lọwọlọwọ. Awọn iwọn lo awọn ọpọ ti 16, to 2048 px."
+    "sizeAutoNote": "Iyipada ipin ṣe atunṣe ipinnu lọwọlọwọ. Awọn iwọn lo awọn ọpọ ti 16, to 2048 px.",
+    "setupTextNvfp4Note": "Aṣayan NVFP4 awọn iwuwo fun wiwa NVIDIA Blackwell GPU tabi tuntun pẹlu o kere 4.5 GiB ti VRAM lati lo awọn iwuwo wọnyi. Novera, ibi ipamọ awoṣe kikun gbọdọ kọkọ yipada si ibaramu NVFP4 GGUF ati ifọwọsi. Iyipada yii ko tii jẹrisi fun aaye ayẹwo yii. Faili Safetensors ti o sopọ mọ ko le ṣe kojọpọ taara nipasẹ ẹrọ ti a ṣe sinu. Q8_0 maa wa ni iṣeduro ti o ṣetan lati lo. Awọn iwulo iranti tun dale lori ipari ọrọ-ọrọ."
   },
   "creationInstall": {
     "install": "Fi ètò yìí sílẹ̀",

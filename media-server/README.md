@@ -1,5 +1,13 @@
 # Local creations inside the conversation
 
+## Video duration and playable export (2026-10-27, local sources)
+
+Image and video seeds default to Random and their initial aspect ratio is 21:9. Video defaults to **5 seconds**; the dashboard duration control, before the aspect ratio, allows experimental targets from **1 second to 1 hour**. The recommended Wan Q4 configuration uses 512×224, 16 FPS, 20 steps, CFG 6 and up to 81 generated frames per clip.
+
+The bundled CLI was reproduced writing RIFF/AVI bytes despite a `.webm` name. `video_worker.py` therefore requests AVI explicitly, decodes each bounded clip with `imageio-ffmpeg` from the selected Python environment, and streams H.264 frames into a single MP4. It trims alignment frames to exactly `seconds × FPS`, publishes exclusively, and never retains the full long video in memory. Consecutive clips use the initial seed plus their index, so visible cuts and scene changes are possible. Diffusers reuses its loaded pipeline and the same bounded export. An hour-long coherent scene is not promised or tested. Python with `imageio-ffmpeg` is required for this video export, including the C++ generation path; dependencies are resolved before expensive inference.
+
+Owned Windows worker/engine/ffmpeg processes share a kill-on-close Job Object; Unix video workers have their own process group. Tests cover clip planning, two-clip MP4 decoding and exact duration, publication errors, preserving existing files, simulated Diffusers frames and Windows child cancellation. A real Wan Q4 run on the maintainer's RTX 5070 Laptop produced **80 decoded 512×224 frames at 16 FPS, exactly 5.00 seconds**, in approximately **124.8 seconds** including export. This is one hardware/run result, not a general benchmark or GUI validation. No new Novera application binary, weights download or repository publication was performed for the fix.
+
 ## Starter downloads and imported media library (2026-10-26)
 
 The desktop now offers an explicitly approved, revision-pinned FLUX.2 Klein GGUF + Qwen3 GGUF + VAE Safetensors bundle. Native transfers run independently of conversations, verify SHA-256, support pause/resume, and show a main-bar progress panel until completion is acknowledged. Completed bundles become one Image configuration in the llama.cpp import page; image/video configurations can also be imported, edited, selected or removed there. Removal follows the existing imported-model rule and preserves files. No audio or OS completion notification is used.

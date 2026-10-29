@@ -236,7 +236,7 @@
     "delete": "Hapus"
   },
   "modelSettings": {
-    "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
+    "nglDisabledByFit": "Penyesuaian otomatis memilih GPU lapisan. Matikan Pas Otomatis untuk mengaturnya secara manual.",
     "title": "Pengaturan Model - {{modelId}}",
     "description": "Konfigurasikan pengaturan model untuk mengoptimalkan kinerja dan perilaku.",
     "samplingDefaults": {
@@ -524,8 +524,8 @@
     "manageInstructions": "Kelola Instruksi"
   },
   "llamacppBusyOnExit": {
-    "title": "llama.cpp is still busy",
-    "description": "One or more models did not unload in time. Force-quitting will terminate llama.cpp and may interrupt active responses.",
+    "title": "llama.cpp masih sibuk",
+    "description": "Satu atau lebih model tidak dibongkar tepat waktu. Penghentian paksa akan menghentikan llama.cpp dan dapat mengganggu respons aktif.",
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"

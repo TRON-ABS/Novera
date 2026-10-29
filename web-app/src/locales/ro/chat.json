@@ -47,7 +47,35 @@
     "tokens": "Jetoane",
     "perSecond": "tokens/s"
   },
+  "player": {
+    "play": "Redă",
+    "pause": "Pauză",
+    "seek": "Poziția redării",
+    "mute": "Dezactivează sunetul",
+    "volume": "Volum",
+    "speed": "Viteza redării"
+  },
   "creation": {
+    "musicLyricsGuide": "Descrie stilul și vocea în cerere. Pune versurile sub etichetele de mai jos. Dezactivează {{instrumental}} pentru a include voce cântată.",
+    "music": "Muzică",
+    "musicDuration": "Durata muzicii",
+    "musicQuality": "Calitate audio",
+    "musicInstrumental": "Instrumental",
+    "musicLyrics": "Versuri",
+    "musicGenerator": "Generator muzical",
+    "musicPlanner": "Planificator muzical",
+    "setupAllDownload": "Descarcă și configurează totul automat",
+    "setupConfiguring": "Configurarea modelelor recomandate",
+    "setupStorage": "Total fișiere: {{download}}. Rezervă: {{reserve}}. Spațiu suplimentar necesar: {{required}}. Liber pe discul ales: {{free}}.",
+    "setupSpaceMissing": "Lipsesc {{missing}}. Eliberează spațiu sau alege alt disc cu suficient spațiu de stocare.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M este modelul de text local recomandat pentru conversație, scriere, apeluri de instrumente și rezultate structurate. Contextul inițial este 16K jetoane; verificați memoria disponibilă înainte de a o mări. Doar introducerea și ieșirea textului, fără model nefinalizat. Utilizați căutarea sau documentele dvs. pentru a verifica afirmațiile faptice.",
+    "setupImageNote": "Imagine — FLUX.2 Klein 4B · Q4_K_M. Text: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Raportul de aspect: 21:9; Rezoluție: 1024 × 432; Etape de generare: 4; Modul seminței: Aleatorie.",
+    "setupMusicNote": "Muzică — ACE-Step 1.5 Turbo. Generator muzical: 2B · Q4_K_M; Planificator muzical: 1.7B · Q8_0; Text: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Durata muzicii: 10–600 s; Calitate audio: 48 kHz · 2.0; Instrumental / Versuri; Aleatorie.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Text: UMT5-XXL · Q4_K_M. Durata videoclipului: 5 s; Raportul de aspect: 21:9; Cadre pe secundă: 16. Videoclipurile lungi sunt asamblate din secvențe scurte. Tăieturile pot fi vizibile, iar generarea poate dura mult. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Descarcă și configurează modelele recomandate: Nemotron pentru text, Qwen3-Embedding Q8_0 pentru recuperare multilingvă (CPU implicit), FLUX.2 Klein 4B și componentele sale, Real-ESRGAN ×2/×4, ACE-Step pentru muzică (Instrumental implicit activat) și Wan2.1 pentru video. Verifică dimensiunile fișierelor, spațiul pe disc și precondițiile video mai jos. Descărcările separate și Browse rămân disponibile.",
+    "finalizing": "Finalizarea videoclipului",
+    "videoDuration": "Durata videoclipului",
+    "videoDurationNote": "Videoclipurile lungi sunt asamblate din secvențe scurte. Tăieturile pot fi vizibile, iar generarea poate dura mult.",
     "output": "Format de răspuns",
     "auto": "Auto",
     "text": "Text",
@@ -144,7 +172,8 @@
     "ratio": "Raportul de aspect",
     "resolution": "Rezoluție",
     "customSize": "Personalizat",
-    "sizeAutoNote": "Schimbarea raportului adaptează rezoluția curentă. Dimensiunile folosesc multipli de 16, până la 2048 px."
+    "sizeAutoNote": "Schimbarea raportului adaptează rezoluția curentă. Dimensiunile folosesc multipli de 16, până la 2048 px.",
+    "setupTextNvfp4Note": "Pesele opționale NVFP4 pentru un GPU NVIDIA Blackwell detectat sau mai nou, cu cel puțin 4.5 GiB VRAM. Pentru a utiliza aceste pese în Novera, repository-ul complet al modelului trebuie mai întâi convertit în NVFP4 GGUF compatibil și validat. Această conversie nu a fost încă verificată pentru acest checkpoint. Fișierul Safetensors legat nu poate fi încărcat direct de motorul integrat. Q8_0 rămâne recomandarea gata de utilizare. Nevoile de memorie depind și de lungimea contextului."
   },
   "creationInstall": {
     "install": "Instalează această configurație",

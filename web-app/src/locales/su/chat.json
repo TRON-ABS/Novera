@@ -47,7 +47,35 @@
     "tokens": "Token",
     "perSecond": "token / s"
   },
+  "player": {
+    "play": "Puter",
+    "pause": "Reureuh",
+    "seek": "Posisi muter",
+    "mute": "Pareuman sora",
+    "volume": "Gedéna sora",
+    "speed": "Laju muter"
+  },
   "creation": {
+    "musicLyricsGuide": "Jelaskeun gaya jeung sora dina pamundut. Tulis lirik handapeun tag di handap. Pareuman {{instrumental}} pikeun nambahkeun sora nyanyi.",
+    "music": "Musik",
+    "musicDuration": "Lilana musik",
+    "musicQuality": "Kualitas audio",
+    "musicInstrumental": "Instrumental",
+    "musicLyrics": "Lirik",
+    "musicGenerator": "Panyieun musik",
+    "musicPlanner": "Pangrancang musik",
+    "setupAllDownload": "Unduh jeung atur sadayana sacara otomatis",
+    "setupConfiguring": "Nyetél modél anu disarankeun",
+    "setupStorage": "Jumlah berkas: {{download}}. Cadangan: {{reserve}}. Rohangan tambahan: {{required}}. Kosong dina drive dipilih: {{free}}.",
+    "setupSpaceMissing": "Kurang {{missing}}. Kosongkeun rohangan atawa pilih drive séjén anu cukup lega.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M nyaéta modél téks lokal anu disarankeun pikeun paguneman, tulisan, panggero alat sareng kaluaran terstruktur. Kontéks awal nyaéta 16K token; pariksa memori sadia samemeh ningkatkeun eta. Input sareng kaluaran téks wungkul, tanpa modél draf. Anggo teang atanapi dokumén anjeun pikeun pariksa klaim faktual.",
+    "setupImageNote": "Gambar — FLUX.2 Klein 4B · Q4_K_M. Téks: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Babandingan aspék: 21:9; Resolusi: 1024 × 432; Léngkah generasi: 4; Mode siki: Acak.",
+    "setupMusicNote": "Musik — ACE-Step 1.5 Turbo. Panyieun musik: 2B · Q4_K_M; Pangrancang musik: 1.7B · Q8_0; Téks: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Lilana musik: 10–600 s; Kualitas audio: 48 kHz · 2.0; Instrumental / Lirik; Acak.",
+    "setupVideoNote": "Pidéo — Wan2.1 T2V 1.3B · Q4_K_M. Téks: UMT5-XXL · Q4_K_M. Lilana vidéo: 5 s; Babandingan aspék: 21:9; Pigura per detik: 16. Vidéo panjang dihijikeun tina klip pondok. Sambungan bisa katingali sarta nyieunna bisa lila. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Ngunduh sareng ngatur model anu disarankeun: Nemotron pikeun téks, Qwen3-Embedding Q8_0 pikeun *multilingual retrieval* (CPU ku standar), FLUX.2 Klein 4B sareng komponenna, Real-ESRGAN ×2/×4, ACE-Step pikeun musik (Instrumental ku standar), sareng Wan2.1 pikeun vidéo. Pariksa ukuran file, spasi disk, sareng prasyarat vidéo di handap. Unduhan sareng *Browse* anu béda tetep sayogi.",
+    "finalizing": "Ngaréngsékeun vidéo",
+    "videoDuration": "Lilana vidéo",
+    "videoDurationNote": "Vidéo panjang dihijikeun tina klip pondok. Sambungan bisa katingali sarta nyieunna bisa lila.",
     "output": "Format réspon",
     "auto": "Otomatis",
     "text": "Téks",
@@ -144,7 +172,8 @@
     "ratio": "Babandingan aspék",
     "resolution": "Resolusi",
     "customSize": "Adat",
-    "sizeAutoNote": "Ngarobah rasio adapts resolusi ayeuna. Dimensi ngagunakeun lilipetan 16, nepi ka 2048 px."
+    "sizeAutoNote": "Ngarobah rasio adapts resolusi ayeuna. Dimensi ngagunakeun lilipetan 16, nepi ka 2048 px.",
+    "setupTextNvfp4Note": "Beurat NVFP4 pilihan pikeun NVIDIA Blackwell GPU atanapi langkung énggal kalayan sahenteuna 4,5 GiB tina VRAM. Pikeun ngagunakeun beurat ieu dina Novera, gudang model lengkep kudu dirobah heula jadi NVFP4 GGUF anu cocog sareng divalidasi. Konversi ieu henteu acan diverifikasi pikeun pos pamariksaan ieu. Berkas Safetensors anu ditautkeun teu tiasa langsung dimuat ku mesin anu dipasang. Q8_0 tetep janten rekomendasi anu siap dianggo. Kabutuhan mémori ogé gumantung kana panjang kontéks."
   },
   "creationInstall": {
     "install": "Pasang konfigurasi ieu",

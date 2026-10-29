@@ -60,7 +60,14 @@
     "removeFromJan": "Novera থেকে সরান",
     "success": "মডেল {{modelId}} স্থায়ীভাবে মুছে ফেলা হয়েছে।",
     "cancel": "বাতিল করুন",
-    "delete": "মুছুন"
+    "delete": "মুছুন",
+    "choiceDescription": "Novera থেকে এই মডেলটি কীভাবে সরানো যায় তা বেছে নিন।",
+    "removeFromNovera": "Novera থেকে সরান",
+    "permanentlyDelete": "স্থায়ীভাবে মুছে দিন",
+    "keepFilesDescription": "তালিকা থেকে মডেলটি সরান এবং এর ফাইলগুলি ডিস্কে রাখুন। আপনি আবার এটি আমদানি করতে পারেন.",
+    "permanentDescription": "ডিস্ক থেকে মডেল এবং এর Novera-পরিচালিত ফাইল মুছুন। এটি পূর্বাবস্থায় ফেরানো যাবে না।",
+    "permanentImportedDescription": "এছাড়াও মূল GGUF ফাইলটি তার আসল অবস্থানে মুছে দিন। বাহ্যিক অক্জিলিয়ারী ফাইল রাখা হয়. এটি পূর্বাবস্থায় ফেরানো যাবে না।",
+    "removedSuccess": "মডেল {{modelId}} Novera থেকে সরানো হয়েছে। এর ফাইলগুলো রাখা হয়েছে।"
   },
   "deleteAllModels": {
     "button": "সব মুছুন",
@@ -123,5 +130,8 @@
     "oneKeyHint": "ঐচ্ছিক ফলব্যাক কীগুলি অ্যাডভান্সড-এ কনফিগার করা হয়েছে।",
     "addKey": "কী যোগ করুন",
     "removeKey": "কী সরান"
-  }
+  },
+  "installedMediaModels": "ছবি, ভিডিও এবং মিউজিক মডেল",
+  "noInstalledModels": "এই বিভাগে কোন মডেল নিবন্ধিত নেই।",
+  "modelComponents": "মডেল ফাইল"
 }

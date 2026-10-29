@@ -96,6 +96,7 @@ export const Route = createFileRoute(route.settings.mcp_servers as any)({
 })
 
 function MCPServersDesktop() {
+
   const { t } = useTranslation()
   const serviceHub = useServiceHub()
   const {
@@ -734,7 +735,7 @@ function MCPServersDesktop() {
                                 alt="Novera"
                                 className="w-3 h-3 object-contain"
                               />
-                              <span>Official</span>
+                              <span>{t('ui:official')}</span>
                             </div>
                           )}
                         </div>
@@ -742,7 +743,7 @@ function MCPServersDesktop() {
                       descriptionOutside={
                         <div className="text-sm text-muted-foreground">
                           <div className="mb-1">
-                            Transport:{' '}
+                            {t('ui:transport')}{' '}
                             <span className="uppercase">
                               {config.type || 'stdio'}
                             </span>
@@ -769,36 +770,33 @@ function MCPServersDesktop() {
                               {config.official && (
                                 <div className="mt-2 text-xs text-muted-foreground pt-2">
                                   <p className="mb-1">
-                                    Requires Jan Browser Extension to be installed
-                                    in your Chrome-based browser.
-                                  </p>
+                                    {t('ui:requiresJanBrowserExtensionToBeInstalledIn')}</p>
                                   <a
                                     href="https://chromewebstore.google.com/detail/jan-browser-mcp/mkciifcjehgnpaigoiaakdgabbpfppal"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-blue-500 hover:underline"
                                   >
-                                    Install Extension →
-                                  </a>
+                                    {t('ui:installExtension')}</a>
                                 </div>
                               )}
                             </>
                           ) : (
                             <>
                               <div className="break-all">
-                                URL: {maskSensitiveUrl(config.url || '')}
+                                {t('ui:url')}{maskSensitiveUrl(config.url || '')}
                               </div>
                               {config.headers &&
                                 Object.keys(config.headers).length > 0 && (
                                   <div className="my-1 break-all">
-                                    Headers:{' '}
+                                    {t('ui:headers_9b10c2')}{' '}
                                     {Object.entries(config.headers)
                                       .map(([key]) => `${key}=******`)
                                       .join(', ')}
                                   </div>
                                 )}
                               {config.timeout && (
-                                <div>Timeout: {config.timeout}s</div>
+                                <div>{t('ui:timeout')}{' '}{config.timeout}s</div>
                               )}
                               <McpServerAuth
                                 status={authStatuses[key]}

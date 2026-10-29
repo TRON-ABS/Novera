@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "Ana amfani da shi yayin fara sabuwar hira",
   "allAssistants": "Duk mataimaka",
   "lastUsed": "Amfani na ƙarshe",
-  "deleteFailed": "An kasa share mataimaki. Da fatan za a sake gwadawa."
+  "deleteFailed": "An kasa share mataimaki. Da fatan za a sake gwadawa.",
+  "officialInstructions": "Ana gyara rukunoni uku na umarnin Novera ta {{path}} kawai."
 }

@@ -104,6 +104,7 @@ function ImageSizeSetting() {
 }
 
 function AttachmentsSettings() {
+
   const { t } = useTranslation()
   const hookDefs = useAttachments((s) => s.settingsDefs)
   const loadDefs = useAttachments((s) => s.loadSettingsDefs)
@@ -348,7 +349,7 @@ function AttachmentsSettings() {
         <SettingsMenu />
         <div className="p-4 pt-0 w-full overflow-y-auto">
           <div className="flex flex-col justify-between gap-4 gap-y-3 w-full">
-            <Card title={t('common:attachments') || 'Attachments'}>
+            <Card title={t('common:attachments') || t('common:attachments')}>
               {defs.filter((d) => d.key !== 'max_file_size_mb').map(renderDef)}
             </Card>
             <Card title={t('settings:attachments.limitsTitle')}>

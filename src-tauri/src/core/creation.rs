@@ -3,6 +3,8 @@ use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 use std::{collections::HashMap, path::PathBuf, process::Stdio, sync::LazyLock};
 use tauri::{AppHandle, Manager, Runtime};
+#[path = "creation_music.rs"]
+mod music;
 use tokio::{
     process::{Child, Command},
     sync::Mutex,
@@ -26,6 +28,10 @@ struct Job {
     upscale_source: Option<PathBuf>,
     expected_upscale: Option<(u32, u32)>,
     started: std::time::Instant,
+    pending_music: Option<Request>,
+    music_request: Option<Request>,
+    music_retried: bool,
+    music_runtime_path: Option<std::ffi::OsString>,
 }
 
 #[derive(Deserialize, Serialize, Clone)]
@@ -41,6 +47,15 @@ pub struct Request {
     steps: u32,
     frames: u32,
     fps: u32,
+    #[serde(default)]
+    duration_seconds: Option<u32>,
+    music_lm: Option<String>,
+    music_engine: Option<String>,
+    music_format: Option<String>,
+    music_bitrate: Option<u32>,
+    music_lyrics: Option<String>,
+    music_bpm: Option<u32>,
+    music_language: Option<String>,
     seed: u32,
     input_image: Option<String>,
     backend: Option<String>,
@@ -198,11 +213,14 @@ pub(super) fn output_directory(task: &str) -> Result<PathBuf, String> {
     let root = match task {
         "image" => dirs::picture_dir(),
         "video" => dirs::video_dir(),
+        "music" => dirs::audio_dir(),
         _ => return Err("Unsupported creation type".into()),
     }
     .ok_or("The operating system media folder is unavailable")?;
     Ok(root.join(if task == "image" {
         "Novera image"
+    } else if task == "music" {
+        "Novera musique"
     } else {
         "Novera vidéo"
     }))
@@ -253,13 +271,13 @@ fn cpp_command(
     let mut cli = Command::new(&executable);
     // Explicit argv, never shell interpolation. Run next to DLLs shipped with the chosen binary.
     cli.current_dir(executable.parent().ok_or("Missing engine directory")?);
-    cli.args(["--mode", "img_gen", "--diffusion-model"])
+    cli.args(["--mode", if request.task == "video" { "vid_gen" } else { "img_gen" }, "--diffusion-model"])
         .arg(
             PathBuf::from(&request.model)
                 .canonicalize()
                 .map_err(|e| e.to_string())?,
         )
-        .arg("--llm")
+        .arg(if request.task == "video" { "--t5xxl" } else { "--llm" })
         .arg(
             PathBuf::from(request.cpp_llm.as_deref().unwrap())
                 .canonicalize()
@@ -291,6 +309,15 @@ fn cpp_command(
             "--offload-to-cpu",
             "--vae-tiling",
         ]);
+    // The bundled engine can cut the graph to fit live free VRAM. Reserve space
+    // for display/driver allocations instead of planning against all free memory.
+    // Keep externally selected engines compatible with their own CLI versions.
+    #[cfg(windows)]
+    cli.args(["--max-vram", "-0.5"]);
+    if request.task == "video" {
+        cli.arg("--video-frames").arg(request.frames.to_string())
+            .arg("--fps").arg(request.fps.to_string()).args(["--flow-shift", "3.0"]);
+    }
     let mut backends = Vec::new();
     match request.device.as_str() {
         "cpu" => backends.extend(["diffusion=cpu", "vae=cpu"]),
@@ -329,6 +356,7 @@ fn png_dimensions(path: &std::path::Path) -> Result<(u32, u32), String> {
 }
 
 fn validate(request: &Request) -> Result<(), String> {
+    if request.task == "music" { return music::validate(request); }
     if let Some(factor) = request.upscale_factor {
         if request.task != "image" || ![2, 4].contains(&factor) {
             return Err("CREATION_UPSCALE_INVALID".into());
@@ -349,6 +377,7 @@ fn validate(request: &Request) -> Result<(), String> {
         || !(1..=100).contains(&request.steps)
         || !(1..=257).contains(&request.frames)
         || !(1..=60).contains(&request.fps)
+        || request.duration_seconds.is_some_and(|seconds| !(1..=3600).contains(&seconds))
     {
         return Err("Invalid creation parameters".into());
     }
@@ -372,12 +401,12 @@ fn validate(request: &Request) -> Result<(), String> {
             &["safetensors"],
         )?;
     } else if request.backend.as_deref() == Some("sdcpp") {
-        if request.task != "image"
+        if (request.task == "video" && (request.frames < 5 || request.frames % 4 != 1 || request.input_image.is_some()))
             || request.prompt.len() > 8000
             || !request.cpp_cfg.unwrap_or(1.0).is_finite()
             || !(0.0..=30.0).contains(&request.cpp_cfg.unwrap_or(1.0))
         {
-            return Err("Invalid GGUF image parameters".into());
+            return Err("Invalid GGUF media parameters (Wan T2V requires 4n+1 frames and no input image)".into());
         }
         let executable = request
             .cpp_executable
@@ -390,10 +419,13 @@ fn validate(request: &Request) -> Result<(), String> {
             return Err("Select sd-cli executable".into());
         }
         let image = local_file(&request.model, &["gguf", "safetensors"])?;
+        if request.task == "video" && requires_nvfp4(&request.model)? {
+            return Err("NVFP4_NATIVE_UNAVAILABLE".into());
+        }
         if gguf_architecture(&image).is_some_and(|name| {
             [
                 "qwen3", "qwen2", "qwen2moe", "qwen3moe", "llama", "mistral", "gemma", "gemma2",
-                "gemma3", "phi2", "phi3", "bert", "gpt2",
+                "gemma3", "phi2", "phi3", "bert", "gpt2", "t5encoder",
             ]
             .contains(&name.as_str())
         }) {
@@ -430,6 +462,19 @@ fn validate(request: &Request) -> Result<(), String> {
 pub fn creation_check_files(mut request: Request) -> Result<(), String> {
     request.cpp_executable = Some(std::env::current_exe().map_err(|e|e.to_string())?.to_string_lossy().into_owned());
     validate(&request)
+}
+
+#[tauri::command]
+pub fn creation_music_models(directory: String) -> Result<Value, String> { music::models(directory) }
+
+#[tauri::command]
+pub async fn creation_video_runtime_check(python: String) -> Result<(),String> {
+    let mut command=Command::new(if python.trim().is_empty(){"python"}else{&python});
+    command.args(["-B","-c","import imageio_ffmpeg; imageio_ffmpeg.get_ffmpeg_version()"])
+        .stdout(Stdio::null()).stderr(Stdio::null()).kill_on_drop(true);
+    #[cfg(windows)] command.creation_flags(0x08000000);
+    let status=tokio::time::timeout(std::time::Duration::from_secs(20),command.status()).await;
+    if matches!(status,Ok(Ok(status)) if status.success()) {Ok(())} else {Err("CREATION_VIDEO_RUNTIME_REQUIRED (Python + imageio-ffmpeg)".into())}
 }
 
 #[tauri::command]
@@ -498,7 +543,7 @@ pub async fn creation_start<R: Runtime>(
         }
     }
     let id = uuid::Uuid::new_v4().to_string();
-    let directory = PathBuf::from(super::app::commands::get_jan_data_folder_path(app))
+    let directory = PathBuf::from(super::app::commands::get_jan_data_folder_path(app.clone()))
         .join("creations")
         .join(&id);
     std::fs::create_dir_all(&directory).map_err(|e| e.to_string())?;
@@ -506,6 +551,8 @@ pub async fn creation_start<R: Runtime>(
     std::fs::create_dir_all(&destination).map_err(|e| e.to_string())?;
     let extension = if request.task == "image" {
         "png"
+    } else if request.task == "music" {
+        if request.music_format.as_deref() == Some("mp3") { "mp3" } else { "wav" }
     } else {
         "mp4"
     };
@@ -515,6 +562,9 @@ pub async fn creation_start<R: Runtime>(
     config["output"] = json!(output);
     config["staged_output"] = json!(staged);
     config["parent_pid"] = json!(std::process::id());
+    if request.task == "music" {
+        std::fs::write(directory.join("music.json"), serde_json::to_vec(&music::payload(&request)?).map_err(|e|e.to_string())?).map_err(|e|e.to_string())?;
+    }
     if let Some(input) = &request.input_image {
         use base64::Engine;
         let (_, payload) = input
@@ -532,6 +582,7 @@ pub async fn creation_start<R: Runtime>(
         config["input_image"] = json!(input_path);
     }
     let cpp = request.backend.as_deref() == Some("sdcpp");
+    let cpp_video = cpp && request.task == "video";
     let mut compat_models = Vec::new();
     if cpp {
         if requires_nvfp4(&request.model)? {
@@ -593,6 +644,18 @@ pub async fn creation_start<R: Runtime>(
         std::fs::write(directory.join("upscale.py"), include_str!("../../../media-server/upscale.py"))
             .map_err(|e| e.to_string())?;
     }
+    if cpp_video {
+        let command = cpp_command(&request, &directory.join("clip.avi"), &config)?;
+        let command = command.as_std();
+        let mut argv = vec![command.get_program().to_string_lossy().into_owned()];
+        argv.extend(command.get_args().map(|arg| arg.to_string_lossy().into_owned()));
+        config["video_command"] = json!(argv);
+        config["video_cwd"] = json!(command.get_current_dir());
+    }
+    if request.task == "video" {
+        std::fs::write(directory.join("video_worker.py"), include_str!("../../../media-server/video_worker.py"))
+            .map_err(|e| e.to_string())?;
+    }
     std::fs::write(
         &config_path,
         serde_json::to_vec(&config).map_err(|e| e.to_string())?,
@@ -601,7 +664,9 @@ pub async fn creation_start<R: Runtime>(
     let stdout =
         std::fs::File::create(directory.join("progress.jsonl")).map_err(|e| e.to_string())?;
     let stderr = std::fs::File::create(directory.join("error.log")).map_err(|e| e.to_string())?;
-    let mut command = if preparing {
+    let mut command = if request.task == "music" {
+        music::command(&request, &directory, "lm")?
+    } else if preparing {
         let converter = directory.join("nvfp4_compat.py");
         std::fs::write(&converter, NVFP4).map_err(|e| e.to_string())?;
         let mut python = Command::new(if request.python.trim().is_empty() {
@@ -610,6 +675,10 @@ pub async fn creation_start<R: Runtime>(
             &request.python
         });
         python.arg("-u").arg(converter).arg(&config_path);
+        python
+    } else if cpp_video {
+        let mut python = Command::new(if request.python.trim().is_empty() { "python" } else { &request.python });
+        python.arg("-u").arg(directory.join("video_worker.py")).arg(&config_path);
         python
     } else if cpp {
         cpp_command(&request, &staged, &config)?
@@ -631,6 +700,14 @@ pub async fn creation_start<R: Runtime>(
         .env("HF_DEACTIVATE_ASYNC_LOAD", "1");
     #[cfg(windows)]
     command.creation_flags(0x08000000);
+    #[cfg(unix)]
+    if request.task == "video" { command.process_group(0); }
+    let music_runtime_path = if request.task == "music" {
+        let mut paths = vec![app.path().resource_dir().map_err(|e|e.to_string())?.join("resources/image-engine/cuda")];
+        if let Some(path) = std::env::var_os("PATH") {paths.extend(std::env::split_paths(&path));}
+        let path=std::env::join_paths(paths).map_err(|e|e.to_string())?;
+        command.env("PATH",&path); Some(path)
+    } else {None};
     let child = command.spawn().map_err(|e| {
         format!(
             "{}: {e}",
@@ -659,8 +736,12 @@ pub async fn creation_start<R: Runtime>(
             pending_upscale: request.upscale_factor.map(|_| request.clone()),
             upscale_source: None,
             expected_upscale: None,
-            cpp,
+            cpp: cpp && !cpp_video,
             started,
+            pending_music: (request.task == "music").then(|| request.clone()),
+            music_request: None,
+            music_retried: false,
+            music_runtime_path,
         },
     );
     Ok(id)
@@ -674,7 +755,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
         return Ok(json!({"stage":"cancelled"}));
     }
     let log = std::fs::read_to_string(job.directory.join("progress.jsonl")).unwrap_or_default();
-    let progress = if job.cpp && job.pending_cpp.is_none() && job.expected_upscale.is_none() {
+    let progress = if job.task == "music" || (job.cpp && job.pending_cpp.is_none() && job.expected_upscale.is_none()) {
         None
     } else {
         log.lines()
@@ -682,6 +763,21 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             .find_map(|line| serde_json::from_str::<Value>(line).ok())
     };
     let status = job.child.try_wait().map_err(|e| e.to_string())?;
+    if matches!(status, Some(status) if !status.success()) && music::recoverable(job) {
+        match music::recover(job) {
+            Ok(child) => {job.child=child;return Ok(json!({"stage":"loading","progress":-1,"device":"cpu","recovery":true}));},
+            Err(error) => {job.delivered=true;return Ok(json!({"stage":"error","error":error}));}
+        }
+    }
+    if matches!(status, Some(status) if status.success()) && job.pending_music.is_some() {
+        match music::transition(job) {
+            Ok(child) => {job.child=child; return Ok(json!({"stage":"loading","progress":35}));},
+            Err(error) => {job.delivered=true;return Ok(json!({"stage":"error","error":error}));}
+        }
+    }
+    if matches!(status, Some(status) if status.success()) && job.task == "music" && !job.output.exists() {
+        if let Err(error)=music::publish(job) {job.delivered=true;let _=std::fs::remove_file(&job.staged);return Ok(json!({"stage":"error","error":error}));}
+    }
     if matches!(status, Some(status) if status.success()) && job.pending_cpp.is_some() {
         let transition = (|| -> Result<Child, String> {
             let mut request = job.pending_cpp.take().ok_or("Missing prepared job")?;
@@ -823,13 +919,14 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             }
             let mut head = [0u8; 8];
             std::fs::File::open(&job.staged)
-                .map_err(|_| "GGUF engine did not produce an image")?
+                .map_err(|_| "GGUF engine did not produce a media file")?
                 .read_exact(&mut head)
                 .map_err(|e| e.to_string())?;
-            if &head != b"\x89PNG\r\n\x1a\n" {
-                return Err("GGUF engine returned an invalid PNG".into());
+            if (job.task == "image" && &head != b"\x89PNG\r\n\x1a\n")
+                || (job.task == "video" && head[..4] != [0x1a, 0x45, 0xdf, 0xa3]) {
+                return Err("GGUF engine returned an invalid media file".into());
             }
-            let sidecar = job.output.with_extension("png.json");
+            let sidecar = job.output.with_extension(if job.task == "video" { "webm.json" } else { "png.json" });
             let mut metadata: Value = serde_json::from_str(
                 &std::fs::read_to_string(if job.directory.join("generated.json").is_file() {
                     job.directory.join("generated.json")
@@ -882,6 +979,9 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
         }
     }
     match status {
+        None if job.task == "music" => {
+            Ok(music::progress(job))
+        },
         None => Ok(progress
             .unwrap_or(json!({"stage":if job.expected_upscale.is_some() {"upscaling"} else if job.cpp {"generating"} else {"loading"},"progress":if job.cpp {-1} else {0}}))),
         Some(status) if status.success() && job.output.is_file() => {
@@ -895,13 +995,17 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
                 json!({"stage":"done","progress":100,"task":job.task,"name":job.output.file_name().and_then(|s| s.to_str()),"path":job.output,"generation_seconds":generation_seconds}),
             )
         }
-        Some(_) => {
+        Some(status) => {
             job.delivered = true;
             let _ = std::fs::remove_file(&job.staged);
             if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));
             Ok(
-                json!({"stage":"error","error":progress.and_then(|p| p.get("error").cloned()).unwrap_or(json!("Python / Diffusers generation failed; check the configured environment and model"))}),
+                json!({"stage":"error","error":progress.and_then(|p| p.get("error").cloned()).unwrap_or_else(|| {
+                    let stderr = std::fs::read_to_string(job.directory.join("error.log")).unwrap_or_default();
+                    let tail: String = stderr.chars().rev().take(1600).collect::<String>().chars().rev().collect();
+                    json!(format!("Media engine exited ({status}): {tail}"))
+                })}),
             )
         }
     }
@@ -925,7 +1029,7 @@ pub async fn creation_cancel(id: String) -> Result<(), String> {
     if let Some(job) = jobs.get_mut(&id) {
         if !job.delivered {
             if job.child.try_wait().map_err(|e| e.to_string())?.is_none() {
-                job.child.kill().await.map_err(|e| e.to_string())?;
+                kill_owned_job(job).await?;
             }
             job.cancelled = true;
             job.delivered = true;
@@ -943,7 +1047,8 @@ fn resolve(task: &str, name: &str) -> Result<PathBuf, String> {
         .next()
         .ok_or("Invalid creation extension")?;
     if !(task == "image" && ["png", "jpg", "jpeg", "webp"].contains(&extension)
-        || task == "video" && extension == "mp4")
+        || task == "video" && ["mp4", "webm"].contains(&extension)
+        || task == "music" && ["wav", "mp3"].contains(&extension))
     {
         return Err("Invalid creation type".into());
     }
@@ -992,8 +1097,68 @@ pub fn creation_image_input(name: String) -> Result<String, String> {
 pub async fn cleanup() {
     let mut jobs = JOBS.lock().await;
     for (_, mut job) in jobs.drain() {
-        let _ = job.child.kill().await;
+        let _ = kill_owned_job(&mut job).await;
         let _ = std::fs::remove_file(job.staged);
         let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));
+    }
+}
+
+async fn kill_owned_job(job: &mut Job) -> Result<(), String> {
+    #[cfg(unix)]
+    if job.task == "video" {
+        if let Some(pid) = job.child.id() {
+            // Only video workers are launched as leaders of their own group.
+            unsafe { libc::kill(-(pid as i32), libc::SIGKILL); }
+        }
+    }
+    job.child.kill().await.map_err(|e| e.to_string())
+}
+
+#[cfg(test)]
+mod video_q4_tests {
+    use super::*;
+    #[test]
+    fn video_uses_wan_mode_t5_encoder_frames_and_fps_without_image_flags() {
+        let root = std::env::temp_dir().join(format!("novera-video-{}", uuid::Uuid::new_v4()));
+        std::fs::create_dir(&root).unwrap();
+        let model = root.join("generator.gguf");
+        let encoder = root.join("encoder.gguf");
+        let vae = root.join("wan.safetensors");
+        let mut header = b"GGUF".to_vec();
+        header.extend_from_slice(&3u32.to_le_bytes());
+        header.extend_from_slice(&0u64.to_le_bytes());
+        header.extend_from_slice(&0u64.to_le_bytes());
+        std::fs::write(&model, &header).unwrap();
+        std::fs::write(&encoder, &header).unwrap();
+        std::fs::write(&vae, b"fixture").unwrap();
+        let mut request: Request = serde_json::from_value(json!({
+            "task":"video", "prompt":"a landscape", "model":model, "python":"python",
+            "device":"auto", "encoder_device":"cpu", "width":832,"height":480,
+            "steps":20,"frames":33,"fps":16,"seed":42,"backend":"sdcpp",
+            "cpp_executable":std::env::current_exe().unwrap(),"cpp_llm":encoder,"cpp_vae":vae,"cpp_cfg":6.0
+        })).unwrap();
+        validate(&request).unwrap();
+        let command = cpp_command(&request, &root.join("output.webm"), &json!({})).unwrap();
+        let args: Vec<_> = command.as_std().get_args().map(|a| a.to_string_lossy().into_owned()).collect();
+        for (flag, value) in [("--mode","vid_gen"),("--video-frames","33"),("--fps","16"),("--flow-shift","3.0")] {
+            let index = args.iter().position(|arg| arg == flag).unwrap();
+            assert_eq!(args[index + 1], value);
+        }
+        assert!(args.iter().any(|a| a == "--t5xxl"));
+        assert!(!args.iter().any(|a| a == "--llm" || a == "--ref-image"));
+        request.frames = 32;
+        assert!(validate(&request).is_err());
+        request.frames = 33;
+        request.duration_seconds = Some(3600);
+        validate(&request).unwrap();
+        request.duration_seconds = Some(3601);
+        assert!(validate(&request).is_err());
+        request.duration_seconds = Some(0);
+        assert!(validate(&request).is_err());
+        request.duration_seconds = Some(5);
+        request.input_image = Some("image-to-video is not supported by this T2V pack".into());
+        assert!(validate(&request).is_err());
+        for path in [model, encoder, vae] { std::fs::remove_file(path).unwrap(); }
+        std::fs::remove_dir(root).unwrap();
     }
 }

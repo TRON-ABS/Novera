@@ -38,5 +38,6 @@
   "defaultAssistantSection": "ਪੂਰਵ-ਨਿਰਧਾਰਤ ਸਹਾਇਕ",
   "defaultAssistantDesc": "ਨਵੀਂ ਚੈਟ ਸ਼ੁਰੂ ਕਰਨ ਵੇਲੇ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ",
   "allAssistants": "ਸਾਰੇ ਸਹਾਇਕ",
-  "lastUsed": "ਪਿਛਲੀ ਵਾਰ ਵਰਤਿਆ ਗਿਆ"
+  "lastUsed": "ਪਿਛਲੀ ਵਾਰ ਵਰਤਿਆ ਗਿਆ",
+  "officialInstructions": "Novera ਦੀਆਂ ਹਦਾਇਤਾਂ ਦੀਆਂ ਤਿੰਨ ਸ਼੍ਰੇਣੀਆਂ ਸਿਰਫ਼ {{path}} ਰਾਹੀਂ ਹੀ ਸੋਧੀਆਂ ਜਾ ਸਕਦੀਆਂ ਹਨ।"
 }

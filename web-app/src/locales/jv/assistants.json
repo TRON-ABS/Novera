@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "Digunakake nalika miwiti obrolan anyar",
   "allAssistants": "Kabeh Asisten",
   "lastUsed": "Digunakake pungkasan",
-  "deleteFailed": "Asisten ora bisa dibusak. Mangga coba maneh."
+  "deleteFailed": "Asisten ora bisa dibusak. Mangga coba maneh.",
+  "officialInstructions": "Telung kategori pandhuan Novera mung bisa diowahi liwat {{path}}."
 }

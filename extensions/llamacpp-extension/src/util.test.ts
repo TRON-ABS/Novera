@@ -667,6 +667,18 @@ describe('detectTemplateKwargsFromChatTemplate', () => {
     ])
   })
 
+  it('detects Nemotron Bolt conversational mode from its conditional default', () => {
+    const tpl = [
+      '{%- if conversational_mode | default(false) -%}',
+      '{%- set sys_prompt = "You are a helpful AI assistant." -%}',
+      '{%- endif -%}',
+      '{% if enable_thinking | default(true) %}{% endif %}',
+    ].join('\n')
+    expect(detectTemplateKwargsFromChatTemplate(tpl)).toEqual([
+      { name: 'conversational_mode', type: 'boolean', default: false },
+    ])
+  })
+
   it('handles the {% %} form without the dash', () => {
     const tpl = '{% set add_notes = add_notes | default(true) %}'
     expect(detectTemplateKwargsFromChatTemplate(tpl)).toEqual([

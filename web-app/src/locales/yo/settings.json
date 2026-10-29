@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Tun koodu Àkọsílẹ Style",
     "resetCodeBlockStyleDesc": "Tun ara Àkọsílẹ koodu to aiyipada.",
     "resetCodeBlockSuccess": "koodu Àkọsílẹ ara tunto ni ifijišẹ",
-    "resetCodeBlockSuccessDesc": "Ara koodu idinamọ ti tun pada si aiyipada."
+    "resetCodeBlockSuccessDesc": "Ara koodu idinamọ ti tun pada si aiyipada.",
+    "subtitle": "Ṣe Novera tirẹ, lati irisi rẹ si awọn ayanfẹ ibaraẹnisọrọ rẹ.",
+    "accentColor": "Awọ arosọ",
+    "accentColorDesc": "Yan asẹnti ati awọ ẹgbe.",
+    "conversation": "Awọn ibaraẹnisọrọ ati awọn iwifunni"
   },
   "hardware": {
     "os": "Eto isesise",

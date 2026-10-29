@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { memo, useMemo, useState } from 'react'
 import { FileTextIcon, GlobeIcon, ChevronRightIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -94,6 +95,8 @@ const RagCitationItem = memo(
 RagCitationItem.displayName = 'RagCitationItem'
 
 const WebCitationItem = memo(({ c }: { c: WebCitation }) => {
+  const { t: uiT } = useUiLocale()
+
   const [expanded, setExpanded] = useState(false)
   let host = ''
   try {
@@ -135,7 +138,7 @@ const WebCitationItem = memo(({ c }: { c: WebCitation }) => {
             type="button"
             onClick={() => setExpanded((v) => !v)}
             className="text-muted-foreground"
-            aria-label="toggle snippet"
+            aria-label={uiT('ui:toggleSnippet')}
           >
             <ChevronRightIcon
               className={cn(
@@ -168,6 +171,8 @@ export const Citations = memo(
     // share one continuous numbering that matches the inline superscripts.
     indexOffset?: number
   }) => {
+  const { t: uiT } = useUiLocale()
+
   useEnsureAttachmentNames(
     payload.kind === 'rag' ? payload.scope : undefined,
     payload.kind === 'rag'
@@ -213,7 +218,7 @@ export const Citations = memo(
         {heading}
         {payload.query && (
           <span className="ml-2 normal-case font-normal text-muted-foreground/70">
-            for &ldquo;{payload.query}&rdquo;
+            {uiT('ui:citationQuery', { query: payload.query })}
           </span>
         )}
       </h4>

@@ -47,7 +47,35 @@
     "tokens": "Tokens",
     "perSecond": "ibimenyetso / s"
   },
+  "player": {
+    "play": "Kina",
+    "pause": "Hagarika gato",
+    "seek": "Aho bigeze bikina",
+    "mute": "Zimya ijwi",
+    "volume": "Uburemere bw'ijwi",
+    "speed": "Umuvuduko wo gukina"
+  },
   "creation": {
+    "musicLyricsGuide": "Sobanura injyana n’ijwi mu cyifuzo. Andika amagambo y’indirimbo munsi y’utumenyetso dukurikira. Zimya {{instrumental}} kugira ngo habeho kuririmba.",
+    "music": "Umuziki",
+    "musicDuration": "Igihe cy’umuziki",
+    "musicQuality": "Ubwiza bw’amajwi",
+    "musicInstrumental": "Umuziki utarimo indirimbo",
+    "musicLyrics": "Amagambo y’indirimbo",
+    "musicGenerator": "Umutunganya umuziki",
+    "musicPlanner": "Umutegura umuziki",
+    "setupAllDownload": "Kuramo kandi uboneze byose byikora",
+    "setupConfiguring": "Kuboneza modele zisabwa",
+    "setupStorage": "Dosiye zose: {{download}}. Inyongera: {{reserve}}. Umwanya w’inyongera ukenewe: {{required}}. Ahari ubusa kuri disiki yatoranyijwe: {{free}}.",
+    "setupSpaceMissing": "Harabura {{missing}}. Shaka umwanya cyangwa uhitemo indi disiki ifite ububiko buhagije.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M ni ikimodeli y'inyandiko ya mu kigo isanzwe ku rwego rwo kuganira, kwandika, kwita ku byo bikoresha, n'ibisubizo by'uburyo bw'inyandiko. Icyo gisanzwe ni 16K tokens; reba imemori isanzwe mbere yo kwinura. Inyandiko n'ubutumwa gusa, nta modeli y'inyandiko y'icyo gisanzwe. Gukoresha ikwibakira cyangwa ibyanditswe byawe kugira ngo ubone ibintu by'ukuri.",
+    "setupImageNote": "Ishusho — FLUX.2 Klein 4B · Q4_K_M. Inyandiko: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Ikigereranyo: 21:9; Icyemezo: 1024 × 432; Intambwe y'ibisekuru: 4; Uburyo bwimbuto: Bisanzwe.",
+    "setupMusicNote": "Umuziki — ACE-Step 1.5 Turbo. Umutunganya umuziki: 2B · Q4_K_M; Umutegura umuziki: 1.7B · Q8_0; Inyandiko: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Igihe cy’umuziki: 10–600 s; Ubwiza bw’amajwi: 48 kHz · 2.0; Umuziki utarimo indirimbo / Amagambo y’indirimbo; Bisanzwe.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Inyandiko: UMT5-XXL · Q4_K_M. Igihe cya videwo: 5 s; Ikigereranyo: 21:9; Frames kumasegonda: 16. Videwo ndende ziteranywa zivuye mu duce tugufi. Aho zahujwe hashobora kugaragara kandi kuyikora bishobora gutwara igihe kirekire. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Ibyanditswe kandi byahindurwa ibimodeli by'ingenzi: Nemotron ku bw'inyandiko, Qwen3-Embedding Q8_0 ku kureba mu ndimi zitandukanye (CPU ni cyo gisanzwe), FLUX.2 Klein 4B n'ibindi byo, Real-ESRGAN ×2/×4, ACE-Step ku muzika (Instrumental ni cyo gisanzwe), na Wan2.1 ku gita. Reba uburebure bw'ibijyanye, aho ububiko bw'ikoranabuhanga n'ibyo bisanzwe ku gita haso. Ibyanditswe n'ibindi byo gukanda byashyizeho.",
+    "finalizing": "Kurangiza videwo",
+    "videoDuration": "Igihe cya videwo",
+    "videoDurationNote": "Videwo ndende ziteranywa zivuye mu duce tugufi. Aho zahujwe hashobora kugaragara kandi kuyikora bishobora gutwara igihe kirekire.",
     "output": "Imiterere yo gusubiza",
     "auto": "Imodoka",
     "text": "Inyandiko",
@@ -144,7 +172,8 @@
     "ratio": "Ikigereranyo",
     "resolution": "Icyemezo",
     "customSize": "Custom",
-    "sizeAutoNote": "Guhindura igipimo gihuza imyanzuro iriho. Ibipimo bikoresha inshuro 16, kugeza 2048 px."
+    "sizeAutoNote": "Guhindura igipimo gihuza imyanzuro iriho. Ibipimo bikoresha inshuro 16, kugeza 2048 px.",
+    "setupTextNvfp4Note": "Inyungu z'NVFP4 z'ingenzi z'NVIDIA Blackwell GPU cyangwa nshya zikoresheje 4.5 GiB cyangwa kirekire cy'VRAM. Kugira ngo ubigire muri Novera, ikibazo cyose cy'model cyo gusubirwa mbere kuri NVFP4 GGUF cy'ikoreshwa kandi cyerekanye. Iki gukoresha ntiberekanye kuri iki checkpoint. Iki fayili cy'Safetensors cy'ikoreshejwe ntishobora gukoreshwa neza n'ikiganiro cy'ingingo. Q8_0 rishobora gukoreshwa neza nk'inshingano. Ibibazo by'ububiko bikaba byishingiye kandi ku gihe cy'ubutumwa."
   },
   "creationInstall": {
     "install": "Shyiramo iboneza",

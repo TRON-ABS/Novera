@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import React, { memo } from 'react'
 
 /**
@@ -21,13 +22,15 @@ export const AvatarEmoji: React.FC<AvatarEmojiProps> = memo(({
   imageClassName = 'w-5 h-5 object-contain',
   textClassName = 'text-base',
 }) => {
+  const { t: uiT } = useUiLocale()
+
   if (!avatar) return null
   // Existing assistants and saved threads still store Novera's original emoji.
   if (avatar === '👋') {
     return <img src="/images/novera-logo.png" alt="Novera" className={imageClassName} />
   }
   if (isCustomImageAvatar(avatar)) {
-    return <img src={avatar} alt="Custom avatar" className={imageClassName} />
+    return <img src={avatar} alt={uiT('common:customAvatar')} className={imageClassName} />
   }
 
   return <span className={textClassName}>{avatar}</span>

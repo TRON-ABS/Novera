@@ -47,7 +47,35 @@
     "workedForAWhile": "数秒間動作しました",
     "workedFor": "{{duration}}で働いていました"
   },
+  "player": {
+    "play": "再生",
+    "pause": "一時停止",
+    "seek": "再生位置",
+    "mute": "ミュート",
+    "volume": "音量",
+    "speed": "再生速度"
+  },
   "creation": {
+    "musicLyricsGuide": "リクエストに曲調と歌声を記述し、以下のタグの下に歌詞を入力してください。歌声を含めるには{{instrumental}}をオフにしてください。",
+    "music": "音楽",
+    "musicDuration": "音楽の長さ",
+    "musicQuality": "音質",
+    "musicInstrumental": "インストゥルメンタル",
+    "musicLyrics": "歌詞",
+    "musicGenerator": "音楽生成モデル",
+    "musicPlanner": "音楽構成モデル",
+    "setupAllDownload": "すべて自動でダウンロードして設定",
+    "setupConfiguring": "推奨モデルを設定中",
+    "setupStorage": "ファイル合計：{{download}}。予備：{{reserve}}。追加で必要な容量：{{required}}。選択ドライブの空き：{{free}}。",
+    "setupSpaceMissing": "{{missing}}不足しています。空き容量を増やすか、十分な容量がある別のドライブを選んでください。",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M は、会話、執筆、ツール呼び出し、構造化出力に推奨されるローカル テキスト モデルです。初期コンテキストは 16K トークンです。メモリを増やす前に、利用可能なメモリを確認してください。テキストの入力と出力のみで、ドラフト モデルはありません。検索または文書を使用して、事実の主張を確認してください。",
+    "setupImageNote": "画像 — FLUX.2 Klein 4B · Q4_K_M. テキスト: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. アスペクト比: 21:9; 解像度: 1024 × 432; 生成手順: 4; シードのモード: ランダム.",
+    "setupMusicNote": "音楽 — ACE-Step 1.5 Turbo. 音楽生成モデル: 2B · Q4_K_M; 音楽構成モデル: 1.7B · Q8_0; テキスト: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. 音楽の長さ: 10–600 s; 音質: 48 kHz · 2.0; インストゥルメンタル / 歌詞; ランダム.",
+    "setupVideoNote": "ビデオ — Wan2.1 T2V 1.3B · Q4_K_M. テキスト: UMT5-XXL · Q4_K_M. 動画の長さ: 5 s; アスペクト比: 21:9; 1秒あたりのフレーム数: 16. 長い動画は短いクリップをつなげて作成します。つなぎ目が見える場合があり、生成には長時間かかることがあります。 · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "推奨モデルをダウンロードして構成します: テキスト用 Nemotron、多言語検索用 Qwen3-Embedding Q8_0 (デフォルトでは CPU)、FLUX.2 Klein 4B とそのコンポーネント、Real-ESRGAN ×2/×4、音楽の場合は ACE-Step (デフォルトでインストゥルメンタルがオン)、ビデオの場合は Wan2.1。以下のファイル サイズ、ディスク容量、ビデオの前提条件を確認してください。個別のダウンロードと参照は引き続き利用可能です。",
+    "finalizing": "動画を仕上げています",
+    "videoDuration": "動画の長さ",
+    "videoDurationNote": "長い動画は短いクリップをつなげて作成します。つなぎ目が見える場合があり、生成には長時間かかることがあります。",
     "output": "応答フォーマット",
     "auto": "オート",
     "text": "テキスト",
@@ -144,7 +172,8 @@
     "ratio": "アスペクト比",
     "resolution": "解像度",
     "customSize": "カスタム",
-    "sizeAutoNote": "比率を変更すると、現在の解像度が適応されます。寸法には、16 の倍数 (最大 2048 ピクセル) が使用されます。"
+    "sizeAutoNote": "比率を変更すると、現在の解像度が適応されます。寸法には、16 の倍数 (最大 2048 ピクセル) が使用されます。",
+    "setupTextNvfp4Note": "VRAM の少なくとも 4.5 GiB を持つ、検出された NVIDIA Blackwell GPU 以降のオプションの NVFP4 重み。これらの重みを Novera で使用するには、完全なモデル リポジトリは、まず互換性のある NVFP4 GGUF に変換して検証する必要があります。この変換は、このチェックポイントではまだ検証されていません。リンクされた Safetensors ファイルは、内蔵エンジンで直接ロードできません。 Q8_0 は、そのまますぐに使用できる推奨事項のままです。メモリの必要量はコンテキストの長さにも依存します。"
   },
   "creationInstall": {
     "install": "この構成をインストール",

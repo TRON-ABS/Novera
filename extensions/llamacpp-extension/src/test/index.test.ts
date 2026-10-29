@@ -258,13 +258,20 @@ describe('llamacpp_extension', () => {
       vi.mocked(fs.existsSync).mockResolvedValue(false)
       vi.mocked(fs.fileStat).mockResolvedValue({ size: 1000000 })
       vi.mocked(fs.mkdir).mockResolvedValue(undefined)
-      vi.mocked(invoke).mockResolvedValue(undefined)
+      vi.mocked(invoke).mockImplementation(async (cmd) => cmd === 'model_download_directory' ? '/Documents/Novera models/test-model' : undefined)
 
       await extension.import('test-model', { 
-        modelPath: 'https://example.com/model.gguf' 
+        modelPath: 'https://example.com/model.gguf',
+        mmprojPath: 'https://example.com/mmproj.gguf'
       })
 
-      expect(mockDownloadManager.downloadFiles).toHaveBeenCalled()
+      expect(mockDownloadManager.downloadFiles).toHaveBeenCalledWith(
+        expect.arrayContaining([
+          expect.objectContaining({ save_path: '/Documents/Novera models/test-model/model.gguf' }),
+          expect.objectContaining({ save_path: '/Documents/Novera models/test-model/mmproj.gguf' }),
+        ]),
+        expect.any(String), expect.any(Function)
+      )
       expect(fs.mkdir).toHaveBeenCalled()
       expect(invoke).toHaveBeenCalledWith('write_yaml', expect.any(Object))
     })
@@ -290,13 +297,16 @@ describe('llamacpp_extension', () => {
       vi.mocked(fs.existsSync).mockResolvedValue(false)
       vi.mocked(fs.fileStat).mockResolvedValue({ size: 1000000 })
       vi.mocked(fs.mkdir).mockResolvedValue(undefined)
-      vi.mocked(invoke).mockResolvedValue(undefined)
+      vi.mocked(invoke).mockImplementation(async (cmd) => cmd === 'model_download_directory' ? '/Documents/Novera models/test-model' : undefined)
 
-      await extension.import('LFM2.5-2.6B-Q6_K', {
-        modelPath: 'https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF/resolve/main/LFM2.5-2.6B-Q6_K.gguf?download=true'
+      await extension.import('LFM3-1.7B-Q8_0', {
+        modelPath: 'https://huggingface.co/LiquidAI/LFM3-1.7B-GGUF/resolve/main/LFM3-1.7B-Q8_0.gguf?download=true'
       })
 
-      expect(mockDownloadManager.downloadFiles).toHaveBeenCalled()
+      expect(mockDownloadManager.downloadFiles).toHaveBeenCalledWith(
+        expect.arrayContaining([expect.objectContaining({ save_path: '/Documents/Novera models/test-model/model.gguf' })]),
+        expect.any(String), expect.any(Function)
+      )
       expect(fs.mkdir).toHaveBeenCalled()
       expect(invoke).toHaveBeenCalledWith('write_yaml', expect.objectContaining({
         data: expect.objectContaining({ ctx_size: 32768, temperature: 0.1, top_k: 50, repeat_penalty: 1.1 }),
@@ -512,6 +522,9 @@ describe('llamacpp_extension', () => {
   })
 
   describe('delete', () => {
+    beforeEach(() => {
+      vi.spyOn(extension as any, 'findSessionByModel').mockResolvedValue(null)
+    })
     it('should throw error if model does not exist', async () => {
       const { getJanDataFolderPath, joinPath, fs } = await import('@janhq/core')
       
@@ -533,6 +546,49 @@ describe('llamacpp_extension', () => {
       await extension.delete('test-model')
       
       expect(fs.rm).toHaveBeenCalledWith('/path/to/jan/llamacpp/models/test-model')
+    })
+  })
+
+  describe('model removal choices', () => {
+    beforeEach(() => {
+      vi.spyOn(extension as any, 'findSessionByModel').mockResolvedValue(null)
+      vi.mocked(getJanDataFolderPath).mockResolvedValue('/path/to/jan')
+      vi.mocked(joinPath).mockImplementation(async (paths) => paths.join('/'))
+      vi.mocked(fs.existsSync).mockResolvedValue(true)
+      vi.mocked(fs.rm).mockResolvedValue(undefined)
+      vi.spyOn(extension as any, 'refreshEnginePreset').mockResolvedValue(undefined)
+    })
+    it('removes only the registration when keeping downloaded files', async () => {
+      await extension.delete('test-model', { deleteFiles: false })
+      expect(fs.rm).toHaveBeenCalledExactlyOnceWith('/path/to/jan/llamacpp/models/test-model/model.yml')
+      expect(invoke).not.toHaveBeenCalledWith('delete_imported_model_file', expect.anything())
+    })
+    it('deletes downloaded files only for the permanent choice', async () => {
+      vi.mocked(invoke).mockResolvedValue({ model_path: 'llamacpp/models/test-model/model.gguf' })
+      await extension.delete('test-model', { deleteFiles: true })
+      expect(fs.rm).toHaveBeenCalledExactlyOnceWith('/path/to/jan/llamacpp/models/test-model')
+      expect(invoke).not.toHaveBeenCalledWith('delete_imported_model_file', expect.anything())
+    })
+    it('uses the restricted native command for an imported GGUF', async () => {
+      vi.mocked(invoke).mockResolvedValue({ model_path: 'D:/Models/model.gguf' })
+      await extension.delete('test-model', { deleteFiles: true })
+      expect(invoke).toHaveBeenCalledWith('delete_imported_model_file', {
+        configPath: '/path/to/jan/llamacpp/models/test-model/model.yml',
+      })
+    })
+    it('keeps registration when deleting the external file fails', async () => {
+      vi.mocked(invoke).mockImplementation(async (command) => {
+        if (command === 'delete_imported_model_file') throw new Error('locked')
+        return { model_path: 'D:/Models/model.gguf' }
+      })
+      await expect(extension.delete('test-model', { deleteFiles: true })).rejects.toThrow('locked')
+      expect(fs.rm).not.toHaveBeenCalled()
+    })
+    it('never removes a model that cannot be unloaded', async () => {
+      vi.spyOn(extension as any, 'findSessionByModel').mockResolvedValue({ model_id: 'test-model' })
+      vi.spyOn(extension, 'unload').mockResolvedValue({ success: false, error: 'busy' })
+      await expect(extension.delete('test-model', { deleteFiles: false })).rejects.toThrow('busy')
+      expect(fs.rm).not.toHaveBeenCalled()
     })
   })
 
@@ -955,6 +1011,24 @@ describe('bootstrapDefaultEmbedder', () => {
     extension = new llamacpp_extension()
   })
 
+  it.each([[undefined, 'cpu'], [0, 'cpu'], [-1, 'gpu'], [28, 'gpu']])('reads embedding offload=%s as device=%s', async (n_gpu_layers, expected) => {
+    vi.mocked(invoke).mockResolvedValue({ embedding: true, n_gpu_layers })
+    await expect(extension.getEmbeddingDevice('qwen')).resolves.toBe(expected)
+  })
+
+  it('replaces the legacy MiniLM bootstrap with the verified Qwen download', async () => {
+    vi.mocked(getBackendSetting).mockResolvedValue(null)
+    vi.spyOn(extension, 'list')
+      .mockResolvedValueOnce([{ id: 'sentence-transformer-mini', embedding: true }] as never)
+      .mockResolvedValue([{ id: 'Qwen3-Embedding-0.6B-Q8_0', embedding: true }] as never)
+    const install = vi.spyOn(extension, 'import').mockResolvedValue(undefined as never)
+    await extension['bootstrapDefaultEmbedder']()
+    expect(install).toHaveBeenCalledWith('Qwen3-Embedding-0.6B-Q8_0', expect.objectContaining({
+      modelSize: 639150592,
+      modelSha256: '06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439',
+    }))
+  })
+
   it('imports the fallback embedder when none is installed, then marks the bootstrap done', async () => {
     vi.mocked(getBackendSetting).mockResolvedValue(null)
     // The install is confirmed by re-listing, so the second call has to reflect
@@ -964,7 +1038,7 @@ describe('bootstrapDefaultEmbedder', () => {
       .mockResolvedValueOnce([{ id: 'chat-model', embedding: false }] as never)
       .mockResolvedValue([
         { id: 'chat-model', embedding: false },
-        { id: 'sentence-transformer-mini', embedding: true },
+        { id: 'Qwen3-Embedding-0.6B-Q8_0', embedding: true },
       ] as never)
     const importSpy = vi
       .spyOn(extension, 'import')
@@ -974,11 +1048,11 @@ describe('bootstrapDefaultEmbedder', () => {
 
     expect(list).toHaveBeenCalled()
     expect(importSpy).toHaveBeenCalledWith(
-      'sentence-transformer-mini',
-      expect.objectContaining({ modelPath: expect.stringContaining('MiniLM') })
+      'Qwen3-Embedding-0.6B-Q8_0',
+      expect.objectContaining({ modelPath: expect.stringContaining('Qwen3-Embedding') })
     )
     expect(setBackendSetting).toHaveBeenCalledWith(
-      'llamacpp-embedder-bootstrapped',
+      'llamacpp-qwen3-embedder-bootstrapped',
       'true'
     )
   })
@@ -994,7 +1068,7 @@ describe('bootstrapDefaultEmbedder', () => {
 
     expect(importSpy).not.toHaveBeenCalled()
     expect(setBackendSetting).toHaveBeenCalledWith(
-      'llamacpp-embedder-bootstrapped',
+      'llamacpp-qwen3-embedder-bootstrapped',
       'true'
     )
   })
@@ -1034,7 +1108,7 @@ describe('verifyEmbeddingModel', () => {
       version_backend: 'b6099/linux-cuda-12-common_cpus-x64',
     } as never
     vi.spyOn(extension as never, 'ensureEmbeddingModelLoaded').mockResolvedValue(
-      { model_id: 'sentence-transformer-mini', port: 1234 } as never
+      { model_id: 'Qwen3-Embedding-0.6B-Q8_0', port: 1234 } as never
     )
   })
 
@@ -1065,7 +1139,7 @@ describe('verifyEmbeddingModel', () => {
     const result = await extension.verifyEmbeddingModel()
 
     expect(result.status).toBe('ok')
-    expect(result.modelId).toBe('sentence-transformer-mini')
+    expect(result.modelId).toBe('Qwen3-Embedding-0.6B-Q8_0')
     expect(result.dimension).toBe(3)
   })
 
@@ -1228,7 +1302,7 @@ describe('bootstrapDefaultEmbedder failure reporting', () => {
 
     vi.spyOn(extension, 'import').mockResolvedValue(undefined as never)
     vi.spyOn(extension, 'list').mockResolvedValue([
-      { id: 'sentence-transformer-mini', embedding: true },
+      { id: 'Qwen3-Embedding-0.6B-Q8_0', embedding: true },
     ] as never)
     await extension['bootstrapDefaultEmbedder']()
 

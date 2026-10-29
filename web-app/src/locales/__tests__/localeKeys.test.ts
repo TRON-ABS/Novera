@@ -23,6 +23,10 @@ const COMPLETE_NAMESPACES = ['tools']
  */
 const DYNAMIC_KEYS: Record<string, string[]> = {
   setup: [
+    // Retained for older setup/profile metadata, which uses the registered
+    // text dictionary. The current installer no longer offers this toggle.
+    'dsparkEnable',
+    'dsparkDescription',
     'stageModel',
     'stageConsent',
     'checkModelResolving',

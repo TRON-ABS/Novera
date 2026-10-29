@@ -38,5 +38,6 @@
   "defaultAssistantSection": "المساعد الافتراضي",
   "defaultAssistantDesc": "يُستخدم عند بدء محادثة جديدة",
   "allAssistants": "جميع المساعدين",
-  "lastUsed": "آخر مساعد استُخدم"
+  "lastUsed": "آخر مساعد استُخدم",
+  "officialInstructions": "يمكن تعديل فئات تعليمات Novera الثلاث فقط من خلال {{path}}."
 }

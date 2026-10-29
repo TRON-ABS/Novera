@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Asisten Bawaan",
   "defaultAssistantDesc": "Digunakan saat memulai obrolan baru",
   "allAssistants": "Semua Asisten",
-  "lastUsed": "Terakhir digunakan"
+  "lastUsed": "Terakhir digunakan",
+  "officialInstructions": "Tiga kategori instruksi Novera hanya dapat diedit melalui {{path}}."
 }

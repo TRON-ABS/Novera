@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useControllableState } from '@radix-ui/react-use-controllable-state'
 import {
   Collapsible,
@@ -116,23 +117,24 @@ export type ReasoningTriggerProps = ComponentProps<
   getThinkingMessage?: (isStreaming: boolean, duration?: number) => ReactNode
 }
 
-const defaultGetThinkingMessage = (isStreaming: boolean, duration?: number) => {
+const defaultGetThinkingMessage = (isStreaming: boolean, duration: number | undefined, t: ReturnType<typeof useTranslation>['t']) => {
   if (isStreaming || duration === 0) {
-    return <Shimmer duration={1}>Thinking...</Shimmer>
+    return <Shimmer duration={1}>{t('common:thinking')}</Shimmer>
   }
   if (duration === undefined) {
-    return <p>Thought for a few seconds</p>
+    return <p>{t('chat:reasoning.thoughtForAWhile')}</p>
   }
-  return <p>Thought for {duration} seconds</p>
+  return <p>{t('ui:thoughtDuration', { count: duration })}</p>
 }
 
 export const ReasoningTrigger = memo(
   ({
     className,
     children,
-    getThinkingMessage = defaultGetThinkingMessage,
+    getThinkingMessage,
     ...props
   }: ReasoningTriggerProps) => {
+    const { t } = useTranslation()
     const { isStreaming, isOpen, duration } = useReasoning()
 
     return (
@@ -146,7 +148,7 @@ export const ReasoningTrigger = memo(
         {children ?? (
           <>
             <BrainIcon className="size-4" />
-            {getThinkingMessage(isStreaming, duration)}
+            {getThinkingMessage ? getThinkingMessage(isStreaming, duration) : defaultGetThinkingMessage(isStreaming, duration, t)}
             <ChevronDownIcon
               className={cn(
                 'size-4 transition-transform',

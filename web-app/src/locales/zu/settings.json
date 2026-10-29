@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Setha Kabusha Isitayela Sebhulokhi Yekhodi",
     "resetCodeBlockStyleDesc": "Setha kabusha isitayela sebhulokhi yekhodi sifinyelele kokungokwesizinda.",
     "resetCodeBlockSuccess": "Isitayela sebhulokhi yekhodi sesibuyiselwe ngempumelelo",
-    "resetCodeBlockSuccessDesc": "Isitayela sebhulokhi yekhodi sibuyiselwe kokungokwesizinda."
+    "resetCodeBlockSuccessDesc": "Isitayela sebhulokhi yekhodi sibuyiselwe kokungokwesizinda.",
+    "subtitle": "Yenza Novera kube eyakho, kusukela ekubukekeni kwayo kuya kokuncamelayo engxoxweni.",
+    "accentColor": "Umbala we-accent",
+    "accentColorDesc": "Khetha indlela yokugcizelela nebha eseceleni.",
+    "conversation": "Izingxoxo nezaziso"
   },
   "hardware": {
     "os": "Uhlelo Lokusebenza",

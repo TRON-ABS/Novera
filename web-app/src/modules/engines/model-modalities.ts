@@ -23,6 +23,7 @@ export function modelModalities(model: ModalModel) {
   const outputs = new Set<Modality>(model.output_modalities ?? [])
   if (capabilities.includes('image-generation')) outputs.add('image')
   if (capabilities.includes('video-generation')) outputs.add('video')
+  if (capabilities.includes('audio-generation')) outputs.add('audio')
   if (
     capabilities.includes('completion') ||
     (!outputs.size && !model.embedding && !capabilities.includes('embeddings'))

@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "バグを見つけましたか？GitHubで問題を報告して、私たちを助けてください。",
   "reportIssue": "問題を報告",
   "credits": "クレジット",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS) は、Menlo Research およびその貢献者による Jan を基にしています。",
   "creditsDesc2": "オープンソースの依存関係、特にllama.cppとTauri、そして素晴らしいAIコミュニティに感謝します。",
   "appVersion": "アプリのバージョン",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockSuccess": "コードブロックスタイルが正常にリセットされました",
     "resetCodeBlockSuccessDesc": "コードブロックスタイルがデフォルトに復元されました。",
     "autoGenerateTitle": "チャットタイトルを自動生成",
-    "autoGenerateTitleDesc": "新しい会話をスレッドのタイトルに自動的に要約します。オフにすると、自分で名前を変更するまでデフォルトのタイトルが維持されます。"
+    "autoGenerateTitleDesc": "新しい会話をスレッドのタイトルに自動的に要約します。オフにすると、自分で名前を変更するまでデフォルトのタイトルが維持されます。",
+    "subtitle": "Novera を見た目から会話の好みまで自分のものにしましょう。",
+    "accentColor": "アクセントカラー",
+    "accentColorDesc": "アクセントとサイドバーの色を選択してください。",
+    "conversation": "会話と通知"
   },
   "hardware": {
     "os": "オペレーティングシステム",
@@ -295,7 +299,7 @@
     "reportAnIssueDesc": "バグを見つけましたか？GitHubで問題を報告して、私たちを助けてください。",
     "reportIssue": "問題を報告",
     "credits": "クレジット",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS) は、Menlo Research およびその貢献者による Jan を基にしています。",
     "creditsDesc2": "オープンソースの依存関係、特にllama.cppとTauri、そして素晴らしいAIコミュニティに感謝します。",
     "janCli": "Novera CLI",
     "janCliDesc": "端末から Novera のエージェントを実行します。ガイドに従ってインストールして開始してください。",

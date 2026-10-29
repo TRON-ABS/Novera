@@ -9,7 +9,7 @@
   "baseUrlPlaceholder": "https://your-endpoint/v1",
   "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
   "apiKeyLabel": "API key",
-  "apiKeyPlaceholder": "Paste your API key",
+  "apiKeyPlaceholder": "Paste API key wey you get",
   "invalidBaseUrl": "Base URL must be valid http(s) URL",
   "globalSettings": "Global settings",
   "stripReasoning": "Remove reasoning from context",

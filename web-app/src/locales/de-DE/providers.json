@@ -33,7 +33,14 @@
     "cancel": "Abbrechen",
     "delete": "Löschen",
     "importedDescription": "Dieses importierte Modell aus Novera entfernen? Ihre lokale Datei auf der Festplatte wird nicht gelöscht.",
-    "removeFromJan": "Aus Novera entfernen"
+    "removeFromJan": "Aus Novera entfernen",
+    "choiceDescription": "Wählen Sie aus, wie dieses Modell aus Novera entfernt werden soll.",
+    "removeFromNovera": "Aus Novera entfernen",
+    "permanentlyDelete": "Endgültig löschen",
+    "keepFilesDescription": "Entfernen Sie das Modell aus der Liste und behalten Sie seine Dateien auf der Festplatte. Sie können es erneut importieren.",
+    "permanentDescription": "Löschen Sie das Modell und seine Novera verwalteten Dateien von der Festplatte. Dies kann nicht rückgängig gemacht werden.",
+    "permanentImportedDescription": "Löschen Sie außerdem die Hauptdatei GGUF an ihrem ursprünglichen Speicherort. Externe Hilfsdateien bleiben erhalten. Dies kann nicht rückgängig gemacht werden.",
+    "removedSuccess": "Modell {{modelId}} wurde aus Novera entfernt. Seine Dateien wurden beibehalten."
   },
   "deleteProvider": {
     "title": "Anbieter löschen",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Optionale Fallback-Tasten werden in „Erweitert“ konfiguriert.",
     "addKey": "Schlüssel hinzufügen",
     "removeKey": "Schlüssel abziehen"
-  }
+  },
+  "installedMediaModels": "Bild-, Video- und Musikmodelle",
+  "noInstalledModels": "Keine Modelle in dieser Kategorie registriert.",
+  "modelComponents": "Modelldateien"
 }

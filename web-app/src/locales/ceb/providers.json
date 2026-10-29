@@ -60,7 +60,14 @@
     "removeFromJan": "Kuhaa gikan sa Novera",
     "success": "Ang modelo nga {{modelId}} permanenteng natangtang.",
     "cancel": "Pagkansela",
-    "delete": "Pagtangtang"
+    "delete": "Pagtangtang",
+    "choiceDescription": "Pilia kon unsaon pagtangtang niini nga modelo gikan sa Novera.",
+    "removeFromNovera": "Kuhaa gikan sa Novera",
+    "permanentlyDelete": "Permanente nga tangtangon",
+    "keepFilesDescription": "Kuhaa ang modelo gikan sa lista ug ibutang ang mga file niini sa disk. Mahimo nimong i-import kini pag-usab.",
+    "permanentDescription": "I-delete ang modelo ug ang Novera-managed files gikan sa disk. Dili na kini mabawi.",
+    "permanentImportedDescription": "Papasa usab ang nag-unang GGUF nga payl sa orihinal nga lokasyon niini. Ang mga eksternal nga auxiliary file gitipigan. Dili na kini mabawi.\nAng",
+    "removedSuccess": "Ang modelo nga {{modelId}} gikuha gikan sa Novera. Ang mga file niini gitipigan."
   },
   "deleteAllModels": {
     "button": "Kuhaa ang Tanan",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Ang opsyonal nga fallback nga mga yawe gi-configure sa Advanced.",
     "addKey": "Idugang ang yawe",
     "removeKey": "Kuhaa ang yawe"
-  }
+  },
+  "installedMediaModels": "Mga modelo sa imahe, video ug musika",
+  "noInstalledModels": "Walay mga modelo nga narehistro niini nga kategoriya.",
+  "modelComponents": "Mga file sa modelo"
 }

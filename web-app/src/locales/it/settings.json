@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "Hai trovato un bug? Aiutaci aprendo una segnalazione su GitHub.",
   "reportIssue": "Segnala problema",
   "credits": "Crediti",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS), basato su Jan di Menlo Research e dei suoi contributori.",
   "creditsDesc2": "Un ringraziamento speciale alle nostre dipendenze open-source — in particolare llama.cpp e Tauri — e alla nostra straordinaria community IA.",
   "appVersion": "Versione app",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "renderHtmlArtifacts": "Rendering degli artefatti HTML e SVG",
     "renderHtmlArtifactsDesc": "Aggiungi una scheda Anteprima ai blocchi di codice HTML e SVG. HTML esegue la pagina generata dal modello in un frame sandbox che esegue i propri script ma non può accedere a Novera, ai file o alla rete; SVG esegue il rendering in modo statico con gli script disabilitati. Disattivato per impostazione predefinita.",
     "autoGenerateTitle": "Titolo della chat generato automaticamente",
-    "autoGenerateTitleDesc": "Riepiloga automaticamente le nuove conversazioni nel titolo della discussione. Disattiva per mantenere il titolo predefinito finché non lo rinomini tu stesso."
+    "autoGenerateTitleDesc": "Riepiloga automaticamente le nuove conversazioni nel titolo della discussione. Disattiva per mantenere il titolo predefinito finché non lo rinomini tu stesso.",
+    "subtitle": "Rendi tuo Novera, dal suo aspetto alle tue preferenze di conversazione.",
+    "accentColor": "Colore in risalto",
+    "accentColorDesc": "Scegli l'accento e il colore della barra laterale.",
+    "conversation": "Conversazioni e notifiche"
   },
   "hardware": {
     "os": "Sistema operativo",
@@ -219,7 +223,7 @@
     "trustedHosts": "Host attendibili",
     "trustedHostsDesc": "Host autorizzati ad accedere al server, separati da virgole.",
     "advancedSettings": "Impostazioni avanzate",
-    "cors": "Cross-Origin Resource Sharing (CORS)",
+    "cors": "Condivisione di risorse tra origini (CORS)",
     "corsDesc": "Consenti richieste cross-origin al server API.",
     "verboseLogs": "Log dettagliati del server",
     "verboseLogsDesc": "Abilita log dettagliati del server per il debug.",
@@ -291,7 +295,7 @@
     "reportAnIssueDesc": "Hai trovato un bug? Aiutaci aprendo una segnalazione su GitHub.",
     "reportIssue": "Segnala problema",
     "credits": "Crediti",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS), basato su Jan di Menlo Research e dei suoi contributori.",
     "creditsDesc2": "Un ringraziamento speciale alle nostre dipendenze open-source — in particolare llama.cpp e Tauri — e alla nostra straordinaria community IA.",
     "autoUpdateCheck": "Controllo automatico degli aggiornamenti",
     "autoUpdateCheckDesc": "Controlla automaticamente gli aggiornamenti all'avvio e periodicamente.",

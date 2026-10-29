@@ -1,0 +1,100 @@
+[
+  {
+    "role": "musicEncoder",
+    "name": "Qwen3-Embedding-0.6B-Q8_0.gguf",
+    "url": "https://huggingface.co/Serveurperso/ACE-Step-1.5-GGUF/resolve/666ac70204440867d8c01ba4b119cc79c95b370a/Qwen3-Embedding-0.6B-Q8_0.gguf",
+    "size": 784144960,
+    "sha256": "972f23255e46adfe744a0eb9a0039f3c63988f65753b0968d776e8b27168c321"
+  },
+  {
+    "role": "musicPlanner",
+    "name": "acestep-5Hz-lm-1.7B-Q8_0.gguf",
+    "url": "https://huggingface.co/Serveurperso/ACE-Step-1.5-GGUF/resolve/666ac70204440867d8c01ba4b119cc79c95b370a/acestep-5Hz-lm-1.7B-Q8_0.gguf",
+    "size": 1975837568,
+    "sha256": "726f99a82f050b32ebc5c5e36acaa9d7acd06bfe5e579a62b00e0d0d6d0b7ec6"
+  },
+  {
+    "role": "musicGenerator",
+    "name": "acestep-v15-turbo-Q4_K_M.gguf",
+    "url": "https://huggingface.co/Serveurperso/ACE-Step-1.5-GGUF/resolve/666ac70204440867d8c01ba4b119cc79c95b370a/acestep-v15-turbo-Q4_K_M.gguf",
+    "size": 1445710272,
+    "sha256": "55b4d8514850f3d0f82536f37e99673aaf48df802b5ae5b153eea32a2e2daa5e"
+  },
+  {
+    "role": "musicVae",
+    "name": "vae-BF16.gguf",
+    "url": "https://huggingface.co/Serveurperso/ACE-Step-1.5-GGUF/resolve/666ac70204440867d8c01ba4b119cc79c95b370a/vae-BF16.gguf",
+    "size": 337420928,
+    "sha256": "0599862ac5d15cd308e1d2e368373aea6c02e25ebd1737ad4a4562a0901b0ef8"
+  },
+  {
+    "role": "musicRuntime:ace-lm.exe",
+    "url": "https://www.serveurperso.com/temp/acestep.cpp-win64/build/Release/ace-lm.exe",
+    "name": "ace-lm.exe",
+    "size": 422912,
+    "sha256": "753c40bbe79db826181810c545dab11c89010ca11a5f407dab42313040a7797f"
+  },
+  {
+    "role": "musicRuntime:ace-synth.exe",
+    "url": "https://www.serveurperso.com/temp/acestep.cpp-win64/build/Release/ace-synth.exe",
+    "name": "ace-synth.exe",
+    "size": 645632,
+    "sha256": "dd417d3eb3f49d74b652c1544b60fc682d0d54313933977e0f506320aceaef0f"
+  },
+  {
+    "role": "musicRuntime:ggml-base.dll",
+    "url": "https://www.serveurperso.com/temp/acestep.cpp-win64/build/Release/ggml-base.dll",
+    "name": "ggml-base.dll",
+    "size": 692224,
+    "sha256": "329d923eca2a04016c72e5898fba7bcddb9558fd8370d1071de6ec3ac0de7cb2"
+  },
+  {
+    "role": "musicRuntime:ggml-cpu-alderlake.dll",
+    "url": "https://www.serveurperso.com/temp/acestep.cpp-win64/build/Release/ggml-cpu-alderlake.dll",
+    "name": "ggml-cpu-alderlake.dll",
+    "size": 981504,
+    "sha256": "e4fc08d61acc5471545f10a5c38a034fb01bcdbdfe2d6efb3c574486782b808b"
+  },
+  {
+    "role": "musicRuntime:ggml-cpu-x64.dll",
+    "url": "https://www.serveurperso.com/temp/acestep.cpp-win64/build/Release/ggml-cpu-x64.dll",
+    "name": "ggml-cpu-x64.dll",
+    "size": 869888,
+    "sha256": "048db69209cb8d3a5dbb3fe19a674967407f4dd622f28da73a7e3037111c2f8a"
+  },
+  {
+    "role": "musicRuntime:ggml-cuda.dll",
+    "url": "https://www.serveurperso.com/temp/acestep.cpp-win64/build/Release/ggml-cuda.dll",
+    "name": "ggml-cuda.dll",
+    "size": 129080320,
+    "sha256": "a0b944f8abbe1a95411fc00a3e6446545b1532b87820e92ed12adf606bca4fd7"
+  },
+  {
+    "role": "musicRuntime:ggml-vulkan.dll",
+    "url": "https://www.serveurperso.com/temp/acestep.cpp-win64/build/Release/ggml-vulkan.dll",
+    "name": "ggml-vulkan.dll",
+    "size": 41527808,
+    "sha256": "89db32d3086f6852cf85c805d7a8f67f7b6db83e37d259e418edd65fc729b14b"
+  },
+  {
+    "role": "musicRuntime:ggml.dll",
+    "url": "https://www.serveurperso.com/temp/acestep.cpp-win64/build/Release/ggml.dll",
+    "name": "ggml.dll",
+    "size": 61440,
+    "sha256": "d630b1f12b8662202f3b3421a20a369400d1ba5bc3d3344607d18af25661fa43"
+  },
+  {
+    "role": "musicRuntime:LICENSE-acestep.txt",
+    "url": "https://raw.githubusercontent.com/ServeurpersoCom/acestep.cpp/de858d8e1a94f0e1939cf9bdd8ff7d9631953077/LICENSE",
+    "name": "LICENSE-acestep.txt",
+    "size": 1085,
+    "sha256": "43e5610846745c687f675badd848d769c8af0a671604efe45cb1466517fd3ddb"
+  },
+  {
+    "role": "musicRuntime:LICENSE-ggml.txt",
+    "name": "LICENSE-ggml.txt",
+    "url": "https://raw.githubusercontent.com/ServeurpersoCom/ggml/cc5df49a6b878db2b68b9a7b45976e279594627d/LICENSE",
+    "size": 1078,
+    "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+  }
+]

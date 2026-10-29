@@ -60,7 +60,14 @@
     "removeFromJan": "Susa kwi-Novera",
     "success": "Umzekelo we-{{modelId}} ucinywe ngokusisigxina.",
     "cancel": "Rhoxisa",
-    "delete": "Cima"
+    "delete": "Cima",
+    "choiceDescription": "Khetha indlela yokususa le modeli kwi-Novera.",
+    "removeFromNovera": "Susa kwi-Novera",
+    "permanentlyDelete": "Cima ngokusisigxina",
+    "keepFilesDescription": "Susa imodeli kuluhlu kwaye ugcine iifayile zayo kwidiski. Ungayingenisa kwakhona.",
+    "permanentDescription": "Cima imodeli kunye neefayile zayo ezilawulwa yi-Novera kwidiski. Oku akunakwenziwa kwakhona.",
+    "permanentImportedDescription": "Kwakhona cima eyona fayile GGUF kwindawo yayo yokuqala. Iifayile ezincedisayo zangaphandle zigcinwa. Oku akunakwenziwa kwakhona.",
+    "removedSuccess": "Imodeli {{modelId}} isusiwe kwi-Novera. Iifayile zayo zagcinwa."
   },
   "deleteAllModels": {
     "button": "Cima Konke",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Izitshixo ezizikhethelayo zokubuyela umva ziqwalaselwe kwi-Advanced.",
     "addKey": "Faka isitshixo",
     "removeKey": "Susa isitshixo"
-  }
+  },
+  "installedMediaModels": "Iimodeli zomfanekiso, ividiyo kunye nomculo",
+  "noInstalledModels": "Akukho zimodeli ezibhalisiweyo kolu didi.",
+  "modelComponents": "Iifayile zemodeli"
 }

@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "May nahanap na bug? Tulungan kami sa pag-uulat ng isyu sa GitHub.",
   "reportIssue": "Iulat ang isyu",
   "credits": "Mga pagkilala",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS), batay sa Jan ng Menlo Research at sa mga contributor nito.",
   "creditsDesc2": "Espesyal na pasasalamat sa aming mga open-source dependency—lalo na sa llama.cpp at Tauri—at sa aming mahusay na komunidad ng AI.",
   "appVersion": "Bersyon ng app",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "I-reset ang estilo ng bloke ng code",
     "resetCodeBlockStyleDesc": "Ibalik sa default ang estilo ng bloke ng code.",
     "resetCodeBlockSuccess": "Na-reset ang estilo ng bloke ng code",
-    "resetCodeBlockSuccessDesc": "Naibalik sa default ang estilo ng bloke ng code."
+    "resetCodeBlockSuccessDesc": "Naibalik sa default ang estilo ng bloke ng code.",
+    "subtitle": "Gawin mong sarili ang Novera, mula sa hitsura nito hanggang sa iyong mga kagustuhan sa pag-uusap.",
+    "accentColor": "Kulay ng accent",
+    "accentColorDesc": "Piliin ang accent at kulay ng sidebar.",
+    "conversation": "Mga pag-uusap at notification"
   },
   "hardware": {
     "os": "Operating system",
@@ -262,7 +266,7 @@
     "trustedHosts": "Mga pinagkakatiwalaang host",
     "trustedHostsDesc": "Mga host na pinapayagang mag-access sa server, na pinaghihiwalay ng kuwit.",
     "advancedSettings": "Mga advanced na setting",
-    "cors": "Cross-Origin Resource Sharing (CORS)",
+    "cors": "CORS",
     "corsDesc": "Payagan ang mga cross-origin na kahilingan sa API server.",
     "verboseLogs": "Detalyadong mga log ng server",
     "verboseLogsDesc": "I-enable ang detalyadong mga log ng server para sa pag-debug.",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "May nahanap na bug? Tulungan kami sa pag-uulat ng isyu sa GitHub.",
     "reportIssue": "Iulat ang isyu",
     "credits": "Mga pagkilala",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS), batay sa Jan ng Menlo Research at sa mga contributor nito.",
     "creditsDesc2": "Espesyal na pasasalamat sa aming mga open-source dependency—lalo na sa llama.cpp at Tauri—at sa aming mahusay na komunidad ng AI."
   },
   "extensions": {

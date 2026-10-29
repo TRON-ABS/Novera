@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { createFileRoute } from '@tanstack/react-router'
 import { route } from '@/constants/routes'
 import HeaderPage from '@/containers/HeaderPage'
@@ -36,6 +37,7 @@ export const Route = createFileRoute(route.settings.claude_code as any)({
 })
 
 function ClaudeCodeIntegration() {
+
   const { t } = useTranslation()
   const serviceHub = useServiceHub()
   const {
@@ -172,8 +174,8 @@ function ClaudeCodeIntegration() {
 
     try {
       if (serverStatus === 'stopped') {
-        toast.info('Starting server...', {
-          description: 'Preparing server for Claude Code',
+        toast.info(t('ui:startingServer'), {
+          description: t('ui:preparingServerForClaudeCode'),
         })
         try {
           await startServer()
@@ -184,7 +186,7 @@ function ClaudeCodeIntegration() {
           // running' case is already swallowed inside startServer and proceeds.
           const msg =
             startErr instanceof Error ? startErr.message : String(startErr)
-          toast.error('Failed to start the local API server', {
+          toast.error(t('ui:failedToStartTheLocalApiServer'), {
             description: msg,
           })
           return
@@ -202,7 +204,7 @@ function ClaudeCodeIntegration() {
         })),
       })
       toast.success(
-        'Environment variables updated. Please try relaunching Claude Code in a new terminal window.',
+        t('ui:environmentVariablesUpdatedPleaseTryRelaunchingClaudeCode'),
         {
           duration: 8000,
         }
@@ -210,7 +212,7 @@ function ClaudeCodeIntegration() {
     } catch (error) {
       console.error('Failed to launch Claude Code:', error)
       const errorMsg = error instanceof Error ? error.message : String(error)
-      toast.error('Failed to configure env vars', {
+      toast.error(t('ui:failedToConfigureEnvVars'), {
         description: errorMsg,
       })
     }
@@ -251,44 +253,43 @@ function ClaudeCodeIntegration() {
                     <path d="M81 54H90V72H81V54Z" fill="#D77757" />
                   </svg>
                   <h1 className="text-foreground font-studio font-medium text-base">
-                    Claude Code integration
-                  </h1>
+                    {t('ui:claudeCodeIntegration')}</h1>
                 </div>
               }
             >
               <CardItem
-                title="Large Model"
+                title={t('ui:largeModel')}
                 description="Opus"
                 actions={
                   <HelperModelSelector
                     providers={providers}
                     selectedModel={helperModels.big}
                     onSelect={(model) => setHelperModel('big', model)}
-                    placeholder="Select Big Model"
+                    placeholder={t('ui:selectBigModel')}
                   />
                 }
               />
               <CardItem
-                title="Medium Model"
+                title={t('ui:mediumModel')}
                 description="Sonnet"
                 actions={
                   <HelperModelSelector
                     providers={providers}
                     selectedModel={helperModels.medium}
                     onSelect={(model) => setHelperModel('medium', model)}
-                    placeholder="Select Medium Model"
+                    placeholder={t('ui:selectMediumModel')}
                   />
                 }
               />
               <CardItem
-                title="Small Model"
+                title={t('ui:smallModel')}
                 description="Haiku"
                 actions={
                   <HelperModelSelector
                     providers={providers}
                     selectedModel={helperModels.small}
                     onSelect={(model) => setHelperModel('small', model)}
-                    placeholder="Select Small Model"
+                    placeholder={t('ui:selectSmallModel')}
                   />
                 }
                 descriptionOutside={
@@ -308,8 +309,7 @@ function ClaudeCodeIntegration() {
                   onClick={() => setIsCustomCliDialogOpen(true)}
                 >
                   <IconPlus className="text-muted-foreground" size={14} />
-                  Environment Variables
-                </Button>
+                  {t('common:mcpServers.envVars')}</Button>
                 <div className="flex gap-2">
                   <Button
                     size="sm"
@@ -318,20 +318,19 @@ function ClaudeCodeIntegration() {
                       clearModels()
                       try {
                         await invoke('clear_claude_code_env')
-                        toast.success('Claude Code settings cleared')
+                        toast.success(t('ui:claudeCodeSettingsCleared'))
                       } catch (e) {
-                        toast.error(`Failed to clear env file: ${e}`)
+                        toast.error(t('ui:failedToClearEnvFileValue0', { value0: e }))
                       }
                     }}
                   >
-                    Reset
-                  </Button>
+                    {t('common:reset')}</Button>
                   <Button
                     size="sm"
                     onClick={handleLaunchClaudeCode}
                     disabled={isModelLoading}
                   >
-                    {isModelLoading ? 'Loading models...' : 'Save & Enable'}
+                    {isModelLoading ? t('hub:loadingModels') : t('ui:saveEnable')}
                   </Button>
                 </div>
               </div>
@@ -339,11 +338,11 @@ function ClaudeCodeIntegration() {
               {(helperModels.customCli || helperModels.envVars.length > 0) && (
                 <div className="mt-3 text-sm text-muted-foreground">
                   {helperModels.customCli && (
-                    <div>Command: {helperModels.customCli}</div>
+                    <div>{t('ui:command')}{' '}{helperModels.customCli}</div>
                   )}
                   {helperModels.envVars.length > 0 && (
                     <div className="break-all">
-                      Env:{' '}
+                      {t('ui:env')}{' '}
                       {helperModels.envVars
                         .map((env) => `${env.key}=******`)
                         .join(', ')}
@@ -380,6 +379,8 @@ function HelperModelSelector({
   onSelect: (modelId: string) => void
   placeholder?: string
 }) {
+  const { t: uiT } = useUiLocale()
+
   const [open, setOpen] = useState(false)
   const [searchValue, setSearchValue] = useState('')
   const searchInputRef = useRef<HTMLInputElement>(null)
@@ -462,7 +463,7 @@ function HelperModelSelector({
                       : 'bg-blue-500/10 text-blue-600'
                   )}
                 >
-                  {currentModel.isLocal ? 'Local' : 'Remote'}
+                  {currentModel.isLocal ? uiT('common:localProviders') : uiT('common:remoteProviders')}
                 </span>
                 <span>{formatModelWithSize(currentModel)}</span>
               </>
@@ -485,7 +486,7 @@ function HelperModelSelector({
               ref={searchInputRef}
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
-              placeholder="Search models..."
+              placeholder={uiT('common:searchModels')}
               className="text-sm font-normal outline-0 w-full"
             />
             {searchValue.length > 0 && (
@@ -502,7 +503,7 @@ function HelperModelSelector({
           <div className="max-h-[300px] overflow-y-auto">
             {Object.keys(groupedModels).length === 0 && searchValue ? (
               <div className="py-3 px-4 text-sm text-muted-foreground">
-                No models found for &quot;{searchValue}&quot;
+                {uiT('ui:noModelsFoundFor')}{searchValue}&quot;
               </div>
             ) : (
               <div className="py-1">
@@ -576,6 +577,8 @@ function JanCodeRecommendation({
   selectedModel: string | null
   onSelect: (modelId: string) => void
 }) {
+  const { t: uiT } = useUiLocale()
+
   const serviceHub = useServiceHub()
   const { downloads, localDownloadingModels, addLocalDownloadingModel } =
     useDownloadStore()
@@ -652,8 +655,7 @@ function JanCodeRecommendation({
     <div className="p-2.5 rounded-lg min-h-[54px] border border-primary/20 bg-primary/5 flex items-center justify-between gap-3">
       <div className="flex flex-col gap-0.5">
         <span className="text-xs font-medium text-foreground">
-          Use Jan-Code for a quick start
-        </span>
+          {uiT('ui:useJanCodeForAQuickStart')}</span>
       </div>
       <div className="shrink-0">
         {isDownloaded ? (
@@ -662,8 +664,7 @@ function JanCodeRecommendation({
             variant="outline"
             onClick={() => onSelect(defaultVariant!.model_id)}
           >
-            Apply
-          </Button>
+            {uiT('ui:apply')}</Button>
         ) : isDownloading ? (
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
             <svg
@@ -705,8 +706,7 @@ function JanCodeRecommendation({
             onClick={handleDownload}
             disabled={!defaultVariant}
           >
-            Setup
-          </Button>
+            {uiT('common:projects.setup')}</Button>
         )}
       </div>
     </div>

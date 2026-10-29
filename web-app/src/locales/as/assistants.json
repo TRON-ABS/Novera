@@ -38,5 +38,6 @@
   "defaultAssistantSection": "অবিকল্পিত সহায়ক",
   "defaultAssistantDesc": "নতুন চেট আৰম্ভ কৰাৰ সময়ত ব্যৱহাৰ কৰা হয়",
   "allAssistants": "সকলো সহায়ক",
-  "lastUsed": "সৰ্বশেষ ব্যৱহৃত"
+  "lastUsed": "সৰ্বশেষ ব্যৱহৃত",
+  "officialInstructions": "Novera-ৰ নিৰ্দেশনাৰ তিনিটা শ্ৰেণী কেৱল {{path}}-ৰ জৰিয়তেহে সম্পাদনা কৰিব পাৰি।"
 }

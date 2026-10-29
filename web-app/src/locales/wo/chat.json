@@ -47,7 +47,35 @@
     "tokens": "Jetons",
     "perSecond": "jeton/s"
   },
+  "player": {
+    "play": "Tàmbali",
+    "pause": "Taxawal tuuti",
+    "seek": "Bérab bu mu toll",
+    "mute": "Fay baat bi",
+    "volume": "Dooley baat bi",
+    "speed": "Gaawaayu tàmbali"
+  },
   "creation": {
+    "musicLyricsGuide": "Leeral melokaan ak baat bi ci sa laaj. Bind kàdduy woy wi ci suufu màndarga yii. Fay {{instrumental}} ngir am woy.",
+    "music": "Woy",
+    "musicDuration": "Guddaayu woy wi",
+    "musicQuality": "Baaxaayu déggin wi",
+    "musicInstrumental": "Misik bu amul woy",
+    "musicLyrics": "Kàdduy woy",
+    "musicGenerator": "Soskatub misik",
+    "musicPlanner": "Tëralekatub misik",
+    "setupAllDownload": "Yebal te jagleel lépp ci boppam",
+    "setupConfiguring": "Mi ngi jagleel model yi ñu digle",
+    "setupStorage": "Dencukaay yépp: {{download}}. Wàll wiñu bàyyi: {{reserve}}. Li gën a soxla: {{required}}. Li féete ci disk biñu tànn: {{free}}.",
+    "setupSpaceMissing": "{{missing}} moo des. Defal fu féete walla tànn beneen disk bu am dencukaay bu doy.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M mooy misaalu mbindu dëkk bi ñu digle ngir waxtaan, bind, wooteb jumtukaay ak génnug jumtukaay. Kontekst bi njëkk mooy 16K ay jeton; xoolal memory bi laata ngay yokk ko. Duggal ak genne mbind kese, amul modelu bordure. Jëfandikool seetlu wala say këyit ngir firndeel dëgg gi nga wax.",
+    "setupImageNote": "Nataal — FLUX.2 Klein 4B · Q4_K_M. Bind: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Rasio: 21:9; Dayo: 1024 × 432; Jéego yu am solo: 4; Modu jiwwu: Yenn saa.",
+    "setupMusicNote": "Woy — ACE-Step 1.5 Turbo. Soskatub misik: 2B · Q4_K_M; Tëralekatub misik: 1.7B · Q8_0; Bind: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Guddaayu woy wi: 10–600 s; Baaxaayu déggin wi: 48 kHz · 2.0; Misik bu amul woy / Kàdduy woy; Yenn saa.",
+    "setupVideoNote": "Wideo — Wan2.1 T2V 1.3B · Q4_K_M. Bind: UMT5-XXL · Q4_K_M. Guddaayu wideo bi: 5 s; Rasio: 21:9; Kadre ci segond bu nekk: 16. Wideo yu gudd dañuy boole ay dog yu gàtt. Barabu boole yi mën nañu feeñ te sos gi mën na jël lu bare ci waxtu. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Dafa jàppale ak jéggal ay modèl yu jàppale: Nemotron ci text, Qwen3-Embedding Q8_0 ci multilingual retrieval (CPU bu default), FLUX.2 Klein 4B ak ay composants yi, Real-ESRGAN ×2/×4, ACE-Step ci musique (Instrumental bu default), ak Wan2.1 ci video. Xoolal ay taille file, espace disk ak prerequisites video ci li guiss ci ci. Downloads ak Browse yu jàppale.",
+    "finalizing": "Mi ngi jeexal wideo bi",
+    "videoDuration": "Guddaayu wideo bi",
+    "videoDurationNote": "Wideo yu gudd dañuy boole ay dog yu gàtt. Barabu boole yi mën nañu feeñ te sos gi mën na jël lu bare ci waxtu.",
     "output": "Format tontu",
     "auto": "Oto",
     "text": "Bind",
@@ -144,7 +172,8 @@
     "ratio": "Rasio",
     "resolution": "Dayo",
     "customSize": "Tàmm",
-    "sizeAutoNote": "Soppi ratio bi dafay méngale dayo bi fi nekk. Dimension yi dañuy jëfandikoo 16 yu bari, ba 2048 px."
+    "sizeAutoNote": "Soppi ratio bi dafay méngale dayo bi fi nekk. Dimension yi dañuy jëfandikoo 16 yu bari, ba 2048 px.",
+    "setupTextNvfp4Note": "NVFP4 weights yu xolal ci NVIDIA Blackwell GPU wala bu bees, te li amna VRAM 4.5 GiB wala bu bees. Ci Novera, téewal ay weights yi, doxal ci doxal model bi bu bees ci NVFP4 GGUF te validation bi. Conversion bi dafa xolal ci lii. Safetensors file bi li xolal ci link bi dafa jàppal ci engine bi. Q8_0 dafa jàppal bu bees. Memory bi dafa xolal ci context length bi."
   },
   "creationInstall": {
     "install": "Sampaaleel tabb bii",

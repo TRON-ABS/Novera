@@ -394,8 +394,13 @@ export function DataProvider() {
         syncModelParamDefaults()
       })
     }
+    const refresh = () => handler()
+    const unregister = ExtensionManager.getInstance().onRegistrationChange(refresh)
+    window.addEventListener('focus', refresh)
     events.on(AppEvent.onModelImported, handler)
     return () => {
+      unregister()
+      window.removeEventListener('focus', refresh)
       events.off(AppEvent.onModelImported, handler)
     }
   }, [serviceHub, setProviders])

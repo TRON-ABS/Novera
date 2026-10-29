@@ -1,3 +1,5 @@
+import { translateSettingText } from '@/i18n/setting-text'
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { useMemo } from 'react'
 import { IconTrash, IconPlus, IconAlertTriangle } from '@tabler/icons-react'
 
@@ -54,6 +56,8 @@ export function ParametersSection({
   providerId,
   modelId,
 }: ParametersSectionProps) {
+  const { t: uiT } = useUiLocale()
+
   const modelRejects = (key: string) =>
     !!(providerId && modelId && isModelLevelRejected(key, providerId, modelId))
   const supportIndex = useMemo(() => {
@@ -118,8 +122,7 @@ export function ParametersSection({
     <div className="space-y-3">
       {!hasAny && (
         <div className="text-xs text-muted-foreground py-2">
-          No overrides — using model defaults.
-        </div>
+          {uiT('ui:noOverridesUsingModelDefaults')}</div>
       )}
 
       {activeStandaloneKeys.map((key) => (
@@ -146,9 +149,7 @@ export function ParametersSection({
 
       {unknownKeys.length > 0 && (
         <div className="text-xs text-muted-foreground">
-          {unknownKeys.length} unrecognized parameter
-          {unknownKeys.length === 1 ? '' : 's'} hidden:{' '}
-          {unknownKeys.join(', ')}
+          {uiT('ui:hiddenParameters', { count: unknownKeys.length, names: unknownKeys.join(', ') })}
         </div>
       )}
 
@@ -180,6 +181,8 @@ function StandaloneRow({
   onChange,
   onRemove,
 }: StandaloneRowProps) {
+  const { t: uiT } = useUiLocale()
+
   const def = paramsSettings[paramKey]
   if (!def) return null
   const disabledReason = evaluateDisabled(def, params)
@@ -197,19 +200,19 @@ function StandaloneRow({
     <div className="space-y-1">
       <div className="flex items-center gap-2 min-w-0">
         <div className="flex items-center gap-1 min-w-0 flex-1 text-sm">
-          <span className="truncate">{def.title}</span>
+          <span className="truncate">{translateSettingText(def.title, uiT)}</span>
           {unsupported && (
             <IconAlertTriangle
               size={12}
               className="text-destructive shrink-0"
-              aria-label="Not supported — will be stripped on send"
+              aria-label={uiT('ui:notSupportedWillBeStrippedOnSend')}
             />
           )}
           {!unsupported && maybeOnly && (
             <IconAlertTriangle
               size={12}
               className="text-amber-500 shrink-0"
-              aria-label="May be ignored by this provider"
+              aria-label={uiT('ui:mayBeIgnoredByThisProvider')}
             />
           )}
         </div>
@@ -218,7 +221,7 @@ function StandaloneRow({
           size="icon-sm"
           onClick={() => onRemove(paramKey)}
           className="shrink-0 h-7 w-7"
-          aria-label={`Remove ${def.title}`}
+          aria-label={uiT('ui:removeValue0', { value0: translateSettingText(def.title, uiT) })}
         >
           <IconTrash size={14} className="text-destructive" />
         </Button>
@@ -229,7 +232,7 @@ function StandaloneRow({
           value: value as string | number | boolean,
           ...(def.controllerProps ?? {}),
         }}
-        disabledReason={disabledReason ?? undefined}
+        disabledReason={translateSettingText(disabledReason ?? undefined, uiT)}
         onChange={(v) => onChange(paramKey, v)}
       />
       {(unsupported || def.effectHint) && (
@@ -240,7 +243,7 @@ function StandaloneRow({
               : 'text-xs text-muted-foreground'
           }
         >
-          {unsupported ? 'Not supported — will be skipped.' : def.effectHint}
+          {unsupported ? uiT('ui:notSupportedWillBeSkipped') : translateSettingText(def.effectHint, uiT)}
         </div>
       )}
     </div>
@@ -260,18 +263,19 @@ function GroupBlock({
   onChange,
   onRemoveGroup,
 }: GroupBlockProps) {
+  const { t: uiT } = useUiLocale()
   return (
     <div className="rounded-md border border-border/60 p-3 space-y-3">
       <div className="flex items-center justify-between">
         <div>
-          <div className="text-sm font-medium">{group.title}</div>
-          <div className="text-xs text-muted-foreground">{group.description}</div>
+          <div className="text-sm font-medium">{translateSettingText(group.title, uiT)}</div>
+          <div className="text-xs text-muted-foreground">{translateSettingText(group.description, uiT)}</div>
         </div>
         <Button
           variant="ghost"
           size="icon-sm"
           onClick={onRemoveGroup}
-          aria-label={`Remove ${group.title}`}
+          aria-label={`Remove ${translateSettingText(group.title, uiT)}`}
         >
           <IconTrash size={16} className="text-destructive" />
         </Button>
@@ -286,7 +290,7 @@ function GroupBlock({
             const value = params[memberKey] ?? def.value
             return (
               <div key={memberKey} className="space-y-1">
-                <div className="text-xs text-muted-foreground">{def.title}</div>
+                <div className="text-xs text-muted-foreground">{translateSettingText(def.title, uiT)}</div>
                 <DynamicControllerSetting
                   controllerType={def.controllerType}
                   controllerProps={{
@@ -319,6 +323,8 @@ function AddParameterMenu({
   onAddGroup,
   modelRejects,
 }: AddParameterMenuProps) {
+  const { t: uiT } = useUiLocale()
+
   const items = useMemo(() => {
     return paramCategories
       .map((cat) => {
@@ -351,8 +357,7 @@ function AddParameterMenu({
   if (items.length === 0) {
     return (
       <div className="text-xs text-muted-foreground">
-        No tunable parameters for this provider.
-      </div>
+        {uiT('ui:noTunableParametersForThisProvider')}</div>
     )
   }
 
@@ -361,15 +366,14 @@ function AddParameterMenu({
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="sm" className="w-full justify-start">
           <IconPlus size={14} className="mr-1" />
-          Add parameter
-        </Button>
+          {uiT('ui:addParameter')}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-72 max-h-[60vh] overflow-y-auto">
         {items.map(({ cat, entries }, catIdx) => (
           <div key={cat.id}>
             {catIdx > 0 && <DropdownMenuSeparator />}
             <DropdownMenuLabel className="text-[10px] uppercase tracking-wide text-muted-foreground">
-              {cat.title}
+              {translateSettingText(cat.title, uiT)}
             </DropdownMenuLabel>
             {entries.map((entry) =>
               entry.kind === 'param' ? (
@@ -380,7 +384,7 @@ function AddParameterMenu({
                   className="flex flex-col items-start gap-0.5 py-1.5"
                 >
                   <div className="flex items-center gap-1 w-full">
-                    <span className="text-sm">{entry.def.title}</span>
+                    <span className="text-sm">{translateSettingText(entry.def.title, uiT)}</span>
                     {entry.support.supportedBy.length === 0 &&
                       entry.support.maybeBy.length > 0 && (
                         <IconAlertTriangle
@@ -390,7 +394,7 @@ function AddParameterMenu({
                       )}
                   </div>
                   <span className="text-xs text-muted-foreground line-clamp-1">
-                    {entry.def.effectHint ?? entry.def.description}
+                    {translateSettingText(entry.def.effectHint ?? entry.def.description, uiT)}
                   </span>
                 </DropdownMenuItem>
               ) : (
@@ -400,9 +404,9 @@ function AddParameterMenu({
                   onSelect={() => onAddGroup(entry.group)}
                   className="flex flex-col items-start gap-0.5 py-1.5"
                 >
-                  <span className="text-sm">{entry.group.title}</span>
+                  <span className="text-sm">{translateSettingText(entry.group.title, uiT)}</span>
                   <span className="text-xs text-muted-foreground line-clamp-1">
-                    {entry.group.description}
+                    {translateSettingText(entry.group.description, uiT)}
                   </span>
                 </DropdownMenuItem>
               )

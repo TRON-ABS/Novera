@@ -136,7 +136,10 @@ async fn download(url: &str) -> Result<reqwest::Response, String> {
     Err("Too many media redirects".into())
 }
 fn format(bytes: &[u8], task: &str) -> Result<(&'static str, &'static str), String> {
-    if task == "image" {
+    if task == "music" {
+        if bytes.starts_with(b"RIFF") && bytes.get(8..12)==Some(&b"WAVE"[..]) {return Ok(("wav","audio/wav"));}
+        if bytes.starts_with(b"ID3") || (bytes.first()==Some(&0xff) && bytes.get(1).is_some_and(|b|b & 0xe6 == 0xe2)) {return Ok(("mp3","audio/mpeg"));}
+    } else if task == "image" {
         if bytes.starts_with(b"\x89PNG\r\n\x1a\n") {
             return Ok(("png", "image/png"));
         }
@@ -150,6 +153,19 @@ fn format(bytes: &[u8], task: &str) -> Result<(&'static str, &'static str), Stri
         return Ok(("mp4", "video/mp4"));
     }
     Err("Unexpected media format".into())
+}
+
+#[cfg(test)]
+mod music_format_tests {
+    use super::*;
+    #[test]
+    fn saves_only_audio_headers_as_music() {
+        assert_eq!(format(b"RIFFxxxxWAVE","music").unwrap(),("wav","audio/wav"));
+        assert_eq!(format(b"ID3xxxxxxxxx","music").unwrap(),("mp3","audio/mpeg"));
+        assert!(format(b"RIFFxxxxWEBP","music").is_err());
+        assert!(format(b"xxxxftypmp42","music").is_err());
+        assert!(format(b"ID3xxxxxxxxx","video").is_err());
+    }
 }
 pub(super) fn publish_stage(
     stage: &std::path::Path,

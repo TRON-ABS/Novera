@@ -31,6 +31,7 @@ export default memo(function DropdownToolsAvailable({
   children,
   onOpenChange,
 }: DropdownToolsAvailableProps) {
+
   const allTools = useAppState((state) => state.tools)
   // Filter out Jan Browser MCP tools
   const tools = allTools.filter((tool) => tool.server !== 'Jan Browser MCP')
@@ -123,8 +124,7 @@ export default memo(function DropdownToolsAvailable({
         onClick={(e) => e.stopPropagation()}
       >
         <DropDrawerLabel className="flex items-center gap-2 sticky -top-1 z-10 px-4 pl-2 py-1">
-          Available Tools
-        </DropDrawerLabel>
+          {t('ui:availableTools')}</DropDrawerLabel>
         <DropDrawerSeparator />
         <div className="max-h-64 overflow-y-auto">
           <DropDrawerGroup>
@@ -151,8 +151,7 @@ export default memo(function DropdownToolsAvailable({
                     {serverTools.length > 1 && (
                       <div className="sticky top-0 z-10  border-b px-4 md:px-2 pr-2 py-1.5 flex items-center justify-between">
                         <span className="text-xs font-medium">
-                          All Tools
-                        </span>
+                          {t('ui:allTools')}</span>
                         <div
                           className={cn(
                             'flex items-center gap-2',

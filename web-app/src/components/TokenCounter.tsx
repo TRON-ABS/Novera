@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { useMemo, useEffect, useState, useRef, memo } from 'react'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { cn, formatTokenCount } from '@/lib/utils'
@@ -42,6 +43,7 @@ export const TokenCounter = memo(function TokenCounter({
   additionalTokens = 0,
   source,
 }: TokenCounterProps) {
+
   const { t } = useTranslation()
   const { calculateTokens, ...tokenData } = useTokensCount(messages, source)
 
@@ -207,8 +209,7 @@ export const TokenCounter = memo(function TokenCounter({
             <IconBrain className="size-4 text-muted-foreground shrink-0" />
             <div className="flex-1 min-w-0">
               <div className="text-xs font-medium text-foreground">
-                Context window
-              </div>
+                {t('ui:contextWindow')}</div>
               {modelDisplayName && (
                 <div className="text-[11px] text-muted-foreground truncate">
                   {modelDisplayName}
@@ -218,7 +219,7 @@ export const TokenCounter = memo(function TokenCounter({
             {modelProps?.isSleeping && (
               <IconMoon
                 className="size-3.5 text-muted-foreground"
-                aria-label="Model sleeping"
+                aria-label={t('ui:modelSleeping')}
               />
             )}
           </div>
@@ -260,26 +261,26 @@ export const TokenCounter = memo(function TokenCounter({
             {typeof inputTokens === 'number' && inputTokens > 0 && (
               <Row
                 icon={<IconArrowUp className="size-3.5" />}
-                label="Prompt"
+                label={t('ui:prompt')}
                 value={formatExact(inputTokens)}
               />
             )}
             {typeof outputTokens === 'number' && outputTokens > 0 && (
               <Row
                 icon={<IconArrowDown className="size-3.5" />}
-                label="Completion"
+                label={t('ui:completion')}
                 value={formatExact(outputTokens)}
               />
             )}
             <Row
               icon={<IconSum className="size-3.5" />}
-              label="Used"
+              label={t('ui:used')}
               value={formatExact(totalTokens)}
               strong
             />
             <Row
               icon={<IconRulerMeasure className="size-3.5" />}
-              label="Remaining"
+              label={t('ui:remaining')}
               value={formatExact(remaining)}
             />
           </div>
@@ -290,36 +291,33 @@ export const TokenCounter = memo(function TokenCounter({
               {showFittedBadge && (
                 <span
                   className="flex items-center gap-1"
-                  title={`Configured ctx_len: ${formatExact(tokenData.configuredCtxLen!)}`}
+                  title={t('ui:configuredCtxLenValue0', { value0: formatExact(tokenData.configuredCtxLen!) })}
                 >
                   <IconAdjustmentsAlt className="size-3" />
-                  Fitted to {formatTokenCount(tokenData.maxTokens)}
+                  {t('ui:fittedContext', { count: tokenData.maxTokens })}
                 </span>
               )}
               {modelProps?.totalSlots !== undefined &&
                 modelProps.totalSlots > 1 && (
                   <span className="flex items-center gap-1">
                     <IconStack2 className="size-3" />
-                    {modelProps.totalSlots} slots
-                  </span>
+                    {t('ui:slotCount', { count: modelProps.totalSlots })}</span>
                 )}
               {tokenData.modalities?.vision && (
                 <span
                   className="flex items-center gap-1"
-                  title="Vision input supported"
+                  title={t('ui:visionInputSupported')}
                 >
                   <IconPhoto className="size-3" />
-                  Vision
-                </span>
+                  {t('common:vision')}</span>
               )}
               {tokenData.modalities?.audio && (
                 <span
                   className="flex items-center gap-1"
-                  title="Audio input supported"
+                  title={t('ui:audioInputSupported')}
                 >
                   <IconMicrophone className="size-3" />
-                  Audio
-                </span>
+                  {t('common:artifactGroupAudio')}</span>
               )}
             </div>
           )}
@@ -342,6 +340,8 @@ function TokenCountOnly({
   modelDisplayName?: string
   className?: string
 }) {
+  const { t: uiT } = useUiLocale()
+
   return (
     <TooltipProvider delayDuration={400}>
       <Tooltip>
@@ -366,8 +366,7 @@ function TokenCountOnly({
             <IconBrain className="size-4 text-muted-foreground shrink-0" />
             <div className="flex-1 min-w-0">
               <div className="text-xs font-medium text-foreground">
-                Token usage
-              </div>
+                {uiT('ui:tokenUsage')}</div>
               {modelDisplayName && (
                 <div className="text-[11px] text-muted-foreground truncate">
                   {modelDisplayName}
@@ -379,20 +378,20 @@ function TokenCountOnly({
             {typeof inputTokens === 'number' && inputTokens > 0 && (
               <Row
                 icon={<IconArrowUp className="size-3.5" />}
-                label="Prompt"
+                label={uiT('ui:prompt')}
                 value={formatExact(inputTokens)}
               />
             )}
             {typeof outputTokens === 'number' && outputTokens > 0 && (
               <Row
                 icon={<IconArrowDown className="size-3.5" />}
-                label="Completion"
+                label={uiT('ui:completion')}
                 value={formatExact(outputTokens)}
               />
             )}
             <Row
               icon={<IconSum className="size-3.5" />}
-              label="Used"
+              label={uiT('ui:used')}
               value={formatExact(totalTokens)}
               strong
             />

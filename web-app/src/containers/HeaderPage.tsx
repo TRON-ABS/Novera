@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { useLeftPanel } from '@/hooks/useLeftPanel'
 import { cn } from '@/lib/utils'
 import { IconLayoutSidebar } from '@tabler/icons-react'
@@ -11,6 +12,8 @@ type HeaderPageProps = {
   children?: ReactNode
 }
 const HeaderPage = memo(function HeaderPage({ children }: HeaderPageProps) {
+  const { t: uiT } = useUiLocale()
+
   const { open, setLeftPanel } = useLeftPanel()
   // Collapsed, this header owns the top-left strip — indent past left-anchored Linux
   // window controls (size-8 each at left-4); macOS uses the pl-24 class below.
@@ -43,7 +46,7 @@ const HeaderPage = memo(function HeaderPage({ children }: HeaderPageProps) {
               size="icon-sm"
               className="rounded-full relative z-50"
               onClick={() => setLeftPanel(!open)}
-              aria-label="Toggle sidebar"
+              aria-label={uiT('ui:toggleSidebar')}
             >
               <IconLayoutSidebar className="text-muted-foreground relative size-4.5" />
             </Button>

@@ -22,23 +22,27 @@ import {
   applyInstalled,
   type InstallPlan,
 } from '@/hooks/useCreationInstall'
-import { useCreation } from '@/hooks/useCreation'
+import { useCreation, videoSettingsFor } from '@/hooks/useCreation'
 import { formatBytes } from '@/lib/utils'
 
 export function CreationInstallButton({
   onStarted,
   variant = 'gguf',
-}: { onStarted?: () => void; variant?: 'gguf' | 'upscale' } = {}) {
+  scope,
+}: { onStarted?: () => void; variant?: 'gguf' | 'upscale' | 'video-gguf' | 'music-gguf' | 'all-recommended'; scope?: string } = {}) {
   const { t } = useTranslation()
   const service = useServiceHub()
   const { parent, setParent, job } = useCreationInstall()
-  const python = useCreation((s) => s.settings.python)
+  const python = useCreation((s) => variant === 'video-gguf'||variant==='all-recommended' ? videoSettingsFor(s).python : s.settings.python)
   const [fp4, setFp4] = useState(false)
   const upscale = variant === 'upscale'
+  const video = variant === 'video-gguf'
+  const music = variant === 'music-gguf'
+  const all = variant === 'all-recommended'
   useEffect(() => {
     let active = true
     setFp4(false)
-    if (upscale) return
+    if (upscale || video || music || all) return
     void invoke<{ eligible: boolean }>('creation_bundle_nvfp4_probe', {
       python,
     })
@@ -49,7 +53,7 @@ export function CreationInstallButton({
     return () => {
       active = false
     }
-  }, [python, upscale])
+  }, [python, upscale, video, music, all])
   const [plan, setPlan] = useState<InstallPlan>()
   const [error, setError] = useState(false)
   const [busy, setBusy] = useState(false)
@@ -75,13 +79,14 @@ export function CreationInstallButton({
       <Button
         variant="outline"
         size="sm"
-        disabled={busy || (job && !['ready', 'cancelled'].includes(job.phase))}
+        disabled={busy || ((music||all)&&!IS_WINDOWS) || (job && !['ready', 'cancelled'].includes(job.phase))}
+        title={(music||all)&&!IS_WINDOWS?`${t('common:editModel.notAvailable')} · Windows`:undefined}
         onClick={() => void prepare()}
       >
         <IconDownload size={14} />
-        {t(upscale ? 'chat:creation.upscaleInstall' : 'chat:creationInstall.install')}
+        {t(all ? 'chat:creation.setupAllDownload' : upscale ? 'chat:creation.upscaleInstall' : 'chat:creationInstall.install')}
       </Button>
-      {!upscale && <Button
+      {!upscale && !video && !music && !all && <Button
         variant="outline"
         size="sm"
         disabled={
@@ -92,11 +97,11 @@ export function CreationInstallButton({
         NVFP4 CUDA · FLUX.2 Klein 4B
       </Button>}
 
-      {!upscale && <p className="text-xs text-muted-foreground">
+      {!upscale && !video && !music && !all && <p className="text-xs text-muted-foreground">
         {t(fp4 ? 'hub:catalog.nvfp4Prefer' : 'chat:creation.nativeNote')}
       </p>}
-      {job?.phase === 'ready' && (
-        <Button variant="outline" size="sm" onClick={() => applyInstalled(job)}>
+      {job?.phase === 'ready' && (all ? job.plan.variant==='all-recommended' : music ? job.plan.variant==='music-gguf' : video ? job.plan.variant === 'video-gguf' : upscale ? job.plan.variant === 'upscale' : !['upscale', 'video-gguf','music-gguf','all-recommended'].includes(job.plan.variant ?? 'gguf')) && (
+        <Button variant="outline" size="sm" onClick={() => {void applyInstalled(job,scope).catch(()=>setError(true))}}>
           {t('chat:creationInstall.use')}
         </Button>
       )}
@@ -109,7 +114,7 @@ export function CreationInstallButton({
       >
         <DialogContent className="max-h-[85vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>{t(upscale ? 'chat:creation.upscaleInstall' : 'chat:creationInstall.install')}</DialogTitle>
+            <DialogTitle>{t(all ? 'chat:creation.setupAllDownload' : upscale ? 'chat:creation.upscaleInstall' : 'chat:creationInstall.install')}</DialogTitle>
             <DialogDescription>
               {t('chat:creationInstall.confirm')}
             </DialogDescription>
@@ -118,7 +123,7 @@ export function CreationInstallButton({
             <>
               <p className="text-sm">{t('chat:creationInstall.background')}</p>
               <p className="text-xs text-muted-foreground">
-                {t(
+                {all ? t('chat:creation.setupAllNote') : music ? t('chat:creation.setupMusicNote') : video ? `${t('chat:creation.text')} → ${t('chat:creation.video')} · Wan2.1 1.3B Q4_K_M · UMT5-XXL CPU · ${t('chat:creation.preview')}` : t(
                   upscale ? 'chat:creation.upscaleNote' : plan.variant === 'nvfp4'
                     ? 'chat:creation.nativeNote'
                     : 'chat:creationInstall.note'
@@ -162,10 +167,10 @@ export function CreationInstallButton({
                   </li>
                 ))}
               </ul>
-              {upscale ? (
+              {music || all ? <a className="text-xs underline" href="https://huggingface.co/Serveurperso/ACE-Step-1.5-GGUF" target="_blank" rel="noopener noreferrer">ACE-Step 1.5 · MIT</a> : upscale ? (
                 <a className="text-xs underline" href="https://github.com/xinntao/Real-ESRGAN/blob/master/docs/model_zoo.md"
                   target="_blank" rel="noopener noreferrer">Real-ESRGAN</a>
-              ) : <div className="text-xs underline flex gap-3">
+              ) : video ? <a className="text-xs underline" href="https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B" target="_blank" rel="noopener noreferrer">Wan2.1 · Apache-2.0</a> : <div className="text-xs underline flex gap-3">
                 <a
                   href={
                     plan.variant === 'nvfp4'
@@ -198,15 +203,20 @@ export function CreationInstallButton({
                   free: formatBytes(plan.available),
                 })}
               </p>
+              <p className="text-xs">{t('chat:creation.setupStorage',{download:formatBytes(plan.total),reserve:formatBytes(256*1024*1024),required:formatBytes(plan.requiredSpace??plan.total+256*1024*1024),free:formatBytes(plan.available)})}</p>
+              {plan.available<(plan.requiredSpace??plan.total+256*1024*1024)&&<p role="alert" className="text-sm text-destructive">{t('chat:creation.setupSpaceMissing',{missing:formatBytes((plan.requiredSpace??plan.total+256*1024*1024)-plan.available)})}</p>}
+              {plan.videoRuntimeReady===false&&<div role="alert" className="space-y-2 text-sm text-destructive"><p>{t('common:editModel.notAvailable')} · {t('chat:creation.video')} · Python + imageio-ffmpeg</p>
+                <Button variant="outline" onClick={()=>{setPlan(undefined);window.dispatchEvent(new CustomEvent('novera-creation-settings',{detail:{task:'video'}}))}}>{t('chat:creation.settings')}</Button></div>}
               <Button
                 disabled={
-                  busy || plan.available < plan.total + 256 * 1024 * 1024
+                  busy || plan.videoRuntimeReady===false || plan.available < (plan.requiredSpace??plan.total + 256 * 1024 * 1024)
                 }
                 onClick={async () => {
                   setBusy(true)
                   setError(false)
                   try {
                     await installAction('start', plan.token)
+                    if((all||music)&&scope)useCreationInstall.getState().requestAutomatic(plan.token,scope)
                     setPlan(undefined)
                     onStarted?.()
                   } catch {
@@ -235,19 +245,23 @@ export function CreationInstallButton({
 }
 
 export function CreationInstallIndicator() {
+
   const { t } = useTranslation()
   const service = useServiceHub()
   const job = useCreationInstall((s) => s.job)
+  const autoApply = useCreationInstall((s)=>s.autoApply)
   const [open, setOpen] = useState(false)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(false)
+  const automatic=job?autoApply[job.plan.token]:undefined
   if (
     !job ||
     job.phase === 'cancelled' ||
-    (job.phase === 'ready' && job.acknowledged && !open)
+    (job.phase === 'ready' && job.acknowledged && !open && (!automatic||automatic.done))
   )
     return null
   const ready = job.phase === 'ready'
+  const configuring=ready&&automatic&&!automatic.done&&!automatic.error
   const percent = Math.min(
     100,
     Math.floor((job.bytes.reduce((a, b) => a + b, 0) / job.plan.total) * 100)
@@ -264,7 +278,7 @@ export function CreationInstallIndicator() {
     }
   }
   const label = t(
-    job.phase === 'downloading'
+    automatic?.error ? 'common:errorDialog.titleFallback' : configuring ? 'chat:creation.setupConfiguring' : job.phase === 'downloading'
       ? 'hub:download'
       : `chat:creationInstall.${job.phase}`
   )
@@ -283,7 +297,7 @@ export function CreationInstallIndicator() {
           className="relative z-50 shrink-0 gap-1"
           aria-label={`${label} ${ready ? '' : `${percent}%`}`}
         >
-          {ready ? <IconCircleCheck size={16} /> : <IconDownload size={16} />}
+          {ready&&!configuring&&!automatic?.error ? <IconCircleCheck size={16} /> : <IconDownload size={16} />}
           <span className="text-xs">{ready ? label : `${percent}%`}</span>
         </Button>
       </PopoverTrigger>
@@ -292,8 +306,7 @@ export function CreationInstallIndicator() {
           {label}
         </p>
         <p className="text-xs">
-          FLUX.2 Klein 4B
-          {job.plan.variant === 'upscale' ? ' · Real-ESRGAN' : job.plan.variant?.startsWith('nvfp4') ? ' · NVFP4' : ' · GGUF'}
+          {job.plan.variant==='all-recommended'?`${t('chat:creation.text')} · ${t('providers:embeddingModels')} · ${t('chat:creation.image')} · Real-ESRGAN · ${t('chat:creation.music')} · ${t('chat:creation.video')}`:job.plan.variant==='music-gguf'?t('ui:aceStep15Turbo2bQ4K'):job.plan.variant==='video-gguf'?t('ui:wan21T2v13bQ4KM'):job.plan.variant==='upscale'?'Real-ESRGAN':`FLUX.2 Klein 4B · ${job.plan.variant?.startsWith('nvfp4')?t('ui:nvfp4'):'GGUF'}`}
         </p>
         {!ready && (
           <p className="text-xs text-muted-foreground">
@@ -324,9 +337,10 @@ export function CreationInstallIndicator() {
         <p className="break-all text-xs text-muted-foreground">
           {job.plan.directory}
         </p>
-        {(error || job.phase === 'error') && (
+        {(error || job.phase === 'error' || automatic?.error) && (
           <p role="alert" className="text-xs">
-            {t('chat:creationInstall.error')}
+            {job.error==='space'?t('chat:creation.setupSpaceMissing',{missing:formatBytes(Math.max(0,(job.plan.requiredSpace??job.plan.total+256*1024*1024)-job.plan.available))}):t('chat:creationInstall.error')}
+            {automatic?.detail&&<span className="mt-1 block break-words">{automatic.detail}</span>}
           </p>
         )}
         <div className="flex flex-wrap gap-2">
@@ -334,10 +348,12 @@ export function CreationInstallIndicator() {
             <>
               <Button
                 size="sm"
-                disabled={busy}
-                onClick={() => {
-                  applyInstalled(job)
-                  void act('acknowledge')
+                disabled={busy||!!configuring}
+                onClick={async () => {
+                  setBusy(true)
+                  try {await applyInstalled(job,automatic?.scope);if(automatic)useCreationInstall.getState().finishAutomatic(job.plan.token);await act('acknowledge')}
+                  catch(error) {setError(true);if(automatic)useCreationInstall.getState().finishAutomatic(job.plan.token,true,String(error).slice(0,1600))}
+                  finally {setBusy(false)}
                 }}
               >
                 {t('chat:creationInstall.use')}

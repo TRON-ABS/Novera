@@ -45,7 +45,7 @@ export function NotificationPositionSwitcher() {
           <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground ml-2" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="novera-settings-popover">
         {NOTIFICATION_POSITIONS.map((value) => (
           <DropdownMenuItem
             key={value}

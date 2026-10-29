@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "Ginagamit sa pagsisimula ng bagong usapan",
   "allAssistants": "Lahat ng katulong",
   "lastUsed": "Huling ginamit",
-  "deleteFailed": "Hindi matanggal ang assistant. Pakisubukang muli."
+  "deleteFailed": "Hindi matanggal ang assistant. Pakisubukang muli.",
+  "officialInstructions": "Sa {{path}} lamang maaaring baguhin ang tatlong kategorya ng mga tagubilin ng Novera."
 }

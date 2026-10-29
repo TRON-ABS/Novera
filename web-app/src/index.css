@@ -15,6 +15,7 @@
 }
 @import '@/styles/font.css';
 @import '@/styles/markdown.css';
+@import '@/styles/settings.css';
 @source '../node_modules/streamdown/dist/**/*.js';
 
 @custom-variant dark (&:is(.dark *));
@@ -385,7 +386,7 @@
 }
 .dark .composer-panel { --composer-surface: #0c142b; color: #edf0fa; }
 .dark .composer-prompt { --composer-surface: #111b36; }
-.composer-prompt { border-width: 2px; border-radius: 16px; box-shadow: 0 0 9px #38bdf822; }
+.composer-prompt { border-width: 1px; border-radius: 16px; box-shadow: 0 0 9px #38bdf822; }
 .composer-creation { gap: 6px; }
 .composer-modes { gap: 6px; }
 .composer-mode {
@@ -438,8 +439,34 @@
 .dark .composer-final-size { color: #a5b4d7; }
 .composer-settings { color: light-dark(#5b21b6, #c4b5fd); }
 .composer-footer { padding-top: 9px; padding-bottom: 12px; }
-.composer-footer .composer-tool[data-state] { width: 32px; height: 32px; padding: 0; border-radius: 50%; margin-bottom: 3px; }
-.composer-state { bottom: -7px; width: max-content; min-width: 22px; margin: auto; border: 1px solid #525c71; border-radius: 10px; padding: 0 3px; font-size: 7px; line-height: 10px; background: var(--composer-surface, var(--background)); }
+.composer-footer .composer-tool[data-state] {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  width: max-content;
+  min-width: 40px;
+  max-width: 100%;
+  height: auto;
+  min-height: 44px;
+  padding: 5px 6px;
+  border-radius: 12px;
+  margin-bottom: 0;
+}
+.composer-state {
+  position: static;
+  width: auto;
+  min-width: 22px;
+  max-inline-size: 10rem;
+  margin: 0;
+  border: 1px solid #525c71;
+  border-radius: 10px;
+  padding: 0 4px;
+  font-size: 8px;
+  line-height: 11px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  background: var(--composer-surface, var(--background));
+}
 .composer-tool[data-state="on"] .composer-state { background: #22d3ee; color: #071426; border-color: #22d3ee; }
 .composer-tool[data-tone="thinking"][data-state="on"] .composer-state { background: #fbbf24; border-color: #fbbf24; }
 .composer-tool[data-state="off"] .composer-state { color: #aab4cb; }
@@ -455,6 +482,100 @@
 }
 
 .conversation-print-frame { position: fixed; width: 0; height: 0; border: 0; bottom: 0; right: 0; }
+
+/* Match conversation messages and media to the dashboard's fine outline. */
+.novera-user-message, .novera-media-card {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--secondary), var(--secondary)) padding-box,
+    linear-gradient(110deg, #38bdf880, #6366f180 55%, #d946ef80) border-box;
+  box-shadow: 0 3px 16px #4f46e50c;
+}
+.novera-user-message.bg-primary {
+  color: #edf2ff;
+  background: linear-gradient(125deg, #102b49, #24214b) padding-box,
+    linear-gradient(110deg, #38bdf8, #818cf8 55%, #e879f9) border-box;
+}
+.novera-media-card {
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+    linear-gradient(110deg, #38bdf880, #6366f180 55%, #d946ef80) border-box;
+}
+.novera-media-player {
+  padding: 12px;
+  color-scheme: light;
+  background: linear-gradient(125deg, #38bdf80a, #a855f70a);
+}
+.dark .novera-media-player { color-scheme: dark; background: linear-gradient(125deg, #101e35, #15172d); }
+.novera-media-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.novera-media-emblem {
+  display: grid; place-items: center; flex-shrink: 0; width: 48px; height: 48px;
+  border-radius: 16px; border: 1px solid #818cf850;
+  background: linear-gradient(135deg, #38bdf81a, #a855f726);
+  color: light-dark(#6d28d9, #a5b4fc);
+}
+.novera-media-wave { display: flex; align-items: center; gap: 3px; height: 32px; }
+.novera-media-wave span { width: 3px; border-radius: 4px; background: linear-gradient(#38bdf8, #a78bfa); }
+.novera-media-player[data-playing="true"] .novera-media-wave span { animation: novera-wave 900ms ease-in-out infinite alternate; }
+.novera-media-player video { border-radius: 12px; background: #070b12; }
+.novera-media-player :is(audio, video):focus-visible { outline: 2px solid #818cf8; outline-offset: 3px; }
+@keyframes novera-wave { to { transform: scaleY(.35); opacity: .65; } }
+@media (prefers-reduced-motion: reduce) {
+  .novera-media-player[data-playing="true"] .novera-media-wave span { animation: none; }
+}
+@media (max-width: 420px) { .novera-media-wave { display: none; } }
+
+.novera-media-player {
+  width: 100%; min-width: 0; border-radius: 16px;
+  border: 1px solid color-mix(in srgb, #818cf8 25%, var(--border));
+  container-type: inline-size;
+}
+.novera-media-brand { margin-inline-start: 8px; font-size: 9px; letter-spacing: .16em; color: light-dark(#6d28d9, #a5b4fc); }
+.novera-media-timeline { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 12px; margin-top: 6px; }
+.novera-media-time { flex-shrink: 0; font-size: 12px; font-variant-numeric: tabular-nums; color: var(--foreground); }
+.novera-media-time > span { color: var(--muted-foreground); }
+.novera-media-player input[type="range"] {
+  appearance: none; -webkit-appearance: none; height: 44px; min-width: 0; padding: 0; margin: 0;
+  background: transparent; cursor: pointer; accent-color: #818cf8; touch-action: pan-y;
+}
+.novera-media-timeline input { flex: 1 1 140px; width: 100%; }
+.novera-media-player input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px; border-radius: 8px;
+  background: linear-gradient(to right, #6366f1, #38bdf8) 0 / var(--media-progress, 100%) 100% no-repeat, color-mix(in srgb, #818cf8 22%, var(--border));
+}
+.novera-media-player input[type="range"]::-moz-range-track { height: 4px; border-radius: 8px; background: color-mix(in srgb, #818cf8 22%, var(--border)); }
+.novera-media-player input[type="range"]::-moz-range-progress { height: 4px; border-radius: 8px; background: #818cf8; }
+.novera-media-player input[type="range"]::-webkit-slider-thumb {
+  appearance: none; -webkit-appearance: none; width: 14px; height: 14px; margin-top: -5px;
+  border: 2px solid #e0e7ff; border-radius: 50%; background: #6366f1; box-shadow: 0 0 8px #6366f150;
+}
+.novera-media-player input[type="range"]::-moz-range-thumb { width: 11px; height: 11px; border: 2px solid #e0e7ff; border-radius: 50%; background: #6366f1; }
+.novera-media-controls { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.novera-media-controls button, .novera-media-controls select {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  min-width: 44px; min-height: 44px; padding: 6px 10px; border-radius: 12px;
+  border: 1px solid transparent; color: var(--foreground); font-size: 12px; cursor: pointer;
+}
+.novera-media-controls select { background: var(--background); border-color: color-mix(in srgb, #818cf8 25%, var(--border)); }
+.novera-media-controls button:hover { background: #818cf81a; border-color: #818cf840; }
+.novera-media-controls .novera-media-play { background: linear-gradient(125deg, #4f46e5, #7c3aed); color: #fff; box-shadow: 0 2px 10px #6366f12a; }
+.novera-media-controls .novera-media-play:hover { background: linear-gradient(125deg, #4338ca, #6d28d9); }
+.novera-media-controls .novera-media-volume { width: 76px; flex-shrink: 1; }
+.novera-media-fullscreen { margin-inline-start: auto; }
+.novera-media-player :is(button, select, input):focus-visible { outline: 2px solid #818cf8; outline-offset: 2px; }
+.novera-media-player :disabled { opacity: .45; cursor: default; }
+.novera-image-viewport { overflow: auto; max-height: min(65dvh, calc(100dvh - 15rem)); border-radius: 12px; background: #070b1208; }
+.novera-image-viewport img { display: block; height: auto; object-fit: contain; }
+.novera-media-player video { max-height: min(65dvh, calc(100dvh - 15rem)); }
+.novera-media-expanded, .novera-media-player:fullscreen {
+  display: flex; flex-direction: column; border-radius: 0; padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  background: var(--background); overflow: auto;
+}
+.novera-media-expanded { position: fixed; inset: 0; z-index: 1000; width: 100vw; height: 100dvh; }
+.novera-media-expanded .novera-image-viewport, .novera-media-player:fullscreen .novera-image-viewport { flex: 1; min-height: 0; max-height: none; }
+.novera-media-expanded video, .novera-media-player:fullscreen video { flex: 1; min-height: 0; max-height: calc(100dvh - 12rem); }
+@container (max-width: 280px) {
+  .novera-media-brand { display: none; }
+  .novera-media-controls .novera-media-volume { width: 52px; }
+}
 
 /* Unified Novera workspace: existing text/image/video composer stays intact. */
 .novera-workspace { isolation: isolate; color-scheme: light; }

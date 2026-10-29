@@ -33,7 +33,14 @@
     "cancel": "Zrušit",
     "delete": "Smazat",
     "importedDescription": "Odebrat tento importovaný model ze Novera? Váš lokální soubor na disku nebude smazán.",
-    "removeFromJan": "Odebrat ze Novera"
+    "removeFromJan": "Odebrat ze Novera",
+    "choiceDescription": "Vyberte, jak odebrat tento model z Novera.",
+    "removeFromNovera": "Odebrat ze Novera",
+    "permanentlyDelete": "Trvale odstranit",
+    "keepFilesDescription": "Odeberte model ze seznamu a uchovejte jeho soubory na disku. Můžete jej importovat znovu.",
+    "permanentDescription": "Smažte model a jeho Novera spravované soubory z disku. Toto nelze vrátit zpět.",
+    "permanentImportedDescription": "Smažte také hlavní soubor GGUF v jeho původním umístění. Externí pomocné soubory jsou uloženy. Toto nelze vrátit zpět.",
+    "removedSuccess": "Model {{modelId}} byl odebrán z Novera. Jeho soubory byly zachovány."
   },
   "deleteProvider": {
     "title": "Smazat poskytovatele",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Volitelné záložní klávesy se konfigurují v Rozšířeném nastavení.",
     "addKey": "Přidat klíč",
     "removeKey": "Vyjměte klíč"
-  }
+  },
+  "installedMediaModels": "Obrazové, video a hudební modely",
+  "noInstalledModels": "V této kategorii nejsou registrovány žádné modely.",
+  "modelComponents": "Modelové soubory"
 }

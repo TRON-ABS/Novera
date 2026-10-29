@@ -1,6 +1,6 @@
 use super::models::{DownloadEvent, DownloadItem, ProgressTracker, ProxyConfig};
 use crate::core::app::commands::get_jan_data_folder_path;
-use crate::core::filesystem::helpers::resolve_path_within_jan_data_folder;
+use super::storage::{default_models_root, resolve_download_path};
 use futures_util::StreamExt;
 use reqwest::header::{HeaderMap, HeaderName, HeaderValue};
 use std::collections::HashMap;
@@ -355,6 +355,13 @@ pub async fn _download_files_internal(
 ) -> Result<(), String> {
     log::info!("Start download task: {task_id}");
 
+    // Validate the complete batch before starting requests or background downloads.
+    let jan_data_folder = get_jan_data_folder_path(app.clone());
+    let models_root = default_models_root();
+    let destinations = items.iter().map(|item| {
+        resolve_download_path(&jan_data_folder, models_root.as_deref(), &item.save_path, item.model_id.as_deref())
+    }).collect::<Result<Vec<_>, _>>()?;
+
     let header_map = _convert_headers(headers).map_err(err_to_string)?;
 
     // Calculate sizes for each file
@@ -373,15 +380,10 @@ pub async fn _download_files_internal(
     // Create progress tracker
     let progress_tracker = ProgressTracker::new(items, file_sizes.clone());
 
-    // save file under Jan data folder
-    let jan_data_folder = get_jan_data_folder_path(app.clone());
-
     // Collect download tasks for parallel execution
     let mut download_tasks = Vec::new();
 
-    for (index, item) in items.iter().enumerate() {
-        let (canonical_data, save_path) =
-            resolve_path_within_jan_data_folder(&jan_data_folder, &item.save_path)?;
+    for (index, (item, (canonical_data, save_path))) in items.iter().zip(destinations).enumerate() {
 
         // Spawn download task for each file
         let item_clone = item.clone();
@@ -399,7 +401,7 @@ pub async fn _download_files_internal(
 
         let task = tokio::spawn(async move {
             log::debug!(
-                "Downloading {} into Jan data folder {}",
+                "Downloading {} into approved storage {}",
                 item_clone.url,
                 canonical_data.display()
             );

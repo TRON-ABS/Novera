@@ -1,3 +1,4 @@
+import { translateSettingText } from '@/i18n/setting-text'
 import { IconSettings } from '@tabler/icons-react'
 import debounce from 'lodash.debounce'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
@@ -297,14 +298,14 @@ export function ModelSettingFields({ model, provider }: ModelSettingProps) {
             <div key="fit_ctx" className="space-y-2">
               <div className="flex items-start justify-between gap-8">
                 <div className="mb-1 truncate">
-                  <span title={fitCtxSetting.title} className="font-medium">
-                    {fitCtxSetting.title}
+                  <span title={translateSettingText(fitCtxSetting.title, t)} className="font-medium">
+                    {translateSettingText(fitCtxSetting.title, t)}
                   </span>
                 </div>
                 <DynamicControllerSetting
                   key={fitCtxSetting.key}
-                  title={fitCtxSetting.title}
-                  description={fitCtxSetting.description}
+                  title={translateSettingText(fitCtxSetting.title, t)}
+                  description={translateSettingText(fitCtxSetting.description, t)}
                   controllerType={fitCtxSetting.controller_type}
                   controllerProps={fitCtxSetting.controller_props}
                   onChange={(newValue) =>
@@ -313,7 +314,7 @@ export function ModelSettingFields({ model, provider }: ModelSettingProps) {
                 />
               </div>
               <p className="text-muted-foreground leading-normal text-xs">
-                {fitCtxSetting.description}
+                {translateSettingText(fitCtxSetting.description, t)}
               </p>
             </div>
           )}
@@ -365,12 +366,12 @@ export function ModelSettingFields({ model, provider }: ModelSettingProps) {
                   )}
                 >
                   <div className="mb-1 truncate">
-                    <span title={config.title} className="font-medium">{config.title}</span>
+                    <span title={translateSettingText(config.title, t)} className="font-medium">{translateSettingText(config.title, t)}</span>
                   </div>
                   <DynamicControllerSetting
                     key={config.key}
-                    title={config.title}
-                    description={config.description}
+                    title={translateSettingText(config.title, t)}
+                    description={translateSettingText(config.description, t)}
                     controllerType={config.controller_type}
                     disabledReason={
                       fitEnabled && key === 'ngl'
@@ -385,7 +386,7 @@ export function ModelSettingFields({ model, provider }: ModelSettingProps) {
                   />
                 </div>
                 <p className="text-muted-foreground leading-normal text-xs">
-                  {config.description}
+                  {translateSettingText(config.description, t)}
                 </p>
               </div>
             )

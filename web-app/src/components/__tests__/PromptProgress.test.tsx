@@ -53,7 +53,7 @@ describe('PromptProgress', () => {
     expect(screen.getByText('Reading: 46%')).toBeInTheDocument()
     // 1200/2600 tokens, ETA = (3000/1200)*1400 = 3500ms -> 4s
     expect(
-      screen.getByText('1.2k / 2.6k tokens · ~4s left')
+      screen.getByText('1.2k / 2.6k tokens · ~4s remaining')
     ).toBeInTheDocument()
   })
 
@@ -68,7 +68,7 @@ describe('PromptProgress', () => {
 
     render(<PromptProgress />)
 
-    expect(screen.getByText('Loading model: 42%')).toBeInTheDocument()
+    expect(screen.getByText('Loading Model: 42%')).toBeInTheDocument()
   })
 
   it('should not render a progress bar while loading a model', () => {
@@ -82,7 +82,7 @@ describe('PromptProgress', () => {
 
     const { container } = render(<PromptProgress />)
 
-    expect(screen.getByText('Loading model: 42%')).toBeInTheDocument()
+    expect(screen.getByText('Loading Model: 42%')).toBeInTheDocument()
     expect(container.querySelector('[data-slot="progress"]')).toBeNull()
   })
 
@@ -113,7 +113,7 @@ describe('PromptProgress', () => {
 
     render(<PromptProgress />)
 
-    expect(screen.getByText('Loading encoder: 80%')).toBeInTheDocument()
+    expect(screen.getByText('Loading Encoder: 80%')).toBeInTheDocument()
   })
 
   it('should not name the stage for a plain single-stage text-only load', () => {
@@ -132,7 +132,7 @@ describe('PromptProgress', () => {
 
     render(<PromptProgress />)
 
-    expect(screen.getByText('Loading model: 50%')).toBeInTheDocument()
+    expect(screen.getByText('Loading Model: 50%')).toBeInTheDocument()
   })
 
   it('should fall back to generic loading label when no progress event has arrived yet', () => {
@@ -146,7 +146,7 @@ describe('PromptProgress', () => {
 
     render(<PromptProgress />)
 
-    expect(screen.getByText('Loading model…')).toBeInTheDocument()
+    expect(screen.getByText('Loading model...')).toBeInTheDocument()
   })
 
   it('should handle zero total gracefully', () => {

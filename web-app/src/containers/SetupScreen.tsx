@@ -9,7 +9,7 @@ import { useEffect, useMemo, useCallback, useState, useRef } from 'react'
 import { AppEvent, events } from '@janhq/core'
 import { SETUP_SCREEN_QUANTIZATIONS } from '@/constants/models'
 import { useLatestNoveraModel } from '@/hooks/useLatestNoveraModel'
-import { NOVERA_RECOMMENDED_CONTEXT_SIZE, NOVERA_RECOMMENDED_DRAFT } from '@/lib/noveraRecommendedModel'
+import { NOVERA_RECOMMENDED_CONTEXT_SIZE } from '@/lib/noveraRecommendedModel'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
@@ -80,7 +80,7 @@ function ModelCard({
       className="bg-secondary/50 p-3 rounded-lg border flex items-center gap-3"
     >
       <div className="shrink-0 size-12 bg-background rounded-xl flex items-center justify-center">
-        <img src="/images/novera-logo.png" alt="Novera Logo" className="size-6" />
+        <img src="/images/novera-logo.png" alt="Novera" className="size-6" />
       </div>
 
       <div className="min-w-0 flex-1">
@@ -208,7 +208,6 @@ function SetupScreen() {
   const llamaProvider = getProviderByName('llamacpp')
   const [quickStartInitiated, setQuickStartInitiated] = useState(false)
   const [quickStartQueued, setQuickStartQueued] = useState(false)
-  const [dsparkEnabled, setDsparkEnabled] = useState(false)
   const {
     model: janNewModel,
     error: metadataFetchFailed,
@@ -382,8 +381,6 @@ function SetupScreen() {
   // The quant depends on the per-variant fit check, so a click before it lands
   // has to be queued rather than acted on.
   const isSelectionReady = Boolean(selected && isSupportCheckComplete)
-  const canUseDspark = !IS_ANDROID && selected?.modelId === NOVERA_RECOMMENDED_DRAFT.targetModelId &&
-    selected.path === NOVERA_RECOMMENDED_DRAFT.targetPath
 
   const downloadProcesses = useMemo(
     () =>
@@ -425,9 +422,6 @@ function SetupScreen() {
   const startDownload = useCallback(
     (option: SetupModelOption) => {
       addLocalDownloadingModel(option.modelId)
-      const useDraft = dsparkEnabled && !IS_ANDROID &&
-        option.modelId === NOVERA_RECOMMENDED_DRAFT.targetModelId &&
-        option.path === NOVERA_RECOMMENDED_DRAFT.targetPath
       serviceHub
         .models()
         .pullModelWithMetadata(
@@ -435,11 +429,10 @@ function SetupScreen() {
           option.path,
           option.mmprojPath,
           huggingfaceToken,
-          true,
-          ...(useDraft ? [NOVERA_RECOMMENDED_DRAFT.path, NOVERA_RECOMMENDED_DRAFT.kind] as const : [])
+          true
         )
     },
-    [addLocalDownloadingModel, serviceHub, huggingfaceToken, dsparkEnabled]
+    [addLocalDownloadingModel, serviceHub, huggingfaceToken]
   )
 
   const handleQuickStart = useCallback(() => {
@@ -922,25 +915,6 @@ function SetupScreen() {
                       isDownloaded={Boolean(isDownloaded)}
                       onDownload={handleQuickStart}
                     />
-                    {canUseDspark && !isDownloaded && (
-                      <div className="mt-3 rounded-lg border p-3">
-                        <label htmlFor="setup-dspark" className="flex items-start gap-2 text-sm font-medium">
-                          <input
-                            id="setup-dspark"
-                            type="checkbox"
-                            checked={dsparkEnabled}
-                            disabled={isDownloading || quickStartInitiated}
-                            aria-describedby="setup-dspark-description"
-                            onChange={(event) => setDsparkEnabled(event.target.checked)}
-                            className="mt-0.5 size-4 shrink-0 accent-primary"
-                          />
-                          {t('setup:dsparkEnable')}
-                        </label>
-                        <p id="setup-dspark-description" className="mt-2 text-xs text-muted-foreground">
-                          {t('setup:dsparkDescription', { size: NOVERA_RECOMMENDED_DRAFT.fileSize })}
-                        </p>
-                      </div>
-                    )}
                     <button
                       type="button"
                       className="mt-3 inline-flex items-center gap-1 text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground"

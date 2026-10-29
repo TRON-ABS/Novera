@@ -33,7 +33,14 @@
     "cancel": "Anuluj",
     "delete": "Usuń",
     "importedDescription": "Usunąć ten zaimportowany model z Novera? Twój plik lokalny na dysku nie zostanie usunięty.",
-    "removeFromJan": "Usuń z Novera"
+    "removeFromJan": "Usuń z Novera",
+    "choiceDescription": "Wybierz sposób usunięcia tego modelu z Novera.",
+    "removeFromNovera": "Usuń z Novera",
+    "permanentlyDelete": "Usuń trwale",
+    "keepFilesDescription": "Usuń model z listy i zachowaj jego pliki na dysku. Możesz zaimportować go ponownie.",
+    "permanentDescription": "Usuń model i jego pliki zarządzane Novera z dysku. Tego nie można cofnąć.",
+    "permanentImportedDescription": "Usuń także główny plik GGUF w jego pierwotnej lokalizacji. Zewnętrzne pliki pomocnicze są przechowywane. Tego nie można cofnąć.",
+    "removedSuccess": "Model {{modelId}} został usunięty z Novera. Jego akta zostały zachowane."
   },
   "deleteProvider": {
     "title": "Usuń Dostawcę",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Opcjonalne klucze zastępcze są konfigurowane w trybie zaawansowanym.",
     "addKey": "Dodaj klucz",
     "removeKey": "Usuń klucz"
-  }
+  },
+  "installedMediaModels": "Modele obrazu, wideo i muzyki",
+  "noInstalledModels": "Brak zarejestrowanych modeli w tej kategorii.",
+  "modelComponents": "Pliki modeli"
 }

@@ -47,7 +47,35 @@
     "tokens": "Token",
     "perSecond": "token/sakan"
   },
+  "player": {
+    "play": "Kunna",
+    "pause": "Dakata",
+    "seek": "Matsayin kunnawa",
+    "mute": "Kashe sauti",
+    "volume": "Ƙarar sauti",
+    "speed": "Saurin kunnawa"
+  },
   "creation": {
+    "musicLyricsGuide": "Bayyana salo da murya a buƙatarka. Rubuta kalmomin waƙa ƙarƙashin alamomin da ke ƙasa. Kashe {{instrumental}} domin samun waƙa da murya.",
+    "music": "Kiɗa",
+    "musicDuration": "Tsawon kiɗa",
+    "musicQuality": "Ingancin sauti",
+    "musicInstrumental": "Kiɗa marar waƙa",
+    "musicLyrics": "Kalmomin waƙa",
+    "musicGenerator": "Mai samar da kiɗa",
+    "musicPlanner": "Mai tsara kiɗa",
+    "setupAllDownload": "Sauke kuma saita komai ta atomatik",
+    "setupConfiguring": "Ana saita samfuran da aka ba da shawara",
+    "setupStorage": "Jimillar fayiloli: {{download}}. Ajiyar sarari: {{reserve}}. Ƙarin sarari da ake buƙata: {{required}}. Sararin diskin da aka zaɓa: {{free}}.",
+    "setupSpaceMissing": "Ana buƙatar ƙarin {{missing}}. Ɗebe abubuwa ko zaɓi wani diski mai isasshen sarari.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M shine samfurin rubutu na gida da aka ba da shawarar don tattaunawa, rubutu, kiran kayan aiki da tsararrun abubuwan samarwa. Halin farko shine alamun 16K; duba samuwan ƙwaƙwalwar ajiya kafin ƙara shi. Shigar da rubutu da fitarwa kawai, ba tare da daftarin samfuri ba. Yi amfani da bincike ko takaddun ku don tabbatar da iƙirarin gaskiya.",
+    "setupImageNote": "Hoto — FLUX.2 Klein 4B · Q4_K_M. Rubutu: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Halayen rabo: 21:9; Ƙaddamarwa: 1024 × 432; Matakan tsara: 4; Yanayin iri: Bazuwar.",
+    "setupMusicNote": "Kiɗa — ACE-Step 1.5 Turbo. Mai samar da kiɗa: 2B · Q4_K_M; Mai tsara kiɗa: 1.7B · Q8_0; Rubutu: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Tsawon kiɗa: 10–600 s; Ingancin sauti: 48 kHz · 2.0; Kiɗa marar waƙa / Kalmomin waƙa; Bazuwar.",
+    "setupVideoNote": "Bidiyo — Wan2.1 T2V 1.3B · Q4_K_M. Rubutu: UMT5-XXL · Q4_K_M. Tsawon bidiyo: 5 s; Halayen rabo: 21:9; Frames a sakan daya: 16. Ana haɗa dogayen bidiyo daga gajerun shirye-shirye. Ana iya ganin wuraren haɗin kuma ƙirƙirawa na iya ɗaukar lokaci mai tsawo. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Yi zazzage kuma saita na'urorin da aka ba da shawarar: Nemotron don rubutu, Qwen3-Embedding Q8_0 don samun bayanai da harsuna daban-daban (CPU a matsayin asali), FLUX.2 Klein 4B da sassa da ke tare da shi, Real-ESRGAN ×2/×4, ACE-Step don kiɗa (Instrumental a matsayin asali), da Wan2.1 don bidiyo. Duba girman fayil, wuri a cikin disk, da buƙatun bidiyo a ƙasa. Zazzage da Bincike suna ci gaba da kasancewa. [",
+    "finalizing": "Ana kammala bidiyo",
+    "videoDuration": "Tsawon bidiyo",
+    "videoDurationNote": "Ana haɗa dogayen bidiyo daga gajerun shirye-shirye. Ana iya ganin wuraren haɗin kuma ƙirƙirawa na iya ɗaukar lokaci mai tsawo.",
     "output": "Tsarin amsawa",
     "auto": "Motoci",
     "text": "Rubutu",
@@ -144,7 +172,8 @@
     "ratio": "Halayen rabo",
     "resolution": "Ƙaddamarwa",
     "customSize": "Custom",
-    "sizeAutoNote": "Canza rabo yana daidaita ƙudurin yanzu. Girma suna amfani da nau'ikan 16, har zuwa 2048 px."
+    "sizeAutoNote": "Canza rabo yana daidaita ƙudurin yanzu. Girma suna amfani da nau'ikan 16, har zuwa 2048 px.",
+    "setupTextNvfp4Note": "Zaɓin NVFP4 ma'aunin nauyi don gano NVIDIA Blackwell GPU ko sabo tare da aƙalla 4.5 GiB na VRAM don amfani da waɗannan ma'aunin nauyi. Novera, cikakken ma'ajiyar ƙira dole ne a fara canzawa zuwa NVFP4 GGUF mai jituwa kuma a inganta shi. Har yanzu ba a tabbatar da wannan jujjuya don wannan wurin binciken ba. Ba za a iya loda fayil ɗin Safetensors da aka haɗa kai tsaye ta injin ginannen ciki ba. Q8_0 ya kasance shawarar da aka shirya don amfani. Bukatun ƙwaƙwalwar ajiya kuma ya dogara da tsayin mahallin."
   },
   "creationInstall": {
     "install": "Shigar da wannan saiti",

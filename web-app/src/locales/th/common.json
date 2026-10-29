@@ -491,10 +491,10 @@
     "inline": "แทรกเข้าไปในแชท",
     "embeddings": "Use embeddings"
   },
-  "attachmentInjectedIndicator": "Injected into chat",
+  "attachmentInjectedIndicator": "ใส่เข้าไปในแชทแล้ว",
   "attachmentEmbeddedIndicator": "Embedded for RAG",
-  "viewInjectedContent": "View injected content",
-  "injectedContentTitle": "Injected file content",
+  "viewInjectedContent": "ดูเนื้อหาที่แทรก",
+  "injectedContentTitle": "เนื้อหาไฟล์ที่แทรก",
   "toast": {
     "allThreadsUnfavorited": {
       "title": "กระทู้ทั้งหมดไม่เป็นที่ชื่นชอบ",
@@ -517,7 +517,7 @@
       "description": "คัดลอกข้อมูลข้อผิดพลาดไปยังคลิปบอร์ดแล้ว"
     },
     "errorCopyFailed": {
-      "title": "Failed to copy",
+      "title": "ไม่สามารถคัดลอกได้",
       "description": "ไม่สามารถคัดลอกข้อมูลข้อผิดพลาดไปยังคลิปบอร์ด"
     },
     "editMessage": {
@@ -525,7 +525,7 @@
       "description": "แก้ไขข้อความเรียบร้อยแล้ว โปรดรอให้โมเดลตอบกลับ"
     },
     "appUpdateDownloaded": {
-      "title": "App Update Downloaded",
+      "title": "ดาวน์โหลดอัปเดตแอปแล้ว",
       "description": "ดาวน์โหลดการอัปเดตแอปเรียบร้อยแล้ว"
     },
     "appUpdateDownloadFailed": {
@@ -547,7 +547,7 @@
       "reason": {
         "dns": "ชื่อเซิร์ฟเวอร์ไม่สามารถแก้ไขได้",
         "refused": "การเชื่อมต่อถูกปฏิเสธ",
-        "timeout": "the connection timed out",
+        "timeout": "การเชื่อมต่อหมดเวลา",
         "tls": "ไม่สามารถสร้างการเชื่อมต่อที่ปลอดภัยได้",
         "proxy": "ไม่สามารถเข้าถึงพรอกซีได้",
         "unreachable": "ไม่สามารถเข้าถึงเซิร์ฟเวอร์ได้"

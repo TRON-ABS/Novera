@@ -19,6 +19,8 @@ describe('calibrated batching', () => {
       batch: 2048,
       ubatch: 2048,
     })
+    // Calibration from older engines must not silently apply to b11940.
+    expect(measuredBatchProfile(model, devices, 'b11940', 8192, 1)).toBeUndefined()
     for (const context of [0, NaN, 32768]) {
       expect(
         measuredBatchProfile(model, devices, 'b11721', context, 1)

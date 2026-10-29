@@ -98,6 +98,63 @@ describe('unified sharing preview', () => {
     fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.system' }))
     await waitFor(() => expect(mocks.system).toHaveBeenCalledTimes(1))
   })
+  it.each([
+    ['image', 'png', 'image/png', 'img'],
+    ['video', 'mp4', 'video/mp4', 'video'],
+    ['video', 'webm', 'video/webm', 'video'],
+    ['music', 'mp3', 'audio/mpeg', 'audio'],
+    ['music', 'wav', 'audio/wav', 'audio'],
+  ])('prepares only the original %s/%s file and shows an undecorated preview', async (kind, extension, mime, tag) => {
+    const url = `novera-creation:${kind}/Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.${extension}`
+    mocks.fetch.mockResolvedValue([])
+    mocks.prepare.mockImplementation(async (input) => ({
+      title: 'Test', format: input.format, text: '', html: '',
+      filename: input.entries[0].assets[0].name,
+      mime: input.entries[0].assets[0].mime,
+      original: input.entries[0].assets[0], previewUrl: 'asset:file',
+    }))
+    const { container } = render(<ShareButton threadId="t" assetUrl={url} />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
+    const prepare = await screen.findByRole('button', { name: 'chat:sharing.prepare' })
+    await waitFor(() => expect(prepare).toBeEnabled())
+    fireEvent.click(prepare)
+    const system = await screen.findByRole('button', { name: 'chat:sharing.system' })
+    expect(mocks.prepare).toHaveBeenCalledWith(expect.objectContaining({
+      format: 'original', entries: [expect.objectContaining({
+        text: '', assets: [expect.objectContaining({ url, mime })],
+      })],
+    }))
+    expect(container.querySelector('.novera-media-player')).not.toBeInTheDocument()
+    // The preview is in a dialog portal, so inspect the visible document too.
+    expect(document.querySelector('.novera-media-player')).not.toBeInTheDocument()
+    expect(document.querySelector(`${tag}[src="asset:file"]`)).toBeInTheDocument()
+    expect(screen.queryByRole('iframe')).not.toBeInTheDocument()
+    fireEvent.click(system)
+    await waitFor(() => expect(mocks.system).toHaveBeenCalledWith(expect.objectContaining({
+      format: 'original', mime, html: '', original: expect.objectContaining({ url }),
+    }), expect.anything()))
+  })
+  it('defaults a single captioned media result to its file instead of an HTML player page', async () => {
+    const url = 'novera-creation:video/Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.mp4'
+    const result = m('b', 'assistant', 'A generated video with a caption')
+    mocks.fetch.mockResolvedValue([{ ...result, content: [...result.content, {
+      type: ContentType.InputVideo, input_video: { data: url, format: 'video/mp4' },
+    }] }])
+    render(<ShareButton threadId="t" />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
+    const prepare = await screen.findByRole('button', { name: 'chat:sharing.prepare' })
+    await waitFor(() => expect(prepare).toBeEnabled())
+    expect(screen.getByRole('combobox', { name: 'chat:sharing.format' })).toHaveValue('original')
+    fireEvent.click(prepare)
+    await waitFor(() => expect(mocks.prepare).toHaveBeenCalledWith(expect.objectContaining({
+      format: 'original', entries: [expect.objectContaining({ text: '', assets: [expect.objectContaining({ url })] })],
+    })))
+  })
+  it('uses a text file by default for a single text result while conversations keep rich export', async () => {
+    render(<ShareButton threadId="t" />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
+    await waitFor(() => expect(screen.getByRole('combobox', { name: 'chat:sharing.format' })).toHaveValue('txt'))
+  })
   it('shares the clicked result or a deliberate selection rather than other messages', async () => {
     render(<ShareButton threadId="t" />)
     fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
@@ -174,5 +231,35 @@ describe('unified sharing preview', () => {
     await waitFor(() =>
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     )
+  })
+  it('releases the controls after a native preparation failure so file copy and closing remain possible', async () => {
+    mocks.system.mockRejectedValueOnce(new Error('SHARE_UNSUPPORTED: Windows file preparation timed out'))
+    render(<ShareButton threadId="t" conversation />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
+    const prepare = await screen.findByRole('button', { name: 'chat:sharing.prepare' })
+    await waitFor(() => expect(prepare).toBeEnabled())
+    fireEvent.click(prepare)
+    const system = await screen.findByRole('button', { name: 'chat:sharing.system' })
+    fireEvent.click(system)
+    expect(await screen.findByRole('alert')).toHaveTextContent('chat:sharing.failed')
+    expect(screen.getByRole('button', { name: 'chat:sharing.system' })).toBeEnabled()
+    expect(screen.getByRole('button', { name: 'chat:sharing.copyFile' })).toBeEnabled()
+    fireEvent.click(screen.getByRole('button', { name: 'common:close' }))
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
+  })
+  it('removes the modal and pointer lock before opening the native sheet, and keeps it closed on return', async () => {
+    mocks.system.mockImplementationOnce(async () => {
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+      expect(document.body.style.pointerEvents).not.toBe('none')
+    })
+    render(<ShareButton threadId="t" conversation />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
+    const prepare = await screen.findByRole('button', { name: 'chat:sharing.prepare' })
+    await waitFor(() => expect(prepare).toBeEnabled())
+    fireEvent.click(prepare)
+    fireEvent.click(await screen.findByRole('button', { name: 'chat:sharing.system' }))
+    await waitFor(() => expect(mocks.system).toHaveBeenCalledOnce())
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(document.body.style.pointerEvents).not.toBe('none')
   })
 })

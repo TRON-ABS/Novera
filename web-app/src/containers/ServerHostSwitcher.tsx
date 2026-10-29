@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -20,6 +21,8 @@ export function ServerHostSwitcher({
 }: {
   isServerRunning?: boolean
 }) {
+  const { t: uiT } = useUiLocale()
+
   const { serverHost, setServerHost } = useLocalApiServer()
 
   return (
@@ -28,7 +31,7 @@ export function ServerHostSwitcher({
         asChild
         className={cn(isServerRunning && 'opacity-50 pointer-events-none')}
       >
-        <Button variant="outline" size="sm" className="w-full justify-between" title="Edit Server Host">
+        <Button variant="outline" size="sm" className="w-full justify-between" title={uiT('common:editServerHost')}>
           {serverHost}
           <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground ml-2" />
         </Button>

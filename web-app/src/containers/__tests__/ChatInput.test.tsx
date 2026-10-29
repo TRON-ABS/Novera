@@ -38,6 +38,7 @@ const getCurrentThreadMock = vi.fn(() => undefined)
 vi.mock('@/hooks/useThreads', () => ({
   useThreads: (selector: any) =>
     selector({
+      threads: {},
       currentThreadId: 'thread-1',
       getCurrentThread: getCurrentThreadMock,
       updateCurrentThreadAssistant: updateCurrentThreadAssistantMock,
@@ -254,9 +255,10 @@ vi.mock('@tanstack/react-router', () => ({
   Link: ({ children, ...props }: any) => <a {...props}>{children}</a>,
 }))
 
-vi.mock('@/i18n/react-i18next-compat', () => ({
-  useTranslation: () => ({ t: (k: string) => k }),
-}))
+vi.mock('@/i18n/react-i18next-compat', async () => {
+  const { translateUiForTest } = await import('@/test/translate-ui')
+  return { useTranslation: () => ({ t: translateUiForTest }) }
+})
 
 vi.mock('sonner', () => ({
   toast: { info: vi.fn(), error: vi.fn(), success: vi.fn() },
@@ -851,13 +853,13 @@ describe('ChatInput', () => {
       renderInput()
       const button = screen.getByRole('button', { name: 'common:web_search' })
       expect(button).toHaveAttribute('aria-pressed', 'false')
-      expect(button).toHaveTextContent('OFF')
+      expect(button).toHaveTextContent('Disabled')
       fireEvent.click(button)
       expect(button).toHaveAttribute('aria-pressed', 'true')
-      expect(button).toHaveTextContent('ON')
+      expect(button).toHaveTextContent('Enabled')
       fireEvent.click(button)
       expect(button).toHaveAttribute('aria-pressed', 'false')
-      expect(button).toHaveTextContent('OFF')
+      expect(button).toHaveTextContent('Disabled')
     })
 
     it.each(['on', 'off', 'auto'] as const)('shows the actual Thinking %s setting without presenting Auto as Off', (value) => {
@@ -867,10 +869,10 @@ describe('ChatInput', () => {
         settings: { reasoning: { controller_props: { value } } },
       }
       renderInput()
-      const label = value === 'on' ? 'On' : value === 'off' ? 'Off' : 'Auto'
+      const label = value === 'on' ? 'Enabled' : value === 'off' ? 'Disabled' : 'Automatic'
       const button = screen.getByRole('button', { name: `Reasoning: ${label}` })
       expect(button).toHaveAttribute('data-state', value)
-      expect(button).toHaveTextContent(value.toUpperCase())
+      expect(button).toHaveTextContent(label)
     })
 
     // Web access is a global capability both surfaces honour -- Cowork reads

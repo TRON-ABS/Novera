@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "Utilizzato all'avvio di una nuova chat",
   "allAssistants": "Tutti gli assistenti",
   "lastUsed": "Ultimo utilizzo",
-  "deleteFailed": "Impossibile eliminare l'assistente. Per favore riprova."
+  "deleteFailed": "Impossibile eliminare l'assistente. Per favore riprova.",
+  "officialInstructions": "Le tre categorie di istruzioni di Novera si modificano solo da {{path}}."
 }

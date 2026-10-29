@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Помощник по умолчанию",
   "defaultAssistantDesc": "Используется при запуске нового чата.",
   "allAssistants": "Все помощники",
-  "lastUsed": "Последнее использование"
+  "lastUsed": "Последнее использование",
+  "officialInstructions": "Три категории инструкций Novera можно изменять только через {{path}}."
 }

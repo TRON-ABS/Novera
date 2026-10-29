@@ -60,7 +60,14 @@
     "removeFromJan": "إزالة من Novera",
     "success": "النموذج {{modelId}} اتمسح نهائيًا.",
     "cancel": "إلغاء",
-    "delete": "امسح"
+    "delete": "امسح",
+    "choiceDescription": "اختار إزاي تشيل النموذج ده من Novera.",
+    "removeFromNovera": "إزالة من Novera",
+    "permanentlyDelete": "احذف نهائي",
+    "keepFilesDescription": "شيل النموذج من القايمة وخلي ملفاته على الهارد. ممكن تستورده تاني.",
+    "permanentDescription": "احذف النموذج وملفاته اللي Novera ماسكها من الهارد. مش هتقدر ترجع في الخطوة دي.",
+    "permanentImportedDescription": "احذف كمان ملف GGUF الأساسي في مكانه الأصلي. الملفات المساعدة الخارجية هتفضل. مش هتقدر ترجع في الخطوة دي.",
+    "removedSuccess": "النموذج {{modelId}} اتشال من Novera. ملفاته فضلت."
   },
   "deleteAllModels": {
     "button": "حذف الكل",
@@ -123,5 +130,8 @@
     "oneKeyHint": "مفاتيح الاحتياط الاختيارية بتتظبّط في الإعدادات المتقدّمة.",
     "addKey": "إضافة مفتاح",
     "removeKey": "إزالة المفتاح"
-  }
+  },
+  "installedMediaModels": "نماذج صور وفيديوهات وموسيقى",
+  "noInstalledModels": "مفيش نماذج مسجلة في التصنيف ده.",
+  "modelComponents": "ملفات النموذج"
 }

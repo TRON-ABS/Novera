@@ -1,0 +1,489 @@
+{
+  "locales": 80,
+  "integrated_contributions": 19,
+  "english_keys": 2400,
+  "errors": [],
+  "coverage": [
+    {
+      "locale": "en",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "bn",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ar",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ur",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "pcm",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "arz",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "mr",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "te",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ta",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "sw",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ha",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "pnb",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "tl",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "pt-PT",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "yue",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "wuu",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "fa-IR",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "am",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "th",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "jv",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "es",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "fr",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "it",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "hi",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "id",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "pl",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "vn",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "zh-CN",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "zh-TW",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "de-DE",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "cs",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "pt-BR",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ko",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ja",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ru",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ca",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "gu",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "kn",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "apc",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "apd",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "yo",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "bho",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "cjy",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "nan",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "my",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "arq",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "hak",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ln",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ary",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "or",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "uk",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "hsn",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ml",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "sd",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "pa",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "su",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ig",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "prs",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ne",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ms",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "uzn",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "zu",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "aec",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "pbu",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "gaz",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "skr",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "nl",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "so",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ro",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "as",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "ceb",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "kk",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "si",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "xh",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "km",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "af",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "mai",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "wo",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "kmr",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    },
+    {
+      "locale": "rw",
+      "covered": 2400,
+      "total": 2400,
+      "partial": false
+    }
+  ],
+  "compiled": false
+}

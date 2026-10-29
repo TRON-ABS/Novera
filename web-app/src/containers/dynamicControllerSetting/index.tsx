@@ -3,6 +3,8 @@ import { CheckboxControl } from '@/containers/dynamicControllerSetting/CheckboxC
 import { DropdownControl } from '@/containers/dynamicControllerSetting/DropdownControl'
 import { TextareaControl } from '@/containers/dynamicControllerSetting/TextareaControl'
 import { SliderControl } from '@/containers/dynamicControllerSetting/SliderControl'
+import { useTranslation } from '@/i18n/react-i18next-compat'
+import { translateSettingText } from '@/i18n/setting-text'
 
 // Dynamic controller component that renders the appropriate control based on controller_type
 type DynamicControllerProps = {
@@ -44,12 +46,21 @@ export function DynamicControllerSetting({
   disabledReason,
   onChange,
 }: DynamicControllerProps) {
-  const control = renderControl(controllerType, controllerProps, className, onChange)
+  const { t } = useTranslation()
+  const translatedProps = {
+    ...controllerProps,
+    placeholder: translateSettingText(controllerProps.placeholder, t),
+    options: controllerProps.options?.map((option) => ({
+      ...option,
+      name: translateSettingText(option.name, t),
+    })),
+  }
+  const control = renderControl(controllerType, translatedProps, className, onChange)
   if (!disabledReason) return control
   return (
     <div
       className="opacity-50 pointer-events-none select-none"
-      title={disabledReason}
+      title={translateSettingText(disabledReason, t)}
       aria-disabled
     >
       {control}

@@ -377,11 +377,57 @@ pub fn remove_tray<R: Runtime>(app: &AppHandle<R>) {
 }
 
 #[cfg(feature = "desktop")]
-pub fn setup_tray<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
-    let show_i = MenuItem::with_id(app, "open", "Open Jan", true, None::<&str>)?;
-    let quit_i = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
+#[derive(Clone)]
+struct TrayLabels {
+    open: String,
+    quit: String,
+}
+
+#[cfg(feature = "desktop")]
+impl Default for TrayLabels {
+    fn default() -> Self {
+        Self { open: "Open Novera".into(), quit: "Quit Novera".into() }
+    }
+}
+
+#[cfg(feature = "desktop")]
+fn localized_tray_menu<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<Menu<R>> {
+    app.manage(std::sync::Mutex::new(TrayLabels::default()));
+    let state = app.state::<std::sync::Mutex<TrayLabels>>();
+    let labels = state.lock().unwrap_or_else(|error| error.into_inner()).clone();
+    let show_i = MenuItem::with_id(app, "open", labels.open, true, None::<&str>)?;
+    let quit_i = MenuItem::with_id(app, "quit", labels.quit, true, None::<&str>)?;
     let separator_i = PredefinedMenuItem::separator(app)?;
-    let menu = Menu::with_items(app, &[&show_i, &separator_i, &quit_i])?;
+    Menu::with_items(app, &[&show_i, &separator_i, &quit_i])
+}
+
+/// Store UI translations separately from persisted settings; recreated trays
+/// use the most recently selected interface language.
+#[tauri::command]
+pub fn set_tray_labels<R: Runtime>(app: AppHandle<R>, open: String, quit: String) -> Result<(), String> {
+    #[cfg(feature = "desktop")]
+    {
+        if open.trim().is_empty() || quit.trim().is_empty() { return Err("Empty tray label".into()); }
+        app.manage(std::sync::Mutex::new(TrayLabels::default()));
+        *app.state::<std::sync::Mutex<TrayLabels>>()
+            .lock().map_err(|error| error.to_string())? = TrayLabels { open, quit };
+        let handle = app.clone();
+        app.run_on_main_thread(move || {
+            if let Some(tray) = handle.tray_by_id(TRAY_ID) {
+                if let Err(error) = localized_tray_menu(&handle).and_then(|menu| tray.set_menu(Some(menu))) {
+                    log::warn!("Unable to update tray labels: {error}");
+                }
+            }
+        }).map_err(|error| error.to_string())?;
+    }
+    #[cfg(not(feature = "desktop"))]
+    let _ = (app, open, quit);
+    Ok(())
+}
+
+#[cfg(feature = "desktop")]
+pub fn setup_tray<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<TrayIcon<R>> {
+    let menu = localized_tray_menu(app)?;
     TrayIconBuilder::with_id(TRAY_ID)
         .icon(app.default_window_icon().unwrap().clone())
         .menu(&menu)

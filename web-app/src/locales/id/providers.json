@@ -33,7 +33,14 @@
     "cancel": "Batal",
     "delete": "Hapus",
     "importedDescription": "Hapus model yang diimpor ini dari Novera? File lokal Anda di disk tidak akan dihapus.",
-    "removeFromJan": "Hapus dari Novera"
+    "removeFromJan": "Hapus dari Novera",
+    "choiceDescription": "Pilih cara menghapus model ini dari Novera.",
+    "removeFromNovera": "Hapus dari Novera",
+    "permanentlyDelete": "Hapus secara permanen",
+    "keepFilesDescription": "Hapus model dari daftar dan simpan filenya di disk. Anda dapat mengimpornya lagi.",
+    "permanentDescription": "Hapus model dan file yang dikelola Novera dari disk. Hal ini tidak dapat dibatalkan.",
+    "permanentImportedDescription": "Hapus juga file utama GGUF di lokasi aslinya. File tambahan eksternal disimpan. Hal ini tidak dapat dibatalkan.",
+    "removedSuccess": "Model {{modelId}} telah dihapus dari Novera. Filenya disimpan."
   },
   "deleteProvider": {
     "title": "Hapus Penyedia",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Kunci cadangan opsional dikonfigurasikan di Tingkat Lanjut.",
     "addKey": "Tambahkan kunci",
     "removeKey": "Hapus kunci"
-  }
+  },
+  "installedMediaModels": "Model gambar, video, dan musik",
+  "noInstalledModels": "Tidak ada model yang terdaftar dalam kategori ini.",
+  "modelComponents": "File model"
 }

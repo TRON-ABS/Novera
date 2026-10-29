@@ -60,7 +60,14 @@
     "removeFromJan": "Novera ਤੋਂ ਹਟਾਓ",
     "success": "ਮਾਡਲ {{modelId}} ਨੂੰ ਪੱਕੇ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ।",
     "cancel": "ਰੱਦ ਕਰੋ",
-    "delete": "ਮਿਟਾਓ"
+    "delete": "ਮਿਟਾਓ",
+    "choiceDescription": "ਚੁਣੋ ਕਿ Novera ਤੋਂ ਇਸ ਮਾਡਲ ਨੂੰ ਕਿਵੇਂ ਹਟਾਉਣਾ ਹੈ।",
+    "removeFromNovera": "Novera ਤੋਂ ਹਟਾਓ",
+    "permanentlyDelete": "ਸਥਾਈ ਤੌਰ 'ਤੇ ਮਿਟਾਓ",
+    "keepFilesDescription": "ਸੂਚੀ ਵਿੱਚੋਂ ਮਾਡਲ ਨੂੰ ਹਟਾਓ ਅਤੇ ਇਸ ਦੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਡਿਸਕ 'ਤੇ ਰੱਖੋ। ਤੁਸੀਂ ਇਸਨੂੰ ਦੁਬਾਰਾ ਆਯਾਤ ਕਰ ਸਕਦੇ ਹੋ।",
+    "permanentDescription": "ਡਿਸਕ ਤੋਂ ਮਾਡਲ ਅਤੇ ਇਸ ਦੀਆਂ Novera-ਪ੍ਰਬੰਧਿਤ ਫਾਈਲਾਂ ਨੂੰ ਮਿਟਾਓ। ਇਸ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
+    "permanentImportedDescription": "ਮੁੱਖ GGUF ਫਾਈਲ ਨੂੰ ਇਸਦੇ ਅਸਲ ਸਥਾਨ 'ਤੇ ਵੀ ਮਿਟਾਓ। ਬਾਹਰੀ ਸਹਾਇਕ ਫਾਈਲਾਂ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ। ਇਸ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
+    "removedSuccess": "ਮਾਡਲ {{modelId}} ਨੂੰ Novera ਤੋਂ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਸੀ। ਇਸ ਦੀਆਂ ਫਾਈਲਾਂ ਰੱਖੀਆਂ ਗਈਆਂ ਸਨ।"
   },
   "deleteAllModels": {
     "button": "ਸਭ ਮਿਟਾਓ",
@@ -123,5 +130,8 @@
     "oneKeyHint": "ਵਿਕਲਪਿਕ ਫਾਲਬੈਕ ਕੁੰਜੀਆਂ ਨੂੰ ਐਡਵਾਂਸਡ ਵਿੱਚ ਕੌਂਫਿਗਰ ਕੀਤਾ ਗਿਆ ਹੈ।",
     "addKey": "ਕੁੰਜੀ ਸ਼ਾਮਲ ਕਰੋ",
     "removeKey": "ਕੁੰਜੀ ਹਟਾਓ"
-  }
+  },
+  "installedMediaModels": "ਚਿੱਤਰ, ਵੀਡੀਓ ਅਤੇ ਸੰਗੀਤ ਮਾਡਲ",
+  "noInstalledModels": "ਇਸ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਕੋਈ ਮਾਡਲ ਰਜਿਸਟਰਡ ਨਹੀਂ ਹਨ।",
+  "modelComponents": "ਮਾਡਲ ਫ਼ਾਈਲਾਂ"
 }

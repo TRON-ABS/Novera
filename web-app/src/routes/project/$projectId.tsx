@@ -32,6 +32,7 @@ export const Route = createFileRoute('/project/$projectId')({
 })
 
 function ProjectPageContent() {
+
   const { t, i18n } = useTranslation()
   const { projectId } = useParams({ from: '/project/$projectId' })
   const { getFolderById, updateFolder } = useThreadManagement()
@@ -94,7 +95,7 @@ function ProjectPageContent() {
       </HeaderPage>
 
       <div className="h-full relative flex flex-col px-4 md:px-8 py-4 overflow-y-auto">
-        <div className="mx-auto w-full md:w-4/5 xl:w-4/6">
+        <div className="mx-auto w-full">
           {/* Project Name with Dropdown */}
           <div className="flex items-center justify-between gap-2 mb-4">
             <h1 className="text-2xl font-semibold">
@@ -104,7 +105,7 @@ function ProjectPageContent() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon-xs">
                   <MoreHorizontal className="size-4" />
-                  <span className="sr-only">More options</span>
+                  <span className="sr-only">{t('ui:moreOptions')}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
@@ -145,7 +146,7 @@ function ProjectPageContent() {
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="icon-xs">
                       <MoreHorizontal className="size-4" />
-                      <span className="sr-only">More options</span>
+                      <span className="sr-only">{t('ui:moreOptions')}</span>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent side="right" align="start">

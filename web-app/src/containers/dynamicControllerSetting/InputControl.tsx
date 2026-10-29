@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { useState } from 'react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -29,6 +30,8 @@ export function InputControl({
   max,
   step = 1,
 }: InputControl) {
+  const { t: uiT } = useUiLocale()
+
   const [showPassword, setShowPassword] = useState(false)
   const [isCopied, setIsCopied] = useState(false)
   const hasInputActions = inputActions && inputActions.length > 0
@@ -73,7 +76,7 @@ export function InputControl({
           variant="outline"
           size="icon-sm"
           type="button"
-          aria-label="Decrement"
+          aria-label={uiT('ui:decrement')}
           className='rounded-none'
           onClick={() => handleNumberAdjustment(-step)}
           disabled={min !== undefined && numericValue <= min}
@@ -84,7 +87,7 @@ export function InputControl({
           variant="outline"
           size="icon-sm"
           type="button"
-          aria-label="Increment"
+          aria-label={uiT('ui:increment')}
           className='rounded-r-md'
           onClick={() => handleNumberAdjustment(step)}
           disabled={max !== undefined && numericValue >= max}

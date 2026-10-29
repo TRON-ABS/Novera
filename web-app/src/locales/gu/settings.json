@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "કોડ બ્લોક શૈલી રીસેટ કરો",
     "resetCodeBlockStyleDesc": "કોડ બ્લોક શૈલીને ડિફોલ્ટ પર રીસેટ કરો.",
     "resetCodeBlockSuccess": "કોડ બ્લોક શૈલી સફળતાપૂર્વક રીસેટ",
-    "resetCodeBlockSuccessDesc": "કોડ બ્લોક શૈલી ડિફોલ્ટ પર પુનઃસ્થાપિત કરવામાં આવી છે."
+    "resetCodeBlockSuccessDesc": "કોડ બ્લોક શૈલી ડિફોલ્ટ પર પુનઃસ્થાપિત કરવામાં આવી છે.",
+    "subtitle": "Novera ને તમારા પોતાના બનાવો, તેના દેખાવથી લઈને તમારી વાતચીતની પસંદગીઓ સુધી.",
+    "accentColor": "એક્સેંટ રંગ",
+    "accentColorDesc": "ઉચ્ચાર અને સાઇડબાર રંગ પસંદ કરો.",
+    "conversation": "વાતચીત અને સૂચનાઓ"
   },
   "hardware": {
     "os": "ઓપરેટિંગ સિસ્ટમ",

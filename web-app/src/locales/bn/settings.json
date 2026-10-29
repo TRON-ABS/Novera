@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "একটি বাগ পাওয়া গেছে? GitHub-এ একটি সমস্যা ফাইল করে আমাদের সাহায্য করুন।",
   "reportIssue": "রিপোর্ট ইস্যু",
   "credits": "ক্রেডিট",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS), জানুয়ারী Menlo Research এবং এর অবদানকারীদের উপর ভিত্তি করে।",
   "creditsDesc2": "আমাদের ওপেন-সোর্স নির্ভরতা-বিশেষ করে llama.cpp এবং Tauri-এবং আমাদের আশ্চর্যজনক AI সম্প্রদায়কে বিশেষ ধন্যবাদ।",
   "appVersion": "অ্যাপ সংস্করণ",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "কোড ব্লক স্টাইল রিসেট করুন",
     "resetCodeBlockStyleDesc": "কোড ব্লক শৈলী ডিফল্টে রিসেট করুন।",
     "resetCodeBlockSuccess": "কোড ব্লক শৈলী সফলভাবে পুনরায় সেট করা হয়েছে",
-    "resetCodeBlockSuccessDesc": "কোড ব্লক শৈলী ডিফল্টে পুনরুদ্ধার করা হয়েছে।"
+    "resetCodeBlockSuccessDesc": "কোড ব্লক শৈলী ডিফল্টে পুনরুদ্ধার করা হয়েছে।",
+    "subtitle": "Novera কে আপনার নিজের করুন, এটির চেহারা থেকে শুরু করে আপনার কথোপকথনের পছন্দগুলি।",
+    "accentColor": "অ্যাকসেন্ট রঙ",
+    "accentColorDesc": "অ্যাকসেন্ট এবং সাইডবারের রঙ বেছে নিন।",
+    "conversation": "কথোপকথন এবং বিজ্ঞপ্তি"
   },
   "hardware": {
     "os": "অপারেটিং সিস্টেম",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "একটি বাগ পাওয়া গেছে? GitHub-এ একটি সমস্যা ফাইল করে আমাদের সাহায্য করুন।",
     "reportIssue": "রিপোর্ট ইস্যু",
     "credits": "ক্রেডিট",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS), জানুয়ারী Menlo Research এবং এর অবদানকারীদের উপর ভিত্তি করে।",
     "creditsDesc2": "আমাদের ওপেন-সোর্স নির্ভরতা-বিশেষ করে llama.cpp এবং Tauri-এবং আমাদের আশ্চর্যজনক AI সম্প্রদায়কে বিশেষ ধন্যবাদ।"
   },
   "extensions": {

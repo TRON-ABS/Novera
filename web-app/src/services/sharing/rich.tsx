@@ -87,7 +87,8 @@ export function renderShareHtml(
           if (src === '')
             return `<figure><figcaption>${escapeXml(asset.name)}</figcaption></figure>`
           if (!src) throw new Error('SHARE_MEDIA_MISSING')
-          return `<figure>${asset.mime.startsWith('image/') ? `<img src="${escapeXml(src)}" alt="${escapeXml(asset.name)}">` : `<video controls preload="metadata" src="${escapeXml(src)}"></video><p><a href="${escapeXml(src)}" download="${escapeXml(asset.name)}">${escapeXml(asset.name)}</a></p>`}<figcaption>${escapeXml(asset.name)}</figcaption></figure>`
+          const tag = asset.mime.startsWith('audio/') ? 'audio' : 'video'
+          return `<figure>${asset.mime.startsWith('image/') ? `<img src="${escapeXml(src)}" alt="${escapeXml(asset.name)}">` : `<${tag} controls preload="metadata" src="${escapeXml(src)}"></${tag}><p><a href="${escapeXml(src)}" download="${escapeXml(asset.name)}">${escapeXml(asset.name)}</a></p>`}<figcaption>${escapeXml(asset.name)}</figcaption></figure>`
         })
         .join('')
       return `<article data-message-id="${escapeXml(entry.id)}"><p class="role">${escapeXml(entry.role === 'user' ? labels.user : labels.assistant)}</p>${markdown}${assets}</article>`

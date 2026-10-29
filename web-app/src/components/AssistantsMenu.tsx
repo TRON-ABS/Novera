@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu'
 import { AvatarEmoji } from '@/containers/AvatarEmoji'
 import { IconUser } from '@tabler/icons-react'
@@ -17,6 +18,8 @@ export function AssistantsMenu({
   updateCurrentThreadAssistant,
   assistants,
 }: AssistantMenuProps) {
+  const { t: uiT } = useUiLocale()
+
   const threadAssistant = currentThread?.assistants?.[0]
   const deletedAssistant =
     threadAssistant &&
@@ -42,8 +45,7 @@ export function AssistantsMenu({
               <IconUser size={18} className="text-muted-foreground" />
             )}
             <span>
-              {deletedAssistant.name || 'Unnamed Assistant'} (deleted)
-            </span>
+              {deletedAssistant.name || uiT('ui:unnamedAssistant')} {uiT('ui:deleted')}</span>
             <span className="ml-auto text-xs text-muted-foreground">✓</span>
           </div>
         </DropdownMenuItem>
@@ -59,7 +61,7 @@ export function AssistantsMenu({
       >
         <div className="flex items-center gap-2 w-full">
           <span className="text-muted-foreground">—</span>
-          <span>None</span>
+          <span>{uiT('ui:none')}</span>
           {noSelectedAssistant && (
             <span className="ml-auto text-xs text-muted-foreground">✓</span>
           )}
@@ -88,7 +90,7 @@ export function AssistantsMenu({
                   imageClassName="w-4 h-4 object-contain"
                   textClassName="text-sm"
                 />
-                <span>{assistant.name || 'Unnamed Assistant'}</span>
+                <span>{assistant.name || uiT('ui:unnamedAssistant')}</span>
                 {isSelected && (
                   <span className="ml-auto text-xs text-muted-foreground">
                     ✓
@@ -100,7 +102,7 @@ export function AssistantsMenu({
         })
       ) : (
         <DropdownMenuItem disabled>
-          <span className="text-muted-foreground">No assistants available</span>
+          <span className="text-muted-foreground">{uiT('ui:noAssistantsAvailable')}</span>
         </DropdownMenuItem>
       )}
     </>

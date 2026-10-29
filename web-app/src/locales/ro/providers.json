@@ -60,7 +60,14 @@
     "removeFromJan": "Eliminați din Novera",
     "success": "Modelul {{modelId}} a fost șters definitiv.",
     "cancel": "Anulează",
-    "delete": "Șterge"
+    "delete": "Șterge",
+    "choiceDescription": "Alegeți cum să eliminați acest model din Novera.",
+    "removeFromNovera": "Eliminați din Novera",
+    "permanentlyDelete": "Ștergeți definitiv",
+    "keepFilesDescription": "Eliminați modelul din listă și păstrați fișierele sale pe disc. Îl poți importa din nou.",
+    "permanentDescription": "Ștergeți modelul și fișierele sale gestionate Novera de pe disc. Acest lucru nu poate fi anulat.",
+    "permanentImportedDescription": "De asemenea, ștergeți fișierul principal GGUF din locația sa inițială. Fișierele auxiliare externe sunt păstrate. Acest lucru nu poate fi anulat.",
+    "removedSuccess": "Modelul {{modelId}} a fost eliminat din Novera. Fișierele acestuia au fost păstrate."
   },
   "deleteAllModels": {
     "button": "Șterge tot",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Tastele de rezervă opționale sunt configurate în Advanced.",
     "addKey": "Adaugă cheie",
     "removeKey": "Eliminați cheia"
-  }
+  },
+  "installedMediaModels": "Modele de imagine, video și muzică",
+  "noInstalledModels": "Nu există modele înregistrate în această categorie.",
+  "modelComponents": "Fișiere model"
 }

@@ -1,6 +1,6 @@
 /** Ownership of live inference, independent of UI, storage and native engines. */
 export type MemoryTarget = {
-  kind: 'text' | 'image' | 'video'
+  kind: 'text' | 'image' | 'music' | 'video'
   provider: string
   model: string
 }

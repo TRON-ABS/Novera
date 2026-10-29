@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Seta kwakhona iKhowudi yesimbo seBhloko",
     "resetCodeBlockStyleDesc": "Seta kwakhona isimbo sekhowudi yebhlokhi ngokwendalo.",
     "resetCodeBlockSuccess": "Ukusetwa kwakhona kwesimbo sekhowudi yebhloko ngempumelelo",
-    "resetCodeBlockSuccessDesc": "Isimbo sebhloko sekhowudi sibuyiselwe kwimeko yesiqhelo."
+    "resetCodeBlockSuccessDesc": "Isimbo sebhloko sekhowudi sibuyiselwe kwimeko yesiqhelo.",
+    "subtitle": "Yenza Novera eyakho, ukusuka kwinkangeleko yayo ukuya kukhetho lwakho lwencoko.",
+    "accentColor": "Umbala wonyuso",
+    "accentColorDesc": "Khetha isinyanzeliso kunye nombala webar esecaleni.",
+    "conversation": "Iingxoxo kunye nezaziso"
   },
   "hardware": {
     "os": "Inkqubo yokuSebenza",

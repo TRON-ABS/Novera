@@ -47,7 +47,35 @@
     "workedForAWhile": "Funktionierte ein paar Sekunden lang",
     "workedFor": "Funktioniert für {{duration}}"
   },
+  "player": {
+    "play": "Abspielen",
+    "pause": "Pause",
+    "seek": "Wiedergabeposition",
+    "mute": "Stummschalten",
+    "volume": "Lautstärke",
+    "speed": "Wiedergabegeschwindigkeit"
+  },
   "creation": {
+    "musicLyricsGuide": "Beschreibe Stil und Stimme in deiner Anfrage. Schreibe den Liedtext unter die folgenden Tags. Deaktiviere {{instrumental}} für Gesang.",
+    "music": "Musik",
+    "musicDuration": "Musikdauer",
+    "musicQuality": "Audioqualität",
+    "musicInstrumental": "Instrumental",
+    "musicLyrics": "Liedtext",
+    "musicGenerator": "Musikgenerator",
+    "musicPlanner": "Musikplaner",
+    "setupAllDownload": "Alles automatisch herunterladen und einrichten",
+    "setupConfiguring": "Empfohlene Modelle werden eingerichtet",
+    "setupStorage": "Dateien insgesamt: {{download}}. Reserve: {{reserve}}. Zusätzlich benötigt: {{required}}. Auf gewähltem Laufwerk frei: {{free}}.",
+    "setupSpaceMissing": "Es fehlen {{missing}}. Speicherplatz freigeben oder ein anderes Laufwerk mit ausreichend Platz wählen.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M ist das empfohlene lokale Textmodell für Konversation, Schreiben, Toolaufrufe und strukturierte Ausgaben. Der anfängliche Kontext besteht aus 16K Token; Überprüfen Sie den verfügbaren Speicher, bevor Sie ihn vergrößern. Nur Texteingabe und -ausgabe, kein Entwurfsmodell. Nutzen Sie die Suche oder Ihre Dokumente, um Tatsachenbehauptungen zu überprüfen.",
+    "setupImageNote": "Bild — FLUX.2 Klein 4B · Q4_K_M. Text: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Seitenverhältnis: 21:9; Auflösung: 1024 × 432; Generierungsschritte: 4; Seed-Modus: Zufällig.",
+    "setupMusicNote": "Musik — ACE-Step 1.5 Turbo. Musikgenerator: 2B · Q4_K_M; Musikplaner: 1.7B · Q8_0; Text: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Musikdauer: 10–600 s; Audioqualität: 48 kHz · 2.0; Instrumental / Liedtext; Zufällig.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Text: UMT5-XXL · Q4_K_M. Videodauer: 5 s; Seitenverhältnis: 21:9; Bilder pro Sekunde: 16. Lange Videos werden aus kurzen Clips zusammengesetzt. Schnitte können sichtbar sein und die Erstellung kann lange dauern. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Lädt die empfohlenen Modelle herunter und konfiguriert sie: Nemotron für Text, Qwen3-Embedding Q8_0 für mehrsprachigen Abruf (CPU standardmäßig), FLUX.2 Klein 4B und seine Komponenten, Real-ESRGAN ×2/×4, ACE-Step für Musik (Instrumental standardmäßig aktiviert) und Wan2.1 für Video. Überprüfen Sie unten Dateigrößen, Speicherplatz und Videovoraussetzungen. Separate Downloads und Durchsuchen bleiben weiterhin verfügbar.",
+    "finalizing": "Video wird fertiggestellt",
+    "videoDuration": "Videodauer",
+    "videoDurationNote": "Lange Videos werden aus kurzen Clips zusammengesetzt. Schnitte können sichtbar sein und die Erstellung kann lange dauern.",
     "output": "Antwortformat",
     "auto": "Auto",
     "text": "Text",
@@ -144,7 +172,8 @@
     "ratio": "Seitenverhältnis",
     "resolution": "Auflösung",
     "customSize": "Benutzerdefiniert",
-    "sizeAutoNote": "Durch Ändern des Verhältnisses wird die aktuelle Auflösung angepasst. Für die Abmessungen werden Vielfache von 16 verwendet, bis zu 2048 px."
+    "sizeAutoNote": "Durch Ändern des Verhältnisses wird die aktuelle Auflösung angepasst. Für die Abmessungen werden Vielfache von 16 verwendet, bis zu 2048 px.",
+    "setupTextNvfp4Note": "Optionale NVFP4-Gewichte für einen erkannten NVIDIA Blackwell GPU oder neuer mit mindestens 4,5 GiB von VRAM. Um diese Gewichte in Novera vollständig zu verwenden Das Modellrepository muss zunächst in ein kompatibles NVFP4 GGUF konvertiert und validiert werden. Diese Konvertierung wurde für diesen Prüfpunkt noch nicht überprüft. Die verknüpfte Datei Safetensors kann nicht direkt von der integrierten Engine geladen werden. Q8_0 bleibt die gebrauchsfertige Empfehlung. Der Speicherbedarf hängt auch von der Kontextlänge ab."
   },
   "creationInstall": {
     "install": "Diese Konfiguration installieren",

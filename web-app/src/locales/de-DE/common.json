@@ -206,7 +206,7 @@
   },
   "outOfContextError": {
     "truncateInput": "Input verkleinern",
-    "title": "Out of context error",
+    "title": "Fehler außerhalb des Kontexts",
     "description": "Dieser Chat erreicht das KI Speicher Limit. Wir können das Speicherfenster vergrößern (auch Kontextgröße genannt), so daß sich die KI an mehr erinnern kann, aber dies erfordert es mehr Speicher zu verwenden. Um Platz zu schaffen können wir auch den Input verkleinern, was bedeutet, daß die KI einen Teil seiner Chat-Historie vergisst.",
     "increaseContextSizeDescription": "Möchtest Du die Kontextgröße erhöhen?",
     "increaseContextSize": "Kontextgröße erhöhen"
@@ -236,7 +236,7 @@
     "delete": "Löschen"
   },
   "modelSettings": {
-    "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
+    "nglDisabledByFit": "Bei der automatischen Anpassung werden GPU Ebenen ausgewählt. Deaktivieren Sie die automatische Anpassung, um dies manuell festzulegen.",
     "title": "Modell Einstellungen - {{modelId}}",
     "description": "Modeleinstellungen konfigurieren, um die Leistung und das Verhalten zu optimieren.",
     "samplingDefaults": {
@@ -414,7 +414,7 @@
     },
     "deleteThread": {
       "title": "Thread löschen",
-      "description": "This thread has been permanently deleted."
+      "description": "Dieser Thread wurde endgültig gelöscht."
     },
     "errorCopied": {
       "title": "Erfolgreich kopiert",
@@ -524,8 +524,8 @@
     }
   },
   "llamacppBusyOnExit": {
-    "title": "llama.cpp is still busy",
-    "description": "One or more models did not unload in time. Force-quitting will terminate llama.cpp and may interrupt active responses.",
+    "title": "llama.cpp ist noch besetzt",
+    "description": "Ein oder mehrere Modelle wurden nicht rechtzeitig entladen. Durch erzwungenes Beenden wird llama.cpp beendet und möglicherweise aktive Antworten unterbrochen.",
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"

@@ -38,5 +38,6 @@
   "defaultAssistantSection": "පෙරනිමි සහකාර",
   "defaultAssistantDesc": "නව කතාබහක් ආරම්භ කිරීමේදී භාවිතා වේ",
   "allAssistants": "සියලුම සහායකයින්",
-  "lastUsed": "අවසන් වරට භාවිතා කරන ලදී"
+  "lastUsed": "අවසන් වරට භාවිතා කරන ලදී",
+  "officialInstructions": "Novera උපදෙස් කාණ්ඩ තුන සංස්කරණය කළ හැක්කේ {{path}} හරහා පමණි."
 }

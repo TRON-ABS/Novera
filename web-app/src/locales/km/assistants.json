@@ -38,5 +38,6 @@
   "defaultAssistantSection": "ជំនួយការលំនាំដើម",
   "defaultAssistantDesc": "ប្រើនៅពេលចាប់ផ្តើមការជជែកថ្មី។",
   "allAssistants": "ជំនួយការទាំងអស់។",
-  "lastUsed": "ប្រើចុងក្រោយ"
+  "lastUsed": "ប្រើចុងក្រោយ",
+  "officialInstructions": "ប្រភេទសេចក្តីណែនាំទាំងបីរបស់ Novera អាចកែសម្រួលបានតែតាមរយៈ {{path}} ប៉ុណ្ណោះ។"
 }

@@ -268,6 +268,7 @@ export function ModelCombobox({
   className,
   onOpenChange,
 }: ModelComboboxProps) {
+
   const [open, setOpen] = useState(false)
   const [inputValue, setInputValue] = useState(value)
   const [highlightedIndex, setHighlightedIndex] = useState(-1)
@@ -425,7 +426,7 @@ export function ModelCombobox({
                 e.stopPropagation()
                 onRefresh()
               }}
-              aria-label="Refresh models"
+              aria-label={t('ui:refreshModels')}
             >
               {loading ? (
                 <IconLoader2 className="size-4 animate-spin" />

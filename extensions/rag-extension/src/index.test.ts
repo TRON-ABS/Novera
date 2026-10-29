@@ -154,7 +154,7 @@ describe('retrieve', () => {
       top_k: 5,
     })
 
-    expect(embed).toHaveBeenCalledWith(['q'])
+    expect(embed).toHaveBeenCalledWith(['q'], { purpose: 'query' })
     expect(searchCollection).toHaveBeenCalledWith(
       't1',
       [0.1, 0.2],

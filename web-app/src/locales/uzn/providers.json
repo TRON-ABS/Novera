@@ -60,7 +60,14 @@
     "removeFromJan": "Novera dan olib tashlash",
     "success": "Model {{modelId}} doimiy ravishda olib tashlandi.",
     "cancel": "Bekor qilish",
-    "delete": "O‘chirish"
+    "delete": "O‘chirish",
+    "choiceDescription": "Novera raqamidan ushbu modelni qanday olib tashlashni tanlang.",
+    "removeFromNovera": "Novera dan olib tashlash",
+    "permanentlyDelete": "Butunlay oʻchirish",
+    "keepFilesDescription": "Modelni roʻyxatdan olib tashlang va uning fayllarini diskda saqlang. Siz uni yana import qilishingiz mumkin.",
+    "permanentDescription": "Modelni va uning Novera tomonidan boshqariladigan fayllarini diskdan oʻchirib tashlang. Buni ortga qaytarib bo‘lmaydi.",
+    "permanentImportedDescription": "Shuningdek, asosiy GGUF faylni asl joyidan oʻchirib tashlang. Tashqi yordamchi fayllar saqlanadi. Buni ortga qaytarib bo‘lmaydi.",
+    "removedSuccess": "Model {{modelId}} Noveradan olib tashlandi. Uning fayllari saqlangan."
   },
   "deleteAllModels": {
     "button": "Hammasini o‘chirib tashlash",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Qolaversa, qo‘shimcha rezerv klavishlar Advanced'da moslashtirilgan.",
     "addKey": "Kalitni qo‘shish",
     "removeKey": "Aloqani olib tashlash"
-  }
+  },
+  "installedMediaModels": "Rasm, video va musiqa modellari",
+  "noInstalledModels": "Ushbu turkumda roʻyxatdan oʻtgan modellar yoʻq.",
+  "modelComponents": "Model fayllari"
 }

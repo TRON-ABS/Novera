@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Asisten standar",
   "defaultAssistantDesc": "Dipaké nalika ngamimitian obrolan anyar",
   "allAssistants": "Sadayana Asisten",
-  "lastUsed": "Panungtungan dipaké"
+  "lastUsed": "Panungtungan dipaké",
+  "officialInstructions": "Tilu kategori pituduh Novera ngan bisa diédit ngaliwatan {{path}}."
 }

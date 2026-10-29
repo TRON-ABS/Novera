@@ -23,11 +23,13 @@ import { useHubDownloadReview } from './HubHardwareDiagnostic'
 type ModelProps = {
   model: CatalogModel
   handleUseModel: (modelId: string) => void
+  useLabel?: string
 }
 
 export function DownloadButtonPlaceholder({
   model,
   handleUseModel,
+  useLabel,
 }: ModelProps) {
   const {
     downloads,
@@ -187,7 +189,7 @@ export function DownloadButtonPlaceholder({
           onClick={() => handleUseModel(downloadedModelId)}
           data-test-id={`hub-model-${modelId}`}
         >
-          {t('hub:newChat')}
+          {useLabel ?? t('hub:newChat')}
         </Button>
       ) : (
         <Button

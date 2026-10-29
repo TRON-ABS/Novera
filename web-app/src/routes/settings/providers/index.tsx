@@ -28,6 +28,7 @@ export const Route = createFileRoute(route.settings.model_providers as any)({
 })
 
 function ModelProviders() {
+
   const { t } = useTranslation()
   const serviceHub = useServiceHub()
   const { providers, addProvider, updateProvider } = useModelProvider()
@@ -151,8 +152,7 @@ function ModelProviders() {
                           {getProviderTitle(provider.provider)}
                         </h3>
                         <p className="text-xs text-muted-foreground mt-1">
-                          {provider.models.length} Models
-                        </p>
+                          {provider.models.length} {t('providers:models')}</p>
                       </div>
                     </div>
                   }

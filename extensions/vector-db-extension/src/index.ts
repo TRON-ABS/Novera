@@ -96,8 +96,8 @@ export default class VectorDBExt extends VectorDBExtension {
       dimension = embeddings[0]?.length || 0
     }
 
-    // Ensure collection exists (use default dimension 384 if no embeddings yet)
-    const collectionDimension = dimension > 0 ? dimension : 384
+    // Qwen3-Embedding-0.6B is the default; actual vectors remain authoritative.
+    const collectionDimension = dimension > 0 ? dimension : 1024
     await this.createCollectionForProject(projectId, collectionDimension)
 
     // Now check for duplicates

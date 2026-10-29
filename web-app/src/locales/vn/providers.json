@@ -33,7 +33,14 @@
     "cancel": "Hủy",
     "delete": "Xóa",
     "importedDescription": "Xóa mô hình đã nhập này khỏi Novera? Tệp cục bộ của bạn trên đĩa sẽ không bị xóa.",
-    "removeFromJan": "Xóa khỏi Novera"
+    "removeFromJan": "Xóa khỏi Novera",
+    "choiceDescription": "Chọn cách xóa mô hình này khỏi Novera.",
+    "removeFromNovera": "Xóa khỏi Novera",
+    "permanentlyDelete": "Xóa vĩnh viễn",
+    "keepFilesDescription": "Xóa mô hình khỏi danh sách và giữ các tệp của nó trên đĩa. Bạn có thể nhập lại nó.",
+    "permanentDescription": "Xóa mô hình và các tệp được quản lý Novera khỏi đĩa. Điều này không thể hoàn tác được.",
+    "permanentImportedDescription": "Đồng thời xóa tệp GGUF chính tại vị trí ban đầu của nó. Các tập tin phụ trợ bên ngoài được lưu giữ. Điều này không thể hoàn tác được.",
+    "removedSuccess": "Model {{modelId}} đã bị xóa khỏi Novera. Các tệp của nó đã được lưu giữ."
   },
   "deleteProvider": {
     "title": "Xóa nhà cung cấp",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Các phím dự phòng tùy chọn được định cấu hình trong Nâng cao.",
     "addKey": "Thêm khóa",
     "removeKey": "Xóa chìa khóa"
-  }
+  },
+  "installedMediaModels": "Mô hình hình ảnh, video và âm nhạc",
+  "noInstalledModels": "Không có mẫu nào được đăng ký trong danh mục này.",
+  "modelComponents": "Tệp mô hình"
 }

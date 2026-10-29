@@ -60,7 +60,14 @@
     "removeFromJan": "Novera वरून काढा",
     "success": "मॉडेल {{modelId}} कायमचे हटवले गेले आहे.",
     "cancel": "रद्द करा",
-    "delete": "हटवा"
+    "delete": "हटवा",
+    "choiceDescription": "Novera वरून हे मॉडेल कसे काढायचे ते निवडा.",
+    "removeFromNovera": "Novera वरून काढा",
+    "permanentlyDelete": "कायमचे हटवा",
+    "keepFilesDescription": "सूचीमधून मॉडेल काढा आणि त्याच्या फाइल्स डिस्कवर ठेवा. तुम्ही ते पुन्हा आयात करू शकता.",
+    "permanentDescription": "डिस्कवरून मॉडेल आणि त्याच्या Novera-व्यवस्थापित फाइल्स हटवा. हे पूर्ववत केले जाऊ शकत नाही.",
+    "permanentImportedDescription": "मुख्य GGUF फाइल त्याच्या मूळ स्थानावर देखील हटवा. बाह्य सहाय्यक फाइल्स ठेवल्या जातात. हे पूर्ववत केले जाऊ शकत नाही.",
+    "removedSuccess": "मॉडेल {{modelId}} Novera वरून काढून टाकले होते. त्याच्या फाईल्स ठेवल्या होत्या."
   },
   "deleteAllModels": {
     "button": "सर्व हटवा",
@@ -123,5 +130,8 @@
     "oneKeyHint": "पर्यायी फॉलबॅक की प्रगत मध्ये कॉन्फिगर केल्या आहेत.",
     "addKey": "की जोडा",
     "removeKey": "की काढा"
-  }
+  },
+  "installedMediaModels": "प्रतिमा, व्हिडिओ आणि संगीत मॉडेल",
+  "noInstalledModels": "या श्रेणीमध्ये कोणतेही मॉडेल नोंदणीकृत नाहीत.",
+  "modelComponents": "मॉडेल फाइल्स"
 }

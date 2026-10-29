@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Resetează stilul blocului de cod",
     "resetCodeBlockStyleDesc": "Resetați stilul blocului de cod la valoarea implicită.",
     "resetCodeBlockSuccess": "Stilul blocului de coduri a fost resetat cu succes",
-    "resetCodeBlockSuccessDesc": "Stilul blocului de cod a fost restaurat la implicit."
+    "resetCodeBlockSuccessDesc": "Stilul blocului de cod a fost restaurat la implicit.",
+    "subtitle": "Faceți Novera al dvs., de la aspectul său la preferințele dvs. de conversație.",
+    "accentColor": "Culoare de accent",
+    "accentColorDesc": "Alegeți accentul și culoarea barei laterale.",
+    "conversation": "Conversații și notificări"
   },
   "hardware": {
     "os": "Sistem de operare",

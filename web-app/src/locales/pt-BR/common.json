@@ -234,7 +234,7 @@
     "delete": "Remover"
   },
   "modelSettings": {
-    "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
+    "nglDisabledByFit": "O ajuste automático é escolher GPU camadas. Desative o ajuste automático para definir isso manualmente.",
     "title": "Configurações do Modelo - {{modelId}}",
     "description": "Configure as configurações do modelo para otimizar desempenho e comportamento.",
     "samplingDefaults": {
@@ -525,8 +525,8 @@
   "viewInjectedContent": "Ver conteúdo injetado",
   "injectedContentTitle": "Conteúdo de arquivo injetado",
   "llamacppBusyOnExit": {
-    "title": "llama.cpp is still busy",
-    "description": "One or more models did not unload in time. Force-quitting will terminate llama.cpp and may interrupt active responses.",
+    "title": "llama.cpp ainda está ocupado",
+    "description": "Um ou mais modelos não foram descarregados a tempo. O encerramento forçado encerrará llama.cpp e poderá interromper as respostas ativas.",
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"

@@ -1,29 +1,20 @@
 import type { CatalogModel } from '@/services/models/types'
 import hubCatalog from './noveraHubCatalog.json'
 
-/** Optional draft companion, paired only with the desktop onboarding target. */
-export const NOVERA_RECOMMENDED_DRAFT = {
-  targetModelId: 'LFM2.5-2.6B-Q6_K',
-  targetPath: 'https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF/resolve/main/LFM2.5-2.6B-Q6_K.gguf?download=true',
-  path: 'https://huggingface.co/LiquidAI/LFM2.5-2.6B-DSpark-GGUF/resolve/main/LFM2.5-2.6B-DSpark-Q8_0.gguf?download=true',
-  kind: 'dspark' as const,
-  fileSize: '356 MB',
-  sizeBytes: 356491776,
-} as const
-
-export const NOVERA_RECOMMENDED_CONTEXT_SIZE = IS_ANDROID ? 4096 : 32768
+export const NOVERA_RECOMMENDED_CONTEXT_SIZE = IS_ANDROID ? 4096 : 16384
 
 /** Fixed Novera onboarding choice; independent of the upstream Jan feed/cache. */
 const desktopModel: CatalogModel = {
-  model_name: 'LFM2.5-2.6B',
-  display_name: 'LFM2.5-2.6B · Q6_K',
-  description: 'LiquidAI LFM2.5-2.6B, Q6_K quantization.',
-  developer: 'LiquidAI',
+  model_name: 'Nemotron-3.5-Bolt-E4B',
+  display_name: 'Nemotron-3.5-Bolt-E4B · Q4_K_M',
+  description: 'Text conversation, writing, tool calling and structured outputs.',
+  library_name: 'gguf', pipeline_tag: 'text-generation', tools: true,
+  developer: 'NVIDIA',
   downloads: 0,
   quants: [{
-    model_id: 'LFM2.5-2.6B-Q6_K',
-    path: 'https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF/resolve/main/LFM2.5-2.6B-Q6_K.gguf?download=true',
-    file_size: '2.22 GB',
+    model_id: 'Nemotron-3.5-Bolt-E4B-Q4_K_M',
+    path: 'https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB/resolve/main/Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf?download=true',
+    file_size: '6.18 GB',
   }],
 }
 

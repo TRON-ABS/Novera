@@ -60,7 +60,14 @@
     "removeFromJan": "Novera keessaa haqi",
     "success": "Moodeelli {{modelId}} dhaabbataan haqameera.",
     "cancel": "Haqi",
-    "delete": "Balleessi"
+    "delete": "Balleessi",
+    "choiceDescription": "Akkaataa moodeela kana Novera irraa itti balleessinu filadhu.",
+    "removeFromNovera": "Novera keessaa haqi",
+    "permanentlyDelete": "Dhaabbataan haquu",
+    "keepFilesDescription": "Moodeela tarree keessaa baasuun faayiloota isaa disk irratti kaa'uu. Ammas galchuu dandeessa.",
+    "permanentDescription": "Moodeela fi faayiloota isaa Novera-n bulfaman disk irraa haquu. Kun duubatti deebi’uu hin danda’u.",
+    "permanentImportedDescription": "Akkasumas faayilii ijoo GGUF bakka jalqabaa jirutti haquu. Faayiloonni gargaaraa alaa ni qabamu. Kun duubatti deebi’uu hin danda’u.",
+    "removedSuccess": "Moodeelli {{modelId}} Novera irraa kaafame.Faayiloonni isaa eegamanii turan."
   },
   "deleteAllModels": {
     "button": "Hunda Haqi",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Furtuuwwan filannoo deebisanii fayyadamuu Kutaa Bal'aa keessatti qindaa'u.",
     "addKey": "Furtuu dabali",
     "removeKey": "Furtuu haqi"
-  }
+  },
+  "installedMediaModels": "Moodeelota suuraa, viidiyoo fi muuziqaa",
+  "noInstalledModels": "Moodeelonni gosa kana keessatti galmaa'an hin jiran.",
+  "modelComponents": "Faayilota moodeela"
 }

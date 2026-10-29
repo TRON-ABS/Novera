@@ -285,7 +285,7 @@ describe('ingestFileForProject', () => {
     expect(mockVecdb.createCollection).toHaveBeenCalledWith('project_p1', 2)
   })
 
-  it('uses the default 384 dimension when there are no chunks', async () => {
+  it('uses the default Qwen 1024 dimension when there are no chunks', async () => {
     mockRag.parseDocument.mockResolvedValue('')
     mockVecdb.chunkText.mockResolvedValue([])
     mockVecdb.listAttachments.mockResolvedValue([])
@@ -294,7 +294,7 @@ describe('ingestFileForProject', () => {
       chunkSize: 100,
       chunkOverlap: 10,
     } as any)
-    expect(mockVecdb.createCollection).toHaveBeenCalledWith('project_p1', 384)
+    expect(mockVecdb.createCollection).toHaveBeenCalledWith('project_p1', 1024)
     expect(res).toEqual({ id: 'f1' })
     expect(mockVecdb.insertChunks).not.toHaveBeenCalled()
   })

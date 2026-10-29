@@ -3,12 +3,18 @@ import i18next, { loadTranslations } from "./setup"
 import { useGeneralSetting } from "@/hooks/useGeneralSetting"
 import { TranslationContext } from "./context"
 import { DirectionProvider } from "@radix-ui/react-direction"
+import { syncTrayLabels } from '@/adapters/platform/tray-labels'
 
 // Translation provider component
 export const TranslationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	// Get the current language from general settings
 	const { currentLanguage } = useGeneralSetting()
 	const [appliedLanguage, setAppliedLanguage] = useState(i18next.language)
+
+	useEffect(() => {
+		void syncTrayLabels(i18next.t('ui:openNovera'), i18next.t('ui:quitNovera'))
+			.catch((error) => console.debug('Unable to update tray language:', error))
+	}, [appliedLanguage])
 
 	// Load translations once when the component mounts
 	useEffect(() => {

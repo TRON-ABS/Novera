@@ -602,7 +602,11 @@ export async function generatePreset(
     // Skipped when auto-fit is on: an explicit n-gpu-layers makes fit abort its
     // layer-offload computation. -1 is auto and -2 or below means all layers,
     // so the floor is -2 rather than 0.
-    if (
+    if (mc.embedding === true) {
+      // Device selection for an embedder is independent of the chat auto-fit
+      // setting. Missing selection means CPU; explicit GPU remains auto-fit.
+      lines.push(`n-gpu-layers = ${typeof mc.n_gpu_layers === 'number' && mc.n_gpu_layers >= -2 ? mc.n_gpu_layers : 0}`)
+    } else if (
       !fitEnabled &&
       typeof mc.n_gpu_layers === 'number' &&
       mc.n_gpu_layers >= -2

@@ -13,8 +13,8 @@
   "refreshModelsFailed": "We no fit fetch models from {{provider}}. Abeg check your API key and base URL.",
   "models": "Models",
   "backendInstalled": "We don install am",
-  "backendHistoryShow": "Show update history",
-  "backendHistoryHide": "Hide update history",
+  "backendHistoryShow": "Show history of updates",
+  "backendHistoryHide": "Hide history of updates",
   "backendHistoryLoading": "We dey load update history...",
   "backendHistoryEmpty": "No backend updates don enter record yet.",
   "backendHistoryNone": "none",
@@ -27,7 +27,7 @@
   "embeddingModelsDesc": "We dey use them for RAG and vector search. Model wey you choose go become default when we dey generate embeddings.",
   "embeddingModelDefault": "Default",
   "embeddingModelSetDefault": "Make this the default embedding model",
-  "embeddingModelIsDefault": "Default embedding model",
+  "embeddingModelIsDefault": "Embedding model wey app go use normally",
   "refreshing": "We dey refresh...",
   "refresh": "Refresh",
   "import": "Import",
@@ -44,11 +44,11 @@
   "apiEndpoint": "API Endpoint",
   "testConnection": "Test Connection",
   "addModel": {
-    "title": "Add New Model",
+    "title": "Add model wey new",
     "description": "Add new model to {{provider}} provider.",
     "modelId": "Model ID",
     "enterModelId": "Enter model ID",
-    "exploreModels": "See model list from {{provider}}",
+    "exploreModels": "See models wey {{provider}} get",
     "addModel": "Add Model",
     "modelExists": "Model don already dey",
     "modelExistsDesc": "Abeg choose another model ID."
@@ -60,7 +60,14 @@
     "removeFromJan": "Remove from Novera",
     "success": "We don delete model {{modelId}} permanently.",
     "cancel": "Cancel",
-    "delete": "Delete"
+    "delete": "Delete",
+    "choiceDescription": "Choose how to remove dis model from Novera.",
+    "removeFromNovera": "Remove from Novera",
+    "permanentlyDelete": "Delete forever",
+    "keepFilesDescription": "Remove the model from list and keep its files for disk. You fit import am again.",
+    "permanentDescription": "Delete the model and its Novera-managed files from disk. You no fit undo am.",
+    "permanentImportedDescription": "Also delete the main GGUF file for its original place. External auxiliary files dey keep. You no fit undo am.",
+    "removedSuccess": "Model {{modelId}} don remove from Novera. Its files dey keep."
   },
   "deleteAllModels": {
     "button": "Delete All",
@@ -102,7 +109,7 @@
   },
   "addProvider": "Add Provider",
   "addOpenAIProvider": "Add OpenAI Provider",
-  "enterNameForProvider": "Enter name for provider",
+  "enterNameForProvider": "Put provider name",
   "baseUrl": {
     "title": "Base URL",
     "azureDescription": "Na your Azure OpenAI endpoint. Put your Azure resource name for YOUR-RESOURCE-NAME.",
@@ -112,7 +119,7 @@
     "title": "API keys",
     "description": "Enter your API key. You fit add extra keys for Advanced, and Novera go try the next one automatically if one key no work.",
     "placeholder": "sk-…\nsk-…",
-    "primaryPlaceholder": "Enter primary API key",
+    "primaryPlaceholder": "Put the main API key",
     "keyPlaceholder": "Enter API key",
     "primaryBadge": "Primary",
     "test": "Test keys",
@@ -123,5 +130,8 @@
     "oneKeyHint": "You fit set optional fallback keys for Advanced.",
     "addKey": "Add key",
     "removeKey": "Remove key"
-  }
+  },
+  "installedMediaModels": "Models for image, video and music",
+  "noInstalledModels": "No models don register for this category.",
+  "modelComponents": "Model files"
 }

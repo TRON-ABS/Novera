@@ -27,7 +27,7 @@
   "falseValue": "False",
   "jsonValuePlaceholder": "JSON Value",
   "save": "Save",
-  "createNew": "Create New Assistant",
+  "createNew": "Create assistant wey new",
   "personality": "Personality",
   "capabilities": "Things E Fit Do",
   "instructionsDateHint": "Tip: Use {{current_date}} to put today date.",
@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "We dey use am when new chat start",
   "allAssistants": "All Assistants",
   "lastUsed": "Last time wey you use am",
-  "deleteFailed": "We no fit delete di assistant. Abeg try again."
+  "deleteFailed": "We no fit delete di assistant. Abeg try again.",
+  "officialInstructions": "Na only through {{path}} you fit edit the three groups of Novera instructions."
 }

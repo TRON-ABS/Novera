@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Domyślny asystent",
   "defaultAssistantDesc": "Używane podczas rozpoczynania nowego czatu",
   "allAssistants": "Wszyscy asystenci",
-  "lastUsed": "Ostatnio używane"
+  "lastUsed": "Ostatnio używane",
+  "officialInstructions": "Trzy kategorie instrukcji Novera można edytować wyłącznie przez {{path}}."
 }

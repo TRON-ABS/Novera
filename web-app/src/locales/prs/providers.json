@@ -60,7 +60,14 @@
     "removeFromJan": "حذف از Novera",
     "success": "مدل {{modelId}} برای همیشه حذف شده است.",
     "cancel": "لغو کنید",
-    "delete": "حذف کنید"
+    "delete": "حذف کنید",
+    "choiceDescription": "انتخاب کنید که چگونه این مدل را از Novera حذف کنید.",
+    "removeFromNovera": "حذف از Novera",
+    "permanentlyDelete": "حذف دایمی",
+    "keepFilesDescription": "مدل را از لیست حذف کنید و فایل های آنرا روی دیسک نگه دارید. شما میتوانید آنرا دوباره وارد کنید.",
+    "permanentDescription": "مدل و فایل های مدیریت شده Novera آن را از دیسک حذف کنید. این نمیتواند خنثی گردد.",
+    "permanentImportedDescription": "همچنان فایل اصلی GGUF را در موقعیت اصلی اش حذف کنید. فایل های کمکی خارجی نگهداری میشوند. این نمیتواند خنثی گردد.",
+    "removedSuccess": "مدل {{modelId}} از Novera حذف شد. فایل های آن نگهداری میشد."
   },
   "deleteAllModels": {
     "button": "حذف همه",
@@ -123,5 +130,8 @@
     "oneKeyHint": "کلیدهای بازگشتی اختیاری در Advanced پیکربندی شده اند.",
     "addKey": "کلید اضافه کنید",
     "removeKey": "کلید را بردارید"
-  }
+  },
+  "installedMediaModels": "مدل های تصویری، ویدیویی و موسیقی",
+  "noInstalledModels": "هیچ مدل در این کتگوری ثبت نشده است.",
+  "modelComponents": "فایل های مدل"
 }

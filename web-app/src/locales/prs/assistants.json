@@ -38,5 +38,6 @@
   "defaultAssistantSection": "دستیار پیش فرض",
   "defaultAssistantDesc": "هنگام شروع یک چت جدید استفاده می شود",
   "allAssistants": "همه دستیاران",
-  "lastUsed": "آخرین استفاده"
+  "lastUsed": "آخرین استفاده",
+  "officialInstructions": "سه دستهٔ دستورالعمل Novera فقط از طریق {{path}} قابل ویرایش هستند."
 }

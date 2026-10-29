@@ -60,7 +60,14 @@
     "removeFromJan": "Ji Novera rake",
     "success": "Model {{modelId}} bi daîmî hat jêbirin.",
     "cancel": "Betal bike",
-    "delete": "Jêbirin"
+    "delete": "Jêbirin",
+    "choiceDescription": "Hilbijêre ka meriv çawa vê modelê ji Novera derxîne.",
+    "removeFromNovera": "Ji Novera rake",
+    "permanentlyDelete": "Bi domdarî jêbirin",
+    "keepFilesDescription": "Modelê ji navnîşê derxînin û pelên wê li ser dîskê bihêlin. Hûn dikarin wê dîsa import bikin.",
+    "permanentDescription": "Model û pelên wê yên Novera-rêvebirî ji dîskê jêbirin. Ev nayê betalkirin.",
+    "permanentImportedDescription": "Di heman demê de pelê sereke GGUF li cîhê wê yê orîjînal jêbirin. Pelên alîkar ên derveyî têne girtin. Ev nayê betalkirin.",
+    "removedSuccess": "Model {{modelId}} ji Novera hat derxistin. Dosyayên wê hatin parastin."
   },
   "deleteAllModels": {
     "button": "Hemî jêbirin",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Bişkojkên paşveçûyî yên vebijarkî di Pêşverû de têne mîheng kirin.",
     "addKey": "Mifteya lê zêde bike",
     "removeKey": "Mifteyê jêke"
-  }
+  },
+  "installedMediaModels": "Modelên wêne, vîdyo û muzîkê",
+  "noInstalledModels": "Di vê kategoriyê de tu model nehatine tomarkirin.",
+  "modelComponents": "Pelên model"
 }

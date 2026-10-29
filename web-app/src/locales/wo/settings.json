@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Reset kodu stil bloke",
     "resetCodeBlockStyleDesc": "Reset kodu bloku stil ci default.",
     "resetCodeBlockSuccess": "Kodu bloku stil reset bi jaarna yoon",
-    "resetCodeBlockSuccessDesc": "Delloosi nañu stil bloke kode bi fimu nekkoon."
+    "resetCodeBlockSuccessDesc": "Delloosi nañu stil bloke kode bi fimu nekkoon.",
+    "subtitle": "Defal Novera sa bopp, dalee ko ci melokaanam ba ci say taamu waxtaan.",
+    "accentColor": "Kulòoru aksan",
+    "accentColorDesc": "Tannal aksan bi ak melo baraabu wet gi.",
+    "conversation": "Waxtaan ak yëgle"
   },
   "hardware": {
     "os": "Sistemu doxal",
@@ -371,7 +375,7 @@
     "thresholdDesc": "Njortu nuru bu gëna ndaw (0-1). Seetug kosin ligneer kese lañu koy jëfandikoo, du ANN.",
     "searchMode": "Modu seetug vecteur",
     "searchModeDesc": "Tannal ci diggante sqlite-vec ANN, kosin ligneer, wala oto.",
-    "searchModeAuto": "Oto (ñu ngi lay digal)\n90781000118709",
+    "searchModeAuto": "Oto (ñu ngi lay digal)",
     "searchModeAnn": "ANN (sqlite-vec)",
     "searchModeLinear": "Ligneer",
     "chunkingTitle": "Dagg",

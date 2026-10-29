@@ -34,6 +34,7 @@ export const DialogEditModel = ({
   provider,
   modelId,
 }: DialogEditModelProps) => {
+
   const { t } = useTranslation()
   const { updateProvider } = useModelProvider()
   const [selectedModelId, setSelectedModelId] = useState<string>('')
@@ -151,11 +152,11 @@ export const DialogEditModel = ({
       if (capabilitiesChanged) setOriginalCapabilities(capabilities)
 
       // Show success toast and close dialog
-      toast.success('Model updated successfully')
+      toast.success(t('ui:modelUpdatedSuccessfully'))
       setIsOpen(false)
     } catch (error) {
       console.error('Failed to update model:', error)
-      toast.error('Failed to update model. Please try again.')
+      toast.error(t('ui:failedToUpdateModelPleaseTryAgain'))
     } finally {
       setIsLoading(false)
     }
@@ -206,19 +207,17 @@ export const DialogEditModel = ({
             htmlFor="display-name"
             className="text-sm font-medium mb-3 block"
           >
-            Display Name
-          </label>
+            {t('ui:displayName')}</label>
           <Input
             id="display-name"
             value={displayName}
             onChange={(e) => handleDisplayNameChange(e.target.value)}
-            placeholder="Enter display name"
+            placeholder={t('ui:enterDisplayName')}
             className="w-full"
             disabled={isLoading}
           />
           <p className="text-xs text-muted-foreground mt-1">
-            This is the name that will be shown in the interface. The original model file remains unchanged.
-          </p>
+            {t('ui:thisIsTheNameThatWillBeShown')}</p>
         </div>
 
         {/* Warning Banner */}
@@ -321,8 +320,7 @@ export const DialogEditModel = ({
             {isLoading ? (
               <>
                 <IconLoader2 className="mr-2 h-4 w-4 animate-spin" />
-                Saving...
-              </>
+                {t('ui:saving')}</>
             ) : (
               'Save Changes'
             )}

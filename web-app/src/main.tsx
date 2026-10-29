@@ -7,6 +7,7 @@ import {
   type WebdataResetFlags,
 } from '@/services/app/reset-localstorage'
 import { installConsoleLogForwarding } from '@/services/app/console-logger'
+import { installExclusiveMediaPlayback } from '@/services/app/media-playback'
 
 import './index.css'
 
@@ -81,6 +82,8 @@ const consumePendingWebdataReset = async () => {
 
 const boot = async () => {
   installConsoleLogForwarding()
+  const disposeMediaPlayback = installExclusiveMediaPlayback()
+  import.meta.hot?.dispose(disposeMediaPlayback)
   setupMobileViewport()
   preventDefaultFileDrop()
 

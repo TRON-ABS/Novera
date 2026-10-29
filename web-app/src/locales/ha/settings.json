@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "Kun sami kuskure? Taimaka mana ta hanyar ba da rahoton matsala a GitHub.",
   "reportIssue": "Batun Rahoto",
   "credits": "Godiya",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS), bisa Jan ta Menlo Research da masu ba da gudummawarta.",
   "creditsDesc2": "Godiya ta musamman ga tushen tushen mu na tushen-musamman llama.cpp da Tauri-da ga al'ummarmu na AI mai ban mamaki.",
   "appVersion": "Sigar App",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Sake saita Salon Toshe Code",
     "resetCodeBlockStyleDesc": "Sake saita salon toshe lambar zuwa tsoho.",
     "resetCodeBlockSuccess": "Salon toshe lambar nasara cikin nasara",
-    "resetCodeBlockSuccessDesc": "An mayar da salon toshe lambar zuwa tsoho."
+    "resetCodeBlockSuccessDesc": "An mayar da salon toshe lambar zuwa tsoho.",
+    "subtitle": "Yi Novera naka, tun daga kamanninsa zuwa abubuwan da kake so.",
+    "accentColor": "Launin lafazi",
+    "accentColorDesc": "Zaɓi lafazin da launi na gefe.",
+    "conversation": "Tattaunawa da sanarwa"
   },
   "hardware": {
     "os": "Tsarin Aiki",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "An sami kwaro? Taimaka mana ta hanyar shigar da batu akan GitHub.",
     "reportIssue": "Batun Rahoto",
     "credits": "Kiredit",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS), bisa Jan ta Menlo Research da masu ba da gudummawarta.",
     "creditsDesc2": "Godiya ta musamman ga tushen tushen mu na tushen-musamman llama.cpp da Tauri-da ga al'ummarmu na AI mai ban mamaki."
   },
   "extensions": {

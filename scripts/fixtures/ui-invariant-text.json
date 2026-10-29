@@ -1,0 +1,310 @@
+[
+  {
+    "text": "&nbsp;",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "&quot;",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "-&nbsp;",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": ".&nbsp;",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "/v1",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "48 kHz · 2.0 · 10–600 s · 8",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "ACE-Step 1.5 Turbo 2B · Q4_K_M · 4.54 GB",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "ACE-Step 1.5 ·",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "ACE-Step 1.5 · MIT",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "ACE-Step 1.5 · MIT · GGUF",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Alt",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "A–Z · a–z · 0–9 · _ - . /",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "B",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "BPM",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "BPM ·",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "CPU",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "CUDA",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Ctrl",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Diffusers",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Enter",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "FLUX.2 Klein",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "FLUX.2 VAE",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "FPS",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "GB",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "GGUF",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "GPU",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "HTTP",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Haiku",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Hugging Face ·",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "IP:",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "LFM3-1.7B · NVFP4 · 1.83 GB · Safetensors",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "MLX",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Metal",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "NOVERA",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "NVFP4 CUDA · FLUX.2 Klein 4B",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "NVFP4 CUDA · PyTorch",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "NVFP4 ·",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Novera",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Novera Logo",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Novera ·",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Novera · Hugging Face",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "ONNX",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Opus",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "PyTorch",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Python",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Python/PyTorch ·",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Qwen3",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "README",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Real-ESRGAN",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "SSE",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "STDIO",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Safetensors",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Shift",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Sonnet",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "URL",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "Wan2.1 · Apache-2.0",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "[Intro] → [Verse] → [Chorus] → [Bridge] → [Outro]",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "esc",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "http://",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "llama.cpp",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "mcp.so",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "px",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "s",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "stable-diffusion.cpp · GGUF",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "stable-diffusion.cpp · GGUF / Safetensors",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "stable-diffusion.cpp · GGUF · Q4_K_M",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "v",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "x-api-key",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "· BCP-47",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "· GGUF",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "· PyTorch",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "· Python + imageio-ffmpeg",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "· RAM",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "· Wan2.1 T2V 1.3B · Q4_K_M",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "· acestep.cpp",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "×2 · RealESRGAN_x2plus",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "×4 · RealESRGAN_x4plus",
+    "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  }
+]

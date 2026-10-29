@@ -37,6 +37,8 @@ export const DialogDeleteModel = ({
   const [selectedModelId, setSelectedModelId] = useState<string>('')
   const [open, setOpen] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
+  const [deleteFiles, setDeleteFiles] = useState(false)
+  const hasRemovalChoices = provider.provider === 'llamacpp'
   const { setProviders, deleteModel: deleteModelCache } = useModelProvider()
   const { removeFavorite } = useFavoriteModel()
   const serviceHub = useServiceHub()
@@ -45,7 +47,11 @@ export const DialogDeleteModel = ({
     if (isDeleting || !selectedModelId) return
     setIsDeleting(true)
     try {
-      await serviceHub.models().deleteModel(selectedModelId, provider.provider)
+      if (hasRemovalChoices) {
+        await serviceHub.models().deleteModel(selectedModelId, provider.provider, { deleteFiles })
+      } else {
+        await serviceHub.models().deleteModel(selectedModelId, provider.provider)
+      }
       removeFavorite(selectedModelId, provider.provider)
       deleteModelCache(selectedModelId, provider.provider)
     } catch (error) {
@@ -68,7 +74,7 @@ export const DialogDeleteModel = ({
     }
     toast.success(t('providers:deleteModel.title', { modelId: selectedModelId }), {
       id: `delete-model-${selectedModelId}`,
-      description: t('providers:deleteModel.success', { modelId: selectedModelId }),
+      description: t(hasRemovalChoices && !deleteFiles ? 'providers:deleteModel.removedSuccess' : 'providers:deleteModel.success', { modelId: selectedModelId }),
     })
     setIsDeleting(false)
     setOpen(false)
@@ -94,7 +100,11 @@ export const DialogDeleteModel = ({
   }
 
   return (
-    <Dialog open={open} onOpenChange={(value) => !isDeleting && setOpen(value)}>
+    <Dialog open={open} onOpenChange={(value) => {
+      if (isDeleting) return
+      if (value) setDeleteFiles(false)
+      setOpen(value)
+    }}>
       <Tooltip>
         <TooltipTrigger asChild>
           <DialogTrigger asChild>
@@ -118,20 +128,41 @@ export const DialogDeleteModel = ({
             {t('providers:deleteModel.title', { modelId: selectedModel.id })}
           </DialogTitle>
           <DialogDescription>
-            {selectedModel.imported
+            {hasRemovalChoices
+              ? t('providers:deleteModel.choiceDescription')
+              : selectedModel.imported
               ? t('providers:deleteModel.importedDescription')
               : t('providers:deleteModel.description')}
           </DialogDescription>
         </DialogHeader>
 
+        {hasRemovalChoices && (
+          <fieldset className="grid gap-3" disabled={isDeleting}>
+            <legend className="sr-only">{t('providers:deleteModel.choiceDescription')}</legend>
+            {([false, true] as const).map((permanent) => (
+              <label key={String(permanent)} className="flex cursor-pointer items-start gap-3 rounded-xl border border-violet-400/30 p-4 has-[:checked]:bg-violet-500/10 has-[:checked]:border-violet-400">
+                <input type="radio" name={`remove-model-${selectedModelId}`} className="mt-1 accent-violet-500"
+                  checked={deleteFiles === permanent} onChange={() => setDeleteFiles(permanent)} />
+                <span>
+                  <span className="block font-medium">{t(permanent ? 'providers:deleteModel.permanentlyDelete' : 'providers:deleteModel.removeFromNovera')}</span>
+                  <span className="mt-1 block text-sm text-muted-foreground">{t(permanent
+                    ? selectedModel.imported ? 'providers:deleteModel.permanentImportedDescription' : 'providers:deleteModel.permanentDescription'
+                    : 'providers:deleteModel.keepFilesDescription')}</span>
+                </span>
+              </label>
+            ))}
+          </fieldset>
+        )}
         <DialogFooter className="mt-2">
           <DialogClose asChild>
             <Button variant="ghost" size="sm" disabled={isDeleting}>
               {t('providers:deleteModel.cancel')}
             </Button>
           </DialogClose>
-            <Button variant="destructive" size="sm" onClick={removeModel} disabled={isDeleting} autoFocus>
-              {selectedModel.imported
+            <Button variant={hasRemovalChoices && !deleteFiles ? "outline" : "destructive"} size="sm" onClick={removeModel} disabled={isDeleting}>
+              {hasRemovalChoices
+                ? t(deleteFiles ? 'providers:deleteModel.permanentlyDelete' : 'providers:deleteModel.removeFromNovera')
+                : selectedModel.imported
                 ? t('providers:deleteModel.removeFromJan')
                 : t('providers:deleteModel.delete')}
             </Button>

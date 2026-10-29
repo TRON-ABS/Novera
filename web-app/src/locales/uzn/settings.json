@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Kod bloki uslubini qayta tiklash",
     "resetCodeBlockStyleDesc": "Kod bloki uslubini avvalgi holatiga qaytarish.",
     "resetCodeBlockSuccess": "Kod bloki uslubi muvaffaqiyatli qayta tiklandi",
-    "resetCodeBlockSuccessDesc": "Kod bloki uslubi avvalgi holatiga qaytarildi."
+    "resetCodeBlockSuccessDesc": "Kod bloki uslubi avvalgi holatiga qaytarildi.",
+    "subtitle": "Novera raqamini tashqi koʻrinishidan tortib suhbat sozlamalarigacha oʻzingiznikiga aylantiring.",
+    "accentColor": "Urg'u rangi",
+    "accentColorDesc": "Urg'u va yon panel rangini tanlang.",
+    "conversation": "Suhbatlar va bildirishnomalar"
   },
   "hardware": {
     "os": "Operatsion tizim",

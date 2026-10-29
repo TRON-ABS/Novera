@@ -90,13 +90,23 @@ export function shareEntries(
             ? format
             : `video/${format === 'mov' ? 'quicktime' : format}`)
       }
+      if (part.type === 'input_audio') {
+        url = part.input_audio?.data ?? ''
+        const format = part.input_audio?.format === 'mp3' ? 'mpeg' : 'wav'
+        mime = /^data:([^;,]+)/.exec(url)?.[1] ?? `audio/${format}`
+        // Older history can contain an erroneous data-URL wrapper around the
+        // durable music reference. Share the saved file, never those characters.
+        if (/^data:audio\/(?:mpeg|wav);base64,novera-creation:music\//.test(url))
+          url = url.slice(url.indexOf(',') + 1)
+      }
       if (url && mime) {
         if (
           !/^(?:data:|https?:|blob:|novera-creation:)/i.test(url) &&
           /^[a-zA-Z0-9+/=\r\n]+$/.test(url)
         )
           url = `data:${mime};base64,${url}`
-        const ext = mime.split('/')[1]?.replace(/[^a-z0-9]/gi, '') || 'bin'
+        const ext = ({ 'audio/mpeg': 'mp3', 'image/svg+xml': 'svg', 'video/quicktime': 'mov' } as Record<string, string>)[mime]
+          ?? (mime.split('/')[1]?.replace(/[^a-z0-9]/gi, '') || 'bin')
         const name = url.startsWith('novera-creation:')
           ? url.split('/').at(-1)!
           : `${exportBasename(m.id)}-${index}.${ext}`

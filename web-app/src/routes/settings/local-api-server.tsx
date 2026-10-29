@@ -53,6 +53,7 @@ export const Route = createFileRoute(route.settings.local_api_server as any)({
 })
 
 function LocalAPIServerContent() {
+
   const { t } = useTranslation()
   const serviceHub = useServiceHub()
   const {
@@ -117,8 +118,8 @@ function LocalAPIServerContent() {
     // Validate API key before starting server
     if (serverStatus === 'stopped') {
       console.log('Starting server with port:', serverPort)
-      toast.info('Starting server...', {
-        description: `Attempting to start server on port ${serverPort}`,
+      toast.info(t('ui:startingServer'), {
+        description: t('ui:attemptingToStartServerOnPortValue0', { value0: serverPort }),
       })
 
       // if (!apiKey || apiKey.toString().trim().length === 0) {
@@ -272,8 +273,7 @@ function LocalAPIServerContent() {
             <PopoverTrigger asChild>
               <Button size="sm" variant="outline" className="relative z-50">
                 <IconSettings2 size={16} />
-                Configuration
-              </Button>
+                {t('providers:configuration')}</Button>
             </PopoverTrigger>
             <PopoverContent
               align="end"
@@ -368,11 +368,9 @@ function LocalAPIServerContent() {
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                       <p className="text-sm font-medium">
-                        Execute tools on server
-                      </p>
+                        {t('ui:executeToolsOnServer')}</p>
                       <p className="text-xs text-muted-foreground">
-                        Run tools server-side for chat endpoints.
-                      </p>
+                        {t('ui:runToolsServerSideForChatEndpoints')}</p>
                     </div>
                     <Switch
                       checked={enableServerToolExecution}
@@ -521,18 +519,18 @@ function LocalAPIServerContent() {
 
               <Card>
                 <CardItem
-                  title="Server Status"
+                  title={t('ui:serverStatus')}
                   description={
                     isServerRunning ? (
                       <div className="space-y-1">
-                        <div>The server is currently running.</div>
+                        <div>{t('ui:theServerIsCurrentlyRunning')}</div>
                         <div className="text-xs font-mono">
                           http://{serverHost}:{serverPort}
                           {apiPrefix}
                         </div>
                       </div>
                     ) : (
-                      'The server is stopped.'
+                      t('ui:serverStopped')
                     )
                   }
                 />
@@ -570,7 +568,7 @@ function LocalAPIServerContent() {
                   <CollapsibleTrigger className="flex items-center gap-2 hover:no-underline data-[state=open]:[&>svg.chevron-down]:hidden data-[state=closed]:[&>svg.chevron-up]:hidden">
                     <IconChevronDown size={16} className="chevron-down" />
                     <IconChevronUp size={16} className="chevron-up" />
-                    <span className="font-medium text-sm">Server Log</span>
+                    <span className="font-medium text-sm">{t('ui:serverLog')}</span>
                   </CollapsibleTrigger>
                   <Button
                     variant="outline"
@@ -579,8 +577,7 @@ function LocalAPIServerContent() {
                     className="text-muted-foreground hover:text-foreground"
                   >
                     <IconExternalLink size={14} className="mr-1" />
-                    Open in New Window
-                  </Button>
+                    {t('ui:openInNewWindow')}</Button>
                 </div>
                 <CollapsibleContent>
                   <div className="pt-3">

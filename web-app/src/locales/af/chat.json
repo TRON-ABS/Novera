@@ -47,7 +47,35 @@
     "tokens": "Tekens",
     "perSecond": "tekens/s"
   },
+  "player": {
+    "play": "Speel",
+    "pause": "Onderbreek",
+    "seek": "Afspeelposisie",
+    "mute": "Demp",
+    "volume": "Volume",
+    "speed": "Afspeelspoed"
+  },
   "creation": {
+    "musicLyricsGuide": "Beskryf die styl en stem in jou versoek. Plaas die lirieke onder die merkers hieronder. Skakel {{instrumental}} af vir sang.",
+    "music": "Musiek",
+    "musicDuration": "Musiekduur",
+    "musicQuality": "Oudiogehalte",
+    "musicInstrumental": "Instrumentaal",
+    "musicLyrics": "Lirieke",
+    "musicGenerator": "Musiekopwekker",
+    "musicPlanner": "Musiekbeplanner",
+    "setupAllDownload": "Laai alles af en stel dit outomaties op",
+    "setupConfiguring": "Aanbevole modelle word opgestel",
+    "setupStorage": "Totale lêers: {{download}}. Reserwe: {{reserve}}. Bykomende ruimte nodig: {{required}}. Vry op gekose skyf: {{free}}.",
+    "setupSpaceMissing": "Daar kort {{missing}}. Maak ruimte vry of kies ’n ander skyf met genoeg berging.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M is die aanbevole plaaslike teksmodel vir gesprek, skryfwerk, gereedskapoproepe en gestruktureerde uitsette. Die aanvanklike konteks is 16K tekens; kontroleer die beskikbare geheue voordat dit verhoog word. Slegs teksinvoer en -uitvoer, met geen konsepmodel nie. Gebruik soektog of jou dokumente om feitelike eise te verifieer.",
+    "setupImageNote": "Beeld — FLUX.2 Klein 4B · Q4_K_M. Teks: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Aspekverhouding: 21:9; Resolusie: 1024 × 432; Generasiestappe: 4; Saadmodus: Willekeurig.",
+    "setupMusicNote": "Musiek — ACE-Step 1.5 Turbo. Musiekopwekker: 2B · Q4_K_M; Musiekbeplanner: 1.7B · Q8_0; Teks: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Musiekduur: 10–600 s; Oudiogehalte: 48 kHz · 2.0; Instrumentaal / Lirieke; Willekeurig.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Teks: UMT5-XXL · Q4_K_M. Videolengte: 5 s; Aspekverhouding: 21:9; Rame per sekonde: 16. Lang video's word uit kort snitte saamgestel. Oorgange kan sigbaar wees en die skep daarvan kan lank duur. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Laai af en konfigureer die aanbevole modelle: Nemotron vir teks, Qwen3-Embedding Q8_0 vir meertalige terugvordering (CPU standaard), FLUX.2 Klein 4B en sy komponente, Real-ESRGAN ×2/×4, ACE-Step vir musiek (Instrumentaal standaard aan), en Wan2.1 vir video. Kontroleer lêergroottes, skyfspasie en video-voorwaardes hieronder. Afsonderlike aflaai en Browse bly beskikbaar.",
+    "finalizing": "Video word voltooi",
+    "videoDuration": "Videolengte",
+    "videoDurationNote": "Lang video's word uit kort snitte saamgestel. Oorgange kan sigbaar wees en die skep daarvan kan lank duur.",
     "output": "Antwoordformaat",
     "auto": "Outo",
     "text": "Teks",
@@ -144,7 +172,8 @@
     "ratio": "Aspekverhouding",
     "resolution": "Resolusie",
     "customSize": "Pasgemaak",
-    "sizeAutoNote": "Die verandering van die verhouding pas die huidige resolusie aan. Dimensies gebruik veelvoude van 16, tot 2048 px."
+    "sizeAutoNote": "Die verandering van die verhouding pas die huidige resolusie aan. Dimensies gebruik veelvoude van 16, tot 2048 px.",
+    "setupTextNvfp4Note": "Opsionele NVFP4 gewigte vir 'n bespeurde NVIDIA Blackwell GPU of nuwer met ten minste 4.5 GiB van VRAM. Om hierdie gewigte in Novera te gebruik, moet die volledige modelbewaarplek eers omgeskakel word na 'n versoenbare NVFP4 GGUF en bekragtig word. Hierdie omskakeling is nog nie vir hierdie kontrolepunt geverifieer nie. Die gekoppelde Safetensors-lêer kan nie direk deur die ingeboude enjin gelaai word nie. Q8_0 bly die gereed-vir-gebruik aanbeveling. Geheuebehoeftes hang ook af van kontekslengte."
   },
   "creationInstall": {
     "install": "Installeer hierdie konfigurasie",

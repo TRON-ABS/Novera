@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Usizo Lwangempela",
   "defaultAssistantDesc": "Kusetshenziswa uma uqala ingxoxo entsha",
   "allAssistants": "Onke Osizo",
-  "lastUsed": "Okokugcina kusetshenzisiwe"
+  "lastUsed": "Okokugcina kusetshenzisiwe",
+  "officialInstructions": "Izigaba ezintathu zemiyalelo ye-Novera zingahlelwa kuphela nge-{{path}}."
 }

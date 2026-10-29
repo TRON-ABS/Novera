@@ -60,7 +60,14 @@
     "removeFromJan": "Longola na Novera .",
     "success": "Modèle {{modelId}} elongolami mpo na libela.",
     "cancel": "Longola",
-    "delete": "Sukisa"
+    "delete": "Sukisa",
+    "choiceDescription": "Pona ndenge ya kolongola modèle oyo na Novera.",
+    "removeFromNovera": "Longola na Novera .",
+    "permanentlyDelete": "Kolongola mpo na libela",
+    "keepFilesDescription": "Longola modèle na liste pe bomba ba fichiers na yango na disque. Okoki ko importer yango lisusu.",
+    "permanentDescription": "Bolongola modèle na ba fichiers na yango oyo ekambami na Novera na disque. Yango ekoki kozongisama nsima te.",
+    "permanentImportedDescription": "Bolongola pe fichier principal GGUF na esika na yango ya ebandeli. Ba fichiers auxiliaires ya libanda ebombami. Yango ekoki kozongisama nsima te.",
+    "removedSuccess": "Modèle {{modelId}} elongolamaki na Novera. Ba dossiers na yango ebombamaki."
   },
   "deleteAllModels": {
     "button": "Bolongola Nyonso",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Ba touches ya fallback optionnels e configuré na Advanced.",
     "addKey": "Bakisa fungola",
     "removeKey": "Longola fungola"
-  }
+  },
+  "installedMediaModels": "Ba modèles ya image, vidéo na musique",
+  "noInstalledModels": "Ba modèles moko te ekomisami na catégorie oyo.",
+  "modelComponents": "Ba fichiers ya modèle"
 }

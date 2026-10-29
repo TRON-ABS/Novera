@@ -1,4 +1,4 @@
-//! Explicitly approved, resumable downloads of the pinned image starter configuration.
+//! Explicitly approved, resumable downloads of pinned local configurations.
 //! Destinations live in a user-selected directory, never in the application's source tree.
 use futures_util::StreamExt;
 use serde::{Deserialize, Serialize};
@@ -36,8 +36,29 @@ fn nvfp4_manifest() -> Vec<FileSpec> {
     files[0] = FileSpec { role: "ggufImageModel".into(), name: "flux-2-klein-4b-nvfp4.safetensors".into(), url: "https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-nvfp4/resolve/1db2b2f776c24b76f1122e5f69ab1949fc620068/flux-2-klein-4b-nvfp4.safetensors".into(), size: 2460413488, sha256: "d8c5007b6a3bbbdfd38538bbcef5101a55dfde81894f58d2e3c8701cdef3542b".into() };
     files
 }
+fn video_manifest() -> Vec<FileSpec> {
+    vec![
+        FileSpec { role: "videoModel".into(), name: "Wan2.1-T2V-1.3B-Q4_K_M.gguf".into(), url: "https://huggingface.co/samuelchristlie/Wan2.1-T2V-1.3B-GGUF/resolve/5a512b15fc35d1b67a074cfe55a591be9e9ef9b5/Wan2.1-T2V-1.3B-Q4_K_M.gguf".into(), size: 982716640, sha256: "1e22a68152e6c4432524c61c78185efa35e6b305483ceb5fe238b2d51964cea7".into() },
+        FileSpec { role: "ggufTextEncoder".into(), name: "umt5-xxl-encoder-Q4_K_M.gguf".into(), url: "https://huggingface.co/city96/umt5-xxl-encoder-gguf/resolve/b535255bee98c2b0a59ea7c0ae2dcd0c6657b3b7/umt5-xxl-encoder-Q4_K_M.gguf".into(), size: 3655145312, sha256: "17cf97a5bbbc60a646d6105b832b6f657ce904a8a1ad970e4b59df0c67584a40".into() },
+        FileSpec { role: "ggufVae".into(), name: "wan_2.1_vae.safetensors".into(), url: "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/vae/wan_2.1_vae.safetensors".into(), size: 253815318, sha256: "2fc39d31359a4b0a64f55876d8ff7fa8d780956ae2cb13463b0223e15148976b".into() },
+    ]
+}
 fn files_for(variant: &str) -> Vec<FileSpec> {
-    if variant == "upscale" {
+    if variant == "music-gguf" {
+        serde_json::from_str(include_str!("../../../web-app/src/constants/music-manifest.json")).expect("Pinned music manifest")
+    } else if variant == "all-recommended" {
+        let mut result: Vec<FileSpec> = serde_json::from_str(include_str!("../../../web-app/src/constants/text-manifest.json")).expect("Pinned text manifest");
+        let embedding: Vec<FileSpec> = serde_json::from_str(include_str!("../../../web-app/src/constants/embedding-manifest.json")).expect("Pinned embedding manifest");
+        result.extend(embedding);
+        let mut image=manifest();image.swap(0,1); // Qwen text/encoder shared file first.
+        for (prefix,files) in [("image",image),("music",files_for("music-gguf")),("video",video_manifest())] {
+            for mut file in files {file.role=format!("{prefix}.{}",file.role);result.push(file);}
+        }
+        for mut file in files_for("upscale") {file.role=format!("upscale.{}",file.role);result.push(file);}
+        result
+    } else if variant == "video-gguf" {
+        video_manifest()
+    } else if variant == "upscale" {
         [
             ("upscale2", "RealESRGAN_x2plus.pth", "v0.2.1", 67061725, "49fafd45f8fd7aa8d31ab2a22d14d91b536c34494a5cfe31eb5d89c2fa266abb"),
             ("upscale4", "RealESRGAN_x4plus.pth", "v0.1.0", 67040989, "4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1"),
@@ -119,6 +140,10 @@ pub struct Plan {
     files: Vec<FileSpec>,
     total: u64,
     available: u64,
+    #[serde(default)]
+    required_space: u64,
+    #[serde(default)]
+    video_runtime_ready: Option<bool>,
 }
 #[derive(Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -219,22 +244,49 @@ fn plain(path: &Path) -> Result<(), String> {
     }
     Ok(())
 }
+fn model_file_path(plan: &Plan, file: &FileSpec) -> PathBuf {
+    if plan.variant != "all-recommended" || plan.directory.file_name().and_then(|n| n.to_str()) != Some("Novera models") { return plan.directory.join(&file.name) }
+    let folder = if file.role.starts_with("text.") || file.role.starts_with("embedding.") { file.name.strip_suffix(".gguf").unwrap_or(&file.name) }
+        else if file.role.starts_with("image.") { "FLUX.2 Klein 4B" }
+        else if file.role.starts_with("music.") { "ACE-Step 1.5 Turbo 2B Q4_K_M" }
+        else if file.role.starts_with("upscale.") { "upscale_models" }
+        else { "Wan2.1 T2V 1.3B Q4_K_M" };
+    plan.directory.join(folder).join(&file.name)
+}
+fn model_partial_path(plan: &Plan, file: &FileSpec) -> PathBuf {
+    let path = model_file_path(plan, file);
+    path.with_file_name(format!("{}.novera-part", path.file_name().unwrap().to_string_lossy()))
+}
+
+fn storage_parent(plan: &Plan) -> Option<&Path> {
+    let parent = plan.directory.parent()?;
+    if plan.variant == "all-recommended" && plan.directory.file_name().and_then(|n| n.to_str()) == Some("Novera models") { Some(parent) } else { parent.parent() }
+}
 fn check_destination(plan: &Plan) -> Result<(), String> {
-    let parent = plan
-        .directory
-        .parent()
-        .and_then(Path::parent)
-        .ok_or("destination")?;
+    let parent = storage_parent(plan).ok_or("destination")?;
     if !parent.is_dir() || parent.canonicalize().map_err(|_| "destination")? != parent {
         return Err("destination".into());
     }
     plain(plan.directory.parent().unwrap())?;
     plain(&plan.directory)?;
     for file in &plan.files {
-        plain(&plan.directory.join(&file.name))?;
-        plain(&plan.directory.join(format!("{}.novera-part", file.name)))?;
+        let path = model_file_path(plan, file);
+        plain(path.parent().ok_or("destination")?)?;
+        plain(&path)?;
+        plain(&model_partial_path(plan, file))?;
     }
     Ok(())
+}
+const SPACE_RESERVE: u64=256*1024*1024;
+fn required_space(plan: &Plan) -> u64 {
+    SPACE_RESERVE+plan.files.iter().map(|file| {
+        if std::fs::metadata(model_file_path(plan, file)).is_ok_and(|m|m.len()==file.size) {return 0;}
+        let partial=std::fs::metadata(model_partial_path(plan, file)).map(|m|m.len().min(file.size)).unwrap_or(0);
+        file.size-partial
+    }).sum::<u64>()
+}
+fn check_space(plan: &Plan) -> Result<(),String> {
+    if free_space(storage_parent(plan).ok_or("destination")?)<required_space(plan) {Err("space".into())} else {Ok(())}
 }
 #[tauri::command]
 pub async fn creation_bundle_plan<R: Runtime>(
@@ -244,10 +296,12 @@ pub async fn creation_bundle_plan<R: Runtime>(
     python: Option<String>,
 ) -> Result<Plan, String> {
     let variant = variant.unwrap_or_else(|| "gguf".into());
-    if !["gguf", "nvfp4", "upscale"].contains(&variant.as_str()) {
+    if !["gguf", "nvfp4", "upscale", "video-gguf", "music-gguf", "all-recommended"].contains(&variant.as_str()) {
         return Err("variant".into());
     }
+    if !cfg!(windows) && ["music-gguf","all-recommended"].contains(&variant.as_str()) {return Err("runtime".into());}
     let python = python.unwrap_or_else(|| "python".into());
+    let video_runtime_ready=if variant=="all-recommended" {Some(super::creation::creation_video_runtime_check(python.clone()).await.is_ok())} else {None};
     if variant.starts_with("nvfp4")
         && probe_nvfp4(&app, &python)
             .await?
@@ -268,11 +322,17 @@ pub async fn creation_bundle_plan<R: Runtime>(
     let parent = parent.canonicalize().map_err(|_| "destination")?;
     let files = files_for(&variant);
     let total = files.iter().map(|f| f.size).sum();
-    let plan = Plan {
+    let mut plan = Plan {
         variant: variant.clone(),
         python,
         token: uuid::Uuid::new_v4().to_string(),
-        directory: parent.join("Novera models").join(if variant == "upscale" {
+        directory: parent.join("Novera models").join(if variant == "all-recommended" {
+            ""
+        } else if variant == "music-gguf" {
+            "ACE-Step 1.5 Turbo 2B Q4_K_M"
+        } else if variant == "video-gguf" {
+            "Wan2.1 T2V 1.3B Q4_K_M"
+        } else if variant == "upscale" {
             "upscale_models"
         } else if variant == "nvfp4" {
             "FLUX.2 Klein 4B NVFP4"
@@ -282,8 +342,11 @@ pub async fn creation_bundle_plan<R: Runtime>(
         files,
         total,
         available: free_space(&parent),
+        required_space: 0,
+        video_runtime_ready,
     };
     check_destination(&plan)?;
+    plan.required_space=required_space(&plan);
     STATE.lock().await.pending = Some(plan.clone());
     Ok(plan)
 }
@@ -380,8 +443,10 @@ async fn download(plan: &Plan, cancel: &CancellationToken) -> Result<(), String>
         .map_err(|_| "network")?;
     for (index, spec) in plan.files.iter().enumerate() {
         check_destination(plan)?;
-        let path = plan.directory.join(&spec.name);
-        let partial = plan.directory.join(format!("{}.novera-part", spec.name));
+        check_space(plan)?;
+        let path = model_file_path(plan, spec);
+        let partial = model_partial_path(plan, spec);
+        tokio::fs::create_dir_all(path.parent().ok_or("destination")?).await.map_err(|_| "destination")?;
         progress(index, 0, "verifying").await;
         if !hash_matches(&path, spec, cancel).await? {
             // Never replace a pre-existing user file with different contents.
@@ -497,9 +562,7 @@ pub async fn creation_bundle_action<R: Runtime>(
                 check_destination(&job.plan)?;
                 for spec in &job.plan.files {
                     let _ = tokio::fs::remove_file(
-                        job.plan
-                            .directory
-                            .join(format!("{}.novera-part", spec.name)),
+                        model_partial_path(&job.plan, spec),
                     )
                     .await;
                 }
@@ -526,11 +589,8 @@ pub async fn creation_bundle_action<R: Runtime>(
             .ok_or("approval")?
             .clone();
         check_destination(&plan)?;
-        if free_space(plan.directory.parent().unwrap().parent().unwrap())
-            < plan.total + 256 * 1024 * 1024
-        {
-            return Err("space".into());
-        }
+        if plan.video_runtime_ready==Some(false) {return Err("runtime".into());}
+        check_space(&plan)?;
         tokio::fs::create_dir_all(&plan.directory)
             .await
             .map_err(|_| "destination")?;
@@ -550,6 +610,7 @@ pub async fn creation_bundle_action<R: Runtime>(
             return Ok(Some(job.clone()));
         }
         check_destination(&job.plan)?;
+        check_space(&job.plan)?;
         job.running = true;
         job.error = None;
         job.phase = "downloading".into();
@@ -570,7 +631,7 @@ pub async fn creation_bundle_action<R: Runtime>(
             if cancel.is_cancelled() {
                 if job.phase == "cancelled" {
                     for spec in &plan.files {
-                        let path = plan.directory.join(format!("{}.novera-part", spec.name));
+                        let path = model_partial_path(&plan, spec);
                         if plain(&path).is_ok() {
                             let _ = tokio::fs::remove_file(path).await;
                         }
@@ -580,6 +641,10 @@ pub async fn creation_bundle_action<R: Runtime>(
                 match result {
                     Ok(()) => job.phase = "ready".into(),
                     Err(e) => {
+                        if e=="space" {
+                            job.plan.available=free_space(storage_parent(&job.plan).unwrap_or(&job.plan.directory));
+                            job.plan.required_space=required_space(&job.plan);
+                        }
                         job.phase = "error".into();
                         job.error = Some(e);
                     }
@@ -596,6 +661,51 @@ pub async fn creation_bundle_action<R: Runtime>(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn music_and_global_defaults_pin_independent_text_and_image_roles() {
+        let music=files_for("music-gguf");assert_eq!(music.len(),14);
+        assert_eq!(music.iter().map(|f|f.size).sum::<u64>(),4717397619);
+        assert_eq!(music.iter().filter(|f|!f.role.starts_with("musicRuntime")).map(|f|f.size).sum::<u64>(),4543113728);
+        assert!(music.iter().all(|f|f.sha256.len()==64&&f.url.starts_with("https://")&&!f.name.contains(['/', '\\'])));
+        let all=files_for("all-recommended");
+        assert_eq!(all[0].role,"text.model");
+        assert_eq!(all[0].name,"Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf");
+        assert!(!all.iter().any(|f|f.name.contains("DSpark")));
+        assert_eq!(all.len(),24);assert_eq!(all.iter().map(|f|f.size).sum::<u64>(),21832486641);
+        // ACE-Step's encoder shares a filename with the retrieval model, but
+        // has different weights. Roles and destination folders keep them separate.
+        let names:std::collections::HashSet<_>=all.iter().map(|f|&f.name).collect();assert_eq!(names.len(),all.len()-1);
+        let embed=all.iter().find(|f|f.role=="embedding.model").unwrap();
+        assert_eq!(embed.size,639150592);
+        assert_eq!(embed.sha256,"06507c7b42688469c4e7298b0a1e16deff06caf291cf0a5b278c308249c3e439");
+        assert_eq!(all.iter().filter(|f|f.role.starts_with("upscale.")).count(),2);
+        let roles:std::collections::HashSet<_>=all.iter().map(|f|&f.role).collect();assert_eq!(roles.len(),all.len());
+        assert_eq!(all.iter().filter(|f|f.name=="Qwen3-4B-Q4_K_M.gguf").count(),1);
+    }
+    #[test]
+    fn storage_estimate_reuses_existing_files_and_download_parts() {
+        let root=std::env::temp_dir().join(format!("novera-space-{}",uuid::Uuid::new_v4()));std::fs::create_dir(&root).unwrap();
+        let plan=Plan{variant:"gguf".into(),python:"python".into(),token:"test".into(),directory:root.clone(),files:vec![FileSpec{role:"model".into(),name:"test.gguf".into(),url:"https://huggingface.co/example".into(),size:1000,sha256:"0".repeat(64)}],total:1000,available:0,required_space:0,video_runtime_ready:None};
+        assert_eq!(required_space(&plan),SPACE_RESERVE+1000);
+        std::fs::write(root.join("test.gguf.novera-part"),[0u8;200]).unwrap();assert_eq!(required_space(&plan),SPACE_RESERVE+800);
+        std::fs::write(root.join("test.gguf"),[0u8;1000]).unwrap();assert_eq!(required_space(&plan),SPACE_RESERVE);
+        std::fs::remove_file(root.join("test.gguf")).unwrap();std::fs::remove_file(root.join("test.gguf.novera-part")).unwrap();std::fs::remove_dir(root).unwrap();
+    }
+    #[test]
+    fn complete_bundle_keeps_retrieval_and_music_encoders_in_distinct_folders() {
+        let plan=Plan{variant:"all-recommended".into(),python:"python".into(),token:"test".into(),directory:PathBuf::from("Novera models"),files:files_for("all-recommended"),total:0,available:0,required_space:0,video_runtime_ready:None};
+        let paths:std::collections::HashSet<_>=plan.files.iter().map(|f|model_file_path(&plan,f)).collect();
+        assert_eq!(paths.len(),plan.files.len());
+        let embedding=plan.files.iter().find(|f|f.role=="embedding.model").unwrap();
+        let music=plan.files.iter().find(|f|f.role=="music.musicEncoder").unwrap();
+        assert_eq!(embedding.name,music.name);
+        assert_ne!(embedding.sha256,music.sha256);
+        assert_ne!(model_file_path(&plan,embedding),model_file_path(&plan,music));
+        assert!(model_file_path(&plan,embedding).parent().unwrap().ends_with("Qwen3-Embedding-0.6B-Q8_0"));
+        for file in plan.files.iter().filter(|f|f.role.starts_with("upscale.")) {
+            assert!(model_file_path(&plan,file).parent().unwrap().ends_with("upscale_models"));
+        }
+    }
     #[test]
     fn pinned_files_and_ranges() {
         let files = manifest();
@@ -688,6 +798,8 @@ mod tests {
             files: vec![spec.clone()],
             total: spec.size,
             available: 1024,
+            required_space: 0,
+            video_runtime_ready: None,
         };
         download(&plan, &CancellationToken::new()).await.unwrap();
         thread.join().unwrap();
@@ -753,6 +865,8 @@ mod tests {
             }],
             total: 4096,
             available: 10000,
+            required_space: 0,
+            video_runtime_ready: None,
         };
         let token = CancellationToken::new();
         let stop = token.clone();
@@ -778,5 +892,24 @@ mod tests {
         assert!(part.is_file());
         assert!(!directory.join("tiny.gguf").exists());
         std::fs::remove_dir_all(root).unwrap();
+    }
+}
+#[cfg(test)]
+mod video_manifest_tests {
+    use super::*;
+    #[test]
+    fn video_pack_is_pinned_complete_and_distinct_from_image_configuration() {
+        let files = files_for("video-gguf");
+        assert_eq!(files.len(), 3);
+        assert_eq!(files.iter().map(|f| f.size).sum::<u64>(), 4_891_677_270);
+        assert_eq!(files[0].role, "videoModel");
+        assert!(files[0].name.ends_with("Q4_K_M.gguf"));
+        assert_eq!(files[1].role, "ggufTextEncoder");
+        assert_eq!(files[2].name, "wan_2.1_vae.safetensors");
+        for file in files {
+            assert_eq!(file.sha256.len(), 64);
+            assert!(file.url.starts_with("https://huggingface.co/"));
+            assert!(!file.url.contains("/main/") && !file.url.contains("/Desktop/"));
+        }
     }
 }

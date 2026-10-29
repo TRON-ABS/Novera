@@ -38,5 +38,6 @@
   "defaultAssistantSection": "डिफ़ॉल्ट सहायक",
   "defaultAssistantDesc": "नव चैट शुरू करबा काल प्रयोग कएल जाइत अछि",
   "allAssistants": "सभी सहायक",
-  "lastUsed": "अंतिम बेर प्रयोग कयल गेल"
+  "lastUsed": "अंतिम बेर प्रयोग कयल गेल",
+  "officialInstructions": "Novera क निर्देशक तीनू श्रेणी केवल {{path}} सँ बदलल जा सकैत अछि।"
 }

@@ -60,7 +60,14 @@
     "removeFromJan": "Alih keluar daripada Novera",
     "success": "Model {{modelId}} telah dipadamkan secara kekal.",
     "cancel": "Batal",
-    "delete": "Padam"
+    "delete": "Padam",
+    "choiceDescription": "Pilih cara untuk mengalih keluar model ini daripada Novera.",
+    "removeFromNovera": "Alih keluar daripada Novera",
+    "permanentlyDelete": "Padamkan secara kekal",
+    "keepFilesDescription": "Alih keluar model daripada senarai dan simpan failnya pada cakera. Anda boleh mengimportnya semula.",
+    "permanentDescription": "Padam model dan fail terurus Novera daripada cakera. Ini tidak boleh dibuat asal.",
+    "permanentImportedDescription": "Juga padamkan fail GGUF utama di lokasi asalnya. Fail tambahan luaran disimpan. Ini tidak boleh dibuat asal.",
+    "removedSuccess": "Model {{modelId}} telah dialih keluar daripada Novera. Failnya disimpan."
   },
   "deleteAllModels": {
     "button": "Padam Semua",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Kekunci sandaran pilihan dikonfigurasikan dalam Lanjutan.",
     "addKey": "Tambah kunci",
     "removeKey": "Alih keluar kunci"
-  }
+  },
+  "installedMediaModels": "Model imej, video dan muzik",
+  "noInstalledModels": "Tiada model didaftarkan dalam kategori ini.",
+  "modelComponents": "Fail model"
 }

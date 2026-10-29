@@ -9,9 +9,9 @@ export const DEFAULT_MODEL_QUANTIZATIONS = ['iq4_xs', 'q4_k_m']
 
 /**
  * Quantizations to check for SetupScreen quick start
- * Novera pins the LiquidAI Q6_K file selected by the maintainer
+ * Novera pins the NVIDIA Q4_K_M file selected by the maintainer
  */
-export const SETUP_SCREEN_QUANTIZATIONS = ['q6_k']
+export const SETUP_SCREEN_QUANTIZATIONS = ['q4_k_m']
 
 export const JAN_V2_VL_MODEL_HF_REPO = 'janhq/Jan-v2-VL-high-gguf'
 export const JAN_V2_VL_QUANTIZATIONS = ['q4_k_m', 'q4_k_s', 'q4_0', 'q3_k_m']

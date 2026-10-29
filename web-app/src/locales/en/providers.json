@@ -1,4 +1,7 @@
 {
+  "installedMediaModels": "Image, video and music models",
+  "noInstalledModels": "No models registered in this category.",
+  "modelComponents": "Model files",
   "limitedSupport": "This provider may not be fully supported. Capabilities (tools, vision, audio) are not auto-detected - add models manually and configure capabilities per model.",
   "mlxExperimental": "MLX support is experimental. Embeddings are unavailable, the reasoning toggle is not yet wired through, and some newer model architectures may fail to load. Report issues on GitHub so we can prioritize them.",
   "engineBundled": "The inference engine is built into Novera, so there is nothing to download or update separately. Quote this version when reporting a model that fails to load.",
@@ -54,6 +57,13 @@
     "modelExistsDesc": "Please choose a different model ID."
   },
   "deleteModel": {
+    "choiceDescription": "Choose how to remove this model from Novera.",
+    "removeFromNovera": "Remove from Novera",
+    "permanentlyDelete": "Permanently delete",
+    "keepFilesDescription": "Remove the model from the list and keep its files on disk. You can import it again.",
+    "permanentDescription": "Delete the model and its Novera-managed files from disk. This cannot be undone.",
+    "permanentImportedDescription": "Also delete the main GGUF file at its original location. External auxiliary files are kept. This cannot be undone.",
+    "removedSuccess": "Model {{modelId}} was removed from Novera. Its files were kept.",
     "title": "Delete Model: {{modelId}}",
     "description": "Are you sure you want to delete this model? This action cannot be undone.",
     "importedDescription": "Remove this imported model from Novera? Your local file on disk will not be deleted.",

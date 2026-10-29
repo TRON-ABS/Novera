@@ -60,7 +60,14 @@
     "removeFromJan": "Novera مان هٽايو",
     "success": "ماڊل {{modelId}} مستقل طور ختم ڪيو ويو آھي.",
     "cancel": "رد ڪريو",
-    "delete": "ختم ڪريو"
+    "delete": "ختم ڪريو",
+    "choiceDescription": "Novera مان هن ماڊل کي ڪيئن هٽائڻ چونڊيو.",
+    "removeFromNovera": "Novera مان هٽايو",
+    "permanentlyDelete": "مستقل طور حذف ڪريو",
+    "keepFilesDescription": "لسٽ مان ماڊل کي هٽايو ۽ ان جي فائلن کي ڊسڪ تي رکو. توهان ان کي ٻيهر درآمد ڪري سگهو ٿا.",
+    "permanentDescription": "ڊسڪ مان ماڊل ۽ ان جي Novera-منظم فائلن کي حذف ڪريو. هن کي رد نٿو ڪري سگهجي.",
+    "permanentImportedDescription": "پڻ حذف ڪريو مکيه GGUF فائل ان جي اصل هنڌ تي. خارجي معاون فائلون رکيل آهن. هن کي رد نٿو ڪري سگهجي.",
+    "removedSuccess": "ماڊل {{modelId}} Novera مان هٽايو ويو. ان جون فائلون رکيون ويون."
   },
   "deleteAllModels": {
     "button": "سڀ ختم ڪريو",
@@ -123,5 +130,8 @@
     "oneKeyHint": "اختياري فال بڪ ڪيز ايڊوانسڊ ۾ ترتيب ڏنل آھن.",
     "addKey": "چيڪ شامل ڪريو",
     "removeKey": "چاٻي هٽايو"
-  }
+  },
+  "installedMediaModels": "تصوير، وڊيو ۽ ميوزڪ ماڊل",
+  "noInstalledModels": "هن ڪيٽيگري ۾ ڪو به ماڊل رجسٽر ٿيل ناهي.",
+  "modelComponents": "ماڊل فائلون"
 }

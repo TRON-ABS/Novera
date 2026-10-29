@@ -60,7 +60,14 @@
     "removeFromJan": "Kuraho kuri Novera",
     "success": "Model {{modelId}} yasibwe burundu.",
     "cancel": "Hagarika",
-    "delete": "Gusiba"
+    "delete": "Gusiba",
+    "choiceDescription": "Hitamo uburyo bwo kuvana iyi moderi muri Novera.",
+    "removeFromNovera": "Kuraho kuri Novera",
+    "permanentlyDelete": "Gusiba burundu",
+    "keepFilesDescription": "Kuraho icyitegererezo kurutonde hanyuma ugumane dosiye zayo kuri disiki. Urashobora kongera gutumiza hanze.",
+    "permanentDescription": "Siba icyitegererezo hamwe na dosiye yacyo Novera iyobowe na disiki. Ibi ntibishobora gusubirwaho.",
+    "permanentImportedDescription": "Kandi usibe dosiye nkuru GGUF ahahoze. Amadosiye yubufasha yo hanze arabikwa. Ibi ntibishobora gusubirwaho.",
+    "removedSuccess": "Model {{modelId}} yakuwe kuri Novera. Amadosiye yayo yarabitswe."
   },
   "deleteAllModels": {
     "button": "Siba Byose",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Urufunguzo rwo gusubira inyuma rwashyizweho muri Advanced.",
     "addKey": "Ongera urufunguzo",
     "removeKey": "Kuraho urufunguzo"
-  }
+  },
+  "installedMediaModels": "Ishusho, amashusho numuziki",
+  "noInstalledModels": "Nta moderi yanditse muri iki cyiciro.",
+  "modelComponents": "Idosiye yicyitegererezo"
 }

@@ -283,6 +283,7 @@ function ThreadDetail() {
 }
 
 function ThreadConversation() {
+
   const serviceHub = useServiceHub()
   const { threadId } = useParams({ from: Route.id })
   const search = useSearch({ from: Route.id })
@@ -2244,7 +2245,7 @@ function ThreadConversation() {
                 status === CHAT_STATUS.SUBMITTED && (
                 <div className="flex flex-row items-center gap-2">
                   {pendingContinueMessage && (
-                    <Shimmer duration={1}>Growing the Mind...</Shimmer>
+                    <Shimmer duration={1}>{t('ui:growingTheMind')}</Shimmer>
                   )}
                   {!pendingContinueMessage && !lastIsAssistant && (
                     <PromptProgress />
@@ -2258,10 +2259,10 @@ function ThreadConversation() {
                     <div className="flex-1">
                       <p className="text-sm font-medium text-destructive mb-1">
                         {oomError
-                          ? 'llama.cpp ran out of memory'
+                          ? t('ui:llamaCppRanOutOfMemory')
                           : backendError
-                            ? 'GGML backend encountered an error'
-                            : 'Model ran out of context size'}
+                            ? t('ui:ggmlBackendEncounteredAnError')
+                            : t('ui:modelRanOutOfContextSize')}
                       </p>
                       <div className="table table-fixed w-full">
                         <span
@@ -2278,10 +2279,10 @@ function ThreadConversation() {
                       </div>
                       {oomError && (
                         <ul className="mt-2 list-disc pl-5 text-xs text-muted-foreground space-y-0.5">
-                          <li>Reduce context size (ctx-size)</li>
-                          <li>Disable MTP (Multi-Token Prediction)</li>
-                          <li>Lower n-gpu-layers or switch to a CPU backend</li>
-                          <li>Use a smaller / more quantized model</li>
+                          <li>{t('ui:reduceContextSizeCtxSize')}</li>
+                          <li>{t('ui:disableMtpMultiTokenPrediction')}</li>
+                          <li>{t('ui:lowerNGpuLayersOrSwitchToA')}</li>
+                          <li>{t('ui:useASmallerMoreQuantizedModel')}</li>
                         </ul>
                       )}
                       {offersContextIncrease(
@@ -2295,8 +2296,7 @@ function ThreadConversation() {
                           onClick={handleContextSizeIncrease}
                         >
                           <IconAlertCircle className="size-4 mr-2" />
-                          Increase Context Size
-                        </Button>
+                          {t('common:outOfContextError.increaseContextSize')}</Button>
                       ) : oomError || backendError ? (
                         <Button
                           variant="outline"
@@ -2305,8 +2305,7 @@ function ThreadConversation() {
                           onClick={() => handleRegenerate()}
                         >
                           <IconRefresh className="size-4 mr-2" />
-                          Reload
-                        </Button>
+                          {t('common:preview.reload')}</Button>
                       ) : null}
                     </div>
                   </div>
@@ -2318,10 +2317,10 @@ function ThreadConversation() {
         </div>
 
         {/* Chat Input - Fixed at bottom */}
-        <div className="py-4 mx-auto w-full max-w-6xl px-3 md:px-6">
+        <div className="py-4 mx-auto w-full px-3 md:px-6">
           {currentHistoryError ? (
             <div role="alert" className="rounded-lg border p-4">
-              <p>Unable to load conversation history.</p>
+              <p>{t('ui:unableToLoadConversationHistory')}</p>
               <p className="text-sm text-muted-foreground">{currentHistoryError}</p>
               <Button
                 disabled={isReadingHistory}

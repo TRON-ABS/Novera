@@ -47,7 +47,35 @@
     "workedForAWhile": "Pracovalo několik sekund",
     "workedFor": "Pracoval pro {{duration}}"
   },
+  "player": {
+    "play": "Přehrát",
+    "pause": "Pozastavit",
+    "seek": "Pozice přehrávání",
+    "mute": "Ztlumit",
+    "volume": "Hlasitost",
+    "speed": "Rychlost přehrávání"
+  },
   "creation": {
+    "musicLyricsGuide": "V požadavku popiš styl a hlas. Text písně vlož pod následující značky. Pro zpěv vypni {{instrumental}}.",
+    "music": "Hudba",
+    "musicDuration": "Délka hudby",
+    "musicQuality": "Kvalita zvuku",
+    "musicInstrumental": "Instrumentální",
+    "musicLyrics": "Text písně",
+    "musicGenerator": "Generátor hudby",
+    "musicPlanner": "Plánovač hudby",
+    "setupAllDownload": "Vše automaticky stáhnout a nastavit",
+    "setupConfiguring": "Nastavování doporučených modelů",
+    "setupStorage": "Soubory celkem: {{download}}. Rezerva: {{reserve}}. Další potřebné místo: {{required}}. Volno na vybraném disku: {{free}}.",
+    "setupSpaceMissing": "Chybí {{missing}}. Uvolněte místo nebo vyberte jiný disk s dostatkem prostoru.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M je doporučený místní textový model pro konverzaci, psaní, volání nástrojů a strukturované výstupy. Počáteční kontext je 16K tokenů; zkontrolujte dostupnou paměť, než ji zvětšíte. Pouze textový vstup a výstup, bez modelu konceptu. K ověření faktických tvrzení použijte vyhledávání nebo své dokumenty.",
+    "setupImageNote": "Obrázek — FLUX.2 Klein 4B · Q4_K_M. Text: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Poměr stran: 21:9; Rozlišení: 1024 × 432; Kroky generování: 4; Režim semínka: Náhodné.",
+    "setupMusicNote": "Hudba — ACE-Step 1.5 Turbo. Generátor hudby: 2B · Q4_K_M; Plánovač hudby: 1.7B · Q8_0; Text: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Délka hudby: 10–600 s; Kvalita zvuku: 48 kHz · 2.0; Instrumentální / Text písně; Náhodné.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Text: UMT5-XXL · Q4_K_M. Délka videa: 5 s; Poměr stran: 21:9; Snímky za sekundu\n[0014] Semena: 16. Dlouhá videa se skládají z krátkých klipů. Střihy mohou být viditelné a generování může trvat dlouho. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Stáhne a nakonfiguruje doporučené modely: Nemotron pro text, Qwen3-Embedding Q8_0 pro vícejazyčné načítání (výchozí CPU), FLUX.2 Klein 4B a jeho součásti, Real-ESRGAN ×2/×4, ACE-Step pro hudbu (ve výchozím nastavení je nástroj zapnutý) a Wan2.1 pro video. Zkontrolujte velikosti souborů, místo na disku a požadavky na video níže. Samostatné stahování a Procházení zůstávají k dispozici.",
+    "finalizing": "Dokončování videa",
+    "videoDuration": "Délka videa",
+    "videoDurationNote": "Dlouhá videa se skládají z krátkých klipů. Střihy mohou být viditelné a generování může trvat dlouho.",
     "output": "Formát odpovědi",
     "auto": "Auto",
     "text": "Text",
@@ -144,7 +172,8 @@
     "ratio": "Poměr stran",
     "resolution": "Rozlišení",
     "customSize": "Vlastní",
-    "sizeAutoNote": "Změnou poměru se přizpůsobí aktuální rozlišení. Rozměry používají násobky 16 až do 2048 px."
+    "sizeAutoNote": "Změnou poměru se přizpůsobí aktuální rozlišení. Rozměry používají násobky 16 až do 2048 px.",
+    "setupTextNvfp4Note": "Volitelné váhy NVFP4 pro detekovaný GPU NVIDIA Blackwell nebo novější s alespoň 4,5 GiB paměti VRAM. Chcete-li použít tyto váhy v Novera, musí být úplné úložiště modelu nejprve převedeno na kompatibilní NVFP4 GGUF a ověřeno. Tato konverze pro tento kontrolní bod ještě nebyla ověřena. Propojený soubor Safetensors nelze načíst přímo vestavěným modulem. Q8_0 zůstává doporučením připraveným k použití. Potřeby paměti také závisí na délce kontextu."
   },
   "creationInstall": {
     "install": "Nainstalovat tuto konfiguraci",

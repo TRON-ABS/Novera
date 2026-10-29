@@ -146,7 +146,7 @@ vi.mock('@/components/ui/button', () => ({
 }))
 
 import SetupScreen from '../SetupScreen'
-import { NOVERA_RECOMMENDED_MODEL, NOVERA_RECOMMENDED_DRAFT, noveraRecommendedModelFor } from '@/lib/noveraRecommendedModel'
+import { NOVERA_RECOMMENDED_MODEL, noveraRecommendedModelFor } from '@/lib/noveraRecommendedModel'
 
 const sampleModel = {
   model_name: 'jan-model',
@@ -589,53 +589,37 @@ describe('SetupScreen', () => {
   })
 
   describe('model page', () => {
-    it('keeps DSpark optional and passes the companion only after explicit selection', async () => {
-      hoisted.janModel = NOVERA_RECOMMENDED_MODEL
-      await renderPastSetup()
-      const checkbox = screen.getByRole('checkbox', { name: 'setup:dsparkEnable' })
-      expect(checkbox).not.toBeChecked()
-      expect(screen.getByText('setup:dsparkDescription')).toBeInTheDocument()
-      expect(hoisted.pullModelWithMetadataMock).not.toHaveBeenCalled()
-      fireEvent.click(checkbox)
-      fireEvent.click(screen.getByText('setup:download'))
-      await waitFor(() => expect(hoisted.pullModelWithMetadataMock).toHaveBeenCalledWith(
-        'LFM2.5-2.6B-Q6_K', NOVERA_RECOMMENDED_DRAFT.targetPath,
-        undefined, 'hf-token', true, NOVERA_RECOMMENDED_DRAFT.path, 'dspark'
-      ))
-      expect(checkbox).toBeDisabled()
-    })
-
-    it('keeps the chosen DSpark companion while a download waits for the support check', async () => {
-      hoisted.janModel = NOVERA_RECOMMENDED_MODEL
-      let resolveSupport!: (status: string) => void
-      hoisted.isModelSupportedMock.mockImplementationOnce(() => new Promise((resolve) => { resolveSupport = resolve }))
-      await renderPastSetup()
-      fireEvent.click(screen.getByRole('checkbox', { name: 'setup:dsparkEnable' }))
-      fireEvent.click(screen.getByText('setup:download'))
-      expect(hoisted.pullModelWithMetadataMock).not.toHaveBeenCalled()
-      await act(async () => resolveSupport('GREEN'))
-      await waitFor(() => expect(hoisted.pullModelWithMetadataMock).toHaveBeenCalledWith(
-        'LFM2.5-2.6B-Q6_K', NOVERA_RECOMMENDED_DRAFT.targetPath,
-        undefined, 'hf-token', true, NOVERA_RECOMMENDED_DRAFT.path, 'dspark'
-      ))
-    })
-
-    it('does not offer the 2.6B draft for the Android 1.2B recommendation', async () => {
+    it('does not offer a draft for the Android recommendation', async () => {
       hoisted.janModel = noveraRecommendedModelFor(true)
       await renderPastSetup()
       expect(screen.queryByRole('checkbox', { name: 'setup:dsparkEnable' })).not.toBeInTheDocument()
     })
-    it('offers and downloads the Novera LiquidAI Q6_K recommendation', async () => {
+    it('offers and downloads the Novera NVIDIA Q4_K_M recommendation', async () => {
       hoisted.janModel = NOVERA_RECOMMENDED_MODEL
       await renderPastSetup()
-      expect(screen.getByText('LFM2.5-2.6B · Q6_K')).toBeInTheDocument()
+      expect(screen.getByText('Nemotron-3.5-Bolt-E4B · Q4_K_M')).toBeInTheDocument()
+      expect(screen.queryByRole('checkbox', { name: 'setup:dsparkEnable' })).not.toBeInTheDocument()
       expect(hoisted.isModelSupportedMock).toHaveBeenCalledWith(
-        NOVERA_RECOMMENDED_MODEL.quants![0].path, 32768
+        NOVERA_RECOMMENDED_MODEL.quants![0].path, 16384
       )
       fireEvent.click(screen.getByText('setup:download'))
       await waitFor(() => expect(hoisted.pullModelWithMetadataMock).toHaveBeenCalledWith(
-        'LFM2.5-2.6B-Q6_K',
-        'https://huggingface.co/LiquidAI/LFM2.5-2.6B-GGUF/resolve/main/LFM2.5-2.6B-Q6_K.gguf?download=true',
+        'Nemotron-3.5-Bolt-E4B-Q4_K_M',
+        'https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB/resolve/main/Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf?download=true',
+        undefined, 'hf-token', true
+      ))
+    })
+
+    it('downloads only Nemotron after a queued support check completes', async () => {
+      hoisted.janModel = NOVERA_RECOMMENDED_MODEL
+      let resolveSupport!: (status: string) => void
+      hoisted.isModelSupportedMock.mockImplementationOnce(() => new Promise((resolve) => { resolveSupport = resolve }))
+      await renderPastSetup()
+      fireEvent.click(screen.getByText('setup:download'))
+      expect(hoisted.pullModelWithMetadataMock).not.toHaveBeenCalled()
+      await act(async () => resolveSupport('GREEN'))
+      await waitFor(() => expect(hoisted.pullModelWithMetadataMock).toHaveBeenCalledWith(
+        'Nemotron-3.5-Bolt-E4B-Q4_K_M', NOVERA_RECOMMENDED_MODEL.quants![0].path,
         undefined, 'hf-token', true
       ))
     })

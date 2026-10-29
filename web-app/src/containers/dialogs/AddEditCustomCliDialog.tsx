@@ -27,6 +27,7 @@ export default function AddEditCustomCliDialog({
   initialCustomCli = '',
   onSave,
 }: AddEditCustomCliProps) {
+
   const { t } = useTranslation()
   const [envVars, setEnvVars] = useState<EnvVar[]>([{ key: '', value: '' }])
   const [customCli, setCustomCli] = useState('')
@@ -92,7 +93,7 @@ export default function AddEditCustomCliDialog({
         }}
       >
         <DialogHeader>
-          <DialogTitle>Environment Variables</DialogTitle>
+          <DialogTitle>{t('common:mcpServers.envVars')}</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4">
@@ -111,7 +112,7 @@ export default function AddEditCustomCliDialog({
           {/* Environment Variables */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label className="text-sm">Environment Variables</label>
+              <label className="text-sm">{t('common:mcpServers.envVars')}</label>
               <div
                 className="size-6 cursor-pointer flex items-center justify-center rounded hover:bg-secondary transition-all duration-200 ease-in-out"
                 onClick={handleAddEnv}
@@ -125,13 +126,13 @@ export default function AddEditCustomCliDialog({
                 <Input
                   value={env.key}
                   onChange={(e) => handleEnvKeyChange(index, e.target.value)}
-                  placeholder="Key"
+                  placeholder={t('common:mcpServers.key')}
                   className="flex-1"
                 />
                 <Input
                   value={env.value}
                   onChange={(e) => handleEnvValueChange(index, e.target.value)}
-                  placeholder="Value"
+                  placeholder={t('common:mcpServers.value')}
                   className="flex-1"
                 />
                 {envVars.length > 1 && (
@@ -158,8 +159,7 @@ export default function AddEditCustomCliDialog({
             }}
             size="sm"
           >
-            Save
-          </Button>
+            {t('common:skillSave')}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

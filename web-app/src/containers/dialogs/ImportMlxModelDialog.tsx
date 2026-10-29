@@ -70,7 +70,7 @@ export const ImportMlxModelDialog = ({
     // Validate model name - only allow alphanumeric, underscore, hyphen, and dot
     //eslint-disable-next-line
     if (!/^[a-zA-Z0-9/_.\-]+$/.test(modelName)) {
-      toast.error(t('common:error'), { description: 'A–Z · a–z · 0–9 · _ - . /' })
+      toast.error(t('common:error'), { description: "A–Z · a–z · 0–9 · _ - . /" })
       return
     }
 

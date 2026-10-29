@@ -16,6 +16,7 @@ import { useNavigate } from '@tanstack/react-router'
 import { useHubDownloadReview } from './HubHardwareDiagnostic'
 
 export const MlxModelDownloadAction = memo(({ model }: { model: CatalogModel }) => {
+
   const { reviewDownload, reviewDialog } = useHubDownloadReview(model)
   const serviceHub = useServiceHub()
   const { t } = useTranslation()
@@ -167,11 +168,11 @@ export const MlxModelDownloadAction = memo(({ model }: { model: CatalogModel }) 
     } catch (error) {
       console.error('Error downloading MLX model:', error)
       removeLocalDownloadingModel(modelId)
-      toast.error('Failed to download MLX model', {
-        description: error instanceof Error ? error.message : 'Unknown error',
+      toast.error(t('ui:failedToDownloadMlxModel'), {
+        description: error instanceof Error ? error.message : undefined,
       })
     }
-  }, [serviceHub, model, huggingfaceToken, addLocalDownloadingModel, removeLocalDownloadingModel, modelId, modelName])
+  }, [serviceHub, model, huggingfaceToken, addLocalDownloadingModel, removeLocalDownloadingModel, modelId, modelName, t])
 
   return (
     <div className="flex items-center">

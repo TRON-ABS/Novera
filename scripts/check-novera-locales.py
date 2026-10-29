@@ -76,7 +76,7 @@ def validate(root):
                     left, right = re.findall(pattern, value), re.findall(pattern, reference)
                     if (Counter(left) != Counter(right) if label == 'interpolation' else left != right):
                         issues.append(f'{namespace}:{key}: {label}')
-                if code != 'en' and re.search(r'JANPH|JANSEG|ZXQ|QXZ|\uFFFD', value):
+                if code != 'en' and re.search(r'JANPH|JANSEG|ZXQ|QXZ|\uFFFD|NOVERA_\d{4}|998877\d{6}|90781\d{4}18709|[⟦⟧⟪⟫]', value):
                     issues.append(f'{namespace}:{key}: temporary marker')
         # Inherited catalogs retain obsolete upstream keys; do not delete user
         # translations merely to make their shape match the English catalog.

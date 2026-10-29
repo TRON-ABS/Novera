@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "يُستخدم عند بدء محادثة جديدة",
   "allAssistants": "جميع المساعدين",
   "lastUsed": "آخر مساعد استُخدم",
-  "deleteFailed": "تعذّر حذف المساعد. يُرجى المحاولة مرة أخرى."
+  "deleteFailed": "تعذّر حذف المساعد. يُرجى المحاولة مرة أخرى.",
+  "officialInstructions": "يمكن تعديل فئات تعليمات Novera الثلاث فقط من خلال {{path}}."
 }

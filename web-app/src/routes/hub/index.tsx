@@ -117,6 +117,7 @@ export const Route = createFileRoute(route.hub.index as any)({
 })
 
 function HubContent() {
+
   const [isPending, startTransition] = useTransition()
   const parentRef = useRef<HTMLDivElement>(null)
   const listRef = useRef<HTMLDivElement>(null)
@@ -780,7 +781,7 @@ function HubContent() {
                                   </span>
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                  <p>Requires MLX engine (Apple Silicon only)</p>
+                                  <p>{t('ui:requiresMlxEngineAppleSiliconOnly')}</p>
                                 </TooltipContent>
                               </Tooltip>
                             )}
@@ -868,8 +869,7 @@ function HubContent() {
                                         })()}
                                         {variant.model_id === recommendedId && (
                                           <span className="text-xs font-medium px-1.5 py-0.5 rounded bg-primary/10 text-primary">
-                                            Recommended
-                                          </span>
+                                            {t('common:askRecommended')}</span>
                                         )}
                                       </div>
                                     }

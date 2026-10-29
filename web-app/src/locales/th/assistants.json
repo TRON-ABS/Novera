@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "ใช้เมื่อเริ่มแชทใหม่",
   "allAssistants": "ผู้ช่วยทุกท่าน",
   "lastUsed": "ใช้ครั้งสุดท้าย",
-  "deleteFailed": "ไม่สามารถลบผู้ช่วยได้ โปรดลองอีกครั้ง"
+  "deleteFailed": "ไม่สามารถลบผู้ช่วยได้ โปรดลองอีกครั้ง",
+  "officialInstructions": "แก้ไขคำสั่งทั้งสามหมวดของ Novera ได้ผ่าน {{path}} เท่านั้น"
 }

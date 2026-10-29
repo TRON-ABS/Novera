@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "କୋଡ୍ ବ୍ଲକ୍ ଶ Style ଳୀ ପୁନ Res ସେଟ୍ କରନ୍ତୁ |",
     "resetCodeBlockStyleDesc": "ଡିଫଲ୍ଟ ଭାବରେ କୋଡ୍ ବ୍ଲକ୍ ଶ style ଳୀକୁ ପୁନ et ସେଟ୍ କରନ୍ତୁ |",
     "resetCodeBlockSuccess": "କୋଡ୍ ବ୍ଲକ୍ ଶ style ଳୀ ସଫଳତାର ସହିତ ପୁନ et ସେଟ୍ କରେ |",
-    "resetCodeBlockSuccessDesc": "କୋଡ୍ ବ୍ଲକ୍ ଶ style ଳୀ ଡିଫଲ୍ଟକୁ ପୁନ restored ସ୍ଥାପିତ ହୋଇଛି |"
+    "resetCodeBlockSuccessDesc": "କୋଡ୍ ବ୍ଲକ୍ ଶ style ଳୀ ଡିଫଲ୍ଟକୁ ପୁନ restored ସ୍ଥାପିତ ହୋଇଛି |",
+    "subtitle": "Novera କୁ ନିଜର କରନ୍ତୁ, ଏହାର ରୂପଠାରୁ ଆରମ୍ଭ କରି ଆପଣଙ୍କ ବାର୍ତ୍ତାଳାପ ପସନ୍ଦ ପର୍ଯ୍ୟନ୍ତ |",
+    "accentColor": "ଉଚ୍ଚାରଣ ରଙ୍ଗ |",
+    "accentColorDesc": "ଉଚ୍ଚାରଣ ଏବଂ ପାର୍ଶ୍ୱପଟ ରଙ୍ଗ ବାଛନ୍ତୁ |",
+    "conversation": "ବାର୍ତ୍ତାଳାପ ଏବଂ ବିଜ୍ଞପ୍ତି |"
   },
   "hardware": {
     "os": "ଅପରେଟିଂ ସିଷ୍ଟମ୍ |",

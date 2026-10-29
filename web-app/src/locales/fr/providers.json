@@ -1,4 +1,7 @@
 {
+  "installedMediaModels": "Modèles image, vidéo et musique",
+  "noInstalledModels": "Aucun modèle enregistré dans cette catégorie.",
+  "modelComponents": "Fichiers du modèle",
   "refreshModelsError": "Le fournisseur doit avoir une URL de base et une clé API configurées pour récupérer les modèles.",
   "refreshModelsSuccess": "{{count}} nouveau(x) modèle(s) de {{provider}} ajouté(s).",
   "noNewModels": "Aucun nouveau modèle trouvé. Tous les modèles disponibles sont déjà ajoutés.",
@@ -27,6 +30,13 @@
     "modelExistsDesc": "Veuillez choisir un ID de modèle différent."
   },
   "deleteModel": {
+    "choiceDescription": "Choisissez comment retirer ce modèle de Novera.",
+    "removeFromNovera": "Supprimer de Novera",
+    "permanentlyDelete": "Supprimer définitivement",
+    "keepFilesDescription": "Retire le modèle de la liste et conserve ses fichiers sur le disque. Vous pourrez le réimporter.",
+    "permanentDescription": "Supprime le modèle et ses fichiers gérés par Novera du disque. Cette action est irréversible.",
+    "permanentImportedDescription": "Supprime aussi le fichier GGUF principal à son emplacement d’origine. Les fichiers auxiliaires externes sont conservés. Cette action est irréversible.",
+    "removedSuccess": "Le modèle {{modelId}} a été retiré de Novera. Ses fichiers sont conservés.",
     "title": "Supprimer le modèle : {{modelId}}",
     "description": "Êtes-vous sûr de vouloir supprimer ce modèle ? Cette action ne peut pas être annulée.",
     "success": "Le modèle {{modelId}} a été supprimé définitivement.",

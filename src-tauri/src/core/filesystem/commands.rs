@@ -383,3 +383,14 @@ pub async fn save_dialog<R: Runtime>(app_handle: tauri::AppHandle<R>, options: O
         Ok(dialog.blocking_save_file().map(|p| p.to_string()))
     }).await.map_err(|e| e.to_string())?
 }
+
+/// Delete only the GGUF named by a registered llama.cpp model, including an
+/// imported file outside app data. Generic rm remains confined to app data.
+#[tauri::command]
+pub fn delete_imported_model_file<R: Runtime>(
+    app: tauri::AppHandle<R>,
+    config_path: String,
+) -> Result<(), String> {
+    let (data_root, config) = resolve_app_path_within_jan_data_folder(app, &config_path)?;
+    super::model_removal::delete_registered_gguf(&data_root.join("llamacpp/models"), &config)
+}

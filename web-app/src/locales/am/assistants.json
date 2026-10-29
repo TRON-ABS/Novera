@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "አዲስ ውይይት ሲጀመር ጥቅም ላይ ይውላል",
   "allAssistants": "ሁሉም ረዳቶች",
   "lastUsed": "ለመጨረሻ ጊዜ ጥቅም ላይ የዋለ",
-  "deleteFailed": "ረዳቱን መሰረዝ አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
+  "deleteFailed": "ረዳቱን መሰረዝ አልተቻለም። እባክዎ እንደገና ይሞክሩ።",
+  "officialInstructions": "የNovera ሦስቱ የመመሪያ ምድቦች በ{{path}} ብቻ ሊስተካከሉ ይችላሉ።"
 }

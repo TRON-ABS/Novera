@@ -33,22 +33,31 @@ function InterfaceSettings() {
   } = useInterfaceSettings()
 
   return (
-    <div className="flex flex-col h-svh w-full">
+    <div className="novera-interface flex flex-col h-svh min-w-0 w-full">
       <HeaderPage>
         <div className="flex items-center gap-2 w-full">
           <span className='font-medium text-base font-studio'>{t('common:settings')}</span>
         </div>
       </HeaderPage>
-      <div className="flex h-[calc(100%-60px)]">
+      <div className="novera-settings-layout flex flex-1 min-h-0">
         <SettingsMenu />
-        <div className="p-4 pt-0 w-full overflow-y-auto">
-          <div className="flex flex-col justify-between gap-4 gap-y-3 w-full">
-            {/* Interface */}
-            <Card title={t('settings:interface.title')}>
+        <div className="novera-interface-content p-4 pt-0 min-w-0 w-full overflow-y-auto">
+          <div className="mx-auto flex max-w-5xl flex-col gap-5 w-full pb-6">
+            <header className="novera-interface-heading">
+              <img src="/images/novera-logo.png" alt="" className="size-11 shrink-0" />
+              <div>
+                <p className="novera-settings-eyebrow">Novera</p>
+                <h1 className="font-studio text-2xl font-medium">{t('settings:interface.title')}</h1>
+                <p className="mt-1 text-muted-foreground">{t('settings:interface.subtitle')}</p>
+              </div>
+            </header>
+            <Card title={t('common:appearance')}>
               <CardItem
                 title={t('settings:interface.theme')}
                 description={t('settings:interface.themeDesc')}
-                actions={<ThemeSwitcher />}
+                className="flex-col items-start gap-y-3"
+                classNameWrapperAction="w-full"
+                actions={<ThemeSwitcher renderAsRadio />}
               />
               <CardItem
                 title={t('settings:interface.fontSize')}
@@ -56,11 +65,13 @@ function InterfaceSettings() {
                 actions={<FontSizeSwitcher />}
               />
               <CardItem
-                title="Accent color"
-                description="Customize the accent color of the application."
+                title={t('settings:interface.accentColor')}
+                description={t('settings:interface.accentColorDesc')}
                 className="flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-y-2"
                 actions={<AccentColorPicker />}
               />
+            </Card>
+            <Card title={t('settings:interface.conversation')}>
               <CardItem
                 title={t('settings:interface.notificationPosition')}
                 description={t('settings:interface.notificationPositionDesc')}
@@ -71,6 +82,7 @@ function InterfaceSettings() {
                 description={t('settings:interface.showTokenSpeedDesc')}
                 actions={
                   <Switch
+                    aria-label={t('settings:interface.showTokenSpeed')}
                     checked={showTokenSpeed}
                     onCheckedChange={setShowTokenSpeed}
                   />
@@ -81,6 +93,7 @@ function InterfaceSettings() {
                 description={t('settings:interface.coloredUserBubbleDesc')}
                 actions={
                   <Switch
+                    aria-label={t('settings:interface.coloredUserBubble')}
                     checked={coloredUserBubble}
                     onCheckedChange={setColoredUserBubble}
                   />
@@ -98,6 +111,7 @@ function InterfaceSettings() {
                 description={t('settings:interface.renderHtmlArtifactsDesc')}
                 actions={
                   <Switch
+                    aria-label={t('settings:interface.renderHtmlArtifacts')}
                     checked={renderHtmlArtifacts}
                     onCheckedChange={setRenderHtmlArtifacts}
                   />
@@ -108,17 +122,20 @@ function InterfaceSettings() {
                 description={t('settings:interface.autoGenerateTitleDesc')}
                 actions={
                   <Switch
+                    aria-label={t('settings:interface.autoGenerateTitle')}
                     checked={autoGenerateTitle}
                     onCheckedChange={setAutoGenerateTitle}
                   />
                 }
               />
+            </Card>
+            <Card title={t('settings:interface.resetToDefault')}>
               <CardItem
                 title={t('settings:interface.resetToDefault')}
                 description={t('settings:interface.resetToDefaultDesc')}
                 actions={
                   <Button
-                    variant="destructive"
+                    variant="outline"
                     size="sm"
                     onClick={() => {
                       resetInterface()

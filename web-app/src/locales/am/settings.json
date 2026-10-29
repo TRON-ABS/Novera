@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "ስህተት አግኝተዋል? GitHub ላይ ችግር በመመዝገብ ያግዙን።",
   "reportIssue": "ጉዳይ ሪፖርት አድርግ",
   "credits": "ምስጋናዎች",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS)፣ በጃን Menlo Research እና አበርካቾቹ ላይ የተመሰረተ።",
   "creditsDesc2": "ልዩ ምስጋና ለክፍት ምንጭ ጥገኞቻችን -በተለይ llama.cpp እና ታውሪ - እና ለአስደናቂው AI ማህበረሰባችን።",
   "appVersion": "የመተግበሪያ ሥሪት",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "ኮድ አግድ ቅጥን ዳግም አስጀምር",
     "resetCodeBlockStyleDesc": "የኮድ እገዳ ቅጥን ወደ ነባሪ ዳግም አስጀምር።",
     "resetCodeBlockSuccess": "ኮድ አግድ ቅጥ በተሳካ ሁኔታ ዳግም አስጀምሯል።",
-    "resetCodeBlockSuccessDesc": "የኮድ እገዳ ቅጥ ወደ ነባሪ ተመልሷል።"
+    "resetCodeBlockSuccessDesc": "የኮድ እገዳ ቅጥ ወደ ነባሪ ተመልሷል።",
+    "subtitle": "Novera ከመልክዎ እስከ የውይይት ምርጫዎ ድረስ የራስዎ ያድርጉት።",
+    "accentColor": "የአነጋገር ቀለም",
+    "accentColorDesc": "የድምፁን እና የጎን አሞሌውን ቀለም ይምረጡ።",
+    "conversation": "ውይይቶች እና ማሳወቂያዎች"
   },
   "hardware": {
     "os": "ስርዓተ ክወና",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "ስህተት አግኝተዋል? GitHub ላይ ችግር በመመዝገብ ያግዙን።",
     "reportIssue": "ጉዳይ ሪፖርት አድርግ",
     "credits": "ምስጋናዎች",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS)፣ በጃን Menlo Research እና አበርካቾቹ ላይ የተመሰረተ።",
     "creditsDesc2": "ልዩ ምስጋና ለክፍት ምንጭ ጥገኞቻችን -በተለይ llama.cpp እና ታውሪ - እና ለአስደናቂው AI ማህበረሰባችን።"
   },
   "extensions": {

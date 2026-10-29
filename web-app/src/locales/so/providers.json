@@ -60,7 +60,14 @@
     "removeFromJan": "Ka saar Novera",
     "success": "Model {{modelId}} si joogto ah ayaa loo tirtiray.",
     "cancel": "Jooji",
-    "delete": "Tirtir"
+    "delete": "Tirtir",
+    "choiceDescription": "Dooro sida looga saaro qaabkan Novera.",
+    "removeFromNovera": "Ka saar Novera",
+    "permanentlyDelete": "Si joogta ah u tirtir",
+    "keepFilesDescription": "Ka saar qaabka liiska oo ku hay faylashiisa saxanka. Mar kale waad soo dhoofsan kartaa",
+    "permanentDescription": "Tirtir moodeelka iyo Novera-faylalka ay maamusho ee diskka. Tan lama celin karo.",
+    "permanentImportedDescription": "Sidoo kale tirtir faylka GGUF meesha uu asal ahaan ka soo jeedo. Faylasha kaalmada dibadda waa la hayaa. Tan lama celin karo.",
+    "removedSuccess": "Model {{modelId}} waxaa laga saaray Novera."
   },
   "deleteAllModels": {
     "button": "Tirtir Dhammaan",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Furayaasha keydka doorashada ayaa lagu habeeyey Qoto-dheer.",
     "addKey": "Ku dar furaha",
     "removeKey": "Ka saar furaha"
-  }
+  },
+  "installedMediaModels": "Muuqaal, muuqaal iyo moodallo muusig",
+  "noInstalledModels": "Noocyo ka diiwaangashan qaybtan ma jiraan.",
+  "modelComponents": "Faylasha Model"
 }

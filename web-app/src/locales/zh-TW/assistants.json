@@ -38,5 +38,6 @@
   "defaultAssistantSection": "預設助手",
   "defaultAssistantDesc": "開始新聊天時使用",
   "allAssistants": "所有助手",
-  "lastUsed": "最後使用"
+  "lastUsed": "最後使用",
+  "officialInstructions": "Novera 的三類指示只能透過 {{path}} 修改。"
 }

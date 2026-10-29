@@ -38,5 +38,6 @@
   "defaultAssistantSection": "uMncedisi oMiselweyo",
   "defaultAssistantDesc": "Isetyenziswa xa uqalisa incoko entsha",
   "allAssistants": "Bonke abaNcedisi",
-  "lastUsed": "Igqityelwe ukusetyenziswa"
+  "lastUsed": "Igqityelwe ukusetyenziswa",
+  "officialInstructions": "Iindidi ezintathu zemiyalelo yeNovera zinokuhlelwa kuphela nge-{{path}}."
 }

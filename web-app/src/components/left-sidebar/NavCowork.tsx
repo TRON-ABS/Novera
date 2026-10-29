@@ -90,6 +90,7 @@ const SessionItem = memo(function SessionItem({
   onSelect: (id: string) => void
   onRequestDelete: (pending: { id: string; title: string }) => void
 }) {
+
   const { t } = useTranslation()
   const isRunning = useIsSessionActive(session.id)
 
@@ -111,7 +112,7 @@ const SessionItem = memo(function SessionItem({
             className="hover:bg-sidebar-foreground/8"
           >
             <MoreHorizontal />
-            <span className="sr-only">More</span>
+            <span className="sr-only">{t('ui:more')}</span>
           </SidebarMenuAction>
         </DropdownMenuTrigger>
         <DropdownMenuContent

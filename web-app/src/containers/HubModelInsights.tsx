@@ -60,7 +60,7 @@ export function HubComparison({ models, clear }: { models: CatalogModel[]; clear
       ac.signal.throwIfAborted()
       const ids = new Set(model.quants?.flatMap(q => [q.model_id, `${model.developer}/${q.model_id}`]) ?? [])
       const id = active.find(id => ids.has(id) && provider?.models.some(m => m.id === id))
-      if (!id || !provider) { setError('testHint'); return }
+      if (!id || !provider) { setError("testHint"); return }
       const { ModelFactory } = await import('@/lib/model-factory')
       const engine = await ModelFactory.createModel(id, provider, { chat_template_kwargs: { enable_thinking: false } })
       ac.signal.throwIfAborted()

@@ -47,7 +47,35 @@
     "tokens": "Token",
     "perSecond": "token/detik"
   },
+  "player": {
+    "play": "Puter",
+    "pause": "Ngaso",
+    "seek": "Posisi puter",
+    "mute": "Pateni swara",
+    "volume": "Bantere swara",
+    "speed": "Kacepetan puter"
+  },
   "creation": {
+    "musicLyricsGuide": "Terangna gaya lan swara ing panjalukmu. Tulis lirik ing ngisor tag iki. Pateni {{instrumental}} supaya ana swara nyanyi.",
+    "music": "Musik",
+    "musicDuration": "Suwéné musik",
+    "musicQuality": "Kualitas audio",
+    "musicInstrumental": "Instrumental",
+    "musicLyrics": "Lirik",
+    "musicGenerator": "Panggawé musik",
+    "musicPlanner": "Pangrancang musik",
+    "setupAllDownload": "Undhuh lan atur kabèh kanthi otomatis",
+    "setupConfiguring": "Nyetel modhèl sing disaranaké",
+    "setupStorage": "Gunggung berkas: {{download}}. Cadhangan: {{reserve}}. Papan tambahan: {{required}}. Kosong ing drive pilihan: {{free}}.",
+    "setupSpaceMissing": "Kurang {{missing}}. Kosongaké papan utawa pilih drive liya sing cukup papané.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M minangka model teks lokal sing disaranake kanggo obrolan, nulis, telpon alat lan output terstruktur. Konteks awal yaiku 16K token; mriksa memori sing kasedhiya sadurunge nambah. Mung input lan output teks, tanpa model konsep. Gunakake telusuran utawa dokumen sampeyan kanggo verifikasi klaim faktual.",
+    "setupImageNote": "Gambar — FLUX.2 Klein 4B · Q4_K_M. Teks: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Rasio aspek: 21:9; Resolusi: 1024 × 432; Langkah-langkah generasi: 4; Mode wiji: Acak.",
+    "setupMusicNote": "Musik — ACE-Step 1.5 Turbo. Panggawé musik: 2B · Q4_K_M; Pangrancang musik: 1.7B · Q8_0; Teks: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Suwéné musik: 10–600 s; Kualitas audio: 48 kHz · 2.0; Instrumental / Lirik; Acak.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Teks: UMT5-XXL · Q4_K_M. Suwéné video: 5 s; Rasio aspek: 21:9; Pigura per detik: 16. Video dawa dirakit saka klip cekak. Sambungan bisa katon lan gawéné bisa suwé. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Ngundhuh lan ngatur model sing disaranake: Nemotron kanggo teks, Qwen3-Embedding Q8_0 kanggo njupuk multibasa (CPU minangka standar), FLUX.2 Klein 4B lan komponene, Real-ESRGAN × 2 / × 4, ACE-Step kanggo musik (Instrumental kanthi standar), lan Wan2.1 kanggo video. Priksa ukuran file, ruang disk lan prasyarat video ing ngisor iki. Download kapisah lan Browse tetep kasedhiya.",
+    "finalizing": "Ngrampungaké video",
+    "videoDuration": "Suwéné video",
+    "videoDurationNote": "Video dawa dirakit saka klip cekak. Sambungan bisa katon lan gawéné bisa suwé.",
     "output": "Format respon",
     "auto": "Otomatis",
     "text": "Teks",
@@ -109,7 +137,7 @@
       "web_search": "Nggoleki web"
     },
     "imageEngine": "Mesin gambar lokal",
-    "cppExecutable": "stable-diffusion.cpp executable (sd-cli)",
+    "cppExecutable": "stable-diffusion.cpp bisa dieksekusi (sd-cli)",
     "ggufImageModel": "Model difusi (GGUF utawa Safetensor sing kompatibel)",
     "ggufTextEncoder": "Enkoder teks (GGUF utawa Safetensor sing kompatibel)",
     "ggufVae": "VAE (GGUF utawa Safetensor sing kompatibel)",
@@ -144,7 +172,8 @@
     "ratio": "Rasio aspek",
     "resolution": "Resolusi",
     "customSize": "adat",
-    "sizeAutoNote": "Ngganti rasio adapts resolusi saiki. Ukuran nggunakake kelipatan 16, nganti 2048 px."
+    "sizeAutoNote": "Ngganti rasio adapts resolusi saiki. Ukuran nggunakake kelipatan 16, nganti 2048 px.",
+    "setupTextNvfp4Note": "Bobot NVFP4 opsional kanggo NVIDIA Blackwell GPU sing dideteksi utawa luwih anyar kanthi paling ora 4,5 GiB VRAM. Kanggo nggunakake bobot kasebut ing Novera, gudang model lengkap kudu diowahi dadi NVFP4 GGUF sing kompatibel lan divalidasi. Konversi iki durung diverifikasi kanggo checkpoint iki. File Safetensors sing disambung ora bisa dimuat langsung dening mesin sing dibangun. Q8_0 tetep dadi rekomendasi sing siap digunakake. Kebutuhan memori uga gumantung ing dawa konteks."
   },
   "creationInstall": {
     "install": "Pasang konfigurasi iki",

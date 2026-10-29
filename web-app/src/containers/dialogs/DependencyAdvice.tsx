@@ -2,6 +2,7 @@ import { ChevronDown, ChevronUp, ExternalLink } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { getInstallRecommendations } from '@/lib/backendDependencies'
+import { translateSettingText } from '@/i18n/setting-text'
 
 /**
  * Turns missing library names into install advice. Shared by the standalone
@@ -37,7 +38,7 @@ export function DependencyAdvice({
               >
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-sm font-medium text-main-view-fg">
-                    {rec.label}
+                    {translateSettingText(rec.label, t)}
                   </span>
                   {rec.url && (
                     <a
@@ -52,7 +53,7 @@ export function DependencyAdvice({
                   )}
                 </div>
                 <p className="text-xs text-main-view-fg/60 leading-relaxed">
-                  {rec.description}
+                  {translateSettingText(rec.description, t)}
                 </p>
               </li>
             ))}

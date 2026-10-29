@@ -43,6 +43,8 @@ vi.mock('@janhq/tauri-plugin-rag-api', () => ({
 // them would leave the delegation untested on both sides.
 vi.mock('@janhq/core', async () => {
   const actual = await vi.importActual<typeof import('@janhq/core')>('@janhq/core')
+  // Exercise current source without requiring a separate core build first.
+  const embedding = await vi.importActual<typeof import('../../../../core/src/browser/extensions/engines/embedding')>('../../../../core/src/browser/extensions/engines/embedding')
   class BaseExtension {
     registerSettings = vi.fn().mockResolvedValue(undefined)
     getSetting = vi.fn(async (_key: string, defaultValue: unknown) => defaultValue)
@@ -50,8 +52,8 @@ vi.mock('@janhq/core', async () => {
   }
   class RAGExtension extends BaseExtension {}
   return {
-    embedTexts: actual.embedTexts,
-    getEmbeddingEngine: actual.getEmbeddingEngine,
+    embedTexts: embedding.embedTexts,
+    getEmbeddingEngine: embedding.getEmbeddingEngine,
     isEmbeddingEngine: actual.isEmbeddingEngine,
     RAGExtension,
     BaseExtension,

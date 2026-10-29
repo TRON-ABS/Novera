@@ -161,7 +161,7 @@ export interface ModelsService {
   ): Promise<void>
   abortDownload(id: string): Promise<void>
   pauseDownload(id: string): Promise<void>
-  deleteModel(id: string, provider?: string): Promise<void>
+  deleteModel(id: string, provider?: string, options?: { deleteFiles?: boolean }): Promise<void>
   getActiveModels(provider?: string): Promise<string[]>
   stopModel(model: string, provider?: string): Promise<UnloadResult | undefined>
   stopAllModels(): Promise<void>
@@ -204,6 +204,7 @@ export interface ModelsService {
     modelId: string,
     patch: Record<string, string | number | boolean | null | undefined>
   ): Promise<void>
+  getEmbeddingDevice(modelId: string): Promise<'cpu' | 'gpu'>
   isModelSupported(
     modelPath: string,
     ctxSize?: number

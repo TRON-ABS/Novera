@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Standart yordamchi",
   "defaultAssistantDesc": "Yangi suhbatni boshlashda ishlatiladi",
   "allAssistants": "Hamma yordamchilar",
-  "lastUsed": "So‘nggi marta foydalanilgan"
+  "lastUsed": "So‘nggi marta foydalanilgan",
+  "officialInstructions": "Novera ko‘rsatmalarining uchta toifasini faqat {{path}} orqali tahrirlash mumkin."
 }

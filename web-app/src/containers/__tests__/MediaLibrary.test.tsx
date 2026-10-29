@@ -1,6 +1,8 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { MediaLibrary } from '../MediaLibrary'
+import { useMusicCreation } from '@/hooks/useMusicCreation'
+import { musicDefaults } from '@/modules/engines/music'
 import { useMediaLibrary, type MediaProfile } from '@/hooks/useMediaLibrary'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import type { InstallSnapshot } from '@/hooks/useCreationInstall'
@@ -54,6 +56,7 @@ const ready: InstallSnapshot = {
 describe('categorized imported media library', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    useMusicCreation.setState({ profiles: [], selections: {}, settings: musicDefaults })
     useMediaLibrary.setState({ profiles: [], installed: [] })
     useCreation.setState({
       settings: { ...creationDefaults },
@@ -61,6 +64,24 @@ describe('categorized imported media library', () => {
       modes: {},
     })
     mocks.invoke.mockResolvedValue(undefined)
+  })
+  it('shows each image and music model with its component files', () => {
+    useMediaLibrary.setState({ profiles: [profile] })
+    useMusicCreation.setState({ profiles: [{
+      id: 'music-test', name: 'My ACE-Step', settings: {
+        ...musicDefaults, directory: 'D:/Music', generator: 'generator.gguf',
+        planner: 'planner.gguf', encoder: 'encoder.gguf', vae: 'vae.gguf',
+      },
+    }] })
+    render(<MediaLibrary />)
+    expect(screen.getByText('My FLUX')).toBeInTheDocument()
+    expect(screen.getByText('My ACE-Step')).toBeInTheDocument()
+    for (const file of ['generator', 'planner', 'encoder', 'vae']) {
+      expect(screen.getByText(`D:/Music/${file}.gguf`)).toBeInTheDocument()
+    }
+    expect(screen.getByText('D:/qwen.gguf')).toBeInTheDocument()
+    expect(screen.getByText('D:/vae.safetensors')).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: 'chat:creation.music' })).toBeInTheDocument()
   })
   it('registers one verified configuration and does not resurrect a removed entry', () => {
     const library = useMediaLibrary.getState()

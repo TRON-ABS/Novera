@@ -277,7 +277,7 @@ export interface EmbeddingResponse {
  */
 export interface EmbeddingEngine {
   /** Embeds each text, in input order. */
-  embed(texts: string[]): Promise<EmbeddingResponse>
+  embed(texts: string[], options?: { purpose: 'query' | 'document' }): Promise<EmbeddingResponse>
 
   /**
    * The embedding model's context window in tokens, or undefined when no
@@ -382,7 +382,7 @@ export abstract class AIEngine extends BaseExtension {
   /**
    * Deletes a model
    */
-  abstract delete(modelId: string): Promise<void>
+  abstract delete(modelId: string, options?: { deleteFiles?: boolean }): Promise<void>
 
   /**
    * Updates a model

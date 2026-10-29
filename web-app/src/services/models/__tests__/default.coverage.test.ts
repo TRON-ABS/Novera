@@ -61,6 +61,22 @@ describe('DefaultModelsService - coverage supplement', () => {
     mockEngineManager.get.mockReturnValue(mockEngine)
   })
 
+  describe('model removal options', () => {
+    it.each([false, true])('forwards deleteFiles=%s to llama.cpp', async (deleteFiles) => {
+      await svc.deleteModel('m1', 'llamacpp', { deleteFiles })
+      expect(mockEngine.delete).toHaveBeenCalledWith('m1', { deleteFiles })
+    })
+    it('rejects unsupported providers instead of ignoring the keep-files choice', async () => {
+      await expect(svc.deleteModel('m1', 'mlx', { deleteFiles: false })).rejects.toThrow('only supported by llama.cpp')
+      expect(mockEngine.delete).not.toHaveBeenCalled()
+    })
+    it('reports a missing engine without claiming removal succeeded', async () => {
+      mockEngineManager.get.mockReturnValue(undefined)
+      await expect(svc.deleteModel('m1', 'llamacpp', { deleteFiles: false })).rejects.toThrow('only supported by llama.cpp')
+      expect(mockEngine.delete).not.toHaveBeenCalled()
+    })
+  })
+
   // ── fetchModelCatalog ──
   describe('fetchModelCatalog', () => {
     it('returns catalog on success', async () => {

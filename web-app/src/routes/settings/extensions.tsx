@@ -1,3 +1,4 @@
+import { translateSettingText } from '@/i18n/setting-text'
 import { createFileRoute } from '@tanstack/react-router'
 import { route } from '@/constants/routes'
 import { Card, CardItem } from '@/containers/Card'
@@ -47,7 +48,7 @@ function ExtensionsContent() {
                     title={
                       <div className="flex items-center gap-x-2">
                         <h1 className="text-foreground font-studio font-medium text-base">
-                          {item.productName ?? item.name}
+                          {translateSettingText(item.productName ?? item.name, t)}
                         </h1>
                         <div className="bg-foreground/10 px-1 py-0.5 rounded text-foreground/70 text-xs">
                           v{item.version}
@@ -56,7 +57,7 @@ function ExtensionsContent() {
                     }
                     description={
                       <RenderMarkdown
-                        content={item.description ?? ''}
+                        content={translateSettingText(item.description ?? '', t)}
                         components={{
                           // Make links open in a new tab
                           a: ({ ...props }) => (

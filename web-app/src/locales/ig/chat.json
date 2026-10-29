@@ -47,7 +47,35 @@
     "tokens": "Token",
     "perSecond": "akara/s"
   },
+  "player": {
+    "play": "Kpọọ",
+    "pause": "Kwụsịtụ",
+    "seek": "Ebe egwu ruru",
+    "mute": "Mechie ụda",
+    "volume": "Ogo ụda",
+    "speed": "Ọsọ ịkpọ"
+  },
   "creation": {
+    "musicLyricsGuide": "Kọwaa ụdị egwu na olu n’arịrịọ gị. Dee okwu egwu n’okpuru akara ndị a. Gbanyụọ {{instrumental}} ka e nwee olu abụ.",
+    "music": "Egwu",
+    "musicDuration": "Ogologo egwu",
+    "musicQuality": "Ogo ụda",
+    "musicInstrumental": "Egwu akụrụngwa",
+    "musicLyrics": "Okwu abụ",
+    "musicGenerator": "Onye na-emepụta egwu",
+    "musicPlanner": "Onye na-ahazi egwu",
+    "setupAllDownload": "Budata ma hazie ihe niile na-akpaghị aka",
+    "setupConfiguring": "A na-ahazi ụdị a tụrụ aro",
+    "setupStorage": "Ngụkọta faịlụ: {{download}}. Ebe echekwara: {{reserve}}. Ebe ọzọ achọrọ: {{required}}. Oghere efu na diski ahọpụtara: {{free}}.",
+    "setupSpaceMissing": "A ka chọrọ {{missing}}. Hapụ oghere ma ọ bụ họrọ diski ọzọ nwere ebe zuru ezu.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M bụ ụdị ederede mpaghara akwadoro maka mkparịta ụka, ide ihe, oku ngwaọrụ na mpụta ahaziri ahazi. Ọnọdụ izizi bụ 16K akara; lelee ebe nchekwa dị tupu ịbawanye ya. Ntinye ederede na mmepụta naanị, na-enweghị ihe nlereanya. Jiri nchọta ma ọ bụ dọkụmentị gị nyochaa nkwudo ziri ezi.",
+    "setupImageNote": "Foto — FLUX.2 Klein 4B · Q4_K_M. Ederede: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Akụkụ akụkụ: 21:9; Mkpebi: 1024 × 432; Usoro nke ọgbọ: 4; Ụdị mkpụrụ: Na-enweghị usoro.",
+    "setupMusicNote": "Egwu — ACE-Step 1.5 Turbo. Onye na-emepụta egwu: 2B · Q4_K_M; Onye na-ahazi egwu: 1.7B · Q8_0; Ederede: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Ogologo egwu: 10–600 s; Ogo ụda: 48 kHz · 2.0; Egwu akụrụngwa / Okwu abụ; Na-enweghị usoro.",
+    "setupVideoNote": "Vidiyo — Wan2.1 T2V 1.3B · Q4_K_M. Ederede: UMT5-XXL · Q4_K_M. Ogologo vidio: 5 s; Akụkụ akụkụ: 21:9; Frames kwa nkeji: 16. A na-ejikọta obere klip mee vidio ogologo. Njikọ nwere ike ịpụta, imepụta ya nwekwara ike iwe ogologo oge. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Ịtụta na ịgbanwe ụdị ndị a kpọrọ: Nemotron maka tekst, Qwen3-Embedding Q8_0 maka ịkpọta ọrịa ọtụtụ asụsụ (CPU banyere ndabara), FLUX.2 Klein 4B na ụdị ndị a, Real-ESRGAN ×2/×4, ACE-Step maka nhạc (Instrumental banyere ndabara), na Wan2.1 maka video. Lelee ọnụ ọnụ file, ọnụ disk, na ihe ndị dị mkpa maka video n'ihu. Ịtụta na Browse dị n'ebe dị iche.",
+    "finalizing": "A na-emecha vidio",
+    "videoDuration": "Ogologo vidio",
+    "videoDurationNote": "A na-ejikọta obere klip mee vidio ogologo. Njikọ nwere ike ịpụta, imepụta ya nwekwara ike iwe ogologo oge.",
     "output": "Ụdị nzaghachi",
     "auto": "Akpaaka",
     "text": "Ederede",
@@ -109,7 +137,7 @@
       "web_search": "Na-achọgharị webụ"
     },
     "imageEngine": "Igwe onyonyo mpaghara",
-    "cppExecutable": "stable-diffusion.cpp executable (sd-cli)",
+    "cppExecutable": "[]",
     "ggufImageModel": "Ụdị mgbasa ozi (GGUF ma ọ bụ Safetensors dakọtara)",
     "ggufTextEncoder": "Ederede ederede (GGUF ma ọ bụ Safetensors dakọtara)",
     "ggufVae": "VAE (GGUF ma ọ bụ Safetensors dakọtara)",
@@ -144,7 +172,8 @@
     "ratio": "Akụkụ akụkụ",
     "resolution": "Mkpebi",
     "customSize": "Omenala",
-    "sizeAutoNote": "Ịgbanwe nha na-emegharị mkpebi dị ugbu a. Akụkụ na-eji ọtụtụ 16, ruo 2048 px."
+    "sizeAutoNote": "Ịgbanwe nha na-emegharị mkpebi dị ugbu a. Akụkụ na-eji ọtụtụ 16, ruo 2048 px.",
+    "setupTextNvfp4Note": "Nhọrọ NVFP4 maka achọpụtara NVIDIA Blackwell GPU ma ọ bụ nke ọhụrụ nwere opekata mpe 4.5 GiB nke VRAM. Iji jiri ọ̀tụ̀tụ̀ arọ ndị a na Novera, a ga-ebu ụzọ gbanwee ebe nchekwa ihe nlereanya zuru ezu ka ọ bụrụ NVFP4 GGUF dakọtara ma kwado ya. Emebebeghị nkwenye nke ntụgharị a maka ebe nlele a. Faịlụ Safetensors ejikọrọ enweghị ike ibunye ya ozugbo site na injin arụnyere n'ime ya. Q8_0 ka bụ ntụnye ejikere eji. Mkpa ebe nchekwa na-adaberekwa n'ogologo okirikiri."
   },
   "creationInstall": {
     "install": "Wụnye nhazi a",

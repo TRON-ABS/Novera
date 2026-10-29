@@ -60,7 +60,14 @@
     "removeFromJan": "Wepu na Novera",
     "success": "Ụdị {{modelId}} ehichapụrụ kpamkpam.",
     "cancel": "Kagbuo",
-    "delete": "Hichapụ"
+    "delete": "Hichapụ",
+    "choiceDescription": "Họrọ otu esi ewepụ ihe nlereanya a na Novera.",
+    "removeFromNovera": "Wepu na Novera",
+    "permanentlyDelete": "Hichapụ kpamkpam",
+    "keepFilesDescription": "Wepu ihe nlereanya na listi ma debe faịlụ ya na diski. Ị nwere ike ibubata ya ọzọ.",
+    "permanentDescription": "Hichapụ ihe nlereanya na faịlụ Novera jisiri na diski. Enweghị ike imegharị nke a.",
+    "permanentImportedDescription": "Hichapụkwa faịlụ GGUF bụ isi na ebe izizi ya. A na-edobe faịlụ inyeaka nke mpụga. Enweghị ike imegharị nke a.",
+    "removedSuccess": "E wepụrụ Model {{modelId}} na Novera. Edere faịlụ ya."
   },
   "deleteAllModels": {
     "button": "Hichapụ ha niile",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Ahaziri igodo ndaghachi azụ nhọrọ na Advanced.",
     "addKey": "Tinye igodo",
     "removeKey": "Wepu igodo"
-  }
+  },
+  "installedMediaModels": "Foto, vidiyo na ụdị egwu",
+  "noInstalledModels": "Enweghị ụdị edebanyere aha n'ụdị a.",
+  "modelComponents": "Faịlụ ụdị"
 }

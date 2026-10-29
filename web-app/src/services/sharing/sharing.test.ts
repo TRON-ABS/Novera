@@ -158,6 +158,14 @@ describe('portable rich sharing formats', () => {
     expect(html).not.toContain('<script>')
     expect(html).not.toContain('href="javascript:')
   })
+  it('uses an audio element for music only when a rich HTML export is explicitly selected', () => {
+    const html = renderShareHtml('Music', [{ id: 'a', role: 'assistant', text: '', assets: [
+      { id: 'song', url: 'data:audio/mpeg;base64,AQID', mime: 'audio/mpeg', name: 'Song.mp3', messageId: 'a' },
+    ] }], new Map([['song', 'data:audio/mpeg;base64,AQID']]), labels, [], [])
+    expect(html).toContain('<audio controls')
+    expect(html).not.toContain('<video')
+    expect(html).not.toContain('novera-media-player')
+  })
   it('rejects traversal and duplicate archive entries', () => {
     expect(() =>
       zipFiles([{ name: '../secret', bytes: new Uint8Array() }])

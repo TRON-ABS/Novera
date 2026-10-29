@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Mosungi ya default",
   "defaultAssistantDesc": "Esalemaka ntango ozali kobanda lisolo ya sika",
   "allAssistants": "Ba Assistants nionso",
-  "lastUsed": "Basalelaki yango mpo na mbala ya nsuka"
+  "lastUsed": "Basalelaki yango mpo na mbala ya nsuka",
+  "officialInstructions": "Bituluku misato ya malako ya Novera ekoki kobongisama kaka na {{path}}."
 }

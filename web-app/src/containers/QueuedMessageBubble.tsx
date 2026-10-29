@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { memo } from 'react'
 import { IconClock, IconX } from '@tabler/icons-react'
 import type { QueuedMessage } from '@/stores/message-queue-store'
@@ -15,13 +16,15 @@ export const QueuedMessageChip = memo(function QueuedMessageChip({
   onEdit,
   onRemove,
 }: QueuedMessageChipProps) {
+  const { t: uiT } = useUiLocale()
+
   return (
     <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-secondary/80 border border-input text-sm max-w-full">
       <IconClock size={14} className="shrink-0 text-muted-foreground animate-pulse" />
       <span
         className="truncate text-foreground/70 cursor-pointer hover:text-foreground transition-colors"
         onClick={() => onEdit?.(message)}
-        title="Click to edit"
+        title={uiT('ui:clickToEdit')}
       >
         {message.text}
       </span>

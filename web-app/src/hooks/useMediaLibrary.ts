@@ -4,6 +4,7 @@ import { invoke } from '@tauri-apps/api/core'
 import { backendStorage } from '@/lib/backendStorage'
 import {
   useCreation,
+  videoSettingsFor,
   creationDefaults,
   type CreationSettings,
 } from './useCreation'
@@ -58,23 +59,20 @@ export const useMediaLibrary = create<{
         if (
           profile &&
           (profile.task === 'video'
-            ? state.settings.videoModel === profile.settings.videoModel
+            ? videoSettingsFor(state).videoModel === profile.settings.videoModel
             : (state.settings.ggufImageModel &&
                 state.settings.ggufImageModel ===
                   profile.settings.ggufImageModel) ||
               (state.settings.imageModel &&
                 state.settings.imageModel === profile.settings.imageModel))
         ) {
-          state.setSettings(
-            profile.task === 'video'
-              ? { videoModel: '' }
-              : {
+          if (profile.task === 'video') state.setVideoSettings({ videoModel: '', ggufTextEncoder: '', ggufVae: '' })
+          else state.setSettings({
                   imageModel: '',
                   ggufImageModel: '',
                   ggufTextEncoder: '',
                   ggufVae: '',
-                }
-          )
+                })
         }
       },
       importReady: (job, restore = false) => {
@@ -102,16 +100,17 @@ export const useMediaLibrary = create<{
                   ...state.profiles,
                   {
                     id,
-                    name: job.plan.variant?.startsWith('nvfp4')
+                    name: job.plan.variant === 'video-gguf' ? 'Wan2.1 T2V 1.3B · Q4_K_M' : job.plan.variant?.startsWith('nvfp4')
                       ? 'FLUX.2 Klein 4B · NVFP4'
                       : 'FLUX.2 Klein 4B · Q4_K_M',
-                    task: 'image',
+                    task: job.plan.variant === 'video-gguf' ? 'video' : 'image',
                     settings: {
                       ...creationDefaults,
                       ...Object.fromEntries(
                         job.plan.files
                           .filter((f) =>
                             [
+                              'videoModel',
                               'ggufImageModel',
                               'ggufTextEncoder',
                               'ggufVae',
@@ -130,8 +129,7 @@ export const useMediaLibrary = create<{
                       device: job.plan.variant?.startsWith('nvfp4')
                         ? 'cuda'
                         : 'auto',
-                      steps: 4,
-                      ggufGuidance: 1,
+                      ...(job.plan.variant === 'video-gguf' ? { videoEngine: 'sdcpp' as const, width: 512, height: 224, mediaRatio: '21:9', frames: 81, fps: 16, durationSeconds: 5, steps: 20, ggufGuidance: 6 } : { steps: 4, ggufGuidance: 1 }),
                     },
                   },
                 ],
@@ -148,9 +146,10 @@ export const useMediaLibrary = create<{
 )
 export function selectMediaProfile(profile: MediaProfile, scope?: string) {
   const state = useCreation.getState()
-  state.setSettings({
+  const configure = profile.task === 'video' ? state.setVideoSettings : state.setSettings
+  configure({
     ...profile.settings,
-    seedMode: profile.settings.seedMode ?? 'fixed',
+    seedMode: profile.settings.seedMode ?? 'random',
     lastImageSeed: profile.settings.lastImageSeed,
     mediaRatio: profile.settings.mediaRatio,
   })
@@ -165,13 +164,12 @@ export function selectMediaProfile(profile: MediaProfile, scope?: string) {
 export async function validateMediaProfile(profile: MediaProfile) {
   const s = profile.settings
   const components =
-    profile.task === 'image' &&
-    ['sdcpp', 'nvfp4-cuda'].includes(s.imageEngine ?? '')
+    profile.task === 'image' ? ['sdcpp', 'nvfp4-cuda'].includes(s.imageEngine ?? '') : s.videoEngine === 'sdcpp'
   await invoke('creation_check_files', {
     request: {
       task: profile.task,
       prompt: 'validate',
-      model: components
+      model: components && profile.task === 'image'
         ? s.ggufImageModel
         : profile.task === 'image'
           ? s.imageModel
@@ -185,7 +183,7 @@ export async function validateMediaProfile(profile: MediaProfile) {
       frames: s.frames,
       fps: s.fps,
       seed: s.seed,
-      backend: profile.task === 'image' ? s.imageEngine : 'diffusers',
+      backend: profile.task === 'image' ? s.imageEngine : s.videoEngine ?? 'diffusers',
       cpp_llm: s.ggufTextEncoder,
       cpp_vae: s.ggufVae,
       cpp_cfg: s.ggufGuidance,

@@ -38,5 +38,6 @@
   "defaultAssistantSection": "ડિફૉલ્ટ સહાયક",
   "defaultAssistantDesc": "નવી ચેટ શરૂ કરતી વખતે વપરાય છે",
   "allAssistants": "બધા સહાયકો",
-  "lastUsed": "છેલ્લે વપરાયેલ"
+  "lastUsed": "છેલ્લે વપરાયેલ",
+  "officialInstructions": "Novera ની સૂચનાઓની ત્રણ શ્રેણીઓ ફક્ત {{path}} દ્વારા જ સંપાદિત કરી શકાય છે."
 }

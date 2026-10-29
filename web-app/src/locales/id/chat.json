@@ -47,7 +47,35 @@
     "workedForAWhile": "Bekerja selama beberapa detik",
     "workedFor": "Bekerja untuk {{duration}}"
   },
+  "player": {
+    "play": "Putar",
+    "pause": "Jeda",
+    "seek": "Posisi pemutaran",
+    "mute": "Bisukan",
+    "volume": "Volume",
+    "speed": "Kecepatan pemutaran"
+  },
   "creation": {
+    "musicLyricsGuide": "Jelaskan gaya dan suara dalam permintaan. Tulis lirik di bawah tag berikut. Nonaktifkan {{instrumental}} untuk menyertakan vokal.",
+    "music": "Musik",
+    "musicDuration": "Durasi musik",
+    "musicQuality": "Kualitas audio",
+    "musicInstrumental": "Instrumental",
+    "musicLyrics": "Lirik",
+    "musicGenerator": "Generator musik",
+    "musicPlanner": "Perencana musik",
+    "setupAllDownload": "Unduh dan atur semuanya secara otomatis",
+    "setupConfiguring": "Mengatur model yang disarankan",
+    "setupStorage": "Total berkas: {{download}}. Cadangan: {{reserve}}. Ruang tambahan: {{required}}. Kosong di drive terpilih: {{free}}.",
+    "setupSpaceMissing": "Kurang {{missing}}. Kosongkan ruang atau pilih drive lain dengan penyimpanan cukup.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M adalah model teks lokal yang direkomendasikan untuk percakapan, penulisan, panggilan alat, dan keluaran terstruktur. Konteks awalnya adalah 16K token; periksa memori yang tersedia sebelum menambahnya. Hanya input dan output teks, tanpa model draf. Gunakan pencarian atau dokumen Anda untuk memverifikasi klaim faktual.",
+    "setupImageNote": "Gambar — FLUX.2 Klein 4B · Q4_K_M. Teks: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Rasio aspek: 21:9; Resolusi: 1024 × 432; Langkah-langkah pembuatan: 4; Mode seed: Acak.",
+    "setupMusicNote": "Musik — ACE-Step 1.5 Turbo. Generator musik: 2B · Q4_K_M; Perencana musik: 1.7B · Q8_0; Teks: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Durasi musik: 10–600 s; Kualitas audio: 48 kHz · 2.0; Instrumental / Lirik; Acak.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Teks: UMT5-XXL · Q4_K_M. Durasi video: 5 s; Rasio aspek: 21:9; Bingkai per detik: 16. Video panjang dirangkai dari klip pendek. Sambungan mungkin terlihat dan pembuatannya bisa lama. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Mengunduh dan mengonfigurasi model yang direkomendasikan: Nemotron untuk teks, Qwen3-Embedding Q8_0 untuk pengambilan multibahasa (CPU secara default), FLUX.2 Klein 4B dan komponennya, Real-ESRGAN ×2/×4, ACE-Step untuk musik (Instrumental diaktifkan secara default), dan Wan2.1 untuk video. Periksa ukuran file, ruang disk, dan prasyarat video di bawah. Unduhan terpisah dan Telusuri tetap tersedia.",
+    "finalizing": "Menyelesaikan video",
+    "videoDuration": "Durasi video",
+    "videoDurationNote": "Video panjang dirangkai dari klip pendek. Sambungan mungkin terlihat dan pembuatannya bisa lama.",
     "output": "Format respons",
     "auto": "Otomatis",
     "text": "Teks",
@@ -144,7 +172,8 @@
     "ratio": "Rasio aspek",
     "resolution": "Resolusi",
     "customSize": "Adat",
-    "sizeAutoNote": "Mengubah rasio menyesuaikan resolusi saat ini. Dimensi menggunakan kelipatan 16, hingga 2048 piksel."
+    "sizeAutoNote": "Mengubah rasio menyesuaikan resolusi saat ini. Dimensi menggunakan kelipatan 16, hingga 2048 piksel.",
+    "setupTextNvfp4Note": "Bobot NVFP4 opsional untuk NVIDIA Blackwell GPU atau yang lebih baru dengan setidaknya 4,5 GiB dari VRAM. Untuk menggunakan bobot ini di Novera, repositori model lengkap harus terlebih dahulu dikonversi ke NVFP4 GGUF yang kompatibel dan divalidasi. Konversi ini belum diverifikasi untuk pos pemeriksaan ini. File Safetensors yang tertaut tidak dapat dimuat langsung oleh mesin internal. Q8_0 tetap menjadi rekomendasi siap pakai. Kebutuhan memori juga bergantung pada panjang konteks."
   },
   "creationInstall": {
     "install": "Pasang konfigurasi ini",

@@ -7,11 +7,12 @@ import {
 } from '@/modules/engines/creation'
 import { useServiceHub } from '@/hooks/useServiceHub'
 import { useTranslation } from '@/i18n/react-i18next-compat'
-import { useCreation } from '@/hooks/useCreation'
+import { useCreation, videoSettingsFor } from '@/hooks/useCreation'
 import { usePrompt } from '@/hooks/usePrompt'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { ShareButton } from './ShareButton'
+import { MediaPlayer } from '@/components/MediaPlayer'
 
 export function GeneratedCreation({
   url,
@@ -29,6 +30,7 @@ export function GeneratedCreation({
   const [file, setFile] = useState<{ path: string; src: string }>()
   const [failed, setFailed] = useState(false)
   const [expanded, setExpanded] = useState(false)
+  const canAnimate = useCreation((state) => videoSettingsFor(state).videoEngine !== 'sdcpp')
   const busy = useCreation((state) =>
     threadId ? !!state.progress[threadId] : false
   )
@@ -57,28 +59,10 @@ export function GeneratedCreation({
   }, [url, service])
   if (!reference) return null
   return (
-    <figure className="my-3 max-w-xl overflow-hidden rounded-xl border bg-secondary/10">
+    <figure className="generated-creation novera-media-card my-3 w-full min-w-0 overflow-hidden rounded-xl border bg-secondary/10">
       {file ? (
-        reference.task === 'image' ? (
-          <button
-            className="block w-full"
-            aria-label={t('chat:creation.expand')}
-            onClick={() => setExpanded(true)}
-          >
-            <img
-              src={file.src}
-              alt={t('chat:creation.image')}
-              className="max-h-[32rem] w-full object-contain"
-            />
-          </button>
-        ) : (
-          <video
-            controls
-            preload="metadata"
-            src={file.src}
-            className="max-h-[32rem] w-full"
-          />
-        )
+        <MediaPlayer src={file.src} kind={reference.task} name={reference.name}
+          onExpand={() => setExpanded(true)} />
       ) : (
         <p className="p-3 text-sm">
           {t(failed ? 'chat:creation.missing' : 'chat:creation.loading')}
@@ -137,7 +121,7 @@ export function GeneratedCreation({
               {t('chat:creation.variant')}
             </Button>
           )}
-          {reference.task === 'image' && threadId && (
+          {reference.task === 'image' && threadId && canAnimate && (
             <Button
               size="sm"
               variant="outline"
@@ -154,15 +138,9 @@ export function GeneratedCreation({
         </div>
       </figcaption>
       <Dialog open={expanded} onOpenChange={setExpanded}>
-        <DialogContent className="max-w-5xl">
-          <DialogTitle>{t('chat:creation.image')}</DialogTitle>
-          {file && (
-            <img
-              className="max-h-[80vh] w-full object-contain"
-              src={file.src}
-              alt={t('chat:creation.image')}
-            />
-          )}
+        <DialogContent className="w-[95vw] max-w-none sm:max-w-none">
+          <DialogTitle>{t(`chat:creation.${reference.task}`)}</DialogTitle>
+          {file && <MediaPlayer src={file.src} kind={reference.task} name={reference.name} expanded />}
         </DialogContent>
       </Dialog>
     </figure>

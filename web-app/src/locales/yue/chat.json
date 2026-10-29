@@ -47,7 +47,35 @@
     "tokens": "詞元",
     "perSecond": "詞元/秒"
   },
+  "player": {
+    "play": "播放",
+    "pause": "暫停",
+    "seek": "播放位置",
+    "mute": "靜音",
+    "volume": "音量",
+    "speed": "播放速度"
+  },
   "creation": {
+    "musicLyricsGuide": "喺請求入面描述風格同人聲，喺下面標籤下填歌詞。想有演唱，就關閉{{instrumental}}。",
+    "music": "音樂",
+    "musicDuration": "音樂長度",
+    "musicQuality": "音質",
+    "musicInstrumental": "純音樂",
+    "musicLyrics": "歌詞",
+    "musicGenerator": "音樂生成模型",
+    "musicPlanner": "音樂規劃模型",
+    "setupAllDownload": "自動下載同設定全部",
+    "setupConfiguring": "設定緊建議模型",
+    "setupStorage": "檔案總量：{{download}}。預留：{{reserve}}。仲需要空間：{{required}}。所選磁碟可用：{{free}}。",
+    "setupSpaceMissing": "仲欠 {{missing}}。請清理空間，或者揀另一個有足夠空間嘅磁碟。",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M 係推薦嘅本地文字模型，用嚟對話、寫作、工具調用同結構化輸出。初始上下文係 16K 令牌；喺增加之前檢查可用記憶體。只有文字輸入同輸出，冇草稿模型。用搜尋或者你嘅文件嚟驗證事實聲稱。",
+    "setupImageNote": "圖像 — FLUX.2 Klein 4B · Q4_K_M. 文字: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. 長寬比: 21:9; 決議: 1024 × 432; 生成步驟: 4; 種子模式: 隨機.",
+    "setupMusicNote": "音樂 — ACE-Step 1.5 Turbo. 音樂生成模型: 2B · Q4_K_M; 音樂規劃模型: 1.7B · Q8_0; 文字: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. 音樂長度: 10–600 s; 音質: 48 kHz · 2.0; 純音樂 / 歌詞; 隨機.",
+    "setupVideoNote": "影片 — Wan2.1 T2V 1.3B · Q4_K_M. 文字: UMT5-XXL · Q4_K_M. 影片長度: 5 s; 長寬比: 21:9; 每秒嘅帧: 16. 長影片由多段短片拼接而成。接駁位可能睇得出，生成可能要好長時間。 · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "下載並配置建議嘅模型：文本用 Nemotron，多語言檢索用 Qwen3-Embedding Q8_0 (預設用 CPU)，FLUX.2 Klein 4B 及其組件，Real-ESRGAN ×2/×4，音樂用 ACE-Step (預設開著樂器模式)，同埋影片用 Wan2.1。請喺下面檢查檔案大小、磁碟空間同影片先決條件。獨立嘅下載同瀏覽功能仍然可用。",
+    "finalizing": "影片完成處理中",
+    "videoDuration": "影片長度",
+    "videoDurationNote": "長影片由多段短片拼接而成。接駁位可能睇得出，生成可能要好長時間。",
     "output": "回應格式",
     "auto": "自動",
     "text": "文字",
@@ -144,7 +172,8 @@
     "ratio": "長寬比",
     "resolution": "決議",
     "customSize": "自訂",
-    "sizeAutoNote": "改變比例會適應當前嘅解像度。尺寸使用 16 嘅倍數，最多係 2048 px 。"
+    "sizeAutoNote": "改變比例會適應當前嘅解像度。尺寸使用 16 嘅倍數，最多係 2048 px 。",
+    "setupTextNvfp4Note": "檢測到至少有 4.5 GiB VRAM 嘅 NVIDIA Blackwell GPU 或更新型號時，可選用 NVFP4 權重。喺 Novera 中使用呢啲權重前，必須先將完整模型儲存庫轉換成相容嘅 NVFP4 GGUF 並驗證。呢個轉換尚未為呢個檢查點驗證。連結嘅 Safetensors 檔案唔可以由內建引擎直接載入。Q8_0 仍然係即用嘅建議。記憶體需求亦取決於上下文長度。"
   },
   "creationInstall": {
     "install": "安裝呢個設定",

@@ -13,10 +13,10 @@
 // vendor/llama.cpp and with engine::PINNED_* on the Rust side; the shim
 // re-exports llama_version()/llama_build_number() so a mismatch is caught at
 // runtime instead of producing a silently wrong engine.
-pub const LLAMA_CPP_TAG: &str = "b11823";
-pub const LLAMA_CPP_BUILD_NUMBER: u32 = 11823;
-pub const LLAMA_CPP_COMMIT: &str = "5c19a5a7560024bb19745b4ae04a75613d4b9aa3";
-pub const LLAMA_CPP_VERSION: &str = "0.7.0";
+pub const LLAMA_CPP_TAG: &str = "b11960";
+pub const LLAMA_CPP_BUILD_NUMBER: u32 = 11960;
+pub const LLAMA_CPP_COMMIT: &str = "8642541b255bfb5dc39cd351a178be09013a55d6";
+pub const LLAMA_CPP_VERSION: &str = "0.8.0";
 
 const COMMANDS: &[&str] = &[
     // Cleanup command
@@ -128,6 +128,20 @@ mod engine {
             "-DCMAKE_TOOLCHAIN_FILE={}",
             cmake_path(&src.join(toolchain))
         ));
+        // MSYS2 clang defaults to MinGW even though Rust links MSVC archives.
+        // Pin its target and Windows SDK tools rather than picking windres/ld.lld.
+        let target = if env::var("CARGO_CFG_TARGET_ARCH").unwrap_or_default() == "aarch64" {
+            "aarch64-pc-windows-msvc"
+        } else {
+            "x86_64-pc-windows-msvc"
+        };
+        cmd.arg(format!("-DCMAKE_C_COMPILER_TARGET={target}"));
+        cmd.arg(format!("-DCMAKE_CXX_COMPILER_TARGET={target}"));
+        cmd.args(["-DCMAKE_LINKER=link.exe", "-DCMAKE_RC_COMPILER=rc.exe", "-DCMAKE_MT=mt.exe"]);
+        // b11940 passes quantized-block pointers to the byte-pointer prefetch
+        // intrinsic. New Clang versions diagnose these optional cache hints as
+        // errors; retain the diagnostic without blocking the Windows build.
+        cmd.arg("-DCMAKE_C_FLAGS=-Wno-error=incompatible-pointer-types");
         windows_cuda_host_compiler(cmd);
     }
 

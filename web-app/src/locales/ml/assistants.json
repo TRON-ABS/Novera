@@ -38,5 +38,6 @@
   "defaultAssistantSection": "ഡിഫോൾട്ട് അസിസ്റ്റൻ്റ്",
   "defaultAssistantDesc": "ഒരു പുതിയ ചാറ്റ് ആരംഭിക്കുമ്പോൾ ഉപയോഗിക്കുന്നു",
   "allAssistants": "എല്ലാ സഹായികളും",
-  "lastUsed": "അവസാനം ഉപയോഗിച്ചത്"
+  "lastUsed": "അവസാനം ഉപയോഗിച്ചത്",
+  "officialInstructions": "Novera നിർദ്ദേശങ്ങളുടെ മൂന്ന് വിഭാഗങ്ങളും {{path}} വഴി മാത്രമേ തിരുത്താനാകൂ."
 }

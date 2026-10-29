@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Trợ lý mặc định",
   "defaultAssistantDesc": "Được sử dụng khi bắt đầu cuộc trò chuyện mới",
   "allAssistants": "Tất cả Trợ lý",
-  "lastUsed": "Được sử dụng lần cuối"
+  "lastUsed": "Được sử dụng lần cuối",
+  "officialInstructions": "Chỉ có thể chỉnh sửa ba nhóm hướng dẫn của Novera qua {{path}}."
 }

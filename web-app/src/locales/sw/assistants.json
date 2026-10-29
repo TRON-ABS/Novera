@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "Hutumika unapoanza gumzo jipya",
   "allAssistants": "Wasaidizi wote",
   "lastUsed": "Ilitumika mwisho",
-  "deleteFailed": "Imeshindikana kufuta msaidizi. Tafadhali jaribu tena."
+  "deleteFailed": "Imeshindikana kufuta msaidizi. Tafadhali jaribu tena.",
+  "officialInstructions": "Makundi matatu ya maelekezo ya Novera yanahaririwa kupitia {{path}} pekee."
 }

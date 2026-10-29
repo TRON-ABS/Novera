@@ -119,7 +119,7 @@ export function EditMessageDialog({
                     <img
                       className="object-cover w-full h-full rounded-lg"
                       src={imageUrl}
-                      alt={`Attached image ${index + 1}`}
+                      alt={t('ui:attachedImageValue0', { value0: index + 1 })}
                     />
                     <div
                       className="absolute -top-1 -right-2.5 bg-destructive size-5 flex rounded-full items-center justify-center cursor-pointer"

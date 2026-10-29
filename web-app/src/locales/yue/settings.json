@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "搵到個錯誤？喺 GitHub 上面提出問題，幫我哋幫手。",
   "reportIssue": "報告問題",
   "credits": "學分",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "\"Novera\" (基於 Menlo Research 嘅 Jan) 同埋佢嘅貢獻者嘅 \"TRON-ABS\"。",
   "creditsDesc2": "特別多謝我哋嘅開源依賴項目 — 特別係 llama.cpp 同 Tauri — 同埋我哋嘅驚人 AI 社群。",
   "appVersion": "應用程式版本",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "重設代碼塊樣式",
     "resetCodeBlockStyleDesc": "將代碼塊樣式重設為預設。",
     "resetCodeBlockSuccess": "代碼塊樣式重設成功",
-    "resetCodeBlockSuccessDesc": "代碼塊樣式已經還原到預設。"
+    "resetCodeBlockSuccessDesc": "代碼塊樣式已經還原到預設。",
+    "subtitle": "將Novera變成你自己嘅，由佢嘅外觀到你嘅對話偏好。",
+    "accentColor": "口音顏色",
+    "accentColorDesc": "揀重點同側欄顏色。",
+    "conversation": "對話同通知"
   },
   "hardware": {
     "os": "操作系統",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "搵到個錯誤？喺 GitHub 上面提出問題，幫我哋幫手。",
     "reportIssue": "報告問題",
     "credits": "學分",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "\"Novera\" (基於 Menlo Research 嘅 Jan) 同埋佢嘅貢獻者嘅 \"TRON-ABS\"。",
     "creditsDesc2": "特別多謝我哋嘅開源依賴項目 — 特別係 llama.cpp 同 Tauri — 同埋我哋嘅驚人 AI 社群。"
   },
   "extensions": {

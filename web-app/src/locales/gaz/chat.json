@@ -47,7 +47,35 @@
     "tokens": "Tokeenota",
     "perSecond": "tokeenota/s"
   },
+  "player": {
+    "play": "Taphachiisi",
+    "pause": "Yeroo muraasa dhaabi",
+    "seek": "Bakka taphannaa",
+    "mute": "Sagalee cufi",
+    "volume": "Hamma sagalee",
+    "speed": "Saffisa taphannaa"
+  },
   "creation": {
+    "musicLyricsGuide": "Gaaffii keessatti akkaataa fi sagalee ibsi. Jechoota sirbaa mallattoolee armaan gadii jalatti barreessi. Sirba sagalee qabuuf {{instrumental}} dhaamsi.",
+    "music": "Muuziqaa",
+    "musicDuration": "Dheerina muuziqaa",
+    "musicQuality": "Qulqullina sagalee",
+    "musicInstrumental": "Meeshaalee qofa",
+    "musicLyrics": "Jechoota sirbaa",
+    "musicGenerator": "Uumaa muuziqaa",
+    "musicPlanner": "Karoorsaa muuziqaa",
+    "setupAllDownload": "Hunda ofumaan buusiitii qindeessi",
+    "setupConfiguring": "Moodeelota gorfaman qindeessaa jira",
+    "setupStorage": "Faayiloota hunda: {{download}}. Kuufama: {{reserve}}. Bakka dabalataa barbaachisu: {{required}}. Diskii filatame irratti duwwaa: {{free}}.",
+    "setupSpaceMissing": "{{missing}} hanqata. Bakka duwwaa uumi ykn diskii biraa kuusaa gahaa qabu filadhu.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M moodeela barruu naannoo gorfame haasawa, barreessuu, waamicha meeshaa fi firii caaseffamaadha. Yaadni jalqabaa mallattoolee 16K dha; osoo hin guddisin dura memory jiru ilaali. Galtee fi baasaa barruu qofa, moodeela wixinee hin qabne. Himata dhugaa ta’e mirkaneessuuf barbaacha ykn sanadoota kee fayyadami.",
+    "setupImageNote": "Fakkii — FLUX.2 Klein 4B · Q4_K_M. Barreeffama: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Reeshiyoo aspeektii: 21:9; Murtoo: 1024 × 432; Tarkaanfiiwwan dhalootaa: 4; Haala sanyii: Carraa.",
+    "setupMusicNote": "Muuziqaa — ACE-Step 1.5 Turbo. Uumaa muuziqaa: 2B · Q4_K_M; Karoorsaa muuziqaa: 1.7B · Q8_0; Barreeffama: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Dheerina muuziqaa: 10–600 s; Qulqullina sagalee: 48 kHz · 2.0; Meeshaalee qofa / Jechoota sirbaa; Carraa.",
+    "setupVideoNote": "Viidiyoo — Wan2.1 T2V 1.3B · Q4_K_M. Barreeffama: UMT5-XXL · Q4_K_M. Dheerina viidiyoo: 5 s; Reeshiyoo aspeektii: 21:9; Fureemii sekondii tokkotti: 16. Viidiyoowwan dheeraan kutaalee gabaaboo walitti qabuun hojjetamu. Walitti hidhamni mul'achuu danda'a; uumuunis yeroo dheeraa fudhachuu danda'a. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Moodeelota gorfaman buusee qindeessa: Nemotron barruudhaaf, Qwen3-Embedding Q8_0 afaanota hedduu argachuuf (CPU durtii), FLUX.2 Klein 4B fi qaamolee isaa, Real-ESRGAN ×2/×4, ACE-Step muuziqaaf (Instrumental on durtii), fi Wan2.1 viidiyoodhaaf. Safara faayilii, bakka diskiin fi haal-duree viidiyoo armaan gadii ilaalaa. Downloads fi Browse adda addaa ni hafu.",
+    "finalizing": "Viidiyoo xumuraa jira",
+    "videoDuration": "Dheerina viidiyoo",
+    "videoDurationNote": "Viidiyoowwan dheeraan kutaalee gabaaboo walitti qabuun hojjetamu. Walitti hidhamni mul'achuu danda'a; uumuunis yeroo dheeraa fudhachuu danda'a.",
     "output": "Akkaataa deebii kennuu",
     "auto": "Ofumaan",
     "text": "Barreeffama",
@@ -144,7 +172,8 @@
     "ratio": "Reeshiyoo aspeektii",
     "resolution": "Murtoo",
     "customSize": "Aadaa",
-    "sizeAutoNote": "Reeshiyoo jijjiiruun furmaata ammaa madaqsa. Dimshaashumatti dachaa 16 fayyadamu, hanga 2048 px."
+    "sizeAutoNote": "Reeshiyoo jijjiiruun furmaata ammaa madaqsa. Dimshaashumatti dachaa 16 fayyadamu, hanga 2048 px.",
+    "setupTextNvfp4Note": "Ulfaatina filannoo NVFP4 kan adda baafameef NVIDIA Blackwell GPU ykn haaraa yoo xiqqaate 4.5 GiB VRAM. Ulfaatinawwan kana Novera keessatti fayyadamuuf, kuusaan moodeela guutuu jalqaba gara walsimsiisaa NVFP4 GGUFtti jijjiiramee mirkanaa'uu qaba. Jijjiirraan kun hanga ammaatti buufata sakatta'iinsaa kanaaf hin mirkanoofne. Faayilli Safetensors walitti hidhame kallattiin motora ijaarameen fe'amuu hin danda'u. Q8_0 gorsa fayyadamuuf qophaa'aa ta'ee hafa. Fedhiin yaadannoo dheerina haala dubbii irrattis hundaa’a."
   },
   "creationInstall": {
     "install": "Qindaa’ina kana fe’i",

@@ -236,7 +236,7 @@
     "delete": "刪除"
   },
   "modelSettings": {
-    "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
+    "nglDisabledByFit": "自動調整正在選擇 GPU 層。關閉自動調整以手動設定。",
     "title": "模型設定 - {{modelId}}",
     "description": "設定模型設定以最佳化效能和行為。",
     "samplingDefaults": {
@@ -524,8 +524,8 @@
     }
   },
   "llamacppBusyOnExit": {
-    "title": "llama.cpp is still busy",
-    "description": "One or more models did not unload in time. Force-quitting will terminate llama.cpp and may interrupt active responses.",
+    "title": "llama.cpp 還在忙",
+    "description": "一個或多個模型未及時卸載。強制退出將終止 llama.cpp，並可能中斷正在進行的回應。",
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"

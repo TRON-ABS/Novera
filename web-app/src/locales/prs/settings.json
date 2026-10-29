@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "یک اشکال پیدا کردید؟ با ثبت مشکل در GitHub به ما کمک کنید.",
   "reportIssue": "گزارش مسئله",
   "credits": "اعتبارات",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS)، بر اساس جنوری توسط Menlo Research و همکاری کنندگان آن.",
   "creditsDesc2": "تشکر ویژه از وابستگی های منبع باز ما - به ویژه llama.cpp و Tauri - و از جامعه شگفت انگیز هوش مصنوعی ما.",
   "appVersion": "نسخه برنامه",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "تنظیم دوباره سبک بلوک کد",
     "resetCodeBlockStyleDesc": "سبک بلوک کد را به پیش فرض تنظیم دوباره کنید.",
     "resetCodeBlockSuccess": "سبک بلوک کد با موفقیت تنظیم دوباره شد",
-    "resetCodeBlockSuccessDesc": "سبک بلوک کد به حالت پیش فرض بازیابی شده است."
+    "resetCodeBlockSuccessDesc": "سبک بلوک کد به حالت پیش فرض بازیابی شده است.",
+    "subtitle": "Novera را از ظاهر آن تا ترجیحات مکالمه خود بسازید.",
+    "accentColor": "رنگ لهجه",
+    "accentColorDesc": "لهجه و رنگ نوار کناری را انتخاب کنید.",
+    "conversation": "مکالمات و اعلان ها"
   },
   "hardware": {
     "os": "سیستم عامل",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "یک اشکال پیدا کردید؟ با ثبت مشکل در GitHub به ما کمک کنید.",
     "reportIssue": "گزارش مسئله",
     "credits": "اعتبارات",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS)، بر اساس جنوری توسط Menlo Research و همکاری کنندگان آن.",
     "creditsDesc2": "تشکر ویژه از وابستگی های منبع باز ما - به ویژه llama.cpp و Tauri - و از جامعه شگفت انگیز هوش مصنوعی ما."
   },
   "extensions": {

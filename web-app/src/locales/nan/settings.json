@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "發現錯誤？透過在 GitHub 上提交問題來幫助咱。",
   "reportIssue": "報告問題",
   "credits": "致謝",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS)，基於 Menlo Research 佮閣貢獻者佇的 Jan。",
   "creditsDesc2": "特別感謝咱的開源依賴項——尤其是 llama.cpp 和 Tauri——以及咱出色的 AI 社群。",
   "appVersion": "應用程式版本",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "重設程式碼區塊樣式",
     "resetCodeBlockStyleDesc": "將程式碼區塊樣式重設為預設值。",
     "resetCodeBlockSuccess": "程式碼區塊樣式重設成功",
-    "resetCodeBlockSuccessDesc": "程式碼區塊樣式已還原為預設值。"
+    "resetCodeBlockSuccessDesc": "程式碼區塊樣式已還原為預設值。",
+    "subtitle": "從外觀到閣對話偏好，閣讓 Novera 變成閣自己的。",
+    "accentColor": "強調色",
+    "accentColorDesc": "閣選強調色佮側邊欄色。",
+    "conversation": "對話佮通知"
   },
   "hardware": {
     "os": "作業系統",
@@ -309,10 +313,10 @@
     "revealLogs": "顯示日誌",
     "factoryResetTitle": "重置為出廠設定",
     "factoryResetDesc": "這將重置所有應用程式設定為預設值。此操作無法撤銷。咱只建議在應用程式損壞時使用。",
-    "keepAppData": "Keep application data",
-    "keepAppDataDesc": "Your chat history and conversations will be preserved.",
-    "keepModelsAndConfigs": "Keep all models and configurations",
-    "keepModelsAndConfigsDesc": "Downloaded models, engine settings, and MCP configurations will be preserved.",
+    "keepAppData": "保留應用程式資料",
+    "keepAppDataDesc": "閣的對話紀錄佮對話會被保留。",
+    "keepModelsAndConfigs": "保留所有模型佮設定",
+    "keepModelsAndConfigsDesc": "閣下載的模型、引擎設定佮 MCP 設定會被保留。",
     "clearWebData": "清除快取的介面數據",
     "clearWebDataDesc": "刪掉應用程式視窗保留的快取本機儲存體和 UI 首選項。介面重置為預設狀態。",
     "cancel": "取消",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "發現錯誤？透過在 GitHub 上提交問題來幫助咱。",
     "reportIssue": "報告問題",
     "credits": "致謝",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS)，基於 Menlo Research 佮閣貢獻者佇的 Jan。",
     "creditsDesc2": "特別感謝咱的開源依賴項——尤其是 llama.cpp 和 Tauri——以及咱出色的 AI 社群。"
   },
   "extensions": {

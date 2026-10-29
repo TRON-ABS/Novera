@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Скинути стиль блоку коду",
     "resetCodeBlockStyleDesc": "Скинути стиль блоку коду до стандартного.",
     "resetCodeBlockSuccess": "Стиль блоку коду успішно скинуто",
-    "resetCodeBlockSuccessDesc": "Стиль блоку коду відновлено до стандартного."
+    "resetCodeBlockSuccessDesc": "Стиль блоку коду відновлено до стандартного.",
+    "subtitle": "Зробіть Novera своїм, від його зовнішнього вигляду до ваших уподобань у розмові.",
+    "accentColor": "Акцентний колір",
+    "accentColorDesc": "Виберіть акцент і колір бічної панелі.",
+    "conversation": "Розмови та сповіщення"
   },
   "hardware": {
     "os": "Операційна система",

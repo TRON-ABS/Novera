@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Gargaaraa Idilee",
   "defaultAssistantDesc": "Yeroo haasawa haaraa jalqabamu kan itti fayyadamu",
   "allAssistants": "Gargaartota Hunda",
-  "lastUsed": "Kan yeroo dhumaatiif itti fayyadamtan"
+  "lastUsed": "Kan yeroo dhumaatiif itti fayyadamtan",
+  "officialInstructions": "Ramaddiiwwan qajeelfama Novera sadan karaa {{path}} qofaan gulaalamuu danda’u."
 }

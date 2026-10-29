@@ -335,3 +335,21 @@ describe('isToolSupported', () => {
     expect(await ext.isToolSupported('foo')).toBe(true)
   })
 })
+
+describe('model download storage', () => {
+  it('keeps Safetensors and companion files in the same Documents model folder', async () => {
+    const ext = newExt()
+    mockJanData.mockResolvedValue('/data')
+    mockExistsSync.mockResolvedValue(false)
+    vi.spyOn(ext, 'isVisionSupported').mockResolvedValue(false)
+    mockInvoke.mockImplementation(async (cmd: string) => cmd === 'model_download_directory' ? '/Documents/Novera models/example' : undefined)
+    const downloadFiles = vi.fn().mockResolvedValue(undefined)
+    vi.mocked(window.core.extensionManager.getByName).mockReturnValue({ downloadFiles })
+    await ext.import('example', { modelPath: 'https://example.com/model.safetensors', files: [{ filename: 'config.json', url: 'https://example.com/config.json' }] })
+    expect(downloadFiles.mock.calls[0][0]).toEqual(expect.arrayContaining([
+      expect.objectContaining({ save_path: '/Documents/Novera models/example/model.safetensors' }),
+      expect.objectContaining({ save_path: '/Documents/Novera models/example/config.json' }),
+    ]))
+    expect(mockInvoke).toHaveBeenCalledWith('write_yaml', expect.objectContaining({ data: expect.objectContaining({ model_path: '/Documents/Novera models/example/model.safetensors' }), savePath: '/data/mlx/models/example/model.yml' }))
+  })
+})

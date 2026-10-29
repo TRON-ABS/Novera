@@ -47,7 +47,35 @@
     "workedForAWhile": "工作了几秒钟",
     "workedFor": "为 {{duration}} 工作"
   },
+  "player": {
+    "play": "播放",
+    "pause": "暂停",
+    "seek": "播放位置",
+    "mute": "静音",
+    "volume": "音量",
+    "speed": "播放速度"
+  },
   "creation": {
+    "musicLyricsGuide": "在请求中描述风格和人声，在下方标签下填写歌词。需要演唱时，请关闭{{instrumental}}。",
+    "music": "音乐",
+    "musicDuration": "音乐时长",
+    "musicQuality": "音频质量",
+    "musicInstrumental": "纯音乐",
+    "musicLyrics": "歌词",
+    "musicGenerator": "音乐生成模型",
+    "musicPlanner": "音乐规划模型",
+    "setupAllDownload": "自动下载并配置全部",
+    "setupConfiguring": "正在配置推荐模型",
+    "setupStorage": "文件总量：{{download}}。预留：{{reserve}}。还需空间：{{required}}。所选磁盘可用：{{free}}。",
+    "setupSpaceMissing": "还缺少 {{missing}}。请清理空间，或选择存储空间足够的其他磁盘。",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M 是推荐用于对话、写作、工具调用和结构化输出的本地文本模型。初始上下文是16K token；在增加内存之前检查可用内存。仅文本输入和输出，没有草稿模型。使用搜索或您的文档来验证事实主张。",
+    "setupImageNote": "图像 — FLUX.2 Klein 4B · Q4_K_M. 正文: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. 纵横比: 21:9; 分辨率: 1024 × 432; 生成步骤: 4; 种子模式: 随机.",
+    "setupMusicNote": "音乐 — ACE-Step 1.5 Turbo. 音乐生成模型: 2B · Q4_K_M; 音乐规划模型: 1.7B · Q8_0; 正文: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. 音乐时长: 10–600 s; 音频质量: 48 kHz · 2.0; 纯音乐 / 歌词; 随机.",
+    "setupVideoNote": "视频 — Wan2.1 T2V 1.3B · Q4_K_M. 正文: UMT5-XXL · Q4_K_M. 视频时长: 5 s; 纵横比: 21:9; 每秒帧数: 16. 长视频由多个短片段拼接而成。衔接处可能明显，生成可能需要很长时间。 · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "下载并配置推荐模型：用于文本的 Nemotron、用于多语言检索的 Qwen3-Embedding Q8_0（默认为 CPU）、FLUX.2 Klein 4B 及其组件、Real-ESRGAN ×2/×4、 ACE-Step for music (Instrumental on by default), and Wan2.1 for video. Check file sizes, disk space and video prerequisites below.单独的下载和浏览仍然可用。",
+    "finalizing": "正在完成视频",
+    "videoDuration": "视频时长",
+    "videoDurationNote": "长视频由多个短片段拼接而成。衔接处可能明显，生成可能需要很长时间。",
     "output": "响应格式",
     "auto": "汽车",
     "text": "正文",
@@ -144,7 +172,8 @@
     "ratio": "纵横比",
     "resolution": "分辨率",
     "customSize": "定制",
-    "sizeAutoNote": "更改比率会适应当前分辨率。尺寸使用 16 的倍数，最大为 2048 像素。"
+    "sizeAutoNote": "更改比率会适应当前分辨率。尺寸使用 16 的倍数，最大为 2048 像素。",
+    "setupTextNvfp4Note": "检测到的 NVIDIA Blackwell GPU 或更新版本的可选 NVFP4 权重，至少 4.5 GiB 的 VRAM。要在 Novera 中使用这些权重，完整的 model repository must first be converted to a compatible NVFP4 GGUF and validated.此检查点的此转换尚未得到验证。内置引擎无法直接加载链接的 Safetensors 文件。 Q8_0 仍然是即用型建议。内存需求还取决于上下文长度。"
   },
   "creationInstall": {
     "install": "安装此配置",

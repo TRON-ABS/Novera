@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { useGeneralSetting } from '@/hooks/useGeneralSetting'
 import { useAppTranslation } from '@/i18n/hooks'
 import {
@@ -94,6 +95,8 @@ export const NATIVE_LANGUAGES = [
 ] satisfies { value: Language; label: string }[]
 
 export default function LanguageSwitcher() {
+  const { t: uiT } = useUiLocale()
+
   const { i18n } = useAppTranslation()
   const { setCurrentLanguage, currentLanguage } = useGeneralSetting()
 
@@ -110,7 +113,7 @@ export default function LanguageSwitcher() {
           {NATIVE_LANGUAGES.find(
             (lang: { value: string; label: string }) =>
               lang.value === currentLanguage
-          )?.label || 'English'}
+          )?.label || uiT('common:english')}
           </span>
           <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground ml-2" />
         </Button>

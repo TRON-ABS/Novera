@@ -2,6 +2,8 @@
  * Tauri Providers Service - Desktop implementation
  */
 
+import { registerRecommendedModels } from '@/services/models/registerRecommended'
+import { useModelProvider } from '@/hooks/useModelProvider'
 import { mergeMediaModels } from '@/constants/mediaProviders'
 import { predefinedProviders } from '@/constants/providers'
 import { providerModels } from '@/constants/models'
@@ -58,6 +60,9 @@ export class TauriProvidersService extends DefaultProvidersService {
       const runtimeProviders: ModelProvider[] = []
       for (const [providerName, value] of EngineManager.instance().engines) {
         try {
+          if (providerName === 'llamacpp' && typeof value.import === 'function' && typeof value.get === 'function') {
+            await registerRecommendedModels(value, useModelProvider.getState().deletedModels)
+          }
           const models = await value.list() ?? []
           const provider: ModelProvider = {
             active: false,

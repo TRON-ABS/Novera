@@ -38,5 +38,6 @@
   "defaultAssistantSection": "ಡೀಫಾಲ್ಟ್ ಸಹಾಯಕ",
   "defaultAssistantDesc": "ಹೊಸ ಚಾಟ್ ಪ್ರಾರಂಭಿಸುವಾಗ ಬಳಸಲಾಗುತ್ತದೆ",
   "allAssistants": "ಎಲ್ಲಾ ಸಹಾಯಕರು",
-  "lastUsed": "ಕೊನೆಯದಾಗಿ ಬಳಸಲಾಗಿದೆ"
+  "lastUsed": "ಕೊನೆಯದಾಗಿ ಬಳಸಲಾಗಿದೆ",
+  "officialInstructions": "Novera ಸೂಚನೆಗಳ ಮೂರು ವರ್ಗಗಳನ್ನು {{path}} ಮೂಲಕ ಮಾತ್ರ ಸಂಪಾದಿಸಬಹುದು."
 }

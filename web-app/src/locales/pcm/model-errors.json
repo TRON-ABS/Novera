@@ -3,7 +3,7 @@
   "description": "This chat dey reach the AI memory limit, like whiteboard wey don nearly full. We fit increase the memory window (wey dem dey call context size) make e remember more, but e fit use more of your computer memory. We fit also shorten the input, wey mean say e go forget some chat history to make space for new messages.",
   "increaseContextSizeDescription": "You wan increase the context size?",
   "truncateInput": "Shorten Input",
-  "increaseContextSize": "Increase Context Size",
+  "increaseContextSize": "Make context size bigger",
   "lastRequestOverflowed": "The last request pass the context window size.",
   "contextOverflowDetail": "This request need {{request}} tokens, but the model context window fit hold only {{context}}.",
   "contextOverflowGeneric": "This request pass the context size wey dey available.",

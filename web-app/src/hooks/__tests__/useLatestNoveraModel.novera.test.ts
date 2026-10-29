@@ -8,7 +8,7 @@ import { NOVERA_RECOMMENDED_MODEL } from '@/lib/noveraRecommendedModel'
 
 afterEach(() => vi.unstubAllGlobals())
 describe('Novera recommendation persistence', () => {
-  it('keeps the fixed LiquidAI choice after hydrating an outdated recommendation', async () => {
+  it('keeps the fixed NVIDIA choice after hydrating an outdated recommendation', async () => {
     await useLatestNoveraModel.persist.rehydrate()
     expect(useLatestNoveraModel.getState().model).toEqual(NOVERA_RECOMMENDED_MODEL)
   })
@@ -17,6 +17,6 @@ describe('Novera recommendation persistence', () => {
     vi.stubGlobal('fetch', fetch)
     await useLatestNoveraModel.getState().fetchLatestNoveraModel(true)
     expect(fetch).not.toHaveBeenCalled()
-    expect(useLatestNoveraModel.getState().model?.quants?.[0].model_id).toBe('LFM2.5-2.6B-Q6_K')
+    expect(useLatestNoveraModel.getState().model?.quants?.[0].model_id).toBe('Nemotron-3.5-Bolt-E4B-Q4_K_M')
   })
 })

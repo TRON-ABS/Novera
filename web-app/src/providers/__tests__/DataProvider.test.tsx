@@ -571,3 +571,17 @@ describe('DataProvider', () => {
     expect(h.navigate).not.toHaveBeenCalled()
   })
 })
+
+it('refreshes local models after late extension registration and window focus', async () => {
+  const { unmount } = render(<DataProvider />)
+  await waitFor(() => expect(hubState.getProviders).toHaveBeenCalled())
+  h.setProviders.mockClear()
+  const local = [{ provider: 'llamacpp', models: [{ id: 'Nemotron-3.5-Bolt-E4B-Q4_K_M' }] }]
+  hubState.getProviders.mockResolvedValue(local)
+  await act(async () => { h.registrationListeners.forEach((cb) => cb()) })
+  await waitFor(() => expect(h.setProviders).toHaveBeenCalledWith(local))
+  h.setProviders.mockClear()
+  await act(async () => { window.dispatchEvent(new Event('focus')) })
+  await waitFor(() => expect(h.setProviders).toHaveBeenCalledWith(local))
+  unmount()
+})

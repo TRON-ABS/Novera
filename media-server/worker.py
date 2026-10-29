@@ -32,7 +32,11 @@ def watch_parent(pid):
         else:
             while True:
                 try: os.kill(pid, 0)
-                except ProcessLookupError: os._exit(1)
+                except ProcessLookupError:
+                    if os.getpgrp() == os.getpid():
+                        import signal
+                        os.killpg(os.getpgrp(), signal.SIGKILL)
+                    os._exit(1)
                 time.sleep(1)
     threading.Thread(target=watch, daemon=True).start()
 
@@ -113,6 +117,10 @@ def run(config):
     if "callback_on_step_end" in parameters:
         args["callback_on_step_end"] = progress
     emit(stage="generating", progress=0)
+    if config['task'] == 'video' and config.get('duration_seconds'):
+        from video_worker import run_diffusers_video
+        run_diffusers_video(pipeline, args, config, device)
+        return
     if device == "cuda":
         torch.cuda.synchronize()
     generating = time.monotonic()
@@ -167,6 +175,9 @@ def publish(config, result, pipeline_name, device, diagnostics=None):
 if __name__ == "__main__":
     try:
         config = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+        if config.get('task') == 'video':
+            from video_worker import own_process_tree
+            supervision = own_process_tree()
         if config.get("parent_pid"):
             watch_parent(config["parent_pid"])
         run(config)

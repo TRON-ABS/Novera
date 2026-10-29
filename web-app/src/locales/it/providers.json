@@ -43,7 +43,14 @@
     "removeFromJan": "Rimuovi da Novera",
     "success": "Il modello {{modelId}} è stato eliminato definitivamente.",
     "cancel": "Annulla",
-    "delete": "Elimina"
+    "delete": "Elimina",
+    "choiceDescription": "Scegli come rimuovere questo modello da Novera.",
+    "removeFromNovera": "Rimuovi da Novera",
+    "permanentlyDelete": "Elimina definitivamente",
+    "keepFilesDescription": "Rimuovi il modello dall'elenco e mantieni i suoi file su disco. Puoi importarlo di nuovo.",
+    "permanentDescription": "Elimina il modello e i suoi file gestiti Novera dal disco. Questa operazione non può essere annullata.",
+    "permanentImportedDescription": "Elimina anche il file principale GGUF nella sua posizione originale. Vengono conservati i file ausiliari esterni. Questa operazione non può essere annullata.",
+    "removedSuccess": "Il modello {{modelId}} è stato rimosso da Novera. I suoi file sono stati conservati."
   },
   "deleteAllModels": {
     "button": "Elimina tutto",
@@ -123,5 +130,8 @@
   "backendHistoryUpdated": "Aggiornato",
   "backendHistoryRolledBack": "Rollback",
   "backendHistoryRollbackFailed": "Rollback fallito",
-  "backendHistoryFailed": "Fallito"
+  "backendHistoryFailed": "Fallito",
+  "installedMediaModels": "Modelli di immagini, video e musica",
+  "noInstalledModels": "Nessun modello registrato in questa categoria.",
+  "modelComponents": "File modello"
 }

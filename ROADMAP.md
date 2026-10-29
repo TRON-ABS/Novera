@@ -1,5 +1,42 @@
 # Novera — feuille de route
 
+## Lecteurs communs et saisie manuelle — 28 octobre 2026
+
+- [x] Sources : commandes Novera pour musique/vidéo, zoom image, adaptation tactile/clavier et replis de plein écran.
+- [x] Sources : une seule lecture à la fois, conservation de la position, arrêt à la fermeture d'un lecteur.
+- [x] Corriger l'effacement/remplacement de la durée et le passage automatique au manuel ; accepter 360 s et la plage locale 10–600 s, sans raccourcir une demande hors plage.
+- [x] Corriger la reprise des références musicales MP3/WAV après rechargement de l'historique ; MP3 320 kb/s recommandé.
+- [x] Traduire les commandes dans les 80 locales et actualiser les références de direction et d'usage.
+- [ ] Valider les lecteurs dans de vrais builds Windows, Linux, Android, iOS et macOS : codecs, recherche temporelle, volume système, plein écran, tactile et reprise après redémarrage.
+- [ ] Contrôler le rendu graphique étroit/large, clair/sombre et RTL, puis produire un essai musical réel de 360 s avec mesure de durée et de mémoire.
+
+Le premier lot est vérifié par 410 tests web, 19 tests Rust isolés, TypeScript, ESLint ciblé, architecture et contrôle des locales. Aucune publication ni compilation applicative déclenchée.
+
+## Musique cloud et fiabilité CUDA — sources locales du 27 octobre 2026
+
+- [x] Quatre présélections musicales avec icônes : ElevenLabs, Stability AI, fal, Replicate ; MiniMax absent de la liste musicale, local conservé par défaut.
+- [x] Paramètres selon le fournisseur, annulation, sauvegarde WAV/MP3 dans Musique et conservation d'Auto actif lors du choix ou de l'installation d'un profil.
+- [x] Tuiles VAE GPU 256/32, reprise CPU unique ciblée en placement Auto ; essais CUDA réels de 30 s et 180 s réussis et mesures conservées.
+- [ ] Tester les API avec des comptes et crédits autorisés ; vérifier droits, facturation, annulation distante et disponibilité réelle par compte.
+- [ ] Écouter et comparer les morceaux ; mesurer les pics RAM/VRAM et répéter les essais à froid/à chaud. Contrôler l'ensemble dans une future application recompilée.
+
+## Auto multilingue visible — sources locales du 27 octobre 2026
+
+- [x] Auto initial, sortie effective et modèle visibles à la volée, état du travail actif conservé pendant la saisie suivante et choix manuels respectés.
+- [x] Correction bande originale/film, vocabulaire de commandes des 80 locales, régressions interlangues et commandes explicites traduites.
+- [x] Musique 30–240 s, pas de 1 s, huit raccourcis de 30 s, défaut 30 s et enregistrement dans Musique / Novera musique.
+- [ ] Élargir les formulations Auto avec relecture native des 80 langues et variantes ; les tests de commandes ne constituent pas un classifieur général.
+- [ ] Contrôler visuellement le sélecteur et les états Auto dans une future application recompilée, notamment en RTL et pendant les générations réelles.
+
+## Musique et objectif de compacité — sources locales du 27 octobre 2026
+
+- [x] Sources : Musique entre Image et Vidéo, configuration ACE-Step Q4_K_M avec compagnons adaptés, durée/qualité/graines et profils propres.
+- [x] Sources : page détaillée Texte/Image/Musique/Vidéo, téléchargement global confirmé avec analyse du stockage et référence Qwen partagée.
+- [x] Fixer le [budget de comparaison de 14,88 Go](docs/SUIVI_MOTEURS.md#référence-texte-image-musique-vidéo--1488-go--27-octobre-2026), ses dépendances, exclusions et validations ; 80 locales × 1 762 clés.
+- [ ] Après téléchargement confirmé des poids : produire et écouter des morceaux instrumentaux et chantés, mesurer temps, RAM/VRAM et qualité selon les durées et formats.
+- [ ] Contrôler le parcours complet dans une future application recompilée, les installations propres et les autres plateformes ; ne pas confondre tests de contrat et validation musicale réelle.
+- [ ] Comparer de futurs modèles à capacités/qualité au moins égales, pour le même périmètre à **14 878 787 127 octets ou moins**, sans sacrifier simplicité ni performances.
+
 ## Fenêtre commune et contrôle utilisateur — 27 octobre 2026
 
 - [x] Sources : navigation repliable, compositeur conservé en bas et Nouveau projet sur dossier avec choix d’accès préalable.

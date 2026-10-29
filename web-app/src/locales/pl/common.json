@@ -230,7 +230,7 @@
     "delete": "Usuń"
   },
   "modelSettings": {
-    "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
+    "nglDisabledByFit": "Automatyczne dopasowanie wybiera GPU warstw. Wyłącz opcję Automatyczne dopasowanie, aby ustawić tę opcję ręcznie.",
     "title": "Ustawienia Modelu - {{modelId}}",
     "description": "Zmień ustawienia modelu aby poprawić jego wydajność i zachowanie",
     "samplingDefaults": {
@@ -524,8 +524,8 @@
   "temporaryChat": "Tymczasowy Czat",
   "temporaryChatTooltip": "Tymczasowy czat nie pojawi się w Twojej historii",
   "llamacppBusyOnExit": {
-    "title": "llama.cpp is still busy",
-    "description": "One or more models did not unload in time. Force-quitting will terminate llama.cpp and may interrupt active responses.",
+    "title": "llama.cpp jest nadal zajęty",
+    "description": "Jeden lub więcej modeli nie zostało załadowanych na czas. Wymuszone zamknięcie zakończy działanie llama.cpp i może przerwać aktywne odpowiedzi.",
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"

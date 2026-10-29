@@ -60,7 +60,14 @@
     "removeFromJan": "Yọ kuro lati Novera",
     "success": "Awoṣe {{modelId}} ti paarẹ patapata.",
     "cancel": "Fagilé",
-    "delete": "Pa rẹ́"
+    "delete": "Pa rẹ́",
+    "choiceDescription": "Yan bi o ṣe le yọ awoṣe yii kuro lati Novera.",
+    "removeFromNovera": "Yọ kuro lati Novera",
+    "permanentlyDelete": "Parẹ patapata",
+    "keepFilesDescription": "Yọ awoṣe kuro lati atokọ ki o tọju awọn faili rẹ lori disiki. O le gbe wọle lẹẹkansi.",
+    "permanentDescription": "Pa awoṣe rẹ ati awọn faili iṣakoso Novera rẹ lati disk. Eyi ko le ṣe atunṣe.",
+    "permanentImportedDescription": "Bakannaa paarẹ faili GGUF akọkọ ni ipo atilẹba rẹ. Awọn faili oluranlọwọ ita ti wa ni ipamọ. Eyi ko le ṣe atunṣe.",
+    "removedSuccess": "Awoṣe {{modelId}} ti yọ kuro lati Novera. Awọn faili rẹ ti wa ni ipamọ."
   },
   "deleteAllModels": {
     "button": "Pa Gbogbo Rẹ",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Awọn bọtini ifẹhinti iyan jẹ tunto ni To ti ni ilọsiwaju.",
     "addKey": "Fi bọtini kun",
     "removeKey": "Yọ bọtini kuro"
-  }
+  },
+  "installedMediaModels": "Aworan, fidio ati awọn awoṣe orin",
+  "noInstalledModels": "Ko si awọn awoṣe ti a forukọsilẹ ni ẹka yii.",
+  "modelComponents": "Awọn faili awoṣe"
 }

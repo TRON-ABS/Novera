@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Caawiye Caadi",
   "defaultAssistantDesc": "Waxaa la isticmaalaa marka la bilaabayo sheekada cusub",
   "allAssistants": "Dhammaan Caawiyeyaasha",
-  "lastUsed": "Kan ugu dambeeyey ee la isticmaalay"
+  "lastUsed": "Kan ugu dambeeyey ee la isticmaalay",
+  "officialInstructions": "Saddexda qaybood ee tilmaamaha Novera waxaa kaliya laga beddeli karaa {{path}}."
 }

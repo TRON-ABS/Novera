@@ -1,4 +1,5 @@
 import { noveraModelDefaults } from './novera-model-defaults'
+import { DEFAULT_EMBEDDER_ID, DEFAULT_EMBEDDER_URL, DEFAULT_EMBEDDER_SIZE, DEFAULT_EMBEDDER_SHA256, embeddingSettings, embeddingInputs } from './embedding-profile'
 /**
  * @file This file exports a class that implements the InferenceExtension interface from the @janhq/core package.
  * The class provides methods for initializing and stopping a model, and for making inference requests.
@@ -102,7 +103,7 @@ const MTP_CHECK_VERSION = 1
 // The tensor that marks a DSpark draft: it is a DFlash one plus this Markov
 // head (common/speculative.cpp, llama-arch.cpp LLM_TENSOR_DSPARK_MARKOV_W1).
 const MARKOV_HEAD_TENSOR = 'markov_w1.weight'
-const TEMPLATE_KWARGS_CHECK_VERSION = 1
+const TEMPLATE_KWARGS_CHECK_VERSION = 2
 
 // Provider settings that end up in `router.preset.ini` (`[*]` global section
 // in preset.ts). Mutating any of these needs the preset reloaded so the new
@@ -174,12 +175,11 @@ type PersistedModelState = {
 }
 
 const MODEL_PROVIDER_STORE_KEY = 'model-provider'
-const EMBEDDER_BOOTSTRAP_KEY = 'llamacpp-embedder-bootstrapped'
+const EMBEDDER_BOOTSTRAP_KEY = 'llamacpp-qwen3-embedder-bootstrapped'
 /** Set once the user has agreed to the first-run download. */
 const SETUP_CONSENT_KEY = 'llamacpp-first-run-setup-started'
-const FALLBACK_EMBEDDING_MODEL_ID = 'sentence-transformer-mini'
-const FALLBACK_EMBEDDING_MODEL_URL =
-  'https://huggingface.co/second-state/All-MiniLM-L6-v2-Embedding-GGUF/resolve/main/all-MiniLM-L6-v2-ggml-model-f16.gguf?download=true'
+const FALLBACK_EMBEDDING_MODEL_ID = DEFAULT_EMBEDDER_ID
+const FALLBACK_EMBEDDING_MODEL_URL = DEFAULT_EMBEDDER_URL
 const LLAMACPP_MODEL_SETTINGS_BACKFILL_KEY =
   'llamacpp_model_yaml_backfill_v2'
 
@@ -583,6 +583,8 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
         this.embedderBootstrapping = true
         await this.import(FALLBACK_EMBEDDING_MODEL_ID, {
           modelPath: FALLBACK_EMBEDDING_MODEL_URL,
+          modelSize: DEFAULT_EMBEDDER_SIZE,
+          modelSha256: DEFAULT_EMBEDDER_SHA256,
         })
         // A stopped or cancelled download resolves without throwing, so the
         // install has to be confirmed before the one-shot flag is recorded --
@@ -613,7 +615,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
 
   private async hasEmbedderInstalled(): Promise<boolean> {
     const models = await this.list()
-    return models.some((m) => (m as { embedding?: boolean }).embedding === true)
+    return models.some((m) => m.id !== 'sentence-transformer-mini' && (m as { embedding?: boolean }).embedding === true)
   }
 
   /**
@@ -1441,6 +1443,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     }
 
     let isEmbedding = false
+    let detectedEmbeddingSettings = embeddingSettings()
     try {
       const janDataFolderPath = await getJanDataFolderPath()
       const fullModelPath = await joinPath([
@@ -1450,6 +1453,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
 
       if (await fs.existsSync(fullModelPath)) {
         const metadata = await readGgufMetadata(fullModelPath)
+        detectedEmbeddingSettings = embeddingSettings(metadata.metadata)
         if (detectEmbeddingFromGgufMeta(metadata.metadata)) {
           isEmbedding = true
         }
@@ -1475,9 +1479,9 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
           ubatch_size?: number
           batch_size?: number
         }
-        if (!c.pooling) c.pooling = 'mean'
-        if (!c.ubatch_size) c.ubatch_size = 2048
-        if (!c.batch_size) c.batch_size = 2048
+        if (!c.pooling) c.pooling = detectedEmbeddingSettings.pooling
+        if (!c.ubatch_size) c.ubatch_size = detectedEmbeddingSettings.ubatch_size
+        if (!c.batch_size) c.batch_size = detectedEmbeddingSettings.batch_size
       }
 
       await invoke<void>('write_yaml', {
@@ -1921,11 +1925,20 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     // opts.mmprojPath: URL to the mmproj file
 
     let downloadItems: DownloadItem[] = []
+    let downloadDirectory: string | undefined
 
     const maybeDownload = async (path: string, saveName: string) => {
       // if URL, add to downloadItems, and return local path
       if (path.startsWith('https://')) {
-        const localPath = `${modelDir}/${saveName}`
+        if (!downloadDirectory) {
+          try {
+            downloadDirectory = await invoke<string>('model_download_directory', { modelId })
+          } catch (error) {
+            if (!String(error).includes('model_download_directory') || !/not found/i.test(String(error))) throw error
+            downloadDirectory = modelDir // Older/mobile hosts retain their managed app storage.
+          }
+        }
+        const localPath = await joinPath([downloadDirectory, saveName])
         downloadItems.push({
           url: path,
           save_path: localPath,
@@ -2045,6 +2058,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     const janDataFolderPath = await getJanDataFolderPath()
     const fullModelPath = await joinPath([janDataFolderPath, modelPath])
     let isEmbedding = false
+    let detectedEmbeddingSettings = embeddingSettings()
     let mtpLayers = 0
     let specKind: SpecDraftKind = 'mtp'
     let templateKwargs: TemplateKwarg[] = []
@@ -2053,6 +2067,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     try {
       // Validate main model file
       const modelMetadata = await readGgufMetadata(fullModelPath)
+      detectedEmbeddingSettings = embeddingSettings(modelMetadata.metadata)
       logger.info(
         `Model GGUF validation successful: version ${modelMetadata.version}, tensors: ${modelMetadata.tensor_count}`
       )
@@ -2157,7 +2172,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
           }
         : {}),
       ...(isEmbedding
-        ? { pooling: 'mean', ubatch_size: 2048, batch_size: 2048 }
+        ? detectedEmbeddingSettings
         : {}),
     } as ModelConfig
     await fs.mkdir(await joinPath([janDataFolderPath, modelDir]))
@@ -2560,7 +2575,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     return completionResponse
   }
 
-  override async delete(modelId: string): Promise<void> {
+  override async delete(modelId: string, options?: { deleteFiles?: boolean }): Promise<void> {
     const modelDir = await joinPath([
       await this.getProviderPath(),
       'models',
@@ -2571,7 +2586,29 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
       throw new Error(`Model ${modelId} does not exist`)
     }
 
-    await fs.rm(modelDir)
+    // Stop only this model; a busy model must remain registered and on disk.
+    const session = await this.findSessionByModel(modelId)
+    if (session) {
+      const result = await this.unload(modelId)
+      if (!result.success) throw new Error(result.error || 'Could not stop model')
+    }
+
+    const configPath = await joinPath([modelDir, 'model.yml'])
+    if (options?.deleteFiles === false) {
+      // Discovery and router presets use model.yml. Removing just this entry
+      // leaves downloaded weights and imported source files available to import.
+      await fs.rm(configPath)
+    } else {
+      if (options?.deleteFiles === true) {
+        const config = await invoke<ModelConfig>('read_yaml', { path: configPath })
+        if (config.model_path && (/^[A-Za-z]:[\\/]/.test(config.model_path) || config.model_path.startsWith('/') || config.model_path.charCodeAt(0) === 92)) {
+          // A narrowly scoped native command deletes the registered GGUF only;
+          // generic rm deliberately cannot delete files outside Novera's data.
+          await invoke('delete_imported_model_file', { configPath })
+        }
+      }
+      await fs.rm(modelDir)
+    }
 
     try {
       await this.refreshEnginePreset()
@@ -2765,6 +2802,14 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     }
   }
 
+  async getEmbeddingDevice(modelId: string): Promise<'cpu' | 'gpu'> {
+    const cfg = await invoke<ModelConfig>('read_yaml', {
+      path: await joinPath([await this.getProviderPath(), 'models', modelId, 'model.yml']),
+    })
+    if (cfg.embedding !== true) throw new Error('Model is not an embedding model')
+    return typeof cfg.n_gpu_layers === 'number' && cfg.n_gpu_layers !== 0 ? 'gpu' : 'cpu'
+  }
+
   async getDevices(): Promise<DeviceList[]> {
     // set envs
     const envs: Record<string, string> = {}
@@ -2850,25 +2895,29 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
 
   /**
    * Resolves the default/preferred embedding model, importing and loading
-   * sentence-transformer-mini as the fallback, then ensures a session exists.
+   * Qwen3 Embedding as the fallback, then ensures a session exists.
    * Shared by embed() and getEmbeddingContextSize() so both agree on which
    * model is "the" embedding model.
    */
   private async ensureEmbeddingModelLoaded(): Promise<SessionInfo> {
     const downloadedModelList = await this.list()
     const installedEmbedding = downloadedModelList.filter(
-      (m) => (m as any).embedding === true
+      (m) => m.id !== 'sentence-transformer-mini' && (m as any).embedding === true
     )
-    const hasMini = downloadedModelList.some(
+    const hasFallback = downloadedModelList.some(
       (m) => m.id === FALLBACK_EMBEDDING_MODEL_ID
     )
     let preferred = await getDefaultEmbeddingModelId('llamacpp')
+    if (preferred === 'sentence-transformer-mini') {
+      preferred = FALLBACK_EMBEDDING_MODEL_ID
+      await setDefaultEmbeddingModelId('llamacpp', preferred)
+    }
 
-    if (!preferred && installedEmbedding.length === 1 && !hasMini) {
+    if (!preferred && installedEmbedding.length === 1 && !hasFallback) {
       preferred = installedEmbedding[0].id
       await setDefaultEmbeddingModelId('llamacpp', preferred)
       logger.info(
-        `Auto-promoted "${preferred}" as default embedding model (single installed model, sentence-transformer-mini not present)`
+        `Auto-promoted "${preferred}" as default embedding model (single installed model, fallback not present)`
       )
     }
 
@@ -2877,7 +2926,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
 
     if (preferred && !preferredMatch) {
       logger.warn(
-        `Default embedding model "${preferred}" not installed; falling back to sentence-transformer-mini`
+        `Default embedding model "${preferred}" not installed; falling back to ${FALLBACK_EMBEDDING_MODEL_ID}`
       )
     }
 
@@ -2887,9 +2936,11 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
 
     let sInfo = await this.findSessionByModel(targetModelId)
     if (!sInfo) {
-      if (targetModelId === FALLBACK_EMBEDDING_MODEL_ID && !hasMini) {
+      if (targetModelId === FALLBACK_EMBEDDING_MODEL_ID && !hasFallback) {
         await this.import(FALLBACK_EMBEDDING_MODEL_ID, {
           modelPath: FALLBACK_EMBEDDING_MODEL_URL,
+          modelSize: DEFAULT_EMBEDDER_SIZE,
+          modelSha256: DEFAULT_EMBEDDER_SHA256,
         })
       }
       sInfo = await this.load(targetModelId, undefined, true)
@@ -2949,6 +3000,15 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
   private async embedBatchBudget(sInfo: SessionInfo): Promise<number> {
     let budget = DEFAULT_EMBEDDING_UBATCH
     try {
+      const config = await invoke<ModelConfig & { ubatch_size?: number }>('read_yaml', {
+        path: await joinPath([await this.getProviderPath(), 'models', sInfo.model_id, 'model.yml']),
+      })
+      if (Number.isSafeInteger(config?.ubatch_size) && config.ubatch_size! > 0)
+        budget = config.ubatch_size!
+    } catch (error) {
+      logger.warn('Could not read embedder microbatch; using conservative default:', error)
+    }
+    try {
       const props = await this.getModelProps(sInfo.model_id)
       const nCtx = props?.nCtx
       if (typeof nCtx === 'number' && nCtx > 0) {
@@ -2961,9 +3021,9 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     return budget
   }
 
-  async embed(text: string[]): Promise<EmbeddingResponse> {
+  async embed(text: string[], options?: { purpose: 'query' | 'document' }): Promise<EmbeddingResponse> {
     const sInfo = await this.ensureEmbeddingModelLoaded()
-    const batches = buildEmbedBatches(text, await this.embedBatchBudget(sInfo))
+    const batches = buildEmbedBatches(embeddingInputs(sInfo.model_id, text, options?.purpose), await this.embedBatchBudget(sInfo))
 
     const attemptRequest = async (
       session: SessionInfo,

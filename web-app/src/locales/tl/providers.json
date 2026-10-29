@@ -60,7 +60,14 @@
     "removeFromJan": "Alisin sa Novera",
     "success": "Permanenteng nabura ang modelong {{modelId}}.",
     "cancel": "Kanselahin",
-    "delete": "Burahin"
+    "delete": "Burahin",
+    "choiceDescription": "Piliin kung paano alisin ang modelong ito sa Novera.",
+    "removeFromNovera": "Alisin sa Novera",
+    "permanentlyDelete": "Permanenteng tanggalin",
+    "keepFilesDescription": "Alisin ang modelo mula sa listahan at panatilihin ang mga file nito sa disk. Maaari mo itong i-import muli.",
+    "permanentDescription": "Tanggalin ang modelo at ang Novera na pinamamahalaang mga file mula sa disk. Hindi na ito maaaring bawiin.",
+    "permanentImportedDescription": "Tanggalin din ang pangunahing GGUF file sa orihinal na lokasyon nito. Ang mga panlabas na auxiliary file ay pinapanatili. Hindi na ito maaaring bawiin.\nAng",
+    "removedSuccess": "Ang modelong {{modelId}} ay inalis sa Novera. Ang mga file nito ay itinago."
   },
   "deleteAllModels": {
     "button": "Burahin lahat",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Itinatakda sa Advanced ang mga opsyonal na backup key.",
     "addKey": "Magdagdag ng key",
     "removeKey": "Alisin ang key"
-  }
+  },
+  "installedMediaModels": "Mga modelo ng imahe, video at musika",
+  "noInstalledModels": "Walang mga modelong nakarehistro sa kategoryang ito.",
+  "modelComponents": "Mga file ng modelo"
 }

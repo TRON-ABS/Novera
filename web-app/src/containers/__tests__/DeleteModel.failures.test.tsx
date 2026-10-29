@@ -77,3 +77,26 @@ describe('individual model deletion', () => {
     expect(h.error).not.toHaveBeenCalled()
   })
 })
+
+
+describe('llama.cpp removal choices', () => {
+  beforeEach(() => {
+    vi.resetAllMocks()
+    h.getProviders.mockResolvedValue([{ ...provider, provider: 'llamacpp' }])
+    h.deleteModel.mockResolvedValue(undefined)
+  })
+  it('defaults to keeping files and sends that choice to the engine', async () => {
+    render(<DialogDeleteModel provider={{ ...provider, provider: 'llamacpp' }} modelId="same" />)
+    expect(screen.getAllByRole('radio')[0]).toBeChecked()
+    fireEvent.click(screen.getByRole('button', { name: 'providers:deleteModel.removeFromNovera' }))
+    await waitFor(() => expect(h.success).toHaveBeenCalled())
+    expect(h.deleteModel).toHaveBeenCalledWith('same', 'llamacpp', { deleteFiles: false })
+  })
+  it('only deletes files after the permanent choice is explicitly selected', async () => {
+    render(<DialogDeleteModel provider={{ ...provider, provider: 'llamacpp' }} modelId="same" />)
+    fireEvent.click(screen.getAllByRole('radio')[1])
+    fireEvent.click(screen.getByRole('button', { name: 'providers:deleteModel.permanentlyDelete' }))
+    await waitFor(() => expect(h.success).toHaveBeenCalled())
+    expect(h.deleteModel).toHaveBeenCalledWith('same', 'llamacpp', { deleteFiles: true })
+  })
+})

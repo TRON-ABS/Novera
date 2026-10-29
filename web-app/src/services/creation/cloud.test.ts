@@ -206,7 +206,7 @@ const contracts = [
   },
 ]
 function options(adapter = 'runway') {
-  const preset = mediaModelPresets.find((item) => item.adapter === adapter)!
+  const preset = mediaModelPresets.find((item) => item.adapter === adapter && item.task !== 'music')!
   const provider = {
     ...predefinedProviders.find((item) => item.provider === preset.provider)!,
     api_key: 'test-only-key',
@@ -332,9 +332,9 @@ describe('cloud media contracts (mock HTTP, no paid generation)', () => {
 })
 describe('model modality catalog', () => {
   it('defines one profile per provider and an implemented adapter for every preset', () => {
-    expect(predefinedProviders).toHaveLength(41)
-    expect(new Set(predefinedProviders.map((p) => p.provider)).size).toBe(41)
-    const adapters = new Set(contracts.map((c) => c.adapter))
+    expect(predefinedProviders).toHaveLength(42)
+    expect(new Set(predefinedProviders.map((p) => p.provider)).size).toBe(42)
+    const adapters = new Set([...contracts.map((c) => c.adapter),'elevenlabs-music','stability-music'])
     for (const p of mediaModelPresets) {
       expect(adapters.has(p.adapter), p.id).toBe(true)
       expect(p.source).toMatch(/^https:\/\//)

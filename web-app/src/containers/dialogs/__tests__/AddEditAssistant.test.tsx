@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, beforeAll } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
+vi.mock('@tanstack/react-router', () => ({ Link: ({ to, children }: { to: string; children: React.ReactNode }) => <a href={to}>{children}</a> }))
 
 class MockResizeObserver {
   observe() {}
@@ -81,6 +82,14 @@ vi.mock('@/lib/predefinedParams', () => ({
 }))
 
 import AddEditAssistant from '../AddEditAssistant'
+
+it('keeps the built-in Novera assistant informational instead of offering a competing instruction editor', () => {
+  const onSave = vi.fn()
+  render(<AddEditAssistant open onOpenChange={vi.fn()} editingKey="jan" onSave={onSave} />)
+  expect(screen.getByText('assistants:officialInstructions')).toBeInTheDocument()
+  expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
+  expect(onSave).not.toHaveBeenCalled()
+})
 
 type AssistantT = {
   id: string

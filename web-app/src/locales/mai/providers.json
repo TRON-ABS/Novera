@@ -60,7 +60,14 @@
     "removeFromJan": "Novera से हटाएँ |",
     "success": "मॉडल {{modelId}} स्थायी रूप स हटा देल गेल अछि।",
     "cancel": "रद्द करब",
-    "delete": "मेटाउ"
+    "delete": "मेटाउ",
+    "choiceDescription": "Novera स एहि मॉडल कए कोना हटाउ से चुनू।",
+    "removeFromNovera": "Novera से हटाएँ |",
+    "permanentlyDelete": "स्थायी रूप स मेटा दियौ",
+    "keepFilesDescription": "सूची स मॉडल हटाउ आ ओकर फाइल डिस्क पर राखू। अहाँ एकरा फेरसँ आयात कऽ सकै छी।",
+    "permanentDescription": "मॉडल आरू ओकरऽ Novera-प्रबंधित फाइल क॑ डिस्क स॑ हटाय दियौ । एकरा पूर्ववत नहि कएल जा सकैत अछि।",
+    "permanentImportedDescription": "मुख्य GGUF फाइल कए ओकर मूल स्थान पर सेहो हटाउ। बाहरी सहायक फाइल राखल जाइत अछि। एकरा पूर्ववत नहि कएल जा सकैत अछि।",
+    "removedSuccess": "मॉडल {{modelId}} के Novera स हटा देल गेल छल।एकर फाइल राखल गेल छल।"
   },
   "deleteAllModels": {
     "button": "सब मेटाउ",
@@ -123,5 +130,8 @@
     "oneKeyHint": "वैकल्पिक फॉलबैक कुंजी एडवांस मे कॉन्फ़िगर करल गेलय छै.",
     "addKey": "कुंजी जोड़ू",
     "removeKey": "कुंजी निकालें"
-  }
+  },
+  "installedMediaModels": "छवि, वीडियो एवं संगीत मॉडल",
+  "noInstalledModels": "एहि श्रेणी मे कोनो मॉडल पंजीकृत नहि अछि।",
+  "modelComponents": "मॉडल फाइल"
 }

@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Default nga Katabang",
   "defaultAssistantDesc": "Gigamit sa pagsugod og bag-ong chat",
   "allAssistants": "Tanang Katabang",
-  "lastUsed": "Katapusan nga gigamit"
+  "lastUsed": "Katapusan nga gigamit",
+  "officialInstructions": "Ang tulo ka kategoriya sa mga instruksyon sa Novera mahimo rang usbon pinaagi sa {{path}}."
 }

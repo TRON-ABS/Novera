@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "د کوډ بلاک سټایل بیا تنظیم کړه",
     "resetCodeBlockStyleDesc": "د کوډ بلاک سټایل د ډیفالټ حالت ته بیا تنظیم کړه.",
     "resetCodeBlockSuccess": "د کوډ بلاک سټایل بریالۍ توګه بیا تنظیم شوی",
-    "resetCodeBlockSuccessDesc": "د کوډ بلاک سټایل د ډیفالټ حالت ته راستول شوی."
+    "resetCodeBlockSuccessDesc": "د کوډ بلاک سټایل د ډیفالټ حالت ته راستول شوی.",
+    "subtitle": "Novera خپل ځان جوړ کړئ، د هغې له ظهور څخه د خبرو اترو غوره توبونو پورې.",
+    "accentColor": "د تلفظ رنګ",
+    "accentColorDesc": "تلفظ او د غاړې رنګ غوره کړئ.",
+    "conversation": "خبرې اترې او خبرتیاوې"
   },
   "hardware": {
     "os": "عامل سیسټم",

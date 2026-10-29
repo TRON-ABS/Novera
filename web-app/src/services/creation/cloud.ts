@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { MediaPreset } from '@/constants/mediaProviders'
 import { providerRemoteApiKeyChain } from '@/lib/provider-api-keys'
+import { musicDurationLimits } from '@/modules/engines/music'
 
 export type CloudMedia = { url?: string; base64?: string }
 export class CloudCreationError extends Error {
@@ -18,6 +19,13 @@ export class CloudCreationError extends Error {
   }
 }
 type Options = {
+  music?: {
+    duration: number
+    seed: number
+    instrumental: boolean
+    lyrics: string
+    quality: string
+  }
   provider: ModelProvider
   preset: MediaPreset
   prompt: string
@@ -69,6 +77,8 @@ export async function generateCloudMedia(o: Options): Promise<CloudMedia> {
   if (p.adapter === 'ideogram') headers = { 'Api-Key': key }
   if (p.adapter === 'vidu') headers = { Authorization: `Token ${key}` }
   if (p.adapter === 'fal') headers = { Authorization: `Key ${key}` }
+  if (p.adapter === 'elevenlabs-music') headers = { 'xi-api-key': key }
+  if (p.adapter === 'stability-music') headers.Accept = 'audio/*'
   if (p.adapter === 'pixverse')
     headers = { 'API-KEY': key, 'Ai-trace-id': crypto.randomUUID() }
   if (p.adapter === 'runway') headers['X-Runway-Version'] = '2024-11-06'
@@ -118,6 +128,36 @@ export async function generateCloudMedia(o: Options): Promise<CloudMedia> {
           : 'failed',
         response.status
       )
+    if (
+      p.adapter === 'stability-music' &&
+      response.status === 202 &&
+      path.includes('/audio/results/')
+    )
+      return { status: 'processing' }
+    if (
+      p.task === 'music' &&
+      /^audio\//i.test(response.headers?.get('content-type') ?? '')
+    ) {
+      const reader = response.body?.getReader()
+      if (!reader) throw new CloudCreationError('failed')
+      const chunks: Uint8Array[] = []
+      let size = 0
+      for (;;) {
+        const chunk = await reader.read()
+        if (chunk.done) break
+        size += chunk.value.length
+        if (size > 128 * 1024 * 1024) {
+          await reader.cancel()
+          throw new CloudCreationError('failed')
+        }
+        chunks.push(chunk.value)
+      }
+      let binary = ''
+      for (const chunk of chunks)
+        for (let i = 0; i < chunk.length; i += 16384)
+          binary += String.fromCharCode(...chunk.subarray(i, i + 16384))
+      return { base64: btoa(binary) }
+    }
     return response.status === 204 ? {} : response.json()
   }
   let cancel: (() => Promise<unknown>) | undefined
@@ -168,7 +208,44 @@ export async function generateCloudMedia(o: Options): Promise<CloudMedia> {
   let output: CloudMedia | undefined
   try {
     signal.throwIfAborted()
+    if (
+      p.task === 'music' &&
+      (!o.music ||
+        !Number.isInteger(o.music.duration) ||
+        o.music.duration < musicDurationLimits(p.provider).min ||
+        o.music.duration > musicDurationLimits(p.provider).max)
+    )
+      throw new CloudCreationError('failed')
     switch (p.adapter) {
+      case 'elevenlabs-music': {
+        const music = o.music!
+        output = await request('/music?output_format=mp3_48000_192', {
+          model_id: p.id,
+          prompt: music.instrumental ? prompt : `${prompt}\n${music.lyrics}`,
+          music_length_ms: music.duration * 1000,
+          force_instrumental: music.instrumental,
+        })
+        break
+      }
+      case 'stability-music': {
+        const music = o.music!
+        const form = new FormData()
+        for (const [name, value] of Object.entries({
+          model: p.id,
+          prompt: music.instrumental ? `${prompt}\nInstrumental.` : prompt,
+          duration: music.duration,
+          seed: music.seed,
+          steps: 8,
+          output_format: music.quality.startsWith('mp3') ? 'mp3' : 'wav',
+        }))
+          form.set(name, String(value))
+        const result = await request('/audio/stable-audio/text-to-audio', form)
+        output = await poll(
+          `/audio/results/${encodeURIComponent(result.id)}`,
+          (data) => (data.base64 ? data : undefined)
+        )
+        break
+      }
       case 'openai-image': {
         let result
         if (image && provider.provider === 'openai') {
@@ -326,7 +403,17 @@ export async function generateCloudMedia(o: Options): Promise<CloudMedia> {
         break
       }
       case 'fal': {
-        const result = await request(`/${p.id}`, { prompt })
+        const result = await request(
+          `/${p.id}`,
+          p.task === 'music'
+            ? {
+                prompt,
+                lyrics: o.music!.instrumental ? '[inst]' : o.music!.lyrics,
+                duration: o.music!.duration,
+                seed: o.music!.seed,
+              }
+            : { prompt }
+        )
         const statusUrl = safe(result.status_url)
         const responseUrl = safe(result.response_url)
         if (result.cancel_url)
@@ -337,12 +424,25 @@ export async function generateCloudMedia(o: Options): Promise<CloudMedia> {
         )
         const data = await request(responseUrl)
         output =
-          p.task === 'video' ? media(data.video) : media(data.images?.[0])
+          p.task === 'music'
+            ? media(data.audio)
+            : p.task === 'video'
+              ? media(data.video)
+              : media(data.images?.[0])
         break
       }
       case 'replicate': {
         const result = await request(`/models/${p.id}/predictions`, {
-          input: { prompt },
+          input:
+            p.task === 'music'
+              ? {
+                  prompt: o.music!.instrumental ? `${prompt}\nInstrumental.` : prompt,
+                  duration: o.music!.duration,
+                  seed: o.music!.seed,
+                  steps: 8,
+                  cfg_scale: 1,
+                }
+              : { prompt },
         })
         if (result.urls?.cancel)
           cancel = () => request(safe(result.urls.cancel), {}, 'POST', true)

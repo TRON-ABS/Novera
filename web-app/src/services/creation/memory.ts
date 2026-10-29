@@ -56,8 +56,24 @@ async function unloadIdleText(
   target: MemoryTarget,
   signal?: AbortSignal
 ) {
+  // A warm text model needs no additional allocation. Keep other resident
+  // models (including RAG helpers) for subsequent turns instead of evicting
+  // them on every request. Only make room when a new target must be loaded.
+  const selectedLoaded =
+    target.kind === 'text' &&
+    LOCAL_TEXT_ENGINES.includes(
+      target.provider as (typeof LOCAL_TEXT_ENGINES)[number]
+    )
+      ? await models.getActiveModels(target.provider)
+      : undefined
+  check(signal)
+  if (selectedLoaded?.includes(target.model)) return
+
   for (const provider of LOCAL_TEXT_ENGINES) {
-    const loaded = await models.getActiveModels(provider)
+    const loaded =
+      provider === target.provider && selectedLoaded
+        ? selectedLoaded
+        : await models.getActiveModels(provider)
     for (const model of loaded) {
       check(signal)
       if (
@@ -74,7 +90,10 @@ async function unloadIdleText(
           )
       )
         continue
-      await models.stopModel(model, provider)
+      const result = await models.stopModel(model, provider)
+      if (result?.success === false) {
+        throw new Error(result.error || `Could not unload ${provider}/${model}`)
+      }
     }
   }
   const loaded = await Promise.all(

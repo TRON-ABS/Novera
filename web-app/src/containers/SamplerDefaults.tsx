@@ -1,3 +1,4 @@
+import { translateSettingText } from '@/i18n/setting-text'
 import { DynamicControllerSetting } from '@/containers/dynamicControllerSetting'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import {
@@ -45,17 +46,17 @@ export function SamplerDefaults({
         return (
           <div key={key} className="space-y-2">
             <div className="mb-1">
-              <span className="font-medium">{def.title}</span>
+              <span className="font-medium">{translateSettingText(def.title, t)}</span>
             </div>
             <DynamicControllerSetting
-              title={def.title}
-              description={def.description}
+              title={translateSettingText(def.title, t)}
+              description={translateSettingText(def.description, t)}
               controllerType={def.controllerType}
               controllerProps={{ ...(def.controllerProps ?? {}), value }}
               onChange={(newValue) => onChange(key, newValue)}
             />
             <p className="text-muted-foreground leading-normal text-xs">
-              {def.description}
+              {translateSettingText(def.description, t)}
             </p>
           </div>
         )

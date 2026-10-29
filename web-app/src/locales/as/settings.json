@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "কোড ব্লক শৈলী পুনঃ স্থাপন কৰক",
     "resetCodeBlockStyleDesc": "কোড ব্লক বিন্যাস অবিকল্পিত অৱস্থাত পুনৰ সংহতি কৰক।",
     "resetCodeBlockSuccess": "সফলতাৰে কোড ব্লক শৈলী পুনৰ স্থাপন কৰা হৈছে",
-    "resetCodeBlockSuccessDesc": "কোড ব্লক বিন্যাস অবিকল্পিত অৱস্থাত পুনৰুদ্ধাৰ কৰা হৈছে।"
+    "resetCodeBlockSuccessDesc": "কোড ব্লক বিন্যাস অবিকল্পিত অৱস্থাত পুনৰুদ্ধাৰ কৰা হৈছে।",
+    "subtitle": "Novera আপোনাৰ নিজৰ কৰক, ইয়াৰ ৰূপৰ পৰা আপোনাৰ কথোপকথনৰ পছন্দলৈকে।",
+    "accentColor": "উচ্চাৰণৰ ৰং",
+    "accentColorDesc": "উচ্চাৰণ আৰু কাষবাৰৰ ৰং বাছক।",
+    "conversation": "কথোপকথন আৰু জাননী"
   },
   "hardware": {
     "os": "অপাৰেটিং চিস্টেম",

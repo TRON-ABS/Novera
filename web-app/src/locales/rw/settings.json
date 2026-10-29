@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Kugarura kode yo guhagarika uburyo",
     "resetCodeBlockStyleDesc": "Ongera usubize kode yo guhagarika uburyo busanzwe.",
     "resetCodeBlockSuccess": "Kode yo guhagarika uburyo bwo gusubiramo neza",
-    "resetCodeBlockSuccessDesc": "Imiterere yo guhagarika kode yagaruwe muburyo budasanzwe."
+    "resetCodeBlockSuccessDesc": "Imiterere yo guhagarika kode yagaruwe muburyo budasanzwe.",
+    "subtitle": "Kora Novera yawe, uhereye kumiterere yayo kugeza kubyo ukunda.",
+    "accentColor": "Ibara ryiza",
+    "accentColorDesc": "Hitamo imvugo n'ibara ry'uruhande.",
+    "conversation": "Ibiganiro no kumenyeshwa"
   },
   "hardware": {
     "os": "Sisitemu ikora",

@@ -1,5 +1,229 @@
 # Suivi des moteurs locaux Novera
 
+## Téléchargement du Hub vers Documents — correction du 28 octobre 2026
+
+La tentative Qwen3.5-2B Q6_K révélait une incohérence : la destination était bien `Documents/Novera models/Qwen3.5-2B-Q6_K/model.gguf`, mais le gestionnaire natif refusait encore toute sortie du dossier interne de données. Le téléchargement échouait avant l’écriture du modèle avec « outside of Jan data folder ».
+
+Le gestionnaire accepte maintenant le stockage interne existant et, pour un téléchargement portant un identifiant de modèle valide, **le sous-dossier de ce modèle uniquement** sous `Documents/Novera models`. La génération du dossier et sa validation partagent la même règle de nommage. Modèle, projection, fichiers associés et temporaires suivent cette règle. Les chemins des autres modèles, les sorties du dossier autorisé et les jonctions Windows vers un emplacement extérieur restent refusés. Vérifier l’ensemble du lot avant les requêtes réseau ; utiliser la même validation pour le téléchargement et le nettoyage après annulation.
+
+Validation : quatre tests natifs isolés et 17 tests du relais de téléchargement passent ; aucune violation d’architecture. Compilation Windows réussie, worker b11940 et empreintes vérifiés. [Application corrigée](../deliverables/Novera-desktop-1.0.0-2026-10-28_04-25-37-548/Novera-Desktop.exe). SHA-256 : `2CF2B8ECAEE094592479A80C50AF30D055977E41C1CCE88CE61CE0A09E1D3479`. Preuves : `.build/download-model-storage/final-artifact.json`. Le parcours réel du Hub démarre Qwen3.5-2B Q6_K sans erreur de chemin ; vérification de fin en cours.
+
+
+## Rangement des modèles et import automatique — 28 octobre 2026
+
+Build courant : [Novera Windows local](../deliverables/Novera-desktop-1.0.0-2026-10-28_03-08-27-045/).
+
+Instruction confirmée : les **prochains téléchargements de modèles** doivent aller par défaut dans **Documents/Novera models/<modèle>/**, avec leurs fichiers associés. Les téléchargements GGUF et MLX utilisent le même emplacement ; les packs image, musique, vidéo et le pack complet gardent un sous-dossier par modèle. Une sélection explicite d’un autre disque reste possible dans le parcours des packs. Les anciens profils et les anciennes installations groupées conservent leurs chemins ; un import manuel conserve le fichier choisi à son emplacement.
+
+État du poste du mainteneur :
+
+| Modèle | Poids |
+| --- | --- |
+| LFM3 Q6_K | `C:/Users/jmsga/Documents/Novera models/LFM3-1.7B-Q6_K/LFM3-1.7B-Q6_K.gguf` |
+| MiniLM embeddings | `C:/Users/jmsga/Documents/Novera models/all-MiniLM-L6-v2/model.gguf` |
+| Tron et draft DSpark | **Ne pas déplacer** : `C:/Users/jmsga/Desktop/T/Convertir GGUF/` |
+
+Les petits fichiers d’enregistrement `model.yml` restent dans le dossier de données Novera et pointent vers les poids réels. MiniLM conserve son identifiant et son rôle d’embeddings. Test réel après déplacement : LFM3 termine sa réponse à 32 K de contexte ; MiniLM produit un vecteur de 384 dimensions.
+
+Les recommandations texte déjà présentes sont enregistrées automatiquement par référence après vérification du nom attendu, de la taille et du SHA-256. Chercher le dossier commun en priorité, puis le stockage géré et Téléchargements ; accepter le sous-dossier du modèle. Actualiser le catalogue au chargement du moteur, à l’ouverture de Modèles et au retour dans la fenêtre. Aucun téléchargement silencieux, aucune copie en double, aucun remplacement des paramètres existants ni réimport d’un modèle explicitement supprimé. Les fichiers incomplets ou modifiés ne sont pas importés automatiquement.
+
+
+## LFM3 et moteur b11940 — 28 octobre 2026
+
+Compilation locale Windows x64 terminée : **llama.cpp b11940**, révision `eb7818c0b85c08ccb39ec2299548b85147c47495`, CPU et CUDA 13.4. Ciblage Clang/MSVC et outils du SDK Windows explicites ; le diagnostic de pointeur des préchargements mémoire de b11940 reste un avertissement. Les sources amont clonées restent intactes.
+
+| Élément | État vérifié |
+| --- | --- |
+| Modèle texte | LFM3-1.7B Q6_K, sans draft |
+| Fichier | 1 427 638 304 octets ; SHA-256 `54e1bd947c77167823d45bf495f1c3e2d226ca7fb242f83cfa141ee3a6ab55c6` |
+| Dossier | `AppData/Roaming/Novera/data/llamacpp/models/LFM3-1.7B-Q6_K`, avec `model.yml` |
+| Sélection | Enregistrée ; autres modèles conservés, sauvegarde adjacente des réglages |
+| Test réel | Worker intégré, RTX 5070 Laptop, CUDA, contexte 32 768 tokens, réponse terminée `4` |
+| Pack conseillé | 21 fichiers, 16 306 425 431 octets ; LFM3 texte distinct de Qwen3 encodeur image |
+| NVFP4 | Source proposée au matériel compatible ; conversion GGUF et inférence de ce modèle non validées |
+| Interface NVFP4 | Liens de téléchargement et fiche éditeur ; aucune instruction ni commande de connexion externe |
+
+Le contexte maximal annoncé de 256 K ne remplace pas le défaut de 32 K de Novera. Paramètres initiaux : température 0,1, top-k 50, pénalité de répétition 1,1. La proposition NVFP4 exige un GPU NVIDIA actif reconnu compatible avec au moins 4,5 Gio de VRAM totale ; cela ne garantit pas la mémoire disponible pour tous les contextes. b11940 prend déjà en charge le type NVFP4, mais le fichier Safetensors ne se charge pas directement : une conversion validée du dépôt complet en GGUF NVFP4 reste nécessaire.
+
+**Livrable local** : `deliverables/Novera-desktop-1.0.0-2026-10-28_02-16-25-120/Novera-Desktop.exe`. SHA-256 : `E96E6672DE40C4121EF6D52890D05C29222FE7D53AF12D1AF94EB287F06FB19C`. Version du worker embarqué et empreintes de l’exécutable vérifiées ; ressources CUDA et manifeste SHA256SUMS présents.
+
+**Validation** : 88 tests de paramètres/profils de l’extension, sept tests de proposition NVFP4, TypeScript et ESLint ciblé ; zéro violation d’architecture et sept tests d’architecture. Catalogues : 80 × 1 770 clés sans erreur structurelle ; aide NVFP4 français/anglais, repli anglais ailleurs. Preuves locales : `.build/engine-b11940/final-artifact.json`, `validation.json`, `inference-result.json` et journaux de compilation.
+
+Le test de réponse vérifie le chargement et la génération, pas les performances ou la qualité générales. L’interface graphique complète et les autres plateformes n’ont pas été testées dans ce lot. Aucune publication de binaire ni validation CI.
+
+
+## Durée musicale manuelle — sources du 28 octobre 2026
+
+La limite Novera de 240 s empêchait la demande de **360 s**, et le champ contrôlé refusait d'être effacé. Le brouillon éditable permet désormais l'effacement puis la saisie chiffre par chiffre, avec passage au manuel. Le local passe à **10–600 s**, bornes documentées dans [l'architecture de la version C++ utilisée](https://github.com/ServeurpersoCom/acestep.cpp/blob/de858d8e1a94f0e1939cf9bdd8ff7d9631953077/docs/ARCHITECTURE.md) et cohérentes avec [la documentation ACE-Step 1.5](https://ace-step.github.io/ACE-Step-1.5/en/INFERENCE). La durée reste explicite dans les charges utiles LM/synthèse ; aucune concaténation ni modification du modèle n'est ajoutée. Tests : 10, 360 et 600 s transmis ; valeurs hors plage refusées sans raccourcissement. Les 19 tests Rust isolés couvrent aussi ces bornes et la charge utile.
+
+Les bornes cloud sont alignées sur les schémas officiels consultés le 27/28 octobre : ElevenLabs 3–600 s, Stable Audio 3 1–380 s, fal ACE-Step 5–240 s, Replicate Stable Audio 2.5 1–190 s. [Sources et usage](USER_GUIDE.md#lecteurs-novera-et-durée-manuelle--28-octobre-2026). Le défaut/recommandé local est désormais MP3 320 kb/s. Aucun essai réel de 360 s ni coût cloud engagé ; les mesures antérieures de 30/180 s restent historiques et ne valident pas les longues durées. Aucune nouvelle compilation de l'application.
+
+## Musique cloud et VAE CUDA — candidat du 27 octobre 2026
+
+**Comparaison `CAND-2026-10-27-MUSIC-CLOUD-VAE` avec `REF-2026-10-27` conservée ci-dessous.** Les poids recommandés restent identiques : **14 878 787 127 octets** pour le même périmètre. Aucun poids supplémentaire téléchargé pour ce correctif ; les modèles musicaux installés par le mainteneur sont utilisés pour les essais.
+
+### Incident local et correction
+
+Le journal transmis indique un arrêt `0xc0000409` après les huit étapes DiT, pendant l'allocation CUDA du **VAE** : `CUDA error: device not ready`, tuiles de 1 024 trames et recouvrement 64. Ce message ne prouve pas à lui seul un manque de VRAM. Les sources passent explicitement **`--vae-chunk 256 --vae-overlap 32`** au processus de synthèse GPU, options documentées et disponibles dans le moteur fixé. Les poids, le modèle Turbo et le nombre d'étapes restent les mêmes.
+
+Empreinte du contrat musical natif de ce candidat (`creation_music.rs`) : SHA-256 `a3feecc880621c5ae1c9b4a817491f235c78a3a3de0dd9c3e57425cee4243781`. La référence précédente et ses empreintes restent conservées plus bas.
+
+En placement **Auto**, une défaillance correspondant exactement à ce cas VAE/CUDA autorise **une seule reprise de la synthèse sur CPU**, affichée comme telle. Les codes du planificateur, la durée et la graine sont conservés ; le DiT et le VAE sont recalculés, le planificateur n'est pas relancé. Aucun repli cloud payant. Un choix explicite CPU/CUDA reste respecté et un autre type d'erreur ne déclenche pas cette reprise. L'annulation l'empêche ; le sidecar marque `cpu_recovery` si elle a eu lieu. Les essais réussis ci-dessous n'ont pas nécessité de reprise CPU ; le déclenchement réel après panne GPU n'a pas été provoqué artificiellement.
+
+### Mesures musicales réelles du candidat
+
+Machine : **RTX 5070 Laptop GPU, 8 Go de VRAM**. ACE-Step 1.5 Turbo 2B Q4_K_M, planificateur 1.7B Q8_0, encodeur 0.6B Q8_0, VAE BF16 ; moteur fixé `de858d8`. Demande identique pour les deux essais : `Gentle instrumental ambient piano with soft sustained strings, peaceful and spacious`. Graine du planificateur et de la synthèse **42**, **8 étapes**, **CUDA0**, tuiles **256/32**, **WAV 24 bits stéréo à 48 000 Hz**. Chaque cellule correspond à un essai unique ; conditions à froid/à chaud non contrôlées, pics RAM/VRAM **ND**, qualité musicale par écoute **non évaluée**.
+
+| Indicateur mesuré | Essai 30 s | Essai 180 s |
+| --- | ---: | ---: |
+| Durée audio vérifiée par lecture WAV | 30,00 s | 180,00 s (3 min) |
+| Temps écoulé de l'étape planificateur, démarrage inclus | 6,4808363 s | 12,0124947 s |
+| Temps global CLI planificateur + synthèse + export | **13,6128333 s** | **24,8571114 s** |
+| DiT seul, annoncé par le moteur | 0,6950 s | 2,2514 s |
+| Décodage VAE seul, annoncé par le moteur | 1,1316 s | 5,1278 s |
+| Tuiles VAE décodées | 4 | 24 |
+| Échantillons par canal | 1 440 000 | 8 640 000 |
+| Taille réelle du WAV, en-tête inclus | **8 640 044 octets** | **51 840 044 octets** |
+| Temps global / seconde audio, calculé | 0,453761 s/s | 0,138095 s/s |
+| Sortie des deux processus | Succès, codes 0/0 | Succès, codes 0/0 |
+
+Les tailles correspondent aux estimations antérieures de **8,64 Mo / 51,84 Mo de données audio**, plus **44 octets d'en-tête**. Le WAV de 180 s a le SHA-256 `196e89dcfac6a076e7c955666de5b5510d5cf1b38d463d96937ca92f065f387b`. Preuves locales : `.build/music-cloud-2026-10-27/cuda-vae-256-30s/` et `cuda-vae-256-180s/`, fichiers `result.json`, `wav-measurements.json`, journaux et `music00.wav`. Ce sont des essais des CLI avec les mêmes options que les sources, sans reconstruction de l'application. Ils ne certifient ni toutes les durées, ni tous les matériels, ni une qualité d'écoute.
+
+### Catalogue musical cloud, sources vérifiées le 27 octobre
+
+| Profil | Modèle proposé | Contrat intégré / limites exposées |
+| --- | --- | --- |
+| ElevenLabs | ElevenMusic v2.5 | API `POST /v1/music`, clé `xi-api-key`, durée explicite, instrumental ou paroles ; sortie MP3 48 kHz / 192 kbit/s dans cet adaptateur. Graine désactivée avec le parcours prompt, conformément à l'API. |
+| Stability AI | Stable Audio 3 | Multipart asynchrone puis récupération `/audio/results/{id}` ; WAV/MP3, durée et graine. Pas de champ de paroles structurées exposé. |
+| fal | ACE-Step hébergé | File asynchrone, durée, paroles/instrumental, graine et résultat audio. La version n'est pas présentée comme identique au Turbo 1.5 local. |
+| Replicate | Stable Audio 2.5 | Modèle officiel Stability, durée limitée à **190 s** par ce contrat, graine et MP3. Aucun modèle MiniMax musical. |
+
+Sources : [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose), [Stability](https://docs.stability.ai/api-reference/stable-audio/text-to-audio), [résultats Stability](https://docs.stability.ai/api-reference/audio-results/fetch-audio-result), [fal](https://fal.ai/models/fal-ai/ace-step/api), [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema). Les tarifs et droits sont ceux du compte fournisseur ; les pages Stability consultées divergent sur le prix de Stable Audio 3 (documentation 8 crédits, page tarifaire 26), donc aucun montant n'est figé dans l'interface. Les droits ElevenMusic varient selon l'offre. **Aucun appel cloud réel ou payant validé pour ce lot.**
+
+Le catalogue compte désormais **42 profils cloud** et **49 présélections de création**, dont quatre musicales. Les autres fonctions MiniMax existantes ne sont pas supprimées ; ses clés et données sont préservées. Les icônes de Stability/fal/Replicate sont réutilisées ; le symbole ElevenLabs provient de ses [ressources de marque officielles](https://elevenlabs.io/brand), conservé dans `web-app/public/images/model-provider/elevenlabs.png`. Les marques et leurs droits restent ceux de leurs propriétaires.
+
+Le choix local reste ACE-Step par défaut. Les sélections musicales cloud sont propres à la discussion, utilisent le trousseau existant, signalent l'envoi et la facturation possibles, puis sauvegardent les WAV/MP3 dans **Musique / Novera musique** sans transmettre les clés au stockage natif. Aucun fournisseur de secours n'est appelé après échec. Choisir un modèle ou appliquer un profil ne désactive plus Auto lorsqu'il était actif ; le bouton Auto reste allumé avec la sortie effective.
+
+Validation des dernières versions par fichier : **172 tests web dans 13 fichiers**, **19 tests Rust isolés**, TypeScript sans émission, sept tests d'architecture et zéro violation, **80 × 1 762 clés** sans erreur structurelle. Contrôle graphique dans une future application recompilée encore nécessaire. Aucun commit/push ni changement de vitrine.
+
+## Référence Texte, Image, Musique, Vidéo : 14,88 Go — 27 octobre 2026
+
+**Identifiant de comparaison : `REF-2026-10-27`.** Conserver les valeurs de cette référence lors des prochaines évolutions et ajouter une colonne datée pour chaque candidat. Une mesure absente est notée **ND (non disponible)**, jamais zéro. Les réglages configurés, estimations calculées, tests de contrat et résultats de génération réels sont distingués ci-dessous.
+
+Empreintes SHA-256 des fichiers locaux de référence, pour identifier exactement ce qui sera comparé (sources non publiées) :
+
+| Fichier de référence | SHA-256 |
+| --- | --- |
+| `web-app/src/constants/music-manifest.json` | `c69f07cca719f10f90b5cfc63bac73e675745a321480f80a08ccce2864d483e9` |
+| `src-tauri/src/core/creation_bundle.rs` : packs et stockage | `8de035bba1cce59866f1913597177d2586ade7155a4c1cfb5b269083fe965a49` |
+| `src-tauri/src/core/creation_music.rs` : contrat musical natif | `00e311a7ebd4300128679a642698d5e3b0e0ff96a24dac4abb98159e75ab996a` |
+| `web-app/src/modules/engines/creation-intents.json` : vocabulaire Auto | `63f98e8c23b3f5ed98538a59059f0a8e0f5357cfd9ebb1a36d538a36f998ac11` |
+| `web-app/src/modules/engines/music-duration-units.json` : unités reconnues | `1026fb789661c917c604f1697ff0abb848ba3a9014b37ce65564a7ce3057200e` |
+
+Ces empreintes identifient le contenu brut de ces fichiers ; elles ne remplacent pas un instantané de l'application entière et peuvent changer avec les fins de ligne sans changement fonctionnel.
+
+Cette référence sert aux futures comparaisons : conserver ou améliorer les capacités, la qualité et la rapidité avec **14 878 787 127 octets au maximum** pour ce périmètre téléchargeable. **14,88 Go** est un arrondi décimal (1 Go = 1 000 000 000 octets), pas la taille totale d'une installation Novera ni une garantie que tous les usages sont couverts.
+
+| Configuration conseillée | Composition | Octets comptés |
+| --- | --- | ---: |
+| Texte | Qwen3-4B Q4_K_M, fichier partagé avec l'encodeur image | 0 supplémentaire |
+| Image | Qwen3-4B Q4_K_M + FLUX.2 Klein 4B Q4_K_M + VAE FLUX.2 | 5 269 712 238 |
+| Musique : poids | ACE-Step 1.5 Turbo 2B Q4_K_M + planificateur 1.7B Q8_0 + Qwen3-Embedding 0.6B Q8_0 + VAE BF16 | 4 543 113 728 |
+| Musique : moteur et licences | Deux exécutables, six DLL GGML et deux licences MIT | 174 283 891 |
+| Vidéo | Wan2.1 1.3B Q4_K_M + UMT5 + VAE | 4 891 677 270 |
+| **Total : 20 fichiers physiques uniques** | **8 GGUF, 2 Safetensors, 2 EXE, 6 DLL, 2 licences** | **14 878 787 127** |
+
+Les poids seuls représentent **14 704 503 236 octets**. La marge de stockage de **256 Mio (268 435 456 octets)** porte le besoin initial d'un dossier vide à **15 147 222 583 octets**. Le plan affiche le besoin restant et l'espace libre du volume choisi ; les fichiers présents et les téléchargements partiels réutilisables réduisent le besoin. Les fichiers sont vérifiés par SHA-256 avant configuration. Un fichier existant incompatible n'est pas écrasé silencieusement.
+
+Unités de comparaison : **1 Go = 10⁹ octets**, **1 Gio = 2³⁰ octets**, **1 Mo = 10⁶ octets**, **1 Mio = 2²⁰ octets**, **1 minute = 60 secondes**. Le pack vaut **14,878787127 Go ≈ 13,8570 Gio** ; avec réserve, **15,147222583 Go ≈ 14,1070 Gio**. Comparer d'abord les octets exacts, puis afficher les arrondis avec leur unité.
+
+**Hors budget** : application Novera, moteur image/vidéo et bibliothèques CUDA déjà embarqués, environnement Python et `imageio-ffmpeg` requis pour exporter les vidéos, créations enregistrées, caches, modèles personnels, NVFP4 et agrandissement optionnel. Le téléchargement global vérifie le runtime d'export vidéo avant confirmation ; il ne l'installe pas. Les anciens fichiers dans d'autres dossiers ne sont ni déplacés ni supprimés automatiquement. Texte et Image référencent un même Qwen téléchargé une seule fois ; le planificateur musical et son encodeur sont des modèles distincts.
+
+### Versions et choix musicaux
+
+Le manifeste [music-manifest.json](../web-app/src/constants/music-manifest.json) fixe tailles, SHA-256 et URL. Les poids viennent du [catalogue ACE-Step GGUF](https://huggingface.co/Serveurperso/ACE-Step-1.5-GGUF/tree/666ac70204440867d8c01ba4b119cc79c95b370a). Le moteur [acestep.cpp](https://github.com/ServeurpersoCom/acestep.cpp/tree/de858d8e1a94f0e1939cf9bdd8ff7d9631953077) correspond à `de858d8`, avec GGML `cc5df49a6b878db2b68b9a7b45976e279594627d`. Les binaires Windows de l'auteur ont des URL non versionnées, mais leurs empreintes et tailles sont fixées ; un remplacement côté serveur exige une mise à jour contrôlée du manifeste. Les deux licences MIT sont conservées dans le pack.
+
+Q4_K_M concerne le **générateur Turbo 2B**. Q8_0 est conservé pour le planificateur 1.7B et l'encodeur 0.6B ; le VAE reste en BF16. Ce mélange suit les formats fonctionnels documentés par le portage, notamment les limites des petits planificateurs quantifiés : il ne faut pas présenter tous les composants comme Q4_K_M. Le choix vise un compromis de taille et de vitesse ; aucune comparaison d'écoute ne démontre ici qu'il serait le meilleur modèle absolu.
+
+### Capacités de référence et prochaines comparaisons
+
+#### Valeurs musicales configurées dans cette référence
+
+| Grandeur | Valeur | Nature de la valeur |
+| --- | --- | --- |
+| Durée minimale / maximale dans Novera | 30 s / 240 s, soit 0 min 30 s / 4 min | Bornes de l'interface et du validateur natif |
+| Réglage fin | 1 s | Pas de saisie |
+| Raccourcis | 30, 60, 90, 120, 150, 180, 210, 240 s | Pas de 30 s |
+| Durée par défaut / exemple demandé | 30 s / 180 s (3 min) | Préréglage / demande explicite |
+| Fréquence d'échantillonnage | 48 000 Hz = 48 kHz | Format attendu du moteur |
+| Canaux | 2, stéréo | Format attendu du moteur |
+| WAV conseillé | 24 bits par échantillon | Sans compression destructive |
+| Autres sorties | WAV 16/32 bits ; MP3 128/320 kbit/s | Choix exposés |
+| Étapes Turbo / tempo conseillé | 8 étapes / 0 = automatique | Paramètres ; BPM explicite : 30–300 battements/min |
+| Graine | Aléatoire par défaut ; fixe/+1/−1 disponibles | Même graine concrète pour planificateur et générateur |
+| Temps musical à froid / à chaud | **ND / ND** | Aucun morceau complet généré pour ce lot |
+| Pic RAM / pic VRAM musical | **ND / ND** | Ne pas déduire la consommation des tailles GGUF |
+| Qualité instrumentale / chant | **Non évaluée / non évaluée** | Écoute et comparaison encore nécessaires |
+
+#### Volume audio calculé, avant génération
+
+Pour le WAV 24 bits stéréo à 48 kHz : **48 000 × 2 × 24 / 8 = 288 000 octets/s**, soit **2 304 kbit/s** de données audio. Les chiffres suivants sont des **estimations calculées**, pas des tailles mesurées sur des morceaux produits. Le WAV ajoute ses en-têtes et éventuelles métadonnées.
+
+| Durée | Minutes:secondes | Données WAV 24 bits : octets | Mo décimaux |
+| ---: | ---: | ---: | ---: |
+| 30 s | 0:30 | 8 640 000 | 8,64 |
+| 60 s | 1:00 | 17 280 000 | 17,28 |
+| 90 s | 1:30 | 25 920 000 | 25,92 |
+| 120 s | 2:00 | 34 560 000 | 34,56 |
+| 150 s | 2:30 | 43 200 000 | 43,20 |
+| 180 s | 3:00 | 51 840 000 | 51,84 |
+| 210 s | 3:30 | 60 480 000 | 60,48 |
+| 240 s | 4:00 | 69 120 000 | 69,12 |
+
+Pour **180 s** : WAV 16 bits ≈ **34,56 Mo**, WAV 24 bits ≈ **51,84 Mo**, WAV 32 bits ≈ **69,12 Mo** ; MP3 128 kbit/s ≈ **2,88 Mo**, MP3 320 kbit/s ≈ **7,20 Mo**. Pour MP3, métadonnées, trames et comportement réel de l'encodeur peuvent modifier le volume. Une meilleure compression ne prouve pas une meilleure qualité ni une génération plus rapide. Les créations s'ajoutent au budget disque du pack.
+
+#### Mesure vidéo réelle disponible comme point de comparaison
+
+| Grandeur | Mesure / réglage consigné |
+| --- | --- |
+| Modèle / quantification | Wan2.1 T2V 1.3B Q4_K_M, encodeur UMT5 Q4_K_M, VAE Wan2.1 |
+| Machine de l'essai | RTX 5070 Laptop GPU, 8 Go de VRAM ; même machine à conserver pour une comparaison directe |
+| Demande de l'essai | `A blue ball moving slowly` |
+| Résolution / ratio | 512 × 224 pixels ; ratio de menu 21:9, dimensions effectives alignées au moteur |
+| Étapes / CFG / graine | 20 / 6 / 42 |
+| Images moteur / images exportées | 81 / 80 |
+| Sortie réelle | MP4 H.264, 16 images/s, durée 5,00 s |
+| Temps création et export du worker | **124,7831469 s** ; essai unique, pas une moyenne |
+| Temps par seconde de vidéo | **24,96 s/s**, calculé depuis cet essai ; inférieur est meilleur |
+| Taille du MP4 d'essai | **101 753 octets** ; dépend du contenu et de l'encodage |
+| Pic RAM / pic VRAM / qualité comparative | **ND / ND / non évaluée** |
+
+Preuves locales ignorées : `.build/video-seed-duration-2026-10-27/default-five-seconds.mp4`, son sidecar, `default-probe.json` et `validation.json`. Cette mesure ne valide ni la musique, ni les vidéos longues, ni un nouvel exécutable Novera. Le temps du worker n'est pas une mesure de l'installation des modèles ni de l'interface complète.
+
+#### Fiche à remplir pour chaque future modification
+
+| Indicateur | Référence à conserver | Candidat futur : valeur et date à ajouter |
+| --- | --- | --- |
+| Identité des sources | Versions/empreintes des manifestes et état des sources locales de `REF-2026-10-27` | Commit ou instantané + empreintes des fichiers modifiés |
+| Volume du même périmètre | **14 878 787 127 octets**, dont dépendances précisées ci-dessus | Octets exacts et écart en octets / % |
+| Capacités | Texte, Image, Musique, Vidéo, compagnons et formats de cette référence | Conservées, ajoutées, régressées ; limites exactes |
+| Réglages d'essai | Même demande, graine fixe, durée, dimensions, format et périphérique | Toute différence explicitée |
+| Temps à froid / à chaud | Musique **ND / ND** ; vidéo : essai unique ci-dessus | Chargement, génération, export et total séparés en secondes |
+| RAM / VRAM | Pics **ND** pour cette comparaison | Pics en octets ou Mio/Gio, même méthode d'échantillonnage |
+| Débit | Vidéo : **24,96 s/s** dans cet essai | Musique/vidéo : temps total ÷ durée produite ; texte : tokens/s avec même contexte |
+| Taille et qualité des sorties | Audio : estimations ci-dessus, écoute **non évaluée** | Taille réelle, fréquence, canaux, bits/débit ; évaluation sur les mêmes demandes |
+| Robustesse et interface | Tests des sources, exécutable non reconstruit pour ce lot | Échecs/essais, annulation, reprise, routage, langues et contrôle dans l'application |
+
+Protocole futur : distinguer le premier essai à froid d'au moins trois essais à chaud ; publier nombre d'essais, médiane et plage min–max. Noter versions des pilotes/moteurs, RAM totale, VRAM et réglages d'alimentation. Une donnée manquante empêche de conclure sur cet axe. La baisse de taille est **(taille référence − taille candidate) / taille référence × 100** ; la baisse du temps utilise la même formule avec des temps mesurés comparables. Ne pas remplacer l'ancienne référence ni annoncer un gain global si qualité ou capacités régressent.
+
+Le tableau de bord propose Musique entre Image et Vidéo, durée **30 à 240 secondes, ajustement à la seconde et raccourcis de 30 secondes, 30 secondes par défaut**, qualité WAV 16/24/32 bits ou MP3 128/320 kbit/s, **WAV 24 bits par défaut**, stéréo 48 kHz, 8 étapes Turbo, BPM automatique, instrumental par défaut, paroles/langue pour le chant et graine aléatoire. Une même graine réservée est envoyée au planificateur et au générateur. Ces paramètres expriment le contrat de configuration ; les limites de mémoire et les résultats doivent être mesurés sur le matériel cible. Vidéo conserve 5 secondes et 21:9 par défaut, et le choix expérimental de 1 seconde à 1 heure par assemblage de clips ; une heure n'est pas une génération native continue de Wan2.1.
+
+Pour comparer une solution future, relever : versions et quantifications de **tous** les composants, taille physique sans double comptage, dépendances supplémentaires, matériel, RAM/VRAM maximale, temps de chargement à froid et à chaud, durée de génération et formats de sortie. Utiliser les mêmes demandes, durées, résolutions et graines lorsque pertinentes ; conserver les sorties et évaluer la qualité du texte, des images, des raccords vidéo, de la musique et du chant. Un pack plus petit ne remplace cette référence que si les capacités et la qualité retenues sont préservées ou améliorées. L'objectif à taille égale ou inférieure reste une cible de recherche, sans téléchargement ni expérimentation automatiques.
+
+### Validation réelle de ce lot local
+
+**154 tests web réussis, un scénario non-Windows ignoré dans cette exécution Windows ; 17 tests Rust isolés réussis ; TypeScript sans émission ; sept tests d'architecture et zéro violation ; 80 locales × 1 762 clés sans erreur structurelle.** Les CLI musicales Windows ont été inspectées avec `--help` et leur version vérifiée ; les tests couvrent contrats, réglages, stockage, enchaînement et validation des fichiers. **Aucun poids musical téléchargé, aucune génération musicale complète ni écoute validée.** Le rendu vidéo réel de 5 secondes décrit ailleurs reste une preuve vidéo distincte. Aucun nouveau binaire Novera compilé, aucun commit/push ni changement de vitrine. Diagnostics locaux ignorés : `.build/music-2026-10-27/`.
+
 ## Incident Real-ESRGAN : chemins installés et Python — 26 octobre 2026
 
 Les deux poids officiels étaient en état installé/vérifié. Le registre assemblait une racine Windows canonique `\\?\C:\…` avec `/RealESRGAN_x2plus.pth` : GetFileAttributesW renvoyait fichier absent alors que le chemin utilisant `\` fonctionnait. La fonction Rust `local_file` reproduit le refus initial et accepte maintenant la forme réparée ; un test isolé utilise son code source exact. Le frontend répare aussi les anciennes références à l’envoi, et l’installateur assemble correctement les nouveaux chemins d’agrandissement et des composants média.
@@ -332,3 +556,5 @@ Correction uniquement des réglages par l’interface : moteur **stable-diffusio
 La preuve précédente du trio « encore à tester » dans les sections antérieures est historique et remplacée, pour cette combinaison et ce PC, par cet essai graphique. Les validations sur d’autres matériels restent ouvertes. Les réglages corrigés sont conservés ; aucun poids réécrit, aucun profil importé ou effacé, aucune compilation supplémentaire ni publication du dépôt déclenchée par ce diagnostic. Preuve locale : `.build/image-ui-diagnosis-2026-10-26/proof.json` ; les journaux de travail restent dans les données personnelles de l’application.
 
 Amélioration ergonomique encore souhaitable : filtrer les sélecteurs de fichiers selon leur rôle et afficher la cause de validation précise, pour éviter qu’un modèle GGUF soit sélectionné comme exécutable ou qu’un moteur incompatible soit choisi. Ce diagnostic ne prétend pas que cette amélioration des sources est déjà livrée.
+
+Compilation finale du rangement/import automatique réussie : `deliverables/Novera-desktop-1.0.0-2026-10-28_03-08-27-045/Novera-Desktop.exe`. SHA-256 : `C23A75AEA1616C0C01D86B1031E727A08E4D206BAAE2FBBD90CB9A8862F3AC7C`. Exécutable et moteur embarqué b11940 vérifiés ; manifeste d’empreintes présent. Les 40 tests supplémentaires du service de fournisseurs passent. L’interface graphique complète n’a pas été parcourue ; les tests de catalogue et de stockage, ainsi que les deux chargements réels depuis Documents, sont distincts de cette validation visuelle. Preuves : `.build/recommended-model-import/final-artifact.json` et journaux associés.

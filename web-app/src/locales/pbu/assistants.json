@@ -38,5 +38,6 @@
   "defaultAssistantSection": "ډیفالټ معاون",
   "defaultAssistantDesc": "کله چې نوې خبره پیلول کیږي کارول کیږي",
   "allAssistants": "ټول معاونین",
-  "lastUsed": "تیره کارول شوې"
+  "lastUsed": "تیره کارول شوې",
+  "officialInstructions": "د Novera د لارښوونو درې کټګورۍ یوازې د {{path}} له لارې سمېدای شي."
 }

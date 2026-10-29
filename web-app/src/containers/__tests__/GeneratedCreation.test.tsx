@@ -27,9 +27,27 @@ vi.mock('@/lib/backendStorage', () => ({
 const reference =
   'novera-creation:image/Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.png'
 describe('saved creation in the conversation', () => {
+  it('resolves music as a persistent creation and displays a full-width audio player',async()=>{
+    const music=reference.replace('image/','music/').replace('.png','.wav')
+    mocks.invoke.mockResolvedValue('C:/Music/Novera musique/test.wav')
+    const {container}=render(<GeneratedCreation url={music} threadId="music-thread"/>)
+    await waitFor(()=>expect(container.querySelector('audio')).toHaveAttribute('src','asset:C:/Music/Novera musique/test.wav'))
+    expect(container.querySelector('audio')).not.toHaveAttribute('controls')
+    expect(screen.getByRole('button', { name: 'chat:player.play' })).toBeEnabled()
+    expect(container.querySelector('audio')).toHaveClass('w-full')
+    expect(container.querySelector('video')).not.toBeInTheDocument()
+  })
+  it('fits videos to available space and offers a larger responsive player', async () => {
+    const video = reference.replace('image/', 'video/').replace('.png', '.mp4')
+    const { container } = render(<GeneratedCreation url={video} threadId="video-thread" />)
+    await waitFor(() => expect(container.querySelector('video')).toBeInTheDocument())
+    expect(container.querySelector('video')).toHaveClass('w-full', 'h-auto', 'object-contain', 'max-h-[75dvh]')
+    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.expand' }))
+    expect(screen.getByRole('dialog').querySelector('video')).toHaveClass('w-full', 'max-h-[80dvh]', 'object-contain')
+  })
   beforeEach(() => {
     vi.clearAllMocks()
-    useCreation.setState({ modes: {}, sources: {}, progress: {} })
+    useCreation.setState({ modes: {}, sources: {}, progress: {}, videoSettings: undefined })
     mocks.invoke.mockResolvedValue('C:/Pictures/Novera image/test.png')
   })
   it('resolves a saved file, reveals it, and prepares a variant in the same thread', async () => {
@@ -59,6 +77,12 @@ describe('saved creation in the conversation', () => {
     await screen.findByText('chat:creation.missing')
     expect(screen.getByText('chat:creation.openFolder')).toBeDisabled()
   })
+  it('keeps image variants available without offering image animation through the text-only Q4 video pack', async () => {
+    useCreation.getState().setVideoSettings({ videoEngine: 'sdcpp', videoModel: 'D:/wan.gguf' })
+    render(<GeneratedCreation url={reference} threadId="q4" />)
+    await waitFor(() => expect(screen.getByText('chat:creation.variant')).toBeEnabled())
+    expect(screen.queryByText('chat:creation.video')).not.toBeInTheDocument()
+  })
   it.each(['image', 'video'] as const)(
     'shows persisted total and measured generation time below a %s',
     async (task) => {
@@ -79,7 +103,7 @@ describe('saved creation in the conversation', () => {
         expect(screen.getByText('chat:creation.openFolder')).toBeEnabled()
       )
       if (task === 'video')
-        expect(container.querySelector('video')).toHaveAttribute('controls')
+        expect(container.querySelector('video')).not.toHaveAttribute('controls')
     }
   )
   it('does not invent timings for older or malformed creations', async () => {

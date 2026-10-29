@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/button'
 import { formatBytes } from '@/lib/utils'
 
 export function DownloadManagement() {
+
   const { t } = useTranslation()
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
   const serviceHub = useServiceHub()
@@ -280,8 +281,7 @@ export function DownloadManagement() {
                     <div className="rounded-lg p-2 bg-secondary">
                       <div className="flex items-center justify-between">
                         <p className="truncate">
-                          App Update
-                        </p>
+                          {t('ui:appUpdate')}</p>
                       </div>
                       <div className="relative z-40">
                         <Progress
@@ -332,7 +332,7 @@ export function DownloadManagement() {
                                 <IconPlayerPlay
                                   size={16}
                                   className="text-muted-foreground cursor-pointer"
-                                  title="Resume download"
+                                  title={t('ui:resumeDownload')}
                                 />
                               </Button>
                             ) : (
@@ -344,7 +344,7 @@ export function DownloadManagement() {
                                 <IconPlayerPause
                                   size={16}
                                   className="text-muted-foreground cursor-pointer"
-                                  title="Pause download"
+                                  title={t('ui:pauseDownload')}
                                 />
                               </Button>
                             ))}
@@ -358,7 +358,7 @@ export function DownloadManagement() {
                             <IconX
                               size={16}
                               className="text-muted-foreground cursor-pointer"
-                              title="Cancel download"
+                              title={t('common:cancelDownload')}
                             />
                           </Button>
                         </div>
@@ -372,13 +372,13 @@ export function DownloadManagement() {
                           <p className="text-xs">
                             {download.paused
                               ? download.total > 0
-                                ? `Paused · ${Math.round(download.progress * 100)}%`
-                                : 'Paused'
+                                ? t('ui:pausedValue0', { value0: Math.round(download.progress * 100) })
+                                : t('chat:creationInstall.paused')
                               : download.total > 0
                                 ? `${Math.round(download.progress * 100)}%`
                                 : download.current > 0
-                                  ? 'Downloading...'
-                                  : 'Initializing download...'}
+                                  ? t('updater:downloading')
+                                  : t('ui:initializingDownload')}
                           </p>
                           <p className="text-xs">
                             {download.total > 0
@@ -409,8 +409,7 @@ export function DownloadManagement() {
               <div className="px-3 py-8 flex flex-col items-center justify-center text-center space-y-2">
                 <DownloadIcon className="text-muted-foreground/50 size-6" />
                 <p className="text-muted-foreground leading-normal">
-                  Your download progress <br /> will appear here
-                </p>
+                  {t('ui:downloadProgressEmpty')}</p>
               </div>
             )}
           </div>

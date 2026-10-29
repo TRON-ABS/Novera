@@ -60,7 +60,14 @@
     "removeFromJan": "Dindi ko ci Novera",
     "success": "Modèle {{modelId}} dañu ko efaase ba fàww.",
     "cancel": "Fomm",
-    "delete": "Efaase"
+    "delete": "Efaase",
+    "choiceDescription": "Tannal ni ngay dindee moytu bii ci Novera.",
+    "removeFromNovera": "Dindi ko ci Novera",
+    "permanentlyDelete": "efaase ba fàww",
+    "keepFilesDescription": "Dindil model bi ci limu fichier yi nga denc ko ci disk bi. Mën nga ko indiwaat.",
+    "permanentDescription": "Efaase model bi ak fichier yiñ yor Novera ci disk bi. Loolu mënu ñu ko delloo.",
+    "permanentImportedDescription": "GGUF",
+    "removedSuccess": "{{modelId}} Novera ci ñu gënal. Dosiye yi ci ñu tékk."
   },
   "deleteAllModels": {
     "button": "Efaase lépp",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Caabi fallback yiñ mëna tànn ñu ngi leen tabb ci Avance.",
     "addKey": "Yokk caabi",
     "removeKey": "Dindi caabi gi"
-  }
+  },
+  "installedMediaModels": "Modèlu nataal, wideo ak music",
+  "noInstalledModels": "Amul benn model buñu bind ci kategori bii.",
+  "modelComponents": "Dosie model"
 }

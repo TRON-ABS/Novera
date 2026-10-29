@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Stel kodeblokstyl terug",
     "resetCodeBlockStyleDesc": "Stel kodeblokstyl terug na verstek.",
     "resetCodeBlockSuccess": "Kodeblokstyl is suksesvol teruggestel",
-    "resetCodeBlockSuccessDesc": "Kodeblokstyl is na verstek herstel."
+    "resetCodeBlockSuccessDesc": "Kodeblokstyl is na verstek herstel.",
+    "subtitle": "Maak Novera jou eie, van sy voorkoms tot jou gespreksvoorkeure.",
+    "accentColor": "Aksentkleur",
+    "accentColorDesc": "Kies die aksent en sybalkkleur.",
+    "conversation": "Gesprekke en kennisgewings"
   },
   "hardware": {
     "os": "Bedryfstelsel",

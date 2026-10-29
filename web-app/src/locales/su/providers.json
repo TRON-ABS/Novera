@@ -60,7 +60,14 @@
     "removeFromJan": "Angkat tina Novera",
     "success": "Model {{modelId}} parantos dihapus permanén.",
     "cancel": "Batalkeun",
-    "delete": "Pupus"
+    "delete": "Pupus",
+    "choiceDescription": "Pilih cara nyabut model ieu tina Novera.",
+    "removeFromNovera": "Angkat tina Novera",
+    "permanentlyDelete": "Hapus permanén",
+    "keepFilesDescription": "Cabut modél tina daptar sareng simpen filena dina disk. Anjeun tiasa ngimpor deui.",
+    "permanentDescription": "Pupus modél sareng file anu diurus Novera tina disk. Ieu teu bisa dibolaykeun.",
+    "permanentImportedDescription": "Hapus ogé file utama GGUF di lokasi aslina. File bantu éksternal disimpen. Ieu teu bisa dibolaykeun.",
+    "removedSuccess": "Model {{modelId}} dipiceun tina Novera. File na disimpen."
   },
   "deleteAllModels": {
     "button": "Pupus Sadayana",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Konci fallback pilihan dikonpigurasi dina Advanced.",
     "addKey": "Tambahkeun konci",
     "removeKey": "Cabut konci"
-  }
+  },
+  "installedMediaModels": "Gambar, vidéo sareng modél musik",
+  "noInstalledModels": "Teu aya modél anu kadaptar dina kategori ieu.",
+  "modelComponents": "File modél"
 }

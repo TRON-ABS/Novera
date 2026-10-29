@@ -60,7 +60,14 @@
     "removeFromJan": "Susa ku-Novera",
     "success": "Imodeli {{modelId}} isusiwe unomphela.",
     "cancel": "Khansela",
-    "delete": "Susa"
+    "delete": "Susa",
+    "choiceDescription": "Khetha ukuthi ungayisusa kanjani le modeli kokuthi Novera.",
+    "removeFromNovera": "Susa ku-Novera",
+    "permanentlyDelete": "Susa unomphela",
+    "keepFilesDescription": "Susa imodeli ohlwini futhi ugcine amafayela ayo kudiski. Ungayingenisa futhi.",
+    "permanentDescription": "Susa imodeli namafayela ayo aphethwe ngu-Novera kudiski. Lokhu akukwazi ukuhlehliswa.",
+    "permanentImportedDescription": "Futhi susa ifayela elikhulu elithi GGUF endaweni yalo yangempela. Amafayela asizayo angaphandle agcinwa. Lokhu akukwazi ukuhlehliswa.",
+    "removedSuccess": "Imodeli {{modelId}} ikhishiwe ku-Novera. Amafayela ayo agcinwe."
   },
   "deleteAllModels": {
     "button": "Susa Zonke",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Ama-key wokubuyela ozikhethela wona asethwe ku-Advanced.",
     "addKey": "Engeza okukhi",
     "removeKey": "Susa okukhi"
-  }
+  },
+  "installedMediaModels": "Amamodeli wesithombe, ividiyo nomculo",
+  "noInstalledModels": "Awekho amamodeli abhaliswe kulesi sigaba.",
+  "modelComponents": "Amafayela emodeli"
 }

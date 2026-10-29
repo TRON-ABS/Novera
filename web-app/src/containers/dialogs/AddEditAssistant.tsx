@@ -19,6 +19,7 @@ import { useTheme } from '@/hooks/useTheme'
 import { useGeneralSetting } from '@/hooks/useGeneralSetting'
 import { AvatarEmoji } from '@/containers/AvatarEmoji'
 import { useTranslation } from '@/i18n/react-i18next-compat'
+import { NoveraInstructionsGuide } from '@/containers/NoveraInstructionsGuide'
 
 interface AddEditAssistantProps {
   open: boolean
@@ -162,6 +163,17 @@ export default function AddEditAssistant({
   }
 
   const { t } = useTranslation()
+
+  // The built-in assistant is configured only through the dashboard notebook.
+  // Keep legacy profiles intact without exposing a competing instruction form.
+  if (editingKey === 'jan' || initialData?.id === 'jan') {
+    return <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent>
+        <DialogHeader><DialogTitle>Novera</DialogTitle></DialogHeader>
+        <NoveraInstructionsGuide onNavigate={() => onOpenChange(false)} />
+      </DialogContent>
+    </Dialog>
+  }
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>

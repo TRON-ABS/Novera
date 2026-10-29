@@ -1,0 +1,455 @@
+{
+  "test_suites": {
+    "generation-series-final": {
+      "numPassedTests": 94,
+      "numFailedTests": 0,
+      "numPendingTests": 0,
+      "numPassedTestSuites": 10
+    },
+    "locale-components-final": {
+      "numPassedTests": 170,
+      "numFailedTests": 0,
+      "numPendingTests": 0,
+      "numPassedTestSuites": 29
+    },
+    "locale-callback-final": {
+      "numPassedTests": 66,
+      "numFailedTests": 0,
+      "numPendingTests": 0,
+      "numPassedTestSuites": 8
+    },
+    "locale-catalogs-final": {
+      "numPassedTests": 945,
+      "numFailedTests": 0,
+      "numPendingTests": 3,
+      "numPassedTestSuites": 58
+    },
+    "locale-plurals-final": {
+      "numPassedTests": 9,
+      "numFailedTests": 0,
+      "numPendingTests": 0,
+      "numPassedTestSuites": 6
+    }
+  },
+  "static_audit": {
+    "staticCalls": 2117,
+    "missingKeys": [],
+    "unreviewedLiterals": [],
+    "dynamicCalls": [
+      {
+        "file": "components/ai-elements/chain-of-thought.tsx",
+        "expression": "keys.aWhile"
+      },
+      {
+        "file": "components/ai-elements/chain-of-thought.tsx",
+        "expression": "keys.withDuration"
+      },
+      {
+        "file": "components/ai-elements/tool.tsx",
+        "expression": "summary.key"
+      },
+      {
+        "file": "components/left-sidebar/NavMain.tsx",
+        "expression": "item.title"
+      },
+      {
+        "file": "components/left-sidebar/NavMain.tsx",
+        "expression": "item.title"
+      },
+      {
+        "file": "components/left-sidebar/NavMain.tsx",
+        "expression": "item.title"
+      },
+      {
+        "file": "components/MediaPlayer.tsx",
+        "expression": "`chat:creation.${kind}`"
+      },
+      {
+        "file": "containers/Capabilities.tsx",
+        "expression": "`chat:creation.capabilities.${capability}`"
+      },
+      {
+        "file": "containers/ComposerSizeButton.tsx",
+        "expression": "`chat:creation.${kind}`"
+      },
+      {
+        "file": "containers/CoworkArtifactCard.tsx",
+        "expression": "`common:artifactGroup${artifact.group}`"
+      },
+      {
+        "file": "containers/CoworkEmptyState.tsx",
+        "expression": "`common:coworkEmpty.${scope}.${key}`"
+      },
+      {
+        "file": "containers/CoworkFilesPanel.tsx",
+        "expression": "`common:artifactGroup${group}`"
+      },
+      {
+        "file": "containers/CoworkPreviewPanel.tsx",
+        "expression": "state.reason"
+      },
+      {
+        "file": "containers/CoworkSandboxChip.tsx",
+        "expression": "fixKeyFor(platform)"
+      },
+      {
+        "file": "containers/CoworkTasksPanel.tsx",
+        "expression": "MONITOR_OUTCOME_KEYS[monitor.outcome ?? 'stopped']"
+      },
+      {
+        "file": "containers/CoworkWorkspacePill.tsx",
+        "expression": "`common:access.${access}`"
+      },
+      {
+        "file": "containers/CoworkWorkspacePill.tsx",
+        "expression": "`common:access.${access}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${kind}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${task}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${key}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${key}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.seed${value[0].toUpperCase()}${value.slice(1)}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${key}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${item}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${key}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.seed${(settings.seedMode ?? 'random')[0].toUpperCase()}${(settings.seedMode ?? 'random').slice(1)}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.seed${value[0].toUpperCase()}${value.slice(1)}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${progress.stage === 'upscaling' ? 'upscaleTitle' : progress.stage === 'loading' ? 'loading' : progress.stage === 'finalizing' ? 'finalizing' : 'generating'}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${kind}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${kind}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${kind==='image'?'setupImageNote':'setupVideoNote'}`"
+      },
+      {
+        "file": "containers/CreationControls.tsx",
+        "expression": "`chat:creation.${mode}`"
+      },
+      {
+        "file": "containers/CreationInstall.tsx",
+        "expression": "`chat:creationInstall.${job.phase}`"
+      },
+      {
+        "file": "containers/CreationInstall.tsx",
+        "expression": "`chat:creationInstall.${job.running ? 'pause' : 'resume'}`"
+      },
+      {
+        "file": "containers/dialogs/FolderAccessDialog.tsx",
+        "expression": "`common:access.${value}`"
+      },
+      {
+        "file": "containers/DropdownModelProvider.tsx",
+        "expression": "`chat:creation.${item}`"
+      },
+      {
+        "file": "containers/DropdownModelProvider.tsx",
+        "expression": "`chat:creation.${item}`"
+      },
+      {
+        "file": "containers/GeneratedCreation.tsx",
+        "expression": "`chat:creation.${reference.task}`"
+      },
+      {
+        "file": "containers/HubAdvisor.tsx",
+        "expression": "`hub:catalog.${reason}`"
+      },
+      {
+        "file": "containers/HubAdvisor.tsx",
+        "expression": "`hub:catalog.${tip}`"
+      },
+      {
+        "file": "containers/HubCategoryExplorer.tsx",
+        "expression": "`hub:catalog.${category.id}`"
+      },
+      {
+        "file": "containers/HubHardwareDiagnostic.tsx",
+        "expression": "`hub:catalog.${category}`"
+      },
+      {
+        "file": "containers/HubHardwareDiagnostic.tsx",
+        "expression": "`hub:catalog.${diagnosis.memory}`"
+      },
+      {
+        "file": "containers/HubHardwareDiagnostic.tsx",
+        "expression": "`hub:catalog.${diagnosis.engineState}`"
+      },
+      {
+        "file": "containers/HubHardwareDiagnostic.tsx",
+        "expression": "`hub:catalog.${diagnosis.nvfp4Advice}`"
+      },
+      {
+        "file": "containers/HubHardwareDiagnostic.tsx",
+        "expression": "`hub:catalog.${diagnosis.memory}`"
+      },
+      {
+        "file": "containers/HubHardwareDiagnostic.tsx",
+        "expression": "`hub:catalog.${diagnosis.engineState}`"
+      },
+      {
+        "file": "containers/HubHardwareDiagnostic.tsx",
+        "expression": "`hub:catalog.${diagnosis.nvfp4Advice}`"
+      },
+      {
+        "file": "containers/HubModelInsights.tsx",
+        "expression": "`hub:discovery.${b.mode}`"
+      },
+      {
+        "file": "containers/HubModelInsights.tsx",
+        "expression": "`hub:discovery.${error}`"
+      },
+      {
+        "file": "containers/McpServerAuth.tsx",
+        "expression": "`mcp-servers:auth.state.${status.state}`"
+      },
+      {
+        "file": "containers/MediaLibrary.tsx",
+        "expression": "`chat:creation.${task}`"
+      },
+      {
+        "file": "containers/MediaLibrary.tsx",
+        "expression": "`chat:creation.${task}`"
+      },
+      {
+        "file": "containers/MediaLibrary.tsx",
+        "expression": "`chat:creation.${editing?.task ?? 'image'}`"
+      },
+      {
+        "file": "containers/MediaLibrary.tsx",
+        "expression": "`chat:creation.${field}`"
+      },
+      {
+        "file": "containers/MediaLibrary.tsx",
+        "expression": "`chat:creation.${field}`"
+      },
+      {
+        "file": "containers/MediaLibrary.tsx",
+        "expression": "`chat:creation.${field}`"
+      },
+      {
+        "file": "containers/MemoryModeControl.tsx",
+        "expression": "`chat:memory.${policy}`"
+      },
+      {
+        "file": "containers/MemoryModeControl.tsx",
+        "expression": "`chat:memory.${policy}Note`"
+      },
+      {
+        "file": "containers/message/AgentToolWidget.tsx",
+        "expression": "PLACEHOLDER_KEYS[bar.tool] ?? 'tools:toolCall.pathPlaceholder'"
+      },
+      {
+        "file": "containers/message/AgentToolWidget.tsx",
+        "expression": "RUNNING_KEYS[bar.tool] ?? 'tools:toolCall.reading'"
+      },
+      {
+        "file": "containers/ModelInfoHoverCard.tsx",
+        "expression": "`hub:catalog.${diagnosis.memory}`"
+      },
+      {
+        "file": "containers/ModelInfoHoverCard.tsx",
+        "expression": "`hub:catalog.${diagnosis.engineState}`"
+      },
+      {
+        "file": "containers/MusicControls.tsx",
+        "expression": "`chat:creation.seed${settings.seedMode[0].toUpperCase()}${settings.seedMode.slice(1)}`"
+      },
+      {
+        "file": "containers/MusicControls.tsx",
+        "expression": "`chat:creation.seed${mode[0].toUpperCase()}${mode.slice(1)}`"
+      },
+      {
+        "file": "containers/MusicControls.tsx",
+        "expression": "`chat:creation.${label}`"
+      },
+      {
+        "file": "containers/MusicControls.tsx",
+        "expression": "`chat:creation.${label}`"
+      },
+      {
+        "file": "containers/MusicControls.tsx",
+        "expression": "`chat:creation.${label}`"
+      },
+      {
+        "file": "containers/MusicModelLibrary.tsx",
+        "expression": "`chat:creation.${{generator: 'musicGenerator', planner: 'musicPlanner', encoder: 'musicEncoder', vae: 'musicVae'}[role]}`"
+      },
+      {
+        "file": "containers/NativeAccessControl.tsx",
+        "expression": "`common:access.${session?.folderAccess ?? 'read'}`"
+      },
+      {
+        "file": "containers/NotificationPositionSwitcher.tsx",
+        "expression": "positionLabelKey(notificationPosition)"
+      },
+      {
+        "file": "containers/NotificationPositionSwitcher.tsx",
+        "expression": "positionLabelKey(value)"
+      },
+      {
+        "file": "containers/NoveraInstructionsButton.tsx",
+        "expression": "`chat:creation.${category}`"
+      },
+      {
+        "file": "containers/NoveraInstructionsGuide.tsx",
+        "expression": "`chat:creation.${category}`"
+      },
+      {
+        "file": "containers/SettingsMenu.tsx",
+        "expression": "menu.title"
+      },
+      {
+        "file": "containers/SettingsMenu.tsx",
+        "expression": "menu.title"
+      },
+      {
+        "file": "containers/SetupScreen.tsx",
+        "expression": "`setup:${currentPage.messageKey}`"
+      },
+      {
+        "file": "containers/SetupScreen.tsx",
+        "expression": "currentPage.labelKey"
+      },
+      {
+        "file": "containers/ShareButton.tsx",
+        "expression": "`chat:sharing.${key}`"
+      },
+      {
+        "file": "hooks/useDownloadEvents.ts",
+        "expression": "`common:toast.downloadFailed.reason.${reason}`"
+      },
+      {
+        "file": "hooks/useNoveraInstructions.ts",
+        "expression": "`chat:instructions.${category}Default`"
+      },
+      {
+        "file": "i18n/context.ts",
+        "expression": "key"
+      },
+      {
+        "file": "i18n/react-i18next-compat.ts",
+        "expression": "finalKey"
+      },
+      {
+        "file": "i18n/TranslationContext.tsx",
+        "expression": "key"
+      },
+      {
+        "file": "lib/coworkCommands.ts",
+        "expression": "c.descKey"
+      },
+      {
+        "file": "lib/engineError.ts",
+        "expression": "`model-errors:engine.${engineError.code}`"
+      },
+      {
+        "file": "lib/engineError.ts",
+        "expression": "messageKey"
+      },
+      {
+        "file": "providers/ExtensionProvider.tsx",
+        "expression": "status.key"
+      },
+      {
+        "file": "routes/artifacts.tsx",
+        "expression": "`common:artifactGroup${group}`"
+      },
+      {
+        "file": "routes/artifacts.tsx",
+        "expression": "`common:artifactGroup${g}`"
+      },
+      {
+        "file": "routes/cowork.tsx",
+        "expression": "c.descKey"
+      },
+      {
+        "file": "routes/cowork.tsx",
+        "expression": "`common:coworkSlash.kind.${item.kind}`"
+      },
+      {
+        "file": "routes/hub/index.tsx",
+        "expression": "`hub:discovery.${band}`"
+      },
+      {
+        "file": "routes/settings/attachments.tsx",
+        "expression": "d.titleKey"
+      },
+      {
+        "file": "routes/settings/attachments.tsx",
+        "expression": "d.descriptionKey"
+      },
+      {
+        "file": "routes/settings/cowork.tsx",
+        "expression": "titleKey"
+      },
+      {
+        "file": "services/creation/music-cloud-stream.ts",
+        "expression": "`chat:creation.${error.code}`"
+      },
+      {
+        "file": "services/creation/stream.ts",
+        "expression": "key"
+      },
+      {
+        "file": "services/creation/stream.ts",
+        "expression": "hint"
+      },
+      {
+        "file": "services/creation/stream.ts",
+        "expression": "hint"
+      },
+      {
+        "file": "services/creation/stream.ts",
+        "expression": "`chat:creation.${error.code}`"
+      }
+    ],
+    "compiled": false
+  },
+  "architecture": {
+    "areas": 6,
+    "checkedFiles": 26,
+    "violations": []
+  },
+  "typescript_no_emit": "passed",
+  "targeted_eslint": "passed without warnings",
+  "compiled": false,
+  "native_linguistic_review": "pending"
+}

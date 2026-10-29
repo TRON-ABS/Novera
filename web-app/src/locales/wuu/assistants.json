@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "开新闲话个辰光用",
   "allAssistants": "全部助手",
   "lastUsed": "上趟使用",
-  "deleteFailed": "助手删勿脱。请再试一趟。"
+  "deleteFailed": "助手删勿脱。请再试一趟。",
+  "officialInstructions": "Novera 的三类指令只能通过 {{path}} 修改。"
 }

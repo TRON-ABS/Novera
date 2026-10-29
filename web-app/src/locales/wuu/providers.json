@@ -28,7 +28,14 @@
     "description": "侬确定要删脱搿个模型𠲎？搿个操作撤销勿来。",
     "importedDescription": "从 Novera 移除搿个导入模型𠲎？侬磁盘上个本地文件勿会删脱。",
     "removeFromJan": "从 Novera 移除",
-    "success": "模型 {{modelId}} 已经永久删脱了。"
+    "success": "模型 {{modelId}} 已经永久删脱了。",
+    "choiceDescription": "选搿模型从 Novera 怎么拿走。",
+    "removeFromNovera": "从 Novera 移除",
+    "permanentlyDelete": "永久删掉",
+    "keepFilesDescription": "从列表拿走模型，文件留在硬盘上。你再能导入。",
+    "permanentDescription": "删掉模型搭 Novera 管着个文件从硬盘上。搿勿能撤销。",
+    "permanentImportedDescription": "呒也删掉原始位置个主 GGUF 文件。外部辅助文件留着。搿勿能撤销。",
+    "removedSuccess": "模型 {{modelId}} 从 Novera 拿走。文件留着。"
   },
   "deleteAllModels": {
     "button": "全部删除",
@@ -123,5 +130,8 @@
   "importedTooltip": "从本地文件导入个。从 Novera 移除伊，勿会删脱磁盘上个文件。",
   "importModelSuccess": "模型 {{provider}} 已经导入好了。",
   "noModelFoundDesc": "可用模型会列勒搿搭。侬要是还呒没模型，请到中心下载。",
-  "noModelFoundRemoteDesc": "可用模型会列勒搿搭。用上头个刷新按钮从提供商获取模型，或者用 + 按钮手动添加。"
+  "noModelFoundRemoteDesc": "可用模型会列勒搿搭。用上头个刷新按钮从提供商获取模型，或者用 + 按钮手动添加。",
+  "installedMediaModels": "图像、视频搭音乐模型",
+  "noInstalledModels": "搿类里勿有注册模型。",
+  "modelComponents": "模型文件"
 }

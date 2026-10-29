@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { memo, useState, useCallback, useEffect, useMemo } from 'react'
 import { GeneratedCreation } from './GeneratedCreation'
-import { CREATION_PREFIX } from '@/modules/engines/creation'
+import { MediaPlayer } from '@/components/MediaPlayer'
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
+import { CREATION_PREFIX, isLegacyCreationCaption } from '@/modules/engines/creation'
 import type { UIMessage, ChatStatus } from 'ai'
 import { RenderMarkdown } from './RenderMarkdown'
 import { stripToolCallMarkup } from '@/modules/tools/tool-call-markup'
@@ -100,6 +102,7 @@ export const MessageItem = memo(
     onSwitchVersion,
     highlightedPrefix,
   }: MessageItemProps) => {
+
     const { t, i18n } = useTranslation()
     const dateLocale = i18n?.language ?? 'en'
     const selectedModel = useModelProvider((state) => state.selectedModel)
@@ -294,6 +297,8 @@ export const MessageItem = memo(
         return null
       }
 
+      if (message.role === 'assistant' && isLegacyCreationCaption(part.text) && message.parts.some((p) => p.type === 'file' && p.url?.startsWith(CREATION_PREFIX))) return null
+
       const isLastPart = partIndex === message.parts.length - 1
 
       // For user messages, extract and clean the text from file metadata
@@ -316,7 +321,7 @@ export const MessageItem = memo(
             <div className="flex justify-end w-full h-full text-start wrap-break-word whitespace-normal">
               <div
                 className={cn(
-                  'relative p-2 rounded-md inline-block max-w-[80%]',
+                  'novera-user-message relative p-3 rounded-2xl inline-block max-w-[80%]',
                   coloredUserBubble
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-secondary text-foreground'
@@ -401,8 +406,7 @@ export const MessageItem = memo(
         )
       }
       const isImage = part.mediaType?.startsWith('image/')
-      const isAudio =
-        part.mediaType === 'audio/wav' || part.mediaType === 'audio/mpeg'
+      const isAudio = part.mediaType?.startsWith('audio/')
       const isVideo = part.mediaType?.startsWith('video/')
 
       if (isAudio && part.url) {
@@ -413,7 +417,9 @@ export const MessageItem = memo(
             key={`${message.id}-${partIndex}`}
             className={`flex ${justify} w-full my-2`}
           >
-            <audio controls src={part.url} className="max-w-[80%] rounded-md" />
+            <div className="novera-media-card w-[min(100%,32rem)] max-w-[80%] overflow-hidden rounded-2xl">
+              <MediaPlayer src={part.url} kind="music" />
+            </div>
           </div>
         )
       }
@@ -426,11 +432,9 @@ export const MessageItem = memo(
             key={`${message.id}-${partIndex}`}
             className={`flex ${justify} w-full my-2`}
           >
-            <video
-              controls
-              src={part.url}
-              className="max-w-[80%] max-h-80 rounded-md border"
-            />
+            <div className="novera-media-card w-[min(100%,48rem)] max-w-[80%] overflow-hidden rounded-2xl">
+              <MediaPlayer src={part.url} kind="video" />
+            </div>
           </div>
         )
       }
@@ -445,7 +449,7 @@ export const MessageItem = memo(
               <div className="relative">
                 <img
                   src={part.url}
-                  alt={part.filename || 'Uploaded attachment'}
+                  alt={part.filename || t('ui:uploadedAttachment')}
                   className="size-20 rounded-lg object-cover border cursor-pointer"
                   onClick={() =>
                     setPreviewImage({ url: part.url!, filename: part.filename })
@@ -460,14 +464,8 @@ export const MessageItem = memo(
       if (message.role === 'assistant' && isImage && part.url) {
         return (
           <div key={`${message.id}-${partIndex}`} className="my-2">
-            <img
-              src={part.url}
-              alt={part.filename || 'Generated image'}
-              className="max-w-full rounded-md cursor-pointer"
-              onClick={() =>
-                setPreviewImage({ url: part.url!, filename: part.filename })
-              }
-            />
+            <MediaPlayer src={part.url} kind="image" name={part.filename}
+              onExpand={() => setPreviewImage({ url: part.url!, filename: part.filename })} />
           </div>
         )
       }
@@ -785,17 +783,12 @@ export const MessageItem = memo(
 
         {/* Image Preview Dialog */}
         {previewImage && (
-          <div
-            className="fixed inset-0 z-100 bg-black/50 backdrop-blur-md flex items-center justify-center cursor-pointer"
-            onClick={() => setPreviewImage(null)}
-          >
-            <img
-              src={previewImage.url}
-              alt={previewImage.filename || 'Preview'}
-              className="max-h-[90vh] max-w-[90vw] object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
+          <Dialog open onOpenChange={(open) => { if (!open) setPreviewImage(null) }}>
+            <DialogContent className="w-[95vw] max-w-none sm:max-w-none">
+              <DialogTitle>{t('chat:creation.image')}</DialogTitle>
+              <MediaPlayer src={previewImage.url} kind="image" name={previewImage.filename} expanded />
+            </DialogContent>
+          </Dialog>
         )}
       </div>
     )

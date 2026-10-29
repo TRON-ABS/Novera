@@ -60,7 +60,14 @@
     "removeFromJan": "Novera ৰ পৰা আঁতৰাওক",
     "success": "মডেল {{modelId}} স্থায়ীৰূপে আঁতৰুৱা হৈছে।",
     "cancel": "বাতিল কৰক",
-    "delete": "মচি পেলাওক"
+    "delete": "মচি পেলাওক",
+    "choiceDescription": "Novera ৰ পৰা এই আৰ্হি কেনেকৈ আঁতৰাব নিৰ্ব্বাচন কৰক ।",
+    "removeFromNovera": "Novera ৰ পৰা আঁতৰাওক",
+    "permanentlyDelete": "স্থায়ীভাৱে মচি পেলাওক",
+    "keepFilesDescription": "তালিকাৰ পৰা আৰ্হি আঁতৰাওক আৰু ইয়াৰ নথিপত্ৰসমূহ ডিষ্কত ৰাখক। আপুনি ইয়াক পুনৰ আমদানি কৰিব পাৰে।",
+    "permanentDescription": "আৰ্হি আৰু ইয়াৰ Novera-পৰিচালিত নথিপত্ৰসমূহ ডিষ্কৰ পৰা মচি পেলাওক। এইটো বাতিল কৰিব নোৱাৰি।",
+    "permanentImportedDescription": "মূল GGUF ফাইলটোও ইয়াৰ মূল অৱস্থানত মচি পেলাওক। বাহ্যিক সহায়ক ফাইলসমূহ ৰখা হয়। এইটো বাতিল কৰিব নোৱাৰি।",
+    "removedSuccess": "মডেল {{modelId}} Novera ৰ পৰা আঁতৰোৱা হৈছে। ইয়াৰ ফাইলবোৰ ৰখা হৈছিল।"
   },
   "deleteAllModels": {
     "button": "সকলো আঁতৰাওক",
@@ -123,5 +130,8 @@
     "oneKeyHint": "বৈকল্পিক fallback কি'সমূহ উন্নতত বিন্যাস কৰা হয়।",
     "addKey": "কি' যোগ কৰক",
     "removeKey": "কি' আঁতৰাওক"
-  }
+  },
+  "installedMediaModels": "ছবি, ভিডিঅ' আৰু সংগীতৰ মডেল",
+  "noInstalledModels": "এই শ্ৰেণীত কোনো মডেল পঞ্জীয়ন কৰা হোৱা নাই।",
+  "modelComponents": "আৰ্হি ফাইলসমূহ"
 }

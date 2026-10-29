@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Pembantu Lalai",
   "defaultAssistantDesc": "Digunakan semasa memulakan sembang baharu",
   "allAssistants": "Semua Pembantu",
-  "lastUsed": "Terakhir digunakan"
+  "lastUsed": "Terakhir digunakan",
+  "officialInstructions": "Tiga kategori arahan Novera hanya boleh disunting melalui {{path}}."
 }

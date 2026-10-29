@@ -49,6 +49,13 @@ describe('getEmbeddingEngine', () => {
 describe('embedTexts', () => {
   beforeEach(() => vi.clearAllMocks())
 
+  it('forwards the query purpose so instruction-aware embedders can distinguish search from indexing', async () => {
+    withExtension(engine)
+    engine.embed.mockResolvedValue({ data: [{ embedding: [1], index: 0 }] })
+    await embedTexts(['Où est Paris ?'], { purpose: 'query' })
+    expect(engine.embed).toHaveBeenCalledWith(['Où est Paris ?'], { purpose: 'query' })
+  })
+
   // The response is keyed by `index`, so a provider returning them out of
   // order must not shift every vector onto the wrong text.
   it('scatters vectors back by index, not by response order', async () => {

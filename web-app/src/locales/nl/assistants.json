@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Standaardassistent",
   "defaultAssistantDesc": "Wordt gebruikt bij het starten van een nieuwe chat",
   "allAssistants": "Alle assistenten",
-  "lastUsed": "Laatst gebruikt"
+  "lastUsed": "Laatst gebruikt",
+  "officialInstructions": "De drie instructiecategorieën van Novera kunnen alleen via {{path}} worden bewerkt."
 }

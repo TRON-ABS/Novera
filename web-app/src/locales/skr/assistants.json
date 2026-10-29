@@ -38,5 +38,6 @@
   "defaultAssistantSection": "پہلاں توں چنیا ہویا مددگار",
   "defaultAssistantDesc": "نویں گل بات شروع کرن ویلے ورتیا جاندا ہے",
   "allAssistants": "سارے مددگار",
-  "lastUsed": "آخری واری ورتیا"
+  "lastUsed": "آخری واری ورتیا",
+  "officialInstructions": "Novera دیاں ہدایتاں دیاں تِن قسماں صرف {{path}} راہیں بدلیاں جا سکدیاں نیں۔"
 }

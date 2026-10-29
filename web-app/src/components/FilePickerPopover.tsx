@@ -4,6 +4,7 @@
  * Scoped to the session's working directory. Supports keyboard navigation
  * (arrows, tab to complete, enter to select, esc to dismiss).
  */
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { Folder, File, FileCode, FileText, ImageIcon, FileJson, FileType } from 'lucide-react'
@@ -75,6 +76,8 @@ export function FilePickerPopover({
   onClose,
   textareaRef,
 }: FilePickerPopoverProps) {
+  const { t: uiT } = useUiLocale()
+
   const [activeIndex, setActiveIndex] = useState(0)
   const listRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<number, HTMLDivElement>>(new Map())
@@ -148,16 +151,15 @@ export function FilePickerPopover({
     >
       <div className="px-2 py-1.5 text-xs text-muted-foreground border-b border-border/50 mb-1">
         {entries.length === 1
-          ? '1 result'
-          : `${entries.length} results`}
+          ? uiT('ui:1Result')
+          : uiT('ui:resultCount', { count: entries.length })}
         {query && (
           <span>
-            {' '}for <span className="font-mono font-medium text-foreground/70">@{query}</span>
+            {' '}{uiT('ui:for_10c22b')}{' '}<span className="font-mono font-medium text-foreground/70">@{query}</span>
           </span>
         )}
         <span className="ml-auto text-[10px] opacity-60">
-          ↑↓ navigate · Tab/Enter select · Esc dismiss
-        </span>
+          {uiT('ui:navigateTabEnterSelectEscDismiss')}</span>
       </div>
       <div ref={listRef}>
         {entries.map((entry, idx) => (
@@ -183,7 +185,7 @@ export function FilePickerPopover({
               <div className="flex items-center gap-1.5">
                 <span className="font-medium truncate">{entry.name}</span>
                 <span className="text-[10px] text-muted-foreground/50 uppercase shrink-0">
-                  {entry.kind === 'directory' ? 'folder' : entry.extension}
+                  {entry.kind === 'directory' ? uiT('common:skillOriginFolder') : entry.extension}
                 </span>
               </div>
               <div className="text-[11px] text-muted-foreground/60 truncate">

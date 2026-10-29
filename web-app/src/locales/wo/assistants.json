@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Jàppalekat biñ jagleel",
   "defaultAssistantDesc": "Dañu koy jëfandikoo sooy tàmbali waxtaan bu bees",
   "allAssistants": "Jàppalekat yépp",
-  "lastUsed": "Dañu mujjee jëfandikoo"
+  "lastUsed": "Dañu mujjee jëfandikoo",
+  "officialInstructions": "Ñetti xeeti ndigali Novera manees na leen soppi ci {{path}} rekk."
 }

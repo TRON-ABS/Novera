@@ -47,7 +47,35 @@
     "tokens": "Mga token",
     "perSecond": "token/segundo"
   },
+  "player": {
+    "play": "I-play",
+    "pause": "I-pause",
+    "seek": "Posisyon ng pag-play",
+    "mute": "I-mute",
+    "volume": "Lakas ng tunog",
+    "speed": "Bilis ng pag-play"
+  },
   "creation": {
+    "musicLyricsGuide": "Ilarawan ang estilo at boses sa kahilingan. Ilagay ang liriko sa ilalim ng mga tag sa ibaba. I-off ang {{instrumental}} para may pagkanta.",
+    "music": "Musika",
+    "musicDuration": "Haba ng musika",
+    "musicQuality": "Kalidad ng audio",
+    "musicInstrumental": "Instrumental",
+    "musicLyrics": "Liriko",
+    "musicGenerator": "Tagalikha ng musika",
+    "musicPlanner": "Tagaplano ng musika",
+    "setupAllDownload": "Awtomatikong i-download at i-set up ang lahat",
+    "setupConfiguring": "Ine-set up ang mga inirerekomendang modelo",
+    "setupStorage": "Kabuuang file: {{download}}. Reserba: {{reserve}}. Dagdag na kailangan: {{required}}. Bakante sa napiling drive: {{free}}.",
+    "setupSpaceMissing": "Kulang ng {{missing}}. Magbakante o pumili ng ibang drive na may sapat na espasyo.",
+    "setupTextNote": "NVIDIA Ang Nemotron-3.5-Bolt-E4B Q4_K_M ay ang inirerekomendang modelo ng lokal na text para sa pag-uusap, pagsulat, mga tool na tawag at mga structured na output. Ang unang konteksto ay 16K token; suriin ang magagamit na memorya bago ito dagdagan. Text input at output lang, na walang draft na modelo. Gamitin ang paghahanap o ang iyong mga dokumento para i-verify ang mga katotohanang claim.",
+    "setupImageNote": "Larawan — FLUX.2 Klein 4B · Q4_K_M. Teksto: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Aspect ratio: 21:9; Resolusyon: 1024 × 432; Mga hakbang sa pagbuo: 4; Mode ng seed: Random.",
+    "setupMusicNote": "Musika — ACE-Step 1.5 Turbo. Tagalikha ng musika: 2B · Q4_K_M; Tagaplano ng musika: 1.7B · Q8_0; Teksto: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Haba ng musika: 10–600 s; Kalidad ng audio: 48 kHz · 2.0; Instrumental / Liriko; Random.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Teksto: UMT5-XXL · Q4_K_M. Haba ng video: 5 s; Aspect ratio: 21:9; Mga frame bawat segundo: 16. Binubuo ang mahahabang video mula sa maiikling clip. Maaaring makita ang mga dugtong at matagalan ang paggawa. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Nagda-download at nagko-configure ng mga inirerekomendang modelo: Nemotron para sa text, Qwen3-Embedding Q8_0 para sa pagbawi sa maraming wika (CPU bilang default), FLUX.2 Klein 4B at mga bahagi nito, Real-ESRGAN ×2/×4, ACE-Step para sa musika (Instrumental on bilang default), at Wan2.1 para sa video. Suriin ang mga laki ng file, espasyo sa disk at mga kinakailangan ng video sa ibaba. Nananatiling available ang mga hiwalay na pag-download at Pag-browse.",
+    "finalizing": "Tinatapos ang video",
+    "videoDuration": "Haba ng video",
+    "videoDurationNote": "Binubuo ang mahahabang video mula sa maiikling clip. Maaaring makita ang mga dugtong at matagalan ang paggawa.",
     "output": "Format ng tugon",
     "auto": "Auto",
     "text": "Teksto",
@@ -109,7 +137,7 @@
       "web_search": "Naghahanap sa web"
     },
     "imageEngine": "Lokal na image engine",
-    "cppExecutable": "stable-diffusion.cpp executable (sd-cli)",
+    "cppExecutable": "sd-cli",
     "ggufImageModel": "Diffusion model (GGUF o katugmang Safetensors)",
     "ggufTextEncoder": "Text encoder (GGUF o katugmang Safetensors)",
     "ggufVae": "VAE (GGUF o mga katugmang Safetensor)",
@@ -144,7 +172,8 @@
     "ratio": "Aspect ratio",
     "resolution": "Resolusyon",
     "customSize": "Custom",
-    "sizeAutoNote": "Ang pagbabago ng ratio ay umaangkop sa kasalukuyang resolusyon. Gumagamit ang mga dimensyon ng maramihang 16, hanggang 2048 px."
+    "sizeAutoNote": "Ang pagbabago ng ratio ay umaangkop sa kasalukuyang resolusyon. Gumagamit ang mga dimensyon ng maramihang 16, hanggang 2048 px.",
+    "setupTextNvfp4Note": "Opsyonal na NVFP4 weights para sa isang natukoy na NVIDIA Blackwell GPU o mas bago na may hindi bababa sa 4.5 GiB ng VRAM. Para magamit ang mga timbang na ito sa Novera, ang buong modelong repository ay dapat munang ma-convert sa isang katugmang NVFP4 GGUF at ma-validate. Hindi pa nabe-verify ang conversion na ito para sa checkpoint na ito. Ang naka-link na Safetensors file ay hindi maaaring i-load nang direkta ng built-in na engine. Ang Q8_0 ay nananatiling handa na gamitin na rekomendasyon. Ang mga pangangailangan ng memorya ay nakasalalay din sa haba ng konteksto."
   },
   "creationInstall": {
     "install": "I-install ang configuration na ito",

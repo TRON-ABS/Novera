@@ -1,6 +1,7 @@
 "use client";
 /* eslint-disable react-refresh/only-export-components */
 
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { Slot } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 import { PanelLeft } from "lucide-react";
@@ -328,6 +329,8 @@ const SidebarTrigger = React.forwardRef<
 	React.ElementRef<typeof Button>,
 	React.ComponentProps<typeof Button>
 >(({ className, onClick, ...props }, ref) => {
+  const { t: uiT } = useUiLocale()
+
 	const { toggleSidebar } = useSidebar();
 
 	return (
@@ -344,7 +347,7 @@ const SidebarTrigger = React.forwardRef<
 			{...props}
 		>
 			<PanelLeft />
-			<span className="sr-only">Toggle Sidebar</span>
+			<span className="sr-only">{uiT('settings:shortcuts.toggleSidebar')}</span>
 		</Button>
 	);
 });
@@ -357,6 +360,8 @@ const SidebarRail = React.forwardRef<
 		enableDrag?: boolean;
 	}
 >(({ className, enableDrag = true, ...props }, ref) => {
+  const { t: uiT } = useUiLocale()
+
 	const { toggleSidebar, setWidth, state, width, setIsDraggingRail } =
 		useSidebar();
 
@@ -385,12 +390,12 @@ const SidebarRail = React.forwardRef<
 			//* updated ref to use combinedRef
 			ref={combinedRef}
 			data-sidebar="rail"
-			aria-label="Toggle Sidebar"
+			aria-label={uiT('settings:shortcuts.toggleSidebar')}
 			tabIndex={-1}
 			// onClick={toggleSidebar}
 			//* replace onClick with onMouseDown
 			onMouseDown={handleMouseDown}
-			title="Toggle Sidebar"
+			title={uiT('settings:shortcuts.toggleSidebar')}
 			className={cn(
 				"absolute inset-y-0 z-20 hidden w-4 -translate-x-1/2 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-0.5 hover:after:bg-sidebar group-data-[side=left]:-right-4 group-data-[side=right]:left-0 sm:flex",
 				// Cursor styles for resize

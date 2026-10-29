@@ -119,7 +119,7 @@ const SettingsMenu = () => {
       <div
         key={provider.provider}
         className={cn(
-          'flex px-2 items-center gap-1.5 cursor-pointer hover:bg-secondary/60 py-1 w-full rounded-sm text-foreground',
+          'novera-settings-link flex px-2 items-center gap-1.5 cursor-pointer hover:bg-secondary/60 py-1 w-full rounded-sm text-foreground',
           isRouteActive && 'bg-secondary',
           provider.provider === 'llama.cpp' &&
             stepSetupRemoteProvider &&
@@ -241,14 +241,14 @@ const SettingsMenu = () => {
 
   return (
     <>
-      <div className="h-full w-58 shrink-0 px-1.5 flex overflow-auto">
+      <div className="novera-settings-menu h-full w-58 shrink-0 px-1.5 flex overflow-auto">
         <div className="flex flex-col gap-1 w-full font-medium">
           {/* Core settings */}
           {coreSettings.map((menu) => (
             <div key={menu.title}>
               <Link
                 to={menu.route}
-                className="block px-2 gap-1.5 cursor-pointer hover:dark:bg-secondary/60 hover:bg-secondary py-1 w-full rounded-sm [&.active]:dark:bg-secondary/80 [&.active]:bg-secondary"
+                className="novera-settings-link block px-2 gap-1.5 cursor-pointer hover:dark:bg-secondary/60 hover:bg-secondary py-1 w-full rounded-sm [&.active]:dark:bg-secondary/80 [&.active]:bg-secondary"
               >
                 <div className="flex items-center gap-2">
                   <menu.icon size={18} className="shrink-0 text-muted-foreground" />
@@ -262,7 +262,7 @@ const SettingsMenu = () => {
           <div className="mt-4">
             <span className="px-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               {t('common:integrations')}
-              <span className="text-[11px] capitalize ml-2 font-medium px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400">
+              <span className="text-[11px] capitalize ml-2 font-medium px-2 py-0.5 rounded-full bg-violet-500/10 text-violet-700 dark:text-violet-300">
                 {t('common:experimental')}
               </span>
             </span>
@@ -271,7 +271,7 @@ const SettingsMenu = () => {
                 <Link
                   key={menu.title}
                   to={menu.route}
-                  className="flex items-center gap-2 px-2 py-1 cursor-pointer hover:dark:bg-secondary/60 hover:bg-secondary rounded-sm [&.active]:dark:bg-secondary/80 [&.active]:bg-secondary"
+                  className="novera-settings-link flex items-center gap-2 px-2 py-1 cursor-pointer hover:dark:bg-secondary/60 hover:bg-secondary rounded-sm [&.active]:dark:bg-secondary/80 [&.active]:bg-secondary"
                 >
                   <menu.icon size={18} className="shrink-0 text-muted-foreground" />
                   <span>{t(menu.title)}</span>
@@ -346,7 +346,7 @@ const SettingsMenu = () => {
                         <div
                           key={provider.provider}
                           className={cn(
-                            'flex px-2 items-center gap-1.5 cursor-pointer hover:bg-secondary/60 py-1 w-full rounded-sm text-muted-foreground',
+                            'novera-settings-link flex px-2 items-center gap-1.5 cursor-pointer hover:bg-secondary/60 py-1 w-full rounded-sm text-muted-foreground',
                             isRouteActive && 'bg-secondary'
                           )}
                           onClick={() =>

@@ -33,7 +33,14 @@
     "cancel": "取消",
     "delete": "删除",
     "importedDescription": "从 Novera 中删除此导入模型吗？您磁盘上的本地文件不会被删除。",
-    "removeFromJan": "从 Novera 中删除"
+    "removeFromJan": "从 Novera 中删除",
+    "choiceDescription": "选择如何从 Novera 中删除此模型。",
+    "removeFromNovera": "从 Novera 中删除",
+    "permanentlyDelete": "永久删除",
+    "keepFilesDescription": "从列表中删除模型并将其文件保留在磁盘上。您可以再次导入它。",
+    "permanentDescription": "从磁盘删除模型及其 Novera 管理的文件。此操作无法撤消。",
+    "permanentImportedDescription": "同时删除原始位置的主 GGUF 文件。保留外部辅助文件。此操作无法撤消。",
+    "removedSuccess": "型号 {{modelId}} 已从 Novera 中删除。其文件被保留。"
   },
   "deleteProvider": {
     "title": "删除提供商",
@@ -123,5 +130,8 @@
     "oneKeyHint": "可选后备键在高级中配置。",
     "addKey": "添加密钥",
     "removeKey": "拔掉钥匙"
-  }
+  },
+  "installedMediaModels": "图片、视频和音乐模型",
+  "noInstalledModels": "此类别中没有注册型号。",
+  "modelComponents": "模型文件"
 }

@@ -38,5 +38,6 @@
   "defaultAssistantSection": "မူရင်းလက်ထောက်",
   "defaultAssistantDesc": "ချတ်အသစ်တစ်ခုစသောအခါတွင် အသုံးပြုသည်။",
   "allAssistants": "လက်ထောက်များအားလုံး",
-  "lastUsed": "နောက်ဆုံးအသုံးပြုခဲ့သည်။"
+  "lastUsed": "နောက်ဆုံးအသုံးပြုခဲ့သည်။",
+  "officialInstructions": "Novera ၏ ညွှန်ကြားချက် အမျိုးအစားသုံးခုကို {{path}} မှသာ ပြင်ဆင်နိုင်သည်။"
 }

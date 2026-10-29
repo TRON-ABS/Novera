@@ -519,6 +519,17 @@ describe('generatePreset context-shift', () => {
 })
 
 describe('generatePreset embedding ctx-size', () => {
+  it.each([true, false])('keeps embedder placement independent of global fit=%s', async (fit) => {
+    setupModel('embed-cpu', { embedding: true, n_gpu_layers: 0 })
+    setupModel('embed-gpu', { embedding: true, n_gpu_layers: -1 })
+    setupModel('embed-default', { embedding: true })
+    await generatePreset('/p', '/jan', { fit } as any)
+    const ini = writtenFiles['/p/router.preset.ini']
+    const section = (id: string) => ini.split(`[${id}]`)[1].split('\n[')[0]
+    expect(section('embed-cpu')).toContain('n-gpu-layers = 0')
+    expect(section('embed-gpu')).toContain('n-gpu-layers = -1')
+    expect(section('embed-default')).toContain('n-gpu-layers = 0')
+  })
   it('pins embedders to native ctx-size = 0 so they do not inherit the global 8192', async () => {
     setupModel('minilm', { embedding: true })
     await generatePreset('/p', '/jan', { fit: false } as any)

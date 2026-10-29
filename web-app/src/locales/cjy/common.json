@@ -342,7 +342,7 @@
   "modelSettings": {
     "title": "模型设置 - {{modelId}}",
     "description": "配置模型设置以优化性能和行为。",
-    "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
+    "nglDisabledByFit": "自动适配正在选择 GPU 层。想手动设置，请关闭自动适配。",
     "samplingDefaults": {
       "title": "默认采样参数",
       "description": "此模型的默认采样器设置。除非被每个助手或每个请求的值覆盖，否则使用。"
@@ -660,8 +660,8 @@
     "notImported": "不在工作区"
   },
   "llamacppBusyOnExit": {
-    "title": "llama.cpp is still busy",
-    "description": "One or more models did not unload in time. Force-quitting will terminate llama.cpp and may interrupt active responses.",
+    "title": "llama.cpp 还在忙",
+    "description": "多个或某个模型没及时卸载。强制退出会终止 llama.cpp，可能会打断正在进行的回复。",
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"

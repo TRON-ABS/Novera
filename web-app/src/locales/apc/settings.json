@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "هل وجدت خطأ؟ ساعدنا بالإبلاغ عنه على GitHub.",
   "reportIssue": "الإبلاغ عن مشكلة",
   "credits": "الاعتمادات",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS)، مبني على Jan من Menlo Research ومساهميه.",
   "creditsDesc2": "شكر خاص لتبعياتنا مفتوحة المصدر — خاصةً llama.cpp وTauri — ولمجتمع الذكاء الاصطناعي المذهل لدينا.",
   "appVersion": "إصدار التطبيق",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "إعادة تعيين نمط كتلة التعليمات البرمجية",
     "resetCodeBlockStyleDesc": "إعادة تعيين نمط كتلة التعليمات البرمجية إلى الوضع الافتراضي.",
     "resetCodeBlockSuccess": "تمت إعادة ضبط نمط كتلة التعليمات البرمجية بنجاح",
-    "resetCodeBlockSuccessDesc": "تمت استعادة نمط كتلة التعليمات البرمجية إلى الوضع الافتراضي."
+    "resetCodeBlockSuccessDesc": "تمت استعادة نمط كتلة التعليمات البرمجية إلى الوضع الافتراضي.",
+    "subtitle": "خلي Novera إلك، من شكله لخيارات محادثتك الخاصة.",
+    "accentColor": "لون التمييز",
+    "accentColorDesc": "اختار لون التمييز ولون الشريط الجانبي.",
+    "conversation": "المحادثات والإشعارات"
   },
   "hardware": {
     "os": "نظام التشغيل",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "العثور على خطأ؟ ساعدونا بتقديم مشكلة على GitHub.",
     "reportIssue": "تقرير المشكلة",
     "credits": "الاعتمادات",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS)، مبني على Jan من Menlo Research ومساهميه.",
     "creditsDesc2": "شكر خاص لتبعياتنا مفتوحة المصدر — خاصةً llama.cpp وTauri — ولمجتمع الذكاء الاصطناعي المذهل لدينا."
   },
   "extensions": {

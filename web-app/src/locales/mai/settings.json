@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "कोड ब्लॉक शैली रीसेट करू",
     "resetCodeBlockStyleDesc": "कोड ब्लॉक शैली कए डिफ़ॉल्ट पर रीसेट करू।",
     "resetCodeBlockSuccess": "कोड ब्लॉक शैली सफलतापूर्वक रीसेट करू",
-    "resetCodeBlockSuccessDesc": "कोड ब्लॉक शैली क॑ डिफ़ॉल्ट प॑ बहाल करी देलऽ गेलऽ छै ।"
+    "resetCodeBlockSuccessDesc": "कोड ब्लॉक शैली क॑ डिफ़ॉल्ट प॑ बहाल करी देलऽ गेलऽ छै ।",
+    "subtitle": "Novera के अपन बनाउ, एकर रूप स ल कए अपन गपशप पसंद तक।",
+    "accentColor": "उच्चारण रंग",
+    "accentColorDesc": "उच्चारण आ साइडबार रंग चुनू।",
+    "conversation": "गप्प-सप्प आ सूचना"
   },
   "hardware": {
     "os": "ऑपरेटिंग सिस्टम",

@@ -4,7 +4,7 @@ export interface MediaPreset {
   provider: string
   id: string
   name: string
-  task: 'image' | 'video'
+  task: 'image' | 'music' | 'video'
   adapter: string
   source: string
   inputImage?: boolean
@@ -13,6 +13,13 @@ export interface MediaPreset {
   apiModel?: string
 }
 export const mediaProviderDefinitions = [
+  {
+    id: 'elevenlabs',
+    name: 'ElevenLabs',
+    base: 'https://api.elevenlabs.io/v1',
+    docs: 'https://elevenlabs.io/docs/api-reference/music/compose',
+    home: 'https://elevenlabs.io',
+  },
   {
     id: 'bfl',
     name: 'Black Forest Labs',
@@ -146,6 +153,39 @@ const video = (
   inputImage,
 })
 export const mediaModelPresets: MediaPreset[] = [
+  {
+    provider: 'elevenlabs',
+    id: 'music_v2_5',
+    name: 'ElevenMusic v2.5',
+    task: 'music',
+    adapter: 'elevenlabs-music',
+    source: 'https://elevenlabs.io/docs/api-reference/music/compose',
+  },
+  {
+    provider: 'stability',
+    id: 'stable-audio-3',
+    name: 'Stable Audio 3',
+    task: 'music',
+    adapter: 'stability-music',
+    source:
+      'https://docs.stability.ai/api-reference/stable-audio/text-to-audio',
+  },
+  {
+    provider: 'fal',
+    id: 'fal-ai/ace-step',
+    name: 'ACE-Step · cloud',
+    task: 'music',
+    adapter: 'fal',
+    source: 'https://fal.ai/models/fal-ai/ace-step/api',
+  },
+  {
+    provider: 'replicate',
+    id: 'stability-ai/stable-audio-2.5',
+    name: 'Stable Audio 2.5 · Replicate',
+    task: 'music',
+    adapter: 'replicate',
+    source: 'https://replicate.com/stability-ai/stable-audio-2.5/api/schema',
+  },
   image(
     'byteplus',
     'dola-seedream-5-0-pro-260628',
@@ -504,12 +544,17 @@ export function mediaModels(provider: string): Model[] {
       name: item.name,
       displayName: item.name,
       media_adapter: item.adapter,
-      verified_at: MEDIA_CATALOG_VERIFIED_AT,
+      verified_at:
+        item.task === 'music' ? '2026-10-27' : MEDIA_CATALOG_VERIFIED_AT,
       preview: item.preview,
       input_modalities: item.inputImage ? ['text', 'image'] : ['text'],
-      output_modalities: [item.task],
+      output_modalities: [item.task === 'music' ? 'audio' : item.task],
       capabilities: [
-        item.task === 'image' ? 'image-generation' : 'video-generation',
+        item.task === 'image'
+          ? 'image-generation'
+          : item.task === 'music'
+            ? 'audio-generation'
+            : 'video-generation',
         ...(item.inputImage ? ['image-input'] : []),
       ],
     }))

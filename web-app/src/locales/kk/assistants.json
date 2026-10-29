@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Әдепкі көмекші",
   "defaultAssistantDesc": "Жаңа чатты бастағанда қолданылады",
   "allAssistants": "Барлық көмекшілер",
-  "lastUsed": "Соңғы пайдаланылған"
+  "lastUsed": "Соңғы пайдаланылған",
+  "officialInstructions": "Novera нұсқауларының үш санатын тек {{path}} арқылы өңдеуге болады."
 }

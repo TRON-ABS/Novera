@@ -1,0 +1,1778 @@
+{
+  "aec": {
+    "verbs": [
+      "أنشئ",
+      "انشئ",
+      "اصنع",
+      "ولّد",
+      "ولد",
+      "ألّف",
+      "الف"
+    ],
+    "terms": {
+      "text": [
+        "نص"
+      ],
+      "image": [
+        "الصورة"
+      ],
+      "music": [
+        "موسيقى"
+      ],
+      "video": [
+        "فيديو"
+      ]
+    }
+  },
+  "af": {
+    "verbs": [
+      "skep",
+      "genereer",
+      "komponeer",
+      "maak"
+    ],
+    "terms": {
+      "text": [
+        "Teks"
+      ],
+      "image": [
+        "Beeld"
+      ],
+      "music": [
+        "Musiek"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "am": {
+    "verbs": [
+      "ፍጠር",
+      "ፍጠሪ",
+      "አዘጋጅ"
+    ],
+    "terms": {
+      "text": [
+        "ጽሑፍ"
+      ],
+      "image": [
+        "ምስል"
+      ],
+      "music": [
+        "ሙዚቃ"
+      ],
+      "video": [
+        "ቪዲዮ"
+      ]
+    }
+  },
+  "apc": {
+    "verbs": [
+      "أنشئ",
+      "انشئ",
+      "اصنع",
+      "ولّد",
+      "ولد",
+      "ألّف",
+      "الف"
+    ],
+    "terms": {
+      "text": [
+        "نص"
+      ],
+      "image": [
+        "الصورة"
+      ],
+      "music": [
+        "موسيقى"
+      ],
+      "video": [
+        "فيديو"
+      ]
+    }
+  },
+  "apd": {
+    "verbs": [
+      "أنشئ",
+      "انشئ",
+      "اصنع",
+      "ولّد",
+      "ولد",
+      "ألّف",
+      "الف"
+    ],
+    "terms": {
+      "text": [
+        "نص"
+      ],
+      "image": [
+        "الصورة"
+      ],
+      "music": [
+        "موسيقى"
+      ],
+      "video": [
+        "فيديو"
+      ]
+    }
+  },
+  "ar": {
+    "verbs": [
+      "أنشئ",
+      "انشئ",
+      "اصنع",
+      "ولّد",
+      "ولد",
+      "ألّف",
+      "الف"
+    ],
+    "terms": {
+      "text": [
+        "نص"
+      ],
+      "image": [
+        "الصورة"
+      ],
+      "music": [
+        "موسيقى"
+      ],
+      "video": [
+        "فيديو"
+      ]
+    }
+  },
+  "arq": {
+    "verbs": [
+      "أنشئ",
+      "انشئ",
+      "اصنع",
+      "ولّد",
+      "ولد",
+      "ألّف",
+      "الف"
+    ],
+    "terms": {
+      "text": [
+        "نص"
+      ],
+      "image": [
+        "الصورة"
+      ],
+      "music": [
+        "موسيقى"
+      ],
+      "video": [
+        "فيديو"
+      ]
+    }
+  },
+  "ary": {
+    "verbs": [
+      "أنشئ",
+      "انشئ",
+      "اصنع",
+      "ولّد",
+      "ولد",
+      "ألّف",
+      "الف"
+    ],
+    "terms": {
+      "text": [
+        "نص"
+      ],
+      "image": [
+        "الصورة"
+      ],
+      "music": [
+        "موسيقى"
+      ],
+      "video": [
+        "فيديو"
+      ]
+    }
+  },
+  "arz": {
+    "verbs": [
+      "أنشئ",
+      "انشئ",
+      "اصنع",
+      "ولّد",
+      "ولد",
+      "ألّف",
+      "الف"
+    ],
+    "terms": {
+      "text": [
+        "نص"
+      ],
+      "image": [
+        "الصورة"
+      ],
+      "music": [
+        "موسيقى"
+      ],
+      "video": [
+        "فيديو"
+      ]
+    }
+  },
+  "as": {
+    "verbs": [
+      "বনোৱা",
+      "সৃষ্টি কৰা",
+      "ৰচনা কৰা"
+    ],
+    "terms": {
+      "text": [
+        "লিখনী"
+      ],
+      "image": [
+        "ছবি"
+      ],
+      "music": [
+        "সংগীত"
+      ],
+      "video": [
+        "ভিডিঅ'"
+      ]
+    }
+  },
+  "bho": {
+    "verbs": [
+      "बनाव",
+      "बनाईं",
+      "रच"
+    ],
+    "terms": {
+      "text": [
+        "पाठ के बा",
+        "पाठ"
+      ],
+      "image": [
+        "छवि के बा",
+        "छवि"
+      ],
+      "music": [
+        "संगीत"
+      ],
+      "video": [
+        "वीडियो के बा",
+        "वीडियो"
+      ]
+    }
+  },
+  "bn": {
+    "verbs": [
+      "তৈরি করো",
+      "তৈরি করুন",
+      "রচনা করো"
+    ],
+    "terms": {
+      "text": [
+        "পাঠ্য"
+      ],
+      "image": [
+        "ছবি"
+      ],
+      "music": [
+        "সঙ্গীত"
+      ],
+      "video": [
+        "ভিডিও"
+      ]
+    }
+  },
+  "ca": {
+    "verbs": [
+      "crea",
+      "genera",
+      "compon",
+      "fes"
+    ],
+    "terms": {
+      "text": [
+        "Text"
+      ],
+      "image": [
+        "Imatge"
+      ],
+      "music": [
+        "Música"
+      ],
+      "video": [
+        "Vídeo"
+      ]
+    }
+  },
+  "ceb": {
+    "verbs": [
+      "paghimo",
+      "himoa",
+      "pagmugna"
+    ],
+    "terms": {
+      "text": [
+        "Text"
+      ],
+      "image": [
+        "Hulagway"
+      ],
+      "music": [
+        "Musika"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "cjy": {
+    "verbs": [
+      "创建",
+      "生成",
+      "创作",
+      "制作",
+      "作曲"
+    ],
+    "terms": {
+      "text": [
+        "正文"
+      ],
+      "image": [
+        "图像"
+      ],
+      "music": [
+        "音乐"
+      ],
+      "video": [
+        "视频"
+      ]
+    }
+  },
+  "cs": {
+    "verbs": [
+      "vytvor",
+      "vygeneruj",
+      "sloz"
+    ],
+    "terms": {
+      "text": [
+        "Text"
+      ],
+      "image": [
+        "Obrázek",
+        "obrazek",
+        "obrazku"
+      ],
+      "music": [
+        "Hudba",
+        "hudbu"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "de-DE": {
+    "verbs": [
+      "erstelle",
+      "erzeuge",
+      "komponiere",
+      "generiere"
+    ],
+    "terms": {
+      "text": [
+        "Text"
+      ],
+      "image": [
+        "Bild"
+      ],
+      "music": [
+        "Musik"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "en": {
+    "verbs": [
+      "create",
+      "generate",
+      "compose",
+      "make"
+    ],
+    "terms": {
+      "text": [
+        "Text"
+      ],
+      "image": [
+        "Image"
+      ],
+      "music": [
+        "Music",
+        "soundtrack",
+        "score",
+        "song"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "es": {
+    "verbs": [
+      "crea",
+      "genera",
+      "compone",
+      "haz"
+    ],
+    "terms": {
+      "text": [
+        "Texto"
+      ],
+      "image": [
+        "Imagen"
+      ],
+      "music": [
+        "Música"
+      ],
+      "video": [
+        "Vídeo"
+      ]
+    }
+  },
+  "fa-IR": {
+    "verbs": [
+      "بساز",
+      "بسازید",
+      "تولید کن",
+      "خلق کن"
+    ],
+    "terms": {
+      "text": [
+        "متن"
+      ],
+      "image": [
+        "تصویر"
+      ],
+      "music": [
+        "موسیقی"
+      ],
+      "video": [
+        "ویدئو"
+      ]
+    }
+  },
+  "fr": {
+    "verbs": [
+      "cree",
+      "creer",
+      "genere",
+      "generer",
+      "compose",
+      "composer",
+      "fais"
+    ],
+    "terms": {
+      "text": [
+        "Texte"
+      ],
+      "image": [
+        "Image"
+      ],
+      "music": [
+        "Musique",
+        "bande originale",
+        "bande-son",
+        "bande sonore",
+        "chanson"
+      ],
+      "video": [
+        "Vidéo"
+      ]
+    }
+  },
+  "gaz": {
+    "verbs": [
+      "uumi",
+      "qopheessi",
+      "tolchi"
+    ],
+    "terms": {
+      "text": [
+        "Barreeffama"
+      ],
+      "image": [
+        "Fakkii"
+      ],
+      "music": [
+        "Muuziqaa"
+      ],
+      "video": [
+        "Viidiyoo"
+      ]
+    }
+  },
+  "gu": {
+    "verbs": [
+      "બનાવો",
+      "રચો",
+      "બનાવ"
+    ],
+    "terms": {
+      "text": [
+        "ટેક્સ્ટ"
+      ],
+      "image": [
+        "છબી"
+      ],
+      "music": [
+        "સંગીત"
+      ],
+      "video": [
+        "વિડિયો"
+      ]
+    }
+  },
+  "ha": {
+    "verbs": [
+      "ƙirƙiri",
+      "kirkiri",
+      "haɗa",
+      "hada"
+    ],
+    "terms": {
+      "text": [
+        "Rubutu"
+      ],
+      "image": [
+        "Hoto"
+      ],
+      "music": [
+        "Kiɗa"
+      ],
+      "video": [
+        "Bidiyo"
+      ]
+    }
+  },
+  "hak": {
+    "verbs": [
+      "創建",
+      "生成",
+      "創作",
+      "製作",
+      "作曲"
+    ],
+    "terms": {
+      "text": [
+        "正文"
+      ],
+      "image": [
+        "影像"
+      ],
+      "music": [
+        "音樂"
+      ],
+      "video": [
+        "視頻"
+      ]
+    }
+  },
+  "hi": {
+    "verbs": [
+      "बनाओ",
+      "बनाइए",
+      "बनाएं",
+      "रचो",
+      "तैयार करो"
+    ],
+    "terms": {
+      "text": [
+        "पाठ"
+      ],
+      "image": [
+        "छवि"
+      ],
+      "music": [
+        "संगीत"
+      ],
+      "video": [
+        "वीडियो"
+      ]
+    }
+  },
+  "hsn": {
+    "verbs": [
+      "创建",
+      "生成",
+      "创作",
+      "制作",
+      "作曲"
+    ],
+    "terms": {
+      "text": [
+        "正文"
+      ],
+      "image": [
+        "图像"
+      ],
+      "music": [
+        "音乐"
+      ],
+      "video": [
+        "视频"
+      ]
+    }
+  },
+  "id": {
+    "verbs": [
+      "buat",
+      "buatkan",
+      "ciptakan",
+      "hasilkan"
+    ],
+    "terms": {
+      "text": [
+        "Teks"
+      ],
+      "image": [
+        "Gambar"
+      ],
+      "music": [
+        "Musik"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "ig": {
+    "verbs": [
+      "mepụta",
+      "mep uta",
+      "kee"
+    ],
+    "terms": {
+      "text": [
+        "Ederede"
+      ],
+      "image": [
+        "Foto"
+      ],
+      "music": [
+        "Egwu"
+      ],
+      "video": [
+        "Vidiyo"
+      ]
+    }
+  },
+  "it": {
+    "verbs": [
+      "crea",
+      "genera",
+      "componi",
+      "fai"
+    ],
+    "terms": {
+      "text": [
+        "Testo"
+      ],
+      "image": [
+        "Immagine"
+      ],
+      "music": [
+        "Musica"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "ja": {
+    "verbs": [
+      "作って",
+      "作成して",
+      "生成して",
+      "作曲して"
+    ],
+    "terms": {
+      "text": [
+        "テキスト"
+      ],
+      "image": [
+        "画像"
+      ],
+      "music": [
+        "音楽"
+      ],
+      "video": [
+        "ビデオ"
+      ]
+    }
+  },
+  "jv": {
+    "verbs": [
+      "gawe",
+      "damel",
+      "gawakake"
+    ],
+    "terms": {
+      "text": [
+        "Teks"
+      ],
+      "image": [
+        "Gambar"
+      ],
+      "music": [
+        "Musik"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "kk": {
+    "verbs": [
+      "жаса",
+      "жасаңыз",
+      "құрастыр"
+    ],
+    "terms": {
+      "text": [
+        "Мәтін"
+      ],
+      "image": [
+        "Сурет"
+      ],
+      "music": [
+        "Музыка"
+      ],
+      "video": [
+        "Бейне"
+      ]
+    }
+  },
+  "km": {
+    "verbs": [
+      "បង្កើត",
+      "តែង"
+    ],
+    "terms": {
+      "text": [
+        "អត្ថបទ"
+      ],
+      "image": [
+        "រូបភាព"
+      ],
+      "music": [
+        "តន្ត្រី"
+      ],
+      "video": [
+        "វីដេអូ"
+      ]
+    }
+  },
+  "kmr": {
+    "verbs": [
+      "biafirine",
+      "çêke",
+      "çêbikin"
+    ],
+    "terms": {
+      "text": [
+        "Nivîs"
+      ],
+      "image": [
+        "Wêne"
+      ],
+      "music": [
+        "Muzîk"
+      ],
+      "video": [
+        "Vîdyo"
+      ]
+    }
+  },
+  "kn": {
+    "verbs": [
+      "ರಚಿಸಿ",
+      "ತಯಾರಿಸಿ",
+      "ಮಾಡಿ"
+    ],
+    "terms": {
+      "text": [
+        "ಪಠ್ಯ"
+      ],
+      "image": [
+        "ಚಿತ್ರ"
+      ],
+      "music": [
+        "ಸಂಗೀತ"
+      ],
+      "video": [
+        "ವಿಡಿಯೋ"
+      ]
+    }
+  },
+  "ko": {
+    "verbs": [
+      "만들어",
+      "만들어줘",
+      "생성해",
+      "작곡해"
+    ],
+    "terms": {
+      "text": [
+        "텍스트"
+      ],
+      "image": [
+        "이미지\n비디오",
+        "이미지",
+        "그림"
+      ],
+      "music": [
+        "음악"
+      ],
+      "video": [
+        "동영상",
+        "비디오",
+        "영상"
+      ]
+    }
+  },
+  "ln": {
+    "verbs": [
+      "sala",
+      "bongisa"
+    ],
+    "terms": {
+      "text": [
+        "Mokanda ya kokoma"
+      ],
+      "image": [
+        "Elilingi"
+      ],
+      "music": [
+        "Miziki"
+      ],
+      "video": [
+        "Vidéo oyo ezali",
+        "video",
+        "vidéo"
+      ]
+    }
+  },
+  "mai": {
+    "verbs": [
+      "बनाउ",
+      "बनाउ",
+      "रचू"
+    ],
+    "terms": {
+      "text": [
+        "पाठ"
+      ],
+      "image": [
+        "छवि"
+      ],
+      "music": [
+        "संगीत"
+      ],
+      "video": [
+        "वीडियो"
+      ]
+    }
+  },
+  "ml": {
+    "verbs": [
+      "സൃഷ്ടിക്കുക",
+      "നിർമ്മിക്കുക",
+      "രചിക്കുക"
+    ],
+    "terms": {
+      "text": [
+        "വാചകം"
+      ],
+      "image": [
+        "ചിത്രം"
+      ],
+      "music": [
+        "സംഗീതം"
+      ],
+      "video": [
+        "വീഡിയോ"
+      ]
+    }
+  },
+  "mr": {
+    "verbs": [
+      "तयार कर",
+      "तयार करा",
+      "बनव",
+      "रच"
+    ],
+    "terms": {
+      "text": [
+        "मजकूर"
+      ],
+      "image": [
+        "प्रतिमा"
+      ],
+      "music": [
+        "संगीत"
+      ],
+      "video": [
+        "व्हिडिओ"
+      ]
+    }
+  },
+  "ms": {
+    "verbs": [
+      "cipta",
+      "hasilkan",
+      "buat",
+      "gubah"
+    ],
+    "terms": {
+      "text": [
+        "Teks"
+      ],
+      "image": [
+        "Imej"
+      ],
+      "music": [
+        "Muzik"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "my": {
+    "verbs": [
+      "ဖန်တီးပါ",
+      "ဖန်တီးပေးပါ",
+      "ရေးစပ်ပါ"
+    ],
+    "terms": {
+      "text": [
+        "စာသား"
+      ],
+      "image": [
+        "ရုပ်ပုံ"
+      ],
+      "music": [
+        "ဂီတ"
+      ],
+      "video": [
+        "ဗီဒီယို"
+      ]
+    }
+  },
+  "nan": {
+    "verbs": [
+      "創建",
+      "生成",
+      "創作",
+      "製作",
+      "作曲"
+    ],
+    "terms": {
+      "text": [
+        "正文"
+      ],
+      "image": [
+        "影像"
+      ],
+      "music": [
+        "音樂"
+      ],
+      "video": [
+        "視頻"
+      ]
+    }
+  },
+  "ne": {
+    "verbs": [
+      "बनाऊ",
+      "बनाउनुहोस्",
+      "रचना गर"
+    ],
+    "terms": {
+      "text": [
+        "पाठ"
+      ],
+      "image": [
+        "छवि"
+      ],
+      "music": [
+        "संगीत"
+      ],
+      "video": [
+        "भिडियो"
+      ]
+    }
+  },
+  "nl": {
+    "verbs": [
+      "maak",
+      "genereer",
+      "componeer"
+    ],
+    "terms": {
+      "text": [
+        "Tekst"
+      ],
+      "image": [
+        "Afbeelding"
+      ],
+      "music": [
+        "Muziek"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "or": {
+    "verbs": [
+      "ତିଆରି କର",
+      "ସୃଷ୍ଟି କର"
+    ],
+    "terms": {
+      "text": [
+        "ପାଠ"
+      ],
+      "image": [
+        "ପ୍ରତିଛବି |",
+        "ପ୍ରତିଛବି"
+      ],
+      "music": [
+        "ସଙ୍ଗୀତ"
+      ],
+      "video": [
+        "ଭିଡିଓ |",
+        "ଭିଡିଓ"
+      ]
+    }
+  },
+  "pa": {
+    "verbs": [
+      "ਬਣਾਓ",
+      "ਰਚੋ",
+      "ਤਿਆਰ ਕਰੋ"
+    ],
+    "terms": {
+      "text": [
+        "ਪਾਠ"
+      ],
+      "image": [
+        "ਚਿੱਤਰ"
+      ],
+      "music": [
+        "ਸੰਗੀਤ"
+      ],
+      "video": [
+        "ਵੀਡੀਓ"
+      ]
+    }
+  },
+  "pbu": {
+    "verbs": [
+      "جوړ کړه",
+      "جوړ کړئ"
+    ],
+    "terms": {
+      "text": [
+        "متن"
+      ],
+      "image": [
+        "انځور"
+      ],
+      "music": [
+        "موسیقي"
+      ],
+      "video": [
+        "ویډیو"
+      ]
+    }
+  },
+  "pcm": {
+    "verbs": [
+      "make",
+      "create",
+      "compose"
+    ],
+    "terms": {
+      "text": [
+        "Text"
+      ],
+      "image": [
+        "Picture"
+      ],
+      "music": [
+        "Music"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "pl": {
+    "verbs": [
+      "stworz",
+      "wygeneruj",
+      "skomponuj"
+    ],
+    "terms": {
+      "text": [
+        "Tekst"
+      ],
+      "image": [
+        "Obraz",
+        "obraz"
+      ],
+      "music": [
+        "Muzyka",
+        "muzyke",
+        "muzykę"
+      ],
+      "video": [
+        "Wideo"
+      ]
+    }
+  },
+  "pnb": {
+    "verbs": [
+      "بناؤ",
+      "بناو",
+      "تیار کرو"
+    ],
+    "terms": {
+      "text": [
+        "متن"
+      ],
+      "image": [
+        "تصویر"
+      ],
+      "music": [
+        "موسیقی"
+      ],
+      "video": [
+        "ویڈیو"
+      ]
+    }
+  },
+  "prs": {
+    "verbs": [
+      "بساز",
+      "بسازید",
+      "تولید کن",
+      "خلق کن"
+    ],
+    "terms": {
+      "text": [
+        "متن"
+      ],
+      "image": [
+        "تصویر"
+      ],
+      "music": [
+        "موسیقی"
+      ],
+      "video": [
+        "ویدئو"
+      ]
+    }
+  },
+  "pt-BR": {
+    "verbs": [
+      "crie",
+      "criar",
+      "gere",
+      "gerar",
+      "componha",
+      "faca"
+    ],
+    "terms": {
+      "text": [
+        "Texto"
+      ],
+      "image": [
+        "Imagem"
+      ],
+      "music": [
+        "Música"
+      ],
+      "video": [
+        "Vídeo"
+      ]
+    }
+  },
+  "pt-PT": {
+    "verbs": [
+      "cria",
+      "crie",
+      "gera",
+      "gere",
+      "compoe",
+      "componha",
+      "faz"
+    ],
+    "terms": {
+      "text": [
+        "Texto"
+      ],
+      "image": [
+        "Imagem"
+      ],
+      "music": [
+        "Música"
+      ],
+      "video": [
+        "Vídeo"
+      ]
+    }
+  },
+  "ro": {
+    "verbs": [
+      "creeaza",
+      "genereaza",
+      "compune"
+    ],
+    "terms": {
+      "text": [
+        "Text"
+      ],
+      "image": [
+        "Imagine"
+      ],
+      "music": [
+        "Muzică"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "ru": {
+    "verbs": [
+      "создай",
+      "создайте",
+      "сгенерируй",
+      "сочини",
+      "сочините"
+    ],
+    "terms": {
+      "text": [
+        "Текст"
+      ],
+      "image": [
+        "Изображение",
+        "картинку",
+        "изображение"
+      ],
+      "music": [
+        "Музыка",
+        "музыку",
+        "песню"
+      ],
+      "video": [
+        "Видео"
+      ]
+    }
+  },
+  "rw": {
+    "verbs": [
+      "kora",
+      "hanga"
+    ],
+    "terms": {
+      "text": [
+        "Inyandiko"
+      ],
+      "image": [
+        "Ishusho"
+      ],
+      "music": [
+        "Umuziki"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "sd": {
+    "verbs": [
+      "ٺاهيو",
+      "ٺاهه",
+      "ترتيب ڏيو"
+    ],
+    "terms": {
+      "text": [
+        "متن"
+      ],
+      "image": [
+        "تصوير"
+      ],
+      "music": [
+        "موسيقي"
+      ],
+      "video": [
+        "وڊيو"
+      ]
+    }
+  },
+  "si": {
+    "verbs": [
+      "සාදන්න",
+      "නිර්මාණය කරන්න"
+    ],
+    "terms": {
+      "text": [
+        "පෙළ"
+      ],
+      "image": [
+        "රූපය"
+      ],
+      "music": [
+        "සංගීතය"
+      ],
+      "video": [
+        "වීඩියෝව"
+      ]
+    }
+  },
+  "skr": {
+    "verbs": [
+      "بناؤ",
+      "بناو",
+      "تیار کرو"
+    ],
+    "terms": {
+      "text": [
+        "متن"
+      ],
+      "image": [
+        "تصویر"
+      ],
+      "music": [
+        "موسیقی"
+      ],
+      "video": [
+        "ویڈیو"
+      ]
+    }
+  },
+  "so": {
+    "verbs": [
+      "samee",
+      "abuur"
+    ],
+    "terms": {
+      "text": [
+        "Qoraal"
+      ],
+      "image": [
+        "Sawirka"
+      ],
+      "music": [
+        "Muusig"
+      ],
+      "video": [
+        "Muuqaal"
+      ]
+    }
+  },
+  "su": {
+    "verbs": [
+      "jieun",
+      "damel"
+    ],
+    "terms": {
+      "text": [
+        "Téks"
+      ],
+      "image": [
+        "Gambar"
+      ],
+      "music": [
+        "Musik"
+      ],
+      "video": [
+        "Pidéo"
+      ]
+    }
+  },
+  "sw": {
+    "verbs": [
+      "unda",
+      "tengeneza",
+      "tunga"
+    ],
+    "terms": {
+      "text": [
+        "Maandishi"
+      ],
+      "image": [
+        "Picha"
+      ],
+      "music": [
+        "Muziki"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "ta": {
+    "verbs": [
+      "உருவாக்கு",
+      "உருவாக்கவும்",
+      "இயற்று"
+    ],
+    "terms": {
+      "text": [
+        "உரை"
+      ],
+      "image": [
+        "படம்"
+      ],
+      "music": [
+        "இசை"
+      ],
+      "video": [
+        "வீடியோ"
+      ]
+    }
+  },
+  "te": {
+    "verbs": [
+      "సృష్టించు",
+      "సృష్టించండి",
+      "రచించు",
+      "తయారు చేయి"
+    ],
+    "terms": {
+      "text": [
+        "వచనం"
+      ],
+      "image": [
+        "చిత్రం"
+      ],
+      "music": [
+        "సంగీతం"
+      ],
+      "video": [
+        "వీడియో"
+      ]
+    }
+  },
+  "th": {
+    "verbs": [
+      "สร้าง",
+      "แต่ง"
+    ],
+    "terms": {
+      "text": [
+        "ข้อความ"
+      ],
+      "image": [
+        "รูปภาพ"
+      ],
+      "music": [
+        "เพลง"
+      ],
+      "video": [
+        "วีดีโอ"
+      ]
+    }
+  },
+  "tl": {
+    "verbs": [
+      "gumawa",
+      "lumikha",
+      "bumuo"
+    ],
+    "terms": {
+      "text": [
+        "Teksto"
+      ],
+      "image": [
+        "Larawan"
+      ],
+      "music": [
+        "Musika"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "uk": {
+    "verbs": [
+      "створи",
+      "створіть",
+      "згенеруй",
+      "склади"
+    ],
+    "terms": {
+      "text": [
+        "Текст"
+      ],
+      "image": [
+        "Зображення"
+      ],
+      "music": [
+        "Музика",
+        "музику",
+        "пісню"
+      ],
+      "video": [
+        "Відео"
+      ]
+    }
+  },
+  "ur": {
+    "verbs": [
+      "بناؤ",
+      "بنائیں",
+      "بناو",
+      "تیار کرو",
+      "تخلیق کرو"
+    ],
+    "terms": {
+      "text": [
+        "متن"
+      ],
+      "image": [
+        "تصویر"
+      ],
+      "music": [
+        "موسیقی"
+      ],
+      "video": [
+        "ویڈیو"
+      ]
+    }
+  },
+  "uzn": {
+    "verbs": [
+      "yarat",
+      "yarating",
+      "tuz",
+      "bastala"
+    ],
+    "terms": {
+      "text": [
+        "Matn"
+      ],
+      "image": [
+        "Rasm"
+      ],
+      "music": [
+        "Musiqa"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "vn": {
+    "verbs": [
+      "tao",
+      "sang tac"
+    ],
+    "terms": {
+      "text": [
+        "Văn bản"
+      ],
+      "image": [
+        "Hình ảnh"
+      ],
+      "music": [
+        "Nhạc"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "wo": {
+    "verbs": [
+      "sos",
+      "defar",
+      "bindal"
+    ],
+    "terms": {
+      "text": [
+        "Bind"
+      ],
+      "image": [
+        "Nataal"
+      ],
+      "music": [
+        "Woy"
+      ],
+      "video": [
+        "Wideo"
+      ]
+    }
+  },
+  "wuu": {
+    "verbs": [
+      "创建",
+      "生成",
+      "创作",
+      "制作",
+      "作曲"
+    ],
+    "terms": {
+      "text": [
+        "正文"
+      ],
+      "image": [
+        "图像"
+      ],
+      "music": [
+        "音乐"
+      ],
+      "video": [
+        "视频"
+      ]
+    }
+  },
+  "xh": {
+    "verbs": [
+      "yenza",
+      "qamba"
+    ],
+    "terms": {
+      "text": [
+        "Umbhalo"
+      ],
+      "image": [
+        "Umfanekiso"
+      ],
+      "music": [
+        "Umculo"
+      ],
+      "video": [
+        "Ividiyo"
+      ]
+    }
+  },
+  "yo": {
+    "verbs": [
+      "ṣẹda",
+      "ṣẹda",
+      "da"
+    ],
+    "terms": {
+      "text": [
+        "Ọrọ"
+      ],
+      "image": [
+        "Aworan"
+      ],
+      "music": [
+        "Orin"
+      ],
+      "video": [
+        "Fidio"
+      ]
+    }
+  },
+  "yue": {
+    "verbs": [
+      "創作",
+      "製作",
+      "整",
+      "生成"
+    ],
+    "terms": {
+      "text": [
+        "文字"
+      ],
+      "image": [
+        "圖像"
+      ],
+      "music": [
+        "音樂"
+      ],
+      "video": [
+        "影片"
+      ]
+    }
+  },
+  "zh-CN": {
+    "verbs": [
+      "创建",
+      "生成",
+      "创作",
+      "制作",
+      "作曲"
+    ],
+    "terms": {
+      "text": [
+        "正文"
+      ],
+      "image": [
+        "图像"
+      ],
+      "music": [
+        "音乐"
+      ],
+      "video": [
+        "视频"
+      ]
+    }
+  },
+  "zh-TW": {
+    "verbs": [
+      "創建",
+      "生成",
+      "創作",
+      "製作",
+      "作曲"
+    ],
+    "terms": {
+      "text": [
+        "正文"
+      ],
+      "image": [
+        "影像"
+      ],
+      "music": [
+        "音樂"
+      ],
+      "video": [
+        "視頻"
+      ]
+    }
+  },
+  "zu": {
+    "verbs": [
+      "dala",
+      "qamba",
+      "yenza"
+    ],
+    "terms": {
+      "text": [
+        "Umbhalo"
+      ],
+      "image": [
+        "Isithombe"
+      ],
+      "music": [
+        "Umculo"
+      ],
+      "video": [
+        "Ividiyo"
+      ]
+    }
+  }
+}

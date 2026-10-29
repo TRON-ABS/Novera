@@ -41,6 +41,7 @@ const ThreadItem = memo(
     isMobile: boolean
     currentProjectId?: string
   }) => {
+
     const deleteThread = useThreads((state) => state.deleteThread)
     const renameThread = useThreads((state) => state.renameThread)
     const updateThread = useThreads((state) => state.updateThread)
@@ -135,7 +136,7 @@ const ThreadItem = memo(
           },
         })
 
-        toast.success(`Thread assigned to "${project.name}" successfully`)
+        toast.success(t('ui:threadAssignedToValue0Successfully', { value0: project.name }))
       }
     }
 
@@ -185,7 +186,7 @@ const ThreadItem = memo(
               className={cn("hover:bg-sidebar-foreground/8", currentProjectId && 'mt-4 mr-2')}
             >
               <MoreHorizontal />
-              <span className="sr-only">More</span>
+              <span className="sr-only">{t('ui:more')}</span>
             </SidebarMenuAction>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -241,12 +242,12 @@ const ThreadItem = memo(
                       },
                     })
                     toast.success(
-                      `Thread removed from "${projectName}" successfully`
+                      t('ui:threadRemovedFromValue0Successfully', { value0: projectName })
                     )
                   }}
                 >
                   <X className="size-4" />
-                  <span>Remove from project</span>
+                  <span>{t('common:projects.removeFromProject')}</span>
                 </DropdownMenuItem>
               </>
             )}

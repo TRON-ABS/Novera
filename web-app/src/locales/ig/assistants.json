@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Onye enyemaka mbụ",
   "defaultAssistantDesc": "Ejiri ya mgbe ịmalite nkata ọhụrụ",
   "allAssistants": "Ndị enyemaka niile",
-  "lastUsed": "Eji ikpeazụ"
+  "lastUsed": "Eji ikpeazụ",
+  "officialInstructions": "Enwere ike idezi naanị ụdị ntuziaka Novera atọ site na {{path}}."
 }

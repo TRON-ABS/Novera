@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { MediaPlayer } from '@/components/MediaPlayer'
 import {
   FolderOpen,
   Globe,
@@ -369,23 +370,19 @@ function PreviewBody({
     case 'image':
       return (
         <div className="flex h-full items-center justify-center overflow-auto p-3">
-          <img
-            src={state.assetUrl}
-            alt={basenameOf(state.path)}
-            className="max-h-full max-w-full object-contain"
-          />
+          <MediaPlayer src={state.assetUrl!} kind="image" name={basenameOf(state.path)} />
         </div>
       )
     case 'video':
       return (
         <div className="flex h-full items-center justify-center p-3">
-          <video src={state.assetUrl} controls className="max-h-full w-full" />
+          <MediaPlayer src={state.assetUrl!} kind="video" name={basenameOf(state.path)} />
         </div>
       )
     case 'audio':
       return (
         <div className="flex h-full items-center justify-center p-3">
-          <audio src={state.assetUrl} controls className="w-full" />
+          <MediaPlayer src={state.assetUrl!} kind="music" name={basenameOf(state.path)} />
         </div>
       )
   }

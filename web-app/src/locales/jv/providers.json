@@ -60,7 +60,14 @@
     "removeFromJan": "Mbusak saka Novera",
     "success": "Model {{modelId}} wis dibusak permanen.",
     "cancel": "Batal",
-    "delete": "Busak"
+    "delete": "Busak",
+    "choiceDescription": "Pilih carane mbusak model iki saka Novera.",
+    "removeFromNovera": "Mbusak saka Novera",
+    "permanentlyDelete": "Busak permanen",
+    "keepFilesDescription": "Copot model saka dhaptar lan simpen file ing disk. Sampeyan bisa ngimpor maneh.",
+    "permanentDescription": "Busak model lan file sing dikelola Novera saka disk. Iki ora bisa dibatalake.",
+    "permanentImportedDescription": "Busak uga file GGUF utama ing lokasi asline. File tambahan eksternal disimpen. Iki ora bisa dibatalake.",
+    "removedSuccess": "Model {{modelId}} dibusak saka Novera. File kasebut disimpen."
   },
   "deleteAllModels": {
     "button": "Busak Kabeh",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Tombol mundur opsional dikonfigurasi ing Lanjut.",
     "addKey": "Tambah kunci",
     "removeKey": "Copot tombol"
-  }
+  },
+  "installedMediaModels": "Model gambar, video lan musik",
+  "noInstalledModels": "Ora ana model sing kadhaptar ing kategori iki.",
+  "modelComponents": "File model"
 }

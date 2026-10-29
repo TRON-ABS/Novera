@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "Encontrou um erro? Ajude-nos comunicando o problema no GitHub.",
   "reportIssue": "Reportar Problema",
   "credits": "Créditos",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS), com base em janeiro de Menlo Research e seus colaboradores.",
   "creditsDesc2": "Um agradecimento especial às nossas dependências de código aberto — especialmente llama.cpp e Tauri — e à nossa fantástica comunidade de IA.",
   "appVersion": "Versão do App",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Repor estilo dos blocos de código",
     "resetCodeBlockStyleDesc": "Reponha o estilo dos blocos de código na predefinição.",
     "resetCodeBlockSuccess": "Estilo dos blocos de código reposto com sucesso",
-    "resetCodeBlockSuccessDesc": "O estilo dos blocos de código foi reposto na predefinição."
+    "resetCodeBlockSuccessDesc": "O estilo dos blocos de código foi reposto na predefinição.",
+    "subtitle": "Personalize o Novera, desde a sua aparência até às suas preferências de conversação.",
+    "accentColor": "Cor de destaque",
+    "accentColorDesc": "Escolha a cor de destaque e da barra lateral.",
+    "conversation": "Conversas e notificações"
   },
   "hardware": {
     "os": "Sistema Operacional",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "Encontrou um erro? Ajude-nos comunicando o problema no GitHub.",
     "reportIssue": "Reportar Problema",
     "credits": "Créditos",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS), com base em janeiro de Menlo Research e seus colaboradores.",
     "creditsDesc2": "Um agradecimento especial às nossas dependências de código aberto — especialmente llama.cpp e Tauri — e à nossa fantástica comunidade de IA."
   },
   "extensions": {

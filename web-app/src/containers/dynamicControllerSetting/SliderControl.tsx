@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import * as React from 'react'
 import { SliderProps } from '@radix-ui/react-slider'
 import { Slider } from '@/components/ui/slider'
@@ -28,6 +29,8 @@ export function SliderControl({
   warnBelow,
   onChange,
 }: SliderControlProps) {
+  const { t: uiT } = useUiLocale()
+
   const initialValue =
     Array.isArray(value) && value[0] !== undefined ? value : [min]
   const [currentValue, setCurrentValue] = React.useState<number[]>(initialValue)
@@ -106,7 +109,7 @@ export function SliderControl({
       </div>
       {isExceedingMax && (
         <p className="text-xs text-destructive mt-1">
-          Maximum value allowed is <span className="font-medium">{max}</span>
+          {uiT('ui:maximumAllowed', { max })}
         </p>
       )}
     </div>

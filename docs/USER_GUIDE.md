@@ -1,5 +1,115 @@
 # Novera — guide utilisateur
 
+## Coller des paroles en mode Auto — 28 octobre 2026
+
+Vous pouvez coller une chanson structurée qui commence directement par `[Intro]`, puis comporte par exemple `[Verse]`, `[Chorus]`, `[Bridge]` et `[Outro]`, avec vos lignes sous chaque balise. Auto l'oriente vers Musique. Un titre et un en-tête Paroles sont facultatifs ; une description « Style & ambiance » peut être ajoutée séparément dans le même texte. Les sections chantées sont envoyées comme paroles, la description comme consigne musicale. Le réglage Instrumental explicite reste pris en compte.
+
+La section Musique de **Novera · Configurations** contient aussi une courte aide générique pour répartir style, voix et paroles. Elle ne contient aucune chanson prédéfinie. Les demandes explicites d'analyse, de traduction ou d'écriture restent en texte ; vous pouvez choisir Texte manuellement pour éviter une génération musicale.
+
+Pour le partage système, l'aperçu Novera se ferme avant le volet Windows afin de libérer les clics et le focus. Si l'appel échoue, la préparation revient avec ses commandes de copie et de fermeture. Le cache des fichiers reste conservé. Ces changements nécessitent une application compilée avec les sources mises à jour.
+
+## Musique avec chant — 28 octobre 2026
+
+**Instrumental est désactivé par défaut** dans les nouvelles configurations et les réglages recommandés. Vous pouvez donc ajouter des paroles et demander du chant avec l'accompagnement musical. Activez Instrumental pour demander une musique sans chant. Les choix déjà enregistrés dans vos profils sont conservés.
+
+## Partager le fichier seul et ouvrir en grand — 28 octobre 2026
+
+Les lecteurs musique et vidéo Novera utilisent la vitesse normale, sans réglage de vitesse. Le masquage de cette commande dans les aperçus natifs dépend de la webview ; les fichiers originaux restent transmis tels quels.
+
+Pour un média unique, le partage propose **Original** : le système reçoit le fichier image, audio ou vidéo, sans le cadre ni les boutons du lecteur Novera. Son aperçu est volontairement simple ; il ne constitue pas une capture des commandes de la conversation. Les MP3/WAV sont présentés comme de l'audio. Pour un résultat texte seul, TXT est proposé initialement. Vous pouvez toujours choisir les formats riches ou une discussion complète dans les réglages de partage ; ces choix produisent alors un document, plutôt que le média seul.
+
+La fenêtre principale desktop est configurée pour démarrer maximisée par le système et rester redimensionnable. Le contenu s'adapte à la place disponible ; les minima sont abaissés à 640 × 480. Ces modifications des sources prennent effet dans une application recompilée et ne prouvent pas encore le comportement sur chaque environnement desktop.
+
+## Lecteurs Novera et durée manuelle — 28 octobre 2026
+
+Les sources proposent une barre Novera pour la musique et la vidéo : lecture/pause, déplacement dans la piste, temps écoulé/total, son et vitesse. Une autre lecture met la précédente en pause, en gardant sa position. Les images disposent du zoom, du retour à 100 % et de l'agrandissement. Les mêmes contrôles servent aux conversations et aperçus ; la vidéo peut passer en plein écran ou être agrandie dans l'application. Ces modifications nécessitent une application compilée avec ces sources.
+
+Pour choisir la durée de génération musicale, ouvrez la durée dans le tableau de bord, **effacez la valeur puis tapez par exemple 360**. Vous pouvez laisser le champ vide pendant la saisie et taper chiffre par chiffre. Toute modification passe automatiquement en manuel : la durée écrite dans la demande ne remplace plus votre choix. Réactivez **Auto** pour suivre à nouveau la durée explicite du texte, ou la durée de secours lorsqu'elle manque. Un champ incomplet ou hors plage est signalé ; la génération ne doit pas le remplacer silencieusement par une durée plus courte. Le même comportement de saisie est prévu pour la vidéo locale.
+
+| Moteur musical sélectionné | Durée saisissable en secondes |
+| --- | --- |
+| ACE-Step local | 10–600 |
+| ElevenLabs ElevenMusic | 3–600 |
+| Stability Stable Audio 3 | 1–380 |
+| fal ACE-Step | 5–240 |
+| Replicate Stable Audio 2.5 | 1–190 |
+
+Bornes vérifiées dans [ACE-Step C++](https://github.com/ServeurpersoCom/acestep.cpp/blob/de858d8e1a94f0e1939cf9bdd8ff7d9631953077/docs/ARCHITECTURE.md), [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose), [Stability](https://docs.stability.ai/api-reference/stable-audio/text-to-audio), [le schéma fal](https://fal.ai/api/openapi/queue/openapi.json?endpoint_id=fal-ai/ace-step) et [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) le 27/28 octobre 2026. Il s'agit de limites de paramètres, pas d'une garantie de réussite sur tout matériel. La durée par défaut reste 30 s ; le format musical initial et recommandé est MP3 à 320 kb/s pour le moteur local. Les choix enregistrés et les formats imposés par les fournisseurs restent pris en charge.
+
+La musique sauvegardée reste référencée depuis son dossier système après redémarrage ; le correctif d'historique restaure les références MP3/WAV qui étaient interprétées à tort comme du base64. Les fichiers et discussions ne sont pas effacés. Un fichier déplacé ou supprimé reste indisponible jusqu'à sa remise en place.
+
+L'interface utilise les API web communes à Windows, Linux, Android, iOS et macOS. Le décodage dépend du codec et de la webview installée ; privilégier MP3 pour l'audio et MP4/H.264 pour la vidéo, sans promettre tous les formats sur toutes les versions. Sur iOS, certaines commandes de son restent pilotées par le système et le plein écran vidéo peut utiliser l'interface Apple. [Comportements Safari officiels](https://developer.apple.com/documentation/webkit/delivering-video-content-for-safari). Cette préparation des lecteurs ne rend pas les moteurs de génération desktop disponibles sur mobile. Essais dans chaque application et sur appareils réels encore nécessaires.
+
+## Fournisseurs musicaux cloud et fiabilité locale — 27 octobre 2026
+
+Dans la page commune, section **Musique**, le sélecteur propose **ACE-Step local**, puis **ElevenLabs, Stability AI, fal et Replicate**, avec leurs icônes. MiniMax n'est pas proposé pour la musique. Les modèles sont ElevenMusic v2.5, Stable Audio 3, ACE-Step cloud et Stable Audio 2.5 chez Replicate. La clé se règle dans le profil fournisseur habituel ; le panneau donne un lien direct. Le choix local reste la valeur initiale et aucune clé n'est préremplie.
+
+Les paramètres suivent le contrat choisi : graine indisponible pour le parcours ElevenMusic par prompt ; formats cloud affichés selon le fournisseur ; réglage de paroles pour ElevenLabs/fal ; **190 s maximum chez Replicate** contre 240 s dans les autres choix exposés. Les raccourcis hors limite sont retirés, la saisie conserve un pas de 1 s. Les sorties cloud sont enregistrées dans **Musique / Novera musique**, comme les créations locales. Le cloud peut être facturé ; un arrêt local ne garantit pas l'annulation de cette facturation. Aucun basculement automatique vers un autre fournisseur payant.
+
+Auto reste actif quand un profil est installé ou un modèle choisi ; la sortie reconnue et son modèle restent visibles. Le choix manuel explicite d'une sortie reste disponible.
+
+Pour le problème CUDA signalé pendant le décodage musical, les sources réduisent les tuiles VAE et prévoient une reprise CPU unique en placement automatique pour cette erreur précise. Essais locaux réussis : **30 s de WAV en 13,6 s**, puis **180 s en 24,9 s**, à 48 kHz stéréo 24 bits. Le second fichier mesure **51 840 044 octets**. [Mesures détaillées et limites](SUIVI_MOTEURS.md#musique-cloud-et-vae-cuda--candidat-du-27-octobre-2026). Qualité d'écoute non évaluée ; aucun essai cloud facturé ni nouvelle compilation de Novera pour ce lot. Dans l'exécutable actuel, le choix **CPU** déjà disponible constitue un contournement possible en attendant sa recompilation.
+
+## Auto visible et musique à la seconde — correction locale du 27 octobre 2026
+
+Un nouveau contexte commence en **Auto**. Pendant la saisie, Auto reste allumé et le bouton de la sortie reconnue s'allume également : Texte, Image, Musique ou Vidéo. Le sélecteur compact près des actions montre le modèle correspondant ; son nom complet est disponible au survol. Les boutons suivent les changements de demande sans modifier le choix Auto. Pendant un travail, ils restent attachés à la sortie envoyée ; un brouillon suivant ne remplace pas l'indicateur du travail en cours. Les choix manuels existants restent respectés.
+
+« Crée une bande originale de 3 minutes pour le film… » choisit désormais **Musique** et envoie **180 secondes**. Le mot film ne transforme plus cette demande en vidéo. Les requêtes de texte, prompt ou scénario restent des demandes textuelles ; une vidéo avec musique reste une vidéo. Le vocabulaire Auto couvre des commandes dans les 80 locales, avec des exemples testés et des commandes explicites traduites ; il s'agit d'une reconnaissance déterministe, pas d'une garantie sur toute formulation ou variante dialectale. En cas d'ambiguïté, les quatre boutons manuels restent disponibles.
+
+Musique propose **30 à 240 secondes**, une saisie à la **seconde** et huit raccourcis : **30, 60, 90, 120, 150, 180, 210, 240 s**. Valeur par défaut : **30 s**. Une durée explicite reconnue dans le début de la demande remplace le préréglage pour cette création ; elle apparaît dans le contrôle et ne modifie pas le préréglage enregistré. Pour la changer, modifier la demande. Une durée explicite hors plage est refusée avant génération. Les anciens paramètres musicaux hors plage sont ramenés aux nouvelles bornes lors de leur utilisation. Les durées vidéo restent indépendantes.
+
+Les créations musicales sont sauvegardées automatiquement dans **Musique / Novera musique**, avec le dossier Musique fourni par le système, en WAV ou MP3 selon le format choisi. Le lecteur dans la conversation référence le fichier enregistré. Les noms de modèles utilisent une direction de texte automatique pour les interfaces de droite à gauche ; aucun nouveau libellé anglais n'est imposé aux autres langues. Sources locales uniquement ; l'exécutable existant doit être recompilé ultérieurement pour intégrer ces modifications.
+
+Les [valeurs de référence pour comparer les prochaines modifications](SUIVI_MOTEURS.md#valeurs-musicales-configurées-dans-cette-référence) conservent unités, durées, formats, poids exacts, tailles audio estimées et mesures réelles disponibles. Exemple : **3 minutes = 180 secondes**, environ **51,84 Mo de données WAV 24 bits stéréo à 48 kHz**, avant en-têtes ; il s'agit d'un calcul, pas d'un morceau déjà généré. Les temps et pics mémoire musicaux sont marqués **non disponibles** jusqu'aux essais réels.
+
+## Texte, Image, Musique et Vidéo — sources locales du 27 octobre 2026
+
+Le bouton à curseurs ouvre une page commune avec quatre sections dans cet ordre. Chacune explique ses modèles et propose ses réglages et le parcours **Parcourir**. En haut, **Tout télécharger et configurer automatiquement** prépare les quatre configurations conseillées Windows. Avant le lancement, la confirmation présente les fichiers, leurs tailles, le dossier, l'espace libre et la marge nécessaire. Si le disque manque de place, libérer de l'espace ou choisir un autre dossier/disque ; le lancement est bloqué tant que l'espace est insuffisant. Le contrôle est répété au démarrage. Aucun modèle n'est téléchargé sans confirmation.
+
+Le pack représente **14,88 Go**, avec une marge supplémentaire de 256 Mio. Le Qwen texte est partagé avec l'encodeur image. Le moteur d'export vidéo nécessite un Python existant avec `imageio-ffmpeg` : le contrôle global signale ce prérequis manquant avant confirmation et permet d'ouvrir les réglages. Le bouton global ne promet donc pas d'installer toutes les dépendances du système. Voir [le budget exact et son périmètre](SUIVI_MOTEURS.md#référence-texte-image-musique-vidéo--1488-go--27-octobre-2026).
+
+**Musique**, entre Image et Vidéo, utilise ACE-Step 1.5 Turbo 2B Q4_K_M avec ses trois compagnons. Le tableau de bord permet de choisir une durée de **30 à 240 secondes** (30 secondes par défaut), la qualité WAV/MP3 et la graine. Par défaut : **WAV 24 bits, stéréo 48 kHz, graine aléatoire, instrumental, 8 étapes et BPM automatique**. Les réglages détaillés permettent aussi une graine fixe/incrémentée/décrémentée, le nombre d'étapes, le périphérique, le tempo, les paroles et la langue du chant. La graine est conservée lors d'une reprise technique de la même demande.
+
+Pour importer une configuration musicale, choisir le dossier contenant les quatre GGUF compatibles et le dossier du moteur `ace-lm`/`ace-synth`. Les rôles sont contrôlés depuis les métadonnées ; l'encodeur affiché suit le premier encodeur alphabétique chargé par ce moteur. Aucun chemin personnel n'est prérempli. Les profils musicaux ont leurs propres sélections et paramètres ; retirer un profil ne supprime pas ses fichiers. La création enregistrée apparaît dans un lecteur audio intégré, sans ligne technique de modèle sous le média. Musique utilise directement la demande et n'ajoute pas un assistant ni un second éditeur d'instructions.
+
+La configuration automatique s'applique à la discussion d'origine sans forcer son mode de sortie ni rouvrir la page pendant un autre travail. Les paramètres Image/Vidéo restent séparés ; les choix vidéo de 1 seconde à 1 heure restent expérimentaux et assemblés en clips courts, avec 5 secondes par défaut. Les sources de Musique sont vérifiées par tests ; **la génération complète et l'écoute sur cette machine restent à valider**. Ces changements locaux nécessitent une future recompilation pour apparaître dans l'exécutable existant ; aucune publication n'est effectuée.
+
+## Progression vidéo — correction locale du 27 octobre 2026
+
+L’indicateur quitte **« Chargement du moteur de création »** dès que le moteur signale le début du calcul. Il affiche ensuite **« Création en cours · … % »**, puis **« Finalisation de la vidéo · … % »** pendant la fermeture et la vérification du MP4. **100 % est réservé à la création terminée et publiée dans son dossier local**. Un chargement sans mesure disponible reste indéterminé ; le transfert des poids en mémoire ne se fait plus passer pour la progression de création.
+
+Le pourcentage suit les étapes de calcul et de décodage, cumulées sur les clips d’une longue vidéo ; il ne prédit pas exactement le temps restant. Le suivi par étape est également conservé pour les vidéos Diffusers. Essai réel du worker Wan : passage de Chargement à Création en cours (29, 58, 88, 98 %), puis Finalisation (98, 99 %) avant Terminé (100 %), observé pendant que le processus travaille encore. Essai technique de 1 seconde, 128 × 64, trois étapes ; ce n’est pas une mesure de qualité. Vérification du correctif : 43 tests web ciblés, 17 tests Python, types frontend et 80 × 1 746 clés sans erreur. Aucun nouveau binaire Novera ni publication du dépôt ; parcours visuel après recompilation à contrôler.
+
+## Configuration conseillée : Texte, Image et Vidéo — sources locales du 27 octobre 2026
+
+Le bouton **à curseurs de réglage** du compositeur ouvre **une seule page détaillée**. Son info-bulle indique ses trois usages et les choix Automatique/Parcourir. Il se distingue du bouclier des autorisations. Les sections sont distinctes :
+
+- **Texte** : Qwen3 4B Q4_K_M proposé avec le diagnostic matériel et la confirmation de téléchargement existants du Hub ; sélection d’un modèle disponible ou import GGUF via Parcourir.
+- **Image** : FLUX.2 Klein 4B Q4_K_M avec encodeur Qwen3 4B Q4_K_M et VAE. Installation confirmée, fichiers au choix, placement automatique GPU/CPU et NVFP4 image proposé selon le diagnostic de compatibilité.
+- **Vidéo** : petit pack **Wan2.1 T2V 1.3B Q4_K_M**, encodeur UMT5-XXL Q4_K_M et VAE Wan2.1. Les trois poids représentent exactement **4 891 677 270 octets**, environ 4,89 Go décimaux. Les liens pointent vers des révisions figées, avec contrôle de taille et SHA-256, reprise et confirmation avant transfert. Références et empreintes vérifiées ; **les poids ne sont pas téléchargés par cette modification**.
+
+Les réglages et chemins Image/Vidéo disposent de deux banques indépendantes. Un ancien dossier vidéo reste lisible, sans copier les chemins des composants image dans la banque vidéo. **Aucun chemin de la machine du mainteneur n’est livré comme valeur par défaut** : les champs de modèles commencent vides. Ils sont renseignés après choix, import ou installation confirmée. Les fichiers et choix utilisateur existants ne sont pas effacés.
+
+Le parcours vidéo Q4 utilise le moteur C++ embarqué sous Windows, puis l’encodeur `imageio-ffmpeg` de l’environnement Python choisi : texte vers vidéo, sortie **MP4 H.264**, **5 secondes par défaut**, 512 × 224 en **21:9**, 16 images/s, 20 étapes et CFG 6 dans le profil proposé. Ce modèle ne prend pas en charge l’animation d’une image dans ce parcours ; le raccourci correspondant est masqué lorsqu’il est sélectionné. Les vidéos Diffusers conservent leur sortie MP4 et peuvent utiliser leurs propres pipelines image vers vidéo. **NVFP4 vidéo n’est pas activé** : ce parcours ne dispose pas du moteur nécessaire pour ce format.
+
+La durée se règle de **1 seconde à 1 heure**, directement **à gauche du format** sur le tableau de bord. Le conseil Novera sélectionne 5 secondes. Les longues vidéos sont assemblées à partir de clips courts, encodés au fur et à mesure pour éviter de conserver toute la vidéo en mémoire ; des raccords peuvent être visibles. Une heure est une possibilité expérimentale de planification/assemblage, pas une scène cohérente d’une heure validée avec Wan. Les graines Image et Vidéo sont **aléatoires par défaut**, avec les choix Fixe, Incrémenter, Décrémenter et Réutiliser la dernière graine dans les deux sections indépendantes. Le format initial des deux configurations est 21:9 ; les choix explicites sauvegardés restent conservés. Les aperçus vidéo s’adaptent à la largeur et à la hauteur disponibles, sans déformation, et disposent d’un lecteur agrandi.
+
+Le diagnostic local a trouvé la cause de l’échec après calcul : le moteur livré produit un **AVI même avec une extension WebM**. Le nouveau parcours demande explicitement un AVI temporaire puis encode un vrai MP4 avant publication. L’environnement Python doit fournir `imageio-ffmpeg` (présent dans les dépendances média existantes) ; une erreur de dépendance apparaît avant le calcul. Les erreurs du moteur sont désormais conservées dans le message d’échec, au lieu du seul conseil générique de configuration.
+
+Le LTX-Video 2B envisagé auparavant n’est pas la même famille que LTX-2.3/2.5. Il n’est pas pris en charge par le moteur C++ embarqué ; le profil léger Q4 proposé ici est donc Wan2.1. Voir [le support Wan du moteur](https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/wan.md), [la conversion Q4 du générateur](https://huggingface.co/samuelchristlie/Wan2.1-T2V-1.3B-GGUF), [l’encodeur](https://huggingface.co/city96/umt5-xxl-encoder-gguf) et [le VAE repackagé](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged). Les licences des fournisseurs s’appliquent.
+
+Les nouvelles créations locales et cloud n’ajoutent plus la ligne **« Modèle : moteur · fichier »** sous le résultat. Les anciens pieds natifs isolés sont masqués à l’affichage ; les messages et métadonnées sauvegardés sont conservés.
+
+Vérification du correctif local : **145 tests web dans 13 fichiers**, **15 tests Python**, **13 tests natifs isolés** sur les sources réelles, TypeScript, sept tests d’architecture et contrôle des **80 locales × 1 745 clés**, sans erreur. Deux libellés supplémentaires sont traduits dans toutes les locales ; relecture native encore nécessaire. Le pack déjà installé par le mainteneur est vérifié prêt. Essai réel du nouveau worker : **512 × 224, 80 images à 16 images/s, MP4 de 5,00 secondes**, environ **124,8 secondes** de calcul et export sur la machine du mainteneur. Un assemblage de deux clips de test vérifie aussi la durée exacte ; l’arrêt du worker coupe son moteur enfant sous Windows. Aucune génération d’une heure testée, aucune certification de qualité ou de performance générale, aucun nouveau binaire Novera. Le parcours visuel dans l’application recompilée reste à contrôler. Publication du dépôt et de la vitrine toujours suspendue.
+
+## Un seul éditeur d’instructions et aperçus adaptés — correction locale du 27 octobre 2026
+
+**Novera est un assistant avec trois catégories d’instructions : Texte, Image et Vidéo.** Le seul éditeur officiel reste le carnet du tableau de bord **« Novera · Gérer les instructions »**. Configuration → Assistants présente désormais une explication et un retour vers l’accueil, sans second formulaire ni création de trois assistants supplémentaires. Une ancienne ouverture du formulaire du profil intégré Novera affiche le même guide. Les profils et instructions sauvegardés restent conservés ; les assistants personnalisés liés aux projets ne sont pas supprimés.
+
+Les images générées occupent la largeur de la conversation disponible ; la limite fixe de 576 px est retirée. Leur hauteur suit la fenêtre (75 % de sa hauteur visible), sans déformation ni recadrage. Un clic ouvre l’aperçu agrandi sur 95 % de la largeur de la fenêtre. Le fichier, ses dimensions réelles et les paramètres de génération sont conservés : cet ajustement concerne la présentation uniquement.
+
+Validation des sources : 237 tests web dans six fichiers, TypeScript et contrôle des 80 locales × 1 743 clés sans erreur. Aucun nouveau binaire ni contrôle visuel dans une application recompilée. **Correction gardée uniquement en local à la demande du mainteneur : aucun commit, push ou changement de vitrine.**
+
 ## Nouveau projet et choix d’accès — sources du 27 octobre 2026
 
 1. Cliquer sur **Nouveau projet** dans la barre latérale, ou utiliser le raccourci correspondant. Choisir un dossier existant ou en créer un dans le sélecteur système.

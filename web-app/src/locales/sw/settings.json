@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "Umepata hitilafu? Tusaidie kwa kuripoti tatizo kwenye GitHub.",
   "reportIssue": "Ripoti tatizo",
   "credits": "Shukrani",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS), kulingana na Jan na Menlo Research na wachangiaji wake.",
   "creditsDesc2": "Shukrani za pekee kwa utegemezi wetu wa chanzo huria—hasa llama.cpp na Tauri—na kwa jumuiya yetu ya ajabu ya AI.",
   "appVersion": "Toleo la Programu",
   "dataFolder": {
@@ -119,7 +119,7 @@
     "threadScrollFlowHint": "Huweka kituo cha kutazama kikiwa na ujumbe wa hivi punde unaotuma.",
     "threadScrollStickyTitle": "Kitabu cha kunata",
     "threadScrollStickyHint": "Hufuata kiotomatiki majibu yanapotiririka katika muda halisi.",
-    "tokenCounterCompact": "Compact Token Counter",
+    "tokenCounterCompact": "Kikaunta cha Tokeni Kompakt",
     "tokenCounterCompactDesc": "Onyesha kihesabu cha ishara ndani ya ingizo la gumzo. Inapozimwa, kihesabu cha tokeni huonekana chini ya ingizo.",
     "codeBlockTitle": "Kizuizi cha Msimbo",
     "codeBlockDesc": "Chagua mtindo wa kuangazia sintaksia.",
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Weka upya Mtindo wa Kuzuia Msimbo",
     "resetCodeBlockStyleDesc": "Weka upya mtindo wa kuzuia msimbo uwe chaguomsingi.",
     "resetCodeBlockSuccess": "Mtindo wa kuzuia msimbo umewekwa upya",
-    "resetCodeBlockSuccessDesc": "Mtindo wa kuzuia msimbo umerejeshwa kwa chaguomsingi."
+    "resetCodeBlockSuccessDesc": "Mtindo wa kuzuia msimbo umerejeshwa kwa chaguomsingi.",
+    "subtitle": "Fanya Novera iwe yako, kuanzia mwonekano wake hadi mapendeleo yako ya mazungumzo.",
+    "accentColor": "rangi ya lafudhi",
+    "accentColorDesc": "Chagua lafudhi na rangi ya utepe.",
+    "conversation": "Mazungumzo na arifa"
   },
   "hardware": {
     "os": "Mfumo wa Uendeshaji",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "Je, umepata mdudu? Tusaidie kwa kuwasilisha suala kwenye GitHub.",
     "reportIssue": "Ripoti Suala",
     "credits": "Mikopo",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS), kulingana na Jan na Menlo Research na wachangiaji wake.",
     "creditsDesc2": "Shukrani za pekee kwa utegemezi wetu wa chanzo huria—hasa llama.cpp na Tauri—na kwa jumuiya yetu ya ajabu ya AI."
   },
   "extensions": {

@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Assistant par défaut",
   "defaultAssistantDesc": "Utilisé lors du démarrage d'une nouvelle discussion",
   "allAssistants": "Tous les assistants",
-  "lastUsed": "Dernière utilisation"
+  "lastUsed": "Dernière utilisation",
+  "officialInstructions": "Les trois catégories d’instructions de Novera se modifient uniquement depuis {{path}}."
 }

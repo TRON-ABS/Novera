@@ -38,6 +38,7 @@ export const Route = createFileRoute(route.settings.general as any)({
 })
 
 function General() {
+
   const { t } = useTranslation()
   const {
     spellCheckChatInput,
@@ -227,6 +228,7 @@ function General() {
               )}
               <CardItem
                 title={t('common:language')}
+                description={t('ui:settingsLanguageHelp')}
                 actions={<LanguageSwitcher />}
               />
             </Card>
@@ -367,7 +369,7 @@ function General() {
             </Card>
 
             {/* Advanced - Desktop only */}
-            <Card title="Advanced">
+            <Card title={t('providers:apiKeys.advanced')}>
               {IS_TAURI && (
                 <CardItem
                   title={t('settings:general.janCli')}
@@ -443,7 +445,7 @@ function General() {
                         const token = (huggingfaceToken || '').trim()
                         if (!token) {
                           toast.error(
-                            'Please enter a Hugging Face token to validate'
+                            t('ui:pleaseEnterAHuggingFaceTokenToValidate')
                           )
                           return
                         }
@@ -463,28 +465,28 @@ function General() {
                           )
                           if (resp.ok) {
                             const data = await resp.json()
-                            toast.success('Token is valid', {
+                            toast.success(t('ui:tokenIsValid'), {
                               description: data?.name
-                                ? `Signed in as ${data.name}`
-                                : 'Your Hugging Face token is valid.',
+                                ? t('ui:signedInAsValue0', { value0: data.name })
+                                : t('ui:huggingFaceTokenValid'),
                             })
                           } else {
-                            toast.error('Token invalid', {
+                            toast.error(t('ui:tokenInvalid'), {
                               description:
-                                'The provided Hugging Face token is invalid. Please check your token and try again.',
+                                t('ui:theProvidedHuggingFaceTokenIsInvalidPlease'),
                             })
                           }
                         } catch (e) {
                           const name = (e as { name?: string })?.name
                           if (name === 'AbortError') {
-                            toast.error('Validation timed out', {
+                            toast.error(t('ui:validationTimedOut'), {
                               description:
-                                'The validation request timed out. Please check your network connection and try again.',
+                                t('ui:theValidationRequestTimedOutPleaseCheckYour'),
                             })
                           } else {
-                            toast.error('Validation failed', {
+                            toast.error(t('ui:validationFailed'), {
                               description:
-                                'A network error occurred while validating the token. Please check your internet connection.',
+                                t('ui:aNetworkErrorOccurredWhileValidatingTheToken'),
                             })
                           }
                         } finally {
@@ -493,8 +495,7 @@ function General() {
                         }
                       }}
                     >
-                      Verify
-                    </Button>
+                      {t('ui:verify')}</Button>
                   </div>
                 }
               />

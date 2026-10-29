@@ -38,6 +38,7 @@ export function AssistantSwitcher({
   setSelectedAssistantId,
   updateCurrentThreadAssistant,
 }: AssistantSwitcherProps) {
+
   const { t } = useTranslation()
   const open = useAssistantSwitcher((s) => s.open)
   const setOpen = useAssistantSwitcher((s) => s.setOpen)
@@ -91,7 +92,7 @@ export function AssistantSwitcher({
               variant="ghost"
               size="sm"
               className="h-7 px-2 gap-1 min-w-0"
-              aria-label="Switch assistant"
+              aria-label={t('ui:switchAssistant')}
             >
               {activeAssistant?.avatar ? (
                 <AvatarEmoji
@@ -110,7 +111,7 @@ export function AssistantSwitcher({
           </DropdownMenuTrigger>
         </TooltipTrigger>
         <TooltipContent>
-          <p>Switch assistant ({shortcutHint})</p>
+          <p>{t('ui:switchAssistant_eca62f')}{shortcutHint})</p>
         </TooltipContent>
       </Tooltip>
       <DropdownMenuContent align="start" className="max-h-64 overflow-y-auto">

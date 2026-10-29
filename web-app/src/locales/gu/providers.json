@@ -60,7 +60,14 @@
     "removeFromJan": "Novera માંથી દૂર કરો",
     "success": "મોડલ {{modelId}} કાયમ માટે કાઢી નાખવામાં આવ્યું છે.",
     "cancel": "રદ કરો",
-    "delete": "કાઢી નાખો"
+    "delete": "કાઢી નાખો",
+    "choiceDescription": "Novera માંથી આ મોડેલને કેવી રીતે દૂર કરવું તે પસંદ કરો.",
+    "removeFromNovera": "Novera માંથી દૂર કરો",
+    "permanentlyDelete": "કાયમ માટે કાઢી નાખો",
+    "keepFilesDescription": "સૂચિમાંથી મોડેલને દૂર કરો અને તેની ફાઇલોને ડિસ્ક પર રાખો. તમે તેને ફરીથી આયાત કરી શકો છો.",
+    "permanentDescription": "ડિસ્કમાંથી મોડેલ અને તેની Novera-સંચાલિત ફાઇલો કાઢી નાખો. આ પૂર્વવત્ કરી શકાતું નથી.",
+    "permanentImportedDescription": "મુખ્ય GGUF ફાઇલને તેના મૂળ સ્થાન પર પણ કાઢી નાખો. બાહ્ય સહાયક ફાઇલો રાખવામાં આવે છે. આ પૂર્વવત્ કરી શકાતું નથી.",
+    "removedSuccess": "મોડલ {{modelId}} ને Novera માંથી દૂર કરવામાં આવ્યું હતું. તેની ફાઇલો રાખવામાં આવી હતી."
   },
   "deleteAllModels": {
     "button": "બધા કાઢી નાખો",
@@ -123,5 +130,8 @@
     "oneKeyHint": "વૈકલ્પિક ફોલબેક કી એડવાન્સ્ડમાં ગોઠવેલ છે.",
     "addKey": "કી ઉમેરો",
     "removeKey": "કી દૂર કરો"
-  }
+  },
+  "installedMediaModels": "છબી, વિડિયો અને મ્યુઝિક મોડલ્સ",
+  "noInstalledModels": "આ કેટેગરીમાં કોઈ મોડલ નોંધાયેલ નથી.",
+  "modelComponents": "મોડલ ફાઇલો"
 }

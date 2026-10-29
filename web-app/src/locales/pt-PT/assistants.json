@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "Utilizado ao iniciar uma nova conversa",
   "allAssistants": "Todos os assistentes",
   "lastUsed": "Última utilização",
-  "deleteFailed": "Não foi possível eliminar o assistente. Tente novamente."
+  "deleteFailed": "Não foi possível eliminar o assistente. Tente novamente.",
+  "officialInstructions": "As três categorias de instruções do Novera só podem ser editadas através de {{path}}."
 }

@@ -44,7 +44,14 @@
     "removeFromJan": "Janから削除",
     "success": "モデル {{modelId}} は完全に削除されました。",
     "cancel": "キャンセル",
-    "delete": "削除"
+    "delete": "削除",
+    "choiceDescription": "このモデルを Novera から削除する方法を選択してください。",
+    "removeFromNovera": "Novera から削除",
+    "permanentlyDelete": "完全に削除",
+    "keepFilesDescription": "モデルをリストから削除し、そのファイルをディスク上に保持します。再度インポートすることもできます。",
+    "permanentDescription": "モデルとその Novera で管理されるファイルをディスクから削除します。これを元に戻すことはできません。",
+    "permanentImportedDescription": "元の場所にあるメイン ファイル GGUF も削除します。外部補助ファイルは保持されます。これを元に戻すことはできません。",
+    "removedSuccess": "モデル {{modelId}} は Novera から削除されました。そのファイルは保持されていました。"
   },
   "deleteAllModels": {
     "button": "すべて削除",
@@ -123,5 +130,8 @@
   "backendHistoryUpdated": "更新されました",
   "backendHistoryRolledBack": "ロールバックされました",
   "backendHistoryRollbackFailed": "ロールバックに失敗しました",
-  "backendHistoryFailed": "失敗しました"
+  "backendHistoryFailed": "失敗しました",
+  "installedMediaModels": "画像、ビデオ、音楽モデル",
+  "noInstalledModels": "このカテゴリにはモデルが登録されていません。",
+  "modelComponents": "モデルファイル"
 }

@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Codeblokstijl opnieuw instellen",
     "resetCodeBlockStyleDesc": "Reset code blok stijl naar standaard.",
     "resetCodeBlockSuccess": "Codeblokstijl succesvol opnieuw ingesteld",
-    "resetCodeBlockSuccessDesc": "Code blok stijl is hersteld naar de standaard."
+    "resetCodeBlockSuccessDesc": "Code blok stijl is hersteld naar de standaard.",
+    "subtitle": "Maak Novera uw eigen, van het uiterlijk tot uw gespreksvoorkeuren.",
+    "accentColor": "Accentkleur",
+    "accentColorDesc": "Kies de kleur van het accent en de zijbalk.",
+    "conversation": "Gesprekken en meldingen"
   },
   "hardware": {
     "os": "Het Besturingssysteem van Windows",
@@ -262,7 +266,7 @@
     "trustedHosts": "Betrouwbare hosts zoeken",
     "trustedHostsDesc": "Hosts die toegang hebben tot de server, gescheiden door komma's.",
     "advancedSettings": "Geavanceerde instellingen",
-    "cors": "Cross-Origin Resource Sharing (CORS)",
+    "cors": "Cross-Origineel delen van bronnen (CORS)",
     "corsDesc": "Cross-origin verzoeken naar de API server toestaan.",
     "verboseLogs": "Uitgebreide serverlogboeken",
     "verboseLogsDesc": "Schakel gedetailleerde serverlogboeken in voor foutopsporing.",

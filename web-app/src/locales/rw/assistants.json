@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Umufasha usanzwe",
   "defaultAssistantDesc": "Yakoreshejwe mugihe utangiye ikiganiro gishya",
   "allAssistants": "Abafasha bose",
-  "lastUsed": "Iheruka gukoreshwa"
+  "lastUsed": "Iheruka gukoreshwa",
+  "officialInstructions": "Ibyiciro bitatu by’amabwiriza ya Novera bishobora guhindurwa gusa binyuze kuri {{path}}."
 }

@@ -47,7 +47,35 @@
     "workedForAWhile": "몇 초 동안 작업했습니다.",
     "workedFor": "{{duration}}에서 근무"
   },
+  "player": {
+    "play": "재생",
+    "pause": "일시 정지",
+    "seek": "재생 위치",
+    "mute": "음소거",
+    "volume": "음량",
+    "speed": "재생 속도"
+  },
   "creation": {
+    "musicLyricsGuide": "요청에 스타일과 목소리를 설명하고 아래 태그 아래에 가사를 입력하세요. 보컬을 포함하려면 {{instrumental}}을 끄세요.",
+    "music": "음악",
+    "musicDuration": "음악 길이",
+    "musicQuality": "음질",
+    "musicInstrumental": "연주곡",
+    "musicLyrics": "가사",
+    "musicGenerator": "음악 생성 모델",
+    "musicPlanner": "음악 구성 모델",
+    "setupAllDownload": "모두 자동으로 다운로드하고 설정",
+    "setupConfiguring": "추천 모델 설정 중",
+    "setupStorage": "전체 파일: {{download}}. 여유분: {{reserve}}. 추가 필요 공간: {{required}}. 선택한 드라이브의 빈 공간: {{free}}.",
+    "setupSpaceMissing": "{{missing}} 부족합니다. 공간을 확보하거나 충분한 저장 공간이 있는 다른 드라이브를 선택하세요.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M는 대화, 쓰기, 도구 호출 및 구조화된 출력에 권장되는 로컬 텍스트 모델입니다. 초기 컨텍스트는 16K 토큰입니다. 늘리기 전에 사용 가능한 메모리를 확인하세요. 초안 모델 없이 텍스트 입력 및 출력만 가능합니다. 검색이나 문서를 사용하여 사실적 주장을 확인하세요.",
+    "setupImageNote": "이미지\n비디오 — FLUX.2 Klein 4B · Q4_K_M. 텍스트: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. 종횡비: 21:9; 해상도: 1024 × 432; 생성 단계: 4; 시드 모드: 무작위.",
+    "setupMusicNote": "음악 — ACE-Step 1.5 Turbo. 음악 생성 모델: 2B · Q4_K_M; 음악 구성 모델: 1.7B · Q8_0; 텍스트: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. 음악 길이: 10–600 s; 음질: 48 kHz · 2.0; 연주곡 / 가사; 무작위.",
+    "setupVideoNote": "동영상 — Wan2.1 T2V 1.3B · Q4_K_M. 텍스트: UMT5-XXL · Q4_K_M. 동영상 길이: 5 s; 종횡비: 21:9; 초당 프레임: 16. 긴 동영상은 짧은 클립을 이어 만듭니다. 연결 부분이 보일 수 있으며 생성에 오래 걸릴 수 있습니다. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "권장 모델 다운로드 및 구성: 텍스트용 Nemotron, 다국어 검색용 Qwen3-Embedding Q8_0(기본적으로 CPU), FLUX.2 Klein 4B 및 해당 구성 요소, Real-ESRGAN ×2/×4, 음악의 경우 ACE-Step(기본적으로 악기 켜짐), 비디오의 경우 Wan2.1입니다. 아래에서 파일 크기, 디스크 공간 및 비디오 필수 조건을 확인하세요. 별도의 다운로드와 찾아보기는 계속 사용할 수 있습니다.",
+    "finalizing": "동영상 마무리 중",
+    "videoDuration": "동영상 길이",
+    "videoDurationNote": "긴 동영상은 짧은 클립을 이어 만듭니다. 연결 부분이 보일 수 있으며 생성에 오래 걸릴 수 있습니다.",
     "output": "응답 형식",
     "auto": "자동\n텍스트",
     "text": "텍스트",
@@ -144,7 +172,8 @@
     "ratio": "종횡비",
     "resolution": "해상도",
     "customSize": "맞춤",
-    "sizeAutoNote": "비율을 변경하면 현재 해상도가 적용됩니다. 치수는 최대 2048 픽셀까지 16의 배수를 사용합니다."
+    "sizeAutoNote": "비율을 변경하면 현재 해상도가 적용됩니다. 치수는 최대 2048 픽셀까지 16의 배수를 사용합니다.",
+    "setupTextNvfp4Note": "감지된 NVIDIA Blackwell GPU 또는 그 이상(최소 4.5 GiB VRAM)용 선택적 NVFP4 가중치입니다. Novera에서 이 가중치를 사용하려면 전체 모델 저장소를 먼저 호환되는 NVFP4 GGUF로 변환하고 검증해야 합니다. 이 변환은 아직 이 체크포인트에 대해 검증되지 않았습니다. 연결된 Safetensors 파일은 내장 엔진에서 직접 로드할 수 없습니다. Q8_0이 사용 준비가 된 권장 사항으로 유지됩니다. 메모리 요구 사항은 컨텍스트 길이에 따라 달라집니다."
   },
   "creationInstall": {
     "install": "이 구성 설치",

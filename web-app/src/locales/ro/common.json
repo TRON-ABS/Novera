@@ -351,7 +351,7 @@
       "section": "Decodificarea speculativă",
       "enable": "Activează decodificarea speculativă",
       "enableDescription": "Proiectați mai multe token-uri pe pas și verificați-le într-o singură trecere, ceea ce accelerează generarea.Utilizează capetele MTP încorporate ale modelului sau modelul de proiect descărcat împreună cu acesta (MTP, Eagle3, DFlash sau DSpark).",
-      "nMax": "Max draft tokens",
+      "nMax": "Număr maxim de jetoane",
       "nMaxDescription": "Numărul maxim de jetoane de draftat per pas. Implicit 16.",
       "nMin": "Jetoane minime draft",
       "nMinDescription": "Numărul minim de jetoane de draftat per pas. Implicit 0.",

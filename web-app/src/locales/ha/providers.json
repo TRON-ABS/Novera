@@ -60,7 +60,14 @@
     "removeFromJan": "Cire daga Novera",
     "success": "Model {{modelId}} an goge shi har abada.",
     "cancel": "Soke",
-    "delete": "Goge"
+    "delete": "Goge",
+    "choiceDescription": "Zabi yadda ake cire wannan samfurin daga Novera.",
+    "removeFromNovera": "Cire daga Novera",
+    "permanentlyDelete": "Share na dindindin",
+    "keepFilesDescription": "Cire samfurin daga lissafin kuma ajiye fayilolinsa akan faifai. Kuna iya sake shigo da shi.",
+    "permanentDescription": "Share samfurin da fayilolin da aka sarrafa Novera daga faifai. Ba za a iya soke wannan ba.",
+    "permanentImportedDescription": "Haka kuma a goge babban fayil din GGUF a inda yake. Ana adana fayilolin taimako na waje. Ba za a iya soke wannan ba.",
+    "removedSuccess": "Model {{modelId}} an cire shi daga Novera. An adana fayilolinsa."
   },
   "deleteAllModels": {
     "button": "Share Duk",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Ana saita maɓallin koma baya na zaɓi a cikin Na ci gaba.",
     "addKey": "Ƙara maɓalli",
     "removeKey": "Cire maɓalli"
-  }
+  },
+  "installedMediaModels": "Hoto, bidiyo da samfuran kiɗa",
+  "noInstalledModels": "Babu samfura da aka yiwa rajista a wannan rukunin.",
+  "modelComponents": "Fayilolin samfuri"
 }

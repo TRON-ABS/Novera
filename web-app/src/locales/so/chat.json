@@ -47,7 +47,35 @@
     "tokens": "Talaan-ooyinka",
     "perSecond": "tukaan/s"
   },
+  "player": {
+    "play": "Daar",
+    "pause": "Hakad geli",
+    "seek": "Meesha ciyaaristu marayso",
+    "mute": "Codka dami",
+    "volume": "Heerka codka",
+    "speed": "Xawaaraha ciyaarista"
+  },
   "creation": {
+    "musicLyricsGuide": "Ku sharax qaabka iyo codka codsigaaga. Erayada heesta geli hoosta calaamadaha hoose. Dami {{instrumental}} si heestu cod u yeelato.",
+    "music": "Muusig",
+    "musicDuration": "Muddada muusigga",
+    "musicQuality": "Tayada codka",
+    "musicInstrumental": "Muusig aan hees lahayn",
+    "musicLyrics": "Erayada heesta",
+    "musicGenerator": "Sameeyaha muusigga",
+    "musicPlanner": "Qorsheeyaha muusigga",
+    "setupAllDownload": "Soo deji oo si toos ah u habee dhammaan",
+    "setupConfiguring": "Waxaa la habaynayaa moodellada lagu taliyey",
+    "setupStorage": "Wadarta faylasha: {{download}}. Kayd dheeraad ah: {{reserve}}. Meesha kale ee loo baahan yahay: {{required}}. Bannaan saxanka la doortay: {{free}}.",
+    "setupSpaceMissing": "Waxaa dhiman {{missing}}. Meel bannee ama dooro saxan kale oo kayd ku filan leh.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M waa qaabka qoraalka maxalliga ah ee lagu taliyay ee loogu talagalay wadahadalka, qorista, wicitaanada qalabka iyo qaabaynta Wax soo saar. Macnaha bilowga ah waa 16K calaamadaha; hubi xusuusta la heli karo ka hor intaadan kordhin. Qoraalka gelinta iyo wax soo saarka oo keliya, iyada oo aan lahayn qaab qabyo ah. Isticmaal raadinta ama dukumeentiyadaada si aad u xaqiijiso sheegashooyinka dhabta ah.",
+    "setupImageNote": "Sawirka — FLUX.2 Klein 4B · Q4_K_M. Qoraal: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Saamiga dhinaca: 21:9; Qaraarka: 1024 × 432; Tallaabooyinka jiilka: 4; Habka abuurka: Aan kala sooc lahayn.",
+    "setupMusicNote": "Muusig — ACE-Step 1.5 Turbo. Sameeyaha muusigga: 2B · Q4_K_M; Qorsheeyaha muusigga: 1.7B · Q8_0; Qoraal: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Muddada muusigga: 10–600 s; Tayada codka: 48 kHz · 2.0; Muusig aan hees lahayn / Erayada heesta; Aan kala sooc lahayn.",
+    "setupVideoNote": "Muuqaal — Wan2.1 T2V 1.3B · Q4_K_M. Qoraal: UMT5-XXL · Q4_K_M. Muddada fiidyowga: 5 s; Saamiga dhinaca: 21:9; Frames halkii ilbiriqsi: 16. Fiidyowyada dhaadheer waxaa laga isku daraa qaybo gaagaaban. Meelaha la isku daray way muuqan karaan, samayntuna waqti dheer ayay qaadan kartaa. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Soo dejiso oo habayso moodooyinka lagu taliyay: Nemotron qoraalka, Qwen3-Embedding Q8_0 soo celinta luqado badan (CPU caadiga ah), FLUX.2 Klein 4B iyo qaybaha ay ka kooban tahay, Real-ESRGAN ×2/×4, ACE-Step muusikada (Qalabka ayaa ku shaqeeya caadi ahaan), iyo Wan2.1 fiidiyowga. Hubi cabbirka faylka, booska diskka iyo shuruudaha fiidiyowga ee hoose. Soo dejin gaar ah iyo Baadh ayaa weli diyaar ah.",
+    "finalizing": "Fiidyowga waa la dhammeystirayaa",
+    "videoDuration": "Muddada fiidyowga",
+    "videoDurationNote": "Fiidyowyada dhaadheer waxaa laga isku daraa qaybo gaagaaban. Meelaha la isku daray way muuqan karaan, samayntuna waqti dheer ayay qaadan kartaa.",
     "output": "Qaabka jawaabta",
     "auto": "Baabuur",
     "text": "Qoraal",
@@ -144,7 +172,8 @@
     "ratio": "Saamiga dhinaca",
     "resolution": "Qaraarka",
     "customSize": "Caado",
-    "sizeAutoNote": "Beddelka saamiga ayaa la qabsanaya xallinta hadda. Cabbiradu waxay isticmaalaan dhufashada 16, ilaa 2048 px."
+    "sizeAutoNote": "Beddelka saamiga ayaa la qabsanaya xallinta hadda. Cabbiradu waxay isticmaalaan dhufashada 16, ilaa 2048 px.",
+    "setupTextNvfp4Note": "Miisaannada ikhtiyaariga ah ee NVFP4 ee la ogaaday ee NVIDIA Blackwell GPU ama kuwa cusub oo leh ugu yaraan 4.5 GiB oo ah VRAM. Si aad miisaankan ugu isticmaasho Novera, kaydka moodeelka oo dhammaystiran waa in marka hore loo beddelaa NVFP4 GGUF oo la jaan qaadaya oo la xaqiijiyay. Beddelkan weli lama xaqiijin bar-tilmaameedkan. Faylka Safetensors ee ku xiran si toos ah looguma rari karo matoorka ku dhex jira. Q8_0 wuxuu weli yahay talada diyaar u ah in la isticmaalo. Baahida xusuusta waxay sidoo kale ku xiran tahay dhererka macnaha guud."
   },
   "creationInstall": {
     "install": "Rakib habayntan",

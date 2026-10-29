@@ -33,7 +33,14 @@
     "cancel": "Cancel·la",
     "delete": "Suprimeix",
     "importedDescription": "Eliminar aquest model importat de Novera? El vostre fitxer local al disc no se suprimirà.",
-    "removeFromJan": "Eliminar de Novera"
+    "removeFromJan": "Eliminar de Novera",
+    "choiceDescription": "Trieu com eliminar aquest model del Novera.",
+    "removeFromNovera": "Eliminar de Novera",
+    "permanentlyDelete": "Suprimeix permanentment",
+    "keepFilesDescription": "Traieu el model de la llista i manteniu els seus fitxers al disc. Podeu tornar-lo a importar.",
+    "permanentDescription": "Suprimeix el model i els seus fitxers gestionats amb Novera del disc. Això no es pot desfer.",
+    "permanentImportedDescription": "També suprimiu el fitxer principal GGUF a la seva ubicació original. Es conserven fitxers auxiliars externs. Això no es pot desfer.",
+    "removedSuccess": "El model {{modelId}} s'ha eliminat del Novera. Els seus fitxers es van conservar."
   },
   "deleteProvider": {
     "title": "Suprimeix el proveïdor",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Les tecles alternatives opcionals es configuren a Avançat.",
     "addKey": "Afegeix la clau",
     "removeKey": "Elimina la clau"
-  }
+  },
+  "installedMediaModels": "Models d'imatge, vídeo i música",
+  "noInstalledModels": "No hi ha cap model registrat en aquesta categoria.",
+  "modelComponents": "Fitxers de model"
 }

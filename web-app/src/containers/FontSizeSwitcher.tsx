@@ -56,7 +56,7 @@ export function FontSizeSwitcher({
           <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground ml-2" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="novera-settings-popover">
         {fontSizeOptions.map((item: { value: string; label: string }) => (
           <DropdownMenuItem
             key={item.value}

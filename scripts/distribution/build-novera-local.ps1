@@ -148,6 +148,9 @@ try {
         Run-Step 'cli' (Join-Path $toolchain 'cargo.exe') @('build','--offline','--locked','--release','--manifest-path','src-tauri/novera-cli/Cargo.toml')
         Write-Output "CLI : $env:CARGO_TARGET_DIR/release (nom historique defini par le manifeste CLI)."
     } else {
+        # The web application imports extension dist files. Rebuild them from
+        # source before Vite so a local compile includes extension changes.
+        Run-Step 'extensions' $corepack @('yarn','build:extensions')
         Run-Step 'interface' $corepack @('yarn','build:web')
         if ($id -eq 'web') {
             New-Item -ItemType Directory -Path $output | Out-Null

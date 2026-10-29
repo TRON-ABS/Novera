@@ -35,10 +35,17 @@ describe('DefaultModelsService - additional coverage', () => {
     get: vi.fn(), list: vi.fn(), updateSettings: vi.fn(), import: vi.fn(),
     abortImport: vi.fn(), delete: vi.fn(), getLoadedModels: vi.fn(), unload: vi.fn(),
     load: vi.fn(), isModelSupported: vi.fn(), isToolSupported: vi.fn(),
+    getEmbeddingDevice: vi.fn().mockResolvedValue('cpu'),
     checkMmprojExists: vi.fn(), validateGgufFile: vi.fn(), getTokensCount: vi.fn(),
   }
 
   const mockEngineManager = { get: vi.fn().mockReturnValue(mockEngine) }
+
+  it('reads the saved embedding device from the llama.cpp engine', async () => {
+    mockEngine.getEmbeddingDevice.mockResolvedValueOnce('gpu')
+    await expect(svc.getEmbeddingDevice('qwen')).resolves.toBe('gpu')
+    expect(mockEngine.getEmbeddingDevice).toHaveBeenCalledWith('qwen')
+  })
 
   beforeEach(() => {
     clearHuggingFaceCatalogCache()

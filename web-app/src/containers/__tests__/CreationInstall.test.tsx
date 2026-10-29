@@ -59,11 +59,37 @@ function job(phase: InstallSnapshot['phase'] = 'downloading'): InstallSnapshot {
   }
 }
 describe('recommended configuration installation', () => {
+  it.runIf(IS_WINDOWS)('reviews all defaults, checks storage and records an automatic setup only after confirmation',async()=>{
+    const allPlan:InstallPlan={...plan,variant:'all-recommended',requiredSpace:plan.total+256*1024*1024,videoRuntimeReady:true}
+    mocks.invoke.mockImplementation(async(command:string)=>command==='creation_bundle_plan'?allPlan:job())
+    render(<CreationInstallButton variant="all-recommended" scope="new"/>)
+    fireEvent.click(screen.getByRole('button',{name:'chat:creation.setupAllDownload'}))
+    await waitFor(()=>expect(screen.getByRole('dialog')).toBeInTheDocument())
+    expect(screen.getByText('chat:creation.setupStorage')).toBeInTheDocument()
+    expect(mocks.invoke.mock.calls.some(([command])=>command==='creation_bundle_action')).toBe(false)
+    fireEvent.click(screen.getByRole('button',{name:'hub:download'}))
+    await waitFor(()=>expect(useCreationInstall.getState().autoApply[allPlan.token]).toMatchObject({scope:'new',done:false}))
+    expect(mocks.invoke).toHaveBeenCalledWith('creation_bundle_action',{action:'start',token:allPlan.token})
+  })
+  it.runIf(IS_WINDOWS).each(['space','runtime'])('blocks global installation when %s is unavailable',async(reason)=>{
+    const allPlan:InstallPlan={...plan,variant:'all-recommended',available:reason==='space'?10:10e9,videoRuntimeReady:reason!=='runtime'}
+    mocks.invoke.mockResolvedValue(allPlan)
+    render(<CreationInstallButton variant="all-recommended" scope="new"/>)
+    fireEvent.click(screen.getByRole('button',{name:'chat:creation.setupAllDownload'}))
+    await waitFor(()=>expect(screen.getByRole('dialog')).toBeInTheDocument())
+    expect(screen.getByRole('button',{name:'hub:download'})).toBeDisabled()
+    expect(screen.getByRole('alert')).toHaveTextContent(reason==='space'?'chat:creation.setupSpaceMissing':'Python + imageio-ffmpeg')
+    expect(mocks.invoke.mock.calls.some(([command])=>command==='creation_bundle_action')).toBe(false)
+  })
+  it.runIf(!IS_WINDOWS)('offers custom music setup but does not advertise automatic Windows runtime downloads on another platform',()=>{
+    render(<CreationInstallButton variant="all-recommended" scope="new"/> )
+    expect(screen.getByRole('button',{name:'chat:creation.setupAllDownload'})).toBeDisabled()
+  })
   beforeEach(() => {
     vi.clearAllMocks()
     useMediaLibrary.setState({ profiles: [], installed: [] })
-    useCreationInstall.setState({ parent: '', job: undefined })
-    useCreation.setState({ settings: { ...creationDefaults } })
+    useCreationInstall.setState({ parent: '', job: undefined, autoApply:{} })
+    useCreation.setState({ settings: { ...creationDefaults }, videoSettings: undefined })
     mocks.invoke.mockImplementation(async (command: string) =>
       command === 'creation_bundle_plan' ? plan : job()
     )
@@ -91,6 +117,17 @@ describe('recommended configuration installation', () => {
     await waitFor(() =>
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     )
+  })
+  it('prepares the video variant using its own runtime without starting a transfer or probing image NVFP4', async () => {
+    useCreation.getState().setSettings({ python: 'image-runtime' })
+    useCreation.getState().setVideoSettings({ python: 'video-runtime' })
+    mocks.invoke.mockResolvedValue({ ...plan, variant: 'video-gguf' })
+    render(<CreationInstallButton variant="video-gguf" />)
+    fireEvent.click(screen.getByText('chat:creationInstall.install'))
+    await screen.findByRole('dialog')
+    expect(mocks.invoke).toHaveBeenCalledWith('creation_bundle_plan', { parent: null, variant: 'video-gguf', python: 'video-runtime' })
+    expect(mocks.invoke).not.toHaveBeenCalledWith('creation_bundle_action', expect.anything())
+    expect(mocks.invoke).not.toHaveBeenCalledWith('creation_bundle_nvfp4_probe', expect.anything())
   })
   it('creates nothing if the user cancels and retains a cancelled folder selection', async () => {
     render(<CreationInstallButton />)
@@ -247,4 +284,11 @@ describe('recommended configuration installation', () => {
       })
     )
   })
+})
+it('applies a verified video pack to its own settings bank and leaves image paths untouched', () => {
+  useCreation.setState({ settings: { ...creationDefaults, ggufImageModel: 'D:/image.gguf' }, videoSettings: undefined })
+  const videoPlan: InstallPlan = { ...plan, variant: 'video-gguf', token: 'video-pack', directory: 'D:/chosen/Wan', files: ['videoModel', 'ggufTextEncoder', 'ggufVae'].map((role) => ({ role, name: `${role}.gguf`, url: 'https://huggingface.co/example', size: 1, sha256: '0'.repeat(64) })) }
+  applyInstalled({ ...job('ready'), plan: videoPlan, verified: [true, true, true] })
+  expect(useCreation.getState().videoSettings).toMatchObject({ videoEngine: 'sdcpp', videoModel: 'D:/chosen/Wan/videoModel.gguf', ggufTextEncoder: 'D:/chosen/Wan/ggufTextEncoder.gguf', frames: 81, fps: 16, durationSeconds: 5, seedMode: 'random', mediaRatio: '21:9' })
+  expect(useCreation.getState().settings.ggufImageModel).toBe('D:/image.gguf')
 })

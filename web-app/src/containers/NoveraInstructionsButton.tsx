@@ -26,7 +26,7 @@ export function NoveraInstructionsButton() {
         <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-xl">
           <DialogHeader>
             <DialogTitle>{title}</DialogTitle>
-            <DialogDescription>{t('common:projects.instructionsDescription')}</DialogDescription>
+            <DialogDescription>{t('assistants:officialInstructions', { path: title })}</DialogDescription>
           </DialogHeader>
           {(['text', 'image', 'video'] as InstructionCategory[]).map((category) => (
             <label key={category} className="grid gap-2 text-sm font-medium">

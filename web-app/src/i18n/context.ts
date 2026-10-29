@@ -6,6 +6,6 @@ export const TranslationContext = createContext<{
 	t: (key: string, options?: Record<string, unknown>) => string
 	i18n: typeof i18next
 }>({
-	t: (key: string) => key,
+	t: (key: string, options?: Record<string, unknown>) => i18next.t(key, options),
 	i18n: i18next,
 })

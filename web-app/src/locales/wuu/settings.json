@@ -117,7 +117,11 @@
     "showLineNumbersDesc": "勒代码块里向显示行号。",
     "resetCodeBlockStyleDesc": "拿代码块风格恢复成默认值。",
     "resetCodeBlockSuccess": "代码块风格重置好了",
-    "resetCodeBlockSuccessDesc": "代码块风格已经恢复成默认值了。"
+    "resetCodeBlockSuccessDesc": "代码块风格已经恢复成默认值了。",
+    "subtitle": "搿让 Novera 变成你个，从样子到你对话偏好。",
+    "accentColor": "强调色",
+    "accentColorDesc": "选强调色搭侧边栏颜色。",
+    "conversation": "对话搭通知"
   },
   "hardware": {
     "os": "操作系统",

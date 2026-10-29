@@ -1,6 +1,7 @@
 import { localStorageKey } from '@/constants/localStorage'
 import { isSupportedLanguage, matchSystemLanguage } from '@/modules/interface/languages'
 import { browserLanguagePreferences } from '@/modules/platform/browser-language'
+import { intlLocale } from '@/utils/intlLocale'
 
 // Types for our i18n implementation
 export interface TranslationResources {
@@ -92,17 +93,17 @@ const translate = (key: string, options: Record<string, unknown> = {}): string =
   // i18next resolves plural forms via `_one`/`_other` key suffixes when a
   // numeric `count` is passed; several resource keys only exist in that form
   // (e.g. htmlArtifact.unresolvedAssets_one), so try the suffixed key first.
-  const keysToTry =
-    typeof options.count === 'number'
-      ? [`${translationKey}_${options.count === 1 ? 'one' : 'other'}`, translationKey]
-      : [translationKey]
-
   let translation: string | undefined
-  for (const candidate of keysToTry) {
-    // Try the current language, then the fallback language.
-    translation = getNestedValue(res[language]?.[namespace], candidate)
-    if (translation === undefined && language !== fallbackLng) {
-      translation = getNestedValue(res[fallbackLng]?.[namespace], candidate)
+  for (const locale of new Set([language, fallbackLng])) {
+    const category = typeof options.count === 'number'
+      ? new Intl.PluralRules(intlLocale(locale)).select(options.count)
+      : undefined
+    const keysToTry = category
+      ? [...new Set([`${translationKey}_${category}`, `${translationKey}_other`, translationKey])]
+      : [translationKey]
+    for (const candidate of keysToTry) {
+      translation = getNestedValue(res[locale]?.[namespace], candidate)
+      if (translation !== undefined) break
     }
     if (translation !== undefined) break
   }

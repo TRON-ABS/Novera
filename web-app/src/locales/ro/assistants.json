@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Asistent implicit",
   "defaultAssistantDesc": "Când începi un nou chat",
   "allAssistants": "Toți asistenții",
-  "lastUsed": "Ultima dată folosit"
+  "lastUsed": "Ultima dată folosit",
+  "officialInstructions": "Cele trei categorii de instrucțiuni Novera se pot modifica doar din {{path}}."
 }

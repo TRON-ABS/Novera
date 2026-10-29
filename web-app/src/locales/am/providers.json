@@ -60,7 +60,14 @@
     "removeFromJan": "ከJan አስወግድ",
     "success": "ሞዴል {{modelId}} እስከመጨረሻው ተሰርዟል።",
     "cancel": "ይቅር",
-    "delete": "ሰርዝ"
+    "delete": "ሰርዝ",
+    "choiceDescription": "ይህንን ሞዴል ከNovera እንዴት እንደሚያስወግድ ይምረጡ።",
+    "removeFromNovera": "ከNovera ያስወግዱ",
+    "permanentlyDelete": "እስከመጨረሻው ሰርዝ",
+    "keepFilesDescription": "ሞዴሉን ከዝርዝሩ ያስወግዱ እና ፋይሎቹን በዲስክ ላይ ያስቀምጡ። እንደገና ማስመጣት ይችላሉ።",
+    "permanentDescription": "ሞዴሉን እና በNovera የሚተዳደሩ ፋይሎችን ከዲስክ ሰርዝ። ይህ ሊቀለበስ አይችልም።",
+    "permanentImportedDescription": "እንዲሁም ዋናውን GGUF ፋይሉን በመጀመሪያ ቦታ ያጥፉት። ውጫዊ ረዳት ፋይሎች ይቀመጣሉ። ይህ ሊቀለበስ አይችልም።",
+    "removedSuccess": "ሞዴል {{modelId}} ከNovera ተወግዷል።ፋይሎቹ ተጠብቀዋል።"
   },
   "deleteAllModels": {
     "button": "ሁሉንም ሰርዝ",
@@ -123,5 +130,8 @@
     "oneKeyHint": "አማራጭ የመመለሻ ቁልፎች በላቁ ተዋቅረዋል።",
     "addKey": "ቁልፍ ያክሉ",
     "removeKey": "ቁልፍ አስወግድ"
-  }
+  },
+  "installedMediaModels": "ምስል፣ ቪዲዮ እና የሙዚቃ ሞዴሎች",
+  "noInstalledModels": "በዚህ ምድብ ምንም አይነት ሞዴል አልተመዘገበም።",
+  "modelComponents": "የሞዴል ፋይሎች"
 }

@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import {
@@ -14,6 +15,8 @@ type SecretInputProps = Omit<
 >
 
 export function SecretInput({ className, value, ...props }: SecretInputProps) {
+  const { t: uiT } = useUiLocale()
+
   const [revealed, setRevealed] = useState(false)
   const [copied, setCopied] = useState(false)
 
@@ -38,7 +41,7 @@ export function SecretInput({ className, value, ...props }: SecretInputProps) {
         <button
           type="button"
           tabIndex={-1}
-          aria-label={revealed ? 'Hide' : 'Reveal'}
+          aria-label={revealed ? uiT('ui:hide') : uiT('common:workspace.reveal')}
           className="p-1 rounded text-muted-foreground hover:bg-secondary/50"
           onClick={() => setRevealed((v) => !v)}
         >
@@ -47,7 +50,7 @@ export function SecretInput({ className, value, ...props }: SecretInputProps) {
         <button
           type="button"
           tabIndex={-1}
-          aria-label="Copy"
+          aria-label={uiT('common:copy')}
           disabled={!stringValue}
           className="p-1 rounded text-muted-foreground hover:bg-secondary/50 disabled:opacity-40 disabled:pointer-events-none"
           onClick={handleCopy}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { MusicModelLibrary } from '@/containers/MusicModelLibrary'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -27,12 +28,13 @@ export function MediaLibrary() {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(false)
   const component =
-    editing?.task === 'image' && editing.settings.imageEngine !== 'diffusers'
+    editing?.task === 'video' ? editing.settings.videoEngine === 'sdcpp' : editing?.settings.imageEngine !== 'diffusers'
   const fields = component
-    ? (['ggufImageModel', 'ggufTextEncoder', 'ggufVae'] as const)
+    ? ([editing?.task === 'video' ? 'videoModel' : 'ggufImageModel', 'ggufTextEncoder', 'ggufVae'] as const)
     : ([editing?.task === 'video' ? 'videoModel' : 'imageModel'] as const)
   return (
-    <section className="space-y-4">
+    <section className="novera-settings-card space-y-4" aria-label={t('providers:installedMediaModels')}>
+      <h2 className="font-studio text-base font-medium">{t('providers:installedMediaModels')}</h2>
       {(['image', 'video'] as const).map((task) => (
         <section
           key={task}
@@ -42,6 +44,7 @@ export function MediaLibrary() {
           <div className="flex items-center justify-between gap-2">
             <h2 className="text-sm font-medium">
               {t(`chat:creation.${task}`)} · {t('chat:creation.local')}
+              <span className="ml-2 rounded-full border px-2 py-0.5 text-xs">{profiles.filter((p) => p.task === task).length}</span>
             </h2>
             <Button
               size="sm"
@@ -64,6 +67,7 @@ export function MediaLibrary() {
               {t('providers:import')}
             </Button>
           </div>
+          {!profiles.some((p) => p.task === task) && <p className="text-sm text-muted-foreground">{t('providers:noInstalledModels')}</p>}
           {profiles
             .filter((p) => p.task === task)
             .map((profile) => (
@@ -86,6 +90,16 @@ export function MediaLibrary() {
                       ? profile.settings.imageModel
                       : profile.settings.ggufImageModel}
                 </p>
+                <details className="text-xs text-muted-foreground">
+                  <summary className="cursor-pointer">{t('providers:modelComponents')}</summary>
+                  <dl className="mt-2 grid gap-2">
+                    {Object.entries({
+                      [t('chat:creation.model')]: task === 'video' ? profile.settings.videoModel : profile.settings.imageEngine === 'diffusers' ? profile.settings.imageModel : profile.settings.ggufImageModel,
+                      [t('chat:creation.ggufTextEncoder')]: profile.settings.ggufTextEncoder,
+                      VAE: profile.settings.ggufVae,
+                    }).filter(([, path]) => path).map(([label, path]) => <div key={label}><dt className="font-medium">{label}</dt><dd className="break-all">{path}</dd></div>)}
+                  </dl>
+                </details>
                 <div className="flex flex-wrap gap-2">
                   <Button
                     size="sm"
@@ -127,6 +141,7 @@ export function MediaLibrary() {
             ))}
         </section>
       ))}
+      <MusicModelLibrary />
       <Dialog
         open={!!editing}
         onOpenChange={(open) => {
@@ -155,6 +170,7 @@ export function MediaLibrary() {
                   }
                 />
               </label>
+              {editing.task === 'video' && <label className="text-sm">{t('chat:creation.video')} · {t('chat:creation.model')}<select className="block w-full rounded border p-2" value={editing.settings.videoEngine ?? 'diffusers'} onChange={(e) => setEditing({ ...editing, settings: { ...editing.settings, videoEngine: e.target.value as 'diffusers' | 'sdcpp' } })}><option value="diffusers">Diffusers</option><option value="sdcpp">stable-diffusion.cpp · GGUF</option></select></label>}
               {editing.task === 'image' && (
                 <label className="text-sm">
                   {t('chat:creation.imageEngine')}
@@ -182,7 +198,7 @@ export function MediaLibrary() {
               )}
               {fields.map((field) => (
                 <label className="text-sm space-y-1" key={field}>
-                  {t(`chat:creation.${field}`)}
+                  {editing.task === 'video' && field === 'videoModel' && component ? `${t('chat:creation.video')} · GGUF` : editing.task === 'video' && field === 'ggufTextEncoder' ? 'UMT5-XXL · GGUF' : editing.task === 'video' && field === 'ggufVae' ? 'Wan2.1 VAE' : t(`chat:creation.${field}`)}
                   <div className="flex gap-2">
                     <input
                       className="block min-w-0 flex-1 border rounded p-2 text-xs"
@@ -201,7 +217,7 @@ export function MediaLibrary() {
                       variant="outline"
                       onClick={async () => {
                         const directory =
-                          field === 'imageModel' || field === 'videoModel'
+                          field === 'imageModel' || (field === 'videoModel' && !component)
                         const path = await service.dialog().open({
                           directory,
                           multiple: false,

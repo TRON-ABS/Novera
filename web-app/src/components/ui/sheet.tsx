@@ -1,5 +1,6 @@
 "use client"
 
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import * as React from "react"
 import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { XIcon } from "lucide-react"
@@ -55,6 +56,8 @@ function SheetContent({
   side?: "top" | "right" | "bottom" | "left"
   showCloseButton?: boolean
 }) {
+  const { t: uiT } = useUiLocale()
+
   // On Windows/Linux the native window controls are an in-app overlay pinned to
   // the top-right (z-[60]); a right-side sheet only collides when the DE places
   // any control on the right (GNOME's left-side layout needs no offset).
@@ -88,7 +91,7 @@ function SheetContent({
             offsetForTitlebar && "top-15"
           )}>
             <XIcon className="size-4" />
-            <span className="sr-only">Close</span>
+            <span className="sr-only">{uiT('common:close')}</span>
           </SheetPrimitive.Close>
         )}
       </SheetPrimitive.Content>

@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "లోపం కనిపించిందా? GitHub లో సమస్యను నివేదించి మాకు సహాయపడండి.",
   "reportIssue": "సమస్యను నివేదించండి",
   "credits": "క్రెడిట్స్",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS), జనవరి ఆధారంగా Menlo Research మరియు దాని సహకారులు.",
   "creditsDesc2": "మా ఓపెన్ సోర్స్ డిపెండెన్సీలకు-ముఖ్యంగా llama.cpp మరియు టౌరీకి మరియు మా అద్భుతమైన AI కమ్యూనిటీకి ప్రత్యేక ధన్యవాదాలు.",
   "appVersion": "యాప్ వెర్షన్",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "కోడ్ బ్లాక్ శైలిని రీసెట్ చేయండి",
     "resetCodeBlockStyleDesc": "కోడ్ బ్లాక్ శైలిని డిఫాల్ట్‌గా రీసెట్ చేయండి.",
     "resetCodeBlockSuccess": "కోడ్ బ్లాక్ శైలి విజయవంతంగా రీసెట్ చేయబడింది",
-    "resetCodeBlockSuccessDesc": "కోడ్ బ్లాక్ శైలి డిఫాల్ట్‌కి పునరుద్ధరించబడింది."
+    "resetCodeBlockSuccessDesc": "కోడ్ బ్లాక్ శైలి డిఫాల్ట్‌కి పునరుద్ధరించబడింది.",
+    "subtitle": "Noveraని మీ స్వంతం చేసుకోండి, దాని రూపాన్ని బట్టి మీ సంభాషణ ప్రాధాన్యతల వరకు.",
+    "accentColor": "యాస రంగు",
+    "accentColorDesc": "యాస మరియు సైడ్‌బార్ రంగును ఎంచుకోండి.",
+    "conversation": "సంభాషణలు మరియు నోటిఫికేషన్‌లు"
   },
   "hardware": {
     "os": "ఆపరేటింగ్ సిస్టమ్",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "బగ్ దొరికిందా? GitHubలో సమస్యను ఫైల్ చేయడం ద్వారా మాకు సహాయం చేయండి.",
     "reportIssue": "సమస్యను నివేదించండి",
     "credits": "క్రెడిట్స్",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS), జనవరి ఆధారంగా Menlo Research మరియు దాని సహకారులు.",
     "creditsDesc2": "మా ఓపెన్ సోర్స్ డిపెండెన్సీలకు-ముఖ్యంగా llama.cpp మరియు టౌరీకి మరియు మా అద్భుతమైన AI కమ్యూనిటీకి ప్రత్యేక ధన్యవాదాలు."
   },
   "extensions": {

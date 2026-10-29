@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "I-reset ang Code Block Style",
     "resetCodeBlockStyleDesc": "I-reset ang estilo sa block sa code ngadto sa default.",
     "resetCodeBlockSuccess": "Malampuson nga na-reset ang estilo sa block sa code",
-    "resetCodeBlockSuccessDesc": "Ang estilo sa block sa code gibalik sa default."
+    "resetCodeBlockSuccessDesc": "Ang estilo sa block sa code gibalik sa default.",
+    "subtitle": "Himua ang Novera nga imong kaugalingon, gikan sa hitsura niini hangtod sa imong gusto sa panag-istoryahanay.",
+    "accentColor": "Kolor sa accent",
+    "accentColorDesc": "Pilia ang accent ug kolor sa sidebar.",
+    "conversation": "Mga panag-istoryahanay ug mga pahibalo"
   },
   "hardware": {
     "os": "Operating System",
@@ -262,7 +266,7 @@
     "trustedHosts": "Gisaligan nga mga Host",
     "trustedHostsDesc": "Gitugotan ang mga host nga maka-access sa server, gibulag sa mga koma.",
     "advancedSettings": "Mga Advanced nga Setting",
-    "cors": "Cross-Origin Resource Sharing (CORS)",
+    "cors": "CORS",
     "corsDesc": "Tugoti ang cross-origin requests sa API server.",
     "verboseLogs": "Detalyadong mga log sa server",
     "verboseLogsDesc": "I-enable ang detalyadong server logs para sa debugging.",

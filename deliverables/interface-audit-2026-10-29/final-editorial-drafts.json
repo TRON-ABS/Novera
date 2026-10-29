@@ -1,0 +1,38 @@
+[
+  {
+    "locale": "ja",
+    "source": "One or more files exceed the {{value0}}MB limit",
+    "translation": "一つ以上のファイルが{{value0}}MBの制限を超えています",
+    "review": "Assistant editorial draft; native review pending"
+  },
+  {
+    "locale": "ja",
+    "source": "Maximum tokens the model may generate in one reply. Sent as max_tokens to OpenAI-compatible APIs.",
+    "translation": "モデルが一回の応答で生成できる最大トークン数。OpenAI互換APIにはmax_tokensとして送信されます。",
+    "review": "Assistant editorial draft; native review pending"
+  },
+  {
+    "locale": "sd",
+    "source": "Max Context Tokens",
+    "translation": "حوالياتي متن جي ٽوڪن جي وڌ ۾ وڌ حد",
+    "review": "Assistant editorial draft; native review pending"
+  },
+  {
+    "locale": "ceb",
+    "source": "Draft Model File (GGUF)",
+    "translation": "Payl sa draft nga modelo (GGUF)",
+    "review": "Assistant editorial draft; native review pending"
+  },
+  {
+    "locale": "wo",
+    "source": "Recent-token window DRY scans. 0 = off.",
+    "translation": "Palanteeru token yi mujj la DRY di seet. 0 = taxawal.",
+    "review": "Assistant editorial draft; native review pending"
+  },
+  {
+    "locale": "wo",
+    "source": "Install the CUDA Toolkit 11 from NVIDIA. On Debian/Ubuntu: sudo apt install cuda-toolkit-11. On RHEL/Fedora: use the NVIDIA repo.",
+    "translation": "Samp CUDA Toolkit 11 bu NVIDIA. Ci Debian/Ubuntu: sudo apt install cuda-toolkit-11. Ci RHEL/Fedora: jëfandikoo repo NVIDIA.",
+    "review": "Assistant editorial draft; native review pending"
+  }
+]

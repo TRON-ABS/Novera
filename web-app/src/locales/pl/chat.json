@@ -47,7 +47,35 @@
     "workedForAWhile": "Działało przez kilka sekund",
     "workedFor": "Pracował dla {{duration}}"
   },
+  "player": {
+    "play": "Odtwórz",
+    "pause": "Wstrzymaj",
+    "seek": "Pozycja odtwarzania",
+    "mute": "Wycisz",
+    "volume": "Głośność",
+    "speed": "Prędkość odtwarzania"
+  },
   "creation": {
+    "musicLyricsGuide": "Opisz styl i głos w poleceniu. Wpisz tekst piosenki pod poniższymi znacznikami. Wyłącz {{instrumental}}, aby dodać śpiew.",
+    "music": "Muzyka",
+    "musicDuration": "Długość muzyki",
+    "musicQuality": "Jakość dźwięku",
+    "musicInstrumental": "Instrumentalna",
+    "musicLyrics": "Tekst piosenki",
+    "musicGenerator": "Generator muzyki",
+    "musicPlanner": "Planer muzyki",
+    "setupAllDownload": "Pobierz i skonfiguruj wszystko automatycznie",
+    "setupConfiguring": "Konfigurowanie zalecanych modeli",
+    "setupStorage": "Pliki łącznie: {{download}}. Rezerwa: {{reserve}}. Potrzebne dodatkowe miejsce: {{required}}. Wolne na wybranym dysku: {{free}}.",
+    "setupSpaceMissing": "Brakuje {{missing}}. Zwolnij miejsce lub wybierz inny dysk z wystarczającą przestrzenią.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M to zalecany lokalny model tekstowy do konwersacji, pisania, wywołań narzędzi i uporządkowanych wyników. Kontekst początkowy to tokeny 16K; sprawdź dostępną pamięć przed jej zwiększeniem. Tylko wprowadzanie i wyprowadzanie tekstu, bez modelu roboczego. Użyj wyszukiwania lub dokumentów, aby zweryfikować twierdzenia faktyczne.",
+    "setupImageNote": "Obraz — FLUX.2 Klein 4B · Q4_K_M. Tekst: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Proporcje: 21:9; Rozdzielczość: 1024 × 432; Etapy generowania: 4; Tryb ziarna: Losowe.",
+    "setupMusicNote": "Muzyka — ACE-Step 1.5 Turbo. Generator muzyki: 2B · Q4_K_M; Planer muzyki: 1.7B · Q8_0; Tekst: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Długość muzyki: 10–600 s; Jakość dźwięku: 48 kHz · 2.0; Instrumentalna / Tekst piosenki; Losowe.",
+    "setupVideoNote": "Wideo — Wan2.1 T2V 1.3B · Q4_K_M. Tekst: UMT5-XXL · Q4_K_M. Długość filmu: 5 s; Proporcje: 21:9; Klatki na sekundę: 16. Długie filmy są składane z krótkich klipów. Cięcia mogą być widoczne, a generowanie może trwać długo. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Pobiera i konfiguruje zalecane modele: Nemotron dla tekstu, Qwen3-Embedding Q8_0 dla pobierania wielojęzycznego (domyślnie CPU), FLUX.2 Klein 4B i jego komponenty, Real-ESRGAN ×2/×4, ACE-Step dla muzyki (domyślnie włączona wersja instrumentalna) i Wan2.1 dla wideo. Sprawdź poniżej rozmiary plików, miejsce na dysku i wymagania wstępne wideo. Oddzielne pobieranie i przeglądanie pozostają dostępne.",
+    "finalizing": "Finalizowanie filmu",
+    "videoDuration": "Długość filmu",
+    "videoDurationNote": "Długie filmy są składane z krótkich klipów. Cięcia mogą być widoczne, a generowanie może trwać długo.",
     "output": "Format odpowiedzi",
     "auto": "Automat",
     "text": "Tekst",
@@ -144,7 +172,8 @@
     "ratio": "Proporcje",
     "resolution": "Rozdzielczość",
     "customSize": "Niestandardowe",
-    "sizeAutoNote": "Zmiana współczynnika dostosowuje bieżącą rozdzielczość. Wymiary wykorzystują wielokrotności 16, aż do 2048 px."
+    "sizeAutoNote": "Zmiana współczynnika dostosowuje bieżącą rozdzielczość. Wymiary wykorzystują wielokrotności 16, aż do 2048 px.",
+    "setupTextNvfp4Note": "Opcjonalne wagi NVFP4 dla wykrytego NVIDIA Blackwell GPU lub nowszego z co najmniej 4,5 GiB VRAM. Aby użyć tych wag w Novera, należy repozytorium modeli musi najpierw zostać przekonwertowane na kompatybilne NVFP4 GGUF i sprawdzone. Ta konwersja nie została jeszcze zweryfikowana dla tego punktu kontrolnego. Połączony plik Safetensors nie może zostać załadowany bezpośrednio przez wbudowany silnik. Gotową do użycia rekomendacją pozostaje Q8_0. Zapotrzebowanie na pamięć zależy również od długości kontekstu."
   },
   "creationInstall": {
     "install": "Zainstaluj tę konfigurację",

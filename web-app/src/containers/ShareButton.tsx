@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 import type { UIMessage } from 'ai'
 import type { ThreadMessage } from '@janhq/core'
 import { IconShare } from '@tabler/icons-react'
@@ -80,6 +81,7 @@ export function ShareButton({
   >({})
   const job = useRef<AbortController | undefined>(undefined),
     version = useRef(0)
+  const restorePrepared = useRef(false)
   const selected = useMemo(
       () => selectShareEntries(entries, options),
       [entries, options]
@@ -101,6 +103,10 @@ export function ShareButton({
   }
   useEffect(() => {
     if (!open) return
+    if (restorePrepared.current) {
+      restorePrepared.current = false
+      return
+    }
     let live = true
     setBusy(true)
     setFull(false)
@@ -133,7 +139,7 @@ export function ShareButton({
         !messages.some((m) =>
           m.content.some(
             (p) =>
-              p.image_url?.url === assetUrl || p.input_video?.data === assetUrl
+              p.image_url?.url === assetUrl || p.input_video?.data === assetUrl || p.input_audio?.data === assetUrl
           )
         )
       ) {
@@ -148,7 +154,11 @@ export function ShareButton({
                   {
                     type: 'file',
                     url: assetUrl,
-                    mediaType: ref.task === 'video' ? 'video/mp4' : 'image/png',
+                    mediaType: ref.task === 'music'
+                      ? ref.name.endsWith('.mp3') ? 'audio/mpeg' : 'audio/wav'
+                      : ref.task === 'video'
+                        ? ref.name.endsWith('.webm') ? 'video/webm' : 'video/mp4'
+                        : ref.name.endsWith('.webp') ? 'image/webp' : /\.jpe?g$/.test(ref.name) ? 'image/jpeg' : 'image/png',
                   },
                 ],
               },
@@ -202,10 +212,12 @@ export function ShareButton({
       setEntries(list)
       setStoredSources(persistedSources)
       setFull(complete)
+      const target = list.find((entry) => entry.id === id)
+      const renderAsset = assetUrl ?? (!conversation && target?.assets.length === 1 ? target.assets[0].url : undefined)
       const opts = {
         scope: conversation ? ('conversation' as const) : ('render' as const),
         messageId: id,
-        assetUrl,
+        assetUrl: renderAsset,
         selected: id ? [id] : [],
         questions: true,
         sources: true,
@@ -216,7 +228,7 @@ export function ShareButton({
       setFormat(
         only.length === 1 && !only[0].text.trim() && only[0].assets.length === 1
           ? 'original'
-          : 'html'
+          : !conversation && only.every((entry) => !entry.assets.length) ? 'txt' : 'html'
       )
     })()
       .catch(() => {
@@ -323,7 +335,14 @@ export function ShareButton({
         if (!(await savePrepared(prepared, hub.dialog(), hub.core()))) return
       } else if (action === 'copy') await copyPrepared(prepared, hub.core())
       else if (action === 'copyFile') await copyShareFile(prepared, hub.core())
-      else await systemShare(prepared, hub.core())
+      else {
+        // Release Radix's modal overlay/focus lock before the native window
+        // takes ownership. Do not reopen it while Windows is still sharing.
+        flushSync(() => setOpen(false))
+        // Browser Web Share must stay inside its transient user activation.
+        if (isPlatformTauri()) await new Promise<void>((resolve) => setTimeout(resolve, 0))
+        await systemShare(prepared, hub.core())
+      }
       setNotice(
         t(
           action === 'system' ||
@@ -339,8 +358,14 @@ export function ShareButton({
       if (
         (e as { name?: string })?.name !== 'AbortError' &&
         !String(e).includes('SHARE_CANCELLED')
-      )
+      ) {
+        if (action === 'system') {
+          // Keep the prepared file and selection available for a retry or copy.
+          restorePrepared.current = true
+          setOpen(true)
+        }
         setError(t('chat:sharing.failed'))
+      }
     } finally {
       setBusy(false)
     }
@@ -513,17 +538,13 @@ export function ShareButton({
               </h3>
               {prepared.previewUrl ? (
                 prepared.mime.startsWith('video/') ? (
-                  <video
-                    controls
-                    src={prepared.previewUrl}
-                    className="max-h-80 w-full rounded border"
-                  />
+                  <video controls controlsList="noplaybackrate" playsInline preload="metadata" src={prepared.previewUrl}
+                    aria-label={t('chat:sharing.preview')} className="max-h-80 w-full object-contain" />
+                ) : prepared.mime.startsWith('audio/') ? (
+                  <audio controls controlsList="noplaybackrate" preload="metadata" src={prepared.previewUrl}
+                    aria-label={t('chat:sharing.preview')} className="w-full" />
                 ) : (
-                  <img
-                    src={prepared.previewUrl}
-                    alt={prepared.filename}
-                    className="max-h-80 w-full object-contain"
-                  />
+                  <img src={prepared.previewUrl} alt={prepared.filename} className="max-h-80 w-full object-contain" />
                 )
               ) : (
                 <iframe
@@ -567,6 +588,7 @@ export function ShareButton({
                   disabled={
                     busy ||
                     prepared.mime.startsWith('video/') ||
+                    prepared.mime.startsWith('audio/') ||
                     prepared.mime === 'image/svg+xml' ||
                     (prepared.mime.startsWith('image/') &&
                       (!navigator.clipboard?.write ||

@@ -33,12 +33,12 @@ export function getEmbeddingEngine(
  * scattered back into place; a caller that trusted response order would
  * silently mismatch vectors to chunks.
  */
-export async function embedTexts(texts: string[]): Promise<number[][]> {
+export async function embedTexts(texts: string[], options?: { purpose: 'query' | 'document' }): Promise<number[][]> {
   if (!texts.length) return []
   const engine = lookup(EMBEDDING_ENGINE_EXTENSION)
   if (!canEmbed(engine)) throw new Error('llamacpp extension not available')
 
-  const res = await engine.embed(texts)
+  const res = await (options ? engine.embed(texts, options) : engine.embed(texts))
   const out: number[][] = new Array(texts.length)
   for (const item of res?.data ?? []) {
     out[item.index] = item.embedding

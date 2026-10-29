@@ -47,7 +47,35 @@
     "tokens": "Mga token",
     "perSecond": "mga token/s"
   },
+  "player": {
+    "play": "I-play",
+    "pause": "Ihunong kadiyot",
+    "seek": "Posisyon sa pag-play",
+    "mute": "Pahiloma",
+    "volume": "Kakusog sa tingog",
+    "speed": "Katulin sa pag-play"
+  },
   "creation": {
+    "musicLyricsGuide": "Ihulagway ang estilo ug tingog sa hangyo. Ibutang ang liriko ubos sa mga tag sa ubos. I-off ang {{instrumental}} aron adunay pagkanta.",
+    "music": "Musika",
+    "musicDuration": "Gitas-on sa musika",
+    "musicQuality": "Kalidad sa audio",
+    "musicInstrumental": "Instrumental",
+    "musicLyrics": "Liriko",
+    "musicGenerator": "Tighimo sa musika",
+    "musicPlanner": "Tigplano sa musika",
+    "setupAllDownload": "Awtomatikong i-download ug i-set up ang tanan",
+    "setupConfiguring": "Gi-set up ang girekomendang mga modelo",
+    "setupStorage": "Tanang file: {{download}}. Reserba: {{reserve}}. Dugang nga gikinahanglan: {{required}}. Bakante sa gipiling drive: {{free}}.",
+    "setupSpaceMissing": "Kulang og {{missing}}. Pagbakante og luna o pagpili og laing drive nga igo og luna.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M mao ang girekomendar nga lokal nga modelo sa text para sa panag-istoryahanay, pagsulat, himan nga tawag ug structured nga mga output. Ang inisyal nga konteksto kay 16K mga token; susiha ang anaa nga memorya sa dili pa kini dugangan. Text input ug output lang, nga walay draft model. Gamita ang pagpangita o imong mga dokumento aron mapamatud-an ang tinuod nga mga pag-angkon.",
+    "setupImageNote": "Hulagway — FLUX.2 Klein 4B · Q4_K_M. Text: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Aspect ratio: 21:9; Resolusyon: 1024 × 432; Mga lakang sa henerasyon: 4; Seed mode: Random.",
+    "setupMusicNote": "Musika — ACE-Step 1.5 Turbo. Tighimo sa musika: 2B · Q4_K_M; Tigplano sa musika: 1.7B · Q8_0; Text: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Gitas-on sa musika: 10–600 s; Kalidad sa audio: 48 kHz · 2.0; Instrumental / Liriko; Random.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Text: UMT5-XXL · Q4_K_M. Gitas-on sa video: 5 s; Aspect ratio: 21:9; Mga frame kada segundo: 16. Ang taas nga video gitigom gikan sa mugbong mga clip. Mahimong makita ang mga sumpay ug dugay ang paghimo. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Pag-download ug nag-configure sa girekomendar nga mga modelo: Nemotron para sa text, Qwen3-Embedding Q8_0 para sa multilingual retrieval (CPU by default), FLUX.2 Klein 4B ug ang mga bahin niini, Real-ESRGAN ×2/×4, ACE-Step para sa musika (Instrumental on by default), ug Wan2.1 para sa video. Susiha ang gidak-on sa file, disk space ug video prerequisites sa ubos. Ang pag-download ug Browse nagpabilin nga magamit.",
+    "finalizing": "Gihuman ang video",
+    "videoDuration": "Gitas-on sa video",
+    "videoDurationNote": "Ang taas nga video gitigom gikan sa mugbong mga clip. Mahimong makita ang mga sumpay ug dugay ang paghimo.",
     "output": "Format sa tubag",
     "auto": "Auto",
     "text": "Text",
@@ -144,7 +172,8 @@
     "ratio": "Aspect ratio",
     "resolution": "Resolusyon",
     "customSize": "Custom",
-    "sizeAutoNote": "Ang pagbag-o sa ratio mopahiangay sa kasamtangan nga resolusyon. Ang mga dimensyon naggamit ug multiple nga 16, hangtod sa 2048 px."
+    "sizeAutoNote": "Ang pagbag-o sa ratio mopahiangay sa kasamtangan nga resolusyon. Ang mga dimensyon naggamit ug multiple nga 16, hangtod sa 2048 px.",
+    "setupTextNvfp4Note": "Opsyonal nga NVFP4 mga gibug-aton para sa usa ka namatikdan nga NVIDIA Blackwell GPU o mas bag-o nga adunay labing menos 4.5 GiB sa VRAM. Aron magamit kini nga mga gibug-aton sa Novera, ang bug-os nga modelo nga repository kinahanglan una nga makombertir sa usa ka katugbang nga NVFP4 GGUF ug balido. Kini nga pagkakabig wala pa mapamatud-an alang niini nga checkpoint. Ang gisumpay nga Safetensors nga payl dili direktang makarga pinaagi sa built-in nga makina. Q8_0 nagpabilin nga andam-gamiton nga rekomendasyon. Ang mga kinahanglanon sa memorya nagdepende usab sa gitas-on sa konteksto."
   },
   "creationInstall": {
     "install": "I-install kini nga configuration",

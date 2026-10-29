@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Standaardassistent",
   "defaultAssistantDesc": "Word gebruik wanneer 'n nuwe klets begin word",
   "allAssistants": "Alle assistente",
-  "lastUsed": "Laas gebruik"
+  "lastUsed": "Laas gebruik",
+  "officialInstructions": "Die drie instruksiekategorieë van Novera kan slegs via {{path}} gewysig word."
 }

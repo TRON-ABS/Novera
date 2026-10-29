@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "พบข้อผิดพลาดหรือไม่? ช่วยเราด้วยการยื่นเรื่องปัญหาที่ GitHub",
   "reportIssue": "รายงานปัญหา",
   "credits": "เครดิต",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS) อิงจากเดือนมกราคมภายใน Menlo Research และผู้มีส่วนร่วม",
   "creditsDesc2": "ขอขอบคุณเป็นพิเศษสำหรับการพึ่งพาโอเพ่นซอร์สของเรา โดยเฉพาะ llama.cpp และ Tauri และชุมชน AI ที่น่าทึ่งของเรา",
   "appVersion": "เวอร์ชันของแอป",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "รีเซ็ตสไตล์บล็อกโค้ด",
     "resetCodeBlockStyleDesc": "รีเซ็ตสไตล์บล็อกโค้ดเป็นค่าเริ่มต้น",
     "resetCodeBlockSuccess": "รีเซ็ตรูปแบบบล็อกโค้ดสำเร็จแล้ว",
-    "resetCodeBlockSuccessDesc": "สไตล์การบล็อกโค้ดได้รับการกู้คืนเป็นค่าเริ่มต้นแล้ว"
+    "resetCodeBlockSuccessDesc": "สไตล์การบล็อกโค้ดได้รับการกู้คืนเป็นค่าเริ่มต้นแล้ว",
+    "subtitle": "สร้าง Novera ของคุณเอง ตั้งแต่รูปลักษณ์ไปจนถึงการตั้งค่าการสนทนาของคุณ",
+    "accentColor": "สีเน้น",
+    "accentColorDesc": "เลือกสำเนียงและสีของแถบด้านข้าง",
+    "conversation": "การสนทนาและการแจ้งเตือน"
   },
   "hardware": {
     "os": "ระบบปฏิบัติการ",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "พบข้อผิดพลาดหรือไม่? ช่วยเราด้วยการยื่นเรื่องปัญหาที่ GitHub",
     "reportIssue": "รายงานปัญหา",
     "credits": "เครดิต",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS) อิงจากเดือนมกราคมภายใน Menlo Research และผู้มีส่วนร่วม",
     "creditsDesc2": "ขอขอบคุณเป็นพิเศษสำหรับการพึ่งพาโอเพ่นซอร์สของเรา โดยเฉพาะ llama.cpp และ Tauri และชุมชน AI ที่น่าทึ่งของเรา"
   },
   "extensions": {

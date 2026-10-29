@@ -1,5 +1,96 @@
 # Novera — tableau de bord
 
+## Stockage commun et catalogue automatique — 28 octobre 2026
+
+Build courant : [Novera Windows local](deliverables/Novera-desktop-1.0.0-2026-10-28_03-08-27-045/).
+
+LFM3 et MiniLM sont rangés dans leurs sous-dossiers de **Documents/Novera models** ; leurs enregistrements sont corrigés. Tests réels réussis : réponse LFM3 à 32 K et embeddings MiniLM de 384 dimensions. **Tron et son draft DSpark restent sur le Bureau, sans déplacement.**
+
+Les prochains téléchargements GGUF/MLX et les packs conseillés utilisent un sous-dossier par modèle. Les fichiers recommandés déjà présents et vérifiés sont importés automatiquement par référence ; la liste Modèles se rafraîchit à l’ouverture, au retour dans la fenêtre et après l’enregistrement du moteur. Pas de téléchargement silencieux, de copie en double ni de réimport des suppressions explicites. Les anciennes installations gardent leurs chemins. [Détails](docs/SUIVI_MOTEURS.md#rangement-des-modèles-et-import-automatique--28-octobre-2026).
+
+## LFM3 et compilation b11940 — 28 octobre 2026
+
+**Compilation Windows x64 terminée** avec llama.cpp **b11940**, CPU et CUDA 13.4. **LFM3-1.7B Q6_K installé et sélectionné sans draft**, dans le dossier de données de Novera. Le worker intégré charge le modèle sur la RTX 5070 Laptop à **32 K tokens** et produit une réponse terminée.
+
+L’option NVFP4 apparaît sur le matériel NVIDIA compatible détecté ; sa conversion en GGUF et son inférence restent à valider. Aucune instruction ni bouton de connexion à un serveur externe. Qwen3 reste l’encodeur image ; le pack complet passe à **21 fichiers / environ 16,31 Go**.
+
+Tests ciblés, TypeScript, ESLint, architecture et structure des **80 × 1 770 clés** validés. L’interface graphique complète reste à vérifier. Build local disponible, sans publication de binaire ni validation CI. [Détails et preuves](docs/SUIVI_MOTEURS.md#lfm3-et-moteur-b11940--28-octobre-2026).
+
+
+## Paroles structurées dans Auto et retour du partage — 28 octobre 2026
+
+Auto reconnaît désormais une fiche de chanson commençant par un titre/en-tête Paroles ou directement par `[Intro]`, suivie d'autres sections et de lignes chantées. Le texte musical est séparé des paroles avant l'envoi local ou aux fournisseurs vocaux pris en charge ; le BPM de la description est utilisé si aucun BPM manuel n'est fixé. Les profils ne sont pas modifiés. Les demandes de rédaction/analyse/traduction et le mode Texte explicite restent textuels. Une aide générique avec cinq balises apparaît dans la configuration musicale, sans paroles de cet échange, traduite dans les **80 locales**.
+
+Retour du partage Windows : la préparation du fichier dans le cache est confirmée. Le mainteneur précise que le volet finit par s'ouvrir, puis que le blocage apparaît après sa fermeture. La fenêtre modale Novera est maintenant démontée avant le passage au système ; ses verrous de clics/focus sont retirés. En cas d'erreur native, la préparation est restaurée pour réessayer/copier. Aucun cache utilisateur effacé ni parcours de fermeture d'application modifié.
+
+Validation : **379 tests / huit fichiers**, dont routage, transport, paramètres locaux/cloud, retour/échec du partage, configuration et catalogues ; TypeScript et ESLint ciblé réussis ; zéro violation d'architecture et sept tests d'architecture ; **80 × 1 769 clés**, sans erreur structurelle. Un petit diagnostic Windows isolé a été compilé, ouvert sur un fichier fictif, puis fermé ; son appel natif est revenu, sans envoi à un destinataire. Le retour du volet dans une application Novera recompilée reste à vérifier ; aucun nouveau binaire Novera ni publication produit pour ce lot.
+
+## Blocage du partage système Windows — correction locale du 28 octobre 2026
+
+Le chemin natif appelait `GetFileFromPathAsync(...).join()` sur le thread principal avant `ShowShareUIForWindow`. Cette attente peut empêcher le traitement des messages nécessaires à WinRT. La résolution est déplacée sur un worker initialisé MTA, avec transmission via `AgileReference<IStorageItem>` et ouverture du panneau maintenue sur le thread propriétaire. La préparation est bornée à 15 s ; si elle échoue, aucune ouverture tardive n'est programmée par ce worker. Chemins Windows longs, UNC et Unicode préservés.
+
+Les **83 tests web de partage / six fichiers** et les **sept tests natifs isolés** passent, y compris la libération des commandes après une erreur native. Les appels WinRT réels vérifient de vrais fichiers TXT/PNG/MP3/MP4 et leur référence après sortie du worker ; les erreurs de fichier absent et chemins UNC/Unicode sont couvertes. Architecture : zéro violation. Pas de nouveau binaire Novera ni envoi à un destinataire ; l'essai de la fenêtre complète après recompilation reste nécessaire.
+
+## Partage des originaux et démarrage maximisé — 28 octobre 2026
+
+Les captures du mainteneur montraient le cadre Novera dans l'aperçu de partage et un MP3 étiqueté Image. L'aperçu affiche maintenant le média brut, sans en-tête/cadre Novera. Les entrées audio de l'historique sont incluses dans le partage ; le repli pour un fichier nouvellement créé distingue PNG/JPEG/WebP, MP4/WebM et MP3/WAV. Un rendu avec un seul média propose **Original**, sans sa légende ni une page HTML du lecteur. Le partage natif reçoit une référence au fichier ou ses octets, avec un texte d'accompagnement vide. Le texte seul propose TXT ; les exports riches/conversations sont conservés. Un export HTML délibéré utilise correctement une balise audio pour la musique.
+
+Fenêtre desktop : `maximized: true`, redimensionnement conservé, minima 640 × 480 dans les configurations Windows/Linux/macOS. Le système choisit la zone maximisée ; le contenu conserve ses dispositions adaptatives existantes.
+
+Validation : **87 tests / sept fichiers** avec contrats Windows activés, TypeScript et ESLint ciblé réussis ; architecture sans violation et sept tests ; trois configurations JSON contrôlées. Les tests vérifient la charge transmise au service système, sans envoi à un destinataire ni ouverture réelle de la fenêtre de partage. Démarrage et partage dans un nouveau binaire encore à vérifier après compilation. Pas de nouveau binaire, commit/push ou publication.
+
+## Lecteurs Novera, durée libre et reprise musicale — 28 octobre 2026
+
+Sources locales : commandes audio/vidéo Novera communes, visualiseur d'images avec zoom, affichage responsive, cibles tactiles 44 px, contrôles clavier et réduction des animations. Intégration aux créations, messages, aperçus de pièces jointes, espace de travail et aperçu de partage. Plein écran standard, repli vidéo Safari et agrandissement interne si nécessaire. Une nouvelle lecture met les autres en pause. La compatibilité des codecs et les essais matériels restent distincts de ces contrôles communs.
+
+Durée manuelle : effacer **240**, taper **360**, puis quitter le champ conserve **360 s** et désactive Auto. La génération locale accepte **10–600 s**, la valeur est transmise sans troncature ; une valeur hors plage est signalée puis refusée à l'envoi. Les paramètres recommandés utilisent MP3 320 kb/s. [Bornes des fournisseurs](docs/USER_GUIDE.md#lecteurs-novera-et-durée-manuelle--28-octobre-2026).
+
+Reprise musicale : le chargement de l'historique ajoutait à tort `data:audio/…;base64,` devant la référence du fichier musical. Le lien est maintenant conservé ; les anciens enregistrements enveloppés peuvent être réparés à la lecture. Tests MP3/WAV sur trois cycles JSON de sauvegarde/rechargement, sans modification des fichiers audio.
+
+Validation : **410 tests web / 16 fichiers**, **19 tests Rust isolés**, TypeScript et ESLint ciblé réussis ; sept tests d'architecture et zéro violation ; **80 locales × 1 768 clés**, sans erreur structurelle. Les API Safari et les limites musicales ont été vérifiées dans leurs documentations officielles. L'aperçu dans le navigateur Windows n'a pas pu être contrôlé : la fenêtre ciblée reste minimisée et inaccessible à l'outil. Pas de certification Windows/Linux/Android/iOS/macOS, d'essai réel de génération de 360 s, de nouveau binaire Novera ou de publication pour ce lot.
+
+## Musique cloud et essai réel du VAE — 27 octobre 2026
+
+Sources : quatre choix musicaux cloud avec icônes (**ElevenLabs, Stability AI, fal, Replicate**), MiniMax écarté de cette liste musicale, ACE-Step local conservé par défaut. Le sélecteur et l'application d'un profil préservent Auto actif. Catalogue : **42 profils, 49 présélections média** ; sauvegarde audio locale après génération cloud, contrats testés sans dépenses réelles.
+
+Correctif VAE CUDA : tuiles 256 / recouvrement 32, reprise CPU unique pour l'erreur VAE « device not ready » en placement Auto. Essais CLI réels réussis sur RTX 5070 Laptop : **30 s produites en 13,6128333 s**, **180 s en 24,8571114 s**, WAV 48 kHz stéréo 24 bits ; tailles vérifiées **8 640 044 / 51 840 044 octets**. Écoute et nouvelle application graphique non validées. [Référence et mesures](docs/SUIVI_MOTEURS.md#musique-cloud-et-vae-cuda--candidat-du-27-octobre-2026).
+
+**172 tests web / 13 fichiers, 19 tests Rust isolés**, TypeScript, architecture et 80 × 1 762 clés sans erreur. Sources locales ; aucun nouveau binaire Novera, commit/push ou changement de vitrine.
+
+## Auto multilingue et durée musicale — correction locale du 27 octobre 2026
+
+Auto reste le choix initial des nouveaux contextes et allume aussi le bouton de la sortie effective, avec son modèle dans le sélecteur compact. Le brouillon met l'aperçu à jour ; pendant la génération, l'indicateur suit le travail envoyé. Une bande originale pour un film est routée vers Musique ; une durée explicite de trois minutes envoie 180 secondes. Le modèle texte suit celui de la discussion. Vocabulaire de commandes couvrant les 80 locales, exemples musicaux et sorties explicites traduites testés ; variantes et formulations libres restent à enrichir, sans certification linguistique.
+
+Musique : **30–240 secondes**, réglage à la seconde et raccourcis toutes les 30 secondes, défaut 30 s. Validation frontend/native cohérente ; sortie **Musique / Novera musique**, WAV ou MP3. Vidéo inchangée : plage expérimentale 1 s–1 h et défaut 5 s.
+
+Validation des dernières versions de chaque fichier : **390 tests web dans 14 fichiers**, **17 tests Rust isolés**, TypeScript sans émission, sept tests d'architecture, zéro violation et **80 × 1 762 clés** sans erreur structurelle. Reproduction du routage du long texte fourni par le mainteneur, sans lancer de génération musicale. Aucun nouveau build applicatif, commit/push ni changement de vitrine.
+
+## Musique et budget des quatre configurations — sources locales du 27 octobre 2026
+
+Musique est ajouté entre Image et Vidéo : ACE-Step 1.5 Turbo 2B Q4_K_M et compagnons, profils séparés, graine aléatoire, durée/qualité au tableau de bord, 30 s et WAV 24 bits par défaut. La page commune ordonne Texte, Image, Musique, Vidéo avec leurs explications et un téléchargement global confirmé : espace libre, besoin restant et marge contrôlés avant lancement ; dépendance d'export vidéo vérifiée.
+
+Référence documentée : **14 878 787 127 octets, soit 14,88 Go**, pour 20 fichiers uniques, Qwen texte/image mutualisé. [Composition, exclusions, versions et critères d'amélioration](docs/SUIVI_MOTEURS.md#référence-texte-image-musique-vidéo--1488-go--27-octobre-2026). Objectif futur : mêmes capacités ou meilleures à volume égal ou inférieur, avec qualité et performances mesurées.
+
+Validation locale : **154 tests web réussis**, un scénario non-Windows ignoré, **17 tests Rust isolés**, TypeScript, sept tests d'architecture, zéro violation et **80 × 1 762 clés**. CLI musicales inspectées ; aucun poids musical téléchargé ni génération/écoute complète validée. Contrôle dans une application recompilée encore nécessaire. **Aucun nouveau binaire, commit/push ni changement de vitrine.**
+
+## Progression vidéo fidèle aux phases — correction locale du 27 octobre 2026
+
+L’affichage passe de **Chargement** à **Création en cours · … %** dès le calcul, puis à **Finalisation de la vidéo** avant la création terminée. Les pourcentages de transfert des poids en mémoire ne sont plus confondus avec les étapes de génération. Suivi cumulatif des clips et des étapes Diffusers ; 100 % seulement après publication locale du MP4. Essai réel du worker avec progression reçue avant sa sortie ; 43 tests web ciblés, 17 tests Python, types et **80 × 1 746 clés** sans erreur. Aucun nouveau binaire Novera ni publication ; contrôle visuel dans l’application recompilée restant à faire. [Guide](docs/USER_GUIDE.md#progression-vidéo--correction-locale-du-27-octobre-2026).
+
+## Configuration unique et vidéo Q4 — correction locale du 27 octobre 2026
+
+Une page depuis le bouton **à curseurs de réglage** regroupe **Texte, Image et Vidéo**, avec conseils automatiques, installation confirmée et Parcourir. L’icône retrouve son aspect précédent pour se distinguer du bouclier des autorisations. Banques Image/Vidéo indépendantes, chemins de modèles vides par défaut, aucun chemin personnel livré. Les nouvelles créations ne montrent plus leur ligne de modèle ; les anciens pieds natifs isolés sont masqués sans réécrire l’historique.
+
+Pack vidéo : **Wan2.1 T2V 1.3B Q4_K_M + UMT5-XXL Q4_K_M + VAE**, **4 891 677 270 octets**, désormais trouvé installé et vérifié prêt dans le profil du mainteneur. Correction de l’échec après calcul : sortie AVI réelle du moteur transcodée en **MP4 H.264**. **5 secondes par défaut**, durée expérimentale **1 seconde à 1 heure à gauche du format**, **21:9 par défaut pour Image et Vidéo**, graines **aléatoires par défaut** avec quatre modes et réutilisation. Aperçu vidéo adapté à la fenêtre et lecteur agrandi. Les longues vidéos sont des assemblages avec raccords possibles ; une heure n’a pas été générée. Image vers vidéo et NVFP4 vidéo non activés pour ce profil.
+
+**145 tests web / 13 fichiers**, **15 tests Python**, **13 tests natifs isolés**, types, sept tests d’architecture et **80 × 1 745 clés** sans erreur. Essai réel du nouveau worker : vidéo MP4 de **5,00 s, 512 × 224, 80 images à 16 FPS**, calcul et export en **124,8 s** sur cette machine. Aucun nouveau binaire Novera ; parcours visuel dans l’application recompilée à contrôler. Aucun commit/push ni changement de vitrine. [Guide](docs/USER_GUIDE.md#configuration-conseillée--texte-image-et-vidéo--sources-locales-du-27-octobre-2026).
+
+## Correction locale : instructions et taille des images — 27 octobre 2026
+
+Configuration → Assistants explique les trois catégories du seul assistant Novera et renvoie au carnet **Novera · Gérer les instructions**, seul éditeur officiel. L’ancien formulaire du profil intégré renvoie également au guide. Les aperçus de créations utilisent la largeur disponible et une hauteur adaptée à la fenêtre ; fichiers et résolution de génération conservés.
+
+**237 tests web / six fichiers**, TypeScript et **80 × 1 743 clés** sans erreur. Contrôle visuel dans une application recompilée encore nécessaire. **Publication suspendue à la demande du mainteneur : aucun commit, push, nouveau binaire ni changement de vitrine pour ce correctif.** [Guide](docs/USER_GUIDE.md#un-seul-éditeur-dinstructions-et-aperçus-adaptés--correction-locale-du-27-octobre-2026).
+
 ## Fenêtre commune, projets et autorisations — sources du 27 octobre 2026
 
 Le compositeur existant reste au bas de la fenêtre, avec une navigation repliable et un habillage sombre cyan/violet. **Nouveau projet** ouvre un sélecteur de dossier puis un choix explicite : **lecture seule** par défaut, **demander avant modification ou suppression**, ou **autoriser ces changements**. Les projets sans message restent dans la liste. Le choix d’un dossier ne suffit jamais à autoriser des écritures.
@@ -185,3 +276,5 @@ Android : APK debug ARM64 assemblée dans les essais antérieurs ; trois audits 
 Les validations à réaliser sont centralisées dans [ROADMAP.md](ROADMAP.md), sans les recopier dans chaque guide.
 
 Contrôle final avant publication des sources : **309 tests réussis dans 17 fichiers**, TypeScript sans émission réussi ; contrôles des 70 locales et des frontières d’architecture sans erreur. Aucun nouveau build ni binaire publié pour cette synchronisation.
+
+Compilation finale du rangement/import automatique réussie : `deliverables/Novera-desktop-1.0.0-2026-10-28_03-08-27-045/Novera-Desktop.exe`. SHA-256 : `C23A75AEA1616C0C01D86B1031E727A08E4D206BAAE2FBBD90CB9A8862F3AC7C`. Exécutable et moteur embarqué b11940 vérifiés ; manifeste d’empreintes présent. Les 40 tests supplémentaires du service de fournisseurs passent. L’interface graphique complète n’a pas été parcourue ; les tests de catalogue et de stockage, ainsi que les deux chargements réels depuis Documents, sont distincts de cette validation visuelle. Preuves : `.build/recommended-model-import/final-artifact.json` et journaux associés.

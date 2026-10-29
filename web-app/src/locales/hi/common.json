@@ -249,7 +249,7 @@
     "delete": "हटाएं"
   },
   "modelSettings": {
-    "nglDisabledByFit": "Auto-fit is choosing GPU layers. Turn off Auto-fit to set this manually.",
+    "nglDisabledByFit": "ऑटो-फिट GPU परतें चुन रहा है। इसे मैन्युअल रूप से सेट करने के लिए ऑटो-फ़िट बंद करें।",
     "title": "मॉडल सेटिंग्स - {{modelId}}",
     "description": "प्रदर्शन और व्यवहार को अनुकूलित करने के लिए मॉडल सेटिंग्स कॉन्फ़िगर करें।",
     "samplingDefaults": {
@@ -557,8 +557,8 @@
     "notImported": "कार्यक्षेत्र में नहीं"
   },
   "llamacppBusyOnExit": {
-    "title": "llama.cpp is still busy",
-    "description": "One or more models did not unload in time. Force-quitting will terminate llama.cpp and may interrupt active responses.",
+    "title": "llama.cpp अभी भी व्यस्त है",
+    "description": "एक या अधिक मॉडल समय पर अनलोड नहीं हुए। बलपूर्वक छोड़ने से llama.cpp समाप्त हो जाएगा और सक्रिय प्रतिक्रियाएं बाधित हो सकती हैं।",
     "forceQuit": "Force quit",
     "forcing": "Force quitting…",
     "shuttingDown": "Shutting down…"

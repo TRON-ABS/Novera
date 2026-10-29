@@ -35,6 +35,56 @@ async function read(stream: ReturnType<typeof creationStream>) {
   }
 }
 describe('media generation conversation stream', () => {
+  it.each(['image', 'video'] as const)('generates three %s results in one message with advancing seeds and a fixed settings snapshot', async task => {
+    useMediaLibrary.setState({ profiles: [] })
+    useCreation.setState({ selections: {} })
+    const initial = { ...creationDefaults, imageModel: '/image-model', videoModel: '/video-model', generationCount: 3, seedMode: 'increment' as const, seed: 100, width: 1024 }
+    if (task === 'video') useCreation.getState().setVideoSettings(initial)
+    else useCreation.getState().setSettings(initial)
+    let started = 0
+    vi.mocked(invoke).mockImplementation(async command => {
+      if (command === 'creation_start') {
+        started++
+        // Changes elsewhere in the UI must not affect a submitted series.
+        if (task === 'video') useCreation.getState().setVideoSettings({ width: 512, generationCount: 10 })
+        else useCreation.getState().setSettings({ width: 512, generationCount: 10 })
+        return `job-${started}`
+      }
+      return { stage: 'done', name: `Novera-00000000-0000-0000-0000-00000000000${started}.${task === 'image' ? 'png' : 'mp4'}` }
+    })
+    const finish = vi.fn()
+    const chunks = await read(creationStream(task, `/${task} a castle`, messages, 'three', undefined, finish))
+    const requests = vi.mocked(invoke).mock.calls.filter(([command]) => command === 'creation_start').map(([, args]) => (args as { request: { seed: number; width: number } }).request)
+    expect(requests.map(request => request.seed)).toEqual([100, 101, 102])
+    expect(requests.map(request => request.width)).toEqual([1024, 1024, 1024])
+    expect(chunks.filter(chunk => chunk.type === 'file')).toHaveLength(3)
+    expect(chunks.filter(chunk => chunk.type === 'start')).toHaveLength(1)
+    expect(chunks.filter(chunk => chunk.type === 'finish')).toHaveLength(1)
+    expect(finish).toHaveBeenCalledTimes(1)
+  })
+  it.each([true, false])('uses the requested video duration only when Auto is %s', async (durationAuto) => {
+    useMediaLibrary.setState({ profiles: [] })
+    useCreation.setState({ selections: {} })
+    useCreation.getState().setVideoSettings({ videoModel: '/video-model', durationSeconds: 5, durationAuto })
+    vi.mocked(invoke).mockImplementation(async (command) => command === 'creation_start' ? 'video-job' : {
+      stage: 'done', name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.mp4',
+    })
+    await read(creationStream('video', 'Une vidéo de 10 secondes', messages, 'video-auto', undefined, vi.fn()))
+    expect(invoke).toHaveBeenCalledWith('creation_start', expect.objectContaining({
+      request: expect.objectContaining({ duration_seconds: durationAuto ? 10 : 5 }),
+    }))
+    expect(useCreation.getState().videoSettings?.durationSeconds).toBe(5)
+  })
+  it('runs the independent Q4 video configuration and emits WebM without an engine footer', async () => {
+    useMediaLibrary.setState({ profiles: [] })
+    useCreation.setState({ selections: {} })
+    useCreation.getState().setVideoSettings({ videoEngine: 'sdcpp', videoModel: 'D:/video.gguf', ggufTextEncoder: 'D:/umt5.gguf', ggufVae: 'D:/wan.safetensors', ggufGuidance: 6, width: 832, height: 480, frames: 33, fps: 16 })
+    vi.mocked(invoke).mockImplementation(async (command) => command === 'creation_start' ? 'video-job' : { stage: 'done', name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.webm' })
+    const chunks = await read(creationStream('video', 'a river', messages, 'video-q4', undefined, vi.fn()))
+    expect(invoke).toHaveBeenCalledWith('creation_start', expect.objectContaining({ request: expect.objectContaining({ task: 'video', backend: 'sdcpp', model: 'D:/video.gguf', cpp_llm: 'D:/umt5.gguf', cpp_vae: 'D:/wan.safetensors', frames: 33, fps: 16, cpp_cfg: 6 }) }))
+    expect(chunks.find((c) => c.type === 'file')).toMatchObject({ mediaType: 'video/webm' })
+    expect(chunks.some((c) => c.type === 'text-delta')).toBe(false)
+  })
   beforeEach(() => {
     vi.clearAllMocks()
     useNoveraInstructions.setState({ instructions: { text: 'TEXT ONLY', image: 'IMAGE ONLY', video: 'VIDEO ONLY' } })
@@ -51,6 +101,7 @@ describe('media generation conversation stream', () => {
         imageModel: '/image-model',
         videoModel: '/video-model',
       },
+      videoSettings: undefined,
       modes: {},
       sources: {},
       progress: {},
@@ -237,7 +288,9 @@ describe('media generation conversation stream', () => {
       .mock.calls.filter(([cmd]) => cmd === 'creation_start')
       .at(-1)![1] as { request: Record<string, unknown> }
     expect(video.request.upscale_factor).toBeUndefined()
-    expect(video.request.seed).toBe(101)
+    expect(video.request.seed).toEqual(expect.any(Number))
+    expect(video.request.duration_seconds).toBe(5)
+    expect(useCreation.getState().videoSettings?.lastImageSeed).toBe(video.request.seed)
   })
   it('emits a file only after native save is complete and uses the selected media model', async () => {
     vi.mocked(invoke).mockImplementation(async (command) =>
@@ -272,9 +325,6 @@ describe('media generation conversation stream', () => {
     expect(chunks.map((chunk) => chunk.type)).toEqual([
       'start',
       'file',
-      'text-start',
-      'text-delta',
-      'text-end',
       'finish',
     ])
     expect(chunks[1]).toMatchObject({
@@ -374,12 +424,7 @@ describe('media generation conversation stream', () => {
         }),
       })
     )
-    expect(chunks).toContainEqual(
-      expect.objectContaining({
-        type: 'text-delta',
-        delta: expect.stringContaining('stable-diffusion.cpp'),
-      })
-    )
+    expect(chunks.some((chunk) => chunk.type === 'text-delta')).toBe(false)
     vi.mocked(invoke).mockClear()
     await read(
       creationStream(
@@ -422,6 +467,15 @@ describe('media generation conversation stream', () => {
     ).rejects.toThrow('chat:creation.failed')
     expect(invoke).toHaveBeenCalledWith('creation_cancel', { id: 'job2' })
     expect(finish).toHaveBeenCalledTimes(1)
+  })
+  it('recognizes a native workspace capacity failure as insufficient memory', async () => {
+    const reason = 'flux segment 1/1 (graph) failed during workspace capacity check'
+    vi.mocked(invoke).mockImplementation(async (command) =>
+      command === 'creation_start' ? 'memory-job' : { stage: 'error', error: reason }
+    )
+    await expect(read(creationStream('image', 'test', messages, 'memory-error', undefined, vi.fn())))
+      .rejects.toThrow(`chat:creation.failed hub:catalog.tipLimited\n${reason}`)
+    expect(invoke).toHaveBeenCalledWith('creation_cancel', { id: 'memory-job' })
   })
   it('repairs already persisted official model paths before invoking the native generator', async () => {
     useImageUpscale.setState({

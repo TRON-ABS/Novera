@@ -3,7 +3,7 @@ import type { UIMessage, UIMessageChunk } from 'ai'
 import { useMediaLibrary } from '@/hooks/useMediaLibrary'
 import { beginLocalMemory, releaseFinishedMedia } from './memory'
 import { useMemoryPolicy } from '@/hooks/useMemoryPolicy'
-import { useCreation } from '@/hooks/useCreation'
+import { useCreation, videoSettingsFor } from '@/hooks/useCreation'
 import {
   creationReference,
   parseCreationReference,
@@ -16,11 +16,13 @@ import { useModelProvider } from '@/hooks/useModelProvider'
 import { getServiceHub } from '@/hooks/useServiceHub'
 import { mediaPreset } from '@/constants/mediaProviders'
 import { generateCloudMedia, CloudCreationError } from './cloud'
-import { getProviderTitle } from '@/lib/utils'
-import { reserveImageSeed } from './seed'
+import { reserveCreationSeed } from './seed'
 import { useImageUpscale } from '@/hooks/useImageUpscale'
 import { normalizeLocalPath } from '@/modules/platform/local-path'
 import { withNoveraInstructions } from '@/hooks/useNoveraInstructions'
+import { musicStream } from './music-stream'
+import { musicDurationFromPrompt } from '@/modules/engines/music'
+import { generationSequence } from './sequence'
 
 export function creationStream(
   task: CreationTask,
@@ -30,6 +32,7 @@ export function creationStream(
   signal: AbortSignal | undefined,
   onFinish: () => void
 ) {
+  if (task === 'music') return musicStream(prompt, messages, scope, signal, onFinish)
   const state = useCreation.getState()
   const generationPrompt = withNoveraInstructions(task, prompt.replace(/^\/(?:image|video)\s*/i, ''))
   const selection = state.selections?.[scope]?.[task]
@@ -37,8 +40,14 @@ export function creationStream(
     selection?.provider === 'diffusers'
       ? useMediaLibrary.getState().profiles.find((p) => p.id === selection.id)
       : undefined
-  const settings = { ...state.settings, ...profile?.settings }
+  const settings = { ...(task === 'video' ? videoSettingsFor(state) : state.settings), ...profile?.settings }
+  settings.generationCount = profile ? profile.settings.generationCount ?? 1 : settings.generationCount
+  if (task === 'video' && settings.durationAuto !== false) {
+    settings.durationSeconds = musicDurationFromPrompt(prompt) ?? settings.durationSeconds
+  }
   const upscale = useImageUpscale.getState()
+  const memoryPolicy = useMemoryPolicy.getState().policy
+  const runOnce = (signal: AbortSignal | undefined, onFinish: () => void) => {
   const cloudController = new AbortController()
   let cloudPrepared = false
   let id: string | undefined
@@ -48,7 +57,6 @@ export function creationStream(
   let releaseMemory: (() => void) | undefined
   let stopping: Promise<unknown> | undefined
   let imageSeed: number | undefined
-  const memoryPolicy = useMemoryPolicy.getState().policy
   const localizedErrors = new Set<Error>()
   const fail = (key: string): never => {
     const error = new Error(i18n.t(key))
@@ -93,11 +101,14 @@ export function creationStream(
       })
       try {
         if (!isPlatformTauri()) fail('chat:creation.desktopOnly')
-        const cpp = task === 'image' && settings.imageEngine === 'sdcpp'
+        if (task === 'video' && (!Number.isSafeInteger(settings.durationSeconds ?? 5) ||
+          (settings.durationSeconds ?? 5) < 1 || (settings.durationSeconds ?? 5) > 3600))
+          fail('chat:creation.videoDurationNote')
+        const cpp = (task === 'image' ? settings.imageEngine : settings.videoEngine) === 'sdcpp'
         const nativeFp4 =
           task === 'image' && settings.imageEngine === 'nvfp4-cuda'
         const model =
-          cpp || nativeFp4
+          task === 'image' && (cpp || nativeFp4)
             ? (settings.ggufImageModel ?? '')
             : task === 'image'
               ? settings.imageModel
@@ -200,13 +211,6 @@ export function creationStream(
             providerMetadata: timing(),
             url: creationReference(task, saved.name),
           })
-          enqueue({ type: 'text-start', id: 'creation-model' })
-          enqueue({
-            type: 'text-delta',
-            id: 'creation-model',
-            delta: `${i18n.t('chat:creation.model')}: ${getProviderTitle(selection.provider)} · ${preset!.name}`,
-          })
-          enqueue({ type: 'text-end', id: 'creation-model' })
           enqueue({ type: 'finish', finishReason: 'stop' })
           finished = true
           useCreation.getState().setSource(scope)
@@ -227,7 +231,7 @@ export function creationStream(
           { signal: cloudController.signal, scope, policy: memoryPolicy }
         )
         if (cancelled) throw new DOMException('Aborted', 'AbortError')
-        if (task === 'image') imageSeed = reserveImageSeed(profile?.id)
+        imageSeed = reserveCreationSeed(task, profile?.id)
         for (;;) {
           if (cancelled) throw new DOMException('Aborted', 'AbortError')
           try {
@@ -252,6 +256,7 @@ export function creationStream(
                 steps: settings.steps,
                 frames: settings.frames,
                 fps: settings.fps,
+                ...(task === 'video' ? { duration_seconds: settings.durationSeconds ?? 5 } : {}),
                 seed: imageSeed ?? settings.seed,
                 ...(task === 'image' && upscale.enabled
                   ? {
@@ -305,13 +310,11 @@ export function creationStream(
             console.error('Novera creation engine:', report.error)
             if (/CREATION_UPSCALE/i.test(report.error ?? ''))
               failUpscale(report.error)
-            const hint = /out of memory|memoryerror/i.test(report.error ?? '')
+            const hint = /out of memory|memoryerror|workspace (?:capacity check|allocation)|cannot make enough memory available/i.test(report.error ?? '')
               ? 'hub:catalog.tipLimited'
-              : nativeFp4
-                ? 'chat:creation.nativeNote'
-                : 'chat:creation.configure'
+              : undefined
             const error = new Error(
-              `${i18n.t('chat:creation.failed')} ${i18n.t(hint)}`
+              `${i18n.t('chat:creation.failed')}${hint ? ` ${i18n.t(hint)}` : ''}${report.error ? `\n${report.error}` : ''}`
             )
             localizedErrors.add(error)
             throw error
@@ -321,17 +324,10 @@ export function creationStream(
           if (report.stage === 'done' && report.name) {
             enqueue({
               type: 'file',
-              mediaType: task === 'image' ? 'image/png' : 'video/mp4',
+              mediaType: task === 'image' ? 'image/png' : report.name.endsWith('.webm') ? 'video/webm' : 'video/mp4',
               providerMetadata: timing(report.generation_seconds),
               url: creationReference(task, report.name),
             })
-            enqueue({ type: 'text-start', id: 'creation-model' })
-            enqueue({
-              type: 'text-delta',
-              id: 'creation-model',
-              delta: `${i18n.t('chat:creation.model')}: ${cpp ? 'stable-diffusion.cpp' : nativeFp4 ? 'NVFP4 CUDA' : 'Diffusers'} · ${model.split(/[\\/]/).pop()}`,
-            })
-            enqueue({ type: 'text-end', id: 'creation-model' })
             enqueue({ type: 'finish', finishReason: 'stop' })
             finished = true
             useCreation.getState().setSource(scope)
@@ -391,4 +387,6 @@ export function creationStream(
       stop()
     },
   })
+  }
+  return generationSequence(settings.generationCount, runOnce, signal, onFinish)
 }

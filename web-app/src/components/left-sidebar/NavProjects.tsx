@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import {
   FolderEditIcon,
   FolderIcon,
@@ -43,6 +44,8 @@ function ProjectItem({
   onEdit: (project: ThreadFolder) => void
   onDelete: (project: ThreadFolder) => void
 }) {
+  const { t: uiT } = useUiLocale()
+
 
   const navigate = useNavigate()
 
@@ -61,7 +64,7 @@ function ProjectItem({
         <DropdownMenuTrigger asChild>
           <SidebarMenuAction showOnHover className="hover:bg-sidebar-foreground/8">
             <MoreHorizontal />
-            <span className="sr-only">More</span>
+            <span className="sr-only">{uiT('ui:more')}</span>
           </SidebarMenuAction>
         </DropdownMenuTrigger>
         <DropdownMenuContent
@@ -73,16 +76,16 @@ function ProjectItem({
             navigate({ to: '/project/$projectId', params: { projectId: item.id } })
           }}>
             <FolderOpenIcon className="text-muted-foreground" />
-            <span>View Project</span>
+            <span>{uiT('ui:viewProject')}</span>
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={() => onEdit(item)}>
             <FolderEditIcon className="text-muted-foreground" />
-            <span>Edit Project</span>
+            <span>{uiT('common:projects.editProject')}</span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem variant="destructive" onSelect={() => onDelete(item)}>
             <Trash2 />
-            <span>Delete Project</span>
+            <span>{uiT('common:projects.deleteProject')}</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

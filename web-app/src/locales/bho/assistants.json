@@ -38,5 +38,6 @@
   "defaultAssistantSection": "डिफ़ॉल्ट सहायक के रूप में काम कइले बानी",
   "defaultAssistantDesc": "नया चैट शुरू करे के समय इस्तेमाल होला",
   "allAssistants": "सभे सहायक लोग के बा",
-  "lastUsed": "आखिरी बेर इस्तेमाल भइल"
+  "lastUsed": "आखिरी बेर इस्तेमाल भइल",
+  "officialInstructions": "Novera के निर्देश के तीन गो श्रेणी खाली {{path}} से बदलल जा सकेला।"
 }

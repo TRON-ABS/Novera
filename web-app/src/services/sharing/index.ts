@@ -320,7 +320,7 @@ export async function prepareShare(input: {
   if (format === 'original') {
     bytes = data.get(assets[0].id)!.bytes
     mime = data.get(assets[0].id)!.mime
-    return { ...base, filename: assets[0].name, mime, bytes }
+    return { ...base, html: '', filename: assets[0].name, mime, bytes, previewUrl: media.get(assets[0].id) }
   }
   if (
     [
@@ -547,7 +547,9 @@ export async function systemShare(value: PreparedShare, core: CoreService) {
   ) {
     await core.invoke('sharing_native', {
       title: value.title,
-      text: ['md', 'txt'].includes(value.format) ? value.text : '',
+      // The OS receives one attachment. Sending text alongside it can make
+      // recipients show an additional message/preview instead of just the file.
+      text: '',
       payload: {
         filename: attachmentFilename(value.filename),
         mime: value.mime,
@@ -578,7 +580,7 @@ export async function copyShareFile(value: PreparedShare, core: CoreService) {
   })
 }
 export async function copyPrepared(value: PreparedShare, core: CoreService) {
-  if (value.mime.startsWith('video/')) throw new Error('SHARE_UNSUPPORTED')
+  if (value.mime.startsWith('video/') || value.mime.startsWith('audio/')) throw new Error('SHARE_UNSUPPORTED')
   if (
     value.mime.startsWith('image/') &&
     navigator.clipboard.write &&

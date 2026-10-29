@@ -60,7 +60,14 @@
     "removeFromJan": "Ondoa kutoka Novera",
     "success": "Model {{modelId}} imefutwa kabisa.",
     "cancel": "Ghairi",
-    "delete": "Futa"
+    "delete": "Futa",
+    "choiceDescription": "Chagua jinsi ya kuondoa muundo huu kutoka Novera.",
+    "removeFromNovera": "Ondoa kutoka Novera",
+    "permanentlyDelete": "Futa kabisa",
+    "keepFilesDescription": "Ondoa muundo kwenye orodha na uweke faili zake kwenye diski. Unaweza kuiingiza tena.",
+    "permanentDescription": "Futa muundo na faili zake zinazodhibitiwa na Novera kwenye diski. Hili haliwezi kutenduliwa.",
+    "permanentImportedDescription": "Pia futa faili kuu ya GGUF katika eneo lake halisi. Faili za usaidizi za nje huhifadhiwa. Hili haliwezi kutenduliwa.",
+    "removedSuccess": "Model {{modelId}} iliondolewa kutoka Novera. Faili zake zilihifadhiwa."
   },
   "deleteAllModels": {
     "button": "Futa Zote",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Vifunguo mbadala vya hiari vimesanidiwa katika Kina.",
     "addKey": "Ongeza ufunguo",
     "removeKey": "Ondoa ufunguo"
-  }
+  },
+  "installedMediaModels": "miundo ya picha, video na muziki",
+  "noInstalledModels": "Hakuna miundo iliyosajiliwa katika aina hii.",
+  "modelComponents": "Faili za muundo"
 }

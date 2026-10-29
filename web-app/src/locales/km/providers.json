@@ -60,7 +60,14 @@
     "removeFromJan": "យកចេញពី Novera",
     "success": "ម៉ូដែល {{modelId}} ត្រូវបានលុបជាអចិន្ត្រៃយ៍។",
     "cancel": "បោះបង់",
-    "delete": "លុប"
+    "delete": "លុប",
+    "choiceDescription": "ជ្រើសរើសវិធីយកម៉ូដែលនេះចេញពី Novera។",
+    "removeFromNovera": "យកចេញពី Novera",
+    "permanentlyDelete": "លុបជាអចិន្ត្រៃយ៍",
+    "keepFilesDescription": "យកគំរូចេញពីបញ្ជី ហើយរក្សាទុកឯកសាររបស់វានៅលើថាស។ អ្នកអាចនាំចូលវាម្តងទៀត។",
+    "permanentDescription": "លុបម៉ូដែល និងឯកសារដែលគ្រប់គ្រង Novera ចេញពីថាស។ នេះមិនអាចត្រឡប់វិញបានទេ។",
+    "permanentImportedDescription": "ក៏លុបឯកសារសំខាន់ GGUF នៅទីតាំងដើមរបស់វា។ ឯកសារជំនួយខាងក្រៅត្រូវបានរក្សាទុក។ នេះមិនអាចត្រឡប់វិញបានទេ។",
+    "removedSuccess": "ម៉ូដែល {{modelId}} ត្រូវបានដកចេញពី Novera។ ឯកសាររបស់វាត្រូវបានរក្សាទុក។"
   },
   "deleteAllModels": {
     "button": "លុបទាំងអស់។",
@@ -123,5 +130,8 @@
     "oneKeyHint": "គ្រាប់ចុចជំនួសជាជម្រើសត្រូវបានកំណត់រចនាសម្ព័ន្ធក្នុងកម្រិតខ្ពស់។",
     "addKey": "បន្ថែមសោ",
     "removeKey": "ដោះសោ"
-  }
+  },
+  "installedMediaModels": "ម៉ូដែលរូបភាព វីដេអូ និងតន្ត្រី",
+  "noInstalledModels": "គ្មានម៉ូដែលដែលបានចុះឈ្មោះក្នុងប្រភេទនេះទេ។",
+  "modelComponents": "ឯកសារគំរូ"
 }

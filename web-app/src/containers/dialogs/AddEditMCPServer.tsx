@@ -116,6 +116,7 @@ export default function AddEditMCPServer({
   initialData,
   onSave,
 }: AddEditMCPServerProps) {
+
   const { t } = useTranslation()
   const [serverName, setServerName] = useState('')
   const [command, setCommand] = useState('')
@@ -390,7 +391,7 @@ export default function AddEditMCPServer({
                 'size-6 cursor-pointer flex items-center justify-center rounded hover:bg-secondary transition-all duration-200 ease-in-out',
                 isToggled && 'bg-secondary text-primary'
               )}
-              title="Add server by JSON"
+              title={t('ui:addServerByJson')}
               onClick={() => setIsToggled(!isToggled)}
             >
               <IconCodeDots className="h-5 w-5 cursor-pointer transition-colors duration-200" />
@@ -449,8 +450,7 @@ export default function AddEditMCPServer({
 
             <div className="space-y-2">
               <label className="text-sm mb-2 inline-block">
-                Transport Type
-              </label>
+                {t('ui:transportType')}</label>
               <RadioGroup
                 value={transportType}
                 onValueChange={(value) =>
@@ -505,7 +505,7 @@ export default function AddEditMCPServer({
                 <Input
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
-                  placeholder="Enter URL"
+                  placeholder={t('ui:enterUrl')}
                 />
               </div>
             )}
@@ -605,7 +605,7 @@ export default function AddEditMCPServer({
               <>
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="text-sm">Headers</label>
+                    <label className="text-sm">{t('ui:headers')}</label>
                     <div
                       className="size-6 cursor-pointer flex items-center justify-center rounded hover:bg-secondary transition-all duration-200 ease-in-out"
                       onClick={handleAddHeader}
@@ -624,7 +624,7 @@ export default function AddEditMCPServer({
                         onChange={(e) =>
                           handleHeaderKeyChange(index, e.target.value)
                         }
-                        placeholder="Header name"
+                        placeholder={t('ui:headerName')}
                         className="flex-1"
                       />
                       <Input
@@ -632,7 +632,7 @@ export default function AddEditMCPServer({
                         onChange={(e) =>
                           handleHeaderValueChange(index, e.target.value)
                         }
-                        placeholder="Header value"
+                        placeholder={t('ui:headerValue')}
                         className="flex-1"
                       />
                       {headerKeys.length > 1 && (
@@ -649,12 +649,11 @@ export default function AddEditMCPServer({
 
                 <div className="space-y-2">
                   <label className="text-sm mb-2 inline-block">
-                    Timeout (seconds)
-                  </label>
+                    {t('ui:timeoutSeconds')}</label>
                   <Input
                     value={timeout}
                     onChange={(e) => setTimeout(e.target.value)}
-                    placeholder="Enter timeout in seconds"
+                    placeholder={t('ui:enterTimeoutInSeconds')}
                     type="number"
                   />
                 </div>

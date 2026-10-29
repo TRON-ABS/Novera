@@ -38,5 +38,6 @@
   "defaultAssistantSection": "ଡିଫଲ୍ଟ ସହାୟକ",
   "defaultAssistantDesc": "ଏକ ନୂତନ ଚାଟ୍ ଆରମ୍ଭ କରିବା ସମୟରେ ବ୍ୟବହୃତ ହୁଏ |",
   "allAssistants": "ସମସ୍ତ ସହାୟକ",
-  "lastUsed": "ଶେଷ ବ୍ୟବହୃତ |"
+  "lastUsed": "ଶେଷ ବ୍ୟବହୃତ |",
+  "officialInstructions": "Novera ନିର୍ଦ୍ଦେଶର ତିନୋଟି ବର୍ଗ କେବଳ {{path}} ମାଧ୍ୟମରେ ସମ୍ପାଦନ କରାଯାଇପାରିବ।"
 }

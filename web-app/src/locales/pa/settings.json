@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "ਕੋਡ ਬਲਾਕ ਸ਼ੈਲੀ ਰੀਸੈਟ ਕਰੋ",
     "resetCodeBlockStyleDesc": "ਕੋਡ ਬਲਾਕ ਸ਼ੈਲੀ ਨੂੰ ਡਿਫੌਲਟ 'ਤੇ ਰੀਸੈਟ ਕਰੋ।",
     "resetCodeBlockSuccess": "ਕੋਡ ਬਲਾਕ ਸ਼ੈਲੀ ਨੂੰ ਸਫਲਤਾਪੂਰਵਕ ਰੀਸੈਟ ਕੀਤਾ ਗਿਆ",
-    "resetCodeBlockSuccessDesc": "ਕੋਡ ਬਲਾਕ ਸ਼ੈਲੀ ਨੂੰ ਡਿਫੌਲਟ 'ਤੇ ਰੀਸਟੋਰ ਕੀਤਾ ਗਿਆ ਹੈ।"
+    "resetCodeBlockSuccessDesc": "ਕੋਡ ਬਲਾਕ ਸ਼ੈਲੀ ਨੂੰ ਡਿਫੌਲਟ 'ਤੇ ਰੀਸਟੋਰ ਕੀਤਾ ਗਿਆ ਹੈ।",
+    "subtitle": "Novera ਨੂੰ ਆਪਣਾ ਬਣਾਓ, ਇਸਦੀ ਦਿੱਖ ਤੋਂ ਲੈ ਕੇ ਤੁਹਾਡੀ ਗੱਲਬਾਤ ਦੀਆਂ ਤਰਜੀਹਾਂ ਤੱਕ।",
+    "accentColor": "ਲਹਿਜ਼ਾ ਰੰਗ",
+    "accentColorDesc": "ਲਹਿਜ਼ਾ ਅਤੇ ਸਾਈਡਬਾਰ ਰੰਗ ਚੁਣੋ।",
+    "conversation": "ਗੱਲਬਾਤ ਅਤੇ ਸੂਚਨਾਵਾਂ"
   },
   "hardware": {
     "os": "ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ",

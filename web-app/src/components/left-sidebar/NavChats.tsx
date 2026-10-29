@@ -17,6 +17,7 @@ import ThreadList from "@/containers/ThreadList"
 import { DeleteAllThreadsDialog } from "@/containers/dialogs/DeleteAllThreadsDialog"
 
 export function NavChats() {
+
   const { t } = useTranslation()
   const getFilteredThreads = useThreads((state) => state.getFilteredThreads)
   const threads = useThreads((state) => state.threads)
@@ -51,7 +52,7 @@ export function NavChats() {
           <DropdownMenuTrigger asChild>
             <SidebarGroupAction className="hover:bg-sidebar-foreground/8">
               <MoreHorizontal className="text-muted-foreground" />
-              <span className="sr-only">More</span>
+              <span className="sr-only">{t('ui:more')}</span>
             </SidebarGroupAction>
           </DropdownMenuTrigger>
           <DropdownMenuContent side="right" align="start">

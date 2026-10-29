@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Şêweya Block Kodê Vegerîne",
     "resetCodeBlockStyleDesc": "Şêweya bloka kodê ji nû ve vegerîne.",
     "resetCodeBlockSuccess": "Şêweya bloka kodê bi serketî hate vegerandin",
-    "resetCodeBlockSuccessDesc": "Şêweya bloka kodê li xwerû hate vegerandin."
+    "resetCodeBlockSuccessDesc": "Şêweya bloka kodê li xwerû hate vegerandin.",
+    "subtitle": "Novera ji xuyabûna wê bigire heya vebijarkên danûstendina we ya xwe bike.",
+    "accentColor": "Rengê devokê",
+    "accentColorDesc": "Rengê devokê û kêlekê hilbijêrin.",
+    "conversation": "Axaftin û ragihandin"
   },
   "hardware": {
     "os": "Pergala Xebatê",

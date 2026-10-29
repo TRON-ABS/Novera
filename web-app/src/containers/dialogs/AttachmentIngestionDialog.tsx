@@ -12,6 +12,7 @@ import { useTranslation } from '@/i18n'
 import { formatBytes } from '@/lib/utils'
 
 export default function AttachmentIngestionDialog() {
+
   const { t } = useTranslation()
   const { isModalOpen, currentAttachment, currentIndex, totalCount, choose, cancel } = useAttachmentIngestionPrompt()
 
@@ -25,7 +26,7 @@ export default function AttachmentIngestionDialog() {
             {t('common:attachmentsIngestion.title')}
             {totalCount > 1 && (
               <span className="text-sm font-normal text-muted-foreground ml-2">
-                ({currentIndex + 1} of {totalCount})
+                ({currentIndex + 1} {' '}{t('ui:of')}{' '}{totalCount})
               </span>
             )}
           </DialogTitle>

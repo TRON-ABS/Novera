@@ -60,7 +60,14 @@
     "removeFromJan": "ลบออกจาก Novera",
     "success": "โมเดล {{modelId}} ถูกลบอย่างถาวรแล้ว",
     "cancel": "ยกเลิก",
-    "delete": "ลบ"
+    "delete": "ลบ",
+    "choiceDescription": "เลือกวิธีลบรุ่นนี้ออกจาก Novera",
+    "removeFromNovera": "ลบออกจาก Novera",
+    "permanentlyDelete": "ลบอย่างถาวร",
+    "keepFilesDescription": "ลบโมเดลออกจากรายการและเก็บไฟล์ไว้ในดิสก์ คุณสามารถนำเข้าอีกครั้งได้",
+    "permanentDescription": "ลบโมเดลและไฟล์ที่จัดการ Novera ออกจากดิสก์ สิ่งนี้ไม่สามารถยกเลิกได้",
+    "permanentImportedDescription": "ลบไฟล์หลัก GGUF ที่ตำแหน่งเดิมด้วย ไฟล์เสริมภายนอกจะถูกเก็บไว้ สิ่งนี้ไม่สามารถยกเลิกได้",
+    "removedSuccess": "โมเดล {{modelId}} ถูกลบออกจาก Novera ไฟล์ถูกเก็บไว้"
   },
   "deleteAllModels": {
     "button": "ลบทั้งหมด",
@@ -123,5 +130,8 @@
     "oneKeyHint": "คีย์ทางเลือกเสริมได้รับการกำหนดค่าในขั้นสูง",
     "addKey": "เพิ่มรหัส",
     "removeKey": "เอากุญแจออก"
-  }
+  },
+  "installedMediaModels": "โมเดลรูปภาพ วิดีโอ และเพลง",
+  "noInstalledModels": "ไม่มีรุ่นที่ลงทะเบียนในหมวดหมู่นี้",
+  "modelComponents": "ไฟล์โมเดล"
 }

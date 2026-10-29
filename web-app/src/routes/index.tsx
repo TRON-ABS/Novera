@@ -66,7 +66,7 @@ function Index() {
       >
         <div
           className={cn(
-            'mx-auto flex min-h-full w-full max-w-6xl flex-col',
+            'mx-auto flex min-h-full w-full flex-col',
           )}
         >
           <div className={cn('flex flex-1 items-center justify-center text-center py-10')}>

@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Výchozí asistent",
   "defaultAssistantDesc": "Používá se při zahájení nového chatu",
   "allAssistants": "Všichni asistenti",
-  "lastUsed": "Naposledy použito"
+  "lastUsed": "Naposledy použito",
+  "officialInstructions": "Tři kategorie pokynů Novera lze upravovat pouze přes {{path}}."
 }

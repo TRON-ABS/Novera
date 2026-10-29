@@ -45,6 +45,7 @@ export const Route = createFileRoute('/hub/$modelId')({
 })
 
 function HubModelDetailContent() {
+
   const { t } = useTranslation()
   const { modelId } = useParams({ from: Route.id })
   const navigate = useNavigate()
@@ -208,16 +209,16 @@ function HubModelDetailContent() {
         <HeaderPage>
           <Button
           onClick={() => navigate({ to: route.hub.index })}
-          aria-label="Go back"
+          aria-label={t('ui:goBack')}
           variant="ghost"
           size="sm"
         >
           <IconArrowLeft size={18} className="text-muted-foreground" />
-          <span className="text-foreground">Back to Hub</span>
+          <span className="text-foreground">{t('ui:backToHub')}</span>
         </Button>
         </HeaderPage>
         <div className="flex-1 flex items-center justify-center">
-          <p className="text-muted-foreground">Model not found</p>
+          <p className="text-muted-foreground">{t('ui:modelNotFound')}</p>
         </div>
       </div>
     )
@@ -229,13 +230,13 @@ function HubModelDetailContent() {
         <div className="flex items-center gap-2 w-full">
           <Button
             onClick={() => navigate({ to: route.hub.index })}
-            aria-label="Go back"
+            aria-label={t('ui:goBack')}
             variant="ghost"
             size="sm"
             className='relative z-20'
           >
             <IconArrowLeft size={18} className="text-muted-foreground" />
-            <span className="text-foreground">Back to Hub</span>
+            <span className="text-foreground">{t('ui:backToHub')}</span>
           </Button>
         </div>
       </HeaderPage>
@@ -263,17 +264,17 @@ function HubModelDetailContent() {
               <div className="flex items-center gap-4 text-sm text-foreground mb-4 flex-wrap">
                 {modelData.developer && (
                   <>
-                    <span>By {modelData.developer}</span>
+                    <span>{t('hub:by')}{' '}{modelData.developer}</span>
                   </>
                 )}
                 <div className="flex items-center gap-2">
                   <IconDownload size={16} />
-                  <span>{modelData.downloads || 0} Downloads</span>
+                  <span>{modelData.downloads || 0} {' '}{t('common:downloads')}</span>
                 </div>
                 {modelData.created_at && (
                   <div className="flex items-center gap-2">
                     <IconClock size={16} />
-                    <span>Updated {formatDate(modelData.created_at)}</span>
+                    <span>{t('providers:backendHistoryUpdated')}{' '}{formatDate(modelData.created_at)}</span>
                   </div>
                 )}
               </div>
@@ -323,7 +324,7 @@ function HubModelDetailContent() {
                 <div className="flex items-center gap-2 mb-4">
                   <IconFileCode size={20} className="text-muted-foreground" />
                   <h2 className="text-lg font-semibold text-foreground">
-                    Variants ({displayQuants.length})
+                    {t('ui:variants')}{displayQuants.length})
                   </h2>
                 </div>
 
@@ -332,18 +333,14 @@ function HubModelDetailContent() {
                     <thead>
                       <tr className="border-b ">
                         <th className="text-left py-3 px-2 text-sm font-medium">
-                          Version
-                        </th>
+                          {t('settings:hardware.version')}</th>
                         <th className="text-left py-3 px-2 text-sm font-medium">
-                          Format
-                        </th>
+                          {t('chat:sharing.format')}</th>
                         <th className="text-left py-3 px-2 text-sm font-medium">
-                          Size
-                        </th>
+                          {t('ui:size')}</th>
                         <th></th>
                         <th className="text-right py-3 px-2 text-sm font-medium">
-                          Action
-                        </th>
+                          {t('ui:action')}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -472,8 +469,7 @@ function HubModelDetailContent() {
                                     className={cn(isDownloading && 'hidden')}
                                     variant="outline"
                                   >
-                                    Download
-                                  </Button>
+                                    {t('common:missingDependenciesDialog.download')}</Button>
                                 )
                               })()}
                             </td>
@@ -487,6 +483,7 @@ function HubModelDetailContent() {
             )}
 
             {/* README Section */}
+            <p className="mb-4 text-sm text-muted-foreground">{t('ui:importModelReadme')}</p>
             {modelData.readme && (
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-4">
@@ -499,8 +496,7 @@ function HubModelDetailContent() {
                 {isLoadingReadme ? (
                   <div className="flex items-center justify-center py-8">
                     <span className="text-muted-foreground">
-                      Loading README...
-                    </span>
+                      {t('ui:loadingReadme')}</span>
                   </div>
                 ) : readmeContent ? (
                   <div className="prose prose-invert max-w-none">
@@ -520,8 +516,7 @@ function HubModelDetailContent() {
                 ) : (
                   <div className="flex items-center justify-center py-8">
                     <span className="text-muted-foreground">
-                      Failed to load README
-                    </span>
+                      {t('ui:failedToLoadReadme')}</span>
                   </div>
                 )}
               </div>

@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Arîkarê Default",
   "defaultAssistantDesc": "Dema destpêkirina sohbetek nû tê bikar anîn",
   "allAssistants": "Hemû Alîkar",
-  "lastUsed": "Herî dawî hatiye bikaranîn"
+  "lastUsed": "Herî dawî hatiye bikaranîn",
+  "officialInstructions": "Sê kategoriyên talîmatên Novera tenê bi rêya {{path}} dikarin bên guherandin."
 }

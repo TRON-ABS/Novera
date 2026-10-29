@@ -281,10 +281,15 @@ export function convertThreadMessageToUIMessage(
     } else if (content.type === 'input_audio' && content.input_audio?.data) {
       const fmt = content.input_audio.format
       const mediaType = fmt === 'mp3' ? 'audio/mpeg' : 'audio/wav'
+      const data = content.input_audio.data
+      // Generated audio is a durable file reference, not base64. Also recover
+      // legacy rows that were saved with the old, incorrect data-URL wrapper.
+      const candidate = data.replace(/^data:audio\/(?:mpeg|wav);base64,/, '')
+      const savedMusic = /^novera-creation:music\/Novera-[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}\.(mp3|wav)$/.test(candidate)
       parts.push({
         type: 'file',
         mediaType,
-        url: `data:${mediaType};base64,${content.input_audio.data}`,
+        url: savedMusic ? candidate : `data:${mediaType};base64,${data}`,
       })
     } else if (content.type === 'input_video' && content.input_video?.data) {
       const mediaType = content.input_video.format || 'video/mp4'

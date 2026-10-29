@@ -1,5 +1,6 @@
 import { ResetWorkspacePermissions } from '@/containers/NativeAccessControl'
 import TextareaAutosize from 'react-textarea-autosize'
+import { MediaPlayer } from '@/components/MediaPlayer'
 import { CreationControls, CreationModelControl } from './CreationControls'
 import { MemoryModeControl } from './MemoryModeControl'
 import { useCreation } from '@/hooks/useCreation'
@@ -48,6 +49,7 @@ import { ConversationActions } from '@/containers/ConversationActions'
 import { SamplerPopover } from '@/containers/SamplerPopover'
 import { NoveraInstructionsButton } from '@/containers/NoveraInstructionsButton'
 import { useTranslation } from '@/i18n/react-i18next-compat'
+import { translateSettingText } from '@/i18n/setting-text'
 import { useGeneralSetting } from '@/hooks/useGeneralSetting'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { useTokensCount } from '@/hooks/useTokensCount'
@@ -274,6 +276,7 @@ const ChatInput = memo(function ChatInput({
   tokenSource,
   highlightedPrefix,
 }: ChatInputProps) {
+
   const isStreaming = chatStatus === 'submitted' || chatStatus === 'streaming'
   const turnBusy = isStreaming || !!toolsRunning
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -662,7 +665,7 @@ const ChatInput = memo(function ChatInput({
       return
     }
     if (ingestingAny) {
-      toast.info('Please wait for attachments to finish processing')
+      toast.info(t('ui:pleaseWaitForAttachmentsToFinishProcessing'))
       return
     }
 
@@ -678,7 +681,7 @@ const ChatInput = memo(function ChatInput({
         // Queued turns are text-only. Keep the complete draft rather than
         // silently sending its text without the attached files.
         if (attachments.length > 0) {
-          toast.info('Wait for the current turn to finish before sending attachments')
+          toast.info(t('ui:waitForTheCurrentTurnToFinishBefore'))
           return
         }
         useMessageQueue.getState().enqueue(queueId, {
@@ -806,7 +809,7 @@ const ChatInput = memo(function ChatInput({
             projectMetadata
           )
         } catch (error) {
-          toast.error('Failed to create conversation', {
+          toast.error(t('ui:failedToCreateConversation'), {
             description: error instanceof Error ? error.message : String(error),
           })
           return
@@ -987,7 +990,7 @@ const ChatInput = memo(function ChatInput({
     if (turnBusy) return
     try {
       if (!attachmentsEnabled) {
-        toast.info('Attachments are disabled in Settings')
+        toast.info(t('common:toast.attachmentsDisabledInfo.description'))
         return
       }
       const selection = await serviceHub.dialog().open({
@@ -1176,8 +1179,8 @@ const ChatInput = memo(function ChatInput({
           (att) => typeof att.size === 'number' && att.size > maxFileSizeBytes
         )
         if (hasOversized) {
-          toast.error('File too large', {
-            description: `One or more files exceed the ${maxFileSizeMB}MB limit`,
+          toast.error(t('common:errors.fileTooLarge'), {
+            description: t('ui:oneOrMoreFilesExceedTheValue0Mb', { value0: maxFileSizeMB }),
           })
           return
         }
@@ -1210,7 +1213,7 @@ const ChatInput = memo(function ChatInput({
       })
 
       if (duplicates.length > 0) {
-        toast.warning('Files already attached', {
+        toast.warning(t('ui:filesAlreadyAttached'), {
           description: `${duplicates.join(', ')} ${duplicates.length === 1 ? 'is' : 'are'} already in the list`,
         })
       }
@@ -1221,7 +1224,7 @@ const ChatInput = memo(function ChatInput({
     } catch (e) {
       console.error('Failed to attach documents:', e)
       const desc = e instanceof Error ? e.message : JSON.stringify(e)
-      toast.error('Failed to attach documents', { description: desc })
+      toast.error(t('ui:failedToAttachDocuments'), { description: desc })
     }
   }
 
@@ -1245,7 +1248,7 @@ const ChatInput = memo(function ChatInput({
         }
       } catch (error) {
         console.error('Failed to delete attachment from backend:', error)
-        toast.error('Failed to remove attachment', {
+        toast.error(t('ui:failedToRemoveAttachment'), {
           description: error instanceof Error ? error.message : String(error),
         })
         return
@@ -1430,7 +1433,7 @@ const ChatInput = memo(function ChatInput({
               setAttachmentsForThread(attachmentsKey, (prev) =>
                 prev.filter((a) => !matchImg(a))
               )
-              toast.error(`Failed to ingest ${img.name}`, {
+              toast.error(t('ui:failedToIngestValue0', { value0: img.name }), {
                 description:
                   error instanceof Error ? error.message : String(error),
               })
@@ -1449,7 +1452,7 @@ const ChatInput = memo(function ChatInput({
 
     // Display validation errors
     if (duplicates.length > 0) {
-      toast.warning('Some images already attached', {
+      toast.warning(t('ui:someImagesAlreadyAttached'), {
         description: `${duplicates.join(', ')} ${duplicates.length === 1 ? 'is' : 'are'} already in the list`,
       })
     }
@@ -1476,7 +1479,7 @@ const ChatInput = memo(function ChatInput({
     } else {
       setMessage('')
     }
-  }, [attachmentsKey, currentThreadId, scopeKey, setAttachmentsForThread, serviceHub, setFileIngestProgress, maxImageSizeMB])
+  }, [attachmentsKey, currentThreadId, scopeKey, setAttachmentsForThread, serviceHub, setFileIngestProgress, maxImageSizeMB, t])
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (turnBusy) return
@@ -1577,7 +1580,7 @@ const ChatInput = memo(function ChatInput({
       }
 
       if (duplicates.length > 0) {
-        toast.warning('Some audio files already attached', {
+        toast.warning(t('ui:someAudioFilesAlreadyAttached'), {
           description: `${duplicates.join(', ')} ${duplicates.length === 1 ? 'is' : 'are'} already in the list`,
         })
       }
@@ -1597,7 +1600,7 @@ const ChatInput = memo(function ChatInput({
         if (audioInputRef.current) audioInputRef.current.value = ''
       }
     },
-    [attachmentsKey, setAttachmentsForThread]
+    [attachmentsKey, setAttachmentsForThread, t]
   )
 
   const handleAudioFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -1634,7 +1637,7 @@ const ChatInput = memo(function ChatInput({
               files.push(new File([blob], fileName, { type: mimeType }))
             } catch (error) {
               console.error('Failed to read audio file:', error)
-              toast.error('Failed to read audio file', {
+              toast.error(t('ui:failedToReadAudioFile'), {
                 description: error instanceof Error ? error.message : String(error),
               })
             }
@@ -1648,7 +1651,7 @@ const ChatInput = memo(function ChatInput({
     } else {
       audioInputRef.current?.click()
     }
-  }, [serviceHub, processAudioFiles, turnBusy])
+  }, [serviceHub, processAudioFiles, turnBusy, t])
 
   const processVideoFiles = useCallback(
     async (files: File[]) => {
@@ -1713,7 +1716,7 @@ const ChatInput = memo(function ChatInput({
       }
 
       if (duplicates.length > 0) {
-        toast.warning('Some video files already attached', {
+        toast.warning(t('ui:someVideoFilesAlreadyAttached'), {
           description: `${duplicates.join(', ')} ${duplicates.length === 1 ? 'is' : 'are'} already in the list`,
         })
       }
@@ -1733,7 +1736,7 @@ const ChatInput = memo(function ChatInput({
         if (videoInputRef.current) videoInputRef.current.value = ''
       }
     },
-    [attachmentsKey, setAttachmentsForThread]
+    [attachmentsKey, setAttachmentsForThread, t]
   )
 
   const handleVideoFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -1769,7 +1772,7 @@ const ChatInput = memo(function ChatInput({
               files.push(new File([blob], fileName, { type: videoMimeForExt(ext) }))
             } catch (error) {
               console.error('Failed to read video file:', error)
-              toast.error('Failed to read video file', {
+              toast.error(t('ui:failedToReadVideoFile'), {
                 description: error instanceof Error ? error.message : String(error),
               })
             }
@@ -1783,7 +1786,7 @@ const ChatInput = memo(function ChatInput({
     } else {
       videoInputRef.current?.click()
     }
-  }, [serviceHub, processVideoFiles, turnBusy])
+  }, [serviceHub, processVideoFiles, turnBusy, t])
 
   // Open the image picker dialog (extracted for reuse)
   const openImagePicker = useCallback(async () => {
@@ -1831,7 +1834,7 @@ const ChatInput = memo(function ChatInput({
               files.push(file)
             } catch (error) {
               console.error('Failed to read file:', error)
-              toast.error('Failed to read file', {
+              toast.error(t('ui:failedToReadFile'), {
                 description:
                   error instanceof Error ? error.message : String(error),
               })
@@ -1853,7 +1856,7 @@ const ChatInput = memo(function ChatInput({
       // Fallback to input click for web
       fileInputRef.current?.click()
     }
-  }, [serviceHub, processImageFiles, turnBusy])
+  }, [serviceHub, processImageFiles, turnBusy, t])
 
   const dropAcceptsAnything = hasMmproj || audioSupported || videoSupported
 
@@ -2069,7 +2072,7 @@ const ChatInput = memo(function ChatInput({
   }
 
   return (
-    <div className="relative">
+    <div className="relative mx-auto w-full max-w-[1256px]">
       <div className="relative">
         <div
           className={cn(
@@ -2170,14 +2173,14 @@ const ChatInput = memo(function ChatInput({
                                 </div>
                                 <div className="opacity-70">
                                   {isImage
-                                    ? att.mimeType || 'image'
+                                    ? att.mimeType || t('ui:image')
                                     : isAudio
                                       ? att.audioFormat
                                         ? `.${att.audioFormat}${durLabel ? ` · ${durLabel}` : ''}`
-                                        : 'audio'
+                                        : t('ui:audio')
                                       : ext
                                         ? `.${ext}`
-                                        : 'document'}
+                                        : t('ui:document')}
                                   {att.size
                                     ? ` · ${formatBytes(att.size, {
                                         decimals: (_, unit) =>
@@ -2186,11 +2189,9 @@ const ChatInput = memo(function ChatInput({
                                     : ''}
                                 </div>
                                 {isAudio && att.dataUrl && (
-                                  <audio
-                                    controls
-                                    src={att.dataUrl}
-                                    className="mt-1 w-56"
-                                  />
+                                  <div className="mt-1 w-72 max-w-full">
+                                    <MediaPlayer src={att.dataUrl} kind="music" name={att.name} />
+                                  </div>
                                 )}
                               </div>
                             </TooltipContent>
@@ -2360,7 +2361,7 @@ const ChatInput = memo(function ChatInput({
               </div>
             )}
 
-        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} />}
+        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} />}
         <div className="composer-footer relative z-20 w-full p-2">
           <div
             ref={controlRowRef}
@@ -2373,7 +2374,7 @@ const ChatInput = memo(function ChatInput({
               >
               <div
                 className={cn(
-                  'px-1 flex flex-wrap items-center gap-1',
+                  'composer-toolbar px-1 flex flex-wrap items-center gap-2',
                   turnBusy && 'opacity-50 pointer-events-none'
                 )}
               >
@@ -2389,7 +2390,7 @@ const ChatInput = memo(function ChatInput({
                     {hasMmproj && (
                       <DropdownMenuItem onClick={() => void openImagePicker()}>
                         <IconPhoto size={18} className="text-muted-foreground" />
-                        <span>Add Images</span>
+                        <span>{t('ui:addImages')}</span>
                         <input
                           type="file"
                           ref={fileInputRef}
@@ -2402,7 +2403,7 @@ const ChatInput = memo(function ChatInput({
                     {audioSupported && (
                       <DropdownMenuItem onClick={() => void openAudioPicker()}>
                         <IconMusic size={18} className="text-muted-foreground" />
-                        <span>Add Audio</span>
+                        <span>{t('ui:addAudio')}</span>
                         <input
                           type="file"
                           ref={audioInputRef}
@@ -2416,7 +2417,7 @@ const ChatInput = memo(function ChatInput({
                     {videoSupported && (
                       <DropdownMenuItem onClick={() => void openVideoPicker()}>
                         <IconVideo size={18} className="text-muted-foreground" />
-                        <span>Add Video</span>
+                        <span>{t('ui:addVideo')}</span>
                         <input
                           type="file"
                           ref={videoInputRef}
@@ -2445,8 +2446,8 @@ const ChatInput = memo(function ChatInput({
                       )}
                       <span>
                         {ingestingDocs
-                          ? 'Indexing documents…'
-                          : 'Add documents or files'}
+                          ? t('ui:indexingDocuments')
+                          : t('ui:addDocumentsOrFiles')}
                       </span>
                     </DropdownMenuItem>
                     </DropdownMenuContent>
@@ -2616,7 +2617,7 @@ const ChatInput = memo(function ChatInput({
                         onClick={() => setWebSearchEnabled(!webSearchEnabled)}
                       >
                         <ComposerIcon>🌐</ComposerIcon>
-                        <span className="composer-state" aria-hidden="true">{webSearchEnabled ? 'ON' : 'OFF'}</span>
+                        <span className="composer-state" aria-hidden="true">{webSearchEnabled ? t('ui:on') : t('ui:off')}</span>
                       </Button>
                     </TooltipTrigger>
                     <TooltipContent>
@@ -2645,7 +2646,7 @@ const ChatInput = memo(function ChatInput({
                           onClick={() => setShellEnabled(!shellEnabled)}
                         >
                           <ComposerIcon>💻</ComposerIcon>
-                          <span className="composer-state" aria-hidden="true">{shellEnabled ? 'ON' : 'OFF'}</span>
+                          <span className="composer-state" aria-hidden="true">{shellEnabled ? t('ui:on') : t('ui:off')}</span>
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -2768,18 +2769,18 @@ const ChatInput = memo(function ChatInput({
                                 <Button
                                   variant="ghost"
                                   size="icon-xs"
-                                  aria-label={`Reasoning effort: ${effortLabel}`}
+                                  aria-label={t('ui:reasoningEffortValue0', { value0: translateSettingText(effortLabel, t) })}
                                   data-tone="thinking"
                                   data-state={currentEffort ? 'on' : 'auto'}
                                   className={cn('composer-tool', currentEffort && 'composer-tool-active')}
                                 >
                                   <ComposerIcon>⚡</ComposerIcon>
-                                  <span className="composer-state" aria-hidden="true">{currentEffort ? 'ON' : 'AUTO'}</span>
+                                  <span className="composer-state" aria-hidden="true">{currentEffort ? t('ui:on') : t('ui:auto')}</span>
                                 </Button>
                               </DropdownMenuTrigger>
                             </TooltipTrigger>
                             <TooltipContent>
-                              <p>Reasoning effort: {effortLabel}</p>
+                              <p>{t('ui:reasoningEffortValue0', { value0: translateSettingText(effortLabel, t) })}</p>
                             </TooltipContent>
                           </Tooltip>
                           <DropdownMenuContent align="start">
@@ -2788,8 +2789,7 @@ const ChatInput = memo(function ChatInput({
                                 clearModelSetting('thinking_budget_tokens')
                               }
                             >
-                              Default
-                              {!currentEffort && (
+                              {t('assistants:isDefault')}{!currentEffort && (
                                 <span className="ml-auto text-xs text-muted-foreground">
                                   ✓
                                 </span>
@@ -2808,9 +2808,9 @@ const ChatInput = memo(function ChatInput({
                                 }
                               >
                                 {
-                                  THINKING_BUDGET_LEVELS.find(
+                                  translateSettingText(THINKING_BUDGET_LEVELS.find(
                                     (l) => l.key === key
-                                  )!.label
+                                  )!.label, t)
                                 }
                                 {currentEffort === key && (
                                   <span className="ml-auto text-xs text-muted-foreground">
@@ -2832,16 +2832,16 @@ const ChatInput = memo(function ChatInput({
                       )
                     const label =
                       reasoningValue === 'on'
-                        ? 'On'
+                        ? t('ui:on')
                         : reasoningValue === 'off'
-                          ? 'Off'
-                          : 'Auto'
+                          ? t('ui:off')
+                          : t('ui:auto')
                     const tooltipText =
                       reasoningValue === 'on'
-                        ? 'Reasoning forced on for every request.'
+                        ? t('ui:reasoningEnabledHint')
                         : reasoningValue === 'off'
-                          ? 'Reasoning disabled for every request.'
-                          : "Reasoning uses the model's default."
+                          ? t('ui:reasoningDisabledHint')
+                          : t('ui:reasoningDefaultHint')
 
                     // Stored as a symbolic level, not an absolute token count:
                     // the live context size (post auto-fit) is only known once
@@ -2879,7 +2879,7 @@ const ChatInput = memo(function ChatInput({
                               <Button
                                 variant="ghost"
                                 size="icon-xs"
-                                aria-label={`Reasoning: ${label}`}
+                                aria-label={t('ui:reasoningValue0', { value0: label })}
                                 data-tone="thinking"
                                 data-state={reasoningValue}
                                 className={cn('composer-tool', reasoningValue === 'on' && 'composer-tool-active')}
@@ -2887,7 +2887,7 @@ const ChatInput = memo(function ChatInput({
                                 <span className={cn(reasoningValue === 'off' && 'opacity-50')}>
                                   <ComposerIcon>⚡</ComposerIcon>
                                 </span>
-                                <span className="composer-state" aria-hidden="true">{reasoningValue.toUpperCase()}</span>
+                                <span className="composer-state" aria-hidden="true">{label}</span>
                               </Button>
                             </DropdownMenuTrigger>
                           </TooltipTrigger>
@@ -2897,24 +2897,21 @@ const ChatInput = memo(function ChatInput({
                         </Tooltip>
                         <DropdownMenuContent align="start">
                           <DropdownMenuItem onClick={() => setReasoning('auto')}>
-                            Auto
-                            {reasoningValue === 'auto' && (
+                            {t('common:auto')}{reasoningValue === 'auto' && (
                               <span className="ml-auto text-xs text-muted-foreground">
                                 ✓
                               </span>
                             )}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setReasoning('on')}>
-                            On
-                            {reasoningValue === 'on' && (
+                            {t('ui:on_130011')}{reasoningValue === 'on' && (
                               <span className="ml-auto text-xs text-muted-foreground">
                                 ✓
                               </span>
                             )}
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => setReasoning('off')}>
-                            Off
-                            {reasoningValue === 'off' && (
+                            {t('ui:off_ca7981')}{reasoningValue === 'off' && (
                               <span className="ml-auto text-xs text-muted-foreground">
                                 ✓
                               </span>
@@ -2925,9 +2922,9 @@ const ChatInput = memo(function ChatInput({
                               <DropdownMenuSeparator />
                               <DropdownMenuSub>
                                 <DropdownMenuSubTrigger>
-                                  <span className="flex-1">Thinking Budget</span>
+                                  <span className="flex-1">{t('ui:thinkingBudget')}</span>
                                   <span className="text-xs text-muted-foreground">
-                                    {currentBudgetLabel}
+                                    {translateSettingText(currentBudgetLabel, t)}
                                   </span>
                                 </DropdownMenuSubTrigger>
                                 <DropdownMenuSubContent
@@ -2948,7 +2945,7 @@ const ChatInput = memo(function ChatInput({
                                         className="gap-2"
                                       >
                                         <span className="flex-1">
-                                          {level.label}
+                                          {translateSettingText(level.label, t)}
                                         </span>
                                         <span className="w-14 shrink-0 text-right text-xs text-muted-foreground tabular-nums">
                                           {approxTokens === -1
@@ -2999,7 +2996,9 @@ const ChatInput = memo(function ChatInput({
               </CollapsibleControls>
               {!effectiveAgentMode && !scopeKey && (
                 <div className="composer-metadata flex min-w-0 flex-wrap items-center gap-1">
-                  <CreationModelControl scope={currentThreadId ?? 'new'} disabled={turnBusy} />
+                  <span role="status" aria-live="polite" aria-atomic="true" className="min-w-0">
+                    <CreationModelControl scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} />
+                  </span>
                   <MemoryModeControl scope={currentThreadId ?? 'new'} />
                 </div>
               )}

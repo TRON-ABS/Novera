@@ -38,5 +38,6 @@
   "defaultAssistantDesc": "새 채팅을 시작할 때 사용됩니다",
   "allAssistants": "모든 어시스턴트",
   "deleteFailed": "어시스턴트를 삭제할 수 없습니다. 다시 시도해 주세요.",
-  "lastUsed": "마지막 사용"
+  "lastUsed": "마지막 사용",
+  "officialInstructions": "Novera의 세 가지 지침 범주는 {{path}}에서만 수정할 수 있습니다."
 }

@@ -65,7 +65,7 @@ export const SETUP_SCENARIOS: Record<string, SetupScenario> = {
     },
     embedding: {
       status: 'ok',
-      modelId: 'sentence-transformer-mini',
+      modelId: 'Qwen3-Embedding-0.6B-Q8_0',
       dimension: 384,
     },
   },
@@ -83,7 +83,7 @@ export const SETUP_SCENARIOS: Record<string, SetupScenario> = {
     },
     embedding: {
       status: 'ok',
-      modelId: 'sentence-transformer-mini',
+      modelId: 'Qwen3-Embedding-0.6B-Q8_0',
       dimension: 384,
     },
   },
@@ -99,7 +99,7 @@ export const SETUP_SCENARIOS: Record<string, SetupScenario> = {
     },
     embedding: {
       status: 'ok',
-      modelId: 'sentence-transformer-mini',
+      modelId: 'Qwen3-Embedding-0.6B-Q8_0',
       dimension: 384,
     },
   },
@@ -115,7 +115,7 @@ export const SETUP_SCENARIOS: Record<string, SetupScenario> = {
     },
     embedding: {
       status: 'ok',
-      modelId: 'sentence-transformer-mini',
+      modelId: 'Qwen3-Embedding-0.6B-Q8_0',
       dimension: 384,
     },
   },
@@ -131,7 +131,7 @@ export const SETUP_SCENARIOS: Record<string, SetupScenario> = {
     },
     embedding: {
       status: 'ok',
-      modelId: 'sentence-transformer-mini',
+      modelId: 'Qwen3-Embedding-0.6B-Q8_0',
       dimension: 384,
     },
   },
@@ -147,7 +147,7 @@ export const SETUP_SCENARIOS: Record<string, SetupScenario> = {
     },
     embedding: {
       status: 'warning',
-      modelId: 'sentence-transformer-mini',
+      modelId: 'Qwen3-Embedding-0.6B-Q8_0',
       problem: 'degenerate',
       dimension: 384,
       error: 'embedding vector was all zeroes (check the pooling type)',
@@ -168,7 +168,7 @@ export const SETUP_SCENARIOS: Record<string, SetupScenario> = {
     },
     embedding: {
       status: 'warning',
-      modelId: 'sentence-transformer-mini',
+      modelId: 'Qwen3-Embedding-0.6B-Q8_0',
       problem: 'missing',
       error: 'llama.cpp router is not running. Please restart the app.',
     },

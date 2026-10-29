@@ -232,7 +232,7 @@ export default class RagExtension extends RAGExtension {
         }
       }
 
-      const queryEmb = (await embedTexts([query]))?.[0]
+      const queryEmb = (await embedTexts([query], { purpose: 'query' }))?.[0]
       if (!queryEmb) {
         return {
           error: 'Failed to compute embeddings',

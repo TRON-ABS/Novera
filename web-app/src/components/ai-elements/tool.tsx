@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { useControllableState } from '@radix-ui/react-use-controllable-state'
 import {
   Collapsible,
@@ -397,6 +398,8 @@ type ToolImageProps = {
 }
 
 const ToolImage = memo(({ data, index }: ToolImageProps) => {
+  const { t: uiT } = useUiLocale()
+
   // Prepare the URL - convert base64 to data URL if needed
   const [preparedUrl, setPreparedUrl] = useState<string | undefined>(undefined)
 
@@ -430,7 +433,7 @@ const ToolImage = memo(({ data, index }: ToolImageProps) => {
     <div key={index} className="inline-block">
       <img
         src={preparedUrl}
-        alt="Tool output"
+        alt={uiT('ui:toolOutput')}
         className="max-w-full max-h-96 w-auto h-auto object-contain rounded-md border"
       />
     </div>

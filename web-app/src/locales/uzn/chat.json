@@ -47,7 +47,35 @@
     "tokens": "Tokenlar",
     "perSecond": "Tokenlar/s"
   },
+  "player": {
+    "play": "Ijro etish",
+    "pause": "Pauza",
+    "seek": "Ijro holati",
+    "mute": "Ovozni o‘chirish",
+    "volume": "Ovoz balandligi",
+    "speed": "Ijro tezligi"
+  },
   "creation": {
+    "musicLyricsGuide": "So‘rovda uslub va ovozni tasvirlang. Qo‘shiq matnini quyidagi teglar ostiga yozing. Vokal uchun {{instrumental}} ni o‘chiring.",
+    "music": "Musiqa",
+    "musicDuration": "Musiqa davomiyligi",
+    "musicQuality": "Ovoz sifati",
+    "musicInstrumental": "Cholgʻu musiqasi",
+    "musicLyrics": "Qoʻshiq matni",
+    "musicGenerator": "Musiqa yaratuvchi",
+    "musicPlanner": "Musiqa rejalashtiruvchi",
+    "setupAllDownload": "Hammasini avtomatik yuklab olish va sozlash",
+    "setupConfiguring": "Tavsiya etilgan modellar sozlanmoqda",
+    "setupStorage": "Jami fayllar: {{download}}. Zaxira: {{reserve}}. Qoʻshimcha kerakli joy: {{required}}. Tanlangan diskda boʻsh: {{free}}.",
+    "setupSpaceMissing": "{{missing}} joy yetishmaydi. Joy boʻshating yoki yetarli xotirali boshqa diskni tanlang.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M — suhbat, yozish, asboblar chaqiruvi va tuzilgan chiqishlar uchun tavsiya etilgan mahalliy matn modeli. Dastlabki kontekst 16K token; oshirishdan oldin mavjud xotirani tekshiring. Faqat matn kiritish va chiqarish, qoralama modelisiz. Haqiqiy da'volarni tekshirish uchun qidiruv yoki hujjatlaringizdan foydalaning.",
+    "setupImageNote": "Rasm — FLUX.2 Klein 4B · Q4_K_M. Matn: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Tomonlar nisbati: 21:9; Rezolyutsiya: 1024 × 432; Avlod bosqichlari: 4; Urug‘ rejimi: Tasodifiy.",
+    "setupMusicNote": "Musiqa — ACE-Step 1.5 Turbo. Musiqa yaratuvchi: 2B · Q4_K_M; Musiqa rejalashtiruvchi: 1.7B · Q8_0; Matn: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Musiqa davomiyligi: 10–600 s; Ovoz sifati: 48 kHz · 2.0; Cholgʻu musiqasi / Qoʻshiq matni; Tasodifiy.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Matn: UMT5-XXL · Q4_K_M. Video davomiyligi: 5 s; Tomonlar nisbati: 21:9; soniyada kadrlar: 16. Uzun videolar qisqa kliplardan yigʻiladi. Ulangan joylar koʻrinishi mumkin va yaratish uzoq vaqt olishi mumkin. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Tavsiya etilgan modellar yuklab olinadi va sozlanadi: matn uchun Nemotron, ko'p tilli qidiruv uchun Qwen3-Embedding Q8_0 (default holatda CPU), FLUX.2 Klein 4B va uning komponentlari, Real-ESRGAN ×2/×4, musiqa uchun ACE-Step (default holatda Instrumental yoqilgan) va video uchun Wan2.1. Quyida fayl o'lchamlari, disk hajmi va video talablari tekshiring. Alohida yuklab olish va Browse mavjud bo'lib qoladi.",
+    "finalizing": "Video yakunlanmoqda",
+    "videoDuration": "Video davomiyligi",
+    "videoDurationNote": "Uzun videolar qisqa kliplardan yigʻiladi. Ulangan joylar koʻrinishi mumkin va yaratish uzoq vaqt olishi mumkin.",
     "output": "Javob formati",
     "auto": "Avtomatik",
     "text": "Matn",
@@ -144,7 +172,8 @@
     "ratio": "Tomonlar nisbati",
     "resolution": "Rezolyutsiya",
     "customSize": "Maxsus",
-    "sizeAutoNote": "Nisbatni o'zgartirish joriy ruxsatni moslashtiradi. Oʻlchamlar 16 ning koʻpaytmalari, 2048 px gacha."
+    "sizeAutoNote": "Nisbatni o'zgartirish joriy ruxsatni moslashtiradi. Oʻlchamlar 16 ning koʻpaytmalari, 2048 px gacha.",
+    "setupTextNvfp4Note": "Aniqlangan NVIDIA Blackwell GPU yoki undan yangiroq, kamida 4,5 GiB VRAM uchun ixtiyoriy NVFP4 vazn. Ushbu vaznlarni Novera da ishlatish uchun avvalo toʻliq model ombori mos NVFP4 GGUF ga aylantirilishi va tasdiqlanishi kerak. Bu nazorat punkti uchun bu konvertatsiya hali tasdiqlanmagan. Bog'langan Safetensors faylni o'rnatilgan vosita to'g'ridan-to'g'ri yuklab bo'lmaydi. Q8_0 foydalanishga tayyor tavsiya boʻlib qoladi. Xotira ehtiyojlari ham kontekst uzunligiga bog'liq."
   },
   "creationInstall": {
     "install": "Ushbu sozlamani oʻrnatish",

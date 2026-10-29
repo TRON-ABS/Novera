@@ -393,8 +393,15 @@ export class DefaultModelsService implements ModelsService {
     )
   }
 
-  async deleteModel(id: string, provider?: string): Promise<void> {
-    return this.getEngine(provider)?.delete(id)
+  async deleteModel(id: string, provider?: string, options?: { deleteFiles?: boolean }): Promise<void> {
+    const engine = this.getEngine(provider)
+    if (options) {
+      if (!engine || (provider ?? defaultProvider) !== 'llamacpp') {
+        throw new Error('Model removal choices are only supported by llama.cpp')
+      }
+      return engine.delete(id, options)
+    }
+    return engine?.delete(id)
   }
 
   async getActiveModels(provider?: string): Promise<string[]> {
@@ -697,6 +704,14 @@ export class DefaultModelsService implements ModelsService {
     if (engine && typeof engine.updateModelSettings === 'function') {
       await engine.updateModelSettings(modelId, patch)
     }
+  }
+
+  async getEmbeddingDevice(modelId: string): Promise<'cpu' | 'gpu'> {
+    const engine = this.getEngine('llamacpp') as (AIEngine & {
+      getEmbeddingDevice?: (id: string) => Promise<'cpu' | 'gpu'>
+    }) | undefined
+    if (!engine?.getEmbeddingDevice) throw new Error('Embedding device settings are unavailable')
+    return engine.getEmbeddingDevice(modelId)
   }
 
   async isModelSupported(

@@ -38,5 +38,6 @@
   "defaultAssistantSection": "ڊفالٽ اسسٽنٽ",
   "defaultAssistantDesc": "نئين چيٽ شروع ڪرڻ وقت استعمال ٿيل",
   "allAssistants": "سڀ اسسٽنٽ",
-  "lastUsed": "آخري استعمال"
+  "lastUsed": "آخري استعمال",
+  "officialInstructions": "Novera جي هدايتن جا ٽي درجا رڳو {{path}} ذريعي تبديل ڪري سگهجن ٿا."
 }

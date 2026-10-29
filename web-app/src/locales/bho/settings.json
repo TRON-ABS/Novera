@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "कोड ब्लॉक स्टाइल के रीसेट करीं",
     "resetCodeBlockStyleDesc": "कोड ब्लॉक स्टाइल के डिफ़ॉल्ट पर रीसेट करीं।",
     "resetCodeBlockSuccess": "कोड ब्लॉक स्टाइल सफलतापूर्वक रीसेट हो गइल",
-    "resetCodeBlockSuccessDesc": "कोड ब्लॉक स्टाइल के डिफ़ॉल्ट रूप से बहाल कर दिहल गइल बा।"
+    "resetCodeBlockSuccessDesc": "कोड ब्लॉक स्टाइल के डिफ़ॉल्ट रूप से बहाल कर दिहल गइल बा।",
+    "subtitle": "Novera के आपन बनाईं, एकर रूप से लेके आपन बातचीत के पसंद तक।",
+    "accentColor": "उच्चारण के रंग बा",
+    "accentColorDesc": "लहजा आ साइडबार के रंग चुनीं।",
+    "conversation": "बातचीत आ सूचना के बारे में बतावल गइल बा"
   },
   "hardware": {
     "os": "ऑपरेटिंग सिस्टम के बा",

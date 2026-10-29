@@ -134,9 +134,24 @@ export interface ModelConfig {
   // some model info that we cache upon import
   size_bytes: number
   sha256?: string
+  model_sha256?: string
+  model_size_bytes?: number
   mmproj_sha256?: string
   mmproj_size_bytes?: number
   embedding?: boolean
+  embedding_check_v?: number
+  mtp_layers?: number
+  mtp_check_v?: number
+  mtp_model_path?: string
+  mtp?: boolean
+  spec_type?: string
+  ctx_size?: number
+  temperature?: number
+  top_k?: number
+  repeat_penalty?: number
+  pooling?: string
+  ubatch_size?: number
+  batch_size?: number
   template_kwargs?: TemplateKwarg[]
   template_kwargs_check_v?: number
 }

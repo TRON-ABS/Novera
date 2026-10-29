@@ -4,6 +4,7 @@ import { Loader } from 'lucide-react'
 import { useParams } from '@tanstack/react-router'
 import { Progress } from '@/components/ui/progress'
 import { cn } from '@/lib/utils'
+import { useTranslation } from '@/i18n/react-i18next-compat'
 
 export function PromptProgress({
   hideIdle = false,
@@ -20,6 +21,7 @@ export function PromptProgress({
    */
   stateKey?: string
 }) {
+  const { t } = useTranslation()
   const params = useParams({ strict: false })
   const threadId = stateKey ?? (params as { threadId?: string })?.threadId
   const promptProgress = useAppState((state) =>
@@ -72,19 +74,19 @@ export function PromptProgress({
   // stage for its entire duration, so calling that out would be noise.
   const stageLabel =
     loadingModel && loadProgress && (loadProgress.stages?.length ?? 0) > 1
-      ? describeLoadStage(loadProgress.stage)
+      ? describeLoadStage(loadProgress.stage, t)
       : undefined
 
   const label = loadingModel
     ? loadPercentage !== undefined
-      ? `Loading ${stageLabel ?? 'model'}: ${loadPercentage}%`
-      : 'Loading model…'
+      ? t('ui:loadingProgress', { stage: stageLabel ?? t('chat:creation.model'), progress: loadPercentage })
+      : t('ui:loadingModel')
     : showReading
-      ? `Reading: ${percentage}%`
-      : 'Working…'
+      ? t('ui:readingProgress', { progress: percentage })
+      : t('tools:toolCall.working')
 
   const detail =
-    showReading && !loadingModel ? buildDetail(promptProgress) : undefined
+    showReading && !loadingModel ? buildDetail(promptProgress, t) : undefined
 
   // The floor keeps the box from resizing as the percentage and ETA change; a
   // bare "Working…" has nothing to stabilise, so it shrink-wraps instead of
@@ -114,14 +116,14 @@ export function PromptProgress({
   )
 }
 
-function describeLoadStage(stage: string | undefined): string | undefined {
+function describeLoadStage(stage: string | undefined, t: ReturnType<typeof useTranslation>['t']): string | undefined {
   switch (stage) {
     case 'text_model':
-      return 'text model'
+      return t('ui:loadTextModel')
     case 'mmproj_model':
-      return 'encoder'
+      return t('ui:loadEncoder')
     case 'spec_model':
-      return 'draft model'
+      return t('ui:loadDraftModel')
     default:
       return undefined
   }
@@ -131,16 +133,16 @@ function buildDetail(progress: {
   processed: number
   total: number
   time_ms: number
-}): string {
+}, t: ReturnType<typeof useTranslation>['t']): string {
   const parts = [
-    `${formatTokens(progress.processed)} / ${formatTokens(progress.total)} tokens`,
+    t('ui:promptTokensDetail', { processed: formatTokens(progress.processed), total: formatTokens(progress.total) }),
   ]
 
   // Extrapolate remaining time from the processing rate so far.
   if (progress.time_ms > 0 && progress.processed > 0) {
     const remaining = progress.total - progress.processed
     const etaMs = (progress.time_ms / progress.processed) * remaining
-    if (remaining > 0) parts.push(`~${formatEta(etaMs)} left`)
+    if (remaining > 0) parts.push(t('ui:timeRemaining', { time: formatEta(etaMs) }))
   }
 
   return parts.join(' · ')

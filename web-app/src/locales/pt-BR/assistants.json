@@ -38,5 +38,6 @@
   "defaultAssistantSection": "Assistente padrão",
   "defaultAssistantDesc": "Usado ao iniciar um novo chat",
   "allAssistants": "Todos os assistentes",
-  "lastUsed": "Último uso"
+  "lastUsed": "Último uso",
+  "officialInstructions": "As três categorias de instruções do Novera só podem ser editadas por {{path}}."
 }

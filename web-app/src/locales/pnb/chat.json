@@ -47,7 +47,35 @@
     "tokens": "ٹوکن",
     "perSecond": "ٹوکن/سیکنڈ"
   },
+  "player": {
+    "play": "چلاؤ",
+    "pause": "وقفہ پاؤ",
+    "seek": "چلݨ دی تھاں",
+    "mute": "آواز بند کرو",
+    "volume": "آواز دی سطح",
+    "speed": "چلݨ دی رفتار"
+  },
   "creation": {
+    "musicLyricsGuide": "درخواست وچ انداز تے آواز دسو۔ گانے دے بول تھلے دتے ٹیگاں ہیٹھ لکھو۔ گائیکی لئی {{instrumental}} بند کرو۔",
+    "music": "موسیقی",
+    "musicDuration": "موسیقی دا دورانیہ",
+    "musicQuality": "آڈیو دا معیار",
+    "musicInstrumental": "سازاں دی موسیقی",
+    "musicLyrics": "گانے دے بول",
+    "musicGenerator": "موسیقی بناؤن والا",
+    "musicPlanner": "موسیقی دا منصوبہ ساز",
+    "setupAllDownload": "سب کجھ اپنے آپ ڈاؤن لوڈ تے سیٹ کرو",
+    "setupConfiguring": "تجویز کیتے ماڈل سیٹ ہو رہے نیں",
+    "setupStorage": "کُل فائلیں: {{download}}۔ رکھویں تھاں: {{reserve}}۔ ہور لوڑ دی تھاں: {{required}}۔ چُنی ڈسک تے خالی: {{free}}۔",
+    "setupSpaceMissing": "{{missing}} تھاں گھٹ اے۔ تھاں خالی کرو یا کافی تھاں والی ہور ڈسک چنو۔",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M گل بات، لکھن، ٹول کالز تے ڈھانچہ جاتی آؤٹ پٹ دے لیی تجویز کردہ مقامی ٹیکسٹ ماڈل اے۔ ابتدائی سیاق و سباق 16K ٹوکن اے; اس نو ودھاون توں پہلے دستیاب میموری چیک کرو۔ صرف ٹیکسٹ ان پٹ تے آؤٹ پٹ، کوئی ڈرافٹ ماڈل نئیں۔ حقیقت پسندانہ دعویاں دی تصدیق کرن لئی تلاش یا اپنی دستاویزات دا استعمال کرو۔",
+    "setupImageNote": "تصویر — FLUX.2 Klein 4B · Q4_K_M. متن: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. پاسیاں دا تناسب: 21:9; ریزولوشن: 1024 × 432; نسل دے اقدامات: 4; سیڈ موڈ: بے ترتیب.",
+    "setupMusicNote": "موسیقی — ACE-Step 1.5 Turbo. موسیقی بناؤن والا: 2B · Q4_K_M; موسیقی دا منصوبہ ساز: 1.7B · Q8_0; متن: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. موسیقی دا دورانیہ: 10–600 s; آڈیو دا معیار: 48 kHz · 2.0; سازاں دی موسیقی / گانے دے بول; بے ترتیب.",
+    "setupVideoNote": "ویڈیو — Wan2.1 T2V 1.3B · Q4_K_M. متن: UMT5-XXL · Q4_K_M. ویڈیو دا دورانیہ: 5 s; پاسیاں دا تناسب: 21:9; فریم فی سیکنڈ: 16. لمیاں ویڈیواں چھوٹے کلپ جوڑ کے بنائیاں جاندیاں نیں۔ جوڑ نظر آ سکدے نیں تے بناؤن وچ کافی ویلا لگ سکدا اے۔ · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Recommended models (Nemotron for text, Qwen3-Embedding Q8_0 for multilingual retrieval (CPU by default), FLUX.2 Klein 4B and its components, Real-ESRGAN ×2/×4, ACE-Step for music (Instrumental on by default), and Wan2.1 for video) download aur configure karde ne. File sizes, disk space, aur video prerequisites neeche check karo. Alag downloads aur Browse maujood hain.",
+    "finalizing": "ویڈیو نوں آخری شکل دتی جا رہی اے",
+    "videoDuration": "ویڈیو دا دورانیہ",
+    "videoDurationNote": "لمیاں ویڈیواں چھوٹے کلپ جوڑ کے بنائیاں جاندیاں نیں۔ جوڑ نظر آ سکدے نیں تے بناؤن وچ کافی ویلا لگ سکدا اے۔",
     "output": "جواب دی شکل",
     "auto": "آٹو",
     "text": "متن",
@@ -144,7 +172,8 @@
     "ratio": "پاسیاں دا تناسب",
     "resolution": "ریزولوشن",
     "customSize": "اپنی مرضی",
-    "sizeAutoNote": "تناسب بدلنے نال موجودہ ریزولوشن آپ بدلدا اے۔ ماپ 16 دے مضرب ہوندے نیں، ودھ توں ودھ 2048 px۔"
+    "sizeAutoNote": "تناسب بدلنے نال موجودہ ریزولوشن آپ بدلدا اے۔ ماپ 16 دے مضرب ہوندے نیں، ودھ توں ودھ 2048 px۔",
+    "setupTextNvfp4Note": "اختیاری NVFP4 وزن اک پتہ چلا NVIDIA بلیک ویل GPU یا نویں دے نال گھٹ توں گھٹ 4.5 GiB VRAM دے نال ایہناں وزناں وچ استعمال کرن لئی۔ Novera، مکمل ماڈل ریپازٹری نو پہلے اک مطابقت NVFP4 GGUF وچ تبدیل کیتا جانا چاہیدا اے تے اس دی توثیق کیتی جانی چاہیدی اے۔ اس تبدیلی دی ہلے تیکر اس چوکی لئی تصدیق نئیں کیتی گئی اے۔ لنک کیتی گئی Safetensors فائل بلٹ ان انجن دے ذریعے براہ راست لوڈ نئیں کیتی جاسکدی۔ Q8_0 ورتن لئی تیار سفارش رہندی اے۔ میموری دی لوڑ وی سیاق و سباق دی لمبائی تے منحصر اے۔"
   },
   "creationInstall": {
     "install": "ایہہ ترتیب انسٹال کرو",

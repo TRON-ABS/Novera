@@ -60,7 +60,14 @@
     "removeFromJan": "Видалити з Novera",
     "success": "Модель {{modelId}} видалено назавжди.",
     "cancel": "Скасувати",
-    "delete": "Видалити"
+    "delete": "Видалити",
+    "choiceDescription": "Виберіть, як видалити цю модель з Novera.",
+    "removeFromNovera": "Видалити з Novera",
+    "permanentlyDelete": "Видалити назавжди",
+    "keepFilesDescription": "Видаліть модель зі списку та збережіть її файли на диску. Ви можете імпортувати його знову.",
+    "permanentDescription": "Видаліть модель та її Novera-керовані файли з диска. Це неможливо скасувати.",
+    "permanentImportedDescription": "Також видаліть основний файл GGUF у його вихідному місці. Зовнішні допоміжні файли зберігаються. Це неможливо скасувати.",
+    "removedSuccess": "Модель {{modelId}} видалено з Novera. Її файли збережено."
   },
   "deleteAllModels": {
     "button": "Видалити все",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Додаткові резервні ключі налаштовані в розділі «Додатково».",
     "addKey": "Додати ключ",
     "removeKey": "Зняти ключ"
-  }
+  },
+  "installedMediaModels": "Зображення, відео та музичні моделі",
+  "noInstalledModels": "У цій категорії немає зареєстрованих моделей.",
+  "modelComponents": "Файли моделі"
 }

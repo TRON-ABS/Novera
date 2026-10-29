@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "कोई बग मिला? GitHub पर रिपोर्ट करके हमारी मदद करें।",
   "reportIssue": "समस्या रिपोर्ट करें",
   "credits": "श्रेय",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS), Menlo Research और उसके योगदानकर्ताओं द्वारा जनवरी पर आधारित।",
   "creditsDesc2": "हमारे ओपन सोर्स डिपेंडेंसीज़ जैसे llama.cpp और Tauri, तथा हमारी शानदार AI समुदाय को विशेष धन्यवाद।",
   "appVersion": "ऐप संस्करण",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "renderHtmlArtifacts": "HTML और SVG कलाकृतियों को प्रस्तुत करें",
     "renderHtmlArtifactsDesc": "HTML और SVG कोड ब्लॉक में एक पूर्वावलोकन टैब जोड़ें। HTML मॉडल-जनरेटेड पेज को सैंडबॉक्स वाले फ्रेम में चलाता है जो अपनी स्क्रिप्ट निष्पादित करता है लेकिन Novera, आपकी फ़ाइलों या नेटवर्क तक नहीं पहुंच सकता है; SVG अक्षम स्क्रिप्ट के साथ स्थिर रूप से प्रस्तुत होता है। डिफ़ॉल्ट रूप से बंद.",
     "autoGenerateTitle": "चैट शीर्षक स्वतः उत्पन्न करें",
-    "autoGenerateTitleDesc": "स्वचालित रूप से नई बातचीत को थ्रेड शीर्षक में सारांशित करें। डिफ़ॉल्ट शीर्षक को बनाए रखने के लिए इसे तब तक बंद करें जब तक कि आप स्वयं इसका नाम न बदल लें।"
+    "autoGenerateTitleDesc": "स्वचालित रूप से नई बातचीत को थ्रेड शीर्षक में सारांशित करें। डिफ़ॉल्ट शीर्षक को बनाए रखने के लिए इसे तब तक बंद करें जब तक कि आप स्वयं इसका नाम न बदल लें।",
+    "subtitle": "Novera को इसके स्वरूप से लेकर अपनी बातचीत की प्राथमिकताओं तक अपना बनाएं।",
+    "accentColor": "उच्चारण रंग",
+    "accentColorDesc": "उच्चारण और साइडबार रंग चुनें।",
+    "conversation": "बातचीत और सूचनाएं"
   },
   "hardware": {
     "os": "ऑपरेटिंग सिस्टम",
@@ -291,7 +295,7 @@
     "reportAnIssueDesc": "कोई बग मिला? GitHub पर रिपोर्ट करके हमारी मदद करें।",
     "reportIssue": "समस्या रिपोर्ट करें",
     "credits": "श्रेय",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS), Menlo Research और उसके योगदानकर्ताओं द्वारा जनवरी पर आधारित।",
     "creditsDesc2": "हमारे ओपन सोर्स डिपेंडेंसीज़ जैसे llama.cpp और Tauri, तथा हमारी शानदार AI समुदाय को विशेष धन्यवाद।",
     "autoUpdateCheck": "स्वचालित अद्यतन जाँच",
     "autoUpdateCheckDesc": "स्टार्टअप पर और समय-समय पर अपडेट के लिए स्वचालित रूप से जाँच करें।",

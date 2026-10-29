@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Reset Code Blok Style",
     "resetCodeBlockStyleDesc": "Reset gaya blok kode ka standar.",
     "resetCodeBlockSuccess": "Gaya blok kode hasil ngareset",
-    "resetCodeBlockSuccessDesc": "Gaya blok kode parantos dibalikkeun ka standar."
+    "resetCodeBlockSuccessDesc": "Gaya blok kode parantos dibalikkeun ka standar.",
+    "subtitle": "Jieun Novera anjeun sorangan, tina penampilanna nepi ka preferensi obrolan anjeun.",
+    "accentColor": "Warna aksen",
+    "accentColorDesc": "Pilih aksen sareng warna sidebar.",
+    "conversation": "Paguneman sareng bewara"
   },
   "hardware": {
     "os": "Sistem Operasi",

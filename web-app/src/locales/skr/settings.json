@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "کوئی بگ لبھ گیا؟ GitHub تے کوئی مسئلہ دائر کر کے ساݙی مدد کرو۔",
   "reportIssue": "مسئلہ رپورٹ کرو",
   "credits": "کریڈٹ",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS)، Menlo Research تے اِہدی معاونین دے Jan تے مبنی۔",
   "creditsDesc2": "ساݙی اوپن سورس انحصار دا خصوصی شکریہ - خاص طور تے llama.cpp تے ٹوری - تے ساݙی حیرت انگیز ہے آئی کمیونٹی دا۔",
   "appVersion": "ایپ ورژن",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "ری سیٹ کوڈ بلاک سٹائل",
     "resetCodeBlockStyleDesc": "کوڈ بلاک سٹائل نو ڈیفالٹ تے ری سیٹ کرو۔",
     "resetCodeBlockSuccess": "کوڈ بلاک سٹائل ری سیٹ کامیابی نال",
-    "resetCodeBlockSuccessDesc": "کوڈ بلاک سٹائل نو ڈیفالٹ تے بحال کر دتا گیا ہے۔"
+    "resetCodeBlockSuccessDesc": "کوڈ بلاک سٹائل نو ڈیفالٹ تے بحال کر دتا گیا ہے۔",
+    "subtitle": "Novera نوں اپنا بناؤ، اِہدی شکل توں تہاڈی گل بات دی ترتیبات تک۔",
+    "accentColor": "اَکسنٹ رنگ",
+    "accentColorDesc": "اَکسنٹ تے سائیڈ بار دا رنگ چن لو۔",
+    "conversation": "گل بات تے نوٹیفیکیشنز"
   },
   "hardware": {
     "os": "آپریٹنگ سسٹم",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "کوئی بگ لبھ گیا؟ GitHub تے کوئی مسئلہ دائر کر کے ساݙی مدد کرو۔",
     "reportIssue": "مسئلہ رپورٹ کرو",
     "credits": "کریڈٹ",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS)، Menlo Research تے اِہدی معاونین دے Jan تے مبنی۔",
     "creditsDesc2": "ساݙی اوپن سورس انحصار دا خصوصی شکریہ - خاص طور تے llama.cpp تے ٹوری - تے ساݙی حیرت انگیز ہے آئی کمیونٹی دا۔"
   },
   "extensions": {

@@ -81,6 +81,8 @@ fn mime_for(path: &Path) -> &'static str {
         "gif" => "image/gif",
         "mp4" => "video/mp4",
         "webm" => "video/webm",
+        "wav" => "audio/wav",
+        "mp3" => "audio/mpeg",
         _ => "application/octet-stream",
     }
 }
@@ -241,6 +243,8 @@ pub async fn sharing_native<R: Runtime>(
     let file = tauri::async_runtime::spawn_blocking(move || stage_payload(&stage_app, &payload))
         .await
         .map_err(|e| e.to_string())??;
+    #[cfg(windows)]
+    let item = prepare_windows_share(file.clone()).await?;
     let _ = (&window, &mime);
     #[cfg(target_os = "linux")]
     return linux_share(&file, &title, &text).await;
@@ -260,6 +264,9 @@ pub async fn sharing_native<R: Runtime>(
         let owner = window.clone();
         window
             .run_on_main_thread(move || {
+                #[cfg(windows)]
+                let result = native_sheet(&owner, item, &title, &text, false);
+                #[cfg(not(windows))]
                 let result = native_sheet(&owner, &file, &title, &text, false);
                 let _ = send.send(result);
             })
@@ -432,18 +439,62 @@ async fn linux_share(file: &Path, title: &str, text: &str) -> Result<(), String>
 }
 
 #[cfg(windows)]
+fn windows_storage_path(file: &Path) -> Result<String, String> {
+    let path = file.to_str().ok_or("SHARE_INVALID")?.replace('/', "\\");
+    Ok(if let Some(unc) = path.strip_prefix("\\\\?\\UNC\\") {
+        format!("\\\\{unc}")
+    } else {
+        path.strip_prefix("\\\\?\\").unwrap_or(&path).to_owned()
+    })
+}
+
+#[cfg(windows)]
+fn with_windows_mta<T>(run: impl FnOnce() -> windows::core::Result<T>) -> windows::core::Result<T> {
+    use windows::Win32::System::WinRT::{RoInitialize, RoUninitialize, RO_INIT_MULTITHREADED};
+    // Balance even S_FALSE; never uninitialize an apartment whose init failed.
+    unsafe { RoInitialize(RO_INIT_MULTITHREADED)?; }
+    struct Apartment;
+    impl Drop for Apartment {
+        fn drop(&mut self) { unsafe { RoUninitialize(); } }
+    }
+    let _apartment = Apartment;
+    run()
+}
+
+#[cfg(windows)]
+fn prepare_windows_storage_item(file: &Path) -> Result<windows::core::AgileReference<windows::Storage::IStorageItem>, String> {
+    use windows::{core::{AgileReference, HSTRING, Interface}, Storage::{IStorageItem, StorageFile}};
+    let path = windows_storage_path(file)?;
+    with_windows_mta(|| {
+        // join is safe on this MTA worker. It must never run on the UI thread:
+        // WinRT completion can need the UI message pump that join would block.
+        let item: IStorageItem = StorageFile::GetFileFromPathAsync(&HSTRING::from(path))?.join()?.cast()?;
+        AgileReference::new(&item)
+    }).map_err(|e| format!("SHARE_UNSUPPORTED: preparing Windows file: {e}"))
+}
+
+#[cfg(windows)]
+async fn prepare_windows_share(file: PathBuf) -> Result<windows::core::AgileReference<windows::Storage::IStorageItem>, String> {
+    tokio::time::timeout(
+        std::time::Duration::from_secs(15),
+        tauri::async_runtime::spawn_blocking(move || prepare_windows_storage_item(&file)),
+    ).await.map_err(|_| "SHARE_UNSUPPORTED: Windows file preparation timed out".to_string())?
+        .map_err(|e| e.to_string())?
+}
+
+#[cfg(windows)]
 fn native_sheet<R: Runtime>(
     window: &tauri::WebviewWindow<R>,
-    file: &Path,
+    item: windows::core::AgileReference<windows::Storage::IStorageItem>,
     title: &str,
     text: &str,
     _copy: bool,
 ) -> Result<(), String> {
     use windows::{
-        core::{factory, Interface, HSTRING},
+        core::{factory, HSTRING},
         ApplicationModel::DataTransfer::{DataRequestedEventArgs, DataTransferManager},
         Foundation::TypedEventHandler,
-        Storage::{IStorageItem, StorageFile},
+        Storage::IStorageItem,
         Win32::{Foundation::HWND, UI::Shell::IDataTransferManagerInterop},
     };
     use windows_collections::IIterable;
@@ -455,11 +506,6 @@ fn native_sheet<R: Runtime>(
             r.get_or_init(|| unsafe { RoInitialize(RO_INIT_SINGLETHREADED) })
                 .clone()
         })?;
-        let path = file.to_string_lossy();
-        let path = path.strip_prefix("\\\\?\\").unwrap_or(&path);
-        let item: IStorageItem = StorageFile::GetFileFromPathAsync(&HSTRING::from(path))?
-            .join()?
-            .cast()?;
         let interop: IDataTransferManagerInterop =
             factory::<DataTransferManager, IDataTransferManagerInterop>()?;
         let hwnd = HWND(
@@ -474,7 +520,6 @@ fn native_sheet<R: Runtime>(
                 let _ = m.RemoveDataRequested(t);
             }
         });
-        let item = windows::core::AgileReference::new(&item)?;
         let title = HSTRING::from(title);
         let text = HSTRING::from(text);
         let token = manager.DataRequested(&TypedEventHandler::<
@@ -719,6 +764,45 @@ fn native_sheet<R: Runtime>(
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[cfg(windows)]
+    #[test]
+    fn storage_paths_preserve_unc_and_unicode() {
+        for (input, expected) in [
+            (r"\\?\C:\Images\École 世界.png", r"C:\Images\École 世界.png"),
+            (r"\\?\UNC\server\Images\Novera.mp3", r"\\server\Images\Novera.mp3"),
+            ("C:/Media/song.mp3", r"C:\Media\song.mp3"),
+        ] {
+            assert_eq!(windows_storage_path(Path::new(input)).unwrap(), expected);
+        }
+    }
+    #[cfg(windows)]
+    #[tokio::test]
+    async fn windows_share_files_are_prepared_off_thread_and_marshaled_after_worker_exit() {
+        let root = std::env::temp_dir().join(format!("novera-share-item-{}", uuid::Uuid::new_v4()));
+        std::fs::create_dir(&root).unwrap();
+        for extension in ["txt", "png", "mp3", "mp4"] {
+            let name = format!("École 世界.{extension}");
+            let file = root.join(&name);
+            std::fs::write(&file, b"share fixture").unwrap();
+            let item = prepare_windows_share(file.canonicalize().unwrap()).await.unwrap();
+            // The preparing worker's COM scope has ended. Resolve on a fresh
+            // apartment, as the UI DataRequested callback will do later.
+            let actual = std::thread::spawn(move || {
+                with_windows_mta(|| item.resolve()?.Name()).unwrap().to_string()
+            }).join().unwrap();
+            assert_eq!(actual, name);
+            std::fs::remove_file(file).unwrap();
+        }
+        std::fs::remove_dir(root).unwrap();
+    }
+    #[cfg(windows)]
+    #[tokio::test]
+    async fn missing_windows_share_file_returns_an_error_before_ui_dispatch() {
+        let missing = std::env::temp_dir().join(format!("novera-missing-{}.mp3", uuid::Uuid::new_v4()));
+        let result = prepare_windows_share(missing).await;
+        assert!(result.is_err());
+        assert!(result.err().unwrap().starts_with("SHARE_UNSUPPORTED: preparing Windows file:"));
+    }
     #[cfg(windows)]
     #[test]
     fn windows_file_drop_is_readable_by_the_shell() {

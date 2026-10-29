@@ -60,7 +60,14 @@
     "removeFromJan": "Novera වෙතින් ඉවත් කරන්න",
     "success": "මාදිලිය {{modelId}} ස්ථිරවම මකා ඇත.",
     "cancel": "අවලංගු කරන්න",
-    "delete": "මකන්න"
+    "delete": "මකන්න",
+    "choiceDescription": "Novera වෙතින් මෙම ආකෘතිය ඉවත් කරන ආකාරය තෝරන්න.",
+    "removeFromNovera": "Novera වෙතින් ඉවත් කරන්න",
+    "permanentlyDelete": "ස්ථිරවම මකන්න",
+    "keepFilesDescription": "ලැයිස්තුවෙන් ආකෘතිය ඉවත් කර එහි ගොනු තැටියේ තබා ගන්න. ඔබට එය නැවත ආනයනය කළ හැකිය.",
+    "permanentDescription": "ආකෘතිය සහ එහි Novera-කළමනාකරන ගොනු තැටියෙන් මකන්න. මෙය ආපසු හැරවිය නොහැක.",
+    "permanentImportedDescription": "ප්‍රධාන GGUF ගොනුව එහි මුල් ස්ථානයේ මකන්න. බාහිර සහායක ගොනු තබා ඇත. මෙය ආපසු හැරවිය නොහැක.",
+    "removedSuccess": "මාදිලිය {{modelId}} Novera වෙතින් ඉවත් කරන ලදී. එහි ගොනු තබා ඇත."
   },
   "deleteAllModels": {
     "button": "සියල්ල මකන්න",
@@ -123,5 +130,8 @@
     "oneKeyHint": "විකල්ප පසුබැසීමේ යතුරු උසස් ලෙස වින්‍යාස කර ඇත.",
     "addKey": "යතුර එක් කරන්න",
     "removeKey": "යතුර ඉවත් කරන්න"
-  }
+  },
+  "installedMediaModels": "රූප, වීඩියෝ සහ සංගීත ආකෘති",
+  "noInstalledModels": "මෙම කාණ්ඩයේ කිසිදු මාදිලියක් ලියාපදිංචි කර නොමැත.",
+  "modelComponents": "ආදර්ශ ගොනු"
 }

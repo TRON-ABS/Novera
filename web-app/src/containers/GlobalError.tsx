@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { useState } from 'react'
 
 interface GlobalErrorProps {
@@ -5,6 +6,8 @@ interface GlobalErrorProps {
 }
 
 export default function GlobalError({ error }: GlobalErrorProps) {
+  const { t: uiT } = useUiLocale()
+
   console.error('Error in root route:', error)
   const [showFull, setShowFull] = useState(false)
 
@@ -35,33 +38,29 @@ export default function GlobalError({ error }: GlobalErrorProps) {
           </div>
         </div>
         <h1 className="mt-5 text-xl font-bold text-slate-800">
-          Oops! Unexpected error occurred.
-        </h1>
+          {uiT('ui:oopsUnexpectedErrorOccurred')}</h1>
         <p className="lg:text-md my-2 text-slate-600">
-          Something went wrong. Try to{' '}
+          {uiT('ui:somethingWentWrongTryTo')}{' '}
           <button
             rel="noopener noreferrer"
             className="text-accent hover:underline"
             onClick={() => window.location.reload()}
           >
-            refresh this page
-          </button>{' '}
-          or <br /> feel free to{' '}
+            {uiT('ui:refreshThisPage')}</button>{' '}
+          {uiT('ui:or')}<br /> {' '}{uiT('ui:feelFreeTo')}{' '}
           <a
             rel="noopener noreferrer"
             className="text-accent! hover:underline"
             href="https://discord.gg/FTk2MvZwJH"
             target="_blank"
           >
-            contact us
-          </a>{' '}
-          if the problem persists.
-        </p>
+            {uiT('ui:contactUs')}</a>{' '}
+          {uiT('ui:ifTheProblemPersists')}</p>
         <div
           className="mt-5 w-full md:w-4/5 xl:w-4/6 mx-auto rounded border border-red-400 bg-red-100 px-4 py-3 text-red-700 "
           role="alert"
         >
-          <strong className="font-bold">Error: </strong>
+          <strong className="font-bold">{uiT('ui:error')}{' '}</strong>
           <span className="block sm:inline">
             {error instanceof Error ? error.message : String(error)}
           </span>
@@ -79,7 +78,7 @@ export default function GlobalError({ error }: GlobalErrorProps) {
               onClick={() => setShowFull(!showFull)}
               className="mt-2 text-sm text-red-700 underline focus:outline-none cursor-pointer"
             >
-              {showFull ? 'Show less' : 'Show more'}
+              {showFull ? uiT('tools:toolCall.showLess') : uiT('tools:toolCall.showMore')}
             </button>
           </div>
         </div>

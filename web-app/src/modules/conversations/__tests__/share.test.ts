@@ -92,4 +92,15 @@ describe('share selection', () => {
     expect(entries).toHaveLength(1)
     expect(entries[0].text).toContain('<think>literal</think>')
   })
+  it.each(['mp3', 'wav'])('includes stored %s music in both original-file selection and conversation exports', (format) => {
+    const message = m('a', 'assistant', '')
+    const url = `novera-creation:music/Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.${format}`
+    message.content = [{ type: ContentType.InputAudio, input_audio: { data: url, format: format as 'mp3' | 'wav' } }]
+    const entries = shareEntries([message])
+    expect(entries[0].assets[0]).toMatchObject({ url, mime: format === 'mp3' ? 'audio/mpeg' : 'audio/wav' })
+    expect(selectShareEntries(entries, { ...options, scope: 'render', messageId: 'a', assetUrl: url })[0].assets).toHaveLength(1)
+    expect(formatsForShare(entries, true)).toEqual(['original', 'html', 'zip'])
+    message.content[0].input_audio!.data = `data:${format === 'mp3' ? 'audio/mpeg' : 'audio/wav'};base64,${url}`
+    expect(shareEntries([message])[0].assets[0].url).toBe(url)
+  })
 })

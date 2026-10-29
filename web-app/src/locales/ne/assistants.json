@@ -38,5 +38,6 @@
   "defaultAssistantSection": "पूर्वनिर्धारित सहायक",
   "defaultAssistantDesc": "नयाँ च्याट सुरु गर्दा प्रयोग गरिन्छ",
   "allAssistants": "सबै सहायकहरू",
-  "lastUsed": "पछिल्लो पटक प्रयोग गरियो"
+  "lastUsed": "पछिल्लो पटक प्रयोग गरियो",
+  "officialInstructions": "Novera का निर्देशनका तीन श्रेणीहरू {{path}} बाट मात्र सम्पादन गर्न सकिन्छ।"
 }

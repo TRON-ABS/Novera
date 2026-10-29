@@ -60,7 +60,14 @@
     "removeFromJan": "從 Novera 中刪忒",
     "success": "模型 {{modelId}} 已永久刪忒。",
     "cancel": "取消",
-    "delete": "刪忒"
+    "delete": "刪忒",
+    "choiceDescription": "揀毋係點樣由 Novera 移除呢個模型。",
+    "removeFromNovera": "從 Novera 中刪忒",
+    "permanentlyDelete": "永久刪除",
+    "keepFilesDescription": "由清單移除模型，檔案留喺硬碟。仰般再匯入。",
+    "permanentDescription": "刪除模型同由 Novera 管理的檔案。此操作毋可以撤銷。",
+    "permanentImportedDescription": "亦刪除原始位置的主要 GGUF 檔案。外部輔助檔案會保留。此操作毋可以撤銷。",
+    "removedSuccess": "模型 {{modelId}} 由 Novera 移除。其檔案會保留。"
   },
   "deleteAllModels": {
     "button": "全部刪忒",
@@ -123,5 +130,8 @@
     "oneKeyHint": "可選後備鍵在進階中配置。",
     "addKey": "新增金鑰",
     "removeKey": "拔掉鑰匙"
-  }
+  },
+  "installedMediaModels": "圖像、影片同音樂模型",
+  "noInstalledModels": "呢類別毋有註冊模型。",
+  "modelComponents": "模型檔案"
 }

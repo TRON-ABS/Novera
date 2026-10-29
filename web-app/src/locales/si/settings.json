@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "කේත වාරණ විලාසය යළි පිහිටුවන්න",
     "resetCodeBlockStyleDesc": "කේත වාරණ විලාසය පෙරනිමියට යළි පිහිටුවන්න.",
     "resetCodeBlockSuccess": "Code block style reset සාර්ථකව",
-    "resetCodeBlockSuccessDesc": "කේත වාරණ විලාසය පෙරනිමියට ප්‍රතිසාධනය කර ඇත."
+    "resetCodeBlockSuccessDesc": "කේත වාරණ විලාසය පෙරනිමියට ප්‍රතිසාධනය කර ඇත.",
+    "subtitle": "එහි පෙනුමේ සිට ඔබේ සංවාද මනාප දක්වා Novera ඔබේම කර ගන්න.",
+    "accentColor": "උච්චාරණ වර්ණය",
+    "accentColorDesc": "උච්චාරණය සහ පැති තීරු වර්ණය තෝරන්න.",
+    "conversation": "සංවාද සහ දැනුම්දීම්"
   },
   "hardware": {
     "os": "මෙහෙයුම් පද්ධතිය",

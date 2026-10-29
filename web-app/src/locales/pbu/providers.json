@@ -60,7 +60,14 @@
     "removeFromJan": "له Novera څخه لرې کړئ",
     "success": "موډل {{modelId}} په پائیداره توګه حذف شو.",
     "cancel": "لغوه کړئ",
-    "delete": "ړنګ کړئ"
+    "delete": "ړنګ کړئ",
+    "choiceDescription": "د Novera څخه دا ماډل څنګه لرې کول غوره کړئ.",
+    "removeFromNovera": "له Novera څخه لرې کړئ",
+    "permanentlyDelete": "د تل لپاره ړنګول",
+    "keepFilesDescription": "موډل له لیست څخه لرې کړئ او فایلونه یې په ډیسک کې وساتئ. تاسو کولی شئ دا بیا وارد کړئ.",
+    "permanentDescription": "موډل او د هغې Novera مدیریت شوي فایلونه له ډیسک څخه حذف کړئ. دا نشي رد کیدی.",
+    "permanentImportedDescription": "همدارنګه اصلي GGUF فایل په خپل اصلي ځای کې حذف کړئ. بهرنۍ مرستندویه فایلونه ساتل کیږي. دا نشي رد کیدی.",
+    "removedSuccess": "ماډل {{modelId}} له Novera څخه لرې شوی. د دې فایلونه ساتل شوي."
   },
   "deleteAllModels": {
     "button": "ټول حذف کړئ",
@@ -123,5 +130,8 @@
     "oneKeyHint": "اختیاري بیک اپ کیلي په پرمختللې برخې کې جوړې شوې دي.",
     "addKey": "کیلي اضافه کړئ",
     "removeKey": "کیلي لیرې کړئ"
-  }
+  },
+  "installedMediaModels": "انځور، ویډیو او میوزیک ماډلونه",
+  "noInstalledModels": "په دې کټګورۍ کې هیڅ ماډل نه دی ثبت شوی.",
+  "modelComponents": "ماډل فایلونه"
 }

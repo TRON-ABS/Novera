@@ -33,7 +33,14 @@
     "cancel": "취소",
     "delete": "삭제",
     "importedDescription": "Novera에서 가져온 모델을 제거하시겠습니까? 디스크의 로컬 파일은 삭제되지 않습니다.",
-    "removeFromJan": "Novera에서 제거"
+    "removeFromJan": "Novera에서 제거",
+    "choiceDescription": "Novera에서 이 모델을 제거하는 방법을 선택하세요.",
+    "removeFromNovera": "Novera에서 제거",
+    "permanentlyDelete": "영구 삭제",
+    "keepFilesDescription": "목록에서 모델을 제거하고 해당 파일을 디스크에 보관하세요. 다시 가져올 수 있습니다.",
+    "permanentDescription": "모델과 해당 Novera 관리 파일을 디스크에서 삭제합니다. 이 작업은 취소할 수 없습니다.",
+    "permanentImportedDescription": "또한 원래 위치에서 기본 GGUF 파일을 삭제하세요. 외부 보조 파일은 보관됩니다. 이 작업은 취소할 수 없습니다.",
+    "removedSuccess": "모델 {{modelId}}가 Novera에서 제거되었습니다. 해당 파일은 유지되었습니다."
   },
   "deleteProvider": {
     "title": "공급자 삭제",
@@ -123,5 +130,8 @@
     "oneKeyHint": "선택적 대체 키는 고급에서 구성됩니다.",
     "addKey": "키 추가",
     "removeKey": "키 제거"
-  }
+  },
+  "installedMediaModels": "이미지, 비디오 및 음악 모델",
+  "noInstalledModels": "이 카테고리에 등록된 모델이 없습니다.",
+  "modelComponents": "모델 파일"
 }

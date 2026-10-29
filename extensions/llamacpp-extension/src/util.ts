@@ -232,7 +232,7 @@ export function detectMtpLayersFromGgufMeta(
 }
 
 const TEMPLATE_KWARG_RE =
-  /\{%-?\s*set\s+([A-Za-z_]\w*)\s*=\s*\1\s*\|\s*default\(\s*([^)]*?)\s*\)/g
+  /\{%-?\s*(?:set\s+([A-Za-z_]\w*)\s*=\s*\1|(?:if|elif)\s+([A-Za-z_]\w*))\s*\|\s*default\(\s*([^)]*?)\s*\)/g
 
 function parseJinjaDefault(raw: string): {
   type: TemplateKwargType
@@ -255,8 +255,9 @@ function parseJinjaDefault(raw: string): {
 
 /**
  * Extract chat-template kwargs a GGUF's embedded jinja template accepts. Matches
- * the self-defaulting idiom `{%- set X = X | default(<v>) -%}`, from which the
- * kwarg's control type is inferred. `enable_thinking` is owned by the reasoning
+ * self-defaulting sets and conditions such as `{% if X | default(false) %}`,
+ * including Nemotron Bolt's conversational_mode. The literal default determines
+ * the kwarg's control type. `enable_thinking` is owned by the reasoning
  * control and is intentionally excluded from the generic list.
  */
 export function detectTemplateKwargsFromChatTemplate(
@@ -268,10 +269,10 @@ export function detectTemplateKwargsFromChatTemplate(
   const re = new RegExp(TEMPLATE_KWARG_RE.source, 'g')
   let m: RegExpExecArray | null
   while ((m = re.exec(template)) !== null) {
-    const name = m[1]
+    const name = m[1] ?? m[2]
     if (name === 'enable_thinking' || seen.has(name)) continue
     seen.add(name)
-    const { type, value } = parseJinjaDefault(m[2])
+    const { type, value } = parseJinjaDefault(m[3])
     out.push({ name, type, default: value })
   }
   return out

@@ -32,10 +32,10 @@ describe('memory orchestration', () => {
     mocks.stop.mockResolvedValue(undefined)
     mocks.models = { getActiveModels: mocks.loaded, stopModel: mocks.stop }
   })
-  it('keeps the selected text model and frees other idle engines', async () => {
+  it('frees idle engines when a different text model needs loading', async () => {
     mocks.loaded.mockImplementation(async (provider: string) =>
       provider === 'llamacpp'
-        ? ['a', 'b']
+        ? ['b']
         : provider === 'transformers'
           ? ['sft']
           : []
@@ -48,6 +48,54 @@ describe('memory orchestration', () => {
     expect(useMemoryPolicy.getState().waiting.text).toBeUndefined()
     release()
     await Promise.resolve()
+  })
+  it('keeps a warm text model and its helpers across consecutive turns', async () => {
+    mocks.loaded.mockImplementation(async (provider: string) =>
+      provider === 'llamacpp' ? ['a', 'embedding'] : ['helper']
+    )
+    for (let turn = 0; turn < 3; turn++) {
+      const release = await beginLocalMemory(text)
+      release()
+      await Promise.resolve()
+    }
+    expect(mocks.stop).not.toHaveBeenCalled()
+    // A warm turn only queries the selected engine, avoiding a full scan.
+    expect(mocks.loaded.mock.calls).toEqual([
+      ['llamacpp'], ['llamacpp'], ['llamacpp'],
+    ])
+  })
+  it('makes room only when switching from a warm model to an unloaded one', async () => {
+    mocks.loaded.mockImplementation(async (provider: string) =>
+      provider === 'llamacpp' ? ['a', 'embedding'] : []
+    )
+    const first = await beginLocalMemory(text)
+    first()
+    await Promise.resolve()
+    expect(mocks.stop).not.toHaveBeenCalled()
+    const next = await beginLocalMemory({ ...text, model: 'b' })
+    expect(mocks.stop.mock.calls).toEqual([
+      ['a', 'llamacpp'], ['embedding', 'llamacpp'],
+    ])
+    next()
+    await Promise.resolve()
+  })
+  it('keeps an already loaded target when switching engines', async () => {
+    mocks.loaded.mockImplementation(async (provider: string) =>
+      provider === 'mlx' ? ['a'] : ['other']
+    )
+    const release = await beginLocalMemory({ ...text, provider: 'mlx' })
+    expect(mocks.stop).not.toHaveBeenCalled()
+    release()
+    await Promise.resolve()
+  })
+  it('does not proceed when an engine reports an unsuccessful unload', async () => {
+    mocks.loaded.mockResolvedValue(['b'])
+    mocks.stop.mockResolvedValue({ success: false, error: 'Model is busy' })
+    await expect(beginLocalMemory(image, { scope: 'failed' })).rejects.toThrow(
+      'chat:memory.failed'
+    )
+    expect(mocks.stop).toHaveBeenCalledTimes(1)
+    expect(useMemoryPolicy.getState().waiting.failed).toBeUndefined()
   })
   it('does not unload an active text stream before image generation', async () => {
     const textLease = await beginLocalMemory(text)

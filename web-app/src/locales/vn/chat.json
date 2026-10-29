@@ -47,7 +47,35 @@
     "workedForAWhile": "Hoạt động được vài giây",
     "workedFor": "Đã làm việc cho {{duration}}"
   },
+  "player": {
+    "play": "Phát",
+    "pause": "Tạm dừng",
+    "seek": "Vị trí phát",
+    "mute": "Tắt tiếng",
+    "volume": "Âm lượng",
+    "speed": "Tốc độ phát"
+  },
   "creation": {
+    "musicLyricsGuide": "Mô tả phong cách và giọng hát trong yêu cầu. Đặt lời bài hát dưới các thẻ bên dưới. Tắt {{instrumental}} để có giọng hát.",
+    "music": "Nhạc",
+    "musicDuration": "Thời lượng nhạc",
+    "musicQuality": "Chất lượng âm thanh",
+    "musicInstrumental": "Không lời",
+    "musicLyrics": "Lời bài hát",
+    "musicGenerator": "Mô hình tạo nhạc",
+    "musicPlanner": "Mô hình lập kế hoạch nhạc",
+    "setupAllDownload": "Tải và cấu hình tất cả tự động",
+    "setupConfiguring": "Đang cấu hình các mô hình đề xuất",
+    "setupStorage": "Tổng tệp: {{download}}. Dự phòng: {{reserve}}. Cần thêm: {{required}}. Trống trên ổ đã chọn: {{free}}.",
+    "setupSpaceMissing": "Thiếu {{missing}}. Hãy giải phóng dung lượng hoặc chọn ổ khác có đủ chỗ.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M là mô hình văn bản cục bộ được đề xuất cho cuộc trò chuyện, viết, gọi công cụ và đầu ra có cấu trúc. Bối cảnh ban đầu là 16K token; kiểm tra bộ nhớ còn trống trước khi tăng nó. Chỉ nhập và xuất văn bản, không có mô hình nháp. Sử dụng tìm kiếm hoặc tài liệu của bạn để xác minh các tuyên bố thực tế.",
+    "setupImageNote": "Hình ảnh — FLUX.2 Klein 4B · Q4_K_M. Văn bản: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. tỷ lệ khung hình: 21:9; Độ phân giải: 1024 × 432; Các bước thế hệ: 4; Chế độ hạt giống: Ngẫu nhiên.",
+    "setupMusicNote": "Nhạc — ACE-Step 1.5 Turbo. Mô hình tạo nhạc: 2B · Q4_K_M; Mô hình lập kế hoạch nhạc: 1.7B · Q8_0; Văn bản: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Thời lượng nhạc: 10–600 s; Chất lượng âm thanh: 48 kHz · 2.0; Không lời / Lời bài hát; Ngẫu nhiên.",
+    "setupVideoNote": "Video — Wan2.1 T2V 1.3B · Q4_K_M. Văn bản: UMT5-XXL · Q4_K_M. Thời lượng video: 5 s; tỷ lệ khung hình: 21:9; Khung hình trên giây: 16. Video dài được ghép từ các đoạn ngắn. Có thể thấy điểm cắt và việc tạo có thể mất nhiều thời gian. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Tải xuống và định cấu hình các mô hình được đề xuất: Nemotron cho văn bản, Qwen3-Embedding Q8_0 để truy xuất đa ngôn ngữ (CPU theo mặc định), FLUX.2 Klein 4B và các thành phần của nó, Real-ESRGAN ×2/×4, ACE-Step cho âm nhạc (Nhạc cụ bật theo mặc định) và Wan2.1 cho video. Kiểm tra kích thước tệp, dung lượng ổ đĩa và các điều kiện tiên quyết về video bên dưới. Tải xuống riêng biệt và Duyệt vẫn có sẵn.",
+    "finalizing": "Đang hoàn tất video",
+    "videoDuration": "Thời lượng video",
+    "videoDurationNote": "Video dài được ghép từ các đoạn ngắn. Có thể thấy điểm cắt và việc tạo có thể mất nhiều thời gian.",
     "output": "Định dạng phản hồi",
     "auto": "Tự động",
     "text": "Văn bản",
@@ -144,7 +172,8 @@
     "ratio": "tỷ lệ khung hình",
     "resolution": "Độ phân giải",
     "customSize": "tùy chỉnh",
-    "sizeAutoNote": "Thay đổi tỷ lệ sẽ điều chỉnh độ phân giải hiện tại. Kích thước sử dụng bội số của 16, tối đa 2048 px."
+    "sizeAutoNote": "Thay đổi tỷ lệ sẽ điều chỉnh độ phân giải hiện tại. Kích thước sử dụng bội số của 16, tối đa 2048 px.",
+    "setupTextNvfp4Note": "Trọng lượng NVFP4 tùy chọn cho NVIDIA được phát hiện Blackwell GPU hoặc mới hơn với ít nhất 4,5 GiB của VRAM. Để sử dụng các trọng lượng này trong Novera, mẫu đầy đủ kho lưu trữ trước tiên phải được chuyển đổi thành NVFP4 GGUF tương thích và được xác thực. Chuyển đổi này chưa được xác minh cho điểm kiểm tra này. Không thể tải trực tiếp tệp Safetensors được liên kết bằng công cụ tích hợp. Q8_0 vẫn là đề xuất sẵn sàng sử dụng. Nhu cầu bộ nhớ cũng phụ thuộc vào độ dài ngữ cảnh."
   },
   "creationInstall": {
     "install": "Cài đặt cấu hình này",

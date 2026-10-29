@@ -47,7 +47,35 @@
     "tokens": "Nîşan",
     "perSecond": "nîşanek/s"
   },
+  "player": {
+    "play": "Bilîze",
+    "pause": "Rawestîne",
+    "seek": "Cihê lêdanê",
+    "mute": "Bêdeng bike",
+    "volume": "Bilindahiya deng",
+    "speed": "Leza lêdanê"
+  },
   "creation": {
+    "musicLyricsGuide": "Di daxwazê de şêwaz û dengê diyar bike. Gotinên stranê di bin nîşaneyên jêr de binivîse. Ji bo stranbêjiyê {{instrumental}} bigire.",
+    "music": "Muzîk",
+    "musicDuration": "Dirêjahiya muzîkê",
+    "musicQuality": "Kalîteya deng",
+    "musicInstrumental": "Enstrumantal",
+    "musicLyrics": "Gotinên stranê",
+    "musicGenerator": "Afirînerê muzîkê",
+    "musicPlanner": "Plansazê muzîkê",
+    "setupAllDownload": "Her tiştî bixweber daxîne û saz bike",
+    "setupConfiguring": "Modelên pêşniyarkirî tên sazkirin",
+    "setupStorage": "Hemû pel: {{download}}. Rezerv: {{reserve}}. Cihê zêde yê pêwîst: {{required}}. Li dîska hilbijartî vala: {{free}}.",
+    "setupSpaceMissing": "{{missing}} cih kêm e. Cih vala bike an dîskeke din a bi depoya têr hilbijêre.",
+    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M modela nivîsê ya herêmî ya pêşniyarkirî ye ji bo axaftin, nivîsandin, bangên amûran û derketinên birêkûpêk. Têkiliya destpêkê 16K nîşanek e; berî zêdekirina bîra berdest kontrol bikin. Tenê têketin û derketina nivîsê, bêyî modela pêşnûmeyê. Lêgerîn an belgeyên xwe bikar bînin da ku îdîayên rastîn rast bikin.",
+    "setupImageNote": "Wêne — FLUX.2 Klein 4B · Q4_K_M. Nivîs: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. Rêjeya aspect: 21:9; Resolution: 1024 × 432; gavên nifş: 4; Moda tovê: Tesadufî.",
+    "setupMusicNote": "Muzîk — ACE-Step 1.5 Turbo. Afirînerê muzîkê: 2B · Q4_K_M; Plansazê muzîkê: 1.7B · Q8_0; Nivîs: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. Dirêjahiya muzîkê: 10–600 s; Kalîteya deng: 48 kHz · 2.0; Enstrumantal / Gotinên stranê; Tesadufî.",
+    "setupVideoNote": "Vîdyo — Wan2.1 T2V 1.3B · Q4_K_M. Nivîs: UMT5-XXL · Q4_K_M. Dirêjahiya vîdyoyê: 5 s; Rêjeya aspect: 21:9; Çarçove di çirkekê de: 16. Vîdyoyên dirêj ji klîpên kurt tên girêdan. Cihên girêdanê dibe ku xuya bibin û afirandin demeke dirêj bigire. · MP4: Python + imageio-ffmpeg.",
+    "setupAllNote": "Dîrokirina û çêkirina modelên pêşniyarkirî: Nemotron ji bo nivîsê, Qwen3-Embedding Q8_0 ji bo wergirtina pirzimanî (CPU bi xwerûyê ve), FLUX.2 Klein 4B û beşên wê, Real-ESRGAN ×2/×4, ACE-Step ji bo muzîk (Instrumental bi xwerûyê ve), û Wan2.1 ji bo vîdyo. Pirsa asta lêker, belperîka disk û pêdivîstên vîdyo li jêr kontrol bikin. Dîrokirin û Browse alîkariya xwe didin.",
+    "finalizing": "Vîdyo tê temamkirin",
+    "videoDuration": "Dirêjahiya vîdyoyê",
+    "videoDurationNote": "Vîdyoyên dirêj ji klîpên kurt tên girêdan. Cihên girêdanê dibe ku xuya bibin û afirandin demeke dirêj bigire.",
     "output": "Forma bersivê",
     "auto": "Auto",
     "text": "Nivîs",
@@ -144,7 +172,8 @@
     "ratio": "Rêjeya aspect",
     "resolution": "Resolution",
     "customSize": "Custom",
-    "sizeAutoNote": "Guhertina rêjeyê çareseriya heyî adapte dike. Pîvan pirjimarên 16-ê, heya 2048 px bikar tînin."
+    "sizeAutoNote": "Guhertina rêjeyê çareseriya heyî adapte dike. Pîvan pirjimarên 16-ê, heya 2048 px bikar tînin.",
+    "setupTextNvfp4Note": "Giraniyên NVFP4 yên vebijarkî ji bo NVIDIA Blackwell GPU an nûtir bi kêmanî 4,5 GiB ji VRAM-ê hatine tespîtkirin. Ji bo ku van giranan di Novera de bikar bînin, divê depoya modelê ya tevahî pêşî li hevhatinek NVFP4 GGUF were veguheztin û were pejirandin. Ev veguhertin hîna ji bo vê nuqteya kontrolê nehatiye piştrast kirin. Pelê girêdayî Safetensors nikare rasterast ji hêla motora çêkirî ve were barkirin. Q8_0 pêşnîyara hazir-amade dimîne. Pêdiviyên bîranînê jî bi dirêjahiya çarçoveyê ve girêdayî ye."
   },
   "creationInstall": {
     "install": "Vê veavakirinê saz bike",

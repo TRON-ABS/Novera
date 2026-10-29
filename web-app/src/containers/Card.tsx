@@ -32,7 +32,7 @@ export function CardItem({
     <>
       <div
         className={cn(
-          'flex justify-between mt-2 first:mt-0 border-b border-border/40 pb-3 last:border-none last:pb-0 gap-8',
+          'novera-settings-row flex justify-between mt-2 first:mt-0 border-b border-border/40 pb-3 last:border-none last:pb-0 gap-8',
           descriptionOutside && 'border-0',
           align === 'start' && 'items-start',
           align === 'center' && 'items-center',
@@ -41,8 +41,8 @@ export function CardItem({
           className
         )}
       >
-        <div className="space-y-1.5">
-          <h1 className="font-medium text-foreground">{title}</h1>
+        <div className="novera-settings-copy space-y-1.5">
+          <h3 className="font-medium text-foreground">{title}</h3>
           {description && (
             <span className="text-muted-foreground leading-normal">
               {description}
@@ -52,7 +52,7 @@ export function CardItem({
         {actions && (
           <div
             className={cn(
-              'shrink-0',
+              'novera-settings-action shrink-0',
               classNameWrapperAction,
               column && 'w-full'
             )}
@@ -72,11 +72,11 @@ export function CardItem({
 
 export function Card({ title, children, header }: CardProps) {
   return (
-    <div className="bg-card p-4 rounded-lg text-muted-foreground w-full">
+    <div className="novera-settings-card bg-card p-4 rounded-lg text-muted-foreground w-full">
       {title && (
-        <h1 className="text-foreground font-studio font-medium text-base mb-4">
+        <h2 className="text-foreground font-studio font-medium text-base mb-4">
           {title}
-        </h1>
+        </h2>
       )}
       {header && header}
       {children}

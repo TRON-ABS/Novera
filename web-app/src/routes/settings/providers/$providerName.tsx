@@ -1,3 +1,4 @@
+import { translateSettingText } from '@/i18n/setting-text'
 import { CURATED_ONLY_PROVIDERS, EDITABLE_PROVIDER_ENDPOINTS, providerCatalogUrl } from '@/lib/providerEndpoints'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Card, CardItem } from '@/containers/Card'
@@ -14,6 +15,7 @@ import { DialogEditModel } from '@/containers/dialogs/EditModel'
 import { ImportLlamacppModelDialog } from '@/containers/dialogs/ImportLlamacppModelDialog'
 import { ImportMlxModelDialog } from '@/containers/dialogs/ImportMlxModelDialog'
 import { ModelSetting } from '@/containers/ModelSetting'
+import { EmbeddingDeviceControl } from '@/containers/EmbeddingDeviceControl'
 import { MediaLibrary } from '@/containers/MediaLibrary'
 import { LlamacppEngineInfo } from '@/containers/LlamacppEngineInfo'
 import { DialogDeleteModel } from '@/containers/dialogs/DeleteModel'
@@ -64,6 +66,7 @@ export const Route = createFileRoute('/settings/providers/$providerName')({
 })
 
 function ProviderDetail() {
+
   const { t } = useTranslation()
   const serviceHub = useServiceHub()
   const { setModelLoadError } = useModelLoad()
@@ -220,6 +223,16 @@ function ProviderDetail() {
     }
   }, [serviceHub, setActiveModels, provider?.provider])
 
+  // Opening Models reconciles files installed outside the current app session.
+  useEffect(() => {
+    if (!isLocalProvider(providerName)) return
+    let cancelled = false
+    serviceHub.providers().getProviders().then((fetched) => {
+      if (!cancelled) setProviders(fetched)
+    }).catch((error) => console.warn('Local model refresh failed:', error))
+    return () => { cancelled = true }
+  }, [providerName, serviceHub, setProviders])
+
   // Clear importing state when model appears in the provider's model list
   useEffect(() => {
     if (importingModel && provider?.models) {
@@ -372,19 +385,19 @@ function ProviderDetail() {
   const getStatusLabel = useCallback((status: string) => {
     switch (status) {
       case 'ok':
-        return 'OK'
+        return t('ui:keyOk')
       case 'unauthorized':
-        return 'Invalid / revoked key (401)'
+        return t('ui:keyUnauthorized')
       case 'forbidden':
-        return 'Forbidden (403)'
+        return t('ui:keyForbidden')
       case 'rate_limited':
-        return 'Rate limited / out of credit (429)'
+        return t('ui:keyRateLimited')
       case 'network_error':
-        return 'Network error'
+        return t('ui:keyNetworkError')
       default:
-        return 'Failed'
+        return t('ui:keyFailed')
     }
-  }, [])
+  }, [t])
 
   const getStatusClass = useCallback((status: string) => {
     switch (status) {
@@ -782,7 +795,7 @@ function ProviderDetail() {
                   return (
                     <CardItem
                       key={settingIndex}
-                      title={setting.title}
+                      title={translateSettingText(setting.title, t)}
                       className={cn(setting.key === 'device' && 'hidden')}
                       column={
                         setting.controller_type === 'input' &&
@@ -794,7 +807,7 @@ function ProviderDetail() {
                         <>
                           <RenderMarkdown
                             className="![>p]:text-muted-foreground select-none"
-                            content={setting.description}
+                            content={translateSettingText(setting.description, t)}
                             components={{
                               // Make links open in a new tab
                               a: ({ ...props }) => {
@@ -925,9 +938,7 @@ function ProviderDetail() {
                           </div>
 
                           <div className="text-xs text-muted-foreground">
-                            Primary key is <span className="font-medium">#1</span>. Novera
-                            retries the next key only on{' '}
-                            <span className="font-medium">401/403/429</span>.
+                            {t('ui:apiFallbackHint')}
                           </div>
 
                           <div className="space-y-2">
@@ -1092,7 +1103,7 @@ function ProviderDetail() {
               >
                 {provider?.models.length ? (
                   <>
-                  {isLlamacpp && embeddingModels.length > 0 && chatModels.length > 0 && (
+                  {isLlamacpp && chatModels.length > 0 && (
                     <div
                       role="separator"
                       aria-label={t('providers:chatModels')}
@@ -1226,8 +1237,7 @@ function ProviderDetail() {
                               size={16}
                               className="animate-spin"
                             />
-                            Importing...
-                          </div>
+                            {t('ui:importing')}</div>
                           <h1 className="font-medium line-clamp-1">
                             {importingModel}
                           </h1>
@@ -1249,11 +1259,11 @@ function ProviderDetail() {
                       </span>
                       <span className="h-0.5 flex-1 rounded-full bg-main-view-fg/15" />
                     </div>
-                    {embeddingModels.map((model, modelIndex) => {
+                    {embeddingModels.map((model) => {
                       const isDefault = defaultEmbeddingModelId === model.id
                       return (
                         <CardItem
-                          key={`embedding-${modelIndex}`}
+                          key={`embedding-${model.id}`}
                           title={
                             <div className="flex items-center gap-2">
                               <button
@@ -1314,6 +1324,7 @@ function ProviderDetail() {
                           }
                           actions={
                             <div className="flex items-center gap-0.5">
+                              <EmbeddingDeviceControl modelId={model.id} />
                               <DialogEditModel
                                 provider={provider}
                                 modelId={model.id}

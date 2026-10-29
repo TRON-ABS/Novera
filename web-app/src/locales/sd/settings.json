@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "ڪوڊ بلاڪ اسٽائل ري سيٽ ڪريو",
     "resetCodeBlockStyleDesc": "ڪوڊ بلاڪ اسٽائل کي ڊفالٽ ۾ ري سيٽ ڪريو.",
     "resetCodeBlockSuccess": "ڪوڊ بلاڪ انداز ڪاميابيءَ سان ري سيٽ ڪيو",
-    "resetCodeBlockSuccessDesc": "ڪوڊ بلاڪ اسلوب کي ڊفالٽ ۾ بحال ڪيو ويو آهي."
+    "resetCodeBlockSuccessDesc": "ڪوڊ بلاڪ اسلوب کي ڊفالٽ ۾ بحال ڪيو ويو آهي.",
+    "subtitle": "Novera کي پنهنجو ٺاهيو، ان جي ظاهر کان وٺي توهان جي گفتگو جي ترجيحن تائين.",
+    "accentColor": "تلفظ رنگ",
+    "accentColorDesc": "تلفظ ۽ سائڊبار رنگ چونڊيو.",
+    "conversation": "ڳالھيون ۽ اطلاع"
   },
   "hardware": {
     "os": "آپريٽنگ سسٽم",

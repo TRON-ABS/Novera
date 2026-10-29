@@ -340,6 +340,7 @@ function AppleSiliconGpuCard({
 }
 
 function HardwareContent() {
+
   const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
   const serviceHub = useServiceHub()
@@ -512,8 +513,7 @@ function HardwareContent() {
           {isLoading ? (
             <div className="flex items-center justify-center h-32">
               <div className="text-muted-foreground">
-                Loading hardware information...
-              </div>
+                {t('ui:loadingHardwareInformation')}</div>
             </div>
           ) : (
             <div className="flex flex-col justify-between gap-4 gap-y-3 w-full">

@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react'
 import { useIsOnboarding } from '@/hooks/useIsOnboarding'
 import { DependencyAdvice } from './DependencyAdvice'
 import { getBackendDisplayName } from '@/lib/backendDependencies'
+import { translateSettingText } from '@/i18n/setting-text'
 
 type VerificationFailedPayload = {
   backend: string
@@ -38,7 +39,7 @@ export default function MissingDependenciesDialog() {
     }
   }, [])
 
-  const displayName = payload ? getBackendDisplayName(payload.backend) : ''
+  const displayName = payload ? translateSettingText(getBackendDisplayName(payload.backend), t) : ''
   const allRawLibs = payload?.missingLibraries ?? []
 
   return (

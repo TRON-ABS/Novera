@@ -60,7 +60,14 @@
     "removeFromJan": "Novera توں ہٹا دیو",
     "success": "ماڈل {{modelId}} مستقل طور تے مٹا دتا گیا ہے۔",
     "cancel": "منسوخ کرو",
-    "delete": "مٹاؤ"
+    "delete": "مٹاؤ",
+    "choiceDescription": "Novera توں اِس ماڈل نوں ہٹاؤن دا طریقہ چن لو۔",
+    "removeFromNovera": "Novera توں ہٹا دیو",
+    "permanentlyDelete": "ہمیشہ لئی مٹاؤ",
+    "keepFilesDescription": "ماڈل نوں لسٹ توں ہٹاؤ تے اِہدی فائلیں ڈسک تے رکھو۔ توں دوبارہ امپورٹ کر سڳو۔",
+    "permanentDescription": "ماڈل تے اِہدی Novera-منجوری فائلیں ڈسک توں مٹاؤ۔ ایہہ واپس نئیں کیتا جا سڳدا۔",
+    "permanentImportedDescription": "اِہدی اصل جگہ تے مین GGUF فائل وی مٹاؤ۔ بیرونی معاون فائلیں رکھیاں جانگیاں۔ ایہہ واپس نئیں کیتا جا سڳدا۔",
+    "removedSuccess": "ماڈل {{modelId}} Novera توں ہٹایا گیا۔ اِہدی فائلیں رکھیاں جانگیاں۔"
   },
   "deleteAllModels": {
     "button": "سب نوں مٹا دیو",
@@ -123,5 +130,8 @@
     "oneKeyHint": "اختیاری فال بیک چابیاں ایڈوانسڈ چ ترتیب دتیاں گئیاں نیں۔",
     "addKey": "کلید شامل کرو",
     "removeKey": "کلید ہٹا دیو"
-  }
+  },
+  "installedMediaModels": "تصویر، ویڈیو تے موسیقی دے ماڈل",
+  "noInstalledModels": "اس زمرے وچ کوئی ماڈل رجسٹر نئیں ہویا۔",
+  "modelComponents": "ماڈل فائلیں"
 }

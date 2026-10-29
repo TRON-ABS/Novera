@@ -80,6 +80,10 @@
     "goToSettingsDesc": "Open settings."
   },
   "interface": {
+    "subtitle": "Make Novera your own, from its appearance to your conversation preferences.",
+    "accentColor": "Accent color",
+    "accentColorDesc": "Choose the accent and sidebar color.",
+    "conversation": "Conversations and notifications",
     "title": "Interface",
     "theme": "Theme",
     "themeDesc": "Match the OS theme.",

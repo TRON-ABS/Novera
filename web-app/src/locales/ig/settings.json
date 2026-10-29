@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Tọgharia Ụdị ngọngọ koodu",
     "resetCodeBlockStyleDesc": "Tọgharịa ụdị ngọngọ koodu ka ọ bụrụ nke ndabara.",
     "resetCodeBlockSuccess": "Ntọgharị ụdị ngọngọ koodu nke ọma",
-    "resetCodeBlockSuccessDesc": "Eweghachila ụdị ngọngọ koodu na ndabara."
+    "resetCodeBlockSuccessDesc": "Eweghachila ụdị ngọngọ koodu na ndabara.",
+    "subtitle": "Mee Novera nke gị, site na ọdịdị ya ruo na mmasị mkparịta ụka gị.",
+    "accentColor": "Agba ụda olu",
+    "accentColorDesc": "Họrọ ụda olu na agba sidebar.",
+    "conversation": "Mkparịta ụka na ọkwa"
   },
   "hardware": {
     "os": "Sistemụ nrụọrụ",

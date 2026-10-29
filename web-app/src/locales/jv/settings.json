@@ -37,7 +37,7 @@
   "reportAnIssueDesc": "Nemokake bug? Tulung kita kanthi ngajokake masalah ing GitHub.",
   "reportIssue": "Laporan Masalah",
   "credits": "Kredit",
-  "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+  "creditsDesc1": "Novera (TRON-ABS), adhedhasar Jan dening Menlo Research lan kontributor.",
   "creditsDesc2": "Matur nuwun khusus kanggo dependensi open-source kita-utamane llama.cpp lan Tauri-lan komunitas AI sing luar biasa.",
   "appVersion": "Versi App",
   "dataFolder": {
@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Reset Gaya Blok Kode",
     "resetCodeBlockStyleDesc": "Reset gaya blok kode menyang standar.",
     "resetCodeBlockSuccess": "Gaya blok kode kasil direset",
-    "resetCodeBlockSuccessDesc": "Gaya blok kode wis dibalèkaké menyang gawan."
+    "resetCodeBlockSuccessDesc": "Gaya blok kode wis dibalèkaké menyang gawan.",
+    "subtitle": "Gawe Novera dhewe, saka tampilan nganti pilihan obrolan sampeyan.",
+    "accentColor": "Warna aksen",
+    "accentColorDesc": "Pilih aksen lan werna sidebar.",
+    "conversation": "Obrolan lan kabar"
   },
   "hardware": {
     "os": "Sistem Operasi",
@@ -262,7 +266,7 @@
     "trustedHosts": "Host Dipercaya",
     "trustedHostsDesc": "Host diijini ngakses server, dipisahake karo koma.",
     "advancedSettings": "Setelan Lanjut",
-    "cors": "Cross-Origin Resource Sharing (CORS)",
+    "cors": "Nuduhake Sumber Daya Lintas Asal (CORS)",
     "corsDesc": "Ngidini panjalukan lintas-asal menyang server API.",
     "verboseLogs": "Log Server Verbose",
     "verboseLogsDesc": "Aktifake log server rinci kanggo debugging.",
@@ -339,7 +343,7 @@
     "reportAnIssueDesc": "Nemokake bug? Tulung kita kanthi ngajokake masalah ing GitHub.",
     "reportIssue": "Laporan Masalah",
     "credits": "Kredit",
-    "creditsDesc1": "Novera (TRON-ABS), based on Jan by Menlo Research and its contributors.",
+    "creditsDesc1": "Novera (TRON-ABS), adhedhasar Jan dening Menlo Research lan kontributor.",
     "creditsDesc2": "Matur nuwun khusus kanggo dependensi open-source kita-utamane llama.cpp lan Tauri-lan komunitas AI sing luar biasa."
   },
   "extensions": {

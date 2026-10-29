@@ -1,0 +1,86 @@
+[
+  {
+    "locale": "wo",
+    "namespace": "settings",
+    "key": "attachments.searchModeAuto",
+    "previous": "Oto (ñu ngi lay digal)\n90781000118709",
+    "translation": "Oto (ñu ngi lay digal)"
+  },
+  {
+    "locale": "wo",
+    "namespace": "setup",
+    "key": "stageChecking",
+    "previous": "Saytu...\n90781000018709, conducteur 90781000118709\n90781000018709\n90781000018709, amul 90781000118709",
+    "translation": "Saytu..."
+  },
+  {
+    "locale": "wo",
+    "namespace": "setup",
+    "key": "checkSearchPreparing",
+    "previous": "Télécharger le modèle d'intégration...\n90781000018709, 90781000118709",
+    "translation": "Di yebbi modelu embedding bi..."
+  },
+  {
+    "locale": "wo",
+    "namespace": "setup",
+    "key": "stageSetupDone",
+    "previous": "Motër bi pare\n90781000018709 dina doxal model yu dëkk bi ak 90781000118709.",
+    "translation": "Motër bi pare"
+  },
+  {
+    "locale": "wo",
+    "namespace": "setup",
+    "key": "retryChecks",
+    "previous": "Defaat saytu yi\n90781000018709 ci 90781000118709",
+    "translation": "Defaat saytu yi"
+  },
+  {
+    "locale": "wo",
+    "namespace": "setup",
+    "key": "checkEnginePreparing",
+    "previous": "Waajal motëru gis-gis bi...\n90781000018709\n90781000018709, di daw ci 90781000118709\n9078100018709 90781000118709 rekk la, kon 90781000218709 du def dara. Tannal ab backend 90781000318709 ci Jekkal yi ngir jëfandikoo ko.\n90781000218709, waaye 90781000318709 gis na 90781000418709. 90781000618709.\n90781000218709 mënul yegg ci sa 90781000218709.\n9078100018709 mënul tàmbali ndax bibliotek biñ soxla amul (90781000118709), kon 90781000218709 dina dox ci 90781000318709.",
+    "translation": "Di waajal motëru inference bi..."
+  },
+  {
+    "locale": "wo",
+    "namespace": "setup",
+    "key": "exploreHub",
+    "previous": "Xoolal yeneen model ci Hub bi\nModèle 90781000018709",
+    "translation": "Xoolal yeneen model ci Hub bi"
+  },
+  {
+    "locale": "wo",
+    "namespace": "setup",
+    "key": "skipStep",
+    "previous": "Teg ci leegi\n90781000018709 war nañu ko defar ci sa sistem",
+    "translation": "Teg ci leegi"
+  },
+  {
+    "locale": "wo",
+    "namespace": "system-monitor",
+    "key": "memoryUsage",
+    "previous": "Jëfandikoo mémoire\n90781000018709",
+    "translation": "Jëfandikoo mémoire"
+  },
+  {
+    "locale": "wo",
+    "namespace": "tools",
+    "key": "toolCall.hideRaw",
+    "previous": "nëbb lu ñor\n90781000018709\n90781000018709 blok: 90781000118709\n90781000018709 bind, 90781000118709\n90781000018709\n90781000018709",
+    "translation": "Nëbb njureef bu ñu soppiwul"
+  },
+  {
+    "locale": "wo",
+    "namespace": "tools",
+    "key": "toolCall.noResults",
+    "previous": "Amul njariñ\n90781000018709",
+    "translation": "Amul njureef"
+  },
+  {
+    "locale": "wo",
+    "namespace": "tools",
+    "key": "toolApproval.allowInThread",
+    "previous": "May dugg ci buum bi\n90781000018709\n90781000018709",
+    "translation": "May ci waxtaan wii"
+  }
+]

@@ -33,7 +33,14 @@
     "cancel": "रद्द करें",
     "delete": "हटाएं",
     "importedDescription": "इस आयातित मॉडल को Novera से हटाएं? डिस्क पर आपकी स्थानीय फ़ाइल हटाई नहीं जाएगी.",
-    "removeFromJan": "Novera से हटाएं"
+    "removeFromJan": "Novera से हटाएं",
+    "choiceDescription": "Novera से इस मॉडल को हटाने का तरीका चुनें।",
+    "removeFromNovera": "Novera से हटाएं",
+    "permanentlyDelete": "स्थायी रूप से हटाएं",
+    "keepFilesDescription": "मॉडल को सूची से हटाएं और उसकी फ़ाइलों को डिस्क पर रखें। आप इसे दोबारा आयात कर सकते हैं.",
+    "permanentDescription": "डिस्क से मॉडल और उसकी Novera-प्रबंधित फ़ाइलें हटाएं। इसे असंपादित नहीं किया जा सकता है।",
+    "permanentImportedDescription": "मुख्य GGUF फ़ाइल को उसके मूल स्थान पर भी हटा दें। बाह्य सहायक फ़ाइलें रखी जाती हैं. इसे असंपादित नहीं किया जा सकता है।",
+    "removedSuccess": "मॉडल {{modelId}} को Novera से हटा दिया गया था। इसकी फ़ाइलें रखी गईं थीं।"
   },
   "deleteProvider": {
     "title": "प्रदाता हटाएं",
@@ -123,5 +130,8 @@
     "oneKeyHint": "वैकल्पिक फ़ॉलबैक कुंजियाँ उन्नत में कॉन्फ़िगर की गई हैं।",
     "addKey": "कुंजी जोड़ें",
     "removeKey": "कुंजी निकालें"
-  }
+  },
+  "installedMediaModels": "छवि, वीडियो और संगीत मॉडल",
+  "noInstalledModels": "इस श्रेणी में कोई मॉडल पंजीकृत नहीं है।",
+  "modelComponents": "मॉडल फ़ाइलें"
 }

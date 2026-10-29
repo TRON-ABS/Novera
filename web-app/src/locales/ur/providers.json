@@ -60,7 +60,14 @@
     "removeFromJan": "Novera سے ہٹائیں",
     "success": "ماڈل {{modelId}} مستقل طور پر حذف کر دیا گیا ہے۔",
     "cancel": "منسوخ کریں",
-    "delete": "حذف کریں"
+    "delete": "حذف کریں",
+    "choiceDescription": "اس ماڈل کو Novera سے ہٹانے کا طریقہ منتخب کریں۔",
+    "removeFromNovera": "Novera سے ہٹائیں",
+    "permanentlyDelete": "مستقل طور پر حذف کریں۔",
+    "keepFilesDescription": "ماڈل کو فہرست سے ہٹائیں اور اس کی فائلوں کو ڈسک پر رکھیں۔ آپ اسے دوبارہ درآمد کر سکتے ہیں۔",
+    "permanentDescription": "ماڈل اور اس کی Novera-منظم فائلوں کو ڈسک سے حذف کریں۔ اسے کالعدم نہیں کیا جا سکتا۔",
+    "permanentImportedDescription": "مرکزی GGUF فائل کو اس کے اصل مقام پر بھی حذف کریں۔ بیرونی معاون فائلیں رکھی جاتی ہیں۔ اسے کالعدم نہیں کیا جا سکتا۔",
+    "removedSuccess": "ماڈل {{modelId}} کو Novera سے ہٹا دیا گیا۔ اس کی فائلیں رکھی گئیں۔"
   },
   "deleteAllModels": {
     "button": "سبھی کو حذف کریں۔",
@@ -123,5 +130,8 @@
     "oneKeyHint": "اختیاری فال بیک کیز کو ایڈوانسڈ میں کنفیگر کیا گیا ہے۔",
     "addKey": "کلید شامل کریں۔",
     "removeKey": "کلید کو ہٹا دیں۔"
-  }
+  },
+  "installedMediaModels": "تصویر، ویڈیو اور موسیقی کے ماڈل",
+  "noInstalledModels": "اس زمرے میں کوئی ماڈل رجسٹرڈ نہیں ہے۔",
+  "modelComponents": "ماڈل فائلیں۔"
 }

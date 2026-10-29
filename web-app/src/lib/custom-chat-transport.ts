@@ -1439,6 +1439,7 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
             useCreation.getState().modes[scope] ?? 'auto',
             extractLatestUserText(options.messages)
           )
+    useCreation.getState().setResolvedMode(scope, output)
     if (output !== 'text')
       return this.sendMessagesInternal(options, undefined, output)
     const selection = this.getModelSelection()

@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Dib u Dejinta Qaabka Qaybta Koodhka",
     "resetCodeBlockStyleDesc": "Dib ugu celi qaabka qaybta koodhka sidii kii asaliga ahaa.",
     "resetCodeBlockSuccess": "Qaabka qaybta koodhku si guul leh ayuu u dib loo dejiyey",
-    "resetCodeBlockSuccessDesc": "Qaabka qaybta koodhka waxaa dib loogu celiyey asalka."
+    "resetCodeBlockSuccessDesc": "Qaabka qaybta koodhka waxaa dib loogu celiyey asalka.",
+    "subtitle": "Ka dhig Novera adiga kuu gaar ah, laga soo bilaabo muuqaalkiisa ilaa dookhiisa hadalka.",
+    "accentColor": "Midabka lahjadda",
+    "accentColorDesc": "Dooro lahjadda iyo midabka dhinaca.",
+    "conversation": "Sheeko iyo wargelin"
   },
   "hardware": {
     "os": "Nidaamka Hawlgalka",

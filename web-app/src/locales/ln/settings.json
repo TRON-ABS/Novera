@@ -128,7 +128,11 @@
     "resetCodeBlockStyle": "Réinitialiser Style ya Bloc ya Code",
     "resetCodeBlockStyleDesc": "Réinitialiser style ya bloc ya code na default.",
     "resetCodeBlockSuccess": "Réinitialisation ya style ya bloc ya code na succès",
-    "resetCodeBlockSuccessDesc": "Style ya bloc ya code ezongi na défaut."
+    "resetCodeBlockSuccessDesc": "Style ya bloc ya code ezongi na défaut.",
+    "subtitle": "Sala Novera ya yo moko, kobanda na ndenge na yango ya komonana tii na ba préférences na yo ya masolo.",
+    "accentColor": "Langi ya accent",
+    "accentColorDesc": "Pona langi ya accent mpe ya barre ya mopanzi.",
+    "conversation": "Masolo mpe mayebisi"
   },
   "hardware": {
     "os": "Système d’exploitation",

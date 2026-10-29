@@ -1,3 +1,4 @@
+import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import * as React from "react";
@@ -89,6 +90,8 @@ function DropDrawerContent({
 }:
   | React.ComponentProps<typeof DrawerContent>
   | React.ComponentProps<typeof DropdownMenuContent>) {
+  const { t: uiT } = useUiLocale()
+
   const { isMobile } = useDropDrawerContext();
   const [activeSubmenu, setActiveSubmenu] = React.useState<string | null>(null);
   const [submenuTitle, setSubmenuTitle] = React.useState<string | null>(null);
@@ -302,7 +305,7 @@ function DropDrawerContent({
                   >
                     <ChevronLeftIcon className="size-5" />
                   </button>
-                  <DrawerTitle>{submenuTitle || "Submenu"}</DrawerTitle>
+                  <DrawerTitle>{submenuTitle || uiT('ui:submenu')}</DrawerTitle>
                 </div>
               </DrawerHeader>
               <div className="flex-1 relative overflow-y-auto max-h-[70vh]">
@@ -331,7 +334,7 @@ function DropDrawerContent({
           ) : (
             <>
               <DrawerHeader className="sr-only">
-                <DrawerTitle>Menu</DrawerTitle>
+                <DrawerTitle>{uiT('ui:menu')}</DrawerTitle>
               </DrawerHeader>
               <div className="overflow-y-auto max-h-[70vh]">
                 <AnimatePresence
@@ -792,6 +795,7 @@ function DropDrawerSubTrigger({
 }: React.ComponentProps<typeof DropdownMenuSubTrigger> & {
   icon?: React.ReactNode;
 }) {
+  const { t: uiT } = useUiLocale()
   const { isMobile } = useDropDrawerContext();
   const { navigateToSubmenu } = React.useContext(SubmenuContext);
 
@@ -868,7 +872,7 @@ function DropDrawerSubTrigger({
       const triggerElement = e.currentTarget as HTMLElement;
       const mobileTitle = triggerElement.getAttribute("data-mobile-title");
       const title =
-        mobileTitle || (typeof children === "string" ? children : "Submenu");
+        mobileTitle || (typeof children === "string" ? children : uiT('ui:submenu'));
 
       // Navigate to the submenu
       if (navigateToSubmenu) {

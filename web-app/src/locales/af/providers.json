@@ -60,7 +60,14 @@
     "removeFromJan": "Verwyder van Novera",
     "success": "Model {{modelId}} is permanent uitgevee.",
     "cancel": "Kanselleer",
-    "delete": "Vee uit"
+    "delete": "Vee uit",
+    "choiceDescription": "Kies hoe om hierdie model van Novera te verwyder.",
+    "removeFromNovera": "Verwyder van Novera",
+    "permanentlyDelete": "Vee permanent uit",
+    "keepFilesDescription": "Verwyder die model van die lys en hou sy lêers op skyf. Jy kan dit weer invoer.",
+    "permanentDescription": "Vee die model en sy Novera-bestuurde lêers van skyf uit. Dit kan nie ongedaan gemaak word nie.",
+    "permanentImportedDescription": "Vee ook die hoof GGUF lêer uit op sy oorspronklike ligging. Eksterne hulplêers word gehou. Dit kan nie ongedaan gemaak word nie.",
+    "removedSuccess": "Model {{modelId}} is verwyder van Novera. Sy lêers is gehou."
   },
   "deleteAllModels": {
     "button": "Vee alles uit",
@@ -123,5 +130,8 @@
     "oneKeyHint": "Opsionele terugvalsleutels word in Gevorderd gekonfigureer.",
     "addKey": "Voeg sleutel by",
     "removeKey": "Verwyder sleutel"
-  }
+  },
+  "installedMediaModels": "Beeld-, video- en musiekmodelle",
+  "noInstalledModels": "Geen modelle is in hierdie kategorie geregistreer nie.",
+  "modelComponents": "Modellêers"
 }

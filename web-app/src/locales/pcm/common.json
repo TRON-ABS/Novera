@@ -46,7 +46,7 @@
   "selectModel": "Choose model first",
   "commands": "Commands",
   "cmdHelp": "List commands wey dey available",
-  "cmdClear": "Clear this session",
+  "cmdClear": "Clear dis session",
   "cmdModels": "Change the active model",
   "cmdModelsHint": "Type /models, then choose model from the list",
   "cmdModelSwitched": "We don change to {{name}}",
@@ -61,7 +61,7 @@
   "cmdPlanOff": "Plan mode dey off: normal execution",
   "cmdTodo": "Open progress panel",
   "cmdTasks": "Open panel for background tasks",
-  "cmdInit": "Study the project and write skills and memory",
+  "cmdInit": "Study project and write skills and memory",
   "cmdInitRunning": "We dey set up this project",
   "skills": "Skills",
   "skillsInContext": "Skills wey agent fit use for this run",
@@ -71,7 +71,7 @@
   "skillsScopeMerged": "Skills for {{folder}}, plus global skills wey all sessions dey share",
   "skillOriginFolder": "folder",
   "skillOriginGlobal": "global",
-  "skillsEmpty": "No skills yet",
+  "skillsEmpty": "No skill dey yet",
   "skillsPickOrNew": "Choose skill to edit, or create new one.",
   "skillNew": "New skill",
   "skillDelete": "Delete skill",
@@ -80,7 +80,7 @@
   "skillNameRequired": "Skill must get name",
   "skillNamePlaceholder": "skill-name",
   "skillContentPlaceholder": "Describe the steps wey person fit use again for Markdown…",
-  "skillHubImport": "Import from hub",
+  "skillHubImport": "Import am from hub",
   "skillHubTitle": "Anthropic skill hub",
   "skillHubEmpty": "We no find any skills for the hub",
   "skillImport": "Import",
@@ -91,7 +91,7 @@
   "deleteSessionTitle": "Make we delete this session?",
   "deleteSessionBody": "We go delete \"{{title}}\" and the conversation record permanently. You no fit undo am.",
   "newChat": "New Chat",
-  "newAgentChat": "New Agent Chat",
+  "newAgentChat": "Start agent chat wey new",
   "chats": "Chats",
   "favorites": "Favourites",
   "recents": "Recent ones",
@@ -111,7 +111,7 @@
   "others": "Other",
   "language": "Language",
   "login": "Log In",
-  "loginWith": "Log In With {{provider}}",
+  "loginWith": "Use {{provider}} sign in",
   "loginFailed": "We No Fit Log In",
   "logout": "Log Out",
   "loggingOut": "We Dey Log Out...",
@@ -164,7 +164,7 @@
   },
   "modelPanel": {
     "title": "Model settings",
-    "a11y": "Open model settings",
+    "a11y": "Open settings for model",
     "contextTooltip": "Context window: {{value}} out of {{max}} tokens"
   },
   "coworkSlash": {
@@ -229,11 +229,11 @@
   "addOpenAIProvider": "Add OpenAI Provider",
   "enterNameForProvider": "Enter name for your provider",
   "providerAlreadyExists": "Provider wey get name \"{{name}}\" don already dey. Abeg choose another name.",
-  "adjustFontSize": "Adjust Font Size",
+  "adjustFontSize": "Adjust size of font",
   "changeLanguage": "Change Language",
   "editTheme": "Edit Theme",
-  "editCodeBlockStyle": "Edit Code Block Style",
-  "editServerHost": "Edit Server Host",
+  "editCodeBlockStyle": "Edit how code block dey look",
+  "editServerHost": "Edit host for server",
   "pickColorWindowBackground": "Choose Window Background Colour",
   "pickColorAppMainView": "Choose App Main View Colour",
   "pickColorAppPrimary": "Choose App Primary Colour",
@@ -242,7 +242,7 @@
   "apiKeyRequired": "API Key must dey",
   "enterTrustedHosts": "Enter hosts wey you trust",
   "placeholder": {
-    "chatInput": "Ask me anything..."
+    "chatInput": "Ask me wetin you want..."
   },
   "confirm": "Confirm",
   "continue": "Continue",
@@ -277,7 +277,7 @@
     "editServer": "Edit Server",
     "addServer": "Add Server",
     "serverName": "Server Name",
-    "enterServerName": "Enter server name",
+    "enterServerName": "Put name for server",
     "command": "Command",
     "enterCommand": "Enter command",
     "arguments": "Arguments",
@@ -313,7 +313,7 @@
     "title": "Context space don finish",
     "description": "This chat dey reach the AI memory limit, like whiteboard wey don nearly full. We fit increase the memory window (wey dem dey call context size) make e remember more, but e fit use more of your computer memory. We fit also shorten the input, wey mean say e go forget some chat history to make space for new messages.",
     "increaseContextSizeDescription": "You wan increase the context size?",
-    "increaseContextSize": "Increase Context Size"
+    "increaseContextSize": "Make context size bigger"
   },
   "toolApproval": {
     "title": "Request to Use Tool",
@@ -344,7 +344,7 @@
     "description": "Set the model settings to improve how e dey work and behave.",
     "nglDisabledByFit": "Auto-fit dey choose GPU layers. Turn Auto-fit off to set am yourself.",
     "samplingDefaults": {
-      "title": "Default sampling parameters",
+      "title": "Sampling parameters wey app go use normally",
       "description": "Default sampler settings for this model. We go use them unless assistant or request settings override them."
     },
     "specDraft": {
@@ -359,7 +359,7 @@
       "pMinDescription": "Lowest probability for greedy drafting (0–1). Default na 0.75."
     },
     "templateKwargs": {
-      "section": "Chat template options",
+      "section": "Options for chat template",
       "description": "Extra options wey this model chat template fit accept. We dey send them as chat_template_kwargs for every request; leave value for the default make the template decide.",
       "addCustom": "Add your own option",
       "keyPlaceholder": "name",
@@ -374,7 +374,7 @@
   },
   "dialogs": {
     "changeDataFolder": {
-      "title": "Change Data Folder Location",
+      "title": "Change where data folder dey",
       "description": "You sure say you wan change where the data folder dey? This go move all your data go the new location and restart the app.",
       "currentLocation": "Where E Dey Now:",
       "newLocation": "New Location:",
@@ -386,7 +386,7 @@
       "description": "We go delete all conversations. You no fit undo this action."
     },
     "deleteAllThreadsInProject": {
-      "title": "Delete All Conversations",
+      "title": "Delete every conversation",
       "description": "We go delete {{count}} conversations for \"{{projectName}}\". You no fit undo this action."
     },
     "deleteThread": {
@@ -419,15 +419,15 @@
     "title": "Projects",
     "new": "New Projects",
     "addProject": "Add Project",
-    "addToProject": "Add to project",
-    "removeFromProject": "Remove from project",
-    "createNewProject": "Create New Project",
+    "addToProject": "Add am to project",
+    "removeFromProject": "Remove am from project",
+    "createNewProject": "Create project wey new",
     "editProject": "Edit Project",
     "deleteProject": "Delete Project",
     "projectName": "Project Name",
-    "enterProjectName": "Enter project name...",
+    "enterProjectName": "Put name for project...",
     "noProjectsAvailable": "No projects dey available",
-    "noProjectsYet": "No Projects Yet",
+    "noProjectsYet": "No project dey yet",
     "noProjectsYetDesc": "Click Add Project button to start new project.",
     "projectNotFound": "We No Find This Project",
     "projectNotFoundDesc": "The project wey you dey find no dey, or dem don delete am.",
@@ -451,10 +451,10 @@
       "ariaLabel": "Delete {{projectName}}"
     },
     "addProjectDialog": {
-      "createTitle": "Create New Project",
+      "createTitle": "Create project wey new",
       "editTitle": "Edit Project",
       "nameLabel": "Project Name",
-      "namePlaceholder": "Enter project name...",
+      "namePlaceholder": "Put name for project...",
       "assistant": "Assistant",
       "selectAssistant": "Choose assistant (no be compulsory)",
       "noAssistant": "No assistant",
@@ -691,7 +691,7 @@
   "coworkWatching_one": "We dey watch {{count}} monitor…",
   "coworkWatching_other": "We dey watch {{count}} monitors…",
   "coworkWaitingBackground": "We dey wait for background tasks…",
-  "noBackgroundTasks": "No background tasks yet.",
+  "noBackgroundTasks": "No background task dey yet.",
   "running": "E dey run",
   "queued": "E dey queue",
   "waiting": "E dey wait",
@@ -788,13 +788,13 @@
   "askRecommended": "The one we recommend",
   "askSelectedCount": "You don choose {{count}}",
   "askSomethingElse": "Another thing",
-  "askSomethingElsePlaceholder": "Type your own answer",
+  "askSomethingElsePlaceholder": "Type answer by yourself",
   "submit": "Submit",
   "composer": {
     "advanced": "Advanced parameters",
     "modelDefaults": "Model default values",
     "assistantOverrides": "Assistant own parameters",
-    "printPdf": "Print / Save as PDF",
+    "printPdf": "Print am / Save as PDF",
     "exportHint": "Readable formats: di branch wey dey show. JSON: all message versions. Outside files no dey inside."
   },
   "telemetry": {

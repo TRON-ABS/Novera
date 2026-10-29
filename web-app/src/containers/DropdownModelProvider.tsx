@@ -25,7 +25,7 @@ import { providerHasRemoteApiKeys } from '@/lib/provider-api-keys'
 import { useServiceHub } from '@/hooks/useServiceHub'
 import { getLastUsedModel } from '@/utils/getModelToStart'
 import { useMediaLibrary, selectMediaProfile } from '@/hooks/useMediaLibrary'
-import { useCreation } from '@/hooks/useCreation'
+import { useCreation, videoSettingsFor } from '@/hooks/useCreation'
 import { useAgentMode } from '@/hooks/useAgentMode'
 import {
   LOCAL_MODEL_PROVIDERS,
@@ -115,7 +115,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
             )
             ? creation.settings.ggufImageModel
             : creation.settings.imageModel
-          : creation.settings.videoModel
+          : videoSettingsFor(creation).videoModel
       return path &&
         !mediaProfiles.some(
           (p) =>
@@ -170,6 +170,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
     providers,
     mediaProfiles,
     creation.settings.imageModel,
+    creation.videoSettings,
     creation.settings.videoModel,
     creation.settings.imageEngine,
     creation.settings.ggufImageModel,

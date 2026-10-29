@@ -7,9 +7,9 @@ import { fetchTopRemoteModels, supportsRemoteCatalog } from '../remoteModelCatal
 import { buildsOwnToolImageRequest, isPredefinedRemoteProvider } from '../providerCaps'
 
 describe('maintained cloud catalog', () => {
-  it('offers 41 distinct providers, with modality shortlists except account-specific gateways', () => {
-    expect(predefinedProviders).toHaveLength(41)
-    expect(new Set(predefinedProviders.map((p) => p.provider)).size).toBe(41)
+  it('offers 42 distinct providers, with modality shortlists except account-specific gateways', () => {
+    expect(predefinedProviders).toHaveLength(42)
+    expect(new Set(predefinedProviders.map((p) => p.provider)).size).toBe(42)
     for (const provider of predefinedProviders) {
       expect(isPredefinedRemoteProvider(provider.provider)).toBe(true)
       if (['azure', 'watsonx'].includes(provider.provider)) continue

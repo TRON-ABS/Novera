@@ -1638,7 +1638,7 @@ function CoworkPage() {
           </div>
 
           <div className="py-4 shrink-0">
-            <div className={cn('mx-auto w-full', !rail && 'md:w-4/5 xl:w-4/6')}>
+            <div className="mx-auto w-full">
               {ask && typeof ask.request !== 'string' && (
                 <div className="px-1 pb-2">
                   <CoworkAskCard

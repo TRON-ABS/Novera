@@ -620,14 +620,8 @@ export default class mlx_extension extends AIEngine {
     const sourcePath = opts.modelPath
 
     if (sourcePath.startsWith('https://')) {
-      // Download from URL to mlx models folder
-      const janDataFolderPath = await getJanDataFolderPath()
-      const modelDir = await joinPath([
-        janDataFolderPath,
-        'mlx',
-        'models',
-        modelId,
-      ])
+      // Keep downloaded weights and all companion files in one Documents subfolder.
+      const modelDir = await invoke<string>('model_download_directory', { modelId })
       const localPath = await joinPath([modelDir, 'model.safetensors'])
 
       const downloadManager = window.core.extensionManager.getByName(
@@ -701,14 +695,14 @@ export default class mlx_extension extends AIEngine {
 
       // Create model.yml with relative path
       const modelConfig: any = {
-        model_path: `mlx/models/${modelId}/model.safetensors`,
+        model_path: localPath,
         name: modelId,
         size_bytes: opts.modelSize ?? 0,
       }
 
       // For vision models, add mmproj_path
       if (isVision) {
-        modelConfig.mmproj_path = `mlx/models/${modelId}/model.safetensors`
+        modelConfig.mmproj_path = localPath
         logger.info(`Vision model detected: ${modelId}`)
       }
 
@@ -717,7 +711,7 @@ export default class mlx_extension extends AIEngine {
         modelConfig.capabilities = capabilities
       }
 
-      await fs.mkdir(modelDir)
+      await fs.mkdir(await joinPath([await this.getProviderPath(), 'models', modelId]))
       await invoke<void>('write_yaml', {
         data: modelConfig,
         savePath: configPath,

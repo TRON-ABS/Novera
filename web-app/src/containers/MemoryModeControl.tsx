@@ -4,6 +4,7 @@ import { Database, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 export function MemoryModeControl({ scope }: { scope: string }) {
+
   const { t } = useTranslation()
   const { policy, setPolicy, waiting } = useMemoryPolicy()
   if (
@@ -17,7 +18,7 @@ export function MemoryModeControl({ scope }: { scope: string }) {
       <Button size="xs" variant="ghost" className="composer-memory min-w-0 max-w-44" aria-label={t('chat:memory.title')} title={`${t('chat:memory.title')} · ${t(`chat:memory.${policy}`)}`}>
         <Database size={14} aria-hidden="true" />
         <span className="min-w-0 truncate">{t('chat:memory.compactTitle', { defaultValue: t('chat:memory.title') })}</span>
-        <span className="composer-memory-state shrink-0" data-active={policy === 'auto'} aria-hidden="true">● {policy === 'auto' ? 'ON' : 'OFF'}</span>
+        <span className="composer-memory-state shrink-0" data-active={policy === 'auto'} aria-hidden="true">● {policy === 'auto' ? t('ui:on') : t('ui:off')}</span>
         <ChevronDown size={12} aria-hidden="true" />
         {waiting[scope] && (
           <span role="status" className="max-w-20 shrink-0 truncate"> · {t('chat:memory.waiting')}</span>
