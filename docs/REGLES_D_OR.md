@@ -28,6 +28,8 @@ Envoyer/Arrêter occupe une zone réservée à droite dans le cadre de saisie, s
 
 Pendant l’exécution, garder le cadre et les commandes à leur luminosité habituelle, sans halo tournant. Seul Envoyer/Arrêter change légèrement de teinte. Les valeurs et informations de progression restent actualisées ; les commandes indisponibles conservent leurs verrouillages malgré l’absence d’atténuation visuelle.
 
+Conserver un seul accès visible à Téléchargements, dans le tableau de bord ; aucun déclencheur dans l’en-tête ou le panneau latéral, y compris sur Configurations. Maintenir le suivi et les notifications indépendamment de cet accès. Nouvelle discussion occupe une zone réservée à gauche dans le cadre de saisie, Envoyer/Arrêter celle de droite ; ne pas doubler Nouvelle discussion dans le panneau latéral et préserver le raccourci clavier.
+
 ## 4. Un démarrage guidé et une automatisation explicable
 
 Guider du démarrage au résultat : choix du mode, installation des composants nécessaires, vérification, sélection du modèle, exécution, affichage et enregistrement. Montrer ce qui manque avec une action correspondante.

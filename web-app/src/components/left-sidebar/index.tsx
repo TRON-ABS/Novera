@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import { DownloadManagement } from '@/containers/DownloadManegement'
 import { NavChats } from './NavChats'
 import { NavCowork } from './NavCowork'
 import { NavMain } from './NavMain'
 import { NavProjects } from './NavProjects'
 import { NavTabs } from './NavTabs'
-import { useLeftPanel } from '@/hooks/useLeftPanel'
 
 import {
   Sidebar,
@@ -22,7 +20,6 @@ import { NewWorkspaceProject, WorkspaceProjects } from './WorkspaceProjects'
 import { isCoworkEnabled } from '@/lib/version'
 
 export function LeftSidebar() {
-  const { open: isLeftPanelOpen } = useLeftPanel()
   const { pathname } = useLocation()
   const inSettings =
     pathname === route.settings.index || pathname.startsWith('/settings/')
@@ -41,7 +38,6 @@ export function LeftSidebar() {
           <div className={cn("flex items-center w-full justify-between", reserveLeft && "justify-end")}>
             {!reserveLeft && <span className="novera-wordmark ml-2 font-medium font-studio group-data-[collapsible=icon]:hidden">Novera</span>}
             <div className="flex items-center">
-              {isLeftPanelOpen && <DownloadManagement />}
               <SidebarTrigger className="text-muted-foreground rounded-full hover:bg-sidebar-foreground/8! -mt-0.5 relative z-50 ml-0.5" />
             </div>
           </div>

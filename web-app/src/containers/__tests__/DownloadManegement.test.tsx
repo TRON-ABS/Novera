@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 // ---- Module mocks ----------------------------------------------------------
@@ -123,6 +123,13 @@ window.core = {
 import { DownloadManagement } from '../DownloadManegement'
 
 describe('DownloadManagement', () => {
+  it('keeps root notifications without a second visible download button', () => {
+    render(<><DownloadManagement notificationsOnly /><DownloadManagement composer /></>)
+    expect(screen.getAllByRole('button', { name: 'common:downloads' })).toHaveLength(1)
+    expect(Object.keys(hoisted.eventHandlers).sort()).toEqual(['aude', 'auds', 'audu'])
+    act(() => hoisted.eventHandlers.auds())
+    expect(hoisted.toastMock.success).toHaveBeenCalledTimes(1)
+  })
   it('adds an accessible composer shortcut without duplicate update notifications', () => {
     render(<DownloadManagement composer />)
     expect(screen.getByRole('button', { name: 'common:downloads' })).toHaveClass('composer-downloads')

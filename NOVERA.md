@@ -2,6 +2,8 @@
 
 ## Validation progressive du tableau de bord — règle du 29 octobre 2026
 
+Dernière demande explicite : retirer **toutes** les icônes Téléchargements de l’en-tête et du panneau latéral, même dans Configurations. L’ancien masquage conditionnel ne suffit plus. Garder uniquement le déclencheur du tableau de bord et un gestionnaire de notifications sans interface à la racine de la fenêtre principale. Déplacer aussi **Nouvelle discussion** du panneau latéral vers une zone intégrée à gauche de la saisie, symétrique à Envoyer à droite, sans recouvrir le texte. Préserver l’action de nouvelle discussion normale et son raccourci clavier. Ces deux déplacements sont autorisés par cette demande précise, sans autre changement du tableau de bord.
+
 Changement explicitement validé par la demande suivante : pendant la réponse du modèle, conserver le tableau de bord sans assombrissement et sans halo animé. Seul le bouton d’envoi change légèrement de teinte avec le petit carré Arrêter. Conserver les verrouillages des commandes indisponibles ; leur état désactivé ne doit plus atténuer visuellement l’ensemble du tableau de bord.
 
 Changement explicitement demandé ensuite : supprimer le doublon Téléchargements en haut lorsque le raccourci du tableau de bord est présent. Conserver l’accès du haut sur les autres pages et le gestionnaire de notifications actif. Il s’agit uniquement de retirer cette icône dupliquée ; aucune autre réorganisation n’est autorisée par cette demande.

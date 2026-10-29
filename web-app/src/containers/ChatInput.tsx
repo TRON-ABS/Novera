@@ -29,7 +29,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
 } from '@/components/ui/dropdown-menu'
-import { ArrowRight, PlusIcon } from 'lucide-react'
+import { ArrowRight, PlusIcon, MessageSquarePlus } from 'lucide-react'
 import {
   IconPhoto,
   IconMusic,
@@ -2223,6 +2223,16 @@ const ChatInput = memo(function ChatInput({
               </div>
             )}
             <div className="composer-prompt relative">
+            <div className="composer-new-chat-area">
+              <Button variant="ghost" size="icon-sm" className="composer-submit-button"
+                data-testid="new-chat-button" aria-label={t('common:newChat')} title={t('common:newChat')}
+                onClick={() => {
+                  useAgentMode.getState().removeThread(TEMPORARY_CHAT_ID)
+                  void router.navigate({ to: route.home })
+                }}>
+                <MessageSquarePlus className="size-4" aria-hidden="true" />
+              </Button>
+            </div>
             <div className="composer-input-area relative min-w-0">
               {highlightedPrefix && prompt.startsWith(highlightedPrefix) && (
                 <div

@@ -115,12 +115,13 @@ vi.mock('@/hooks/useAssistant', () => ({
 }))
 
 let agentModeOn = false
+const removeAgentThreadMock = vi.fn()
 vi.mock('@/hooks/useAgentMode', () => ({
-  useAgentMode: (selector: any) =>
+  useAgentMode: Object.assign((selector: any) =>
     selector({
       agentThreads: agentModeOn ? { 'thread-1': true } : {},
       toggleAgentMode: vi.fn(),
-    }),
+    }), { getState: () => ({ removeThread: removeAgentThreadMock }) }),
 }))
 
 vi.mock('@/hooks/useMessages', () => ({
@@ -373,6 +374,18 @@ const renderInput = (props: any = {}) =>
 describe('ChatInput', () => {
   beforeEach(() => {
     resetAll()
+  })
+
+  it('opens a new normal discussion from the reserved left side of the prompt', () => {
+    renderInput()
+    const button = screen.getByTestId('new-chat-button')
+    expect(button.closest('.composer-new-chat-area')).not.toBeNull()
+    expect(button.closest('.composer-prompt')).not.toBeNull()
+    const input = screen.getByTestId('chat-input')
+    expect(button.compareDocumentPosition(input) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    fireEvent.click(button)
+    expect(removeAgentThreadMock).toHaveBeenCalledWith('temporary-chat')
+    expect(navigateMock).toHaveBeenCalledWith({ to: '/' })
   })
 
   it('preserves the draft when creating a conversation fails and allows retry', async () => {

@@ -2,7 +2,9 @@
 
 ## Informations utilisateur — tableau de bord et créations, 29 octobre 2026
 
-Le tableau de bord conserve une largeur maximale de **1 024 px** et s’adapte aux fenêtres plus petites. Dans la rangée basse, les commandes suivent cet ordre : **Mémoire auto → Réglages → Téléchargements**. Réglages ouvre la même configuration commune ; Téléchargements donne accès à la progression et aux commandes des téléchargements en cours. Lorsque ce raccourci est présent, son doublon en haut est masqué. Sur les pages qui ne possèdent pas ce raccourci, l’accès du haut reste disponible. Ce raccourci n’active aucune compilation ni mise à jour automatique.
+Le tableau de bord conserve une largeur maximale de **1 024 px** et s’adapte aux fenêtres plus petites. Dans la rangée basse, les commandes suivent cet ordre : **Mémoire auto → Réglages → Téléchargements**. Réglages ouvre la même configuration commune ; Téléchargements donne accès à la progression et aux commandes des téléchargements en cours. **L’icône Téléchargements est uniquement dans le tableau de bord**, sans doublon dans l’en-tête ou le panneau latéral, y compris sur Configurations. Revenez au tableau de bord pour consulter les téléchargements ; leur suivi continue en arrière-plan. Ce raccourci n’active aucune compilation ni mise à jour automatique.
+
+**Nouvelle discussion** se trouve dans une zone réservée à gauche du cadre de saisie, face au bouton Envoyer à droite. Son nom apparaît au survol et reste disponible aux lecteurs d’écran dans la langue choisie. Ce bouton remplace celui du panneau latéral et ouvre l’accueil pour une nouvelle discussion normale ; le raccourci clavier habituel est conservé. Les commandes latérales et le texte saisi ne se recouvrent pas.
 
 Pendant la réponse, le cadre reste fixe et le tableau de bord garde sa luminosité, sans halo animé. Seul le bouton d’envoi change légèrement de teinte et présente le petit carré Arrêter. Les commandes incompatibles avec le travail en cours restent verrouillées ; les informations de progression continuent de s’actualiser.
 

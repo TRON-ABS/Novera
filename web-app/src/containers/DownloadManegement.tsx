@@ -16,7 +16,7 @@ import { DownloadIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn, formatBytes } from '@/lib/utils'
 
-export function DownloadManagement({ composer = false }: { composer?: boolean } = {}) {
+export function DownloadManagement({ composer = false, notificationsOnly = false }: { composer?: boolean; notificationsOnly?: boolean } = {}) {
 
   const { t } = useTranslation()
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
@@ -213,7 +213,7 @@ export function DownloadManagement({ composer = false }: { composer?: boolean } 
   )
 
   useEffect(() => {
-    // The existing header/sidebar instance owns notifications. This is another
+    // The root instance owns notifications. This is another
     // view of the shared download state, not another background download job.
     if (composer) return
     events.on(AppEvent.onAppUpdateDownloadUpdate, onAppUpdateDownloadUpdate)
@@ -235,12 +235,14 @@ export function DownloadManagement({ composer = false }: { composer?: boolean } 
     onAppUpdateDownloadError,
   ])
 
+  if (notificationsOnly) return null
+
   return (
     <>
       <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
         <PopoverTrigger asChild>
           <Button variant="ghost" size="icon" aria-label={t('common:downloads')} title={t('common:downloads')}
-            className={cn("text-muted-foreground z-50 rounded-full hover:bg-sidebar-foreground/8! -mt-0.5 size-7 relative", composer ? 'composer-downloads' : 'global-downloads')}>
+            className={cn("text-muted-foreground z-50 rounded-full hover:bg-sidebar-foreground/8! -mt-0.5 size-7 relative", composer && 'composer-downloads')}>
             <DownloadIcon className='text-muted-foreground size-4' />
             {downloadCount > 0 && (
               <svg className="absolute inset-0 m-auto size-7 -rotate-90" viewBox="0 0 36 36" aria-hidden="true">
