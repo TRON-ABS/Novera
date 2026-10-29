@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "mode": "preparation-only",
+  "requiredSources": [
+    "LICENSE",
+    "yarn.lock",
+    "rust-toolchain.toml",
+    "src-tauri/tauri.conf.json",
+    "src-tauri/Cargo.toml",
+    "src-tauri/Cargo.lock",
+    "web-app/package.json",
+    "scripts/Compiler-Novera.bat",
+    "scripts/distribution/build-novera-local.ps1"
+  ],
+  "targets": [
+    {
+      "id": "desktop",
+      "host": "Windows x64",
+      "artifacts": ["Novera-Desktop.exe and runtime folder"],
+      "config": "src-tauri/tauri.windows.conf.json",
+      "sources": ["scripts/distribution/prepare-novera-engine.ps1", "scripts/distribution/stage-novera-image.ps1"],
+      "packageScripts": ["build:web", "prepare:image:win32"],
+      "pending": ["Provision the native compiler and engine toolchains on a clean host.", "Stage and verify worker, image runtime, dependencies and third-party notices.", "Compile and test the complete application on the target host."]
+    },
+    {
+      "id": "setup",
+      "host": "Windows x64",
+      "artifacts": ["NSIS installer .exe"],
+      "config": "src-tauri/tauri.windows.conf.json",
+      "sources": ["scripts/distribution/prepare-novera-engine.ps1", "scripts/distribution/stage-novera-image.ps1"],
+      "packageScripts": ["build:tauri:win32"],
+      "pending": ["Prepare the full Windows runtime and NSIS toolchain.", "Configure Novera signing for a signed public distribution.", "Test installation, launch and uninstall on a clean Windows host."]
+    },
+    {
+      "id": "msi",
+      "host": "Windows x64",
+      "artifacts": ["MSI installer"],
+      "config": "src-tauri/tauri.windows.conf.json",
+      "sources": ["scripts/distribution/prepare-novera-engine.ps1", "scripts/distribution/stage-novera-image.ps1"],
+      "packageScripts": ["build:tauri:win32"],
+      "pending": ["Prepare the full Windows runtime and MSI packaging tools.", "Configure Novera signing for a signed public distribution.", "Test install, upgrade and uninstall on a clean Windows host."]
+    },
+    {
+      "id": "portable",
+      "host": "Windows x64",
+      "artifacts": ["Portable ZIP", "SHA-256 checksum"],
+      "config": "src-tauri/tauri.windows.conf.json",
+      "sources": ["scripts/distribution/package-windows-portable.ps1", "scripts/package-windows-portable.ps1"],
+      "packageScripts": ["package:portable:win32"],
+      "pending": ["Build a fresh complete Windows runtime before packaging.", "Verify all packaged dependencies and checksums.", "Test the extracted folder on a clean host without developer paths."]
+    },
+    {
+      "id": "arm64",
+      "host": "Windows ARM64 or a compatible cross-compilation host",
+      "artifacts": ["Windows ARM64 installer"],
+      "config": "src-tauri/tauri.windows.conf.json",
+      "sources": ["src-tauri/plugins/tauri-plugin-llamacpp/build.rs"],
+      "packageScripts": ["build:web"],
+      "pending": ["Provision ARM64 compiler and Rust target.", "Prepare ARM64 worker, sidecars and native dependencies; do not reuse x64 DLLs.", "Prepare and verify a compatible image engine or document its unavailable capabilities.", "Test on a real Windows ARM64 device and configure distribution signing."]
+    },
+    {
+      "id": "linux",
+      "host": "Linux",
+      "artifacts": [".deb", "AppImage"],
+      "config": "src-tauri/tauri.linux.conf.json",
+      "sources": ["src-tauri/build-utils/buildAppImage.sh", "src-tauri/build-utils/shim-linuxdeploy.sh"],
+      "packageScripts": ["build:tauri:linux"],
+      "pending": ["Provision GTK/WebKit and packaging dependencies on a Linux runner.", "Prepare Linux worker, sidecars and generation runtimes; the Windows CUDA image bundle is not a Linux runtime.", "Verify startup, API server and behavior with and without an AppIndicator library.", "Test installation and portable startup on supported distributions; Flatpak needs separate packaging and sandbox validation."]
+    },
+    {
+      "id": "macos",
+      "host": "macOS with Xcode",
+      "artifacts": [".app", "Universal .dmg"],
+      "config": "src-tauri/tauri.macos.conf.json",
+      "sources": ["src-tauri/Entitlements.plist"],
+      "packageScripts": ["build:tauri:darwin", "build:mlx-server"],
+      "pending": ["Provision Xcode and both required Rust architectures.", "Prepare compatible worker, MLX, sidecars and media runtimes for both architectures.", "Configure Apple signing and notarization for public distribution.", "Test the universal application on Apple Silicon and Intel."]
+    },
+    {
+      "id": "android",
+      "host": "Host with Android SDK, NDK and JDK",
+      "artifacts": ["ARM64 test APK"],
+      "config": "src-tauri/tauri.android.conf.json",
+      "sources": ["scripts/android/toolchain.json", "scripts/android/readiness.json", "scripts/android/initialize-project.ps1", "scripts/android/build-engine.ps1", "scripts/android/build-apk.ps1", "src-tauri/capabilities/mobile.json"],
+      "packageScripts": ["check:android", "prepare:android", "build:android:apk"],
+      "pending": ["Provision the pinned Android toolchain and generate the native project.", "Prepare ARM64 engine libraries and pass the existing Android readiness diagnostic.", "Test installation, storage, lifecycle and native integrations on a device.", "Prepare release signing and a separate AAB path before promising a Play Store package."]
+    },
+    {
+      "id": "ios",
+      "host": "macOS with Xcode",
+      "artifacts": ["Device application; signed distribution archive after provisioning"],
+      "config": "src-tauri/tauri.ios.conf.json",
+      "sources": ["src-tauri/capabilities/mobile.json"],
+      "packageScripts": ["build:ios:device", "copy:assets:mobile"],
+      "pending": ["Generate and provision the native iOS project.", "Prepare compatible mobile native dependencies; desktop generation engines are not automatically available.", "Configure the Apple team, certificates and provisioning profiles.", "Test on an iPhone/iPad before preparing TestFlight or App Store distribution."]
+    },
+    {
+      "id": "web",
+      "host": "Node.js and the repository's pinned Yarn version",
+      "artifacts": ["Frontend dist folder"],
+      "sources": ["web-app/vite.config.ts", "web-app/src/services/core/default.ts"],
+      "packageScripts": ["build:web"],
+      "pending": ["Provision dependencies and build the required workspace packages.", "Verify browser service paths and document unavailable native features.", "Test routing, persistence and cloud access in a hosted browser; frontend assets alone are not the full desktop product."]
+    },
+    {
+      "id": "cli",
+      "host": "Rust and native dependencies for the target OS",
+      "artifacts": ["Headless CLI binary (current internal name: jan)"],
+      "sources": ["src-tauri/novera-cli/Cargo.toml", "src-tauri/novera-cli/src/main.rs"],
+      "packageScripts": [],
+      "pending": ["Review inherited CLI package identity and naming before a public Novera CLI release.", "Prepare native dependencies for each chosen OS and architecture.", "Test CLI commands and installation independently of the desktop application."]
+    }
+  ]
+}

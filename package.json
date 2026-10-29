@@ -11,6 +11,8 @@
     ]
   },
   "scripts": {
+    "check:distribution": "node scripts/distribution/check-release-readiness.mjs",
+    "test:distribution": "node --test scripts/distribution/__tests__/check-release-readiness.test.mjs",
     "check:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/check-android.ps1",
     "prepare:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/initialize-project.ps1",
     "build:android:engine": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/build-engine.ps1",

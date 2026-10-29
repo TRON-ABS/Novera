@@ -1,5 +1,15 @@
 # Novera — feuille de route
 
+## Préparation des distributions — 29 octobre 2026
+
+- [x] Définir les onze variantes du lanceur, dont le ZIP portable Windows et son empreinte, dans un manifeste commun.
+- [x] Ajouter un contrôle de sources/versions sans compilation, installation, réseau, activation CI ou publication.
+- [x] Documenter les ressources, signatures et essais requis pour chaque cible ; conserver les blocages Android/iOS visibles.
+- [ ] Préparer et valider les jobs GitHub Actions Novera sur une demande ultérieure ; les workflows historiques ne sont pas tous prêts à être activés.
+- [ ] Construire et tester chaque cible sur son environnement, puis préparer les distributions signées et la publication autorisée.
+
+La préparation est distincte d’une compilation réussie. [Plan détaillé et portable](docs/PREPARATION_DISTRIBUTIONS.md).
+
 ## Lecteurs communs et saisie manuelle — 28 octobre 2026
 
 - [x] Sources : commandes Novera pour musique/vidéo, zoom image, adaptation tactile/clavier et replis de plein écran.
