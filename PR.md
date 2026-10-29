@@ -20,6 +20,8 @@ Prepare future distributions without compiling them. Add a declarative inventory
 
 No application/native/extension compilation, GitHub Actions activation, paid cloud generation, installer/archive production, code signing or official release is included. Small-screen and startup behavior still require visual verification in the maintainer's compiled application; browser access to the local preview was unavailable in the preceding layout check. This preparation does not resolve mobile audits or certify target-specific engine compatibility. PR #2 is already merged and provides the base; no unmerged prerequisite or external issue closure is introduced.
 
+The maintainer now requires explicit approval before each future dashboard change, one change at a time. Record that requirement in NOVERA.md and the golden rules. The adjustments above were individually requested before this new workflow rule; keep this follow-up available for review rather than treating it as approval of a broader redesign.
+
 ---
 
 ## Previous merged change — adaptive composer and generation information (PR #2)

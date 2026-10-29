@@ -18,6 +18,8 @@ Une chaîne anglaise copiée ou un repli anglais ne constitue pas une traduction
 
 ## 3. Un seul tableau de bord adaptable
 
+**Validation progressive obligatoire.** Pour chaque nouvelle modification du tableau de bord, présenter d’abord une proposition concrète et attendre l’accord explicite du mainteneur avant de l’appliquer. Avancer une modification à la fois ; attendre une nouvelle validation avant la suivante. Cela couvre couleurs, largeur, disposition, icônes, comportements et capacités. Conserver une comparaison lisible et ne pas assimiler un objectif général à l’approbation de tous ses détails. Les changements déjà expressément demandés restent documentés ; aucune évolution générale « OVNI » n’est autorisée pour le moment.
+
 Conserver l’apparence approuvée, les couleurs et les états explicites. Les rangées s’adaptent à la largeur disponible : retour à la ligne, regroupement cohérent et commandes secondaires accessibles. La taille maximale actuelle du tableau de bord est de **1 024 px** ; un petit écran ne reçoit pas une largeur fixe de bureau. Placer Réglages à droite de Mémoire auto, puis le raccourci Téléchargements ; conserver l’ordre lorsque la rangée passe à la ligne.
 
 Les mots traduits ne doivent ni se toucher ni recouvrir un interrupteur ou une commande. Préserver les espaces, permettre la hauteur nécessaire et conserver le nom accessible complet en mode compact. Les noms longs de modèles restent utilisables. Tenir compte du zoom, du clavier, du focus, du contraste, du tactile et de la réduction des animations.

@@ -1,5 +1,11 @@
 # Novera — instructions du projet
 
+## Validation progressive du tableau de bord — règle du 29 octobre 2026
+
+Le mainteneur demande désormais une progression **changement par changement** pour le tableau de bord. Présenter une proposition concrète, avec aperçu ou comparaison compréhensible, puis **attendre sa validation explicite avant de modifier le tableau de bord**. Ne pas regrouper plusieurs nouvelles évolutions sous une seule validation implicite et ne pas passer au changement suivant sans accord. Une proposition ou un objectif général ne vaut pas autorisation de toutes ses étapes. Cette règle concerne aussi les déplacements, dimensions, couleurs, icônes et nouvelles commandes.
+
+Les ajustements expressément demandés avant cette règle sont consignés ci-dessous ; les travaux déjà préparés doivent rester identifiables et vérifiables. Une validation d’interface, une autorisation de fusion, une compilation et une publication de binaire restent des décisions distinctes.
+
 ## Préparation des distributions et compteur au démarrage — 29 octobre 2026
 
 Le mainteneur demande de préparer Novera pour une future automatisation, **sans compilation multiplateforme pour le moment**, avec la version **portable Windows** incluse. Le [plan des distributions](docs/PREPARATION_DISTRIBUTIONS.md), son manifeste et le diagnostic de sources couvrent les onze variantes du lanceur. Ne pas activer Actions ou déclencher les anciens workflows sur la base de cette préparation. Les audits mobiles, runtimes par architecture, signatures et essais restent explicitement à terminer.
