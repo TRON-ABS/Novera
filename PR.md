@@ -6,6 +6,8 @@ The local context indicator disappeared on the empty startup screen and until th
 
 Apply the maintainer's final layout choices: a responsive 1,024 px composer cap; settings immediately after automatic memory; a download shortcut immediately after settings; dark blue send/stop colors with a small 12 px stop square. The scoped settings shortcut opens the existing dialog. The downloads shortcut shares the existing store, retains pause/resume/cancel, and does not register another set of update-completion notifications. Global download access is retained on other application surfaces. The broader futuristic-dashboard redesign is explicitly deferred.
 
+Explicitly requested follow-up: hide the duplicate header/sidebar download trigger while the composer shortcut is present. Keep the global manager mounted for its existing notifications and retain the header/sidebar trigger on pages without a composer shortcut.
+
 Prepare future distributions without compiling them. Add a declarative inventory of the local launcher's eleven variants, including Windows portable ZIP/checksum, and a read-only Node audit. Verify referenced sources, package scripts, JSON configuration, application identity and desktop/web/native/CLI versions. Report Android review flags and missing Apple provisioning separately from source-reference validity; never certify an unbuilt target. The checker performs no network calls, installs, builds, CI changes or publication. Document prerequisites and the portable package's normal profile storage and separately downloaded model weights.
 
 ### Evidence and local validation
@@ -17,6 +19,7 @@ Prepare future distributions without compiling them. Add a declarative inventory
 - `node scripts/distribution/check-release-readiness.mjs`: all eleven source definitions valid; all target build statuses remain `not-verified`, with pending prerequisites listed.
 - From `web-app`, `node node_modules/typescript/bin/tsc --noEmit -p tsconfig.app.json --pretty false`: passes. Targeted ESLint has no errors; two existing CreationControls effect-dependency warnings remain.
 - UI localization audit: no missing static keys or unreviewed literals. Architecture: no violations. Actual CSS imports process with existing Tailwind tooling without an application bundle. `git diff --check` passes.
+- Duplicate-download-icon follow-up: **73 tests pass** across DownloadManegement and ChatInput; actual CSS processing and `git diff --check` pass. No additional application build or visual runtime validation is claimed.
 
 No application/native/extension compilation, GitHub Actions activation, paid cloud generation, installer/archive production, code signing or official release is included. Small-screen and startup behavior still require visual verification in the maintainer's compiled application; browser access to the local preview was unavailable in the preceding layout check. This preparation does not resolve mobile audits or certify target-specific engine compatibility. PR #2 is already merged and provides the base; no unmerged prerequisite or external issue closure is introduced.
 

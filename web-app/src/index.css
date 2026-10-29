@@ -557,6 +557,9 @@
   border: 1px solid color-mix(in srgb, #818cf8 28%, var(--border));
   border-radius: 10px;
 }
+/* Keep one visible entry point when the dashboard owns the download shortcut.
+   Leave the global manager mounted so its update notifications still work. */
+body:has(.composer-downloads) .global-downloads { display: none; }
 .composer-model, .composer-memory { min-inline-size: 0; max-inline-size: min(100%, 16rem); height: auto; min-height: 34px; }
 .composer-memory { max-inline-size: min(100%, 12rem); }
 .composer-model > svg, .composer-memory > svg { flex: none; }

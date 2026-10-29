@@ -2,6 +2,8 @@
 
 ## Validation progressive du tableau de bord — règle du 29 octobre 2026
 
+Changement explicitement demandé ensuite : supprimer le doublon Téléchargements en haut lorsque le raccourci du tableau de bord est présent. Conserver l’accès du haut sur les autres pages et le gestionnaire de notifications actif. Il s’agit uniquement de retirer cette icône dupliquée ; aucune autre réorganisation n’est autorisée par cette demande.
+
 Le mainteneur demande désormais une progression **changement par changement** pour le tableau de bord. Présenter une proposition concrète, avec aperçu ou comparaison compréhensible, puis **attendre sa validation explicite avant de modifier le tableau de bord**. Ne pas regrouper plusieurs nouvelles évolutions sous une seule validation implicite et ne pas passer au changement suivant sans accord. Une proposition ou un objectif général ne vaut pas autorisation de toutes ses étapes. Cette règle concerne aussi les déplacements, dimensions, couleurs, icônes et nouvelles commandes.
 
 Les ajustements expressément demandés avant cette règle sont consignés ci-dessous ; les travaux déjà préparés doivent rester identifiables et vérifiables. Une validation d’interface, une autorisation de fusion, une compilation et une publication de binaire restent des décisions distinctes.

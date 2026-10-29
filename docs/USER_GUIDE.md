@@ -2,7 +2,7 @@
 
 ## Informations utilisateur — tableau de bord et créations, 29 octobre 2026
 
-Le tableau de bord conserve une largeur maximale de **1 024 px** et s’adapte aux fenêtres plus petites. Dans la rangée basse, les commandes suivent cet ordre : **Mémoire auto → Réglages → Téléchargements**. Réglages ouvre la même configuration commune ; Téléchargements donne accès à la progression et aux commandes des téléchargements en cours. Ce raccourci n’active aucune compilation ni mise à jour automatique.
+Le tableau de bord conserve une largeur maximale de **1 024 px** et s’adapte aux fenêtres plus petites. Dans la rangée basse, les commandes suivent cet ordre : **Mémoire auto → Réglages → Téléchargements**. Réglages ouvre la même configuration commune ; Téléchargements donne accès à la progression et aux commandes des téléchargements en cours. Lorsque ce raccourci est présent, son doublon en haut est masqué. Sur les pages qui ne possèdent pas ce raccourci, l’accès du haut reste disponible. Ce raccourci n’active aucune compilation ni mise à jour automatique.
 
 Le bouton d’envoi conserve une teinte **bleu sombre** pendant le travail ; un **petit carré** indique la commande Arrêter. Le compteur de contexte local reste visible dès l’écran initial lorsqu’un modèle est sélectionné : **« — » signifie que la capacité réelle n’est pas encore disponible**. Il est remplacé par le pourcentage dès que le moteur fournit cette information. Le cercle associé est une jauge ; ce pourcentage n’est ni une progression de téléchargement ni un taux d’utilisation du GPU. Les libellés d’attente réutilisent les traductions disponibles dans les 80 catalogues.
 

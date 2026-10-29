@@ -240,7 +240,7 @@ export function DownloadManagement({ composer = false }: { composer?: boolean } 
       <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
         <PopoverTrigger asChild>
           <Button variant="ghost" size="icon" aria-label={t('common:downloads')} title={t('common:downloads')}
-            className={cn("text-muted-foreground z-50 rounded-full hover:bg-sidebar-foreground/8! -mt-0.5 size-7 relative", composer && 'composer-downloads')}>
+            className={cn("text-muted-foreground z-50 rounded-full hover:bg-sidebar-foreground/8! -mt-0.5 size-7 relative", composer ? 'composer-downloads' : 'global-downloads')}>
             <DownloadIcon className='text-muted-foreground size-4' />
             {downloadCount > 0 && (
               <svg className="absolute inset-0 m-auto size-7 -rotate-90" viewBox="0 0 36 36" aria-hidden="true">
