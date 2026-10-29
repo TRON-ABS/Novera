@@ -1,5 +1,7 @@
 # fix(chat): keep navigation and model selection in the dashboard
 
+Published for review as [draft PR #4](https://github.com/TRON-ABS/Novera/pull/4), from `codex/dashboard-navigation-and-model-selector` into `main`. Not merged; validation below is local.
+
 ## Problem and resulting behavior
 
 Opening Models or Settings replaced the conversation, model selection appeared in two places, and several state/duration labels were ambiguous. Keep navigation and model controls in the dashboard while preserving the draft, existing settings and explicit folder-access approval.
