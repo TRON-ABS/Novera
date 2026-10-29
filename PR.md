@@ -261,3 +261,23 @@ Pre-publication checks pass: TypeScript without emission, architecture,
 files contain no recognized credential signatures or unexpected binary artifacts.
 Previously recorded targeted tests remain documented above; a full application
 build, full end-to-end run and native linguistic certification were not performed.
+
+### Refresh the repository showcase and automation story
+
+The English and French repository homepages still displayed the old composer,
+41 providers, image/video-only media counts and superseded model defaults.
+Replace the composer image with the maintainer's 29 October application capture
+and foreground the complete guided workflow from first launch through model
+setup, resource management, execution and saved/shareable results.
+
+Document the current local text, retrieval, image, music, video and upscaling
+components, including the distinction between retrieval and music encoders.
+List all 42 provider profiles and all 49 media presets across 20 generation
+providers, including the four music routes and ElevenLabs. Add the source's
+text/vision model shortlists, update all 80 catalogs to 2,400 keys each and remove
+obsolete model recommendations and historical Hub totals from the showcase.
+Keep model entitlement, hardware support and native linguistic review limits clear.
+
+Validation: README links/assets and model names checked against local manifests
+and catalogs; the new image is byte-identical to the supplied screenshot. This
+is a documentation/assets change with no application build or paid generation.

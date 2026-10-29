@@ -1,43 +1,171 @@
 <div align="center">
-  <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone. Cyan holographic hand above a connected world." width="100%" />
-  <p><strong>Knowledge for everyone. AI that keeps moving forward.</strong></p>
-  <p>An independent AI assistant by TRON-ABS, bringing local models, cloud providers and evolving tools into one project.</p>
-  <p><strong>In development</strong> · 80 interface language options · 41 cloud providers · Apache 2.0</p>
+  <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
+  <p><strong>You describe. Novera prepares, runs and organizes.</strong></p>
+  <p>An independent AI assistant by TRON-ABS, from first launch to results: text, images, music and video in one conversation.</p>
+  <p><strong>In development</strong> · 80 interface languages · 42 cloud providers · 49 media presets · Apache 2.0</p>
+  <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Local models</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
-  <p>
-    <a href="#compact-composer-and-focused-instructions">Compact composer</a> ·
-    <a href="#cloud-providers">Cloud providers</a> ·
-    <a href="#hugging-face-model-catalog">Local models</a> ·
-    <a href="README.fr.md">Français</a> ·
-    <a href="docs/LANGUAGES.md">Languages</a> ·
-    <a href="ROADMAP.md">Roadmap</a> ·
-    <a href="CONTRIBUTING.md">Contribute</a>
-  </p>
 </div>
 
 ---
 
-## Unified workspace and explicit access
+## One dashboard for every creation
 
-Source update, 27 October 2026: the existing composer stays at the bottom of one window, with collapsible cyan/violet navigation and **New project** for a folder. Choose read-only (default), approval before editing/deleting, or explicit write access before opening the project. The shell separately asks before its first command; allow once or for this conversation until the app restarts. The shield control reviews folder access and resets grants. MCP trust never grants native shell access.
+![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-2026-10-29.png)
 
-The conversation's video controls add frame count and cadence beside ratio and resolution for local profiles. Folder projects still use the text-tool workflow in the same window. All new text covers every currently available locale: 80 catalogs × 1,742 keys. Native-language review remains pending.
+*Real Windows application screenshot supplied by the maintainer on 29 October 2026. It shows an image and the controls used to create it; this is not a mockup.*
 
-Validated locally: 768 web tests across 51 files, TypeScript, seven architecture tests and locale structure checks. Full visual review in a newly compiled app, real shell/platform runs and new video renders remain pending. **Source update only; no new application binary or CI approval.** See the [user guide](docs/USER_GUIDE.md#nouveau-projet-et-choix-daccès--sources-du-27-octobre-2026).
+One panel, five modes: **Auto, Text, Image, Music and Video**. Controls follow the selected mode: ratio, resolution, duration, cadence, quality, instrumental, lyrics, seed and quantity. Panel width and buttons adapt to the window and translated labels.
 
+- **1–10 sequential generations**, defaulting to 1, with independent quantities for image, music and video. Stop cancels the active task and the remaining queue.
+- **Random, fixed, +1 and −1 seeds**, preset or custom ratios and optional **Real-ESRGAN ×2/×4** upscaling with final dimensions displayed.
+- The selected model, automatic memory, attachments, instructions, web search and tools stay in the same bar. Tools depend on model capabilities and granted access.
 
-## Compact composer and focused instructions
+## From first launch to results
 
-![Novera compact composer in the local Windows build](.github/assets/novera-composer.jpg)
+**Our automation connects preparation to the complete execution workflow.** Novera handles the technical steps available for the selected configuration, while keeping advanced controls accessible.
 
-*Actual local Windows build, French interface. The empty composer is shown without conversation history.*
+| Step | What Novera handles |
+| --- | --- |
+| **1. Start** | Selects a supported system language at first launch and saves your preference. Presents starting models and useful hardware information. |
+| **2. Prepare** | Guided installation offers text, embeddings, image, music, video and upscaling. It previews components, sizes and free space before your approval, then tracks downloads with progress, pause/resume and SHA-256 verification. |
+| **3. Configure** | Registers models and their components, prepares the relevant profiles and reports required dependencies. Retrieval embeddings start on CPU with a saved CPU/GPU choice. New music profiles default to instrumental mode. |
+| **4. Understand the request** | Auto routes recognized creation requests to text, image, music or video. You can also explicitly select the output mode and a local or cloud model. |
+| **5. Execute** | Automatic memory waits for active work, releases unneeded models and reloads required resources. A 1–10 job series runs in order and releases resources before the next job. Cloud providers use the selected account and configuration. |
+| **6. Retrieve and reuse** | Saves media in Novera system folders, displays results and available timings, then offers variants, the library, copying, exports or system sharing. Sending to another application remains your action. |
 
-- See active choices at a glance: colored selection, checkmarks and explicit ON/OFF labels.
-- Set ratio and resolution directly; switch upscaling on/off and choose ×2/×4 with the final output size displayed.
-- Edit only three instruction categories—Text, Image and Video—from the notebook button. It cannot change model parameters. Restore defaults, save or cancel.
-- Use 240 translated default instructions across 80 interface locales; personal edits survive language changes. Auto accepts more French/English creation requests while writing and explanation requests stay text.
+Automation covers integrated engines and workflows; it does not make every Hub model executable. Hardware, installed components and provider access determine what can run. Folders, file changes and shell commands follow the conversation's access grants.
 
-**Locally validated:** 420 tests, TypeScript, Windows frontend and Release builds, plus visual checks of the panel and instructions dialog. This is a local build, not a public binary release or validation of every model, language or hardware combination. [Usage and limits](docs/USER_GUIDE.md#real-esrgan--chemins-windows-python-et-taille-finale--26-octobre-2026).
+[User guide](docs/USER_GUIDE.md) · [Engines and validation](docs/SUIVI_MOTEURS.md) · [Development](docs/DEVELOPMENT.md)
+
+## Capabilities in the source
+
+| Area | Features |
+| --- | --- |
+| **Text and vision** | Conversation, document attachments, streamed replies and local or cloud models. Vision depends on the model; understanding and generating images are separate capabilities. |
+| **Image** | In-conversation generation, seeds, ratios, resolution, GGUF/Safetensors components, configured Diffusers folders and the supported native NVFP4 CUDA profile. |
+| **Music** | Local or cloud generation, duration, quality, instrumental or vocals where supported, structured lyrics and an audio player. Provider options differ. |
+| **Video** | Local or cloud generation, duration, frame count/cadence for local profiles, ratios, resolution and a video player. |
+| **Search and tools** | Web search, embedding-based document retrieval, MCP, workspaces and local tools according to model support and granted access. |
+| **Results and sharing** | Media library, variants, response/conversation exports, documents and original media, printing/PDF and platform-dependent system sharing. |
+| **Resource management** | Automatic memory enabled by default, CPU/GPU settings for supported components and manual profiles when resources allow. |
+
+## Local models in use
+
+These models form the current guided configuration. You can import other compatible models or change the profiles.
+
+| Role | Model / configured components |
+| --- | --- |
+| **Text — first-run model** | **Nemotron-3.5-Bolt-E4B**, file `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
+| **Document retrieval** | **Qwen3-Embedding-0.6B Q8_0**, **CPU by default**, with a saved CPU/GPU choice. |
+| **Image** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** encoder and official FLUX.2 VAE. |
+| **Image — hardware option** | **FLUX.2 Klein 4B NVFP4**, through the native CUDA path when the GPU and environment are compatible. |
+| **Music** | **ACE-Step 1.5 Turbo 2B Q4_K_M**, `acestep-5Hz-lm-1.7B-Q8_0.gguf` planner, dedicated Qwen music encoder and VAE. |
+| **Video** | **Wan2.1 T2V 1.3B Q4_K_M**, **UMT5-XXL Q4_K_M** encoder and Wan 2.1 VAE. |
+| **Upscaling** | Optional **Real-ESRGAN ×2 and ×4**, with dependency checks. |
+
+The Qwen music encoder and the Qwen retrieval model are **different files**, stored separately. Model licenses remain those of their publishers.
+
+[Text manifest](web-app/src/constants/text-manifest.json) · [Embeddings](web-app/src/constants/embedding-manifest.json) · [Music](web-app/src/constants/music-manifest.json) · [Image/video components](src-tauri/src/core/creation_bundle.rs)
+
+## Cloud providers
+
+**42 provider profiles** are integrated. **ElevenLabs** now appears in the showcase alongside the music routes from Stability AI, fal and Replicate.
+
+| | | |
+| --- | --- | --- |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="28" height="28" /> [OpenAI](https://platform.openai.com/docs/models) | <img src="web-app/public/images/model-provider/azure.svg" alt="Microsoft Azure" width="28" height="28" /> [Microsoft Azure](https://oai.azure.com/deployments) | <img src="web-app/public/images/model-provider/anthropic.svg" alt="Anthropic" width="28" height="28" /> [Anthropic](https://platform.claude.com/docs/en/models/overview) |
+| <img src="web-app/public/images/model-provider/open-router.svg" alt="OpenRouter" width="28" height="28" /> [OpenRouter](https://openrouter.ai/models) | <img src="web-app/public/images/model-provider/mistral.svg" alt="Mistral" width="28" height="28" /> [Mistral](https://docs.mistral.ai/models) | <img src="web-app/public/images/model-provider/groq.svg" alt="Groq" width="28" height="28" /> [Groq](https://console.groq.com/docs/models) |
+| <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="28" height="28" /> [xAI](https://docs.x.ai/developers/models) | <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="28" height="28" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | <img src="web-app/public/images/model-provider/minimax.svg" alt="MiniMax" width="28" height="28" /> [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) |
+| <img src="web-app/public/images/model-provider/huggingface.svg" alt="Hugging Face" width="28" height="28" /> [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | <img src="web-app/public/images/model-provider/nvidia.svg" alt="NVIDIA NIM" width="28" height="28" /> [NVIDIA NIM](https://build.nvidia.com/models) | <img src=".github/assets/providers/deepseek.png" alt="DeepSeek" width="28" height="28" /> [DeepSeek](https://api-docs.deepseek.com/) |
+| <img src="web-app/public/images/model-provider/moonshot.png" alt="Kimi · Moonshot AI" width="28" height="28" /> [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | <img src="web-app/public/images/model-provider/alibaba.png" alt="Alibaba Cloud · Qwen" width="28" height="28" /> [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | <img src="web-app/public/images/model-provider/cerebras.png" alt="Cerebras" width="28" height="28" /> [Cerebras](https://inference-docs.cerebras.ai/models/overview) |
+| <img src="web-app/public/images/model-provider/together.svg" alt="Together AI" width="28" height="28" /> [Together AI](https://docs.together.ai/docs/serverless/models) | <img src="web-app/public/images/model-provider/fireworks.svg" alt="Fireworks AI" width="28" height="28" /> [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | <img src="web-app/public/images/model-provider/perplexity.png" alt="Perplexity" width="28" height="28" /> [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) |
+| <img src=".github/assets/providers/meta.png" alt="Meta AI" width="28" height="28" /> [Meta AI](https://dev.meta.ai/docs/models) | <img src="web-app/public/images/model-provider/cohere.svg" alt="Cohere" width="28" height="28" /> [Cohere](https://docs.cohere.com/docs/models) | <img src="web-app/public/images/model-provider/zai.svg" alt="Z.ai" width="28" height="28" /> [Z.ai](https://docs.z.ai/guides/llm/glm-5.3) |
+| <img src="web-app/public/images/model-provider/ai21.png" alt="AI21 Labs" width="28" height="28" /> [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="28" height="28" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | <img src=".github/assets/providers/baidu.png" alt="Baidu Qianfan" width="28" height="28" /> [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) |
+| <img src=".github/assets/providers/tencent.png" alt="Tencent TokenHub" width="28" height="28" /> [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | <img src="web-app/public/images/model-provider/bedrock.png" alt="Amazon Bedrock" width="28" height="28" /> [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | <img src="web-app/public/images/model-provider/watsonx.png" alt="IBM watsonx" width="28" height="28" /> [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) |
+| <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="28" height="28" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="28" height="28" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="28" height="28" /> [Stability AI](https://docs.stability.ai/api-reference) |
+| <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/) |
+| <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://docs.dev.runwayml.com/api/) | <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://docs.ltx.io/models) |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/docs/model-map) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
+
+### Image, music and video
+
+**20 providers expose generation routes**, with **49 presets: 25 image, 20 video and 4 music**. Music routes are **ElevenMusic v2.5**, **Stable Audio 3**, **ACE-Step through fal** and **Stable Audio 2.5 through Replicate**.
+
+| Provider | Outputs in Novera | Catalog models |
+| --- | --- | --- |
+| [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | Music | `ElevenMusic v2.5` |
+| [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Image / Music | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
+| [fal](https://fal.ai/models/fal-ai/ace-step/api) | Image / Music / Video | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
+| [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Image / Music | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
+| [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | Image / Video | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
+| [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | Image / Video | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
+| [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Image / Video | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | Image | `Krea 3` |
+| [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | Image | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
+| [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | Video | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
+| [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Image | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | Image / Video | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
+| [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Image | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | Image | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
+| [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | Image | `Ideogram 4.5` |
+| [Runway](https://docs.dev.runwayml.com/api/) | Video | `Runway Gen-4.5` |
+| [Luma](https://docs.agents.lumalabs.ai/guides/model/) | Image / Video | `Luma Uni-1 Max` · `Luma Uni-1` · `Luma Ray 3.2` |
+| [LTX (Lightricks)](https://docs.ltx.io/models) | Video | `LTX-2.5 Pro` · `LTX-2.5 Fast` |
+| [MiniMax](https://platform.minimax.io/docs/api-reference/video-generation-v2-create) | Image / Video | `MiniMax H3 Max` · `MiniMax H3` · `MiniMax H3 Highspeed` · `MiniMax Image-01` |
+| [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) | Video | `PixVerse V6 Max` · `PixVerse V6` |
+
+<details>
+<summary><strong>Show text and vision model shortlists by provider</strong></summary>
+
+| Provider | Model IDs offered in the source |
+| --- | --- |
+| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
+| [Microsoft Azure](https://oai.azure.com/deployments) | Account-specific deployment or gateway |
+| [Anthropic](https://platform.claude.com/docs/en/models/overview) | `claude-sonnet-5-5` · `claude-opus-5-5` · `claude-fable-5-1` · `claude-haiku-5-5` |
+| [OpenRouter](https://openrouter.ai/models) | `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
+| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `mistral-medium-3-5` · `mistral-small-2603` · `ministral-3b-2512` |
+| [Groq](https://console.groq.com/docs/models) | `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
+| [xAI](https://docs.x.ai/developers/models) | `grok-4.7` |
+| [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | `gemini-4-argon` · `gemini-3.8-flash` · `gemini-3.6-flash` · `gemini-3.5-flash-lite` |
+| [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) | `MiniMax-M3.1-Flash` · `MiniMax-M3` |
+| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
+| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3` |
+| [DeepSeek](https://api-docs.deepseek.com/) | `deepseek-flash` · `deepseek-v4-pro` |
+| [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | `kimi-k3.1-pro` · `kimi-k3.1-pro-highspeed` · `kimi-k3` |
+| [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | `qwen3.8-max` · `qwen3.7-plus` · `qwen3.8-flash` |
+| [Cerebras](https://inference-docs.cerebras.ai/models/overview) | `qwen-3.8-27b` · `gpt-oss-120b` |
+| [Together AI](https://docs.together.ai/docs/serverless/models) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
+| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
+| [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) | `perplexity/sonar` · `openai/gpt-6.1-sol` · `google/gemini-4-argon` · `perplexity/kimi-k3` |
+| [Meta AI](https://dev.meta.ai/docs/models) | `muse-wonder-1.0` · `muse-spark-1.3` |
+| [Cohere](https://docs.cohere.com/docs/models) | `command-a-plus-05-2026` |
+| [Z.ai](https://docs.z.ai/guides/llm/glm-5.3) | `glm-5.3` · `glm-5.3-flash` · `glm-5.3-flashx` |
+| [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | `jamba-large` · `jamba-mini-2` |
+| [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | `dola-seed-2-1-turbo-260628` |
+| [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) | `ernie-5.1` |
+| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4-preview` |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-sol` |
+| [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) | Account-specific deployment or gateway |
+
+</details>
+
+Inventory checked against the source on **29 October 2026**. These names describe Novera presets, not guaranteed access for every account. Remote catalogs, regions, licenses, quotas and billing remain provider-specific. Compatible profiles can refresh their catalogs; Azure and some gateways use account deployments. Cloud contracts have simulated tests; no paid generation was performed for this showcase update.
+
+[Media catalog](web-app/src/constants/mediaProviders.ts) · [Text/vision models](web-app/src/constants/cloudModels.ts) · [Cloud setup](docs/USER_GUIDE.md#cloud) · [Icon provenance](docs/DEVELOPMENT.md#logos)
+
+## Hub and compatible models
+
+Explore Hugging Face Hub categories, **GGUF, MLX and Safetensors** formats, model roles and hardware advice before downloading. Results load progressively as you scroll. Engines include llama.cpp, MLX on supported platforms and Transformers for recognized text architectures; image and video use their own engines and components.
+
+A catalog listing does not guarantee compatibility or execution on your hardware. See the actual tested workflows in [engine tracking](docs/SUIVI_MOTEURS.md).
+
+## 80 interface languages and variants
+
+**All 80 catalogs cover the current 2,400 English keys** across 15 namespaces, including menus, configurations, settings, help and media controls. Plural forms and interface direction follow the selected language. Response and voice languages depend separately on the model.
+
+This technical coverage does not certify linguistic quality: **native review and regional adaptation remain necessary**. See native labels and known limits in the [language guide](docs/LANGUAGES.md) and [audit report](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
 ## Helping people, in every sector
 
@@ -60,135 +188,21 @@ Beyond school and education, our ambition is to help people learn, solve problem
 
 These are directions for contribution and development, not a claim that every sector-specific application is already delivered or validated. We want simple guidance for everyday use, clear advanced options when needed, transparent hardware and cloud requirements, and collaboration with the people who know each field and local context.
 
-## The foundation
-
-| Area | What the source includes |
-| --- | --- |
-| Local and cloud AI | Local model engines alongside connections to remote model providers. Compatibility depends on the model, provider and hardware. |
-| Tools and documents | MCP integrations, document retrieval and assistant workflows inherited from the existing codebase. |
-| Multilingual interface | 80 selectable locales, each covering all 1,742 current English keys. Native-speaker review remains pending. |
-| An extensible application | A desktop application with extension points for model engines, tools and future capabilities. |
-
-These describe the source foundation. The latest 1.0.0 Windows x64 build was compiled and launched locally on 26 October 2026, including the compact composer and category instructions. Public packaging and broader runtime validation remain in preparation.
-
-## Text, images and video in one conversation
-
-Sources add random/fixed/+1/−1 image seeds, the 2048 × 2048 generation limit, and optional Real-ESRGAN ×2/×4 upscaling, initially disabled. Install the verified official weights or browse for a local file; upscaling requires the configured media Python/PyTorch environment. An active Real-ESRGAN button beside Ratio/Resolution shows the selected factor and final dimensions; a dependency check runs before generation. Legacy Windows installer paths are repaired automatically. [Usage and limits](docs/USER_GUIDE.md#graines-résolution-et-agrandissement--sources-du-26-octobre-2026). Included in the latest local Windows build; no public binary release.
-
-- Choose Text, Image, Video or Multimodal, and Local or Cloud, while keeping the conversation in one place. A model that understands an image does not automatically generate images.
-- Save completed creations automatically to the operating system’s Pictures/**Novera image** and Videos/**Novera vidéo** folders. Display total time below images/videos and measured generation time when the engine supplies it.
-- Use complete local Diffusers folders, compatible GGUF/Safetensors components with stable-diffusion.cpp, or the supported **native NVFP4 CUDA** path for Comfy FLUX.2 Klein 4B. Encoder and generator placement can be selected independently in component engines.
-- Get Hub advice before downloading: model roles, hardware/memory, NVFP4 eligibility and GGUF fidelity/balance choices. Q6_K or higher is Novera’s suggested fidelity starting point; Q4_K_M balances quality and memory. These are model-dependent guidelines.
-
-A real NVFP4 512 × 512 image on RTX 5070 Laptop executed **400 hardware FP4 GEMMs**, with Qwen3 GGUF and a FLUX.2 Safetensors VAE. CPU/GPU/Auto encoder placement was exercised. The C++ compatibility path also produced real CPU/Vulkan images; it uses a larger cache and does not execute native FP4. Tiny local PNG/MP4 fixtures validated media creation and timing. Cloud HTTP contracts are tested with simulated responses, without paid generation or account entitlement validation. The maintainer-built Windows application has now generated and displayed a real 512 × 512 image with the suggested FLUX.2 Klein Q4_K_M + Qwen3 Q4_K_M CPU + official VAE combination, saved in Pictures/Novera image, with 25.5 seconds total time shown in the original recorded run. The maintainer now reports **11.3 seconds without Real-ESRGAN upscaling**. This validates that GGUF/C++/Vulkan desktop path on one PC; other desktop paths remain to be tested. See the [desktop diagnosis](docs/SUIVI_MOTEURS.md#diagnostic-graphique-et-trio-gguf-réel--26-octobre-2026). See [engine evidence and limits](docs/SUIVI_MOTEURS.md#nvfp4-cuda-natif-placement-et-durées--26-octobre-2026).
-
-## Share results with documents and messaging apps
-
-Use the small Share icon under a text response, image or video, or share the entire current conversation. Choose a result, the full active branch including offscreen messages, or selected items; preview before copying, saving, printing/PDF or opening system sharing. Export Markdown/TXT/HTML/DOCX/ODT/RTF/EPUB/JSON/CSV/ZIP, preserve original media, or convert a single image to eleven raster formats including AVIF and an embedded-image SVG. Local image/video profiles also offer **19 ratios plus custom proportions**, with resolution buttons that fit the current longest edge.
-
-Messaging and chat apps receive files through the OS where supported, with **Copy file** and Save as alternatives. The maintainer now reports Windows sharing working on their PC after restoration; this does not validate every messaging app or other platform. Windows system sharing is enabled again after the same issue was observed outside Novera; file copying/saving remain available, with file copying performed outside the UI thread. Source adapters cover macOS, Android, iOS and Linux; Linux opens an XDG email composer and offers file copying for compatible apps. Targets depend on installed applications and accepted formats. No automatic sending or hosted public links. **145 targeted web tests, three isolated Rust tests, Windows library checks, TypeScript and Vite passed**; other-platform and full application handoff tests remain pending. Available after rebuilding Novera. [Formats, platform scope and limits](docs/USER_GUIDE.md#partage-des-résultats-et-ratios--sources-du-26-octobre-2026).
-
-Attachments passed to system sharing, browser sharing and **Copy file** now use portable ASCII filenames to avoid encoding errors in receiving apps. Document titles/content retain their language, extensions are preserved, and local Save retains the original suggested name. Requires rebuilding Novera; individual messaging-app compatibility remains to be tested.
-
-## Advanced automation, simple defaults
-
-Novera aims to handle the technical steps so people worldwide can focus on learning, talking and creating. The source already combines hardware advice, guided verified downloads, categorized media configurations, a bundled Windows image engine and system-folder saving.
-
-**Automatic memory management is enabled by default.** Local text/image/video requests wait for active work, release unneeded models and reload the selected model when needed. Files, conversations and selections are retained. **Manual mode** permits text, image and video together in separate conversations when RAM/VRAM and engine support allow it. The current media workers naturally exit after generation; this does not add a permanent media cache. Both modes and their limits are explained in all 80 interface locales, with a visible waiting state and a shared General setting.
-
-369 targeted web tests, three native policy tests, types and locale checks validate the orchestration sources. Full application testing with three heavy models remains hardware-dependent. No new application binary is published. [Memory guide](docs/USER_GUIDE.md#mémoire-automatique-ou-modèles-en-parallèle--26-octobre-2026) · [Product direction](NOVERA.md#direction-produit--automatisation-avancée-simplicité-mondiale).
-
-## Guided local media installation
-
-Windows builds now include the private stable-diffusion.cpp **CUDA 13.4.3 / Vulkan / CPU** runtime. The image executable field is hidden on Windows; Novera resolves its bundled launcher automatically, ignoring obsolete saved overrides. Legacy NVIDIA Maxwell/Pascal/Volta GPUs use Vulkan when their driver exposes it, otherwise CPU; this is a routing policy, not a hardware certification.
-
-**Install this configuration** previews the complete FLUX.2 Klein 4B image setup, download sizes, free space, provider licences and the system Documents/custom folder before approval. Downloads continue while you chat or create images/videos, with per-file progress, pause/resume and SHA-256 verification. A main-bar icon stays ready until acknowledged, without sound or OS notification. Completed configurations appear under **Image** in the llama.cpp import page, alongside categorized manual Image/Video imports, editing and removal. Imported files stay on disk when an entry is removed.
-
-The default uses FLUX GGUF, **Qwen3-4B GGUF on CPU**, and the official VAE. An optional [official FLUX NVFP4 model](https://huggingface.co/black-forest-labs/FLUX.2-klein-4b-nvfp4) is offered after checking the configured PyTorch runtime, real native FP4 execution and free GPU memory; it keeps the same GGUF CPU encoder. Its native PyTorch CUDA runtime remains separate from the bundled C++ CUDA runtime. Other checkpoints are not automatically certified.
-
-These are source capabilities: **98 targeted web tests, six isolated native download tests, TypeScript and 70 × 1,734 locale keys validated**. These installer/library results are a separate baseline at 1,734 keys. The latest local Windows build includes these sources; complete download/library scenarios still require maintainer testing. No public binary release is provided here. [Usage](docs/USER_GUIDE.md#installation-conseillée-et-bibliothèque-média--sources-du-26-octobre-2026) · [Engine evidence and limits](docs/SUIVI_MOTEURS.md#installation-groupée-bibliothèque-et-moteur-embarqué--26-octobre-2026).
-
-## Cloud providers
-
-**41 predefined cloud providers** in the Novera source, with their official bundled icons. Available models depend on your account and region.
-
-| | | |
-| --- | --- | --- |
-| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="28" height="28" /> [OpenAI](https://platform.openai.com/docs/models) | <img src="web-app/public/images/model-provider/azure.svg" alt="Azure" width="28" height="28" /> [Azure](https://oai.azure.com/deployments) | <img src="web-app/public/images/model-provider/anthropic.svg" alt="Anthropic" width="28" height="28" /> [Anthropic](https://platform.claude.com/docs/en/models/overview) |
-| <img src="web-app/public/images/model-provider/open-router.svg" alt="OpenRouter" width="28" height="28" /> [OpenRouter](https://openrouter.ai/models) | <img src="web-app/public/images/model-provider/mistral.svg" alt="Mistral" width="28" height="28" /> [Mistral](https://docs.mistral.ai/models) | <img src="web-app/public/images/model-provider/groq.svg" alt="Groq" width="28" height="28" /> [Groq](https://console.groq.com/docs/models) |
-| <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="28" height="28" /> [xAI](https://docs.x.ai/developers/models) | <img src="web-app/public/images/model-provider/gemini.svg" alt="Gemini" width="28" height="28" /> [Gemini](https://ai.google.dev/gemini-api/docs/models) | <img src="web-app/public/images/model-provider/minimax.svg" alt="MiniMax" width="28" height="28" /> [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) |
-| <img src="web-app/public/images/model-provider/huggingface.svg" alt="Hugging Face" width="28" height="28" /> [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | <img src="web-app/public/images/model-provider/nvidia.svg" alt="NVIDIA NIM" width="28" height="28" /> [NVIDIA NIM](https://build.nvidia.com/models) | <img src=".github/assets/providers/deepseek.png" alt="DeepSeek" width="28" height="28" /> [DeepSeek](https://api-docs.deepseek.com/) |
-| <img src="web-app/public/images/model-provider/moonshot.png" alt="Kimi (Moonshot AI)" width="28" height="28" /> [Kimi (Moonshot AI)](https://platform.kimi.ai/docs/models) | <img src="web-app/public/images/model-provider/alibaba.png" alt="Alibaba Cloud (Qwen)" width="28" height="28" /> [Alibaba Cloud (Qwen)](https://www.alibabacloud.com/help/en/model-studio/models) | <img src="web-app/public/images/model-provider/cerebras.png" alt="Cerebras" width="28" height="28" /> [Cerebras](https://inference-docs.cerebras.ai/models/overview) |
-| <img src="web-app/public/images/model-provider/together.svg" alt="Together AI" width="28" height="28" /> [Together AI](https://docs.together.ai/docs/serverless/models) | <img src="web-app/public/images/model-provider/fireworks.svg" alt="Fireworks AI" width="28" height="28" /> [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | <img src="web-app/public/images/model-provider/perplexity.png" alt="Perplexity" width="28" height="28" /> [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) |
-| <img src=".github/assets/providers/meta.png" alt="Meta AI" width="28" height="28" /> [Meta AI](https://dev.meta.ai/docs/models) | <img src="web-app/public/images/model-provider/cohere.svg" alt="Cohere" width="28" height="28" /> [Cohere](https://docs.cohere.com/docs/models) | <img src="web-app/public/images/model-provider/zai.svg" alt="Z.ai" width="28" height="28" /> [Z.ai](https://docs.z.ai/guides/llm/glm-5.3) |
-| <img src="web-app/public/images/model-provider/ai21.png" alt="AI21 Labs" width="28" height="28" /> [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus (ByteDance)" width="28" height="28" /> [BytePlus (ByteDance)](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | <img src=".github/assets/providers/baidu.png" alt="Baidu Qianfan" width="28" height="28" /> [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) |
-| <img src=".github/assets/providers/tencent.png" alt="Tencent TokenHub" width="28" height="28" /> [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | <img src="web-app/public/images/model-provider/bedrock.png" alt="Amazon Bedrock" width="28" height="28" /> [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | <img src="web-app/public/images/model-provider/watsonx.png" alt="IBM watsonx" width="28" height="28" /> [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) |
-
-[Current models and setup](docs/USER_GUIDE.md#cloud) · [Icon provenance and trademarks](docs/DEVELOPMENT.md#logos)
-
-| | | |
-| --- | --- | --- |
-| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="28" height="28" /> [Black Forest Labs](https://blackforestlabs.ai) | <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="28" height="28" /> [Stability AI](https://stability.ai) | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai) |
-| <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://ideogram.ai) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://firefly.adobe.com) | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://runwayml.com) |
-| <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://lumalabs.ai) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://ltx.io) | <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai) |
-| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/getting-started) | <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai) |
-| <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://www.vidu.com) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://pixverse.ai) |  |
-
-**19 provider profiles expose generation routes**, with **45 media presets: 25 image and 20 video**. Fourteen dedicated generation-provider profiles join the existing cloud catalog. The table below describes the routes implemented in Novera, not every capability offered by each provider. Account, region, quota and billing still apply. Catalog checked on **26 October 2026**; no paid generation was used for validation.
-
-| Provider | Novera output routes | Selected catalog models |
-| --- | --- | --- |
-| [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Image | GPT Image 2.5 Sunburst · GPT Image 2.5 Flare |
-| [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Image / Video | Gemini Omni 1.1 Flash · Gemini Nano Banana 2.1 |
-| [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | Image / Video | Grok Imagine Image 2.0 · Grok Imagine Video 1.5 · Grok Imagine Video 1.5 Lite |
-| [MiniMax](https://platform.minimax.io/docs/api-reference/video-generation-v2-create) | Image / Video | MiniMax H3 Max · MiniMax H3 · MiniMax H3 Highspeed |
-| [BytePlus](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | Image / Video | Dola Seedream 5 Pro · Dreamina Seedance 2.5 |
-| [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Image | FLUX.2 [max] · FLUX.2 [pro] · FLUX.2 [klein] 9B |
-| [Stability AI](https://docs.stability.ai/api-reference) | Image | Stable Image Ultra · Stable Image Core |
-| [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | Image | Recraft V4.1 · Recraft V4.1 Flash · Recraft V4.1 Pro |
-| [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | Image | Ideogram 4.5 |
-| [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | Image / Video | Adobe Firefly Image 5 · Adobe Firefly Video |
-| [Runway](https://docs.dev.runwayml.com/api/) | Video | Runway Gen-4.5 |
-| [Luma AI](https://docs.agents.lumalabs.ai/guides/model/) | Image / Video | Luma Uni-1 Max · Luma Uni-1 · Luma Ray 3.2 |
-| [LTX](https://docs.ltx.io/models) | Video | LTX-2.5 Pro · LTX-2.5 Fast |
-| [fal.ai](https://fal.ai/models/fal-ai/pika/v2.2/text-to-video) | Image / Video | Pika 2.2 · fal · Qwen Image 2512 · fal · FLUX.2 Max · fal |
-| [Replicate](https://replicate.com/black-forest-labs/flux-2-max/api) | Image | FLUX.2 Max · Replicate |
-| [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | Image | Lucid Origin · Krea 2 Turbo · Leonardo · Ideogram 3 · Leonardo |
-| [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | Image | Krea 3 |
-| [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | Video | Vidu Q4 Preview · Vidu Q3 Pro · Vidu Q3 Turbo |
-| [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) | Video | PixVerse V6 Max · PixVerse V6 |
-
-## Hugging Face model catalog
-
-**Hugging Face: 3,187,159 model repositories, about 3.19 million**, observed on **26 October 2026** ([global catalog](https://huggingface.co/models)). Format snapshots include **214,900 GGUF repositories**, **27,295 MLX repositories** and **1,440,138 Safetensors repositories** ([GGUF](https://huggingface.co/models?library=gguf), [MLX](https://huggingface.co/models?library=mlx), [Safetensors](https://huggingface.co/models?library=safetensors)), observed on **26 October 2026**. These format counts can overlap. Counts include versions and conversions; they do not represent distinct models or guaranteed Novera compatibility. Novera’s Safetensors engine currently runs supported causal text architectures from complete local folders; the Safetensors catalog also includes image, audio, adapters and quantized models that this engine cannot run.
-
-The Hub explores 23 navigation categories using Hugging Face metadata, with local hardware advice and a review before downloading. Models in the selected category load progressively as you scroll, with new results appended below existing rows. The six Novera presets remain available. Discovery does not imply execution support: media needs a configured supported engine and its required local components, or a cloud account; other tasks still need their own engines. Safetensors text models use the local Transformers engine; local Diffusers image/video folders can now run from the conversation through a separate adapter, with the latest desktop integration still awaiting maintainer build validation; see [tested capabilities and limitations](docs/SUIVI_MOTEURS.md). These fixes are included in the latest local Windows build; the full Hub workflow still needs maintainer testing.
-
-## 80 interface language options
-
-All 19 of our language contributions are integrated alongside the 17 inherited locales and 44 new Novera catalogs. The latest ten source catalogs are Cebuano, Kazakh, Sinhala, Xhosa, Khmer, Afrikaans, Maithili, Wolof, Northern Kurdish and Kinyarwanda. **All 80 catalogs cover 1,742 / 1,742 current English keys (100%)**, including Wu / Shanghainese. The last 9,219 inherited-locale entries and 757 Wu entries were completed on 25 October 2026. This measures key coverage; native-speaker review remains outstanding. Earlier local Windows builds include the catalogs at their then-current state; the latest local build includes the instruction, installer and library texts; no public binary has been released. Some catalogs are editorial variants partly based on shared written technical text; full vernacular adaptation remains open. See the language guide for their exact scope.
-
-Arabic, Egyptian Arabic, Levantine Arabic, Sudanese Arabic, Algerian Arabic, Moroccan Arabic, Saidi Arabic, Northern Pashto, Saraiki, Sindhi, Dari, Urdu, Western Punjabi and Iranian Persian include right-to-left interface support. Model language capabilities depend on the selected model and are separate from interface localization.
-
-**[Explore every language, native label and coverage level →](docs/LANGUAGES.md)**
-
 ## Project status
 
-**Novera 1.0.0 is in development; no public binary is available yet.** The source includes 35 Windows fixes, 80 interface catalogs with complete key coverage (1,742 keys each), the adaptive model Hub, the local Safetensors/Transformers text engine and updated cloud-provider presets. Native-language review is still needed.
+**Novera 1.0.0 is in development.** The screenshot shows a Windows application compiled locally by the maintainer. Source changes, targeted tests and hardware validation are documented separately; this does not validate every model, platform or cloud account.
 
-First launch saves the system language, recommends LFM2.5-2.6B Q6_K on desktop with optional DSpark, and asks separately about error reporting, off by default. Source changes and compiled artifacts are tracked separately; the latest local build includes the Hub fixes, with end-to-end maintainer testing still pending. See the [dashboard](TABLEAU_DE_BORD_NOVERA.md) for exact validation and limitations. GitHub Actions and automatic updates remain disabled.
+This showcase update does not compile a new application. Distribution channels and requirements are described in the [official release policy](OFFICIAL_RELEASES.md) and [releases page](https://github.com/TRON-ABS/Novera/releases). GitHub Actions and automatic updates remain disabled in the project configuration.
 
 ## Documentation and contributions
 
-- [User guide](docs/USER_GUIDE.md): setup, models, conversations and privacy.
-- [Development](docs/DEVELOPMENT.md) and [build/release guide](docs/BUILD_AND_RELEASE.md).
-- [Languages](docs/LANGUAGES.md), [roadmap](ROADMAP.md), [changelog](docs/CHANGELOG.md) and [contribution guide](CONTRIBUTING.md).
+- [User guide](docs/USER_GUIDE.md), [models and engines](docs/SUIVI_MOTEURS.md).
+- [Development](docs/DEVELOPMENT.md), [build and release guide](docs/BUILD_AND_RELEASE.md).
+- [Project dashboard](TABLEAU_DE_BORD_NOVERA.md), [roadmap](ROADMAP.md), [changelog](docs/CHANGELOG.md).
+- [Contributing](CONTRIBUTING.md): code, tests, native review across 80 languages and real workflow feedback.
 
 ## Identity and license
 
 Novera is maintained by **TRON-ABS** in [this repository](https://github.com/TRON-ABS/Novera). See the [identity policy](BRANDING.md) and [official release policy](OFFICIAL_RELEASES.md).
 
 Novera builds on [Jan](https://github.com/janhq/jan), created by Menlo Research and its contributors. Original and third-party attributions and the [Apache 2.0 license](LICENSE) are retained. Jan downloads are not Novera releases.
-
-
-Source update on 27 October 2026: ten additional Google/Microsoft-assisted catalogs bring the total to **80 locales × 1,738 keys**. Native review remains pending. The previous Windows build contains 70 locales; this batch does not rebuild or publish a binary. See [language support](docs/LANGUAGES.md).
