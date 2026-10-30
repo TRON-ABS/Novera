@@ -81,28 +81,8 @@ export function GeneratedCreation({
           {t(failed ? 'chat:creation.missing' : 'chat:creation.loading')}
         </p>
       )}
-      <figcaption className="space-y-2 p-3">
-        {duration && (
-          <div
-            className="text-xs text-muted-foreground"
-            title={t('chat:creation.totalTimeHint')}
-          >
-            {duration.generationMs !== undefined && (
-              <p>
-                {t('chat:creation.generationTime')}:{' '}
-                {formatCreationDuration(duration.generationMs, locale)}
-              </p>
-            )}
-            <p>
-              {t('chat:creation.totalTime')}:{' '}
-              {formatCreationDuration(duration.totalMs, locale)}
-            </p>
-          </div>
-        )}
-        <p className="break-all text-xs text-muted-foreground">
-          {reference.name}
-        </p>
-        <div className="flex flex-wrap gap-2">
+      <figcaption className="p-3">
+        <div className="flex flex-wrap items-center gap-2">
           {threadId && (
             <ShareButton
               threadId={threadId}
@@ -133,6 +113,23 @@ export function GeneratedCreation({
             >
               {t('chat:creation.variant')}
             </Button>
+          )}
+          {duration && (
+            <div
+              className="flex flex-wrap items-center gap-x-3 text-xs text-muted-foreground"
+              title={t('chat:creation.totalTimeHint')}
+            >
+              <span>
+                {t('chat:creation.totalTime')}:{' '}
+                {formatCreationDuration(duration.totalMs, locale)}
+              </span>
+              {duration.generationMs !== undefined && (
+                <span>
+                  {t('chat:creation.generationTime')}:{' '}
+                  {formatCreationDuration(duration.generationMs, locale)}
+                </span>
+              )}
+            </div>
           )}
           {reference.task === 'image' && threadId && canAnimate && (
             <Button

@@ -77,6 +77,20 @@ describe('saved creation in the conversation', () => {
     await screen.findByText('chat:creation.missing')
     expect(screen.getByText('chat:creation.openFolder')).toBeDisabled()
   })
+  it('keeps the filename in the player header and puts timing immediately after the variant action', async () => {
+    const { container } = render(
+      <GeneratedCreation url={reference} threadId="compact" timing={{ totalMs: 38000 }} />
+    )
+    await waitFor(() => expect(screen.getByText('chat:creation.variant')).toBeEnabled())
+    const filename = 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.png'
+    expect(screen.getAllByText(filename)).toHaveLength(1)
+    expect(container.querySelector('figcaption')).not.toHaveTextContent(filename)
+    const variant = screen.getByText('chat:creation.variant')
+    const timing = screen.getByText(/chat:creation.totalTime/).parentElement!
+    expect(variant.nextElementSibling).toBe(timing)
+    expect(timing.parentElement).toBe(variant.parentElement)
+    expect(timing).toHaveTextContent('38 sec')
+  })
   it('keeps image variants available without offering image animation through the text-only Q4 video pack', async () => {
     useCreation.getState().setVideoSettings({ videoEngine: 'sdcpp', videoModel: 'D:/wan.gguf' })
     render(<GeneratedCreation url={reference} threadId="q4" />)

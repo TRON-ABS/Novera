@@ -53,3 +53,10 @@ Limits: no application/native rebuild, installation, native graphical validation
 Replace the image under "One dashboard for every creation" and its French equivalent with the maintainer-supplied 30 October screenshot. Update the capture date in both captions. Copy the original PNG byte-for-byte to a new dated repository asset; no cropping or image generation is performed.
 
 Validation: the source and committed asset share SHA-256 d85b1463077be0b50c41454968d0d365d8054ccf70132c0b066b153ecae29d90; both README references resolve to the asset. Only the screenshot reference and caption date change in the READMEs. Documentation-only change; no application tests or build required. Direct main publication was requested.
+
+
+## Compact generated-media caption (2026-10-30)
+
+The generated-media footer repeated the filename already displayed in the player header and placed duration above the actions. Remove the duplicate caption filename and put total duration immediately after Create a variant in the wrapping action row. Keep measured generation duration inline when available, retain the player-header filename and preserve saved-file, variation and animation actions.
+
+Validation: all 11 GeneratedCreation tests pass, including a regression for a single header filename and duration immediately following the variant action. TypeScript no-emit and targeted production ESLint pass. No native rebuild or native visual validation was performed. Direct main publication follows the maintainer's existing instruction.
