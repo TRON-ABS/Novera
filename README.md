@@ -11,9 +11,9 @@
 
 ## One dashboard for every creation
 
-![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-2026-10-29.png)
+![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-2026-10-30.png)
 
-*Real Windows application screenshot supplied by the maintainer on 29 October 2026. It shows an image and the controls used to create it; this is not a mockup.*
+*Real Windows application screenshot supplied by the maintainer on 30 October 2026. It shows an image and the controls used to create it; this is not a mockup.*
 
 One panel, five modes: **Auto, Text, Image, Music and Video**. Controls follow the selected mode: ratio, resolution, duration, cadence, quality, instrumental, lyrics, seed and quantity. Panel width and buttons adapt to the window and translated labels.
 

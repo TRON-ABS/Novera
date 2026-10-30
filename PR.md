@@ -46,3 +46,10 @@ Local validation:
 - Main was fetched and the GitHub open-PR API returned no open PR before publication. No related issue is closed.
 
 Limits: no application/native rebuild, installation, native graphical validation, CI approval or new binary release. Existing binaries keep their embedded layout until rebuilt. Earlier local notes above describe prior validation and publication states; this section records the final dashboard change. Publication is tracked separately after push verification.
+
+
+## Refresh the dashboard showcase screenshot (2026-10-30)
+
+Replace the image under "One dashboard for every creation" and its French equivalent with the maintainer-supplied 30 October screenshot. Update the capture date in both captions. Copy the original PNG byte-for-byte to a new dated repository asset; no cropping or image generation is performed.
+
+Validation: the source and committed asset share SHA-256 d85b1463077be0b50c41454968d0d365d8054ccf70132c0b066b153ecae29d90; both README references resolve to the asset. Only the screenshot reference and caption date change in the READMEs. Documentation-only change; no application tests or build required. Direct main publication was requested.

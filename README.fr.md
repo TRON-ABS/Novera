@@ -11,9 +11,9 @@
 
 ## Un tableau de bord pour tout créer
 
-![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-2026-10-29.png)
+![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-2026-10-30.png)
 
-*Capture réelle de l’application Windows fournie par le mainteneur le 29 octobre 2026. Elle montre une image et le panneau utilisé pour la créer ; ce n’est pas une maquette.*
+*Capture réelle de l’application Windows fournie par le mainteneur le 30 octobre 2026. Elle montre une image et le panneau utilisé pour la créer ; ce n’est pas une maquette.*
 
 Un seul panneau, cinq modes : **Auto, Texte, Image, Musique et Vidéo**. Les réglages suivent le mode choisi : format, résolution, durée, cadence, qualité, instrumental, paroles, graine et quantité. La largeur du panneau et les boutons s’adaptent à la fenêtre et aux libellés traduits.
 
