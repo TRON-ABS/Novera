@@ -12,6 +12,7 @@ use tokio::{
     sync::Mutex,
 };
 
+const EXLLAMA_SCRIPT: &str = include_str!("../../../transformers-server/exllama_backend.py");
 const SCRIPT: &str = include_str!("../../../transformers-server/server.py");
 static WORKER: LazyLock<Mutex<Option<Worker>>> = LazyLock::new(|| Mutex::new(None));
 static REGISTRY: LazyLock<Mutex<()>> = LazyLock::new(|| Mutex::new(()));
@@ -75,6 +76,10 @@ fn inspect_quantization(config: &serde_json::Value) -> Result<(), String> {
         .as_object()
         .ok_or("quantization_config must be an object")?;
     let valid = match quant.get("quant_method").and_then(|v| v.as_str()) {
+        Some("exl3" | "exl2") => quant
+            .get("bits")
+            .and_then(|v| v.as_f64())
+            .is_some_and(|bits| bits.is_finite() && (1.0..=8.0).contains(&bits)),
         Some("awq") => {
             quant.get("bits").and_then(|v| v.as_u64()) == Some(4)
                 && quant.get("version").map_or(true, |v| {
@@ -120,7 +125,7 @@ fn inspect_quantization(config: &serde_json::Value) -> Result<(), String> {
     if valid {
         Ok(())
     } else {
-        Err("Unsupported or invalid quantization configuration. Supported: AWQ GEMM 4-bit, GPTQ 2/3/4/8-bit, bitsandbytes 4/8-bit; CUDA and optional loaders required.".into())
+        Err("Unsupported or invalid quantization configuration. Supported: EXL3, EXL2, AWQ GEMM 4-bit, GPTQ 2/3/4/8-bit, bitsandbytes 4/8-bit; CUDA and optional loaders required.".into())
     }
 }
 
@@ -151,6 +156,21 @@ fn inspect(path: &Path) -> Result<u64, String> {
                 .values()
                 .map(|v| v.as_str().map(str::to_owned).ok_or("Invalid shard name"))
                 .collect::<Result<_, _>>()?
+        } else if matches!(
+            config["quantization_config"]["quant_method"].as_str(),
+            Some("exl3" | "exl2")
+        ) {
+            std::fs::read_dir(path)
+                .map_err(|e| e.to_string())?
+                .map(|entry| {
+                    entry
+                        .map(|entry| entry.file_name().to_string_lossy().into_owned())
+                        .map_err(|e| e.to_string())
+                })
+                .collect::<Result<Vec<_>, _>>()?
+                .into_iter()
+                .filter(|name| name.ends_with(".safetensors"))
+                .collect()
         } else {
             ["model.safetensors".to_owned()].into_iter().collect()
         };
@@ -294,6 +314,8 @@ pub async fn transformers_load<R: Runtime>(
     stop_worker(&mut worker).await?;
     let script = directory.join("server.py");
     std::fs::write(&script, SCRIPT).map_err(|e| e.to_string())?;
+    std::fs::write(directory.join("exllama_backend.py"), EXLLAMA_SCRIPT)
+        .map_err(|e| e.to_string())?;
     let listener = std::net::TcpListener::bind("127.0.0.1:0").map_err(|e| e.to_string())?;
     let port = listener.local_addr().map_err(|e| e.to_string())?.port();
     drop(listener);
@@ -322,6 +344,8 @@ pub async fn transformers_load<R: Runtime>(
         .arg(std::process::id().to_string())
         .env("NOVERA_TRANSFORMERS_KEY", &api_key)
         .env("TORCHINDUCTOR_CACHE_DIR", directory.join("torch-cache"))
+        .env("TRITON_CACHE_DIR", directory.join("triton-cache"))
+        .env("TORCH_EXTENSIONS_DIR", directory.join("torch-extensions"))
         .env("HF_HUB_OFFLINE", "1")
         .env("TRANSFORMERS_OFFLINE", "1")
         .env("TORCHDYNAMO_DISABLE", "1")
@@ -336,7 +360,7 @@ pub async fn transformers_load<R: Runtime>(
         .timeout(std::time::Duration::from_secs(1))
         .build()
         .map_err(|e| e.to_string())?;
-    let deadline = tokio::time::Instant::now() + std::time::Duration::from_secs(120);
+    let deadline = tokio::time::Instant::now() + std::time::Duration::from_secs(300);
     let runtime = loop {
         if child.try_wait().map_err(|e| e.to_string())?.is_some() {
             let log = std::fs::read_to_string(&log_path).unwrap_or_default();
@@ -368,7 +392,7 @@ pub async fn transformers_load<R: Runtime>(
         if tokio::time::Instant::now() >= deadline {
             let _ = child.kill().await;
             return Err(format!(
-                "Safetensors engine did not become ready in 120 seconds. See {}",
+                "Safetensors engine did not become ready in 300 seconds. See {}",
                 log_path.display()
             ));
         }
@@ -400,6 +424,8 @@ pub async fn transformers_probe<R: Runtime>(
     let directory = directory(app).await?;
     let script = directory.join("probe.py");
     std::fs::write(&script, SCRIPT).map_err(|e| e.to_string())?;
+    std::fs::write(directory.join("exllama_backend.py"), EXLLAMA_SCRIPT)
+        .map_err(|e| e.to_string())?;
     let mut command = Command::new(if python_path.trim().is_empty() {
         "python"
     } else {
@@ -413,6 +439,8 @@ pub async fn transformers_probe<R: Runtime>(
         .env("TRANSFORMERS_OFFLINE", "1")
         .env("TORCHDYNAMO_DISABLE", "1")
         .env("TORCHINDUCTOR_CACHE_DIR", directory.join("torch-cache"))
+        .env("TRITON_CACHE_DIR", directory.join("triton-cache"))
+        .env("TORCH_EXTENSIONS_DIR", directory.join("torch-extensions"))
         .kill_on_drop(true);
     #[cfg(windows)]
     command.creation_flags(0x08000000);

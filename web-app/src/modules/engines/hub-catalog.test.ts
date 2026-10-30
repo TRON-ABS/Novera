@@ -261,3 +261,17 @@ describe('Hub taxonomy and hardware checks', () => {
     ).toBeUndefined()
   })
 })
+
+
+describe('ExLlama quantized execution paths', () => {
+  it.each(['exl3', 'exl2'] as const)('requires the matching %s CUDA loader, without treating plain Safetensors as evidence', (method) => {
+    const model = { pipeline_tag: 'text-generation', model_config: { quantization_config: { quant_method: method, bits: 4.0 } }, safetensors_files: [{ path: 'output.safetensors', file_size: '600000000 B' }] }
+    expect(hubQuantization(model)).toBe(method)
+    expect(modelEngine(model)).toBe('transformers')
+    const absent = diagnoseHubModel(model, hardware, { weightsBytes: 600000000, runtime: { ready: true, cudaAvailable: true, quantization: { [method]: { available: false, reason: 'missing ExLlama' } } } })
+    expect(absent.engineState).toBe('runtime')
+    expect(absent.quantizationError).toBe('missing ExLlama')
+    const available = diagnoseHubModel(model, hardware, { weightsBytes: 600000000, runtime: { ready: true, cudaAvailable: true, quantization: { [method]: { available: true } } } })
+    expect(available.engineState).toBe('check')
+  })
+})

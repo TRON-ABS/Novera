@@ -259,5 +259,75 @@
       }
     },
     "expected": "unsupported"
+  },
+  {
+    "name": "exl3-4",
+    "config": {
+      "quantization_config": {
+        "quant_method": "exl3",
+        "bits": 4.0
+      }
+    },
+    "expected": "exl3"
+  },
+  {
+    "name": "exl2-4.5",
+    "config": {
+      "quantization_config": {
+        "quant_method": "exl2",
+        "bits": 4.5
+      }
+    },
+    "expected": "exl2"
+  },
+  {
+    "name": "exllama-invalid-0",
+    "config": {
+      "quantization_config": {
+        "quant_method": "exl3",
+        "bits": true
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "exllama-invalid-1",
+    "config": {
+      "quantization_config": {
+        "quant_method": "exl2",
+        "bits": 0
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "exllama-invalid-2",
+    "config": {
+      "quantization_config": {
+        "quant_method": "exl3",
+        "bits": 9
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "exllama-invalid-3",
+    "config": {
+      "quantization_config": {
+        "quant_method": "exl2",
+        "bits": "4"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "exllama-invalid-4",
+    "config": {
+      "quantization_config": {
+        "quant_method": "exl3",
+        "bits": null
+      }
+    },
+    "expected": "unsupported"
   }
 ]

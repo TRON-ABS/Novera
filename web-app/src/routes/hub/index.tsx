@@ -70,7 +70,7 @@ import { HubComparison, HubModelFacts } from '@/containers/HubModelInsights'
 import ModelPublisherAvatar from '@/containers/ModelPublisherAvatar'
 import { HubCategoryExplorer } from '@/containers/HubCategoryExplorer'
 import { HubAdvisor } from '@/containers/HubAdvisor'
-import { categoryMatches, modelEngine, type HubCategory } from '@/modules/engines/hub-catalog'
+import { categoryMatches, hubQuantization, modelEngine, type HubCategory } from '@/modules/engines/hub-catalog'
 import { fetchHubCategoryPage } from '@/services/models/hubCategories'
 
 type SearchParams = {
@@ -201,6 +201,7 @@ function HubContent() {
     const unique = [...new Map([...sources, ...discovered].map(model => [hubKey(model), model])).values()]
     let sorted = mergeHubCatalog(unique).filter(m => hubSizeMatches(m, sizeBand) && categoryMatches(m, category))
     if (format === 'gguf') sorted = sorted.filter(model => !!model.quants?.length && !model.is_mlx)
+    if (format === 'exl3' || format === 'exl2') sorted = sorted.filter(model => hubQuantization(model) === format && !!model.safetensors_files?.length)
     if (format === 'safetensors') sorted = sorted.filter(model => !!model.safetensors_files?.length && !model.is_mlx)
     if (format === 'mlx') sorted = sorted.filter(model => !!model.is_mlx)
     if (format === 'onnx') sorted = sorted.filter(model => model.files?.some(file => /\.onnx$/i.test(file.name)))
@@ -548,7 +549,7 @@ function HubContent() {
               <HubAdvisor models={filteredModels} />
               <div className="flex flex-wrap items-center gap-2 text-xs">
                 <select className="rounded border bg-background px-2 py-1.5" aria-label={t('hub:catalog.format')} value={format} onChange={event => setFormat(event.target.value)}>
-                  <option value="all">{t('hub:catalog.allFormats')}</option><option value="gguf">GGUF</option><option value="safetensors">Safetensors</option><option value="mlx">MLX</option><option value="onnx">ONNX</option><option value="pytorch">PyTorch</option>
+                  <option value="all">{t('hub:catalog.allFormats')}</option><option value="gguf">GGUF</option><option value="exl3">EXL3</option><option value="exl2">EXL2</option><option value="safetensors">Safetensors</option><option value="mlx">MLX</option><option value="onnx">ONNX</option><option value="pytorch">PyTorch</option>
                 </select>
                 <select className="rounded border bg-background px-2 py-1.5" aria-label={t('hub:catalog.availability')} value={availability} onChange={event => setAvailability(event.target.value)}>
                   <option value="all">{t('hub:catalog.allEngines')}</option><option value="integrated">{t('hub:catalog.integrated')}</option><option value="planned">{t('hub:catalog.planned')}</option>
@@ -866,6 +867,7 @@ function HubContent() {
                                       <div className="flex items-center gap-2">
                                         <p className="text-muted-foreground font-medium text-xs">
                                           {hubFormatBytes(parseFileSize(variant.file_size), i18n.language)}
+                                            {variant.shard_count ? ` · ${variant.shard_count} × GGUF` : ''}
                                         </p>
                                         <ModelInfoHoverCard
                                           model={

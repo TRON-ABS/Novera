@@ -306,5 +306,13 @@
   {
     "text": "×4 · RealESRGAN_x4plus",
     "reason": "Brand, protocol, model identifier, unit, keyboard key or required technical syntax; preserve verbatim."
+  },
+  {
+    "text": "EXL3",
+    "reason": "Quantization format identifier; preserve verbatim."
+  },
+  {
+    "text": "EXL2",
+    "reason": "Quantization format identifier; preserve verbatim."
   }
 ]

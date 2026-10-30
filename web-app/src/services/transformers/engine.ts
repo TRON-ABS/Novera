@@ -11,7 +11,7 @@ import { invoke } from '@tauri-apps/api/core'
 
 const defaults: SettingComponentProps[] = [{
   key: 'python_path', title: 'Python',
-  description: 'Python 3.15.1 · PyTorch · Transformers · Safetensors',
+  description: 'Python · PyTorch CUDA · Transformers / ExLlama',
   controllerType: 'input',
   controllerProps: { value: 'python', placeholder: 'python.exe / bin/python', type: 'text' },
 }, {
@@ -81,6 +81,7 @@ export default class TransformersEngine extends AIEngine {
     return { success: true }
   }
   async chat(_options: chatCompletionRequest): Promise<chatCompletion> {
+    void _options
     // Chat is streamed through ModelFactory, which owns cancellation and transport.
     throw new Error('Use the Novera chat transport for this engine')
   }

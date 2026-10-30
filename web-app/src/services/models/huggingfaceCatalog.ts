@@ -1,3 +1,4 @@
+import { groupGgufFiles } from './ggufShards'
 import type { HuggingFaceRepo } from './types'
 import { isSpecSidecar } from '@/lib/specDraft'
 
@@ -30,7 +31,7 @@ function safeListUrl(value: string): boolean {
 function compatible(repo: HuggingFaceRepo): boolean {
   const task = repo.pipeline_tag
   if (task && !['text-generation', 'image-text-to-text', 'text2text-generation'].includes(task)) return false
-  return !!repo.siblings?.some((f) => /\.gguf$/i.test(f.rfilename) && !/mmproj|(?:^|\/)imatrix|-\d{5}-of-\d{5}\.gguf$/i.test(f.rfilename) && !isSpecSidecar({ model_id: f.rfilename, path: f.rfilename })) ||
+  return groupGgufFiles(repo.siblings ?? []).some(([f]) => /\.gguf$/i.test(f.rfilename) && !/mmproj|(?:^|\/)imatrix/i.test(f.rfilename) && !isSpecSidecar({ model_id: f.rfilename, path: f.rfilename })) ||
     (repo.library_name === 'mlx' && !!repo.siblings?.some((f) => f.rfilename.endsWith('.safetensors')))
 }
 

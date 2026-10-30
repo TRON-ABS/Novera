@@ -1,5 +1,21 @@
 # Suivi des moteurs locaux Novera
 
+## EXL3, puis EXL2 — 30 octobre 2026
+
+Une voie NVIDIA ExLlama est intégrée aux sources du moteur Safetensors local : EXL3 sélectionne ExLlamaV3, EXL2 sélectionne ExLlamaV2. Le Hub distingue les deux formats et leurs chargeurs ; import de dossiers complets, sonde CUDA, estimation mémoire, streaming, annulation et déchargement sont réutilisés. L’environnement Windows/Python 3.12 est isolé de la pile Transformers/Python 3.15. Un fournisseur TabbyAPI désactivé par défaut permet aussi la connexion à un serveur compatible existant. [Installation et périmètre](../transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
+
+**Mesures réelles sur la RTX 5070 Laptop (8 151 Mio)** : Qwen2.5-0.5B-Instruct, contexte 2 048, entrée 272 tokens, sortie 128 tokens, cinq essais après échauffement, exécution série. Débit médian de décodage : **GGUF Q4_K_M 402,7 tokens/s ; EXL3 4 bpw 312,5 ; EXL2 4 bpw 146,9**. Aucun gain de vitesse démontré ici. Les quantifications proviennent de publications distinctes, avec des précisions de tête/calibrations différentes. Sur deux questions de contrôle, EXL3 répond incorrectement `32` à `17 + 25` avec le message système du benchmark ; EXL2 et GGUF répondent `42`. Cela ne constitue pas une évaluation générale de qualité.
+
+EXL2 utilise l’attention CUDA explicite : le chemin SDPA de la pile testée produisait des réponses erronées avec les mêmes poids/tokens. Les deux chargeurs ont passé les contrôles réels d’authentification, occupation, streaming, annulation ciblée, nouvelle génération et extinction de l’arbre de processus. TabbyAPI a passé séparément la découverte du modèle EXL3 et une génération authentifiée SSE. [Chiffres, preuves et limites](../deliverables/exllama-2026-10-30/validation.md). Aucun nouveau binaire Novera ni parcours graphique compilé n’est revendiqué.
+
+## GGUF en plusieurs morceaux — 30 octobre 2026
+
+Le Hub découvre désormais les dépôts contenant uniquement des GGUF découpés au format `nom-00001-of-000NN.gguf`. Chaque série complète apparaît comme une variante, avec sa taille cumulée exacte et son nombre de fichiers. Les séries incomplètes, les indices dupliqués ou hors limites ne deviennent pas des variantes téléchargeables ; une taille manquante reste inconnue.
+
+Le téléchargement relit les métadonnées du dépôt, fixe une même révision pour tous les morceaux et exige la taille et le SHA-256 de chacun, même lorsque la vérification optionnelle des fichiers uniques est désactivée. Le gestionnaire existant télécharge et contrôle tout le lot, avec progression cumulée, pause et reprise. L’import inspecte les en-têtes GGUF et les champs `split.no` et `split.count` de chaque morceau avant d’écrire le modèle dans la bibliothèque. Le moteur reçoit le chemin du premier morceau ; les autres restent dans le même dossier avec leur numérotation. Aucune fusion nécessitant une seconde copie des poids n’est ajoutée. La suppression explicite des poids retire aussi les morceaux numérotés de cette série.
+
+Le diagnostic matériel utilise la somme des poids. **Pouvoir télécharger un modèle de 500 Go ne signifie pas qu’il peut tourner sur ce PC.** La RAM/VRAM, le cache de contexte et l’architecture acceptée par llama.cpp restent déterminants. Cette modification concerne les sources ; aucun modèle géant n’a été téléchargé, aucune inférence de 500 Go ni interface compilée n’a été validée. [Vérifications locales et limites](../deliverables/gguf-split-2026-10-30/validation.md). [Outils amont](https://github.com/ggml-org/llama.cpp/blob/master/tools/gguf-split/README.md).
+
 ## Premier lot quantifié, faux avertissement mémoire et LFM3 — 29 octobre 2026
 
 Les sources acceptent les dossiers Safetensors préquantifiés AWQ 4 bits GEMM non fusionné, GPTQ 2/3/4/8 bits (`gptq`/`gptq_v2`) et bitsandbytes 4 bits NF4/FP4 ou 8 bits. Import natif, worker et sélection du Hub partagent des cas de validation communs. CUDA NVIDIA et les chargeurs optionnels sont requis ; aucune conversion silencieuse en modèle CPU pleine précision. Les kernels AWQ/GPTQ de référence PyTorch CUDA sont choisis explicitement, en mode eager, pour éviter la sélection automatique de Triton absent de cet environnement Python 3.15/Windows. [Installation, tests et limites](../transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026).
@@ -12,18 +28,21 @@ Les sources acceptent les dossiers Safetensors préquantifiés AWQ 4 bits GEMM n
 
 Ce lot est une modification des sources et de leurs tests. Il ne prétend pas mettre à jour automatiquement le binaire déjà ouvert, ni valider son interface graphique ou une nouvelle compilation complète de Novera.
 
-## Formats, moteurs et priorités — état du 29 octobre 2026
+## Formats, moteurs et priorités — état du 30 octobre 2026
 
 Cet inventaire décrit les **sources du dépôt**, pas une garantie de disponibilité dans chaque binaire installé. La visibilité d'un dépôt dans le Hub, son téléchargement, son import et son exécution sont quatre capacités distinctes. Une extension de fichier ne garantit ni l'architecture reconnue, ni la compatibilité d'une quantification, ni une mémoire suffisante.
 
-Repère matériel pour les priorités ci-dessous : **Windows, NVIDIA GeForce RTX 5070 Laptop GPU, environ 8 Go de VRAM** (8 151 Mio rapportés par `nvidia-smi`, capacité de calcul 12.0). La VRAM libre varie avec les applications ; ne pas utiliser une valeur ponctuelle comme capacité permanente. Aucune nouvelle mesure de RAM système ou comparaison de performances entre moteurs n'est revendiquée dans cet inventaire.
+Repère matériel pour les priorités ci-dessous : **Windows, NVIDIA GeForce RTX 5070 Laptop GPU, environ 8 Go de VRAM** (8 151 Mio rapportés par `nvidia-smi`, capacité de calcul 12.0). La VRAM libre varie avec les applications ; ne pas utiliser une valeur ponctuelle comme capacité permanente. Les mesures EXL3/EXL2/GGUF du 30 octobre sont détaillées en tête de ce document et dans le [bilan de validation](../deliverables/exllama-2026-10-30/validation.md). Elles portent sur Qwen2.5-0.5B-Instruct sur cette carte ; elles ne constituent pas un classement général des moteurs.
 
 ### Prise en charge existante
 
 | Format ou famille | État dans Novera | Limites à conserver visibles |
 | --- | --- | --- |
-| GGUF texte, via llama.cpp | Pris en charge pour les architectures acceptées par le moteur embarqué. | Toutes les quantifications et architectures ne sont pas interchangeables. Le téléchargement Hub des variantes réparties en plusieurs morceaux reste incomplet. |
-| Safetensors classiques, via Transformers | Import d'un dossier local complet sur Windows/Linux ; texte causal sur CPU ou NVIDIA CUDA. Les index Safetensors avec leurs fragments sont acceptés. | `quantization_config` est désormais accepté pour AWQ GEMM, GPTQ et bitsandbytes 4/8 bits dans le premier lot décrit ci-dessous ; les autres configurations restent refusées. Pas d'offload de couches CPU/GPU, ni de chargement direct universel d'un fichier isolé. Téléchargement Hub du dossier complet encore à intégrer. |
+| GGUF texte, via llama.cpp | Pris en charge pour les architectures acceptées par le moteur embarqué. | Toutes les quantifications et architectures ne sont pas interchangeables. Le Hub regroupe les séries GGUF complètes, calcule leur taille totale et vérifie tous les morceaux avant enregistrement (sources du 30 octobre 2026). La mémoire nécessaire reste celle du modèle complet. |
+| Safetensors classiques, via Transformers | Import d'un dossier local complet sur Windows/Linux ; texte causal sur CPU ou NVIDIA CUDA. Les index Safetensors avec leurs fragments sont acceptés. | Le chargeur Transformers accepte AWQ GEMM, GPTQ et bitsandbytes 4/8 bits dans le premier lot décrit ci-dessous. EXL3/EXL2 passent par leurs chargeurs ExLlama dédiés ; les configurations non prises en charge restent refusées. Pas d'offload de couches CPU/GPU, ni de chargement direct universel d'un fichier isolé. Téléchargement Hub du dossier complet encore à intégrer. |
+| EXL3, via ExLlamaV3 | Import du dossier complet et exécution CUDA testés sur la RTX 5070 Laptop ; chargeur identifié séparément dans le Hub. | Environnement Python 3.12 isolé. Sur le petit Qwen testé, plus lent que GGUF et erreur arithmétique observée. Pas de repli CPU ; compatibilité des autres architectures à vérifier. |
+| EXL2, via ExLlamaV2 | Import du dossier complet, génération, streaming, annulation et déchargement testés sur GPU. | Attention CUDA explicite retenue après échec du chemin SDPA de la pile testée. Plus lent que GGUF dans cette comparaison ; pas de repli CPU. |
+| TabbyAPI | Fournisseur optionnel désactivé par défaut ; découverte du modèle EXL3 et génération authentifiée SSE testées. | Serveur indépendant, installé séparément et géré par son opérateur. La révision testée utilise ExLlamaV3 ; EXL2 reste sur le chargeur local dédié. |
 | MLX | Moteur dédié aux modèles compatibles sur Apple Silicon. | Sans bénéfice direct pour le poste Windows de référence ; la seule extension `.safetensors` ne suffit pas à identifier un modèle MLX compatible. |
 | Images/vidéos en GGUF ou Safetensors | Chemins stable-diffusion.cpp et Diffusers, avec composants et pipelines explicitement pris en charge. | Un checkpoint arbitraire n'est pas automatiquement exécutable. Distinguer générateur, encodeur et VAE, ainsi que les validations natives et graphiques. |
 | NVFP4 image | Chemin CUDA natif spécifique à FLUX.2 Klein 4B au format Comfy NVFP4 ; chemin de compatibilité BF16 distinct. | Ne couvre pas tous les layouts NVFP4, toutes les architectures, les LLM ou la vidéo. |
@@ -35,11 +54,11 @@ Références internes : [moteur Transformers](../transformers-server/README.md),
 
 Les rangs sont une proposition adaptée au poste de référence et à l'objectif de couverture du Hub, pas un engagement de livraison ni une preuve de gain de vitesse. Une étape est terminée seulement après validation du modèle, du chargeur et de la mémoire réellement utilisée.
 
-| Ordre | Format, variante ou capacité manquante | Travail restant et justification |
+| Ordre | Format, variante ou capacité | État validé et travail restant |
 | --- | --- | --- |
 | 1 | Safetensors quantifiés : AWQ, GPTQ, bitsandbytes 4/8 bits | Premier lot intégré aux sources : import, worker CUDA, sonde de dépendances et diagnostic Hub. AWQ/GPTQ 4 bits et bitsandbytes 4/8 bits ont exécuté une génération sur de petites fixtures hors ligne ; étendre les validations à des modèles utiles, aux autres largeurs GPTQ et aux plateformes reste à faire. |
-| 2 | GGUF répartis en plusieurs fichiers | Regrouper les fragments d'une même variante, calculer la taille totale, télécharger/reprendre et vérifier tout le lot, puis charger depuis le premier fragment. Important pour les gros modèles du Hub ; ne garantit pas leur exécution sur une carte de 8 Go. |
-| 3 | EXL3, puis EXL2 | Intégrer un moteur ExLlama/serveur compatible, gérer son cycle de vie et comparer qualité, mémoire et vitesse à GGUF sur ce matériel. Ce sont des variantes quantifiées distinctes à détecter et tester. |
+| 2 | GGUF répartis en plusieurs fichiers | Intégré aux sources : regroupement des séries complètes, taille totale, téléchargement du lot, SHA-256/taille de chaque fragment et contrôle des métadonnées avant enregistrement depuis le premier fragment. Tests locaux validés ; téléchargement réel d’un gros modèle et parcours graphique compilé non validés. Ne garantit pas l’exécution d’un modèle de 500 Go. |
+| 3 | EXL3, puis EXL2 | Intégré aux sources et testé sur GPU : import, chargeurs distincts, streaming, annulation et arrêt ; connexion TabbyAPI validée séparément. Sur Qwen 0,5B : GGUF 402,7 tokens/s, EXL3 312,5, EXL2 146,9. Aucun gain ici ; un contrôle arithmétique EXL3 échoue. Reste à compiler l’application et étendre les mesures aux modèles/architectures ciblés. |
 | 4 | Adaptateurs LoRA/PEFT | Associer l'adaptateur au bon modèle de base, contrôler architecture/révision et calculer la mémoire cumulée. Un adaptateur seul n'est pas un modèle complet. Pas de parcours général de sélection/chargement dans Novera actuellement. |
 | 5 | ONNX | Ajouter un moteur général et son parcours d'import/exécution pour les exports compatibles. Le filtre du Hub n'implémente pas ce moteur ; cibler d'abord quelques tâches et architectures plutôt que tous les fichiers ONNX. |
 | 6 | Safetensors FP8/NVFP4 pour les LLM | Valider chargeur, architecture, layout des poids et kernels du GPU, puis le cache de contexte. Distinguer ce travail du NVFP4 image existant et du type NVFP4 déjà présent dans llama.cpp. |
@@ -71,7 +90,7 @@ Le Hub utilise désormais un diagnostic commun pour le tri, les fiches et la rev
 - [ONNX Runtime Generate API](https://onnxruntime.ai/docs/genai/).
 - [Quantifications vLLM](https://docs.vllm.ai/en/latest/features/quantization/), [serveur compatible OpenAI](https://docs.vllm.ai/en/latest/serving/online_serving/openai_compatible_server/) et [installation GPU/Windows](https://docs.vllm.ai/en/latest/getting_started/installation/gpu/).
 
-Cette mise à jour est documentaire : elle n'ajoute aucun moteur ni format et ne constitue pas une nouvelle validation d'inférence ou de binaire.
+Cet inventaire distingue les ajouts aux sources, les tests locaux et l’inférence réelle décrits ci-dessus. Les ajouts GGUF découpé et ExLlama du 30 octobre n’ont pas fait l’objet d’une nouvelle compilation complète de Novera ni d’une validation graphique ; les anciens comptes rendus de compilation ci-dessous concernent leurs lots respectifs.
 
 ## Téléchargement du Hub vers Documents — correction du 28 octobre 2026
 

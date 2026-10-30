@@ -54,6 +54,20 @@ export const openAIProviderSettings = [
   },
 ]
 export const predefinedProviders = [
+  {
+    active: false,
+    api_key: '',
+    base_url: 'http://127.0.0.1:5000/v1',
+    explore_models_url: 'https://github.com/theroyallab/tabbyAPI',
+    provider: 'tabbyapi',
+    settings: [{
+      key: 'api-key', title: 'API Key',
+      description: '[TabbyAPI](https://github.com/theroyallab/tabbyAPI)',
+      controller_type: 'input',
+      controller_props: { placeholder: '', value: '', type: 'password', input_actions: ['unobscure', 'copy'] },
+    }],
+    models: [],
+  },
   ...mediaProviderDefinitions.map(item => ({ active: true, api_key: '', base_url: item.base, explore_models_url: item.docs, provider: item.id, settings: [{ key: 'api-key', title: 'API Key', description: `[${item.name}](${item.docs})`, controller_type: 'input', controller_props: { placeholder: '', value: '', type: 'password', input_actions: ['unobscure', 'copy'] } }], models: mediaModels(item.id) })),
   {
     active: true,

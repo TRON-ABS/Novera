@@ -1,0 +1,469 @@
+{
+  "context": 2048,
+  "max_tokens": 128,
+  "runs": 5,
+  "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU, 617.42, 8151 MiB",
+  "methodology": "Serial engines; one warmup per prompt length; greedy; FP16 KV; no speculative decoding; unique prompt prefixes; GGUF cache_prompt=false. GPU memory is sampled total device usage, including desktop/background allocations.",
+  "engines": {
+    "exl3": {
+      "checkpoint": "C:\\msys64\\home\\jmsga\\Novera\\.build\\exllama\\models\\exl3",
+      "runtime": {
+        "model_id": "benchmark",
+        "context_size": 2048,
+        "python": "3.12.15",
+        "torch": "2.9.0+cu128",
+        "device": "cuda",
+        "cuda": "12.8",
+        "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+        "quantization": "exl3",
+        "quantization_backend": "exllamav3",
+        "gpu_allocated_bytes": 430516224
+      },
+      "load_s": 4.688766300037969,
+      "workloads": {
+        "short": {
+          "samples": [
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 20.69219999248162,
+              "elapsed_s": 0.4142827999894507,
+              "total_tokens_per_second": 308.96769067713984,
+              "decode_tokens_per_second": 322.7442716632906,
+              "text": "The sun was setting on the mountain range, casting a golden glow over the landscape. The air was crisp and cool, and the trees were covered in a blanket of snow. The trail was winding and steep, but the view was breathtaking. The mountains were a stark contrast to the plains below, with their peaks towering above the horizon.\n\nAs the sun dipped below the horizon, the trail began to fade into the distance. The trail was a winding path, with each step taking you deeper into the mountains. The air was crisp and cold, and the trail was a constant reminder of the dangers that lay ahead.\n\nThe trail was steep and rocky"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 28.671600040979683,
+              "elapsed_s": 0.4303529000026174,
+              "total_tokens_per_second": 297.43031823236583,
+              "decode_tokens_per_second": 316.21828824654165,
+              "text": "The sun was setting on the mountain range, casting a golden glow over the landscape. The air was crisp and cool, and the trees were covered in a blanket of snow. The trail was winding and steep, but the view was breathtaking. The mountains were a stark contrast to the plains below, with their peaks towering above the horizon.\n\nAs the sun dipped below the horizon, the trail began to fade into the distance. The trail was a winding path, with each step taking you deeper into the mountains. The air was crisp and cold, and the trail was a constant reminder of the dangers that lay ahead.\n\nThe trail was steep and rocky"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 20.34560003085062,
+              "elapsed_s": 0.4270066000171937,
+              "total_tokens_per_second": 299.7611746395629,
+              "decode_tokens_per_second": 312.3839321791196,
+              "text": "The sun was setting on the mountain range, casting a golden glow over the landscape. The air was crisp and cool, and the trees were covered in a blanket of snow. The trail was winding and steep, but the view was breathtaking. The mountains were a stark contrast to the plains below, with their peaks towering above the horizon.\n\nAs the sun dipped below the horizon, the trail began to fade into the distance. The trail was a winding path, with each step taking you deeper into the mountains. The air was crisp and cold, and the trail was a constant reminder of the dangers that lay ahead.\n\nThe trail was steep and rocky"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 38.90980000142008,
+              "elapsed_s": 0.4460063999867998,
+              "total_tokens_per_second": 286.99139744135584,
+              "decode_tokens_per_second": 312.02888552612967,
+              "text": "The sun was setting on the mountain range, casting a golden glow over the landscape. The air was crisp and cool, and the trees were covered in a blanket of snow. The trail was winding and steep, but the view was breathtaking. The mountains were a stark contrast to the plains below, with their peaks towering above the horizon.\n\nAs the sun dipped below the horizon, the trail began to fade into the distance. The trail was a winding path, with each step taking you deeper into the mountains. The air was crisp and cold, and the trail was a constant reminder of the dangers that lay ahead.\n\nThe trail was steep and rocky"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 28.177600004710257,
+              "elapsed_s": 0.4317432999960147,
+              "total_tokens_per_second": 296.4724640803494,
+              "decode_tokens_per_second": 314.75564554327747,
+              "text": "The sun was setting on the mountain range, casting a golden glow over the landscape. The air was crisp and cool, and the trees were covered in a blanket of snow. The trail was winding and steep, but the view was breathtaking. The mountains were a stark contrast to the plains below, with their peaks towering above the horizon.\n\nAs the sun dipped below the horizon, the trail began to fade into the distance. The trail was a winding path, with each step taking you deeper into the mountains. The air was crisp and cold, and the trail was a constant reminder of the dangers that lay ahead.\n\nThe trail was steep and rocky"
+            }
+          ],
+          "median": {
+            "ttft_ms": 28.177600004710257,
+            "elapsed_s": 0.4303529000026174,
+            "total_tokens_per_second": 297.43031823236583,
+            "decode_tokens_per_second": 314.75564554327747
+          }
+        },
+        "long": {
+          "samples": [
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 34.87690002657473,
+              "elapsed_s": 0.4471616999944672,
+              "total_tokens_per_second": 286.24991809804766,
+              "decode_tokens_per_second": 308.1220735987699,
+              "text": "The sun was setting, casting a golden glow over the valley below. The river, a winding stream, flowed through the valley, its waters reflecting the changing light of the setting sun. The river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 23.48490001168102,
+              "elapsed_s": 0.4223890000139363,
+              "total_tokens_per_second": 303.03819463995694,
+              "decode_tokens_per_second": 318.4313320681986,
+              "text": "The sun was setting, casting a golden glow over the valley below. The river, a winding stream, flowed through the valley, its waters reflecting the changing light of the setting sun. The river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 25.115399970673025,
+              "elapsed_s": 0.4324903999804519,
+              "total_tokens_per_second": 295.96032653160734,
+              "decode_tokens_per_second": 311.8176686267698,
+              "text": "The sun was setting, casting a golden glow over the valley below. The river, a winding stream, flowed through the valley, its waters reflecting the changing light of the setting sun. The river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 44.383700005710125,
+              "elapsed_s": 0.4507543999934569,
+              "total_tokens_per_second": 283.9683872234149,
+              "decode_tokens_per_second": 312.60191871841124,
+              "text": "The sun was setting, casting a golden glow over the valley below. The river, a winding stream, flowed through the valley, its waters reflecting the changing light of the setting sun. The river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 33.027400029823184,
+              "elapsed_s": 0.4395344000076875,
+              "total_tokens_per_second": 291.2172517048979,
+              "decode_tokens_per_second": 312.4763951310175,
+              "text": "The sun was setting, casting a golden glow over the valley below. The river, a winding stream, flowed through the valley, its waters reflecting the changing light of the setting sun. The river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a river, a"
+            }
+          ],
+          "median": {
+            "ttft_ms": 33.027400029823184,
+            "elapsed_s": 0.4395344000076875,
+            "total_tokens_per_second": 291.2172517048979,
+            "decode_tokens_per_second": 312.4763951310175
+          }
+        }
+      },
+      "quality_smoke": [
+        {
+          "prompt_tokens": 34,
+          "completion_tokens": 3,
+          "ttft_ms": 20.84309997735545,
+          "elapsed_s": 0.02742150000995025,
+          "total_tokens_per_second": 109.40320547422317,
+          "decode_tokens_per_second": 633.7537136110824,
+          "text": "32"
+        },
+        {
+          "prompt_tokens": 28,
+          "completion_tokens": 5,
+          "ttft_ms": 787.5643000006676,
+          "elapsed_s": 0.8012089999974705,
+          "total_tokens_per_second": 6.240568940208841,
+          "decode_tokens_per_second": 389.1769889787035,
+          "text": "Le chat dort."
+        }
+      ],
+      "forced_descendant_cleanup": false,
+      "process_stopped": true,
+      "peak_total_gpu_mib": 1373,
+      "peak_process_rss_bytes": 2032975872
+    },
+    "exl2": {
+      "checkpoint": "C:\\msys64\\home\\jmsga\\Novera\\.build\\exllama\\models\\exl2",
+      "runtime": {
+        "model_id": "benchmark",
+        "context_size": 2048,
+        "python": "3.12.15",
+        "torch": "2.9.0+cu128",
+        "device": "cuda",
+        "cuda": "12.8",
+        "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+        "quantization": "exl2",
+        "quantization_backend": "exllamav2",
+        "gpu_allocated_bytes": 591034880
+      },
+      "load_s": 5.038059499987867,
+      "workloads": {
+        "short": {
+          "samples": [
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 25.197000009939075,
+              "elapsed_s": 0.8235738999792375,
+              "total_tokens_per_second": 155.42017541258522,
+              "decode_tokens_per_second": 159.09394121933943,
+              "text": "In the heart of the Rocky Mountains, where the air was crisp and the sun shone like a beacon, there lived a young man named Jack. Jack was a dreamer, a wanderer, and a man who loved nothing more than the unknown. He had always been drawn to the mountains, the vast expanse of land that seemed to stretch on forever. It was here that he would often find himself lost in the mist, his heart pounding with the thrill of adventure.\n\nOne day, as Jack was walking through the dense, towering forests, he stumbled upon a small, isolated cabin. It was a place where he had never been"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 37.306200014427304,
+              "elapsed_s": 1.0348446000134572,
+              "total_tokens_per_second": 123.69006901938269,
+              "decode_tokens_per_second": 127.32335038226358,
+              "text": "In the heart of the Rocky Mountains, where the air was crisp and the sun shone like a beacon, there lived a young man named Jack. Jack was a dreamer, a wanderer, and a seeker of adventure. He had always been fascinated by the mountains, their towering peaks and deep valleys, and the secrets they held. One day, as he was hiking through the mountains, he stumbled upon a small, isolated cabin. It was a place he had never seen before, and Jack was drawn to it, drawn by the promise of adventure.\n\nThe cabin was small, with only a few rooms and a small fire. Jack"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 29.35069997329265,
+              "elapsed_s": 0.96096099994611,
+              "total_tokens_per_second": 133.19999459622,
+              "decode_tokens_per_second": 136.3374667945644,
+              "text": "In the heart of the Rocky Mountains, where the air was crisp and the sun shone like a beacon, there lived a young man named Jack. Jack was a dreamer, a wanderer, and a man who loved nothing more than the unknown. He had always been drawn to the mountains, the vast expanse of land that seemed to stretch on forever. It was here that he would often find himself lost in the mist, his heart pounding with the thrill of adventure.\n\nOne day, as Jack was walking through the dense, towering forests, he stumbled upon a small, isolated cabin. It was a place where he had never been"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 57.253000035416335,
+              "elapsed_s": 1.1492438000277616,
+              "total_tokens_per_second": 111.37758584985012,
+              "decode_tokens_per_second": 116.31121988558066,
+              "text": "In the heart of the Rocky Mountains, where the air was crisp and the sun shone like a beacon, there lived a young man named Jack. Jack was a dreamer, a wanderer, and a man who loved nothing more than the unknown. He had always been drawn to the mountains, the vast expanse of land that seemed to stretch on forever. It was here that he would often find himself lost in the mist, his heart pounding with the thrill of adventure.\n\nOne day, as Jack was walking through the dense, towering forests, he stumbled upon a small, isolated cabin. It was a place where he had never been"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 22.3458000109531,
+              "elapsed_s": 0.9278232000069693,
+              "total_tokens_per_second": 137.95731772932444,
+              "decode_tokens_per_second": 140.26957160231476,
+              "text": "In the heart of the Rocky Mountains, where the air was crisp and the sun shone like a beacon, there lived a young man named Jack. Jack was a dreamer, a wanderer, and a seeker of adventure. He had always been fascinated by the mountains, their towering peaks and deep valleys, and the secrets they held. One day, as he was hiking through the mountains, he stumbled upon a small, isolated cabin. It was a place he had never seen before, and Jack was drawn to it, drawn by the promise of adventure.\n\nThe cabin was small, with only a few rooms and a small fire. Jack"
+            }
+          ],
+          "median": {
+            "ttft_ms": 29.35069997329265,
+            "elapsed_s": 0.96096099994611,
+            "total_tokens_per_second": 133.19999459622,
+            "decode_tokens_per_second": 136.3374667945644
+          }
+        },
+        "long": {
+          "samples": [
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 34.747500030789524,
+              "elapsed_s": 0.8991909999749623,
+              "total_tokens_per_second": 142.3501792206151,
+              "decode_tokens_per_second": 146.93356590701111,
+              "text": "The river flows through the valley, its current carrying the traveler along its path. The traveler, a seasoned explorer, had been on this journey for years, and it was a journey that had been both exhilarating and exhausting. The river had carried them through the mountains, the valleys, the forests, and the deserts, each time they had been on their own. The traveler had seen the beauty of the world, the towering peaks, the lush forests, the ancient ruins, and the desolate plains, all in their own time.\n\nThe river had carried them through the mountains, the valleys, the forests, and the deserts,"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 21.08350000344217,
+              "elapsed_s": 0.9890450999955647,
+              "total_tokens_per_second": 129.41775860430835,
+              "decode_tokens_per_second": 131.21819250557346,
+              "text": "The river flows through the valley, its current carrying the traveler along its path. The traveler has been on this journey for many years, and it has been a constant reminder of their journey through the mountains. The river flows through the valley, its current carrying the traveler along its path. The traveler has been on this journey for many years, and it has been a constant reminder of their journey through the mountains. The river flows through the valley, its current carrying the traveler along its path. The traveler has been on this journey for many years, and it has been a constant reminder of their journey through the mountains. The river flows through the"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 34.512999991420656,
+              "elapsed_s": 0.8889871000428684,
+              "total_tokens_per_second": 143.98409155074089,
+              "decode_tokens_per_second": 148.64183496962266,
+              "text": "The river flows through the valley, its current carrying the traveler along its path. The traveler, a seasoned explorer, had been on this journey for years, and it was a journey that had been both exhilarating and exhausting. The river had carried them through the mountains, the valleys, the forests, and the deserts, each time they had seen the same landscape, but with a different perspective.\n\nThe traveler had always been drawn to the mountains, the peaks, the valleys, and the forests. They had seen the snow-capped peaks, the lush green valleys, and the ancient forests, each one a testament to the beauty and resilience"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 41.290200024377555,
+              "elapsed_s": 1.0433301000157371,
+              "total_tokens_per_second": 122.6840862715159,
+              "decode_tokens_per_second": 126.74996035276409,
+              "text": "The river flows through the valley, its current carrying the traveler along its path. The traveler, a seasoned explorer, had been on this journey for years, and it was a journey that had been both exhilarating and exhausting. The river had carried them through the mountains, the valleys, the forests, and the deserts, each time they had seen the same landscape, but with a different perspective.\n\nThe traveler had always been drawn to the mountains, the peaks, the valleys, and the forests. They had seen the snow-capped peaks, the lush green valleys, and the ancient forests, each one a testament to the beauty and resilience"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 34.2788000125438,
+              "elapsed_s": 0.8671776000410318,
+              "total_tokens_per_second": 147.60528869050987,
+              "decode_tokens_per_second": 152.49333201239747,
+              "text": "The river flows through the valley, its current carrying the traveler along its path. The traveler, a seasoned explorer, had been on this journey for years, but this was the first time they had seen the mountains. The valley was a vast expanse of green, with trees and wildflowers in every shade of the spectrum. The traveler had never seen such a lush greenery before, and it was a stark contrast to the barren landscape they had been used to.\n\nThe river flowed through the valley, its current carrying the traveler along its path. The traveler had been on this journey for years, but this was the first time they had seen"
+            }
+          ],
+          "median": {
+            "ttft_ms": 34.512999991420656,
+            "elapsed_s": 0.8991909999749623,
+            "total_tokens_per_second": 142.3501792206151,
+            "decode_tokens_per_second": 146.93356590701111
+          }
+        }
+      },
+      "quality_smoke": [
+        {
+          "prompt_tokens": 34,
+          "completion_tokens": 10,
+          "ttft_ms": 26.002600032370538,
+          "elapsed_s": 0.07729169999947771,
+          "total_tokens_per_second": 129.37999811192628,
+          "decode_tokens_per_second": 193.66416928418397,
+          "text": "17 + 25 = 42"
+        },
+        {
+          "prompt_tokens": 28,
+          "completion_tokens": 4,
+          "ttft_ms": 26.572900009341538,
+          "elapsed_s": 0.04517980001401156,
+          "total_tokens_per_second": 88.5351417837061,
+          "decode_tokens_per_second": 174.14928046047933,
+          "text": "Le chat dort."
+        }
+      ],
+      "forced_descendant_cleanup": false,
+      "process_stopped": true,
+      "peak_total_gpu_mib": 1512,
+      "peak_process_rss_bytes": 1912553472
+    },
+    "gguf": {
+      "checkpoint": "C:\\msys64\\home\\jmsga\\Novera\\.build\\exllama\\models\\gguf\\qwen2.5-0.5b-instruct-q4_k_m.gguf",
+      "runtime": {
+        "loaded": {
+          "model": "benchmark",
+          "status": "loaded"
+        },
+        "version": {
+          "build_number": "11960",
+          "commit": "8642541b255bfb5dc39cd351a178be09013a55d6",
+          "tag": "b11960",
+          "version": "0.8.0"
+        }
+      },
+      "load_s": 0.7339587999740615,
+      "workloads": {
+        "short": {
+          "samples": [
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 12.963099987246096,
+              "elapsed_s": 0.2902943000080995,
+              "total_tokens_per_second": 440.9318405370986,
+              "decode_tokens_per_second": 458.1205657166926,
+              "text": "The sun was setting on the mountain range, casting a warm glow over the landscape. The air was crisp and fresh, and the trees were tall and green, their leaves rustling in the breeze. The trail was winding and winding, but it was worth it. The mountains were a beautiful and serene place, and the view was breathtaking.\n\nThe trail was a winding path, with steep inclines and rocky terrain. The trail was a bit challenging, but it was worth it. The trail was a bit steep, but it was worth it. The trail was a bit rocky, but it was worth it. The trail was a bit challenging"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 24.316700000781566,
+              "elapsed_s": 0.29688140004873276,
+              "total_tokens_per_second": 431.14860000993303,
+              "decode_tokens_per_second": 466.34871721931853,
+              "text": "The sun was setting on the mountain range, casting a warm glow over the landscape. The air was crisp and cool, and the trees were tall and green, their leaves rustling in the breeze. The trail was winding and steep, with steep drops and rocky paths. The trail was a long way from the nearest town, and the journey was long and arduous.\n\nThe trail was a winding path, with steep drops and rocky paths. The trail was a long way from the nearest town, and the journey was long and arduous. The trail was a long way from the nearest town, and the journey was long and ar"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 25.684699998237193,
+              "elapsed_s": 0.3041924000135623,
+              "total_tokens_per_second": 420.7863181141053,
+              "decode_tokens_per_second": 456.2186372192761,
+              "text": "The sun was setting on the mountain range, casting a warm glow over the landscape. The air was crisp and cool, and the trees were tall and majestic. The trail was winding and steep, but the views were breathtaking. The trail was a winding path, with each step taking you deeper into the mountains. The trail was a mix of rocky and steep terrain, with some sections being more challenging than others. The trail was a mix of steep and rocky terrain, with some sections being more challenging than others. The trail was a mix of steep and rocky terrain, with some sections being more challenging than others. The trail was a mix of"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 35.30420002061874,
+              "elapsed_s": 0.31765250000171363,
+              "total_tokens_per_second": 402.9560604727162,
+              "decode_tokens_per_second": 449.97181480447375,
+              "text": "The sun was setting on the mountain range, casting a warm glow over the landscape. The air was crisp and cool, and the trees were tall and green, their leaves rustling in the breeze. The trail was winding and winding, but the path was clear and unobstructed. The trail was a winding path, but it was also a journey through the mountains.\n\nThe trail was a winding path, but it was also a journey through the mountains. The trail was a winding path, but it was also a journey through the mountains. The trail was a winding path, but it was also a journey through the mountains. The trail"
+            },
+            {
+              "prompt_tokens": 48,
+              "completion_tokens": 128,
+              "ttft_ms": 28.88669999083504,
+              "elapsed_s": 0.3101077000028454,
+              "total_tokens_per_second": 412.75982505054066,
+              "decode_tokens_per_second": 451.8122652354502,
+              "text": "The sun was setting on the mountain range, casting a warm glow over the landscape. The air was crisp and cool, and the trees were covered in a blanket of green. The trail was winding and winding, but the views were breathtaking. The mountains were a blur of white and green, with the peaks towering above the valley below. The trail was a winding path, but the views were breathtaking.\n\nThe trail was a winding path, but the views were breathtaking. The trail was a winding path, but the views were breathtaking. The trail was a winding path, but the views were breathtaking. The trail was a winding path, but the"
+            }
+          ],
+          "median": {
+            "ttft_ms": 25.684699998237193,
+            "elapsed_s": 0.3041924000135623,
+            "total_tokens_per_second": 420.7863181141053,
+            "decode_tokens_per_second": 456.2186372192761
+          }
+        },
+        "long": {
+          "samples": [
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 35.08569998666644,
+              "elapsed_s": 0.35545500001171604,
+              "total_tokens_per_second": 360.101841290124,
+              "decode_tokens_per_second": 396.579795894206,
+              "text": "The sun was setting, casting a warm orange glow over the valley below. The river, a steady stream, flowed through the valley, its waters shimmering in the sunlight. The valley was a lush, green oasis, a haven for wildlife and a place where nature thrived. The river had been flowing through the valley for centuries, a constant reminder of the beauty and tranquility that surrounded it.\n\nAs the sun dipped below the horizon, the river's flow slowed, its waters becoming a gentle breeze that swept through the valley. The valley was a place of peace and serenity, a place where nature's beauty was at its finest."
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 41.78279999177903,
+              "elapsed_s": 0.374384899972938,
+              "total_tokens_per_second": 341.89413090445777,
+              "decode_tokens_per_second": 381.98854813121784,
+              "text": "The sun was setting, casting a warm glow over the valley below. The river, a gentle stream, had been flowing through the valley for centuries, its waters a constant reminder of the passage of time. The valley was a place of peace and tranquility, a place where nature had taken over and left nothing but the gentle flow of the river to remind us of its beauty.\n\nAs the sun dipped below the horizon, the river began to flow again, its waters now a steady stream of water. The valley below was a place of quiet reflection, a place where nature had taken over and left nothing but the gentle flow of the river to"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 39.0313999960199,
+              "elapsed_s": 0.3545111999846995,
+              "total_tokens_per_second": 361.0605250427191,
+              "decode_tokens_per_second": 402.71652911015036,
+              "text": "The sun was setting, casting a warm orange glow over the valley below. The river, a gentle stream, flowed through the valley, its waters shimmering in the sunlight. The valley was a lush, verdant landscape, with towering trees and lush forests. The air was thick with the scent of pine and earth, and the sound of birds chirping and the gentle rustling of leaves filled the air.\n\nThe journey through the mountains was a long one, but it was worth it. The river had carried the travelers through the valleys, and now they were in the heart of the mountains, where the landscape was more rugged and the terrain"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 28.76110002398491,
+              "elapsed_s": 0.324293999990914,
+              "total_tokens_per_second": 394.703571461656,
+              "decode_tokens_per_second": 429.9157737516793,
+              "text": "The sun was setting, casting a warm glow over the valley below. The river, a gentle stream, had been flowing through the valley for centuries, carving its way through the soft earth and into the rocky terrain. The river had always been a source of joy and wonder for the people who lived in the valley, and it was now time for them to take a break from their daily routines and explore the surrounding mountains.\n\nThe group of friends, led by the adventurous and adventurous man, decided to take a journey through the mountains. They had heard stories of the mountains from their ancestors, and they were eager to experience them for themselves. The"
+            },
+            {
+              "prompt_tokens": 272,
+              "completion_tokens": 128,
+              "ttft_ms": 18.107499985489994,
+              "elapsed_s": 0.30736549996072426,
+              "total_tokens_per_second": 416.4423138457507,
+              "decode_tokens_per_second": 439.22022153507356,
+              "text": "The sun was setting, casting a warm orange glow over the valley below. The river, a gentle stream, flowed through the valley, its waters shimmering in the sunlight. The valley was a lush, green oasis, with towering trees and a dense forest of pine trees. The air was crisp and fresh, with the scent of pine and earth mingling with the sweet aroma of the river.\n\nThe journey through the mountains was a long and winding one, with each step taking you deeper into the valley. The river flowed through the valley, its waters slowly eroding the rocks and soil. The trees and plants grew taller and more dense,"
+            }
+          ],
+          "median": {
+            "ttft_ms": 35.08569998666644,
+            "elapsed_s": 0.3545111999846995,
+            "total_tokens_per_second": 361.0605250427191,
+            "decode_tokens_per_second": 402.71652911015036
+          }
+        }
+      },
+      "quality_smoke": [
+        {
+          "prompt_tokens": 34,
+          "completion_tokens": 11,
+          "ttft_ms": 32.215299957897514,
+          "elapsed_s": 0.056747599970549345,
+          "total_tokens_per_second": 193.84079689200493,
+          "decode_tokens_per_second": 446.50431679008295,
+          "text": "17 + 25 = 42"
+        },
+        {
+          "prompt_tokens": 28,
+          "completion_tokens": 5,
+          "ttft_ms": 36.96800000034273,
+          "elapsed_s": 0.04892550001386553,
+          "total_tokens_per_second": 102.1961962286128,
+          "decode_tokens_per_second": 415.9906821251886,
+          "text": "Le chat dort."
+        }
+      ],
+      "unloaded": {
+        "model": "benchmark",
+        "status": "unloaded"
+      },
+      "forced_descendant_cleanup": false,
+      "process_stopped": true,
+      "peak_total_gpu_mib": 1305,
+      "peak_process_rss_bytes": 964067328
+    }
+  }
+}

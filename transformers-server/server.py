@@ -23,6 +23,11 @@ def quantization_method(config):
     if not isinstance(quant, dict):
         raise ValueError("quantization_config must be an object")
     method = quant.get("quant_method")
+    if method in ("exl3", "exl2"):
+        bits = quant.get("bits")
+        if isinstance(bits, bool) or not isinstance(bits, (int, float)) or not math.isfinite(bits) or not 1 <= bits <= 8:
+            raise ValueError("ExLlama bits must be a finite bitrate between 1 and 8")
+        return method
     if method in ("awq", "gptq"):
         bits = quant.get("bits")
         allowed = (4,) if method == "awq" else (2, 3, 4, 8)
@@ -55,6 +60,8 @@ def quantization_capabilities(torch):
     """Import optional loaders; package presence alone does not prove a kernel works."""
     result = {}
     for method, modules in {
+        "exl3": ("exllamav3",),
+        "exl2": ("exllamav2",),
         "awq": ("accelerate", "gptqmodel"),
         "gptq": ("accelerate", "gptqmodel", "optimum.gptq"),
         "bitsandbytes-4bit": ("accelerate", "bitsandbytes"),
@@ -64,6 +71,8 @@ def quantization_capabilities(torch):
             if not torch.cuda.is_available() or not torch.version.cuda:
                 raise RuntimeError("This quantized engine requires NVIDIA CUDA; CPU fallback is disabled")
             capability = torch.cuda.get_device_capability(0)
+            if method in ("exl3", "exl2") and capability < ((8, 0) if method == "exl3" else (7, 5)):
+                raise RuntimeError(f"{method} requires a newer NVIDIA GPU")
             if method == "bitsandbytes-8bit" and capability < (7, 5):
                 raise RuntimeError("bitsandbytes 8-bit requires compute capability 7.5 or newer")
             if method == "bitsandbytes-4bit" and capability < (6, 0):
@@ -96,17 +105,22 @@ def quantized_memory_bytes(config, weights, context):
     return math.ceil(weights + max(weights * 0.2, 256 * 1024 ** 2) + cache)
 
 
+def weight_files(root, config):
+    index = root / "model.safetensors.index.json"
+    if index.exists():
+        return set(json.loads(index.read_text(encoding="utf-8"))["weight_map"].values())
+    if quantization_method(config) in ("exl3", "exl2"):
+        return {file.name for file in root.glob("*.safetensors")}
+    return {"model.safetensors"}
+
+
 def validate_directory(path):
     root = Path(path).resolve(strict=True)
     if not root.is_dir():
         raise ValueError("Select the complete model folder, not a weights file")
     config = json.loads((root / "config.json").read_text(encoding="utf-8"))
     quantization_method(config)
-    index = root / "model.safetensors.index.json"
-    if index.exists():
-        names = set(json.loads(index.read_text(encoding="utf-8"))["weight_map"].values())
-    else:
-        names = {"model.safetensors"}
+    names = weight_files(root, config)
     if not names:
         raise ValueError("The Safetensors index contains no weights")
     for name in names:
@@ -232,7 +246,7 @@ class Inference:
         )
         if temperature > 0:
             options.update(temperature=temperature, top_p=top_p)
-        return inputs.to(self.device), options, count
+        return inputs.to(getattr(self, "input_device", self.device)), options, count
 
     def run(self):
         """All torch calls stay on the process's main thread (Python 3.15)."""
@@ -420,6 +434,29 @@ def make_handler(engine, api_key):
     return Handler
 
 
+def watch_process(pid):
+    # Windows os.kill(pid, 0) can terminate the target; use OpenProcess instead.
+    if os.name == "nt":
+        import ctypes
+        from ctypes import wintypes
+        kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+        kernel.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
+        kernel.OpenProcess.restype = wintypes.HANDLE
+        kernel.WaitForSingleObject.argtypes = [wintypes.HANDLE, wintypes.DWORD]
+        kernel.CloseHandle.argtypes = [wintypes.HANDLE]
+        handle = kernel.OpenProcess(0x00100000, False, pid)
+        if handle:
+            kernel.WaitForSingleObject(handle, 0xFFFFFFFF)
+            kernel.CloseHandle(handle)
+        os._exit(0)
+    while True:
+        try:
+            os.kill(pid, 0)
+        except ProcessLookupError:
+            os._exit(0)
+        time.sleep(1)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--probe", action="store_true")
@@ -450,34 +487,21 @@ def main():
         parser.error("NOVERA_TRANSFORMERS_KEY must be set")
     if args.ctx_size < 16:
         parser.error("--ctx-size must be at least 16")
+    # Watch the venv launcher too: killing that launcher on Windows must not
+    # leave its real Python interpreter holding GPU weights after unload.
+    for pid in {os.getppid(), args.parent_pid} - {None, 0, os.getpid()}:
+        threading.Thread(target=watch_process, args=(pid,), daemon=True).start()
     with redirect_stdout(sys.stderr):
-        engine = Inference(args.model, args.model_id, args.ctx_size, args.device)
+        root = validate_directory(args.model)
+        method = quantization_method(json.loads((root / "config.json").read_text(encoding="utf-8")))
+        if method in ("exl3", "exl2"):
+            from exllama_backend import ExLlamaInference
+            engine = ExLlamaInference(root, args.model_id, args.ctx_size, args.device)
+        else:
+            engine = Inference(root, args.model_id, args.ctx_size, args.device)
     server = ThreadingHTTPServer(("127.0.0.1", args.port), make_handler(engine, api_key))
     server.daemon_threads = True
     print(json.dumps({"port": server.server_port, "model_id": args.model_id}), flush=True)
-    if args.parent_pid:
-        def watch_parent():
-            # Windows os.kill(pid, 0) can terminate the target; use OpenProcess instead.
-            if os.name == "nt":
-                import ctypes
-                from ctypes import wintypes
-                kernel = ctypes.WinDLL("kernel32", use_last_error=True)
-                kernel.OpenProcess.argtypes = [wintypes.DWORD, wintypes.BOOL, wintypes.DWORD]
-                kernel.OpenProcess.restype = wintypes.HANDLE
-                kernel.WaitForSingleObject.argtypes = [wintypes.HANDLE, wintypes.DWORD]
-                kernel.CloseHandle.argtypes = [wintypes.HANDLE]
-                handle = kernel.OpenProcess(0x00100000, False, args.parent_pid)
-                if handle:
-                    kernel.WaitForSingleObject(handle, 0xFFFFFFFF)
-                    kernel.CloseHandle(handle)
-                os._exit(0)
-            while True:
-                try:
-                    os.kill(args.parent_pid, 0)
-                except ProcessLookupError:
-                    os._exit(0)
-                time.sleep(1)
-        threading.Thread(target=watch_parent, daemon=True).start()
     threading.Thread(target=server.serve_forever, daemon=True).start()
     engine.run()
 

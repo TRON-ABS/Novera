@@ -84,6 +84,7 @@ function resolveCatalogKind(
   const name = typeof provider === 'string' ? provider : provider.provider
   const apiType = typeof provider === 'string' ? undefined : provider.api_type
   if (apiType === 'anthropic') return 'anthropic'
+  if (name === 'tabbyapi') return 'compatible'
   if (mediaProviderDefinitions.some(item => item.id === name)) return 'compatible'
   if (name === 'openai' || name === 'anthropic' || name === 'gemini') {
     return name

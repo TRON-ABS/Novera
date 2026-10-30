@@ -1,0 +1,40 @@
+{
+  "exl3": {
+    "runtime": {
+      "model_id": "live-test",
+      "context_size": 2048,
+      "python": "3.12.15",
+      "torch": "2.9.0+cu128",
+      "device": "cuda",
+      "cuda": "12.8",
+      "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+      "quantization": "exl3",
+      "quantization_backend": "exllamav3",
+      "gpu_allocated_bytes": 430516224
+    },
+    "cancelled_tokens": 1,
+    "recovered_tokens": 16,
+    "auth_401": true,
+    "busy_409": true,
+    "process_tree_stopped": true
+  },
+  "exl2": {
+    "runtime": {
+      "model_id": "live-test",
+      "context_size": 2048,
+      "python": "3.12.15",
+      "torch": "2.9.0+cu128",
+      "device": "cuda",
+      "cuda": "12.8",
+      "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+      "quantization": "exl2",
+      "quantization_backend": "exllamav2",
+      "gpu_allocated_bytes": 591034880
+    },
+    "cancelled_tokens": 0,
+    "recovered_tokens": 16,
+    "auth_401": true,
+    "busy_409": true,
+    "process_tree_stopped": true
+  }
+}

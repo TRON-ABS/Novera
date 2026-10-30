@@ -1,3 +1,4 @@
+import { groupGgufFiles, hfFileUrl, splitGgufName } from './ggufShards'
 import {
   beginLocalMemory,
   LOCAL_TEXT_ENGINES,
@@ -23,7 +24,7 @@ import {
   UnloadResult,
 } from '@janhq/core'
 import { Model as CoreModel } from '@janhq/core'
-import type { SpecDraftKind } from '@janhq/core'
+import type { ImportOptions, SpecDraftKind } from '@janhq/core'
 import type {
   ModelsService,
   ModelCatalog,
@@ -80,14 +81,9 @@ export class DefaultModelsService implements ModelsService {
   ): Promise<{ models: ModelCatalog; nextCursor?: string }> {
     try {
       const page = await fetchHuggingFacePage(fetch, IS_MACOS, cursor)
-      const models = page.repos
-        .map((repo) => this.convertHfRepoToCatalogModel(repo))
-        .map((model) => ({
-          ...model,
-          quants: model.quants?.filter(
-            (q) => !/-\d{5}-of-\d{5}(?:\.gguf)?$/i.test(q.model_id)
-          ),
-        }))
+      const models = page.repos.map((repo) =>
+        this.convertHfRepoToCatalogModel(repo)
+      )
       return { models, nextCursor: page.nextCursor }
     } catch (error) {
       throw new Error(
@@ -144,7 +140,9 @@ export class DefaultModelsService implements ModelsService {
   convertHfRepoToCatalogModel(repo: HuggingFaceRepo): CatalogModel {
     // Format file size helper
     const formatFileSize = (size?: number) => {
-      return size && Number.isFinite(size) && size > 0 ? `${size} B` : 'Unknown size'
+      return size && Number.isFinite(size) && size > 0
+        ? `${size} B`
+        : 'Unknown size'
     }
 
     // Extract GGUF files from the repository siblings
@@ -163,14 +161,27 @@ export class DefaultModelsService implements ModelsService {
     )
 
     // Convert regular GGUF files to quants format
-    const quants = regularGgufFiles.map((file) => {
-      // Generate model_id from filename (remove .gguf extension, case-insensitive)
-      const modelId = file.rfilename.replace(/\.gguf$/i, '')
-
+    const quants = groupGgufFiles(regularGgufFiles).map((files) => {
+      const file = files[0]
+      const split = splitGgufName(file.rfilename)
+      const modelId = split
+        ? `${split[1]}-split-${split[3]}`
+        : file.rfilename.replace(/\.gguf$/i, '')
+      const sizes = files.map((part) => part.size ?? part.lfs?.size)
+      const total = sizes.every(
+        (size) => size && Number.isFinite(size) && size > 0
+      )
+        ? sizes.reduce<number>((sum, size) => sum + size!, 0)
+        : undefined
       return {
         model_id: `${repo.author}/${sanitizeModelId(modelId)}`,
-        path: `https://huggingface.co/${repo.modelId}/resolve/main/${file.rfilename}`,
-        file_size: formatFileSize(file.size ?? file.lfs?.size),
+        path: hfFileUrl(
+          repo.modelId,
+          split ? repo.sha || 'main' : 'main',
+          file.rfilename
+        ),
+        file_size: formatFileSize(total),
+        ...(split ? { shard_count: files.length } : {}),
       }
     })
 
@@ -261,10 +272,12 @@ export class DefaultModelsService implements ModelsService {
     mmprojSha256?: string,
     mmprojSize?: number,
     specDraftPath?: string,
-    specDraftKind?: SpecDraftKind
+    specDraftKind?: SpecDraftKind,
+    modelShards?: ImportOptions['modelShards']
   ): Promise<void> {
     return this.getEngine()?.import(id, {
       modelPath,
+      modelShards,
       mmprojPath,
       modelSha256,
       modelSize,
@@ -284,62 +297,110 @@ export class DefaultModelsService implements ModelsService {
     specDraftPath?: string,
     specDraftKind?: SpecDraftKind
   ): Promise<void> {
-    let modelSha256: string | undefined
-    let modelSize: number | undefined
-    let mmprojSha256: string | undefined
-    let mmprojSize: number | undefined
-
-    // Extract repo ID from model URL
-    // URL format: https://huggingface.co/{repo}/resolve/main/{filename}
-    const modelUrlMatch = modelPath.match(
-      /https:\/\/huggingface\.co\/([^/]+\/[^/]+)\/resolve\/main\/(.+)/
-    )
-
-    if (modelUrlMatch && !skipVerification) {
-      const [, repoId, modelFilename] = modelUrlMatch
-
-      try {
-        // Fetch real-time metadata from HuggingFace
-        const repoInfo = await this.fetchHuggingFaceRepo(repoId, hfToken)
-
-        if (repoInfo?.siblings) {
-          // Find the specific model file
-          const modelFile = repoInfo.siblings.find(
-            (file) => file.rfilename === modelFilename
+    try {
+      let modelShards: ImportOptions['modelShards']
+      // Split files always require metadata, even when legacy single-file hash checks are skipped.
+      const url = new URL(modelPath, 'https://local.invalid')
+      const hf =
+        url.hostname === 'huggingface.co' && url.protocol === 'https:'
+          ? url.pathname.match(/^\/([^/]+\/[^/]+)\/resolve\/([^/]+)\/(.+)$/)
+          : null
+      const filename = hf
+        ? decodeURIComponent(hf[3])
+        : decodeURIComponent(url.pathname.split('/').pop() ?? '')
+      if (splitGgufName(filename)) {
+        if (!hf)
+          throw new Error(
+            'Split GGUF downloads require Hugging Face repository metadata'
           )
-          if (modelFile?.lfs) {
-            modelSha256 = modelFile.lfs.sha256
-            modelSize = modelFile.lfs.size
-          }
-
-          // If mmproj path provided, extract its metadata too
-          if (mmprojPath) {
-            const mmprojUrlMatch = mmprojPath.match(
-              /https:\/\/huggingface\.co\/[^/]+\/[^/]+\/resolve\/main\/(.+)/
+        const repo = await this.fetchHuggingFaceRepo(
+          hf[1],
+          hfToken,
+          decodeURIComponent(hf[2])
+        )
+        const group = groupGgufFiles(repo?.siblings ?? []).find((files) =>
+          files.some((file) => file.rfilename === filename)
+        )
+        if (!repo?.sha || !group || group.length < 2)
+          throw new Error('Incomplete GGUF split series')
+        modelShards = group.map((file) => {
+          const size = file.lfs?.size ?? file.size
+          const sha256 = file.lfs?.sha256
+          if (
+            !Number.isSafeInteger(size) ||
+            size! <= 0 ||
+            !sha256 ||
+            !/^[a-f0-9]{64}$/i.test(sha256)
+          ) {
+            throw new Error(
+              `Missing size or SHA-256 for GGUF shard: ${file.rfilename}`
             )
-            if (mmprojUrlMatch) {
-              const [, mmprojFilename] = mmprojUrlMatch
-              const mmprojFile = repoInfo.siblings.find(
-                (file) => file.rfilename === mmprojFilename
+          }
+          const split = splitGgufName(file.rfilename.split('/').pop()!)!
+          return {
+            url: hfFileUrl(hf[1], repo.sha, file.rfilename),
+            filename: `${split[1]}-${split[2]}-of-${split[3]}.gguf`,
+            size: size!,
+            sha256: sha256.toLowerCase(),
+          }
+        })
+        modelPath = modelShards[0].url
+      }
+      let modelSha256: string | undefined = modelShards?.[0].sha256
+      let modelSize: number | undefined = modelShards?.[0].size
+      let mmprojSha256: string | undefined
+      let mmprojSize: number | undefined
+
+      // Extract repo ID from model URL
+      // URL format: https://huggingface.co/{repo}/resolve/main/{filename}
+      const modelUrlMatch = modelPath.match(
+        /https:\/\/huggingface\.co\/([^/]+\/[^/]+)\/resolve\/main\/(.+)/
+      )
+
+      if (modelUrlMatch && !skipVerification && !modelShards) {
+        const [, repoId, modelFilename] = modelUrlMatch
+
+        try {
+          // Fetch real-time metadata from HuggingFace
+          const repoInfo = await this.fetchHuggingFaceRepo(repoId, hfToken)
+
+          if (repoInfo?.siblings) {
+            // Find the specific model file
+            const modelFile = repoInfo.siblings.find(
+              (file) => file.rfilename === modelFilename
+            )
+            if (modelFile?.lfs) {
+              modelSha256 = modelFile.lfs.sha256
+              modelSize = modelFile.lfs.size
+            }
+
+            // If mmproj path provided, extract its metadata too
+            if (mmprojPath) {
+              const mmprojUrlMatch = mmprojPath.match(
+                /https:\/\/huggingface\.co\/[^/]+\/[^/]+\/resolve\/main\/(.+)/
               )
-              if (mmprojFile?.lfs) {
-                mmprojSha256 = mmprojFile.lfs.sha256
-                mmprojSize = mmprojFile.lfs.size
+              if (mmprojUrlMatch) {
+                const [, mmprojFilename] = mmprojUrlMatch
+                const mmprojFile = repoInfo.siblings.find(
+                  (file) => file.rfilename === mmprojFilename
+                )
+                if (mmprojFile?.lfs) {
+                  mmprojSha256 = mmprojFile.lfs.sha256
+                  mmprojSize = mmprojFile.lfs.size
+                }
               }
             }
           }
+        } catch (error) {
+          console.warn(
+            'Failed to fetch HuggingFace metadata, proceeding without hash verification:',
+            error
+          )
+          // Continue with download even if metadata fetch fails
         }
-      } catch (error) {
-        console.warn(
-          'Failed to fetch HuggingFace metadata, proceeding without hash verification:',
-          error
-        )
-        // Continue with download even if metadata fetch fails
       }
-    }
 
-    // Call the original pullModel with the fetched metadata
-    try {
+      // Call the original pullModel with the fetched metadata
       return await this.pullModel(
         id,
         modelPath,
@@ -349,7 +410,8 @@ export class DefaultModelsService implements ModelsService {
         mmprojSha256,
         mmprojSize,
         specDraftPath,
-        specDraftKind
+        specDraftKind,
+        modelShards
       )
     } catch (error) {
       // Emit download error event so the UI can clean up the stale downloading state
@@ -391,7 +453,11 @@ export class DefaultModelsService implements ModelsService {
     )
   }
 
-  async deleteModel(id: string, provider?: string, options?: { deleteFiles?: boolean }): Promise<void> {
+  async deleteModel(
+    id: string,
+    provider?: string,
+    options?: { deleteFiles?: boolean }
+  ): Promise<void> {
     const engine = this.getEngine(provider)
     if (options) {
       if (!engine || (provider ?? defaultProvider) !== 'llamacpp') {
@@ -705,10 +771,13 @@ export class DefaultModelsService implements ModelsService {
   }
 
   async getEmbeddingDevice(modelId: string): Promise<'cpu' | 'gpu'> {
-    const engine = this.getEngine('llamacpp') as (AIEngine & {
-      getEmbeddingDevice?: (id: string) => Promise<'cpu' | 'gpu'>
-    }) | undefined
-    if (!engine?.getEmbeddingDevice) throw new Error('Embedding device settings are unavailable')
+    const engine = this.getEngine('llamacpp') as
+      | (AIEngine & {
+          getEmbeddingDevice?: (id: string) => Promise<'cpu' | 'gpu'>
+        })
+      | undefined
+    if (!engine?.getEmbeddingDevice)
+      throw new Error('Embedding device settings are unavailable')
     return engine.getEmbeddingDevice(modelId)
   }
 

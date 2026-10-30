@@ -202,13 +202,14 @@ export function categoryMatches(
   return category === 'all' || modelCategories(model).includes(category)
 }
 
-export type HubQuantization = 'awq' | 'gptq' | 'bitsandbytes-4bit' | 'bitsandbytes-8bit'
+export type HubQuantization = 'exl3' | 'exl2' | 'awq' | 'gptq' | 'bitsandbytes-4bit' | 'bitsandbytes-8bit'
 
 export function hubQuantization(model: HubModelMetadata): HubQuantization | 'unsupported' | null {
   const raw = model.model_config?.quantization_config
   if (raw == null) return null
   if (typeof raw !== 'object' || Array.isArray(raw)) return 'unsupported'
   const q = raw as Record<string, unknown>
+  if (q.quant_method === 'exl3' || q.quant_method === 'exl2') return typeof q.bits === 'number' && Number.isFinite(q.bits) && q.bits >= 1 && q.bits <= 8 ? q.quant_method : 'unsupported'
   if (q.quant_method === 'awq') return q.bits === 4 &&
     (q.version === undefined || (typeof q.version === 'string' && q.version.toLowerCase() === 'gemm')) &&
     (q.do_fuse === undefined || q.do_fuse === false) ? 'awq' : 'unsupported'

@@ -20,17 +20,47 @@ pub(super) fn delete_registered_gguf(models_root: &Path, config: &Path) -> Resul
     {
         return Err("Only a registered absolute GGUF file can be deleted".into());
     }
-    // Missing files need no deletion; permit removal of stale catalog entries.
-    let metadata = match fs::symlink_metadata(model) {
-        Ok(metadata) => metadata,
-        Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(()),
-        Err(error) => return Err(error.to_string()),
-    };
-    if !metadata.is_file() || metadata.file_type().is_symlink() {
-        return Err("The registered GGUF must be a regular file".into());
+    let mut targets = vec![model.to_path_buf()];
+    // Split downloads remain separate files. Derive only the numbered siblings
+    // of the registered first shard, never arbitrary paths from YAML.
+    if let Some(name) = model.file_name().and_then(|name| name.to_str()) {
+        if let Some(marker) = name.to_ascii_lowercase().rfind("-00001-of-") {
+            let stem = &name[..marker];
+            let tail = &name[marker + 10..];
+            let separator = &name[marker + 7..marker + 9];
+            let (count, extension) = tail.split_once('.').ok_or("Invalid GGUF split name")?;
+            if count.len() != 5 || !count.bytes().all(|c| c.is_ascii_digit()) {
+                return Err("Invalid GGUF split count".into());
+            }
+            let count: usize = count.parse().map_err(|_| "Invalid GGUF split count")?;
+            if count < 2 {
+                return Err("Invalid GGUF split count".into());
+            }
+            targets.extend((2..=count).map(|index| {
+                model.with_file_name(format!(
+                    "{stem}-{index:05}-{separator}-{count:05}.{extension}"
+                ))
+            }));
+        }
     }
-    // Never delete the containing folder or any auxiliary external models.
-    fs::remove_file(model).map_err(|e| e.to_string())
+    // Validate the complete set before deleting any member. Missing files are
+    // tolerated so stale or interrupted downloads can still be removed.
+    for target in &targets {
+        match fs::symlink_metadata(target) {
+            Ok(metadata) if metadata.is_file() && !metadata.file_type().is_symlink() => {}
+            Ok(_) => return Err("The registered GGUF must be a regular file".into()),
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
+            Err(error) => return Err(error.to_string()),
+        }
+    }
+    for target in targets {
+        match fs::remove_file(target) {
+            Ok(()) => {}
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
+            Err(error) => return Err(error.to_string()),
+        }
+    }
+    Ok(())
 }
 
 #[cfg(test)]
@@ -69,6 +99,44 @@ mod tests {
         assert!(companion.exists());
         assert!(config.exists());
         delete_registered_gguf(&root, &config).unwrap();
+    }
+
+    #[test]
+    fn deletes_the_whole_split_series_but_keeps_other_variants() {
+        let (_dir, root, config, model) = fixture();
+        let first = model.with_file_name("model-Q4-00001-of-00003.gguf");
+        let second = model.with_file_name("model-Q4-00002-of-00003.gguf");
+        let unrelated = model.with_file_name("model-Q8-00002-of-00003.gguf");
+        for target in [&first, &second, &unrelated] {
+            fs::write(target, b"GGUF").unwrap();
+        }
+        fs::write(
+            &config,
+            serde_yaml::to_string(&serde_json::json!({"model_path": first})).unwrap(),
+        )
+        .unwrap();
+        delete_registered_gguf(&root, &config).unwrap();
+        assert!(!first.exists());
+        assert!(!second.exists());
+        assert!(unrelated.exists());
+        assert!(model.exists());
+        delete_registered_gguf(&root, &config).unwrap();
+    }
+
+    #[test]
+    fn rejects_an_invalid_later_shard_before_deleting_the_first() {
+        let (_dir, root, config, model) = fixture();
+        let first = model.with_file_name("model-00001-of-00002.gguf");
+        let second = model.with_file_name("model-00002-of-00002.gguf");
+        fs::write(&first, b"GGUF").unwrap();
+        fs::create_dir(&second).unwrap();
+        fs::write(
+            &config,
+            serde_yaml::to_string(&serde_json::json!({"model_path": first})).unwrap(),
+        )
+        .unwrap();
+        assert!(delete_registered_gguf(&root, &config).is_err());
+        assert!(first.exists());
     }
 
     #[test]

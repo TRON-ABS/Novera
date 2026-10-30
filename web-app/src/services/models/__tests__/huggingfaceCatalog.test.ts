@@ -30,6 +30,15 @@ describe('direct Hugging Face discovery', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(7) // five lists + two unique details
   })
 
+  it('discovers repositories containing only a complete split GGUF series', async () => {
+    const rows = [{ ...repo(), siblings: [2, 1].map((i) => ({ rfilename: `model-${String(i).padStart(5, '0')}-of-00002.gguf`, size: 100 })) }]
+    const page = await fetchHuggingFacePage(vi.fn().mockImplementation(async (input) =>
+      json(new URL(String(input)).pathname === '/api/models' ? rows : rows[0])
+    ), false)
+    expect(page.repos).toHaveLength(1)
+    expect(new DefaultModelsService().convertHfRepoToCatalogModel(page.repos[0]).quants).toHaveLength(1)
+  })
+
   it('retains seven pinned presets and deduplicates their complete HF repository IDs', () => {
     const converted = new DefaultModelsService().convertHfRepoToCatalogModel(repo('LiquidAI', 'LFM2.5-230M-GGUF'))
     const merged = mergeHubCatalog([converted])
@@ -63,7 +72,7 @@ describe('direct Hugging Face discovery', () => {
     await expect(fetchHuggingFacePage(fetchImpl, false)).resolves.toMatchObject({ repos: [] })
   })
 
-  it('excludes unsupported tasks, draft-only and split-only GGUF repositories', async () => {
+  it('excludes unsupported tasks, draft-only and incomplete split GGUF repositories', async () => {
     const rows = [
       { ...repo(), pipeline_tag: 'object-detection' },
       { ...repo('a'), siblings: [{ rfilename: 'model-00001-of-00002.gguf' }] },

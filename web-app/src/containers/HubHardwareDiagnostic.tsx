@@ -88,6 +88,8 @@ function DiagnosisDetails({
           {t('hub:catalog.engine')}:{' '}
           {diagnosis.nvfp4Advice === 'nvfp4Prefer'
             ? 'NVFP4 CUDA · PyTorch'
+            : diagnosis.quantization === 'exl3' ? 'ExLlamaV3 / EXL3'
+            : diagnosis.quantization === 'exl2' ? 'ExLlamaV2 / EXL2'
             : engineNames[diagnosis.engine]}{' '}
           {diagnosis.quantization && ` · ${diagnosis.quantization} `}
           · {t(`hub:catalog.${diagnosis.engineState}`)}

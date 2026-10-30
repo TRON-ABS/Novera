@@ -29,7 +29,8 @@ import { useGeneralSetting } from '@/hooks/useGeneralSetting'
 import { ModelInfoHoverCard } from '@/containers/ModelInfoHoverCard'
 import { DEFAULT_MODEL_QUANTIZATIONS } from '@/constants/models'
 import { useTranslation } from '@/i18n'
-import { mergeHubCatalog } from '@/lib/hubDiscovery'
+import { hubFormatBytes, mergeHubCatalog } from '@/lib/hubDiscovery'
+import { parseFileSize } from '@/lib/modelCompatibility'
 import { HubModelFacts } from '@/containers/HubModelInsights'
 import { useHubDownloadReview } from '@/containers/HubHardwareDiagnostic'
 
@@ -46,7 +47,7 @@ export const Route = createFileRoute('/hub/$modelId')({
 
 function HubModelDetailContent() {
 
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { modelId } = useParams({ from: Route.id })
   const navigate = useNavigate()
   const { huggingfaceToken } = useGeneralSetting()
@@ -389,7 +390,8 @@ function HubModelDetailContent() {
                             </td>
                             <td className="py-3 px-2">
                               <span className="text-sm text-muted-foreground">
-                                {variant.file_size}
+                                {hubFormatBytes(parseFileSize(variant.file_size), i18n.language)}
+                                {variant.shard_count ? ` · ${variant.shard_count} × GGUF` : ''}
                               </span>
                             </td>
                             <td>

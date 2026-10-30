@@ -1,3 +1,4 @@
+import { validateShardManifest, validateShardMetadata } from './gguf-shards'
 import { noveraModelDefaults } from './novera-model-defaults'
 import { DEFAULT_EMBEDDER_ID, DEFAULT_EMBEDDER_URL, DEFAULT_EMBEDDER_SIZE, DEFAULT_EMBEDDER_SHA256, embeddingSettings, embeddingInputs } from './embedding-profile'
 /**
@@ -1894,6 +1895,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
   }
 
   private async runImport(modelId: string, opts: ImportOptions): Promise<void> {
+    validateShardManifest(opts)
     const isValidModelId = (id: string) => {
       // only allow alphanumeric, underscore, hyphen, and dot characters in modelId
       if (!/^[a-zA-Z0-9/_\-\.]+$/.test(id)) return false
@@ -1927,7 +1929,11 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     let downloadItems: DownloadItem[] = []
     let downloadDirectory: string | undefined
 
-    const maybeDownload = async (path: string, saveName: string) => {
+    const maybeDownload = async (
+      path: string,
+      saveName: string,
+      shard?: { sha256: string; size: number }
+    ) => {
       // if URL, add to downloadItems, and return local path
       if (path.startsWith('https://')) {
         if (!downloadDirectory) {
@@ -1943,18 +1949,20 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
           url: path,
           save_path: localPath,
           proxy: await getProxyConfig(),
-          sha256:
+          sha256: shard?.sha256 ?? (
             saveName === 'model.gguf'
               ? opts.modelSha256
               : saveName === 'mmproj.gguf'
                 ? opts.mmprojSha256
-                : undefined,
-          size:
+                : undefined
+          ),
+          size: shard?.size ?? (
             saveName === 'model.gguf'
               ? opts.modelSize
               : saveName === 'mmproj.gguf'
                 ? opts.mmprojSize
-                : undefined,
+                : undefined
+          ),
           model_id: modelId,
         })
         return localPath
@@ -1967,7 +1975,11 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
       return path
     }
 
-    let modelPath = await maybeDownload(opts.modelPath, 'model.gguf')
+    const shardPaths: string[] = []
+    for (const shard of opts.modelShards ?? []) {
+      shardPaths.push(await maybeDownload(shard.url, shard.filename, shard))
+    }
+    let modelPath = shardPaths[0] ?? (await maybeDownload(opts.modelPath, 'model.gguf'))
     let mmprojPath = opts.mmprojPath
       ? await maybeDownload(opts.mmprojPath, 'mmproj.gguf')
       : undefined
@@ -2067,6 +2079,14 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     try {
       // Validate main model file
       const modelMetadata = await readGgufMetadata(fullModelPath)
+      if (shardPaths.length) {
+        validateShardMetadata(modelMetadata.metadata, 0, shardPaths.length)
+        for (let index = 1; index < shardPaths.length; index++) {
+          const path = await joinPath([janDataFolderPath, shardPaths[index]])
+          const part = await readGgufMetadata(path)
+          validateShardMetadata(part.metadata, index, shardPaths.length)
+        }
+      }
       detectedEmbeddingSettings = embeddingSettings(modelMetadata.metadata)
       logger.info(
         `Model GGUF validation successful: version ${modelMetadata.version}, tensors: ${modelMetadata.tensor_count}`
@@ -2128,6 +2148,9 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
 
     // Calculate file sizes
     let size_bytes = (await fs.fileStat(fullModelPath)).size
+    for (const path of shardPaths.slice(1)) {
+      size_bytes += (await fs.fileStat(await joinPath([janDataFolderPath, path]))).size
+    }
     if (mmprojPath) {
       size_bytes += (
         await fs.fileStat(await joinPath([janDataFolderPath, mmprojPath]))
@@ -2148,6 +2171,13 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     const modelConfig = {
       ...noveraModelDefaults(modelId, opts.modelPath),
       model_path: modelPath,
+      ...(opts.modelShards ? {
+        model_shards: opts.modelShards.map((part, index) => ({
+          path: shardPaths[index],
+          sha256: part.sha256,
+          size: part.size,
+        })),
+      } : {}),
       mmproj_path: mmprojPath,
       name: resolvedName,
       size_bytes,

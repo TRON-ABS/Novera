@@ -225,6 +225,8 @@ export type SpecDraftKind = 'mtp' | 'eagle3' | 'dflash' | 'dspark'
 // 7. /import
 export interface ImportOptions {
   modelPath: string
+  // Complete ordered GGUF split series; modelPath points to the first shard.
+  modelShards?: Array<{ url: string; filename: string; sha256: string; size: number }>
   mmprojPath?: string
   modelSha256?: string
   modelSize?: number

@@ -162,10 +162,13 @@ Inventaire relu dans les sources le **29 octobre 2026**. Ces noms décrivent les
 | Famille | Prise en charge dans les sources | Conditions |
 | --- | --- | --- |
 | **GGUF** | Texte via llama.cpp ; composants image/vidéo selon le profil. | Architecture reconnue par le moteur embarqué. |
+| **GGUF en plusieurs morceaux** | Une variante par série complète, taille cumulée, téléchargement et contrôle taille/SHA-256/en-têtes de tous les morceaux. | Numérotation standard ; télécharger 500 Go ne signifie pas que le modèle peut tourner sur ce PC. |
 | **Safetensors classiques** | Dossier complet via Transformers, texte causal sur CPU ou NVIDIA CUDA. | Configuration, tokenizer et tous les fragments requis. |
 | **AWQ** | Checkpoints 4 bits GEMM non fusionnés. | NVIDIA CUDA et chargeurs optionnels GPTQModel/Transformers. |
 | **GPTQ** | Configurations 2/3/4/8 bits, formats gptq/gptq_v2. | NVIDIA CUDA, GPTQModel et Optimum ; essai réel effectué en 4 bits. |
 | **bitsandbytes** | 4 bits NF4/FP4 ou 8 bits INT8. | NVIDIA CUDA et dépendances optionnelles ; essais réels NF4 et INT8. |
+| **EXL3** | Dossier Safetensors quantifié complet via ExLlamaV3 ; génération CUDA réelle testée. | GPU NVIDIA, environnement Python 3.12 séparé et architecture compatible ; aucun repli CPU. |
+| **EXL2** | Chargeur ExLlamaV2 dédié ; streaming, annulation et déchargement testés sur GPU. | Attention CUDA explicite pour la pile testée ; dossier complet et VRAM libre requis. |
 | **MLX** | Modèles compatibles sur Apple Silicon. | Moteur et plateforme MLX requis. |
 
 Le Hub propose **LFM3-1.7B** comme recommandation LiquidAI épinglée pour les configurations compatibles, avec ses variantes Q4_K_M, Q6_K et Q8_0. Le modèle du premier démarrage reste celui indiqué dans la configuration guidée ci-dessus.
@@ -173,6 +176,10 @@ Le Hub propose **LFM3-1.7B** comme recommandation LiquidAI épinglée pour les c
 Filtrez les poids de **moins de 1 Go à 500 Go et plus**, puis triez par adaptation au matériel, taille, nouveauté ou téléchargements. Les résultats arrivent progressivement ; les filtres portent sur les modèles chargés et leur variante par défaut. Le diagnostic utilise la RAM/VRAM disponible, le contexte et les composants associés, sans compter deux fois la mémoire partagée du GPU.
 
 Les quatre parcours quantifiés AWQ 4 bits, GPTQ 4 bits, NF4 et INT8 ont généré du texte sur une RTX 5070 Laptop avec de petits modèles non entraînés créés hors ligne. Cela valide le chargement et l’exécution, pas la qualité ou les performances de tous les modèles. **Ces nouveautés sont dans les sources : une recompilation et les dépendances adaptées sont nécessaires ; le binaire déjà installé ne se met pas à jour par cette modification du README.**
+
+**Mesuré sur la RTX 5070 Laptop :** Qwen2.5-0.5B-Instruct, contexte 2 048, entrée 272 tokens, sortie 128 tokens, cinq essais après échauffement : décodage médian **GGUF Q4_K_M 402,7 tokens/s · EXL3 4 bpw 312,5 · EXL2 4 bpw 146,9**. Aucun gain de vitesse démontré ici face à GGUF. Quantification/calibration différentes et échec d’un contrôle arithmétique EXL3 : ces résultats ne constituent pas un classement général de vitesse ou de qualité. [Mesures et limites](deliverables/exllama-2026-10-30/validation.md).
+
+**TabbyAPI** propose une connexion optionnelle à un serveur compatible OpenAI géré séparément, désactivée par défaut. Découverte du modèle EXL3 et streaming authentifiés ont été testés. Le chargeur ExLlama local géré par Novera reste un parcours distinct. [Installation ExLlama et connexion TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
 [Installation Safetensors quantifiés](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorités et validations](docs/SUIVI_MOTEURS.md)
 

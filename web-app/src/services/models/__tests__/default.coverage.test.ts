@@ -62,6 +62,73 @@ describe('DefaultModelsService - coverage supplement', () => {
     mockEngineManager.get.mockReturnValue(mockEngine)
   })
 
+  describe('split GGUF downloads', () => {
+    const filename = (index: number) => `nested/model-Q4_K_M-${String(index).padStart(5, '0')}-of-00002.gguf`
+    const makeRepo = () => ({
+      id: 'publisher/model', modelId: 'publisher/model', author: 'publisher', sha: 'pinned',
+      siblings: [2, 1].map((index) => ({ rfilename: filename(index), lfs: { sha256: String(index).repeat(64), size: index * 100, pointerSize: 0 } })),
+    })
+    const url = `https://huggingface.co/publisher/model/resolve/main/${filename(2)}?download=true`
+
+    it('groups sorted shards with total weight and one stable variant ID', () => {
+      const model = svc.convertHfRepoToCatalogModel(makeRepo() as any)
+      expect(model.quants).toEqual([{
+        model_id: 'publisher/nested_model-Q4_K_M-split-00002',
+        path: `https://huggingface.co/publisher/model/resolve/pinned/${filename(1)}`,
+        file_size: '300 B', shard_count: 2,
+      }])
+    })
+
+    it('resolves every verified shard at one revision even with verification skipped', async () => {
+      const fetchRepo = vi.spyOn(svc, 'fetchHuggingFaceRepo').mockResolvedValue(makeRepo() as any)
+      await svc.pullModelWithMetadata('m1', url, undefined, 'token')
+      expect(fetchRepo).toHaveBeenCalledWith('publisher/model', 'token', 'main')
+      expect(mockEngine.import).toHaveBeenCalledWith('m1', expect.objectContaining({
+        modelPath: `https://huggingface.co/publisher/model/resolve/pinned/${filename(1)}`,
+        modelShards: [1, 2].map((index) => ({
+          url: `https://huggingface.co/publisher/model/resolve/pinned/${filename(index)}`,
+          filename: filename(index).split('/').pop(), size: index * 100, sha256: String(index).repeat(64),
+        })),
+      }))
+    })
+
+    it('normalizes numbered local names for uppercase repository extensions', async () => {
+      const repo = makeRepo()
+      repo.siblings.forEach((file) => { file.rfilename = file.rfilename.toUpperCase() })
+      vi.spyOn(svc, 'fetchHuggingFaceRepo').mockResolvedValue(repo as any)
+      await svc.pullModelWithMetadata('m1', url.replace(filename(2), filename(2).toUpperCase()))
+      expect(mockEngine.import).toHaveBeenCalledWith('m1', expect.objectContaining({
+        modelShards: expect.arrayContaining([expect.objectContaining({ filename: 'MODEL-Q4_K_M-00001-of-00002.gguf' })]),
+      }))
+    })
+
+    it.each(['missing', 'duplicate', 'hash', 'size', 'revision', 'network'])('rejects %s metadata before importing and clears UI state', async (defect) => {
+      const repo = makeRepo()
+      if (defect === 'missing') repo.siblings.pop()
+      if (defect === 'duplicate') repo.siblings[1] = repo.siblings[0]
+      if (defect === 'hash') repo.siblings[0].lfs.sha256 = 'bad'
+      if (defect === 'size') repo.siblings[0].lfs.size = 0
+      if (defect === 'revision') repo.sha = ''
+      vi.spyOn(svc, 'fetchHuggingFaceRepo').mockResolvedValue(defect === 'network' ? null : repo as any)
+      await expect(svc.pullModelWithMetadata('m1', url)).rejects.toThrow()
+      expect(mockEngine.import).not.toHaveBeenCalled()
+      expect(mockEvents.emit).toHaveBeenCalledWith('onFileDownloadError', expect.objectContaining({ modelId: 'm1' }))
+    })
+
+    it('counts all 500 GB for memory estimates instead of the first shard alone', () => {
+      const repo = makeRepo()
+      repo.siblings.forEach((file) => { file.lfs.size = 250_000_000_000 })
+      const quant = svc.convertHfRepoToCatalogModel(repo as any).quants![0]
+      expect(parseFileSize(quant.file_size)).toBe(500_000_000_000)
+    })
+
+    it('keeps the total unknown if any shard has no measured size', () => {
+      const repo = makeRepo()
+      repo.siblings[0].lfs.size = 0
+      expect(svc.convertHfRepoToCatalogModel(repo as any).quants?.[0].file_size).toBe('Unknown size')
+    })
+  })
+
   describe('model removal options', () => {
     it.each([false, true])('forwards deleteFiles=%s to llama.cpp', async (deleteFiles) => {
       await svc.deleteModel('m1', 'llamacpp', { deleteFiles })

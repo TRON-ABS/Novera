@@ -209,7 +209,9 @@ export const getProviderTitle = (provider: string) => {
   if (provider === 'diffusers') return 'Diffusers'
   switch (provider) {
     case 'transformers':
-      return 'Safetensors / Transformers'
+      return 'Safetensors / Transformers / ExLlama'
+    case 'tabbyapi':
+      return 'TabbyAPI'
     case 'meta':
       return 'Meta AI'
     case 'cohere':

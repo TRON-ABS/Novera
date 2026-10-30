@@ -1,0 +1,7 @@
+# Separate Windows/Python 3.12 environment. Install CUDA torch from its official
+# index first. These official wheels match torch, CUDA and the Python ABI.
+torch==2.9.0+cu128
+transformers==4.57.1
+triton-windows==3.5.1.post24
+exllamav3 @ https://github.com/turboderp-org/exllamav3/releases/download/v1.6.5/exllamav3-1.6.5%2Bcu128.torch2.9.0-cp312-cp312-win_amd64.whl
+exllamav2 @ https://github.com/turboderp-org/exllamav2/releases/download/v0.3.2/exllamav2-0.3.2%2Bcu128.torch2.9.0-cp312-cp312-win_amd64.whl

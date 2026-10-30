@@ -1,0 +1,374 @@
+{
+  "exl3": {
+    "repo": "blockblockblock/Qwen2.5-0.5B-Instruct-exl3-4.0bpw",
+    "sha": "7009334dc77ad71f6a98d942d6df3ec64017f565",
+    "siblings": [
+      {
+        "rfilename": ".gitattributes",
+        "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+        "size": 1519
+      },
+      {
+        "rfilename": "LICENSE",
+        "blobId": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab",
+        "size": 11343
+      },
+      {
+        "rfilename": "README.md",
+        "blobId": "c27d06b188cef541bb192e5e209cd7611d22fa58",
+        "size": 4823
+      },
+      {
+        "rfilename": "bq_quality.json",
+        "blobId": "e4e4f9ca9244f72badbc3a23b9413c9cab2f7d1f",
+        "size": 75
+      },
+      {
+        "rfilename": "config.json",
+        "blobId": "92681aa08fbd4bd5072644e33b1213953fce9dd0",
+        "size": 996
+      },
+      {
+        "rfilename": "generation_config.json",
+        "blobId": "dfc11073787daf1b0f9c0f1499487ab5f4c93738",
+        "size": 242
+      },
+      {
+        "rfilename": "merges.txt",
+        "blobId": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+        "size": 1671839
+      },
+      {
+        "rfilename": "model.safetensors",
+        "blobId": "0f19dc88dcbd2ef7d400b98445ed5d95c3d41041",
+        "size": 588951098,
+        "lfs": {
+          "sha256": "66b61bd1ca3ebb0fc1cea29148eda8bdaca45d232c6a7e319c6d2835b65c066b",
+          "size": 588951098,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "quantization_config.json",
+        "blobId": "dbc147203fc1d20ec137e8547f9baa73c8e71832",
+        "size": 233415
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "443909a61d429dff23010e5bddd28ff530edda00",
+        "size": 7031645
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "07bfe0640cb5a0037f9322287fbfc682806cf672",
+        "size": 7305
+      },
+      {
+        "rfilename": "vocab.json",
+        "blobId": "4783fe10ac3adce15ac8f358ef5462739852c569",
+        "size": 2776833
+      }
+    ],
+    "cardData": {
+      "license": "apache-2.0",
+      "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "base_model_relation": "quantized",
+      "quantized_by": "blockblockblock",
+      "library_name": "exllamav3",
+      "pipeline_tag": "text-generation",
+      "tags": [
+        "exl3",
+        "exllamav3",
+        "quantized"
+      ],
+      "quantization_format": "exl3",
+      "bits_per_weight": 4
+    },
+    "config.json": {
+      "architectures": [
+        "Qwen2ForCausalLM"
+      ],
+      "attention_dropout": 0.0,
+      "bos_token_id": 151643,
+      "eos_token_id": 151645,
+      "hidden_act": "silu",
+      "hidden_size": 896,
+      "initializer_range": 0.02,
+      "intermediate_size": 4864,
+      "max_position_embeddings": 32768,
+      "max_window_layers": 21,
+      "model_type": "qwen2",
+      "num_attention_heads": 14,
+      "num_hidden_layers": 24,
+      "num_key_value_heads": 2,
+      "rms_norm_eps": 1e-06,
+      "rope_theta": 1000000.0,
+      "sliding_window": 32768,
+      "tie_word_embeddings": true,
+      "torch_dtype": "bfloat16",
+      "transformers_version": "4.43.1",
+      "use_cache": true,
+      "use_sliding_window": false,
+      "vocab_size": 151936,
+      "quantization_config": {
+        "quant_method": "exl3",
+        "version": "0.0.38",
+        "bits": 4.0,
+        "head_bits": 8,
+        "calibration": {
+          "rows": 250,
+          "cols": 2048
+        },
+        "out_scales": "always",
+        "codebook": "mcg"
+      }
+    }
+  },
+  "exl2": {
+    "repo": "cgus/Qwen2.5-0.5B-Instruct-exl2",
+    "sha": "658760235749b52278d7dbc7523626b6dd32fc8c",
+    "siblings": [
+      {
+        "rfilename": ".gitattributes",
+        "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+        "size": 1519
+      },
+      {
+        "rfilename": "LICENSE",
+        "blobId": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab",
+        "size": 11343
+      },
+      {
+        "rfilename": "README.md",
+        "blobId": "bad7fe153d90caa902ff64fcf735df29bfade13e",
+        "size": 6350
+      },
+      {
+        "rfilename": "config.json",
+        "blobId": "a1396ea0381f5b43eb8b069b9795e336e1fef87f",
+        "size": 1011
+      },
+      {
+        "rfilename": "generation_config.json",
+        "blobId": "dfc11073787daf1b0f9c0f1499487ab5f4c93738",
+        "size": 242
+      },
+      {
+        "rfilename": "merges.txt",
+        "blobId": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+        "size": 1671839
+      },
+      {
+        "rfilename": "output.safetensors",
+        "blobId": "34a577272cfff0f9e15fa6f570ef155ce04745fc",
+        "size": 563693276,
+        "lfs": {
+          "sha256": "169b98d8f6c82690a2dd9b06789b2b802c466d81d820e3fce020b140e0f35207",
+          "size": 563693276,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "443909a61d429dff23010e5bddd28ff530edda00",
+        "size": 7031645
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "07bfe0640cb5a0037f9322287fbfc682806cf672",
+        "size": 7305
+      },
+      {
+        "rfilename": "vocab.json",
+        "blobId": "4783fe10ac3adce15ac8f358ef5462739852c569",
+        "size": 2776833
+      }
+    ],
+    "cardData": {
+      "license": "apache-2.0",
+      "license_link": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct/blob/main/LICENSE",
+      "language": [
+        "zho",
+        "eng",
+        "fra",
+        "spa",
+        "por",
+        "deu",
+        "ita",
+        "rus",
+        "jpn",
+        "kor",
+        "vie",
+        "tha",
+        "ara"
+      ],
+      "pipeline_tag": "text-generation",
+      "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "tags": [
+        "chat"
+      ],
+      "library_name": "Exllamav2"
+    },
+    "config.json": {
+      "architectures": [
+        "Qwen2ForCausalLM"
+      ],
+      "attention_dropout": 0.0,
+      "bos_token_id": 151643,
+      "eos_token_id": 151645,
+      "hidden_act": "silu",
+      "hidden_size": 896,
+      "initializer_range": 0.02,
+      "intermediate_size": 4864,
+      "max_position_embeddings": 32768,
+      "max_window_layers": 21,
+      "model_type": "qwen2",
+      "num_attention_heads": 14,
+      "num_hidden_layers": 24,
+      "num_key_value_heads": 2,
+      "rms_norm_eps": 1e-06,
+      "rope_theta": 1000000.0,
+      "sliding_window": 32768,
+      "tie_word_embeddings": true,
+      "torch_dtype": "bfloat16",
+      "transformers_version": "4.43.1",
+      "use_cache": true,
+      "use_sliding_window": false,
+      "vocab_size": 151936,
+      "quantization_config": {
+        "quant_method": "exl2",
+        "version": "0.2.4",
+        "bits": 4.0,
+        "head_bits": 6,
+        "calibration": {
+          "rows": 115,
+          "length": 2048,
+          "dataset": "(default)"
+        }
+      }
+    }
+  },
+  "gguf": {
+    "repo": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+    "sha": "9217f5db79a29953eb74d5343926648285ec7e67",
+    "siblings": [
+      {
+        "rfilename": ".gitattributes",
+        "blobId": "e79ce6a89353fed9e05c6bd0e566fbd82c8d6d5f",
+        "size": 1561
+      },
+      {
+        "rfilename": "LICENSE",
+        "blobId": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab",
+        "size": 11343
+      },
+      {
+        "rfilename": "README.md",
+        "blobId": "6c5b52e47b307cc84626fe22508f95e1cf617488",
+        "size": 4856
+      },
+      {
+        "rfilename": "qwen2.5-0.5b-instruct-fp16.gguf",
+        "blobId": "8a56296b52e3eaf9dbd1784787e6c9d577b15b30",
+        "size": 1266425696,
+        "lfs": {
+          "sha256": "8e0ae26000627ed62de0e78e41860af70094558b9d2913385c842a6aa06cf3fc",
+          "size": 1266425696,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "qwen2.5-0.5b-instruct-q2_k.gguf",
+        "blobId": "659a8466c1c05ebe6773277318042ac10e070bd8",
+        "size": 415182688,
+        "lfs": {
+          "sha256": "9ee36184e616dfc76df4f5dd66f908dbde6979524ae36e6cefb67f532f798cb8",
+          "size": 415182688,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "qwen2.5-0.5b-instruct-q3_k_m.gguf",
+        "blobId": "86d324250f86d5970164ee81f5b21eca5947584a",
+        "size": 432041824,
+        "lfs": {
+          "sha256": "590d2479d401db206fe12a4562294d2de6211e06338a6e34fbad64b32f1469d0",
+          "size": 432041824,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "qwen2.5-0.5b-instruct-q4_0.gguf",
+        "blobId": "6bd2155556a4e511149a6bf6e9840d80fc971b12",
+        "size": 428730208,
+        "lfs": {
+          "sha256": "7671c0c304e6ce5a7fc577bcb12aba01e2c155cc2efd29b2213c95b18edaf6ed",
+          "size": 428730208,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+        "blobId": "a0ee18ee2bcb22c2b6c95360b292c2c40a2d7a03",
+        "size": 491400032,
+        "lfs": {
+          "sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+          "size": 491400032,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "qwen2.5-0.5b-instruct-q5_0.gguf",
+        "blobId": "3d43e78643fb44341da3b8a9e7a1bad84becc712",
+        "size": 490475360,
+        "lfs": {
+          "sha256": "925946ab27801fea3eead42933f857b6449c6d299f062e374cee2ac48426f2a5",
+          "size": 490475360,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "qwen2.5-0.5b-instruct-q5_k_m.gguf",
+        "blobId": "bf4ba3918d1e5f62ca89a457ff87b81ecc8999c8",
+        "size": 522186592,
+        "lfs": {
+          "sha256": "041474553fcabfc2a2d67903f9d2c2e50bd92528e670da4f33b5d0ce6e59fd55",
+          "size": 522186592,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "qwen2.5-0.5b-instruct-q6_k.gguf",
+        "blobId": "78c7a511f5ac566eb075673682d677db7fccc614",
+        "size": 650379104,
+        "lfs": {
+          "sha256": "2f82233630c349ccf6b8daccf48f9a7865713d9f08a2eadfa456cebe9b97c7f5",
+          "size": 650379104,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "qwen2.5-0.5b-instruct-q8_0.gguf",
+        "blobId": "92271af457052afc8f1499dd480502e0bcbf87a0",
+        "size": 675710816,
+        "lfs": {
+          "sha256": "ca59ca7f13d0e15a8cfa77bd17e65d24f6844b554a7b6c12e07a5f89ff76844e",
+          "size": 675710816,
+          "pointerSize": 134
+        }
+      }
+    ],
+    "cardData": {
+      "license": "apache-2.0",
+      "license_link": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/blob/main/LICENSE",
+      "language": [
+        "en"
+      ],
+      "pipeline_tag": "text-generation",
+      "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "tags": [
+        "chat"
+      ]
+    }
+  }
+}

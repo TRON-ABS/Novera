@@ -129,6 +129,7 @@ export interface DownloadItem {
 
 export interface ModelConfig {
   model_path: string
+  model_shards?: Array<{ path: string; sha256: string; size: number }>
   mmproj_path?: string
   name: string // user-friendly
   // some model info that we cache upon import

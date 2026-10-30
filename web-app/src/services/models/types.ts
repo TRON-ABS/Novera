@@ -9,6 +9,7 @@ import type { HubTextConfig } from '@/modules/engines/hub-catalog'
 
 // Types for model catalog
 export interface ModelQuant {
+  shard_count?: number
   model_id: string
   path: string
   file_size: string

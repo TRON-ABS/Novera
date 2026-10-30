@@ -1,8 +1,21 @@
 import { describe, expect, it, vi } from 'vitest'
 import { providerCatalogUrl, providerInferenceUrl, CURATED_ONLY_PROVIDERS } from '../providerEndpoints'
+import { predefinedProviders } from '@/constants/providers'
 import { fetchTopRemoteModels } from '../remoteModelCatalog'
 
 describe('provider-specific endpoint contracts', () => {
+  it('keeps TabbyAPI opt-in and discovers models only from its authenticated local endpoint', async () => {
+    const preset = predefinedProviders.find(provider => provider.provider === 'tabbyapi')!
+    expect(preset.active).toBe(false)
+    expect(preset.base_url).toBe('http://127.0.0.1:5000/v1')
+    expect(preset.api_key).toBe('')
+    const fetchImpl = vi.fn().mockResolvedValue(new Response(JSON.stringify({ data: [{ id: 'exl3-local' }] })))
+    const models = await fetchTopRemoteModels({ ...preset, api_key: 'local-test-key' }, fetchImpl)
+    expect(providerCatalogUrl(preset)).toBe('http://127.0.0.1:5000/v1/models')
+    expect(String(fetchImpl.mock.calls[0][0])).toBe('http://127.0.0.1:5000/v1/models')
+    expect(models[0].id).toBe('exl3-local')
+  })
+
   it('uses the native Cohere chat catalog and excludes deprecated/non-chat models', async () => {
     const fetchImpl = vi.fn().mockResolvedValue(new Response(JSON.stringify({ models: [
       { name: 'command-a-plus-05-2026', endpoints: ['chat'] },

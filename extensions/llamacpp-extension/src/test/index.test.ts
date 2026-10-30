@@ -276,6 +276,75 @@ describe('llamacpp_extension', () => {
       expect(invoke).toHaveBeenCalledWith('write_yaml', expect.any(Object))
     })
 
+    describe('split GGUF series', () => {
+      const parts = [1, 2].map((i) => ({
+        filename: `model-Q4-${String(i).padStart(5, '0')}-of-00002.gguf`,
+        url: `https://example.com/model-Q4-${String(i).padStart(5, '0')}-of-00002.gguf`,
+        size: i * 100, sha256: String(i).repeat(64),
+      }))
+      let downloadFiles: ReturnType<typeof vi.fn>
+      beforeEach(() => {
+        downloadFiles = vi.fn().mockResolvedValue(undefined)
+        window.core.extensionManager.getByName = vi.fn().mockReturnValue({ downloadFiles })
+        vi.mocked(getJanDataFolderPath).mockResolvedValue('/data')
+        vi.mocked(joinPath).mockImplementation(async (paths) => paths.join('/'))
+        vi.mocked(fs.existsSync).mockResolvedValue(false)
+        vi.mocked(fs.fileStat).mockImplementation(async (path) => ({ size: String(path).includes('00002-of') ? 200 : 100 }))
+        vi.mocked(invoke).mockImplementation(async (cmd) => cmd === 'model_download_directory' ? '/weights/model' : undefined)
+        vi.mocked(readGgufMetadata).mockImplementation(async (path) => ({
+          version: 3, tensor_count: 1,
+          metadata: { 'split.no': String(path).includes('00002-of') ? '1' : '0', 'split.count': '2' },
+        }))
+      })
+      afterEach(() => {
+        vi.mocked(readGgufMetadata).mockResolvedValue({ version: 3, tensor_count: 1, metadata: { 'general.architecture': 'llama' } })
+      })
+
+      it('downloads, verifies and inspects all shards before registering their total and first path', async () => {
+        await extension.import('split-model', { modelPath: parts[0].url, modelShards: parts })
+        expect(downloadFiles).toHaveBeenCalledWith(parts.map((part) => expect.objectContaining({
+          url: part.url, save_path: `/weights/model/${part.filename}`, size: part.size, sha256: part.sha256,
+        })), expect.any(String), expect.any(Function))
+        for (const part of parts) expect(readGgufMetadata).toHaveBeenCalledWith(expect.stringContaining(part.filename))
+        expect(invoke).toHaveBeenCalledWith('write_yaml', expect.objectContaining({ data: expect.objectContaining({
+          model_path: `/weights/model/${parts[0].filename}`, size_bytes: 300,
+          model_shards: parts.map((part) => ({ path: `/weights/model/${part.filename}`, size: part.size, sha256: part.sha256 })),
+        }) }))
+      })
+
+      it('never registers a series when the second shard is corrupt', async () => {
+        vi.mocked(readGgufMetadata).mockImplementation(async (path) => {
+          if (String(path).includes('00002-of')) throw new Error('Not a GGUF file')
+          return { version: 3, tensor_count: 1, metadata: { 'split.no': '0', 'split.count': '2' } }
+        })
+        await expect(extension.import('split-model', { modelPath: parts[0].url, modelShards: parts })).rejects.toThrow('Invalid GGUF')
+        expect(vi.mocked(invoke).mock.calls.some(([cmd]) => cmd === 'write_yaml')).toBe(false)
+      })
+
+      it('rejects mismatched split indices', async () => {
+        vi.mocked(readGgufMetadata).mockResolvedValue({ version: 3, tensor_count: 1, metadata: { 'split.no': '0', 'split.count': '2' } })
+        await expect(extension.import('split-model', { modelPath: parts[0].url, modelShards: parts })).rejects.toThrow('metadata mismatch')
+        expect(vi.mocked(invoke).mock.calls.some(([cmd]) => cmd === 'write_yaml')).toBe(false)
+      })
+
+      it('does not register a model when batch hash verification fails', async () => {
+        downloadFiles.mockRejectedValue(new Error('Hash verification failed'))
+        await expect(extension.import('split-model', { modelPath: parts[0].url, modelShards: parts })).rejects.toThrow('Hash verification failed')
+        expect(readGgufMetadata).not.toHaveBeenCalled()
+        expect(vi.mocked(invoke).mock.calls.some(([cmd]) => cmd === 'write_yaml')).toBe(false)
+      })
+
+      it.each(['missing', 'order', 'unsafe', 'hash'])('rejects a %s manifest before any download', async (defect) => {
+        const invalid = parts.map((part) => ({ ...part }))
+        if (defect === 'missing') invalid.pop()
+        if (defect === 'order') invalid.reverse()
+        if (defect === 'unsafe') invalid[0].filename = '../' + invalid[0].filename
+        if (defect === 'hash') invalid[1].sha256 = ''
+        await expect(extension.import('split-model', { modelPath: parts[0].url, modelShards: invalid })).rejects.toThrow()
+        expect(downloadFiles).not.toHaveBeenCalled()
+      })
+    })
+
     it('persists Novera LFM Q6 defaults before the imported-model event', async () => {
       const { getJanDataFolderPath, joinPath, fs } = await import('@janhq/core')
       const { invoke } = await import('@tauri-apps/api/core')
