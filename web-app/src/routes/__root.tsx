@@ -52,8 +52,9 @@ const AppLayout = () => {
   } = useLeftPanel()
 
   return (
-    <div className="novera-workspace bg-neutral-50 dark:bg-background size-full relative">
+    <div className="novera-workspace bg-neutral-50 dark:bg-background relative h-dvh w-full overflow-hidden">
       <SidebarProvider
+        className="h-full min-h-0"
         open={isLeftPanelOpen}
         onOpenChange={setLeftPanel}
         defaultWidth={sidebarWidth}
@@ -75,8 +76,8 @@ const AppLayout = () => {
         )}
         <DialogAppUpdater />
         <LeftSidebar />
-        <SidebarInset>
-          <div className="bg-neutral-50 dark:bg-transparent size-full">
+        <SidebarInset className="min-h-0 overflow-hidden">
+          <div className="flex min-h-0 flex-1 flex-col bg-neutral-50 dark:bg-transparent">
             <Outlet />
           </div>
         </SidebarInset>

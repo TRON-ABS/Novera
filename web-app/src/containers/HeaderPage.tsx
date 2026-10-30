@@ -1,9 +1,8 @@
-import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { useLeftPanel } from '@/hooks/useLeftPanel'
 import { cn } from '@/lib/utils'
-import { IconLayoutSidebar } from '@tabler/icons-react'
 import { ReactNode, memo } from 'react'
-import { Button } from '@/components/ui/button'
+import { SidebarTrigger } from '@/components/ui/sidebar'
+import { useIsMobile } from '@/hooks/use-mobile'
 import { CreationInstallIndicator } from './CreationInstall'
 import { useTitlebarLayout } from '@/stores/titlebar-layout-store'
 
@@ -11,9 +10,8 @@ type HeaderPageProps = {
   children?: ReactNode
 }
 const HeaderPage = memo(function HeaderPage({ children }: HeaderPageProps) {
-  const { t: uiT } = useUiLocale()
-
-  const { open, setLeftPanel } = useLeftPanel()
+  const { open } = useLeftPanel()
+  const isMobile = useIsMobile()
   // Collapsed, this header owns the top-left strip — indent past left-anchored Linux
   // window controls (size-8 each at left-4); macOS uses the pl-24 class below.
   const leftButtons = useTitlebarLayout((s) => s.layout.left.length)
@@ -37,18 +35,8 @@ const HeaderPage = memo(function HeaderPage({ children }: HeaderPageProps) {
       }}
     >
       <div className={cn('flex items-center w-full gap-1')}>
-        {!open && (
-          <>
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              className="rounded-full relative z-50"
-              onClick={() => setLeftPanel(!open)}
-              aria-label={uiT('ui:toggleSidebar')}
-            >
-              <IconLayoutSidebar className="text-muted-foreground relative size-4.5" />
-            </Button>
-          </>
+        {isMobile && (
+          <SidebarTrigger className="text-muted-foreground rounded-full relative z-50" />
         )}
         <div className={cn('flex-1 min-w-0')}>{children}</div>
         <CreationInstallIndicator />

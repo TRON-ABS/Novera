@@ -194,7 +194,7 @@ type ChatInputProps = {
 
 // Below this control-row width the toolbar wraps into several rows on busy
 // surfaces (Cowork), so it collapses behind a single overflow button instead.
-const CONTROL_ROW_COLLAPSE_WIDTH = 480
+const CONTROL_ROW_COLLAPSE_WIDTH = 640
 
 // Video containers llama-server can decode via ffmpeg/ffprobe into frames.
 const VIDEO_EXTS = ['mp4', 'mov', 'webm', 'mkv', 'avi', 'm4v']
@@ -873,23 +873,16 @@ const ChatInput = memo(function ChatInput({
     }
   }, [])
 
-  // Focus when component mounts
-  useEffect(() => {
-    if (textareaRef.current) {
-      textareaRef.current.focus()
-    }
-  }, [])
-
   useEffect(() => {
     if (tooltipShown && dropdownToolsAvailable) {
       setTooltipShown(false)
     }
   }, [dropdownToolsAvailable, tooltipShown])
 
-  // Focus when thread changes
+  // Restore typing focus without scrolling the workspace when a send opens a thread.
   useEffect(() => {
     if (textareaRef.current) {
-      textareaRef.current.focus()
+      textareaRef.current.focus({ preventScroll: true })
     }
   }, [currentThreadId])
 
@@ -897,9 +890,10 @@ const ChatInput = memo(function ChatInput({
   useEffect(() => {
     if (chatStatus !== 'submitted' && textareaRef.current) {
       // Small delay to ensure UI has updated
-      setTimeout(() => {
-        textareaRef.current?.focus()
+      const timeout = setTimeout(() => {
+        textareaRef.current?.focus({ preventScroll: true })
       }, 10)
+      return () => clearTimeout(timeout)
     }
   }, [chatStatus])
 
@@ -2076,7 +2070,7 @@ const ChatInput = memo(function ChatInput({
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-[1024px]" data-dashboard-composer>
+    <div className="relative mx-auto w-full max-w-[1280px]" data-dashboard-composer>
       <div className="relative">
         <div
           className={cn(
@@ -2089,6 +2083,7 @@ const ChatInput = memo(function ChatInput({
               isFocused && 'ring-1 ring-ring/50',
               isDragOver && 'ring-2 ring-ring/50 border-primary'
             )}
+            data-dashboard-layout={!effectiveAgentMode && !scopeKey ? 'chat' : undefined}
             data-drop-zone={dropAcceptsAnything ? 'true' : undefined}
             data-busy={turnBusy}
             onDragEnter={dropAcceptsAnything ? handleDragEnter : undefined}
@@ -2343,7 +2338,6 @@ const ChatInput = memo(function ChatInput({
               }}
               onPaste={handlePaste}
               placeholder={t('common:placeholder.chatInput')}
-              autoFocus
               spellCheck={spellCheckChatInput}
               data-gramm={spellCheckChatInput}
               data-gramm_editor={spellCheckChatInput}
@@ -3071,7 +3065,7 @@ const ChatInput = memo(function ChatInput({
               )}
             </div>
 
-            <div className="flex shrink-0 items-center gap-1">
+            <div className="composer-token-slot flex shrink-0 items-center gap-1">
               {tokenCounterVisible && tokenCounterCompact && (
                 <div className="flex-1 flex justify-center">
                   <TokenCounter

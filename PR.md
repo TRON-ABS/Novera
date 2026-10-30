@@ -27,3 +27,22 @@ Import a complete supported pre-quantized folder, select a configured CUDA Pytho
 ## Scope and limits
 
 Direct main publication was explicitly requested; the commit is based on the previous Hub update 51bab0bbd. No overlapping open PR was found. Unrelated local sidebar/composer edits are excluded. The sources require a rebuild to update the embedded worker/native import and displayed interface. No new app build/install, native GUI verification, whole-repository test result, CI approval, broad architecture validation, real GPTQ 2/3/8-bit inference or performance guarantee is claimed. Split-only GGUF downloads and complete Safetensors repository downloads remain separate work; vLLM is not added by this commit.
+
+## Stable 1280 px chat dashboard (2026-10-30)
+
+Sending a message could scroll the application shell or reflow footer commands when context usage appeared. Bound the workspace to the dynamic viewport, share the available-height chain and bottom dock spacing between home and thread, restore typing focus with preventScroll, and measure responsive control width before paint. Reserve context-counter space independently of its pending/available state.
+
+The composer and user/assistant conversation column now share a 1,280 px maximum content width and matching responsive side gutters. Long user text can use the full column; short bubbles retain intrinsic width. At panel widths of at least 1,200 px, place model, memory, settings and downloads immediately after the conversation actions (including delete), on the same footer row. Below that width give metadata a stable second row; below 640 px collapse the tool group before paint. Preserve normal draft textarea resizing.
+
+Include the pending sidebar positioning follow-up: a single desktop sidebar trigger, the mobile sheet trigger, and a narrower collapsed sidebar.
+
+Reproduction: start on home with the sidebar collapsed, submit a question, stream a response and run web search. Check the dock bottom anchor and command positions before and after context usage appears. At a wide panel verify model/memory follows Delete; resize to a narrow panel and verify the deliberate row breakpoint.
+
+Local validation:
+
+- 205 tests pass in eight suites: ChatInput, simplified ChatInput, useElementWidth, home, thread, root, and both MessageItem suites. Regression cases cover focus without scrolling, persistent command/token slots across generation/tool states and width measurement before paint. Existing mocked-upload and React act warnings remain.
+- TypeScript no-emit and targeted production ESLint pass.
+- Browser CSS fixture: six simulated canvas widths (360, 480, 640, 800, 1024, 1280 px), each across idle, submitted, streaming, tools and finished. Composer top/height and toolbar/metadata positions are unchanged between phases at each width; page height stays equal to the 720 px viewport. This fixture uses the actual application CSS with representative control markup and simulated generation, not the full native application or real inference.
+- Main was fetched and the GitHub open-PR API returned no open PR before publication. No related issue is closed.
+
+Limits: no application/native rebuild, installation, native graphical validation, CI approval or new binary release. Existing binaries keep their embedded layout until rebuilt. Earlier local notes above describe prior validation and publication states; this section records the final dashboard change. Publication is tracked separately after push verification.

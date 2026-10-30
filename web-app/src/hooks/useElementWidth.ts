@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 
 /**
  * Tracks the rendered width of an element via ResizeObserver. `width` is null
@@ -9,7 +9,9 @@ export function useElementWidth<T extends HTMLElement>() {
   const ref = useRef<T>(null)
   const [width, setWidth] = useState<number | null>(null)
 
-  useEffect(() => {
+  // Measure before paint so remounting on a thread does not briefly show the
+  // wide toolbar and then collapse it, changing the entire composer's height.
+  useLayoutEffect(() => {
     const el = ref.current
     if (!el) return
     const measure = () => setWidth(el.getBoundingClientRect().width)

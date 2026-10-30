@@ -63,11 +63,12 @@ vi.mock('@/hooks/useAppState', () => ({
   },
 }))
 
+let tokenCounterCompactState = false
 vi.mock('@/hooks/useGeneralSetting', () => ({
   useGeneralSetting: (selector: any) =>
     selector({
       spellCheckChatInput: false,
-      tokenCounterCompact: false,
+      tokenCounterCompact: tokenCounterCompactState,
     }),
 }))
 
@@ -348,6 +349,7 @@ import { useDashboardPanel } from '@/hooks/useDashboardPanel'
 // Helpers -------------------------------------------------------------------
 
 const resetAll = () => {
+  tokenCounterCompactState = false
   promptState = ''
   appStateOverrides = {}
   attachmentsList = []
@@ -378,6 +380,39 @@ const renderInput = (props: any = {}) =>
   render(<ChatInput onSubmit={props.onSubmit} onStop={props.onStop} {...props} />)
 
 describe('ChatInput', () => {
+  it('keeps the token slot and command groups mounted through submission, streaming and tool work', () => {
+    tokenCounterCompactState = true
+    selectedProviderOverride = 'llamacpp'
+    const view = renderInput({ initialMessage: true, chatStatus: 'ready' })
+    const panel = view.container.querySelector('[data-dashboard-layout="chat"]')!
+    const slot = view.container.querySelector('.composer-token-slot')!
+    const toolbar = view.container.querySelector('.composer-toolbar')!
+    const metadata = view.container.querySelector('.composer-metadata')!
+    expect(slot).not.toBeNull()
+    expect(slot.querySelector('[data-testid="stub-token-counter"]')).not.toBeNull()
+    for (const props of [
+      { chatStatus: 'submitted' }, { chatStatus: 'streaming' },
+      { chatStatus: 'ready', toolsRunning: true }, { chatStatus: 'ready', toolsRunning: false },
+    ]) {
+      view.rerender(<ChatInput {...props} />)
+      expect(view.container.querySelector('[data-dashboard-layout="chat"]')).toBe(panel)
+      expect(view.container.querySelector('.composer-token-slot')).toBe(slot)
+      expect(view.container.querySelector('.composer-toolbar')).toBe(toolbar)
+      expect(view.container.querySelector('.composer-metadata')).toBe(metadata)
+    }
+  })
+  it('reserves the same token slot when the selected provider has no usage yet', () => {
+    tokenCounterCompactState = true
+    selectedProviderOverride = 'openai'
+    const view = renderInput({ initialMessage: true })
+    const slot = view.container.querySelector('.composer-token-slot')!
+    expect(slot).not.toBeNull()
+    expect(slot.querySelector('[data-testid="stub-token-counter"]')).toBeNull()
+    promptState = 'hello'
+    view.rerender(<ChatInput initialMessage={false} chatStatus="submitted" />)
+    expect(view.container.querySelector('.composer-token-slot')).toBe(slot)
+    expect(slot.querySelector('[data-testid="stub-token-counter"]')).not.toBeNull()
+  })
   it('mounts a single compact model selector in the dashboard with the current conversation model', () => {
     renderInput({ model: { id: 'current-model', provider: 'llamacpp' } })
     const selector = screen.getByTestId('composer-model-selector')
@@ -422,6 +457,21 @@ describe('ChatInput', () => {
   })
   beforeEach(() => {
     resetAll()
+  })
+
+  it('restores typing focus without scrolling on mount and after streaming', async () => {
+    const focus = vi.spyOn(HTMLTextAreaElement.prototype, 'focus')
+    try {
+      const view = renderInput({ chatStatus: 'submitted' })
+      expect(getTextarea()).not.toHaveAttribute('autofocus')
+      expect(focus).toHaveBeenCalledWith({ preventScroll: true })
+      focus.mockClear()
+      view.rerender(<ChatInput chatStatus="ready" />)
+      await waitFor(() => expect(focus).toHaveBeenCalledWith({ preventScroll: true }))
+      expect(focus.mock.calls.every(([options]) => options?.preventScroll === true)).toBe(true)
+    } finally {
+      focus.mockRestore()
+    }
   })
 
   it('opens a new normal discussion from the reserved left side of the prompt', () => {

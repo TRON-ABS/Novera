@@ -52,19 +52,19 @@ function Index() {
   }
 
   return (
-    <div className="novera-canvas flex h-full flex-col">
+    <div className="novera-canvas flex h-full min-h-0 flex-col overflow-hidden" data-chat-workspace>
       <HeaderPage />
       <div
         className={cn(
-          'min-h-0 flex-1 overflow-y-auto flex flex-col gap-2 px-3 pb-4 md:px-6'
+          'min-h-0 flex-1 flex flex-col px-3 md:px-6'
         )}
       >
         <div
           className={cn(
-            'mx-auto flex min-h-full w-full flex-col',
+            'mx-auto flex min-h-0 flex-1 w-full flex-col',
           )}
         >
-          <div className={cn('flex flex-1 items-center justify-center text-center py-10')}>
+          <div className={cn('min-h-0 overflow-y-auto flex flex-1 items-center justify-center text-center py-10')}>
             <h1
               className={cn(
                 'text-2xl mt-2 font-studio font-medium',
@@ -73,7 +73,7 @@ function Index() {
               {t('chat:description')}
             </h1>
           </div>
-          <div className="shrink-0">
+          <div className="shrink-0 py-4" data-chat-composer-dock>
             <ChatInput
               showSpeedToken={false}
               model={threadModel}

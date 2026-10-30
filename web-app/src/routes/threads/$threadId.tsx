@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import { createFileRoute, useParams, useSearch } from '@tanstack/react-router'
-import { cn } from '@/lib/utils'
 
 import HeaderPage from '@/containers/HeaderPage'
 import { useThreads } from '@/hooks/useThreads'
@@ -2156,12 +2155,12 @@ function ThreadConversation() {
   }, [localThreadMessages])
 
   return (
-    <div className="flex flex-col h-[calc(100dvh-(env(safe-area-inset-bottom)+env(safe-area-inset-top)))]">
+    <div className="flex h-full min-h-0 flex-col overflow-hidden" data-chat-workspace>
       <HeaderPage />
-      <div className="flex flex-1 flex-col h-full overflow-hidden">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
         {/* Messages Area */}
         <div
-          className="message-zoom flex-1 relative"
+          className="message-zoom min-h-0 flex-1 relative"
           style={
             {
               '--font-size-base': `calc(${fontSize} * ${messageZoom})`,
@@ -2170,7 +2169,7 @@ function ThreadConversation() {
         >
           <Conversation className="absolute inset-0 text-start">
             <ConversationContent
-              className={cn('mx-auto w-full max-w-6xl px-3 md:px-6')}
+              className="mx-auto w-[calc(100%-24px)] max-w-[1280px] px-0 md:w-[calc(100%-48px)]"
             >
               {chatMessages.map((message, index) => {
                 const isLastMessage = index === chatMessages.length - 1
@@ -2317,7 +2316,7 @@ function ThreadConversation() {
         </div>
 
         {/* Chat Input - Fixed at bottom */}
-        <div className="py-4 mx-auto w-full px-3 md:px-6">
+        <div className="shrink-0 py-4 mx-auto w-full px-3 md:px-6" data-chat-composer-dock>
           {currentHistoryError ? (
             <div role="alert" className="rounded-lg border p-4">
               <p>{t('ui:unableToLoadConversationHistory')}</p>

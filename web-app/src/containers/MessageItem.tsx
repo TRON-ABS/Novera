@@ -321,7 +321,7 @@ export const MessageItem = memo(
             <div className="flex justify-end w-full h-full text-start wrap-break-word whitespace-normal">
               <div
                 className={cn(
-                  'novera-user-message relative p-3 rounded-2xl inline-block max-w-[80%]',
+                  'novera-user-message relative p-3 rounded-2xl inline-block max-w-full',
                   coloredUserBubble
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-secondary text-foreground'

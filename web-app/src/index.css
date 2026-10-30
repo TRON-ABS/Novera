@@ -494,6 +494,41 @@
 .composer-memory-state { color: var(--muted-foreground); font-size: 10px; }
 .composer-memory-state[data-active="true"] { color: light-dark(#0e7490, #22d3ee); }
 .composer-metadata { border-inline-start: 1px solid #818cf833; margin-inline-start: 3px; }
+
+/* Reserve the context badge's space before usage arrives. Rows depend only on
+   the panel width, never on a send, streaming update or newly visible badge. */
+.composer-panel[data-dashboard-layout="chat"] .composer-footer-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 8px;
+}
+.composer-panel[data-dashboard-layout="chat"] .composer-metadata {
+  min-height: 34px;
+  padding-inline-end: 104px;
+}
+.composer-panel[data-dashboard-layout="chat"] .composer-token-slot {
+  position: absolute;
+  inset-inline-end: 12px;
+  bottom: 12px;
+  inline-size: 96px;
+  min-block-size: 34px;
+  justify-content: flex-end;
+}
+.composer-panel[data-dashboard-layout="chat"] .composer-toolbar {
+  flex-wrap: nowrap;
+}
+@container (min-width: 1200px) {
+  .composer-panel[data-dashboard-layout="chat"] .composer-footer-content {
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: 8px;
+  }
+  .composer-panel[data-dashboard-layout="chat"] .composer-metadata {
+    flex-wrap: nowrap;
+  }
+}
+.novera-workspace {
+  padding-block: env(safe-area-inset-top) env(safe-area-inset-bottom);
+}
 @container (max-width: 690px) {
   .composer-size-controls { margin-inline-start: 0; }
 }

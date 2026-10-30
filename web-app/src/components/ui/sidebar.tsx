@@ -27,7 +27,7 @@ const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = "15rem";
 const SIDEBAR_WIDTH_MOBILE = "18rem";
-const SIDEBAR_WIDTH_ICON = "5rem";
+const SIDEBAR_WIDTH_ICON = "2.5rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
 //* new constants for sidebar resizing
@@ -331,12 +331,13 @@ const SidebarTrigger = React.forwardRef<
 >(({ className, onClick, ...props }, ref) => {
   const { t: uiT } = useUiLocale()
 
-	const { toggleSidebar } = useSidebar();
+	const { toggleSidebar, isMobile, openMobile, open } = useSidebar();
 
 	return (
 		<Button
 			ref={ref}
 			data-sidebar="trigger"
+			aria-expanded={isMobile ? openMobile : open}
 			variant="ghost"
 			size="icon"
 			className={cn("size-8", className)}
