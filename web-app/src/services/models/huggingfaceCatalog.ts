@@ -29,6 +29,7 @@ function safeListUrl(value: string): boolean {
 }
 
 function compatible(repo: HuggingFaceRepo): boolean {
+  if (repo.library_name === 'peft' || repo.siblings?.some(file => /(?:^|\/)adapter_config\.json$/i.test(file.rfilename))) return false
   const task = repo.pipeline_tag
   if (task && !['text-generation', 'image-text-to-text', 'text2text-generation'].includes(task)) return false
   return groupGgufFiles(repo.siblings ?? []).some(([f]) => /\.gguf$/i.test(f.rfilename) && !/mmproj|(?:^|\/)imatrix/i.test(f.rfilename) && !isSpecSidecar({ model_id: f.rfilename, path: f.rfilename })) ||
@@ -64,7 +65,7 @@ async function loadPage(fetchImpl: typeof fetch, includeMlx: boolean, cursor?: s
       listUrl({ filter: 'gguf', author: 'Qwen' }),
       listUrl({ filter: 'gguf', pipeline_tag: 'text-generation', limit: '24' }),
       listUrl({ filter: 'gguf', pipeline_tag: 'image-text-to-text' }),
-      listUrl({ filter: 'gguf', pipeline_tag: 'text-generation', sort: 'lastModified' }),
+      listUrl({ filter: 'gguf', pipeline_tag: 'text-generation', sort: 'createdAt' }),
       ...(includeMlx ? [listUrl({ filter: 'mlx', pipeline_tag: 'text-generation', limit: '12' })] : []),
     ]
   }

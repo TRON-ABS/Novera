@@ -168,6 +168,7 @@ export interface HubModelMetadata {
   pipeline_tag?: string
   tags?: readonly string[]
   library_name?: string
+  files?: readonly { name: string }[]
   is_mlx?: boolean
   quants?: readonly { path: string; model_id: string; file_size?: string }[]
   safetensors_files?: readonly { path: string; file_size?: string }[]
@@ -202,13 +203,29 @@ export function categoryMatches(
   return category === 'all' || modelCategories(model).includes(category)
 }
 
-export type HubQuantization = 'exl3' | 'exl2' | 'awq' | 'gptq' | 'bitsandbytes-4bit' | 'bitsandbytes-8bit'
+export type HubQuantization = 'modelopt-fp8' | 'modelopt-nvfp4' | 'exl3' | 'exl2' | 'awq' | 'gptq' | 'bitsandbytes-4bit' | 'bitsandbytes-8bit'
 
 export function hubQuantization(model: HubModelMetadata): HubQuantization | 'unsupported' | null {
   const raw = model.model_config?.quantization_config
   if (raw == null) return null
   if (typeof raw !== 'object' || Array.isArray(raw)) return 'unsupported'
   const q = raw as Record<string, unknown>
+  if (q.quant_method === 'modelopt') {
+    const nested = 'quantization' in q ? q.quantization : q
+    if (typeof nested !== 'object' || nested === null || Array.isArray(nested)) return 'unsupported'
+    const quant = nested as Record<string, unknown>
+    const algo = quant.quant_algo
+    if (!['FP8', 'NVFP4'].includes(String(algo)) || (quant.kv_cache_quant_algo !== undefined && quant.kv_cache_quant_algo !== null)) return 'unsupported'
+    if (['quantized_layers', 'moe_quant_algo', 'weight_block_size'].some(key => key in quant)) return 'unsupported'
+    if (quant.exclude_modules !== undefined && (!Array.isArray(quant.exclude_modules) || quant.exclude_modules.some(name => name !== 'lm_head'))) return 'unsupported'
+    if (algo === 'FP8' && quant.group_size !== undefined && quant.group_size !== null) return 'unsupported'
+    if (algo === 'NVFP4' && quant.group_size !== 16) return 'unsupported'
+    const config = model.model_config!
+    const architectures: Record<string, string> = { llama: 'LlamaForCausalLM', qwen2: 'Qwen2ForCausalLM', qwen3: 'Qwen3ForCausalLM' }
+    if (!Object.prototype.hasOwnProperty.call(architectures, config.model_type ?? '') || JSON.stringify(config.architectures) !== JSON.stringify([architectures[config.model_type!]])) return 'unsupported'
+    if (['auto_map', 'vision_config', 'text_config', 'num_local_experts', 'num_experts'].some(key => key in config)) return 'unsupported'
+    return algo === 'FP8' ? 'modelopt-fp8' : 'modelopt-nvfp4'
+  }
   if (q.quant_method === 'exl3' || q.quant_method === 'exl2') return typeof q.bits === 'number' && Number.isFinite(q.bits) && q.bits >= 1 && q.bits <= 8 ? q.quant_method : 'unsupported'
   if (q.quant_method === 'awq') return q.bits === 4 &&
     (q.version === undefined || (typeof q.version === 'string' && q.version.toLowerCase() === 'gemm')) &&
@@ -229,9 +246,16 @@ export function hubQuantization(model: HubModelMetadata): HubQuantization | 'uns
   return 'unsupported'
 }
 
+export function isPeftAdapter(model: HubModelMetadata): boolean {
+  return model.library_name === 'peft' ||
+    model.files?.some(file => /(?:^|\/)adapter_config\.json$/i.test(file.name)) === true ||
+    (!!model.safetensors_files?.length && model.safetensors_files.every(file => /(?:^|\/)adapter_model\.safetensors$/i.test(file.path)))
+}
+
 export function modelEngine(
   model: HubModelMetadata
-): 'llamacpp' | 'mlx' | 'transformers' | 'future' {
+): 'llamacpp' | 'mlx' | 'transformers' | 'onnx' | 'future' {
+  if (isPeftAdapter(model)) return 'future'
   const task = model.pipeline_tag
   const causal =
     !task ||
@@ -242,6 +266,7 @@ export function modelEngine(
     return causal ? 'mlx' : 'future'
   // A container format alone does not imply that an image/video/audio pipeline can run in chat.
   if (model.quants?.length && causal) return 'llamacpp'
+  if (model.files?.some(file => /\.onnx$/i.test(file.name))) return 'onnx'
   if (
     model.safetensors_files?.length &&
     task === 'text-generation' &&
@@ -299,6 +324,8 @@ export function nvfp4ModelAdvice(
   hardware: HubHardware,
   selectedPath?: string
 ): HubDiagnosis['nvfp4Advice'] {
+  if (hubQuantization(model) === 'modelopt-nvfp4') return
+
   if (
     selectedPath &&
     /(?:\.gguf$|(?:bf16|fp16|fp8|q[2-8]_))/i.test(selectedPath)
@@ -329,9 +356,11 @@ export interface HubRuntime {
   ready: boolean
   cudaAvailable: boolean
   python?: string
+  onnxruntime?: string
+  genai?: string | null
   torch?: string
   gpu?: { name: string; totalBytes: number; freeBytes: number } | null
-  quantization?: Partial<Record<HubQuantization, { available: boolean; reason?: string }>>
+  quantization?: Partial<Record<HubQuantization, { available: boolean; reason?: string; kernelValidated?: boolean; backend?: string }>>
 }
 const GiB = 1024 ** 3
 
@@ -379,7 +408,9 @@ export function diagnoseHubModel(
   const engine = modelEngine(model)
   const method = hubQuantization(model)
   const quantization = engine === 'transformers' && method && method !== 'unsupported' ? method : undefined
-  const quantizationReady = !quantization || (!!options.runtime?.cudaAvailable && options.runtime?.quantization?.[quantization]?.available === true)
+  const loader = quantization ? options.runtime?.quantization?.[quantization] : undefined
+  const quantizationReady = !quantization || (!!options.runtime?.cudaAvailable && loader?.available === true &&
+    (!quantization.startsWith('modelopt-') || loader.kernelValidated === true))
   const nvfp4Advice = nvfp4ModelAdvice(model, hardware, options.variantPath)
   const context = Math.max(128, options.context ?? 8192)
   const weights =
@@ -459,6 +490,8 @@ export function diagnoseHubModel(
   const platformBlocked =
     engine === 'mlx'
       ? hardware.platform !== 'macos'
+      : engine === 'onnx'
+        ? !['windows', 'linux', 'macos'].includes(hardware.platform)
       : engine === 'transformers'
         ? !['windows', 'linux'].includes(hardware.platform)
         : engine === 'llamacpp' &&
@@ -472,25 +505,25 @@ export function diagnoseHubModel(
           : 'planned'
         : platformBlocked
           ? 'platform'
-          : engine === 'transformers' && (!options.runtime?.ready || !quantizationReady)
+          : (engine === 'transformers' || engine === 'onnx') && (!options.runtime?.ready || !quantizationReady)
             ? 'runtime'
             : 'check',
     nvfp4Advice,
     quantization,
     quantizationError: quantization ? options.runtime?.quantization?.[quantization]?.reason : undefined,
-    memory,
+    memory: engine === 'onnx' ? 'unknown' : memory,
     weightsBytes: weights,
     downloadBytes:
       weights && options.projectorBytes !== null ? weights + projector : null,
     requiredBytes:
-      engine === 'transformers' &&
+      engine === 'onnx' || isPeftAdapter(model) ? null : engine === 'transformers' &&
       !(gpuBudget !== null && required && required <= gpuBudget)
         ? cpuRequired
         : required,
     ramBudgetBytes: ramBudget,
     gpuBudgetBytes: gpuBudget,
     context,
-    canDownload: !platformBlocked && engine !== 'future',
+    canDownload: !platformBlocked && engine !== 'future' && engine !== 'onnx',
     medical: modelCategories(model).includes('medical'),
   }
 }

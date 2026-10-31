@@ -23,6 +23,9 @@ def quantization_method(config):
     if not isinstance(quant, dict):
         raise ValueError("quantization_config must be an object")
     method = quant.get("quant_method")
+    if method == "modelopt":
+        from float_quant import modelopt_method
+        return modelopt_method(config)
     if method in ("exl3", "exl2"):
         bits = quant.get("bits")
         if isinstance(bits, bool) or not isinstance(bits, (int, float)) or not math.isfinite(bits) or not 1 <= bits <= 8:
@@ -84,6 +87,14 @@ def quantization_capabilities(torch):
             result[method] = {"available": True}
         except Exception as error:
             result[method] = {"available": False, "reason": str(error)}
+    for method in ("modelopt-fp8", "modelopt-nvfp4"):
+        try:
+            with redirect_stdout(sys.stderr):
+                importlib.import_module("accelerate")
+                backend = importlib.import_module("float_quant")
+                result[method] = backend.kernel_probe(torch, method)
+        except Exception as error:
+            result[method] = {"available": False, "reason": str(error), "kernelValidated": False}
     return result
 
 
@@ -118,7 +129,10 @@ def validate_directory(path):
     root = Path(path).resolve(strict=True)
     if not root.is_dir():
         raise ValueError("Select the complete model folder, not a weights file")
-    config = json.loads((root / "config.json").read_text(encoding="utf-8"))
+    if (root / "adapter_config.json").exists():
+        raise ValueError("An adapter is not a complete model. Select its base model folder and attach the adapter separately.")
+    from float_quant import read_model_config
+    config = read_model_config(root)
     quantization_method(config)
     names = weight_files(root, config)
     if not names:
@@ -132,8 +146,63 @@ def validate_directory(path):
     return root
 
 
+def validate_adapter(path, base):
+    """Fail closed on unknown base identity; never resolve/download a base from an adapter."""
+    root = Path(path).resolve(strict=True)
+    config = json.loads((root / "adapter_config.json").read_text(encoding="utf-8"))
+    if config.get("peft_type") != "LORA" or config.get("task_type") != "CAUSAL_LM":
+        raise ValueError("Only LoRA PEFT adapters for CAUSAL_LM are supported")
+    from float_quant import read_model_config
+    base_config = read_model_config(base)
+    if quantization_method(base_config):
+        raise ValueError("LoRA currently requires an unquantized Transformers base; quantized/ExLlama adapters are not supported")
+    declared = config.get("base_model_name_or_path")
+    if not isinstance(declared, str) or not declared.strip():
+        raise ValueError("Adapter does not declare its base_model_name_or_path")
+    local_match = Path(declared).is_absolute() and Path(declared).resolve() == base
+    if not local_match and declared != base_config.get("_name_or_path"):
+        raise ValueError("Adapter/base mismatch or unknown identity: base config _name_or_path must match base_model_name_or_path, or select the declared absolute local base path")
+    if config.get("revision"):
+        raise ValueError("Revision-pinned adapters require revision provenance, which local imports cannot yet verify")
+    target = (root / "adapter_model.safetensors").resolve(strict=True)
+    if not target.is_relative_to(root) or not target.is_file():
+        raise ValueError("Adapter weights must be local adapter_model.safetensors")
+    # An adapter tokenizer/vocabulary override needs separate compatibility support.
+    if any((root / name).exists() for name in ("tokenizer.json", "tokenizer.model", "tokenizer_config.json", "special_tokens_map.json", "added_tokens.json", "vocab.json", "vocab.txt")):
+        raise ValueError("Adapters with tokenizer overrides are not supported; use the base tokenizer")
+    return root
+
+
+def adapter_memory(base, adapter, context, device):
+    """Count resident tensor bytes (FP32 CPU, conservative FP32 adapter) plus cache/overhead."""
+    from safetensors import safe_open
+    config = json.loads((base / "config.json").read_text(encoding="utf-8"))
+    def resident(root, names, minimum):
+        total = 0
+        widths = {"F64": 8, "F32": 4, "F16": 2, "BF16": 2, "I64": 8, "I32": 4, "I16": 2, "I8": 1, "U8": 1, "BOOL": 1}
+        for name in names:
+            with safe_open(root / name, framework="pt", device="cpu") as tensors:
+                for key in tensors.keys():
+                    tensor = tensors.get_slice(key)
+                    dtype = tensor.get_dtype()
+                    width = widths.get(dtype)
+                    if width is None:
+                        raise ValueError(f"Unsupported adapter/base tensor dtype: {dtype}")
+                    total += math.prod(tensor.get_shape()) * (max(width, minimum) if dtype.startswith(("F", "BF")) else width)
+        return total
+    # dtype="auto" can keep FP32 even on CUDA. Count at least FP32 for both
+    # devices, including the cache, rather than assuming half precision.
+    base_bytes = resident(base, weight_files(base, config), 4)
+    adapter_bytes = resident(adapter, {"adapter_model.safetensors"}, 4)
+    limit = config.get("max_position_embeddings") or config.get("n_positions")
+    context = min(context, limit) if type(limit) is int and limit > 0 else context
+    total = quantized_memory_bytes(config, base_bytes + adapter_bytes, context * 2)
+    return {"baseBytes": base_bytes, "adapterBytes": adapter_bytes,
+            "overheadAndCacheBytes": total - base_bytes - adapter_bytes, "totalBytes": total}
+
+
 class Inference:
-    def __init__(self, path, model_id, context_size=2048, device="auto"):
+    def __init__(self, path, model_id, context_size=2048, device="auto", adapter_path=None):
         # Set offline mode before importing Hugging Face libraries.
         os.environ["HF_HUB_OFFLINE"] = "1"
         os.environ["TRANSFORMERS_OFFLINE"] = "1"
@@ -151,7 +220,25 @@ class Inference:
             "gpu": torch.cuda.get_device_name(0) if self.device == "cuda" else None,
         }
         root = validate_directory(path)
-        config = json.loads((root / "config.json").read_text(encoding="utf-8"))
+        adapter = validate_adapter(adapter_path, root) if adapter_path else None
+        if adapter:
+            # Check dependencies and cumulative memory before allocating the base.
+            try:
+                from peft import PeftModel
+            except ImportError as error:
+                raise RuntimeError("Install requirements-peft.txt in the selected Python environment to load LoRA adapters") from error
+            self.runtime["adapter"] = str(adapter)
+            self.runtime["memory"] = adapter_memory(root, adapter, context_size, self.device)
+            if self.device == "cuda":
+                free, _ = torch.cuda.mem_get_info(0)
+                if self.runtime["memory"]["totalBytes"] + 1024 ** 3 > free:
+                    raise MemoryError("Insufficient VRAM for base + adapter + cache/overhead + 1 GiB reserve")
+            else:
+                import psutil
+                if self.runtime["memory"]["totalBytes"] + 512 * 1024 ** 2 > psutil.virtual_memory().available:
+                    raise MemoryError("Insufficient RAM for base + adapter + cache/overhead + 512 MiB reserve")
+        from float_quant import read_model_config
+        config = read_model_config(root)
         method = quantization_method(config)
         loading = dict(local_files_only=True, trust_remote_code=False, use_safetensors=True,
                        dtype="auto" if self.device == "cuda" else torch.float32)
@@ -174,7 +261,7 @@ class Inference:
                 raise MemoryError(f"Insufficient free VRAM for {method}: estimated {required} bytes plus 1 GiB reserve; {free} bytes free. Reduce context or use a smaller model.")
             # Dispatch while loading. Moving a packed model with .to() can fail or
             # trigger unsupported conversions; no CPU/disk offload is requested.
-            loading.update(device_map={"": 0}, dtype=torch.float16)
+            loading.update(device_map={"": 0}, dtype=torch.bfloat16 if method.startswith("modelopt-") else torch.float16)
             if method in ("awq", "gptq"):
                 from transformers import AwqConfig, GPTQConfig
                 # The portable CUDA reference kernel avoids AUTO selecting
@@ -183,9 +270,27 @@ class Inference:
                 loading["quantization_config"] = (AwqConfig if method == "awq" else GPTQConfig).from_dict(quant)
                 self.runtime["quantization_backend"] = "torch-cuda"
         self.tokenizer = AutoTokenizer.from_pretrained(root, local_files_only=True, trust_remote_code=False)
-        self.model = AutoModelForCausalLM.from_pretrained(root, **loading)
+        if method in ("modelopt-fp8", "modelopt-nvfp4"):
+            from float_quant import load_model
+            self.model = load_model(root, config, method, self.runtime)
+        else:
+            self.model = AutoModelForCausalLM.from_pretrained(root, **loading)
         if not method:
             self.model = self.model.to(self.device)
+        if adapter:
+            import warnings
+            from peft import get_peft_model_state_dict
+            from safetensors import safe_open
+            # PEFT checks target modules and tensor shapes; missing weights must also fail.
+            with warnings.catch_warnings(record=True) as caught:
+                warnings.simplefilter("always")
+                self.model = PeftModel.from_pretrained(self.model, str(adapter),
+                    is_trainable=False, local_files_only=True, use_safetensors=True)
+            if any("missing" in str(w.message).lower() or "unexpected" in str(w.message).lower() for w in caught):
+                raise ValueError("Adapter weights do not completely match the selected base model")
+            with safe_open(adapter / "adapter_model.safetensors", framework="pt", device="cpu") as tensors:
+                if set(tensors.keys()) != set(get_peft_model_state_dict(self.model)):
+                    raise ValueError("Adapter has missing or unexpected tensors for this base")
         self.model.eval()
         self.runtime["quantization"] = method
         self.runtime["parameter_device"] = str(next(self.model.parameters()).device)
@@ -462,11 +567,24 @@ def main():
     parser.add_argument("--probe", action="store_true")
     parser.add_argument("--model")
     parser.add_argument("--model-id")
+    parser.add_argument("--adapter")
+    parser.add_argument("--inspect", action="store_true")
     parser.add_argument("--port", type=int, default=0)
     parser.add_argument("--ctx-size", type=int, default=2048)
     parser.add_argument("--parent-pid", type=int)
     parser.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
     args = parser.parse_args()
+    if args.inspect:
+        os.environ["HF_HUB_OFFLINE"] = "1"
+        os.environ["TRANSFORMERS_OFFLINE"] = "1"
+        os.environ["HF_HUB_DISABLE_TELEMETRY"] = "1"
+        # Check the actual optional loader before allowing registration.
+        with redirect_stdout(sys.stderr):
+            import peft
+        root = validate_directory(args.model)
+        adapter = validate_adapter(args.adapter, root)
+        print(json.dumps(adapter_memory(root, adapter, args.ctx_size, "cuda" if args.device == "cuda" else "cpu")))
+        return
     if args.probe:
         import torch
         import transformers
@@ -493,12 +611,15 @@ def main():
         threading.Thread(target=watch_process, args=(pid,), daemon=True).start()
     with redirect_stdout(sys.stderr):
         root = validate_directory(args.model)
-        method = quantization_method(json.loads((root / "config.json").read_text(encoding="utf-8")))
+        from float_quant import read_model_config
+        method = quantization_method(read_model_config(root))
         if method in ("exl3", "exl2"):
+            if args.adapter:
+                raise ValueError("PEFT adapters are not supported by the ExLlama engine")
             from exllama_backend import ExLlamaInference
             engine = ExLlamaInference(root, args.model_id, args.ctx_size, args.device)
         else:
-            engine = Inference(root, args.model_id, args.ctx_size, args.device)
+            engine = Inference(root, args.model_id, args.ctx_size, args.device, args.adapter)
     server = ThreadingHTTPServer(("127.0.0.1", args.port), make_handler(engine, api_key))
     server.daemon_threads = True
     print(json.dumps({"port": server.server_port, "model_id": args.model_id}), flush=True)

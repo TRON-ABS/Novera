@@ -4,6 +4,15 @@ fn main() {
         println!("cargo:rerun-if-changed=icons/icon.ico");
         println!("cargo:rerun-if-changed=icons/icon.png");
         tauri_build::build();
+
+        // tauri-build links resource.lib to binaries only. Let the library's
+        // cfg(test) link declaration reuse it for the Windows unit-test harness.
+        if std::env::var("CARGO_CFG_TARGET_OS").as_deref() == Ok("windows")
+            && std::env::var("CARGO_CFG_TARGET_ENV").as_deref() == Ok("msvc")
+        {
+            let out_dir = std::env::var("OUT_DIR").expect("Cargo must set OUT_DIR");
+            println!("cargo:rustc-link-search=native={out_dir}");
+        }
     }
 
     #[cfg(target_os = "macos")]

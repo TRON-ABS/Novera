@@ -11,7 +11,7 @@ import { useModelProvider } from '@/hooks/useModelProvider'
 import { measureHubModel, type HubMeasurement } from '@/lib/hubBenchmark'
 import { Button } from '@/components/ui/button'
 import { HubHardwareDiagnostic, useHubDiagnosis } from './HubHardwareDiagnostic'
-import { modelEngine } from '@/modules/engines/hub-catalog'
+import { isPeftAdapter, modelEngine } from '@/modules/engines/hub-catalog'
 
 export function HubModelFacts({ model }: { model: CatalogModel }) {
   const { t, i18n } = useTranslation()
@@ -19,6 +19,7 @@ export function HubModelFacts({ model }: { model: CatalogModel }) {
   const numbers = new Intl.NumberFormat(intlLocale(i18n.language), { maximumFractionDigits: 2 })
   const bytes = (value: number | null) => hubFormatBytes(value, i18n.language)
   return <div className="mt-3 space-y-2 text-xs">
+    {isPeftAdapter(model) && <p role="note">{t('providers:peft.standalone')}</p>}
     <div className="flex flex-wrap gap-x-4 gap-y-1">
       {model.hub && <span>{t('hub:discovery.parameters')}: {numbers.format(model.hub.parametersB)} B</span>}
       <span>{t('hub:discovery.weight')}: {bytes(hubWeight(model))}</span>

@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Penyesuai LoRA / PEFT ini memerlukan model asasnya yang lengkap. Import pangkalan dan pasangkan penyesuai dalam pembekal Safetensors; saiz penyesuai sahaja bukanlah memori yang diperlukan untuk menjalankannya.",
+    "attach": "Pasang penyesuai LoRA / PEFT",
+    "description": "Pilih model asas lengkap di atas, kemudian folder penyesuainya. Penyesuai sahaja bukanlah model yang lengkap. Identiti asas mesti sepadan dengan konfigurasi penyesuai.",
+    "folder": "Pilih folder penyesuai",
+    "base": "Memori model asas",
+    "overhead": "Cache dan overhed masa jalan",
+    "total": "Anggaran jumlah ingatan",
+    "estimate": "Anggaran CPU konservatif pada 2,048 token. Dikira semula untuk peranti dan konteks yang dipilih pada masa muat. Modul sasaran dan bentuk tensor disemak semasa memuatkan."
+  },
   "limitedSupport": "Pembekal ini mungkin tidak disokong sepenuhnya. Keupayaan (alat, penglihatan, audio) tidak dikesan secara automatik - tambah model secara manual dan konfigurasikan keupayaan setiap model.",
   "mlxExperimental": "MLX sokongan adalah percubaan. Pembenaman tidak tersedia, togol penaakulan belum disambungkan, dan beberapa seni bina model yang lebih baharu mungkin gagal dimuatkan. Laporkan isu tentang GitHub supaya kami boleh mengutamakannya.",
   "engineBundled": "Enjin inferens dibina dalam Novera, jadi tiada apa-apa untuk dimuat turun atau dikemas kini secara berasingan. Petik versi ini apabila melaporkan model yang gagal dimuatkan.",

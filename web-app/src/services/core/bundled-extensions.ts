@@ -88,6 +88,14 @@ if (IS_WINDOWS || IS_LINUX) {
   })
 }
 
+if (IS_WINDOWS || IS_LINUX || IS_MACOS) {
+  ENTRIES.push({
+    load: () => import('../onnx/engine'),
+    name: '@novera/onnx-extension', productName: 'ONNX Runtime',
+    version: '0.1.0', description: 'ONNX tensor graphs / GenAI text exports · local CPU / CUDA',
+  })
+}
+
 if (IS_MACOS) {
   ENTRIES.push({
     load: () => import('@janhq/mlx-extension'),

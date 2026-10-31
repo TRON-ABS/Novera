@@ -5,7 +5,7 @@ import type { HardwareData, SystemUsage } from '@/hooks/useHardware'
 import { selectDefaultQuant } from './models'
 import { DEFAULT_MODEL_QUANTIZATIONS } from '@/constants/models'
 import { DEFAULT_CTX_LENGTH, parseFileSize, sumMlxModelBytes } from './modelCompatibility'
-import { diagnoseHubModel, estimateHubMemory, estimateHubKvCache, type HubHardware } from '@/modules/engines/hub-catalog'
+import { diagnoseHubModel, estimateHubMemory, estimateHubKvCache, isPeftAdapter, modelEngine, type HubHardware } from '@/modules/engines/hub-catalog'
 import { isSpecSidecar, pickSpecSibling } from './specDraft'
 import { intlLocale } from '@/utils/intlLocale'
 
@@ -73,6 +73,7 @@ export function hubMemoryOptions(model: CatalogModel, variant?: Partial<ModelQua
 }
 
 export function hubMemory(m: CatalogModel): number | null {
+  if (isPeftAdapter(m) || modelEngine(m) === 'onnx') return null
   const options = hubMemoryOptions(m)
   return estimateHubMemory(options.weightsBytes, options.context, options.projectorBytes, estimateHubKvCache(m, options.context))
 }
@@ -126,6 +127,11 @@ export function sortHubModels(sources: CatalogModel[], sort: string, hardware: H
     if (sort === 'most-downloaded') return (b.downloads || 0) - (a.downloads || 0) || hubKey(a).localeCompare(hubKey(b))
     if (sort === 'newest') return date(b) - date(a) || hubKey(a).localeCompare(hubKey(b))
     if (sort === 'adapted' && fits.get(a) !== fits.get(b)) return fits.get(a)! - fits.get(b)!
+    // Within the same hardware fit, prefer actual releases before publisher/pins.
+    if (sort === 'adapted') {
+      const releaseOrder = date(b) - date(a)
+      if (releaseOrder) return releaseOrder
+    }
     const owner = (model: CatalogModel) => model.hub?.repo.split('/')[0] ?? model.developer
     const publisherOrder = Number(isOriginalPublisher(owner(b))) - Number(isOriginalPublisher(owner(a)))
     if (publisherOrder) return publisherOrder

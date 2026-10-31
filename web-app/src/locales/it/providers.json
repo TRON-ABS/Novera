@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Questo adattatore LoRA / PEFT richiede il suo modello base completo. Importa la base e collega l'adattatore nel provider Safetensors; la dimensione dell'adattatore da sola non è la memoria necessaria per eseguirlo.",
+    "attach": "Collegare un adattatore LoRA / PEFT",
+    "description": "Seleziona il modello base completo sopra, quindi la cartella dell'adattatore. Un adattatore da solo non è un modello completo. L'identità di base deve corrispondere alla configurazione dell'adattatore.",
+    "folder": "Seleziona la cartella dell'adattatore",
+    "base": "Memoria del modello base",
+    "overhead": "Cache e sovraccarico di runtime",
+    "total": "Memoria totale stimata",
+    "estimate": "Stima conservativa CPU a 2.048 token. Ricalcolato per il dispositivo e il contesto selezionati al momento del caricamento. I moduli target e le forme dei tensori vengono controllati durante il caricamento."
+  },
   "limitedSupport": "Questo provider potrebbe non essere completamente supportato. Le funzionalità (strumenti, visione, audio) non vengono rilevate automaticamente: aggiungi i modelli manualmente e configura le funzionalità per singolo modello.",
   "refreshModelsError": "Il provider deve avere un URL di base e almeno una chiave API configurata per poter recuperare i modelli.",
   "refreshModelsSuccess": "Aggiunto/i {{count}} nuovo/i modello/i da {{provider}}.",

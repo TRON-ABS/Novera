@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Le LoRA / PEFT iadaptha ifuna imodeli yayo epheleleyo. Ngenisa isiseko kwaye unamathisele i-adapter kumboneleli we-Safetensors; ubungakanani beadaptha iyodwa ayiyonkumbulo efunekayo ukuyiqhuba.",
+    "attach": "Qhoboshela iadaptha ye-LoRA / PEFT",
+    "description": "Khetha imodeli esisiseko epheleleyo ngasentla, emva koko ifolda yayo yeadaptha. Iadaptha iyodwa ayiyomodeli epheleleyo. Isazisi esisisiseko kufuneka sihambelane nobumbeko lweadaptha.",
+    "folder": "Khetha ifolda yeadaptha",
+    "base": "Isiseko sememori yemodeli",
+    "overhead": "I-Cache kunye nexesha lokusebenza ngaphezulu",
+    "total": "Ingqikelelo yenkumbulo iyonke",
+    "estimate": "Conservative CPU uqikelelo kwii-2,048 iithokheni. Kubalwe kwakhona isixhobo esikhethiweyo kunye nomxholo ngexesha lokulayisha. Iimodyuli ekujoliswe kuzo kunye neemilo ze-tensor ziyajongwa ngexesha lokulayisha."
+  },
   "limitedSupport": "Lo mboneleli unokungaxhaswa ngokupheleleyo. Izakhono (izixhobo, umbono, iaudio) ayibonwa ngokuzenzekelayo - yongeza iimodeli ngesandla kwaye uqwalasele ubunakho ngemodeli nganye.",
   "mlxExperimental": "MLX inkxaso iyalingwa. Uzinziso alufumaneki, ingqiqo yokuguqula ayikadityaniswa, kwaye ezinye iimodeli ezintsha zoyilo ezinokusilela ukulayisha. Xela imiba kwi-GitHub ukuze sibeke phambili.",
   "engineBundled": "Injini ye-inference yakhelwe kwi-Novera, ngoko akukho nto yokukhuphela okanye ukuhlaziya ngokwahlukileyo. Caphula olu guqulelo xa unika ingxelo ngomzekelo osilela ukulayisha.",

@@ -33,6 +33,18 @@ describe('Safetensors local engine', () => {
     expect(mockedInvoke).toHaveBeenCalledWith('transformers_delete', { modelId: 'tiny' })
   })
 
+  it('persists the adapter with its base and inspects cumulative memory using the configured Python', async () => {
+    mockedInvoke.mockResolvedValue(null)
+    await engine.import('base+lora', { modelPath: 'C:/base', adapterPath: 'C:/adapter' })
+    expect(mockedInvoke).toHaveBeenCalledWith('transformers_import', {
+      modelId: 'base+lora', modelPath: 'C:/base', adapterPath: 'C:/adapter', pythonPath: 'python',
+    })
+    await engine.inspectAdapter('C:/base', 'C:/adapter')
+    expect(mockedInvoke).toHaveBeenCalledWith('transformers_inspect_adapter', {
+      modelPath: 'C:/base', adapterPath: 'C:/adapter', pythonPath: 'python',
+    })
+  })
+
   it('does not advertise tools and returns only live model sessions', async () => {
     expect(await engine.isToolSupported()).toBe(false)
     mockedInvoke.mockResolvedValue(null)

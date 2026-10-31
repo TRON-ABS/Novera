@@ -12,6 +12,7 @@ export const LOCAL_MODEL_PROVIDERS = new Set([
   'llamacpp',
   'mlx',
   'transformers',
+  'onnx',
   'diffusers',
   'novera-music',
 ])

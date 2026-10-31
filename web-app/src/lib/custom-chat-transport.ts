@@ -719,6 +719,7 @@ const LOCAL_ENGINE_PROVIDERS: Record<string, true> = {
   llamacpp: true,
   mlx: true,
   transformers: true,
+  onnx: true,
 }
 
 const LOOPBACK_HOSTS: Record<string, true> = {

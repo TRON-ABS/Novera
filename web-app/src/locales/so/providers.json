@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Adapter-kan LoRA/PEFT wuxuu u baahan yahay moodelkiisa oo dhammaystiran. Soo deji saldhigga oo ku dheji adabtarada bixiyaha Safetensors; Cabbirka adabtarada oo keliya maaha xusuusta loo baahan yahay si loo socodsiiyo.",
+    "attach": "Ku dheji adabtarada LoRA/PEFT",
+    "description": "Dooro qaabka saldhigga oo dhammaystiran xagga sare, ka dibna galkiisa adabtarada. Adapter-ka kaligiis ma aha nooc dhamaystiran. Aqoonsiga salka waa inuu waafaqaa qaabeynta adabtarada.",
+    "folder": "Dooro gal adabtarada",
+    "base": "Xusuusta moodalka saldhiga",
+    "overhead": "Cache iyo wakhtiga runtu ka badan tahay",
+    "total": "Qiyaasta wadarta xusuusta",
+    "estimate": "Qiyaasta konserfatifka CPU ee 2,048 calaamadood. Dib loo xisaabiyay aaladda la doortay iyo macnaha guud ee wakhtiga rarka. Qaybaha bartilmaameedka iyo qaababka tensor-ka waa la hubiyaa marka la soo shubayo."
+  },
   "limitedSupport": "Bixiyahan laga yaabo inuusan si buuxda u taageersaneyn. Awoodaha (qalabka, aragtida, codka) si otomaatig ah looma oga - ku dar moodooyinka gacanta oo u habee awoodaha moodo kasta.",
   "mlxExperimental": "Taageerada MLX waa tijaabo. Embeddings lama heli karo, badhanka fikirka lama xirin weli, iyo qaar ka mid ah qaab-dhismeedyada cusub ee moodooyinka ayaa laga yaabaa inay ku guuldareystaan inay load garaystaan. Ku soo sheeg arrimaha GitHub si aan mudnaanta u siino.",
   "engineBundled": "Matoorka saadaasha waxaa ku dhex dhisan Novera, sidaas darteed wax download ah ama update gaar ah ma jirto. Sheeg noocan markaad soo sheegaysid moodo ku guuldareysatay inay load garayso.",

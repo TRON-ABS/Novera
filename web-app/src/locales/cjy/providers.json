@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "这个 LoRA / PEFT adapter 需要它完整的 base model。把 base 导入，然后在 Safetensors provider 里挂上 adapter；光看 adapter 的大小可不是运行它需要的内存。",
+    "attach": "Attach a LoRA / PEFT adapter",
+    "description": "先选上面完整的基模型，再选它对应的适配器文件夹。光有适配器不算完整模型。基模型的身份得跟适配器配置对得上。",
+    "folder": "选适配器文件夹",
+    "base": "基模型内存",
+    "overhead": "缓存和运行时开销",
+    "total": "预估总内存",
+    "estimate": "Conservative CPU estimate at 2,048 tokens. Recalculated for the selected device and context at load time. Target modules and tensor shapes are checked during loading. [\"CPU\"]"
+  },
   "limitedSupport": "该提供商可能未得到完全支持。功能（工具、视觉、音频）不会自动检测 - 手动添加模型并配置每个模型的功能。",
   "mlxExperimental": "MLX 支持处于实验阶段。嵌入不可用，推理切换尚未连接，并且某些较新的模型架构可能无法加载。在 GitHub 上报告问题，以便咱们确定它们的优先级。",
   "engineBundled": "推理引擎内置于Novera中，因此无需单独下载或更新。报告加载失败的模型时引用此版本。",

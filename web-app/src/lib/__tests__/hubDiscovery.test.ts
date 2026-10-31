@@ -101,3 +101,14 @@ describe('Novera Hub discovery', () => {
     expect(NOVERA_HUB_MODELS.every(m => !('tokensPerSecond' in m.hub!))).toBe(true)
   })
 })
+
+
+it('automatically favors newer releases at equal hardware fit before publisher, pins or size', () => {
+  const pinned = { ...NOVERA_HUB_MODELS[0], created_at: '2025-01-01', updated_at: '2026-10-31' }
+  const fresh = { ...model('2 GB'), model_name: 'New-v2', developer: 'community', created_at: '2026-10-30' }
+  const huge = { ...fresh, model_name: 'New-v3', created_at: '2026-10-31', quants: [{ model_id: 'huge', path: '', file_size: '600 GB' }] }
+  const unknown = { ...model('1 GB'), created_at: 'invalid' }
+  expect(sortHubModels([pinned, huge, unknown, fresh], 'adapted', hardware)).toEqual([fresh, pinned, unknown, huge])
+  const usage = { cpu: 0, total_memory: 16384, used_memory: 13300, gpus: [] }
+  expect(sortHubModels([fresh, pinned], 'adapted', hardware, usage)[0]).toBe(pinned)
+})

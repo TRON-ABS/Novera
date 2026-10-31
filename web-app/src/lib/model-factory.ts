@@ -866,6 +866,7 @@ export class ModelFactory {
       case 'mlx':
         return this.createMlxModel(modelId, provider, parameters, streamThreadId)
 
+      case 'onnx':
       case 'transformers':
         return this.createTransformersModel(modelId, provider, parameters)
 
@@ -995,8 +996,8 @@ export class ModelFactory {
     const hub = useServiceStore.getState().serviceHub
     if (!hub) throw new Error('Local model services are not ready')
     await hub.models().startModel(provider, modelId)
-    const session = await invoke<SessionInfo | null>('transformers_session', { modelId })
-    if (!session) throw new Error(`No running Safetensors session for ${modelId}`)
+    const session = await invoke<SessionInfo | null>(`${provider.provider}_session`, { modelId })
+    if (!session) throw new Error(`No running ${provider.provider === 'onnx' ? 'ONNX' : 'Safetensors'} session for ${modelId}`)
     const baseUrl = `http://127.0.0.1:${session.port}`
     const headers = { Authorization: `Bearer ${session.api_key}`, Origin: 'tauri://localhost' }
     // Only expose sampling options implemented by this CPU engine.
@@ -1019,7 +1020,7 @@ export class ModelFactory {
       return baseFetch(input, { ...init, headers: requestHeaders })
     }
     return new OpenAICompatibleChatLanguageModel(modelId, {
-      provider: 'transformers', headers: () => headers,
+      provider: provider.provider, headers: () => headers,
       url: ({ path }) => `${baseUrl}/v1${path}`, fetch, includeUsage: true,
     })
   }

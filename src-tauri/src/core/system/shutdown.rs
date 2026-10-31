@@ -30,6 +30,8 @@ pub async fn shutdown_cleanup<R: Runtime>(app: &AppHandle<R>) {
     #[cfg(not(any(target_os = "android", target_os = "ios")))]
     crate::core::transformers::cleanup().await;
     #[cfg(not(any(target_os = "android", target_os = "ios")))]
+    crate::core::onnx::cleanup().await;
+    #[cfg(not(any(target_os = "android", target_os = "ios")))]
     crate::core::creation::cleanup().await;
 
     let state = app.state::<AppState>();

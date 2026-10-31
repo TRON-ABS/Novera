@@ -208,6 +208,8 @@ export const getProviderTitle = (provider: string) => {
   if (media) return media.name
   if (provider === 'diffusers') return 'Diffusers'
   switch (provider) {
+    case 'onnx':
+      return 'ONNX Runtime'
     case 'transformers':
       return 'Safetensors / Transformers / ExLlama'
     case 'tabbyapi':

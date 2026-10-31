@@ -20,12 +20,14 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog'
+import { Link } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
 
 const engineNames = {
   llamacpp: 'llama.cpp / GGUF',
   mlx: 'MLX / Apple Silicon',
   transformers: 'Transformers / Safetensors',
+  onnx: 'ONNX Runtime',
   future: '—',
 }
 
@@ -124,6 +126,11 @@ function DiagnosisDetails({
       <p className="text-xs text-muted-foreground">
         {t('hub:catalog.estimateNote')}
       </p>
+      {diagnosis.engine === 'onnx' && (
+        <Link to="/settings/providers/$providerName" params={{ providerName: 'onnx' }} className="underline text-xs">
+          ONNX Runtime · {t('providers:import')}
+        </Link>
+      )}
       {diagnosis.engine === 'transformers' && (
         <p className="text-xs text-muted-foreground">
           {t('hub:catalog.pythonNote')}
@@ -131,7 +138,7 @@ function DiagnosisDetails({
       )}
       {runtime && (
         <p className="text-xs">
-          Python {runtime.python} · PyTorch {runtime.torch} ·{' '}
+          Python {runtime.python} · {diagnosis.engine === 'onnx' ? `ONNX Runtime ${runtime.onnxruntime}` : `PyTorch ${runtime.torch}`}  ·{' '}
           {runtime.cudaAvailable ? (runtime.gpu?.name ?? 'CUDA') : 'CPU'}
         </p>
       )}
@@ -216,9 +223,9 @@ export function useHubDownloadReview(
         : model
       if (detail) setReviewedModel(updated)
       else setFailed(true)
-      if (modelEngine(updated) === 'transformers') {
+      if (['transformers', 'onnx'].includes(modelEngine(updated))) {
         const engine = ExtensionManager.getInstance().getEngine(
-          'transformers'
+          modelEngine(updated)
         ) as { probe?: () => Promise<unknown> } | undefined
         if (engine?.probe) {
           try {

@@ -561,10 +561,10 @@ mod tests {
     }
 
     #[test]
-    fn built_in_jan_skill_is_advertised_without_project_skills() {
+    fn built_in_novera_skill_is_advertised_without_project_skills() {
         let root = scratch_project("nodir");
         let block = load_skills(&root).expect("built-in skills block");
-        assert!(block.contains("## Skill: jan"));
+        assert!(block.contains("## Skill: novera"));
         let _ = std::fs::remove_dir_all(&root);
     }
 

@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "這款 LoRA / PEFT 轉接器需要完整的基本款。導入底座並在 Safetensors 提供者中附加適配器；適配器大小本身並不是運行它所需的記憶體。",
+    "attach": "連接 LoRA / PEFT 轉接器",
+    "description": "選擇上面的完整基礎模型，然後選擇其適配器資料夾。單獨的適配器並不是一個完整的模型。基本標識必須與適配器配置相符。",
+    "folder": "選擇適配器資料夾",
+    "base": "基礎模型內存",
+    "overhead": "快取和運行時開銷",
+    "total": "估計總內存",
+    "estimate": "保守估計 CPU 為 2,048 個代幣。在載入時針對選定的設備和上下文重新計算。在加載過程中檢查目標模組和張量形狀。"
+  },
   "refreshModelsError": "提供者必須設定基本 URL 和 API 金鑰才能擷取模型。",
   "refreshModelsSuccess": "已從 {{provider}} 新增 {{count}} 個新模型。",
   "noNewModels": "找不到新模型。所有可用的模型都已新增。",

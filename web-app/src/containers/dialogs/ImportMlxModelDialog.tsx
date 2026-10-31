@@ -8,7 +8,9 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { useServiceHub } from '@/hooks/useServiceHub'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import type TransformersEngine from '@/services/transformers/engine'
+import { hubFormatBytes } from '@/lib/hubDiscovery'
 import { toast } from 'sonner'
 import {
   IconLoader2,
@@ -29,12 +31,30 @@ export const ImportMlxModelDialog = ({
   onSuccess,
 }: ImportMlxModelDialogProps) => {
   const serviceHub = useServiceHub()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isOnnx = provider.provider === 'onnx'
+  const formatName = isOnnx ? 'ONNX' : provider.provider === 'transformers' ? 'Safetensors' : 'MLX'
   const isTransformers = provider.provider === 'transformers'
   const [open, setOpen] = useState(false)
   const [importing, setImporting] = useState(false)
   const [selectedPath, setSelectedPath] = useState<string | null>(null)
   const [modelName, setModelName] = useState('')
+  const [withAdapter, setWithAdapter] = useState(false)
+  const [adapterPath, setAdapterPath] = useState<string | null>(null)
+  const [memory, setMemory] = useState<Awaited<ReturnType<TransformersEngine['inspectAdapter']>> | null>(null)
+  const [adapterError, setAdapterError] = useState('')
+  useEffect(() => {
+    let active = true
+    setMemory(null)
+    setAdapterError('')
+    if (isTransformers && withAdapter && selectedPath && adapterPath) {
+      const engine = ExtensionManager.getInstance().getEngine('transformers') as TransformersEngine | undefined
+      if (engine) void engine.inspectAdapter(selectedPath, adapterPath).then(report => {
+        if (active) setMemory(report)
+      }).catch(error => { if (active) setAdapterError(String(error)) })
+    }
+    return () => { active = false }
+  }, [isTransformers, withAdapter, selectedPath, adapterPath])
 
   const handleFileSelect = async () => {
     const result = await serviceHub.dialog().open({
@@ -61,6 +81,7 @@ export const ImportMlxModelDialog = ({
       toast.error(t('common:error'), { description: t('common:browse') })
       return
     }
+    if (isTransformers && withAdapter && (!adapterPath || !memory)) return
 
     if (!modelName) {
       toast.error(t('providers:addModel.enterModelId'))
@@ -100,6 +121,7 @@ export const ImportMlxModelDialog = ({
       console.log(`[${provider.provider} Import] Calling engine.import()...`)
       await engine.import(modelName, {
         modelPath: selectedPath,
+        ...(isTransformers && withAdapter && adapterPath ? { adapterPath } : {}),
       })
       console.log(`[${provider.provider} Import] Import completed`)
 
@@ -107,6 +129,8 @@ export const ImportMlxModelDialog = ({
 
       // Reset form and close dialog
       setSelectedPath(null)
+      setAdapterPath(null)
+      setWithAdapter(false)
       setModelName('')
       setOpen(false)
       onSuccess?.(modelName)
@@ -123,6 +147,8 @@ export const ImportMlxModelDialog = ({
 
   const resetForm = () => {
     setSelectedPath(null)
+    setAdapterPath(null)
+    setWithAdapter(false)
     setModelName('')
   }
 
@@ -149,10 +175,10 @@ export const ImportMlxModelDialog = ({
       >
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
-            {`${t('providers:import')} ${isTransformers ? 'Safetensors' : 'MLX'}`}
+            {`${t('providers:import')} ${formatName}`}
           </DialogTitle>
           <DialogDescription>
-            {t('providers:addModel.description', { provider: `${isTransformers ? 'Safetensors' : 'MLX'} (config.json, tokenizer.json, model.safetensors)` })}
+            {t('providers:addModel.description', { provider: isOnnx ? 'ONNX (.onnx, novera_onnx.json, genai_config.json)' : `${formatName} (config.json, tokenizer.json, model.safetensors)` })}
           </DialogDescription>
         </DialogHeader>
 
@@ -166,7 +192,7 @@ export const ImportMlxModelDialog = ({
               type="text"
               value={modelName}
               onChange={(e) => setModelName(e.target.value)}
-              placeholder={isTransformers ? 'my-safetensors-model' : 'my-mlx-model'}
+              placeholder={isOnnx ? 'my-onnx-model' : isTransformers ? 'my-safetensors-model' : 'my-mlx-model'}
               className="w-full px-3 py-2 bg-background border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent/50"
             />
             <p className="text-xs text-muted-foreground">
@@ -218,6 +244,30 @@ export const ImportMlxModelDialog = ({
           </div>
 
           {/* Preview */}
+          {isTransformers && <div className="space-y-2">
+            <label className="flex items-center gap-2 text-sm">
+              <input type="checkbox" checked={withAdapter} disabled={importing}
+                onChange={event => setWithAdapter(event.target.checked)} />
+              {t('providers:peft.attach')}
+            </label>
+            {withAdapter && <>
+              <p className="text-xs text-muted-foreground">{t('providers:peft.description')}</p>
+              <Button variant="secondary" disabled={importing} onClick={async () => {
+                const path = await serviceHub.dialog().open({ multiple: false, directory: true })
+                if (typeof path === 'string') setAdapterPath(path)
+              }}>{t('providers:peft.folder')}</Button>
+              {adapterPath && <p className="text-xs break-all">{adapterPath}</p>}
+              {selectedPath && adapterPath && !memory && !adapterError && <p role="status">{t('common:loading')}</p>}
+              {adapterError && <p role="alert" className="text-xs text-destructive">{adapterError}</p>}
+              {memory && <div className="text-xs space-y-1" role="status">
+                <p>{t('providers:peft.base')}: {hubFormatBytes(memory.baseBytes, i18n.language)}</p>
+                <p>LoRA / PEFT: {hubFormatBytes(memory.adapterBytes, i18n.language)}</p>
+                <p>{t('providers:peft.overhead')}: {hubFormatBytes(memory.overheadAndCacheBytes, i18n.language)}</p>
+                <p>{t('providers:peft.total')}: {hubFormatBytes(memory.totalBytes, i18n.language)}</p>
+                <p className="text-muted-foreground">{t('providers:peft.estimate')}</p>
+              </div>}
+            </>}
+          </div>}
           {modelName && (
             <div className="rounded-lg p-3">
               <div className="flex items-center gap-2">
@@ -244,7 +294,7 @@ export const ImportMlxModelDialog = ({
           <Button
             onClick={handleImport}
             size="sm"
-            disabled={importing || !selectedPath || !modelName}
+            disabled={importing || !selectedPath || !modelName || (isTransformers && withAdapter && (!adapterPath || !memory))}
           >
             {importing && <IconLoader2 className="mr-2 size-4 animate-spin" />}
             {importing ? t('common:loading') : t('providers:import')}

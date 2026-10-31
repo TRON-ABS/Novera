@@ -12,6 +12,7 @@ use tokio::{
     sync::Mutex,
 };
 
+const FLOAT_SCRIPT: &str = include_str!("../../../transformers-server/float_quant.py");
 const EXLLAMA_SCRIPT: &str = include_str!("../../../transformers-server/exllama_backend.py");
 const SCRIPT: &str = include_str!("../../../transformers-server/server.py");
 static WORKER: LazyLock<Mutex<Option<Worker>>> = LazyLock::new(|| Mutex::new(None));
@@ -32,6 +33,7 @@ pub struct Session {
     device: String,
     torch_version: String,
     context_size: u32,
+    memory: Option<serde_json::Value>,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
@@ -44,6 +46,10 @@ pub struct Model {
     provider_id: String,
     port: u16,
     imported: bool,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    adapter_path: Option<PathBuf>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    memory: Option<serde_json::Value>,
 }
 
 async fn directory<R: Runtime>(app: AppHandle<R>) -> Result<PathBuf, String> {
@@ -68,6 +74,57 @@ fn write_models(directory: &Path, models: &[Model]) -> Result<(), String> {
     std::fs::write(directory.join("models.json"), data).map_err(|e| e.to_string())
 }
 
+fn inspect_modelopt(config: &serde_json::Value, raw: &serde_json::Value) -> bool {
+    let quant = raw.get("quantization").unwrap_or(raw);
+    let Some(quant) = quant.as_object() else {
+        return false;
+    };
+    let algo = quant.get("quant_algo").and_then(|v| v.as_str());
+    if !matches!(algo, Some("FP8" | "NVFP4")) {
+        return false;
+    }
+    if quant
+        .get("kv_cache_quant_algo")
+        .is_some_and(|v| !v.is_null())
+    {
+        return false;
+    }
+    if ["quantized_layers", "moe_quant_algo", "weight_block_size"]
+        .iter()
+        .any(|key| quant.contains_key(*key))
+    {
+        return false;
+    }
+    if quant.get("exclude_modules").is_some_and(|v| {
+        !v.as_array()
+            .is_some_and(|a| a.iter().all(|v| v.as_str() == Some("lm_head")))
+    }) {
+        return false;
+    }
+    if algo == Some("FP8") && quant.get("group_size").is_some_and(|v| !v.is_null()) {
+        return false;
+    }
+    if algo == Some("NVFP4") && quant.get("group_size").and_then(|v| v.as_u64()) != Some(16) {
+        return false;
+    }
+    let expected = match config["model_type"].as_str() {
+        Some("llama") => "LlamaForCausalLM",
+        Some("qwen2") => "Qwen2ForCausalLM",
+        Some("qwen3") => "Qwen3ForCausalLM",
+        _ => return false,
+    };
+    config["architectures"] == serde_json::json!([expected])
+        && ![
+            "auto_map",
+            "vision_config",
+            "text_config",
+            "num_local_experts",
+            "num_experts",
+        ]
+        .iter()
+        .any(|key| config.get(*key).is_some())
+}
+
 fn inspect_quantization(config: &serde_json::Value) -> Result<(), String> {
     let Some(quant) = config.get("quantization_config").filter(|v| !v.is_null()) else {
         return Ok(());
@@ -76,6 +133,7 @@ fn inspect_quantization(config: &serde_json::Value) -> Result<(), String> {
         .as_object()
         .ok_or("quantization_config must be an object")?;
     let valid = match quant.get("quant_method").and_then(|v| v.as_str()) {
+        Some("modelopt") => inspect_modelopt(config, &config["quantization_config"]),
         Some("exl3" | "exl2") => quant
             .get("bits")
             .and_then(|v| v.as_f64())
@@ -125,16 +183,56 @@ fn inspect_quantization(config: &serde_json::Value) -> Result<(), String> {
     if valid {
         Ok(())
     } else {
-        Err("Unsupported or invalid quantization configuration. Supported: EXL3, EXL2, AWQ GEMM 4-bit, GPTQ 2/3/4/8-bit, bitsandbytes 4/8-bit; CUDA and optional loaders required.".into())
+        Err("Unsupported or invalid quantization configuration. Supported: dense Llama/Qwen2/Qwen3 ModelOpt FP8/NVFP4, EXL3, EXL2, AWQ GEMM 4-bit, GPTQ 2/3/4/8-bit, bitsandbytes 4/8-bit; CUDA and optional loaders required.".into())
     }
 }
 
 fn inspect(path: &Path) -> Result<u64, String> {
+    let canonical = path.canonicalize().map_err(|e| e.to_string())?;
+    let path = canonical.as_path();
+    if !path.is_dir() {
+        return Err("Select a complete model directory".into());
+    }
+    if path.join("adapter_config.json").exists() {
+        return Err("An adapter is not a complete model. Select its base model and attach the adapter separately.".into());
+    }
     let read_json = |name: &str| -> Result<serde_json::Value, String> {
         serde_json::from_slice(&std::fs::read(path.join(name)).map_err(|e| format!("{name}: {e}"))?)
             .map_err(|e| e.to_string())
     };
-    let config = read_json("config.json")?;
+    let mut config = read_json("config.json")?;
+    if !config.is_object() {
+        return Err("config.json must be an object".into());
+    }
+    if path.join("hf_quant_config.json").exists() {
+        let sidecar = path
+            .join("hf_quant_config.json")
+            .canonicalize()
+            .map_err(|e| e.to_string())?;
+        if !sidecar.starts_with(path) {
+            return Err("External ModelOpt metadata".into());
+        }
+        let sidecar = read_json("hf_quant_config.json")?;
+        let quant = sidecar
+            .get("quantization")
+            .filter(|v| v.is_object())
+            .ok_or("Invalid ModelOpt sidecar")?;
+        if let Some(inline) = config.get("quantization_config").filter(|v| !v.is_null()) {
+            let mut flattened = inline.clone();
+            let object = flattened
+                .as_object_mut()
+                .ok_or("Invalid inline quantization")?;
+            if object.remove("quant_method") != Some(serde_json::json!("modelopt")) {
+                return Err("Conflicting quantization configurations".into());
+            }
+            let flattened = flattened.get("quantization").unwrap_or(&flattened);
+            if flattened != quant {
+                return Err("Conflicting ModelOpt configurations".into());
+            }
+        }
+        config["quantization_config"] =
+            serde_json::json!({"quant_method":"modelopt", "quantization":quant});
+    }
     inspect_quantization(&config)?;
     if ![
         "tokenizer.json",
@@ -205,6 +303,8 @@ pub async fn transformers_import<R: Runtime>(
     app: AppHandle<R>,
     model_id: String,
     model_path: String,
+    adapter_path: Option<String>,
+    python_path: Option<String>,
 ) -> Result<(), String> {
     if model_id.trim().is_empty() || model_id.len() > 200 {
         return Err("Invalid model name".into());
@@ -212,7 +312,31 @@ pub async fn transformers_import<R: Runtime>(
     let path = PathBuf::from(model_path)
         .canonicalize()
         .map_err(|e| e.to_string())?;
-    let size_bytes = inspect(&path)?;
+    let mut size_bytes = inspect(&path)?;
+    let adapter_path = adapter_path
+        .map(|p| PathBuf::from(p).canonicalize().map_err(|e| e.to_string()))
+        .transpose()?;
+    let memory = if let Some(adapter) = &adapter_path {
+        let report = transformers_inspect_adapter(
+            app.clone(),
+            path.to_string_lossy().into_owned(),
+            adapter.to_string_lossy().into_owned(),
+            python_path.unwrap_or_else(|| "python".into()),
+        )
+        .await?;
+        size_bytes = size_bytes
+            .checked_add(
+                adapter
+                    .join("adapter_model.safetensors")
+                    .metadata()
+                    .map_err(|e| e.to_string())?
+                    .len(),
+            )
+            .ok_or("Model size overflow")?;
+        Some(report)
+    } else {
+        None
+    };
     let _guard = REGISTRY.lock().await;
     let directory = directory(app).await?;
     let mut models = read_models(&directory)?;
@@ -227,8 +351,46 @@ pub async fn transformers_import<R: Runtime>(
         provider_id: "transformers".into(),
         port: 0,
         imported: true,
+        adapter_path,
+        memory,
     });
     write_models(&directory, &models)
+}
+
+/// Offline validation and conservative CPU memory estimate at the default context.
+#[tauri::command]
+pub async fn transformers_inspect_adapter<R: Runtime>(
+    app: AppHandle<R>,
+    model_path: String,
+    adapter_path: String,
+    python_path: String,
+) -> Result<serde_json::Value, String> {
+    let directory = directory(app).await?;
+    std::fs::write(directory.join("float_quant.py"), FLOAT_SCRIPT).map_err(|e| e.to_string())?;
+    let script = directory.join("adapter-inspect.py");
+    std::fs::write(&script, SCRIPT).map_err(|e| e.to_string())?;
+    let mut command = Command::new(python_path);
+    command
+        .arg("-u")
+        .arg(script)
+        .arg("--inspect")
+        .arg("--model")
+        .arg(model_path)
+        .arg("--adapter")
+        .arg(adapter_path)
+        .env("HF_HUB_OFFLINE", "1")
+        .env("TRANSFORMERS_OFFLINE", "1")
+        .kill_on_drop(true);
+    #[cfg(windows)]
+    command.creation_flags(0x08000000);
+    let output = tokio::time::timeout(std::time::Duration::from_secs(30), command.output())
+        .await
+        .map_err(|_| "Adapter inspection timed out")?
+        .map_err(|e| e.to_string())?;
+    if !output.status.success() {
+        return Err(String::from_utf8_lossy(&output.stderr).into_owned());
+    }
+    serde_json::from_slice(&output.stdout).map_err(|e| e.to_string())
 }
 
 async fn stop_worker(worker: &mut Option<Worker>) -> Result<(), String> {
@@ -314,6 +476,7 @@ pub async fn transformers_load<R: Runtime>(
     stop_worker(&mut worker).await?;
     let script = directory.join("server.py");
     std::fs::write(&script, SCRIPT).map_err(|e| e.to_string())?;
+    std::fs::write(directory.join("float_quant.py"), FLOAT_SCRIPT).map_err(|e| e.to_string())?;
     std::fs::write(directory.join("exllama_backend.py"), EXLLAMA_SCRIPT)
         .map_err(|e| e.to_string())?;
     let listener = std::net::TcpListener::bind("127.0.0.1:0").map_err(|e| e.to_string())?;
@@ -352,6 +515,9 @@ pub async fn transformers_load<R: Runtime>(
         .stdout(Stdio::null())
         .stderr(log)
         .kill_on_drop(true);
+    if let Some(adapter) = &model.adapter_path {
+        command.arg("--adapter").arg(adapter);
+    }
     #[cfg(windows)]
     command.creation_flags(0x08000000); // CREATE_NO_WINDOW
     let mut child = command.spawn().map_err(|e| format!("Cannot start Python: {e}. Configure the Python executable with torch, transformers and safetensors installed."))?;
@@ -407,6 +573,7 @@ pub async fn transformers_load<R: Runtime>(
         device: runtime["device"].as_str().unwrap_or("unknown").into(),
         torch_version: runtime["torch"].as_str().unwrap_or("unknown").into(),
         context_size: runtime["context_size"].as_u64().unwrap_or(2048) as u32,
+        memory: runtime.get("memory").cloned(),
     };
     *worker = Some(Worker {
         child,
@@ -424,6 +591,7 @@ pub async fn transformers_probe<R: Runtime>(
     let directory = directory(app).await?;
     let script = directory.join("probe.py");
     std::fs::write(&script, SCRIPT).map_err(|e| e.to_string())?;
+    std::fs::write(directory.join("float_quant.py"), FLOAT_SCRIPT).map_err(|e| e.to_string())?;
     std::fs::write(directory.join("exllama_backend.py"), EXLLAMA_SCRIPT)
         .map_err(|e| e.to_string())?;
     let mut command = Command::new(if python_path.trim().is_empty() {
@@ -466,6 +634,41 @@ pub async fn transformers_probe<R: Runtime>(
 mod tests {
     use super::*;
     #[test]
+    fn validates_modelopt_sidecars_and_rejects_conflicts() {
+        let temp = tempfile::tempdir().unwrap();
+        let root = temp.path().canonicalize().unwrap();
+        let base = serde_json::json!({"model_type":"llama", "architectures":["LlamaForCausalLM"]});
+        std::fs::write(root.join("config.json"), base.to_string()).unwrap();
+        std::fs::write(root.join("tokenizer.json"), "{}").unwrap();
+        std::fs::write(root.join("model.safetensors"), [0u8; 8]).unwrap();
+        std::fs::write(
+            root.join("hf_quant_config.json"),
+            r#"{"quantization":{"quant_algo":"NVFP4","group_size":16}}"#,
+        )
+        .unwrap();
+        assert_eq!(inspect(&root).unwrap(), 8);
+        let mut conflict = base.clone();
+        conflict["quantization_config"] =
+            serde_json::json!({"quant_method":"modelopt","quant_algo":"FP8"});
+        std::fs::write(root.join("config.json"), conflict.to_string()).unwrap();
+        assert!(inspect(&root).unwrap_err().contains("Conflicting"));
+        let mut unsupported = base;
+        unsupported["model_type"] = serde_json::json!("qwen3_moe");
+        std::fs::write(root.join("config.json"), unsupported.to_string()).unwrap();
+        assert!(inspect(&root).is_err());
+    }
+
+    #[test]
+    fn existing_models_remain_readable_without_adapter_metadata() {
+        let model: Model = serde_json::from_value(serde_json::json!({
+            "id":"base", "name":"base", "path":"base", "sizeBytes":10,
+            "providerId":"transformers", "port":0, "imported":true
+        }))
+        .unwrap();
+        assert!(model.adapter_path.is_none());
+        assert!(model.memory.is_none());
+    }
+    #[test]
     fn shares_quantization_policy_with_python_and_hub() {
         let cases: Vec<serde_json::Value> = serde_json::from_str(include_str!(
             "../../../transformers-server/quantization-cases.json"
@@ -493,7 +696,7 @@ mod tests {
         assert_eq!(runtime["ready"], true);
         assert_eq!(runtime["python"], "3.15.1");
         let id = "tiny-safetensors-test".to_string();
-        transformers_import(handle.clone(), id.clone(), model.clone())
+        transformers_import(handle.clone(), id.clone(), model.clone(), None, None)
             .await
             .unwrap();
         assert_eq!(transformers_list(handle.clone()).await.unwrap().len(), 1);
@@ -528,7 +731,7 @@ mod tests {
             .unwrap();
         assert!(transformers_session(id).await.unwrap().is_none());
         assert!(transformers_list(handle).await.unwrap().is_empty());
-        assert!(Path::new(&model).join("model.safetensors").is_file());
+        assert!(inspect(Path::new(&model)).unwrap() > 0);
     }
 
     #[test]
@@ -542,6 +745,9 @@ mod tests {
         assert!(inspect(&root).is_err());
         std::fs::write(root.join("model.safetensors"), [0u8; 8]).unwrap();
         assert_eq!(inspect(&root).unwrap(), 8);
+        std::fs::write(root.join("adapter_config.json"), "{}").unwrap();
+        assert!(inspect(&root).unwrap_err().contains("not a complete model"));
+        std::fs::remove_file(root.join("adapter_config.json")).unwrap();
         std::fs::write(
             root.join("model.safetensors.index.json"),
             r#"{"weight_map":{"weight":"../outside.safetensors"}}"#,

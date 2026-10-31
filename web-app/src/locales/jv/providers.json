@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Adaptor LoRA / PEFT iki mbutuhake model dhasar sing lengkap. Impor basa lan masang adaptor ing panyedhiya Safetensors; ukuran adaptor piyambak ora memori dibutuhake kanggo mbukak.",
+    "attach": "Pasang adaptor LoRA / PEFT",
+    "description": "Pilih model dhasar lengkap ing ndhuwur, banjur folder adaptor. Adaptor piyambak ora model lengkap. Identitas dasar kudu cocog karo konfigurasi adaptor.",
+    "folder": "Pilih folder adaptor",
+    "base": "Memori model dhasar",
+    "overhead": "Cache lan overhead runtime",
+    "total": "Perkiraan total memori",
+    "estimate": "Perkiraan CPU konservatif ing 2.048 token. Dietung maneh kanggo piranti lan konteks sing dipilih nalika mbukak. Modul target lan wangun tensor dicenthang nalika mbukak."
+  },
   "limitedSupport": "Panyedhiya iki bisa uga ora didhukung kanthi lengkap. Kapabilitas (alat, sesanti, audio) ora otomatis dideteksi - nambah model kanthi manual lan ngatur kapabilitas saben model.",
   "mlxExperimental": "Dhukungan MLX minangka eksperimen. Embeddings ora kasedhiya, pilihan alesan durung disambungake, lan sawetara arsitektur model sing luwih anyar bisa uga gagal dimuat. Lapor masalah ing GitHub supaya kita bisa menehi prioritas.",
   "engineBundled": "Mesin inferensi dibangun ing Novera, dadi ora ana sing bisa didownload utawa dianyari kanthi kapisah. Kutip versi iki nalika nglaporake model sing gagal dimuat.",

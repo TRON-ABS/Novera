@@ -201,12 +201,16 @@ function HubContent() {
     const unique = [...new Map([...sources, ...discovered].map(model => [hubKey(model), model])).values()]
     let sorted = mergeHubCatalog(unique).filter(m => hubSizeMatches(m, sizeBand) && categoryMatches(m, category))
     if (format === 'gguf') sorted = sorted.filter(model => !!model.quants?.length && !model.is_mlx)
+    if (format === 'fp8' || format === 'nvfp4') sorted = sorted.filter(model => hubQuantization(model) === `modelopt-${format}`)
     if (format === 'exl3' || format === 'exl2') sorted = sorted.filter(model => hubQuantization(model) === format && !!model.safetensors_files?.length)
     if (format === 'safetensors') sorted = sorted.filter(model => !!model.safetensors_files?.length && !model.is_mlx)
     if (format === 'mlx') sorted = sorted.filter(model => !!model.is_mlx)
     if (format === 'onnx') sorted = sorted.filter(model => model.files?.some(file => /\.onnx$/i.test(file.name)))
     if (format === 'pytorch') sorted = sorted.filter(model => model.files?.some(file => /\.(?:pt|pth|bin)$/i.test(file.name)))
-    if (availability !== 'all') sorted = sorted.filter(model => (modelEngine(model) === 'future') === (availability === 'planned'))
+    if (availability !== 'all') sorted = sorted.filter(model =>
+      availability === 'integrated' || availability === 'planned'
+        ? (modelEngine(model) === 'future') === (availability === 'planned')
+        : modelEngine(model) === availability)
 
     // Apply MLX/GGUF filter first (only on Mac)
     if (sortSelected === 'mlx') {
@@ -232,11 +236,11 @@ function HubContent() {
     let active = true
     ++categorySequence.current
     setCategoryPage({ category, models: [], loading: true, error: false })
-    void fetchHubCategoryPage(fetch, category, undefined, cleanHubSearchQuery(debouncedSearchValue), sortSelected)
+    void fetchHubCategoryPage(fetch, category, undefined, cleanHubSearchQuery(debouncedSearchValue), sortSelected, ['onnx', 'fp8', 'nvfp4'].includes(format) ? format : availability === 'onnx' ? 'onnx' : '')
       .then(page => { if (active) setCategoryPage({ category, models: page.repos.map(repo => serviceHub.models().convertHfRepoToCatalogModel(repo)), cursor: page.nextCursor, loading: false, error: false }) })
       .catch(() => { if (active) setCategoryPage({ category, models: [], loading: false, error: true }) })
     return () => { active = false }
-  }, [category, debouncedSearchValue, serviceHub, categoryReload, sortSelected])
+  }, [category, debouncedSearchValue, serviceHub, categoryReload, sortSelected, format, availability])
 
   async function fetchMoreInCategory() {
     if (categoryPage.category !== category || categoryPage.loading || categoryPage.error || !categoryPage.cursor) return
@@ -244,7 +248,7 @@ function HubContent() {
     const sequence = categorySequence.current
     setCategoryPage(previous => ({ ...previous, loading: true, error: false }))
     try {
-      const page = await fetchHubCategoryPage(fetch, selected, categoryPage.cursor, cleanHubSearchQuery(debouncedSearchValue), sortSelected)
+      const page = await fetchHubCategoryPage(fetch, selected, categoryPage.cursor, cleanHubSearchQuery(debouncedSearchValue), sortSelected, ['onnx', 'fp8', 'nvfp4'].includes(format) ? format : availability === 'onnx' ? 'onnx' : '')
       setCategoryPage(previous => previous.category !== selected || sequence !== categorySequence.current ? previous : ({ ...previous,
         models: [...new Map([...previous.models, ...page.repos.map(repo => serviceHub.models().convertHfRepoToCatalogModel(repo))].map(model => [hubKey(model), model])).values()],
         cursor: page.nextCursor === previous.cursor ? undefined : page.nextCursor, loading: false,
@@ -549,10 +553,10 @@ function HubContent() {
               <HubAdvisor models={filteredModels} />
               <div className="flex flex-wrap items-center gap-2 text-xs">
                 <select className="rounded border bg-background px-2 py-1.5" aria-label={t('hub:catalog.format')} value={format} onChange={event => setFormat(event.target.value)}>
-                  <option value="all">{t('hub:catalog.allFormats')}</option><option value="gguf">GGUF</option><option value="exl3">EXL3</option><option value="exl2">EXL2</option><option value="safetensors">Safetensors</option><option value="mlx">MLX</option><option value="onnx">ONNX</option><option value="pytorch">PyTorch</option>
+                  <option value="all">{t('hub:catalog.allFormats')}</option><option value="gguf">GGUF</option><option value="fp8">FP8 · LLM</option><option value="nvfp4">NVFP4 · LLM</option><option value="exl3">EXL3</option><option value="exl2">EXL2</option><option value="safetensors">Safetensors</option><option value="mlx">MLX</option><option value="onnx">ONNX</option><option value="pytorch">PyTorch</option>
                 </select>
                 <select className="rounded border bg-background px-2 py-1.5" aria-label={t('hub:catalog.availability')} value={availability} onChange={event => setAvailability(event.target.value)}>
-                  <option value="all">{t('hub:catalog.allEngines')}</option><option value="integrated">{t('hub:catalog.integrated')}</option><option value="planned">{t('hub:catalog.planned')}</option>
+                  <option value="all">{t('hub:catalog.allEngines')}</option><option value="integrated">{t('hub:catalog.integrated')}</option><option value="planned">{t('hub:catalog.planned')}</option><option value="llamacpp">llama.cpp</option><option value="mlx">MLX</option><option value="transformers">Transformers</option><option value="onnx">ONNX Runtime</option>
                 </select>
                 <span className="ml-auto text-muted-foreground">{filteredModels.length} · {t('hub:catalog.loaded')}</span>
                 {categoryPage.loading && <span role="status">{t('hub:loadingModels')}</span>}

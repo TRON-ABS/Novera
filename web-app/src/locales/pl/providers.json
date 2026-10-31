@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Ten adapter LoRA / PEFT wymaga kompletnego modelu podstawowego. Zaimportuj bazę i podłącz adapter w dostawcy Safetensors; Sam rozmiar adaptera nie jest ilością pamięci wymaganą do jego uruchomienia.",
+    "attach": "Podłącz adapter LoRA / PEFT",
+    "description": "Wybierz powyżej cały model podstawowy, a następnie jego folder adaptera. Sam adapter nie jest kompletnym modelem. Tożsamość podstawowa musi być zgodna z konfiguracją adaptera.",
+    "folder": "Wybierz folder adaptera",
+    "base": "Pamięć modelu podstawowego",
+    "overhead": "Pamięć podręczna i obciążenie środowiska wykonawczego",
+    "total": "Szacowana całkowita pamięć",
+    "estimate": "Konserwatywne oszacowanie CPU w tokenach 2,048. Obliczone ponownie dla wybranego urządzenia i kontekstu w czasie ładowania. Podczas ładowania sprawdzane są moduły docelowe i kształty tensorów."
+  },
   "refreshModelsError": "Dostawca musi mieć ustawiony adres URL i klucz API aby pobrać modele.",
   "refreshModelsSuccess": "Dodano {{count}} model-e/i od dostawcy {{provider}}.",
   "noNewModels": "Nie znaleziono nowych modeli. Wszystkie modele są już dodane.",

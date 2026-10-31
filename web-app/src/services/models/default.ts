@@ -1,3 +1,4 @@
+import { hydrateModeloptMetadata } from './modeloptMetadata'
 import { groupGgufFiles, hfFileUrl, splitGgufName } from './ggufShards'
 import {
   beginLocalMemory,
@@ -130,7 +131,7 @@ export class DefaultModelsService implements ModelsService {
       }
 
       const repoData = await response.json()
-      return repoData
+      return hydrateModeloptMetadata(fetch, repoData)
     } catch (error) {
       console.error('Error fetching HuggingFace repository:', error)
       return null
@@ -488,6 +489,8 @@ export class DefaultModelsService implements ModelsService {
     const mlxModels = await this.getActiveModels('mlx')
     if (mlxModels)
       await Promise.all(mlxModels.map((model) => this.stopModel(model, 'mlx')))
+    const onnxModels = await this.getActiveModels('onnx')
+    await Promise.all(onnxModels.map(model => this.stopModel(model, 'onnx')))
     const transformersModels = await this.getActiveModels('transformers')
     await Promise.all(
       transformersModels.map((model) => this.stopModel(model, 'transformers'))

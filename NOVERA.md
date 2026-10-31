@@ -1,5 +1,43 @@
 # Novera — instructions du projet
 
+## Publication des sources et de la vitrine — 31 octobre 2026
+
+Demande explicite de mise à jour directement sur `main` : lot ONNX, tri récent adapté au matériel, LoRA/PEFT, FP8/NVFP4 LLM et correction des tests Tauri Windows. README anglais/français, À propos GitHub, guides moteurs, rapports et suivi TokenEconomizer actualisés ensemble. Actions reste désactivé ; aucun nouveau binaire public. Les huit nouveaux textes PEFT sont traduits dans les 80 locales ; inventaire à 2 412 clés par langue et contrôle structurel sans erreur. Traductions assistées avec corrections ciblées, sans prétendre à une relecture native complète. Autres travaux locaux préservés. Dernier relevé TokenEconomizer : 3 sessions consolidées, 9,3 M tokens effectifs, 0 surcoût, 0 fait injecté, 0 redirection ; aucune économie prouvée.
+
+## Safetensors FP8 / NVFP4 pour les LLM — 31 octobre 2026
+
+Demande explicite : exploiter les exports quantifiés adaptés au GPU avec validation des architectures et des kernels ; le chemin NVFP4 image ne suffit pas. Les sources du fournisseur Safetensors disposent d’un chargeur CUDA distinct pour **ModelOpt FP8 par tenseur et NVFP4 bloc 16**, sur **Llama, Qwen2 et Qwen3 denses ForCausalLM**. Conserver les poids quantifiés compacts, lire la configuration inline ou `hf_quant_config.json`, contrôler tous les tenseurs/projections/échelles et les conflits de métadonnées. Vérifier une GEMM numérique réelle en préremplissage et décodage, puis un passage préremplissage + cache sur le modèle chargé avant disponibilité. Ne pas utiliser de repli silencieux CPU ou de cache de poids BF16. Les embeddings, normalisations et tête non quantifiés restent BF16.
+
+Le Hub propose **FP8 · LLM** et **NVFP4 · LLM** ; sa sonde doit confirmer les kernels exécutés. Les métadonnées ModelOpt distantes sont des JSON publics bornés et épinglés à une révision ; une lecture impossible ou incohérente reste non prise en charge. Conditions minimales de sélection : NVIDIA CUDA, SM ≥ 8.9 pour FP8 ou ≥ 10.0 pour NVFP4, sous réserve de la sonde réelle. Dimensions actuellement alignées sur 16 (FP8) ou 128 (NVFP4). Exclure les FP8 par blocs, formats compressed-tensors, variantes mixtes, MoE/hybrides/multimodales, caches KV quantifiés et adaptateurs sur ces bases. La matrice vLLM sert de référence de formats ; ce lot n’installe pas vLLM.
+
+**Validation réelle RTX 5070 Laptop / SM120** : les six combinaisons famille/format génèrent sur CUDA, plus un cas Qwen3 à embeddings liés ; poids NVFP4 découpés, JSON/SSE, authentification, reprise après erreur et arrêt du worker vérifiés. Parcours natifs Tauri FP8 et NVFP4 réussis ; **1 154 tests Tauri réussis, 0 échec, 2 intégrations optionnelles ignorées**. **220 tests web**, **33 tests Python réussis / 9 optionnels ignorés**, TypeScript, architecture et lint ciblé réussis. Fixtures non entraînées créées hors ligne : aucune preuve de qualité sur des modèles utiles ni de gain de vitesse, aucun poids préentraîné téléchargé et aucune application installée mise à jour pour ce lot.
+
+[Installation, formats et limites](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms) · [Mesures et commandes](deliverables/llm-float-2026-10-31/validation.md). Actualiser les MD et le suivi TokenEconomizer à la fin des travaux, sans assimiler ses tokens effectifs à une économie ou au quota de l’abonnement.
+
+
+## ONNX et modèles récents adaptés au matériel — 31 octobre 2026
+
+Demande du mainteneur : ajouter un moteur général pour les exports ONNX compatibles, notamment les petites tâches spécialisées, et proposer ONNX dans le filtre des moteurs du Hub. Les sources desktop intègrent désormais ONNX Runtime : import local validé de dossiers complets, graphes numériques/booléens via tenseurs JSON et exports texte préparés pour ONNX Runtime GenAI. Réutiliser le cycle local, le transport authentifié, le streaming et l’arrêt ; conserver les poids lors du retrait de l’enregistrement. Les pré/post-traitements spécialisés restent à fournir par l’appelant. Ne pas présenter tout fichier `.onnx` comme un pipeline conversationnel ou multimodal utilisable directement. Le Hub interroge les exports ONNX et conduit à l’import local ; pas de téléchargement automatique de bundles arbitraires.
+
+Le tri **adapté au matériel**, conservé par défaut, favorise automatiquement les sorties récentes **à compatibilité et mémoire disponible équivalentes**, avant l’éditeur, la sélection épinglée et la taille. Une simple édition récente d’un ancien dépôt ne remplace pas sa date de création connue. Ne pas remplacer automatiquement les modèles déjà installés.
+
+Validation du lot : **155 tests web**, **9 tests Python**, **2 tests Rust isolés**, TypeScript et architecture réussis. Inférence CPU réelle sur petits graphes ; GenAI testé avec un décodeur synthétique, sans preuve de qualité d’un modèle entraîné, de cache KV réaliste ou de performance CUDA. [Installation et limites](onnx-server/README.md), [rapport ONNX](deliverables/onnx-2026-10-31/validation.md).
+
+## Tests Tauri Windows débloqués — 31 octobre 2026
+
+Le blocage `STATUS_ENTRYPOINT_NOT_FOUND (0xc0000139)` venait du manifeste Common Controls v6 absent du binaire de tests de la bibliothèque : l’ancienne `comctl32.dll` n’exporte pas `TaskDialogIndirect`. Réutiliser la ressource compilée par Tauri, liée aux tests uniquement sous Windows/MSVC avec `tauri-app`, et conserver sa liaison unique au binaire normal. Un test de régression résout la fonction sans ouvrir de fenêtre.
+
+Résultats locaux finaux : **1 153 tests Tauri réussis, aucun échec, 2 tests optionnels ignorés** ; les **2 tests ONNX avec le véritable environnement Tauri passent séparément**, dont import, chargement, inférence HTTP authentifiée, déchargement et conservation des poids. Deux anciennes fixtures ont été corrigées : nom du skill intégré Novera et création portable d’un fichier témoin au lieu de `touch`. Les assertions d’autorisation des outils restent conservées.
+
+La **compilation desktop debug Windows réussit**, et son manifeste v6 a été vérifié. Il s’agit d’une compilation de validation sous `src-tauri/target/debug`, sans installation, publication de binaire, validation de l’interface graphique ni changement du build distribué. [Diagnostic, commandes et preuves](deliverables/tauri-windows-tests-2026-10-31/validation.md). La correction lève la limitation DLL précédemment signalée pour ONNX.
+
+## Suivi TokenEconomizer — 31 octobre 2026
+
+Demande explicite : tenir le mainteneur informé des statistiques à la fin des travaux et actualiser [le suivi TokenEconomizer](docs/TOKENECONOMIZER.md). Dernier relevé après le lot FP8/NVFP4 : **2 sessions consolidées, 3,3 M tokens effectifs, 0 token de surcoût plugin (0,0 %), 0 fait injecté, 0 redirection et 0 notification de boucle persistante** ; enveloppe encore non apprise, 3 tours terminés sans erreur observés et 6 tours recensés. Réglages inchangés : `microskills=envfacts`, `toolprune=off`, `loopguard=nudge`, `repomap=off`.
+
+Ce cumul ne mesure pas le coût isolé de cette tâche, les tokens économisés ou le quota hebdomadaire ChatGPT. Ne pas annoncer de gain démontré sans comparaison. La correction Tauri et ses tests ne prouvent pas que TokenEconomizer a contribué à la résolution. Conserver dans son MD les relevés exacts, leur contexte et leurs limites.
+
+
 ## Sélecteur de modèle unique dans le tableau de bord — 29 octobre 2026
 
 Demande explicite avec les deux captures : déplacer le sélecteur complet du haut à la place du petit bouton de modèle du tableau de bord, en conservant le style compact de celui du bas, le petit engrenage et le voyant d’évaluation matériel original. Supprimer le doublon du haut sur l’accueil, les conversations et les projets. Garder un seul choix dans ces vues. Ouvrir la liste vers le haut et afficher le modèle réellement sélectionné (ou la sélection média de la tâche active), sans remplacer le voyant estimatif par un vert forcé.
@@ -189,7 +227,9 @@ Lire [le tableau de bord](TABLEAU_DE_BORD_NOVERA.md) pour l’état actuel, [le 
 
 ## Autorisations et état courant
 
-**Dernière instruction du mainteneur, 27 octobre 2026 : ne pas mettre à jour le dépôt pour le moment.** Les corrections de l’éditeur officiel des instructions, des aperçus d’images et de la configuration Texte/Image/Vidéo restent locales. Aucun chemin personnel ne doit être préconfiguré par défaut. Les poids vidéo ne sont pas téléchargés sans demande ou confirmation explicite. Aucun commit/push ni modification de vitrine sans nouvelle demande explicite ; cette pause remplace les autorisations de publication antérieures.
+**Dernière instruction du mainteneur, 31 octobre 2026 : mettre à jour les sources directement sur `main`, la vitrine GitHub et les Markdown.** Cette demande explicite lève la pause ci-dessous pour le lot ONNX, sélection récente adaptée au matériel, LoRA/PEFT, FP8/NVFP4 LLM et correction des tests Windows. Préserver les autres travaux locaux ; ne pas activer Actions ni publier de binaire.
+
+**Instruction remplacée du 27 octobre 2026 : pause historique de publication.** Les corrections de l’éditeur officiel des instructions, des aperçus d’images et de la configuration Texte/Image/Vidéo restent locales. Aucun chemin personnel ne doit être préconfiguré par défaut. Les poids vidéo ne sont pas téléchargés sans demande ou confirmation explicite. Aucun commit/push ni modification de vitrine sans nouvelle demande explicite ; cette pause remplace les autorisations de publication antérieures.
 
 Derniers choix du 27 octobre : graines Image/Vidéo **aléatoires par défaut**, modes avancés conservés dans les deux sections, **21:9 par défaut**, vidéo **5 secondes par défaut** (remplace la demande initiale de 3 secondes). Garder le choix expérimental de **1 seconde à 1 heure**, à gauche du format sur le tableau de bord, et annoncer les limites réelles des assemblages longs. Aperçus vidéo adaptés à la fenêtre. Le bouton des conseils retrouve l’**icône à curseurs**, distincte du bouclier des autorisations. Direction confirmée : simple, facile, performant et utile, sans masquer les échecs ni promettre des expériences non validées.
 

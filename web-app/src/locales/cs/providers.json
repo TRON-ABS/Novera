@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Tento LoRA / PEFT adaptér vyžaduje svůj kompletní základní model. Importujte základ a připojte adaptér v poskytovateli Safetensors; samotná velikost adaptéra není paměť potřebná k jeho spuštění.",
+    "attach": "Připojte LoRA / PEFT adaptér",
+    "description": "Vyberte výše kompletní základní model, poté jeho složku adaptéra. Adaptér sám o sobě není kompletní model. Identita základního modelu musí odpovídat konfiguraci adaptéra.",
+    "folder": "Vyberte složku adaptéra",
+    "base": "Paměť základního modelu",
+    "overhead": "Přehled pro cache a běh",
+    "total": "Odhadovaná celková paměť",
+    "estimate": "Conservative CPU estimate at 2,048 tokens. Recalculated for the selected device and context at load time. Target modules and tensor shapes are checked during loading. [\"CPU\"]"
+  },
   "refreshModelsError": "Poskytovatel musí mít nakonfigurovanou základní URL a API klíč pro načtení modelů.",
   "refreshModelsSuccess": "Přidáno {{count}} nových modelů od {{provider}}.",
   "noNewModels": "Nebyly nalezeny žádné nové modely. Všechny dostupné modely již byly přidány.",

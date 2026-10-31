@@ -11,7 +11,7 @@ import { invoke } from '@tauri-apps/api/core'
 
 const defaults: SettingComponentProps[] = [{
   key: 'python_path', title: 'Python',
-  description: 'Python · PyTorch CUDA · Transformers / ExLlama',
+  description: 'Python · PyTorch CUDA · Transformers / ExLlama · ModelOpt FP8 / NVFP4',
   controllerType: 'input',
   controllerProps: { value: 'python', placeholder: 'python.exe / bin/python', type: 'text' },
 }, {
@@ -55,7 +55,13 @@ export default class TransformersEngine extends AIEngine {
   async list(): Promise<modelInfo[]> { return invoke('transformers_list') }
   async get(id: string) { return (await this.list()).find(model => model.id === id) }
   async import(modelId: string, options: ImportOptions): Promise<void> {
-    await invoke('transformers_import', { modelId, modelPath: options.modelPath })
+    const adapter = options.adapterPath ? { adapterPath: options.adapterPath,
+      pythonPath: String((await this.getSettings()).find(s => s.key === 'python_path')?.controllerProps.value ?? 'python') } : {}
+    await invoke('transformers_import', { modelId, modelPath: options.modelPath, ...adapter })
+  }
+  async inspectAdapter(modelPath: string, adapterPath: string): Promise<{ baseBytes: number; adapterBytes: number; overheadAndCacheBytes: number; totalBytes: number }> {
+    const pythonPath = String((await this.getSettings()).find(s => s.key === 'python_path')?.controllerProps.value ?? 'python')
+    return invoke('transformers_inspect_adapter', { modelPath, adapterPath, pythonPath })
   }
   async delete(modelId: string): Promise<void> { await invoke('transformers_delete', { modelId }) }
   async update(): Promise<void> { throw new Error('Reimport the folder to change model metadata') }

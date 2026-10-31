@@ -29,6 +29,13 @@ const sf = {
 }
 
 describe('Hub taxonomy and hardware checks', () => {
+  it('never treats an adapter alone as a runnable complete model', () => {
+    expect(modelEngine({ ...sf, library_name: 'peft' })).toBe('future')
+    expect(diagnoseHubModel({ ...sf, library_name: 'peft' }, hardware, { weightsBytes: 1e6 })).toMatchObject({ memory: 'unknown', requiredBytes: null })
+    expect(modelEngine({ ...sf, files: [{ name: 'adapter_config.json' }] })).toBe('future')
+    expect(modelEngine({ ...sf, safetensors_files: [{ path: 'adapter_model.safetensors' }] })).toBe('future')
+    expect(modelEngine({ ...sf, tags: ['lora'], safetensors_files: [{ path: 'model.safetensors' }] })).toBe('transformers')
+  })
   it.each(quantizationCases)('shares the native/Python quantization policy: $name', ({ config, expected }) => {
     expect(hubQuantization({ model_config: config })).toBe(expected)
     expect(modelEngine({ ...sf, model_config: config })).toBe(expected === 'unsupported' ? 'future' : 'transformers')
@@ -274,4 +281,24 @@ describe('ExLlama quantized execution paths', () => {
     const available = diagnoseHubModel(model, hardware, { weightsBytes: 600000000, runtime: { ready: true, cudaAvailable: true, quantization: { [method]: { available: true } } } })
     expect(available.engineState).toBe('check')
   })
+})
+
+
+it('routes actual ONNX exports to local import without inventing task support or memory', () => {
+  const hardware = { platform: 'windows', ramBytes: 16 * 1024 ** 3, gpus: [] }
+  const graph = { pipeline_tag: 'tabular-classification', files: [{ name: 'onnx/model.onnx' }] }
+  expect(modelEngine(graph)).toBe('onnx')
+  expect(modelEngine({ tags: ['onnx'], pipeline_tag: 'text-classification' })).toBe('future')
+  expect(diagnoseHubModel(graph, hardware, { weightsBytes: 1000 })).toMatchObject({ engineState: 'runtime', memory: 'unknown', requiredBytes: null, canDownload: false })
+  expect(diagnoseHubModel(graph, { ...hardware, platform: 'macos' }, { weightsBytes: 1000, runtime: { ready: true, cudaAvailable: false } }).engineState).toBe('check')
+  expect(diagnoseHubModel(graph, { ...hardware, platform: 'android' }, { weightsBytes: 1000 }).engineState).toBe('platform')
+})
+
+
+it('requires a real floating-point kernel probe and separates the NVFP4 LLM from image advice', () => {
+  const model = { ...sf, model_config: { model_type: 'qwen3', architectures: ['Qwen3ForCausalLM'], quantization_config: { quant_method: 'modelopt', quant_algo: 'NVFP4', group_size: 16 } }, model_name: 'Qwen3-NVFP4' }
+  const runtime = { ready: true, cudaAvailable: true, gpu: { name: 'RTX', totalBytes: 8 * GiB, freeBytes: 7 * GiB }, quantization: { 'modelopt-nvfp4': { available: true } } }
+  expect(diagnoseHubModel(model, hardware, { weightsBytes: GiB, runtime }).engineState).toBe('runtime')
+  expect(diagnoseHubModel(model, hardware, { weightsBytes: GiB, runtime: { ...runtime, quantization: { 'modelopt-nvfp4': { available: true, kernelValidated: true } } } })).toMatchObject({ engineState: 'check', quantization: 'modelopt-nvfp4' })
+  expect(nvfp4ModelAdvice(model, hardware)).toBeUndefined()
 })

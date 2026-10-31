@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Ushbu LoRA / PEFT adapteri to'liq asosiy modelini talab qiladi. Bazani import qiling va adapterni Safetensors provayderiga ulang; faqat adapter hajmi uni ishga tushirish uchun zarur bo'lgan xotira emas.",
+    "attach": "LoRA / PEFT adapterini ulang",
+    "description": "Yuqoridagi toʻliq asosiy modelni, soʻngra uning adapter papkasini tanlang. Adapterning o'zi to'liq model emas. Asosiy identifikator adapter konfiguratsiyasiga mos kelishi kerak.",
+    "folder": "Adapter jildini tanlang",
+    "base": "Asosiy model xotirasi",
+    "overhead": "Kesh va ish vaqti",
+    "total": "Taxminiy umumiy xotira",
+    "estimate": "2,048 tokenlarida konservativ CPU taxmini. Tanlangan qurilma va yuklash vaqtida kontekst uchun qayta hisoblangan. Yuklash vaqtida maqsadli modullar va tensor shakllari tekshiriladi."
+  },
   "limitedSupport": "Bu provayder to‘liq qo‘llab-quvvatlanmasligi mumkin. Qobiliyatlar (asboblar, ko‘rish, audio) avtomatik ravishda aniqlanmaydi - modellarni qo‘lda qo‘shing va har bir model uchun qobiliyatlarni sozlang.",
   "mlxExperimental": "MLX qo‘llab-quvvatlashi eksperimentaldir. Qo‘shishlar mavjud emas, fikrlash tugmachasi hali ishga tushirilmagan va ba’zi yangi model arxitekturalari yuklashda muvaffaqiyatsizlikka uchrashi mumkin. Bu muammolar haqida GitHub da xabar bering, shunda biz ularni ustunlikka qo‘yishimiz mumkin.",
   "engineBundled": "Intuitsiya motori Noveraga o‘rnatilgan, shuning uchun yuklab olish yoki alohida yangilash uchun hech narsa yo‘q. Bu versiyani yuklab olishda muvaffaqiyatsizlikka uchragan model haqida xabar berganingizda keltiring.",

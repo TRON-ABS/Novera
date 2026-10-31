@@ -1,3 +1,4 @@
+import { hydrateModeloptMetadata } from './modeloptMetadata'
 import { HUB_CATEGORIES, type HubCategory } from '@/modules/engines/hub-catalog'
 import type { HuggingFaceRepo } from './types'
 
@@ -9,18 +10,18 @@ const safeUrl = (raw: string) => {
 }
 
 /** Broad discovery is metadata-only. Task support is assessed separately from format. */
-export function fetchHubCategoryPage(fetchImpl: typeof fetch, category: HubCategory, cursor?: string, search = '', sort = 'adapted'): Promise<Page> {
-  const key = `${category}:${search}:${sort}:${cursor ?? ''}`
+export function fetchHubCategoryPage(fetchImpl: typeof fetch, category: HubCategory, cursor?: string, search = '', sort = 'adapted', format = ''): Promise<Page> {
+  const key = `${category}:${search}:${sort}:${format}:${cursor ?? ''}`
   const cached = cache.get(key)
   if (cached && cached.expires > Date.now()) return cached.page
-  const page = load(fetchImpl, category, cursor, search, sort)
+  const page = load(fetchImpl, category, cursor, search, sort, format)
   cache.set(key, { expires: Date.now() + 600000, page })
   void page.catch(() => cache.delete(key))
   if (cache.size > 30) cache.delete(cache.keys().next().value!)
   return page
 }
 
-async function load(fetchImpl: typeof fetch, category: HubCategory, cursor?: string, search = '', sort = 'adapted'): Promise<Page> {
+async function load(fetchImpl: typeof fetch, category: HubCategory, cursor?: string, search = '', sort = 'adapted', format = ''): Promise<Page> {
   const definition = HUB_CATEGORIES.find(item => item.id === category)
   if (!definition) throw new Error('Unknown Hub category')
   let urls: string[]
@@ -29,7 +30,11 @@ async function load(fetchImpl: typeof fetch, category: HubCategory, cursor?: str
     if (!Array.isArray(decoded) || decoded.length > 6 || !decoded.every(url => typeof url === 'string' && safeUrl(url))) throw new Error('Invalid Hub category cursor')
     urls = decoded
   } else {
-    const queries: Record<string, string>[] = [
+    const queries: Record<string, string>[] = ['onnx', 'fp8', 'nvfp4'].includes(format)
+      ? definition.tasks.length
+        ? definition.tasks.slice(0, 4).map(task => ({ filter: format, pipeline_tag: task }))
+        : [{ filter: format }]
+      : [
       ...definition.tasks.slice(0, 4).map(task => ({ pipeline_tag: task })),
       ...definition.tags.slice(0, 2).map(tag => ({ filter: tag })),
     ]
@@ -77,6 +82,13 @@ async function load(fetchImpl: typeof fetch, category: HubCategory, cursor?: str
           rows[current] = { ...repo, ...detail, id: repo.id, modelId: repo.modelId, author: repo.author }
         }
       } catch { /* A detail failure must not discard the discoverable model. */ }
+    }
+  }))
+  index = 0
+  await Promise.all(Array.from({ length: Math.min(3, rows.length) }, async () => {
+    while (index < rows.length) {
+      const current = index++
+      rows[current] = await hydrateModeloptMetadata(fetchImpl, rows[current], !rateLimited)
     }
   }))
   return { repos: rows, ...(next.length ? { nextCursor: JSON.stringify([...new Set(next)]) } : {}) }

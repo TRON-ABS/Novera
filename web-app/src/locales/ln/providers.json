@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Adaptateur oyo ya LoRA / PEFT esengaka modèle na yango ya base complet. Kokɔtisa base mpe kokangisa adaptateur na mopesi ya Safetensors; bonene ya adaptateur yango moko ezali mémoire oyo esengeli mpo na kosala yango te.",
+    "attach": "Kangisa adaptateur LoRA / PEFT",
+    "description": "Pona modèle ya base mobimba likolo, sima dossier adaptateur na yango. Adaptateur yango moko ezali modèle complet te. Identité ya base esengeli ekokana na configuration ya adaptateur.",
+    "folder": "Pona dossier ya adaptateur",
+    "base": "Mémoire ya modèle ya base",
+    "overhead": "Cache na tango ya kosala na likolo",
+    "total": "Mémoire totale oyo ekanisami",
+    "estimate": "Conservateurs CPU ekanisami na 2.048 jetons. Recalculer mpo na dispositif oyo eponami mpe contexte na tango ya chargement. Ba modules ya cible na ba shapes ya tensor e vérifier na tango ya chargement."
+  },
   "limitedSupport": "Mopesi oyo akoki kozala na lisungi mobimba te. Ba capacités (bisaleli, vision, audio) e détecté automatique te - bakisa ba modèles manuellement pe ko configurer ba capacités par modèle.",
   "mlxExperimental": "MLX lisungi ezali ya komeka. Ba embeddings ezali te, toggle ya raisonnement ezali nanu filé te, mpe ba architectures mosusu ya modèle ya sika ekoki kozanga ko charger. Lakisa makambo na GitHub po tokoka ko prioritiser yango.",
   "engineBundled": "Moteur ya inférence etongami na Novera, yango wana eloko ya ko télécharger to ya ko mettre à jour separatement ezali te. Citer version oyo tango ozali ko rapporter modèle oyo elongi te ko charger.",

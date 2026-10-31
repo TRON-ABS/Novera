@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Ang LoRA / PEFT adapter na ito ay nangangailangan ng kumpletong base model nito. I-import ang base at ikabit ang adapter sa Safetensors provider; Ang laki ng adaptor lamang ay hindi ang memorya na kinakailangan upang patakbuhin ito.",
+    "attach": "Mag-attach ng LoRA / PEFT adapter",
+    "description": "Piliin ang kumpletong base model sa itaas, pagkatapos ay ang adapter folder nito. Ang isang adaptor lamang ay hindi isang kumpletong modelo. Dapat tumugma ang base identity sa configuration ng adapter.",
+    "folder": "Piliin ang folder ng adaptor",
+    "base": "Base na memorya ng modelo",
+    "overhead": "Cache at runtime overhead",
+    "total": "Tinantyang kabuuang memorya",
+    "estimate": "Konserbatibong CPU tinantyang nasa 2,048 token. Muling kinakalkula para sa napiling device at konteksto sa oras ng pag-load. Ang mga target na module at tensor na hugis ay sinusuri habang naglo-load."
+  },
   "limitedSupport": "Maaaring hindi ganap ang suporta sa tagapagbigay na ito. Hindi awtomatikong natutukoy ang mga kakayahan (mga tool, paningin, audio) — magdagdag ng mga modelo at itakda ang kakayahan ng bawat isa nang manu-mano.",
   "mlxExperimental": "Eksperimental ang suporta sa MLX. Hindi magagamit ang mga embedding, hindi pa nakakabit ang switch ng pangangatwiran, at maaaring hindi ma-load ang ilang bagong arkitektura ng modelo. Mag-ulat ng mga isyu sa GitHub para mabigyan namin ng prayoridad.",
   "engineBundled": "Kasama na sa Novera ang inference engine kaya walang kailangang hiwalay na i-download o i-update. Banggitin ang bersyong ito kapag nag-uulat ng modelong hindi ma-load.",

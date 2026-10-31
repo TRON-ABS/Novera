@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Adaptor LoRA / PEFT ini memerlukan model dasar yang lengkap. Impor basis dan pasang adaptor di penyedia Safetensors; ukuran adaptor saja bukanlah memori yang diperlukan untuk menjalankannya.",
+    "attach": "Pasang adaptor LoRA / PEFT",
+    "description": "Pilih model dasar lengkap di atas, lalu folder adaptornya. Adaptor saja bukanlah model yang lengkap. Identitas dasar harus cocok dengan konfigurasi adaptor.",
+    "folder": "Pilih folder adaptor",
+    "base": "Memori model dasar",
+    "overhead": "Cache dan overhead waktu proses",
+    "total": "Perkiraan total memori",
+    "estimate": "Perkiraan CPU konservatif adalah 2,048 token. Dihitung ulang untuk perangkat dan konteks yang dipilih pada waktu muat. Modul target dan bentuk tensor diperiksa selama pemuatan."
+  },
   "refreshModelsError": "Penyedia harus memiliki URL dasar dan kunci API yang dikonfigurasi untuk mengambil model.",
   "refreshModelsSuccess": "Menambahkan {{count}} model baru dari {{provider}}.",
   "noNewModels": "Tidak ada model baru yang ditemukan. Semua model yang tersedia sudah ditambahkan.",

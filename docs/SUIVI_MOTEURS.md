@@ -1,5 +1,24 @@
 # Suivi des moteurs locaux Novera
 
+## FP8 / NVFP4 natifs pour les LLM denses — 31 octobre 2026
+
+Un chargeur propre aux LLM ModelOpt s’ajoute au moteur Safetensors, distinct du NVFP4 image : FP8 E4M3 par tenseur et NVFP4 bloc 16, architectures denses Llama/Qwen2/Qwen3 contrôlées, poids compacts conservés sur CUDA. Les kernels doivent exécuter une GEMM numérique en préremplissage et décodage ; chaque projection du modèle chargé est aussi parcourue avant disponibilité. Métadonnées inline/sidecar et tous les tenseurs contrôlés, GPU compatible et mémoire libre requis ; aucun repli silencieux en poids BF16 ou CPU. Les filtres du Hub séparent FP8 LLM/NVFP4 LLM et exigent la sonde réussie.
+
+Sur RTX 5070 Laptop (SM120), six fixtures non entraînées famille/format et un cas Qwen3 à embeddings liés sont validés. Les écarts des GEMM contre les produits décodés sont d’environ **0,15–0,17 %**. Les projections compactées occupent **327 680 octets en FP8** et **163 840 en NVFP4**, hors échelles, autres tenseurs et runtime. Les écarts de logits face à une référence sans quantification des activations atteignent **19,3 %** sur ces fixtures ; ce n’est pas une mesure de qualité sur un modèle entraîné. Aucune accélération générale n’est revendiquée.
+
+Validation : **220 tests web**, **33 tests Python réussis / 9 optionnels ignorés**, parcours natifs CUDA FP8/NVFP4 avec Tauri, **1 154 tests Tauri réussis / 2 optionnels ignorés**, TypeScript, lint ciblé et architecture sans erreur. Les autres formats vLLM, MoE/hybrides/VLM, FP8 par blocs, caches KV quantifiés et LoRA quantifié restent hors périmètre. Python 3.15.1 / PyTorch 2.14.1+cu130 / Transformers 5.20.2 / comfy-kitchen 0.2.35 testés ; pas de nouvelle application installée ou publiée. [Installation et limites](../transformers-server/README.md#modelopt-fp8-and-nvfp4-llms), [rapport et mesures](../deliverables/llm-float-2026-10-31/validation.md).
+
+
+## ONNX et versions récentes adaptées — 31 octobre 2026
+
+**Suivi du blocage Windows :** le manifeste Common Controls v6 est désormais lié au harnais de tests Tauri. Les deux tests ONNX natifs passent avec Tauri, au-delà du harnais isolé. Suite complète : **1 153 réussis, 0 échec, 2 tests optionnels ignorés**. Deux anciennes fixtures de tests ont été corrigées (nom du skill Novera et commande shell portable). La compilation desktop debug réussit aussi. [Diagnostic et validation](../deliverables/tauri-windows-tests-2026-10-31/validation.md).
+
+Un moteur local ONNX Runtime est intégré aux sources desktop Windows/Linux/macOS : import validé de dossiers complets, graphes généraux avec entrées/sorties JSON de tenseurs, exports texte ONNX Runtime GenAI, streaming authentifié, annulation et arrêt du worker. L'import conserve les poids en place. Le Hub propose le moteur ONNX, interroge ses exports explicitement et conduit à l'import local ; le téléchargement automatique de bundles arbitraires reste hors périmètre. Pré/post-traitements spécialisés à fournir par l'appelant ; aucune compatibilité de pipeline ne découle de la seule extension `.onnx`. [Installation et limites](../onnx-server/README.md).
+
+Le tri « adapté au matériel » reste le défaut : compatibilité et mémoire disponible d'abord, puis date de sortie décroissante avant l'éditeur, la sélection épinglée et la taille. La découverte interroge les nouvelles créations ; les éditions récentes de vieux dépôts ne remplacent pas une date de sortie connue. Il s'agit d'un classement automatique, sans remplacement automatique des modèles déjà installés.
+
+Validation CPU sur ONNX Runtime 1.31.1 / GenAI 0.18.0 / Python 3.12.15 : graphes Add et Identity int64, données externes et décodeur GenAI synthétique. Ce dernier valide l'API, sans mesurer qualité, cache KV réel ou performances d'un modèle entraîné. CUDA non testé. [Rapport de validation](../deliverables/onnx-2026-10-31/validation.md).
+
 ## EXL3, puis EXL2 — 30 octobre 2026
 
 Une voie NVIDIA ExLlama est intégrée aux sources du moteur Safetensors local : EXL3 sélectionne ExLlamaV3, EXL2 sélectionne ExLlamaV2. Le Hub distingue les deux formats et leurs chargeurs ; import de dossiers complets, sonde CUDA, estimation mémoire, streaming, annulation et déchargement sont réutilisés. L’environnement Windows/Python 3.12 est isolé de la pile Transformers/Python 3.15. Un fournisseur TabbyAPI désactivé par défaut permet aussi la connexion à un serveur compatible existant. [Installation et périmètre](../transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).

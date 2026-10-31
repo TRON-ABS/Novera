@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "这款 LoRA / PEFT 适配器需要完整的基础模型。导入底座并在 Safetensors 提供程序中附加适配器；适配器大​​小本身并不是运行它所需的内存。",
+    "attach": "连接 LoRA / PEFT 适配器",
+    "description": "选择上面的完整基础模型，然后选择其适配器文件夹。单独的适配器并不是一个完整的模型。基本标识必须与适配器配置匹配。",
+    "folder": "选择适配器文件夹",
+    "base": "基础模型内存",
+    "overhead": "缓存和运行时开销",
+    "total": "估计总内存",
+    "estimate": "保守估计 CPU 为 2,048 个代币。在加载时针对选定的设备和上下文重新计算。在加载过程中检查目标模块和张量形状。"
+  },
   "refreshModelsError": "提供商必须配置基本 URL 和 API 密钥才能获取模型。",
   "refreshModelsSuccess": "从 {{provider}} 添加了 {{count}} 个新模型。",
   "noNewModels": "未找到新模型。所有可用模型均已添加。",

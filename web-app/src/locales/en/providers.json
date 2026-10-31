@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "This LoRA / PEFT adapter requires its complete base model. Import the base and attach the adapter in the Safetensors provider; adapter size alone is not the memory required to run it.",
+    "attach": "Attach a LoRA / PEFT adapter",
+    "description": "Select the complete base model above, then its adapter folder. An adapter alone is not a complete model. Base identity must match the adapter configuration.",
+    "folder": "Select adapter folder",
+    "base": "Base model memory",
+    "overhead": "Cache and runtime overhead",
+    "total": "Estimated total memory",
+    "estimate": "Conservative CPU estimate at 2,048 tokens. Recalculated for the selected device and context at load time. Target modules and tensor shapes are checked during loading."
+  },
   "installedMediaModels": "Image, video and music models",
   "noInstalledModels": "No models registered in this category.",
   "modelComponents": "Model files",

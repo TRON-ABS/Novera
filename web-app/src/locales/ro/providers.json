@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Acest adaptor LoRA / PEFT necesită modelul său de bază complet. Importați baza și atașați adaptorul în furnizorul Safetensors; Numai dimensiunea adaptorului nu este memoria necesară pentru a-l rula.",
+    "attach": "Atașați un adaptor LoRA / PEFT",
+    "description": "Selectați modelul de bază complet de mai sus, apoi folderul adaptorului acestuia. Un adaptor singur nu este un model complet. Identitatea de bază trebuie să se potrivească cu configurația adaptorului.",
+    "folder": "Selectați folderul adaptor",
+    "base": "Memoria model de bază",
+    "overhead": "Cache și timp de rulare",
+    "total": "Memoria totală estimată",
+    "estimate": "Estimarea conservatoare a CPU la 2.048 de jetoane. Recalculat pentru dispozitivul și contextul selectat la momentul încărcării. Modulele țintă și formele tensorilor sunt verificate în timpul încărcării."
+  },
   "limitedSupport": "Este posibil ca acest furnizor să nu fie acceptat pe deplin.Capabilitățile (instrumente, viziune, audio) nu sunt detectate automat - adăugați manual modele și configurați capabilitățile pentru fiecare model.",
   "mlxExperimental": "Suportul pentru MLX este experimental. Încorporarea este indisponibilă, comutatorul de raționament nu este încă conectat, iar unele arhitecturi de model mai noi pot să nu se încarce. Raportați problemele pe GitHub pentru a le putea prioritiza.",
   "engineBundled": "Motorul de inferență este construit în Novera, deci nu există nimic de descărcat sau actualizat separat.Citați această versiune atunci când raportați un model care nu se încarcă.",

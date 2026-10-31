@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "搿隻 LoRA / PEFT 適配器需要伊完整個基礎模型。請勒 Safetensors 提供方導入基礎模型再附加適配器；光看適配器大小，勿等於運行要用個記憶體。",
+    "attach": "附加一隻 LoRA / PEFT 適配器",
+    "description": "先勒上頭揀完整個基礎模型，再揀伊個適配器文件夾。光有適配器勿是一隻完整模型。基礎模型身份必須搭適配器配置對得牢。",
+    "folder": "揀適配器文件夾",
+    "base": "基礎模型記憶體",
+    "overhead": "緩存搭運行額外開銷",
+    "total": "估計記憶體總用量",
+    "estimate": "按 2,048 隻 token 做保守 CPU 估算。載入辰光照揀好個設備搭上下文重新算，並檢查目標模塊搭張量形狀。"
+  },
   "models": "模型",
   "embeddingModelDefault": "默认",
   "refreshing": "刷新中...",

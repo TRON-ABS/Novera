@@ -18,7 +18,7 @@ export function memoryManagementAvailable() {
     !(typeof IS_IOS !== 'undefined' && IS_IOS)
   )
 }
-export const LOCAL_TEXT_ENGINES = ['llamacpp', 'mlx', 'transformers'] as const
+export const LOCAL_TEXT_ENGINES = ['llamacpp', 'mlx', 'transformers', 'onnx'] as const
 const gate = new MemoryGate()
 const idle = () => {}
 const preparation = new Map<

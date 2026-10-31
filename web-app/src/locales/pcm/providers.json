@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Dis LoRA / PEFT adapter need im complete base model. Import di base and join di adapter for di Safetensors provider; adapter size alone no be all di memory wey e need to run.",
+    "attach": "Join one LoRA / PEFT adapter",
+    "description": "Choose di complete base model for up, then choose im adapter folder. Adapter alone no be complete model. Di base identity must match di adapter configuration.",
+    "folder": "Choose adapter folder",
+    "base": "Memory for di base model",
+    "overhead": "Cache and extra memory to run am",
+    "total": "Total memory wey we estimate",
+    "estimate": "CPU estimate wey leave extra room for 2,048 tokens. E go calculate again for di device and context wey you choose when e dey load. E go check target modules and tensor shapes when e dey load."
+  },
   "limitedSupport": "We fit no support this provider fully. We no dey detect capabilities (tools, vision, audio) automatically - add models yourself and set wetin each model fit do.",
   "mlxExperimental": "MLX support still dey experimental. Embeddings no dey available, reasoning switch never connect through, and some newer model architectures fit no load. Report problems for GitHub make we fit prioritise them.",
   "engineBundled": "Inference engine dey built inside Novera, so nothing dey to download or update separately. Mention this version when you report model wey no fit load.",

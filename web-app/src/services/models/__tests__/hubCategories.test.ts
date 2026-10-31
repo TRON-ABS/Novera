@@ -53,3 +53,16 @@ it('requests releases and downloads separately and hydrates large-model shards',
   await fetchHubCategoryPage(fetch, 'all', undefined, 'sort-regression', 'most-downloaded')
   expect(new URL(fetch.mock.calls[0][0]).searchParams.get('sort')).toBe('downloads')
 })
+
+
+it('queries ONNX exports explicitly and keeps the format cache separate', async () => {
+  const fetch = vi.fn(async (_url: string) => new Response('[]'))
+  await fetchHubCategoryPage(fetch, 'all', undefined, 'onnx-regression', 'adapted', 'onnx')
+  expect(fetch.mock.calls.length).toBe(2)
+  const urls = fetch.mock.calls.map(call => new URL(String(call[0])))
+  expect(urls.every(url => url.searchParams.get('filter') === 'onnx')).toBe(true)
+  expect(urls.some(url => url.searchParams.get('sort') === 'createdAt')).toBe(true)
+  fetch.mockClear()
+  await fetchHubCategoryPage(fetch, 'all', undefined, 'onnx-regression', 'adapted')
+  expect(fetch).toHaveBeenCalled()
+})

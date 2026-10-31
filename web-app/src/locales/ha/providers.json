@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Wannan adaftar LoRA/PEFT tana buƙatar cikakken ƙirar tushe. Shigo da tushe kuma haɗa adaftan a cikin mai bada Safetensors; Girman adaftar kadai ba shine ƙwaƙwalwar da ake buƙata don gudanar da shi ba.",
+    "attach": "Haɗa adaftar LoRA/PEFT",
+    "description": "Zaɓi cikakken samfurin tushe a sama, sannan babban fayil ɗin adaftar sa. Adafta kadai ba cikakken samfurin ba ne. Dole ne asalin tushe ya dace da daidaitawar adaftar.",
+    "folder": "Zaɓi babban fayil ɗin adaftar",
+    "base": "Ƙwaƙwalwar ƙirar ƙira",
+    "overhead": "Cache da lokacin gudu sama sama",
+    "total": "Kimanta jimlar ƙwaƙwalwar ajiya",
+    "estimate": "Ƙimar CPU mai ra'ayin mazan jiya a alamu 2,048. An sake ƙididdige ƙididdiga don na'urar da aka zaɓa da mahallin a lokacin lodi. Ana duba nau'ikan manufa da sifofin tensor yayin lodawa."
+  },
   "limitedSupport": "Mai yiwuwa wannan mai ba da tallafi ba zai sami cikakken tallafi ba. Ba a gano iyawa (kayan aiki, hangen nesa, sauti) ta atomatik - ƙara ƙira da hannu kuma saita ƙarfin kowane ƙira.",
   "mlxExperimental": "Tallafin MLX gwaji ne. Ba a samun abubuwan haɗawa, ba a riga an kunna juzu'i ba, kuma wasu sabbin gine-ginen ƙirar ƙila sun gaza yin lodi. Ba da rahoton batutuwa kan GitHub don mu ba su fifiko.",
   "engineBundled": "An gina injin inference a cikin Novera, don haka babu wani abu don saukewa ko sabuntawa daban. Ka faɗi wannan sigar lokacin ba da rahoton samfurin da ya kasa ɗauka.",

@@ -6,7 +6,7 @@ import subprocess
 
 root = Path(__file__).resolve().parents[2]
 source = (root / "src-tauri/src/core/transformers.rs").read_text(encoding="utf-8")
-functions = source[source.index("fn inspect_quantization("):source.index("#[tauri::command]")]
+functions = source[source.index("fn inspect_modelopt("):source.index("#[tauri::command]")]
 work = root / ".build/exllama/native-tests"
 (work / "src").mkdir(parents=True, exist_ok=True)
 (work / "tmp").mkdir(exist_ok=True)

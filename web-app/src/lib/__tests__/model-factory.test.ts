@@ -76,14 +76,14 @@ describe('ModelFactory', () => {
   })
 
   describe('createModel', () => {
-    it('starts Safetensors locally and uses its authenticated loopback session', async () => {
+    it.each(['transformers', 'onnx'])('starts %s locally and uses its authenticated loopback session', async (engine) => {
       const { OpenAICompatibleChatLanguageModel } = await import('@ai-sdk/openai-compatible')
       const { fetch: httpFetch } = await import('@tauri-apps/plugin-http')
       mockedInvoke.mockResolvedValue({ port: 19101, api_key: 'local-key', model_id: 'tiny' })
-      const provider: ProviderObject = { provider: 'transformers', active: true, models: [], settings: [] }
+      const provider: ProviderObject = { provider: engine, active: true, models: [], settings: [] }
       await ModelFactory.createModel('tiny', provider, { temperature: 0, top_p: 0.9, top_k: 40, max_output_tokens: 8 })
       expect(mockStartModel).toHaveBeenCalledWith(provider, 'tiny')
-      expect(mockedInvoke).toHaveBeenCalledWith('transformers_session', { modelId: 'tiny' })
+      expect(mockedInvoke).toHaveBeenCalledWith(`${engine}_session`, { modelId: 'tiny' })
       const config = vi.mocked(OpenAICompatibleChatLanguageModel).mock.calls.at(-1)![1]
       expect(config.url({ path: '/chat/completions', modelId: 'tiny' })).toBe('http://127.0.0.1:19101/v1/chat/completions')
       expect(config.headers()).toMatchObject({ Authorization: 'Bearer local-key' })

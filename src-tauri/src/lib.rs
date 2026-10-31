@@ -9,6 +9,36 @@ compile_error!(
      build the CLI from the standalone crate: `cd src-tauri/novera-cli && cargo build --features cli`"
 );
 
+// The MSVC library test harness needs the same Common-Controls v6 manifest as
+// the desktop executable: legacy comctl32 lacks TaskDialogIndirect. Tauri's
+// build helper links its compiled resources only to bin targets; link them
+// here for unit tests as well, without duplicating the application's resources.
+#[cfg(all(
+    test,
+    target_os = "windows",
+    target_env = "msvc",
+    feature = "tauri-app"
+))]
+#[link(name = "resource", kind = "dylib")]
+extern "C" {}
+
+#[cfg(all(
+    test,
+    target_os = "windows",
+    target_env = "msvc",
+    feature = "tauri-app"
+))]
+mod windows_test_resources {
+    #[test]
+    fn common_controls_v6_is_available() {
+        // Resolve only: no native dialog or window is opened during the test.
+        let controls = unsafe { libloading::Library::new("comctl32.dll") }
+            .expect("the test manifest must load Common-Controls v6");
+        unsafe { controls.get::<unsafe extern "system" fn()>(b"TaskDialogIndirect\0") }
+            .expect("Common-Controls v6 must export TaskDialogIndirect");
+    }
+}
+
 pub mod core;
 
 #[cfg(not(feature = "cli"))]
@@ -336,6 +366,13 @@ pub fn run() {
     let app_builder = app_builder.invoke_handler(invoke_commands_with_extras![
         // Custom updater commands (desktop only)
         core::updater::commands::is_update_available,
+        core::onnx::onnx_list,
+        core::onnx::onnx_import,
+        core::onnx::onnx_delete,
+        core::onnx::onnx_load,
+        core::onnx::onnx_unload,
+        core::onnx::onnx_session,
+        core::onnx::onnx_probe,
         core::transformers::transformers_list,
         core::transformers::transformers_import,
         core::transformers::transformers_delete,
@@ -343,6 +380,7 @@ pub fn run() {
         core::transformers::transformers_unload,
         core::transformers::transformers_session,
         core::transformers::transformers_probe,
+        core::transformers::transformers_inspect_adapter,
         core::recommended_models::recommended_model_files,
         core::recommended_models::model_download_directory,
         core::creation_bundle::creation_bundle_nvfp4_probe,

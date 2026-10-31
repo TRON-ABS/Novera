@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Bộ chuyển đổi LoRA / PEFT này yêu cầu mẫu cơ sở hoàn chỉnh. Nhập đế và gắn bộ chuyển đổi vào nhà cung cấp Safetensors; riêng kích thước bộ điều hợp không phải là bộ nhớ cần thiết để chạy nó.",
+    "attach": "Đính kèm bộ chuyển đổi LoRA / PEFT",
+    "description": "Chọn mô hình cơ sở hoàn chỉnh ở trên, sau đó chọn thư mục bộ chuyển đổi của nó. Chỉ riêng bộ chuyển đổi không phải là một mô hình hoàn chỉnh. Danh tính cơ sở phải phù hợp với cấu hình bộ điều hợp.",
+    "folder": "Chọn thư mục bộ điều hợp",
+    "base": "Bộ nhớ mô hình cơ sở",
+    "overhead": "Chi phí bộ nhớ đệm và thời gian chạy",
+    "total": "Tổng bộ nhớ ước tính",
+    "estimate": "Ước tính CPU thận trọng là 2.048 mã thông báo. Tính toán lại cho thiết bị và ngữ cảnh đã chọn tại thời điểm tải. Các mô-đun đích và hình dạng tensor được kiểm tra trong quá trình tải."
+  },
   "refreshModelsError": "Nhà cung cấp phải có URL cơ sở và khóa API được định cấu hình để tìm nạp các mô hình.",
   "refreshModelsSuccess": "Đã thêm {{count}} mô hình mới từ {{provider}}.",
   "noNewModels": "Không tìm thấy mô hình mới nào. Tất cả các mô hình có sẵn đã được thêm vào.",

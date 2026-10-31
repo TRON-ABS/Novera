@@ -329,5 +329,485 @@
       }
     },
     "expected": "unsupported"
+  },
+  {
+    "name": "llama-FP8-False",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "FP8",
+        "exclude_modules": [
+          "lm_head"
+        ],
+        "kv_cache_quant_algo": null
+      }
+    },
+    "expected": "modelopt-fp8"
+  },
+  {
+    "name": "llama-FP8-True",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quantization": {
+          "quant_algo": "FP8",
+          "exclude_modules": [
+            "lm_head"
+          ],
+          "kv_cache_quant_algo": null
+        }
+      }
+    },
+    "expected": "modelopt-fp8"
+  },
+  {
+    "name": "llama-NVFP4-False",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "exclude_modules": [
+          "lm_head"
+        ],
+        "kv_cache_quant_algo": null,
+        "group_size": 16
+      }
+    },
+    "expected": "modelopt-nvfp4"
+  },
+  {
+    "name": "llama-NVFP4-True",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quantization": {
+          "quant_algo": "NVFP4",
+          "exclude_modules": [
+            "lm_head"
+          ],
+          "kv_cache_quant_algo": null,
+          "group_size": 16
+        }
+      }
+    },
+    "expected": "modelopt-nvfp4"
+  },
+  {
+    "name": "qwen2-FP8-False",
+    "config": {
+      "model_type": "qwen2",
+      "architectures": [
+        "Qwen2ForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "FP8",
+        "exclude_modules": [
+          "lm_head"
+        ],
+        "kv_cache_quant_algo": null
+      }
+    },
+    "expected": "modelopt-fp8"
+  },
+  {
+    "name": "qwen2-FP8-True",
+    "config": {
+      "model_type": "qwen2",
+      "architectures": [
+        "Qwen2ForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quantization": {
+          "quant_algo": "FP8",
+          "exclude_modules": [
+            "lm_head"
+          ],
+          "kv_cache_quant_algo": null
+        }
+      }
+    },
+    "expected": "modelopt-fp8"
+  },
+  {
+    "name": "qwen2-NVFP4-False",
+    "config": {
+      "model_type": "qwen2",
+      "architectures": [
+        "Qwen2ForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "exclude_modules": [
+          "lm_head"
+        ],
+        "kv_cache_quant_algo": null,
+        "group_size": 16
+      }
+    },
+    "expected": "modelopt-nvfp4"
+  },
+  {
+    "name": "qwen2-NVFP4-True",
+    "config": {
+      "model_type": "qwen2",
+      "architectures": [
+        "Qwen2ForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quantization": {
+          "quant_algo": "NVFP4",
+          "exclude_modules": [
+            "lm_head"
+          ],
+          "kv_cache_quant_algo": null,
+          "group_size": 16
+        }
+      }
+    },
+    "expected": "modelopt-nvfp4"
+  },
+  {
+    "name": "qwen3-FP8-False",
+    "config": {
+      "model_type": "qwen3",
+      "architectures": [
+        "Qwen3ForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "FP8",
+        "exclude_modules": [
+          "lm_head"
+        ],
+        "kv_cache_quant_algo": null
+      }
+    },
+    "expected": "modelopt-fp8"
+  },
+  {
+    "name": "qwen3-FP8-True",
+    "config": {
+      "model_type": "qwen3",
+      "architectures": [
+        "Qwen3ForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quantization": {
+          "quant_algo": "FP8",
+          "exclude_modules": [
+            "lm_head"
+          ],
+          "kv_cache_quant_algo": null
+        }
+      }
+    },
+    "expected": "modelopt-fp8"
+  },
+  {
+    "name": "qwen3-NVFP4-False",
+    "config": {
+      "model_type": "qwen3",
+      "architectures": [
+        "Qwen3ForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "exclude_modules": [
+          "lm_head"
+        ],
+        "kv_cache_quant_algo": null,
+        "group_size": 16
+      }
+    },
+    "expected": "modelopt-nvfp4"
+  },
+  {
+    "name": "qwen3-NVFP4-True",
+    "config": {
+      "model_type": "qwen3",
+      "architectures": [
+        "Qwen3ForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quantization": {
+          "quant_algo": "NVFP4",
+          "exclude_modules": [
+            "lm_head"
+          ],
+          "kv_cache_quant_algo": null,
+          "group_size": 16
+        }
+      }
+    },
+    "expected": "modelopt-nvfp4"
+  },
+  {
+    "name": "reject-modelopt-kv",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "group_size": 16,
+        "kv_cache_quant_algo": "FP8"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-modelopt-mixed",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "MIXED_PRECISION",
+        "group_size": 16
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-modelopt-block-fp8",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "FP8_PB_WO",
+        "group_size": 16
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-modelopt-group",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "group_size": 32
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-modelopt-exclude",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "group_size": 16,
+        "exclude_modules": [
+          "*attn*"
+        ]
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-modelopt-block",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "group_size": 16,
+        "weight_block_size": [
+          128,
+          128
+        ]
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-modelopt-moe",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "group_size": 16,
+        "moe_quant_algo": "NVFP4"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-modelopt-null-excludes",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "group_size": 16,
+        "exclude_modules": null
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-modelopt-bool-group",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "group_size": true
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-modelopt-nested-null",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "NVFP4",
+        "group_size": 16,
+        "quantization": null
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-architecture-{'model_type': 'qwen3_moe'}",
+    "config": {
+      "model_type": "qwen3_moe",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "FP8"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-architecture-{'architectures': ['Qwen3ForCausalLM']}",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "Qwen3ForCausalLM"
+      ],
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "FP8"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-architecture-{'auto_map': {}}",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "auto_map": {},
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "FP8"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-architecture-{'num_experts': 0}",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "num_experts": 0,
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "FP8"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-architecture-{'vision_config': {}}",
+    "config": {
+      "model_type": "llama",
+      "architectures": [
+        "LlamaForCausalLM"
+      ],
+      "vision_config": {},
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "FP8"
+      }
+    },
+    "expected": "unsupported"
+  },
+  {
+    "name": "reject-architecture-{'architectures': None}",
+    "config": {
+      "model_type": "llama",
+      "architectures": null,
+      "quantization_config": {
+        "quant_method": "modelopt",
+        "quant_algo": "FP8"
+      }
+    },
+    "expected": "unsupported"
   }
 ]

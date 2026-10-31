@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Hii LoRA / PEFT adapter inahitaji mfumo wake kamili wa msingi. Ingiza msingi na uambatanishe adapter katika provider ya Safetensors; ukubwa wa adapter pekee si kumbukumbu inayohitajika kuendesha.",
+    "attach": "Ambatanisha LoRA / PEFT adapter",
+    "description": "Chagua mfumo kamili wa msingi hapo juu, kisha folda yake ya adapter. Adapter pekee si mfumo kamili. Utambulisho wa msingi lazima ulingane na usanidi wa adapter.",
+    "folder": "Chagua folda ya adapter",
+    "base": "Kumbukumbu ya mfumo wa msingi",
+    "overhead": "Mchanganuo wa cache na wakati wa uendeshaji",
+    "total": "Kumbukumbu jumla inayokadiriwa",
+    "estimate": "Takwimu ya CPU ya kiserikali kwa 2,048 tokens. Imerekebishwa kwa kifaa na muktadha uliochaguliwa wakati wa kupakia. Moduli lengwa na umbo la tensor huchunguzwa wakati wa kupakia."
+  },
   "limitedSupport": "Huenda mtoa huduma huyu asiungwe mkono kikamilifu. Uwezo (zana, maono, sauti) hazitambuliwi kiotomatiki - ongeza mifano kwa mikono na usanidi uwezo kwa kila modeli.",
   "mlxExperimental": "MLX Usaidizi ni wa majaribio. Upachikaji haupatikani, kigeuzi cha hoja bado hakijaunganishwa, na baadhi ya miundo mipya ya usanifu inaweza kushindwa kupakia. Ripoti masuala kuhusu GitHub ili tuweze kuyapa kipaumbele.",
   "engineBundled": "Injini ya makisio imeundwa ndani Novera, kwa hivyo hakuna chochote cha kupakua au kusasisha tofauti. Nukuu toleo hili wakati wa kuripoti muundo ambao haujapakia.",

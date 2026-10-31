@@ -2,6 +2,35 @@
 
 Novera's desktop sources now register a `transformers` local engine on Windows and Linux. It imports a complete local Hugging Face causal language model directory, starts a Python worker when selected for chat, streams text through the existing chat transport, and stops the worker on unload or app shutdown. The worker also exits when its parent dies. Rebuild the desktop app to expose this engine; existing executables do not gain it automatically.
 
+## ModelOpt FP8 and NVFP4 LLMs
+
+The 31 October 2026 source integration adds native CUDA matrix multiplication for **dense Llama, Qwen2 and Qwen3 causal text models** with complete local Safetensors exports. This is a dedicated Transformers loader, independent of the image NVFP4 path. The vLLM documentation provides the export-format taxonomy; Novera does not install or wrap vLLM here.
+
+| Export | Accepted representation | Native execution gate |
+| --- | --- | --- |
+| ModelOpt `FP8` | E4M3FN weights, per-tensor `weight_scale`, optional scalar `input_scale`; otherwise dynamic tensor-wide activation scale | NVIDIA CUDA, compute capability ≥ 8.9 and an actual FP8 GEMM probe |
+| ModelOpt `NVFP4` | U8 low-first FP4 weights, row-major E4M3 block-16 `weight_scale`, scalar `weight_scale_2` and `input_scale`; `group_size=16` | NVIDIA CUDA, compute capability ≥ 10.0, `comfy-kitchen` activation quantizer and an actual native FP4 GEMM probe |
+
+Use `quantization_config` with `quant_method: "modelopt"`, or a local `hf_quant_config.json` containing the `quantization` object. Conflicting declarations fail. The architecture must explicitly match `LlamaForCausalLM`, `Qwen2ForCausalLM` or `Qwen3ForCausalLM`; every decoder projection and checkpoint tensor is checked. Only `lm_head` may be excluded. Tied embeddings require the duplicate `lm_head.weight` tensor to be omitted, as in standard Safetensors tied-weight exports.
+
+NVFP4 matrices currently require input/output dimensions divisible by 128; FP8 requires dimensions divisible by 16. Native decode pads the token dimension where required. The loader creates an empty architecture, replaces the packed projections and validates the complete tensor inventory before loading persistent weights. Packed weights remain FP8/U8; the normal embeddings, norms, biases and LM head use BF16. NVFP4 nibble reordering and scale tiling do not create a BF16 weight cache. A loaded-model prefill and cached decode must traverse every packed projection before the worker becomes ready. CUDA dependency/kernel errors, unavailable GPU, insufficient free VRAM or invalid scales fail explicitly; there is no CPU, dequantized-weight or alternate-kernel fallback.
+
+The Hub provides **FP8 · LLM** and **NVFP4 · LLM** format filters. ModelOpt sidecars and complete architecture metadata are read as bounded, public JSON at the repository's exact revision. Failed or inconsistent metadata stays unsupported. A ModelOpt runtime must report a successfully executed numerical kernel probe before the diagnostic can mark it checked. General `fp8` tags, image NVFP4 files or dependency presence alone do not establish LLM support.
+
+Optional setup with the existing pinned base stack:
+
+```powershell
+./transformers-server/setup.ps1 -Backend cu130 -Environment .build/safetensors-llm-float -LlmFloat
+```
+
+Select that interpreter in the Safetensors provider. For an existing matching CUDA base environment, install `requirements-llm-float.txt` with `requirements.txt` as constraints. The tested Windows environment is Python 3.15.1, PyTorch 2.14.1+cu130, Transformers 5.20.2, Safetensors 0.8.0, Accelerate 1.15.0 and comfy-kitchen 0.2.35, on an RTX 5070 Laptop (SM120). Other GPUs meeting the capability threshold must still pass their own kernel probe.
+
+Explicitly outside this loader: block-scaled/fine-grained FP8, E4M3FNUZ, compressed-tensors formats, mixed precision, MXFP4/MXFP8, W4A16 emulation, quantized KV caches, MoE/hybrid/multimodal architectures, custom repository code and LoRA on these packed bases. Invalid or unsupported exports remain refused. No conversion of ordinary user models or model-weight download is automatic.
+
+Real tests use offline, untrained two-layer fixtures: six family/format combinations, a tied-embedding Qwen3 case, per-layer numeric references, JSON/SSE subprocess requests and native Tauri lifecycle checks. They establish integration and kernel execution, not trained-model quality or a speed advantage. Activation quantization changes logits relative to a decoded-weight-only BF16 baseline; that observation is retained separately from matching-quantization numeric comparisons. [Measured results, commands and remaining limits](../deliverables/llm-float-2026-10-31/validation.md).
+
+References: [vLLM quantization](https://docs.vllm.ai/en/latest/features/quantization/), [ModelOpt checkpoint layouts](https://docs.vllm.ai/en/latest/features/quantization/modelopt/), [NVIDIA NVFP4 packing and scales](https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt/torch/quantization/qtensor/nvfp4_tensor.py).
+
 ## Quantized Safetensors — source integration, 29 October 2026
 
 Complete local pre-quantized checkpoints now have explicit import, worker and Hub paths for:
@@ -112,3 +141,29 @@ Qwen2.5-0.5B-Instruct, context 2,048, 128 generated tokens, greedy, FP16 KV and 
 [Full validation and commands](../deliverables/exllama-2026-10-30/validation.md), [raw measurements](../deliverables/exllama-2026-10-30/benchmark.json), [checkpoint hashes](../deliverables/exllama-2026-10-30/model-manifest.json). Both loaders passed real GPU streaming, authentication, busy rejection, targeted cancellation, recovery and process-tree shutdown. TabbyAPI listing and authenticated SSE generation passed separately. The desktop binary/UI was not rebuilt or visually validated.
 
 Upstream: [ExLlamaV3](https://github.com/turboderp-org/exllamav3), [ExLlamaV2](https://github.com/turboderp-org/exllamav2), [TabbyAPI](https://github.com/theroyallab/tabbyAPI).
+
+
+## Local LoRA / PEFT adapters
+
+Install the optional loader in the Python environment selected in Novera:
+
+```powershell
+./transformers-server/setup.ps1 -Peft
+# Or, for an existing environment:
+python -m pip install -r transformers-server/requirements-peft.txt -c transformers-server/requirements.txt
+```
+
+In the Safetensors provider import dialog, choose the **complete base model folder**, enable **Attach a LoRA / PEFT adapter**, and select its separate folder containing `adapter_config.json` and `adapter_model.safetensors`. Give the pair its own model name. The registry preserves both local paths; loading the pair loads the base tokenizer/model then attaches the adapter for inference. Removing the registry entry preserves both folders.
+
+Only `LORA` with `CAUSAL_LM` and an **unquantized Transformers base** is supported by this path. GGUF, MLX, ExLlama, AWQ, GPTQ and bitsandbytes adapter combinations are not supported here. The adapter must identify the selected absolute local base path, or its `base_model_name_or_path` must exactly match `_name_or_path` in the base configuration. Missing identity, mismatches, revision-pinned adapters without verifiable provenance, and tokenizer overrides are rejected. Matching metadata is a compatibility check, not cryptographic proof of checkpoint provenance. PEFT checks target modules/shapes at load time; missing or unexpected adapter tensors also fail loading.
+
+The import dialog displays a conservative **CPU estimate at 2,048 tokens**, capped by the base context limit. It counts tensor shapes and dtypes from all base shards and the adapter, with at least FP32 resident floating-point storage, plus cache and runtime overhead. Disk size includes both weights. The worker recalculates memory for the requested context before allocating the base and exposes the breakdown in `/health` and the desktop session `memory` field. It rejects insufficient free RAM (512 MiB reserve) or VRAM (1 GiB reserve). This is an estimate, not a measured peak or a guarantee that every allocation will fit. No adapter is merged into or written over the base.
+
+An adapter alone is rejected as a complete local model and is not advertised as independently runnable in the Hub. No model downloads or repository Python code are permitted during loading. Loader integration follows the [PEFT model API](https://huggingface.co/docs/peft/package_reference/peft_model).
+
+Offline regression checks, including real tiny-model CPU generation and an adapter-on/off output comparison:
+
+```powershell
+$env:NOVERA_TEST_PEFT = '1'
+python -m unittest discover -s transformers-server -p test_peft.py
+```

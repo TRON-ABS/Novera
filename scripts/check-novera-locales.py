@@ -58,9 +58,11 @@ def validate(root):
                     if not translated.get(key, '').strip():
                         issues.append(f'{namespace}:{key}: required feature translation missing')
             if namespace == 'providers.json':
-                key = 'baseUrl.alibabaDescription'
-                if not translated.get(key, '').strip():
-                    issues.append(f'{namespace}:{key}: required feature translation missing')
+                for key in ('baseUrl.alibabaDescription', 'peft.standalone', 'peft.attach',
+                            'peft.description', 'peft.folder', 'peft.base',
+                            'peft.overhead', 'peft.total', 'peft.estimate'):
+                    if not translated.get(key, '').strip():
+                        issues.append(f'{namespace}:{key}: required feature translation missing')
             if namespace == 'hub.json':
                 for key in original:
                     if key.startswith('discovery.') and not translated.get(key, '').strip():

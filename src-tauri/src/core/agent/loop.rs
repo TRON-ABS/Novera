@@ -12183,7 +12183,7 @@ mod tests {
             })
         };
         let calls = [
-            call("sh", "shell", json!({ "command": "touch SHELL_RAN" })),
+            call("sh", "shell", json!({ "command": "echo marker > SHELL_RAN" })),
             call("wr", "write", json!({ "path": "WRITE_RAN", "content": "x" })),
             call("rd", "read", json!({ "path": "a.txt" })),
         ];

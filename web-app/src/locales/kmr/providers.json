@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Vê adapterê LoRA / PEFT modela xweya bingehîn a bêkêmasî hewce dike. Bingehê derxînin û adapterê li pêşkêşkara Safetensors ve girêdin; Mezinahiya adapterê tenê ne bîranîna ku ji bo xebitandina wê hewce ye.",
+    "attach": "Adapterek LoRA / PEFT girêdin",
+    "description": "Modela bingehîn a tevahî li jor, paşê peldanka adapterê wê hilbijêrin. Adapterek tenê ne modelek bêkêmasî ye. Nasnameya bingehîn divê bi veavakirina adapterê re têkildar be.",
+    "folder": "Peldanka adapterê hilbijêrin",
+    "base": "Bîra modela bingehîn",
+    "overhead": "Cache û dema xebitandinê zêde",
+    "total": "Bîra tevahî ya texmînkirî",
+    "estimate": "Muhafezekar CPU li 2,048 nîşanekan texmîn dike. Di dema barkirinê de ji bo amûr û çarçoweya hilbijartî ji nû ve tê hesibandin. Modulên armanc û şeklên tensor di dema barkirinê de têne kontrol kirin."
+  },
   "limitedSupport": "Dibe ku ev pêşkêşker bi tevahî neyê piştgirî kirin. Kapasîteyên (alav, vîzyon, deng) bixweber nayên tespît kirin - modelan bi destan zêde bikin û kapasîteyên her modelê mîheng bikin.\nPiştgiriya",
   "mlxExperimental": "MLX ceribandinek e. Bicîhkirin ne berdest in, guheztina sedemê hîna bi têlê nehatiye girêdan, û dibe ku hin mîmariyên modela nû nekarin bar bikin. Pirsgirêkan li ser GitHub rapor bikin da ku em pêşî li wan bigirin.",
   "engineBundled": "Motora encamdanê di Novera de hatî çêkirin, ji ber vê yekê tiştek tune ku ji hev cuda dakêşin an nûve bikin. Dema ku modelek ku bar nake rapor bikin vê guhertoyê binivîsin.",

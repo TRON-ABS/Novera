@@ -157,13 +157,17 @@ Inventaire relu dans les sources le **29 octobre 2026**. Ces noms décrivent les
 
 ## Hub et modèles compatibles
 
-**GGUF, Safetensors classiques et quantifiés, et MLX** : explorez les modèles par usage et choisissez parmi les variantes compatibles avec le moteur et votre matériel.
+**GGUF, Safetensors classiques et quantifiés, ONNX et MLX** : explorez les modèles par usage et choisissez parmi les variantes compatibles avec le moteur et votre matériel.
 
 | Famille | Prise en charge dans les sources | Conditions |
 | --- | --- | --- |
 | **GGUF** | Texte via llama.cpp ; composants image/vidéo selon le profil. | Architecture reconnue par le moteur embarqué. |
 | **GGUF en plusieurs morceaux** | Une variante par série complète, taille cumulée, téléchargement et contrôle taille/SHA-256/en-têtes de tous les morceaux. | Numérotation standard ; télécharger 500 Go ne signifie pas que le modèle peut tourner sur ce PC. |
 | **Safetensors classiques** | Dossier complet via Transformers, texte causal sur CPU ou NVIDIA CUDA. | Configuration, tokenizer et tous les fragments requis. |
+| **ONNX Runtime** | Import local de graphes numériques/booléens et exports texte préparés pour GenAI. | Dossier complet validé ; pré/post-traitement spécifique à fournir ; [installation et limites](onnx-server/README.md). |
+| **Adaptateurs LoRA / PEFT** | Importer une base complète avec son adaptateur local séparé dans le fournisseur Safetensors. | Base Transformers causale non quantifiée, identité correspondante, contrôle des tenseurs et mémoire cumulée estimée ; [installation et limites](transformers-server/README.md#local-lora--peft-adapters). |
+| **FP8 LLM / ModelOpt** | Exécution CUDA native des exports FP8 par tenseur compatibles, Llama/Qwen2/Qwen3 denses. | Contrôle de l’architecture/des tenseurs et sonde réelle des kernels ; [installation et limites](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
+| **NVFP4 LLM / ModelOpt** | Projections FP4 bloc 16 conservées compactées, GEMM CUDA natives ; voie distincte du NVFP4 image. | GPU Blackwell, dimensions/export compatibles et sonde réelle ; fixtures non entraînées testées sur RTX 5070. |
 | **AWQ** | Checkpoints 4 bits GEMM non fusionnés. | NVIDIA CUDA et chargeurs optionnels GPTQModel/Transformers. |
 | **GPTQ** | Configurations 2/3/4/8 bits, formats gptq/gptq_v2. | NVIDIA CUDA, GPTQModel et Optimum ; essai réel effectué en 4 bits. |
 | **bitsandbytes** | 4 bits NF4/FP4 ou 8 bits INT8. | NVIDIA CUDA et dépendances optionnelles ; essais réels NF4 et INT8. |
@@ -180,6 +184,8 @@ Les quatre parcours quantifiés AWQ 4 bits, GPTQ 4 bits, NF4 et INT8 ont génér
 **Mesuré sur la RTX 5070 Laptop :** Qwen2.5-0.5B-Instruct, contexte 2 048, entrée 272 tokens, sortie 128 tokens, cinq essais après échauffement : décodage médian **GGUF Q4_K_M 402,7 tokens/s · EXL3 4 bpw 312,5 · EXL2 4 bpw 146,9**. Aucun gain de vitesse démontré ici face à GGUF. Quantification/calibration différentes et échec d’un contrôle arithmétique EXL3 : ces résultats ne constituent pas un classement général de vitesse ou de qualité. [Mesures et limites](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** propose une connexion optionnelle à un serveur compatible OpenAI géré séparément, désactivée par défaut. Découverte du modèle EXL3 et streaming authentifiés ont été testés. Le chargeur ExLlama local géré par Novera reste un parcours distinct. [Installation ExLlama et connexion TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
+
+Le tri par défaut favorise les sorties récentes à compatibilité et mémoire disponible équivalentes. Il ne remplace pas les modèles installés automatiquement.
 
 [Installation Safetensors quantifiés](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorités et validations](docs/SUIVI_MOTEURS.md)
 

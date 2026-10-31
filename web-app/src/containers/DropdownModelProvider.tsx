@@ -848,7 +848,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
                           <span className="truncate">{getModelDisplayName(item.model)}</span>
                           <span className="ml-auto text-xs text-muted-foreground">{item.provider.provider === 'novera-music' ? t('chat:creation.music') : getProviderTitle(item.provider.provider)}</span>
                         </button>
-                        {group === 'local' && ['llamacpp', 'mlx', 'transformers'].includes(item.provider.provider) && <ModelSetting model={item.model} provider={item.provider} />}
+                        {group === 'local' && ['llamacpp', 'mlx', 'transformers', 'onnx'].includes(item.provider.provider) && <ModelSetting model={item.model} provider={item.provider} />}
                         {group === 'local' && ['diffusers', 'novera-music'].includes(item.provider.provider) &&
                           <MediaSettingsButton onClick={() => {
                             void handleSelect(item).then(() => {

@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Kini nga LoRA / PEFT adapter nanginahanglan sa kompleto nga base nga modelo. Import ang base ug ilakip ang adapter sa Safetensors provider; Ang gidak-on sa adapter lamang dili ang panumduman nga gikinahanglan sa pagpadagan niini.",
+    "attach": "Ilakip ang LoRA / PEFT adapter",
+    "description": "Pilia ang kompletong base nga modelo sa ibabaw, dayon ang adapter folder niini. Ang usa ka adapter lamang dili usa ka kompleto nga modelo. Ang base identity kinahanglang mohaum sa configuration sa adapter.",
+    "folder": "Pagpili adapter folder",
+    "base": "Base nga panumduman sa modelo",
+    "overhead": "Cache ug runtime overhead",
+    "total": "Gibanabana nga kinatibuk-ang memorya",
+    "estimate": "Konserbatibo nga CPU banabana sa 2,048 token. Gikalkulo pag-usab alang sa gipili nga aparato ug konteksto sa oras sa pagkarga. Ang mga target nga module ug mga porma sa tensor gisusi sa panahon sa pagkarga."
+  },
   "limitedSupport": "Kini nga tighatag mahimong dili hingpit nga suportado. Ang mga kapabilidad (mga himan, panan-awon, audio) dili awtomatik nga makit-an - idugang ang mga modelo nga mano-mano ug i-configure ang mga kapabilidad matag modelo.",
   "mlxExperimental": "Ang suporta sa MLX kay eksperimento. Ang mga pag-embed dili magamit, ang toggle sa pangatarungan wala pa ma-wire, ug ang pipila ka mga bag-ong arkitektura sa modelo mahimong mapakyas sa pag-load. I-report ang mga isyu sa GitHub aron ma-prioritize namo kini.",
   "engineBundled": "Ang inference engine gitukod sa Novera, mao nga walay bisan unsa nga i-download o i-update nga gilain. Isulti kini nga bersyon kung nagreport sa usa ka modelo nga napakyas sa pagkarga.",

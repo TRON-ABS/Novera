@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Ihe nkwụnye LoRA / PEFT chọrọ ụdị ntọala ya zuru oke. Bubata ntọala ma tinye nkwụnye na onye na-eweta Safetensors; Nha nkwụnye naanị abụghị ebe nchekwa achọrọ iji mee ya.",
+    "attach": "Tinye ihe nkwụnye LoRA / PEFT",
+    "description": "Họrọ ụdị ntọala zuru oke n'elu, wee tinye folda nkwụnye ya. Ihe nkwụnye naanị abụghị ihe nlereanya zuru oke. Ihe njirimara ntọala ga-adabarịrị na nhazi nkwụnye.",
+    "folder": "Họrọ nchekwa nkwụnye",
+    "base": "Ebe nchekwa ihe nlereanya",
+    "overhead": "Cache na oge ịgba ọsọ",
+    "total": "Ebe nchekwa mkpokọta echere",
+    "estimate": "Atụmatụ CPU Conservative na token 2,048. Agbakọgharịrị maka ngwaọrụ ahọpụtara yana ihe gbara ya gburugburu n'oge ibu. A na-enyocha modul ebumnuche na ụdị tensor mgbe a na-ebunye ya."
+  },
   "limitedSupport": "Enwere ike ọ gaghị akwado onye na-eweta a nke ọma. Achọpụtaghị ikike (ngwaọrụ, ọhụụ, ọdịyo) na-akpaghị aka - tinye ụdị na aka wee hazie ike n'otu ụdị.",
   "mlxExperimental": "MLX nkwado bụ nnwale. Ihe mgbakwasa adịghị, mgbagharị echiche abanyebeghị na ya, yana ụfọdụ ụlọ ihe ngosi ọhụrụ nwere ike ghara ibu. Kpesa okwu na GitHub ka anyị nwee ike ibute ha ụzọ.",
   "engineBundled": "Ewubere injin inference n'ime Novera, yabụ na ọ nweghị ihe ị ga-ebudata ma ọ bụ melite iche. Kwuo ụdịdị a mgbe ị na-akọ ihe nlereanya na-agaghị ebu.",

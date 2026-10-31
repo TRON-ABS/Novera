@@ -1082,7 +1082,7 @@ function ProviderDetail() {
                           }
                         />
                       )}
-                      {provider && (provider.provider === 'mlx' || provider.provider === 'transformers') && (
+                      {provider && (['mlx', 'transformers', 'onnx'].includes(provider.provider)) && (
                           <ImportMlxModelDialog
                             provider={provider}
                             onSuccess={handleModelImportSuccess}

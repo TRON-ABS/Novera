@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Este adaptador LoRA / PEFT requer o seu modelo básico completo. Importe a base e fixe o adaptador no fornecedor Safetensors; o tamanho do adaptador por si só não é a memória necessária para o executar.",
+    "attach": "Ligue um adaptador LoRA / PEFT",
+    "description": "Selecione o modelo base completo acima e, em seguida, a pasta do adaptador. Um adaptador por si só não é um modelo completo. A identidade base deve corresponder à configuração do adaptador.",
+    "folder": "Selecione a pasta do adaptador",
+    "base": "Memória do modelo básico",
+    "overhead": "Cache e sobrecarga de tempo de execução",
+    "total": "Memória total estimada",
+    "estimate": "Estimativa conservadora de CPU em 2.048 tokens. Recalculado para o dispositivo e contexto selecionados no momento do carregamento. Os módulos alvo e as formas tensoriais são verificados durante o carregamento."
+  },
   "limitedSupport": "Este fornecedor poderá não ser totalmente suportado. As capacidades (ferramentas, visão e áudio) não são detetadas automaticamente — adicione os modelos manualmente e configure as capacidades de cada modelo.",
   "mlxExperimental": "O suporte de MLX é experimental. Os embeddings não estão disponíveis, o controlo de raciocínio ainda não está ligado e algumas arquiteturas de modelos mais recentes poderão não carregar. Comunique os problemas no GitHub para os podermos priorizar.",
   "engineBundled": "O motor de inferência está integrado no Novera, pelo que não é necessário transferi-lo ou atualizá-lo separadamente. Indique esta versão ao comunicar um modelo que não carrega.",

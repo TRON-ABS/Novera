@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "這 LoRA / PEFT adapter 需有閣完整佮底層模型。閣底層佮佇 Safetensors provider 閣接 adapter；adapter 尺寸佇無運行佮所需記憶體。",
+    "attach": "閣接 LoRA / PEFT adapter",
+    "description": "閣選佇閣完整佮底層模型，閣選佇佮 adapter 資料夾。單佮 adapter 佇無完整模型。底層身份必須佮 adapter 設定相符。",
+    "folder": "閣選 adapter 資料夾",
+    "base": "底層模型記憶體",
+    "overhead": "快取佮運行開銷",
+    "total": "估計總記憶體",
+    "estimate": "佇 2,048 tokens 佮保守的 CPU 估計。佇 閣選佮裝置佮上下文佇載入時閣重算。目標模組佮 tensor 形狀佇載入時閣檢查。"
+  },
   "limitedSupport": "該提供者可能未完全支援。功能（工具、視覺、音訊）不會自動偵測 - 手動新增模型並配置每個模型的功能。",
   "mlxExperimental": "MLX 支援處於實驗階段。嵌入不可用，推理切換尚未連接，某些較新的模型架構可能無法載入。在 GitHub 上報告問題，以便咱確定它們的優先順序。",
   "engineBundled": "推理引擎內建於Novera中，因此無需單獨下載或更新。報告載入失敗的模型時引用此版本。",

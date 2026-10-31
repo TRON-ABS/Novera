@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Adaparọ LoRA / PEFT nilo awoṣe ipilẹ pipe rẹ. Ṣe agbewọle ipilẹ ki o so oluyipada ni olupese Safetensors; Iwọn ohun ti nmu badọgba nikan kii ṣe iranti ti o nilo lati ṣiṣẹ.",
+    "attach": "So ohun ti nmu badọgba LoRA/PEFT kan",
+    "description": "Yan awoṣe ipilẹ pipe loke, lẹhinna folda ohun ti nmu badọgba rẹ. Ohun ti nmu badọgba nikan ni ko kan pipe awoṣe. Idanimọ mimọ gbọdọ baramu iṣeto ni ohun ti nmu badọgba.",
+    "folder": "Yan folda ohun ti nmu badọgba",
+    "base": "Ipilẹ iranti awoṣe",
+    "overhead": "Kaṣe ati akoko ṣiṣe lori oke",
+    "total": "Ifoju lapapọ iranti",
+    "estimate": "Iṣiro Konsafetifu CPU ni awọn ami ami 2,048. Tun ṣe iṣiro fun ẹrọ ti o yan ati agbegbe ni akoko fifuye. Awọn modulu ibi-afẹde ati awọn apẹrẹ tensor ni a ṣayẹwo lakoko ikojọpọ."
+  },
   "limitedSupport": "Olupese yii le ma ṣe atilẹyin ni kikun. Awọn agbara (awọn irinṣẹ, iran, ohun) ko ṣe awari laifọwọyi - ṣafikun awọn awoṣe pẹlu ọwọ ati tunto awọn agbara fun awoṣe.",
   "mlxExperimental": "Atilẹyin MLX jẹ adanwo. Awọn ifibọ ko si, iyipada ero ko tii firanṣẹ nipasẹ, ati diẹ ninu awọn ayaworan awoṣe tuntun le kuna lati fifuye. Jabọ lori GitHub ki a le ṣe pataki wọn.",
   "engineBundled": "Ẹrọ inference ti kọ sinu Novera, nitorinaa ko si nkankan lati ṣe igbasilẹ tabi ṣe imudojuiwọn lọtọ. Sọ ẹya yii nigba ijabọ awoṣe ti o kuna lati fifuye.",

@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Adaaptariin LoRA / PEFT kun moodeela bu'uuraa isaa guutuu barbaada. Bu'uura galchi fi adaaptara dhiyeessaa Safetensors keessatti maxxansi; guddinni adaaptara qofti yaadannoo isa hojjechuuf barbaachisu miti.",
+    "attach": "Adaaptara LoRA / PEFT maxxansi",
+    "description": "Moodeela bu'uuraa guutuu armaan olitti filadhu, sana booda galmee adaaptara isaa. Adaaptariin qofti moodeela guutuu miti. Eenyummaan bu'uuraa qindeessaa adaaptara waliin walsimuu qaba.",
+    "folder": "Galmee adaaptara filadhu",
+    "base": "Mimoorii moodeela bu'uuraa",
+    "overhead": "Cache fi yeroo gaggeeffamaa overhead",
+    "total": "Tilmaama yaadannoo waliigalaa",
+    "estimate": "Tilmaamni konsarvaatiivii CPU tookiin 2,048. Meeshaa fi haalata filatameef yeroo fe'iinsaatti irra deebi'amee shallagame. Moojuloonni galma fi bocawwan tensaraa yeroo fe'iinsaa ni sakatta'amu."
+  },
   "limitedSupport": "Dhiheessaan kun guutummaatti deeggaramuu dhiisuu danda'a. Dandeettiiwwan (meeshaalee, mul'ata, sagalee) ofumaan hin adda bahan - moodeelota harkaan dabaliitii dandeettiiwwan moodeela tokko tokkoon qindeessi.",
   "mlxExperimental": "Deeggarsi MLX yaalii irra jira. Embeddings hin argaman, toogiliin yaada uumuu ammayyuu hin qindaa'in, akkasumas caasaaleen moodeelota haaraa tokko tokko fe'amuu dhiisuu danda'u. Rakkoolee GitHub irratti gabaasaa akka nuti dursa kenninuuf.",
   "engineBundled": "Mootorri tilmaamaa Novera keessatti ijaarameera; kanaaf addatti buusuu ykn haaromsuun hin barbaachisu. Yeroo rakkoo moodeela fe'amuu didee gabaastu lakkoofsa fooyya'iinsa kana eeri.",

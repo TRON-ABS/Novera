@@ -90,6 +90,17 @@ describe('direct Hugging Face discovery', () => {
     expect(fetchImpl.mock.calls.some(([u]) => String(u).includes('filter=mlx'))).toBe(true)
   })
 
+  it('excludes PEFT adapter repositories from the standalone model feed', async () => {
+    const rows = [
+      { ...repo('adapter'), library_name: 'peft' },
+      { ...repo('mlx-adapter'), library_name: 'mlx', siblings: [
+        { rfilename: 'adapter_config.json' }, { rfilename: 'adapter_model.safetensors' },
+      ] },
+    ]
+    const fetchImpl = vi.fn().mockImplementation(async () => json(rows))
+    expect((await fetchHuggingFacePage(fetchImpl, true)).repos).toEqual([])
+  })
+
   it('limits simultaneous metadata requests to three', async () => {
     let active = 0
     let peak = 0

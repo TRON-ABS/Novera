@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Le adaptha ye-LoRA / PEFT idinga imodeli yayo eyisisekelo ephelele. Ngenisa isisekelo futhi unamathisele i-adaptha kumhlinzeki we-Safetensors; usayizi we-adaptha iyodwa ayiyona inkumbulo edingekayo ukuze uyiqalise.",
+    "attach": "Namathisela i-adaptha ye-LoRA / PEFT",
+    "description": "Khetha imodeli yesisekelo esiphelele ngenhla, bese kuba ifolda ye-adaptha yayo. I-adaptha iyodwa ayiyona imodeli ephelele. Ubunikazi besisekelo kufanele bufane nokulungiselelwa kwe-adaptha.",
+    "folder": "Khetha ifolda ye-adaptha",
+    "base": "Inkumbulo yemodeli eyisisekelo",
+    "overhead": "Inqolobane nesikhathi sokusebenza ngaphezulu",
+    "total": "Ingqikithi yenkumbulo elinganiselwe",
+    "estimate": "I-Conservative CPU ilinganisela kumathokheni angu-2,048. Kubalwe kabusha kudivayisi ekhethiwe nomongo ngesikhathi sokulayisha. Amamojula aqondiwe kanye nokuma kwe-tensor kuyahlolwa ngesikhathi sokulayisha."
+  },
   "limitedSupport": "Lo mhlinzeki kungenzeka ukuthi awasekelwa ngokuphelele. Amakhono (amathuluzi, umbono, umsindo) awazitholi ngokuzenzakalela - engeza amamodeli ngesandla bese uhlelela amakhono ngomodeli ngamunye.",
   "mlxExperimental": "Ukusekelwa kwe-MLX kusezingeni lokuhlola. Izibopho azitholakali, iswishi yokucabanga ayikaxhunyiwe, futhi ezinye izakhiwo zamamodeli zakamuva zingahluleka ukulayisha. Bika izinkinga ku-GitHub ukuze sikwazi ukuveza ukuthi ziphi ezibalulekile.",
   "engineBundled": "Injini yokuhlaziya ifakwe ngaphakathi ku-Novera, ngakho-ke akukho okudingeka ukulanda noma ukuvuselela ngokwehlukana. Qinisekisa le nguqulo uma ubika umodeli ongakwazi ukulayishwa.",

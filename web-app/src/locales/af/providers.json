@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Hierdie LoRA / PEFT-adapter benodig sy volledige basismodel. Voer die basis in en heg die adapter in die Safetensors-verskaffer; adaptergrootte alleen is nie die geheue wat nodig is om dit te laat loop nie.",
+    "attach": "Heg 'n LoRA / PEFT-adapter aan",
+    "description": "Kies die volledige basismodel hierbo, dan sy adapter-lêergids. 'n Adapter alleen is nie 'n volledige model nie. Basisidentiteit moet ooreenstem met die adapterkonfigurasie.",
+    "folder": "Kies adaptermap",
+    "base": "Basismodel geheue",
+    "overhead": "Kas en looptyd bokoste",
+    "total": "Geskatte totale geheue",
+    "estimate": "Konserwatiewe CPU skatting by 2,048 tokens. Herbereken vir die geselekteerde toestel en konteks tydens laaityd. Teikenmodules en tensorvorms word tydens laai nagegaan."
+  },
   "limitedSupport": "Hierdie verskaffer word dalk nie ten volle ondersteun nie. Vermoë (gereedskap, visie, oudio) word nie outomaties opgespoor nie - voeg modelle handmatig by en stel vermoëns per model op.",
   "mlxExperimental": "MLX-ondersteuning is eksperimenteel. Inbeddings is nie beskikbaar nie, die redenasiewissel is nog nie deurgeskakel nie, en sommige nuwer modelargitekture kan dalk nie laai nie. Rapporteer probleme op GitHub sodat ons dit kan prioritiseer.",
   "engineBundled": "Die inferensie-enjin is in Novera ingebou, so daar is niks om afsonderlik af te laai of op te dateer nie. Haal hierdie weergawe aan wanneer u 'n model rapporteer wat nie kan laai nie.",

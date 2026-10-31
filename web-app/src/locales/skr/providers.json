@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "اس LoRA / PEFT adapter نوں اِہدا مکمل base model چاھدے ہے۔ base نوں امپورٹ کرو تے adapter نوں Safetensors provider وچ منسلک کرو؛ صرف adapter دا سائز ایہہ میموری نئیں چہدے جیہڑی ایہہ چلن لئی چاھدے ہے۔",
+    "attach": "ایک LoRA / PEFT adapter منسلک کرو",
+    "description": "اوپر مکمل base model چن، تے اِہدی adapter folder۔ صرف adapter مکمل model نئیں ہوندا۔ Base identity adapter configuration نال ملنی چاھدے ہے۔",
+    "folder": "adapter folder چن",
+    "base": "Base model میموری",
+    "overhead": "Cache تے runtime overhead",
+    "total": "تخمینہ کل میموری",
+    "estimate": "2,048 tokens تے Conservative CPU تخمینہ۔ load time تے چن device تے context لئی دوبارہ حساب کیتا گیا۔ Target modules تے tensor shapes load کرن دوران چیک کیتے جان گے۔"
+  },
   "limitedSupport": "ایہ فراہم کرن آلا مکمل طور تے سپورٹ نئیں کیتا جا سڳدا۔ صلاحیتاں (ٹولز، وژن، آڈیو) خودکار نئیں لبھدیاں - دستی طور تے ماڈل شامل کرو تے فی ماڈل صلاحیتاں تشکیل دیو۔",
   "mlxExperimental": "MLX سپورٹ تجرباتی ہے۔ سرایتاں دستیاب نئیں نیں، استدلال ٹوگل ہلے تیکر وائر نئیں کیتا گیا ہے، تے کجھ نویں ماڈل آرکیٹیکچر لوڈ ہون چ ناکام ہو سڳدے نیں. GitHub تے مسئلیاں دی رپورٹ کرو تاکہ اساں اوہناں نو ترجیح دے سکئیے۔",
   "engineBundled": "انفرنس انجن Novera وچ بنایا گیا ہے، اس لیی وکھرا ڈاؤن لوڈ یا اپ ڈیٹ کرن لئی کجھ وی نئیں ہے۔ لوڈ ہون چ ناکام ہون آلے ماڈل دی رپورٹ کردے ویلے اس ورژن دا حوالہ دیو۔",

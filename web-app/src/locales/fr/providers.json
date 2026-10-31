@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Cet adaptateur LoRA / PEFT nécessite son modèle de base complet. Importez la base et associez son adaptateur dans le fournisseur Safetensors ; la taille de l’adaptateur seul ne représente pas la mémoire nécessaire à son exécution.",
+    "attach": "Associer un adaptateur LoRA / PEFT",
+    "description": "Sélectionnez le modèle de base complet ci-dessus, puis le dossier de son adaptateur. Un adaptateur seul ne constitue pas un modèle complet. L’identité de la base doit correspondre à la configuration de l’adaptateur.",
+    "folder": "Choisir le dossier de l’adaptateur",
+    "base": "Mémoire du modèle de base",
+    "overhead": "Cache et marge d’exécution",
+    "total": "Mémoire totale estimée",
+    "estimate": "Estimation prudente sur CPU à 2 048 tokens. Recalculée au chargement selon le périphérique et le contexte choisis. Les modules cibles et les dimensions des tenseurs sont contrôlés au chargement."
+  },
   "installedMediaModels": "Modèles image, vidéo et musique",
   "noInstalledModels": "Aucun modèle enregistré dans cette catégorie.",
   "modelComponents": "Fichiers du modèle",

@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Adaptor LoRA / PEFT ieu peryogi modél dasarna anu lengkep. Impor dasarna sareng pasang adaptor dina panyadia Safetensors; ukuran adaptor nyalira teu memori diperlukeun pikeun ngajalankeun eta.",
+    "attach": "Gantelkeun adaptor LoRA / PEFT",
+    "description": "Pilih modél dasar lengkep di luhur, teras folder adaptorna. Hiji adaptor nyalira sanes model lengkep. Idéntitas dasar kedah cocog sareng konfigurasi adaptor.",
+    "folder": "Pilih folder adaptor",
+    "base": "Mémori modél dasar",
+    "overhead": "Cache sareng runtime overhead",
+    "total": "Estimasi total mémori",
+    "estimate": "Konservatif CPU estimasi dina 2.048 tokens. Diitung ulang pikeun alat sareng kontéks anu dipilih dina waktos beban. Modul target sareng bentuk tensor dipariksa nalika ngamuat."
+  },
   "limitedSupport": "Panyadia ieu bisa jadi teu dirojong sapinuhna. Kamampuhan (alat, visi, audio) henteu otomatis dideteksi - tambahkeun modél sacara manual sareng konpigurasikeun kamampuan per modél.",
   "mlxExperimental": "MLX rojongan téh ékspériméntal. Embeddings teu sadia, toggle nalar teu acan kabel ngaliwatan, sarta sababaraha arsitéktur model anyar bisa gagal pikeun muka. Laporkeun masalah dina GitHub supados urang tiasa ngaprioritaskeunana.",
   "engineBundled": "Mesin inferensi diwangun kana Novera, janten teu aya anu tiasa diunduh atanapi diropéa sacara misah. Sebutkeun vérsi ieu nalika ngalaporkeun modél anu gagal dimuat.",

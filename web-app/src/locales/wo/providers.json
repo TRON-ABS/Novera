@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Bii adaptatër LoRA / PEFT mingi soxla modelu base bu mat sëkk. Dugalal base bi nga takk adaptatër bi ci ki lay jox Safetensors; Dayo adaptatër bi kese du memory bi war ngir doxal ko.",
+    "attach": "Takkal benn adaptatër LoRA / PEFT",
+    "description": "Tannal modelu base bi yépp ci kaw, ba noppi dossier adaptateur bi. Adaptatër kese du model bu mat. Ndaxte dàntite dafa wara méngoo ak tabb adaptatër bi.",
+    "folder": "Tannal dosiye adaptatër bi",
+    "base": "Mémoire de base",
+    "overhead": "Cache ak waxtu doxal",
+    "total": "Memoire biñu xayma",
+    "estimate": "CPU xayma ci 2,048 jetons. Xaymaat nañu ko ngir aparey biñ tànn ak muy tekki ci waxtu sarse bi. Module biñ bëgga jëfandikoo ak jëmmu tensor yi dañu leen di saytu bi ñuy yobbu."
+  },
   "limitedSupport": "Mën na am ni fournisseur bi mënul ànd ak lépp. Mën-mën yi (jumtukaay, gis-gis, audio) duñu leen gis seen bopp - yokk model yi ak loxo te nga configurer mën-mën yi ci model bu nekk.",
   "mlxExperimental": "MLX support is experimental. Embeddings yi amul, toggle xalaat bi amagul ba leegi, te yenn model architecture yu bees yi mën nañu baña charger. Raporte jafe-jafe yi ci GitHub suko defee ñu mëna leen njëkka tànn.",
   "engineBundled": "Motër inference bi dafa tabax ci Novera, kon amul lenn luñu wara yebbi wala yeesal ci boppam. Cite bii versioŋ sooy rapoor model bu mënatul sarse.",

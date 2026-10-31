@@ -1,4 +1,14 @@
 {
+  "peft": {
+    "standalone": "Iyi LoRA / PEFT adaptate isaba icyitegererezo cyayo cyuzuye. Kuzana shingiro no kugerekaho adapt muri Safetensors; ingano ya adapt yonyine ntabwo aribintu bisabwa kugirango ikore.",
+    "attach": "Ongeraho LoRA / PEFT",
+    "description": "Hitamo icyitegererezo cyuzuye hejuru, hanyuma ububiko bwa adapt. Adapter yonyine ntabwo ari icyitegererezo cyuzuye. Indangamuntu shingiro igomba guhuza imiterere ya adapt.",
+    "folder": "Hitamo ububiko bwububiko",
+    "base": "Base yibanze yibikoresho",
+    "overhead": "Cache nigihe cyo hejuru",
+    "total": "Bigereranijwe kwibuka byose",
+    "estimate": "Kugereranya CPU igereranya ku bimenyetso 2.048. Kubara kubikoresho byatoranijwe hamwe nibisobanuro mugihe cyo kwikorera. Intego ya modules hamwe na tensor bigenzurwa mugihe cyo gupakira."
+  },
   "limitedSupport": "Utanga isoko ntashobora gushyigikirwa byuzuye. Ubushobozi (ibikoresho, iyerekwa, amajwi) ntabwo byamenyekanye-ongeraho intoki intoki kandi ugene ubushobozi kuri buri cyitegererezo.",
   "mlxExperimental": "MLX inkunga ni igerageza. Ibishushanyo ntibishoboka, igitekerezo cyo guhinduranya ntikiracishwa, kandi bimwe mubyububiko bishya byubaka bishobora kunanirwa kwikorera. Tanga ibibazo kuri GitHub kugirango tubishyire imbere.",
   "engineBundled": "Moteri yumushinga yubatswe muri Novera, ntakintu rero cyo gukuramo cyangwa kuvugurura ukundi. Vuga iyi verisiyo mugihe utanga urugero rwananiwe kwikorera.",
