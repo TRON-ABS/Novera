@@ -1,5 +1,15 @@
 # Suivi des moteurs locaux Novera
 
+## Attente mémoire entre générations — 1er novembre 2026
+
+Incident confirmé dans le journal local : lors de la deuxième image, le déchargement de Nemotron renvoyait le refus explicite du routeur llama.cpp `409 Conflict`, « the model has requests in flight; retry once they finish ». Le coordinateur transformait cette occupation transitoire en échec de génération multimédia.
+
+Le mode Automatique attend désormais la fin de cette requête native, avec nouvelle tentative espacée de 250 ms et annulation possible. Il reconnaît uniquement ce refus précis ; les erreurs de configuration, connexion ou autres déchargements restent des échecs visibles. Il accepte aussi un modèle déjà libéré pendant l’attente. Pas d’arrêt forcé d’une génération active ni de passage automatique en Manuel.
+
+Contrôle commun texte/image/musique/vidéo : deux demandes successives par catégorie, protection du texte actif, attente de publication média, annulation puis reprise, erreur réelle après occupation et modes manuel/automatique. **240 tests web dans 16 fichiers réussis**, TypeScript, architecture et lint ciblé réussis. Le contrôle cloud distingue les 42 profils cloud du serveur local optionnel TabbyAPI. Aucun nouveau texte utilisateur ni changement des 80 catalogues (2 412 clés chacun).
+
+Validation des sources et contrats avec moteur simulé ; le journal confirme le refus natif réel. Aucun nouvel essai de génération matérielle ou de l’application installée, compilation desktop ou binaire public pour ce correctif. L’application existante nécessite une prochaine compilation intégrant ce changement.
+
 ## FP8 / NVFP4 natifs pour les LLM denses — 31 octobre 2026
 
 Un chargeur propre aux LLM ModelOpt s’ajoute au moteur Safetensors, distinct du NVFP4 image : FP8 E4M3 par tenseur et NVFP4 bloc 16, architectures denses Llama/Qwen2/Qwen3 contrôlées, poids compacts conservés sur CUDA. Les kernels doivent exécuter une GEMM numérique en préremplissage et décodage ; chaque projection du modèle chargé est aussi parcourue avant disponibilité. Métadonnées inline/sidecar et tous les tenseurs contrôlés, GPU compatible et mémoire libre requis ; aucun repli silencieux en poids BF16 ou CPU. Les filtres du Hub séparent FP8 LLM/NVFP4 LLM et exigent la sonde réussie.

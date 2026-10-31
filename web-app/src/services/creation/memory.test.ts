@@ -22,6 +22,8 @@ vi.mock('@/lib/backendStorage', () => ({
 }))
 const text = { kind: 'text' as const, provider: 'llamacpp', model: 'a' }
 const image = { kind: 'image' as const, provider: 'sdcpp', model: 'flux' }
+const music = { kind: 'music' as const, provider: 'ace', model: 'music' }
+const busyUnload = 'Router rejected unload (status 409 Conflict): {"error":{"code":409,"message":"the model has requests in flight; retry once they finish"}}'
 const video = { kind: 'video' as const, provider: 'diffusers', model: 'video' }
 describe('memory orchestration', () => {
   beforeEach(() => {
@@ -97,14 +99,64 @@ describe('memory orchestration', () => {
     expect(mocks.stop).toHaveBeenCalledTimes(1)
     expect(useMemoryPolicy.getState().waiting.failed).toBeUndefined()
   })
-  it('does not unload an active text stream before image generation', async () => {
+  it.each([text, image, music, video])('waits for native text completion before $kind, including the second request', async (target) => {
+    mocks.loaded.mockImplementation(async (provider: string) => provider === 'llamacpp' ? ['previous'] : [])
+    for (let turn = 0; turn < 2; turn++) {
+      mocks.stop.mockResolvedValueOnce({ success: false, error: busyUnload })
+        .mockResolvedValueOnce({ success: true })
+      const release = await beginLocalMemory(target, { scope: target.kind })
+      expect(useMemoryPolicy.getState().waiting[target.kind]).toBeUndefined()
+      release()
+      await Promise.resolve()
+    }
+    expect(mocks.stop).toHaveBeenCalledTimes(4)
+  })
+  it('can cancel a busy unload wait and then prepare a fresh request', async () => {
+    mocks.loaded.mockImplementation(async (provider: string) => provider === 'llamacpp' ? ['previous'] : [])
+    mocks.stop.mockRejectedValue(busyUnload)
+    const controller = new AbortController()
+    const waiting = beginLocalMemory(image, { signal: controller.signal, scope: 'cancel-busy' })
+    const rejected = waiting.then(() => undefined, error => error)
+    await vi.waitFor(() => expect(mocks.stop).toHaveBeenCalled())
+    expect(useMemoryPolicy.getState().waiting['cancel-busy']).toBe(1)
+    controller.abort()
+    expect(await rejected).toMatchObject({ name: 'AbortError' })
+    expect(useMemoryPolicy.getState().waiting['cancel-busy']).toBeUndefined()
+    mocks.stop.mockResolvedValue({ success: true })
+    const release = await beginLocalMemory(music)
+    release()
+    await Promise.resolve()
+  })
+  it('accepts a model already released by another owner during the wait', async () => {
+    let queries = 0
+    mocks.loaded.mockImplementation(async (provider: string) => provider === 'llamacpp' && ++queries === 1 ? ['previous'] : [])
+    mocks.stop.mockResolvedValue({ success: false, error: busyUnload })
+    const release = await beginLocalMemory(image)
+    expect(mocks.stop).toHaveBeenCalledTimes(1)
+    release()
+    await Promise.resolve()
+  })
+  it('does not retry an unrelated unload conflict or hide a real failure after busy', async () => {
+    mocks.loaded.mockImplementation(async (provider: string) => provider === 'llamacpp' ? ['previous'] : [])
+    mocks.stop.mockResolvedValueOnce({ success: false, error: 'Router rejected unload (status 409 Conflict): invalid configuration' })
+    await expect(beginLocalMemory(video)).rejects.toThrow('chat:memory.failed')
+    expect(mocks.stop).toHaveBeenCalledTimes(1)
+    mocks.stop.mockResolvedValueOnce({ success: false, error: busyUnload })
+      .mockRejectedValueOnce(new Error('connection lost'))
+    await expect(beginLocalMemory(text)).rejects.toThrow('chat:memory.failed')
+    expect(mocks.stop).toHaveBeenCalledTimes(3)
+    const release = await beginLocalMemory(image, { policy: 'manual' })
+    release()
+    await Promise.resolve()
+  })
+  it.each([{ ...text, model: 'next' }, image, music, video])('protects an active text stream before $kind', async (target) => {
     const textLease = await beginLocalMemory(text)
     mocks.stop.mockClear()
     mocks.loaded.mockImplementation(async (provider: string) =>
       provider === 'llamacpp' ? ['a'] : []
     )
     let started = false
-    const picture = beginLocalMemory(image).then((release) => {
+    const picture = beginLocalMemory(target).then((release) => {
       started = true
       return release
     })
@@ -117,20 +169,20 @@ describe('memory orchestration', () => {
     release()
     await Promise.resolve()
   })
-  it('permits all three model categories without eviction or native waiting in manual mode', async () => {
+  it('permits all four model categories without eviction or native waiting in manual mode', async () => {
     useMemoryPolicy.getState().setPolicy('manual')
     const leases = await Promise.all(
-      [text, image, video].map((target) => beginLocalMemory(target))
+      [text, image, music, video].map((target) => beginLocalMemory(target))
     )
     expect(mocks.stop).not.toHaveBeenCalled()
     expect(mocks.invoke).not.toHaveBeenCalled()
     leases.forEach((release) => release())
   })
-  it('waits for a previously started media process to finish and publish', async () => {
+  it.each([text, image, music, video])('waits for media publication before $kind', async (target) => {
     mocks.invoke
       .mockResolvedValueOnce({ busy: true })
       .mockResolvedValue({ busy: false })
-    const release = await beginLocalMemory(text)
+    const release = await beginLocalMemory(target)
     expect(mocks.invoke).toHaveBeenCalledTimes(2)
     release()
     await Promise.resolve()

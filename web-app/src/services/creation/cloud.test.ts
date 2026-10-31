@@ -332,8 +332,10 @@ describe('cloud media contracts (mock HTTP, no paid generation)', () => {
 })
 describe('model modality catalog', () => {
   it('defines one profile per provider and an implemented adapter for every preset', () => {
-    expect(predefinedProviders).toHaveLength(42)
-    expect(new Set(predefinedProviders.map((p) => p.provider)).size).toBe(42)
+    // TabbyAPI is an optional local server alongside the 42 cloud profiles.
+    expect(predefinedProviders.filter((p) => p.provider !== 'tabbyapi')).toHaveLength(42)
+    expect(predefinedProviders.some((p) => p.provider === 'tabbyapi')).toBe(true)
+    expect(new Set(predefinedProviders.map((p) => p.provider)).size).toBe(predefinedProviders.length)
     const adapters = new Set([...contracts.map((c) => c.adapter),'elevenlabs-music','stability-music'])
     for (const p of mediaModelPresets) {
       expect(adapters.has(p.adapter), p.id).toBe(true)

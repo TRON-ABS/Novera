@@ -1,5 +1,15 @@
 # Novera — instructions du projet
 
+## Attente mémoire entre générations — 1er novembre 2026
+
+Incident confirmé dans le journal local : lors de la deuxième image, le déchargement de Nemotron renvoyait le refus explicite du routeur llama.cpp `409 Conflict`, « the model has requests in flight; retry once they finish ». Le coordinateur transformait cette occupation transitoire en échec de génération multimédia.
+
+Le mode Automatique attend désormais la fin de cette requête native, avec nouvelle tentative espacée de 250 ms et annulation possible. Il reconnaît uniquement ce refus précis ; les erreurs de configuration, connexion ou autres déchargements restent des échecs visibles. Il accepte aussi un modèle déjà libéré pendant l’attente. Pas d’arrêt forcé d’une génération active ni de passage automatique en Manuel.
+
+Contrôle commun texte/image/musique/vidéo : deux demandes successives par catégorie, protection du texte actif, attente de publication média, annulation puis reprise, erreur réelle après occupation et modes manuel/automatique. **240 tests web dans 16 fichiers réussis**, TypeScript, architecture et lint ciblé réussis. Le contrôle cloud distingue les 42 profils cloud du serveur local optionnel TabbyAPI. Aucun nouveau texte utilisateur ni changement des 80 catalogues (2 412 clés chacun).
+
+Validation des sources et contrats avec moteur simulé ; le journal confirme le refus natif réel. Aucun nouvel essai de génération matérielle ou de l’application installée, compilation desktop ou binaire public pour ce correctif. L’application existante nécessite une prochaine compilation intégrant ce changement.
+
 ## Publication des sources et de la vitrine — 31 octobre 2026
 
 Demande explicite de mise à jour directement sur `main` : lot ONNX, tri récent adapté au matériel, LoRA/PEFT, FP8/NVFP4 LLM et correction des tests Tauri Windows. README anglais/français, À propos GitHub, guides moteurs, rapports et suivi TokenEconomizer actualisés ensemble. Actions reste désactivé ; aucun nouveau binaire public. Les huit nouveaux textes PEFT sont traduits dans les 80 locales ; inventaire à 2 412 clés par langue et contrôle structurel sans erreur. Traductions assistées avec corrections ciblées, sans prétendre à une relecture native complète. Autres travaux locaux préservés. Dernier relevé TokenEconomizer : 3 sessions consolidées, 9,3 M tokens effectifs, 0 surcoût, 0 fait injecté, 0 redirection ; aucune économie prouvée.

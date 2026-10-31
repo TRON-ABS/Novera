@@ -28,7 +28,7 @@ const preparation = new Map<
 function check(signal?: AbortSignal) {
   if (signal?.aborted) throw memoryAbort()
 }
-async function pause(signal?: AbortSignal) {
+async function pause(signal?: AbortSignal, milliseconds = 100) {
   check(signal)
   await new Promise<void>((resolve, reject) => {
     const abort = () => {
@@ -38,7 +38,7 @@ async function pause(signal?: AbortSignal) {
     const timer = setTimeout(() => {
       signal?.removeEventListener('abort', abort)
       resolve()
-    }, 100)
+    }, milliseconds)
     signal?.addEventListener('abort', abort, { once: true })
   })
 }
@@ -49,6 +49,40 @@ export async function releaseFinishedMedia(signal?: AbortSignal) {
     const result = await invoke<{ busy: boolean }>('creation_release_idle')
     if (!result.busy) return
     await pause(signal)
+  }
+}
+/** The native generator may finish after the frontend releases its stream. */
+function nativeUnloadBusy(provider: string, error: unknown) {
+  const message = error instanceof Error ? error.message : String(error)
+  return (
+    provider === 'llamacpp' &&
+    /Router rejected unload \(status 409(?: Conflict)?\):/.test(message) &&
+    message.includes('the model has requests in flight; retry once they finish')
+  )
+}
+async function unloadWhenIdle(
+  models: ModelsService,
+  model: string,
+  provider: string,
+  signal?: AbortSignal
+) {
+  for (;;) {
+    check(signal)
+    try {
+      const result = await models.stopModel(model, provider)
+      if (result?.success === false) {
+        throw new Error(result.error || `Could not unload ${provider}/${model}`)
+      }
+      return
+    } catch (error) {
+      // Only the router's explicit in-flight refusal is transient. Preserve
+      // all other errors, and never cancel the active native generation.
+      if (!nativeUnloadBusy(provider, error)) throw error
+    }
+    await pause(signal, 250)
+    check(signal)
+    // Another owner may have unloaded it while the native request finished.
+    if (!(await models.getActiveModels(provider)).includes(model)) return
   }
 }
 async function unloadIdleText(
@@ -90,10 +124,7 @@ async function unloadIdleText(
           )
       )
         continue
-      const result = await models.stopModel(model, provider)
-      if (result?.success === false) {
-        throw new Error(result.error || `Could not unload ${provider}/${model}`)
-      }
+      await unloadWhenIdle(models, model, provider, signal)
     }
   }
   const loaded = await Promise.all(
