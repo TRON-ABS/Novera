@@ -226,7 +226,7 @@ Ces domaines constituent une direction de contribution et de développement, pas
 
 **Novera 1.0.0 est en développement.** La capture montre une application Windows compilée localement par le mainteneur. Les sources, les essais ciblés et les validations matérielles sont documentés séparément ; cela ne vaut pas validation de tous les modèles, plateformes ou comptes cloud.
 
-La vitrine est actualisée sans nouvelle compilation. Les canaux de distribution et leurs conditions figurent dans la [politique de versions officielles](OFFICIAL_RELEASES.md) et sur la [page des versions](https://github.com/TRON-ABS/Novera/releases). GitHub Actions et mises à jour automatiques restent désactivés conformément à la configuration du projet.
+Les compilations manuelles GitHub Actions sont activées pour les onze variantes de distribution. Consultez les [résultats de compilation et téléchargements des candidats vérifiés](docs/CI_DISTRIBUTIONS.md) ; la disponibilité est indiquée pour chaque plateforme. Les candidats sont distincts des versions de production signées. Les conditions de distribution figurent dans la [politique de versions officielles](OFFICIAL_RELEASES.md) et sur la [page des versions](https://github.com/TRON-ABS/Novera/releases). Les mises à jour automatiques restent désactivées.
 
 ## Documentation et contribution
 

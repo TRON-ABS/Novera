@@ -20,6 +20,8 @@ Linux native compilation also exposed an invalid GTK 3 call: `Clipboard::set_uri
 
 Browser QA of the first Web artifact found that a fresh browser entered the desktop engine installer. Route browser-only onboarding to the existing provider settings while preserving native setup. Thirteen route tests, TypeScript and scoped lint pass. The corrected Web artifact compiled in run 41275648200 and all 593 listed checksums match; a fresh browser reaches provider settings and opens the OpenAI/Anthropic-compatible form without a key, model download or inference request. The three CLI artifacts also pass independent checksum, provenance and binary architecture verification. Native application builds remain in progress; see the live checkpoint table for exact per-variant status. Update the release policy to reflect the explicitly authorized manual CI settings rather than the historical globally disabled state.
 
+iOS actually compiled successfully but collection rejected Tauri’s `arm64-sim` output path. Accept simulator-specific directories and test that a colocated device app is excluded. Windows Vulkan compilation then exposed an SDK resource-tool MAX_PATH failure; use the engine’s existing isolated short-build-directory override under the ephemeral runner temp directory. Six collector/policy tests and Bash syntax pass. Targeted Windows and iOS retries preserve other running architectures; no native artifact is announced before successful collection.
+
 ## Earlier completed source and Windows preparation work
 
 # fix(distribution): prepare clean Windows packages and refresh the showcase

@@ -7,15 +7,15 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 
 | Variante | Dernier état relevé | Provenance |
 | --- | --- | --- |
-| Desktop Windows x64 | windows / x64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
-| Setup Windows x64 | windows / x64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
-| MSI Windows x64 | windows / x64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
-| Portable Windows x64 | windows / x64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| Desktop Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
+| Setup Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
+| MSI Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
+| Portable Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
 | Windows ARM64 | arm64 / arm64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
 | Linux | linux / x64: en cours | [run 41275746510](https://github.com/TRON-ABS/Novera/actions/runs/41275746510) · `0beb13a3` |
-| macOS | macos / x64: en attente; macos / arm64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| macOS | macos / x64: en cours; macos / arm64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
 | Android | android / windows-2025: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
-| iOS simulateur | ios / macos-15: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| iOS simulateur | ios / macos-15: en cours | [run 41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611) · `a84f8cf6` |
 | Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
 | CLI | cli / macos-15: compilé; cli / ubuntu-22.04: compilé; cli / windows-2025: compilé | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
 
@@ -136,3 +136,9 @@ Le run natif `41275047042` compile le nouveau module de production GTK. Son test
 [Run Web 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200), commit `307fbb16a78abf4a0baaa7d70b5d6a36a433a233` : job et résumé réussis. Artefact `13070388490`, **49 318 320 octets / 594 fichiers / 593 empreintes conformes**, SHA-256 `110792ff7fdf6e41505c46065a4f7aed1e986296ec394734670e6075a121d8aa`. Notice personnelle et provenance vérifiées.
 
 Le navigateur vierge ouvre désormais `/settings/providers` directement. Le formulaire existant de fournisseur compatible OpenAI/Anthropic s'ouvre correctement ; aucune clé ni génération n'est utilisée pour ce test. Aucun téléchargement de modèle n'est lancé. La capture de contrôle est conservée localement hors Git. Les onglets et deux serveurs d'aperçu créés pour le test sont fermés/arrêtés. Ce contrôle du premier lancement n'est pas une preuve d'inférence cloud ni un test de chaque fournisseur.
+
+### Collecte iOS et chemins Windows : relances ciblées
+
+Le run natif `41275047042` compile réellement l’application iOS : Xcode annonce `BUILD SUCCEEDED`, puis Tauri produit `src-tauri/gen/apple/build/arm64-sim/Novera.app`. Le collecteur attendait un chemin contenant `simulator` et refusait donc ce résultat. Le filtre reconnaît désormais les répertoires Tauri `arm64-sim` / `x86_64-sim` et les produits `iphonesimulator`, en excluant une application device `arm64`. Un test archive la bonne application parmi les deux et relit son contenu : réussi. Relance iOS `41276290611`, commit `a84f8cf6` ; la compilation précédente ne vaut pas artefact téléchargeable puisqu’elle n’avait pas été collectée.
+
+Windows x64 passe désormais la détection CUDA mais échoue dans le sous-build Vulkan sur `RC1109`, lors de la création d’un manifeste dans un chemin très imbriqué. Le build CI utilise le répertoire moteur court sous `RUNNER_TEMP`, avec l’isolation par `OUT_DIR` déjà fournie par le moteur et son reçu de staging. Aucune modification du registre ou des réglages Windows. Relance Windows x64 `41276293618`, même commit. Six tests de collecteur/politiques réussissent, ainsi que la syntaxe Bash. Les autres architectures continuent sur leur run d’origine.
