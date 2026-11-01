@@ -99,6 +99,11 @@ try {
             Copy-RequiredFile $item.FullName (Join-Path $stage $relative)
         }
     }
+    # Candidate overlays add this notice beyond the base Windows config.
+    $signatureNotice = Join-Path $resourceRoot 'resources/SIGNATURE.txt'
+    if (Test-Path -LiteralPath $signatureNotice -PathType Leaf) {
+        Copy-RequiredFile $signatureNotice (Join-Path $stage 'resources/SIGNATURE.txt')
+    }
     foreach ($binary in $windows.bundle.externalBin) {
         if ($binary -isnot [string] -or $binary -notmatch '^resources[\\/]bin[\\/][A-Za-z0-9_-]+$') { throw "Unsupported sidecar: $binary" }
         $name = "$(Split-Path $binary -Leaf).exe"
@@ -127,7 +132,9 @@ try {
     }
     Get-ChildItem -LiteralPath $stage -Recurse -File | Where-Object { $_.Extension -in @('.exe', '.dll') } | ForEach-Object { Assert-X64PE $_.FullName }
     foreach ($notice in @('LICENSE', 'BRANDING.md', 'OFFICIAL_RELEASES.md')) {
-        Copy-RequiredFile (Join-Path $repoRoot $notice) (Join-Path $stage $notice)
+        $frozenNotice = Join-Path $binaryRoot $notice
+        $noticeSource = if ($runtimeMode -and (Test-Path -LiteralPath $frozenNotice -PathType Leaf)) { $frozenNotice } else { Join-Path $repoRoot $notice }
+        Copy-RequiredFile $noticeSource (Join-Path $stage $notice)
     }
     if ($runtimeMode -and (Test-Path -LiteralPath (Join-Path $binaryRoot 'BUILD_INFO.md'))) {
         Copy-RequiredFile (Join-Path $binaryRoot 'BUILD_INFO.md') (Join-Path $stage 'BUILD_INFO.md')
@@ -143,8 +150,10 @@ GPU acceleration requires a compatible graphics driver. Models are not included.
 This is an installation-free application package. Settings, chats and models
 remain in Novera's normal user profile (normally %APPDATA%/Novera on Windows),
 not beside the executable. This ZIP does not transfer your personal data.
-Automatic app updates remain disabled. To update, close Novera and extract the
-new complete ZIP into a new folder, then launch its executable.
+Update availability depends on the configuration embedded in this binary.
+Automatic installer updates have not been validated for this portable format.
+For a manual refresh, close Novera and extract the new complete ZIP into a new
+folder, then launch its executable.
 
 Repackaging does not compile recent source changes. When present, BUILD_INFO.md
 describes the input binary. A checksum verifies integrity, not publisher identity.
