@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Signed macOS Apple Silicon candidate verified
+
+The d0a29f63 ARM64 candidate (artifact 13083335852) passes eleven archive checksums and independent cryptographic verification of its final updater archive against the pinned Novera key. All twenty-two regular application files match the DMG byte for byte; the client embeds the real public key. Sixteen Mach-O files are ARM64 with a maximum deployment minimum of macOS 14.0, including MLX and its shader. All nine upgrade-fixture tests pass without failures or ignored tests. No Mac installation, end-to-end update or Apple notarization is claimed; publication remains blocked while Windows x64 and Intel macOS builds continue.
+
 ## Preserve the Windows updater installer marker
 
 The signed ARM64 candidate exposes a real packaging difference: Tauri restores the raw executable to `UNK` while the NSIS contains `NSS`, differing by exactly three reserved bytes. Normalize only the copied desktop runtime to the NSIS marker, require a checksum/offset/type proof before Windows publication, and reject missing or ambiguous reserved slots. Eight focused tests and the complete 49-test local contract suite pass. Applying the helper to the actual CI raw executable produces exactly the NSIS-extracted executable; all nine runtime file hashes match. The installer signature and prepared candidate publication prerequisite pass independently. No application compilation or installer execution is performed locally. Preserve the original CI archive and explicitly distinguish the derived local packaging provenance; actual installation/update validation is still pending.
