@@ -36,7 +36,7 @@ def wait_for(operation, timeout=60):
 
 
 def main():
-    if sys.platform != 'linux' or os.environ.get('GITHUB_ACTIONS') != 'true':
+    if sys.platform != 'linux' or os.environ.get('GITHUB_ACTIONS') != 'true' or os.environ.get('RUNNER_ENVIRONMENT') != 'github-hosted':
         raise RuntimeError('Requires an isolated Linux GitHub Actions runner')
     runner_temp = Path(os.environ['RUNNER_TEMP']).resolve(strict=True)
     out = Path('.build/candidates').resolve(strict=True)
@@ -94,12 +94,13 @@ def main():
         try:
             process = subprocess.Popen([driver, '--port', '4444'], env=env, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
             wait_for(lambda: call('GET','/status'))
-            result = call('POST','/session', {'capabilities':{'alwaysMatch':{'tauri:options':{'application':str(app)}}}})
+            result = call('POST','/session', {'capabilities':{'alwaysMatch':{'browserName':'wry', 'tauri:options':{'application':str(app)}}}})
             session = result['sessionId']
             wait_for(lambda: execute('return document.readyState === "complete"'))
-            origin = execute('return location.origin')
-            if origin not in ['tauri://localhost', 'http://tauri.localhost']:
-                raise RuntimeError(f'Unexpected application origin: {origin}')
+            def app_origin():
+                origin = execute('return location.origin')
+                return origin if origin in ['tauri://localhost', 'http://tauri.localhost'] else None
+            origin = wait_for(app_origin)
             call('POST', f'/session/{session}/url', {'url':origin+'/settings/general'})
             xpath = "//button[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'check for updates')]"
             button = wait_for(lambda: call('POST', f'/session/{session}/element', {'using':'xpath', 'value':xpath}))
@@ -115,6 +116,13 @@ def main():
             receipt.update(nativeUiCheckPassed=True, observedError=message, visibleText=text, settingsOrigin=origin)
         except Exception as error:
             receipt['error'] = str(error)
+            if session:
+                try:
+                    receipt['visibleTextAtFailure'] = execute('return document.body.innerText')
+                    screenshot = call('GET',f'/session/{session}/screenshot')
+                    (out/'LINUX-UPDATER-UI.png').write_bytes(base64.b64decode(screenshot))
+                except Exception:
+                    pass
             raise
         finally:
             if session:
