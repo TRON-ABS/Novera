@@ -52,3 +52,20 @@ test('explicit Android test opt-in cannot bypass technical blockers or affect or
     }`
   execFileSync('powershell', ['-NoProfile', '-Command', script])
 })
+test('Windows CI selects the native MSVC linker for each architecture and refuses a missing tool', { skip: process.platform !== 'win32' }, () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-msvc-'))
+  try {
+    const entry = path.resolve('scripts/distribution/ci-msvc.ps1')
+    for (const [arch, target, triple] of [['X64', 'x64', 'X86_64'], ['ARM64', 'arm64', 'AARCH64']]) {
+      const tool = path.join(root, 'MSVC tools', `bin/Host${target}/${target}/link.exe`)
+      fs.mkdirSync(path.dirname(tool), { recursive: true }); fs.writeFileSync(tool, 'fixture')
+      const envFile = path.join(root, arch + '.env')
+      execFileSync('powershell', ['-NoProfile', '-File', entry], { env: { ...process.env, GITHUB_ACTIONS: 'true', RUNNER_ARCH: arch, VSCMD_ARG_TGT_ARCH: target, VCToolsInstallDir: path.join(root, 'MSVC tools'), GITHUB_ENV: envFile } })
+      assert.match(fs.readFileSync(envFile, 'utf8'), new RegExp(`CARGO_TARGET_${triple}_PC_WINDOWS_MSVC_LINKER=`))
+      assert.ok(fs.readFileSync(envFile, 'utf8').includes(tool))
+    }
+    const rejected = spawnSync('powershell', ['-NoProfile', '-File', entry], { env: { ...process.env, GITHUB_ACTIONS: 'true', RUNNER_ARCH: 'X64', VSCMD_ARG_TGT_ARCH: 'x64', VCToolsInstallDir: path.join(root, 'missing'), GITHUB_ENV: path.join(root, 'reject.env') }, encoding: 'utf8' })
+    assert.notEqual(rejected.status, 0)
+    assert.equal(fs.existsSync(path.join(root, 'reject.env')), false)
+  } finally { fs.rmSync(root, { recursive: true, force: true }) }
+})

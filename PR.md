@@ -12,6 +12,8 @@ Validation before dispatch: actionlint 1.7.12 passed; YAML parsed; four new coll
 
 Initial run: [41272733352](https://github.com/TRON-ABS/Novera/actions/runs/41272733352), commit `3f072579`. The Web job fails with Yarn `YN0028`: the renamed root workspace block is out of canonical sort order in `yarn.lock`. Move that block only; parsed lockfile graphs compare equal, with no dependency or version change. Preserve immutable installation in CI. The initial local Corepack check was denied network access; remote installation is the authoritative follow-up. Actions activation, disabling 37 legacy workflows and the selected-actions policy were explicitly authorized by the maintainer and verified.
 
+The first native logs also show Git Bash GNU `link.exe` overriding MSVC for Windows CLI compilation and an unnecessary nested jq action rejected by the selected-actions policy. Resolve MSVC by full path for native x64/ARM64 and provision jq through the host tools instead of broadening action permissions. Five candidate/policy tests now pass, including x64/ARM64 linker selection with spaced paths and refusal when MSVC is missing; actionlint passes. Superseding manual candidate runs cancel older candidates in the same group.
+
 ## Earlier completed source and Windows preparation work
 
 # fix(distribution): prepare clean Windows packages and refresh the showcase

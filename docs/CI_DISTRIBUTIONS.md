@@ -49,3 +49,9 @@ Le [run 41272733352](https://github.com/TRON-ABS/Novera/actions/runs/41272733352
 ### Premier correctif issu du run
 
 Le job Web échoue réellement à l'installation immuable Yarn (`YN0028`), avant la compilation : l'entrée racine `novera-app@workspace:.` est restée à l'ancienne position alphabétique de son nom précédent. L'entrée est déplacée à sa position canonique. Les arbres YAML avant/après sont comparés égaux : aucune version ni dépendance n'est changée. L'essai local de validation Corepack a été empêché par l'accès réseau du bac à sable ; le résultat de l'installation immuable doit être confirmé par le prochain run GitHub. Une relance depuis le commit corrigé remplace le run initial, dont les résultats ne sont pas présentés comme des compilations réussies.
+
+### Préparation native Windows et actions imbriquées
+
+Les journaux du premier run révèlent également deux causes distinctes : l'action composite demandait une action tierce d'installation de jq absente de la liste autorisée ; la CLI Windows prenait le `link.exe` GNU de Git Bash à la place du linker MSVC. Le provisionnement jq utilise désormais l'outil présent sur le runner ou son gestionnaire natif, sans élargir les permissions GitHub. Un script commun sélectionne le linker MSVC par chemin complet pour le bon hôte/cible x64 ou ARM64, y compris pour la CLI. Une relance du workflow manuel remplace les candidats précédents du même groupe ; elle ne crée pas de publication automatique.
+
+Validation du correctif natif : **5 tests de candidats/politiques réussis**, dont sélection réelle du chemin MSVC pour fixtures x64/ARM64 avec espaces et refus d’un outil absent ; actionlint toujours sans erreur.

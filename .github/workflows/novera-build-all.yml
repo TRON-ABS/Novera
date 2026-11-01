@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: novera-candidates-${{ github.ref }}-${{ inputs.target }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 env:
   CI: 'true'
@@ -146,6 +146,10 @@ jobs:
         if: steps.selection.outputs.selected == 'true' && runner.os == 'Windows'
         with:
           arch: x64
+      - name: Select the native MSVC linker
+        if: steps.selection.outputs.selected == 'true' && runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/distribution/ci-msvc.ps1
       - name: Build clean candidate
         if: steps.selection.outputs.selected == 'true'
         shell: bash

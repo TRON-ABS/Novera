@@ -121,7 +121,15 @@ runs:
     # For the CUDA manifest below.
     - name: Install jq
       if: contains(inputs.variant, 'cuda') && runner.environment == 'github-hosted'
-      uses: dcarbone/install-jq-action@b7ef57d46ece78760b4019dbc4080a1ba2a40b45 # v3.2.0
+      shell: bash
+      run: |
+        if command -v jq >/dev/null 2>&1; then exit 0; fi
+        case "$RUNNER_OS" in
+          Linux) sudo apt-get update && sudo apt-get install -y jq ;;
+          macOS) brew install jq ;;
+          Windows) choco install jq -y --no-progress ;;
+          *) exit 1 ;;
+        esac
 
     # Redist archives, not the vendor installer: 1.1 GB of compiler, runtime
     # and cuBLAS against 3-4 GB that is mostly display driver and Nsight.
@@ -311,10 +319,7 @@ runs:
       if: runner.os == 'Windows'
       shell: pwsh
       run: |
-        if (-not $env:VCToolsInstallDir) { Write-Host "no VS developer environment; rustc locates link.exe itself"; exit 0 }
-        $link = Join-Path $env:VCToolsInstallDir 'bin\Hostx64\x64\link.exe'
-        if (-not (Test-Path $link)) { throw "link.exe not found at $link" }
-        Add-Content $env:GITHUB_ENV "CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_LINKER=$link"
+        & ./scripts/distribution/ci-msvc.ps1
 
     # Asserts the image, not the steps above: a mis-provisioned runner fails
     # here in seconds instead of five minutes into `make build`.
