@@ -1,5 +1,13 @@
 # Préparer les prochaines versions et mises à jour Novera
 
+## macOS Intel : candidat signé vérifié — 1er novembre 2026
+
+Le candidat Intel signé du [run `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818), commit `d0a29f63`, est téléchargé et contrôlé : [artefact `13083107857`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13083107857), 213 497 090 octets, **11 empreintes vérifiées**. SHA-256 de l’archive : `2ba2bdd265d5703105f0f2c100338ad5c7e2772ec8ec63fb5afd2d42c4b41e42`.
+
+La signature de l’archive d’update finale passe la vérification cryptographique avec la clé publique Novera épinglée ; le reçu correspond au commit et à `darwin-x86_64`, et `--publication-check` réussit. Les **30 fichiers réguliers de l’application correspondent exactement entre archive d’update et DMG** ; la clé publique réelle est embarquée. Les 26 Mach-O sont x64, avec un minimum maximal **macOS 13.0** ; le worker GGUF/Metal et la notice TRON-ABS sont présents, MLX est exclu et aucun chemin de dépendance du runner n’est conservé.
+
+Les **9 tests de migration réussissent sans échec ni test ignoré**. Les deux architectures macOS signées sont maintenant contrôlées. Seul Windows x64 reste en compilation ; la publication demeure bloquée en attendant notamment les essais réels d’installation/update. Aucune installation sur le profil personnel ni notarisation Apple n’est revendiquée.
+
 ## macOS Apple Silicon : candidat signé vérifié — 1er novembre 2026
 
 Le candidat ARM64 signé du [run `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818), commit `d0a29f63`, est compilé et téléchargé : [artefact `13083335852`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13083335852), 217 568 424 octets, **11 empreintes vérifiées**. SHA-256 de l’archive : `315c4515db6eece25d1302f4972267638779e15595b221d3418bb00dda9144cb`.

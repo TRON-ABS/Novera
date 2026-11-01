@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Signed macOS Intel candidate verified
+
+The d0a29f63 Intel candidate (artifact 13083107857) passes eleven checksums and cryptographic verification of its final updater archive against the pinned Novera key. All thirty regular application files match the DMG byte for byte; the actual client key is embedded. Twenty-six Mach-O files are x64 with a maximum deployment minimum of macOS 13.0; GGUF/Metal is included and MLX excluded. All nine upgrade-fixture tests pass without failures or ignored tests. Both signed macOS architectures are inspected; Windows x64 is still building. Installation, end-to-end update and Apple notarization remain unclaimed, and publication stays blocked.
+
 ## Signed macOS Apple Silicon candidate verified
 
 The d0a29f63 ARM64 candidate (artifact 13083335852) passes eleven archive checksums and independent cryptographic verification of its final updater archive against the pinned Novera key. All twenty-two regular application files match the DMG byte for byte; the client embeds the real public key. Sixteen Mach-O files are ARM64 with a maximum deployment minimum of macOS 14.0, including MLX and its shader. All nine upgrade-fixture tests pass without failures or ignored tests. No Mac installation, end-to-end update or Apple notarization is claimed; publication remains blocked while Windows x64 and Intel macOS builds continue.

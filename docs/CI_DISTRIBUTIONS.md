@@ -1,5 +1,13 @@
 # Compilations Novera sur GitHub Actions
 
+## macOS Intel : candidat signé vérifié — 1er novembre 2026
+
+Le candidat Intel signé du [run `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818), commit `d0a29f63`, est téléchargé et contrôlé : [artefact `13083107857`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13083107857), 213 497 090 octets, **11 empreintes vérifiées**. SHA-256 de l’archive : `2ba2bdd265d5703105f0f2c100338ad5c7e2772ec8ec63fb5afd2d42c4b41e42`.
+
+La signature de l’archive d’update finale passe la vérification cryptographique avec la clé publique Novera épinglée ; le reçu correspond au commit et à `darwin-x86_64`, et `--publication-check` réussit. Les **30 fichiers réguliers de l’application correspondent exactement entre archive d’update et DMG** ; la clé publique réelle est embarquée. Les 26 Mach-O sont x64, avec un minimum maximal **macOS 13.0** ; le worker GGUF/Metal et la notice TRON-ABS sont présents, MLX est exclu et aucun chemin de dépendance du runner n’est conservé.
+
+Les **9 tests de migration réussissent sans échec ni test ignoré**. Les deux architectures macOS signées sont maintenant contrôlées. Seul Windows x64 reste en compilation ; la publication demeure bloquée en attendant notamment les essais réels d’installation/update. Aucune installation sur le profil personnel ni notarisation Apple n’est revendiquée.
+
 ## macOS Apple Silicon : candidat signé vérifié — 1er novembre 2026
 
 Le candidat ARM64 signé du [run `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818), commit `d0a29f63`, est compilé et téléchargé : [artefact `13083335852`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13083335852), 217 568 424 octets, **11 empreintes vérifiées**. SHA-256 de l’archive : `315c4515db6eece25d1302f4972267638779e15595b221d3418bb00dda9144cb`.
@@ -61,7 +69,7 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 | Portable Windows x64 | windows / x64: en cours | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
 | Windows ARM64 | arm64 / arm64: compilé | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
 | Linux | linux / x64: compilé | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
-| macOS | macos / arm64: en cours; macos / x64: en cours | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
+| macOS | macos / arm64: compilé; macos / x64: compilé | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
 | Android | android / windows-2025: compilé | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
 | iOS simulateur | ios / macos-15: compilé | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
 | Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
@@ -77,7 +85,7 @@ Artefacts téléchargés et contrôlés indépendamment :
 - [Novera-ios-macOS-41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611/artifacts/13071509324) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-linux-x64-41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13080473923) : 11 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; signature cryptographique du bundle d’update et prérequis de publication vérifiés.
 - [Novera-macos-arm64-41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13083335852) : 11 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; minimum natif maximal relevé : macOS 14.0.0; signature cryptographique du bundle d’update et prérequis de publication vérifiés.
-- [Novera-macos-x64-41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073109727) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; minimum natif maximal relevé : macOS 13.0.0.
+- [Novera-macos-x64-41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13083107857) : 11 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; minimum natif maximal relevé : macOS 13.0.0; signature cryptographique du bundle d’update et prérequis de publication vérifiés.
 - [Novera-web-Linux-41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200/artifacts/13070388490) : 593 empreintes vérifiées, signature de marque et provenance conformes.
 
 Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne remplacent pas une signature cryptographique de production. Les validations sur PC neuf, téléphone et tablette restent distinctes des compilations CI.
