@@ -1,4 +1,4 @@
-# Future APK entry point; disabled by default and guarded by preparation checks.
+# APK entry point; disabled by default and guarded by preparation checks.
 [CmdletBinding()]
 param([switch]$AllowUnreviewedTestBuild)
 $ErrorActionPreference='Stop'
@@ -26,5 +26,6 @@ $env:NOVERA_ENABLE_UPDATER='false'
 $env:NOVERA_ANALYTICS_HOST=''
 $env:NOVERA_ANALYTICS_PROJECT_KEY=''
 Remove-Item Env:__TAURI_BUNDLE_TYPE -ErrorAction SilentlyContinue
-& node (Join-Path $repo 'node_modules/@tauri-apps/cli/tauri.js') android build --debug --apk --target aarch64 --features mobile -- --no-default-features
+# Yarn supplies project-local tools to Tauri's beforeBuildCommand (cross-env).
+& corepack yarn tauri android build --debug --apk --target aarch64 --features mobile -- --no-default-features
 exit $LASTEXITCODE
