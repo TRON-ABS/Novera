@@ -9,7 +9,7 @@ on:
         required: true
         type: choice
         default: all
-        options: [all, checks, native, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop, pages]
+        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop, pages]
       signed_updates:
         description: Embed the Novera desktop or CLI update channel and sign final archives
         type: boolean
@@ -66,7 +66,7 @@ jobs:
     needs: checks
     env:
       NOVERA_ENABLE_UPDATER: ${{ inputs.signed_updates && 'true' || 'false' }}
-    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
+    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","windows-linux","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
     strategy:
       fail-fast: false
       max-parallel: 3
@@ -93,6 +93,7 @@ jobs:
           selected=false
           if [[ "$REQUESTED" == all || "$REQUESTED" == native || "$REQUESTED" == "$VARIANT" ]]; then selected=true; fi
           if [[ "$VARIANT" == windows && "$REQUESTED" =~ ^(desktop|setup|msi|portable)$ ]]; then selected=true; fi
+          if [[ "$REQUESTED" == windows-linux && "$VARIANT" =~ ^(windows|arm64|linux)$ ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
         if: steps.selection.outputs.selected == 'true'
@@ -142,6 +143,8 @@ jobs:
           path: |
             src-tauri/target/engine-build.log
             .build/ci-status.json
+            .build/candidates/UPDATER-UI-CONTRACTS.json
+            .build/candidates/LINUX-UPDATER-UI.*
           if-no-files-found: ignore
           retention-days: 7
 

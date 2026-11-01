@@ -26,9 +26,10 @@ describe('Novera updater', () => {
     expect(invoke).not.toHaveBeenCalled()
   })
   it('handles an unavailable feed without falling back to another vendor', async () => {
-    vi.mocked(check).mockRejectedValueOnce(new Error('Feed unavailable'))
+    const error = new Error('Feed unavailable')
+    vi.mocked(check).mockRejectedValueOnce(error)
     vi.spyOn(console, 'error').mockImplementation(() => {})
-    expect(await svc.check()).toBeNull()
+    await expect(svc.check()).rejects.toBe(error)
     expect(check).toHaveBeenCalledOnce()
     expect(invoke).not.toHaveBeenCalled()
   })

@@ -1,5 +1,7 @@
 # Novera 1.0.0 — lancement et disponibilité
 
+**Dernière reprise, contrôle des feeds à 23 h 38 (Paris)** : feeds desktop et CLI en HTTP 404 ; canal de production non validé. Le bouton Windows est exercé dans l'interface isolée : il affiche à tort « Vous utilisez la dernière version » malgré l'échec du feed confirmé au journal. Correction locale avec 59 tests réussis, encore à reconstruire et vérifier dans un candidat. Nouveau parcours UI Linux non exécuté. [Preuves, limites et étapes restantes](UPDATE_CHANNEL_CHECK_2026-11-01.md).
+
 État vérifié au **1er novembre 2026**. **Les téléchargements publics restent fermés.** Les cinq plateformes desktop passent désormais l’installation et le remplacement par le composant updater natif en environnement GitHub isolé. Le brouillon de préversion demeure privé et bloqué ; les anciens candidats sans updater restent internes.
 
 Les trois CLI passent également leurs essais isolés et le renouvellement Web local est contrôlé. Le [bilan final des preuves et besoins restants](VALIDATION_RESULTS_2026-11-01.md) distingue ces résultats des conditions de production non satisfaites. Le contrôle source du déploiement Pages réussit : 57 contrats Node (55 réussis, deux propres à Windows ignorés sur Ubuntu) et sept tests Python ; les 57 passent localement sous Windows. La [vitrine GitHub Pages](https://tron-abs.github.io/Novera/) est en ligne sous HTTPS ; elle présente le lancement en préparation et ne distribue aucune application.

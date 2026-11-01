@@ -1,32 +1,25 @@
-# fix(distribution): validate signed desktop and CLI update packages
+# fix(updater): report unavailable feeds during manual checks
 
-Novera's launch candidates previously lacked a verified update path, and the copied Windows runtime could differ from its signed installer. Add explicit signed build modes, authenticate final bytes with the pinned Novera key, preserve source/runtime provenance and exercise installation and native replacement on disposable GitHub hosts. Public release remains blocked until the outstanding production and format-specific requirements are met.
+Settings previously claimed that Novera was up to date when its production feed could not be fetched. The existing Windows candidate reproduces this: Configurations > General > Check for Updates shows “Vous utilisez la dernière version”, while the native updater logs a failed release fetch and the official endpoint returns HTTP 404.
 
-## Verified desktop behavior
+Propagate the original Tauri service error, clear and synchronize stale offers, and rethrow for manual checks so Settings shows its existing translated error and permits retry. Automatic checks remain quiet. The endpoint, pinned key and signature verification are unchanged.
 
-- [Windows run 41336767111](https://github.com/TRON-ABS/Novera/actions/runs/41336767111) passes x64 and ARM64 NSIS installation and native replacement. The 106/nine runtime file hashes, synthetic profile witness and startup before/after match. The test harness uses a standard isolated Windows profile and checks its known folders before starting the app.
-- [Linux/macOS run 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673) passes those three jobs. The AppImage is restored to its exact digest; 22 ARM64 and 30 Intel app files match before/after.
-- Downloaded receipts match GitHub digests. Each scenario verifies the native signature, modified-payload rejection and same-version behavior.
+## Validation
 
-The probe advertises synthetic version 0.9.9 and installs the real 1.0.0 package. These tests do not certify the production UI route, a transition between two released applications, visual behavior or all inference engines. The incomplete original Windows Actions ZIP remains separate from its prepared candidate. No installer runs on the maintainer's personal profile.
+- Local Windows: 42 Vitest tests pass across the updater service, hook and Settings. Regressions cover unavailable feeds, stale offers, automatic versus manual checks, error display and retry.
+- Local Windows: all 57 distribution Node contracts and seven Python package/guard tests pass. The HTTP fixture test requires loopback access outside the sandbox. Python syntax validation, workflow actionlint and git diff --check pass.
+- CI now runs the updater UI contracts before signed desktop engine builds and retains their JSON report. The manual windows-linux target selects Windows x64, Windows ARM64 and Linux x64 without starting Apple builds.
+- Linux candidate builds additionally attempt the real AppImage Settings error route through Tauri's external WebKit WebDriver under Xvfb. The harness uses an isolated profile, opens Settings directly, and retains a screenshot, receipt and diagnostic log. It does not mock updater IPC or install an update. Execution is pending; local syntax validation is not a native Linux pass.
 
-## Verified CLI behavior and manifest preparation
+Commands:
 
-[Run 41341759700](https://github.com/TRON-ABS/Novera/actions/runs/41341759700) passes Windows x64, Linux x64 and macOS ARM64. Each downloaded artifact passes eleven checksums; native architecture, embedded trust key, signed archive identity and cryptographic signatures are independently rechecked. Receipts confirm tamper refusal, executable replacement, successful execution and witness preservation. This replaces a synthetic file with the real CLI; it does not certify every in-use process replacement or a production endpoint.
+    node node_modules/vitest/vitest.mjs run --project @janhq/web-app web-app/src/hooks/__tests__/useAppUpdater.test.ts web-app/src/services/updater/__tests__/tauri.test.ts web-app/src/routes/settings/__tests__/general.test.tsx
+    node --test scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-updater.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs
+    python -m py_compile scripts/distribution/validate-linux-update-ui.py
+    git diff --check
 
-The opt-in feature uses only the official Novera endpoint, Minisign plus SHA-256, signed version/platform/commit identity, native architecture checks, downgrade refusal and staged replacement. Default and earlier CLI builds retain their disabled updater policy. The offline feed generator requires all three independently reviewed proofs, rechecks actual archive signatures and internal identities, refuses mismatched receipts or versions and creates canonical release URLs without overwriting existing output. Both desktop and CLI manifests are prepared locally; none is publicly served.
+## Remaining gates
 
-## Web renewal and validation
+Both production feeds still return HTTP 404, and the release remains a private draft. A new signed build and native UI verification of the fix are pending. The Linux harness requires the deliberately unavailable feed and only checks its error route; it cannot certify an offered update, installation, version transition, onboarding or model setup. The previous Windows reproduction used a checksum-verified copy of a real local model in the isolated profile. Native installation/replacement proofs from earlier runs remain separate.
 
-[Web run 41339452516](https://github.com/TRON-ABS/Novera/actions/runs/41339452516) passes. Its downloaded candidate passes 595 checksums, and HTTP validation checks all 588 frontend files with no-store version metadata and revalidated HTML. A real isolated browser reload between builds 307fbb16 and a1fe94cc loads a different hashed entry bundle and preserves the visible dark-theme preference and settings route. Native-feature warnings remain documented; complete Web functionality is not certified. GitHub Pages is now configured with enforced HTTPS at https://tron-abs.github.io/Novera/. [Deployment 41346258656](https://github.com/TRON-ABS/Novera/actions/runs/41346258656), source 5faf42a6, passes. Only a launch-information page, two reviewed images and a revision probe are deployed; the application, downloads and feeds remain closed. Live HTTPS responses, the HTML digest, source revision, images and browser rendering are verified. Observed max-age=600 caching does not satisfy the application delivery contract; asset paths and routing also need adaptation to /Novera/.
-
-## Tests and remaining gates
-
-- 57 Node distribution contracts and seven Python guard/package tests pass locally, including two launch-site payload/injection guards. Pages CI passes 55 Node tests with two Windows-only skips and seven Python tests. The workflow runs the same source checks.
-- The three CLI jobs each pass two help/policy tests, seven signed-channel tests and the separately executed CI-only replacement test. No local Rust rebuild is needed for manifest preparation.
-- `node --test scripts/distribution/__tests__/prepare-cli-feed.test.mjs scripts/distribution/__tests__/web-delivery.test.mjs` covers feed prerequisites and HTTP revision/cache behavior; `python -m unittest discover -s scripts/distribution/checks -p 'test_*.py'` covers packaging identities and isolated validation guards.
-- The internal CLI manifest was generated from the three real signed packages, rechecking their archive identities and signatures.
-
-Source-only run [41345584039](https://github.com/TRON-ABS/Novera/actions/runs/41345584039), commit 6129a15a, passes: 55 Node tests (53 passed, two Windows-specific tests skipped on Ubuntu) and seven Python tests. Later documentation-only changes report these results without requiring another application build. See the [consolidated evidence and outstanding inputs](docs/VALIDATION_RESULTS_2026-11-01.md).
-
-The private draft contains 15 verified assets below 2 GiB each and remains draft/prerelease. No public latest.json or latest-cli.json exists. Production UI/feed validation, Apple signing/notarization, mobile production channels and devices, real Web hosting/cache behavior and MSI/Debian/portable scenarios remain distinct requirements. No certification or public release is implied. See [launch status](docs/LAUNCH_STATUS.md) and [the test protocol](docs/INSTALL_UPDATE_VALIDATION.md).
+No production feed or release is published, no CI success or approval is claimed, and nothing is merged. Apple signing/notarization and iOS device distribution still require real Apple access. No related issue or existing open PR was found during the repository check. See docs/UPDATE_CHANNEL_CHECK_2026-11-01.md for the original reproduction and evidence.

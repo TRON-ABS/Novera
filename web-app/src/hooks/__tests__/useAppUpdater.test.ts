@@ -188,6 +188,25 @@ describe('useAppUpdater', () => {
       consoleErrorSpy.mockRestore()
     })
 
+    it('reports a manual feed failure and clears stale offers across instances', async () => {
+      const error = new Error('Feed HTTP 404')
+      vi.spyOn(console, 'error').mockImplementation(() => {})
+      mockUpdaterCheck.mockResolvedValueOnce({ version: '1.0.1' })
+      const { result } = renderHook(() => useAppUpdater())
+      await act(async () => { await result.current.checkForUpdate() })
+      expect(result.current.updateState.isUpdateAvailable).toBe(true)
+      mockUpdaterCheck.mockRejectedValueOnce(error)
+      await act(async () => {
+        await expect(result.current.checkForUpdate(true)).rejects.toBe(error)
+      })
+      expect(result.current.updateState.isUpdateAvailable).toBe(false)
+      expect(result.current.updateState.updateInfo).toBeNull()
+      expect(mockEvents.emit).toHaveBeenCalledWith('onAppUpdateStateSync', {
+        isUpdateAvailable: false,
+        updateInfo: null,
+      })
+    })
+
     it('should reset remindMeLater when requested', async () => {
       mockUpdaterCheck.mockResolvedValue(null)
 

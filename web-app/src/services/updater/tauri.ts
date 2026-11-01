@@ -24,7 +24,7 @@ export class TauriUpdaterService extends DefaultUpdaterService {
       return { version: update.version, date: update.date, body: update.body }
     } catch (error) {
       console.error('Error checking for updates in Tauri:', error)
-      return null
+      throw error
     }
   }
 

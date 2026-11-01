@@ -21,6 +21,15 @@ if [[ "$kind" != cli ]]; then
   if [[ "$kind" != web ]]; then yarn build:icon; fi
   yarn copy:assets:mobile
 fi
+if [[ "$kind" == desktop && "${NOVERA_ENABLE_UPDATER:-false}" == true ]]; then
+  # Fail before compiling engines if a manual feed error can masquerade as an
+  # up-to-date installation. Keep the machine-readable result with the build.
+  yarn vitest run --project @janhq/web-app \
+    web-app/src/hooks/__tests__/useAppUpdater.test.ts \
+    web-app/src/services/updater/__tests__/tauri.test.ts \
+    web-app/src/routes/settings/__tests__/general.test.tsx \
+    --reporter=json --outputFile=.build/candidates/UPDATER-UI-CONTRACTS.json
+fi
 case "$kind" in
   web)
     yarn build:web
@@ -88,6 +97,10 @@ case "$kind" in
     node scripts/distribution/ci-candidates.mjs desktop
     if [[ "${NOVERA_ENABLE_UPDATER:-false}" == true ]]; then
       node scripts/distribution/ci-check-updater.mjs
+      if [[ "$RUNNER_OS" == Linux ]]; then
+        cargo install tauri-driver --version 2.1.0 --locked
+        xvfb-run -a python3 scripts/distribution/validate-linux-update-ui.py
+      fi
     fi
     # Freeze the delivered runtime before tests can rebuild Cargo outputs.
     # Tauri has now built the frontend required by the integration test.
