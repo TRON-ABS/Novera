@@ -12,9 +12,9 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 | MSI Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
 | Portable Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
 | Windows ARM64 | arm64 / arm64: compilé | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
-| Linux | linux / x64: en cours | [run 41275746510](https://github.com/TRON-ABS/Novera/actions/runs/41275746510) · `0beb13a3` |
+| Linux | linux / x64: compilé | [run 41275746510](https://github.com/TRON-ABS/Novera/actions/runs/41275746510) · `0beb13a3` |
 | macOS | macos / arm64: en cours; macos / x64: en cours | [run 41276594974](https://github.com/TRON-ABS/Novera/actions/runs/41276594974) · `9f68b5d3` |
-| Android | android / windows-2025: en cours | [run 41276458095](https://github.com/TRON-ABS/Novera/actions/runs/41276458095) · `ce35ecbd` |
+| Android | android / windows-2025: en cours | [run 41278242672](https://github.com/TRON-ABS/Novera/actions/runs/41278242672) · `d142e12e` |
 | iOS simulateur | ios / macos-15: compilé | [run 41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611) · `a84f8cf6` |
 | Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
 | CLI | cli / macos-15: compilé; cli / ubuntu-22.04: compilé; cli / windows-2025: compilé | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
@@ -26,6 +26,7 @@ Artefacts téléchargés et contrôlés indépendamment :
 - [Novera-cli-Windows-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13070655221) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-macOS-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069439592) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-ios-macOS-41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611/artifacts/13071509324) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-linux-x64-41275746510](https://github.com/TRON-ABS/Novera/actions/runs/41275746510/artifacts/13071478788) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-macos-arm64-41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042/artifacts/13072130830) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-web-Linux-41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200/artifacts/13070388490) : 593 empreintes vérifiées, signature de marque et provenance conformes.
 
@@ -173,3 +174,15 @@ Après cette réussite, les deux anciens jobs macOS encore en cours dans le run 
 Le job macOS ARM64 `124755700844` termine également avec succès juste avant la fin du run natif `41275047042`. Artefact `13072130830` : **108 367 202 octets / 7 fichiers / 6 empreintes conformes**, SHA-256 `8a55653d9995f8211fedb124da112bae684d6e88442330893ce2a5a0bfc22e21`.
 
 Inspection indépendante du DMG/HFS sans installer ni exécuter l’application : **35 entrées**, **16 binaires/bibliothèques Mach-O ARM64** vérifiés, dont l’application, Bun, uv, le worker GGUF et MLX. Notice personnelle présente dans l’application ; `default.metallib` est embarqué. Les dépendances chargées référencent les frameworks système ou les bibliothèques livrées via `@rpath`, avec `@loader_path` en tête des chemins de recherche du worker. Les chemins de développement supplémentaires du runner ne sont pas nécessaires à ces bibliothèques locales ; cela reste un contrôle statique, pas une validation d’inférence ou de lancement sur un Mac neuf. La relance dédiée macOS `41276594974` poursuit les contrôles Intel et Apple Silicon.
+
+### Linux : Debian et AppImage vérifiés, test GTK réussi
+
+[Run Linux `41275746510`](https://github.com/TRON-ABS/Novera/actions/runs/41275746510), commit `0beb13a3280c0665063674391112d493ec2ba991` : compilation, collecte et résumé réussis. Artefact `13071478788` : **321 560 268 octets / 8 fichiers / 7 empreintes conformes**, SHA-256 `bad4f68ae0b8da53ab9deba7f5cd49ceea6f4dd4b6b45ba453d7597b37c1e911`. Debian : **127 787 272 octets** ; AppImage : **193 747 448 octets**.
+
+Le journal confirme le test réel `clipboard_serves_a_file_uri_to_a_consumer` sous Xvfb : **1 réussi, 0 échec, 0 ignoré**, exécuté sur le module GTK de production. Inspection indépendante des paquets sans les installer ni les exécuter : Debian **47 entrées / 25 ELF x64**, AppImage **564 entrées / 25 ELF x64**. Application, Bun, uv, worker, modules CPU et Vulkan présents ; signature TRON-ABS embarquée dans les deux formats. L’AppImage conserve `.DirIcon` et exclut les bibliothèques de pilote `libcuda.so` / chargeur `libvulkan.so` qui doivent provenir du système utilisateur. Lancement graphique, inférence et installation sur distributions cibles restent à tester séparément.
+
+### Android : argument Cargo perdu par le CLI verrouillé
+
+La relance `41276458095` dépasse bien `cross-env`, puis échoue sur les API tray/updater desktop activées dans le build mobile. Le journal montre le Cargo initial sans `--no-default-features`, malgré l’argument demandé. Le [source officiel du CLI Tauri 2.8.4](https://github.com/tauri-apps/tauri/blob/tauri-cli-v2.8.4/crates/tauri-cli/src/mobile/android/build.rs) utilise les options par défaut pour ce premier build Android. Le [CLI 2.11.4](https://github.com/tauri-apps/tauri/blob/tauri-cli-v2.11.4/crates/tauri-cli/src/mobile/android/build.rs) transmet les arguments demandés au premier Cargo.
+
+Épingler `@tauri-apps/cli` à **2.11.4** corrige ce chemin sans activer les fonctions desktop sur mobile. Comparaison sémantique du verrou : seules les entrées CLI Tauri, ses binaires hôtes et la référence du workspace racine changent. Installation `corepack yarn install --immutable --mode=skip-build` réussie et `tauri-cli --version` confirme 2.11.4 ; aucun build d’application local. Les avertissements de peers React/TypeScript préexistants restent visibles. Relance Android depuis `d142e12ee4e785d5204d027e73b722f21becec4f`.
