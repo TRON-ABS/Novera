@@ -260,6 +260,7 @@ Pour contribuer, scannez ce QR code avec votre portefeuille ou copiez l’adress
 ---
 
 <div align="center">
+  <p>Je vous souhaite à toutes et à tous une belle aventure avec Novera. Explorez vos idées, créez librement et laissez votre curiosité vous emmener plus loin.</p>
   <p><strong>TRON-ABS</strong></p>
   <p><em>The art of Human with AI</em></p>
 </div>

@@ -260,6 +260,7 @@ To contribute, scan this QR code with your wallet or copy the address above. Sel
 ---
 
 <div align="center">
+  <p>To everyone setting out with Novera: I wish you a wonderful adventure. Explore your ideas, create freely and let your curiosity take you further.</p>
   <p><strong>TRON-ABS</strong></p>
   <p><em>The art of Human with AI</em></p>
 </div>
