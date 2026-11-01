@@ -2,6 +2,8 @@
 
 État vérifié au **1er novembre 2026**. **Les téléchargements publics restent fermés.** Les cinq plateformes desktop passent désormais l’installation et le remplacement par le composant updater natif en environnement GitHub isolé. Le brouillon de préversion demeure privé et bloqué ; les anciens candidats sans updater restent internes.
 
+Les trois CLI passent également leurs essais isolés et le renouvellement Web local est contrôlé. Le [bilan final des preuves et besoins restants](VALIDATION_RESULTS_2026-11-01.md) distingue ces résultats des conditions de production non satisfaites. Le dernier contrôle source réussit : 55 contrats Node (53 réussis, deux propres à Windows ignorés sur Ubuntu) et sept tests Python ; les 55 passent localement sous Windows.
+
 Novera réunit conversation, recherche et création de texte, d’images, de musique et de vidéo dans un même tableau de bord. Les possibilités locales dépendent du matériel, du moteur et des modèles installés ; le cloud utilise les accès configurés par l’utilisateur. Les [vitrines française](../README.fr.md) et [anglaise](../README.md) conservent la capture réelle du mainteneur.
 
 | Cible | Preuves réellement disponibles | Conditions restantes |

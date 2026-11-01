@@ -1,5 +1,7 @@
 # Novera — instructions du projet
 
+Le [bilan vérifié du 1er novembre](docs/VALIDATION_RESULTS_2026-11-01.md) clôt les contrôles autonomes de compilation, paquets et remplacement natif. Les cinq desktops, les trois CLI et le renouvellement Web local ont leurs preuves ; la CI source `41345584039` à `6129a15a` passe 55 contrats Node (53 réussis, deux propres à Windows ignorés sur Ubuntu) et sept tests Python. Aucun feed public ni publication ; les accès/identités Apple et Android, l’origine HTTPS Web et les validations de production restent requis. Les caches locaux ont été nettoyés sur demande ; ne pas les reconstruire sans nécessité.
+
 ## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026
 
 Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et Intel**. Les reçus téléchargés et leurs digests GitHub sont vérifiés : installation du vrai paquet, signature native, rejet du contenu altéré, aucune offre à version égale, restauration effective par l’updater, empreintes runtime et témoin de profil conservés, démarrage pendant 15 secondes avant et après. Le [run Windows 41336767111](https://github.com/TRON-ABS/Novera/actions/runs/41336767111) compare 106 fichiers x64 et neuf ARM64 ; le [run Linux/macOS 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673) compare l’AppImage exacte, 22 fichiers macOS ARM64 et 30 Intel.
