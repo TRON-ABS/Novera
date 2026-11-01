@@ -127,6 +127,9 @@ jobs:
         with:
           name: Novera-${{ matrix.variant }}-${{ matrix.arch }}-${{ github.run_id }}
           path: .build/candidates/
+          # The sanitized candidate includes the pinned image-runtime marker.
+          # Excluding dotfiles here would invalidate its exhaustive SHA256SUMS.
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 14
           compression-level: 0
