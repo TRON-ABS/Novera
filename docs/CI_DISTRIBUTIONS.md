@@ -13,21 +13,21 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 | Portable Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
 | Windows ARM64 | arm64 / arm64: compilé | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
 | Linux | linux / x64: compilé | [run 41279778571](https://github.com/TRON-ABS/Novera/actions/runs/41279778571) · `e870627e` |
-| macOS | macos / arm64: en cours; macos / x64: en cours | [run 41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556) · `5468f183` |
+| macOS | macos / arm64: compilé; macos / x64: en cours | [run 41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556) · `5468f183` |
 | Android | android / windows-2025: en cours | [run 41281439087](https://github.com/TRON-ABS/Novera/actions/runs/41281439087) · `ff4740a0` |
 | iOS simulateur | ios / macos-15: compilé | [run 41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611) · `a84f8cf6` |
 | Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
-| CLI | cli / ubuntu-22.04: compilé; cli / windows-2025: en cours; cli / macos-15: en cours | [run 41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978) · `410caea5` |
+| CLI | cli / ubuntu-22.04: compilé; cli / windows-2025: compilé; cli / macos-15: compilé | [run 41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978) · `410caea5` |
 
 Artefacts téléchargés et contrôlés indépendamment :
 
 - [Novera-arm64-arm64-41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042/artifacts/13071721946) : 19 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-Linux-41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978/artifacts/13073505849) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
-- [Novera-cli-Windows-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13070655221) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
-- [Novera-cli-macOS-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069439592) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-cli-Windows-41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978/artifacts/13073064714) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-cli-macOS-41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978/artifacts/13073560959) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-ios-macOS-41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611/artifacts/13071509324) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-linux-x64-41279778571](https://github.com/TRON-ABS/Novera/actions/runs/41279778571/artifacts/13072669601) : 8 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
-- [Novera-macos-arm64-41276594974](https://github.com/TRON-ABS/Novera/actions/runs/41276594974/artifacts/13071619315) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; minimum natif maximal relevé : macOS 15.0.0.
+- [Novera-macos-arm64-41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073710701) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; minimum natif maximal relevé : macOS 14.0.0.
 - [Novera-web-Linux-41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200/artifacts/13070388490) : 593 empreintes vérifiées, signature de marque et provenance conformes.
 
 Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne remplacent pas une signature cryptographique de production. Les validations sur PC neuf, téléphone et tablette restent distinctes des compilations CI.
@@ -35,11 +35,17 @@ Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne rempla
 
 Le 1er novembre 2026, le mainteneur autorise explicitement **toutes les plateformes et variantes**, en confirmant Linux, Android, iOS et macOS, avec contrôle des résultats et mise à jour des MD. Cette autorisation remplace la consigne historique de garder Actions désactivé pour la préparation seule. Aucun profil utilisateur ni discussion du PC du mainteneur n'est envoyé aux runners.
 
+## Nouveaux candidats vérifiés — 06:49 UTC
+
+Le [run CLI `41280300978`](https://github.com/TRON-ABS/Novera/actions/runs/41280300978), commit `410caea5`, est entièrement réussi. Chaque hôte Windows/Linux/macOS exécute deux tests Rust de politique des mises à jour et d’aide : six réussis au total, zéro échec/ignoré. Les trois archives sont téléchargées ; 21 empreintes, provenance, notice TRON-ABS et architectures ELF x64 / PE x64 / Mach-O ARM64 sont conformes. Le nom interne historique `jan` reste conservé.
+
+Le nouveau [DMG Apple Silicon](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073710701), commit `5468f183`, contient huit fichiers externes et sept empreintes vérifiées. Le reçu `MACOS-COMPATIBILITY.json` annonce 14.0 et 16 binaires ; l’inspection indépendante du DMG confirme 16 Mach-O ARM64 avec minimum maximal **14.0.0**, MLX, shaders et notice embarquée. SHA-256 de l’archive GitHub : `a3a7ed7c930888e773cce697e3ea5440d3b41d592281b821530b59ea32f76727`. Les DMG précédents exigeant macOS 15 restent des preuves historiques. Aucun lancement ou montage du DMG n’est effectué sur Windows ; l’installation macOS reste à tester. Ce run précède les nouveaux tests de migration desktop. Le job Intel du même run continue.
+
 ## Préparation des prochaines versions
 
 Linux `e870627e`, [run `41279778571`](https://github.com/TRON-ABS/Novera/actions/runs/41279778571), confirme le nouveau cycle desktop : test GTK réel réussi et **9 tests Rust de compatibilité des données réussis / 0 échec / 0 ignoré** sur les fixtures 0.8.3 et 0.8.5. Le reçu est présent dans le candidat téléchargé. L’archive `13072669601` contient neuf fichiers, huit empreintes vérifiées ; Debian/AppImage passent à nouveau 50 contrôles ELF x64, avec notice embarquée, icône et exclusion des pilotes GPU hôtes. SHA-256 de l’archive GitHub : `2fdeab6ee3b7c0917744e6a1f4b9b742d1b189bdd3fd87d0aca82721d566deb1`. Aucun paquet n’est installé sur le profil personnel.
 
-Le [cycle durable des versions](FUTURES_VERSIONS.md) ajoute un contrôle préalable des six sources de version, les tests de migration desktop et un générateur de manifeste pour cinq cibles desktop. Le [run de contrats `41281084320`](https://github.com/TRON-ABS/Novera/actions/runs/41281084320), commit `85558421`, réussit : 39 tests Node et deux tests propres à Windows ignorés sur Ubuntu ; les 41 passent localement sur Windows. La CLI Linux du run `41280300978` réussit ses deux tests Rust de politique et d’aide ; son nouveau paquet est téléchargé et vérifié. Les nouveaux tests de migration desktop et les autres hôtes CLI restent suivis dans leurs jobs effectifs.
+Le [cycle durable des versions](FUTURES_VERSIONS.md) ajoute un contrôle préalable des six sources de version, les tests de migration desktop et un générateur de manifeste pour cinq cibles desktop. Le [run de contrats `41281084320`](https://github.com/TRON-ABS/Novera/actions/runs/41281084320), commit `85558421`, réussit : 39 tests Node et deux tests propres à Windows ignorés sur Ubuntu ; les 41 passent localement sur Windows. La CLI Linux du run `41280300978` réussit ses deux tests Rust de politique et d’aide ; son nouveau paquet est téléchargé et vérifié. Linux réussit désormais les neuf tests de migration et les trois CLI leurs deux tests respectifs ; les autres jobs restent suivis individuellement.
 
 Le [run `41281310528`](https://github.com/TRON-ABS/Novera/actions/runs/41281310528), commit `93815b15`, confirme le même résultat avec les nouvelles actions officielles Node 24 : installation Node et conservation de l’artefact de contrôle réussies, sans les anciens avertissements Node 20.
 

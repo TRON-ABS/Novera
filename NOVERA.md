@@ -1,10 +1,14 @@
 # Novera — instructions du projet
 
+## Résultats vérifiés à 06:49 UTC — 1er novembre 2026
+
+Les trois nouvelles CLI `410caea5` (run `41280300978`) sont compilées et téléchargées : deux tests Rust de politique/aide réussis par hôte, 21 empreintes et architectures ELF x64 / PE x64 / Mach-O ARM64 conformes. Le nouveau DMG Apple Silicon `5468f183` (run `41278737556`, artefact `13073710701`) passe ses sept empreintes, le reçu macOS et l’inspection indépendante des 16 Mach-O : minimum maximal **14.0.0**, MLX/shaders et notice présents. Ce candidat remplace le précédent DMG exigeant macOS 15. macOS Intel, Windows x64 et Android corrigé restent suivis ; aucun essai d’installation ou signature de production n’est revendiqué.
+
 ## Cycle des prochaines versions — 1er novembre 2026
 
 Preuve desktop du nouveau cycle : Linux `e870627e` (run `41279778571`) réussit les neuf tests Rust de migration, zéro échec/ignoré ; reçu et nouveaux Debian/AppImage téléchargés, huit empreintes et 50 ELF x64 vérifiés. Les 41 contrats Node passent sur Windows, 39 + deux tests Windows ignorés sur Ubuntu. Le contrôle avec les actions Node 24 épinglées réussit aussi (run `41281310528`). Android a atteint la fusion du manifeste ; le conflit entre FileProvider partage/exports est corrigé par une sous-classe distincte dans `ff4740a0`, avec relance ciblée `41281439087` encore à vérifier.
 
-Le mainteneur demande aussi une préparation durable des futures versions. Le [guide du cycle](docs/FUTURES_VERSIONS.md) documente la synchronisation des six sources de version, le contrôle préalable GitHub, les fixtures de migration desktop et la préparation d’un flux signé pour cinq cibles desktop. La version courante reste 1.0.0. Les 41 tests Node ciblés passent localement ; les nouvelles CLI exécutent deux tests réels de politique et d’aide (Linux réussi, autres hôtes suivis en CI). Les clés de production et les essais d’update/appareil restent requis ; la signature personnelle n’active pas l’updater.
+Le mainteneur demande aussi une préparation durable des futures versions. Le [guide du cycle](docs/FUTURES_VERSIONS.md) documente la synchronisation des six sources de version, le contrôle préalable GitHub, les fixtures de migration desktop et la préparation d’un flux signé pour cinq cibles desktop. La version courante reste 1.0.0. Les 41 tests Node ciblés passent localement ; les nouvelles CLI exécutent deux tests réels de politique et d’aide (deux réussis sur chacun des trois hôtes). Les clés de production et les essais d’update/appareil restent requis ; la signature personnelle n’active pas l’updater.
 
 ## Compilations sur GitHub autorisées — 1er novembre 2026
 
