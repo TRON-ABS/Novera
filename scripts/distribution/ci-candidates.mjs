@@ -4,6 +4,7 @@ import crypto from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { releaseConfig } from '../updates/novera-update.mjs'
+import { prepareNsisRuntime } from './windows-runtime.mjs'
 
 export function safePayload(name) {
   const parts = name.replaceAll('\\', '/').split('/')
@@ -86,6 +87,12 @@ function run(mode, kind) {
     for (const p of bundles) copy(p, path.join('packages', path.basename(p)))
     if (process.platform === 'win32') {
       copy(path.join(release, 'Novera-Desktop.exe'), 'desktop/Novera-Desktop.exe')
+      if (process.env.NOVERA_ENABLE_UPDATER === 'true') {
+        const file = path.join(out, 'desktop/Novera-Desktop.exe')
+        const prepared = prepareNsisRuntime(fs.readFileSync(file))
+        fs.writeFileSync(file, prepared.binary)
+        json(path.join(out, 'WINDOWS-RUNTIME.json'), prepared.proof)
+      }
       for (const e of fs.readdirSync(release, { withFileTypes: true }).filter(e => e.isFile() && e.name.endsWith('.dll'))) copy(path.join(release, e.name), 'desktop/' + e.name)
       for (const name of ['bun', 'uv']) {
         const triple = process.arch === 'arm64' ? 'aarch64-pc-windows-msvc' : 'x86_64-pc-windows-msvc'

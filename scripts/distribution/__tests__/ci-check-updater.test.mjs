@@ -7,6 +7,7 @@ import { generateKeyPairSync, randomBytes, sign, createHash } from 'node:crypto'
 import { verifyUpdateBundle, requireUpdatePublication } from '../ci-check-updater.mjs'
 import { endpoint } from '../../updates/novera-update.mjs'
 import { spawnSync } from 'node:child_process'
+import { prepareNsisRuntime, verifyNsisRuntime } from '../windows-runtime.mjs'
 
 function fixture(t) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-updater-crypto-'))
@@ -51,11 +52,33 @@ test('rejects malformed signature packets before certifying any bundle', async t
 })
 test('publication requires a verified channel and matching source receipt', () => {
   const candidate = { kind: 'desktop', platform: 'win32', architecture: 'x64', commit: 'source', updaterChannelConfigured: true, updaterSignaturesVerified: true }
-  const receipt = { commit: 'source', endpoint, platform: 'windows-x86_64', updaterEnabled: true, signaturesVerified: true, artifacts: [{ file: 'setup.exe' }] }
+  const receipt = { commit: 'source', endpoint, platform: 'windows-x86_64', updaterEnabled: true, signaturesVerified: true, windowsRuntime: { bundleType: 'nsis' }, artifacts: [{ file: 'setup.exe' }] }
   assert.equal(requireUpdatePublication(candidate, receipt), true)
   for (const patch of [{ kind: 'android' }, { kind: 'ios' }, { kind: 'cli' }, { updaterChannelConfigured: false }, { updaterSignaturesVerified: false }]) assert.throws(() => requireUpdatePublication({ ...candidate, ...patch }, receipt), /Publication blocked/)
   for (const patch of [{ commit: 'different' }, { endpoint: 'https://other.invalid' }, { platform: 'android-arm64' }, { platform: 'darwin-x86_64' }, { updaterEnabled: false }, { signaturesVerified: false }, { artifacts: [] }]) assert.throws(() => requireUpdatePublication(candidate, { ...receipt, ...patch }), /Publication blocked/)
   assert.throws(() => requireUpdatePublication(candidate, null), /Publication blocked/)
+  assert.throws(() => requireUpdatePublication(candidate, { ...receipt, windowsRuntime: undefined }), /Publication blocked/)
+})
+
+test('the copied Windows runtime matches the reserved installer marker without touching other bytes', () => {
+  const binary = Buffer.alloc(256)
+  binary.write('MZ'); binary.writeUInt32LE(64, 60); binary.write('PE\0\0', 64)
+  binary.write('__TAURI_BUNDLE_TYPE_VAR_UNK', 128)
+  const original = Buffer.from(binary), prepared = prepareNsisRuntime(binary)
+  assert.deepEqual(binary, original)
+  const expected = Buffer.from(original); expected.write('__TAURI_BUNDLE_TYPE_VAR_NSS', 128)
+  assert.deepEqual(prepared.binary, expected)
+  assert.equal(verifyNsisRuntime(prepared.binary, prepared.proof), true)
+  prepared.binary[200] ^= 1
+  assert.throws(() => verifyNsisRuntime(prepared.binary, prepared.proof), /differs/)
+})
+test('Windows runtime preparation rejects missing, duplicate and invalid bundle slots', () => {
+  const binary = Buffer.alloc(256)
+  binary.write('MZ'); binary.writeUInt32LE(64, 60); binary.write('PE\0\0', 64)
+  assert.throws(() => prepareNsisRuntime(binary), /Expected one reserved/)
+  binary.write('__TAURI_BUNDLE_TYPE_VAR_UNK', 128);binary.write('__TAURI_BUNDLE_TYPE_VAR_UNK', 180)
+  assert.throws(() => prepareNsisRuntime(binary), /Expected one reserved/)
+  assert.throws(() => prepareNsisRuntime(Buffer.from('not a Windows binary')), /Expected a Windows/)
 })
 
 test('only the explicit signed desktop mode embeds the pinned update configuration', t => {

@@ -4,6 +4,7 @@ import { createHash, createPublicKey, verify } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { validatePublicKey, endpoint } from '../updates/novera-update.mjs'
+import { verifyNsisRuntime } from './windows-runtime.mjs'
 
 export async function verifyUpdateBundle(file, signatureText, publicKey) {
   validatePublicKey(publicKey.trim())
@@ -26,6 +27,7 @@ export function requireUpdatePublication(candidate, receipt) {
   if (!['windows-x86_64', 'windows-aarch64', 'linux-x86_64', 'darwin-x86_64', 'darwin-aarch64'].includes(receipt.platform)) throw new Error('Publication blocked: unsupported update platform')
   const expected = { 'win32:x64': 'windows-x86_64', 'win32:arm64': 'windows-aarch64', 'linux:x64': 'linux-x86_64', 'darwin:x64': 'darwin-x86_64', 'darwin:arm64': 'darwin-aarch64' }[`${candidate.platform}:${candidate.architecture}`]
   if (expected !== receipt.platform) throw new Error('Publication blocked: updater platform differs from candidate architecture')
+  if (candidate.platform === 'win32' && receipt.windowsRuntime?.bundleType !== 'nsis') throw new Error('Publication blocked: Windows runtime has no verified installer-type proof')
   return true
 }
 
@@ -54,6 +56,11 @@ async function check() {
   execFileSync(process.execPath, [path.resolve('node_modules/@tauri-apps/cli/tauri.js'), 'signer', 'sign', path.resolve(file)], { stdio: ['ignore', 'pipe', 'pipe'] })
   const checked = await verifyUpdateBundle(file, fs.readFileSync(file + '.sig', 'utf8'), pinned.plugins.updater.pubkey)
   const receipt = { commit: process.env.GITHUB_SHA, platform, endpoint, updaterEnabled: true, signaturesVerified: true, artifacts: [{ file: name, signature: name + '.sig', ...checked }] }
+  if (process.platform === 'win32') {
+    const proof = JSON.parse(fs.readFileSync('.build/candidates/WINDOWS-RUNTIME.json'))
+    verifyNsisRuntime(fs.readFileSync('.build/candidates/desktop/Novera-Desktop.exe'), proof)
+    receipt.windowsRuntime = proof
+  }
   fs.writeFileSync('.build/candidates/UPDATER-READINESS.json', JSON.stringify(receipt, null, 2) + '\n')
   console.log(`Verified the signed final update bundle for ${platform}`)
 }
@@ -62,6 +69,7 @@ async function publicationCheck(directory) {
   const candidate = JSON.parse(fs.readFileSync(path.join(root, 'candidate.json')))
   const receipt = JSON.parse(fs.readFileSync(path.join(root, 'UPDATER-READINESS.json')))
   requireUpdatePublication(candidate, receipt)
+  if (candidate.platform === 'win32') verifyNsisRuntime(fs.readFileSync(path.join(root, 'desktop/Novera-Desktop.exe')), receipt.windowsRuntime)
   const pinned = JSON.parse(fs.readFileSync('src-tauri/tauri.updater.conf.json'))
   for (const artifact of receipt.artifacts) {
     for (const name of [artifact.file, artifact.signature]) {
