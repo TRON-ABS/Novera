@@ -157,3 +157,17 @@ Le serveur MLX documente Apple Silicon et Xcode 26.2 comme prérequis. Le nouvea
 [Run iOS `41276290611`](https://github.com/TRON-ABS/Novera/actions/runs/41276290611), commit `a84f8cf64b03367e9b6e2d271083a20d1e29e30e` : compilation, collecte et résumé réussis. Artefact `13071509324`, **81 814 413 octets / 7 fichiers / 6 empreintes conformes**, SHA-256 `bb3a16377d1da77a722d68932ded5ffd0463f778094aa970d3d07d761124218a`.
 
 L’archive interne `Novera-iOS-simulator-0.tar.gz` contient **17 entrées**. Lecture indépendante de l’exécutable Mach-O : **ARM64**, commande `LC_BUILD_VERSION` indiquant la plateforme **iOS Simulator (7)**. La notice TRON-ABS est présente dans l’application elle-même ; chemins, inventaire et absence de poids/profils/discussions contrôlés. Cela confirme un paquet de simulateur, pas une IPA signée pour iPhone. Aucun lancement sur simulateur ou appareil réel n’est encore certifié. Le journal conserve aussi un avertissement Xcode sur l’identifiant personnalisé du plist ; il n’a pas empêché ce build de simulateur et devra être revu avant le provisioning d’une version device.
+
+### Windows ARM64 : desktop et NSIS vérifiés
+
+Job ARM64 `124755700775` réussi dans le [run `41275047042`](https://github.com/TRON-ABS/Novera/actions/runs/41275047042), commit `bb8a1040c17f5b9326859f945bfe1212966c9a81`. Artefact `13071721946` : **291 192 696 octets / 20 fichiers / 19 empreintes conformes**, SHA-256 `cb3d9ac4b51d5c39a0393e857aeed1d107ad25702f6b17e44e97ffd226690620`.
+
+Les **sept exécutables/DLL du desktop sont réellement ARM64**. Le worker CPU et ses bibliothèques sont présents ; le runtime image x64 est exclu. Extraction indépendante du NSIS `Novera_1.0.0_arm64-setup.exe` avec 7-Zip 26.05 : **16 fichiers**, les **neuf fichiers runtime attendus** correspondent exactement aux empreintes du desktop. Les autres entrées appartiennent à NSIS et au désinstalleur. Notice TRON-ABS embarquée. Aucun installateur ni application ARM64 n’est exécuté sur le PC x64 du mainteneur ; l’essai sur appareil Windows ARM64 reste à effectuer.
+
+Après cette réussite, les deux anciens jobs macOS encore en cours dans le run natif sont remplacés par la relance macOS dédiée. L’arrêt du run global conserve les artefacts réussis ; il ne transforme pas ses anciennes erreurs en validations.
+
+### macOS Apple Silicon : premier DMG inspecté
+
+Le job macOS ARM64 `124755700844` termine également avec succès juste avant la fin du run natif `41275047042`. Artefact `13072130830` : **108 367 202 octets / 7 fichiers / 6 empreintes conformes**, SHA-256 `8a55653d9995f8211fedb124da112bae684d6e88442330893ce2a5a0bfc22e21`.
+
+Inspection indépendante du DMG/HFS sans installer ni exécuter l’application : **35 entrées**, **16 binaires/bibliothèques Mach-O ARM64** vérifiés, dont l’application, Bun, uv, le worker GGUF et MLX. Notice personnelle présente dans l’application ; `default.metallib` est embarqué. Les dépendances chargées référencent les frameworks système ou les bibliothèques livrées via `@rpath`, avec `@loader_path` en tête des chemins de recherche du worker. Les chemins de développement supplémentaires du runner ne sont pas nécessaires à ces bibliothèques locales ; cela reste un contrôle statique, pas une validation d’inférence ou de lancement sur un Mac neuf. La relance dédiée macOS `41276594974` poursuit les contrôles Intel et Apple Silicon.
