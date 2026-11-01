@@ -265,6 +265,10 @@ jobs:
         if: steps.select.outputs.selected == 'true' && runner.os == 'Windows'
         with:
           arch: ${{ matrix.arch }}
+      - name: Select the native validation linker
+        if: steps.select.outputs.selected == 'true' && runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/distribution/ci-msvc.ps1
       - name: Build the isolated native updater probe
         if: steps.select.outputs.selected == 'true'
         shell: bash

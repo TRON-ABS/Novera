@@ -1,5 +1,9 @@
 # Validation des installations et mises à jour
 
+## Essai Windows : sélection du linker de validation — 1er novembre 2026
+
+Le premier run de validation 41332189234 passe les contrats source mais échoue avant installation : Bash résout le link.exe de Git pendant la compilation du programme de contrôle. Le job utilise désormais le sélecteur MSVC déjà présent et testé dans le dépôt, avec son chemin de linker explicite. Une relance ciblée est préparée ; aucun échec d’installation de Novera ni validation réussie n’est déduit de cet incident de préparation.
+
 Le mainteneur demande le **1er novembre 2026** de poursuivre après les compilations pour valider les installations et mises à jour réelles, ainsi que les canaux encore incomplets. Les paquets et le brouillon restent ceux décrits dans [la disponibilité](LAUNCH_STATUS.md). Cette nouvelle phase ne publie aucune version.
 
 ## Essais isolés des paquets desktop

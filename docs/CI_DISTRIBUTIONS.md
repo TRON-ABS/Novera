@@ -1,5 +1,9 @@
 # Compilations Novera sur GitHub Actions
 
+## Essai Windows : sélection du linker de validation — 1er novembre 2026
+
+Le premier run de validation 41332189234 passe les contrats source mais échoue avant installation : Bash résout le link.exe de Git pendant la compilation du programme de contrôle. Le job utilise désormais le sélecteur MSVC déjà présent et testé dans le dépôt, avec son chemin de linker explicite. Une relance ciblée est préparée ; aucun échec d’installation de Novera ni validation réussie n’est déduit de cet incident de préparation.
+
 ## Nouvelle phase : essais réels d’installation et d’update — 1er novembre 2026
 
 Le mainteneur demande maintenant de valider les installations et mises à jour ainsi que les canaux incomplets. Le workflow prépare des essais sur runners GitHub hébergés, avec les vrais paquets signés et un programme de contrôle natif isolé ; aucune installation n’est effectuée sur le profil personnel. La compilation locale du programme et les quatre tests des garde-fous passent, ainsi que les 49 contrats Node ; les résultats d’installation CI restent à obtenir. Le contrôle distingue le remplacement natif d’un paquet, un programme de test avec version synthétique, et un parcours complet entre deux applications publiées. Voir [le protocole et ses limites](INSTALL_UPDATE_VALIDATION.md).

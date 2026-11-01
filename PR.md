@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Use the native MSVC linker in updater validation
+
+The first isolated Windows validation run stops before installation because Git Bash resolves its Unix link.exe while compiling the Rust probe. Reuse the existing tested ci-msvc.ps1 selector for an explicit target linker in this new job. Source checks passed; installation/update outcomes remain pending the targeted retry.
+
 ## Add isolated installation and native updater validation
 
 Add manual validation targets that download only reviewed signed desktop assets, exercise the real Tauri updater with the pinned public key and a loopback fixture, reject tampered payloads, install actual packages and check startup, file restoration and synthetic profile preservation on disposable GitHub hosts. No production endpoint or personal profile is changed. Keep receipts explicit that a synthetic probe version is not an end-to-end upgrade between two released applications. The probe builds locally, 49 Node contracts and four guard tests pass; actual CI installation results remain pending.
