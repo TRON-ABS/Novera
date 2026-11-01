@@ -84,6 +84,11 @@ foreach($item in Get-ChildItem -LiteralPath $cpu[0].DirectoryName -File){if($ite
 Copy-Item -LiteralPath (Join-Path $source 'LICENSE') -Destination (Join-Path $Output 'licenses/stable-diffusion.cpp-LICENSE') -Force
 Copy-Item -LiteralPath (Join-Path $source 'ggml/LICENSE') -Destination (Join-Path $Output 'licenses/ggml-LICENSE') -Force
 Copy-Item -LiteralPath (Join-Path $ToolkitRoot 'EULA.txt') -Destination (Join-Path $Output 'licenses/CUDA-EULA.txt') -Force
+if (Test-Path -LiteralPath (Join-Path $ToolkitRoot 'licenses') -PathType Container) {
+ foreach ($notice in Get-ChildItem -LiteralPath (Join-Path $ToolkitRoot 'licenses') -File) {
+  Copy-Item -LiteralPath $notice.FullName -Destination (Join-Path $Output ('licenses/CUDA-redist-'+$notice.Name)) -Force
+ }
+}
 $launcherBuild=Join-Path $BuildRoot 'launcher-build'
 New-Item -ItemType Directory -Force $launcherBuild | Out-Null
 Push-Location $launcherBuild

@@ -185,20 +185,11 @@ runs:
           ;;
         esac
 
-        # cuBLAS is the only maths library ggml links; the rest is nvcc's own
-        # toolchain, the runtime, and headers ggml includes.
-        packages='
-          cuda_nvcc cuda_crt libnvvm libnvptxcompiler libnvjitlink libnvfatbin
-          cuda_cuobjdump cuda_nvdisasm cuda_nvprune cuda_cuxxfilt cuda_nvrtc
-          cuda_cudart libcublas cuda_cccl cuda_nvtx cuda_profiler_api
-        '
-        # These three ship inside cuda_nvcc before 12.8 and standalone after,
-        # so their absence from a manifest is expected, not a broken list.
-        bundled_before_12_8=' cuda_crt libnvvm libnvptxcompiler '
-
         base='https://developer.download.nvidia.com/compute/cuda/redist'
         manifest="$RUNNER_TEMP/redistrib.json"
         curl -fsSL -o "$manifest" "$base/redistrib_$release.json"
+        plan="$RUNNER_TEMP/cuda-plan.tsv"
+        node scripts/distribution/cuda-redist-plan.mjs "$manifest" "$platform" "$release" > "$plan"
 
         # One at a time, deleted as we go: the whole set unpacked beside its
         # archives does not comfortably fit the Windows runner's disk.
@@ -219,19 +210,9 @@ runs:
         mkdir -p "$tmp" "$root"
         sw=$SECONDS
         bytes=0
-        for pkg in $packages; do
-          rel=$(jq -r --arg p "$pkg" --arg pl "$platform" \
-            '.[$p][$pl].relative_path // empty' "$manifest")
-          if [ -z "$rel" ]; then
-            case "$bundled_before_12_8" in
-            *" $pkg "*) echo "engine toolchain: $pkg is part of cuda_nvcc in $release"; continue ;;
-            esac
-            echo "error: $pkg has no $platform archive in redistrib_$release.json" >&2
-            exit 1
-          fi
+        while IFS=$'\t' read -r pkg rel expected; do
           archive="$tmp/$(basename "$rel")"
           curl -fsSL -o "$archive" "$base/$rel"
-          expected=$(jq -r --arg p "$pkg" --arg pl "$platform" '.[$p][$pl].sha256 // empty' "$manifest")
           [[ "$expected" =~ ^[a-fA-F0-9]{64}$ ]] || { echo 'Missing CUDA component checksum' >&2; exit 1; }
           # stdin avoids GNU's leading escape marker for Windows backslash paths.
           actual=$(sha256sum < "$archive" | awk '{print $1}')
@@ -241,9 +222,16 @@ runs:
           # Each unpacks to <name>-archive/{bin,lib,include}; merge them into
           # one root, which is what CUDA_PATH has to point at.
           dir="$tmp/$(basename "$rel" | sed 's/\.tar\.xz$//; s/\.zip$//')"
+          mkdir -p "$root/licenses"
+          for notice in "$dir"/LICENSE* "$dir"/EULA* "$dir"/NOTICE*; do
+            [ ! -f "$notice" ] || cp "$notice" "$root/licenses/$pkg-$(basename "$notice")"
+          done
+          # Preserve the official NVCC EULA under the full-toolkit name expected
+          # by the image runtime packager, without rewriting its contents.
+          if [ "$pkg" = cuda_nvcc ] && [ -f "$dir/LICENSE" ]; then cp "$dir/LICENSE" "$root/EULA.txt"; fi
           cp -r "$dir"/* "$root"/
           rm -rf "$archive" "$dir"
-        done
+        done < "$plan"
         rm -rf "$tmp"
 
         # nvcc looks for the runtime in `<nvcc>/../lib64` on Linux; the archives
