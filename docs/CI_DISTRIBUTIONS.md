@@ -13,7 +13,7 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 | Portable Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
 | Windows ARM64 | arm64 / arm64: compilé | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
 | Linux | linux / x64: compilé | [run 41275746510](https://github.com/TRON-ABS/Novera/actions/runs/41275746510) · `0beb13a3` |
-| macOS | macos / arm64: en cours; macos / x64: en cours | [run 41276594974](https://github.com/TRON-ABS/Novera/actions/runs/41276594974) · `9f68b5d3` |
+| macOS | macos / arm64: en cours; macos / x64: en cours | [run 41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556) · `5468f183` |
 | Android | android / windows-2025: en cours | [run 41278242672](https://github.com/TRON-ABS/Novera/actions/runs/41278242672) · `d142e12e` |
 | iOS simulateur | ios / macos-15: compilé | [run 41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611) · `a84f8cf6` |
 | Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
@@ -27,7 +27,7 @@ Artefacts téléchargés et contrôlés indépendamment :
 - [Novera-cli-macOS-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069439592) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-ios-macOS-41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611/artifacts/13071509324) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-linux-x64-41275746510](https://github.com/TRON-ABS/Novera/actions/runs/41275746510/artifacts/13071478788) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
-- [Novera-macos-arm64-41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042/artifacts/13072130830) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-macos-arm64-41276594974](https://github.com/TRON-ABS/Novera/actions/runs/41276594974/artifacts/13071619315) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; minimum natif maximal relevé : macOS 15.0.0.
 - [Novera-web-Linux-41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200/artifacts/13070388490) : 593 empreintes vérifiées, signature de marque et provenance conformes.
 
 Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne remplacent pas une signature cryptographique de production. Les validations sur PC neuf, téléphone et tablette restent distinctes des compilations CI.
@@ -186,3 +186,11 @@ Le journal confirme le test réel `clipboard_serves_a_file_uri_to_a_consumer` so
 La relance `41276458095` dépasse bien `cross-env`, puis échoue sur les API tray/updater desktop activées dans le build mobile. Le journal montre le Cargo initial sans `--no-default-features`, malgré l’argument demandé. Le [source officiel du CLI Tauri 2.8.4](https://github.com/tauri-apps/tauri/blob/tauri-cli-v2.8.4/crates/tauri-cli/src/mobile/android/build.rs) utilise les options par défaut pour ce premier build Android. Le [CLI 2.11.4](https://github.com/tauri-apps/tauri/blob/tauri-cli-v2.11.4/crates/tauri-cli/src/mobile/android/build.rs) transmet les arguments demandés au premier Cargo.
 
 Épingler `@tauri-apps/cli` à **2.11.4** corrige ce chemin sans activer les fonctions desktop sur mobile. Comparaison sémantique du verrou : seules les entrées CLI Tauri, ses binaires hôtes et la référence du workspace racine changent. Installation `corepack yarn install --immutable --mode=skip-build` réussie et `tauri-cli --version` confirme 2.11.4 ; aucun build d’application local. Les avertissements de peers React/TypeScript préexistants restent visibles. Relance Android depuis `d142e12ee4e785d5204d027e73b722f21becec4f`.
+
+### macOS : minimums de compilation et métadonnées alignés
+
+La relance ARM64 `41276594974` réussit, puis son DMG `13071619315` est téléchargé et inspecté : **108 550 638 octets / 6 empreintes conformes / 16 Mach-O ARM64**, SHA-256 `2fff8b4c5ed0a0587a0624e443a25a3242ad226a4cba10feec8850a2ad7d7b63`. MLX, ses shaders et la notice embarquée sont présents. Toutefois, la lecture des commandes Mach-O révèle que **les bibliothèques GGUF de ce candidat exigent macOS 15**, contrairement au minimum plus ancien annoncé par l’application. Les anciens DMG restent donc des candidats pour macOS 15 ; ils ne prouvent pas le fonctionnement sur macOS 13/14.
+
+Le nouveau profil CI définit un minimum commun à la compilation CMake/Rust et au plist Tauri : **macOS 14.0 sur Apple Silicon** (minimum MLX déclaré) et **13.0 sur Intel** (minimum Bun observé). Un helper partagé fournit ces valeurs aux deux étapes. Après packaging, le contrôle lit les commandes de chaque Mach-O dans l’application, vérifie CPU/plateforme/version minimale et compare le plist ; toute bibliothèque plus exigeante bloque la collecte. Un reçu `MACOS-COMPATIBILITY.json` est ajouté aux candidats qui passent ce contrôle.
+
+Douze tests ciblés réussissent : contrats du collecteur, prérequis MLX lus dans son vrai manifeste et quatre cas de lecture Mach-O, dont le défaut observé macOS 15 sous une déclaration 14, les commandes Intel anciennes, les versions patch, une cible iOS/CPU incorrecte et les entrées tronquées. Syntaxe Bash réussie. [Relance macOS `41278737556`](https://github.com/TRON-ABS/Novera/actions/runs/41278737556), commit `5468f183c5b94f276d1de7ca4f95edf9bc586d83`, encore en compilation. Ce ciblage ABI ne certifie pas à lui seul un lancement ou une inférence sur les anciennes versions de macOS.
