@@ -69,7 +69,7 @@
     "prepare:image:win32": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/distribution/stage-novera-image.ps1"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^2.7.0",
+    "@tauri-apps/cli": "2.11.4",
     "@vitest/coverage-v8": "^3.1.3",
     "cpx": "^1.5.0",
     "cross-env": "^7.0.3",
