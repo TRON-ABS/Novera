@@ -9,7 +9,7 @@ on:
         required: true
         type: choice
         default: all
-        options: [all, checks, native, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop]
+        options: [all, checks, native, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop, pages]
       signed_updates:
         description: Embed the Novera desktop or CLI update channel and sign final archives
         type: boolean
@@ -50,7 +50,7 @@ jobs:
           set -euo pipefail
           mkdir -p .build/checks
           node scripts/distribution/check-release-readiness.mjs --json > .build/checks/source-definitions.json
-          node --test scripts/distribution/__tests__/check-release-readiness.test.mjs scripts/distribution/__tests__/prepare-version.test.mjs scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-macos.test.mjs scripts/distribution/__tests__/ci-check-updater.test.mjs scripts/distribution/__tests__/prepare-cli-feed.test.mjs scripts/distribution/__tests__/web-delivery.test.mjs scripts/distribution/__tests__/cuda-redist-plan.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs scripts/android/__tests__/configure-project.test.mjs | tee .build/checks/tests.txt
+          node --test scripts/distribution/__tests__/check-release-readiness.test.mjs scripts/distribution/__tests__/prepare-version.test.mjs scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-macos.test.mjs scripts/distribution/__tests__/ci-check-updater.test.mjs scripts/distribution/__tests__/prepare-pages-site.test.mjs scripts/distribution/__tests__/prepare-cli-feed.test.mjs scripts/distribution/__tests__/web-delivery.test.mjs scripts/distribution/__tests__/cuda-redist-plan.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs scripts/android/__tests__/configure-project.test.mjs | tee .build/checks/tests.txt
           python3 -m unittest discover -s scripts/distribution/checks -p 'test_*.py'
       - name: Retain source-check results
         if: always()
@@ -306,9 +306,42 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
+  pages:
+    name: Publish launch information to GitHub Pages
+    needs: checks
+    if: inputs.target == 'pages'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Stage launch information only
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+        run: node scripts/distribution/prepare-pages-site.mjs .build/pages-site "$SOURCE_COMMIT"
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: .build/pages-site
+      - name: Deploy reviewed launch information
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+
   summary:
     if: always()
-    needs: [checks, desktop, auxiliary, installed-update]
+    needs: [checks, desktop, auxiliary, installed-update, pages]
     runs-on: ubuntu-22.04
     steps:
       - name: Report actual job results
@@ -317,9 +350,11 @@ jobs:
           DESKTOP: ${{ needs.desktop.result }}
           AUXILIARY: ${{ needs.auxiliary.result }}
           INSTALLED_UPDATE: ${{ needs.installed-update.result }}
+          PAGES: ${{ needs.pages.result }}
         run: |
           printf 'Source and update contracts: %s\n' "$CHECKS" >> "$GITHUB_STEP_SUMMARY"
           printf 'Desktop matrix: %s\nAuxiliary matrix: %s\n' "$DESKTOP" "$AUXILIARY" >> "$GITHUB_STEP_SUMMARY"
           printf 'Isolated installed-update validation: %s\n' "$INSTALLED_UPDATE" >> "$GITHUB_STEP_SUMMARY"
+          printf 'Launch information Pages deployment: %s\n' "$PAGES" >> "$GITHUB_STEP_SUMMARY"
           echo 'Candidates only. No public release, signing certification or device validation is implied.' >> "$GITHUB_STEP_SUMMARY"
-          [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled ]]
+          [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled && "$PAGES" != failure && "$PAGES" != cancelled ]]
