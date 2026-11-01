@@ -1,5 +1,7 @@
 # Novera — construction et distribution
 
+Présentation du lancement et disponibilité par plateforme : [état actuel](LAUNCH_STATUS.md).
+
 ## Condition actuelle de publication
 
 **Aucune version publique sans mécanisme de mise à jour configuré et vérifié**, conformément à la dernière consigne du mainteneur. La clé réelle est configurée, les secrets GitHub sont chiffrés, et les nouveaux builds desktop signés sont lancés ; les anciens candidats restent internes. Voir [l’état de la confiance, des sauvegardes et du run signé](FUTURES_VERSIONS.md#publication-conditionnée-aux-mises-à-jour--1er-novembre-2026). Aucun binaire installé n’est activé à distance et aucun candidat n’est publié automatiquement.

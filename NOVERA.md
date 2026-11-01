@@ -1,5 +1,9 @@
 # Novera — instructions du projet
 
+## Préparation du lancement — 1er novembre 2026
+
+Le lancement de **Novera 1.0.0** se prépare avec une vitrine français/anglais, la capture réelle du mainteneur et la signature **TRON-ABS — The art of Human with AI**. La [disponibilité actuelle](docs/LAUNCH_STATUS.md) distingue les sources, les candidats internes vérifiés et les futurs téléchargements publics. Les quatre candidats desktop Windows ARM64, Linux et macOS ARM64/Intel ont des signatures d’update contrôlées ; Windows x64 signé compile encore. Les essais réels d’installation/update et les canaux des autres formats restent à terminer. Aucune version publique n’est annoncée avant satisfaction de ces conditions.
+
 ## macOS Intel : candidat signé vérifié — 1er novembre 2026
 
 Le candidat Intel signé du [run `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818), commit `d0a29f63`, est téléchargé et contrôlé : [artefact `13083107857`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13083107857), 213 497 090 octets, **11 empreintes vérifiées**. SHA-256 de l’archive : `2ba2bdd265d5703105f0f2c100338ad5c7e2772ec8ec63fb5afd2d42c4b41e42`.

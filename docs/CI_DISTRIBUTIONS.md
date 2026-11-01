@@ -1,5 +1,7 @@
 # Compilations Novera sur GitHub Actions
 
+Présentation du lancement et disponibilité par plateforme : [état actuel](LAUNCH_STATUS.md).
+
 ## macOS Intel : candidat signé vérifié — 1er novembre 2026
 
 Le candidat Intel signé du [run `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818), commit `d0a29f63`, est téléchargé et contrôlé : [artefact `13083107857`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13083107857), 213 497 090 octets, **11 empreintes vérifiées**. SHA-256 de l’archive : `2ba2bdd265d5703105f0f2c100338ad5c7e2772ec8ec63fb5afd2d42c4b41e42`.

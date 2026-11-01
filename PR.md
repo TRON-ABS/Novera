@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Launch showcase and current availability
+
+Make the English/French repository showcase explicit about launch preparation and current platform availability. Preserve the maintainer screenshot, welcome message and TRON-ABS signature. Link a dated launch status page, distinguish inspected internal candidates from public downloads, and keep installation/update and platform-specific release requirements visible. Align the project dashboard, roadmap and changelog; no application build or public release is performed by this documentation change.
+
 ## Signed macOS Intel candidate verified
 
 The d0a29f63 Intel candidate (artifact 13083107857) passes eleven checksums and cryptographic verification of its final updater archive against the pinned Novera key. All thirty regular application files match the DMG byte for byte; the actual client key is embedded. Twenty-six Mach-O files are x64 with a maximum deployment minimum of macOS 13.0; GGUF/Metal is included and MLX excluded. All nine upgrade-fixture tests pass without failures or ignored tests. Both signed macOS architectures are inspected; Windows x64 is still building. Installation, end-to-end update and Apple notarization remain unclaimed, and publication stays blocked.

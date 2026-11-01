@@ -2,12 +2,27 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>You describe. Novera prepares, runs and organizes.</strong></p>
   <p>An independent AI assistant by TRON-ABS, from first launch to results: text, images, music and video in one conversation.</p>
-  <p><strong>In development</strong> · 80 interface languages · 42 cloud providers · 49 media presets · Apache 2.0</p>
+  <p><strong>Preparing for launch</strong> · 80 interface languages · 42 cloud providers · 49 media presets · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Local models</a> · <a href="#hub-and-compatible-models">Formats &amp; Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
 </div>
 
 ---
+
+## Availability — 1 November 2026
+
+**Novera 1.0.0 is preparing for launch. Public downloads are not open yet.** Explore the sources and the real Windows dashboard below; follow [Releases](https://github.com/TRON-ABS/Novera/releases) for published packages when the release checks are complete.
+
+| Platform | Current preparation |
+| --- | --- |
+| Windows x64 | Signed-update build in progress; desktop, installer and portable formats under preparation. |
+| Windows ARM64 | Candidate inspected; signed NSIS verified and desktop runtime prepared to match it. |
+| Linux x64 | AppImage update signature and packaged binaries verified; Debian delivery checks remain separate. |
+| macOS | Both signed-update candidates inspected: Apple Silicon requires macOS 14+, Intel macOS 13+. |
+| Android and iOS | Android ARM64 debug and iOS simulator candidates are internal tests; no public mobile release. |
+| Web and CLI | Builds checked; public delivery and suitable update channels remain to be completed. |
+
+Public release requires a configured and verified update mechanism, including the remaining installation and update checks. Signed updater packages do not imply Windows code signing or Apple notarization. See [current availability and launch requirements](docs/LAUNCH_STATUS.md) and [verified build evidence](docs/CI_DISTRIBUTIONS.md).
 
 ## One dashboard for every creation
 
@@ -224,9 +239,9 @@ These are directions for contribution and development, not a claim that every se
 
 ## Project status
 
-**Novera 1.0.0 is in development.** The screenshot shows a Windows application compiled locally by the maintainer. Source changes, targeted tests and hardware validation are documented separately; this does not validate every model, platform or cloud account.
+**Novera 1.0.0 is preparing for launch.** The screenshot shows a Windows application compiled locally by the maintainer. Source changes, targeted tests and hardware validation are documented separately; this does not validate every model, platform or cloud account.
 
-Manual GitHub Actions builds are enabled for all eleven distribution variants. Follow the [build results and verified candidate downloads](docs/CI_DISTRIBUTIONS.md); availability is recorded separately for each platform. Candidates are distinct from signed production releases. Distribution requirements are described in the [official release policy](OFFICIAL_RELEASES.md) and [releases page](https://github.com/TRON-ABS/Novera/releases). Existing updater-disabled candidates remain internal. Public releases require a configured and verified update mechanism; [signed desktop builds are in preparation](docs/FUTURES_VERSIONS.md).
+Manual GitHub Actions builds are enabled for all eleven distribution variants. Follow the [build results and verified candidate downloads](docs/CI_DISTRIBUTIONS.md); availability is recorded separately for each platform. Candidates are distinct from signed production releases. Distribution requirements are described in the [official release policy](OFFICIAL_RELEASES.md) and [releases page](https://github.com/TRON-ABS/Novera/releases). Existing updater-disabled candidates remain internal. Public releases require a configured and verified update mechanism; [desktop signature checks and remaining launch requirements are documented](docs/LAUNCH_STATUS.md).
 
 ## Documentation and contributions
 
@@ -260,7 +275,7 @@ To contribute, scan this QR code with your wallet or copy the address above. Sel
 ---
 
 <div align="center">
-  <p>To everyone setting out with Novera: I wish you a wonderful adventure. Explore your ideas, create freely and let your curiosity take you further.</p>
+  <p>To everyone beginning their journey with Novera: may your curiosity open new doors, your ideas come to life and every creation take you a little further.</p>
   <p><strong>TRON-ABS</strong></p>
   <p><em>The art of Human with AI</em></p>
 </div>

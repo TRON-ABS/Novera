@@ -1,5 +1,9 @@
 # Novera — historique consolidé
 
+## Préparation du lancement — 1er novembre 2026
+
+Le lancement de **Novera 1.0.0** se prépare avec une vitrine français/anglais, la capture réelle du mainteneur et la signature **TRON-ABS — The art of Human with AI**. La [disponibilité actuelle](LAUNCH_STATUS.md) distingue les sources, les candidats internes vérifiés et les futurs téléchargements publics. Les quatre candidats desktop Windows ARM64, Linux et macOS ARM64/Intel ont des signatures d’update contrôlées ; Windows x64 signé compile encore. Les essais réels d’installation/update et les canaux des autres formats restent à terminer. Aucune version publique n’est annoncée avant satisfaction de ces conditions.
+
 ## Tableau de bord, modèles et durées — sources du 29 octobre 2026
 
 Déplacer Recherche/Nouveau projet à gauche et Modèles/Configuration à droite de la saisie ; retirer leurs doublons latéraux. Ouvrir ces panneaux et les paramètres du modèle dans des fenêtres Novera au-dessus du tableau de bord, avec saisie conservée et boutons utilisables. Réunir le choix du modèle dans un seul contrôle compact : locaux, puis cloud Texte/Image/Musique/Vidéo, recherche et filtres conservés. Préserver l’approbation d’accès aux dossiers, les paramètres des moteurs et le voyant matériel original.

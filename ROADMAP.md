@@ -1,5 +1,9 @@
 # Novera — feuille de route
 
+## Préparation du lancement — 1er novembre 2026
+
+Le lancement de **Novera 1.0.0** se prépare avec une vitrine français/anglais, la capture réelle du mainteneur et la signature **TRON-ABS — The art of Human with AI**. La [disponibilité actuelle](docs/LAUNCH_STATUS.md) distingue les sources, les candidats internes vérifiés et les futurs téléchargements publics. Les quatre candidats desktop Windows ARM64, Linux et macOS ARM64/Intel ont des signatures d’update contrôlées ; Windows x64 signé compile encore. Les essais réels d’installation/update et les canaux des autres formats restent à terminer. Aucune version publique n’est annoncée avant satisfaction de ces conditions.
+
 ## Direction future du tableau de bord — 29 octobre 2026
 
 - [x] Préparer les accès Recherche, Nouveau projet, Modèles et Configuration autour de la saisie, les fenêtres au-dessus du tableau de bord et le sélecteur de modèle unique, sur les demandes explicitement validées.

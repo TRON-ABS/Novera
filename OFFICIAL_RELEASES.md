@@ -1,5 +1,7 @@
 # Official Novera releases and governance
 
+Présentation du lancement et disponibilité par plateforme : [état actuel](docs/LAUNCH_STATUS.md).
+
 ## Mandatory update prerequisite — 1 November 2026
 
 The maintainer now requires a configured and verified update mechanism before **any public version**. Earlier updater-disabled candidates remain internal. A real Novera update key was generated with explicit authorization, encrypted GitHub signing secrets are configured, and new desktop builds with embedded trust and cryptographically verified updater bundles are running. No private key or password is committed. The encrypted recovery export has passed a standalone restore and signing check; its off-machine copy remains the maintainer’s responsibility.
