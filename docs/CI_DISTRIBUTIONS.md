@@ -13,7 +13,7 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 | Portable Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
 | Windows ARM64 | arm64 / arm64: compilé | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
 | Linux | linux / x64: compilé | [run 41279778571](https://github.com/TRON-ABS/Novera/actions/runs/41279778571) · `e870627e` |
-| macOS | macos / arm64: compilé; macos / x64: en cours | [run 41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556) · `5468f183` |
+| macOS | macos / arm64: compilé; macos / x64: compilé | [run 41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556) · `5468f183` |
 | Android | android / windows-2025: compilé | [run 41281439087](https://github.com/TRON-ABS/Novera/actions/runs/41281439087) · `ff4740a0` |
 | iOS simulateur | ios / macos-15: compilé | [run 41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611) · `a84f8cf6` |
 | Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
@@ -29,12 +29,19 @@ Artefacts téléchargés et contrôlés indépendamment :
 - [Novera-ios-macOS-41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611/artifacts/13071509324) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-linux-x64-41279778571](https://github.com/TRON-ABS/Novera/actions/runs/41279778571/artifacts/13072669601) : 8 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-macos-arm64-41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073710701) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; minimum natif maximal relevé : macOS 14.0.0.
+- [Novera-macos-x64-41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073109727) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; minimum natif maximal relevé : macOS 13.0.0.
 - [Novera-web-Linux-41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200/artifacts/13070388490) : 593 empreintes vérifiées, signature de marque et provenance conformes.
 
 Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne remplacent pas une signature cryptographique de production. Les validations sur PC neuf, téléphone et tablette restent distinctes des compilations CI.
 <!-- NOVERA CI STATUS END -->
 
 Le 1er novembre 2026, le mainteneur autorise explicitement **toutes les plateformes et variantes**, en confirmant Linux, Android, iOS et macOS, avec contrôle des résultats et mise à jour des MD. Cette autorisation remplace la consigne historique de garder Actions désactivé pour la préparation seule. Aucun profil utilisateur ni discussion du PC du mainteneur n'est envoyé aux runners.
+
+## macOS Intel vérifié — 07:09 UTC
+
+Le [run macOS `41278737556`](https://github.com/TRON-ABS/Novera/actions/runs/41278737556), commit `5468f183`, est entièrement réussi. Le [candidat Intel `13073109727`](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073109727) téléchargé mesure 106 591 838 octets et passe sept empreintes. SHA-256 de l’archive GitHub : `e94f67a9711563f9a3e1e38523e55f78eb2f8fcba4f410fca617ac251e6c5fb9`. Son reçu annonce macOS 13.0 ; l’inspection indépendante des 40 entrées du DMG confirme **26 Mach-O x64**, minimum natif maximal **13.0.0**, worker GGUF et modules CPU/Metal, notice TRON-ABS embarquée et absence du serveur MLX réservé à Apple Silicon. Les dépendances chargées n’exigent pas de chemins de développement du runner. Aucun montage, lancement, installation, notarisation ou signature de production n’est effectué par cette inspection.
+
+Les deux nouveaux DMG du même commit sont désormais inspectés : ARM64/macOS 14 et Intel/macOS 13. Ce run précède les tests de migration desktop ajoutés ensuite ; leur réussite Linux ne certifie pas ces DMG. Le seul build encore en cours est Windows x64, commun au desktop, NSIS, MSI et portable.
 
 ## Android vérifié — 06:59 UTC
 
@@ -46,7 +53,7 @@ L’APK nommé `app-universal-debug.apk` contient uniquement l’ABI **arm64-v8a
 
 Le [run CLI `41280300978`](https://github.com/TRON-ABS/Novera/actions/runs/41280300978), commit `410caea5`, est entièrement réussi. Chaque hôte Windows/Linux/macOS exécute deux tests Rust de politique des mises à jour et d’aide : six réussis au total, zéro échec/ignoré. Les trois archives sont téléchargées ; 21 empreintes, provenance, notice TRON-ABS et architectures ELF x64 / PE x64 / Mach-O ARM64 sont conformes. Le nom interne historique `jan` reste conservé.
 
-Le nouveau [DMG Apple Silicon](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073710701), commit `5468f183`, contient huit fichiers externes et sept empreintes vérifiées. Le reçu `MACOS-COMPATIBILITY.json` annonce 14.0 et 16 binaires ; l’inspection indépendante du DMG confirme 16 Mach-O ARM64 avec minimum maximal **14.0.0**, MLX, shaders et notice embarquée. SHA-256 de l’archive GitHub : `a3a7ed7c930888e773cce697e3ea5440d3b41d592281b821530b59ea32f76727`. Les DMG précédents exigeant macOS 15 restent des preuves historiques. Aucun lancement ou montage du DMG n’est effectué sur Windows ; l’installation macOS reste à tester. Ce run précède les nouveaux tests de migration desktop. Le job Intel du même run continue.
+Le nouveau [DMG Apple Silicon](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073710701), commit `5468f183`, contient huit fichiers externes et sept empreintes vérifiées. Le reçu `MACOS-COMPATIBILITY.json` annonce 14.0 et 16 binaires ; l’inspection indépendante du DMG confirme 16 Mach-O ARM64 avec minimum maximal **14.0.0**, MLX, shaders et notice embarquée. SHA-256 de l’archive GitHub : `a3a7ed7c930888e773cce697e3ea5440d3b41d592281b821530b59ea32f76727`. Les DMG précédents exigeant macOS 15 restent des preuves historiques. Aucun lancement ou montage du DMG n’est effectué sur Windows ; l’installation macOS reste à tester. Ce run précède les nouveaux tests de migration desktop. Le job Intel du même run est désormais réussi et son paquet vérifié ci-dessus.
 
 ## Préparation des prochaines versions
 

@@ -1,5 +1,9 @@
 # Novera — instructions du projet
 
+## macOS Intel compilé et vérifié — 07:09 UTC, 1er novembre 2026
+
+Le run macOS `41278737556`, commit `5468f183`, est entièrement réussi. Le DMG Intel `13073109727` est téléchargé : sept empreintes, reçu et 26 Mach-O x64 vérifiés, minimum maximal **13.0.0**, worker GGUF/Metal présent et MLX exclu. Les deux architectures macOS sont donc compilées et inspectées séparément (ARM64 : 16 Mach-O, minimum 14.0). Aucun essai d’installation, notarisation ou signature de production n’est revendiqué. Seul Windows x64 reste en compilation pour ses quatre formats ; Android est vérifié ci-dessous.
+
 ## Android compilé et vérifié — 06:59 UTC, 1er novembre 2026
 
 Le run `41281439087`, commit `ff4740a0`, produit l’APK debug de test. Archive `13074371303` téléchargée : six empreintes, six bibliothèques ELF ARM64 alignées à 16 Ko, notice embarquée et absence de pile desktop vérifiées. Les outils officiels Android SDK 37 confirment `io.github.tronabs.novera.debug`, l’ABI unique arm64-v8a, les deux fournisseurs de fichiers distincts, la signature debug APK v2 et zipalign. Aucun appareil ni profil personnel n’est modifié. Les trois audits mobiles restent non validés et la signature durable de production reste requise. Windows x64 et macOS Intel continuent.
