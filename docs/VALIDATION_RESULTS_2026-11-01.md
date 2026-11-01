@@ -1,6 +1,6 @@
 # Résultats vérifiés des distributions — 1er novembre 2026
 
-**Reprise, contrôle des feeds à 23 h 38 (Paris)** : les deux feeds de production renvoient HTTP 404. Le contrôle manuel Windows est désormais exercé dans l'interface isolée et confirme le faux message « Vous utilisez la dernière version » malgré l'échec du feed au journal. La correction reste locale (42 tests ciblés et 17 contrats réussis), non intégrée au candidat testé. Aucun nouvel essai UI Linux n'est attesté. Voir [les résultats précis de cette reprise](UPDATE_CHANNEL_CHECK_2026-11-01.md).
+**Reprise du 2 novembre, feeds contrôlés à 00 h 24 (Paris)** : les deux feeds de production restent en HTTP 404. Le correctif est vérifié dans l'interface Windows native locale (build debug) et dans une vraie AppImage Linux signée. Le job Linux du run `41358869680` réussit ; l'artefact `13105425728` passe le digest GitHub, 15 empreintes, la signature, 42 tests frontend et neuf migrations, avec capture du message d'erreur explicite. Les paquets Windows signés sont encore attendus. Voir [les résultats et limites précis](UPDATE_CHANNEL_CHECK_2026-11-01.md).
 
 Les contrôles autonomes de cette phase sont terminés. **Aucune version ni aucun feed public n’est publié.** Les composants d’installation/remplacement sont vérifiés sur cinq desktops et trois CLI ; la disponibilité du canal de production et les validations propres aux autres formats restent distinctes.
 

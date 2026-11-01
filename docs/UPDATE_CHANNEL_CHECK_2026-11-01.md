@@ -1,6 +1,6 @@
 # Contrôle UI et canal de production — 1er novembre 2026
 
-Contrôles distants effectués à **23 h 23 puis 23 h 38, heure de Paris**. **Le canal de production n'est pas validé et aucune publication n'a été effectuée.** Le contrôle manuel est désormais reproduit dans l'interface Windows ; il confirme le faux message de dernière version sur le candidat existant.
+Contrôles distants effectués à **23 h 23 puis 23 h 38, heure de Paris, le 1er novembre**. **Le canal de production n'est pas validé et aucune publication n'a été effectuée.** Le défaut est reproduit sur l'ancien candidat Windows. La correction est ensuite observée le 2 novembre dans un build Windows local et dans une vraie AppImage Linux signée ; les limites de ces preuves sont précisées ci-dessous.
 
 ## Canal réellement observé
 
@@ -47,17 +47,35 @@ Les preuves locales sont `windows-manual-check-result.json` (arbre UI avec le to
 
 ## Ce qui reste à prouver
 
-- Windows : reconstruire un candidat contenant la correction et vérifier son message d'erreur dans l'interface ; exercer ensuite offre/téléchargement/vérification/installation/redémarrage avec conservation du profil. Le parcours du bouton sur l'ancien candidat et son défaut sont désormais reproduits.
-- Linux : aucun hôte Linux interactif n'est disponible dans cette session ; WSL n'est pas installé. Les preuves natives antérieures restent celles du run `41334675673`. Aucun nouveau parcours UI Linux n'a été exécuté ici. Il faut un hôte Linux isolé avec affichage pour l'AppImage.
+- Windows : vérifier le nouveau candidat signé et son message d'erreur dans l'interface ; le build local corrigé a déjà passé ce parcours. Exercer ensuite offre/téléchargement/vérification/installation/redémarrage avec conservation du profil.
+- Linux : le parcours d'erreur du feed passe désormais dans la vraie AppImage signée sous Xvfb. L'offre, le téléchargement et l'installation depuis un feed de production restent à exercer ; les preuves de remplacement natif antérieures restent celles du run `41334675673`.
 - Production : satisfaire les conditions de publication, puis contrôler un feed HTTPS public complet, les URL et signatures des paquets et une transition entre deux versions. Les 404 actuels ne valent ni absence normale d'une version plus récente, ni validation du canal.
 - macOS/iOS : les accès et identités Apple réels restent nécessaires pour la signature/notarisation macOS et la distribution iOS sur appareil ; les validations UI et de canal restent également distinctes.
 
 ## Reconstruction corrective Windows/Linux
 
-La correction est proposée dans la [PR brouillon #5](https://github.com/TRON-ABS/Novera/pull/5), branche `codex/updater-feed-error`. Le commit `428299c34d66170f543722ea98a11de6e3e50979` est soumis au [run 41358869680](https://github.com/TRON-ABS/Novera/actions/runs/41358869680). Le job source réussit ; les candidats Windows x64, Windows ARM64 et Linux x64 sont en reconstruction. Le premier run `41358745246` a été remplacé pendant sa préparation pour intégrer les paramètres WebDriver et les gardes du banc Linux. Aucun résultat natif du nouveau run n'est encore certifié.
+La correction est proposée dans la [PR brouillon #5](https://github.com/TRON-ABS/Novera/pull/5), branche `codex/updater-feed-error`. Le commit `428299c34d66170f543722ea98a11de6e3e50979` est soumis au [run 41358869680](https://github.com/TRON-ABS/Novera/actions/runs/41358869680). Le job source et le job Linux réussissent ; les candidats Windows x64 et ARM64 sont encore en reconstruction à ce bilan. Le premier run `41358745246` a été remplacé pendant sa préparation pour intégrer les paramètres WebDriver et les gardes du banc Linux.
 
 Le workflow manuel dispose d'une cible `windows-linux`. Les compilations desktop signées exécutent d'abord les 42 contrats frontend de l'updater et conservent leur résultat JSON. Les contrôles locaux supplémentaires passent : 57 contrats Node, dix tests Python, validation de syntaxe Python, actionlint et contrôle du diff.
 
-Après compilation et vérification de signature, le job Linux tente un vrai contrôle du bouton dans l'AppImage sous Xvfb, via le [WebDriver externe documenté par Tauri](https://v2.tauri.app/develop/tests/webdriver/manual-setup/). Le banc refuse les postes locaux et les runners auto-hébergés. Il utilise un profil vierge et ouvre directement Général ; il ne valide donc pas l'onboarding ou l'installation de modèles. Il attend le message « Failed to check for updates » sur le feed réellement indisponible, refuse le faux message de dernière version et conserve capture, reçu et diagnostic. Il ne simule pas le service updater et n'installe aucune mise à jour. Son exécution native reste à constater.
+Après compilation et vérification de signature, le job Linux exerce le vrai bouton dans l'AppImage sous Xvfb, via le [WebDriver externe documenté par Tauri](https://v2.tauri.app/develop/tests/webdriver/manual-setup/). Le banc refuse les postes locaux et les runners auto-hébergés. Il utilise un profil vierge et ouvre directement Général ; il ne valide donc pas l'onboarding ou l'installation de modèles. Il ne simule pas le service updater et n'installe aucune mise à jour.
 
-Le [bilan général](VALIDATION_RESULTS_2026-11-01.md) et les [conditions de lancement](LAUNCH_STATUS.md) restent applicables. La correction n'est pas encore intégrée aux paquets précédemment vérifiés, fusionnée ou diffusée. La réussite du job source ne vaut pas réussite des compilations ni validation des parcours natifs.
+### Linux signé : preuve reçue et contrôlée le 2 novembre
+
+Le [job Linux 125004829064](https://github.com/TRON-ABS/Novera/actions/runs/41358869680/job/125004829064) réussit. L'artefact `13105425728` est téléchargé ; son digest GitHub `f280de09c36135b77d0a121626717610e64e2da7ac0d146be9d31d530fbd4dc4` et ses **15 empreintes de fichiers** sont recontrôlés. La vérification cryptographique indépendante de l'AppImage finale réussit avec la clé Novera épinglée. SHA-256 du paquet : `01f92f603037827fa8af4054d316f57add583f2801e5e0b66bd5a4621d3fb3ef`.
+
+Les reçus attestent **42 contrats frontend et neuf migrations réussis**. La capture inspectée et le reçu natif montrent le vrai message **« Failed to check for updates »** sur le feed HTTP 404 ; le faux message de dernière version est absent. `nativeUiCheckPassed` vaut `true`, `updateInstalled` et `productionChannelValidated` valent `false`. La preuve vérifie le bouton sur le paquet livré, pas seulement le hook simulé.
+
+Les fichiers sont conservés sous `.build/release-prepared/rebuild-428299c3/linux-x64/`, notamment `LINUX-UPDATER-UI.png`, `LINUX-UPDATER-UI.json` et `UPDATER-READINESS.json`. Le résultat indépendant est `.build/update-ui-2026-11-01/13105425728-verified.json`.
+
+### Windows local : message corrigé et nouvelle tentative observés
+
+Un frontend en mode production (`NOVERA_ENABLE_UPDATER=true`) est compilé, puis embarqué dans un binaire Rust **debug** local, depuis la branche corrective au commit documentaire `48f9df8033b8f737a6e3016780fb6c692bbc8844`. Les dépendances runtime viennent du candidat préparé `bbe679d3` ; ce montage demeure un banc local, pas un paquet signé de distribution. Le SHA-256 du binaire est `df7de65b2960c7a1231208642196a9f3821035e79eec3ed726a161316e944b1c`.
+
+Avec le même profil isolé et le modèle `Qwen-validation`, le vrai parcours Configurations → Général → Vérifier les mises à jour affiche désormais **« Échec de la vérification des mises à jour »**. Le bouton redevient disponible et une nouvelle tentative reproduit l'erreur explicite. Le journal confirme le refus du feed et la remontée de l'erreur jusqu'aux paramètres ; l'origine observée est `http://tauri.localhost/`, avec le nouveau bundle `index-Bet3Z24Z.js`. Le contrôle automatique échoue silencieusement comme prévu, tandis que le contrôle manuel affiche l'erreur.
+
+Preuves : `.build/update-ui-2026-11-01/local-native-build.json`, `fixed-windows-native-ui.json` et `fixed-windows-updater-log.txt`. Le paquet Windows signé doit encore être contrôlé séparément.
+
+À **00 h 24 (Paris), le 2 novembre**, les deux endpoints publics restent en HTTP 404 et le brouillon `430498139` conserve ses 15 assets. La branche principale n'a pas changé et la PR #5 reste ouverte en brouillon. Une reprise automatique de ce chat, `terminer-les-contr-les-windows-novera`, vérifie toutes les dix minutes les nouveaux résultats Windows, récupère les paquets et poursuit les contrôles autorisés ; elle doit rester silencieuse sans évolution exploitable et se mettre en pause quand ces contrôles sont terminés. Le premier build Windows x64 signé précédent avait duré un peu plus de trois heures ; les nouveaux jobs continuent sans être interrompus. Les entrées macOS de la matrice actuelle ne compilent pas : la sélection `windows-linux` n'active que les trois variantes Windows/Linux.
+
+Le [bilan général](VALIDATION_RESULTS_2026-11-01.md) et les [conditions de lancement](LAUNCH_STATUS.md) restent applicables. La correction est intégrée au nouveau candidat Linux vérifié, mais elle n'est pas fusionnée ou diffusée. Les réussites ci-dessus ne valent pas validation du canal de production ni installation depuis l'interface.
