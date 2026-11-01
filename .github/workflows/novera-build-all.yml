@@ -246,10 +246,10 @@ jobs:
         shell: bash
         env:
           REQUESTED: ${{ inputs.target }}
-          PLATFORM: ${{ matrix.platform }}
+          NOVERA_VALIDATION_PLATFORM: ${{ matrix.platform }}
         run: |
           selected=false
-          if [[ "$REQUESTED" == validate-desktop || "$PLATFORM" == windows-x86_64 ]]; then selected=true; fi
+          if [[ "$REQUESTED" == validate-desktop || "$NOVERA_VALIDATION_PLATFORM" == windows-x86_64 ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
         if: steps.select.outputs.selected == 'true'
@@ -280,17 +280,17 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          PLATFORM: ${{ matrix.platform }}
+          NOVERA_VALIDATION_PLATFORM: ${{ matrix.platform }}
         run: |
           set -euo pipefail
           probe="$GITHUB_WORKSPACE/.build/native-update-probe/debug/novera-update-validation"
           if [[ "$RUNNER_OS" == Windows ]]; then probe="$probe.exe"; fi
           if [[ "$RUNNER_OS" == Linux ]]; then
-            xvfb-run -a python3 scripts/distribution/validate-installed-update.py "$PLATFORM" "$probe"
+            xvfb-run -a python3 scripts/distribution/validate-installed-update.py "$NOVERA_VALIDATION_PLATFORM" "$probe"
           elif [[ "$RUNNER_OS" == Windows ]]; then
-            python scripts/distribution/validate-installed-update.py "$PLATFORM" "$probe"
+            python scripts/distribution/validate-installed-update.py "$NOVERA_VALIDATION_PLATFORM" "$probe"
           else
-            python3 scripts/distribution/validate-installed-update.py "$PLATFORM" "$probe"
+            python3 scripts/distribution/validate-installed-update.py "$NOVERA_VALIDATION_PLATFORM" "$probe"
           fi
       - name: Retain validation receipts only
         if: always() && steps.select.outputs.selected == 'true'
