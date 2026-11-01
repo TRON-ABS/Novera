@@ -15,7 +15,7 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 | Linux | linux / x64: en cours | [run 41275746510](https://github.com/TRON-ABS/Novera/actions/runs/41275746510) · `0beb13a3` |
 | macOS | macos / arm64: en cours; macos / x64: en cours | [run 41276594974](https://github.com/TRON-ABS/Novera/actions/runs/41276594974) · `9f68b5d3` |
 | Android | android / windows-2025: en cours | [run 41276458095](https://github.com/TRON-ABS/Novera/actions/runs/41276458095) · `ce35ecbd` |
-| iOS simulateur | ios / macos-15: en cours | [run 41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611) · `a84f8cf6` |
+| iOS simulateur | ios / macos-15: compilé | [run 41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611) · `a84f8cf6` |
 | Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
 | CLI | cli / macos-15: compilé; cli / ubuntu-22.04: compilé; cli / windows-2025: compilé | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
 
@@ -24,6 +24,7 @@ Artefacts téléchargés et contrôlés indépendamment :
 - [Novera-cli-Linux-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069749955) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-Windows-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13070655221) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-macOS-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069439592) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-ios-macOS-41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611/artifacts/13071509324) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-web-Linux-41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200/artifacts/13070388490) : 593 empreintes vérifiées, signature de marque et provenance conformes.
 
 Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne remplacent pas une signature cryptographique de production. Les validations sur PC neuf, téléphone et tablette restent distinctes des compilations CI.
@@ -150,3 +151,9 @@ Le run natif `41275047042` termine le bootstrap Android et le moteur ARM64, puis
 ### macOS : prérequis et ressources propres à l’architecture
 
 Le serveur MLX documente Apple Silicon et Xcode 26.2 comme prérequis. Le nouveau workflow choisit maintenant cette installation Xcode par `DEVELOPER_DIR` pour le desktop ARM64, comme les workflows macOS existants ; aucun changement persistant de `xcode-select`. Intel conserve son worker GGUF natif et exclut les ressources MLX réservées à Apple Silicon. Le manifeste de candidat indique cette limite. Un test relit la vraie configuration macOS et vérifie que le worker GGUF reste présent sur Intel, que MLX est exclu sur Intel et conservé sur ARM64. Sept tests de collecteur/politiques et syntaxe Bash réussis. Relance macOS `41276594974`, commit `9f68b5d3` ; les compilations natives restent à confirmer par les résultats du run.
+
+### iOS simulateur : candidat téléchargé et inspecté
+
+[Run iOS `41276290611`](https://github.com/TRON-ABS/Novera/actions/runs/41276290611), commit `a84f8cf64b03367e9b6e2d271083a20d1e29e30e` : compilation, collecte et résumé réussis. Artefact `13071509324`, **81 814 413 octets / 7 fichiers / 6 empreintes conformes**, SHA-256 `bb3a16377d1da77a722d68932ded5ffd0463f778094aa970d3d07d761124218a`.
+
+L’archive interne `Novera-iOS-simulator-0.tar.gz` contient **17 entrées**. Lecture indépendante de l’exécutable Mach-O : **ARM64**, commande `LC_BUILD_VERSION` indiquant la plateforme **iOS Simulator (7)**. La notice TRON-ABS est présente dans l’application elle-même ; chemins, inventaire et absence de poids/profils/discussions contrôlés. Cela confirme un paquet de simulateur, pas une IPA signée pour iPhone. Aucun lancement sur simulateur ou appareil réel n’est encore certifié. Le journal conserve aussi un avertissement Xcode sur l’identifiant personnalisé du plist ; il n’a pas empêché ce build de simulateur et devra être revu avant le provisioning d’une version device.
