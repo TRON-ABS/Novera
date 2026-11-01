@@ -6,7 +6,7 @@ Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et In
 
 Le programme de contrôle annonce `0.9.9` pour exercer le vrai paquet `1.0.0`. Ces preuves ne couvrent pas le parcours d’update dans l’interface, une transition entre deux applications publiées ni une inspection visuelle de tous les moteurs. Le défaut Windows était celui du profil synthétique du banc d’essai ; son arborescence standard corrige le démarrage sans recompiler Novera.
 
-**La publication reste bloquée** : aucun feed public n’est créé, les nouveaux CLI signés sont en relance après correction de leur fixture, les exigences Apple/mobile/Web et les scénarios MSI/Debian/portable restent distincts. Le brouillon privé conserve ses 15 assets vérifiés. Voir le [protocole de validation](INSTALL_UPDATE_VALIDATION.md) et la [disponibilité actuelle](LAUNCH_STATUS.md).
+**La publication reste bloquée** : aucun feed public n’est créé, les trois CLI signées passent également le remplacement isolé et leur manifeste est préparé localement, sans endpoint public activé, les exigences Apple/mobile/Web et les scénarios MSI/Debian/portable restent distincts. Le brouillon privé conserve ses 15 assets vérifiés. Voir le [protocole de validation](INSTALL_UPDATE_VALIDATION.md) et la [disponibilité actuelle](LAUNCH_STATUS.md).
 
 ## Essais isolés des paquets desktop
 
@@ -39,6 +39,6 @@ Les reçus JSON doivent distinguer ces preuves des validations non réalisées. 
 | Android | Signature durable, canal de distribution/update adapté et essais sur appareil ; le candidat existant reste debug. |
 | iOS | Identité et accès Apple réels, build appareil, distribution/update via un canal approprié et essais ; le simulateur ne suffit pas. |
 | Web | [Révision et contrat HTTP contrôlés](WEB_DELIVERY.md), rechargement réel entre deux builds au navigateur local avec thème préservé ; hébergement HTTPS et cache/CDN de production restent requis. |
-| CLI | [Remplacement signé et exécution vérifiés sur Linux x64 et macOS ARM64](CLI_SIGNED_UPDATES.md) ; Windows encore en cours, endpoint de production non validé. |
+| CLI | [Remplacement signé et exécution vérifiés sur les trois hôtes CLI](CLI_SIGNED_UPDATES.md) ; manifeste complet préparé localement, endpoint de production non validé. |
 
 Les accès Apple/Google et certificats éventuels doivent provenir du mainteneur, hors du chat et du dépôt. Aucune clé ou certification de production n’est inventée. La publication reste conditionnée aux preuves réellement obtenues et à la [politique officielle](../OFFICIAL_RELEASES.md).

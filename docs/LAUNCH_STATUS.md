@@ -11,8 +11,7 @@ Novera réunit conversation, recherche et création de texte, d’images, de mus
 | Linux x64 AppImage | Installation et remplacement natif réussis ; AppImage restaurée à son empreinte exacte. | Parcours UI et feed de production ; Debian à valider séparément. |
 | macOS ARM64 | Installation et remplacement natif réussis ; 22 fichiers identiques ; minimum macOS 14. | Parcours UI/feed de production ; signature de code et notarisation Apple. |
 | macOS Intel | Installation et remplacement natif réussis ; 30 fichiers identiques ; minimum macOS 13. | Parcours UI/feed de production ; signature de code et notarisation Apple. |
-| CLI Linux/macOS ARM64 | Remplacement signé et exécution réussis ; artefacts téléchargés, onze empreintes chacun, architectures et clé embarquée contrôlées. | Endpoint de production et transition entre versions publiées non validés. |
-| CLI Windows x64 | Canal signé implémenté en option ; ancienne compilation conservée sans updater. | Nouvelle compilation et essai de remplacement encore en cours. |
+| CLI Windows x64, Linux x64 et macOS ARM64 | Trois remplacements signés et exécutions réussis ; artefacts téléchargés, onze empreintes chacun, architectures et clé embarquée contrôlées. Manifeste complet préparé localement. | Endpoint de production et transition entre versions publiées non validés. Anciennes CLI sans updater toujours internes. |
 | Android | APK ARM64 debug interne contrôlé. | Signature durable, canal de production et validation appareil. |
 | iOS | Application simulateur interne contrôlée. | Identité Apple réelle, build appareil, canal de distribution et validation appareil. |
 | Web | Nouveau build CI vérifié ; 588 fichiers servis contrôlés en HTTP local ; rechargement entre deux builds au navigateur avec thème préservé. | Hébergement HTTPS et cache/CDN réels ; parcours fonctionnels complets et renouvellement du site de production. Voir [les limites](WEB_DELIVERY.md). |
@@ -25,9 +24,9 @@ Le programme de contrôle utilise une version synthétique `0.9.9` avec le paque
 
 ## Brouillon et conditions de publication
 
-La préversion prévue `v1.0.0-candidate.20261101`, release `430498139`, contient 15 assets transférés dont tailles et SHA-256 serveur correspondent aux fichiers retenus : cinq bundles desktop d’update, cinq signatures, index de provenance, empreintes globales et notices. Chaque asset reste sous 2 Gio. Aucun `latest.json` ou `latest-cli.json` public n’est créé. MSI, Debian, portable, mobiles, Web et CLI ne sont pas les assets de diffusion de ce brouillon.
+La préversion prévue `v1.0.0-candidate.20261101`, release `430498139`, contient 15 assets transférés dont tailles et SHA-256 serveur correspondent aux fichiers retenus : cinq bundles desktop d’update, cinq signatures, index de provenance, empreintes globales et notices. Chaque asset reste sous 2 Gio. Aucun `latest.json` ou `latest-cli.json` public n’est créé. MSI, Debian, portable, mobiles, Web et CLI ne sont pas les assets de diffusion de ce brouillon. Les manifests desktop et CLI sont préparés localement pour examen ; ils ne sont pas servis publiquement.
 
-La consigne du mainteneur reste obligatoire : **aucune version publique sans mécanisme de mise à jour configuré et vérifié**. Les liens de téléchargement seront présentés sur [GitHub Releases](https://github.com/TRON-ABS/Novera/releases) seulement après les conditions propres aux formats diffusés. La [politique officielle](../OFFICIAL_RELEASES.md), le [guide de distribution](BUILD_AND_RELEASE.md) et la [préparation des versions](FUTURES_VERSIONS.md) encadrent ce passage. Le [canal CLI](CLI_SIGNED_UPDATES.md) reste en validation.
+La consigne du mainteneur reste obligatoire : **aucune version publique sans mécanisme de mise à jour configuré et vérifié**. Les liens de téléchargement seront présentés sur [GitHub Releases](https://github.com/TRON-ABS/Novera/releases) seulement après les conditions propres aux formats diffusés. La [politique officielle](../OFFICIAL_RELEASES.md), le [guide de distribution](BUILD_AND_RELEASE.md) et la [préparation des versions](FUTURES_VERSIONS.md) encadrent ce passage. Le [canal CLI](CLI_SIGNED_UPDATES.md) passe ses trois essais isolés ; sa disponibilité de production reste à valider.
 
 ## Notre invitation
 

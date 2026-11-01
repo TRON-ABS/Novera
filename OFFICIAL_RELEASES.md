@@ -1,5 +1,7 @@
 # Official Novera releases and governance
 
+All three signed CLI targets also pass isolated replacement and execution. Their feed generator rechecks signatures, signed ZIP identities and native test receipts; the complete manifest is prepared locally only. Production feeds, Apple notarization, mobile/device channels and remaining format-specific scenarios are still separate gates.
+
 Five desktop installation/native replacement scenarios now pass; the synthetic probe does not certify a production UI upgrade between two released apps. CLI, mobile, Web and excluded formats retain their own gates. No public release or feed has been created. See [current evidence](docs/INSTALL_UPDATE_VALIDATION.md).
 
 The 1 November draft now contains fifteen uploaded assets with matching server sizes and SHA-256 digests. It remains blocked and unpublished, with no public latest.json. Autonomous build/package checks are complete; isolated installation and native replacement now pass on all five desktop platforms; production UI/feed and other platform delivery requirements remain pending.

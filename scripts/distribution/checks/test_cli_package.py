@@ -28,4 +28,14 @@ class CliArchive(unittest.TestCase):
             with self.subTest(target=target),self.assertRaises(ValueError):
                 module.package(Path('unused'),Path('unused'),version,target,commit)
 
+    def test_archive_inspection_rejects_relabeling_an_old_signed_payload(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);binary=root/'compiled'
+            data=bytearray(64);data[:6]=b'\x7fELF\x02\x01';data[18]=62;binary.write_bytes(data)
+            archive=module.package(binary,root/'out','1.0.0','linux-x86_64','a'*40)
+            self.assertEqual(module.inspect_package(archive,'1.0.0','linux-x86_64','a'*40)['binarySha256'],hashlib.sha256(data).hexdigest())
+            for version,target,commit in [('1.0.1','linux-x86_64','a'*40),('1.0.0','darwin-aarch64','a'*40),('1.0.0','linux-x86_64','b'*40)]:
+                with self.subTest(version=version,target=target),self.assertRaises(ValueError):
+                    module.inspect_package(archive,version,target,commit)
+
 if __name__=='__main__':unittest.main()

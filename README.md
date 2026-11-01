@@ -11,7 +11,7 @@
 
 ## Availability — 1 November 2026
 
-Isolated installation and native updater replacement tests now pass on all five desktop platforms. Signed CLI candidates remain under validation. [Evidence and limits](docs/INSTALL_UPDATE_VALIDATION.md). Public downloads remain closed.
+Isolated installation and native updater replacement tests now pass on all five desktop platforms. All three signed CLI targets also pass isolated replacement; production endpoints remain unvalidated. [Evidence and limits](docs/INSTALL_UPDATE_VALIDATION.md). Public downloads remain closed.
 
 **Novera 1.0.0 is preparing for launch. Public downloads are not open yet.** Explore the sources and the real Windows dashboard below; follow [Releases](https://github.com/TRON-ABS/Novera/releases) for published packages when the release checks are complete.
 
@@ -22,7 +22,8 @@ Isolated installation and native updater replacement tests now pass on all five 
 | Linux x64 | AppImage installation and native replacement passed; Debian remains a separate scenario. |
 | macOS | Installation and native replacement passed on both architectures; macOS 14+ ARM64 and 13+ Intel. Notarization remains pending. |
 | Android and iOS | Android ARM64 debug and iOS simulator candidates are internal tests; no public mobile release. |
-| Web and CLI | Builds checked; public delivery and suitable update channels remain to be completed. |
+| CLI | Signatures, architectures, replacement and execution verified on Windows x64, Linux x64 and macOS ARM64; production feed not enabled. |
+| Web | CI build verified; local browser renewal preserves the selected theme. Real HTTPS hosting and cache/CDN checks remain. |
 
 Public release requires a configured and verified update mechanism, including production feed and interface validation. Signed updater packages do not imply Windows code signing or Apple notarization. See [current availability and launch requirements](docs/LAUNCH_STATUS.md) and [verified build evidence](docs/CI_DISTRIBUTIONS.md).
 

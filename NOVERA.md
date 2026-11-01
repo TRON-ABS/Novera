@@ -6,7 +6,7 @@ Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et In
 
 Le programme de contrôle annonce `0.9.9` pour exercer le vrai paquet `1.0.0`. Ces preuves ne couvrent pas le parcours d’update dans l’interface, une transition entre deux applications publiées ni une inspection visuelle de tous les moteurs. Le défaut Windows était celui du profil synthétique du banc d’essai ; son arborescence standard corrige le démarrage sans recompiler Novera.
 
-**La publication reste bloquée** : aucun feed public n’est créé, les nouveaux CLI signés sont en relance après correction de leur fixture, les exigences Apple/mobile/Web et les scénarios MSI/Debian/portable restent distincts. Le brouillon privé conserve ses 15 assets vérifiés. Voir le [protocole de validation](docs/INSTALL_UPDATE_VALIDATION.md) et la [disponibilité actuelle](docs/LAUNCH_STATUS.md).
+**La publication reste bloquée** : aucun feed public n’est créé, les trois CLI signées passent également le remplacement isolé et leur manifeste est préparé localement, sans endpoint public activé, les exigences Apple/mobile/Web et les scénarios MSI/Debian/portable restent distincts. Le brouillon privé conserve ses 15 assets vérifiés. Voir le [protocole de validation](docs/INSTALL_UPDATE_VALIDATION.md) et la [disponibilité actuelle](docs/LAUNCH_STATUS.md).
 
 <details>
 <summary>Historique des contrôles précédents — états remplacés par le bilan ci-dessus</summary>

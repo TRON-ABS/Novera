@@ -6,7 +6,7 @@ Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et In
 
 Le programme de contrôle annonce `0.9.9` pour exercer le vrai paquet `1.0.0`. Ces preuves ne couvrent pas le parcours d’update dans l’interface, une transition entre deux applications publiées ni une inspection visuelle de tous les moteurs. Le défaut Windows était celui du profil synthétique du banc d’essai ; son arborescence standard corrige le démarrage sans recompiler Novera.
 
-**La publication reste bloquée** : aucun feed public n’est créé, les nouveaux CLI signés sont en relance après correction de leur fixture, les exigences Apple/mobile/Web et les scénarios MSI/Debian/portable restent distincts. Le brouillon privé conserve ses 15 assets vérifiés. Voir le [protocole de validation](INSTALL_UPDATE_VALIDATION.md) et la [disponibilité actuelle](LAUNCH_STATUS.md).
+**La publication reste bloquée** : aucun feed public n’est créé, les trois CLI signées passent également le remplacement isolé et leur manifeste est préparé localement, sans endpoint public activé, les exigences Apple/mobile/Web et les scénarios MSI/Debian/portable restent distincts. Le brouillon privé conserve ses 15 assets vérifiés. Voir le [protocole de validation](INSTALL_UPDATE_VALIDATION.md) et la [disponibilité actuelle](LAUNCH_STATUS.md).
 
 <details>
 <summary>Historique des contrôles précédents — états remplacés par le bilan ci-dessus</summary>
@@ -179,7 +179,7 @@ Les contrôles indépendants des téléchargements vérifient les empreintes et 
 | Android | APK debug de test avec suffixe `.debug`, distinct de l’identité de production. Une chaîne release exige une clé de signature durable et des compteurs de version corrects ; les trois audits mobiles restent à terminer. |
 | iOS | Le candidat actuel vise le simulateur. Distribution sur iPhone/iPad et mises à jour via les canaux Apple exigent équipe, certificats, provisioning et validation sur appareil. |
 | Web | [Révision et contrat HTTP](WEB_DELIVERY.md) pour un renouvellement par rechargement ; hébergement HTTPS et essai navigateur réels restent requis. Ce n’est pas le mécanisme d’update desktop. |
-| CLI | Canal Novera signé disponible avec l’option Cargo explicite ; nouveaux paquets et remplacement encore en validation CI. Les anciens binaires sans updater restent internes. Voir [le protocole CLI](CLI_SIGNED_UPDATES.md). |
+| CLI | Canal Novera signé disponible avec l’option Cargo explicite ; paquets et remplacement vérifiés sur les trois hôtes, manifeste complet préparé localement. L’endpoint de production reste non validé. Les anciens binaires sans updater restent internes. Voir [le protocole CLI](CLI_SIGNED_UPDATES.md). |
 
 Les clés debug Android des runners ne sont pas une identité de production durable. Les futures releases doivent garder leur identité d’application et leur chaîne de signature pour permettre une mise à jour normale ; une désinstallation destinée à contourner un changement de signature risque de supprimer les données et ne fait pas partie de ce cycle.
 

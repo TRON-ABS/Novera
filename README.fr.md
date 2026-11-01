@@ -11,7 +11,7 @@
 
 ## Disponibilité — 1er novembre 2026
 
-Les essais isolés d’installation et de remplacement par l’updater natif passent désormais sur les cinq plateformes desktop. Les CLI signées restent en validation. [Preuves et limites](docs/INSTALL_UPDATE_VALIDATION.md). Aucune diffusion publique.
+Les essais isolés d’installation et de remplacement par l’updater natif passent désormais sur les cinq plateformes desktop. Les trois CLI signées passent aussi le remplacement isolé ; leurs endpoints publics restent à valider. [Preuves et limites](docs/INSTALL_UPDATE_VALIDATION.md). Aucune diffusion publique.
 
 **Novera 1.0.0 prépare son lancement. Les téléchargements publics ne sont pas encore ouverts.** Découvrez les sources et le véritable tableau de bord Windows ci-dessous ; les paquets publiés seront accessibles dans [Releases](https://github.com/TRON-ABS/Novera/releases) après les contrôles de lancement.
 
@@ -22,7 +22,8 @@ Les essais isolés d’installation et de remplacement par l’updater natif pas
 | Linux x64 | Installation AppImage et remplacement natif réussis ; scénario Debian distinct. |
 | macOS | Installation et remplacement natif réussis sur les deux architectures ; macOS 14+ ARM64 et 13+ Intel. Notarisation en attente. |
 | Android et iOS | Android ARM64 debug et iOS simulateur restent des essais internes ; aucune version mobile publique. |
-| Web et CLI | Builds contrôlés ; diffusion publique et canaux de mise à jour adaptés restent à terminer. |
+| CLI | Signatures, architectures, remplacement et exécution vérifiés sur Windows x64, Linux x64 et macOS ARM64 ; feed de production non activé. |
+| Web | Build CI vérifié ; renouvellement local au navigateur avec thème conservé. Hébergement HTTPS et cache/CDN réels encore requis. |
 
 Toute publication exige un mécanisme de mise à jour configuré et vérifié, avec validation du feed de production et du parcours dans l’interface. La signature de l’updater ne vaut pas signature de code Windows ou notarisation Apple. Consultez [la disponibilité et les conditions de lancement](docs/LAUNCH_STATUS.md) et [les preuves de compilation](docs/CI_DISTRIBUTIONS.md).
 

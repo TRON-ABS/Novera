@@ -1,5 +1,7 @@
 # Novera — construction et distribution
 
+Les trois CLI signées passent aussi le remplacement isolé et l’exécution sur leurs hôtes. Le générateur de manifeste recontrôle signatures, identités ZIP et reçus ; le feed reste uniquement préparé localement. Le [bilan des canaux](LAUNCH_STATUS.md) distingue ces preuves des endpoints publics et certifications encore absents.
+
 Les cinq scénarios desktop d’installation/remplacement natif réussissent. Le programme synthétique ne certifie pas un parcours UI entre deux applications publiées. CLI, mobiles, Web et formats exclus conservent leurs conditions propres. Voir [les preuves actuelles](INSTALL_UPDATE_VALIDATION.md). La publication reste bloquée.
 
 Le brouillon du 1er novembre est préparé avec 15 assets dont les tailles et SHA-256 serveur sont vérifiés. Il reste non publié et ne contient pas de `latest.json`. Les contrôles autonomes sont terminés ; les validations restantes sont celles de la page de disponibilité, sans installation sur le profil personnel.
