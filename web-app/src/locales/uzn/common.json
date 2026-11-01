@@ -812,5 +812,24 @@
     "ask": "Tahrirlash yoki o‘chirishdan oldin so‘rash",
     "allow": "Tahrirlash va o‘chirishga ruxsat berish",
     "folderNote": "Bu jild uchun Novera kirish huquqlarini tanlang."
+  },
+  "components": {
+    "title": "Mahalliy komponentlar",
+    "note": "Faqat kerakli komponentlarni o'rnating. Novera Python muhitlarini alohida saqlaydi. Bulutli xizmatlar mahalliy o'rnatishni talab qilmaydi.",
+    "estimates": "Taxminiy yuklab olish: {{download}} · Kerakli disk maydoni: {{space}} · Mavjud disk maydoni: {{free}}",
+    "confirm": "Ushbu shaxsiy muhit oʻrnatilsinmi? Faqat tanlangan komponentlar yuklab olinadi. Ularning nashriyot litsenziyalari amal qiladi.",
+    "removeConfirm": "Bu boshqariladigan muhit olib tashlansinmi? Modellaringiz, ijodlaringiz va suhbatlaringiz saqlanadi.",
+    "verify": "Tekshiring",
+    "repair": "Ta'mirlash",
+    "uninstall": "Oʻchirish",
+    "missing": "Oʻrnatilmagan",
+    "managed": "Novera tomonidan boshqariladi",
+    "external": "Ixtiyoriy tashqi Python yoʻli boshqariladigan profilni bekor qiladi. Novera muhitidan foydalanish uchun uni tozalang.",
+    "failed": "Komponent bilan ishlash muvaffaqiyatsiz tugadi. Tarmoq, disk maydoni va kirish huquqlarini tekshiring, so'ngra qayta urinib ko'ring yoki tuzating.",
+    "required": "Novera ichida kerakli mahalliy komponentlarni tayyorlang va tekshiring · Konfiguratsiyalar.",
+    "updateAvailable": "Yangilanish mavjud",
+    "update": "Yangilash",
+    "rollback": "Oldingi muhitni tiklang",
+    "busy": "Mahalliy modellarni yuklab oling va komponentlarni almashtirishdan oldin avlodlar tugashini kuting."
   }
 }

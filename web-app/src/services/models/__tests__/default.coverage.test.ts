@@ -62,6 +62,36 @@ describe('DefaultModelsService - coverage supplement', () => {
     mockEngineManager.get.mockReturnValue(mockEngine)
   })
 
+  describe('verified pinned recommendation downloads', () => {
+    const revision = 'a'.repeat(40)
+    const url = `https://huggingface.co/LiquidAI/model/resolve/${revision}/model.gguf?download=true`
+    const projector = `https://huggingface.co/LiquidAI/model/resolve/${revision}/mmproj.gguf?download=true`
+    const repo = () => ({ sha: revision, siblings: [
+      { rfilename: 'model.gguf', lfs: { sha256: '1'.repeat(64), size: 1100 } },
+      { rfilename: 'mmproj.gguf', lfs: { sha256: '2'.repeat(64), size: 292 } },
+    ] })
+    it('passes the exact pinned weight and projector hashes to the downloader, excluding query strings from filenames', async () => {
+      const fetchRepo = vi.spyOn(svc, 'fetchHuggingFaceRepo').mockResolvedValue(repo() as any)
+      await svc.pullModelWithMetadata('omni', url, projector, undefined, false)
+      expect(fetchRepo).toHaveBeenCalledWith('LiquidAI/model', undefined, revision)
+      expect(mockEngine.import).toHaveBeenCalledWith('omni', expect.objectContaining({
+        modelSha256: '1'.repeat(64), modelSize: 1100, mmprojSha256: '2'.repeat(64), mmprojSize: 292,
+      }))
+    })
+    it.each(['missing hash', 'wrong revision', 'wrong projector revision', 'network failure'])('does not download a pinned recommendation after %s', async reason => {
+      const metadata = repo()
+      if (reason === 'missing hash') metadata.siblings[1].lfs.sha256 = ''
+      if (reason === 'wrong revision') metadata.sha = 'b'.repeat(40)
+      const fetchRepo = vi.spyOn(svc, 'fetchHuggingFaceRepo')
+      if (reason === 'network failure') fetchRepo.mockRejectedValue(new Error('offline'))
+      else fetchRepo.mockResolvedValue(metadata as any)
+      await expect(svc.pullModelWithMetadata('omni', url,
+        reason === 'wrong projector revision' ? projector.replace(revision, 'b'.repeat(40)) : projector,
+        undefined, false)).rejects.toThrow()
+      expect(mockEngine.import).not.toHaveBeenCalled()
+    })
+  })
+
   describe('split GGUF downloads', () => {
     const filename = (index: number) => `nested/model-Q4_K_M-${String(index).padStart(5, '0')}-of-00002.gguf`
     const makeRepo = () => ({

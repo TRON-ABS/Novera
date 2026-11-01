@@ -812,5 +812,24 @@
     "ask": "Întreabă înainte de editare sau ștergere",
     "allow": "Permite editarea și ștergerea",
     "folderNote": "Alege accesul Novera la acest dosar."
+  },
+  "components": {
+    "title": "Componente locale",
+    "note": "Instalați numai componentele de care aveți nevoie. Novera menține mediile Python separate. Serviciile cloud nu necesită instalare locală.",
+    "estimates": "Descărcare estimată: {{download}} · Spațiu necesar pe disc: {{space}} · Spațiu disponibil pe disc: {{free}}",
+    "confirm": "Instalați acest mediu privat? Doar componentele selectate vor fi descărcate. Se aplică licențele editorilor lor.",
+    "removeConfirm": "Eliminați acest mediu gestionat? Modelele, creațiile și conversațiile dvs. vor fi păstrate.",
+    "verify": "Verificați",
+    "repair": "Reparație",
+    "uninstall": "Dezinstalați",
+    "missing": "Nu este instalat",
+    "managed": "Gestionat de Novera",
+    "external": "O cale externă opțională Python înlocuiește profilul gestionat. Ștergeți-l pentru a utiliza mediul lui Novera.",
+    "failed": "Operația componentei a eșuat. Verificați rețeaua, spațiul pe disc și drepturile de acces, apoi reîncercați sau reparați.",
+    "required": "Pregătiți și verificați componentele locale necesare în Novera · Configurații.",
+    "updateAvailable": "Actualizare disponibilă",
+    "update": "Actualizare",
+    "rollback": "Restaurați mediul anterior",
+    "busy": "Descărcați modelele locale și așteptați ca generațiile să se termine înainte de a schimba componentele."
   }
 }

@@ -812,5 +812,24 @@
     "ask": "Buza ngaphambi kokuhlela noma ukususa",
     "allow": "Vumela ukuhlela nokususa",
     "folderNote": "Khetha ukufinyelela kwe-Novera kule folda."
+  },
+  "components": {
+    "title": "Izingxenye zasendaweni",
+    "note": "Faka izingxenye ozidingayo kuphela. Novera igcina izindawo zePython zihlukene. Amasevisi wamafu awadingi ukufakwa kwendawo.",
+    "estimates": "Ukulanda okulinganiselwe: {{download}} · Isikhala sediski esidingekayo: {{space}} · Isikhala sediski esitholakalayo: {{free}}",
+    "confirm": "Faka le ndawo eyimfihlo? Izingxenye ezikhethiwe kuphela ezizolandwa. Amalayisense abo abashicileli ayasebenza.",
+    "removeConfirm": "Susa le ndawo ephethwe? Amamodeli akho, izinto ezidaliwe nezingxoxo zizogcinwa.",
+    "verify": "Qinisekisa",
+    "repair": "Ukulungisa",
+    "uninstall": "Khipha",
+    "missing": "Ayifakiwe",
+    "managed": "Iphethwe ngu-Novera",
+    "external": "Indlela yokuzikhethela yangaphandle yePython idlula iphrofayela ephethwe. Isule ukuze usebenzise indawo ka-Novera.",
+    "failed": "Ukusebenza kwengxenye kuhlulekile. Hlola inethiwekhi, isikhala sediski namalungelo okufinyelela, bese uzama futhi noma ulungise.",
+    "required": "Lungiselela futhi uqinisekise izingxenye zasendaweni ezidingekayo kokuthi Novera · Ukulungiselela.",
+    "updateAvailable": "Isibuyekezo siyatholakala",
+    "update": "Buyekeza",
+    "rollback": "Buyisela indawo yangaphambilini",
+    "busy": "Layisha amamodeli endawo bese ulinda ukuthi izizukulwane ziqede ngaphambi kokushintsha izingxenye."
   }
 }

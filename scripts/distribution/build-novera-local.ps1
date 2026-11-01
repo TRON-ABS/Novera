@@ -5,6 +5,7 @@ $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version 2
 
 $repo = if ($env:NOVERA_BUILD_REPO) { [IO.Path]::GetFullPath($env:NOVERA_BUILD_REPO) } else { Split-Path (Split-Path $PSScriptRoot -Parent) -Parent }
+$monitoringRequested = $WithTelemetry -or $env:NOVERA_BUILD_MONITORING -eq '1'
 $variants = @(
     [pscustomobject]@{Id='desktop'; Flag='DESKTOP'; Name='Novera-Desktop Windows x64'; Host='Windows x64'; Command='prepare engine worker/resources + yarn build:web + cargo build --offline --locked --release --bin Novera-Desktop'},
     [pscustomobject]@{Id='setup'; Flag='SETUP'; Name='Setup Windows x64 (NSIS .exe)'; Host='Windows x64'; Command='yarn tauri build --bundles nsis'},
@@ -38,7 +39,7 @@ $id = if ($planOnly) { if ($env:NOVERA_BUILD_OPTION) { $env:NOVERA_BUILD_OPTION.
 $selected = $variants | Where-Object Id -eq $id
 if (!$selected) { Write-Output "ERREUR : variante inconnue '$id'. Utiliser /list."; exit 2 }
 if ($planOnly) {
-    [ordered]@{variant=$selected.Id; enabled=$selected.Enabled; repository=$repo; required_host=$selected.Host; command=$selected.Command; compiled=$false; published=$false; automatic_updates=$false; statistics=$false; telemetry_requested=[bool]$WithTelemetry; consent_default=$false} | ConvertTo-Json
+    [ordered]@{variant=$selected.Id; enabled=$selected.Enabled; repository=$repo; required_host=$selected.Host; command=$selected.Command; compiled=$false; published=$false; automatic_updates=$false; statistics=$false; telemetry_requested=[bool]$monitoringRequested; consent_default=$false} | ConvertTo-Json
     exit 0
 }
 if (!$selected.Enabled) { Write-Output "DESACTIVE : $($selected.Name). Mettre NOVERA_BUILD_$($selected.Flag)=1 dans le BAT pour preparer son activation."; exit 2 }
@@ -70,12 +71,15 @@ try {
     $env:NOVERA_ANALYTICS_HOST = ''
     $env:NOVERA_ANALYTICS_PROJECT_KEY = ''
     $telemetryConfigured = $false
-    if ($WithTelemetry) {
+    $env:NOVERA_MONITORING_BUILD = 'false'
+    $env:NOVERA_BUILD_ID = "$($config.version)-$stamp"
+    if ($monitoringRequested) {
         . (Join-Path $PSScriptRoot 'read-novera-telemetry.ps1')
         $telemetry = Read-NoveraTelemetry (Join-Path $repo 'web-app/.env.local')
         $env:NOVERA_ANALYTICS_HOST = $telemetry.Host
         $env:NOVERA_ANALYTICS_PROJECT_KEY = $telemetry.Key
         $telemetryConfigured = $true
+        $env:NOVERA_MONITORING_BUILD = 'true'
         Write-Output "Telemetry destination configured: $($telemetry.Host). User consent remains required."
     }
     $env:CARGO_BUILD_JOBS = '8'
@@ -189,12 +193,14 @@ try {
                 }
             }
             foreach ($name in @('LICENSE','BRANDING.md','OFFICIAL_RELEASES.md')) { Copy-Item -LiteralPath (Join-Path $repo $name) -Destination $output }
+            $buildInfo = "# Novera build`n`nVersion: $($config.version)`nBuild ID: $env:NOVERA_BUILD_ID`nOptional diagnostics configured: $telemetryConfigured`nUser consent required: true`nPrivate symbols: .build/monitoring-symbols/$env:NOVERA_BUILD_ID (not shipped)`n"
+            [IO.File]::WriteAllText((Join-Path $output 'BUILD_INFO.md'), $buildInfo)
             if ($id -eq 'portable') {
                 & (Join-Path $repo 'scripts/package-windows-portable.ps1') -RuntimeDir $output -OutputDir (Join-Path $output 'portable')
             }
         }
     }
-    $record = [ordered]@{variant=$id;version=$config.version;completed_utc=[DateTime]::UtcNow.ToString('o');output=$output;logs=$logs;published=$false;automatic_updates=$false;statistics=$false;telemetry_configured=$telemetryConfigured;consent_default=$false}
+    $record = [ordered]@{variant=$id;version=$config.version;build_id=$env:NOVERA_BUILD_ID;completed_utc=[DateTime]::UtcNow.ToString('o');output=$output;logs=$logs;published=$false;automatic_updates=$false;statistics=$false;telemetry_configured=$telemetryConfigured;consent_default=$false;private_symbols=if ($telemetryConfigured) {".build/monitoring-symbols/$env:NOVERA_BUILD_ID"} else {$null}}
     $record | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $logs 'result.json') -Encoding UTF8
     if (Test-Path -LiteralPath $output) {
         $checksums = Get-ChildItem -LiteralPath $output -File -Recurse | ForEach-Object { "$((Get-FileHash -LiteralPath $_.FullName).Hash)  $($_.FullName.Substring($output.Length + 1))" }

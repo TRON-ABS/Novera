@@ -812,5 +812,24 @@
     "ask": "Vragen vóór bewerken of verwijderen",
     "allow": "Bewerken en verwijderen toestaan",
     "folderNote": "Kies de toegang van Novera tot deze map."
+  },
+  "components": {
+    "title": "Lokale componenten",
+    "note": "Installeer alleen de componenten die u nodig heeft. Novera houdt Python-omgevingen gescheiden. Cloudservices behoeven geen lokale installatie.",
+    "estimates": "Geschatte download: {{download}} · Vereiste schijfruimte: {{space}} · Beschikbare schijfruimte: {{free}}",
+    "confirm": "Deze privéomgeving installeren? Alleen de geselecteerde componenten worden gedownload. De licenties van hun uitgevers zijn van toepassing.",
+    "removeConfirm": "Deze beheerde omgeving verwijderen? Jouw modellen, creaties en gesprekken blijven behouden.",
+    "verify": "Verifiëren",
+    "repair": "Reparatie",
+    "uninstall": "Verwijderen",
+    "missing": "Niet geïnstalleerd",
+    "managed": "Beheerd door Novera",
+    "external": "Een optioneel extern Python-pad overschrijft het beheerde profiel. Wis dit om de omgeving van Novera te gebruiken.",
+    "failed": "De componentbewerking is mislukt. Controleer het netwerk, de schijfruimte en de toegangsrechten en probeer het vervolgens opnieuw of repareer het.",
+    "required": "Bereid en verifieer de vereiste lokale componenten in Novera · Configuraties.",
+    "updateAvailable": "Update beschikbaar",
+    "update": "Bijwerken",
+    "rollback": "Vorige omgeving herstellen",
+    "busy": "Ontlaad lokale modellen en wacht tot generaties klaar zijn voordat u componenten vervangt."
   }
 }

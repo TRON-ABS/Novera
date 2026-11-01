@@ -24,12 +24,14 @@ type ModelProps = {
   model: CatalogModel
   handleUseModel: (modelId: string) => void
   useLabel?: string
+  context?: number
 }
 
 export function DownloadButtonPlaceholder({
   model,
   handleUseModel,
   useLabel,
+  context,
 }: ModelProps) {
   const {
     downloads,
@@ -55,7 +57,7 @@ export function DownloadButtonPlaceholder({
   const [isDownloaded, setDownloaded] = useState<boolean>(false)
 
   const quant = selectDefaultQuant(model.quants, DEFAULT_MODEL_QUANTIZATIONS)
-  const { reviewDownload, reviewDialog } = useHubDownloadReview(model, quant)
+  const { reviewDownload, reviewDialog } = useHubDownloadReview(model, quant, context)
 
   const modelId = quant?.model_id || model.model_name
 
@@ -152,7 +154,7 @@ export function DownloadButtonPlaceholder({
           modelUrl,
           mmprojPath,
           huggingfaceToken,
-          undefined,
+          model.revision && modelUrl.includes(`/resolve/${model.revision}/`) ? false : undefined,
           specDraft?.quant.path,
           specDraft?.kind
         )

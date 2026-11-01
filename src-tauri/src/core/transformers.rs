@@ -19,6 +19,7 @@ static WORKER: LazyLock<Mutex<Option<Worker>>> = LazyLock::new(|| Mutex::new(Non
 static REGISTRY: LazyLock<Mutex<()>> = LazyLock::new(|| Mutex::new(()));
 
 struct Worker {
+    _components_lease: tokio::sync::OwnedRwLockReadGuard<()>,
     child: Child,
     session: Session,
 }
@@ -365,11 +366,14 @@ pub async fn transformers_inspect_adapter<R: Runtime>(
     adapter_path: String,
     python_path: String,
 ) -> Result<serde_json::Value, String> {
+    let _components_lease = super::components::lease().await?;
+    let python_path = super::components::resolve(&app, &python_path, "transformers")?;
     let directory = directory(app).await?;
     std::fs::write(directory.join("float_quant.py"), FLOAT_SCRIPT).map_err(|e| e.to_string())?;
     let script = directory.join("adapter-inspect.py");
     std::fs::write(&script, SCRIPT).map_err(|e| e.to_string())?;
-    let mut command = Command::new(python_path);
+    let mut command = Command::new(&python_path);
+    super::components::configure_python(&mut command, &python_path);
     command
         .arg("-u")
         .arg(script)
@@ -452,6 +456,8 @@ pub async fn transformers_load<R: Runtime>(
     ctx_size: Option<u32>,
     device: Option<String>,
 ) -> Result<Session, String> {
+    let components_lease = super::components::lease().await?;
+    let python_path = super::components::resolve(&app, &python_path, "transformers")?;
     let device = device.unwrap_or_else(|| "auto".into());
     if !matches!(device.as_str(), "auto" | "cpu" | "cuda") {
         return Err("Device must be auto, cpu or cuda".into());
@@ -490,6 +496,7 @@ pub async fn transformers_load<R: Runtime>(
     } else {
         python_path.trim()
     });
+    super::components::configure_python(&mut command, &python_path);
     command
         .arg("-u")
         .arg(script)
@@ -576,6 +583,7 @@ pub async fn transformers_load<R: Runtime>(
         memory: runtime.get("memory").cloned(),
     };
     *worker = Some(Worker {
+        _components_lease: components_lease,
         child,
         session: session.clone(),
     });
@@ -588,6 +596,8 @@ pub async fn transformers_probe<R: Runtime>(
     app: AppHandle<R>,
     python_path: String,
 ) -> Result<serde_json::Value, String> {
+    let _components_lease = super::components::lease().await?;
+    let python_path = super::components::resolve(&app, &python_path, "transformers")?;
     let directory = directory(app).await?;
     let script = directory.join("probe.py");
     std::fs::write(&script, SCRIPT).map_err(|e| e.to_string())?;
@@ -599,6 +609,7 @@ pub async fn transformers_probe<R: Runtime>(
     } else {
         python_path.trim()
     });
+    super::components::configure_python(&mut command, &python_path);
     command
         .arg("-u")
         .arg(script)

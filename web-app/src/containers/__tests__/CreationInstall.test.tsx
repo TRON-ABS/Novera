@@ -13,6 +13,7 @@ import {
 import { useMediaLibrary } from '@/hooks/useMediaLibrary'
 import { useImageUpscale } from '@/hooks/useImageUpscale'
 import { creationDefaults, useCreation } from '@/hooks/useCreation'
+import { useHardware } from '@/hooks/useHardware'
 const mocks = vi.hoisted(() => ({
   invoke: vi.fn(),
   open: vi.fn(),
@@ -87,12 +88,25 @@ describe('recommended configuration installation', () => {
   })
   beforeEach(() => {
     vi.clearAllMocks()
+    useHardware.setState({ hardwareData: { ...useHardware.getState().hardwareData,
+      os_type: IS_WINDOWS ? 'windows' : 'linux', total_memory: 32768,
+      gpus: [{ name: 'Test GPU', vendor: 'nvidia', uuid: 'test', driver_version: '', total_memory: 8192,
+        nvidia_info: { index: 0, compute_capability: '8.9' },
+        vulkan_info: { index: 0, device_id: 0, device_type: 'discrete', api_version: '1.3' } }],
+    }, systemUsage: { cpu: 0, total_memory: 32768, used_memory: 4096, gpus: [] } })
     useMediaLibrary.setState({ profiles: [], installed: [] })
     useCreationInstall.setState({ parent: '', job: undefined, autoApply:{} })
     useCreation.setState({ settings: { ...creationDefaults }, videoSettings: undefined })
     mocks.invoke.mockImplementation(async (command: string) =>
       command === 'creation_bundle_plan' ? plan : job()
     )
+  })
+  it('does not prepare the heavy pack on a constrained device', () => {
+    useHardware.setState({ hardwareData: { ...useHardware.getState().hardwareData, total_memory: 4096, gpus: [] } })
+    render(<CreationInstallButton variant="all-recommended" />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:creation.setupAllDownload' }))
+    expect(screen.getByRole('button', { name: 'chat:creation.setupAllDownload' })).toBeDisabled()
+    expect(mocks.invoke).not.toHaveBeenCalledWith('creation_bundle_plan', expect.anything())
   })
   it('previews all files and background guidance without starting until confirmation', async () => {
     render(<CreationInstallButton />)

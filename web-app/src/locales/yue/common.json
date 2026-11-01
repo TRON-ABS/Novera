@@ -812,5 +812,24 @@
     "ask": "修改或刪除之前先問",
     "allow": "容許修改同刪除",
     "folderNote": "揀選 Novera 對呢個資料夾嘅存取權限。"
+  },
+  "components": {
+    "title": "本地組件",
+    "note": "只安裝你需要嘅組件。 Novera 保持 Python 環境分開。雲端服務唔需要本地安裝。",
+    "estimates": "預計下載量： {{download}} · 所需磁碟空間： {{space}} · 可用磁碟空間： {{free}}",
+    "confirm": "裝呢個私人環境？只會下載所選組件。佢哋嘅出版商授權適用。",
+    "removeConfirm": "移除呢個受管理環境？你嘅模型、創作同對話會被保留。",
+    "verify": "驗證",
+    "repair": "維修",
+    "uninstall": "卸載",
+    "missing": "未安裝",
+    "managed": "由 Novera 管理",
+    "external": "可選嘅外部 Python 路徑會覆寫受管理嘅設定檔。清除佢就可以用 Novera 嘅環境。",
+    "failed": "組件操作失敗。檢查網絡、磁碟空間同存取權，然後重試或者修復。",
+    "required": "準備同驗證 Novera · 配置中所需嘅本地組件。",
+    "updateAvailable": "可以更新",
+    "update": "更新",
+    "rollback": "還原之前嘅環境",
+    "busy": "卸載本地型號，等幾代完成先換組件。"
   }
 }

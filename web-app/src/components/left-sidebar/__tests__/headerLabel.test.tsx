@@ -58,7 +58,7 @@ afterEach(() => {
 it('shows the Novera label on Windows and Linux with window buttons on the right', () => {
   render(<LeftSidebar />)
 
-  expect(screen.getByText('Novera')).toBeInTheDocument()
+  expect(screen.getByText(`Novera ${VERSION}`)).toBeInTheDocument()
 })
 
 // The traffic lights own the top-left on macOS (#8943).
@@ -66,12 +66,12 @@ it('hides the Novera label on macOS', () => {
   vi.stubGlobal('IS_MACOS', true)
   render(<LeftSidebar />)
 
-  expect(screen.queryByText('Novera')).not.toBeInTheDocument()
+  expect(screen.queryByText(`Novera ${VERSION}`)).not.toBeInTheDocument()
 })
 
 it('hides the Novera label when a Linux desktop puts window buttons on the left', () => {
   titlebar.left = ['close', 'minimize', 'maximize']
   render(<LeftSidebar />)
 
-  expect(screen.queryByText('Novera')).not.toBeInTheDocument()
+  expect(screen.queryByText(`Novera ${VERSION}`)).not.toBeInTheDocument()
 })

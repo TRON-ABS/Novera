@@ -3,3 +3,8 @@ Cargo.lock -diff
 # Lockfiles are generated; collapse them in review and keep them out of language stats.
 # `linguist-generated` rather than `-diff` so `git diff` still works for security audits.
 *yarn.lock linguist-generated=true
+
+# Component lock hashes must be identical on Windows and Unix checkouts.
+src-tauri/components/*.txt text eol=lf linguist-generated=true
+src-tauri/components/*.in text eol=lf
+src-tauri/components/*.json text eol=lf

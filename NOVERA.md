@@ -1,5 +1,65 @@
 # Novera — instructions du projet
 
+## Retour du mainteneur et publication sur main — 1er novembre 2026
+
+Le mainteneur confirme **« tout marche bien »** et fournit une nouvelle capture réelle du desktop montrant une image créée et les commandes du tableau de bord. Il demande explicitement la publication des sources sur **main**, la mise à jour de la vitrine et la signature **TRON-ABS — The art of Human with AI** en bas des README anglais/français.
+
+Ce retour est une validation manuelle déclarée du desktop utilisé, sans relevé détaillé par moteur, profil ou scénario. Il ne remplace pas les essais propres aux profils CUDA/ExLlama/GenAI, aux installations sur PC neuf, au mobile ou à chaque autre système. Aucun nouveau binaire, portable, tag ou release n’est publié par cette mise à jour ; Actions n’est pas activé. L’embarquement Python/PyTorch dans l’EXE reste reporté.
+
+La capture originale est conservée sans retouche sous `.github/assets/novera-dashboard-2026-11-01.png`. Les attributions et licences existantes restent présentes. Les éléments publiés, vérifications et identifiant du commit sont consignés dans les résultats de publication de ce lot.
+
+## Composants privés dans Configurations — 1er novembre 2026
+
+Implémentation locale dans les sources Windows x64 : **dix profils facultatifs** gérés avec le `uv` embarqué. Configurations présente matériel, profils conseillés, budgets estimés de téléchargement/espace libre, confirmation, étapes, annulation, vérification, réparation, sélection, mise à jour d'un verrou devenu ancien, restauration de la génération précédente du même catalogue et désinstallation. Aucune installation ne démarre à l'ouverture. Le mobile ne reçoit pas les piles Python/PyTorch desktop ; les fonctions cloud restent indépendantes.
+
+Les profils standards utilisent **Python 3.12.12**, PyTorch **2.14.1 CPU ou CUDA 13.0** selon le profil ; ExLlama reste isolé avec PyTorch **2.9.0 / CUDA 12.8**. Les dix verrous Windows x64 épinglent les dépendances indirectes et leurs empreintes. Python 3.15.1 et les chemins personnalisés existants restent utilisables comme overrides avancés ; aucun Python global, PATH, modèle ou conversation n'est modifié. L'embarquement de Python/PyTorch dans le `.exe` a été **reporté explicitement par le mainteneur**.
+
+Les sondes/imports/chargements Transformers et ONNX, les médias, la conversion NVFP4, l'export vidéo et l'upscale utilisent le résolveur natif. Le défaut `python` désigne désormais le profil géré ; aucun repli silencieux vers le Python système. Les chemins techniques sont regroupés dans les options avancées. Une réparation conserve le choix d'un autre profil. Les opérations de maintenance refusent les moteurs locaux encore chargés ou générations en cours, sans les arrêter de force.
+
+Vérifications : suite Rust **1 161 réussis / 5 optionnels ignorés**, puis tests ciblés du gestionnaire ; **trois intégrations réelles** en environnements temporaires privés (export vidéo, graphe ONNX numérique et génération CPU sur un Llama synthétique non entraîné). Le cycle vidéo couvre réparation, restauration, annulation, échec sans remplacement de l'environnement actif et conservation d'un fichier utilisateur. Interface vérifiée à 360 px, français/allemand/arabe RTL ; contrôles des **80 × 2 429 clés** sans erreur. Tests web Windows : **174 réussis / 1 scénario non-Windows ignoré**, 12 fichiers ; TypeScript et lint ciblé sans erreur (deux avertissements de hooks existants dans CreationControls). Python ciblé : **17 réussis**. Voir le [suivi détaillé](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md).
+
+Aucune compilation de Novera Desktop, modification de binaire installé, publication ou activation d'Actions. Les profils CUDA/ExLlama, GenAI et médias complets restent à valider par installation/génération réelle ; Linux/macOS ne sont pas annoncés prêts par ces essais Windows. Le mainteneur garde la compilation et les essais du nouveau desktop, puis le portable depuis ce runtime exact.
+
+## RAM réservée et génération musique — 1er novembre 2026
+
+Le mainteneur signale le refus « variante plus légère / contexte plus court » pour la musique. Son état matériel persistant indique Windows, **15 789 Mio de RAM utilisable**, GPU de 8 151 Mio notamment. Le seuil strict de 16 384 Mio bloquait la musique avant démarrage natif sur ce PC nominal 16 Gio. Les paliers de capacité RAM totale admettent désormais **5 % de mémoire réservée au matériel** ; la RAM disponible, les budgets de pack et contrôles natifs ne sont pas gonflés. Test du profil réel et du lancement musique avec ce profil : **106 tests réussis / 6 fichiers**. La génération matérielle réelle et le prochain binaire restent à vérifier ; aucun modèle ou paramètre utilisateur modifié.
+
+## Accès direct aux modes média rétabli — 1er novembre 2026
+
+Le mainteneur confirme avoir recompilé et testé le desktop, puis signale l'absence des boutons Musique/Vidéo ; saisir une intention dans Auto faisait apparaître les réglages. Cause : le filtre matériel masquait les modes sans moteur local admis ni sélection cloud préexistante. Les boutons Image/Musique/Vidéo restent désormais visibles avant toute configuration, avec accès direct aux réglages sans prompt. Les gardes de génération locale, les choix cloud et le blocage pendant une génération restent appliqués. **103 tests réussis dans 6 fichiers**, dont régressions desktop limité musique/vidéo sans prompt et accès mobile avant choix cloud ; TypeScript réussi. Aucun nouveau texte, donc mêmes libellés dans les 80 langues. Ce correctif nécessite un nouveau binaire ; aucune compilation lancée par l'agent.
+
+## Prochaine discussion : composants gérés et 80 langues
+
+Le mainteneur demande un plan complet avant une reprise dans un nouveau chat : retirer les chemins techniques du parcours novice, gérer les environnements et installations depuis Configurations, migrer les préférences existantes, et traiter les textes nouveaux ou corrigés dans les **80 langues au cours du même chantier**. Lire [le document de reprise complet](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md) : périmètre, profils, installation/réparation, migration, cloud, plateformes, tests et message de reprise. Le plan initial a depuis été mis en œuvre pour les profils Windows x64 décrits en tête de ce fichier ; les validations restantes y sont distinguées. Le mainteneur conserve la compilation desktop, puis essais avant préparation du portable.
+
+## Clang détecté au lancement desktop — 1er novembre 2026
+
+Échec réel du build desktop à `engine-toolchain` : Clang est installé sous `C:/msys64/mingw64/bin`, absent du PATH hérité par le double-clic. La préparation du moteur conserve un Clang déjà présent ou cherche LLVM, les outils LLVM de Visual Studio puis MSYS2. Le dossier trouvé est ajouté en fin de PATH pour préserver le linker MSVC ; le build Rust fixe déjà explicitement la cible MSVC. Aucune installation ni modification persistante de l'environnement. **24 assertions de préparation réussies**, dont découverte hors PATH avec espaces et priorité MSVC ; contrôle Bash réel réussi après initialisation MSVC. Seul avertissement restant de ce contrôle : cache de compilation absent. Aucun build applicatif lancé ; le mainteneur relance son BAT desktop.
+
+## Version dans le panneau latéral — 1er novembre 2026
+
+L'en-tête affiche `Novera {VERSION}` (actuellement **Novera 1.0.0**) depuis la constante Vite déjà liée à `web-app/package.json`. Chaque nouvelle compilation reprend la version déclarée, sans numéro codé en dur ni requête distante. Le texte peut être tronqué pour une version longue, avec intitulé complet au survol et bouton de réduction préservé. Les règles existantes de masquage pour les contrôles natifs à gauche restent appliquées. Sept tests existants du panneau latéral réussis ; compilation desktop laissée au mainteneur.
+
+## Maintenance et diagnostics de release — 1er novembre 2026
+
+À la demande du mainteneur, instrumentation des erreurs interceptées (texte, chargement, téléchargements/validation, mémoire, image/musique/vidéo, sauvegarde cloud, frontière React, OOM et arrêt détecté du worker). Collecteur sans messages bruts, conversations, clés, modèles ou chemins personnels ; champs bornés, identifiant de session en mémoire, répétitions comptées jusqu'à 60/minute avec compteurs de pertes, timeout 10 s et retrait immédiat. Consentement indépendant **v2** demandé pour le schéma enrichi ; les libellés réutilisent les 80 langues existantes.
+
+Le BAT source et la copie utilisée à côté du dépôt préparent désormais les diagnostics facultatifs et les maps privées pour la prochaine compilation, sans compiler ici. Build ID propre, commit et état des sources pour distinguer les variantes locales. Les maps JS/CSS sont retirées du frontend distribué, conservées sous `.build/monitoring-symbols/<build_id>` et contrôlées avant l'envoi privé au projet PostHog EU 319433.
+
+**616 tests réussis / 32 fichiers, 1 scénario ignoré**, 4 tests de symboles dont un build Vite de fixture, TypeScript, architecture, lint ciblé, 16 assertions de configuration, 69 du lanceur et `cargo check` du plugin sans features par défaut réussis. Aucun nouveau binaire applicatif ni CI distante. Test synthétique visible dans PostHog : [issue de validation](https://eu.posthog.com/project/319433/error-tracking/01a19487-c02b-73c1-8566-e158a3a069d6).
+
+**Alerte de tendance e-mail activée** au compte PostHog TRON ABS : contrôle horaire, seuil > 0, Novera production uniquement, tests exclus. État actif et première évaluation vérifiés ; réception du test e-mail confirmée par le mainteneur le 1er novembre 2026. Les règles spécialisées nouvelles issues/réouvertures/pics ne sont pas activées. Restent la clé CLI privée et l'envoi des symboles de la prochaine release, puis l'essai du nouveau binaire compilé par le mainteneur avec consentement. [Procédure et limites](docs/MAINTENANCE.md).
+
+## Configuration automatique légère et cloud — 1er novembre 2026
+
+Le mainteneur confirme les essais **desktop et portable réussis** avant cette évolution. Les sources de Novera · Configurations recommandent désormais LFM3-1.7B Q4_K_M, ou LFM3-Omni-2B Q4_K_M avec projecteur épinglé quand le profil léger dispose de 8 Gio RAM totale, 4 Gio disponibles et d'un moteur identifiable ≥ b11960. Le profil léger couvre le mobile, les faibles capacités et le matériel inconnu ; contexte de 2 048 tokens appliqué uniquement au modèle recommandé explicitement choisi. Aucun téléchargement automatique ou changement des autres modèles à l'ouverture.
+
+Les restrictions portent sur les générations **locales** ; les trois sorties **cloud image, musique et vidéo restent accessibles**, y compris sur mobile. Auto est également contrôlé avant exécution locale. Les budgets sont conservateurs, pas des mesures matérielles ; le pack complet Windows exige une capacité connue et une réserve disponible. Les libellés existants sont réutilisés dans les 80 langues, sans nouvelles clés. **469 tests réussis / 21 fichiers, 1 scénario non-Windows ignoré**, TypeScript et architecture réussis, 80 × 2 412 clés sans erreur. Vérification des nouveaux profils sur appareils, voix Omni et nouveaux binaires encore à faire. [Suivi et seuils](docs/SUIVI_VALIDATION_DISTRIBUTIONS.md).
+
+## Validation avant distributions — 1er novembre 2026
+
+Le mainteneur a compilé la **version desktop Windows** et confirme les essais desktop puis portable réussis. Release confirmée par le journal et le reçu de `.build/launcher-desktop-2026-11-01_00-20-48-287`. À sa demande, portable préparé sans recompilation depuis ce runtime : `deliverables/Novera-portable-1.0.0-2026-11-01/Novera_1.0.0_x64-portable.zip`. Tests du packager : 223 assertions / 12 scénarios réussis ; 95 entrées du ZIP, empreintes et correspondance de l'exécutable desktop vérifiées. Consigner les résultats, anomalies et reprises dans [le suivi de validation des distributions](docs/SUIVI_VALIDATION_DISTRIBUTIONS.md). Ces binaires précèdent les nouveaux profils légers. Les autres compilations ne sont pas lancées à ce stade. Contrôle des définitions des 11 variantes réussi et 9 tests du contrôle de distribution réussis.
+
 ## Attente mémoire entre générations — 1er novembre 2026
 
 Incident confirmé dans le journal local : lors de la deuxième image, le déchargement de Nemotron renvoyait le refus explicite du routeur llama.cpp `409 Conflict`, « the model has requests in flight; retry once they finish ». Le coordinateur transformait cette occupation transitoire en échec de génération multimédia.
@@ -41,9 +101,13 @@ Résultats locaux finaux : **1 153 tests Tauri réussis, aucun échec, 2 tests o
 
 La **compilation desktop debug Windows réussit**, et son manifeste v6 a été vérifié. Il s’agit d’une compilation de validation sous `src-tauri/target/debug`, sans installation, publication de binaire, validation de l’interface graphique ni changement du build distribué. [Diagnostic, commandes et preuves](deliverables/tauri-windows-tests-2026-10-31/validation.md). La correction lève la limitation DLL précédemment signalée pour ONNX.
 
-## Suivi TokenEconomizer — 31 octobre 2026
+## Suivi TokenEconomizer — 1er novembre 2026
 
-Demande explicite : tenir le mainteneur informé des statistiques à la fin des travaux et actualiser [le suivi TokenEconomizer](docs/TOKENECONOMIZER.md). Dernier relevé après le lot FP8/NVFP4 : **2 sessions consolidées, 3,3 M tokens effectifs, 0 token de surcoût plugin (0,0 %), 0 fait injecté, 0 redirection et 0 notification de boucle persistante** ; enveloppe encore non apprise, 3 tours terminés sans erreur observés et 6 tours recensés. Réglages inchangés : `microskills=envfacts`, `toolprune=off`, `loopguard=nudge`, `repomap=off`.
+Relevé après le correctif Clang et la mise à jour documentaire : **4 sessions consolidées, 13,9 M tokens effectifs, 91,1 k de surcoût plugin (0,7 %)** ; 0 fait injecté, 0 exclusion, 0 redirection, enveloppe de 80 appels / 24 tours terminés sans erreur observés. Historique exact dans le suivi dédié, sans économie démontrée.
+
+Dernier relevé après le lot maintenance : **4 sessions consolidées, 13,9 M tokens effectifs, 55,1 k de surcoût plugin (0,4 %)** ; catalogue des capacités observé sur une session / 32 prompts, aucune exclusion proposée ou appliquée, aucun fait injecté ni redirection. Enveloppe de 65 appels / 18 tours terminés sans erreur observés. Relevé exact conservé dans le MD dédié ; aucun gain démontré.
+
+Demande explicite : tenir le mainteneur informé des statistiques à la fin des travaux et actualiser [le suivi TokenEconomizer](docs/TOKENECONOMIZER.md). Dernier relevé pendant le lot profils légers : **3 sessions consolidées, 9,3 M tokens effectifs, 12,1 k tokens de surcoût plugin (0,1 %), 0 fait injecté, 0 redirection et 0 notification de boucle persistante** ; enveloppe de 43 appels d'outils, 16 tours terminés sans erreur observés et 6 tours recensés. Réglages : `microskills=envfacts`, `toolprune=auto`, `loopguard=nudge`, `repomap=off`. Activation demandée par l'utilisateur pour ce dépôt seulement ; aucun outil encore écarté ou proposé, aucun catalogue disponible. `toolprune restore` permet de restaurer les capacités écartées à la prochaine session ; elles ne seront plus exclues automatiquement.
 
 Ce cumul ne mesure pas le coût isolé de cette tâche, les tokens économisés ou le quota hebdomadaire ChatGPT. Ne pas annoncer de gain démontré sans comparaison. La correction Tauri et ses tests ne prouvent pas que TokenEconomizer a contribué à la résolution. Conserver dans son MD les relevés exacts, leur contexte et leurs limites.
 

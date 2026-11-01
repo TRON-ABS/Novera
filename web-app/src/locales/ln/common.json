@@ -812,5 +812,24 @@
     "ask": "Tuna liboso ya kobongola to kolongola",
     "allow": "Pesa nzela ya kobongola mpe kolongola",
     "folderNote": "Pona ndenge Novera ekoki kokɔta na dosye oyo."
+  },
+  "components": {
+    "title": "Biloko ya mboka",
+    "note": "Kotia kaka ba composants oyo osengeli na yango. Novera ebatelaka ba environnements ya Python ekabwani. Ba services ya cloud esengeli na installation locale te.",
+    "estimates": "Téléchargement estimé: {{download}} · Esika ya disque oyo esengeli: {{space}} · Esika ya disque oyo ezali: {{free}}",
+    "confirm": "Kotia environnement privé oyo? Kaka ba composants oyo oponi nde eko télécharger. Mikanda na bango ya babimisi esalelamaka.",
+    "removeConfirm": "Kolongola environnement oyo ekambami? Ba modèles, ba créations na ba conversations na bino ekozala gardé.",
+    "verify": "Ko vérifier",
+    "repair": "Kobongisa",
+    "uninstall": "Kolongola na esika na yango",
+    "missing": "Ezali na installé te",
+    "managed": "Etambwisami na Novera",
+    "external": "Nzela ya Python ya libanda ya boponi elongolaka profil oyo ekambami. Bolongola yango mpo na kosalela Novera’s environnement.",
+    "failed": "Mosala ya composant elongi te. Tala réseau, espace ya disque na ba droits ya accès, sima meka lisusu to bongisa.",
+    "required": "Kobongisa pe ko vérifier ba composants locales oyo esengeli na Novera · Configurations.",
+    "updateAvailable": "Mikolo oyo ezali",
+    "update": "Mikolo oyo",
+    "rollback": "Kozongisa environnement ya kala",
+    "busy": "Décharger ba modèles locales pe zela ba génération esila avant ya ko changer ba composants."
   }
 }

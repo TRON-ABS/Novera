@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useAutoConfiguration } from '@/hooks/useAutoConfiguration'
 import { ComposerStatusSwitch } from '@/components/ComposerStatusSwitch'
 import { invoke } from '@tauri-apps/api/core'
 import { Music2, Clock3, ChevronDown, Dices } from 'lucide-react'
@@ -42,6 +43,7 @@ export function MusicProviderPicker({
 }) {
   const { t } = useTranslation()
   const selection = useCreation((s) => s.selections[scope]?.music)
+  const localAllowed = useAutoConfiguration().local.music
   const preset = selection && mediaPreset(selection.provider, selection.id)
   return (
     <DropdownMenu>
@@ -60,12 +62,13 @@ export function MusicProviderPicker({
           )}
           {preset
             ? `${getProviderTitle(preset.provider)} · ${preset.name}`
-            : `ACE-Step 1.5 · ${t('chat:creation.local')}`}
+            : localAllowed ? `ACE-Step 1.5 · ${t('chat:creation.local')}` : `${t('chat:creation.music')} · ${t('chat:creation.model')}`}
           <ChevronDown size={14} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem
+          disabled={!localAllowed}
           onSelect={() => useCreation.getState().setSelection(scope, 'music')}
         >
           <Music2 size={16} />
@@ -376,6 +379,7 @@ export function MusicSetupPanel({
   disabled: boolean
 }) {
   const { t } = useTranslation()
+  const localMusic = useAutoConfiguration().local.music
   const service = useServiceHub()
   const { state, settings, profile, setSettings } = useMusic(scope)
   const cloud = useCreation((s) => s.selections[scope]?.music)
@@ -479,6 +483,11 @@ export function MusicSetupPanel({
         </a>
       </div>
     )
+  if (!localMusic) return <div className="space-y-3">
+    <MusicProviderPicker scope={scope} disabled={disabled} />
+    <p className="text-sm">{t('chat:creation.local')} · {t('common:editModel.notAvailable')}</p>
+    <p className="text-xs">{t('chat:creation.cloudNote')}</p>
+  </div>
   return (
     <div className="space-y-4">
       <MusicProviderPicker scope={scope} disabled={disabled} />

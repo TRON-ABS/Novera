@@ -7,7 +7,7 @@ import {
   type chatCompletionRequest,
   type chatCompletion,
 } from '@janhq/core'
-import { invoke } from '@tauri-apps/api/core'
+import { invokeWithComponents as invoke } from '@/services/components'
 
 const defaults: SettingComponentProps[] = [{
   key: 'python_path', title: 'Python',
@@ -24,15 +24,11 @@ const defaults: SettingComponentProps[] = [{
 /** Uses the same local engine contract as llama.cpp and MLX. Weights stay in place. */
 export default class TransformersEngine extends AIEngine {
   readonly provider = 'transformers'
-  private probeCache?: { python: string; expires: number; value: Promise<unknown> }
+
 
   async probe(): Promise<unknown> {
     const python = String((await this.getSettings()).find(setting => setting.key === 'python_path')?.controllerProps.value ?? 'python')
-    if (this.probeCache?.python === python && this.probeCache.expires > Date.now()) return this.probeCache.value
-    const value = invoke('transformers_probe', { pythonPath: python })
-    this.probeCache = { python, expires: Date.now() + 30000, value }
-    void value.catch(() => { this.probeCache = undefined })
-    return value
+    return invoke('transformers_probe', { pythonPath: python })
   }
 
   override async getSettings(): Promise<SettingComponentProps[]> {

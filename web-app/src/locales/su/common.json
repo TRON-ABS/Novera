@@ -812,5 +812,24 @@
     "ask": "Tanya sateuacan ngédit atanapi mupus",
     "allow": "Idinan ngédit sareng mupus",
     "folderNote": "Pilih aksés Novera kana polder ieu."
+  },
+  "components": {
+    "title": "komponén lokal",
+    "note": "Pasang ukur komponén anu anjeun peryogikeun. Novera ngajaga lingkungan Python misah. Ladenan awan henteu peryogi pamasangan lokal.",
+    "estimates": "Estimasi undeuran: {{download}} · Dibutuhkeun rohangan disk: {{space}} · Ruang disk sadia: {{free}}",
+    "confirm": "Pasang lingkungan pribadi ieu? Ngan komponén anu dipilih bakal diunduh. Lisensi penerbitna dilarapkeun.",
+    "removeConfirm": "Cabut lingkungan anu diurus ieu? Model anjeun, kreasi sareng paguneman bakal disimpen.",
+    "verify": "Verifikasi",
+    "repair": "ngalereskeun",
+    "uninstall": "Uninstall",
+    "missing": "Teu dipasang",
+    "managed": "Dikelola ku Novera",
+    "external": "Jalur Python éksternal opsional nimpa profil anu diurus. Pupus pikeun ngagunakeun lingkungan Novera.",
+    "failed": "Operasi komponén gagal. Pariksa jaringan, rohangan disk sareng hak aksés, teras cobian deui atanapi ngalereskeun.",
+    "required": "Nyiapkeun jeung pariksa komponén lokal nu diperlukeun dina Novera · Konfigurasi.",
+    "updateAvailable": "Pembaruan sayogi",
+    "update": "Apdet",
+    "rollback": "Mulangkeun lingkungan saméméhna",
+    "busy": "Unload model lokal jeung antosan generasi nepi ka rengse sateuacan ngaganti komponén."
   }
 }

@@ -10,6 +10,7 @@ import {
 } from '@/modules/engines/memory-gate'
 import type { ModelsService } from '@/services/models/types'
 import i18n from '@/i18n'
+import { reportDiagnostic } from '@/lib/noveraDiagnostics'
 
 export function memoryManagementAvailable() {
   return (
@@ -223,6 +224,7 @@ export async function beginLocalMemory(
     release()
     if (error instanceof Error && error.name === 'AbortError') throw error
     console.error('Novera memory transition failed', error)
+    reportDiagnostic(error, { operation: 'memory_transition', task: target.kind })
     throw Object.assign(new Error(i18n.t('chat:memory.failed')), {
       name: 'NoveraMemoryError',
     })

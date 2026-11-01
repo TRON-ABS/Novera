@@ -261,7 +261,10 @@ export function modelEngine(
     !task ||
     task === 'text-generation' ||
     task === 'image-text-to-text' ||
-    task === 'image-to-text'
+    task === 'image-to-text' ||
+    // This GGUF family has a text/vision path in llama.cpp >= b11960.
+    // Do not turn arbitrary any-to-any containers into supported chat models.
+    (task === 'any-to-any' && model.model_name === 'LiquidAI/LFM3-Omni-2B-GGUF')
   if (model.is_mlx || model.library_name === 'mlx')
     return causal ? 'mlx' : 'future'
   // A container format alone does not imply that an image/video/audio pipeline can run in chat.
@@ -495,7 +498,7 @@ export function diagnoseHubModel(
       : engine === 'transformers'
         ? !['windows', 'linux'].includes(hardware.platform)
         : engine === 'llamacpp' &&
-          !['windows', 'linux', 'macos', 'android'].includes(hardware.platform)
+          !['windows', 'linux', 'macos', 'android', 'ios'].includes(hardware.platform)
   return {
     engine,
     engineState:

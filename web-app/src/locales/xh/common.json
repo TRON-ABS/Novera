@@ -812,5 +812,24 @@
     "ask": "Buza ngaphambi kokuhlela okanye ukucima",
     "allow": "Vumela ukuhlela nokucima",
     "folderNote": "Khetha ukufikelela kweNovera kule folda."
+  },
+  "components": {
+    "title": "Amacandelo asekuhlaleni",
+    "note": "Faka kuphela izinto ozifunayo. Novera igcina iindawo zePython zahlukile. Iinkonzo zamafu azidingi kufakelo lwasekhaya.",
+    "estimates": "Ukhuphelo oluqikelelweyo: {{download}} · Indawo efunekayo kwidisk: {{space}} · Isithuba sediski esikhoyo: {{free}}",
+    "confirm": "Faka le ndawo yabucala? Kuphela ngamacandelo akhethiweyo aya kukhutshelwa. Iilayisensi zabo zabapapashi ziyasebenza.",
+    "removeConfirm": "Susa le ndawo ilawulwayo? Iimodeli zakho, indalo kunye neencoko ziya kugcinwa.",
+    "verify": "Qinisekisa",
+    "repair": "Ukulungisa",
+    "uninstall": "Khupha",
+    "missing": "Ayifakwanga",
+    "managed": "Ilawulwa ngu Novera",
+    "external": "Indlela yokuzikhethela yangaphandle yePython idlula iprofayili elawulwayo. Yicime ukuze usebenzise Novera okusingqongileyo.",
+    "failed": "Umsebenzi wecandelo awuphumelelanga. Jonga inethiwekhi, indawo yedisk kunye namalungelo ofikelelo, uze uzame kwakhona okanye ulungise.",
+    "required": "Lungiselela kwaye uqinisekise amacandelo afunekayo asekuhlaleni kwi- Novera · Ulungelelwaniso.",
+    "updateAvailable": "Uhlaziyo luyafumaneka",
+    "update": "Hlaziya",
+    "rollback": "Buyisela okusingqongileyo kwangaphambili",
+    "busy": "Khulula iimodeli zasekhaya kwaye ulinde izizukulwana zigqibe ngaphambi kokutshintsha izinto."
   }
 }

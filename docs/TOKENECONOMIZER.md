@@ -1,5 +1,22 @@
 # Suivi de TokenEconomizer pour Novera
 
+## Relevé du chantier composants gérés — 1er novembre 2026
+
+Relevé cumulatif du dépôt, obtenu via le point d'entrée `te_bootstrap.py cli --host codex --cwd C:/msys64/home/jmsga/Novera status` (le wrapper Bash ne démarre pas dans ce bac à sable Windows) :
+
+```text
+TokenEconomizer -- tron-abs/novera (codex)
+  repository   C:\msys64\home\jmsga\Novera, identified by its origin remote (github.com/tron-abs/novera)
+  state        C:\Users\jmsga\.tokeneconomizer\repos\novera-ec0512828e\codex
+  config       microskills=envfacts toolprune=auto loopguard=nudge repomap=off mode=auto shadow=False
+  sessions     5 folded, 22.6M effective tokens, plugin overhead 102.8k (0.5%)
+  microskills  0 fact(s) injected at session start (5 sessions learned from)
+  toolprune    2 sessions (60 prompts) observed, catalog: capabilities; proposed capabilities: collaboration, goals; applied: -
+  loopguard    envelope 69 tool calls (35 ended-green turns); 0 redirect(s), 0 still-stuck notice(s) over 43 turns
+```
+
+Ce cumul n'isole pas le coût du présent chantier. Aucun gain de tokens, de qualité ou de quota n'est démontré ; aucune exclusion appliquée ni redirection observée dans ce relevé. Les changements du gestionnaire et leurs validations sont décrits dans le suivi des composants, sans attribution de leurs résultats au plugin.
+
 Date de mise en place : 31 octobre 2026.
 
 ## Objectif du test
@@ -24,7 +41,7 @@ Le plugin est installé dans Codex. Son exécution automatique dans une nouvelle
 | --- | --- | --- |
 | Apprentissage | `microskills=envfacts` | Apprend des faits d'environnement à partir d'échecs et de corrections récurrents, sans appel au modèle pour proposer ces faits. |
 | Contrôle des boucles | `loopguard=nudge` | Activé à la demande de l'utilisateur ; peut consulter un modèle pour confirmer une boucle et rédiger une redirection. |
-| Suppression d'outils | `toolprune=off` | Aucun outil retiré par ce mécanisme. |
+| Suppression d'outils | `toolprune=auto` | Activée le 1er novembre 2026 à la demande de l'utilisateur ; observe les usages puis écarte automatiquement les capacités inutilisées après une période d'inactivité. Les exclusions prennent effet à la session suivante. |
 | Carte du dépôt | `repomap=off` | Désactivée. |
 
 Le contrôle des boucles peut consommer du quota via ses propres appels. Il ne stoppe pas automatiquement une tâche : il redirige l'agent puis signale une boucle persistante. Il a besoin d'observations avant d'établir son fonctionnement habituel. Les faits injectés dans de futures conversations occupent eux-mêmes du contexte : « sans appels supplémentaires pour apprendre » ne signifie pas « aucun coût de contexte ».
@@ -45,6 +62,16 @@ Pour désactiver le contrôle des boucles :
 ```powershell
 python .build/tokeneconomizer-trial/source/plugin/scripts/te_bootstrap.py cli --host codex config set loopguard=off
 ```
+
+Pour consulter les exclusions, désactiver les futures exclusions automatiques ou restaurer les outils déjà écartés :
+
+```powershell
+python .build/tokeneconomizer-trial/source/plugin/scripts/te_bootstrap.py cli --host codex toolprune show
+python .build/tokeneconomizer-trial/source/plugin/scripts/te_bootstrap.py cli --host codex config set toolprune=off
+python .build/tokeneconomizer-trial/source/plugin/scripts/te_bootstrap.py cli --host codex toolprune restore
+```
+
+`toolprune=off` désactive le mécanisme ; utiliser `toolprune restore` pour rendre les capacités déjà écartées disponibles à la prochaine session. On peut aussi nommer les capacités à restaurer après `restore`. Les capacités restaurées ne sont plus écartées automatiquement par le plugin.
 
 Pour désactiver également l'apprentissage :
 
@@ -137,4 +164,66 @@ TokenEconomizer -- tron-abs/novera (codex)
   microskills  0 fact(s) injected at session start (3 sessions learned from)
   toolprune    0 sessions (0 prompts) observed, catalog: none yet; proposed capabilities: -; applied: -
   loopguard    envelope not learned yet (4 ended-green turns); 0 redirect(s), 0 still-stuck notice(s) over 6 turns
+```
+
+### Observation du 1er novembre 2026 — activation du tool pruning
+
+Activation explicite pour Novera uniquement : `config set toolprune=auto`, confirmée par la commande locale puis par `status`. Le réglage s'applique à partir du prochain appel de hook. À ce relevé, aucun catalogue d'outils n'est encore disponible, aucune capacité n'est proposée ou écartée et aucune session n'est recensée par le mécanisme de tool pruning. L'activation ne démontre donc pas encore une réduction du contexte chargé.
+
+```text
+TokenEconomizer -- tron-abs/novera (codex)
+  repository   C:\msys64\home\jmsga\Novera, identified by its origin remote (github.com/tron-abs/novera)
+  state        C:\Users\jmsga\.tokeneconomizer\repos\novera-ec0512828e\codex
+  config       microskills=envfacts toolprune=auto loopguard=nudge repomap=off mode=auto shadow=False
+  sessions     3 folded, 9.3M effective tokens, plugin overhead 6.3k (0.1%)
+  microskills  0 fact(s) injected at session start (3 sessions learned from)
+  toolprune    0 sessions (0 prompts) observed, catalog: none yet; proposed capabilities: -; applied: -
+  loopguard    envelope 62 tool calls (10 ended-green turns); 0 redirect(s), 0 still-stuck notice(s) over 6 turns
+```
+
+Le surcoût observé est désormais de **6,3 k tokens (0,1 %)** ; les relevés précédents restent conservés comme historique. Toujours **0 fait injecté, 0 redirection et 0 notification de boucle persistante**. Les 9,3 M tokens effectifs sont un cumul observé, pas une économie ni une mesure du quota ChatGPT. Aucun gain réel n'est encore démontré.
+
+### Observation du 1er novembre 2026 — profils légers et mobile
+
+Après confirmation des essais desktop et portable par le mainteneur et ajout des profils légers dans les sources : **3 sessions consolidées, 9,3 M tokens effectifs, 12,1 k tokens de surcoût plugin (0,1 %)**. Toujours aucun fait injecté, aucune redirection, aucune exclusion d'outil et aucun catalogue disponible pour le tool pruning. Les tests de Novera ne démontrent aucun bénéfice du plugin ; les nouveaux profils mobiles n'ont pas encore été essayés sur appareil.
+
+```text
+TokenEconomizer -- tron-abs/novera (codex)
+  repository   C:\msys64\home\jmsga\Novera, identified by its origin remote (github.com/tron-abs/novera)
+  state        C:\Users\jmsga\.tokeneconomizer\repos\novera-ec0512828e\codex
+  config       microskills=envfacts toolprune=auto loopguard=nudge repomap=off mode=auto shadow=False
+  sessions     3 folded, 9.3M effective tokens, plugin overhead 12.1k (0.1%)
+  microskills  0 fact(s) injected at session start (3 sessions learned from)
+  toolprune    0 sessions (0 prompts) observed, catalog: none yet; proposed capabilities: -; applied: -
+  loopguard    envelope 43 tool calls (16 ended-green turns); 0 redirect(s), 0 still-stuck notice(s) over 6 turns
+```
+
+### Observation du 1er novembre 2026 — maintenance et diagnostics
+
+Après instrumentation et validation locale du suivi des erreurs : **4 sessions consolidées, 13,9 M tokens effectifs, 55,1 k tokens de surcoût plugin (0,4 %)**. Le catalogue des capacités est désormais observé ; aucune capacité proposée ou écartée. Aucun fait injecté ni redirection. Ces compteurs cumulés ne mesurent ni une économie démontrée, ni le coût isolé de ce lot, ni le quota ChatGPT.
+
+```text
+TokenEconomizer -- tron-abs/novera (codex)
+  repository   C:\msys64\home\jmsga\Novera, identified by its origin remote (github.com/tron-abs/novera)
+  state        C:\Users\jmsga\.tokeneconomizer\repos\novera-ec0512828e\codex
+  config       microskills=envfacts toolprune=auto loopguard=nudge repomap=off mode=auto shadow=False
+  sessions     4 folded, 13.9M effective tokens, plugin overhead 55.1k (0.4%)
+  microskills  0 fact(s) injected at session start (4 sessions learned from)
+  toolprune    1 sessions (32 prompts) observed, catalog: capabilities; proposed capabilities: -; applied: -
+  loopguard    envelope 65 tool calls (18 ended-green turns); 0 redirect(s), 0 still-stuck notice(s) over 6 turns
+```
+
+### Observation du 1er novembre 2026 — version affichée et correctif Clang
+
+Relevé après le correctif de détection de Clang et le suivi documentaire : 4 sessions consolidées, 13,9 M tokens effectifs et 91,1 k de surcoût plugin (0,7 %). Aucun fait injecté, outil écarté ou gain démontré. Ces compteurs cumulés ne correspondent ni à une économie ni au quota ChatGPT.
+
+```text
+TokenEconomizer -- tron-abs/novera (codex)
+  repository   C:\msys64\home\jmsga\Novera, identified by its origin remote (github.com/tron-abs/novera)
+  state        C:\Users\jmsga\.tokeneconomizer\repos\novera-ec0512828e\codex
+  config       microskills=envfacts toolprune=auto loopguard=nudge repomap=off mode=auto shadow=False
+  sessions     4 folded, 13.9M effective tokens, plugin overhead 91.1k (0.7%)
+  microskills  0 fact(s) injected at session start (4 sessions learned from)
+  toolprune    1 sessions (32 prompts) observed, catalog: capabilities; proposed capabilities: -; applied: -
+  loopguard    envelope 80 tool calls (24 ended-green turns); 0 redirect(s), 0 still-stuck notice(s) over 6 turns
 ```

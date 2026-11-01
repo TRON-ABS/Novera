@@ -24,6 +24,7 @@ import {
 } from '@/hooks/useCreationInstall'
 import { useCreation, videoSettingsFor } from '@/hooks/useCreation'
 import { formatBytes } from '@/lib/utils'
+import { useAutoConfiguration } from '@/hooks/useAutoConfiguration'
 
 export function CreationInstallButton({
   onStarted,
@@ -31,6 +32,7 @@ export function CreationInstallButton({
   scope,
 }: { onStarted?: () => void; variant?: 'gguf' | 'upscale' | 'video-gguf' | 'music-gguf' | 'all-recommended'; scope?: string } = {}) {
   const { t } = useTranslation()
+  const automatic = useAutoConfiguration()
   const service = useServiceHub()
   const { parent, setParent, job } = useCreationInstall()
   const python = useCreation((s) => variant === 'video-gguf'||variant==='all-recommended' ? videoSettingsFor(s).python : s.settings.python)
@@ -39,6 +41,7 @@ export function CreationInstallButton({
   const video = variant === 'video-gguf'
   const music = variant === 'music-gguf'
   const all = variant === 'all-recommended'
+  const locallyAvailable = all ? automatic.fullPack : music ? automatic.local.music : video ? automatic.local.video : automatic.local.image
   useEffect(() => {
     let active = true
     setFp4(false)
@@ -58,6 +61,7 @@ export function CreationInstallButton({
   const [error, setError] = useState(false)
   const [busy, setBusy] = useState(false)
   async function prepare(folder = parent, selectedVariant: string = variant) {
+    if (!locallyAvailable) return
     setBusy(true)
     setError(false)
     try {
@@ -79,7 +83,7 @@ export function CreationInstallButton({
       <Button
         variant="outline"
         size="sm"
-        disabled={busy || ((music||all)&&!IS_WINDOWS) || (job && !['ready', 'cancelled'].includes(job.phase))}
+        disabled={!locallyAvailable || busy || ((music||all)&&!IS_WINDOWS) || (job && !['ready', 'cancelled'].includes(job.phase))}
         title={(music||all)&&!IS_WINDOWS?`${t('common:editModel.notAvailable')} · Windows`:undefined}
         onClick={() => void prepare()}
       >
@@ -90,7 +94,7 @@ export function CreationInstallButton({
         variant="outline"
         size="sm"
         disabled={
-          !fp4 || busy || (job && !['ready', 'cancelled'].includes(job.phase))
+          !locallyAvailable || !fp4 || busy || (job && !['ready', 'cancelled'].includes(job.phase))
         }
         onClick={() => void prepare(parent, 'nvfp4')}
       >

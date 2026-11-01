@@ -812,5 +812,24 @@
     "ask": "Berî guherandin an jêbirinê bipirse",
     "allow": "Destûra guherandin û jêbirinê bide",
     "folderNote": "Destûrên Novera ji bo vê peldankê hilbijêre."
+  },
+  "components": {
+    "title": "pêkhateyên herêmî",
+    "note": "Tenê hêmanên ku hûn hewce ne saz bikin. Novera hawîrdorên Python ji hev cuda digire. Karûbarên Cloud hewce ne sazkirina herêmî.",
+    "estimates": "Daxistina texmînkirî: {{download}} · Cihê dîskê pêwîst: {{space}} · Cihê dîskê berdest: {{free}}",
+    "confirm": "Vê hawîrdora taybet saz bikin? Tenê hêmanên hilbijartî dê bêne dakêşandin. Lîsansên weşangerên wan derbas dibin.",
+    "removeConfirm": "Vê hawîrdora birêvebirî jê bibe? Model, afirandin û axaftinên we dê bêne parastin.",
+    "verify": "Verast bike",
+    "repair": "Tamîrkirin",
+    "uninstall": "Rake",
+    "missing": "nehatiye saz kirin",
+    "managed": "Bi rêvebiriya Novera",
+    "external": "Riya Pythonê ya derveyî ya bijare, profîla rêvekirî derbas dike. Paqij bike ku hawîrdora Novera bikar bîne.",
+    "failed": "Operasyona pêkhateyê têk çû. Torê, cîhê dîskê û mafên gihîştinê kontrol bikin, dûv re dîsa biceribînin an tamîr bikin.",
+    "required": "Di Novera de pêkhateyên herêmî yên pêwîst amade bikin û verast bikin · Veavakirin.",
+    "updateAvailable": "Nûvekirin heye",
+    "update": "Nûvekirin",
+    "rollback": "Jîngeha berê vegerînin",
+    "busy": "Modelên herêmî dakêşin û li bendê bin ku nifş biqedin berî ku pêkhateyan biguhezînin."
   }
 }

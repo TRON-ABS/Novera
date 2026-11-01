@@ -812,5 +812,24 @@
     "ask": "修改或删除前询问",
     "allow": "允许修改和删除",
     "folderNote": "选择 Novera 对此文件夹的访问权限。"
+  },
+  "components": {
+    "title": "本机组件",
+    "note": "只装侬用得着个组件。Novera 会拿 Python 环境分开来。云服务勿需要勒本机安装。",
+    "estimates": "估计下载量：{{download}} · 要留个空位：{{space}} · 现有空位：{{free}}",
+    "confirm": "要装搿个专用环境伐？只会下载侬选好个组件，要照发布方个许可来用。",
+    "removeConfirm": "要卸脱搿个托管环境伐？侬个模型、作品搭对话侪会留牢。",
+    "verify": "检查",
+    "repair": "修复",
+    "uninstall": "卸脱",
+    "missing": "还呒没安装",
+    "managed": "交拨 Novera 管",
+    "external": "填外部 Python 路径会顶替托管配置。清空伊就用 Novera 个环境。",
+    "failed": "组件操作呒没成功。检查网络、磁盘空位搭访问权限，再试一趟或者修复。",
+    "required": "请到 Novera · 配置里向准备搭检查需要个本机组件。",
+    "updateAvailable": "有更新好用",
+    "update": "更新",
+    "rollback": "恢复前一版环境",
+    "busy": "改组件之前，先拿本机模型卸载出内存，再等生成结束。"
   }
 }

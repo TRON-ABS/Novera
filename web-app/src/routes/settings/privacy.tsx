@@ -7,6 +7,7 @@ import { Card, CardItem } from '@/containers/Card'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useAnalytic } from '@/hooks/useAnalytic'
 import { useErrorTracking } from '@/hooks/useErrorTracking'
+import { ErrorTrackingDetails } from '@/containers/analytics/ErrorTrackingDetails'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Route = createFileRoute(route.settings.privacy as any)({
@@ -66,7 +67,7 @@ function Privacy() {
                 />
               </div>
             }>
-              <CardItem description={<p>{t(analyticsAvailable ? 'common:errorTracking.summary' : 'common:errorTracking.unavailable', { host: analyticsHost })}</p>} align="start" />
+              <CardItem description={<div><p>{t(analyticsAvailable ? 'common:errorTracking.summary' : 'common:errorTracking.unavailable', { host: analyticsHost })}</p>{analyticsAvailable && <ErrorTrackingDetails />}</div>} align="start" />
             </Card>
           </div>
         </div>

@@ -12,6 +12,7 @@ import { imageSeedPlan } from '@/modules/engines/image-seed'
 import { musicDurationFromPrompt, musicDurationLimits } from '@/modules/engines/music'
 import { parseMusicPrompt } from '@/modules/engines/music-prompt'
 import i18n from '@/i18n'
+import { reportDiagnostic } from '@/lib/noveraDiagnostics'
 
 export function musicCloudStream(
   prompt: string,
@@ -36,6 +37,7 @@ export function musicCloudStream(
   return new ReadableStream<UIMessageChunk>({
     async start(controller) {
       const started = performance.now()
+      let operation: 'generation' | 'save' = 'generation'
       try {
         const selection = selected
         const provider = useModelProvider
@@ -94,6 +96,7 @@ export function musicCloudStream(
               }),
         })
         abort.signal.throwIfAborted()
+        operation = 'save'
         const saved = await invoke<{ name: string; mediaType: string }>(
           'creation_cloud_save',
           {
@@ -129,6 +132,7 @@ export function musicCloudStream(
           finished = true
         }
       } catch (error) {
+        if (!abort.signal.aborted) reportDiagnostic(error, { operation, task: 'music', engine: 'cloud', status: error instanceof CloudCreationError ? error.status : undefined })
         if (!closed) {
           closed = true
           controller.error(

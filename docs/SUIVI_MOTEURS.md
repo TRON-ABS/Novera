@@ -1,5 +1,11 @@
 # Suivi des moteurs locaux Novera
 
+## Résolution des composants privés — 1er novembre 2026
+
+Les appels natifs Transformers/ONNX (sondes, imports, adaptateurs et chargement), les médias Diffusers/NVFP4, la conversion et l'export vidéo et l'upscale utilisent désormais les profils gérés lorsque le chemin vaut `python`, `python.exe`, `auto` ou vide. Les chemins externes explicites restent prioritaires dans les options avancées. Aucun repli vers un autre Python ni cache de sonde conservant un ancien profil. Les processus locaux tiennent une garde qui empêche une maintenance pendant leur utilisation.
+
+Catalogue initial Windows x64 : dix profils CPU/CUDA, ONNX/GenAI, vidéo, upscale et ExLlama isolé ; verrous transitifs et hashes. Trois profils ont été réellement installés et essayés dans des dossiers temporaires privés : vidéo, ONNX CPU et Transformers CPU avec modèle synthétique. Les autres installations/générations ne sont pas certifiées par ces essais. Python 3.15 existant et données conservés ; mobile/cloud séparés. [Matrice, commandes et limitations](REPRISE_COMPOSANTS_GERES_80_LANGUES.md).
+
 ## Attente mémoire entre générations — 1er novembre 2026
 
 Incident confirmé dans le journal local : lors de la deuxième image, le déchargement de Nemotron renvoyait le refus explicite du routeur llama.cpp `409 Conflict`, « the model has requests in flight; retry once they finish ». Le coordinateur transformait cette occupation transitoire en échec de génération multimédia.

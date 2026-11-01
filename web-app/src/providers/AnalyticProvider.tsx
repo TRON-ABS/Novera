@@ -3,6 +3,8 @@ import { useAnalytic } from '@/hooks/useAnalytic'
 import { sendStartupStatistic } from '@/lib/noveraTelemetry'
 import { startErrorTracking } from '@/lib/noveraErrorTracking'
 import { useErrorTracking } from '@/hooks/useErrorTracking'
+import { reportDiagnostic } from '@/lib/noveraDiagnostics'
+import { isPlatformTauri } from '@/lib/platform/utils'
 
 export function AnalyticProvider() {
   const { productAnalytic, analyticsAvailable } = useAnalytic()
@@ -10,6 +12,15 @@ export function AnalyticProvider() {
   useEffect(() => {
     if (!analyticsAvailable || !errorTracking) return
     return startErrorTracking(window)
+  }, [analyticsAvailable, errorTracking])
+  useEffect(() => {
+    if (!analyticsAvailable || !errorTracking || !isPlatformTauri()) return
+    let disposed = false
+    let unlisten: (() => void) | undefined
+    void import('@tauri-apps/api/event').then(({ listen }) => listen('novera-runtime-failure', () => {
+      if (!disposed) reportDiagnostic(undefined, { operation: 'runtime', task: 'text', engine: 'llamacpp', code: 'runtime_exit' })
+    })).then(stop => { if (disposed) stop(); else unlisten = stop }).catch(() => {})
+    return () => { disposed = true; unlisten?.() }
   }, [analyticsAvailable, errorTracking])
   useEffect(() => {
     if (!analyticsAvailable || !productAnalytic) return

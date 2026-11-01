@@ -8,7 +8,7 @@ beforeEach(() => useErrorTracking.setState({ enabled: false, promptPending: true
 it('defaults off and binds persisted permission to the destination and schema', () => {
   expect(useErrorTracking.getState().enabled).toBe(false)
   expect(useErrorTracking.getState().promptPending).toBe(true)
-  expect(useErrorTracking.persist.getOptions().name).toBe('novera-error-tracking-v1:eu-project-test')
+  expect(useErrorTracking.persist.getOptions().name).toBe('novera-error-tracking-v2:eu-project-test')
   expect(useErrorTracking.persist.getOptions().skipHydration).toBe(true)
 })
 it('records and withdraws permission independently', () => {

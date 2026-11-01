@@ -5,6 +5,7 @@ import { useMusicCreation } from '@/hooks/useMusicCreation'
 import { musicDefaults } from '@/modules/engines/music'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import { useMemoryPolicy } from '@/hooks/useMemoryPolicy'
+import { useHardware } from '@/hooks/useHardware'
 import type { UIMessage } from 'ai'
 vi.mock('@tauri-apps/api/core', () => ({ invoke: vi.fn() }))
 vi.mock('@/lib/platform/utils', () => ({ isPlatformTauri: () => true }))
@@ -62,6 +63,14 @@ beforeEach(() => {
           name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.mp3',
         }
   )
+})
+it('allows the native music engine on the maintainer 16 GiB desktop reporting 15789 MiB', async () => {
+  const previous = useHardware.getState().hardwareData
+  useHardware.setState({ hardwareData: { ...previous, os_type: 'windows', total_memory: 15789, gpus: [] } })
+  try {
+    await read(creationStream('music', 'calm piano', messages, 'reserved-memory', undefined, vi.fn()))
+    expect(vi.mocked(invoke).mock.calls.some(([command]) => command === 'creation_start')).toBe(true)
+  } finally { useHardware.setState({ hardwareData: previous }) }
 })
 it('generates three music files sequentially with independent seeds and one finish callback', async () => {
   useMusicCreation.getState().setSettings({ generationCount: 3, seedMode: 'increment', seed: 40, instrumental: true })

@@ -1,3 +1,5 @@
+import { ManagedComponents } from './ManagedComponents'
+import { managedDefault } from '@/services/components'
 import { useEffect, useRef, useState } from 'react'
 import { IconPhoto, IconVideo, IconCheck, IconChevronDown } from '@tabler/icons-react'
 import { useMediaLibrary, selectMediaProfile } from '@/hooks/useMediaLibrary'
@@ -37,6 +39,7 @@ import { ComposerSizeButton } from './ComposerSizeButton'
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu'
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 import { GenerationCountControl } from './GenerationCountControl'
+import { useAutoConfiguration } from '@/hooks/useAutoConfiguration'
 
 export function CreationControls({
   scope,
@@ -54,6 +57,7 @@ export function CreationControls({
 
   const { t } = useTranslation()
   const service = useServiceHub()
+  const automatic = useAutoConfiguration()
   const baseState = useCreation()
   const selectedMode = baseState.modes[scope] ?? 'auto'
   const mode = previewOutputMode(selectedMode, prompt, baseState.resolvedModes[scope], disabled)
@@ -234,14 +238,14 @@ export function CreationControls({
                     )
                   }}
                 >
-                  <option value="">
+                  <option value="" disabled={!automatic.local[task]}>
                     {cpp
                       ? 'stable-diffusion.cpp'
                       : 'Diffusers'}{' '}
                     · {t('chat:creation.local')}
                   </option>
                   {mediaProfiles
-                    .filter((p) => p.task === task)
+                    .filter((p) => p.task === task && automatic.local[task])
                     .map((p) => (
                       <option
                         key={p.id}
@@ -287,7 +291,7 @@ export function CreationControls({
             <p className="text-xs text-muted-foreground">
               {t('chat:creation.cloudDefaults')}
             </p>
-            <details open={!isCloud}>
+            {automatic.local[task] && <details open={!isCloud}>
               <summary className="cursor-pointer text-sm">
                 {t('chat:creation.local')}
               </summary>
@@ -395,7 +399,7 @@ export function CreationControls({
                     )
                       .filter(
                         (key) =>
-                          key !== 'cppExecutable' || (!nativeFp4 && !IS_WINDOWS)
+                          key !== 'cppExecutable'
                       )
                       .map((key) => (
                         <label
@@ -409,11 +413,6 @@ export function CreationControls({
                               id={`creation-${task}-${key}`}
                               className="min-w-0 flex-1 rounded border bg-background p-2 text-xs"
                               value={settings[key] ?? ''}
-                              placeholder={
-                                key === 'cppExecutable'
-                                  ? t('chat:creationInstall.engine')
-                                  : undefined
-                              }
                               onChange={(event) =>
                                 state.setSettings({ [key]: event.target.value })
                               }
@@ -425,17 +424,6 @@ export function CreationControls({
                               {t('common:browse')}
                             </Button>
                           </div>
-                          {key === 'cppExecutable' && (
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() =>
-                                state.setSettings({ cppExecutable: '' })
-                              }
-                            >
-                              {t('chat:creationInstall.engine')}
-                            </Button>
-                          )}
                         </label>
                       ))}
                     {cpp && (
@@ -462,12 +450,10 @@ export function CreationControls({
                 {(
                   (task === 'video' ? (cpp ? [...(!IS_WINDOWS ? ['cppExecutable'] : []), 'videoModel', 'ggufTextEncoder', 'ggufVae','python'] : ['videoModel', 'python'])
                     : separate ? ['python'] : ['imageModel', 'python']) as ('imageModel' | 'videoModel' | 'python' | 'cppExecutable' | 'ggufTextEncoder' | 'ggufVae')[]
-                ).map((key) => (
+                ).filter(key => key !== 'python' && key !== 'cppExecutable').map((key) => (
                   <div key={key}>
                     <label className="text-sm" htmlFor={`creation-${task}-${key}`}>
-                      {key === 'python'
-                        ? task==='video'&&cpp?'Python · imageio-ffmpeg':'Python 3.15.1'
-                        : task === 'video' && key === 'videoModel' && cpp ? `${t('chat:creation.video')} · GGUF` : task === 'video' && key === 'ggufTextEncoder' ? 'UMT5-XXL · GGUF' : task === 'video' && key === 'ggufVae' ? 'Wan2.1 VAE' : t(`chat:creation.${key}`)}
+                      {task === 'video' && key === 'videoModel' && cpp ? `${t('chat:creation.video')} · GGUF` : task === 'video' && key === 'ggufTextEncoder' ? 'UMT5-XXL · GGUF' : task === 'video' && key === 'ggufVae' ? 'Wan2.1 VAE' : t(`chat:creation.${key}`)}
                     </label>
                     <div className="flex gap-2">
                       <input
@@ -484,6 +470,24 @@ export function CreationControls({
                     </div>
                   </div>
                 ))}
+                <details className="space-y-2 text-xs">
+                  <summary>{t('common:composer.advanced')}</summary>
+                  <p>{t('common:components.external')}</p>
+                  {!IS_WINDOWS && cpp && <div>
+                    <label htmlFor={`creation-${task}-cppExecutable`}>{t('chat:creation.cppExecutable')}</label>
+                    <div className="flex gap-2">
+                      <input id={`creation-${task}-cppExecutable`} className="min-w-0 flex-1 rounded border bg-background p-2" value={settings.cppExecutable ?? ''} onChange={event => state.setSettings({ cppExecutable: event.target.value })} />
+                      <Button variant="outline" onClick={() => void pick('cppExecutable')}>{t('common:browse')}</Button>
+                      <Button variant="outline" onClick={() => state.setSettings({ cppExecutable: '' })}>{t('chat:creation.auto')}</Button>
+                    </div>
+                  </div>}
+                  <label htmlFor={`creation-${task}-python`}>Python</label>
+                  <div className="flex gap-2">
+                    <input id={`creation-${task}-python`} className="min-w-0 flex-1 rounded border bg-background p-2" value={managedDefault(settings.python) ? '' : settings.python} placeholder={t('common:components.managed')} onChange={event => state.setSettings({ python: event.target.value })} />
+                    <Button variant="outline" onClick={() => state.setSettings({ python: '' })}>{t('chat:creation.auto')}</Button>
+                    <Button variant="outline" onClick={() => void pick('python')}>{t('common:browse')}</Button>
+                  </div>
+                </details>
                 <label className="flex items-center justify-between text-sm">
                   {t('chat:creation.generationDevice')}
                   <select
@@ -634,7 +638,7 @@ export function CreationControls({
                 )}
                 {task !== 'video' && !isCloud && <ImageUpscaleControls />}
               </div>
-            </details>
+            </details>}
             <p className="text-xs text-muted-foreground">
               {t('chat:creation.autosave')}
             </p>
@@ -663,7 +667,7 @@ export function CreationControls({
                 (mode === item || (item === 'auto' && selectedMode === 'auto')) && 'composer-tool-active'
               )}
               disabled={
-                disabled || ((!desktop||IS_ANDROID||IS_IOS) && (item === 'image' || item === 'music' || item === 'video'))
+                disabled || (!desktop && (item === 'image' || item === 'music' || item === 'video'))
               }
               aria-pressed={mode === item || (item === 'auto' && selectedMode === 'auto')}
               onClick={() => {
@@ -847,13 +851,13 @@ export function CreationControls({
             <DialogTitle className="flex items-center gap-2"><ShieldCheck className="size-5 text-cyan-400" />Novera · {t('common:settings')}</DialogTitle>
             <DialogDescription>{t('hub:catalog.advisorNote')}</DialogDescription>
           </DialogHeader>
+          <ManagedComponents disabled={disabled} />
           <aside className="space-y-3 rounded-xl border border-cyan-400/30 bg-cyan-400/5 p-4">
-            <p className="text-sm">{t('chat:creation.setupAllNote')}</p>
-            <CreationInstallButton variant="all-recommended" scope={scope} />
+            <p className="text-sm">{t(automatic.fullPack ? 'chat:creation.setupAllNote' : 'hub:catalog.advisorNote')}</p>
+            {automatic.fullPack ? <CreationInstallButton variant="all-recommended" scope={scope} /> : <p className="text-xs">{t('chat:creation.auto')} · {t('chat:creation.text')} · {t('hub:catalog.tipLimited')}</p>}
           </aside>
           <section className="rounded-xl border p-4 space-y-4" aria-label={t('chat:creation.text')}>
             <h2 className="font-medium">{t('chat:creation.text')}</h2>
-            <p className="text-sm text-muted-foreground">{t('chat:creation.setupTextNote')}</p>
             <TextSetupPanel scope={scope} onNavigate={() => setOpen(false)} />
           </section>
           <section className="rounded-xl border p-4 space-y-4" aria-label={t('providers:embeddingModels')}>
@@ -862,6 +866,7 @@ export function CreationControls({
           </section>
           {(['image', 'music', 'video'] as const).map((kind) => <section key={kind} className="rounded-xl border p-4 space-y-4" aria-label={t(`chat:creation.${kind}`)}>
             <h2 className="font-medium">{t(`chat:creation.${kind}`)}</h2>
+            {!automatic.local[kind] && <p className="text-sm text-muted-foreground">{t('chat:creation.local')} · {t('common:editModel.notAvailable')} · {t('hub:catalog.tipLimited')} {t('chat:creation.cloudNote')}</p>}
             {kind==='music'?<MusicSetupPanel scope={scope} disabled={disabled}/>:<>
               <p className="text-sm text-muted-foreground">{t(`chat:creation.${kind==='image'?'setupImageNote':'setupVideoNote'}`)}</p>
               <CreationControls scope={scope} disabled={disabled} panelTask={kind} /></>}

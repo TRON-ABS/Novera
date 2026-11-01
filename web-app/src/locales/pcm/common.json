@@ -812,5 +812,24 @@
     "ask": "Ask before you edit or delete",
     "allow": "Allow edit and delete",
     "folderNote": "Choose how Novera fit access this folder."
+  },
+  "components": {
+    "title": "Components for dis device",
+    "note": "Install only di components wey you need. Novera dey keep Python environments separate. Cloud services no need local installation.",
+    "estimates": "Download estimate: {{download}} · Free space wey you need: {{space}} · Space wey dey: {{free}}",
+    "confirm": "Make we install dis private environment? Na only di components wey you choose we go download. Di publishers dem licence apply.",
+    "removeConfirm": "Make we remove dis managed environment? Your models, creations and chats go remain.",
+    "verify": "Check am",
+    "repair": "Repair am",
+    "uninstall": "Remove installation",
+    "missing": "Never install",
+    "managed": "Na Novera dey manage am",
+    "external": "If you put external Python path, e go replace di managed profile. Clear am to use Novera environment.",
+    "failed": "Di component work fail. Check network, disk space and access rights, then try again or repair am.",
+    "required": "Prepare and check di local components wey you need for Novera · Configurations.",
+    "updateAvailable": "Update dey available",
+    "update": "Update am",
+    "rollback": "Bring back di former environment",
+    "busy": "Unload local models and wait make generation finish before you change components."
   }
 }

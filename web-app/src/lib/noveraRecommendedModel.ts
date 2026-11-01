@@ -1,7 +1,29 @@
 import type { CatalogModel } from '@/services/models/types'
-import hubCatalog from './noveraHubCatalog.json'
 
-export const NOVERA_RECOMMENDED_CONTEXT_SIZE = IS_ANDROID ? 4096 : 16384
+export const NOVERA_RECOMMENDED_CONTEXT_SIZE = IS_ANDROID || IS_IOS ? 2048 : 16384
+
+const liquidRevision = 'bad5729bba61d076fff20d2548e62526665af215'
+const omniRevision = '3d29af2ad166f8299c2d820937e47dc0add20ffc'
+export const LIGHT_TEXT_MODEL: CatalogModel = {
+  model_name: 'LFM3-1.7B', display_name: 'LFM3-1.7B · Q4_K_M',
+  description: '', developer: 'LiquidAI', downloads: 0,
+  library_name: 'gguf', pipeline_tag: 'text-generation', revision: liquidRevision,
+  hub: { parametersB: 1.7, repo: 'LiquidAI/LFM3-1.7B-GGUF', revision: liquidRevision,
+    verifiedAt: '2026-11-01', recommended: true, source: 'https://huggingface.co/LiquidAI/LFM3-1.7B-GGUF', benchmarks: [] },
+  quants: [{ model_id: 'LFM3-1.7B-Q4_K_M', file_size: '1.10 GB',
+    path: `https://huggingface.co/LiquidAI/LFM3-1.7B-GGUF/resolve/${liquidRevision}/LFM3-1.7B-Q4_K_M.gguf?download=true` }],
+}
+export const LIGHT_OMNI_MODEL: CatalogModel = {
+  model_name: 'LFM3-Omni-2B', display_name: 'LFM3-Omni-2B · Q4_K_M',
+  description: '', developer: 'LiquidAI', downloads: 0,
+  library_name: 'gguf', pipeline_tag: 'image-text-to-text', revision: omniRevision,
+  hub: { parametersB: 2.17, repo: 'LiquidAI/LFM3-Omni-2B-GGUF', revision: omniRevision,
+    verifiedAt: '2026-11-01', recommended: true, source: 'https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF', benchmarks: [] },
+  quants: [{ model_id: 'LFM3-Omni-2B-Q4_K_M', file_size: '1.10 GB',
+    path: `https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF/resolve/${omniRevision}/LFM3-Omni-2B-Q4_K_M.gguf?download=true` }],
+  mmproj_models: [{ model_id: 'mmproj-Q4_K_M', file_size: '291.59 MB',
+    path: `https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF/resolve/${omniRevision}/mmproj-LFM3-Omni-2B-Q4_K_M.gguf?download=true` }],
+}
 
 /** Fixed Novera onboarding choice; independent of the upstream Jan feed/cache. */
 const desktopModel: CatalogModel = {
@@ -20,7 +42,6 @@ const desktopModel: CatalogModel = {
 
 export function noveraRecommendedModelFor(android: boolean): CatalogModel {
   if (!android) return desktopModel
-  const mobileModel = hubCatalog.find(m => m.model_name === 'LFM2.5-1.2B-Instruct')!
-  return { ...mobileModel, display_name: 'LFM2.5-1.2B-Instruct · Q4_K_M', quants: mobileModel.quants.filter(q => q.model_id.endsWith('Q4_K_M')) }
+  return LIGHT_TEXT_MODEL
 }
-export const NOVERA_RECOMMENDED_MODEL = noveraRecommendedModelFor(IS_ANDROID)
+export const NOVERA_RECOMMENDED_MODEL = noveraRecommendedModelFor(IS_ANDROID || IS_IOS)

@@ -812,5 +812,24 @@
     "ask": "Banza ubaze mbere yo guhindura cyangwa gusiba",
     "allow": "Emera guhindura no gusiba",
     "folderNote": "Hitamo uburenganzira bwa Novera kuri ubu bubiko."
+  },
+  "components": {
+    "title": "Ibice byaho",
+    "note": "Shyiramo gusa ibice ukeneye. Novera ituma ibidukikije bya Python bitandukana. Serivisi zicu ntizikeneye kwishyiriraho.",
+    "estimates": "Biteganijwe gukuramo: {{download}} · Umwanya wa disiki isabwa: {{space}} · Umwanya wa disiki iboneka: {{free}}",
+    "confirm": "Shyiramo ibi bidukikije? Gusa ibice byatoranijwe bizakurwa. Impushya z'abamamaza zabo zirakurikizwa.",
+    "removeConfirm": "Kuraho ibi bidukikije? Icyitegererezo cyawe, ibyaremwe n'ibiganiro bizabikwa.",
+    "verify": "Kugenzura",
+    "repair": "Gusana",
+    "uninstall": "Kuramo",
+    "missing": "Ntabwo yashyizweho",
+    "managed": "Iyobowe na Novera",
+    "external": "Inzira idasanzwe yo hanze Python irenga umwirondoro ucungwa. Kuraho kugirango ukoreshe Novera ibidukikije.",
+    "failed": "Igikorwa cyibigize cyatsinzwe. Reba umuyoboro, umwanya wa disiki nuburenganzira bwo kwinjira, hanyuma ugerageze cyangwa usane.",
+    "required": "Tegura kandi ugenzure ibice bikenewe byaho muri Novera · Iboneza.",
+    "updateAvailable": "Kuvugurura birahari",
+    "update": "Kuvugurura",
+    "rollback": "Kugarura ibidukikije byabanje",
+    "busy": "Kuramo moderi zaho hanyuma utegereze ibisekuruza birangire mbere yo guhindura ibice."
   }
 }

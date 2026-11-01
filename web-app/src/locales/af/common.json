@@ -812,5 +812,24 @@
     "ask": "Vra voor wysiging of uitvee",
     "allow": "Laat wysiging en uitvee toe",
     "folderNote": "Kies Novera se toegang tot hierdie vouer."
+  },
+  "components": {
+    "title": "Plaaslike komponente",
+    "note": "Installeer slegs die komponente wat jy nodig het. Novera hou Python-omgewings apart. Wolkdienste het geen plaaslike installasie nodig nie.",
+    "estimates": "Geskatte aflaai: {{download}} · Vereiste skyfspasie: {{space}} · Beskikbare skyfspasie: {{free}}",
+    "confirm": "Installeer hierdie privaat omgewing? Slegs die geselekteerde komponente sal afgelaai word. Hul uitgewerslisensies is van toepassing.",
+    "removeConfirm": "Verwyder hierdie bestuurde omgewing? Jou modelle, skeppings en gesprekke sal bewaar word.",
+    "verify": "Verifieer",
+    "repair": "Herstel",
+    "uninstall": "Deïnstalleer",
+    "missing": "Nie geïnstalleer nie",
+    "managed": "Bestuur deur Novera",
+    "external": "'n Opsionele eksterne Python-pad oorheers die bestuurde profiel. Vee dit uit om Novera se omgewing te gebruik.",
+    "failed": "Die komponentbewerking het misluk. Gaan die netwerk, skyfspasie en toegangsregte na, probeer dan weer of herstel.",
+    "required": "Berei voor en verifieer die vereiste plaaslike komponente in Novera · Konfigurasies.",
+    "updateAvailable": "Opdatering beskikbaar",
+    "update": "Opdatering",
+    "rollback": "Herstel vorige omgewing",
+    "busy": "Laai plaaslike modelle af en wag vir generasies om klaar te maak voordat komponente verander word."
   }
 }

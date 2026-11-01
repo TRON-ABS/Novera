@@ -33,6 +33,8 @@ class ExLlamaInference(Inference):
         if required > max(0, free - 1024 ** 3):
             raise MemoryError(f"Insufficient free VRAM for {self.method}: estimated {required} bytes plus 1 GiB reserve; {free} bytes free")
         self.tokenizer = AutoTokenizer.from_pretrained(root, local_files_only=True, trust_remote_code=False)
+        if __import__("os").environ.get("NOVERA_MANAGED_COMPONENTS") == "1":
+            __import__("importlib").import_module("exllamav3_ext" if self.method == "exl3" else "exllamav2_ext")
         if self.method == "exl3":
             from exllamav3 import Config, Model, Cache, Tokenizer, Generator
             native_config = Config.from_directory(str(root))

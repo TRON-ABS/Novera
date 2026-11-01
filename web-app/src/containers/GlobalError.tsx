@@ -1,5 +1,9 @@
 import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useErrorTracking } from '@/hooks/useErrorTracking'
+import { analyticsAvailable } from '@/lib/noveraTelemetry'
+import { startErrorTracking } from '@/lib/noveraErrorTracking'
+import { reportDiagnostic } from '@/lib/noveraDiagnostics'
 
 interface GlobalErrorProps {
   error: Error | unknown
@@ -7,6 +11,14 @@ interface GlobalErrorProps {
 
 export default function GlobalError({ error }: GlobalErrorProps) {
   const { t: uiT } = useUiLocale()
+  const enabled = useErrorTracking(s => s.enabled)
+  useEffect(() => {
+    if (!enabled || !analyticsAvailable) return
+    // The route error boundary replaces the normal analytics provider.
+    const stop = startErrorTracking(window)
+    reportDiagnostic(error, { operation: 'unhandled' })
+    return stop
+  }, [enabled, error])
 
   console.error('Error in root route:', error)
   const [showFull, setShowFull] = useState(false)

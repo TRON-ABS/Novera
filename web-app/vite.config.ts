@@ -5,15 +5,25 @@ import path from 'path'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import packageJson from './package.json'
+import { monitoringBuildInfo } from '../scripts/monitoring/build-info.mjs'
+import { prepareSymbols, uploadSymbols } from '../scripts/monitoring/symbols.mjs'
 const host = process.env.TAURI_DEV_HOST
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command }) => {
   // Load env file based on `mode` in the current working directory.
   const env = loadEnv(mode, process.cwd(), '')
+  const build = monitoringBuildInfo()
+  const monitoring = command === 'build' && env.NOVERA_MONITORING_BUILD === 'true'
+  const privateSymbols = path.resolve(__dirname, '../.build/monitoring-symbols', build.buildId)
 
   return {
     plugins: [
+      ...(monitoring ? [{ name: 'novera-private-symbols', closeBundle() {
+        prepareSymbols({ dist: path.resolve(__dirname, 'dist'), output: privateSymbols, ...build, version: packageJson.version })
+        if (process.env.POSTHOG_CLI_API_KEY) uploadSymbols(privateSymbols)
+        else console.warn('PostHog: private source maps prepared locally; authenticated upload is still required before release.')
+      } }] : []),
       TanStackRouterVite({
         target: 'react',
         autoCodeSplitting: true,
@@ -53,6 +63,11 @@ export default defineConfig(({ mode }) => {
       ],
     },
     define: {
+      NOVERA_BUILD_ID: JSON.stringify(build.buildId),
+      NOVERA_BUILD_COMMIT: JSON.stringify(build.commit),
+      NOVERA_BUILD_ARCH: JSON.stringify(build.arch),
+      NOVERA_BUILD_SOURCE_STATE: JSON.stringify(build.sourceState),
+      NOVERA_BUILD_ENVIRONMENT: JSON.stringify(mode === 'production' ? 'production' : 'development'),
       IS_TAURI: JSON.stringify(process.env.IS_TAURI),
       IS_DEV: JSON.stringify(process.env.IS_DEV),
       IS_WEB_APP: JSON.stringify(false),
@@ -91,6 +106,7 @@ export default defineConfig(({ mode }) => {
     // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
     //
     // 1. prevent vite from obscuring rust errors
+    build: { sourcemap: monitoring },
     clearScreen: false,
     // 2. tauri expects a fixed port, fail if that port is not available
     server: {

@@ -812,5 +812,24 @@
     "ask": "Magtanong bago mag-edit o magtanggal",
     "allow": "Payagan ang pag-edit at pagtanggal",
     "folderNote": "Piliin ang access ng Novera sa folder na ito."
+  },
+  "components": {
+    "title": "Mga lokal na bahagi",
+    "note": "I-install lamang ang mga sangkap na kailangan mo. Pinapanatili ng Novera na magkahiwalay ang mga kapaligiran ng Python. Ang mga serbisyo sa cloud ay hindi nangangailangan ng lokal na pag-install.",
+    "estimates": "Tinantyang pag-download: {{download}} · Kinakailangang espasyo sa disk: {{space}} · Magagamit na espasyo sa disk: {{free}}",
+    "confirm": "I-install itong pribadong kapaligiran? Tanging ang mga napiling bahagi lamang ang ida-download. Nalalapat ang mga lisensya ng kanilang mga publisher.",
+    "removeConfirm": "Alisin ang pinamamahalaang kapaligiran na ito? Ang iyong mga modelo, likha at pag-uusap ay pananatilihin.",
+    "verify": "I-verify",
+    "repair": "Ayusin",
+    "uninstall": "I-uninstall",
+    "missing": "Hindi naka-install",
+    "managed": "Pinamamahalaan ng Novera",
+    "external": "Isang opsyonal na external na Python path ang nag-o-override sa pinamamahalaang profile. I-clear ito para magamit ang environment ni Novera.",
+    "failed": "Nabigo ang pagpapatakbo ng bahagi. Suriin ang network, espasyo sa disk at mga karapatan sa pag-access, pagkatapos ay subukang muli o ayusin.",
+    "required": "Ihanda at i-verify ang mga kinakailangang lokal na bahagi sa Novera · Mga Configuration.",
+    "updateAvailable": "Available ang update",
+    "update": "Update",
+    "rollback": "Ibalik ang dating kapaligiran",
+    "busy": "I-unload ang mga lokal na modelo at hintaying matapos ang mga henerasyon bago magpalit ng mga bahagi."
   }
 }

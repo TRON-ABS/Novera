@@ -813,5 +813,24 @@
     "ask": "Ptát se před úpravou nebo smazáním",
     "allow": "Povolit úpravy a mazání",
     "folderNote": "Vyberte přístup aplikace Novera k této složce."
+  },
+  "components": {
+    "title": "Místní komponenty",
+    "note": "Nainstalujte pouze součásti, které potřebujete. Novera udržuje prostředí Pythonu oddělená. Cloudové služby nevyžadují místní instalaci.",
+    "estimates": "Odhadované stažení: {{download}} · Požadované místo na disku: {{space}} · Dostupné místo na disku: {{free}}",
+    "confirm": "Instalovat toto soukromé prostředí? Budou staženy pouze vybrané komponenty. Platí licence jejich vydavatelů.",
+    "removeConfirm": "Odebrat toto spravované prostředí? Vaše modely, výtvory a konverzace zůstanou zachovány.",
+    "verify": "Ověřte",
+    "repair": "Oprava",
+    "uninstall": "Odinstalovat",
+    "missing": "Není nainstalováno",
+    "managed": "Spravuje Novera",
+    "external": "Volitelná externí cesta Pythonu přepíše spravovaný profil. Chcete-li používat prostředí Novera, vymažte jej.",
+    "failed": "Operace součásti se nezdařila. Zkontrolujte síť, místo na disku a přístupová práva a zkuste to znovu nebo opravte.",
+    "required": "Připravte a ověřte požadované místní komponenty v Novera · Konfigurace.",
+    "updateAvailable": "K dispozici je aktualizace",
+    "update": "Aktualizace",
+    "rollback": "Obnovit předchozí prostředí",
+    "busy": "Uvolněte místní modely a počkejte na dokončení generací, než změníte komponenty."
   }
 }

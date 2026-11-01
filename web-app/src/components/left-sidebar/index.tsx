@@ -35,8 +35,8 @@ export function LeftSidebar() {
       <Sidebar variant="floating" collapsible="icon" className="novera-sidebar">
         <SidebarHeader className="flex px-1">
           <div className={cn("flex items-center w-full justify-between", reserveLeft && "justify-end")}>
-            {!reserveLeft && <span className="novera-wordmark ml-2 font-medium font-studio group-data-[collapsible=icon]:hidden">Novera</span>}
-            <div className="flex items-center">
+            {!reserveLeft && <span title={`Novera ${VERSION}`} className="novera-wordmark ml-2 min-w-0 truncate font-medium font-studio group-data-[collapsible=icon]:hidden">Novera {VERSION}</span>}
+            <div className="flex shrink-0 items-center">
               <SidebarTrigger className="text-muted-foreground rounded-full hover:bg-sidebar-foreground/8! -mt-0.5 relative z-50 ml-0.5" />
             </div>
           </div>

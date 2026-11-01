@@ -66,8 +66,8 @@ def validate(config):
 
 def run(config):
     started = time.monotonic()
-    if sys.version_info[:3] != (3, 15, 1):
-        raise ValueError("Select the configured Python 3.15.1 environment")
+    if sys.version_info[:3] not in ((3, 12, 12), (3, 15, 1)):
+        raise ValueError("COMPONENT_PYTHON_VERSION")
     if config.get("backend") == "nvfp4-cuda":
         os.environ["TORCHINDUCTOR_CACHE_DIR"] = str(config.get("torch_cache", Path(config["staged_output"]).parent / ".novera-torch-cache"))
         from nvfp4_cuda import generate

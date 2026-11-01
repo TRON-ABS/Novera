@@ -8,6 +8,7 @@ import { useMusicCreation } from '@/hooks/useMusicCreation'
 import { musicDefaults } from '@/modules/engines/music'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { useHardware } from '@/hooks/useHardware'
 vi.mock('@tauri-apps/api/core', () => ({ invoke: vi.fn() }))
 vi.mock('./cloud', async (original) => ({
   ...(await original<typeof import('./cloud')>()),
@@ -42,6 +43,7 @@ async function read(stream: ReturnType<typeof creationStream>) {
   }
 }
 beforeEach(() => {
+  useHardware.setState({ hardwareData: { ...useHardware.getState().hardwareData, os_type: 'android', total_memory: 4096, gpus: [] } })
   vi.mocked(invoke).mockReset()
   vi.mocked(generateCloudMedia).mockReset()
   useCreation.setState({
@@ -96,6 +98,14 @@ it('releases each cloud job before preparing the next song in a series', async (
   expect(chunks.filter(chunk => chunk.type === 'finish')).toHaveLength(1)
   expect(active).toBe(false)
   expect(finish).toHaveBeenCalledTimes(1)
+})
+
+it('blocks local music on the constrained mobile without falling back to a paid cloud request', async () => {
+  useCreation.setState({ selections: {} })
+  await expect(read(creationStream('music', 'Compose music', messages, 'cloud', undefined, vi.fn())))
+    .rejects.toThrow('hub:catalog.tipLimited')
+  expect(generateCloudMedia).not.toHaveBeenCalled()
+  expect(invoke).not.toHaveBeenCalledWith('creation_start', expect.anything())
 })
 
 it('saves a playable cloud song without local weights and keeps credentials out of native save metadata', async () => {

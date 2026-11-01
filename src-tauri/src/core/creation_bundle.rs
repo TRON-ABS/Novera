@@ -76,6 +76,8 @@ async fn probe_nvfp4<R: Runtime>(
     app: &AppHandle<R>,
     python: &str,
 ) -> Result<serde_json::Value, String> {
+    let _lease = super::components::lease().await?;
+    let python = super::components::resolve(app, python, "media")?;
     let directory = app
         .path()
         .app_data_dir()
@@ -100,8 +102,9 @@ async fn probe_nvfp4<R: Runtime>(
     let mut command = tokio::process::Command::new(if python.trim().is_empty() {
         "python"
     } else {
-        python
+        &python
     });
+    super::components::configure_python(&mut command, &python);
     command
         .arg("-u")
         .arg(script)
@@ -301,7 +304,7 @@ pub async fn creation_bundle_plan<R: Runtime>(
     }
     if !cfg!(windows) && ["music-gguf","all-recommended"].contains(&variant.as_str()) {return Err("runtime".into());}
     let python = python.unwrap_or_else(|| "python".into());
-    let video_runtime_ready=if variant=="all-recommended" {Some(super::creation::creation_video_runtime_check(python.clone()).await.is_ok())} else {None};
+    let video_runtime_ready=if variant=="all-recommended" {Some(super::creation::creation_video_runtime_check(app.clone(), python.clone()).await.is_ok())} else {None};
     if variant.starts_with("nvfp4")
         && probe_nvfp4(&app, &python)
             .await?

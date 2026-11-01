@@ -792,7 +792,7 @@ function ProviderDetail() {
                     </div>
                   )
 
-                  return (
+                  const item = (
                     <CardItem
                       key={settingIndex}
                       title={translateSettingText(setting.title, t)}
@@ -829,6 +829,7 @@ function ProviderDetail() {
                       actions={actionComponent}
                     />
                   )
+                  return setting.key === 'python_path' ? <details key={settingIndex} className="p-3"><summary>{t('common:composer.advanced')} · Python</summary><p className="text-xs">{t('common:components.external')}</p>{item}</details> : item
                 })}
 
                 <DeleteProvider provider={provider} />

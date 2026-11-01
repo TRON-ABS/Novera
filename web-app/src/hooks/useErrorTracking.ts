@@ -13,7 +13,7 @@ export const useErrorTracking = create<{
   promptPending: true,
   setEnabled: (enabled) => set({ enabled, promptPending: false }),
 }), {
-  name: `novera-error-tracking-v1:${analyticsConsentScope}`,
+  name: `novera-error-tracking-v2:${analyticsConsentScope}`,
   storage: createJSONStorage(() => backendStorage),
   skipHydration: true,
 }))

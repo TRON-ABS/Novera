@@ -812,5 +812,24 @@
     "ask": "Pangutana una sa pag-usab o pagtangtang",
     "allow": "Tugoti ang pag-usab ug pagtangtang",
     "folderNote": "Pilia ang pagtugot sa Novera alang niining folder."
+  },
+  "components": {
+    "title": "Lokal nga mga sangkap",
+    "note": "I-install lang ang mga sangkap nga imong gikinahanglan. Novera nagpugong sa mga palibot sa Python nga bulag. Ang mga serbisyo sa cloud wala magkinahanglan og lokal nga pag-instalar.",
+    "estimates": "Gibana-bana nga pag-download: {{download}} · Gikinahanglan nga disk space: {{space}} · Anaa nga disk space: {{free}}",
+    "confirm": "I-install kining pribadong palibot? Ang pinili nga mga sangkap lamang ang ma-download. Ang mga lisensya sa ilang mga magmamantala magamit.",
+    "removeConfirm": "Kuhaa kining gidumala nga palibot? Ang imong mga modelo, mga binuhat ug mga panag-istoryahanay tipigan.",
+    "verify": "I-verify",
+    "repair": "Pag-ayo",
+    "uninstall": "I-uninstall",
+    "missing": "Wala ma-install",
+    "managed": "Gidumala ni Novera",
+    "external": "Usa ka opsyonal nga eksternal nga Python nga agianan nag-override sa gidumala nga profile. Hawani kini aron magamit ang palibot ni Novera.",
+    "failed": "Napakyas ang operasyon sa component. Susiha ang network, disk space ug mga katungod sa pag-access, unya sulayi pag-usab o ayohon.",
+    "required": "Andama ug pamatud-i ang gikinahanglan nga lokal nga mga sangkap sa Novera · Mga Configuration.",
+    "updateAvailable": "Update anaa",
+    "update": "Pag-update",
+    "rollback": "Iuli ang kanhing palibot",
+    "busy": "Idiskarga ang mga lokal nga modelo ug paghulat nga mahuman ang mga henerasyon sa dili pa mag-ilis sa mga sangkap."
   }
 }

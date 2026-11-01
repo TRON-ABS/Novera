@@ -366,6 +366,8 @@ pub fn run() {
     let app_builder = app_builder.invoke_handler(invoke_commands_with_extras![
         // Custom updater commands (desktop only)
         core::updater::commands::is_update_available,
+        core::components::components_status,
+        core::components::components_action,
         core::onnx::onnx_list,
         core::onnx::onnx_import,
         core::onnx::onnx_delete,

@@ -25,6 +25,8 @@ import { musicDurationFromPrompt } from '@/modules/engines/music'
 import { generationSequence } from './sequence'
 import { creationFailure } from './diagnostics'
 import { providerRemoteApiKeyChain } from '@/lib/provider-api-keys'
+import { currentResourceProfile } from '@/hooks/useAutoConfiguration'
+import { reportDiagnostic } from '@/lib/noveraDiagnostics'
 
 export function creationStream(
   task: CreationTask,
@@ -90,6 +92,7 @@ export function creationStream(
         if (!closed) controller.enqueue(chunk)
       }
       const started = performance.now()
+      let operation: 'generation' | 'save' = 'generation'
       const timing = (generationSeconds?: number) => ({
         novera: {
           ...(imageSeed !== undefined ? { seed: imageSeed } : {}),
@@ -103,6 +106,8 @@ export function creationStream(
       })
       try {
         if (!isPlatformTauri()) fail('chat:creation.desktopOnly')
+        if ((!selection || selection.provider === 'diffusers') && !currentResourceProfile().local[task])
+          fail('hub:catalog.tipLimited')
         if (task === 'video' && (!Number.isSafeInteger(settings.durationSeconds ?? 5) ||
           (settings.durationSeconds ?? 5) < 1 || (settings.durationSeconds ?? 5) > 3600))
           fail('chat:creation.videoDurationNote')
@@ -192,6 +197,7 @@ export function creationStream(
                 .setProgress(scope, { stage: 'generating', progress }),
           })
           if (cancelled) throw new DOMException('Aborted', 'AbortError')
+          operation = 'save'
           const saved = await invoke<{ name: string; mediaType: string }>(
             'creation_cloud_save',
             {
@@ -363,6 +369,10 @@ export function creationStream(
                   : String(error).includes('CREATION_BUSY')
                     ? new Error(i18n.t('hub:discovery.busy'))
                     : creationFailure(error, useModelProvider.getState().providers.flatMap(providerRemoteApiKeyChain))
+        if (!aborted) reportDiagnostic(error, { operation, task,
+          engine: selection && selection.provider !== 'diffusers' ? 'cloud' : settings.imageEngine === 'nvfp4-cuda' ? 'nvfp4' :
+            (task === 'image' ? settings.imageEngine : settings.videoEngine) === 'sdcpp' ? 'sdcpp' : 'transformers',
+          status: error instanceof CloudCreationError ? error.status : undefined })
         if (visible !== error)
           console.error('Novera creation diagnostics:', visible)
         if (!closed) {

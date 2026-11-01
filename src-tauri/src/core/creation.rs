@@ -15,6 +15,7 @@ const NVFP4: &str = include_str!("../../../media-server/nvfp4_compat.py");
 const WORKER: &str = include_str!("../../../media-server/worker.py");
 const NATIVE_FP4: &str = include_str!("../../../media-server/nvfp4_cuda.py");
 struct Job {
+    components_lease: Option<tokio::sync::OwnedRwLockReadGuard<()>>,
     child: Child,
     directory: PathBuf,
     output: PathBuf,
@@ -468,8 +469,11 @@ pub fn creation_check_files(mut request: Request) -> Result<(), String> {
 pub fn creation_music_models(directory: String) -> Result<Value, String> { music::models(directory) }
 
 #[tauri::command]
-pub async fn creation_video_runtime_check(python: String) -> Result<(),String> {
+pub async fn creation_video_runtime_check<R: Runtime>(app: AppHandle<R>, python: String) -> Result<(),String> {
+    let _lease = super::components::lease().await?;
+    let python = super::components::resolve(&app, &python, "video")?;
     let mut command=Command::new(if python.trim().is_empty(){"python"}else{&python});
+    super::components::configure_python(&mut command, &python);
     command.args(["-B","-c","import imageio_ffmpeg; imageio_ffmpeg.get_ffmpeg_version()"])
         .stdout(Stdio::null()).stderr(Stdio::null()).kill_on_drop(true);
     #[cfg(windows)] command.creation_flags(0x08000000);
@@ -482,6 +486,15 @@ pub async fn creation_start<R: Runtime>(
     app: AppHandle<R>,
     mut request: Request,
 ) -> Result<String, String> {
+    let components_lease = super::components::lease().await?;
+    if request.task != "music" {
+        let family = if request.backend.as_deref() == Some("sdcpp") {
+            if request.task == "video" { Some("video") }
+            else if requires_nvfp4(&request.model)? || request.cpp_llm.as_deref().map(requires_nvfp4).transpose()?.unwrap_or(false) { Some("media") }
+            else if request.upscale_factor.is_some() { Some("upscale") } else { None }
+        } else { Some("media") };
+        if let Some(family) = family { request.python = super::components::resolve(&app, &request.python, family)?; }
+    }
     if let Some(factor) = request.upscale_factor {
         if request.task != "image" || ![2, 4].contains(&factor) {
             return Err("CREATION_UPSCALE_INVALID".into());
@@ -519,6 +532,7 @@ pub async fn creation_start<R: Runtime>(
         } else {
             &request.python
         });
+        super::components::configure_python(&mut probe, &request.python);
         probe.args(["-c", "import torch, numpy; from PIL import Image; import sys; assert sys.argv[1] != 'cuda' or torch.cuda.is_available(), 'CUDA unavailable for upscaling'", &request.device]);
         probe.kill_on_drop(true);
         #[cfg(windows)]
@@ -708,6 +722,7 @@ pub async fn creation_start<R: Runtime>(
         let path=std::env::join_paths(paths).map_err(|e|e.to_string())?;
         command.env("PATH",&path); Some(path)
     } else {None};
+    super::components::configure_python(&mut command, &request.python);
     let child = command.spawn().map_err(|e| {
         format!(
             "{}: {e}",
@@ -721,6 +736,7 @@ pub async fn creation_start<R: Runtime>(
     jobs.insert(
         id.clone(),
         Job {
+            components_lease: Some(components_lease),
             child,
             directory,
             output,
@@ -766,17 +782,17 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
     if matches!(status, Some(status) if !status.success()) && music::recoverable(job) {
         match music::recover(job) {
             Ok(child) => {job.child=child;return Ok(json!({"stage":"loading","progress":-1,"device":"cpu","recovery":true}));},
-            Err(error) => {job.delivered=true;return Ok(json!({"stage":"error","error":error}));}
+            Err(error) => {job.delivered=true;job.components_lease.take();return Ok(json!({"stage":"error","error":error}));}
         }
     }
     if matches!(status, Some(status) if status.success()) && job.pending_music.is_some() {
         match music::transition(job) {
             Ok(child) => {job.child=child; return Ok(json!({"stage":"loading","progress":35}));},
-            Err(error) => {job.delivered=true;return Ok(json!({"stage":"error","error":error}));}
+            Err(error) => {job.delivered=true;job.components_lease.take();return Ok(json!({"stage":"error","error":error}));}
         }
     }
     if matches!(status, Some(status) if status.success()) && job.task == "music" && !job.output.exists() {
-        if let Err(error)=music::publish(job) {job.delivered=true;let _=std::fs::remove_file(&job.staged);return Ok(json!({"stage":"error","error":error}));}
+        if let Err(error)=music::publish(job) {job.delivered=true;job.components_lease.take();let _=std::fs::remove_file(&job.staged);return Ok(json!({"stage":"error","error":error}));}
     }
     if matches!(status, Some(status) if status.success()) && job.pending_cpp.is_some() {
         let transition = (|| -> Result<Child, String> {
@@ -862,6 +878,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             }
             Err(error) => {
                 job.delivered = true;
+            job.components_lease.take();
                 Ok(json!({"stage":"error","error":error}))
             }
         };
@@ -882,6 +899,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             std::fs::write(&path, serde_json::to_vec(&config).map_err(|e| e.to_string())?)
                 .map_err(|e| e.to_string())?;
             let mut command = Command::new(if request.python.trim().is_empty() { "python" } else { &request.python });
+            super::components::configure_python(&mut command, &request.python);
             command.arg("-u").arg(job.directory.join("upscale.py")).arg(path);
             // From this point parse only the owned Python worker's JSON. Never
             // reinterpret raw sd-cli output as trusted progress after transition.
@@ -904,6 +922,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             Ok(child) => { job.child = child; Ok(json!({"stage":"upscaling","progress":-1})) },
             Err(error) => {
                 job.delivered = true;
+            job.components_lease.take();
                 let _ = std::fs::remove_file(&job.staged);
                 Ok(json!({"stage":"error","error":format!("CREATION_UPSCALE: {error}")}))
             }
@@ -972,6 +991,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
         })();
         if let Err(error) = publish {
             job.delivered = true;
+            job.components_lease.take();
             let _ = std::fs::remove_file(&job.staged);
             if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));
@@ -986,6 +1006,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             .unwrap_or(json!({"stage":if job.expected_upscale.is_some() {"upscaling"} else if job.cpp {"generating"} else {"loading"},"progress":if job.cpp {-1} else {0}}))),
         Some(status) if status.success() && job.output.is_file() => {
             job.delivered = true;
+            job.components_lease.take();
             let generation_seconds = if job.expected_upscale.is_some() {
                 std::fs::read_to_string(job.directory.join("generated.json")).ok()
                     .and_then(|s| serde_json::from_str::<Value>(&s).ok())
@@ -997,6 +1018,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
         }
         Some(status) => {
             job.delivered = true;
+            job.components_lease.take();
             let _ = std::fs::remove_file(&job.staged);
             if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));
@@ -1033,6 +1055,7 @@ pub async fn creation_cancel(id: String) -> Result<(), String> {
             }
             job.cancelled = true;
             job.delivered = true;
+            job.components_lease.take();
             let _ = std::fs::remove_file(&job.staged);
             if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));

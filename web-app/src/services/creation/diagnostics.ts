@@ -21,7 +21,7 @@ export function creationFailure(error: unknown, secrets: readonly string[] = [])
     .slice(0, 1600)
   const memory = /out of memory|memoryerror|workspace (?:capacity check|allocation)|cannot make enough memory available|not enough (?:device )?memory|failed to allocate.*(?:memory|buffer)|cudaErrorMemoryAllocation/i.test(detail)
   return new Error(
-    `${i18n.t('chat:creation.failed')}${memory ? ` ${i18n.t('hub:catalog.tipLimited')}` : ''}` +
+    `${i18n.t(detail.includes('COMPONENT_') ? 'common:components.required' : 'chat:creation.failed')}${memory ? ` ${i18n.t('hub:catalog.tipLimited')}` : ''}` +
     (detail ? `\n${i18n.t('common:errorDialog.details')}: ${detail}` : '')
   )
 }

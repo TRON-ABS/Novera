@@ -9,6 +9,7 @@ import { useImageUpscale } from './useImageUpscale'
 import { joinLocalPath } from '@/modules/platform/local-path'
 import { useMusicCreation } from './useMusicCreation'
 import { configureRecommendedBundle } from '@/services/creation/setup'
+import { reportDiagnostic } from '@/lib/noveraDiagnostics'
 
 export interface InstallPlan {
   variant?: string
@@ -123,12 +124,17 @@ export function useCreationInstallSync() {
     let disposed = false
     let timer: ReturnType<typeof setTimeout>
     let configuring: string | undefined
+    let lastFailure: string | undefined
     async function poll() {
       try {
         const job = await invoke<InstallSnapshot | null>(
           'creation_bundle_status'
         )
         if (!disposed) {
+          if (job?.phase === 'error' && lastFailure !== job.plan.token) {
+            lastFailure = job.plan.token
+            reportDiagnostic(job.error, { operation: 'download', engine: 'unknown' })
+          } else if (job?.phase !== 'error') lastFailure = undefined
           if (job?.plan.variant==='music-gguf')useMusicCreation.getState().importReady(job)
           else if(job&&job.plan.variant!=='all-recommended')useMediaLibrary.getState().importReady(job)
           useCreationInstall.getState().setJob(job ?? undefined)
@@ -136,7 +142,7 @@ export function useCreationInstallSync() {
           if(job?.phase==='ready'&&automatic&&!automatic.done&&!automatic.error&&configuring!==job.plan.token) {
             configuring=job.plan.token
             try {await applyInstalled(job,automatic.scope,false);useCreationInstall.getState().finishAutomatic(job.plan.token)}
-            catch(error) {useCreationInstall.getState().finishAutomatic(job.plan.token,true,String(error).slice(0,1600))}
+            catch(error) {reportDiagnostic(error,{operation:'configuration'});useCreationInstall.getState().finishAutomatic(job.plan.token,true,String(error).slice(0,1600))}
             finally {configuring=undefined}
           }
         }

@@ -23,6 +23,7 @@ GitHub repository rules control updates to `main` and tag creation. Separate his
 2. Validate the candidate, document the actual tests and their limits, and retain the original license and third-party notices.
 3. Prepare a draft release from a reviewed commit, with Novera-specific versioning, assets, release notes and checksums.
 4. Complete the applicable signing and verification process before publication. Signing infrastructure and an independent update feed are still to be established; this policy does not assert that binaries are already signed or attested.
+   For a monitored release, retain its exact build ID and private symbols, verify their authenticated PostHog upload and test error delivery from that binary with consent. Pending symbols or an unconfigured alert destination must remain visible in the release checklist; see [maintenance](docs/MAINTENANCE.md). Preparing diagnostics does not enable user consent or authorize publication.
 5. Publish only after the maintainer authorizes the completed draft. With GitHub release immutability enabled, prepare all intended assets before publishing; published assets and their associated tag are then protected by GitHub's immutability controls.
 
 Check the repository's current settings to confirm enforcement. The settings can change independently of this document. The repository's public rulesets provide the current technical controls.

@@ -6,7 +6,7 @@ use std::sync::Arc;
 
 use rand::Rng;
 use serde::{Deserialize, Serialize};
-use tauri::{Manager, State};
+use tauri::{Emitter, Manager, State};
 use tauri_plugin_hardware::vendor::nvidia::{nvidia_driver, CudaVersion, NvidiaDriver};
 
 use super::driver;
@@ -559,7 +559,8 @@ pub async fn erase_thread_slot_state(
 }
 
 #[tauri::command]
-pub async fn get_engine_info(
+pub async fn get_engine_info<R: tauri::Runtime>(
+    app_handle: tauri::AppHandle<R>,
     state: State<'_, Arc<LlamacppState>>,
 ) -> Result<Option<EngineInfo>, String> {
     let mut guard = state.engine.lock().await;
@@ -568,6 +569,8 @@ pub async fn get_engine_info(
     if let Some(h) = guard.as_mut() {
         if let Some(status) = h.exited() {
             log::warn!("novera-llama-worker exited unexpectedly: {status}");
+            // Local fixed event only. The frontend reports it only with consent.
+            let _ = app_handle.emit("novera-runtime-failure", ());
             *guard = None;
             return Ok(None);
         }

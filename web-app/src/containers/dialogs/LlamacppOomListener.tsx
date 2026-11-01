@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { listen } from '@tauri-apps/api/event'
+import { reportDiagnostic } from '@/lib/noveraDiagnostics'
 
 import { useAppState } from '@/hooks/useAppState'
 import { useCoworkRun } from '@/hooks/useCoworkRun'
@@ -27,6 +28,7 @@ export default function LlamacppOomListener() {
     if (!isPlatformTauri()) return
     const unlistenOom = listen<string>('llamacpp-router-oom', (event) => {
       if (!hasActiveLlamacppRequest()) return
+      reportDiagnostic(undefined, { operation: 'runtime', task: 'text', engine: 'llamacpp', code: 'memory' })
       const payload = event.payload ?? ''
       stampErrorOnLastUserMessage('oomError', payload)
       clearActiveWork()
@@ -39,6 +41,7 @@ export default function LlamacppOomListener() {
       'llamacpp-router-backend-error',
       (event) => {
         if (!hasActiveLlamacppRequest()) return
+        reportDiagnostic(event.payload, { operation: 'runtime', task: 'text', engine: 'llamacpp' })
         const payload = event.payload ?? ''
         stampErrorOnLastUserMessage('backendError', payload)
         clearActiveWork()

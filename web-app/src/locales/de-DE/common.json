@@ -814,5 +814,24 @@
     "ask": "Vor dem Bearbeiten oder Löschen fragen",
     "allow": "Bearbeiten und Löschen erlauben",
     "folderNote": "Wähle die Zugriffsrechte von Novera für diesen Ordner."
+  },
+  "components": {
+    "title": "Lokale Komponenten",
+    "note": "Installieren Sie nur die Komponenten, die Sie benötigen. Novera hält Python-Umgebungen getrennt. Cloud-Dienste benötigen keine lokale Installation.",
+    "estimates": "Geschätzter Download: {{download}} · Erforderlicher Speicherplatz: {{space}} · Verfügbarer Speicherplatz: {{free}}",
+    "confirm": "Diese private Umgebung installieren? Es werden nur die ausgewählten Komponenten heruntergeladen. Es gelten die jeweiligen Verlagslizenzen.",
+    "removeConfirm": "Diese verwaltete Umgebung entfernen? Ihre Modelle, Kreationen und Gespräche bleiben erhalten.",
+    "verify": "Überprüfen",
+    "repair": "Reparatur",
+    "uninstall": "Deinstallieren",
+    "missing": "Nicht installiert",
+    "managed": "Verwaltet von Novera",
+    "external": "Ein optionaler externer Python-Pfad überschreibt das verwaltete Profil. Deaktivieren Sie es, um die Umgebung von Novera zu verwenden.",
+    "failed": "Der Komponentenvorgang ist fehlgeschlagen. Überprüfen Sie das Netzwerk, den Speicherplatz und die Zugriffsrechte und versuchen Sie es erneut oder reparieren Sie es.",
+    "required": "Bereiten Sie die erforderlichen lokalen Komponenten in Novera · Konfigurationen vor und überprüfen Sie sie.",
+    "updateAvailable": "Update verfügbar",
+    "update": "Aktualisierung",
+    "rollback": "Vorherige Umgebung wiederherstellen",
+    "busy": "Entladen Sie lokale Modelle und warten Sie, bis die Generationen abgeschlossen sind, bevor Sie Komponenten ändern."
   }
 }

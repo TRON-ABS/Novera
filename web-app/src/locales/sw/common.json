@@ -812,5 +812,24 @@
     "ask": "Uliza kabla ya kuhariri au kufuta",
     "allow": "Ruhusu kuhariri na kufuta",
     "folderNote": "Chagua jinsi Novera itakavyofikia folda hii."
+  },
+  "components": {
+    "title": "Vipengee vya ndani",
+    "note": "Sakinisha vipengele unavyohitaji pekee. Novera hutenganisha mazingira ya Python. Huduma za wingu hazihitaji usakinishaji wa ndani.",
+    "estimates": "Kadirio la upakuaji: {{download}} · Nafasi ya diski inayohitajika: {{space}} · Nafasi ya diski inayopatikana: {{free}}",
+    "confirm": "Sakinisha mazingira haya ya faragha? Vipengee vilivyochaguliwa pekee ndivyo vitapakuliwa. Leseni za wachapishaji wao zinatumika.",
+    "removeConfirm": "Je, ungependa kuondoa mazingira haya yanayodhibitiwa? Miundo, ubunifu na mazungumzo yako yatahifadhiwa.",
+    "verify": "Thibitisha",
+    "repair": "Urekebishaji",
+    "uninstall": "Sanidua",
+    "missing": "Haijasakinishwa",
+    "managed": "Inadhibitiwa na Novera",
+    "external": "Njia ya hiari ya Python ya nje inabatilisha wasifu unaosimamiwa. Ifute ili utumie mazingira ya Novera.",
+    "failed": "Uendeshaji wa kipengele umeshindwa. Angalia mtandao, nafasi ya diski na haki za ufikiaji, kisha ujaribu tena au urekebishe.",
+    "required": "Andaa na uthibitishe vipengele vya ndani vinavyohitajika katika Novera · Mipangilio.",
+    "updateAvailable": "Sasisho linapatikana",
+    "update": "Sasisha",
+    "rollback": "Rejesha mazingira ya awali",
+    "busy": "Pakua miundo ya ndani na usubiri vizazi imalize kabla ya kubadilisha vipengee."
   }
 }

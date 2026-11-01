@@ -5,6 +5,7 @@ import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import { generateCloudMedia } from './cloud'
 import { useNoveraInstructions } from '@/hooks/useNoveraInstructions'
 import type { UIMessage } from 'ai'
+import { useHardware } from '@/hooks/useHardware'
 
 vi.mock('@tauri-apps/api/core', () => ({ invoke: vi.fn() }))
 vi.mock('@/lib/platform/utils', () => ({ isPlatformTauri: () => true }))
@@ -21,6 +22,7 @@ vi.mock('@/hooks/useModelProvider', () => ({
     getState: () => ({
       providers: [
         { provider: 'openai', active: true, api_key: 'test-only-key' },
+        { provider: 'fal', active: true, api_key: 'test-only-key' },
       ],
     }),
   },
@@ -43,6 +45,7 @@ async function read(stream: ReturnType<typeof creationStream>) {
 }
 describe('cloud conversation lifecycle', () => {
   beforeEach(() => {
+    useHardware.setState({ hardwareData: { ...useHardware.getState().hardwareData, os_type: 'android', total_memory: 4096, gpus: [] } })
     vi.clearAllMocks()
     useNoveraInstructions.setState({ instructions: { text: 'TEXT ONLY', image: 'IMAGE ONLY', video: 'VIDEO ONLY' } })
     useCreation.setState({
@@ -54,6 +57,22 @@ describe('cloud conversation lifecycle', () => {
       sources: {},
       progress: {},
     })
+  })
+  it.each(['image', 'video'] as const)('blocks local %s on a small mobile without submitting a native job', async task => {
+    useCreation.setState({ selections: {} })
+    await expect(read(creationStream(task, 'create', messages, 'thread', undefined, vi.fn())))
+      .rejects.toThrow('hub:catalog.tipLimited')
+    expect(generateCloudMedia).not.toHaveBeenCalled()
+    expect(invoke).not.toHaveBeenCalledWith('creation_start', expect.anything())
+  })
+  it('keeps cloud video generation available on a small mobile', async () => {
+    useCreation.setState({ selections: { thread: { video: { provider: 'fal', id: 'fal-ai/pika/v2.2/text-to-video' } } } })
+    vi.mocked(generateCloudMedia).mockResolvedValue({ base64: 'AAAA' })
+    vi.mocked(invoke).mockImplementation(async command => command === 'creation_cloud_save'
+      ? { name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.mp4', mediaType: 'video/mp4' } : undefined)
+    const chunks = await read(creationStream('video', 'create', messages, 'thread', undefined, vi.fn()))
+    expect(generateCloudMedia).toHaveBeenCalled()
+    expect(chunks).toContainEqual(expect.objectContaining({ type: 'file', mediaType: 'video/mp4' }))
   })
   it('emits only a saved reference, passes no credentials to native saving, and releases the job', async () => {
     vi.mocked(generateCloudMedia).mockResolvedValue({ base64: 'AAAA' })

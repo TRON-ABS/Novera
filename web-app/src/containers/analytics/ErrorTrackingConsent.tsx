@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { useAnalytic } from '@/hooks/useAnalytic'
 import { useErrorTracking } from '@/hooks/useErrorTracking'
 import { useTranslation } from '@/i18n/react-i18next-compat'
+import { ErrorTrackingDetails } from './ErrorTrackingDetails'
 
 /** A separate decision; accepting usage statistics never answers this question. */
 export function ErrorTrackingConsent() {
@@ -14,6 +15,7 @@ export function ErrorTrackingConsent() {
       <p className="text-xs text-muted-foreground leading-normal">
         {t(analyticsAvailable ? 'common:errorTracking.summary' : 'common:errorTracking.unavailable', { host: analyticsHost })}
       </p>
+      {analyticsAvailable && <ErrorTrackingDetails />}
       <div className="mt-4 flex justify-end gap-2">
         <Button variant="ghost" size="sm" onClick={() => setEnabled(false)}>
           {t('common:deny')}

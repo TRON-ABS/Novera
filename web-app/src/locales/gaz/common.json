@@ -812,5 +812,24 @@
     "ask": "Gulaaluu yookaan haquu dura gaafadhu",
     "allow": "Gulaaluu fi haquu hayyami",
     "folderNote": "Novera akkamitti galmee kana akka seenu filadhu."
+  },
+  "components": {
+    "title": "Qaamolee naannoo",
+    "note": "Qaamolee isin barbaachisan qofa dhaabuu. Novera naannoowwan Paayitoonii addaan eega. Tajaajiloonni duumessaa fe'iinsa naannoo hin barbaadan.",
+    "estimates": "Tilmaama buufachuu: {{download}} · Bakka diskiin barbaachisu: {{space}} · Bakka diskiin jiru: {{free}}",
+    "confirm": "Naannoo dhuunfaa kana dhaabuu? Qaamolee filataman qofatu buufama. Hayyamni maxxantoota isaanii hojiirra oola.",
+    "removeConfirm": "Naannoo bulfamu kana balleessuu? Moodeelotni, uumamni fi haasawa keessan ni eegama.",
+    "verify": "Mirkaneessaa",
+    "repair": "Suphaan",
+    "uninstall": "Uninstall gochuu",
+    "missing": "Hin fe'amne",
+    "managed": "Kan bulchu Novera .",
+    "external": "Daandiin Paayitoonii alaa filannoo piroofaayilii bulfame irra darba. Naannoo Novera’s fayyadamuuf qulqulleessi.",
+    "failed": "Hojiin qaama (component) hin milkoofne. Neetwork, bakka diskiin fi mirga qaqqabummaa ilaali, sana booda irra deebi'ii yaali ykn suphaa.",
+    "required": "Qaamolee naannoo barbaachisoo Novera · Qindeessitoota keessatti qopheessuu fi mirkaneessuu.",
+    "updateAvailable": "Fooyya'iinsi ni jira",
+    "update": "Haaraa",
+    "rollback": "Naannoo duraanii deebisuu",
+    "busy": "Moodeelota naannoo buusuun qaamolee jijjiiruu dura dhaloonni akka xumuran eegaa."
   }
 }

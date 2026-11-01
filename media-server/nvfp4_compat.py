@@ -76,8 +76,8 @@ def prepare(source, cache, staging=None):
     import torch
     from safetensors import safe_open
     source, cache = Path(os.path.abspath(source)), Path(os.path.abspath(cache))
-    if sys.version_info[:3] != (3, 15, 1):
-        raise ValueError('Select Python 3.15.1 for NVFP4 preparation')
+    if sys.version_info[:3] not in ((3, 12, 12), (3, 15, 1)):
+        raise ValueError('COMPONENT_PYTHON_VERSION')
     torch.set_num_threads(min(8, os.cpu_count() or 1))
     data, data_start = header(source)
     source_info = source.stat()

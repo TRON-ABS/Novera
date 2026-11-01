@@ -812,5 +812,24 @@
     "ask": "Takon sadurunge ngowahi utawa mbusak",
     "allow": "Idini ngowahi lan mbusak",
     "folderNote": "Pilih akses Novera menyang folder iki."
+  },
+  "components": {
+    "title": "Komponen lokal",
+    "note": "Instal mung komponen sing sampeyan butuhake. Novera njaga lingkungan Python kapisah. Layanan awan ora mbutuhake instalasi lokal.",
+    "estimates": "Taksiran download: {{download}} · Ruang disk sing dibutuhake: {{space}} · Ruang disk sing kasedhiya: {{free}}",
+    "confirm": "Instal lingkungan pribadi iki? Mung komponen sing dipilih bakal diundhuh. Lisensi penerbit ditrapake.",
+    "removeConfirm": "Mbusak lingkungan sing dikelola iki? Model, kreasi lan obrolan sampeyan bakal disimpen.",
+    "verify": "Verifikasi",
+    "repair": "Repair",
+    "uninstall": "Busak instal",
+    "missing": "Ora diinstal",
+    "managed": "Dikelola dening Novera",
+    "external": "Path Python eksternal opsional ngatasi profil sing dikelola. Busak kanggo nggunakake lingkungan Novera.",
+    "failed": "Operasi komponen gagal. Priksa jaringan, ruang disk lan hak akses, banjur coba maneh utawa ndandani.",
+    "required": "Siapke lan verifikasi komponen lokal sing dibutuhake ing Novera · Konfigurasi.",
+    "updateAvailable": "Nganyari kasedhiya",
+    "update": "Nganyari",
+    "rollback": "Mulihake lingkungan sadurunge",
+    "busy": "Mbongkar model lokal lan ngenteni nganti pirang-pirang generasi rampung sadurunge ngganti komponen."
   }
 }

@@ -7,7 +7,6 @@
     "empty": "Gisu ñu benn waxtaan"
   },
   "send": "Yónnee",
-
   "sendMessage": "Yonnee mesaas",
   "newConversation": "Waxtaan bu bees",
   "clearHistory": "Leeral jaar-jaar",
@@ -144,9 +143,9 @@
     "ggufTextEncoder": "Enkoderu mbind (GGUF wala ay tensor yu méngoo)",
     "ggufVae": "VAE (GGUF wala Safetensor yu méngoo)",
     "ggufGuidance": "Njàngale (CFG)",
-    "ggufNote": "Tannal xeetu diffusion bi, encodeur bi ak VAE ñu wuute. Ngir FLUX.2 Klein 4B, jëfandikoo encodeur Qwen3-4B bu méngoo, boole ci ay xeetam GGUF. Fichier NVFP4 yiñ jàppale dañu leen di waajal benn yoon ci Python 3.15.1 ak PyTorch ci cache bu gëna mag; orginaal yi duñu soppeeku. Loolu mingi soxla palaas bu gëna bari ci disk bi ak RAM. Ci Windows, Novera dafay boole ak di doxal motër bi ci saa si. Auto dafay jëfandikoo aparey bi jàppandi; CUDA soxla tabax CUDA. Klein distiye dafay faral di jëfandikoo 4 jéego ak CFG 1. Amul benn poid buñuy yebbi.",
+    "ggufNote": "Tannal xeetu diffusion bi, encodeur bi ak VAE ñu wuute. Ngir FLUX.2 Klein 4B, jëfandikoo encodeur Qwen3-4B bu méngoo, boole ci ay xeetam GGUF. Fichier NVFP4 yiñ jàppale dañu leen di waajal benn yoon ci Python ak PyTorch ci cache bu gëna mag; orginaal yi duñu soppeeku. Loolu mingi soxla palaas bu gëna bari ci disk bi ak RAM. Ci Windows, Novera dafay boole ak di doxal motër bi ci saa si. Auto dafay jëfandikoo aparey bi jàppandi; CUDA soxla tabax CUDA. Klein distiye dafay faral di jëfandikoo 4 jéego ak CFG 1. Amul benn poid buñuy yebbi.",
     "ggufWrongModel": "GGUF bii dafa am enkoderu mbind. Tannal ko ci barabu encoder bi nga tann beneen xeetu diffusion ci barabu nataal bi.",
-    "nativeNote": "Judd NVFP4 CUDA: FLUX.2 Klein 4B Poids confortables, Qwen3-4B GGUF enkoder ak FLUX.2 Detenteur de sécurité VAE. Dafay laaj Blackwell (RTX 50 wala lu méngoo), python 3.15.1, CUDA PyTorch ak tànneef NVFP4 dependence yi. Bind-ci-nataal kese. Hardware biñ jàppalewul dafay yàqu bu baax; Tannal diffusion.cpp bu dëgër ngir méngoo. Déedéet BF16 cache diffusion.",
+    "nativeNote": "Judd NVFP4 CUDA: FLUX.2 Klein 4B Poids confortables, Qwen3-4B GGUF enkoder ak FLUX.2 Detenteur de sécurité VAE. Dafay laaj Blackwell (RTX 50 wala lu méngoo), python, CUDA PyTorch ak tànneef NVFP4 dependence yi. Bind-ci-nataal kese. Hardware biñ jàppalewul dafay yàqu bu baax; Tannal diffusion.cpp bu dëgër ngir méngoo. Déedéet BF16 cache diffusion.",
     "encoderDevice": "Encodeur de texte: CPU / GPU",
     "generationDevice": "Jamono: CPU / GPU",
     "deviceNote": "Koposaŋ yii am nañu tànneef ci aparey bi. Auto dafay jëfandikoo aparey bi jàppandi; NVFP4 natif dafay laaj GPU bu méngoo ngir génne ko, te dafay jëfandikoo enkodaasu bind GPU sudee VRAM doyul. Qwen ci CPU mën na denc VRAM waaye kodage bi yeex. Qwen ci kaw GPU dafay jëfandikoo decharge couche. Ci diffusion.cpp bu dëgër, Auto dafay topp motër biñ tànn; forse CUDA defay laaj nga tabax CUDA.",
@@ -170,7 +169,7 @@
     "upscaleModel": "Modèle buy yokk",
     "upscaleInstall": "Def leen ñaari model ofisel yi",
     "upscaleNote": "Ginaaw jamono. Dafay laaj python/pytorch. Sortie bi gëna mag: ×2 4096 × 4096, × 4 8192 × 8192.",
-    "upscaleMissing": "Sampaaleel model yi wala nga tànn fichier .pth bu méngoo, nga xool Python/PyTorch.",
+    "upscaleMissing": "Waajal te xool bu baax mbir yiñ soxla ci Novera · Tabluwaay yi.",
     "ratio": "Rasio",
     "resolution": "Dayo",
     "customSize": "Tàmm",

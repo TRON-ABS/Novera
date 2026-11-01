@@ -814,5 +814,24 @@
     "ask": "修改或删除前询问",
     "allow": "允许修改和删除",
     "folderNote": "选择 Novera 对此文件夹的访问权限。"
+  },
+  "components": {
+    "title": "本地组件",
+    "note": "仅安装您需要的组件。 Novera 将 Python 环境分开。云服务无需本地安装。",
+    "estimates": "预计下载：{{download}} · 所需磁盘空间：{{space}} · 可用磁盘空间：{{free}}",
+    "confirm": "安装这个私有环境？仅下载选定的组件。他们的出版商许可证适用。",
+    "removeConfirm": "删除此托管环境？您的模型、创作和对话将被保留。",
+    "verify": "验证",
+    "repair": "修复",
+    "uninstall": "卸载",
+    "missing": "未安装",
+    "managed": "由 Novera 管理",
+    "external": "可选的外部 Python 路径会覆盖托管配置文件。清除它以使用 Novera 的环境。",
+    "failed": "组件操作失败。检查网络、磁盘空间和访问权限，然后重试或修复。",
+    "required": "在 Novera · 配置中准备并验证所需的本地组件。",
+    "updateAvailable": "有更新",
+    "update": "更新",
+    "rollback": "恢复之前的环境",
+    "busy": "卸载本地模型并等待生成完成后再更改组件。"
   }
 }

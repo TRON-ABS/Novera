@@ -1,5 +1,15 @@
 # Novera — guide utilisateur
 
+## Composants locaux gérés — sources du 1er novembre 2026
+
+Dans **Novera · Configurations → Composants locaux**, choisir le moteur nécessaire, consulter les tailles estimées et l'espace disponible, puis confirmer l'installation. Novera prépare Python et les bibliothèques dans des environnements privés, vérifie le résultat et résout les chemins automatiquement. Les variantes CPU/CUDA ou ExLlama sont séparées ; rien n'est téléchargé à l'ouverture. Les moteurs natifs GGUF et ACE-Step gardent leur parcours existant, sans Python imposé.
+
+Les commandes **Vérifier, Réparer, Utiliser, Désinstaller**, ainsi que mise à jour/restauration lorsqu'elles s'appliquent, sont disponibles par profil. Les modèles et conversations sont conservés. Décharger les moteurs locaux et attendre la fin des générations avant une maintenance ; Novera ne les interrompt pas de force. Les erreurs donnent une reprise et un code technique dans les détails.
+
+Les chemins Python/exécutables personnalisés sont sous **Paramètres avancés**. Un chemin externe explicite reste prioritaire ; l'effacer rétablit le profil géré. L'ancien défaut `python` demande désormais le profil Novera et ne cherche plus implicitement Python dans PATH. La pile Python 3.15.1 déjà installée peut rester utilisée avec son chemin explicite.
+
+Ce gestionnaire cible actuellement **Windows x64**. Il n'installe pas les piles desktop sur Android/iOS ; le cloud reste utilisable sans composant local. Linux/macOS, CUDA, ExLlama et chaque fonction nécessitent leur validation propre. Disponible dans les sources, à intégrer au prochain desktop compilé par le mainteneur ; [profils, tests et limites](REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Python/PyTorch ne sont pas embarqués dans l'EXE à ce stade, cette option ayant été reportée.
+
 ## Informations utilisateur — tableau de bord et créations, 29 octobre 2026
 
 Le tableau de bord conserve une largeur maximale de **1 024 px** et s’adapte aux fenêtres plus petites. Dans la rangée basse, les commandes suivent cet ordre : **Mémoire auto → Réglages → Téléchargements**. Réglages ouvre la même configuration commune ; Téléchargements donne accès à la progression et aux commandes des téléchargements en cours. **L’icône Téléchargements est uniquement dans le tableau de bord**, sans doublon dans l’en-tête ou le panneau latéral, y compris sur Configurations. Revenez au tableau de bord pour consulter les téléchargements ; leur suivi continue en arrière-plan. Ce raccourci n’active aucune compilation ni mise à jour automatique.
@@ -25,6 +35,12 @@ Cette section décrit les sources mises à jour ; leur présence dans votre appl
 Auto facilite l’orientation et la gestion des réglages disponibles ; il ne fournit pas de clé API et ne supprime pas les contraintes matérielles. Les rangées du tableau de bord reviennent à la ligne lorsque l’espace manque. Sur une petite fenêtre, certains outils restent accessibles dans leur menu regroupé.
 
 ### Quel modèle sert à quoi ?
+
+Sur mobile ou petite configuration, **Novera · Configurations** propose désormais dans les sources un modèle léger : **LFM3-1.7B Q4_K_M**, ou **LFM3-Omni-2B Q4_K_M et son projecteur multimodal** lorsque la mémoire disponible et la version du moteur sont suffisantes. Le choix « utiliser » de cette recommandation applique un contexte de départ de **2 048 tokens** au modèle choisi ; les autres modèles et les choix manuels restent conservés. Aucun téléchargement ni appel cloud ne démarre à l'ouverture des Configurations.
+
+Les commandes locales trop lourdes sont masquées ou indisponibles ; Auto ne peut pas contourner cette limite. Les sections image, musique et vidéo restent accessibles pour choisir un **modèle cloud**, indépendamment de la puissance locale, avec les accès et éventuels coûts du fournisseur. La consultation des créations existantes reste disponible. Omni comprend des médias et peut produire de la parole selon le moteur ; son choix ne constitue pas une validation de la voix temps réel, ni un générateur d'images, de musique ou de vidéos.
+
+La détection et les budgets sont des estimations : consultez les indications de mémoire et de compatibilité avant de télécharger. Un matériel non identifié n'est pas déclaré compatible. Les sources doivent être recompilées ; les essais des nouveaux profils sur téléphone restent à faire.
 
 | Fonction | Modèle ou composants du parcours local | À comprendre |
 | --- | --- | --- |
@@ -596,11 +612,13 @@ Les statistiques et le suivi des erreurs ont des consentements **indépendants**
 | Fonction | Données et limites |
 | --- | --- |
 | Statistiques facultatives | Événement `novera_app_started`, version et OS, UUID aléatoire par événement, jamais réutilisé. Compte des démarrages consentis, pas des utilisateurs uniques. |
-| Suivi des erreurs facultatif | Erreurs JavaScript non interceptées et promesses rejetées sans gestionnaire ; type d’erreur autorisé, message technique constant, version/OS et éventuellement positions numériques du bundle principal. Déduplication, au plus dix rapports par activation et dix positions par pile. |
+| Suivi des erreurs facultatif | Erreurs JavaScript, frontière React et erreurs interceptées des parcours instrumentés : chargement, téléchargement, validation, mémoire, génération et sauvegarde. Version/build/commit, état des sources, OS/architecture, moteur, tâche et code technique bornés ; piles limitées aux assets applicatifs. Occurrences comptées jusqu'à 60 rapports/minute par activation, dix positions par pile ; excédents comptés pour le prochain rapport. UUID temporaire par activation, gardé uniquement en mémoire. |
 
 Aucune conversation, prompt, recherche, résultat d’outil, clé, identité utilisateur, nom de modèle ou chemin n’est sérialisé. Les messages d’erreurs bruts, causes et propriétés personnalisées sont exclus. Pas de cookies, enregistrement de session, profil de personne ou SDK de capture automatique. Le serveur voit les informations de connexion : sa rétention et le traitement des IP restent à configurer ; le client seul ne garantit pas l’anonymat des journaux serveur.
 
-Les erreurs interceptées par React/le routeur et les crashs natifs Rust, Android ou moteur ne sont pas couverts. Pas de source maps publiées, ni file persistante de rapports. Les diagnostics locaux et l’OpenTelemetry avancé des agents sont distincts, ce dernier désactivé sans configuration explicite du collecteur.
+Le nouveau schéma v2 redemande l'accord pour les informations techniques supplémentaires, avec des libellés dans les 80 langues. Le refus et les autres choix de confidentialité restent indépendants. Les sessions/« utilisateurs » comptés dans le suivi désignent des activations consenties, pas des personnes identifiées. Les requêtes ont une limite de dix secondes ; pas de file persistante de rapports. Les source maps sont privées et retirées de l'application distribuée ; leur envoi au mainteneur est distinct du consentement utilisateur.
+
+Les OOM et arrêts de worker détectés sont instrumentés ; un crash brutal du processus principal ou un arrêt par le système avant envoi peut rester invisible. Aucun système universel de crash dumps natifs n'est annoncé. Les diagnostics locaux et l’OpenTelemetry avancé des agents sont distincts, ce dernier désactivé sans configuration explicite du collecteur. Voir [maintenance et limites](MAINTENANCE.md).
 
 La configuration de construction et les essais réalisés sont décrits dans [construction](BUILD_AND_RELEASE.md#telemetry) et [historique](CHANGELOG.md#history).
 

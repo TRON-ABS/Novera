@@ -812,5 +812,24 @@
     "ask": "Béèrè kí o tó ṣàtúnṣe tàbí parẹ́",
     "allow": "Gba àtúnṣe àti píparẹ́ láàyè",
     "folderNote": "Yan bí Novera ṣe lè wọ fódà yìí."
+  },
+  "components": {
+    "title": "Awọn paati agbegbe",
+    "note": "Fi sori ẹrọ awọn paati ti o nilo nikan. Novera n tọju awọn agbegbe Python lọtọ. Awọn iṣẹ awọsanma ko nilo fifi sori agbegbe.",
+    "estimates": "Gbigba lati ayelujara ifoju: {{download}} · Aaye disk ti o beere: {{space}} · Aaye disk ti o wa: {{free}}",
+    "confirm": "Fi agbegbe ikọkọ yii sori ẹrọ? Awọn paati ti o yan nikan ni yoo ṣe igbasilẹ. Awọn iwe-aṣẹ awọn olutẹjade wọn lo.",
+    "removeConfirm": "Yọọ agbegbe iṣakoso yii kuro? Awọn awoṣe rẹ, awọn ẹda ati awọn ibaraẹnisọrọ yoo wa ni ipamọ.",
+    "verify": "Jẹrisi",
+    "repair": "Atunṣe",
+    "uninstall": "Aifi si po",
+    "missing": "Ko fi sori ẹrọ",
+    "managed": "Ti iṣakoso nipasẹ Novera",
+    "external": "Ọna Python ita ita yiyan bori profaili ti iṣakoso. Pa a kuro lati lo agbegbe Novera.",
+    "failed": "Iṣẹ paati ti kuna. Ṣayẹwo nẹtiwọki, aaye disk ati awọn ẹtọ wiwọle, lẹhinna tun gbiyanju tabi tunše.",
+    "required": "Mura ati rii daju awọn paati agbegbe ti o nilo ni Novera · Awọn atunto.",
+    "updateAvailable": "Imudojuiwọn wa",
+    "update": "Imudojuiwọn",
+    "rollback": "Pada agbegbe iṣaaju pada",
+    "busy": "Ṣe igbasilẹ awọn awoṣe agbegbe ati duro fun awọn iran lati pari ṣaaju iyipada awọn paati."
   }
 }

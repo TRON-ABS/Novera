@@ -9,6 +9,8 @@ rem Seule Novera-Desktop Windows x64 est activee actuellement.
 rem Les autres plateformes demandent leur environnement natif.
 rem ============================================================
 set "NOVERA_BUILD_DESKTOP=1"
+rem Prepare optional diagnostics in the build; each user must still opt in.
+set "NOVERA_BUILD_MONITORING=1"
 set "NOVERA_BUILD_SETUP=0"
 set "NOVERA_BUILD_MSI=0"
 set "NOVERA_BUILD_PORTABLE=0"

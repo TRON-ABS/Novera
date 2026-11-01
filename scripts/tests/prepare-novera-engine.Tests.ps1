@@ -11,6 +11,23 @@ function Assert-Throws([scriptblock]$Action, [string]$Message) {
     try { & $Action | Out-Null } catch { $threw = $true }
     Assert $threw $Message
 }
+$originalPath = $env:PATH
+$fixtureCompiler = Join-Path $fixtures 'LLVM with spaces/bin'
+$fixtureMsvc = Join-Path $fixtures 'msvc'
+New-Item -ItemType Directory -Path $fixtureCompiler,$fixtureMsvc | Out-Null
+Set-Content -LiteralPath (Join-Path $fixtureCompiler 'clang.exe') 'not executed'
+Set-Content -LiteralPath (Join-Path $fixtureMsvc 'link.exe') 'not executed'
+try {
+    $env:PATH = $fixtureMsvc
+    Assert-Throws { Add-NoveraEngineCompilerToPath @((Join-Path $fixtures 'missing')) } 'Missing compiler gives an actionable failure'
+    Add-NoveraEngineCompilerToPath @((Join-Path $fixtures 'missing'),$fixtureCompiler)
+    Assert ($env:PATH -eq "$fixtureMsvc;$fixtureCompiler") 'Discover Clang outside PATH without displacing MSVC'
+    Assert ((Get-Command clang.exe).Source -eq (Join-Path $fixtureCompiler 'clang.exe')) 'Clang with spaces is discoverable'
+    Assert ((Get-Command link.exe).Source -eq (Join-Path $fixtureMsvc 'link.exe')) 'MSVC linker keeps priority'
+    $preparedPath = $env:PATH
+    Add-NoveraEngineCompilerToPath @((Join-Path $fixtures 'missing'))
+    Assert ($env:PATH -eq $preparedPath) 'Existing Clang requires no duplicate path entry'
+} finally { $env:PATH = $originalPath }
 $cpu = Join-Path $fixtures 'cpu'
 New-Item -ItemType Directory -Path $cpu | Out-Null
 Assert ((Get-NoveraEngineFeatures $cpu '') -eq 'engine,engine-vulkan') 'Fresh builds must keep the Vulkan default'

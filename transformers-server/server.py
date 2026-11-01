@@ -83,6 +83,9 @@ def quantization_capabilities(torch):
             for module in modules:
                 # Optional loaders may print banners; stdout is our JSON IPC.
                 with redirect_stdout(sys.stderr):
+                    if os.environ.get("NOVERA_MANAGED_COMPONENTS") == "1" and module in ("exllamav2", "exllamav3"):
+                        # Fail before the library's source/JIT fallback on a novice installation.
+                        importlib.import_module(module + "_ext")
                     importlib.import_module(module)
             result[method] = {"available": True}
         except Exception as error:

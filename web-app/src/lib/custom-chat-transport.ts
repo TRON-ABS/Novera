@@ -82,6 +82,7 @@ import { CHAT_SLOT_ID } from '@/constants/models'
 import { useCreation } from '@/hooks/useCreation'
 import { useAgentMode } from '@/hooks/useAgentMode'
 import { resolveOutputMode, CREATION_PREFIX } from '@/modules/engines/creation'
+import { reportDiagnostic } from '@/lib/noveraDiagnostics'
 import {
   beginLocalMemory,
   streamWithMemory,
@@ -1623,6 +1624,7 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
       this.setLoadingModel(threadId, false)
       this.setModelLoadProgress(threadId, undefined)
       console.error('Failed to create model:', error)
+      reportDiagnostic(error, { operation: 'model_load', task: 'text' })
       // Preserve AbortError identity so callers/UI can tell a user-initiated
       // Stop from an actual model-load failure.
       if (error instanceof Error && error.name === 'AbortError') throw error
@@ -1867,6 +1869,7 @@ export class CustomChatTransport implements ChatTransport<UIMessage> {
           }
         }
         const unwrapped = unwrapRetryError(error)
+        reportDiagnostic(unwrapped, { operation: 'generation', task: 'text' })
         const rawMessage =
           unwrapped == null
             ? 'Unknown error'

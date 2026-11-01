@@ -15,6 +15,8 @@ import { musicCloudStream } from './music-cloud-stream'
 import { generationSequence } from './sequence'
 import type { MusicSettings } from '@/modules/engines/music'
 import type { MediaSelection } from '@/hooks/useCreation'
+import { currentResourceProfile } from '@/hooks/useAutoConfiguration'
+import { reportDiagnostic } from '@/lib/noveraDiagnostics'
 
 export function musicStream(
   prompt: string,
@@ -59,6 +61,8 @@ function singleMusicStream(
       try {
         if (!isPlatformTauri())
           throw new Error(i18n.t('chat:creation.desktopOnly'))
+        if (!currentResourceProfile().local.music)
+          throw new Error(i18n.t('hub:catalog.tipLimited'))
         const settings = { ...snapshot, seed: musicSettingsFor(scope).seed }
         const song = parseMusicPrompt(prompt)
         const requestedDuration = settings.durationAuto !== false ? musicDurationFromPrompt(prompt) : undefined
@@ -194,6 +198,7 @@ function singleMusicStream(
           controller.close()
         }
       } catch (error) {
+        if (!cancelled) reportDiagnostic(error, { operation: 'generation', task: 'music', engine: 'acestep' })
         if (!closed) {
           closed = true
           controller.error(

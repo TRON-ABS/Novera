@@ -812,5 +812,24 @@
     "ask": "Ask before editing or deleting",
     "allow": "Allow editing and deleting",
     "folderNote": "Choose how Novera may access this folder."
+  },
+  "components": {
+    "title": "Local components",
+    "note": "Install only the components you need. Novera keeps Python environments separate. Cloud services need no local installation.",
+    "estimates": "Estimated download: {{download}} · Required disk space: {{space}} · Available disk space: {{free}}",
+    "confirm": "Install this private environment? Only the selected components will be downloaded. Their publishers’ licences apply.",
+    "removeConfirm": "Remove this managed environment? Your models, creations and conversations will be kept.",
+    "verify": "Verify",
+    "repair": "Repair",
+    "uninstall": "Uninstall",
+    "missing": "Not installed",
+    "managed": "Managed by Novera",
+    "external": "An optional external Python path overrides the managed profile. Clear it to use Novera’s environment.",
+    "failed": "The component operation failed. Check the network, disk space and access rights, then retry or repair.",
+    "required": "Prepare and verify the required local components in Novera · Configurations.",
+    "updateAvailable": "Update available",
+    "update": "Update",
+    "rollback": "Restore previous environment",
+    "busy": "Unload local models and wait for generations to finish before changing components."
   }
 }

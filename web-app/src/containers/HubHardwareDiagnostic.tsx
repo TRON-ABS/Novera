@@ -160,7 +160,8 @@ function DiagnosisDetails({
 /** Every download entry point calls this before it starts transferring weights. */
 export function useHubDownloadReview(
   model?: CatalogModel,
-  initialVariant?: Partial<ModelQuant>
+  initialVariant?: Partial<ModelQuant>,
+  initialContext = 8192
 ) {
   const { t } = useTranslation()
   const service = useServiceHub()
@@ -174,7 +175,7 @@ export function useHubDownloadReview(
   const [variant, setVariant] = useState<Partial<ModelQuant> | undefined>(
     initialVariant
   )
-  const [context, setContext] = useState(8192)
+  const [context, setContext] = useState(initialContext)
   const [runtime, setRuntime] = useState<HubRuntime>()
   const [runtimeError, setRuntimeError] = useState('')
   const [acknowledged, setAcknowledged] = useState(false)
@@ -199,7 +200,7 @@ export function useHubDownloadReview(
     action.current = download
     setVariant(selected ?? initialVariant)
     setReviewedModel(model)
-    setContext(8192)
+    setContext(initialContext)
     setRuntime(undefined)
     setRuntimeError('')
     setAcknowledged(false)
@@ -221,6 +222,8 @@ export function useHubDownloadReview(
       const updated = detail
         ? { ...model, ...service.models().convertHfRepoToCatalogModel(detail) }
         : model
+      if (detail?.sha === model.hub?.revision && model.mmproj_models?.length === 1)
+        updated.mmproj_models = model.mmproj_models
       if (detail) setReviewedModel(updated)
       else setFailed(true)
       if (['transformers', 'onnx'].includes(modelEngine(updated))) {
@@ -360,10 +363,10 @@ export function useHubDownloadReview(
   return { reviewDownload, reviewDialog }
 }
 
-export function HubHardwareDiagnostic({ model }: { model: CatalogModel }) {
+export function HubHardwareDiagnostic({ model, context }: { model: CatalogModel; context?: number }) {
   const { t } = useTranslation()
-  const diagnosis = useHubDiagnosis(model)
-  const { reviewDownload, reviewDialog } = useHubDownloadReview(model)
+  const diagnosis = useHubDiagnosis(model, undefined, context)
+  const { reviewDownload, reviewDialog } = useHubDownloadReview(model, undefined, context)
   return (
     <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
       <span className="rounded-full bg-secondary px-2 py-1">

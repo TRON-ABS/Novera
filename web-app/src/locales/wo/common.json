@@ -812,5 +812,24 @@
     "ask": "Laaj bala ngay soppi walla far",
     "allow": "May soppi ak far",
     "folderNote": "Tànnal sañ-sañu Novera ci wayndare bii."
+  },
+  "components": {
+    "title": "Àndaaleb dëkk bi",
+    "note": "Dugalal lenn ludul jumtukaay yi nga soxla. Novera dafay tàqale environmaa yi ci Python. Serwiisu cloud yi soxla wuñu instalaasioŋ ci dëkk bi.",
+    "estimates": "Xayma yebbi: {{download}} · Barab bi war ci disk bi: {{space}} · Barab bi jàppandi ci disk bi: {{free}}",
+    "confirm": "Def environmaa bu privé bii? Ëmbeef yiñ tànn kese lañuy yebbi. Seen lisaas publisher dafay dox.",
+    "removeConfirm": "Dindi environmaa bi ñuy yor? Dina ñu denc say model, say sos ak say waxtaan.",
+    "verify": "Saytu",
+    "repair": "Defar",
+    "uninstall": "Dindi",
+    "missing": "Duñu ko samp",
+    "managed": "Novera moo ko yor",
+    "external": "Benn yoon Python bu biti buñu mëna tànn mooy soppi profil biñ yor. Futti ko ngir jëfandikoo environmaa Novera.",
+    "failed": "Liggéeyu komponent bi deful. Saytu reso bi, bayaalu disk bi ak yelleefu jëfandikoo gi, ba noppi jéemaat wala defar.",
+    "required": "Waajal te xool bu baax mbir yiñ soxla ci Novera · Tabluwaay yi.",
+    "updateAvailable": "Yeesal amna",
+    "update": "yeesal",
+    "rollback": "Delloosi environmaa bi njëkk",
+    "busy": "Yebbi model yu dëkk bi nga xaar ba generation yi jeex balaa ngay soppi composant yi."
   }
 }

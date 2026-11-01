@@ -812,5 +812,24 @@
     "ask": "Tanya sebelum menyunting atau memadam",
     "allow": "Benarkan penyuntingan dan pemadaman",
     "folderNote": "Pilih akses Novera kepada folder ini."
+  },
+  "components": {
+    "title": "Komponen tempatan",
+    "note": "Pasang hanya komponen yang anda perlukan. Novera memastikan persekitaran Python berasingan. Perkhidmatan awan tidak memerlukan pemasangan tempatan.",
+    "estimates": "Anggaran muat turun: {{download}} · Ruang cakera yang diperlukan: {{space}} · Ruang cakera yang tersedia: {{free}}",
+    "confirm": "Pasang persekitaran peribadi ini? Hanya komponen yang dipilih akan dimuat turun. Lesen penerbit mereka terpakai.",
+    "removeConfirm": "Alih keluar persekitaran terurus ini? Model, ciptaan dan perbualan anda akan disimpan.",
+    "verify": "Sahkan",
+    "repair": "Pembaikan",
+    "uninstall": "Nyahpasang",
+    "missing": "Tidak dipasang",
+    "managed": "Diurus oleh Novera",
+    "external": "Laluan Python luaran pilihan mengatasi profil terurus. Kosongkannya untuk menggunakan persekitaran Novera.",
+    "failed": "Operasi komponen gagal. Semak rangkaian, ruang cakera dan hak akses, kemudian cuba semula atau baiki.",
+    "required": "Sediakan dan sahkan komponen setempat yang diperlukan dalam Novera · Konfigurasi.",
+    "updateAvailable": "Kemas kini tersedia",
+    "update": "Kemas kini",
+    "rollback": "Pulihkan persekitaran sebelumnya",
+    "busy": "Punggah model tempatan dan tunggu generasi untuk selesai sebelum menukar komponen."
   }
 }

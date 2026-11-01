@@ -812,5 +812,24 @@
     "ask": "修改或刪除前詢問",
     "allow": "允許修改和刪除",
     "folderNote": "選擇 Novera 對此資料夾的存取權限。"
+  },
+  "components": {
+    "title": "本機元件",
+    "note": "干焦安裝你有需要的元件。Novera 會共 Python 環境分開管理。雲端服務免佇本機安裝。",
+    "estimates": "估計下載量：{{download}} · 所需的閒置空間：{{space}} · 目前閒置：{{free}}",
+    "confirm": "欲安裝這个專用環境無？干焦會下載你選的元件，愛遵照發布者的授權。",
+    "removeConfirm": "欲移除這个託管環境無？你的模型、作品佮對話攏會保留。",
+    "verify": "檢查",
+    "repair": "修復",
+    "uninstall": "移除安裝",
+    "missing": "猶未安裝",
+    "managed": "交予 Novera 管理",
+    "external": "若有填外部 Python 路徑，就會取代託管設定。共伊清空就用 Novera 的環境。",
+    "failed": "元件操作無成功。請檢查網路、磁碟空間佮存取權限，閣試一擺抑是修復。",
+    "required": "請到 Novera · 設定內底準備佮檢查有需要的本機元件。",
+    "updateAvailable": "有更新通用",
+    "update": "更新",
+    "rollback": "恢復頂一版環境",
+    "busy": "改元件進前，請先共本機模型對記憶體卸下，等生成結束才改。"
   }
 }

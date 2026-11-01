@@ -814,5 +814,24 @@
     "ask": "Hỏi trước khi sửa hoặc xóa",
     "allow": "Cho phép sửa và xóa",
     "folderNote": "Chọn quyền truy cập của Novera vào thư mục này."
+  },
+  "components": {
+    "title": "Thành phần cục bộ",
+    "note": "Chỉ cài đặt những thành phần bạn cần. Novera tách biệt các môi trường Python. Dịch vụ đám mây không cần cài đặt cục bộ.",
+    "estimates": "Số lần tải xuống ước tính: {{download}} · Dung lượng ổ đĩa cần thiết: {{space}} · Dung lượng ổ đĩa khả dụng: {{free}}",
+    "confirm": "Cài đặt môi trường riêng tư này? Chỉ các thành phần được chọn sẽ được tải xuống. Giấy phép của nhà xuất bản của họ được áp dụng.",
+    "removeConfirm": "Xóa môi trường được quản lý này? Mô hình, sáng tạo và cuộc trò chuyện của bạn sẽ được lưu giữ.",
+    "verify": "Xác minh",
+    "repair": "Sửa chữa",
+    "uninstall": "Gỡ cài đặt",
+    "missing": "Chưa được cài đặt",
+    "managed": "Được quản lý bởi Novera",
+    "external": "Đường dẫn Python bên ngoài tùy chọn sẽ ghi đè hồ sơ được quản lý. Xóa nó để sử dụng môi trường của Novera.",
+    "failed": "Thao tác thành phần không thành công. Kiểm tra mạng, dung lượng ổ đĩa và quyền truy cập, sau đó thử lại hoặc sửa chữa.",
+    "required": "Chuẩn bị và xác minh các thành phần cục bộ bắt buộc trong Novera · Cấu hình.",
+    "updateAvailable": "Có bản cập nhật",
+    "update": "Cập nhật",
+    "rollback": "Khôi phục môi trường trước đó",
+    "busy": "Dỡ bỏ các mô hình cục bộ và đợi các thế hệ kết thúc trước khi thay đổi thành phần."
   }
 }

@@ -1,0 +1,12 @@
+{
+  "diffusers-cpu.txt": "fe4f7d17b1ed855f5f644cb93cba6173acf6816b4834eb7ac8a03310d74a4af9",
+  "diffusers-cuda.txt": "cd4f96bdca7b7eb4e4a5a712db6dc7dc27f8c880f2f7af54d8f56c50b0ea845e",
+  "exllama.txt": "60fe840518c9a0b91a9817230e29b2522b9415f2d884796fc48c5063c35b81f0",
+  "onnx-cpu.txt": "a88a128b653af2b97255f466def651df19669310b1023804a3e9ea84c61b3350",
+  "onnx-genai.txt": "988ba225db8e90e7fa0fffa157563dd7ab77dc712fc3890454346b2a14bb9f66",
+  "transformers-cpu.txt": "211f1c23e681353e6f890c399e04744e4d61a62f8ef0aa8ad5456ea1fbefbcdf",
+  "transformers-cuda.txt": "e5ee4bd3552fec0e1886a563c87d2004d78fd91ce4a8308dace81c242fb36e4d",
+  "upscale-cpu.txt": "0781c1c9bb7d0ee82ef1c6df3d62104a7850b9f7fa1ed7db52a778cea71c4885",
+  "upscale-cuda.txt": "9653dfa8c780098ade09f0840ad49ea28042c60875564f9c49f7ba08a2be1b8a",
+  "video-export.txt": "af4de11b097ccfb2b82acfe61b37aa64cd4c6e33877bcc8d2ebdab5c25b99a0a"
+}

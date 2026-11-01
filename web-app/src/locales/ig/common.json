@@ -812,5 +812,24 @@
     "ask": "Jụọ tupu idezi ma ọ bụ ihichapụ",
     "allow": "Kwe ka edezi ma hichapụ",
     "folderNote": "Họrọ otú Novera ga-esi nweta folda a."
+  },
+  "components": {
+    "title": "Akụkụ mpaghara",
+    "note": "Wụnye naanị ihe ndị ị chọrọ. Novera na-edobe gburugburu Python iche. Ọrụ igwe ojii anaghị achọ nrụnye mpaghara.",
+    "estimates": "Nbudata echere: {{download}} · Oghere diski achọrọ: {{space}} · Oghere diski dị: {{free}}",
+    "confirm": "Wụnye ebe nzuzo a? Naanị akụrụngwa ahọpụtara ka a ga-ebudata. Ikikere ndị mbipụta ha na-emetụta.",
+    "removeConfirm": "Wepu gburugburu ebe a na-achịkwa? A ga-edobe ụdị gị, ihe okike na mkparịta ụka gị.",
+    "verify": "Nyochaa",
+    "repair": "Ndozi",
+    "uninstall": "iwepụ",
+    "missing": "Awụnyebeghị",
+    "managed": "Nke Novera jisiri ya",
+    "external": "Ụzọ Eke Ọgba dịpụrụ adịpụ nke nhọrọ na-emebi profaịlụ ejirila. Kpochapụ ya iji jiri gburugburu Novera.",
+    "failed": "Ọrụ akụrụngwa dara. Lelee netwọkụ ahụ, ohere diski na ikike ịnweta, wee nwaa ma ọ bụ rụzie ya.",
+    "required": "Kwadebe ma nyochaa akụrụngwa mpaghara achọrọ na Novera · Nhazi.",
+    "updateAvailable": "Mmelite dị",
+    "update": "Mmelite",
+    "rollback": "Weghachite gburugburu gara aga",
+    "busy": "Budata ụdị mpaghara wee chere ọgbọ ka ha gwụchaa tupu ịgbanwe akụrụngwa."
   }
 }

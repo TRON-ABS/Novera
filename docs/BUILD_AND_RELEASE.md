@@ -1,5 +1,29 @@
 # Novera — construction et distribution
 
+## Retour du mainteneur et publication sur main — 1er novembre 2026
+
+Le mainteneur confirme **« tout marche bien »** et fournit une nouvelle capture réelle du desktop montrant une image créée et les commandes du tableau de bord. Il demande explicitement la publication des sources sur **main**, la mise à jour de la vitrine et la signature **TRON-ABS — The art of Human with AI** en bas des README anglais/français.
+
+Ce retour est une validation manuelle déclarée du desktop utilisé, sans relevé détaillé par moteur, profil ou scénario. Il ne remplace pas les essais propres aux profils CUDA/ExLlama/GenAI, aux installations sur PC neuf, au mobile ou à chaque autre système. Aucun nouveau binaire, portable, tag ou release n’est publié par cette mise à jour ; Actions n’est pas activé. L’embarquement Python/PyTorch dans l’EXE reste reporté.
+
+La capture originale est conservée sans retouche sous `.github/assets/novera-dashboard-2026-11-01.png`. Les attributions et licences existantes restent présentes. Les éléments publiés, vérifications et identifiant du commit sont consignés dans les résultats de publication de ce lot.
+
+## Distribution des composants gérés — 1er novembre 2026
+
+Les nouveaux verrous `src-tauri/components/*.txt` sont intégrés au binaire par `include_str!`. Aucun dossier Python du poste du mainteneur n'est copié dans les paquets. Le `uv` déjà distribué prépare les profils privés, à la demande de l'utilisateur, dans les données locales Novera. Le mobile n'embarque ni n'installe ces piles desktop. Le paquet portable conserve son comportement de profil utilisateur habituel ; les environnements ne sont pas des venvs relogeables à copier entre PC.
+
+Avant le prochain build mainteneur, conserver les auxiliaires Bun/uv et ressources des moteurs comme prévu. Le contrôle des onze variantes et ses neuf tests passent. L'ajout de Python/PyTorch dans l'EXE a été **reporté**, aucun pack auto-extractible n'est préparé par ce lot. Recompiler le desktop, valider les parcours de composants puis créer le portable depuis le même runtime ; aucun ancien binaire n'intègre ces sources par simple reconditionnement. [Matrice et résultats](REPRISE_COMPOSANTS_GERES_80_LANGUES.md).
+
+## Détection de Clang depuis le BAT — 1er novembre 2026
+
+La préparation du moteur détecte désormais les installations LLVM, Visual Studio LLVM et MSYS2 lorsque `clang.exe` manque dans le PATH du double-clic. Le dossier trouvé est ajouté uniquement au processus courant et après les outils MSVC pour préserver le linker Windows. Aucun LLVM supplémentaire n'est nécessaire si un compilateur compatible est déjà installé. Contrôle réel `engine-toolchain` réussi sur cette machine et 24 assertions de préparation réussies, sans lancer de compilation applicative. Relancer le BAT desktop après un échec « needs clang on PATH » ; un compilateur réellement absent reste une erreur explicite.
+
+## Diagnostics prêts pour la prochaine compilation — 1er novembre 2026
+
+Le lanceur source et sa copie utilisée à côté de Novera préparent maintenant les diagnostics facultatifs avec `NOVERA_BUILD_MONITORING=1`. Ce réglage ne donne pas le consentement des utilisateurs et ne lance aucune compilation à lui seul. La nouvelle demande de suivi des erreurs v2 reste séparée des statistiques et désactivée par défaut.
+
+Le build reçoit un identifiant propre ; les source maps JavaScript/CSS sont archivées sous `.build/monitoring-symbols/<build_id>` puis retirées du frontend distribué avant compilation native. Sans clé privée CLI, leur envoi reste explicitement en attente. **Le reçu local de symboles doit être contrôlé et l'envoi vérifié dans PostHog avant d'annoncer la résolution des piles de la release.** La procédure, les alertes à terminer et le test synthétique réellement reçu sont dans [maintenance et diagnostics](MAINTENANCE.md).
+
 ## Préparation sans compilation — 29 octobre 2026
 
 Les onze variantes, **portable Windows compris**, disposent d’un [plan de préparation commun](PREPARATION_DISTRIBUTIONS.md). `node scripts/distribution/check-release-readiness.mjs` vérifie les sources et versions sans compiler, installer, télécharger, activer Actions ou publier. Il conserve explicitement les prérequis et validations restant à faire ; un résultat valide n’est pas une certification des binaires.

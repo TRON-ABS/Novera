@@ -814,5 +814,24 @@
     "ask": "Tanya sebelum mengedit atau menghapus",
     "allow": "Izinkan pengeditan dan penghapusan",
     "folderNote": "Pilih akses Novera ke folder ini."
+  },
+  "components": {
+    "title": "Komponen lokal",
+    "note": "Instal hanya komponen yang Anda perlukan. Novera memisahkan lingkungan Python. Layanan cloud tidak memerlukan instalasi lokal.",
+    "estimates": "Perkiraan unduhan: {{download}} · Ruang disk yang diperlukan: {{space}} · Ruang disk yang tersedia: {{free}}",
+    "confirm": "Instal lingkungan pribadi ini? Hanya komponen terpilih yang akan diunduh. Lisensi penerbitnya berlaku.",
+    "removeConfirm": "Hapus lingkungan terkelola ini? Model, kreasi, dan percakapan Anda akan disimpan.",
+    "verify": "Verifikasi",
+    "repair": "Perbaikan",
+    "uninstall": "Copot pemasangan",
+    "missing": "Tidak terpasang",
+    "managed": "Dikelola oleh Novera",
+    "external": "Jalur Python eksternal opsional menggantikan profil terkelola. Hapus untuk menggunakan lingkungan Novera.",
+    "failed": "Operasi komponen gagal. Periksa jaringan, ruang disk, dan hak akses, lalu coba lagi atau perbaiki.",
+    "required": "Mempersiapkan dan memverifikasi komponen lokal yang diperlukan di Novera · Konfigurasi.",
+    "updateAvailable": "Pembaruan tersedia",
+    "update": "Pembaruan",
+    "rollback": "Pulihkan lingkungan sebelumnya",
+    "busy": "Bongkar model lokal dan tunggu hingga generasi selesai sebelum mengganti komponen."
   }
 }

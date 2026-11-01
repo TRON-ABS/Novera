@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { events } from '@janhq/core'
+import { reportDiagnostic } from '@/lib/noveraDiagnostics'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { useServiceHub } from '@/hooks/useServiceHub'
 import { useHardware } from '@/hooks/useHardware'
@@ -17,6 +18,14 @@ export function GlobalEventHandler() {
   const updateSystemUsage = useHardware((state) => state.updateSystemUsage)
 
   useMcpToolProgress()
+
+  useEffect(() => {
+    const failed = (event: { error?: unknown }) => reportDiagnostic(event.error, { operation: 'download', engine: 'llamacpp' })
+    const verification = (event: { error?: unknown }) => reportDiagnostic(event?.error, { operation: 'verification', engine: 'llamacpp' })
+    events.on('onFileDownloadError', failed)
+    events.on('onModelValidationFailed', verification)
+    return () => { events.off('onFileDownloadError', failed); events.off('onModelValidationFailed', verification) }
+  }, [])
 
   // Probe hardware on mount so Hub fit-status renders before the user
   // visits Settings → Hardware. Re-detect on visibility return (post-sleep, #6447).

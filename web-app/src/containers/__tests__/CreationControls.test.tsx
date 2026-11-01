@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { CreationControls, CreationModelControl, CreationSettingsControl } from '../CreationControls'
 import { useCreation, creationDefaults } from '@/hooks/useCreation'
@@ -6,6 +6,7 @@ import { useImageUpscale } from '@/hooks/useImageUpscale'
 import { useMusicCreation } from '@/hooks/useMusicCreation'
 import { musicDefaults } from '@/modules/engines/music'
 import { useModelProvider } from '@/hooks/useModelProvider'
+import { useHardware } from '@/hooks/useHardware'
 vi.mock('../TextSetupPanel', () => ({ TextSetupPanel: () => <div>Text setup</div> }))
 vi.mock('../EmbeddingSetupPanel', () => ({ EmbeddingSetupPanel: () => <div>Embedding setup</div> }))
 const mocks = vi.hoisted(() => ({ open: vi.fn() }))
@@ -25,6 +26,32 @@ vi.mock('@/lib/backendStorage', () => ({
   },
 }))
 describe('creation choices in the composer', () => {
+  it('keeps all three media modes accessible before cloud configuration on mobile', () => {
+    useHardware.setState({ hardwareData: { ...useHardware.getState().hardwareData, os_type: 'android', total_memory: 4096, gpus: [] } })
+    useCreation.setState({ selections: {} })
+    render(<CreationControls scope="mobile-cloud" disabled={false} />)
+    const modes = within(screen.getByRole('group', { name: 'chat:creation.output' }))
+    for (const task of ['image', 'music', 'video'])
+      expect(modes.getByText(`chat:creation.${task}`).closest('button')).toBeEnabled()
+    act(() => useCreation.setState({ selections: { 'mobile-cloud': {
+      image: { provider: 'openai', id: 'gpt-image-2.5-sunburst' },
+      music: { provider: 'elevenlabs', id: 'music_v2_5' },
+      video: { provider: 'fal', id: 'fal-ai/pika/v2.2/text-to-video' },
+    } } }))
+    for (const task of ['image', 'music', 'video'])
+      expect(modes.getByText(`chat:creation.${task}`).closest('button')).toBeEnabled()
+  })
+  it.each(['music', 'video'] as const)('opens %s settings on a constrained desktop without typing a prompt', (task) => {
+    useHardware.setState({ hardwareData: { ...useHardware.getState().hardwareData, os_type: 'windows', total_memory: 4096, gpus: [] } })
+    useCreation.setState({ modes: {}, selections: {}, settings: { ...creationDefaults }, videoSettings: { ...creationDefaults } })
+    useMusicCreation.setState({ settings: { ...musicDefaults }, profiles: [], selections: {} })
+    render(<CreationControls scope="direct-settings" disabled={false} prompt="" />)
+    const modes = within(screen.getByRole('group', { name: 'chat:creation.output' }))
+    fireEvent.click(modes.getByRole('button', { name: new RegExp(`chat:creation.${task}`) }))
+    expect(useCreation.getState().modes['direct-settings']).toBe(task)
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: `chat:creation.${task}` })).toBeInTheDocument()
+  })
   it('offers 1–10 generations after the image seed and keeps image/video/music counts independent', () => {
     useCreation.setState({ selections: {}, modes: { countbar: 'image' }, settings: { ...creationDefaults, imageModel: 'image.gguf' }, videoSettings: { ...creationDefaults, videoModel: 'video.gguf' } })
     useMusicCreation.setState({ settings: { ...musicDefaults, directory: 'D:/music', generator: 'music.gguf' }, profiles: [], selections: {} })
@@ -225,6 +252,7 @@ describe('creation choices in the composer', () => {
   })
   beforeEach(() => {
     vi.clearAllMocks()
+    useHardware.setState({ hardwareData: { ...useHardware.getState().hardwareData, os_type: '', total_memory: 0, gpus: [] } })
     useImageUpscale.setState({ enabled: false, factor: 2 })
     useMusicCreation.setState({settings:{...musicDefaults},profiles:[],selections:{},installed:[]})
     useCreation.setState({

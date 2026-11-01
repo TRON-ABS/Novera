@@ -1,4 +1,5 @@
 import { hydrateModeloptMetadata } from './modeloptMetadata'
+import { reportDiagnostic, diagnosticEngines, type DiagnosticContext } from '@/lib/noveraDiagnostics'
 import { groupGgufFiles, hfFileUrl, splitGgufName } from './ggufShards'
 import {
   beginLocalMemory,
@@ -352,18 +353,16 @@ export class DefaultModelsService implements ModelsService {
       let mmprojSha256: string | undefined
       let mmprojSize: number | undefined
 
-      // Extract repo ID from model URL
-      // URL format: https://huggingface.co/{repo}/resolve/main/{filename}
-      const modelUrlMatch = modelPath.match(
-        /https:\/\/huggingface\.co\/([^/]+\/[^/]+)\/resolve\/main\/(.+)/
-      )
-
-      if (modelUrlMatch && !skipVerification && !modelShards) {
-        const [, repoId, modelFilename] = modelUrlMatch
+      if (hf && !skipVerification && !modelShards) {
+        const [, repoId, revision, rawFilename] = hf
+        const modelFilename = decodeURIComponent(rawFilename)
+        const pinned = /^[a-f0-9]{40}$/i.test(revision)
 
         try {
           // Fetch real-time metadata from HuggingFace
-          const repoInfo = await this.fetchHuggingFaceRepo(repoId, hfToken)
+          const repoInfo = await this.fetchHuggingFaceRepo(repoId, hfToken, decodeURIComponent(revision))
+          if (pinned && repoInfo?.sha !== revision)
+            throw new Error('Pinned model revision could not be verified')
 
           if (repoInfo?.siblings) {
             // Find the specific model file
@@ -377,11 +376,13 @@ export class DefaultModelsService implements ModelsService {
 
             // If mmproj path provided, extract its metadata too
             if (mmprojPath) {
-              const mmprojUrlMatch = mmprojPath.match(
-                /https:\/\/huggingface\.co\/[^/]+\/[^/]+\/resolve\/main\/(.+)/
-              )
+              const projectorUrl = new URL(mmprojPath)
+              const mmprojUrlMatch = projectorUrl.hostname === 'huggingface.co' && projectorUrl.protocol === 'https:'
+                ? projectorUrl.pathname.match(/^\/([^/]+\/[^/]+)\/resolve\/([^/]+)\/(.+)$/) : null
+              if (pinned && (!mmprojUrlMatch || mmprojUrlMatch[1] !== repoId || mmprojUrlMatch[2] !== revision))
+                throw new Error('Projector must match the pinned model repository and revision')
               if (mmprojUrlMatch) {
-                const [, mmprojFilename] = mmprojUrlMatch
+                const mmprojFilename = decodeURIComponent(mmprojUrlMatch[3])
                 const mmprojFile = repoInfo.siblings.find(
                   (file) => file.rfilename === mmprojFilename
                 )
@@ -392,7 +393,11 @@ export class DefaultModelsService implements ModelsService {
               }
             }
           }
+          if (pinned && (!modelSha256 || !/^[a-f0-9]{64}$/i.test(modelSha256) || !Number.isSafeInteger(modelSize) || modelSize! <= 0 ||
+            (mmprojPath && (!mmprojSha256 || !/^[a-f0-9]{64}$/i.test(mmprojSha256) || !Number.isSafeInteger(mmprojSize) || mmprojSize! <= 0))))
+            throw new Error('Pinned model or projector size/SHA-256 metadata is missing')
         } catch (error) {
+          if (pinned) throw error
           console.warn(
             'Failed to fetch HuggingFace metadata, proceeding without hash verification:',
             error
@@ -548,6 +553,7 @@ export class DefaultModelsService implements ModelsService {
             useMemoryPolicy.getState().policy === 'manual'
         )
         .catch((error) => {
+          reportDiagnostic(error, { operation: 'model_load', task: 'text', engine: diagnosticEngines.includes(provider.provider as DiagnosticContext['engine'] & string) ? provider.provider as DiagnosticContext['engine'] : 'unknown' })
           console.error(
             `Failed to start model ${model} for provider ${provider.provider}:`,
             error

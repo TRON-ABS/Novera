@@ -812,5 +812,24 @@
     "ask": "Tambaya kafin gyara ko gogewa",
     "allow": "Ba da izinin gyara da gogewa",
     "folderNote": "Zaɓi yadda Novera zai shiga wannan babban fayil."
+  },
+  "components": {
+    "title": "Yankunan gida",
+    "note": "Shigar da abubuwan da kuke buƙata kawai. Novera yana keɓance mahallin Python daban. Ayyukan gajimare ba sa buƙatar shigarwa na gida.",
+    "estimates": "Ƙimar zazzagewa: {{download}} · Wurin faifai da ake buƙata: {{space}} · Akwai sarari diski: {{free}}",
+    "confirm": "Shigar da wannan keɓaɓɓen muhallin? Abubuwan da aka zaɓa kawai za a sauke. Ana amfani da lasisin masu buga su.",
+    "removeConfirm": "Cire wannan muhallin da aka sarrafa? Za a adana samfuran ku, ƙirƙira da tattaunawa.",
+    "verify": "Tabbatar",
+    "repair": "Gyara",
+    "uninstall": "Uninstall",
+    "missing": "Ba a shigar da shi ba",
+    "managed": "Gudanarwa daga Novera",
+    "external": "Hanyar Python waje na zaɓin zaɓi ya wuce bayanan da aka sarrafa. Share shi don amfani da muhallin Novera.",
+    "failed": "Aikin bangaren ya gaza. Bincika hanyar sadarwa, sarari diski da haƙƙin shiga, sannan sake gwadawa ko gyara.",
+    "required": "Shirya kuma tabbatar da abubuwan da ake buƙata na gida a cikin Novera · Tsari.",
+    "updateAvailable": "Akwai sabuntawa",
+    "update": "Sabuntawa",
+    "rollback": "Mayar da muhallin da ya gabata",
+    "busy": "Zazzage samfuran gida kuma jira tsararraki don gamawa kafin canza abubuwan."
   }
 }

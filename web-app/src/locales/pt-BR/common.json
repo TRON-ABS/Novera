@@ -813,5 +813,24 @@
     "ask": "Perguntar antes de editar ou excluir",
     "allow": "Permitir editar e excluir",
     "folderNote": "Escolha o acesso do Novera a esta pasta."
+  },
+  "components": {
+    "title": "Componentes locais",
+    "note": "Instale apenas os componentes necessários. Novera mantém os ambientes Python separados. Os serviços em nuvem não precisam de instalação local.",
+    "estimates": "Download estimado: {{download}} · Espaço em disco necessário: {{space}} · Espaço em disco disponível: {{free}}",
+    "confirm": "Instalar este ambiente privado? Somente os componentes selecionados serão baixados. Aplicam-se as licenças de seus editores.",
+    "removeConfirm": "Remover este ambiente gerenciado? Seus modelos, criações e conversas serão mantidas.",
+    "verify": "Verificar",
+    "repair": "Reparo",
+    "uninstall": "Desinstalar",
+    "missing": "Não instalado",
+    "managed": "Gerenciado por Novera",
+    "external": "Um caminho Python externo opcional substitui o perfil gerenciado. Limpe-o para usar o ambiente de Novera.",
+    "failed": "A operação do componente falhou. Verifique a rede, o espaço em disco e os direitos de acesso e tente novamente ou repare.",
+    "required": "Prepare e verifique os componentes locais necessários em Novera · Configurações.",
+    "updateAvailable": "Atualização disponível",
+    "update": "Atualização",
+    "rollback": "Restaurar ambiente anterior",
+    "busy": "Descarregue os modelos locais e espere que as gerações terminem antes de trocar os componentes."
   }
 }

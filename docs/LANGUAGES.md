@@ -1,5 +1,11 @@
 # Langues d’interface Novera
 
+## Composants gérés — 1er novembre 2026
+
+Inventaire actuel : **80 catalogues × 2 429 clés**, dans les mêmes 15 espaces de noms. Dix-sept nouvelles clés `common.components` couvrent le parcours des environnements privés, tailles interpolées, confirmation, maintenance et erreurs. Les aides runtime du Hub et l'aide d'upscale renvoient vers Configurations ; les mentions imposant Python 3.15.1 ont été retirées des aides média concernées. Les traductions existantes sans rapport sont conservées.
+
+Contrôle structurel et variables sans erreur. Revue du français, variantes régionales rédigées et test visuel du panneau français/allemand/arabe RTL, dont 360 px sans débordement. Traductions assistées ; une relecture native complète reste nécessaire. Les résultats ne certifient pas le nouveau binaire.
+
 ## Infobulles et unités de durée — 29 octobre 2026
 
 Inventaire courant : **80 catalogues × 2 402 clés**. Les clés courtes `chat:send` et `common:modelSettings.label` affichent « Envoyer » et « Paramètres du modèle » en français, avec une valeur explicite dans chaque langue. Le titre des paramètres garde séparément le nom du modèle. Les unités de secondes absentes et plusieurs unités de minutes erronées sont corrigées ; les tests vérifient secondes, minutes et heures dans les 80 catalogues réels. Les commandes déplacées autour du tableau de bord réutilisent leurs traductions existantes. Contrôle structurel sans erreur ; relecture native et vérification visuelle du binaire restent distinctes.

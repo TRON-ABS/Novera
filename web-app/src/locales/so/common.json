@@ -812,5 +812,24 @@
     "ask": "Weydii ka hor tafatirka ama tirtiridda",
     "allow": "Oggolow tafatirka iyo tirtiridda",
     "folderNote": "Dooro sida Novera u geli karto galkan."
+  },
+  "components": {
+    "title": "Qaybaha deegaanka",
+    "note": "Ku rakib kaliya qaybaha aad u baahan tahay. Novera waxay kala saartaa bay'ada Python. Adeegyada daruuruhu uma baahna rakibaad maxalli ah.",
+    "estimates": "Soo dejinta la qiyaasay {{download}} Meel saxan ah oo loo baahan yahay: {{space}} Meel saxan ah oo la heli karo: {{free}}",
+    "confirm": "Ku rakib deegaankan gaarka ah? Kaliya qaybaha la doortay ayaa la soo dejisan doonaa. Shatiyada daabacaadayaashooda ayaa lagu dabaqaa",
+    "removeConfirm": "Ka saar deegaankan la maamulay? Moodooyinkaaga, abuuristaada iyo wada sheekaysigaaga waa la hayn doonaa.",
+    "verify": "Xaqiiji",
+    "repair": "Dayactirka",
+    "uninstall": "Uninstall",
+    "missing": "Lama rakibin",
+    "managed": "Waxaa maamula Novera",
+    "external": "Jid Python dibadda ah oo ikhtiyaari ah ayaa ka gudubta astaanta la maamulay. Nadiifi si aad u isticmaasho deegaanka Novera",
+    "failed": "Hawlgalka qaybuhu wuu fashilmay. Hubi shabakada, booska diskooga iyo xuquuqaha gelitaanka, ka dibna isku day ama dayactir.",
+    "required": "Diyaari oo xaqiiji qaybaha maxaliga ah ee loo baahan yahay Novera",
+    "updateAvailable": "Cusbooneysii waa la heli karaa",
+    "update": "Cusbooneysii",
+    "rollback": "Soo celinta deegaan hore",
+    "busy": "Soo deji moodooyinka maxalliga ah oo sug jiilasha inay dhammeeyaan ka hor intaadan beddelin qaybaha."
   }
 }

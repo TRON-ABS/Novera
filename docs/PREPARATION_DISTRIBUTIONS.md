@@ -1,5 +1,17 @@
 # Novera — préparer les distributions sans compiler
 
+## Retour du mainteneur et publication sur main — 1er novembre 2026
+
+Le mainteneur confirme **« tout marche bien »** et fournit une nouvelle capture réelle du desktop montrant une image créée et les commandes du tableau de bord. Il demande explicitement la publication des sources sur **main**, la mise à jour de la vitrine et la signature **TRON-ABS — The art of Human with AI** en bas des README anglais/français.
+
+Ce retour est une validation manuelle déclarée du desktop utilisé, sans relevé détaillé par moteur, profil ou scénario. Il ne remplace pas les essais propres aux profils CUDA/ExLlama/GenAI, aux installations sur PC neuf, au mobile ou à chaque autre système. Aucun nouveau binaire, portable, tag ou release n’est publié par cette mise à jour ; Actions n’est pas activé. L’embarquement Python/PyTorch dans l’EXE reste reporté.
+
+La capture originale est conservée sans retouche sous `.github/assets/novera-dashboard-2026-11-01.png`. Les attributions et licences existantes restent présentes. Les éléments publiés, vérifications et identifiant du commit sont consignés dans les résultats de publication de ce lot.
+
+## Complément novice — sources du 1er novembre 2026
+
+Le gestionnaire facultatif de composants est maintenant implémenté pour Windows x64 dans Configurations : profils privés, résolution des chemins, confirmation des tailles, vérification/réparation et désinstallation. Les dix verrous sont embarqués avec les sources ; Python/PyTorch sont installés seulement pour le moteur choisi, dans les données de l'utilisateur. Aucune pile desktop n'est téléchargée sur mobile. L'embarquement dans l'EXE est reporté. Voir [le suivi du chantier et les limites de validation](REPRISE_COMPOSANTS_GERES_80_LANGUES.md) avant de préparer le nouveau desktop puis le portable. Les contrôles de distribution restent une validation des sources, sans compiler ni certifier les binaires.
+
 État demandé le **29 octobre 2026** : préparer les sources et les prérequis pour une future automatisation, **sans lancer de compilation multiplateforme, sans activer GitHub Actions et sans publier de binaire**. La version portable Windows fait explicitement partie du périmètre.
 
 ## Vérifier maintenant, sans lancer de construction

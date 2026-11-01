@@ -1,5 +1,29 @@
 # Build the renamed worker before Tauri resolves bundle resources.
 # RunStep is shared with the launcher so each failure keeps its own log.
+function Add-NoveraEngineCompilerToPath([string[]]$Candidates = @()) {
+    if (Get-Command clang.exe -ErrorAction SilentlyContinue) { return }
+    if (!$Candidates.Count) {
+        $Candidates = @(
+            "$env:ProgramFiles/LLVM/bin",
+            "${env:ProgramFiles(x86)}/LLVM/bin",
+            "$env:VCINSTALLDIR/Tools/Llvm/x64/bin",
+            "$env:VCINSTALLDIR/Tools/Llvm/bin",
+            'C:/msys64/clang64/bin',
+            'C:/msys64/ucrt64/bin',
+            'C:/msys64/mingw64/bin'
+        )
+    }
+    foreach ($candidate in $Candidates) {
+        if (Test-Path -LiteralPath (Join-Path $candidate 'clang.exe') -PathType Leaf) {
+            # Append: MSVC link.exe and the prepared CMake/Ninja keep priority.
+            # build.rs explicitly targets MSVC even with an MSYS2 Clang driver.
+            $env:PATH = $env:PATH + ';' + [IO.Path]::GetFullPath($candidate)
+            return
+        }
+    }
+    throw 'Clang introuvable : installer LLVM ou ajouter son dossier bin au PATH avant de relancer.'
+}
+
 function Get-NoveraEngineSourceKey([string]$Repo) {
     $plugin = 'src-tauri/plugins/tauri-plugin-llamacpp'
     $files = @()
@@ -88,6 +112,7 @@ function Prepare-NoveraEngine([string]$Repo, [string]$Cargo, [scriptblock]$RunSt
             }
         } catch { Write-Output 'Moteur : cache non utilisable, reconstruction.' }
     }
+    Add-NoveraEngineCompilerToPath
     $bash = Get-Command bash.exe -ErrorAction SilentlyContinue | Select-Object -First 1
     $bashPath = if ($bash) { $bash.Source } else { $null }
     if (!$bashPath) {

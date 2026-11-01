@@ -813,5 +813,24 @@
     "ask": "Pregunta abans de modificar o suprimir",
     "allow": "Permet modificar i suprimir",
     "folderNote": "Tria l’accés de Novera a aquesta carpeta."
+  },
+  "components": {
+    "title": "Components locals",
+    "note": "Instal·leu només els components que necessiteu. Novera manté els entorns Python separats. Els serveis al núvol no necessiten instal·lació local.",
+    "estimates": "Descàrrega estimada: {{download}} · Espai en disc necessari: {{space}} · Espai en disc disponible: {{free}}",
+    "confirm": "Instal·lar aquest entorn privat? Només es descarregaran els components seleccionats. S'apliquen les llicències dels seus editors.",
+    "removeConfirm": "Eliminar aquest entorn gestionat? Les vostres maquetes, creacions i converses es conservaran.",
+    "verify": "Verificar",
+    "repair": "Reparació",
+    "uninstall": "Desinstal·la",
+    "missing": "No instal·lat",
+    "managed": "Gestionat per Novera",
+    "external": "Una ruta de Python externa opcional anul·la el perfil gestionat. Netegeu-lo per utilitzar l'entorn de Novera.",
+    "failed": "L'operació del component ha fallat. Comproveu la xarxa, l'espai en disc i els drets d'accés i, a continuació, torneu-ho a provar o reparau.",
+    "required": "Prepareu i verifiqueu els components locals necessaris a Novera · Configuracions.",
+    "updateAvailable": "Actualització disponible",
+    "update": "Actualització",
+    "rollback": "Restaura l'entorn anterior",
+    "busy": "Descarregueu models locals i espereu que acabin generacions abans de canviar els components."
   }
 }
