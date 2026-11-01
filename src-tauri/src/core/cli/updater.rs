@@ -1,17 +1,11 @@
-//! Startup update check and self-update for the headless `jan` CLI.
+//! Update policy for Novera's headless CLI (historical executable name: `jan`).
 //!
-//! Only active when the binary was built by the nightly CI templates, which
-//! embed `JAN_CLI_UPDATE_CHANNEL` (e.g. `agent-nightly`) and
-//! `JAN_CLI_BUILD_VERSION` (the actual nightly version, since `Cargo.toml`'s
-//! `version` stays pinned). A local `cargo build --features cli` has neither,
-//! so both the check and `jan update` are no-ops there.
-//!
-//! The check is routed through the analytics proxy
-//! (`apps-nightly.jan.ai/agent/update-check`), which serves the same manifest
-//! as the CDN and records the request -- so usage is counted by the update
-//! check itself, exactly as it is for the desktop app, rather than by a
-//! separate ping. The CDN stays as an unsigned fallback, so analytics being
-//! down, misconfigured, or rejecting our signature can never block an update.
+//! Candidates reject update checks and forced self-update before network or
+//! filesystem access: `update_channel` stays disabled until a signed Novera
+//! channel is implemented and configured. Legacy download helpers remain for
+//! compatibility tests and are unreachable through this policy. A future CLI
+//! update channel must establish Novera signature verification before enabling
+//! replacement of the executable.
 
 use std::cmp::Ordering;
 use std::fs::{self, File};
@@ -60,7 +54,7 @@ pub enum UpdateOutcome {
 }
 
 fn update_channel() -> Option<&'static str> {
-    // Novera has no independent update channel or signed release feed yet.
+    // CLI candidates have no configured signed Novera update channel.
     None
 }
 
@@ -216,11 +210,10 @@ fn read_update(manifest: &UpdateManifest, channel: &'static str) -> AvailableUpd
     }
 }
 
-/// Resolve the newest published build, or `None` when this binary has no
-/// channel embedded (a local build) or the manifest can't be reached.
+/// Resolve a published build, rejecting unconfigured candidates before I/O.
 pub async fn check_for_update(timeout: Duration) -> Result<AvailableUpdate, String> {
     let channel = update_channel().ok_or_else(|| {
-        "this build has no update channel embedded (built from source, not by the nightly CI)"
+        "Automatic CLI updates are unavailable: no signed Novera channel is configured."
             .to_string()
     })?;
     let manifest = tokio::time::timeout(timeout, fetch_manifest(channel, timeout))

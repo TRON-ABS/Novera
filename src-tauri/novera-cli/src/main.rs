@@ -1,6 +1,6 @@
-//! jan — headless CLI for Jan.
+//! Novera's headless CLI (historical executable name: jan).
 //!
-//! Shares the Tauri-free core logic with the Jan desktop app; talks only to
+//! Shares the Tauri-free core logic with the Novera desktop app; talks only to
 //! remote providers (no local inference, no GUI dependencies).
 //! Build with: cd src-tauri/novera-cli && cargo build --no-default-features --features cli
 
@@ -27,16 +27,15 @@ use std::fmt::Write as _;
 #[derive(Parser)]
 #[command(
     name = "jan",
-    about = "Chat with AI models in an interactive agent console",
-    long_about = "Running `jan` with no arguments opens the interactive agent console (TUI),\n\
+    about = "Novera: chat with AI models in an interactive agent console",
+    long_about = "Novera CLI\n\nRunning `jan` with no arguments opens the interactive agent console (TUI),\n\
 where you chat with a model that can run tools in your project.\n\n\
 The `jan cli` subcommand is the non-interactive fallback: run folder-based\n\
 agents headlessly and manage threads and providers.\n\n\
-Models are served by remote providers configured in ~/.jan/config.toml\n\
-(see `jan config set`), a project's agent.toml, or the Jan desktop app.\n\n\
-Once every 24h this sends an anonymous usage ping (version, OS/arch, a random\n\
-install id) to the same endpoint as the update check. Set JAN_CLI_NO_UPDATE_CHECK\n\
-to opt out of both.",
+Models are served by remote providers configured in ~/.novera/config.toml\n\
+(see `jan config set`), a project's agent.toml, or the Novera desktop app.\n\n\
+Automatic CLI updates are unavailable until a signed Novera channel is configured.\n\n\
+TRON-ABS\nThe art of Human with AI",
     after_help = "Examples:\n  \
   jan                                                    # open the interactive agent console (TUI)\n  \
   jan --safe                                             # TUI that asks before writes and commands\n  \

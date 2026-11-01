@@ -25,6 +25,7 @@ case "$kind" in
     ;;
   cli)
     cargo build --release --manifest-path src-tauri/novera-cli/Cargo.toml --features cli --bin jan
+    cargo test --release --locked --manifest-path src-tauri/novera-cli/Cargo.toml --features cli --test novera_update_policy
     binary="$CARGO_TARGET_DIR/release/jan"
     [[ "$RUNNER_OS" != Windows ]] || binary="$binary.exe"
     "$binary" --help > .build/candidates/CLI-HELP.txt

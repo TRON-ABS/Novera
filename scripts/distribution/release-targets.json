@@ -108,7 +108,7 @@
       "artifacts": ["Headless CLI binary (current internal name: jan)"],
       "sources": ["src-tauri/novera-cli/Cargo.toml", "src-tauri/novera-cli/src/main.rs"],
       "packageScripts": [],
-      "pending": ["Review inherited CLI package identity and naming before a public Novera CLI release.", "Prepare native dependencies for each chosen OS and architecture.", "Test CLI commands and installation independently of the desktop application."]
+      "pending": ["Review the historical CLI executable name and remaining legacy labels before a public release.", "Prepare native dependencies for each chosen OS and architecture.", "Test CLI commands and installation independently of the desktop application."]
     }
   ]
 }
