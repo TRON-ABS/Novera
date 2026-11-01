@@ -126,3 +126,7 @@ Le contrôle Linux isolé compile le **même module que la production** et deman
 L'artefact Web vérifié est servi localement sans recompiler les sources et ouvert dans un navigateur vierge. L'interface charge Novera 1.0.0 sans discussion, mais l'accueil initial impose le wizard d'installation du moteur desktop, inadapté au navigateur. L'accueil Web sans fournisseur utilisable est maintenant dirigé vers les réglages existants des fournisseurs ; les applications Tauri (desktop/mobile) conservent leur parcours natif. Aucun nouveau libellé ni catalogue de traduction n'est ajouté.
 
 **13 tests de route réussis**, dont navigateur vierge, navigateur avec fournisseur distant et parcours natif existant ; TypeScript et lint ciblé réussissent. Une nouvelle compilation Web GitHub doit confirmer le correctif, puis son écran initial sera contrôlé. Le serveur d'aperçu initial isolé n'était pas accessible au navigateur ; il a été relancé hors de cette isolation, sur boucle locale uniquement, sans changement du pare-feu ni des paramètres de sécurité.
+
+### Contrat du test GTK
+
+Le run natif `41275047042` compile le nouveau module de production GTK. Son test isolé échoue ensuite à la compilation parce que `wait_for_uris()` renvoie directement un `Vec<GString>`, et non une option. Retirer l'appel `expect` du test conserve les assertions sur la liste et l'URI retournée. Ce défaut appartient au test ajouté ; aucune réussite de l'échange presse-papiers n'est encore annoncée avant la relance Linux.

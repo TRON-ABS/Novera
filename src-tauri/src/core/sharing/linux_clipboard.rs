@@ -25,7 +25,7 @@ mod tests {
         let uri = "file:///tmp/Novera%20cr%C3%A9ation.png";
         super::copy_uri(uri.to_string()).expect("clipboard ownership");
         let clipboard = gtk::Clipboard::get(&gtk::gdk::SELECTION_CLIPBOARD);
-        let received = clipboard.wait_for_uris().expect("URI selection response");
+        let received = clipboard.wait_for_uris();
         assert_eq!(received.len(), 1);
         assert_eq!(received[0].as_str(), uri);
         clipboard.clear();
