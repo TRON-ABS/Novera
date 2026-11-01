@@ -3,6 +3,7 @@ use app_lib::core::cli::updater;
 use std::{process::Command, time::Duration};
 
 #[tokio::test]
+#[cfg(not(feature = "signed-updates"))]
 async fn unconfigured_candidates_reject_checks_and_forced_updates() {
     let error = updater::check_for_update(Duration::ZERO).await.unwrap_err();
     assert!(error.contains("no signed Novera channel"), "{error}");
@@ -11,6 +12,14 @@ async fn unconfigured_candidates_reject_checks_and_forced_updates() {
         let error = updater::self_update(force).await.unwrap_err();
         assert!(error.contains("no signed Novera channel"), "{error}");
     }
+}
+
+#[test]
+fn compiled_update_policy_matches_the_selected_feature() {
+    assert_eq!(
+        updater::signed_channel_configured(),
+        cfg!(feature = "signed-updates")
+    );
 }
 
 #[test]

@@ -39,6 +39,7 @@ dependencies = [
  "libloading",
  "log",
  "machine-uid",
+ "minisign-verify",
  "nix 0.30.1",
  "oauth2",
  "once_cell",
@@ -51,6 +52,7 @@ dependencies = [
  "reqwest 0.13.5",
  "rmcp",
  "schemars 1.2.2",
+ "semver",
  "serde",
  "serde_json",
  "serde_yaml",
@@ -2957,6 +2959,12 @@ name = "minimal-lexical"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
+
+[[package]]
+name = "minisign-verify"
+version = "0.2.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "22f9645cb765ea72b8111f36c522475d2daa0d22c957a9826437e97534bc4e9e"
 
 [[package]]
 name = "miniz_oxide"

@@ -27,12 +27,26 @@ case "$kind" in
     node scripts/distribution/ci-candidates.mjs web
     ;;
   cli)
-    cargo build --release --manifest-path src-tauri/novera-cli/Cargo.toml --features cli --bin jan
-    cargo test --release --locked --manifest-path src-tauri/novera-cli/Cargo.toml --features cli --test novera_update_policy
+    cli_features=cli
+    if [[ "${NOVERA_ENABLE_CLI_UPDATER:-false}" == true ]]; then
+      [[ -n "${TAURI_SIGNING_PRIVATE_KEY:-}" && -n "${TAURI_SIGNING_PRIVATE_KEY_PASSWORD:-}" ]] || { echo 'Missing CLI update signing credentials.' >&2; exit 2; }
+      yarn install --immutable
+      cli_features=cli,signed-updates
+    fi
+    cargo build --release --locked --manifest-path src-tauri/novera-cli/Cargo.toml --features "$cli_features" --bin jan
+    cargo test --release --locked --manifest-path src-tauri/novera-cli/Cargo.toml --features "$cli_features" --test novera_update_policy
     binary="$CARGO_TARGET_DIR/release/jan"
     [[ "$RUNNER_OS" != Windows ]] || binary="$binary.exe"
     "$binary" --help > .build/candidates/CLI-HELP.txt
     node scripts/distribution/ci-candidates.mjs cli
+    if [[ "${NOVERA_ENABLE_CLI_UPDATER:-false}" == true ]]; then
+      node scripts/distribution/ci-check-cli-updater.mjs
+      export NOVERA_CLI_TEST_ARCHIVE
+      NOVERA_CLI_TEST_ARCHIVE=$(find .build/candidates/packages -name 'Novera_CLI_*.zip' -type f)
+      cargo test --release --locked --manifest-path src-tauri/Cargo.toml --no-default-features --features cli-signed-updates --lib core::cli::updater::signed::tests
+      cargo test --release --locked --manifest-path src-tauri/Cargo.toml --no-default-features --features cli-signed-updates --lib ci_signed_archive_replaces_and_runs_in_an_isolated_directory -- --ignored --test-threads=1
+      unset NOVERA_CLI_TEST_ARCHIVE
+    fi
     ;;
   desktop)
     export IS_TAURI=true

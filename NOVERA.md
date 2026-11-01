@@ -1,5 +1,9 @@
 # Novera — instructions du projet
 
+## Validation native et canal CLI signé — 1er novembre 2026
+
+La matrice `41333359988`, commit `cd5171da`, compile les programmes de contrôle natifs ; les essais terminés échouent ensuite au téléchargement privé HTTP 403, avant installation. L’accès au brouillon est corrigé uniquement pour le job de validation, dont le contrôleur retire tout jeton avant de lancer les programmes testés. Le canal CLI signé est maintenant implémenté derrière une option Cargo explicite, avec signature, identité version/architecture et refus de rétrogradation ; ses nouveaux paquets et essais CI restent à obtenir. Les anciens CLI restent sans updater. Voir [le protocole](docs/INSTALL_UPDATE_VALIDATION.md) et [le canal CLI](docs/CLI_SIGNED_UPDATES.md). Aucune installation réussie, disponibilité du feed ou publication n’est déduite des tests source.
+
 ## Essai Windows : sélection du linker de validation — 1er novembre 2026
 
 Le premier run de validation 41332189234 passe les contrats source mais échoue avant installation : Bash résout le link.exe de Git pendant la compilation du programme de contrôle. Le job utilise désormais le sélecteur MSVC déjà présent et testé dans le dépôt, avec son chemin de linker explicite. Une relance ciblée est préparée ; aucun échec d’installation de Novera ni validation réussie n’est déduit de cet incident de préparation.

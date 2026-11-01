@@ -11,7 +11,7 @@ on:
         default: all
         options: [all, checks, native, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop]
       signed_updates:
-        description: Embed the Novera desktop update channel and sign updater bundles
+        description: Embed the Novera desktop or CLI update channel and sign final archives
         type: boolean
         default: false
         required: true
@@ -51,7 +51,7 @@ jobs:
           mkdir -p .build/checks
           node scripts/distribution/check-release-readiness.mjs --json > .build/checks/source-definitions.json
           node --test scripts/distribution/__tests__/check-release-readiness.test.mjs scripts/distribution/__tests__/prepare-version.test.mjs scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-macos.test.mjs scripts/distribution/__tests__/ci-check-updater.test.mjs scripts/distribution/__tests__/cuda-redist-plan.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs scripts/android/__tests__/configure-project.test.mjs | tee .build/checks/tests.txt
-          python3 -m unittest discover -s scripts/distribution/checks -p 'test_validation_guards.py'
+          python3 -m unittest discover -s scripts/distribution/checks -p 'test_*.py'
       - name: Retain source-check results
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
@@ -200,6 +200,9 @@ jobs:
         shell: bash
         env:
           CANDIDATE_VARIANT: ${{ matrix.variant }}
+          NOVERA_ENABLE_CLI_UPDATER: ${{ matrix.variant == 'cli' && inputs.signed_updates && 'true' || 'false' }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ matrix.variant == 'cli' && inputs.signed_updates && secrets.NOVERA_UPDATER_PRIVATE_KEY || '' }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ matrix.variant == 'cli' && inputs.signed_updates && secrets.NOVERA_UPDATER_PASSWORD || '' }}
         run: bash scripts/distribution/ci-build.sh "$CANDIDATE_VARIANT"
       - name: Retain candidates and checksums
         if: steps.selection.outputs.selected == 'true' && success()
@@ -224,7 +227,9 @@ jobs:
     needs: checks
     if: inputs.target == 'validate-windows' || inputs.target == 'validate-desktop'
     permissions:
-      contents: read
+      # Draft release assets require repository push access. This job only reads
+      # the reviewed assets; the credential is removed before running any app.
+      contents: write
     strategy:
       fail-fast: false
       max-parallel: 3

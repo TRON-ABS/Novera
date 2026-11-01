@@ -1,5 +1,11 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Validate private draft packages and add the opt-in signed CLI channel
+
+The desktop validation matrix compiles its native probes, but draft asset downloads return HTTP 403 with a read-only Actions token. Grant draft access only to the validation job; its controller performs GET requests and removes credentials before launching the application or updater probe. Use streaming SHA-256 compatible with Ubuntu's Python 3.10. Actual installation outcomes remain pending a corrected run.
+
+Add an explicit CLI feature using the pinned Novera key, authenticated archive identity, version and architecture checks, downgrade refusal and staged replacement. CI can build and sign the three CLI targets without rebuilding engines, then exercise replacement and startup inside an isolated runner directory. Default and older CLI builds retain their disabled updater policy. No public feed or release is created. Local validation includes 49 Node contracts, six Python tests and the signed-feature CLI help/policy tests; the signed archive replacement test requires a real CI-produced archive.
+
 ## Use the native MSVC linker in updater validation
 
 The first isolated Windows validation run stops before installation because Git Bash resolves its Unix link.exe while compiling the Rust probe. Reuse the existing tested ci-msvc.ps1 selector for an explicit target linker in this new job. Source checks passed; installation/update outcomes remain pending the targeted retry.

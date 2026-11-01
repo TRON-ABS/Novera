@@ -129,8 +129,8 @@ function run(mode, kind) {
       kind, platform: process.platform, architecture: process.arch, commit: process.env.GITHUB_SHA,
       runId: process.env.GITHUB_RUN_ID, compilationPerformed: true, deviceValidated: false,
       productionSigned: false, publicReleasePublished: false, personalDataIncluded: false, modelsIncluded: false,
-      updaterChannelConfigured: kind === 'desktop' && process.env.NOVERA_ENABLE_UPDATER === 'true',
-      updaterSignaturesVerified: kind === 'desktop' && process.env.NOVERA_ENABLE_UPDATER === 'true' && fs.existsSync(path.join(out, 'UPDATER-READINESS.json')),
+      updaterChannelConfigured: (kind === 'desktop' && process.env.NOVERA_ENABLE_UPDATER === 'true') || (kind === 'cli' && process.env.NOVERA_ENABLE_CLI_UPDATER === 'true'),
+      updaterSignaturesVerified: (kind === 'desktop' && process.env.NOVERA_ENABLE_UPDATER === 'true' && fs.existsSync(path.join(out, 'UPDATER-READINESS.json'))) || (kind === 'cli' && process.env.NOVERA_ENABLE_CLI_UPDATER === 'true' && fs.existsSync(path.join(out, 'CLI-UPDATER-READINESS.json'))),
       limitations: [
         ...(kind === 'ios' ? ['Simulator application only; iPhone IPA requires Apple signing and provisioning.'] : []),
         ...(kind === 'android' ? ['Debug-signed test APK; mobile reviews and device validation remain pending.'] : []),

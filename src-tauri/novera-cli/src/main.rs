@@ -34,7 +34,8 @@ The `jan cli` subcommand is the non-interactive fallback: run folder-based\n\
 agents headlessly and manage threads and providers.\n\n\
 Models are served by remote providers configured in ~/.novera/config.toml\n\
 (see `jan config set`), a project's agent.toml, or the Novera desktop app.\n\n\
-Automatic CLI updates are unavailable until a signed Novera channel is configured.\n\n\
+A signed Novera channel is available only in builds compiled with signed-updates;\n\
+other builds refuse automatic updates. Publication also requires channel validation.\n\n\
 TRON-ABS\nThe art of Human with AI",
     after_help = "Examples:\n  \
   jan                                                    # open the interactive agent console (TUI)\n  \

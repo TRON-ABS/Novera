@@ -1,11 +1,10 @@
 //! Update policy for Novera's headless CLI (historical executable name: `jan`).
 //!
-//! Candidates reject update checks and forced self-update before network or
-//! filesystem access: `update_channel` stays disabled until a signed Novera
-//! channel is implemented and configured. Legacy download helpers remain for
-//! compatibility tests and are unreachable through this policy. A future CLI
-//! update channel must establish Novera signature verification before enabling
-//! replacement of the executable.
+//! Default candidates reject update checks and forced replacement before network
+//! or filesystem access. The explicit `cli-signed-updates` feature selects the
+//! Novera channel, authenticates the archive and binds its version and target
+//! before replacement. Legacy download helpers remain for compatibility tests
+//! and are unreachable through either policy.
 
 use std::cmp::Ordering;
 use std::fs::{self, File};
@@ -18,6 +17,14 @@ use sha2::{Digest, Sha256};
 
 use crate::core::updater::custom_updater::SECRET_KEY;
 use crate::core::updater::hmac_client::SignedRequestHeaders;
+
+#[cfg(feature = "cli-signed-updates")]
+#[path = "signed_update.rs"]
+mod signed;
+
+pub fn signed_channel_configured() -> bool {
+    cfg!(feature = "cli-signed-updates")
+}
 
 const CHECK_TIMEOUT: Duration = Duration::from_millis(1500);
 const DOWNLOAD_TIMEOUT: Duration = Duration::from_secs(300);
@@ -54,8 +61,11 @@ pub enum UpdateOutcome {
 }
 
 fn update_channel() -> Option<&'static str> {
-    // CLI candidates have no configured signed Novera update channel.
-    None
+    if signed_channel_configured() {
+        Some("stable")
+    } else {
+        None
+    }
 }
 
 /// The version this binary reports: the nightly build version embedded by CI
@@ -213,9 +223,12 @@ fn read_update(manifest: &UpdateManifest, channel: &'static str) -> AvailableUpd
 /// Resolve a published build, rejecting unconfigured candidates before I/O.
 pub async fn check_for_update(timeout: Duration) -> Result<AvailableUpdate, String> {
     let channel = update_channel().ok_or_else(|| {
-        "Automatic CLI updates are unavailable: no signed Novera channel is configured."
-            .to_string()
+        "Automatic CLI updates are unavailable: no signed Novera channel is configured.".to_string()
     })?;
+    #[cfg(feature = "cli-signed-updates")]
+    if channel == "stable" {
+        return signed::check(timeout).await;
+    }
     let manifest = tokio::time::timeout(timeout, fetch_manifest(channel, timeout))
         .await
         .map_err(|_| format!("timed out fetching the {channel} manifest"))??;
@@ -442,7 +455,12 @@ fn clean_stale_files(exe: &Path) {
         return;
     };
     for entry in entries.flatten() {
-        if entry.file_name().to_string_lossy().starts_with(STAGING_PREFIX) && is_stale(&entry) {
+        if entry
+            .file_name()
+            .to_string_lossy()
+            .starts_with(STAGING_PREFIX)
+            && is_stale(&entry)
+        {
             let _ = fs::remove_file(entry.path());
         }
     }
@@ -464,6 +482,10 @@ fn is_stale(entry: &fs::DirEntry) -> bool {
 /// Download the newest build for this channel and replace the running binary
 /// in place. `force` reinstalls even when the versions already match.
 pub async fn self_update(force: bool) -> Result<UpdateOutcome, String> {
+    #[cfg(feature = "cli-signed-updates")]
+    if signed_channel_configured() {
+        return signed::self_update(force).await;
+    }
     let update = check_for_update(CHECK_TIMEOUT).await?;
     if !update.is_newer() && !force {
         return Ok(UpdateOutcome::UpToDate {
@@ -729,7 +751,10 @@ mod tests {
         clean_stale_files(&exe);
 
         assert!(!stale.exists(), "an abandoned download must be removed");
-        assert!(live.exists(), "a download still in flight must be left alone");
+        assert!(
+            live.exists(),
+            "a download still in flight must be left alone"
+        );
         assert!(unrelated.exists());
         assert!(exe.exists(), "the binary itself is never swept");
     }

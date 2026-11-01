@@ -1,5 +1,11 @@
 # Validation des installations et mises à jour
 
+## Exécution des cinq essais — 1er novembre 2026
+
+La matrice [41333359988](https://github.com/TRON-ABS/Novera/actions/runs/41333359988), commit cd5171da, est lancée pour les cinq plateformes desktop. Les contrats source passent. Les programmes de contrôle Windows x64, Windows ARM64 et Linux compilent, mais leur téléchargement des assets du brouillon échoue HTTP 403 avec le jeton en lecture seule. Le job de validation reçoit donc l’accès requis aux brouillons ; le contrôleur effectue seulement des lectures et retire le jeton avant de démarrer tout exécutable testé. Les installations restent à valider. Les deux premiers essais Windows ont échoué avant installation, sur la sélection du linker puis sur le passage du paramètre de plateforme dans Bash ; ces deux problèmes sont corrigés. Aucune installation réussie n’est déduite de ces préparatifs.
+
+Un [canal CLI signé](CLI_SIGNED_UPDATES.md) est aussi en préparation, distinct des anciens candidats sans updater. Seuls les deux secrets de signature Novera sont actuellement configurés dans Actions ; aucune identité Apple/Android de production n’a été constatée dans ces secrets.
+
 ## Essai Windows : sélection du linker de validation — 1er novembre 2026
 
 Le premier run de validation 41332189234 passe les contrats source mais échoue avant installation : Bash résout le link.exe de Git pendant la compilation du programme de contrôle. Le job utilise désormais le sélecteur MSVC déjà présent et testé dans le dépôt, avec son chemin de linker explicite. Une relance ciblée est préparée ; aucun échec d’installation de Novera ni validation réussie n’est déduit de cet incident de préparation.

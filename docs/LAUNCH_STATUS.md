@@ -2,6 +2,8 @@
 
 État vérifié au **1er novembre 2026**. Novera prépare son lancement : **aucune distribution publique n’est annoncée à ce stade**. Les artefacts de compilation servent aux contrôles internes ; le brouillon de préversion demeure bloqué. Les anciens candidats sans updater restent internes.
 
+Les [nouveaux essais d’installation et d’update](INSTALL_UPDATE_VALIDATION.md) ont atteint la compilation des programmes de contrôle sur les runners. L’accès aux assets du brouillon a ensuite échoué HTTP 403 ; la correction d’accès précède la relance. Aucune installation n’est donc encore certifiée. Le [canal CLI signé](CLI_SIGNED_UPDATES.md) est implémenté en option et reste à valider avec ses nouveaux paquets ; les anciens candidats CLI ne sont pas activés rétroactivement.
+
 Novera réunit la conversation, la recherche et la création de texte, d’images, de musique et de vidéo dans un même tableau de bord. Les parcours guidés aident à choisir et préparer les composants compatibles ; les options avancées restent accessibles. Les possibilités locales dépendent du matériel, du moteur et des modèles installés ; les services cloud utilisent les accès configurés par l’utilisateur. Les [vitrines française](../README.fr.md) et [anglaise](../README.md) présentent les capacités et la capture réelle du mainteneur.
 
 | Cible | Preuves disponibles | Conditions encore nécessaires à la diffusion |
