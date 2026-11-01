@@ -233,8 +233,9 @@ runs:
           curl -fsSL -o "$archive" "$base/$rel"
           expected=$(jq -r --arg p "$pkg" --arg pl "$platform" '.[$p][$pl].sha256 // empty' "$manifest")
           [[ "$expected" =~ ^[a-fA-F0-9]{64}$ ]] || { echo 'Missing CUDA component checksum' >&2; exit 1; }
-          actual=$(sha256sum "$archive" | awk '{print $1}')
-          [ "$actual" = "$expected" ] || { echo 'CUDA component checksum mismatch' >&2; exit 1; }
+          # stdin avoids GNU's leading escape marker for Windows backslash paths.
+          actual=$(sha256sum < "$archive" | awk '{print $1}')
+          [ "$actual" = "$expected" ] || { echo "CUDA component checksum mismatch: $pkg" >&2; exit 1; }
           bytes=$((bytes + $(wc -c < "$archive")))
           unpack "$archive" "$tmp"
           # Each unpacks to <name>-archive/{bin,lib,include}; merge them into

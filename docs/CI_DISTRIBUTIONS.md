@@ -55,3 +55,9 @@ Le job Web échoue réellement à l'installation immuable Yarn (`YN0028`), avant
 Les journaux du premier run révèlent également deux causes distinctes : l'action composite demandait une action tierce d'installation de jq absente de la liste autorisée ; la CLI Windows prenait le `link.exe` GNU de Git Bash à la place du linker MSVC. Le provisionnement jq utilise désormais l'outil présent sur le runner ou son gestionnaire natif, sans élargir les permissions GitHub. Un script commun sélectionne le linker MSVC par chemin complet pour le bon hôte/cible x64 ou ARM64, y compris pour la CLI. Une relance du workflow manuel remplace les candidats précédents du même groupe ; elle ne crée pas de publication automatique.
 
 Validation du correctif natif : **5 tests de candidats/politiques réussis**, dont sélection réelle du chemin MSVC pour fixtures x64/ARM64 avec espaces et refus d’un outil absent ; actionlint toujours sans erreur.
+
+### Run corrigé et première compilation réussie
+
+[Run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531), commit `7cced48a4b6924f9e20e91a064c2c2a027638e24` : **Web compilé et artefact retenu**, identifiant `13069523743`, 49 318 112 octets. Cette réussite confirme l'installation Yarn immuable après normalisation du verrou. Les autres plateformes sont encore suivies individuellement.
+
+Windows x64 a ensuite échoué sur une comparaison SHA-256 CUDA. Vérification indépendante du premier composant depuis le manifeste officiel NVIDIA : archive NVCC 13.4.92 de 32 991 192 octets, SHA-256 attendu et réel `23950047aa5405993129a982a99924b4e6d5eb9bc312300030f3afd9b3b49ea4`, conformes. Cause reproduite localement : GNU `sha256sum` préfixe l'empreinte par un caractère d'échappement lorsque le nom contient les antislashs d'un chemin Windows. Calculer sur l'entrée standard évite ce marqueur, sans retirer la vérification. Seul Windows est relancé après ce correctif ; les plateformes encore actives conservent leur run.
