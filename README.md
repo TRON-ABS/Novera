@@ -15,7 +15,7 @@
 
 | Platform | Current preparation |
 | --- | --- |
-| Windows x64 | Signed-update job failed during migration-test linking after installers were built; targeted retry being prepared. |
+| Windows x64 | Signed-update job failed during migration-test linking after installers were built; [targeted signed retry running](https://github.com/TRON-ABS/Novera/actions/runs/41311520840). |
 | Windows ARM64 | Candidate inspected; signed NSIS verified and desktop runtime prepared to match it. |
 | Linux x64 | AppImage update signature and packaged binaries verified; Debian delivery checks remain separate. |
 | macOS | Both signed-update candidates inspected: Apple Silicon requires macOS 14+, Intel macOS 13+. |
