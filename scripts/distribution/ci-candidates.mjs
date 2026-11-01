@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { releaseConfig } from '../updates/novera-update.mjs'
 import { prepareNsisRuntime } from './windows-runtime.mjs'
+import { prepareWebDelivery } from './web-delivery.mjs'
 
 export function safePayload(name) {
   const parts = name.replaceAll('\\', '/').split('/')
@@ -78,6 +79,8 @@ function run(mode, kind) {
     json('.build/candidate-config.json', config)
   } else if (mode === 'web') {
     for (const p of files('web-app/dist')) copy(p, path.join('web', path.relative('web-app/dist', p)))
+    const web = prepareWebDelivery(path.join(out, 'web'), { version: JSON.parse(fs.readFileSync('web-app/package.json')).version, commit: process.env.GITHUB_SHA })
+    json(path.join(out, 'WEB-DELIVERY-READINESS.json'), web)
   } else if (mode === 'cli') {
     const exe = process.platform === 'win32' ? 'jan.exe' : 'jan'
     copy(path.join(release, exe), exe)

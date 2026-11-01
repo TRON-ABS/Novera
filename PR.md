@@ -18,6 +18,8 @@ The first signed CLI matrix compiled and signed its archives, then failed the pu
 
 ## Validation and publication limits
 
+Web preparation records a reviewed revision and file digests, and checks an HTTP response contract for no-store version metadata, revalidated HTML and matching payloads. Three local HTTP tests cover successive revisions at one origin, stale content refusal and unsafe transport rejection. GitHub Pages is not configured (read-only API check returns 404). No hosting is enabled, browser upgrade is claimed or public deployment is made; the selected origin and real browser renewal test remain required. See [Web delivery](docs/WEB_DELIVERY.md).
+
 Local checks: 49 Node distribution contracts, six Python guard/package tests, two signed-feature CLI policy/help tests and seven Rust signed-channel tests pass. The CI-only signed executable replacement test is explicitly ignored locally and must run against real CI-produced archives. GitHub source checks pass. Windows runtime provenance and the incomplete original Actions archive remain documented separately from prepared candidates.
 
 The private draft contains 15 verified assets below 2 GiB each and remains draft/prerelease. No public latest.json or latest-cli.json exists. Production UI/feed validation, Apple signing/notarization, mobile production channels/device tests, Web deployment/renewal and MSI/Debian/portable scenarios remain distinct requirements. No certification or public release is implied. See [launch status](docs/LAUNCH_STATUS.md) and [test protocol](docs/INSTALL_UPDATE_VALIDATION.md).

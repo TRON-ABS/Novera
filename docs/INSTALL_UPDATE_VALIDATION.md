@@ -38,7 +38,7 @@ Les reçus JSON doivent distinguer ces preuves des validations non réalisées. 
 | --- | --- |
 | Android | Signature durable, canal de distribution/update adapté et essais sur appareil ; le candidat existant reste debug. |
 | iOS | Identité et accès Apple réels, build appareil, distribution/update via un canal approprié et essais ; le simulateur ne suffit pas. |
-| Web | Hébergement, déploiement, versionnement et renouvellement du client public. |
+| Web | [Révision, empreintes et contrat HTTP préparés](WEB_DELIVERY.md), trois tests locaux HTTP réussis ; hébergement réel, déploiement et renouvellement au navigateur restent requis. |
 | CLI | Canal d’update signé adapté aux trois hôtes et validation de son installation/remplacement. |
 
 Les accès Apple/Google et certificats éventuels doivent provenir du mainteneur, hors du chat et du dépôt. Aucune clé ou certification de production n’est inventée. La publication reste conditionnée aux preuves réellement obtenues et à la [politique officielle](../OFFICIAL_RELEASES.md).
