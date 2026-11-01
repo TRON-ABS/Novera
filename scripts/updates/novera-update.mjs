@@ -1,5 +1,5 @@
-import { readFileSync, writeFileSync } from 'node:fs'
-import { basename, resolve } from 'node:path'
+import { readFileSync, writeFileSync, createReadStream, existsSync, openSync, closeSync, unlinkSync } from 'node:fs'
+import { basename, dirname, resolve } from 'node:path'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 
@@ -21,22 +21,58 @@ export function releaseConfig(key) {
   }
 }
 
-export function releaseManifest({ version, artifact, signature, notes = '', publishedAt = new Date().toISOString() }) {
-  if (!/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.test(version)) throw new Error('The stable feed requires a stable semantic version')
+function updateEntry(version, { platform = 'windows-x86_64', artifact, signature }) {
+  const filenames = {
+    'windows-x86_64': `Novera_${version}_x64-setup.exe`,
+    'windows-aarch64': `Novera_${version}_arm64-setup.exe`,
+    'linux-x86_64': `Novera_${version}_amd64.AppImage`,
+    'darwin-aarch64': `Novera_${version}_aarch64.app.tar.gz`,
+    'darwin-x86_64': `Novera_${version}_x64.app.tar.gz`,
+  }
+  if (!Object.hasOwn(filenames, platform)) throw new Error('Unsupported Novera update platform')
   const file = basename(artifact)
-  if (!file.endsWith('_x64-setup.exe') || !file.includes(`_${version}_`))
-    throw new Error('Use the matching signed Windows x64 NSIS installer, not the portable executable')
+  if (file !== filenames[platform]) throw new Error(`Use the version-matched updater bundle for ${platform}`)
+  if (!/^[A-Za-z0-9+/]+={0,2}$/.test(signature?.trim() || '')) throw new Error('Expected complete Tauri .sig contents')
   const lines = Buffer.from(signature.trim(), 'base64').toString('utf8').trim().split(/\r?\n/)
-  if (!lines[0]?.startsWith('untrusted comment:') || !lines[2]?.startsWith('trusted comment:') ||
-      Buffer.from(lines[1] ?? '', 'base64').length !== 74 || Buffer.from(lines[3] ?? '', 'base64').length !== 64)
-    throw new Error('Expected the complete Tauri .sig file contents')
+  const packet = Buffer.from(lines[1] ?? '', 'base64')
+  if (lines.length !== 4 || !lines[0]?.startsWith('untrusted comment:') || !lines[2]?.startsWith('trusted comment:') ||
+      packet.length !== 74 || !['Ed', 'ED'].includes(packet.subarray(0, 2).toString()) || Buffer.from(lines[3] ?? '', 'base64').length !== 64)
+    throw new Error('Expected complete Tauri .sig contents')
+  return { platform, value: { url: `https://github.com/TRON-ABS/Novera/releases/download/v${version}/${encodeURIComponent(file)}`, signature: signature.trim() } }
+}
+
+export function releaseManifest({ version, artifact, signature, platform, artifacts, notes = '', publishedAt = new Date().toISOString() }) {
+  if (!/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.test(version)) throw new Error('The stable feed requires a stable semantic version')
   if (Number.isNaN(Date.parse(publishedAt))) throw new Error('Invalid publication date')
-  return {
-    version, notes, pub_date: publishedAt,
-    platforms: { 'windows-x86_64': {
-      url: `https://github.com/TRON-ABS/Novera/releases/download/v${version}/${encodeURIComponent(file)}`,
-      signature: signature.trim(),
-    } },
+  if (artifacts && (artifact || signature || platform)) throw new Error('Choose a single artifact or an artifact list')
+  const entries = artifacts ?? [{ platform, artifact, signature }]
+  if (!Array.isArray(entries) || !entries.length) throw new Error('Provide at least one updater artifact')
+  const platforms = {}
+  for (const entry of entries) {
+    const item = updateEntry(version, entry)
+    if (Object.hasOwn(platforms, item.platform)) throw new Error('Duplicate updater platform')
+    platforms[item.platform] = item.value
+  }
+  return { version, notes, pub_date: publishedAt, platforms }
+}
+
+async function digest(file) {
+  const hash = createHash('sha256')
+  for await (const block of createReadStream(file)) hash.update(block)
+  return hash.digest('hex')
+}
+function writeNew(outputs) {
+  if (outputs.some(([file]) => existsSync(file))) throw new Error('Output already exists; choose new output paths')
+  const created = []
+  try {
+    for (const [file, content] of outputs) {
+      const fd = openSync(file, 'wx')
+      created.push(file)
+      try { writeFileSync(fd, content) } finally { closeSync(fd) }
+    }
+  } catch (error) {
+    for (const file of created.reverse()) unlinkSync(file)
+    throw error
   }
 }
 
@@ -51,18 +87,25 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   }, []))
   const output = options.out
   if (!output) throw new Error('Provide --out with a new output file path')
-  let result
+  let result, checksums
   if (command === 'config') {
     result = releaseConfig(readFileSync(options['public-key'], 'utf8'))
   } else if (command === 'manifest') {
-    const raw = readFileSync(options.artifact)
-    result = releaseManifest({
-      version: options.version, artifact: options.artifact,
-      signature: readFileSync(options.signature, 'utf8'),
+    let entries
+    if (options['artifacts-file']) {
+      if (options.artifact || options.signature || options.platform) throw new Error('Choose single-artifact options or --artifacts-file')
+      const descriptor = resolve(options['artifacts-file'])
+      const list = JSON.parse(readFileSync(descriptor, 'utf8'))
+      if (!Array.isArray(list) || !list.length) throw new Error('The artifact file must contain a non-empty array')
+      entries = list.map(item => ({ platform: item.platform, artifact: resolve(dirname(descriptor), item.artifact), signature: readFileSync(resolve(dirname(descriptor), item.signature), 'utf8') }))
+    } else {
+      entries = [{ platform: options.platform, artifact: options.artifact, signature: readFileSync(options.signature, 'utf8') }]
+    }
+    result = releaseManifest({ version: options.version, artifacts: entries,
       notes: options.notes ? readFileSync(options.notes, 'utf8') : '',
     })
-    writeFileSync(`${output}.sha256`, `${createHash('sha256').update(raw).digest('hex')}  ${basename(options.artifact)}\n`, { flag: 'wx' })
+    checksums = (await Promise.all(entries.map(async item => `${await digest(item.artifact)}  ${basename(item.artifact)}\n`))).join('')
   } else throw new Error('Use config or manifest')
-  writeFileSync(output, JSON.stringify(result, null, 2) + '\n', { flag: 'wx' })
+  writeNew([[output, JSON.stringify(result, null, 2) + '\n'], ...(checksums ? [[`${output}.sha256`, checksums]] : [])])
   console.log(`Prepared ${command}: ${output}. Nothing uploaded or enabled.`)
 }
