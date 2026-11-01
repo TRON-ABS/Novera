@@ -1,5 +1,11 @@
 # Composants gérés par Novera — état, profils et reprise
 
+## Paquets Windows propres et vitrine publiée — 1er novembre 2026
+
+Le mainteneur autorise désormais la préparation **desktop, portable et installateur Windows** depuis son desktop testé, sans discussions ni données personnelles incluses. Les sources et la nouvelle capture sont publiées sur **main** ; les vitrines anglais/français portent le message souhaitant une belle aventure et la signature TRON-ABS. Les notes plus anciennes ci-dessous décrivent leur état au moment de rédaction.
+
+Voir le [résultat de préparation, les empreintes et les limites avant release publique](DISTRIBUTION_WINDOWS_2026-11-01.md). Les paquets restent des candidats locaux non signés ; aucun binaire de release publique ni tag n’est publié, et Actions reste désactivé. Les données présentes sur le PC sont conservées.
+
 ## Retour du mainteneur et publication sur main — 1er novembre 2026
 
 Le mainteneur confirme **« tout marche bien »** et fournit une nouvelle capture réelle du desktop montrant une image créée et les commandes du tableau de bord. Il demande explicitement la publication des sources sur **main**, la mise à jour de la vitrine et la signature **TRON-ABS — The art of Human with AI** en bas des README anglais/français.

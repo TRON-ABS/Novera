@@ -1,4 +1,14 @@
-# fix(runtime): manage optional engines and refresh the desktop showcase
+# fix(distribution): prepare clean Windows packages and refresh the showcase
+
+## Clean Windows package preparation — 1 November 2026
+
+The maintainer explicitly requests desktop, portable and Windows installer candidates from the tested desktop, excluding personal conversations. Preserve build `1.0.0-2026-11-01_04-10-51-711`; do not rebuild the application or copy user profiles. The desktop contains 94 runtime files and the portable 96 entries. All portable and desktop payload hashes match the tested runtime. Add the clean package directory to Git ignores and record package sizes, checksums, provenance and remaining release checks in [the Windows preparation report](docs/DISTRIBUTION_WINDOWS_2026-11-01.md). Personal data on the maintainer's PC is preserved.
+
+Tauri `bundle --bundles nsis --config <private clean-resource override> --ci` succeeded using the precompiled executable. Installer: 812,961,689 bytes. Independent 7-Zip extraction succeeded: 102 files, all 94 runtime hashes match; eight extra files are NSIS resources, the uninstaller and the verified Microsoft WebView2 bootstrapper. The existing binary lacks Tauri's bundle-type marker, so the bundler reports a warning and leaves its hash unchanged; automatic updates remain disabled. Visual C++ x64 remains a documented prerequisite. The application and installer are unsigned. No installer execution against the maintainer's personal profile was performed.
+
+Publish a warm closing message in both README languages above the existing TRON-ABS signature. The supplied screenshot and runtime sources were already published directly to main in `ac002425` and `56e4b70`; GitHub About was updated, homepage/topics retained, Actions disabled. No open PR or equivalent pending contribution was found before publication.
+
+Full web lint: `node node_modules/eslint/bin/eslint.js . --quiet` passed from `web-app`. The filename sanitizer intentionally strips ASCII controls; document that intent with a scoped lint directive, preserving behavior. `node node_modules/vitest/vitest.mjs run src/modules/conversations/__tests__/export.test.ts`: 28 passed. No CI approval, signed/public binary release, clean-machine installation certification or private symbol upload is claimed. Earlier notes below preserve their historical validation scope.
 
 ## Publication update — 1 November 2026
 

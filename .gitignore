@@ -105,3 +105,6 @@ e2e/logs
 /deliverables/Novera-msi-*/
 /deliverables/Novera-portable-*/
 /deliverables/Novera-web-*/
+
+# Clean Windows distribution candidates are local artifacts, never source commits.
+/deliverables/Novera-Windows-*/

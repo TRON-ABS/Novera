@@ -126,6 +126,8 @@ export function messageExportText(message: ThreadMessage): string {
 export function exportBasename(title: string): string {
   let safe = title
     .normalize('NFC')
+    // ASCII control characters and Windows filename separators are intentionally removed.
+    // eslint-disable-next-line no-control-regex
     .replace(/[<>:"/\\|?*\x00-\x1f\x7f]/g, '_')
     .replace(/^[. ]+|[. ]+$/g, '')
     .slice(0, 80)
