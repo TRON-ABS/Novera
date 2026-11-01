@@ -24,6 +24,8 @@ export function requireUpdatePublication(candidate, receipt) {
   if (candidate.kind !== 'desktop' || candidate.updaterChannelConfigured !== true || candidate.updaterSignaturesVerified !== true) throw new Error('Publication blocked: no verified update channel for this candidate')
   if (!receipt || receipt.commit !== candidate.commit || receipt.endpoint !== endpoint || receipt.updaterEnabled !== true || receipt.signaturesVerified !== true || !receipt.artifacts?.length) throw new Error('Publication blocked: missing or mismatched updater receipt')
   if (!['windows-x86_64', 'windows-aarch64', 'linux-x86_64', 'darwin-x86_64', 'darwin-aarch64'].includes(receipt.platform)) throw new Error('Publication blocked: unsupported update platform')
+  const expected = { 'win32:x64': 'windows-x86_64', 'win32:arm64': 'windows-aarch64', 'linux:x64': 'linux-x86_64', 'darwin:x64': 'darwin-x86_64', 'darwin:arm64': 'darwin-aarch64' }[`${candidate.platform}:${candidate.architecture}`]
+  if (expected !== receipt.platform) throw new Error('Publication blocked: updater platform differs from candidate architecture')
   return true
 }
 

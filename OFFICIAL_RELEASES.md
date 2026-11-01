@@ -1,5 +1,11 @@
 # Official Novera releases and governance
 
+## Mandatory update prerequisite — 1 November 2026
+
+The maintainer now requires a configured and verified update mechanism before **any public version**. Earlier updater-disabled candidates remain internal. A real Novera update key was generated with explicit authorization, encrypted GitHub signing secrets are configured, and new desktop builds with embedded trust and cryptographically verified updater bundles are running. No private key or password is committed. The encrypted recovery export has passed a standalone restore and signing check; its off-machine copy remains the maintainer’s responsibility.
+
+Every candidate must satisfy `node scripts/distribution/ci-check-updater.mjs --publication-check CANDIDATE_DIRECTORY` where applicable, plus its installation/update and platform-specific release checks. Android debug, iOS simulator and the CLI currently lack an approved update channel and remain excluded from publication. MSI, Debian and portable delivery also require their actual update scenario to be validated. The existing candidate draft is blocked and unpublished; earlier no-secret/no-key statements below record historical state. See [current evidence and limits](docs/FUTURES_VERSIONS.md).
+
 The [future-version procedure](docs/FUTURES_VERSIONS.md) documents synchronized version preparation, source and migration checks, and update-manifest preparation for five desktop targets. These checks do not replace release approval, genuine signing credentials or installation/update validation.
 
 ## Authoritative channels

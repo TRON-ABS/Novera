@@ -1,5 +1,27 @@
 # Novera — instructions du projet
 
+## Publication conditionnée aux mises à jour — 1er novembre 2026
+
+Le mainteneur impose désormais **aucune version publique sans mécanisme de mise à jour configuré et vérifié**. Cette consigne remplace les projets de diffusion des candidats précédents sans updater. Ils restent des preuves internes ; leurs compilations et inspections ne leur donnent pas une autorisation de publication.
+
+Le mainteneur autorise explicitement la création et la configuration de la clé Novera. La clé privée chiffrée reste hors dépôt, avec accès Windows restreint ; les deux secrets Actions `NOVERA_UPDATER_PRIVATE_KEY` et `NOVERA_UPDATER_PASSWORD` sont configurés par chiffrement à la clé publique GitHub. Seule `src-tauri/tauri.updater.conf.json`, contenant la clé publique et le flux exclusif Novera, est versionnée. Empreinte SHA-256 du paquet de clé publique : `f8adcd7f0e5a079521c8fc4ec03987d8bc78acf8578a25f1ad25c72e1a93af9d`.
+
+Un vrai fichier signé avec cette clé passe deux vérifications cryptographiques indépendantes ; un fichier altéré est rejeté. Un export de secours chiffré, avec code de récupération distinct et script de restauration, a été remis au mainteneur à l’emplacement demandé hors dépôt. Une restauration sans DPAPI puis une signature avec la clé restaurée réussissent ; les secrets temporaires de cet essai sont supprimés. La copie sur un support externe et la conservation séparée du code restent à faire par le mainteneur. Aucune valeur secrète n’est inscrite dans Git, les logs ou les assets.
+
+Le commit `d0a29f63` ajoute au workflow manuel l’option **`signed_updates=true`** : configuration de confiance embarquée, frontend de mise à jour actif, signature des octets finaux et vérification Ed25519 du contenu et du commentaire Minisign. Linux est signé après le reconditionnement AppImage ; les archives macOS d’update portent un nom distinct par architecture. Le reçu `UPDATER-READINESS.json` conserve commit, plateforme, flux, empreinte publique et SHA-256 des fichiers signés. Les champs de provenance `updaterChannelConfigured` et `updaterSignaturesVerified` distinguent ces nouveaux builds des anciens candidats.
+
+Le [run signé `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) compile les cinq cibles desktop ; Android et iOS relancés par la cible `native` restent des candidats internes. **47 tests Node passent localement**, dont six tests de signature/configuration/publication ; le contrôle source GitHub passe avec les tests propres à Windows ignorés sur Ubuntu. Le résultat des paquets signés et leurs reçus restent à vérifier après compilation. Les anciens binaires installés ne sont pas modifiés par ce commit.
+
+Avant publication d’un candidat desktop extrait :
+
+```sh
+node scripts/distribution/ci-check-updater.mjs --publication-check CHEMIN_DU_CANDIDAT
+```
+
+Le contrôle refuse un canal absent, un reçu d’un autre commit, une autre plateforme ou destination, un fichier altéré et une signature d’une autre clé ; il revérifie les octets du bundle avec la clé publique épinglée. Il ne publie rien et ne remplace pas l’essai réel d’installation/mise à jour, les licences, l’approbation du mainteneur ou la signature de code/notarisation propre au système. L’updater signé Tauri ne constitue pas une signature Authenticode ou une notarisation Apple.
+
+Le brouillon de préversion `v1.0.0-candidate.20261101` est marqué **BLOQUÉ : mises à jour vérifiées requises** et reste non publié. Le transfert des anciens candidats sans updater a été arrêté. Aucun tag de publication ni `latest.json` public n’est annoncé comme disponible. Android debug, iOS simulateur et la CLI sans canal adapté restent exclus de toute publication selon la nouvelle consigne ; leurs canaux de mise à jour et validations propres doivent être terminés. Les MSI, Debian et portables ne sont pas les bundles du flux NSIS/AppImage préparé : leur scénario d’update doit aussi être vérifié avant diffusion. La version applicative reste **1.0.0**.
+
 ## macOS Intel compilé et vérifié — 07:09 UTC, 1er novembre 2026
 
 Le run macOS `41278737556`, commit `5468f183`, est entièrement réussi. Le DMG Intel `13073109727` est téléchargé : sept empreintes, reçu et 26 Mach-O x64 vérifiés, minimum maximal **13.0.0**, worker GGUF/Metal présent et MLX exclu. Les deux architectures macOS sont donc compilées et inspectées séparément (ARM64 : 16 Mach-O, minimum 14.0). Aucun essai d’installation, notarisation ou signature de production n’est revendiqué. Seul Windows x64 reste en compilation pour ses quatre formats ; Android est vérifié ci-dessous.

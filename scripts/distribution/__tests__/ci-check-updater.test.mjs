@@ -50,11 +50,11 @@ test('rejects malformed signature packets before certifying any bundle', async t
   await assert.rejects(verifyUpdateBundle(f.file, Buffer.from('untrusted comment: incomplete').toString('base64'), f.key), /does not match/)
 })
 test('publication requires a verified channel and matching source receipt', () => {
-  const candidate = { kind: 'desktop', commit: 'source', updaterChannelConfigured: true, updaterSignaturesVerified: true }
+  const candidate = { kind: 'desktop', platform: 'win32', architecture: 'x64', commit: 'source', updaterChannelConfigured: true, updaterSignaturesVerified: true }
   const receipt = { commit: 'source', endpoint, platform: 'windows-x86_64', updaterEnabled: true, signaturesVerified: true, artifacts: [{ file: 'setup.exe' }] }
   assert.equal(requireUpdatePublication(candidate, receipt), true)
   for (const patch of [{ kind: 'android' }, { kind: 'ios' }, { kind: 'cli' }, { updaterChannelConfigured: false }, { updaterSignaturesVerified: false }]) assert.throws(() => requireUpdatePublication({ ...candidate, ...patch }, receipt), /Publication blocked/)
-  for (const patch of [{ commit: 'different' }, { endpoint: 'https://other.invalid' }, { platform: 'android-arm64' }, { updaterEnabled: false }, { signaturesVerified: false }, { artifacts: [] }]) assert.throws(() => requireUpdatePublication(candidate, { ...receipt, ...patch }), /Publication blocked/)
+  for (const patch of [{ commit: 'different' }, { endpoint: 'https://other.invalid' }, { platform: 'android-arm64' }, { platform: 'darwin-x86_64' }, { updaterEnabled: false }, { signaturesVerified: false }, { artifacts: [] }]) assert.throws(() => requireUpdatePublication(candidate, { ...receipt, ...patch }), /Publication blocked/)
   assert.throws(() => requireUpdatePublication(candidate, null), /Publication blocked/)
 })
 
