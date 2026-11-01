@@ -2,6 +2,8 @@
 
 ## Compilations sur GitHub autorisées — 1er novembre 2026
 
+Point de contrôle : Web corrigé et compilé (`307fbb16`), premier lancement navigateur/fournisseurs vérifié sans clé ni modèle ; trois CLI Windows/Linux/macOS compilées (`7cced48a`), commande d’aide et architectures/empreintes contrôlées. Les applications natives sont encore en compilation/validation ; suivre le tableau des onze variantes dans `docs/CI_DISTRIBUTIONS.md`, qui conserve le run et le commit propres à chaque candidat. Les notices TRON-ABS ne remplacent pas une signature cryptographique de production.
+
 Activation distante autorisée explicitement puis appliquée : **37 anciens workflows désactivés**, seul le nouveau workflow manuel actif. [Premier run `target=all`](https://github.com/TRON-ABS/Novera/actions/runs/41272733352), commit `3f072579`. Les résultats effectifs sont suivis dans `docs/CI_DISTRIBUTIONS.md` ; ne pas annoncer toutes les plateformes compilées avant leur réussite.
 
 Le mainteneur demande maintenant les **onze variantes sur GitHub Actions**, et confirme Linux, Android, iOS et macOS. Cette demande remplace les restrictions historiques de préparation sans CI ci-dessous. Le workflow manuel Novera conserve des candidats propres avec empreintes, provenance et signature TRON-ABS ; les résultats ne doivent pas être confondus avec une release signée ou une validation sur appareil. [Périmètre, contrôles et résultats CI](docs/CI_DISTRIBUTIONS.md). Les données et discussions du PC ne sont jamais utilisées comme entrées de compilation.

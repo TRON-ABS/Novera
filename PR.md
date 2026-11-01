@@ -18,6 +18,8 @@ Further remote checks: Web plus Linux/macOS/Windows CLI builds passed and their 
 
 Linux native compilation also exposed an invalid GTK 3 call: `Clipboard::set_uris` does not exist in locked gtk 0.18.2. Use ownership callbacks with `text/uri-list` and the actual `SelectionData::set_uris` API. An isolated Linux/Xvfb consumer test compiles the exact production module, preserving encoded Unicode/spaces and checking the returned URI. It is pending remote execution, not claimed as locally passed on Windows. CUDA's CMake compiler test separately needs the same absolute MSVC linker already selected for Cargo; forward it explicitly through the engine build script.
 
+Browser QA of the first Web artifact found that a fresh browser entered the desktop engine installer. Route browser-only onboarding to the existing provider settings while preserving native setup. Thirteen route tests, TypeScript and scoped lint pass. The corrected Web artifact compiled in run 41275648200 and all 593 listed checksums match; a fresh browser reaches provider settings and opens the OpenAI/Anthropic-compatible form without a key, model download or inference request. The three CLI artifacts also pass independent checksum, provenance and binary architecture verification. Native application builds remain in progress; see the live checkpoint table for exact per-variant status. Update the release policy to reflect the explicitly authorized manual CI settings rather than the historical globally disabled state.
+
 ## Earlier completed source and Windows preparation work
 
 # fix(distribution): prepare clean Windows packages and refresh the showcase

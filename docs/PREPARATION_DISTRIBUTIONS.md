@@ -1,4 +1,4 @@
-# Novera — préparer les distributions sans compiler
+# Novera — préparation des distributions et compilations GitHub
 
 ## Compilations sur GitHub autorisées — 1er novembre 2026
 

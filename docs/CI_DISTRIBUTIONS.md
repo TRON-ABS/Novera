@@ -7,16 +7,16 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 
 | Variante | Dernier état relevé | Provenance |
 | --- | --- | --- |
-| Desktop Windows x64 | windows / x64: en cours | [run 41273736808](https://github.com/TRON-ABS/Novera/actions/runs/41273736808) · `09963bb3` |
-| Setup Windows x64 | windows / x64: en cours | [run 41273736808](https://github.com/TRON-ABS/Novera/actions/runs/41273736808) · `09963bb3` |
-| MSI Windows x64 | windows / x64: en cours | [run 41273736808](https://github.com/TRON-ABS/Novera/actions/runs/41273736808) · `09963bb3` |
-| Portable Windows x64 | windows / x64: en cours | [run 41273736808](https://github.com/TRON-ABS/Novera/actions/runs/41273736808) · `09963bb3` |
-| Windows ARM64 | arm64 / arm64: en cours | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
-| Linux | linux / x64: en cours | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
-| macOS | macos / x64: en attente; macos / arm64: en cours | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
-| Android | android / windows-2025: en cours | [run 41274031274](https://github.com/TRON-ABS/Novera/actions/runs/41274031274) · `8864ffb6` |
-| iOS simulateur | ios / macos-15: en cours | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
-| Web | web / ubuntu-22.04: compilé | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
+| Desktop Windows x64 | windows / x64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| Setup Windows x64 | windows / x64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| MSI Windows x64 | windows / x64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| Portable Windows x64 | windows / x64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| Windows ARM64 | arm64 / arm64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| Linux | linux / x64: en cours | [run 41275746510](https://github.com/TRON-ABS/Novera/actions/runs/41275746510) · `0beb13a3` |
+| macOS | macos / x64: en attente; macos / arm64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| Android | android / windows-2025: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| iOS simulateur | ios / macos-15: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
 | CLI | cli / macos-15: compilé; cli / ubuntu-22.04: compilé; cli / windows-2025: compilé | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
 
 Artefacts téléchargés et contrôlés indépendamment :
@@ -24,7 +24,7 @@ Artefacts téléchargés et contrôlés indépendamment :
 - [Novera-cli-Linux-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069749955) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-Windows-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13070655221) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-macOS-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069439592) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
-- [Novera-web-Linux-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069523743) : 593 empreintes vérifiées, signature de marque et provenance conformes.
+- [Novera-web-Linux-41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200/artifacts/13070388490) : 593 empreintes vérifiées, signature de marque et provenance conformes.
 
 Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne remplacent pas une signature cryptographique de production. Les validations sur PC neuf, téléphone et tablette restent distinctes des compilations CI.
 <!-- NOVERA CI STATUS END -->
@@ -130,3 +130,9 @@ L'artefact Web vérifié est servi localement sans recompiler les sources et ouv
 ### Contrat du test GTK
 
 Le run natif `41275047042` compile le nouveau module de production GTK. Son test isolé échoue ensuite à la compilation parce que `wait_for_uris()` renvoie directement un `Vec<GString>`, et non une option. Retirer l'appel `expect` du test conserve les assertions sur la liste et l'URI retournée. Ce défaut appartient au test ajouté ; aucune réussite de l'échange presse-papiers n'est encore annoncée avant la relance Linux.
+
+### Web corrigé : build et contrôle visuel confirmés
+
+[Run Web 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200), commit `307fbb16a78abf4a0baaa7d70b5d6a36a433a233` : job et résumé réussis. Artefact `13070388490`, **49 318 320 octets / 594 fichiers / 593 empreintes conformes**, SHA-256 `110792ff7fdf6e41505c46065a4f7aed1e986296ec394734670e6075a121d8aa`. Notice personnelle et provenance vérifiées.
+
+Le navigateur vierge ouvre désormais `/settings/providers` directement. Le formulaire existant de fournisseur compatible OpenAI/Anthropic s'ouvre correctement ; aucune clé ni génération n'est utilisée pour ce test. Aucun téléchargement de modèle n'est lancé. La capture de contrôle est conservée localement hors Git. Les onglets et deux serveurs d'aperçu créés pour le test sont fermés/arrêtés. Ce contrôle du premier lancement n'est pas une preuve d'inférence cloud ni un test de chaque fournisseur.
