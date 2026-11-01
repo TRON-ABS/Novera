@@ -10,6 +10,7 @@ if [[ "$kind" != cli ]]; then
   yarn build:tauri:plugin:api
   yarn build:core
   yarn build:extensions
+  if [[ "$kind" != web ]]; then yarn build:icon; fi
   yarn copy:assets:mobile
 fi
 case "$kind" in

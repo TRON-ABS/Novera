@@ -40,6 +40,7 @@ function run(mode, kind) {
   const signature = 'TRON-ABS\nThe art of Human with AI\n\nJe vous souhaite à toutes et à tous une belle aventure avec Novera.\nExplorez vos idées, créez librement et laissez votre curiosité vous emmener plus loin.\n\nTo everyone setting out with Novera: I wish you a wonderful adventure.\nExplore your ideas, create freely and let your curiosity take you further.\n'
   const release = path.resolve(process.env.CARGO_TARGET_DIR || 'src-tauri/target', 'release')
   if (mode === 'begin') {
+    fs.writeFileSync(path.join(out, 'SIGNATURE.txt'), signature)
     json('.build/ci-status.json', { kind, state: 'building', commit: process.env.GITHUB_SHA, runId: process.env.GITHUB_RUN_ID })
   } else if (mode === 'config' || mode === 'config-ios') {
     const config = { bundle: { createUpdaterArtifacts: false } }

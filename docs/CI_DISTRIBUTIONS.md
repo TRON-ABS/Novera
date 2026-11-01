@@ -1,5 +1,34 @@
 # Compilations Novera sur GitHub Actions
 
+<!-- NOVERA CI STATUS START -->
+## Tableau de suivi des onze variantes — 1er novembre 2026
+
+Ce tableau relève les résultats des derniers runs concernés, sans transformer un job en cours en réussite. Une relance ciblée remplace le statut de la variante dans l'ancien run global, qui peut donc rester rouge malgré un correctif ultérieur réussi.
+
+| Variante | Dernier état relevé | Provenance |
+| --- | --- | --- |
+| Desktop Windows x64 | windows / x64: en cours | [run 41273736808](https://github.com/TRON-ABS/Novera/actions/runs/41273736808) · `09963bb3` |
+| Setup Windows x64 | windows / x64: en cours | [run 41273736808](https://github.com/TRON-ABS/Novera/actions/runs/41273736808) · `09963bb3` |
+| MSI Windows x64 | windows / x64: en cours | [run 41273736808](https://github.com/TRON-ABS/Novera/actions/runs/41273736808) · `09963bb3` |
+| Portable Windows x64 | windows / x64: en cours | [run 41273736808](https://github.com/TRON-ABS/Novera/actions/runs/41273736808) · `09963bb3` |
+| Windows ARM64 | arm64 / arm64: en cours | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
+| Linux | linux / x64: en cours | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
+| macOS | macos / x64: en attente; macos / arm64: en cours | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
+| Android | android / windows-2025: en cours | [run 41274031274](https://github.com/TRON-ABS/Novera/actions/runs/41274031274) · `8864ffb6` |
+| iOS simulateur | ios / macos-15: en cours | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
+| Web | web / ubuntu-22.04: compilé | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
+| CLI | cli / macos-15: compilé; cli / ubuntu-22.04: compilé; cli / windows-2025: compilé | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
+
+Artefacts téléchargés et contrôlés indépendamment :
+
+- [Novera-cli-Linux-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069749955) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-cli-Windows-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13070655221) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-cli-macOS-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069439592) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-web-Linux-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069523743) : 593 empreintes vérifiées, signature de marque et provenance conformes.
+
+Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne remplacent pas une signature cryptographique de production. Les validations sur PC neuf, téléphone et tablette restent distinctes des compilations CI.
+<!-- NOVERA CI STATUS END -->
+
 Le 1er novembre 2026, le mainteneur autorise explicitement **toutes les plateformes et variantes**, en confirmant Linux, Android, iOS et macOS, avec contrôle des résultats et mise à jour des MD. Cette autorisation remplace la consigne historique de garder Actions désactivé pour la préparation seule. Aucun profil utilisateur ni discussion du PC du mainteneur n'est envoyé aux runners.
 
 ## Lancement manuel
@@ -73,3 +102,11 @@ Relance Windows [41273326935](https://github.com/TRON-ABS/Novera/actions/runs/41
 Les CLI Linux x64 et macOS ARM64 ont compilé sur le run `41273037531`, exécuté `--help`, puis retenu leurs artefacts. Vérification indépendante de chaque archive : **8 fichiers, 7 empreintes conformes**, signature TRON-ABS, provenance et architecture réelle (ELF x64 / Mach-O ARM64) confirmées. Artefacts : Linux `13069749955` (20 828 083 octets, SHA-256 `610412c849c00616419dbc3e1c6c6bd815502ba7ca720423370612d6ef7418fb`) ; macOS `13069439592` (13 882 558 octets, SHA-256 `42c920a8af6c6c9462d3a1c930cad967cda0d5cce1e6874e8eae4c1fd8f6841b`). Le binaire interne reste nommé `jan` ; après téléchargement d'un artefact ZIP sur Unix, rétablir au besoin son droit d'exécution avec `chmod +x jan`.
 
 Android : le provisionnement JDK/SDK/NDK épinglé a abouti, sans nouvelle acceptation automatique de licence. Le projet Tauri est généré mais la configuration échoue faute de `tauri.settings.gradle`, normalement émis par le premier Cargo mobile. L'initialisation ajoute donc un bootstrap frontend puis `cargo check --locked --lib --no-default-features --features mobile --target aarch64-linux-android` avec le contexte Android avant de configurer les copies Gradle. Un projet déjà initialisé conserve le chemin existant. Les trois tests de configuration Android et la syntaxe PowerShell réussissent ; le bootstrap natif réel est à confirmer par la relance Android.
+
+### Cause commune aux builds natifs vierges : icônes générées
+
+Windows ARM64 atteint le build Tauri mais échoue sur `icons/icon.ico` absent ; le message `package.metadata does not exist` qui le précède n'est pas la cause bloquante. iOS atteint sa compilation Rust/Xcode de simulateur, puis échoue sur `icons/32x32.png` absent. Ces icônes sont générées localement par le lanceur existant et ne sont pas des entrées binaires versionnées. Le script CI ajoute `yarn build:icon` avant toutes les constructions natives, y compris le bootstrap Android.
+
+Le sélecteur manuel `native` relance uniquement les applications desktop et mobiles. Il ne recompilera pas les trois CLI et le Web déjà compilés et vérifiés. Les anciennes tentatives natives sont remplacées ; leurs artefacts déjà réussis restent disponibles. Aucune réussite complète ARM64/iOS n'est déduite de ce correctif avant son nouveau build.
+
+La notice personnelle TRON-ABS est également copiée dans les assets du futur APK Android, et pas seulement dans son artefact extérieur. Le test du collecteur confirme qu’une notice seule ne permet jamais de certifier une compilation vide. Les **11 tests** candidats/CUDA/configuration Android passent après ces modifications ; actionlint est sans erreur.

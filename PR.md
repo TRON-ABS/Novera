@@ -14,6 +14,8 @@ Initial run: [41272733352](https://github.com/TRON-ABS/Novera/actions/runs/41272
 
 The first native logs also show Git Bash GNU `link.exe` overriding MSVC for Windows CLI compilation and an unnecessary nested jq action rejected by the selected-actions policy. Resolve MSVC by full path for native x64/ARM64 and provision jq through the host tools instead of broadening action permissions. Five candidate/policy tests now pass, including x64/ARM64 linker selection with spaced paths and refusal when MSVC is missing; actionlint passes. Superseding manual candidate runs cancel older candidates in the same group.
 
+Further remote checks: Web plus Linux/macOS/Windows CLI builds passed and their artifacts were downloaded and verified independently. ARM64 and iOS then reached native application compilation but failed because generated ICO/PNG icons were absent on a clean runner. Generate icons before every native build, add a native-only retry group to preserve completed CLI/Web outputs, and include the personal signature inside Android assets. Eleven candidate/CUDA/Android-configuration tests and actionlint pass. No native platform is marked successful merely because the common bootstrap defect was fixed.
+
 ## Earlier completed source and Windows preparation work
 
 # fix(distribution): prepare clean Windows packages and refresh the showcase

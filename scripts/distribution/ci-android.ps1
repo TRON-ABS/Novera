@@ -27,5 +27,6 @@ if ($LASTEXITCODE) { throw 'Android project initialization failed.' }
 & scripts/android/build-engine.ps1
 if ($LASTEXITCODE) { throw 'Android engine build failed.' }
 $env:NOVERA_BUILD_ANDROID = '1'
+Copy-Item -LiteralPath '.build/candidates/SIGNATURE.txt' -Destination 'src-tauri/gen/android/app/src/main/assets/resources/SIGNATURE.txt' -Force
 & scripts/android/build-apk.ps1 -AllowUnreviewedTestBuild
 if ($LASTEXITCODE) { throw 'Android candidate build failed.' }

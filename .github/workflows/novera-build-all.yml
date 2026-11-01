@@ -9,7 +9,7 @@ on:
         required: true
         type: choice
         default: all
-        options: [all, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli]
+        options: [all, native, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli]
 
 permissions:
   contents: read
@@ -29,7 +29,7 @@ env:
 jobs:
   desktop:
     name: ${{ matrix.variant }} / ${{ matrix.arch }}
-    if: inputs.target == 'all' || contains(fromJSON('["desktop","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
+    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
     strategy:
       fail-fast: false
       max-parallel: 3
@@ -54,7 +54,7 @@ jobs:
           VARIANT: ${{ matrix.variant }}
         run: |
           selected=false
-          if [[ "$REQUESTED" == all || "$REQUESTED" == "$VARIANT" ]]; then selected=true; fi
+          if [[ "$REQUESTED" == all || "$REQUESTED" == native || "$REQUESTED" == "$VARIANT" ]]; then selected=true; fi
           if [[ "$VARIANT" == windows && "$REQUESTED" =~ ^(desktop|setup|msi|portable)$ ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
@@ -104,7 +104,7 @@ jobs:
 
   auxiliary:
     name: ${{ matrix.variant }} / ${{ matrix.runner }}
-    if: inputs.target == 'all' || contains(fromJSON('["web","cli","android","ios"]'), inputs.target)
+    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["web","cli","android","ios"]'), inputs.target)
     strategy:
       fail-fast: false
       max-parallel: 3
@@ -129,7 +129,7 @@ jobs:
           REQUESTED: ${{ inputs.target }}
           VARIANT: ${{ matrix.variant }}
         run: |
-          if [[ "$REQUESTED" == all || "$REQUESTED" == "$VARIANT" ]]; then
+          if [[ "$REQUESTED" == all || "$REQUESTED" == "$VARIANT" || ( "$REQUESTED" == native && "$VARIANT" =~ ^(android|ios)$ ) ]]; then
             echo 'selected=true' >> "$GITHUB_OUTPUT"
           fi
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020

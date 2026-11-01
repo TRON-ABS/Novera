@@ -14,6 +14,8 @@ test('an empty build cannot be certified as compiled', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-ci-'))
   try {
     const entry = path.resolve('scripts/distribution/ci-candidates.mjs')
+    execFileSync(process.execPath, [entry, 'begin', 'web'], { cwd: root, env: { ...process.env, GITHUB_ACTIONS: 'true' } })
+    assert.ok(fs.existsSync(path.join(root, '.build/candidates/SIGNATURE.txt')))
     const r = spawnSync(process.execPath, [entry, 'finish', 'web'], { cwd: root, env: { ...process.env, GITHUB_ACTIONS: 'true' }, encoding: 'utf8' })
     assert.notEqual(r.status, 0)
     assert.match(r.stderr, /No compiled payload/)
