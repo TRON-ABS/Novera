@@ -1,5 +1,13 @@
 # Préparer les prochaines versions et mises à jour Novera
 
+## Premier candidat desktop avec update signé vérifié — 1er novembre 2026
+
+Linux x64 du [run signé `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818), commit `d0a29f63`, est compilé et téléchargé ([artefact `13080473923`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13080473923)). L’archive de 321 555 711 octets passe **11 empreintes** ; SHA-256 GitHub : `facf344a00e7157a220bf5c6d542bc8fa66db449e4c210aa3e74ea02cfe06831`.
+
+Les champs de provenance confirment le canal configuré et les signatures vérifiées. Le reçu `UPDATER-READINESS.json` correspond au commit et à `linux-x86_64` ; l’AppImage final passe une nouvelle vérification cryptographique locale avec la clé publique épinglée, et le contrôle `--publication-check` réussit. SHA-256 de l’AppImage : `d3d52143d3be76897e1d691d2d8814099cb9ee76c75706960038547869964633`. L’inspection indépendante de Debian/AppImage contrôle 50 ELF x64 et retrouve la clé publique réelle dans les deux exécutables emballés ; notice, icône et exclusion des pilotes GPU hôtes restent conformes.
+
+Le runner réussit le test GTK réel, la signature après reconditionnement AppImage et **9 tests de migration / 0 échec / 0 ignoré**. Les deux reçus sont présents dans l’archive. Aucun paquet n’est installé ou exécuté sur le profil personnel. L’essai graphique d’installation/update et le scénario propre au Debian restent distincts ; cette réussite technique ne débloque pas à elle seule la publication globale. Windows et macOS signés restent suivis ; Android/iOS relancés restent internes sans canal de publication validé.
+
 ## Publication conditionnée aux mises à jour — 1er novembre 2026
 
 Le mainteneur impose désormais **aucune version publique sans mécanisme de mise à jour configuré et vérifié**. Cette consigne remplace les projets de diffusion des candidats précédents sans updater. Ils restent des preuves internes ; leurs compilations et inspections ne leur donnent pas une autorisation de publication.

@@ -1,5 +1,13 @@
 # Compilations Novera sur GitHub Actions
 
+## Premier candidat desktop avec update signé vérifié — 1er novembre 2026
+
+Linux x64 du [run signé `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818), commit `d0a29f63`, est compilé et téléchargé ([artefact `13080473923`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13080473923)). L’archive de 321 555 711 octets passe **11 empreintes** ; SHA-256 GitHub : `facf344a00e7157a220bf5c6d542bc8fa66db449e4c210aa3e74ea02cfe06831`.
+
+Les champs de provenance confirment le canal configuré et les signatures vérifiées. Le reçu `UPDATER-READINESS.json` correspond au commit et à `linux-x86_64` ; l’AppImage final passe une nouvelle vérification cryptographique locale avec la clé publique épinglée, et le contrôle `--publication-check` réussit. SHA-256 de l’AppImage : `d3d52143d3be76897e1d691d2d8814099cb9ee76c75706960038547869964633`. L’inspection indépendante de Debian/AppImage contrôle 50 ELF x64 et retrouve la clé publique réelle dans les deux exécutables emballés ; notice, icône et exclusion des pilotes GPU hôtes restent conformes.
+
+Le runner réussit le test GTK réel, la signature après reconditionnement AppImage et **9 tests de migration / 0 échec / 0 ignoré**. Les deux reçus sont présents dans l’archive. Aucun paquet n’est installé ou exécuté sur le profil personnel. L’essai graphique d’installation/update et le scénario propre au Debian restent distincts ; cette réussite technique ne débloque pas à elle seule la publication globale. Windows et macOS signés restent suivis ; Android/iOS relancés restent internes sans canal de publication validé.
+
 ## Publication conditionnée aux mises à jour — 1er novembre 2026
 
 Le mainteneur impose désormais **aucune version publique sans mécanisme de mise à jour configuré et vérifié**. Cette consigne remplace les projets de diffusion des candidats précédents sans updater. Ils restent des preuves internes ; leurs compilations et inspections ne leur donnent pas une autorisation de publication.
@@ -34,10 +42,10 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 | MSI Windows x64 | windows / x64: en cours | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
 | Portable Windows x64 | windows / x64: en cours | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
 | Windows ARM64 | arm64 / arm64: en cours | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
-| Linux | linux / x64: en cours | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
-| macOS | macos / arm64: en attente; macos / x64: en attente | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
-| Android | android / windows-2025: en cours | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
-| iOS simulateur | ios / macos-15: en cours | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
+| Linux | linux / x64: compilé | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
+| macOS | macos / arm64: en cours; macos / x64: en attente | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
+| Android | android / windows-2025: compilé | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
+| iOS simulateur | ios / macos-15: compilé | [run 41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818) · `d0a29f63` |
 | Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
 | CLI | cli / ubuntu-22.04: compilé; cli / windows-2025: compilé; cli / macos-15: compilé | [run 41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978) · `410caea5` |
 
@@ -49,7 +57,7 @@ Artefacts téléchargés et contrôlés indépendamment :
 - [Novera-cli-Windows-41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978/artifacts/13073064714) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-macOS-41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978/artifacts/13073560959) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-ios-macOS-41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611/artifacts/13071509324) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
-- [Novera-linux-x64-41279778571](https://github.com/TRON-ABS/Novera/actions/runs/41279778571/artifacts/13072669601) : 8 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-linux-x64-41297251818](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13080473923) : 11 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; signature cryptographique du bundle d’update et prérequis de publication vérifiés.
 - [Novera-macos-arm64-41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073710701) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; minimum natif maximal relevé : macOS 14.0.0.
 - [Novera-macos-x64-41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073109727) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée; minimum natif maximal relevé : macOS 13.0.0.
 - [Novera-web-Linux-41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200/artifacts/13070388490) : 593 empreintes vérifiées, signature de marque et provenance conformes.

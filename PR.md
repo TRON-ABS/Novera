@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## First signed-update candidate verified
+
+Linux x64 at d0a29f63 (run 41297251818) compiles and its downloaded archive passes eleven checksums. Reverify the final AppImage signature against the pinned Novera public key, match the updater receipt to the exact source/platform, and pass the read-only publication prerequisite. Independently inspect fifty ELF x64 files across Debian/AppImage and confirm the actual embedded client key in both executables. The real GTK test and all nine upgrade-fixture tests pass. Installation, graphical update and Debian delivery checks remain separate; no release is published and other signed desktop jobs remain pending.
+
 ## Mandatory verified updates before publication
 
 The maintainer explicitly prohibits publishing any version without a configured and verified update mechanism, then authorizes creating the Novera updater key and encrypted GitHub signing secrets. Commit d0a29f63 adds an explicit signed desktop mode, embeds only the pinned public trust configuration, signs final delivered bytes after AppImage repacking, and verifies both Minisign Ed25519 signatures before retaining an updater-readiness receipt. A read-only publication prerequisite checks the actual signed files, pinned key and exact source receipt. Ordinary candidates stay disabled and cannot satisfy that prerequisite.
