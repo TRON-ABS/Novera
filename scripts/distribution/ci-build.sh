@@ -53,6 +53,12 @@ case "$kind" in
       pwsh -NoProfile -Command '& ./media-server/image-launcher/prepare.ps1 -ToolkitRoot $env:CUDA_PATH; if ($LASTEXITCODE) { exit $LASTEXITCODE }; & ./scripts/distribution/stage-novera-image.ps1'
     fi
     node scripts/distribution/ci-candidates.mjs config
+    if [[ "$RUNNER_OS" == Windows ]]; then
+      # Tauri uses the static MSVC runtime. Keep that mode for the direct Cargo
+      # migration tests too: tauri-build leaves an msvcrt.lib override in OUT_DIR
+      # which otherwise shadows Microsoft's import library during the rebuild.
+      export STATIC_VCRUNTIME=true
+    fi
     if [[ "$RUNNER_OS" == Linux ]]; then
       export NO_STRIP=1 APPIMAGE_EXTRACT_AND_RUN=1
       bash src-tauri/build-utils/shim-linuxdeploy.sh yarn tauri build --ci --config .build/candidate-config.json

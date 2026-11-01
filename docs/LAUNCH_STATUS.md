@@ -6,7 +6,7 @@ Novera réunit la conversation, la recherche et la création de texte, d’image
 
 | Cible | Preuves disponibles | Conditions encore nécessaires à la diffusion |
 | --- | --- | --- |
-| Windows x64 | Ancien build interne terminé ; nouveau build avec updater signé encore en compilation. | Contrôler les nouveaux fichiers, la cohérence du runtime et les scénarios desktop/NSIS/MSI/portable. |
+| Windows x64 | Ancien build interne terminé ; job signé en échec pendant le lien des tests de migration après production des installateurs. Correctif reproduit, relance ciblée en préparation. | Contrôler les nouveaux fichiers, la cohérence du runtime et les scénarios desktop/NSIS/MSI/portable. |
 | Windows ARM64 | NSIS signé vérifié ; runtime préparé correspondant aux neuf fichiers installés, provenance conservée. | Installation et mise à jour réelles, validation du format distribué. L’archive Actions brute garde sa limite documentée. |
 | Linux x64 | Signature AppImage, clé embarquée, 50 ELF x64 et neuf migrations contrôlés. | Installation/update AppImage ; scénario de mise à jour propre au Debian. |
 | macOS Apple Silicon | Signature de l’archive d’update vérifiée ; 16 Mach-O ARM64, minimum macOS 14, neuf migrations réussies. | Installation/update sur Mac ; politique de signature de code et notarisation Apple. |

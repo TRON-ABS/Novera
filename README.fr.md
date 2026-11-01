@@ -15,7 +15,7 @@
 
 | Plateforme | Préparation actuelle |
 | --- | --- |
-| Windows x64 | Compilation avec mises à jour signées en cours ; formats desktop, installateur et portable en préparation. |
+| Windows x64 | Échec de liaison des tests de migration après création des installateurs signés ; relance ciblée en préparation. |
 | Windows ARM64 | Candidat inspecté ; signature du NSIS vérifiée et runtime desktop préparé pour lui correspondre. |
 | Linux x64 | Signature d’update AppImage et binaires emballés vérifiés ; le Debian conserve ses contrôles de distribution propres. |
 | macOS | Deux candidats avec update signé inspectés : macOS 14+ sur Apple Silicon, macOS 13+ sur Intel. |

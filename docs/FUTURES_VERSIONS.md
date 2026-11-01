@@ -1,5 +1,11 @@
 # Préparer les prochaines versions et mises à jour Novera
 
+## Windows x64 : correction des tests après signature — 1er novembre 2026
+
+Le job `124820616112` du run signé `41297251818` échoue **après** la création des installateurs NSIS/MSI et la vérification de la signature d’update, au moment de recompiler pour les tests de migration. Tauri utilise le runtime MSVC statique et laisse un remplacement `msvcrt.lib` dans `OUT_DIR` ; le lancement direct de Cargo sans ce même réglage expose cette bibliothèque à un lien dynamique, provoquant LNK4003 et 112 symboles non résolus. Aucun candidat final de ce job n’est certifié ni publié.
+
+Le défaut est reproduit localement dans un petit projet Rust isolé avec le helper réel de `tauri-build 2.6.3` : compilation statique réussie, transition vers les tests sans réglage en échec, puis tests réussis avec le mode statique conservé. Le script CI exporte désormais `STATIC_VCRUNTIME=true` pour le build desktop Windows et ses tests directs. **49 contrats Node locaux passent**. Une relance ciblée Windows x64 signée est préparée ; les autres plateformes vérifiées sont conservées. Cette reproduction ne remplace pas les neuf migrations du prochain build complet.
+
 Présentation du lancement et disponibilité par plateforme : [état actuel](LAUNCH_STATUS.md).
 
 ## macOS Intel : candidat signé vérifié — 1er novembre 2026

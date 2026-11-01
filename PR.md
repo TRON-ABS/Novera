@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Preserve the Windows static runtime for migration tests
+
+The signed Windows x64 job creates NSIS/MSI bundles and verifies its updater signature, then fails when direct Cargo migration tests reuse Tauri’s static-runtime msvcrt override without the matching linker mode (LNK4003, 112 unresolved symbols). Export STATIC_VCRUNTIME=true across the Windows desktop build and migration tests. A minimal Rust probe using the actual tauri-build 2.6.3 helper reproduces the failing static-to-dynamic transition and passes with the mode preserved; all 49 local Node contracts pass. The full Windows migration suite remains subject to the targeted signed CI retry; other verified platforms are preserved and publication remains blocked.
+
 ## Launch showcase and current availability
 
 Make the English/French repository showcase explicit about launch preparation and current platform availability. Preserve the maintainer screenshot, welcome message and TRON-ABS signature. Link a dated launch status page, distinguish inspected internal candidates from public downloads, and keep installation/update and platform-specific release requirements visible. Align the project dashboard, roadmap and changelog; no application build or public release is performed by this documentation change.
