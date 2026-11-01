@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Correct the isolated Windows profile layout
+
+Startup diagnostics identify the HTTP plugin's missing cache path. A real local SHGetKnownFolderPath reproduction returns 0x80070003 with sibling synthetic profile directories and succeeds inside the test root with the standard USERPROFILE/AppData/Local and AppData/Roaming layout. Correct the harness and preflight both Windows known folders before launching the packaged app. No Novera or engine rebuild is required for this change. Six Python tests pass; Windows installation/update success remains pending the corrected run.
+
 ## Native installation results and Windows startup diagnostics
 
 Run 41334675673 passes Linux and both macOS installation/native replacement scenarios. Downloaded receipts match their GitHub digests and confirm signature verification, tamper refusal, same-version handling, restored runtime hashes, profile sentinel preservation and 15-second startup before/after. The synthetic probe version does not establish a production UI upgrade between two released applications.

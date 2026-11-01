@@ -124,7 +124,19 @@ def main():
     env = {k:v for k,v in os.environ.items() if not any(marker in k.upper() for marker in ['TOKEN','PASSWORD','PRIVATE_KEY','SECRET'])}
     profile = root/'profile'; profile.mkdir()
     for name in ['HOME','USERPROFILE','APPDATA','LOCALAPPDATA','XDG_CONFIG_HOME','XDG_DATA_HOME','XDG_CACHE_HOME']:
-        location = profile/name.lower(); location.mkdir(); env[name] = str(location)
+        location = profile/name.lower()
+        if sys.platform=='win32':
+            # SHGetKnownFolderPath expands USERPROFILE before checking that the
+            # conventional directories exist. Sibling fake APPDATA directories
+            # make dirs::cache_dir return None in Tauri's HTTP cookie plugin.
+            location = {'HOME':profile,'USERPROFILE':profile,'APPDATA':profile/'AppData/Roaming','LOCALAPPDATA':profile/'AppData/Local'}.get(name,location)
+        location.mkdir(parents=True,exist_ok=True); env[name] = str(location)
+    if sys.platform=='win32':
+        folders=subprocess.run(['powershell','-NoProfile','-Command',
+            "ConvertTo-Json -Compress -InputObject @([Environment]::GetFolderPath('LocalApplicationData'),[Environment]::GetFolderPath('ApplicationData'))"],env=env,capture_output=True,text=True,check=True)
+        resolved=json.loads(folders.stdout)
+        if len(resolved)!=2 or any(not p or not Path(p).resolve().is_relative_to(profile.resolve()) for p in resolved):
+            raise RuntimeError('Windows known folders do not resolve inside the isolated profile')
     env['NOVERA_VALIDATION_ROOT'] = str(root)
     env['APPIMAGE_EXTRACT_AND_RUN'] = '1'
     scratch=root/'scratch';scratch.mkdir()

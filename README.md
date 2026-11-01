@@ -11,7 +11,7 @@
 
 ## Availability — 1 November 2026
 
-Isolated installation and native replacement tests pass on Linux and both macOS architectures; Windows installs but fails at startup. Signed CLI candidates are still being validated. [Results and limits](docs/INSTALL_UPDATE_VALIDATION.md). Public downloads remain closed.
+Isolated installation and native replacement tests pass on Linux and both macOS architectures; Windows installs; its startup test exposed an invalid synthetic profile layout, now corrected for a targeted retry. Signed CLI candidates are still being validated. [Results and limits](docs/INSTALL_UPDATE_VALIDATION.md). Public downloads remain closed.
 
 **Novera 1.0.0 is preparing for launch. Public downloads are not open yet.** Explore the sources and the real Windows dashboard below; follow [Releases](https://github.com/TRON-ABS/Novera/releases) for published packages when the release checks are complete.
 

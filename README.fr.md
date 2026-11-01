@@ -11,7 +11,7 @@
 
 ## Disponibilité — 1er novembre 2026
 
-Les essais isolés d’installation et de remplacement natif passent sur Linux et les deux macOS ; Windows atteint l’installation puis échoue au démarrage. Les CLI signées sont encore en validation. [Résultats et limites](docs/INSTALL_UPDATE_VALIDATION.md). Aucune diffusion publique.
+Les essais isolés d’installation et de remplacement natif passent sur Linux et les deux macOS ; Windows atteint l’installation ; son test de démarrage a révélé un profil synthétique invalide, corrigé pour une relance ciblée. Les CLI signées sont encore en validation. [Résultats et limites](docs/INSTALL_UPDATE_VALIDATION.md). Aucune diffusion publique.
 
 **Novera 1.0.0 prépare son lancement. Les téléchargements publics ne sont pas encore ouverts.** Découvrez les sources et le véritable tableau de bord Windows ci-dessous ; les paquets publiés seront accessibles dans [Releases](https://github.com/TRON-ABS/Novera/releases) après les contrôles de lancement.
 
