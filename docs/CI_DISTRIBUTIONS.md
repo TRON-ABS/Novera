@@ -11,7 +11,7 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 | Setup Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
 | MSI Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
 | Portable Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
-| Windows ARM64 | arm64 / arm64: en cours | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
+| Windows ARM64 | arm64 / arm64: compilé | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
 | Linux | linux / x64: en cours | [run 41275746510](https://github.com/TRON-ABS/Novera/actions/runs/41275746510) · `0beb13a3` |
 | macOS | macos / arm64: en cours; macos / x64: en cours | [run 41276594974](https://github.com/TRON-ABS/Novera/actions/runs/41276594974) · `9f68b5d3` |
 | Android | android / windows-2025: en cours | [run 41276458095](https://github.com/TRON-ABS/Novera/actions/runs/41276458095) · `ce35ecbd` |
@@ -21,10 +21,12 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 
 Artefacts téléchargés et contrôlés indépendamment :
 
+- [Novera-arm64-arm64-41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042/artifacts/13071721946) : 19 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-Linux-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069749955) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-Windows-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13070655221) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-macOS-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069439592) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-ios-macOS-41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611/artifacts/13071509324) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-macos-arm64-41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042/artifacts/13072130830) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-web-Linux-41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200/artifacts/13070388490) : 593 empreintes vérifiées, signature de marque et provenance conformes.
 
 Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne remplacent pas une signature cryptographique de production. Les validations sur PC neuf, téléphone et tablette restent distinctes des compilations CI.
