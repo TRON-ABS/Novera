@@ -24,6 +24,8 @@
 
 Public release requires a configured and verified update mechanism, including the remaining installation and update checks. Signed updater packages do not imply Windows code signing or Apple notarization. See [current availability and launch requirements](docs/LAUNCH_STATUS.md) and [verified build evidence](docs/CI_DISTRIBUTIONS.md).
 
+All eleven retained variants have successful GitHub builds. A private release draft contains 15 verified files for the five selected desktop update bundles, signatures and notices; it remains unpublished pending the remaining launch requirements.
+
 ## One dashboard for every creation
 
 ![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-2026-11-01.png)

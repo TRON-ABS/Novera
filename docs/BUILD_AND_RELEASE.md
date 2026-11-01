@@ -1,5 +1,7 @@
 # Novera — construction et distribution
 
+Le brouillon du 1er novembre est préparé avec 15 assets dont les tailles et SHA-256 serveur sont vérifiés. Il reste non publié et ne contient pas de `latest.json`. Les contrôles autonomes sont terminés ; les validations restantes sont celles de la page de disponibilité, sans installation sur le profil personnel.
+
 Présentation du lancement et disponibilité par plateforme : [état actuel](LAUNCH_STATUS.md).
 
 ## Condition actuelle de publication

@@ -1,5 +1,13 @@
 # Novera — feuille de route
 
+## Bilan des distributions : compilations terminées, brouillon prêt — 1er novembre 2026
+
+Les onze variantes retenues disposent d’une compilation GitHub réussie. Les cinq bundles desktop sélectionnés passent les vérifications cryptographiques de mise à jour, avec les préparations Windows et leurs limites de source documentées ci-dessous. Le contrôle source final [41329047879](https://github.com/TRON-ABS/Novera/actions/runs/41329047879), commit `2142b95f`, réussit : **49 contrats Node, 47 réussis, 2 tests propres à Windows ignorés sur Ubuntu, aucun échec** ; les 49 passent localement sous Windows.
+
+Le brouillon GitHub `430498139`, préversion prévue `v1.0.0-candidate.20261101`, contient maintenant **15 assets transférés et vérifiés** : cinq bundles d’update desktop, leurs cinq signatures, l’index de provenance, les empreintes globales, la licence, l’identité et la signature TRON-ABS. Les tailles et SHA-256 renvoyés par GitHub correspondent aux fichiers sélectionnés ; chacun reste sous 2 Gio. L’ancien candidat sans updater a été retiré du brouillon, avec son original local conservé. MSI, Debian, portable, Android debug, iOS simulateur, Web et CLI ne sont pas les assets de diffusion de ce brouillon.
+
+**Le brouillon reste bloqué et non publié. Aucun `latest.json` public n’est créé.** Les essais réels d’installation et d’update restent à effectuer dans des environnements dédiés, ainsi que les exigences de distribution et de canal propres aux formats exclus. Windows Sandbox n’est pas disponible sur ce poste ; aucun paquet n’est installé sur le profil personnel. Les signatures d’update vérifiées ne constituent pas une signature Authenticode ou une notarisation Apple. Le suivi automatique des compilations peut s’arrêter une fois ce bilan publié ; les validations de lancement restantes sont explicites dans la page de disponibilité.
+
 ## Dernier état du lancement — 1er novembre 2026
 
 - [x] Obtenir une compilation réussie pour les onze variantes retenues sur GitHub.

@@ -24,6 +24,8 @@
 
 Toute publication exige un mécanisme de mise à jour configuré et vérifié, avec les essais d’installation et d’update encore nécessaires. La signature de l’updater ne vaut pas signature de code Windows ou notarisation Apple. Consultez [la disponibilité et les conditions de lancement](docs/LAUNCH_STATUS.md) et [les preuves de compilation](docs/CI_DISTRIBUTIONS.md).
 
+Les onze variantes retenues ont une compilation GitHub réussie. Un brouillon de version contient 15 fichiers vérifiés pour les cinq bundles desktop sélectionnés, leurs signatures et notices ; il reste non publié dans l’attente des validations de lancement restantes.
+
 ## Un tableau de bord pour tout créer
 
 ![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-2026-11-01.png)

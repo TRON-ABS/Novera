@@ -1,5 +1,7 @@
 # Official Novera releases and governance
 
+The 1 November draft now contains fifteen uploaded assets with matching server sizes and SHA-256 digests. It remains blocked and unpublished, with no public latest.json. Autonomous build/package checks are complete; real installation/update and the remaining platform delivery requirements are still pending.
+
 Présentation du lancement et disponibilité par plateforme : [état actuel](docs/LAUNCH_STATUS.md).
 
 ## Mandatory update prerequisite — 1 November 2026
