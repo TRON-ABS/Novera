@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Add isolated installation and native updater validation
+
+Add manual validation targets that download only reviewed signed desktop assets, exercise the real Tauri updater with the pinned public key and a loopback fixture, reject tampered payloads, install actual packages and check startup, file restoration and synthetic profile preservation on disposable GitHub hosts. No production endpoint or personal profile is changed. Keep receipts explicit that a synthetic probe version is not an end-to-end upgrade between two released applications. The probe builds locally, 49 Node contracts and four guard tests pass; actual CI installation results remain pending.
+
 ## Final draft and source checks verified
 
 All eleven retained variants have successful GitHub builds. The blocked release draft contains fifteen selected assets: five desktop updater bundles, their signatures, provenance index, global checksums and attribution notices. Independently compare all uploaded sizes and SHA-256 digests to the selected files and confirm the draft remains unpublished; remove the obsolete updater-disabled draft asset while retaining its local original. Final source run 41329047879 at 2142b95f succeeds with 47 passed, two Windows-only skips and zero failures out of 49 Node contracts; all 49 pass locally on Windows. Synchronize both README showcases, launch status, roadmap, project dashboard and release guides. No latest.json, public release, personal-profile installation, end-to-end update or OS certification is claimed. Dedicated installation/update checks and platform-specific delivery channels remain required.

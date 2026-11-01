@@ -26,7 +26,7 @@ L’archive Actions Windows x64 omet un marqueur caché attendu par ses empreint
 
 Le brouillon GitHub non publié contient **15 fichiers vérifiés** : installateurs NSIS Windows x64 et ARM64, AppImage Linux x64, archives d’update macOS ARM64 et Intel, leurs cinq signatures, l’index des commits et provenances, les empreintes globales, la licence et les notices TRON-ABS. Tous les transferts passent la comparaison des tailles et empreintes serveur, avec chaque fichier sous 2 Gio. Les formats et plateformes exclus restent des candidats internes ; ce brouillon ne signifie pas que leurs canaux de mise à jour sont prêts.
 
-Les compilations et contrôles autonomes sont terminés. Le lancement public reste conditionné aux essais d’installation/update sur des machines ou environnements dédiés, aux exigences des plateformes et aux canaux manquants. Aucune installation sur le profil personnel, notarisation Apple ou validation sur appareil mobile n’est revendiquée. Le flux public `latest.json` n’est pas publié.
+Les compilations et contrôles de préparation des paquets sont terminés. Une nouvelle phase d’essais réels sur runners isolés est engagée : [protocole et limites](INSTALL_UPDATE_VALIDATION.md). Le lancement public reste conditionné aux essais d’installation/update sur des machines ou environnements dédiés, aux exigences des plateformes et aux canaux manquants. Aucune installation sur le profil personnel, notarisation Apple ou validation sur appareil mobile n’est revendiquée. Le flux public `latest.json` n’est pas publié.
 
 ## Où trouver les versions publiques
 

@@ -1,5 +1,9 @@
 # Préparer les prochaines versions et mises à jour Novera
 
+## Nouvelle phase : essais réels d’installation et d’update — 1er novembre 2026
+
+Le mainteneur demande maintenant de valider les installations et mises à jour ainsi que les canaux incomplets. Le workflow prépare des essais sur runners GitHub hébergés, avec les vrais paquets signés et un programme de contrôle natif isolé ; aucune installation n’est effectuée sur le profil personnel. La compilation locale du programme et les quatre tests des garde-fous passent, ainsi que les 49 contrats Node ; les résultats d’installation CI restent à obtenir. Le contrôle distingue le remplacement natif d’un paquet, un programme de test avec version synthétique, et un parcours complet entre deux applications publiées. Voir [le protocole et ses limites](INSTALL_UPDATE_VALIDATION.md).
+
 ## Bilan des distributions : compilations terminées, brouillon prêt — 1er novembre 2026
 
 Les onze variantes retenues disposent d’une compilation GitHub réussie. Les cinq bundles desktop sélectionnés passent les vérifications cryptographiques de mise à jour, avec les préparations Windows et leurs limites de source documentées ci-dessous. Le contrôle source final [41329047879](https://github.com/TRON-ABS/Novera/actions/runs/41329047879), commit `2142b95f`, réussit : **49 contrats Node, 47 réussis, 2 tests propres à Windows ignorés sur Ubuntu, aucun échec** ; les 49 passent localement sous Windows.

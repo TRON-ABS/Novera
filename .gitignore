@@ -108,3 +108,6 @@ e2e/logs
 
 # Clean Windows distribution candidates are local artifacts, never source commits.
 /deliverables/Novera-Windows-*/
+
+# Pin the isolated native updater probe to the reviewed application dependencies.
+!/scripts/distribution/checks/native-update/Cargo.lock
