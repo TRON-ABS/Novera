@@ -14,7 +14,7 @@ Novera réunit conversation, recherche et création de texte, d’images, de mus
 | CLI Linux/Windows/macOS ARM64 | Canal signé implémenté en option ; anciennes compilations conservées sans updater. | Nouveaux paquets et remplacement en relance CI après correction d’une fixture ; endpoint public non activé. |
 | Android | APK ARM64 debug interne contrôlé. | Signature durable, canal de production et validation appareil. |
 | iOS | Application simulateur interne contrôlée. | Identité Apple réelle, build appareil, canal de distribution et validation appareil. |
-| Web | Frontend compilé et parcours initial vérifié. | Hébergement, versionnement et renouvellement du client déployé. |
+| Web | Nouveau build CI vérifié ; 588 fichiers servis contrôlés en HTTP local ; rechargement entre deux builds au navigateur avec thème préservé. | Hébergement HTTPS et cache/CDN réels ; parcours fonctionnels complets et renouvellement du site de production. Voir [les limites](WEB_DELIVERY.md). |
 
 ## Ce que les essais desktop prouvent
 

@@ -2,6 +2,14 @@
 
 Le client Web reste interne. La lecture de l’API GitHub Pages le 1er novembre 2026 retourne 404 ; aucun hébergement Pages configuré n’a été constaté. Aucun domaine ou hébergement de production n’est inventé ni activé par ce travail.
 
+## Essai local réellement effectué — 1er novembre 2026
+
+Le [candidat Web 41339452516](https://github.com/TRON-ABS/Novera/actions/runs/41339452516), commit `a1fe94cc`, est compilé sur GitHub puis téléchargé : 595 empreintes passent, archive SHA-256 `f44f29400dbc04f50f43d097e72a005343a4024b2d4cc3007f89f0623f519be5`. Le contrôleur HTTP vérifie les 588 fichiers du frontend servi localement et les headers attendus.
+
+Dans un onglet isolé du navigateur intégré, l’ancien build `307fbb16` est remplacé par ce build à la même origine loopback, puis l’onglet est rechargé. Le bundle visible passe de `index-DDsSyHyA.js` à `index-CZiBpGzN.js`. La page Interface reste accessible et le thème sombre choisi dans l’ancien build reste coché après renouvellement. Aucun stockage n’est effacé, aucune clé cloud n’est saisie ; l’onglet et le serveur de test sont fermés ensuite.
+
+Cet essai vérifie le rechargement et cette préférence, pas toutes les discussions ou fonctionnalités. Les deux builds journalisent notamment l’absence de fonctions natives de synchronisation des paramètres et d’une extension assistant ; leur bon fonctionnement complet au navigateur n’est pas revendiqué. **L’hébergement HTTPS réel, son cache/CDN et son renouvellement restent à valider.**
+
 Les builds Web génèrent maintenant `novera-web-version.json` et un reçu `WEB-DELIVERY-READINESS.json` à côté du dossier `web`. Ils lient la version applicative, le commit et l’empreinte de l’entrée HTML aux fichiers compilés. Le reçu conserve explicitement `hostedChannelValidated:false`, `browserUpgradeValidated:false` et `publicReleaseAuthorized:false`.
 
 ## Contrat à appliquer sur l’hébergement retenu
