@@ -39,6 +39,10 @@ Le 1er novembre 2026, le mainteneur autorise explicitement **toutes les platefor
 
 Le [cycle durable des versions](FUTURES_VERSIONS.md) ajoute un contrôle préalable des six sources de version, les tests de migration desktop et un générateur de manifeste pour cinq cibles desktop. Le [run de contrats `41281084320`](https://github.com/TRON-ABS/Novera/actions/runs/41281084320), commit `85558421`, réussit : 39 tests Node et deux tests propres à Windows ignorés sur Ubuntu ; les 41 passent localement sur Windows. La CLI Linux du run `41280300978` réussit ses deux tests Rust de politique et d’aide ; son nouveau paquet est téléchargé et vérifié. Les nouveaux tests de migration desktop et les autres hôtes CLI restent suivis dans leurs jobs effectifs.
 
+Le [run `41281310528`](https://github.com/TRON-ABS/Novera/actions/runs/41281310528), commit `93815b15`, confirme le même résultat avec les nouvelles actions officielles Node 24 : installation Node et conservation de l’artefact de contrôle réussies, sans les anciens avertissements Node 20.
+
+Android `e870627e` passe la compilation native puis échoue à la fusion du manifeste : le fournisseur de partage du plugin et celui des exports de l’application utilisent tous deux la classe `androidx.core.content.FileProvider`, avec des autorités et chemins différents. Le correctif `ff4740a0` donne au plugin sa propre sous-classe `NoveraShareProvider`, conserve les deux autorités, leurs ressources et l’accès non exporté, puis relance uniquement Android dans le [run `41281439087`](https://github.com/TRON-ABS/Novera/actions/runs/41281439087). La compilation APK et les essais de partage sur appareil restent à confirmer.
+
 ## Lancement manuel
 
 Workflow : [Novera — All distribution candidates](../.github/workflows/novera-build-all.yml). Entrée `target=all`, ou une des onze variantes du [catalogue](../scripts/distribution/release-targets.json). Les quatre variantes Windows x64 partagent un même build afin de conserver le même code et les mêmes dépendances. Une variante Windows demandée séparément produit également les formats Windows associés.
