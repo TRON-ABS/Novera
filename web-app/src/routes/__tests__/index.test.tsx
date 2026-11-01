@@ -9,6 +9,7 @@ const h = vi.hoisted(() => ({
   search: { threadModel: undefined as any },
   setCurrentThreadId: vi.fn(),
   useTools: vi.fn(),
+  isTauri: true,
   providerHasRemoteApiKeys: vi.fn(() => false),
   predefinedProviders: [
     { provider: 'openai' },
@@ -20,7 +21,10 @@ const h = vi.hoisted(() => ({
 vi.mock('@tanstack/react-router', () => ({
   createFileRoute: () => (config: any) => ({ ...config, id: '/' }),
   useSearch: () => h.search,
+  Navigate: ({ to }: any) => <div data-testid="browser-provider-setup" data-to={to} />,
 }))
+
+vi.mock('@tauri-apps/api/core', () => ({ isTauri: () => h.isTauri }))
 
 vi.mock('@/i18n/react-i18next-compat', () => ({
   useTranslation: () => ({ t: (key: string) => key }),
@@ -73,7 +77,7 @@ vi.mock('@/constants/providers', () => ({
 }))
 
 vi.mock('@/constants/routes', () => ({
-  route: { home: '/' },
+  route: { home: '/', settings: { model_providers: '/settings/providers' } },
 }))
 
 import { Route } from '../index'
@@ -87,6 +91,7 @@ describe('Index route', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     h.providers = []
+    h.isTauri = true
     h.search = { threadModel: undefined }
     h.providerHasRemoteApiKeys.mockReturnValue(false)
   })
@@ -107,6 +112,23 @@ describe('Index route', () => {
     renderComponent()
     expect(screen.getByTestId('setup-screen')).toBeInTheDocument()
     expect(screen.queryByTestId('chat-input')).not.toBeInTheDocument()
+  })
+
+  it('opens provider configuration in a fresh browser instead of installing a desktop engine', () => {
+    h.isTauri = false
+    renderComponent()
+    expect(screen.getByTestId('browser-provider-setup')).toHaveAttribute('data-to', '/settings/providers')
+    expect(screen.queryByTestId('setup-screen')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('chat-input')).not.toBeInTheDocument()
+  })
+
+  it('keeps browser chat accessible when a remote provider is configured', () => {
+    h.isTauri = false
+    h.providers = [{ provider: 'openai', models: [] }]
+    h.providerHasRemoteApiKeys.mockReturnValue(true)
+    renderComponent()
+    expect(screen.getByTestId('chat-input')).toBeInTheDocument()
+    expect(screen.queryByTestId('browser-provider-setup')).not.toBeInTheDocument()
   })
 
   it('renders SetupScreen when predefined provider has no api key and no models', () => {

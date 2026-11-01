@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createFileRoute, useSearch } from '@tanstack/react-router'
+import { createFileRoute, Navigate, useSearch } from '@tanstack/react-router'
+import { isTauri } from '@tauri-apps/api/core'
 import ChatInput from '@/containers/ChatInput'
 import HeaderPage from '@/containers/HeaderPage'
 import { useTranslation } from '@/i18n/react-i18next-compat'
@@ -48,6 +49,9 @@ function Index() {
   }, [setCurrentThreadId])
 
   if (!hasValidProviders) {
+    if (!isTauri()) {
+      return <Navigate to={route.settings.model_providers as any} replace />
+    }
     return <SetupScreen />
   }
 
