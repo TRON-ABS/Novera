@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Complete independent Windows candidate preparation
+
+Retain hidden files from the sanitized Actions candidate so the pinned image-runtime marker is not silently dropped. The original x64 upload stays incomplete; recover its exact marker bytes from the cryptographically verified NSIS payload and retain both source and preparation provenance. Preserve the frozen portable notices, include the candidate signature notice and correct its update guidance, then repackage without compiling the application locally. The prepared candidate passes 125 checksums, 83 PE x64 headers, 77 pinned image-runtime files and the real updater publication prerequisite. All 106 runtime files match extracted NSIS; the corrected portable matches the frozen desktop. Independently verify MSI signature and x64 executable, whose only difference is its three reserved installer-type bytes. All 49 local Node contracts pass. No installation, end-to-end update, public release or OS certification is claimed.
+
 ## Windows x64 signed CI retry succeeds
 
 Run 41311520840 at bbe679d3 succeeds, including final updater signature verification and all nine migration tests with no failures or ignored tests. The complete runner validates the static-runtime fix. Artifact 13091806780 is 5,038,992,055 bytes and is downloading for independent package, architecture, signature and frozen-runtime checks. These checks and actual installation/update validation remain pending; no public release is announced.

@@ -1,5 +1,17 @@
 # Compilations Novera sur GitHub Actions
 
+## Windows x64 : candidat préparé et contrôlé — 1er novembre 2026
+
+Toutes les cibles disposent maintenant d’une compilation réussie dans les runs retenus. Le candidat Windows x64 provient de la [relance GitHub `41311520840`](https://github.com/TRON-ABS/Novera/actions/runs/41311520840), commit `bbe679d3` : signatures finales et **neuf migrations réussies**. L’archive source `13091806780` de 5 038 992 055 octets a le SHA-256 `91355e0bb32b81727e7f58d6228fd09165aab4743de343ea1073c3998182f341`.
+
+L’upload Actions a omis le marqueur caché `.novera-image-runtime` bien qu’il figure dans les empreintes ; **l’archive source reste donc incomplète et ne doit pas être diffusée telle quelle**. Les fichiers présents passent leurs empreintes. Une préparation distincte restaure les 42 octets du marqueur depuis le NSIS signé, avec exactement l’empreinte d’origine. Le correctif `0a6d6a22` conserve désormais les fichiers cachés du collecteur contrôlé lors des uploads futurs. Aucun binaire n’est recompilé localement.
+
+Le portable d’origine omettait aussi la notice `resources/SIGNATURE.txt` et son texte décrivait mal l’état des mises à jour. Le correctif `89419d39` conserve les notices du runtime figé et décrit les limites réelles ; le ZIP est reconditionné localement depuis les mêmes binaires GitHub. Son SHA-256 est `a2306aa9bcb63a597f0d659ea630cf70e84e67d7c08e3d6860d8292918048886`. La provenance distingue compilation, source incomplète et préparation ; les fichiers originaux sont conservés.
+
+Le candidat préparé passe **125 empreintes**, **83 PE x64**, les **77 fichiers du moteur image** épinglé CUDA 13.4.3, la clé publique réellement embarquée et le contrôle cryptographique `--publication-check`. Les **106 fichiers runtime correspondent exactement au NSIS extrait**, et le portable corrigé correspond au runtime figé, notices comprises. La signature du MSI passe aussi ; son EXE x64 diffère uniquement des trois octets réservés au type d’installateur MSI/NSIS. Ce contrôle ne valide pas son scénario de mise à jour.
+
+Aucun installateur n’est exécuté sur le profil personnel. Les essais réels d’installation/update et les conditions propres aux autres formats, mobiles, Web et CLI restent à satisfaire ; **aucune version publique n’est annoncée**. La disponibilité de lancement est synchronisée dans les deux README et la page dédiée.
+
 ## Windows x64 signé : compilation et migrations réussies — 1er novembre 2026
 
 La [relance ciblée `41311520840`](https://github.com/TRON-ABS/Novera/actions/runs/41311520840), commit `bbe679d3`, termine avec succès, y compris le job Windows x64 `124862783500`. Le journal confirme la création des installateurs NSIS/MSI, la vérification de la signature du bundle final et **9 tests de migration réussis / 0 échec / 0 ignoré**. Le maintien de `STATIC_VCRUNTIME=true` corrige donc aussi le défaut sur le runner complet.

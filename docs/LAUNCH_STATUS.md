@@ -6,7 +6,7 @@ Novera réunit la conversation, la recherche et la création de texte, d’image
 
 | Cible | Preuves disponibles | Conditions encore nécessaires à la diffusion |
 | --- | --- | --- |
-| Windows x64 | [Relance signée réussie](https://github.com/TRON-ABS/Novera/actions/runs/41311520840), installateurs NSIS/MSI produits et neuf migrations réussies ; archive de 5 Go en téléchargement pour inspection indépendante. | Contrôler les nouveaux fichiers, la cohérence du runtime et les scénarios desktop/NSIS/MSI/portable. |
+| Windows x64 | [Relance signée réussie](https://github.com/TRON-ABS/Novera/actions/runs/41311520840), neuf migrations, 83 PE x64 et candidat préparé contrôlés ; signatures NSIS/MSI et cohérence runtime/portable vérifiées. | Contrôler les nouveaux fichiers, la cohérence du runtime et les scénarios desktop/NSIS/MSI/portable. |
 | Windows ARM64 | NSIS signé vérifié ; runtime préparé correspondant aux neuf fichiers installés, provenance conservée. | Installation et mise à jour réelles, validation du format distribué. L’archive Actions brute garde sa limite documentée. |
 | Linux x64 | Signature AppImage, clé embarquée, 50 ELF x64 et neuf migrations contrôlés. | Installation/update AppImage ; scénario de mise à jour propre au Debian. |
 | macOS Apple Silicon | Signature de l’archive d’update vérifiée ; 16 Mach-O ARM64, minimum macOS 14, neuf migrations réussies. | Installation/update sur Mac ; politique de signature de code et notarisation Apple. |
@@ -17,6 +17,10 @@ Novera réunit la conversation, la recherche et la création de texte, d’image
 | CLI Linux x64, Windows x64, macOS ARM64 | Trois builds, architectures et tests de politique/aide contrôlés. | Canal de mise à jour adapté et vérifié avant publication. |
 
 Les preuves, commits et empreintes de chaque candidat figurent dans le [suivi des compilations](CI_DISTRIBUTIONS.md). La signature cryptographique d’une mise à jour prouve l’origine et l’intégrité de son contenu ; elle ne remplace pas l’essai d’installation/update ni la signature de code propre au système.
+
+## Préparation Windows et limites des archives sources
+
+L’archive Actions Windows x64 omet un marqueur caché attendu par ses empreintes. Le candidat dérivé restaure ce fichier depuis l’installateur signé et reconditionne le portable pour conserver toutes les notices ; sa provenance et ses empreintes sont distinctes. L’archive Windows ARM64 d’origine conserve aussi sa limite documentée de marqueur Tauri dans la copie brute. Les installateurs signés sélectionnés sont revérifiés séparément. **Les archives Actions sources ne sont pas présentées comme les paquets corrigés.** Le [suivi CI](CI_DISTRIBUTIONS.md) donne les détails et les preuves de préparation.
 
 ## Où trouver les versions publiques
 

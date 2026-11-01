@@ -1,5 +1,12 @@
 # Novera — feuille de route
 
+## Dernier état du lancement — 1er novembre 2026
+
+- [x] Obtenir une compilation réussie pour les onze variantes retenues sur GitHub.
+- [x] Contrôler les cinq bundles desktop avec signatures d’update et inspecter les candidats préparés Windows.
+- [x] Synchroniser la vitrine FR/EN, la présentation du dépôt et la disponibilité actuelle.
+- [ ] Terminer les essais réels d’installation/update et les exigences de distribution par plateforme et format avant toute publication.
+
 ## Préparation du lancement — 1er novembre 2026
 
 Le lancement de **Novera 1.0.0** se prépare avec une vitrine français/anglais, la capture réelle du mainteneur et la signature **TRON-ABS — The art of Human with AI**. La [disponibilité actuelle](docs/LAUNCH_STATUS.md) distingue les sources, les candidats internes vérifiés et les futurs téléchargements publics. Les quatre candidats desktop Windows ARM64, Linux et macOS ARM64/Intel ont des signatures d’update contrôlées ; Windows x64 signé compile encore. Les essais réels d’installation/update et les canaux des autres formats restent à terminer. Aucune version publique n’est annoncée avant satisfaction de ces conditions.

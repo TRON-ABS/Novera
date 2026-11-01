@@ -15,7 +15,7 @@
 
 | Platform | Current preparation |
 | --- | --- |
-| Windows x64 | [Signed-update build and nine migration tests passed](https://github.com/TRON-ABS/Novera/actions/runs/41311520840); independent package inspection in progress. |
+| Windows x64 | [Signed build and nine migration tests passed](https://github.com/TRON-ABS/Novera/actions/runs/41311520840); prepared candidate inspected, including NSIS/runtime/portable consistency. Public release checks remain. |
 | Windows ARM64 | Candidate inspected; signed NSIS verified and desktop runtime prepared to match it. |
 | Linux x64 | AppImage update signature and packaged binaries verified; Debian delivery checks remain separate. |
 | macOS | Both signed-update candidates inspected: Apple Silicon requires macOS 14+, Intel macOS 13+. |

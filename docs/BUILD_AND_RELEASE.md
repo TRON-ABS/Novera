@@ -4,7 +4,15 @@ Présentation du lancement et disponibilité par plateforme : [état actuel](LAU
 
 ## Condition actuelle de publication
 
-**Aucune version publique sans mécanisme de mise à jour configuré et vérifié**, conformément à la dernière consigne du mainteneur. La clé réelle est configurée, les secrets GitHub sont chiffrés, et les nouveaux builds desktop signés sont lancés ; les anciens candidats restent internes. Voir [l’état de la confiance, des sauvegardes et du run signé](FUTURES_VERSIONS.md#publication-conditionnée-aux-mises-à-jour--1er-novembre-2026). Aucun binaire installé n’est activé à distance et aucun candidat n’est publié automatiquement.
+**Aucune version publique sans mécanisme de mise à jour configuré et vérifié**, conformément à la dernière consigne du mainteneur. La clé réelle est configurée, les secrets GitHub sont chiffrés, et les cinq bundles desktop signés ont passé leurs contrôles cryptographiques ; les anciens candidats restent internes. Toutes les cibles ont une compilation réussie retenue. Les essais réels d’installation/update et les conditions de diffusion par plateforme restent requis. Voir [la disponibilité et les preuves actuelles](LAUNCH_STATUS.md). Aucun binaire installé n’est activé à distance et aucun candidat n’est publié automatiquement.
+
+## Conserver les octets livrés et leur provenance
+
+Le collecteur vérifie les chemins et exclut profils, discussions, modèles et secrets avant l’upload. `include-hidden-files: true` conserve ensuite les marqueurs de runtime déjà présents dans ses empreintes ; désactiver cette option omettrait `.novera-image-runtime` et rendrait l’archive Windows x64 incomplète. Cette option concerne uniquement le dossier de candidats contrôlé, jamais le dépôt entier ni la sauvegarde de signature.
+
+Une préparation dérivée doit garder le commit de compilation et l’empreinte de l’archive source, distinguer les opérations locales et recalculer ses empreintes. Pour le candidat Windows x64 du 1er novembre, seul le marqueur omis est restauré depuis le NSIS signé, avec son empreinte d’origine ; le portable est reconditionné depuis le runtime figé pour conserver sa notice. Aucune compilation applicative locale n’est nécessaire. L’archive Actions originale reste intacte et n’est pas décrite comme corrigée.
+
+Comparer les fichiers livrés au NSIS et au portable, contrôler les signatures des octets finaux, les ressources et les architectures avant de sélectionner les fichiers du brouillon. Les types réservés MSI/NSIS diffèrent dans leurs exécutables ; cela ne certifie pas un scénario de migration entre formats. Le ZIP portable conserve les notices du runtime de départ et indique que son scénario d’update reste à valider.
 
 ## Compilations sur GitHub autorisées — 1er novembre 2026
 
