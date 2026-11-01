@@ -49,6 +49,14 @@ case "$kind" in
       pwsh -NoProfile -Command '& ./media-server/image-launcher/prepare.ps1 -ToolkitRoot $env:CUDA_PATH; if ($LASTEXITCODE) { exit $LASTEXITCODE }; & ./scripts/distribution/stage-novera-image.ps1'
     fi
     node scripts/distribution/ci-candidates.mjs config
+    # Read old release fixtures through current migration code before packaging.
+    # Keep this before Tauri's final build so raw desktop and installers agree.
+    if [[ "$RUNNER_OS" == Linux ]]; then
+      xvfb-run -a cargo test --release --locked --manifest-path src-tauri/Cargo.toml --test upgrade_compat -- --test-threads=1 | tee .build/upgrade-compatibility.txt
+    else
+      cargo test --release --locked --manifest-path src-tauri/Cargo.toml --test upgrade_compat -- --test-threads=1 | tee .build/upgrade-compatibility.txt
+    fi
+    node scripts/distribution/record-upgrade-check.mjs .build/upgrade-compatibility.txt
     if [[ "$RUNNER_OS" == Linux ]]; then
       export NO_STRIP=1 APPIMAGE_EXTRACT_AND_RUN=1
       bash src-tauri/build-utils/shim-linuxdeploy.sh yarn tauri build --ci --config .build/candidate-config.json

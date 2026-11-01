@@ -9,7 +9,7 @@ on:
         required: true
         type: choice
         default: all
-        options: [all, native, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli]
+        options: [all, checks, native, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli]
 
 permissions:
   contents: read
@@ -27,8 +27,36 @@ env:
   NODE_OPTIONS: --max-old-space-size=6144
 
 jobs:
+  checks:
+    name: Source and future-version contracts
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Verify version, distribution and update contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .build/checks
+          node scripts/distribution/check-release-readiness.mjs --json > .build/checks/source-definitions.json
+          node --test scripts/distribution/__tests__/check-release-readiness.test.mjs scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-macos.test.mjs scripts/distribution/__tests__/cuda-redist-plan.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs scripts/android/__tests__/configure-project.test.mjs | tee .build/checks/tests.txt
+      - name: Retain source-check results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checks-${{ github.run_id }}
+          path: .build/checks/
+          if-no-files-found: ignore
+          retention-days: 14
+
   desktop:
     name: ${{ matrix.variant }} / ${{ matrix.arch }}
+    needs: checks
     if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
     strategy:
       fail-fast: false
@@ -104,6 +132,7 @@ jobs:
 
   auxiliary:
     name: ${{ matrix.variant }} / ${{ matrix.runner }}
+    needs: checks
     if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["web","cli","android","ios"]'), inputs.target)
     strategy:
       fail-fast: false
@@ -176,14 +205,16 @@ jobs:
 
   summary:
     if: always()
-    needs: [desktop, auxiliary]
+    needs: [checks, desktop, auxiliary]
     runs-on: ubuntu-22.04
     steps:
       - name: Report actual job results
         env:
+          CHECKS: ${{ needs.checks.result }}
           DESKTOP: ${{ needs.desktop.result }}
           AUXILIARY: ${{ needs.auxiliary.result }}
         run: |
+          printf 'Source and update contracts: %s\n' "$CHECKS" >> "$GITHUB_STEP_SUMMARY"
           printf 'Desktop matrix: %s\nAuxiliary matrix: %s\n' "$DESKTOP" "$AUXILIARY" >> "$GITHUB_STEP_SUMMARY"
           echo 'Candidates only. No public release, signing certification or device validation is implied.' >> "$GITHUB_STEP_SUMMARY"
-          [[ "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled ]]
+          [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled ]]
