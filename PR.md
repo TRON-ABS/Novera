@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Windows x64 signed CI retry succeeds
+
+Run 41311520840 at bbe679d3 succeeds, including final updater signature verification and all nine migration tests with no failures or ignored tests. The complete runner validates the static-runtime fix. Artifact 13091806780 is 5,038,992,055 bytes and is downloading for independent package, architecture, signature and frozen-runtime checks. These checks and actual installation/update validation remain pending; no public release is announced.
+
 ## Preserve the Windows static runtime for migration tests
 
 The signed Windows x64 job creates NSIS/MSI bundles and verifies its updater signature, then fails when direct Cargo migration tests reuse Tauri’s static-runtime msvcrt override without the matching linker mode (LNK4003, 112 unresolved symbols). Export STATIC_VCRUNTIME=true across the Windows desktop build and migration tests. A minimal Rust probe using the actual tauri-build 2.6.3 helper reproduces the failing static-to-dynamic transition and passes with the mode preserved; all 49 local Node contracts pass. The full Windows migration suite remains subject to the targeted signed CI retry; other verified platforms are preserved and publication remains blocked.

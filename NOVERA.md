@@ -1,5 +1,11 @@
 # Novera — instructions du projet
 
+## Windows x64 signé : compilation et migrations réussies — 1er novembre 2026
+
+La [relance ciblée `41311520840`](https://github.com/TRON-ABS/Novera/actions/runs/41311520840), commit `bbe679d3`, termine avec succès, y compris le job Windows x64 `124862783500`. Le journal confirme la création des installateurs NSIS/MSI, la vérification de la signature du bundle final et **9 tests de migration réussis / 0 échec / 0 ignoré**. Le maintien de `STATIC_VCRUNTIME=true` corrige donc aussi le défaut sur le runner complet.
+
+L’[artefact `13091806780`](https://github.com/TRON-ABS/Novera/actions/runs/41311520840/artifacts/13091806780) contient les formats Windows et mesure **5 038 992 055 octets**. Son téléchargement pour inspection indépendante est en cours : les empreintes locales, architectures, signatures, ressources et comparaisons NSIS/runtime/portable ne sont pas encore annoncées comme validées. Toutes les cibles ont désormais une compilation réussie dans les runs retenus, sans transformer les candidats internes en versions publiques. La publication reste bloquée par les contrôles de paquets et d’installation/update encore nécessaires.
+
 ## Windows x64 : correction des tests après signature — 1er novembre 2026
 
 Le job `124820616112` du run signé `41297251818` échoue **après** la création des installateurs NSIS/MSI et la vérification de la signature d’update, au moment de recompiler pour les tests de migration. Tauri utilise le runtime MSVC statique et laisse un remplacement `msvcrt.lib` dans `OUT_DIR` ; le lancement direct de Cargo sans ce même réglage expose cette bibliothèque à un lien dynamique, provoquant LNK4003 et 112 symboles non résolus. Aucun candidat final de ce job n’est certifié ni publié.

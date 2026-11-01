@@ -15,7 +15,7 @@
 
 | Plateforme | Préparation actuelle |
 | --- | --- |
-| Windows x64 | Échec de liaison des tests de migration après création des installateurs signés ; [relance signée ciblée en cours](https://github.com/TRON-ABS/Novera/actions/runs/41311520840). |
+| Windows x64 | [Compilation signée et neuf migrations réussies](https://github.com/TRON-ABS/Novera/actions/runs/41311520840) ; inspection indépendante des paquets en cours. |
 | Windows ARM64 | Candidat inspecté ; signature du NSIS vérifiée et runtime desktop préparé pour lui correspondre. |
 | Linux x64 | Signature d’update AppImage et binaires emballés vérifiés ; le Debian conserve ses contrôles de distribution propres. |
 | macOS | Deux candidats avec update signé inspectés : macOS 14+ sur Apple Silicon, macOS 13+ sur Intel. |
