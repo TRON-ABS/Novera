@@ -10,12 +10,17 @@ on:
         type: choice
         default: all
         options: [all, checks, native, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli]
+      signed_updates:
+        description: Embed the Novera desktop update channel and sign updater bundles
+        type: boolean
+        default: false
+        required: true
 
 permissions:
   contents: read
 
 concurrency:
-  group: novera-candidates-${{ github.ref }}-${{ inputs.target }}
+  group: novera-candidates-${{ github.ref }}-${{ inputs.target }}-${{ inputs.signed_updates }}
   cancel-in-progress: true
 
 env:
@@ -45,7 +50,7 @@ jobs:
           set -euo pipefail
           mkdir -p .build/checks
           node scripts/distribution/check-release-readiness.mjs --json > .build/checks/source-definitions.json
-          node --test scripts/distribution/__tests__/check-release-readiness.test.mjs scripts/distribution/__tests__/prepare-version.test.mjs scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-macos.test.mjs scripts/distribution/__tests__/cuda-redist-plan.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs scripts/android/__tests__/configure-project.test.mjs | tee .build/checks/tests.txt
+          node --test scripts/distribution/__tests__/check-release-readiness.test.mjs scripts/distribution/__tests__/prepare-version.test.mjs scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-macos.test.mjs scripts/distribution/__tests__/ci-check-updater.test.mjs scripts/distribution/__tests__/cuda-redist-plan.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs scripts/android/__tests__/configure-project.test.mjs | tee .build/checks/tests.txt
       - name: Retain source-check results
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
@@ -58,6 +63,8 @@ jobs:
   desktop:
     name: ${{ matrix.variant }} / ${{ matrix.arch }}
     needs: checks
+    env:
+      NOVERA_ENABLE_UPDATER: ${{ inputs.signed_updates && 'true' || 'false' }}
     if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
     strategy:
       fail-fast: false
@@ -111,6 +118,8 @@ jobs:
         env:
           CANDIDATE_VARIANT: ${{ matrix.variant }}
           CANDIDATE_ARCH: ${{ matrix.arch }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ inputs.signed_updates && secrets.NOVERA_UPDATER_PRIVATE_KEY || '' }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ inputs.signed_updates && secrets.NOVERA_UPDATER_PASSWORD || '' }}
         run: bash scripts/distribution/ci-build.sh desktop
       - name: Retain candidates and checksums
         if: steps.selection.outputs.selected == 'true' && success()

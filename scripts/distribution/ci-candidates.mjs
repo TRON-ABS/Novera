@@ -3,6 +3,7 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
+import { releaseConfig } from '../updates/novera-update.mjs'
 
 export function safePayload(name) {
   const parts = name.replaceAll('\\', '/').split('/')
@@ -35,7 +36,7 @@ function packages(dir) {
     const p = path.join(dir, e.name)
     if (e.isSymbolicLink()) return []
     if (e.isDirectory()) return /\.(app|AppDir)$/.test(e.name) ? [] : packages(p)
-    return /\.(exe|msi|deb|AppImage|dmg)$/.test(p) ? [p] : []
+    return /\.(exe|msi|deb|AppImage|dmg|app\.tar\.gz)(?:\.sig)?$/.test(p) ? [p] : []
   })
 }
 function run(mode, kind) {
@@ -55,6 +56,14 @@ function run(mode, kind) {
     json('.build/ci-status.json', { kind, state: 'building', commit: process.env.GITHUB_SHA, runId: process.env.GITHUB_RUN_ID })
   } else if (mode === 'config' || mode === 'config-ios') {
     const config = { bundle: { createUpdaterArtifacts: false } }
+    if (process.env.NOVERA_ENABLE_UPDATER === 'true') {
+      if (mode !== 'config') throw new Error('The desktop updater cannot configure a mobile build')
+      const publicConfig = JSON.parse(fs.readFileSync('src-tauri/tauri.updater.conf.json'))
+      const signed = releaseConfig(publicConfig.plugins.updater.pubkey)
+      if (JSON.stringify(signed) !== JSON.stringify(publicConfig)) throw new Error('Unexpected updater trust configuration')
+      Object.assign(config.bundle, signed.bundle)
+      config.plugins = signed.plugins
+    }
     const platform = mode === 'config-ios' ? 'ios' : ({ win32: 'windows', linux: 'linux', darwin: 'macos' })[process.platform]
     const base = JSON.parse(fs.readFileSync(`src-tauri/tauri.${platform}.conf.json`))
     config.bundle.resources = [...candidateResources(base.bundle.resources || [], platform, process.arch), 'resources/SIGNATURE.txt']
@@ -113,6 +122,8 @@ function run(mode, kind) {
       kind, platform: process.platform, architecture: process.arch, commit: process.env.GITHUB_SHA,
       runId: process.env.GITHUB_RUN_ID, compilationPerformed: true, deviceValidated: false,
       productionSigned: false, publicReleasePublished: false, personalDataIncluded: false, modelsIncluded: false,
+      updaterChannelConfigured: kind === 'desktop' && process.env.NOVERA_ENABLE_UPDATER === 'true',
+      updaterSignaturesVerified: kind === 'desktop' && process.env.NOVERA_ENABLE_UPDATER === 'true' && fs.existsSync(path.join(out, 'UPDATER-READINESS.json')),
       limitations: [
         ...(kind === 'ios' ? ['Simulator application only; iPhone IPA requires Apple signing and provisioning.'] : []),
         ...(kind === 'android' ? ['Debug-signed test APK; mobile reviews and device validation remain pending.'] : []),

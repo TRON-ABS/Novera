@@ -9,6 +9,9 @@ if [[ "$RUNNER_OS" == Windows ]]; then
   export JAN_ENGINE_BUILD_DIR="${RUNNER_TEMP//\\//}/ne"
 fi
 mkdir -p .build/candidates
+if [[ "$kind" == desktop && "${NOVERA_ENABLE_UPDATER:-false}" == true ]]; then
+  [[ -n "${TAURI_SIGNING_PRIVATE_KEY:-}" && -n "${TAURI_SIGNING_PRIVATE_KEY_PASSWORD:-}" ]] || { echo 'Missing required Novera update signing credentials.' >&2; exit 2; }
+fi
 node scripts/distribution/ci-candidates.mjs begin "$kind"
 if [[ "$kind" != cli ]]; then
   yarn install --immutable
@@ -61,6 +64,9 @@ case "$kind" in
       node scripts/distribution/ci-check-macos.mjs "$CARGO_TARGET_DIR/release/bundle/macos/Novera.app"
     fi
     node scripts/distribution/ci-candidates.mjs desktop
+    if [[ "${NOVERA_ENABLE_UPDATER:-false}" == true ]]; then
+      node scripts/distribution/ci-check-updater.mjs
+    fi
     # Freeze the delivered runtime before tests can rebuild Cargo outputs.
     # Tauri has now built the frontend required by the integration test.
     export TAURI_CONFIG
