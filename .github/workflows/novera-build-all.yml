@@ -254,7 +254,7 @@ jobs:
           NOVERA_VALIDATION_PLATFORM: ${{ matrix.platform }}
         run: |
           selected=false
-          if [[ "$REQUESTED" == validate-desktop || "$NOVERA_VALIDATION_PLATFORM" == windows-x86_64 ]]; then selected=true; fi
+          if [[ "$REQUESTED" == validate-desktop || "$NOVERA_VALIDATION_PLATFORM" == windows-* ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
         if: steps.select.outputs.selected == 'true'

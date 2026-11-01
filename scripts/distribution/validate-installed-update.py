@@ -91,7 +91,9 @@ def smoke(executable, env, receipt_dir, label):
     try:
         time.sleep(15)
         if process.poll() is not None:
-            raise RuntimeError(f'Packaged application exited during {label}: {process.returncode}')
+            kwargs['stdout'].flush()
+            diagnostic=output.read_bytes()[-12000:].decode('utf-8',errors='replace')
+            raise RuntimeError(f'Packaged application exited during {label}: {process.returncode}\nStartup diagnostic from isolated profile:\n{diagnostic}')
         return {'processAliveAfterSeconds': 15, 'interfaceInteractionValidated': False}
     finally:
         if process.poll() is None:
@@ -217,4 +219,15 @@ def main():
     finally:
         server.shutdown();server.server_close()
 
-if __name__=='__main__': main()
+if __name__=='__main__':
+    try:
+        main()
+    except Exception as error:
+        # Only the dedicated test profile is used; app/probe environments contain
+        # no credentials. Retain bounded startup output to diagnose real crashes.
+        if os.environ.get('GITHUB_ACTIONS')=='true':
+            destination=REPO/'.build/validation';destination.mkdir(parents=True,exist_ok=True)
+            platform=sys.argv[1] if len(sys.argv)>1 else 'unknown'
+            if re.fullmatch(r'[a-z0-9_-]+',platform):
+                (destination/(platform+'-failure.json')).write_text(json.dumps({'platform':platform,'validationPassed':False,'error':str(error)[-16000:]},indent=2)+'\n')
+        raise

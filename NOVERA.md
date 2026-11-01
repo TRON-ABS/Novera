@@ -1,5 +1,11 @@
 # Novera — instructions du projet
 
+## Installations Linux et macOS vérifiées ; diagnostic Windows en cours — 1er novembre 2026
+
+Le [run 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673), commit `d2488453`, réussit les scénarios Linux x64, macOS ARM64 et macOS Intel. Les reçus téléchargés et leurs empreintes GitHub sont vérifiés : signatures natives, rejet du contenu altéré, absence d’offre à version égale, remplacement effectif du paquet, empreintes runtime conservées et témoin de profil préservé. L’application reste active 15 secondes avant et après. Les 22 fichiers macOS ARM64 et 30 fichiers Intel restent identiques ; l’AppImage retrouve son empreinte exacte.
+
+Le programme de contrôle utilise une version synthétique `0.9.9` avec le vrai paquet `1.0.0` : ce succès ne certifie ni le parcours dans l’interface ni une mise à niveau entre deux applications publiées. Sur Windows x64 et ARM64, le téléchargement, les contrôles natifs et l’installation NSIS atteignent le premier démarrage, puis l’application s’arrête avec le code 101. Le diagnostic de démarrage isolé est désormais conservé pour une relance Windows uniquement. Aucun succès Windows n’est revendiqué. Les trois nouvelles CLI signées sont encore en construction/test. La publication et les feeds publics restent bloqués ; les exigences Apple/mobile/Web et des autres formats demeurent.
+
 ## Validation native et canal CLI signé — 1er novembre 2026
 
 La matrice `41333359988`, commit `cd5171da`, compile les programmes de contrôle natifs ; les essais terminés échouent ensuite au téléchargement privé HTTP 403, avant installation. L’accès au brouillon est corrigé uniquement pour le job de validation, dont le contrôleur retire tout jeton avant de lancer les programmes testés. Le canal CLI signé est maintenant implémenté derrière une option Cargo explicite, avec signature, identité version/architecture et refus de rétrogradation ; ses nouveaux paquets et essais CI restent à obtenir. Les anciens CLI restent sans updater. Voir [le protocole](docs/INSTALL_UPDATE_VALIDATION.md) et [le canal CLI](docs/CLI_SIGNED_UPDATES.md). Aucune installation réussie, disponibilité du feed ou publication n’est déduite des tests source.

@@ -1,5 +1,11 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Native installation results and Windows startup diagnostics
+
+Run 41334675673 passes Linux and both macOS installation/native replacement scenarios. Downloaded receipts match their GitHub digests and confirm signature verification, tamper refusal, same-version handling, restored runtime hashes, profile sentinel preservation and 15-second startup before/after. The synthetic probe version does not establish a production UI upgrade between two released applications.
+
+Both Windows NSIS installations reach startup, then the packaged application exits 101. Retain bounded startup diagnostics from the isolated, credential-free profile and rerun only both Windows architectures; do not repeat the successful Linux/macOS scenarios. Six Python guard/package tests pass locally. Signed CLI CI remains in progress. Publication stays blocked.
+
 ## Validate private draft packages and add the opt-in signed CLI channel
 
 The desktop validation matrix compiles its native probes, but draft asset downloads return HTTP 403 with a read-only Actions token. Grant draft access only to the validation job; its controller performs GET requests and removes credentials before launching the application or updater probe. Use streaming SHA-256 compatible with Ubuntu's Python 3.10. Actual installation outcomes remain pending a corrected run.
