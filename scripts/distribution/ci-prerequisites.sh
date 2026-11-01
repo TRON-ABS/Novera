@@ -17,7 +17,7 @@ case "$RUNNER_OS" in
       sudo apt-get install -y build-essential cmake ninja-build clang pkg-config libssl-dev
     fi
     if [[ "$kind" == desktop ]]; then
-      sudo apt-get install -y libglib2.0-dev libatk1.0-dev libpango1.0-dev libgtk-3-dev libsoup-3.0-dev libwebkit2gtk-4.1-dev librsvg2-dev libfuse2 libappindicator3-dev xdg-utils file desktop-file-utils
+      sudo apt-get install -y libglib2.0-dev libatk1.0-dev libpango1.0-dev libgtk-3-dev libsoup-3.0-dev libwebkit2gtk-4.1-dev librsvg2-dev libfuse2 libappindicator3-dev xdg-utils file desktop-file-utils xvfb
     fi
     ;;
   Windows)

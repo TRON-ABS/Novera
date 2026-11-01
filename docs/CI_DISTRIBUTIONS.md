@@ -110,3 +110,13 @@ Windows ARM64 atteint le build Tauri mais échoue sur `icons/icon.ico` absent ; 
 Le sélecteur manuel `native` relance uniquement les applications desktop et mobiles. Il ne recompilera pas les trois CLI et le Web déjà compilés et vérifiés. Les anciennes tentatives natives sont remplacées ; leurs artefacts déjà réussis restent disponibles. Aucune réussite complète ARM64/iOS n'est déduite de ce correctif avant son nouveau build.
 
 La notice personnelle TRON-ABS est également copiée dans les assets du futur APK Android, et pas seulement dans son artefact extérieur. Le test du collecteur confirme qu’une notice seule ne permet jamais de certifier une compilation vide. Les **11 tests** candidats/CUDA/configuration Android passent après ces modifications ; actionlint est sans erreur.
+
+### Linker CMake du moteur CUDA
+
+Le build Windows du run `41273736808` dépasse le provisionnement, puis CMake choisit à son tour le `link.exe` GNU pour son test NVCC, bien que Cargo ait déjà son linker MSVC. Le journal confirme que NVCC compile le test CUDA et que le lien échoue sur l'outil GNU. Le même chemin MSVC vérifié est maintenant transmis explicitement au build CMake du moteur avec `NOVERA_MSVC_LINKER`, sans modifier le comportement des environnements qui ne le définissent pas. Le test x64/ARM64 contrôle les deux réglages exportés ; les cinq tests de candidats/politiques passent. Android confirme le même défaut d'icônes dans son bootstrap Cargo précédent ; la génération commune des icônes couvre également ce cas.
+
+### Régression de compilation GTK 3
+
+Le premier build Linux a une seconde erreur réelle, en plus des icônes : `gtk::Clipboard` 0.18.2 ne possède pas `set_uris`. L'archive officielle de cette version a été vérifiée contre le SHA-256 du verrou Cargo ; `set_uris` appartient à `SelectionData`. La copie de fichiers utilise maintenant `Clipboard::set_with_data` avec une cible `text/uri-list`, conserve l'URI dans le callback, propage un refus d'appropriation et demande sa conservation au gestionnaire de presse-papiers.
+
+Le contrôle Linux isolé compile le **même module que la production** et demande réellement l'URI au presse-papiers sous Xvfb, avec espace/Unicode encodés. Il ne duplique pas l'implémentation dans une fixture et ne touche pas le presse-papiers du mainteneur. Son résultat doit être confirmé par GitHub ; il n'a pas été exécuté sur Windows. Les tentatives natives concernées sont remplacées par un run depuis ces correctifs, tandis que les quatre artefacts Web/CLI validés restent conservés.

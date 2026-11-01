@@ -731,6 +731,9 @@ fn native_sheet<R: Runtime>(
     Ok(())
 }
 #[cfg(target_os = "linux")]
+mod linux_clipboard;
+
+#[cfg(target_os = "linux")]
 fn native_sheet<R: Runtime>(
     _: &tauri::WebviewWindow<R>,
     file: &Path,
@@ -738,17 +741,13 @@ fn native_sheet<R: Runtime>(
     _: &str,
     copy: bool,
 ) -> Result<(), String> {
-    use gtk::prelude::*;
     if !copy {
         return Err("SHARE_UNSUPPORTED".into());
     }
     let uri = url::Url::from_file_path(file)
         .map_err(|_| "SHARE_INVALID")?
         .to_string();
-    let clipboard = gtk::Clipboard::get(&gtk::gdk::SELECTION_CLIPBOARD);
-    clipboard.set_uris(&[uri.as_str()]);
-    clipboard.store();
-    Ok(())
+    linux_clipboard::copy_uri(uri)
 }
 #[cfg(not(any(windows, target_os = "macos", target_os = "linux")))]
 fn native_sheet<R: Runtime>(

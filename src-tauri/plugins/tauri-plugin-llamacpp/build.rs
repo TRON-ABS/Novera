@@ -137,7 +137,13 @@ mod engine {
         };
         cmd.arg(format!("-DCMAKE_C_COMPILER_TARGET={target}"));
         cmd.arg(format!("-DCMAKE_CXX_COMPILER_TARGET={target}"));
-        cmd.args(["-DCMAKE_LINKER=link.exe", "-DCMAKE_RC_COMPILER=rc.exe", "-DCMAKE_MT=mt.exe"]);
+        println!("cargo:rerun-if-env-changed=NOVERA_MSVC_LINKER");
+        let linker = env::var_os("NOVERA_MSVC_LINKER")
+            .map(PathBuf::from)
+            .map(|path| cmake_path(&path))
+            .unwrap_or_else(|| "link.exe".to_string());
+        cmd.arg(format!("-DCMAKE_LINKER={linker}"));
+        cmd.args(["-DCMAKE_RC_COMPILER=rc.exe", "-DCMAKE_MT=mt.exe"]);
         // b11940 passes quantized-block pointers to the byte-pointer prefetch
         // intrinsic. New Clang versions diagnose these optional cache hints as
         // errors; retain the diagnostic without blocking the Windows build.

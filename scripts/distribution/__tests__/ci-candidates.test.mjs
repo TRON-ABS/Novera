@@ -65,6 +65,7 @@ test('Windows CI selects the native MSVC linker for each architecture and refuse
       execFileSync('powershell', ['-NoProfile', '-File', entry], { env: { ...process.env, GITHUB_ACTIONS: 'true', RUNNER_ARCH: arch, VSCMD_ARG_TGT_ARCH: target, VCToolsInstallDir: path.join(root, 'MSVC tools'), GITHUB_ENV: envFile } })
       assert.match(fs.readFileSync(envFile, 'utf8'), new RegExp(`CARGO_TARGET_${triple}_PC_WINDOWS_MSVC_LINKER=`))
       assert.ok(fs.readFileSync(envFile, 'utf8').includes(tool))
+      assert.ok(fs.readFileSync(envFile, 'utf8').includes('NOVERA_MSVC_LINKER=' + tool))
     }
     const rejected = spawnSync('powershell', ['-NoProfile', '-File', entry], { env: { ...process.env, GITHUB_ACTIONS: 'true', RUNNER_ARCH: 'X64', VSCMD_ARG_TGT_ARCH: 'x64', VCToolsInstallDir: path.join(root, 'missing'), GITHUB_ENV: path.join(root, 'reject.env') }, encoding: 'utf8' })
     assert.notEqual(rejected.status, 0)

@@ -1,0 +1,13 @@
+[package]
+name = "novera-linux-clipboard-check"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# Exercise the exact production helper without linking the entire GUI app's
+# unrelated tests. Only an isolated Linux CI display runs the ignored test.
+[lib]
+path = "../../../../src-tauri/src/core/sharing/linux_clipboard.rs"
+
+[dependencies]
+gtk = "=0.18.2"

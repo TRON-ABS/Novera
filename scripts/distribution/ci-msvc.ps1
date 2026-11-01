@@ -9,4 +9,5 @@ $link = Join-Path $env:VCToolsInstallDir "bin/Host$hostArch/$targetArch/link.exe
 if (!(Test-Path -LiteralPath $link -PathType Leaf)) { throw "MSVC linker missing for host $hostArch / target $targetArch" }
 $triple = if ($targetArch -eq 'arm64') { 'AARCH64_PC_WINDOWS_MSVC' } else { 'X86_64_PC_WINDOWS_MSVC' }
 Add-Content -LiteralPath $env:GITHUB_ENV "CARGO_TARGET_${triple}_LINKER=$link"
+Add-Content -LiteralPath $env:GITHUB_ENV "NOVERA_MSVC_LINKER=$link"
 Write-Output "MSVC linker selected for $triple"

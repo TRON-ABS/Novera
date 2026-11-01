@@ -16,6 +16,8 @@ The first native logs also show Git Bash GNU `link.exe` overriding MSVC for Wind
 
 Further remote checks: Web plus Linux/macOS/Windows CLI builds passed and their artifacts were downloaded and verified independently. ARM64 and iOS then reached native application compilation but failed because generated ICO/PNG icons were absent on a clean runner. Generate icons before every native build, add a native-only retry group to preserve completed CLI/Web outputs, and include the personal signature inside Android assets. Eleven candidate/CUDA/Android-configuration tests and actionlint pass. No native platform is marked successful merely because the common bootstrap defect was fixed.
 
+Linux native compilation also exposed an invalid GTK 3 call: `Clipboard::set_uris` does not exist in locked gtk 0.18.2. Use ownership callbacks with `text/uri-list` and the actual `SelectionData::set_uris` API. An isolated Linux/Xvfb consumer test compiles the exact production module, preserving encoded Unicode/spaces and checking the returned URI. It is pending remote execution, not claimed as locally passed on Windows. CUDA's CMake compiler test separately needs the same absolute MSVC linker already selected for Cargo; forward it explicitly through the engine build script.
+
 ## Earlier completed source and Windows preparation work
 
 # fix(distribution): prepare clean Windows packages and refresh the showcase

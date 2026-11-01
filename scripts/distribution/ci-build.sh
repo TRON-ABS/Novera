@@ -27,6 +27,9 @@ case "$kind" in
     ;;
   desktop)
     export IS_TAURI=true
+    if [[ "$RUNNER_OS" == Linux ]]; then
+      xvfb-run -a cargo test --release --manifest-path scripts/distribution/checks/linux-clipboard/Cargo.toml -- --ignored --test-threads=1
+    fi
     yarn download:bin
     if [[ "$RUNNER_OS" == macOS ]]; then
       make build-engine
