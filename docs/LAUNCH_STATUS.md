@@ -11,7 +11,8 @@ Novera réunit conversation, recherche et création de texte, d’images, de mus
 | Linux x64 AppImage | Installation et remplacement natif réussis ; AppImage restaurée à son empreinte exacte. | Parcours UI et feed de production ; Debian à valider séparément. |
 | macOS ARM64 | Installation et remplacement natif réussis ; 22 fichiers identiques ; minimum macOS 14. | Parcours UI/feed de production ; signature de code et notarisation Apple. |
 | macOS Intel | Installation et remplacement natif réussis ; 30 fichiers identiques ; minimum macOS 13. | Parcours UI/feed de production ; signature de code et notarisation Apple. |
-| CLI Linux/Windows/macOS ARM64 | Canal signé implémenté en option ; anciennes compilations conservées sans updater. | Nouveaux paquets et remplacement en relance CI après correction d’une fixture ; endpoint public non activé. |
+| CLI Linux/macOS ARM64 | Remplacement signé et exécution réussis ; artefacts téléchargés, onze empreintes chacun, architectures et clé embarquée contrôlées. | Endpoint de production et transition entre versions publiées non validés. |
+| CLI Windows x64 | Canal signé implémenté en option ; ancienne compilation conservée sans updater. | Nouvelle compilation et essai de remplacement encore en cours. |
 | Android | APK ARM64 debug interne contrôlé. | Signature durable, canal de production et validation appareil. |
 | iOS | Application simulateur interne contrôlée. | Identité Apple réelle, build appareil, canal de distribution et validation appareil. |
 | Web | Nouveau build CI vérifié ; 588 fichiers servis contrôlés en HTTP local ; rechargement entre deux builds au navigateur avec thème préservé. | Hébergement HTTPS et cache/CDN réels ; parcours fonctionnels complets et renouvellement du site de production. Voir [les limites](WEB_DELIVERY.md). |
