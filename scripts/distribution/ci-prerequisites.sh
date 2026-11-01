@@ -28,6 +28,10 @@ case "$RUNNER_OS" in
     ;;
   macOS)
     if [[ "$kind" == desktop ]]; then
+      # CMake otherwise adopts the runner OS minimum, independently of Tauri.
+      export MACOSX_DEPLOYMENT_TARGET
+      MACOSX_DEPLOYMENT_TARGET=$(node --input-type=module -e "import {macosDeploymentTarget} from './scripts/distribution/ci-candidates.mjs'; console.log(macosDeploymentTarget(process.arch))")
+      echo "MACOSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET" >> "$GITHUB_ENV"
       # Match the established MLX build requirement, without changing xcode-select.
       if [[ "$RUNNER_ARCH" == ARM64 ]]; then
         export DEVELOPER_DIR=/Applications/Xcode_26.2.app/Contents/Developer

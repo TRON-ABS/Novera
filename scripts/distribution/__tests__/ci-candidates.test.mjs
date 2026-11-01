@@ -4,7 +4,14 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { execFileSync, spawnSync } from 'node:child_process'
-import { safePayload, candidateResources } from '../ci-candidates.mjs'
+import { safePayload, candidateResources, macosDeploymentTarget } from '../ci-candidates.mjs'
+
+test('the macOS Apple Silicon floor satisfies the declared MLX package requirement', () => {
+  const swift = fs.readFileSync('mlx-server/Package.swift', 'utf8')
+  const minimum = Number(swift.match(/\.macOS\(\.v(\d+)\)/)[1])
+  assert.ok(Number(macosDeploymentTarget('arm64').split('.')[0]) >= minimum)
+  assert.throws(() => macosDeploymentTarget('ia32'), /Unsupported macOS architecture/)
+})
 
 test('Intel macOS excludes Apple Silicon-only MLX resources and preserves the native worker', () => {
   const resources = JSON.parse(fs.readFileSync('src-tauri/tauri.macos.conf.json')).bundle.resources

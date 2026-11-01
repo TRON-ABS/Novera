@@ -56,6 +56,9 @@ case "$kind" in
     else
       yarn tauri build --ci --config .build/candidate-config.json
     fi
+    if [[ "$RUNNER_OS" == macOS ]]; then
+      node scripts/distribution/ci-check-macos.mjs "$CARGO_TARGET_DIR/release/bundle/macos/Novera.app"
+    fi
     node scripts/distribution/ci-candidates.mjs desktop
     if [[ "$CANDIDATE_VARIANT" == windows ]]; then
       pwsh -NoProfile -File scripts/package-windows-portable.ps1 -RuntimeDir .build/candidates/desktop -OutputDir .build/candidates/portable

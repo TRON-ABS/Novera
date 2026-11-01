@@ -10,6 +10,11 @@ export function safePayload(name) {
     !/\.(?:pdb|map|log|sqlite|db|gguf|safetensors|pth|pt|onnx)$/i.test(name) && !parts.some(p => p.startsWith('.env'))
 }
 export function sha(file) { return crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex') }
+export function macosDeploymentTarget(architecture) {
+  if (architecture === 'arm64') return '14.0' // MLX's declared minimum.
+  if (architecture === 'x64') return '13.0' // Bundled Bun's declared minimum.
+  throw new Error(`Unsupported macOS architecture: ${architecture}`)
+}
 export function candidateResources(resources, platform, architecture) {
   // MLX supports Apple Silicon; Intel macOS retains its native GGUF worker.
   return platform === 'macos' && architecture === 'x64'
@@ -53,6 +58,7 @@ function run(mode, kind) {
     const platform = mode === 'config-ios' ? 'ios' : ({ win32: 'windows', linux: 'linux', darwin: 'macos' })[process.platform]
     const base = JSON.parse(fs.readFileSync(`src-tauri/tauri.${platform}.conf.json`))
     config.bundle.resources = [...candidateResources(base.bundle.resources || [], platform, process.arch), 'resources/SIGNATURE.txt']
+    if (platform === 'macos') config.bundle.macOS = { minimumSystemVersion: macosDeploymentTarget(process.arch) }
     fs.writeFileSync('src-tauri/resources/SIGNATURE.txt', signature)
     if (process.env.CANDIDATE_VARIANT === 'arm64') {
       config.bundle.resources = ['resources/LICENSE', 'resources/SIGNATURE.txt', 'resources/bin/novera-llama-worker.exe', 'resources/bin/*.dll']
