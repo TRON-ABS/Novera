@@ -39,4 +39,13 @@ Le résultat iOS visé est pour **simulateur**, sans prétendre produire une IPA
 
 `actionlint 1.7.12` valide le nouveau workflow. Les YAML sont parsés. Quatre tests du collecteur/politique Android réussissent ; les neuf tests du contrôle des distributions et ses onze références sont valides. Les 223 assertions / 12 scénarios du portable réussissent. La première tentative de contrôle Bash a été bloquée par l'isolation Windows ; les contrôles de syntaxe Bash des trois scripts ont ensuite réussi avec accès approprié. Ces contrôles ne sont pas des compilations multiplateformes.
 
-Les résultats distants, liens et limites effectifs seront ajoutés après le lancement ; aucune réussite distante n'est annoncée à ce stade.
+## Premier lancement distant — 1er novembre 2026
+
+Le mainteneur a explicitement autorisé l'activation de GitHub Actions, la désactivation des anciens workflows et la limitation des actions autorisées. État vérifié après application : **37 anciens workflows désactivés**, un seul workflow actif (`Novera - All distribution candidates`). La politique autorise les actions GitHub et l'action MSVC épinglée utilisée par ce workflow ; aucun secret de signature n'a été ajouté.
+
+Le [run 41272733352](https://github.com/TRON-ABS/Novera/actions/runs/41272733352) est déclenché avec `target=all` depuis le commit `3f072579bbc2e97c15ea2cd4d0c6bf49d3902641`. GitHub a créé onze jobs de compilation, initialement en file d'attente, avec les quatre formats Windows regroupés et plusieurs hôtes pour macOS/CLI. Le résumé dépend de ces matrices. Aucun artefact compilé ni succès distant n'est encore attesté par ce premier relevé. Les résultats ultérieurs doivent conserver le commit exact de leur run plutôt que le HEAD courant.
+
+
+### Premier correctif issu du run
+
+Le job Web échoue réellement à l'installation immuable Yarn (`YN0028`), avant la compilation : l'entrée racine `novera-app@workspace:.` est restée à l'ancienne position alphabétique de son nom précédent. L'entrée est déplacée à sa position canonique. Les arbres YAML avant/après sont comparés égaux : aucune version ni dépendance n'est changée. L'essai local de validation Corepack a été empêché par l'accès réseau du bac à sable ; le résultat de l'installation immuable doit être confirmé par le prochain run GitHub. Une relance depuis le commit corrigé remplace le run initial, dont les résultats ne sont pas présentés comme des compilations réussies.
