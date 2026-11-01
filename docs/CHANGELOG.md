@@ -1,5 +1,13 @@
 # Novera — historique consolidé
 
+## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026
+
+Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et Intel**. Les reçus téléchargés et leurs digests GitHub sont vérifiés : installation du vrai paquet, signature native, rejet du contenu altéré, aucune offre à version égale, restauration effective par l’updater, empreintes runtime et témoin de profil conservés, démarrage pendant 15 secondes avant et après. Le [run Windows 41336767111](https://github.com/TRON-ABS/Novera/actions/runs/41336767111) compare 106 fichiers x64 et neuf ARM64 ; le [run Linux/macOS 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673) compare l’AppImage exacte, 22 fichiers macOS ARM64 et 30 Intel.
+
+Le programme de contrôle annonce `0.9.9` pour exercer le vrai paquet `1.0.0`. Ces preuves ne couvrent pas le parcours d’update dans l’interface, une transition entre deux applications publiées ni une inspection visuelle de tous les moteurs. Le défaut Windows était celui du profil synthétique du banc d’essai ; son arborescence standard corrige le démarrage sans recompiler Novera.
+
+**La publication reste bloquée** : aucun feed public n’est créé, les nouveaux CLI signés sont en relance après correction de leur fixture, les exigences Apple/mobile/Web et les scénarios MSI/Debian/portable restent distincts. Le brouillon privé conserve ses 15 assets vérifiés. Voir le [protocole de validation](INSTALL_UPDATE_VALIDATION.md) et la [disponibilité actuelle](LAUNCH_STATUS.md).
+
 ## Bilan des distributions : compilations terminées, brouillon prêt — 1er novembre 2026
 
 Les onze variantes retenues disposent d’une compilation GitHub réussie. Les cinq bundles desktop sélectionnés passent les vérifications cryptographiques de mise à jour, avec les préparations Windows et leurs limites de source documentées ci-dessous. Le contrôle source final [41329047879](https://github.com/TRON-ABS/Novera/actions/runs/41329047879), commit `2142b95f`, réussit : **49 contrats Node, 47 réussis, 2 tests propres à Windows ignorés sur Ubuntu, aucun échec** ; les 49 passent localement sous Windows.

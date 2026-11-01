@@ -1,5 +1,16 @@
 # Compilations Novera sur GitHub Actions
 
+## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026
+
+Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et Intel**. Les reçus téléchargés et leurs digests GitHub sont vérifiés : installation du vrai paquet, signature native, rejet du contenu altéré, aucune offre à version égale, restauration effective par l’updater, empreintes runtime et témoin de profil conservés, démarrage pendant 15 secondes avant et après. Le [run Windows 41336767111](https://github.com/TRON-ABS/Novera/actions/runs/41336767111) compare 106 fichiers x64 et neuf ARM64 ; le [run Linux/macOS 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673) compare l’AppImage exacte, 22 fichiers macOS ARM64 et 30 Intel.
+
+Le programme de contrôle annonce `0.9.9` pour exercer le vrai paquet `1.0.0`. Ces preuves ne couvrent pas le parcours d’update dans l’interface, une transition entre deux applications publiées ni une inspection visuelle de tous les moteurs. Le défaut Windows était celui du profil synthétique du banc d’essai ; son arborescence standard corrige le démarrage sans recompiler Novera.
+
+**La publication reste bloquée** : aucun feed public n’est créé, les nouveaux CLI signés sont en relance après correction de leur fixture, les exigences Apple/mobile/Web et les scénarios MSI/Debian/portable restent distincts. Le brouillon privé conserve ses 15 assets vérifiés. Voir le [protocole de validation](INSTALL_UPDATE_VALIDATION.md) et la [disponibilité actuelle](LAUNCH_STATUS.md).
+
+<details>
+<summary>Historique des contrôles précédents — états remplacés par le bilan ci-dessus</summary>
+
 ## Diagnostic Windows : profil de validation corrigé — 1er novembre 2026
 
 La relance `41335902365` identifie le panic du plugin HTTP : `unknown path` lors de la résolution du cache Windows. Une reproduction locale de `SHGetKnownFolderPath`, sans installation et sans modification du registre, démontre que les dossiers synthétiques séparés du banc d’essai donnent `0x80070003`, alors que l’arborescence standard `USERPROFILE/AppData/Local` et `AppData/Roaming` résout le cache dans le répertoire isolé. Le contrôleur adopte cette arborescence et vérifie les deux dossiers Windows avant de lancer Novera. Aucune correction binaire ou recompilation des moteurs n’est nécessaire à cette étape ; les essais Windows restent à réussir. Les résultats Linux/macOS déjà vérifiés sont conservés, les CLI signées restent en cours et la publication demeure bloquée.
@@ -162,6 +173,9 @@ L’APK nommé `app-universal-debug.apk` contient uniquement l’ABI **arm64-v8a
 Le [run CLI `41280300978`](https://github.com/TRON-ABS/Novera/actions/runs/41280300978), commit `410caea5`, est entièrement réussi. Chaque hôte Windows/Linux/macOS exécute deux tests Rust de politique des mises à jour et d’aide : six réussis au total, zéro échec/ignoré. Les trois archives sont téléchargées ; 21 empreintes, provenance, notice TRON-ABS et architectures ELF x64 / PE x64 / Mach-O ARM64 sont conformes. Le nom interne historique `jan` reste conservé.
 
 Le nouveau [DMG Apple Silicon](https://github.com/TRON-ABS/Novera/actions/runs/41278737556/artifacts/13073710701), commit `5468f183`, contient huit fichiers externes et sept empreintes vérifiées. Le reçu `MACOS-COMPATIBILITY.json` annonce 14.0 et 16 binaires ; l’inspection indépendante du DMG confirme 16 Mach-O ARM64 avec minimum maximal **14.0.0**, MLX, shaders et notice embarquée. SHA-256 de l’archive GitHub : `a3a7ed7c930888e773cce697e3ea5440d3b41d592281b821530b59ea32f76727`. Les DMG précédents exigeant macOS 15 restent des preuves historiques. Aucun lancement ou montage du DMG n’est effectué sur Windows ; l’installation macOS reste à tester. Ce run précède les nouveaux tests de migration desktop. Le job Intel du même run est désormais réussi et son paquet vérifié ci-dessus.
+
+
+</details>
 
 ## Préparation des prochaines versions
 

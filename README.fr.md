@@ -11,20 +11,20 @@
 
 ## Disponibilité — 1er novembre 2026
 
-Les essais isolés d’installation et de remplacement natif passent sur Linux et les deux macOS ; Windows atteint l’installation ; son test de démarrage a révélé un profil synthétique invalide, corrigé pour une relance ciblée. Les CLI signées sont encore en validation. [Résultats et limites](docs/INSTALL_UPDATE_VALIDATION.md). Aucune diffusion publique.
+Les essais isolés d’installation et de remplacement par l’updater natif passent désormais sur les cinq plateformes desktop. Les CLI signées restent en validation. [Preuves et limites](docs/INSTALL_UPDATE_VALIDATION.md). Aucune diffusion publique.
 
 **Novera 1.0.0 prépare son lancement. Les téléchargements publics ne sont pas encore ouverts.** Découvrez les sources et le véritable tableau de bord Windows ci-dessous ; les paquets publiés seront accessibles dans [Releases](https://github.com/TRON-ABS/Novera/releases) après les contrôles de lancement.
 
 | Plateforme | Préparation actuelle |
 | --- | --- |
-| Windows x64 | [Compilation signée et neuf migrations réussies](https://github.com/TRON-ABS/Novera/actions/runs/41311520840) ; candidat préparé contrôlé, avec cohérence NSIS/runtime/portable. Validation de diffusion encore requise. |
-| Windows ARM64 | Candidat inspecté ; signature du NSIS vérifiée et runtime desktop préparé pour lui correspondre. |
-| Linux x64 | Signature d’update AppImage et binaires emballés vérifiés ; le Debian conserve ses contrôles de distribution propres. |
-| macOS | Deux candidats avec update signé inspectés : macOS 14+ sur Apple Silicon, macOS 13+ sur Intel. |
+| Windows x64 | Installation NSIS et remplacement natif réussis ; 106 fichiers identiques, profil de test préservé. MSI/portable à valider séparément. |
+| Windows ARM64 | Installation NSIS et remplacement natif réussis ; neuf fichiers runtime identiques. |
+| Linux x64 | Installation AppImage et remplacement natif réussis ; scénario Debian distinct. |
+| macOS | Installation et remplacement natif réussis sur les deux architectures ; macOS 14+ ARM64 et 13+ Intel. Notarisation en attente. |
 | Android et iOS | Android ARM64 debug et iOS simulateur restent des essais internes ; aucune version mobile publique. |
 | Web et CLI | Builds contrôlés ; diffusion publique et canaux de mise à jour adaptés restent à terminer. |
 
-Toute publication exige un mécanisme de mise à jour configuré et vérifié, avec les essais d’installation et d’update encore nécessaires. La signature de l’updater ne vaut pas signature de code Windows ou notarisation Apple. Consultez [la disponibilité et les conditions de lancement](docs/LAUNCH_STATUS.md) et [les preuves de compilation](docs/CI_DISTRIBUTIONS.md).
+Toute publication exige un mécanisme de mise à jour configuré et vérifié, avec validation du feed de production et du parcours dans l’interface. La signature de l’updater ne vaut pas signature de code Windows ou notarisation Apple. Consultez [la disponibilité et les conditions de lancement](docs/LAUNCH_STATUS.md) et [les preuves de compilation](docs/CI_DISTRIBUTIONS.md).
 
 Les onze variantes retenues ont une compilation GitHub réussie. Un brouillon de version contient 15 fichiers vérifiés pour les cinq bundles desktop sélectionnés, leurs signatures et notices ; il reste non publié dans l’attente des validations de lancement restantes.
 

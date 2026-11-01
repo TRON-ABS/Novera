@@ -1,5 +1,16 @@
 # Préparer les prochaines versions et mises à jour Novera
 
+## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026
+
+Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et Intel**. Les reçus téléchargés et leurs digests GitHub sont vérifiés : installation du vrai paquet, signature native, rejet du contenu altéré, aucune offre à version égale, restauration effective par l’updater, empreintes runtime et témoin de profil conservés, démarrage pendant 15 secondes avant et après. Le [run Windows 41336767111](https://github.com/TRON-ABS/Novera/actions/runs/41336767111) compare 106 fichiers x64 et neuf ARM64 ; le [run Linux/macOS 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673) compare l’AppImage exacte, 22 fichiers macOS ARM64 et 30 Intel.
+
+Le programme de contrôle annonce `0.9.9` pour exercer le vrai paquet `1.0.0`. Ces preuves ne couvrent pas le parcours d’update dans l’interface, une transition entre deux applications publiées ni une inspection visuelle de tous les moteurs. Le défaut Windows était celui du profil synthétique du banc d’essai ; son arborescence standard corrige le démarrage sans recompiler Novera.
+
+**La publication reste bloquée** : aucun feed public n’est créé, les nouveaux CLI signés sont en relance après correction de leur fixture, les exigences Apple/mobile/Web et les scénarios MSI/Debian/portable restent distincts. Le brouillon privé conserve ses 15 assets vérifiés. Voir le [protocole de validation](INSTALL_UPDATE_VALIDATION.md) et la [disponibilité actuelle](LAUNCH_STATUS.md).
+
+<details>
+<summary>Historique des contrôles précédents — états remplacés par le bilan ci-dessus</summary>
+
 ## Diagnostic Windows : profil de validation corrigé — 1er novembre 2026
 
 La relance `41335902365` identifie le panic du plugin HTTP : `unknown path` lors de la résolution du cache Windows. Une reproduction locale de `SHGetKnownFolderPath`, sans installation et sans modification du registre, démontre que les dossiers synthétiques séparés du banc d’essai donnent `0x80070003`, alors que l’arborescence standard `USERPROFILE/AppData/Local` et `AppData/Roaming` résout le cache dans le répertoire isolé. Le contrôleur adopte cette arborescence et vérifie les deux dossiers Windows avant de lancer Novera. Aucune correction binaire ou recompilation des moteurs n’est nécessaire à cette étape ; les essais Windows restent à réussir. Les résultats Linux/macOS déjà vérifiés sont conservés, les CLI signées restent en cours et la publication demeure bloquée.
@@ -110,6 +121,9 @@ Le brouillon de préversion `v1.0.0-candidate.20261101` est marqué **BLOQUÉ : 
 
 Le cycle reste piloté depuis le dépôt **TRON-ABS/Novera**. Les compilations manuelles, contrôles de versions, tests de migration et vérifications des paquets préparent les prochaines distributions. La publication officielle et l’activation des mises à jour signées suivent la [politique de versions](../OFFICIAL_RELEASES.md). Les résultats des builds en cours figurent dans [le suivi CI](CI_DISTRIBUTIONS.md).
 
+
+</details>
+
 ## Préparer un numéro de version cohérent
 
 Prévisualiser, par exemple, le passage à 1.0.1 :
@@ -165,7 +179,7 @@ Les contrôles indépendants des téléchargements vérifient les empreintes et 
 | Android | APK debug de test avec suffixe `.debug`, distinct de l’identité de production. Une chaîne release exige une clé de signature durable et des compteurs de version corrects ; les trois audits mobiles restent à terminer. |
 | iOS | Le candidat actuel vise le simulateur. Distribution sur iPhone/iPad et mises à jour via les canaux Apple exigent équipe, certificats, provisioning et validation sur appareil. |
 | Web | Nouveau déploiement du frontend compilé, avec contrôle du premier lancement et des fournisseurs ; ce n’est pas le mécanisme d’update desktop. |
-| CLI | Paquets manuels par plateforme ; contrôle automatique et remplacement forcé restent indisponibles sans canal Novera signé. |
+| CLI | Canal Novera signé disponible avec l’option Cargo explicite ; nouveaux paquets et remplacement encore en validation CI. Les anciens binaires sans updater restent internes. Voir [le protocole CLI](CLI_SIGNED_UPDATES.md). |
 
 Les clés debug Android des runners ne sont pas une identité de production durable. Les futures releases doivent garder leur identité d’application et leur chaîne de signature pour permettre une mise à jour normale ; une désinstallation destinée à contourner un changement de signature risque de supprimer les données et ne fait pas partie de ce cycle.
 

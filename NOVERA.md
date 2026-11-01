@@ -1,5 +1,16 @@
 # Novera — instructions du projet
 
+## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026
+
+Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et Intel**. Les reçus téléchargés et leurs digests GitHub sont vérifiés : installation du vrai paquet, signature native, rejet du contenu altéré, aucune offre à version égale, restauration effective par l’updater, empreintes runtime et témoin de profil conservés, démarrage pendant 15 secondes avant et après. Le [run Windows 41336767111](https://github.com/TRON-ABS/Novera/actions/runs/41336767111) compare 106 fichiers x64 et neuf ARM64 ; le [run Linux/macOS 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673) compare l’AppImage exacte, 22 fichiers macOS ARM64 et 30 Intel.
+
+Le programme de contrôle annonce `0.9.9` pour exercer le vrai paquet `1.0.0`. Ces preuves ne couvrent pas le parcours d’update dans l’interface, une transition entre deux applications publiées ni une inspection visuelle de tous les moteurs. Le défaut Windows était celui du profil synthétique du banc d’essai ; son arborescence standard corrige le démarrage sans recompiler Novera.
+
+**La publication reste bloquée** : aucun feed public n’est créé, les nouveaux CLI signés sont en relance après correction de leur fixture, les exigences Apple/mobile/Web et les scénarios MSI/Debian/portable restent distincts. Le brouillon privé conserve ses 15 assets vérifiés. Voir le [protocole de validation](docs/INSTALL_UPDATE_VALIDATION.md) et la [disponibilité actuelle](docs/LAUNCH_STATUS.md).
+
+<details>
+<summary>Historique des contrôles précédents — états remplacés par le bilan ci-dessus</summary>
+
 ## Diagnostic Windows : profil de validation corrigé — 1er novembre 2026
 
 La relance `41335902365` identifie le panic du plugin HTTP : `unknown path` lors de la résolution du cache Windows. Une reproduction locale de `SHGetKnownFolderPath`, sans installation et sans modification du registre, démontre que les dossiers synthétiques séparés du banc d’essai donnent `0x80070003`, alors que l’arborescence standard `USERPROFILE/AppData/Local` et `AppData/Roaming` résout le cache dans le répertoire isolé. Le contrôleur adopte cette arborescence et vérifie les deux dossiers Windows avant de lancer Novera. Aucune correction binaire ou recompilation des moteurs n’est nécessaire à cette étape ; les essais Windows restent à réussir. Les résultats Linux/macOS déjà vérifiés sont conservés, les CLI signées restent en cours et la publication demeure bloquée.
@@ -153,6 +164,9 @@ Le mainteneur confirme **« tout marche bien »** et fournit une nouvelle captur
 Ce retour est une validation manuelle déclarée du desktop utilisé, sans relevé détaillé par moteur, profil ou scénario. Il ne remplace pas les essais propres aux profils CUDA/ExLlama/GenAI, aux installations sur PC neuf, au mobile ou à chaque autre système. Aucun nouveau binaire, portable, tag ou release n’est publié par cette mise à jour ; Actions n’est pas activé. L’embarquement Python/PyTorch dans l’EXE reste reporté.
 
 La capture originale est conservée sans retouche sous `.github/assets/novera-dashboard-2026-11-01.png`. Les attributions et licences existantes restent présentes. Les éléments publiés, vérifications et identifiant du commit sont consignés dans les résultats de publication de ce lot.
+
+
+</details>
 
 ## Composants privés dans Configurations — 1er novembre 2026
 

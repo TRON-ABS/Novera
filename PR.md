@@ -1,179 +1,23 @@
-# fix(ci): build clean Novera candidates for all distribution variants
+# fix(distribution): validate signed Novera desktop packages and CLI updates
 
-## Preserve the original signed probe as binary data
+Novera's launch candidates previously lacked a verified update path, and raw Windows packaging could differ from the signed installer. Add explicit signed build modes, authenticate final bundle bytes with the pinned Novera key, retain source/runtime provenance and exercise installation and native replacement on disposable GitHub hosts. Public release stays blocked until all remaining delivery requirements are met.
 
-The Linux CLI job builds and signs its real archive, then the public-signature fixture test fails: the original 36-byte CRLF probe was normalized to 35 LF bytes in its first commit. Setting `-text` afterward did not restore the Git blob. Store the original authenticated bytes as `probe.bin` and update the include path. The Node verifier confirms SHA-256 `7171a7c951ed39095b4d4c398f5efbe45c45df3a2e82245e060fb0927d0e3e14` under the pinned Novera public key. This fixes test data; it does not bypass signature verification or certify CLI replacement. Let the other current jobs finish before a corrected CLI retry.
+## Desktop results
 
-## Correct the isolated Windows profile layout
+- Windows x64/ARM64: run [41336767111](https://github.com/TRON-ABS/Novera/actions/runs/41336767111) passes. Actual NSIS installation and native replacement preserve 106/nine runtime file hashes, a synthetic profile witness and startup before/after. A standard isolated Windows profile fixes the test harness's known-folder lookup; no Novera rebuild was required for that issue.
+- Linux x64 and both macOS architectures: run [41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673) passes those three jobs. The AppImage is restored to its exact digest; 22 ARM64 and 30 Intel app files match before/after.
+- Downloaded receipts match their GitHub artifact digests. Every scenario checks the real native updater signature, altered-payload rejection and same-version behavior.
 
-Startup diagnostics identify the HTTP plugin's missing cache path. A real local SHGetKnownFolderPath reproduction returns 0x80070003 with sibling synthetic profile directories and succeeds inside the test root with the standard USERPROFILE/AppData/Local and AppData/Roaming layout. Correct the harness and preflight both Windows known folders before launching the packaged app. No Novera or engine rebuild is required for this change. Six Python tests pass; Windows installation/update success remains pending the corrected run.
+The probe advertises synthetic version 0.9.9 and installs the real 1.0.0 package. These tests do not certify the production UI route, two released-app version transitions, visual behavior or all inference engines. No personal maintainer profile is used.
 
-## Native installation results and Windows startup diagnostics
+## Signed CLI channel
 
-Run 41334675673 passes Linux and both macOS installation/native replacement scenarios. Downloaded receipts match their GitHub digests and confirm signature verification, tamper refusal, same-version handling, restored runtime hashes, profile sentinel preservation and 15-second startup before/after. The synthetic probe version does not establish a production UI upgrade between two released applications.
+Add an opt-in feature with the official Novera endpoint, pinned key, Minisign and SHA-256 authentication, signed version/platform/commit identity, native architecture checks, downgrade refusal and staged executable replacement. Default and older CLI candidates retain their disabled updater policy. CI produces signed archives and exercises replacement on three hosts.
 
-Both Windows NSIS installations reach startup, then the packaged application exits 101. Retain bounded startup diagnostics from the isolated, credential-free profile and rerun only both Windows architectures; do not repeat the successful Linux/macOS scenarios. Six Python guard/package tests pass locally. Signed CLI CI remains in progress. Publication stays blocked.
+The first signed CLI matrix compiled and signed its archives, then failed the public probe fixture test after Git normalized its CRLF bytes. Preserve the authenticated 36-byte probe as a binary file; the committed blob matches SHA-256 7171a7c951ed39095b4d4c398f5efbe45c45df3a2e82245e060fb0927d0e3e14 and the pinned-key Node verifier succeeds. The corrected three-host retry is pending; no CLI installation success is claimed.
 
-## Validate private draft packages and add the opt-in signed CLI channel
+## Validation and publication limits
 
-The desktop validation matrix compiles its native probes, but draft asset downloads return HTTP 403 with a read-only Actions token. Grant draft access only to the validation job; its controller performs GET requests and removes credentials before launching the application or updater probe. Use streaming SHA-256 compatible with Ubuntu's Python 3.10. Actual installation outcomes remain pending a corrected run.
+Local checks: 49 Node distribution contracts, six Python guard/package tests, two signed-feature CLI policy/help tests and seven Rust signed-channel tests pass. The CI-only signed executable replacement test is explicitly ignored locally and must run against real CI-produced archives. GitHub source checks pass. Windows runtime provenance and the incomplete original Actions archive remain documented separately from prepared candidates.
 
-Add an explicit CLI feature using the pinned Novera key, authenticated archive identity, version and architecture checks, downgrade refusal and staged replacement. CI can build and sign the three CLI targets without rebuilding engines, then exercise replacement and startup inside an isolated runner directory. Default and older CLI builds retain their disabled updater policy. No public feed or release is created. Local validation includes 49 Node contracts, six Python tests and the signed-feature CLI help/policy tests; the signed archive replacement test requires a real CI-produced archive.
-
-The seven local Rust signed-channel tests also pass, including the real Novera public signature, modified-payload rejection despite a forged matching hash, archive version binding and architecture/rollback refusals. The eighth test is explicitly ignored locally because it requires a freshly signed CI archive on a disposable host. Pin fixture bytes against checkout line-ending conversion.
-
-## Use the native MSVC linker in updater validation
-
-The first isolated Windows validation run stops before installation because Git Bash resolves its Unix link.exe while compiling the Rust probe. Reuse the existing tested ci-msvc.ps1 selector for an explicit target linker in this new job. Source checks passed; installation/update outcomes remain pending the targeted retry.
-
-## Add isolated installation and native updater validation
-
-Add manual validation targets that download only reviewed signed desktop assets, exercise the real Tauri updater with the pinned public key and a loopback fixture, reject tampered payloads, install actual packages and check startup, file restoration and synthetic profile preservation on disposable GitHub hosts. No production endpoint or personal profile is changed. Keep receipts explicit that a synthetic probe version is not an end-to-end upgrade between two released applications. The probe builds locally, 49 Node contracts and four guard tests pass; actual CI installation results remain pending.
-
-## Final draft and source checks verified
-
-All eleven retained variants have successful GitHub builds. The blocked release draft contains fifteen selected assets: five desktop updater bundles, their signatures, provenance index, global checksums and attribution notices. Independently compare all uploaded sizes and SHA-256 digests to the selected files and confirm the draft remains unpublished; remove the obsolete updater-disabled draft asset while retaining its local original. Final source run 41329047879 at 2142b95f succeeds with 47 passed, two Windows-only skips and zero failures out of 49 Node contracts; all 49 pass locally on Windows. Synchronize both README showcases, launch status, roadmap, project dashboard and release guides. No latest.json, public release, personal-profile installation, end-to-end update or OS certification is claimed. Dedicated installation/update checks and platform-specific delivery channels remain required.
-
-## Complete independent Windows candidate preparation
-
-Retain hidden files from the sanitized Actions candidate so the pinned image-runtime marker is not silently dropped. The original x64 upload stays incomplete; recover its exact marker bytes from the cryptographically verified NSIS payload and retain both source and preparation provenance. Preserve the frozen portable notices, include the candidate signature notice and correct its update guidance, then repackage without compiling the application locally. The prepared candidate passes 125 checksums, 83 PE x64 headers, 77 pinned image-runtime files and the real updater publication prerequisite. All 106 runtime files match extracted NSIS; the corrected portable matches the frozen desktop. Independently verify MSI signature and x64 executable, whose only difference is its three reserved installer-type bytes. All 49 local Node contracts pass. No installation, end-to-end update, public release or OS certification is claimed.
-
-## Windows x64 signed CI retry succeeds
-
-Run 41311520840 at bbe679d3 succeeds, including final updater signature verification and all nine migration tests with no failures or ignored tests. The complete runner validates the static-runtime fix. Artifact 13091806780 is 5,038,992,055 bytes and is downloading for independent package, architecture, signature and frozen-runtime checks. These checks and actual installation/update validation remain pending; no public release is announced.
-
-## Preserve the Windows static runtime for migration tests
-
-The signed Windows x64 job creates NSIS/MSI bundles and verifies its updater signature, then fails when direct Cargo migration tests reuse Tauri’s static-runtime msvcrt override without the matching linker mode (LNK4003, 112 unresolved symbols). Export STATIC_VCRUNTIME=true across the Windows desktop build and migration tests. A minimal Rust probe using the actual tauri-build 2.6.3 helper reproduces the failing static-to-dynamic transition and passes with the mode preserved; all 49 local Node contracts pass. The full Windows migration suite remains subject to the targeted signed CI retry; other verified platforms are preserved and publication remains blocked.
-
-## Launch showcase and current availability
-
-Make the English/French repository showcase explicit about launch preparation and current platform availability. Preserve the maintainer screenshot, welcome message and TRON-ABS signature. Link a dated launch status page, distinguish inspected internal candidates from public downloads, and keep installation/update and platform-specific release requirements visible. Align the project dashboard, roadmap and changelog; no application build or public release is performed by this documentation change.
-
-## Signed macOS Intel candidate verified
-
-The d0a29f63 Intel candidate (artifact 13083107857) passes eleven checksums and cryptographic verification of its final updater archive against the pinned Novera key. All thirty regular application files match the DMG byte for byte; the actual client key is embedded. Twenty-six Mach-O files are x64 with a maximum deployment minimum of macOS 13.0; GGUF/Metal is included and MLX excluded. All nine upgrade-fixture tests pass without failures or ignored tests. Both signed macOS architectures are inspected; Windows x64 is still building. Installation, end-to-end update and Apple notarization remain unclaimed, and publication stays blocked.
-
-## Signed macOS Apple Silicon candidate verified
-
-The d0a29f63 ARM64 candidate (artifact 13083335852) passes eleven archive checksums and independent cryptographic verification of its final updater archive against the pinned Novera key. All twenty-two regular application files match the DMG byte for byte; the client embeds the real public key. Sixteen Mach-O files are ARM64 with a maximum deployment minimum of macOS 14.0, including MLX and its shader. All nine upgrade-fixture tests pass without failures or ignored tests. No Mac installation, end-to-end update or Apple notarization is claimed; publication remains blocked while Windows x64 and Intel macOS builds continue.
-
-## Preserve the Windows updater installer marker
-
-The signed ARM64 candidate exposes a real packaging difference: Tauri restores the raw executable to `UNK` while the NSIS contains `NSS`, differing by exactly three reserved bytes. Normalize only the copied desktop runtime to the NSIS marker, require a checksum/offset/type proof before Windows publication, and reject missing or ambiguous reserved slots. Eight focused tests and the complete 49-test local contract suite pass. Applying the helper to the actual CI raw executable produces exactly the NSIS-extracted executable; all nine runtime file hashes match. The installer signature and prepared candidate publication prerequisite pass independently. No application compilation or installer execution is performed locally. Preserve the original CI archive and explicitly distinguish the derived local packaging provenance; actual installation/update validation is still pending.
-
-## First signed-update candidate verified
-
-Linux x64 at d0a29f63 (run 41297251818) compiles and its downloaded archive passes eleven checksums. Reverify the final AppImage signature against the pinned Novera public key, match the updater receipt to the exact source/platform, and pass the read-only publication prerequisite. Independently inspect fifty ELF x64 files across Debian/AppImage and confirm the actual embedded client key in both executables. The real GTK test and all nine upgrade-fixture tests pass. Installation, graphical update and Debian delivery checks remain separate; no release is published and other signed desktop jobs remain pending.
-
-## Mandatory verified updates before publication
-
-The maintainer explicitly prohibits publishing any version without a configured and verified update mechanism, then authorizes creating the Novera updater key and encrypted GitHub signing secrets. Commit d0a29f63 adds an explicit signed desktop mode, embeds only the pinned public trust configuration, signs final delivered bytes after AppImage repacking, and verifies both Minisign Ed25519 signatures before retaining an updater-readiness receipt. A read-only publication prerequisite checks the actual signed files, pinned key and exact source receipt. Ordinary candidates stay disabled and cannot satisfy that prerequisite.
-
-Local source contracts: **47 passed, zero failures/skips**, including six crypto/configuration/publication regressions. A real production-key signing probe passes independent verification and rejects payload tampering. A genuine encrypted backup export passes standalone recovery without DPAPI, followed by signing and verification with the restored key; temporary restored secrets are removed. No secret values or recovery files are included in Git/assets. The new signed native run 41297251818 is in progress; successful compilation, updater receipts and actual installation/update validation are not yet claimed. The existing release draft is blocked and unpublished. Android, iOS, CLI and distribution formats without a validated update path cannot be published under the new requirement.
-
-A clean GitHub runner could not build the requested Novera distributions: the existing templates inherited legacy publishing/signing assumptions, generated icons were missing, Windows selected incompatible tools or exceeded SDK path limits, and native platform bootstrap steps were incomplete. Add a manual workflow for all eleven variants with independent failures, checksummed artifacts, exact source provenance, licenses and the TRON-ABS welcome signature. The maintainer explicitly authorized direct publication to main and the required Actions settings; 37 legacy workflows remain disabled.
-
-Windows x64 produces desktop, NSIS, MSI and portable outputs from the same runtime. ARM64 uses a native CPU worker and excludes the x64 image runtime. Linux produces Debian/AppImage candidates with a Vulkan worker. macOS builds Intel and Apple Silicon separately; only Apple Silicon includes MLX, using the established Xcode 26.2 requirement. Android produces a debug test APK after technical checks; its three pending mobile reviews remain false. iOS targets an Apple Silicon simulator, without claiming a signed iPhone IPA. Web and the three-host CLI build independently.
-
-Fix clean-runner dependency initialization, project-local Android frontend tools, Tauri simulator output collection, canonical immutable Yarn lock ordering, pinned CUDA redist component resolution/checksums/notices, MSVC linker selection and short Windows engine build paths. Linux clipboard sharing now uses GTK 3 ownership callbacks and the supported URI selection API. AppImage repackaging follows the actual product name. Exclude personal profiles, conversations, model weights and private symbols from candidate payloads.
-
-Inspecting the first DMGs exposed GGUF libraries requiring macOS 15 while the app declared an older minimum. Share per-architecture deployment targets between CMake/Rust and Tauri metadata (14.0 for Apple Silicon/MLX, 13.0 for Intel/Bun). Inspect every packaged Mach-O architecture, platform and minimum OS against the app plist before collection; retain a compatibility receipt. Four parser regressions cover the observed mismatch, older Intel commands, patch versions, wrong CPU/platform and malformed input. The revised Apple Silicon build passes its compatibility receipt and independent DMG inspection: all sixteen ARM64 Mach-O files require at most macOS 14, with MLX/shaders present. The Intel build also succeeds: its downloaded DMG passes seven checksums, the macOS 13.0 receipt and independent inspection of twenty-six x64 Mach-O files (maximum minimum OS 13.0.0; MLX excluded). Earlier DMGs require macOS 15. Installation, notarization and production signing remain separate checks.
-
-A fresh browser previously opened the desktop engine installer. Browser onboarding now opens the existing provider settings; native onboarding retains its setup path. The compiled Web candidate was inspected on a fresh origin: provider settings and the OpenAI/Anthropic-compatible provider form open without a key, download or inference request. Refresh both public READMEs to link actual build results while preserving the supplied screenshot, personal signature and welcome message.
-
-Validation: `node --test scripts/distribution/__tests__/ci-candidates.test.mjs` passes nine tests, including a real simulator archive/device exclusion fixture, macOS resource selection, empty-build refusal, checksum/provenance output and Windows/Android guard cases. CUDA redist planning passes three tests; Android project configuration passes three tests. Actionlint 1.7.12, targeted Bash/PowerShell syntax and scoped Web checks pass; the Web route suite passes thirteen tests. Portable packaging previously passed 223 assertions across twelve scenarios. No full application build is performed locally for this CI task.
-
-The corrected Web and all three CLI artifacts have compiled and passed independent archive, checksum, provenance and architecture checks; CLI `--help` ran on each host. The iOS simulator candidate also compiled, was downloaded and passed all six checksums; its nested Mach-O binary is ARM64 with the iOS Simulator platform command, and its embedded brand notice is present. Windows ARM64 desktop/NSIS and the first Apple Silicon DMG also passed independent payload and architecture inspection. Linux Debian/AppImage passed checksums and fifty ELF architecture checks; its isolated production GTK test passed on the runner. Other native candidates are being checked on their actual runners. Android also needs the official CLI 2.11.4 fix for initial Cargo argument forwarding: the locked 2.8.4 drops `--no-default-features` from the bootstrap build. Pin only the CLI and its host packages; immutable skip-build installation and the CLI version check pass. See [the exact per-variant commits, runs, downloaded artifacts and current results](docs/CI_DISTRIBUTIONS.md), including failed attempts and targeted corrections. A successful workflow does not imply installation/device validation or inference coverage. No production signing credentials, public release or store delivery is claimed. Optional desktop Python/PyTorch remains separate from the EXE and is never added to mobile.
-
-This work is published directly to main at the maintainer’s request. No new PR or issue closure is introduced; earlier local work and its validation scope remain below.
-
-Prepare subsequent versions with a preview-first SemVer tool that synchronizes all six manifests/lock entries, rejects drift, downgrades and concurrent edits, and preserves third-party versions. Add a mandatory source-contract job before native matrices, plus desktop upgrade-fixture tests with a receipt that rejects empty, failed or ignored suites. Freeze delivered desktop binaries before Cargo tests can rebuild them. The current version remains 1.0.0. CLI builds now test the actual help identity and refusal of forced updates without a signed Novera channel. All three hosts have executed both tests successfully; their downloaded archives pass twenty-one checksums and native architecture checks.
-
-Extend the preparation-only update manifest to five desktop targets: Windows x64/ARM64 NSIS, Linux x64 AppImage and separate macOS ARM64/Intel updater archives. Reject duplicate platforms and mismatched versions, architectures or formats; stream artifact hashes and preserve existing output files. Signature fixtures validate structure only. No signing key, production update activation or asset publication is introduced. See [the repeatable future-version procedure](docs/FUTURES_VERSIONS.md).
-
-Pin official setup-node 7.1.0 and upload-artifact 7.0.2 by full SHA to use their Node 24 runtimes; disable automatic package-manager caching. Actionlint passes for the revised workflow. A separate source-only run verifies the new action setup and artifact retention without restarting long native builds.
-
-Android's real native build now reaches manifest merging, where the plugin and app export provider collide on the same FileProvider class with different authorities and path metadata. Give the sharing plugin a distinct FileProvider subclass while retaining both non-exported components and authorities. The targeted Android retry succeeds (run 41281439087, ff4740a0). Its downloaded APK passes six checksums and six ARM64 ELF/16 KiB alignment checks; official SDK tools confirm the .debug application ID, distinct providers, valid Android Debug APK v2 signature and zip alignment. No device-sharing validation or production signing is claimed. The Node 24 source-only run 41281310528 passes all applicable contracts and retains its artifact successfully.
-
-Latest local contract validation: the exact eight Node test files used by the workflow pass **41 tests, zero failures/skips** on Windows. This includes nine candidate tests, four version-preparation tests, two upgrade-receipt tests and seven updater-preparation tests. GitHub's earlier 37-test source job passes 35 tests with two Windows-only skips on Ubuntu; the expanded 41-test suite also passes on GitHub (39 passed, two Windows-only skips, zero failures; run 41281084320). These source checks are distinct from Rust tests and native compilation results above.
-
-## Earlier completed source and Windows preparation work
-
-Latest Linux evidence: run 41279778571 at e870627e passes the real GTK test and all nine Rust upgrade-compatibility tests against committed 0.8.3/0.8.5 fixtures (zero failures/ignored). The downloaded candidate retains its receipt and passes eight checksums plus fifty ELF x64 checks across Debian/AppImage. Installation and GUI update validation remain separate.
-
-# fix(distribution): prepare clean Windows packages and refresh the showcase
-
-## Clean Windows package preparation — 1 November 2026
-
-The maintainer explicitly requests desktop, portable and Windows installer candidates from the tested desktop, excluding personal conversations. Preserve build `1.0.0-2026-11-01_04-10-51-711`; do not rebuild the application or copy user profiles. The desktop contains 94 runtime files and the portable 96 entries. All portable and desktop payload hashes match the tested runtime. Add the clean package directory to Git ignores and record package sizes, checksums, provenance and remaining release checks in [the Windows preparation report](docs/DISTRIBUTION_WINDOWS_2026-11-01.md). Personal data on the maintainer's PC is preserved.
-
-Tauri `bundle --bundles nsis --config <private clean-resource override> --ci` succeeded using the precompiled executable. Installer: 812,961,689 bytes. Independent 7-Zip extraction succeeded: 102 files, all 94 runtime hashes match; eight extra files are NSIS resources, the uninstaller and the verified Microsoft WebView2 bootstrapper. The existing binary lacks Tauri's bundle-type marker, so the bundler reports a warning and leaves its hash unchanged; automatic updates remain disabled. Visual C++ x64 remains a documented prerequisite. The application and installer are unsigned. No installer execution against the maintainer's personal profile was performed.
-
-Publish a warm closing message in both README languages above the existing TRON-ABS signature. The supplied screenshot and runtime sources were already published directly to main in `ac002425` and `56e4b70`; GitHub About was updated, homepage/topics retained, Actions disabled. No open PR or equivalent pending contribution was found before publication.
-
-Full web lint: `node node_modules/eslint/bin/eslint.js . --quiet` passed from `web-app`. The filename sanitizer intentionally strips ASCII controls; document that intent with a scoped lint directive, preserving behavior. `node node_modules/vitest/vitest.mjs run src/modules/conversations/__tests__/export.test.ts`: 28 passed. No CI approval, signed/public binary release, clean-machine installation certification or private symbol upload is claimed. Earlier notes below preserve their historical validation scope.
-
-## Publication update — 1 November 2026
-
-The maintainer reports that the desktop works well and explicitly requests publishing the prepared sources directly to main. Replace the dashboard screenshot in both READMEs with the supplied 1 November Windows capture, preserve the original image bytes, and add the exact footer signature **TRON-ABS — The art of Human with AI**. This is a declared manual desktop result, without a profile-by-profile GPU or clean-machine report. Existing automated validation remains distinguished from manual use and from CI approval. No binary, tag, release, Actions activation or Python/PyTorch-in-EXE bundle is part of this publication.
-
-
-Python-backed engines previously required a system interpreter or a manually entered path. The updated Windows x64 sources resolve default requests through private per-profile environments and expose confirmed installation, verification, repair, selection, update, same-lock rollback and removal in Configurations. Preserve explicit external interpreters in advanced options, native GGUF/ACE-Step workflows and cloud access. Mobile never installs these desktop Python/PyTorch stacks; embedding them in the EXE was explicitly deferred.
-
-Ten sealed profiles ship complete transitive locks and hashes. Use bundled uv, binary-only installs, private managed Python, staged generations and atomic receipts, process/file locks, bounded local logs and cancellation. Route Transformers/ONNX import/probe/load and media/export/upscale calls through the native resolver without falling back to system Python. Do not replace an active receipt on failure or change another selected profile during repair. Translate the new runtime flow and updated guidance in all 80 catalogs (2,429 keys each).
-
-Reproduction: on a Windows machine without Python, open Configurations, select a required optional profile and confirm installation. After successful verification, the engine uses its private interpreter without a path entry. Before these changes, default requests executed `python` from PATH. The managed integration tests install Python privately and execute a tiny ONNX graph and a generated, untrained Llama model; no pretrained weights are downloaded.
-
-Validation: full Rust suite 1,161 passed / five optional ignored; three explicit private-runtime integration tests passed; 17 targeted Python tests passed; architecture and distribution checks passed. Commands (from `web-app`): `$env:TAURI_ENV_PLATFORM='windows'`; `node ../node_modules/vitest/vitest.mjs run src/services/components.test.ts src/containers/__tests__/ManagedComponents.test.tsx src/services/transformers/engine.test.ts src/services/onnx/engine.test.ts src/containers/__tests__/CreationControls.test.tsx src/containers/__tests__/CreationInstall.test.tsx src/services/creation/stream.test.ts src/services/creation/memory.test.ts src/services/creation/cloud.test.ts src/services/creation/cloud-stream.test.ts src/services/creation/music-cloud-stream.test.ts src/lib/__tests__/noveraErrorTracking.test.ts --silent`. Windows-configured web suite: 174 passed / one non-Windows scenario skipped, 12 files. TypeScript passed; scoped ESLint has zero errors and two existing hook dependency warnings in CreationControls. Ten lockfile SHA-256 values match. The first sandboxed Rust run lacked loopback access and was interrupted; the full suite passed with local HTTP access. A broader media run in the unchanged global Python has three missing optional dependencies and does not certify managed media/GPU profiles. Layout and confirmation were inspected in French/German/Arabic RTL at 360px. No native review of all 80 translations is claimed.
-
-No desktop application build, installed-binary upgrade, portable refresh, push, CI approval or public release. CUDA/ExLlama/GenAI/media generation, a clean Windows novice flow and non-Windows profiles remain unverified by this task. The maintainer compiles and tests desktop before preparing portable from the same runtime. Public GitHub About/homepage/topics were inspected read-only and remain consistent with 80 languages, 42 providers and 49 media presets; no remote metadata was changed. No remote PR, issue closure or merge dependency is introduced; preserve other existing local work below.
-
-## Other existing local work (preserved)
-
-# fix(maintenance): capture consented failures with release diagnostics
-
-Caught text and media failures were missing from error tracking, repeated errors were discarded after the first occurrence, and release builds had no private source-map workflow. A maintainer could see an incomplete incident without identifying the exact local build.
-
-## Result
-
-Account for hardware-reserved RAM in total-capacity tiers. The maintainer's nominal 16 GiB desktop reports 15,789 MiB, so the strict 16,384 MiB music gate rejected it before native execution. Allow 5% on total-RAM tiers only; keep actual free-memory budgets and native checks unchanged. Resource-profile and music-routing regressions use the reported value; 106 tests passed across six files. This does not establish successful real music inference.
-
-Restore visible Image/Music/Video mode buttons before any cloud selection, including on constrained devices. Hardware restrictions previously hid these entry points, forcing users to type a creation request in Auto to reveal controls. Keep local generation guards and busy-state disabling. Direct Music/Video settings access with an empty prompt is covered by regression tests; 103 tests passed across six affected control/stream files, and TypeScript passed. Existing labels are reused in all 80 languages. The maintainer's tested desktop precedes this fix and needs recompilation.
-
-Fix the Explorer-launched engine preflight when Clang is installed outside PATH. Discover existing LLVM, Visual Studio LLVM or MSYS2 compiler directories and append the selected directory without displacing MSVC linker precedence. Keep an existing PATH compiler unchanged; report a clear error when none is installed. No installation or persistent environment change. Validation: 24 PowerShell preparation assertions passed, including spaced paths and linker priority; the real Bash engine-toolchain check passed after MSVC initialization. No application build was started.
-
-The sidebar header also displays the existing build-time `VERSION` next to Novera (currently 1.0.0), automatically following `web-app/package.json` in future builds. Long versions truncate with the full label in a tooltip; the collapse button keeps its space. Existing native titlebar visibility rules remain unchanged. Seven sidebar tests passed across header labels, settings navigation and the Cowork gate.
-
-Instrument model loading, downloads and verification, text/media generation, cloud saving, memory transitions, the React error boundary, native OOM and detected llama.cpp worker exits. Use fixed operation, task, engine and error/reason codes. Include build ID, commit, source state, environment, OS and architecture. Keep a memory-only session ID, count repeated occurrences up to 60/minute, report suppressed/delivery counts, bound requests to ten seconds and abort on withdrawal.
-
-Require renewed, independent v2 consent for the expanded schema. Exclude raw messages, prompts, responses, model names, personal paths and arbitrary error properties. Reuse existing consent labels in all 80 languages.
-
-Prepare private JS/CSS source maps with matching PostHog chunk IDs outside the shipped frontend. Verify file inventory and hashes; upload through pinned official CLI 0.19.0 only with explicit local credentials. Record build metadata in desktop/portable receipts. Enable optional preparation in the maintainer's launcher without starting an application build. Document triage and release checks in docs/MAINTENANCE.md.
-
-## Before / after
-
-1. Trigger a handled generation or model-loading failure with tracking consent enabled.
-2. Before: the UI displayed the failure, but the global unhandled-error collector could miss it.
-3. After: report a bounded diagnostic with its operation and build identity, without the original error text. Repeated failures remain countable within the rate limit.
-4. Withdraw consent: detach collectors and cancel pending requests.
-
-## Local validation
-
-- Scoped Windows-configured Vitest suite: 616 passed, one non-Windows scenario skipped, 32 files. Includes text transport, model services, event handler, consent, collector, creation and resource profiles.
-- Final collector rerun: `node node_modules/vitest/vitest.mjs run src/lib/__tests__/noveraErrorTracking.test.ts --root web-app --silent`: 10 passed.
-- `node --test scripts/monitoring/__tests__/symbols.test.mjs`: four passed, including a real Vite fixture build, chunk mapping, inventory integrity and JS/CSS map removal.
-- `node web-app/node_modules/typescript/bin/tsc -b web-app --pretty false`: passed.
-- `node scripts/check-architecture.mjs`: passed. Targeted ESLint: zero errors/warnings for the diagnostics and consent files checked.
-- PowerShell telemetry configuration tests: 16 assertions passed; launcher tests: 69 passed without compiling the app.
-- `cargo check --offline --locked --manifest-path src-tauri/plugins/tauri-plugin-llamacpp/Cargo.toml --no-default-features`: passed; two existing AMD naming warnings.
-- Locale checks: 80 catalogs, 2,412 keys each, no structural errors.
-- Synthetic event accepted and visibly confirmed in PostHog EU project 319433: https://eu.posthog.com/project/319433/error-tracking/01a19487-c02b-73c1-8566-e158a3a069d6 . This validates ingestion, not the future binary or source-map resolution.
-
-## Remaining release checks
-
-The initial component checklist in docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md is now implemented for the Windows profiles described above; its remaining hardware and platform validations are recorded separately. The maintainer retains desktop compilation and reports increased CPU parallelism; no running build was modified.
-
-An hourly threshold email alert is enabled for the maintainer's PostHog account (TRON ABS), restricted to Novera production exceptions and excluding synthetic tests. The saved enabled state and initial non-firing evaluation were verified. Test delivery was started for one email recipient; the maintainer confirmed inbox receipt on November 1, 2026. Specialized new/reopened/spiking issue rules are not enabled by this trend alert. Private CLI authentication and upload/resolution of the final release symbols remain pending. The maintainer will compile; no full Novera build, installed-binary validation, CI result, publication, approval or merge is claimed. Abrupt native process crashes and failures not returned to the frontend remain outside this collector's coverage.
-
-The earlier constrained-device configuration changes remain documented in docs/SUIVI_VALIDATION_DISTRIBUTIONS.md and need real-device validation. Preserve unrelated working-tree changes. No new remote PR, issue closure or merge dependency was created by this task.
+The private draft contains 15 verified assets below 2 GiB each and remains draft/prerelease. No public latest.json or latest-cli.json exists. Production UI/feed validation, Apple signing/notarization, mobile production channels/device tests, Web deployment/renewal and MSI/Debian/portable scenarios remain distinct requirements. No certification or public release is implied. See [launch status](docs/LAUNCH_STATUS.md) and [test protocol](docs/INSTALL_UPDATE_VALIDATION.md).

@@ -11,20 +11,20 @@
 
 ## Availability — 1 November 2026
 
-Isolated installation and native replacement tests pass on Linux and both macOS architectures; Windows installs; its startup test exposed an invalid synthetic profile layout, now corrected for a targeted retry. Signed CLI candidates are still being validated. [Results and limits](docs/INSTALL_UPDATE_VALIDATION.md). Public downloads remain closed.
+Isolated installation and native updater replacement tests now pass on all five desktop platforms. Signed CLI candidates remain under validation. [Evidence and limits](docs/INSTALL_UPDATE_VALIDATION.md). Public downloads remain closed.
 
 **Novera 1.0.0 is preparing for launch. Public downloads are not open yet.** Explore the sources and the real Windows dashboard below; follow [Releases](https://github.com/TRON-ABS/Novera/releases) for published packages when the release checks are complete.
 
 | Platform | Current preparation |
 | --- | --- |
-| Windows x64 | [Signed build and nine migration tests passed](https://github.com/TRON-ABS/Novera/actions/runs/41311520840); prepared candidate inspected, including NSIS/runtime/portable consistency. Public release checks remain. |
-| Windows ARM64 | Candidate inspected; signed NSIS verified and desktop runtime prepared to match it. |
-| Linux x64 | AppImage update signature and packaged binaries verified; Debian delivery checks remain separate. |
-| macOS | Both signed-update candidates inspected: Apple Silicon requires macOS 14+, Intel macOS 13+. |
+| Windows x64 | NSIS installation and native replacement passed; 106 matching runtime files and test profile preserved. MSI/portable need separate validation. |
+| Windows ARM64 | NSIS installation and native replacement passed; nine matching runtime files. |
+| Linux x64 | AppImage installation and native replacement passed; Debian remains a separate scenario. |
+| macOS | Installation and native replacement passed on both architectures; macOS 14+ ARM64 and 13+ Intel. Notarization remains pending. |
 | Android and iOS | Android ARM64 debug and iOS simulator candidates are internal tests; no public mobile release. |
 | Web and CLI | Builds checked; public delivery and suitable update channels remain to be completed. |
 
-Public release requires a configured and verified update mechanism, including the remaining installation and update checks. Signed updater packages do not imply Windows code signing or Apple notarization. See [current availability and launch requirements](docs/LAUNCH_STATUS.md) and [verified build evidence](docs/CI_DISTRIBUTIONS.md).
+Public release requires a configured and verified update mechanism, including production feed and interface validation. Signed updater packages do not imply Windows code signing or Apple notarization. See [current availability and launch requirements](docs/LAUNCH_STATUS.md) and [verified build evidence](docs/CI_DISTRIBUTIONS.md).
 
 All eleven retained variants have successful GitHub builds. A private release draft contains 15 verified files for the five selected desktop update bundles, signatures and notices; it remains unpublished pending the remaining launch requirements.
 

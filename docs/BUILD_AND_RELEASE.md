@@ -1,12 +1,14 @@
 # Novera — construction et distribution
 
+Les cinq scénarios desktop d’installation/remplacement natif réussissent. Le programme synthétique ne certifie pas un parcours UI entre deux applications publiées. CLI, mobiles, Web et formats exclus conservent leurs conditions propres. Voir [les preuves actuelles](INSTALL_UPDATE_VALIDATION.md). La publication reste bloquée.
+
 Le brouillon du 1er novembre est préparé avec 15 assets dont les tailles et SHA-256 serveur sont vérifiés. Il reste non publié et ne contient pas de `latest.json`. Les contrôles autonomes sont terminés ; les validations restantes sont celles de la page de disponibilité, sans installation sur le profil personnel.
 
 Présentation du lancement et disponibilité par plateforme : [état actuel](LAUNCH_STATUS.md).
 
 ## Condition actuelle de publication
 
-**Aucune version publique sans mécanisme de mise à jour configuré et vérifié**, conformément à la dernière consigne du mainteneur. La clé réelle est configurée, les secrets GitHub sont chiffrés, et les cinq bundles desktop signés ont passé leurs contrôles cryptographiques ; les anciens candidats restent internes. Toutes les cibles ont une compilation réussie retenue. Les essais réels d’installation/update et les conditions de diffusion par plateforme restent requis. Voir [la disponibilité et les preuves actuelles](LAUNCH_STATUS.md). Aucun binaire installé n’est activé à distance et aucun candidat n’est publié automatiquement.
+**Aucune version publique sans mécanisme de mise à jour configuré et vérifié**, conformément à la dernière consigne du mainteneur. La clé réelle est configurée, les secrets GitHub sont chiffrés, et les cinq bundles desktop signés ont passé leurs contrôles cryptographiques et scénarios isolés d’installation/remplacement natif ; les anciens candidats restent internes. Toutes les cibles ont une compilation réussie retenue. Le feed de production, le parcours dans l’interface et les conditions propres aux autres formats restent à valider. Voir [la disponibilité et les preuves actuelles](LAUNCH_STATUS.md). Aucun binaire installé n’est activé à distance et aucun candidat n’est publié automatiquement.
 
 ## Conserver les octets livrés et leur provenance
 
@@ -128,7 +130,7 @@ Extraire **tout** le ZIP dans un dossier accessible en écriture, puis lancer `N
 
 La machine doit disposer de Microsoft Edge WebView2 Runtime et du runtime Microsoft Visual C++ x64. Les pilotes compatibles restent nécessaires à l’accélération GPU. Le paquet reprend les backends du build fourni, sans les remplacer ni les télécharger pendant le packaging.
 
-Il s’agit d’une application **sans installation**. Les réglages, discussions et modèles restent dans le profil Novera habituel, normalement `%APPDATA%/Novera`. Ce ZIP ne déplace pas ces données sur une clé USB. Fermer l’application et extraire le nouveau ZIP complet dans un nouveau dossier pour changer de version. Les mises à jour automatiques restent désactivées.
+Il s’agit d’une application **sans installation**. Les réglages, discussions et modèles restent dans le profil Novera habituel, normalement `%APPDATA%/Novera`. Ce ZIP ne déplace pas ces données sur une clé USB. Fermer l’application et extraire le nouveau ZIP complet dans un nouveau dossier pour changer de version. Aucun canal de mise à jour n’est validé pour ce format portable ; il reste interne.
 
 ### Préparer le ZIP en local
 
