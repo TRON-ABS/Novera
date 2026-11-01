@@ -22,6 +22,22 @@ test('an empty build cannot be certified as compiled', () => {
     assert.equal(fs.existsSync(path.join(root, '.build/candidates/candidate.json')), false)
   } finally { fs.rmSync(root, { recursive: true, force: true }) }
 })
+
+test('iOS collection retains the Tauri simulator app and excludes a device app', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-ios-'))
+  try {
+    for (const target of ['arm64-sim', 'arm64']) {
+      const app = path.join(root, 'src-tauri/gen/apple/build', target, 'Novera.app')
+      fs.mkdirSync(app, { recursive: true })
+      fs.writeFileSync(path.join(app, 'Novera'), target)
+    }
+    execFileSync(process.execPath, [path.resolve('scripts/distribution/ci-candidates.mjs'), 'ios'], { cwd: root, env: { ...process.env, GITHUB_ACTIONS: 'true' } })
+    const archives = fs.readdirSync(path.join(root, '.build/candidates'))
+    assert.deepEqual(archives, ['Novera-iOS-simulator-0.tar.gz'])
+    const binary = execFileSync('tar', ['-xOzf', path.join(root, '.build/candidates', archives[0]), 'Novera.app/Novera'], { encoding: 'utf8' })
+    assert.equal(binary, 'arm64-sim')
+  } finally { fs.rmSync(root, { recursive: true, force: true }) }
+})
 test('a completed candidate retains signature, license, provenance and matching checksums', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-ci-complete-'))
   try {

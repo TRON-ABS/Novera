@@ -90,7 +90,7 @@ function run(mode, kind) {
       const p = path.join(dir, e.name)
       return e.isDirectory() ? (e.name.endsWith('.app') ? [p] : findApps(p)) : []
     }) : []
-    const apps = findApps(build).filter(p => /simulator/i.test(p))
+    const apps = findApps(build).filter(p => /(?:^|[/\\])(?:arm64-sim|x86_64-sim|[^/\\]*iphonesimulator)(?:[/\\])/i.test(p))
     if (!apps.length) throw new Error('No iOS simulator application produced')
     apps.forEach((p, i) => execFileSync('tar', ['-czf', path.join(out, `Novera-iOS-simulator-${i}.tar.gz`), '-C', path.dirname(p), path.basename(p)]))
   } else if (mode === 'finish') {

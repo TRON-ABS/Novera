@@ -3,6 +3,11 @@ set -euo pipefail
 kind="${1:?candidate kind required}"
 [[ "${GITHUB_ACTIONS:-}" == true ]] || { echo 'This entry point requires GitHub Actions.' >&2; exit 2; }
 export CARGO_TARGET_DIR="${GITHUB_WORKSPACE//\\//}/src-tauri/target"
+# Windows SDK resource tools still impose MAX_PATH in nested Vulkan builds.
+# Keep the existing per-OUT_DIR isolation supplied by the engine build script.
+if [[ "$RUNNER_OS" == Windows ]]; then
+  export JAN_ENGINE_BUILD_DIR="${RUNNER_TEMP//\\//}/ne"
+fi
 mkdir -p .build/candidates
 node scripts/distribution/ci-candidates.mjs begin "$kind"
 if [[ "$kind" != cli ]]; then
