@@ -89,6 +89,8 @@ Au contrôle de ce lot, aucun secret Actions n’est configuré et la clé publi
 
 ## Preuves du cycle en cours
 
+Le nouveau [build Linux `41279778571`](https://github.com/TRON-ABS/Novera/actions/runs/41279778571), commit `e870627e`, réussit les **neuf tests Rust de migration / zéro échec / zéro ignoré** sur les fixtures 0.8.3 et 0.8.5. Le candidat Debian/AppImage téléchargé conserve le reçu réel, huit empreintes conformes et 50 binaires ELF x64 vérifiés. Les essais d’installation et de mise à jour graphique restent distincts.
+
 Sur Windows : **41 tests Node ciblés réussis**, dont sept tests du générateur d’update ; actionlint et syntaxe Bash réussis au contrôle du workflow. Le contrôle sur [GitHub, run `41279778571`](https://github.com/TRON-ABS/Novera/actions/runs/41279778571), commit `e870627e`, confirme **35 réussis / 2 tests spécifiques Windows ignorés sur Ubuntu / 0 échec** pour le lot précédent de 37 tests. Les tests Windows correspondants passent localement. Le [lot étendu de 41 tests sur GitHub](https://github.com/TRON-ABS/Novera/actions/runs/41281084320), commit `85558421`, réussit aussi : **39 réussis / 2 tests propres à Windows ignorés sur Ubuntu / 0 échec**. La CLI Linux du [run `41280300978`](https://github.com/TRON-ABS/Novera/actions/runs/41280300978), commit `410caea5`, réussit ses **deux tests Rust de politique et d’aide** ; son archive est téléchargée et vérifiée. Les migrations desktop et les autres CLI restent suivies par leurs jobs réels.
 
 Pour chaque nouvelle version, mettre à jour les notes de changements, ce guide si le cycle évolue, le suivi de validation et `PR.md`. Conserver le commit exact, les résultats exécutés et les limites connues ; ne pas reporter une réussite d’un ancien paquet sur une nouvelle compilation.

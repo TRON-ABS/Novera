@@ -28,6 +28,8 @@ Latest local contract validation: the exact eight Node test files used by the wo
 
 ## Earlier completed source and Windows preparation work
 
+Latest Linux evidence: run 41279778571 at e870627e passes the real GTK test and all nine Rust upgrade-compatibility tests against committed 0.8.3/0.8.5 fixtures (zero failures/ignored). The downloaded candidate retains its receipt and passes eight checksums plus fifty ELF x64 checks across Debian/AppImage. Installation and GUI update validation remain separate.
+
 # fix(distribution): prepare clean Windows packages and refresh the showcase
 
 ## Clean Windows package preparation — 1 November 2026
