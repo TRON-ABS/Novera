@@ -325,7 +325,7 @@ pub(super) async fn self_update(force: bool) -> Result<UpdateOutcome, String> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    const PROBE: &[u8] = include_bytes!("signed-update-fixtures/probe.txt");
+    const PROBE: &[u8] = include_bytes!("signed-update-fixtures/probe.bin");
     const SIG: &str = include_str!("signed-update-fixtures/probe.txt.sig");
     fn fixture() -> Manifest {
         Manifest{version:"1.0.1".into(),platforms:BTreeMap::from([("linux-x86_64".into(),Asset{url:"https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/Novera_CLI_1.0.1_linux-x86_64.zip".into(),sha256:hex::encode(Sha256::digest(PROBE)),signature:SIG.trim().into()})])}

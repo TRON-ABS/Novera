@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Preserve the original signed probe as binary data
+
+The Linux CLI job builds and signs its real archive, then the public-signature fixture test fails: the original 36-byte CRLF probe was normalized to 35 LF bytes in its first commit. Setting `-text` afterward did not restore the Git blob. Store the original authenticated bytes as `probe.bin` and update the include path. The Node verifier confirms SHA-256 `7171a7c951ed39095b4d4c398f5efbe45c45df3a2e82245e060fb0927d0e3e14` under the pinned Novera public key. This fixes test data; it does not bypass signature verification or certify CLI replacement. Let the other current jobs finish before a corrected CLI retry.
+
 ## Correct the isolated Windows profile layout
 
 Startup diagnostics identify the HTTP plugin's missing cache path. A real local SHGetKnownFolderPath reproduction returns 0x80070003 with sibling synthetic profile directories and succeeds inside the test root with the standard USERPROFILE/AppData/Local and AppData/Roaming layout. Correct the harness and preflight both Windows known folders before launching the packaged app. No Novera or engine rebuild is required for this change. Six Python tests pass; Windows installation/update success remains pending the corrected run.
