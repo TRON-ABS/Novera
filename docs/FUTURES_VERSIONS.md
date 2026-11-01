@@ -89,6 +89,8 @@ Au contrôle de ce lot, aucun secret Actions n’est configuré et la clé publi
 
 ## Preuves du cycle en cours
 
+Le candidat Android `ff4740a0` du [run `41281439087`](https://github.com/TRON-ABS/Novera/actions/runs/41281439087) compile et son APK téléchargé est vérifié : six empreintes, six ELF ARM64 alignés à 16 Ko, identité `.debug`, deux fournisseurs distincts, signature APK v2 Android Debug valide et contrôle zipalign. Il reste un paquet de test, sans validation des trois audits mobiles, d’une installation sur appareil ou d’une signature release durable.
+
 Le nouveau DMG Apple Silicon du [run `41278737556`](https://github.com/TRON-ABS/Novera/actions/runs/41278737556), commit `5468f183`, réussit le contrôle de minimum macOS. Son archive téléchargée passe sept empreintes, le reçu et une inspection indépendante des 16 Mach-O ARM64 du DMG : minimum maximal **14.0.0**, MLX/shaders présents. Le contrôle Intel reste en cours. Ce build précède l’ajout des tests de migration desktop en CI ; leur résultat Linux ne lui est pas attribué.
 
 Le nouveau [build Linux `41279778571`](https://github.com/TRON-ABS/Novera/actions/runs/41279778571), commit `e870627e`, réussit les **neuf tests Rust de migration / zéro échec / zéro ignoré** sur les fixtures 0.8.3 et 0.8.5. Le candidat Debian/AppImage téléchargé conserve le reçu réel, huit empreintes conformes et 50 binaires ELF x64 vérifiés. Les essais d’installation et de mise à jour graphique restent distincts.

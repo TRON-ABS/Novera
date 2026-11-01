@@ -1,5 +1,9 @@
 # Novera — instructions du projet
 
+## Android compilé et vérifié — 06:59 UTC, 1er novembre 2026
+
+Le run `41281439087`, commit `ff4740a0`, produit l’APK debug de test. Archive `13074371303` téléchargée : six empreintes, six bibliothèques ELF ARM64 alignées à 16 Ko, notice embarquée et absence de pile desktop vérifiées. Les outils officiels Android SDK 37 confirment `io.github.tronabs.novera.debug`, l’ABI unique arm64-v8a, les deux fournisseurs de fichiers distincts, la signature debug APK v2 et zipalign. Aucun appareil ni profil personnel n’est modifié. Les trois audits mobiles restent non validés et la signature durable de production reste requise. Windows x64 et macOS Intel continuent.
+
 ## Résultats vérifiés à 06:49 UTC — 1er novembre 2026
 
 Les trois nouvelles CLI `410caea5` (run `41280300978`) sont compilées et téléchargées : deux tests Rust de politique/aide réussis par hôte, 21 empreintes et architectures ELF x64 / PE x64 / Mach-O ARM64 conformes. Le nouveau DMG Apple Silicon `5468f183` (run `41278737556`, artefact `13073710701`) passe ses sept empreintes, le reçu macOS et l’inspection indépendante des 16 Mach-O : minimum maximal **14.0.0**, MLX/shaders et notice présents. Ce candidat remplace le précédent DMG exigeant macOS 15. macOS Intel, Windows x64 et Android corrigé restent suivis ; aucun essai d’installation ou signature de production n’est revendiqué.

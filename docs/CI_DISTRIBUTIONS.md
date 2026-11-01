@@ -14,13 +14,14 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 | Windows ARM64 | arm64 / arm64: compilé | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
 | Linux | linux / x64: compilé | [run 41279778571](https://github.com/TRON-ABS/Novera/actions/runs/41279778571) · `e870627e` |
 | macOS | macos / arm64: compilé; macos / x64: en cours | [run 41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556) · `5468f183` |
-| Android | android / windows-2025: en cours | [run 41281439087](https://github.com/TRON-ABS/Novera/actions/runs/41281439087) · `ff4740a0` |
+| Android | android / windows-2025: compilé | [run 41281439087](https://github.com/TRON-ABS/Novera/actions/runs/41281439087) · `ff4740a0` |
 | iOS simulateur | ios / macos-15: compilé | [run 41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611) · `a84f8cf6` |
 | Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
 | CLI | cli / ubuntu-22.04: compilé; cli / windows-2025: compilé; cli / macos-15: compilé | [run 41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978) · `410caea5` |
 
 Artefacts téléchargés et contrôlés indépendamment :
 
+- [Novera-android-Windows-41281439087](https://github.com/TRON-ABS/Novera/actions/runs/41281439087/artifacts/13074371303) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-arm64-arm64-41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042/artifacts/13071721946) : 19 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-Linux-41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978/artifacts/13073505849) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-Windows-41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978/artifacts/13073064714) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
@@ -34,6 +35,12 @@ Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne rempla
 <!-- NOVERA CI STATUS END -->
 
 Le 1er novembre 2026, le mainteneur autorise explicitement **toutes les plateformes et variantes**, en confirmant Linux, Android, iOS et macOS, avec contrôle des résultats et mise à jour des MD. Cette autorisation remplace la consigne historique de garder Actions désactivé pour la préparation seule. Aucun profil utilisateur ni discussion du PC du mainteneur n'est envoyé aux runners.
+
+## Android vérifié — 06:59 UTC
+
+Le [run `41281439087`](https://github.com/TRON-ABS/Novera/actions/runs/41281439087), commit `ff4740a0`, réussit l’assemblage APK après séparation des fournisseurs de partage et d’exports. L’[artefact `13074371303`](https://github.com/TRON-ABS/Novera/actions/runs/41281439087/artifacts/13074371303) téléchargé mesure 211 921 240 octets ; ses six empreintes, provenance et notice sont conformes. SHA-256 de l’archive GitHub : `31151eaebe90d85df82a530078848ba8b371dfba9eb54285f2411984566e3a9b`.
+
+L’APK nommé `app-universal-debug.apk` contient uniquement l’ABI **arm64-v8a**. Les six bibliothèques requises (application, worker, GGML/base/CPU et libc++) sont des ELF ARM64 avec segments alignés à **16 384 octets**. Les outils officiels du SDK Android 37 confirment l’identité **`io.github.tronabs.novera.debug`**, les autorités `.fileprovider` et `.novera.share` avec la classe distincte `NoveraShareProvider`, une signature **APK v2 Android Debug valide** et le contrôle `zipalign -c -P 16 -v 4`. La notice TRON-ABS est embarquée ; aucun EXE/DLL ni pile Python/PyTorch desktop n’est présent. Les champs historiques de provenance `win32`/`x64` décrivent le runner, pas l’ABI de l’APK. Aucun APK n’est installé. Les trois audits mobiles, l’essai du partage sur appareil et la chaîne de signature release durable restent à valider.
 
 ## Nouveaux candidats vérifiés — 06:49 UTC
 
@@ -49,7 +56,7 @@ Le [cycle durable des versions](FUTURES_VERSIONS.md) ajoute un contrôle préala
 
 Le [run `41281310528`](https://github.com/TRON-ABS/Novera/actions/runs/41281310528), commit `93815b15`, confirme le même résultat avec les nouvelles actions officielles Node 24 : installation Node et conservation de l’artefact de contrôle réussies, sans les anciens avertissements Node 20.
 
-Android `e870627e` passe la compilation native puis échoue à la fusion du manifeste : le fournisseur de partage du plugin et celui des exports de l’application utilisent tous deux la classe `androidx.core.content.FileProvider`, avec des autorités et chemins différents. Le correctif `ff4740a0` donne au plugin sa propre sous-classe `NoveraShareProvider`, conserve les deux autorités, leurs ressources et l’accès non exporté, puis relance uniquement Android dans le [run `41281439087`](https://github.com/TRON-ABS/Novera/actions/runs/41281439087). La compilation APK et les essais de partage sur appareil restent à confirmer.
+Android `e870627e` passe la compilation native puis échoue à la fusion du manifeste : le fournisseur de partage du plugin et celui des exports de l’application utilisent tous deux la classe `androidx.core.content.FileProvider`, avec des autorités et chemins différents. Le correctif `ff4740a0` donne au plugin sa propre sous-classe `NoveraShareProvider`, conserve les deux autorités, leurs ressources et l’accès non exporté, puis relance uniquement Android dans le [run `41281439087`](https://github.com/TRON-ABS/Novera/actions/runs/41281439087). La compilation APK est désormais réussie et son paquet vérifié ci-dessus ; les essais de partage sur appareil restent à confirmer.
 
 ## Lancement manuel
 
