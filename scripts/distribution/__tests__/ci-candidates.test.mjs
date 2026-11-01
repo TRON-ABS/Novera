@@ -6,6 +6,16 @@ import path from 'node:path'
 import { execFileSync, spawnSync } from 'node:child_process'
 import { safePayload, candidateResources, macosDeploymentTarget } from '../ci-candidates.mjs'
 
+test('Android test builds have a distinct identity from production storage', () => {
+  const main = JSON.parse(fs.readFileSync('src-tauri/tauri.conf.json'))
+  const android = JSON.parse(fs.readFileSync('src-tauri/tauri.android.conf.json'))
+  const suffix = android.bundle.android.debugApplicationIdSuffix
+  assert.match(suffix, /^\.[A-Za-z0-9_]+$/)
+  const testId = android.identifier + suffix
+  assert.notEqual(testId, android.identifier)
+  assert.notEqual(testId, main.identifier)
+})
+
 test('the macOS Apple Silicon floor satisfies the declared MLX package requirement', () => {
   const swift = fs.readFileSync('mlx-server/Package.swift', 'utf8')
   const minimum = Number(swift.match(/\.macOS\(\.v(\d+)\)/)[1])

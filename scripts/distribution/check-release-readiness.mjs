@@ -3,6 +3,7 @@
 import { existsSync, readFileSync, realpathSync, statSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { versionPlan } from './prepare-version.mjs'
 
 export function checkReleaseReadiness(root) {
   root = realpathSync(root)
@@ -57,6 +58,9 @@ export function checkReleaseReadiness(root) {
   const nativeVersion = cargo?.match(/^version\s*=\s*"([^"]+)"/m)?.[1]
   const cliVersion = cli?.match(/^version\s*=\s*"([^"]+)"/m)?.[1]
   report.version = main?.version
+  if (main?.version) {
+    try { versionPlan(root) } catch (error) { errors.push(`Version/lock consistency: ${error.message}`) }
+  }
   if (!main?.version || web?.version !== main.version || nativeVersion !== main.version || cliVersion !== main.version) {
     errors.push('Version mismatch: desktop config, web app, native package and CLI must agree')
   }

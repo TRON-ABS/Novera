@@ -19,7 +19,8 @@
     ],
     "externalBin": [],
     "android": {
-      "minSdkVersion": 24
+      "minSdkVersion": 24,
+      "debugApplicationIdSuffix": ".debug"
     }
   }
 }

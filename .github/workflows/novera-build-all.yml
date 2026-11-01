@@ -44,7 +44,7 @@ jobs:
           set -euo pipefail
           mkdir -p .build/checks
           node scripts/distribution/check-release-readiness.mjs --json > .build/checks/source-definitions.json
-          node --test scripts/distribution/__tests__/check-release-readiness.test.mjs scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-macos.test.mjs scripts/distribution/__tests__/cuda-redist-plan.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs scripts/android/__tests__/configure-project.test.mjs | tee .build/checks/tests.txt
+          node --test scripts/distribution/__tests__/check-release-readiness.test.mjs scripts/distribution/__tests__/prepare-version.test.mjs scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-macos.test.mjs scripts/distribution/__tests__/cuda-redist-plan.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs scripts/android/__tests__/configure-project.test.mjs | tee .build/checks/tests.txt
       - name: Retain source-check results
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

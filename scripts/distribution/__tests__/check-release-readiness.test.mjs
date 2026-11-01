@@ -19,7 +19,7 @@ function fixture(t) {
     fs.rmSync(resolved, { recursive: true, force: true })
   })
   const files = new Set([
-    manifestPath, 'package.json', 'src-tauri/novera-cli/Cargo.toml',
+    manifestPath, 'package.json', 'src-tauri/novera-cli/Cargo.toml', 'src-tauri/Cargo.lock', 'src-tauri/novera-cli/Cargo.lock',
     ...manifest.requiredSources,
     ...manifest.targets.flatMap(target => [...target.sources, ...(target.config ? [target.config] : [])]),
   ])
@@ -71,7 +71,7 @@ test('a missing platform config fails the source audit', t => {
 
 test('version drift is reported before any build is attempted', t => {
   const folder = fixture(t)
-  changeJson(folder, 'web-app/package.json', data => { data.version = '99.0.0' })
+  changeJson(folder, 'web-app/package.json', data => { data.version = data.version === '99.0.0' ? '98.0.0' : '99.0.0' })
   const report = checkReleaseReadiness(folder)
   assert.equal(report.sourceDefinitionsValid, false)
   assert.ok(report.errors.some(error => error.includes('Version mismatch')))
