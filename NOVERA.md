@@ -1,5 +1,9 @@
 # Novera — instructions du projet
 
+## Compilations sur GitHub autorisées — 1er novembre 2026
+
+Le mainteneur demande maintenant les **onze variantes sur GitHub Actions**, et confirme Linux, Android, iOS et macOS. Cette demande remplace les restrictions historiques de préparation sans CI ci-dessous. Le workflow manuel Novera conserve des candidats propres avec empreintes, provenance et signature TRON-ABS ; les résultats ne doivent pas être confondus avec une release signée ou une validation sur appareil. [Périmètre, contrôles et résultats CI](docs/CI_DISTRIBUTIONS.md). Les données et discussions du PC ne sont jamais utilisées comme entrées de compilation.
+
 ## Paquets Windows propres et vitrine publiée — 1er novembre 2026
 
 Le mainteneur autorise désormais la préparation **desktop, portable et installateur Windows** depuis son desktop testé, sans discussions ni données personnelles incluses. Les sources et la nouvelle capture sont publiées sur **main** ; les vitrines anglais/français portent le message souhaitant une belle aventure et la signature TRON-ABS. Les notes plus anciennes ci-dessous décrivent leur état au moment de rédaction.

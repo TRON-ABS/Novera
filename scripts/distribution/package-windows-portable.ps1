@@ -150,6 +150,14 @@ Repackaging does not compile recent source changes. When present, BUILD_INFO.md
 describes the input binary. A checksum verifies integrity, not publisher identity.
 An unsigned local package is not a signed official release. See
 OFFICIAL_RELEASES.md and BRANDING.md. Original licenses and credits are retained.
+
+TRON-ABS
+The art of Human with AI
+
+Je vous souhaite a toutes et a tous une belle aventure avec Novera.
+Explorez vos idees, creez librement et laissez votre curiosite vous emmener plus loin.
+I wish you a wonderful adventure with Novera. Explore your ideas, create freely
+and let your curiosity take you further.
 "@
     $entries = @(foreach ($relative in (Sorted-Files)) {
         $path = Join-Path $stage $relative

@@ -1,0 +1,185 @@
+name: Novera - All distribution candidates
+run-name: Novera candidates - ${{ inputs.target }} - ${{ github.sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Distribution variant to build
+        required: true
+        type: choice
+        default: all
+        options: [all, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: novera-candidates-${{ github.ref }}-${{ inputs.target }}
+  cancel-in-progress: false
+
+env:
+  CI: 'true'
+  NOVERA_ENABLE_UPDATER: 'false'
+  JAN_ENGINE_REQUIRE_SIGNING: '0'
+  NOVERA_ANALYTICS_HOST: ''
+  NOVERA_ANALYTICS_PROJECT_KEY: ''
+  NODE_OPTIONS: --max-old-space-size=6144
+
+jobs:
+  desktop:
+    name: ${{ matrix.variant }} / ${{ matrix.arch }}
+    if: inputs.target == 'all' || contains(fromJSON('["desktop","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - {variant: windows, arch: x64, runner: windows-2025, engine: cuda13-vulkan}
+          - {variant: arm64, arch: arm64, runner: windows-11-arm, engine: cpu}
+          - {variant: linux, arch: x64, runner: ubuntu-22.04, engine: vulkan}
+          - {variant: macos, arch: arm64, runner: macos-15, engine: metal}
+          - {variant: macos, arch: x64, runner: macos-15-intel, engine: metal}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Select requested variant
+        id: selection
+        shell: bash
+        env:
+          REQUESTED: ${{ inputs.target }}
+          VARIANT: ${{ matrix.variant }}
+        run: |
+          selected=false
+          if [[ "$REQUESTED" == all || "$REQUESTED" == "$VARIANT" ]]; then selected=true; fi
+          if [[ "$VARIANT" == windows && "$REQUESTED" =~ ^(desktop|setup|msi|portable)$ ]]; then selected=true; fi
+          echo "selected=$selected" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        if: steps.selection.outputs.selected == 'true'
+        with:
+          node-version: 24
+          architecture: ${{ matrix.arch }}
+      - name: Native prerequisites
+        if: steps.selection.outputs.selected == 'true'
+        shell: bash
+        run: bash scripts/distribution/ci-prerequisites.sh desktop
+      - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756
+        if: steps.selection.outputs.selected == 'true' && runner.os == 'Windows'
+        with:
+          arch: ${{ matrix.arch }}
+      - uses: ./.github/actions/setup-engine-toolchain
+        if: steps.selection.outputs.selected == 'true'
+        with:
+          variant: ${{ matrix.engine }}
+          cuda-release: ${{ matrix.variant == 'windows' && '13.4.3' || '' }}
+      - name: Build clean candidate
+        if: steps.selection.outputs.selected == 'true'
+        shell: bash
+        env:
+          CANDIDATE_VARIANT: ${{ matrix.variant }}
+          CANDIDATE_ARCH: ${{ matrix.arch }}
+        run: bash scripts/distribution/ci-build.sh desktop
+      - name: Retain candidates and checksums
+        if: steps.selection.outputs.selected == 'true' && success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: Novera-${{ matrix.variant }}-${{ matrix.arch }}-${{ github.run_id }}
+          path: .build/candidates/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+      - name: Retain failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: diagnostics-${{ matrix.variant }}-${{ matrix.arch }}-${{ github.run_id }}
+          path: |
+            src-tauri/target/engine-build.log
+            .build/ci-status.json
+          if-no-files-found: ignore
+          retention-days: 7
+
+  auxiliary:
+    name: ${{ matrix.variant }} / ${{ matrix.runner }}
+    if: inputs.target == 'all' || contains(fromJSON('["web","cli","android","ios"]'), inputs.target)
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - {variant: web, runner: ubuntu-22.04}
+          - {variant: cli, runner: ubuntu-22.04}
+          - {variant: cli, runner: windows-2025}
+          - {variant: cli, runner: macos-15}
+          - {variant: android, runner: windows-2025}
+          - {variant: ios, runner: macos-15}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Select requested variant
+        id: selection
+        shell: bash
+        env:
+          REQUESTED: ${{ inputs.target }}
+          VARIANT: ${{ matrix.variant }}
+        run: |
+          if [[ "$REQUESTED" == all || "$REQUESTED" == "$VARIANT" ]]; then
+            echo 'selected=true' >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        if: steps.selection.outputs.selected == 'true'
+        with:
+          node-version: 24
+      - name: Native prerequisites
+        if: steps.selection.outputs.selected == 'true'
+        shell: bash
+        env:
+          CANDIDATE_VARIANT: ${{ matrix.variant }}
+        run: bash scripts/distribution/ci-prerequisites.sh "$CANDIDATE_VARIANT"
+      - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756
+        if: steps.selection.outputs.selected == 'true' && runner.os == 'Windows'
+        with:
+          arch: x64
+      - name: Build clean candidate
+        if: steps.selection.outputs.selected == 'true'
+        shell: bash
+        env:
+          CANDIDATE_VARIANT: ${{ matrix.variant }}
+        run: bash scripts/distribution/ci-build.sh "$CANDIDATE_VARIANT"
+      - name: Retain candidates and checksums
+        if: steps.selection.outputs.selected == 'true' && success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: Novera-${{ matrix.variant }}-${{ runner.os }}-${{ github.run_id }}
+          path: .build/candidates/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+      - name: Retain failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: diagnostics-${{ matrix.variant }}-${{ runner.os }}-${{ github.run_id }}
+          path: .build/ci-status.json
+          if-no-files-found: ignore
+          retention-days: 7
+
+  summary:
+    if: always()
+    needs: [desktop, auxiliary]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Report actual job results
+        env:
+          DESKTOP: ${{ needs.desktop.result }}
+          AUXILIARY: ${{ needs.auxiliary.result }}
+        run: |
+          printf 'Desktop matrix: %s\nAuxiliary matrix: %s\n' "$DESKTOP" "$AUXILIARY" >> "$GITHUB_STEP_SUMMARY"
+          echo 'Candidates only. No public release, signing certification or device validation is implied.' >> "$GITHUB_STEP_SUMMARY"
+          [[ "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled ]]

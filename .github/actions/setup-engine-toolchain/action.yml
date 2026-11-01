@@ -6,6 +6,10 @@ description: >
   and a runner that cannot produce the variant it was handed fails fast.
 
 inputs:
+  cuda-release:
+    description: Exact CUDA redist release override for a pinned candidate toolchain
+    required: false
+    default: ''
   variant:
     description: >
       JAN_ENGINE_VARIANT to build: a `-` joined backend list, e.g. vulkan,
@@ -126,7 +130,7 @@ runs:
       shell: bash
       run: |
         set -euo pipefail
-        if command -v nvcc >/dev/null 2>&1; then
+        if [ -z "$CUDA_RELEASE_OVERRIDE" ] && command -v nvcc >/dev/null 2>&1; then
           echo "engine toolchain: nvcc already on the image"
           exit 0
         fi
@@ -149,6 +153,12 @@ runs:
           exit 1
           ;;
         esac
+
+        if [ -n "$CUDA_RELEASE_OVERRIDE" ]; then
+          [[ "$CUDA_RELEASE_OVERRIDE" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo 'Invalid CUDA release' >&2; exit 1; }
+          [[ "$CUDA_RELEASE_OVERRIDE" == "$major".* ]] || { echo 'CUDA major mismatch' >&2; exit 1; }
+          release="$CUDA_RELEASE_OVERRIDE"
+        fi
 
         case "$RUNNER_OS" in
         Linux)
@@ -213,6 +223,10 @@ runs:
           fi
           archive="$tmp/$(basename "$rel")"
           curl -fsSL -o "$archive" "$base/$rel"
+          expected=$(jq -r --arg p "$pkg" --arg pl "$platform" '.[$p][$pl].sha256 // empty' "$manifest")
+          [[ "$expected" =~ ^[a-fA-F0-9]{64}$ ]] || { echo 'Missing CUDA component checksum' >&2; exit 1; }
+          actual=$(sha256sum "$archive" | awk '{print $1}')
+          [ "$actual" = "$expected" ] || { echo 'CUDA component checksum mismatch' >&2; exit 1; }
           bytes=$((bytes + $(wc -c < "$archive")))
           unpack "$archive" "$tmp"
           # Each unpacks to <name>-archive/{bin,lib,include}; merge them into
@@ -237,6 +251,7 @@ runs:
         nvcc=$(find "$root/bin" -maxdepth 2 \( -name 'nvcc' -o -name 'nvcc.exe' \) | head -1)
         [ -n "$nvcc" ] || { echo "error: no nvcc under $root/bin" >&2; exit 1; }
         "$nvcc" --version
+        printf '{"cuda":{"version":"%s"}}\n' "$release" > "$root/version.json"
 
         for lib in cudart cublas cublasLt; do
           find "$root" -name "*$lib*" -print -quit | grep -q . || {
@@ -257,6 +272,7 @@ runs:
         fi
       env:
         VARIANT: ${{ inputs.variant }}
+        CUDA_RELEASE_OVERRIDE: ${{ inputs.cuda-release }}
 
     # Windows builds the engine the way upstream llama.cpp builds this exact
     # configuration: Ninja plus its own clang toolchain file. No developer

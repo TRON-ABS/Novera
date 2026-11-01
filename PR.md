@@ -1,3 +1,15 @@
+# fix(ci): build all Novera distribution candidates on GitHub
+
+The maintainer requests all eleven distribution variants on GitHub Actions, explicitly including Linux, Android, iOS and macOS. Add a manual, read-only build workflow with isolated runners, independent failure reporting, checksummed candidate artifacts and the TRON-ABS personal signature. Windows x64 produces desktop/NSIS/MSI/portable from one build; Windows ARM64 uses its own CPU worker. macOS has separate Intel and Apple Silicon builds. Web and CLI are independent; the CLI is built on three hosts.
+
+Existing release templates force legacy identities, signing and publication paths. Use a separate candidate workflow without inherited secrets or public-release writes. Permit a pinned CUDA 13.4.3 override for the existing Windows image toolchain, validating each downloaded CUDA component hash. Fix the AppImage directory lookup to follow the actual product name. Keep user conversations, models and private symbols out of artifacts. Preserve licenses and add the welcome signature to notices.
+
+Android's three review flags remain false. A narrowly scoped CI-only, explicitly requested debug test-build option can tolerate those review flags; all technical guards and normal build behavior remain enforced. iOS targets a simulator; a signed iPhone IPA and store delivery still need genuine Apple credentials. No production signature or device certification is claimed. Record the remote run and its actual results in [CI_DISTRIBUTIONS.md](docs/CI_DISTRIBUTIONS.md).
+
+Validation before dispatch: actionlint 1.7.12 passed; YAML parsed; four new collector/Android-policy tests passed; nine distribution-definition tests passed; 223 portable assertions across twelve scenarios passed. Bash syntax passed for the build, prerequisites and AppImage scripts after the sandbox initially prevented Bash from starting. These local checks do not claim successful native builds on remote platforms. No related open PR was found at the previous repository inspection; this is direct main publication at the maintainer's request. No issue is closed, and no external publication/notification workflow is invoked.
+
+## Earlier completed source and Windows preparation work
+
 # fix(distribution): prepare clean Windows packages and refresh the showcase
 
 ## Clean Windows package preparation — 1 November 2026
