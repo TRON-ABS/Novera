@@ -1,5 +1,9 @@
 # fix(ci): build clean Novera candidates for all distribution variants
 
+## Preserve the Windows updater installer marker
+
+The signed ARM64 candidate exposes a real packaging difference: Tauri restores the raw executable to `UNK` while the NSIS contains `NSS`, differing by exactly three reserved bytes. Normalize only the copied desktop runtime to the NSIS marker, require a checksum/offset/type proof before Windows publication, and reject missing or ambiguous reserved slots. Eight focused tests and the complete 49-test local contract suite pass. Applying the helper to the actual CI raw executable produces exactly the NSIS-extracted executable; all nine runtime file hashes match. The installer signature and prepared candidate publication prerequisite pass independently. No application compilation or installer execution is performed locally. Preserve the original CI archive and explicitly distinguish the derived local packaging provenance; actual installation/update validation is still pending.
+
 ## First signed-update candidate verified
 
 Linux x64 at d0a29f63 (run 41297251818) compiles and its downloaded archive passes eleven checksums. Reverify the final AppImage signature against the pinned Novera public key, match the updater receipt to the exact source/platform, and pass the read-only publication prerequisite. Independently inspect fifty ELF x64 files across Debian/AppImage and confirm the actual embedded client key in both executables. The real GTK test and all nine upgrade-fixture tests pass. Installation, graphical update and Debian delivery checks remain separate; no release is published and other signed desktop jobs remain pending.

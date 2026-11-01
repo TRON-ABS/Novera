@@ -1,5 +1,15 @@
 # Novera — instructions du projet
 
+## Windows ARM64 : signature valide et copie runtime corrigée — 1er novembre 2026
+
+Le candidat ARM64 du [run `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818), commit `d0a29f63`, est compilé et téléchargé ([artefact source `13081090918`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13081090918), 291 161 431 octets, 22 empreintes). SHA-256 GitHub : `cf1c75b04a54eb5a0993b3513f3341c2751be1707a3ec1470e633f425ffc7963`. Sept binaires PE ARM64 et les neuf tests de migration passent ; le NSIS final a une signature d’update Novera vérifiée et contient la clé publique réelle.
+
+La comparaison de l’EXE brut avec celui extrait du NSIS expose exactement **trois octets différents** : le marqueur Tauri réservé `UNK` du brut devient `NSS` dans l’installateur. Le NSIS est correct ; la copie desktop brute du candidat CI ne doit pas être publiée telle quelle. Le correctif source `932460fa` prépare uniquement la copie du runtime, conserve le marqueur NSIS et ajoute une preuve de type/offset/empreinte. Le contrôle de publication Windows exige désormais cette preuve et vérifie les octets réels. **49 tests Node locaux réussissent**, dont huit tests crypto/configuration/préparation/publication.
+
+Une préparation locale dérivée des fichiers compilés sur GitHub reproduit exactement l’EXE du NSIS après cette seule correction réservée. Les **neuf fichiers runtime correspondent octet pour octet à l’installateur extrait** ; la signature de l’installateur est revérifiée et le contrôle `--publication-check` réussit sur ce runtime préparé. Aucune compilation applicative locale ni installation n’est exécutée. La provenance distingue le commit de compilation `d0a29f63`, l’artefact source et le commit de préparation `932460fa`, avec de nouvelles empreintes pour le candidat préparé. L’archive Actions d’origine reste intacte et conserve sa limite de copie brute ; elle n’est pas présentée comme l’archive corrigée.
+
+Le flux de mise à jour vise le NSIS. L’essai réel d’installation/update et les scénarios des autres formats restent à valider ; la publication demeure bloquée. L’ancien run Windows x64 sans updater `41276293618` a aussi terminé sa compilation avec succès, mais reste interne et n’est pas une distribution autorisée par la nouvelle consigne.
+
 ## Premier candidat desktop avec update signé vérifié — 1er novembre 2026
 
 Linux x64 du [run signé `41297251818`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818), commit `d0a29f63`, est compilé et téléchargé ([artefact `13080473923`](https://github.com/TRON-ABS/Novera/actions/runs/41297251818/artifacts/13080473923)). L’archive de 321 555 711 octets passe **11 empreintes** ; SHA-256 GitHub : `facf344a00e7157a220bf5c6d542bc8fa66db449e4c210aa3e74ea02cfe06831`.
