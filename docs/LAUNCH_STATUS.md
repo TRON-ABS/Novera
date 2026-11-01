@@ -2,7 +2,7 @@
 
 État vérifié au **1er novembre 2026**. **Les téléchargements publics restent fermés.** Les cinq plateformes desktop passent désormais l’installation et le remplacement par le composant updater natif en environnement GitHub isolé. Le brouillon de préversion demeure privé et bloqué ; les anciens candidats sans updater restent internes.
 
-Les trois CLI passent également leurs essais isolés et le renouvellement Web local est contrôlé. Le [bilan final des preuves et besoins restants](VALIDATION_RESULTS_2026-11-01.md) distingue ces résultats des conditions de production non satisfaites. Le dernier contrôle source réussit : 55 contrats Node (53 réussis, deux propres à Windows ignorés sur Ubuntu) et sept tests Python ; les 55 passent localement sous Windows.
+Les trois CLI passent également leurs essais isolés et le renouvellement Web local est contrôlé. Le [bilan final des preuves et besoins restants](VALIDATION_RESULTS_2026-11-01.md) distingue ces résultats des conditions de production non satisfaites. Le contrôle source du déploiement Pages réussit : 57 contrats Node (55 réussis, deux propres à Windows ignorés sur Ubuntu) et sept tests Python ; les 57 passent localement sous Windows. La [vitrine GitHub Pages](https://tron-abs.github.io/Novera/) est en ligne sous HTTPS ; elle présente le lancement en préparation et ne distribue aucune application.
 
 Novera réunit conversation, recherche et création de texte, d’images, de musique et de vidéo dans un même tableau de bord. Les possibilités locales dépendent du matériel, du moteur et des modèles installés ; le cloud utilise les accès configurés par l’utilisateur. Les [vitrines française](../README.fr.md) et [anglaise](../README.md) conservent la capture réelle du mainteneur.
 
@@ -16,7 +16,7 @@ Novera réunit conversation, recherche et création de texte, d’images, de mus
 | CLI Windows x64, Linux x64 et macOS ARM64 | Trois remplacements signés et exécutions réussis ; artefacts téléchargés, onze empreintes chacun, architectures et clé embarquée contrôlées. Manifeste complet préparé localement. | Endpoint de production et transition entre versions publiées non validés. Anciennes CLI sans updater toujours internes. |
 | Android | APK ARM64 debug interne contrôlé. | Signature durable, canal de production et validation appareil. |
 | iOS | Application simulateur interne contrôlée. | Identité Apple réelle, build appareil, canal de distribution et validation appareil. |
-| Web | Nouveau build CI vérifié ; 588 fichiers servis contrôlés en HTTP local ; rechargement entre deux builds au navigateur avec thème préservé. | Hébergement HTTPS et cache/CDN réels ; parcours fonctionnels complets et renouvellement du site de production. Voir [les limites](WEB_DELIVERY.md). |
+| Web | Nouveau build CI vérifié ; 588 fichiers servis contrôlés en HTTP local ; rechargement entre deux builds au navigateur avec thème préservé. | Vitrine informative GitHub Pages en ligne ; client toujours interne. Cache, chemins, parcours fonctionnels et renouvellement du client hébergé restent à valider. Voir [les limites](WEB_DELIVERY.md). |
 
 ## Ce que les essais desktop prouvent
 

@@ -16,6 +16,8 @@ Les reçus desktop téléchargés correspondent aux digests GitHub des artefacts
 
 Le contrôle source [41345584039](https://github.com/TRON-ABS/Novera/actions/runs/41345584039), commit `6129a15a`, réussit : **55 contrats Node, 53 réussis et deux propres à Windows ignorés sur Ubuntu, aucun échec ; sept tests Python réussis**. Les 55 contrats Node passent localement sous Windows. Les trois jobs CLI passent chacun deux tests policy/help, sept tests cryptographiques et le test distinct de remplacement normalement ignoré localement.
 
+Le déploiement Pages ajoute deux contrats : 57 tests Node passent localement ; le run `41346258656` passe 55 tests et ignore deux tests propres à Windows, avec sept tests Python réussis. HTTPS, empreinte HTML, révision et deux images publiques sont contrôlés ; aucun paquet applicatif ni feed n’est déployé.
+
 ## Limites exactes
 
 Le programme desktop annonce une version synthétique `0.9.9` pour exercer le vrai paquet `1.0.0`. Il ne certifie pas le parcours complet d’update dans l’interface ni une transition entre deux applications publiées. L’essai CLI remplace un témoin par le vrai exécutable ; il ne couvre pas tous les scénarios d’un processus en cours d’utilisation. Le test Web couvre un rechargement et une préférence, pas toutes les discussions ni les fonctionnalités cloud/natives ; des avertissements de fonctions natives absentes sont documentés.
@@ -24,7 +26,7 @@ Les manifests desktop et CLI `1.0.0` sont préparés uniquement pour examen loca
 
 ## Informations et validations encore indispensables
 
-- Choisir l’origine HTTPS et l’hébergement Web, configurer son cache/CDN et y refaire les contrôles de renouvellement. Aucun GitHub Pages configuré n’a été constaté.
+- GitHub Pages est configuré avec HTTPS et sa [vitrine informative](https://tron-abs.github.io/Novera/) est vérifiée après le [déploiement 41346258656](https://github.com/TRON-ABS/Novera/actions/runs/41346258656). Le client reste interne : adapter les chemins et le routage au sous-chemin, satisfaire le contrat de cache et valider le renouvellement réel avant diffusion de l’application Web.
 - Fournir les identités et accès Apple réels nécessaires à la signature/notarisation macOS et à une distribution iOS sur appareil. Aucun certificat n’est inventé.
 - Définir et configurer la signature durable et le canal Android de production, puis valider sur appareil ; le candidat debug demeure interne.
 - Planifier la validation des feeds de production, du parcours UI et des futures transitions de versions. Les scénarios MSI/Debian/portable exigent leurs propres canaux et essais avant inclusion dans une diffusion.

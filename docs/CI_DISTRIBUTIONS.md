@@ -1,6 +1,6 @@
 # Compilations Novera sur GitHub Actions
 
-Les nouveaux candidats Web ajoutent une révision publique sans secret et le reçu `WEB-DELIVERY-READINESS.json` pour préparer le renouvellement par rechargement. Les trois contrôles HTTP locaux couvrent les révisions successives et le refus de caches périmés. Le candidat `41339452516` est téléchargé et vérifié ; le rechargement entre deux builds au navigateur local conserve le thème choisi. L’hébergement réel et ses caches restent à certifier. Voir [le contrat et les limites Web](WEB_DELIVERY.md).
+Les nouveaux candidats Web ajoutent une révision publique sans secret et le reçu `WEB-DELIVERY-READINESS.json` pour préparer le renouvellement par rechargement. Les trois contrôles HTTP locaux couvrent les révisions successives et le refus de caches périmés. Le candidat `41339452516` est téléchargé et vérifié ; le rechargement entre deux builds au navigateur local conserve le thème choisi. La vitrine informative GitHub Pages est désormais déployée et vérifiée sous HTTPS par le run `41346258656` ; son workflow manuel `target=pages` ne déploie pas le client ni les feeds. Le canal applicatif hébergé et ses caches restent à certifier. Voir [le contrat et les limites Web](WEB_DELIVERY.md).
 
 ## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026
 

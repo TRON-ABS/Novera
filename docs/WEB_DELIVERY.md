@@ -1,6 +1,8 @@
 # Livraison et renouvellement du client Web
 
-Le client Web reste interne. La lecture de l’API GitHub Pages le 1er novembre 2026 retourne 404 ; aucun hébergement Pages configuré n’a été constaté. Aucun domaine ou hébergement de production n’est inventé ni activé par ce travail.
+Le client Web reste interne. À la demande du mainteneur, GitHub Pages est désormais configuré en mode workflow, avec HTTPS imposé : [vitrine Novera](https://tron-abs.github.io/Novera/). Le [déploiement 41346258656](https://github.com/TRON-ABS/Novera/actions/runs/41346258656), commit `5faf42a6`, réussit. La page, ses deux images et son reçu de révision sont vérifiés sur HTTPS puis au navigateur. Elle présente uniquement le lancement en préparation, sans application, téléchargements ni feeds.
+
+Le premier audit Pages retournait 404 avant cette configuration. Le cache observé sur la page et `pages-probe.json` est `max-age=600` : il ne satisfait pas le contrat du client ci-dessous. Les chemins `/assets` et le routage du client doivent également être adaptés au sous-chemin `/Novera/` avant un éventuel déploiement applicatif. Cette vitrine ne valide donc pas le canal de renouvellement du client Web.
 
 ## Essai local réellement effectué — 1er novembre 2026
 
