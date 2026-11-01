@@ -2,6 +2,8 @@
 
 ## Compilations sur GitHub autorisées — 1er novembre 2026
 
+Le [cycle des prochaines versions](FUTURES_VERSIONS.md) couvre la synchronisation des numéros, les contrôles de migration et la préparation des mises à jour signées desktop. Les résultats des candidats restent propres à leur commit et à leur plateforme.
+
 Le mainteneur demande maintenant les **onze variantes sur GitHub Actions**, et confirme Linux, Android, iOS et macOS. Cette demande remplace les restrictions historiques de préparation sans CI ci-dessous. Le workflow manuel Novera conserve des candidats propres avec empreintes, provenance et signature TRON-ABS ; les résultats ne doivent pas être confondus avec une release signée ou une validation sur appareil. [Périmètre, contrôles et résultats CI](CI_DISTRIBUTIONS.md). Les données et discussions du PC ne sont jamais utilisées comme entrées de compilation.
 
 ## Paquets Windows propres et vitrine publiée — 1er novembre 2026

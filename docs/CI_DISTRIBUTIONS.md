@@ -12,17 +12,17 @@ Ce tableau relève les résultats des derniers runs concernés, sans transformer
 | MSI Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
 | Portable Windows x64 | windows / x64: en cours | [run 41276293618](https://github.com/TRON-ABS/Novera/actions/runs/41276293618) · `a84f8cf6` |
 | Windows ARM64 | arm64 / arm64: compilé | [run 41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042) · `bb8a1040` |
-| Linux | linux / x64: compilé | [run 41275746510](https://github.com/TRON-ABS/Novera/actions/runs/41275746510) · `0beb13a3` |
+| Linux | linux / x64: en cours | [run 41279778571](https://github.com/TRON-ABS/Novera/actions/runs/41279778571) · `e870627e` |
 | macOS | macos / arm64: en cours; macos / x64: en cours | [run 41278737556](https://github.com/TRON-ABS/Novera/actions/runs/41278737556) · `5468f183` |
-| Android | android / windows-2025: en cours | [run 41278242672](https://github.com/TRON-ABS/Novera/actions/runs/41278242672) · `d142e12e` |
+| Android | android / windows-2025: en cours | [run 41279776001](https://github.com/TRON-ABS/Novera/actions/runs/41279776001) · `e870627e` |
 | iOS simulateur | ios / macos-15: compilé | [run 41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611) · `a84f8cf6` |
 | Web | web / ubuntu-22.04: compilé | [run 41275648200](https://github.com/TRON-ABS/Novera/actions/runs/41275648200) · `307fbb16` |
-| CLI | cli / macos-15: compilé; cli / ubuntu-22.04: compilé; cli / windows-2025: compilé | [run 41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531) · `7cced48a` |
+| CLI | cli / ubuntu-22.04: compilé; cli / windows-2025: en cours; cli / macos-15: en cours | [run 41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978) · `410caea5` |
 
 Artefacts téléchargés et contrôlés indépendamment :
 
 - [Novera-arm64-arm64-41275047042](https://github.com/TRON-ABS/Novera/actions/runs/41275047042/artifacts/13071721946) : 19 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
-- [Novera-cli-Linux-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069749955) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
+- [Novera-cli-Linux-41280300978](https://github.com/TRON-ABS/Novera/actions/runs/41280300978/artifacts/13073505849) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-Windows-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13070655221) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-cli-macOS-41273037531](https://github.com/TRON-ABS/Novera/actions/runs/41273037531/artifacts/13069439592) : 7 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
 - [Novera-ios-macOS-41276290611](https://github.com/TRON-ABS/Novera/actions/runs/41276290611/artifacts/13071509324) : 6 empreintes vérifiées, signature de marque et provenance conformes, architecture binaire confirmée.
@@ -34,6 +34,10 @@ Les signatures ci-dessus sont les notices personnelles TRON-ABS. Elles ne rempla
 <!-- NOVERA CI STATUS END -->
 
 Le 1er novembre 2026, le mainteneur autorise explicitement **toutes les plateformes et variantes**, en confirmant Linux, Android, iOS et macOS, avec contrôle des résultats et mise à jour des MD. Cette autorisation remplace la consigne historique de garder Actions désactivé pour la préparation seule. Aucun profil utilisateur ni discussion du PC du mainteneur n'est envoyé aux runners.
+
+## Préparation des prochaines versions
+
+Le [cycle durable des versions](FUTURES_VERSIONS.md) ajoute un contrôle préalable des six sources de version, les tests de migration desktop et un générateur de manifeste pour cinq cibles desktop. Le [run de contrats `41281084320`](https://github.com/TRON-ABS/Novera/actions/runs/41281084320), commit `85558421`, réussit : 39 tests Node et deux tests propres à Windows ignorés sur Ubuntu ; les 41 passent localement sur Windows. La CLI Linux du run `41280300978` réussit ses deux tests Rust de politique et d’aide ; son nouveau paquet est téléchargé et vérifié. Les nouveaux tests de migration desktop et les autres hôtes CLI restent suivis dans leurs jobs effectifs.
 
 ## Lancement manuel
 

@@ -1,5 +1,7 @@
 # Official Novera releases and governance
 
+The [future-version procedure](docs/FUTURES_VERSIONS.md) documents synchronized version preparation, source and migration checks, and update-manifest preparation for five desktop targets. These checks do not replace release approval, genuine signing credentials or installation/update validation.
+
 ## Authoritative channels
 
 - Source and project decisions: [TRON-ABS/Novera](https://github.com/TRON-ABS/Novera).

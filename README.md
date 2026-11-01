@@ -231,7 +231,7 @@ Manual GitHub Actions builds are enabled for all eleven distribution variants. F
 ## Documentation and contributions
 
 - [Detailed user guide](docs/USER_GUIDE.md), [product and user-information golden rules (French)](docs/REGLES_D_OR.md), [models and engines](docs/SUIVI_MOTEURS.md).
-- [Development](docs/DEVELOPMENT.md), [build and release guide](docs/BUILD_AND_RELEASE.md).
+- [Development](docs/DEVELOPMENT.md), [build and release guide](docs/BUILD_AND_RELEASE.md), [future versions and update preparation](docs/FUTURES_VERSIONS.md).
 - [Project dashboard](TABLEAU_DE_BORD_NOVERA.md), [roadmap](ROADMAP.md), [changelog](docs/CHANGELOG.md).
 - [Contributing](CONTRIBUTING.md): code, tests, native review across 80 languages and real workflow feedback.
 

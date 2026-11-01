@@ -35,9 +35,10 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
         with:
           node-version: 24
+          package-manager-cache: false
       - name: Verify version, distribution and update contracts
         shell: bash
         run: |
@@ -47,7 +48,7 @@ jobs:
           node --test scripts/distribution/__tests__/check-release-readiness.test.mjs scripts/distribution/__tests__/prepare-version.test.mjs scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-macos.test.mjs scripts/distribution/__tests__/cuda-redist-plan.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs scripts/android/__tests__/configure-project.test.mjs | tee .build/checks/tests.txt
       - name: Retain source-check results
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: checks-${{ github.run_id }}
           path: .build/checks/
@@ -85,10 +86,11 @@ jobs:
           if [[ "$REQUESTED" == all || "$REQUESTED" == native || "$REQUESTED" == "$VARIANT" ]]; then selected=true; fi
           if [[ "$VARIANT" == windows && "$REQUESTED" =~ ^(desktop|setup|msi|portable)$ ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
         if: steps.selection.outputs.selected == 'true'
         with:
           node-version: 24
+          package-manager-cache: false
           architecture: ${{ matrix.arch }}
       - name: Native prerequisites
         if: steps.selection.outputs.selected == 'true'
@@ -112,7 +114,7 @@ jobs:
         run: bash scripts/distribution/ci-build.sh desktop
       - name: Retain candidates and checksums
         if: steps.selection.outputs.selected == 'true' && success()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: Novera-${{ matrix.variant }}-${{ matrix.arch }}-${{ github.run_id }}
           path: .build/candidates/
@@ -121,7 +123,7 @@ jobs:
           compression-level: 0
       - name: Retain failure diagnostics
         if: failure()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: diagnostics-${{ matrix.variant }}-${{ matrix.arch }}-${{ github.run_id }}
           path: |
@@ -161,10 +163,11 @@ jobs:
           if [[ "$REQUESTED" == all || "$REQUESTED" == "$VARIANT" || ( "$REQUESTED" == native && "$VARIANT" =~ ^(android|ios)$ ) ]]; then
             echo 'selected=true' >> "$GITHUB_OUTPUT"
           fi
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
         if: steps.selection.outputs.selected == 'true'
         with:
           node-version: 24
+          package-manager-cache: false
       - name: Native prerequisites
         if: steps.selection.outputs.selected == 'true'
         shell: bash
@@ -187,7 +190,7 @@ jobs:
         run: bash scripts/distribution/ci-build.sh "$CANDIDATE_VARIANT"
       - name: Retain candidates and checksums
         if: steps.selection.outputs.selected == 'true' && success()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: Novera-${{ matrix.variant }}-${{ runner.os }}-${{ github.run_id }}
           path: .build/candidates/
@@ -196,7 +199,7 @@ jobs:
           compression-level: 0
       - name: Retain failure diagnostics
         if: failure()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
         with:
           name: diagnostics-${{ matrix.variant }}-${{ runner.os }}-${{ github.run_id }}
           path: .build/ci-status.json
