@@ -28,6 +28,13 @@ case "$RUNNER_OS" in
     ;;
   macOS)
     if [[ "$kind" == desktop ]]; then
+      # Match the established MLX build requirement, without changing xcode-select.
+      if [[ "$RUNNER_ARCH" == ARM64 ]]; then
+        export DEVELOPER_DIR=/Applications/Xcode_26.2.app/Contents/Developer
+        [[ -d "$DEVELOPER_DIR" ]] || { echo 'MLX requires the pinned Xcode 26.2 installation.' >&2; exit 2; }
+        echo "DEVELOPER_DIR=$DEVELOPER_DIR" >> "$GITHUB_ENV"
+        xcodebuild -version
+      fi
       command -v cmake >/dev/null || brew install cmake
       command -v ninja >/dev/null || brew install ninja
     fi

@@ -4,7 +4,16 @@ import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { execFileSync, spawnSync } from 'node:child_process'
-import { safePayload } from '../ci-candidates.mjs'
+import { safePayload, candidateResources } from '../ci-candidates.mjs'
+
+test('Intel macOS excludes Apple Silicon-only MLX resources and preserves the native worker', () => {
+  const resources = JSON.parse(fs.readFileSync('src-tauri/tauri.macos.conf.json')).bundle.resources
+  const intel = candidateResources(resources, 'macos', 'x64')
+  assert.ok(intel.includes('resources/bin/novera-llama-worker'))
+  assert.ok(intel.includes('resources/bin/libggml*'))
+  assert.equal(intel.some(p => p.includes('mlx-')), false)
+  assert.deepEqual(candidateResources(resources, 'macos', 'arm64'), resources)
+})
 
 test('candidate payload excludes personal profiles, model weights, secrets and private symbols', () => {
   for (const p of ['profiles/test.json', 'desktop/user-data/chat.json', 'models/m.gguf', 'a/weights.safetensors', 'logs/session.txt', '.env.production', 'frontend/main.js.map', 'resources/test.sqlite', '../secret']) assert.equal(safePayload(p), false, p)

@@ -38,7 +38,7 @@ case "$kind" in
     yarn download:bin
     if [[ "$RUNNER_OS" == macOS ]]; then
       make build-engine
-      yarn build:mlx-server
+      if [[ "$RUNNER_ARCH" == ARM64 ]]; then yarn build:mlx-server; fi
     else
       make build-engine
     fi

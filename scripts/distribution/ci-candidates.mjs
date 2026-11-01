@@ -10,6 +10,12 @@ export function safePayload(name) {
     !/\.(?:pdb|map|log|sqlite|db|gguf|safetensors|pth|pt|onnx)$/i.test(name) && !parts.some(p => p.startsWith('.env'))
 }
 export function sha(file) { return crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex') }
+export function candidateResources(resources, platform, architecture) {
+  // MLX supports Apple Silicon; Intel macOS retains its native GGUF worker.
+  return platform === 'macos' && architecture === 'x64'
+    ? resources.filter(p => !p.startsWith('resources/bin/mlx-'))
+    : resources
+}
 function files(dir) {
   if (!fs.existsSync(dir)) return []
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => {
@@ -46,7 +52,7 @@ function run(mode, kind) {
     const config = { bundle: { createUpdaterArtifacts: false } }
     const platform = mode === 'config-ios' ? 'ios' : ({ win32: 'windows', linux: 'linux', darwin: 'macos' })[process.platform]
     const base = JSON.parse(fs.readFileSync(`src-tauri/tauri.${platform}.conf.json`))
-    config.bundle.resources = [...(base.bundle.resources || []), 'resources/SIGNATURE.txt']
+    config.bundle.resources = [...candidateResources(base.bundle.resources || [], platform, process.arch), 'resources/SIGNATURE.txt']
     fs.writeFileSync('src-tauri/resources/SIGNATURE.txt', signature)
     if (process.env.CANDIDATE_VARIANT === 'arm64') {
       config.bundle.resources = ['resources/LICENSE', 'resources/SIGNATURE.txt', 'resources/bin/novera-llama-worker.exe', 'resources/bin/*.dll']
@@ -107,6 +113,7 @@ function run(mode, kind) {
         ...(process.env.CANDIDATE_VARIANT === 'arm64' ? ['CPU text engine; Windows x64 image runtime is excluded.'] : []),
         ...(kind === 'web' ? ['Browser frontend; desktop-native capabilities are unavailable.'] : []),
         ...(kind === 'cli' ? ['Historical internal executable name: jan.'] : []),
+        ...(kind === 'desktop' && process.platform === 'darwin' && process.arch === 'x64' ? ['Intel macOS uses GGUF; the Apple Silicon-only MLX server is excluded.'] : []),
       ],
     }
     json(path.join(out, 'candidate.json'), manifest)
