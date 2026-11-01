@@ -54,7 +54,7 @@ Les preuves locales sont `windows-manual-check-result.json` (arbre UI avec le to
 
 ## Reconstruction corrective Windows/Linux
 
-La correction est proposée dans la [PR brouillon #5](https://github.com/TRON-ABS/Novera/pull/5), branche `codex/updater-feed-error`. Le commit `428299c34d66170f543722ea98a11de6e3e50979` est soumis au [run 41358869680](https://github.com/TRON-ABS/Novera/actions/runs/41358869680). Le job source et le job Linux réussissent ; les candidats Windows x64 et ARM64 sont encore en reconstruction à ce bilan. Le premier run `41358745246` a été remplacé pendant sa préparation pour intégrer les paramètres WebDriver et les gardes du banc Linux.
+La correction est proposée dans la [PR brouillon #5](https://github.com/TRON-ABS/Novera/pull/5), branche `codex/updater-feed-error`. Le commit `428299c34d66170f543722ea98a11de6e3e50979` est soumis au [run 41358869680](https://github.com/TRON-ABS/Novera/actions/runs/41358869680). Les jobs source, Linux et Windows ARM64 réussissent ; le candidat Windows x64 est encore en reconstruction à ce bilan. Le premier run `41358745246` a été remplacé pendant sa préparation pour intégrer les paramètres WebDriver et les gardes du banc Linux.
 
 Le workflow manuel dispose d'une cible `windows-linux`. Les compilations desktop signées exécutent d'abord les 42 contrats frontend de l'updater et conservent leur résultat JSON. Les contrôles locaux supplémentaires passent : 57 contrats Node, dix tests Python, validation de syntaxe Python, actionlint et contrôle du diff.
 
@@ -67,6 +67,14 @@ Le [job Linux 125004829064](https://github.com/TRON-ABS/Novera/actions/runs/4135
 Les reçus attestent **42 contrats frontend et neuf migrations réussis**. La capture inspectée et le reçu natif montrent le vrai message **« Failed to check for updates »** sur le feed HTTP 404 ; le faux message de dernière version est absent. `nativeUiCheckPassed` vaut `true`, `updateInstalled` et `productionChannelValidated` valent `false`. La preuve vérifie le bouton sur le paquet livré, pas seulement le hook simulé.
 
 Les fichiers sont conservés sous `.build/release-prepared/rebuild-428299c3/linux-x64/`, notamment `LINUX-UPDATER-UI.png`, `LINUX-UPDATER-UI.json` et `UPDATER-READINESS.json`. Le résultat indépendant est `.build/update-ui-2026-11-01/13105425728-verified.json`.
+
+### Windows ARM64 signé : paquet vérifié le 2 novembre
+
+Le [job ARM64 125004829052](https://github.com/TRON-ABS/Novera/actions/runs/41358869680/job/125004829052) réussit. L'artefact `13105967267` est téléchargé ; son digest GitHub `0659e18b25f370502edf2d7b82b89e9e8e1cc0c911b2a4eb1de0809d3618d894` et ses **24 empreintes de fichiers** correspondent. La signature finale pour l'updater est vérifiée indépendamment, ainsi que la vraie clé publique embarquée dans l'exécutable.
+
+Les reçus confirment **42 tests frontend et neuf migrations réussis**. Les **sept PE natifs** sont ARM64, et les **neuf fichiers runtime** correspondent exactement au contenu du NSIS signé extrait sans l'exécuter. Le paquet n'est ni installé ni lancé sur ce poste x64 ; **aucune inspection visuelle ARM64 n'est attestée**. La signature d'updater ne vaut pas signature Authenticode.
+
+Preuves : `.build/update-ui-2026-11-01/13105967267-verified.json` et `13105967267-windows-runtime.json`. Le candidat extrait est `.build/release-prepared/rebuild-428299c3/win32-arm64/`. Seul le build Windows x64 du run reste en cours.
 
 ### Windows local : message corrigé et nouvelle tentative observés
 
