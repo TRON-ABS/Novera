@@ -11,9 +11,9 @@
 
 ## Un tableau de bord pour tout créer
 
-![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-2026-10-30.png)
+![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-2026-11-01.png)
 
-*Capture réelle de l’application Windows fournie par le mainteneur le 30 octobre 2026. Elle montre une image et le panneau utilisé pour la créer ; ce n’est pas une maquette.*
+*Capture réelle de l’application Windows fournie par le mainteneur le 1er novembre 2026, qui confirme que l’application fonctionne bien. Elle montre un paysage généré, les commandes du fichier enregistré et le tableau de bord de création unifié ; ce n’est pas une maquette.*
 
 Un seul panneau, cinq modes : **Auto, Texte, Image, Musique et Vidéo**. Les réglages suivent le mode choisi : format, résolution, durée, cadence, qualité, instrumental, paroles, graine et quantité. La largeur du panneau et les boutons s’adaptent à la fenêtre et aux libellés traduits.
 
@@ -38,7 +38,11 @@ L’automatisation couvre les moteurs et parcours intégrés ; elle ne rend pas 
 
 [Guide d’utilisation](docs/USER_GUIDE.md) · [Moteurs et validations](docs/SUIVI_MOTEURS.md) · [Architecture](docs/DEVELOPMENT.md)
 
+Dans les sources actualisées, **Configurations adapte ses recommandations au mobile et aux petites machines** : LFM3-1.7B Q4, ou LFM3-Omni-2B Q4 avec son projecteur si la mémoire déclarée et le moteur conviennent. Les générations locales indisponibles sont masquées ou bloquées ; image, musique et vidéo cloud configurées restent disponibles. Les indications réutilisent les 80 catalogues de langue. Ces estimations restent à tester sur appareil et nécessitent une recompilation pour intégrer les applications installées.
+
 ## Capacités disponibles dans les sources
+
+Les diagnostics facultatifs de maintenance distinguent désormais les builds et couvrent les échecs interceptés en plus des exceptions JavaScript, avec consentement séparé et champs techniques filtrés. Une alerte e-mail horaire de production est configurée pour le mainteneur. Les symboles privés et les détails des alertes suivent la [procédure de maintenance](docs/MAINTENANCE.md) ; la réception du test e-mail est confirmée ; l'envoi authentifié des symboles et l'essai du prochain binaire restent à vérifier avant release.
 
 | Domaine | Fonctions |
 | --- | --- |
@@ -189,9 +193,11 @@ Le tri par défaut favorise les sorties récentes à compatibilité et mémoire 
 
 [Installation Safetensors quantifiés](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorités et validations](docs/SUIVI_MOTEURS.md)
 
+Les sources ajoutent des **composants facultatifs gérés dans Configurations pour Windows x64** : environnements Python privés, profils CPU/CUDA épinglés, tailles et confirmation avant téléchargement, vérification, réparation et désinstallation. Les chemins personnalisés restent en options avancées. Les moteurs natifs GGUF gardent leurs composants existants ; le mobile et le cloud ne téléchargent pas les piles Python/PyTorch desktop. Trois profils privés CPU/export ont été essayés avec de vraies petites fixtures synthétiques ; Le mainteneur confirme le bon fonctionnement du desktop le 1er novembre 2026 ; les profils GPU et l’installation sur PC neuf restent à vérifier séparément en détail. [Profils et limites des tests](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). L'embarquement dans l'EXE est reporté.
+
 ## 80 langues et variantes d’interface
 
-Les **80 catalogues couvrent les 2 404 clés anglaises actuelles**, dans 15 espaces de noms : menus, configurations, réglages, aides et contrôles média. Les formes plurielles et la direction de l’interface suivent la langue choisie. La langue des réponses et des voix dépend séparément du modèle.
+Les **80 catalogues couvrent les 2 429 clés anglaises actuelles**, dans 15 espaces de noms : menus, configurations, réglages, aides et contrôles média. Les formes plurielles et la direction de l’interface suivent la langue choisie. La langue des réponses et des voix dépend séparément du modèle.
 
 Cette couverture technique ne certifie pas la qualité linguistique : **relecture native et adaptation régionale restent nécessaires**. Consultez les langues, leurs noms et les limites connues dans le [guide des langues](docs/LANGUAGES.md) et le [rapport d’audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -250,3 +256,10 @@ Adresse de réception : `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
 Pour contribuer, scannez ce QR code avec votre portefeuille ou copiez l’adresse ci-dessus. Sélectionnez **Bitcoin (BTC), sur le réseau Bitcoin**, puis choisissez librement votre montant.
 
 <img src=".github/assets/novera-bitcoin-support.png" alt="QR code de l’adresse Bitcoin de soutien à Novera" width="240" />
+
+---
+
+<div align="center">
+  <p><strong>TRON-ABS</strong></p>
+  <p><em>The art of Human with AI</em></p>
+</div>

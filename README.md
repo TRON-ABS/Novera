@@ -11,9 +11,9 @@
 
 ## One dashboard for every creation
 
-![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-2026-10-30.png)
+![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-2026-11-01.png)
 
-*Real Windows application screenshot supplied by the maintainer on 30 October 2026. It shows an image and the controls used to create it; this is not a mockup.*
+*Real Windows application screenshot supplied by the maintainer on 1 November 2026, who reports that the application works well. It shows a generated landscape, its saved-file controls and the unified creation dashboard; this is not a mockup.*
 
 One panel, five modes: **Auto, Text, Image, Music and Video**. Controls follow the selected mode: ratio, resolution, duration, cadence, quality, instrumental, lyrics, seed and quantity. Panel width and buttons adapt to the window and translated labels.
 
@@ -38,7 +38,11 @@ Automation covers integrated engines and workflows; it does not make every Hub m
 
 [User guide](docs/USER_GUIDE.md) · [Engines and validation](docs/SUIVI_MOTEURS.md) · [Development](docs/DEVELOPMENT.md)
 
+In the updated sources, **Configurations adapts its recommendations to mobile and constrained hardware**: LFM3-1.7B Q4, or LFM3-Omni-2B Q4 with its projector when reported memory and engine requirements are met. Unavailable local generation is hidden or blocked; configured cloud image, music and video remain available. Interface guidance reuses the 80 language catalogs. These estimates still require device testing and a rebuild to reach installed applications.
+
 ## Capabilities in the source
+
+Optional maintenance diagnostics now distinguish builds and instrument handled failures as well as JavaScript exceptions, with separate consent and filtered technical fields. An hourly production email alert is configured for the maintainer. Private source maps and alert details follow the [maintenance runbook](docs/MAINTENANCE.md); test email receipt is confirmed, while authenticated symbol upload and testing in the next binary remain release checks.
 
 | Area | Features |
 | --- | --- |
@@ -189,9 +193,11 @@ The default hardware-adapted sort favors newer releases within the same compatib
 
 [Quantized Safetensors setup](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorities and validation](docs/SUIVI_MOTEURS.md)
 
+The updated sources add **optional managed components in Configurations for Windows x64**: private Python environments, pinned CPU/CUDA profiles, estimates and confirmation before downloads, verification, repair and removal. Custom interpreter paths stay under advanced options. Native GGUF engines keep their existing components; mobile and cloud do not download desktop Python/PyTorch. Three private CPU/export profiles were exercised with real synthetic fixtures; The maintainer reports successful desktop use on 1 November 2026; GPU profiles and clean-PC installation still need separate, detailed validation. [Profiles and test limits](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Embedding the stack in the EXE is deferred.
+
 ## 80 interface languages and variants
 
-**All 80 catalogs cover the current 2,404 English keys** across 15 namespaces, including menus, configurations, settings, help and media controls. Plural forms and interface direction follow the selected language. Response and voice languages depend separately on the model.
+**All 80 catalogs cover the current 2,429 English keys** across 15 namespaces, including menus, configurations, settings, help and media controls. Plural forms and interface direction follow the selected language. Response and voice languages depend separately on the model.
 
 This technical coverage does not certify linguistic quality: **native review and regional adaptation remain necessary**. See native labels and known limits in the [language guide](docs/LANGUAGES.md) and [audit report](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -250,3 +256,10 @@ Receiving address: `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
 To contribute, scan this QR code with your wallet or copy the address above. Select **Bitcoin (BTC), on the Bitcoin network**, then choose any amount you wish.
 
 <img src=".github/assets/novera-bitcoin-support.png" alt="QR code for the Novera Bitcoin support address" width="240" />
+
+---
+
+<div align="center">
+  <p><strong>TRON-ABS</strong></p>
+  <p><em>The art of Human with AI</em></p>
+</div>
