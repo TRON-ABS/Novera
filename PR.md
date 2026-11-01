@@ -16,6 +16,8 @@ Add an opt-in feature with the official Novera endpoint, pinned key, Minisign an
 
 The first signed CLI matrix compiled and signed its archives, then failed the public probe fixture test after Git normalized its CRLF bytes. Preserve the authenticated 36-byte probe as a binary file; the committed blob matches SHA-256 7171a7c951ed39095b4d4c398f5efbe45c45df3a2e82245e060fb0927d0e3e14 and the pinned-key Node verifier succeeds. The corrected three-host retry is pending; no CLI installation success is claimed.
 
+The corrected Linux retry passes all seven signed-channel tests. Its separate replacement test then fails before opening the archive because Cargo starts library tests from the package directory. Pass a native absolute archive path on Windows and Unix. The other two jobs continue; no successful CLI replacement is inferred from the signature tests.
+
 ## Validation and publication limits
 
 Web preparation records a reviewed revision and file digests, and checks an HTTP response contract for no-store version metadata, revalidated HTML and matching payloads. Three local HTTP tests cover successive revisions at one origin, stale content refusal and unsafe transport rejection. GitHub Pages is not configured (read-only API check returns 404). No hosting is enabled, browser upgrade is claimed or public deployment is made; the selected origin and real browser renewal test remain required. See [Web delivery](docs/WEB_DELIVERY.md).

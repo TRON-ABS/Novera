@@ -42,7 +42,9 @@ case "$kind" in
     if [[ "${NOVERA_ENABLE_CLI_UPDATER:-false}" == true ]]; then
       node scripts/distribution/ci-check-cli-updater.mjs
       export NOVERA_CLI_TEST_ARCHIVE
-      NOVERA_CLI_TEST_ARCHIVE=$(find .build/candidates/packages -name 'Novera_CLI_*.zip' -type f)
+      # Cargo runs library tests from the package directory, not the shell cwd.
+      # Node returns a native absolute path on Windows as well as Unix runners.
+      NOVERA_CLI_TEST_ARCHIVE=$(node --input-type=module -e 'import fs from "node:fs"; import path from "node:path"; const dir=".build/candidates/packages"; const files=fs.readdirSync(dir).filter(n=>/^Novera_CLI_.*\.zip$/.test(n)); if(files.length!==1)throw new Error("Expected one signed CLI archive"); console.log(fs.realpathSync(path.join(dir,files[0])));')
       cargo test --release --locked --manifest-path src-tauri/Cargo.toml --no-default-features --features cli-signed-updates --lib core::cli::updater::signed::tests
       cargo test --release --locked --manifest-path src-tauri/Cargo.toml --no-default-features --features cli-signed-updates --lib ci_signed_archive_replaces_and_runs_in_an_isolated_directory -- --ignored --test-threads=1
       unset NOVERA_CLI_TEST_ARCHIVE
