@@ -44,6 +44,8 @@ def unlocked(root):
         # A running app opens this file with share_mode(0).
         with path.open('r+b'):
             return True
+    except FileNotFoundError:
+        return True  # The first launch has not created its lock file yet.
     except OSError:
         return False
 
