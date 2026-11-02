@@ -65,7 +65,7 @@ async function main(executable) {
   env.WEBVIEW2_USER_DATA_FOLDER = path.join(scratch, 'webview-profile')
   const require = createRequire(path.resolve('.build/webview2-driver/package.json'))
   const { chromium } = require('playwright-core')
-  const launchReceipt = path.join(portableRoot, 'Data', `ui-launch-${phase}.json`)
+  const launchReceipt = path.join(scratch, 'launch.json')
   const launchLog = path.join(out, 'PORTABLE-UI-'+phase+'.launch.log')
   const launchFd = fs.openSync(launchLog, 'w')
   const launched = spawnSync('powershell.exe', ['-NoProfile', '-File', path.resolve('scripts/distribution/launch-ci-standard-user.ps1'), '-Executable', exe, '-Receipt', launchReceipt, '-LogFile', path.join(out, 'PORTABLE-UI-'+phase+'.log')], { env, windowsHide: true, stdio: ['ignore', launchFd, launchFd], timeout: 60_000 })

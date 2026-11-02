@@ -29,6 +29,10 @@ if ($portable) {
     }
     & icacls.exe (Join-Path $portableRoot 'novera-portable.json') /grant ('*'+$currentSid+':R') /Q | Out-Null
     if ($LASTEXITCODE -ne 0) { throw 'Cannot read the owned portable marker as the test user' }
+    $portableData=Join-Path $portableRoot 'Data'
+    if (!(Test-Path -LiteralPath $portableData -PathType Container) -or ((Get-Item -LiteralPath $portableData).Attributes -band [IO.FileAttributes]::ReparsePoint)) { throw 'Plain owned portable Data folder required' }
+    & icacls.exe $portableData /grant ('*'+$currentSid+':(OI)(CI)M') /T /Q | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw 'Cannot prepare current-user access to its owned portable data' }
 }
 Write-Output 'CI UI launcher: prepare current-user access to owned installation'
 & icacls.exe ([IO.Path]::GetDirectoryName($executablePath)) /grant ('*'+$currentSid+':(OI)(CI)RX') /T /Q | Out-Null
