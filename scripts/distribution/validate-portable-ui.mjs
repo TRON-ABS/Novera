@@ -125,6 +125,11 @@ async function main(executable) {
     Object.assign(receipt, { nativeUiCheckPassed: true, productionManualCheckValidated: expected.supported, observedMessage: expected.text, visibleText: text, settingsOrigin: origin })
   } catch (error) {
     receipt.error = error.message
+    if (!page) {
+      const snapshot = spawnSync('powershell.exe', ['-NoProfile', '-File', path.resolve('scripts/distribution/capture-ci-native-desktop.ps1'), '-Executable', exe, '-OwnedProcessId', String(processHandle.pid), '-OutputFile', path.join(out, 'PORTABLE-UI-'+phase+'-desktop.png')], { env, windowsHide: true, encoding: 'utf8', timeout: 30_000 })
+      receipt.nativeStartupDiagnostic = snapshot.stdout?.slice(-12000)
+      if (snapshot.status !== 0) receipt.diagnosticError = snapshot.stderr?.slice(-4000)
+    }
     if (page) { receipt.visibleTextAtFailure = await page.locator('body').innerText().catch(() => ''); await page.screenshot({ path: path.join(out, 'PORTABLE-UI-'+phase+'.png'), fullPage: true }).catch(() => {}) }
     throw error
   } finally {

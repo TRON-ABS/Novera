@@ -158,7 +158,7 @@ def main():
                 raise RuntimeError('Portable update did not restore the complete runtime')
         subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(executable), 'updated'], env=env, cwd=REPO, check=True, timeout=240)
         ui = json.loads((out/'PORTABLE-UI-updated.json').read_text())
-        report = {'applicationVersion': '1.0.0', 'sourceCommit': os.environ['GITHUB_SHA'], 'zipSha256': digest(archive), 'updaterSha256': digest(payload),
+        report = {'applicationVersion': '1.0.0', 'sourceCommit': os.environ['GITHUB_SHA'], 'compilationCommit': provenance['applicationCommit'], 'zipSha256': digest(archive), 'updaterSha256': digest(payload),
                   'nativeSignatureVerified': downloaded['nativeSignatureVerified'], 'sameVersionNotOffered': current['sameVersionNotOffered'],
                   'tamperedPayloadRejected': rejected['tamperedPayloadRejectedByNativeVerifier'], 'nativeInstallationRequested': installed['installerRequested'],
                   'programRestored': True, 'runtimeFilesCompared': len(provenance['files']), 'discussionBytesPreserved': True, 'modelBytesPreserved': True,
