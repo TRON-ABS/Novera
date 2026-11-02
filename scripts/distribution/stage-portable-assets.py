@@ -36,8 +36,11 @@ def main(release_id):
     for name in [item+suffix for item in names for suffix in ['', '.sig']]:
         expected = next(a for a in descriptor['assets'] if a['name'] == name)
         path = Path('.build/portable/packages')/name
+        digest = hashlib.sha256()
         with path.open('rb') as stream:
-            actual = hashlib.file_digest(stream, 'sha256').hexdigest()
+            for block in iter(lambda: stream.read(1024*1024), b''):
+                digest.update(block)
+        actual = digest.hexdigest()
         if path.stat().st_size != expected['bytes'] or actual != expected['sha256']:
             raise RuntimeError('Candidate differs from reviewed bytes: '+name)
         current = draft()
