@@ -43093,7 +43093,7 @@ mod tests {
 
     fn ready_log_test_script() -> &'static str {
         if cfg!(windows) {
-            "if (Select-String -LiteralPath boot.log -Pattern READY -Quiet) { exit 0 } else { exit 1 }"
+            "if (Select-String -LiteralPath boot.log -Pattern READY -Quiet) { Get-Content -LiteralPath boot.log; exit 0 } else { exit 1 }"
         } else {
             "grep READY boot.log"
         }

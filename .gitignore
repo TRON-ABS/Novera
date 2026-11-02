@@ -22,8 +22,9 @@ pre-install
 # docs
 docs/yarn.lock
 src-tauri/resources/lib
-src-tauri/icons
+src-tauri/icons/*
 !src-tauri/icons/icon.png
+!src-tauri/icons/android/
 src-tauri/gen/apple
 src-tauri/gen/android
 src-tauri/resources/bin
