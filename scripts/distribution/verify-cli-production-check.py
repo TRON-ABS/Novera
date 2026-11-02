@@ -39,7 +39,7 @@ def main():
             profile.mkdir(parents=True)
             env[name] = str(profile)
         result = subprocess.run([str(executable), 'update', '--check'], env=env, cwd=scratch, text=True, capture_output=True, timeout=90)
-        if result.returncode or 'Already up to date (1.0.0)' not in result.stdout:
+        if result.returncode or 'Already on the latest ' not in result.stdout or ' build (1.0.0)' not in result.stdout:
             raise RuntimeError(f'CLI production check failed: {result.returncode}: {result.stdout}\n{result.stderr}')
         receipt = {'platform':platform,'version':'1.0.0','archiveSha256':record['sha256'],'productionCheckPassed':True,'updateInstalled':False,'stdout':result.stdout}
         (out/f'CLI-PRODUCTION-CHECK-{platform}.json').write_text(json.dumps(receipt,indent=2)+'\n')
