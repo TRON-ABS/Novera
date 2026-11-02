@@ -84,7 +84,7 @@ fn clear_webview_profile<R: Runtime>(
     app_handle: &tauri::AppHandle<R>,
     data_folder: &std::path::Path,
 ) {
-    let webview_dir = match crate::core::app::paths::app_data_dir_for(app_handle) {
+    let webview_dir = match crate::core::app::paths::webview_data_dir_for(app_handle) {
         Ok(dir) => dir,
         Err(e) => {
             log::warn!("Cannot resolve webview profile dir: {e}");

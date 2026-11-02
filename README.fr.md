@@ -277,7 +277,10 @@ Pour contribuer, scannez ce QR code avec votre portefeuille ou copiez l’adress
 <div align="center">
   <p>Je vous souhaite à toutes et à tous une merveilleuse aventure avec Novera. Que votre curiosité ouvre de nouvelles portes, que vos idées prennent vie et que chaque création vous emmène un peu plus loin.</p>
   <p><strong>TRON-ABS</strong></p>
+  <p>Mr Sachet Jean-Marc — Chercheur indépendant — France</p>
   <p><em>The art of Human with AI</em></p>
+  <p>Merci à toutes les personnes qui contribuent à un monde meilleur. Par leurs découvertes, leur travail, leur entraide et leur transmission, elles nous ont permis d’en être là aujourd’hui.</p>
+  <p>Nous leur souhaitons le meilleur pour l’avenir, ainsi qu’à toutes celles et ceux qui poursuivent cet élan de partage et d’entraide.</p>
 </div>
 
-<div align="center"><sub>Outil de développement : 🧠 Codex — Sol 6.1</sub></div>
+<div align="center"><sub>Outil de développement : 🧠 Codex — GPT-6.1 Sol</sub></div>

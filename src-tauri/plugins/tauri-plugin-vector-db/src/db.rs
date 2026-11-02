@@ -73,6 +73,62 @@ pub fn collection_path(base: &Path, name: &str) -> PathBuf {
     p
 }
 
+/// Called before the portable app opens its collections. Only path metadata
+/// inside the previous portable root is rebased; chunks/embeddings stay intact.
+pub fn relocate_collection_paths(base: &Path, previous: &Path, current: &Path) -> Result<(), VectorDBError> {
+    if !base.exists() { return Ok(()); }
+    for item in fs::read_dir(base)? {
+        let path = item?.path();
+        let metadata = fs::symlink_metadata(&path)?;
+        #[cfg(windows)]
+        { use std::os::windows::fs::MetadataExt; if metadata.file_attributes() & 0x400 != 0 { return Err(std::io::Error::other("Linked portable collection").into()); } }
+        if metadata.file_type().is_symlink() { return Err(std::io::Error::other("Linked portable collection").into()); }
+        if !metadata.is_file() || path.extension().and_then(|v| v.to_str()) != Some("db") { continue; }
+        let mut connection = Connection::open_with_flags(path, rusqlite::OpenFlags::SQLITE_OPEN_READ_WRITE)?;
+        if connection.query_row("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='files'", [], |row| row.get::<_, i64>(0))? == 0 { continue; }
+        let rows: Vec<(String,String)> = {
+            let mut statement = connection.prepare("SELECT id,path FROM files")?;
+            let rows = statement.query_map([], |row| Ok((row.get(0)?,row.get(1)?)))?;
+            rows.collect::<Result<_,_>>()?
+        };
+        let transaction = connection.transaction()?;
+        for (id,path) in rows {
+            if let Ok(relative) = Path::new(&path).strip_prefix(previous) {
+                transaction.execute("UPDATE files SET path=?1 WHERE id=?2", params![current.join(relative).to_string_lossy(), id])?;
+            }
+        }
+        transaction.commit()?;
+    }
+    Ok(())
+}
+
+#[cfg(test)]
+mod portable_path_tests {
+    use super::*;
+    #[test]
+    fn rebase_only_portable_attachment_paths_and_preserve_chunks() {
+        let temp = tempfile::tempdir().unwrap();
+        let previous = temp.path().join("before");
+        let current = temp.path().join("after");
+        let database = temp.path().join("attachments.db");
+        let connection = Connection::open(&database).unwrap();
+        connection.execute_batch("CREATE TABLE files(id TEXT PRIMARY KEY,path TEXT UNIQUE); CREATE TABLE chunks(text TEXT);").unwrap();
+        connection.execute("INSERT INTO files VALUES('owned',?1)",[previous.join("Data/document.txt").to_string_lossy()]).unwrap();
+        connection.execute("INSERT INTO files VALUES('external',?1)",[temp.path().join("external.txt").to_string_lossy()]).unwrap();
+        connection.execute("INSERT INTO chunks VALUES('synthetic document content')",[]).unwrap();
+        drop(connection);
+        relocate_collection_paths(temp.path(),&previous,&current).unwrap();
+        relocate_collection_paths(temp.path(),&previous,&current).unwrap();
+        let connection=Connection::open(database).unwrap();
+        let owned:String=connection.query_row("SELECT path FROM files WHERE id='owned'",[],|row|row.get(0)).unwrap();
+        let external:String=connection.query_row("SELECT path FROM files WHERE id='external'",[],|row|row.get(0)).unwrap();
+        let text:String=connection.query_row("SELECT text FROM chunks",[],|row|row.get(0)).unwrap();
+        assert_eq!(PathBuf::from(owned),current.join("Data/document.txt"));
+        assert_eq!(PathBuf::from(external),temp.path().join("external.txt"));
+        assert_eq!(text,"synthetic document content");
+    }
+}
+
 pub fn open_or_init_conn(path: &PathBuf) -> Result<Connection, VectorDBError> {
     if let Some(parent) = path.parent() {
         fs::create_dir_all(parent).ok();

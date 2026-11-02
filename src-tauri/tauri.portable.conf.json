@@ -1,0 +1,11 @@
+{
+  "identifier": "io.github.tronabs.novera.portable",
+  "bundle": { "createUpdaterArtifacts": false },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEQ5QkQ3NzY1OTYxQjdBOTYKUldTV2VodVdaWGU5MmRaclZ4dFdLNVZ3U1VwVlRHZTFmNHdMOTBMT0wrTXc3SFZQK1dGbEJXMkEK",
+      "endpoints": ["https://github.com/TRON-ABS/Novera/releases/latest/download/latest-portable.json"],
+      "windows": { "installMode": "passive" }
+    }
+  }
+}

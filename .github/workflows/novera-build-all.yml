@@ -9,7 +9,19 @@ on:
         required: true
         type: choice
         default: all
-        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-arm64, validate-arm64-ui, pages]
+        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-arm64, validate-arm64-ui, validate-portable, stage-portable, pages]
+      portable_candidate_run:
+        description: Successful portable build run to validate again without rebuilding its unchanged native sources
+        type: string
+        default: ''
+      portable_native_ui:
+        description: Include Windows Server UI tests; false verifies native components only and requires separate Windows client UI evidence
+        type: boolean
+        default: false
+      portable_draft_release_id:
+        description: Existing private portable draft to receive only the reviewed signed payloads; never publishes
+        type: string
+        default: ''
       signed_updates:
         description: Embed the Novera desktop or CLI update channel and sign final archives
         type: boolean
@@ -63,12 +75,66 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
+  portable:
+    needs: checks
+    if: inputs.target == 'portable'
+    uses: ./.github/workflows/novera-portable.yml
+    with:
+      native_ui: ${{ inputs.portable_native_ui }}
+    secrets: inherit
+
+  portable-validation:
+    needs: checks
+    if: inputs.target == 'validate-portable'
+    permissions:
+      contents: read
+      actions: read
+    uses: ./.github/workflows/novera-validate-portable.yml
+    with:
+      candidate_run: ${{ inputs.portable_candidate_run }}
+      native_ui: ${{ inputs.portable_native_ui }}
+
+  portable-staging:
+    needs: checks
+    if: inputs.target == 'stage-portable'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Verify unchanged native sources and exact signed candidate
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CANDIDATE_RUN: ${{ inputs.portable_candidate_run }}
+        run: python3 scripts/distribution/reuse-portable-candidate.py "$CANDIDATE_RUN"
+      - name: Stage reviewed payloads in the existing private draft
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DRAFT_RELEASE_ID: ${{ inputs.portable_draft_release_id }}
+        run: python3 scripts/distribution/stage-portable-assets.py "$DRAFT_RELEASE_ID"
+      - name: Retain private staging digests
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: portable-private-staging-${{ github.run_id }}
+          path: .build/validation/
+          if-no-files-found: ignore
+          retention-days: 14
+
   desktop:
     name: ${{ matrix.variant }} / ${{ matrix.arch }}
     needs: checks
     env:
       NOVERA_ENABLE_UPDATER: ${{ inputs.signed_updates && 'true' || 'false' }}
-    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","windows-linux","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
+    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","windows-linux","setup","msi","arm64","linux","macos"]'), inputs.target)
     strategy:
       fail-fast: false
       max-parallel: 3
@@ -94,7 +160,7 @@ jobs:
         run: |
           selected=false
           if [[ "$REQUESTED" == all || "$REQUESTED" == native || "$REQUESTED" == "$VARIANT" ]]; then selected=true; fi
-          if [[ "$VARIANT" == windows && "$REQUESTED" =~ ^(desktop|setup|msi|portable)$ ]]; then selected=true; fi
+          if [[ "$VARIANT" == windows && "$REQUESTED" =~ ^(desktop|setup|msi)$ ]]; then selected=true; fi
           if [[ "$REQUESTED" == windows-linux && "$VARIANT" =~ ^(windows|arm64|linux)$ ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
@@ -366,7 +432,7 @@ jobs:
 
   summary:
     if: always()
-    needs: [checks, desktop, auxiliary, installed-update, pages]
+    needs: [checks, desktop, auxiliary, installed-update, pages, portable, portable-validation, portable-staging]
     runs-on: ubuntu-22.04
     steps:
       - name: Report actual job results
@@ -376,10 +442,16 @@ jobs:
           AUXILIARY: ${{ needs.auxiliary.result }}
           INSTALLED_UPDATE: ${{ needs.installed-update.result }}
           PAGES: ${{ needs.pages.result }}
+          PORTABLE: ${{ needs.portable.result }}
+          PORTABLE_VALIDATION: ${{ needs.portable-validation.result }}
+          PORTABLE_STAGING: ${{ needs.portable-staging.result }}
         run: |
           printf 'Source and update contracts: %s\n' "$CHECKS" >> "$GITHUB_STEP_SUMMARY"
           printf 'Desktop matrix: %s\nAuxiliary matrix: %s\n' "$DESKTOP" "$AUXILIARY" >> "$GITHUB_STEP_SUMMARY"
           printf 'Isolated installed-update validation: %s\n' "$INSTALLED_UPDATE" >> "$GITHUB_STEP_SUMMARY"
           printf 'Launch information Pages deployment: %s\n' "$PAGES" >> "$GITHUB_STEP_SUMMARY"
+          printf 'Native portable package and update validation: %s\n' "$PORTABLE" >> "$GITHUB_STEP_SUMMARY"
+          printf 'Exact signed portable revalidation: %s\n' "$PORTABLE_VALIDATION" >> "$GITHUB_STEP_SUMMARY"
+          printf 'Private portable asset staging (no publication): %s\n' "$PORTABLE_STAGING" >> "$GITHUB_STEP_SUMMARY"
           echo 'Candidates only. No public release, signing certification or device validation is implied.' >> "$GITHUB_STEP_SUMMARY"
-          [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled && "$PAGES" != failure && "$PAGES" != cancelled ]]
+          [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled && "$PAGES" != failure && "$PAGES" != cancelled && "$PORTABLE" != failure && "$PORTABLE" != cancelled && "$PORTABLE_VALIDATION" != failure && "$PORTABLE_VALIDATION" != cancelled && "$PORTABLE_STAGING" != failure && "$PORTABLE_STAGING" != cancelled ]]

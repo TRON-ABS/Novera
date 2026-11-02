@@ -76,7 +76,19 @@ fn absolute_override(raw: Option<OsString>) -> Option<PathBuf> {
 
 /// The override, or `None` when it is unset or malformed.
 fn env_data_dir() -> Option<PathBuf> {
+    #[cfg(feature = "portable")]
+    return Some(super::portable::data_root());
+    #[cfg(not(feature = "portable"))]
     absolute_override(std::env::var_os(DATA_ROOT_ENV))
+}
+
+/// Managed component storage; portable builds keep it next to their profile.
+#[cfg(not(feature = "cli"))]
+pub fn app_local_data_dir_for<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<PathBuf> {
+    #[cfg(feature = "portable")]
+    { let _ = app; return Ok(super::portable::data_root().join("Components")); }
+    #[cfg(not(feature = "portable"))]
+    app.path().app_local_data_dir()
 }
 
 /// The OS app-data root: `$JAN_DATA_ROOT` when set, else `dirs::data_dir()`.
@@ -113,10 +125,29 @@ pub fn data_dir_for<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<PathBuf> {
 /// resolving to its own directory.
 #[cfg(not(feature = "cli"))]
 pub fn app_data_dir_for<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<PathBuf> {
+    #[cfg(feature = "portable")]
+    { let _ = app; return Ok(super::portable::data_root().join("Application")); }
+    #[cfg(not(feature = "portable"))]
     match env_data_dir() {
         Some(dir) => Ok(dir.join(&app.config().identifier)),
         None => app.path().app_data_dir(),
     }
+}
+
+#[cfg(not(feature = "cli"))]
+pub fn app_cache_dir_for<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<PathBuf> {
+    #[cfg(feature = "portable")]
+    { let _ = app; return Ok(super::portable::data_root().join("Cache")); }
+    #[cfg(not(feature = "portable"))]
+    app.path().app_cache_dir()
+}
+
+#[cfg(not(feature = "cli"))]
+pub fn webview_data_dir_for<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<PathBuf> {
+    #[cfg(feature = "portable")]
+    { let _ = app; return Ok(super::portable::webview_root()); }
+    #[cfg(not(feature = "portable"))]
+    app_data_dir_for(app)
 }
 
 /// The vector-db plugin's collection root, under [`data_dir`].

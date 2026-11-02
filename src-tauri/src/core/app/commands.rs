@@ -144,6 +144,10 @@ pub(crate) fn with_temp_data_folder<T>(f: impl FnOnce(&std::path::Path) -> T) ->
 /// Resolve the Jan data folder path without an AppHandle (for CLI use).
 /// Reads AppConfiguration from the config file; falls back to the default location.
 pub fn resolve_jan_data_folder() -> PathBuf {
+    #[cfg(feature = "portable")]
+    return super::portable::data_folder();
+    #[cfg(not(feature = "portable"))]
+    {
     // Explicit override wins on every platform. `dirs::data_dir()` reads
     // XDG_DATA_HOME only on Linux, so tests/headless consumers need a portable
     // way to redirect the data folder without relying on OS-specific env.
@@ -172,6 +176,7 @@ pub fn resolve_jan_data_folder() -> PathBuf {
         .or_else(|_| std::env::var("USERPROFILE"))
         .unwrap_or_default();
     PathBuf::from(home).join(&app_name).join("data")
+    }
 }
 
 #[cfg(not(feature = "cli"))]
@@ -210,7 +215,11 @@ pub fn get_app_configurations<R: Runtime>(app_handle: tauri::AppHandle<R>) -> Ap
     match fs::read_to_string(&configuration_file) {
         Ok(content) => {
             match serde_json::from_str::<AppConfiguration>(&content) {
-                Ok(app_configurations) => app_configurations,
+                Ok(mut app_configurations) => {
+                    #[cfg(feature = "portable")]
+                    { app_configurations.data_folder = super::portable::data_folder().to_string_lossy().into_owned(); }
+                    app_configurations
+                },
                 Err(err) => {
                     log::error!("Failed to parse app config, returning default config instead. Error: {err}");
                     // Use the proper default data folder path, not the relative "./data"
@@ -290,6 +299,10 @@ pub fn get_configuration_file_path<R: Runtime>(app_handle: tauri::AppHandle<R>) 
 #[cfg(not(feature = "cli"))]
 #[tauri::command]
 pub fn default_data_folder_path<R: Runtime>(app_handle: tauri::AppHandle<R>) -> String {
+    #[cfg(feature = "portable")]
+    { let _ = app_handle; return super::portable::data_folder().to_string_lossy().into_owned(); }
+    #[cfg(not(feature = "portable"))]
+    {
     let mut path = paths::data_dir_for(&app_handle).unwrap_or_else(|err| {
         log::error!("Failed to get data directory: {err}. Falling back to home directory.");
         let home = std::env::var(if cfg!(target_os = "windows") {
@@ -313,6 +326,7 @@ pub fn default_data_folder_path<R: Runtime>(app_handle: tauri::AppHandle<R>) -> 
     }
 
     path_str
+    }
 }
 
 #[cfg(not(feature = "cli"))]
@@ -327,6 +341,10 @@ pub fn change_app_data_folder<R: Runtime>(
     app_handle: tauri::AppHandle<R>,
     new_data_folder: String,
 ) -> Result<(), String> {
+    #[cfg(feature = "portable")]
+    if PathBuf::from(&new_data_folder) != super::portable::data_folder() {
+        return Err("Portable data stays in this portable folder. Close Novera and move the entire folder to change its location.".into());
+    }
     // Get current data folder path
     let current_data_folder = get_jan_data_folder_path(app_handle.clone());
     let new_data_folder_path = PathBuf::from(&new_data_folder);

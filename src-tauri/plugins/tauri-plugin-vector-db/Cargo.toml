@@ -28,3 +28,6 @@ uuid = { version = "1.7", features = ["v4", "serde"] }
 
 [build-dependencies]
 tauri-plugin = { version = "2.3.1", features = ["build"] }
+
+[dev-dependencies]
+tempfile = "3"

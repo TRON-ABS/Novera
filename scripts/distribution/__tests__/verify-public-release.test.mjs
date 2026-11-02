@@ -12,6 +12,17 @@ function feeds() {
 test('public feeds advertise only the four selected version-matched official bundles',()=>{
   assert.equal(reviewPublicFeeds(...feeds(),'1.0.0').size,4)
 })
+
+test('portable updates use a separate reviewed payload while preserving the installed-app channels',()=>{
+  const f=feeds()
+  const url='https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-portable/Novera_1.0.0_x64-portable-update.exe'
+  const plan={desktop:Object.fromEntries(Object.entries(f[0].platforms).map(([p,e])=>[p,e.url])),cli:Object.fromEntries(Object.entries(f[1].platforms).map(([p,e])=>[p,e.url])),portable:{'windows-x86_64':url}}
+  const portable={version:'1.0.0',pub_date:'2026-11-02T00:00:00Z',platforms:{'windows-x86_64':{url,signature:'signed'}}}
+  assert.equal(reviewPublicFeeds(...f,'1.0.0',plan,portable).size,5)
+  assert.throws(()=>reviewPublicFeeds(...f,'1.0.0',plan),/portable feed scope/)
+  assert.throws(()=>reviewPublicFeeds(...f,'1.0.0',plan,{...portable,platforms:{'windows-x86_64':f[0].platforms['windows-x86_64']}}),/Program-only/)
+  delete f[0].platforms['linux-x86_64'];assert.throws(()=>reviewPublicFeeds(...f,'1.0.0',plan,portable),/scope/)
+})
 test('an old manifest, missing platform or unreviewed extra platform cannot validate this release',()=>{
   for(const change of [f=>f[0].version='0.9.9',f=>delete f[1].platforms['linux-x86_64'],f=>f[0].platforms['darwin-aarch64']={}]){
     const f=feeds();change(f);assert.throws(()=>reviewPublicFeeds(...f,'1.0.0'),/version or platform/)

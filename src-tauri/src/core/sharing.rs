@@ -6,7 +6,7 @@ use std::{
     io::{Cursor, Read},
     path::{Path, PathBuf},
 };
-use tauri::{Manager, Runtime};
+use tauri::Runtime;
 const MAX_BYTES: usize = 256 * 1024 * 1024;
 
 #[derive(Deserialize)]
@@ -283,9 +283,7 @@ fn stage_payload<R: Runtime>(
     if payload.asset.is_some() == payload.base64.is_some() {
         return Err("SHARE_INVALID".into());
     }
-    let cache = app
-        .path()
-        .app_cache_dir()
+    let cache = crate::core::app::paths::app_cache_dir_for(&app)
         .map_err(|e| e.to_string())?
         .join("shares");
     std::fs::create_dir_all(&cache).map_err(|e| e.to_string())?;

@@ -3,6 +3,9 @@ use crate::core::filesystem::helpers::resolve_path_within_jan_data_folder;
 use std::path::{Path, PathBuf};
 
 pub fn default_models_root() -> Option<PathBuf> {
+    #[cfg(feature = "portable")]
+    return Some(crate::core::app::portable::models_root());
+    #[cfg(not(feature = "portable"))]
     dirs::document_dir().map(|path| path.join("Novera models"))
 }
 

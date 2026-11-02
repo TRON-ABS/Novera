@@ -9,6 +9,10 @@ pub enum VectorDBError {
     InvalidInput(String),
 }
 
+impl From<std::io::Error> for VectorDBError {
+    fn from(error: std::io::Error) -> Self { Self::DatabaseError(error.to_string()) }
+}
+
 impl From<rusqlite::Error> for VectorDBError {
     fn from(err: rusqlite::Error) -> Self {
         VectorDBError::DatabaseError(err.to_string())

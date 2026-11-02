@@ -1,0 +1,148 @@
+name: Novera - Windows portable
+run-name: Novera portable - ${{ github.sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      native_ui:
+        description: Attempt Windows Server UI diagnostics; separate Windows client UI evidence is required when false
+        type: boolean
+        default: false
+  workflow_call:
+    inputs:
+      native_ui:
+        type: boolean
+        default: false
+    secrets:
+      NOVERA_UPDATER_PRIVATE_KEY:
+        required: true
+      NOVERA_UPDATER_PASSWORD:
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: novera-portable-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CI: 'true'
+  IS_TAURI: 'true'
+  IS_DEV: 'false'
+  NOVERA_ENABLE_UPDATER: 'true'
+  STATIC_VCRUNTIME: 'true'
+  JAN_ENGINE_REQUIRE_SIGNING: '0'
+  NOVERA_ANALYTICS_HOST: ''
+  NOVERA_ANALYTICS_PROJECT_KEY: ''
+  NODE_OPTIONS: --max-old-space-size=6144
+
+jobs:
+  portable:
+    runs-on: windows-2025
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Prepare native build toolchain
+        shell: bash
+        run: bash scripts/distribution/ci-prerequisites.sh desktop
+      - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756
+        with:
+          arch: x64
+      - name: Select the native MSVC linker
+        shell: pwsh
+        run: ./scripts/distribution/ci-msvc.ps1
+      - name: Cache the native Rust dependencies across validation retries
+        id: rust-cache
+        continue-on-error: true
+        uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: src-tauri/target
+          key: windows-portable-native-${{ hashFiles('src-tauri/Cargo.lock') }}
+      - name: Reuse the pinned publicly released native engines
+        shell: pwsh
+        run: |
+          python scripts/distribution/prepare-portable-runtime.py --download-source
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Build the actual portable application
+        shell: bash
+        run: |
+          set -euo pipefail
+          yarn install --immutable
+          yarn build:tauri:plugin:api
+          yarn build:core
+          yarn build:extensions
+          yarn build:icon
+          yarn copy:assets:mobile
+          yarn tauri build --ci --no-bundle --features portable --config src-tauri/tauri.portable.conf.json
+          cargo test --locked --manifest-path src-tauri/portable-support/Cargo.toml --target-dir .build/portable-tools
+          cargo test --locked --manifest-path src-tauri/plugins/tauri-plugin-vector-db/Cargo.toml --no-default-features portable_path_tests --target-dir src-tauri/target
+          RUSTFLAGS='-C target-feature=+crt-static' cargo build --release --locked --manifest-path src-tauri/portable-support/Cargo.toml --target-dir .build/portable-tools --bin Novera-Portable-Update
+      - name: Retain compiled dependencies before independent packaging tests
+        if: steps.rust-cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: src-tauri/target
+          key: windows-portable-native-${{ hashFiles('src-tauri/Cargo.lock') }}
+      - name: Package an empty portable profile and Program-only update
+        shell: pwsh
+        run: |
+          $source = (Get-Content .build/portable-source.json -Raw | ConvertFrom-Json).runtime
+          python scripts/distribution/prepare-portable-runtime.py --source-runtime $source --binary src-tauri/target/release/Novera-Desktop.exe --output .build/portable/runtime --build-info .build/portable/build.json
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          python scripts/distribution/package-portable.py --runtime .build/portable/runtime --helper .build/portable-tools/release/Novera-Portable-Update.exe --build-info .build/portable/build.json --output .build/portable/packages
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Sign and independently verify both final payloads
+        id: signing
+        shell: bash
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.NOVERA_UPDATER_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.NOVERA_UPDATER_PASSWORD }}
+        run: node scripts/distribution/sign-portable.mjs
+      - name: Prepare the isolated native updater and WebView2 driver
+        shell: bash
+        run: |
+          set -euo pipefail
+          cargo build --locked --manifest-path scripts/distribution/checks/native-update/Cargo.toml --target-dir .build/native-update-probe
+          mkdir -p .build/webview2-driver
+          printf '{"private":true}' > .build/webview2-driver/package.json
+          npm install --prefix .build/webview2-driver --ignore-scripts --no-audit --no-fund --save-exact playwright-core@1.56.1
+      - name: Verify extraction, native profile relocation and signed Program replacement
+        shell: pwsh
+        env:
+          CHECK_NATIVE_UI: ${{ inputs.native_ui }}
+        run: |
+          if ($env:CHECK_NATIVE_UI -eq 'true') {
+            ./scripts/distribution/ci-portable-user.ps1
+            python scripts/distribution/validate-portable.py
+          } else {
+            python scripts/distribution/validate-portable.py --components-only
+          }
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Retain the exact signed packages
+        if: always() && steps.signing.outcome == 'success'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: windows-portable-${{ github.run_id }}
+          path: .build/portable/packages/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Remove the disposable standard UI account
+        if: always() && inputs.native_ui
+        shell: pwsh
+        run: ./scripts/distribution/ci-portable-user.ps1 -Action Remove
+      - name: Retain native receipts and screenshots
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: windows-portable-proof-${{ github.run_id }}
+          path: .build/validation/
+          if-no-files-found: ignore
+          retention-days: 14

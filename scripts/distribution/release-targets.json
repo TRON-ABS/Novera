@@ -43,11 +43,11 @@
     {
       "id": "portable",
       "host": "Windows x64",
-      "artifacts": ["Portable ZIP", "SHA-256 checksum"],
-      "config": "src-tauri/tauri.windows.conf.json",
-      "sources": ["scripts/distribution/package-windows-portable.ps1", "scripts/package-windows-portable.ps1"],
+      "artifacts": ["Portable ZIP", "Signed portable updater", "Updater signatures", "SHA-256 checksum"],
+      "config": "src-tauri/tauri.portable.conf.json",
+      "sources": ["scripts/distribution/package-windows-portable.ps1", "scripts/package-windows-portable.ps1", "scripts/distribution/package-portable.py", "scripts/distribution/validate-portable.py", "src-tauri/portable-support/src/lib.rs", ".github/workflows/novera-portable.yml"],
       "packageScripts": ["package:portable:win32"],
-      "pending": ["Build a fresh complete Windows runtime before packaging.", "Verify all packaged dependencies and checksums.", "Test the extracted folder on a clean host without developer paths."]
+      "pending": ["Verify the exact signed ZIP and Program-only updater on a clean native Windows runner.", "Verify profile/model preservation across folder movement and signed replacement.", "Publish and verify the dedicated portable update feed before announcing availability."]
     },
     {
       "id": "arm64",
