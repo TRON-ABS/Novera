@@ -9,7 +9,11 @@ on:
         required: true
         type: choice
         default: all
-        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-arm64, validate-arm64-ui, pages]
+        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-arm64, validate-arm64-ui, validate-portable, pages]
+      portable_candidate_run:
+        description: Successful portable build run to validate again without rebuilding its unchanged native sources
+        type: string
+        default: ''
       signed_updates:
         description: Embed the Novera desktop or CLI update channel and sign final archives
         type: boolean
@@ -68,6 +72,16 @@ jobs:
     if: inputs.target == 'portable'
     uses: ./.github/workflows/novera-portable.yml
     secrets: inherit
+
+  portable-validation:
+    needs: checks
+    if: inputs.target == 'validate-portable'
+    permissions:
+      contents: read
+      actions: read
+    uses: ./.github/workflows/novera-validate-portable.yml
+    with:
+      candidate_run: ${{ inputs.portable_candidate_run }}
 
   desktop:
     name: ${{ matrix.variant }} / ${{ matrix.arch }}
@@ -372,7 +386,7 @@ jobs:
 
   summary:
     if: always()
-    needs: [checks, desktop, auxiliary, installed-update, pages, portable]
+    needs: [checks, desktop, auxiliary, installed-update, pages, portable, portable-validation]
     runs-on: ubuntu-22.04
     steps:
       - name: Report actual job results
@@ -383,11 +397,13 @@ jobs:
           INSTALLED_UPDATE: ${{ needs.installed-update.result }}
           PAGES: ${{ needs.pages.result }}
           PORTABLE: ${{ needs.portable.result }}
+          PORTABLE_VALIDATION: ${{ needs.portable-validation.result }}
         run: |
           printf 'Source and update contracts: %s\n' "$CHECKS" >> "$GITHUB_STEP_SUMMARY"
           printf 'Desktop matrix: %s\nAuxiliary matrix: %s\n' "$DESKTOP" "$AUXILIARY" >> "$GITHUB_STEP_SUMMARY"
           printf 'Isolated installed-update validation: %s\n' "$INSTALLED_UPDATE" >> "$GITHUB_STEP_SUMMARY"
           printf 'Launch information Pages deployment: %s\n' "$PAGES" >> "$GITHUB_STEP_SUMMARY"
           printf 'Native portable package and update validation: %s\n' "$PORTABLE" >> "$GITHUB_STEP_SUMMARY"
+          printf 'Exact signed portable revalidation: %s\n' "$PORTABLE_VALIDATION" >> "$GITHUB_STEP_SUMMARY"
           echo 'Candidates only. No public release, signing certification or device validation is implied.' >> "$GITHUB_STEP_SUMMARY"
-          [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled && "$PAGES" != failure && "$PAGES" != cancelled && "$PORTABLE" != failure && "$PORTABLE" != cancelled ]]
+          [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled && "$PAGES" != failure && "$PAGES" != cancelled && "$PORTABLE" != failure && "$PORTABLE" != cancelled && "$PORTABLE_VALIDATION" != failure && "$PORTABLE_VALIDATION" != cancelled ]]

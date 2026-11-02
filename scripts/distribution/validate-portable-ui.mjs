@@ -50,7 +50,7 @@ async function main(executable) {
   fs.mkdirSync(out, { recursive: true })
   const scratch = fs.mkdtempSync(path.join(base, 'novera-portable-ui-'))
   const profile = path.join(scratch, 'profile')
-  const env = Object.fromEntries(Object.entries(process.env).filter(([key]) => !/TOKEN|PASSWORD|SECRET|PRIVATE_KEY/i.test(key)))
+  const env = Object.fromEntries(Object.entries(process.env).filter(([key]) => !/TOKEN|PASSWORD|SECRET|PRIVATE_KEY|API_KEY|ACCESS_KEY|CREDENTIAL|AUTHORIZATION/i.test(key)))
   const locations = { HOME: profile, USERPROFILE: profile, APPDATA: path.join(profile, 'AppData/Roaming'), LOCALAPPDATA: path.join(profile, 'AppData/Local'), TEMP: path.join(scratch, 'tmp'), TMP: path.join(scratch, 'tmp') }
   for (const [name, location] of Object.entries(locations)) { fs.mkdirSync(location, { recursive: true }); env[name] = location }
   for (const name of ['Documents', 'Downloads', 'Desktop']) fs.mkdirSync(path.join(profile, name), { recursive: true })

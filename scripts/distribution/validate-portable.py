@@ -72,7 +72,7 @@ def main():
         raise RuntimeError('Public ZIP includes user data')
     out = REPO/'.build/validation'
     out.mkdir(parents=True, exist_ok=True)
-    env = {k: v for k, v in os.environ.items() if not any(s in k.upper() for s in ['TOKEN', 'PASSWORD', 'SECRET', 'PRIVATE_KEY'])}
+    env = {k: v for k, v in os.environ.items() if not any(s in k.upper() for s in ['TOKEN', 'PASSWORD', 'SECRET', 'PRIVATE_KEY', 'API_KEY', 'ACCESS_KEY', 'CREDENTIAL', 'AUTHORIZATION'])}
     for k in ['CI', 'NOVERA_ENABLE_UPDATER']:
         env.pop(k, None)
     subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(initial/'Program/Novera-Desktop.exe'), 'initial'], env=env, cwd=REPO, check=True, timeout=240)
@@ -157,12 +157,14 @@ def main():
             if digest(moved/item['path']) != item['sha256']:
                 raise RuntimeError('Portable update did not restore the complete runtime')
         subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(executable), 'updated'], env=env, cwd=REPO, check=True, timeout=240)
+        ui = json.loads((out/'PORTABLE-UI-updated.json').read_text())
         report = {'applicationVersion': '1.0.0', 'sourceCommit': os.environ['GITHUB_SHA'], 'zipSha256': digest(archive), 'updaterSha256': digest(payload),
                   'nativeSignatureVerified': downloaded['nativeSignatureVerified'], 'sameVersionNotOffered': current['sameVersionNotOffered'],
                   'tamperedPayloadRejected': rejected['tamperedPayloadRejectedByNativeVerifier'], 'nativeInstallationRequested': installed['installerRequested'],
                   'programRestored': True, 'runtimeFilesCompared': len(provenance['files']), 'discussionBytesPreserved': True, 'modelBytesPreserved': True,
                   'folderMoved': True, 'nativeRootLauncherVerified': True, 'nativeUiInitialMovedUpdatedPassed': True, 'realPublicVersionsUpgradeValidated': False,
-                  'limitations': ['Synthetic data only; no model inference or cross-PC DPAPI key migration is certified.', 'Production current-version UI is a separate post-publication check.']}
+                  'publicCurrentVersionUiValidated': ui['productionManualCheckValidated'],
+                  'limitations': ['Synthetic data only; no model inference or cross-PC DPAPI key migration is certified.', 'An upgrade between two public versions is not certified by these fixtures.']}
         (out/'PORTABLE-VERIFIED.json').write_text(json.dumps(report, indent=2)+'\n')
         print(json.dumps(report))
     finally:
