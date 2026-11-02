@@ -16,7 +16,7 @@ export function reviewedAssetUrl(url, version, filename) {
   return url
 }
 
-export function reviewPublicFeeds(desktop, cli, version, plannedChannels) {
+export function reviewPublicFeeds(desktop, cli, version, plannedChannels, portable) {
   if (!/^\d+\.\d+\.\d+$/.test(version)) throw new Error('Stable version required')
   const files = new Map()
   for (const [kind, feed] of [['desktop', desktop], ['cli', cli]]) {
@@ -34,6 +34,15 @@ export function reviewPublicFeeds(desktop, cli, version, plannedChannels) {
       if (kind === 'cli' && !/^[a-f0-9]{64}$/.test(entry.sha256 ?? '')) throw new Error('Missing CLI checksum')
       files.set(file, entry)
     }
+  }
+  if (plannedChannels?.portable || portable) {
+    const file = `Novera_${version}_x64-portable-update.exe`
+    const planned = plannedChannels?.portable
+    const entry = portable?.platforms?.['windows-x86_64']
+    if (!planned || !portable || portable.version !== version || Number.isNaN(Date.parse(portable.pub_date)) || JSON.stringify(Object.keys(planned)) !== JSON.stringify(['windows-x86_64']) || JSON.stringify(Object.keys(portable.platforms ?? {})) !== JSON.stringify(['windows-x86_64'])) throw new Error('Unexpected portable feed scope')
+    reviewedAssetUrl(planned['windows-x86_64'], version, file)
+    if (entry?.url !== planned['windows-x86_64'] || !entry.signature) throw new Error('Portable updates must use the reviewed Program-only payload')
+    files.set(file, entry)
   }
   return files
 }
@@ -53,7 +62,9 @@ async function main(version, expectedFile) {
   const output = '.build/public-release'
   fs.mkdirSync(output, { recursive: true })
   const feeds = []
-  for (const name of ['latest.json', 'latest-cli.json']) {
+  const manifestNames = ['latest.json', 'latest-cli.json']
+  if (descriptor.channels?.portable) manifestNames.push('latest-portable.json')
+  for (const name of manifestNames) {
     const response = await get(`${origin}latest/download/${name}`)
     const bytes = Buffer.from(await response.arrayBuffer())
     const record = expected.find(a => a.name === name)
@@ -61,7 +72,7 @@ async function main(version, expectedFile) {
     fs.writeFileSync(`${output}/${name}`, bytes)
     feeds.push(JSON.parse(bytes))
   }
-  const files = reviewPublicFeeds(...feeds, version, descriptor.channels)
+  const files = reviewPublicFeeds(feeds[0], feeds[1], version, descriptor.channels, feeds[2])
   const key = JSON.parse(fs.readFileSync('src-tauri/tauri.updater.conf.json')).plugins.updater.pubkey
   const verified = []
   for (const record of expected) {
@@ -76,13 +87,18 @@ async function main(version, expectedFile) {
     if (fs.statSync(target).size !== record.bytes || hash.digest('hex') !== record.sha256) throw new Error('Public asset differs from reviewed bytes: ' + record.name)
     verified.push(record.name)
   }
+  if (descriptor.channels?.portable) {
+    const name = `Novera_${version}_x64-portable.zip`
+    if (!expected.some(record => record.name === name) || !expected.some(record => record.name === name + '.sig')) throw new Error('Missing signed initial portable archive')
+    files.set(name, { signature: fs.readFileSync(`${output}/${name}.sig`, 'utf8').trim() })
+  }
   for (const [name, entry] of files) {
     const signature = fs.readFileSync(`${output}/${name}.sig`, 'utf8').trim()
     if (signature !== entry.signature) throw new Error('Feed signature differs from published signature file')
     const checked = await verifyUpdateBundle(`${output}/${name}`, signature, key)
     if (entry.sha256 && entry.sha256 !== checked.sha256) throw new Error('CLI feed checksum mismatch')
   }
-  const receipt = { version, publicFeedsReachableWithoutCredentials: true, publicAssetsVerified: verified, updaterSignaturesVerified: true, twoPublishedVersionsUpgradeValidated: false }
+  const receipt = { version, publicFeedsReachableWithoutCredentials: true, publicFeedsVerified: feeds.length, publicAssetsVerified: verified, updaterSignaturesVerified: true, signedPayloadsVerified: files.size, twoPublishedVersionsUpgradeValidated: false }
   fs.writeFileSync(`${output}/PUBLIC-RELEASE-VERIFIED.json`, JSON.stringify(receipt, null, 2) + '\n')
   console.log(JSON.stringify(receipt, null, 2))
 }

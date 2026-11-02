@@ -5,7 +5,7 @@ use sha2::{Digest, Sha256};
 use std::{
     collections::HashSet,
     fs::{self, File, OpenOptions},
-    io::{self, Read, Seek, SeekFrom, Write},
+    io::{self, BufRead, BufReader, BufWriter, Read, Seek, SeekFrom, Write},
     path::{Path, PathBuf},
     time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
@@ -283,6 +283,50 @@ fn relocate_yaml(value: &mut serde_yaml::Value, previous: &Path, current: &Path)
     }
 }
 
+fn relocate_lines(path: &Path, previous: &Path, current: &Path) -> io::Result<()> {
+    let temp = path.with_file_name(format!(
+        ".novera-relocate-{}-{}",
+        std::process::id(),
+        SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_nanos()
+    ));
+    let mut output = BufWriter::new(
+        OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .open(&temp)?,
+    );
+    let mut input = BufReader::new(File::open(path)?);
+    let mut changed = false;
+    let mut line = String::new();
+    while input.read_line(&mut line)? != 0 {
+        if let Ok(mut value) = serde_json::from_str::<serde_json::Value>(&line) {
+            if relocate_json(&mut value, previous, current, 0) {
+                serde_json::to_writer(&mut output, &value)?;
+                output.write_all(b"\n")?;
+                changed = true;
+            } else {
+                output.write_all(line.as_bytes())?;
+            }
+        } else {
+            output.write_all(line.as_bytes())?;
+        }
+        line.clear();
+    }
+    output.flush()?;
+    output.get_ref().sync_all()?;
+    drop(output);
+    drop(input);
+    if changed {
+        fs::rename(temp, path)?;
+    } else {
+        fs::remove_file(temp)?;
+    }
+    Ok(())
+}
+
 fn relocate_tree(folder: &Path, previous: &Path, current: &Path) -> io::Result<()> {
     if !folder.exists() {
         return Ok(());
@@ -297,6 +341,10 @@ fn relocate_tree(folder: &Path, previous: &Path, current: &Path) -> io::Result<(
         }
         let extension = path.extension().and_then(|v| v.to_str()).unwrap_or("");
         if !["json", "jsonl", "yml", "yaml"].contains(&extension) {
+            continue;
+        }
+        if extension == "jsonl" {
+            relocate_lines(&path, previous, current)?;
             continue;
         }
         if path.metadata()?.len() > 64 * 1024 * 1024 {
@@ -316,26 +364,6 @@ fn relocate_tree(folder: &Path, previous: &Path, current: &Path) -> io::Result<(
             serde_yaml::to_string(&value)
                 .map_err(|e| invalid(e.to_string()))?
                 .into_bytes()
-        } else if extension == "jsonl" {
-            let text = String::from_utf8(bytes).map_err(|e| invalid(e.to_string()))?;
-            let mut changed = false;
-            let mut lines = Vec::new();
-            for line in text.lines() {
-                let Ok(mut value) = serde_json::from_str::<serde_json::Value>(line) else {
-                    lines.push(line.to_owned());
-                    continue;
-                };
-                if relocate_json(&mut value, previous, current, 0) {
-                    changed = true;
-                    lines.push(serde_json::to_string(&value)?);
-                } else {
-                    lines.push(line.to_owned());
-                }
-            }
-            if !changed {
-                continue;
-            }
-            (lines.join("\n") + "\n").into_bytes()
         } else {
             let Ok(mut value) = serde_json::from_slice::<serde_json::Value>(&bytes) else {
                 continue;

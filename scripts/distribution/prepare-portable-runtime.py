@@ -91,6 +91,7 @@ if __name__ == '__main__':
                 shutil.copytree(src, REPO/'src-tauri/resources', dirs_exist_ok=True)
             else:
                 shutil.copy2(src, REPO/'src-tauri/resources/bin'/(src.stem+'-x86_64-pc-windows-msvc.exe'))
+        (REPO/'.build').mkdir(exist_ok=True)
         (REPO/'.build/portable-source.json').write_text(json.dumps({'runtime': str(source)}))
         print('Pinned runtime prepared for native compilation')
     else:

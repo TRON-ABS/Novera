@@ -46,6 +46,12 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756
         with:
           arch: x64
+      - name: Cache the native Rust dependencies across validation retries
+        uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6
+        with:
+          workspaces: src-tauri
+          key: portable-native
+          cache-on-failure: true
       - name: Reuse the pinned publicly released native engines
         shell: pwsh
         run: |

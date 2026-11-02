@@ -2,6 +2,47 @@ use novera_portable::*;
 use serde_json::json;
 use sha2::{Digest, Sha256};
 
+#[test]
+fn relocating_a_large_discussion_streams_messages_and_preserves_their_text() {
+    let temp = tempfile::tempdir().unwrap();
+    let first = temp.path().join("first");
+    root(&first);
+    let first = validate_root(&first).unwrap();
+    initialize_profile(&first).unwrap();
+    let path = first.join("Data/Novera/data/messages.jsonl");
+    let text = "synthetic message ".repeat(4096);
+    let line = serde_json::to_string(
+        &json!({"text":text,"attachment":first.join("Data/Novera/data/file.txt")}),
+    )
+    .unwrap()
+        + "\n";
+    let mut file = fs::File::create(&path).unwrap();
+    for _ in 0..1024 {
+        file.write_all(line.as_bytes()).unwrap();
+    }
+    drop(file);
+    assert!(path.metadata().unwrap().len() > 64 * 1024 * 1024);
+    let moved = temp.path().join("moved");
+    fs::rename(&first, &moved).unwrap();
+    let moved = validate_root(&moved).unwrap();
+    initialize_profile(&moved).unwrap();
+    use std::io::{BufRead, BufReader};
+    let mut count = 0;
+    for line in
+        BufReader::new(fs::File::open(moved.join("Data/Novera/data/messages.jsonl")).unwrap())
+            .lines()
+    {
+        let value: serde_json::Value = serde_json::from_str(&line.unwrap()).unwrap();
+        assert_eq!(value["text"], text);
+        assert_eq!(
+            value["attachment"],
+            json!(moved.join("Data/Novera/data/file.txt"))
+        );
+        count += 1;
+    }
+    assert_eq!(count, 1024);
+}
+
 #[cfg(windows)]
 #[test]
 fn portable_secrets_are_windows_protected_and_reject_alteration() {
