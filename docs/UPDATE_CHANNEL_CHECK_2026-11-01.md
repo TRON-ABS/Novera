@@ -1,5 +1,7 @@
 # Contrôle UI et canal de production — 1er novembre 2026
 
+**Actualisation du 2 novembre 2026 : Novera 1.0.0 est publiée pour Windows/Linux x64 ; les deux feeds et les quinze assets publics sont vérifiés. Les résultats ci-dessous précèdent cette sortie. Voir [la disponibilité actuelle](LAUNCH_STATUS.md).**
+
 Contrôles distants effectués à **23 h 23 puis 23 h 38, heure de Paris, le 1er novembre**. **Le canal de production n'est pas validé et aucune publication n'a été effectuée.** Le défaut est reproduit sur l'ancien candidat Windows. La correction est ensuite observée le 2 novembre dans un build Windows local et dans une vraie AppImage Linux signée ; les limites de ces preuves sont précisées ci-dessous.
 
 ## Canal réellement observé

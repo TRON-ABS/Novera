@@ -1,9 +1,9 @@
-# fix(validation): support Ubuntu's Python in production CLI checks
+# fix(showcase): announce the verified Windows and Linux release
 
-The public-release workflow runs on Ubuntu 22.04 with Python 3.10. Its CLI production check used `hashlib.file_digest`, introduced in Python 3.11, so it would fail before checking the real signed CLI against the public feed.
+The public Novera v1.0.0 packages are available, but the README files and GitHub Pages still say downloads are closed. Link the canonical release, list the two supported desktop/CLI targets, and keep other platforms and formats explicitly internal. The Pages site remains an informational site; it does not host the Web application.
 
-Compute the same SHA-256 incrementally with the supported hashlib API. The expected checksum, selected signed archive, isolated profile, command and success conditions are unchanged. No application payload is rebuilt or modified.
+Update launch status, CLI availability and the official release policy. Mark the earlier validation documents as historical and record the canonical tag, unchanged asset transfer and exact build/test provenance. The provisional immutable tag is marked superseded; it is not rewritten or deleted.
 
-Validation: local Python syntax and diff checks pass. The existing eleven Python tests pass. The real production command will also execute in the public verification workflow after the canonical v1.0.0 release is available; this PR does not claim that result in advance.
+Validation: both existing Pages contracts and diff checks pass locally. Public verification run 41388605836 succeeds: two unauthenticated HTTPS feeds, all fifteen exact asset sizes/SHA-256 hashes, updater signatures, the real Linux UI and CLI production check. Native installation/replacement run 41386813422 succeeds on both selected hosts. The real Windows candidate displays the current-version message on the available feed; the actual Windows CLI also passes its production check.
 
-This follows merged PR #5 and does not overlap an equivalent open PR. The release tag correction transfers the exact already-verified assets separately and does not change their signatures or provenance.
+The first public version does not certify an upgrade between two public versions. Windows updater signing is not Authenticode. ARM64 visual checks, Apple credentials, mobile/device channels, hosted Web, MSI/Debian/portable scenarios remain separate gates. Pages deployment and its public HTML/image checks follow merging this PR.
