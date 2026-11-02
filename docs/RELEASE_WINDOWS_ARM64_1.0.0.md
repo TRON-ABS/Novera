@@ -14,6 +14,8 @@ Le nouveau banc [WebView2 documenté par Playwright](https://playwright.dev/docs
 
 Le parcours ouvre directement Général, contrôle la version, clique le vrai bouton puis conserve capture et reçu. Avant publication, le feed sans entrée ARM64 doit produire l'erreur explicite. Après publication, le feed officiel incluant ARM64 doit produire le message de version à jour. Ces contrôles ne certifient pas l'onboarding, tous les modèles ni une transition entre deux versions publiques.
 
+Le premier run `41455224313` a atteint le banc UI après les essais natifs, puis a échoué à joindre CDP. L'application fonctionnait et son journal montrait le moteur CPU ARM64 chargé. Le comportement correspond au [durcissement WebView2 sur les processus élevés](https://github.com/tauri-apps/wry/issues/1782). Le lanceur de test utilise désormais le token utilisateur moyen lié, ou un token restreint qui désactive le groupe Administrateurs et les privilèges supplémentaires. Il vérifie le niveau d'intégrité réel du processus enfant ; aucune stratégie machine n'est modifiée. Les reçus d'installation sont écrits avant ce contrôle distinct pour conserver leur résultat même en cas d'échec UI.
+
 Le manifeste complémentaire conserve les URL des paquets Windows x64, Linux x64 et des deux CLI. Il ajoute seulement l'installateur ARM64. Le contrôle public vérifie les dix-neuf fichiers référencés sur les deux releases, leurs empreintes, leurs URL officielles et les cinq signatures de paquets. Le complément contient neuf assets ; le client Web et la CLI ARM64 ne sont pas ajoutés à cette sortie.
 
 Les résultats natifs et publics doivent être ajoutés après leur exécution réelle. La version portable vient ensuite et conserve ses propres exigences de mise à jour.

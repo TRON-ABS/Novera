@@ -3,7 +3,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import net from 'node:net'
-import { spawn, spawnSync } from 'node:child_process'
+import { spawnSync } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
@@ -60,10 +60,13 @@ async function main(executable) {
   env.WEBVIEW2_USER_DATA_FOLDER = path.join(scratch, 'webview-profile')
   const require = createRequire(path.resolve('.build/webview2-driver/package.json'))
   const { chromium } = require('playwright-core')
-  const log = fs.openSync(path.join(out, 'WINDOWS-UPDATER-UI.log'), 'w')
-  const processHandle = spawn(exe, [], { cwd: path.dirname(exe), env, stdio: ['ignore', log, log], windowsHide: true })
+  const launchReceipt = path.join(scratch, 'launch.json')
+  const launched = spawnSync('powershell.exe', ['-NoProfile', '-File', path.resolve('scripts/distribution/launch-ci-standard-user.ps1'), '-Executable', exe, '-Receipt', launchReceipt, '-LogFile', path.join(out, 'WINDOWS-UPDATER-UI.log')], { env, windowsHide: true, encoding: 'utf8', timeout: 30_000 })
+  if (launched.status !== 0) throw new Error(`Standard-user UI launch failed: ${launched.stdout}\n${launched.stderr}`)
+  const processHandle = JSON.parse(fs.readFileSync(launchReceipt, 'utf8'))
+  if (processHandle.integrityRid !== 8192) throw new Error('The actual UI process must run at medium integrity')
   let browser, page
-  const receipt = { platform: 'windows-aarch64', sourceCommit: process.env.GITHUB_SHA, checkedAt: new Date().toISOString(), executableSha256: createHash('sha256').update(binary).digest('hex'), nativeArchitecture: 'arm64', feed: feedUrl, feedPlatformPresent: expected.supported, nativeUiCheckPassed: false, productionManualCheckValidated: false, updateInstalled: false, limitations: ['Direct Settings route in a fresh isolated profile; onboarding and model setup are not covered', 'No offered update or transition between two public versions is installed'] }
+  const receipt = { platform: 'windows-aarch64', sourceCommit: process.env.GITHUB_SHA, checkedAt: new Date().toISOString(), executableSha256: createHash('sha256').update(binary).digest('hex'), nativeArchitecture: 'arm64', processIntegrity: processHandle, feed: feedUrl, feedPlatformPresent: expected.supported, nativeUiCheckPassed: false, productionManualCheckValidated: false, updateInstalled: false, limitations: ['Direct Settings route in a fresh isolated profile; onboarding and model setup are not covered', 'No offered update or transition between two public versions is installed'] }
   try {
     await until(async () => { const r = await fetch(`http://127.0.0.1:${port}/json/version`, { signal: AbortSignal.timeout(2_000) }); return r.ok })
     browser = await chromium.connectOverCDP(`http://127.0.0.1:${port}`)
@@ -89,7 +92,6 @@ async function main(executable) {
     fs.writeFileSync(path.join(out, 'WINDOWS-UPDATER-UI.json'), JSON.stringify(receipt, null, 2) + '\n')
     await browser?.close().catch(() => {})
     if (processHandle.pid) spawnSync('taskkill', ['/PID', String(processHandle.pid), '/T', '/F'], { windowsHide: true, stdio: 'ignore' })
-    fs.closeSync(log)
   }
   console.log(JSON.stringify(receipt, null, 2))
 }
