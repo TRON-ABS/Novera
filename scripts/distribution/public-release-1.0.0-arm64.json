@@ -1,0 +1,131 @@
+{
+  "version": "1.0.0",
+  "publicationTag": "v1.0.0-windows-arm64",
+  "channels": {
+    "desktop": {
+      "windows-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_1.0.0_x64-setup.exe",
+      "linux-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_1.0.0_amd64.AppImage",
+      "windows-aarch64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/Novera_1.0.0_arm64-setup.exe"
+    },
+    "cli": {
+      "windows-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_CLI_1.0.0_windows-x86_64.zip",
+      "linux-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_CLI_1.0.0_linux-x86_64.zip"
+    }
+  },
+  "assets": [
+    {
+      "name": "Novera_1.0.0_x64-setup.exe",
+      "bytes": 821336898,
+      "sha256": "41d2e4e839ff6ec094afe1944760222e50bf3278636f9a2618d4296546c7a4d8",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_1.0.0_x64-setup.exe"
+    },
+    {
+      "name": "Novera_1.0.0_x64-setup.exe.sig",
+      "bytes": 416,
+      "sha256": "ce23c78e9fd35f537916a4d38f15af0189558d065fe43c6224aa735854a9eb94",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_1.0.0_x64-setup.exe.sig"
+    },
+    {
+      "name": "Novera_1.0.0_amd64.AppImage",
+      "bytes": 193722872,
+      "sha256": "01f92f603037827fa8af4054d316f57add583f2801e5e0b66bd5a4621d3fb3ef",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_1.0.0_amd64.AppImage"
+    },
+    {
+      "name": "Novera_1.0.0_amd64.AppImage.sig",
+      "bytes": 416,
+      "sha256": "226f22f32682de841eb5db8296c8e7e9734780a8dd22056585dc2e01c9b3f180",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_1.0.0_amd64.AppImage.sig"
+    },
+    {
+      "name": "Novera_CLI_1.0.0_windows-x86_64.zip",
+      "bytes": 9018016,
+      "sha256": "50be6f3d48711ecb1142c791034d1d1198d52b852da7b6c80f437119f553176d",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_CLI_1.0.0_windows-x86_64.zip"
+    },
+    {
+      "name": "Novera_CLI_1.0.0_windows-x86_64.zip.sig",
+      "bytes": 428,
+      "sha256": "4534df68f0d4b542d268dc629829cc702b92d0bd7637e328d19f1ee6ac01268b",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_CLI_1.0.0_windows-x86_64.zip.sig"
+    },
+    {
+      "name": "Novera_CLI_1.0.0_linux-x86_64.zip",
+      "bytes": 9703897,
+      "sha256": "a2bb4f61d3a5662afbf4d9b8de7804ee9643fd134d7c60473a7c2cf14ae67e9d",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_CLI_1.0.0_linux-x86_64.zip"
+    },
+    {
+      "name": "Novera_CLI_1.0.0_linux-x86_64.zip.sig",
+      "bytes": 424,
+      "sha256": "53fd627c345d21ca4ce0946a28889a50f9dc904ab22865ad889d97314cd0c796",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_CLI_1.0.0_linux-x86_64.zip.sig"
+    },
+    {
+      "name": "latest.json",
+      "bytes": 1979,
+      "sha256": "79bf4487ee0c618a21d86322842a00fd2b9aa511695b251c1fdb9cf5b820ae07",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/latest.json"
+    },
+    {
+      "name": "latest-cli.json",
+      "bytes": 1392,
+      "sha256": "ad47faa0f6f22d614c9b4627d71328494c9dea2536e2710eec676fc9b897cb75",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/latest-cli.json"
+    },
+    {
+      "name": "NOVERA-LICENSE.txt",
+      "bytes": 746,
+      "sha256": "938cbc9619b89ce5a869a1316f36a95f6bd86069b44dbf0ab0bad1ded8d70b5b",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/NOVERA-LICENSE.txt"
+    },
+    {
+      "name": "NOVERA-BRANDING.md",
+      "bytes": 2305,
+      "sha256": "e852bc80159a36b7ef4689a88070fae5cdc5f7f57a44506f08609291316d92bb",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/NOVERA-BRANDING.md"
+    },
+    {
+      "name": "TRON-ABS-SIGNATURE.txt",
+      "bytes": 342,
+      "sha256": "ce5fb43008f4d8f1259cf6583c279cfd9aea4e7801b0e205d68aa11f2849a054",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/TRON-ABS-SIGNATURE.txt"
+    },
+    {
+      "name": "provenance.json",
+      "bytes": 1780,
+      "sha256": "73dd7a2ed5e09ea0046d2687e33ce4eefde1c3d865ec42e8e6849c4b9d2bafea",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/provenance.json"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 1295,
+      "sha256": "aaa39d31eeaec2934be3e88972798bdb6b67b715b2a2dc0f64e579946c271e6b",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/SHA256SUMS.txt"
+    },
+    {
+      "name": "Novera_1.0.0_arm64-setup.exe",
+      "bytes": 68672470,
+      "sha256": "85cab2cb6ececd8d85cb9198769a5076f03ba72c3847ab857af9b3406762a3f3",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/Novera_1.0.0_arm64-setup.exe"
+    },
+    {
+      "name": "Novera_1.0.0_arm64-setup.exe.sig",
+      "bytes": 420,
+      "sha256": "b7cbe6bad8caed97e32fd54b385cfb932d4f0776bc0561d2fedfce02404a73ee",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/Novera_1.0.0_arm64-setup.exe.sig"
+    },
+    {
+      "name": "ARM64-PROVENANCE.json",
+      "bytes": 793,
+      "sha256": "40e28151f48bf479dc6a94c0bbd1e845d69f6b6399e9e86ee157d038e49b2e64",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/ARM64-PROVENANCE.json"
+    },
+    {
+      "name": "ARM64-SHA256SUMS.txt",
+      "bytes": 701,
+      "sha256": "6df052155ccbe81f1fc5c5c22363d850004036d446f757f121d4762705b3b2c4",
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/ARM64-SHA256SUMS.txt"
+    }
+  ]
+}
