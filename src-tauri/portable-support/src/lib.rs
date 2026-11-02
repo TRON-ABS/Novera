@@ -85,7 +85,11 @@ fn crypt_secret(input: &[u8], protect: bool) -> io::Result<Vec<u8>> {
     if success == 0 {
         return Err(io::Error::last_os_error());
     }
-    let bytes = unsafe { std::slice::from_raw_parts(output.data, output.length as usize).to_vec() };
+    let bytes = if output.length == 0 {
+        Vec::new()
+    } else {
+        unsafe { std::slice::from_raw_parts(output.data, output.length as usize).to_vec() }
+    };
     unsafe {
         LocalFree(output.data.cast());
     }
@@ -234,6 +238,15 @@ fn relocate_string(value: &str, previous: &Path, current: &Path, depth: usize) -
     None
 }
 
+fn prose_field(key: &str) -> bool {
+    let key = key.replace(['_', '-'], "").to_ascii_lowercase();
+    matches!(
+        key.as_str(),
+        "content" | "text" | "value" | "title" | "description" | "instructions" | "systemmessage"
+    ) || key.ends_with("prompt")
+        || key.ends_with("template")
+}
+
 fn relocate_json(
     value: &mut serde_json::Value,
     previous: &Path,
@@ -255,8 +268,12 @@ fn relocate_json(
         serde_json::Value::Array(a) => a.iter_mut().fold(false, |changed, v| {
             relocate_json(v, previous, current, depth + 1) | changed
         }),
-        serde_json::Value::Object(o) => o.values_mut().fold(false, |changed, v| {
-            relocate_json(v, previous, current, depth + 1) | changed
+        serde_json::Value::Object(o) => o.iter_mut().fold(false, |changed, (key, v)| {
+            if v.is_string() && prose_field(key) {
+                changed
+            } else {
+                relocate_json(v, previous, current, depth + 1) | changed
+            }
         }),
         _ => false,
     }
@@ -275,8 +292,12 @@ fn relocate_yaml(value: &mut serde_yaml::Value, previous: &Path, current: &Path)
         serde_yaml::Value::Sequence(a) => a.iter_mut().fold(false, |changed, v| {
             relocate_yaml(v, previous, current) | changed
         }),
-        serde_yaml::Value::Mapping(o) => o.values_mut().fold(false, |changed, v| {
-            relocate_yaml(v, previous, current) | changed
+        serde_yaml::Value::Mapping(o) => o.iter_mut().fold(false, |changed, (key, v)| {
+            if v.is_string() && key.as_str().is_some_and(prose_field) {
+                changed
+            } else {
+                relocate_yaml(v, previous, current) | changed
+            }
         }),
         serde_yaml::Value::Tagged(t) => relocate_yaml(&mut t.value, previous, current),
         _ => false,
@@ -383,7 +404,10 @@ pub fn initialize_profile(root: &Path) -> io::Result<()> {
     initialize_profile_with(root, |_, _| Ok(()))
 }
 
-pub fn initialize_profile_with(root: &Path, on_move: impl FnOnce(&Path, &Path) -> io::Result<()>) -> io::Result<()> {
+pub fn initialize_profile_with(
+    root: &Path,
+    on_move: impl FnOnce(&Path, &Path) -> io::Result<()>,
+) -> io::Result<()> {
     for directory in [
         "Data/Novera/data",
         "Data/Models",

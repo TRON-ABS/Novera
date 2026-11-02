@@ -10,7 +10,13 @@ fn relocating_a_large_discussion_streams_messages_and_preserves_their_text() {
     let first = validate_root(&first).unwrap();
     initialize_profile(&first).unwrap();
     let path = first.join("Data/Novera/data/messages.jsonl");
-    let text = "synthetic message ".repeat(4096);
+    let text = format!(
+        "{}\n{}",
+        first
+            .join("Data/literal path mentioned by the user")
+            .display(),
+        "synthetic message ".repeat(4096)
+    );
     let line = serde_json::to_string(
         &json!({"text":text,"attachment":first.join("Data/Novera/data/file.txt")}),
     )
@@ -52,6 +58,10 @@ fn portable_secrets_are_windows_protected_and_reject_alteration() {
         .windows(plaintext.len())
         .any(|part| part == plaintext));
     assert_eq!(unprotect_secret(&protected).unwrap(), plaintext);
+    assert_eq!(
+        unprotect_secret(&protect_secret(b"").unwrap()).unwrap(),
+        b""
+    );
     let middle = protected.len() / 2;
     protected[middle] ^= 1;
     assert!(unprotect_secret(&protected).is_err());
