@@ -45,6 +45,7 @@ dependencies = [
  "machine-uid",
  "minisign-verify",
  "nix 0.30.1",
+ "novera-portable",
  "oauth2",
  "once_cell",
  "png 0.17.16",
@@ -4712,6 +4713,18 @@ name = "noop_proc_macro"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0676bb32a98c1a483ce53e500a81ad9c3d5b3f7c920c28c24e9cb0980d0b5bc8"
+
+[[package]]
+name = "novera-portable"
+version = "1.0.0"
+dependencies = [
+ "flate2",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "sha2",
+ "zip 4.6.1",
+]
 
 [[package]]
 name = "ntapi"
@@ -11104,6 +11117,7 @@ checksum = "caa8cd6af31c3b31c6631b8f483848b91589021b28fffe50adada48d4f4d2ed1"
 dependencies = [
  "arbitrary",
  "crc32fast",
+ "flate2",
  "indexmap 2.14.0",
  "memchr",
 ]

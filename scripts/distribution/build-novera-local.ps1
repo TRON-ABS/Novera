@@ -2,6 +2,7 @@
 [CmdletBinding()]
 param([switch]$WithTelemetry)
 $ErrorActionPreference = 'Stop'
+$previousPortableTauriConfig = $env:TAURI_CONFIG
 Set-StrictMode -Version 2
 
 $repo = if ($env:NOVERA_BUILD_REPO) { [IO.Path]::GetFullPath($env:NOVERA_BUILD_REPO) } else { Split-Path (Split-Path $PSScriptRoot -Parent) -Parent }
@@ -160,7 +161,12 @@ try {
             New-Item -ItemType Directory -Path $output | Out-Null
             Copy-Item -LiteralPath (Join-Path $repo 'web-app/dist') -Destination $output -Recurse
         } else {
-            Run-Step 'desktop' (Join-Path $toolchain 'cargo.exe') @('build','--offline','--locked','--release','--manifest-path','src-tauri/Cargo.toml','--bin','Novera-Desktop')
+            $nativeArgs = @('build','--offline','--locked','--release','--manifest-path','src-tauri/Cargo.toml','--bin','Novera-Desktop')
+            if ($id -eq 'portable') {
+                $env:TAURI_CONFIG = Get-Content -LiteralPath (Join-Path $repo 'src-tauri/tauri.portable.conf.json') -Raw
+                $nativeArgs += @('--features','portable')
+            }
+            Run-Step 'desktop' (Join-Path $toolchain 'cargo.exe') $nativeArgs
             New-Item -ItemType Directory -Path $output | Out-Null
             $binaryRoot = Join-Path $env:CARGO_TARGET_DIR 'release'
             Copy-Item -LiteralPath (Join-Path $binaryRoot 'Novera-Desktop.exe') -Destination $output
@@ -196,7 +202,11 @@ try {
             $buildInfo = "# Novera build`n`nVersion: $($config.version)`nBuild ID: $env:NOVERA_BUILD_ID`nOptional diagnostics configured: $telemetryConfigured`nUser consent required: true`nPrivate symbols: .build/monitoring-symbols/$env:NOVERA_BUILD_ID (not shipped)`n"
             [IO.File]::WriteAllText((Join-Path $output 'BUILD_INFO.md'), $buildInfo)
             if ($id -eq 'portable') {
-                & (Join-Path $repo 'scripts/package-windows-portable.ps1') -RuntimeDir $output -OutputDir (Join-Path $output 'portable')
+                Run-Step 'portable-helper' (Join-Path $toolchain 'cargo.exe') @('build','--offline','--locked','--release','--manifest-path','src-tauri/portable-support/Cargo.toml','--target-dir','.build/portable-tools','--bin','Novera-Portable-Update')
+                $portableRuntime = Join-Path $output 'portable-runtime'
+                $portableInfo = Join-Path $output 'PORTABLE-BUILD.json'
+                Run-Step 'portable-stage' 'python' @('scripts/distribution/prepare-portable-runtime.py','--source-runtime',$output,'--binary',(Join-Path $output 'Novera-Desktop.exe'),'--output',$portableRuntime,'--build-info',$portableInfo,'--local-engine')
+                & (Join-Path $repo 'scripts/package-windows-portable.ps1') -RuntimeDir $portableRuntime -BuildInfo $portableInfo -Helper (Join-Path $repo '.build/portable-tools/release/Novera-Portable-Update.exe') -OutputDir (Join-Path $output 'portable')
             }
         }
     }

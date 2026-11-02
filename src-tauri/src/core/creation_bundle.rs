@@ -78,9 +78,7 @@ async fn probe_nvfp4<R: Runtime>(
 ) -> Result<serde_json::Value, String> {
     let _lease = super::components::lease().await?;
     let python = super::components::resolve(app, python, "media")?;
-    let directory = app
-        .path()
-        .app_data_dir()
+    let directory = super::app::paths::app_data_dir_for(app)
         .map_err(|e| e.to_string())?
         .join("creation-probe");
     tokio::fs::create_dir_all(&directory)
@@ -168,9 +166,7 @@ struct ManagerState {
 }
 static STATE: LazyLock<Mutex<ManagerState>> = LazyLock::new(|| Mutex::new(ManagerState::default()));
 fn state_file<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf, String> {
-    Ok(app
-        .path()
-        .app_data_dir()
+    Ok(super::app::paths::app_data_dir_for(app)
         .map_err(|e| e.to_string())?
         .join("creation-install.json"))
 }
@@ -314,6 +310,8 @@ pub async fn creation_bundle_plan<R: Runtime>(
     {
         return Err("runtime".into());
     }
+    #[cfg(feature = "portable")]
+    let parent = parent.or_else(|| Some(super::app::portable::root().join("Data").to_string_lossy().into_owned()));
     let parent = match parent.filter(|s| !s.is_empty()) {
         Some(p) => PathBuf::from(p),
         None => app
@@ -329,7 +327,12 @@ pub async fn creation_bundle_plan<R: Runtime>(
         variant: variant.clone(),
         python,
         token: uuid::Uuid::new_v4().to_string(),
-        directory: parent.join("Novera models").join(if variant == "all-recommended" {
+        directory: {
+            #[cfg(feature = "portable")]
+            let models = if parent == super::app::portable::root().join("Data").canonicalize().map_err(|_| "destination")? { super::app::portable::models_root() } else { parent.join("Novera models") };
+            #[cfg(not(feature = "portable"))]
+            let models = parent.join("Novera models");
+            models.join(if variant == "all-recommended" {
             ""
         } else if variant == "music-gguf" {
             "ACE-Step 1.5 Turbo 2B Q4_K_M"
@@ -341,7 +344,7 @@ pub async fn creation_bundle_plan<R: Runtime>(
             "FLUX.2 Klein 4B NVFP4"
         } else {
             SUBFOLDER
-        }),
+        }) },
         files,
         total,
         available: free_space(&parent),

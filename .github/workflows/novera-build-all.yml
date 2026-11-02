@@ -63,12 +63,18 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
+  portable:
+    needs: checks
+    if: inputs.target == 'portable'
+    uses: ./.github/workflows/novera-portable.yml
+    secrets: inherit
+
   desktop:
     name: ${{ matrix.variant }} / ${{ matrix.arch }}
     needs: checks
     env:
       NOVERA_ENABLE_UPDATER: ${{ inputs.signed_updates && 'true' || 'false' }}
-    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","windows-linux","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
+    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","windows-linux","setup","msi","arm64","linux","macos"]'), inputs.target)
     strategy:
       fail-fast: false
       max-parallel: 3
@@ -94,7 +100,7 @@ jobs:
         run: |
           selected=false
           if [[ "$REQUESTED" == all || "$REQUESTED" == native || "$REQUESTED" == "$VARIANT" ]]; then selected=true; fi
-          if [[ "$VARIANT" == windows && "$REQUESTED" =~ ^(desktop|setup|msi|portable)$ ]]; then selected=true; fi
+          if [[ "$VARIANT" == windows && "$REQUESTED" =~ ^(desktop|setup|msi)$ ]]; then selected=true; fi
           if [[ "$REQUESTED" == windows-linux && "$VARIANT" =~ ^(windows|arm64|linux)$ ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
@@ -366,7 +372,7 @@ jobs:
 
   summary:
     if: always()
-    needs: [checks, desktop, auxiliary, installed-update, pages]
+    needs: [checks, desktop, auxiliary, installed-update, pages, portable]
     runs-on: ubuntu-22.04
     steps:
       - name: Report actual job results
@@ -376,10 +382,12 @@ jobs:
           AUXILIARY: ${{ needs.auxiliary.result }}
           INSTALLED_UPDATE: ${{ needs.installed-update.result }}
           PAGES: ${{ needs.pages.result }}
+          PORTABLE: ${{ needs.portable.result }}
         run: |
           printf 'Source and update contracts: %s\n' "$CHECKS" >> "$GITHUB_STEP_SUMMARY"
           printf 'Desktop matrix: %s\nAuxiliary matrix: %s\n' "$DESKTOP" "$AUXILIARY" >> "$GITHUB_STEP_SUMMARY"
           printf 'Isolated installed-update validation: %s\n' "$INSTALLED_UPDATE" >> "$GITHUB_STEP_SUMMARY"
           printf 'Launch information Pages deployment: %s\n' "$PAGES" >> "$GITHUB_STEP_SUMMARY"
+          printf 'Native portable package and update validation: %s\n' "$PORTABLE" >> "$GITHUB_STEP_SUMMARY"
           echo 'Candidates only. No public release, signing certification or device validation is implied.' >> "$GITHUB_STEP_SUMMARY"
-          [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled && "$PAGES" != failure && "$PAGES" != cancelled ]]
+          [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled && "$PAGES" != failure && "$PAGES" != cancelled && "$PORTABLE" != failure && "$PORTABLE" != cancelled ]]

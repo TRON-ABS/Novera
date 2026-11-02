@@ -296,6 +296,20 @@ async fn handle_graceful_exit<R: tauri::Runtime>(
     tauri::mobile_entry_point
 )]
 pub fn run() {
+    #[cfg(feature = "portable")]
+    if let Err(error) = core::app::portable::initialize() {
+        rfd::MessageDialog::new().set_title("Novera portable")
+            .set_description(format!("The portable folder could not be opened. Extract the whole archive into a writable folder.\n\n{error}"))
+            .set_level(rfd::MessageLevel::Error).show();
+        return;
+    }
+    let context = tauri::generate_context!();
+    #[cfg(feature = "portable")]
+    let context = {
+        let mut context = context;
+        core::app::portable::configure(&mut context);
+        context
+    };
     // Installed before any plugin: the toolset crate owns no config format, so
     // the `execute_tool` IPC command can only reach a user's `[[hooks]]`
     // through a resolver the app hands it. Without this the desktop is the one
@@ -336,7 +350,7 @@ pub fn run() {
         .plugin(tauri_plugin_websearch::init())
         .plugin(tauri_plugin_agent_tools::init());
 
-    #[cfg(feature = "deep-link")]
+    #[cfg(all(feature = "deep-link", not(feature = "portable")))]
     {
         app_builder = app_builder.plugin(tauri_plugin_deep_link::init());
     }
@@ -449,7 +463,10 @@ pub fn run() {
             // enables only the Novera feed; checks send no installation identity.
             #[cfg(feature = "desktop")]
             if core::updater::policy::configured(app.config().plugins.0.get("updater")) {
-                app.handle().plugin(tauri_plugin_updater::Builder::new().build())?;
+                let updater = tauri_plugin_updater::Builder::new();
+                #[cfg(feature = "portable")]
+                let updater = updater.installer_arg(core::app::portable::updater_arg());
+                app.handle().plugin(updater.build())?;
             }
 
             // A Jan up to 0.8.4 leaves its llama-server router running across an
@@ -499,6 +516,7 @@ pub fn run() {
             // does redirect -- but no spec opens a deep link, so skip both.)
             #[cfg(all(
                 feature = "deep-link",
+                not(feature = "portable"),
                 not(feature = "e2e"),
                 any(windows, target_os = "linux")
             ))]
@@ -522,7 +540,7 @@ pub fn run() {
             setup::setup_theme_listener(app)?;
             Ok(())
         })
-        .build(tauri::generate_context!())
+        .build(context)
         .expect("error while running tauri application");
     // Handle app lifecycle events
     app.run(|app, event| {

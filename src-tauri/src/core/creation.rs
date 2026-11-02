@@ -501,8 +501,8 @@ pub async fn creation_start<R: Runtime>(
         }
         if request.upscale_model.as_deref().is_none_or(|s| s.trim().is_empty()) {
             let name = format!("RealESRGAN_x{factor}plus.pth");
-            let model = app.path().document_dir().map_err(|e| e.to_string())?
-                .join("Novera models/upscale_models").join(name);
+            let model = super::downloads::storage::default_models_root().ok_or("Model directory unavailable")?
+                .join("upscale_models").join(name);
             request.upscale_model = Some(model.to_string_lossy().into_owned());
         }
     }

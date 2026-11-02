@@ -1,8 +1,9 @@
 # Compatibility entry point; implementation belongs to Distribution.
-[CmdletBinding(DefaultParameterSetName = 'Build')]
+[CmdletBinding()]
 param(
-    [Parameter(ParameterSetName = 'Build')][string]$ReleaseDir,
-    [Parameter(Mandatory = $true, ParameterSetName = 'Runtime')][string]$RuntimeDir,
-    [string]$OutputDir
+    [Parameter(Mandatory=$true)][string]$RuntimeDir,
+    [Parameter(Mandatory=$true)][string]$BuildInfo,
+    [Parameter(Mandatory=$true)][string]$Helper,
+    [Parameter(Mandatory=$true)][string]$OutputDir
 )
 & (Join-Path $PSScriptRoot 'distribution/package-windows-portable.ps1') @PSBoundParameters

@@ -113,9 +113,8 @@ case "$kind" in
     fi
     unset TAURI_CONFIG
     node scripts/distribution/record-upgrade-check.mjs .build/upgrade-compatibility.txt
-    if [[ "$CANDIDATE_VARIANT" == windows ]]; then
-      pwsh -NoProfile -File scripts/package-windows-portable.ps1 -RuntimeDir .build/candidates/desktop -OutputDir .build/candidates/portable
-    fi
+    # The portable feature and its signed Program-only updater have their own
+    # workflow; an installed desktop runtime is never relabelled as portable.
     ;;
   android)
     pwsh -NoProfile -File scripts/distribution/ci-android.ps1

@@ -1,14 +1,19 @@
-# Launch only the owned ARM64 CI app at medium integrity; no machine policy changes.
+# Launch only the owned native CI app at medium integrity; no machine policy changes.
 [CmdletBinding()]
 param([Parameter(Mandatory=$true)][string]$Executable,[Parameter(Mandatory=$true)][string]$Receipt,[Parameter(Mandatory=$true)][string]$LogFile)
 $ErrorActionPreference='Stop'
-if ($env:GITHUB_ACTIONS -ne 'true' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or $env:RUNNER_ARCH -ne 'ARM64') { throw 'Disposable ARM64 GitHub runner required' }
+$portable = $env:NOVERA_VALIDATE_PORTABLE -eq 'true' -and $env:RUNNER_ARCH -eq 'X64'
+if ($env:GITHUB_ACTIONS -ne 'true' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or ($env:RUNNER_ARCH -ne 'ARM64' -and !$portable)) { throw 'Disposable ARM64 GitHub runner required (or explicit native x64 portable validation)' }
 $runnerPath=[IO.Path]::GetFullPath($env:RUNNER_TEMP).TrimEnd('\')+'\'
 $executablePath=(Resolve-Path -LiteralPath $Executable).Path
 $receiptPath=[IO.Path]::GetFullPath($Receipt)
 $logPath=[IO.Path]::GetFullPath($LogFile)
 $validationPath=[IO.Path]::GetFullPath((Join-Path $env:GITHUB_WORKSPACE '.build/validation')).TrimEnd('\')+'\'
 if (!$executablePath.StartsWith($runnerPath,[StringComparison]::OrdinalIgnoreCase) -or [IO.Path]::GetFileName($executablePath) -ne 'Novera-Desktop.exe' -or !$receiptPath.StartsWith($runnerPath,[StringComparison]::OrdinalIgnoreCase) -or !$logPath.StartsWith($validationPath,[StringComparison]::OrdinalIgnoreCase)) { throw 'Owned CI installation, scratch receipt and validation log required' }
+if ($portable) {
+    $programPath=[IO.Path]::GetDirectoryName($executablePath)
+    if ([IO.Path]::GetFileName($programPath) -ne 'Program' -or !(Test-Path -LiteralPath (Join-Path ([IO.Path]::GetDirectoryName($programPath)) 'novera-portable.json') -PathType Leaf)) { throw 'Marked portable Program directory required' }
+}
 # These are owned throwaway CI folders. Grant only the current user's SID the
 # access a standard-user install/profile has; never broaden a machine policy.
 $currentSid=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value

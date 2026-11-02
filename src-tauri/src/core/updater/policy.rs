@@ -1,6 +1,9 @@
 //! An updater build may use only Novera's signed GitHub release feed.
+#[cfg(not(feature = "portable"))]
 pub const ENDPOINT: &str =
     "https://github.com/TRON-ABS/Novera/releases/latest/download/latest.json";
+#[cfg(feature = "portable")]
+pub const ENDPOINT: &str = novera_portable::ENDPOINT;
 
 pub fn configured(value: Option<&serde_json::Value>) -> bool {
     let Some(value) = value else { return false };

@@ -77,9 +77,7 @@ fn hash(bytes: &[u8]) -> String {
 }
 fn root<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf, String> {
     // Independent of movable model folders and installation location.
-    let path = app
-        .path()
-        .app_local_data_dir()
+    let path = crate::core::app::paths::app_local_data_dir_for(app)
         .map_err(|_| "COMPONENT_STORAGE")?
         .join("components-v1");
     plain(&path)?;

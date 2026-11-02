@@ -17,6 +17,8 @@ struct Request {
     executable: PathBuf,
     mode: String,
     current_version: String,
+    #[serde(default)]
+    portable_root: Option<PathBuf>,
 }
 
 fn inside(root: &Path, path: &Path) -> Result<PathBuf, Box<dyn Error>> {
@@ -91,13 +93,31 @@ fn main() -> Result<(), Box<dyn Error>> {
         .no_proxy();
     #[cfg(windows)]
     {
-        builder = builder.installer_arg("/CURRENTUSER").installer_arg(format!(
-            "/D={}",
-            executable
-                .parent()
-                .ok_or("No installation directory")?
-                .display()
-        ));
+        if let Some(portable) = &request.portable_root {
+            let portable = inside(&root, portable)?;
+            if executable != portable.join("Program/Novera-Desktop.exe")
+                || !portable.join("novera-portable.json").is_file()
+            {
+                return Err(
+                    "Portable validation requires its own marked Program executable".into(),
+                );
+            }
+            let encoded: String = portable
+                .to_string_lossy()
+                .as_bytes()
+                .iter()
+                .map(|b| format!("{b:02x}"))
+                .collect();
+            builder = builder.installer_arg(format!("--novera-root={encoded}"));
+        } else {
+            builder = builder.installer_arg("/CURRENTUSER").installer_arg(format!(
+                "/D={}",
+                executable
+                    .parent()
+                    .ok_or("No installation directory")?
+                    .display()
+            ));
+        }
     }
     let updater = builder.build()?;
     tauri::async_runtime::block_on(async {

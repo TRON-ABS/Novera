@@ -45,7 +45,8 @@ pub fn model_download_directory(model_id: String) -> Result<String, String> {
 #[tauri::command]
 pub async fn recommended_model_files() -> Result<Vec<InstalledRecommendation>, String> {
     let mut roots = vec![super::app::commands::resolve_jan_data_folder().join("llamacpp/models")];
-    if let Some(documents) = dirs::document_dir() { roots.insert(0, documents.join("Novera models")); }
+    if let Some(models) = default_models_root() { roots.insert(0, models); }
+    #[cfg(not(feature = "portable"))]
     if let Some(downloads) = dirs::download_dir() { roots.push(downloads); }
     tokio::task::spawn_blocking(move || {
         let recommendations: Vec<Recommendation> = serde_json::from_str(include_str!("../../../web-app/src/constants/text-manifest.json")).map_err(|e| e.to_string())?;
