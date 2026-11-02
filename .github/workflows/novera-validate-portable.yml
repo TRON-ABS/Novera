@@ -56,6 +56,7 @@ jobs:
       - name: Native portable profile, relocation and signed replacement checks
         shell: pwsh
         run: |
+          ./scripts/distribution/ci-portable-user.ps1
           python scripts/distribution/validate-portable.py
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Retain actual screenshots and native receipts
@@ -66,3 +67,7 @@ jobs:
           path: .build/validation/
           if-no-files-found: ignore
           retention-days: 14
+      - name: Remove the disposable standard UI account
+        if: always()
+        shell: pwsh
+        run: ./scripts/distribution/ci-portable-user.ps1 -Action Remove

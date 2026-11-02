@@ -277,7 +277,10 @@ To contribute, scan this QR code with your wallet or copy the address above. Sel
 <div align="center">
   <p>To everyone beginning their journey with Novera: may your curiosity open new doors, your ideas come to life and every creation take you a little further.</p>
   <p><strong>TRON-ABS</strong></p>
+  <p>Mr Sachet Jean-Marc — Independent researcher — France</p>
   <p><em>The art of Human with AI</em></p>
+  <p>Thank you to everyone who contributes to a better world. Through their discoveries, work, mutual support and the knowledge they pass on, they have helped us reach where we are today.</p>
+  <p>We wish them the very best for the future, along with everyone who carries this spirit of sharing and helping others forward.</p>
 </div>
 
-<div align="center"><sub>Development tool: 🧠 Codex — Sol 6.1</sub></div>
+<div align="center"><sub>Development tool: 🧠 Codex — GPT-6.1 Sol</sub></div>

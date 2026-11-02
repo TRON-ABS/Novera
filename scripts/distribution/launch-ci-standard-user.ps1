@@ -20,6 +20,12 @@ if ($portable) {
 # These are owned throwaway CI folders. Grant only the current user's SID the
 # access a standard-user install/profile has; never broaden a machine policy.
 $currentSid=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value
+$testAccount=$null
+if ($portable) {
+    $testAccount=Get-Content -LiteralPath (Join-Path $env:RUNNER_TEMP 'novera-portable-ui-account.json') -Raw | ConvertFrom-Json
+    if ($testAccount.name -notlike 'nv-ui-*' -or $testAccount.sid -notmatch '^S-1-5-21-') { throw 'Owned disposable test account required' }
+    $currentSid=$testAccount.sid
+}
 if ($portable) {
     # The privileged fixture extractor owns these files. A real user extracting
     # their portable folder already has these same read/traverse rights.
@@ -63,6 +69,7 @@ public static class StandardUiProcess {
   [DllImport("kernel32.dll")] static extern IntPtr LocalFree(IntPtr handle);
   [DllImport("kernel32.dll")] static extern bool TerminateProcess(IntPtr process,uint code);
   [DllImport("advapi32.dll",SetLastError=true)] static extern bool OpenProcessToken(IntPtr process,uint access,out IntPtr token);
+  [DllImport("advapi32.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool LogonUser(string user,string domain,string password,uint logonType,uint provider,out IntPtr token);
   [DllImport("advapi32.dll",SetLastError=true)] static extern bool GetTokenInformation(IntPtr token,int type,IntPtr data,int size,out int needed);
   [DllImport("advapi32.dll",SetLastError=true)] static extern bool SetTokenInformation(IntPtr token,int type,IntPtr data,int size);
   [DllImport("advapi32.dll",SetLastError=true)] static extern bool DuplicateTokenEx(IntPtr token,uint access,IntPtr attributes,int level,int type,out IntPtr result);
@@ -93,12 +100,13 @@ public static class StandardUiProcess {
     try { IntPtr copy=IntPtr.Add(data,label); Require(CopySid(GetLengthSid(sid),copy,sid)); Marshal.StructureToPtr(new SidAttributes { Sid=copy,Attributes=0x20 },data,false); Require(SetTokenInformation(token,25,data,size),"Set restricted token to medium integrity"); }
     finally { LocalFree(sid); Marshal.FreeHGlobal(data); }
   }
-  public static Result Start(string executable,string log) {
+  public static Result Start(string executable,string log,string user,string password) {
     IntPtr source=IntPtr.Zero,target=IntPtr.Zero,environment=IntPtr.Zero,output=IntPtr.Zero,input=IntPtr.Zero;
     ProcessInfo process=new ProcessInfo(); string mode="current-medium";
     try {
       Require(OpenProcessToken(GetCurrentProcess(),0x008b,out source),"Open current process token with adjust-default access");
-      if (Integrity(source)==8192) Require(DuplicateTokenEx(source,0xf01ff,IntPtr.Zero,2,1,out target),"Duplicate medium token");
+      if (!string.IsNullOrEmpty(user)) { Require(LogonUser(user,".",password,2,0,out target),"Log on disposable standard UI user"); mode="standard-account"; }
+      else if (Integrity(source)==8192) Require(DuplicateTokenEx(source,0xf01ff,IntPtr.Zero,2,1,out target),"Duplicate medium token");
       else {
         int needed; IntPtr linked=Marshal.AllocHGlobal(IntPtr.Size);
         try { if (GetTokenInformation(source,19,linked,IntPtr.Size,out needed)) target=Marshal.ReadIntPtr(linked); }
@@ -123,7 +131,7 @@ public static class StandardUiProcess {
       Console.Error.WriteLine("CI UI launcher: create app process");
       bool created=mode=="restricted-medium"
         ? CreateProcessAsUserW(target,executable,new StringBuilder("\""+executable+"\""),IntPtr.Zero,IntPtr.Zero,true,0x400,environment,System.IO.Path.GetDirectoryName(executable),ref startup,out process)
-        : CreateProcessWithTokenW(target,0,executable,new StringBuilder("\""+executable+"\""),0x400,environment,System.IO.Path.GetDirectoryName(executable),ref startup,out process);
+        : CreateProcessWithTokenW(target,mode=="standard-account" ? 1u : 0u,executable,new StringBuilder("\""+executable+"\""),0x400,environment,System.IO.Path.GetDirectoryName(executable),ref startup,out process);
       Require(created,"Create medium-integrity app process ("+mode+")");
       IntPtr child; Require(OpenProcessToken(process.Process,8,out child),"Verify child process token"); int level; bool elevated;
       try { level=Integrity(child); elevated=Elevated(child); } finally { CloseHandle(child); }
@@ -137,7 +145,7 @@ public static class StandardUiProcess {
 }
 '@
 Write-Output 'CI UI launcher: start verified app with reduced privileges'
-$launched=[StandardUiProcess]::Start($executablePath,$logPath)
+$launched=[StandardUiProcess]::Start($executablePath,$logPath,$testAccount.name,$testAccount.password)
 $result=[pscustomobject]@{pid=$launched.ProcessId;integrityRid=$launched.IntegrityRid;elevated=$launched.Elevated;mode=$launched.Mode}
 [IO.File]::WriteAllText($receiptPath,($result|ConvertTo-Json -Compress),[Text.UTF8Encoding]::new($false))
 Write-Output 'CI UI launcher: verified process receipt written'
