@@ -380,6 +380,10 @@ fn relocate_tree(folder: &Path, previous: &Path, current: &Path) -> io::Result<(
 
 /// Call while holding profile_lock and before any Tauri/plugin/profile reader starts.
 pub fn initialize_profile(root: &Path) -> io::Result<()> {
+    initialize_profile_with(root, |_, _| Ok(()))
+}
+
+pub fn initialize_profile_with(root: &Path, on_move: impl FnOnce(&Path, &Path) -> io::Result<()>) -> io::Result<()> {
     for directory in [
         "Data/Novera/data",
         "Data/Models",
@@ -405,6 +409,7 @@ pub fn initialize_profile(root: &Path) -> io::Result<()> {
             for folder in ["Data/Novera", "Data/Models", "Data/Application"] {
                 relocate_tree(&root.join(folder), &previous, root)?;
             }
+            on_move(&previous, root)?;
         }
     }
     atomic_write(

@@ -34,7 +34,11 @@ pub fn initialize() -> Result<(), Box<dyn std::error::Error>> {
             "Close the other Novera portable instance or update before opening this folder: {e}"
         )
     })?;
-    novera_portable::initialize_profile(&portable_root)?;
+    novera_portable::initialize_profile_with(&portable_root, |previous, current| {
+        tauri_plugin_vector_db::db::relocate_collection_paths(
+            &current.join("Data/Novera/data/db"), previous, current,
+        ).map_err(|error| std::io::Error::other(error.to_string()))
+    })?;
     ROOT.set(portable_root)
         .map_err(|_| "Portable profile already initialized")?;
     LOCK.set(guard)

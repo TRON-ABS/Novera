@@ -57,7 +57,7 @@ test('portable packaging is included in the same target set as the local launche
   const launcher = fs.readFileSync(path.join(root, 'scripts/distribution/build-novera-local.ps1'), 'utf8')
   assert.deepEqual([...launcher.matchAll(/Id='([^']+)'/g)].map(match => match[1]), manifest.targets.map(target => target.id))
   const portable = checkReleaseReadiness(root).targets.find(target => target.id === 'portable')
-  assert.deepEqual(portable.artifacts, ['Portable ZIP', 'SHA-256 checksum'])
+  assert.deepEqual(portable.artifacts, ['Portable ZIP', 'Signed portable updater', 'Updater signatures', 'SHA-256 checksum'])
 })
 
 test('a missing platform config fails the source audit', t => {

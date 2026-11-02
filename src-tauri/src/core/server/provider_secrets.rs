@@ -263,8 +263,9 @@ pub fn has_stored_key(provider: &str) -> bool {
     #[cfg(feature = "portable")]
     return !file_load(provider).is_empty();
     #[cfg(not(feature = "portable"))]
-    read_index().contains(provider)
-        || !file_load(provider).is_empty()
+    {
+        read_index().contains(provider) || !file_load(provider).is_empty()
+    }
 }
 
 fn file_store(provider: &str, keys: &[String]) -> Result<(), String> {
