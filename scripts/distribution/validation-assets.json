@@ -19,18 +19,19 @@
       }
     },
     "windows-aarch64": {
-      "commit": "d0a29f634488c94f968b0eeaed9b0d12f78c011b",
+      "commit": "428299c34d66170f543722ea98a11de6e3e50979",
+      "releaseId": 431502952,
       "bundle": {
-        "id": 698958386,
+        "id": 701876750,
         "name": "Novera_1.0.0_arm64-setup.exe",
-        "bytes": 68654672,
-        "sha256": "6b0adb92b9318902e8a62c07edcd0d02ac0429f170b0040a5919537d3efcfc68"
+        "bytes": 68672470,
+        "sha256": "85cab2cb6ececd8d85cb9198769a5076f03ba72c3847ab857af9b3406762a3f3"
       },
       "signature": {
-        "id": 698961156,
+        "id": 701880775,
         "name": "Novera_1.0.0_arm64-setup.exe.sig",
         "bytes": 420,
-        "sha256": "843777f52e64ad645451b01cc44a165d938e505a07159dd54a578c105de80319"
+        "sha256": "b7cbe6bad8caed97e32fd54b385cfb932d4f0776bc0561d2fedfce02404a73ee"
       }
     },
     "linux-x86_64": {

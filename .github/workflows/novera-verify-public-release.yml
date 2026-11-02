@@ -16,7 +16,7 @@ jobs:
           node-version: 24
           package-manager-cache: false
       - name: Verify public feeds and all exact signed release assets
-        run: node scripts/distribution/verify-public-release.mjs 1.0.0 scripts/distribution/public-release-1.0.0.json
+        run: node scripts/distribution/verify-public-release.mjs 1.0.0 scripts/distribution/public-release-1.0.0-arm64.json
       - name: Native Linux UI prerequisites
         run: |
           bash scripts/distribution/ci-prerequisites.sh desktop

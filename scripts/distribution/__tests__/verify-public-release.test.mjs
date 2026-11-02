@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { reviewPublicFeeds } from '../verify-public-release.mjs'
+import { reviewPublicFeeds, reviewedAssetUrl } from '../verify-public-release.mjs'
 
 function feeds() {
   const base='https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/'
@@ -25,4 +25,20 @@ test('a redirected repository, wrong bundle format or absent signature cannot pa
 test('public CLI checksums and the desktop publication date are mandatory',()=>{
   let f=feeds();f[1].platforms['windows-x86_64'].sha256='';assert.throws(()=>reviewPublicFeeds(...f,'1.0.0'),/checksum/)
   f=feeds();f[0].pub_date='invalid';assert.throws(()=>reviewPublicFeeds(...f,'1.0.0'),/date/)
+})
+
+test('an additive ARM64 publication preserves the original desktop and CLI URLs at application version 1.0.0',()=>{
+  const f=feeds()
+  const arm='https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/Novera_1.0.0_arm64-setup.exe'
+  f[0].platforms['windows-aarch64']={url:arm,signature:'signed'}
+  const plan={desktop:Object.fromEntries(Object.entries(f[0].platforms).map(([p,e])=>[p,e.url])),cli:Object.fromEntries(Object.entries(f[1].platforms).map(([p,e])=>[p,e.url]))}
+  assert.equal(reviewPublicFeeds(...f,'1.0.0',plan).size,5)
+  assert.throws(()=>reviewPublicFeeds(...f,'1.0.0'),/scope/)
+  delete f[0].platforms['windows-x86_64'];assert.throws(()=>reviewPublicFeeds(...f,'1.0.0',plan),/scope/)
+})
+
+test('reviewed cross-release URLs cannot change repository, application version, filename or add query credentials',()=>{
+  const good='https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-arm64/Novera_1.0.0_arm64-setup.exe'
+  assert.equal(reviewedAssetUrl(good,'1.0.0','Novera_1.0.0_arm64-setup.exe'),good)
+  for(const url of [good.replace('TRON-ABS','other'),good.replace('v1.0.0','v1.0.1'),good+'?token=x',good.replace('arm64-setup.exe','x64-setup.exe')])assert.throws(()=>reviewedAssetUrl(url,'1.0.0','Novera_1.0.0_arm64-setup.exe'),/official release asset/)
 })

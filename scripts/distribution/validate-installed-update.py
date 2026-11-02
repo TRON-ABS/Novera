@@ -215,6 +215,8 @@ def main():
         if runtime_hashes(executable)!=expected_runtime:raise RuntimeError('Installed runtime differs after the native update')
         if digest(sentinel)!=sentinel_digest: raise RuntimeError('Update changed unrelated synthetic profile data')
         final_smoke=smoke(executable,env,receipts,'after-update')
+        if platform=='windows-aarch64' and os.environ.get('NOVERA_VALIDATE_WINDOWS_UI')=='true':
+            subprocess.run(['node',str(REPO/'scripts/distribution/validate-windows-update-ui.mjs'),str(executable)],env=env,cwd=REPO,check=True,timeout=180)
         report={'platform':platform,'compilationCommit':selected['commit'],'sourceReleaseId':selected.get('releaseId', config['releaseId']),
             'bundleSha256':selected['bundle']['sha256'],'initialInstallationPerformed':True,
             'nativeUpdaterSignatureVerified':True,'tamperedPayloadRejected':tampered['tamperedPayloadRejectedByNativeVerifier'],
