@@ -34,7 +34,7 @@ def runtime_files(runtime):
         parts = name.lower().split('/')
         if any(p in ['data', 'models', 'threads', 'chats', 'profiles', 'logs', 'user-data'] or p.startswith('.env') for p in parts):
             raise ValueError('Private data is never a portable runtime input')
-        if path.suffix.lower() in ['.gguf', '.safetensors', '.pth', '.pt', '.db', '.sqlite', '.pdb', '.log', '.map']:
+        if path.suffix.lower() in ['.gguf', '.safetensors', '.pth', '.pt', '.onnx', '.db', '.sqlite', '.pdb', '.log', '.map', '.pem', '.key', '.p12', '.pfx', '.enc']:
             raise ValueError('Unexpected runtime data or debug file')
         if path.stat().st_size == 0:
             raise ValueError('Empty runtime file')
@@ -99,6 +99,7 @@ Les secrets cloud restent protégés par Windows ; reconnectez vos fournisseurs
 sur un autre PC/compte Windows. Ils ne sont pas exportés en clair.
 Les environnements Python facultatifs peuvent nécessiter une réparation après
 déplacement ; vos modèles et discussions restent dans Data.
+La signature updater ne vaut pas Authenticode ; Windows peut afficher un éditeur inconnu.
 
 Extract the complete archive and start Novera.exe. Keep Program and Data together.
 Close Novera before moving the folder or ejecting USB storage. Back up Data.

@@ -28,10 +28,12 @@ def source_runtime():
     base = Path(os.environ['RUNNER_TEMP'])/'novera-portable-source'
     base.mkdir()
     installer = base/'source.exe'
+    print('Downloading the pinned immutable engine runtime', flush=True)
     with urllib.request.urlopen(SOURCE_URL, timeout=180) as response, installer.open('xb') as target:
         shutil.copyfileobj(response, target)
     if digest(installer) != SOURCE_SHA256:
         raise RuntimeError('Original immutable source installer hash mismatch')
+    print('Source bytes verified; staging the source runtime', flush=True)
     runtime = base/'runtime'
     subprocess.run([str(installer), '/S', '/CURRENTUSER', '/D='+str(runtime)], check=True, timeout=600)
     if not (runtime/'Novera-Desktop.exe').is_file():

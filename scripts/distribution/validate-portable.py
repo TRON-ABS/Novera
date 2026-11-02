@@ -34,7 +34,7 @@ def wait(test, message, seconds=120):
 
 def stop_owned(executable):
     # Exact executable path inside this test's temp root; never match process names.
-    script = "$targetExe=$env:NOVERA_OWNED_EXE; Get-CimInstance Win32_Process | Where-Object { $_.ExecutablePath -eq $targetExe } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }"
+    script = "$targetExe=$env:NOVERA_OWNED_EXE; Get-CimInstance Win32_Process | Where-Object { $_.ExecutablePath -eq $targetExe } | ForEach-Object { & taskkill.exe /PID $_.ProcessId /T /F }"
     subprocess.run(['powershell.exe', '-NoProfile', '-Command', script], env=dict(os.environ, NOVERA_OWNED_EXE=str(executable)), check=True, capture_output=True)
 
 
@@ -77,6 +77,14 @@ def main():
         env.pop(k, None)
     subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(initial/'Program/Novera-Desktop.exe'), 'initial'], env=env, cwd=REPO, check=True, timeout=240)
     wait(lambda: unlocked(initial), 'first portable app exit')
+    # The public entry point is the native root launcher, not the inner EXE.
+    subprocess.run([str(initial/'Novera.exe')], env=env, cwd=initial, check=True, timeout=60)
+    wait(lambda: not unlocked(initial), 'root launcher started the real app')
+    time.sleep(5)
+    if unlocked(initial):
+        raise RuntimeError('The root-launched application exited unexpectedly')
+    stop_owned(initial/'Program/Novera-Desktop.exe')
+    wait(lambda: unlocked(initial), 'root-launched app exit')
     moved = base/'autre disque espace é'
     initial.rename(moved)
     executable = moved/'Program/Novera-Desktop.exe'
@@ -153,7 +161,7 @@ def main():
                   'nativeSignatureVerified': downloaded['nativeSignatureVerified'], 'sameVersionNotOffered': current['sameVersionNotOffered'],
                   'tamperedPayloadRejected': rejected['tamperedPayloadRejectedByNativeVerifier'], 'nativeInstallationRequested': installed['installerRequested'],
                   'programRestored': True, 'runtimeFilesCompared': len(provenance['files']), 'discussionBytesPreserved': True, 'modelBytesPreserved': True,
-                  'folderMoved': True, 'nativeUiInitialMovedUpdatedPassed': True, 'realPublicVersionsUpgradeValidated': False,
+                  'folderMoved': True, 'nativeRootLauncherVerified': True, 'nativeUiInitialMovedUpdatedPassed': True, 'realPublicVersionsUpgradeValidated': False,
                   'limitations': ['Synthetic data only; no model inference or cross-PC DPAPI key migration is certified.', 'Production current-version UI is a separate post-publication check.']}
         (out/'PORTABLE-VERIFIED.json').write_text(json.dumps(report, indent=2)+'\n')
         print(json.dumps(report))

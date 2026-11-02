@@ -46,6 +46,9 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756
         with:
           arch: x64
+      - name: Select the native MSVC linker
+        shell: pwsh
+        run: ./scripts/distribution/ci-msvc.ps1
       - name: Cache the native Rust dependencies across validation retries
         id: rust-cache
         uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
