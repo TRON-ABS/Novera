@@ -1,23 +1,23 @@
 [package]
-name = "jan-cli"
+name = "novera-cli"
 version = "1.0.0"
 description = "Novera CLI: chat with remote AI models in an interactive agent console."
 authors = ["TRON-ABS", "Jan contributors"]
 license = "Apache-2.0"
 repository = "https://github.com/TRON-ABS/Novera"
 edition = "2021"
-# Matches ../Cargo.toml: `agent-client-protocol` (behind `jan acp`) needs 1.88.
+# Matches ../Cargo.toml: `agent-client-protocol` (behind `novera acp`) needs 1.88.
 rust-version = "1.88"
 
 # A standalone crate (NOT a workspace member of ../Cargo.toml) so the Tauri
 # bundler never enumerates it as a bin target of the desktop app -- tauri-cli
-# ignores required-features and would otherwise try to copy a `jan` binary the
+# ignores required-features and would otherwise try to copy a `novera` binary the
 # desktop build never produces. Standalone also keeps it clear of the desktop
 # build's `ctoml package.name "Jan-<channel>"` rename, which a member could not
 # resolve its `package = "Novera"` dep against. `.cargo/config.toml` redirects
-# output to ../target so `target/release/jan` is unchanged.
+# output to ../target so `target/release/novera` is unchanged.
 [[bin]]
-name = "jan"
+name = "novera"
 path = "src/main.rs"
 
 [features]

@@ -113,7 +113,7 @@ pub fn begin(provider: AccountProvider) -> Result<AccountLogin, String> {
         if provider == AccountProvider::Codex {
             query.append_pair("id_token_add_organizations", "true");
             query.append_pair("codex_cli_simplified_flow", "true");
-            query.append_pair("originator", "jan");
+            query.append_pair("originator", "novera");
         } else {
             query.append_pair("code", "true");
         }
@@ -131,7 +131,7 @@ pub fn begin(provider: AccountProvider) -> Result<AccountLogin, String> {
     })
 }
 
-/// Append one line to the account-oauth debug log (under the Jan data
+/// Append one line to the account-oauth debug log (under the Novera data
 /// folder's `logs/` directory). Best-effort: a failing login must never be
 /// blocked by a failing log write. The on-screen message stays sanitized;
 /// this file carries the real stage/status/body detail for diagnostics.
@@ -632,12 +632,12 @@ fn parse_claude_code_secret(raw: &str) -> Option<String> {
 }
 
 /// Parse the full `claudeAiOauth` block Claude Code stores in its keychain
-/// JSON into a Jan [`OAuthToken`] (access + refresh + expiry). Pure and
+/// JSON into a Novera [`OAuthToken`] (access + refresh + expiry). Pure and
 /// unit-testable. Returns `None` when the block is absent or unparsable.
 fn claude_code_oauth(raw: &str) -> Option<OAuthToken> {
     // Claude Code stores a JSON object with a `claudeAiOauth` block carrying
     // accessToken/refreshToken/expiresAt. `expiresAt` is in epoch milliseconds;
-    // Jan's OAuthToken expires_at is in seconds.
+    // Novera's OAuthToken expires_at is in seconds.
     let parsed: serde_json::Value = serde_json::from_str(raw).ok()?;
     let oauth = parsed.get("claudeAiOauth")?;
     let access = oauth.get("accessToken")?.as_str()?;
@@ -695,7 +695,7 @@ fn claude_code_subscription_type() -> Option<String> {
 }
 
 pub(crate) const CLAUDE_ALIAS_NOTICE: &str =
-    "Claude Code keychain login is active: Jan may use and refresh that credential for Claude requests. Disable with `claude_code_alias = false` in ~/.novera/config.toml or `/settings`. Jan is a third-party client; review Anthropic's Terms of Service.";
+    "Claude Code keychain login is active: Novera may use and refresh that credential for Claude requests. Disable with `claude_code_alias = false` in ~/.novera/config.toml or `/settings`. Novera is a third-party client; review Anthropic's Terms of Service.";
 
 static CLAUDE_ALIAS_ENGAGED: std::sync::atomic::AtomicBool =
     std::sync::atomic::AtomicBool::new(false);
@@ -752,9 +752,9 @@ async fn claude_code_access_token() -> Option<String> {
         match refresh(AccountProvider::Claude, &oauth).await {
             Ok(fresh) => {
                 // Write the rotated token back into omp's keychain entry so the
-                // shared credential stays fresh even if Jan is the only client
+                // shared credential stays fresh even if Novera is the only client
                 // running. On writeback failure we still return the refreshed
-                // token so Jan keeps working for this session.
+                // token so Novera keeps working for this session.
                 if write_claude_code_keychain(&entry, &raw, &fresh).is_err() {
                     debug_log("claude alias: refreshed but could not write back to the Claude Code keychain");
                 }
@@ -811,8 +811,8 @@ fn write_claude_code_keychain(
         .map_err(|error| format!("could not update the Claude Code keychain: {error}"))
 }
 
-/// Resolve a working access token for `provider`, preferring Jan's own stored
-/// credential. For the Claude provider, when Jan has no account credential of
+/// Resolve a working access token for `provider`, preferring Novera's own stored
+/// credential. For the Claude provider, when Novera has no account credential of
 /// its own, this falls back to Claude Code's keychain token (see
 /// [`claude_code_access_token`]) so the enterprise subscription quota is the
 /// same one omp uses.
@@ -878,7 +878,7 @@ pub fn store(provider: AccountProvider, token: &OAuthToken) -> Result<(), String
 // a login; on any error it returns the given `fallback` message.
 pub async fn claude_plan_summary(fallback: &str) -> String {
     // Resolve through access_token so the probe sees the same token the
-    // request path uses: Jan's own credential when present, otherwise the
+    // request path uses: Novera's own credential when present, otherwise the
     // Claude Code alias (see claude_code_access_token).
     let Some(token) = access_token(AccountProvider::Claude.credential_provider())
         .await
@@ -910,7 +910,7 @@ pub async fn claude_plan_summary(fallback: &str) -> String {
             // marker on the /v1/messages system block for an OAuth token;
             // without it sonnet 429s regardless of the account's real plan
             // (see AnthropicMessagesConverter). Probe with it so the report
-            // matches the plan Jan's request path actually resolves.
+            // matches the plan Novera's request path actually resolves.
             "system": [{"type": "text", "text": "x-anthropic-billing-header: cc_version=2.1.92; cc_entrypoint=sdk-cli;"}],
         });
         let probe = client
@@ -1480,7 +1480,7 @@ mod tests {
                 .find(|(key, _)| key == "originator")
                 .unwrap()
                 .1,
-            "jan"
+            "novera"
         );
         assert_eq!(url.query_pairs().find(|(key, _)| key == "client_id").unwrap().1, "app_EMoamEEZ73f0CkXaXp7hrann");
         assert_eq!(login.token_endpoint, "https://auth.openai.com/oauth/token");

@@ -6,10 +6,11 @@
 | --- | --- |
 | Windows x64 | Installateur NSIS public ; signature updater, installation et remplacement natif vérifiés. Contrôle manuel sur le canal public vérifié dans la vraie interface. |
 | Linux x64 | AppImage publique ; signature, installation et remplacement natif vérifiés. Contrôle du feed public dans la vraie interface sous Xvfb. |
-| CLI Windows x64 / Linux x64 | ZIP signés publics ; architectures, identité interne, remplacement et consultation du feed de production vérifiés. Nom actuel des exécutables : `jan.exe` / `jan`. |
+| CLI Windows x64 / Linux x64 | [CLI Novera](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera) : exécutables `novera.exe` / `novera`, nouveau format signé et canal dédié ; les anciens ZIP CLI seront retirés après validation des nouveaux paquets, à la demande du mainteneur. |
 | Windows ARM64 | [Installateur NSIS public 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64) ; moteur texte CPU natif, installation, remplacement et contrôle du canal public dans la vraie interface vérifiés. |
-| macOS ARM64 / Intel | Candidats internes ; signature/notarisation Apple et contrôles du canal propres à la plateforme encore nécessaires. |
-| Android / iOS | Essais internes debug/simulateur ; signature durable, distribution et validation sur appareil à terminer. |
+| macOS ARM64 / Intel | Candidats internes ; [chaîne de distribution préparée](RELEASE_MACOS_1.0.0.md), accès Apple absents et essais finaux sur Mac encore nécessaires. |
+| Android ARM64 | [Build 1000006 signé et inspecté](RELEASE_ANDROID_1.0.0.md) : DuckDuckGo conservé (POST vérifié sur PC), main Novera vérifiée dans l'APK, apparence Desktop et clavier mobile corrigé. Nouvel essai P20 en attente ; conservation discussion/modèle après la mise à jour 1000002 → 1000003 déjà confirmée par le mainteneur. Publication non effectuée. |
+| iOS | Candidat simulateur interne ; accès Apple, provisioning, build appareil et essais réels à reprendre selon la [note macOS/iOS](REPRISE_MACOS_IOS.md). |
 | Web | Vitrine informative en ligne ; client Web hébergé encore interne. |
 | Windows x64 portable | [ZIP signé public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable) ; Program/Data séparés, remplacement natif et conservation des données vérifiés, interface testée sur Windows local. |
 | MSI / Debian | Formats exclus de cette sortie ; scénarios de mise à jour propres à valider. |

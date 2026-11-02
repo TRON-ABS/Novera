@@ -1,4 +1,4 @@
-# Builds the Jan Agent CLI binary for Windows x86_64.
+# Builds the Novera CLI binary for Windows x86_64.
 # Produces a single stripped zip archive; no Tauri bundler, no frontend.
 name: cli-build-windows-x64
 on:
@@ -70,8 +70,8 @@ jobs:
         shell: bash
         run: |
           VERSION="${{ inputs.new_version }}"
-          FILE_NAME="jan-agent-windows-x86_64-$VERSION.zip"
-          7z a "$FILE_NAME" ./src-tauri/target/release/jan.exe
+          FILE_NAME="novera-agent-windows-x86_64-$VERSION.zip"
+          7z a "$FILE_NAME" ./src-tauri/target/release/novera.exe
           echo "FILE_NAME=$FILE_NAME" >> "$GITHUB_OUTPUT"
           echo "SHA256=$(sha256sum "$FILE_NAME" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
 

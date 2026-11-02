@@ -7,6 +7,16 @@
     "beforeBuildCommand": "cross-env IS_ANDROID=true yarn build:web"
   },
   "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Novera",
+        "url": "index.html",
+        "create": true,
+        "visible": true,
+        "useHttpsScheme": true
+      }
+    ],
     "security": {
       "capabilities": ["mobile"]
     }
@@ -20,6 +30,7 @@
     "externalBin": [],
     "android": {
       "minSdkVersion": 24,
+      "versionCode": 1000006,
       "debugApplicationIdSuffix": ".debug"
     }
   }

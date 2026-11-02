@@ -1,4 +1,4 @@
-//! `jan mcp serve`: run Jan's built-in toolset as an MCP server so another
+//! `novera mcp serve`: run Novera's built-in toolset as an MCP server so another
 //! agent can call it.
 //!
 //! The protocol work lives in `core::mcp::server`; this is only the CLI's entry
@@ -9,7 +9,7 @@ use std::path::PathBuf;
 
 use crate::core::mcp::server::{http, stdio, ServeOptions, ServedTools};
 
-/// Which transport `jan mcp serve` should use.
+/// Which transport `novera mcp serve` should use.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, clap::ValueEnum)]
 #[clap(rename_all = "kebab-case")]
 pub enum ServeTransport {
@@ -34,7 +34,7 @@ pub struct ServeFlags {
 ///
 /// `[tools].allow_network` and `[tools].sandbox` are honored exactly as the
 /// agent loop honors them, so a project that has configured its toolset gets the
-/// same behavior whether the caller is Jan's own agent or someone else's.
+/// same behavior whether the caller is Novera's own agent or someone else's.
 fn options_for(project: &str, flags: &ServeFlags) -> Result<ServeOptions, String> {
     let root = PathBuf::from(project)
         .canonicalize()
@@ -77,7 +77,7 @@ pub async fn cli_mcp_serve(
     let unknown = unknown_tool_names(&flags.only);
     if !unknown.is_empty() {
         eprintln!(
-            "jan mcp serve: warning: unknown --tool name(s): {}. Nothing is served for them.",
+            "novera mcp serve: warning: unknown --tool name(s): {}. Nothing is served for them.",
             unknown.join(", ")
         );
     }
@@ -85,14 +85,14 @@ pub async fn cli_mcp_serve(
         .iter()
         .filter_map(|n| tauri_plugin_agent_tools::tools::renamed_shell_notice(n, "--tool"))
     {
-        eprintln!("jan mcp serve: {notice}");
+        eprintln!("novera mcp serve: {notice}");
     }
     match transport {
         ServeTransport::Stdio => {
             // stdout is the JSON-RPC stream from here on; the startup notice
             // goes to stderr like every other log this binary writes.
             eprintln!(
-                "jan mcp serve: stdio, project {}",
+                "novera mcp serve: stdio, project {}",
                 opts.project_root.display()
             );
             stdio::serve(opts).await

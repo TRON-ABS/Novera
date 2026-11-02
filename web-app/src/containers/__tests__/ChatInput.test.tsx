@@ -330,8 +330,11 @@ vi.mock('@/components/ui/tooltip', () => {
   }
 })
 
+const mobilePlatform = vi.hoisted(() => ({ android: false }))
 vi.mock('@/lib/platform/utils', () => ({
   isPlatformTauri: () => false,
+  isPlatformAndroid: () => mobilePlatform.android,
+  isPlatformIOS: () => false,
 }))
 
 // Import component AFTER all mocks
@@ -457,6 +460,32 @@ describe('ChatInput', () => {
   })
   beforeEach(() => {
     resetAll()
+    mobilePlatform.android = false
+  })
+
+  it('keeps the mobile keyboard closed through reasoning and allows explicit typing focus', async () => {
+    mobilePlatform.android = true
+    promptState = 'hello'
+    const onSubmit = vi.fn()
+    const focus = vi.spyOn(HTMLTextAreaElement.prototype, 'focus')
+    try {
+      const view = renderInput({ onSubmit, chatStatus: 'ready' })
+      expect(focus).not.toHaveBeenCalled()
+      const textarea = getTextarea()
+      textarea.focus()
+      expect(document.activeElement).toBe(textarea)
+      focus.mockClear()
+      fireEvent.click(screen.getByTestId('send-message-button'))
+      await waitFor(() => expect(onSubmit).toHaveBeenCalled())
+      expect(document.activeElement).not.toBe(textarea)
+      for (const chatStatus of ['submitted', 'streaming', 'ready'] as const) {
+        view.rerender(<ChatInput onSubmit={onSubmit} chatStatus={chatStatus} />)
+        await act(async () => { await new Promise(resolve => setTimeout(resolve, 20)) })
+      }
+      expect(focus).not.toHaveBeenCalled()
+      textarea.focus()
+      expect(document.activeElement).toBe(textarea)
+    } finally { focus.mockRestore() }
   })
 
   it('restores typing focus without scrolling on mount and after streaming', async () => {

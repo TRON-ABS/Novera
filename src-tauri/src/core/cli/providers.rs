@@ -1,6 +1,6 @@
 //! Cloud provider credential loader for the CLI.
 //!
-//! Jan Agent runs standalone, without Jan Desktop, so provider config is
+//! Novera Agent runs standalone, without Novera Desktop, so provider config is
 //! resolved from two `.novera` scopes rather than desktop's `settings.json`:
 //!
 //! 1. Global `~/.novera/config.toml` (user-wide, [`crate::core::agent::global_config`]) - the base.
@@ -24,10 +24,10 @@ const MODEL_PROVIDER_KEY: &str = "model-provider";
 const API_KEY_SETTING_KEYS: [&str; 2] = ["api-key", "api_key"];
 
 /// Base URL for the explicitly named provider, when `--base-url` is not given.
-pub const BASE_URL_ENV: &str = "JAN_BASE_URL";
+pub const BASE_URL_ENV: &str = "NOVERA_BASE_URL";
 /// Extra request headers for the explicitly named provider: newline-separated
 /// `Name: Value` lines, the format of Claude Code's `ANTHROPIC_CUSTOM_HEADERS`.
-pub const CUSTOM_HEADERS_ENV: &str = "JAN_CUSTOM_HEADERS";
+pub const CUSTOM_HEADERS_ENV: &str = "NOVERA_CUSTOM_HEADERS";
 
 /// CLI/env overrides applied after loading the persisted store.
 ///
@@ -52,7 +52,7 @@ pub struct ProviderOverrides {
     /// Whether `provider` came from `--provider`, rather than being defaulted
     /// from the Desktop selection.
     pub explicit_provider: bool,
-    /// Where `base_url` came from, for `jan cli agent status`.
+    /// Where `base_url` came from, for `novera cli agent status`.
     pub base_url_source: Option<OverrideSource>,
 }
 
@@ -82,9 +82,14 @@ impl ProviderOverrides {
     /// is testable without mutating the process environment every other test
     /// in this binary shares.
     fn with_env_from(mut self, env: impl Fn(&str) -> Option<String>) -> Self {
+        let original = env;
+        let env = |name: &str| original(name).or_else(|| {
+            name.strip_prefix("NOVERA_")
+                .and_then(|suffix| original(&format!("JAN_{suffix}")))
+        });
         let non_empty = |name: &str| env(name).filter(|v| !v.trim().is_empty());
         if self.api_key.is_none() {
-            if let Some(k) = env("JAN_API_KEY").filter(|k| !k.is_empty()) {
+            if let Some(k) = env("NOVERA_API_KEY").filter(|k| !k.is_empty()) {
                 self.api_key = Some(k);
             }
         }
@@ -245,7 +250,7 @@ pub fn parse_custom_headers(raw: &str) -> Vec<(String, String)> {
     out
 }
 
-/// Where a provider's base URL came from, as `jan cli agent status` reports it.
+/// Where a provider's base URL came from, as `novera cli agent status` reports it.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum BaseUrlSource {
     /// `--base-url`.
@@ -256,7 +261,7 @@ pub enum BaseUrlSource {
     Project,
     /// `~/.novera/config.toml`.
     Config,
-    /// Inherited from Jan Desktop's `settings.json`.
+    /// Inherited from Novera Desktop's `settings.json`.
     Desktop,
 }
 
@@ -548,7 +553,7 @@ impl ModelRefresh {
                 let plural = if p.models == 1 { "" } else { "s" };
                 let kept = if p.kept_unlisted > 0 {
                     format!(
-                        ", {} kept but no longer listed - `jan cli models refresh` drops them",
+                        ", {} kept but no longer listed - `novera cli models refresh` drops them",
                         p.kept_unlisted
                     )
                 } else {
@@ -687,7 +692,7 @@ fn unrefreshable_reason(project_root: Option<&std::path::Path>, provider: &str) 
     }
     match load_global_config() {
         Ok(global) if !global.contains_key(provider) => {
-            "inherited from Jan Desktop, so there is no ~/.novera/config.toml entry to refresh"
+            "inherited from Novera Desktop, so there is no ~/.novera/config.toml entry to refresh"
                 .to_string()
         }
         _ => "could not be listed".to_string(),
@@ -998,7 +1003,7 @@ async fn fetch_models(
 /// `[provider]` override -> `--provider`/`--api-key` CLI/env overrides.
 ///
 /// `project_root` is `None` when no project context is available (e.g.
-/// `jan cli agent status` without `--project`); the local override is then
+/// `novera cli agent status` without `--project`); the local override is then
 /// skipped. A missing/malformed Desktop store is not fatal: it's simply not
 /// layered in, since Global config alone is a valid standalone setup.
 pub fn load_provider_configs(
@@ -1012,7 +1017,7 @@ pub fn load_provider_configs(
 pub(crate) type LayeredConfigs = (HashMap<String, ProviderConfig>, HashMap<String, BaseUrlSource>);
 
 /// [`load_provider_configs`], plus which layer each provider's base URL came
-/// from (for `jan cli agent status`). One implementation, so the reported
+/// from (for `novera cli agent status`). One implementation, so the reported
 /// source can never describe a different layering than the one that ran.
 ///
 /// The session-scoped provider's roster is the in-memory overlay's
@@ -2544,6 +2549,20 @@ mod tests {
             explicit_provider: true,
             ..Default::default()
         }
+    }
+
+    #[test]
+    fn novera_environment_overrides_legacy_aliases_without_losing_legacy_support() {
+        let config = named("openai").with_env_from(env_of(&[
+            ("NOVERA_API_KEY", "canonical-test-key"),
+            ("JAN_API_KEY", "legacy-test-key"),
+            ("NOVERA_BASE_URL", "https://canonical.example/v1"),
+            ("JAN_BASE_URL", "https://legacy.example/v1"),
+        ]));
+        assert_eq!(config.api_key.as_deref(), Some("canonical-test-key"));
+        assert_eq!(config.base_url.as_deref(), Some("https://canonical.example/v1"));
+        let legacy = named("openai").with_env_from(env_of(&[("JAN_API_KEY", "legacy-test-key")]));
+        assert_eq!(legacy.api_key.as_deref(), Some("legacy-test-key"));
     }
 
     /// The Desktop selection defaults `provider` for the key fallback only: a

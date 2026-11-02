@@ -82,7 +82,7 @@ function run(mode, kind) {
     const web = prepareWebDelivery(path.join(out, 'web'), { version: JSON.parse(fs.readFileSync('web-app/package.json')).version, commit: process.env.GITHUB_SHA })
     json(path.join(out, 'WEB-DELIVERY-READINESS.json'), web)
   } else if (mode === 'cli') {
-    const exe = process.platform === 'win32' ? 'jan.exe' : 'jan'
+    const exe = process.platform === 'win32' ? 'novera.exe' : 'novera'
     copy(path.join(release, exe), exe)
     fs.chmodSync(path.join(out, exe), 0o755)
   } else if (mode === 'desktop') {
@@ -139,7 +139,7 @@ function run(mode, kind) {
         ...(kind === 'android' ? ['Debug-signed test APK; mobile reviews and device validation remain pending.'] : []),
         ...(process.env.CANDIDATE_VARIANT === 'arm64' ? ['CPU text engine; Windows x64 image runtime is excluded.'] : []),
         ...(kind === 'web' ? ['Browser frontend; desktop-native capabilities are unavailable.'] : []),
-        ...(kind === 'cli' ? ['Historical internal executable name: jan.'] : []),
+        ...(kind === 'cli' ? ['Executable name: novera.'] : []),
         ...(kind === 'desktop' && process.platform === 'darwin' && process.arch === 'x64' ? ['Intel macOS uses GGUF; the Apple Silicon-only MLX server is excluded.'] : []),
       ],
     }

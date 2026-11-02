@@ -16,9 +16,9 @@ function fixture(t) {
   })
   // Fixed sample versions keep these regressions valid after future releases.
   const main = '[package]\nname = "Novera"\nversion = "1.0.0"\n\n[dependencies]\nother = "1.0.0"\n'
-  const cli = main.replace('name = "Novera"', 'name = "jan-cli"')
+  const cli = main.replace('name = "Novera"', 'name = "novera-cli"')
   const lock = 'version = 4\n\n[[package]]\nname = "Novera"\nversion = "1.0.0"\n\n[[package]]\nname = "other"\nversion = "1.0.0"\n'
-  const texts = [JSON.stringify({ version: '1.0.0' }), JSON.stringify({ version: '1.0.0' }), main, cli, lock, lock + '\n[[package]]\nname = "jan-cli"\nversion = "1.0.0"\n']
+  const texts = [JSON.stringify({ version: '1.0.0' }), JSON.stringify({ version: '1.0.0' }), main, cli, lock, lock + '\n[[package]]\nname = "novera-cli"\nversion = "1.0.0"\n']
   for (const [i, file] of sources.entries()) {
     fs.mkdirSync(path.dirname(path.join(dir, file)), { recursive: true })
     fs.writeFileSync(path.join(dir, file), texts[i])

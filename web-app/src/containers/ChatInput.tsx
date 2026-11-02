@@ -98,7 +98,7 @@ import { ExtensionManager } from '@/lib/extension'
 import { useAttachments } from '@/hooks/useAttachments'
 import { useImageAttachmentConfig } from '@/hooks/useImageAttachmentConfig'
 import { toast } from 'sonner'
-import { isPlatformTauri } from '@/lib/platform/utils'
+import { isPlatformTauri, isPlatformAndroid, isPlatformIOS } from '@/lib/platform/utils'
 import { shouldShowTokenCounter } from '@/lib/tokenCounterVisibility'
 import {
   NEW_THREAD_ATTACHMENT_KEY,
@@ -673,6 +673,7 @@ const ChatInput = memo(function ChatInput({
       return
     }
 
+    if (isPlatformAndroid() || isPlatformIOS()) textareaRef.current?.blur()
     setMessage('')
     addToHistory(effectivePrompt)
 
@@ -881,6 +882,7 @@ const ChatInput = memo(function ChatInput({
 
   // Restore typing focus without scrolling the workspace when a send opens a thread.
   useEffect(() => {
+    if (isPlatformAndroid() || isPlatformIOS()) return
     if (textareaRef.current) {
       textareaRef.current.focus({ preventScroll: true })
     }
@@ -888,6 +890,7 @@ const ChatInput = memo(function ChatInput({
 
   // Focus when streaming content finishes
   useEffect(() => {
+    if (isPlatformAndroid() || isPlatformIOS()) return
     if (chatStatus !== 'submitted' && textareaRef.current) {
       // Small delay to ensure UI has updated
       const timeout = setTimeout(() => {

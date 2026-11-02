@@ -17,6 +17,7 @@ pub mod progress;
 // so it is built in both feature configs.
 pub mod server;
 pub mod truncate;
+pub mod transport_policy;
 
 #[cfg(test)]
 #[cfg(not(feature = "cli"))]

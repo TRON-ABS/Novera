@@ -14,16 +14,16 @@ pub mod housekeeping;
 pub mod journal;
 pub mod login;
 pub mod mcp;
-/// `jan mcp serve`: the other direction, Jan's toolset served over MCP.
+/// `novera mcp serve`: the other direction, Novera's toolset served over MCP.
 pub mod mcp_serve;
 pub(crate) mod model_capabilities;
 pub mod model_catalog;
 mod path_refs;
-/// `jan cli agent schema`: the protocol's JSON Schema, generated from the types.
+/// `novera cli agent schema`: the protocol's JSON Schema, generated from the types.
 pub mod protocol_schema;
-/// `jan cli agent rpc`: persistent, session-scoped JSON-RPC transport.
+/// `novera cli agent rpc`: persistent, session-scoped JSON-RPC transport.
 pub mod rpc;
-/// `jan cli agent rpc-schema`: the RPC request and event schemas.
+/// `novera cli agent rpc-schema`: the RPC request and event schemas.
 pub mod rpc_schema;
 pub mod run_report;
 pub mod providers;
@@ -55,7 +55,7 @@ use crate::core::threads::{
 
 // ── Thread operations ──────────────────────────────────────────────────────
 
-/// List thread metadata under `<base>/threads/`. `base` is the Jan data folder
+/// List thread metadata under `<base>/threads/`. `base` is the Novera data folder
 /// (desktop store) or a project's store `~/.novera/projects/<slug>` (TUI store).
 pub fn list_threads_in(base: &std::path::Path) -> Result<Vec<serde_json::Value>, String> {
     use std::fs;
@@ -80,7 +80,7 @@ pub fn list_threads_in(base: &std::path::Path) -> Result<Vec<serde_json::Value>,
     Ok(threads)
 }
 
-/// List all threads from the Jan data folder (desktop store).
+/// List all threads from the Novera data folder (desktop store).
 pub async fn cli_list_threads() -> Result<Vec<serde_json::Value>, String> {
     let data_folder = resolve_jan_data_folder();
     ensure_data_dirs(&data_folder)?;
@@ -493,7 +493,7 @@ pub const FORKED_FROM_KEY: &str = "forked_from";
 
 /// Key in a thread's `metadata` holding an RPC host's `systemPrompt`. Saved so
 /// a thread reopened elsewhere (the TUI's `/resume`) keeps running on the
-/// prompt it was written under instead of falling back to Jan's.
+/// prompt it was written under instead of falling back to Novera's.
 pub const SYSTEM_PROMPT_KEY: &str = "system_prompt";
 
 /// True for a `user` message the user actually authored. Hidden reminders ride
@@ -975,7 +975,7 @@ pub(crate) fn take_migration_notice() -> Option<String> {
 }
 
 /// What this build supports that a caller (a launcher) must be able to check
-/// before relying on it, as `jan cli agent status` reports it. Only features
+/// before relying on it, as `novera cli agent status` reports it. Only features
 /// this build implements; telemetry's own follow in
 /// [`crate::core::agent::otel::CAPABILITIES`].
 ///
@@ -984,13 +984,13 @@ pub(crate) fn take_migration_notice() -> Option<String> {
 /// - `session-overrides`: those overrides survive the whole session (reloads,
 ///   the `/model` probe) -- the TUI, `run` and `step`; RPC takes none.
 /// - `custom-headers`: `JAN_CUSTOM_HEADERS` and `[providers.<id>].headers`.
-/// - `user-agent`: inference sends `User-Agent: Jan-Agent/<version> (<os>; <arch>)`.
+/// - `user-agent`: inference sends `User-Agent: Novera-Agent/<version> (<os>; <arch>)`.
 /// - `session-header`: inference sends `X-Session-Id`.
 /// - `session-scoped-providers`: a session-scoped provider's models and prices
 ///   stay in memory, and its sign-in cannot be changed from inside the session.
 /// - `mcp-env-scrub`: stdio MCP servers do not inherit `JAN_API_KEY`,
 ///   `JAN_CUSTOM_HEADERS`, the explicit provider's `<PROVIDER>_API_KEY`, or
-///   (while Jan exports telemetry) the OTLP header variables; the shell tool's
+///   (while Novera exports telemetry) the OTLP header variables; the shell tool's
 ///   pass-through never copies a `*HEADERS*` or `*AUTHORIZATION*` variable.
 pub const CAPABILITIES: &[&str] = &[
     "provider-overrides",
@@ -1009,7 +1009,7 @@ fn capabilities() -> Vec<&'static str> {
     all
 }
 
-/// Resolved-config + provider snapshot for `jan cli agent status`.
+/// Resolved-config + provider snapshot for `novera cli agent status`.
 pub fn cli_agent_status(
     project: &str,
     overrides: &ProviderOverrides,
@@ -1183,7 +1183,7 @@ pub fn cli_agent_config_unset(provider: &str) -> Result<bool, String> {
 }
 
 /// The global config file path, scaffolding a commented template if it doesn't
-/// exist yet so `jan config path` always points at a real file.
+/// exist yet so `novera config path` always points at a real file.
 pub fn cli_agent_config_path() -> Result<PathBuf, String> {
     crate::core::agent::global_config::ensure_global_config()
 }
@@ -1673,7 +1673,7 @@ fn fork_base(source: Option<&serde_json::Value>) -> Option<String> {
         .into_iter()
         .map(PathBuf::from)
         .collect();
-    let sha = git::snapshot(&workspace.path, None, "jan agent fork base", &key, &changed).ok();
+    let sha = git::snapshot(&workspace.path, None, "novera agent fork base", &key, &changed).ok();
     git::cleanup_snapshot_index(&key);
     sha
 }
@@ -1800,7 +1800,7 @@ fn prepare_agent_session(
     };
     if model.is_empty() && flags.require_model {
         return Err(
-            "no model specified: run `jan login` to sign in to Tokamak, or pass --model, set [agent].model in agent.toml, set default_model in ~/.novera/config.toml, or select a model in the desktop app"
+            "no model specified: run `novera login` to sign in to Tokamak, or pass --model, set [agent].model in agent.toml, set default_model in ~/.novera/config.toml, or select a model in the desktop app"
                 .to_string(),
         );
     }
@@ -1822,11 +1822,11 @@ fn prepare_agent_session(
         crate::core::cli::providers::unreachable_local_provider(&provider_configs, &model)
     {
         return Err(format!(
-            "model '{model}' is only offered by '{local}', a local engine the Jan CLI cannot \
-             start itself. To use it, run the model in the Jan desktop app with its API server \
+            "model '{model}' is only offered by '{local}', a local engine the Novera CLI cannot \
+             start itself. To use it, run the model in the Novera desktop app with its API server \
              enabled and point a provider at it:\n  \
-             jan config set --provider jan --base-url http://localhost:1337/v1 --model {model}\n\
-             Or pick a model from `jan cli models list`."
+             novera config set --provider jan --base-url http://localhost:1337/v1 --model {model}\n\
+             Or pick a model from `novera cli models list`."
         ));
     }
 
@@ -3086,7 +3086,7 @@ pub async fn cli_agent_ui(
     }
     // Fresh install with a terminal attached: launch with no model rather than
     // forcing sign-in here. The TUI shows a one-line notice and `/login` (or
-    // `jan login`) picks a model up once the user is ready.
+    // `novera login`) picks a model up once the user is ready.
     let session = prepare_agent_session(
         project,
         model,
@@ -3294,7 +3294,7 @@ async fn print_event(ev: StreamEvent, registry: &PermissionRegistry, duplex: boo
             eprintln!("\n\x1b[31m[error] {code}: {message}\x1b[0m")
         }
         StreamEvent::AskRequest { .. } => {
-            eprintln!("\n\x1b[31m[error] interactive ask requires `jan agent ui`\x1b[0m")
+            eprintln!("\n\x1b[31m[error] interactive ask requires `novera agent ui`\x1b[0m")
         }
         // Headless never renders an ask prompt, so there is nothing to dismiss.
         StreamEvent::AskResolved { .. } => {}

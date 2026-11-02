@@ -1,7 +1,7 @@
 //! The ADK cookbook's runnable source, run.
 //!
 //! Every file under `examples/adk/` is executed with its own interpreter
-//! (`node`, `python3`) against the real `jan` binary, which talks to a scripted
+//! (`node`, `python3`) against the real `novera` binary, which talks to a scripted
 //! stub provider on a loopback port. So a recipe that stops working -- a record
 //! renamed, a message shape changed, a flag removed -- fails here instead of in
 //! a reader's terminal. The stub records every request, which is how the
@@ -134,12 +134,12 @@ struct Scratch {
 
 impl Scratch {
     fn new(name: &str, stub: &Stub) -> Self {
-        let root = std::env::temp_dir().join(format!("jan-adk-{name}-{}", std::process::id()));
+        let root = std::env::temp_dir().join(format!("novera-adk-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&root);
         std::fs::create_dir_all(root.join("home")).expect("scratch home");
         let scratch = Self { root };
         let out = scratch
-            .command(env!("CARGO_BIN_EXE_jan"))
+            .command(env!("CARGO_BIN_EXE_novera"))
             .args([
                 "config",
                 "set",
@@ -153,7 +153,7 @@ impl Scratch {
                 "stub-model",
             ])
             .output()
-            .expect("run `jan config set`");
+            .expect("run `novera config set`");
         assert!(
             out.status.success(),
             "config set failed: {}",
@@ -165,8 +165,8 @@ impl Scratch {
     fn command(&self, program: &str) -> Command {
         let mut cmd = Command::new(program);
         cmd.env("HOME", self.root.join("home"))
-            .env("JAN_DATA_FOLDER", self.root.join("jan-data"))
-            .env("JAN_BIN", env!("CARGO_BIN_EXE_jan"))
+            .env("JAN_DATA_FOLDER", self.root.join("novera-data"))
+            .env("JAN_BIN", env!("CARGO_BIN_EXE_novera"))
             .env_remove("JAN_MODEL")
             .env_remove("JAN_API_KEY")
             .env_remove("OPENAI_API_KEY")

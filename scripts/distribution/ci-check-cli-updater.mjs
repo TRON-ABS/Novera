@@ -8,7 +8,7 @@ const platform = { 'win32:x64': 'windows-x86_64', 'linux:x64': 'linux-x86_64', '
 if (!platform) throw new Error('Unsupported signed CLI architecture')
 const version = JSON.parse(fs.readFileSync('src-tauri/tauri.conf.json')).version
 const file = `Novera_CLI_${version}_${platform}.zip`
-const binary = path.join('.build/candidates', process.platform === 'win32' ? 'jan.exe' : 'jan')
+const binary = path.join('.build/candidates', process.platform === 'win32' ? 'novera.exe' : 'novera')
 const python = process.platform === 'win32' ? 'python' : 'python3'
 execFileSync(python, ['scripts/distribution/package-cli-update.py', binary, '.build/candidates/packages', version, platform, process.env.GITHUB_SHA], { stdio: 'inherit' })
 const archive = path.resolve('.build/candidates/packages', file)
@@ -17,7 +17,7 @@ const pubkey = JSON.parse(fs.readFileSync('src-tauri/tauri.updater.conf.json')).
 const checked = await verifyUpdateBundle(archive, fs.readFileSync(archive + '.sig', 'utf8'), pubkey)
 fs.writeFileSync('.build/candidates/CLI-UPDATER-READINESS.json', JSON.stringify({
   commit: process.env.GITHUB_SHA, platform, version,
-  endpoint: 'https://github.com/TRON-ABS/Novera/releases/latest/download/latest-cli.json',
+  endpoint: 'https://github.com/TRON-ABS/Novera/releases/latest/download/latest-novera-cli.json',
   updaterEnabled: true, signaturesVerified: true, installedUpdateValidated: false, publicationAuthorized: false,
   artifacts: [{ file, signature: file + '.sig', ...checked }],
 }, null, 2) + '\n')

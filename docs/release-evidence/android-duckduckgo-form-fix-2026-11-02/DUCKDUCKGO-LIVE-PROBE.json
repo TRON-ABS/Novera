@@ -1,0 +1,19 @@
+{
+  "provider": "DuckDuckGo",
+  "httpStatus": 200,
+  "query": "Tauri Android documentation",
+  "transport": "official HTML POST form",
+  "applicationUserAgent": "Novera/1.0.0 (+https://github.com/TRON-ABS/Novera)",
+  "livePcParserResults": 5,
+  "urls": [
+    "https://v2.tauri.app/distribute/google-play/",
+    "https://v2.tauri.app/develop/",
+    "https://github.com/tauri-apps/tauri-docs",
+    "https://github.com/aiueo13/tauri-plugin-android-fs",
+    "https://deepwiki.com/tauri-apps/tauri/8.3-android-development-and-build"
+  ],
+  "androidDeviceValidated": false,
+  "captchaBypassUsed": false,
+  "browserImpersonationUsed": false,
+  "providerChanged": false
+}

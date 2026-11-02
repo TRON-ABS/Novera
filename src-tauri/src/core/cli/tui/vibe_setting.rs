@@ -23,7 +23,7 @@ use super::{
 };
 
 /// `/settings` keys `/vibe-setting` may not propose. `claude_code_alias` decides
-/// whether Jan reuses another tool's keychain login, and `hide_secrets` whether
+/// whether Novera reuses another tool's keychain login, and `hide_secrets` whether
 /// credentials reach the provider: credential decisions, which the issue rules
 /// out of anything the model (or text it read) can change.
 const EXCLUDED_KEYS: &[&str] = &["claude_code_alias", "hide_secrets"];
@@ -128,7 +128,7 @@ fn kind_text(def: &AgentSettingDef) -> (String, String) {
     }
 }
 
-const SYSTEM_PROMPT: &str = "You map a user's plain-language request onto Jan agent settings. \
+const SYSTEM_PROMPT: &str = "You map a user's plain-language request onto Novera agent settings. \
 You may only use the settings listed below. Reply with one JSON object and nothing else:\n\
 {\"changes\": [{\"key\": \"<key>\", \"scope\": \"project\" or \"global\", \"new_value\": <value, or null to reset it to its default>, \"reason\": \"<a few words>\"}], \"question\": null, \"note\": null}\n\n\
 Rules:\n\

@@ -70,20 +70,20 @@
     {
       "id": "macos",
       "host": "macOS with Xcode",
-      "artifacts": [".app", "Universal .dmg"],
+      "artifacts": ["ARM64 .dmg", "Intel .dmg", "Architecture-specific .app.tar.gz", "Updater signatures"],
       "config": "src-tauri/tauri.macos.conf.json",
-      "sources": ["src-tauri/Entitlements.plist"],
+      "sources": ["src-tauri/Entitlements.plist", "scripts/distribution/macos-distribution.mjs"],
       "packageScripts": ["build:tauri:darwin", "build:mlx-server"],
-      "pending": ["Provision Xcode and both required Rust architectures.", "Prepare compatible worker, MLX, sidecars and media runtimes for both architectures.", "Configure Apple signing and notarization for public distribution.", "Test the universal application on Apple Silicon and Intel."]
+      "pending": ["Configure the Novera Apple Developer ID and notarization secrets before enabling macos_distribution.", "Build and verify separate ARM64 and Intel DMG/updater bundles; MLX is Apple Silicon only.", "Test installation, first launch, Settings update checks and profile preservation on both Mac architectures.", "Preserve all three current public update feeds when staging the Mac release."]
     },
     {
       "id": "android",
       "host": "Host with Android SDK, NDK and JDK",
-      "artifacts": ["ARM64 test APK"],
+      "artifacts": ["ARM64 debug APK", "Signed ARM64 release APK", "APK certificate and checksum receipt"],
       "config": "src-tauri/tauri.android.conf.json",
-      "sources": ["scripts/android/toolchain.json", "scripts/android/readiness.json", "scripts/android/initialize-project.ps1", "scripts/android/build-engine.ps1", "scripts/android/build-apk.ps1", "src-tauri/capabilities/mobile.json"],
-      "packageScripts": ["check:android", "prepare:android", "build:android:apk"],
-      "pending": ["Provision the pinned Android toolchain and generate the native project.", "Prepare ARM64 engine libraries and pass the existing Android readiness diagnostic.", "Test installation, storage, lifecycle and native integrations on a device.", "Prepare release signing and a separate AAB path before promising a Play Store package."]
+      "sources": ["scripts/android/toolchain.json", "scripts/android/readiness.json", "scripts/android/release.json", "docs/ANDROID_RELEASE_REVIEW_2026-11-02.md", "scripts/android/initialize-project.ps1", "scripts/android/build-engine.ps1", "scripts/android/build-apk.ps1", "scripts/android/build-release.ps1", "scripts/android/package-release.ps1", "scripts/android/prepare-update-baseline.ps1", "scripts/android/initialize-signing.ps1", "scripts/android/sign-apk.ps1", "scripts/android/export-signing-recovery.ps1", "scripts/android/verify-apk.py", "scripts/android/templates/SIGNATURE.txt", "src-tauri/capabilities/mobile.json"],
+      "packageScripts": ["check:android", "prepare:android", "build:android:apk", "build:android:release"],
+      "pending": ["Provision the pinned Android toolchain and generate the native project on each build host.", "Verify the exact signed APK and its pinned certificate before distribution.", "Test installation, storage, lifecycle and native integrations on a device.", "Back up the signing identity off-machine and retain the exact tested bytes before publication.", "AAB packaging and Google Play distribution remain a separate scope."]
     },
     {
       "id": "ios",
@@ -105,10 +105,10 @@
     {
       "id": "cli",
       "host": "Rust and native dependencies for the target OS",
-      "artifacts": ["Headless CLI binary (current internal name: jan)"],
+      "artifacts": ["Headless CLI binary (novera)"],
       "sources": ["src-tauri/novera-cli/Cargo.toml", "src-tauri/novera-cli/src/main.rs"],
       "packageScripts": [],
-      "pending": ["Review the historical CLI executable name and remaining legacy labels before a public release.", "Prepare native dependencies for each chosen OS and architecture.", "Test CLI commands and installation independently of the desktop application."]
+      "pending": ["Verify canonical Novera executables, protocol identity, signed channel and migration from historical packages.", "Prepare native dependencies for each chosen OS and architecture.", "Test CLI commands and installation independently of the desktop application."]
     }
   ]
 }

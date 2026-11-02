@@ -12,3 +12,7 @@ src-tauri/components/*.json text eol=lf
 # A signature authenticates exact bytes, including line endings.
 src-tauri/src/core/cli/signed-update-fixtures/* -text
 src-tauri/src/core/cli/signed-update-fixtures/*.bin binary
+
+# Provenance hashes cover exact patch bytes; unified-diff context blanks carry
+# their required leading space and must not be rewritten as ordinary prose.
+docs/release-evidence/**/APPLICATION-SOURCE.patch -text -whitespace

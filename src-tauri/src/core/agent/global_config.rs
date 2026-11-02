@@ -325,9 +325,21 @@ pub(crate) struct ProviderUpdate {
 
 /// `~/.novera`, the user-wide config directory.
 pub(crate) fn global_jan_dir() -> Result<PathBuf, String> {
-    dirs::home_dir()
+    user_home_dir()
         .map(|home| home.join(".novera"))
         .ok_or_else(|| "could not resolve the user's home directory".to_string())
+}
+
+/// Production uses the platform resolver. Tests never resolve a personal home,
+/// including Windows where dirs calls Known Folders instead of reading HOME.
+pub(crate) fn user_home_dir() -> Option<PathBuf> {
+    #[cfg(test)]
+    {
+        Some(std::env::var_os("NOVERA_TEST_HOME").map(PathBuf::from).unwrap_or_else(||
+            std::env::temp_dir().join(format!("novera-test-profile-{}", std::process::id()))))
+    }
+    #[cfg(not(test))]
+    { dirs::home_dir() }
 }
 
 /// `~/.novera/config.toml`.
@@ -945,25 +957,28 @@ pub(crate) fn ensure_global_config() -> Result<PathBuf, String> {
 /// a second lock elsewhere would let those tests race each other.
 #[cfg(test)]
 pub(crate) fn with_temp_home<T>(f: impl FnOnce(&std::path::Path) -> T) -> T {
-    use std::sync::atomic::{AtomicU32, Ordering};
     use std::sync::Mutex;
 
     static ENV_LOCK: Mutex<()> = Mutex::new(());
-    static COUNTER: AtomicU32 = AtomicU32::new(0);
-
     let _guard = ENV_LOCK.lock().unwrap_or_else(|e| e.into_inner());
-    let n = COUNTER.fetch_add(1, Ordering::SeqCst);
-    let home = std::env::temp_dir().join(format!("jan_global_cfg_test_{n}"));
-    std::fs::create_dir_all(&home).unwrap();
-    let prev = std::env::var_os("HOME");
-    std::env::set_var("HOME", &home);
-    let result = f(&home);
-    match prev {
-        Some(p) => std::env::set_var("HOME", p),
-        None => std::env::remove_var("HOME"),
+    let home = tempfile::Builder::new().prefix("novera-home-test-").tempdir().unwrap();
+    struct Restore(Vec<(&'static str, Option<std::ffi::OsString>)>);
+    impl Drop for Restore {
+        fn drop(&mut self) {
+            for (key, value) in &self.0 {
+                match value {
+                    Some(value) => std::env::set_var(key, value),
+                    None => std::env::remove_var(key),
+                }
+            }
+        }
     }
-    let _ = std::fs::remove_dir_all(&home);
-    result
+    // Include the dedicated test resolver and the plugin dependency's home
+    // variables. Restore on panic before tempfile removes the scratch dir.
+    let _restore = Restore(["HOME", "USERPROFILE", "NOVERA_TEST_HOME"].into_iter()
+        .map(|key| (key, std::env::var_os(key))).collect());
+    for key in ["HOME", "USERPROFILE", "NOVERA_TEST_HOME"] { std::env::set_var(key, home.path()); }
+    f(home.path())
 }
 
 // The suite covers the provider records and the TUI's settings writers, which
@@ -972,6 +987,14 @@ pub(crate) fn with_temp_home<T>(f: impl FnOnce(&std::path::Path) -> T) -> T {
 #[cfg(all(test, feature = "cli"))]
 mod tests {
     use super::*;
+
+    #[test]
+    fn temporary_home_matches_the_platform_resolver() {
+        with_temp_home(|home| {
+            assert_eq!(user_home_dir().as_deref(), Some(home));
+            assert_eq!(global_jan_dir().unwrap(), home.join(".novera"));
+        });
+    }
 
     #[test]
     fn missing_file_yields_empty_map() {

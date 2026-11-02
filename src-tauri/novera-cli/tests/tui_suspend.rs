@@ -1,7 +1,7 @@
 //! Ctrl-Z in the TUI (and an external SIGTSTP) must hand a real terminal back
 //! clean before the process stops, and take it back on SIGCONT: raw mode,
 //! alternate screen, mouse tracking and the Kitty keyboard protocol off while
-//! stopped, all back on after. Spawns the real `jan` binary under a PTY the
+//! stopped, all back on after. Spawns the real `novera` binary under a PTY the
 //! same way `tui_panic.rs` does, and watches the stop with `waitpid`.
 //!
 //! unix-only: job control is a POSIX concept, and the suspend is compiled out
@@ -68,9 +68,9 @@ impl Session {
             match waitpid(self.pid, Some(flags)).expect("waitpid") {
                 WaitStatus::Stopped(..) => return,
                 WaitStatus::StillAlive => {}
-                other => panic!("jan did not stop: {other:?}: {:?}", self.text()),
+                other => panic!("novera did not stop: {other:?}: {:?}", self.text()),
             }
-            assert!(Instant::now() < deadline, "jan never stopped: {:?}", self.text());
+            assert!(Instant::now() < deadline, "novera never stopped: {:?}", self.text());
             std::thread::sleep(Duration::from_millis(50));
         }
     }
@@ -118,9 +118,9 @@ fn spawn() -> Session {
     spawn_with(false)
 }
 
-/// `new_session` runs `jan` through `setsid --ctty`, so it leads a session of
+/// `new_session` runs `novera` through `setsid --ctty`, so it leads a session of
 /// its own and its parent (this runner) is in another one: an orphaned process
-/// group, like `ssh -t host jan` or `docker exec -it`.
+/// group, like `ssh -t host novera` or `docker exec -it`.
 fn spawn_with(new_session: bool) -> Session {
     let size = Winsize {
         ws_row: 24,
@@ -136,7 +136,7 @@ fn spawn_with(new_session: bool) -> Session {
     // its HOME on drop, so the directory needs more than the process id.
     static NEXT: AtomicUsize = AtomicUsize::new(0);
     let home = std::env::temp_dir().join(format!(
-        "jan-tui-suspend-{}-{}",
+        "novera-tui-suspend-{}-{}",
         std::process::id(),
         NEXT.fetch_add(1, Ordering::Relaxed)
     ));
@@ -145,13 +145,13 @@ fn spawn_with(new_session: bool) -> Session {
         // util-linux `setsid --ctty`, since a session leader cannot be made
         // without `unsafe`; the caller checks it exists.
         let mut c = Command::new("setsid");
-        c.arg("--ctty").arg(env!("CARGO_BIN_EXE_jan"));
+        c.arg("--ctty").arg(env!("CARGO_BIN_EXE_novera"));
         c
     } else {
-        Command::new(env!("CARGO_BIN_EXE_jan"))
+        Command::new(env!("CARGO_BIN_EXE_novera"))
     };
     if !new_session {
-        // The suspend stops jan's whole process group; without a group of its
+        // The suspend stops novera's whole process group; without a group of its
         // own that would be this test runner's.
         command.process_group(0);
     }
@@ -162,7 +162,7 @@ fn spawn_with(new_session: bool) -> Session {
         .stdout(Stdio::from(slave.try_clone().expect("clone PTY slave")))
         .stderr(Stdio::from(slave))
         .spawn()
-        .expect("spawn jan under the test PTY");
+        .expect("spawn novera under the test PTY");
     let pid = Pid::from_raw(child.id() as i32);
     let output = Arc::new(Mutex::new(Vec::new()));
     let sink = Arc::clone(&output);
@@ -203,7 +203,7 @@ fn ctrl_z_and_sigtstp_suspend_and_resume_cleanly() {
         || kill(session.pid, Signal::SIGTSTP).expect("SIGTSTP"),
         "external SIGTSTP",
     );
-    assert!(session.alive(), "jan exited after resuming: {:?}", session.text());
+    assert!(session.alive(), "novera exited after resuming: {:?}", session.text());
 }
 
 /// With no job-control shell above it nothing would ever send SIGCONT, so
@@ -225,6 +225,6 @@ fn ctrl_z_in_an_orphaned_group_refuses_instead_of_stopping() {
         assert!(Instant::now() < deadline, "no refusal: {:?}", session.text());
         std::thread::sleep(Duration::from_millis(50));
     }
-    assert!(session.alive(), "jan stopped or exited: {:?}", session.text());
+    assert!(session.alive(), "novera stopped or exited: {:?}", session.text());
     assert!(session.raw(), "the TUI kept the terminal");
 }

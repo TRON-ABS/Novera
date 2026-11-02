@@ -51,10 +51,12 @@ static INDEX_LOCK: Mutex<()> = Mutex::new(());
 static KEYRING_DOWN: AtomicBool = AtomicBool::new(false);
 
 fn keyring_down() -> bool {
+    // Android's keyring 3 backend is an in-memory mock, not a persistent vault.
+    // Use the encrypted private-app file store with its per-install random key.
     // A portable folder must neither read nor modify the installed app's vault.
-    #[cfg(feature = "portable")]
+    #[cfg(any(feature = "portable", target_os = "android"))]
     return true;
-    #[cfg(not(feature = "portable"))]
+    #[cfg(not(any(feature = "portable", target_os = "android")))]
     KEYRING_DOWN.load(Ordering::Relaxed)
 }
 

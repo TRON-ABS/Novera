@@ -3,6 +3,7 @@ import { initializeServiceHub } from '@/services'
 import { initializeServiceHubStore } from '@/hooks/useServiceHub'
 import { hydrateBackendStores } from '@/lib/hydrateStores'
 import { migrateLocalStorageToBackend } from '@/lib/migrateLocalStorageSettings'
+import { applyAndroidDesktopAppearance } from '@/lib/applyAndroidDesktopAppearance'
 
 interface ServiceHubProviderProps {
   children: React.ReactNode
@@ -22,6 +23,7 @@ export function ServiceHubProvider({ children }: ServiceHubProviderProps) {
         // Settings stores use async backend storage; hydrate before rendering
         // children so no component reads pre-hydration defaults.
         await hydrateBackendStores()
+        await applyAndroidDesktopAppearance()
         setIsReady(true)
       })
       .catch((error) => {

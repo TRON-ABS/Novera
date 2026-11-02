@@ -114,9 +114,40 @@ test('the audit rejects paths outside its repository and non-preparation modes',
 
 test('mobile audits and Apple provisioning remain explicit pending work', t => {
   const folder = fixture(t)
+  changeJson(folder, 'scripts/android/readiness.json', data => {
+    for (const name of Object.keys(data.reviews)) data.reviews[name] = false
+  })
   const report = checkReleaseReadiness(folder)
   const android = report.targets.find(target => target.id === 'android')
   const ios = report.targets.find(target => target.id === 'ios')
   assert.equal(android.pending.filter(item => item.startsWith('Android review pending:')).length, 3)
   assert.ok(ios.pending.some(item => item.includes('Apple development team is not configured')))
+})
+
+test('closed Android source reviews require evidence and leave device validation pending', t => {
+  const folder = fixture(t)
+  const report = checkReleaseReadiness(folder)
+  assert.equal(report.sourceDefinitionsValid, true)
+  const android = report.targets.find(target => target.id === 'android')
+  assert.equal(android.pending.filter(item => item.startsWith('Android review pending:')).length, 0)
+  assert.ok(android.pending.some(item => item.includes('on a device')))
+  assert.equal(report.deviceValidation, 'not-performed')
+  changeJson(folder, 'scripts/android/readiness.json', data => { data.reviewEvidence = 'missing-review.md' })
+  assert.equal(checkReleaseReadiness(folder).sourceDefinitionsValid, false)
+})
+
+test('Android package identity and versionCode must match the pinned release definition', t => {
+  const folder = fixture(t)
+  changeJson(folder, 'scripts/android/release.json', data => { data.versionCode += 1 })
+  assert.equal(checkReleaseReadiness(folder).sourceDefinitionsValid, false)
+})
+
+test('Android cannot pass the source audit without its startup webview', t => {
+  for (const change of [config => { delete config.app.windows }, config => { config.app.windows[0].create = false }, config => { config.app.windows[0].visible = false }, config => { config.app.windows[0].useHttpsScheme = false }]) {
+    const folder = fixture(t)
+    changeJson(folder, 'src-tauri/tauri.android.conf.json', change)
+    const report = checkReleaseReadiness(folder)
+    assert.equal(report.sourceDefinitionsValid, false)
+    assert.ok(report.errors.some(error => error.includes('Android startup')))
+  }
 })

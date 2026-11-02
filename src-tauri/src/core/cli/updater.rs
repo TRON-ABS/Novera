@@ -28,7 +28,7 @@ pub fn signed_channel_configured() -> bool {
 
 const CHECK_TIMEOUT: Duration = Duration::from_millis(1500);
 const DOWNLOAD_TIMEOUT: Duration = Duration::from_secs(300);
-const BINARY_NAME: &str = if cfg!(windows) { "jan.exe" } else { "jan" };
+const BINARY_NAME: &str = if cfg!(windows) { "novera.exe" } else { "novera" };
 
 #[derive(Debug, Deserialize)]
 struct UpdateManifest {
@@ -73,7 +73,9 @@ fn update_channel() -> Option<&'static str> {
 /// version. Also used for `--version`, since Cargo.toml's version alone
 /// can't distinguish nightly builds cut from the same release.
 pub fn build_version() -> &'static str {
-    option_env!("JAN_CLI_BUILD_VERSION").unwrap_or(env!("CARGO_PKG_VERSION"))
+    option_env!("NOVERA_CLI_BUILD_VERSION")
+        .or(option_env!("JAN_CLI_BUILD_VERSION"))
+        .unwrap_or(env!("CARGO_PKG_VERSION"))
 }
 
 /// Platform key used in `manifest.json`, matching the nightly workflow's
@@ -124,7 +126,8 @@ fn compare_versions(a: &str, b: &str) -> Ordering {
 /// or when the user opted out, in which case the CDN is read directly and
 /// nothing identifying is sent anywhere.
 fn tracked_manifest_url() -> Option<&'static str> {
-    if std::env::var_os("JAN_CLI_NO_UPDATE_CHECK").is_some() {
+    if std::env::var_os("NOVERA_CLI_NO_UPDATE_CHECK").is_some()
+        || std::env::var_os("JAN_CLI_NO_UPDATE_CHECK").is_some() {
         return None;
     }
     tracked_url_for(update_channel())
@@ -241,7 +244,7 @@ impl AvailableUpdate {
     }
 
     /// One-line "what is newer", shared by the stderr notice, the TUI note and
-    /// `jan update --check`.
+    /// `novera update --check`.
     pub fn summary(&self) -> String {
         format!(
             "A new {} build is available: {} -> {}",
@@ -255,7 +258,8 @@ impl AvailableUpdate {
 /// already current. Best-effort by design: every failure is a silent `None` so
 /// the check never blocks or breaks startup.
 pub async fn available_update() -> Option<AvailableUpdate> {
-    if std::env::var_os("JAN_CLI_NO_UPDATE_CHECK").is_some() {
+    if std::env::var_os("NOVERA_CLI_NO_UPDATE_CHECK").is_some()
+        || std::env::var_os("JAN_CLI_NO_UPDATE_CHECK").is_some() {
         return None;
     }
     let update = check_for_update(CHECK_TIMEOUT).await.ok()?;
@@ -267,7 +271,7 @@ pub async fn available_update() -> Option<AvailableUpdate> {
 /// since anything written here is lost to the alternate screen.
 pub async fn print_update_notice_if_available() {
     if let Some(update) = available_update().await {
-        eprintln!("{}. Run `jan update` to install it.", update.summary());
+        eprintln!("{}. Run `novera update` to install it.", update.summary());
     }
 }
 

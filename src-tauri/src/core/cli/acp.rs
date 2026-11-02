@@ -1,4 +1,4 @@
-//! `jan acp` (experimental): the agent served over the Agent Client Protocol
+//! `novera acp` (experimental): the agent served over the Agent Client Protocol
 //! (ACP, <https://agentclientprotocol.com>) on stdio, so editors such as Zed and
 //! JetBrains can drive it.
 //!
@@ -18,7 +18,7 @@
 //! MCP servers a client passes in `session/new`/`session/load` are connected
 //! alongside the project's own, over stdio (the transport every ACP agent must
 //! support); HTTP and SSE are not advertised. Out of scope for this cut:
-//! consuming the client's `fs/*` and `terminal/*` (Jan's own tools serve the
+//! consuming the client's `fs/*` and `terminal/*` (Novera's own tools serve the
 //! filesystem) and `session/set_mode`. Neither is advertised.
 
 use std::collections::HashMap;
@@ -55,16 +55,16 @@ use crate::core::agent::todo::{TodoList, TodoStatus};
 
 /// The env var that switches the experimental server on. Any explicit value
 /// wins over `[experimental].acp` in `~/.novera/config.toml`, so `=0` turns it off.
-pub const ENABLE_ENV: &str = "JAN_EXPERIMENTAL_ACP";
+pub const ENABLE_ENV: &str = "NOVERA_EXPERIMENTAL_ACP";
 
-/// Printed (to stderr) when `jan acp` runs without the opt-in.
-pub const DISABLED_MESSAGE: &str = "`jan acp` is experimental and off by default. Enable it with \
-     JAN_EXPERIMENTAL_ACP=1, or set `acp = true` under `[experimental]` in ~/.novera/config.toml.";
+/// Printed (to stderr) when `novera acp` runs without the opt-in.
+pub const DISABLED_MESSAGE: &str = "`novera acp` is experimental and off by default. Enable it with \
+     NOVERA_EXPERIMENTAL_ACP=1, or set `acp = true` under `[experimental]` in ~/.novera/config.toml.";
 
-/// Whether `jan acp` may run: the env var, then the global config, then off.
+/// Whether `novera acp` may run: the env var, then the global config, then off.
 pub fn enabled() -> bool {
     enabled_from(
-        std::env::var(ENABLE_ENV).ok().as_deref(),
+        std::env::var(ENABLE_ENV).or_else(|_| std::env::var("JAN_EXPERIMENTAL_ACP")).ok().as_deref(),
         crate::core::agent::global_config::experimental_acp_setting(),
     )
 }
@@ -75,8 +75,8 @@ fn enabled_from(env: Option<&str>, config: Option<bool>) -> bool {
         .unwrap_or(false)
 }
 
-/// The argument a terminal-auth client appends to the configured `jan acp`
-/// invocation to sign in (`jan acp --login`).
+/// The argument a terminal-auth client appends to the configured `novera acp`
+/// invocation to sign in (`novera acp --login`).
 pub const LOGIN_ARG: &str = "--login";
 
 const ALLOW_ONCE: &str = "allow_once";
@@ -119,7 +119,7 @@ pub async fn serve() -> Result<(), String> {
     // `session/cancel` and permission replies it is waiting on.
     Agent
         .builder()
-        .name("jan")
+        .name("novera")
         .on_receive_request(
             async move |req: InitializeRequest, responder: Responder<InitializeResponse>, _cx| {
                 responder.respond(initialize_response(&req))
@@ -179,18 +179,18 @@ pub async fn serve() -> Result<(), String> {
         .map_err(|e| format!("ACP connection failed: {e}"))
 }
 
-/// What Jan advertises. Only what is consumed: no client `fs`/`terminal`, no
+/// What Novera advertises. Only what is consumed: no client `fs`/`terminal`, no
 /// MCP transports, so a client never assumes its unsaved buffers are read.
 fn initialize_response(req: &InitializeRequest) -> InitializeResponse {
     // Echo a version this build speaks, else the latest it does; a client that
     // cannot speak it disconnects, as the spec prescribes.
     let version = req.protocol_version.min(ProtocolVersion::LATEST);
     // A terminal method may only be offered to a client that said it can run
-    // one. It relaunches `jan acp --login`, the interactive sign-in.
+    // one. It relaunches `novera acp --login`, the interactive sign-in.
     let auth_methods = if req.client_capabilities.auth.terminal {
         vec![AuthMethod::Terminal(
-            AuthMethodTerminal::new("jan-login", "Sign in to Jan")
-                .description("Opens `jan login` to sign in to Tokamak and save an API key".to_string())
+            AuthMethodTerminal::new("novera-login", "Sign in to Novera")
+                .description("Opens `novera login` to sign in to Tokamak and save an API key".to_string())
                 .args(vec![LOGIN_ARG.to_string()]),
         )]
     } else {
@@ -203,11 +203,11 @@ fn initialize_response(req: &InitializeRequest) -> InitializeResponse {
             ),
         )
         .auth_methods(auth_methods)
-        .agent_info(Implementation::new("jan", env!("CARGO_PKG_VERSION")))
+        .agent_info(Implementation::new("novera", env!("CARGO_PKG_VERSION")))
 }
 
-/// Jan's credentials live in `~/.novera/config.toml`, filled by `jan login` or
-/// `jan config set`, so authenticating is checking that one is usable.
+/// Novera's credentials live in `~/.novera/config.toml`, filled by `novera login` or
+/// `novera config set`, so authenticating is checking that one is usable.
 async fn authenticate() -> Result<AuthenticateResponse, Error> {
     if super::providers::has_usable_provider(None) {
         Ok(AuthenticateResponse::new())
@@ -218,7 +218,7 @@ async fn authenticate() -> Result<AuthenticateResponse, Error> {
 
 fn auth_required(detail: &str) -> Error {
     Error::auth_required().data(json!({
-        "message": format!("{detail}: run `jan login`, or `jan config set --provider <name> --api-key <key> --base-url <url> --model <id>`"),
+        "message": format!("{detail}: run `novera login`, or `novera config set --provider <name> --api-key <key> --base-url <url> --model <id>`"),
     }))
 }
 
@@ -1171,7 +1171,7 @@ mod tests {
         };
         let first = ask(&mut map, 1);
         assert_eq!(first["toolCall"]["toolCallId"], "a");
-        assert_eq!(first["toolCall"]["locations"][0]["path"], "/work/x.txt");
+        assert_eq!(std::path::Path::new(first["toolCall"]["locations"][0]["path"].as_str().unwrap()), std::path::Path::new("/work/x.txt"));
         assert!(first["toolCall"]["content"][0]["content"]["text"].as_str().unwrap().contains("+b"));
         assert_eq!(ask(&mut map, 2)["toolCall"]["toolCallId"], "b");
     }
@@ -1304,7 +1304,7 @@ mod tests {
             .collect();
         let names: Vec<&str> = tags.iter().map(|t| t["sessionUpdate"].as_str().unwrap()).collect();
         assert_eq!(names, ["user_message_chunk", "tool_call", "tool_call_update", "agent_message_chunk"]);
-        assert_eq!(tags[1]["locations"][0]["path"], "/work/a.rs");
+        assert_eq!(std::path::Path::new(tags[1]["locations"][0]["path"].as_str().unwrap()), std::path::Path::new("/work/a.rs"));
         assert_eq!(tags[1]["status"], "completed");
     }
 

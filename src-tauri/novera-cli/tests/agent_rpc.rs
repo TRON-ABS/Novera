@@ -1,4 +1,4 @@
-//! Exercise the persistent RPC process through the real `jan` binary.
+//! Exercise the persistent RPC process through the real `novera` binary.
 use std::io::{BufRead, BufReader, Write};
 use std::net::TcpListener;
 use std::path::{Path, PathBuf};
@@ -57,14 +57,14 @@ fn provider(tokens: usize, token_bytes: usize) -> String {
     url
 }
 
-/// A scratch directory of our own, so the two tests never share a `~/.jan`.
+/// A scratch directory of our own, so the two tests never share a `~/.novera`.
 /// The project's store as the binary resolves it under the test's `HOME`.
 fn store(home: &Path, project: &Path) -> PathBuf {
-    tauri_plugin_agent_tools::workspace::project_store_in(&home.join(".jan"), project)
+    tauri_plugin_agent_tools::workspace::project_store_in(&home.join(".novera"), project)
 }
 
 fn scratch(name: &str) -> PathBuf {
-    let dir = std::env::temp_dir().join(format!("jan-rpc-{name}-{}", std::process::id()));
+    let dir = std::env::temp_dir().join(format!("novera-rpc-{name}-{}", std::process::id()));
     std::fs::create_dir_all(dir.join("home")).unwrap();
     std::fs::create_dir_all(dir.join("project")).unwrap();
     dir
@@ -72,7 +72,7 @@ fn scratch(name: &str) -> PathBuf {
 
 /// Point the CLI at the stub provider, so a session can resolve a model.
 fn configure(home: &Path, base_url: &str) {
-    let configured = Command::new(env!("CARGO_BIN_EXE_jan"))
+    let configured = Command::new(env!("CARGO_BIN_EXE_novera"))
         .args([
             "config",
             "set",
@@ -105,7 +105,7 @@ struct Rpc {
 
 impl Rpc {
     fn open(home: &Path) -> Self {
-        let mut child = Command::new(env!("CARGO_BIN_EXE_jan"))
+        let mut child = Command::new(env!("CARGO_BIN_EXE_novera"))
             .args(["cli", "agent", "rpc"])
             .env("JAN_CLI_NO_UPDATE_CHECK", "1")
             .env("HOME", home)
@@ -1313,7 +1313,7 @@ fn simultaneous_sessions_never_cross() {
             assert_eq!(request.header("authorization"), Some(format!("Bearer {key}").as_str()), "{request:?}");
             assert_eq!(
                 request.header("x-client-request-id"),
-                Some(format!("jan-{session}").as_str()),
+                Some(format!("novera-{session}").as_str()),
                 "{request:?}"
             );
             let body = request.body.to_string();
@@ -1506,7 +1506,7 @@ fn a_child_dispatched_without_an_allowlist_inherits_the_host_only_set() {
     let _ = std::fs::remove_dir_all(scratch);
 }
 
-/// `systemPrompt` is the whole system prompt, byte for byte: no Jan identity,
+/// `systemPrompt` is the whole system prompt, byte for byte: no Novera identity,
 /// guides, environment, date or git state around it. A model switch and a fork
 /// keep it; a blank one is refused rather than read as "no prompt".
 #[test]
@@ -1549,7 +1549,7 @@ fn a_host_system_prompt_is_sent_verbatim_and_kept() {
         assert_eq!(systems.len(), 1, "{body}");
         assert_eq!(system_text(body).as_deref(), Some(prompt), "{body}");
         let wire = body.to_string();
-        for jan_text in ["Jan agent harness", "Today's date is", "# Working Directory"] {
+        for jan_text in ["Novera agent harness", "Today's date is", "# Working Directory"] {
             assert!(!wire.contains(jan_text), "{jan_text:?} leaked into {body}");
         }
     }
@@ -1701,7 +1701,7 @@ fn a_child_keeps_the_parents_tool_over_a_host_tool_of_the_same_name() {
 }
 
 /// A host-prompted session still leaves its answers for later recall -- only
-/// the recall block itself, which Jan would write into the host's prompt, is
+/// the recall block itself, which Novera would write into the host's prompt, is
 /// withheld. The later Jan-prompted session in the same project proves the
 /// answer was indexed; the host-prompted turns prove nothing was recalled
 /// into them.
@@ -1735,8 +1735,8 @@ fn a_host_prompted_session_indexes_memory_but_is_never_sent_recall() {
     let thread: serde_json::Value = serde_json::from_str(&thread).unwrap();
     assert_eq!(thread["metadata"]["system_prompt"], "You drive the arm.", "{thread}");
 
-    let jan = start_with(&mut rpc, 7, &project, false);
-    complete_turn(&mut rpc, 8, &jan);
+    let novera = start_with(&mut rpc, 7, &project, false);
+    complete_turn(&mut rpc, 8, &novera);
     assert_eq!(recalled(&seen), 1, "the host-prompted answers were indexed");
 
     rpc.close();

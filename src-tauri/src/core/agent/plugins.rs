@@ -252,7 +252,7 @@ pub(crate) fn find_installed(root: &Path, query: &str) -> Option<(String, Instal
 
 /// `~/.novera/agent/plugin-env/`, shared by CLI setup and desktop discovery.
 fn plugin_env_dir() -> Result<PathBuf, String> {
-    dirs::home_dir()
+    crate::core::agent::global_config::user_home_dir()
         .map(|home| home.join(".novera").join("agent").join("plugin-env"))
         .ok_or_else(|| "could not resolve the user's home directory".to_string())
 }

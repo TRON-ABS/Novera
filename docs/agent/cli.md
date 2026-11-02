@@ -1,20 +1,20 @@
-> Technical reference retained from the inherited CLI. The executable and protocol identifiers still use `jan`. Links to other retired guides point to their historical Git revision; see [local Novera CLI setup](../BUILD_AND_RELEASE.md#cli).
+> Technical reference retained from the inherited CLI. The executable and protocol identifiers still use `novera`. Links to other retired guides point to their historical Git revision; see [local Novera CLI setup](../BUILD_AND_RELEASE.md#cli).
 
 # CLI Reference
 
-`jan` with no subcommand opens the [interactive console](https://github.com/TRON-ABS/Novera/blob/0990a25c7/docs/src/pages/docs/agent/console.mdx). Everything else is
+`novera` with no subcommand opens the [interactive console](https://github.com/TRON-ABS/Novera/blob/0990a25c7/docs/src/pages/docs/agent/console.mdx). Everything else is
 non-interactive, for scripts and CI.
 
 ```bash
-jan [OPTIONS]
-jan <COMMAND>
+novera [OPTIONS]
+novera <COMMAND>
 ```
 
 ## Opening the console
 
 | Flag | Description |
 | --- | --- |
-| `--project <PATH>` | Project root; its `agent.toml` lives in `~/.jan/projects/<slug>/`. Defaults to `.` |
+| `--project <PATH>` | Project root; its `agent.toml` lives in `~/.novera/projects/<slug>/`. Defaults to `.` |
 | `--task <TEXT>` | Seed the session with a first message |
 | `--model <ID>` | Model id, overriding `[agent].model` |
 | `--image <PATH>` | Attach an image to the first message. Repeatable |
@@ -33,16 +33,16 @@ jan <COMMAND>
 | `--base-url <URL>` | Base URL for the `--provider` named, e.g. a gateway. Requires `--provider`. See [Using a gateway](https://github.com/TRON-ABS/Novera/blob/0990a25c7/docs/src/pages/docs/agent/providers.mdx#using-a-gateway) |
 
 ```bash
-jan                                     # current directory
-jan --project ~/code/app                # somewhere else
-jan --task "fix the failing test"       # with a first message
-jan -c                                  # resume the latest session
-jan --resume 3f7a91c2                   # resume by id prefix
-jan --plan                              # read-only
-jan --safe                              # ask before writes and shell commands
-jan --sandbox                           # confine shell commands to the project
-jan -c --fork-session                   # branch the latest session into a new one
-jan --worktree                          # work in a dedicated checkout, not yours
+novera                                     # current directory
+novera --project ~/code/app                # somewhere else
+novera --task "fix the failing test"       # with a first message
+novera -c                                  # resume the latest session
+novera --resume 3f7a91c2                   # resume by id prefix
+novera --plan                              # read-only
+novera --safe                              # ask before writes and shell commands
+novera --sandbox                           # confine shell commands to the project
+novera -c --fork-session                   # branch the latest session into a new one
+novera --worktree                          # work in a dedicated checkout, not yours
 ```
 
 
@@ -53,7 +53,7 @@ prompt; `--sandbox` adds OS confinement (bubblewrap, Seatbelt, or AppContainer).
 [tool permissions](https://github.com/TRON-ABS/Novera/blob/0990a25c7/docs/src/pages/docs/agent/permissions.mdx#the-shell-sandbox).
 
 
-## `jan cli agent`
+## `novera cli agent`
 
 Run the agent without a UI. This is the form to use in scripts.
 
@@ -70,11 +70,11 @@ turns it may take.
 
 
 ```bash
-jan cli agent run "fix the failing test in tests/auth"
-jan cli agent run --project ~/code/app "update the changelog"
-jan cli agent run --model gpt-4o "add unit tests for the parser"
-jan cli agent run --safe "run the migration"   # approve each step
-jan cli agent run --max-turns 5 --max-session-tokens 20000 "triage the build failure"
+novera cli agent run "fix the failing test in tests/auth"
+novera cli agent run --project ~/code/app "update the changelog"
+novera cli agent run --model gpt-4o "add unit tests for the parser"
+novera cli agent run --safe "run the migration"   # approve each step
+novera cli agent run --max-turns 5 --max-session-tokens 20000 "triage the build failure"
 ```
 
 | Flag | Description |
@@ -110,7 +110,7 @@ form with an equals sign: `--resume=3f7a91c2`.
 run finishes. Progress and diagnostics still go to stderr, so stdout is safe to pipe into `jq`.
 
 ```bash
-jan cli agent run --output-format json "review auth.rs" | jq -r .result
+novera cli agent run --output-format json "review auth.rs" | jq -r .result
 ```
 
 ```json
@@ -355,7 +355,7 @@ A prompt is a `permission_request` with `prompt_kind: "mcp"`, naming the adverti
 `host__<name>`. With `--host-gate` none is raised for any host tool, because your `tool_request`
 handler is the gate. The deny list applies to every class. The `init` handshake echoes the schemas
 actually advertised in `tool_specs`, so a tool you declared that is missing there was withheld by
-policy and will never be called. Host tools are never served by `jan mcp serve`.
+policy and will never be called. Host tools are never served by `novera mcp serve`.
 
 A request you should no longer answer is withdrawn with a record, printed before the final `result`:
 
@@ -411,7 +411,7 @@ What a client may assume, for `protocol_version` 1:
 The version is bumped only for a change a v1 consumer cannot survive: a renamed or removed tag, a
 removed field, or a new meaning for an existing one. Adding a field is not a bump.
 
-Both directions of this channel are published as a JSON Schema by `jan cli agent schema`, so a
+Both directions of this channel are published as a JSON Schema by `novera cli agent schema`, so a
 client validates against the types instead of re-declaring them (see [`schema`](#schema)).
 
 ### `step`
@@ -419,7 +419,7 @@ client validates against the types instead of re-declaring them (see [`schema`](
 Run a single turn. Useful when debugging a prompt or a tool.
 
 ```bash
-jan cli agent step "list the files you would change"
+novera cli agent step "list the files you would change"
 ```
 
 ### `status`
@@ -427,9 +427,9 @@ jan cli agent step "list the files you would change"
 Print the resolved project config and available providers as JSON.
 
 ```bash
-jan cli agent status
-jan cli agent status --project ~/code/app
-jan cli agent status --provider tokamak   # as a launched session would resolve it
+novera cli agent status
+novera cli agent status --project ~/code/app
+novera cli agent status --provider tokamak   # as a launched session would resolve it
 ```
 
 It takes the same `--provider`, `--api-key` and `--base-url` flags as `run`. The top-level
@@ -439,11 +439,11 @@ It takes the same `--provider`, `--api-key` and `--base-url` flags as `run`. The
 
 ### `rpc`
 
-Run one long-lived Jan process with multiple addressable sessions over LF-delimited JSON-RPC on stdin/stdout. `jan cli agent rpc` prints **protocol lines only** to stdout. The first request is `initialize` with `protocolVersion: 1` and a `clientInfo` name/version; wait for its response, then send the `initialized` notification before any other method. Calling a method early returns `-32002`.
+Run one long-lived Jan process with multiple addressable sessions over LF-delimited JSON-RPC on stdin/stdout. `novera cli agent rpc` prints **protocol lines only** to stdout. The first request is `initialize` with `protocolVersion: 1` and a `clientInfo` name/version; wait for its response, then send the `initialized` notification before any other method. Calling a method early returns `-32002`.
 
 ```bash
-jan cli agent rpc
-jan cli agent rpc-schema   # generated request/event schemas on stdout
+novera cli agent rpc
+novera cli agent rpc-schema   # generated request/event schemas on stdout
 ```
 
 One client flow:
@@ -471,8 +471,8 @@ every machine, and it is the same document for a client that validates `stream-j
 one that writes stdin messages.
 
 ```bash
-jan cli agent schema                              # stdout
-jan cli agent schema --out protocol/schema.json   # or a file
+novera cli agent schema                              # stdout
+novera cli agent schema --out protocol/schema.json   # or a file
 ```
 
 The document has two root properties:
@@ -500,12 +500,12 @@ byte-identical rather than a diff.
 
 Print the RPC surface as a JSON Schema document, generated from the Rust types that deserialize each
 request. Like `schema`, no project and no provider are involved. It describes this surface only: the
-`stream-json` records are in `protocol/schema.json`, and ACP (`jan acp`) uses the
+`stream-json` records are in `protocol/schema.json`, and ACP (`novera acp`) uses the
 upstream [ACP schema](https://agentclientprotocol.com) rather than one of its own.
 
 ```bash
-jan cli agent rpc-schema                                  # stdout
-jan cli agent rpc-schema --out protocol/rpc-schema.json   # or a file
+novera cli agent rpc-schema                                  # stdout
+novera cli agent rpc-schema --out protocol/rpc-schema.json   # or a file
 ```
 
 | Property | Contents |
@@ -527,17 +527,17 @@ declares. The integration test then calls every method the document names and re
 is not `-32601`, so the artifact cannot offer a verb the server does not dispatch. CI regenerates both
 this document and `protocol/schema.json` in one job and fails on a diff.
 
-## `jan plugin`
+## `novera plugin`
 
 Manage project-local plugins without the interactive console. Plugin commands use
-the `plugins/` folder of the project's store (`~/.jan/projects/<slug>/`) for `--project` (default `.`) and print JSON for list, install, and search.
+the `plugins/` folder of the project's store (`~/.novera/projects/<slug>/`) for `--project` (default `.`) and print JSON for list, install, and search.
 
 ```bash
-jan plugin list
-jan plugin install https://github.com/acme/release-tools
-jan plugin install https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-code-setup
-jan plugin remove release-tools
-jan plugin search prepare
+novera plugin list
+novera plugin install https://github.com/acme/release-tools
+novera plugin install https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-code-setup
+novera plugin remove release-tools
+novera plugin search prepare
 ```
 
 Direct git URLs, optional `#ref` suffixes, marketplace names, and GitHub tree URLs selecting a
@@ -549,15 +549,15 @@ marketplace = "https://example.com/jan-plugins/index.json"
 ```
 
 
-## `jan config`
+## `novera config`
 
-Manage provider credentials in `~/.jan/config.toml`.
+Manage provider credentials in `~/.novera/config.toml`.
 
 ```bash
-jan config set --provider openai --api-key sk-... --base-url https://api.openai.com/v1 --model gpt-4o
-jan config unset --provider openai
-jan config list    # JSON, API keys redacted
-jan config path    # print the file path, scaffolding a template if absent
+novera config set --provider openai --api-key sk-... --base-url https://api.openai.com/v1 --model gpt-4o
+novera config unset --provider openai
+novera config list    # JSON, API keys redacted
+novera config path    # print the file path, scaffolding a template if absent
 ```
 
 | `set` flag | Description |
@@ -570,31 +570,31 @@ jan config path    # print the file path, scaffolding a template if absent
 
 See [Configuration](https://github.com/TRON-ABS/Novera/blob/0990a25c7/docs/src/pages/docs/agent/providers.mdx).
 
-## `jan login`
+## `novera login`
 
-Sign in to Tokamak and save the API key to `~/.jan/config.toml`.
+Sign in to Tokamak and save the API key to `~/.novera/config.toml`.
 
 ```bash
-jan login
+novera login
 ```
 
-## `jan cli threads`
+## `novera cli threads`
 
 Inspect saved conversations. Output is JSON, so it pipes into `jq`.
 
 ```bash
-jan cli threads list
-jan cli threads get <ID>
-jan cli threads messages <THREAD_ID>
-jan cli threads delete <ID>
+novera cli threads list
+novera cli threads get <ID>
+novera cli threads messages <THREAD_ID>
+novera cli threads delete <ID>
 ```
 
-## `jan cli models`
+## `novera cli models`
 
 Print every configured provider's models as JSON, keys redacted.
 
 ```bash
-jan cli models list
+novera cli models list
 ```
 
 ```json
@@ -623,7 +623,7 @@ jan cli models list
 ```
 
 This includes providers inherited from Jan Desktop, so it can list models even when
-`jan config list` shows none of its own.
+`novera config list` shows none of its own.
 
 `info` carries whatever the provider published about the model the last time its list was
 refreshed - context window, output cap, per-token prices. It is absent for an endpoint that lists
@@ -636,8 +636,8 @@ A provider's model list is recorded when you sign in, and a gateway gains and re
 that. Re-read it:
 
 ```bash
-jan cli models refresh                    # every provider in ~/.jan/config.toml
-jan cli models refresh --provider tokamak # just one
+novera cli models refresh                    # every provider in ~/.novera/config.toml
+novera cli models refresh --provider tokamak # just one
 ```
 
 Each provider's stored list is **replaced** with what its endpoint serves now, and the per-model
@@ -648,8 +648,8 @@ so, rather than leaving you to meet it as a 404 on the next run. The command exi
 provider could not be listed - including a `--provider` that names nothing refreshable - so a
 partial refresh is never reported as a complete one.
 
-Only providers with an entry in `~/.jan/config.toml` are refreshed. A provider inherited from Jan
-Desktop has nothing here to rewrite, so it is left alone; add it with `jan config set` first if you
+Only providers with an entry in `~/.novera/config.toml` are refreshed. A provider inherited from Jan
+Desktop has nothing here to rewrite, so it is left alone; add it with `novera config set` first if you
 want its list kept current.
 
 The interactive console refreshes too, more cautiously: opening `/model` re-lists each provider once
@@ -658,7 +658,7 @@ permission-scoped key or a paginated gateway can answer with a subset, and merel
 should not delete a model you configured by hand). The picker's note names how many were kept that
 way. <kbd>Ctrl</kbd>+<kbd>R</kbd> inside the picker runs the full replacing refresh on demand.
 
-## `jan cli mcp`
+## `novera cli mcp`
 
 Manage Model Context Protocol servers in the shared `mcp_config.json` -- the same store Jan
 Desktop and the interactive console read. Servers you add or enable here are available in both.
@@ -666,24 +666,24 @@ Desktop and the interactive console read. Servers you add or enable here are ava
 The desktop-only `Jan Browser MCP` bridge is never listed or editable from the CLI.
 
 ```bash
-jan cli mcp list                            # JSON, env/header values redacted
-jan cli mcp list --show-secrets             # include secret values
-jan cli mcp get <NAME>                      # one server's full config
-jan cli mcp add <NAME> --command npx --arg -y --arg my-mcp
-jan cli mcp remove <NAME>
-jan cli mcp enable <NAME>                   # connect on the next session
-jan cli mcp disable <NAME>
+novera cli mcp list                            # JSON, env/header values redacted
+novera cli mcp list --show-secrets             # include secret values
+novera cli mcp get <NAME>                      # one server's full config
+novera cli mcp add <NAME> --command npx --arg -y --arg my-mcp
+novera cli mcp remove <NAME>
+novera cli mcp enable <NAME>                   # connect on the next session
+novera cli mcp disable <NAME>
 ```
 
 A stdio server needs a command and optional args; an `http`/`sse` server needs a URL.
 
 ```bash
 # stdio (the default transport)
-jan cli mcp add files --command npx --arg -y --arg @modelcontextprotocol/server-filesystem \
+novera cli mcp add files --command npx --arg -y --arg @modelcontextprotocol/server-filesystem \
   --env FOO=bar
 
 # http, with a header and marked active immediately
-jan cli mcp add exa --type http --url https://mcp.exa.ai/mcp --header Authorization=Bearer-secret \
+novera cli mcp add exa --type http --url https://mcp.exa.ai/mcp --header Authorization=Bearer-secret \
   --active
 ```
 
@@ -702,16 +702,16 @@ added servers default to inactive, so they are persisted but not connected until
 
 See [MCP](https://github.com/TRON-ABS/Novera/blob/0990a25c7/docs/src/pages/docs/agent/mcp.mdx).
 
-## `jan mcp serve`
+## `novera mcp serve`
 
 The other direction: serve Jan's own built-in tools to another MCP client. One project root, fixed
 at startup; a path argument that escapes it is refused.
 
 ```bash
-jan mcp serve --project .                   # stdio, for a client that spawns it as a child
-jan mcp serve --transport http              # loopback HTTP; prints its URL and bearer token
-jan mcp serve --allow-write --allow-exec    # add the mutating and shell tools
-jan mcp serve --tool read --tool grep       # narrow the set
+novera mcp serve --project .                   # stdio, for a client that spawns it as a child
+novera mcp serve --transport http              # loopback HTTP; prints its URL and bearer token
+novera mcp serve --allow-write --allow-exec    # add the mutating and shell tools
+novera mcp serve --tool read --tool grep       # narrow the set
 ```
 
 | Flag | Description |
@@ -730,32 +730,32 @@ than blocking. On `http` the listener is loopback-only and every request must ca
 
 See [Serving Jan's own tools](https://github.com/TRON-ABS/Novera/blob/0990a25c7/docs/src/pages/docs/agent/mcp.mdx#serving-jans-own-tools).
 
-## `jan acp`
+## `novera acp`
 
 **Experimental.** Serves the agent over the [Agent Client Protocol](https://agentclientprotocol.com)
 on stdio, so Zed, JetBrains and other ACP editors can run it. The command is hidden from `--help`
-and is off unless you set `JAN_EXPERIMENTAL_ACP=1` or add `[experimental] acp = true` to
-`~/.jan/config.toml`. Without either, it exits with status 2.
+and is off unless you set `NOVERA_EXPERIMENTAL_ACP=1` or add `[experimental] acp = true` to
+`~/.novera/config.toml`. Without either, it exits with status 2.
 
 ```bash
-JAN_EXPERIMENTAL_ACP=1 jan acp           # what an editor spawns
-JAN_EXPERIMENTAL_ACP=1 jan acp --login   # the sign-in an ACP client runs in a terminal
+NOVERA_EXPERIMENTAL_ACP=1 novera acp           # what an editor spawns
+NOVERA_EXPERIMENTAL_ACP=1 novera acp --login   # the sign-in an ACP client runs in a terminal
 ```
 
 See [Editors (ACP)](https://github.com/TRON-ABS/Novera/blob/0990a25c7/docs/src/pages/docs/agent/acp.mdx) for editor setup and the supported surface.
 
-## `jan update`
+## `novera update`
 
 Update the binary to the latest build of the channel it was built for.
 
 ```bash
-jan update
-jan update --check   # report without installing
-jan update --force   # reinstall even if current
+novera update
+novera update --check   # report without installing
+novera update --force   # reinstall even if current
 ```
 
 
-Builds compiled from source have no update channel embedded, so `jan update` will say so rather than
+Builds compiled from source have no update channel embedded, so `novera update` will say so rather than
 doing anything. Re-run the installer with `--source` to rebuild.
 
 
@@ -763,14 +763,14 @@ doing anything. Re-run the installer with `--source` to rebuild.
 
 | Variable | Description |
 | --- | --- |
-| `JAN_API_KEY` | API key for the target provider |
+| `NOVERA_API_KEY` | API key for the target provider |
 | `<PROVIDER>_API_KEY` | Per-provider key, e.g. `ANTHROPIC_API_KEY` |
-| `JAN_BASE_URL` | Base URL for the provider named with `--provider`. Ignored without it |
-| `JAN_CUSTOM_HEADERS` | Extra request headers for that provider, one `Name: Value` per line. Ignored without `--provider` |
+| `NOVERA_BASE_URL` | Base URL for the provider named with `--provider`. Ignored without it |
+| `NOVERA_CUSTOM_HEADERS` | Extra request headers for that provider, one `Name: Value` per line. Ignored without `--provider` |
 | `TOKAMAK_BASE_URL` | Tokamak deployment for sign-in and account calls; `/v1` is appended to a bare origin |
 | `TOKAMAK_WEB_URL` | Tokamak web app for the sign-in and API-keys pages, when it can't be derived from the API host |
 | `JAN_INSTALL_DIR` | Install directory used by the install script |
-| `JAN_EXPERIMENTAL_ACP` | `1` allows the experimental `jan acp` server; `0` blocks it even if `[experimental] acp` is set |
+| `NOVERA_EXPERIMENTAL_ACP` | `1` allows the experimental `novera acp` server; `0` blocks it even if `[experimental] acp` is set |
 
 ## Using it in CI
 
@@ -779,7 +779,7 @@ A headless run with credentials from the environment and no prompts:
 ```bash
 export ANTHROPIC_API_KEY="$SECRET_KEY"
 
-jan cli agent run \
+novera cli agent run \
   --project . \
   --provider anthropic \
   "update the changelog for the current release"

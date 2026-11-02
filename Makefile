@@ -161,11 +161,11 @@ test-rust: stub-resources
 # protocol/schema.json is committed, and core::cli::protocol_schema fails when it
 # no longer matches the types that define the channel. This is the fix for that
 # failure, not an optional extra: change a protocol type, run this, commit both.
-# `cd` rather than `--manifest-path` because jan-cli is its own workspace and its
+# `cd` rather than `--manifest-path` because novera-cli is its own workspace and its
 # .cargo/config.toml is what points the build at src-tauri/target. The feature
 # set matches build-cli, so this does not compile a second configuration.
 protocol-schema:
-	cd src-tauri/jan-cli && cargo run --quiet --locked --no-default-features --features cli --bin jan -- cli agent schema --out ../../protocol/schema.json
+	cd src-tauri/novera-cli && cargo run --quiet --locked --no-default-features --features cli --bin novera -- cli agent schema --out ../../protocol/schema.json
 
 # The same guard for the RPC surface: protocol/rpc-schema.json is committed, and
 # core::cli::rpc_schema fails when it no longer matches the types that define the
@@ -173,7 +173,7 @@ protocol-schema:
 # protocol/schema.json, and ACP (`jan acp`) uses the upstream
 # ACP schema.
 protocol-rpc-schema:
-	cd src-tauri/jan-cli && cargo run --quiet --locked --no-default-features --features cli --bin jan -- cli agent rpc-schema --out ../../protocol/rpc-schema.json
+	cd src-tauri/novera-cli && cargo run --quiet --locked --no-default-features --features cli --bin novera -- cli agent rpc-schema --out ../../protocol/rpc-schema.json
 
 test: test-prepare install-rust-targets
 	yarn build:mlx-server
@@ -201,20 +201,20 @@ test-ci: test-prepare
 # Compile and test guard for the CLI feature set. The `jan` CLI is no longer
 # bundled with the app; `make test` still builds the real binary via build-cli.
 #
-# jan-cli is a standalone crate and not a dependency of src-tauri, so the
+# novera-cli is a standalone crate and not a dependency of src-tauri, so the
 # rust-check `cli` app entry never reaches it (that entry's --all-targets covers
 # app_lib's own cfg(feature = "cli") test modules, a different crate). This
-# target runs its tests; the CI lint guarantee is the jan-cli entry of the
+# target runs its tests; the CI lint guarantee is the novera-cli entry of the
 # rust-check `crates` matrix, which `lint-cli` reproduces locally. A bare
 # `cargo check` here once built the bin but not the #[cfg(test)] module, which
 # is how the fixture in `compact_plugin_list_omits_long_metadata` silently rotted.
 check-cli:
-	cd src-tauri/jan-cli && cargo test --locked --no-default-features --features cli
+	cd src-tauri/novera-cli && cargo test --locked --no-default-features --features cli
 
-# The same clippy invocation as the rust-check `crates` matrix jan-cli entry.
+# The same clippy invocation as the rust-check `crates` matrix novera-cli entry.
 # Kept out of check-cli so the linter workflow does not lint it a second time.
 lint-cli:
-	cd src-tauri/jan-cli && cargo clippy --locked --no-default-features --features cli --all-targets -- -D warnings
+	cd src-tauri/novera-cli && cargo clippy --locked --no-default-features --features cli --all-targets -- -D warnings
 
 # Build MLX server (macOS Apple Silicon only) - always builds, unless
 # JAN_MLX_PREBUILT_DIR holds a cached build of the same inputs
@@ -280,35 +280,35 @@ else
 	@echo "Skipping MLX server build (macOS only)"
 endif
 
-# Build jan CLI (release, platform-aware) → src-tauri/resources/bin/jan[.exe]
+# Build jan CLI (release, platform-aware) → src-tauri/resources/bin/novera[.exe]
 build-cli:
 ifeq ($(DETECTED_OS),Darwin)
-	cd src-tauri/jan-cli && cargo build --release --no-default-features --features cli --target aarch64-apple-darwin
-	cd src-tauri/jan-cli && cargo build --release --no-default-features --features cli --target x86_64-apple-darwin
+	cd src-tauri/novera-cli && cargo build --release --no-default-features --features cli --target aarch64-apple-darwin
+	cd src-tauri/novera-cli && cargo build --release --no-default-features --features cli --target x86_64-apple-darwin
 	lipo -create \
-		src-tauri/target/aarch64-apple-darwin/release/jan \
-		src-tauri/target/x86_64-apple-darwin/release/jan \
-		-output src-tauri/resources/bin/jan
-	chmod +x src-tauri/resources/bin/jan
+		src-tauri/target/aarch64-apple-darwin/release/novera \
+		src-tauri/target/x86_64-apple-darwin/release/novera \
+		-output src-tauri/resources/bin/novera
+	chmod +x src-tauri/resources/bin/novera
 	$(call MKDIR,'src-tauri/target/universal-apple-darwin/release')
 
 	echo "Checking for code signing identity..."; \
 	SIGNING_IDENTITY=$$(security find-identity -v -p codesigning | grep "Developer ID Application" | head -1 | sed 's/.*"\(.*\)".*/\1/'); \
 	if [ -n "$$SIGNING_IDENTITY" ]; then \
-		echo "Signing jan with identity: $$SIGNING_IDENTITY"; \
-		codesign --force --options runtime --timestamp --sign "$$SIGNING_IDENTITY" src-tauri/resources/bin/jan; \
+		echo "Signing novera with identity: $$SIGNING_IDENTITY"; \
+		codesign --force --options runtime --timestamp --sign "$$SIGNING_IDENTITY" src-tauri/resources/bin/novera; \
 		echo "Code signing completed successfully"; \
 	else \
 		echo "Warning: No Developer ID Application identity found. Skipping code signing (notarization will fail)."; \
 	fi
 
-	cp src-tauri/resources/bin/jan src-tauri/target/universal-apple-darwin/release/jan
+	cp src-tauri/resources/bin/novera src-tauri/target/universal-apple-darwin/release/novera
 else ifeq ($(DETECTED_OS),Windows)
-	cd src-tauri/jan-cli && cargo build --release --no-default-features --features cli
-	cp src-tauri/target/release/jan.exe src-tauri/resources/bin/jan.exe
+	cd src-tauri/novera-cli && cargo build --release --no-default-features --features cli
+	cp src-tauri/target/release/novera.exe src-tauri/resources/bin/novera.exe
 else
-	cd src-tauri/jan-cli && cargo build --release --no-default-features --features cli
-	cp src-tauri/target/release/jan src-tauri/resources/bin/jan
+	cd src-tauri/novera-cli && cargo build --release --no-default-features --features cli
+	cp src-tauri/target/release/novera src-tauri/resources/bin/novera
 endif
 
 # ---------------------------------------------------------------------------
@@ -563,28 +563,28 @@ else
 	bash src-tauri/build-utils/stage-engine.sh debug
 endif
 
-# Build the Jan agent CLI (the `jan` binary with the `cli` feature)
+# Build the Novera agent CLI (the `jan` binary with the `cli` feature)
 # The compiled binary lives at two locations after build:
-#   1. src-tauri/resources/bin/jan[.exe] (bundled copy)
-#   2. src-tauri/target/<triple>/release/jan[.exe] (Cargo output)
+#   1. src-tauri/resources/bin/novera[.exe] (bundled copy)
+#   2. src-tauri/target/<triple>/release/novera[.exe] (Cargo output)
 agent: build-agent
 
 # Build the jan agent CLI binary (release, platform-aware)
-# The binary is compiled into src-tauri/target/<triple>/release/jan[.exe]
-# and then installed to src-tauri/resources/bin/jan[.exe] for bundling.
+# The binary is compiled into src-tauri/target/<triple>/release/novera[.exe]
+# and then installed to src-tauri/resources/bin/novera[.exe] for bundling.
 build-agent:
 ifeq ($(DETECTED_OS),Windows)
-	cd src-tauri/jan-cli && cargo build --release --no-default-features --features cli
-	copy src-tauri\target\release\jan.exe src-tauri\resources\bin\jan.exe
-	@echo "Jan agent built at:"
-	@echo "  src-tauri/resources/bin/jan.exe"
-	@echo "  src-tauri/target/release/jan.exe"
+	cd src-tauri/novera-cli && cargo build --release --no-default-features --features cli
+	copy src-tauri\target\release\novera.exe src-tauri\resources\bin\novera.exe
+	@echo "Novera agent built at:"
+	@echo "  src-tauri/resources/bin/novera.exe"
+	@echo "  src-tauri/target/release/novera.exe"
 else
-	cd src-tauri/jan-cli && cargo build --release --no-default-features --features cli
-	install -m755 src-tauri/target/release/jan src-tauri/resources/bin/jan
-	@echo "Jan agent built at:"
-	@echo "  src-tauri/resources/bin/jan"
-	@echo "  src-tauri/target/release/jan"
+	cd src-tauri/novera-cli && cargo build --release --no-default-features --features cli
+	install -m755 src-tauri/target/release/novera src-tauri/resources/bin/novera
+	@echo "Novera agent built at:"
+	@echo "  src-tauri/resources/bin/novera"
+	@echo "  src-tauri/target/release/novera"
 endif
 
 # Build

@@ -83,6 +83,11 @@ export function checkReleaseReadiness(root) {
     const pending = [...target.pending]
     if (target.id === 'android') {
       const mobile = json('scripts/android/readiness.json')
+      if (Object.values(mobile?.reviews || {}).some(value => value === true) && !read(mobile?.reviewEvidence)?.trim()) errors.push('Android review approval requires a source evidence document')
+      const release = json('scripts/android/release.json')
+      if (release?.packageId !== config?.identifier || release?.versionCode !== config?.bundle?.android?.versionCode || !/^[a-f0-9]{64}$/.test(release?.certificateSha256 || '')) errors.push('Android release identity, versionCode or certificate pin is invalid')
+      const startup = config?.app?.windows?.find(window => window.label === 'main' && window.create !== false && window.visible !== false)
+      if (!startup || startup.url !== 'index.html' || startup.useHttpsScheme !== true) errors.push('Android startup requires a visible main application window using the HTTPS custom scheme')
       for (const review of ['mobileDependencies', 'mobilePermissions', 'mobileStorage']) {
         if (mobile?.reviews?.[review] !== true) pending.push(`Android review pending: ${review}`)
       }

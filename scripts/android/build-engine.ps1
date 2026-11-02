@@ -50,6 +50,10 @@ foreach ($name in @('libggml.so','libggml-base.so','libggml-cpu.so')) {
     Copy-Item -LiteralPath $library -Destination $destination -Force
 }
 Copy-Item -LiteralPath (Join-Path $android.ndk 'toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so') -Destination $destination -Force
+# A generated project can retain the worker name from before the Novera rename.
+# Only remove that obsolete generated binary after the replacement is staged.
+$obsolete=Join-Path $destination 'libjan_llama_worker.so'
+if (Test-Path -LiteralPath $obsolete) { Remove-Item -LiteralPath $obsolete }
 $readelf=Join-Path $android.llvm 'llvm-readelf.exe'
 foreach ($file in Get-ChildItem -LiteralPath $destination -Filter '*.so' -File) {
     $header=& $readelf -h $file.FullName

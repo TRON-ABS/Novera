@@ -232,9 +232,15 @@ Le cache CMake du moteur inclut la version NDK dans son chemin. Un changement de
 
 L'application debug utilise un identifiant séparé `io.github.tronabs.novera.debug`. Les fichiers et sauvegardes restent privés ; les URI de documents sélectionnés sont prises en charge. Le lanceur n'active ni mises à jour automatiques, ni envoi de statistiques non configurées.
 
-**Seule Novera-Desktop reste activée dans Compiler-Novera.bat.** `yarn build:android` et `yarn build:android:apk` passent par le point d'entrée gardé, en mode debug explicite. Android reste désactivé par défaut et les trois audits de [readiness.json](../scripts/android/readiness.json) restent ouverts. Un diagnostic peut signaler ces blocages même si des APK de test ont déjà été assemblées manuellement pour validation.
+**Seule Novera-Desktop reste activée dans Compiler-Novera.bat.** `yarn build:android` et `yarn build:android:apk` passent par le point d'entrée gardé, en mode debug par défaut. Android reste désactivé par défaut dans le BAT. Les trois revues de sources de [readiness.json](../scripts/android/readiness.json) sont maintenant documentées dans la [revue du 2 novembre](ANDROID_RELEASE_REVIEW_2026-11-02.md) ; les essais du paquet final sur téléphone restent distincts.
 
-Les APK debug assemblées dans les essais antérieurs ne valident pas les derniers renommages et options du premier démarrage. Installation, reprise, stockage, secrets, téléchargement et génération doivent être vérifiés sur appareil. Les trois audits de dépendances, permissions et stockage restent ouverts ; le parcours gardé complet et la signature de production restent non validés. Les résultats historiques sont dans [CHANGELOG.md](CHANGELOG.md#history).
+Les APK debug assemblées dans les essais antérieurs ne valident pas les derniers renommages et options du premier démarrage. Installation, reprise, stockage, secrets, téléchargement et génération doivent être vérifiés sur appareil. Les résultats historiques sont dans [CHANGELOG.md](CHANGELOG.md#history).
+
+Pour la distribution directe, `scripts/android/initialize-signing.ps1` crée une identité Android une seule fois, dans le dossier privé Windows du mainteneur, avec un mot de passe aléatoire protégé par DPAPI. Le certificat public est épinglé dans `scripts/android/release.json`. Ne pas recréer cette identité si elle existe : les mises à jour dépendent de sa conservation. `export-signing-recovery.ps1 -Destination CHEMIN_HORS_DEPOT.p12` permet une sauvegarde portable, avec saisie masquée d'un mot de passe de récupération à conserver séparément. La sauvegarde hors machine reste une action du mainteneur.
+
+`scripts/android/build-release.ps1` reconstruit le moteur et l'APK release, signe les octets après alignement, puis vérifie identité, certificat, bibliothèques, permissions et notices. Le `versionCode` de `tauri.android.conf.json` doit correspondre à `release.json` et progresser à chaque mise à jour distribuée. Le mode release refuse les revues incomplètes, même avec l'option de test historique.
+
+La distribution retenue est un APK téléchargé manuellement et installé par Android, avec confirmation de l'utilisateur, même identité et même certificat. L'updater desktop Tauri ne s'applique pas au mobile ; aucune mise à jour automatique n'est annoncée. L'AAB et Google Play ne sont pas préparés par ce chemin. Consulter le [bilan Android](RELEASE_ANDROID_1.0.0.md) pour les octets vérifiés et les essais téléphone, et la [note macOS/iOS](REPRISE_MACOS_IOS.md) pour reprendre ensuite les deux plateformes Apple.
 
 <a id="cli"></a>
 
@@ -248,15 +254,15 @@ cd src-tauri/novera-cli
 cargo build --no-default-features --features cli --release
 ```
 
-Le nom interne du binaire reste `jan` (`jan.exe` sous Windows). Le fichier de
+Le binaire est `novera` (`novera.exe` sous Windows). Le fichier de
 configuration Cargo redirige la sortie vers `src-tauri/target/release/`.
 Depuis la racine du dépôt, une fois la compilation effectuée :
 
 ```sh
-./src-tauri/target/release/jan agent ui
+./src-tauri/target/release/novera agent ui
 ```
 
-Sous PowerShell, utiliser `./src-tauri/target/release/jan.exe agent ui`.
+Sous PowerShell, utiliser `./src-tauri/target/release/novera.exe agent ui`.
 Le lanceur `novera-agent.sh` existant reste disponible pour les distributions
 locales dont la CLI est déjà placée dans `src-tauri/resources/bin/`.
 

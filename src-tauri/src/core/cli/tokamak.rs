@@ -375,7 +375,7 @@ async fn revoke_key(key_id: &str, api_key: &str) -> bool {
         .is_ok_and(|r| r.status().is_success())
 }
 
-/// What `jan auth status` reports, without touching the network.
+/// What `novera auth status` reports, without touching the network.
 #[derive(Debug, Clone, Default, serde::Serialize)]
 pub struct AuthStatus {
     pub signed_in: bool,
@@ -424,7 +424,7 @@ pub const EXPIRY_WARNING_WINDOW: Duration = Duration::from_secs(7 * 24 * 60 * 60
 /// there is no key, no recorded expiry (a legacy paste login records none), or
 /// the expiry is comfortably far off -- and while Tokamak is the session-scoped
 /// provider, whose key is not the stored one: telling a launched session to run
-/// `jan login` would only overwrite the native sign-in to no effect.
+/// `novera login` would only overwrite the native sign-in to no effect.
 pub fn expiry_warning() -> Option<String> {
     if super::session_provider::tokamak_is_session_scoped() {
         return None;
@@ -448,7 +448,7 @@ fn describe_expiry(expires_at: u64, now: u64) -> Option<String> {
     }
     let Some(remaining) = expires_at.checked_sub(now) else {
         return Some(
-            "your Tokamak key has expired - run `jan login` to sign in again.".to_string(),
+            "your Tokamak key has expired - run `novera login` to sign in again.".to_string(),
         );
     };
     if remaining > EXPIRY_WARNING_WINDOW.as_secs() {
@@ -456,9 +456,9 @@ fn describe_expiry(expires_at: u64, now: u64) -> Option<String> {
     }
     let days = remaining / (24 * 60 * 60);
     Some(match days {
-        0 => "your Tokamak key expires within a day - run `jan login` to renew it.".to_string(),
-        1 => "your Tokamak key expires in 1 day - run `jan login` to renew it.".to_string(),
-        n => format!("your Tokamak key expires in {n} days - run `jan login` to renew it."),
+        0 => "your Tokamak key expires within a day - run `novera login` to renew it.".to_string(),
+        1 => "your Tokamak key expires in 1 day - run `novera login` to renew it.".to_string(),
+        n => format!("your Tokamak key expires in {n} days - run `novera login` to renew it."),
     })
 }
 
@@ -929,7 +929,7 @@ mod tests {
 
         let soon = describe_expiry(now + 6 * DAY, now).expect("inside the window");
         assert!(soon.contains("6 days"), "{soon}");
-        assert!(soon.contains("jan login"), "{soon}");
+        assert!(soon.contains("novera login"), "{soon}");
 
         assert!(describe_expiry(now + DAY + 60, now)
             .expect("1 day")
@@ -1108,7 +1108,7 @@ mod tests {
 
     /// While the session provides Tokamak, the stored entry describes some
     /// other key: none of its metadata may be reported, and its expiry must not
-    /// tell a launched session to run `jan login`.
+    /// tell a launched session to run `novera login`.
     #[test]
     fn a_session_tokamak_reports_its_own_source_and_no_stored_expiry() {
         use super::super::session_provider::with_session;

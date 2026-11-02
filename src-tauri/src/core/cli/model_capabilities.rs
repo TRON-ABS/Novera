@@ -43,7 +43,7 @@ impl ContextWindowSource {
 }
 
 /// Strip the configured provider qualifiers (`anthropic/...`) in front of a
-/// bare id, as long as each leading segment is one of Jan's catalog providers.
+/// bare id, as long as each leading segment is one of Novera's catalog providers.
 /// A user-provided model id is normally the bare id, but `--model
 /// anthropic/claude-sonnet-4-6` and the desktop selection can carry the
 /// provider prefix, and a gateway route nests one more
@@ -319,7 +319,7 @@ mod tests {
 
     #[test]
     fn non_catalog_provider_qualifier_is_not_stripped() {
-        // A provider Jan doesn't ship keeps its qualifier: the id must still
+        // A provider Novera doesn't ship keeps its qualifier: the id must still
         // fall through to the conservative default rather than mis-matching.
         assert_eq!(
             resolve_context_window("azure/claude-sonnet-4-6", None, None).source,

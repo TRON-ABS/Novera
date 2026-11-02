@@ -18,7 +18,7 @@ $variants = @(
     [pscustomobject]@{Id='android'; Flag='ANDROID'; Name='Android APK ARM64'; Host='SDK Android + NDK + JDK + audit mobile'; Command='scripts/android/build-apk.ps1 (APK ARM64 apres diagnostic /android-check)'},
     [pscustomobject]@{Id='ios'; Flag='IOS'; Name='iOS (appareil)'; Host='macOS + Xcode + signature'; Command='yarn build:ios:device'},
     [pscustomobject]@{Id='web'; Flag='WEB'; Name='Interface Web (dist)'; Host='Node.js + dependances'; Command='yarn build:web'},
-    [pscustomobject]@{Id='cli'; Flag='CLI'; Name='CLI sans interface (binaire historique jan)'; Host='Rust + dependances natives'; Command='cargo build --locked --release --manifest-path src-tauri/novera-cli/Cargo.toml'}
+    [pscustomobject]@{Id='cli'; Flag='CLI'; Name='CLI sans interface (executable novera)'; Host='Rust + dependances natives'; Command='cargo build --locked --release --manifest-path src-tauri/novera-cli/Cargo.toml'}
 )
 foreach ($variant in $variants) {
     $enabled = [Environment]::GetEnvironmentVariable('NOVERA_BUILD_' + $variant.Flag)

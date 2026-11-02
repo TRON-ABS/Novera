@@ -7,9 +7,9 @@ def package(binary, folder, version, platform, commit):
         raise ValueError('Stable CLI version required')
     if platform not in ['windows-x86_64', 'linux-x86_64', 'darwin-aarch64'] or not re.fullmatch(r'[a-f0-9]{40}', commit):
         raise ValueError('Reviewed CLI platform and source commit required')
-    name = 'jan.exe' if platform.startswith('windows-') else 'jan'
+    name = 'novera.exe' if platform.startswith('windows-') else 'novera'
     data = binary.read_bytes()
-    identity = dict(formatVersion=1, product='Novera CLI', version=version, platform=platform,
+    identity = dict(formatVersion=2, product='Novera CLI', version=version, platform=platform,
                     binary=name, binarySha256=hashlib.sha256(data).hexdigest(), commit=commit)
     folder.mkdir(parents=True, exist_ok=True)
     archive = folder/f'Novera_CLI_{version}_{platform}.zip'
@@ -21,7 +21,7 @@ def package(binary, folder, version, platform, commit):
 def inspect_package(archive, version, platform, commit):
     if platform not in ['windows-x86_64','linux-x86_64','darwin-aarch64']:
         raise ValueError('Unsupported signed CLI platform')
-    name='jan.exe' if platform.startswith('windows-') else 'jan'
+    name='novera.exe' if platform.startswith('windows-') else 'novera'
     with zipfile.ZipFile(archive) as payload:
         if len(payload.infolist())!=2 or set(payload.namelist())!={name,'CLI-UPDATE.json'}:
             raise ValueError('Ambiguous signed CLI archive')
@@ -31,7 +31,7 @@ def inspect_package(archive, version, platform, commit):
         if any(((entry.external_attr>>16)&0o170000)==0o120000 for entry in payload.infolist()):
             raise ValueError('CLI archive cannot contain symbolic links')
         binary=payload.read(name);identity=json.loads(payload.read('CLI-UPDATE.json'))
-    expected=dict(formatVersion=1,product='Novera CLI',version=version,platform=platform,binary=name,
+    expected=dict(formatVersion=2,product='Novera CLI',version=version,platform=platform,binary=name,
                   binarySha256=hashlib.sha256(binary).hexdigest(),commit=commit)
     if identity!=expected or not re.fullmatch(r'[a-f0-9]{40}',commit):
         raise ValueError('Signed CLI identity differs from the reviewed version, platform or source')

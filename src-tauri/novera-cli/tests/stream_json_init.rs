@@ -102,7 +102,7 @@ struct Scratch {
 
 impl Scratch {
     fn new(name: &str) -> Self {
-        let root = std::env::temp_dir().join(format!("jan-init-{name}-{}", std::process::id()));
+        let root = std::env::temp_dir().join(format!("novera-init-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&root);
         std::fs::create_dir_all(&root).expect("scratch dir");
         Self { root }
@@ -133,7 +133,7 @@ impl Scratch {
                 "stub-model",
             ])
             .output()
-            .expect("run `jan config set`");
+            .expect("run `novera config set`");
         assert!(
             out.status.success(),
             "config set failed: {}",
@@ -141,7 +141,7 @@ impl Scratch {
         );
     }
 
-    /// Run `jan cli agent run` to completion, machine-readable, with stdin
+    /// Run `novera cli agent run` to completion, machine-readable, with stdin
     /// closed. A `stream-json` reader that hits end of input is the ordinary
     /// case: the run keeps going, it just has no client left to talk to.
     fn run(&self) -> Output {
@@ -168,16 +168,16 @@ impl Scratch {
         ])
         .stdin(Stdio::null())
         .output()
-        .expect("run the jan CLI")
+        .expect("run the novera CLI")
     }
 
     fn command(&self, args: &[&str]) -> Command {
         std::fs::create_dir_all(self.home()).expect("home dir");
         std::fs::create_dir_all(self.project()).expect("project dir");
-        let mut cmd = Command::new(env!("CARGO_BIN_EXE_jan"));
+        let mut cmd = Command::new(env!("CARGO_BIN_EXE_novera"));
         cmd.args(args)
             .env("HOME", self.home())
-            .env("JAN_DATA_FOLDER", self.root.join("jan-data"))
+            .env("JAN_DATA_FOLDER", self.root.join("novera-data"))
             .env_remove("JAN_API_KEY")
             .env_remove("OPENAI_API_KEY")
             .env_remove("ANTHROPIC_API_KEY");
@@ -343,7 +343,7 @@ fn a_setup_failure_reports_the_envelope_without_a_handshake() {
         ])
         .stdin(Stdio::null())
         .output()
-        .expect("run the jan CLI");
+        .expect("run the novera CLI");
 
     let records = records(&out);
     assert_eq!(
@@ -358,12 +358,12 @@ fn a_setup_failure_reports_the_envelope_without_a_handshake() {
 }
 
 /// Every request a run sends is preceded by a `request_provenance` record, and
-/// the record's digest is a deterministic function of the request Jan built.
+/// the record's digest is a deterministic function of the request Novera built.
 /// That is the property a harness relies on to say two runs sent the same
 /// thing, so it is the property pinned here: two identical runs report one
 /// digest, and a different task does not.
 ///
-/// The digest covers the body Jan built, before the provider adapter's own
+/// The digest covers the body Novera built, before the provider adapter's own
 /// serialization -- the record is identity for comparing runs, not a byte
 /// audit of what a particular client put on the wire.
 #[test]

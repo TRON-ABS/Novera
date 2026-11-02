@@ -1,0 +1,12 @@
+{
+  "purpose": "internal-data-preserving-update-test",
+  "referenceApkSha256": "59a542a6cb727b173e3a571a3477dff9f4a95839f46190d736bc42a0becc595f",
+  "fromVersionCode": 1000002,
+  "toVersionCode": 1000003,
+  "sameNativeAndAssets": true,
+  "certificateSha256": "ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582",
+  "nativeCompilationPerformed": false,
+  "generatedVersionCodeRestored": true,
+  "deviceUpdateValidated": false,
+  "published": false
+}
