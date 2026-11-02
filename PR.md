@@ -4,6 +4,8 @@ The existing ZIP runs the installed-app build, writes to the Windows profile and
 
 The separate signed updater validates the complete Program payload, stages and swaps Program with rollback/recovery, preserves Data and restarts the application. The initial ZIP has an empty Data directory. Both ZIP and replacement executable use the pinned Novera key. The latest release carries desktop, CLI and portable feeds together, preserving previously published immutable binaries and URLs. The public descriptor covers 26 files and seven signed payloads.
 
+An explicit CI staging target transfers only descriptor-matched, independently signature-verified portable payloads from the original build artifact to the intended existing private draft. It checks server-side asset digests, can remove only an interrupted zero-size starter asset in that draft, and cannot create or publish a release. Other distribution targets do not run it.
+
 Validation:
 
 - Native compilation/signing at `8df293c4b64b007250bb28582d0ed45ced215953`, run [41486084155](https://github.com/TRON-ABS/Novera/actions/runs/41486084155): build, packaging and signatures passed; that overall workflow later failed its Windows Server UI check.
