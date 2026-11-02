@@ -362,3 +362,24 @@ jobs:
           printf 'Launch information Pages deployment: %s\n' "$PAGES" >> "$GITHUB_STEP_SUMMARY"
           echo 'Candidates only. No public release, signing certification or device validation is implied.' >> "$GITHUB_STEP_SUMMARY"
           [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled && "$PAGES" != failure && "$PAGES" != cancelled ]]
+
+  stage-reviewed-release:
+    if: inputs.target == 'checks'
+    needs: checks
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Transfer and hash-verify the reviewed release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/distribution/stage-reviewed-release.py
+      - name: Retain staging receipt
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: release-staging-${{ github.run_id }}
+          path: .build/release-stage/STAGING-VERIFIED.json
