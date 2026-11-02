@@ -33,10 +33,14 @@ Commands:
     python -m py_compile scripts/distribution/validate-linux-update-ui.py
     git diff --check
 
-## Remaining gates
+## Release completion scope — 2 November
 
-Both production feeds still return HTTP 404 at 02:35 UTC on November 2 (03:35 Paris); the release remains a private draft with 15 existing assets. All available Windows/Linux candidate checks are complete. ARM64 visual validation requires an appropriate host. The recurring follow-up has been deleted.
+The maintainer authorized completing the public release. The initial scope is Windows x64 NSIS, Linux x64 AppImage, and signed CLI archives for these two platforms. Draft 431053174 (`v1.0.0`) stages the corrected bytes; historical draft 430498139 stays private. Exact build provenance and limitations remain explicit in the release notes and asset index.
 
-These UI tests cover an unavailable feed, not an offered update, installation or a transition between published versions. The Linux harness opens Settings directly in a fresh profile and does not certify onboarding or model setup. The Windows profile uses a checksum-verified real local model. Previous installation/replacement proofs remain separate.
+The workflow adds `validate-release` to install and exercise only the two selected desktop packages on disposable native runners. Validation receipts use the per-platform source release ID. The Linux native UI check now supports either HTTP 404 with an explicit error, or an official current/older HTTPS feed with the latest-version message. Unexpected responses and an offered newer version cannot pass as either case.
 
-No production feed or release is published and nothing is merged. Apple signing/notarization and iOS device distribution still require real Apple access. No related issue or equivalent open PR was found before this PR. See docs/UPDATE_CHANNEL_CHECK_2026-11-01.md for provenance, package hashes and evidence.
+Local validation: all 57 existing Node contracts and four public-feed contracts pass across the main run and the loopback-enabled rerun of the three Web tests; eleven Python tests, actionlint and diff checks pass. Both exact desktop payloads pass the publication signature check again. Both CLI artifacts are downloaded again and pass their GitHub digest, eleven hashes each, native architecture, signed inner identity and replacement receipt checks.
+
+The new packages must pass fresh isolated native installation/replacement before publication. Post-publication checks must verify both public feeds, asset URLs/hashes/signatures and real manual checks. The first public release cannot prove a transition between two public versions; that remains a distinct next-release validation. Windows updater signing is not Authenticode.
+
+Apple signing/notarization, ARM64 visual validation, mobile/device channels, MSI/Debian/portable scenarios and the hosted Web client remain outside this first release. See docs/RELEASE_1.0.0_2026-11-02.md. No issue is claimed closed by this release preparation.

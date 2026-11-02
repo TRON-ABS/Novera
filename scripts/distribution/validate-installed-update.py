@@ -215,7 +215,7 @@ def main():
         if runtime_hashes(executable)!=expected_runtime:raise RuntimeError('Installed runtime differs after the native update')
         if digest(sentinel)!=sentinel_digest: raise RuntimeError('Update changed unrelated synthetic profile data')
         final_smoke=smoke(executable,env,receipts,'after-update')
-        report={'platform':platform,'compilationCommit':selected['commit'],'sourceReleaseId':config['releaseId'],
+        report={'platform':platform,'compilationCommit':selected['commit'],'sourceReleaseId':selected.get('releaseId', config['releaseId']),
             'bundleSha256':selected['bundle']['sha256'],'initialInstallationPerformed':True,
             'nativeUpdaterSignatureVerified':True,'tamperedPayloadRejected':tampered['tamperedPayloadRejectedByNativeVerifier'],
             'sameVersionNotOffered':same_version['sameVersionNotOffered'],

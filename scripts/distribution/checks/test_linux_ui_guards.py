@@ -10,6 +10,14 @@ spec.loader.exec_module(validation)
 
 
 class LinuxUiGuards(unittest.TestCase):
+    def test_public_feed_cannot_be_reported_as_unavailable_or_an_update_offer(self):
+        feed = {'version':'1.0.0','platforms':{'linux-x86_64':{'url':'https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_1.0.0_amd64.AppImage','signature':'test'}}}
+        self.assertEqual(validation.expected_message(404, None, '1.0.0'), 'Failed to check for updates')
+        self.assertEqual(validation.expected_message(200, feed, '1.0.0'), "You're running the latest version")
+        for status, body, version in [(500, None, '1.0.0'), (200, {}, '1.0.0'), (200, feed, '0.9.9')]:
+            with self.subTest(status=status, version=version), self.assertRaises(RuntimeError):
+                validation.expected_message(status, body, version)
+
     def test_local_and_self_hosted_runs_stop_before_profile_or_network_access(self):
         for environment in [{}, {'GITHUB_ACTIONS':'true','RUNNER_ENVIRONMENT':'self-hosted'}]:
             with self.subTest(environment=environment), patch.dict(os.environ, environment, clear=True), patch.object(validation.sys, 'platform', 'linux'), patch.object(validation.tempfile, 'mkdtemp') as create_profile, patch.object(validation.urllib.request, 'urlopen') as network:

@@ -1,13 +1,14 @@
 """Exercise the real signed AppImage's manual check via native WebKit WebDriver.
 
 Uses Tauri's documented external driver, without e2e features or IPC mocks.
-Only the manual error route is covered: this never installs an update.
+Checks an unavailable feed or an already-current release: never installs an update.
 """
 import base64
 import datetime
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import signal
@@ -19,6 +20,22 @@ import urllib.error
 import urllib.request
 
 FEED = 'https://github.com/TRON-ABS/Novera/releases/latest/download/latest.json'
+
+
+def expected_message(status, feed, version):
+    if status == 404:
+        return 'Failed to check for updates'
+    if status != 200 or not isinstance(feed, dict):
+        raise RuntimeError('Unexpected production feed response')
+    remote = feed.get('version', '')
+    if not re.fullmatch(r'\d+\.\d+\.\d+', remote) or not re.fullmatch(r'\d+\.\d+\.\d+', version):
+        raise RuntimeError('Canonical release versions required')
+    entry = feed.get('platforms', {}).get('linux-x86_64', {})
+    if not entry.get('url', '').startswith('https://github.com/TRON-ABS/Novera/releases/download/v'+remote+'/') or not entry.get('signature'):
+        raise RuntimeError('Missing official signed Linux feed entry')
+    if tuple(map(int, remote.split('.'))) > tuple(map(int, version.split('.'))):
+        raise RuntimeError('Offered updates require a separate installation scenario')
+    return "You're running the latest version"
 
 
 def wait_for(operation, timeout=60):
@@ -48,13 +65,16 @@ def main():
     if not driver or not shutil.which('WebKitWebDriver'):
         raise RuntimeError('Native WebKit WebDriver prerequisites missing')
     request = urllib.request.Request(FEED, headers={'User-Agent': 'Novera-UI-validation'})
+    feed = None
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             status = response.status
+            if status == 200:
+                feed = json.loads(response.read(1024*1024))
     except urllib.error.HTTPError as error:
         status = error.code
-    if status != 404:
-        raise RuntimeError(f'This unavailable-feed regression requires HTTP 404, observed {status}')
+    version = json.loads(Path('src-tauri/tauri.conf.json').read_text())['version']
+    message = expected_message(status, feed, version)
 
     root = Path(tempfile.mkdtemp(prefix='novera-linux-ui-', dir=runner_temp))
     profile = root/'profile'
@@ -106,14 +126,17 @@ def main():
             button = wait_for(lambda: call('POST', f'/session/{session}/element', {'using':'xpath', 'value':xpath}))
             element = button['element-6066-11e4-a52e-4f735466cecf']
             call('POST',f'/session/{session}/element/{element}/click', {})
-            message = 'Failed to check for updates'
             wait_for(lambda: execute('return document.body.innerText').find(message) >= 0)
             text = execute('return document.body.innerText')
-            if "You're running the latest version" in text:
-                raise RuntimeError('UI falsely claims the installation is up to date')
+            opposite = "You're running the latest version" if status == 404 else 'Failed to check for updates'
+            if opposite in text:
+                raise RuntimeError('UI result disagrees with the actual production feed')
             screenshot = call('GET',f'/session/{session}/screenshot')
             (out/'LINUX-UPDATER-UI.png').write_bytes(base64.b64decode(screenshot))
-            receipt.update(nativeUiCheckPassed=True, observedError=message, visibleText=text, settingsOrigin=origin)
+            receipt.update(nativeUiCheckPassed=True, observedMessage=message, visibleText=text, settingsOrigin=origin, productionFeedReachable=status==200)
+            if status == 404:
+                receipt['observedError'] = message
+            receipt['limitations'] = ['Direct native Settings route; onboarding and model setup are not covered', 'Manual check only; no offered update or installation']
         except Exception as error:
             receipt['error'] = str(error)
             if session:
@@ -137,7 +160,7 @@ def main():
                 except (ProcessLookupError, subprocess.TimeoutExpired):
                     pass
             (out/'LINUX-UPDATER-UI.json').write_text(json.dumps(receipt,indent=2)+'\n')
-    print('Real Linux AppImage manual check displays the production-feed error')
+    print('Real Linux AppImage manual check matches the production feed')
 
 
 if __name__ == '__main__':
