@@ -9,7 +9,7 @@ on:
         required: true
         type: choice
         default: all
-        options: [all, checks, native, desktop, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop, pages]
+        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop, validate-release, pages]
       signed_updates:
         description: Embed the Novera desktop or CLI update channel and sign final archives
         type: boolean
@@ -52,6 +52,7 @@ jobs:
           node scripts/distribution/check-release-readiness.mjs --json > .build/checks/source-definitions.json
           node --test scripts/distribution/__tests__/check-release-readiness.test.mjs scripts/distribution/__tests__/prepare-version.test.mjs scripts/distribution/__tests__/ci-candidates.test.mjs scripts/distribution/__tests__/ci-check-macos.test.mjs scripts/distribution/__tests__/ci-check-updater.test.mjs scripts/distribution/__tests__/prepare-pages-site.test.mjs scripts/distribution/__tests__/prepare-cli-feed.test.mjs scripts/distribution/__tests__/web-delivery.test.mjs scripts/distribution/__tests__/cuda-redist-plan.test.mjs scripts/distribution/__tests__/record-upgrade-check.test.mjs scripts/__tests__/novera-update.test.mjs scripts/android/__tests__/configure-project.test.mjs | tee .build/checks/tests.txt
           python3 -m unittest discover -s scripts/distribution/checks -p 'test_*.py'
+          node --test scripts/distribution/__tests__/verify-public-release.test.mjs
       - name: Retain source-check results
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
@@ -66,7 +67,7 @@ jobs:
     needs: checks
     env:
       NOVERA_ENABLE_UPDATER: ${{ inputs.signed_updates && 'true' || 'false' }}
-    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
+    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","windows-linux","setup","msi","portable","arm64","linux","macos"]'), inputs.target)
     strategy:
       fail-fast: false
       max-parallel: 3
@@ -93,6 +94,7 @@ jobs:
           selected=false
           if [[ "$REQUESTED" == all || "$REQUESTED" == native || "$REQUESTED" == "$VARIANT" ]]; then selected=true; fi
           if [[ "$VARIANT" == windows && "$REQUESTED" =~ ^(desktop|setup|msi|portable)$ ]]; then selected=true; fi
+          if [[ "$REQUESTED" == windows-linux && "$VARIANT" =~ ^(windows|arm64|linux)$ ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
         if: steps.selection.outputs.selected == 'true'
@@ -142,6 +144,8 @@ jobs:
           path: |
             src-tauri/target/engine-build.log
             .build/ci-status.json
+            .build/candidates/UPDATER-UI-CONTRACTS.json
+            .build/candidates/LINUX-UPDATER-UI.*
           if-no-files-found: ignore
           retention-days: 7
 
@@ -225,7 +229,7 @@ jobs:
   installed-update:
     name: Validate installed update / ${{ matrix.platform }}
     needs: checks
-    if: inputs.target == 'validate-windows' || inputs.target == 'validate-desktop'
+    if: inputs.target == 'validate-windows' || inputs.target == 'validate-desktop' || inputs.target == 'validate-release'
     permissions:
       # Draft release assets require repository push access. This job only reads
       # the reviewed assets; the credential is removed before running any app.
@@ -254,7 +258,7 @@ jobs:
           NOVERA_VALIDATION_PLATFORM: ${{ matrix.platform }}
         run: |
           selected=false
-          if [[ "$REQUESTED" == validate-desktop || "$NOVERA_VALIDATION_PLATFORM" == windows-* ]]; then selected=true; fi
+          if [[ "$REQUESTED" == validate-desktop || ( "$REQUESTED" == validate-windows && "$NOVERA_VALIDATION_PLATFORM" == windows-* ) || ( "$REQUESTED" == validate-release && "$NOVERA_VALIDATION_PLATFORM" =~ ^(windows-x86_64|linux-x86_64)$ ) ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
         if: steps.select.outputs.selected == 'true'

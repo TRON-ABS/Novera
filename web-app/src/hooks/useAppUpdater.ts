@@ -132,6 +132,9 @@ export const useAppUpdater = () => {
         }))
         // Sync to other instances
         syncStateToOtherInstances(newState)
+        // Manual checks must distinguish an unreachable feed from no update.
+        // Automatic checks remain quiet and keep their reset state.
+        if (resetRemindMeLater) throw error
         return null
       }
     },

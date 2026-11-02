@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import { Route as GeneralRoute } from '../general'
+import { toast } from 'sonner'
 
 // Mock all the dependencies
 vi.mock('@/containers/SettingsMenu', () => ({
@@ -405,6 +406,22 @@ describe('General Settings Route', () => {
       // Test that button is interactive
       expect(checkUpdateButton).toBeInTheDocument()
     }
+  })
+
+  it('shows a feed error instead of claiming no update, and allows retry', async () => {
+    const error = new Error('Feed HTTP 404')
+    mockCheckForUpdate.mockRejectedValueOnce(error)
+    const Component = GeneralRoute.component as React.ComponentType
+    render(<Component />)
+    const button = screen.getByRole('button', { name: 'settings:general.checkForUpdates' })
+    await act(async () => { fireEvent.click(button) })
+    expect(toast.error).toHaveBeenCalledWith('settings:general.updateError')
+    expect(toast.info).not.toHaveBeenCalled()
+    expect(button).not.toBeDisabled()
+    await act(async () => { fireEvent.click(button) })
+    expect(toast.info).toHaveBeenCalledWith('settings:general.noUpdateAvailable')
+    expect(mockCheckForUpdate).toHaveBeenCalledTimes(2)
+    expect(mockCheckForUpdate).toHaveBeenLastCalledWith(true)
   })
 
   it('should handle data folder display', async () => {

@@ -1,0 +1,41 @@
+name: Novera - Verify public release
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Verify public feeds and all exact signed release assets
+        run: node scripts/distribution/verify-public-release.mjs 1.0.0 scripts/distribution/public-release-1.0.0.json
+      - name: Native Linux UI prerequisites
+        run: |
+          bash scripts/distribution/ci-prerequisites.sh desktop
+          cargo install tauri-driver --version 2.1.0 --locked
+      - name: Check the actual Linux CLI against the production feed
+        run: python3 scripts/distribution/verify-cli-production-check.py .build/public-release/Novera_CLI_1.0.0_linux-x86_64.zip
+      - name: Exercise the current production feed in the actual AppImage
+        run: |
+          mkdir -p .build/candidates/packages
+          cp .build/public-release/Novera_1.0.0_amd64.AppImage .build/candidates/packages/
+          xvfb-run -a python3 scripts/distribution/validate-linux-update-ui.py
+      - name: Retain public verification and native UI receipts
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: public-release-verification-${{ github.run_id }}
+          path: |
+            .build/public-release/PUBLIC-RELEASE-VERIFIED.json
+            .build/public-release/CLI-PRODUCTION-CHECK-*.json
+            .build/candidates/LINUX-UPDATER-UI.*
+          if-no-files-found: warn
+          retention-days: 14
