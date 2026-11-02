@@ -12,10 +12,13 @@ if (!$executablePath.StartsWith($runnerPath,[StringComparison]::OrdinalIgnoreCas
 # These are owned throwaway CI folders. Grant only the current user's SID the
 # access a standard-user install/profile has; never broaden a machine policy.
 $currentSid=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value
+Write-Output 'CI UI launcher: prepare current-user access to owned installation'
 & icacls.exe ([IO.Path]::GetDirectoryName($executablePath)) /grant ('*'+$currentSid+':(OI)(CI)RX') /T /Q | Out-Null
 if ($LASTEXITCODE -ne 0) { throw 'Cannot grant the current test user access to its owned installation' }
+Write-Output 'CI UI launcher: prepare current-user access to owned scratch folder'
 & icacls.exe ([IO.Path]::GetDirectoryName($receiptPath)) /grant ('*'+$currentSid+':(OI)(CI)M') /T /Q | Out-Null
 if ($LASTEXITCODE -ne 0) { throw 'Cannot grant the current test user access to its owned scratch folder' }
+Write-Output 'CI UI launcher: compile native launcher'
 Add-Type -TypeDefinition @'
 using System;
 using System.Collections;
@@ -32,7 +35,7 @@ public static class StandardUiProcess {
     public IntPtr Reserved2,Input,Output,Error;
   }
   [StructLayout(LayoutKind.Sequential)] struct ProcessInfo { public IntPtr Process,Thread; public uint ProcessId,ThreadId; }
-  public sealed class Result { public uint ProcessId; public int IntegrityRid; public string Mode; }
+  public sealed class Result { public uint ProcessId; public int IntegrityRid; public bool Elevated; public string Mode; }
   [DllImport("kernel32.dll")] static extern IntPtr GetCurrentProcess();
   [DllImport("kernel32.dll")] static extern bool CloseHandle(IntPtr handle);
   [DllImport("kernel32.dll")] static extern IntPtr LocalFree(IntPtr handle);
@@ -57,6 +60,11 @@ public static class StandardUiProcess {
     try { Require(GetTokenInformation(token,25,data,size,out size),"Inspect token integrity"); IntPtr sid=Marshal.ReadIntPtr(data); byte count=Marshal.ReadByte(GetSidSubAuthorityCount(sid)); return Marshal.ReadInt32(GetSidSubAuthority(sid,(uint)(count-1))); }
     finally { Marshal.FreeHGlobal(data); }
   }
+  static bool Elevated(IntPtr token) {
+    int needed; IntPtr data=Marshal.AllocHGlobal(4);
+    try { Require(GetTokenInformation(token,20,data,4,out needed),"Inspect process elevation"); return Marshal.ReadInt32(data)!=0; }
+    finally { Marshal.FreeHGlobal(data); }
+  }
   static void SetMedium(IntPtr token) {
     IntPtr sid; Require(ConvertStringSidToSid("S-1-16-8192",out sid));
     int label=Marshal.SizeOf(typeof(SidAttributes)); int size=label+(int)GetLengthSid(sid); IntPtr data=Marshal.AllocHGlobal(size);
@@ -77,26 +85,28 @@ public static class StandardUiProcess {
         else {
           if(target!=IntPtr.Zero) { CloseHandle(target); target=IntPtr.Zero; }
           IntPtr admins; Require(ConvertStringSidToSid("S-1-5-32-544",out admins));
-          try { Require(CreateRestrictedToken(source,1,1,new SidAttributes[] { new SidAttributes { Sid=admins,Attributes=0 } },0,IntPtr.Zero,0,IntPtr.Zero,out target),"Create restricted user token"); }
+          try { Require(CreateRestrictedToken(source,0x1|0x4,1,new SidAttributes[] { new SidAttributes { Sid=admins,Attributes=0 } },0,IntPtr.Zero,0,IntPtr.Zero,out target),"Create restricted limited-user token"); }
           finally { LocalFree(admins); }
           SetMedium(target); mode="restricted-medium";
         }
       }
       if(Integrity(target)!=8192) throw new InvalidOperationException("Medium-integrity user token required");
+      Console.Error.WriteLine("CI UI launcher: token mode={0}, integrity={1}, elevated={2}",mode,Integrity(target),Elevated(target));
       var values=new System.Collections.Generic.List<string>(); foreach(DictionaryEntry item in Environment.GetEnvironmentVariables()) values.Add(item.Key+"="+item.Value);
       values.Sort(StringComparer.OrdinalIgnoreCase); environment=Marshal.StringToHGlobalUni(string.Join("\0",values)+"\0\0");
       var security=new SecurityAttributes { Length=Marshal.SizeOf(typeof(SecurityAttributes)),Inherit=true };
       output=CreateFile(log,0x4,3,ref security,4,0x80,IntPtr.Zero); Require(output!=new IntPtr(-1),"Open owned UI log");
       input=CreateFile("NUL",0x80000000,3,ref security,3,0x80,IntPtr.Zero); Require(input!=new IntPtr(-1),"Open null input");
       var startup=new StartupInfo { Size=(uint)Marshal.SizeOf(typeof(StartupInfo)),Flags=0x100,Input=input,Output=output,Error=output };
+      Console.Error.WriteLine("CI UI launcher: create app process");
       bool created=mode=="restricted-medium"
         ? CreateProcessAsUserW(target,executable,new StringBuilder("\""+executable+"\""),IntPtr.Zero,IntPtr.Zero,true,0x400,environment,System.IO.Path.GetDirectoryName(executable),ref startup,out process)
         : CreateProcessWithTokenW(target,0,executable,new StringBuilder("\""+executable+"\""),0x400,environment,System.IO.Path.GetDirectoryName(executable),ref startup,out process);
       Require(created,"Create medium-integrity app process ("+mode+")");
-      IntPtr child; Require(OpenProcessToken(process.Process,8,out child),"Verify child process token"); int level;
-      try { level=Integrity(child); } finally { CloseHandle(child); }
-      if(level!=8192) { TerminateProcess(process.Process,1); throw new InvalidOperationException("Child did not start at medium integrity"); }
-      return new Result { ProcessId=process.ProcessId,IntegrityRid=level,Mode=mode };
+      IntPtr child; Require(OpenProcessToken(process.Process,8,out child),"Verify child process token"); int level; bool elevated;
+      try { level=Integrity(child); elevated=Elevated(child); } finally { CloseHandle(child); }
+      if(level!=8192 || elevated) { TerminateProcess(process.Process,1); throw new InvalidOperationException("Child did not start as a non-elevated medium-integrity user"); }
+      return new Result { ProcessId=process.ProcessId,IntegrityRid=level,Elevated=elevated,Mode=mode };
     } finally {
       foreach(IntPtr handle in new IntPtr[] {process.Thread,process.Process,input,output,target,source}) if(handle!=IntPtr.Zero && handle!=new IntPtr(-1)) CloseHandle(handle);
       if(environment!=IntPtr.Zero) Marshal.FreeHGlobal(environment);
@@ -104,6 +114,8 @@ public static class StandardUiProcess {
   }
 }
 '@
+Write-Output 'CI UI launcher: start verified app with reduced privileges'
 $launched=[StandardUiProcess]::Start($executablePath,$logPath)
-$result=[pscustomobject]@{pid=$launched.ProcessId;integrityRid=$launched.IntegrityRid;mode=$launched.Mode}
+$result=[pscustomobject]@{pid=$launched.ProcessId;integrityRid=$launched.IntegrityRid;elevated=$launched.Elevated;mode=$launched.Mode}
 [IO.File]::WriteAllText($receiptPath,($result|ConvertTo-Json -Compress),[Text.UTF8Encoding]::new($false))
+Write-Output 'CI UI launcher: verified process receipt written'

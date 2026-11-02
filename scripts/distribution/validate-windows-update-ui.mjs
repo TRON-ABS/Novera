@@ -61,10 +61,16 @@ async function main(executable) {
   const require = createRequire(path.resolve('.build/webview2-driver/package.json'))
   const { chromium } = require('playwright-core')
   const launchReceipt = path.join(scratch, 'launch.json')
-  const launched = spawnSync('powershell.exe', ['-NoProfile', '-File', path.resolve('scripts/distribution/launch-ci-standard-user.ps1'), '-Executable', exe, '-Receipt', launchReceipt, '-LogFile', path.join(out, 'WINDOWS-UPDATER-UI.log')], { env, windowsHide: true, encoding: 'utf8', timeout: 30_000 })
-  if (launched.status !== 0) throw new Error(`Standard-user UI launch failed: ${launched.stdout}\n${launched.stderr}`)
+  const launchLog = path.join(out, 'WINDOWS-UPDATER-UI.launch.log')
+  const launchFd = fs.openSync(launchLog, 'w')
+  const launched = spawnSync('powershell.exe', ['-NoProfile', '-File', path.resolve('scripts/distribution/launch-ci-standard-user.ps1'), '-Executable', exe, '-Receipt', launchReceipt, '-LogFile', path.join(out, 'WINDOWS-UPDATER-UI.log')], { env, windowsHide: true, stdio: ['ignore', launchFd, launchFd], timeout: 60_000 })
+  fs.closeSync(launchFd)
+  if (launched.status !== 0) {
+    if (fs.existsSync(launchReceipt)) { const started = JSON.parse(fs.readFileSync(launchReceipt)); if (started.pid) spawnSync('taskkill', ['/PID', String(started.pid), '/T', '/F'], { windowsHide: true, stdio: 'ignore' }) }
+    throw new Error(`Standard-user UI launch failed (${launched.error?.code ?? launched.status}): ${fs.readFileSync(launchLog, 'utf8').slice(-8000)}`)
+  }
   const processHandle = JSON.parse(fs.readFileSync(launchReceipt, 'utf8'))
-  if (processHandle.integrityRid !== 8192) throw new Error('The actual UI process must run at medium integrity')
+  if (processHandle.integrityRid !== 8192 || processHandle.elevated !== false) throw new Error('The actual UI process must be non-elevated at medium integrity')
   let browser, page
   const receipt = { platform: 'windows-aarch64', sourceCommit: process.env.GITHUB_SHA, checkedAt: new Date().toISOString(), executableSha256: createHash('sha256').update(binary).digest('hex'), nativeArchitecture: 'arm64', processIntegrity: processHandle, feed: feedUrl, feedPlatformPresent: expected.supported, nativeUiCheckPassed: false, productionManualCheckValidated: false, updateInstalled: false, limitations: ['Direct Settings route in a fresh isolated profile; onboarding and model setup are not covered', 'No offered update or transition between two public versions is installed'] }
   try {
