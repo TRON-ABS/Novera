@@ -16,7 +16,10 @@ def main():
     expected = json.loads((root/'scripts/distribution/public-release-1.0.0.json').read_text(encoding='utf-8-sig'))
     record = next(r for r in expected if r['name'] == f'Novera_CLI_1.0.0_{platform}.zip')
     with archive.open('rb') as stream:
-        if hashlib.file_digest(stream, 'sha256').hexdigest() != record['sha256']:
+        digest = hashlib.sha256()
+        for block in iter(lambda: stream.read(1024*1024), b''):
+            digest.update(block)
+        if digest.hexdigest() != record['sha256']:
             raise RuntimeError('CLI differs from reviewed release bytes')
     out = root/'.build/public-release'
     out.mkdir(parents=True, exist_ok=True)
