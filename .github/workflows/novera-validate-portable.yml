@@ -5,6 +5,9 @@ on:
       candidate_run:
         required: true
         type: string
+      native_ui:
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -55,9 +58,15 @@ jobs:
           npm install --prefix .build/webview2-driver --ignore-scripts --no-audit --no-fund --save-exact playwright-core@1.56.1
       - name: Native portable profile, relocation and signed replacement checks
         shell: pwsh
+        env:
+          CHECK_NATIVE_UI: ${{ inputs.native_ui }}
         run: |
-          ./scripts/distribution/ci-portable-user.ps1
-          python scripts/distribution/validate-portable.py
+          if ($env:CHECK_NATIVE_UI -eq 'true') {
+            ./scripts/distribution/ci-portable-user.ps1
+            python scripts/distribution/validate-portable.py
+          } else {
+            python scripts/distribution/validate-portable.py --components-only
+          }
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Retain actual screenshots and native receipts
         if: always()
@@ -68,6 +77,6 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
       - name: Remove the disposable standard UI account
-        if: always()
+        if: always() && inputs.native_ui
         shell: pwsh
         run: ./scripts/distribution/ci-portable-user.ps1 -Action Remove

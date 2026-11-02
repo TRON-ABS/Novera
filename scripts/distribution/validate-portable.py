@@ -51,6 +51,9 @@ def unlocked(root):
 def main():
     if sys.platform != 'win32' or os.environ.get('GITHUB_ACTIONS') != 'true' or os.environ.get('RUNNER_ENVIRONMENT') != 'github-hosted' or os.environ.get('RUNNER_ARCH') != 'X64':
         raise RuntimeError('Disposable native Windows x64 runner required')
+    components_only = sys.argv[1:] == ['--components-only']
+    if sys.argv[1:] and not components_only:
+        raise RuntimeError('Unknown portable validation mode')
     packages = REPO/'.build/portable/packages'
     archive = packages/'Novera_1.0.0_x64-portable.zip'
     payload = packages/'Novera_1.0.0_x64-portable-update.exe'
@@ -75,7 +78,23 @@ def main():
     env = {k: v for k, v in os.environ.items() if not any(s in k.upper() for s in ['TOKEN', 'PASSWORD', 'SECRET', 'PRIVATE_KEY', 'API_KEY', 'ACCESS_KEY', 'CREDENTIAL', 'AUTHORIZATION'])}
     for k in ['CI', 'NOVERA_ENABLE_UPDATER']:
         env.pop(k, None)
-    subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(initial/'Program/Novera-Desktop.exe'), 'initial'], env=env, cwd=REPO, check=True, timeout=240)
+    if components_only:
+        # Filesystem fixtures for the native replacement test, never an IPC/UI
+        # substitute. The shipping UI is validated separately on Windows client.
+        data = initial/'Data/Novera/data'
+        thread_id = 'portable-component-fixture'
+        thread_dir = data/'threads'/thread_id
+        thread_dir.mkdir(parents=True)
+        attachment = data/'portable-attachment.txt'
+        attachment.write_text('Synthetic component attachment')
+        (thread_dir/'messages.jsonl').write_text(json.dumps({'role': 'user', 'content': [{'type': 'text', 'text': {'value': str(attachment)}}], 'portableAttachment': str(attachment)})+'\n')
+        (data/'settings.json').write_text(json.dumps({'__settings_migrated_to_backend__': 'true', 'llamacpp-embedder-bootstrapped': 'true', 'llamacpp-qwen3-embedder-bootstrapped': 'true', 'portable-component-setting': 'synthetic preserved setting'}))
+        model = initial/'Data/Models/portable-component-fixture/model.gguf'
+        model.parent.mkdir(parents=True)
+        model.write_bytes(b'GGUF synthetic component fixture, not an inference model')
+        (initial/'Data/portable-ui-witness.json').write_text(json.dumps({'threadId': thread_id, 'modelRelative': str(model.relative_to(initial)), 'modelSha256': digest(model)}))
+    else:
+        subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(initial/'Program/Novera-Desktop.exe'), 'initial'], env=env, cwd=REPO, check=True, timeout=240)
     wait(lambda: unlocked(initial), 'first portable app exit')
     # The public entry point is the native root launcher, not the inner EXE.
     subprocess.run([str(initial/'Novera.exe')], env=env, cwd=initial, check=True, timeout=60)
@@ -88,8 +107,18 @@ def main():
     moved = base/'autre disque espace é'
     initial.rename(moved)
     executable = moved/'Program/Novera-Desktop.exe'
-    subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(executable), 'moved'], env=env, cwd=REPO, check=True, timeout=240)
+    if components_only:
+        subprocess.run([str(moved/'Novera.exe')], env=env, cwd=moved, check=True, timeout=60)
+        wait(lambda: not unlocked(moved), 'moved native portable initialization')
+        time.sleep(2)
+        stop_owned(executable)
+    else:
+        subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(executable), 'moved'], env=env, cwd=REPO, check=True, timeout=240)
     wait(lambda: unlocked(moved), 'moved portable app exit')
+    if components_only:
+        message = json.loads((moved/'Data/Novera/data/threads/portable-component-fixture/messages.jsonl').read_text().strip())
+        if message['portableAttachment'] != str(moved/'Data/Novera/data/portable-attachment.txt') or message['content'][0]['text']['value'] != str(initial/'Data/Novera/data/portable-attachment.txt'):
+            raise RuntimeError('Native startup did not rebase attachment metadata while preserving message text')
     witness = json.loads((moved/'Data/portable-ui-witness.json').read_text())
     model = moved/witness['modelRelative']
     before_model = digest(model)
@@ -153,19 +182,23 @@ def main():
             raise RuntimeError('Updated portable runtime differs')
         if digest(thread) != before_thread or digest(model) != before_model:
             raise RuntimeError('Portable update changed synthetic discussion/model bytes')
+        if components_only and json.loads((moved/'Data/Novera/data/settings.json').read_text()).get('portable-component-setting') != 'synthetic preserved setting':
+            raise RuntimeError('Portable update lost the synthetic component setting')
         for item in provenance['files']:
             if digest(moved/item['path']) != item['sha256']:
                 raise RuntimeError('Portable update did not restore the complete runtime')
-        subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(executable), 'updated'], env=env, cwd=REPO, check=True, timeout=240)
-        ui = json.loads((out/'PORTABLE-UI-updated.json').read_text())
+        if not components_only:
+            subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(executable), 'updated'], env=env, cwd=REPO, check=True, timeout=240)
+        ui = {} if components_only else json.loads((out/'PORTABLE-UI-updated.json').read_text())
         report = {'applicationVersion': '1.0.0', 'sourceCommit': os.environ['GITHUB_SHA'], 'compilationCommit': provenance['applicationCommit'], 'zipSha256': digest(archive), 'updaterSha256': digest(payload),
                   'nativeSignatureVerified': downloaded['nativeSignatureVerified'], 'sameVersionNotOffered': current['sameVersionNotOffered'],
                   'tamperedPayloadRejected': rejected['tamperedPayloadRejectedByNativeVerifier'], 'nativeInstallationRequested': installed['installerRequested'],
                   'programRestored': True, 'runtimeFilesCompared': len(provenance['files']), 'discussionBytesPreserved': True, 'modelBytesPreserved': True,
-                  'folderMoved': True, 'nativeRootLauncherVerified': True, 'nativeUiInitialMovedUpdatedPassed': True, 'realPublicVersionsUpgradeValidated': False,
-                  'publicCurrentVersionUiValidated': ui['productionManualCheckValidated'],
+                  'folderMoved': True, 'nativeRootLauncherVerified': True, 'nativeUiInitialMovedUpdatedPassed': not components_only, 'realPublicVersionsUpgradeValidated': False,
+                  'componentFixturesOnly': components_only, 'publicCurrentVersionUiValidated': ui.get('productionManualCheckValidated', False),
                   'limitations': ['Synthetic data only; no model inference or cross-PC DPAPI key migration is certified.', 'An upgrade between two public versions is not certified by these fixtures.']}
-        (out/'PORTABLE-VERIFIED.json').write_text(json.dumps(report, indent=2)+'\n')
+        report_name = 'PORTABLE-COMPONENTS-VERIFIED.json' if components_only else 'PORTABLE-VERIFIED.json'
+        (out/report_name).write_text(json.dumps(report, indent=2)+'\n')
         print(json.dumps(report))
     finally:
         server.shutdown()
