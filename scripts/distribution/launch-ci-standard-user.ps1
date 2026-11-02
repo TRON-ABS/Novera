@@ -52,6 +52,8 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Text;
 
 public static class StandardUiProcess {
@@ -68,6 +70,11 @@ public static class StandardUiProcess {
   [DllImport("kernel32.dll")] static extern bool CloseHandle(IntPtr handle);
   [DllImport("kernel32.dll")] static extern IntPtr LocalFree(IntPtr handle);
   [DllImport("kernel32.dll")] static extern bool TerminateProcess(IntPtr process,uint code);
+  [DllImport("kernel32.dll")] static extern uint GetCurrentThreadId();
+  [DllImport("user32.dll")] static extern IntPtr GetProcessWindowStation();
+  [DllImport("user32.dll")] static extern IntPtr GetThreadDesktop(uint thread);
+  [DllImport("user32.dll",SetLastError=true)] static extern bool GetUserObjectSecurity(IntPtr handle,ref uint information,byte[] descriptor,uint size,out uint needed);
+  [DllImport("user32.dll",SetLastError=true)] static extern bool SetUserObjectSecurity(IntPtr handle,ref uint information,byte[] descriptor);
   [DllImport("advapi32.dll",SetLastError=true)] static extern bool OpenProcessToken(IntPtr process,uint access,out IntPtr token);
   [DllImport("advapi32.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool LogonUser(string user,string domain,string password,uint logonType,uint provider,out IntPtr token);
   [DllImport("advapi32.dll",SetLastError=true)] static extern bool GetTokenInformation(IntPtr token,int type,IntPtr data,int size,out int needed);
@@ -100,6 +107,21 @@ public static class StandardUiProcess {
     try { IntPtr copy=IntPtr.Add(data,label); Require(CopySid(GetLengthSid(sid),copy,sid)); Marshal.StructureToPtr(new SidAttributes { Sid=copy,Attributes=0x20 },data,false); Require(SetTokenInformation(token,25,data,size),"Set restricted token to medium integrity"); }
     finally { LocalFree(sid); Marshal.FreeHGlobal(data); }
   }
+  static void GrantOwnedCiDesktop(IntPtr token) {
+    // Cross-account GUI launch requires access to this disposable VM's desktop.
+    // Add only the temporary test SID, preserving all existing desktop entries.
+    var sid=new WindowsIdentity(token).User;
+    foreach(var handle in new IntPtr[] {GetProcessWindowStation(),GetThreadDesktop(GetCurrentThreadId())}) {
+      if(handle==IntPtr.Zero) throw new InvalidOperationException("CI interactive desktop unavailable");
+      uint info=4,size; GetUserObjectSecurity(handle,ref info,null,0,out size);
+      var bytes=new byte[size]; Require(GetUserObjectSecurity(handle,ref info,bytes,size,out size),"Read CI desktop access");
+      var descriptor=new RawSecurityDescriptor(bytes,0);
+      if(descriptor.DiscretionaryAcl==null) throw new InvalidOperationException("Explicit CI desktop DACL required");
+      descriptor.DiscretionaryAcl.InsertAce(descriptor.DiscretionaryAcl.Count,new CommonAce(AceFlags.None,AceQualifier.AccessAllowed,0x10000000,sid,false,null));
+      bytes=new byte[descriptor.BinaryLength]; descriptor.GetBinaryForm(bytes,0);
+      Require(SetUserObjectSecurity(handle,ref info,bytes),"Grant only the disposable test SID desktop access");
+    }
+  }
   public static Result Start(string executable,string log,string user,string password) {
     IntPtr source=IntPtr.Zero,target=IntPtr.Zero,environment=IntPtr.Zero,output=IntPtr.Zero,input=IntPtr.Zero;
     ProcessInfo process=new ProcessInfo(); string mode="current-medium";
@@ -121,6 +143,7 @@ public static class StandardUiProcess {
         }
       }
       if(Integrity(target)!=8192) throw new InvalidOperationException("Medium-integrity user token required");
+      if(mode=="standard-account") GrantOwnedCiDesktop(target);
       Console.Error.WriteLine("CI UI launcher: token mode={0}, integrity={1}, elevated={2}",mode,Integrity(target),Elevated(target));
       var values=new System.Collections.Generic.List<string>(); foreach(DictionaryEntry item in Environment.GetEnvironmentVariables()) values.Add(item.Key+"="+item.Value);
       values.Sort(StringComparer.OrdinalIgnoreCase); environment=Marshal.StringToHGlobalUni(string.Join("\0",values)+"\0\0");
@@ -128,6 +151,9 @@ public static class StandardUiProcess {
       output=CreateFile(log,0x4,3,ref security,4,0x80,IntPtr.Zero); Require(output!=new IntPtr(-1),"Open owned UI log");
       input=CreateFile("NUL",0x80000000,3,ref security,3,0x80,IntPtr.Zero); Require(input!=new IntPtr(-1),"Open null input");
       var startup=new StartupInfo { Size=(uint)Marshal.SizeOf(typeof(StartupInfo)),Flags=0x100,Input=input,Output=output,Error=output };
+      // WithToken copies handle values without inheriting these controller handles.
+      // Let Windows initialize standard handles for the cross-account GUI child.
+      if(mode=="standard-account") startup=new StartupInfo { Size=(uint)Marshal.SizeOf(typeof(StartupInfo)),Desktop=@"winsta0\default" };
       Console.Error.WriteLine("CI UI launcher: create app process");
       bool created=mode=="restricted-medium"
         ? CreateProcessAsUserW(target,executable,new StringBuilder("\""+executable+"\""),IntPtr.Zero,IntPtr.Zero,true,0x400,environment,System.IO.Path.GetDirectoryName(executable),ref startup,out process)
