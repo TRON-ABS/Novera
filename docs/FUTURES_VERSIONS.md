@@ -173,7 +173,7 @@ Les contrôles indépendants des téléchargements vérifient les empreintes et 
 | Distribution | Préparation actuelle / condition de livraison |
 | --- | --- |
 | Windows x64 / ARM64 NSIS | Générateur de configuration et de manifeste Novera disponible pour les deux architectures ; première installation manuelle d’un client contenant la bonne clé publique requise. |
-| Windows portable | Distribution dédiée en préparation : dossier Program/Data, exécutable compilé avec la fonction portable et remplacement signé de Program par un assistant natif. Les anciens ZIP de l’application installée ne deviennent pas portables ou actualisables par un manifeste seul. Voir [le fonctionnement et les limites](WINDOWS_PORTABLE.md). |
+| Windows portable | Distribution dédiée 1.0.0 disponible : dossier Program/Data, exécutable compilé avec la fonction portable et remplacement signé de Program par un assistant natif. Les anciens ZIP de l’application installée ne deviennent pas portables ou actualisables par un manifeste seul. Voir [le fonctionnement et les limites](WINDOWS_PORTABLE.md). |
 | Linux x64 | Le générateur accepte l’AppImage signé ; le paquet Debian ne sert pas de fichier d’update Tauri. |
 | macOS ARM64 / Intel | Le générateur accepte les archives `.app.tar.gz` signées par architecture ; les DMG de candidats ne sont pas des archives d’update. |
 | Android | APK debug de test avec suffixe `.debug`, distinct de l’identité de production. Une chaîne release exige une clé de signature durable et des compteurs de version corrects ; les trois audits mobiles restent à terminer. |
@@ -183,7 +183,7 @@ Les contrôles indépendants des téléchargements vérifient les empreintes et 
 
 Les clés debug Android des runners ne sont pas une identité de production durable. Les futures releases doivent garder leur identité d’application et leur chaîne de signature pour permettre une mise à jour normale ; une désinstallation destinée à contourner un changement de signature risque de supprimer les données et ne fait pas partie de ce cycle.
 
-Lorsqu’un complément portable sera publié, toute release choisie comme dernière release GitHub devra conserver les trois manifests `latest.json`, `latest-cli.json` et `latest-portable.json`, chacun avec ses cibles disponibles et vérifiées. Les téléchargements des autres canaux restent associés à leurs octets signés immuables.
+Le complément portable est publié. Toute release choisie comme dernière release GitHub doit conserver les trois manifests `latest.json`, `latest-cli.json` et `latest-portable.json`, chacun avec ses cibles disponibles et vérifiées. Les téléchargements des autres canaux restent associés à leurs octets signés immuables.
 
 ## Passer d’un candidat à une release signée
 

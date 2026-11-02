@@ -1,6 +1,6 @@
 # Novera 1.0.0 — Windows x64 portable
 
-**En préparation : la disponibilité publique sera annoncée après validation du paquet signé.**
+**Disponible : [Novera 1.0.0 Windows x64 portable](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable).** Le [bilan de sortie](RELEASE_WINDOWS_PORTABLE_1.0.0.md) distingue les essais natifs, graphiques et publics.
 
 La distribution portable conserve ses données dans son propre dossier, pour pouvoir emporter l’ensemble sur une clé USB. Elle possède un canal de mise à jour distinct de l’installateur Windows.
 

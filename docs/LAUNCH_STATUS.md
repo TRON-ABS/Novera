@@ -11,13 +11,16 @@
 | macOS ARM64 / Intel | Candidats internes ; signature/notarisation Apple et contrôles du canal propres à la plateforme encore nécessaires. |
 | Android / iOS | Essais internes debug/simulateur ; signature durable, distribution et validation sur appareil à terminer. |
 | Web | Vitrine informative en ligne ; client Web hébergé encore interne. |
-| MSI / Debian / portable | Formats exclus de cette sortie ; scénarios de mise à jour propres à valider. |
+| Windows x64 portable | [ZIP signé public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable) ; Program/Data séparés, remplacement natif et conservation des données vérifiés, interface testée sur Windows local. |
+| MSI / Debian | Formats exclus de cette sortie ; scénarios de mise à jour propres à valider. |
 
 Le complément `v1.0.0-windows-arm64` conserve la version applicative 1.0.0 et les paquets x64/Linux immuables. Le canal desktop ajoute Windows ARM64 ; la CLI reste disponible sur Windows x64 et Linux x64. Les deux manifests et les dix-neuf fichiers référencés sur les deux releases sont contrôlés sans authentification : disponibilité HTTPS, tailles, SHA-256 et cinq signatures de paquets. [Contrôle public 41466838497](https://github.com/TRON-ABS/Novera/actions/runs/41466838497).
 
 Les fichiers exacts de cette release passent les essais natifs sur des hôtes vierges : installation, rejet d'un paquet altéré, absence d'offre à version égale, remplacement, contrôle du runtime et conservation du témoin de profil. [Essais 41386813422](https://github.com/TRON-ABS/Novera/actions/runs/41386813422).
 
 L’installateur ARM64 exact passe aussi les essais natifs et le contrôle manuel du canal publié dans l’application installée : [essais ARM64 41466831298](https://github.com/TRON-ABS/Novera/actions/runs/41466831298). Le [bilan ARM64](RELEASE_WINDOWS_ARM64_1.0.0.md) précise la provenance et les limites.
+
+La version portable Windows x64 reste en **1.0.0** et possède son canal propre. Les trois manifests et les **26 fichiers publics** sont vérifiés sans authentification, avec sept signatures de paquets : [contrôle public 41504580547](https://github.com/TRON-ABS/Novera/actions/runs/41504580547). L’interface Windows locale affiche la version à jour sur le canal portable publié ; les contrôles natifs de remplacement CI et les limites Windows Server sont détaillés dans le [bilan portable](RELEASE_WINDOWS_PORTABLE_1.0.0.md).
 
 ## Limites et prochaines versions
 
