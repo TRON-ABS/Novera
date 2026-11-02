@@ -87,3 +87,23 @@ Preuves : `.build/update-ui-2026-11-01/local-native-build.json`, `fixed-windows-
 À **00 h 24 (Paris), le 2 novembre**, les deux endpoints publics restent en HTTP 404 et le brouillon `430498139` conserve ses 15 assets. La branche principale n'a pas changé et la PR #5 reste ouverte en brouillon. Une reprise automatique de ce chat, `terminer-les-contr-les-windows-novera`, vérifie toutes les dix minutes les nouveaux résultats Windows, récupère les paquets et poursuit les contrôles autorisés ; elle doit rester silencieuse sans évolution exploitable et se mettre en pause quand ces contrôles sont terminés. Le premier build Windows x64 signé précédent avait duré un peu plus de trois heures ; les nouveaux jobs continuent sans être interrompus. Les entrées macOS de la matrice actuelle ne compilent pas : la sélection `windows-linux` n'active que les trois variantes Windows/Linux.
 
 Le [bilan général](VALIDATION_RESULTS_2026-11-01.md) et les [conditions de lancement](LAUNCH_STATUS.md) restent applicables. La correction est intégrée au nouveau candidat Linux vérifié, mais elle n'est pas fusionnée ou diffusée. Les réussites ci-dessus ne valent pas validation du canal de production ni installation depuis l'interface.
+
+
+## Clôture des contrôles disponibles — 2 novembre 2026, 03 h 36 (Paris)
+
+Le run `41358869680` est terminé avec succès, y compris Windows x64, au commit applicatif `428299c34d66170f543722ea98a11de6e3e50979`. Les entrées macOS de cette matrice n’ont pas compilé. Aucun build supplémentaire n’est relancé.
+
+L’artefact Windows x64 `13109843363` (`Novera-windows-x64-41358869680`, 5 039 129 159 octets) a été téléchargé et vérifié indépendamment avec `collect-rebuild.py 13109843363`, puis `verify-windows-runtime.py 13109843363` :
+
+- Digest GitHub/ZIP SHA-256 : `fbe397bdcf29d1e69794c3c5cee95821181615677f5d380df2920f7215653feb` ; toutes les 125 empreintes concordent.
+- Commit, rapports des 42 tests frontend et des neuf migrations, signature updater finale et clé publique embarquée vérifiés.
+- Les 83 exécutables/DLL PE sont x64 ; les 106 fichiers du runtime correspondent exactement au NSIS extrait sans exécuter l’installateur.
+- Exécutable CI lancé : `.build/release-prepared/rebuild-428299c3/win32-x64/desktop/Novera-Desktop.exe`, SHA-256 `a8e6cabbc5828faf500bd1c198e0c57dbb2ebb69388d6d68b1cd70c98f33eb01`. Il ne s’agit pas du build debug local.
+
+Dans le profil isolé déjà autorisé `.build/update-ui-2026-11-01/windows-profile`, le vrai parcours **Configurations → Général → Vérifier les mises à jour** affiche **« Échec de la vérification des mises à jour »**. Le bouton redevient disponible ; une deuxième tentative affiche la même erreur, sans faux message « dernière version ». Les captures natives ont été inspectées et les deux arbres d’accessibilité conservés. Le journal confirme le refus du feed et la remontée jusqu’au contrôle manuel, depuis le bundle CI `index-BNsrlhVf.js` à l’origine `http://tauri.localhost/`. L’application de test est fermée après le contrôle, le profil est conservé.
+
+Preuves locales distinctes : `.build/update-ui-2026-11-01/13109843363-verified.json`, `13109843363-windows-runtime.json`, `signed-windows-x64-native-ui.json` et `signed-windows-x64-updater-log.txt`.
+
+À **03 h 35 (Paris)**, les feeds desktop `latest.json` et CLI `latest-cli.json` répondent toujours en **HTTP 404**. La release `430498139` reste un brouillon privé avec ses 15 anciens assets ; aucun nouveau candidat n’y est promu. La branche principale reste `814dd82f6b10e556e16bc24e80d8f0b426d2de51`, la PR #5 reste ouverte en brouillon. Rien n’est fusionné ou publié.
+
+Les contrôles disponibles Windows/Linux sont terminés ; la reprise automatique 	erminer-les-contr-les-windows-novera a été supprimée. Le paquet ARM64 reste vérifié sans exécution ni inspection visuelle sur ce poste x64. Le parcours d’offre, téléchargement, installation et redémarrage depuis l’interface, ainsi qu’une transition entre versions réellement publiées, restent non certifiés sur le canal de production indisponible. Les signatures updater ne valent pas Authenticode. Les accès Apple réels restent nécessaires à la signature/notarisation macOS et à la distribution iOS sur appareil ; aucune identité Apple n’est modifiée.
