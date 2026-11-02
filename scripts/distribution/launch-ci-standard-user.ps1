@@ -9,6 +9,13 @@ $receiptPath=[IO.Path]::GetFullPath($Receipt)
 $logPath=[IO.Path]::GetFullPath($LogFile)
 $validationPath=[IO.Path]::GetFullPath((Join-Path $env:GITHUB_WORKSPACE '.build/validation')).TrimEnd('\')+'\'
 if (!$executablePath.StartsWith($runnerPath,[StringComparison]::OrdinalIgnoreCase) -or [IO.Path]::GetFileName($executablePath) -ne 'Novera-Desktop.exe' -or !$receiptPath.StartsWith($runnerPath,[StringComparison]::OrdinalIgnoreCase) -or !$logPath.StartsWith($validationPath,[StringComparison]::OrdinalIgnoreCase)) { throw 'Owned CI installation, scratch receipt and validation log required' }
+# These are owned throwaway CI folders. Grant only the current user's SID the
+# access a standard-user install/profile has; never broaden a machine policy.
+$currentSid=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value
+& icacls.exe (Split-Path -LiteralPath $executablePath -Parent) /grant ('*'+$currentSid+':(OI)(CI)RX') /T /Q | Out-Null
+if ($LASTEXITCODE -ne 0) { throw 'Cannot grant the current test user access to its owned installation' }
+& icacls.exe (Split-Path -LiteralPath $receiptPath -Parent) /grant ('*'+$currentSid+':(OI)(CI)M') /T /Q | Out-Null
+if ($LASTEXITCODE -ne 0) { throw 'Cannot grant the current test user access to its owned scratch folder' }
 Add-Type -TypeDefinition @'
 using System;
 using System.Collections;
@@ -42,6 +49,7 @@ public static class StandardUiProcess {
   [DllImport("advapi32.dll")] static extern IntPtr GetSidSubAuthority(IntPtr sid,uint index);
   [DllImport("kernel32.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern IntPtr CreateFile(string file,uint access,uint share,ref SecurityAttributes attributes,uint disposition,uint flags,IntPtr template);
   [DllImport("advapi32.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool CreateProcessWithTokenW(IntPtr token,uint logonFlags,string application,StringBuilder command,uint flags,IntPtr environment,string directory,ref StartupInfo startup,out ProcessInfo info);
+  [DllImport("advapi32.dll",CharSet=CharSet.Unicode,SetLastError=true)] static extern bool CreateProcessAsUserW(IntPtr token,string application,StringBuilder command,IntPtr processAttributes,IntPtr threadAttributes,bool inherit,uint flags,IntPtr environment,string directory,ref StartupInfo startup,out ProcessInfo info);
   static void Require(bool ok,string operation="Native operation") { if (!ok) { int error=Marshal.GetLastWin32Error(); throw new Win32Exception(error,operation+": "+new Win32Exception(error).Message); } }
   static int Integrity(IntPtr token) {
     int size; GetTokenInformation(token,25,IntPtr.Zero,0,out size);
@@ -81,7 +89,10 @@ public static class StandardUiProcess {
       output=CreateFile(log,0x4,3,ref security,4,0x80,IntPtr.Zero); Require(output!=new IntPtr(-1),"Open owned UI log");
       input=CreateFile("NUL",0x80000000,3,ref security,3,0x80,IntPtr.Zero); Require(input!=new IntPtr(-1),"Open null input");
       var startup=new StartupInfo { Size=(uint)Marshal.SizeOf(typeof(StartupInfo)),Flags=0x100,Input=input,Output=output,Error=output };
-      Require(CreateProcessWithTokenW(target,0,executable,new StringBuilder("\""+executable+"\""),0x400,environment,System.IO.Path.GetDirectoryName(executable),ref startup,out process),"Create medium-integrity app process");
+      bool created=mode=="restricted-medium"
+        ? CreateProcessAsUserW(target,executable,new StringBuilder("\""+executable+"\""),IntPtr.Zero,IntPtr.Zero,true,0x400,environment,System.IO.Path.GetDirectoryName(executable),ref startup,out process)
+        : CreateProcessWithTokenW(target,0,executable,new StringBuilder("\""+executable+"\""),0x400,environment,System.IO.Path.GetDirectoryName(executable),ref startup,out process);
+      Require(created,"Create medium-integrity app process ("+mode+")");
       IntPtr child; Require(OpenProcessToken(process.Process,8,out child),"Verify child process token"); int level;
       try { level=Integrity(child); } finally { CloseHandle(child); }
       if(level!=8192) { TerminateProcess(process.Process,1); throw new InvalidOperationException("Child did not start at medium integrity"); }
