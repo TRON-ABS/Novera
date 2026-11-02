@@ -298,6 +298,7 @@ async fn handle_graceful_exit<R: tauri::Runtime>(
 pub fn run() {
     #[cfg(feature = "portable")]
     if let Err(error) = core::app::portable::initialize() {
+        eprintln!("Cannot initialize Novera portable: {error}");
         rfd::MessageDialog::new().set_title("Novera portable")
             .set_description(format!("The portable folder could not be opened. Extract the whole archive into a writable folder.\n\n{error}"))
             .set_level(rfd::MessageLevel::Error).show();

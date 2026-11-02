@@ -51,6 +51,7 @@ jobs:
         run: ./scripts/distribution/ci-msvc.ps1
       - name: Cache the native Rust dependencies across validation retries
         id: rust-cache
+        continue-on-error: true
         uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
         with:
           path: src-tauri/target
@@ -76,6 +77,7 @@ jobs:
           RUSTFLAGS='-C target-feature=+crt-static' cargo build --release --locked --manifest-path src-tauri/portable-support/Cargo.toml --target-dir .build/portable-tools --bin Novera-Portable-Update
       - name: Retain compiled dependencies before independent packaging tests
         if: steps.rust-cache.outputs.cache-hit != 'true'
+        continue-on-error: true
         uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
         with:
           path: src-tauri/target
@@ -89,6 +91,7 @@ jobs:
           python scripts/distribution/package-portable.py --runtime .build/portable/runtime --helper .build/portable-tools/release/Novera-Portable-Update.exe --build-info .build/portable/build.json --output .build/portable/packages
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Sign and independently verify both final payloads
+        id: signing
         shell: bash
         env:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.NOVERA_UPDATER_PRIVATE_KEY }}
@@ -108,7 +111,7 @@ jobs:
           python scripts/distribution/validate-portable.py
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Retain the exact signed packages
-        if: success()
+        if: always() && steps.signing.outcome == 'success'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: windows-portable-${{ github.run_id }}

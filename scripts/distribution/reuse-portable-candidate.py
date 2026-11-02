@@ -23,8 +23,13 @@ def main(run_id):
         with urllib.request.urlopen(urllib.request.Request('https://api.github.com/repos/'+REPO+path, headers=headers), timeout=60) as response:
             return json.load(response)
     run = api('/actions/runs/'+run_id)
-    if run['conclusion'] != 'success' or ' - portable - ' not in run['display_title']:
-        raise RuntimeError('A successful native portable build is required')
+    if run['conclusion'] not in ['success', 'failure'] or ' - portable - ' not in run['display_title']:
+        raise RuntimeError('A completed native portable build is required')
+    jobs = api('/actions/runs/'+run_id+'/jobs?per_page=100')['jobs']
+    required_steps = {'Build the actual portable application', 'Package an empty portable profile and Program-only update', 'Sign and independently verify both final payloads'}
+    passed = {step['name'] for job in jobs for step in job.get('steps', []) if step['conclusion'] == 'success'}
+    if not required_steps.issubset(passed):
+        raise RuntimeError('Compilation, packaging and both signature checks must have passed; a failed later UI run is not a successful validation')
     artifacts = api('/actions/runs/'+run_id+'/artifacts')['artifacts']
     artifact = next(a for a in artifacts if a['name'] == 'windows-portable-'+run_id)
     target = ROOT/'.build/portable'
@@ -70,7 +75,7 @@ def main(run_id):
     # Actual signatures are checked again before any candidate code is run.
     script = "import fs from 'node:fs';import {verifyUpdateBundle} from './scripts/distribution/ci-check-updater.mjs';const key=JSON.parse(fs.readFileSync('src-tauri/tauri.portable.conf.json')).plugins.updater.pubkey;for(const name of ['Novera_1.0.0_x64-portable.zip','Novera_1.0.0_x64-portable-update.exe']) { const file='.build/portable/packages/'+name;await verifyUpdateBundle(file,fs.readFileSync(file+'.sig','utf8'),key) }"
     subprocess.run(['node', '--input-type=module', '-e', script], cwd=ROOT, check=True)
-    receipt = {'candidateRun': run_id, 'compilationCommit': run['head_sha'], 'sourceCommit': os.environ['GITHUB_SHA'], 'artifactId': artifact['id'], 'artifactSha256': digest.hexdigest(), 'nativeSourcesUnchanged': True, 'bothPayloadSignaturesVerified': True}
+    receipt = {'candidateRun': run_id, 'candidateWorkflowConclusion': run['conclusion'], 'compilationAndSigningPassed': True, 'compilationCommit': run['head_sha'], 'sourceCommit': os.environ['GITHUB_SHA'], 'artifactId': artifact['id'], 'artifactSha256': digest.hexdigest(), 'nativeSourcesUnchanged': True, 'bothPayloadSignaturesVerified': True}
     (ROOT/'.build/validation').mkdir(parents=True, exist_ok=True)
     (ROOT/'.build/validation/PORTABLE-REUSE.json').write_text(json.dumps(receipt, indent=2)+'\n')
     print(json.dumps(receipt))

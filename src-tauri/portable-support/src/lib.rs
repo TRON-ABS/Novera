@@ -111,7 +111,12 @@ fn invalid(message: impl Into<String>) -> io::Error {
 
 /// Reject reparse points as well as symlinks, including in existing ancestors.
 pub fn plain(path: &Path) -> io::Result<()> {
-    let meta = fs::symlink_metadata(path)?;
+    let meta = fs::symlink_metadata(path).map_err(|error| {
+        io::Error::new(
+            error.kind(),
+            format!("Cannot inspect portable path {}: {error}", path.display()),
+        )
+    })?;
     #[cfg(windows)]
     {
         use std::os::windows::fs::MetadataExt;

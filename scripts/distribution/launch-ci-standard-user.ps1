@@ -13,10 +13,23 @@ if (!$executablePath.StartsWith($runnerPath,[StringComparison]::OrdinalIgnoreCas
 if ($portable) {
     $programPath=[IO.Path]::GetDirectoryName($executablePath)
     if ([IO.Path]::GetFileName($programPath) -ne 'Program' -or !(Test-Path -LiteralPath (Join-Path ([IO.Path]::GetDirectoryName($programPath)) 'novera-portable.json') -PathType Leaf)) { throw 'Marked portable Program directory required' }
+    $portableRoot=[IO.Path]::GetDirectoryName($programPath)
+    $portableBase=[IO.Path]::GetDirectoryName($portableRoot)
+    if ([IO.Path]::GetFileName($portableBase) -notlike 'novera-portable-validation-*' -or !$portableBase.StartsWith($runnerPath,[StringComparison]::OrdinalIgnoreCase)) { throw 'Owned portable validation base required' }
 }
 # These are owned throwaway CI folders. Grant only the current user's SID the
 # access a standard-user install/profile has; never broaden a machine policy.
 $currentSid=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value
+if ($portable) {
+    # The privileged fixture extractor owns these files. A real user extracting
+    # their portable folder already has these same read/traverse rights.
+    foreach ($ownedDirectory in @($portableBase,$portableRoot)) {
+        & icacls.exe $ownedDirectory /grant ('*'+$currentSid+':RX') /Q | Out-Null
+        if ($LASTEXITCODE -ne 0) { throw 'Cannot prepare current-user access to its owned portable root' }
+    }
+    & icacls.exe (Join-Path $portableRoot 'novera-portable.json') /grant ('*'+$currentSid+':R') /Q | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw 'Cannot read the owned portable marker as the test user' }
+}
 Write-Output 'CI UI launcher: prepare current-user access to owned installation'
 & icacls.exe ([IO.Path]::GetDirectoryName($executablePath)) /grant ('*'+$currentSid+':(OI)(CI)RX') /T /Q | Out-Null
 if ($LASTEXITCODE -ne 0) { throw 'Cannot grant the current test user access to its owned installation' }
