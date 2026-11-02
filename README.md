@@ -2,32 +2,26 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>You describe. Novera prepares, runs and organizes.</strong></p>
   <p>An independent AI assistant by TRON-ABS, from first launch to results: text, images, music and video in one conversation.</p>
-  <p><strong>Preparing for launch</strong> · 80 interface languages · 42 cloud providers · 49 media presets · Apache 2.0</p>
+  <p><strong>Available for Windows and Linux</strong> · 80 interface languages · 42 cloud providers · 49 media presets · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Local models</a> · <a href="#hub-and-compatible-models">Formats &amp; Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
 </div>
 
 ---
 
-## Availability — 1 November 2026
+## Availability — 2 November 2026
 
-Isolated installation and native updater replacement tests now pass on all five desktop platforms. All three signed CLI targets also pass isolated replacement; production endpoints remain unvalidated. [Evidence and limits](docs/INSTALL_UPDATE_VALIDATION.md). Public downloads remain closed. The [GitHub Pages launch site](https://tron-abs.github.io/Novera/) presents launch information only.
+**Novera 1.0.0 is available for Windows x64 and Linux x64.** [Download the official release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0). Desktop packages, both CLI archives, signatures and update manifests are public and verified.
 
-**Novera 1.0.0 is preparing for launch. Public downloads are not open yet.** Explore the sources and the real Windows dashboard below; follow [Releases](https://github.com/TRON-ABS/Novera/releases) for published packages when the release checks are complete.
-
-| Platform | Current preparation |
+| Platform | Availability |
 | --- | --- |
-| Windows x64 | NSIS installation and native replacement passed; 106 matching runtime files and test profile preserved. MSI/portable need separate validation. |
-| Windows ARM64 | NSIS installation and native replacement passed; nine matching runtime files. |
-| Linux x64 | AppImage installation and native replacement passed; Debian remains a separate scenario. |
-| macOS | Installation and native replacement passed on both architectures; macOS 14+ ARM64 and 13+ Intel. Notarization remains pending. |
-| Android and iOS | Android ARM64 debug and iOS simulator candidates are internal tests; no public mobile release. |
-| CLI | Signatures, architectures, replacement and execution verified on Windows x64, Linux x64 and macOS ARM64; production feed not enabled. |
-| Web | CI build verified; local browser renewal preserves the selected theme. GitHub Pages launch information is live; hosted application delivery and cache/CDN checks remain. |
+| Windows x64 | Public NSIS installer, signed updater; native installation and replacement verified. |
+| Linux x64 | Public AppImage, signed updater; native installation and replacement verified. |
+| Windows x64 / Linux x64 CLI | Public signed ZIPs; executable names remain `jan.exe` and `jan`. |
+| Windows ARM64, macOS, Android, iOS | Internal candidates; platform checks and/or signing access remain necessary. |
+| Web, MSI, Debian, portable | Hosted Web client and other formats remain internal; Pages presentation site is available. |
 
-Public release requires a configured and verified update mechanism, including production feed and interface validation. Signed updater packages do not imply Windows code signing or Apple notarization. See [current availability and launch requirements](docs/LAUNCH_STATUS.md) and [verified build evidence](docs/CI_DISTRIBUTIONS.md).
-
-All eleven retained variants have successful GitHub builds. A private release draft contains 15 verified files for the five selected desktop update bundles, signatures and notices; it remains unpublished pending the remaining launch requirements.
+Updater signatures are not Windows Authenticode or Apple notarization. Manual current-version checks pass against the public channel; a transition between two public versions remains a next-release test. [Evidence and limitations](docs/LAUNCH_STATUS.md).
 
 ## One dashboard for every creation
 
@@ -244,7 +238,7 @@ These are directions for contribution and development, not a claim that every se
 
 ## Project status
 
-**Novera 1.0.0 is preparing for launch.** The screenshot shows a Windows application compiled locally by the maintainer. Source changes, targeted tests and hardware validation are documented separately; this does not validate every model, platform or cloud account.
+**Novera 1.0.0 is available for Windows x64 and Linux x64.** The screenshot shows a Windows application compiled locally by the maintainer. Source changes, targeted tests and hardware validation are documented separately; this does not validate every model, platform or cloud account.
 
 Manual GitHub Actions builds are enabled for all eleven distribution variants. Follow the [build results and verified candidate downloads](docs/CI_DISTRIBUTIONS.md); availability is recorded separately for each platform. Candidates are distinct from signed production releases. Distribution requirements are described in the [official release policy](OFFICIAL_RELEASES.md) and [releases page](https://github.com/TRON-ABS/Novera/releases). Existing updater-disabled candidates remain internal. Public releases require a configured and verified update mechanism; [desktop signature checks and remaining launch requirements are documented](docs/LAUNCH_STATUS.md).
 

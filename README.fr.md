@@ -2,32 +2,26 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Le savoir pour tous" width="100%" />
   <p><strong>Vous décrivez. Novera prépare, exécute et organise.</strong></p>
   <p>Un assistant IA indépendant de TRON-ABS, du premier démarrage aux résultats : texte, images, musique et vidéo dans la même discussion.</p>
-  <p><strong>Lancement en préparation</strong> · 80 langues d’interface · 42 fournisseurs cloud · 49 préréglages média · Apache 2.0</p>
+  <p><strong>Disponible sur Windows et Linux</strong> · 80 langues d’interface · 42 fournisseurs cloud · 49 préréglages média · Apache 2.0</p>
   <p><a href="#du-démarrage-au-résultat">Automatisation</a> · <a href="#un-tableau-de-bord-pour-tout-créer">Tableau de bord</a> · <a href="#modèles-locaux-utilisés">Modèles locaux</a> · <a href="#hub-et-modèles-compatibles">Formats et Hub</a> · <a href="#fournisseurs-cloud">Cloud</a> · <a href="README.md">English</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
   <p>Contact officiel : <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
 </div>
 
 ---
 
-## Disponibilité — 1er novembre 2026
+## Disponibilité — 2 novembre 2026
 
-Les essais isolés d’installation et de remplacement par l’updater natif passent désormais sur les cinq plateformes desktop. Les trois CLI signées passent aussi le remplacement isolé ; leurs endpoints publics restent à valider. [Preuves et limites](docs/INSTALL_UPDATE_VALIDATION.md). Aucune diffusion publique de l’application. La [vitrine GitHub Pages](https://tron-abs.github.io/Novera/) présente le lancement en préparation.
+**Novera 1.0.0 est disponible sur Windows x64 et Linux x64.** [Télécharger la version officielle](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0). Les installateurs desktop, les deux CLI, leurs signatures et les manifests de mise à jour sont publics et vérifiés.
 
-**Novera 1.0.0 prépare son lancement. Les téléchargements publics ne sont pas encore ouverts.** Découvrez les sources et le véritable tableau de bord Windows ci-dessous ; les paquets publiés seront accessibles dans [Releases](https://github.com/TRON-ABS/Novera/releases) après les contrôles de lancement.
-
-| Plateforme | Préparation actuelle |
+| Plateforme | Disponibilité |
 | --- | --- |
-| Windows x64 | Installation NSIS et remplacement natif réussis ; 106 fichiers identiques, profil de test préservé. MSI/portable à valider séparément. |
-| Windows ARM64 | Installation NSIS et remplacement natif réussis ; neuf fichiers runtime identiques. |
-| Linux x64 | Installation AppImage et remplacement natif réussis ; scénario Debian distinct. |
-| macOS | Installation et remplacement natif réussis sur les deux architectures ; macOS 14+ ARM64 et 13+ Intel. Notarisation en attente. |
-| Android et iOS | Android ARM64 debug et iOS simulateur restent des essais internes ; aucune version mobile publique. |
-| CLI | Signatures, architectures, remplacement et exécution vérifiés sur Windows x64, Linux x64 et macOS ARM64 ; feed de production non activé. |
-| Web | Build CI vérifié ; renouvellement local au navigateur avec thème conservé. Vitrine informative GitHub Pages en ligne ; canal applicatif hébergé et cache/CDN encore à valider. |
+| Windows x64 | Installateur NSIS public, updater signé ; installation et remplacement natif vérifiés. |
+| Linux x64 | AppImage publique, updater signé ; installation et remplacement natif vérifiés. |
+| CLI Windows x64 / Linux x64 | ZIP signés publics ; exécutables `jan.exe` et `jan`. |
+| ARM64 Windows, macOS, Android, iOS | Candidats internes ; validations de plateforme et/ou accès de signature encore nécessaires. |
+| Web, MSI, Debian, portable | Client Web et autres formats encore internes ; vitrine informative Pages disponible. |
 
-Toute publication exige un mécanisme de mise à jour configuré et vérifié, avec validation du feed de production et du parcours dans l’interface. La signature de l’updater ne vaut pas signature de code Windows ou notarisation Apple. Consultez [la disponibilité et les conditions de lancement](docs/LAUNCH_STATUS.md) et [les preuves de compilation](docs/CI_DISTRIBUTIONS.md).
-
-Les onze variantes retenues ont une compilation GitHub réussie. Un brouillon de version contient 15 fichiers vérifiés pour les cinq bundles desktop sélectionnés, leurs signatures et notices ; il reste non publié dans l’attente des validations de lancement restantes.
+Les signatures updater ne valent pas Authenticode Windows ou notarisation Apple. Les contrôles de version à jour sur le canal public passent ; une transition entre deux versions publiques reste un essai de la prochaine sortie. [Preuves et limites](docs/LAUNCH_STATUS.md).
 
 ## Un tableau de bord pour tout créer
 
@@ -244,7 +238,7 @@ Ces domaines constituent une direction de contribution et de développement, pas
 
 ## État du projet
 
-**Novera 1.0.0 prépare son lancement.** La capture montre une application Windows compilée localement par le mainteneur. Les sources, les essais ciblés et les validations matérielles sont documentés séparément ; cela ne vaut pas validation de tous les modèles, plateformes ou comptes cloud.
+**Novera 1.0.0 est disponible sur Windows x64 et Linux x64.** La capture montre une application Windows compilée localement par le mainteneur. Les sources, les essais ciblés et les validations matérielles sont documentés séparément ; cela ne vaut pas validation de tous les modèles, plateformes ou comptes cloud.
 
 Les compilations manuelles GitHub Actions sont activées pour les onze variantes de distribution. Consultez les [résultats de compilation et téléchargements des candidats vérifiés](docs/CI_DISTRIBUTIONS.md) ; la disponibilité est indiquée pour chaque plateforme. Les candidats sont distincts des versions de production signées. Les conditions de distribution figurent dans la [politique de versions officielles](OFFICIAL_RELEASES.md) et sur la [page des versions](https://github.com/TRON-ABS/Novera/releases). Les candidats existants sans mise à jour active restent internes. Toute version publique exige un mécanisme de mise à jour configuré et vérifié ; les [contrôles des paquets desktop signés et conditions restantes sont documentés](docs/LAUNCH_STATUS.md).
 

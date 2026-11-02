@@ -1,6 +1,6 @@
 # Canal signé de la CLI Novera
 
-Le canal est **en validation**, sans publication ni manifeste public. Les anciens binaires CLI, compilés sans cette option, refusent toujours les mises à jour automatiques.
+Le canal est **public et vérifié pour Windows x64 et Linux x64 depuis le 2 novembre 2026**. La CLI macOS reste interne. [Disponibilité et preuves actuelles](LAUNCH_STATUS.md). Les anciens binaires CLI, compilés sans cette option, refusent toujours les mises à jour automatiques.
 
 Le [run 41341759700](https://github.com/TRON-ABS/Novera/actions/runs/41341759700), commit `78678bf6`, réussit sur **Windows x64, Linux x64 et macOS Apple Silicon**. Les trois artefacts sont téléchargés : onze empreintes chacun, architecture native, clé publique réellement embarquée et identité interne version/platform/commit vérifiées. La signature cryptographique est recontrôlée indépendamment avec la clé épinglée. Les reçus du runner confirment le refus d’une archive altérée, le remplacement du fichier et l’exécution du binaire remplacé, avec témoin de profil préservé.
 
@@ -28,4 +28,4 @@ Avant toute diffusion, contrôler indépendamment les archives et les architectu
 node scripts/distribution/prepare-cli-feed.mjs 1.0.0 CHEMIN/latest-cli.json PREUVE_LINUX.json PREUVE_MACOS.json PREUVE_WINDOWS.json
 ```
 
-Un manifeste `1.0.0` couvrant les trois archives réellement vérifiées est préparé localement, sans transfert. Aucun `latest-cli.json` public n’est activé ; disponibilité du feed/URLs de production et transition entre deux versions publiées restent à vérifier. Le remplacement d’un témoin synthétique par le vrai binaire ne prétend pas tester le processus complet d’auto-remplacement d’une CLI en cours d’utilisation.
+Le manifeste public `1.0.0` couvre les deux archives Windows/Linux retenues. Feed, URLs, empreintes et signatures de production sont vérifiés ; une transition entre deux versions publiées reste à exercer lors de la prochaine sortie. Le remplacement d’un témoin synthétique par le vrai binaire ne prétend pas tester le processus complet d’auto-remplacement d’une CLI en cours d’utilisation.
