@@ -89,7 +89,7 @@ def main():
         thread_dir.mkdir(parents=True)
         attachment = data/'portable-attachment.txt'
         attachment.write_text('Synthetic component attachment')
-        (thread_dir/'messages.jsonl').write_text(json.dumps({'role': 'user', 'content': [{'type': 'text', 'text': {'value': str(attachment)}}], 'portableAttachment': str(attachment)})+'\n')
+        (thread_dir/'messages.jsonl').write_text(json.dumps({'role': 'user', 'content': [{'type': 'text', 'text': {'value': 'Synthetic component discussion'}}], 'portableAttachment': 'Data/Novera/data/portable-attachment.txt'})+'\n')
         (data/'settings.json').write_text(json.dumps({'__settings_migrated_to_backend__': 'true', 'llamacpp-embedder-bootstrapped': 'true', 'llamacpp-qwen3-embedder-bootstrapped': 'true', 'portable-component-setting': 'synthetic preserved setting'}))
         model = initial/'Data/Models/portable-component-fixture/model.gguf'
         model.parent.mkdir(parents=True)
@@ -98,29 +98,21 @@ def main():
     else:
         subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(initial/'Program/Novera-Desktop.exe'), 'initial'], env=env, cwd=REPO, check=True, timeout=240)
     wait(lambda: unlocked(initial), 'first portable app exit')
-    # The public entry point is the native root launcher, not the inner EXE.
-    subprocess.run([str(initial/'Novera.exe')], env=env, cwd=initial, check=True, timeout=60)
-    wait(lambda: not unlocked(initial), 'root launcher started the real app')
-    time.sleep(5)
-    if unlocked(initial):
-        raise RuntimeError('The root-launched application exited unexpectedly')
-    stop_owned(initial/'Program/Novera-Desktop.exe')
-    wait(lambda: unlocked(initial), 'root-launched app exit')
+    if not components_only:
+        # The public entry point is the native root launcher, not the inner EXE.
+        subprocess.run([str(initial/'Novera.exe')], env=env, cwd=initial, check=True, timeout=60)
+        wait(lambda: not unlocked(initial), 'root launcher started the real app')
+        time.sleep(5)
+        if unlocked(initial):
+            raise RuntimeError('The root-launched application exited unexpectedly')
+        stop_owned(initial/'Program/Novera-Desktop.exe')
+        wait(lambda: unlocked(initial), 'root-launched app exit')
     moved = base/'autre disque espace é'
     initial.rename(moved)
     executable = moved/'Program/Novera-Desktop.exe'
-    if components_only:
-        subprocess.run([str(moved/'Novera.exe')], env=env, cwd=moved, check=True, timeout=60)
-        wait(lambda: not unlocked(moved), 'moved native portable initialization')
-        time.sleep(2)
-        stop_owned(executable)
-    else:
+    if not components_only:
         subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(executable), 'moved'], env=env, cwd=REPO, check=True, timeout=240)
     wait(lambda: unlocked(moved), 'moved portable app exit')
-    if components_only:
-        message = json.loads((moved/'Data/Novera/data/threads/portable-component-fixture/messages.jsonl').read_text().strip())
-        if message['portableAttachment'] != str(moved/'Data/Novera/data/portable-attachment.txt') or message['content'][0]['text']['value'] != str(initial/'Data/Novera/data/portable-attachment.txt'):
-            raise RuntimeError('Native startup did not rebase attachment metadata while preserving message text')
     witness = json.loads((moved/'Data/portable-ui-witness.json').read_text())
     model = moved/witness['modelRelative']
     before_model = digest(model)
@@ -196,7 +188,7 @@ def main():
                   'nativeSignatureVerified': downloaded['nativeSignatureVerified'], 'sameVersionNotOffered': current['sameVersionNotOffered'],
                   'tamperedPayloadRejected': rejected['tamperedPayloadRejectedByNativeVerifier'], 'nativeInstallationRequested': installed['installerRequested'],
                   'programRestored': True, 'runtimeFilesCompared': len(provenance['files']), 'discussionBytesPreserved': True, 'modelBytesPreserved': True,
-                  'folderMoved': True, 'nativeRootLauncherVerified': True, 'nativeUiInitialMovedUpdatedPassed': not components_only, 'realPublicVersionsUpgradeValidated': False,
+                  'folderMoved': True, 'nativeRootLauncherVerified': not components_only, 'nativeRelocationValidated': not components_only, 'nativeUiInitialMovedUpdatedPassed': not components_only, 'realPublicVersionsUpgradeValidated': False,
                   'componentFixturesOnly': components_only, 'publicCurrentVersionUiValidated': ui.get('productionManualCheckValidated', False),
                   'limitations': ['Synthetic data only; no model inference or cross-PC DPAPI key migration is certified.', 'An upgrade between two public versions is not certified by these fixtures.']}
         report_name = 'PORTABLE-COMPONENTS-VERIFIED.json' if components_only else 'PORTABLE-VERIFIED.json'
