@@ -1,6 +1,20 @@
 use novera_portable::*;
 use serde_json::json;
 use sha2::{Digest, Sha256};
+
+#[cfg(windows)]
+#[test]
+fn portable_secrets_are_windows_protected_and_reject_alteration() {
+    let plaintext = b"synthetic portable provider key, never a real credential";
+    let mut protected = protect_secret(plaintext).unwrap();
+    assert!(!protected
+        .windows(plaintext.len())
+        .any(|part| part == plaintext));
+    assert_eq!(unprotect_secret(&protected).unwrap(), plaintext);
+    let middle = protected.len() / 2;
+    protected[middle] ^= 1;
+    assert!(unprotect_secret(&protected).is_err());
+}
 use std::{
     fs,
     io::{Cursor, Write},

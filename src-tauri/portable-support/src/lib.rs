@@ -16,6 +16,91 @@ pub const FOOTER: &[u8; 16] = b"NOVERA-PORT-ZIP1";
 pub const ENDPOINT: &str =
     "https://github.com/TRON-ABS/Novera/releases/latest/download/latest-portable.json";
 
+/// Windows account-protected bytes, stored only in the portable Data folder.
+/// No Credential Manager entry or plaintext export is created.
+#[cfg(windows)]
+fn crypt_secret(input: &[u8], protect: bool) -> io::Result<Vec<u8>> {
+    #[repr(C)]
+    struct Blob {
+        length: u32,
+        data: *mut u8,
+    }
+    #[link(name = "crypt32")]
+    extern "system" {
+        fn CryptProtectData(
+            input: *const Blob,
+            description: *const u16,
+            entropy: *const Blob,
+            reserved: *mut std::ffi::c_void,
+            prompt: *mut std::ffi::c_void,
+            flags: u32,
+            output: *mut Blob,
+        ) -> i32;
+        fn CryptUnprotectData(
+            input: *const Blob,
+            description: *mut *mut u16,
+            entropy: *const Blob,
+            reserved: *mut std::ffi::c_void,
+            prompt: *mut std::ffi::c_void,
+            flags: u32,
+            output: *mut Blob,
+        ) -> i32;
+    }
+    #[link(name = "kernel32")]
+    extern "system" {
+        fn LocalFree(memory: *mut std::ffi::c_void) -> *mut std::ffi::c_void;
+    }
+    let length = u32::try_from(input.len()).map_err(|_| invalid("Secret store too large"))?;
+    let input = Blob {
+        length,
+        data: input.as_ptr() as *mut u8,
+    };
+    let mut output = Blob {
+        length: 0,
+        data: std::ptr::null_mut(),
+    };
+    let success = unsafe {
+        if protect {
+            CryptProtectData(
+                &input,
+                std::ptr::null(),
+                std::ptr::null(),
+                std::ptr::null_mut(),
+                std::ptr::null_mut(),
+                1,
+                &mut output,
+            )
+        } else {
+            CryptUnprotectData(
+                &input,
+                std::ptr::null_mut(),
+                std::ptr::null(),
+                std::ptr::null_mut(),
+                std::ptr::null_mut(),
+                1,
+                &mut output,
+            )
+        }
+    };
+    if success == 0 {
+        return Err(io::Error::last_os_error());
+    }
+    let bytes = unsafe { std::slice::from_raw_parts(output.data, output.length as usize).to_vec() };
+    unsafe {
+        LocalFree(output.data.cast());
+    }
+    Ok(bytes)
+}
+
+#[cfg(windows)]
+pub fn protect_secret(input: &[u8]) -> io::Result<Vec<u8>> {
+    crypt_secret(input, true)
+}
+#[cfg(windows)]
+pub fn unprotect_secret(input: &[u8]) -> io::Result<Vec<u8>> {
+    crypt_secret(input, false)
+}
+
 fn invalid(message: impl Into<String>) -> io::Error {
     io::Error::other(message.into())
 }

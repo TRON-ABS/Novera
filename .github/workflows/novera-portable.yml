@@ -20,6 +20,8 @@ concurrency:
 env:
   CI: 'true'
   IS_TAURI: 'true'
+  IS_DEV: 'false'
+  NOVERA_ENABLE_UPDATER: 'true'
   STATIC_VCRUNTIME: 'true'
   JAN_ENGINE_REQUIRE_SIGNING: '0'
   NOVERA_ANALYTICS_HOST: ''

@@ -51,6 +51,10 @@ static INDEX_LOCK: Mutex<()> = Mutex::new(());
 static KEYRING_DOWN: AtomicBool = AtomicBool::new(false);
 
 fn keyring_down() -> bool {
+    // A portable folder must neither read nor modify the installed app's vault.
+    #[cfg(feature = "portable")]
+    return true;
+    #[cfg(not(feature = "portable"))]
     KEYRING_DOWN.load(Ordering::Relaxed)
 }
 
@@ -96,9 +100,10 @@ fn derive_cipher() -> Result<Aes256Gcm, String> {
 // Android backups are disabled. Hardware-keystore integration is separate.
 #[cfg(any(target_os = "android", target_os = "ios"))]
 fn derive_cipher() -> Result<Aes256Gcm, String> {
-    use std::io::Write;
     use rand::RngCore;
-    let root = crate::core::app::paths::data_dir().ok_or("mobile private data root not initialized")?;
+    use std::io::Write;
+    let root =
+        crate::core::app::paths::data_dir().ok_or("mobile private data root not initialized")?;
     fs::create_dir_all(&root).map_err(|e| e.to_string())?;
     let path = root.join("provider-secrets.key");
     let key = match fs::read(&path) {
@@ -108,14 +113,22 @@ fn derive_cipher() -> Result<Aes256Gcm, String> {
             rand::rngs::OsRng.fill_bytes(&mut key);
             let mut options = fs::OpenOptions::new();
             options.write(true).create_new(true);
-            #[cfg(unix)] { use std::os::unix::fs::OpenOptionsExt; options.mode(0o600); }
+            #[cfg(unix)]
+            {
+                use std::os::unix::fs::OpenOptionsExt;
+                options.mode(0o600);
+            }
             let mut file = options.open(&path).map_err(|e| e.to_string())?;
-            file.write_all(&key).and_then(|_| file.sync_all()).map_err(|e| e.to_string())?;
+            file.write_all(&key)
+                .and_then(|_| file.sync_all())
+                .map_err(|e| e.to_string())?;
             key
         }
         Err(e) => return Err(e.to_string()),
     };
-    if key.len() != 32 { return Err("invalid mobile provider key".into()); }
+    if key.len() != 32 {
+        return Err("invalid mobile provider key".into());
+    }
     Aes256Gcm::new_from_slice(&key).map_err(|e| e.to_string())
 }
 
@@ -123,21 +136,31 @@ fn read_file_map(path: &PathBuf) -> BTreeMap<String, Vec<String>> {
     let Ok(bytes) = fs::read(path) else {
         return BTreeMap::new();
     };
-    if bytes.len() <= NONCE_LEN {
-        return BTreeMap::new();
+    #[cfg(feature = "portable")]
+    {
+        return novera_portable::unprotect_secret(&bytes)
+            .ok()
+            .and_then(|plaintext| serde_json::from_slice(&plaintext).ok())
+            .unwrap_or_default();
     }
-    let (nonce, ciphertext) = bytes.split_at(NONCE_LEN);
-    let plaintext = match derive_cipher().and_then(|c| {
-        c.decrypt(Nonce::from_slice(nonce), ciphertext)
-            .map_err(|e| e.to_string())
-    }) {
-        Ok(pt) => pt,
-        Err(err) => {
-            log::warn!("Failed to decrypt provider secrets file: {err}");
+    #[cfg(not(feature = "portable"))]
+    {
+        if bytes.len() <= NONCE_LEN {
             return BTreeMap::new();
         }
-    };
-    serde_json::from_slice(&plaintext).unwrap_or_default()
+        let (nonce, ciphertext) = bytes.split_at(NONCE_LEN);
+        let plaintext = match derive_cipher().and_then(|c| {
+            c.decrypt(Nonce::from_slice(nonce), ciphertext)
+                .map_err(|e| e.to_string())
+        }) {
+            Ok(pt) => pt,
+            Err(err) => {
+                log::warn!("Failed to decrypt provider secrets file: {err}");
+                return BTreeMap::new();
+            }
+        };
+        serde_json::from_slice(&plaintext).unwrap_or_default()
+    }
 }
 
 fn write_file_map_atomic(
@@ -148,13 +171,19 @@ fn write_file_map_atomic(
         fs::create_dir_all(parent).map_err(|e| e.to_string())?;
     }
     let plaintext = serde_json::to_vec(map).map_err(|e| e.to_string())?;
-    let cipher = derive_cipher()?;
-    let nonce = Aes256Gcm::generate_nonce(&mut OsRng);
-    let ciphertext = cipher
-        .encrypt(&nonce, plaintext.as_ref())
-        .map_err(|e| e.to_string())?;
-    let mut blob = nonce.to_vec();
-    blob.extend_from_slice(&ciphertext);
+    #[cfg(feature = "portable")]
+    let blob = novera_portable::protect_secret(&plaintext).map_err(|e| e.to_string())?;
+    #[cfg(not(feature = "portable"))]
+    let blob = {
+        let cipher = derive_cipher()?;
+        let nonce = Aes256Gcm::generate_nonce(&mut OsRng);
+        let ciphertext = cipher
+            .encrypt(&nonce, plaintext.as_ref())
+            .map_err(|e| e.to_string())?;
+        let mut blob = nonce.to_vec();
+        blob.extend_from_slice(&ciphertext);
+        blob
+    };
 
     let tmp = path.with_extension("enc.tmp");
     fs::write(&tmp, &blob).map_err(|e| e.to_string())?;
@@ -231,7 +260,11 @@ fn index_set(provider: &str, present: bool) {
 /// installs whose index predates this file. A keyring entry written before the
 /// index existed reads as absent until the owning app next stores that key.
 pub fn has_stored_key(provider: &str) -> bool {
-    read_index().contains(provider) || !file_load(provider).is_empty()
+    #[cfg(feature = "portable")]
+    return !file_load(provider).is_empty();
+    #[cfg(not(feature = "portable"))]
+    read_index().contains(provider)
+        || !file_load(provider).is_empty()
 }
 
 fn file_store(provider: &str, keys: &[String]) -> Result<(), String> {
