@@ -17,7 +17,7 @@ on:
       portable_native_ui:
         description: Include Windows Server UI tests; false verifies native components only and requires separate Windows client UI evidence
         type: boolean
-        default: true
+        default: false
       signed_updates:
         description: Embed the Novera desktop or CLI update channel and sign final archives
         type: boolean
@@ -75,6 +75,8 @@ jobs:
     needs: checks
     if: inputs.target == 'portable'
     uses: ./.github/workflows/novera-portable.yml
+    with:
+      native_ui: ${{ inputs.portable_native_ui }}
     secrets: inherit
 
   portable-validation:

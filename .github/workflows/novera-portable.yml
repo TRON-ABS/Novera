@@ -3,7 +3,16 @@ run-name: Novera portable - ${{ github.sha }}
 
 on:
   workflow_dispatch:
+    inputs:
+      native_ui:
+        description: Attempt Windows Server UI diagnostics; separate Windows client UI evidence is required when false
+        type: boolean
+        default: false
   workflow_call:
+    inputs:
+      native_ui:
+        type: boolean
+        default: false
     secrets:
       NOVERA_UPDATER_PRIVATE_KEY:
         required: true
@@ -107,9 +116,15 @@ jobs:
           npm install --prefix .build/webview2-driver --ignore-scripts --no-audit --no-fund --save-exact playwright-core@1.56.1
       - name: Verify extraction, native profile relocation and signed Program replacement
         shell: pwsh
+        env:
+          CHECK_NATIVE_UI: ${{ inputs.native_ui }}
         run: |
-          ./scripts/distribution/ci-portable-user.ps1
-          python scripts/distribution/validate-portable.py
+          if ($env:CHECK_NATIVE_UI -eq 'true') {
+            ./scripts/distribution/ci-portable-user.ps1
+            python scripts/distribution/validate-portable.py
+          } else {
+            python scripts/distribution/validate-portable.py --components-only
+          }
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
       - name: Retain the exact signed packages
         if: always() && steps.signing.outcome == 'success'
@@ -120,7 +135,7 @@ jobs:
           if-no-files-found: error
           retention-days: 14
       - name: Remove the disposable standard UI account
-        if: always()
+        if: always() && inputs.native_ui
         shell: pwsh
         run: ./scripts/distribution/ci-portable-user.ps1 -Action Remove
       - name: Retain native receipts and screenshots
