@@ -1,6 +1,6 @@
 # Windows ARM64 — Novera 1.0.0
 
-La publication ARM64 conserve la version applicative **1.0.0**. La release originale `v1.0.0` est immuable ; le complément prévu est `v1.0.0-windows-arm64`, sans remplacement des paquets x64/Linux existants.
+La version Windows ARM64 est [publiée le 2 novembre 2026](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64) et conserve la version applicative **1.0.0**. La release originale `v1.0.0` est immuable ; le complément `v1.0.0-windows-arm64` ajoute neuf assets sans remplacer les paquets x64/Linux existants. Le tag pointe vers le commit de distribution `9b4b85e9961e4a3c1ef7041d547a06e78946d80f`, issu de la [PR #8](https://github.com/TRON-ABS/Novera/pull/8).
 
 Le candidat provient du commit `428299c34d66170f543722ea98a11de6e3e50979`, run `41358869680`, artefact `13105967267`. Le digest GitHub, les 24 empreintes, la signature updater et la clé embarquée sont contrôlés indépendamment. Les sept PE sont ARM64 ; les neuf fichiers du runtime concordent avec le NSIS extrait. SHA-256 de l'installateur : `85cab2cb6ececd8d85cb9198769a5076f03ba72c3847ab857af9b3406762a3f3`.
 
@@ -18,4 +18,10 @@ Le premier run `41455224313` a atteint le banc UI après les essais natifs, puis
 
 Le manifeste complémentaire conserve les URL des paquets Windows x64, Linux x64 et des deux CLI. Il ajoute seulement l'installateur ARM64. Le contrôle public vérifie les dix-neuf fichiers référencés sur les deux releases, leurs empreintes, leurs URL officielles et les cinq signatures de paquets. Le complément contient neuf assets ; le client Web et la CLI ARM64 ne sont pas ajoutés à cette sortie.
 
-Les résultats natifs et publics doivent être ajoutés après leur exécution réelle. La version portable vient ensuite et conserve ses propres exigences de mise à jour.
+## Résultats après publication
+
+- [Essais natifs ARM64 41466831298](https://github.com/TRON-ABS/Novera/actions/runs/41466831298) : installation NSIS, signature native, rejet d’altération, absence d’offre à version égale, remplacement effectif, neuf empreintes runtime et témoin de profil conservé. Le contrôle dans la vraie interface affiche « You’re running the latest version » avec l’entrée ARM64 du canal officiel. Le processus UI est ARM64, non élevé, au niveau d’intégrité moyen 8192.
+- [Contrôle public 41466838497](https://github.com/TRON-ABS/Novera/actions/runs/41466838497) : dix-neuf fichiers publics, deux manifests et cinq signatures validés. Le contrôle manuel Linux et la CLI Linux passent également avec le canal combiné.
+- Les artefacts CI téléchargés sont vérifiés contre leur digest SHA-256 fourni par GitHub ; les captures réelles sont examinées séparément. Le contrôle UI avant publication [41465337216](https://github.com/TRON-ABS/Novera/actions/runs/41465337216) avait correctement montré l’erreur du canal sans entrée ARM64.
+
+Ces résultats valident l’installation, le remplacement et la consultation du canal public. Ils ne prouvent pas une mise à jour entre deux versions publiques ni le fonctionnement de tous les modèles et matériels. Le moteur CUDA x64 et une CLI ARM64 ne sont pas distribués dans ce complément.

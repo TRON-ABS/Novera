@@ -13,7 +13,7 @@ test('Pages links the verified Windows/Linux release without hosting the Web app
   assert.deepEqual(fs.readdirSync(path.join(out,'assets')).sort(),['banner.png','dashboard.png'])
   assert.equal(result.applicationPublished,false);assert.equal(result.publicDownloadsEnabled,true);assert.equal(result.desktopReleaseVersion,'1.0.0')
   const html=fs.readFileSync(path.join(out,'index.html'),'utf8')
-  assert.match(html,/Windows x64 et Linux x64 sont disponibles/);assert.match(html,/releases\/tag\/v1\.0\.0/)
+  assert.match(html,/Windows x64, Windows ARM64 et Linux x64 sont disponibles/);assert.match(html,/releases\/tag\/v1\.0\.0/)
   assert.match(html,/TRON-ABS/);assert.match(html,/The art of Human with AI/)
   assert.doesNotMatch(html,/<script\b|\.exe\b|latest\.json|latest-cli\.json|releases\/download\//i)
   assert.throws(()=>preparePagesSite(out,'a'.repeat(40)),/already exists/)
