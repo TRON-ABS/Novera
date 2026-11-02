@@ -11,14 +11,15 @@
 
 ## Disponibilité — 2 novembre 2026
 
-**Novera 1.0.0 est disponible sur Windows x64 et Linux x64.** [Télécharger la version officielle](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0). Les installateurs desktop, les deux CLI, leurs signatures et les manifests de mise à jour sont publics et vérifiés.
+**Novera 1.0.0 est disponible sur Windows x64, Windows ARM64 et Linux x64.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Les installateurs desktop, les deux CLI, leurs signatures et les manifests de mise à jour sont publics et vérifiés.
 
 | Plateforme | Disponibilité |
 | --- | --- |
 | Windows x64 | Installateur NSIS public, updater signé ; installation et remplacement natif vérifiés. |
 | Linux x64 | AppImage publique, updater signé ; installation et remplacement natif vérifiés. |
 | CLI Windows x64 / Linux x64 | ZIP signés publics ; exécutables `jan.exe` et `jan`. |
-| ARM64 Windows, macOS, Android, iOS | Candidats internes ; validations de plateforme et/ou accès de signature encore nécessaires. |
+| Windows ARM64 | [Installateur NSIS public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), moteur texte CPU natif ; installation, remplacement et contrôle du canal public vérifiés. |
+| macOS, Android, iOS | Candidats internes ; validations de plateforme et/ou accès de signature encore nécessaires. |
 | Web, MSI, Debian, portable | Client Web et autres formats encore internes ; vitrine informative Pages disponible. |
 
 Les signatures updater ne valent pas Authenticode Windows ou notarisation Apple. Les contrôles de version à jour sur le canal public passent ; une transition entre deux versions publiques reste un essai de la prochaine sortie. [Preuves et limites](docs/LAUNCH_STATUS.md).
@@ -238,7 +239,7 @@ Ces domaines constituent une direction de contribution et de développement, pas
 
 ## État du projet
 
-**Novera 1.0.0 est disponible sur Windows x64 et Linux x64.** La capture montre une application Windows compilée localement par le mainteneur. Les sources, les essais ciblés et les validations matérielles sont documentés séparément ; cela ne vaut pas validation de tous les modèles, plateformes ou comptes cloud.
+**Novera 1.0.0 est disponible sur Windows x64, Windows ARM64 et Linux x64.** La capture montre une application Windows compilée localement par le mainteneur. Les sources, les essais ciblés et les validations matérielles sont documentés séparément ; cela ne vaut pas validation de tous les modèles, plateformes ou comptes cloud.
 
 Les compilations manuelles GitHub Actions sont activées pour les onze variantes de distribution. Consultez les [résultats de compilation et téléchargements des candidats vérifiés](docs/CI_DISTRIBUTIONS.md) ; la disponibilité est indiquée pour chaque plateforme. Les candidats sont distincts des versions de production signées. Les conditions de distribution figurent dans la [politique de versions officielles](OFFICIAL_RELEASES.md) et sur la [page des versions](https://github.com/TRON-ABS/Novera/releases). Les candidats existants sans mise à jour active restent internes. Toute version publique exige un mécanisme de mise à jour configuré et vérifié ; les [contrôles des paquets desktop signés et conditions restantes sont documentés](docs/LAUNCH_STATUS.md).
 
@@ -278,3 +279,5 @@ Pour contribuer, scannez ce QR code avec votre portefeuille ou copiez l’adress
   <p><strong>TRON-ABS</strong></p>
   <p><em>The art of Human with AI</em></p>
 </div>
+
+<div align="center"><sub>Outil de développement : 🧠 Codex — Sol 6.1</sub></div>

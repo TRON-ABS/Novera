@@ -1,21 +1,23 @@
 # Novera 1.0.0 — disponibilité
 
-**Sortie publique du 2 novembre 2026 : Windows x64 et Linux x64.** [Télécharger la version officielle](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0). La correction de l'updater est intégrée via la [PR #5](https://github.com/TRON-ABS/Novera/pull/5).
+**Sortie publique du 2 novembre 2026 : Windows x64, Windows ARM64 et Linux x64.** [Télécharger la version officielle](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0). La correction de l'updater est intégrée via la [PR #5](https://github.com/TRON-ABS/Novera/pull/5).
 
 | Cible | Disponibilité |
 | --- | --- |
 | Windows x64 | Installateur NSIS public ; signature updater, installation et remplacement natif vérifiés. Contrôle manuel sur le canal public vérifié dans la vraie interface. |
 | Linux x64 | AppImage publique ; signature, installation et remplacement natif vérifiés. Contrôle du feed public dans la vraie interface sous Xvfb. |
 | CLI Windows x64 / Linux x64 | ZIP signés publics ; architectures, identité interne, remplacement et consultation du feed de production vérifiés. Nom actuel des exécutables : `jan.exe` / `jan`. |
-| Windows ARM64 | Candidat interne ; contrôle visuel sur machine ARM64 encore nécessaire. |
+| Windows ARM64 | [Installateur NSIS public 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64) ; moteur texte CPU natif, installation, remplacement et contrôle du canal public dans la vraie interface vérifiés. |
 | macOS ARM64 / Intel | Candidats internes ; signature/notarisation Apple et contrôles du canal propres à la plateforme encore nécessaires. |
 | Android / iOS | Essais internes debug/simulateur ; signature durable, distribution et validation sur appareil à terminer. |
 | Web | Vitrine informative en ligne ; client Web hébergé encore interne. |
 | MSI / Debian / portable | Formats exclus de cette sortie ; scénarios de mise à jour propres à valider. |
 
-Les deux manifests `latest.json` et `latest-cli.json` sont publics et annoncent seulement Windows x64 et Linux x64. Les quinze assets sont contrôlés sans authentification : disponibilité HTTPS, tailles, SHA-256 et signatures updater. [Contrôle public 41388605836](https://github.com/TRON-ABS/Novera/actions/runs/41388605836).
+Le complément `v1.0.0-windows-arm64` conserve la version applicative 1.0.0 et les paquets x64/Linux immuables. Le canal desktop ajoute Windows ARM64 ; la CLI reste disponible sur Windows x64 et Linux x64. Les deux manifests et les dix-neuf fichiers référencés sur les deux releases sont contrôlés sans authentification : disponibilité HTTPS, tailles, SHA-256 et cinq signatures de paquets. [Contrôle public 41466838497](https://github.com/TRON-ABS/Novera/actions/runs/41466838497).
 
 Les fichiers exacts de cette release passent les essais natifs sur des hôtes vierges : installation, rejet d'un paquet altéré, absence d'offre à version égale, remplacement, contrôle du runtime et conservation du témoin de profil. [Essais 41386813422](https://github.com/TRON-ABS/Novera/actions/runs/41386813422).
+
+L’installateur ARM64 exact passe aussi les essais natifs et le contrôle manuel du canal publié dans l’application installée : [essais ARM64 41466831298](https://github.com/TRON-ABS/Novera/actions/runs/41466831298). Le [bilan ARM64](RELEASE_WINDOWS_ARM64_1.0.0.md) précise la provenance et les limites.
 
 ## Limites et prochaines versions
 
