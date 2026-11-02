@@ -20,9 +20,12 @@
 | Windows x64 / Linux x64 CLI | Public signed ZIPs; executable names remain `jan.exe` and `jan`. |
 | Windows ARM64 | [Public NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), native CPU text engine; installation, replacement and public-channel checks verified. |
 | macOS, Android, iOS | Internal candidates; platform checks and/or signing access remain necessary. |
-| Web, MSI, Debian, portable | Hosted Web client and other formats remain internal; Pages presentation site is available. |
+| Windows x64 portable | [Signed ZIP archive](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data stays in Data, signed Program replacement verified. |
+| Web, MSI, Debian | Hosted Web client and other formats remain internal; Pages presentation site is available. |
 
 Updater signatures are not Windows Authenticode or Apple notarization. Manual current-version checks pass against the public channel; a transition between two public versions remains a next-release test. [Evidence and limitations](docs/LAUNCH_STATUS.md).
+
+**Windows x64 portable 1.0.0 is available.** Discussions, settings and downloaded models stay inside the portable folder under `Data`. Extract the complete archive and start `Novera.exe`. Close Novera before moving the folder or ejecting USB storage. [Portable guide and limitations](docs/WINDOWS_PORTABLE.md).
 
 ## One dashboard for every creation
 

@@ -20,9 +20,12 @@
 | CLI Windows x64 / Linux x64 | ZIP signés publics ; exécutables `jan.exe` et `jan`. |
 | Windows ARM64 | [Installateur NSIS public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), moteur texte CPU natif ; installation, remplacement et contrôle du canal public vérifiés. |
 | macOS, Android, iOS | Candidats internes ; validations de plateforme et/ou accès de signature encore nécessaires. |
-| Web, MSI, Debian, portable | Client Web et autres formats encore internes ; vitrine informative Pages disponible. |
+| Windows x64 portable | [Archive ZIP signée](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable) ; données dans Data, remplacement signé de Program vérifié. |
+| Web, MSI, Debian | Client Web et autres formats encore internes ; vitrine informative Pages disponible. |
 
 Les signatures updater ne valent pas Authenticode Windows ou notarisation Apple. Les contrôles de version à jour sur le canal public passent ; une transition entre deux versions publiques reste un essai de la prochaine sortie. [Preuves et limites](docs/LAUNCH_STATUS.md).
+
+**La version portable Windows x64 1.0.0 est disponible.** Les discussions, réglages et modèles téléchargés restent dans le dossier portable, sous `Data`. Extraire l’archive complète et ouvrir `Novera.exe`. Fermer Novera avant de déplacer le dossier ou d’éjecter la clé USB. [Guide portable et limites](docs/WINDOWS_PORTABLE.md).
 
 ## Un tableau de bord pour tout créer
 

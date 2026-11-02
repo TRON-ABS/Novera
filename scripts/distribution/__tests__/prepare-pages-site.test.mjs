@@ -15,7 +15,8 @@ test('Pages links the verified Windows/Linux release without hosting the Web app
   const html=fs.readFileSync(path.join(out,'index.html'),'utf8')
   assert.match(html,/Windows x64, Windows ARM64 et Linux x64 sont disponibles/);assert.match(html,/releases\/tag\/v1\.0\.0/)
   assert.match(html,/TRON-ABS/);assert.match(html,/The art of Human with AI/)
-  assert.doesNotMatch(html,/<script\b|\.exe\b|latest\.json|latest-cli\.json|releases\/download\//i)
+  assert.match(html,/releases\/tag\/v1\.0\.0-windows-portable/);assert.match(html,/modèles téléchargés restent dans son dossier Data/);assert.match(html,/Mr Sachet Jean-Marc — Chercheur indépendant — France/);assert.match(html,/GPT-6\.1 Sol/)
+  assert.doesNotMatch(html,/<script\b|latest\.json|latest-cli\.json|releases\/download\//i)
   assert.throws(()=>preparePagesSite(out,'a'.repeat(40)),/already exists/)
 })
 
