@@ -12,9 +12,9 @@ if (!$executablePath.StartsWith($runnerPath,[StringComparison]::OrdinalIgnoreCas
 # These are owned throwaway CI folders. Grant only the current user's SID the
 # access a standard-user install/profile has; never broaden a machine policy.
 $currentSid=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value
-& icacls.exe (Split-Path -LiteralPath $executablePath -Parent) /grant ('*'+$currentSid+':(OI)(CI)RX') /T /Q | Out-Null
+& icacls.exe ([IO.Path]::GetDirectoryName($executablePath)) /grant ('*'+$currentSid+':(OI)(CI)RX') /T /Q | Out-Null
 if ($LASTEXITCODE -ne 0) { throw 'Cannot grant the current test user access to its owned installation' }
-& icacls.exe (Split-Path -LiteralPath $receiptPath -Parent) /grant ('*'+$currentSid+':(OI)(CI)M') /T /Q | Out-Null
+& icacls.exe ([IO.Path]::GetDirectoryName($receiptPath)) /grant ('*'+$currentSid+':(OI)(CI)M') /T /Q | Out-Null
 if ($LASTEXITCODE -ne 0) { throw 'Cannot grant the current test user access to its owned scratch folder' }
 Add-Type -TypeDefinition @'
 using System;
