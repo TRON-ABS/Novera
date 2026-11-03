@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
+import { spawnSync } from 'node:child_process'
 import { appleCredentials, preflight, bundleManifest, compareBundles } from '../macos-distribution.mjs'
 
 function credentials() {
@@ -11,6 +12,23 @@ function credentials() {
 
 test('ordinary candidates do not require Apple credentials', () => {
   assert.doesNotThrow(() => preflight({}))
+})
+
+test('direct Mac build omits empty Apple credentials while preserving updater signing', { skip: process.platform === 'win32' }, t => {
+  const cwd = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-signing-env-'))
+  t.after(() => fs.rmSync(cwd, { recursive: true, force: true }))
+  const prologue = fs.readFileSync('scripts/distribution/ci-build.sh', 'utf8')
+    .split('if [[ "$kind" == desktop && "${NOVERA_MACOS_DISTRIBUTION:-false}" == true ]]; then')[0]
+  for (const enabled of ['false', 'true']) {
+    const command = prologue + '\n[[ "$TAURI_SIGNING_PRIVATE_KEY" == fixture-updater ]] || exit 9\n' +
+      (enabled === 'false' ? appleCredentials.map(key => `[[ ! -v ${key} ]] || exit 8`).join('\n') : '[[ -v APPLE_CERTIFICATE ]] || exit 7')
+    const result = spawnSync('bash', ['-c', command, 'test', 'desktop'], {
+      cwd, encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: 'true', GITHUB_WORKSPACE: cwd,
+        RUNNER_OS: 'macOS', NOVERA_MACOS_DISTRIBUTION: enabled,
+        TAURI_SIGNING_PRIVATE_KEY: 'fixture-updater', ...Object.fromEntries(appleCredentials.map(key => [key, ''])) },
+    })
+    assert.equal(result.status, 0, result.stderr)
+  }
 })
 
 test('distribution rejects every missing credential before compilation without leaking values', () => {

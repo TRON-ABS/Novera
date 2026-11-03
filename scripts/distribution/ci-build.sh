@@ -9,6 +9,13 @@ if [[ "$RUNNER_OS" == Windows ]]; then
   export JAN_ENGINE_BUILD_DIR="${RUNNER_TEMP//\\//}/ne"
 fi
 mkdir -p .build/candidates
+if [[ "$kind" == desktop && "$RUNNER_OS" == macOS && "${NOVERA_MACOS_DISTRIBUTION:-false}" != true ]]; then
+  # Tauri treats an exported empty certificate as a request to import one.
+  # Direct distribution must omit Apple credentials entirely; updater signing
+  # remains enabled separately with the Novera key.
+  unset APPLE_CERTIFICATE APPLE_CERTIFICATE_PASSWORD APPLE_SIGNING_IDENTITY
+  unset APPLE_ID APPLE_PASSWORD APPLE_TEAM_ID
+fi
 if [[ "$kind" == desktop && "${NOVERA_MACOS_DISTRIBUTION:-false}" == true ]]; then
   [[ "$RUNNER_OS" == macOS ]] || { echo 'Apple distribution requires macOS.' >&2; exit 2; }
   node scripts/distribution/macos-distribution.mjs preflight
