@@ -1,0 +1,13 @@
+{
+  "applicationCommit": "4da956560f74a92e8f2e5db2b9bce7122f075fd0",
+  "versionCode": 1000010,
+  "apkSha256": "32b0396cfb5eadd947117ffe5ecd3a75cb474a442f1a5ebfdeb3f903be35e7b8",
+  "sourceContractsRun": 41564024252,
+  "sourceContractsConclusion": "success",
+  "finalFrontendRegressionTestsPassed": 111,
+  "finalFrontendRegressionTestsSkipped": 12,
+  "androidConfigurationTestsPassed": 5,
+  "androidReleaseCompilationSigningAndInspectionPassed": true,
+  "phoneSearchPasteAndShareValidation": "pending maintainer retest",
+  "androidPublicReleasePerformed": false
+}
