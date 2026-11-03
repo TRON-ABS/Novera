@@ -2,7 +2,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>You describe. Novera prepares, runs and organizes.</strong></p>
   <p>An independent AI assistant by TRON-ABS, from first launch to results: text, images, music and video in one conversation.</p>
-  <p><strong>Available for Windows and Linux</strong> · 80 interface languages · 42 cloud providers · 49 media presets · Apache 2.0</p>
+  <p><strong>Available for Windows, Linux and Android</strong> · 80 interface languages · 42 cloud providers · 49 media presets · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Local models</a> · <a href="#hub-and-compatible-models">Formats &amp; Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
 </div>
@@ -19,7 +19,7 @@
 | Linux x64 | Public AppImage, signed updater; native installation and replacement verified. |
 | Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, with a dedicated signed update channel. |
 | Windows ARM64 | [Public NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), native CPU text engine; installation, replacement and public-channel checks verified. |
-| Android ARM64 | Signed APK in Huawei P20 testing; discussion and model retention confirmed after update. DuckDuckGo, hand icon, Desktop colors and keyboard fixes awaiting retest. [Status](docs/RELEASE_ANDROID_1.0.0.md). |
+| Android ARM64 | [Public signed APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android), Android 7+, default batch 512. Clean package with no conversations, models or API keys. [Evidence and limitations](docs/RELEASE_ANDROID_1.0.0.md). |
 | macOS, iOS | Apple access and final platform tests remain pending. [Follow-up](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portable | [Signed ZIP archive](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data stays in Data, signed Program replacement verified. |
 | Web, MSI, Debian | Hosted Web client and other formats remain internal; Pages presentation site is available. |

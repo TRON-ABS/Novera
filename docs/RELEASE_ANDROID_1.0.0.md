@@ -16,7 +16,11 @@ APK de sortie signé et inspecté : `deliverables/Novera-Android-public-1.0.0-20
 
 La validation sur téléphone du nouveau 1000011 reste distincte du retour positif sur 1000010. Le mainteneur prévoit de le réinstaller. Une installation par-dessus conserve les données ; désinstaller peut effacer les données privées de l'application. Les **12 anciens APK locaux** de livraison et leurs fichiers de signature détachée ont été supprimés à sa demande après vérification du nouveau paquet ; leurs reçus et empreintes historiques sont conservés.
 
-Le brouillon privé Android est préparé sous le tag prévu `v1.0.0-android`, sans devenir `latest`, afin de préserver les canaux Desktop, CLI et portable. Le transfert de l’APK et des reçus a été bloqué par le contrôle automatique, qui demande une autorisation explicite du payload vers GitHub ; aucun APK Android public n’est annoncé.
+**Publication effectuée le 3 novembre 2026 : [Novera Android 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android) — [télécharger l'APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-android/Novera_1.0.0_android-arm64.apk).** Les quatre fichiers publics (APK, inspection, provenance et empreinte) ont été retéléchargés sans authentification : tailles et SHA-256 concordent. Le tag pointe vers le commit fusionné `7b3625c2679c82332d08beaf223d950c89ae9c5e` de la [PR #16](https://github.com/TRON-ABS/Novera/pull/16). La [CI finale 41579575042](https://github.com/TRON-ABS/Novera/actions/runs/41579575042) passe.
+
+**APK vierge : aucune conversation, aucun modèle téléchargé, aucune clé API ni aucun profil personnel inclus.** L'inspection des 938 entrées ne trouve aucun fichier de données privées ; les assets comprennent uniquement les profils d'optimisation Android et les notices/licences. Une mise à jour peut conserver les conversations déjà présentes sur l'appareil ; cela ne signifie pas qu'elles sont incluses dans l'APK.
+
+La release Android n'est pas marquée `latest` : `v1.0.0-cli-novera` et ses fichiers restent inchangés. [Reçu de publication](release-evidence/android-public-1.0.0-2026-11-03/PUBLICATION.json). Les reçus de compilation décrivent l'état avant publication. Le contrôle automatique avait bloqué le transfert puis la fusion ; le mainteneur a explicitement autorisé ces deux actions, qui ont ensuite réussi.
 
 ### Historique de préparation jusqu'au candidat 1000010
 
