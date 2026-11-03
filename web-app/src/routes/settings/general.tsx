@@ -617,7 +617,7 @@ function General() {
       </div>
       {mobileLogsOpen && <Dialog open={mobileLogsOpen} onOpenChange={setMobileLogsOpen}>
         <DialogContent positionEnabled={false} aria-describedby={undefined}
-          className="flex flex-col min-w-0 w-[calc(100%-24px)] max-w-full h-[80dvh] overflow-hidden">
+          className="flex flex-col min-w-0 w-[calc(100%_-_24px)] max-w-full h-[80dvh] overflow-hidden">
           <DialogHeader className="shrink-0 pr-8">
             <DialogTitle>{t('settings:dataFolder.appLogs')}</DialogTitle>
           </DialogHeader>
