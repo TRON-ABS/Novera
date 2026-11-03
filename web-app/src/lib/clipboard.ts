@@ -1,9 +1,9 @@
 import { invoke } from '@tauri-apps/api/core'
-import { isPlatformAndroid, isPlatformTauri } from '@/lib/platform/utils'
+import { isPlatformAndroid, isPlatformIOS, isPlatformTauri } from '@/lib/platform/utils'
 
 /** Write only in response to the user's Copy action; never read clipboard data. */
 export async function writeClipboardText(text: string): Promise<void> {
-  if (isPlatformAndroid() && isPlatformTauri()) {
+  if ((isPlatformAndroid() || isPlatformIOS()) && isPlatformTauri()) {
     await invoke('sharing_copy_text', { text })
     return
   }

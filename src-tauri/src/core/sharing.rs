@@ -12,9 +12,9 @@ const MAX_BYTES: usize = 256 * 1024 * 1024;
 #[tauri::command]
 pub async fn sharing_copy_text<R: Runtime>(app: tauri::AppHandle<R>, text: String) -> Result<(), String> {
     if text.len() > 512 * 1024 { return Err("SHARE_TOO_LARGE".into()); }
-    #[cfg(target_os = "android")]
+    #[cfg(any(target_os = "android", target_os = "ios"))]
     { return tauri_plugin_novera_share::copy_text(&app, &text); }
-    #[cfg(not(target_os = "android"))]
+    #[cfg(not(any(target_os = "android", target_os = "ios")))]
     { let _ = (app, text); Err("SHARE_UNSUPPORTED".into()) }
 }
 

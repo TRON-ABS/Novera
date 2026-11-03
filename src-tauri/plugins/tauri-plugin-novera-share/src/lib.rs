@@ -20,7 +20,7 @@ pub fn init<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
         })
         .build()
 }
-#[cfg(target_os = "android")]
+#[cfg(any(target_os = "android", target_os = "ios"))]
 pub fn copy_text<R: Runtime>(app: &tauri::AppHandle<R>, text: &str) -> Result<(), String> {
     app.state::<Sharing<R>>().0
         .run_mobile_plugin::<serde_json::Value>("copyText", serde_json::json!({"text":text}))
