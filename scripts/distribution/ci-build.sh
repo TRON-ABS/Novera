@@ -120,6 +120,9 @@ case "$kind" in
     fi
     unset TAURI_CONFIG
     node scripts/distribution/record-upgrade-check.mjs .build/upgrade-compatibility.txt
+    if [[ "$RUNNER_OS" == macOS && "${NOVERA_MACOS_HEADLESS_TESTS:-false}" == true ]]; then
+      bash scripts/distribution/macos-headless-tests.sh
+    fi
     # The portable feature and its signed Program-only updater have their own
     # workflow; an installed desktop runtime is never relabelled as portable.
     ;;

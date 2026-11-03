@@ -1,0 +1,8 @@
+{
+  "repository": "ggml-org/tiny-llamas",
+  "revision": "99dd1a73db5a37100bd4ae633f4cfce6560e1567",
+  "file": "stories15M-q4_0.gguf",
+  "bytes": 19077344,
+  "sha256": "6151b1929d7f5aa3385d9ddef3393e55587c0a55de661562322bc51dfda93a04",
+  "purpose": "Disposable CPU inference fixture only; never included in release packages"
+}
