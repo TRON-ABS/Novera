@@ -5,13 +5,25 @@ Préparation du **2 novembre 2026**, priorité demandée par le mainteneur. Le m
 ## Périmètre et état
 
 - Identité de production : `io.github.tronabs.novera`, distincte de `io.github.tronabs.novera.debug`.
-- Version applicative : **1.0.0** ; dernier candidat **1000007 signé et inspecté**, avec navigation des réglages repliable sur petit écran et DuckDuckGo Lite officiel. Les builds 1000002/1000003 ont été testés manuellement sur HUAWEI P20 ; les builds 1000004 et 1000006 ont rencontré un refus HTTP 403. Les anciens builds sont conservés comme preuves historiques.
+- Version applicative : **1.0.0** ; dernier candidat **1000008 signé et inspecté**, avec boutons des journaux empilés sur écran étroit et normalisation des URLs de recherche DuckDuckGo reçues par l’outil de lecture. Les builds 1000002/1000003 ont été testés manuellement sur HUAWEI P20 ; les builds 1000004 et 1000006 ont rencontré un refus HTTP 403. Les anciens builds sont conservés comme preuves historiques.
 - Cible : Android ARM64 (`arm64-v8a`), minimum Android 7/API 24 ; moteur texte CPU, un modèle à la fois, sans MLX ni moteur image CUDA.
 - Canal retenu : APK signé, téléchargement direct ; installation et mise à jour manuelles par le gestionnaire de paquets Android.
 - Les [trois revues de sources](ANDROID_RELEASE_REVIEW_2026-11-02.md) sont consignées. L'ancien worker local nommé `libjan_llama_worker.so` est remplacé par le moteur actuellement épinglé ; le stockage des secrets Android utilise désormais le fichier chiffré privé au lieu du backend keyring en mémoire.
 - Une identité RSA 4096 de signature Android est créée hors dépôt, avec mot de passe aléatoire protégé par DPAPI et accès limité au compte Windows. Son certificat public SHA-256 est `ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582`. La sauvegarde portable hors machine reste à effectuer par le mainteneur.
 
-**Le mainteneur confirme sur HUAWEI P20 la mise à jour interne 1000002 → 1000003, la discussion et le modèle conservés, une réponse LFM3 et la persistance après fermeture/relance. Le refus HTTP 403 signalé après le correctif de processus reste à retester avec 1000007.** Les paquets restent internes.
+**Le mainteneur confirme sur HUAWEI P20 la mise à jour interne 1000002 → 1000003, la discussion et le modèle conservés, une réponse LFM3 et la persistance après fermeture/relance. Le refus HTTP 403 persiste dans Novera 1000007 ; le mainteneur confirme que le lien Lite fonctionne dans le navigateur du téléphone. Sa cause dans l’application reste à établir.** Les paquets restent internes.
+
+### Journaux et diagnostic 403 — 3 novembre 2026
+
+La capture du mainteneur confirme que la navigation repliable laisse maintenant lire les réglages, mais les boutons des journaux débordent encore. Sous 480 px de largeur de carte, « Ouvrir les journaux » est placé sous « Ouvrir le dossier contenant », avec largeur disponible entière et texte pouvant revenir à la ligne. La disposition des cartes larges est conservée.
+
+Le refus signalé vise `duckduckgo.com`. Le code pouvait recevoir une URL de recherche principale dans `web_fetch` et la lire directement. Les URLs de recherche connues avec paramètre `q` sont désormais envoyées directement à `web_search` sur Lite, sans première requête à la page JavaScript. Une page d'accueil sans requête est refusée localement avec instruction d'utiliser l'outil de recherche. Les pages d'aide restent lisibles. Les erreurs HTTP indiquent `[web_search]` ou `[web_fetch]`, le domaine refusant et le domaine initial en cas de redirection, sans exposer les termes recherchés. Aucun nouvel essai après un 403 ni changement de fournisseur n'est ajouté.
+
+Cette correction couvre un cas reproduit par les tests ; elle ne démontre pas la cause du refus observé sur le P20. Après avoir précisé que le premier retour ne correspondait pas à un essai du navigateur, le mainteneur confirme ensuite que le lien Lite fonctionne dans le navigateur mobile. Le succès de cet essai ne prouve pas celui du client HTTP de Novera ; aucun blocage général du réseau n'est établi.
+
+APK interne : `deliverables/Novera-Android-logs-search-2026-11-03/Novera_1.0.0_android-arm64.apk`, **1000008**, **42199402 octets**, SHA-256 **`dc93772a04b64fa33192d4056a88ba4cf9f6c6b4dd02d80c3ee8ed20f66b2db7`**, certificat inchangé. Construction TypeScript/Vite, Cargo release, Gradle/Lint, signature et inspection passent. Les 45 tests frontend ciblés et cinq contrôles de configuration Android passent ; l'adaptateur HTTP Tauri reçoit réellement la requête Lite normalisée dans un contrôle sans réseau. Les changements sont présents dans la bibliothèque compilée et les 217 ressources PNG restent identiques. Preuves : [provenance 1000008](release-evidence/android-logs-search-2026-11-03/ANDROID-PROVENANCE.json).
+
+Installer par-dessus 1000007 sans désinstaller. Vérifier l'ordre et la visibilité complète des deux boutons des journaux, puis une recherche explicite. Le prochain message de refus doit permettre de distinguer l'outil et une éventuelle redirection. La résolution du HTTP 403 sur téléphone n'est pas revendiquée.
 
 ### Réglages étroits et recherche — 3 novembre 2026
 

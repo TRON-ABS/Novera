@@ -1,0 +1,1 @@
+dc93772a04b64fa33192d4056a88ba4cf9f6c6b4dd02d80c3ee8ed20f66b2db7  Novera_1.0.0_android-arm64.apk

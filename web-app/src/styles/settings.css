@@ -132,6 +132,13 @@
 }
 .novera-settings-menu .novera-settings-link.active svg { color: light-dark(#6d28d9, #c4b5fd); }
 @container (max-width: 480px) {
+  .novera-settings-row:has(.novera-logs-actions) { flex-direction: column; align-items: stretch; }
+  .novera-settings-action:has(> .novera-logs-actions) { width: 100%; min-width: 0; }
+  .novera-logs-actions { flex-direction: column; align-items: stretch; width: 100%; }
+  .novera-logs-actions > [data-slot="button"] {
+    width: 100%; height: auto; min-height: 34px; padding: 8px 10px; white-space: normal;
+  }
+  .novera-logs-actions > [data-slot="button"] span { min-width: 0; overflow-wrap: anywhere; }
   .novera-settings-row { flex-wrap: wrap; gap: 12px; }
   .novera-settings-action:has(> [data-slot="button"]) { width: 100%; }
   .novera-settings-action > [data-slot="button"] { width: 100%; }

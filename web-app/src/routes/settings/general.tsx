@@ -329,7 +329,7 @@ function General() {
                 description={t('settings:dataFolder.appLogsDesc')}
                 className="items-start flex-row gap-y-2"
                 actions={
-                  <div className="flex items-center gap-2">
+                  <div className="novera-logs-actions flex items-center gap-2">
                     <Button
                       variant="outline"
                       size="sm"
