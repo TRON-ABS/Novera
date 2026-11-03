@@ -1,8 +1,10 @@
 # Official Novera releases and governance
 
-Novera 1.0.0 was published on 2 November 2026 for Windows x64 and Linux x64, with signed desktop and CLI update channels. The fifteen public assets and both production feeds are verified. Updater signatures are not Windows Authenticode. Other platforms and formats remain internal. See [current availability](docs/LAUNCH_STATUS.md) and [the release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0).
+Novera 1.0.0 was published on 2 November 2026 for Windows x64 and Linux x64, with signed desktop and CLI update channels. The fifteen public assets and both production feeds are verified. Updater signatures are not Windows Authenticode. Current platform availability is maintained in the launch status; the dated counts in this paragraph describe the initial Windows/Linux release. See [current availability](docs/LAUNCH_STATUS.md) and [the release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0).
 
 Android ARM64 **1.0.0** was published on **3 November 2026** as a clean signed direct APK. [Download and verification](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012); [device-test scope and recommendations](docs/RELEASE_ANDROID_1.0.0.md). Desktop and CLI channels are unchanged.
+
+macOS Intel and Apple Silicon **1.0.0** are available as an [official direct-download release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos) on **3 November 2026**. Native automated checks pass separately; visual checks are deferred by the maintainer. These packages are not Developer ID signed or Apple notarized. Their Novera updater signatures, native replacement and profile preservation are verified; Windows/Linux/ARM64 channels are preserved and CLI/portable feeds are byte-identical. [Evidence and installation](docs/RELEASE_MACOS_1.0.0.md). iOS remains an internal simulator build.
 
 ## Mandatory update prerequisite — 1 November 2026
 

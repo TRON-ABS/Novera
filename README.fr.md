@@ -2,16 +2,16 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Le savoir pour tous" width="100%" />
   <p><strong>Vous décrivez. Novera prépare, exécute et organise.</strong></p>
   <p>Un assistant IA indépendant de TRON-ABS, du premier démarrage aux résultats : texte, images, musique et vidéo dans la même discussion.</p>
-  <p><strong>Disponible sur Windows, Linux et Android</strong> · 80 langues d’interface · 42 fournisseurs cloud · 49 préréglages média · Apache 2.0</p>
+  <p><strong>Disponible sur Windows, Linux, macOS et Android</strong> · 80 langues d’interface · 42 fournisseurs cloud · 49 préréglages média · Apache 2.0</p>
   <p><a href="#du-démarrage-au-résultat">Automatisation</a> · <a href="#un-tableau-de-bord-pour-tout-créer">Tableau de bord</a> · <a href="#modèles-locaux-utilisés">Modèles locaux</a> · <a href="#hub-et-modèles-compatibles">Formats et Hub</a> · <a href="#fournisseurs-cloud">Cloud</a> · <a href="README.md">English</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
   <p>Contact officiel : <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
 </div>
 
 ---
 
-## Disponibilité — 2 novembre 2026
+## Disponibilité — 3 novembre 2026
 
-**Novera 1.0.0 est disponible sur Windows x64, Windows ARM64 et Linux x64.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Les installateurs desktop, les deux CLI, leurs signatures et les manifests de mise à jour sont publics et vérifiés.
+**Novera 1.0.0 est disponible sur Windows, Linux, macOS et Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Les installateurs desktop, les deux CLI, leurs signatures et les manifests de mise à jour sont publics et vérifiés.
 
 | Plateforme | Disponibilité |
 | --- | --- |
@@ -20,9 +20,12 @@
 | CLI Windows x64 / Linux x64 | [CLI Novera](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera) : `novera.exe` / `novera`, canal de mise à jour signé dédié. |
 | Windows ARM64 | [Installateur NSIS public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), moteur texte CPU natif ; installation, remplacement et contrôle du canal public vérifiés. |
 | Android ARM64 | [APK signé public 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, lot par défaut 512. Le mainteneur confirme le bon fonctionnement du build 1000012 sur téléphone. APK vierge, sans conversations, modèles ni clés API personnelles. [Preuves et limites](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS, iOS | Accès Apple et essais finaux des plateformes en attente. [Reprise](docs/REPRISE_MACOS_IOS.md). |
+| macOS Intel / Apple Silicon | [Version officielle 1.0.0 — DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon ; mises à jour signées Novera. Sans notarisation Apple ; tests automatiques réussis sur les deux architectures, essais visuels différés. [Installation et preuves](docs/RELEASE_MACOS_1.0.0.md). |
+| iOS | Simulateur interne ; signature/provisioning Apple nécessaires avant installation sur iPhone. [Suivi](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portable | [Archive ZIP signée](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable) ; données dans Data, remplacement signé de Program vérifié. |
 | Web, MSI, Debian | Client Web et autres formats encore internes ; vitrine informative Pages disponible. |
+
+Sur Mac, ouvrir le DMG et copier Novera dans Applications. Si le premier lancement est bloqué, autoriser Novera dans **Réglages Système → Confidentialité et sécurité → Ouvrir quand même**. [Procédure Apple](https://support.apple.com/fr-fr/guide/mac-help/-mh40616/mac).
 
 Les signatures updater ne valent pas Authenticode Windows ou notarisation Apple. Les contrôles de version à jour sur le canal public passent ; une transition entre deux versions publiques reste un essai de la prochaine sortie. [Preuves et limites](docs/LAUNCH_STATUS.md).
 
@@ -245,7 +248,7 @@ Ces domaines constituent une direction de contribution et de développement, pas
 
 ## État du projet
 
-**Novera 1.0.0 est disponible sur Windows x64, Windows ARM64 et Linux x64.** La capture montre une application Windows compilée localement par le mainteneur. Les sources, les essais ciblés et les validations matérielles sont documentés séparément ; cela ne vaut pas validation de tous les modèles, plateformes ou comptes cloud.
+**Novera 1.0.0 est disponible sur Windows, Linux, macOS et Android.** La capture montre une application Windows compilée localement par le mainteneur. Les sources, les essais ciblés et les validations matérielles sont documentés séparément ; cela ne vaut pas validation de tous les modèles, plateformes ou comptes cloud.
 
 Les compilations manuelles GitHub Actions sont activées pour les onze variantes de distribution. Consultez les [résultats de compilation et téléchargements des candidats vérifiés](docs/CI_DISTRIBUTIONS.md) ; la disponibilité est indiquée pour chaque plateforme. Les candidats sont distincts des versions de production signées. Les conditions de distribution figurent dans la [politique de versions officielles](OFFICIAL_RELEASES.md) et sur la [page des versions](https://github.com/TRON-ABS/Novera/releases). Les candidats existants sans mise à jour active restent internes. Toute version publique exige un mécanisme de mise à jour configuré et vérifié ; les [contrôles des paquets desktop signés et conditions restantes sont documentés](docs/LAUNCH_STATUS.md).
 

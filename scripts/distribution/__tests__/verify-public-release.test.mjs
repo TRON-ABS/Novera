@@ -13,6 +13,18 @@ test('public feeds advertise only the four selected version-matched official bun
   assert.equal(reviewPublicFeeds(...feeds(),'1.0.0').size,4)
 })
 
+test('Mac desktop additions preserve Windows/Linux and require the correct signed updater archives',()=>{
+  const f=feeds()
+  for(const [platform,arch] of [['darwin-aarch64','aarch64'],['darwin-x86_64','x64']]) {
+    f[0].platforms[platform]={url:`https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-macos/Novera_1.0.0_${arch}.app.tar.gz`,signature:'signed'}
+  }
+  const plan={desktop:Object.fromEntries(Object.entries(f[0].platforms).map(([p,e])=>[p,e.url])),cli:Object.fromEntries(Object.entries(f[1].platforms).map(([p,e])=>[p,e.url]))}
+  assert.equal(reviewPublicFeeds(...f,'1.0.0',plan).size,6)
+  assert.throws(()=>reviewPublicFeeds(...f,'1.0.0'),/scope/)
+  f[0].platforms['darwin-x86_64'].url=f[0].platforms['darwin-aarch64'].url
+  assert.throws(()=>reviewPublicFeeds(...f,'1.0.0',plan),/URL or missing signature/)
+})
+
 test('the canonical CLI can add its reviewed macOS ARM64 bundle without changing Desktop URLs',()=>{
   const f=feeds()
   const cli=Object.fromEntries(['windows-x86_64','linux-x86_64','darwin-aarch64'].map(platform=>[platform,`https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-cli-novera/Novera_CLI_1.0.0_${platform}.zip`]))
