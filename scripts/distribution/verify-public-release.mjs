@@ -22,12 +22,12 @@ export function reviewPublicFeeds(desktop, cli, version, plannedChannels, portab
   for (const [kind, feed] of [['desktop', desktop], ['cli', cli]]) {
     const planned = plannedChannels?.[kind]
     const selected = planned ? Object.keys(planned).sort() : platforms
-    const allowed = kind === 'desktop' ? [...platforms, 'windows-aarch64'] : [...platforms, 'darwin-aarch64']
+    const allowed = kind === 'desktop' ? [...platforms, 'windows-aarch64', 'darwin-aarch64', 'darwin-x86_64'] : [...platforms, 'darwin-aarch64']
     if (!platforms.every(p => selected.includes(p)) || selected.some(p => !allowed.includes(p)) || feed.version !== version || JSON.stringify(Object.keys(feed.platforms ?? {}).sort()) !== JSON.stringify(selected)) throw new Error('Public feed version or platform scope differs from this release')
     if (kind === 'desktop' && Number.isNaN(Date.parse(feed.pub_date))) throw new Error('Invalid publication date')
     for (const platform of selected) {
       const entry = feed.platforms[platform]
-      const file = kind === 'cli' ? `Novera_CLI_${version}_${platform}.zip` : platform === 'windows-x86_64' ? `Novera_${version}_x64-setup.exe` : platform === 'windows-aarch64' ? `Novera_${version}_arm64-setup.exe` : `Novera_${version}_amd64.AppImage`
+      const file = kind === 'cli' ? `Novera_CLI_${version}_${platform}.zip` : platform === 'darwin-aarch64' ? `Novera_${version}_aarch64.app.tar.gz` : platform === 'darwin-x86_64' ? `Novera_${version}_x64.app.tar.gz` : platform === 'windows-x86_64' ? `Novera_${version}_x64-setup.exe` : platform === 'windows-aarch64' ? `Novera_${version}_arm64-setup.exe` : `Novera_${version}_amd64.AppImage`
       const url = planned?.[platform] ?? `${origin}download/v${version}/${file}`
       reviewedAssetUrl(url, version, file)
       if (entry.url !== url || typeof entry.signature !== 'string' || !entry.signature) throw new Error('Unexpected public asset URL or missing signature')

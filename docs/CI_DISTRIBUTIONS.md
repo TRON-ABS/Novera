@@ -1,5 +1,8 @@
 # Compilations Novera sur GitHub Actions
 
+**État actuel — 3 novembre 2026 :** la [sortie Mac officielle Intel et Apple Silicon](RELEASE_MACOS_1.0.0.md) est disponible, avec signatures updater Novera et batteries natives séparées. Le run `41642608432` compile les paquets ; la revalidation Intel `41669833311` réutilise ses octets exacts après le seul dépassement du délai de découverte Metal à froid. Les essais visuels sont différés, sans Developer ID/notarisation ni validation MLX revendiqués. Les bilans datés ci-dessous restent historiques.
+
+
 Les nouveaux candidats Web ajoutent une révision publique sans secret et le reçu `WEB-DELIVERY-READINESS.json` pour préparer le renouvellement par rechargement. Les trois contrôles HTTP locaux couvrent les révisions successives et le refus de caches périmés. Le candidat `41339452516` est téléchargé et vérifié ; le rechargement entre deux builds au navigateur local conserve le thème choisi. La vitrine informative GitHub Pages est désormais déployée et vérifiée sous HTTPS par le run `41346258656` ; son workflow manuel `target=pages` ne déploie pas le client ni les feeds. Le canal applicatif hébergé et ses caches restent à certifier. Voir [le contrat et les limites Web](WEB_DELIVERY.md).
 
 ## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026

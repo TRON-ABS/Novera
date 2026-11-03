@@ -43,3 +43,9 @@ L'inférence MLX et les performances GPU ne sont pas annoncées comme testées s
 L'objectif demandé est une disponibilité publique comme les autres plateformes. Avant toute annonce, rattacher chaque téléchargement aux paquets exacts, résultats, signatures et limites. La signature Novera n'est pas une signature Apple ni une notarisation. Le mainteneur demande une sortie officielle en téléchargement direct dès que les deux batteries réussissent, avec essais visuels différés. L'absence de certificat Developer ID et de notarisation Apple doit être indiquée dans les notes et les vitrines ; elle n'est pas présentée comme une validation Apple. Un paquet simulateur iOS ne doit pas être annoncé comme une application installable sur iPhone.
 
 Suivi : `PR.md`, `docs/RELEASE_MACOS_1.0.0.md`, `docs/REPRISE_MACOS_IOS.md` et `docs/LAUNCH_STATUS.md`.
+
+## Réutilisation exacte après la découverte Metal Intel
+
+Le mode `validate-macos`, avec `macos_candidate_run=41642608432`, vérifie les résultats natifs réussis et refuse tout échec autre que le délai de 45 secondes atteint dans `--list-devices`. Il exige les sources natives et paramètres de compilation inchangés, contrôle le SHA-256 de l’artefact et revérifie la signature de l’archive avant exécution. Le budget de découverte est de 180 secondes ; il ne modifie pas le délai de handshake applicatif.
+
+La revalidation `41669833311` aboutit : environ 53 secondes de découverte Metal à froid, comparaison DMG/archive, lancement du processus avant/après remplacement, signature, refus de corruption, absence d’offre à version égale et conservation du témoin de profil. Le reçu distingue la référence reconstruite depuis l’archive et la comparaison au bundle construit déjà effectuée dans le run original. Les octets compilés restent ceux de `04d91426356a43b678aef690115cc4d0d0150244`.

@@ -1,69 +1,39 @@
-# Novera 1.0.0 — préparation macOS
+# Novera 1.0.0 — sortie officielle macOS
 
-État au **3 novembre 2026 : compilation et batterie automatique en cours sur Intel et Apple Silicon** ([run 41589024310](https://github.com/TRON-ABS/Novera/actions/runs/41589024310), [PR #21](https://github.com/TRON-ABS/Novera/pull/21)). Le mainteneur autorise une sortie officielle en téléchargement direct après réussite des deux architectures, sans tests visuels pour cette sortie. Il ne possède pas encore de compte Apple Developer : les paquets seront explicitement présentés comme non notariés par Apple. Aucune disponibilité publique macOS n'est encore annoncée.
+**3 novembre 2026 : sortie officielle en téléchargement direct pour Mac Intel et Apple Silicon.** [Release et reçus](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos). La [PR #21](https://github.com/TRON-ABS/Novera/pull/21) intègre la batterie automatique et les corrections de démarrage. Le mainteneur demande une version officielle avec essais visuels différés ; les utilisateurs peuvent signaler leurs problèmes dans les issues.
 
-Le parcours Apple ci-dessous reste la préparation pour une future signature Developer ID/notarisation. Il est distinct de la sortie directe actuellement autorisée. Voir [MACOS_HEADLESS_VALIDATION.md](MACOS_HEADLESS_VALIDATION.md) pour la batterie exécutée et ses limites.
+## Téléchargement et installation
 
-## Installation prévue pour les utilisateurs
+| Architecture | Téléchargement | Minimum vérifié | SHA-256 du DMG |
+| --- | --- | --- | --- |
+| Apple Silicon | [DMG ARM64](https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-macos/Novera_1.0.0_aarch64.dmg) | macOS 14.0 | `8ff60455455f654f37b9cd58d0c3bc7d302c45b2f60de4bd7b40195cea35ef1c` |
+| Intel | [DMG x64](https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-macos/Novera_1.0.0_x64.dmg) | macOS 13.0 | `735c5ecf0ce13289cc59afd25edff237a88ee011b6fff656090e9cd0c1d32a54` |
 
-Après publication, choisir le DMG Intel ou Apple Silicon depuis la vitrine officielle ou la release GitHub. Ouvrir le DMG et copier Novera dans Applications, puis lancer Novera depuis Applications.
+Ouvrir le DMG et copier Novera dans Applications, puis lancer Novera depuis Applications. **Ces paquets ne sont pas signés Developer ID et ne sont pas notariés par Apple.** Si macOS bloque le premier lancement parce que le développeur est non identifié ou que l’application n’a pas été vérifiée, ouvrir **Réglages Système → Confidentialité et sécurité → Ouvrir quand même** pour Novera, puis confirmer. [Procédure officielle Apple](https://support.apple.com/fr-fr/guide/mac-help/-mh40616/mac). Le parcours du DMG final sur un Mac physique reste à vérifier.
 
-Cette première sortie directe ne sera pas notariée par Apple. Si macOS bloque le premier lancement parce que le développeur est non identifié ou que l’application n’a pas été vérifiée, ouvrir **Réglages Système → Confidentialité et sécurité → Ouvrir quand même** pour Novera, puis confirmer l’ouverture. Cette autorisation concerne l’application choisie. Voir la [procédure officielle Apple](https://support.apple.com/fr-fr/guide/mac-help/-mh40616/mac). Le parcours du DMG final sur un Mac physique reste à vérifier.
+## Sources et preuves
 
-## État vérifié
+- Sources applicatives compilées : `04d91426356a43b678aef690115cc4d0d0150244`. Fusion officielle : `10f4c4a6fe32c68a4e495ab0531454adc15f6b6f`. Les différences supplémentaires concernent le banc de revalidation et sa documentation, sans modification des sources natives des paquets.
+- [Compilation et suites natives 41642608432](https://github.com/TRON-ABS/Novera/actions/runs/41642608432) : succès complet Apple Silicon ; toutes les suites natives Intel réussies, puis délai de 45 secondes atteint lors de la découverte Metal du paquet.
+- [Revalidation Intel 41669833311](https://github.com/TRON-ABS/Novera/actions/runs/41669833311) : mêmes paquets signés, empreinte de l’artefact vérifiée, sources natives inchangées, signature de l’archive revérifiée. Le contrôle de découverte Metal dispose de 180 secondes et aboutit en environ 53 secondes. Le délai de handshake applicatif reste de 30 secondes.
+- Par architecture : 226 tests frontend, 187 tests unitaires moteur, 9 tests moteur, 18 tests HTTP, 5 tests de supervision, 7 tests unitaires updater et 9 tests de migration réussis. Un test updater opt-in reste ignoré dans la sélection unitaire ; le remplacement réel est vérifié séparément par le probe natif.
+- DMG et archive comparés au bundle construit dans le run de compilation. La revalidation Intel reconstruit sa référence depuis l’archive signée et refait la comparaison DMG/archive ; son reçu distingue cette référence de la preuve initiale.
+- Exécutables et bibliothèques Mach-O contrôlés pour architecture, dépendances et minimum macOS ; bun/uv et worker livrés exécutés. Lancement du processus applicatif avant/après remplacement, signature native, absence d’offre à version égale, rejet du paquet altéré et conservation d’une sentinelle de profil synthétique vérifiés.
 
-La lecture authentifiée des métadonnées GitHub du 2 novembre confirme :
+Les reçus `MACOS-*-HEADLESS.json`, `MACOS-*-COMPATIBILITY.json`, `MACOS-x64-REUSE.json`, `MACOS-PROVENANCE.json` et `SHA256SUMS.txt` sont joints à la release. Les archives updater ont les SHA-256 `1f9ec666550300dbc2acd7db6346845537509f72a7c0161bc94e954f166564f8` (ARM64) et `a8c8fa8f7729563235f038225a21cefb437a390c841dad2312c282096dee7515` (Intel). Les anciens brouillons et paquets historiques ne servent pas à cette sortie.
 
-- `main` est à `967b4ea94262cd843b8c405515f46254b37fa154` au début de cette préparation ; aucune PR n'est ouverte.
-- Les seuls secrets de dépôt sont `NOVERA_UPDATER_PRIVATE_KEY` et `NOVERA_UPDATER_PASSWORD`. Aucun environnement de distribution Apple n'est configuré ; seul `github-pages` existe.
-- Le brouillon historique **430498139**, cible `568a5b61b9c2f8c49e7d23b92d466a696c07b0c6`, conserve les deux archives Mac ci-dessous et leurs signatures updater. Il ne contient aucun DMG. Son contenu ne doit pas être publié comme une distribution Apple finalisée.
+## Corrections et limites
 
-| Archive interne | Taille | SHA-256 renvoyé par GitHub |
-| --- | ---: | --- |
-| `Novera_1.0.0_aarch64.app.tar.gz` | 109436139 | `3bb3c4ff3e9996362df101e6491e89257c6f9541d285d73141fefd47c705e07a` |
-| `Novera_1.0.0_x64.app.tar.gz` | 106901903 | `4dc7e59cb33f44849090557be7159d24281f0208dd643d4894176a6ab25f22df` |
+Le worker diffère la découverte GPU jusqu’au chargement d’un modèle ou à la demande de liste des appareils : un moteur idle ou une configuration invalide ne doit pas attendre l’initialisation GPU avant de répondre au superviseur. Les tests de processus utilisent `ps` sur macOS, au lieu de supposer l’existence du `/proc` Linux. Le mode sans distribution Apple omet entièrement les variables de certificat Apple vides ; la signature updater Novera est conservée séparément.
 
-Ces métadonnées ne constituent pas une nouvelle vérification des octets téléchargés. Les anciens essais natifs sont conservés dans [INSTALL_UPDATE_VALIDATION.md](INSTALL_UPDATE_VALIDATION.md), notamment le [run 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673). Ils ne prouvent ni la signature Apple finale ni un parcours graphique complet.
+Aucun test visuel, parcours sur Mac physique ni benchmark n’est revendiqué. L’inférence MLX et la génération GPU ne sont pas validées par la petite génération GGUF CPU ; la découverte d’un périphérique ne prouve pas son inférence. Un processus actif pendant quinze secondes ne prouve pas le bon affichage. Le modèle de test, les profils synthétiques et les clés privées ne sont pas inclus dans le produit. Les couleurs et composants proviennent du frontend Desktop partagé.
 
-## Accès à préparer hors du dépôt et du chat
+Pour les modèles locaux, un appareil récent avec assez de mémoire est conseillé ; les fournisseurs API sont une autre possibilité. Pour la recherche web, un contexte d’au moins **16 K tokens** est conseillé.
 
-Créer les secrets suivants dans les [paramètres Actions du dépôt](https://github.com/TRON-ABS/Novera/settings/secrets/actions). Le certificat doit appartenir à Novera, avec sa clé privée et une sauvegarde sécurisée.
+La release conserve les entrées Windows/Linux/ARM64 du manifest desktop, ajoute `darwin-aarch64` et `darwin-x86_64`, et recopie sans changement les manifests CLI Novera et portable. La transition entre deux versions applicatives publiques reste à vérifier lors d’une version supérieure.
 
-| Secret GitHub | Contenu attendu |
-| --- | --- |
-| `NOVERA_APPLE_CERTIFICATE` | Export `.p12` du certificat **Developer ID Application** et de sa clé privée, encodé en base64. |
-| `NOVERA_APPLE_CERTIFICATE_PASSWORD` | Mot de passe de cet export. |
-| `NOVERA_APPLE_SIGNING_IDENTITY` | Identité complète `Developer ID Application: … (…)` associée au certificat. |
-| `NOVERA_APPLE_ID` | Identifiant du compte Apple autorisé à notariser. |
-| `NOVERA_APPLE_PASSWORD` | Mot de passe **spécifique à l'application** pour la notarisation. |
-| `NOVERA_APPLE_TEAM_ID` | Identifiant de l'équipe du certificat et de la notarisation. |
+## Future signature Apple
 
-Les deux secrets updater existants restent nécessaires et distincts. La configuration utilise l'authentification Apple ID de Tauri, sans fichier de clé API à conserver sur le runner. Référence officielle consultée : [signature et notarisation macOS Tauri](https://v2.tauri.app/distribute/sign/macos/).
+Le mainteneur ne possède pas encore de compte Apple Developer. La chaîne Developer ID/notarisation préparée dans `macos-distribution.mjs` reste disponible pour une future sortie : six secrets `NOVERA_APPLE_CERTIFICATE`, `NOVERA_APPLE_CERTIFICATE_PASSWORD`, `NOVERA_APPLE_SIGNING_IDENTITY`, `NOVERA_APPLE_ID`, `NOVERA_APPLE_PASSWORD`, `NOVERA_APPLE_TEAM_ID`, puis `target=macos`, `signed_updates=true`, `macos_distribution=true`. Les valeurs doivent rester hors du dépôt, du chat et des artefacts. Aucune validation Apple n’est revendiquée pour cette publication.
 
-## Chaîne préparée
-
-Le workflow [novera-build-all.yml](../.github/workflows/novera-build-all.yml) possède un mode explicite `macos_distribution`, désactivé par défaut. Après intégration et configuration des secrets, lancer avec **`target=macos`, `signed_updates=true`, `macos_distribution=true`** sur le commit revu.
-
-1. Le job source refuse immédiatement un périmètre différent, une identité autre que Developer ID Application ou un secret manquant. Il affiche seulement les noms des variables manquantes.
-2. Les deux jobs natifs restent séparés : ARM64 sur `macos-15`, Intel sur `macos-15-intel`. Les minima et dépendances sont contrôlés par `ci-check-macos.mjs` ; MLX reste limité à ARM64.
-3. Tauri reçoit les accès Apple pour signer et notariser pendant la création des paquets. Les octets finaux d'update sont signés et vérifiés avec la clé Novera par le contrôle existant.
-4. `macos-distribution.mjs verify` vérifie la signature stricte du bundle, l'autorité et l'équipe attendues, le hardened runtime, le ticket agrafé à l'application et l'évaluation Gatekeeper.
-5. Le contrôle extrait l'archive updater et monte le DMG en lecture seule. Il compare tous les fichiers du bundle, y compris fichiers cachés, modes et liens symboliques, au bundle signé. Chaque copie doit conserver sa signature et son ticket. Les liens sortant du bundle sont refusés.
-6. Le reçu `MACOS-DISTRIBUTION.json` conserve le commit, le run, l'architecture, les empreintes des deux paquets et les résultats techniques. Il laisse explicitement `realDeviceUIValidated=false`. Le champ historique général `productionSigned` du candidat reste conservateur ; consulter le reçu Apple dédié.
-
-Cette chaîne est préparée et testée localement sur ses fonctions portables. **Aucun build avec certificat Apple ni contrôle Apple sur Mac n'a encore été exécuté.**
-
-Validation locale : 34 tests ciblés réussis, un test POSIX ignoré sur Windows. Suite source élargie : 70 réussites, un test ignoré et un refus réseau du bac à sable sur le test HTTP local ; sa suite Web de trois tests réussit après relance hors bac à sable. Les 11 tests Python réussissent, ainsi que les contrôles de syntaxe YAML, JavaScript et Bash, l'audit des sources de sortie et `git diff --check`. Aucun résultat CI nouveau n'est revendiqué.
-
-## Travail restant avant publication
-
-- [ ] Configurer les six secrets Apple et confirmer les hôtes de test Apple Silicon et Intel.
-- [ ] Faire passer les contrôles source en CI et les deux builds avec le mode de distribution Apple.
-- [ ] Vérifier les reçus et conserver les DMG, archives updater, signatures et empreintes finales hors des artefacts temporaires.
-- [ ] Sur chaque architecture, tester le DMG exact téléchargé : installation, premier lancement, interface, moteurs compatibles, contrôle manuel d'update et conservation du profil synthétique après remplacement.
-- [ ] Préparer un brouillon privé Mac depuis le commit revu, avec un tag explicite et une provenance complète. Refaire toute signature updater après modification des octets.
-- [ ] Préserver `latest.json`, `latest-cli.json` et `latest-portable.json` dans toute nouvelle release choisie comme `latest`. Ajouter les plateformes Darwin au desktop sans perdre Windows/Linux et conserver les octets des deux feeds inchangés.
-- [ ] Vérifier tailles, digests serveur, signatures et URL ; publier les paquets finalisés puis vérifier le vrai canal sans authentification sur les deux Mac.
-- [ ] Mettre à jour [LAUNCH_STATUS.md](LAUNCH_STATUS.md), README et vitrine après les contrôles publics. Une transition entre deux versions publiques reste à exercer lors d'une version applicative supérieure.
-
-Les paquets existants et les trois canaux publics restent inchangés pendant cette préparation. Voir [RETOUR_EXPERIENCE_RELEASES.md](RETOUR_EXPERIENCE_RELEASES.md) pour les incidents à éviter.
+Voir [MACOS_HEADLESS_VALIDATION.md](MACOS_HEADLESS_VALIDATION.md), [LAUNCH_STATUS.md](LAUNCH_STATUS.md) et [REPRISE_MACOS_IOS.md](REPRISE_MACOS_IOS.md).

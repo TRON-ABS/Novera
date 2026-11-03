@@ -1,8 +1,8 @@
 # Reprendre les sorties macOS et iOS après Android
 
-Note du **2 novembre 2026**, à la demande du mainteneur : terminer Android en premier. macOS et iOS restent internes ; ne pas les annoncer comme disponibles.
+Mise à jour du **3 novembre 2026** : Android et macOS sont disponibles ; iOS reste interne et ne doit pas être annoncé installable sur iPhone.
 
-## Prérequis commun
+## Prérequis Apple pour la suite
 
 Le mainteneur ne possède pas encore les accès Apple nécessaires. S'inscrire à l'[Apple Developer Program](https://developer.apple.com/programs/enroll/) sous son identité ou celle de son organisation. Le même abonnement peut servir aux deux plateformes ; les certificats et profils diffèrent. L'inscription, les accords et le paiement demandent son intervention. Ne jamais transmettre les secrets dans le chat, Git ou les artefacts.
 
@@ -10,12 +10,9 @@ Les Mac de compilation peuvent être fournis par GitHub Actions : `macos-15` ARM
 
 ## macOS
 
-La chaîne de distribution Apple est préparée localement. Suivre [RELEASE_MACOS_1.0.0.md](RELEASE_MACOS_1.0.0.md) : six secrets Apple, option `macos_distribution=true`, `target=macos`, `signed_updates=true`, signature Developer ID, notarisation, contrôles Gatekeeper et comparaison DMG/archive updater sur chaque architecture. Ces changements doivent encore être intégrés et exécutés sur Mac.
+La [sortie officielle 1.0.0 Intel et Apple Silicon](RELEASE_MACOS_1.0.0.md) est disponible en téléchargement direct, après tests automatiques séparés. Les essais visuels sont différés à la demande du mainteneur. Les paquets ne disposent pas de Developer ID/notarisation Apple ; le guide explique l’autorisation spécifique au premier lancement. Les mises à jour portent la signature Novera.
 
-- [ ] Configurer les accès et conserver une sauvegarde sécurisée de la clé privée.
-- [ ] Construire et contrôler séparément ARM64 (MLX, minimum actuel macOS 14) et Intel (GGUF, minimum actuel macOS 13).
-- [ ] Tester les paquets exacts : téléchargement, installation, premier lancement, interface, moteur compatible, mise à jour et données conservées.
-- [ ] Préparer la release privée sans perdre les trois manifests publics desktop/CLI/portable ; vérifier le canal public après publication.
+La future signature Apple reste à préparer ; elle ne conditionne plus cette sortie directe autorisée. Conserver les certificats hors du dépôt et reprendre les essais visuels sur Mac physique puis l’inférence MLX.
 
 ## iOS
 
