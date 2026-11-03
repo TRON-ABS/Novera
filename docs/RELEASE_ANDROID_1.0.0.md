@@ -5,13 +5,25 @@ Préparation du **2 novembre 2026**, priorité demandée par le mainteneur. Le m
 ## Périmètre et état
 
 - Identité de production : `io.github.tronabs.novera`, distincte de `io.github.tronabs.novera.debug`.
-- Version applicative : **1.0.0** ; dernier candidat **1000008 signé et inspecté**, avec boutons des journaux empilés sur écran étroit et normalisation des URLs de recherche DuckDuckGo reçues par l’outil de lecture. Les builds 1000002/1000003 ont été testés manuellement sur HUAWEI P20 ; les builds 1000004 et 1000006 ont rencontré un refus HTTP 403. Les anciens builds sont conservés comme preuves historiques.
+- Version applicative : **1.0.0** ; dernier candidat **1000009 signé et inspecté**, retirant l’en-tête Origin de la WebView ajouté aux requêtes web natives, après reproduction comparative du refus DuckDuckGo sur PC. Les builds 1000002/1000003 ont été testés manuellement sur HUAWEI P20 ; les builds 1000004 et 1000006 ont rencontré un refus HTTP 403. Les anciens builds sont conservés comme preuves historiques.
 - Cible : Android ARM64 (`arm64-v8a`), minimum Android 7/API 24 ; moteur texte CPU, un modèle à la fois, sans MLX ni moteur image CUDA.
 - Canal retenu : APK signé, téléchargement direct ; installation et mise à jour manuelles par le gestionnaire de paquets Android.
 - Les [trois revues de sources](ANDROID_RELEASE_REVIEW_2026-11-02.md) sont consignées. L'ancien worker local nommé `libjan_llama_worker.so` est remplacé par le moteur actuellement épinglé ; le stockage des secrets Android utilise désormais le fichier chiffré privé au lieu du backend keyring en mémoire.
 - Une identité RSA 4096 de signature Android est créée hors dépôt, avec mot de passe aléatoire protégé par DPAPI et accès limité au compte Windows. Son certificat public SHA-256 est `ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582`. La sauvegarde portable hors machine reste à effectuer par le mainteneur.
 
-**Le mainteneur confirme sur HUAWEI P20 la mise à jour interne 1000002 → 1000003, la discussion et le modèle conservés, une réponse LFM3 et la persistance après fermeture/relance. Le refus HTTP 403 persiste dans Novera 1000007 ; le mainteneur confirme que le lien Lite fonctionne dans le navigateur du téléphone. Sa cause dans l’application reste à établir.** Les paquets restent internes.
+**Le mainteneur confirme sur HUAWEI P20 la mise à jour interne 1000002 → 1000003, la discussion et le modèle conservés, une réponse LFM3 et la persistance après fermeture/relance. Le refus HTTP 403 persiste sur 1000008, dans web_search vers lite.duckduckgo.com sans redirection signalée. Le mainteneur confirme que Lite fonctionne dans le navigateur du téléphone. La différence Origin est reproduite sur PC ; sa correction dans 1000009 reste à confirmer sur le P20.** Les paquets restent internes.
+
+### Origine WebView injectée par le client natif — 3 novembre 2026
+
+Le diagnostic du mainteneur sur 1000008 indique deux refus de `web_search` vers `lite.duckduckgo.com`, sans redirection signalée. Il ne s'agit donc pas d'une erreur de lecture d'une page source. Aucun terme de recherche personnel n'est conservé dans ces preuves.
+
+La version épinglée `tauri-plugin-http 2.5.9` ajoute par défaut l'en-tête `Origin` de la WebView, ici `https://tauri.localhost`. Deux requêtes ordinaires sur le même PC, avec le même endpoint Lite, la même requête neutre et le même User-Agent Novera, reproduisent **HTTP 403 et zéro résultat avec Origin**, puis **HTTP 200 et dix résultats sans Origin**. Aucune page de challenge n'est détectée. Voir [comparaison](release-evidence/android-http-origin-fix-2026-11-03/ORIGIN-COMPARISON.json).
+
+Le [code officiel Tauri](https://github.com/tauri-apps/plugins-workspace/blob/v2/plugins/http/src/commands.rs) prévoit explicitement un en-tête Origin vide comme consigne de suppression dans le client natif. L'option nécessaire `unsafe-headers` était déjà active sur Android ; aucune permission ou option Cargo n'est ajoutée. Le correctif utilise cette consigne uniquement dans l'aide web mobile, pour la recherche et la lecture de sources. Il conserve le User-Agent Novera déclaré, DuckDuckGo Lite, la vérification TLS, les limites et l'arrêt sur refus/challenge. Il n'envoie pas une fausse origine de site.
+
+APK interne : `deliverables/Novera-Android-http-origin-fix-2026-11-03/Novera_1.0.0_android-arm64.apk`, **1000009**, **42211690 octets**, SHA-256 **`f5e492a8c2ad8868be918fe5c352fec1a8d983e49997e0b725aa6b0677972c9f`**, certificat inchangé. TypeScript/Vite, Cargo release, Gradle/Lint, signature et inspection passent. Les 30 tests web ciblés et cinq contrôles de configuration Android passent ; l'adaptateur réel conserve la consigne vide pour les deux outils. L'asset JavaScript exact contenant cette correction est retrouvé dans la bibliothèque native compilée et les 217 PNG sont inchangés. [Provenance](release-evidence/android-http-origin-fix-2026-11-03/ANDROID-PROVENANCE.json).
+
+La reproduction établit un effet de cet en-tête sur le PC et concorde avec le diagnostic mobile ; elle ne remplace pas l'essai du nouvel APK sur téléphone. Installer par-dessus sans désinstaller, puis effectuer une nouvelle recherche explicite. La résolution du refus sur P20 reste en attente.
 
 ### Journaux et diagnostic 403 — 3 novembre 2026
 

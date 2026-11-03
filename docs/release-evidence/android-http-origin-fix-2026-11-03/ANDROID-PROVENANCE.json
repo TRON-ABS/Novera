@@ -1,0 +1,65 @@
+{
+  "sourceBaseCommit": "95d055130799edd24ab2289338401a4991c9e11c",
+  "sourceIncludesLocalUncommittedChanges": true,
+  "applicationPatchSha256": "d4b67a5d5a9583ece6d51f4e11dae3a975635f86af797ebc6f57ec89b031b9c3",
+  "sourceFiles": {
+    "scripts/android/release.json": "51a9d71caf135a4eee4d5876fb68ea8a5c2455a665d7e1a5d47a61f818a932ce",
+    "src-tauri/tauri.android.conf.json": "1d4b16cff382eb108976243eeb0f32ba86ee8a251d15bfa240c8c1b532a3be30",
+    "web-app/src/lib/mobileDuckduckgoSearch.ts": "25b15d79ff3b19ed2a79a98050de62cc78e47622331602d9913efb5669410e3f",
+    "web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts": "345e63a6320fba368645eb0af679ea24b33c10c44eaa0dacf9dee6235f2a0d1c"
+  },
+  "versionCode": 1000009,
+  "sha256": "f5e492a8c2ad8868be918fe5c352fec1a8d983e49997e0b725aa6b0677972c9f",
+  "sameCertificateSha256": "ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582",
+  "replacesVersionCode": 1000008,
+  "previousApkSha256": "dc93772a04b64fa33192d4056a88ba4cf9f6c6b4dd02d80c3ee8ed20f66b2db7",
+  "signatureAndPackageInspectionPassed": true,
+  "compiledNativeLibrarySha256": "56eda0b0da70f341560b12c24d94e096d138f438a3de89148b19dd572374cecb",
+  "actualFrontendSearchAsset": "custom-chat-transport-Cv9Jj9Xk.js",
+  "frontendSearchAssetSha256": "22e87d407aff95fd38dc5ea18f6ded1cf29b255ede56bf8db7939e29fcf9e2dc",
+  "exactFrontendAssetWithEmptyOriginEmbeddedInNativeLibrary": true,
+  "compiledPngResourcesUnchanged": 217,
+  "frontendRegressionTestsPassed": 30,
+  "androidConfigurationTestsPassed": 5,
+  "actualTauriAdapterEmptyOriginSentinelProbePassed": true,
+  "pluginHttp": {
+    "version": "2.5.9",
+    "cargoChecksum": "b5bd512048e1985b7ec78f96d99083e2ddaf7e0d906b2b63c44ce5bb8b894067",
+    "unsafeHeadersAlreadyEnabledOnAndroid": true
+  },
+  "livePcOriginComparison": [
+    {
+      "variant": "tauri-origin",
+      "origin": "https://tauri.localhost",
+      "status": 403,
+      "finalHost": "lite.duckduckgo.com",
+      "bytes": 148826,
+      "resultLinks": 0,
+      "challenge": false
+    },
+    {
+      "variant": "native-no-origin",
+      "origin": null,
+      "status": 200,
+      "finalHost": "lite.duckduckgo.com",
+      "bytes": 22286,
+      "resultLinks": 10,
+      "challenge": false
+    }
+  ],
+  "honestApplicationUserAgentUnchanged": true,
+  "providerChanged": false,
+  "automatic403RetryOrChallengeBypass": false,
+  "maintainerBrowserTestSameNetwork": "Lite URL works in phone browser",
+  "phone1000008Result": {
+    "operation": "web_search",
+    "host": "lite.duckduckgo.com",
+    "status": 403,
+    "redirectReported": false,
+    "failedSearchesShown": 2,
+    "personalSearchTermsRetained": false
+  },
+  "http403ResolvedOnDevice": false,
+  "phoneResult1000009": "pending maintainer retest",
+  "published": false
+}

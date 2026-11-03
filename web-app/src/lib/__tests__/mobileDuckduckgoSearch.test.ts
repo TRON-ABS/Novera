@@ -29,6 +29,7 @@ describe('mobile DuckDuckGo without a desktop process', () => {
     expect(h.fetch).toHaveBeenCalledWith('https://lite.duckduckgo.com/lite/?q=documentation', expect.objectContaining({
       method: 'GET', maxRedirections: 0,
       headers: expect.objectContaining({
+        Origin: '',
         'User-Agent': 'Novera/1.0.0 (+https://github.com/TRON-ABS/Novera)',
       }),
     }))
@@ -85,6 +86,7 @@ describe('mobile DuckDuckGo without a desktop process', () => {
       error: expect.stringContaining('Web request to example.com failed (HTTP 403)'),
     })
     expect(h.fetch).toHaveBeenCalledTimes(1)
+    expect(h.fetch.mock.calls[0][1].headers).toMatchObject({ Origin: '' })
   })
 
   it('parses Lite rows, decodes result links and keeps their corresponding snippets', () => {
