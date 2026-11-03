@@ -153,7 +153,7 @@ impl std::fmt::Display for SubagentError {
 
 /// `~/.novera/agent/subagents/`. `None` when the home directory can't be resolved.
 pub fn user_subagents_dir() -> Option<PathBuf> {
-    dirs::home_dir().map(|h| h.join(".novera").join("agent").join(SUBAGENTS))
+    crate::core::agent::global_config::user_home_dir().map(|h| h.join(".novera").join("agent").join(SUBAGENTS))
 }
 
 /// `<store_root>/subagents/`, in the project's store (see `project::store_root`).

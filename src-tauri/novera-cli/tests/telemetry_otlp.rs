@@ -1,4 +1,4 @@
-//! Opt-in OTLP export, through the real `jan` binary: a scripted provider, a
+//! Opt-in OTLP export, through the real `novera` binary: a scripted provider, a
 //! stand-in collector, and a one-shot stream-json run.
 use std::io::{BufRead, BufReader, Read, Write};
 use std::net::TcpListener;
@@ -63,7 +63,7 @@ struct Scratch(PathBuf);
 
 impl Scratch {
     fn new(name: &str) -> Self {
-        let root = std::env::temp_dir().join(format!("jan-otel-{name}-{}", std::process::id()));
+        let root = std::env::temp_dir().join(format!("novera-otel-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&root);
         std::fs::create_dir_all(root.join("home")).unwrap();
         std::fs::create_dir_all(root.join("project")).unwrap();
@@ -71,9 +71,9 @@ impl Scratch {
     }
 
     fn command(&self) -> Command {
-        let mut cmd = Command::new(env!("CARGO_BIN_EXE_jan"));
+        let mut cmd = Command::new(env!("CARGO_BIN_EXE_novera"));
         cmd.env("HOME", self.0.join("home"))
-            .env("JAN_DATA_FOLDER", self.0.join("jan-data"))
+            .env("JAN_DATA_FOLDER", self.0.join("novera-data"))
             .env("JAN_CLI_NO_UPDATE_CHECK", "1");
         for (key, _) in std::env::vars() {
             if key.starts_with("OTEL_") || key == "JAN_AGENT_ENABLE_TELEMETRY" {

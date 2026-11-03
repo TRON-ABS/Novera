@@ -13,6 +13,15 @@ test('public feeds advertise only the four selected version-matched official bun
   assert.equal(reviewPublicFeeds(...feeds(),'1.0.0').size,4)
 })
 
+test('the canonical CLI can add its reviewed macOS ARM64 bundle without changing Desktop URLs',()=>{
+  const f=feeds()
+  const cli=Object.fromEntries(['windows-x86_64','linux-x86_64','darwin-aarch64'].map(platform=>[platform,`https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-cli-novera/Novera_CLI_1.0.0_${platform}.zip`]))
+  f[1].platforms=Object.fromEntries(Object.entries(cli).map(([platform,url])=>[platform,{url,signature:'signed',sha256:'a'.repeat(64)}]))
+  const plan={desktop:Object.fromEntries(Object.entries(f[0].platforms).map(([platform,entry])=>[platform,entry.url])),cli}
+  assert.equal(reviewPublicFeeds(...f,'1.0.0',plan).size,5)
+  assert.throws(()=>reviewPublicFeeds(...f,'1.0.0'),/scope/)
+})
+
 test('portable updates use a separate reviewed payload while preserving the installed-app channels',()=>{
   const f=feeds()
   const url='https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-portable/Novera_1.0.0_x64-portable-update.exe'

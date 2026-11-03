@@ -4,6 +4,7 @@ $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot 'environment.ps1')
 $android=Get-NoveraAndroidEnvironment
 $state=Get-Content -LiteralPath (Join-Path $PSScriptRoot 'readiness.json') -Raw | ConvertFrom-Json
+$mobileConfig=Get-Content -LiteralPath (Join-Path $android.repo 'src-tauri/tauri.android.conf.json') -Raw | ConvertFrom-Json
 $checks=New-Object 'System.Collections.Generic.List[object]'
 function Check([string]$Id,[bool]$Ok,[string]$Detail){$checks.Add([pscustomobject]@{id=$Id;ok=$Ok;detail=$Detail})}
 Check 'jdk' ([bool]$android.java -and (Test-Path -LiteralPath (Join-Path $(if($android.java){$android.java}else{$android.sdk}) 'bin/javac.exe'))) "JDK epingle $($android.pin.jdkVersion)."
@@ -32,6 +33,8 @@ if(Test-Path -LiteralPath $stamp){
 Check 'toolchain-configuration' $configured 'Versions generees alignees sur toolchain.json ; lancer initialize-project.ps1 apres changement.'
 $builder=Get-Content -LiteralPath (Join-Path $PSScriptRoot 'build-apk.ps1') -Raw
 Check 'mobile-feature-selection' ($builder -match '--no-default-features' -and $builder -match 'mobile') 'Le build mobile exclut explicitement les features desktop par defaut.'
+$startup=@($mobileConfig.app.windows | Where-Object {$_.label -eq 'main' -and $_.create -ne $false -and $_.visible -ne $false -and $_.url -eq 'index.html' -and $_.useHttpsScheme -eq $true})
+Check 'startup-webview' ($startup.Count -eq 1) 'Fenetre principale creee au demarrage, origine applicative HTTPS.'
 $jni=Join-Path $project 'app/src/main/jniLibs/arm64-v8a'
 $payload=$true
 foreach($name in @('libnovera_llama_worker.so','libggml.so','libggml-base.so','libggml-cpu.so','libc++_shared.so')){if(!(Test-Path -LiteralPath (Join-Path $jni $name))){$payload=$false}}
@@ -41,7 +44,11 @@ if(!(Test-Path -LiteralPath $engineManifest)){$payload=$false}else{
     if($engine.ndk -ne $android.pin.ndk){$payload=$false}
 }
 Check 'local-engine' $payload 'Worker CPU et bibliotheques ARM64 a inclure dans APK.'
-foreach($review in $state.reviews.PSObject.Properties){Check "review-$($review.Name)" ([bool]$review.Value) 'Audit du portage mobile et preuve dans docs/BUILD_AND_RELEASE.md.'}
+$evidencePresent=$false
+if ($state.reviewEvidence -and $state.reviewEvidence -notmatch '(^|[\\/])\.\.([\\/]|$)' -and ![IO.Path]::IsPathRooted($state.reviewEvidence)) {
+    $evidencePresent=Test-Path -LiteralPath (Join-Path $android.repo $state.reviewEvidence) -PathType Leaf
+}
+foreach($review in $state.reviews.PSObject.Properties){Check "review-$($review.Name)" ([bool]$review.Value -and $evidencePresent) "Revue de sources : $($state.reviewEvidence). Validation du paquet et du telephone distinctes."}
 $cap=Get-Content -LiteralPath (Join-Path $android.repo 'src-tauri/capabilities/mobile.json') -Raw | ConvertFrom-Json
 Check 'permissions' (!$cap.PSObject.Properties['remote'] -and ($cap.permissions -notcontains 'shell:allow-spawn')) 'Aucun acces distant IPC ni lancement shell dans la capacite mobile.'
 $blocked=@($checks | Where-Object {!$_.ok})

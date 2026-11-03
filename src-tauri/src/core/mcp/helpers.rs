@@ -99,6 +99,13 @@ pub async fn run_mcp_commands<R: Runtime>(
     let mut startup_handles = Vec::new();
 
     for (name, config) in server_map {
+        if !super::transport_policy::transport_available(
+            cfg!(any(target_os = "android", target_os = "ios")),
+            config.get("type").and_then(Value::as_str),
+        ) {
+            log::info!("Skipping desktop stdio MCP server {name} on mobile");
+            continue;
+        }
         if extract_active_status(config) == Some(false) {
             log::trace!("Server {name} is not active, skipping.");
             continue;
@@ -323,6 +330,12 @@ pub async fn start_mcp_server<R: Runtime>(
     name: String,
     config: Value,
 ) -> Result<(), String> {
+    if !super::transport_policy::transport_available(
+        cfg!(any(target_os = "android", target_os = "ios")),
+        config.get("type").and_then(Value::as_str),
+    ) {
+        return Err("MCP_STDIO_UNAVAILABLE_ON_MOBILE: use a remote HTTP/SSE server instead of a desktop command".into());
+    }
     let app_state = app.state::<AppState>();
     let active_servers_state = app_state.mcp_active_servers.clone();
 

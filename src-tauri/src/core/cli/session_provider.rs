@@ -10,7 +10,7 @@
 //! `ProviderConfig`s built from it, and the desktop does not compile `core::cli`
 //! at all.
 //!
-//! **RPC** installs nothing: `jan cli agent rpc` takes no provider overrides by
+//! **RPC** installs nothing: `novera cli agent rpc` takes no provider overrides by
 //! design, because an ADK host brings its own per session, so its sessions build
 //! with `ProviderOverrides::default()`. The `session-overrides` capability
 //! describes the TUI, `run` and `step`.
@@ -117,7 +117,7 @@ pub(crate) fn tokamak_is_session_scoped() -> bool {
 
 /// What a refused Tokamak sign-in change says.
 pub(crate) const TOKAMAK_REFUSAL: &str = "this session's Tokamak credential comes from the \
-     environment (the launcher); run `jan login` outside it";
+     environment (the launcher); run `novera login` outside it";
 
 /// The session's Tokamak key, when Tokamak is the explicitly named session
 /// provider and the key came from the session. Account calls (`/usage`, `auth

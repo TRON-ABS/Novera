@@ -1,4 +1,4 @@
-//! `jan acp` (experimental) through the real binary, driven the way an ACP
+//! `novera acp` (experimental) through the real binary, driven the way an ACP
 //! client drives it: LF-delimited JSON-RPC on stdin/stdout, against a stub
 //! OpenAI-compatible provider on a loopback port.
 //!
@@ -124,7 +124,7 @@ struct Scratch {
 
 impl Scratch {
     fn new(name: &str) -> Self {
-        let root = std::env::temp_dir().join(format!("jan-acp-{name}-{}", std::process::id()));
+        let root = std::env::temp_dir().join(format!("novera-acp-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&root);
         std::fs::create_dir_all(root.join("home")).expect("home dir");
         std::fs::create_dir_all(root.join("project")).expect("project dir");
@@ -136,10 +136,10 @@ impl Scratch {
     }
 
     fn command(&self, args: &[&str]) -> Command {
-        let mut cmd = Command::new(env!("CARGO_BIN_EXE_jan"));
+        let mut cmd = Command::new(env!("CARGO_BIN_EXE_novera"));
         cmd.args(args)
             .env("HOME", self.root.join("home"))
-            .env("JAN_DATA_FOLDER", self.root.join("jan-data"))
+            .env("JAN_DATA_FOLDER", self.root.join("novera-data"))
             .env("JAN_CLI_NO_UPDATE_CHECK", "1")
             .env_remove("JAN_EXPERIMENTAL_ACP")
             .env_remove("JAN_API_KEY")
@@ -155,7 +155,7 @@ impl Scratch {
                 base_url, "--model", "stub-model",
             ])
             .output()
-            .expect("run `jan config set`");
+            .expect("run `novera config set`");
         assert!(out.status.success(), "{}", String::from_utf8_lossy(&out.stderr));
     }
 
@@ -169,7 +169,7 @@ impl Scratch {
             .stdout(Stdio::piped())
             .stderr(Stdio::null())
             .spawn()
-            .expect("spawn `jan acp`");
+            .expect("spawn `novera acp`");
         let input = child.stdin.take();
         let output = BufReader::new(child.stdout.take().expect("stdout"));
         Acp { child, input, output, next: 1 }
@@ -249,7 +249,7 @@ impl Acp {
 
     fn close(mut self) {
         self.input.take();
-        let status = self.child.wait().expect("wait for `jan acp`");
+        let status = self.child.wait().expect("wait for `novera acp`");
         assert!(status.success(), "{status}");
     }
 }
@@ -281,11 +281,11 @@ fn updates<'a>(frames: &'a [Value], tag: &str) -> Vec<&'a Value> {
 #[test]
 fn acp_is_refused_without_the_experimental_opt_in() {
     let scratch = Scratch::new("gate");
-    let out = scratch.command(&["acp"]).stdin(Stdio::null()).output().expect("run `jan acp`");
+    let out = scratch.command(&["acp"]).stdin(Stdio::null()).output().expect("run `novera acp`");
     assert_eq!(out.status.code(), Some(2));
     assert!(out.stdout.is_empty(), "nothing on the protocol channel");
     assert!(String::from_utf8_lossy(&out.stderr).contains("JAN_EXPERIMENTAL_ACP"));
-    let help = scratch.command(&["--help"]).output().expect("run `jan --help`");
+    let help = scratch.command(&["--help"]).output().expect("run `novera --help`");
     assert!(!String::from_utf8_lossy(&help.stdout).contains("acp"), "hidden from help");
 }
 
@@ -370,7 +370,7 @@ fn a_prompt_streams_updates_and_a_gated_write_asks_the_client() {
     acp.close();
 }
 
-/// A thread another surface wrote -- here a headless `jan cli agent run`, which
+/// A thread another surface wrote -- here a headless `novera cli agent run`, which
 /// saves through the same store the TUI does, tool calls included -- loads
 /// and replays, and the loaded session can be prompted.
 #[test]
@@ -386,7 +386,7 @@ fn load_replays_a_thread_another_surface_saved() {
     let out = scratch
         .command(&["cli", "agent", "run", "--project", project.to_str().unwrap(), "--output-format", "json", "read a.txt"])
         .output()
-        .expect("run `jan cli agent run`");
+        .expect("run `novera cli agent run`");
     assert!(out.status.success(), "{}", String::from_utf8_lossy(&out.stderr));
     let report: Value = serde_json::from_slice(&out.stdout).expect("the json result");
     // The report abbreviates the id for a person; the store holds it whole,

@@ -1,18 +1,18 @@
-//! The `jan` wordmark, shared by `jan --help` and the TUI splash so the two
+//! The Novera wordmark, shared by `novera --help` and the TUI splash so the two
 //! can't drift.
 
 /// Novera wordmark. Each glyph cell is one terminal column,
 /// so `LOGO_WIDTH` is the rendered width.
 pub const LOGO: [&str; 6] = [
-    "                         ",
-    "                         ",
-    "         NOVERA          ",
-    "                         ",
-    "                         ",
-    "                         ",
+    "█   █  ███  █   █ █████ ████   ███ ",
+    "██  █ █   █ █   █ █     █   █ █   █",
+    "█ █ █ █   █ █   █ ████  ████  █████",
+    "█  ██ █   █  █ █  █     █  █  █   █",
+    "█   █  ███    █   █████ █   █ █   █",
+    "                                   ",
 ];
 
-pub const LOGO_WIDTH: u16 = 25;
+pub const LOGO_WIDTH: u16 = 35;
 
 /// Novera cyan `#32D4F5` for the wordmark. Hard-coded truecolor rather than
 /// the terminal's palette yellow, whose shade varies by theme.

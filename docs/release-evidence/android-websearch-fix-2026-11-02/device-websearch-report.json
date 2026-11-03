@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-02",
+  "evidence": "maintainer report in the release conversation",
+  "device": "HUAWEI P20 / EML-L29",
+  "android": "10 / API 29",
+  "expectedVersionCode": 1000004,
+  "installedVersionIndependentlyRead": false,
+  "reportedError": "error duckduckgo mobile request failed HTTP 403",
+  "webSearchValidated": false,
+  "blockedRequestUrlKnown": false,
+  "limitation": "The current error label also covers web_fetch requests to result sites, so the message alone does not independently identify which host refused the request.",
+  "nextDeviceTest": "Explicitly select the existing Exa provider in web-search settings, leave its optional API key empty, and request a search with source links. No new APK, data reset or model download required.",
+  "published": false
+}

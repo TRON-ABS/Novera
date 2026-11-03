@@ -1,4 +1,4 @@
-# Builds the Jan Agent CLI binary for macOS (universal binary via lipo).
+# Builds the Novera CLI binary for macOS (universal binary via lipo).
 # Produces a single stripped tarball; no Tauri bundler, no frontend.
 name: cli-build-macos
 on:
@@ -90,8 +90,8 @@ jobs:
         run: |
           mkdir -p universal
           lipo -create \
-            src-tauri/target/x86_64-apple-darwin/release/jan \
-            src-tauri/target/aarch64-apple-darwin/release/jan \
+            src-tauri/target/x86_64-apple-darwin/release/novera \
+            src-tauri/target/aarch64-apple-darwin/release/novera \
             -output universal/jan
 
       - name: Strip universal binary
@@ -131,7 +131,7 @@ jobs:
         id: package
         run: |
           VERSION="${{ inputs.new_version }}"
-          FILE_NAME="jan-agent-darwin-universal-$VERSION.tar.gz"
+          FILE_NAME="novera-agent-darwin-universal-$VERSION.tar.gz"
           tar czf "$FILE_NAME" -C universal jan
           echo "FILE_NAME=$FILE_NAME" >> "$GITHUB_OUTPUT"
           echo "SHA256=$(shasum -a 256 "$FILE_NAME" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
@@ -143,7 +143,7 @@ jobs:
             # notarytool rejects .tar.gz outright (zip/pkg/dmg only), so submit a
             # zip; the distributed artifact stays the tarball. ditto is Apple's
             # documented way to package a command line tool for notarization.
-            NOTARIZE_ZIP="jan-agent-darwin-universal-notarize.zip"
+            NOTARIZE_ZIP="novera-agent-darwin-universal-notarize.zip"
             ditto -c -k universal/jan "$NOTARIZE_ZIP"
             xcrun notarytool submit "$NOTARIZE_ZIP" \
               --key /tmp/notary-key.p8 \

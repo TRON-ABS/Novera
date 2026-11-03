@@ -1,0 +1,44 @@
+{
+  "preparedAtUtc": "2026-11-02T20:07:30.037147+00:00",
+  "sourceBaseCommit": "967b4ea94262cd843b8c405515f46254b37fa154",
+  "sourceIncludesLocalUncommittedChanges": true,
+  "applicationPatchSha256": "881447e709d88366235847077c3df53f06373ebbda07ace69ae9f99048ffeff1",
+  "sourceFiles": {
+    "src-tauri/src/core/server/provider_secrets.rs": "f8e4e29bb00e971b87b653047d9d92734f633cec34207ece9fd7f774b4dc4ba1",
+    "src-tauri/tauri.android.conf.json": "534d6e2534c2f026093379359633ee3192f075cc5103c2a4fc5eb0db6026ea6f",
+    "scripts/android/release.json": "f2d32a596083c3709cd6bc17586b42925e3f9a23173d8e72691d645733155acf",
+    "scripts/android/readiness.json": "a397284dbc5bb8cc0d10a7204055d63711655a6c7b6bc9708bf2fc5392f83de1",
+    "scripts/android/configure-project.mjs": "d2378b1b3f352e1a49b92599a3382ea4fd763098f81f068f0558ddc423492be5",
+    "scripts/android/build-apk.ps1": "52e9888749a9dbb9927663467a91059f22c03693fb4ebed940c77c6172943418",
+    "scripts/android/build-engine.ps1": "e82a95d0083401b9a19fb2cf1199a5e2d0d7595b59b820b3b99e3a60730308ff",
+    "scripts/android/build-release.ps1": "5361e025330b0ad9db6470da3adba6991b5739001416c1b6f142ccee9338b077",
+    "scripts/android/package-release.ps1": "2134f9b4c5e4134ebc6038a5b2b07f9030600e3ca7e7cbae1e783dd24bc12329",
+    "scripts/android/sign-apk.ps1": "eaf1f9d985b26214c3579d526acc883dd59b0b721bd269e89f56baa4131c8830",
+    "scripts/android/initialize-signing.ps1": "2bf77643b7c172ae6ba07d52f01cbde2cccadfe5486c240772b36066bc4a6113",
+    "scripts/android/prepare-update-baseline.ps1": "1433e1a79b74fd4eae65ff907bc74af909941228a2c67245f28122942493d4b5",
+    "scripts/android/verify-apk.py": "df47f23c6fc0728bc959ac922508e13c33b97a7544d842e581b81c5c95cca74e"
+  },
+  "llamaCommit": "8642541b255bfb5dc39cd351a178be09013a55d6",
+  "artifacts": [
+    {
+      "file": "Novera_1.0.0_android-arm64.apk",
+      "bytes": 41687402,
+      "sha256": "b2ed854d01b072c7b5204b9680cfe9212032cd3d89c7d09cd4ac6e6afd5896b3"
+    },
+    {
+      "file": "Novera_1.0.0_android-arm64-update-test-start.apk",
+      "bytes": 41687402,
+      "sha256": "444fa49ddb070d73d1de49bb29e7e6380636547ea2c3dcac4e1fb417523e8b86"
+    }
+  ],
+  "sameRuntimeAndFrontendEntries": 12,
+  "sameSigningCertificate": true,
+  "packageManagerVersionCodeTransition": [
+    999999,
+    1000000
+  ],
+  "alteredApkRejected": true,
+  "deviceValidated": false,
+  "published": false,
+  "pipelineNote": "Cargo release, Gradle+Lint and signing passed; the initial verifier rejected Build-Tools 37 signer output formatting. After fixing its parser, the unchanged signed final APK and the baseline independently passed inspection."
+}

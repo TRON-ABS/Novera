@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-02",
+  "source": "maintainer reports in this chat and supplied screenshot",
+  "device": "HUAWEI EML-L29 (P20)",
+  "android": "10",
+  "api": 29,
+  "webview": "156.0.8078.47",
+  "candidateUnderTest": {
+    "expectedVersionCode": 1000002,
+    "apkSha256": "59a542a6cb727b173e3a571a3477dff9f4a95839f46190d736bc42a0becc595f",
+    "versionCodeIndependentlyReadFromPhone": false
+  },
+  "results": {
+    "interfaceDisplayed": "passed, reported by maintainer after installing the startup fix",
+    "firstModelDownload": "LFM3-1.7B selected after the reported download",
+    "modelResponse": "passed, reported by maintainer and visible in screenshot",
+    "messageRetainedAfterApplicationCloseAndRelaunch": "passed, reported by maintainer",
+    "messageRetentionAfterApkUpdate": "not tested",
+    "attachments": "not tested",
+    "providerSecretPersistence": "not tested",
+    "networkInterruption": "not tested"
+  },
+  "screenshot": {
+    "sha256": "da57bd32616c390cc9bf71629214bfd6ea146a20ed49e78a64d5d7a454295f26",
+    "copiedIntoRepository": false,
+    "displayedModel": "LFM3-1.7B",
+    "displayedTokensPerSecond": 1,
+    "displayedTokenCount": 161,
+    "displayedThinkingTime": "3 min 47 s",
+    "performanceBenchmark": false
+  },
+  "otherObservation": "Maintainer reports that only refusal is available on the error-tracking consent screen; acceptance behavior remains to be clarified.",
+  "adbUsedForTheseTests": false,
+  "dataPreservingUpdateValidated": false,
+  "published": false
+}

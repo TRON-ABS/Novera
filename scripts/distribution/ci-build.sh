@@ -9,6 +9,10 @@ if [[ "$RUNNER_OS" == Windows ]]; then
   export JAN_ENGINE_BUILD_DIR="${RUNNER_TEMP//\\//}/ne"
 fi
 mkdir -p .build/candidates
+if [[ "$kind" == desktop && "${NOVERA_MACOS_DISTRIBUTION:-false}" == true ]]; then
+  [[ "$RUNNER_OS" == macOS ]] || { echo 'Apple distribution requires macOS.' >&2; exit 2; }
+  node scripts/distribution/macos-distribution.mjs preflight
+fi
 if [[ "$kind" == desktop && "${NOVERA_ENABLE_UPDATER:-false}" == true ]]; then
   [[ -n "${TAURI_SIGNING_PRIVATE_KEY:-}" && -n "${TAURI_SIGNING_PRIVATE_KEY_PASSWORD:-}" ]] || { echo 'Missing required Novera update signing credentials.' >&2; exit 2; }
 fi
@@ -42,9 +46,9 @@ case "$kind" in
       yarn install --immutable
       cli_features=cli,signed-updates
     fi
-    cargo build --release --locked --manifest-path src-tauri/novera-cli/Cargo.toml --features "$cli_features" --bin jan
+    cargo build --release --locked --manifest-path src-tauri/novera-cli/Cargo.toml --features "$cli_features" --bin novera
     cargo test --release --locked --manifest-path src-tauri/novera-cli/Cargo.toml --features "$cli_features" --test novera_update_policy
-    binary="$CARGO_TARGET_DIR/release/jan"
+    binary="$CARGO_TARGET_DIR/release/novera"
     [[ "$RUNNER_OS" != Windows ]] || binary="$binary.exe"
     "$binary" --help > .build/candidates/CLI-HELP.txt
     node scripts/distribution/ci-candidates.mjs cli
@@ -101,6 +105,9 @@ case "$kind" in
         cargo install tauri-driver --version 2.1.0 --locked
         xvfb-run -a python3 scripts/distribution/validate-linux-update-ui.py
       fi
+    fi
+    if [[ "$RUNNER_OS" == macOS && "${NOVERA_MACOS_DISTRIBUTION:-false}" == true ]]; then
+      node scripts/distribution/macos-distribution.mjs verify "$CARGO_TARGET_DIR/release/bundle/macos/Novera.app" .build/candidates/packages
     fi
     # Freeze the delivered runtime before tests can rebuild Cargo outputs.
     # Tauri has now built the frontend required by the integration test.

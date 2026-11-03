@@ -164,7 +164,7 @@ pub(crate) async fn discover_codex_models(
             request = request
                 .query(&[("client_version", "0.144.1")])
                 .header("OpenAI-Beta", "responses=experimental")
-                .header("originator", "jan")
+                .header("originator", "novera")
                 .header("version", "0.144.1");
             if let Some(account_id) = account_id {
                 request = request.header("chatgpt-account-id", account_id);

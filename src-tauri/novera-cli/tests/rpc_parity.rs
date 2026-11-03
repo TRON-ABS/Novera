@@ -112,7 +112,7 @@ struct Scratch {
 
 impl Scratch {
     fn new(name: &str) -> Self {
-        let root = std::env::temp_dir().join(format!("jan-parity-{name}-{}", std::process::id()));
+        let root = std::env::temp_dir().join(format!("novera-parity-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&root);
         std::fs::create_dir_all(root.join("home")).expect("home dir");
         std::fs::create_dir_all(root.join("project")).expect("project dir");
@@ -124,10 +124,10 @@ impl Scratch {
     }
 
     fn command(&self, args: &[&str]) -> Command {
-        let mut cmd = Command::new(env!("CARGO_BIN_EXE_jan"));
+        let mut cmd = Command::new(env!("CARGO_BIN_EXE_novera"));
         cmd.args(args)
             .env("HOME", self.root.join("home"))
-            .env("JAN_DATA_FOLDER", self.root.join("jan-data"))
+            .env("JAN_DATA_FOLDER", self.root.join("novera-data"))
             .env("JAN_CLI_NO_UPDATE_CHECK", "1")
             .env_remove("JAN_API_KEY")
             .env_remove("OPENAI_API_KEY")
@@ -150,7 +150,7 @@ impl Scratch {
                 "stub-model",
             ])
             .output()
-            .expect("run `jan config set`");
+            .expect("run `novera config set`");
         assert!(
             out.status.success(),
             "{}",
@@ -165,7 +165,7 @@ impl Scratch {
             .stdout(Stdio::piped())
             .stderr(Stdio::null())
             .spawn()
-            .expect("spawn the jan CLI");
+            .expect("spawn the novera CLI");
         let stdin = child.stdin.take().expect("piped stdin");
         let stdout = BufReader::new(child.stdout.take().expect("piped stdout"));
         (child, stdin, stdout)
@@ -263,7 +263,7 @@ struct Transcript {
     requests: Vec<serde_json::Value>,
 }
 
-/// The stream-json surface: one duplex `jan cli agent run`. The client answers
+/// The stream-json surface: one duplex `novera cli agent run`. The client answers
 /// the permission prompt with a `permission` line and, when the gate opens, the
 /// host call with a `tool_result` line.
 fn run_stream_json(name: &str, decision: &str) -> Transcript {

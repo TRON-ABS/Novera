@@ -2,6 +2,8 @@ import { webSearch, webFetch } from '@janhq/tauri-plugin-websearch-api'
 import { useMCPServers } from '@/hooks/useMCPServers'
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
 import { executeDuckDuckGoTool } from '@/lib/duckduckgoSearch'
+import { executeMobileDuckDuckGoTool } from '@/lib/mobileDuckduckgoSearch'
+import { isPlatformAndroid, isPlatformIOS } from '@/lib/platform/utils'
 import { TRUNCATION_MARKER } from '@/lib/toolPresentation'
 
 export const WEB_TOOL_NAMES = new Set(['web_search', 'web_fetch'])
@@ -88,6 +90,9 @@ export async function executeWebTool(
   const endpoint = endpoints[searchProvider] || undefined
   try {
     if (searchProvider === 'duckduckgo') {
+      if (isPlatformAndroid() || isPlatformIOS()) {
+        return await executeMobileDuckDuckGoTool(toolName, input, webOutputCap(options.maxOutputChars))
+      }
       return await executeDuckDuckGoTool(toolName, input, webOutputCap(options.maxOutputChars))
     }
     if (toolName === 'web_search') {

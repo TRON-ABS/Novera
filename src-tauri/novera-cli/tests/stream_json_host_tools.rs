@@ -107,7 +107,7 @@ struct Scratch {
 
 impl Scratch {
     fn new(name: &str) -> Self {
-        let root = std::env::temp_dir().join(format!("jan-host-{name}-{}", std::process::id()));
+        let root = std::env::temp_dir().join(format!("novera-host-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&root);
         std::fs::create_dir_all(&root).expect("scratch dir");
         Self { root }
@@ -143,7 +143,7 @@ impl Scratch {
                 "stub-model",
             ])
             .output()
-            .expect("run `jan config set`");
+            .expect("run `novera config set`");
         assert!(
             out.status.success(),
             "config set failed: {}",
@@ -154,10 +154,10 @@ impl Scratch {
     fn command(&self, args: &[&str]) -> Command {
         std::fs::create_dir_all(self.home()).expect("home dir");
         std::fs::create_dir_all(self.project()).expect("project dir");
-        let mut cmd = Command::new(env!("CARGO_BIN_EXE_jan"));
+        let mut cmd = Command::new(env!("CARGO_BIN_EXE_novera"));
         cmd.args(args)
             .env("HOME", self.home())
-            .env("JAN_DATA_FOLDER", self.root.join("jan-data"))
+            .env("JAN_DATA_FOLDER", self.root.join("novera-data"))
             .env_remove("JAN_API_KEY")
             .env_remove("OPENAI_API_KEY")
             .env_remove("ANTHROPIC_API_KEY");
@@ -191,7 +191,7 @@ impl Scratch {
         .stdout(Stdio::piped())
         .stderr(Stdio::piped())
         .spawn()
-        .expect("spawn the jan CLI")
+        .expect("spawn the novera CLI")
     }
 }
 
@@ -351,7 +351,7 @@ fn host_tools_without_a_duplex_channel_is_refused_on_the_stream() {
         ])
         .stdin(Stdio::null())
         .output()
-        .expect("run the jan CLI");
+        .expect("run the novera CLI");
 
     assert!(!out.status.success(), "a refused run must not exit 0");
     let records = records(&out);
@@ -397,7 +397,7 @@ fn an_unreadable_declaration_is_refused_on_the_stream() {
         ])
         .stdin(Stdio::null())
         .output()
-        .expect("run the jan CLI");
+        .expect("run the novera CLI");
 
     assert!(!out.status.success());
     let records = records(&out);
@@ -439,7 +439,7 @@ fn a_reserved_name_is_refused_before_the_run_starts() {
         ])
         .stdin(Stdio::null())
         .output()
-        .expect("run the jan CLI");
+        .expect("run the novera CLI");
 
     assert!(!out.status.success());
     let records = records(&out);

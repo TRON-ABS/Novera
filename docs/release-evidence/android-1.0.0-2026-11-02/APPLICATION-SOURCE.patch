@@ -1,0 +1,31 @@
+diff --git a/src-tauri/src/core/server/provider_secrets.rs b/src-tauri/src/core/server/provider_secrets.rs
+index 1b6975505..edc45dd65 100644
+--- a/src-tauri/src/core/server/provider_secrets.rs
++++ b/src-tauri/src/core/server/provider_secrets.rs
+@@ -51,10 +51,12 @@ static INDEX_LOCK: Mutex<()> = Mutex::new(());
+ static KEYRING_DOWN: AtomicBool = AtomicBool::new(false);
+ 
+ fn keyring_down() -> bool {
++    // Android's keyring 3 backend is an in-memory mock, not a persistent vault.
++    // Use the encrypted private-app file store with its per-install random key.
+     // A portable folder must neither read nor modify the installed app's vault.
+-    #[cfg(feature = "portable")]
++    #[cfg(any(feature = "portable", target_os = "android"))]
+     return true;
+-    #[cfg(not(feature = "portable"))]
++    #[cfg(not(any(feature = "portable", target_os = "android")))]
+     KEYRING_DOWN.load(Ordering::Relaxed)
+ }
+ 
+diff --git a/src-tauri/tauri.android.conf.json b/src-tauri/tauri.android.conf.json
+index 84aa68951..a456e5f09 100644
+--- a/src-tauri/tauri.android.conf.json
++++ b/src-tauri/tauri.android.conf.json
+@@ -20,6 +20,7 @@
+     "externalBin": [],
+     "android": {
+       "minSdkVersion": 24,
++      "versionCode": 1000000,
+       "debugApplicationIdSuffix": ".debug"
+     }
+   }

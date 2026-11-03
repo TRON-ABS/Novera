@@ -871,7 +871,7 @@ impl Picker {
             PickerKind::ForkMessage => " ↑/↓ select   Enter fork   Esc cancel",
             PickerKind::ThreadTree => " ↑/↓ select   Enter resume   Esc cancel",
             PickerKind::RewindScope => " ↑/↓ select   Enter restore   Esc cancel",
-            PickerKind::ViewConfig => " set via: jan config set --provider <id> ...   Esc close",
+            PickerKind::ViewConfig => " set via: novera config set --provider <id> ...   Esc close",
             PickerKind::AgentSettings => " ↑/↓ select   Enter edit   x unset   Esc close",
             PickerKind::SubagentModels => {
                 " ↑/↓ select   Enter choose model   x clear override   Esc back"
@@ -1815,7 +1815,7 @@ fn banner_lines(banner: &Banner, width: u16) -> Vec<Line<'static>> {
         ));
     } else {
         out.push(Line::from(vec![
-            Span::styled(format!("{indent}jan"), accent),
+            Span::styled(format!("{indent}novera"), accent),
             Span::styled(format!(" v{}", banner.version), dim),
         ]));
     }
@@ -5171,8 +5171,8 @@ impl App {
         self.workspace = workspace;
     }
 
-    /// Run the session on `prompt` in place of Jan's system prompt, or back on
-    /// Jan's with `None`. Only a thread an RPC host wrote carries one; the run
+    /// Run the session on `prompt` in place of Novera's system prompt, or back on
+    /// Novera's with `None`. Only a thread an RPC host wrote carries one; the run
     /// args are swapped rather than edited because they are shared behind an
     /// `Arc` with any run already spawned from them.
     fn set_host_system_prompt(&mut self, prompt: Option<String>) {
@@ -7082,7 +7082,7 @@ impl App {
         let repo = self.repo_root.clone()?;
         let id = self.thread_id.clone()?;
         match job {
-            SnapshotJob::Base => Some((repo, None, "jan agent base".to_string(), id, Vec::new())),
+            SnapshotJob::Base => Some((repo, None, "novera agent base".to_string(), id, Vec::new())),
             SnapshotJob::Checkpoint { changed, .. } => {
                 let parent = self
                     .checkpoints
@@ -7094,7 +7094,7 @@ impl App {
                     .iter()
                     .filter_map(|p| p.strip_prefix(&repo).ok().map(|p| p.to_path_buf()))
                     .collect();
-                Some((repo, parent, format!("jan agent turn {n}"), id, changed))
+                Some((repo, parent, format!("novera agent turn {n}"), id, changed))
             }
         }
     }
@@ -8168,7 +8168,7 @@ impl App {
     /// Recompute and publish the Orca-visible agent status from primary state
     /// (turn status plus pending prompts). The reporter dedupes, so calling
     /// this after every transition is cheap. The prompt preview carries the
-    /// pending permission summary (what Jan is blocked on) or the active
+    /// pending permission summary (what Novera is blocked on) or the active
     /// subagent task, matching Orca's card fields.
     fn publish_agent_status(&mut self) {
         use super::agent_status::AgentStatusState as S;
@@ -12414,7 +12414,7 @@ pub async fn run(
     // so say so once, and only where a config file proves it is unconfigured
     // (see `terminal_setup::setup_hint`): the note disappears on its own once
     // /terminal-setup has run.
-    if let Some(hint) = dirs::home_dir()
+    if let Some(hint) = crate::core::agent::global_config::user_home_dir()
         .filter(|_| crate::core::agent::global_config::terminal_hint_enabled())
         .and_then(|home| {
             super::terminal_setup::setup_hint(&home, cfg!(target_os = "macos"), |k| {
@@ -12484,7 +12484,7 @@ pub async fn run(
     // say so on the real terminal now that the alternate screen is gone -- a
     // transcript note would vanish with it.
     if app.update_installing {
-        eprintln!("the update was still installing when jan exited; run `jan update` to finish it");
+        eprintln!("the update was still installing when jan exited; run `novera update` to finish it");
     }
     // The interactive session is over: wipe the persistent bash `/tmp` scratch
     // that its turns shared.
@@ -16336,7 +16336,7 @@ fn init_command(app: &mut App) {
 
 /// The `/init` addendum for a project whose own file is the legacy `NOVERA.md`:
 /// keep editing it in place, and leave the rename to the user.
-const INIT_LEGACY_PARAGRAPH: &str = "`NOVERA.md` is Jan's legacy instructions file; new projects use \
+const INIT_LEGACY_PARAGRAPH: &str = "`NOVERA.md` is Novera's legacy instructions file; new projects use \
 `AGENTS.md`, which other coding agents read too. Keep editing `NOVERA.md` in place -- it wins over an \
 `AGENTS.md` in the same folder -- and do not rename it yourself. In your report, mention that the \
 user can rename it to `AGENTS.md` if they want one file shared by every agent.";
@@ -18379,7 +18379,7 @@ fn reload_skill_entries(skills: &[crate::core::agent::skills::SkillMeta]) -> Vec
         .collect()
 }
 
-/// `/skills`: every skill Jan can see from this project, with its scope and
+/// `/skills`: every skill Novera can see from this project, with its scope and
 /// invocation sides, and each one hidden by a same-named higher-precedence
 /// skill marked with what shadows it. Precedence: project > user > built-in;
 /// plugin skills are qualified `<plugin>:<name>` and never collide.
@@ -18899,7 +18899,7 @@ fn open_settings_model_picker(app: &mut App, target: ModelTarget, current: Optio
             app.model_picker = Some(ModelPicker { target, ..picker });
         }
         None => app.note(
-            "no models available (add a provider with `jan config set`, or configure one in the desktop app)",
+            "no models available (add a provider with `novera config set`, or configure one in the desktop app)",
         ),
     }
 }
@@ -18913,7 +18913,7 @@ fn show_model_picker(app: &mut App) {
             app.model_picker = Some(picker);
         }
         None => app.note(
-            "no models available (add a provider with `jan config set`, or configure one in the desktop app)",
+            "no models available (add a provider with `novera config set`, or configure one in the desktop app)",
         ),
     }
 }
@@ -19973,8 +19973,8 @@ fn finish_account_login(app: &mut App, result: Result<String, String>) {
 fn login_success_message(provider: &str) -> String {
     format!("signed in to {provider}. Use /model to select a model.")
 }
-/// Warn after a Claude account sign-in that Jan reaches Anthropic directly
-/// with the user's OAuth token. Since Jan is a third-party client (not the
+/// Warn after a Claude account sign-in that Novera reaches Anthropic directly
+/// with the user's OAuth token. Since Novera is a third-party client (not the
 /// official Claude Code CLI), usage proceeds against Anthropic's Claude Code
 /// Terms of Service at the user's own risk; there is no guarantee that
 /// Anthropic permits third-party access to the same quota.
@@ -19982,8 +19982,8 @@ fn warn_on_claude_login(app: &mut App, provider: &str) {
     if provider == "anthropic" {
         app.system(
             Level::Warn,
-            "Claude sign-in: Jan is a third-party client. Using the Claude Code \
-             quota through Jan may not be sanctioned by Anthropic; proceed at \
+            "Claude sign-in: Novera is a third-party client. Using the Claude Code \
+             quota through Novera may not be sanctioned by Anthropic; proceed at \
              your own risk and review Anthropic's Terms of Service.",
         );
     }
@@ -20051,7 +20051,7 @@ fn adopt_login_model(app: &mut App, login: &crate::core::cli::auth::LoginResult)
 
 /// Re-read `~/.novera/config.toml` (plus desktop and project layers) into the
 /// session's in-memory `args.provider_configs` map. Must be called after any
-/// mid-session credential write (`/login`, `jan config set`) because
+/// mid-session credential write (`/login`, `novera config set`) because
 /// `prepare_agent_session` snapshots the provider map once at startup and
 /// never re-reads it. Without this, the first turn after sign-in fails
 /// upstream resolution (`"No upstream session found for model ..."`) and
@@ -20087,7 +20087,7 @@ async fn reload_provider_configs(app: &mut App) {
 /// `terminal_setup` for why a terminal-side binding is the only reliable route.
 fn terminal_setup_command(app: &mut App) {
     use super::terminal_setup::{apply, Outcome};
-    let Some(home) = dirs::home_dir() else {
+    let Some(home) = crate::core::agent::global_config::user_home_dir() else {
         app.system(Level::Error, "no home directory for terminal config");
         return;
     };
@@ -20119,7 +20119,7 @@ fn terminal_setup_command(app: &mut App) {
 
 /// Open the `/config` screen: a read-only view of the providers configured in
 /// `~/.novera/config.toml` (the standalone-agent credential store), with API keys
-/// redacted. Editing is headless via `jan config set/unset` (shown in the
+/// redacted. Editing is headless via `novera config set/unset` (shown in the
 /// footer), since a TUI is not the safe place to type secrets.
 fn open_config_screen(app: &mut App) {
     let configs = match crate::core::agent::global_config::load_global_config() {
@@ -20131,7 +20131,7 @@ fn open_config_screen(app: &mut App) {
 
     let items: Vec<PickerItem> = if providers.is_empty() {
         vec![PickerItem {
-            label: "no providers configured - run: jan config set --provider <id> --api-key <key>"
+            label: "no providers configured - run: novera config set --provider <id> --api-key <key>"
                 .to_string(),
             value: String::new(),
             hint: None,
@@ -20595,7 +20595,7 @@ fn restore_run_mode(app: &mut App, metadata: Option<&serde_json::Value>) {
 }
 
 /// Reload the system prompt an RPC host wrote a thread under, or return to
-/// Jan's for a thread with none, so the resumed conversation keeps the prompt
+/// Novera's for a thread with none, so the resumed conversation keeps the prompt
 /// its history was produced under.
 fn restore_host_system_prompt(app: &mut App, metadata: Option<&serde_json::Value>) {
     let prompt = metadata
@@ -20608,7 +20608,7 @@ fn restore_host_system_prompt(app: &mut App, metadata: Option<&serde_json::Value
         // does not have; the user should know before the model reaches for them.
         app.note(
             "resumed on the host's system prompt from this thread; the host's tools are \
-             not available here. /new returns to Jan's prompt",
+             not available here. /new returns to Novera's prompt",
         );
     }
     app.set_host_system_prompt(prompt);
@@ -24373,14 +24373,14 @@ fn hint_spans(key_style: Style, pairs: &[(&str, &str)]) -> Vec<Span<'static>> {
 /// than an absolute path. Non-home paths are returned unchanged.
 fn tilde_path(path: &std::path::Path) -> String {
     let full = path.to_string_lossy().into_owned();
-    let Some(home) = std::env::var_os("HOME") else {
+    let Some(home) = crate::core::agent::global_config::user_home_dir() else {
         return full;
     };
-    let home = std::path::Path::new(&home);
+    let home = home.as_path();
     match path.strip_prefix(home) {
         // The home dir itself, not a `~`-prefixed child.
         Ok(rest) if rest.as_os_str().is_empty() => "~".to_string(),
-        Ok(rest) => format!("~/{}", rest.to_string_lossy()),
+        Ok(rest) => format!("~/{}", rest.components().map(|part| part.as_os_str().to_string_lossy()).collect::<Vec<_>>().join("/")),
         Err(_) => full,
     }
 }
@@ -28802,7 +28802,7 @@ mod tests {
         app.thread_id = Some("t1".into());
         let (_, parent, msg, id, changed) = app.resolve_snapshot(&SnapshotJob::Base).unwrap();
         assert!(parent.is_none());
-        assert_eq!(msg, "jan agent base");
+        assert_eq!(msg, "novera agent base");
         assert_eq!(id, "t1");
         assert!(changed.is_empty());
 
@@ -28818,7 +28818,7 @@ mod tests {
             Some("basesha"),
             "first checkpoint parents the base"
         );
-        assert_eq!(msg, "jan agent turn 1");
+        assert_eq!(msg, "novera agent turn 1");
         assert_eq!(changed, vec![std::path::PathBuf::from("src/a.rs")]);
 
         // Disabled (no repo) -> job dropped.
@@ -30115,7 +30115,7 @@ mod tests {
     }
 
     /// `/login --paste-token` skips straight to the legacy field, the same
-    /// escape hatch `jan login --paste-token` gives, and never asks the loop for
+    /// escape hatch `novera login --paste-token` gives, and never asks the loop for
     /// a browser session.
     #[tokio::test]
     async fn login_paste_token_forces_the_legacy_field() {
@@ -30915,7 +30915,7 @@ mod tests {
         });
     }
 
-    /// A headless run (`jan cli agent run`, rpc, acp) never builds an `App`, yet
+    /// A headless run (`novera cli agent run`, rpc, acp) never builds an `App`, yet
     /// its result strips reasoning by the serving provider's setting, so session
     /// setup has to resolve it from the provider that serves the model.
     #[test]
@@ -41386,7 +41386,7 @@ mod tests {
 
     #[test]
     fn tilde_path_abbreviates_only_the_home_prefix() {
-        let home = std::path::PathBuf::from(std::env::var_os("HOME").expect("HOME set in tests"));
+        let home = crate::core::agent::global_config::user_home_dir().expect("isolated test home");
         assert_eq!(tilde_path(&home), "~");
         assert_eq!(tilde_path(&home.join("code/jan")), "~/code/jan");
         // A path that merely starts with the same characters is not a child.
@@ -41825,7 +41825,7 @@ mod tests {
     }
 
     /// A thread an RPC host wrote under its own system prompt resumes on that
-    /// prompt, carries it on the next save, and `/new` returns to Jan's.
+    /// prompt, carries it on the next save, and `/new` returns to Novera's.
     #[test]
     fn a_host_system_prompt_round_trips_through_thread_metadata() {
         let mut app = test_app();
@@ -41838,12 +41838,12 @@ mod tests {
         assert_eq!(saved[super::super::SYSTEM_PROMPT_KEY], "You drive the arm.");
 
         app.reset_session();
-        assert_eq!(prompt(&app), None, "a fresh session is Jan's again");
+        assert_eq!(prompt(&app), None, "a fresh session is Novera's again");
         assert!(app.thread_metadata().is_none());
 
         restore_host_system_prompt(&mut app, Some(&meta));
         restore_host_system_prompt(&mut app, Some(&serde_json::json!({})));
-        assert_eq!(prompt(&app), None, "a thread without one resumes on Jan's");
+        assert_eq!(prompt(&app), None, "a thread without one resumes on Novera's");
     }
 
     /// `/new` starts a session, so it takes a fresh session-start snapshot in
@@ -43091,6 +43091,14 @@ mod tests {
         }
     }
 
+    fn ready_log_test_script() -> &'static str {
+        if cfg!(windows) {
+            "if (Select-String -LiteralPath boot.log -Pattern READY -Quiet) { Get-Content -LiteralPath boot.log; exit 0 } else { exit 1 }"
+        } else {
+            "grep READY boot.log"
+        }
+    }
+
     fn session_monitor_ctx(
         root: &std::path::Path,
     ) -> tauri_plugin_agent_tools::tools::monitor::MonitorCtx {
@@ -43118,7 +43126,7 @@ mod tests {
         let mut app = test_app();
         app.monitor_set
             .start(
-                session_monitor_spec("grep READY boot.log"),
+                session_monitor_spec(ready_log_test_script()),
                 session_monitor_ctx(root.path()),
             )
             .unwrap();
@@ -43201,7 +43209,7 @@ mod tests {
             .push(serde_json::json!({ "role": "assistant", "content": "watching" }));
         app.monitor_set
             .start(
-                session_monitor_spec("grep READY boot.log"),
+                session_monitor_spec(ready_log_test_script()),
                 session_monitor_ctx(root.path()),
             )
             .unwrap();
@@ -43245,7 +43253,7 @@ mod tests {
         assert!(parked.await.is_err(), "nothing could fire, so it parks");
 
         set.start(
-            session_monitor_spec("grep READY boot.log"),
+            session_monitor_spec(ready_log_test_script()),
             session_monitor_ctx(root.path()),
         )
         .unwrap();
@@ -43922,8 +43930,8 @@ mod tests {
             names(&app)
         );
         assert!(
-            names(&app).contains(&"/jan".to_string()),
-            "built-in jan skill row: {:?}",
+            names(&app).contains(&"/novera".to_string()),
+            "built-in novera skill row: {:?}",
             names(&app)
         );
     }
@@ -44604,7 +44612,7 @@ mod tests {
             "{out}"
         );
         assert!(out.contains("user      tui394-review · User review."), "{out}");
-        assert!(out.contains("built-in  jan"), "{out}");
+        assert!(out.contains("built-in  novera"), "{out}");
 
         // The popup offers the user skill once `/reload skills` rescans.
         run_command(&mut app, "reload skills", &no_mcp()).await;
@@ -45058,6 +45066,7 @@ mod tests {
         let repo =
             std::env::temp_dir().join(format!("jan_tui_plugin_repo_{}", uuid::Uuid::new_v4()));
         std::fs::create_dir_all(repo.join("skills").join("prepare")).unwrap();
+        let repo_url = url::Url::from_directory_path(&repo).unwrap().to_string();
         std::fs::write(
             repo.join("skills").join("prepare").join("SKILL.md"),
             "---\ndescription: Prep\n---\n\n# prepare\n\nBody.\n",
@@ -45085,8 +45094,10 @@ mod tests {
                 "commit",
                 "-m",
                 "init",
-                "--author=Jan Test <test@jan.ai>",
+                "--author=Novera Test <test@novera.example>",
             ])
+            .env("GIT_COMMITTER_NAME", "Novera Test")
+            .env("GIT_COMMITTER_EMAIL", "test@novera.example")
             .status()
             .unwrap();
         assert!(st.success());
@@ -45099,7 +45110,7 @@ mod tests {
         // is refused while one is in flight, and the loop clears it on pick-up.
         run_command(
             &mut app,
-            &format!("plugin install file://{}", repo.display()),
+            &format!("plugin install {repo_url}"),
             &no_mcp(),
         )
         .await;
@@ -45124,7 +45135,7 @@ mod tests {
 
         // Actually install so the list/dispatch/remove checks below have a
         // plugin present (the install itself is covered by plugins::tests).
-        let p = crate::core::agent::plugins::install(&root, &format!("file://{}", repo.display()))
+        let p = crate::core::agent::plugins::install(&root, &repo_url)
             .await
             .unwrap();
         assert_eq!(p.name, "release-tools");
@@ -46192,7 +46203,7 @@ mod tests {
         let narrow = banner_text(&app, 24);
         let joined = narrow.join("\n");
         assert!(!joined.contains('█'), "{joined}");
-        assert!(joined.contains("jan"), "{joined}");
+        assert!(joined.contains("novera"), "{joined}");
     }
 
     /// `/init` is the first thing a new project wants and is invisible unless
@@ -46366,7 +46377,7 @@ mod tests {
         let narrow = banner_text(&app, 24);
         let joined = narrow.join("\n");
         assert!(!joined.contains('█'), "{joined}");
-        assert!(joined.contains("jan"), "{joined}");
+        assert!(joined.contains("novera"), "{joined}");
         for line in &narrow {
             assert!(
                 line.chars().count() <= 24,

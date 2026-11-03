@@ -125,7 +125,7 @@ async fn unserved_tool_is_refused_without_running() {
     assert!(!dir.path().join("out.txt").exists());
 }
 
-/// Host tools execute in the client that declared them for one run; Jan's
+/// Host tools execute in the client that declared them for one run; Novera's
 /// MCP server serves only built-ins, so a `host__` name is never offered,
 /// even with every opt-in on.
 #[test]
@@ -206,7 +206,7 @@ async fn escaping_read_path_is_refused() {
     assert!(!content.contains("classified"));
 }
 
-/// Served from the user's home, the Jan home sits inside the root. It is
+/// Served from the user's home, the Novera home sits inside the root. It is
 /// refused even with the shell unsandboxed (as `options` sets it), because a
 /// served client has no one to ask.
 #[tokio::test]
@@ -233,7 +233,7 @@ async fn the_jan_home_is_refused_even_unsandboxed() {
         ),
     ] {
         let (content, _) = server.dispatch(tool, &args).await;
-        assert!(content.contains("Jan home"), "{tool}: {content}");
+        assert!(content.contains("Novera home"), "{tool}: {content}");
         assert!(!content.contains("classified"), "{tool}: {content}");
     }
     assert_eq!(
@@ -285,7 +285,7 @@ fn initialize_advertises_tools() {
     let server = JanToolServer::new(options(&PathBuf::from(".")));
     let info = server.get_info();
     assert!(info.capabilities.tools.is_some());
-    assert_eq!(info.server_info.name, "jan");
+    assert_eq!(info.server_info.name, "novera");
 }
 
 #[test]

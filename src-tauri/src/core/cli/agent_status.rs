@@ -7,17 +7,17 @@
 //! 1. **OSC 9999 agent-status protocol** - `\x1b]9999;{json}\x07` with a JSON
 //!    payload carrying `agentType` and `state` (`working` | `blocked` |
 //!    `waiting` | `done`).
-//! 2. **Terminal titles (OSC 2)** - a spinner glyph + `Jan` while working,
-//!    `Jan - action required` while blocked/waiting, and `Jan ready` when idle.
+//! 2. **Terminal titles (OSC 2)** - a spinner glyph + `Novera` while working,
+//!    `Novera - action required` while blocked/waiting, and `Novera ready` when idle.
 //!
-//! Orca 1.4.191 accepts Jan's OSC 9999 status, but its `tui-idle` wait does not
-//! consume that protocol or recognize Jan's settled titles. Jan icons and
+//! Orca 1.4.191 accepts Novera's OSC 9999 status, but its `tui-idle` wait does not
+//! consume that protocol or recognize Novera's settled titles. Novera icons and
 //! title-based idle recognition require Orca-side support.
 
 use std::io::{self, Write};
 
 /// `agentType` value reported to status consumers.
-const AGENT_TYPE: &str = "jan";
+const AGENT_TYPE: &str = "novera";
 /// OSC 9999 introducer; the payload is terminated by BEL (or ST, not used here).
 const OSC_9999_PREFIX: &str = "\x1b]9999;";
 /// OSC 2 sets the window title.
@@ -53,14 +53,14 @@ const SPINNER_FRAMES: [&str; 10] = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "�
 
 /// Title shown while a turn is running (spinner frame + agent name).
 fn working_title(frame: usize) -> String {
-    format!("{} Jan", SPINNER_FRAMES[frame % SPINNER_FRAMES.len()])
+    format!("{} Novera", SPINNER_FRAMES[frame % SPINNER_FRAMES.len()])
 }
 
 /// Title shown when waiting for input or idle.
 fn settled_title(state: AgentStatusState) -> &'static str {
     match state {
-        AgentStatusState::Blocked | AgentStatusState::Waiting => "Jan - action required",
-        AgentStatusState::Working | AgentStatusState::Done => "Jan ready",
+        AgentStatusState::Blocked | AgentStatusState::Waiting => "Novera - action required",
+        AgentStatusState::Working | AgentStatusState::Done => "Novera ready",
     }
 }
 
@@ -217,19 +217,19 @@ mod tests {
     fn payload_carries_agent_type_and_state() {
         assert_eq!(
             agent_status_sequence(AgentStatusState::Working, None),
-            "\x1b]9999;{\"agentType\":\"jan\",\"state\":\"working\"}\x07"
+            "\x1b]9999;{\"agentType\":\"novera\",\"state\":\"working\"}\x07"
         );
         assert_eq!(
             agent_status_sequence(AgentStatusState::Done, None),
-            "\x1b]9999;{\"agentType\":\"jan\",\"state\":\"done\"}\x07"
+            "\x1b]9999;{\"agentType\":\"novera\",\"state\":\"done\"}\x07"
         );
         assert_eq!(
             agent_status_sequence(AgentStatusState::Blocked, None),
-            "\x1b]9999;{\"agentType\":\"jan\",\"state\":\"blocked\"}\x07"
+            "\x1b]9999;{\"agentType\":\"novera\",\"state\":\"blocked\"}\x07"
         );
         assert_eq!(
             agent_status_sequence(AgentStatusState::Waiting, None),
-            "\x1b]9999;{\"agentType\":\"jan\",\"state\":\"waiting\"}\x07"
+            "\x1b]9999;{\"agentType\":\"novera\",\"state\":\"waiting\"}\x07"
         );
     }
 
@@ -244,7 +244,7 @@ mod tests {
             payload["prompt"],
             serde_json::Value::String(prompt.to_string())
         );
-        assert_eq!(payload["agentType"], "jan");
+        assert_eq!(payload["agentType"], "novera");
         assert_eq!(payload["state"], "working");
     }
 
@@ -296,24 +296,24 @@ mod tests {
     #[test]
     fn titles_describe_agent_state() {
         // Working: animated indicator + "Jan".
-        assert!(title_sequence(AgentStatusState::Working, 0).contains(" Jan\x07"));
+        assert!(title_sequence(AgentStatusState::Working, 0).contains(" Novera\x07"));
         assert_eq!(
             title_sequence(AgentStatusState::Working, 0),
-            "\x1b]2;⠋ Jan\x07"
+            "\x1b]2;⠋ Novera\x07"
         );
         // Both kinds of input wait require user attention.
         assert_eq!(
             title_sequence(AgentStatusState::Blocked, 3),
-            "\x1b]2;Jan - action required\x07"
+            "\x1b]2;Novera - action required\x07"
         );
         assert_eq!(
             title_sequence(AgentStatusState::Waiting, 3),
-            "\x1b]2;Jan - action required\x07"
+            "\x1b]2;Novera - action required\x07"
         );
         // Idle: ready for another message.
         assert_eq!(
             title_sequence(AgentStatusState::Done, 3),
-            "\x1b]2;Jan ready\x07"
+            "\x1b]2;Novera ready\x07"
         );
     }
 
@@ -331,7 +331,7 @@ mod tests {
         reporter.animate();
         assert_eq!(
             title_sequence(AgentStatusState::Working, reporter.spinner_frame),
-            "\x1b]2;⠙ Jan\x07"
+            "\x1b]2;⠙ Novera\x07"
         );
         assert!(reporter.transition(AgentStatusState::Done, None).is_some());
         assert_eq!(reporter.spinner_frame, 0);

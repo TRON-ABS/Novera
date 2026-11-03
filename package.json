@@ -18,6 +18,7 @@
     "build:android:engine": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/build-engine.ps1",
     "test:android": "node --test scripts/android/__tests__/configure-project.test.mjs",
     "build:android:apk": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/build-apk.ps1",
+    "build:android:release": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/build-release.ps1",
     "prepare:updates": "node scripts/updates/novera-update.mjs",
     "test:updates": "node --test scripts/__tests__/novera-update.test.mjs",
     "package:portable:win32": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-windows-portable.ps1",

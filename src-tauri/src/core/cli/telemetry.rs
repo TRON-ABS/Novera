@@ -22,7 +22,7 @@ struct TelemetryState {
 }
 
 fn state_path() -> Option<PathBuf> {
-    Some(dirs::home_dir()?.join(".novera").join("cli_telemetry.json"))
+    Some(crate::core::agent::global_config::user_home_dir()?.join(".novera").join("cli_telemetry.json"))
 }
 
 fn load_state(path: &Path) -> TelemetryState {
@@ -58,7 +58,7 @@ pub(super) fn install_id() -> Option<String> {
     Some(id)
 }
 
-// "Jan Agent", not "Jan": lets the analytics backend tell this apart from a
+// "Novera Agent", not "Jan": lets the analytics backend tell this apart from a
 // desktop client, which sends "Jan/{version} (...)" (see
 // `custom_updater::build_user_agent`) -- both share the same version number,
 // so the client name is the only distinguishing signal in the request. The

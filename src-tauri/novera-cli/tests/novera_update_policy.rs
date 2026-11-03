@@ -24,7 +24,7 @@ fn compiled_update_policy_matches_the_selected_feature() {
 
 #[test]
 fn help_reports_novera_identity_configuration_and_actual_update_state() {
-    let output = Command::new(env!("CARGO_BIN_EXE_jan"))
+    let output = Command::new(env!("CARGO_BIN_EXE_novera"))
         .arg("--help")
         .output()
         .expect("candidate CLI help");
@@ -41,4 +41,8 @@ fn help_reports_novera_identity_configuration_and_actual_update_state() {
         assert!(help.contains(expected), "missing {expected}");
     }
     assert!(!help.contains("anonymous usage ping"));
+    assert!(help.contains("novera"));
+    for legacy in ["Usage: jan", "jan cli", "jan update", "~/.jan/", "JAN_API_KEY", "JAN_BASE_URL"] {
+        assert!(!help.contains(legacy), "legacy product identity in help: {legacy}");
+    }
 }

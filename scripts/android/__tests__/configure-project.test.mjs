@@ -62,6 +62,18 @@ test('aligns root and exported Kotlin versions, typed targets and pinned SDK too
   assert.ok(f.read('settings.gradle').includes("apply from: 'novera.settings.gradle'"))
   assert.ok(f.read('novera.settings.gradle').includes('plugin.class.protectionDomain.codeSource.location'))
   assert.ok(f.read('buildSrc/src/main/java/io/github/tronabs/novera/kotlin/BuildTask.kt').includes('execOperations.exec'))
+  assert.ok(f.read('app/src/main/AndroidManifest.xml').includes('android:networkSecurityConfig="@xml/network_security_config"'))
+  const network = f.read('app/src/main/res/xml/network_security_config.xml')
+  assert.ok(network.includes('<base-config cleartextTrafficPermitted="false" />'))
+  assert.ok(network.includes('<domain includeSubdomains="false">127.0.0.1</domain>'))
+  assert.ok(network.includes('<domain includeSubdomains="false">localhost</domain>'))
+  for (const density of ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi', 'xxxhdpi']) {
+    for (const name of ['ic_launcher.png', 'ic_launcher_round.png', 'ic_launcher_foreground.png']) {
+      const relative = `mipmap-${density}/${name}`
+      assert.deepEqual(fs.readFileSync(path.join(f.project, 'app/src/main/res', relative)),
+        fs.readFileSync(path.join(root, 'src-tauri/icons/android', relative)))
+    }
+  }
 })
 test('reconfiguration preserves generated content without duplicate blocks', t => {
   const f = fixture(t)
@@ -69,6 +81,34 @@ test('reconfiguration preserves generated content without duplicate blocks', t =
   const before = snapshot(f.project)
   f.run()
   assert.deepEqual(snapshot(f.project), before)
+})
+
+test('release packaging exports omitted consumer rules without changing registry sources', t => {
+  const f = fixture(t)
+  f.put(path.join(f.source, 'build.gradle.kts'), 'android { defaultConfig { consumerProguardFiles("consumer-rules.pro") } }\n')
+  f.put(path.join(f.source, 'proguard-rules.pro'), '-keep class example.Native { *; }\n')
+  f.run()
+  assert.equal(f.read('novera-plugins/example/consumer-rules.pro'), '-keep class example.Native { *; }\n')
+  assert.equal(fs.existsSync(path.join(f.source, 'consumer-rules.pro')), false)
+  const before = snapshot(f.project)
+  f.run()
+  assert.deepEqual(snapshot(f.project), before)
+})
+
+test('inlines and refreshes Cargo dependencies without an external Kotlin script or lint bypass', t => {
+  const f = fixture(t)
+  f.put(path.join(f.project, 'app/tauri.build.gradle.kts'), '// Generated\nval implementation by configurations\ndependencies { implementation(project(":example")) }\n')
+  f.put(path.join(f.project, 'app/build.gradle.kts'), f.read('app/build.gradle.kts') + '\napply(from = "tauri.build.gradle.kts")\n')
+  f.run()
+  assert.ok(!f.read('app/build.gradle.kts').includes('apply(from'))
+  assert.ok(f.read('app/build.gradle.kts').includes('implementation(project(":example"))'))
+  const before = snapshot(f.project)
+  f.run()
+  assert.deepEqual(snapshot(f.project), before)
+  f.put(path.join(f.project, 'app/tauri.build.gradle.kts'), 'dependencies { implementation(project(":changed")) }\n')
+  f.run('--plugins-only')
+  assert.ok(f.read('app/build.gradle.kts').includes('implementation(project(":changed"))'))
+  assert.ok(!f.read('app/build.gradle.kts').includes('implementation(project(":example"))'))
 })
 test('plugin refresh follows regenerated Cargo settings without editing the registry', t => {
   const f = fixture(t)

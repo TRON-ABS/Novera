@@ -52,7 +52,7 @@ export function versionPlan(directory, requested) {
   const next = requested ?? current
   parse(next)
   if (next !== current && compareVersions(next, current) <= 0) throw new Error('The next version must be strictly newer; build metadata alone is not an upgrade')
-  for (const [i, names, lock] of [[2, ['Novera'], false], [3, ['jan-cli'], false], [4, ['Novera'], true], [5, ['Novera', 'jan-cli'], true]]) {
+  for (const [i, names, lock] of [[2, ['Novera'], false], [3, ['novera-cli'], false], [4, ['Novera'], true], [5, ['Novera', 'novera-cli'], true]]) {
     files[i].after = replacePackageVersion(files[i].before, names, current, next, lock)
   }
   for (const i of [0, 1]) {

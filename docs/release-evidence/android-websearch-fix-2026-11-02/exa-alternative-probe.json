@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-02",
+  "environment": "maintainer Windows PC, not Android device",
+  "endpoint": "https://mcp.exa.ai/mcp",
+  "transport": "HTTPS POST, JSON-RPC tools/call, Accept application/json and text/event-stream",
+  "tool": "web_search_exa",
+  "query": "Tauri Android documentation",
+  "numResultsRequested": 3,
+  "apiKeyUsed": false,
+  "probeWithApplicationUserAgent": { "httpStatus": 200, "resultCount": 3 },
+  "probeWithoutUserAgentMatchingCurrentNativeProvider": {
+    "httpStatus": 200,
+    "contentType": "text/event-stream",
+    "isError": false,
+    "rateLimited": false,
+    "resultCount": 3,
+    "urls": [
+      "https://v2.tauri.app/reference/cli/",
+      "https://v2.tauri.app/develop/",
+      "https://v2.tauri.app/distribute/google-play/"
+    ]
+  },
+  "initialPythonLibraryUserAgentProbe": {
+    "httpStatus": 403,
+    "cloudflareError": 1010,
+    "limitation": "Python urllib supplies a library User-Agent that the installed native provider does not send; this probe is not representative of the installed client. No browser impersonation or challenge bypass was used."
+  },
+  "officialProviderDocumentation": "https://exa.ai/mcp",
+  "alreadyIncludedInInstalledApk": true,
+  "providerAutomaticallyChanged": false,
+  "phoneValidationPending": true
+}

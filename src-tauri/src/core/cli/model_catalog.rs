@@ -371,13 +371,13 @@ mod tests {
     use crate::core::agent::global_config::with_temp_home;
     use serde_json::json;
 
-    /// One entry in the shape the Jan Router serves: pricing as strings, window
+    /// One entry in the shape the Novera Router serves: pricing as strings, window
     /// and output cap as numbers.
     fn router_entry(id: &str) -> serde_json::Value {
         json!({
             "id": id,
             "object": "model",
-            "owned_by": "Jan Router",
+            "owned_by": "Novera Router",
             "model_display_name": "claude-opus-5",
             "pricing": {
                 "currency": "USD",

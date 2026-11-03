@@ -17,9 +17,10 @@
 | --- | --- |
 | Windows x64 | Public NSIS installer, signed updater; native installation and replacement verified. |
 | Linux x64 | Public AppImage, signed updater; native installation and replacement verified. |
-| Windows x64 / Linux x64 CLI | Public signed ZIPs; executable names remain `jan.exe` and `jan`. |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, with a dedicated signed update channel. |
 | Windows ARM64 | [Public NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), native CPU text engine; installation, replacement and public-channel checks verified. |
-| macOS, Android, iOS | Internal candidates; platform checks and/or signing access remain necessary. |
+| Android ARM64 | Signed APK in Huawei P20 testing; discussion and model retention confirmed after update. DuckDuckGo, hand icon, Desktop colors and keyboard fixes awaiting retest. [Status](docs/RELEASE_ANDROID_1.0.0.md). |
+| macOS, iOS | Apple access and final platform tests remain pending. [Follow-up](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portable | [Signed ZIP archive](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data stays in Data, signed Program replacement verified. |
 | Web, MSI, Debian | Hosted Web client and other formats remain internal; Pages presentation site is available. |
 

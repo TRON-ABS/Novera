@@ -151,7 +151,7 @@ pub fn resolve_jan_data_folder() -> PathBuf {
     // Explicit override wins on every platform. `dirs::data_dir()` reads
     // XDG_DATA_HOME only on Linux, so tests/headless consumers need a portable
     // way to redirect the data folder without relying on OS-specific env.
-    if let Ok(folder) = std::env::var("JAN_DATA_FOLDER") {
+    if let Ok(folder) = std::env::var("NOVERA_DATA_FOLDER").or_else(|_| std::env::var("JAN_DATA_FOLDER")) {
         if !folder.is_empty() {
             return PathBuf::from(folder);
         }

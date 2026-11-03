@@ -12,7 +12,7 @@ use std::{
 };
 
 const ENDPOINT: &str =
-    "https://github.com/TRON-ABS/Novera/releases/latest/download/latest-cli.json";
+    "https://github.com/TRON-ABS/Novera/releases/latest/download/latest-novera-cli.json";
 const MAX_ARCHIVE_BYTES: usize = 128 * 1024 * 1024;
 const MAX_BINARY_BYTES: u64 = 256 * 1024 * 1024;
 
@@ -91,7 +91,7 @@ fn reviewed_asset(manifest: &Manifest, current: &str, target: &str) -> Result<As
         .platforms
         .get(target)
         .ok_or("No CLI asset for this platform")?;
-    let expected=format!("https://github.com/TRON-ABS/Novera/releases/download/v{version}/Novera_CLI_{version}_{target}.zip");
+    let expected=format!("https://github.com/TRON-ABS/Novera/releases/download/v{version}-cli-novera/Novera_CLI_{version}_{target}.zip");
     if asset.url != expected {
         return Err("CLI asset must use the version-matched official Novera release URL".into());
     }
@@ -172,7 +172,7 @@ fn verify_native(bytes: &[u8], target: &str) -> Result<(), String> {
 }
 fn extract_binary(bytes: &[u8], version: &str, target: &str) -> Result<Vec<u8>, String> {
     let mut archive = zip::ZipArchive::new(Cursor::new(bytes)).map_err(|e| e.to_string())?;
-    let binary = if cfg!(windows) { "jan.exe" } else { "jan" };
+    let binary = if cfg!(windows) { "novera.exe" } else { "novera" };
     let mut found = None;
     let mut identity = None;
     for index in 0..archive.len() {
@@ -219,7 +219,7 @@ fn extract_binary(bytes: &[u8], version: &str, target: &str) -> Result<Vec<u8>, 
     }
     let data = found.ok_or("Signed CLI archive has no root executable")?;
     let identity = identity.ok_or("Signed CLI archive has no authenticated version identity")?;
-    if identity.format_version != 1
+    if identity.format_version != 2
         || identity.product != "Novera CLI"
         || identity.version != version
         || identity.platform != target
@@ -328,7 +328,7 @@ mod tests {
     const PROBE: &[u8] = include_bytes!("signed-update-fixtures/probe.bin");
     const SIG: &str = include_str!("signed-update-fixtures/probe.txt.sig");
     fn fixture() -> Manifest {
-        Manifest{version:"1.0.1".into(),platforms:BTreeMap::from([("linux-x86_64".into(),Asset{url:"https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/Novera_CLI_1.0.1_linux-x86_64.zip".into(),sha256:hex::encode(Sha256::digest(PROBE)),signature:SIG.trim().into()})])}
+        Manifest{version:"1.0.1".into(),platforms:BTreeMap::from([("linux-x86_64".into(),Asset{url:"https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-cli-novera/Novera_CLI_1.0.1_linux-x86_64.zip".into(),sha256:hex::encode(Sha256::digest(PROBE)),signature:SIG.trim().into()})])}
     }
     #[test]
     fn real_novera_signature_authenticates_the_committed_public_probe() {
@@ -389,13 +389,13 @@ mod tests {
             binary.resize(90, 0);
             binary[64..70].copy_from_slice(&[b'P', b'E', 0, 0, 0x64, 0x86]);
             binary[88..90].copy_from_slice(&[0x0b, 0x02]);
-            ("windows-x86_64", "jan.exe")
+            ("windows-x86_64", "novera.exe")
         } else {
             binary[..6].copy_from_slice(b"\x7fELF\x02\x01");
             binary[18] = 62;
-            ("linux-x86_64", "jan")
+            ("linux-x86_64", "novera")
         };
-        let identity = serde_json::json!({"formatVersion":1,"product":"Novera CLI",
+        let identity = serde_json::json!({"formatVersion":2,"product":"Novera CLI",
             "version":"1.0.1","platform":target,"binary":name,
             "binarySha256":hex::encode(Sha256::digest(&binary)),"commit":"a".repeat(40)});
         let mut writer = zip::ZipWriter::new(Cursor::new(Vec::new()));
@@ -429,7 +429,7 @@ mod tests {
         let temp = PathBuf::from(std::env::var_os("RUNNER_TEMP").unwrap()).canonicalize().unwrap();
         let root = temp.join(format!("novera-cli-validation-{}", uuid::Uuid::new_v4()));
         fs::create_dir(&root).unwrap();
-        let executable = root.join(if cfg!(windows) {"jan.exe"} else {"jan"});
+        let executable = root.join(if cfg!(windows) {"novera.exe"} else {"novera"});
         fs::write(&executable, b"old isolated executable witness").unwrap();
         let sentinel = root.join("profile-witness.txt");
         fs::write(&sentinel, b"isolated profile must survive").unwrap();

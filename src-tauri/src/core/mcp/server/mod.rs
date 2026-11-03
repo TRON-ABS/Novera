@@ -1,4 +1,4 @@
-//! Jan as an MCP *server*: the built-in agent toolset offered to any other
+//! Novera as an MCP *server*: the built-in agent toolset offered to any other
 //! agent that speaks MCP (Claude Code, Codex CLI, a custom orchestrator).
 //!
 //! This is the mirror of `core::mcp::helpers`, which consumes other people's
@@ -124,14 +124,14 @@ impl ServeOptions {
     }
 }
 
-/// The MCP server: Jan's built-in toolset behind a `ServerHandler`.
+/// The MCP server: Novera's built-in toolset behind a `ServerHandler`.
 ///
 /// Cheap to clone (an `Arc` and one path), which is what the Streamable HTTP
 /// transport needs -- it builds a fresh handler per session from a factory.
 #[derive(Debug, Clone)]
 pub struct JanToolServer {
     opts: Arc<ServeOptions>,
-    /// The Jan home, refused to every served tool whether or not `bash` is
+    /// The Novera home, refused to every served tool whether or not `bash` is
     /// sandboxed: a served client is a program, not a user at the terminal,
     /// and there is no one here to approve reaching keys or hooks.
     hidden_root: Option<std::path::PathBuf>,
@@ -230,7 +230,7 @@ impl JanToolServer {
         if !self.opts.served.is_served(name) {
             return (
                 format!(
-                    "ERROR: tool '{name}' is not served by this Jan MCP server. \
+                    "ERROR: tool '{name}' is not served by this Novera MCP server. \
                      Mutating filesystem tools and the shell are opt-in."
                 ),
                 Vec::new(),
@@ -257,7 +257,7 @@ impl JanToolServer {
             Decision::HardDeny(DenyReason::Hidden) => {
                 return (
                     format!(
-                        "ERROR: tool '{name}' was refused: the Jan home (~/.novera) is hidden. \
+                        "ERROR: tool '{name}' was refused: the Novera home (~/.novera) is hidden. \
                          Use the memory_* and skill_* tools instead."
                     ),
                     Vec::new(),
@@ -318,9 +318,9 @@ fn image_block(data_url: &str) -> Option<ContentBlock> {
 impl ServerHandler for JanToolServer {
     fn get_info(&self) -> ServerInfo {
         ServerInfo::new(ServerCapabilities::builder().enable_tools().build())
-            .with_server_info(Implementation::new("jan", env!("CARGO_PKG_VERSION")))
+            .with_server_info(Implementation::new("novera", env!("CARGO_PKG_VERSION")))
             .with_instructions(
-                "Jan's built-in agent tools, confined to one project root. Filesystem paths \
+                "Novera's built-in agent tools, confined to one project root. Filesystem paths \
                  are resolved against that root and a path escaping it is refused. Tools that \
                  would need an interactive approval return an error instead of blocking.",
             )

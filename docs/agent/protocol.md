@@ -1,4 +1,4 @@
-> Technical reference retained from the inherited CLI. The executable and protocol identifiers still use `jan`. Links to other retired guides point to their historical Git revision; see [local Novera CLI setup](../BUILD_AND_RELEASE.md#cli).
+> Technical reference retained from the inherited CLI. The executable and protocol identifiers still use `novera`. Links to other retired guides point to their historical Git revision; see [local Novera CLI setup](../BUILD_AND_RELEASE.md#cli).
 
 # Protocol Records
 
@@ -9,7 +9,7 @@ Use this reference when building your own client, debugging the channel, or gene
 
 | | RPC | stream-json |
 | --- | --- | --- |
-| Start command | `jan cli agent rpc` | `jan cli agent run --output-format stream-json --input-format stream-json` |
+| Start command | `novera cli agent rpc` | `novera cli agent run --output-format stream-json --input-format stream-json` |
 | Process lifetime | One process, multiple sessions, one active turn at a time | One process per run |
 | First exchange | `initialize` request, then `initialized` notification | The runtime emits `init` when setup succeeds |
 | During work | JSON-RPC requests and notifications such as `item/token` | Records with a `type`, such as `token` |
@@ -25,8 +25,8 @@ notification as a bare stream-json event. For normal application code, use the
 Generate the schema from the **same binary your client will run**:
 
 ```bash
-jan cli agent rpc-schema --out rpc-schema.json
-jan cli agent schema --out stream-schema.json
+novera cli agent rpc-schema --out rpc-schema.json
+novera cli agent schema --out stream-schema.json
 ```
 
 | Artifact | What to read |
@@ -46,7 +46,7 @@ use that run's `init` record. These are not interchangeable capability inventori
 
 The current ADKs use RPC. If your binary has no `rpc` command, update the nightly runtime.
 ACP is a separate protocol for editors, not another name for either of these. See
-[Editors (ACP)](https://github.com/TRON-ABS/Novera/blob/0990a25c7/docs/src/pages/docs/agent/acp.mdx) for the experimental `jan acp` server.
+[Editors (ACP)](https://github.com/TRON-ABS/Novera/blob/0990a25c7/docs/src/pages/docs/agent/acp.mdx) for the experimental `novera acp` server.
 
 
 See the [RPC command reference](./cli.md#rpc) for startup and session methods, and

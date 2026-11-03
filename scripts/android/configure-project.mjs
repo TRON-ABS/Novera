@@ -21,7 +21,7 @@ function managed(text, name, body) {
   if (start >= 0) {
     const finish = text.indexOf(end, start)
     if (finish < 0) throw new Error('Incomplete managed section: ' + name)
-    text = text.slice(0, start) + text.slice(finish + end.length)
+    return text.slice(0, start) + begin + '\n' + body + '\n' + end + text.slice(finish + end.length)
   }
   return text.trimEnd() + '\n\n' + begin + '\n' + body + '\n' + end + '\n'
 }
@@ -55,11 +55,38 @@ for (const match of read(settings).matchAll(pattern)) {
     }
   }
   const gradle = path.join(destination, 'build.gradle.kts')
-  if (fs.existsSync(gradle)) write(gradle, compilerOptions(read(gradle), 'JVM_1_8'))
+  if (fs.existsSync(gradle)) {
+    const pluginGradle = read(gradle)
+    // Some published Tauri plugins reference a consumer-rules.pro omitted from
+    // the crate. Export their existing project rules from the generated copy;
+    // the tauri-android consumer rules preserve annotated JNI/plugin methods.
+    for (const match of pluginGradle.matchAll(/consumerProguardFiles\("([^"]+)"\)/g)) {
+      const name = match[1]
+      if (path.basename(name) !== name) throw new Error('Unsupported consumer rules path')
+      const rules = path.join(destination, name)
+      if (!fs.existsSync(rules)) {
+        const existing = path.join(destination, 'proguard-rules.pro')
+        if (!fs.existsSync(existing)) throw new Error('Missing plugin consumer rules: ' + id)
+        write(rules, read(existing))
+      }
+    }
+    write(gradle, compilerOptions(pluginGradle, 'JVM_1_8'))
+  }
   mapping[id] = 'novera-plugins/' + id.slice(1)
 }
 if (!Object.keys(mapping).length) throw new Error('No Android Tauri plugins found.')
 write(path.join(project, 'novera-plugin-sources.json'), JSON.stringify(mapping, null, 2) + '\n')
+// AGP 9.4 lint's K2 visitor crashes on the separately applied generated Kotlin
+// dependency script (upstream b/561317331). Inline its declarative dependencies
+// and refresh them from Cargo on every settings hook; do not disable lint.
+const generatedDependencies = path.join(project, 'app/tauri.build.gradle.kts')
+if (fs.existsSync(generatedDependencies)) {
+  const body = read(generatedDependencies).replace(/^\/\/.*$/gm, '').replace(/^val implementation by configurations\s*$/gm, '').trim()
+  if (!/^dependencies\s*\{[\s\S]*\}$/.test(body)) throw new Error('Unsupported generated Tauri dependency script')
+  const appGradle = path.join(project, 'app/build.gradle.kts')
+  const appText = read(appGradle).replace(/^apply\(from\s*=\s*(?:file\()?"tauri\.build\.gradle\.kts"\)?\)\s*$/gm, '')
+  write(appGradle, managed(appText, 'TAURI DEPENDENCIES', body))
+}
 if (pluginsOnly) process.exit(0)
 
 const app = path.join(project, 'app/build.gradle.kts')
@@ -113,9 +140,19 @@ for (const [key, value] of [['allowBackup', 'false'], ['fullBackupContent', 'fal
   xml = expression.test(xml) ? xml.replace(expression, 'android:' + key + '="' + value + '"') : xml.replace('<application', '<application\n        android:' + key + '="' + value + '"')
 }
 write(manifest, xml)
+// Tauri init leaves its sample launcher in the generated project. Reapply the
+// existing Novera hand assets on every configuration, including round variants.
+fs.cpSync(path.join(repo, 'src-tauri/icons/android'), path.join(project, 'app/src/main/res'), { recursive: true })
+// Local inference uses authenticated HTTP on loopback. Keep remote traffic TLS-only.
+const security = path.join(project, 'app/src/main/res/xml/network_security_config.xml')
+write(security, '<?xml version="1.0" encoding="utf-8"?>\n<network-security-config>\n  <base-config cleartextTrafficPermitted="false" />\n  <domain-config cleartextTrafficPermitted="true">\n    <domain includeSubdomains="false">localhost</domain>\n    <domain includeSubdomains="false">127.0.0.1</domain>\n  </domain-config>\n</network-security-config>\n')
+xml = xml.replace(/\s+android:networkSecurityConfig="[^"]*"/g, '')
+xml = xml.replace('<application', '<application\n        android:networkSecurityConfig="@xml/network_security_config"')
+write(manifest, xml)
 write(path.join(project, 'app/src/main/res/xml/file_paths.xml'), '<?xml version="1.0" encoding="utf-8"?>\n<paths xmlns:android="http://schemas.android.com/apk/res/android">\n  <files-path name="novera_exports" path="exports/" />\n  <cache-path name="novera_export_cache" path="exports/" />\n</paths>\n')
 fs.mkdirSync(path.join(project, 'app/src/main/java/io/github/tronabs/novera/generated'), { recursive: true })
 write(path.join(project, 'app/src/main/assets/resources/LICENSE'), read(path.join(repo, 'LICENSE')))
+write(path.join(project, 'app/src/main/assets/resources/SIGNATURE.txt'), read(path.join(here, 'templates/SIGNATURE.txt')))
 
 // Cargo may regenerate tauri.settings.gradle on every native build. This hook survives it.
 const settingsMain = path.join(project, 'settings.gradle')

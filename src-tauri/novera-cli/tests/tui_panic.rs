@@ -3,7 +3,7 @@
 //! alternate screen, no mouse tracking, no Kitty keyboard protocol, cursor
 //! visible. An in-memory `TestBackend` cannot show this -- there is no real
 //! terminal underneath it, so nothing proves the escape sequences the panic
-//! hook emits ever reach a tty. This spawns the real `jan` binary under a
+//! hook emits ever reach a tty. This spawns the real `novera` binary under a
 //! real PTY (`nix::pty::openpty`) and reads back the raw bytes the binary wrote.
 //!
 //! unix-only: the panic hook and its terminal-mode sequences are written for
@@ -20,9 +20,9 @@ use nix::sys::termios::{tcgetattr, LocalFlags};
 
 /// A scratch `HOME` of our own, so the binary's "not signed in" first-run path
 /// runs (no provider configured, no network, no credentials) rather than
-/// touching a real `~/.jan`.
+/// touching a real `~/.novera`.
 fn scratch_home() -> std::path::PathBuf {
-    let dir = std::env::temp_dir().join(format!("jan-tui-panic-{}", std::process::id()));
+    let dir = std::env::temp_dir().join(format!("novera-tui-panic-{}", std::process::id()));
     std::fs::create_dir_all(&dir).unwrap();
     dir
 }
@@ -52,7 +52,7 @@ fn panic_after_raw_mode_leaves_the_terminal_clean() {
     let termios_probe = master.try_clone().expect("clone PTY master");
 
     let home = scratch_home();
-    let child = Command::new(env!("CARGO_BIN_EXE_jan"))
+    let child = Command::new(env!("CARGO_BIN_EXE_novera"))
         .env("HOME", &home)
         .env("JAN_CLI_NO_UPDATE_CHECK", "1")
         .env("JAN_TUI_PANIC_AFTER_RAW_MODE", "1")
@@ -64,7 +64,7 @@ fn panic_after_raw_mode_leaves_the_terminal_clean() {
         .stdout(Stdio::from(slave.try_clone().expect("clone PTY slave")))
         .stderr(Stdio::from(slave))
         .spawn()
-        .expect("spawn jan under the test PTY");
+        .expect("spawn novera under the test PTY");
 
     let reader = std::thread::spawn(move || {
         let mut output = Vec::new();
@@ -88,7 +88,7 @@ fn panic_after_raw_mode_leaves_the_terminal_clean() {
     let mut child = child;
     let deadline = Instant::now() + EXIT_DEADLINE;
     let status = loop {
-        if let Some(status) = child.try_wait().expect("poll the jan process") {
+        if let Some(status) = child.try_wait().expect("poll the novera process") {
             break Some(status);
         }
         if Instant::now() >= deadline {
@@ -102,7 +102,7 @@ fn panic_after_raw_mode_leaves_the_terminal_clean() {
     let text = String::from_utf8_lossy(&output);
     let Some(status) = status else {
         let _ = std::fs::remove_dir_all(&home);
-        panic!("jan did not exit within {EXIT_DEADLINE:?} of the induced panic: {text}");
+        panic!("novera did not exit within {EXIT_DEADLINE:?} of the induced panic: {text}");
     };
 
     let _ = std::fs::remove_dir_all(&home);

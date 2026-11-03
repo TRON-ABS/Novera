@@ -3,8 +3,9 @@
   "abi": "aarch64",
   "packageId": "io.github.tronabs.novera",
   "reviews": {
-    "mobileDependencies": false,
-    "mobilePermissions": false,
-    "mobileStorage": false
-  }
+    "mobileDependencies": true,
+    "mobilePermissions": true,
+    "mobileStorage": true
+  },
+  "reviewEvidence": "docs/ANDROID_RELEASE_REVIEW_2026-11-02.md"
 }

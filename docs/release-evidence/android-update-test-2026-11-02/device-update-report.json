@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-02",
+  "evidence": "maintainer report in the release conversation",
+  "device": "HUAWEI P20 / EML-L29",
+  "android": "10 / API 29",
+  "expectedFromVersionCode": 1000002,
+  "expectedToVersionCode": 1000003,
+  "installedVersionIndependentlyRead": false,
+  "apkUpdateInstalledReported": true,
+  "conversationRetainedReported": true,
+  "modelRetainedReported": true,
+  "model": "LFM3-1.7B",
+  "modelRespondsReported": true,
+  "conversationAndModelRetainedAfterRelaunchReported": true,
+  "publicReleaseTransitionTested": false,
+  "remainingIssue": "DuckDuckGo search displayed Permission denied, OS error 13, retried, then the model answered. A successful web search is not established by that response.",
+  "published": false
+}

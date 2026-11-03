@@ -1,0 +1,53 @@
+{
+  "launcherResourcesChecked": 5,
+  "allMatchExistingNoveraHand": true,
+  "verification": "AAPT resolves the compiled launcher resources; visible RGBA pixels and alpha match source assets exactly; only invisible RGB at alpha zero is normalized for AAPT PNG crunching",
+  "resources": [
+    {
+      "apkResource": "res/9w.png",
+      "matchingSource": "src-tauri\\icons\\android\\mipmap-mdpi\\ic_launcher.png",
+      "dimensions": [
+        48,
+        48
+      ],
+      "pixelSha256": "9b9a29cccd43caab54d1820cea0ac7eac749ea350ebee48fb465194e2c86a503"
+    },
+    {
+      "apkResource": "res/FS.png",
+      "matchingSource": "src-tauri\\icons\\android\\mipmap-xhdpi\\ic_launcher.png",
+      "dimensions": [
+        96,
+        96
+      ],
+      "pixelSha256": "34ea646ea845ea2d25a3842072b86441135ca77162cbbfc56c167eb7d4cbafe1"
+    },
+    {
+      "apkResource": "res/RJ.png",
+      "matchingSource": "src-tauri\\icons\\android\\mipmap-xxhdpi\\ic_launcher.png",
+      "dimensions": [
+        144,
+        144
+      ],
+      "pixelSha256": "fbc88517ae1632ba57cf20f4dd9b9090bc0debea5a414077f0395c72356d389c"
+    },
+    {
+      "apkResource": "res/o-.png",
+      "matchingSource": "src-tauri\\icons\\android\\mipmap-xxxhdpi\\ic_launcher.png",
+      "dimensions": [
+        192,
+        192
+      ],
+      "pixelSha256": "2ac01db897886a935b4695d157e105d6d01e335b27ba04520340bdf3f624c2f0"
+    },
+    {
+      "apkResource": "res/yn.png",
+      "matchingSource": "src-tauri\\icons\\android\\mipmap-hdpi\\ic_launcher.png",
+      "dimensions": [
+        49,
+        49
+      ],
+      "pixelSha256": "c49fdcd62495d6f0fba07ae63d103f3a6e10c19f948b18cb816149aa29eb7584"
+    }
+  ],
+  "phoneLauncherDisplayValidated": false
+}

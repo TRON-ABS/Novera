@@ -1,4 +1,4 @@
-//! Novera's headless CLI (historical executable name: jan).
+//! Novera's headless CLI (historical executable name: novera).
 //!
 //! Shares the Tauri-free core logic with the Novera desktop app; talks only to
 //! remote providers (no local inference, no GUI dependencies).
@@ -26,37 +26,37 @@ use std::fmt::Write as _;
 
 #[derive(Parser)]
 #[command(
-    name = "jan",
+    name = "novera",
     about = "Novera: chat with AI models in an interactive agent console",
-    long_about = "Novera CLI\n\nRunning `jan` with no arguments opens the interactive agent console (TUI),\n\
+    long_about = "Novera CLI\n\nRunning `novera` with no arguments opens the interactive agent console (TUI),\n\
 where you chat with a model that can run tools in your project.\n\n\
-The `jan cli` subcommand is the non-interactive fallback: run folder-based\n\
+The `novera cli` subcommand is the non-interactive fallback: run folder-based\n\
 agents headlessly and manage threads and providers.\n\n\
 Models are served by remote providers configured in ~/.novera/config.toml\n\
-(see `jan config set`), a project's agent.toml, or the Novera desktop app.\n\n\
+(see `novera config set`), a project's agent.toml, or the Novera desktop app.\n\n\
 A signed Novera channel is available only in builds compiled with signed-updates;\n\
 other builds refuse automatic updates. Publication also requires channel validation.\n\n\
 TRON-ABS\nThe art of Human with AI",
     after_help = "Examples:\n  \
-  jan                                                    # open the interactive agent console (TUI)\n  \
-  jan --safe                                             # TUI that asks before writes and commands\n  \
-  jan --task \"fix the failing test\"                      # seed the TUI with a first message\n  \
-  jan -c                                                 # resume the most recent session\n  \
-  jan --resume 3f7a91c2                                  # resume a session by id (or id prefix)\n  \
-  jan -c --fork-session                                  # branch the most recent session into a new one\n  \
-  jan --worktree                                         # work in a dedicated git worktree, not your checkout\n  \
-  jan cli agent run \"fix the failing test\"               # run the agent non-interactively\n  \
-  jan cli models list                                    # show every configured provider model\n  \
-  jan cli models refresh                                 # re-read every provider's model list\n  \
-  jan cli threads list                                   # list saved conversation threads\n  \
-  jan cli mcp list                                      # list configured MCP servers\n  \
-  jan cli mcp add my-server --command npx --arg -y --arg my-mcp \n  \
-  jan update                                             # install the latest build of this channel"
+  novera                                                    # open the interactive agent console (TUI)\n  \
+  novera --safe                                             # TUI that asks before writes and commands\n  \
+  novera --task \"fix the failing test\"                      # seed the TUI with a first message\n  \
+  novera -c                                                 # resume the most recent session\n  \
+  novera --resume 3f7a91c2                                  # resume a session by id (or id prefix)\n  \
+  novera -c --fork-session                                  # branch the most recent session into a new one\n  \
+  novera --worktree                                         # work in a dedicated git worktree, not your checkout\n  \
+  novera cli agent run \"fix the failing test\"               # run the agent non-interactively\n  \
+  novera cli models list                                    # show every configured provider model\n  \
+  novera cli models refresh                                 # re-read every provider's model list\n  \
+  novera cli threads list                                   # list saved conversation threads\n  \
+  novera cli mcp list                                      # list configured MCP servers\n  \
+  novera cli mcp add my-server --command npx --arg -y --arg my-mcp \n  \
+  novera update                                             # install the latest build of this channel"
 )]
 struct Cli {
     #[command(subcommand)]
     command: Option<Commands>,
-    /// Project root (its agent.toml lives in ~/.jan/projects/<slug>/) (bare TUI only)
+    /// Project root (its agent.toml lives in ~/.novera/projects/<slug>/) (bare TUI only)
     #[arg(long, default_value = ".")]
     project: String,
     /// Optional first message to seed the chat with (bare TUI only)
@@ -90,7 +90,7 @@ struct Cli {
 /// starts an agent.
 ///
 /// Two flags rather than one because the setting is also persistent
-/// (`sandbox` in `~/.jan/config.toml`, `[tools].sandbox` in agent.toml): with
+/// (`sandbox` in `~/.novera/config.toml`, `[tools].sandbox` in agent.toml): with
 /// only `--sandbox` there would be no way to run unconfined once, and a user who
 /// turned it on permanently would have to edit a file to get out of it.
 #[derive(Args, Clone, Copy)]
@@ -111,7 +111,7 @@ struct SandboxArgs {
 ///
 /// Two flags for the same reason `SandboxArgs` has two: the setting is also
 /// persistent (`[agent].worktree` in agent.toml, `worktree` in
-/// `~/.jan/config.toml`), so there has to be a way out of it for one run.
+/// `~/.novera/config.toml`), so there has to be a way out of it for one run.
 #[derive(Args, Clone, Copy)]
 struct WorktreeArgs {
     /// Work in a dedicated git worktree instead of the project directory
@@ -150,8 +150,8 @@ impl SandboxArgs {
     }
 }
 
-/// Session-resume selection, shared by the bare TUI and `jan cli agent run`.
-/// Threads are per-project (`~/.jan/projects/<slug>/threads`), so resuming from a
+/// Session-resume selection, shared by the bare TUI and `novera cli agent run`.
+/// Threads are per-project (`~/.novera/projects/<slug>/threads`), so resuming from a
 /// different working directory simply finds nothing there.
 #[derive(Args)]
 struct ResumeArgs {
@@ -172,7 +172,7 @@ impl ResumeArgs {
     }
 }
 
-/// Per-invocation cost limits for `jan cli agent run`. All three mirror the
+/// Per-invocation cost limits for `novera cli agent run`. All three mirror the
 /// engine's own semantics: an unpassed flag leaves the config files (or, for
 /// turns, nothing at all) in charge.
 ///
@@ -200,7 +200,7 @@ struct BudgetArgs {
     max_budget_usd: Option<f64>,
 }
 
-/// Same flags for `jan cli agent run`, which has a required positional TASK: a
+/// Same flags for `novera cli agent run`, which has a required positional TASK: a
 /// space-separated `--resume ID` would swallow the task, so the value form must
 /// be written `--resume=ID`.
 #[derive(Args)]
@@ -222,7 +222,7 @@ impl ResumeRunArgs {
     }
 }
 
-/// Top-level commands. Bare `jan` opens the interactive TUI; everything else
+/// Top-level commands. Bare `novera` opens the interactive TUI; everything else
 /// lives under the non-interactive `cli` fallback.
 #[derive(Subcommand)]
 enum Commands {
@@ -232,7 +232,7 @@ enum Commands {
         #[command(subcommand)]
         cmd: CliCommands,
     },
-    /// Sign in to Tokamak and save the API key to ~/.jan/config.toml
+    /// Sign in to Tokamak and save the API key to ~/.novera/config.toml
     #[command(display_order = 2)]
     Login {
         /// Skip the browser approval and paste an API key instead (the legacy flow)
@@ -248,7 +248,7 @@ enum Commands {
     /// Read recorded usage and spend from the provider's usage API
     #[command(display_order = 4)]
     Usage {
-        // Optional so bare `jan usage` answers "what have I spent" with the
+        // Optional so bare `novera usage` answers "what have I spent" with the
         // account summary. Unlike the TUI's bare `/usage` there is no session
         // to estimate here -- a one-shot command has run no requests -- so the
         // overview's local half does not exist and the account total is the
@@ -261,7 +261,7 @@ enum Commands {
         #[arg(long, global = true)]
         json: bool,
     },
-    /// Manage provider credentials in ~/.jan/config.toml (used by the TUI and CLI)
+    /// Manage provider credentials in ~/.novera/config.toml (used by the TUI and CLI)
     #[command(display_order = 5)]
     Config {
         #[command(subcommand)]
@@ -281,7 +281,7 @@ enum Commands {
     },
     /// Experimental: serve the agent over the Agent Client Protocol (ACP) on
     /// stdio, for Zed, JetBrains and other ACP clients. Hidden until it
-    /// graduates; needs JAN_EXPERIMENTAL_ACP=1 or `[experimental] acp = true`
+    /// graduates; needs NOVERA_EXPERIMENTAL_ACP=1 or `[experimental] acp = true`
     #[command(hide = true)]
     Acp {
         /// Sign in interactively and exit: what an ACP client runs for the
@@ -301,9 +301,9 @@ enum Commands {
     },
 }
 
-/// The server direction of MCP: Jan offered as a tool provider. The client
-/// direction (managing the servers Jan *connects to*) stays under
-/// `jan cli mcp`.
+/// The server direction of MCP: Novera offered as a tool provider. The client
+/// direction (managing the servers Novera *connects to*) stays under
+/// `novera cli mcp`.
 #[derive(Subcommand)]
 enum McpServeCommands {
     /// Run an MCP server exposing Jan's built-in tools for one project
@@ -334,7 +334,7 @@ enum McpServeCommands {
 
 /// Reads against the provider's usage API.
 ///
-/// Deliberately a sibling of `jan auth` rather than a mode of the agent: these
+/// Deliberately a sibling of `novera auth` rather than a mode of the agent: these
 /// are account-level questions about money, answered by the server, and none of
 /// them runs a model or touches a project. Every one of them reports figures
 /// the provider recorded -- not the local per-session estimate the TUI's bare
@@ -401,10 +401,10 @@ enum PluginCommands {
     },
 }
 
-/// The non-interactive command surface, reached via `jan cli <command>`.
+/// The non-interactive command surface, reached via `novera cli <command>`.
 #[derive(Subcommand)]
 enum CliCommands {
-    /// List and inspect conversation threads saved by the Jan app
+    /// List and inspect conversation threads saved by the Novera app
     #[command(display_order = 10)]
     Threads {
         #[command(subcommand)]
@@ -439,10 +439,10 @@ struct ProviderArgs {
     /// Target a single provider (e.g. anthropic); required to synthesize creds from flags alone
     #[arg(long)]
     provider: Option<String>,
-    /// API key for the target provider (else JAN_API_KEY / <PROVIDER>_API_KEY)
+    /// API key for the target provider (else NOVERA_API_KEY / <PROVIDER>_API_KEY)
     #[arg(long)]
     api_key: Option<String>,
-    /// Base URL for the --provider named, e.g. a gateway (else JAN_BASE_URL)
+    /// Base URL for the --provider named, e.g. a gateway (else NOVERA_BASE_URL)
     #[arg(
         long,
         value_name = "URL",
@@ -486,7 +486,7 @@ impl ProviderArgs {
 enum AgentCommands {
     /// Run the agent loop to completion, or to a --max-turns cap
     Run {
-        /// Project root (its agent.toml lives in ~/.jan/projects/<slug>/)
+        /// Project root (its agent.toml lives in ~/.novera/projects/<slug>/)
         #[arg(long, default_value = ".")]
         project: String,
         /// The task/prompt for the agent
@@ -526,7 +526,7 @@ enum AgentCommands {
         /// `--input-format stream-json`
         #[arg(long, value_name = "FILE")]
         host_tools: Option<String>,
-        /// The host approves its own tool calls: Jan raises no
+        /// The host approves its own tool calls: Novera raises no
         /// `permission_request` for any host tool (built-ins are unaffected).
         /// For a host whose `tool_request` handler is itself the approval
         /// step; requires `--host-tools`
@@ -535,7 +535,7 @@ enum AgentCommands {
     },
     /// Run a single turn (debugging)
     Step {
-        /// Project root (its agent.toml lives in ~/.jan/projects/<slug>/)
+        /// Project root (its agent.toml lives in ~/.novera/projects/<slug>/)
         #[arg(long, default_value = ".")]
         project: String,
         /// The task/prompt for the agent
@@ -553,7 +553,7 @@ enum AgentCommands {
     },
     /// Print resolved project config and available providers as JSON
     Status {
-        /// Project root (its agent.toml lives in ~/.jan/projects/<slug>/)
+        /// Project root (its agent.toml lives in ~/.novera/projects/<slug>/)
         #[arg(long, default_value = ".")]
         project: String,
         #[command(flatten)]
@@ -577,8 +577,8 @@ enum AgentCommands {
     },
 }
 
-/// Read/write the user-wide `~/.jan/config.toml` provider store. This is the
-/// self-sufficient config surface for a standalone Jan Agent: every command is
+/// Read/write the user-wide `~/.novera/config.toml` provider store. This is the
+/// self-sufficient config surface for a standalone Novera Agent: every command is
 /// headless and persists across runs.
 #[derive(Subcommand)]
 enum AgentConfigCommands {
@@ -760,7 +760,7 @@ async fn main() {
     }))
     .init();
 
-    // Inference requests name this client, so a gateway can tell Jan Agent's
+    // Inference requests name this client, so a gateway can tell Novera Agent's
     // traffic from the desktop's, which sends none. Set before anything sends.
     app_lib::core::agent::request_headers::set_user_agent(app_lib::core::cli::telemetry::user_agent(
         app_lib::core::cli::updater::build_version(),
@@ -808,12 +808,12 @@ async fn main() {
         return;
     };
 
-    // `jan update` reports the same thing itself, in more detail. The check
+    // `novera update` reports the same thing itself, in more detail. The check
     // doubles as the usage record (see `updater::fetch_manifest`), so there is
-    // no separate ping to fire here; `JAN_CLI_NO_UPDATE_CHECK` opts out of both.
-    // `jan mcp serve` is driven by another program, not a person: nobody reads
+    // no separate ping to fire here; `NOVERA_CLI_NO_UPDATE_CHECK` opts out of both.
+    // `novera mcp serve` is driven by another program, not a person: nobody reads
     // the notice, and an update fetch on every spawn is a cost the peer pays.
-    // `jan cli agent rpc` is the same deal - the peer owns the process, and a
+    // `novera cli agent rpc` is the same deal - the peer owns the process, and a
     // notice on stdout would land inside the protocol channel.
     if !matches!(
         command,
@@ -865,7 +865,7 @@ async fn main() {
 
 // ── ACP server handler ─────────────────────────────────────────────────────
 
-/// `jan acp`. Refused before anything reads stdin unless the experimental
+/// `novera acp`. Refused before anything reads stdin unless the experimental
 /// opt-in is on, so a client pointed at it by mistake gets a clear error on
 /// stderr and an exit rather than a half-open protocol channel.
 async fn handle_acp(login: bool) {
@@ -874,7 +874,7 @@ async fn handle_acp(login: bool) {
         eprintln!("Error: {}", acp::DISABLED_MESSAGE);
         std::process::exit(2);
     }
-    // The terminal auth method: the client relaunches `jan acp --login` in a
+    // The terminal auth method: the client relaunches `novera acp --login` in a
     // terminal it shows the user, and a zero exit means signed in.
     let result = if login {
         app_lib::core::cli::login::run_login(false).await
@@ -1184,7 +1184,7 @@ fn exit_code(error: &str) -> i32 {
     }
 }
 
-/// `jan usage` handler: read recorded spend from the provider's usage API.
+/// `novera usage` handler: read recorded spend from the provider's usage API.
 ///
 /// Every view goes through one fetch so failures, timeouts and the not-signed-in
 /// case are reported identically regardless of which endpoint was asked for. A
@@ -1236,14 +1236,14 @@ async fn handle_usage(cmd: Option<UsageCommands>, json: bool) -> Result<(), Stri
     Ok(())
 }
 
-/// `jan auth` handler: report sign-in state or sign out.
+/// `novera auth` handler: report sign-in state or sign out.
 async fn handle_auth(cmd: AuthCommands) -> Result<(), String> {
     use app_lib::core::cli::tokamak;
     match cmd {
         AuthCommands::Status => {
             let status = tokamak::auth_status();
             if !status.signed_in {
-                println!("Not signed in to Tokamak. Run `jan login`.");
+                println!("Not signed in to Tokamak. Run `novera login`.");
                 return Ok(());
             }
             println!("Signed in to Tokamak");
@@ -1265,7 +1265,7 @@ async fn handle_auth(cmd: AuthCommands) -> Result<(), String> {
             }
             match tokamak::live_valid().await {
                 Some(true) => println!("  valid:        yes"),
-                Some(false) => println!("  valid:        no (re-run `jan login`)"),
+                Some(false) => println!("  valid:        no (re-run `novera login`)"),
                 None => println!("  valid:        could not reach upstream"),
             }
             if let Some(warning) = tokamak::expiry_warning() {
@@ -1573,15 +1573,15 @@ mod tests {
     use super::*;
 
     // `--plan` is a per-invocation startup toggle mirroring `--safe`; it must
-    // parse on the top-level `jan` command and default off.
+    // parse on the top-level `novera` command and default off.
     #[test]
     fn top_level_plan_flag_parses() {
-        let cli = Cli::parse_from(["jan", "--plan"]);
+        let cli = Cli::parse_from(["novera", "--plan"]);
         assert!(cli.plan);
         assert!(!cli.safe);
         assert!(cli.command.is_none());
 
-        let cli = Cli::parse_from(["jan"]);
+        let cli = Cli::parse_from(["novera"]);
         assert!(!cli.plan);
     }
 
@@ -1589,13 +1589,13 @@ mod tests {
     // default, and `--safe` is what turns the gate back on.
     #[test]
     fn safe_flag_parses_and_defaults_off() {
-        assert!(!Cli::parse_from(["jan"]).safe);
-        assert!(Cli::parse_from(["jan", "--safe"]).safe);
+        assert!(!Cli::parse_from(["novera"]).safe);
+        assert!(Cli::parse_from(["novera", "--safe"]).safe);
     }
 
-    /// Parse `jan cli agent run <task> <extra...>` and pull out its budget args.
+    /// Parse `novera cli agent run <task> <extra...>` and pull out its budget args.
     fn parsed_budget(extra: &[&str]) -> BudgetArgs {
-        let mut argv = vec!["jan", "cli", "agent", "run", "task"];
+        let mut argv = vec!["novera", "cli", "agent", "run", "task"];
         argv.extend_from_slice(extra);
         match Cli::parse_from(argv).command {
             Some(Commands::Cli {
@@ -1641,9 +1641,9 @@ mod tests {
         );
     }
 
-    /// Parse `jan cli agent run <task> <extra...>` and pull out its input format.
+    /// Parse `novera cli agent run <task> <extra...>` and pull out its input format.
     fn parsed_input_format(extra: &[&str]) -> InputFormat {
-        let mut argv = vec!["jan", "cli", "agent", "run", "task"];
+        let mut argv = vec!["novera", "cli", "agent", "run", "task"];
         argv.extend_from_slice(extra);
         match Cli::parse_from(argv).command {
             Some(Commands::Cli {
@@ -1666,7 +1666,7 @@ mod tests {
             InputFormat::StreamJson
         );
         assert!(Cli::try_parse_from([
-            "jan",
+            "novera",
             "cli",
             "agent",
             "run",
@@ -1677,9 +1677,9 @@ mod tests {
         .is_err());
     }
 
-    /// Parse `jan cli agent run <task> <extra...>` and pull out its host gate.
+    /// Parse `novera cli agent run <task> <extra...>` and pull out its host gate.
     fn parsed_host_gate(extra: &[&str]) -> bool {
-        let mut argv = vec!["jan", "cli", "agent", "run", "task"];
+        let mut argv = vec!["novera", "cli", "agent", "run", "task"];
         argv.extend_from_slice(extra);
         match Cli::parse_from(argv).command {
             Some(Commands::Cli {
@@ -1698,12 +1698,12 @@ mod tests {
     fn host_gate_is_off_by_default_and_requires_host_tools() {
         assert!(!parsed_host_gate(&["--host-tools", "tools.json"]));
         assert!(parsed_host_gate(&["--host-tools", "tools.json", "--host-gate"]));
-        assert!(Cli::try_parse_from(["jan", "cli", "agent", "run", "task", "--host-gate"]).is_err());
+        assert!(Cli::try_parse_from(["novera", "cli", "agent", "run", "task", "--host-gate"]).is_err());
     }
 
-    /// Parse `jan cli agent run <task> <extra...>` and pull out its output format.
+    /// Parse `novera cli agent run <task> <extra...>` and pull out its output format.
     fn parsed_output_format(extra: &[&str]) -> OutputFormat {
-        let mut argv = vec!["jan", "cli", "agent", "run", "task"];
+        let mut argv = vec!["novera", "cli", "agent", "run", "task"];
         argv.extend_from_slice(extra);
         match Cli::parse_from(argv).command {
             Some(Commands::Cli {
@@ -1732,7 +1732,7 @@ mod tests {
             OutputFormat::Text
         );
         assert!(Cli::try_parse_from([
-            "jan",
+            "novera",
             "cli",
             "agent",
             "run",
@@ -1747,7 +1747,7 @@ mod tests {
     /// provider: it prints a document derived from the types alone.
     #[test]
     fn schema_parses_with_and_without_an_output_path() {
-        let cli = Cli::parse_from(["jan", "cli", "agent", "schema"]);
+        let cli = Cli::parse_from(["novera", "cli", "agent", "schema"]);
         let Some(Commands::Cli {
             cmd:
                 CliCommands::Agent {
@@ -1759,7 +1759,7 @@ mod tests {
         };
         assert_eq!(out, None);
 
-        let cli = Cli::parse_from(["jan", "cli", "agent", "schema", "--out", "protocol/schema.json"]);
+        let cli = Cli::parse_from(["novera", "cli", "agent", "schema", "--out", "protocol/schema.json"]);
         let Some(Commands::Cli {
             cmd:
                 CliCommands::Agent {
@@ -1774,9 +1774,9 @@ mod tests {
 
     #[test]
     fn acp_parses_and_stays_out_of_help() {
-        let cli = Cli::parse_from(["jan", "acp"]);
+        let cli = Cli::parse_from(["novera", "acp"]);
         assert!(matches!(cli.command, Some(Commands::Acp { login: false })));
-        let cli = Cli::parse_from(["jan", "acp", "--login"]);
+        let cli = Cli::parse_from(["novera", "acp", "--login"]);
         assert!(matches!(cli.command, Some(Commands::Acp { login: true })));
         // Experimental: callable, but not offered in `--help` until it graduates.
         let help = Cli::command().render_help().to_string();
@@ -1788,7 +1788,7 @@ mod tests {
     /// `rpc-schema --out` is the only flag between them.
     #[test]
     fn rpc_subcommands_parse() {
-        let cli = Cli::parse_from(["jan", "cli", "agent", "rpc"]);
+        let cli = Cli::parse_from(["novera", "cli", "agent", "rpc"]);
         assert!(matches!(
             cli.command,
             Some(Commands::Cli {
@@ -1798,7 +1798,7 @@ mod tests {
             })
         ));
 
-        let cli = Cli::parse_from(["jan", "cli", "agent", "rpc-schema"]);
+        let cli = Cli::parse_from(["novera", "cli", "agent", "rpc-schema"]);
         let Some(Commands::Cli {
             cmd:
                 CliCommands::Agent {
@@ -1811,7 +1811,7 @@ mod tests {
         assert_eq!(out, None);
 
         let cli = Cli::parse_from([
-            "jan",
+            "novera",
             "cli",
             "agent",
             "rpc-schema",
@@ -1846,7 +1846,7 @@ mod tests {
 
     #[test]
     fn update_command_parses() {
-        let cli = Cli::parse_from(["jan", "update"]);
+        let cli = Cli::parse_from(["novera", "update"]);
         assert!(matches!(
             cli.command,
             Some(Commands::Update {
@@ -1854,17 +1854,17 @@ mod tests {
                 force: false
             })
         ));
-        let cli = Cli::parse_from(["jan", "update", "--check"]);
+        let cli = Cli::parse_from(["novera", "update", "--check"]);
         assert!(matches!(
             cli.command,
             Some(Commands::Update { check: true, .. })
         ));
-        assert!(Cli::try_parse_from(["jan", "update", "--check", "--force"]).is_err());
+        assert!(Cli::try_parse_from(["novera", "update", "--check", "--force"]).is_err());
     }
 
     #[test]
     fn mcp_serve_parses_and_defaults_to_read_only_stdio() {
-        let cli = Cli::parse_from(["jan", "mcp", "serve"]);
+        let cli = Cli::parse_from(["novera", "mcp", "serve"]);
         let Some(Commands::Mcp {
             cmd: McpServeCommands::Serve {
                 project,
@@ -1891,7 +1891,7 @@ mod tests {
     #[test]
     fn mcp_serve_http_flags_parse() {
         let cli = Cli::parse_from([
-            "jan",
+            "novera",
             "mcp",
             "serve",
             "--transport",
@@ -1929,10 +1929,10 @@ mod tests {
         assert_eq!(token.as_deref(), Some("abc"));
     }
 
-    /// The client direction keeps its own place; `jan mcp` must not shadow it.
+    /// The client direction keeps its own place; `novera mcp` must not shadow it.
     #[test]
     fn mcp_client_subcommand_still_lives_under_cli() {
-        let cli = Cli::parse_from(["jan", "cli", "mcp", "list"]);
+        let cli = Cli::parse_from(["novera", "cli", "mcp", "list"]);
         assert!(matches!(
             cli.command,
             Some(Commands::Cli {
@@ -1945,17 +1945,17 @@ mod tests {
 
     #[test]
     fn login_command_parses_and_takes_no_args() {
-        let cli = Cli::parse_from(["jan", "login"]);
+        let cli = Cli::parse_from(["novera", "login"]);
         assert!(matches!(
             cli.command,
             Some(Commands::Login { paste_token: false })
         ));
-        assert!(Cli::try_parse_from(["jan", "login", "sk-key"]).is_err());
+        assert!(Cli::try_parse_from(["novera", "login", "sk-key"]).is_err());
     }
 
     #[test]
     fn login_command_accepts_paste_token_flag() {
-        let cli = Cli::parse_from(["jan", "login", "--paste-token"]);
+        let cli = Cli::parse_from(["novera", "login", "--paste-token"]);
         assert!(matches!(
             cli.command,
             Some(Commands::Login { paste_token: true })
@@ -1964,14 +1964,14 @@ mod tests {
 
     #[test]
     fn auth_subcommands_parse() {
-        let cli = Cli::parse_from(["jan", "auth", "status"]);
+        let cli = Cli::parse_from(["novera", "auth", "status"]);
         assert!(matches!(
             cli.command,
             Some(Commands::Auth {
                 cmd: AuthCommands::Status
             })
         ));
-        let cli = Cli::parse_from(["jan", "auth", "logout"]);
+        let cli = Cli::parse_from(["novera", "auth", "logout"]);
         assert!(matches!(
             cli.command,
             Some(Commands::Auth {
@@ -1983,7 +1983,7 @@ mod tests {
     #[test]
     fn usage_subcommands_parse() {
         let view = |argv: &[&str]| {
-            let mut full = vec!["jan", "usage"];
+            let mut full = vec!["novera", "usage"];
             full.extend_from_slice(argv);
             match Cli::parse_from(full).command {
                 Some(Commands::Usage { cmd, .. }) => cmd,
@@ -2004,22 +2004,22 @@ mod tests {
             }
             _ => panic!("expected a correlation lookup"),
         }
-        // Bare `jan usage` is the account summary: with no session to
+        // Bare `novera usage` is the account summary: with no session to
         // estimate, the recorded total is the only answer there is.
         assert!(view(&[]).is_none(), "the subcommand is optional");
     }
 
-    /// An id is required, not optional: a bare `jan usage generation` would
+    /// An id is required, not optional: a bare `novera usage generation` would
     /// otherwise have to invent one.
     #[test]
     fn a_generation_lookup_requires_an_id() {
-        assert!(Cli::try_parse_from(["jan", "usage", "generation"]).is_err());
-        assert!(Cli::try_parse_from(["jan", "usage", "correlate"]).is_err());
+        assert!(Cli::try_parse_from(["novera", "usage", "generation"]).is_err());
+        assert!(Cli::try_parse_from(["novera", "usage", "correlate"]).is_err());
     }
 
     #[test]
     fn usage_json_flag_parses_after_the_subcommand() {
-        let cli = Cli::parse_from(["jan", "usage", "account", "--json"]);
+        let cli = Cli::parse_from(["novera", "usage", "account", "--json"]);
         assert!(matches!(
             cli.command,
             Some(Commands::Usage {
@@ -2027,7 +2027,7 @@ mod tests {
                 json: true
             })
         ));
-        let cli = Cli::parse_from(["jan", "usage", "account"]);
+        let cli = Cli::parse_from(["novera", "usage", "account"]);
         assert!(matches!(
             cli.command,
             Some(Commands::Usage {
@@ -2037,9 +2037,9 @@ mod tests {
         ));
     }
 
-    /// Parse a `jan cli mcp <cmd> <extra...>` argv and pull out the subcommand.
+    /// Parse a `novera cli mcp <cmd> <extra...>` argv and pull out the subcommand.
     fn parsed_mcp(extra: &[&str]) -> McpCommands {
-        let mut argv = vec!["jan", "cli", "mcp"];
+        let mut argv = vec!["novera", "cli", "mcp"];
         argv.extend_from_slice(extra);
         match Cli::parse_from(argv).command {
             Some(Commands::Cli {
@@ -2129,7 +2129,7 @@ mod tests {
     }
     #[test]
     fn plugin_list_defaults_to_compact_output_and_supports_json() {
-        let cli = Cli::try_parse_from(["jan", "plugin", "list"]).unwrap();
+        let cli = Cli::try_parse_from(["novera", "plugin", "list"]).unwrap();
         assert!(matches!(
             cli.command,
             Some(Commands::Plugin {
@@ -2137,7 +2137,7 @@ mod tests {
             }) if project == "." && !json
         ));
 
-        let cli = Cli::try_parse_from(["jan", "plugin", "list", "--json"]).unwrap();
+        let cli = Cli::try_parse_from(["novera", "plugin", "list", "--json"]).unwrap();
         assert!(matches!(
             cli.command,
             Some(Commands::Plugin {
@@ -2208,7 +2208,7 @@ mod tests {
     #[test]
     fn base_url_parses_beside_provider_and_requires_it() {
         let cli = Cli::parse_from([
-            "jan",
+            "novera",
             "--provider",
             "tokamak",
             "--base-url",
@@ -2221,7 +2221,7 @@ mod tests {
         );
         for sub in ["run", "step"] {
             let cli = Cli::parse_from([
-                "jan",
+                "novera",
                 "cli",
                 "agent",
                 sub,
@@ -2245,11 +2245,11 @@ mod tests {
             assert_eq!(providers.base_url.as_deref(), Some("http://localhost:8080/v1"));
         }
         assert!(
-            Cli::try_parse_from(["jan", "--base-url", "https://gw.example/v1"]).is_err(),
+            Cli::try_parse_from(["novera", "--base-url", "https://gw.example/v1"]).is_err(),
             "no --provider to scope it to"
         );
         assert!(Cli::try_parse_from([
-            "jan",
+            "novera",
             "--provider",
             "gw",
             "--base-url",

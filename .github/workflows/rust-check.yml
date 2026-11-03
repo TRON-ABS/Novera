@@ -170,7 +170,7 @@ jobs:
         run: |
           cd src-tauri/novera-cli
           cargo run --quiet --locked --no-default-features --features cli \
-            --bin jan -- cli agent schema --out ../../protocol/schema.json
+            --bin novera -- cli agent schema --out ../../protocol/schema.json
 
       # The RPC artifact is the same kind of file for the other surface, and its
       # guard lives in this job rather than its own: one build, one cache, and
@@ -179,7 +179,7 @@ jobs:
         run: |
           cd src-tauri/novera-cli
           cargo run --quiet --locked --no-default-features --features cli \
-            --bin jan -- cli agent rpc-schema --out ../../protocol/rpc-schema.json
+            --bin novera -- cli agent rpc-schema --out ../../protocol/rpc-schema.json
 
       - name: Fail on drift
         run: |
@@ -203,7 +203,7 @@ jobs:
   # crate compiles them as path dependencies but never lints them. No --locked
   # here: Cargo.lock is gitignored and only some of these crates commit one.
   #
-  # jan-cli is standalone the same way, but depends on app_lib rather than the
+  # novera-cli is standalone the same way, but depends on app_lib rather than the
   # reverse, so the app matrix never reaches it either. Its include entry adds
   # what it differs by: it commits a Cargo.lock (so --locked), it only builds
   # with the cli feature, that feature is Tauri-free (no system libraries), and
@@ -281,7 +281,7 @@ jobs:
       - name: Build the jan runtime
         run: |
           cargo build --locked --manifest-path src-tauri/novera-cli/Cargo.toml \
-            --no-default-features --features cli --bin jan
+            --no-default-features --features cli --bin novera
           echo "JAN_BIN=$PWD/src-tauri/novera-cli/target/debug/jan" >> "$GITHUB_ENV"
 
       # For the ADK's own type-check. The suite itself needs no dependency: the

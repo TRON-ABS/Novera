@@ -1,0 +1,2 @@
+444fa49ddb070d73d1de49bb29e7e6380636547ea2c3dcac4e1fb417523e8b86  Novera_1.0.0_android-arm64-update-test-start.apk
+b2ed854d01b072c7b5204b9680cfe9212032cd3d89c7d09cd4ac6e6afd5896b3  Novera_1.0.0_android-arm64.apk

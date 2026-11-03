@@ -27,12 +27,16 @@ on:
         type: boolean
         default: false
         required: true
+      macos_distribution:
+        description: Require Developer ID signing, notarization and matching DMG/updater bundles (target=macos, signed_updates=true)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 concurrency:
-  group: novera-candidates-${{ github.ref }}-${{ inputs.target }}-${{ inputs.signed_updates }}
+  group: novera-candidates-${{ github.ref }}-${{ inputs.target }}-${{ inputs.signed_updates }}-${{ inputs.macos_distribution }}
   cancel-in-progress: true
 
 env:
@@ -56,6 +60,21 @@ jobs:
         with:
           node-version: 24
           package-manager-cache: false
+      - name: Check Apple distribution prerequisites before native compilation
+        if: inputs.macos_distribution
+        env:
+          REQUESTED: ${{ inputs.target }}
+          NOVERA_MACOS_DISTRIBUTION: ${{ inputs.macos_distribution && 'true' || 'false' }}
+          NOVERA_ENABLE_UPDATER: ${{ inputs.signed_updates && 'true' || 'false' }}
+          APPLE_CERTIFICATE: ${{ secrets.NOVERA_APPLE_CERTIFICATE }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.NOVERA_APPLE_CERTIFICATE_PASSWORD }}
+          APPLE_SIGNING_IDENTITY: ${{ secrets.NOVERA_APPLE_SIGNING_IDENTITY }}
+          APPLE_ID: ${{ secrets.NOVERA_APPLE_ID }}
+          APPLE_PASSWORD: ${{ secrets.NOVERA_APPLE_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.NOVERA_APPLE_TEAM_ID }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.NOVERA_UPDATER_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.NOVERA_UPDATER_PASSWORD }}
+        run: node scripts/distribution/macos-distribution.mjs preflight
       - name: Verify version, distribution and update contracts
         shell: bash
         run: |
@@ -66,6 +85,9 @@ jobs:
           python3 -m unittest discover -s scripts/distribution/checks -p 'test_*.py'
           node --test scripts/distribution/__tests__/verify-public-release.test.mjs
           node --test scripts/distribution/__tests__/windows-update-ui.test.mjs
+          node --test scripts/distribution/__tests__/macos-distribution.test.mjs
+          node --test scripts/distribution/__tests__/verify-cli-public.test.mjs
+          python3 -m unittest discover -s scripts/android/__tests__ -p 'test_*.py'
       - name: Retain source-check results
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2, Node 24
@@ -190,6 +212,14 @@ jobs:
           CANDIDATE_ARCH: ${{ matrix.arch }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ inputs.signed_updates && secrets.NOVERA_UPDATER_PRIVATE_KEY || '' }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ inputs.signed_updates && secrets.NOVERA_UPDATER_PASSWORD || '' }}
+          REQUESTED: ${{ inputs.target }}
+          NOVERA_MACOS_DISTRIBUTION: ${{ inputs.macos_distribution && 'true' || 'false' }}
+          APPLE_CERTIFICATE: ${{ inputs.macos_distribution && secrets.NOVERA_APPLE_CERTIFICATE || '' }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ inputs.macos_distribution && secrets.NOVERA_APPLE_CERTIFICATE_PASSWORD || '' }}
+          APPLE_SIGNING_IDENTITY: ${{ inputs.macos_distribution && secrets.NOVERA_APPLE_SIGNING_IDENTITY || '' }}
+          APPLE_ID: ${{ inputs.macos_distribution && secrets.NOVERA_APPLE_ID || '' }}
+          APPLE_PASSWORD: ${{ inputs.macos_distribution && secrets.NOVERA_APPLE_PASSWORD || '' }}
+          APPLE_TEAM_ID: ${{ inputs.macos_distribution && secrets.NOVERA_APPLE_TEAM_ID || '' }}
         run: bash scripts/distribution/ci-build.sh desktop
       - name: Retain candidates and checksums
         if: steps.selection.outputs.selected == 'true' && success()

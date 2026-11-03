@@ -6,7 +6,7 @@
 //! provides a focused connector: it reads the same `<jan_data>/mcp_config.json`,
 //! reuses the shared `extract_command_args`/`extract_active_status` parsers, and
 //! connects http/sse/stdio transports directly into a `SharedMcpServers` map that
-//! the agent loop already consumes. No bundled-runtime rewriting, no Jan Browser
+//! the agent loop already consumes. No bundled-runtime rewriting, no Novera Browser
 //! MCP bridge, no auto-reconnect monitor -- the CLI relies on the user's PATH.
 
 use std::future::Future;
@@ -32,9 +32,9 @@ use crate::core::state::{RunningServiceEnum, SharedMcpServers};
 
 use super::providers::ProviderOverrides;
 
-/// The Jan Browser MCP needs the desktop bridge/lockfile machinery, so it is
+/// The Novera Browser MCP needs the desktop bridge/lockfile machinery, so it is
 /// never offered or connected from the CLI.
-const BROWSER_MCP_NAME: &str = "Jan Browser MCP";
+const BROWSER_MCP_NAME: &str = "Novera Browser MCP";
 
 /// A configured server as read from `mcp_config.json`.
 pub struct McpServerEntry {
@@ -45,13 +45,13 @@ pub struct McpServerEntry {
 
 /// Resolve the config path under a data folder. `data_folder` is threaded
 /// through the internal helpers so tests can point at a tempdir without a global
-/// override; the public API uses the real Jan data folder via
+/// override; the public API uses the real Novera data folder via
 /// `resolve_jan_data_folder()`.
 fn config_path(data_folder: &std::path::Path) -> PathBuf {
     data_folder.join("mcp_config.json")
 }
 
-/// The real Jan data folder (the env override in `resolve_jan_data_folder`
+/// The real Novera data folder (the env override in `resolve_jan_data_folder`
 /// applies, so a `JAN_DATA_FOLDER` redirect still works end to end).
 fn default_data_folder() -> PathBuf {
     resolve_jan_data_folder()
@@ -229,7 +229,7 @@ pub fn validate_server_name(name: &str) -> Result<(), String> {
 
 /// Build a ready-to-persist server entry from typed fields, mirroring the
 /// desktop's transport contract. `env`/`headers` are already parsed maps; the
-/// callers (`jan cli mcp add` flags and the TUI form) both funnel through here
+/// callers (`novera cli mcp add` flags and the TUI form) both funnel through here
 /// so neither re-implements the shape or its validation.
 pub fn build_server_config(
     transport: &str,
@@ -338,7 +338,7 @@ fn get_server_in(data_folder: &std::path::Path, name: &str) -> Option<McpServerE
 }
 
 /// Split a `KEY=VALUE` pair, rejecting anything without a separator or an empty
-/// key. Shared by the headless `jan cli mcp add` flags and the TUI add/edit form
+/// key. Shared by the headless `novera cli mcp add` flags and the TUI add/edit form
 /// so the two surfaces parse `--env`/`--header` identically.
 pub fn split_kv(kv: &str, what: &str) -> Result<(String, String), String> {
     match kv.split_once('=') {
@@ -425,7 +425,7 @@ async fn connect_in(
 ) -> Result<(), ConnectError> {
     if name == BROWSER_MCP_NAME {
         return Err(ConnectError::Failed(
-            "Jan Browser MCP is desktop-only".to_string(),
+            "Novera Browser MCP is desktop-only".to_string(),
         ));
     }
     let params = extract_command_args(config)
@@ -545,7 +545,7 @@ fn stdio_command(params: &McpServerConfig, scrub: &[String]) -> Command {
     cmd
 }
 
-/// The OTLP exporter's header variables. While Jan's own telemetry is on they
+/// The OTLP exporter's header variables. While Novera's own telemetry is on they
 /// hold its collector credentials (a launcher puts its API key there).
 const OTLP_HEADER_VARS: &[&str] = &[
     "OTEL_EXPORTER_OTLP_HEADERS",
@@ -555,7 +555,7 @@ const OTLP_HEADER_VARS: &[&str] = &[
 ];
 
 /// The variables a stdio MCP server must not inherit from this session: the
-/// credentials Jan was given to reach its own model gateway and collector.
+/// credentials Novera was given to reach its own model gateway and collector.
 fn inherited_credentials() -> Vec<String> {
     credential_vars(
         ProviderOverrides::session().explicit_provider_name(),
@@ -564,15 +564,17 @@ fn inherited_credentials() -> Vec<String> {
 }
 
 /// Deliberately narrow. `JAN_API_KEY`, the explicit `--provider`'s own
-/// `<PROVIDER>_API_KEY` and `JAN_CUSTOM_HEADERS` only ever address Jan's
+/// `<PROVIDER>_API_KEY` and `JAN_CUSTOM_HEADERS` only ever address Novera's
 /// gateway. A Desktop-selected provider's variable (`OPENAI_API_KEY`, ...) is
 /// left alone, because servers commonly read those for themselves, and so are
-/// the OTLP header variables while Jan exports nothing: they are then the
+/// the OTLP header variables while Novera exports nothing: they are then the
 /// user's, for a server that exports to its own collector.
 fn credential_vars(explicit_provider: Option<&str>, telemetry_on: bool) -> Vec<String> {
     let mut names = vec![
+        "NOVERA_API_KEY".to_string(),
+        "NOVERA_CUSTOM_HEADERS".to_string(),
         "JAN_API_KEY".to_string(),
-        super::providers::CUSTOM_HEADERS_ENV.to_string(),
+        "JAN_CUSTOM_HEADERS".to_string(),
     ];
     if let Some(provider) = explicit_provider {
         names.push(super::providers::provider_key_env(provider));
@@ -662,7 +664,7 @@ where
 fn client_info() -> ClientInfo {
     ClientInfo::new(
         ClientCapabilities::default(),
-        Implementation::new("Jan CLI Client", "0.0.1"),
+        Implementation::new("Novera CLI Client", "0.0.1"),
     )
 }
 
@@ -1255,8 +1257,8 @@ mod tests {
 
     #[test]
     fn gateway_credentials_are_scrubbed_and_a_desktop_providers_key_is_not() {
-        // No explicit provider, no telemetry: only Jan's own gateway variables.
-        assert_eq!(credential_vars(None, false), ["JAN_API_KEY", "JAN_CUSTOM_HEADERS"]);
+        // No explicit provider, no telemetry: only Novera's own gateway variables.
+        assert_eq!(credential_vars(None, false), ["NOVERA_API_KEY", "NOVERA_CUSTOM_HEADERS", "JAN_API_KEY", "JAN_CUSTOM_HEADERS"]);
 
         // A launcher's session: the named provider's key and, while Jan
         // exports, its collector headers too.

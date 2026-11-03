@@ -1,0 +1,114 @@
+diff --git a/src-tauri/src/core/mcp/helpers.rs b/src-tauri/src/core/mcp/helpers.rs
+index 7798dff29..ae027ff14 100644
+--- a/src-tauri/src/core/mcp/helpers.rs
++++ b/src-tauri/src/core/mcp/helpers.rs
+@@ -99,6 +99,13 @@ pub async fn run_mcp_commands<R: Runtime>(
+     let mut startup_handles = Vec::new();
+ 
+     for (name, config) in server_map {
++        if !super::transport_policy::transport_available(
++            cfg!(any(target_os = "android", target_os = "ios")),
++            config.get("type").and_then(Value::as_str),
++        ) {
++            log::info!("Skipping desktop stdio MCP server {name} on mobile");
++            continue;
++        }
+         if extract_active_status(config) == Some(false) {
+             log::trace!("Server {name} is not active, skipping.");
+             continue;
+@@ -323,6 +330,12 @@ pub async fn start_mcp_server<R: Runtime>(
+     name: String,
+     config: Value,
+ ) -> Result<(), String> {
++    if !super::transport_policy::transport_available(
++        cfg!(any(target_os = "android", target_os = "ios")),
++        config.get("type").and_then(Value::as_str),
++    ) {
++        return Err("MCP_STDIO_UNAVAILABLE_ON_MOBILE: use a remote HTTP/SSE server instead of a desktop command".into());
++    }
+     let app_state = app.state::<AppState>();
+     let active_servers_state = app_state.mcp_active_servers.clone();
+ 
+diff --git a/src-tauri/src/core/mcp/mod.rs b/src-tauri/src/core/mcp/mod.rs
+index d4adec61b..abc7327f2 100644
+--- a/src-tauri/src/core/mcp/mod.rs
++++ b/src-tauri/src/core/mcp/mod.rs
+@@ -17,6 +17,7 @@ pub mod progress;
+ // so it is built in both feature configs.
+ pub mod server;
+ pub mod truncate;
++pub mod transport_policy;
+ 
+ #[cfg(test)]
+ #[cfg(not(feature = "cli"))]
+diff --git a/src-tauri/src/core/server/provider_secrets.rs b/src-tauri/src/core/server/provider_secrets.rs
+index 1b6975505..edc45dd65 100644
+--- a/src-tauri/src/core/server/provider_secrets.rs
++++ b/src-tauri/src/core/server/provider_secrets.rs
+@@ -51,10 +51,12 @@ static INDEX_LOCK: Mutex<()> = Mutex::new(());
+ static KEYRING_DOWN: AtomicBool = AtomicBool::new(false);
+ 
+ fn keyring_down() -> bool {
++    // Android's keyring 3 backend is an in-memory mock, not a persistent vault.
++    // Use the encrypted private-app file store with its per-install random key.
+     // A portable folder must neither read nor modify the installed app's vault.
+-    #[cfg(feature = "portable")]
++    #[cfg(any(feature = "portable", target_os = "android"))]
+     return true;
+-    #[cfg(not(feature = "portable"))]
++    #[cfg(not(any(feature = "portable", target_os = "android")))]
+     KEYRING_DOWN.load(Ordering::Relaxed)
+ }
+ 
+diff --git a/src-tauri/tauri.android.conf.json b/src-tauri/tauri.android.conf.json
+index 84aa68951..65436da90 100644
+--- a/src-tauri/tauri.android.conf.json
++++ b/src-tauri/tauri.android.conf.json
+@@ -7,6 +7,16 @@
+     "beforeBuildCommand": "cross-env IS_ANDROID=true yarn build:web"
+   },
+   "app": {
++    "windows": [
++      {
++        "label": "main",
++        "title": "Novera",
++        "url": "index.html",
++        "create": true,
++        "visible": true,
++        "useHttpsScheme": true
++      }
++    ],
+     "security": {
+       "capabilities": ["mobile"]
+     }
+@@ -20,6 +30,7 @@
+     "externalBin": [],
+     "android": {
+       "minSdkVersion": 24,
++      "versionCode": 1000004,
+       "debugApplicationIdSuffix": ".debug"
+     }
+   }
+diff --git a/web-app/src/lib/webSearchTool.ts b/web-app/src/lib/webSearchTool.ts
+index 61e992f84..3538a491f 100644
+--- a/web-app/src/lib/webSearchTool.ts
++++ b/web-app/src/lib/webSearchTool.ts
+@@ -2,6 +2,8 @@ import { webSearch, webFetch } from '@janhq/tauri-plugin-websearch-api'
+ import { useMCPServers } from '@/hooks/useMCPServers'
+ import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
+ import { executeDuckDuckGoTool } from '@/lib/duckduckgoSearch'
++import { executeMobileDuckDuckGoTool } from '@/lib/mobileDuckduckgoSearch'
++import { isPlatformAndroid, isPlatformIOS } from '@/lib/platform/utils'
+ import { TRUNCATION_MARKER } from '@/lib/toolPresentation'
+ 
+ export const WEB_TOOL_NAMES = new Set(['web_search', 'web_fetch'])
+@@ -88,6 +90,9 @@ export async function executeWebTool(
+   const endpoint = endpoints[searchProvider] || undefined
+   try {
+     if (searchProvider === 'duckduckgo') {
++      if (isPlatformAndroid() || isPlatformIOS()) {
++        return await executeMobileDuckDuckGoTool(toolName, input, webOutputCap(options.maxOutputChars))
++      }
+       return await executeDuckDuckGoTool(toolName, input, webOutputCap(options.maxOutputChars))
+     }
+     if (toolName === 'web_search') {

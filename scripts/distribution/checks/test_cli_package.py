@@ -15,11 +15,13 @@ class CliArchive(unittest.TestCase):
             root=Path(folder);binary=root/'compiled';binary.write_bytes(b'compiled fixture')
             archive=module.package(binary,root/'out','1.0.0','linux-x86_64','a'*40)
             with zipfile.ZipFile(archive) as payload:
-                self.assertEqual(set(payload.namelist()),{'jan','CLI-UPDATE.json'})
+                self.assertEqual(set(payload.namelist()),{'novera','CLI-UPDATE.json'})
                 identity=json.loads(payload.read('CLI-UPDATE.json'))
-                self.assertEqual(identity['binarySha256'],hashlib.sha256(payload.read('jan')).hexdigest())
+                self.assertEqual(identity['binarySha256'],hashlib.sha256(payload.read('novera')).hexdigest())
                 self.assertEqual(identity['commit'],'a'*40)
                 self.assertEqual(identity['version'],'1.0.0')
+                self.assertEqual(identity['formatVersion'],2)
+                self.assertEqual(identity['binary'],'novera')
             with self.assertRaises(FileExistsError):
                 module.package(binary,root/'out','1.0.0','linux-x86_64','a'*40)
 

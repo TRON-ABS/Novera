@@ -14,6 +14,7 @@ export const checkOSDarkMode = (): boolean => {
 }
 
 export type ThemeState = {
+  androidDesktopAppearanceVersion?: number
   activeTheme: AppTheme
   setTheme: (theme: AppTheme) => void
   isDark: boolean

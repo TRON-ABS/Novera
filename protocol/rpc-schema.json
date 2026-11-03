@@ -105,7 +105,7 @@
           "default": null
         },
         "systemPrompt": {
-          "description": "The session's whole system prompt, sent byte for byte in place of the\none Jan composes: no Jan identity, guides, environment, date, git state\nor recalled project memory. Its answers are still indexed for later\nsessions unless it is `ephemeral`. Jan may still append runtime notices\nto the conversation.\nChildren keep their own prompts.",
+          "description": "The session's whole system prompt, sent byte for byte in place of the\none Novera composes: no Novera identity, guides, environment, date, git state\nor recalled project memory. Its answers are still indexed for later\nsessions unless it is `ephemeral`. Novera may still append runtime notices\nto the conversation.\nChildren keep their own prompts.",
           "type": [
             "string",
             "null"
@@ -175,7 +175,7 @@
           ]
         },
         "PermissionOwner": {
-          "description": "Who gates host tool calls. `jan` prompts through `permission_request` the\nway any opaque tool is prompted; `host` means the host's own callback is\nthe gate, so Jan never asks about a host tool.",
+          "description": "Who gates host tool calls. `jan` prompts through `permission_request` the\nway any opaque tool is prompted; `host` means the host's own callback is\nthe gate, so Novera never asks about a host tool.",
           "type": "string",
           "enum": [
             "jan",

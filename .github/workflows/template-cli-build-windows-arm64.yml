@@ -1,4 +1,4 @@
-# Builds the Jan Agent CLI binary for Windows aarch64.
+# Builds the Novera CLI binary for Windows aarch64.
 # Runs natively on GitHub's windows-11-arm runner; no Tauri bundler, no
 # frontend, and none of the CUDA/Vulkan/signtool provisioning the desktop
 # ARM64 build needs -- this is a plain `cargo build` against the host triple.
@@ -73,7 +73,7 @@ jobs:
       - name: Verify the binary is ARM64
         shell: pwsh
         run: |
-          $exe = 'src-tauri/target/release/jan.exe'
+          $exe = 'src-tauri/target/release/novera.exe'
           if (-not (Test-Path $exe)) { throw "$exe missing" }
           # PE machine type sits at the COFF header, 4 bytes past the offset
           # stored at 0x3C. 0xAA64 is ARM64.
@@ -87,10 +87,10 @@ jobs:
         shell: bash
         run: |
           VERSION="${{ inputs.new_version }}"
-          FILE_NAME="jan-agent-windows-aarch64-$VERSION.zip"
+          FILE_NAME="novera-agent-windows-aarch64-$VERSION.zip"
           # Compress-Archive rather than the x64 template's 7z: it ships with
           # PowerShell, so it needs nothing from the runner image.
-          powershell -Command "Compress-Archive -Path './src-tauri/target/release/jan.exe' -DestinationPath '$FILE_NAME' -Force"
+          powershell -Command "Compress-Archive -Path './src-tauri/target/release/novera.exe' -DestinationPath '$FILE_NAME' -Force"
           echo "FILE_NAME=$FILE_NAME" >> "$GITHUB_OUTPUT"
           echo "SHA256=$(sha256sum "$FILE_NAME" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
 

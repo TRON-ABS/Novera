@@ -1,0 +1,136 @@
+{
+  "sourceBaseCommit": "967b4ea94262cd843b8c405515f46254b37fa154",
+  "sourceIncludesLocalUncommittedChanges": true,
+  "applicationPatchSha256": "d81708a339e71365c8e0b623467d868a04517ab8d99c644b3dd323cfb71b66e9",
+  "sourceFiles": {
+    "web-app/src/lib/webSearchTool.ts": "953cbdc0c2b9f8773f66e1bf226bc20b7b61240d6fd68f05a556719ac59f4d73",
+    "web-app/src/lib/mobileDuckduckgoSearch.ts": "f430bcfbd9547f0bac63955b5cc3091ee958f4d89be2796e37a53e4f6d62b617",
+    "web-app/src/lib/applyAndroidDesktopAppearance.ts": "1d6d1c6134cea64fd8c8b6b89c98560008b571f1399383134ca14e4ab0cdf397",
+    "web-app/src/providers/ServiceHubProvider.tsx": "a425b123350c0b14fc1fe4312771e18e90b3b9f6faed2838c4ad384cbdbb813f",
+    "web-app/src/hooks/useTheme.ts": "c282da0be8d65ec9c07c3d1dec2e867ca7dfc666c8ede94b3ec5831a7c31d757",
+    "web-app/src/containers/ChatInput.tsx": "69edd6822e5f834b9244ea4abb15dd9403d8d717c1e684d790ccf035b96dcf02",
+    "src-tauri/src/core/mcp/helpers.rs": "5721a521bf1a56a524c49ee58da0da0782a918482b56a018b61adef8a2e021f5",
+    "src-tauri/src/core/mcp/mod.rs": "1d10909b12c1c7cb5b4494535090b428786b5290d13908e0377e60136d04bcbb",
+    "src-tauri/src/core/mcp/transport_policy.rs": "c114c28c5e9a8eac6989df0e782be1a2afcff7eb4b248401670f09e7280e7d89",
+    "src-tauri/src/core/server/provider_secrets.rs": "f8e4e29bb00e971b87b653047d9d92734f633cec34207ece9fd7f774b4dc4ba1",
+    "src-tauri/tauri.android.conf.json": "42bb996e4ef0c0345b5a43d25233e450acec1ad777d406a904001ccd2f781ffc",
+    "scripts/android/release.json": "d884417451b02f5a739f21197b0913b0d31139eb01476d734bb99c8b4abc81a5",
+    "scripts/android/configure-project.mjs": "42c31dde48399b342f5fdb26b0424f3bb645827f789035e471059f9ff3910218",
+    "scripts/android/build-release.ps1": "5361e025330b0ad9db6470da3adba6991b5739001416c1b6f142ccee9338b077",
+    "scripts/android/verify-apk.py": "df47f23c6fc0728bc959ac922508e13c33b97a7544d842e581b81c5c95cca74e",
+    "src-tauri/icons/android/mipmap-hdpi/ic_launcher.png": "548853f4ff3dd63de32af8f816d66e83590b9c01f15e507725f2bde2f133b43a",
+    "src-tauri/icons/android/mipmap-hdpi/ic_launcher_foreground.png": "4879d3a7c38e6892fad61ddf31c7bc8a59add9b8d53be64c32bfda7a6ed270f6",
+    "src-tauri/icons/android/mipmap-hdpi/ic_launcher_round.png": "548853f4ff3dd63de32af8f816d66e83590b9c01f15e507725f2bde2f133b43a",
+    "src-tauri/icons/android/mipmap-mdpi/ic_launcher.png": "7d7423867e4caa2a614d95b47ece393aa9b478d7baa1c7068de307ae9c7fdcac",
+    "src-tauri/icons/android/mipmap-mdpi/ic_launcher_foreground.png": "d0b1431a5496b8af5fa0f1d27526615301b4f21e90999a898f3ea6ad9f934691",
+    "src-tauri/icons/android/mipmap-mdpi/ic_launcher_round.png": "7d7423867e4caa2a614d95b47ece393aa9b478d7baa1c7068de307ae9c7fdcac",
+    "src-tauri/icons/android/mipmap-xhdpi/ic_launcher.png": "0c6444c1076cf9b9262fd94a6425c6373506171a244b397fe1fe4d62912d6d78",
+    "src-tauri/icons/android/mipmap-xhdpi/ic_launcher_foreground.png": "b09a5083e99a37556abd6db4758b9365258e127394bec8d403e9137f82a98675",
+    "src-tauri/icons/android/mipmap-xhdpi/ic_launcher_round.png": "0c6444c1076cf9b9262fd94a6425c6373506171a244b397fe1fe4d62912d6d78",
+    "src-tauri/icons/android/mipmap-xxhdpi/ic_launcher.png": "57e317def659ad879900fc15b44306e08aea497e7a0e5d23953fe69a661831e0",
+    "src-tauri/icons/android/mipmap-xxhdpi/ic_launcher_foreground.png": "e61e44cfd7c2815738088772cf5fb22dfead996e0c9a09b8979ff53e47df762a",
+    "src-tauri/icons/android/mipmap-xxhdpi/ic_launcher_round.png": "57e317def659ad879900fc15b44306e08aea497e7a0e5d23953fe69a661831e0",
+    "src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher.png": "20a0967d05da8f2d15db2c6ef85d370029bc45b2f925db41579c85c8e43ee2ee",
+    "src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher_foreground.png": "d46867e6e2c8a54f3d375f3c5b8c510f910d5fd05d90dd7985af07ddb86450df",
+    "src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher_round.png": "20a0967d05da8f2d15db2c6ef85d370029bc45b2f925db41579c85c8e43ee2ee"
+  },
+  "bytes": 42207594,
+  "sha256": "82d3002ae90d3e4700d04bb239128d01e4baf5f91dd1f815f049b4ab4d059217",
+  "versionCode": 1000006,
+  "replacesTestedVersionCode": 1000004,
+  "previousApkSha256": "ab9ec555cbc38a758b0eb093777cbeef0cffaeb12e8d5d76d4f7a5e7eb46a979",
+  "sameCertificateSha256": "ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582",
+  "frontendSearchTests": {
+    "passed": 52,
+    "skipped": 1
+  },
+  "frontendInterfaceAndThemeTests": {
+    "passed": 87
+  },
+  "androidConfigurationTestsPassed": 5,
+  "localReleasePipelineSucceeded": true,
+  "duckduckgoSearchCodeUnchangedSinceVerifiedLivePcProbe": true,
+  "livePcDuckduckgoProbe": {
+    "provider": "DuckDuckGo",
+    "httpStatus": 200,
+    "query": "Tauri Android documentation",
+    "transport": "official HTML POST form",
+    "applicationUserAgent": "Novera/1.0.0 (+https://github.com/TRON-ABS/Novera)",
+    "livePcParserResults": 5,
+    "urls": [
+      "https://v2.tauri.app/distribute/google-play/",
+      "https://v2.tauri.app/develop/",
+      "https://github.com/tauri-apps/tauri-docs",
+      "https://github.com/aiueo13/tauri-plugin-android-fs",
+      "https://deepwiki.com/tauri-apps/tauri/8.3-android-development-and-build"
+    ],
+    "androidDeviceValidated": false,
+    "captchaBypassUsed": false,
+    "browserImpersonationUsed": false,
+    "providerChanged": false
+  },
+  "launcherIconVerification": {
+    "launcherResourcesChecked": 5,
+    "allMatchExistingNoveraHand": true,
+    "verification": "AAPT resolves the compiled launcher resources; visible RGBA pixels and alpha match source assets exactly; only invisible RGB at alpha zero is normalized for AAPT PNG crunching",
+    "resources": [
+      {
+        "apkResource": "res/9w.png",
+        "matchingSource": "src-tauri\\icons\\android\\mipmap-mdpi\\ic_launcher.png",
+        "dimensions": [
+          48,
+          48
+        ],
+        "pixelSha256": "9b9a29cccd43caab54d1820cea0ac7eac749ea350ebee48fb465194e2c86a503"
+      },
+      {
+        "apkResource": "res/FS.png",
+        "matchingSource": "src-tauri\\icons\\android\\mipmap-xhdpi\\ic_launcher.png",
+        "dimensions": [
+          96,
+          96
+        ],
+        "pixelSha256": "34ea646ea845ea2d25a3842072b86441135ca77162cbbfc56c167eb7d4cbafe1"
+      },
+      {
+        "apkResource": "res/RJ.png",
+        "matchingSource": "src-tauri\\icons\\android\\mipmap-xxhdpi\\ic_launcher.png",
+        "dimensions": [
+          144,
+          144
+        ],
+        "pixelSha256": "fbc88517ae1632ba57cf20f4dd9b9090bc0debea5a414077f0395c72356d389c"
+      },
+      {
+        "apkResource": "res/o-.png",
+        "matchingSource": "src-tauri\\icons\\android\\mipmap-xxxhdpi\\ic_launcher.png",
+        "dimensions": [
+          192,
+          192
+        ],
+        "pixelSha256": "2ac01db897886a935b4695d157e105d6d01e335b27ba04520340bdf3f624c2f0"
+      },
+      {
+        "apkResource": "res/yn.png",
+        "matchingSource": "src-tauri\\icons\\android\\mipmap-hdpi\\ic_launcher.png",
+        "dimensions": [
+          49,
+          49
+        ],
+        "pixelSha256": "c49fdcd62495d6f0fba07ae63d103f3a6e10c19f948b18cb816149aa29eb7584"
+      }
+    ],
+    "phoneLauncherDisplayValidated": false
+  },
+  "androidAppearance": {
+    "theme": "dark",
+    "accent": "gray",
+    "matchesObservedDesktopPreferences": true,
+    "appliedOnceAfterHydration": true,
+    "laterUserChoicesPreserved": true
+  },
+  "mobileAutofocusOnThreadOrStatusChanges": false,
+  "deviceValidation": "pending maintainer search, launcher, appearance and keyboard tests on Huawei P20",
+  "providerAutomaticallyChanged": false,
+  "published": false
+}

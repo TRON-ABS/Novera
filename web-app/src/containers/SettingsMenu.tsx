@@ -38,6 +38,7 @@ import { Button } from '@/components/ui/button'
 const SettingsMenu = () => {
   const { t } = useTranslation()
   const [expandedProviders, setExpandedProviders] = useState(true)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const matches = useMatches()
   const navigate = useNavigate()
@@ -240,8 +241,15 @@ const SettingsMenu = () => {
   ]
 
   return (
-    <>
-      <div className="novera-settings-menu h-full w-58 shrink-0 px-1.5 flex overflow-auto">
+    <nav className="novera-settings-navigation" aria-label={t('common:settings')}>
+      <button type="button" className="novera-settings-mobile-toggle"
+        aria-expanded={mobileMenuOpen} aria-controls="novera-settings-navigation-items"
+        onClick={() => setMobileMenuOpen(open => !open)}>
+        <span>{t('common:settings')}</span><IconChevronDown size={18} />
+      </button>
+      <div id="novera-settings-navigation-items" data-mobile-open={mobileMenuOpen}
+        onClick={event => { if ((event.target as HTMLElement).closest('a, .novera-settings-link')) setMobileMenuOpen(false) }}
+        className="novera-settings-menu h-full w-58 shrink-0 px-1.5 flex overflow-auto">
         <div className="flex flex-col gap-1 w-full font-medium">
           {/* Core settings */}
           {coreSettings.map((menu) => (
@@ -370,7 +378,7 @@ const SettingsMenu = () => {
           </div>
         </div>
       </div>
-    </>
+    </nav>
   )
 }
 
