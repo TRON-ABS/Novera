@@ -1,0 +1,313 @@
+<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a></p>
+
+<div align="center">
+  <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
+  <p><strong>您描述目标。Novera 准备资源、执行任务并整理结果。</strong></p>
+  <p>由 TRON-ABS 提供的独立 AI 助手，从首次启动到结果：文本、图像、音乐和视频在一个对话中。</p>
+  <p><strong>适用于 Windows、Linux、macOS 和 Android</strong> · 80 界面语言 · 42 云服务提供商 · 49 媒体预设 · Apache 2.0</p>
+  <p><a href="#from-first-launch-to-results">自动化</a> · <a href="#one-dashboard-for-every-creation">仪表板</a> · <a href="#local-models-in-use">AI 模型在您的设备上本地运行</a> · <a href="#hub-and-compatible-models">中心和兼容模型</a> · <a href="#cloud-providers">云</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">贡献</a></p>
+  <p>官方联系方式： <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
+  <p>官方 Novera 社交资料： <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
+  <p>分享您的创作、模型、设置、问题、反馈和想法。</p>
+</div>
+
+> 这是英文 README (日期 2026-11-03) 的辅助书面区域适应版本。尚未获得母语人士认证。链接文档保留其原始语言。
+
+---
+
+## 可用性 — 2026-11-03
+
+**Novera 1.0.0 适用于 Windows、Linux、macOS 和 Android。** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). 桌面软件包，CLI 归档、签名和更新清单均公开且已验证。
+
+| 平台 | 可用性 |
+| --- | --- |
+| Windows x64 | 公共 NSIS 安装程序，签名更新器；原生安装和替换已验证。 |
+| Linux x64 | 公共 AppImage，签名更新器；原生安装和替换已验证。 |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`，带有专用的签名更新渠道。 |
+| Windows ARM64 | [公共 NSIS 安装程序](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64)，原生 CPU 文本引擎；安装、替换和公共渠道检查已验证。 |
+| Android ARM64 | [公共签名 APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012)，Android 7+，默认批次 512。维护者确认构建 1000012 在其手机上运行正常。干净的包，不含对话、模型或个人 API 密钥。 [证据和限制](docs/RELEASE_ANDROID_1.0.0.md). |
+| macOS Intel / Apple Silicon | [官方 1.0.0 DMG 发布](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos)，macOS 13+ Intel / 14+ Apple Silicon；Novera 签名更新。未通过苹果公证；自动化检查在两种架构上分别通过，视觉检查推迟。 [安装和证据](docs/RELEASE_MACOS_1.0.0.md). |
+| iOS | 内部模拟器构建；在 iPhone 安装前需要苹果签名/配置。 [后续](docs/REPRISE_MACOS_IOS.md). |
+| Windows x64 便携版 | [签名 ZIP 存档](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable)；数据保留在 Data 中，签名 Program 替换已验证。 |
+| 网页，MSI，Debian | 托管的网页客户端和其他格式仍为内部；Pages 展示网站可用。 |
+
+在 Mac 上，打开 DMG 并将 Novera 复制到“应用程序”。如果首次启动被阻止，请允许 Novera。 **系统设置 → 隐私与安全性 → 仍然打开**. [苹果说明](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+更新器签名不是 Windows Authenticode 或苹果公证。手动当前版本检查通过公共渠道；两个公共版本之间的过渡仍是下一个版本的测试。 [证据和限制](docs/LAUNCH_STATUS.md).
+
+在 Android 上，推荐使用内存充足的现代手机进行本地模型；在性能较弱的设备上使用 API 提供商。对于网络搜索，至少需要 **16K 令牌 (16,384)** 推荐，版本间保持一致。
+
+**可用便携式 Windows x64 1.0.0。** 讨论、设置和下载的模型保留在“便携”文件夹内，路径为 `Data`。解压完整存档并启动 `Novera.exe`在移动文件夹或弹出 USB 存储之前关闭 Novera。 [便携指南和限制](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+## 每个创作对应一个仪表板
+
+Novera 与您一同成长。您的示例和设置可以帮助其他用户找到合适的配置。请在我们的 [Facebook 页面上](https://www.facebook.com/profile.php?id=61596114515071) 或通过 [电子邮件](mailto:contact.novera.tronabs@gmail.com)。如果可能，请提供您的 Novera 版本、设备和本地/API 模型。请移除个人信息，切勿分享 API 密钥或密码。
+
+![Novera 生成的图像和包含数量、种子、放大和自动内存的统一仪表板](.github/assets/novera-dashboard-2026-11-01.png)
+
+*真实 Windows 应用程序截图由 1 年 11 月 2026 的维护者提供，他报告应用程序运行良好。它显示了一个生成的景观、其保存文件控件和统一创建仪表板；这不是模型。*
+
+一个面板，五个模式： **汽车 / 正文 / 图像 / 音乐 / 视频**. 控件遵循所选模式：比例、分辨率、持续时间、节奏、质量、器乐、歌词、种子和数量。面板宽度和按钮适应窗口和翻译的标签。
+
+- **1–10 顺序生成**, 默认为 1，图像、音乐和视频具有独立的数量。停止取消活动任务和剩余队列。
+- **随机、固定、+1 和 −1 种子**, 预设或自定义比例和可选 **Real-ESRGAN ×2/×4** 带有最终尺寸显示的放大。
+- 所选模型、自动内存、附件、指令、网络搜索和工具保持在同一栏。工具取决于模型能力和授予的访问权限。
+
+<a id="from-first-launch-to-results"></a>
+
+## 从首次启动到结果
+
+**我们的自动化将准备工作与完整的执行工作流程连接起来。** Novera 处理所选配置可用的技术步骤，同时保持高级控件的可访问性。
+
+| 步骤 | Novera 处理的内容 |
+| --- | --- |
+| **1. 开始** | 在首次启动时选择受支持的系统语言并保存您的偏好。展示起始模型和有用的硬件信息。 |
+| **2. 准备** | 引导式安装提供文本、嵌入、图像、音乐、视频和放大。在您批准前预览组件、大小和可用空间，然后使用进度、暂停/恢复和 SHA-256 验证跟踪下载。 |
+| **3. 配置** | 注册模型及其组件，准备相关配置文件并报告所需依赖项。检索嵌入在 CPU 上以保存的 CPU/GPU 选择开始。新的音乐配置文件默认为器乐模式。 |
+| **4. 理解请求** | 自动将已识别的创建请求路由到文本、图像、音乐或视频。您也可以明确选择输出模式和本地或云模型。 |
+| **5. 执行** | 自动内存等待活动工作，释放不需要的模型并重新加载所需资源。1–10 作业系列按顺序运行，并在下一个作业前释放资源。云提供商使用所选账户和配置。 |
+| **6. 检索和重用** | 将媒体保存到 Novera 系统文件夹中，显示结果和可用时间，然后提供变体、库、复制、导出或系统共享。发送到其他应用程序仍是您的操作。 |
+
+自动化涵盖集成引擎和工作流程；它不会使每个 Hub 模型可执行。硬件、已安装的组件和提供商访问权限决定了什么可以运行。文件夹、文件更改和 shell 命令遵循对话的访问授权。
+
+[用户指南](docs/USER_GUIDE.md) · [引擎和验证](docs/SUIVI_MOTEURS.md) · [开发](docs/DEVELOPMENT.md)
+
+在更新的源中， **配置根据移动和受限硬件调整其建议**: LFM3-1.7B Q4，或在报告的内存和引擎要求得到满足时使用带有其投影仪的 LFM3-Omni-2B Q4。不可用的本地生成被隐藏或阻止；配置的云图像、音乐和视频仍然可用。界面指南重用 80 语言目录。这些估计仍需要设备测试和重建才能达到已安装的应用程序。
+
+## 源中的能力
+
+可选的维护诊断现在区分构建和工具处理的故障以及 JavaScript 异常，具有单独的同意和过滤的技术字段。已为维护人员配置了每小时的生产电子邮件警报。私有源映射和警报详情遵循 [维护运行手册](docs/MAINTENANCE.md); 测试电子邮件收据已确认，而经过身份验证的符号上传和在下一个二进制文件中的测试仍是发布检查。
+
+| 区域 | 功能 |
+| --- | --- |
+| **文本和图像理解** | 对话、文档附件、流式回复以及本地或云模型。视觉取决于模型；理解和生成图像是独立的能力。 |
+| **图片** | 对话中生成、种子、比例、分辨率、GGUF/Safetensors 组件、配置的 Diffusers 文件夹和支持的原生 NVFP4 CUDA 配置文件。 |
+| **音乐** | 本地或云生成、持续时间、质量、支持情况下的器乐或人声、结构化歌词和音频播放器。提供商选项不同。 |
+| **视频** | 本地或云生成、持续时间、本地配置的帧数/节奏、比例、分辨率和视频播放器。 |
+| **搜索和工具** | 网络搜索、基于嵌入的文档检索、MCP、工作区和根据模型支持和授予的访问权限的本地工具。 |
+| **结果和分享** | 媒体库、变体、响应/对话导出、文档和原始媒体、打印/PDF 和平台相关的系统共享。 |
+| **资源管理** | 默认启用自动内存，支持组件的 CPU/GPU 设置以及资源允许时的手动配置文件。 |
+
+<a id="local-models-in-use"></a>
+
+## AI 模型在您的设备上本地运行
+
+这些模型构成了当前的引导配置。您可以导入其他兼容的模型或更改配置文件。
+
+| 角色 | 模型 / 配置的组件 |
+| --- | --- |
+| **文本 — 首次运行模型** | **Nemotron-3.5-Bolt-E4B**，文件 `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
+| **文档检索** | **Qwen3-Embedding-0.6B Q8_0**, **默认使用 CPU**带有已保存的 CPU/GPU 选择。 |
+| **图片** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** 编码器和官方 FLUX.2 VAE. |
+| **图像 — 硬件选项** | **FLUX.2 Klein 4B NVFP4**当 GPU 和环境兼容时，通过原生的 CUDA 路径。 |
+| **音乐** | **ACE-Step 1.5 Turbo 2B Q4_K_M**, `acestep-5Hz-lm-1.7B-Q8_0.gguf` 规划器、专用 Qwen 音乐编码器和 VAE. |
+| **视频** | **Wan2.1 T2V 1.3B Q4_K_M**, **UMT5-XXL Q4_K_M** 编码器和 Wan 2.1 VAE. |
+| **放大** | 可选 **Real-ESRGAN ×2 和 ×4**, 带有依赖检查。 |
+
+Qwen 音频编码器和 Qwen 检索模型是 **不同的文件**, 分别存储。模型许可仍为其发布者所有。
+
+[文本清单](web-app/src/constants/text-manifest.json) · [Embeddings](web-app/src/constants/embedding-manifest.json) · [音乐](web-app/src/constants/music-manifest.json) · [图像/视频组件](src-tauri/src/core/creation_bundle.rs)
+
+<a id="cloud-providers"></a>
+
+## 云服务提供商
+
+**42 提供商配置文件** 已集成。 **ElevenLabs** 现已在展示中与来自 Stability AI、fal 和 Replicate 的音乐路由并列展示。
+
+| | | |
+| --- | --- | --- |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="28" height="28" /> [OpenAI](https://platform.openai.com/docs/models) | <img src="web-app/public/images/model-provider/azure.svg" alt="Microsoft Azure" width="28" height="28" /> [Microsoft Azure](https://oai.azure.com/deployments) | <img src="web-app/public/images/model-provider/anthropic.svg" alt="Anthropic" width="28" height="28" /> [Anthropic](https://platform.claude.com/docs/en/models/overview) |
+| <img src="web-app/public/images/model-provider/open-router.svg" alt="OpenRouter" width="28" height="28" /> [OpenRouter](https://openrouter.ai/models) | <img src="web-app/public/images/model-provider/mistral.svg" alt="Mistral" width="28" height="28" /> [Mistral](https://docs.mistral.ai/models) | <img src="web-app/public/images/model-provider/groq.svg" alt="Groq" width="28" height="28" /> [Groq](https://console.groq.com/docs/models) |
+| <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="28" height="28" /> [xAI](https://docs.x.ai/developers/models) | <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="28" height="28" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | <img src="web-app/public/images/model-provider/minimax.svg" alt="MiniMax" width="28" height="28" /> [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) |
+| <img src="web-app/public/images/model-provider/huggingface.svg" alt="Hugging Face" width="28" height="28" /> [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | <img src="web-app/public/images/model-provider/nvidia.svg" alt="NVIDIA NIM" width="28" height="28" /> [NVIDIA NIM](https://build.nvidia.com/models) | <img src=".github/assets/providers/deepseek.png" alt="DeepSeek" width="28" height="28" /> [DeepSeek](https://api-docs.deepseek.com/) |
+| <img src="web-app/public/images/model-provider/moonshot.png" alt="Kimi · Moonshot AI" width="28" height="28" /> [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | <img src="web-app/public/images/model-provider/alibaba.png" alt="Alibaba Cloud · Qwen" width="28" height="28" /> [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | <img src="web-app/public/images/model-provider/cerebras.png" alt="Cerebras" width="28" height="28" /> [Cerebras](https://inference-docs.cerebras.ai/models/overview) |
+| <img src="web-app/public/images/model-provider/together.svg" alt="Together AI" width="28" height="28" /> [Together AI](https://docs.together.ai/docs/serverless/models) | <img src="web-app/public/images/model-provider/fireworks.svg" alt="Fireworks AI" width="28" height="28" /> [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | <img src="web-app/public/images/model-provider/perplexity.png" alt="Perplexity" width="28" height="28" /> [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) |
+| <img src=".github/assets/providers/meta.png" alt="Meta AI" width="28" height="28" /> [Meta AI](https://dev.meta.ai/docs/models) | <img src="web-app/public/images/model-provider/cohere.svg" alt="Cohere" width="28" height="28" /> [Cohere](https://docs.cohere.com/docs/models) | <img src="web-app/public/images/model-provider/zai.svg" alt="Z.ai" width="28" height="28" /> [Z.ai](https://docs.z.ai/guides/llm/glm-5.3) |
+| <img src="web-app/public/images/model-provider/ai21.png" alt="AI21 Labs" width="28" height="28" /> [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="28" height="28" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | <img src=".github/assets/providers/baidu.png" alt="Baidu Qianfan" width="28" height="28" /> [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) |
+| <img src=".github/assets/providers/tencent.png" alt="Tencent TokenHub" width="28" height="28" /> [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | <img src="web-app/public/images/model-provider/bedrock.png" alt="Amazon Bedrock" width="28" height="28" /> [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | <img src="web-app/public/images/model-provider/watsonx.png" alt="IBM watsonx" width="28" height="28" /> [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) |
+| <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="28" height="28" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="28" height="28" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="28" height="28" /> [Stability AI](https://docs.stability.ai/api-reference) |
+| <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/) |
+| <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://docs.dev.runwayml.com/api/) | <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://docs.ltx.io/models) |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/docs/model-map) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
+
+### 图像、音乐和视频
+
+**20 提供商提供生成路由**, 带有 **49 预设：25 图像、20 视频和 4 音乐**. 音乐路由是 **ElevenMusic v2.5**, **Stable Audio 3**, **从 ACE-Step 到 fal** 和 **Stable Audio 2.5 至 Replicate**.
+
+| 提供商 | Novera 中的输出 | 目录模型 |
+| --- | --- | --- |
+| <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="24" height="24" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | 音乐 | `ElevenMusic v2.5` |
+| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | 图像 / 音乐 | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | 图像 / 音乐 / 视频 | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | 图像 / 音乐 | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
+| <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="24" height="24" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | 图像 / 视频 | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
+| <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="24" height="24" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | 图像 / 视频 | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
+| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | 图像 / 视频 | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="24" height="24" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | 图片 | `Krea 3` |
+| <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="24" height="24" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | 图片 | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
+| <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="24" height="24" /> [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | 视频 | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | 图片 | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="24" height="24" /> [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | 图像 / 视频 | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | 图片 | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="24" height="24" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | 图片 | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
+| <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="24" height="24" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | 图片 | `Ideogram 4.5` |
+| <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="24" height="24" /> [Runway](https://docs.dev.runwayml.com/api/) | 视频 | `Runway Gen-4.5` |
+| <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="24" height="24" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | 图像 / 视频 | `Luma Uni-1 Max` · `Luma Uni-1` · `Luma Ray 3.2` |
+| <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="24" height="24" /> [LTX (Lightricks)](https://docs.ltx.io/models) | 视频 | `LTX-2.5 Pro` · `LTX-2.5 Fast` |
+| <img src="web-app/public/images/model-provider/minimax.svg" alt="MiniMax" width="24" height="24" /> [MiniMax](https://platform.minimax.io/docs/api-reference/video-generation-v2-create) | 图像 / 视频 | `MiniMax H3 Max` · `MiniMax H3` · `MiniMax H3 Highspeed` · `MiniMax Image-01` |
+| <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="24" height="24" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) | 视频 | `PixVerse V6 Max` · `PixVerse V6` |
+
+<details>
+<summary><strong>按提供商显示文本和视觉模型短名单</strong></summary>
+
+| 提供商 | 源中提供的模型 ID |
+| --- | --- |
+| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
+| [Microsoft Azure](https://oai.azure.com/deployments) | 特定于账户的部署或网关 |
+| [Anthropic](https://platform.claude.com/docs/en/models/overview) | `claude-sonnet-5-5` · `claude-opus-5-5` · `claude-fable-5-1` · `claude-haiku-5-5` |
+| [OpenRouter](https://openrouter.ai/models) | `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
+| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `mistral-medium-3-5` · `mistral-small-2603` · `ministral-3b-2512` |
+| [Groq](https://console.groq.com/docs/models) | `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
+| [xAI](https://docs.x.ai/developers/models) | `grok-4.7` |
+| [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | `gemini-4-argon` · `gemini-3.8-flash` · `gemini-3.6-flash` · `gemini-3.5-flash-lite` |
+| [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) | `MiniMax-M3.1-Flash` · `MiniMax-M3` |
+| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
+| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3` |
+| [DeepSeek](https://api-docs.deepseek.com/) | `deepseek-flash` · `deepseek-v4-pro` |
+| [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | `kimi-k3.1-pro` · `kimi-k3.1-pro-highspeed` · `kimi-k3` |
+| [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | `qwen3.8-max` · `qwen3.7-plus` · `qwen3.8-flash` |
+| [Cerebras](https://inference-docs.cerebras.ai/models/overview) | `qwen-3.8-27b` · `gpt-oss-120b` |
+| [Together AI](https://docs.together.ai/docs/serverless/models) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
+| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
+| [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) | `perplexity/sonar` · `openai/gpt-6.1-sol` · `google/gemini-4-argon` · `perplexity/kimi-k3` |
+| [Meta AI](https://dev.meta.ai/docs/models) | `muse-wonder-1.0` · `muse-spark-1.3` |
+| [Cohere](https://docs.cohere.com/docs/models) | `command-a-plus-05-2026` |
+| [Z.ai](https://docs.z.ai/guides/llm/glm-5.3) | `glm-5.3` · `glm-5.3-flash` · `glm-5.3-flashx` |
+| [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | `jamba-large` · `jamba-mini-2` |
+| [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | `dola-seed-2-1-turbo-260628` |
+| [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) | `ernie-5.1` |
+| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4-preview` |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-sol` |
+| [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) | 特定于账户的部署或网关 |
+
+</details>
+
+在源上检查的库存日期 **29 十月 2026**. 这些名称描述 Novera 预设，不保证每个账户都能访问。远程目录、区域、许可证、配额和计费仍特定于提供商。兼容配置文件可以刷新其目录；Azure 和某些网关使用账户部署。云合同已进行模拟测试；本次展示更新未进行付费生成。
+
+[媒体目录](web-app/src/constants/mediaProviders.ts) · [文本/视觉模型](web-app/src/constants/cloudModels.ts) · [云设置](docs/USER_GUIDE.md#cloud) · [图标来源](docs/DEVELOPMENT.md#logos)
+
+<a id="hub-and-compatible-models"></a>
+
+## 中心和兼容模型
+
+**GGUF, 标准和量化后的 Safetensors, ONNX 和 MLX**: 按任务探索模型并选择与引擎和您的硬件兼容的变体。
+
+| 系列 | 源代码中的支持 | 要求 |
+| --- | --- | --- |
+| **GGUF** | 通过 llama.cpp 进行文本生成；支持的配置文件包含图像和视频组件。 | 由捆绑的引擎识别的架构。 |
+| **分割 GGUF** | 每个完整系列一个变体，总大小，全分片下载和大小/SHA-256/头检查。 | 标准编号的文件名；下载 500 GB 不意味着模型适用于此 PC. |
+| **标准 Safetensors** | 通过 Transformers 的完整文件夹，CPU 或 NVIDIA CUDA 上的因果文本。 | 配置、分词器和所有必需的分片。 |
+| **ONNX Runtime** | 局部导入数值/布尔图和准备好的 GenAI 文本导出。 | 已验证的完整文件夹；需要特定于任务的预处理/后处理； [设置和限制](onnx-server/README.md). |
+| **LoRA / PEFT 适配器** | 在 Safetensors 提供者中导入包含其独立本地适配器的完整基础。 | 未量化的因果 Transformers 基线，匹配身份、张量检查和累积内存估计; [设置和限制](transformers-server/README.md#local-lora--peft-adapters). |
+| **FP8 LLM / ModelOpt** | 针对兼容的密集 Llama/Qwen2/Qwen3 每张量 FP8 导出的原生 CUDA 执行。 | 架构/张量检查和真实内核探测; [设置和限制](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
+| **NVFP4 LLM / ModelOpt** | 通过原生 CUDA GEMM 的打包块-16 FP4 投影；独立于图像 NVFP4。 | 兼容的 Blackwell GPU，支持的维度/导出和实际内核探测；在 RTX 5070 上测试未训练的固定值。 |
+| **AWQ** | 4-位 GEMM 模型检查点，不含操作融合。 | NVIDIA CUDA 和可选的 GPTQModel/Transformers 加载器。 |
+| **GPTQ** | 2/3/4/8-bit 配置，gptq/gptq_v2 格式。 | NVIDIA CUDA、GPTQModel 和 Optimum；在 4 位上测试真实执行。 |
+| **bitsandbytes** | 4-bit NF4/FP4 或 8-bit INT8. | NVIDIA CUDA 和可选依赖项；真实的 NF4 和 INT8 测试。 |
+| **EXL3** | 通过 ExLlamaV3 加载了完整的量化 Safetensors 模型文件夹；已使用 CUDA 测试了实际生成。 | NVIDIA GPU，独立的 Python 3.12 环境和兼容的架构；无 CPU 回退。 |
+| **EXL2** | 专用的 ExLlamaV2 加载器；在 GPU. 上测试流式传输、取消和卸载 | CUDA 注意力必须为测试的软件栈明确选择；需要完整的模型检查点和可用的 VRAM。 |
+| **MLX** | 在 Apple Silicon 上的兼容模型。 | MLX 引擎和支持的平台。 |
+
+中心库现已固定 **LFM3-1.7B** 作为其针对兼容配置的 LiquidAI 推荐，包含 Q4_K_M、Q6_K 和 Q8_0 变体。首次运行的模型仍为上述引导配置中列出的模型。
+
+从过滤下载权重 **在 1 GB 到 500 GB 及以上范围内**，然后按硬件匹配度、大小、新旧程度或下载量排序。结果逐步加载；过滤器应用于已获取的模型及其默认变体。内存建议使用可用 RAM/VRAM、上下文和配套组件，不重复计算共享的 GPU 内存。
+
+AWQ 4-bit、GPTQ 4-bit、NF4 和 INT8 各自使用离线创建的微小未训练模型在 RTX 5070 Laptop 上生成文本。这验证了加载和执行，而非每个模型的质量或性能。 **这些新增内容在源代码中：需要重新构建和兼容的依赖项；此 README 更新不升级已安装的二进制文件。**
+
+**在 RTX 5070 Laptop 上测量：** Qwen2.5-0.5B-Instruct、上下文 2,048、提示 272 令牌、128 生成的令牌，五次预热运行：中位数解码 **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**。此处未证明比 GGUF 有速度优势。量化/校准不同，且 EXL3 在一个算术烟雾提示中失败；这些结果并非通用的速度或质量排名。 [完整的测量和限制](deliverables/exllama-2026-10-30/validation.md).
+
+**TabbyAPI** 是可选的、单独管理的 OpenAI 兼容服务器连接，默认禁用。已测试经过身份验证的 EXL3 模型发现和流式传输。受管的本地 ExLlama 路由保持独立。 [ExLlama 设置和 TabbyAPI 连接](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
+
+默认的硬件适配排序倾向于同一兼容性和可用内存层级内的较新版本。已安装的模型不会自动替换。
+
+[量化 Safetensors 设置](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [格式、优先级和验证](docs/SUIVI_MOTEURS.md)
+
+更新的源代码添加了 **Windows x64 配置中的可选管理组件**: 私有 Python 环境、固定的 CPU/CUDA 配置、下载前的估算和确认、验证、修复和移除。自定义解释器路径保留在高级选项下。原生 GGUF 引擎保留现有组件；移动和云不下载桌面 Python/PyTorch。使用真实合成夹具测试了三个私有 CPU/导出配置；维护者报告在 1 November 2026 成功使用桌面版；GPU 配置和干净的 PC 安装仍需要单独详细验证。 [配置和测试限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). 将堆栈嵌入 EXE 已推迟。
+
+## 80 接口语言和变体
+
+**所有 80 目录涵盖当前的 2,429 英文键** 跨 15 命名空间，包括菜单、配置、设置、帮助和媒体控件。复数形式和界面方向遵循所选语言。响应和语音语言独立依赖于模型。
+
+此技术覆盖不认证语言质量： **原生审查和区域适应仍然是必要的**. 请参阅原生标签和已知限制在 [语言指南](docs/LANGUAGES.md) 和 [审计报告](deliverables/interface-audit-2026-10-29/RAPPORT.md).
+
+## 帮助各行各业的人们
+
+除了学校和教育之外，我们的目标是帮助全球人民学习、解决问题、创造和开发有用的项目。Novera 旨在使当前的 AI 进展在语言、经验水平和可用硬件方面更容易理解和使用。
+
+| 我们希望帮助发展的行业 | 有用贡献示例 |
+| --- | --- |
+| 学校、教育和终身学习 | 解释概念，调整学习材料并支持教师、学生和家庭。 |
+| 研究、科学和太空 | 探索文献、解释方法、分析数据和分享知识。 |
+| 健康、护理和社会支持 | 使信息更易于理解，支持研究和专业工作流程。 |
+| 农业、食品和农村社区 | 分享实用知识，支持规划并开发本地有用的工具。 |
+| 环境、气候、水和生物多样性 | 解释证据，支持观察并帮助社区规划项目。 |
+| 能源、工业、建筑和手工艺 | 支持文档、设计、维护、技术学习和流程改进。 |
+| 商业、贸易、金融和就业 | 帮助组织工作、理解信息、开发项目和学习专业技能。 |
+| 公共服务、法律和公民参与 | 使文档和程序更易于理解，信息更易于访问。 |
+| 计算、网络安全、机器人和电信 | 帮助开发软件、理解系统和构建有用工具。 |
+| 艺术、文化、媒体、语言和遗产 | 支持写作、翻译、图像、视频、创意项目和文化分享。 |
+| 交通、物流、旅游、体育和社区生活 | 协助规划、沟通、学习和地方倡议。 |
+| 无障碍、人道主义工作和日常生活 | 减少语言和知识障碍，并提供实际帮助支持民众。 |
+
+这些是贡献和发展的方向，并非声称每个特定领域的应用都已交付或验证。我们希望日常使用有简单指导，需要时有清晰的高级选项，硬件和云要求透明，并与了解每个领域和本地环境的人合作。
+
+## 项目状态
+
+**Novera 1.0.0 适用于 Windows、Linux、macOS 和 Android。** 截图显示了维护者本地编译的 Windows 应用。源代码更改、目标测试和硬件验证是单独记录的；这不验证所有模型、平台或云账户。
+
+所有十一个发行变体均启用手动 GitHub Actions 构建。请遵循 [构建结果和已验证的候选下载](docs/CI_DISTRIBUTIONS.md); 每个平台的可用性单独记录。候选版本与已签名的生产版本不同。分发要求在 [官方发布政策](OFFICIAL_RELEASES.md) 和 [发布页面](https://github.com/TRON-ABS/Novera/releases)现有的禁用更新的候选版本仍为内部使用。公开发布需要配置和验证的更新机制； [桌面签名检查和其余启动要求已记录](docs/LAUNCH_STATUS.md).
+
+## 文档和贡献
+
+- [详细用户指南](docs/USER_GUIDE.md), [产品和用户信息黄金规则（法语）](docs/REGLES_D_OR.md), [模型和引擎](docs/SUIVI_MOTEURS.md).
+- [开发](docs/DEVELOPMENT.md), [构建和发布指南](docs/BUILD_AND_RELEASE.md), [未来版本和更新准备](docs/FUTURES_VERSIONS.md).
+- [项目仪表板](TABLEAU_DE_BORD_NOVERA.md), [路线图](ROADMAP.md), [变更日志](docs/CHANGELOG.md).
+- [贡献](CONTRIBUTING.md): 跨 80 语言的代码、测试、原生审查和真实工作流程反馈。
+
+## 身份和许可
+
+Novera 由...维护 **TRON-ABS** 在 [此仓库](https://github.com/TRON-ABS/Novera)。 参见 [身份政策](BRANDING.md) 和 [官方发布政策](OFFICIAL_RELEASES.md).
+
+Novera 基于 [Jan](https://github.com/janhq/jan)，由 Menlo Research 及其贡献者创建。原始和第三方署名以及 [Apache 2.0 许可](LICENSE) 被保留。Jan 下载并非 Novera 发布版本。
+
+## 支持 Novera
+
+作为一个独立研究者，我深知资金缺乏会使研究难以推进。
+
+如果您想成为 Novera 冒险的一部分，可以通过自愿的比特币捐赠来支持我的研究和项目的开发。
+
+感谢大家的支持、贡献、反馈和鼓励。在这场冒险中，每一个举动都很重要！
+
+**Bitcoin (BTC) — Bitcoin 网络**
+
+接收地址： `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
+
+要捐助，请使用您的钱包扫描此 QR 代码或复制上方的地址。选择 **Bitcoin (BTC)，在 Bitcoin 网络上**，然后选择您想要的任何金额。
+
+<img src=".github/assets/novera-bitcoin-support.png" alt="用于 Novera Bitcoin 支持地址的 QR 代码" width="240" />
+
+---
+
+<div align="center">
+  <p>致所有开始与 Novera 旅程的人：愿您的好奇心开启新大门，您的想法得以实现，每一次创造都助您更进一步。</p>
+  <p><strong>TRON-ABS</strong></p>
+  <p>Sachet Jean-Marc 先生 — 独立研究者 — 法国</p>
+  <p><em>运用 AI 的人类艺术</em></p>
+  <p>感谢所有为更美好世界做出贡献的人。通过他们的发现、工作、相互支持和传授的知识，他们帮助我们达到了今天的成就。</p>
+  <p>我们祝愿他们未来一切顺利，也祝愿所有秉持分享和帮助他人进步精神的人。</p>
+</div>
+
+<div align="center"><sub>开发工具：🧠 Codex — GPT-6.1 Sol</sub></div>

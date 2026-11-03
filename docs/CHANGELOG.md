@@ -1,5 +1,11 @@
 # Novera — historique consolidé
 
+## README du dépôt en 80 langues et variantes — 4 novembre 2026
+
+Les 40 dernières versions complètent les 40 README déjà disponibles. Chaque version propose le sélecteur commun des 80 langues et variantes de l’inventaire. Les rubriques, tableaux, liens de téléchargement, identifiants et attributions du README anglais du 3 novembre sont conservés ; les guides liés gardent leur langue d’origine. Les versions RTL suivent leur direction de lecture.
+
+Traductions assistées par Google Traduction et le modèle local Nemotron-3.5-Bolt-E4B, avec contrôles documentaires et corrections ciblées. Les adaptations régionales écrites sont signalées ; la relecture native reste nécessaire. Aucun catalogue d’interface ni binaire modifié. [Inventaire et méthode](LANGUAGES.md).
+
 ## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026
 
 Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et Intel**. Les reçus téléchargés et leurs digests GitHub sont vérifiés : installation du vrai paquet, signature native, rejet du contenu altéré, aucune offre à version égale, restauration effective par l’updater, empreintes runtime et témoin de profil conservés, démarrage pendant 15 secondes avant et après. Le [run Windows 41336767111](https://github.com/TRON-ABS/Novera/actions/runs/41336767111) compare 106 fichiers x64 et neuf ARM64 ; le [run Linux/macOS 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673) compare l’AppImage exacte, 22 fichiers macOS ARM64 et 30 Intel.
