@@ -1,0 +1,39 @@
+{
+  "applicationSourceCommit": "c171275de01aab6e1c909889458123fe8bb57c1a",
+  "version": "1.0.0",
+  "versionCode": 1000011,
+  "sourceFiles": {
+    "scripts/android/release.json": "f7ed810added7363dedec4500c6b284a0f00c0358c543d677d1973091adf1adf",
+    "src-tauri/tauri.android.conf.json": "5e1c91fdeba9a3da8b15bd64bb002bcb4b13771a3bf60265b6393c815fe1e078",
+    "web-app/src/lib/predefined.ts": "5de17ffa3358a00c5311bcfdae8fb1598cd7c3acf89aac3387fc4c603a5ba7ce",
+    "web-app/src/hooks/useModelProvider.ts": "3354ddc3093717994ec3b309ce513ea15b902c6a60822142099b3083d71014f5",
+    "web-app/src/services/models/default.ts": "be6792458706a1876cc88cdba422f3ce7533f036f089730708ca55a89c4ea65a",
+    "web-app/src/lib/mobileDuckduckgoSearch.ts": "25b15d79ff3b19ed2a79a98050de62cc78e47622331602d9913efb5669410e3f",
+    "web-app/src/lib/clipboard.ts": "8e3bd7c8a31b0ebc395d49cd535556901692eada34ff76f4a234967dc0540de1",
+    "web-app/src/lib/messageExportText.ts": "543191b395737f4616f0f5c42b9cf7a041d0eeb8b3925a7a841406cddd6e2753"
+  },
+  "apk": "Novera_1.0.0_android-arm64.apk",
+  "sha256": "325d5ef5b6ca558ed150ea590eaf4a01b54ac8bfb1f7ee5b163dffbe85c43ecb",
+  "bytes": 42211690,
+  "certificateSha256": "ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582",
+  "exactFrontendEmbedded": true,
+  "frontendAsset": "mermaid-3U2WTVPK-D26wBjyk.js",
+  "frontendSha256": "9897e5a8c918834e84395a03985db5dd3f02ce4a22c67b8ac9fa5a8f963f3a3c",
+  "pngsUnchanged": 217,
+  "previousDeviceFeedback": {
+    "versionCode": 1000010,
+    "maintainerReportsWorksWell": true,
+    "date": "2026-11-03"
+  },
+  "deviceValidated": false,
+  "published": false,
+  "validation": {
+    "targetedFrontendTestsPassed": 85,
+    "androidConfigurationTestsPassed": 5,
+    "sourceContractCi": "https://github.com/TRON-ABS/Novera/actions/runs/41578791664"
+  },
+  "recommendations": {
+    "androidLocalModels": "Use a modern phone with enough memory or an API provider.",
+    "webSearchContextTokens": 16384
+  }
+}
