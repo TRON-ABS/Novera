@@ -1,4 +1,6 @@
 /* Shared configuration surfaces follow the Novera composer and media cards. */
+.novera-settings-navigation { flex-shrink: 0; min-height: 0; }
+.novera-settings-mobile-toggle { display: none; }
 .novera-model-settings .novera-model-settings-fields {
   max-height: min(55dvh, 560px);
 }
@@ -136,14 +138,28 @@
   .novera-theme-options { grid-template-columns: 1fr; }
 }
 @media (max-width: 700px) {
-  .novera-settings-layout { flex-direction: column; }
-  .novera-interface .novera-settings-menu {
-    width: auto;
-    height: auto;
-    max-height: 180px;
-    flex-shrink: 0;
-    margin-inline: 16px;
+  .novera-settings-layout,
+  div:has(> .novera-settings-navigation) {
+    flex-direction: column;
+    min-height: 0;
+    min-width: 0;
+    flex: 1;
   }
+  .novera-settings-navigation { width: 100%; padding: 0 12px 8px; }
+  .novera-settings-mobile-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding: 10px 12px; border: 1px solid var(--novera-settings-edge);
+    border-radius: 10px; background: var(--novera-settings-surface); color: var(--foreground);
+  }
+  .novera-settings-navigation .novera-settings-menu {
+    display: none; width: 100%; height: auto; max-height: 32dvh;
+    margin: 6px 0 0; box-sizing: border-box;
+  }
+  .novera-settings-navigation .novera-settings-menu[data-mobile-open="true"] { display: flex; }
+  .novera-settings-navigation + div { min-width: 0; min-height: 0; flex: 1; width: 100%; }
+  .novera-settings-window .novera-dashboard-pages > div { height: 100%; min-height: 0; }
+  .novera-settings-card { min-width: 0; overflow-wrap: anywhere; }
+  .novera-settings-copy { min-width: 0; }
   .novera-interface-content { padding-top: 8px; }
   .novera-interface-heading { padding-top: 8px; }
   .novera-settings-card { padding: 16px; }

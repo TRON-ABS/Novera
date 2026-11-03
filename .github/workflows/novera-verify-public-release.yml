@@ -70,5 +70,6 @@ jobs:
         with:
           name: canonical-cli-public-${{ runner.os }}-${{ github.run_id }}
           path: .build/cli-public-*/PUBLIC-CLI-VERIFIED.json
-          if-no-files-found: warn
+          include-hidden-files: true
+          if-no-files-found: error
           retention-days: 14

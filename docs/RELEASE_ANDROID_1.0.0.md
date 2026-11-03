@@ -5,13 +5,23 @@ Préparation du **2 novembre 2026**, priorité demandée par le mainteneur. Le m
 ## Périmètre et état
 
 - Identité de production : `io.github.tronabs.novera`, distincte de `io.github.tronabs.novera.debug`.
-- Version applicative : **1.0.0** ; paquet combiné **1000006 signé et inspecté**, intégrant DuckDuckGo, la main, l'apparence Desktop et le clavier mobile. Les builds 1000002/1000003 ont été testés manuellement sur HUAWEI P20 ; le build 1000004 a rencontré un refus HTTP 403 selon les retours ci-dessous. Les anciens builds sont conservés comme preuves historiques.
+- Version applicative : **1.0.0** ; dernier candidat **1000007 signé et inspecté**, avec navigation des réglages repliable sur petit écran et DuckDuckGo Lite officiel. Les builds 1000002/1000003 ont été testés manuellement sur HUAWEI P20 ; les builds 1000004 et 1000006 ont rencontré un refus HTTP 403. Les anciens builds sont conservés comme preuves historiques.
 - Cible : Android ARM64 (`arm64-v8a`), minimum Android 7/API 24 ; moteur texte CPU, un modèle à la fois, sans MLX ni moteur image CUDA.
 - Canal retenu : APK signé, téléchargement direct ; installation et mise à jour manuelles par le gestionnaire de paquets Android.
 - Les [trois revues de sources](ANDROID_RELEASE_REVIEW_2026-11-02.md) sont consignées. L'ancien worker local nommé `libjan_llama_worker.so` est remplacé par le moteur actuellement épinglé ; le stockage des secrets Android utilise désormais le fichier chiffré privé au lieu du backend keyring en mémoire.
 - Une identité RSA 4096 de signature Android est créée hors dépôt, avec mot de passe aléatoire protégé par DPAPI et accès limité au compte Windows. Son certificat public SHA-256 est `ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582`. La sauvegarde portable hors machine reste à effectuer par le mainteneur.
 
-**Le mainteneur confirme sur HUAWEI P20 la mise à jour interne 1000002 → 1000003, la discussion et le modèle conservés, une réponse LFM3 et la persistance après fermeture/relance. Une erreur DuckDuckGo « Permission denied, code 13 » reste à corriger et retester.** Les paquets restent internes.
+**Le mainteneur confirme sur HUAWEI P20 la mise à jour interne 1000002 → 1000003, la discussion et le modèle conservés, une réponse LFM3 et la persistance après fermeture/relance. Le refus HTTP 403 signalé après le correctif de processus reste à retester avec 1000007.** Les paquets restent internes.
+
+### Réglages étroits et recherche — 3 novembre 2026
+
+Le retour du mainteneur sur 1000006 signale encore un HTTP 403 et montre le menu fixe de gauche comprimant les réglages Général jusqu'à un affichage lettre par lettre. La navigation commune devient repliable au-dessus du contenu sous 700 px ; elle se referme après sélection. Les pages de réglages partagent cette adaptation et le contenu garde une largeur minimale nulle dans la disposition flexible.
+
+La recherche utilise désormais la [version Lite officielle de DuckDuckGo](https://safe.duckduckgo.com/duckduckgo-help-pages/features/non-javascript), en GET HTTPS avec identité Novera déclarée. Le lecteur accepte les lignes de résultats Lite et conserve l'ancien format HTML pour les redirections. Aucun nouvel essai par un autre point d'accès après un 403, changement automatique de fournisseur, proxy ou résolution de challenge n'est ajouté. Les erreurs précisent le domaine et interdisent de prétendre avoir lu une page refusée. Une réponse PC HTTP 200 fournit dix liens, dont cinq résultats extraits par le véritable lecteur ; ce contrôle ne valide pas le réseau mobile du P20.
+
+APK interne : `deliverables/Novera-Android-settings-search-2026-11-03/Novera_1.0.0_android-arm64.apk`, **1000007**, **42 207 594 octets**, SHA-256 **`dd49e92140cda0925a4f3402c262f4eed09a1f470c0d8ee6bf7449fb69956bbe`**, certificat inchangé. TypeScript/Vite, Cargo release, Gradle/Lint, signature et inspection finale réussissent. Les 64 tests frontend ciblés passent. La bibliothèque compilée contient le nouveau menu et l'adresse Lite ; les 217 ressources PNG compilées sont identiques à 1000006. Le contrôle visuel automatisé local a été bloqué par l'accès du navigateur ; aucune validation visuelle sur appareil n'est revendiquée. Preuves : [provenance 1000007](release-evidence/android-settings-search-2026-11-03/ANDROID-PROVENANCE.json).
+
+Installer par-dessus sans désinstaller, ouvrir Général puis Interface, changer de rubrique et contrôler la lisibilité sans déplacement horizontal. Demander ensuite une recherche web explicite ; en cas de refus, relever le domaine et le statut exacts. La conservation de la discussion et du modèle doit aussi être confirmée après cette mise à jour.
 
 ### Retour du mainteneur et diagnostic — 2 novembre 2026
 

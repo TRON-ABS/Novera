@@ -1,0 +1,40 @@
+{
+  "artifactId": 13189703195,
+  "name": "Novera-cli-Linux-41546262941",
+  "run": 41546262941,
+  "commit": "fba40e71bf22be0d09fa310a8966fd050c24560c",
+  "kind": "cli",
+  "platform": "linux",
+  "architecture": "x64",
+  "binaryArchitectureVerified": true,
+  "checksumsVerified": 11,
+  "artifactSha256": "679d5c6f9456be7447c4febc7867bf798a7867593c59549f63b0f208636f6254",
+  "cryptographicUpdateSignatureVerified": true,
+  "pinnedPublicKeyEmbedded": true,
+  "archiveIdentityVerified": {
+    "formatVersion": 2,
+    "product": "Novera CLI",
+    "version": "1.0.0",
+    "platform": "linux-x86_64",
+    "binary": "novera",
+    "binarySha256": "6b303dd67558968ab1a09100ca52bf80bcc223387690bc3ca4de2aa143d8a065",
+    "commit": "fba40e71bf22be0d09fa310a8966fd050c24560c"
+  },
+  "signedArchiveSha256": "c550d6bb5ca2ea6bab997350ef06bf1655591676a0e756433f804d3d82b565ab",
+  "nativeInstalledReplacementReceipt": {
+    "platform": "linux-x86_64",
+    "version": "1.0.0",
+    "archiveSha256": "c550d6bb5ca2ea6bab997350ef06bf1655591676a0e756433f804d3d82b565ab",
+    "signatureVerified": true,
+    "tamperedArchiveRejected": true,
+    "replacementPerformed": true,
+    "replacedExecutableRuns": true,
+    "profileWitnessPreserved": true,
+    "productionEndpointValidated": false,
+    "twoReleasedVersionsUpgradeValidated": false,
+    "publicationAuthorized": false
+  },
+  "canonicalHelpVerified": true,
+  "productionEndpointValidated": false,
+  "publicReleaseAuthorized": false
+}

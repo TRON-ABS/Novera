@@ -1,0 +1,34 @@
+{
+  "run": 41551771877,
+  "workflowCommit": "e765f207144ab662fca0f320e24ad37deaac7980",
+  "receiptsFromAuthenticatedJobLogs": true,
+  "artifactRetentionCorrectionPending": true,
+  "platforms": {
+    "linux-x86_64": {
+      "target": "linux-x86_64",
+      "version": "1.0.0",
+      "sourceCommit": "fba40e71bf22be0d09fa310a8966fd050c24560c",
+      "binary": "novera",
+      "archiveSha256": "c550d6bb5ca2ea6bab997350ef06bf1655591676a0e756433f804d3d82b565ab",
+      "signatureVerified": true,
+      "publicFeedVerified": true,
+      "canonicalHelpVerified": true,
+      "nativeProductionCheckPassed": true,
+      "updateInstalled": false,
+      "stdout": "Already on the latest stable build (1.0.0)\n"
+    },
+    "windows-x86_64": {
+      "target": "windows-x86_64",
+      "version": "1.0.0",
+      "sourceCommit": "fba40e71bf22be0d09fa310a8966fd050c24560c",
+      "binary": "novera.exe",
+      "archiveSha256": "bd371a16bd58f6720fd1319bc3db667360410b7d9022e00924c58b4938af3f71",
+      "signatureVerified": true,
+      "publicFeedVerified": true,
+      "canonicalHelpVerified": true,
+      "nativeProductionCheckPassed": true,
+      "updateInstalled": false,
+      "stdout": "Already on the latest stable build (1.0.0)\n"
+    }
+  }
+}

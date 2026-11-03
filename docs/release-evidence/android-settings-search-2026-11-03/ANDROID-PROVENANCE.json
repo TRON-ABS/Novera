@@ -1,0 +1,51 @@
+{
+  "sourceBaseCommit": "e765f207144ab662fca0f320e24ad37deaac7980",
+  "sourceIncludesLocalUncommittedChanges": true,
+  "applicationPatchSha256": "212762116f7122d3c4f8ed6ec370275d54f5375fea992d233afe66f65dbea9ed",
+  "sourceFiles": {
+    "scripts/android/release.json": "e73d72f8f2c6f9096bf45163d7d5c97bcb04266bd7f8bf904d863e219bfb2032",
+    "src-tauri/tauri.android.conf.json": "a53aae6c5e4139c24c6e01d7af19d0edcc99bee802d771f3551e267a02640a62",
+    "web-app/src/containers/GlobalNavigationDialogs.tsx": "3d9c45a592467b3e075374f239b97d5dbb5ff0b72cd5cd166a7e113cbad44b59",
+    "web-app/src/containers/SettingsMenu.tsx": "01dfc207a3b5b39a3347ad9ab501c2841b7daf158203df9248e3eef265d282ca",
+    "web-app/src/containers/__tests__/SettingsMenu.test.tsx": "d665c5c73e2f4e04ec47a68347900829d6bc47b471c2c6e1476f7d241cd9b129",
+    "web-app/src/lib/mobileDuckduckgoSearch.ts": "4bf8792b751894e15c64453f84a5bd30582745d3160752cd2b6890e756d09970",
+    "web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts": "386004ec4b0bb412259204e6832136e36c1352e40d7af39ebfc5abf5012a9ff2",
+    "web-app/src/styles/settings.css": "147f9486c1430670bb3810f9f02f0897a08027577954b72c41cab603a6615f2a"
+  },
+  "versionCode": 1000007,
+  "sha256": "dd49e92140cda0925a4f3402c262f4eed09a1f470c0d8ee6bf7449fb69956bbe",
+  "sameCertificateSha256": "ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582",
+  "replacesVersionCode": 1000006,
+  "previousApkSha256": "82d3002ae90d3e4700d04bb239128d01e4baf5f91dd1f815f049b4ab4d059217",
+  "signatureAndPackageInspectionPassed": true,
+  "compiledNativeLibrarySha256": "815263ef5ff0f04897520153ee5f36de273ec1a8d36da8d9c040708740f5d6b3",
+  "newMenuAndLiteEndpointPresentInCompiledLibrary": true,
+  "compiledPngResourcesUnchanged": 217,
+  "frontendRegressionTestsPassed": 64,
+  "mobileMenuCollapsedInitially": true,
+  "searchUsesOfficialDuckDuckGoLite": true,
+  "automatic403RetryOrProviderFallback": false,
+  "livePcProbe": {
+    "provider": "DuckDuckGo",
+    "httpStatus": 200,
+    "query": "Tauri Android documentation",
+    "transport": "official Lite GET page",
+    "applicationUserAgent": "Novera/1.0.0 (+https://github.com/TRON-ABS/Novera)",
+    "livePcParserResults": 5,
+    "urls": [
+      "https://v2.tauri.app/distribute/google-play/",
+      "https://v2.tauri.app/develop/",
+      "https://github.com/tauri-apps/tauri-docs",
+      "https://github.com/aiueo13/tauri-plugin-android-fs",
+      "https://deepwiki.com/tauri-apps/tauri/8.3-android-development-and-build"
+    ],
+    "androidDeviceValidated": false,
+    "captchaBypassUsed": false,
+    "browserImpersonationUsed": false,
+    "providerChanged": false
+  },
+  "visualBrowserCheck": "blocked: local HTTP connection unavailable and file URL denied by browser policy; no policy bypass attempted",
+  "phoneResult1000006": "maintainer reports HTTP 403 and settings content squeezed beside fixed-width navigation",
+  "phoneResult1000007": "pending maintainer retest",
+  "published": false
+}

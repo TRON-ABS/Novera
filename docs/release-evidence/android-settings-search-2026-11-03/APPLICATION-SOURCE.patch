@@ -1,0 +1,273 @@
+diff --git a/scripts/android/release.json b/scripts/android/release.json
+index cdc58d1d0..5a7598f6f 100644
+--- a/scripts/android/release.json
++++ b/scripts/android/release.json
+@@ -1,6 +1,6 @@
+ {
+   "packageId": "io.github.tronabs.novera",
+-  "versionCode": 1000006,
++  "versionCode": 1000007,
+   "certificateSha256": "ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582",
+   "distribution": "direct-apk",
+   "updateMethod": "android-package-installer-same-certificate-higher-versionCode"
+diff --git a/src-tauri/tauri.android.conf.json b/src-tauri/tauri.android.conf.json
+index 21996e773..b749e73b7 100644
+--- a/src-tauri/tauri.android.conf.json
++++ b/src-tauri/tauri.android.conf.json
+@@ -30,7 +30,7 @@
+     "externalBin": [],
+     "android": {
+       "minSdkVersion": 24,
+-      "versionCode": 1000006,
++      "versionCode": 1000007,
+       "debugApplicationIdSuffix": ".debug"
+     }
+   }
+diff --git a/web-app/src/containers/GlobalNavigationDialogs.tsx b/web-app/src/containers/GlobalNavigationDialogs.tsx
+index a9a3f5b7c..129562a0b 100644
+--- a/web-app/src/containers/GlobalNavigationDialogs.tsx
++++ b/web-app/src/containers/GlobalNavigationDialogs.tsx
+@@ -42,7 +42,7 @@ export function GlobalNavigationDialogs() {
+       <SearchDialog docked open={searchOpen && panel === 'search'} onOpenChange={setSearchOpen} />
+       <Dialog open={panel === 'models' || panel === 'settings'} modal={false}
+         onOpenChange={open => { if (!open) useDashboardPanel.getState().closePanel() }}>
+-        <DialogContent docked positionEnabled={panel === 'models' || panel === 'settings'} className="flex flex-col gap-0 p-0">
++        <DialogContent docked positionEnabled={panel === 'models' || panel === 'settings'} className={`flex flex-col gap-0 p-0 ${panel === 'settings' ? 'novera-settings-window' : ''}`}>
+           <DialogHeader className="shrink-0 border-b border-cyan-400/30 p-4 pr-12">
+             <DialogTitle>{t(panel === 'models' ? 'providers:models' : 'common:settings')}</DialogTitle>
+           </DialogHeader>
+diff --git a/web-app/src/containers/SettingsMenu.tsx b/web-app/src/containers/SettingsMenu.tsx
+index 214d7639b..f27d34955 100644
+--- a/web-app/src/containers/SettingsMenu.tsx
++++ b/web-app/src/containers/SettingsMenu.tsx
+@@ -38,6 +38,7 @@ import { Button } from '@/components/ui/button'
+ const SettingsMenu = () => {
+   const { t } = useTranslation()
+   const [expandedProviders, setExpandedProviders] = useState(true)
++  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+ 
+   const matches = useMatches()
+   const navigate = useNavigate()
+@@ -240,8 +241,15 @@ const SettingsMenu = () => {
+   ]
+ 
+   return (
+-    <>
+-      <div className="novera-settings-menu h-full w-58 shrink-0 px-1.5 flex overflow-auto">
++    <nav className="novera-settings-navigation" aria-label={t('common:settings')}>
++      <button type="button" className="novera-settings-mobile-toggle"
++        aria-expanded={mobileMenuOpen} aria-controls="novera-settings-navigation-items"
++        onClick={() => setMobileMenuOpen(open => !open)}>
++        <span>{t('common:settings')}</span><IconChevronDown size={18} />
++      </button>
++      <div id="novera-settings-navigation-items" data-mobile-open={mobileMenuOpen}
++        onClick={event => { if ((event.target as HTMLElement).closest('a, .novera-settings-link')) setMobileMenuOpen(false) }}
++        className="novera-settings-menu h-full w-58 shrink-0 px-1.5 flex overflow-auto">
+         <div className="flex flex-col gap-1 w-full font-medium">
+           {/* Core settings */}
+           {coreSettings.map((menu) => (
+@@ -370,7 +378,7 @@ const SettingsMenu = () => {
+           </div>
+         </div>
+       </div>
+-    </>
++    </nav>
+   )
+ }
+ 
+diff --git a/web-app/src/containers/__tests__/SettingsMenu.test.tsx b/web-app/src/containers/__tests__/SettingsMenu.test.tsx
+index 14d63c382..d76ba693c 100644
+--- a/web-app/src/containers/__tests__/SettingsMenu.test.tsx
++++ b/web-app/src/containers/__tests__/SettingsMenu.test.tsx
+@@ -80,6 +80,15 @@ vi.mock('@/containers/ProvidersAvatar', () => ({
+ 
+ 
+ describe('SettingsMenu', () => {
++  it('lets a phone open the navigation and closes it after choosing a section', async () => {
++    render(<SettingsMenu />)
++    const toggle = screen.getByRole('button', { name: 'common:settings' })
++    expect(toggle).toHaveAttribute('aria-expanded', 'false')
++    await userEvent.click(toggle)
++    expect(toggle).toHaveAttribute('aria-expanded', 'true')
++    await userEvent.click(screen.getByText('common:appearance'))
++    expect(toggle).toHaveAttribute('aria-expanded', 'false')
++  })
+   const mockNavigate = vi.fn()
+   const mockMatches = [
+     {
+diff --git a/web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts b/web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts
+index 778a5e1b3..dd661debd 100644
+--- a/web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts
++++ b/web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts
+@@ -26,11 +26,10 @@ describe('mobile DuckDuckGo without a desktop process', () => {
+   it('routes Android search through native HTTPS and returns source URLs without activating MCP', async () => {
+     const result = await executeWebTool('web_search', { query: 'documentation' })
+     expect(result).toMatchObject({ content: { kind: 'web', results: [{ title: 'Documentation', url: 'https://example.com/docs', text: 'Public documentation' }] } })
+-    expect(h.fetch).toHaveBeenCalledWith('https://html.duckduckgo.com/html/', expect.objectContaining({
+-      method: 'POST', body: 'q=documentation', maxRedirections: 0,
++    expect(h.fetch).toHaveBeenCalledWith('https://lite.duckduckgo.com/lite/?q=documentation', expect.objectContaining({
++      method: 'GET', body: undefined, maxRedirections: 0,
+       headers: expect.objectContaining({
+         'User-Agent': 'Novera/1.0.0 (+https://github.com/TRON-ABS/Novera)',
+-        'Content-Type': 'application/x-www-form-urlencoded',
+       }),
+     }))
+     expect(h.mcp).not.toHaveBeenCalled()
+@@ -68,10 +67,10 @@ describe('mobile DuckDuckGo without a desktop process', () => {
+     expect(parseMobileSearch(unsafe + html, 1)).toHaveLength(1)
+   })
+ 
+-  it('encodes the official form and follows POST redirects without forwarding queries to other providers', async () => {
++  it('encodes the official Lite query and follows redirects without forwarding queries to other providers', async () => {
+     h.fetch.mockResolvedValueOnce(response('', 303, { location: '/html/?q=a' }))
+     await executeWebTool('web_search', { query: 'a & b=é' })
+-    expect(h.fetch.mock.calls[0][1].body).toBe('q=a+%26+b%3D%C3%A9')
++    expect(h.fetch.mock.calls[0][0]).toBe('https://lite.duckduckgo.com/lite/?q=a+%26+b%3D%C3%A9')
+     expect(h.fetch.mock.calls[1][1]).toMatchObject({ method: 'GET', body: undefined })
+     expect(h.fetch.mock.calls[1][1].headers).not.toHaveProperty('Content-Type')
+     h.fetch.mockReset().mockResolvedValueOnce(response('', 307, { location: 'https://example.com/' }))
+@@ -82,11 +81,26 @@ describe('mobile DuckDuckGo without a desktop process', () => {
+   it('reports a refused page host accurately and does not retry HTTP 403', async () => {
+     h.fetch.mockResolvedValueOnce(response('forbidden', 403))
+     expect(await executeWebTool('web_fetch', { url: 'https://example.com/article' })).toEqual({
+-      error: 'Web request to example.com failed (HTTP 403)',
++      error: expect.stringContaining('Web request to example.com failed (HTTP 403)'),
+     })
+     expect(h.fetch).toHaveBeenCalledTimes(1)
+   })
+ 
++  it('parses Lite rows, decodes result links and keeps their corresponding snippets', () => {
++    const lite = `<table><tr><td><a class="result-link" href="https://example.com/a">First</a></td></tr><tr><td class="result-snippet">First summary</td></tr><tr><td><a class="result-link" href="//duckduckgo.com/l/?uddg=https%3A%2F%2Fexample.com%2Fb">Second</a></td></tr><tr><td class="result-snippet">Second summary</td></tr></table>`
++    expect(parseMobileSearch(lite, 5)).toEqual([
++      { title: 'First', url: 'https://example.com/a', text: 'First summary' },
++      { title: 'Second', url: 'https://example.com/b', text: 'Second summary' },
++    ])
++  })
++
++  it('does not retry a refused DuckDuckGo search through another endpoint or provider', async () => {
++    h.fetch.mockResolvedValueOnce(response('forbidden', 403))
++    expect(await executeWebTool('web_search', { query: 'a' })).toEqual({ error: expect.stringContaining('lite.duckduckgo.com failed (HTTP 403)') })
++    expect(h.fetch).toHaveBeenCalledTimes(1)
++    expect(h.mcp).not.toHaveBeenCalled()
++  })
++
+   it('rejects local URLs and unsafe redirects before contacting their destination', async () => {
+     for (const url of ['file:///secret', 'http://example.com', 'https://127.0.0.1/', 'https://localhost/', 'https://192.168.0.1/', 'https://user:password@example.com/']) {
+       expect(await executeWebTool('web_fetch', { url })).toHaveProperty('error')
+diff --git a/web-app/src/lib/mobileDuckduckgoSearch.ts b/web-app/src/lib/mobileDuckduckgoSearch.ts
+index ff25a66be..750efbf42 100644
+--- a/web-app/src/lib/mobileDuckduckgoSearch.ts
++++ b/web-app/src/lib/mobileDuckduckgoSearch.ts
+@@ -1,6 +1,6 @@
+ import { fetch as nativeFetch } from '@tauri-apps/plugin-http'
+ 
+-const SEARCH_ORIGIN = 'https://html.duckduckgo.com'
++const SEARCH_ORIGIN = 'https://lite.duckduckgo.com'
+ const MAX_RESPONSE_BYTES = 1024 * 1024
+ const APPLICATION_USER_AGENT = 'Novera/1.0.0 (+https://github.com/TRON-ABS/Novera)'
+ 
+@@ -39,7 +39,7 @@ async function requestText(address: string, formBody?: string): Promise<{ text:
+         await response.body?.cancel()
+         if (!location) throw new Error('Web response has no redirect destination')
+         url = publicHttps(new URL(location, url).href)
+-        if (formBody !== undefined && !['duckduckgo.com', 'html.duckduckgo.com'].includes(url.hostname)) {
++        if (['duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(new URL(address).hostname) && !['duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(url.hostname)) {
+           throw new Error('DuckDuckGo search redirected outside its search service')
+         }
+         if (response.status === 303 || ((response.status === 301 || response.status === 302) && method === 'POST')) {
+@@ -50,7 +50,7 @@ async function requestText(address: string, formBody?: string): Promise<{ text:
+       }
+       if (!response.ok) {
+         await response.body?.cancel()
+-        throw new Error(`Web request to ${url.host} failed (HTTP ${response.status})`)
++        throw new Error(`Web request to ${url.host} failed (HTTP ${response.status})${response.status === 403 ? ' — access refused by this site. Do not repeat this request or claim its content was read.' : ''}`)
+       }
+       const type = response.headers.get('content-type') || ''
+       if (type && !/^(?:text\/|application\/(?:xhtml\+xml|json))/i.test(type)) {
+@@ -84,17 +84,19 @@ export function parseMobileSearch(html: string, count: number) {
+     throw new Error('DuckDuckGo requires a verification challenge; mobile search is unavailable for this request')
+   }
+   const results: { title: string; url: string; text: string }[] = []
+-  for (const item of document.querySelectorAll('.result')) {
+-    const link = item.querySelector<HTMLAnchorElement>('a.result__a')
+-    if (!link) continue
++  for (const link of document.querySelectorAll<HTMLAnchorElement>('a.result__a, a.result-link')) {
++    const item = link.closest('.result')
++    // The official Lite layout uses separate table rows for links and snippets.
++    const snippet = item?.querySelector('.result__snippet') ??
++      link.closest('tr')?.nextElementSibling?.querySelector('.result-snippet')
+     try {
+       let url = new URL(link.getAttribute('href') || '', SEARCH_ORIGIN)
+-      if (['duckduckgo.com', 'html.duckduckgo.com'].includes(url.hostname) && url.pathname === '/l/') {
++      if (['duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(url.hostname) && url.pathname === '/l/') {
+         url = new URL(url.searchParams.get('uddg') || '')
+       }
+       url = publicHttps(url.href)
+       results.push({ title: (link.textContent || '').trim().slice(0, 300), url: url.href,
+-        text: (item.querySelector('.result__snippet')?.textContent || '').trim().slice(0, 500) })
++        text: (snippet?.textContent || '').trim().slice(0, 500) })
+     } catch { continue }
+     if (results.length >= count) break
+   }
+@@ -119,10 +121,11 @@ export async function executeMobileDuckDuckGoTool(
+     if (!query) throw new Error('A search query is required')
+     const count = typeof input.count === 'number' && Number.isFinite(input.count)
+       ? Math.max(1, Math.min(20, Math.floor(input.count))) : 5
+-    const address = new URL('/html/', SEARCH_ORIGIN)
+-    // Use DuckDuckGo's own HTML form contract and identify Novera honestly.
++    const address = new URL('/lite/', SEARCH_ORIGIN)
++    address.searchParams.set('q', query)
++    // Use DuckDuckGo's official non-JavaScript Lite page and identify Novera honestly.
+     // Do not impersonate a browser or retry through a challenge/proxy.
+-    const response = await requestText(address.href, new URLSearchParams({ q: query }).toString())
++    const response = await requestText(address.href)
+     const results = parseMobileSearch(response.text, count)
+     const output = { kind: 'web', query, results }
+     while (output.results.length && JSON.stringify(output).length > budget) output.results.pop()
+diff --git a/web-app/src/styles/settings.css b/web-app/src/styles/settings.css
+index 3cfad7618..cc0b951f8 100644
+--- a/web-app/src/styles/settings.css
++++ b/web-app/src/styles/settings.css
+@@ -1,4 +1,6 @@
+ /* Shared configuration surfaces follow the Novera composer and media cards. */
++.novera-settings-navigation { flex-shrink: 0; min-height: 0; }
++.novera-settings-mobile-toggle { display: none; }
+ .novera-model-settings .novera-model-settings-fields {
+   max-height: min(55dvh, 560px);
+ }
+@@ -136,14 +138,28 @@
+   .novera-theme-options { grid-template-columns: 1fr; }
+ }
+ @media (max-width: 700px) {
+-  .novera-settings-layout { flex-direction: column; }
+-  .novera-interface .novera-settings-menu {
+-    width: auto;
+-    height: auto;
+-    max-height: 180px;
+-    flex-shrink: 0;
+-    margin-inline: 16px;
++  .novera-settings-layout,
++  div:has(> .novera-settings-navigation) {
++    flex-direction: column;
++    min-height: 0;
++    min-width: 0;
++    flex: 1;
+   }
++  .novera-settings-navigation { width: 100%; padding: 0 12px 8px; }
++  .novera-settings-mobile-toggle {
++    display: flex; align-items: center; justify-content: space-between;
++    width: 100%; padding: 10px 12px; border: 1px solid var(--novera-settings-edge);
++    border-radius: 10px; background: var(--novera-settings-surface); color: var(--foreground);
++  }
++  .novera-settings-navigation .novera-settings-menu {
++    display: none; width: 100%; height: auto; max-height: 32dvh;
++    margin: 6px 0 0; box-sizing: border-box;
++  }
++  .novera-settings-navigation .novera-settings-menu[data-mobile-open="true"] { display: flex; }
++  .novera-settings-navigation + div { min-width: 0; min-height: 0; flex: 1; width: 100%; }
++  .novera-settings-window .novera-dashboard-pages > div { height: 100%; min-height: 0; }
++  .novera-settings-card { min-width: 0; overflow-wrap: anywhere; }
++  .novera-settings-copy { min-width: 0; }
+   .novera-interface-content { padding-top: 8px; }
+   .novera-interface-heading { padding-top: 8px; }
+   .novera-settings-card { padding: 16px; }

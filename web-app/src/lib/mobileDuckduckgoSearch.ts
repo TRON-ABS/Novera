@@ -1,6 +1,6 @@
 import { fetch as nativeFetch } from '@tauri-apps/plugin-http'
 
-const SEARCH_ORIGIN = 'https://html.duckduckgo.com'
+const SEARCH_ORIGIN = 'https://lite.duckduckgo.com'
 const MAX_RESPONSE_BYTES = 1024 * 1024
 const APPLICATION_USER_AGENT = 'Novera/1.0.0 (+https://github.com/TRON-ABS/Novera)'
 
@@ -39,7 +39,7 @@ async function requestText(address: string, formBody?: string): Promise<{ text: 
         await response.body?.cancel()
         if (!location) throw new Error('Web response has no redirect destination')
         url = publicHttps(new URL(location, url).href)
-        if (formBody !== undefined && !['duckduckgo.com', 'html.duckduckgo.com'].includes(url.hostname)) {
+        if (['duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(new URL(address).hostname) && !['duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(url.hostname)) {
           throw new Error('DuckDuckGo search redirected outside its search service')
         }
         if (response.status === 303 || ((response.status === 301 || response.status === 302) && method === 'POST')) {
@@ -50,7 +50,7 @@ async function requestText(address: string, formBody?: string): Promise<{ text: 
       }
       if (!response.ok) {
         await response.body?.cancel()
-        throw new Error(`Web request to ${url.host} failed (HTTP ${response.status})`)
+        throw new Error(`Web request to ${url.host} failed (HTTP ${response.status})${response.status === 403 ? ' — access refused by this site. Do not repeat this request or claim its content was read.' : ''}`)
       }
       const type = response.headers.get('content-type') || ''
       if (type && !/^(?:text\/|application\/(?:xhtml\+xml|json))/i.test(type)) {
@@ -84,17 +84,19 @@ export function parseMobileSearch(html: string, count: number) {
     throw new Error('DuckDuckGo requires a verification challenge; mobile search is unavailable for this request')
   }
   const results: { title: string; url: string; text: string }[] = []
-  for (const item of document.querySelectorAll('.result')) {
-    const link = item.querySelector<HTMLAnchorElement>('a.result__a')
-    if (!link) continue
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('a.result__a, a.result-link')) {
+    const item = link.closest('.result')
+    // The official Lite layout uses separate table rows for links and snippets.
+    const snippet = item?.querySelector('.result__snippet') ??
+      link.closest('tr')?.nextElementSibling?.querySelector('.result-snippet')
     try {
       let url = new URL(link.getAttribute('href') || '', SEARCH_ORIGIN)
-      if (['duckduckgo.com', 'html.duckduckgo.com'].includes(url.hostname) && url.pathname === '/l/') {
+      if (['duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(url.hostname) && url.pathname === '/l/') {
         url = new URL(url.searchParams.get('uddg') || '')
       }
       url = publicHttps(url.href)
       results.push({ title: (link.textContent || '').trim().slice(0, 300), url: url.href,
-        text: (item.querySelector('.result__snippet')?.textContent || '').trim().slice(0, 500) })
+        text: (snippet?.textContent || '').trim().slice(0, 500) })
     } catch { continue }
     if (results.length >= count) break
   }
@@ -119,10 +121,11 @@ export async function executeMobileDuckDuckGoTool(
     if (!query) throw new Error('A search query is required')
     const count = typeof input.count === 'number' && Number.isFinite(input.count)
       ? Math.max(1, Math.min(20, Math.floor(input.count))) : 5
-    const address = new URL('/html/', SEARCH_ORIGIN)
-    // Use DuckDuckGo's own HTML form contract and identify Novera honestly.
+    const address = new URL('/lite/', SEARCH_ORIGIN)
+    address.searchParams.set('q', query)
+    // Use DuckDuckGo's official non-JavaScript Lite page and identify Novera honestly.
     // Do not impersonate a browser or retry through a challenge/proxy.
-    const response = await requestText(address.href, new URLSearchParams({ q: query }).toString())
+    const response = await requestText(address.href)
     const results = parseMobileSearch(response.text, count)
     const output = { kind: 'web', query, results }
     while (output.results.length && JSON.stringify(output).length > budget) output.results.pop()

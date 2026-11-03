@@ -1,0 +1,40 @@
+{
+  "artifactId": 13191505849,
+  "name": "Novera-cli-macOS-41546262941",
+  "run": 41546262941,
+  "commit": "fba40e71bf22be0d09fa310a8966fd050c24560c",
+  "kind": "cli",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "binaryArchitectureVerified": true,
+  "checksumsVerified": 11,
+  "artifactSha256": "d3d25b8a9d48bed7db704a39bcf0094ae3a0893f5ebe2328e08b827842516c90",
+  "cryptographicUpdateSignatureVerified": true,
+  "pinnedPublicKeyEmbedded": true,
+  "archiveIdentityVerified": {
+    "formatVersion": 2,
+    "product": "Novera CLI",
+    "version": "1.0.0",
+    "platform": "darwin-aarch64",
+    "binary": "novera",
+    "binarySha256": "4bf3a5b96d9568b69b2a6145479a4a983684da4859328512586c13cd430b34f8",
+    "commit": "fba40e71bf22be0d09fa310a8966fd050c24560c"
+  },
+  "signedArchiveSha256": "00ac169dccffd47e084203aeb7a9fdf578c189126bee664954ccb21f5b7c4ea4",
+  "nativeInstalledReplacementReceipt": {
+    "platform": "darwin-aarch64",
+    "version": "1.0.0",
+    "archiveSha256": "00ac169dccffd47e084203aeb7a9fdf578c189126bee664954ccb21f5b7c4ea4",
+    "signatureVerified": true,
+    "tamperedArchiveRejected": true,
+    "replacementPerformed": true,
+    "replacedExecutableRuns": true,
+    "profileWitnessPreserved": true,
+    "productionEndpointValidated": false,
+    "twoReleasedVersionsUpgradeValidated": false,
+    "publicationAuthorized": false
+  },
+  "canonicalHelpVerified": true,
+  "productionEndpointValidated": false,
+  "publicReleaseAuthorized": false
+}

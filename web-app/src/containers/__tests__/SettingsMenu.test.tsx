@@ -80,6 +80,15 @@ vi.mock('@/containers/ProvidersAvatar', () => ({
 
 
 describe('SettingsMenu', () => {
+  it('lets a phone open the navigation and closes it after choosing a section', async () => {
+    render(<SettingsMenu />)
+    const toggle = screen.getByRole('button', { name: 'common:settings' })
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    await userEvent.click(toggle)
+    expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    await userEvent.click(screen.getByText('common:appearance'))
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+  })
   const mockNavigate = vi.fn()
   const mockMatches = [
     {

@@ -1,0 +1,40 @@
+{
+  "artifactId": 13191871235,
+  "name": "Novera-cli-Windows-41546262941",
+  "run": 41546262941,
+  "commit": "fba40e71bf22be0d09fa310a8966fd050c24560c",
+  "kind": "cli",
+  "platform": "win32",
+  "architecture": "x64",
+  "binaryArchitectureVerified": true,
+  "checksumsVerified": 11,
+  "artifactSha256": "8ac0db373b7a65a6ce056dd3b9cac1dccb905bdb5d7d5006b6ea9391f3a88580",
+  "cryptographicUpdateSignatureVerified": true,
+  "pinnedPublicKeyEmbedded": true,
+  "archiveIdentityVerified": {
+    "formatVersion": 2,
+    "product": "Novera CLI",
+    "version": "1.0.0",
+    "platform": "windows-x86_64",
+    "binary": "novera.exe",
+    "binarySha256": "fed1a86b64e20b4aa463b81bff70b08e234c71ac95b6566d4a5a3d73344b541b",
+    "commit": "fba40e71bf22be0d09fa310a8966fd050c24560c"
+  },
+  "signedArchiveSha256": "bd371a16bd58f6720fd1319bc3db667360410b7d9022e00924c58b4938af3f71",
+  "nativeInstalledReplacementReceipt": {
+    "platform": "windows-x86_64",
+    "version": "1.0.0",
+    "archiveSha256": "bd371a16bd58f6720fd1319bc3db667360410b7d9022e00924c58b4938af3f71",
+    "signatureVerified": true,
+    "tamperedArchiveRejected": true,
+    "replacementPerformed": true,
+    "replacedExecutableRuns": true,
+    "profileWitnessPreserved": true,
+    "productionEndpointValidated": false,
+    "twoReleasedVersionsUpgradeValidated": false,
+    "publicationAuthorized": false
+  },
+  "canonicalHelpVerified": true,
+  "productionEndpointValidated": false,
+  "publicReleaseAuthorized": false
+}

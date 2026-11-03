@@ -42,7 +42,7 @@ export function GlobalNavigationDialogs() {
       <SearchDialog docked open={searchOpen && panel === 'search'} onOpenChange={setSearchOpen} />
       <Dialog open={panel === 'models' || panel === 'settings'} modal={false}
         onOpenChange={open => { if (!open) useDashboardPanel.getState().closePanel() }}>
-        <DialogContent docked positionEnabled={panel === 'models' || panel === 'settings'} className="flex flex-col gap-0 p-0">
+        <DialogContent docked positionEnabled={panel === 'models' || panel === 'settings'} className={`flex flex-col gap-0 p-0 ${panel === 'settings' ? 'novera-settings-window' : ''}`}>
           <DialogHeader className="shrink-0 border-b border-cyan-400/30 p-4 pr-12">
             <DialogTitle>{t(panel === 'models' ? 'providers:models' : 'common:settings')}</DialogTitle>
           </DialogHeader>
