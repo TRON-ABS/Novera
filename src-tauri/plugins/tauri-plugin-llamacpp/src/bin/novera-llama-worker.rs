@@ -113,9 +113,9 @@ async fn main() {
         std::process::exit(3);
     }
 
-    // Must precede any ggml call, including device enumeration.
-    tauri_plugin_llamacpp::engine::load_backend_modules();
-
+    // Backend discovery belongs to model loading/device enumeration. A cold
+    // Metal initialization can exceed the supervisor's handshake deadline on
+    // Intel; an idle router or invalid preset must not initialize the GPU.
     if args.list_devices {
         match tauri_plugin_llamacpp::engine::Engine::devices_json() {
             Ok(json) => println!("{json}"),

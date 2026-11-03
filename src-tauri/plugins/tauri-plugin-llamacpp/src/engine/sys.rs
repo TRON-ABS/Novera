@@ -129,6 +129,7 @@ mod imp {
         /// Starts from llama-server's own flag set, so callers reuse the
         /// upstream arg table instead of mirroring `common_params`.
         pub fn start(args: &[String], on_state: Option<StateCallback>) -> Result<Self, EngineError> {
+            super::super::load_backend_modules();
             let owned: Vec<CString> = args
                 .iter()
                 .map(|a| CString::new(a.as_str()).unwrap_or_default())
@@ -158,6 +159,7 @@ mod imp {
             preset: &str,
             on_state: Option<StateCallback>,
         ) -> Result<Self, EngineError> {
+            super::super::load_backend_modules();
             let ini = CString::new(ini_path).map_err(|e| EngineError::Start(e.to_string()))?;
             let name = CString::new(preset).map_err(|e| EngineError::Start(e.to_string()))?;
             let mut err = vec![0u8; ERR_BUF_LEN];
@@ -245,6 +247,7 @@ mod imp {
         /// The offloadable devices, as the shim's JSON array. Needs no engine:
         /// ggml devices are process-global, so this is an associated function.
         pub fn devices_json() -> Result<String, EngineError> {
+            super::super::load_backend_modules();
             // SAFETY: the shim malloc()s the string and we hand the same
             // pointer back to its free; a null return is only OOM.
             let raw = unsafe { novera_llama_devices_json() };
