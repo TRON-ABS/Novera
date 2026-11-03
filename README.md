@@ -5,7 +5,8 @@
   <p><strong>Available for Windows, Linux, macOS and Android</strong> · 80 interface languages · 42 cloud providers · 49 media presets · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Local models</a> · <a href="#hub-and-compatible-models">Formats &amp; Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
-  <p><a href="https://www.facebook.com/profile.php?id=61596114515071">Official Novera Facebook page</a> · Share your creations, models, settings, feedback and ideas.</p>
+  <p>Official Novera social profiles: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
+  <p>Share your creations, models, settings, questions, feedback and ideas.</p>
 </div>
 
 ---

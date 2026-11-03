@@ -1,9 +1,7 @@
-# docs(community): link the official Novera Facebook page
+# docs(community): publish all official Novera social links
 
-The showcase and both READMEs did not link the newly created Novera Facebook page. Add its exact public profile URL and invite users to share creations, models, settings, questions, issues and ideas through Facebook or the project email. Remind users to remove personal information and credentials from public feedback.
+The showcase and both READMEs exposed only Facebook. Add the verified Instagram, TikTok, YouTube, X and Bluesky profile URLs alongside Facebook, with the existing invitation to share creations, models, settings, questions and ideas. The showcase navigation now jumps to the community section, whose buttons wrap on small screens. Keep the original cyan hand and banner assets.
 
-The page was created with explicit maintainer approval and configured with the original cyan hand, official banner, project website, contact email and public biography. The authenticated page view is verified; logged-out Facebook access and the welcome post remain unverified because a saved browser permission denies Facebook access. This change does not claim either is complete.
+LinkedIn has no official Novera page yet and is excluded. Link TikTok’s existing profile without claiming its welcome post has cleared moderation. Supersedes the Facebook-only coverage added in #24. No dependency or file overlap with the open iOS PR #22.
 
-No dependency on the still-open iOS/mobile PR #22; no workflow or application code changes. Preserve its separate work and existing distribution links. No paid promotion.
-
-Validation: `node --test scripts/distribution/__tests__/prepare-pages-site.test.mjs scripts/distribution/__tests__/web-delivery.test.mjs` — 5 passed. Scoped whitespace check passed. Pages deployment and public HTML verification follow merge and are recorded separately.
+Validation: `node --test scripts/distribution/__tests__/prepare-pages-site.test.mjs scripts/distribution/__tests__/web-delivery.test.mjs` — 5 passed. Generated HTML and both READMEs contain all six exact profile URLs from the private verified registry. Browser preview shows all six labeled buttons. Scoped `git diff --check` passed. Pages deployment and live HTML verification follow merge. Scope: documentation and showcase links only.
