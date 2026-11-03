@@ -4,6 +4,12 @@
 
 Le parcours Apple ci-dessous reste la préparation pour une future signature Developer ID/notarisation. Il est distinct de la sortie directe actuellement autorisée. Voir [MACOS_HEADLESS_VALIDATION.md](MACOS_HEADLESS_VALIDATION.md) pour la batterie exécutée et ses limites.
 
+## Installation prévue pour les utilisateurs
+
+Après publication, choisir le DMG Intel ou Apple Silicon depuis la vitrine officielle ou la release GitHub. Ouvrir le DMG et copier Novera dans Applications, puis lancer Novera depuis Applications.
+
+Cette première sortie directe ne sera pas notariée par Apple. Si macOS bloque le premier lancement parce que le développeur est non identifié ou que l’application n’a pas été vérifiée, ouvrir **Réglages Système → Confidentialité et sécurité → Ouvrir quand même** pour Novera, puis confirmer l’ouverture. Cette autorisation concerne l’application choisie. Voir la [procédure officielle Apple](https://support.apple.com/fr-fr/guide/mac-help/-mh40616/mac). Le parcours du DMG final sur un Mac physique reste à vérifier.
+
 ## État vérifié
 
 La lecture authentifiée des métadonnées GitHub du 2 novembre confirme :
