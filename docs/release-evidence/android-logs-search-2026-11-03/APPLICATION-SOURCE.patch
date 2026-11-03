@@ -1,0 +1,187 @@
+diff --git a/scripts/android/release.json b/scripts/android/release.json
+index 5a7598f6f..eb72e9230 100644
+--- a/scripts/android/release.json
++++ b/scripts/android/release.json
+@@ -1,6 +1,6 @@
+ {
+   "packageId": "io.github.tronabs.novera",
+-  "versionCode": 1000007,
++  "versionCode": 1000008,
+   "certificateSha256": "ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582",
+   "distribution": "direct-apk",
+   "updateMethod": "android-package-installer-same-certificate-higher-versionCode"
+diff --git a/src-tauri/tauri.android.conf.json b/src-tauri/tauri.android.conf.json
+index b749e73b7..b33de1534 100644
+--- a/src-tauri/tauri.android.conf.json
++++ b/src-tauri/tauri.android.conf.json
+@@ -30,7 +30,7 @@
+     "externalBin": [],
+     "android": {
+       "minSdkVersion": 24,
+-      "versionCode": 1000007,
++      "versionCode": 1000008,
+       "debugApplicationIdSuffix": ".debug"
+     }
+   }
+diff --git a/web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts b/web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts
+index dd661debd..80ba13000 100644
+--- a/web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts
++++ b/web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts
+@@ -27,7 +27,7 @@ describe('mobile DuckDuckGo without a desktop process', () => {
+     const result = await executeWebTool('web_search', { query: 'documentation' })
+     expect(result).toMatchObject({ content: { kind: 'web', results: [{ title: 'Documentation', url: 'https://example.com/docs', text: 'Public documentation' }] } })
+     expect(h.fetch).toHaveBeenCalledWith('https://lite.duckduckgo.com/lite/?q=documentation', expect.objectContaining({
+-      method: 'GET', body: undefined, maxRedirections: 0,
++      method: 'GET', maxRedirections: 0,
+       headers: expect.objectContaining({
+         'User-Agent': 'Novera/1.0.0 (+https://github.com/TRON-ABS/Novera)',
+       }),
+@@ -71,7 +71,8 @@ describe('mobile DuckDuckGo without a desktop process', () => {
+     h.fetch.mockResolvedValueOnce(response('', 303, { location: '/html/?q=a' }))
+     await executeWebTool('web_search', { query: 'a & b=é' })
+     expect(h.fetch.mock.calls[0][0]).toBe('https://lite.duckduckgo.com/lite/?q=a+%26+b%3D%C3%A9')
+-    expect(h.fetch.mock.calls[1][1]).toMatchObject({ method: 'GET', body: undefined })
++    expect(h.fetch.mock.calls[1][1]).toMatchObject({ method: 'GET' })
++    expect(h.fetch.mock.calls[1][1].body).toBeUndefined()
+     expect(h.fetch.mock.calls[1][1].headers).not.toHaveProperty('Content-Type')
+     h.fetch.mockReset().mockResolvedValueOnce(response('', 307, { location: 'https://example.com/' }))
+     expect(await executeWebTool('web_search', { query: 'private query' })).toHaveProperty('error')
+@@ -101,6 +102,34 @@ describe('mobile DuckDuckGo without a desktop process', () => {
+     expect(h.mcp).not.toHaveBeenCalled()
+   })
+ 
++  it('routes DuckDuckGo search URLs sent to web_fetch directly to the official mobile search', async () => {
++    for (const url of ['https://duckduckgo.com/?q=a+%26+b', 'https://www.duckduckgo.com/?q=a+%26+b', 'https://html.duckduckgo.com/html/?q=a+%26+b', 'https://lite.duckduckgo.com/lite/?q=a+%26+b']) {
++      h.fetch.mockReset().mockResolvedValueOnce(response())
++      const result = await executeWebTool('web_fetch', { url })
++      expect(result).toMatchObject({ content: { kind: 'web', query: 'a & b' } })
++      expect(h.fetch).toHaveBeenCalledTimes(1)
++      expect(h.fetch.mock.calls[0][0]).toBe('https://lite.duckduckgo.com/lite/?q=a+%26+b')
++    }
++  })
++
++  it('rejects a DuckDuckGo homepage fetch without query before sending a request, while keeping help pages readable', async () => {
++    expect(await executeWebTool('web_fetch', { url: 'https://duckduckgo.com/' })).toEqual({ error: expect.stringContaining('Use web_search') })
++    expect(h.fetch).not.toHaveBeenCalled()
++    await executeWebTool('web_fetch', { url: 'https://duckduckgo.com/duckduckgo-help-pages/features/non-javascript' })
++    expect(h.fetch.mock.calls[0][0]).toContain('/duckduckgo-help-pages/')
++  })
++
++  it('identifies a refused search after redirect separately from a refused source-page fetch', async () => {
++    h.fetch.mockResolvedValueOnce(response('', 302, { location: 'https://duckduckgo.com/?q=a' }))
++    h.fetch.mockResolvedValueOnce(response('forbidden', 403))
++    const search = await executeWebTool('web_search', { query: 'a' })
++    expect(search).toEqual({ error: expect.stringContaining('[web_search] Web request to duckduckgo.com failed (HTTP 403); redirected from lite.duckduckgo.com') })
++    expect(h.fetch).toHaveBeenCalledTimes(2)
++    h.fetch.mockReset().mockResolvedValueOnce(response('forbidden', 403))
++    expect(await executeWebTool('web_fetch', { url: 'https://example.com/article' })).toEqual({ error: expect.stringContaining('[web_fetch] Web request to example.com failed (HTTP 403)') })
++    expect(h.fetch).toHaveBeenCalledTimes(1)
++  })
++
+   it('rejects local URLs and unsafe redirects before contacting their destination', async () => {
+     for (const url of ['file:///secret', 'http://example.com', 'https://127.0.0.1/', 'https://localhost/', 'https://192.168.0.1/', 'https://user:password@example.com/']) {
+       expect(await executeWebTool('web_fetch', { url })).toHaveProperty('error')
+diff --git a/web-app/src/lib/mobileDuckduckgoSearch.ts b/web-app/src/lib/mobileDuckduckgoSearch.ts
+index 750efbf42..fcc8bba2b 100644
+--- a/web-app/src/lib/mobileDuckduckgoSearch.ts
++++ b/web-app/src/lib/mobileDuckduckgoSearch.ts
+@@ -17,20 +17,18 @@ function publicHttps(value: string): URL {
+   return url
+ }
+ 
+-async function requestText(address: string, formBody?: string): Promise<{ text: string; url: string }> {
++async function requestText(address: string, operation: 'web_search' | 'web_fetch'): Promise<{ text: string; url: string }> {
+   let url = publicHttps(address)
+-  let method = formBody === undefined ? 'GET' : 'POST'
+-  let body = formBody
++  const initialHost = url.host
+   const controller = new AbortController()
+   const timer = setTimeout(() => controller.abort(), 30_000)
+   try {
+     for (let redirects = 0; redirects <= 5; redirects++) {
+       const response = await nativeFetch(url.href, {
+-        method, body, maxRedirections: 0, connectTimeout: 30_000,
++        method: 'GET', maxRedirections: 0, connectTimeout: 30_000,
+         headers: {
+           'User-Agent': APPLICATION_USER_AGENT,
+           Accept: 'text/html, text/plain;q=0.9, application/xhtml+xml;q=0.8',
+-          ...(body === undefined ? {} : { 'Content-Type': 'application/x-www-form-urlencoded' }),
+         },
+         signal: controller.signal,
+       })
+@@ -42,15 +40,11 @@ async function requestText(address: string, formBody?: string): Promise<{ text:
+         if (['duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(new URL(address).hostname) && !['duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(url.hostname)) {
+           throw new Error('DuckDuckGo search redirected outside its search service')
+         }
+-        if (response.status === 303 || ((response.status === 301 || response.status === 302) && method === 'POST')) {
+-          method = 'GET'
+-          body = undefined
+-        }
+         continue
+       }
+       if (!response.ok) {
+         await response.body?.cancel()
+-        throw new Error(`Web request to ${url.host} failed (HTTP ${response.status})${response.status === 403 ? ' — access refused by this site. Do not repeat this request or claim its content was read.' : ''}`)
++        throw new Error(`[${operation}] Web request to ${url.host} failed (HTTP ${response.status})${initialHost !== url.host ? `; redirected from ${initialHost}` : ''}${response.status === 403 ? ' — access refused by this site. Do not repeat this request or claim its content was read.' : ''}`)
+       }
+       const type = response.headers.get('content-type') || ''
+       if (type && !/^(?:text\/|application\/(?:xhtml\+xml|json))/i.test(type)) {
+@@ -125,7 +119,7 @@ export async function executeMobileDuckDuckGoTool(
+     address.searchParams.set('q', query)
+     // Use DuckDuckGo's official non-JavaScript Lite page and identify Novera honestly.
+     // Do not impersonate a browser or retry through a challenge/proxy.
+-    const response = await requestText(address.href)
++    const response = await requestText(address.href, 'web_search')
+     const results = parseMobileSearch(response.text, count)
+     const output = { kind: 'web', query, results }
+     while (output.results.length && JSON.stringify(output).length > budget) output.results.pop()
+@@ -133,7 +127,17 @@ export async function executeMobileDuckDuckGoTool(
+     return { content: output }
+   }
+   if (name === 'web_fetch') {
+-    const response = await requestText(typeof input.url === 'string' ? input.url : '')
++    const address = publicHttps(typeof input.url === 'string' ? input.url : '')
++    // A model may send a normal DuckDuckGo search URL to web_fetch instead of
++    // using web_search. Route that query to the same official mobile search;
++    // never try the JavaScript homepage first or retry after a refusal.
++    if (['duckduckgo.com', 'www.duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(address.hostname) &&
++        ['/', '/html', '/html/', '/lite', '/lite/'].includes(address.pathname)) {
++      const query = address.searchParams.get('q')?.trim()
++      if (!query) throw new Error('[web_fetch] DuckDuckGo search needs a query. Use web_search with the requested search terms.')
++      return executeMobileDuckDuckGoTool('web_search', { query }, budget)
++    }
++    const response = await requestText(address.href, 'web_fetch')
+     const document = new DOMParser().parseFromString(response.text, 'text/html')
+     const title = document.title.trim()
+     document.querySelectorAll('script, style, noscript, template, iframe').forEach(node => node.remove())
+diff --git a/web-app/src/routes/settings/general.tsx b/web-app/src/routes/settings/general.tsx
+index 1d7770800..95876f2d1 100644
+--- a/web-app/src/routes/settings/general.tsx
++++ b/web-app/src/routes/settings/general.tsx
+@@ -329,7 +329,7 @@ function General() {
+                 description={t('settings:dataFolder.appLogsDesc')}
+                 className="items-start flex-row gap-y-2"
+                 actions={
+-                  <div className="flex items-center gap-2">
++                  <div className="novera-logs-actions flex items-center gap-2">
+                     <Button
+                       variant="outline"
+                       size="sm"
+diff --git a/web-app/src/styles/settings.css b/web-app/src/styles/settings.css
+index cc0b951f8..23180e0f9 100644
+--- a/web-app/src/styles/settings.css
++++ b/web-app/src/styles/settings.css
+@@ -132,6 +132,13 @@
+ }
+ .novera-settings-menu .novera-settings-link.active svg { color: light-dark(#6d28d9, #c4b5fd); }
+ @container (max-width: 480px) {
++  .novera-settings-row:has(.novera-logs-actions) { flex-direction: column; align-items: stretch; }
++  .novera-settings-action:has(> .novera-logs-actions) { width: 100%; min-width: 0; }
++  .novera-logs-actions { flex-direction: column; align-items: stretch; width: 100%; }
++  .novera-logs-actions > [data-slot="button"] {
++    width: 100%; height: auto; min-height: 34px; padding: 8px 10px; white-space: normal;
++  }
++  .novera-logs-actions > [data-slot="button"] span { min-width: 0; overflow-wrap: anywhere; }
+   .novera-settings-row { flex-wrap: wrap; gap: 12px; }
+   .novera-settings-action:has(> [data-slot="button"]) { width: 100%; }
+   .novera-settings-action > [data-slot="button"] { width: 100%; }

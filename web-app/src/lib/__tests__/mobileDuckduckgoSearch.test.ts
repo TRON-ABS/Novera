@@ -27,7 +27,7 @@ describe('mobile DuckDuckGo without a desktop process', () => {
     const result = await executeWebTool('web_search', { query: 'documentation' })
     expect(result).toMatchObject({ content: { kind: 'web', results: [{ title: 'Documentation', url: 'https://example.com/docs', text: 'Public documentation' }] } })
     expect(h.fetch).toHaveBeenCalledWith('https://lite.duckduckgo.com/lite/?q=documentation', expect.objectContaining({
-      method: 'GET', body: undefined, maxRedirections: 0,
+      method: 'GET', maxRedirections: 0,
       headers: expect.objectContaining({
         'User-Agent': 'Novera/1.0.0 (+https://github.com/TRON-ABS/Novera)',
       }),
@@ -71,7 +71,8 @@ describe('mobile DuckDuckGo without a desktop process', () => {
     h.fetch.mockResolvedValueOnce(response('', 303, { location: '/html/?q=a' }))
     await executeWebTool('web_search', { query: 'a & b=é' })
     expect(h.fetch.mock.calls[0][0]).toBe('https://lite.duckduckgo.com/lite/?q=a+%26+b%3D%C3%A9')
-    expect(h.fetch.mock.calls[1][1]).toMatchObject({ method: 'GET', body: undefined })
+    expect(h.fetch.mock.calls[1][1]).toMatchObject({ method: 'GET' })
+    expect(h.fetch.mock.calls[1][1].body).toBeUndefined()
     expect(h.fetch.mock.calls[1][1].headers).not.toHaveProperty('Content-Type')
     h.fetch.mockReset().mockResolvedValueOnce(response('', 307, { location: 'https://example.com/' }))
     expect(await executeWebTool('web_search', { query: 'private query' })).toHaveProperty('error')
@@ -99,6 +100,34 @@ describe('mobile DuckDuckGo without a desktop process', () => {
     expect(await executeWebTool('web_search', { query: 'a' })).toEqual({ error: expect.stringContaining('lite.duckduckgo.com failed (HTTP 403)') })
     expect(h.fetch).toHaveBeenCalledTimes(1)
     expect(h.mcp).not.toHaveBeenCalled()
+  })
+
+  it('routes DuckDuckGo search URLs sent to web_fetch directly to the official mobile search', async () => {
+    for (const url of ['https://duckduckgo.com/?q=a+%26+b', 'https://www.duckduckgo.com/?q=a+%26+b', 'https://html.duckduckgo.com/html/?q=a+%26+b', 'https://lite.duckduckgo.com/lite/?q=a+%26+b']) {
+      h.fetch.mockReset().mockResolvedValueOnce(response())
+      const result = await executeWebTool('web_fetch', { url })
+      expect(result).toMatchObject({ content: { kind: 'web', query: 'a & b' } })
+      expect(h.fetch).toHaveBeenCalledTimes(1)
+      expect(h.fetch.mock.calls[0][0]).toBe('https://lite.duckduckgo.com/lite/?q=a+%26+b')
+    }
+  })
+
+  it('rejects a DuckDuckGo homepage fetch without query before sending a request, while keeping help pages readable', async () => {
+    expect(await executeWebTool('web_fetch', { url: 'https://duckduckgo.com/' })).toEqual({ error: expect.stringContaining('Use web_search') })
+    expect(h.fetch).not.toHaveBeenCalled()
+    await executeWebTool('web_fetch', { url: 'https://duckduckgo.com/duckduckgo-help-pages/features/non-javascript' })
+    expect(h.fetch.mock.calls[0][0]).toContain('/duckduckgo-help-pages/')
+  })
+
+  it('identifies a refused search after redirect separately from a refused source-page fetch', async () => {
+    h.fetch.mockResolvedValueOnce(response('', 302, { location: 'https://duckduckgo.com/?q=a' }))
+    h.fetch.mockResolvedValueOnce(response('forbidden', 403))
+    const search = await executeWebTool('web_search', { query: 'a' })
+    expect(search).toEqual({ error: expect.stringContaining('[web_search] Web request to duckduckgo.com failed (HTTP 403); redirected from lite.duckduckgo.com') })
+    expect(h.fetch).toHaveBeenCalledTimes(2)
+    h.fetch.mockReset().mockResolvedValueOnce(response('forbidden', 403))
+    expect(await executeWebTool('web_fetch', { url: 'https://example.com/article' })).toEqual({ error: expect.stringContaining('[web_fetch] Web request to example.com failed (HTTP 403)') })
+    expect(h.fetch).toHaveBeenCalledTimes(1)
   })
 
   it('rejects local URLs and unsafe redirects before contacting their destination', async () => {

@@ -17,20 +17,18 @@ function publicHttps(value: string): URL {
   return url
 }
 
-async function requestText(address: string, formBody?: string): Promise<{ text: string; url: string }> {
+async function requestText(address: string, operation: 'web_search' | 'web_fetch'): Promise<{ text: string; url: string }> {
   let url = publicHttps(address)
-  let method = formBody === undefined ? 'GET' : 'POST'
-  let body = formBody
+  const initialHost = url.host
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), 30_000)
   try {
     for (let redirects = 0; redirects <= 5; redirects++) {
       const response = await nativeFetch(url.href, {
-        method, body, maxRedirections: 0, connectTimeout: 30_000,
+        method: 'GET', maxRedirections: 0, connectTimeout: 30_000,
         headers: {
           'User-Agent': APPLICATION_USER_AGENT,
           Accept: 'text/html, text/plain;q=0.9, application/xhtml+xml;q=0.8',
-          ...(body === undefined ? {} : { 'Content-Type': 'application/x-www-form-urlencoded' }),
         },
         signal: controller.signal,
       })
@@ -42,15 +40,11 @@ async function requestText(address: string, formBody?: string): Promise<{ text: 
         if (['duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(new URL(address).hostname) && !['duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(url.hostname)) {
           throw new Error('DuckDuckGo search redirected outside its search service')
         }
-        if (response.status === 303 || ((response.status === 301 || response.status === 302) && method === 'POST')) {
-          method = 'GET'
-          body = undefined
-        }
         continue
       }
       if (!response.ok) {
         await response.body?.cancel()
-        throw new Error(`Web request to ${url.host} failed (HTTP ${response.status})${response.status === 403 ? ' — access refused by this site. Do not repeat this request or claim its content was read.' : ''}`)
+        throw new Error(`[${operation}] Web request to ${url.host} failed (HTTP ${response.status})${initialHost !== url.host ? `; redirected from ${initialHost}` : ''}${response.status === 403 ? ' — access refused by this site. Do not repeat this request or claim its content was read.' : ''}`)
       }
       const type = response.headers.get('content-type') || ''
       if (type && !/^(?:text\/|application\/(?:xhtml\+xml|json))/i.test(type)) {
@@ -125,7 +119,7 @@ export async function executeMobileDuckDuckGoTool(
     address.searchParams.set('q', query)
     // Use DuckDuckGo's official non-JavaScript Lite page and identify Novera honestly.
     // Do not impersonate a browser or retry through a challenge/proxy.
-    const response = await requestText(address.href)
+    const response = await requestText(address.href, 'web_search')
     const results = parseMobileSearch(response.text, count)
     const output = { kind: 'web', query, results }
     while (output.results.length && JSON.stringify(output).length > budget) output.results.pop()
@@ -133,7 +127,17 @@ export async function executeMobileDuckDuckGoTool(
     return { content: output }
   }
   if (name === 'web_fetch') {
-    const response = await requestText(typeof input.url === 'string' ? input.url : '')
+    const address = publicHttps(typeof input.url === 'string' ? input.url : '')
+    // A model may send a normal DuckDuckGo search URL to web_fetch instead of
+    // using web_search. Route that query to the same official mobile search;
+    // never try the JavaScript homepage first or retry after a refusal.
+    if (['duckduckgo.com', 'www.duckduckgo.com', 'html.duckduckgo.com', 'lite.duckduckgo.com'].includes(address.hostname) &&
+        ['/', '/html', '/html/', '/lite', '/lite/'].includes(address.pathname)) {
+      const query = address.searchParams.get('q')?.trim()
+      if (!query) throw new Error('[web_fetch] DuckDuckGo search needs a query. Use web_search with the requested search terms.')
+      return executeMobileDuckDuckGoTool('web_search', { query }, budget)
+    }
+    const response = await requestText(address.href, 'web_fetch')
     const document = new DOMParser().parseFromString(response.text, 'text/html')
     const title = document.title.trim()
     document.querySelectorAll('script, style, noscript, template, iframe').forEach(node => node.remove())
