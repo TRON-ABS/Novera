@@ -2,7 +2,7 @@
   "run": 41551771877,
   "workflowCommit": "e765f207144ab662fca0f320e24ad37deaac7980",
   "receiptsFromAuthenticatedJobLogs": true,
-  "artifactRetentionCorrectionPending": true,
+  "artifactRetentionCorrectionPending": false,
   "platforms": {
     "linux-x86_64": {
       "target": "linux-x86_64",
@@ -30,5 +30,25 @@
       "updateInstalled": false,
       "stdout": "Already on the latest stable build (1.0.0)\n"
     }
+  },
+  "repeatVerificationRun": 41552367517,
+  "repeatWorkflowCommit": "d37fac3437965deddff39630e4a943b70dda7afe",
+  "retainedArtifacts": [
+    {
+      "id": 13193721142,
+      "name": "canonical-cli-public-Linux-41552367517",
+      "sha256": "32931eafef3e18e761bd25be91d28176d9a465d6245c8f2a2eefa109d82cf039"
+    },
+    {
+      "id": 13191988054,
+      "name": "canonical-cli-public-Windows-41552367517",
+      "sha256": "e81354b2d7d458de9ec5536b044f1f8214a071e04bd2fe7c95c4c37298acaafc"
+    }
+  ],
+  "repeatReceiptsMatchInitialPublicChecks": true,
+  "sourceContractsCi": {
+    "run": 41552402740,
+    "commit": "d37fac3437965deddff39630e4a943b70dda7afe",
+    "conclusion": "success"
   }
 }

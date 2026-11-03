@@ -17,3 +17,5 @@ Validation locale Windows : 1 545 tests CLI/bibliothèque/protocole réussis, de
 La publication remplace les deux CLI déjà distribuées : **Windows x64 et Linux x64**. Le créateur du feed exige les deux preuves natives correspondantes et refuse un candidat macOS dans cette sélection publique. La compilation macOS reste un candidat interne ; les distributions Apple restent suivies séparément.
 
 Android reste suivi dans [RELEASE_ANDROID_1.0.0.md](RELEASE_ANDROID_1.0.0.md) ; le mainteneur reteste la recherche et la disposition des réglages avec le candidat 1000007. La vitrine conserve le statut d'essai et n'annonce pas une sortie Android validée.
+
+La revalidation publique [41552367517](https://github.com/TRON-ABS/Novera/actions/runs/41552367517) réussit sur Windows/Linux ; les deux artefacts de reçus sont conservés et leurs empreintes GitHub contrôlées. Les reçus correspondent aux vérifications initiales. Les contrats de sources [41552402740](https://github.com/TRON-ABS/Novera/actions/runs/41552402740) passent sur le commit applicatif final d37fac343.
