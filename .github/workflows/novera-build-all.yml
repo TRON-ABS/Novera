@@ -253,6 +253,8 @@ jobs:
             src-tauri/target/engine-build.log
             .build/ci-status.json
             .build/candidates/UPDATER-UI-CONTRACTS.json
+            .build/candidates/packages/
+            .build/candidates/MACOS-*.json
             .build/candidates/LINUX-UPDATER-UI.*
             .build/macos-headless/
           if-no-files-found: ignore
