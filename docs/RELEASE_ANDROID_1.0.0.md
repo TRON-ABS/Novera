@@ -4,7 +4,13 @@ Préparation du **2 novembre 2026**, priorité demandée par le mainteneur. Le m
 
 ## Périmètre et état
 
-### Sortie 1.0.0 — 3 novembre 2026
+### Version disponible : 1.0.0, build 1000012
+
+**[Télécharger l'APK Android corrigé](https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-android-1000012/Novera_1.0.0_android-arm64.apk)** · [Publication et reçus](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012). Ce build configure la destination du suivi des erreurs : « Autoriser » devient disponible, sans consentement activé à l'avance. Installation par-dessus l'ancien APK, même certificat ; aucune désinstallation nécessaire.
+
+APK vierge, sans conversations, modèles téléchargés, clés API personnelles ou profil utilisateur. Lot **512** ; téléphone moderne ou fournisseur **API** conseillé pour les modèles locaux ; contexte d'au moins **16K tokens** conseillé pour la recherche web. Les tests et l'inspection passent ; le fonctionnement du nouveau build reste à confirmer sur téléphone. [Sources fusionnées #18](https://github.com/TRON-ABS/Novera/pull/18), [CI finale 41581774090](https://github.com/TRON-ABS/Novera/actions/runs/41581774090).
+
+### Historique — première sortie 1.0.0, build 1000011 retiré
 
 Le mainteneur confirme que le dernier APK interne **1000010 fonctionne bien** et autorise la sortie Android **1.0.0**. Ce retour global est une validation manuelle du mainteneur ; il ne constitue pas un relevé séparé de chaque interaction système.
 
@@ -16,23 +22,23 @@ APK de sortie signé et inspecté : `deliverables/Novera-Android-public-1.0.0-20
 
 La validation sur téléphone du nouveau 1000011 reste distincte du retour positif sur 1000010. Le mainteneur prévoit de le réinstaller. Une installation par-dessus conserve les données ; désinstaller peut effacer les données privées de l'application. Les **12 anciens APK locaux** de livraison et leurs fichiers de signature détachée ont été supprimés à sa demande après vérification du nouveau paquet ; leurs reçus et empreintes historiques sont conservés.
 
-**Publication effectuée le 3 novembre 2026 : [Novera Android 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android) — [télécharger l'APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-android/Novera_1.0.0_android-arm64.apk).** Les quatre fichiers publics (APK, inspection, provenance et empreinte) ont été retéléchargés sans authentification : tailles et SHA-256 concordent. Le tag pointe vers le commit fusionné `7b3625c2679c82332d08beaf223d950c89ae9c5e` de la [PR #16](https://github.com/TRON-ABS/Novera/pull/16). La [CI finale 41579575042](https://github.com/TRON-ABS/Novera/actions/runs/41579575042) passe.
+**Publication initiale historique, désormais retirée : [Novera Android 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android) — [télécharger l'APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-android/Novera_1.0.0_android-arm64.apk).** Les quatre fichiers publics (APK, inspection, provenance et empreinte) ont été retéléchargés sans authentification : tailles et SHA-256 concordent. Le tag pointe vers le commit fusionné `7b3625c2679c82332d08beaf223d950c89ae9c5e` de la [PR #16](https://github.com/TRON-ABS/Novera/pull/16). La [CI finale 41579575042](https://github.com/TRON-ABS/Novera/actions/runs/41579575042) passe.
 
 **APK vierge : aucune conversation, aucun modèle téléchargé, aucune clé API ni aucun profil personnel inclus.** L'inspection des 938 entrées ne trouve aucun fichier de données privées ; les assets comprennent uniquement les profils d'optimisation Android et les notices/licences. Une mise à jour peut conserver les conversations déjà présentes sur l'appareil ; cela ne signifie pas qu'elles sont incluses dans l'APK.
 
 La release Android n'est pas marquée `latest` : `v1.0.0-cli-novera` et ses fichiers restent inchangés. [Reçu de publication](release-evidence/android-public-1.0.0-2026-11-03/PUBLICATION.json). Les reçus de compilation décrivent l'état avant publication. Le contrôle automatique avait bloqué le transfert puis la fusion ; le mainteneur a explicitement autorisé ces deux actions, qui ont ensuite réussi.
 
-### Correctif du bouton Autoriser — préparation 1000012
+### Correctif du bouton Autoriser — 1000012 publié
 
 Le mainteneur signale que « Autoriser » reste désactivé pour le suivi des erreurs dans 1000011. La chaîne Android efface la destination et le jeton public du projet avant Vite ; `analyticsAvailable` est donc faux. Le bouton et le réglage se désactivent volontairement sans destinataire valide.
 
 La compilation signée accepte désormais **`-WithTelemetry`**, comme le mode explicite Desktop : la configuration publique Novera validée est chargée après l'environnement Android. Le suivi reste désactivé par défaut et nécessite toujours un consentement propre, distinct des statistiques. Sans cette option, le build reste sans rapports ; une configuration absente ou invalide avec l'option fait échouer la préparation.
 
-Commande : `./scripts/android/build-release.ps1 -WithTelemetry -OutputDirectory deliverables/Novera-Android-error-consent-fix-2026-11-03`. Version affichée **1.0.0**, compteur **1000012**. Le lien public initial livre encore 1000011 ; le nouveau paquet doit être signé, inspecté et testé séparément. Aucune conversation ni clé API personnelle n'est embarquée. Les cartes de sources privées restent locales et aucun rapport de test réel n'a été envoyé.
+Commande : `./scripts/android/build-release.ps1 -WithTelemetry -OutputDirectory deliverables/Novera-Android-error-consent-fix-2026-11-03`. Version affichée **1.0.0**, compteur **1000012**. Le lien public initial du 1000011 a été retiré ; utilisez la nouvelle publication 1000012 ci-dessus. Le nouveau paquet est signé et inspecté, avec essai téléphone encore à confirmer. Aucune conversation ni clé API personnelle n'est embarquée. Les cartes de sources privées restent locales et aucun rapport de test réel n'a été envoyé.
 
 APK **1000012 signé et inspecté** : `deliverables/Novera-Android-error-consent-fix-2026-11-03/Novera_1.0.0_android-arm64.apk`, **42256746 octets**, SHA-256 **`ac828c2d87db6d4db6f1e9253ef7ca98df6779be2e424b1b47f836cf6e1eed6f`**, certificat identique à 1000011. Le frontend exact avec la destination publique validée est présent dans la bibliothèque native ; lot 512 et 217 PNG conservés. Aucun fichier de conversations, modèles, secrets privés ou carte de sources n'est emballé. Tests : **35 frontend**, **7 de configuration télémétrie**, **5 de configuration Android**. [Provenance](release-evidence/android-error-consent-fix-2026-11-03/ANDROID-PROVENANCE.json), [inspection](release-evidence/android-error-consent-fix-2026-11-03/ANDROID-VERIFICATION.json), [CI](https://github.com/TRON-ABS/Novera/actions/runs/41581269979).
 
-Le mainteneur demande le retrait de l'ancien APK 1000011 après disponibilité du correctif ; ses reçus restent historiques. Le nouveau paquet demeure à confirmer sur téléphone et n'est pas encore annoncé public.
+Le **1000012 est publié et ses quatre fichiers ont été vérifiés par téléchargement anonyme**. Le nouvel APK demeure à confirmer sur téléphone. La release 1000011 a été supprimée avec ses quatre fichiers publics à la demande et après autorisation explicite du mainteneur : GitHub interdisait le retrait isolé de son asset immuable. L'ancienne URL de téléchargement et l'API de release répondent désormais **404**. Les reçus historiques restent conservés dans le dépôt et le tag historique n'est pas réutilisé. Le 1000011 local a aussi été supprimé. [Reçu du remplacement public](release-evidence/android-error-consent-fix-2026-11-03/PUBLICATION.json).
 
 ### Historique de préparation jusqu'au candidat 1000010
 
