@@ -11,3 +11,5 @@ Depends on PR #21; merge Mac workflow changes first, then this PR, avoiding an o
 See docs/IOS_HEADLESS_VALIDATION.md. Existing public releases and update feeds remain unchanged by this PR.
 
 Mobile follow-up: retain the APK responsive settings navigation and stacked log buttons. Open application logs in an in-WebView mobile dialog instead of the unsupported Desktop auxiliary window, wrap long messages, and include General settings tests in the iOS battery. The two targeted settings suites pass locally: 31 tests, including Android/iOS log reads and menu selection. Real screen layout remains unverified.
+
+Keyboard regression: retain mobile blur after sending and suppress automatic composer focus on thread/status changes. Parameterize the existing reasoning/streaming regression for Android and iOS, including explicit user focus afterward, and run ChatInput tests in the iOS battery. This checks focus behavior in the DOM; the native keyboard appearance still requires device verification.

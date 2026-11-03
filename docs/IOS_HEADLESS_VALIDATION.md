@@ -33,3 +33,5 @@ Cette préparation dépend de la PR Mac pour l'extension du workflow et s'encha�
 ## Réglages et journaux mobiles
 
 Reprendre les corrections de l’APK : navigation des réglages repliable sous 700 px, contenu droit réductible et boutons des journaux empilés dans les cartes étroites. Sur Android/iOS, « Ouvrir les journaux » affiche le lecteur dans une boîte de dialogue de la WebView principale, sans demander une fenêtre de bureau 800 × 600. Les longues lignes se replient. Les tests de la page Général vérifient les deux plateformes et la lecture effective des journaux ; ceux du menu vérifient son ouverture et sa fermeture après sélection. Ces tests ne prouvent pas le rendu réel sur téléphone.
+
+Keyboard regression: retain mobile blur after sending and suppress automatic composer focus on thread/status changes. Parameterize the existing reasoning/streaming regression for Android and iOS, including explicit user focus afterward, and run ChatInput tests in the iOS battery. This checks focus behavior in the DOM; the native keyboard appearance still requires device verification.

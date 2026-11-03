@@ -330,11 +330,11 @@ vi.mock('@/components/ui/tooltip', () => {
   }
 })
 
-const mobilePlatform = vi.hoisted(() => ({ android: false }))
+const mobilePlatform = vi.hoisted(() => ({ android: false, ios: false }))
 vi.mock('@/lib/platform/utils', () => ({
   isPlatformTauri: () => false,
   isPlatformAndroid: () => mobilePlatform.android,
-  isPlatformIOS: () => false,
+  isPlatformIOS: () => mobilePlatform.ios,
 }))
 
 // Import component AFTER all mocks
@@ -461,10 +461,11 @@ describe('ChatInput', () => {
   beforeEach(() => {
     resetAll()
     mobilePlatform.android = false
+    mobilePlatform.ios = false
   })
 
-  it('keeps the mobile keyboard closed through reasoning and allows explicit typing focus', async () => {
-    mobilePlatform.android = true
+  it.each(['android', 'ios'] as const)('keeps the %s keyboard closed through reasoning and allows explicit typing focus', async (platform) => {
+    mobilePlatform[platform] = true
     promptState = 'hello'
     const onSubmit = vi.fn()
     const focus = vi.spyOn(HTMLTextAreaElement.prototype, 'focus')

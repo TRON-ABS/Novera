@@ -14,6 +14,7 @@ node node_modules/vitest/vitest.mjs run --project @janhq/web-app \
   web-app/src/lib/__tests__/mobileDuckduckgoSearch.test.ts \
   web-app/src/containers/__tests__/ShareButton.test.tsx \
   web-app/src/containers/__tests__/SettingsMenu.test.tsx \
+  web-app/src/containers/__tests__/ChatInput.test.tsx \
   web-app/src/routes/settings/__tests__/general.test.tsx \
   web-app/src/containers/__tests__/ErrorTrackingConsent.configuration.test.tsx \
   --reporter=json --outputFile=.build/ios-headless/frontend.json
