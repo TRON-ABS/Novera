@@ -83,6 +83,7 @@ macro_rules! invoke_commands_with_extras {
         core::sharing::sharing_convert_image,
         core::sharing::sharing_native,
         core::sharing::sharing_copy_file,
+        core::sharing::sharing_copy_text,
         core::sharing::sharing_metadata,
         core::filesystem::commands::write_yaml,
         core::filesystem::commands::read_yaml,

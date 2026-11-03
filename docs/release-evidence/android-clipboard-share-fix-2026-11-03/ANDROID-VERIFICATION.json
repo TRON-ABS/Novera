@@ -1,0 +1,96 @@
+{
+  "packageId": "io.github.tronabs.novera",
+  "version": "1.0.0",
+  "versionCode": 1000010,
+  "apk": "Novera_1.0.0_android-arm64.apk",
+  "bytes": 42215786,
+  "sha256": "32b0396cfb5eadd947117ffe5ecd3a75cb474a442f1a5ebfdeb3f903be35e7b8",
+  "certificateSha256": "ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582",
+  "signatureVerified": true,
+  "zipalignVerified": true,
+  "debuggable": false,
+  "permissions": [
+    "android.permission.INTERNET",
+    "io.github.tronabs.novera.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+  ],
+  "nativeFiles": [
+    {
+      "file": "lib/arm64-v8a/libapp_lib.so",
+      "sha256": "ecc6780a642af5a4941a551a2d563bf03836c1b3bc5a376f3edf46050223bdff",
+      "bytes": 77505304,
+      "minimumLoadAlignment": 16384,
+      "needed": [
+        "liblog.so",
+        "libdl.so",
+        "libandroid.so",
+        "libm.so",
+        "libc.so"
+      ]
+    },
+    {
+      "file": "lib/arm64-v8a/libc++_shared.so",
+      "sha256": "7466ed097631a564ed6bff0b47768caa76bf03270d2047b5a65c03f497b824df",
+      "bytes": 9485032,
+      "minimumLoadAlignment": 16384,
+      "needed": [
+        "libc.so",
+        "libm.so",
+        "libdl.so"
+      ]
+    },
+    {
+      "file": "lib/arm64-v8a/libggml-base.so",
+      "sha256": "e358189cdf5a96c0d8fbc6934bcf8c79fa88321921968dafac8b005ee7705001",
+      "bytes": 5483432,
+      "minimumLoadAlignment": 16384,
+      "needed": [
+        "libm.so",
+        "libdl.so",
+        "libc++_shared.so",
+        "libc.so"
+      ]
+    },
+    {
+      "file": "lib/arm64-v8a/libggml-cpu.so",
+      "sha256": "9359e9ed3428162c199e8d5366c18e4fbf67afa1eb8d79fc504f464491ba0c64",
+      "bytes": 4782728,
+      "minimumLoadAlignment": 16384,
+      "needed": [
+        "libggml-base.so",
+        "libm.so",
+        "libc++_shared.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "file": "lib/arm64-v8a/libggml.so",
+      "sha256": "147dbb5396ff0956d4fbcf8fe824697ea461fce4bf44091097793aae40774c0c",
+      "bytes": 453016,
+      "minimumLoadAlignment": 16384,
+      "needed": [
+        "libggml-base.so",
+        "libm.so",
+        "libc++_shared.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    },
+    {
+      "file": "lib/arm64-v8a/libnovera_llama_worker.so",
+      "sha256": "5a579047713d6f04f435b3f309438ebc84b795c37538762e520e1be85e0932ec",
+      "bytes": 10378184,
+      "minimumLoadAlignment": 16384,
+      "needed": [
+        "libggml.so",
+        "libggml-base.so",
+        "libc++_shared.so",
+        "libm.so",
+        "libdl.so",
+        "libc.so"
+      ]
+    }
+  ],
+  "deviceValidated": false,
+  "published": false
+}
