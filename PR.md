@@ -8,9 +8,10 @@ Prefix HTTP errors with web_search or web_fetch and identify the original host w
 
 Validation:
 
-- Frontend mobileDuckduckgoSearch, webSearchTool and general suites: 45 passed. Tests cover query URL normalization, no-query refusal, help-page preservation and separate redirected-search/source-fetch HTTP 403 diagnostics.
-- Android project configuration: five passed. A probe through the actual Tauri HTTP adapter confirms direct Lite GET routing, honest Novera identity and disabled automatic redirects; it performs no network request.
+- From web-app: `node ../node_modules/vitest/vitest.mjs run src/lib/__tests__/mobileDuckduckgoSearch.test.ts src/lib/__tests__/webSearchTool.test.ts src/routes/settings/__tests__/general.test.tsx`: 45 passed. Tests cover query URL normalization, no-query refusal, help-page preservation and separate redirected-search/source-fetch HTTP 403 diagnostics.
+- `node --test scripts/android/__tests__/configure-project.test.mjs`: five passed. A probe through the actual Tauri HTTP adapter confirms direct Lite GET routing, honest Novera identity and disabled automatic redirects; it performs no network request.
 - Android release 1000008: TypeScript/Vite, Cargo release, Gradle/Lint, signing and independent APK inspection passed. SHA-256 dc93772a04b64fa33192d4056a88ba4cf9f6c6b4dd02d80c3ee8ed20f66b2db7. Same certificate and higher versionCode than 1000007; compiled library contains the changes and all 217 compiled PNGs are unchanged.
 - Manual P20 verification of button layout, update retention and search remains pending. HTTP 403 resolution is not claimed. No public Android release was made.
+- Source contract CI [41556129149](https://github.com/TRON-ABS/Novera/actions/runs/41556129149) passed on application commit 1a006339cdcaba4a08bf4ea52f3ea7b163c93a5d. This final documentation update changes no application source.
 
 Follows merged PR #12 and documentation PR #13; no remaining merge dependency or known overlap. Desktop DuckDuckGo, CLI downloads and the Pages presentation are unchanged. Personal screenshots, model/conversation data and private signing material are excluded. Evidence is linked from docs/RELEASE_ANDROID_1.0.0.md.
