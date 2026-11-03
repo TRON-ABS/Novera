@@ -136,6 +136,9 @@ case "$kind" in
     yarn tauri ios init --ci --skip-targets-install --config .build/candidate-config.json
     yarn tauri ios build --ci --debug --target aarch64-sim --features mobile --config .build/candidate-config.json -- --no-default-features
     node scripts/distribution/ci-candidates.mjs ios
+    if [[ "${NOVERA_IOS_HEADLESS_TESTS:-false}" == true ]]; then
+      bash scripts/distribution/ios-headless-tests.sh
+    fi
     ;;
   *) echo 'Unknown candidate kind' >&2; exit 2 ;;
 esac

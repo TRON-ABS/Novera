@@ -10,7 +10,25 @@ struct ShareArgs: Decodable {
     let text: String
 }
 
+struct CopyTextArgs: Decodable {
+    let text: String
+}
+
 class SharingPlugin: Plugin {
+    @objc public func copyText(_ invoke: Invoke) throws {
+        let args = try invoke.parseArgs(CopyTextArgs.self)
+        guard args.text.utf8.count <= 512 * 1024 else {
+            invoke.reject("CLIPBOARD_TEXT_TOO_LARGE")
+            return
+        }
+        DispatchQueue.main.async {
+            UIPasteboard.general.setItems(
+                [["public.utf8-plain-text": args.text]],
+                options: [.localOnly: true]
+            )
+            invoke.resolve()
+        }
+    }
     private func file(_ args: ShareArgs) throws -> URL {
         let url = URL(fileURLWithPath: args.path).resolvingSymlinksInPath()
         let cache = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]

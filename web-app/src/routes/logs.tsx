@@ -12,7 +12,7 @@ export const Route = createFileRoute(route.appLogs as any)({
 
 // Define log entry type
 
-function LogsViewer() {
+export function LogsViewer() {
   const { t } = useTranslation()
   const [logs, setLogs] = useState<LogEntry[]>([])
   const logsContainerRef = useRef<HTMLDivElement>(null)
@@ -83,7 +83,7 @@ function LogsViewer() {
   }
 
   return (
-    <div className="flex flex-col h-full bg-background">
+    <div className="flex flex-col h-full min-h-0 min-w-0 bg-background">
       <div className="flex-1 overflow-auto" ref={logsContainerRef}>
         <div className="font-mono p-2">
           {logs.length === 0 ? (
@@ -101,7 +101,7 @@ function LogsViewer() {
                 >
                   {log.level.toUpperCase()}
                 </span>
-                <span>{log.message}</span>
+                <span className="min-w-0 whitespace-pre-wrap break-all">{log.message}</span>
               </div>
             ))
           )}
