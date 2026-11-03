@@ -1,6 +1,6 @@
 # Reproducible local release path; device approval and publication are separate.
 [CmdletBinding()]
-param([string]$OutputDirectory)
+param([string]$OutputDirectory, [switch]$WithTelemetry)
 $ErrorActionPreference='Stop'
 $repo=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 Set-Location -LiteralPath $repo
@@ -15,7 +15,7 @@ if (!(Test-Path -LiteralPath (Join-Path $directory 'novera-android.p12'))) { thr
 & (Join-Path $PSScriptRoot 'build-engine.ps1')
 if ($LASTEXITCODE) { throw 'Moteur Android en echec.' }
 $env:NOVERA_BUILD_ANDROID='1'
-& (Join-Path $PSScriptRoot 'build-apk.ps1') -Release
+& (Join-Path $PSScriptRoot 'build-apk.ps1') -Release -WithTelemetry:$WithTelemetry
 if ($LASTEXITCODE) { throw 'APK release en echec.' }
 $inputApk=Join-Path $repo 'src-tauri/gen/android/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk'
 if (!(Test-Path -LiteralPath $inputApk)) { throw 'APK release non signe absent.' }

@@ -1,7 +1,14 @@
-# docs(android): announce the verified clean 1.0.0 APK
+# fix(android): configure the error-reporting consent destination
 
-Android 1.0.0 is now public, while the availability tables still describe an internal candidate. Link the signed ARM64 APK in both READMEs, update availability and governance, and record the anonymous public verification. Recommend a modern phone or an API provider for local-model use and at least 16K tokens of context for web search. Explicitly state that the APK contains no conversations, downloaded models, API keys or personal profile.
+The public Android 1000011 APK always disables Allow for error tracking: both Android environment setup and build-apk.ps1 clear the analytics host/project token, so analyticsAvailable is false. This is a build configuration defect; changing button disabled state alone would grant a permission with no recipient.
 
-Validation: all four published assets were downloaded without authentication and their sizes and SHA-256 matched the signed local files. APK 1000011 is 42,211,690 bytes, SHA-256 `325d5ef5b6ca558ed150ea590eaf4a01b54ac8bfb1f7ee5b163dffbe85c43ecb`. The current latest release and all its asset digests are unchanged. Package inspection found no private/model/data files among 938 entries. The previous source PR #16 is merged; final source-contract CI 41579575042 passed. Documentation only; no new application tests are needed. The maintainer tested 1000010; retesting rebuilt 1000011 on phone remains pending.
+Add an explicit -WithTelemetry option to the signed release and APK entry points. After Android environment setup, read only the existing validated public Novera settings from web-app/.env.local using the same reader as Desktop. Keep unconfigured builds off, reject invalid/missing destinations, retain separate runtime opt-in for errors and statistics, and never embed a private API token. Application version remains 1.0.0; versionCode increases to 1000012 with the same signing certificate.
 
-Follows #16, with no remaining merge dependency or source overlap. The 12 old local delivery APKs were deleted as requested; the new signed APK and historical receipts remain. Publication and PR #16 merge were explicitly approved by the maintainer after automatic review requested payload-specific approval.
+Validation:
+
+- From web-app, consent, privacy, error-reporting and statistics suites: 33 passed. New integration tests use the real destination validator and stores: two passed, showing Allow enabled only for configured builds, tracking initially off and statistics unchanged after error consent.
+- `./scripts/android/__tests__/telemetry.Tests.ps1`: seven passed; inherited settings cleared, explicit validated settings retained, invalid destinations/tokens refused. No network requests.
+- `node --test scripts/android/__tests__/configure-project.test.mjs`: five passed.
+- Signed APK build with `./scripts/android/build-release.ps1 -WithTelemetry -OutputDirectory deliverables/Novera-Android-error-consent-fix-2026-11-03` in progress. Phone verification and publication of rebuilt 1000012 remain pending. Private source maps stay local; no test reports were sent.
+
+Follows merged #16 and #17. No mobile UI or runtime consent policy is relaxed. Existing published assets stay immutable. The new signed candidate contains no conversations, downloaded models, API keys or user profile; the public PostHog project token is build configuration, not a private account API key.

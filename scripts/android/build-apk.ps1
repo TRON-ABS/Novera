@@ -1,6 +1,6 @@
 # APK entry point; disabled by default and guarded by preparation checks.
 [CmdletBinding()]
-param([switch]$AllowUnreviewedTestBuild, [switch]$Release)
+param([switch]$AllowUnreviewedTestBuild, [switch]$Release, [switch]$WithTelemetry)
 $ErrorActionPreference='Stop'
 if ($env:NOVERA_BUILD_ANDROID -ne '1') { Write-Output 'Android desactive. Seule Novera-Desktop est activee dans le BAT.'; exit 2 }
 $repo=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
@@ -24,8 +24,8 @@ $env:TAURI_ENV_PLATFORM='android'
 $env:TAURI_ENV_ARCH='aarch64'
 $env:TAURI_ENV_TARGET_TRIPLE='aarch64-linux-android'
 $env:NOVERA_ENABLE_UPDATER='false'
-$env:NOVERA_ANALYTICS_HOST=''
-$env:NOVERA_ANALYTICS_PROJECT_KEY=''
+. (Join-Path $PSScriptRoot 'telemetry.ps1')
+Set-NoveraAndroidTelemetry -Enabled:$WithTelemetry -ConfigurationPath (Join-Path $repo 'web-app/.env.local')
 Remove-Item Env:__TAURI_BUNDLE_TYPE -ErrorAction SilentlyContinue
 # Yarn supplies project-local tools to Tauri's beforeBuildCommand (cross-env).
 $arguments=@('tauri','android','build','--apk','--target','aarch64','--features','mobile')
