@@ -30,7 +30,7 @@
     "externalBin": [],
     "android": {
       "minSdkVersion": 24,
-      "versionCode": 1000010,
+      "versionCode": 1000011,
       "debugApplicationIdSuffix": ".debug"
     }
   }

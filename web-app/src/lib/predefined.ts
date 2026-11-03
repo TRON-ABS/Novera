@@ -237,8 +237,8 @@ export const modelSettings = {
     description: 'Logical maximum batch size for processing prompts.',
     controller_type: 'input',
     controller_props: {
-      value: 2048,
-      placeholder: '2048',
+      value: IS_ANDROID ? 512 : 2048,
+      placeholder: IS_ANDROID ? '512' : '2048',
       type: 'number',
       textAlign: 'right',
     },

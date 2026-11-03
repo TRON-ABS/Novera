@@ -438,6 +438,22 @@ describe('DefaultModelsService - coverage supplement', () => {
 
   // ── startModel with settings mapping ──
   describe('startModel with settings', () => {
+    it('loads Android models without saved batch settings with 512 and preserves custom settings', async () => {
+      vi.stubGlobal('IS_ANDROID', true)
+      try {
+        mockEngine.getLoadedModels.mockResolvedValue([])
+        mockEngine.load.mockResolvedValue({ id: 'session' })
+        await svc.startModel({ provider: 'llamacpp', models: [{ id: 'm1' }] } as any, 'm1')
+        expect(mockEngine.load.mock.calls.at(-1)?.[1]).toEqual({ batch_size: 512 })
+        await svc.startModel({ provider: 'llamacpp', models: [{ id: 'm1', settings: {
+          batch_size: { controller_props: { value: 256 } },
+        } }] } as any, 'm1')
+        expect(mockEngine.load.mock.calls.at(-1)?.[1]).toEqual({ batch_size: 256 })
+      } finally {
+        vi.unstubAllGlobals()
+      }
+    })
+
     it('maps ctx_len to ctx_size and ngl to n_gpu_layers', async () => {
       mockEngine.getLoadedModels.mockResolvedValue([])
       mockEngine.load.mockResolvedValue({ id: 'session' })
