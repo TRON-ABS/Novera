@@ -5,6 +5,7 @@
   <p><strong>Disponible sur Windows, Linux, macOS et Android</strong> · 80 langues d’interface · 42 fournisseurs cloud · 49 préréglages média · Apache 2.0</p>
   <p><a href="#du-démarrage-au-résultat">Automatisation</a> · <a href="#un-tableau-de-bord-pour-tout-créer">Tableau de bord</a> · <a href="#modèles-locaux-utilisés">Modèles locaux</a> · <a href="#hub-et-modèles-compatibles">Formats et Hub</a> · <a href="#fournisseurs-cloud">Cloud</a> · <a href="README.md">English</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
   <p>Contact officiel : <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
+  <p><a href="https://www.facebook.com/profile.php?id=61596114515071">Page Facebook officielle de Novera</a> · Partagez vos créations, modèles, réglages, retours et idées.</p>
 </div>
 
 ---
@@ -34,6 +35,8 @@ Sur Android, un téléphone moderne avec suffisamment de mémoire est conseillé
 **La version portable Windows x64 1.0.0 est disponible.** Les discussions, réglages et modèles téléchargés restent dans le dossier portable, sous `Data`. Extraire l’archive complète et ouvrir `Novera.exe`. Fermer Novera avant de déplacer le dossier ou d’éjecter la clé USB. [Guide portable et limites](docs/WINDOWS_PORTABLE.md).
 
 ## Un tableau de bord pour tout créer
+
+Novera évolue avec vous. Vos exemples et réglages peuvent aider les autres utilisateurs à trouver une configuration adaptée. Partagez vos questions, problèmes et idées sur notre [page Facebook](https://www.facebook.com/profile.php?id=61596114515071) ou par [email](mailto:contact.novera.tronabs@gmail.com). Indiquez si possible votre version de Novera, votre appareil et le modèle local ou API utilisé. Masquez les données personnelles et ne partagez jamais vos clés API ou mots de passe.
 
 ![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-2026-11-01.png)
 

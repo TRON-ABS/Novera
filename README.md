@@ -5,6 +5,7 @@
   <p><strong>Available for Windows, Linux, macOS and Android</strong> · 80 interface languages · 42 cloud providers · 49 media presets · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Local models</a> · <a href="#hub-and-compatible-models">Formats &amp; Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
+  <p><a href="https://www.facebook.com/profile.php?id=61596114515071">Official Novera Facebook page</a> · Share your creations, models, settings, feedback and ideas.</p>
 </div>
 
 ---
@@ -34,6 +35,8 @@ On Android, a modern phone with enough memory is recommended for local models; u
 **Windows x64 portable 1.0.0 is available.** Discussions, settings and downloaded models stay inside the portable folder under `Data`. Extract the complete archive and start `Novera.exe`. Close Novera before moving the folder or ejecting USB storage. [Portable guide and limitations](docs/WINDOWS_PORTABLE.md).
 
 ## One dashboard for every creation
+
+Novera grows with you. Your examples and settings can help other users find a suitable setup. Share questions, issues and ideas on our [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) or by [email](mailto:contact.novera.tronabs@gmail.com). If possible, include your Novera version, device and local/API model. Remove personal information and never share API keys or passwords.
 
 ![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-2026-11-01.png)
 
