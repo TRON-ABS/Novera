@@ -30,6 +30,10 @@ La compilation signée accepte désormais **`-WithTelemetry`**, comme le mode ex
 
 Commande : `./scripts/android/build-release.ps1 -WithTelemetry -OutputDirectory deliverables/Novera-Android-error-consent-fix-2026-11-03`. Version affichée **1.0.0**, compteur **1000012**. Le lien public initial livre encore 1000011 ; le nouveau paquet doit être signé, inspecté et testé séparément. Aucune conversation ni clé API personnelle n'est embarquée. Les cartes de sources privées restent locales et aucun rapport de test réel n'a été envoyé.
 
+APK **1000012 signé et inspecté** : `deliverables/Novera-Android-error-consent-fix-2026-11-03/Novera_1.0.0_android-arm64.apk`, **42256746 octets**, SHA-256 **`ac828c2d87db6d4db6f1e9253ef7ca98df6779be2e424b1b47f836cf6e1eed6f`**, certificat identique à 1000011. Le frontend exact avec la destination publique validée est présent dans la bibliothèque native ; lot 512 et 217 PNG conservés. Aucun fichier de conversations, modèles, secrets privés ou carte de sources n'est emballé. Tests : **35 frontend**, **7 de configuration télémétrie**, **5 de configuration Android**. [Provenance](release-evidence/android-error-consent-fix-2026-11-03/ANDROID-PROVENANCE.json), [inspection](release-evidence/android-error-consent-fix-2026-11-03/ANDROID-VERIFICATION.json), [CI](https://github.com/TRON-ABS/Novera/actions/runs/41581269979).
+
+Le mainteneur demande le retrait de l'ancien APK 1000011 après disponibilité du correctif ; ses reçus restent historiques. Le nouveau paquet demeure à confirmer sur téléphone et n'est pas encore annoncé public.
+
 ### Historique de préparation jusqu'au candidat 1000010
 
 Les états « en attente » et « interne » ci-dessous décrivent les étapes précédant le retour positif du mainteneur et l'autorisation de sortie du 3 novembre.
