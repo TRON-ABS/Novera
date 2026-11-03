@@ -2,7 +2,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Le savoir pour tous" width="100%" />
   <p><strong>Vous décrivez. Novera prépare, exécute et organise.</strong></p>
   <p>Un assistant IA indépendant de TRON-ABS, du premier démarrage aux résultats : texte, images, musique et vidéo dans la même discussion.</p>
-  <p><strong>Disponible sur Windows et Linux</strong> · 80 langues d’interface · 42 fournisseurs cloud · 49 préréglages média · Apache 2.0</p>
+  <p><strong>Disponible sur Windows, Linux et Android</strong> · 80 langues d’interface · 42 fournisseurs cloud · 49 préréglages média · Apache 2.0</p>
   <p><a href="#du-démarrage-au-résultat">Automatisation</a> · <a href="#un-tableau-de-bord-pour-tout-créer">Tableau de bord</a> · <a href="#modèles-locaux-utilisés">Modèles locaux</a> · <a href="#hub-et-modèles-compatibles">Formats et Hub</a> · <a href="#fournisseurs-cloud">Cloud</a> · <a href="README.md">English</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
   <p>Contact officiel : <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
 </div>
@@ -19,7 +19,7 @@
 | Linux x64 | AppImage publique, updater signé ; installation et remplacement natif vérifiés. |
 | CLI Windows x64 / Linux x64 | [CLI Novera](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera) : `novera.exe` / `novera`, canal de mise à jour signé dédié. |
 | Windows ARM64 | [Installateur NSIS public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), moteur texte CPU natif ; installation, remplacement et contrôle du canal public vérifiés. |
-| Android ARM64 | APK signé en essai sur Huawei P20 ; conservation discussion/modèle après mise à jour confirmée. Correctifs DuckDuckGo, main, couleurs Desktop et clavier à retester. [Suivi](docs/RELEASE_ANDROID_1.0.0.md). |
+| Android ARM64 | [APK signé public 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android), Android 7+, lot par défaut 512. APK vierge, sans conversations, modèles ni clés API. [Preuves et limites](docs/RELEASE_ANDROID_1.0.0.md). |
 | macOS, iOS | Accès Apple et essais finaux des plateformes en attente. [Reprise](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portable | [Archive ZIP signée](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable) ; données dans Data, remplacement signé de Program vérifié. |
 | Web, MSI, Debian | Client Web et autres formats encore internes ; vitrine informative Pages disponible. |
