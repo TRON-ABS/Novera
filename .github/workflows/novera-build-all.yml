@@ -9,7 +9,11 @@ on:
         required: true
         type: choice
         default: all
-        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-arm64, validate-arm64-ui, validate-portable, stage-portable, pages]
+        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, macos-tests, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-arm64, validate-arm64-ui, validate-portable, validate-macos, stage-portable, pages]
+      macos_candidate_run:
+        description: Completed Mac run whose native suites passed before the isolated enumeration budget failure
+        type: string
+        default: ''
       portable_candidate_run:
         description: Successful portable build run to validate again without rebuilding its unchanged native sources
         type: string
@@ -75,6 +79,11 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.NOVERA_UPDATER_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.NOVERA_UPDATER_PASSWORD }}
         run: node scripts/distribution/macos-distribution.mjs preflight
+      - name: Require update signing for the Mac headless battery
+        if: inputs.target == 'macos-tests'
+        env:
+          SIGNED_UPDATES: ${{ inputs.signed_updates }}
+        run: test "$SIGNED_UPDATES" = true
       - name: Verify version, distribution and update contracts
         shell: bash
         run: |
@@ -116,6 +125,16 @@ jobs:
       candidate_run: ${{ inputs.portable_candidate_run }}
       native_ui: ${{ inputs.portable_native_ui }}
 
+  macos-revalidation:
+    needs: checks
+    if: inputs.target == 'validate-macos'
+    permissions:
+      contents: read
+      actions: read
+    uses: ./.github/workflows/novera-validate-macos.yml
+    with:
+      candidate_run: ${{ inputs.macos_candidate_run }}
+
   portable-staging:
     needs: checks
     if: inputs.target == 'stage-portable'
@@ -156,7 +175,7 @@ jobs:
     needs: checks
     env:
       NOVERA_ENABLE_UPDATER: ${{ inputs.signed_updates && 'true' || 'false' }}
-    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","windows-linux","setup","msi","arm64","linux","macos"]'), inputs.target)
+    if: inputs.target == 'all' || inputs.target == 'native' || contains(fromJSON('["desktop","windows-linux","setup","msi","arm64","linux","macos","macos-tests"]'), inputs.target)
     strategy:
       fail-fast: false
       max-parallel: 3
@@ -184,6 +203,7 @@ jobs:
           if [[ "$REQUESTED" == all || "$REQUESTED" == native || "$REQUESTED" == "$VARIANT" ]]; then selected=true; fi
           if [[ "$VARIANT" == windows && "$REQUESTED" =~ ^(desktop|setup|msi)$ ]]; then selected=true; fi
           if [[ "$REQUESTED" == windows-linux && "$VARIANT" =~ ^(windows|arm64|linux)$ ]]; then selected=true; fi
+          if [[ "$REQUESTED" == macos-tests && "$VARIANT" == macos ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
         if: steps.selection.outputs.selected == 'true'
@@ -195,6 +215,10 @@ jobs:
         if: steps.selection.outputs.selected == 'true'
         shell: bash
         run: bash scripts/distribution/ci-prerequisites.sh desktop
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        if: steps.selection.outputs.selected == 'true' && inputs.target == 'macos-tests'
+        with:
+          python-version: '3.13'
       - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756
         if: steps.selection.outputs.selected == 'true' && runner.os == 'Windows'
         with:
@@ -214,6 +238,7 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ inputs.signed_updates && secrets.NOVERA_UPDATER_PASSWORD || '' }}
           REQUESTED: ${{ inputs.target }}
           NOVERA_MACOS_DISTRIBUTION: ${{ inputs.macos_distribution && 'true' || 'false' }}
+          NOVERA_MACOS_HEADLESS_TESTS: ${{ inputs.target == 'macos-tests' && 'true' || 'false' }}
           APPLE_CERTIFICATE: ${{ inputs.macos_distribution && secrets.NOVERA_APPLE_CERTIFICATE || '' }}
           APPLE_CERTIFICATE_PASSWORD: ${{ inputs.macos_distribution && secrets.NOVERA_APPLE_CERTIFICATE_PASSWORD || '' }}
           APPLE_SIGNING_IDENTITY: ${{ inputs.macos_distribution && secrets.NOVERA_APPLE_SIGNING_IDENTITY || '' }}
@@ -242,7 +267,10 @@ jobs:
             src-tauri/target/engine-build.log
             .build/ci-status.json
             .build/candidates/UPDATER-UI-CONTRACTS.json
+            .build/candidates/packages/
+            .build/candidates/MACOS-*.json
             .build/candidates/LINUX-UPDATER-UI.*
+            .build/macos-headless/
           if-no-files-found: ignore
           retention-days: 7
 
@@ -462,7 +490,7 @@ jobs:
 
   summary:
     if: always()
-    needs: [checks, desktop, auxiliary, installed-update, pages, portable, portable-validation, portable-staging]
+    needs: [checks, desktop, auxiliary, installed-update, pages, portable, portable-validation, portable-staging, macos-revalidation]
     runs-on: ubuntu-22.04
     steps:
       - name: Report actual job results
@@ -475,6 +503,7 @@ jobs:
           PORTABLE: ${{ needs.portable.result }}
           PORTABLE_VALIDATION: ${{ needs.portable-validation.result }}
           PORTABLE_STAGING: ${{ needs.portable-staging.result }}
+          MACOS_REVALIDATION: ${{ needs.macos-revalidation.result }}
         run: |
           printf 'Source and update contracts: %s\n' "$CHECKS" >> "$GITHUB_STEP_SUMMARY"
           printf 'Desktop matrix: %s\nAuxiliary matrix: %s\n' "$DESKTOP" "$AUXILIARY" >> "$GITHUB_STEP_SUMMARY"
@@ -482,6 +511,8 @@ jobs:
           printf 'Launch information Pages deployment: %s\n' "$PAGES" >> "$GITHUB_STEP_SUMMARY"
           printf 'Native portable package and update validation: %s\n' "$PORTABLE" >> "$GITHUB_STEP_SUMMARY"
           printf 'Exact signed portable revalidation: %s\n' "$PORTABLE_VALIDATION" >> "$GITHUB_STEP_SUMMARY"
+          printf 'Exact signed Intel Mac revalidation: %s\n' "$MACOS_REVALIDATION" >> "$GITHUB_STEP_SUMMARY"
           printf 'Private portable asset staging (no publication): %s\n' "$PORTABLE_STAGING" >> "$GITHUB_STEP_SUMMARY"
           echo 'Candidates only. No public release, signing certification or device validation is implied.' >> "$GITHUB_STEP_SUMMARY"
+          [[ "$MACOS_REVALIDATION" != failure && "$MACOS_REVALIDATION" != cancelled ]]
           [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled && "$PAGES" != failure && "$PAGES" != cancelled && "$PORTABLE" != failure && "$PORTABLE" != cancelled && "$PORTABLE_VALIDATION" != failure && "$PORTABLE_VALIDATION" != cancelled && "$PORTABLE_STAGING" != failure && "$PORTABLE_STAGING" != cancelled ]]

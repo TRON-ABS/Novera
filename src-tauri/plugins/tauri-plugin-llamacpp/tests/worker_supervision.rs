@@ -14,7 +14,9 @@ use tauri_plugin_llamacpp::engine::worker::{self, WorkerError};
 const MODEL_ID: &str = "smoke-model";
 
 fn model_path() -> Option<String> {
-    std::env::var("JAN_TEST_GGUF").ok().filter(|p| !p.is_empty())
+    std::env::var("JAN_TEST_GGUF")
+        .ok()
+        .filter(|p| !p.is_empty())
 }
 
 /// Cargo builds the bin for us and hands over its path.
@@ -162,7 +164,7 @@ async fn a_stopped_worker_is_actually_gone() {
 /// Running, i.e. not exited. A zombie counts as *not* alive: a test that drops
 /// stdin without reaping the child would otherwise see `/proc/<pid>` forever and
 /// conclude the worker ignored the signal.
-#[cfg(unix)]
+#[cfg(target_os = "linux")]
 fn pid_alive(pid: u32) -> bool {
     let Ok(stat) = std::fs::read_to_string(format!("/proc/{pid}/stat")) else {
         return false;
@@ -173,6 +175,26 @@ fn pid_alive(pid: u32) -> bool {
         return false;
     };
     !matches!(rest.split_whitespace().next(), Some("Z") | None)
+}
+
+#[cfg(all(unix, not(target_os = "linux")))]
+fn pid_alive(pid: u32) -> bool {
+    // macOS has no /proc. Query the process state without sending a signal;
+    // an exited or zombie child must not count as a running worker.
+    let result = std::process::Command::new("/bin/ps")
+        .args(["-o", "stat=", "-p", &pid.to_string()])
+        .output()
+        .expect("ps is required to verify worker termination");
+    result.status.success()
+        && String::from_utf8_lossy(&result.stdout)
+            .split_whitespace()
+            .any(|state| !state.starts_with('Z'))
+}
+
+#[cfg(unix)]
+#[test]
+fn process_probe_recognizes_the_running_test_process() {
+    assert!(pid_alive(std::process::id()));
 }
 
 #[cfg(not(unix))]

@@ -162,6 +162,8 @@ pub const BUILD_BACKEND_DIR: &str = env!("JAN_GGML_BACKEND_DIR");
 /// letting `llama_backend_init` run its own search would register the same
 /// backend twice. Pre-loading only when the default search will find nothing
 /// keeps the two mutually exclusive.
+/// Engine startup and device enumeration call this lazily themselves. The
+/// worker's idle handshake must not wait for cold GPU backend discovery.
 #[cfg(feature = "engine")]
 pub fn load_backend_modules() {
     use std::sync::Once;

@@ -1,6 +1,14 @@
 # Novera 1.0.0 — préparation macOS
 
-État au **2 novembre 2026 : publication en attente des accès Apple et des essais finaux sur Mac**. Aucune disponibilité publique macOS n'est annoncée. Le mainteneur confirme ne pas encore disposer des accès demandés.
+État au **3 novembre 2026 : compilation et batterie automatique en cours sur Intel et Apple Silicon** ([run 41589024310](https://github.com/TRON-ABS/Novera/actions/runs/41589024310), [PR #21](https://github.com/TRON-ABS/Novera/pull/21)). Le mainteneur autorise une sortie officielle en téléchargement direct après réussite des deux architectures, sans tests visuels pour cette sortie. Il ne possède pas encore de compte Apple Developer : les paquets seront explicitement présentés comme non notariés par Apple. Aucune disponibilité publique macOS n'est encore annoncée.
+
+Le parcours Apple ci-dessous reste la préparation pour une future signature Developer ID/notarisation. Il est distinct de la sortie directe actuellement autorisée. Voir [MACOS_HEADLESS_VALIDATION.md](MACOS_HEADLESS_VALIDATION.md) pour la batterie exécutée et ses limites.
+
+## Installation prévue pour les utilisateurs
+
+Après publication, choisir le DMG Intel ou Apple Silicon depuis la vitrine officielle ou la release GitHub. Ouvrir le DMG et copier Novera dans Applications, puis lancer Novera depuis Applications.
+
+Cette première sortie directe ne sera pas notariée par Apple. Si macOS bloque le premier lancement parce que le développeur est non identifié ou que l’application n’a pas été vérifiée, ouvrir **Réglages Système → Confidentialité et sécurité → Ouvrir quand même** pour Novera, puis confirmer l’ouverture. Cette autorisation concerne l’application choisie. Voir la [procédure officielle Apple](https://support.apple.com/fr-fr/guide/mac-help/-mh40616/mac). Le parcours du DMG final sur un Mac physique reste à vérifier.
 
 ## État vérifié
 
