@@ -1,11 +1,9 @@
-# docs(macos): publish official Mac downloads and installation guidance
+# docs(community): link the official Novera Facebook page
 
-The Mac release now provides validated Intel and Apple Silicon packages. Add the direct DMG downloads to both READMEs and the Pages showcase, explain the architecture-specific macOS minimum, and document first-launch authorization for packages without Developer ID/notarization. Keep iOS explicitly unavailable for iPhone installation.
+The showcase and both READMEs did not link the newly created Novera Facebook page. Add its exact public profile URL and invite users to share creations, models, settings, questions, issues and ideas through Facebook or the project email. Remind users to remove personal information and credentials from public feedback.
 
-Document exact native/build/revalidation provenance and the limits: no visual or physical-Mac validation and no MLX-inference claim. The native worker fix passes all engine/HTTP/supervision suites on both architectures; Intel reused the exact signed packages after cold Metal discovery exceeded the old harness deadline. Native signed replacement, corrupt-payload rejection and profile preservation pass.
+The page was created with explicit maintainer approval and configured with the original cyan hand, official banner, project website, contact email and public biography. The authenticated page view is verified; logged-out Facebook access and the welcome post remain unverified because a saved browser permission denies Facebook access. This change does not claim either is complete.
 
-Extend public-feed verification for the two Darwin Desktop updater archives and add the reviewed Mac descriptor, preserving Windows/Linux/ARM64 URLs and the byte-identical CLI/portable feeds. Update the public verification workflow to use that descriptor.
+No dependency on the still-open iOS/mobile PR #22; no workflow or application code changes. Preserve its separate work and existing distribution links. No paid promotion.
 
-Depends on merged PR #21. PR #22 contains separate iOS/mobile changes and remains open; this documentation PR must not overwrite them. Public asset transfer/verification and Pages deployment are completed before final availability is reported.
-
-Validation: 11 targeted Pages/feed tests passed, workflow actionlint and git diff --check passed. Both architecture publication checks passed locally against exact downloaded signed archives; the Intel metadata is explicitly reconstructed from verified CI/native provenance. All 20 Mac release files were downloaded without authentication and verified by size/SHA-256; the three latest manifests match, existing Desktop entries are preserved, and CLI/portable manifests remain byte-identical. The public evidence is saved in docs/release-evidence/macos-1.0.0-public.json. Pages deployment follows this documentation merge.
+Validation: `node --test scripts/distribution/__tests__/prepare-pages-site.test.mjs scripts/distribution/__tests__/web-delivery.test.mjs` — 5 passed. Scoped whitespace check passed. Pages deployment and public HTML verification follow merge and are recorded separately.
