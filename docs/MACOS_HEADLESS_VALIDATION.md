@@ -40,6 +40,6 @@ L'inférence MLX et les performances GPU ne sont pas annoncées comme testées s
 
 ## Publication et vitrines
 
-L'objectif demandé est une disponibilité publique comme les autres plateformes. Avant toute annonce, rattacher chaque téléchargement aux paquets exacts, résultats, signatures et limites. La signature Novera n'est pas une signature Apple ni une notarisation. Une éventuelle publication de candidat doit être explicitement décrite comme telle ; un paquet simulateur iOS ne doit pas être annoncé comme une application installable sur iPhone.
+L'objectif demandé est une disponibilité publique comme les autres plateformes. Avant toute annonce, rattacher chaque téléchargement aux paquets exacts, résultats, signatures et limites. La signature Novera n'est pas une signature Apple ni une notarisation. Le mainteneur demande une sortie officielle en téléchargement direct dès que les deux batteries réussissent, avec essais visuels différés. L'absence de certificat Developer ID et de notarisation Apple doit être indiquée dans les notes et les vitrines ; elle n'est pas présentée comme une validation Apple. Un paquet simulateur iOS ne doit pas être annoncé comme une application installable sur iPhone.
 
 Suivi : `PR.md`, `docs/RELEASE_MACOS_1.0.0.md`, `docs/REPRISE_MACOS_IOS.md` et `docs/LAUNCH_STATUS.md`.
