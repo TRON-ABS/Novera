@@ -9,7 +9,11 @@ on:
         required: true
         type: choice
         default: all
-        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, macos-tests, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-arm64, validate-arm64-ui, validate-portable, stage-portable, pages]
+        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, macos-tests, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-arm64, validate-arm64-ui, validate-portable, validate-macos, stage-portable, pages]
+      macos_candidate_run:
+        description: Completed Mac run whose native suites passed before the isolated enumeration budget failure
+        type: string
+        default: ''
       portable_candidate_run:
         description: Successful portable build run to validate again without rebuilding its unchanged native sources
         type: string
@@ -120,6 +124,16 @@ jobs:
     with:
       candidate_run: ${{ inputs.portable_candidate_run }}
       native_ui: ${{ inputs.portable_native_ui }}
+
+  macos-revalidation:
+    needs: checks
+    if: inputs.target == 'validate-macos'
+    permissions:
+      contents: read
+      actions: read
+    uses: ./.github/workflows/novera-validate-macos.yml
+    with:
+      candidate_run: ${{ inputs.macos_candidate_run }}
 
   portable-staging:
     needs: checks
@@ -476,7 +490,7 @@ jobs:
 
   summary:
     if: always()
-    needs: [checks, desktop, auxiliary, installed-update, pages, portable, portable-validation, portable-staging]
+    needs: [checks, desktop, auxiliary, installed-update, pages, portable, portable-validation, portable-staging, macos-revalidation]
     runs-on: ubuntu-22.04
     steps:
       - name: Report actual job results
@@ -489,6 +503,7 @@ jobs:
           PORTABLE: ${{ needs.portable.result }}
           PORTABLE_VALIDATION: ${{ needs.portable-validation.result }}
           PORTABLE_STAGING: ${{ needs.portable-staging.result }}
+          MACOS_REVALIDATION: ${{ needs.macos-revalidation.result }}
         run: |
           printf 'Source and update contracts: %s\n' "$CHECKS" >> "$GITHUB_STEP_SUMMARY"
           printf 'Desktop matrix: %s\nAuxiliary matrix: %s\n' "$DESKTOP" "$AUXILIARY" >> "$GITHUB_STEP_SUMMARY"
@@ -496,6 +511,8 @@ jobs:
           printf 'Launch information Pages deployment: %s\n' "$PAGES" >> "$GITHUB_STEP_SUMMARY"
           printf 'Native portable package and update validation: %s\n' "$PORTABLE" >> "$GITHUB_STEP_SUMMARY"
           printf 'Exact signed portable revalidation: %s\n' "$PORTABLE_VALIDATION" >> "$GITHUB_STEP_SUMMARY"
+          printf 'Exact signed Intel Mac revalidation: %s\n' "$MACOS_REVALIDATION" >> "$GITHUB_STEP_SUMMARY"
           printf 'Private portable asset staging (no publication): %s\n' "$PORTABLE_STAGING" >> "$GITHUB_STEP_SUMMARY"
           echo 'Candidates only. No public release, signing certification or device validation is implied.' >> "$GITHUB_STEP_SUMMARY"
+          [[ "$MACOS_REVALIDATION" != failure && "$MACOS_REVALIDATION" != cancelled ]]
           [[ "$CHECKS" == success && "$DESKTOP" != failure && "$AUXILIARY" != failure && "$DESKTOP" != cancelled && "$AUXILIARY" != cancelled && "$INSTALLED_UPDATE" != failure && "$INSTALLED_UPDATE" != cancelled && "$PAGES" != failure && "$PAGES" != cancelled && "$PORTABLE" != failure && "$PORTABLE" != cancelled && "$PORTABLE_VALIDATION" != failure && "$PORTABLE_VALIDATION" != cancelled && "$PORTABLE_STAGING" != failure && "$PORTABLE_STAGING" != cancelled ]]

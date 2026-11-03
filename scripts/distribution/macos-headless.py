@@ -13,6 +13,7 @@ import sys
 import tarfile
 import tempfile
 import threading
+import time
 import urllib.request
 
 REPO = Path(__file__).resolve().parents[2]
@@ -155,7 +156,11 @@ def package(probe):
         subprocess.run([str(binary), '--version'], env=env, check=True, timeout=30, capture_output=True)
     worker = installed / 'Contents/Resources/resources/bin/novera-llama-worker'
     worker_version = json.loads(subprocess.check_output([str(worker), '--version-json'], env=env, timeout=30))
-    device_info = json.loads(subprocess.check_output([str(worker), '--list-devices'], env=env, timeout=45))
+    device_started = time.monotonic()
+    # Cold Metal shader initialization on hosted Intel can exceed 45 seconds.
+    # This is a device-enumeration budget, not the worker handshake deadline.
+    device_info = json.loads(subprocess.check_output([str(worker), '--list-devices'], env=env, timeout=180))
+    device_seconds = time.monotonic() - device_started
     before_smoke = validation.smoke(executable, env, receipts, 'before-update')
     platform = 'darwin-aarch64' if os.uname().machine == 'arm64' else 'darwin-x86_64'
     version = json.loads((REPO / 'src-tauri/tauri.conf.json').read_text())['version']
@@ -217,6 +222,7 @@ def package(probe):
         'applicationFilesCompared': len(expected), 'dmgMatchesUpdaterAndBuiltApp': True,
         'archiveSha256': digest(archive), 'dmgSha256': digest(dmg), 'workerVersion': worker_version,
         'engineDevices': device_info, 'realGgufFixtureTestsExecuted': True,
+        'deviceEnumerationSeconds': device_seconds,
         'nativeUpdaterSignatureVerified': True, 'sameVersionNotOffered': True, 'tamperedPayloadRejected': True,
         'nativeUpdaterRestoresExactPayload': True, 'syntheticProfilePreserved': True,
         'beforeUpdateSmoke': before_smoke, 'afterUpdateSmoke': after_smoke,

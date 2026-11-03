@@ -1,0 +1,72 @@
+name: Novera - Revalidate exact Intel Mac packages
+on:
+  workflow_call:
+    inputs:
+      candidate_run:
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      candidate_run:
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  validate:
+    runs-on: macos-15-intel
+    timeout-minutes: 60
+    env:
+      CI: 'true'
+      NOVERA_ANALYTICS_HOST: ''
+      NOVERA_ANALYTICS_PROJECT_KEY: ''
+      CARGO_BUILD_JOBS: '2'
+      CARGO_PROFILE_DEV_DEBUG: '0'
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13'
+      - name: Verify original native results, unchanged sources and exact signature
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CANDIDATE_RUN: ${{ inputs.candidate_run }}
+        run: python3 scripts/distribution/reuse-macos-candidate.py "$CANDIDATE_RUN"
+      - name: Build native updater probe
+        run: |
+          rustup toolchain install 1.98.0 --profile minimal --no-self-update
+          cargo +1.98.0 build --locked --manifest-path scripts/distribution/checks/native-update/Cargo.toml --target-dir .build/native-update-probe
+      - name: Revalidate exact packages and native signed replacement
+        run: |
+          python3 scripts/distribution/macos-headless.py package --probe .build/native-update-probe/debug/novera-update-validation
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          folder=Path('.build/candidates')
+          reuse=json.loads((folder/'MACOS-REUSE.json').read_text())
+          report=json.loads((folder/'MACOS-HEADLESS.json').read_text())
+          report['validationSourceCommit']=report['sourceCommit']
+          report['sourceCommit']=reuse['applicationCommit']
+          report['compilationSourceRun']=reuse['candidateRun']
+          report['referenceAppReconstructedFromSignedArchive']=True
+          report['originalBuiltAppComparisonVerifiedFromSourceJob']=True
+          (folder/'MACOS-HEADLESS.json').write_text(json.dumps(report,indent=2)+'\n')
+          PY
+      - name: Retain exact packages and combined validation receipts
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: Novera-macos-x64-revalidated-${{ github.run_id }}
+          path: |
+            .build/candidates/
+            .build/macos-revalidation/source-job.log
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
