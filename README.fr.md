@@ -19,7 +19,7 @@
 | Linux x64 | AppImage publique, updater signé ; installation et remplacement natif vérifiés. |
 | CLI Windows x64 / Linux x64 | [CLI Novera](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera) : `novera.exe` / `novera`, canal de mise à jour signé dédié. |
 | Windows ARM64 | [Installateur NSIS public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), moteur texte CPU natif ; installation, remplacement et contrôle du canal public vérifiés. |
-| Android ARM64 | [APK signé public 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, lot par défaut 512. APK vierge, sans conversations, modèles ni clés API. [Preuves et limites](docs/RELEASE_ANDROID_1.0.0.md). |
+| Android ARM64 | [APK signé public 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, lot par défaut 512. Le mainteneur confirme le bon fonctionnement du build 1000012 sur téléphone. APK vierge, sans conversations, modèles ni clés API personnelles. [Preuves et limites](docs/RELEASE_ANDROID_1.0.0.md). |
 | macOS, iOS | Accès Apple et essais finaux des plateformes en attente. [Reprise](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portable | [Archive ZIP signée](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable) ; données dans Data, remplacement signé de Program vérifié. |
 | Web, MSI, Debian | Client Web et autres formats encore internes ; vitrine informative Pages disponible. |

@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "versionCode": 1000012,
+  "apkSha256": "ac828c2d87db6d4db6f1e9253ef7ca98df6779be2e424b1b47f836cf6e1eed6f",
+  "date": "2026-11-03",
+  "reportedBy": "maintainer",
+  "deviceWorksConfirmed": true,
+  "scope": "Global maintainer report that the corrected APK works on their phone; no separate per-feature test matrix asserted.",
+  "releaseUrl": "https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012"
+}
