@@ -1,0 +1,467 @@
+diff --git a/scripts/android/release.json b/scripts/android/release.json
+index ae8d7ef72..fb0f4bbd3 100644
+--- a/scripts/android/release.json
++++ b/scripts/android/release.json
+@@ -1,6 +1,6 @@
+ {
+   "packageId": "io.github.tronabs.novera",
+-  "versionCode": 1000009,
++  "versionCode": 1000010,
+   "certificateSha256": "ccea6bf07c93c9c0c10861f1ba897077925505cd8621117d4c671f1886b62582",
+   "distribution": "direct-apk",
+   "updateMethod": "android-package-installer-same-certificate-higher-versionCode"
+diff --git a/src-tauri/plugins/tauri-plugin-novera-share/android/src/main/java/io/github/tronabs/novera/sharing/SharingPlugin.kt b/src-tauri/plugins/tauri-plugin-novera-share/android/src/main/java/io/github/tronabs/novera/sharing/SharingPlugin.kt
+index 2e13e6aac..f4ed9cac6 100644
+--- a/src-tauri/plugins/tauri-plugin-novera-share/android/src/main/java/io/github/tronabs/novera/sharing/SharingPlugin.kt
++++ b/src-tauri/plugins/tauri-plugin-novera-share/android/src/main/java/io/github/tronabs/novera/sharing/SharingPlugin.kt
+@@ -12,6 +12,10 @@ import app.tauri.annotation.TauriPlugin
+ import app.tauri.plugin.Invoke
+ import app.tauri.plugin.Plugin
+ import java.io.File
++import android.os.PersistableBundle
++
++@InvokeArg
++class CopyTextArgs { lateinit var text: String }
+ 
+ @InvokeArg
+ class ShareArgs {
+@@ -24,6 +28,22 @@ class ShareArgs {
+ 
+ @TauriPlugin
+ class SharingPlugin(private val activity: Activity) : Plugin(activity) {
++    @Command
++    fun copyText(invoke: Invoke) {
++        activity.runOnUiThread {
++            try {
++                val args = invoke.parseArgs(CopyTextArgs::class.java)
++                require(args.text.toByteArray(Charsets.UTF_8).size <= 512 * 1024)
++                val clip = ClipData.newPlainText("Novera", args.text)
++                clip.description.extras = PersistableBundle().apply {
++                    putBoolean("android.content.extra.IS_SENSITIVE", true)
++                }
++                val clipboard = activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
++                clipboard.setPrimaryClip(clip)
++                invoke.resolve()
++            } catch (_: Exception) { invoke.reject("CLIPBOARD_UNAVAILABLE") }
++        }
++    }
+     private fun uri(args: ShareArgs): android.net.Uri {
+         val file = File(args.path).canonicalFile
+         val cache = activity.cacheDir.canonicalFile
+diff --git a/src-tauri/plugins/tauri-plugin-novera-share/src/lib.rs b/src-tauri/plugins/tauri-plugin-novera-share/src/lib.rs
+index 58735b836..fb57d3a07 100644
+--- a/src-tauri/plugins/tauri-plugin-novera-share/src/lib.rs
++++ b/src-tauri/plugins/tauri-plugin-novera-share/src/lib.rs
+@@ -20,6 +20,13 @@ pub fn init<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
+         })
+         .build()
+ }
++#[cfg(target_os = "android")]
++pub fn copy_text<R: Runtime>(app: &tauri::AppHandle<R>, text: &str) -> Result<(), String> {
++    app.state::<Sharing<R>>().0
++        .run_mobile_plugin::<serde_json::Value>("copyText", serde_json::json!({"text":text}))
++        .map(|_| ())
++        .map_err(|_| "CLIPBOARD_UNAVAILABLE".into())
++}
+ #[cfg(any(target_os = "android", target_os = "ios"))]
+ pub fn share<R: Runtime>(
+     app: &tauri::AppHandle<R>,
+diff --git a/src-tauri/src/core/sharing.rs b/src-tauri/src/core/sharing.rs
+index 2cbf00cc9..c11277039 100644
+--- a/src-tauri/src/core/sharing.rs
++++ b/src-tauri/src/core/sharing.rs
+@@ -9,6 +9,15 @@ use std::{
+ use tauri::Runtime;
+ const MAX_BYTES: usize = 256 * 1024 * 1024;
+ 
++#[tauri::command]
++pub async fn sharing_copy_text<R: Runtime>(app: tauri::AppHandle<R>, text: String) -> Result<(), String> {
++    if text.len() > 512 * 1024 { return Err("SHARE_TOO_LARGE".into()); }
++    #[cfg(target_os = "android")]
++    { return tauri_plugin_novera_share::copy_text(&app, &text); }
++    #[cfg(not(target_os = "android"))]
++    { let _ = (app, text); Err("SHARE_UNSUPPORTED".into()) }
++}
++
+ #[derive(Deserialize)]
+ pub struct AssetRef {
+     task: String,
+diff --git a/src-tauri/src/lib.rs b/src-tauri/src/lib.rs
+index 7370d8f55..9f49a8164 100644
+--- a/src-tauri/src/lib.rs
++++ b/src-tauri/src/lib.rs
+@@ -83,6 +83,7 @@ macro_rules! invoke_commands_with_extras {
+         core::sharing::sharing_convert_image,
+         core::sharing::sharing_native,
+         core::sharing::sharing_copy_file,
++        core::sharing::sharing_copy_text,
+         core::sharing::sharing_metadata,
+         core::filesystem::commands::write_yaml,
+         core::filesystem::commands::read_yaml,
+diff --git a/src-tauri/tauri.android.conf.json b/src-tauri/tauri.android.conf.json
+index c7f26b29f..ec355d357 100644
+--- a/src-tauri/tauri.android.conf.json
++++ b/src-tauri/tauri.android.conf.json
+@@ -30,7 +30,7 @@
+     "externalBin": [],
+     "android": {
+       "minSdkVersion": 24,
+-      "versionCode": 1000009,
++      "versionCode": 1000010,
+       "debugApplicationIdSuffix": ".debug"
+     }
+   }
+diff --git a/web-app/src/components/MarkdownTable.tsx b/web-app/src/components/MarkdownTable.tsx
+index be3616430..c15322f59 100644
+--- a/web-app/src/components/MarkdownTable.tsx
++++ b/web-app/src/components/MarkdownTable.tsx
+@@ -9,6 +9,7 @@ import {
+   DropdownMenuTrigger,
+ } from '@/components/ui/dropdown-menu'
+ import { cn } from '@/lib/utils'
++import { writeClipboardText } from '@/lib/clipboard'
+ 
+ type Format = 'markdown' | 'csv'
+ 
+@@ -105,7 +106,7 @@ export function MarkdownTable({
+       withTable(async (rows) => {
+         const text = format === 'csv' ? toCsv(rows) : toMarkdown(rows)
+         try {
+-          await navigator.clipboard.writeText(text)
++          await writeClipboardText(text)
+           setCopied(true)
+           window.setTimeout(() => setCopied(false), 1500)
+         } catch {
+diff --git a/web-app/src/components/ai-elements/code-block.tsx b/web-app/src/components/ai-elements/code-block.tsx
+index e51685127..38c7f6c18 100644
+--- a/web-app/src/components/ai-elements/code-block.tsx
++++ b/web-app/src/components/ai-elements/code-block.tsx
+@@ -1,6 +1,7 @@
+ /* eslint-disable react-refresh/only-export-components */
+ 
+ import { Button } from "@/components/ui/button";
++import { writeClipboardText } from "@/lib/clipboard";
+ import { cn } from "@/lib/utils";
+ import { CheckIcon, CopyIcon } from "lucide-react";
+ import {
+@@ -157,13 +158,13 @@ export const CodeBlockCopyButton = ({
+   const { code } = useContext(CodeBlockContext);
+ 
+   const copyToClipboard = async () => {
+-    if (typeof window === "undefined" || !navigator?.clipboard?.writeText) {
++    if (typeof window === "undefined") {
+       onError?.(new Error("Clipboard API not available"));
+       return;
+     }
+ 
+     try {
+-      await navigator.clipboard.writeText(code);
++      await writeClipboardText(code);
+       setIsCopied(true);
+       onCopy?.();
+       setTimeout(() => setIsCopied(false), timeout);
+diff --git a/web-app/src/containers/CopyButton.tsx b/web-app/src/containers/CopyButton.tsx
+index 70496ca0d..863944fd0 100644
+--- a/web-app/src/containers/CopyButton.tsx
++++ b/web-app/src/containers/CopyButton.tsx
+@@ -3,16 +3,23 @@ import { IconCopy, IconCopyCheck } from '@tabler/icons-react'
+ import { useState } from 'react'
+ import { useTranslation } from '@/i18n/react-i18next-compat'
+ import { ActionTooltip } from '@/components/ActionTooltip'
++import { writeClipboardText } from '@/lib/clipboard'
++import { toast } from 'sonner'
+ 
+ export const CopyButton = ({ text }: { text: string }) => {
+   const [copied, setCopied] = useState(false)
+   const { t } = useTranslation()
+   const label = t(copied ? 'common:copied' : 'common:copy')
+ 
+-  const handleCopy = () => {
+-    navigator.clipboard.writeText(text)
+-    setCopied(true)
+-    setTimeout(() => setCopied(false), 2000)
++  const handleCopy = async () => {
++    try {
++      await writeClipboardText(text)
++      setCopied(true)
++      setTimeout(() => setCopied(false), 2000)
++    } catch {
++      setCopied(false)
++      toast.error(t('common:error'))
++    }
+   }
+ 
+   return (
+@@ -21,6 +28,7 @@ export const CopyButton = ({ text }: { text: string }) => {
+       variant="ghost"
+       size="icon-xs"
+       onClick={handleCopy}
++      disabled={!text}
+     >
+       {copied ? (
+         <>
+diff --git a/web-app/src/containers/MessageItem.tsx b/web-app/src/containers/MessageItem.tsx
+index 2970a6c80..3361cdf7e 100644
+--- a/web-app/src/containers/MessageItem.tsx
++++ b/web-app/src/containers/MessageItem.tsx
+@@ -7,6 +7,7 @@ import { CREATION_PREFIX, isLegacyCreationCaption } from '@/modules/engines/crea
+ import type { UIMessage, ChatStatus } from 'ai'
+ import { RenderMarkdown } from './RenderMarkdown'
+ import { stripToolCallMarkup } from '@/modules/tools/tool-call-markup'
++import { messageExportText } from '@/lib/messageExportText'
+ import { ActionTooltip } from '@/components/ActionTooltip'
+ import { cn } from '@/lib/utils'
+ import { usedSkillNames } from '@/lib/agentActivity'
+@@ -679,7 +680,7 @@ export const MessageItem = memo(
+             </span>
+             <div className="flex items-center gap-1">
+               {versionNav}
+-              <CopyButton text={getFullTextContent()} />
++              <CopyButton text={messageExportText(message)} />
+ 
+               {onEdit &&
+                 status !== CHAT_STATUS.STREAMING &&
+@@ -733,7 +734,7 @@ export const MessageItem = memo(
+               )}
+             >
+               {versionNav}
+-              <CopyButton text={getFullTextContent()} />
++              <CopyButton text={messageExportText(message)} />
+               <RememberButton text={getFullTextContent()} />
+               <ShareButton threadId={threadId} message={message} disabled={isStreaming} />
+ 
+diff --git a/web-app/src/containers/ShareButton.tsx b/web-app/src/containers/ShareButton.tsx
+index 8d16f5cac..7b0aff25e 100644
+--- a/web-app/src/containers/ShareButton.tsx
++++ b/web-app/src/containers/ShareButton.tsx
+@@ -40,6 +40,7 @@ import {
+ import { printConversation } from '@/adapters/platform/conversation-files'
+ import { parseCreationReference } from '@/modules/engines/creation'
+ import { isPlatformTauri } from '@/lib/platform/utils'
++import { messageExportText } from '@/lib/messageExportText'
+ import printStyles from '@/styles/conversation-print.css?url'
+ 
+ /** One explicit preview/selection step for every local export and OS handoff. */
+@@ -202,6 +203,15 @@ export function ShareButton({
+           ? thread.metadata.activeRootId
+           : undefined
+       )
++      // A failed generation can have a visible reasoning/error trace but no
++      // final answer. Keep that explicitly selected message exportable instead
++      // of leaving Prepare disabled. Whole-conversation exports stay unchanged.
++      if (message && !assetUrl) {
++        const text = messageExportText(message)
++        const entry = list.find(entry => entry.id === message.id)
++        if (text && entry && !entry.text.trim() && !entry.assets.length) entry.text = text
++        else if (text && !entry) list.push({ id: message.id, role: message.role, text, assets: [] })
++      }
+       if (!live) return
+       const id =
+         message?.id ||
+diff --git a/web-app/src/containers/__tests__/CopyButton.test.tsx b/web-app/src/containers/__tests__/CopyButton.test.tsx
+new file mode 100644
+index 000000000..bd978b62d
+--- /dev/null
++++ b/web-app/src/containers/__tests__/CopyButton.test.tsx
+@@ -0,0 +1,24 @@
++import { act,fireEvent,render,screen,waitFor } from '@testing-library/react'
++import { beforeEach,expect,it,vi } from 'vitest'
++const h=vi.hoisted(()=>({write:vi.fn(),error:vi.fn()}))
++vi.mock('@/lib/clipboard',()=>({writeClipboardText:h.write}))
++vi.mock('sonner',()=>({toast:{error:h.error}}))
++vi.mock('@/i18n/react-i18next-compat',()=>({useTranslation:()=>({t:(s:string)=>s})}))
++import { CopyButton } from '../CopyButton'
++beforeEach(()=>{h.write.mockReset();h.error.mockReset()})
++it('waits for the clipboard confirmation before showing copied',async()=>{
++  let finish!:()=>void
++  h.write.mockReturnValueOnce(new Promise<void>(resolve=>{finish=resolve}))
++  render(<CopyButton text="Texte" />)
++  fireEvent.click(screen.getByRole('button',{name:'common:copy'}))
++  expect(screen.queryByRole('button',{name:'common:copied'})).not.toBeInTheDocument()
++  await act(async()=>finish())
++  expect(screen.getByRole('button',{name:'common:copied'})).toBeInTheDocument()
++})
++it('keeps copy available and reports an unsuccessful write',async()=>{
++  h.write.mockRejectedValueOnce(new Error('CLIPBOARD_UNAVAILABLE'))
++  render(<CopyButton text="Texte" />)
++  fireEvent.click(screen.getByRole('button',{name:'common:copy'}))
++  await waitFor(()=>expect(h.error).toHaveBeenCalledWith('common:error'))
++  expect(screen.queryByRole('button',{name:'common:copied'})).not.toBeInTheDocument()
++})
+diff --git a/web-app/src/containers/__tests__/ShareButton.test.tsx b/web-app/src/containers/__tests__/ShareButton.test.tsx
+index 4c3482a68..3b41eff9d 100644
+--- a/web-app/src/containers/__tests__/ShareButton.test.tsx
++++ b/web-app/src/containers/__tests__/ShareButton.test.tsx
+@@ -74,6 +74,18 @@ describe('unified sharing preview', () => {
+     mocks.save.mockResolvedValue(true)
+     mocks.system.mockResolvedValue(undefined)
+   })
++  it('can prepare the visible trace of a message that ended with reasoning but no final answer', async () => {
++    mocks.fetch.mockResolvedValueOnce([])
++    render(<ShareButton threadId="t" message={{ id: 'trace', role: 'assistant', parts: [{ type: 'reasoning', text: 'Visible diagnostic trace' }] }} />)
++    fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
++    const prepare = await screen.findByRole('button', { name: 'chat:sharing.prepare' })
++    await waitFor(() => expect(prepare).toBeEnabled())
++    fireEvent.click(prepare)
++    await waitFor(() => expect(mocks.prepare).toHaveBeenCalled())
++    expect(mocks.prepare.mock.calls[0][0].entries[0].text).toBe('Visible diagnostic trace')
++    expect(mocks.system).not.toHaveBeenCalled()
++  })
++
+   it('loads the full stored discussion and requires a prepared preview before sharing', async () => {
+     render(<ShareButton threadId="t" conversation />)
+     fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
+@@ -227,7 +239,7 @@ describe('unified sharing preview', () => {
+       screen.getByRole('button', { name: 'chat:sharing.copyFile' })
+     )
+     await waitFor(() => expect(mocks.copyFile).toHaveBeenCalledTimes(1))
+-    fireEvent.click(screen.getByRole('button', { name: 'common:close' }))
++    fireEvent.click(screen.getByText('common:close', { selector: 'button' }))
+     await waitFor(() =>
+       expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+     )
+@@ -244,7 +256,7 @@ describe('unified sharing preview', () => {
+     expect(await screen.findByRole('alert')).toHaveTextContent('chat:sharing.failed')
+     expect(screen.getByRole('button', { name: 'chat:sharing.system' })).toBeEnabled()
+     expect(screen.getByRole('button', { name: 'chat:sharing.copyFile' })).toBeEnabled()
+-    fireEvent.click(screen.getByRole('button', { name: 'common:close' }))
++    fireEvent.click(screen.getByText('common:close', { selector: 'button' }))
+     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
+   })
+   it('removes the modal and pointer lock before opening the native sheet, and keeps it closed on return', async () => {
+diff --git a/web-app/src/lib/__tests__/clipboard.test.ts b/web-app/src/lib/__tests__/clipboard.test.ts
+new file mode 100644
+index 000000000..466eab3b9
+--- /dev/null
++++ b/web-app/src/lib/__tests__/clipboard.test.ts
+@@ -0,0 +1,22 @@
++import { beforeEach, expect, it, vi } from 'vitest'
++const h=vi.hoisted(()=>({android:true,tauri:true,invoke:vi.fn()}))
++vi.mock('@tauri-apps/api/core',()=>({invoke:h.invoke}))
++vi.mock('@/lib/platform/utils',()=>({isPlatformAndroid:()=>h.android,isPlatformTauri:()=>h.tauri}))
++import { writeClipboardText } from '../clipboard'
++beforeEach(()=>{h.android=true;h.tauri=true;h.invoke.mockReset().mockResolvedValue(undefined)})
++it('uses the native Android writer without requiring the WebView clipboard API',async()=>{
++  await writeClipboardText('Texte à coller')
++  expect(h.invoke).toHaveBeenCalledWith('sharing_copy_text',{text:'Texte à coller'})
++})
++it('propagates native write failure rather than reporting a successful copy',async()=>{
++  h.invoke.mockRejectedValueOnce(new Error('CLIPBOARD_UNAVAILABLE'))
++  await expect(writeClipboardText('Texte')).rejects.toThrow('CLIPBOARD_UNAVAILABLE')
++})
++it('keeps the browser clipboard route outside Android Tauri',async()=>{
++  h.android=false
++  const writeText=vi.fn().mockResolvedValue(undefined)
++  Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText}})
++  await writeClipboardText('Desktop')
++  expect(writeText).toHaveBeenCalledWith('Desktop')
++  expect(h.invoke).not.toHaveBeenCalled()
++})
+diff --git a/web-app/src/lib/__tests__/messageExportText.test.ts b/web-app/src/lib/__tests__/messageExportText.test.ts
+new file mode 100644
+index 000000000..bcfc2e2f5
+--- /dev/null
++++ b/web-app/src/lib/__tests__/messageExportText.test.ts
+@@ -0,0 +1,13 @@
++import { expect,it } from 'vitest'
++import type { UIMessage } from 'ai'
++import { messageExportText } from '../messageExportText'
++it('prefers the answer and excludes reasoning from a normal answer copy',()=>{
++  expect(messageExportText({id:'m',role:'assistant',parts:[{type:'reasoning',text:'Trace'},{type:'text',text:'Réponse'}]})).toBe('Réponse')
++})
++it('exports a visible trace and error when no final answer exists, without tool inputs',()=>{
++  const m={id:'m',role:'assistant',parts:[{type:'reasoning',text:'Trace visible'},{type:'tool-web_search',state:'output-error',errorText:'HTTP 403',input:{secret:'PRIVATE_INPUT'}}]} as unknown as UIMessage
++  expect(messageExportText(m)).toBe('Trace visible\n\nHTTP 403')
++})
++it('keeps a genuinely empty message empty',()=>{
++  expect(messageExportText({id:'m',role:'assistant',parts:[]})).toBe('')
++})
+diff --git a/web-app/src/lib/clipboard.ts b/web-app/src/lib/clipboard.ts
+new file mode 100644
+index 000000000..d5de30aaa
+--- /dev/null
++++ b/web-app/src/lib/clipboard.ts
+@@ -0,0 +1,12 @@
++import { invoke } from '@tauri-apps/api/core'
++import { isPlatformAndroid, isPlatformTauri } from '@/lib/platform/utils'
++
++/** Write only in response to the user's Copy action; never read clipboard data. */
++export async function writeClipboardText(text: string): Promise<void> {
++  if (isPlatformAndroid() && isPlatformTauri()) {
++    await invoke('sharing_copy_text', { text })
++    return
++  }
++  if (!navigator.clipboard?.writeText) throw new Error('Clipboard API not available')
++  await navigator.clipboard.writeText(text)
++}
+diff --git a/web-app/src/lib/messageExportText.ts b/web-app/src/lib/messageExportText.ts
+new file mode 100644
+index 000000000..dc80c769e
+--- /dev/null
++++ b/web-app/src/lib/messageExportText.ts
+@@ -0,0 +1,16 @@
++import type { UIMessage } from 'ai'
++import { stripToolCallMarkup } from '@/modules/tools/tool-call-markup'
++
++/** Prefer the answer; when it is absent, copy only the trace visible to the user. */
++export function messageExportText(message: UIMessage): string {
++  const text = message.parts.filter(p => p.type === 'text').map(p => p.text).join('\n')
++  const answer = message.role === 'assistant' ? stripToolCallMarkup(text) : text
++  if (answer.trim()) return answer
++  return message.parts.flatMap(part => {
++    if (part.type === 'reasoning') return part.text?.trim() ? [part.text] : []
++    const value = part as unknown as { state?: string; errorText?: unknown; error?: unknown }
++    if (value.state !== 'output-error') return []
++    const error = value.errorText ?? value.error
++    return typeof error === 'string' && error.trim() ? [error] : []
++  }).join('\n\n')
++}
+diff --git a/web-app/src/services/sharing/android-clipboard.test.ts b/web-app/src/services/sharing/android-clipboard.test.ts
+new file mode 100644
+index 000000000..43a5ea25a
+--- /dev/null
++++ b/web-app/src/services/sharing/android-clipboard.test.ts
+@@ -0,0 +1,18 @@
++import { expect,it,vi } from 'vitest'
++import type { CoreService } from '@/services/core/types'
++const h=vi.hoisted(()=>({write:vi.fn()}))
++vi.mock('@/lib/platform/utils',()=>({isPlatformTauri:()=>true,isPlatformAndroid:()=>true}))
++vi.mock('@/lib/clipboard',()=>({writeClipboardText:h.write}))
++import { copyPrepared,type PreparedShare } from './index'
++const value:PreparedShare={title:'Test',format:'html',text:'Texte à coller',html:'<p>Texte à coller</p>',filename:'Test.html',mime:'text/html'}
++it('copies an Android export as native plain text rather than relying on WebView HTML clipboard support',async()=>{
++  h.write.mockResolvedValueOnce(undefined)
++  const core={invoke:vi.fn()} as unknown as CoreService
++  await copyPrepared(value,core)
++  expect(h.write).toHaveBeenCalledWith(value.text)
++  expect(core.invoke).not.toHaveBeenCalled()
++})
++it('propagates a refused Android clipboard write from the preview',async()=>{
++  h.write.mockRejectedValueOnce(new Error('CLIPBOARD_UNAVAILABLE'))
++  await expect(copyPrepared(value,{} as CoreService)).rejects.toThrow('CLIPBOARD_UNAVAILABLE')
++})
+diff --git a/web-app/src/services/sharing/index.ts b/web-app/src/services/sharing/index.ts
+index 7998d497d..827118efa 100644
+--- a/web-app/src/services/sharing/index.ts
++++ b/web-app/src/services/sharing/index.ts
+@@ -7,7 +7,8 @@ import type {
+ } from '@/modules/conversations/share'
+ import { exportBasename } from '@/modules/conversations/export'
+ import { parseCreationReference } from '@/modules/engines/creation'
+-import { isPlatformTauri } from '@/lib/platform/utils'
++import { isPlatformTauri, isPlatformAndroid } from '@/lib/platform/utils'
++import { writeClipboardText } from '@/lib/clipboard'
+ import { zipFiles } from './zip'
+ import { attachmentFilename } from './filename'
+ import { renderShareHtml, markdownImages, escapeXml } from './rich'
+@@ -581,6 +582,10 @@ export async function copyShareFile(value: PreparedShare, core: CoreService) {
+ }
+ export async function copyPrepared(value: PreparedShare, core: CoreService) {
+   if (value.mime.startsWith('video/') || value.mime.startsWith('audio/')) throw new Error('SHARE_UNSUPPORTED')
++  if (isPlatformAndroid() && isPlatformTauri() && !value.mime.startsWith('image/')) {
++    await writeClipboardText(value.text)
++    return
++  }
+   if (
+     value.mime.startsWith('image/') &&
+     navigator.clipboard.write &&

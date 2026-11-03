@@ -40,6 +40,7 @@ import {
 import { printConversation } from '@/adapters/platform/conversation-files'
 import { parseCreationReference } from '@/modules/engines/creation'
 import { isPlatformTauri } from '@/lib/platform/utils'
+import { messageExportText } from '@/lib/messageExportText'
 import printStyles from '@/styles/conversation-print.css?url'
 
 /** One explicit preview/selection step for every local export and OS handoff. */
@@ -202,6 +203,15 @@ export function ShareButton({
           ? thread.metadata.activeRootId
           : undefined
       )
+      // A failed generation can have a visible reasoning/error trace but no
+      // final answer. Keep that explicitly selected message exportable instead
+      // of leaving Prepare disabled. Whole-conversation exports stay unchanged.
+      if (message && !assetUrl) {
+        const text = messageExportText(message)
+        const entry = list.find(entry => entry.id === message.id)
+        if (text && entry && !entry.text.trim() && !entry.assets.length) entry.text = text
+        else if (text && !entry) list.push({ id: message.id, role: message.role, text, assets: [] })
+      }
       if (!live) return
       const id =
         message?.id ||

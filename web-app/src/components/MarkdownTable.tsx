@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { cn } from '@/lib/utils'
+import { writeClipboardText } from '@/lib/clipboard'
 
 type Format = 'markdown' | 'csv'
 
@@ -105,7 +106,7 @@ export function MarkdownTable({
       withTable(async (rows) => {
         const text = format === 'csv' ? toCsv(rows) : toMarkdown(rows)
         try {
-          await navigator.clipboard.writeText(text)
+          await writeClipboardText(text)
           setCopied(true)
           window.setTimeout(() => setCopied(false), 1500)
         } catch {

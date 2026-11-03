@@ -1,0 +1,20 @@
+[
+  {
+    "variant": "tauri-origin",
+    "origin": "https://tauri.localhost",
+    "status": 403,
+    "finalHost": "lite.duckduckgo.com",
+    "bytes": 148826,
+    "resultLinks": 0,
+    "challenge": false
+  },
+  {
+    "variant": "native-no-origin",
+    "origin": null,
+    "status": 200,
+    "finalHost": "lite.duckduckgo.com",
+    "bytes": 22286,
+    "resultLinks": 10,
+    "challenge": false
+  }
+]

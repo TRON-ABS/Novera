@@ -9,6 +9,15 @@ use std::{
 use tauri::Runtime;
 const MAX_BYTES: usize = 256 * 1024 * 1024;
 
+#[tauri::command]
+pub async fn sharing_copy_text<R: Runtime>(app: tauri::AppHandle<R>, text: String) -> Result<(), String> {
+    if text.len() > 512 * 1024 { return Err("SHARE_TOO_LARGE".into()); }
+    #[cfg(target_os = "android")]
+    { return tauri_plugin_novera_share::copy_text(&app, &text); }
+    #[cfg(not(target_os = "android"))]
+    { let _ = (app, text); Err("SHARE_UNSUPPORTED".into()) }
+}
+
 #[derive(Deserialize)]
 pub struct AssetRef {
     task: String,

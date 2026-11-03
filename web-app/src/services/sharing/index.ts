@@ -7,7 +7,8 @@ import type {
 } from '@/modules/conversations/share'
 import { exportBasename } from '@/modules/conversations/export'
 import { parseCreationReference } from '@/modules/engines/creation'
-import { isPlatformTauri } from '@/lib/platform/utils'
+import { isPlatformTauri, isPlatformAndroid } from '@/lib/platform/utils'
+import { writeClipboardText } from '@/lib/clipboard'
 import { zipFiles } from './zip'
 import { attachmentFilename } from './filename'
 import { renderShareHtml, markdownImages, escapeXml } from './rich'
@@ -581,6 +582,10 @@ export async function copyShareFile(value: PreparedShare, core: CoreService) {
 }
 export async function copyPrepared(value: PreparedShare, core: CoreService) {
   if (value.mime.startsWith('video/') || value.mime.startsWith('audio/')) throw new Error('SHARE_UNSUPPORTED')
+  if (isPlatformAndroid() && isPlatformTauri() && !value.mime.startsWith('image/')) {
+    await writeClipboardText(value.text)
+    return
+  }
   if (
     value.mime.startsWith('image/') &&
     navigator.clipboard.write &&

@@ -7,6 +7,7 @@ import { CREATION_PREFIX, isLegacyCreationCaption } from '@/modules/engines/crea
 import type { UIMessage, ChatStatus } from 'ai'
 import { RenderMarkdown } from './RenderMarkdown'
 import { stripToolCallMarkup } from '@/modules/tools/tool-call-markup'
+import { messageExportText } from '@/lib/messageExportText'
 import { ActionTooltip } from '@/components/ActionTooltip'
 import { cn } from '@/lib/utils'
 import { usedSkillNames } from '@/lib/agentActivity'
@@ -679,7 +680,7 @@ export const MessageItem = memo(
             </span>
             <div className="flex items-center gap-1">
               {versionNav}
-              <CopyButton text={getFullTextContent()} />
+              <CopyButton text={messageExportText(message)} />
 
               {onEdit &&
                 status !== CHAT_STATUS.STREAMING &&
@@ -733,7 +734,7 @@ export const MessageItem = memo(
               )}
             >
               {versionNav}
-              <CopyButton text={getFullTextContent()} />
+              <CopyButton text={messageExportText(message)} />
               <RememberButton text={getFullTextContent()} />
               <ShareButton threadId={threadId} message={message} disabled={isStreaming} />
 

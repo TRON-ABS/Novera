@@ -12,6 +12,10 @@ import app.tauri.annotation.TauriPlugin
 import app.tauri.plugin.Invoke
 import app.tauri.plugin.Plugin
 import java.io.File
+import android.os.PersistableBundle
+
+@InvokeArg
+class CopyTextArgs { lateinit var text: String }
 
 @InvokeArg
 class ShareArgs {
@@ -24,6 +28,22 @@ class ShareArgs {
 
 @TauriPlugin
 class SharingPlugin(private val activity: Activity) : Plugin(activity) {
+    @Command
+    fun copyText(invoke: Invoke) {
+        activity.runOnUiThread {
+            try {
+                val args = invoke.parseArgs(CopyTextArgs::class.java)
+                require(args.text.toByteArray(Charsets.UTF_8).size <= 512 * 1024)
+                val clip = ClipData.newPlainText("Novera", args.text)
+                clip.description.extras = PersistableBundle().apply {
+                    putBoolean("android.content.extra.IS_SENSITIVE", true)
+                }
+                val clipboard = activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                clipboard.setPrimaryClip(clip)
+                invoke.resolve()
+            } catch (_: Exception) { invoke.reject("CLIPBOARD_UNAVAILABLE") }
+        }
+    }
     private fun uri(args: ShareArgs): android.net.Uri {
         val file = File(args.path).canonicalFile
         val cache = activity.cacheDir.canonicalFile

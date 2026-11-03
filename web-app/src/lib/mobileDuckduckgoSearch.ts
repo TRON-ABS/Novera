@@ -27,6 +27,11 @@ async function requestText(address: string, operation: 'web_search' | 'web_fetch
       const response = await nativeFetch(url.href, {
         method: 'GET', maxRedirections: 0, connectTimeout: 30_000,
         headers: {
+          // Native HTTP requests have no browser origin. The HTTP plugin adds
+          // the WebView origin by default; its supported empty-Origin sentinel
+          // removes that header with the already-enabled unsafe-headers feature.
+          // DuckDuckGo rejects the injected https://tauri.localhost origin (403).
+          Origin: '',
           'User-Agent': APPLICATION_USER_AGENT,
           Accept: 'text/html, text/plain;q=0.9, application/xhtml+xml;q=0.8',
         },

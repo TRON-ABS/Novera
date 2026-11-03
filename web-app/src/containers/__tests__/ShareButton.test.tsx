@@ -74,6 +74,18 @@ describe('unified sharing preview', () => {
     mocks.save.mockResolvedValue(true)
     mocks.system.mockResolvedValue(undefined)
   })
+  it('can prepare the visible trace of a message that ended with reasoning but no final answer', async () => {
+    mocks.fetch.mockResolvedValueOnce([])
+    render(<ShareButton threadId="t" message={{ id: 'trace', role: 'assistant', parts: [{ type: 'reasoning', text: 'Visible diagnostic trace' }] }} />)
+    fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
+    const prepare = await screen.findByRole('button', { name: 'chat:sharing.prepare' })
+    await waitFor(() => expect(prepare).toBeEnabled())
+    fireEvent.click(prepare)
+    await waitFor(() => expect(mocks.prepare).toHaveBeenCalled())
+    expect(mocks.prepare.mock.calls[0][0].entries[0].text).toBe('Visible diagnostic trace')
+    expect(mocks.system).not.toHaveBeenCalled()
+  })
+
   it('loads the full stored discussion and requires a prepared preview before sharing', async () => {
     render(<ShareButton threadId="t" conversation />)
     fireEvent.click(screen.getByRole('button', { name: 'chat:sharing.share' }))
@@ -227,7 +239,7 @@ describe('unified sharing preview', () => {
       screen.getByRole('button', { name: 'chat:sharing.copyFile' })
     )
     await waitFor(() => expect(mocks.copyFile).toHaveBeenCalledTimes(1))
-    fireEvent.click(screen.getByRole('button', { name: 'common:close' }))
+    fireEvent.click(screen.getByText('common:close', { selector: 'button' }))
     await waitFor(() =>
       expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     )
@@ -244,7 +256,7 @@ describe('unified sharing preview', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent('chat:sharing.failed')
     expect(screen.getByRole('button', { name: 'chat:sharing.system' })).toBeEnabled()
     expect(screen.getByRole('button', { name: 'chat:sharing.copyFile' })).toBeEnabled()
-    fireEvent.click(screen.getByRole('button', { name: 'common:close' }))
+    fireEvent.click(screen.getByText('common:close', { selector: 'button' }))
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
   })
   it('removes the modal and pointer lock before opening the native sheet, and keeps it closed on return', async () => {
