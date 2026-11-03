@@ -1,0 +1,50 @@
+{
+  "releaseUrl": "https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012",
+  "tag": "v1.0.0-android-1000012",
+  "releaseId": 432298038,
+  "publishedAt": "2026-11-03T05:06:55Z",
+  "sourceCommit": "4f5669cab2c6e334ba5ec746b984246ae26b23b9",
+  "assets": [
+    {
+      "name": "Novera_1.0.0_android-arm64.apk",
+      "bytes": 42256746,
+      "sha256": "ac828c2d87db6d4db6f1e9253ef7ca98df6779be2e424b1b47f836cf6e1eed6f",
+      "anonymousDownloadVerified": true
+    },
+    {
+      "name": "ANDROID-VERIFICATION.json",
+      "bytes": 2702,
+      "sha256": "ae13b8f39414dd604e6f6abd378e7e3ddd3f9cba74ffe232efc31fd3ba2eb692",
+      "anonymousDownloadVerified": true
+    },
+    {
+      "name": "ANDROID-PROVENANCE.json",
+      "bytes": 2207,
+      "sha256": "39683abc53b706284aafbdfe6ce560246095b59575c3d8f723a40cbe602e4889",
+      "anonymousDownloadVerified": true
+    },
+    {
+      "name": "APK-SHA256SUMS.txt",
+      "bytes": 98,
+      "sha256": "26acf3c9a009a070f901e668adf283c481f10533d88d2bf9d43924f577518534",
+      "anonymousDownloadVerified": true
+    }
+  ],
+  "latestReleaseUnchanged": true,
+  "latestTag": "v1.0.0-cli-novera",
+  "cleanApk": {
+    "privateDataFilesFound": [],
+    "sourceMapsPackaged": false
+  },
+  "oldBuildToRemove": 1000011,
+  "sourceContractsCi": "https://github.com/TRON-ABS/Novera/actions/runs/41581774090",
+  "deviceValidatedBuild": 1000010,
+  "deviceValidationOf1000012Pending": true,
+  "oldReleaseDeleted": true,
+  "oldApkRemovedLocally": true,
+  "oldReleaseRemovalChecks": {
+    "oldReleaseApi": 404,
+    "oldDownload": 404
+  },
+  "oldReceiptsPreservedInRepository": true
+}

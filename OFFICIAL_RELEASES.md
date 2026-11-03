@@ -2,7 +2,7 @@
 
 Novera 1.0.0 was published on 2 November 2026 for Windows x64 and Linux x64, with signed desktop and CLI update channels. The fifteen public assets and both production feeds are verified. Updater signatures are not Windows Authenticode. Other platforms and formats remain internal. See [current availability](docs/LAUNCH_STATUS.md) and [the release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0).
 
-Android ARM64 **1.0.0** was published on **3 November 2026** as a clean signed direct APK. [Download and verification](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android); [device-test scope and recommendations](docs/RELEASE_ANDROID_1.0.0.md). Desktop and CLI channels are unchanged.
+Android ARM64 **1.0.0** was published on **3 November 2026** as a clean signed direct APK. [Download and verification](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012); [device-test scope and recommendations](docs/RELEASE_ANDROID_1.0.0.md). Desktop and CLI channels are unchanged.
 
 ## Mandatory update prerequisite — 1 November 2026
 
