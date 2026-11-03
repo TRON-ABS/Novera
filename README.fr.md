@@ -26,6 +26,8 @@
 
 Les signatures updater ne valent pas Authenticode Windows ou notarisation Apple. Les contrôles de version à jour sur le canal public passent ; une transition entre deux versions publiques reste un essai de la prochaine sortie. [Preuves et limites](docs/LAUNCH_STATUS.md).
 
+Sur Android, un téléphone moderne avec suffisamment de mémoire est conseillé pour les modèles locaux ; sur un appareil moins puissant, privilégier un fournisseur API. Pour la recherche web, un contexte d'au moins **16K tokens (16 384)** est conseillé, comme sur les autres versions.
+
 **La version portable Windows x64 1.0.0 est disponible.** Les discussions, réglages et modèles téléchargés restent dans le dossier portable, sous `Data`. Extraire l’archive complète et ouvrir `Novera.exe`. Fermer Novera avant de déplacer le dossier ou d’éjecter la clé USB. [Guide portable et limites](docs/WINDOWS_PORTABLE.md).
 
 ## Un tableau de bord pour tout créer

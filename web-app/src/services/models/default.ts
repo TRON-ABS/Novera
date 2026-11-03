@@ -534,7 +534,7 @@ export class DefaultModelsService implements ModelsService {
         return keyMappings[key] || key
       }
 
-      const settings = modelConfig?.settings
+      let settings = modelConfig?.settings
         ? Object.fromEntries(
             Object.entries(modelConfig.settings).map(([key, value]) => [
               mapSettingKey(key),
@@ -542,6 +542,11 @@ export class DefaultModelsService implements ModelsService {
             ])
           )
         : undefined
+
+      // Older models may have no batch control saved at all.
+      if (IS_ANDROID && provider.provider === 'llamacpp' && !settings?.batch_size) {
+        settings = { ...settings, batch_size: 512 }
+      }
 
       return await engine
         .load(

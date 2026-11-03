@@ -324,6 +324,36 @@ describe('useModelProvider - coverage', () => {
       return persistApi?.getOptions().migrate as ((state: unknown, version: number) => any) | undefined
     }
 
+    it('sets Android legacy batch defaults to 512 while preserving custom values and remote models', () => {
+      vi.stubGlobal('IS_ANDROID', true)
+      try {
+        const model = (value?: number | string) => ({ id: String(value), settings: value == null ? {} : {
+          batch_size: { controller_props: { value } },
+        } })
+        const migrated = getMigrate()!({ providers: [
+          { provider: 'llamacpp', models: [model(), model(2048), model('2048'), model(256)], settings: [] },
+          { provider: 'openai', models: [model(2048)], settings: [] },
+        ] }, 21)
+        expect(migrated.providers[0].models.map((m: any) => m.settings.batch_size.controller_props.value))
+          .toEqual([512, 512, 512, 256])
+        expect(migrated.providers[1].models[0].settings.batch_size.controller_props.value).toBe(2048)
+      } finally {
+        vi.unstubAllGlobals()
+      }
+    })
+
+    it('preserves desktop batch defaults during migration', () => {
+      vi.stubGlobal('IS_ANDROID', false)
+      try {
+        const state = { providers: [{ provider: 'llamacpp', models: [{ settings: {
+          batch_size: { controller_props: { value: 2048 } },
+        } }] }] }
+        expect(getMigrate()!(state, 21).providers[0].models[0].settings.batch_size.controller_props.value).toBe(2048)
+      } finally {
+        vi.unstubAllGlobals()
+      }
+    })
+
     it('repairs only the obsolete native Cohere URL while preserving keys and proxy URLs', () => {
       const migrate = getMigrate()!
       for (const version of [3, 9, 20]) {

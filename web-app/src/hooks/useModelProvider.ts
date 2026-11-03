@@ -822,9 +822,24 @@ export const useModelProvider = create<ModelProviderState>()(
             }
           })
         }
+        if (version <= 21 && IS_ANDROID && state?.providers) {
+          state.providers.forEach((provider) => {
+            if (provider.provider !== 'llamacpp') return
+            provider.models?.forEach((model) => {
+              if (!model.settings) model.settings = {}
+              const batch = model.settings.batch_size
+              if (!batch || Number(batch.controller_props?.value) === 2048) {
+                model.settings.batch_size = {
+                  ...modelSettings.batch_size,
+                  controller_props: { ...modelSettings.batch_size.controller_props, value: 512 },
+                }
+              }
+            })
+          })
+        }
         return state
       },
-      version: 21,
+      version: 22,
     }
   )
 )

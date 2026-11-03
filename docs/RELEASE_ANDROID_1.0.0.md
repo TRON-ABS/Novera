@@ -4,6 +4,24 @@ Préparation du **2 novembre 2026**, priorité demandée par le mainteneur. Le m
 
 ## Périmètre et état
 
+### Sortie 1.0.0 — 3 novembre 2026
+
+Le mainteneur confirme que le dernier APK interne **1000010 fonctionne bien** et autorise la sortie Android **1.0.0**. Ce retour global est une validation manuelle du mainteneur ; il ne constitue pas un relevé séparé de chaque interaction système.
+
+Le paquet de sortie **1000011** conserve la version affichée **1.0.0** et la même identité de signature. La taille de lot par défaut passe à **512** sur Android, y compris pour les modèles enregistrés avec l'ancienne valeur par défaut de 2048. Les autres valeurs personnalisées sont conservées. Les réglages Desktop restent inchangés.
+
+**Recommandations :** pour les modèles locaux, utiliser de préférence un téléphone moderne avec suffisamment de mémoire. Sur un appareil ancien ou moins puissant, privilégier un fournisseur **API**. Pour les **recherches web**, un contexte d'au moins **16K tokens (16 384)** est conseillé pour garder la place nécessaire aux résultats et à la réponse. Cette recommandation ne relève pas automatiquement le contexte local par défaut, afin de limiter la consommation mémoire sur téléphone.
+
+APK de sortie signé et inspecté : `deliverables/Novera-Android-public-1.0.0-2026-11-03/Novera_1.0.0_android-arm64.apk`, **1000011**, **42211690 octets**, SHA-256 **`325d5ef5b6ca558ed150ea590eaf4a01b54ac8bfb1f7ee5b163dffbe85c43ecb`**. TypeScript/Vite, Cargo release, Gradle/Lint, signature, alignements et contrôle final du paquet passent. Le JavaScript exact du lot à 512 est retrouvé dans la bibliothèque native compilée ; les **217 PNG** restent identiques à 1000010. Les tests frontend ciblés passent **85 cas**, et les contrôles de configuration Android **5 cas**. [Provenance](release-evidence/android-public-1.0.0-2026-11-03/ANDROID-PROVENANCE.json), [inspection](release-evidence/android-public-1.0.0-2026-11-03/ANDROID-VERIFICATION.json), [CI des contrats de sources](https://github.com/TRON-ABS/Novera/actions/runs/41578791664).
+
+La validation sur téléphone du nouveau 1000011 reste distincte du retour positif sur 1000010. Le mainteneur prévoit de le réinstaller. Une installation par-dessus conserve les données ; désinstaller peut effacer les données privées de l'application. Les **12 anciens APK locaux** de livraison et leurs fichiers de signature détachée ont été supprimés à sa demande après vérification du nouveau paquet ; leurs reçus et empreintes historiques sont conservés.
+
+Le brouillon privé Android est préparé sous le tag prévu `v1.0.0-android`, sans devenir `latest`, afin de préserver les canaux Desktop, CLI et portable. Le transfert de l’APK et des reçus a été bloqué par le contrôle automatique, qui demande une autorisation explicite du payload vers GitHub ; aucun APK Android public n’est annoncé.
+
+### Historique de préparation jusqu'au candidat 1000010
+
+Les états « en attente » et « interne » ci-dessous décrivent les étapes précédant le retour positif du mainteneur et l'autorisation de sortie du 3 novembre.
+
 - Identité de production : `io.github.tronabs.novera`, distincte de `io.github.tronabs.novera.debug`.
 - Version applicative : **1.0.0** ; dernier candidat **1000010 signé et inspecté**, combinant le correctif Origin de 1000009, la copie native de texte Android et l’aperçu du message choisi lorsqu’il ne contient qu’une trace visible sans réponse finale. Les builds 1000002/1000003 ont été testés manuellement sur HUAWEI P20 ; les builds 1000004 et 1000006 ont rencontré un refus HTTP 403. Les anciens builds sont conservés comme preuves historiques.
 - Cible : Android ARM64 (`arm64-v8a`), minimum Android 7/API 24 ; moteur texte CPU, un modèle à la fois, sans MLX ni moteur image CUDA.
