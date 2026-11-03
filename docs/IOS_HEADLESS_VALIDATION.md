@@ -29,3 +29,7 @@ Référence : [distribution iOS Apple](https://developer.apple.com/documentation
 ## Suivi
 
 Cette préparation dépend de la PR Mac pour l'extension du workflow et s'enchaîne avec elle. Les résultats natifs, limites et éventuels blocages doivent être inscrits dans `PR.md`, `docs/REPRISE_MACOS_IOS.md` et `docs/LAUNCH_STATUS.md`. La vitrine n'annonce une disponibilité iPhone qu'une fois un véritable canal d'installation disponible.
+
+## Réglages et journaux mobiles
+
+Reprendre les corrections de l’APK : navigation des réglages repliable sous 700 px, contenu droit réductible et boutons des journaux empilés dans les cartes étroites. Sur Android/iOS, « Ouvrir les journaux » affiche le lecteur dans une boîte de dialogue de la WebView principale, sans demander une fenêtre de bureau 800 × 600. Les longues lignes se replient. Les tests de la page Général vérifient les deux plateformes et la lecture effective des journaux ; ceux du menu vérifient son ouverture et sa fermeture après sélection. Ces tests ne prouvent pas le rendu réel sur téléphone.

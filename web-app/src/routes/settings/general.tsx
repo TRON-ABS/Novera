@@ -30,6 +30,9 @@ import { Input } from '@/components/ui/input'
 import { useHardware } from '@/hooks/useHardware'
 import LanguageSwitcher from '@/containers/LanguageSwitcher'
 import { isRootDir } from '@/utils/path'
+import { isPlatformAndroid, isPlatformIOS } from '@/lib/platform/utils'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { LogsViewer } from '@/routes/logs'
 const TOKEN_VALIDATION_TIMEOUT_MS = 10_000
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -67,6 +70,7 @@ function General() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [isCheckingUpdate, setIsCheckingUpdate] = useState(false)
   const [isValidatingToken, setIsValidatingToken] = useState(false)
+  const [mobileLogsOpen, setMobileLogsOpen] = useState(false)
 
   useEffect(() => {
     const fetchDataFolder = async () => {
@@ -87,6 +91,10 @@ function General() {
   }
 
   const handleOpenLogs = async () => {
+    if (isPlatformAndroid() || isPlatformIOS()) {
+      setMobileLogsOpen(true)
+      return
+    }
     try {
       await serviceHub.window().openLogsWindow()
     } catch (error) {
@@ -607,6 +615,15 @@ function General() {
           </div>
         </div>
       </div>
+      {mobileLogsOpen && <Dialog open={mobileLogsOpen} onOpenChange={setMobileLogsOpen}>
+        <DialogContent positionEnabled={false} aria-describedby={undefined}
+          className="flex flex-col min-w-0 w-[calc(100%-24px)] max-w-full h-[80dvh] overflow-hidden">
+          <DialogHeader className="shrink-0 pr-8">
+            <DialogTitle>{t('settings:dataFolder.appLogs')}</DialogTitle>
+          </DialogHeader>
+          {mobileLogsOpen && <LogsViewer />}
+        </DialogContent>
+      </Dialog>}
     </div>
   )
 }

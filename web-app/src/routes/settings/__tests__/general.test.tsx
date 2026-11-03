@@ -3,6 +3,17 @@ import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import { Route as GeneralRoute } from '../general'
 import { toast } from 'sonner'
 
+const mobileLogs = vi.hoisted(() => ({
+  android: false, ios: false,
+  read: vi.fn().mockResolvedValue([{ timestamp: 0, level: 'info', message: 'Mobile diagnostic entry' }]),
+  openWindow: vi.fn(),
+}))
+vi.mock('@/lib/platform/utils', async (original) => ({
+  ...await original<typeof import('@/lib/platform/utils')>(),
+  isPlatformAndroid: () => mobileLogs.android,
+  isPlatformIOS: () => mobileLogs.ios,
+}))
+
 // Mock all the dependencies
 vi.mock('@/containers/SettingsMenu', () => ({
   default: () => <div data-testid="settings-menu">Settings Menu</div>,
@@ -188,6 +199,7 @@ vi.mock('@/hooks/useServiceHub', () => ({
   useServiceHub: () => ({
     app: () => ({
       factoryReset: vi.fn(),
+      readLogs: mobileLogs.read,
       getJanDataFolder: vi.fn().mockResolvedValue('/test/data/folder'),
       relocateJanDataFolder: vi.fn(),
     }),
@@ -201,7 +213,7 @@ vi.mock('@/hooks/useServiceHub', () => ({
       emit: vi.fn(),
     }),
     window: () => ({
-      openLogsWindow: vi.fn(),
+      openLogsWindow: mobileLogs.openWindow,
     }),
     opener: () => ({
       revealItemInDir: vi.fn(),
@@ -310,7 +322,18 @@ Object.assign(navigator, {
 })
 
 describe('General Settings Route', () => {
+  it.each(['android', 'ios'] as const)('opens readable logs inside the %s WebView', async (platform) => {
+    mobileLogs[platform] = true
+    const Component = GeneralRoute.component as React.ComponentType
+    render(<Component />)
+    fireEvent.click(screen.getByText('settings:general.openLogs'))
+    expect(await screen.findByText('Mobile diagnostic entry')).toBeInTheDocument()
+    expect(mobileLogs.read).toHaveBeenCalled()
+    expect(mobileLogs.openWindow).not.toHaveBeenCalled()
+  })
   beforeEach(() => {
+    mobileLogs.android = false
+    mobileLogs.ios = false
     vi.clearAllMocks()
     // Reset the mock to return a promise that resolves immediately by default
     mockCheckForUpdate.mockResolvedValue(null)
