@@ -22,6 +22,8 @@ Ouvrir le DMG et copier Novera dans Applications, puis lancer Novera depuis Appl
 
 Les reçus `MACOS-*-HEADLESS.json`, `MACOS-*-COMPATIBILITY.json`, `MACOS-x64-REUSE.json`, `MACOS-PROVENANCE.json` et `SHA256SUMS.txt` sont joints à la release. Les archives updater ont les SHA-256 `1f9ec666550300dbc2acd7db6346845537509f72a7c0161bc94e954f166564f8` (ARM64) et `a8c8fa8f7729563235f038225a21cefb437a390c841dad2312c282096dee7515` (Intel). Les anciens brouillons et paquets historiques ne servent pas à cette sortie.
 
+Les 20 fichiers de la release ont été téléchargés sans authentification et vérifiés par taille et SHA-256 ; les trois manifests `latest` correspondent, les anciennes entrées desktop sont conservées et les octets CLI/portable sont inchangés. [Reçu du contrôle public](release-evidence/macos-1.0.0-public.json).
+
 ## Corrections et limites
 
 Le worker diffère la découverte GPU jusqu’au chargement d’un modèle ou à la demande de liste des appareils : un moteur idle ou une configuration invalide ne doit pas attendre l’initialisation GPU avant de répondre au superviseur. Les tests de processus utilisent `ps` sur macOS, au lieu de supposer l’existence du `/proc` Linux. Le mode sans distribution Apple omet entièrement les variables de certificat Apple vides ; la signature updater Novera est conservée séparément.
