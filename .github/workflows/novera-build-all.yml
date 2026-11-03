@@ -86,6 +86,7 @@ jobs:
           node --test scripts/distribution/__tests__/verify-public-release.test.mjs
           node --test scripts/distribution/__tests__/windows-update-ui.test.mjs
           node --test scripts/distribution/__tests__/macos-distribution.test.mjs
+          node --test scripts/distribution/__tests__/verify-cli-public.test.mjs
           python3 -m unittest discover -s scripts/android/__tests__ -p 'test_*.py'
       - name: Retain source-check results
         if: always()

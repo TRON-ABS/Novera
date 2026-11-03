@@ -22,7 +22,7 @@ export function reviewPublicFeeds(desktop, cli, version, plannedChannels, portab
   for (const [kind, feed] of [['desktop', desktop], ['cli', cli]]) {
     const planned = plannedChannels?.[kind]
     const selected = planned ? Object.keys(planned).sort() : platforms
-    const allowed = kind === 'desktop' ? [...platforms, 'windows-aarch64'] : platforms
+    const allowed = kind === 'desktop' ? [...platforms, 'windows-aarch64'] : [...platforms, 'darwin-aarch64']
     if (!platforms.every(p => selected.includes(p)) || selected.some(p => !allowed.includes(p)) || feed.version !== version || JSON.stringify(Object.keys(feed.platforms ?? {}).sort()) !== JSON.stringify(selected)) throw new Error('Public feed version or platform scope differs from this release')
     if (kind === 'desktop' && Number.isNaN(Date.parse(feed.pub_date))) throw new Error('Invalid publication date')
     for (const platform of selected) {
@@ -62,7 +62,9 @@ async function main(version, expectedFile) {
   const output = '.build/public-release'
   fs.mkdirSync(output, { recursive: true })
   const feeds = []
-  const manifestNames = ['latest.json', 'latest-cli.json']
+  const cliManifestName = descriptor.cliManifestName ?? 'latest-cli.json'
+  if (!['latest-cli.json', 'latest-novera-cli.json'].includes(cliManifestName)) throw new Error('Unsupported CLI manifest name')
+  const manifestNames = ['latest.json', cliManifestName]
   if (descriptor.channels?.portable) manifestNames.push('latest-portable.json')
   for (const name of manifestNames) {
     const response = await get(`${origin}latest/download/${name}`)

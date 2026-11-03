@@ -28,6 +28,6 @@ test('a real proof for an old or different target cannot enter another release m
 })
 
 test('CLI feed preparation refuses an incomplete platform set before creating output', async () => {
-  await assert.rejects(prepareCliFeed('1.0.0',[],'latest-novera-cli.json'),/All three/)
-  await assert.rejects(prepareCliFeed('1.0.0',['a','b','c'],'latest.json'),/latest-novera-cli.json/)
+  await assert.rejects(prepareCliFeed('1.0.0',[],'latest-novera-cli.json'),/Both published/)
+  await assert.rejects(prepareCliFeed('1.0.0',['a','b'],'latest.json'),/latest-novera-cli.json/)
 })

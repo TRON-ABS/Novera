@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { verifyUpdateBundle } from './ci-check-updater.mjs'
 
 export const cliPlatforms = ['windows-x86_64', 'linux-x86_64', 'darwin-aarch64']
+export const publishedCliPlatforms = ['windows-x86_64', 'linux-x86_64']
 export function reviewCliProof(proof, version) {
   if (!/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.test(version)) throw new Error('Canonical stable CLI version required')
   const identity = proof.archiveIdentityVerified
@@ -20,7 +21,7 @@ export function reviewCliProof(proof, version) {
 }
 
 export async function prepareCliFeed(version, proofPaths, output) {
-  if (proofPaths.length !== cliPlatforms.length) throw new Error('All three signed CLI platforms are required')
+  if (proofPaths.length !== publishedCliPlatforms.length) throw new Error('Both published signed CLI platforms are required')
   if (path.basename(output) !== 'latest-novera-cli.json') throw new Error('Use the reviewed latest-novera-cli.json output name')
   const publicKey = JSON.parse(fs.readFileSync(new URL('../../src-tauri/tauri.updater.conf.json', import.meta.url))).plugins.updater.pubkey
   const platforms = {}
@@ -28,6 +29,7 @@ export async function prepareCliFeed(version, proofPaths, output) {
     const proofPath = path.resolve(filename)
     const proof = JSON.parse(fs.readFileSync(proofPath))
     const item = reviewCliProof(proof, version)
+    if (!publishedCliPlatforms.includes(item.platform)) throw new Error('CLI platform is not selected for public distribution')
     if (Object.hasOwn(platforms, item.platform)) throw new Error('Duplicate CLI platform')
     if (!Number.isSafeInteger(proof.artifactId) || proof.artifactId <= 0) throw new Error('Missing reviewed artifact identity')
     const archive = path.join(path.dirname(proofPath), `${proof.artifactId}-cli-inspection`, item.file)
@@ -48,6 +50,6 @@ export async function prepareCliFeed(version, proofPaths, output) {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const [version, output, ...proofs] = process.argv.slice(2)
-  if (!version || !output) throw new Error('Usage: node prepare-cli-feed.mjs VERSION OUTPUT/latest-novera-cli.json THREE_VERIFIED_PROOFS')
+  if (!version || !output) throw new Error('Usage: node prepare-cli-feed.mjs VERSION OUTPUT/latest-novera-cli.json TWO_VERIFIED_PROOFS')
   console.log(JSON.stringify(await prepareCliFeed(version, proofs, output), null, 2))
 }
