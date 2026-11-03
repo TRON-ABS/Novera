@@ -1,5 +1,11 @@
 # Langues d’interface Novera
 
+## README du dépôt — 3 novembre 2026
+
+Le README est disponible en dix langues : [anglais](../README.md), [français](../README.fr.md), [espagnol](../README.es.md), [allemand](../README.de.md), [italien](../README.it.md), [portugais brésilien](../README.pt-BR.md), [russe](../README.ru.md), [chinois simplifié](../README.zh-CN.md), [japonais](../README.ja.md) et [arabe](../README.ar.md). Un sélecteur commun apparaît en haut de chaque version ; les documents liés conservent leur langue d’origine.
+
+Les huit nouvelles versions reprennent les 14 rubriques et les neuf tableaux du README anglais. Brouillons assistés par Google Translate, avec corrections éditoriales et contrôle des liens, images, identifiants, ancres et adresse Bitcoin ; relecture native encore nécessaire. La version arabe utilise une direction de lecture RTL. Ces traductions documentaires ne modifient pas les 80 catalogues de l’application ni leur inventaire de clés.
+
 ## Composants gérés — 1er novembre 2026
 
 Inventaire actuel : **80 catalogues × 2 429 clés**, dans les mêmes 15 espaces de noms. Dix-sept nouvelles clés `common.components` couvrent le parcours des environnements privés, tailles interpolées, confirmation, maintenance et erreurs. Les aides runtime du Hub et l'aide d'upscale renvoient vers Configurations ; les mentions imposant Python 3.15.1 ont été retirées des aides média concernées. Les traductions existantes sans rapport sont conservées.
