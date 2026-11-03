@@ -1,10 +1,12 @@
 # Langues d’interface Novera
 
-## README du dépôt — 3 novembre 2026
+## README du dépôt — 40 langues — 3 novembre 2026
 
-Le README est disponible en dix langues : [anglais](../README.md), [français](../README.fr.md), [espagnol](../README.es.md), [allemand](../README.de.md), [italien](../README.it.md), [portugais brésilien](../README.pt-BR.md), [russe](../README.ru.md), [chinois simplifié](../README.zh-CN.md), [japonais](../README.ja.md) et [arabe](../README.ar.md). Un sélecteur commun apparaît en haut de chaque version ; les documents liés conservent leur langue d’origine.
+[English](../README.md), [Français](../README.fr.md), [Español](../README.es.md), [Deutsch](../README.de.md), [Italiano](../README.it.md), [Português (Brasil)](../README.pt-BR.md), [Русский](../README.ru.md), [简体中文](../README.zh-CN.md), [日本語](../README.ja.md), [العربية](../README.ar.md), [हिंदी](../README.hi.md), [বাংলা](../README.bn.md), [اردو](../README.ur.md), [मराठी](../README.mr.md), [తెలుగు](../README.te.md), [தமிழ்](../README.ta.md), [Kiswahili](../README.sw.md), [Hausa](../README.ha.md), [Tagalog](../README.tl.md), [فارسی (ایران)](../README.fa-IR.md), [አማርኛ](../README.am.md), [ไทย](../README.th.md), [Basa Jawa](../README.jv.md), [Bahasa Indonesia](../README.id.md), [Polski](../README.pl.md), [Tiếng Việt](../README.vn.md), [繁體中文](../README.zh-TW.md), [Čeština](../README.cs.md), [한국어](../README.ko.md), [Català](../README.ca.md), [ગુજરાતી](../README.gu.md), [ಕನ್ನಡ](../README.kn.md), [Yorùbá](../README.yo.md), [မြန်မာ](../README.my.md), [Lingála](../README.ln.md), [ଓଡ଼ିଆ](../README.or.md), [Українська](../README.uk.md), [മലയാളം](../README.ml.md), [ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)](../README.pa.md), [Nederlands](../README.nl.md).
 
-Les huit nouvelles versions reprennent les 14 rubriques et les neuf tableaux du README anglais. Brouillons assistés par Google Translate, avec corrections éditoriales et contrôle des liens, images, identifiants, ancres et adresse Bitcoin ; relecture native encore nécessaire. La version arabe utilise une direction de lecture RTL. Ces traductions documentaires ne modifient pas les 80 catalogues de l’application ni leur inventaire de clés.
+Le sélecteur commun en haut de chaque README donne accès aux 40 versions. Les 30 nouvelles traductions reprennent les 14 rubriques et les neuf tableaux du README anglais du 3 novembre 2026 ; les guides liés conservent leur langue d’origine.
+
+Brouillons assistés par Google Translate, avec corrections éditoriales, contrôle de la structure Markdown, des liens, des images, du code, des ancres et de l’adresse Bitcoin. Relecture native et adaptation régionale encore nécessaires. Arabe, ourdou et persan utilisent une direction RTL. Ce travail documentaire ne modifie pas les 80 catalogues de l’application ni leur inventaire de clés.
 
 ## Composants gérés — 1er novembre 2026
 

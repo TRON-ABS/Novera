@@ -1,0 +1,313 @@
+<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a></p>
+
+<div align="center">
+  <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
+  <p><strong>ನಿಮ್ಮ ಗುರಿಯನ್ನು ನೀವು ವಿವರಿಸುತ್ತೀರಿ. Novera ಸಂಪನ್ಮೂಲಗಳನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತದೆ, ಕಾರ್ಯವನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸುತ್ತದೆ ಮತ್ತು ಫಲಿತಾಂಶಗಳನ್ನು ಆಯೋಜಿಸುತ್ತದೆ.</strong></p>
+  <p>TRON-ABS ನಿಂದ ಸ್ವತಂತ್ರ AI ಸಹಾಯಕ, ಮೊದಲ ಉಡಾವಣೆಯಿಂದ ಫಲಿತಾಂಶಗಳವರೆಗೆ: ಪಠ್ಯ, ಚಿತ್ರಗಳು, ಸಂಗೀತ ಮತ್ತು ವೀಡಿಯೊ ಒಂದು ಸಂಭಾಷಣೆಯಲ್ಲಿ.</p>
+  <p><strong>Windows, Linux, macOS ಮತ್ತು Android ಗಾಗಿ ಲಭ್ಯವಿದೆ</strong> · 80 ಇಂಟರ್ಫೇಸ್ ಭಾಷೆಗಳು · 42 ಕ್ಲೌಡ್ ಪೂರೈಕೆದಾರರು · 49 ಮಾಧ್ಯಮ ಪೂರ್ವನಿಗದಿಗಳು · Apache 2.0</p>
+  <p><a href="#from-first-launch-to-results">ಆಟೊಮೇಷನ್</a> · <a href="#one-dashboard-for-every-creation">ಡ್ಯಾಶ್‌ಬೋರ್ಡ್</a> · <a href="#local-models-in-use">AI ಮಾದರಿಗಳು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಸ್ಥಳೀಯವಾಗಿ ಚಾಲನೆಯಲ್ಲಿವೆ</a> · <a href="#hub-and-compatible-models">ಫಾರ್ಮ್ಯಾಟ್‌ಗಳು ಮತ್ತು ಹಬ್</a> · <a href="#cloud-providers">ಮೇಘ</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">ಕೊಡುಗೆ</a></p>
+  <p>ಅಧಿಕೃತ ಸಂಪರ್ಕ: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
+  <p>ಅಧಿಕೃತ Novera ಸಾಮಾಜಿಕ ಪ್ರೊಫೈಲ್‌ಗಳು: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
+  <p>ನಿಮ್ಮ ರಚನೆಗಳು, ಮಾದರಿಗಳು, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಪ್ರಶ್ನೆಗಳು, ಪ್ರತಿಕ್ರಿಯೆ ಮತ್ತು ಆಲೋಚನೆಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.</p>
+</div>
+
+> ಅನುವಾದ ಪರಿಕರಗಳ ಸಹಾಯದಿಂದ ಅನುವಾದವು ಇಂಗ್ಲಿಷ್ README ದಿನಾಂಕದ 2026-11-03 ಅನ್ನು ಆಧರಿಸಿದೆ. ಸ್ಥಳೀಯ ಭಾಷೆಯ ವಿಮರ್ಶೆ ಸ್ವಾಗತಾರ್ಹ. ಲಿಂಕ್ ಮಾಡಲಾದ ದಾಖಲೆಗಳು ತಮ್ಮ ಮೂಲ ಭಾಷೆಯನ್ನು ಉಳಿಸಿಕೊಳ್ಳುತ್ತವೆ.
+
+---
+
+## ಲಭ್ಯತೆ — 2026-11-03
+
+**Novera 1.0.0 Windows, Linux, macOS ಮತ್ತು Android ಗೆ ಲಭ್ಯವಿದೆ.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). ಡೆಸ್ಕ್‌ಟಾಪ್ ಪ್ಯಾಕೇಜ್‌ಗಳು, CLI ಆರ್ಕೈವ್‌ಗಳು, ಸಹಿಗಳು ಮತ್ತು ಅಪ್‌ಡೇಟ್ ಮ್ಯಾನಿಫೆಸ್ಟ್‌ಗಳು ಸಾರ್ವಜನಿಕವಾಗಿವೆ ಮತ್ತು ಪರಿಶೀಲಿಸಲಾಗಿದೆ.
+
+| ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ | ಲಭ್ಯತೆ |
+| --- | --- |
+| Windows x64 | ಸಾರ್ವಜನಿಕ NSIS ಸ್ಥಾಪಕ, ಸಹಿ ಮಾಡಿದ ಅಪ್‌ಡೇಟರ್; ಸ್ಥಳೀಯ ಅನುಸ್ಥಾಪನೆ ಮತ್ತು ಬದಲಿ ಪರಿಶೀಲಿಸಲಾಗಿದೆ. |
+| Linux x64 | ಸಾರ್ವಜನಿಕ AppImage, ಸಹಿ ಮಾಡಿದ ಅಪ್‌ಡೇಟರ್; ಸ್ಥಳೀಯ ಅನುಸ್ಥಾಪನೆ ಮತ್ತು ಬದಲಿ ಪರಿಶೀಲಿಸಲಾಗಿದೆ. |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, ಮೀಸಲಾದ ಸಹಿ ಮಾಡಿದ ಅಪ್‌ಡೇಟ್ ಚಾನಲ್‌ನೊಂದಿಗೆ. |
+| Windows ARM64 | [ಸಾರ್ವಜನಿಕ NSIS ಅನುಸ್ಥಾಪಕ](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), ಸ್ಥಳೀಯ CPU ಪಠ್ಯ ಎಂಜಿನ್; ಅನುಸ್ಥಾಪನೆ, ಬದಲಿ ಮತ್ತು ಸಾರ್ವಜನಿಕ-ಚಾನೆಲ್ ಪರಿಶೀಲನೆಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗಿದೆ. |
+| Android ARM64 | [ಸಾರ್ವಜನಿಕ ಸಹಿ APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, ಡಿಫಾಲ್ಟ್ ಬ್ಯಾಚ್ 512. ನಿರ್ವಾಹಕರು ತಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ ಬಿಲ್ಡ್ 1000012 ಕಾರ್ಯನಿರ್ವಹಿಸುವುದನ್ನು ಖಚಿತಪಡಿಸುತ್ತಾರೆ. ಯಾವುದೇ ಸಂಭಾಷಣೆಗಳು, ಮಾದರಿಗಳು ಅಥವಾ ವೈಯಕ್ತಿಕ API ಕೀಗಳಿಲ್ಲದ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಸ್ವಚ್ಛಗೊಳಿಸಿ. [ಪುರಾವೆಗಳು ಮತ್ತು ಮಿತಿಗಳು](docs/RELEASE_ANDROID_1.0.0.md). |
+| macOS Intel / Apple Silicon | [ಅಧಿಕೃತ 1.0.0 DMG ಬಿಡುಗಡೆ](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-ಸಹಿ ಮಾಡಿದ ನವೀಕರಣಗಳು. ಆಪಲ್ ನೋಟರೈಸ್ ಮಾಡಿಲ್ಲ; ಎರಡೂ ಆರ್ಕಿಟೆಕ್ಚರ್‌ಗಳಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತ ತಪಾಸಣೆಗಳನ್ನು ಪ್ರತ್ಯೇಕವಾಗಿ ರವಾನಿಸಲಾಗಿದೆ, ದೃಶ್ಯ ಪರಿಶೀಲನೆಗಳನ್ನು ಮುಂದೂಡಲಾಗಿದೆ. [ಅನುಸ್ಥಾಪನೆ ಮತ್ತು ಸಾಕ್ಷ್ಯ](docs/RELEASE_MACOS_1.0.0.md). |
+| iOS | ಆಂತರಿಕ ಸಿಮ್ಯುಲೇಟರ್ ನಿರ್ಮಾಣ; iPhone ಸ್ಥಾಪನೆಗೆ ಮೊದಲು Apple ಸಹಿ/ನಿಬಂಧನೆ ಅಗತ್ಯವಿದೆ. [ಅನುಸರಣೆ](docs/REPRISE_MACOS_IOS.md). |
+| Windows x64 ಪೋರ್ಟಬಲ್ | [ZIP ಆರ್ಕೈವ್‌ಗೆ ಸಹಿ ಮಾಡಲಾಗಿದೆ](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); ಡೇಟಾ Data ನಲ್ಲಿ ಉಳಿಯುತ್ತದೆ, ಸಹಿ ಮಾಡಿದ Program ಬದಲಿ ಪರಿಶೀಲಿಸಲಾಗಿದೆ. |
+| ವೆಬ್, MSI, ಡೆಬಿಯನ್ | ಹೋಸ್ಟ್ ಮಾಡಿದ ವೆಬ್ ಕ್ಲೈಂಟ್ ಮತ್ತು ಇತರ ಸ್ವರೂಪಗಳು ಆಂತರಿಕವಾಗಿರುತ್ತವೆ; Pages ಪ್ರಸ್ತುತಿ ಸೈಟ್ ಲಭ್ಯವಿದೆ. |
+
+Mac ನಲ್ಲಿ, DMG ತೆರೆಯಿರಿ ಮತ್ತು Novera ಅನ್ನು ಅಪ್ಲಿಕೇಶನ್‌ಗಳಿಗೆ ನಕಲಿಸಿ. ಮೊದಲ ಉಡಾವಣೆಯನ್ನು ನಿರ್ಬಂಧಿಸಿದರೆ, Novera ಅನ್ನು ಅನುಮತಿಸಿ **ಸಿಸ್ಟಂ ಸೆಟ್ಟಿಂಗ್‌ಗಳು → ಗೌಪ್ಯತೆ ಮತ್ತು ಭದ್ರತೆ → ಹೇಗಾದರೂ ತೆರೆಯಿರಿ**. [ಆಪಲ್ ಸೂಚನೆಗಳು](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+ಅಪ್‌ಡೇಟರ್ ಸಹಿಗಳು Windows Authenticode ಅಥವಾ Apple ನೋಟರೈಸೇಶನ್ ಅಲ್ಲ. ಹಸ್ತಚಾಲಿತ ಪ್ರಸ್ತುತ-ಆವೃತ್ತಿ ಪರಿಶೀಲನೆಗಳು ಸಾರ್ವಜನಿಕ ಚಾನಲ್‌ಗೆ ವಿರುದ್ಧವಾಗಿ ಹಾದುಹೋಗುತ್ತವೆ; ಎರಡು ಸಾರ್ವಜನಿಕ ಆವೃತ್ತಿಗಳ ನಡುವಿನ ಪರಿವರ್ತನೆಯು ಮುಂದಿನ-ಬಿಡುಗಡೆಯ ಪರೀಕ್ಷೆಯಾಗಿ ಉಳಿದಿದೆ. [ಪುರಾವೆಗಳು ಮತ್ತು ಮಿತಿಗಳು](docs/LAUNCH_STATUS.md).
+
+Android ನಲ್ಲಿ, ಸಾಕಷ್ಟು ಮೆಮೊರಿ ಹೊಂದಿರುವ ಆಧುನಿಕ ಫೋನ್ ಅನ್ನು ಸ್ಥಳೀಯ ಮಾದರಿಗಳಿಗೆ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ; ಕಡಿಮೆ ಶಕ್ತಿಯುತ ಸಾಧನಗಳಲ್ಲಿ API ಪೂರೈಕೆದಾರರನ್ನು ಬಳಸಿ. ವೆಬ್ ಹುಡುಕಾಟಕ್ಕಾಗಿ, ಕನಿಷ್ಠ ಒಂದು ಸಂದರ್ಭ **16K ಟೋಕನ್‌ಗಳು (16,384)** ಅನ್ನು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ.
+
+**Windows x64 ಪೋರ್ಟಬಲ್ 1.0.0 ಲಭ್ಯವಿದೆ.** ಚರ್ಚೆಗಳು, ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಮತ್ತು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾದ ಮಾದರಿಗಳು ಪೋರ್ಟಬಲ್ ಫೋಲ್ಡರ್‌ನಲ್ಲಿ ಇರುತ್ತವೆ `Data`. ಸಂಪೂರ್ಣ ಆರ್ಕೈವ್ ಅನ್ನು ಹೊರತೆಗೆಯಿರಿ ಮತ್ತು ಪ್ರಾರಂಭಿಸಿ `Novera.exe`. ಫೋಲ್ಡರ್ ಅನ್ನು ಚಲಿಸುವ ಮೊದಲು ಅಥವಾ USB ಸಂಗ್ರಹಣೆಯನ್ನು ಹೊರಹಾಕುವ ಮೊದಲು Novera ಅನ್ನು ಮುಚ್ಚಿ. [ಪೋರ್ಟಬಲ್ ಮಾರ್ಗದರ್ಶಿ ಮತ್ತು ಮಿತಿಗಳು](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+## ಪ್ರತಿ ಸೃಷ್ಟಿಗೆ ಒಂದು ಡ್ಯಾಶ್‌ಬೋರ್ಡ್
+
+Novera ನಿಮ್ಮೊಂದಿಗೆ ಬೆಳೆಯುತ್ತದೆ. ನಿಮ್ಮ ಉದಾಹರಣೆಗಳು ಮತ್ತು ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಇತರ ಬಳಕೆದಾರರಿಗೆ ಸೂಕ್ತವಾದ ಸೆಟಪ್ ಅನ್ನು ಹುಡುಕಲು ಸಹಾಯ ಮಾಡಬಹುದು. ನಮ್ಮ ಬಗ್ಗೆ ಪ್ರಶ್ನೆಗಳು, ಸಮಸ್ಯೆಗಳು ಮತ್ತು ಆಲೋಚನೆಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) ಅಥವಾ ಮೂಲಕ [ಇಮೇಲ್](mailto:contact.novera.tronabs@gmail.com). ಸಾಧ್ಯವಾದರೆ, ನಿಮ್ಮ Novera ಆವೃತ್ತಿ, ಸಾಧನ ಮತ್ತು ಸ್ಥಳೀಯ/API ಮಾದರಿಯನ್ನು ಸೇರಿಸಿ. ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು ತೆಗೆದುಹಾಕಿ ಮತ್ತು API ಕೀಗಳು ಅಥವಾ ಪಾಸ್‌ವರ್ಡ್‌ಗಳನ್ನು ಎಂದಿಗೂ ಹಂಚಿಕೊಳ್ಳಬೇಡಿ.
+
+![Novera ರಚಿತವಾದ ಚಿತ್ರ ಮತ್ತು ಪ್ರಮಾಣ, ಬೀಜ, ಉನ್ನತೀಕರಣ ಮತ್ತು ಸ್ವಯಂಚಾಲಿತ ಮೆಮೊರಿಯೊಂದಿಗೆ ಏಕೀಕೃತ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್](.github/assets/novera-dashboard-2026-11-01.png)
+
+*ನೈಜ Windows ಅಪ್ಲಿಕೇಶನ್ ಸ್ಕ್ರೀನ್‌ಶಾಟ್ ಅನ್ನು ನಿರ್ವಹಿಸುವವರು 1 ನವೆಂಬರ್ 2026 ನಲ್ಲಿ ಒದಗಿಸಿದ್ದಾರೆ, ಅವರು ಅಪ್ಲಿಕೇಶನ್ ಉತ್ತಮವಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ ಎಂದು ವರದಿ ಮಾಡುತ್ತಾರೆ. ಇದು ರಚಿಸಲಾದ ಭೂದೃಶ್ಯ, ಅದರ ಉಳಿಸಿದ-ಕಡತ ನಿಯಂತ್ರಣಗಳು ಮತ್ತು ಏಕೀಕೃತ ರಚನೆ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಅನ್ನು ತೋರಿಸುತ್ತದೆ; ಇದು ಮೋಕ್ಅಪ್ ಅಲ್ಲ.*
+
+ಒಂದು ಫಲಕ, ಐದು ವಿಧಾನಗಳು: **ಸ್ವಯಂ, ಪಠ್ಯ, ಚಿತ್ರ, ಸಂಗೀತ ಮತ್ತು ವೀಡಿಯೊ**. ನಿಯಂತ್ರಣಗಳು ಆಯ್ಕೆಮಾಡಿದ ಮೋಡ್ ಅನ್ನು ಅನುಸರಿಸುತ್ತವೆ: ಅನುಪಾತ, ರೆಸಲ್ಯೂಶನ್, ಅವಧಿ, ಕ್ಯಾಡೆನ್ಸ್, ಗುಣಮಟ್ಟ, ವಾದ್ಯ, ಸಾಹಿತ್ಯ, ಬೀಜ ಮತ್ತು ಪ್ರಮಾಣ. ಪ್ಯಾನಲ್ ಅಗಲ ಮತ್ತು ಬಟನ್‌ಗಳು ವಿಂಡೋ ಮತ್ತು ಅನುವಾದಿತ ಲೇಬಲ್‌ಗಳಿಗೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತವೆ.
+
+- **1–10 ಅನುಕ್ರಮ ತಲೆಮಾರುಗಳು**, ಚಿತ್ರ, ಸಂಗೀತ ಮತ್ತು ವೀಡಿಯೊಗಾಗಿ ಸ್ವತಂತ್ರ ಪ್ರಮಾಣಗಳೊಂದಿಗೆ 1 ಗೆ ಡಿಫಾಲ್ಟ್ ಆಗಿದೆ. ಸ್ಟಾಪ್ ಸಕ್ರಿಯ ಕಾರ್ಯ ಮತ್ತು ಉಳಿದ ಸರತಿಯನ್ನು ರದ್ದುಗೊಳಿಸುತ್ತದೆ.
+- **ಯಾದೃಚ್ಛಿಕ, ಸ್ಥಿರ, +1 ಮತ್ತು −1 ಬೀಜಗಳು**, ಮೊದಲೇ ಅಥವಾ ಕಸ್ಟಮ್ ಅನುಪಾತಗಳು ಮತ್ತು ಐಚ್ಛಿಕ **Real-ESRGAN ×2/×4** ಅಪ್‌ಸ್ಕೇಲಿಂಗ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸಲಾಗುತ್ತದೆ.
+- ಆಯ್ಕೆಮಾಡಿದ ಮಾದರಿ, ಸ್ವಯಂಚಾಲಿತ ಮೆಮೊರಿ, ಲಗತ್ತುಗಳು, ಸೂಚನೆಗಳು, ವೆಬ್ ಹುಡುಕಾಟ ಮತ್ತು ಉಪಕರಣಗಳು ಒಂದೇ ಬಾರ್‌ನಲ್ಲಿ ಉಳಿಯುತ್ತವೆ. ಪರಿಕರಗಳು ಮಾದರಿ ಸಾಮರ್ಥ್ಯಗಳು ಮತ್ತು ಅನುಮತಿಸಲಾದ ಪ್ರವೇಶವನ್ನು ಅವಲಂಬಿಸಿರುತ್ತದೆ.
+
+<a id="from-first-launch-to-results"></a>
+
+## ಮೊದಲ ಉಡಾವಣೆಯಿಂದ ಫಲಿತಾಂಶಗಳವರೆಗೆ
+
+**ನಮ್ಮ ಯಾಂತ್ರೀಕರಣವು ಸಂಪೂರ್ಣ ಎಕ್ಸಿಕ್ಯೂಶನ್ ವರ್ಕ್‌ಫ್ಲೋಗೆ ಸಿದ್ಧತೆಯನ್ನು ಸಂಪರ್ಕಿಸುತ್ತದೆ.** Novera ಆಯ್ದ ಕಾನ್ಫಿಗರೇಶನ್‌ಗೆ ಲಭ್ಯವಿರುವ ತಾಂತ್ರಿಕ ಹಂತಗಳನ್ನು ನಿರ್ವಹಿಸುತ್ತದೆ, ಸುಧಾರಿತ ನಿಯಂತ್ರಣಗಳನ್ನು ಪ್ರವೇಶಿಸಬಹುದಾಗಿದೆ.
+
+| ಹಂತ | Novera ಏನು ನಿರ್ವಹಿಸುತ್ತದೆ |
+| --- | --- |
+| **1. ಪ್ರಾರಂಭಿಸಿ** | ಮೊದಲ ಉಡಾವಣೆಯಲ್ಲಿ ಬೆಂಬಲಿತ ಸಿಸ್ಟಮ್ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆ ಮಾಡುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಆದ್ಯತೆಯನ್ನು ಉಳಿಸುತ್ತದೆ. ಆರಂಭಿಕ ಮಾದರಿಗಳು ಮತ್ತು ಉಪಯುಕ್ತ ಯಂತ್ರಾಂಶ ಮಾಹಿತಿಯನ್ನು ಪ್ರಸ್ತುತಪಡಿಸುತ್ತದೆ. |
+| **2. ತಯಾರು** | ಮಾರ್ಗದರ್ಶಿ ಸ್ಥಾಪನೆಯು ಪಠ್ಯ, ಎಂಬೆಡಿಂಗ್‌ಗಳು, ಚಿತ್ರ, ಸಂಗೀತ, ವೀಡಿಯೊ ಮತ್ತು ಉನ್ನತೀಕರಣವನ್ನು ನೀಡುತ್ತದೆ. ಇದು ನಿಮ್ಮ ಅನುಮೋದನೆಯ ಮೊದಲು ಘಟಕಗಳು, ಗಾತ್ರಗಳು ಮತ್ತು ಮುಕ್ತ ಸ್ಥಳವನ್ನು ಪೂರ್ವವೀಕ್ಷಿಸುತ್ತದೆ, ನಂತರ ಪ್ರಗತಿ, ವಿರಾಮ/ರೆಸ್ಯೂಮ್ ಮತ್ತು SHA-256 ಪರಿಶೀಲನೆಯೊಂದಿಗೆ ಡೌನ್‌ಲೋಡ್‌ಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುತ್ತದೆ. |
+| **3. ಕಾನ್ಫಿಗರ್ ಮಾಡಿ** | ಮಾದರಿಗಳು ಮತ್ತು ಅವುಗಳ ಘಟಕಗಳನ್ನು ನೋಂದಾಯಿಸುತ್ತದೆ, ಸಂಬಂಧಿತ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತದೆ ಮತ್ತು ಅಗತ್ಯವಿರುವ ಅವಲಂಬನೆಗಳನ್ನು ವರದಿ ಮಾಡುತ್ತದೆ. ಉಳಿಸಿದ CPU/GPU ಆಯ್ಕೆಯೊಂದಿಗೆ CPU ನಲ್ಲಿ ಮರುಪಡೆಯುವಿಕೆ ಎಂಬೆಡಿಂಗ್‌ಗಳು ಪ್ರಾರಂಭವಾಗುತ್ತವೆ. ಹೊಸ ಸಂಗೀತ ಪ್ರೊಫೈಲ್‌ಗಳು ವಾದ್ಯಗಳ ಮೋಡ್‌ಗೆ ಡೀಫಾಲ್ಟ್. |
+| **4. ವಿನಂತಿಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ** | ಸ್ವಯಂ ಮಾರ್ಗಗಳು ಪಠ್ಯ, ಚಿತ್ರ, ಸಂಗೀತ ಅಥವಾ ವೀಡಿಯೊಗೆ ರಚನೆ ವಿನಂತಿಗಳನ್ನು ಗುರುತಿಸಲಾಗಿದೆ. ನೀವು ಔಟ್‌ಪುಟ್ ಮೋಡ್ ಮತ್ತು ಸ್ಥಳೀಯ ಅಥವಾ ಕ್ಲೌಡ್ ಮಾದರಿಯನ್ನು ಸಹ ಸ್ಪಷ್ಟವಾಗಿ ಆಯ್ಕೆ ಮಾಡಬಹುದು. |
+| **5. ಕಾರ್ಯಗತಗೊಳಿಸಿ** | ಸ್ವಯಂಚಾಲಿತ ಮೆಮೊರಿ ಸಕ್ರಿಯ ಕೆಲಸಕ್ಕಾಗಿ ಕಾಯುತ್ತದೆ, ಅನಗತ್ಯ ಮಾದರಿಗಳನ್ನು ಬಿಡುಗಡೆ ಮಾಡುತ್ತದೆ ಮತ್ತು ಅಗತ್ಯವಿರುವ ಸಂಪನ್ಮೂಲಗಳನ್ನು ಮರುಲೋಡ್ ಮಾಡುತ್ತದೆ. 1–10 ಉದ್ಯೋಗ ಸರಣಿಯು ಕ್ರಮದಲ್ಲಿ ಚಲಿಸುತ್ತದೆ ಮತ್ತು ಮುಂದಿನ ಕೆಲಸದ ಮೊದಲು ಸಂಪನ್ಮೂಲಗಳನ್ನು ಬಿಡುಗಡೆ ಮಾಡುತ್ತದೆ. ಕ್ಲೌಡ್ ಪೂರೈಕೆದಾರರು ಆಯ್ಕೆಮಾಡಿದ ಖಾತೆ ಮತ್ತು ಕಾನ್ಫಿಗರೇಶನ್ ಅನ್ನು ಬಳಸುತ್ತಾರೆ. |
+| **6. ಹಿಂಪಡೆಯಿರಿ ಮತ್ತು ಮರುಬಳಕೆ ಮಾಡಿ** | Novera ಸಿಸ್ಟಮ್ ಫೋಲ್ಡರ್‌ಗಳಲ್ಲಿ ಮಾಧ್ಯಮವನ್ನು ಉಳಿಸುತ್ತದೆ, ಫಲಿತಾಂಶಗಳು ಮತ್ತು ಲಭ್ಯವಿರುವ ಸಮಯಗಳನ್ನು ಪ್ರದರ್ಶಿಸುತ್ತದೆ, ನಂತರ ರೂಪಾಂತರಗಳು, ಲೈಬ್ರರಿ, ನಕಲು, ರಫ್ತು ಅಥವಾ ಸಿಸ್ಟಮ್ ಹಂಚಿಕೆಯನ್ನು ನೀಡುತ್ತದೆ. ಇನ್ನೊಂದು ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಕಳುಹಿಸುವುದು ನಿಮ್ಮ ಕ್ರಿಯೆಯಾಗಿ ಉಳಿದಿದೆ. |
+
+ಆಟೊಮೇಷನ್ ಇಂಟಿಗ್ರೇಟೆಡ್ ಇಂಜಿನ್‌ಗಳು ಮತ್ತು ವರ್ಕ್‌ಫ್ಲೋಗಳನ್ನು ಒಳಗೊಂಡಿದೆ; ಇದು ಪ್ರತಿ ಹಬ್ ಮಾದರಿಯನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸುವುದಿಲ್ಲ. ಹಾರ್ಡ್‌ವೇರ್, ಸ್ಥಾಪಿಸಲಾದ ಘಟಕಗಳು ಮತ್ತು ಪೂರೈಕೆದಾರರ ಪ್ರವೇಶವು ಯಾವುದನ್ನು ಚಲಾಯಿಸಬಹುದು ಎಂಬುದನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ. ಫೋಲ್ಡರ್‌ಗಳು, ಫೈಲ್ ಬದಲಾವಣೆಗಳು ಮತ್ತು ಶೆಲ್ ಆಜ್ಞೆಗಳು ಸಂಭಾಷಣೆಯ ಪ್ರವೇಶ ಅನುದಾನವನ್ನು ಅನುಸರಿಸುತ್ತವೆ.
+
+[ಬಳಕೆದಾರ ಮಾರ್ಗದರ್ಶಿ](docs/USER_GUIDE.md) · [ಇಂಜಿನ್‌ಗಳು ಮತ್ತು ಮೌಲ್ಯೀಕರಣ](docs/SUIVI_MOTEURS.md) · [ಅಭಿವೃದ್ಧಿ](docs/DEVELOPMENT.md)
+
+ನವೀಕರಿಸಿದ ಮೂಲಗಳಲ್ಲಿ, **ಕಾನ್ಫಿಗರೇಶನ್‌ಗಳು ಅದರ ಶಿಫಾರಸುಗಳನ್ನು ಮೊಬೈಲ್ ಮತ್ತು ನಿರ್ಬಂಧಿತ ಹಾರ್ಡ್‌ವೇರ್‌ಗೆ ಅಳವಡಿಸುತ್ತದೆ**: LFM3-1.7B Q4, ಅಥವಾ LFM3-Omni-2B Q4 ಅದರ ಪ್ರೊಜೆಕ್ಟರ್‌ನೊಂದಿಗೆ ವರದಿ ಮಾಡಲಾದ ಮೆಮೊರಿ ಮತ್ತು ಎಂಜಿನ್ ಅವಶ್ಯಕತೆಗಳನ್ನು ಪೂರೈಸಿದಾಗ. ಲಭ್ಯವಿಲ್ಲದ ಸ್ಥಳೀಯ ಉತ್ಪಾದನೆಯನ್ನು ಮರೆಮಾಡಲಾಗಿದೆ ಅಥವಾ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ; ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾದ ಮೋಡದ ಚಿತ್ರ, ಸಂಗೀತ ಮತ್ತು ವೀಡಿಯೊ ಲಭ್ಯವಿರುತ್ತದೆ. ಇಂಟರ್ಫೇಸ್ ಮಾರ್ಗದರ್ಶನವು 80 ಭಾಷಾ ಕ್ಯಾಟಲಾಗ್‌ಗಳನ್ನು ಮರುಬಳಕೆ ಮಾಡುತ್ತದೆ. ಈ ಅಂದಾಜುಗಳಿಗೆ ಇನ್ನೂ ಸಾಧನ ಪರೀಕ್ಷೆ ಮತ್ತು ಸ್ಥಾಪಿಸಲಾದ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ತಲುಪಲು ಮರುನಿರ್ಮಾಣ ಅಗತ್ಯವಿರುತ್ತದೆ.
+
+## ಸಾಮರ್ಥ್ಯಗಳು
+
+ಐಚ್ಛಿಕ ನಿರ್ವಹಣೆ ಡಯಾಗ್ನೋಸ್ಟಿಕ್ಸ್ ಈಗ ಬಿಲ್ಡ್‌ಗಳು ಮತ್ತು ಇನ್‌ಸ್ಟ್ರುಮೆಂಟ್ ಹ್ಯಾಂಡಲ್ಡ್ ವೈಫಲ್ಯಗಳು ಹಾಗೂ JavaScript ವಿನಾಯಿತಿಗಳನ್ನು ಪ್ರತ್ಯೇಕ ಒಪ್ಪಿಗೆ ಮತ್ತು ಫಿಲ್ಟರ್ ಮಾಡಿದ ತಾಂತ್ರಿಕ ಕ್ಷೇತ್ರಗಳೊಂದಿಗೆ ಪ್ರತ್ಯೇಕಿಸುತ್ತದೆ. ನಿರ್ವಹಣೆಗಾಗಿ ಒಂದು ಗಂಟೆಯ ಉತ್ಪಾದನಾ ಇಮೇಲ್ ಎಚ್ಚರಿಕೆಯನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿದೆ. ಖಾಸಗಿ ಮೂಲ ನಕ್ಷೆಗಳು ಮತ್ತು ಎಚ್ಚರಿಕೆಯ ವಿವರಗಳು ಅನುಸರಿಸುತ್ತವೆ [ನಿರ್ವಹಣೆ ರನ್‌ಬುಕ್](docs/MAINTENANCE.md); ಪರೀಕ್ಷಾ ಇಮೇಲ್ ರಸೀದಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗಿದೆ, ಆದರೆ ದೃಢೀಕೃತ ಚಿಹ್ನೆ ಅಪ್‌ಲೋಡ್ ಮತ್ತು ಮುಂದಿನ ಬೈನರಿಯಲ್ಲಿ ಪರೀಕ್ಷೆಯು ಬಿಡುಗಡೆಯ ಪರಿಶೀಲನೆಗಳಾಗಿ ಉಳಿಯುತ್ತದೆ.
+
+| ಪ್ರದೇಶ | ವೈಶಿಷ್ಟ್ಯಗಳು |
+| --- | --- |
+| **ಪಠ್ಯ ಮತ್ತು ಚಿತ್ರದ ತಿಳುವಳಿಕೆ** | ಸಂಭಾಷಣೆ, ಡಾಕ್ಯುಮೆಂಟ್ ಲಗತ್ತುಗಳು, ಸ್ಟ್ರೀಮ್ ಮಾಡಿದ ಪ್ರತ್ಯುತ್ತರಗಳು ಮತ್ತು ಸ್ಥಳೀಯ ಅಥವಾ ಕ್ಲೌಡ್ ಮಾದರಿಗಳು. ದೃಷ್ಟಿ ಮಾದರಿಯನ್ನು ಅವಲಂಬಿಸಿರುತ್ತದೆ; ಚಿತ್ರಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು ಮತ್ತು ರಚಿಸುವುದು ಪ್ರತ್ಯೇಕ ಸಾಮರ್ಥ್ಯಗಳಾಗಿವೆ. |
+| **ಚಿತ್ರ** | ಸಂಭಾಷಣೆಯ ಉತ್ಪಾದನೆ, ಬೀಜಗಳು, ಅನುಪಾತಗಳು, ರೆಸಲ್ಯೂಶನ್, GGUF/Safetensors ಘಟಕಗಳು, ಕಾನ್ಫಿಗರ್ ಮಾಡಿದ Diffusers ಫೋಲ್ಡರ್‌ಗಳು ಮತ್ತು ಬೆಂಬಲಿತ ಸ್ಥಳೀಯ NVFP4 CUDA ಪ್ರೊಫೈಲ್. |
+| **ಸಂಗೀತ** | ಸ್ಥಳೀಯ ಅಥವಾ ಕ್ಲೌಡ್ ಉತ್ಪಾದನೆ, ಅವಧಿ, ಗುಣಮಟ್ಟ, ವಾದ್ಯಸಂಗೀತ ಅಥವಾ ಗಾಯನವನ್ನು ಬೆಂಬಲಿಸಿದರೆ, ರಚನಾತ್ಮಕ ಸಾಹಿತ್ಯ ಮತ್ತು ಆಡಿಯೊ ಪ್ಲೇಯರ್. ಪೂರೈಕೆದಾರರ ಆಯ್ಕೆಗಳು ಭಿನ್ನವಾಗಿರುತ್ತವೆ. |
+| **ವಿಡಿಯೋ** | ಸ್ಥಳೀಯ ಅಥವಾ ಕ್ಲೌಡ್ ಉತ್ಪಾದನೆ, ಅವಧಿ, ಫ್ರೇಮ್ ಎಣಿಕೆ/ಸ್ಥಳೀಯ ಪ್ರೊಫೈಲ್‌ಗಳು, ಅನುಪಾತಗಳು, ರೆಸಲ್ಯೂಶನ್ ಮತ್ತು ವೀಡಿಯೊ ಪ್ಲೇಯರ್. |
+| **ಹುಡುಕಾಟ ಮತ್ತು ಪರಿಕರಗಳು** | ವೆಬ್ ಹುಡುಕಾಟ, ಎಂಬೆಡಿಂಗ್-ಆಧಾರಿತ ಡಾಕ್ಯುಮೆಂಟ್ ಮರುಪಡೆಯುವಿಕೆ, MCP, ಕಾರ್ಯಸ್ಥಳಗಳು ಮತ್ತು ಮಾದರಿ ಬೆಂಬಲ ಮತ್ತು ಅನುಮತಿಸಲಾದ ಪ್ರವೇಶದ ಪ್ರಕಾರ ಸ್ಥಳೀಯ ಉಪಕರಣಗಳು. |
+| **ಫಲಿತಾಂಶಗಳು ಮತ್ತು ಹಂಚಿಕೆ** | ಮಾಧ್ಯಮ ಲೈಬ್ರರಿ, ರೂಪಾಂತರಗಳು, ಪ್ರತಿಕ್ರಿಯೆ/ಸಂಭಾಷಣೆ ರಫ್ತುಗಳು, ದಾಖಲೆಗಳು ಮತ್ತು ಮೂಲ ಮಾಧ್ಯಮ, ಮುದ್ರಣ/PDF ಮತ್ತು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್-ಅವಲಂಬಿತ ಸಿಸ್ಟಮ್ ಹಂಚಿಕೆ. |
+| **ಸಂಪನ್ಮೂಲ ನಿರ್ವಹಣೆ** | ಸ್ವಯಂಚಾಲಿತ ಮೆಮೊರಿಯನ್ನು ಡಿಫಾಲ್ಟ್ ಆಗಿ ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ, ಬೆಂಬಲಿತ ಘಟಕಗಳಿಗೆ CPU/GPU ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಮತ್ತು ಸಂಪನ್ಮೂಲಗಳು ಅನುಮತಿಸಿದಾಗ ಹಸ್ತಚಾಲಿತ ಪ್ರೊಫೈಲ್‌ಗಳು. |
+
+<a id="local-models-in-use"></a>
+
+## AI ಮಾದರಿಗಳು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಸ್ಥಳೀಯವಾಗಿ ಚಾಲನೆಯಲ್ಲಿವೆ
+
+ಈ ಮಾದರಿಗಳು ಪ್ರಸ್ತುತ ಮಾರ್ಗದರ್ಶಿ ಸಂರಚನೆಯನ್ನು ರೂಪಿಸುತ್ತವೆ. ನೀವು ಇತರ ಹೊಂದಾಣಿಕೆಯ ಮಾದರಿಗಳನ್ನು ಆಮದು ಮಾಡಿಕೊಳ್ಳಬಹುದು ಅಥವಾ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಬದಲಾಯಿಸಬಹುದು.
+
+| ಪಾತ್ರ | ಮಾದರಿ / ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾದ ಘಟಕಗಳು |
+| --- | --- |
+| **ಪಠ್ಯ — ಮೊದಲ ರನ್ ಮಾದರಿ** | **Nemotron-3.5-Bolt-E4B**, ಫೈಲ್ `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
+| **ಡಾಕ್ಯುಮೆಂಟ್ ಮರುಪಡೆಯುವಿಕೆ** | **Qwen3-Embedding-0.6B Q8_0**, **CPU ಪೂರ್ವನಿಯೋಜಿತವಾಗಿ**, ಉಳಿಸಿದ CPU/GPU ಆಯ್ಕೆಯೊಂದಿಗೆ. |
+| **ಚಿತ್ರ** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** ಎನ್‌ಕೋಡರ್ ಮತ್ತು ಅಧಿಕೃತ FLUX.2 VAE. |
+| **ಚಿತ್ರ — ಯಂತ್ರಾಂಶ ಆಯ್ಕೆ** | **FLUX.2 Klein 4B NVFP4**, GPU ಮತ್ತು ಪರಿಸರವು ಹೊಂದಾಣಿಕೆಯಾದಾಗ ಸ್ಥಳೀಯ CUDA ಮಾರ್ಗದ ಮೂಲಕ. |
+| **ಸಂಗೀತ** | **ACE-Step 1.5 Turbo 2B Q4_K_M**, `acestep-5Hz-lm-1.7B-Q8_0.gguf` ಯೋಜಕ, ಮೀಸಲಾದ Qwen ಸಂಗೀತ ಎನ್‌ಕೋಡರ್ ಮತ್ತು VAE. |
+| **ವಿಡಿಯೋ** | **Wan2.1 T2V 1.3B Q4_K_M**, **UMT5-XXL Q4_K_M** ಎನ್‌ಕೋಡರ್ ಮತ್ತು Wan 2.1 VAE. |
+| **ಅಪ್‌ಸ್ಕೇಲಿಂಗ್** | ಐಚ್ಛಿಕ **Real-ESRGAN ×2 ಮತ್ತು ×4**, ಅವಲಂಬನೆ ಪರಿಶೀಲನೆಗಳೊಂದಿಗೆ. |
+
+Qwen ಸಂಗೀತ ಎನ್‌ಕೋಡರ್ ಮತ್ತು Qwen ಮರುಪಡೆಯುವಿಕೆ ಮಾದರಿ **ವಿವಿಧ ಫೈಲ್‌ಗಳು**, ಪ್ರತ್ಯೇಕವಾಗಿ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ. ಮಾದರಿ ಪರವಾನಗಿಗಳು ಅವುಗಳ ಪ್ರಕಾಶಕರದೇ ಆಗಿರುತ್ತವೆ.
+
+[ಪಠ್ಯ ಮ್ಯಾನಿಫೆಸ್ಟ್](web-app/src/constants/text-manifest.json) · [Embeddings](web-app/src/constants/embedding-manifest.json) · [ಸಂಗೀತ](web-app/src/constants/music-manifest.json) · [ಚಿತ್ರ/ವೀಡಿಯೊ ಘಟಕಗಳು](src-tauri/src/core/creation_bundle.rs)
+
+<a id="cloud-providers"></a>
+
+## ಮೇಘ ಪೂರೈಕೆದಾರರು
+
+**42 ಪೂರೈಕೆದಾರರ ಪ್ರೊಫೈಲ್‌ಗಳು** ಸಂಯೋಜಿಸಲಾಗಿದೆ. **ElevenLabs** Stability AI, fal ಮತ್ತು Replicate ನಿಂದ ಸಂಗೀತ ಮಾರ್ಗಗಳ ಜೊತೆಗೆ ಈಗ ಪ್ರದರ್ಶನದಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತದೆ.
+
+| | | |
+| --- | --- | --- |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="28" height="28" /> [OpenAI](https://platform.openai.com/docs/models) | <img src="web-app/public/images/model-provider/azure.svg" alt="Microsoft Azure" width="28" height="28" /> [Microsoft Azure](https://oai.azure.com/deployments) | <img src="web-app/public/images/model-provider/anthropic.svg" alt="Anthropic" width="28" height="28" /> [Anthropic](https://platform.claude.com/docs/en/models/overview) |
+| <img src="web-app/public/images/model-provider/open-router.svg" alt="OpenRouter" width="28" height="28" /> [OpenRouter](https://openrouter.ai/models) | <img src="web-app/public/images/model-provider/mistral.svg" alt="Mistral" width="28" height="28" /> [Mistral](https://docs.mistral.ai/models) | <img src="web-app/public/images/model-provider/groq.svg" alt="Groq" width="28" height="28" /> [Groq](https://console.groq.com/docs/models) |
+| <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="28" height="28" /> [xAI](https://docs.x.ai/developers/models) | <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="28" height="28" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | <img src="web-app/public/images/model-provider/minimax.svg" alt="MiniMax" width="28" height="28" /> [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) |
+| <img src="web-app/public/images/model-provider/huggingface.svg" alt="Hugging Face" width="28" height="28" /> [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | <img src="web-app/public/images/model-provider/nvidia.svg" alt="NVIDIA NIM" width="28" height="28" /> [NVIDIA NIM](https://build.nvidia.com/models) | <img src=".github/assets/providers/deepseek.png" alt="DeepSeek" width="28" height="28" /> [DeepSeek](https://api-docs.deepseek.com/) |
+| <img src="web-app/public/images/model-provider/moonshot.png" alt="Kimi · Moonshot AI" width="28" height="28" /> [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | <img src="web-app/public/images/model-provider/alibaba.png" alt="Alibaba Cloud · Qwen" width="28" height="28" /> [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | <img src="web-app/public/images/model-provider/cerebras.png" alt="Cerebras" width="28" height="28" /> [Cerebras](https://inference-docs.cerebras.ai/models/overview) |
+| <img src="web-app/public/images/model-provider/together.svg" alt="Together AI" width="28" height="28" /> [Together AI](https://docs.together.ai/docs/serverless/models) | <img src="web-app/public/images/model-provider/fireworks.svg" alt="Fireworks AI" width="28" height="28" /> [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | <img src="web-app/public/images/model-provider/perplexity.png" alt="Perplexity" width="28" height="28" /> [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) |
+| <img src=".github/assets/providers/meta.png" alt="Meta AI" width="28" height="28" /> [Meta AI](https://dev.meta.ai/docs/models) | <img src="web-app/public/images/model-provider/cohere.svg" alt="Cohere" width="28" height="28" /> [Cohere](https://docs.cohere.com/docs/models) | <img src="web-app/public/images/model-provider/zai.svg" alt="Z.ai" width="28" height="28" /> [Z.ai](https://docs.z.ai/guides/llm/glm-5.3) |
+| <img src="web-app/public/images/model-provider/ai21.png" alt="AI21 Labs" width="28" height="28" /> [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="28" height="28" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | <img src=".github/assets/providers/baidu.png" alt="Baidu Qianfan" width="28" height="28" /> [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) |
+| <img src=".github/assets/providers/tencent.png" alt="Tencent TokenHub" width="28" height="28" /> [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | <img src="web-app/public/images/model-provider/bedrock.png" alt="Amazon Bedrock" width="28" height="28" /> [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | <img src="web-app/public/images/model-provider/watsonx.png" alt="IBM watsonx" width="28" height="28" /> [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) |
+| <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="28" height="28" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="28" height="28" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="28" height="28" /> [Stability AI](https://docs.stability.ai/api-reference) |
+| <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/) |
+| <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://docs.dev.runwayml.com/api/) | <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://docs.ltx.io/models) |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/docs/model-map) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
+
+### ಚಿತ್ರ, ಸಂಗೀತ ಮತ್ತು ವೀಡಿಯೊ
+
+**20 ಪೂರೈಕೆದಾರರು ಪೀಳಿಗೆಯ ಮಾರ್ಗಗಳನ್ನು ಬಹಿರಂಗಪಡಿಸುತ್ತಾರೆ**, ಜೊತೆಗೆ **49 ಪೂರ್ವನಿಗದಿಗಳು: 25 ಚಿತ್ರ, 20 ವೀಡಿಯೊ ಮತ್ತು 4 ಸಂಗೀತ**. ಸಂಗೀತ ಮಾರ್ಗಗಳು **ElevenMusic v2.5**, **Stable Audio 3**, **ACE-Step fal ಮೂಲಕ** ಮತ್ತು **Stable Audio 2.5 Replicate ಮೂಲಕ**.
+
+| ಒದಗಿಸುವವರು | Novera ನಲ್ಲಿ ಔಟ್‌ಪುಟ್‌ಗಳು | ಕ್ಯಾಟಲಾಗ್ ಮಾದರಿಗಳು |
+| --- | --- | --- |
+| <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="24" height="24" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | ಸಂಗೀತ | `ElevenMusic v2.5` |
+| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | ಚಿತ್ರ / ಸಂಗೀತ | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | ಚಿತ್ರ / ಸಂಗೀತ / ವಿಡಿಯೋ | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | ಚಿತ್ರ / ಸಂಗೀತ | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
+| <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="24" height="24" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | ಚಿತ್ರ / ವಿಡಿಯೋ | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
+| <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="24" height="24" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | ಚಿತ್ರ / ವಿಡಿಯೋ | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
+| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | ಚಿತ್ರ / ವಿಡಿಯೋ | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="24" height="24" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | ಚಿತ್ರ | `Krea 3` |
+| <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="24" height="24" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | ಚಿತ್ರ | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
+| <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="24" height="24" /> [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | ವಿಡಿಯೋ | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | ಚಿತ್ರ | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="24" height="24" /> [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | ಚಿತ್ರ / ವಿಡಿಯೋ | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | ಚಿತ್ರ | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="24" height="24" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | ಚಿತ್ರ | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
+| <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="24" height="24" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | ಚಿತ್ರ | `Ideogram 4.5` |
+| <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="24" height="24" /> [Runway](https://docs.dev.runwayml.com/api/) | ವಿಡಿಯೋ | `Runway Gen-4.5` |
+| <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="24" height="24" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | ಚಿತ್ರ / ವಿಡಿಯೋ | `Luma Uni-1 Max` · `Luma Uni-1` · `Luma Ray 3.2` |
+| <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="24" height="24" /> [LTX (Lightricks)](https://docs.ltx.io/models) | ವಿಡಿಯೋ | `LTX-2.5 Pro` · `LTX-2.5 Fast` |
+| <img src="web-app/public/images/model-provider/minimax.svg" alt="MiniMax" width="24" height="24" /> [MiniMax](https://platform.minimax.io/docs/api-reference/video-generation-v2-create) | ಚಿತ್ರ / ವಿಡಿಯೋ | `MiniMax H3 Max` · `MiniMax H3` · `MiniMax H3 Highspeed` · `MiniMax Image-01` |
+| <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="24" height="24" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) | ವಿಡಿಯೋ | `PixVerse V6 Max` · `PixVerse V6` |
+
+<details>
+<summary><strong>ಪೂರೈಕೆದಾರರಿಂದ ಪಠ್ಯ ಮತ್ತು ದೃಷ್ಟಿ ಮಾದರಿ ಕಿರುಪಟ್ಟಿಗಳನ್ನು ತೋರಿಸಿ</strong></summary>
+
+| ಒದಗಿಸುವವರು | ಮಾದರಿ ಐಡಿಗಳನ್ನು ಮೂಲದಲ್ಲಿ ನೀಡಲಾಗಿದೆ |
+| --- | --- |
+| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
+| [Microsoft Azure](https://oai.azure.com/deployments) | ಖಾತೆ-ನಿರ್ದಿಷ್ಟ ನಿಯೋಜನೆ ಅಥವಾ ಗೇಟ್‌ವೇ |
+| [Anthropic](https://platform.claude.com/docs/en/models/overview) | `claude-sonnet-5-5` · `claude-opus-5-5` · `claude-fable-5-1` · `claude-haiku-5-5` |
+| [OpenRouter](https://openrouter.ai/models) | `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
+| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `mistral-medium-3-5` · `mistral-small-2603` · `ministral-3b-2512` |
+| [Groq](https://console.groq.com/docs/models) | `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
+| [xAI](https://docs.x.ai/developers/models) | `grok-4.7` |
+| [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | `gemini-4-argon` · `gemini-3.8-flash` · `gemini-3.6-flash` · `gemini-3.5-flash-lite` |
+| [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) | `MiniMax-M3.1-Flash` · `MiniMax-M3` |
+| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
+| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3` |
+| [DeepSeek](https://api-docs.deepseek.com/) | `deepseek-flash` · `deepseek-v4-pro` |
+| [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | `kimi-k3.1-pro` · `kimi-k3.1-pro-highspeed` · `kimi-k3` |
+| [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | `qwen3.8-max` · `qwen3.7-plus` · `qwen3.8-flash` |
+| [Cerebras](https://inference-docs.cerebras.ai/models/overview) | `qwen-3.8-27b` · `gpt-oss-120b` |
+| [Together AI](https://docs.together.ai/docs/serverless/models) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
+| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
+| [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) | `perplexity/sonar` · `openai/gpt-6.1-sol` · `google/gemini-4-argon` · `perplexity/kimi-k3` |
+| [Meta AI](https://dev.meta.ai/docs/models) | `muse-wonder-1.0` · `muse-spark-1.3` |
+| [Cohere](https://docs.cohere.com/docs/models) | `command-a-plus-05-2026` |
+| [Z.ai](https://docs.z.ai/guides/llm/glm-5.3) | `glm-5.3` · `glm-5.3-flash` · `glm-5.3-flashx` |
+| [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | `jamba-large` · `jamba-mini-2` |
+| [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | `dola-seed-2-1-turbo-260628` |
+| [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) | `ernie-5.1` |
+| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4-preview` |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-sol` |
+| [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) | ಖಾತೆ-ನಿರ್ದಿಷ್ಟ ನಿಯೋಜನೆ ಅಥವಾ ಗೇಟ್‌ವೇ |
+
+</details>
+
+ಇನ್ವೆಂಟರಿಯು ಮೂಲದ ವಿರುದ್ಧ ಪರಿಶೀಲಿಸಲಾಗಿದೆ **29 ಅಕ್ಟೋಬರ್ 2026**. ಈ ಹೆಸರುಗಳು Novera ಪೂರ್ವನಿಗದಿಗಳನ್ನು ವಿವರಿಸುತ್ತದೆ, ಪ್ರತಿ ಖಾತೆಗೆ ಪ್ರವೇಶವನ್ನು ಖಾತರಿಪಡಿಸುವುದಿಲ್ಲ. ರಿಮೋಟ್ ಕ್ಯಾಟಲಾಗ್‌ಗಳು, ಪ್ರದೇಶಗಳು, ಪರವಾನಗಿಗಳು, ಕೋಟಾಗಳು ಮತ್ತು ಬಿಲ್ಲಿಂಗ್ ಒದಗಿಸುವವರು-ನಿರ್ದಿಷ್ಟವಾಗಿರುತ್ತವೆ. ಹೊಂದಾಣಿಕೆಯ ಪ್ರೊಫೈಲ್‌ಗಳು ತಮ್ಮ ಕ್ಯಾಟಲಾಗ್‌ಗಳನ್ನು ರಿಫ್ರೆಶ್ ಮಾಡಬಹುದು; ಅಜೂರ್ ಮತ್ತು ಕೆಲವು ಗೇಟ್‌ವೇಗಳು ಖಾತೆಯ ನಿಯೋಜನೆಗಳನ್ನು ಬಳಸುತ್ತವೆ. ಮೇಘ ಒಪ್ಪಂದಗಳು ಅನುಕರಿಸಿದ ಪರೀಕ್ಷೆಗಳನ್ನು ಹೊಂದಿವೆ; ಈ ಶೋಕೇಸ್ ಅಪ್‌ಡೇಟ್‌ಗಾಗಿ ಯಾವುದೇ ಪಾವತಿಸಿದ ಉತ್ಪಾದನೆಯನ್ನು ನಡೆಸಲಾಗಿಲ್ಲ.
+
+[ಮಾಧ್ಯಮ ಕ್ಯಾಟಲಾಗ್](web-app/src/constants/mediaProviders.ts) · [ಪಠ್ಯ/ದೃಷ್ಟಿ ಮಾದರಿಗಳು](web-app/src/constants/cloudModels.ts) · [ಮೇಘ ಸೆಟಪ್](docs/USER_GUIDE.md#cloud) · [ಐಕಾನ್ ಮೂಲ](docs/DEVELOPMENT.md#logos)
+
+<a id="hub-and-compatible-models"></a>
+
+## ಹಬ್ ಮತ್ತು ಹೊಂದಾಣಿಕೆಯ ಮಾದರಿಗಳು
+
+**GGUF, ಪ್ರಮಾಣಿತ ಮತ್ತು ಪ್ರಮಾಣಿತ Safetensors, ONNX, ಮತ್ತು MLX**: ಕಾರ್ಯದ ಮೂಲಕ ಮಾದರಿಗಳನ್ನು ಅನ್ವೇಷಿಸಿ ಮತ್ತು ಎಂಜಿನ್ ಮತ್ತು ನಿಮ್ಮ ಹಾರ್ಡ್‌ವೇರ್‌ಗೆ ಹೊಂದಿಕೆಯಾಗುವ ರೂಪಾಂತರಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ.
+
+| ಕುಟುಂಬ | ಮೂಲದಲ್ಲಿ ಬೆಂಬಲ | ಅವಶ್ಯಕತೆಗಳು |
+| --- | --- | --- |
+| **GGUF** | llama.cpp ಮೂಲಕ ಪಠ್ಯ ಉತ್ಪಾದನೆ; ಬೆಂಬಲಿತ ಪ್ರೊಫೈಲ್‌ಗಳಿಗಾಗಿ ಚಿತ್ರ ಮತ್ತು ವೀಡಿಯೊ ಘಟಕಗಳು. | ಆರ್ಕಿಟೆಕ್ಚರ್ ಅನ್ನು ಬಂಡಲ್ ಮಾಡಿದ ಎಂಜಿನ್‌ನಿಂದ ಗುರುತಿಸಲಾಗಿದೆ. |
+| **ಸ್ಪ್ಲಿಟ್ GGUF** | ಪ್ರತಿ ಸಂಪೂರ್ಣ ಸರಣಿಗೆ ಒಂದು ರೂಪಾಂತರ, ಸಾರಾಂಶದ ಗಾತ್ರ, ಆಲ್-ಶಾರ್ಡ್ ಡೌನ್‌ಲೋಡ್ ಮತ್ತು ಗಾತ್ರ/SHA-256/ಹೆಡರ್ ಚೆಕ್‌ಗಳು. | ಪ್ರಮಾಣಿತ ಸಂಖ್ಯೆಯ ಫೈಲ್ ಹೆಸರುಗಳು; 500 GB ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡುವುದರಿಂದ ಮಾಡೆಲ್ ಈ PC. ಗೆ ಸರಿಹೊಂದುತ್ತದೆ ಎಂದರ್ಥವಲ್ಲ |
+| **ಪ್ರಮಾಣಿತ Safetensors** | Transformers ಮೂಲಕ ಸಂಪೂರ್ಣ ಫೋಲ್ಡರ್‌ಗಳು, CPU ಅಥವಾ NVIDIA CUDA ನಲ್ಲಿ ಸಾಂದರ್ಭಿಕ ಪಠ್ಯ. | ಕಾನ್ಫಿಗರೇಶನ್, ಟೋಕನೈಜರ್ ಮತ್ತು ಅಗತ್ಯವಿರುವ ಪ್ರತಿಯೊಂದು ಚೂರು. |
+| **ONNX Runtime** | ಸಂಖ್ಯಾ/ಬೂಲ್ ಗ್ರಾಫ್‌ಗಳ ಸ್ಥಳೀಯ ಆಮದು ಮತ್ತು ಸಿದ್ಧಪಡಿಸಿದ GenAI ಪಠ್ಯ ರಫ್ತು. | ಮೌಲ್ಯೀಕರಿಸಿದ ಸಂಪೂರ್ಣ ಫೋಲ್ಡರ್; ಕಾರ್ಯ-ನಿರ್ದಿಷ್ಟ ಪ್ರಿಪ್ರೊಸೆಸಿಂಗ್/ಪೋಸ್ಟ್ ಪ್ರೊಸೆಸಿಂಗ್ ಅಗತ್ಯವಿದೆ; [ಸೆಟಪ್ ಮತ್ತು ಮಿತಿಗಳು](onnx-server/README.md). |
+| **LoRA / PEFT ಅಡಾಪ್ಟರುಗಳು** | Safetensors ಪೂರೈಕೆದಾರರಲ್ಲಿ ಅದರ ಪ್ರತ್ಯೇಕ ಸ್ಥಳೀಯ ಅಡಾಪ್ಟರ್‌ನೊಂದಿಗೆ ಸಂಪೂರ್ಣ ಬೇಸ್ ಅನ್ನು ಆಮದು ಮಾಡಿ. | ಪ್ರಮಾಣೀಕರಿಸದ ಕಾರಣ Transformers ಬೇಸ್, ಹೊಂದಾಣಿಕೆಯ ಗುರುತು, ಟೆನ್ಸರ್ ಚೆಕ್‌ಗಳು ಮತ್ತು ಸಂಚಿತ ಮೆಮೊರಿ ಅಂದಾಜು; [ಸೆಟಪ್ ಮತ್ತು ಮಿತಿಗಳು](transformers-server/README.md#local-lora--peft-adapters). |
+| **FP8 LLM / ModelOpt** | ದಟ್ಟವಾದ Llama/Qwen2/Qwen3 ಪ್ರತಿ-ಟೆನ್ಸರ್ FP8 ರಫ್ತುಗಳಿಗಾಗಿ ಸ್ಥಳೀಯ CUDA ಎಕ್ಸಿಕ್ಯೂಶನ್. | ಆರ್ಕಿಟೆಕ್ಚರ್/ಟೆನ್ಸರ್ ಚೆಕ್‌ಗಳು ಮತ್ತು ನೈಜ ಕರ್ನಲ್ ಪ್ರೋಬ್; [ಸೆಟಪ್ ಮತ್ತು ಮಿತಿಗಳು](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
+| **NVFP4 LLM / ModelOpt** | ಪ್ಯಾಕ್ಡ್ ಬ್ಲಾಕ್-16 FP4 ಪ್ರೊಜೆಕ್ಷನ್‌ಗಳು ಸ್ಥಳೀಯ CUDA GEMMಗಳ ಮೂಲಕ; NVFP4 ಚಿತ್ರದಿಂದ ಪ್ರತ್ಯೇಕವಾಗಿದೆ. | ಹೊಂದಾಣಿಕೆಯ Blackwell GPU, ಬೆಂಬಲಿತ ಆಯಾಮಗಳು/ರಫ್ತು ಮತ್ತು ನಿಜವಾದ ಕರ್ನಲ್ ಪ್ರೋಬ್; RTX 5070 ನಲ್ಲಿ ತರಬೇತಿ ಪಡೆಯದ ಫಿಕ್ಚರ್‌ಗಳನ್ನು ಪರೀಕ್ಷಿಸಲಾಗಿದೆ. |
+| **AWQ** | 4-ಬಿಟ್ GEMM ಮಾಡೆಲ್ ಚೆಕ್ಪಾಯಿಂಟ್ಗಳು ಕಾರ್ಯಾಚರಣೆಯ ಸಮ್ಮಿಳನವಿಲ್ಲದೆ. | NVIDIA CUDA ಮತ್ತು ಐಚ್ಛಿಕ GPTQModel/Transformers ಲೋಡರ್‌ಗಳು. |
+| **GPTQ** | 2/3/4/8-ಬಿಟ್ ಕಾನ್ಫಿಗರೇಶನ್‌ಗಳು, gptq/gptq_v2 ಫಾರ್ಮ್ಯಾಟ್‌ಗಳು. | NVIDIA CUDA, GPTQModel ಮತ್ತು Optimum; 4 ಬಿಟ್‌ಗಳಲ್ಲಿ ನೈಜ ಕಾರ್ಯಗತಗೊಳಿಸುವಿಕೆಯನ್ನು ಪರೀಕ್ಷಿಸಲಾಗಿದೆ. |
+| **bitsandbytes** | 4-ಬಿಟ್ NF4/FP4 ಅಥವಾ 8-ಬಿಟ್ INT8. | NVIDIA CUDA ಮತ್ತು ಐಚ್ಛಿಕ ಅವಲಂಬನೆಗಳು; ನಿಜವಾದ NF4 ಮತ್ತು INT8 ಪರೀಕ್ಷೆಗಳು. |
+| **EXL3** | ExLlamaV3 ಮೂಲಕ ಲೋಡ್ ಮಾಡಲಾದ ಪೂರ್ಣ ಪ್ರಮಾಣದ Safetensors ಮಾದರಿ ಫೋಲ್ಡರ್‌ಗಳು; CUDA ನೊಂದಿಗೆ ನಿಜವಾದ ಪೀಳಿಗೆಯನ್ನು ಪರೀಕ್ಷಿಸಲಾಯಿತು. | NVIDIA GPU, ಪ್ರತ್ಯೇಕ Python 3.12 ಪರಿಸರ ಮತ್ತು ಹೊಂದಾಣಿಕೆಯ ಆರ್ಕಿಟೆಕ್ಚರ್; CPU ಫಾಲ್ಬ್ಯಾಕ್ ಇಲ್ಲ. |
+| **EXL2** | ಡೆಡಿಕೇಟೆಡ್ ExLlamaV2 ಲೋಡರ್; GPU. ನಲ್ಲಿ ಸ್ಟ್ರೀಮಿಂಗ್, ರದ್ದುಗೊಳಿಸುವಿಕೆ ಮತ್ತು ಅನ್‌ಲೋಡ್ ಅನ್ನು ಪರೀಕ್ಷಿಸಲಾಗಿದೆ | CUDA ಗಮನವನ್ನು ಸ್ಪಷ್ಟವಾಗಿ ಆಯ್ಕೆ ಮಾಡಬೇಕು; ಸಂಪೂರ್ಣ ಮಾದರಿ ಚೆಕ್‌ಪಾಯಿಂಟ್ ಮತ್ತು ಲಭ್ಯವಿರುವ VRAM ಅಗತ್ಯವಿದೆ. |
+| **MLX** | Apple Silicon ನಲ್ಲಿ ಹೊಂದಾಣಿಕೆಯ ಮಾದರಿಗಳು. | MLX ಎಂಜಿನ್ ಮತ್ತು ಬೆಂಬಲಿತ ವೇದಿಕೆ. |
+
+ಹಬ್ ಈಗ ಪಿನ್ ಮಾಡುತ್ತದೆ **LFM3-1.7B** Q4_K_M, Q6_K ಮತ್ತು Q8_0 ರೂಪಾಂತರಗಳೊಂದಿಗೆ ಹೊಂದಾಣಿಕೆಯ ಕಾನ್ಫಿಗರೇಶನ್‌ಗಳಿಗಾಗಿ ಅದರ LiquidAI ಶಿಫಾರಸು. ಮೇಲಿನ ಮಾರ್ಗದರ್ಶಿ ಕಾನ್ಫಿಗರೇಶನ್‌ನಲ್ಲಿ ಪಟ್ಟಿ ಮಾಡಲಾದ ಮೊದಲ-ರನ್ ಮಾದರಿಯು ಉಳಿದಿದೆ.
+
+ಡೌನ್‌ಲೋಡ್ ತೂಕವನ್ನು ಇದರಿಂದ ಫಿಲ್ಟರ್ ಮಾಡಿ **ಅಡಿಯಲ್ಲಿ 1 GB ರಿಂದ 500 GB ಮತ್ತು ಹೆಚ್ಚಿನದು**, ನಂತರ ಹಾರ್ಡ್‌ವೇರ್ ಫಿಟ್, ಗಾತ್ರ, ಇತ್ತೀಚಿನ ಅಥವಾ ಡೌನ್‌ಲೋಡ್‌ಗಳ ಪ್ರಕಾರ ವಿಂಗಡಿಸಿ. ಫಲಿತಾಂಶಗಳು ಹಂತಹಂತವಾಗಿ ಲೋಡ್ ಆಗುತ್ತವೆ; ಫಿಲ್ಟರ್‌ಗಳು ಪಡೆದ ಮಾದರಿಗಳು ಮತ್ತು ಅವುಗಳ ಡೀಫಾಲ್ಟ್ ರೂಪಾಂತರಕ್ಕೆ ಅನ್ವಯಿಸುತ್ತವೆ. ಮೆಮೊರಿ ಸಲಹೆಯು ಲಭ್ಯವಿರುವ RAM/VRAM, ಸಂದರ್ಭ ಮತ್ತು ಒಡನಾಡಿ ಘಟಕಗಳನ್ನು ಬಳಸುತ್ತದೆ, ಎರಡು-ಎಣಿಕೆಯ ಹಂಚಿಕೆಯಿಲ್ಲದೆ GPU ಮೆಮೊರಿ.
+
+AWQ 4-bit, GPTQ 4-bit, NF4 ಮತ್ತು INT8 ಪ್ರತಿಯೊಂದು ರಚಿಸಲಾದ ಪಠ್ಯವನ್ನು RTX 5070 Laptop ಬಳಸಿ ರಚಿಸಲಾದ ಆಫ್‌ಲೈನ್ ಮಾಡೆಲ್‌ಗಳನ್ನು ಬಳಸಿ ರಚಿಸಲಾಗಿದೆ. ಇದು ಲೋಡಿಂಗ್ ಮತ್ತು ಕಾರ್ಯಗತಗೊಳಿಸುವಿಕೆಯನ್ನು ಮೌಲ್ಯೀಕರಿಸುತ್ತದೆ, ಪ್ರತಿ ಮಾದರಿಯ ಗುಣಮಟ್ಟ ಅಥವಾ ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ಅಲ್ಲ. **ಈ ಸೇರ್ಪಡೆಗಳು ಮೂಲದಲ್ಲಿವೆ: ಪುನರ್ನಿರ್ಮಾಣ ಮತ್ತು ಹೊಂದಾಣಿಕೆಯ ಅವಲಂಬನೆಗಳ ಅಗತ್ಯವಿದೆ; ಈ README ಅಪ್‌ಡೇಟ್ ಸ್ಥಾಪಿಸಲಾದ ಬೈನರಿಯನ್ನು ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡುವುದಿಲ್ಲ.**
+
+**RTX 5070 Laptop ನಲ್ಲಿ ಅಳೆಯಲಾಗಿದೆ:** Qwen2.5-0.5B-Instruct, ಸಂದರ್ಭ 2,048, ಪ್ರಾಂಪ್ಟ್ 272 ಟೋಕನ್‌ಗಳು, 128 ರಚಿತ ಟೋಕನ್‌ಗಳು, ಐದು ವಾರ್ಮ್ಡ್ ರನ್‌ಗಳು: ಮೀಡಿಯನ್ ಡಿಕೋಡ್ **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. GGUF ಗಿಂತ ಯಾವುದೇ ವೇಗದ ಪ್ರಯೋಜನವನ್ನು ಇಲ್ಲಿ ಪ್ರದರ್ಶಿಸಲಾಗಿಲ್ಲ. ಪ್ರಮಾಣೀಕರಣ/ಮಾಪನಾಂಕ ನಿರ್ಣಯವು ಭಿನ್ನವಾಗಿರುತ್ತದೆ ಮತ್ತು EXL3 ಒಂದು ಅಂಕಗಣಿತದ ಹೊಗೆ ಪ್ರಾಂಪ್ಟ್ ವಿಫಲವಾಗಿದೆ; ಈ ಫಲಿತಾಂಶಗಳು ಸಾಮಾನ್ಯ ವೇಗ ಅಥವಾ ಗುಣಮಟ್ಟದ ಶ್ರೇಯಾಂಕವಲ್ಲ. [ಪೂರ್ಣ ಅಳತೆಗಳು ಮತ್ತು ಮಿತಿಗಳು](deliverables/exllama-2026-10-30/validation.md).
+
+**TabbyAPI** ಐಚ್ಛಿಕ, ಪ್ರತ್ಯೇಕವಾಗಿ ನಿರ್ವಹಿಸಲಾದ OpenAI-ಹೊಂದಾಣಿಕೆಯ ಸರ್ವರ್ ಸಂಪರ್ಕ, ಪೂರ್ವನಿಯೋಜಿತವಾಗಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ. ದೃಢೀಕೃತ EXL3 ಮಾದರಿ ಅನ್ವೇಷಣೆ ಮತ್ತು ಸ್ಟ್ರೀಮಿಂಗ್ ಅನ್ನು ಪರೀಕ್ಷಿಸಲಾಗಿದೆ. ನಿರ್ವಹಿಸಲಾದ ಸ್ಥಳೀಯ ExLlama ಮಾರ್ಗವು ವಿಭಿನ್ನವಾಗಿ ಉಳಿದಿದೆ. [ExLlama ಸೆಟಪ್ ಮತ್ತು TabbyAPI ಸಂಪರ್ಕ](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
+
+ಡಿಫಾಲ್ಟ್ ಹಾರ್ಡ್‌ವೇರ್-ಹೊಂದಾಣಿಕೆಯ ವಿಂಗಡಣೆಯು ಅದೇ ಹೊಂದಾಣಿಕೆ ಮತ್ತು ಲಭ್ಯವಿರುವ-ಮೆಮೊರಿ ಶ್ರೇಣಿಯೊಳಗೆ ಹೊಸ ಬಿಡುಗಡೆಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ. ಸ್ಥಾಪಿಸಲಾದ ಮಾದರಿಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಬದಲಾಯಿಸಲಾಗುವುದಿಲ್ಲ.
+
+[ಕ್ವಾಂಟೀಕರಿಸಿದ Safetensors ಸೆಟಪ್](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [ಸ್ವರೂಪಗಳು, ಆದ್ಯತೆಗಳು ಮತ್ತು ಮೌಲ್ಯೀಕರಣ](docs/SUIVI_MOTEURS.md)
+
+ನವೀಕರಿಸಿದ ಮೂಲಗಳು ಸೇರಿಸುತ್ತವೆ **Windows x64 ಗಾಗಿ ಕಾನ್ಫಿಗರೇಶನ್‌ಗಳಲ್ಲಿ ಐಚ್ಛಿಕ ನಿರ್ವಹಿಸಲಾದ ಘಟಕಗಳು**: ಖಾಸಗಿ ಪೈಥಾನ್ ಪರಿಸರಗಳು, ಪಿನ್ ಮಾಡಿದ CPU/CUDA ಪ್ರೊಫೈಲ್‌ಗಳು, ಅಂದಾಜುಗಳು ಮತ್ತು ಡೌನ್‌ಲೋಡ್‌ಗಳ ಮೊದಲು ದೃಢೀಕರಣ, ಪರಿಶೀಲನೆ, ದುರಸ್ತಿ ಮತ್ತು ತೆಗೆದುಹಾಕುವಿಕೆ. ಕಸ್ಟಮ್ ಇಂಟರ್ಪ್ರಿಟರ್ ಪಥಗಳು ಸುಧಾರಿತ ಆಯ್ಕೆಗಳ ಅಡಿಯಲ್ಲಿ ಉಳಿಯುತ್ತವೆ. ಸ್ಥಳೀಯ GGUF ಎಂಜಿನ್‌ಗಳು ತಮ್ಮ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಘಟಕಗಳನ್ನು ಇಟ್ಟುಕೊಳ್ಳುತ್ತವೆ; ಮೊಬೈಲ್ ಮತ್ತು ಕ್ಲೌಡ್ ಡೆಸ್ಕ್‌ಟಾಪ್ ಪೈಥಾನ್/PyTorch ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡುವುದಿಲ್ಲ. ಮೂರು ಖಾಸಗಿ CPU/ರಫ್ತು ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ನೈಜ ಸಿಂಥೆಟಿಕ್ ಫಿಕ್ಚರ್‌ಗಳೊಂದಿಗೆ ಪ್ರಯೋಗಿಸಲಾಗಿದೆ; ನಿರ್ವಹಿಸುವವರು 1 ನವೆಂಬರ್ 2026 ನಲ್ಲಿ ಯಶಸ್ವಿ ಡೆಸ್ಕ್‌ಟಾಪ್ ಬಳಕೆಯನ್ನು ವರದಿ ಮಾಡುತ್ತಾರೆ; GPU ಪ್ರೊಫೈಲ್‌ಗಳು ಮತ್ತು ಕ್ಲೀನ್-PC ಸ್ಥಾಪನೆಗೆ ಇನ್ನೂ ಪ್ರತ್ಯೇಕ, ವಿವರವಾದ ಮೌಲ್ಯೀಕರಣದ ಅಗತ್ಯವಿದೆ. [ಪ್ರೊಫೈಲ್‌ಗಳು ಮತ್ತು ಪರೀಕ್ಷಾ ಮಿತಿಗಳು](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). EXE ನಲ್ಲಿ ಸ್ಟಾಕ್ ಅನ್ನು ಎಂಬೆಡ್ ಮಾಡುವುದನ್ನು ಮುಂದೂಡಲಾಗಿದೆ.
+
+## 80 ಇಂಟರ್ಫೇಸ್ ಭಾಷೆಗಳು ಮತ್ತು ರೂಪಾಂತರಗಳು
+
+**ಎಲ್ಲಾ 80 ಕ್ಯಾಟಲಾಗ್‌ಗಳು ಪ್ರಸ್ತುತ 2,429 ಇಂಗ್ಲೀಷ್ ಕೀಗಳನ್ನು ಒಳಗೊಂಡಿದೆ** ಮೆನುಗಳು, ಕಾನ್ಫಿಗರೇಶನ್‌ಗಳು, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಸಹಾಯ ಮತ್ತು ಮಾಧ್ಯಮ ನಿಯಂತ್ರಣಗಳು ಸೇರಿದಂತೆ 15 ನೇಮ್‌ಸ್ಪೇಸ್‌ಗಳಾದ್ಯಂತ. ಬಹುವಚನ ರೂಪಗಳು ಮತ್ತು ಇಂಟರ್ಫೇಸ್ ನಿರ್ದೇಶನವು ಆಯ್ಕೆಮಾಡಿದ ಭಾಷೆಯನ್ನು ಅನುಸರಿಸುತ್ತದೆ. ಪ್ರತಿಕ್ರಿಯೆ ಮತ್ತು ಧ್ವನಿ ಭಾಷೆಗಳು ಪ್ರತ್ಯೇಕವಾಗಿ ಮಾದರಿಯನ್ನು ಅವಲಂಬಿಸಿರುತ್ತದೆ.
+
+ಈ ತಾಂತ್ರಿಕ ವ್ಯಾಪ್ತಿಯು ಭಾಷಾ ಗುಣಮಟ್ಟವನ್ನು ಪ್ರಮಾಣೀಕರಿಸುವುದಿಲ್ಲ: **ಸ್ಥಳೀಯ ವಿಮರ್ಶೆ ಮತ್ತು ಪ್ರಾದೇಶಿಕ ಹೊಂದಾಣಿಕೆಯ ಅಗತ್ಯ ಉಳಿದಿದೆ**. ನಲ್ಲಿ ಸ್ಥಳೀಯ ಲೇಬಲ್‌ಗಳು ಮತ್ತು ತಿಳಿದಿರುವ ಮಿತಿಗಳನ್ನು ನೋಡಿ [ಭಾಷಾ ಮಾರ್ಗದರ್ಶಿ](docs/LANGUAGES.md) ಮತ್ತು [ಆಡಿಟ್ ವರದಿ](deliverables/interface-audit-2026-10-29/RAPPORT.md).
+
+## ಪ್ರತಿ ವಲಯದಲ್ಲಿ ಜನರಿಗೆ ಸಹಾಯ ಮಾಡುವುದು
+
+ಶಾಲೆ ಮತ್ತು ಶಿಕ್ಷಣದ ಹೊರತಾಗಿ, ಜನರು ಕಲಿಯಲು, ಸಮಸ್ಯೆಗಳನ್ನು ಪರಿಹರಿಸಲು, ಪ್ರಪಂಚದಾದ್ಯಂತ ಉಪಯುಕ್ತ ಯೋಜನೆಗಳನ್ನು ರಚಿಸಲು ಮತ್ತು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು ಸಹಾಯ ಮಾಡುವುದು ನಮ್ಮ ಮಹತ್ವಾಕಾಂಕ್ಷೆಯಾಗಿದೆ. Novera ಪ್ರಸ್ತುತ AI ಪ್ರಗತಿಗಳನ್ನು ಭಾಷೆಗಳು, ಅನುಭವದ ಮಟ್ಟಗಳು ಮತ್ತು ಲಭ್ಯವಿರುವ ಯಂತ್ರಾಂಶದಾದ್ಯಂತ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಮತ್ತು ಬಳಸಲು ಸುಲಭವಾಗುವಂತೆ ಮಾಡುವ ಗುರಿಯನ್ನು ಹೊಂದಿದೆ.
+
+| ನಾವು ಅಭಿವೃದ್ಧಿಗೆ ಸಹಾಯ ಮಾಡಲು ಬಯಸುವ ವಲಯಗಳು | ಉಪಯುಕ್ತ ಕೊಡುಗೆಗಳ ಉದಾಹರಣೆಗಳು |
+| --- | --- |
+| ಶಾಲೆಗಳು, ಶಿಕ್ಷಣ ಮತ್ತು ಜೀವಮಾನದ ಕಲಿಕೆ | ಪರಿಕಲ್ಪನೆಗಳನ್ನು ವಿವರಿಸಿ, ಕಲಿಕಾ ಸಾಮಗ್ರಿಗಳನ್ನು ಅಳವಡಿಸಿಕೊಳ್ಳಿ ಮತ್ತು ಶಿಕ್ಷಕರು, ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ಕುಟುಂಬಗಳನ್ನು ಬೆಂಬಲಿಸಿ. |
+| ಸಂಶೋಧನೆ, ವಿಜ್ಞಾನ ಮತ್ತು ಬಾಹ್ಯಾಕಾಶ | ಸಾಹಿತ್ಯವನ್ನು ಅನ್ವೇಷಿಸಿ, ವಿಧಾನಗಳನ್ನು ವಿವರಿಸಿ, ಡೇಟಾವನ್ನು ವಿಶ್ಲೇಷಿಸಿ ಮತ್ತು ಜ್ಞಾನವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ. |
+| ಆರೋಗ್ಯ, ಆರೈಕೆ ಮತ್ತು ಸಾಮಾಜಿಕ ಬೆಂಬಲ | ಸಂಶೋಧನೆ ಮತ್ತು ವೃತ್ತಿಪರ ಕೆಲಸದ ಹರಿವುಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಮತ್ತು ಬೆಂಬಲಿಸಲು ಮಾಹಿತಿಯನ್ನು ಸುಲಭಗೊಳಿಸಿ. |
+| ಕೃಷಿ, ಆಹಾರ ಮತ್ತು ಗ್ರಾಮೀಣ ಸಮುದಾಯಗಳು | ಪ್ರಾಯೋಗಿಕ ಜ್ಞಾನವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ, ಯೋಜನೆಯನ್ನು ಬೆಂಬಲಿಸಿ ಮತ್ತು ಸ್ಥಳೀಯವಾಗಿ ಉಪಯುಕ್ತ ಸಾಧನಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಿ. |
+| ಪರಿಸರ, ಹವಾಮಾನ, ನೀರು ಮತ್ತು ಜೀವವೈವಿಧ್ಯ | ಪುರಾವೆಗಳನ್ನು ವಿವರಿಸಿ, ಬೆಂಬಲ ವೀಕ್ಷಣೆ ಮತ್ತು ಯೋಜನೆಗಳನ್ನು ಯೋಜಿಸಲು ಸಮುದಾಯಗಳಿಗೆ ಸಹಾಯ ಮಾಡಿ. |
+| ಶಕ್ತಿ, ಕೈಗಾರಿಕೆ, ನಿರ್ಮಾಣ ಮತ್ತು ಕರಕುಶಲ | ಬೆಂಬಲ ದಾಖಲಾತಿ, ವಿನ್ಯಾಸ, ನಿರ್ವಹಣೆ, ತಾಂತ್ರಿಕ ಕಲಿಕೆ ಮತ್ತು ಪ್ರಕ್ರಿಯೆ ಸುಧಾರಣೆ. |
+| ವ್ಯಾಪಾರಗಳು, ವಾಣಿಜ್ಯ, ಹಣಕಾಸು ಮತ್ತು ಉದ್ಯೋಗ | ಕೆಲಸವನ್ನು ಸಂಘಟಿಸಲು, ಮಾಹಿತಿಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು, ಯೋಜನೆಗಳನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು ಮತ್ತು ವೃತ್ತಿಪರ ಕೌಶಲ್ಯಗಳನ್ನು ಕಲಿಯಲು ಸಹಾಯ ಮಾಡಿ. |
+| ಸಾರ್ವಜನಿಕ ಸೇವೆಗಳು, ಕಾನೂನು ಮತ್ತು ನಾಗರಿಕ ಭಾಗವಹಿಸುವಿಕೆ | ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳು ಮತ್ತು ಕಾರ್ಯವಿಧಾನಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಮತ್ತು ಮಾಹಿತಿಯನ್ನು ಸುಲಭವಾಗಿ ಪ್ರವೇಶಿಸಲು ಸುಲಭಗೊಳಿಸಿ. |
+| ಕಂಪ್ಯೂಟಿಂಗ್, ಸೈಬರ್ ಭದ್ರತೆ, ರೊಬೊಟಿಕ್ಸ್ ಮತ್ತು ದೂರಸಂಪರ್ಕ | ಸಾಫ್ಟ್‌ವೇರ್ ಅನ್ನು ಅಭಿವೃದ್ಧಿಪಡಿಸಲು, ಸಿಸ್ಟಮ್‌ಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಮತ್ತು ಉಪಯುಕ್ತ ಸಾಧನಗಳನ್ನು ನಿರ್ಮಿಸಲು ಸಹಾಯ ಮಾಡಿ. |
+| ಕಲೆ, ಸಂಸ್ಕೃತಿ, ಮಾಧ್ಯಮ, ಭಾಷೆಗಳು ಮತ್ತು ಪರಂಪರೆ | ಬರವಣಿಗೆ, ಅನುವಾದ, ಚಿತ್ರಗಳು, ವಿಡಿಯೋ, ಸೃಜನಾತ್ಮಕ ಯೋಜನೆಗಳು ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಹಂಚಿಕೆಯನ್ನು ಬೆಂಬಲಿಸಿ. |
+| ಸಾರಿಗೆ, ಲಾಜಿಸ್ಟಿಕ್ಸ್, ಪ್ರವಾಸೋದ್ಯಮ, ಕ್ರೀಡೆ ಮತ್ತು ಸಮುದಾಯ ಜೀವನ | ಯೋಜನೆ, ಸಂವಹನ, ಕಲಿಕೆ ಮತ್ತು ಸ್ಥಳೀಯ ಉಪಕ್ರಮಗಳಿಗೆ ಸಹಾಯ. |
+| ಪ್ರವೇಶಿಸುವಿಕೆ, ಮಾನವೀಯ ಕೆಲಸ ಮತ್ತು ದೈನಂದಿನ ಜೀವನ | ಭಾಷೆ ಮತ್ತು ಜ್ಞಾನದ ಅಡೆತಡೆಗಳನ್ನು ಕಡಿಮೆ ಮಾಡಿ ಮತ್ತು ಪ್ರಾಯೋಗಿಕ ನೆರವಿನೊಂದಿಗೆ ಜನರನ್ನು ಬೆಂಬಲಿಸಿ. |
+
+ಇವು ಕೊಡುಗೆ ಮತ್ತು ಅಭಿವೃದ್ಧಿಗೆ ನಿರ್ದೇಶನಗಳಾಗಿವೆ, ಪ್ರತಿ ಸೆಕ್ಟರ್-ನಿರ್ದಿಷ್ಟ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ಈಗಾಗಲೇ ವಿತರಿಸಲಾಗಿದೆ ಅಥವಾ ಮೌಲ್ಯೀಕರಿಸಲಾಗಿದೆ ಎಂಬ ಹಕ್ಕು ಅಲ್ಲ. ದೈನಂದಿನ ಬಳಕೆಗಾಗಿ ಸರಳವಾದ ಮಾರ್ಗದರ್ಶನ, ಅಗತ್ಯವಿದ್ದಾಗ ಸ್ಪಷ್ಟ ಸುಧಾರಿತ ಆಯ್ಕೆಗಳು, ಪಾರದರ್ಶಕ ಹಾರ್ಡ್‌ವೇರ್ ಮತ್ತು ಕ್ಲೌಡ್ ಅವಶ್ಯಕತೆಗಳು ಮತ್ತು ಪ್ರತಿ ಕ್ಷೇತ್ರ ಮತ್ತು ಸ್ಥಳೀಯ ಸಂದರ್ಭವನ್ನು ತಿಳಿದಿರುವ ಜನರೊಂದಿಗೆ ಸಹಯೋಗವನ್ನು ನಾವು ಬಯಸುತ್ತೇವೆ.
+
+## ಯೋಜನೆಯ ಸ್ಥಿತಿ
+
+**Novera 1.0.0 Windows, Linux, macOS ಮತ್ತು Android ಗೆ ಲಭ್ಯವಿದೆ.** ಸ್ಕ್ರೀನ್‌ಶಾಟ್ ನಿರ್ವಹಣೆದಾರರಿಂದ ಸ್ಥಳೀಯವಾಗಿ ಸಂಕಲಿಸಲಾದ Windows ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ತೋರಿಸುತ್ತದೆ. ಮೂಲ ಬದಲಾವಣೆಗಳು, ಉದ್ದೇಶಿತ ಪರೀಕ್ಷೆಗಳು ಮತ್ತು ಹಾರ್ಡ್‌ವೇರ್ ಮೌಲ್ಯೀಕರಣವನ್ನು ಪ್ರತ್ಯೇಕವಾಗಿ ದಾಖಲಿಸಲಾಗಿದೆ; ಇದು ಪ್ರತಿ ಮಾದರಿ, ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಅಥವಾ ಕ್ಲೌಡ್ ಖಾತೆಯನ್ನು ಮೌಲ್ಯೀಕರಿಸುವುದಿಲ್ಲ.
+
+ಹಸ್ತಚಾಲಿತ GitHub Actions ಬಿಲ್ಡ್‌ಗಳನ್ನು ಎಲ್ಲಾ ಹನ್ನೊಂದು ವಿತರಣಾ ರೂಪಾಂತರಗಳಿಗೆ ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ. ಅನುಸರಿಸಿ [ಬಿಲ್ಡ್ ಫಲಿತಾಂಶಗಳು ಮತ್ತು ಪರಿಶೀಲಿಸಿದ ಅಭ್ಯರ್ಥಿ ಡೌನ್‌ಲೋಡ್‌ಗಳು](docs/CI_DISTRIBUTIONS.md); ಪ್ರತಿ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗೆ ಲಭ್ಯತೆಯನ್ನು ಪ್ರತ್ಯೇಕವಾಗಿ ದಾಖಲಿಸಲಾಗುತ್ತದೆ. ಅಭ್ಯರ್ಥಿಗಳು ಸಹಿ ಮಾಡಿದ ಉತ್ಪಾದನಾ ಬಿಡುಗಡೆಗಳಿಂದ ಭಿನ್ನರಾಗಿದ್ದಾರೆ. ವಿತರಣಾ ಅವಶ್ಯಕತೆಗಳನ್ನು ವಿವರಿಸಲಾಗಿದೆ [ಅಧಿಕೃತ ಬಿಡುಗಡೆ ನೀತಿ](OFFICIAL_RELEASES.md) ಮತ್ತು [ಬಿಡುಗಡೆ ಪುಟ](https://github.com/TRON-ABS/Novera/releases). ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಅಪ್ಡೇಟ್-ಅಂಗವಿಕಲ ಅಭ್ಯರ್ಥಿಗಳು ಆಂತರಿಕವಾಗಿ ಉಳಿಯುತ್ತಾರೆ. ಸಾರ್ವಜನಿಕ ಬಿಡುಗಡೆಗಳಿಗೆ ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾದ ಮತ್ತು ಪರಿಶೀಲಿಸಿದ ನವೀಕರಣ ಕಾರ್ಯವಿಧಾನದ ಅಗತ್ಯವಿದೆ; [ಡೆಸ್ಕ್‌ಟಾಪ್ ಸಿಗ್ನೇಚರ್ ಚೆಕ್‌ಗಳು ಮತ್ತು ಉಳಿದ ಲಾಂಚ್ ಅವಶ್ಯಕತೆಗಳನ್ನು ದಾಖಲಿಸಲಾಗಿದೆ](docs/LAUNCH_STATUS.md).
+
+## ದಾಖಲೆ ಮತ್ತು ಕೊಡುಗೆಗಳು
+
+- [ವಿವರವಾದ ಬಳಕೆದಾರ ಮಾರ್ಗದರ್ಶಿ](docs/USER_GUIDE.md), [ಉತ್ಪನ್ನ ಮತ್ತು ಬಳಕೆದಾರ-ಮಾಹಿತಿ ಸುವರ್ಣ ನಿಯಮಗಳು (ಫ್ರೆಂಚ್)](docs/REGLES_D_OR.md), [ಮಾದರಿಗಳು ಮತ್ತು ಎಂಜಿನ್‌ಗಳು](docs/SUIVI_MOTEURS.md).
+- [ಅಭಿವೃದ್ಧಿ](docs/DEVELOPMENT.md), [ನಿರ್ಮಾಣ ಮತ್ತು ಬಿಡುಗಡೆ ಮಾರ್ಗದರ್ಶಿ](docs/BUILD_AND_RELEASE.md), [ಭವಿಷ್ಯದ ಆವೃತ್ತಿಗಳು ಮತ್ತು ನವೀಕರಣ ತಯಾರಿ](docs/FUTURES_VERSIONS.md).
+- [ಪ್ರಾಜೆಕ್ಟ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್](TABLEAU_DE_BORD_NOVERA.md), [ಮಾರ್ಗಸೂಚಿ](ROADMAP.md), [ಚೇಂಜ್ಲಾಗ್](docs/CHANGELOG.md).
+- [ಕೊಡುಗೆ](CONTRIBUTING.md): ಕೋಡ್, ಪರೀಕ್ಷೆಗಳು, 80 ಭಾಷೆಗಳಲ್ಲಿ ಸ್ಥಳೀಯ ವಿಮರ್ಶೆ ಮತ್ತು ನೈಜ ವರ್ಕ್‌ಫ್ಲೋ ಪ್ರತಿಕ್ರಿಯೆ.
+
+## ಗುರುತು ಮತ್ತು ಪರವಾನಗಿ
+
+Novera ನಿರ್ವಹಿಸುತ್ತದೆ **TRON-ABS** ಒಳಗೆ [ಈ ರೆಪೊಸಿಟರಿ](https://github.com/TRON-ABS/Novera). ನೋಡಿ [ಗುರುತಿನ ನೀತಿ](BRANDING.md) ಮತ್ತು [ಅಧಿಕೃತ ಬಿಡುಗಡೆ ನೀತಿ](OFFICIAL_RELEASES.md).
+
+Novera ನಿರ್ಮಿಸುತ್ತದೆ [Jan](https://github.com/janhq/jan), Menlo Research ಮತ್ತು ಅದರ ಕೊಡುಗೆದಾರರಿಂದ ರಚಿಸಲಾಗಿದೆ. ಮೂಲ ಮತ್ತು ಮೂರನೇ ವ್ಯಕ್ತಿಯ ಗುಣಲಕ್ಷಣಗಳು ಮತ್ತು [Apache 2.0 ಪರವಾನಗಿ](LICENSE) ಉಳಿಸಿಕೊಳ್ಳಲಾಗಿದೆ. Jan ಡೌನ್‌ಲೋಡ್‌ಗಳು Novera ಬಿಡುಗಡೆಗಳಲ್ಲ.
+
+## ಬೆಂಬಲ Novera
+
+ಒಬ್ಬ ಸ್ವತಂತ್ರ ಸಂಶೋಧಕನಾಗಿ, ನಿಧಿಯ ಕೊರತೆಯು ಸಂಶೋಧನೆಯನ್ನು ಮುಂದುವರಿಸಲು ಹೇಗೆ ಕಷ್ಟವಾಗಬಹುದು ಎಂದು ನನಗೆ ತಿಳಿದಿದೆ.
+
+ನೀವು Novera ಸಾಹಸದ ಭಾಗವಾಗಲು ಬಯಸಿದರೆ, ನೀವು ಸ್ವಯಂಪ್ರೇರಿತ ಬಿಟ್‌ಕಾಯಿನ್ ಕೊಡುಗೆಯೊಂದಿಗೆ ನನ್ನ ಸಂಶೋಧನೆ ಮತ್ತು ಯೋಜನೆಯ ಅಭಿವೃದ್ಧಿಯನ್ನು ಬೆಂಬಲಿಸಬಹುದು.
+
+ನಿಮ್ಮ ಬೆಂಬಲ, ಕೊಡುಗೆಗಳು, ಪ್ರತಿಕ್ರಿಯೆ ಮತ್ತು ಪ್ರೋತ್ಸಾಹಕ್ಕಾಗಿ ಎಲ್ಲರಿಗೂ ಧನ್ಯವಾದಗಳು. ಈ ಸಾಹಸದಲ್ಲಿ ಪ್ರತಿಯೊಂದು ಗೆಸ್ಚರ್ ಎಣಿಕೆಯಾಗುತ್ತದೆ!
+
+**Bitcoin (BTC) — Bitcoin ನೆಟ್‌ವರ್ಕ್**
+
+ಸ್ವೀಕರಿಸುವ ವಿಳಾಸ: `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
+
+ಕೊಡುಗೆ ನೀಡಲು, ಈ QR ಕೋಡ್ ಅನ್ನು ನಿಮ್ಮ ವ್ಯಾಲೆಟ್‌ನೊಂದಿಗೆ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ ಅಥವಾ ಮೇಲಿನ ವಿಳಾಸವನ್ನು ನಕಲಿಸಿ. ಆಯ್ಕೆ ಮಾಡಿ **Bitcoin (BTC), Bitcoin ನೆಟ್‌ವರ್ಕ್‌ನಲ್ಲಿ**, ನಂತರ ನೀವು ಬಯಸುವ ಯಾವುದೇ ಮೊತ್ತವನ್ನು ಆಯ್ಕೆಮಾಡಿ.
+
+<img src=".github/assets/novera-bitcoin-support.png" alt="Novera Bitcoin ಬೆಂಬಲ ವಿಳಾಸಕ್ಕಾಗಿ QR ಕೋಡ್" width="240" />
+
+---
+
+<div align="center">
+  <p>Novera ನೊಂದಿಗೆ ತಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸುವ ಪ್ರತಿಯೊಬ್ಬರಿಗೂ: ನಿಮ್ಮ ಕುತೂಹಲವು ಹೊಸ ಬಾಗಿಲುಗಳನ್ನು ತೆರೆಯಲಿ, ನಿಮ್ಮ ಆಲೋಚನೆಗಳು ಜೀವಂತವಾಗಲಿ ಮತ್ತು ಪ್ರತಿ ಸೃಷ್ಟಿಯು ನಿಮ್ಮನ್ನು ಸ್ವಲ್ಪ ಮುಂದೆ ಕೊಂಡೊಯ್ಯಲಿ.</p>
+  <p><strong>TRON-ABS</strong></p>
+  <p>Mr Sachet Jean-Marc — ಸ್ವತಂತ್ರ ಸಂಶೋಧಕ — ಫ್ರಾನ್ಸ್</p>
+  <p><em>AI ಜೊತೆಗೆ ಮಾನವನ ಕಲೆ</em></p>
+  <p>ಉತ್ತಮ ಜಗತ್ತಿಗೆ ಕೊಡುಗೆ ನೀಡಿದ ಎಲ್ಲರಿಗೂ ಧನ್ಯವಾದಗಳು. ಅವರ ಆವಿಷ್ಕಾರಗಳು, ಕೆಲಸ, ಪರಸ್ಪರ ಬೆಂಬಲ ಮತ್ತು ಅವರು ರವಾನಿಸುವ ಜ್ಞಾನದ ಮೂಲಕ, ನಾವು ಇಂದು ಇರುವ ಸ್ಥಳವನ್ನು ತಲುಪಲು ಅವರು ನಮಗೆ ಸಹಾಯ ಮಾಡಿದ್ದಾರೆ.</p>
+  <p>ಹಂಚಿಕೊಳ್ಳುವ ಮತ್ತು ಇತರರಿಗೆ ಸಹಾಯ ಮಾಡುವ ಈ ಮನೋಭಾವವನ್ನು ಹೊಂದಿರುವ ಪ್ರತಿಯೊಬ್ಬರ ಜೊತೆಗೆ ಅವರ ಭವಿಷ್ಯಕ್ಕಾಗಿ ನಾವು ಅವರಿಗೆ ಶುಭ ಹಾರೈಸುತ್ತೇವೆ.</p>
+</div>
+
+<div align="center"><sub>ಅಭಿವೃದ್ಧಿ ಸಾಧನ: 🧠 Codex — GPT-6.1 Sol</sub></div>
