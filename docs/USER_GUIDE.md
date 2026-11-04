@@ -607,6 +607,8 @@ Ce mode de compatibilité peut fonctionner **sur CPU sans CUDA**. Il ne constitu
 
 ## Confidentialité
 
+Voir la [page officielle sur les données, les connexions externes et les choix de confidentialité](DONNEES_ET_CONFIDENTIALITE.md).
+
 Les statistiques et le suivi des erreurs ont des consentements **indépendants**, désactivés par défaut et liés à l’hôte/projet destinataire. Le suivi des erreurs est demandé au premier démarrage ; l’accord aux statistiques ne l’active jamais. Le refus est mémorisé. Sans destination configurée, aucun envoi n’est possible. Un changement de destinataire demande une nouvelle décision. Le retrait dans Paramètres → Confidentialité annule les requêtes en attente et les envois suivants.
 
 | Fonction | Données et limites |

@@ -11,6 +11,8 @@
   <p>Share your creations, models, settings, questions, feedback and ideas.</p>
 </div>
 
+Data and privacy: [local inference, optional telemetry, error reports and update connections (French)](docs/DONNEES_ET_CONFIDENTIALITE.md). License: [Apache 2.0](LICENSE) · [Attribution](NOTICE).
+
 ---
 
 ## Availability — 3 November 2026

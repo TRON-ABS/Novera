@@ -11,6 +11,8 @@
   <p>Partagez vos créations, modèles, réglages, questions, retours et idées.</p>
 </div>
 
+Données et confidentialité : [inférence locale, télémétrie facultative, erreurs et mises à jour](docs/DONNEES_ET_CONFIDENTIALITE.md). Licence : [Apache 2.0](LICENSE) · [Attribution](NOTICE).
+
 ---
 
 ## Disponibilité — 3 novembre 2026
