@@ -26,7 +26,7 @@
 | Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, mit einem dedizierten signierten Update-Kanal. |
 | Windows ARM64 | [Öffentliches NSIS-Installationsprogramm](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), native CPU-Text-Engine; Installation, Austausch und Public-Channel-Prüfungen verifiziert. |
 | Android ARM64 | [Öffentlich signiert APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, Standardstapel 512. Der Betreuer bestätigt, dass Build 1000012 auf seinem Telefon funktioniert. Sauberes Paket ohne Gespräche, Modelle oder persönliche API-Schlüssel. [Beweise und Einschränkungen](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Offizielle 1.0.0 DMG-Version](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-signierte Updates. Nicht von Apple notariell beglaubigt; Automatisierte Prüfungen wurden für beide Architekturen getrennt durchgeführt, visuelle Prüfungen wurden verschoben. [Installation und Nachweis](docs/RELEASE_MACOS_1.0.0.md). |
+| macOS Intel / Apple Silicon | [Offizielle 1.0.0 DMG-Version](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-signierte Updates. Nicht durch Apples Notarisierungsdienst geprüft; Automatisierte Prüfungen wurden für beide Architekturen getrennt durchgeführt, visuelle Prüfungen wurden verschoben. [Installation und Nachweis](docs/RELEASE_MACOS_1.0.0.md). |
 | iOS | Interner Simulatoraufbau; Vor der iPhone-Installation ist eine Apple-Signatur/-Bereitstellung erforderlich. [Nachverfolgung](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 tragbar | [Signiertes ZIP-Archiv](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); Daten bleiben in Data, signierter Program-Ersatz verifiziert. |
 | Web, MSI, Debian | Gehosteter Web-Client und andere Formate bleiben intern; Die Präsentationsseite für Seiten ist verfügbar. |
@@ -49,7 +49,7 @@ Novera wächst mit Ihnen. Ihre Beispiele und Einstellungen können anderen Benut
 
 *Echter Screenshot der Windows-Anwendung, bereitgestellt vom Betreuer am 1 November 2026, der berichtet, dass die Anwendung gut funktioniert. Es zeigt eine generierte Landschaft, ihre Steuerelemente für gespeicherte Dateien und das einheitliche Erstellungs-Dashboard; Dies ist kein Modell.*
 
-Ein Panel, fünf Modi: **Auto, Text, Bild, Musik und Video**. Die Steuerung folgt dem ausgewählten Modus: Verhältnis, Auflösung, Dauer, Kadenz, Qualität, Instrumental, Liedtext, Startwert und Quantität. Panelbreite und Schaltflächen passen sich dem Fenster und den übersetzten Beschriftungen an.
+Ein Panel, fünf Modi: **Auto / Text / Bild / Musik / Video**. Die Steuerung folgt dem ausgewählten Modus: Verhältnis, Auflösung, Dauer, Kadenz, Qualität, Instrumental, Liedtext, Startwert und Quantität. Panelbreite und Schaltflächen passen sich dem Fenster und den übersetzten Beschriftungen an.
 
 - **1–10 sequentielle Generationen**, standardmäßig 1, mit unabhängigen Mengen für Bild, Musik und Video. Stop bricht die aktive Aufgabe und die verbleibende Warteschlange ab.
 - **Zufällige, feste, +1- und −1-Seeds**, voreingestellte oder benutzerdefinierte Verhältnisse und optional **Real-ESRGAN ×2/×4** Hochskalierung mit angezeigten Endmaßen.
@@ -101,7 +101,7 @@ Diese Modelle bilden die aktuelle geführte Konfiguration. Sie können andere ko
 | **Text – Erstmodell** | **Nemotron-3.5-Bolt-E4B**, Datei `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
 | **Dokumentenabruf** | **Qwen3-Embedding-0.6B Q8_0**, **CPU standardmäßig**, mit einer gespeicherten CPU/GPU-Auswahl. |
 | **Bild** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** Encoder und offizieller FLUX.2 VAE. |
-| **Bild – Hardwareoption** | **FLUX.2 Klein 4B NVFP4**über den nativen CUDA-Pfad, wenn GPU und Umgebung kompatibel sind. |
+| **Bild – Hardwareoption** | **FLUX.2 Klein 4B NVFP4** über den nativen CUDA-Pfad, wenn GPU und Umgebung kompatibel sind. |
 | **Musik** | **ACE-Step 1.5 Turbo 2B Q4_K_M**, `acestep-5Hz-lm-1.7B-Q8_0.gguf` Planer, dedizierter Musik-Encoder Qwen und VAE. |
 | **Video** | **Wan2.1 T2V 1.3B Q4_K_M**, **UMT5-XXL Q4_K_M** Encoder und Wan 2.1 VAE. |
 | **Hochskalierung** | Optional **Real-ESRGAN ×2 und ×4**, mit Abhängigkeitsprüfungen. |
@@ -213,7 +213,7 @@ Inventar anhand der Quelle überprüft am **29 Oktober 2026**. Diese Namen besch
 | **ONNX Runtime** | Lokaler Import von numerischen/boolschen Diagrammen und vorbereitete GenAI-Textexporte. | Validierter vollständiger Ordner; aufgabenspezifische Vor-/Nachbearbeitung erforderlich; [Einrichtung und Grenzen](onnx-server/README.md). |
 | **LoRA / PEFT-Adapter** | Importieren Sie eine komplette Basis mit ihrem separaten lokalen Adapter im Safetensors-Provider. | Unquantisierte kausale Transformers-Basis, übereinstimmende Identität, Tensorprüfungen und kumulative Speicherschätzung; [Einrichtung und Grenzen](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Native CUDA-Ausführung für kompatible dichte Llama/Qwen2/Qwen3-FP8-Exporte pro Tensor. | Architektur-/Tensorprüfungen und echte Kernel-Prüfung; [Einrichtung und Grenzen](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Gepackte Block-16 FP4-Projektionen durch native CUDA-GEMMs; getrennt vom Bild NVFP4. | Kompatibel Blackwell GPU, unterstützte Dimensionen/Export und tatsächliche Kernel-Sonde; Ungeschulte Vorrichtungen getestet auf RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Gepackte Block-16 FP4-Projektionen durch native CUDA-GEMMs; getrennt vom Bild NVFP4. | Kompatibel Blackwell GPU, unterstützte Dimensionen/Export und tatsächliche Kernel-Sonde; untrainierte Testmodelle auf RTX 5070 getestet. |
 | **AWQ** | 4-Bit-GEMM-Checkpoints ohne zusammengeführte Operationen. | NVIDIA CUDA und optionale GPTQModel/Transformers-Lader. |
 | **GPTQ** | 2/3/4/8-Bit-Konfigurationen, gptq/gptq_v2-Formate. | NVIDIA CUDA, GPTQModel und Optimum; echte Ausführung getestet bei 4 Bits. |
 | **bitsandbytes** | 4-Bit NF4/FP4 oder 8-Bit INT8. | NVIDIA CUDA und optionale Abhängigkeiten; echte NF4- und INT8-Tests. |
@@ -223,11 +223,11 @@ Inventar anhand der Quelle überprüft am **29 Oktober 2026**. Diese Namen besch
 
 Der Hub steckt jetzt fest **LFM3-1.7B** als LiquidAI-Empfehlung für kompatible Konfigurationen mit den Varianten Q4_K_M, Q6_K und Q8_0. Das Erstausführungsmodell bleibt das in der oben aufgeführten geführten Konfiguration aufgeführte Modell.
 
-Download-Gewichte filtern von **unter 1 GB bis 500 GB und höher**und dann nach Hardware-Passform, Größe, Aktualität oder Downloads sortieren. Die Ergebnisse werden nach und nach geladen; Filter gelten für abgerufene Modelle und deren Standardvariante. Die Speicherempfehlung verwendet verfügbare RAM/VRAM-, Kontext- und Begleitkomponenten, ohne den gemeinsam genutzten GPU-Speicher doppelt zu zählen.
+Download-Gewichte filtern von **unter 1 GB bis 500 GB und höher** und dann nach Hardware-Passform, Größe, Aktualität oder Downloads sortieren. Die Ergebnisse werden nach und nach geladen; Filter gelten für abgerufene Modelle und deren Standardvariante. Die Speicherempfehlung verwendet verfügbare RAM/VRAM-, Kontext- und Begleitkomponenten, ohne den gemeinsam genutzten GPU-Speicher doppelt zu zählen.
 
 AWQ 4-bit, GPTQ 4-bit, NF4 und INT8 generierten jeweils Text auf einem RTX 5070 Laptop unter Verwendung winziger, nicht trainierter Modelle, die offline erstellt wurden. Dies validiert das Laden und die Ausführung, nicht die Qualität oder Leistung jedes Modells. **Diese Ergänzungen befinden sich in der Quelle: Neuaufbau und kompatible Abhängigkeiten sind erforderlich; Dieses README-Update aktualisiert keine installierte Binärdatei.**
 
-**Gemessen am RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, Kontext 2,048, Eingabeaufforderung 272-Token, 128 generierte Token, fünf aufgewärmte Läufe: mittlere Dekodierung **GGUF Q4_K_M 402.7 Token/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Hier wurde kein Geschwindigkeitsvorteil gegenüber GGUF nachgewiesen. Quantisierung und Kalibrierung unterscheiden sich, und EXL3 bestand eine einfache Rechenprüfung nicht. Die Ergebnisse sind keine allgemeine Rangliste für Geschwindigkeit oder Qualität. [Vollständige Messungen und Grenzwerte](deliverables/exllama-2026-10-30/validation.md).
+**Gemessen am RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, Kontext 2,048, Eingabeaufforderung 272-Token, 128 generierte Token, fünf aufgewärmte Läufe: mediane Dekodiergeschwindigkeit **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Hier wurde kein Geschwindigkeitsvorteil gegenüber GGUF nachgewiesen. Quantisierung und Kalibrierung unterscheiden sich, und EXL3 bestand eine einfache Rechenprüfung nicht. Die Ergebnisse sind keine allgemeine Rangliste für Geschwindigkeit oder Qualität. [Vollständige Messungen und Grenzwerte](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** ist eine optionale, separat verwaltete OpenAI-kompatible Serververbindung, die standardmäßig deaktiviert ist. Die Erkennung und das Streaming des authentifizierten EXL3-Modells wurden getestet. Die verwaltete lokale ExLlama-Route bleibt eindeutig. [ExLlama-Setup und TabbyAPI-Verbindung](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Die standardmäßige, an die Hardware angepasste Sortierung bevorzugt neuere Ver
 
 [Quantisiertes Safetensors-Setup](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formate, Prioritäten und Validierung](docs/SUIVI_MOTEURS.md)
 
-Die aktualisierten Quellen fügen hinzu **optionale verwaltete Komponenten in Konfigurationen für Windows x64**: private Python-Umgebungen, angeheftete CPU/CUDA-Profile, Schätzungen und Bestätigung vor Downloads, Überprüfung, Reparatur und Entfernung. Benutzerdefinierte Interpreterpfade bleiben unter den erweiterten Optionen. Native GGUF-Engines behalten ihre vorhandenen Komponenten; Mobile und Cloud laden Desktop Python/PyTorch nicht herunter. Drei private CPU/Export-Profile wurden mit echten Kunststoffgeräten geübt; Der Betreuer meldet erfolgreiche Desktop-Nutzung auf 1 November 2026; GPU-Profile und die Clean-PC-Installation erfordern noch eine separate, detaillierte Validierung. [Profile und Testgrenzen](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Das Einbetten des Stacks in EXE wird verschoben.
+Die aktualisierten Quellen ergänzen **optionale verwaltete Komponenten in Konfigurationen für Windows x64**: private Python-Umgebungen, angeheftete CPU/CUDA-Profile, Schätzungen und Bestätigung vor Downloads, Überprüfung, Reparatur und Entfernung. Benutzerdefinierte Interpreterpfade bleiben unter den erweiterten Optionen. Native GGUF-Engines behalten ihre vorhandenen Komponenten; Mobile und Cloud laden Desktop Python/PyTorch nicht herunter. Drei private CPU/Export-Profile wurden mit synthetischen Testdaten geprüft; Der Betreuer meldet erfolgreiche Desktop-Nutzung auf 1 November 2026; GPU-Profile und die Clean-PC-Installation erfordern noch eine separate, detaillierte Validierung. [Profile und Testgrenzen](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Das Einbetten des Stacks in EXE wird verschoben.
 
 ## Sprachen und Varianten der 80-Schnittstelle
 
@@ -295,7 +295,7 @@ Vielen Dank an alle für Ihre Unterstützung, Beiträge, Ihr Feedback und Ihre E
 
 Empfangsadresse: `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
 
-Um einen Beitrag zu leisten, scannen Sie diesen QR-Code mit Ihrer Brieftasche oder kopieren Sie die oben stehende Adresse. Auswählen **Bitcoin (BTC), im Bitcoin-Netzwerk**und wählen Sie dann den gewünschten Betrag aus.
+Um einen Beitrag zu leisten, scannen Sie diesen QR-Code mit Ihrer Brieftasche oder kopieren Sie die oben stehende Adresse. Auswählen **Bitcoin (BTC), im Bitcoin-Netzwerk** und wählen Sie dann den gewünschten Betrag aus.
 
 <img src=".github/assets/novera-bitcoin-support.png" alt="QR-Code der Bitcoin-Adresse zur Unterstützung von Novera" width="240" />
 

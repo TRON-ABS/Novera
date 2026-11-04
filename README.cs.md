@@ -49,7 +49,7 @@ Novera roste s vámi. Vaše příklady a nastavení mohou pomoci ostatním uživ
 
 *Skutečný snímek obrazovky aplikace Windows dodaný správcem na 1 Listopad 2026, který hlásí, že aplikace funguje dobře. Zobrazuje vygenerovanou krajinu, její ovládací prvky pro uložené soubory a sjednocený řídicí panel vytváření; toto není maketa.*
 
-Jeden panel, pět režimů: **Auto, Text, Obrázek, Hudba a Video**. Ovládací prvky se řídí zvoleným režimem: poměr, rozlišení, trvání, kadence, kvalita, instrumentál, texty, semeno a kvantita. Šířka panelu a tlačítka se přizpůsobí oknu a přeloženým popiskům.
+Jeden panel, pět režimů: **Auto / Text / Obrázek / Hudba / Video**. Ovládací prvky se řídí zvoleným režimem: poměr, rozlišení, trvání, kadence, kvalita, instrumentál, texty, semeno a kvantita. Šířka panelu a tlačítka se přizpůsobí oknu a přeloženým popiskům.
 
 - **1–10 sekvenční generace**, výchozí 1, s nezávislými veličinami pro obrázek, hudbu a video. Stop zruší aktivní úlohu a zbývající frontu.
 - **Náhodné, pevné, semena +1 a −1**, přednastavené nebo vlastní poměry a volitelné **Real-ESRGAN ×2/×4** upscaling se zobrazenými konečnými rozměry.
@@ -99,12 +99,12 @@ Tyto modely tvoří aktuální řízenou konfiguraci. Můžete importovat dalš�
 | Role | Model / nakonfigurované komponenty |
 | --- | --- |
 | **Text — model prvního spuštění** | **Nemotron-3.5-Bolt-E4B**, soubor `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
-| **Vyhledání dokumentů** | **Qwen3-Embedding-0.6B Q8_0**, **CPU ve výchozím nastavení**s uloženou volbou CPU/GPU. |
+| **Vyhledání dokumentů** | **Qwen3-Embedding-0.6B Q8_0**, **CPU ve výchozím nastavení** s uloženou volbou CPU/GPU. |
 | **Obrázek** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** kodér a oficiální FLUX.2 VAE. |
 | **Obrázek – možnost hardwaru** | **FLUX.2 Klein 4B NVFP4**, prostřednictvím nativní cesty CUDA, když jsou GPU a prostředí kompatibilní. |
 | **Hudba** | **ACE-Step 1.5 Turbo 2B Q4_K_M**, `acestep-5Hz-lm-1.7B-Q8_0.gguf` plánovač, vyhrazený hudební kodér Qwen a VAE. |
 | **Video** | **Wan2.1 T2V 1.3B Q4_K_M**, **UMT5-XXL Q4_K_M** kodér a Wan 2.1 VAE. |
-| **Upscaling** | Volitelné **Real-ESRGAN ×2 a ×4**s kontrolami závislostí. |
+| **Upscaling** | Volitelné **Real-ESRGAN ×2 a ×4** s kontrolami závislostí. |
 
 Hudební kodér Qwen a model vyhledávání Qwen jsou **různé soubory**, uloženo samostatně. Modelové licence zůstávají licencemi jejich vydavatelů.
 
@@ -213,12 +213,12 @@ Inventář zkontrolován proti zdroji na **29 říjen 2026**. Tyto názvy popisu
 | **ONNX Runtime** | Lokální import číselných/boolových grafů a připravených textových exportů GenAI. | Ověřená kompletní složka; vyžadováno předzpracování/následné zpracování specifické pro daný úkol; [nastavení a limity](onnx-server/README.md). |
 | **adaptéry LoRA / PEFT** | Importujte kompletní základnu s jejím samostatným místním adaptérem od poskytovatele Safetensors. | Nekvantifikovaná kauzální báze Transformers, odpovídající identita, kontroly tenzoru a odhad kumulativní paměti; [nastavení a limity](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Nativní provedení CUDA pro kompatibilní husté exporty Llama/Qwen2/Qwen3 na tenzor FP8. | Kontroly architektury/tensoru a skutečná sonda jádra; [nastavení a limity](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Zabalený blok-16 FP4 projekce prostřednictvím nativních CUDA GEMM; oddělené od obrázku NVFP4. | Kompatibilní Blackwell GPU, podporované rozměry/export a aktuální sonda jádra; netrénovaná svítidla testovaná na RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Zabalený blok-16 FP4 projekce prostřednictvím nativních CUDA GEMM; oddělené od obrázku NVFP4. | Kompatibilní Blackwell GPU, podporované rozměry/export a aktuální sonda jádra; nenatrénované testovací modely testované na RTX 5070. |
 | **AWQ** | 4-bitové kontrolní body modelu GEMM bez sloučení operací. | NVIDIA CUDA a volitelné nakladače GPTQModel/Transformers. |
 | **GPTQ** | Konfigurace bitů 2/3/4/8, formáty gptq/gptq_v2. | NVIDIA CUDA, GPTQModel a Optimum; reálné provedení testováno na bitech 4. |
 | **bitsandbytes** | 4-bit NF4/FP4 nebo 8-bit INT8. | NVIDIA CUDA a volitelné závislosti; skutečné testy NF4 a INT8. |
 | **EXL3** | Kompletní kvantované složky modelu Safetensors načtené přes ExLlamaV3; byla testována skutečná generace se CUDA. | NVIDIA GPU, samostatné prostředí Python 3.12 a kompatibilní architektura; žádná záložní verze CPU. |
-| **EXL2** | Vyhrazený nakladač ExLlamaV2; streamování, zrušení a uvolnění testováno na GPU. | Pozornost CUDA musí být explicitně vybrána pro testovaný softwarový balík; je vyžadován kompletní kontrolní bod modelu a dostupný VRAM. |
+| **EXL2** | Vyhrazený nakladač ExLlamaV2; streamování, zrušení a uvolnění testováno na GPU. | Pro testovaný softwarový stack je nutné výslovně vybrat backend CUDA Attention; vyžaduje se úplný checkpoint modelu a dostatek volné VRAM. |
 | **MLX** | Kompatibilní modely na Apple Silicon. | Motor MLX a podporovaná platforma. |
 
 Hub se nyní připíná **LFM3-1.7B** jako doporučení LiquidAI pro kompatibilní konfigurace s variantami Q4_K_M, Q6_K a Q8_0. Model prvního spuštění zůstává modelem uvedeným ve výše uvedené konfiguraci s průvodcem.
@@ -227,7 +227,7 @@ Filtrujte váhy stahování z **pod 1 GB až 500 GB a vyšší**, poté seřaďt
 
 AWQ 4-bit, GPTQ 4-bit, NF4 a INT8 každý vygeneroval text na RTX 5070 Laptop vytvořených offline pomocí malých modelů. To ověřuje načítání a provádění, nikoli kvalitu nebo výkon každého modelu. **Tyto doplňky jsou ve zdroji: je vyžadováno opětovné sestavení a kompatibilní závislosti; tato aktualizace README neaktualizuje nainstalovaný binární soubor.**
 
-**Měřeno na RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, kontext 2,048, promptní tokeny 272, vygenerované tokeny 128, pět zahřátých běhů: střední dekódování **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Nebyl zde prokázán žádný přínos rychlosti oproti GGUF. Kvantizace/kalibrace se liší a EXL3 selhal při jedné aritmetické výzvě kouře; tyto výsledky nejsou obecným hodnocením rychlosti nebo kvality. [Úplná měření a limity](deliverables/exllama-2026-10-30/validation.md).
+**Měřeno na RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, kontext 2,048, promptní tokeny 272, vygenerované tokeny 128, pět zahřátých běhů: medián rychlosti dekódování **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Nebyl zde prokázán žádný přínos rychlosti oproti GGUF. Kvantizace/kalibrace se liší a EXL3 selhal při jednom základním aritmetickém testu; tyto výsledky nejsou obecným hodnocením rychlosti nebo kvality. [Úplná měření a limity](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** je volitelné, samostatně spravované připojení serveru kompatibilní se OpenAI, ve výchozím nastavení zakázáno. Bylo testováno zjišťování a streamování ověřeného modelu EXL3. Spravovaná místní trasa ExLlama zůstává odlišná. [Nastavení ExLlama a připojení TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Výchozí řazení přizpůsobené hardwaru upřednostňuje novější verze v r
 
 [Kvantované nastavení Safetensors](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formáty, priority a validace](docs/SUIVI_MOTEURS.md)
 
-Aktualizované zdroje přidávají **volitelné spravované součásti v Configuration for Windows x64**: soukromá prostředí Pythonu, připojené profily CPU/CUDA, odhady a potvrzení před stažením, ověření, opravy a odstranění. Vlastní cesty tlumočníka zůstávají v pokročilých možnostech. Nativní motory GGUF si zachovávají své stávající komponenty; mobil a cloud nestahují desktopový Python/PyTorch. Tři soukromé profily CPU/export byly provedeny se skutečnými syntetickými přípravky; Správce hlásí úspěšné použití desktopu na 1 Listopad 2026; Profily GPU a čistá instalace PC stále vyžadují samostatné podrobné ověření. [Profily a testovací limity](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Vložení zásobníku do EXE je odloženo.
+Aktualizované zdroje přidávají **volitelné spravované součásti v Configuration for Windows x64**: soukromá prostředí Pythonu, připojené profily CPU/CUDA, odhady a potvrzení před stažením, ověření, opravy a odstranění. Vlastní cesty tlumočníka zůstávají v pokročilých možnostech. Nativní motory GGUF si zachovávají své stávající komponenty; mobil a cloud nestahují desktopový Python/PyTorch. Tři soukromé profily CPU/export byly provedeny se syntetickými testovacími daty; Správce hlásí úspěšné použití desktopu na 1 Listopad 2026; Profily GPU a čistá instalace PC stále vyžadují samostatné podrobné ověření. [Profily a testovací limity](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Vložení zásobníku do EXE je odloženo.
 
 ## Jazyky a varianty rozhraní 80
 

@@ -49,7 +49,7 @@ Novera tuwuh karo sampeyan. Conto lan setelan sampeyan bisa mbantu pangguna liya
 
 *Tangkapan layar aplikasi Windows nyata sing diwenehake dening maintainer ing 1 November 2026, sing nglaporake manawa aplikasi kasebut bisa digunakake kanthi apik. Iki nuduhake lanskap sing digawe, kontrol file sing disimpen lan dashboard nggawe gabungan; iki dudu mockup.*
 
-Siji panel, limang mode: **Otomatis, Teks, Gambar, Musik lan Video**. Kontrol tindakake mode sing dipilih: rasio, resolusi, durasi, irama, kualitas, instrumental, lirik, wiji lan jumlah. Jembar panel lan tombol adaptasi menyang jendhela lan label terjemahan.
+Siji panel, limang mode: **Otomatis / Teks / Gambar / Musik / Video**. Kontrol tindakake mode sing dipilih: rasio, resolusi, durasi, irama, kualitas, instrumental, lirik, wiji lan jumlah. Jembar panel lan tombol adaptasi menyang jendhela lan label terjemahan.
 
 - **1–10 generasi sekuensial**, defaulting 1, kanthi jumlah independen kanggo gambar, musik lan video. Stop mbatalake tugas aktif lan antrian sing isih ana.
 - **Acak, tetep, + 1 lan −1 wiji**, prasetel utawa rasio khusus lan opsional **Real-ESRGAN ×2/×4** upscaling kanthi dimensi pungkasan ditampilake.
@@ -213,12 +213,12 @@ Persediaan dicenthang ing sumber ing **29 Oktober 2026**. Jeneng kasebut nggamba
 | **ONNX Runtime** | Impor lokal grafik angka/bool lan ekspor teks GenAI sing disiapake. | Folder lengkap sing divalidasi; preprocessing / postprocessing khusus tugas dibutuhake; [persiyapan lan watesan](onnx-server/README.md). |
 | **Adaptor LoRA / PEFT** | Impor basis lengkap karo adaptor lokal sing kapisah ing panyedhiya Safetensors. | Dasar Transformers penyebab sing ora dikuantisasi, identitas sing cocog, tes tensor lan perkiraan memori kumulatif; [persiyapan lan watesan](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Eksekusi CUDA asli kanggo ekspor Llama/Qwen2/Qwen3 per-tensor FP8 sing kompatibel. | Pemeriksa arsitektur/tensor lan probe kernel nyata; [persiyapan lan watesan](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Dikemas blok-16 FP4 proyeksi liwat asli CUDA GEMM; kapisah saka gambar NVFP4. | Kompatibel Blackwell GPU, didhukung dimensi/ekspor lan probe kernel nyata; peralatan sing ora dilatih diuji ing RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Dikemas blok-16 FP4 proyeksi liwat asli CUDA GEMM; kapisah saka gambar NVFP4. | Kompatibel Blackwell GPU, didhukung dimensi/ekspor lan probe kernel nyata; model uji sing durung dilatih diuji ing RTX 5070. |
 | **AWQ** | 4-bit GEMM model checkpoints tanpa operasi fusi. | NVIDIA CUDA lan loader GPTQModel/Transformers opsional. |
 | **GPTQ** | Konfigurasi 2/3/4/8-bit, format gptq/gptq_v2. | NVIDIA CUDA, GPTQModel lan Optimum; eksekusi nyata dites ing 4 bit. |
 | **bitsandbytes** | 4-bit NF4/FP4 utawa 8-bit INT8. | NVIDIA CUDA lan dependensi opsional; tes NF4 lan INT8 nyata. |
 | **EXL3** | Folder model Safetensors kuantitatif lengkap dimuat liwat ExLlamaV3; generasi nyata karo CUDA dites. | NVIDIA GPU, lingkungan Python 3.12 sing kapisah lan arsitektur sing kompatibel; ora CPU fallback. |
-| **EXL2** | Loader khusus ExLlamaV2; streaming, pembatalan lan mbongkar dites ing GPU. | perhatian CUDA kudu dipilih kanthi jelas kanggo tumpukan piranti lunak sing diuji; model checkpoint lengkap lan kasedhiya VRAM dibutuhake. |
+| **EXL2** | Loader khusus ExLlamaV2; streaming, pembatalan lan mbongkar dites ing GPU. | CUDA Attention backend kudu dipilih kanthi jelas kanggo tumpukan piranti lunak sing diuji; model checkpoint lengkap lan kasedhiya VRAM dibutuhake. |
 | **MLX** | Model sing kompatibel ing Apple Silicon. | Mesin MLX lan platform sing didhukung. |
 
 Hub saiki pin **LFM3-1.7B** minangka rekomendasi LiquidAI kanggo konfigurasi sing kompatibel, kanthi varian Q4_K_M, Q6_K lan Q8_0. Model sing diluncurake pisanan tetep dadi sing kadhaptar ing konfigurasi sing dipandu ing ndhuwur.
@@ -227,7 +227,7 @@ Filter bobot download saka **ing 1 GB nganti 500 GB lan ndhuwur**, banjur urut m
 
 AWQ 4-bit, GPTQ 4-bit, NF4 lan INT8 saben ngasilake teks ing RTX 5070 Laptop nggunakake model cilik sing ora dilatih sing digawe offline. Iki validasi loading lan eksekusi, dudu kualitas utawa kinerja saben model. **Tambahan iki ana ing sumber: mbangun maneh lan dependensi sing kompatibel dibutuhake; nganyari README iki ora upgrade binar diinstal.**
 
-**Diukur ing RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, konteks 2,048, cepet 272 token, 128 ngasilake token, limang warmed run: decode median **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Ora entuk manfaat kacepetan liwat GGUF sing dituduhake ing kene. Quantization / kalibrasi beda-beda, lan EXL3 gagal siji aritmetika kumelun pituduh; asil iki ora kacepetan umum utawa peringkat kualitas. [Pangukuran lan watesan lengkap](deliverables/exllama-2026-10-30/validation.md).
+**Diukur ing RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, konteks 2,048, prompt 272 token, 128 ngasilake token, limang warmed run: decode median **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Ora entuk manfaat kacepetan liwat GGUF sing dituduhake ing kene. Quantization / kalibrasi beda-beda, lan EXL3 gagal siji tes aritmetika prasaja; asil iki ora kacepetan umum utawa peringkat kualitas. [Pangukuran lan watesan lengkap](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** minangka sambungan server sing cocog karo OpenAI opsional, dikelola kanthi kapisah, dipateni kanthi gawan. Panemuan lan streaming model EXL3 sing wis dikonfirmasi dites. Rute ExLlama lokal sing dikelola tetep béda. [persiyapan ExLlama lan sambungan TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Urut standar sing diadaptasi saka piranti keras luwih milih rilis sing luwih any
 
 [Persiyapan Safetensors kuantitatif](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Format, prioritas lan validasi](docs/SUIVI_MOTEURS.md)
 
-Sumber sing dianyari nambahake **komponen sing dikelola opsional ing Konfigurasi kanggo Windows x64**: lingkungan Python pribadi, pinned CPU/CUDA profil, prakiraan lan konfirmasi sadurunge download, verifikasi, ndandani lan mbusak. Path interpreter adat tetep ing opsi majeng. Mesin GGUF asli njaga komponen sing ana; seluler lan maya ora download desktop Python / PyTorch. Telung profil CPU / ekspor pribadi dileksanakake kanthi peralatan sintetik nyata; Penyelenggara laporan sukses nggunakake desktop ing 1 November 2026; Profil GPU lan instalasi resik-PC isih perlu kapisah, validasi rinci. [Profil lan watesan tes](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Semat tumpukan ing EXE ditundha.
+Sumber sing dianyari nambahake **komponen sing dikelola opsional ing Konfigurasi kanggo Windows x64**: lingkungan Python pribadi, pinned CPU/CUDA profil, prakiraan lan konfirmasi sadurunge download, verifikasi, ndandani lan mbusak. Path interpreter adat tetep ing opsi majeng. Mesin GGUF asli njaga komponen sing ana; seluler lan maya ora download desktop Python / PyTorch. Telung profil CPU / ekspor pribadi dileksanakake kanthi data uji sintetik; Penyelenggara laporan sukses nggunakake desktop ing 1 November 2026; Profil GPU lan instalasi resik-PC isih perlu kapisah, validasi rinci. [Profil lan watesan tes](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Semat tumpukan ing EXE ditundha.
 
 ## basa lan varian antarmuka 80
 

@@ -213,12 +213,12 @@ Inventaris nagegaan teen die bron op **29 Oktober 2026**. Hierdie name beskryf N
 | **ONNX Runtime** | Plaaslike invoer van numeriese/bool-grafieke en voorbereide GenAI-teksuitvoere. | Gevalideerde volledige lêergids; taakspesifieke voorverwerking/naverwerking vereis; [opstelling en limiete](onnx-server/README.md). |
 | **LoRA / PEFT adapters** | Voer 'n volledige basis met sy aparte plaaslike adapter in die Safetensors-verskaffer in. | Ongekwantiseerde kousale Transformers-basis, ooreenstemmende identiteit, tensorkontroles en kumulatiewe geheueskatting; [opstelling en limiete](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Inheemse CUDA uitvoering vir versoenbare digte Llama/Qwen2/Qwen3 per-tensor FP8 uitvoere. | Argitektuur/tensorkontroles en werklike kernsonde; [opstelling en limiete](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Gepakte blok-16 FP4 projeksies deur inheemse CUDA GEMMs; apart van beeld NVFP4. | Versoenbare Blackwell GPU, ondersteunde afmetings/uitvoer en werklike kernsonde; onopgeleide toebehore getoets op RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Gepakte blok-16 FP4 projeksies deur inheemse CUDA GEMMs; apart van beeld NVFP4. | Versoenbare Blackwell GPU, ondersteunde afmetings/uitvoer en werklike kernsonde; onopgeleide toetsmodelle getoets op RTX 5070. |
 | **AWQ** | 4-bis GEMM model kontrolepunte sonder werking samesmelting. | NVIDIA CUDA en opsionele GPTQModel/Transformers laaiers. |
 | **GPTQ** | 2/3/4/8-bis konfigurasies, gptq/gptq_v2 formate. | NVIDIA CUDA, GPTQModel en Optimum; werklike uitvoering getoets by 4 stukkies. |
 | **bitsandbytes** | 4-bis NF4/FP4 of 8-bis INT8. | NVIDIA CUDA en opsionele afhanklikhede; regte NF4 en INT8 toetse. |
 | **EXL3** | Voltooi gekwantiseerde Safetensors-modelvouers wat deur ExLlamaV3 gelaai is; werklike generasie met CUDA is getoets. | NVIDIA GPU, aparte Python 3.12 omgewing en versoenbare argitektuur; geen CPU terugval nie. |
-| **EXL2** | Toegewyde ExLlamaV2-laaier; stroom, kansellasie en aflaai getoets op GPU. | CUDA aandag moet eksplisiet gekies word vir die getoets sagteware stapel; 'n volledige modelkontrolepunt en beskikbare VRAM word vereis. |
+| **EXL2** | Toegewyde ExLlamaV2-laaier; stroom, kansellasie en aflaai getoets op GPU. | Kies die CUDA Attention-agterkant uitdruklik vir die getoetste sagtewarekonfigurasie; 'n volledige modelkontrolepunt en genoeg beskikbare VRAM word vereis. |
 | **MLX** | Versoenbare modelle op Apple Silicon. | MLX-enjin en ondersteunde platform. |
 
 Die Hub pen nou vas **LFM3-1.7B** as sy LiquidAI-aanbeveling vir versoenbare konfigurasies, met Q4_K_M, Q6_K en Q8_0 variante. Die eerste-lopie-model bly die een wat in die geleide opset hierbo gelys word.
@@ -227,7 +227,7 @@ Filter aflaai gewigte van **onder 1 GB na 500 GB en hoër**, sorteer dan volgens
 
 AWQ 4-bis, GPTQ 4-bis, NF4 en INT8 het elk teks gegenereer op 'n RTX 5070 Laptop wat vanlyn geskep is met klein onopgeleide modelle. Dit bevestig laai en uitvoering, nie die kwaliteit of werkverrigting van elke model nie. **Hierdie toevoegings is in die bron: herbou en versoenbare afhanklikhede word vereis; hierdie README-opdatering gradeer nie 'n geïnstalleerde binêre op nie.**
 
-**Gemeet op die RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, konteks 2,048, prompt 272 tekens, 128 gegenereerde tekens, vyf warm lopies: mediaan dekodeer **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Geen spoedvoordeel bo GGUF is hier gedemonstreer nie. Kwantisering/kalibrasie verskil, en EXL3 het een rekenkundige rookopdrag misluk; hierdie resultate is nie 'n algemene spoed- of kwaliteitranglys nie. [Volledige mates en limiete](deliverables/exllama-2026-10-30/validation.md).
+**Gemeet op die RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, konteks 2,048, prompt 272 tokens, 128 gegenereerde tokens, vyf warm lopies: mediaan dekodeer **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Geen spoedvoordeel bo GGUF is hier gedemonstreer nie. Kwantisering/kalibrasie verskil, en EXL3 het een basiese rekenkundige toets misluk; hierdie resultate is nie 'n algemene spoed- of kwaliteitranglys nie. [Volledige mates en limiete](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** is 'n opsionele, afsonderlik bestuurde OpenAI-versoenbare bedienerverbinding, by verstek gedeaktiveer. Geverifieerde EXL3-modelontdekking en -stroom is getoets. Die bestuurde plaaslike ExLlama-roete bly duidelik. [ExLlama-opstelling en TabbyAPI-verbinding](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Die standaard hardeware-aangepaste sorteer bevoordeel nuwer vrystellings binne d
 
 [Gekwantiseerde Safetensors-opstelling](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formate, prioriteite en validering](docs/SUIVI_MOTEURS.md)
 
-Die opgedateerde bronne voeg by **opsionele bestuurde komponente in konfigurasies vir Windows x64**: private Python-omgewings, vasgespelde CPU/CUDA-profiele, skattings en bevestiging voor aflaaie, verifikasie, herstel en verwydering. Pasgemaakte tolkpaaie bly onder gevorderde opsies. Inheemse GGUF-enjins behou hul bestaande komponente; selfoon en wolk laai nie desktop Python/PyTorch af nie. Drie private CPU/uitvoer-profiele is uitgeoefen met regte sintetiese toebehore; Die instandhouer rapporteer suksesvolle rekenaargebruik op 1 November 2026; GPU-profiele en skoon PC-installasie benodig nog aparte, gedetailleerde validering. [Profiele en toetslimiete](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Die inbedding van die stapel in die EXE word uitgestel.
+Die opgedateerde bronne voeg by **opsionele bestuurde komponente in konfigurasies vir Windows x64**: private Python-omgewings, vasgespelde CPU/CUDA-profiele, skattings en bevestiging voor aflaaie, verifikasie, herstel en verwydering. Pasgemaakte tolkpaaie bly onder gevorderde opsies. Inheemse GGUF-enjins behou hul bestaande komponente; selfoon en wolk laai nie desktop Python/PyTorch af nie. Drie private CPU/uitvoer-profiele is uitgeoefen met sintetiese toetsdata; Die instandhouer rapporteer suksesvolle rekenaargebruik op 1 November 2026; GPU-profiele en skoon PC-installasie benodig nog aparte, gedetailleerde validering. [Profiele en toetslimiete](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Die inbedding van die stapel in die EXE word uitgestel.
 
 ## 80 koppelvlaktale en variante
 

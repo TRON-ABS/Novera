@@ -213,7 +213,7 @@ Qwen සංගීත කේතකය සහ Qwen ලබා ගැනීමේ �
 | **ONNX Runtime** | සංඛ්‍යාත්මක/බූල් ප්‍රස්තාර දේශීය ආනයනය සහ GenAI පෙළ අපනයනය සකස් කර ඇත. | වලංගු සම්පූර්ණ ෆෝල්ඩරය; කාර්යය-විශේෂිත පෙර සැකසුම්/පසු සැකසුම් අවශ්ය; [සැකසීම සහ සීමාවන්](onnx-server/README.md). |
 | **LoRA / PEFT ඇඩප්ටර** | Safetensors සපයන්නා තුළ එහි වෙනම දේශීය ඇඩප්ටරය සමඟ සම්පූර්ණ පදනමක් ආයාත කරන්න. | ප්‍රමාණ නොකළ හේතු Transformers පදනම, ගැළපෙන අනන්‍යතාවය, ආතති චෙක්පත් සහ සමුච්චිත මතක ඇස්තමේන්තුව; [සැකසීම සහ සීමාවන්](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | ගැළපෙන ඝන Llama/Qwen2/Qwen3 per-tensor FP8 අපනයන සඳහා දේශීය CUDA ක්‍රියාත්මක කිරීම. | ගෘහ නිර්මාණ ශිල්පය/ටෙන්සර් චෙක්පත් සහ සැබෑ කර්නල් පරීක්ෂණය; [සැකසීම සහ සීමාවන්](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Packed block-16 FP4 දේශීය CUDA GEMM හරහා ප්‍රක්ෂේපන; NVFP4 රූපයෙන් වෙන්ව. | අනුකූල Blackwell GPU, සහය දක්වන මානයන්/අපනයනය සහ සත්‍ය කර්නල් පරීක්ෂණය; නුපුහුණු සවිකිරීම් RTX 5070 මගින් පරීක්ෂා කරන ලදී. |
+| **NVFP4 LLM / ModelOpt** | Packed block-16 FP4 දේශීය CUDA GEMM හරහා ප්‍රක්ෂේපන; NVFP4 රූපයෙන් වෙන්ව. | අනුකූල Blackwell GPU, සහය දක්වන මානයන්/අපනයනය සහ සත්‍ය කර්නල් පරීක්ෂණය; පුහුණු නොකළ පරීක්ෂණ ආකෘති RTX 5070 මගින් පරීක්ෂා කරන ලදී. |
 | **AWQ** | 4-bit GEMM මෙහෙයුම් විලයනයකින් තොරව ආදර්ශ මුරපොල. | NVIDIA CUDA සහ විකල්ප GPTQModel/Transformers පැටවුම්. |
 | **GPTQ** | 2/3/4/8-bit වින්‍යාස, gptq/gptq_v2 ආකෘති. | NVIDIA CUDA, GPTQModel සහ Optimum; සැබෑ ක්‍රියාත්මක කිරීම බිටු 4 කින් පරීක්‍ෂා කරන ලදී. |
 | **bitsandbytes** | 4-bit NF4/FP4 හෝ 8-bit INT8. | NVIDIA CUDA සහ විකල්ප පරායත්තතා; සැබෑ NF4 සහ INT8 පරීක්ෂණ. |

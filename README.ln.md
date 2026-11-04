@@ -49,7 +49,7 @@ Novera ekolaka elongo na yo. Bandakisa mpe ba paramètres na yo ekoki kosalisa b
 
 *Capture d'écran ya application ya Windows ya solo oyo epesami na mobateli na 1 Novembre 2026, oyo ayebisi ete application esalaka malamu. Ezali kolakisa paysage oyo esalemi, ba contrôles na yango ya fichier oyo ebombami mpe tableau de bord ya création unifié; oyo ezali maquette te.*
 
-Panneau moko, ba modes mitano: **Auto, Texte, Image, Musique na Vidéo**. Ba contrôles elandaka mode oyo oponi : rapport, résolution, durée, cadence, qualité, instrumental, paroles, semence na quantité. Largeur ya panneau na ba boutons ezo adapter na fenêtre na ba étiquettes oyo ebongolami.
+Panneau moko, ba modes mitano: **Auto / Mokanda ya kokoma / Elilingi / Miziki / Vidéo oyo ezali**. Ba contrôles elandaka mode oyo oponi : rapport, résolution, durée, cadence, qualité, instrumental, paroles, semence na quantité. Largeur ya panneau na ba boutons ezo adapter na fenêtre na ba étiquettes oyo ebongolami.
 
 - **1–10 bankola oyo elandi**, oyo ezali na 1, na motango ya lipanda mpo na elilingi, miziki mpe video. Stop elongolaka mosala oyo ezali kosala mpe molongo oyo etikali.
 - **Mboto ya mbalakaka, ya fixe, +1 mpe −1**, ba ratios pré-établis to personnalisés mpe optionnel **Real-ESRGAN ×2/×4** komatisama na ba dimensions ya suka elakisami.

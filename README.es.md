@@ -22,18 +22,18 @@
 | Plataforma | Disponibilidad |
 | --- | --- |
 | Windows x64 | Instalador público NSIS, actualizador firmado; instalación nativa y reemplazo verificado. |
-| Linux x64 | Público AppImage, actualizador firmado; instalación nativa y reemplazo verificado. |
+| Linux x64 | AppImage público, actualizador firmado; instalación nativa y reemplazo verificado. |
 | Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, con un canal de actualización firmado dedicado. |
 | Windows ARM64 | [Instalador público NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), motor de texto nativo CPU; instalación, reposición y controles en canal público verificados. |
-| Android ARM64 | [Público firmado APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, lote predeterminado 512. El responsable del mantenimiento confirma que la compilación 1000012 funciona en su teléfono. Paquete limpio sin conversaciones, modelos o claves personales API. [Evidencia y limitaciones](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Lanzamiento oficial 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Actualizaciones firmadas por Novera. No certificado por Apple ante notario; Las comprobaciones automatizadas se pasan por separado en ambas arquitecturas y las comprobaciones visuales se aplazan. [Instalación y evidencia](docs/RELEASE_MACOS_1.0.0.md). |
+| Android ARM64 | [APK 1.0.0 público y firmado](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, lote predeterminado 512. El responsable del mantenimiento confirma que la compilación 1000012 funciona en su teléfono. Paquete limpio sin conversaciones, modelos o claves personales API. [Evidencia y limitaciones](docs/RELEASE_ANDROID_1.0.0.md). |
+| macOS Intel / Apple Silicon | [Lanzamiento oficial 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Actualizaciones firmadas por Novera. Sin notarización de Apple; Las comprobaciones automatizadas se pasan por separado en ambas arquitecturas y las comprobaciones visuales se aplazan. [Instalación y evidencia](docs/RELEASE_MACOS_1.0.0.md). |
 | iOS | Construcción de simulador interno; Se requiere la firma/aprovisionamiento de Apple antes de la instalación del iPhone. [Seguimiento](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portátil | [Archivo ZIP firmado](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); los datos permanecen en Data, se verifica el reemplazo firmado de Program. |
 | Web, MSI, Debian | El cliente web alojado y otros formatos permanecen internos; El sitio de presentación de páginas está disponible. |
 
 En Mac, abra DMG y copie Novera en Aplicaciones. Si el primer lanzamiento está bloqueado, permita Novera en **Configuración del sistema → Privacidad y seguridad → Abrir de todos modos**. [Instrucciones de Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Las firmas del actualizador no son Windows Authenticode ni certificación notarial de Apple. Las verificaciones manuales de la versión actual se comparan con el canal público; una transición entre dos versiones públicas sigue siendo una prueba de próximo lanzamiento. [Evidencia y limitaciones](docs/LAUNCH_STATUS.md).
+Las firmas del actualizador no son Windows Authenticode ni notarización de Apple. Las verificaciones manuales de la versión actual se comparan con el canal público; una transición entre dos versiones públicas sigue siendo una prueba de próximo lanzamiento. [Evidencia y limitaciones](docs/LAUNCH_STATUS.md).
 
 En Android, se recomienda un teléfono moderno con suficiente memoria para los modelos locales; en dispositivos menos potentes, utilice un proveedor de API. Para la búsqueda web, se recomienda un contexto de al menos **16K tokens (16,384)** en todas las versiones.
 
@@ -49,7 +49,7 @@ Novera crece contigo. Sus ejemplos y configuraciones pueden ayudar a otros usuar
 
 *Captura de pantalla real de la aplicación Windows proporcionada por el mantenedor en 1 de noviembre de 2026, quien informa que la aplicación funciona bien. Muestra un panorama generado, sus controles de archivos guardados y el panel de creación unificado; esto no es una maqueta.*
 
-Un panel, cinco modos: **Automático, Texto, Imagen, Música y Vídeo**. Los controles siguen el modo seleccionado: ratio, resolución, duración, cadencia, calidad, instrumental, letra, semilla y cantidad. El ancho del panel y los botones se adaptan a la ventana y a las etiquetas traducidas.
+Un panel, cinco modos: **Automático / Texto / Imagen / Música / Vídeo**. Los controles siguen el modo seleccionado: ratio, resolución, duración, cadencia, calidad, instrumental, letra, semilla y cantidad. El ancho del panel y los botones se adaptan a la ventana y a las etiquetas traducidas.
 
 - **1–10 generaciones secuenciales**, por defecto 1, con cantidades independientes para imagen, música y vídeo. Detener cancela la tarea activa y la cola restante.
 - **Semillas aleatorias, fijas, +1 y −1**, proporciones preestablecidas o personalizadas y opcionales **Real-ESRGAN ×2/×4** ampliación con dimensiones finales mostradas.
@@ -213,7 +213,7 @@ Inventario comparado con la fuente en **29 Octubre 2026**. Estos nombres describ
 | **ONNX Runtime** | Importación local de gráficos numéricos/bool y exportaciones de texto preparado GenAI. | Carpeta completa validada; se requiere preprocesamiento/postprocesamiento específico de la tarea; [configuración y límites](onnx-server/README.md). |
 | **Adaptadores LoRA / PEFT** | Importar una base completa con su adaptador local independiente en el proveedor Safetensors. | Base causal Transformers no cuantificada, identidad coincidente, comprobaciones de tensor y estimación de memoria acumulativa; [configuración y límites](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Ejecución nativa de CUDA para exportaciones densas compatibles de Llama/Qwen2/Qwen3 por tensor FP8. | Comprobaciones de arquitectura/tensor y sonda del kernel real; [configuración y límites](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Proyecciones de bloque empaquetado-16 FP4 a través de GEMM nativos CUDA; separado de la imagen NVFP4. | Compatible con Blackwell GPU, dimensiones/exportación admitidas y sonda de kernel real; Accesorios no entrenados probados en RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Proyecciones de bloque empaquetado-16 FP4 a través de GEMM nativos CUDA; separado de la imagen NVFP4. | Compatible con Blackwell GPU, dimensiones/exportación admitidas y sonda de kernel real; modelos de prueba sin entrenar probados en RTX 5070. |
 | **AWQ** | Checkpoints GEMM de 4 bits sin fusión de operaciones. | Cargadores NVIDIA CUDA y opcionales GPTQModel/Transformers. |
 | **GPTQ** | Configuraciones de bits 2/3/4/8, formatos gptq/gptq_v2. | NVIDIA CUDA, GPTQModel y Optimum; Ejecución real probada en bits 4. |
 | **bitsandbytes** | 4-bit NF4/FP4 o 8-bit INT8. | NVIDIA CUDA y dependencias opcionales; Pruebas reales NF4 y INT8. |
@@ -227,7 +227,7 @@ Filtrar pesos de descarga de **bajo 1 GB a 500 GB y superiores**, luego ordene p
 
 AWQ 4-bit, GPTQ 4-bit, NF4 y INT8 generaron texto en un RTX 5070 Laptop utilizando pequeños modelos no entrenados creados sin conexión. Esto valida la carga y la ejecución, no la calidad o el rendimiento de cada modelo. **Estas adiciones están en la fuente: se requiere reconstrucción y dependencias compatibles; Esta actualización README no actualiza un binario instalado.**
 
-**Medido en el RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, contexto 2,048, tokens 272, tokens generados 128, cinco ejecuciones precalentadas: decodificación mediana **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Aquí no se demostró ninguna ventaja de velocidad frente a GGUF. La cuantización y la calibración son distintas, y EXL3 falló una prueba aritmética básica; estos resultados no constituyen una clasificación general de velocidad ni de calidad. [Medidas y límites completos](deliverables/exllama-2026-10-30/validation.md).
+**Medido en el RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, contexto 2.048, 272 tokens de entrada, 128 tokens generados, cinco ejecuciones precalentadas: decodificación mediana **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Aquí no se demostró ninguna ventaja de velocidad frente a GGUF. La cuantización y la calibración son distintas, y EXL3 falló una prueba aritmética básica; estos resultados no constituyen una clasificación general de velocidad ni de calidad. [Medidas y límites completos](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** es una conexión de servidor opcional, compatible con OpenAI, administrada por separado y deshabilitada de forma predeterminada. Se probaron el descubrimiento y la transmisión del modelo EXL3 autenticado. La ruta local administrada ExLlama sigue siendo distinta. [Configuración de ExLlama y conexión de TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ La clasificación predeterminada adaptada al hardware favorece las versiones má
 
 [Configuración Safetensors cuantificada](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formatos, prioridades y validación](docs/SUIVI_MOTEURS.md)
 
-Las fuentes actualizadas añaden **componentes administrados opcionales en Configuraciones para Windows x64**: entornos privados de Python, perfiles CPU/CUDA anclados, estimaciones y confirmación antes de descargas, verificación, reparación y eliminación. Las rutas de intérprete personalizadas permanecen en las opciones avanzadas. Los motores nativos GGUF mantienen sus componentes existentes; Los dispositivos móviles y la nube no descargan Python/PyTorch de escritorio. Se ejercitaron tres perfiles privados CPU/exportación con accesorios sintéticos reales; El mantenedor informa el uso exitoso del escritorio en 1 Noviembre 2026; Los perfiles GPU y la instalación limpia-PC aún necesitan una validación detallada por separado. [Perfiles y límites de prueba](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Se aplaza la integración de la pila en el EXE.
+Las fuentes actualizadas añaden **componentes administrados opcionales en Configuraciones para Windows x64**: entornos privados de Python, perfiles CPU/CUDA anclados, estimaciones y confirmación antes de descargas, verificación, reparación y eliminación. Las rutas de intérprete personalizadas permanecen en las opciones avanzadas. Los motores nativos GGUF mantienen sus componentes existentes; Los dispositivos móviles y la nube no descargan Python/PyTorch de escritorio. Se probaron tres perfiles privados de CPU/exportación con datos de prueba sintéticos; El mantenedor informa el uso exitoso del escritorio en 1 Noviembre 2026; Los perfiles GPU y la instalación limpia-PC aún necesitan una validación detallada por separado. [Perfiles y límites de prueba](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Se aplaza la integración de la pila en el EXE.
 
 ## Idiomas y variantes de la interfaz 80
 

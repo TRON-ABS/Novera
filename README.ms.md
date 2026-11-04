@@ -213,12 +213,12 @@ Inventori disemak terhadap sumber pada **29 Oktober 2026**. Nama-nama ini menera
 | **ONNX Runtime** | Import tempatan graf angka/bool dan menyediakan GenAI eksport teks. | Folder lengkap yang disahkan; prapemprosesan/pascapemprosesan khusus tugasan diperlukan; [persediaan dan had](onnx-server/README.md). |
 | **LoRA / PEFT penyesuai** | Import pangkalan lengkap dengan penyesuai tempatan yang berasingan dalam pembekal Safetensors. | Kausal tidak terkuantisasi Transformers asas, identiti padanan, semakan tensor dan anggaran ingatan terkumpul; [persediaan dan had](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Native CUDA pelaksanaan untuk eksport padat Llama/Qwen2/Qwen3 per-tensor FP8 yang serasi. | Semakan seni bina/tensor dan probe kernel sebenar; [persediaan dan had](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Dibungkus blok-16 FP4 unjuran melalui CUDA GEMM asli; berasingan daripada imej NVFP4. | Serasi Blackwell GPU, dimensi/eksport yang disokong dan kuar kernel sebenar; lekapan tidak terlatih diuji pada RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Dibungkus blok-16 FP4 unjuran melalui CUDA GEMM asli; berasingan daripada imej NVFP4. | Serasi Blackwell GPU, dimensi/eksport yang disokong dan kuar kernel sebenar; model ujian yang belum dilatih diuji pada RTX 5070. |
 | **AWQ** | 4-bit GEMM pusat pemeriksaan model tanpa gabungan operasi. | NVIDIA CUDA dan pemuat GPTQModel/Transformers pilihan. |
 | **GPTQ** | Konfigurasi 2/3/4/8-bit, format gptq/gptq_v2. | NVIDIA CUDA, GPTQModel dan Optimum; pelaksanaan sebenar diuji pada 4 bit. |
 | **bitsandbytes** | 4-bit NF4/FP4 atau 8-bit INT8. | NVIDIA CUDA dan kebergantungan pilihan; ujian sebenar NF4 dan INT8. |
 | **EXL3** | Lengkapkan folder model terkuantisasi Safetensors yang dimuatkan melalui ExLlamaV3; penjanaan sebenar dengan CUDA telah diuji. | NVIDIA GPU, berasingan Python 3.12 persekitaran dan seni bina yang serasi; no CPU sandar. |
-| **EXL2** | Pemuat ExLlamaV2 khusus; penstriman, pembatalan dan pemunggahan diuji pada GPU. | CUDA perhatian mesti dipilih secara eksplisit untuk tindanan perisian yang diuji; pusat pemeriksaan model yang lengkap dan tersedia VRAM diperlukan. |
+| **EXL2** | Pemuat ExLlamaV2 khusus; penstriman, pembatalan dan pemunggahan diuji pada GPU. | Pilih backend CUDA Attention secara jelas untuk konfigurasi perisian yang diuji; checkpoint model lengkap dan ruang VRAM yang mencukupi diperlukan. |
 | **MLX** | Model yang serasi pada Apple Silicon. | MLX enjin dan platform yang disokong. |
 
 Hab kini disemat **LFM3-1.7B** sebagai pengesyoran LiquidAI untuk konfigurasi yang serasi, dengan varian Q4_K_M, Q6_K dan Q8_0. Model jalanan pertama kekal yang disenaraikan dalam konfigurasi berpandu di atas.
@@ -227,7 +227,7 @@ Tapis berat muat turun daripada **di bawah 1 GB hingga 500 GB dan ke atas**, kem
 
 AWQ 4-bit, GPTQ 4-bit, NF4 dan INT8 masing-masing menjana teks pada RTX 5070 Laptop menggunakan model kecil yang tidak terlatih yang dicipta secara luar talian. Ini mengesahkan pemuatan dan pelaksanaan, bukan kualiti atau prestasi setiap model. **Penambahan ini ada dalam sumber: pembinaan semula dan kebergantungan yang serasi diperlukan; kemas kini README ini tidak menaik taraf binari yang dipasang.**
 
-**Diukur pada RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, konteks 2,048, segera 272 token, 128 token yang dijana, lima larian hangat: penyahkod median **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Tiada faedah kelajuan melebihi GGUF ditunjukkan di sini. Kuantiti/penentukuran berbeza, dan EXL3 gagal satu gesaan asap aritmetik; keputusan ini bukan kelajuan umum atau kedudukan kualiti. [Ukuran dan had penuh](deliverables/exllama-2026-10-30/validation.md).
+**Diukur pada RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, konteks 2,048, prompt 272 token, 128 token yang dijana, lima larian hangat: penyahkod median **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Tiada faedah kelajuan melebihi GGUF ditunjukkan di sini. Pengkuantuman/penentukuran berbeza, dan EXL3 gagal satu ujian aritmetik asas; keputusan ini bukan kelajuan umum atau kedudukan kualiti. [Ukuran dan had penuh](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** ialah sambungan pelayan serasi OpenAI yang diuruskan secara berasingan, dilumpuhkan secara lalai. Penemuan dan penstriman model EXL3 yang disahkan telah diuji. Laluan ExLlama tempatan terurus kekal berbeza. [ExLlama persediaan dan sambungan TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Isihan disesuaikan perkakasan lalai mengutamakan keluaran yang lebih baharu dala
 
 [Persediaan Safetensors terkuantiti](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Format, keutamaan dan pengesahan](docs/SUIVI_MOTEURS.md)
 
-Sumber yang dikemas kini menambah **komponen terurus pilihan dalam Konfigurasi untuk Windows x64**: persekitaran Python peribadi, disematkan CPU/CUDA profil, anggaran dan pengesahan sebelum muat turun, pengesahan, pembaikan dan pengalihan keluar. Laluan penterjemah tersuai kekal di bawah pilihan lanjutan. Enjin asli GGUF mengekalkan komponen sedia ada; mudah alih dan awan tidak memuat turun desktop Python/PyTorch. Tiga profil peribadi CPU/eksport telah digunakan dengan lekapan sintetik sebenar; Penyelenggara melaporkan penggunaan desktop yang berjaya pada 1 November 2026; Profil GPU dan pemasangan bersih-PC masih memerlukan pengesahan terperinci yang berasingan. [Profil dan had ujian](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Membenamkan tindanan dalam EXE ditangguhkan.
+Sumber yang dikemas kini menambah **komponen terurus pilihan dalam Konfigurasi untuk Windows x64**: persekitaran Python peribadi, disematkan CPU/CUDA profil, anggaran dan pengesahan sebelum muat turun, pengesahan, pembaikan dan pengalihan keluar. Laluan penterjemah tersuai kekal di bawah pilihan lanjutan. Enjin asli GGUF mengekalkan komponen sedia ada; mudah alih dan awan tidak memuat turun desktop Python/PyTorch. Tiga profil peribadi CPU/eksport telah digunakan dengan data ujian sintetik; Penyelenggara melaporkan penggunaan desktop yang berjaya pada 1 November 2026; Profil GPU dan pemasangan bersih-PC masih memerlukan pengesahan terperinci yang berasingan. [Profil dan had ujian](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Membenamkan tindanan dalam EXE ditangguhkan.
 
 ## 80 bahasa antara muka dan variasi
 

@@ -213,12 +213,12 @@ Inventarul verificat față de sursă pe **29 Octombrie 2026**. Aceste nume desc
 | **ONNX Runtime** | Text prin GenAI; componente imagine/video pentru profiluri suportate. | Arhitectură recunoscută de motorul inclus. [configurare și limite](onnx-server/README.md). |
 | **LoRA / PEFT adaptatoare** | Importă o bază completă cu adaptorul său local separat în furnizorul Safetensors. | Bază Transformers cauzal necuantizată, care se potrivește cu identitatea, verificările tensorilor și estimarea memoriei cumulative; [configurare și limite](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Execuție nativă CUDA pentru exporturi FP8 per-tensor compatibile dense Llama/Qwen2/Qwen3. | Verificări de arhitectură/tensor și sondare de kernel reală; [configurare și limite](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Proiecții bloc-16 FP4 prin GEMM-uri native CUDA; separat de imaginea NVFP4. | Blackwell GPU compatibile, dimensiuni/export suportate și sondare de kernel reală; fixture-uri neantrenate testate pe RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Proiecții bloc-16 FP4 prin GEMM-uri native CUDA; separat de imaginea NVFP4. | Blackwell GPU compatibile, dimensiuni/export suportate și sondare de kernel reală; modele de test neantrenate testate pe RTX 5070. |
 | **AWQ** | Puncte de control ale modelului GEMM de 4-bit fără fuziune operațională. | Încărcători NVIDIA CUDA și GPTQModel/Transformers opțional. |
 | **GPTQ** | Configurații 2/3/4/8-bit, formate gptq/gptq_v2. | NVIDIA CUDA, GPTQModel și Optimum; execuție reală testată la biții 4. |
 | **bitsandbytes** | NF4/FP4 4-bit sau INT8. 8-bit | NVIDIA CUDA și dependențe opționale; teste reale NF4 și INT8. |
 | **EXL3** | Folderele complete de modele Safetensors cuantificate încărcate prin ExLlamaV3; generația actuală cu CUDA a fost testată. | NVIDIA GPU, mediu Python 3.12 separat și arhitectură compatibilă; fără fallback CPU. |
-| **EXL2** | Încărcător dedicat ExLlamaV2; streaming, anulare și descărcare testate pe GPU. | Atenția CUDA trebuie selectată explicit pentru stiva de software testată; este necesar un punct de control complet al modelului și VRAM disponibil. |
+| **EXL2** | Încărcător dedicat ExLlamaV2; streaming, anulare și descărcare testate pe GPU. | Selectați explicit backendul CUDA Attention pentru configurația software testată; sunt necesare checkpointul complet al modelului și suficientă VRAM disponibilă. |
 | **MLX** | Modele compatibile pe Apple Silicon. | Motor MLX și platformă suportată. |
 
 Hub-ul acum fixează **LFM3-1.7B** ca recomandare LiquidAI pentru configurații compatibile, cu variante Q4_K_M, Q6_K și Q8_0. Modelul de prima rulare rămâne cel enumerat în configurarea ghidată de mai sus.
@@ -227,7 +227,7 @@ Filtrează greutățile de descărcare din **sub 1 GB până la 500 GB și mai s
 
 AWQ 4-bit, GPTQ 4-bit, NF4 și INT8 au generat text pe un RTX 5070 Laptop folosind modele minuscule neantrenate create offline. Acest lucru validează încărcarea și execuția, nu calitatea sau performanța fiecărui model. **Aceste adăugiri sunt în sursă: sunt necesare reconstrucția și dependențe compatibile; această actualizare README nu actualizează un binare instalat.**
 
-**Măsurat pe RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, context 2,048, tokeni prompt 272, tokeni generați 128, cinci rulări încălzite: decodare mediană **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Nu a fost demonstrat niciun beneficiu de viteză față de GGUF aici. Cuantizarea/calibrarea diferă, iar EXL3 a eșuat la un prompt de fum aritmetic; aceste rezultate nu sunt un ranking general de viteză sau calitate. [Măsurători și limite complete](deliverables/exllama-2026-10-30/validation.md).
+**Măsurat pe RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, context 2,048, tokeni prompt 272, tokeni generați 128, cinci rulări încălzite: decodare mediană **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Nu a fost demonstrat niciun beneficiu de viteză față de GGUF aici. Cuantizarea/calibrarea diferă, iar EXL3 a eșuat la un test aritmetic de bază; aceste rezultate nu sunt un ranking general de viteză sau calitate. [Măsurători și limite complete](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** este o conexiune de server opțională, gestionată separat și compatibilă cu OpenAI, dezactivată implicit. Descoperirea și streaming-ul modelului EXL3 autentificat au fost testați. Ruta locală gestionată ExLlama rămâne distinctă. [Configurare ExLlama și conexiune TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 

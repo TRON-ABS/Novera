@@ -49,7 +49,7 @@ Novera 佮你一起成長。你嘅範例佮設定可以幫其他使用者尋找�
 
 *1 Windows 應用程式截圖，由維護者佮 2026 11 月提供，報告應用程式運作良好。顯示產生風景、儲存檔案控制佮統一創作儀表板；這毋係模型。*
 
-一塊面板，五種模式： **汽车 / 正文 / 图像 / 音乐 / 视频**控制依選定模式而變化：比例、解析度、時長、節奏、品質、樂器、歌詞、seed佮數量。面板寬佮按鈕適應視窗佮翻譯標籤。
+一塊面板，五種模式： **自动 / 正文 / 图像 / 音乐 / 视频**控制依選定模式而變化：比例、解析度、時長、節奏、品質、樂器、歌詞、seed佮數量。面板寬佮按鈕適應視窗佮翻譯標籤。
 
 - **1–10 序列產生**，預設為 1，圖片、音樂佮影片有獨立數量。停止取消當前任務佮剩餘佇列。
 - **隨機、固定、+1佮 −1 seed**，預設或自訂比例佮可選 **Real-ESRGAN ×2/×4** 放大，顯示最終尺寸。
@@ -213,12 +213,12 @@ Qwen 音樂編碼亇 Qwen 檢索模型 亇 **唔同檔案**獨立儲存。模型
 | **ONNX Runtime** | 本地导入数字/布尔图，同准备好嘅 GenAI 文本导出。 | 验证完整文件夹；需要针对任务嘅预处理/后处理； [设置同限制](onnx-server/README.md). |
 | **LoRA / PEFT 适配器** | 喺 Safetensors 供应者里头，导入完整基础同佢独立嘅本地适配器。 | 無量化嘅 Transformers 基礎，符合身份、張量檢查同累積記憶體估計； [设置同限制](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | 相容嘅密實 Llama/Qwen2/Qwen3 逐張量 FP8 匯出嘅原生 CUDA 執行。 | 架構/張量檢查同真實核心探測； [设置同限制](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | 打包區塊-16 FP4 投影透過原生 CUDA GEMM；同圖像 NVFP4 分開。 | 相容嘅 Blackwell GPU，支援嘅維度/匯出同真實核心探測；未訓練嘅固定項喺 RTX 5070 上測試。 |
+| **NVFP4 LLM / ModelOpt** | 打包區塊-16 FP4 投影透過原生 CUDA GEMM；同圖像 NVFP4 分開。 | 相容嘅 Blackwell GPU，支援嘅維度/匯出同真實核心探測；未訓練嘅測試模型喺 RTX 5070 上測試。 |
 | **AWQ** | 4-bit GEMM 模型检查点，无操作融合。 | NVIDIA CUDA 同可選嘅 GPTQModel/Transformers 載入器。 |
 | **GPTQ** | 2/3/4/8-bit 配置，gptq/gptq_v2 格式。 | NVIDIA CUDA, GPTQModel 同 Optimum；喺 4 bit 上測試真實執行。 |
 | **bitsandbytes** | 4-bit NF4/FP4 或 8-bit INT8. | NVIDIA CUDA 同可選嘅依賴；原生 NF4 同 INT8 測試。 |
 | **EXL3** | 完整量化 Safetensors 模型文件夹經 ExLlamaV3 載入; 亇 CUDA 實際生成測試過。 | NVIDIA GPU，獨立 Python 3.12 環境同相容架構；無 CPU 備援。 |
-| **EXL2** | 專用 ExLlamaV2 載入器；在 GPU. 上測試串流、取消同卸載 | CUDA 需特意选定测试软件堆栈; 完整模型检查点亇 VRAM 需有。 |
+| **EXL2** | 專用 ExLlamaV2 載入器；在 GPU. 上測試串流、取消同卸載 | 受測軟體環境須明確選用 CUDA Attention backend；需要完整模型 checkpoint 同足夠可用 VRAM。 |
 | **MLX** | Apple Silicon 上相容模型。 | MLX 引擎同支援平台。 |
 
 Hub 依家固定住 **LFM3-1.7B** 像佢个 LiquidAI 推荐个兼容配置，有 Q4_K_M, Q6_K 亇 Q8_0 变体。头次跑个模型还是上面引导配置里写个。
@@ -227,7 +227,7 @@ Hub 依家固定住 **LFM3-1.7B** 像佢个 LiquidAI 推荐个兼容配置，有
 
 AWQ 4-bit, GPTQ 4-bit, NF4 亇 INT8 各个在 RTX 5070 Laptop 上用离线创建个微小未训练模型生成文本。这验证载入亇执行，勿是每个模型个质量或性能。 **迭个添加在源码里：需要重建亇兼容依赖；迭个 README 更新勿升级已安装个二进制。**
 
-**喺 RTX 5070 Laptop 上测量个：** Qwen2.5-0.5B-Instruct, 上下文 2,048, 提示 272 令牌, 128 生成令牌, 五次预热运行：中位数解码 **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. 勿有比 GGUF 快个好处。量化/校准不同，亇 EXL3 失败过一个算术烟雾提示；迭个结果勿是普遍个速度或质量排名。 [全部测量亇限制](deliverables/exllama-2026-10-30/validation.md).
+**喺 RTX 5070 Laptop 上测量个：** Qwen2.5-0.5B-Instruct, 上下文 2,048, 提示 272 令牌, 128 生成令牌, 五次预热运行：中位数解码 **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. 勿有比 GGUF 快个好处。量化/校准不同，亇 EXL3 失败过一个简单算术测试；迭个结果勿是普遍个速度或质量排名。 [全部测量亇限制](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** 是可选个、独立管理个 OpenAI 兼容服务器连接，默认勿启用。测试过认证个 EXL3 模型发现亇流式传输。管理个本地 ExLlama 路径还是独立个。 [ExLlama 设置亇 TabbyAPI 连接](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ AWQ 4-bit, GPTQ 4-bit, NF4 亇 INT8 各个在 RTX 5070 Laptop 上用离线创建
 
 [量化 Safetensors 设置](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [格式、优先级亇验证](docs/SUIVI_MOTEURS.md)
 
-更新个源添加 **Windows x64 配置里可选管制的组件**: 專屬 Python 環境，鎖定 CPU/CUDA 檔，下載前估算亊確認，驗證、修復亊移除。自訂解譯器路徑留佇進階選項。原生 GGUF 引擎保留現有組件；行動亊雲端毋會下載桌面 Python/PyTorch。三個專屬 CPU/匯出檔亊用真合成測試件驗證；維護者報告 1 亊 2026 十一月佇桌面成功使用；GPU 檔亊乾淨-PC 安裝仲需要分開、細緻驗證。 [配置和测试限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)在 EXE 里嵌入堆栈的事推迟了。
+更新个源添加 **Windows x64 配置里可选管制的组件**: 專屬 Python 環境，鎖定 CPU/CUDA 檔，下載前估算亊確認，驗證、修復亊移除。自訂解譯器路徑留佇進階選項。原生 GGUF 引擎保留現有組件；行動亊雲端毋會下載桌面 Python/PyTorch。三個專屬 CPU/匯出檔亊用真合成測試件驗證；維護者報告 2026年11月1日佇桌面成功使用；GPU 檔亊乾淨-PC 安裝仲需要分開、細緻驗證。 [配置和测试限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)在 EXE 里嵌入堆栈的事推迟了。
 
 ## 80 界面语言和变体
 

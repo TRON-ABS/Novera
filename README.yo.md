@@ -49,7 +49,7 @@ Novera dagba pẹlu rẹ. Awọn apẹẹrẹ ati eto rẹ le ṣe iranlọwọ 
 
 *Sikirinifoto ohun elo Windows gidi ti a pese nipasẹ olutọju lori 1 Kọkànlá Oṣù 2026, ẹniti o jabo pe ohun elo naa ṣiṣẹ daradara. O ṣe afihan ala-ilẹ ti ipilẹṣẹ, awọn iṣakoso faili ti o fipamọ ati dasibodu ẹda ti iṣọkan; eyi kii ṣe ẹgan.*
 
-Panel kan, awọn ipo marun: **Aifọwọyi, Ọrọ, Aworan, Orin ati Fidio**. Awọn iṣakoso tẹle ipo ti o yan: ipin, ipinnu, iye akoko, iwọn, didara, ohun elo, awọn orin, irugbin ati opoiye. Iwọn igbimọ ati awọn bọtini ṣe deede si window ati awọn aami itumọ.
+Panel kan, awọn ipo marun: **Aifọwọyi / Ọrọ / Aworan / Orin / Fidio**. Awọn iṣakoso tẹle ipo ti o yan: ipin, ipinnu, iye akoko, iwọn, didara, ohun elo, awọn orin, irugbin ati opoiye. Iwọn igbimọ ati awọn bọtini ṣe deede si window ati awọn aami itumọ.
 
 - **1–10 awọn iran ti o tẹle**, aiyipada si 1, pẹlu awọn iwọn ominira fun aworan, orin ati fidio. Da pawonre awọn ti nṣiṣe lọwọ-ṣiṣe ati awọn ti o ku isinyi.
 - **Laileto, ti o wa titi, +1 ati -1 awọn irugbin**, tito tẹlẹ tabi awọn ipin aṣa ati iyan **Real-ESRGAN ×2/×4** igbega pẹlu awọn iwọn ipari ti o han.

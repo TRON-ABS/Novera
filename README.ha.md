@@ -49,7 +49,7 @@ Novera girma tare da ku. Misalan ku da saitunanku na iya taimaka wa sauran masu 
 
 *Hoton hoton aikace-aikacen Windows na ainihi wanda mai kulawa ya kawo akan 1 Nuwamba 2026, wanda ya ba da rahoton cewa aikace-aikacen yana aiki da kyau. Yana nuna shimfidar wuri da aka ƙirƙira, sarrafa fayil ɗin ajiyar sa da haɗewar dashboard ɗin ƙirƙira; wannan ba izgili ba ne.*
 
-Panel ɗaya, hanyoyi biyar: **Auto, Rubutu, Hoto, Kiɗa da Bidiyo**. Sarrafa suna bin yanayin da aka zaɓa: rabo, ƙuduri, tsawon lokaci, ƙaranci, inganci, kayan aiki, waƙoƙi, iri da yawa. Faɗin panel da maɓallan sun dace da taga da alamun da aka fassara.
+Panel ɗaya, hanyoyi biyar: **Atomatik / Rubutu / Hoto / Kiɗa / Bidiyo**. Sarrafa suna bin yanayin da aka zaɓa: rabo, ƙuduri, tsawon lokaci, ƙaranci, inganci, kayan aiki, waƙoƙi, iri da yawa. Faɗin panel da maɓallan sun dace da taga da alamun da aka fassara.
 
 - **1–10 tsararraki masu zuwa.**, batawa zuwa 1, tare da adadi masu zaman kansu don hoto, kiɗa da bidiyo. Tsaida soke aikin mai aiki da sauran jerin gwano.
 - **Bazuwar, gyarawa, +1 da -1 tsaba**, saiti ko ƙimar al'ada da zaɓi **Real-ESRGAN ×2/×4** haɓakawa tare da nuna girman ƙarshe.
@@ -74,7 +74,7 @@ Automation yana rufe injunan haɗaɗɗiya da ayyukan aiki; baya sanya kowane sam
 
 [Jagorar mai amfani](docs/USER_GUIDE.md) · [Injiniya da inganci](docs/SUIVI_MOTEURS.md) · [Ci gaba](docs/DEVELOPMENT.md)
 
-A cikin sabbin kafofin, **Saitunan suna daidaita shawarwarinsa zuwa wayar hannu da ƙuntataccen kayan aiki**LFM3-1.7B Q4, ko LFM3-Omni-2B Q4 tare da majiginsa lokacin da rahoton ƙwaƙwalwar ajiya da injin buƙatun sun cika. Ƙarshen gida da ba a samuwa yana ɓoye ko an toshe shi; saita hoton gajimare, kiɗa da bidiyo suna nan. Jagorar mu'amala yana sake yin amfani da kas ɗin yare na 80. Waɗannan ƙididdigar har yanzu suna buƙatar gwajin na'urar da sake ginawa don isa ga shigar da aikace-aikacen.
+A cikin sabbin kafofin, **Saitunan suna daidaita shawarwarinsa zuwa wayar hannu da ƙuntataccen kayan aiki** LFM3-1.7B Q4, ko LFM3-Omni-2B Q4 tare da majiginsa lokacin da rahoton ƙwaƙwalwar ajiya da injin buƙatun sun cika. Ƙarshen gida da ba a samuwa yana ɓoye ko an toshe shi; saita hoton gajimare, kiɗa da bidiyo suna nan. Jagorar mu'amala yana sake yin amfani da kas ɗin yare na 80. Waɗannan ƙididdigar har yanzu suna buƙatar gwajin na'urar da sake ginawa don isa ga shigar da aikace-aikacen.
 
 ## Abubuwan iyawa a cikin tushen
 
@@ -213,7 +213,7 @@ Abubuwan da aka bincika akan tushen akan **29 Oktoba 2026**. Waɗannan sunaye su
 | **ONNX Runtime** | shigo da gida na ƙididdiga na lamba/bool da shirya fitar da rubutu GenAI. | Ingantaccen cikakken babban fayil; takamaiman aiki-takamaiman preprocessing/bayan aiki da ake buƙata; [saitin da iyaka](onnx-server/README.md). |
 | **LoRA/PEFT adaftar** | Shigo da cikakken tushe tare da adaftar gida daban a cikin mai bada Safetensors. | Tushen Transformers wanda ba a ƙididdige shi ba, ainihin ma'auni, ƙididdigar tensor da ƙididdigar ƙwaƙwalwar ajiya; [saitin da iyaka](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Kisa na asali na CUDA don fitar da Llama/Qwen2/Qwen3 mai yawa mai jituwa kowane-tensor FP8 fitarwa. | Gine-gine/tambayoyi na tensor da binciken kwaya na gaske; [saitin da iyaka](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Kunshin toshe-16 FP4 tsinkaya ta asali CUDA GEMMs; daban daga hoton NVFP4. | Mai jituwa Blackwell GPU, goyan bayan girma / fitarwa da ainihin binciken kwaya; marasa horon da aka gwada akan RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Kunshin toshe-16 FP4 tsinkaya ta asali CUDA GEMMs; daban daga hoton NVFP4. | Mai jituwa Blackwell GPU, goyan bayan girma / fitarwa da ainihin binciken kwaya; samfuran gwaji da ba a horar ba da aka gwada akan RTX 5070. |
 | **AWQ** | 4-bit GEMM samfurin bincike ba tare da haɗin aiki ba. | NVIDIA CUDA da GPTQModel/Transformers na zaɓi. |
 | **GPTQ** | 2/3/4/8-bit masu daidaitawa, tsarin gptq/gptq_v2. | NVIDIA CUDA, GPTQModel da Optimum; ainihin kisa da aka gwada a 4 ragowa. |
 | **bitsandbytes** | 4-bit NF4/FP4 ko 8-bit INT8. | NVIDIA CUDA da abin dogaro na zaɓi; gwaje-gwaje na ainihi NF4 da INT8. |
@@ -227,7 +227,7 @@ Tace ma'aunin nauyi daga **karkashin 1 GB zuwa 500 GB da sama**, sannan a rarrab
 
 AWQ 4-bit, GPTQ 4-bit, NF4 da INT8 kowannen rubutu da aka kirkira akan ƙirar RTX 5070 Laptop da aka ƙirƙira ta hanyar layi. Wannan yana tabbatar da lodi da aiwatarwa, ba inganci ko aikin kowane samfuri ba. **Waɗannan ƙarin suna cikin tushen: ana buƙatar sake ginawa da dogaro masu dacewa; wannan sabuntawar README baya haɓaka aikin binary ɗin da aka shigar.**
 
-**An auna akan RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, mahallin 2,048, ƙaddamar da alamun 272, alamun 128 da aka ƙirƙira, gudu biyar masu dumama: ƙaddamarwa na tsakiya **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Babu fa'idar saurin gudu sama da GGUF da aka nuna anan. Ƙididdigar ƙididdigewa / daidaitawa ya bambanta, kuma EXL3 ya kasa ci gaba da hayaƙin lissafi ɗaya; waɗannan sakamakon ba babban gudu ba ne ko matsayi mai inganci. [Cikakken ma'auni da iyakoki](deliverables/exllama-2026-10-30/validation.md).
+**An auna akan RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, mahallin 2,048, ƙaddamar da alamun 272, alamun 128 da aka ƙirƙira, gudu biyar masu dumama: ƙaddamarwa na tsakiya **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Babu fa'idar saurin gudu sama da GGUF da aka nuna anan. Ƙididdigar ƙididdigewa / daidaitawa ya bambanta, kuma EXL3 ya kasa gwajin lissafi na asali ɗaya; waɗannan sakamakon ba babban gudu ba ne ko matsayi mai inganci. [Cikakken ma'auni da iyakoki](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** zaɓin zaɓi ne, haɗin haɗin uwar garken OpenAI mai jituwa daban, wanda aka kashe ta tsohuwa. An gwada gano samfurin EXL3 mai inganci da yawo. Hanyar ExLlama da ake gudanarwa ta kasance daban. [ExLlama saitin da haɗin TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Tsohuwar nau'in daidaitawar kayan masarufi yana ba da fifiko ga sabbin abubuwan 
 
 [Kididdige saitin Safetensors](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Tsarukan, fifiko da inganci](docs/SUIVI_MOTEURS.md)
 
-Abubuwan da aka sabunta sun ƙara **abubuwan da aka sarrafa na zaɓi na zaɓi a cikin Saituna don Windows x64**: muhallin Python masu zaman kansu, bayanan bayanan CPU/CUDA da aka lika, kimantawa da tabbatarwa kafin saukewa, tabbatarwa, gyarawa da cirewa. Hanyoyi masu fassara na al'ada suna tsayawa ƙarƙashin zaɓuɓɓukan ci gaba. Injunan GGUF na asali suna kiyaye abubuwan da suka kasance; wayar hannu da gajimare ba sa sauke tebur Python/PyTorch. Uku masu zaman kansu CPU / bayanan fitarwa an yi amfani da su tare da ainihin kayan aikin roba; Mai kula yana ba da rahoton nasarar amfani da tebur akan 1 Nuwamba 2026; Bayanan martaba GPU da tsabta-PC shigarwa har yanzu suna buƙatar keɓance, ingantaccen ingantaccen bayani. [Bayanan martaba da iyakokin gwaji](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). An jinkirta haɗa tari a cikin EXE.
+Abubuwan da aka sabunta sun ƙara **abubuwan da aka sarrafa na zaɓi na zaɓi a cikin Saituna don Windows x64**: muhallin Python masu zaman kansu, bayanan bayanan CPU/CUDA da aka lika, kimantawa da tabbatarwa kafin saukewa, tabbatarwa, gyarawa da cirewa. Hanyoyi masu fassara na al'ada suna tsayawa ƙarƙashin zaɓuɓɓukan ci gaba. Injunan GGUF na asali suna kiyaye abubuwan da suka kasance; wayar hannu da gajimare ba sa sauke tebur Python/PyTorch. Uku masu zaman kansu CPU / bayanan fitarwa an yi amfani da su tare da bayanan gwaji na ƙirƙira; Mai kula yana ba da rahoton nasarar amfani da tebur akan 1 Nuwamba 2026; Bayanan martaba GPU da tsabta-PC shigarwa har yanzu suna buƙatar keɓance, ingantaccen ingantaccen bayani. [Bayanan martaba da iyakokin gwaji](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). An jinkirta haɗa tari a cikin EXE.
 
 ## 80 mu'amala da harsuna da bambance-bambancen karatu
 

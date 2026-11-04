@@ -5,7 +5,7 @@
   <p><strong>你描述你嘅目標。 Novera準備資源,執行任務同整理結果。</strong></p>
   <p>TRON-ABS嘅獨立AI助理,由第一次推出到結果:文字、圖像、音樂同視頻喺一個對話入面。</p>
   <p><strong>有Windows、Linux、macOS和Android</strong> · 80介面語言 · 42雲端提供商 · 49媒體預設 · Apache 2.0</p>
-  <p><a href="#from-first-launch-to-results">自動化</a> · <a href="#one-dashboard-for-every-creation">仪表板</a> · <a href="#local-models-in-use">AI型號喺你嘅裝置本機運行緊</a> · <a href="#hub-and-compatible-models">集線器同兼容型號 90781000018709,標準和量化90781000118709、90781000218709和90781000318709</a> · <a href="#cloud-providers">雲</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">貢獻</a></p>
+  <p><a href="#from-first-launch-to-results">自動化</a> · <a href="#one-dashboard-for-every-creation">仪表板</a> · <a href="#local-models-in-use">AI型號喺你嘅裝置本機運行緊</a> · <a href="#hub-and-compatible-models">格式同模型中心</a> · <a href="#cloud-providers">雲</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">貢獻</a></p>
   <p>官方聯絡人: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>官方Novera社交資料: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
   <p>分享你嘅創作、模型、設定、問題、意見同想法。</p>
@@ -27,7 +27,7 @@
 | Windows ARM64 | [公眾NSIS安裝員](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64),原生CPU文本引擎;安裝、更換同埋公開渠道檢查已經驗證。 |
 | Android ARM64 | [公開簽名APK1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012),Android7+,預設批次512。維護者確認構建1000012可以喺佢哋嘅手機上面運作。包裝乾淨,冇對話,模型或個人 API鎖匙。 [證據同限制](docs/RELEASE_ANDROID_1.0.0.md). |
 | macOS Intel / Apple Silicon | [官方1.0.0DMG發佈](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos),macOS13+英特尔/14+Apple Silicon; Novera簽名更新。唔係蘋果公證;自動檢查分別喺兩個架構上面通過,視覺檢查延期。 [安裝同證據](docs/RELEASE_MACOS_1.0.0.md). |
-| iOS | 內部模擬器構建; iPhone 安裝前需要 Apple 簽名/配置。 [跟進 90781000018709便携式](docs/REPRISE_MACOS_IOS.md). |
+| iOS | 內部模擬器構建; iPhone 安裝前需要 Apple 簽名/配置。 [跟進](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 便攜版 | [簽名ZIP封存檔案](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable);數據停留喺Data,簽咗名Program已經換咗。 |
 | 網絡,MSI,德比安 | 託管網上客戶端及其他格式仍為內部；Pages 演示網站可用。 |
 
@@ -35,7 +35,7 @@
 
 更新器簽名不是 Windows Authenticode 或 Apple 認證。手動當前版本檢查通過公開渠道；兩個公開版本之間的過渡仍是下一個發布的測試。 [證據同限制](docs/LAUNCH_STATUS.md).
 
-在 Android 上，建議使用記憶體足夠的現代手機進行本地模型；在性能較弱的設備上使用 API 提供者。對於網頁搜索，至少需要一個上下文 **16K個代幣(16,384) 建議** ,跨版本一致。 90781000018709便攜式90781000118709可用。
+在 Android 上，建議使用記憶體足夠的現代手機進行本地模型；在性能較弱的設備上使用 API 提供者。對於網頁搜索，至少需要一個上下文 **16K個代幣(16,384) 建議** 建議使用，各個版本都一樣。
 
 **Windows x64 便攜版 1.0.0 可用。** 討論、設定同下載咗嘅模型都喺下面嘅便攜式資料夾入面 `Data`。解壓縮完整嘅封存檔案,然後開始 `Novera.exe`. 在移動資料夾或彈出 USB 儲存空間之前關閉 Novera。 [便攜式指南同限制](docs/WINDOWS_PORTABLE.md).
 
@@ -49,7 +49,7 @@ Novera同你一齊成長。你嘅例子同設定可以幫助其他使用者搵�
 
 *真實嘅Windows應用程式截圖由維護者喺11月111月2026提供,佢報告應用程式運作良好。佢會顯示生成嘅景觀、儲存咗嘅檔案控制項同埋統一嘅創建資訊主頁;呢個唔係模型。*
 
-一個面板,五種模式: **自動 / 文字 / 圖像 / 音樂 / 影片**。控制項遵循所選模式:比例、解像度、持續時間、節奏、質素、樂器、歌詞、種子同數量。面板闊度同掣會適應視窗同埋翻譯咗嘅標籤。 90781000018709-90781000118709次序世代
+一個面板,五種模式: **自動 / 文字 / 圖像 / 音樂 / 影片**。控制項會跟所選模式變動：比例、解像度、時長、節奏、質素、純音樂、歌詞、種子同數量。面板闊度同按鈕會配合視窗同翻譯後嘅標籤調整。
 
 - **1–10 序列世代**, 預設為 1，圖像、音樂和視頻具有獨立數量。停止會取消當前任務和剩餘佇列。
 - **隨機、固定、+1 和 −1 種子**,預設或自訂比例同埋可選 **Real-ESRGAN ×2/×4** 升級,並顯示最終尺寸。
@@ -66,7 +66,7 @@ Novera同你一齊成長。你嘅例子同設定可以幫助其他使用者搵�
 | **1。開始** | 喺第一次啟動嗰陣選擇支援嘅系統語言,然後儲存你嘅偏好設定。呈現起始型號同埋有用嘅硬件資訊。 |
 | **2。準備** | 引導式安裝提供文本、嵌入、圖像、音樂、視頻和升級。在您批准之前預覽組件、大小和可用空間，然後使用進度、暫停/恢復和 SHA-256 驗證追蹤下載。 |
 | **3。配置** | 註冊模型同埋佢哋嘅組件,準備相關嘅概要同埋報告所需嘅依賴關係。檢索嵌入喺CPU開始,有儲存咗嘅CPU/GPU選擇。新嘅音樂設定檔預設為樂器模式。 |
-| **4。明白個要求** | 自動將識別到嘅創建請求路由到文字、圖像、音樂或者影片。你亦可以明確噉選擇輸出模式同埋本地或者雲端模型。 90781000018709。執行 |
+| **4。明白個要求** | 自動模式會將識別到嘅創作要求分派到文字、圖像、音樂或者影片。你亦可以自行選擇輸出模式，同本機或者雲端模型。 |
 | **5。執行** | 自動記憶體等待活動工作，釋放不必要的模型並重新加載所需資源。1–10 工作系列按順序運行，並在下一個工作之前釋放資源。雲服務提供商使用所選帳戶和配置。 |
 | **6。檢索和重用** | 將媒體儲存喺Novera系統資料夾,顯示結果同可用時間,然後提供變體、庫、複製、匯出或者系統共享。傳送去另一個應用程式仍然係你嘅行動。 |
 
@@ -82,7 +82,7 @@ Novera同你一齊成長。你嘅例子同設定可以幫助其他使用者搵�
 
 | 面積 | 特徵 |
 | --- | --- |
-| **文字同圖像理解** | 對話、文件附件、串流回覆同埋本地或雲端模型。視野取決於個模型;理解同產生圖像係分開嘅能力。 對話中生成、種子、比例、分辨率、90781000018709/90781000118709個組件、配置咗90781000218709個資料夾同埋支援嘅原生9078100031870990781000318709907181009設定檔 |
+| **文字同圖像理解** | 對話、文件附件、串流回覆，同本機或者雲端模型。視覺功能視乎模型；理解圖像同生成圖像係兩種獨立能力。 |
 | **圖片** | 語境對話生成、種子、比例、解析度、GGUF/Safetensors 組件、配置的 Diffusers 資料夾和受支持的原生 NVFP4 CUDA 設定檔。 |
 | **音樂** | 本地或雲端生成、持續時間、質素、支援嘅樂器或聲樂、結構化嘅歌詞同音頻播放器。供應商選項唔同。 |
 | **影片** | 本地或雲端生成、持續時間、本地設定檔、比例、解像度同視頻播放器嘅帧數/節奏。 |
@@ -99,12 +99,12 @@ Novera同你一齊成長。你嘅例子同設定可以幫助其他使用者搵�
 | 角色 | 模型/配置組件 |
 | --- | --- |
 | **文字 — 首次運行模型** | **Nemotron-3.5-Bolt-E4B**,檔案 `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
-| **文件擷取 默認90781000018709** | **Qwen3-Embedding-0.6B Q8_0**, **預設為 CPU**,有一個已儲存嘅CPU/GPU選擇。 |
+| **文件檢索** | **Qwen3-Embedding-0.6B Q8_0**, **預設為 CPU**,有一個已儲存嘅CPU/GPU選擇。 |
 | **圖片** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** 編碼器同官方FLUX.2VAE. |
 | **圖像 — 硬件選項** | **FLUX.2 Klein 4B NVFP4**,當GPU同環境兼容嗰陣,通過原生CUDA路徑。 |
 | **音樂** | **ACE-Step 1.5 Turbo 2B Q4_K_M**, `acestep-5Hz-lm-1.7B-Q8_0.gguf` 計劃器,專用嘅Qwen音樂編碼器同VAE. |
 | **影片** | **Wan2.1 T2V 1.3B Q4_K_M**, **UMT5-XXL Q4_K_M** 編碼器同Wan 2.1VAE. |
-| **升級** | 可選 90781000018709 × 90781000118709和 × **Real-ESRGAN ×2 同 ×4**,用依賴性檢查。 90781000018709音樂編碼器和90781000118709擷取模型係 |
+| **升級** | 可選 **Real-ESRGAN ×2 同 ×4**，並會檢查相依組件。 |
 
 Qwen 音樂編碼器同 Qwen 檢索模型係 **唔同嘅檔案**,分開儲存。模型授權仍然係佢哋嘅出版商嘅。
 
@@ -112,7 +112,7 @@ Qwen 音樂編碼器同 Qwen 檢索模型係 **唔同嘅檔案**,分開儲存。
 
 <a id="cloud-providers"></a>
 
-## 雲端供應商 90781000018709提供者個人檔案
+## 雲端供應商
 
 **42 提供者配置檔** 係整合嘅。 **ElevenLabs** 而家喺Stability AI、fal同Replicate嘅音樂路線旁邊出現喺陳列室入面。
 
@@ -133,9 +133,9 @@ Qwen 音樂編碼器同 Qwen 檢索模型係 **唔同嘅檔案**,分開儲存。
 | <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
 | <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/docs/model-map) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
 
-### 圖像、音樂同影片 90781000018709供應商暴露生成路由
+### 圖像、音樂同影片
 
-**20 提供者公開生成路徑**,同 **49預設:25圖片,20影片和4音樂**。音樂路線係 90781000018709至90781000118709 **ElevenMusic v2.5**, **Stable Audio 3**, **透過 fal 的 ACE-Step** 同埋 90781000018709至90781000118709 **透過 Replicate 的 Stable Audio 2.5**.
+**20 提供者公開生成路徑**,同 **49預設:25圖片,20影片和4音樂**。音樂路線包括 **ElevenMusic v2.5**, **Stable Audio 3**, **透過 fal 的 ACE-Step** 同埋 **透過 Replicate 的 Stable Audio 2.5**.
 
 | 供應商 | Novera嘅輸出 | 目錄模型 |
 | --- | --- | --- |
@@ -201,7 +201,7 @@ Qwen 音樂編碼器同 Qwen 檢索模型係 **唔同嘅檔案**,分開儲存。
 
 <a id="hub-and-compatible-models"></a>
 
-## 集線器同兼容型號 90781000018709,標準和量化90781000118709、90781000218709和90781000318709
+## 格式同模型中心
 
 **GGUF、標準同量化嘅 Safetensors、ONNX 同 MLX**:按任務探索模型,並選擇同引擎同你嘅硬件兼容嘅變種。
 
@@ -209,16 +209,16 @@ Qwen 音樂編碼器同 Qwen 檢索模型係 **唔同嘅檔案**,分開儲存。
 | --- | --- | --- |
 | **GGUF** | 透過 llama.cpp 進行文本生成；支援配置文件的圖像和視頻組件。 | 由捆綁引擎識別嘅架構。 |
 | **分裂GGUF** | 每個完整系列一個變種,總和大小,全分片下載和大小 / SHA-256 / 標題檢查。 | 標準編號檔案名;下載500GB唔代表個型號啱呢個PC. |
-| **標準Safetensors** | 通過Transformers完成資料夾,因果文字係CPU或者NVIDIA CUDA。 | 配置、令牌化器同埋每個所需嘅分片。 數字/布爾圖表嘅本地匯入同埋準備咗90781000018709個文字匯出。 |
-| **ONNX Runtime** | 本地匯入數值/布爾圖表同準備好嘅 GenAI 文本匯出。 | 驗證咗嘅完整資料夾;需要特定任務嘅預處理/後處理; [setup and limits 90781000018709/90781000118709适配器](onnx-server/README.md). |
-| **LoRA / PEFT 轉接器** | 喺Safetensors提供者中匯入一個完整嘅底座,同埋佢嘅獨立本地適配器。 | 未量化因果Transformers基、匹配同一性、張量檢查同累積記憶估計; [setup and limits 90781000018709/90781000118709适配器](transformers-server/README.md#local-lora--peft-adapters). |
-| **FP8 LLM / ModelOpt** | 原生CUDA執行兼容密集Llama/Qwen2/Qwen3每個張力FP8匯出。 | 架構/張力檢查同真實嘅核心探針; [setup and limits 90781000018709/90781000118709适配器](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | 打包塊 -16FP4投影通過原生CUDA GEMM ;同圖片NVFP4分開。 | 兼容BlackwellGPU,支持尺寸/匯出和實際內核探針;未經訓練嘅固定器喺RTX 5070上面測試過。 |
+| **標準Safetensors** | 通過Transformers完成資料夾,因果文字係CPU或者NVIDIA CUDA。 | 設定、tokenizer 同所有必要分片。 |
+| **ONNX Runtime** | 本地匯入數值/布爾圖表同準備好嘅 GenAI 文本匯出。 | 驗證咗嘅完整資料夾;需要特定任務嘅預處理/後處理; [設定同限制](onnx-server/README.md). |
+| **LoRA / PEFT 轉接器** | 喺Safetensors提供者中匯入一個完整嘅底座,同埋佢嘅獨立本地適配器。 | 未量化因果Transformers基、匹配同一性、張量檢查同累積記憶估計; [設定同限制](transformers-server/README.md#local-lora--peft-adapters). |
+| **FP8 LLM / ModelOpt** | 原生CUDA執行兼容密集Llama/Qwen2/Qwen3每個張力FP8匯出。 | 架構/張力檢查同真實嘅核心探針; [設定同限制](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
+| **NVFP4 LLM / ModelOpt** | 打包塊 -16FP4投影通過原生CUDA GEMM ;同圖片NVFP4分開。 | 兼容BlackwellGPU,支持尺寸/匯出和實際內核探針;未經訓練嘅測試模型喺RTX 5070上面測試過。 |
 | **AWQ** | 4位GEMM模型檢查點冇操作融合。 | NVIDIA CUDA同可選嘅GPTQModel/Transformers裝載機。 |
 | **GPTQ** | 2/3/4/8-bit 配置，gptq/gptq_v2 格式。 | NVIDIA CUDA、GPTQModel 同 Optimum；喺 4 位元測試咗實際執行。 |
 | **bitsandbytes** | 4-bit NF4/FP4 或 8-bit INT8. | NVIDIA CUDA 同可選依賴；實際 NF4 同 INT8 測試。 |
-| **EXL3** | 完整量化Safetensors模型文件夾載入到ExLlamaV3;測試咗實際一代用CUDA。 | NVIDIA GPU，獨立嘅 Python 3.12 環境同相容架構；無 CPU 備用。 |
-| **EXL2** | 專用 ExLlamaV2 載入器；喺 GPU. 上測試咗串流、取消同卸載 | CUDA必須為測試嘅軟件堆栈明確選擇注意;需要一個完整嘅型號檢查站同埋可用嘅VRAM。 |
+| **EXL3** | 完整量化Safetensors模型文件夾載入到ExLlamaV3;測試咗實際生成用CUDA。 | NVIDIA GPU，獨立嘅 Python 3.12 環境同相容架構；無 CPU 備用。 |
+| **EXL2** | 專用 ExLlamaV2 載入器；喺 GPU. 上測試咗串流、取消同卸載 | 受測軟體環境須明確選用 CUDA Attention backend；需要完整模型 checkpoint 同足夠可用 VRAM。 |
 | **MLX** | Apple Silicon 上相容嘅模型。 | MLX 引擎同支援嘅平台。 |
 
 Hub 現已釘選 **LFM3-1.7B** 作為其兼容配置嘅LiquidAI建議,有Q4_K_M、Q6_K同Q8_0變種。首次運行嘅模型仍然係上面引導配置入面列出嘅模型。
@@ -235,13 +235,13 @@ AWQ 4-bit, GPTQ 4-bit, NF4 and INT8 each generated text on an RTX 5070 Laptop使
 
 [量化Safetensors設置](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [格式、優先次序同驗證](docs/SUIVI_MOTEURS.md)
 
-更新咗嘅來源補充 **Windows x64嘅配置入面嘅可選受管理組件**:私人 Python 環境,固定CPU/CUDA個人檔案,喺下載、驗證、修復同移除之前嘅估算同確認。自訂口譯器路徑會保留喺進階選項之下。原生GGUF引擎保留佢哋現有嘅部件;手機同雲端唔好下載桌面 Python/PyTorch。三個私人CPU/出口配置文件係用真實嘅合成固定器行使;維護者報告桌面使用成功 111 月 2026; GPU設定檔同清潔 -PC安裝仍然需要分開,詳細驗證。 [配置文件同測試限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)。將堆棧嵌入 EXE 延後處理。
+更新咗嘅來源補充 **Windows x64嘅配置入面嘅可選受管理組件**:私人 Python 環境,固定CPU/CUDA個人檔案,喺下載、驗證、修復同移除之前嘅估算同確認。自訂 Python 解譯器路徑會保留喺進階選項之下。原生GGUF引擎保留佢哋現有嘅部件;手機同雲端唔會下載桌面 Python/PyTorch。三個私人CPU/匯出設定檔係用合成測試資料行使;維護者報告桌面使用成功 2026年11月1日; GPU設定檔同清潔 -PC安裝仍然需要分開,詳細驗證。 [配置文件同測試限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)。將堆棧嵌入 EXE 延後處理。
 
 ## 80 接口語言同變體
 
 **所有80目錄都涵蓋咗目前嘅2,429英文密鑰** 跨越15個命名空間,包括菜單、配置、設定、幫助同媒體控制。複數形式同介面方向係遵循所選語言。回應同語音語言分別取決於模型。
 
-呢個技術覆蓋範圍唔會證明語言質素: **原生審查同區域適應仍然係必要嘅**。睇下原生標籤同埋已知嘅限制 [語言指南](docs/LANGUAGES.md) 同埋 90781000018709至90781000118709 [審計報告](deliverables/interface-audit-2026-10-29/RAPPORT.md).
+呢個技術覆蓋範圍唔會證明語言質素: **原生審查同區域適應仍然係必要嘅**。睇下原生標籤同埋已知嘅限制 [語言指南](docs/LANGUAGES.md) 同埋 [審計報告](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
 ## 幫人,喺每個行業
 
@@ -268,7 +268,7 @@ AWQ 4-bit, GPTQ 4-bit, NF4 and INT8 each generated text on an RTX 5070 Laptop使
 
 **Novera 1.0.0 可用於 Windows、Linux、macOS 及 Android。** 螢幕截圖顯示由維護者本地編譯嘅Windows應用程式。來源變更、針對性測試同硬件驗證係分開記錄嘅;呢個唔會驗證每個型號、平台或者雲端帳戶。
 
-手冊GitHub Actions版本已經啟用咗所有十一個發行版本。跟住個 [構建結果同埋驗證咗候選下載](docs/CI_DISTRIBUTIONS.md);每個平台嘅可用性都會分開記錄。候選人同簽署咗嘅製作版本唔同。分銷要求係喺 [官方發佈政策](OFFICIAL_RELEASES.md) 同埋 90781000018709至90781000118709 [發佈頁面](https://github.com/TRON-ABS/Novera/releases)。現有嘅停用更新程式嘅候選人仍然係內部。公開發佈需要一個已經配置好同驗證過嘅更新機制; [桌面簽名檢查同剩餘嘅啟動要求都係記錄咗](docs/LAUNCH_STATUS.md).
+手冊GitHub Actions版本已經啟用咗所有十一個發行版本。跟住個 [構建結果同埋驗證咗候選下載](docs/CI_DISTRIBUTIONS.md);每個平台嘅可用性都會分開記錄。候選人同簽署咗嘅製作版本唔同。分銷要求係喺 [官方發佈政策](OFFICIAL_RELEASES.md) 同埋 [發佈頁面](https://github.com/TRON-ABS/Novera/releases)。現有嘅停用更新程式嘅候選人仍然係內部。公開發佈需要一個已經配置好同驗證過嘅更新機制; [桌面簽名檢查同剩餘嘅啟動要求都係記錄咗](docs/LAUNCH_STATUS.md).
 
 ## 文件同貢獻
 
@@ -277,9 +277,9 @@ AWQ 4-bit, GPTQ 4-bit, NF4 and INT8 each generated text on an RTX 5070 Laptop使
 - [項目資訊主頁](TABLEAU_DE_BORD_NOVERA.md), [路線圖](ROADMAP.md), [變更記錄](docs/CHANGELOG.md).
 - [貢獻緊](CONTRIBUTING.md):代碼、測試、 80種語言嘅原生審查同埋真實嘅工作流程反饋。
 
-## 身份同牌照 90781000018709係由
+## 身分同授權
 
-Novera 由...維護 **TRON-ABS** 喺 [呢個存儲庫](https://github.com/TRON-ABS/Novera)。睇下個 [身份政策](BRANDING.md) 同埋 90781000018709至90781000118709 [官方發佈政策](OFFICIAL_RELEASES.md).
+Novera 由...維護 **TRON-ABS** 喺 [呢個存儲庫](https://github.com/TRON-ABS/Novera)。睇下個 [身份政策](BRANDING.md) 同埋 [官方發佈政策](OFFICIAL_RELEASES.md).
 
 Novera建立喺上面 [Jan](https://github.com/janhq/jan),由Menlo Research及其貢獻者創建。原始同第三方歸因同埋 [Apache 2.0牌照](LICENSE) 都保留咗。 Jan下載唔係Novera發佈。
 
@@ -307,7 +307,7 @@ Novera建立喺上面 [Jan](https://github.com/janhq/jan),由Menlo Research及�
   <p>Sachet Jean-Marc先生 — 獨立研究員 — 法國</p>
   <p><em>人類嘅藝術同AI</em></p>
   <p>多謝每一個為更美好世界作出貢獻嘅人。透過佢哋嘅發現、工作、互相支持同埋佢哋傳遞嘅知識,佢哋幫我哋達到今日嘅地步。</p>
-  <p>我哋祝佢哋未來一切順利,同埋每個帶住呢種分享同幫助其他人向前行嘅精神嘅人。 開發工具:🧠90781000018709 — 90781000118709 翻譯工具輔助翻譯,基於英文90781000018709,日期係90781000118709-90781000218709-90781000318709。歡迎用母語評論。連結文件保留原始語言。</p>
+  <p>我哋祝佢哋，同每一位延續分享同互助精神嘅人，未來一切順利。</p>
 </div>
 
 <div align="center"><sub>開發工具：🧠 Codex — GPT-6.1 Sol</sub></div>

@@ -213,21 +213,21 @@ Inventário verificado em relação à fonte em **29 Outubro 2026**. Estes nomes
 | **ONNX Runtime** | Importação local de gráficos numéricos/bool e exportações de texto preparadas GenAI. | Pasta completa validada; pré-processamento/pós-processamento específico da tarefa necessário; [configuração e limites](onnx-server/README.md). |
 | **Adaptadores LoRA / PEFT** | Importe uma base completa com o seu adaptador local separado no fornecedor Safetensors. | Base causal Transformers não quantizada, identidade correspondente, verificações de tensores e estimativa de memória cumulativa; [configuração e limites](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Execução nativa CUDA para exportações densas compatíveis Llama/Qwen2/Qwen3 por tensor FP8. | Verificações de arquitetura/tensor e sonda de kernel real; [configuração e limites](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Projeções de blocos empacotados-16 FP4 através de GEMMs nativos CUDA; separado da imagem NVFP4. | Compatível Blackwell GPU, dimensões/exportação suportadas e sonda de kernel real; luminárias não treinadas testadas em RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Projeções de blocos empacotados-16 FP4 através de GEMMs nativos CUDA; separado da imagem NVFP4. | Compatível Blackwell GPU, dimensões/exportação suportadas e sonda de kernel real; modelos de teste não treinados testados em RTX 5070. |
 | **AWQ** | Pontos de verificação do modelo 4 bits GEMM sem fusão de operação. | NVIDIA CUDA e carregadores opcionais GPTQModel/Transformers. |
 | **GPTQ** | Configurações 2/3/4/8 bits, formatos gptq/gptq_v2. | NVIDIA CUDA, GPTQModel e Optimum; execução real testada a 4 bits. |
 | **bitsandbytes** | 4 bits NF4/FP4 ou 8 bits INT8. | NVIDIA CUDA e dependências opcionais; testes reais NF4 e INT8. |
 | **EXL3** | Pastas de modelo Safetensors quantizadas completas carregadas através de ExLlamaV3; foi testada a geração real com CUDA. | NVIDIA GPU, ambiente Python 3.12 separado e arquitetura compatível; sem substituto CPU. |
-| **EXL2** | Carregador ExLlamaV2 dedicado; streaming, cancelamento e descarga testados em GPU. | CUDA atenção deve ser explicitamente selecionada para a pilha de software testada; são necessários um ponto de verificação do modelo completo e o número VRAM disponível. |
+| **EXL2** | Carregador ExLlamaV2 dedicado; streaming, cancelamento e descarga testados em GPU. | Selecionar explicitamente o backend CUDA Attention para a configuração de software testada; são necessários o checkpoint completo do modelo e VRAM livre suficiente. |
 | **MLX** | Modelos compatíveis em Apple Silicon. | MLX motor e plataforma suportados. |
 
 O Hub agora fixa **LFM3-1.7B** de acordo com a sua recomendação LiquidAI para configurações compatíveis, com as variantes Q4_K_M, Q6_K e Q8_0. O modelo de primeira execução continua a ser o listado na configuração guiada acima.
 
-Filtrar pesos de download de **sob 1 GB a 500 GB e acima**e, em seguida, ordene por ajuste de hardware, tamanho, atualidade ou transferências. Os resultados carregam progressivamente; os filtros aplicam-se aos modelos pesquisados ​​e à sua variante padrão. O conselho de memória utiliza RAM/VRAM disponível, contexto e componentes complementares, sem contagem dupla de memória GPU partilhada.
+Filtrar pesos de download de **sob 1 GB a 500 GB e acima** e, em seguida, ordene por ajuste de hardware, tamanho, atualidade ou transferências. Os resultados carregam progressivamente; os filtros aplicam-se aos modelos pesquisados ​​e à sua variante padrão. O conselho de memória utiliza RAM/VRAM disponível, contexto e componentes complementares, sem contagem dupla de memória GPU partilhada.
 
 AWQ 4 bits, GPTQ 4 bits, NF4 e INT8 cada texto gerado num RTX 5070 Laptop utilizando pequenos modelos não treinados criados offline. Isto valida o carregamento e a execução, e não a qualidade ou o desempenho de cada modelo. **Estas adições estão na fonte: são necessárias reconstrução e dependências compatíveis; esta atualização README não atualiza um binário instalado.**
 
-**Medido em RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, contexto 2,048, prompt 272 tokens, 128 tokens gerados, cinco execuções aquecidas: descodificação mediana **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Nenhum benefício de velocidade acima de GGUF foi demonstrado aqui. A quantização/calibração difere e EXL3 falhou num prompt aritmético de fumo; estes resultados não são uma classificação geral de velocidade ou qualidade. [Medições e limites completos](deliverables/exllama-2026-10-30/validation.md).
+**Medido em RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, contexto 2,048, prompt 272 tokens, 128 tokens gerados, cinco execuções aquecidas: descodificação mediana **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Nenhum benefício de velocidade acima de GGUF foi demonstrado aqui. A quantização/calibração difere e EXL3 falhou num teste aritmético básico; estes resultados não são uma classificação geral de velocidade ou qualidade. [Medições e limites completos](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** é uma ligação de servidor opcional, gerida separadamente, compatível com OpenAI, desativada por predefinição. A descoberta e o streaming do modelo EXL3 autenticado foram testados. A rota local gerida ExLlama permanece distinta. [Configuração ExLlama e ligação TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ A classificação adaptada ao hardware padrão favorece os lançamentos mais rec
 
 [Configuração Safetensors quantizada](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formatos, prioridades e validação](docs/SUIVI_MOTEURS.md)
 
-As fontes atualizadas acrescentam **componentes geridos opcionais em Configurações para Windows x64**: ambientes Python privados, perfis fixados CPU/CUDA, estimativas e confirmação antes de downloads, verificação, reparação e remoção. Os caminhos de intérprete personalizados permanecem nas opções avançadas. Os motores nativos GGUF mantêm os seus componentes existentes; dispositivos móveis e cloud não descarregam Python/PyTorch desktop. Foram exercidos três perfis privados CPU/exportação com luminárias sintéticas reais; O mantenedor reporta o uso bem-sucedido do ambiente de trabalho em 1 novembro 2026; Os perfis GPU e a instalação clean-PC ainda necessitam de validação detalhada e separada. [Perfis e limites de ensaio](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). A incorporação da pilha no EXE é adiada.
+As fontes atualizadas acrescentam **componentes geridos opcionais em Configurações para Windows x64**: ambientes Python privados, perfis fixados CPU/CUDA, estimativas e confirmação antes de downloads, verificação, reparação e remoção. Os caminhos de intérprete personalizados permanecem nas opções avançadas. Os motores nativos GGUF mantêm os seus componentes existentes; dispositivos móveis e cloud não descarregam Python/PyTorch desktop. Foram testados três perfis privados de CPU/exportação com dados de teste sintéticos; O mantenedor reporta o uso bem-sucedido do ambiente de trabalho em 1 novembro 2026; Os perfis GPU e a instalação clean-PC ainda necessitam de validação detalhada e separada. [Perfis e limites de ensaio](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). A incorporação da pilha no EXE é adiada.
 
 ## 80 linguagens de interface e variantes
 
@@ -295,7 +295,7 @@ Obrigado a todos pelo apoio, contributos, feedback e incentivo. Cada gesto conta
 
 Endereço de receção: `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
 
-Para contribuir, digitalize este código QR com a sua carteira ou copie o endereço acima. Selecione **Bitcoin (BTC), na rede Bitcoin**e escolha o valor que pretende.
+Para contribuir, digitalize este código QR com a sua carteira ou copie o endereço acima. Selecione **Bitcoin (BTC), na rede Bitcoin** e escolha o valor que pretende.
 
 <img src=".github/assets/novera-bitcoin-support.png" alt="Código QR para o endereço de suporte Novera Bitcoin" width="240" />
 

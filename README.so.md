@@ -49,7 +49,7 @@ Novera kula koraa Tusaalooyinkaaga iyo dejimahaaga ayaa ka caawin kara isticmaal
 
 *Real Windows screenshot dalabka oo uu bixiyay haye 1 Noofambar 2026, kaas oo sheegay in codsigu si fiican u shaqeeyo. Waxay muujinaysaa muuqaal muuqaal ah, kontaroolkeeda faylka la kaydiyay iyo dashboardka hal abuurka midaysan; tani ma aha jeesjees.*
 
-Hal gole, shan qaab: **Baabuur / Qoraal / Sawirka / Muusig / Muuqaal**Xakamaynta waxay raacdaa qaabka la doortay: saamiga, xallinta, muddada, cadaynta, tayada, qalabka, erayada, abuur iyo tirada. Ballaca guddida iyo badhamada waxay la qabsadaan daaqadda iyo summada la turjumay.
+Hal gole, shan qaab: **Toos ah / Qoraal / Sawirka / Muusig / Muuqaal** Xakamaynta waxay raacdaa qaabka la doortay: saamiga, xallinta, muddada, cadaynta, tayada, qalabka, erayada, abuur iyo tirada. Ballaca guddida iyo badhamada waxay la qabsadaan daaqadda iyo summada la turjumay.
 
 - **1–10 jiilal isku xiga**, oo ku xidhan 1, oo leh tiro madax banaan oo muuqaal, muusig iyo muuqaal ah. Jooji waxay joojinaysaa hawsha firfircoon iyo safka hadhay.
 - **Random, go'an, +1 iyo -1 abuur**, Saamiyada hore loo dhigay ama caadadii iyo ikhtiyaari **Real-ESRGAN ×2/×4** kor u qaadaya oo cabbirkii ugu dambeeyay la soo bandhigay.
@@ -135,7 +135,7 @@ Koor-qoreeye muusigga Qwen iyo qaab-dhismeedka soo celinta Qwen waa **faylal kal
 
 ### Sawir, muusig iyo muuqaal
 
-**20 bixiyayaasha ayaa kashifay dariiqyada jiilka**, leh **49 horudhac: 25 sawirka, 20 muqaal iyo 4 muusig**Wadooyinka muusiga waa **ElevenMusic v2.5**, **Stable Audio 3**, **ACE-Step ilaa fal** iyo **Stable Audio 2.5 ilaa Replicate**.
+**20 bixiyayaasha ayaa kashifay dariiqyada jiilka**, leh **49 horudhac: 25 sawirka, 20 muqaal iyo 4 muusig** Wadooyinka muusiga waa **ElevenMusic v2.5**, **Stable Audio 3**, **ACE-Step ilaa fal** iyo **Stable Audio 2.5 ilaa Replicate**.
 
 | Bixiyaha | Waxa ka soo baxay Novera | Moodooyinka buugaagta |
 | --- | --- | --- |
@@ -195,7 +195,7 @@ Koor-qoreeye muusigga Qwen iyo qaab-dhismeedka soo celinta Qwen waa **faylal kal
 
 </details>
 
-Alaabta lagu hubiyay halka laga keenay **29 Oktoobar 2026**Magacyadani waxay sifeynayaan Novera presets, aan dammaanad qaadin gelitaanka akoon kasta. Kataloogyada fogfog, gobollada, shatiyada, kootada iyo biilasha ayaa weli ah kuwo u gaar ah bixiyaha. Qoraallada iswaafaqaya waxay dib u cusbooneysiin karaan buug-gacmeedkooda; Azure iyo albaabada qaar ayaa isticmaala xisaabaadka. Qandaraasyada daruurtu waxay leeyihiin imtixaanno la isku daray; Jiil lacag bixin ah looma samayn cusboonaysiinta bandhiggan.
+Alaabta lagu hubiyay halka laga keenay **29 Oktoobar 2026** Magacyadani waxay sifeynayaan Novera presets, aan dammaanad qaadin gelitaanka akoon kasta. Kataloogyada fogfog, gobollada, shatiyada, kootada iyo biilasha ayaa weli ah kuwo u gaar ah bixiyaha. Qoraallada iswaafaqaya waxay dib u cusbooneysiin karaan buug-gacmeedkooda; Azure iyo albaabada qaar ayaa isticmaala xisaabaadka. Qandaraasyada daruurtu waxay leeyihiin imtixaanno la isku daray; Jiil lacag bixin ah looma samayn cusboonaysiinta bandhiggan.
 
 [Buug-yaraha warbaahinta](web-app/src/constants/mediaProviders.ts) · [Qaababka qoraalka/aragtida](web-app/src/constants/cloudModels.ts) · [Habaynta daruuraha](docs/USER_GUIDE.md#cloud) · [Astaamaha caddaynta](docs/DEVELOPMENT.md#logos)
 
@@ -213,7 +213,7 @@ Alaabta lagu hubiyay halka laga keenay **29 Oktoobar 2026**Magacyadani waxay sif
 | **ONNX Runtime** | Soo dejinta maxalliga ah ee garaafyada nambarada/bool oo la diyaariyey GenAI dhoofinta qoraalka ah. | Galka dhamaystiran ee la ansixiyay; Hawsha-gaar-gaar-u-samaynta/ka-hortagga ka-hortagga ayaa loo baahan yahay; [dejinta iyo xadka](onnx-server/README.md). |
 | **LoRA / PEFT adabtarada** | Soo deji saldhig dhamaystiran oo leh adabtarro maxalli ah oo gooni ah oo ku jira Safetensors bixiyaha. | Sababta aan la qiyaasi karin Transformers saldhigga, aqoonsiga iswaafajinta, jeegaga teensorka iyo qiyaasta xusuusta wadarta; [dejinta iyo xadka](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Dhaladka CUDA fulinta ee cufan Llama/Qwen2/Qwen3 per-tensor FP8 dhoofinta | Hubinta dhismaha/tensor iyo baaritaanka kernel dhabta ah; [dejinta iyo xadka](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Baakad-16 FP4 saadaasha ilaa hooyo CUDA GEMMs; ka soocan sawirka NVFP4. | Ku habboon Blackwell GPU, cabbirada la taageeray iyo dhoofinta kernel-ka dhabta ah; qalabka aan la tababarin ayaa lagu tijaabiyay RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Baakad-16 FP4 saadaasha ilaa hooyo CUDA GEMMs; ka soocan sawirka NVFP4. | Ku habboon Blackwell GPU, cabbirada la taageeray iyo dhoofinta kernel-ka dhabta ah; moodallo tijaabo oo aan la tababarin ayaa lagu tijaabiyay RTX 5070. |
 | **AWQ** | 4-bit GEMM isbaarooyinka moodeelka oo aan la isku darin. | NVIDIA CUDA iyo GPTQModel/Transformers raridayaal ah. |
 | **GPTQ** | Habaynta 2/3/4/8-bit, qaab-dhismeedka gptq/gptq_v2. | NVIDIA CUDA, GPTQModel iyo Optimum; fulinta dhabta ah lagu tijaabiyay 4 bits. |
 | **bitsandbytes** | 4-bit NF4/FP4 ama 8-bit INT8. | NVIDIA CUDA iyo ku tiirsanaanta ikhtiyaariga ah; dhabta ah NF4 iyo INT8 imtixaanada. |
@@ -227,7 +227,7 @@ Ka sifee soo dejinta miisaanka **hoos 1 GB ilaa 500 GB iyo wixii ka sareeya**, k
 
 AWQ 4-bit, GPTQ 4-bit, NF4 iyo INT8 waxay si gaar ah u soo saareen qoraal oo ku jira RTX 5070 Laptop iyagoo isticmaalaya qaab-dhismeedyo yaryar oo aan la tababarin oo si toos ah loo sameeyay. Tani waxay xaqiijinaysaa soo gelinta iyo fulinta, ma aha tayada ama waxqabadka qaab-dhismeed kasta. **Kordhintaani waxay ku jiraan isha: dib u dhiska iyo ku-tiirsanaanta waafaqsan ayaa loo baahan yahay; Cusboonaysiintan README ma cusboonaysiiso binary rakiban.**
 
-**Lagu qiyaasay RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, macnaha guud 2,048, degdeg 272 calaamado, 128 calaamado la sameeyay, shan orod oo diirran: dhexdhexaadiyaha **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**Wax faa'iido xawaare ka badan GGUF laguma muujin halkan. Tiro-samaynta/kala-soocidda way kala duwan tahay, iyo EXL3 waxay ku guul-darreysteen hal qiiq xisaabeed; Natiijooyinkani maahan xawaare guud ama qiimeynta tayada. [Cabbiraad buuxa iyo xaddidid](deliverables/exllama-2026-10-30/validation.md).
+**Lagu qiyaasay RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, macnaha guud 2,048, degdeg 272 calaamado, 128 calaamado la sameeyay, shan orod oo diirran: dhexdhexaadiyaha **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9** Wax faa'iido xawaare ka badan GGUF laguma muujin halkan. Tiro-samaynta/kala-soocidda way kala duwan tahay, iyo EXL3 waxay ku guul-darreysteen hal tijaabo xisaabeed oo fudud; Natiijooyinkani maahan xawaare guud ama qiimeynta tayada. [Cabbiraad buuxa iyo xaddidid](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** waa xiriir server ah oo ikhtiyaari ah, si gaar ah loo maamulo oo ula jaanqaadaya OpenAI, oo si toos ah loo xiray. Waxaa la tijaabiyay helitaanka iyo soo-dhigga qaab-dhismeedka EXL3 ee lagu xaqiijiyay. Jidka deegaanka ee la maamulo ExLlama wuxuu iska ilaaliyaa. [ExLlama dejinta iyo TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -241,7 +241,7 @@ Ilaha la cusboonaysiiyay ayaa ku daray **Qaybaha la maareeyay ee ikhtiyaarka ah 
 
 **Dhammaan 80 buugaagta waxay daboolayaan furayaasha Ingiriisiga hadda 2,429** guud ahaan 15 magacyada, oo ay ku jiraan menus, habayn, dejin, caawimo iyo kontaroolada warbaahinta. Foomamka jamac iyo jihada isku xidhka ayaa raacaya luqadda la doortay. Jawaabta iyo luqadaha codku waxay si gooni ah ugu xiran yihiin moodeelka.
 
-Daboolistan farsamo ma caddaynayso tayada luqadda: **dib u eegis wadaniga ah iyo la qabsiga gobolka ayaa ah lama huraan**Ka eeg calaamadaha asalka ah iyo xadka la yaqaan ee ku yaal [hagaha luqadda](docs/LANGUAGES.md) iyo [warbixin xisaabeedka](deliverables/interface-audit-2026-10-29/RAPPORT.md).
+Daboolistan farsamo ma caddaynayso tayada luqadda: **dib u eegis wadaniga ah iyo la qabsiga gobolka ayaa ah lama huraan** Ka eeg calaamadaha asalka ah iyo xadka la yaqaan ee ku yaal [hagaha luqadda](docs/LANGUAGES.md) iyo [warbixin xisaabeedka](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
 ## Caawinta dadka, qayb kasta
 

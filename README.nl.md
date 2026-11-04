@@ -49,7 +49,7 @@ Novera groeit met u mee. Jouw voorbeelden en instellingen kunnen andere gebruike
 
 *Echte screenshot van de Windows-applicatie geleverd door de beheerder op 1 november 2026, die meldt dat de applicatie goed werkt. Het toont een gegenereerd landschap, de bedieningselementen voor opgeslagen bestanden en het uniforme creatiedashboard; dit is geen mockup.*
 
-Eén paneel, vijf modi: **Auto, tekst, afbeelding, muziek en video**. De bedieningselementen volgen de geselecteerde modus: verhouding, resolutie, duur, cadans, kwaliteit, instrumentaal, songteksten, zaad en kwantiteit. Paneelbreedte en knoppen passen zich aan het venster en vertaalde labels aan.
+Eén paneel, vijf modi: **Automatisch / Tekst / Afbeelding / Muziek / Video**. De bedieningselementen volgen de geselecteerde modus: verhouding, resolutie, duur, cadans, kwaliteit, instrumentaal, songteksten, zaad en kwantiteit. Paneelbreedte en knoppen passen zich aan het venster en vertaalde labels aan.
 
 - **1–10 opeenvolgende generaties**, standaard ingesteld op 1, met onafhankelijke hoeveelheden voor afbeelding, muziek en video. Stop annuleert de actieve taak en de resterende wachtrij.
 - **Willekeurige, vaste, +1 en −1 zaden**, vooraf ingestelde of aangepaste verhoudingen en optioneel **Real-ESRGAN ×2/×4** opschalen waarbij de uiteindelijke afmetingen worden weergegeven.
@@ -208,26 +208,26 @@ Voorraad gecontroleerd aan de hand van de bron **29 oktober 2026**. Deze namen b
 | Familie | Ondersteuning in de bron | Vereisten |
 | --- | --- | --- |
 | **GGUF** | Tekst genereren via llama.cpp; beeld- en videocomponenten voor ondersteunde profielen. | Architectuur herkend door de gebundelde engine. |
-| **GGUF splitsen** | Eén variant per volledige serie, opgetelde grootte, download van alle shards en grootte/SHA-256/headercontroles. | Standaard genummerde bestandsnamen; het downloaden van 500 GB betekent niet dat het model op deze PC. past |
+| **GGUF splitsen** | Eén variant per volledige serie, opgetelde grootte, download van alle shards en grootte/SHA-256/headercontroles. | Standaard genummerde bestandsnamen; het downloaden van 500 GB betekent niet dat het model op deze PC past. |
 | **Standaard Safetensors** | Volledige mappen via Transformers, causale tekst op CPU of NVIDIA CUDA. | Configuratie, tokenizer en elke vereiste shard. |
 | **ONNX Runtime** | Lokale import van numerieke/boolgrafieken en voorbereide GenAI-tekstexports. | Volledige map gevalideerd; taakspecifieke voor-/nabewerking vereist; [instellingen en limieten](onnx-server/README.md). |
 | **LoRA / PEFT-adapters** | Importeer een complete basis met zijn aparte lokale adapter in de Safetensors-provider. | Niet-gekwantiseerde causale Transformers-basis, matching-identiteit, tensorcontroles en cumulatieve geheugenschatting; [instellingen en limieten](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Native CUDA-uitvoering voor compatibele Llama/Qwen2/Qwen3 per-tensor FP8-exports. | Architectuur-/tensorcontroles en echte kernelsonde; [instellingen en limieten](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Verpakte blok-16 FP4-projecties via native CUDA GEMM's; los van afbeelding NVFP4. | Compatibel Blackwell GPU, ondersteunde afmetingen/export en daadwerkelijke kernelsonde; ongetrainde armaturen getest op RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Verpakte blok-16 FP4-projecties via native CUDA GEMM's; los van afbeelding NVFP4. | Compatibel Blackwell GPU, ondersteunde afmetingen/export en daadwerkelijke kernelsonde; ongetrainde testmodellen getest op RTX 5070. |
 | **AWQ** | 4-bit GEMM-modelcontrolepunten zonder operatiefusie. | NVIDIA CUDA en optionele GPTQModel/Transformers-laders. |
 | **GPTQ** | 2/3/4/8-bit configuraties, gptq/gptq_v2 formaten. | NVIDIA CUDA, GPTQModel en Optimum; echte uitvoering getest op 4-bits. |
 | **bitsandbytes** | 4-bit NF4/FP4 of 8-bit INT8. | NVIDIA CUDA en optionele afhankelijkheden; echte NF4- en INT8-tests. |
 | **EXL3** | Volledige gekwantiseerde Safetensors-modelmappen geladen via ExLlamaV3; daadwerkelijke generatie met CUDA werd getest. | NVIDIA GPU, aparte Python 3.12-omgeving en compatibele architectuur; geen terugval CPU. |
-| **EXL2** | Speciale ExLlamaV2-lader; streaming, annuleren en verwijderen getest op GPU. | CUDA aandacht moet expliciet worden geselecteerd voor de geteste softwarestack; een compleet modelcontrolepunt en de beschikbare VRAM zijn vereist. |
+| **EXL2** | Speciale ExLlamaV2-lader; streaming, annuleren en verwijderen getest op GPU. | Selecteer expliciet de CUDA Attention-backend voor de geteste softwareconfiguratie; een compleet modelcheckpoint en voldoende vrije VRAM zijn vereist. |
 | **MLX** | Compatibele modellen op Apple Silicon. | MLX-motor en ondersteund platform. |
 
 De hub wordt nu vastgezet **LFM3-1.7B** als LiquidAI-aanbeveling voor compatibele configuraties, met varianten Q4_K_M, Q6_K en Q8_0. Het model dat voor de eerste keer wordt uitgevoerd, blijft het model dat wordt vermeld in de bovenstaande begeleide configuratie.
 
-Filter downloadgewichten van **onder 1 GB tot 500 GB en hoger**en sorteer vervolgens op hardwaregeschiktheid, grootte, recentheid of downloads. Resultaten worden geleidelijk geladen; filters zijn van toepassing op opgehaalde modellen en hun standaardvariant. Geheugenadvies maakt gebruik van beschikbare RAM/VRAM-, context- en begeleidende componenten, zonder gedeeld GPU-geheugen dubbel te tellen.
+Filter downloadgewichten van **onder 1 GB tot 500 GB en hoger** en sorteer vervolgens op hardwaregeschiktheid, grootte, recentheid of downloads. Resultaten worden geleidelijk geladen; filters zijn van toepassing op opgehaalde modellen en hun standaardvariant. Geheugenadvies maakt gebruik van beschikbare RAM/VRAM-, context- en begeleidende componenten, zonder gedeeld GPU-geheugen dubbel te tellen.
 
 AWQ 4-bit, GPTQ 4-bit, NF4 en INT8 genereerden elk tekst op een RTX 5070 Laptop met behulp van kleine, ongetrainde modellen die offline waren gemaakt. Dit valideert het laden en de uitvoering, niet de kwaliteit of prestaties van elk model. **Deze toevoegingen staan ​​in de broncode: opnieuw opbouwen en compatibele afhankelijkheden zijn vereist; deze README-update upgradet geen geïnstalleerd binair bestand.**
 
-**Gemeten op de RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, context 2,048, prompt 272-tokens, 128 gegenereerde tokens, vijf opgewarmde runs: mediaan-decodering **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Hier werd geen snelheidsvoordeel ten opzichte van de GGUF aangetoond. Kwantisering/kalibratie verschilt, en EXL3 faalde bij één rekenkundige rookprompt; deze resultaten zijn geen algemene snelheids- of kwaliteitsranglijst. [Volledige metingen en limieten](deliverables/exllama-2026-10-30/validation.md).
+**Gemeten op de RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, context 2,048, prompt 272-tokens, 128 gegenereerde tokens, vijf opgewarmde runs: mediaan-decodering **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Hier werd geen snelheidsvoordeel ten opzichte van de GGUF aangetoond. Kwantisering/kalibratie verschilt, en EXL3 faalde bij één eenvoudige rekentest; deze resultaten zijn geen algemene snelheids- of kwaliteitsranglijst. [Volledige metingen en limieten](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** is een optionele, afzonderlijk beheerde, OpenAI-compatibele serververbinding, die standaard is uitgeschakeld. Geauthenticeerde EXL3-modeldetectie en streaming zijn getest. De beheerde lokale ExLlama-route blijft verschillend. [ExLlama-installatie en TabbyAPI-verbinding](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ De standaard, aan hardware aangepaste sortering geeft de voorkeur aan nieuwere r
 
 [Gekwantiseerde Safetensors-installatie](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formaten, prioriteiten en validatie](docs/SUIVI_MOTEURS.md)
 
-De bijgewerkte bronnen worden toegevoegd **optionele beheerde componenten in configuraties voor Windows x64**: privé Python-omgevingen, vastgezette CPU/CUDA-profielen, schattingen en bevestiging vóór downloads, verificatie, reparatie en verwijdering. Aangepaste tolkpaden blijven onder geavanceerde opties. Native GGUF-motoren behouden hun bestaande componenten; mobiel en cloud downloaden desktop Python/PyTorch niet. Drie particuliere CPU/export-profielen werden uitgeoefend met echte synthetische armaturen; De beheerder rapporteert succesvol desktopgebruik op 1 november 2026; GPU-profielen en schone PC-installatie hebben nog steeds afzonderlijke, gedetailleerde validatie nodig. [Profielen en testlimieten](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Het inbedden van de stapel in de EXE wordt uitgesteld.
+De bijgewerkte broncode voegt **optionele beheerde componenten in Configuraties voor Windows x64** toe: privé Python-omgevingen, vastgezette CPU/CUDA-profielen, schattingen en bevestiging vóór downloads, verificatie, reparatie en verwijdering. Aangepaste interpreterpaden blijven onder geavanceerde opties. Native GGUF-motoren behouden hun bestaande componenten; mobiel en cloud downloaden desktop Python/PyTorch niet. Drie afzonderlijke CPU/export-profielen zijn getest met synthetische testgegevens; De beheerder rapporteert succesvol desktopgebruik op 1 november 2026; GPU-profielen en schone PC-installatie hebben nog steeds afzonderlijke, gedetailleerde validatie nodig. [Profielen en testlimieten](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Het inbedden van de stapel in de EXE wordt uitgesteld.
 
 ## 80-interfacetalen en varianten
 
@@ -295,7 +295,7 @@ Iedereen bedankt voor jullie steun, bijdragen, feedback en aanmoediging. Elk geb
 
 Ontvangstadres: `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
 
-Om een bijdrage te leveren, scant u deze QR-code met uw portemonnee of kopieert u het bovenstaande adres. Selecteer **Bitcoin (BTC), op het Bitcoin-netwerk**en kies vervolgens het gewenste bedrag.
+Om een bijdrage te leveren, scant u deze QR-code met uw portemonnee of kopieert u het bovenstaande adres. Selecteer **Bitcoin (BTC), op het Bitcoin-netwerk** en kies vervolgens het gewenste bedrag.
 
 <img src=".github/assets/novera-bitcoin-support.png" alt="QR-code voor het ondersteuningsadres Novera Bitcoin" width="240" />
 

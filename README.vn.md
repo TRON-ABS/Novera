@@ -49,7 +49,7 @@ Novera phát triển cùng bạn. Các ví dụ và cài đặt của bạn có 
 
 *Ảnh chụp màn hình ứng dụng Windows thực do nhà bảo trì cung cấp trên 1 tháng 11 2026, người báo cáo rằng ứng dụng hoạt động tốt. Nó hiển thị cảnh quan được tạo, các điều khiển tệp đã lưu và bảng điều khiển tạo hợp nhất; đây không phải là một mô hình.*
 
-Một bảng điều khiển, năm chế độ: **Tự động, Văn bản, Hình ảnh, Âm nhạc và Video**. Các điều khiển tuân theo chế độ đã chọn: tỷ lệ, độ phân giải, thời lượng, nhịp điệu, chất lượng, nhạc cụ, lời bài hát, hạt giống và số lượng. Độ rộng của bảng điều khiển và các nút thích ứng với cửa sổ và nhãn đã dịch.
+Một bảng điều khiển, năm chế độ: **Tự động / Văn bản / Hình ảnh / Nhạc / Video**. Các điều khiển tuân theo chế độ đã chọn: tỷ lệ, độ phân giải, thời lượng, nhịp điệu, chất lượng, nhạc cụ, lời bài hát, hạt giống và số lượng. Độ rộng của bảng điều khiển và các nút thích ứng với cửa sổ và nhãn đã dịch.
 
 - **Các thế hệ tuần tự 1–10**, mặc định là 1, với số lượng độc lập cho hình ảnh, âm nhạc và video. Dừng hủy tác vụ đang hoạt động và hàng đợi còn lại.
 - **Hạt giống ngẫu nhiên, cố định, +1 và −1**, tỷ lệ đặt trước hoặc tùy chỉnh và tùy chọn **Real-ESRGAN ×2/×4** nâng cấp với kích thước cuối cùng được hiển thị.
@@ -213,12 +213,12 @@ Hàng tồn kho được kiểm tra dựa trên nguồn trên **29 Tháng 10 202
 | **ONNX Runtime** | Nhập cục bộ các biểu đồ số/bool và xuất văn bản GenAI đã chuẩn bị. | Thư mục hoàn chỉnh đã được xác thực; yêu cầu tiền xử lý/hậu xử lý theo nhiệm vụ cụ thể; [thiết lập và giới hạn](onnx-server/README.md). |
 | **Bộ chuyển đổi LoRA / PEFT** | Nhập cơ sở hoàn chỉnh với bộ điều hợp cục bộ riêng biệt trong nhà cung cấp Safetensors. | Cơ sở Transformers nhân quả không được lượng tử hóa, nhận dạng khớp, kiểm tra tensor và ước tính bộ nhớ tích lũy; [thiết lập và giới hạn](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Thực thi CUDA gốc để xuất Llama/Qwen2/Qwen3 trên mỗi tensor dày đặc tương thích FP8. | Kiểm tra kiến ​​trúc/tensor và thăm dò hạt nhân thực; [thiết lập và giới hạn](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Các phép chiếu khối-16 FP4 được đóng gói thông qua các GEMM CUDA gốc; tách biệt khỏi hình ảnh NVFP4. | Blackwell GPU tương thích, kích thước/xuất được hỗ trợ và đầu dò hạt nhân thực tế; các đồ đạc chưa được huấn luyện đã được thử nghiệm trên RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Các phép chiếu khối-16 FP4 được đóng gói thông qua các GEMM CUDA gốc; tách biệt khỏi hình ảnh NVFP4. | Blackwell GPU tương thích, kích thước/xuất được hỗ trợ và đầu dò hạt nhân thực tế; các mô hình thử nghiệm chưa được huấn luyện đã được thử nghiệm trên RTX 5070. |
 | **AWQ** | Điểm kiểm tra mô hình 4-bit GEMM không có hoạt động hợp nhất. | NVIDIA CUDA và bộ tải GPTQModel/Transformers tùy chọn. |
 | **GPTQ** | Cấu hình 2/3/4/8-bit, định dạng gptq/gptq_v2. | NVIDIA CUDA, GPTQModel và Optimum; việc thực thi thực tế được kiểm tra ở các bit 4. |
 | **bitsandbytes** | 4-bit NF4/FP4 hoặc 8-bit INT8. | NVIDIA CUDA và các phần phụ thuộc tùy chọn; các bài kiểm tra NF4 và INT8 thực. |
 | **EXL3** | Hoàn thành các thư mục mô hình Safetensors được lượng tử hóa được tải qua ExLlamaV3; thế hệ thực tế với CUDA đã được thử nghiệm. | NVIDIA GPU, môi trường Python 3.12 riêng biệt và kiến ​​trúc tương thích; không có dự phòng CPU. |
-| **EXL2** | Trình tải ExLlamaV2 chuyên dụng; đã thử nghiệm phát trực tuyến, hủy và dỡ tải trên GPU. | CUDA phải được chọn rõ ràng cho ngăn xếp phần mềm được kiểm tra; Cần có điểm kiểm tra mô hình hoàn chỉnh và VRAM có sẵn. |
+| **EXL2** | Trình tải ExLlamaV2 chuyên dụng; đã thử nghiệm phát trực tuyến, hủy và dỡ tải trên GPU. | Chọn rõ backend CUDA Attention cho cấu hình phần mềm đã kiểm thử; cần checkpoint mô hình đầy đủ và đủ VRAM trống. |
 | **MLX** | Các mẫu tương thích trên Apple Silicon. | Động cơ MLX và nền tảng được hỗ trợ. |
 
 Hub hiện đã được ghim **LFM3-1.7B** làm đề xuất LiquidAI cho các cấu hình tương thích, với các biến thể Q4_K_M, Q6_K và Q8_0. Mô hình chạy lần đầu vẫn là mô hình được liệt kê trong cấu hình được hướng dẫn ở trên.
@@ -227,7 +227,7 @@ Lọc trọng lượng tải xuống từ **dưới 1 GB đến 500 GB trở lê
 
 AWQ 4-bit, GPTQ 4-bit, NF4 và INT8 đều tạo văn bản trên RTX 5070 Laptop bằng cách sử dụng các mô hình nhỏ chưa qua đào tạo được tạo ngoại tuyến. Điều này xác nhận việc tải và thực thi chứ không phải chất lượng hoặc hiệu suất của mọi mô hình. **Những bổ sung này có trong nguồn: cần phải xây dựng lại và phụ thuộc tương thích; bản cập nhật README này không nâng cấp tệp nhị phân đã cài đặt.**
 
-**Được đo trên RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, ngữ cảnh 2,048, mã thông báo 272 nhắc nhở, mã thông báo được tạo 128, năm lần chạy ấm: giải mã trung bình **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Không có lợi ích về tốc độ so với GGUF được trình bày ở đây. Lượng tử hóa/hiệu chuẩn khác nhau và EXL3 không thành công trong một lần nhắc khói số học; những kết quả này không phải là xếp hạng chung về tốc độ hoặc chất lượng. [Đo lường và giới hạn đầy đủ](deliverables/exllama-2026-10-30/validation.md).
+**Được đo trên RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, ngữ cảnh 2,048, mã thông báo 272 nhắc nhở, mã thông báo được tạo 128, năm lần chạy ấm: trung vị tốc độ giải mã **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Không có lợi ích về tốc độ so với GGUF được trình bày ở đây. Lượng tử hóa/hiệu chuẩn khác nhau và EXL3 không thành công trong một bài kiểm tra số học cơ bản; những kết quả này không phải là xếp hạng chung về tốc độ hoặc chất lượng. [Đo lường và giới hạn đầy đủ](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** là kết nối máy chủ tương thích OpenAI tùy chọn, được quản lý riêng, bị tắt theo mặc định. Đã thử nghiệm phát hiện và phát trực tuyến mô hình EXL3 đã xác thực. Tuyến ExLlama cục bộ được quản lý vẫn có sự khác biệt. [Thiết lập ExLlama và kết nối TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Loại sắp xếp mặc định được điều chỉnh theo phần cứng s�
 
 [Thiết lập Safetensors được lượng tử hóa](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Định dạng, mức độ ưu tiên và xác thực](docs/SUIVI_MOTEURS.md)
 
-Các nguồn cập nhật thêm **các thành phần được quản lý tùy chọn trong Cấu hình cho Windows x64**: môi trường Python riêng tư, hồ sơ CPU/CUDA được ghim, ước tính và xác nhận trước khi tải xuống, xác minh, sửa chữa và xóa. Đường dẫn thông dịch tùy chỉnh nằm trong các tùy chọn nâng cao. Động cơ GGUF gốc giữ lại các thành phần hiện có của chúng; thiết bị di động và đám mây không tải xuống Python/PyTorch trên máy tính để bàn. Ba hồ sơ xuất khẩu/CPU riêng tư đã được thực hiện với các thiết bị tổng hợp thực sự; Người bảo trì báo cáo việc sử dụng máy tính để bàn thành công trên 1 tháng 11 2026; Cấu hình GPU và cài đặt PC sạch vẫn cần xác thực chi tiết, riêng biệt. [Hồ sơ và giới hạn kiểm tra](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Việc nhúng ngăn xếp vào EXE bị hoãn lại.
+Các nguồn cập nhật thêm **các thành phần được quản lý tùy chọn trong Cấu hình cho Windows x64**: môi trường Python riêng tư, hồ sơ CPU/CUDA được ghim, ước tính và xác nhận trước khi tải xuống, xác minh, sửa chữa và xóa. Đường dẫn thông dịch tùy chỉnh nằm trong các tùy chọn nâng cao. Động cơ GGUF gốc giữ lại các thành phần hiện có của chúng; thiết bị di động và đám mây không tải xuống Python/PyTorch trên máy tính để bàn. Ba hồ sơ xuất khẩu/CPU riêng tư đã được thực hiện với dữ liệu thử nghiệm tổng hợp; Người bảo trì báo cáo việc sử dụng máy tính để bàn thành công trên 1 tháng 11 2026; Cấu hình GPU và cài đặt PC sạch vẫn cần xác thực chi tiết, riêng biệt. [Hồ sơ và giới hạn kiểm tra](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Việc nhúng ngăn xếp vào EXE bị hoãn lại.
 
 ## Ngôn ngữ và biến thể giao diện 80
 

@@ -49,7 +49,7 @@ Novera ikura hamwe nawe. Ingero zawe nigenamiterere birashobora gufasha abandi b
 
 *Ishusho ya Windows yerekana amashusho yatanzwe nuwayibitse kuri 1 Ugushyingo 2026, utangaza ko porogaramu ikora neza. Yerekana ahantu nyaburanga, ibitse-dosiye igenzura hamwe nububiko bumwe bwo kurema; ibi ntabwo ari ugusebanya.*
 
-Umwanya umwe, uburyo butanu: **Imodoka / Inyandiko / Ishusho / Umuziki / Video**. Igenzura rikurikiza uburyo bwatoranijwe: igipimo, gukemura, igihe bimara, cadence, ubuziranenge, ibikoresho, amagambo, imbuto ninshi. Ubugari bwa paneli na buto bihuza nidirishya hamwe nibirango byahinduwe.
+Umwanya umwe, uburyo butanu: **Byikora / Inyandiko / Ishusho / Umuziki / Video**. Igenzura rikurikiza uburyo bwatoranijwe: igipimo, gukemura, igihe bimara, cadence, ubuziranenge, ibikoresho, amagambo, imbuto ninshi. Ubugari bwa paneli na buto bihuza nidirishya hamwe nibirango byahinduwe.
 
 - **1 - 10 ibisekuruza bikurikirana**, usanzwe kuri 1, hamwe numubare wigenga kumashusho, umuziki na videwo. Hagarika guhagarika umurimo ukora n'umurongo usigaye.
 - **Imbuto zisanzwe, zihamye, + 1 na −1**, guteganya cyangwa kugereranya ibicuruzwa no kubishaka **Real-ESRGAN ×2/×4** kuzamuka hamwe nubunini bwanyuma bwerekanwe.
@@ -213,12 +213,12 @@ Ibarura ryagenzuwe ku nkomoko kuri **29 Ukwakira 2026**. Aya mazina asobanura No
 | **ONNX Runtime** | Ibicuruzwa byinjira mubishushanyo mbonera / bool no gutegura GenAI yoherejwe hanze. | Ububiko bwuzuye bwemewe; imirimo yihariye itunganywa / itunganywa risabwa; [gushiraho no kugarukira](onnx-server/README.md). |
 | **LoRA / PEFT** | Kuzana shingiro ryuzuye hamwe na adapt yihariye yaho muri Safetensors. | Icyo cy'Transformers cy'ubwoko butari cy'ubwoko bw'unquantized cy'ubwoko bw'causal, iby'identity by'matching, ibikoresho by'tensor kandi ikiganiro cy'ubwoko bw'umwihariko w'imemori; [gushiraho no kugarukira](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Gukoresha cy'CUDA mu buryo bw'native ku by'Llama/Qwen2/Qwen3 by'dense by'compatible n'ibikoresho by'FP8 by'per-tensor. | Icyo cy'Architecture/tensor checks kandi cy'real kernel probe; [gushiraho no kugarukira](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Iby'projections by'16 FP4 by'packed block mu buryo bw'native by'CUDA GEMMs; bitandukanye n'image NVFP4. | Blackwell GPU by'compatible, iby'dimensions/export by'supporte kandi cy'actual kernel probe; ibikoresho by'untrained by'RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Iby'projections by'16 FP4 by'packed block mu buryo bw'native by'CUDA GEMMs; bitandukanye n'image NVFP4. | Blackwell GPU ihuje n’iyi mikorere, dimensions/export bishyigikiwe n’ikizamini nyacyo cya kernel; moderi z’igerageza zitatojwe zapimwe kuri RTX 5070. |
 | **AWQ** | 4-bit GEMM igenzurwa ntangarugero nta guhuza ibikorwa. | NVIDIA CUDA nubushake bwa GPTQModel/Transformers. |
 | **GPTQ** | 2 / 3 / 4 / 8-bit-iboneza, gptq / gptq_v2. | NVIDIA CUDA, GPTQModel na Optimum; irangizwa ryukuri ryageragejwe kuri 4. |
 | **bitsandbytes** | 4-bit NF4/FP4 cyangwa 8-bit INT8. | NVIDIA CUDA no guterwa kubushake; ibizamini bya NF4 na INT8. |
 | **EXL3** | Ububiko bwuzuye bwa Safetensors bwuzuye bwuzuye bwuzuye ExLlamaV3; igisekuru nyacyo hamwe na CUDA cyageragejwe. | NVIDIA GPU, gutandukanya Python 3.12 hamwe nubwubatsi bujyanye; nta gusubira inyuma kwa CPU. |
-| **EXL2** | Yiyeguriye ExLlamaV2; gutembera, guhagarika no gupakurura byageragejwe kuri GPU. | CUDA kwitondera bigomba gutoranywa muburyo bwa software yapimwe; igenzura ryuzuye ryuzuye kandi rihari VRAM irakenewe. |
+| **EXL2** | Yiyeguriye ExLlamaV2; gutembera, guhagarika no gupakurura byageragejwe kuri GPU. | Hitamo CUDA Attention backend ku buryo bweruye muri software yapimwe; hakenewe checkpoint yuzuye ya moderi na VRAM ihagije iboneka. |
 | **MLX** | Moderi ihuje kuri Apple Silicon. | MLX moteri hamwe na platform. |
 
 Hub noneho **LFM3-1.7B** nkibisobanuro byayo bya LiquidAI kubishushanyo mbonera, hamwe na Q4_K_M, Q6_K na Q8_0. Moderi yambere-ikomeza kuba imwe murutonde ruyobowe hejuru.
@@ -227,7 +227,7 @@ Shungura ibipimo byo gukuramo **munsi ya 1 GB kugeza 500 GB no hejuru**, hanyuma
 
 AWQ 4-bit, GPTQ 4-bit, NF4 na INT8 buri kintu by'generate text kuri RTX 5070 Laptop bakoresheje ibikoresho by'tiny by'untrained by'offline. Ibi bivuga ko by'kwiriye gukoresha no gukorwa, atari ubuzima cyangwa ubushobozi by'ibikoresho byose. **Izi nyongera ziri mu nkomoko: kwiyubaka no guhuza biterwa birasabwa; iyi README ivugurura ntabwo izamura binary yashyizweho.**
 
-**By'meze kuri RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, context 2,048, prompt 272 tokens, 128 generated tokens, ibikorwa by'warmed bya binini: median decode **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Nta nyungu yihuta kurenza GGUF yerekanwe hano. Quantisation / kalibrasi iratandukanye, kandi EXL3 yananiwe kubara umwotsi umwe; ibisubizo ntabwo ari umuvuduko rusange cyangwa urutonde rwiza. [Ibipimo byuzuye n'imbibi](deliverables/exllama-2026-10-30/validation.md).
+**By'meze kuri RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, context 2,048, prompt 272 tokens, 128 generated tokens, ibigeragezo bitanu nyuma yo gushyushya sisitemu: median decode **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Nta nyungu yihuta kurenza GGUF yerekanwe hano. Quantisation / kalibrasi iratandukanye, kandi EXL3 yananiwe ikizamini kimwe cy’imibare yoroshye; ibisubizo ntabwo ari umuvuduko rusange cyangwa urutonde rwiza. [Ibipimo byuzuye n'imbibi](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** nubushake, bucungwa butandukanye OpenAI ihuza seriveri ihuza, ihagarikwa kubusa. Icyitegererezo cya EXL3 kuvumbura no gutambuka byageragejwe. Inzira ya ExLlama icungwa ikomeza kuba itandukanye. [ExLlama gushiraho na TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Ubusanzwe ibyuma-byahinduwe byubwoko bushyigikira ibyasohotse bishya muburyo bum
 
 [Imiterere ya Safetensors](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Imiterere, ibyihutirwa no kwemeza](docs/SUIVI_MOTEURS.md)
 
-Inkomoko ivuguruye yongeraho **inzengo zikoreshwa zikoreshwa mu Cyemezo ku bw'ibindi bya Windows x64**: inzira z'ibindi z'u-Python, amakuru y'CPU/CUDA y'ibindi, ingingo n'ubamenye mbere y'ibinyuranye, gukora ubisobanuro, gukemura n'ubura. Inzira z'inturukano z'ibindi zibaho mu nzira z'ibindi z'ubundi. Inzira z'ibindi z'GGUF zibaho ibindi z'ibindi; mobile n'ibindi z'ibindi ntizibinyuranye Python/PyTorch z'ibindi. Amakuru 3 y'ibindi z'CPU/export byakoreshejwe n'ibyo binyuranye z'ibindi z'ibindi; Umukoresha atanga ko byakora neza z'ibindi z'ibindi kuri 1 November 2026; amakuru y'GPU n'ibindi z'ibindi z'PC zibivuze gukora ubisobanuro bw'ibindi, bw'ibindi. [Umwirondoro n'imbibi](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Gushyira ibirindiro muri EXE birasubikwa.
+Kode ivuguruye yongeramo **ibice bicungwa na Novera byo guhitamo muri Configurations kuri Windows x64**: ahantu hihariye ha Python, CPU/CUDA profiles zifite verisiyo zagenwe, kugereranya ibikenewe no kwemeza mbere yo gukurura, kugenzura, gusana no gukuraho. Inzira zihariye za Python interpreter ziguma mu mahitamo yisumbuye. GGUF engines zisanzwe zigumana ibice byazo; mobile na cloud ntibikurura Python/PyTorch bya desktop. CPU/export profiles eshatu zihariye zapimwe hakoreshejwe amakuru y’igerageza yakozwe; ushinzwe kubungabunga umushinga avuga ko desktop yakoreshejwe neza ku wa 1 Ugushyingo 2026. GPU profiles no gushyira porogaramu kuri PC itarayishyirwaho biracyakeneye igenzura ryihariye kandi rirambuye. [Profiles n’imbibi z’igerageza](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Gushyira ibyo bice byose muri EXE byarasubitswe.
 
 ## 80 indimi nindimi zitandukanye
 

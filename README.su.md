@@ -213,12 +213,12 @@ Inventory dipariksa ngalawan sumber on **29 Oktober 2026**. Ngaran ieu ngajelask
 | **ONNX Runtime** | impor lokal tina numerik / grafik bool sarta disiapkeun GenAI ékspor téks. | folder lengkep disahkeun; tugas-spésifik preprocessing / postprocessing diperlukeun; [setelan sareng wates](onnx-server/README.md). |
 | **LoRA / PEFT adaptor** | Impor basa lengkep sareng adaptor lokal anu misah dina panyadia Safetensors. | Unquantized kausal Transformers dasar, cocog identitas, cék tensor jeung estimasi memori kumulatif; [setelan sareng wates](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | asli CUDA palaksanaan pikeun padet cocog Llama/Qwen2/Qwen3 per-tensor FP8 ékspor. | Arsitéktur / cék tensor jeung usik kernel nyata; [setelan sareng wates](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Dipak block-16 FP4 projections ngaliwatan asli CUDA GEMMs; misah ti gambar NVFP4. | cocog Blackwell GPU, dirojong dimensi / ékspor jeung usik kernel sabenerna; fixtures untrained diuji dina RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Dipak block-16 FP4 projections ngaliwatan asli CUDA GEMMs; misah ti gambar NVFP4. | cocog Blackwell GPU, dirojong dimensi / ékspor jeung usik kernel sabenerna; modél uji anu can dilatih diuji dina RTX 5070. |
 | **AWQ** | 4-bit GEMM checkpoints modél tanpa fusi operasi. | NVIDIA CUDA sarta pilihan GPTQModel/Transformers loaders. |
 | **GPTQ** | Konfigurasi 2/3/4/8-bit, format gptq/gptq_v2. | NVIDIA CUDA, GPTQModel jeung Optimum; palaksanaan nyata diuji dina 4 bit. |
 | **bitsandbytes** | 4-bit NF4/FP4 atanapi 8-bit INT8. | NVIDIA CUDA jeung kagumantungan pilihan; nyata NF4 jeung INT8 tés. |
 | **EXL3** | Ngalengkepan quantized Safetensors polder model dimuat ngaliwatan ExLlamaV3; generasi sabenerna kalawan CUDA ieu diuji. | NVIDIA GPU, misah Python 3.12 lingkungan jeung arsitéktur cocog; euweuh CPU fallback. |
-| **EXL2** | dedicated ExLlamaV2 loader; streaming, pembatalan sareng ngabongkar momotanana diuji dina GPU. | CUDA perhatian kudu dipilih sacara eksplisit pikeun tumpukan software diuji; titik pamariksaan modél lengkep sareng sayogi VRAM diperyogikeun. |
+| **EXL2** | dedicated ExLlamaV2 loader; streaming, pembatalan sareng ngabongkar momotanana diuji dina GPU. | CUDA Attention backend kudu dipilih sacara eksplisit pikeun tumpukan software diuji; titik pamariksaan modél lengkep sareng sayogi VRAM diperyogikeun. |
 | **MLX** | Model anu cocog dina Apple Silicon. | MLX mesin sareng platform anu dirojong. |
 
 The Hub ayeuna pin **LFM3-1.7B** salaku na LiquidAI rekomendasi pikeun konfigurasi cocog, jeung Q4_K_M, Q6_K jeung Q8_0 varian. Modél anu munggaran dijalankeun tetep anu didaptarkeun dina konfigurasi anu dipandu di luhur.
@@ -227,7 +227,7 @@ Filter download beurat ti **dina 1 GB nepi ka 500 GB ka luhur**, teras diurutkeu
 
 AWQ 4-bit, GPTQ 4-bit, NF4, jeung INT8 unggal ngahasilkeun téks dina hiji RTX 5070 Laptop maké modél leutik anu teu dilatih anu dijieun *offline*. Ieu ngavalidasi pamuat jeung eksekusi, lain kakuatan atawa kanyamanan unggal modél. **Tambihan ieu aya dina sumberna: rebuilding sareng dependensi anu cocog diperyogikeun; ieu README update teu ningkatkeun hiji binér dipasang.**
 
-**Diukur dina RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, konteks 2,048, ajakan 272 tokens, 128 token dihasilkeun, lima warmed ngalir: decode median **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Taya kauntungan speed leuwih GGUF ieu nunjukkeun di dieu. Quantization / calibration béda, jeung EXL3 gagal hiji aritmetika haseup ajakan; hasilna ieu lain speed umum atawa ranking kualitas. [Pangukuran sareng wates lengkep](deliverables/exllama-2026-10-30/validation.md).
+**Diukur dina RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, konteks 2,048, ajakan 272 tokens, 128 token dihasilkeun, lima warmed ngalir: decode median **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Taya kauntungan speed leuwih GGUF ieu nunjukkeun di dieu. Quantization / calibration béda, jeung EXL3 gagal hiji tés aritmetika basajan; hasilna ieu lain speed umum atawa ranking kualitas. [Pangukuran sareng wates lengkep](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** mangrupa pilihan, junun misah OpenAI-konéksi server cocog, ditumpurkeun sacara standar. Dioténtikasi EXL3 kapanggihna model jeung streaming diuji. Rute lokal ExLlama anu dikelola tetep béda. [ExLlama setelan sareng sambungan TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Diurutkeun hardware-diadaptasi standar ni'mat Kaluaran anyar dina kasaluyuan sar
 
 [Jumlah Safetensors setup](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Format, prioritas sareng validasi](docs/SUIVI_MOTEURS.md)
 
-Sumber anu diropéa nambihan **komponén junun opsional dina Konfigurasi pikeun Windows x64**: lingkungan Python swasta, pinned CPU/CUDA propil, estimasi jeung konfirmasi saméméh undeuran, verifikasi, perbaikan sarta ngaleupaskeun. Jalur juru khusus tetep dina pilihan canggih. Mesin asli GGUF ngajaga komponénna anu aya; mobile sareng awan henteu ngaunduh desktop Python/PyTorch. Tilu swasta CPU / propil ékspor ieu exercised kalawan fixtures sintétik nyata; The maintainer ngalaporkeun suksés pamakéan desktop on 1 November 2026; GPU profil sareng pamasangan bersih-PC masih peryogi papisah, validasi lengkep. [Propil sarta wates test](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Embedding tumpukan dina EXE ditunda.
+Sumber anu diropéa nambihan **komponén junun opsional dina Konfigurasi pikeun Windows x64**: lingkungan Python swasta, pinned CPU/CUDA propil, estimasi jeung konfirmasi saméméh undeuran, verifikasi, perbaikan sarta ngaleupaskeun. Jalur juru khusus tetep dina pilihan canggih. Mesin asli GGUF ngajaga komponénna anu aya; mobile sareng awan henteu ngaunduh desktop Python/PyTorch. Tilu swasta CPU / propil ékspor ieu exercised kalawan data uji sintétik; The maintainer ngalaporkeun suksés pamakéan desktop on 1 November 2026; GPU profil sareng pamasangan bersih-PC masih peryogi papisah, validasi lengkep. [Propil sarta wates test](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Embedding tumpukan dina EXE ditunda.
 
 ## 80 basa panganteur sareng varian
 

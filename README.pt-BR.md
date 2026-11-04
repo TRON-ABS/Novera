@@ -49,7 +49,7 @@ Novera cresce com você. Seus exemplos e configurações podem ajudar outros usu
 
 *Captura de tela real do aplicativo Windows fornecida pelo mantenedor em 1 novembro 2026, que relata que o aplicativo funciona bem. Mostra um cenário gerado, seus controles de arquivos salvos e o painel de criação unificado; isso não é uma maquete.*
 
-Um painel, cinco modos: **Auto, Texto, Imagem, Música e Vídeo**. Os controles seguem o modo selecionado: proporção, resolução, duração, cadência, qualidade, instrumental, letra, semente e quantidade. A largura do painel e os botões adaptam-se à janela e aos rótulos traduzidos.
+Um painel, cinco modos: **Automático / Texto / Imagem / Música / Vídeo**. Os controles seguem o modo selecionado: proporção, resolução, duração, cadência, qualidade, instrumental, letra, semente e quantidade. A largura do painel e os botões adaptam-se à janela e aos rótulos traduzidos.
 
 - **1–10 gerações sequenciais**, padrão 1, com quantidades independentes para imagem, música e vídeo. Parar cancela a tarefa ativa e a fila restante.
 - **Sementes aleatórias, fixas, +1 e −1**, proporções predefinidas ou personalizadas e opcionais **Real-ESRGAN ×2/×4** aumento de escala com dimensões finais exibidas.
@@ -213,7 +213,7 @@ Inventário verificado em relação à fonte em **29 Outubro 2026**. Esses nomes
 | **ONNX Runtime** | Importação local de gráficos numéricos/bool e exportações de texto preparadas GenAI. | Pasta completa validada; pré-processamento/pós-processamento específico da tarefa necessário; [configuração e limites](onnx-server/README.md). |
 | **Adaptadores LoRA/PEFT** | Importe uma base completa com seu adaptador local separado no provedor Safetensors. | Base Transformers causal não quantizada, identidade correspondente, verificações de tensores e estimativa de memória cumulativa; [configuração e limites](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Execução CUDA nativa para exportações FP8 densas e compatíveis por tensor Llama/Qwen2/Qwen3. | Verificações de arquitetura/tensor e teste real do kernel; [configuração e limites](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Projeções de bloco compactado 16 FP4 por meio de GEMMs nativos CUDA; separado da imagem NVFP4. | Compatível com Blackwell GPU, dimensões/exportação suportadas e teste de kernel real; luminárias não treinadas testadas em RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Projeções de bloco compactado 16 FP4 por meio de GEMMs nativos CUDA; separado da imagem NVFP4. | Compatível com Blackwell GPU, dimensões/exportação suportadas e teste de kernel real; modelos de teste não treinados testados em RTX 5070. |
 | **AWQ** | Checkpoints GEMM de 4 bits sem fusão de operações. | Carregadores NVIDIA CUDA e GPTQModel/Transformers opcionais. |
 | **GPTQ** | Configurações de bits 2/3/4/8, formatos gptq/gptq_v2. | NVIDIA CUDA, GPTQModel e Optimum; execução real testada em bits 4. |
 | **bitsandbytes** | 4 bits NF4/FP4 ou 8 bits INT8. | NVIDIA CUDA e dependências opcionais; testes reais NF4 e INT8. |
@@ -223,7 +223,7 @@ Inventário verificado em relação à fonte em **29 Outubro 2026**. Esses nomes
 
 O Hub agora fixa **LFM3-1.7B** como recomendação LiquidAI para configurações compatíveis, com variantes Q4_K_M, Q6_K e Q8_0. O modelo de primeira execução continua sendo aquele listado na configuração guiada acima.
 
-Filtrar pesos de download de **sob 1 GB a 500 GB e acima**e classifique por ajuste de hardware, tamanho, atualidade ou downloads. Os resultados carregam progressivamente; os filtros se aplicam aos modelos buscados e sua variante padrão. O aconselhamento de memória usa RAM/VRAM disponível, componentes de contexto e complementares, sem contagem dupla de memória GPU compartilhada.
+Filtrar pesos de download de **sob 1 GB a 500 GB e acima** e classifique por ajuste de hardware, tamanho, atualidade ou downloads. Os resultados carregam progressivamente; os filtros se aplicam aos modelos buscados e sua variante padrão. O aconselhamento de memória usa RAM/VRAM disponível, componentes de contexto e complementares, sem contagem dupla de memória GPU compartilhada.
 
 AWQ 4-bit, GPTQ 4-bit, NF4 e INT8 geraram texto em um RTX 5070 Laptop usando pequenos modelos não treinados criados offline. Isso valida o carregamento e a execução, não a qualidade ou o desempenho de cada modelo. **Essas adições estão no código-fonte: são necessárias reconstrução e dependências compatíveis; esta atualização README não atualiza um binário instalado.**
 
@@ -235,7 +235,7 @@ A classificação adaptada ao hardware padrão favorece versões mais recentes d
 
 [Configuração Safetensors quantizada](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formatos, prioridades e validação](docs/SUIVI_MOTEURS.md)
 
-As fontes atualizadas adicionam **componentes gerenciados opcionais em Configurações para Windows x64**: ambientes Python privados, perfis CPU/CUDA fixados, estimativas e confirmação antes de downloads, verificação, reparo e remoção. Os caminhos de intérprete personalizados permanecem nas opções avançadas. Os motores GGUF nativos mantêm seus componentes existentes; dispositivos móveis e nuvem não baixam Python/PyTorch para desktop. Três perfis privados CPU/exportação foram exercidos com luminárias sintéticas reais; O mantenedor relata uso bem-sucedido do desktop em 1 novembro 2026; Os perfis GPU e a instalação clean-PC ainda precisam de validação detalhada e separada. [Perfis e limites de teste](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). A incorporação da pilha no EXE é adiada.
+As fontes atualizadas adicionam **componentes gerenciados opcionais em Configurações para Windows x64**: ambientes Python privados, perfis CPU/CUDA fixados, estimativas e confirmação antes de downloads, verificação, reparo e remoção. Os caminhos de intérprete personalizados permanecem nas opções avançadas. Os motores GGUF nativos mantêm seus componentes existentes; dispositivos móveis e nuvem não baixam Python/PyTorch para desktop. Três perfis privados de CPU/exportação foram testados com dados de teste sintéticos; O mantenedor relata uso bem-sucedido do desktop em 1 novembro 2026; Os perfis GPU e a instalação clean-PC ainda precisam de validação detalhada e separada. [Perfis e limites de teste](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). A incorporação da pilha no EXE é adiada.
 
 ## Idiomas e variantes da interface 80
 
@@ -295,7 +295,7 @@ Obrigado a todos por seu apoio, contribuições, feedback e incentivo. Cada gest
 
 Endereço de recebimento: `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
 
-Para contribuir, escaneie este código QR com sua carteira ou copie o endereço acima. Selecione **Bitcoin (BTC), na rede Bitcoin**e escolha o valor que desejar.
+Para contribuir, escaneie este código QR com sua carteira ou copie o endereço acima. Selecione **Bitcoin (BTC), na rede Bitcoin** e escolha o valor que desejar.
 
 <img src=".github/assets/novera-bitcoin-support.png" alt="Código QR do endereço Bitcoin para apoiar o Novera" width="240" />
 

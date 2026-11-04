@@ -45,7 +45,7 @@ Novera évolue avec vous. Vos exemples et réglages peuvent aider les autres uti
 
 *Capture réelle de l’application Windows fournie par le mainteneur le 1er novembre 2026, qui confirme que l’application fonctionne bien. Elle montre un paysage généré, les commandes du fichier enregistré et le tableau de bord de création unifié ; ce n’est pas une maquette.*
 
-Un seul panneau, cinq modes : **Auto, Texte, Image, Musique et Vidéo**. Les réglages suivent le mode choisi : format, résolution, durée, cadence, qualité, instrumental, paroles, graine et quantité. La largeur du panneau et les boutons s’adaptent à la fenêtre et aux libellés traduits.
+Un seul panneau, cinq modes : **Auto / Texte / Image / Musique / Vidéo**. Les réglages suivent le mode choisi : format, résolution, durée, cadence, qualité, instrumental, paroles, graine et quantité. La largeur du panneau et les boutons s’adaptent à la fenêtre et aux libellés traduits.
 
 - **1 à 10 générations successives**, avec 1 par défaut et une quantité indépendante pour l’image, la musique et la vidéo. Arrêter interrompt la tâche active et la suite.
 - **Graines aléatoires, fixes, +1 ou −1**, formats prédéfinis ou personnalisés et agrandissement optionnel **Real-ESRGAN ×2/×4**, avec dimensions finales affichées.
@@ -201,12 +201,12 @@ Inventaire relu dans les sources le **29 octobre 2026**. Ces noms décrivent les
 | **ONNX Runtime** | Import local de graphes numériques/booléens et exports texte préparés pour GenAI. | Dossier complet validé ; pré/post-traitement spécifique à fournir ; [installation et limites](onnx-server/README.md). |
 | **Adaptateurs LoRA / PEFT** | Importer une base complète avec son adaptateur local séparé dans le fournisseur Safetensors. | Base Transformers causale non quantifiée, identité correspondante, contrôle des tenseurs et mémoire cumulée estimée ; [installation et limites](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Exécution CUDA native des exports FP8 par tenseur compatibles, Llama/Qwen2/Qwen3 denses. | Contrôle de l’architecture/des tenseurs et sonde réelle des kernels ; [installation et limites](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Projections FP4 bloc 16 conservées compactées, GEMM CUDA natives ; voie distincte du NVFP4 image. | GPU Blackwell, dimensions/export compatibles et sonde réelle ; fixtures non entraînées testées sur RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Projections FP4 bloc 16 conservées compactées, GEMM CUDA natives ; voie distincte du NVFP4 image. | GPU Blackwell, dimensions/export compatibles et sonde réelle ; modèles de test non entraînés essayés sur RTX 5070. |
 | **AWQ** | Checkpoints 4 bits GEMM non fusionnés. | NVIDIA CUDA et chargeurs optionnels GPTQModel/Transformers. |
 | **GPTQ** | Configurations 2/3/4/8 bits, formats gptq/gptq_v2. | NVIDIA CUDA, GPTQModel et Optimum ; essai réel effectué en 4 bits. |
 | **bitsandbytes** | 4 bits NF4/FP4 ou 8 bits INT8. | NVIDIA CUDA et dépendances optionnelles ; essais réels NF4 et INT8. |
 | **EXL3** | Dossier Safetensors quantifié complet via ExLlamaV3 ; génération CUDA réelle testée. | GPU NVIDIA, environnement Python 3.12 séparé et architecture compatible ; aucun repli CPU. |
-| **EXL2** | Chargeur ExLlamaV2 dédié ; streaming, annulation et déchargement testés sur GPU. | Attention CUDA explicite pour la pile testée ; dossier complet et VRAM libre requis. |
+| **EXL2** | Chargeur ExLlamaV2 dédié ; streaming, annulation et déchargement testés sur GPU. | Backend CUDA Attention explicitement sélectionné pour l’environnement testé ; checkpoint complet du modèle et VRAM disponible suffisante requis. |
 | **MLX** | Modèles compatibles sur Apple Silicon. | Moteur et plateforme MLX requis. |
 
 Le Hub propose **LFM3-1.7B** comme recommandation LiquidAI épinglée pour les configurations compatibles, avec ses variantes Q4_K_M, Q6_K et Q8_0. Le modèle du premier démarrage reste celui indiqué dans la configuration guidée ci-dessus.
@@ -223,7 +223,7 @@ Le tri par défaut favorise les sorties récentes à compatibilité et mémoire 
 
 [Installation Safetensors quantifiés](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorités et validations](docs/SUIVI_MOTEURS.md)
 
-Les sources ajoutent des **composants facultatifs gérés dans Configurations pour Windows x64** : environnements Python privés, profils CPU/CUDA épinglés, tailles et confirmation avant téléchargement, vérification, réparation et désinstallation. Les chemins personnalisés restent en options avancées. Les moteurs natifs GGUF gardent leurs composants existants ; le mobile et le cloud ne téléchargent pas les piles Python/PyTorch desktop. Trois profils privés CPU/export ont été essayés avec de vraies petites fixtures synthétiques ; Le mainteneur confirme le bon fonctionnement du desktop le 1er novembre 2026 ; les profils GPU et l’installation sur PC neuf restent à vérifier séparément en détail. [Profils et limites des tests](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). L'embarquement dans l'EXE est reporté.
+Les sources ajoutent des **composants facultatifs gérés dans Configurations pour Windows x64** : environnements Python privés, profils CPU/CUDA épinglés, tailles et confirmation avant téléchargement, vérification, réparation et désinstallation. Les chemins personnalisés restent en options avancées. Les moteurs natifs GGUF gardent leurs composants existants ; le mobile et le cloud ne téléchargent pas les piles Python/PyTorch desktop. Trois profils privés CPU/export ont été testés avec des données de test synthétiques ; le mainteneur confirme le bon fonctionnement du desktop le 1er novembre 2026 ; les profils GPU et l’installation sur PC neuf restent à vérifier séparément en détail. [Profils et limites des tests](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). L’intégration de ces composants dans l’EXE est reportée.
 
 ## 80 langues et variantes d’interface
 

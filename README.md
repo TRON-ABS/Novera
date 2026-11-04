@@ -45,7 +45,7 @@ Novera grows with you. Your examples and settings can help other users find a su
 
 *Real Windows application screenshot supplied by the maintainer on 1 November 2026, who reports that the application works well. It shows a generated landscape, its saved-file controls and the unified creation dashboard; this is not a mockup.*
 
-One panel, five modes: **Auto, Text, Image, Music and Video**. Controls follow the selected mode: ratio, resolution, duration, cadence, quality, instrumental, lyrics, seed and quantity. Panel width and buttons adapt to the window and translated labels.
+One panel, five modes: **Auto / Text / Image / Music / Video**. Controls follow the selected mode: ratio, resolution, duration, cadence, quality, instrumental, lyrics, seed and quantity. Panel width and buttons adapt to the window and translated labels.
 
 - **1–10 sequential generations**, defaulting to 1, with independent quantities for image, music and video. Stop cancels the active task and the remaining queue.
 - **Random, fixed, +1 and −1 seeds**, preset or custom ratios and optional **Real-ESRGAN ×2/×4** upscaling with final dimensions displayed.
@@ -72,7 +72,7 @@ In the updated sources, **Configurations adapts its recommendations to mobile an
 
 ## Capabilities in the source
 
-Optional maintenance diagnostics now distinguish builds and instrument handled failures as well as JavaScript exceptions, with separate consent and filtered technical fields. An hourly production email alert is configured for the maintainer. Private source maps and alert details follow the [maintenance runbook](docs/MAINTENANCE.md); test email receipt is confirmed, while authenticated symbol upload and testing in the next binary remain release checks.
+Optional maintenance diagnostics now identify builds and record handled failures as well as JavaScript exceptions, with separate consent and filtered technical fields. An hourly production email alert is configured for the maintainer. Private source maps and alert details follow the [maintenance runbook](docs/MAINTENANCE.md); test email receipt is confirmed, while authenticated symbol upload and testing in the next binary remain release checks.
 
 | Area | Features |
 | --- | --- |
@@ -201,12 +201,12 @@ Inventory checked against the source on **29 October 2026**. These names describ
 | **ONNX Runtime** | Local import of numeric/bool graphs and prepared GenAI text exports. | Validated complete folder; task-specific preprocessing/postprocessing required; [setup and limits](onnx-server/README.md). |
 | **LoRA / PEFT adapters** | Import a complete base with its separate local adapter in the Safetensors provider. | Unquantized causal Transformers base, matching identity, tensor checks and cumulative memory estimate; [setup and limits](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Native CUDA execution for compatible dense Llama/Qwen2/Qwen3 per-tensor FP8 exports. | Architecture/tensor checks and real kernel probe; [setup and limits](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Packed block-16 FP4 projections through native CUDA GEMMs; separate from image NVFP4. | Compatible Blackwell GPU, supported dimensions/export and actual kernel probe; untrained fixtures tested on RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Packed block-16 FP4 projections through native CUDA GEMMs; separate from image NVFP4. | Compatible Blackwell GPU, supported dimensions/export and actual kernel probe; untrained test models tested on RTX 5070. |
 | **AWQ** | Unfused 4-bit GEMM checkpoints. | NVIDIA CUDA and optional GPTQModel/Transformers loaders. |
 | **GPTQ** | 2/3/4/8-bit configurations, gptq/gptq_v2 formats. | NVIDIA CUDA, GPTQModel and Optimum; real execution tested at 4 bits. |
 | **bitsandbytes** | 4-bit NF4/FP4 or 8-bit INT8. | NVIDIA CUDA and optional dependencies; real NF4 and INT8 tests. |
 | **EXL3** | Complete quantized Safetensors folders through ExLlamaV3; real CUDA generation tested. | NVIDIA GPU, separate Python 3.12 environment and compatible architecture; no CPU fallback. |
-| **EXL2** | Dedicated ExLlamaV2 loader; streaming, cancellation and unload tested on GPU. | Explicit CUDA attention for the tested stack; complete checkpoint and free VRAM required. |
+| **EXL2** | Dedicated ExLlamaV2 loader; streaming, cancellation and unload tested on GPU. | Explicitly select the CUDA Attention backend for the tested software stack; a complete model checkpoint and sufficient available VRAM are required. |
 | **MLX** | Compatible models on Apple Silicon. | MLX engine and supported platform. |
 
 The Hub now pins **LFM3-1.7B** as its LiquidAI recommendation for compatible configurations, with Q4_K_M, Q6_K and Q8_0 variants. The first-run model remains the one listed in the guided configuration above.
@@ -215,7 +215,7 @@ Filter download weights from **under 1 GB to 500 GB and above**, then sort by ha
 
 AWQ 4-bit, GPTQ 4-bit, NF4 and INT8 each generated text on an RTX 5070 Laptop using tiny untrained models created offline. This validates loading and execution, not the quality or performance of every model. **These additions are in the source: rebuilding and compatible dependencies are required; this README update does not upgrade an installed binary.**
 
-**Measured on the RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, context 2,048, prompt 272 tokens, 128 generated tokens, five warmed runs: median decode **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. No speed benefit over GGUF was demonstrated here. Quantization/calibration differs, and EXL3 failed one arithmetic smoke prompt; these results are not a general speed or quality ranking. [Full measurements and limits](deliverables/exllama-2026-10-30/validation.md).
+**Measured on the RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, context 2,048, prompt 272 tokens, 128 generated tokens, five warmed runs: median decode **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. No speed benefit over GGUF was demonstrated here. Quantization/calibration differs, and EXL3 failed a basic arithmetic check; these results are not a general speed or quality ranking. [Full measurements and limits](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** is an optional, separately managed OpenAI-compatible server connection, disabled by default. Authenticated EXL3 model discovery and streaming were tested. The managed local ExLlama route remains distinct. [ExLlama setup and TabbyAPI connection](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -223,7 +223,7 @@ The default hardware-adapted sort favors newer releases within the same compatib
 
 [Quantized Safetensors setup](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorities and validation](docs/SUIVI_MOTEURS.md)
 
-The updated sources add **optional managed components in Configurations for Windows x64**: private Python environments, pinned CPU/CUDA profiles, estimates and confirmation before downloads, verification, repair and removal. Custom interpreter paths stay under advanced options. Native GGUF engines keep their existing components; mobile and cloud do not download desktop Python/PyTorch. Three private CPU/export profiles were exercised with real synthetic fixtures; The maintainer reports successful desktop use on 1 November 2026; GPU profiles and clean-PC installation still need separate, detailed validation. [Profiles and test limits](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Embedding the stack in the EXE is deferred.
+The updated sources add **optional managed components in Configurations for Windows x64**: private Python environments, pinned CPU/CUDA profiles, estimates and confirmation before downloads, verification, repair and removal. Custom interpreter paths stay under advanced options. Native GGUF engines keep their existing components; mobile and cloud do not download desktop Python/PyTorch. Three private CPU/export profiles were tested using synthetic test data; the maintainer reports successful desktop use on 1 November 2026; GPU profiles and clean-PC installation still need separate, detailed validation. [Profiles and test limits](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Bundling these components in the EXE is deferred.
 
 ## 80 interface languages and variants
 

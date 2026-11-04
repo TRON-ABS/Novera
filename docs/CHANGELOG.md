@@ -1,5 +1,9 @@
 # Novera — historique consolidé
 
+## Relecture des 80 README — 4 novembre 2026
+
+Corrections éditoriales dans les 80 versions : terminologie des modèles et données de test, vérification arithmétique, interpréteur Python, backend CUDA Attention, unités et médiane du benchmark, dates et libellés des modes. Retrait de fragments corrompus dans quatre traductions et rétablissement du paragraphe kinyarwanda sur les composants gérés. Les 80 sélecteurs, liens, images, blocs de code et structures de tableaux passent les contrôles locaux. Relecture assistée ; validation native et régionale encore nécessaire. [Méthode et limites](LANGUAGES.md).
+
 ## README du dépôt en 80 langues et variantes — 4 novembre 2026
 
 Les 40 dernières versions complètent les 40 README déjà disponibles. Chaque version propose le sélecteur commun des 80 langues et variantes de l’inventaire. Les rubriques, tableaux, liens de téléchargement, identifiants et attributions du README anglais du 3 novembre sont conservés ; les guides liés gardent leur langue d’origine. Les versions RTL suivent leur direction de lecture.

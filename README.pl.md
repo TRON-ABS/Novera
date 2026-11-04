@@ -49,7 +49,7 @@ Novera rośnie razem z Tobą. Twoje przykłady i ustawienia mogą pomóc innym u
 
 *Zrzut ekranu prawdziwej aplikacji Windows dostarczony przez opiekuna w dniu 1 Listopad 2026, który informuje, że aplikacja działa dobrze. Pokazuje wygenerowany krajobraz, elementy sterujące zapisanymi plikami i ujednolicony pulpit nawigacyjny tworzenia; to nie jest makieta.*
 
-Jeden panel, pięć trybów: **Automatyczny, tekst, obraz, muzyka i wideo**. Elementy sterujące odpowiadają wybranemu trybowi: współczynnik, rozdzielczość, czas trwania, rytm, jakość, instrument, tekst, materiał siewny i ilość. Szerokość panelu i przyciski dostosowują się do okna i przetłumaczonych etykiet.
+Jeden panel, pięć trybów: **Automat / Tekst / Obraz / Muzyka / Wideo**. Elementy sterujące odpowiadają wybranemu trybowi: współczynnik, rozdzielczość, czas trwania, rytm, jakość, instrument, tekst, materiał siewny i ilość. Szerokość panelu i przyciski dostosowują się do okna i przetłumaczonych etykiet.
 
 - **1–10 kolejne generacje**, domyślnie 1, z niezależnymi ilościami dla obrazu, muzyki i wideo. Stop anuluje aktywne zadanie i pozostałą kolejkę.
 - **Losowe, stałe, nasiona +1 i −1**, wstępnie ustawione lub niestandardowe współczynniki i opcjonalne **Real-ESRGAN ×2/×4** skalowanie w górę z wyświetlonymi ostatecznymi wymiarami.
@@ -213,12 +213,12 @@ Inwentarz sprawdzony względem źródła **29 Październik 2026**. Nazwy te opis
 | **ONNX Runtime** | Lokalny import wykresów numerycznych/boolowych i eksport przygotowanego tekstu GenAI. | Zatwierdzono kompletny folder; wymagane przetwarzanie wstępne/końcowe specyficzne dla zadania; [konfiguracja i ograniczenia](onnx-server/README.md). |
 | **Adaptery LoRA / PEFT** | Zaimportuj kompletną bazę z oddzielnym adapterem lokalnym w dostawcy Safetensors. | Niekwantyzowana baza przyczynowa Transformers, tożsamość dopasowania, sprawdzenie tensora i oszacowanie pamięci skumulowanej; [konfiguracja i ograniczenia](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Natywne wykonanie CUDA dla kompatybilnego, gęstego eksportu Llama/Qwen2/Qwen3 na tensor FP8. | Sprawdzanie architektury/tensora i badanie prawdziwego jądra; [konfiguracja i ograniczenia](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Spakowane bloki — projekcje 16 FP4 poprzez natywne moduły GEMM CUDA; oddzielnie od obrazu NVFP4. | Kompatybilny Blackwell GPU, obsługiwane wymiary/eksport i rzeczywista sonda jądra; nieprzeszkolone uchwyty testowane na RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Spakowane bloki — projekcje 16 FP4 poprzez natywne moduły GEMM CUDA; oddzielnie od obrazu NVFP4. | Kompatybilny Blackwell GPU, obsługiwane wymiary/eksport i rzeczywista sonda jądra; niewytrenowane modele testowe testowane na RTX 5070. |
 | **AWQ** | 4-bitowe punkty kontrolne modelu GEMM bez fuzji operacji. | NVIDIA CUDA i opcjonalne ładowarki GPTQModel/Transformers. |
 | **GPTQ** | Konfiguracje bitowe 2/3/4/8, formaty gptq/gptq_v2. | NVIDIA CUDA, GPTQModel i Optimum; rzeczywiste wykonanie testowane na bitach 4. |
 | **bitsandbytes** | 4-bit NF4/FP4 lub 8-bit INT8. | NVIDIA CUDA i opcjonalne zależności; prawdziwe testy NF4 i INT8. |
 | **EXL3** | Kompletne skwantowane foldery modelu Safetensors ładowane przez ExLlamaV3; przetestowano rzeczywistą generację z CUDA. | NVIDIA GPU, oddzielne środowisko Python 3.12 i kompatybilna architektura; brak rozwiązania awaryjnego CPU. |
-| **EXL2** | Dedykowana ładowarka ExLlamaV2; przesyłanie strumieniowe, anulowanie i rozładowywanie testowane na GPU. | Uwaga CUDA musi być wyraźnie wybrana dla testowanego stosu oprogramowania; wymagany jest kompletny punkt kontrolny modelu i dostępny VRAM. |
+| **EXL2** | Dedykowana ładowarka ExLlamaV2; przesyłanie strumieniowe, anulowanie i rozładowywanie testowane na GPU. | Jawnie wybrany backend CUDA Attention dla testowanego stosu oprogramowania; wymagany kompletny checkpoint modelu i wystarczająca ilość wolnej VRAM. |
 | **MLX** | Kompatybilne modele z Apple Silicon. | Silnik MLX i obsługiwana platforma. |
 
 Hub jest teraz przypinany **LFM3-1.7B** jako zalecenie LiquidAI dla kompatybilnych konfiguracji, z wariantami Q4_K_M, Q6_K i Q8_0. Model pierwszego uruchomienia pozostaje modelem wymienionym w konfiguracji z przewodnikiem powyżej.
@@ -227,7 +227,7 @@ Filtruj wagi pobierania z **pod 1 GB do 500 GB i nowsze**, a następnie posortuj
 
 AWQ 4-bit, GPTQ 4-bit, NF4 i INT8 wygenerowały tekst na RTX 5070 Laptop przy użyciu małych, nieprzeszkolonych modeli utworzonych w trybie offline. To sprawdza ładowanie i wykonanie, a nie jakość i wydajność każdego modelu. **Te dodatki znajdują się w źródle: wymagana jest przebudowa i kompatybilne zależności; ta aktualizacja README nie aktualizuje zainstalowanego pliku binarnego.**
 
-**Zmierzone na RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, kontekst 2,048, tokeny zachęty 272, tokeny wygenerowane 128, pięć ciepłych przebiegów: dekodowanie mediany **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Nie wykazano tutaj żadnej korzyści w zakresie prędkości w porównaniu z GGUF. Kwantyzacja/kalibracja jest różna i EXL3 nie wyświetlił jednego arytmetycznego monitu o dym; wyniki te nie stanowią ogólnego rankingu szybkości ani jakości. [Pełne pomiary i limity](deliverables/exllama-2026-10-30/validation.md).
+**Zmierzone na RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, kontekst 2,048, tokeny zachęty 272, tokeny wygenerowane 128, pięć ciepłych przebiegów: dekodowanie mediany **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Nie wykazano tutaj żadnej korzyści w zakresie prędkości w porównaniu z GGUF. Kwantyzacja/kalibracja jest różna i EXL3 nie przeszedł prostego testu arytmetycznego; wyniki te nie stanowią ogólnego rankingu szybkości ani jakości. [Pełne pomiary i limity](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** to opcjonalne, oddzielnie zarządzane połączenie z serwerem, kompatybilne z OpenAI, domyślnie wyłączone. Przetestowano wykrywanie i przesyłanie strumieniowe uwierzytelnionego modelu EXL3. Zarządzana trasa lokalna ExLlama pozostaje odrębna. [Konfiguracja ExLlama i połączenie TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 

@@ -47,7 +47,7 @@ Novera si waliin guddata. Fakkeenyonni fi qindaa'inoota kee fayyadamtoonni biroo
 
 ![Novera fakkii fi daashboordii tokkummaa kan baay'ina, sanyii, olka'iinsaa fi yaadannoo ofumaan qabu maddisiise](.github/assets/novera-dashboard-2026-11-01.png)
 
-*Fakkii iskiriinii iyyannoo dhugaa Windows kan kunuunsaan 1 Adoolessa 2026 irratti dhihaate, innis aplikeeshiniin akka gaariitti akka hojjetu gabaase. Laandiskaappii uumame, too'annoowwan faayilii qusatame isaa fi daashboordii uumuu tokkummaa agarsiisa; kun mockup miti.*
+*Fakkii iskiriinii iyyannoo dhugaa Windows kan kunuunsaan 1 Sadaasa 2026 irratti dhihaate, innis aplikeeshiniin akka gaariitti akka hojjetu gabaase. Laandiskaappii uumame, too'annoowwan faayilii qusatame isaa fi daashboordii uumuu tokkummaa agarsiisa; kun mockup miti.*
 
 Paanaalii tokko, haalawwan shan: **Ofumaan / Barreeffama / Fakkii / Muuziqaa / Viidiyoo**. To'annoon haalata filatame hordofu: reeshiyoo, furmaata, yeroo, kaadeensi, qulqullina, meeshaa, jechoota, sanyii fi baay'ina. Bal'inni paanaalii fi qareewwan foddaa fi asxaalee hiikamanitti madaqu.
 
@@ -213,7 +213,7 @@ Inventarii madda irratti sakatta'ame **29 Waxabajjii 2026**. Maqaaleen kunniin d
 | **ONNX Runtime** | Galtee biyya keessaa giraafii lakkoofsaa/bool fi al-ergii barruu qophaa'e GenAI. | Galmee guutuu mirkanaa'e; hojii addaa dursee adeemsisuun/booda adeemsisuun barbaachisaadha; [setup fi daangaa](onnx-server/README.md). |
 | **LoRA / PEFT adaaptaroota** | Bu'uura guutuu adaaptara naannoo isaa adda ta'e waliin dhiyeessaa Safetensors keessatti galchi. | Bu’uura sababa Transformers kan hin baay’anne, eenyummaa walsimsiisu, sakatta’iinsa tensaraa fi tilmaama yaadannoo kuufamaa; [setup fi daangaa](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Raawwii dhalootaa CUDA walsimsiisaa dhangala'aa Llama/Qwen2/Qwen3 teensara tokkoof FP8 al-ergii. | Sakatta’iinsa arkiteekcharii/tensaraa fi qorannoo kernel dhugaa; [setup fi daangaa](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Pirojekshinii bilookii-16 FP4 karaa GEMM dhalootaa CUDA; suuraa NVFP4 irraa adda. | Walsimsiisaa Blackwell GPU, safara/al-ergii deeggaramee fi qorannoo keernii qabatamaa; fixtures hin leenjifamne RTX 5070 irratti qorataman. |
+| **NVFP4 LLM / ModelOpt** | Pirojekshinii bilookii-16 FP4 karaa GEMM dhalootaa CUDA; suuraa NVFP4 irraa adda. | Walsimsiisaa Blackwell GPU, safara/al-ergii deeggaramee fi qorannoo keernii qabatamaa; moodeelota yaalii hin leenjifamne RTX 5070 irratti qorataman. |
 | **AWQ** | 4-bit GEMM buufataalee sakatta'iinsaa moodeela fiyuushinii hojii malee. | NVIDIA CUDA fi filannoo GPTQModel/Transformers fe’umsa. |
 | **GPTQ** | 2/3/4/8-bit qindeessaa, gptq/gptq_v2 bifa. | NVIDIA CUDA, GPTQModel fi Optimum; raawwii dhugaa 4 bits irratti qoratame. |
 | **bitsandbytes** | 4-bit NF4/FP4 ykn 8-bit INT8. | NVIDIA CUDA fi hirkattummaa filannoo; qorannoo dhugaa NF4 fi INT8. |
@@ -235,7 +235,7 @@ Sassaabni durtii haardwaarii-madaqfame gadhiifama haaraa sadarkaa walsimsiisaa f
 
 [Saagi Safetensors baay’inaan ibsame](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Akkaataa, dursa kennuu fi mirkaneessuu](docs/SUIVI_MOTEURS.md)
 
-Maddoonni haaromfaman dabalaniiru **qaamolee filannoo bulfaman Qindeessitoota Windows x64 keessatti**: naannoowwan Paayitoon dhuunfaa, piroofaayilii CPU/CUDA pinned, tilmaama fi mirkaneessuu osoo hin buufachuu, mirkaneessuu, suphuu fi balleessuu. Daandiiwwan hiikkaa amala filannoowwan sadarkaa olaanaa jala turu. Mootoroonni dhalootaan GGUF qaamolee isaanii jiran ni eegu; mobaayila fi duumessaa desktop Python/PyTorch hin buufanne. Piroofaayiloonni dhuunfaa CPU/al-ergii sadii meeshaalee sintetiksii dhugaa ta’aniin shaakalaman; Kunuunsaan fayyadama deeskitooppii milkaa'aa ta'e 1 Adoolessa 2026 irratti gabaasa; GPU piroofaayilii fi clean-PC fe'iinsi ammallee adda ta'e, bal'inaan mirkaneessuu barbaachisa. [Profaayilii fi daangaa qorannoo](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Tuullaa EXE keessatti galchuun yeroo biraatti darba.
+Maddoonni haaromfaman dabalaniiru **qaamolee filannoo bulfaman Qindeessitoota Windows x64 keessatti**: naannoowwan Paayitoon dhuunfaa, piroofaayilii CPU/CUDA pinned, tilmaama fi mirkaneessuu osoo hin buufachuu, mirkaneessuu, suphuu fi balleessuu. Daandiiwwan hiikkaa amala filannoowwan sadarkaa olaanaa jala turu. Mootoroonni dhalootaan GGUF qaamolee isaanii jiran ni eegu; mobaayila fi duumessaa desktop Python/PyTorch hin buufanne. Piroofaayiloonni dhuunfaa CPU/al-ergii sadii meeshaalee sintetiksii dhugaa ta’aniin shaakalaman; Kunuunsaan fayyadama deeskitooppii milkaa'aa ta'e 1 Sadaasa 2026 irratti gabaasa; GPU piroofaayilii fi clean-PC fe'iinsi ammallee adda ta'e, bal'inaan mirkaneessuu barbaachisa. [Profaayilii fi daangaa qorannoo](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Tuullaa EXE keessatti galchuun yeroo biraatti darba.
 
 ## 80 afaanota walqunnamtii fi garaagarummaa
 

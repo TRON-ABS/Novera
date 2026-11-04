@@ -49,7 +49,7 @@ Novera tumbuh bersama Anda. Contoh dan pengaturan Anda dapat membantu pengguna l
 
 *Tangkapan layar aplikasi Windows asli disediakan oleh pengelola pada 1 November 2026, yang melaporkan bahwa aplikasi berfungsi dengan baik. Ini menunjukkan lanskap yang dihasilkan, kontrol file yang disimpan, dan dasbor pembuatan terpadu; ini bukan maket.*
 
-Satu panel, lima mode: **Otomatis, Teks, Gambar, Musik dan Video**. Kontrol mengikuti mode yang dipilih: rasio, resolusi, durasi, irama, kualitas, instrumental, lirik, seed, dan kuantitas. Lebar panel dan tombol menyesuaikan dengan jendela dan label yang diterjemahkan.
+Satu panel, lima mode: **Otomatis / Teks / Gambar / Musik / Video**. Kontrol mengikuti mode yang dipilih: rasio, resolusi, durasi, irama, kualitas, instrumental, lirik, seed, dan kuantitas. Lebar panel dan tombol menyesuaikan dengan jendela dan label yang diterjemahkan.
 
 - **1–10 generasi berurutan**, defaultnya adalah 1, dengan jumlah independen untuk gambar, musik, dan video. Berhenti membatalkan tugas aktif dan antrian yang tersisa.
 - **Biji acak, tetap, +1 dan −1**, rasio preset atau khusus dan opsional **Real-ESRGAN ×2/×4** peningkatan dengan dimensi akhir ditampilkan.
@@ -213,12 +213,12 @@ Inventaris diperiksa berdasarkan sumbernya **29 Oktober 2026**. Nama-nama ini me
 | **ONNX Runtime** | Impor lokal grafik numerik/bool dan ekspor teks GenAI yang disiapkan. | Folder lengkap tervalidasi; diperlukan prapemrosesan/pascapemrosesan khusus tugas; [pengaturan dan batasan](onnx-server/README.md). |
 | **Adaptor LoRA / PEFT** | Impor basis lengkap dengan adaptor lokal terpisah di penyedia Safetensors. | Basis Transformers kausal yang tidak terkuantisasi, identitas yang cocok, pemeriksaan tensor, dan perkiraan memori kumulatif; [pengaturan dan batasan](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Eksekusi CUDA asli untuk ekspor Llama/Qwen2/Qwen3 per-tensor FP8 padat yang kompatibel. | Pemeriksaan arsitektur/tensor dan penyelidikan kernel nyata; [pengaturan dan batasan](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Proyeksi blok-16 FP4 yang dikemas melalui GEMM CUDA asli; terpisah dari gambar NVFP4. | Kompatibel Blackwell GPU, dimensi/ekspor yang didukung dan probe kernel aktual; perlengkapan yang tidak terlatih diuji pada RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Proyeksi blok-16 FP4 yang dikemas melalui GEMM CUDA asli; terpisah dari gambar NVFP4. | Kompatibel Blackwell GPU, dimensi/ekspor yang didukung dan probe kernel aktual; model uji yang belum dilatih diuji pada RTX 5070. |
 | **AWQ** | Pos pemeriksaan model 4-bit GEMM tanpa fusi operasi. | NVIDIA CUDA dan loader GPTQModel/Transformers opsional. |
 | **GPTQ** | Konfigurasi bit 2/3/4/8, format gptq/gptq_v2. | NVIDIA CUDA, GPTQModel dan Optimum; eksekusi nyata diuji pada bit 4. |
 | **bitsandbytes** | 4-bit NF4/FP4 atau 8-bit INT8. | NVIDIA CUDA dan dependensi opsional; tes NF4 dan INT8 yang sebenarnya. |
 | **EXL3** | Folder model Safetensors terkuantisasi lengkap yang dimuat melalui ExLlamaV3; generasi sebenarnya dengan CUDA telah diuji. | NVIDIA GPU, lingkungan Python 3.12 terpisah dan arsitektur yang kompatibel; tidak ada cadangan CPU. |
-| **EXL2** | Pemuat ExLlamaV2 khusus; streaming, pembatalan dan pembongkaran diuji pada GPU. | Perhatian CUDA harus dipilih secara eksplisit untuk tumpukan perangkat lunak yang diuji; diperlukan pos pemeriksaan model yang lengkap dan VRAM. |
+| **EXL2** | Pemuat ExLlamaV2 khusus; streaming, pembatalan dan pembongkaran diuji pada GPU. | Pilih backend CUDA Attention secara eksplisit untuk perangkat lunak yang diuji; diperlukan checkpoint model lengkap dan VRAM yang cukup tersedia. |
 | **MLX** | Model yang kompatibel di Apple Silicon. | Mesin MLX dan platform yang didukung. |
 
 Hub sekarang terpasang pin **LFM3-1.7B** sebagai rekomendasi LiquidAI untuk konfigurasi yang kompatibel, dengan varian Q4_K_M, Q6_K, dan Q8_0. Model yang dijalankan pertama kali tetap merupakan model yang tercantum dalam konfigurasi terpandu di atas.
@@ -227,7 +227,7 @@ Filter bobot unduhan dari **di bawah 1 GB hingga 500 GB dan di atasnya**, lalu u
 
 AWQ 4-bit, GPTQ 4-bit, NF4 dan INT8 masing-masing menghasilkan teks pada RTX 5070 Laptop menggunakan model kecil yang tidak terlatih yang dibuat secara offline. Ini memvalidasi pemuatan dan eksekusi, bukan kualitas atau performa setiap model. **Penambahan ini ada di sumbernya: diperlukan pembangunan kembali dan ketergantungan yang kompatibel; pembaruan README ini tidak memutakhirkan biner yang diinstal.**
 
-**Diukur pada RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, konteks 2,048, prompt token 272, token yang dihasilkan 128, lima proses pemanasan: dekode median **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Tidak ada keunggulan kecepatan dibandingkan GGUF yang ditunjukkan di sini. Kuantisasi/kalibrasi berbeda, dan EXL3 gagal dalam satu perintah asap aritmatika; hasil ini bukanlah peringkat kecepatan atau kualitas secara umum. [Pengukuran dan batasan penuh](deliverables/exllama-2026-10-30/validation.md).
+**Diukur pada RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, konteks 2,048, prompt token 272, token yang dihasilkan 128, lima proses pemanasan: dekode median **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Tidak ada keunggulan kecepatan dibandingkan GGUF yang ditunjukkan di sini. Kuantisasi/kalibrasi berbeda, dan EXL3 gagal dalam satu pengujian aritmetika dasar; hasil ini bukanlah peringkat kecepatan atau kualitas secara umum. [Pengukuran dan batasan penuh](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** adalah koneksi server opsional yang kompatibel dengan OpenAI yang dikelola secara terpisah, dinonaktifkan secara default. Penemuan dan streaming model EXL3 yang diautentikasi telah diuji. Rute lokal ExLlama yang dikelola tetap berbeda. [Pengaturan ExLlama dan koneksi TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Jenis default yang disesuaikan dengan perangkat keras lebih menyukai rilis yang 
 
 [Pengaturan Safetensors terkuantisasi](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Format, prioritas dan validasi](docs/SUIVI_MOTEURS.md)
 
-Sumber yang diperbarui menambahkan **komponen terkelola opsional di Konfigurasi untuk Windows x64**: lingkungan Python pribadi, profil CPU/CUDA yang disematkan, perkiraan dan konfirmasi sebelum pengunduhan, verifikasi, perbaikan, dan penghapusan. Jalur juru bahasa khusus tetap berada dalam opsi lanjutan. Mesin asli GGUF mempertahankan komponen yang ada; seluler dan cloud jangan mengunduh desktop Python/PyTorch. Tiga profil CPU/ekspor pribadi dikerjakan dengan perlengkapan sintetis asli; Pengelola melaporkan keberhasilan penggunaan desktop pada 1 November 2026; Profil GPU dan instalasi clean-PC masih memerlukan validasi terpisah dan terperinci. [Profil dan batas pengujian](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Penyematan tumpukan di EXE ditangguhkan.
+Sumber yang diperbarui menambahkan **komponen terkelola opsional di Konfigurasi untuk Windows x64**: lingkungan Python pribadi, profil CPU/CUDA yang disematkan, perkiraan dan konfirmasi sebelum pengunduhan, verifikasi, perbaikan, dan penghapusan. Jalur juru bahasa khusus tetap berada dalam opsi lanjutan. Mesin asli GGUF mempertahankan komponen yang ada; seluler dan cloud jangan mengunduh desktop Python/PyTorch. Tiga profil CPU/ekspor pribadi dikerjakan dengan data uji sintetis; Pengelola melaporkan keberhasilan penggunaan desktop pada 1 November 2026; Profil GPU dan instalasi clean-PC masih memerlukan validasi terpisah dan terperinci. [Profil dan batas pengujian](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Penyematan tumpukan di EXE ditangguhkan.
 
 ## Bahasa dan varian antarmuka 80
 

@@ -49,7 +49,7 @@ Novera dafay màgg ak yaw. Sa misaal ak say jekkal mën nañu jàppale yeneen j�
 
 *Nataalu aplikaasioŋu Windows dëgg bi maintenant bi joxe ci 1 nowàmbar 2026, moo xamle ni aplikaasioŋ bi dafay dox bu baax. Dafay wane paysage buñ defar, ay seytu fichier yuñ denc ak tablo sos biñ boole; lii du maquette.*
 
-Benn panel, juróomi anam: **Oto / Bind / Nataal / Woy / Wideo**. Kontrol yi dañu topp anam wiñ tànn: ratio bi, dayo bi, guddaay bi, kadans bi, kalite bi, jumtukaay bi, kàddu yi, jiwwu yi ak bariwaay bi. Yaatug paaneel bi ak butoŋu yi dañu méngoo ak palanteer bi ak etiket yiñ tekki.
+Benn panel, juróomi anam: **Otomatik / Bind / Nataal / Woy / Wideo**. Kontrol yi dañu topp anam wiñ tànn: ratio bi, dayo bi, guddaay bi, kadans bi, kalite bi, jumtukaay bi, kàddu yi, jiwwu yi ak bariwaay bi. Yaatug paaneel bi ak butoŋu yi dañu méngoo ak palanteer bi ak etiket yiñ tekki.
 
 - **1-10 xeeti jamono yu toppalante**, dafay nekk 1, ak limu moom boppam ngir nataal, music ak wideo. Stop dafay fomm liggéey bi am ak rang bi des.
 - **Jiwwu yu bari, yu takku, +1 ak -1**, ratios yuñ tànn bu njëkk wala yuñ personaaliseer ak tànneef **Real-ESRGAN ×2/×4** yokkute ak dimension yu mujj yuñ wane.
@@ -74,7 +74,7 @@ Otomatisation dafay muur motëri liggéey yuñ boole; du tax model Hub bu nekk m
 
 [Gitu jëfandikukat](docs/USER_GUIDE.md) · [Motëri ak gëmloo](docs/SUIVI_MOTEURS.md) · [Yokkateg](docs/DEVELOPMENT.md)
 
-Ci balluwaay yiñ yeesal, **Tabluwaay yi dañuy méngale ay xalaatam ak jumtukaayi mobile ak yu tënk**LFM3-1.7B Q4, wala LFM3-Omni-2B Q4 ak projectër bi sudee liñu laaj ci memory bi ak ci motër bi matna. Generation local bi amul dañu ko nëbb wala ñu ko tëj; nataalu cloud biñ tabb, music ak wideo ñu ngi wéy di jàppandi. Njàngaley interface bi dafay jëfandikoowaat 80 katalog làkk yi. Xayma yooyu dañuy laaj ñu saytu aparey bi ba noppi tabaxaat ko ngir mëna yegg ci aplikaasioŋ yiñ samp.
+Ci balluwaay yiñ yeesal, **Tabluwaay yi dañuy méngale ay xalaatam ak jumtukaayi mobile ak yu tënk** LFM3-1.7B Q4, wala LFM3-Omni-2B Q4 ak projectër bi sudee liñu laaj ci memory bi ak ci motër bi matna. Generation local bi amul dañu ko nëbb wala ñu ko tëj; nataalu cloud biñ tabb, music ak wideo ñu ngi wéy di jàppandi. Njàngaley interface bi dafay jëfandikoowaat 80 katalog làkk yi. Xayma yooyu dañuy laaj ñu saytu aparey bi ba noppi tabaxaat ko ngir mëna yegg ci aplikaasioŋ yiñ samp.
 
 ## Mën-mën yi ci balluwaay bi
 

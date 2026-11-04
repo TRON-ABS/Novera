@@ -49,7 +49,7 @@ Novera creix amb tu. Els vostres exemples i configuració poden ajudar altres us
 
 *Captura de pantalla real de l'aplicació Windows proporcionada pel responsable a 1 novembre 2026, que informa que l'aplicació funciona bé. Mostra un paisatge generat, els seus controls de fitxers desats i el tauler de creació unificat; això no és una maqueta.*
 
-Un panell, cinc modes: **Automàtic, text, imatge, música i vídeo**. Els controls segueixen el mode seleccionat: proporció, resolució, durada, cadència, qualitat, instrumental, lletra, llavor i quantitat. L'amplada del panell i els botons s'adapten a la finestra i a les etiquetes traduïdes.
+Un panell, cinc modes: **Automàtic / Text / Imatge / Música / Vídeo**. Els controls segueixen el mode seleccionat: proporció, resolució, durada, cadència, qualitat, instrumental, lletra, llavor i quantitat. L'amplada del panell i els botons s'adapten a la finestra i a les etiquetes traduïdes.
 
 - **1–10 generacions seqüencials**, per defecte 1, amb quantitats independents per a imatge, música i vídeo. Stop cancel·la la tasca activa i la cua restant.
 - **Llavors aleatòries, fixes, +1 i −1**, proporcions predeterminades o personalitzades i opcionals **Real-ESRGAN ×2/×4** ampliació amb les dimensions finals mostrades.
@@ -213,21 +213,21 @@ Inventari contrastat amb la font activat **29 Octubre 2026**. Aquests noms descr
 | **ONNX Runtime** | Importació local de gràfics numèrics/bools i exportacions de text GenAI preparades. | Carpeta completa validada; es requereix un preprocessament/postprocessament específic de la tasca; [configuració i límits](onnx-server/README.md). |
 | **Adaptadors LoRA / PEFT** | Importeu una base completa amb el seu adaptador local independent al proveïdor Safetensors. | Base Transformers causal no quantificada, identitat coincident, comprovacions de tensor i estimació de memòria acumulada; [configuració i límits](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Nadiu CUDA execució per a densos compatibles Llama/Qwen2/Qwen3 per tensor FP8 exportacions. | Comprovacions d'arquitectura/tensor i sonda del nucli real; [configuració i límits](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Projeccions de blocs empaquetats-16 FP4 mitjançant GEMM CUDA nadius; separat de la imatge NVFP4. | Compatible Blackwell GPU, dimensions/exportació compatibles i sonda del nucli real; accessoris no entrenats provats a RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Projeccions de blocs empaquetats-16 FP4 mitjançant GEMM CUDA nadius; separat de la imatge NVFP4. | Compatible Blackwell GPU, dimensions/exportació compatibles i sonda del nucli real; models de prova sense entrenar provats a RTX 5070. |
 | **AWQ** | Punts de control del model 4-bit GEMM sense fusió d'operacions. | Carregadores NVIDIA CUDA i GPTQModel/Transformers opcionals. |
 | **GPTQ** | 2/3/4/8-bit, formats gptq/gptq_v2. | NVIDIA CUDA, GPTQModel i Optimum; execució real provada als bits 4. |
 | **bitsandbytes** | 4-bit NF4/FP4 o 8-bit INT8. | NVIDIA CUDA i dependències opcionals; proves reals NF4 i INT8. |
 | **EXL3** | Carpetes model Safetensors quantificades completes carregades mitjançant ExLlamaV3; es va provar la generació real amb CUDA. | NVIDIA GPU, entorn Python 3.12 separat i arquitectura compatible; no CPU alternativa. |
-| **EXL2** | Carregador ExLlamaV2 dedicat; Streaming, cancel·lació i descàrrega provades a GPU. | L'atenció CUDA s'ha de seleccionar explícitament per a la pila de programari provada; Es requereix un punt de control del model complet i VRAM disponible. |
+| **EXL2** | Carregador ExLlamaV2 dedicat; Streaming, cancel·lació i descàrrega provades a GPU. | Cal seleccionar explícitament el backend CUDA Attention per a la configuració de programari provada; es requereixen el checkpoint complet del model i prou VRAM disponible. |
 | **MLX** | Models compatibles amb Apple Silicon. | Motor MLX i plataforma compatible. |
 
 El Hub ara es fixa **LFM3-1.7B** com la seva recomanació LiquidAI per a configuracions compatibles, amb les variants Q4_K_M, Q6_K i Q8_0. El model de primera execució segueix sent el que apareix a la configuració guiada anterior.
 
-Filtra els pesos de descàrrega des de **sota 1 GB a 500 GB i superior**i, a continuació, ordena per ajust del maquinari, mida, recentitat o descàrregues. Els resultats es carreguen progressivament; els filtres s'apliquen als models obtinguts i a la seva variant predeterminada. Els consells de memòria utilitzen components RAM/VRAM, context i complements disponibles, sense comptar doblement la memòria compartida GPU.
+Filtra els pesos de descàrrega des de **sota 1 GB a 500 GB i superior** i, a continuació, ordena per ajust del maquinari, mida, recentitat o descàrregues. Els resultats es carreguen progressivament; els filtres s'apliquen als models obtinguts i a la seva variant predeterminada. Els consells de memòria utilitzen components RAM/VRAM, context i complements disponibles, sense comptar doblement la memòria compartida GPU.
 
 AWQ 4-bit, GPTQ 4-bit, NF4 i INT8 van generar text en un RTX 5070 Laptop creats fora de línia amb models minúsculs. Això valida la càrrega i l'execució, no la qualitat o el rendiment de cada model. **Aquestes addicions es troben a la font: es requereix reconstrucció i dependències compatibles; aquesta actualització README no actualitza cap binari instal·lat.**
 
-**Mesurat al RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, context 2,048, indicació de fitxes 272, fitxes generades 128, cinc execucions escalfades: descodificació mitjana **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Aquí no es va demostrar cap benefici de velocitat respecte a GGUF. La quantificació/calibració és diferent, i EXL3 ha fallat una indicació de fum aritmètica; aquests resultats no són un rànquing general de velocitat o qualitat. [Mides i límits complets](deliverables/exllama-2026-10-30/validation.md).
+**Mesurat al RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, context 2,048, 272 tokens d’entrada, 128 tokens generats, cinc execucions escalfades: mediana de la velocitat de descodificació **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Aquí no es va demostrar cap benefici de velocitat respecte a GGUF. La quantificació/calibració és diferent, i EXL3 ha fallat una prova aritmètica bàsica; aquests resultats no són un rànquing general de velocitat o qualitat. [Mides i límits complets](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** és una connexió de servidor opcional, gestionada per separat compatible amb OpenAI, desactivada per defecte. Es van provar el descobriment i la transmissió del model EXL3 autenticats. La ruta ExLlama local gestionada continua sent diferent. [Configuració ExLlama i connexió TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ L'ordenació per defecte adaptada al maquinari afavoreix les versions més noves
 
 [Configuració quantificada de Safetensors](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, prioritats i validació](docs/SUIVI_MOTEURS.md)
 
-Les fonts actualitzades afegeixen **components gestionats opcionals a Configuracions per a Windows x64**: entorns privats de Python, perfils CPU/CUDA fixats, estimacions i confirmació abans de les descàrregues, verificació, reparació i eliminació. Els camins d'intèrpret personalitzats es mantenen sota opcions avançades. Els motors natius GGUF conserven els seus components existents; el mòbil i el núvol no descarreguen Python/PyTorch d'escriptori. Es van exercir tres perfils privats CPU/exportació amb accessoris sintètics reals; El responsable del manteniment informa d'un ús correcte de l'escriptori a 1 novembre 2026; Els perfils GPU i la instal·lació clean-PC encara necessiten una validació detallada i separada. [Perfils i límits de prova](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). La incorporació de la pila a la EXE s'ajorna.
+Les fonts actualitzades afegeixen **components gestionats opcionals a Configuracions per a Windows x64**: entorns privats de Python, perfils CPU/CUDA fixats, estimacions i confirmació abans de les descàrregues, verificació, reparació i eliminació. Els camins d'intèrpret personalitzats es mantenen sota opcions avançades. Els motors natius GGUF conserven els seus components existents; el mòbil i el núvol no descarreguen Python/PyTorch d'escriptori. Es van exercir tres perfils privats CPU/exportació amb dades de prova sintètiques; El responsable del manteniment informa d'un ús correcte de l'escriptori a 1 novembre 2026; Els perfils GPU i la instal·lació clean-PC encara necessiten una validació detallada i separada. [Perfils i límits de prova](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). La incorporació de la pila a la EXE s'ajorna.
 
 ## Idiomes i variants de la interfície 80
 
@@ -295,7 +295,7 @@ Gràcies a tots pel vostre suport, contribucions, comentaris i ànims. Cada gest
 
 Adreça de recepció: `17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`
 
-Per contribuir, escaneja aquest codi QR amb la teva cartera o copia l'adreça anterior. Seleccioneu **Bitcoin (BTC), a la xarxa Bitcoin**i, a continuació, trieu la quantitat que vulgueu.
+Per contribuir, escaneja aquest codi QR amb la teva cartera o copia l'adreça anterior. Seleccioneu **Bitcoin (BTC), a la xarxa Bitcoin** i, a continuació, trieu la quantitat que vulgueu.
 
 <img src=".github/assets/novera-bitcoin-support.png" alt="Codi QR per a l&#x27;adreça d&#x27;assistència Novera Bitcoin" width="240" />
 

@@ -213,7 +213,7 @@ Inventory check against source on **29 October 2026**. These names dey describe 
 | **ONNX Runtime** | You fit import numeric/bool graphs and prepared GenAI text exports from your device. | Validated complete folder; preprocessing/postprocessing wey fit the task na necessary; [setup and limits](onnx-server/README.md). |
 | **LoRA / PEFT adapters** | Import complete base with its separate local adapter for the Safetensors provider. | Unquantized causal Transformers base, match identity, tensor checks and total memory estimate; [setup and limits](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Native CUDA execution for compatible dense Llama/Qwen2/Qwen3 per-tensor FP8 exports. | Architecture/tensor checks and real kernel probe; [setup and limits](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | Packed block-16 FP4 projections pass through native CUDA GEMMs; different from image NVFP4. | Blackwell GPU fit, supported dimensions/export and real kernel probe; fixtures wey no train test am for RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | Packed block-16 FP4 projections pass through native CUDA GEMMs; different from image NVFP4. | Blackwell GPU fit, supported dimensions/export and real kernel probe; test models wey dem never train, wey dem test for RTX 5070. |
 | **AWQ** | 4-bit GEMM model checkpoints without operation fusion. | Explicit NVIDIA CUDA attention for the tested stack; complete checkpoint and free GPTQModel/Transformers needed. |
 | **GPTQ** | 2/3/4/8-bit configurations, gptq/gptq_v2 formats. | NVIDIA CUDA, GPTQModel and Optimum; real run test for 4 bits. |
 | **bitsandbytes** | 4-bit NF4/FP4 or 8-bit INT8. | NVIDIA CUDA and optional dependencies; real NF4 and INT8 tests. |
@@ -227,7 +227,7 @@ Filter download weights from **under 1 GB to 500 GB and above**, then sort by ha
 
 AWQ 4-bit, GPTQ 4-bit, NF4 and INT8 each generate text on an RTX 5070 Laptop using tiny untrained models wey create offline. Dis validate loading and execution, no the quality or performance of every model. **These additions dey for source: rebuilding and compatible dependencies na required; dis README update no upgrade installed binary.**
 
-**Measured for RTX 5070 Laptop:** For Qwen2.5-0.5B-Instruct, context na 2,048, prompt get 272 tokens, and model generate 128 tokens; after warm-up, we run am five times: median decode **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. No speed benefit over GGUF don show here. Quantization/calibration different, and EXL3 fail one arithmetic smoke prompt; these results no be general speed or quality ranking. [Full measurements and limits](deliverables/exllama-2026-10-30/validation.md).
+**Measured for RTX 5070 Laptop:** For Qwen2.5-0.5B-Instruct, context na 2,048, prompt get 272 tokens, and model generate 128 tokens; after warm-up, we run am five times: median decode **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. No speed benefit over GGUF don show here. Quantization/calibration different, and EXL3 fail one simple arithmetic test; these results no be general speed or quality ranking. [Full measurements and limits](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** is an optional, separately managed OpenAI-compatible server connection, disabled by default. Authenticated EXL3 model discovery and streaming don test. The managed local ExLlama route remain different. [ExLlama setup and TabbyAPI connection](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ The default hardware-adapted sort favor newer releases inside same compatibility
 
 [Quantized Safetensors setup](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorities and validation](docs/SUIVI_MOTEURS.md)
 
-The updated sources add **optional managed components for Configurations for Windows x64**: private Python environments, pinned CPU/CUDA profiles, estimates and confirmation before downloads, verification, repair and removal. Custom interpreter paths stay for advanced options. Native GGUF engines keep dem existing components; mobile and cloud no download desktop Python/PyTorch. Three private CPU/export profiles don exercise with real synthetic fixtures; The maintainer report successful desktop use for 1 November 2026; GPU profiles and clean-PC installation still need separate, detailed validation. [Profiles and test limits](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Embedding the stack for EXE don be postpone.
+The updated sources add **optional managed components for Configurations for Windows x64**: private Python environments, pinned CPU/CUDA profiles, estimates and confirmation before downloads, verification, repair and removal. Custom interpreter paths stay for advanced options. Native GGUF engines keep dem existing components; mobile and cloud no download desktop Python/PyTorch. Three private CPU/export profiles don exercise with synthetic test data; The maintainer report successful desktop use for 1 November 2026; GPU profiles and clean-PC installation still need separate, detailed validation. [Profiles and test limits](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Embedding the stack for EXE don be postpone.
 
 ## 80 interface languages and variants
 

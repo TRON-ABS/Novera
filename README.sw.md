@@ -49,7 +49,7 @@ Novera inakua pamoja nawe. Mifano na mipangilio yako inaweza kusaidia watumiaji 
 
 *Picha ya skrini ya programu halisi ya Windows iliyotolewa na mtunza huduma mnamo 1 Novemba 2026, ambaye anaripoti kuwa programu inafanya kazi vizuri. Inaonyesha mandhari iliyozalishwa, vidhibiti vyake vya faili zilizohifadhiwa na dashibodi ya uumbaji iliyounganishwa; hii si kejeli.*
 
-Paneli moja, hali tano: **Kiotomatiki, Maandishi, Picha, Muziki na Video**. Vidhibiti hufuata hali iliyochaguliwa: uwiano, azimio, muda, sauti, ubora, ala, nyimbo, mbegu na wingi. Upana wa paneli na vifungo vinaendana na dirisha na lebo zilizotafsiriwa.
+Paneli moja, hali tano: **Otomatiki / Maandishi / Picha / Muziki / Video**. Vidhibiti hufuata hali iliyochaguliwa: uwiano, azimio, muda, sauti, ubora, ala, nyimbo, mbegu na wingi. Upana wa paneli na vifungo vinaendana na dirisha na lebo zilizotafsiriwa.
 
 - **1–10 vizazi mfuatano**, ikibadilika kuwa 1, ikiwa na idadi huru ya picha, muziki na video. Kuacha hughairi kazi inayoendelea na foleni iliyobaki.
 - **Nasibu, zisizobadilika, +1 na −1 mbegu**, uwiano uliowekwa mapema au maalum na sio lazima **Real-ESRGAN ×2/×4** kuinua kwa vipimo vya mwisho vinavyoonyeshwa.
@@ -213,7 +213,7 @@ Orodha imeangaliwa dhidi ya chanzo kuwashwa **29 Oktoba 2026**. Majina haya yana
 | **ONNX Runtime** | Uagizaji wa ndani wa grafu za nambari/bool na uhamishaji wa maandishi wa GenAI uliotayarishwa. | Folda kamili iliyoidhinishwa; uchakataji/uchakataji wa kazi mahususi unaohitajika; [kuweka na kuweka mipaka](onnx-server/README.md). |
 | **Adapta za LoRA / PEFT** | Leta msingi kamili na adapta yake tofauti ya ndani katika mtoa huduma wa Safetensors. | Msingi usio na kipimo wa sababu Transformers, utambulisho unaolingana, ukaguzi wa tensor na makadirio ya kumbukumbu ya jumla; [kuweka na kuweka mipaka](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Utekelezaji wa CUDA asilia kwa usafirishaji mnene wa Llama/Qwen2/Qwen3 kwa kila tensor FP8. | Ukaguzi wa usanifu/tensor na uchunguzi wa kernel halisi; [kuweka na kuweka mipaka](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | makadirio ya block-16 FP4 kupitia CUDA GEMM asili; tofauti na picha NVFP4. | Blackwell GPU Inayotumika, vipimo vinavyotumika/usafirishaji nje na uchunguzi halisi wa kernel; Ratiba ambazo hazijafunzwa zilizojaribiwa kwenye RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | makadirio ya block-16 FP4 kupitia CUDA GEMM asili; tofauti na picha NVFP4. | Blackwell GPU Inayotumika, vipimo vinavyotumika/usafirishaji nje na uchunguzi halisi wa kernel; miundo ya majaribio ambayo haijafunzwa iliyojaribiwa kwenye RTX 5070. |
 | **AWQ** | 4-bit GEMM mfano wa vituo vya ukaguzi bila muunganisho wa operesheni. | NVIDIA CUDA na vipakiaji vya hiari vya GPTQModel/Transformers. |
 | **GPTQ** | 2/3/4/8-bit, miundo ya gptq/gptq_v2. | NVIDIA CUDA, GPTQModel na Optimum; utekelezaji halisi uliojaribiwa kwa biti za 4. |
 | **bitsandbytes** | 4-bit NF4/FP4 au 8-bit INT8. | NVIDIA CUDA na utegemezi wa hiari; vipimo halisi vya NF4 na INT8. |
@@ -227,7 +227,7 @@ Chuja uzani wa kupakua kutoka **chini ya 1 GB hadi 500 GB na zaidi**, kisha pang
 
 AWQ 4-bit, GPTQ 4-bit, NF4 na INT8 kila maandishi yaliyotolewa kwenye RTX 5070 Laptop modeli zilizoundwa nje ya mtandao. Hii inathibitisha upakiaji na utekelezaji, si ubora au utendaji wa kila mtindo. **Nyongeza hizi ziko kwenye chanzo: kujenga upya na utegemezi unaolingana unahitajika; sasisho hili la README halisasishi mfumo wa jozi uliosakinishwa.**
 
-**Kipimo kwenye RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, muktadha 2,048, tokeni za haraka za 272, tokeni zinazozalishwa 128, milipuko mitano yenye joto: kusimbua wastani **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Hakuna faida ya kasi zaidi ya GGUF iliyoonyeshwa hapa. Ukadiriaji/urekebishaji hutofautiana, na EXL3 imeshindwa ombi moja la moshi wa hesabu; matokeo haya si kasi ya jumla au cheo cha ubora. [Vipimo na mipaka kamili](deliverables/exllama-2026-10-30/validation.md).
+**Kipimo kwenye RTX 5070 Laptop:** Qwen2.5-0.5B-Instruct, muktadha 2,048, tokeni 272 za ingizo, tokeni zinazozalishwa 128, majaribio matano baada ya kupasha mfumo joto: median ya kasi ya uzalishaji wa tokeni **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9**. Hakuna faida ya kasi zaidi ya GGUF iliyoonyeshwa hapa. Ukadiriaji/urekebishaji hutofautiana, na EXL3 imeshindwa jaribio moja la msingi la hesabu; matokeo haya si kasi ya jumla au cheo cha ubora. [Vipimo na mipaka kamili](deliverables/exllama-2026-10-30/validation.md).
 
 **TabbyAPI** ni muunganisho wa seva ya hiari, unaodhibitiwa tofauti wa OpenAI, ambao umezimwa kwa chaguomsingi. Ugunduzi na utiririshaji wa muundo wa EXL3 ulijaribiwa. Njia inayodhibitiwa ya ndani ya ExLlama inasalia kuwa tofauti. [usanidi wa ExLlama na muunganisho wa TabbyAPI](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
 
@@ -235,7 +235,7 @@ Aina chaguomsingi iliyobadilishwa maunzi inapendelea matoleo mapya zaidi ndani y
 
 [Usanidi wa Safetensors uliokadiriwa](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Miundo, vipaumbele na uthibitishaji](docs/SUIVI_MOTEURS.md)
 
-Vyanzo vilivyosasishwa vinaongeza **vipengele vinavyodhibitiwa kwa hiari katika Usanidi wa Windows x64**: Mazingira ya kibinafsi ya Chatu, wasifu wa CPU/CUDA uliobandikwa, makadirio na uthibitisho kabla ya upakuaji, uthibitishaji, ukarabati na kuondolewa. Njia za mkalimani maalum hukaa chini ya chaguo za kina. Injini za asili za GGUF huweka vifaa vyao vilivyopo; rununu na wingu hazipakui eneo-kazi Python/PyTorch. Profaili tatu za kibinafsi za CPU/usafirishaji nje zilitekelezwa kwa urekebishaji halisi wa sintetiki; Mtunzaji anaripoti utumiaji mzuri wa eneo-kazi kwenye 1 Novemba 2026; Profaili za GPU na usakinishaji safi-PC bado zinahitaji uthibitisho tofauti, wa kina. [Wasifu na vikomo vya majaribio](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Kupachika rafu katika EXE kumeahirishwa.
+Vyanzo vilivyosasishwa vinaongeza **vipengele vinavyodhibitiwa kwa hiari katika Usanidi wa Windows x64**: Mazingira ya kibinafsi ya Chatu, wasifu wa CPU/CUDA uliobandikwa, makadirio na uthibitisho kabla ya upakuaji, uthibitishaji, ukarabati na kuondolewa. Njia za mkalimani maalum hukaa chini ya chaguo za kina. Injini za asili za GGUF huweka vifaa vyao vilivyopo; rununu na wingu hazipakui eneo-kazi Python/PyTorch. Profaili tatu za kibinafsi za CPU/usafirishaji nje zilitekelezwa kwa data bandia za majaribio; Mtunzaji anaripoti utumiaji mzuri wa eneo-kazi kwenye 1 Novemba 2026; Profaili za GPU na usakinishaji safi-PC bado zinahitaji uthibitisho tofauti, wa kina. [Wasifu na vikomo vya majaribio](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Kupachika rafu katika EXE kumeahirishwa.
 
 ## 80 lugha na vibadala vya kiolesura
 

@@ -213,7 +213,7 @@ A na-enyocha ngwa ahịa megide isi mmalite **29 Ọktoba 2026**. Aha ndị a na
 | **ONNX Runtime** | Mbubata ọnụọgụgụ/bool dị na mpaghara wee kwadoo mbupụ ederede GenAI. | Akwadoro nchekwa zuru oke; ọrụ-kpọmkwem preprocessing / postprocessing chọrọ; [ntọlite ​​na oke](onnx-server/README.md). |
 | **LoRA / PEFT nkwụnye** | Bubata ntọala zuru oke yana ihe nkwụnye mpaghara dị iche na onye na-eweta Safetensors. | Ihe kpatara Transformers na-enweghị atụ, njirimara dabara, nlele tensor na atụmatụ ebe nchekwa mkpokọta; [ntọlite ​​na oke](transformers-server/README.md#local-lora--peft-adapters). |
 | **FP8 LLM / ModelOpt** | Mkpebi CUDA nke ala maka oke Llama/Qwen2/Qwen3 kwa-tensor FP8 na-ebupụ. | Nleba ihe owuwu / tensor na nyocha kernel n'ezie; [ntọlite ​​na oke](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
-| **NVFP4 LLM / ModelOpt** | ngwugwu ngwugwu-16 FP4 amụma site na CUDA GEMM; iche na onyonyo NVFP4. | Blackwell GPU dakọtara, akụkụ akwadoro/bupu na nyocha kernel n'ezie; a nwalere ihe eji akwụghị ụgwọ na RTX 5070. |
+| **NVFP4 LLM / ModelOpt** | ngwugwu ngwugwu-16 FP4 amụma site na CUDA GEMM; iche na onyonyo NVFP4. | Blackwell GPU dakọtara, akụkụ akwadoro/bupu na nyocha kernel n'ezie; a nwalere ụdị nnwale a na-azụbeghị na RTX 5070. |
 | **AWQ** | 4-bit GEMM ihe nlele ụdị na-enweghị ngwakọta ọrụ. | NVIDIA CUDA na nhọrọ GPTQModel/Transformers loaders. |
 | **GPTQ** | Ụdị 2/3/4/8-bit, ụdị gptq/gptq_v2. | NVIDIA CUDA, GPTQModel na Optimum; ezi ogbugbu nwalere na 4 bits. |
 | **bitsandbytes** | 4-bit NF4/FP4 ma ọ bụ 8-bit INT8. | NVIDIA CUDA na nhọrọ dabere; ezigbo NF4 na INT8 ule. |
