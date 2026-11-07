@@ -1,0 +1,29 @@
+--- a/src/ggml-webgpu/ggml-webgpu.cpp
++++ b/src/ggml-webgpu/ggml-webgpu.cpp
+@@ -2367,6 +2367,8 @@
+             default:
+                 break;
+         }
++    } else if (dst->op == GGML_OP_LEAKY_RELU) {
++        params.push_back(ggml_webgpu_u32_from_f32(ggml_get_op_params_f32(dst, 0)));
+     } else if (dst->op == GGML_OP_CLAMP) {
+         float clamp_min = ggml_get_op_params_f32(dst, 0);
+         float clamp_max = ggml_get_op_params_f32(dst, 1);
+@@ -3478,6 +3480,7 @@
+         case GGML_OP_SOFT_MAX:
+             return ggml_webgpu_soft_max(ctx, src0, src1, src2, node);
+         case GGML_OP_UNARY:
++        case GGML_OP_LEAKY_RELU:
+         case GGML_OP_CLAMP:
+         case GGML_OP_FILL:
+         case GGML_OP_LOG:
+@@ -4787,6 +4790,9 @@
+                               s_v <= ctx->webgpu_global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+             }
+             break;
++        case GGML_OP_LEAKY_RELU:
++            supports_op = op->type == GGML_TYPE_F32 && src0->type == GGML_TYPE_F32;
++            break;
+         case GGML_OP_CLAMP:
+             supports_op = (op->type == GGML_TYPE_F32 || op->type == GGML_TYPE_F16) && (src0->type == op->type);
+             break;

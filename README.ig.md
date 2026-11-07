@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ị kọwara ebumnuche gị. Novera na-akwado akụrụngwa, rụọ ọrụ ahụ ma hazie nsonaazụ ya.</strong></p>
   <p>Onye enyemaka AI nọọrọ onwe ya site na TRON-ABS, site na mbido mbụ ruo na nsonaazụ: ederede, onyonyo, egwu na vidiyo n'otu mkparịta ụka.</p>
-  <p><strong>Dị maka Windows, Linux, macOS na Android</strong> · Isi mmalite ndị akwadoro: 104 interface asụsụ · 42 ndị na-eweta igwe ojii · 58 presets media · Apache 2.0</p>
+  <p><strong>Dị maka Windows, Linux, macOS na Android</strong> · 104 interface asụsụ · 42 ndị na-eweta igwe ojii · 58 nhazi mgbasa ozi · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Akpaaka</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI ụdị na-agba ọsọ na mpaghara na ngwaọrụ gị</a> · <a href="#hub-and-compatible-models">Hub na ụdị dakọtara</a> · <a href="#cloud-providers">Igwe ojii</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Nye aka</a></p>
   <p>Kọntaktị Official: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Official Novera profaịlụ ọha: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Na-akwado ụdị 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Nbudata ọhaneze ka dị na 1.0.0. A kwadoro nkwalite ndị a na isi mmalite maka 1.0.1; ha chọrọ ngwungwu wughachiri, ndenye ntọhapụ na mbipụta. Imelite akwụkwọ a anaghị emelite ngwa arụnyere.
+Novera 1.0.1 dị maka nyiwe ndị edepụtara n'okpuru. Budata ngwugwu maka sistemụ gị ma ọ bụ jiri ọwa mmelite bịanyere aka na ya. Mmelite nrụnye dị adị mgbe ị wụnye ngwugwu ọhụrụ ma ọ bụ nabata mmelite ahụ.
 
 - Nchekwa: ikike ikike obodo siri ike maka ibe ndị dịpụrụ adịpụ, nyocha maka API netwọkụ na ngwaọrụ ihe nkesa, nchekwa nzuzo na mbugharị, ịnweta faịlụ / mgbasa ozi dị nchebe, ntugharị akwụkwọ akụkọ na wuo scripts. Emelitela ndabere ekpughere; A na-enyocha ndụmọdụ ndị fọdụrụ n'ihu ọha.
 - Nzuzo: ọnụ ọgụgụ na mkpesa njehie chọrọ nkwenye dị iche ma pụọ ​​​​na ndabara. Ihe ewuru gụnyere nhazi ebe edere ede. A na-enyocha nchọpụta teknụzụ; ndị ọrụ na-ejikwa njikwa ọrụ.
@@ -35,7 +35,7 @@ Nbudata ọhaneze ka dị na 1.0.0. A kwadoro nkwalite ndị a na isi mmalite ma
 - Nkasi obi: njikwa ala na-ada ka ntinye ka na-ahụ anya. Igwe okwu kọmpat na njikwa mkpughe, bọtịnụ ụda n'okpuru igwe okwu, ntọala egwu na-anabata na akara akụrụngwa atụgharịrị na-emeziwanye ojiji na obere ihuenyo.
 - Katalọgụ API: 43 profaịlụ ndị na-eweta, gụnyere TabbyAPI na mpaghara, nwere nkata ume ọhụrụ na nhọrọ mgbasa ozi. Ndenye ọhụrụ gụnyere GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 na GPT Image 2.6, Gemini Omni 1.2, FLUX 3 ebe akwadoro. Ntugharị anaghị ezochikwa nsonaazụ gafere ụdị iri. A na-akwanyere ihe nrịbama ziri ezi, njedebe mpaghara, mbugharị nkeonwe na ụdị mbubata.
 - Nkwado: ngwa ezubere iche, ụlọ akwụkwọ ọbá akwụkwọ, ọha-katalọgụ na nyocha asụsụ ka edekọtara na ndetu zuru ezu. Ihe nhụta a na-ewuli maka Windows / macOS / Linux / Android / iOS. Ihe ndị a na-ewu n'ihu anaghị akwado ngwungwu ala ma ọ bụ ntinye aka na ngwaọrụ ọ bụla.
-- Tupu ahapụ ya: kwado ngwungwu ala arụgharịrị arụgharịrị, nchọpụta nchekwa/ndabere fọdụrụ na ezigbo 1.0.0 na 1.0.1 nwelite. Nnweta dabere na ngwaike, ohere ndị na-eweta na ikpo okwu. Enweghị ndakọrịta ụdị zuru ụwa ọnụ, ọkwa adịghị ike efu ma ọ bụ mbipụta emechara nke a na-ekwu.
+- Edepụtara nnweta na ndenye ndenye ego n'okpuru. Atụmatụ akwadoro dabere na ngwaike, ohere ndị na-eweta na ikpo okwu. A ka na-edekọ nchoputa nchekwa yana oke nnabata ngwa ngwa. Debe ndabere tupu emelite.
 
 [Nkọwa zuru ezu, nkwenye na ọrụ fọdụrụnụ](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Nbudata ọhaneze ka dị na 1.0.0. A kwadoro nkwalite ndị a na isi mmalite ma
 
 <!-- novera-release-1.0.1:end -->
 
-## Nnweta — 2026-11-03
+## Nnweta — 2026-11-07
 
-**Novera 1.0.0 dị maka Windows, Linux, macOS na Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Ihe ngwungwu Desktop, ma CLI ebe nchekwa, mbinye aka na mmelite gosipụtara bụ ọha ma kwenye.
+**Novera 1.0.1 dị maka Windows, Linux, macOS na Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Ihe ngwungwu Desktop, ma CLI ebe nchekwa, mbinye aka na mmelite gosipụtara bụ ọha ma kwenye.
 
 | Platform | Nnweta |
 | --- | --- |
 | Windows x64 | Ọhaneze NSIS installer, ihe mmelite bịanyere aka na ya; akwadoro nrụnye nke ala na nnọchi. |
 | Linux x64 | Ọhaneze AppImage, ihe mmelite bịanyere aka na ya; akwadoro nrụnye nke ala na nnọchi. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, nwere ọwa mmelite mbinye aka raara onwe ya nye. |
-| Windows ARM64 | [Ọha NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), nwa afọ CPU igwe ederede; akwadoro nrụnye, nnọchi na ọwa ọha. |
-| Android ARM64 | [Ọhaneze bịanyere aka na ya APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, default batch 512. Onye na-elekọta ya na-akwado ịrụ 1000012 na-arụ ọrụ na ekwentị ha. Ngwungwu dị ọcha na-enweghị mkparịta ụka, ụdị ma ọ bụ igodo API nkeonwe. [Ihe akaebe na oke](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Official 1.0.0 DMG mwepụta](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera mbinye aka. Ọ bụghị Apple notarized; nlele anya akpaaka gafere iche iche na ụlọ ọrụ ụlọ abụọ ahụ, echerela nlele anya. [Nwụnye na ihe akaebe](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, nwere ọwa mmelite mbinye aka raara onwe ya nye. |
+| Windows ARM64 | [Ọha NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), nwa afọ CPU igwe ederede; akwadoro nrụnye, nnọchi na ọwa ọha. |
+| Android ARM64 | Android 1.0.1 dị ka ngwa ARM64 bịanyere aka na ya, wuo 1000013. Ọ na-eji akwụkwọ Novera dị na-agafe nyocha ngwungwu. O nweghi mkparịta ụka nkeonwe, ụdị ma ọ bụ igodo API. Nwụnye na emelite na ekwentị ka ga-anwale. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Official 1.0.1 DMG mwepụta](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera mbinye aka. Ọ bụghị Apple notarized; nlele anya akpaaka gafere iche iche na ụlọ ọrụ ụlọ abụọ ahụ, echerela nlele anya. [Nwụnye na ihe akaebe](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Ihe nrụpụta ime simulator; Apple bịanyere aka n'akwụkwọ nkwado / inye a chọrọ tupu iPhone echichi. [Nsochi](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 enwere ike ibugharị | [ZIP mbinye aka](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data nọrọ na Data, bịanyere aka na Program nnọchi akwadoro. |
 | Weebụ, MSI, Debian | Ndị ahịa Weebụ anabatara na usoro ndị ọzọ ka dị n'ime; Pages saịtị ngosi dị. |
 
 Na Mac, mepee DMG wee detuo Novera n'ime ngwa. Ọ bụrụ na akpọchie mmalite mmalite, hapụ Novera na **Ntọala Sistemu → Nzuzo & Nche → Mepee agbanyeghị**. [Ntuziaka Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Mbinye aka mmelite abụghị Windows Authenticode ma ọ bụ Apple notarization. Akwụkwọ ndenye ego ụdị ugbu a na-agafe ọwa ọha; mgbanwe n'etiti ụdị ọha abụọ ka bụ ule ntọhapụ ọzọ. [Ihe akaebe na oke](docs/LAUNCH_STATUS.md).
+Mbinye aka mmelite dị iche na Windows Authenticode na Apple notarization. A na-edekọ hashes ngwugwu, nlele ala na nyocha mmelite iche iche. A kwadoro nkwalite ọha 1.0.0 ruo 1.0.1 naanị maka ọnọdụ ndị edekọtara na mkpesa mwepụta ahụ. [Ihe akaebe na oke](docs/LAUNCH_STATUS.md)
 
 Na Android, ekwentị ọgbara ọhụrụ nwere ebe nchekwa zuru oke ka akwadoro maka ụdị mpaghara; jiri onye na-eweta API na ngwaọrụ ndị na-adịchaghị ike. Maka ọchụchọ webụ, ọnọdụ nke opekata mpe **16K akara (16,384)** ka akwadoro, n'ofe ụdịdị.
 
@@ -143,7 +143,7 @@ Ihe ntinye egwu egwu Qwen yana ụdị eweghachi Qwen bụ **faịlụ dị iche
 
 ## Ndị na-eweta igwe ojii
 
-Isi mmalite ndị akwadoro nwere 43 profaịlụ ndị na-eweta: 42 ọrụ igwe ojii na TabbyAPI maka sava mpaghara. Nnweta na ikike nke ụdị dabere na akaụntụ, mpaghara yana API akwadoro. Asụsụ interface 104 niile na-ekerịta katalọgụ.
+Katalọgụ ahụ nwere profaịlụ ndị na-eweta 43: 42 ọrụ igwe ojii yana TabbyAPI maka sava mpaghara. Ịnweta ụdị na ike dabere na akaụntụ, mpaghara yana API akwadoro. Asụsụ interface 104 niile na-ekekọrịta katalọgụ a.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Isi mmalite ndị akwadoro nwere 43 profaịlụ ndị na-eweta: 42 ọrụ igwe
 
 ### Foto, egwu na vidiyo
 
-Katalọgụ okike akwadoro nwere 58 presets sitere na 20 ndị na-eweta: 30 onyonyo, vidiyo 24 na 4 atọrọ atọ egwu. Tebụl ndị dị n'okpuru depụtara ụzọ agbakwunyere; ha adịghị emepụtaghachi onyinye ọ bụla nke azụmahịa.
+Katalọgụ okike ahụ nwere ntọala 58 sitere na 20 ndị na-eweta: 30 onyonyo, vidiyo 24 na 4 atọrọ ntọala egwu. Tebụl ndị dị n'okpuru depụtara ụdịdị na njirimara nke ihe nkwụnye agbakwunyere na-akwado.
 
 | Onye na-enye | Mpụta na Novera | Ụdị katalọgụ |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Ndị a bụ ntụzịaka maka ntinye aka na mmepe, ọ bụghị nkwupụta na 
 
 ## Ọkwa ọrụ
 
-**Novera 1.0.0 dị maka Windows, Linux, macOS na Android.** Ihe nseta ihuenyo na-egosi ngwa Windows nke onye na-echekwa chịkọtara na mpaghara. A na-edekọ mgbanwe isi mmalite, ule ezubere iche na nkwado ngwaike iche iche; nke a anaghị akwado ụdị ọ bụla, ikpo okwu ma ọ bụ akaụntụ igwe ojii.
+**Novera 1.0.1 dị maka Windows, Linux, macOS na Android.** Ihe nseta ihuenyo na-egosi ngwa Windows nke onye na-echekwa chịkọtara na mpaghara. A na-edekọ mgbanwe isi mmalite, ule ezubere iche na nkwado ngwaike iche iche; nke a anaghị akwado ụdị ọ bụla, ikpo okwu ma ọ bụ akaụntụ igwe ojii.
 
 Ejiri akwụkwọ ntuziaka GitHub Actions rụọ ọrụ maka ụdị nkesa iri na otu niile. Soro [wulite rịzọlt na nbudata ndị ndoro-ndoro anya](docs/CI_DISTRIBUTIONS.md); a na-edekọ ihe dị iche iche maka ikpo okwu ọ bụla. Ndị anamachọihe dị iche na mwepụta mmepụta mbinye aka. A kọwapụtara ihe nkesa chọrọ na [amụma mwepụta gọọmentị](OFFICIAL_RELEASES.md) na [ibe ewepụtara](https://github.com/TRON-ABS/Novera/releases). Ndị anamachọ ihe nwere nkwarụ nwere mmelite na-anọgide n'ime. Mwepụta ọhaneze chọrọ usoro nkwalite ahaziri ahazi yana kwenyeziri; [Edebere ndenye mbinye aka desktọpụ na ihe mmalite mmalite ndị fọdụrụ](docs/LAUNCH_STATUS.md).
 

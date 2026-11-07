@@ -3101,7 +3101,7 @@ const ChatInput = memo(function ChatInput({
               {!effectiveAgentMode && !scopeKey && (
                 <div className="composer-metadata flex min-w-0 flex-wrap items-center gap-1">
                   <div className="min-w-0 max-w-full">
-                    <DropdownModelProvider variant="composer" mediaScope={currentThreadId ?? 'new'}
+                    <DropdownModelProvider variant="composer" mediaScope={currentThreadId ?? 'new'} draftPrompt={prompt}
                       model={model} useLastUsedModel={initialMessage} disabled={turnBusy} />
                   </div>
                   <MemoryModeControl scope={currentThreadId ?? 'new'} />

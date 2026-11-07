@@ -1,0 +1,15 @@
+--- a/src/pipeline/model_builders.cpp
++++ b/src/pipeline/model_builders.cpp
+@@ -201,6 +201,12 @@
+                 if (definition && definition->configure_vae) {
+                     definition->configure_vae(ctx, options, *model);
+                 }
++#if defined(__EMSCRIPTEN__) && defined(NOVERA_IMAGE_VAE_MATMUL_PROBE)
++                // Match the existing SDXL range-preserving convolution scale:
++                // divide inputs by a power of two, restore outputs before bias.
++                // This probes F16 im2col range without clipping activations.
++                model->set_conv2d_scale(1.f / 32.f);
++#endif
+                 return model;
+             }
+         };

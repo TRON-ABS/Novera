@@ -17,6 +17,10 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog'
 import { isPlatformTauri } from '@/lib/platform/utils'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
+import { BrowserLocalMediaSetup } from './BrowserLocalMediaSetup'
+import { BROWSER_IMAGE_MODEL, BROWSER_IMAGE_PROVIDER, browserLocalImagesEnabled, browserImageUpscaleReady } from '@/services/browser-preview/local-media'
+import { BROWSER_MUSIC_PROVIDER, browserLocalMusicEnabled } from '@/services/browser-preview/local-music'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { cn, getProviderTitle } from '@/lib/utils'
 import { mediaPreset } from '@/constants/mediaProviders'
@@ -57,7 +61,9 @@ export function CreationControls({
 
   const { t } = useTranslation()
   const service = useServiceHub()
-  const automatic = useAutoConfiguration()
+  const resourceConfiguration = useAutoConfiguration()
+  const webPreview = browserPreviewEnabled()
+  const automatic = webPreview ? { ...resourceConfiguration, local: { ...resourceConfiguration.local, image: false, music: false, video: false } } : resourceConfiguration
   const baseState = useCreation()
   const selectedMode = baseState.modes[scope] ?? 'auto'
   const mode = previewOutputMode(selectedMode, prompt, baseState.resolvedModes[scope], disabled)
@@ -106,7 +112,8 @@ export function CreationControls({
   const separate = cpp || nativeFp4
   const imagePath = ['sdcpp', 'nvfp4-cuda'].includes(baseState.settings.imageEngine ?? '') ? baseState.settings.ggufImageModel : baseState.settings.imageModel
   const selection = state.selections[scope]?.[task]
-  const isCloud = (!panelTask&&mode==='music')?false:selection && selection.provider !== 'diffusers'
+  const browserImage = webPreview && selection?.provider === BROWSER_IMAGE_PROVIDER
+  const isCloud = (!panelTask&&mode==='music')?false:selection && selection.provider !== 'diffusers' && !browserImage
   const progress = state.progress[scope]
   const desktop = isPlatformTauri()
   const numericSettings =
@@ -244,6 +251,7 @@ export function CreationControls({
                       : 'Diffusers'}{' '}
                     · {t('chat:creation.local')}
                   </option>
+                  {webPreview && task === 'image' && browserLocalImagesEnabled() && <option value={JSON.stringify({ provider: BROWSER_IMAGE_PROVIDER, id: BROWSER_IMAGE_MODEL })}>FLUX.2 Klein Q4 · Sur cet appareil · Essai</option>}
                   {mediaProfiles
                     .filter((p) => p.task === task && automatic.local[task])
                     .map((p) => (
@@ -286,11 +294,12 @@ export function CreationControls({
               </label>
             ))}
             <p className="text-xs text-muted-foreground">
-              {t('chat:creation.cloudNote')}
+              {browserImage ? 'Création sur cet appareil, sans clé API. Résolution réglable jusqu’à 2048 pixels par côté ; Real-ESRGAN ×2 expérimental avec le fichier Desktop. Mémoire et performances à vérifier sur votre appareil.' : t('chat:creation.cloudNote')}
             </p>
-            <p className="text-xs text-muted-foreground">
+            {!browserImage && <p className="text-xs text-muted-foreground">
               {t('chat:creation.cloudDefaults')}
-            </p>
+            </p>}
+            {browserImage && <><MediaSizeControls settings={settings} setSettings={state.setSettings} /><label className="block text-sm">{t('chat:creation.steps')}<input aria-label={t('chat:creation.steps')} className="mt-1 w-full rounded border bg-background p-2" type="number" min={1} max={100} value={settings.steps} onChange={event => state.setSettings({ steps: Number(event.target.value) })} /></label><label className="block text-sm">Budget GPU Web (Gio)<select aria-label="Budget GPU Web (Gio)" className="block w-full rounded border bg-background p-2" value={settings.browserGpuBudgetGiB ?? 2} onChange={event => state.setSettings({ browserGpuBudgetGiB: Number(event.target.value) })}>{[2,4,6,8,12].map(value => <option key={value} value={value}>{value} Gio</option>)}</select></label><p className="text-xs text-muted-foreground">Le navigateur ne mesure pas la VRAM libre. Choisissez un budget inférieur à la mémoire de votre carte ; 6 Gio laisse une réserve sur une carte de 8 Gio. Commencez plus bas sur un appareil moins équipé.</p></>}
             {automatic.local[task] && <details open={!isCloud}>
               <summary className="cursor-pointer text-sm">
                 {t('chat:creation.local')}
@@ -640,7 +649,7 @@ export function CreationControls({
               </div>
             </details>}
             <p className="text-xs text-muted-foreground">
-              {t('chat:creation.autosave')}
+              {webPreview ? 'Les fichiers sont conservés dans ce navigateur. Utilisez Télécharger pour en garder une copie sur votre appareil.' : t('chat:creation.autosave')}
             </p>
             <p className="text-xs text-muted-foreground">
               {t('chat:creation.autoNote')}
@@ -667,7 +676,7 @@ export function CreationControls({
                 (mode === item || (item === 'auto' && selectedMode === 'auto')) && 'composer-tool-active'
               )}
               disabled={
-                disabled || (!desktop && (item === 'image' || item === 'music' || item === 'video'))
+                disabled || (!desktop && !webPreview && (item === 'image' || item === 'music' || item === 'video'))
               }
               aria-pressed={mode === item || (item === 'auto' && selectedMode === 'auto')}
               onClick={() => {
@@ -702,6 +711,7 @@ export function CreationControls({
         {showSettingsButton && <CreationSettingsControl scope={scope} disabled={disabled} onOpen={() => setOpen(true)} />}
       </div>
       {mode==='music'&&<MusicDashboardControls scope={scope} disabled={disabled} prompt={prompt}/>}
+      {mode === 'image' && browserImage && <span className="text-xs text-muted-foreground">FLUX.2 Klein · {settings.width} × {settings.height} · {settings.steps} étapes · 1 image{upscale.enabled && upscale.factor === 2 ? ` · ×2 → ${settings.width * 2} × ${settings.height * 2}` : ''} · Essai local</span>}
       {(mode === 'image' || mode === 'video') && !isCloud && (
         <div className="composer-size-controls ml-auto flex flex-wrap gap-1">
           {mode === 'video' && <VideoDurationControl settings={settings} setSettings={state.setSettings} disabled={disabled} prompt={prompt} />}
@@ -729,7 +739,16 @@ export function CreationControls({
               </PopoverContent>
             </Popover>
           )}
-          {mode === 'image' && (
+          {mode === 'image' && browserImage && <Button
+            size="xs" variant="ghost"
+            className={cn('composer-setting composer-upscale border border-transparent', upscale.enabled && 'composer-tool-active')}
+            disabled={disabled || (!upscale.enabled && !browserImageUpscaleReady())}
+            data-state={upscale.enabled ? 'on' : 'off'} aria-pressed={upscale.enabled}
+            aria-label={`Real-ESRGAN Web ×2 · ${upscale.enabled ? `${settings.width * 2} × ${settings.height * 2}` : t('ui:off')}`}
+            title={browserImageUpscaleReady() ? `Real-ESRGAN ×2 · ${settings.width * 2} × ${settings.height * 2}` : 'Choisissez RealESRGAN_x2plus.pth dans les réglages image pour cette session.'}
+            onClick={() => { upscale.setFactor(2); upscale.setEnabled(!upscale.enabled) }}
+          ><Expand aria-hidden="true" size={16} />×2 · {upscale.enabled ? t('ui:on') : t('ui:off')}<ComposerStatusSwitch active={upscale.enabled} /><span className="composer-final-size" aria-hidden="true">{settings.width * (upscale.enabled ? 2 : 1)} × {settings.height * (upscale.enabled ? 2 : 1)}</span></Button>}
+          {mode === 'image' && !browserImage && (
             <div className="composer-upscale-group inline-flex">
             <Button
               size="xs"
@@ -804,7 +823,7 @@ export function CreationControls({
               )}
             </PopoverContent>
           </Popover>
-          <GenerationCountControl value={settings.generationCount} disabled={disabled}
+          <GenerationCountControl value={browserImage ? 1 : settings.generationCount} disabled={disabled || browserImage}
             onChange={generationCount => state.setSettings({ generationCount })} />
         </div>
       )}
@@ -812,7 +831,7 @@ export function CreationControls({
         <GenerationCountControl value={settings.generationCount} disabled={disabled}
           onChange={generationCount => state.setSettings({ generationCount })} />
       )}
-      {(isCloud || (mode==='music' && !!baseState.selections[scope]?.music)) && (
+      {(isCloud || (mode==='music' && !!baseState.selections[scope]?.music && baseState.selections[scope]?.music?.provider !== BROWSER_MUSIC_PROVIDER)) && (
         <p className="text-xs text-muted-foreground">
           {t('chat:creation.cloudNote')}
         </p>
@@ -849,8 +868,9 @@ export function CreationControls({
         <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-4xl">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2"><ShieldCheck className="size-5 text-cyan-400" />Novera · {t('common:settings')}</DialogTitle>
-            <DialogDescription>{t('hub:catalog.advisorNote')}</DialogDescription>
+            <DialogDescription>{webPreview ? 'Les moteurs locaux FLUX.2 Klein, ACE-Step et Wan sont en cours d’adaptation au navigateur. La connexion fal est une option cloud utilisant votre clé et ses tarifs.' : t('hub:catalog.advisorNote')}</DialogDescription>
           </DialogHeader>
+          {webPreview ? <><BrowserLocalMediaSetup scope={scope} disabled={disabled} /><p className="text-sm text-muted-foreground">La clé reste en mémoire pour cette session. <a className="underline" href="#/settings/providers/fal">Configurer fal</a> · Les créations terminées sont conservées dans ce navigateur et peuvent être téléchargées.</p></> : <>
           <ManagedComponents disabled={disabled} />
           <aside className="space-y-3 rounded-xl border border-cyan-400/30 bg-cyan-400/5 p-4">
             <p className="text-sm">{t(automatic.fullPack ? 'chat:creation.setupAllNote' : 'hub:catalog.advisorNote')}</p>
@@ -864,11 +884,12 @@ export function CreationControls({
             <h2 className="font-medium">{t('providers:embeddingModels')}</h2>
             <EmbeddingSetupPanel />
           </section>
+          </>}
           {(['image', 'music', 'video'] as const).map((kind) => <section key={kind} className="rounded-xl border p-4 space-y-4" aria-label={t(`chat:creation.${kind}`)}>
             <h2 className="font-medium">{t(`chat:creation.${kind}`)}</h2>
-            {!automatic.local[kind] && <p className="text-sm text-muted-foreground">{t('chat:creation.local')} · {t('common:editModel.notAvailable')} · {t('hub:catalog.tipLimited')} {t('chat:creation.cloudNote')}</p>}
+            {!automatic.local[kind] && !(webPreview && ((kind === 'image' && browserLocalImagesEnabled()) || (kind === 'music' && browserLocalMusicEnabled()))) && <p className="text-sm text-muted-foreground">{!webPreview && <>{t('chat:creation.local')} · {t('common:editModel.notAvailable')} · {t('hub:catalog.tipLimited')} </>}{t('chat:creation.cloudNote')}</p>}
             {kind==='music'?<MusicSetupPanel scope={scope} disabled={disabled}/>:<>
-              <p className="text-sm text-muted-foreground">{t(`chat:creation.${kind==='image'?'setupImageNote':'setupVideoNote'}`)}</p>
+              {!webPreview && <p className="text-sm text-muted-foreground">{t(`chat:creation.${kind==='image'?'setupImageNote':'setupVideoNote'}`)}</p>}
               <CreationControls scope={scope} disabled={disabled} panelTask={kind} /></>}
           </section>)}
           <Button onClick={() => setOpen(false)}>{t('common:close')}</Button>

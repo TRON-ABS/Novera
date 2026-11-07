@@ -217,8 +217,7 @@ pub fn resolve<R: Runtime>(
         && !matches!(value, "python" | "python.exe" | "auto")
         && !value.starts_with("managed:")
     {
-        // A pre-existing custom interpreter remains an explicit advanced override.
-        return Ok(value.into());
+        return custom_python(value);
     }
     resolve_at(&root(app)?, external, family)
 }
@@ -228,7 +227,7 @@ fn resolve_at(root: &Path, external: &str, family: &str) -> Result<String, Strin
         && !matches!(value, "python" | "python.exe" | "auto")
         && !value.starts_with("managed:")
     {
-        return Ok(value.into());
+        return custom_python(value);
     }
     let selected = selection(&root);
     let fallback = match family {
@@ -249,6 +248,24 @@ fn resolve_at(root: &Path, external: &str, family: &str) -> Result<String, Strin
     Ok(python(&root.join(p.id).join(r.generation))
         .to_string_lossy()
         .into_owned())
+}
+
+fn custom_python(value: &str) -> Result<String, String> {
+    // Preserve advanced overrides, but do not launch a deleted development runtime
+    // retained by an older profile. Never substitute an unrelated interpreter.
+    if (value.contains('/') || value.contains('\\')) && !Path::new(value).is_file() {
+        return Err(format!(
+            "COMPONENT_REQUIRED: Python {value}. Select Auto and install the required local component, or choose an existing Python interpreter."
+        ));
+    }
+    Ok(value.into())
+}
+
+fn version_probe(p: &Profile) -> String {
+    format!(
+        "import sys; assert sys.version_info[:3]==tuple(map(int, '{}'.split('.'))); {}",
+        p.python, p.probe
+    )
 }
 
 #[derive(Clone, Serialize, Deserialize)]
@@ -384,15 +401,7 @@ async fn verify(
         .arg(&exe);
     run(check, cancel, root).await?;
     let mut probe = command(&exe, root);
-    probe.args([
-        "-I",
-        "-B",
-        "-c",
-        &format!(
-            "import sys; assert sys.version_info[:3]==(3,12,12); {}",
-            p.probe
-        ),
-    ]);
+    probe.args(["-I", "-B", "-c", &version_probe(p)]);
     run(probe, cancel, root).await?;
     let inventory = dir.join("novera-packages.json");
     let mut c = command(&exe, root);
@@ -696,7 +705,7 @@ mod tests {
         assert!(profile("transformers-cuda")
             .unwrap()
             .lock
-            .contains("torch==2.14.1"));
+            .contains("torch==2.15.0+cu134"));
         assert!(!profile("video-export").unwrap().lock.contains("torch=="));
     }
     #[test]
@@ -720,10 +729,25 @@ mod tests {
         assert!(resolve_at(tmp.path(), "python", "onnx").is_err());
         assert!(resolve_at(tmp.path(), "", "media").is_err());
         assert!(resolve_at(tmp.path(), "managed:onnx-cpu", "transformers").is_err());
+        let custom = tmp.path().join("external Python.exe");
+        std::fs::write(&custom, b"custom interpreter").unwrap();
         assert_eq!(
-            resolve_at(tmp.path(), "C:/external Python/python.exe", "media").unwrap(),
-            "C:/external Python/python.exe"
+            resolve_at(tmp.path(), custom.to_str().unwrap(), "media").unwrap(),
+            custom.to_str().unwrap()
         );
+        std::fs::remove_file(&custom).unwrap();
+        assert!(resolve_at(tmp.path(), custom.to_str().unwrap(), "media")
+            .unwrap_err()
+            .starts_with("COMPONENT_REQUIRED: Python "));
+    }
+    #[test]
+    fn probes_follow_the_installed_python_version() {
+        for p in profiles() {
+            let probe = version_probe(&p);
+            assert!(probe.contains(&format!("'{}'.split('.')", PYTHON)));
+            assert!(!probe.contains("(3,12,12)"));
+            assert!(probe.ends_with(p.probe));
+        }
     }
     #[tokio::test]
     async fn disk_lock_and_space_fail_before_network() {

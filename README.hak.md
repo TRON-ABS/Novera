@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>您描述目標。Novera 準備資源、執行任務並整理結果。</strong></p>
   <p>由 TRON-ABS 獨立嘅 AI 助理，自首次啟動至結果：文字、圖像、音樂同影片，一對話內完成。</p>
-  <p><strong>適用於 Windows、Linux、macOS 同 Android</strong> · 準備來源：104 介面語言 · 42 雲端提供者 · 58 媒體預設 · Apache 2.0</p>
+  <p><strong>適用於 Windows、Linux、macOS 同 Android</strong> · 104 介面語言 · 42 雲端提供者 · 58 媒體預設 · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">自動化</a> · <a href="#one-dashboard-for-every-creation">儀表板</a> · <a href="#local-models-in-use">AI 模型於您設備本地運行</a> · <a href="#hub-and-compatible-models">樞紐同相容模型</a> · <a href="#cloud-providers">雲</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">貢獻</a></p>
   <p>官方聯絡： <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>官方 Novera 社交媒體頁面： <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## 正在準備版本1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-公開下載量仍保持在 1.0.0。 1.0.1 的原始程式碼中準備了以下改進；它們需要重建包、發布檢查和發布。更新本文檔不會更新已安裝的應用程式。
+Novera 1.0.1 適用於下列平台。下載適合您的系統的軟體包或使用其簽署的更新通道。當您安裝新軟體包或接受更新時，現有安裝會更新。
 
 - 安全性：對遠端頁面更嚴格的本機權限、網路 API 和伺服器工具的身份驗證、受保護的秘密儲存和遷移、更安全的檔案/媒體存取、電子表格解析和建置腳本。公開的依賴項已更新；其餘的建議將被公開追蹤。
 - 隱私權：統計資訊和錯誤報告需要單獨同意，預設保持關閉狀態。建置包括記錄的目標配置。技術診斷被過濾；使用者可以控制啟動。
@@ -35,7 +35,7 @@
 - 舒適：下部控制折疊，同時輸入保持可見。緊湊的麥克風和披露控制、麥克風下方的聲音按鈕、響應式音樂設定和翻譯的組件標籤改善了小螢幕上的使用。
 - API 目錄：43 提供者資料，包括本地的 TabbyAPI，以及更新的聊天和媒體選擇。新條目包括受支援的 GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 和 GPT Image 2.6, Gemini Omni 1.2, FLUX 3。刷新不再隱藏超過十個模型的結果。尊重準確的識別符、區域端點、私有部署和導入的模型。
 - 驗證：目標應用程式、本機程式庫、公共目錄和語言檢查記錄在詳細註釋中。此介面是為 Windows / macOS / Linux / Android / iOS 建構的。這些前端建置並不驗證每個裝置上的本機包或推理。
-- 發布前：驗證重建的本機軟體包、剩餘的安全性/相依性發現以及真正的 1.0.0 到 1.0.1 更新。可用性取決於硬體、提供者存取權限和平台。沒有聲稱具有通用模型相容性、零漏洞狀態或已完成的發布。
+- 下面列出了可用性和已完成的檢查。支援的功能取決於硬體、提供者存取權限和平台。安全發現和本機設備驗證限制仍然記錄在案。更新前請保留備份。
 
 [詳細註釋、驗證和剩餘工作](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@
 
 <!-- novera-release-1.0.1:end -->
 
-## 可用性 — 2026-11-03
+## 可用性 — 2026-11-07
 
-**Novera 1.0.0 適用於 Windows、Linux、macOS 同 Android。** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64)。桌面套件，CLI 歸檔、簽名同更新清單皆公開同驗證。
+**Novera 1.0.1 適用於 Windows、Linux、macOS 同 Android。** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)。桌面套件，CLI 歸檔、簽名同更新清單皆公開同驗證。
 
 | 平台 | 可用性 |
 | --- | --- |
 | Windows x64 | 公開 NSIS 安裝包，簽署更新器；原生安裝同替換已驗證。 |
 | Linux x64 | 公開 AppImage，簽署更新器；原生安裝同替換已驗證。 |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`，附有專用簽署更新通道。 |
-| Windows ARM64 | [公開 NSIS 安裝包](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64)，原生 CPU 文字引擎；安裝、替換同公開通道檢查已驗證。 |
-| Android ARM64 | [公開簽署 APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012)，Android 7+，預設批次 512。維護者確認建置 1000012 喺佢手機上運作。乾淨包，無對話、模型或個人 API 密鑰。 [證據同限制](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [官方 1.0.0 DMG 版本](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos)，macOS 13+ Intel / 14+ Apple Silicon；Novera 簽署更新。非 Apple 認證；自動檢查兩架構已分開通過，視覺檢查延後。 [安裝同證據](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`，附有專用簽署更新通道。 |
+| Windows ARM64 | [公開 NSIS 安裝包](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)，原生 CPU 文字引擎；安裝、替換同公開通道檢查已驗證。 |
+| Android ARM64 | Android 1.0.1 可作為簽署的 ARM64 APK，版本為 1000013。它使用現有的 Novera 憑證並通過套件檢查。它不包含個人對話、模型或 API 金鑰。在手機上的安裝和更新仍有待測試。 Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [官方 1.0.1 DMG 版本](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos)，macOS 13+ Intel / 14+ Apple Silicon；Novera 簽署更新。非 Apple 認證；自動檢查兩架構已分開通過，視覺檢查延後。 [安裝同證據](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | 內部模擬器版本；iPhone 安裝前需 Apple 簽署/配置。 [後續](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 便攜版 | [簽署 ZIP 歸檔](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable)資料留喺 Data，簽署 Program 替換已驗證。 |
 | 網頁、MSI、Debian | 託管網頁客戶端同其他格式仍為內部；Pages 介紹網站可用。 |
 
 喺 Mac 上，開 DMG 之後，將 Novera 複製到 Applications 裡面。若第一次啟動被阻擋，請允許 Novera 喺 **系統設定 → 隱私與安全 → 仍要開啟**. [Apple 指示](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-更新者簽名唔係 Windows Authenticode 或者 Apple 認證。手動當前版本檢查通過公開渠道；兩個公開版本之間嘅轉換仍係下一個發布嘅測試。 [證據同限制](docs/LAUNCH_STATUS.md).
+更新程式簽章與 Windows Authenticode 和 Apple 公證分開。包雜湊、本機檢查和更新測試單獨記錄。僅針對發布報告中記錄的場景確認完整的公共 1.0.0 到 1.0.1 升級。 [證據同限制](docs/LAUNCH_STATUS.md)
 
 Android 支援便攜式 API。 **16K 令牌 (16,384)** . 提取完整歸檔並開始
 
@@ -143,7 +143,7 @@ Qwen 音樂編碼器佮 Qwen 檢索模型係 **唔同檔案**分別儲存。模�
 
 ## 雲端服務商
 
-準備好的來源包含 43 提供者設定檔：42 雲端服務和用於本機伺服器的 TabbyAPI。模型的可用性和功能取決於帳戶、區域和支援的 API。此目錄由所有 104 介面語言共用。
+目錄包含 43 提供者設定檔：42 雲端服務和本機伺服器的 TabbyAPI。模型存取和功能取決於帳戶、區域和支援的 API。所有 104 介面語言共用此目錄。
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Qwen 音樂編碼器佮 Qwen 檢索模型係 **唔同檔案**分別儲存。模�
 
 ### 圖像、音樂佮影片
 
-準備好的創作目錄包含來自 20 提供者的 58 預設：30 圖片、24 影片和 4 音樂預設。下表列出了綜合路線；他們不會複製所有商業產品。
+建立目錄包含來自 20 提供者的 58 預設：30 圖片、24 影片和 4 音樂預設。下表列出了整合式適配器支援的確切型號和識別碼。
 
 | 提供者 | Novera 裡面出嘅結果 | 目錄模型 |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ AWQ 4-bit、GPTQ 4-bit、NF4 佮 INT8 各生成文字於 RTX 5070 Laptop，使�
 
 ## 項目狀態
 
-**Novera 1.0.0 適用於 Windows、Linux、macOS 同 Android。** 呢張截圖顯示由維護者喺本地編譯嘅 Windows 應用程式。原始碼更改、目標測試同硬體驗證係分開記錄嘅；呢個唔代表所有模型、平台或雲端帳戶都經驗證。
+**Novera 1.0.1 適用於 Windows、Linux、macOS 同 Android。** 呢張截圖顯示由維護者喺本地編譯嘅 Windows 應用程式。原始碼更改、目標測試同硬體驗證係分開記錄嘅；呢個唔代表所有模型、平台或雲端帳戶都經驗證。
 
 所有十一種發行變體都啟用手動 GitHub Actions 編譯。請跟 [編譯結果同已驗證候選下載](docs/CI_DISTRIBUTIONS.md);可用性係為每個平台分開記錄。候選版本同簽署嘅生產發行版本唔同。 [官方發行政策](OFFICIAL_RELEASES.md) 仲 [發行頁面](https://github.com/TRON-ABS/Novera/releases).現有禁用更新嘅候選版本仍為內部使用。公開發行需要配置同驗證嘅更新機制； [桌面簽名檢查同剩餘啟動要求已記錄](docs/LAUNCH_STATUS.md).
 

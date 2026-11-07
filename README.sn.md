@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Unotsanangura. Novera inogadzirira, inomhanya uye kuronga.</strong></p>
   <p>Anozvimiririra AI mubatsiri na TRON-ABS, kubva pakuvambwa kusvika kune zvawanikwa: mavara, mifananidzo, mimhanzi nevhidhiyo muhurukuro imwe chete.</p>
-  <p><strong>Inowanikwa kuWindows, Linux, macOS neAndroid</strong> · Zvinyorwa zvakagadzirirwa: 104 mitauro yekubatanidza · 42 vanopa makore · 58 magadzirirwo enhau · Apache 2.0</p>
+  <p><strong>Inowanikwa kuWindows, Linux, macOS neAndroid</strong> · 104 interface mitauro · 42 vanopa makore · 58 magadzirirwo enhau · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">otomatiki</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Mhando dzemunharaunda</a> · <a href="#hub-and-compatible-models">Mafomati & Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Batsira</a></p>
   <p>Zvepamutemo kuonana: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Zvepamutemo Novera nhoroondo dzemagariro: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -18,10 +18,10 @@ Data uye kuvanzika: [inference yemuno, sarudzo telemetry, mishumo yekukanganisa 
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Kugadzirira shanduro 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Zvekudhaunirodha zveruzhinji zvinosara pa1.0.0. Magadzirirwo anotevera akagadzirirwa muzvinyorwa zve1.0.1; ivo vanoda mapakeji akavakwa patsva, kuburitsa cheki uye kuburitswa. Kuvandudza magwaro aya hakugadzirisi mapurogiramu akaiswa.
+Novera 1.0.1 iripo kumapuratifomu akanyorwa pazasi. Dhawunirodha pasuru yesystem yako kana shandisa yakasainwa yekuvandudza chiteshi. Kumisikidzwa kuriko kunogadziridza paunoisa pasuru nyowani kana kugamuchira iyo yekuvandudza.
 
 - Chengetedzo: kuomesera mvumo dzemuno pamapeji ari kure, kutendeseka kwenetiweki APIs uye maseva maturusi, chengetedzo yakachengetedzwa yakavanzika uye kutama, yakachengeteka faira/midhiya kuwana, kupatsanura spreadsheet nekuvaka zvinyorwa. Exposed dependencies akagadziridzwa; mazano asara anoteverwa pachena.
 - Zvekuvanzika: zviverengero nemishumo yezvikanganiso zvinoda mvumo yakaparadzana uye zvirambe zvakadzimwa. Zvivakwa zvinosanganisira iyo yakanyorwa nzvimbo yekumisikidza. Technical diagnostics inosefa; vashandisi vanochengeta kutonga kwekuita.
@@ -37,7 +37,7 @@ Zvekudhaunirodha zveruzhinji zvinosara pa1.0.0. Magadzirirwo anotevera akagadzir
 - Nyaradzo: zvidzoreso zvepasi zvinodhirika uku zvinopinza zvichiramba zvichionekwa. Compact maikorofoni uye zvidzoreso zvekuburitsa, bhatani reruzha pasi pemaikorofoni, mimhanzi inoteera marongero uye akadudzirwa echikamu mabhii anovandudza kushandiswa pamasikirini madiki.
 - Makatalogi eAPI: 43 maprofile evanopa, anosanganisira TabbyAPI munharaunda, ane hurukuro dzakavandudzwa uye sarudzo dzemedia. Zvinyorwa zvitsva zvinosanganisira GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 uye GPT Image 2.6, Gemini Omni 1.2, FLUX 3 zvinotsigirwa. Refresh haisisiri kuvanza mhinduro kupfuura gumi gumi. Mazita chaiwo, nzvimbo dzekugumira dzedunhu, kutumirwa kwepachivande uye mamodheru anotorwa kunze kwenyika anoremekedzwa.
 - Kubvumidzwa: kwakanangwa application, raibhurari yemuno, katalogi yeruzhinji uye cheki dzemitauro zvinorekodhwa muzvinyorwa zvine udzame. Iyo interface inovakira Windows / macOS / Linux / Android / iOS. Aya ekumberi anovaka haatsigire epakeji mapakeji kana inference pane yega mudziyo.
-- Isati yaburitswa: simbisai mapasuru akavakirwa patsva, chengetedzo yasara/zvawanikwa uye 1.0.0 chaiyoiyo kusvika ku1.0.1. Kuwanikwa kunoenderana nehardware, mupi wekuwana uye chikuva. Hapana kuenderana kwepasirese modhi, zero-kusagadzikana mamiriro kana kupedzwa kuburitswa kunodiwa.
+- Kuvepo uye macheki akapedzwa akanyorwa pazasi. Anotsigirwa maficha anoenderana nehardware, mupi wekuwana uye chikuva. Chengetedzo yakawanikwa uye yemuno-mudziyo yekusimbisa miganho inoramba yakanyorwa. Chengetedza backup usati wagadziridza.
 
 [Manotsi ane hudzamu, kusimbiswa uye basa rasara](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Zvekudhaunirodha zveruzhinji zvinosara pa1.0.0. Magadzirirwo anotevera akagadzir
 
 <!-- novera-release-1.0.1:end -->
 
-## Kuwanikwa — 2026-11-03
+## Kuwanikwa — 2026-11-07
 
-**Novera 1.0.0 inowanikwa kune Windows, Linux, macOS neAndroid.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Zvishandiso zveDesktop, zvese CLI zvakachengetwa, masiginicha uye zviratidziro zviri pachena uye zvinoongororwa.
+**Novera 1.0.1 inowanikwa kune Windows, Linux, macOS neAndroid.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Zvishandiso zveDesktop, zvese CLI zvakachengetwa, masiginicha uye zviratidziro zviri pachena uye zvinoongororwa.
 
 | Chikuva | Kuwanikwa |
 | --- | --- |
 | Windows x64 | Yeruzhinji NSIS simira, yakasainwa inogadziridza; kuisirwa kwekuzvarwa nekutsiviwa kwakasimbiswa. |
 | Linux x64 | Veruzhinji AppImage, inogadziridza yakasainwa; kuisirwa kwekuzvarwa nekutsiviwa kwakasimbiswa. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, ine yakatsaurwa yakasainwa yekuvandudza chiteshi. |
-| Windows ARM64 | [Ruzhinji NSIS chigadziri](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), yemuno CPU injini yemavara; kuisirwa, kutsiva uye neruzhinji-chaneli macheki akasimbiswa. |
-| Android ARM64 | [Sainirwa neveruzhinji APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, batch yagara iripo 512. Muchengeti anotsigira kuti 1000012 inoshanda pafoni yavo. Chenesa pasuru pasina nhaurirano, modhi kana makiyi emunhu API. [Humbowo uye zvisingakwanisi](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Zviri pamutemo 1.0.0 DMG kuburitswa](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-zvakasaina zvigadziriso. Kwete Apple notarized; macheki otomatiki akapfuura akaparadzana pazvivakwa zvese, cheki yekuona inomiswa. [Kuiswa uye humbowo](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, ine yakatsaurwa yakasainwa yekuvandudza chiteshi. |
+| Windows ARM64 | [Ruzhinji NSIS chigadziri](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), yemuno CPU injini yemavara; kuisirwa, kutsiva uye neruzhinji-chaneli macheki akasimbiswa. |
+| Android ARM64 | Android 1.0.1 inowanikwa seArM64 APK yakasainwa, gadzira 1000013. Inoshandisa chiripo Novera chitupa uye ichipfuura pasuru yekuongorora. Iyo haina nhaurirano dzemunhu, modhi kana makiyi eAPI. Kuiswa uye kugadzirisa parunhare kunoramba kuchiedzwa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Zviri pamutemo 1.0.1 DMG kuburitswa](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-zvakasaina zvigadziriso. Kwete Apple notarized; macheki otomatiki akapfuura akaparadzana pazvivakwa zvese, cheki yekuona inomiswa. [Kuiswa uye humbowo](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Yemukati simulator kuvaka; Apple kusaina/kupa kunodiwa pamberi pekugadzwa kwe iPhone. [Kutevera](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 inotakurika | [Saina ZIP dura](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data inogara mu Data, yakasainwa Program inotsiva yakasimbiswa. |
 | Webhu, MSI, Debian | Yakagadzirirwa Webhu mutengi uye mamwe mafomati anoramba ari mukati; Pages saiti yemharidzo iripo. |
 
 PaMac, vhura DMG wokopa Novera mumaApplication. Kana kutanga kukavharwa, bvumidza Novera kupinda **System Settings → Yakavanzika & Chengetedzo → Vhura Zvakadaro**. [Apple mirayiridzo](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Siginecha yekuvandudza haisi Windows Authenticode kana Apple notarization. Manual current-version cheki inopfuura ichipikisana neruzhinji chiteshi; shanduko pakati peshanduro mbiri dzeruzhinji inoramba iri bvunzo yekuburitswa inotevera. [Humbowo uye zvisingakwanisi](docs/LAUNCH_STATUS.md).
+Updater masiginicha akaparadzana neWindows Authenticode uye Apple notarization. Package hashes, cheki cheki uye bvunzo dzekuvandudza zvakanyorwa zvakasiyana. Kukwidziridzwa kweruzhinji kuzere 1.0.0 kusvika ku1.0.1 kunosimbiswa chete nemamiriro akanyorwa mumushumo wekuburitswa. [Humbowo uye zvisingakwanisi](docs/LAUNCH_STATUS.md)
 
 Pa Android, foni yemazuva ano ine ndangariro yakakwana inokurudzirwa kumamodheru emuno; shandisa API mubatsiri pamidziyo ine simba shoma. Kutsvaga padandemutande, mamiriro ezvishoma **16K tokeni (16,384)** inokurudzirwa, inoenderana neshanduro dzese.
 
@@ -145,7 +145,7 @@ Iyo Qwen encoder yemumhanzi uye Qwen modhi yekudzosa **mafaira akasiyana**, yaka
 
 ## Cloud vanopa
 
-Zvinyorwa zvakagadzirirwa zvine 43 nhoroondo dzevapi: 42 cloud services uye TabbyAPI yeserver yemunharaunda. Kuwanikwa kwemuenzaniso uye kugona kunoenderana neakaundi, dunhu uye inotsigirwa API. Katalog inogoverwa nemitauro yese 104.
+Katalog ine 43 maprofile evanopa: 42 cloud services uye TabbyAPI yeserver yemunharaunda. Kuwana modhi uye kugona zvinoenderana neakaundi, dunhu uye inotsigirwa API. Mitauro yese 104 inogovera bhuku iri.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Zvinyorwa zvakagadzirirwa zvine 43 nhoroondo dzevapi: 42 cloud services uye Tabb
 
 ### Mufananidzo, mimhanzi uye vhidhiyo
 
-Katalogi yekugadzira yakagadzirwa ine 58 zvakagara zvagara zvichibva ku20 vanopa: 30 mufananidzo, 24 mavhidhiyo uye 4 mimhanzi preset. Matafura ari pasi apa anonyora nzira dzakabatanidzwa; havabudisi zvipiriso zvose zvokutengeserana.
+Katalog yekugadzira ine 58 zvakagadziridzwa kubva ku 20 vanopa: 30 mufananidzo, 24 mavhidhiyo uye 4 mimhanzi preset. Matafura ari pasi apa anonyora mamodheru chaiwo uye zviziviso zvinotsigirwa nemaadapter akabatanidzwa.
 
 | Provider | Zvakabuda mu Novera | Catalog mhando |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ Aya ndiwo mafambiro emupiro uye kusimudzira, kwete chirevo chekuti chikamu chese
 
 ## Mamiriro eprojekiti
 
-**Novera 1.0.0 inowanikwa kune Windows, Linux, macOS neAndroid.** Iyo skrini inoratidza Windows application yakaunganidzwa munharaunda neanochengeta. Shanduko dzekwakabva, bvunzo dzakanangwa uye kusimbiswa kwehardware zvakanyorwa zvakasiyana; izvi hazvitendese modhi yese, chikuva kana gore account.
+**Novera 1.0.1 inowanikwa kune Windows, Linux, macOS neAndroid.** Iyo skrini inoratidza Windows application yakaunganidzwa munharaunda neanochengeta. Shanduko dzekwakabva, bvunzo dzakanangwa uye kusimbiswa kwehardware zvakanyorwa zvakasiyana; izvi hazvitendese modhi yese, chikuva kana gore account.
 
 Manual GitHub Actions zvivakwa zvinogoneswa kune ese gumi nerimwe akasiyana ekugovera. Tevera iyo [gadzira mhinduro uye kudhawunirodha kwevamiriri](docs/CI_DISTRIBUTIONS.md); kuwanikwa kunorekodhwa zvakasiyana papuratifomu yega yega. Vakwikwidzi vakasiyana nekusaina kuburitswa kwekugadzira. Kugovera zvinodiwa zvinotsanangurwa mu [mutemo wekuburitsa zviri pamutemo](OFFICIAL_RELEASES.md) uye [kuburitsa peji](https://github.com/TRON-ABS/Novera/releases). Vakaremara varipo varipo vanoramba vari mukati. Kuburitswa kwevoruzhinji kunoda yakamisikidzwa uye yakasimbiswa yekuvandudza maitiro; [desktop siginecha cheki uye zvakasara zvekutanga zvinodiwa zvakanyorwa](docs/LAUNCH_STATUS.md).
 

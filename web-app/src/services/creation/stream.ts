@@ -1,4 +1,6 @@
-import { invoke } from '@tauri-apps/api/core'
+import { invokeCreation as invoke } from './backend'
+import { browserPreviewEnabled } from '../browser-preview/config'
+import { BROWSER_IMAGE_PROVIDER, browserLocalImageStream } from '../browser-preview/local-media'
 import type { UIMessage, UIMessageChunk } from 'ai'
 import { useMediaLibrary } from '@/hooks/useMediaLibrary'
 import { beginLocalMemory, releaseFinishedMedia } from './memory'
@@ -40,6 +42,10 @@ export function creationStream(
   const state = useCreation.getState()
   const generationPrompt = withNoveraInstructions(task, prompt.replace(/^\/(?:image|video)\s*/i, ''))
   const selection = state.selections?.[scope]?.[task]
+  if (browserPreviewEnabled() && task === 'image' && selection?.provider === BROWSER_IMAGE_PROVIDER) {
+    if (messages.at(-1)?.parts.some(part => part.type === 'file')) throw new Error('Cet essai local accepte uniquement une demande texte, sans image jointe.')
+    return browserLocalImageStream(prompt, scope, signal, onFinish)
+  }
   const profile =
     selection?.provider === 'diffusers'
       ? useMediaLibrary.getState().profiles.find((p) => p.id === selection.id)
@@ -105,7 +111,8 @@ export function creationStream(
         },
       })
       try {
-        if (!isPlatformTauri()) fail('chat:creation.desktopOnly')
+        if (!isPlatformTauri() && !browserPreviewEnabled()) fail('chat:creation.desktopOnly')
+        if (browserPreviewEnabled() && selection?.provider !== 'fal') fail('chat:creation.configure')
         if ((!selection || selection.provider === 'diffusers') && !currentResourceProfile().local[task])
           fail('hub:catalog.tipLimited')
         if (task === 'video' && (!Number.isSafeInteger(settings.durationSeconds ?? 5) ||

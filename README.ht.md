@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ou dekri. Novera prepare, kouri ak òganize.</strong></p>
   <p>Yon asistan endepandan AI pa TRON-ABS, depi premye lansman rive nan rezilta yo: tèks, imaj, mizik ak videyo nan yon sèl konvèsasyon.</p>
-  <p><strong>Disponib pou Windows, Linux, macOS ak Android</strong> · Sous prepare: 104 lang koòdone · 42 founisè nwaj · 58 prereglaj medya · Apache 2.0</p>
+  <p><strong>Disponib pou Windows, Linux, macOS ak Android</strong> · 104 lang koòdone · 42 founisè nwaj · 58 prereglaj medya · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatik</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Modèl lokal yo</a> · <a href="#hub-and-compatible-models">Fòma & Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Kontribye</a></p>
   <p>Kontak ofisyèl: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Pwofil sosyal ofisyèl Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -18,10 +18,10 @@ Data ak enfòmasyon prive: [enferans lokal, telemetri si ou vle, rapò erè ak k
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Preparasyon vèsyon 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Telechajman piblik yo rete nan 1.0.0. Amelyorasyon sa yo prepare nan sous yo pou 1.0.1; yo mande pakè rebati, chèk lage ak piblikasyon. Mete ajou dokiman sa a pa mete ajou aplikasyon enstale yo.
+Novera 1.0.1 disponib pou platfòm ki nan lis anba a. Telechaje pake a pou sistèm ou an oswa itilize chanèl aktyalizasyon li siyen. Enstalasyon ki egziste deja yo mete ajou lè ou enstale nouvo pake a oswa aksepte aktyalizasyon a.
 
 - Sekirite: otorizasyon natif natal ki pi sevè pou paj aleka, otantifikasyon pou API rezo ak zouti sèvè, depo sekrè pwoteje ak migrasyon, aksè pi an sekirite pou fichye/medya, analiz fèy kalkil ak scripts bati. Depandans ekspoze yo te mete ajou; rès konsèy yo swiv ouvètman.
 - Konfidansyalite: estatistik ak rapò sou erè yo mande pou yon konsantman separe epi yo rete koupe pa default. Bati yo enkli konfigirasyon destinasyon an dokimante. Dyagnostik teknik yo filtre; itilizatè yo kenbe kontwòl sou aktivasyon.
@@ -37,7 +37,7 @@ Telechajman piblik yo rete nan 1.0.0. Amelyorasyon sa yo prepare nan sous yo pou
 - Konfò: kontwòl ki pi ba yo tonbe pandan ke opinyon an rete vizib. Mikwofòn kontra enfòmèl ant ak kontwòl divilgasyon, yon bouton son anba mikwofòn, anviwònman mizik ki reponn ak etikèt eleman tradui amelyore itilizasyon sou ti ekran.
 - Katalòg API: 43 pwofil founisè, ki gen ladan TabbyAPI lokalman, ak chat ak seleksyon medya yo rafrechi. Nouvo antre yo enkli GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 ak GPT Image 2.6, Gemini Omni 1.2, FLUX 3 kote yo sipòte. Refresh pa kache rezilta pi lwen pase dis modèl. Idantifyan egzak, pwen final rejyonal yo, deplwaman prive ak modèl enpòte yo respekte.
 - Validasyon: aplikasyon sible, bibliyotèk natif natal, katalòg piblik ak chèk lang yo anrejistre nan nòt detaye yo. Koòdone a bati pou Windows / macOS / Linux / Android / iOS. Konstriksyon frontend sa yo pa sètifye pakè natif natal oswa enferans sou chak aparèy.
-- Anvan lage: valide pakè natif natal rebati yo, rezilta sekirite/depandans ki rete yo ak vrè aktyalizasyon 1.0.0 pou 1.0.1. Disponibilite depann de pyès ki nan konpitè, aksè founisè a ak platfòm. Pa gen okenn konpatibilite modèl inivèsèl, estati zewo-vulnerabilite oswa piblikasyon fini.
+- Disponibilite ak chèk ranpli yo endike anba a. Karakteristik sipòte depann sou pyès ki nan konpitè, aksè founisè ak platfòm. Konklizyon sekirite ak limit validasyon aparèy natif natal yo rete dokimante. Kenbe yon backup anvan mete ajou.
 
 [Nòt detaye, validation ak travay ki rete yo](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Telechajman piblik yo rete nan 1.0.0. Amelyorasyon sa yo prepare nan sous yo pou
 
 <!-- novera-release-1.0.1:end -->
 
-## Disponibilite — 2026-11-03
+## Disponibilite — 2026-11-07
 
-**Novera 1.0.0 disponib pou Windows, Linux, macOS ak Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Pake Desktop yo, tou de CLI achiv yo, siyati yo ak aktyalizasyon manifest yo piblik epi yo verifye.
+**Novera 1.0.1 disponib pou Windows, Linux, macOS ak Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Pake Desktop yo, tou de CLI achiv yo, siyati yo ak aktyalizasyon manifest yo piblik epi yo verifye.
 
 | Platfòm | Disponibilite |
 | --- | --- |
 | Windows x64 | Enstalatè piblik NSIS, siyen aktyalizasyon; enstalasyon natif natal ak ranplasman verifye. |
 | Linux x64 | Piblik AppImage, siyen aktyalizasyon; enstalasyon natif natal ak ranplasman verifye. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, ak yon chanèl aktyalizasyon dedye siyen. |
-| Windows ARM64 | [Enstalatè piblik NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), natif natal CPU motè tèks; enstalasyon, ranplasman ak chèk piblik-chanèl verifye. |
-| Android ARM64 | [Piblik siyen APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, pakèt default 512. Mantenè a konfime konstriksyon 1000012 ap travay sou telefòn yo. Pake pwòp san konvèsasyon, modèl oswa kle pèsonèl API. [Prèv ak limit](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Divilgasyon ofisyèl 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-siyen mizajou. Pa Apple notarye; chèk otomatik pase separeman sou tou de achitekti, chèk vizyèl difere. [Enstalasyon ak prèv](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, ak yon chanèl aktyalizasyon dedye siyen. |
+| Windows ARM64 | [Enstalatè piblik NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), natif natal CPU motè tèks; enstalasyon, ranplasman ak chèk piblik-chanèl verifye. |
+| Android ARM64 | Android 1.0.1 disponib kòm yon APK ARM64 ki siyen, konstwi 1000013. Li sèvi ak sètifika Novera ki egziste deja epi li pase enspeksyon pake a. Li pa gen okenn konvèsasyon pèsonèl, modèl oswa kle API. Enstalasyon ak mete ajou sou yon telefòn rete yo dwe teste. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Divilgasyon ofisyèl 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-siyen mizajou. Pa Apple notarye; chèk otomatik pase separeman sou tou de achitekti, chèk vizyèl difere. [Enstalasyon ak prèv](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Konstriksyon entèn similatè; Apple siyen / pwovizyon obligatwa anvan enstalasyon iPhone. [Swiv](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 pòtab | [Siyen achiv ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); done yo rete nan Data, siyen Program ranplasman verifye. |
 | Web, MSI, Debian | Kliyan Entènèt ak lòt fòma rete entèn; Pages sit prezantasyon disponib. |
 
 Sou Mac, louvri DMG epi kopye Novera nan Aplikasyon yo. Si premye lansman an bloke, pèmèt Novera antre **Anviwònman Sistèm → Konfidansyalite & Sekirite → Louvri Kanmèm**. [Apple enstriksyon yo](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Siyati yo pa Windows Authenticode oswa notarya Apple. Chèk manyèl vèsyon aktyèl yo pase kont chanèl piblik la; yon tranzisyon ant de vèsyon piblik rete yon tès pwochen lage. [Prèv ak limit](docs/LAUNCH_STATUS.md).
+Siyati Updater yo separe de Windows Authenticode ak notarizasyon Apple. Pake hash, chèk natif natal ak tès aktyalizasyon yo dokimante separeman. Yon ajou piblik konplè 1.0.0 a 1.0.1 konfime sèlman pou senaryo ki anrejistre nan rapò lage a. [Prèv ak limit](docs/LAUNCH_STATUS.md)
 
 Sou Android, yon telefòn modèn ak ase memwa rekòmande pou modèl lokal yo; sèvi ak yon founisè API sou aparèy mwens pwisan. Pou rechèch entènèt, yon kontèks nan omwen **16K marqueur (16,384)** rekòmande, toujou nan tout vèsyon yo.
 
@@ -145,7 +145,7 @@ Ankode mizik Qwen ak modèl rekiperasyon Qwen yo se **fichye diferan**, ki estok
 
 ## Founisè Cloud
 
-Sous ki prepare yo genyen 43 pwofil founisè: 42 sèvis nwaj ak TabbyAPI pou yon sèvè lokal. Modèl disponiblite ak kapasite yo depann sou kont, rejyon an ak API sipòte. Tout 104 lang koòdone pataje katalòg la.
+Katalòg la gen 43 pwofil founisè: 42 sèvis nwaj ak TabbyAPI pou yon sèvè lokal. Aksè ak kapasite modèl depann sou kont, rejyon an ak API sipòte. Tout 104 lang koòdone pataje katalòg sa a.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Sous ki prepare yo genyen 43 pwofil founisè: 42 sèvis nwaj ak TabbyAPI pou yon
 
 ### Imaj, mizik ak videyo
 
-Katalòg kreyasyon prepare a gen 58 prereglaj ki soti nan founisè 20: 30 imaj, 24 videyo ak 4 prereglaj mizik. Tablo ki anba yo lis wout entegre yo; yo pa repwodui chak ofrann komèsyal yo.
+Katalòg kreyasyon an gen 58 prereglaj ki soti nan founisè 20: 30 imaj, 24 videyo ak 4 prereglaj mizik. Tablo ki anba yo lis modèl egzak ak idantifyan adaptè entegre yo sipòte.
 
 | Founisè | Sòti nan Novera | Modèl katalòg |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ Sa yo se direksyon pou kontribisyon ak devlopman, se pa yon reklamasyon ke chak 
 
 ## Sitiyasyon pwojè a
 
-**Novera 1.0.0 disponib pou Windows, Linux, macOS ak Android.** Ekran an montre yon aplikasyon Windows konpile lokalman pa moun k ap okipe yo. Chanjman sous, tès vize ak validation pyès ki nan konpitè yo dokimante separeman; sa a pa valide chak modèl, platfòm oswa kont nwaj.
+**Novera 1.0.1 disponib pou Windows, Linux, macOS ak Android.** Ekran an montre yon aplikasyon Windows konpile lokalman pa moun k ap okipe yo. Chanjman sous, tès vize ak validation pyès ki nan konpitè yo dokimante separeman; sa a pa valide chak modèl, platfòm oswa kont nwaj.
 
 Manyèl GitHub Actions bati yo aktive pou tout onz varyant distribisyon. Swiv la [bati rezilta ak verifye telechajman kandida yo](docs/CI_DISTRIBUTIONS.md); disponiblite anrejistre separeman pou chak platfòm. Kandida yo diferan de degaje pwodiksyon ki siyen. Kondisyon distribisyon yo dekri nan la [politik piblikasyon ofisyèl yo](OFFICIAL_RELEASES.md) ak [degaje paj](https://github.com/TRON-ABS/Novera/releases). Kandida ki egziste deja yo ki andikape yo rete entèn. Divilgasyon piblik mande pou yon mekanis aktyalizasyon configuré ak verifye; [chèk siyati Desktop yo ak rès kondisyon lansman yo dokimante](docs/LAUNCH_STATUS.md).
 

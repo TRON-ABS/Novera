@@ -26,6 +26,7 @@ import {
 import { getServiceHub } from '@/hooks/useServiceHub'
 import { nativeToolAccess } from './nativeToolAccess'
 import { useNativeAccess } from '@/hooks/useNativeAccess'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 
 /**
  * The built-in agent tools the desktop can dispatch.
@@ -89,6 +90,7 @@ let statusCache: Promise<SandboxStatus> | null = null
  * cannot run.
  */
 export function getSandboxStatus(): Promise<SandboxStatus> {
+  if (browserPreviewEnabled()) return Promise.resolve({ backend: 'none', enforces: false })
   statusCache ??= sandboxStatus()
     .catch((e) => {
       console.warn('[agentTools] Failed to read sandbox status:', messageOf(e))

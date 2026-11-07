@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Jy beskryf jou doelwit. Novera berei die hulpbronne voor, voer die taak uit en organiseer die resultate.</strong></p>
   <p>'n Onafhanklike AI-assistent deur TRON-ABS, van eerste bekendstelling tot resultate: teks, beelde, musiek en video in een gesprek.</p>
-  <p><strong>Beskikbaar vir Windows, Linux, macOS en Android</strong> · Voorbereide bronne: 104 koppelvlaktale · 42 wolkverskaffers · 58 mediavoorinstellings · Apache 2.0</p>
+  <p><strong>Beskikbaar vir Windows, Linux, macOS en Android</strong> · 104 koppelvlaktale · 42 wolkverskaffers · 58 mediavoorinstellings · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Outomatisering</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI-modelle wat plaaslik op jou toestel loop</a> · <a href="#hub-and-compatible-models">Hub en versoenbare modelle</a> · <a href="#cloud-providers">Wolk</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Dra by</a></p>
   <p>Amptelike kontak: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Amptelike Novera sosiale profiele: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Berei tans weergawe 1.0.1 voor
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Publieke aflaaie bly by 1.0.0. Die volgende verbeterings is voorberei in die bronne vir 1.0.1; hulle vereis herboude pakkette, vrystellingstjeks en publikasie. Die opdatering van hierdie dokumentasie werk nie geïnstalleerde toepassings op nie.
+Novera 1.0.1 is beskikbaar vir die platforms wat hieronder gelys word. Laai die pakket vir jou stelsel af of gebruik sy getekende opdateringskanaal. Bestaande installasies werk op wanneer jy die nuwe pakket installeer of die opdatering aanvaar.
 
 - Sekuriteit: strenger inheemse toestemmings vir afgeleë bladsye, verifikasie vir netwerk-API's en bedienernutsgoed, beskermde geheime berging en migrasie, veiliger lêer-/mediatoegang, sigblad-ontleding en bouskripte. Blootgestelde afhanklikhede is opgedateer; oorblywende advies word openlik dopgehou.
 - Privaatheid: statistieke en foutverslae vereis aparte toestemming en bly by verstek af. Bouwerk sluit die gedokumenteerde bestemmingsopstelling in. Tegniese diagnostiek word gefiltreer; gebruikers hou beheer oor aktivering.
@@ -35,7 +35,7 @@ Publieke aflaaie bly by 1.0.0. Die volgende verbeterings is voorberei in die bro
 - Gerief: laer kontroles vou ineen terwyl die invoer sigbaar bly. Kompakte mikrofoon- en openbaarmakingskontroles, 'n klankknoppie onder die mikrofoon, responsiewe musiekinstellings en vertaalde komponentetikette verbeter die gebruik op klein skerms.
 - API-katalogusse: 43 verskafferprofiele, insluitend TabbyAPI plaaslik, met opgeknapte klets- en mediakeuses. Nuwe inskrywings sluit in GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 en GPT Image 2.6, Gemini Omni 1.2, FLUX 3 waar dit ondersteun word. Refresh verberg nie meer resultate verder as tien modelle nie. Presiese identifiseerders, streekseindpunte, private ontplooiings en ingevoerde modelle word gerespekteer.
 - Bekragtiging: geteikende toepassing, inheemse biblioteek, publieke katalogus en taalkontroles word in die gedetailleerde notas aangeteken. Die koppelvlak bou vir Windows / macOS / Linux / Android / iOS. Hierdie frontend-konstruksies sertifiseer nie inheemse pakkette of afleidings op elke toestel nie.
-- Voor vrystelling: bekragtig herboude inheemse pakkette, oorblywende sekuriteit/afhanklikheidsbevindings en die werklike 1.0.0 tot 1.0.1-opdatering. Beskikbaarheid hang af van hardeware, verskaffertoegang en platform. Geen universele modelversoenbaarheid, nul-kwesbaarheidstatus of voltooide publikasie word geëis nie.
+- Beskikbaarheid en voltooide tjeks word hieronder gelys. Ondersteunde kenmerke hang af van hardeware, verskaffertoegang en platform. Sekuriteitsbevindings en valideringslimiete vir oorspronklike toestelle bly gedokumenteer. Hou 'n rugsteun voor opdatering.
 
 [Gedetailleerde notas, validering en oorblywende werk](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Publieke aflaaie bly by 1.0.0. Die volgende verbeterings is voorberei in die bro
 
 <!-- novera-release-1.0.1:end -->
 
-## Beskikbaarheid — 2026-11-03
+## Beskikbaarheid — 2026-11-07
 
-**Novera 1.0.0 is beskikbaar vir Windows, Linux, macOS en Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Werkskermpakkette, beide CLI-argiewe, handtekeninge en opdateringsmanifeste is publiek en geverifieer.
+**Novera 1.0.1 is beskikbaar vir Windows, Linux, macOS en Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Werkskermpakkette, beide CLI-argiewe, handtekeninge en opdateringsmanifeste is publiek en geverifieer.
 
 | Platform | Beskikbaarheid |
 | --- | --- |
 | Windows x64 | Openbare NSIS-installeerder, getekende bywerker; oorspronklike installasie en vervanging geverifieer. |
 | Linux x64 | Openbare AppImage, getekende bywerker; oorspronklike installasie en vervanging geverifieer. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, met 'n toegewyde ondertekende opdateringskanaal. |
-| Windows ARM64 | [Openbare NSIS installeerder](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), inheemse CPU teksenjin; installasie, vervanging en publieke kanaal tjeks geverifieer. |
-| Android ARM64 | [Publiek onderteken APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, verstekgroep 512. Die instandhouer bevestig bou 1000012 werk op hul foon. Skoon pakket met geen gesprekke, modelle of persoonlike API-sleutels nie. [Bewyse en beperkings](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Amptelike 1.0.0 DMG vrystelling](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-ondertekende opdaterings. Nie Apple notarized; outomatiese tjeks afsonderlik op beide argitekture geslaag, visuele tjeks uitgestel. [Installasie en bewyse](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, met 'n toegewyde ondertekende opdateringskanaal. |
+| Windows ARM64 | [Openbare NSIS installeerder](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), inheemse CPU teksenjin; installasie, vervanging en publieke kanaal tjeks geverifieer. |
+| Android ARM64 | Android 1.0.1 is beskikbaar as 'n getekende ARM64 APK, bou 1000013. Dit gebruik die bestaande Novera-sertifikaat en slaag pakketinspeksie. Dit bevat geen persoonlike gesprekke, modelle of API-sleutels nie. Installasie en opdatering op 'n foon moet nog getoets word. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Amptelike 1.0.1 DMG vrystelling](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-ondertekende opdaterings. Nie Apple notarized; outomatiese tjeks afsonderlik op beide argitekture geslaag, visuele tjeks uitgestel. [Installasie en bewyse](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Interne simulator bou; Apple-ondertekening/voorsiening word vereis voor iPhone-installasie. [Opvolg](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 draagbaar | [Geteken ZIP argief](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data bly in Data, onderteken Program vervanging geverifieer. |
 | Web, MSI, Debian | Gehoste webkliënt en ander formate bly intern; Pages aanbiedingswebwerf is beskikbaar. |
 
 Op Mac, maak die DMG oop en kopieer Novera na Toepassings. As die eerste bekendstelling geblokkeer is, laat Novera toe **Stelselinstellings → Privaatheid en sekuriteit → Maak in elk geval oop**. [Apple-instruksies](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Updater-handtekeninge is nie Windows Authenticode of Apple-notarisering nie. Handmatige huidige weergawe-tjeks slaag teen die publieke kanaal; 'n oorgang tussen twee publieke weergawes bly 'n volgende-vrystelling-toets. [Bewyse en beperkings](docs/LAUNCH_STATUS.md).
+Updater-handtekeninge is apart van Windows Authenticode en Apple-notarisering. Pakket-hashes, inheemse tjeks en opdateringstoetse word afsonderlik gedokumenteer. 'n Volledige publieke opgradering van 1.0.0 na 1.0.1 word slegs bevestig vir die scenario's wat in die vrystellingverslag aangeteken is. [Bewyse en beperkings](docs/LAUNCH_STATUS.md)
 
 Op Android word 'n moderne foon met genoeg geheue aanbeveel vir plaaslike modelle; gebruik 'n API-verskaffer op minder kragtige toestelle. Vir websoektog, 'n konteks van ten minste **16K tokens (16,384)** word aanbeveel, konsekwent oor weergawes heen.
 
@@ -143,7 +143,7 @@ Die Qwen musiekenkodeerder en die Qwen herwinningsmodel is **verskillende lêers
 
 ## Wolkverskaffers
 
-Die voorbereide bronne bevat 43 verskafferprofiele: 42 wolkdienste en TabbyAPI vir 'n plaaslike bediener. Model beskikbaarheid en vermoëns hang af van die rekening, streek en ondersteunde API. Die katalogus word gedeel deur alle 104 koppelvlaktale.
+Die katalogus bevat 43 verskafferprofiele: 42 wolkdienste en TabbyAPI vir 'n plaaslike bediener. Modeltoegang en vermoëns hang af van die rekening, streek en ondersteunde API. Alle 104 koppelvlaktale deel hierdie katalogus.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Die voorbereide bronne bevat 43 verskafferprofiele: 42 wolkdienste en TabbyAPI v
 
 ### Beeld, musiek en video
 
-Die voorbereide skeppingskatalogus bevat 58 voorafinstellings van 20 verskaffers: 30 prent, 24 video en 4 musiekvoorinstellings. Die tabelle hieronder lys die geïntegreerde roetes; hulle reproduseer nie elke kommersiële aanbieding nie.
+Die skeppingskatalogus bevat 58 voorafinstellings van 20 verskaffers: 30 prent, 24 video en 4 musiekvoorafstellings. Die tabelle hieronder lys die presiese modelle en identifiseerders wat deur die geïntegreerde adapters ondersteun word.
 
 | Verskaffer | Uitsette in Novera | Katalogusmodelle |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Hierdie is aanwysings vir bydrae en ontwikkeling, nie 'n bewering dat elke sekto
 
 ## Projekstatus
 
-**Novera 1.0.0 is beskikbaar vir Windows, Linux, macOS en Android.** Die skermkiekie wys 'n Windows-toepassing wat plaaslik deur die onderhouer saamgestel is. Bronveranderinge, geteikende toetse en hardeware-validering word afsonderlik gedokumenteer; dit valideer nie elke model, platform of wolkrekening nie.
+**Novera 1.0.1 is beskikbaar vir Windows, Linux, macOS en Android.** Die skermkiekie wys 'n Windows-toepassing wat plaaslik deur die onderhouer saamgestel is. Bronveranderinge, geteikende toetse en hardeware-validering word afsonderlik gedokumenteer; dit valideer nie elke model, platform of wolkrekening nie.
 
 Handleiding GitHub Actions bouwerk is geaktiveer vir al elf verspreidingsvariante. Volg die [bou resultate en geverifieerde kandidaat-aflaaie](docs/CI_DISTRIBUTIONS.md); beskikbaarheid word afsonderlik vir elke platform aangeteken. Kandidate word onderskei van getekende produksievrystellings. Verspreidingsvereistes word beskryf in die [amptelike vrystellingsbeleid](OFFICIAL_RELEASES.md) en [vrystellingsbladsy](https://github.com/TRON-ABS/Novera/releases). Bestaande kandidate wat deur opdaterings gedeaktiveer is, bly intern. Publieke vrystellings vereis 'n gekonfigureerde en geverifieerde opdateringsmeganisme; [rekenaarhandtekeningkontroles en oorblywende bekendstellingvereistes word gedokumenteer](docs/LAUNCH_STATUS.md).
 

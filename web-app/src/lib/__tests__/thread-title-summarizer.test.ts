@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { cleanTitle, generateThreadTitle } from '../thread-title-summarizer'
 import { BACKGROUND_THREAD_ID, CHAT_SLOT_ID } from '@/constants/models'
 
@@ -101,6 +101,7 @@ describe('cleanTitle', () => {
 })
 
 describe('generateThreadTitle', () => {
+  afterEach(() => vi.unstubAllEnvs())
   const mockModel = { id: 'test-model' }
   const mockProvider = { provider: 'test-provider', models: [] }
 
@@ -119,6 +120,13 @@ describe('generateThreadTitle', () => {
     expect(mockGetProviderByName).toHaveBeenCalledWith('llamacpp')
     expect(mockCreateModel).toHaveBeenCalledWith('local-model', mockProvider,
       expect.objectContaining({ thread_id: BACKGROUND_THREAD_ID, chat_template_kwargs: { enable_thinking: false } }))
+  })
+
+  it('keeps browser titles local without taking over the active chat GPU session', async () => {
+    vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
+    expect(await generateThreadTitle('Pourquoi le ciel est bleu ?', new AbortController().signal, { id: 'browser-model', provider: 'llamacpp' })).toBe('Pourquoi le ciel est bleu')
+    expect(mockCreateModel).not.toHaveBeenCalled()
+    expect(mockGenerateText).not.toHaveBeenCalled()
   })
 
   it('does not fall back to an unrelated selection when the thread has no model', async () => {

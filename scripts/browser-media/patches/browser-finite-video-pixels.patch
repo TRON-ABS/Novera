@@ -1,0 +1,17 @@
+--- a/src/pipeline/video.cpp
++++ b/src/pipeline/video.cpp
+@@ -1303,6 +1303,14 @@
+             vid = sd::ops::slice(vid, 2, 0, request.frames);
+         }
+ 
++#if defined(__EMSCRIPTEN__)
++        for (float value : vid.values()) {
++            if (!std::isfinite(value)) {
++                LOG_ERROR("VAE produced non-finite video pixels; refusing to encode invalid frames");
++                return nullptr;
++            }
++        }
++#endif
+         sd_image_t* result_images = (sd_image_t*)calloc(vid.shape()[2], sizeof(sd_image_t));
+         if (result_images == nullptr) {
+             return nullptr;

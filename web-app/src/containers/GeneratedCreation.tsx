@@ -13,6 +13,10 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { ShareButton } from './ShareButton'
 import { MediaPlayer } from '@/components/MediaPlayer'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
+import { browserImagePerformance } from '@/services/browser-preview/image-options'
+import { browserMusicPerformance } from '@/services/browser-preview/music-performance'
+import { readBrowserMedia, downloadBrowserBlob } from '@/services/browser-preview/media'
 
 export function GeneratedCreation({
   url,
@@ -30,7 +34,7 @@ export function GeneratedCreation({
   const hasCurrentDuration = !!currentDuration
   const locale = intlLocale(i18n?.language ?? 'en')
   const service = useServiceHub()
-  const [file, setFile] = useState<{ path: string; src: string }>()
+  const [file, setFile] = useState<{ path: string; src: string; blob?: Blob }>()
   const [failed, setFailed] = useState(false)
   const [expanded, setExpanded] = useState(false)
   const canAnimate = useCreation((state) => videoSettingsFor(state).videoEngine !== 'sdcpp')
@@ -38,6 +42,7 @@ export function GeneratedCreation({
     threadId ? !!state.progress[threadId] : false
   )
   const reference = parseCreationReference(url)
+  const performance = !browserPreviewEnabled() ? [] : reference?.task === 'image' ? browserImagePerformance(timing) : reference?.task === 'music' ? browserMusicPerformance(timing) : []
   useEffect(() => {
     if (hasCurrentDuration) return
     const reference = parseCreationReference(url)
@@ -50,12 +55,21 @@ export function GeneratedCreation({
   }, [url, service, hasCurrentDuration])
   useEffect(() => {
     let active = true
+    let objectUrl: string | undefined
     setFile(undefined)
     setFailed(false)
     const ref = parseCreationReference(url)
     if (!ref) {
       setFailed(true)
       return
+    }
+    if (browserPreviewEnabled()) {
+      void readBrowserMedia(ref.task, ref.name).then(record => {
+        if (!active) return
+        objectUrl = URL.createObjectURL(record.blob)
+        setFile({ path: objectUrl, src: objectUrl, blob: record.blob })
+      }).catch(() => { if (active) setFailed(true) })
+      return () => { active = false; if (objectUrl) URL.revokeObjectURL(objectUrl) }
     }
     void service
       .core()
@@ -95,10 +109,11 @@ export function GeneratedCreation({
             variant="outline"
             disabled={!file}
             onClick={() => {
-              if (file) void service.opener().revealItemInDir(file.path)
+              if (file?.blob) downloadBrowserBlob(file.blob, reference.name)
+              else if (file) void service.opener().revealItemInDir(file.path)
             }}
           >
-            {t('chat:creation.openFolder')}
+            {t(browserPreviewEnabled() ? 'hub:download' : 'chat:creation.openFolder')}
           </Button>
           {reference.task === 'image' && threadId && (
             <Button
@@ -131,6 +146,7 @@ export function GeneratedCreation({
               )}
             </div>
           )}
+          {performance.length > 0 && <details className="text-xs text-muted-foreground"><summary className="cursor-pointer">Mesures de performance</summary><dl className="mt-2 space-y-1">{performance.map(item => <div key={item.label} className="flex gap-2"><dt>{item.label} :</dt><dd>{formatCreationDuration(item.ms, locale)}</dd></div>)}</dl></details>}
           {reference.task === 'image' && threadId && canAnimate && (
             <Button
               size="sm"

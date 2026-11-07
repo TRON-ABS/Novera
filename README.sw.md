@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Unaelezea lengo lako. Novera huandaa rasilimali, kutekeleza kazi na kupanga matokeo.</strong></p>
   <p>Msaidizi wa kujitegemea wa AI na TRON-ABS, kutoka uzinduzi wa kwanza hadi matokeo: maandishi, picha, muziki na video katika mazungumzo moja.</p>
-  <p><strong>Inapatikana kwa Windows, Linux, macOS na Android</strong> · Vyanzo vilivyotayarishwa: 104 lugha za kiolesura · 42 watoa huduma za wingu · 58 mipangilio ya awali ya maudhui · Apache 2.0</p>
+  <p><strong>Inapatikana kwa Windows, Linux, macOS na Android</strong> · 104 lugha za kiolesura · 42 watoa huduma za wingu · 58 mipangilio ya awali ya maudhui · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Uendeshaji otomatiki</a> · <a href="#one-dashboard-for-every-creation">Dashibodi</a> · <a href="#local-models-in-use">Miundo ya AI inayoendeshwa ndani ya kifaa chako</a> · <a href="#hub-and-compatible-models">Miundo na Kitovu</a> · <a href="#cloud-providers">Wingu</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Changia</a></p>
   <p>Mawasiliano rasmi: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Wasifu Rasmi wa kijamii wa Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Inatayarisha toleo 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Vipakuliwa vya umma vinasalia 1.0.0. Maboresho yafuatayo yanatayarishwa katika vyanzo vya 1.0.1; zinahitaji vifurushi vilivyojengwa upya, hundi za kutolewa na uchapishaji. Kusasisha hati hizi hakusasishi programu zilizosakinishwa.
+Novera 1.0.1 inapatikana kwa mifumo iliyoorodheshwa hapa chini. Pakua kifurushi cha mfumo wako au utumie chaneli yake ya sasisho iliyotiwa saini. Usakinishaji uliopo husasishwa unaposakinisha kifurushi kipya au kukubali sasisho.
 
 - Usalama: ruhusa kali za asili za kurasa za mbali, uthibitishaji wa API za mtandao na zana za seva, hifadhi ya siri iliyolindwa na uhamishaji, ufikiaji salama wa faili/midia, uchanganuzi wa lahajedwali na hati za uundaji. Vitegemezi vilivyofichuliwa vimesasishwa; mashauri yaliyobaki yanafuatiliwa kwa uwazi.
 - Faragha: takwimu na ripoti za hitilafu zinahitaji kibali tofauti na kubaki nje kwa chaguomsingi. Miundo inajumuisha usanidi wa hati fikio. Uchunguzi wa kiufundi huchujwa; watumiaji huweka udhibiti wa kuwezesha.
@@ -35,7 +35,7 @@ Vipakuliwa vya umma vinasalia 1.0.0. Maboresho yafuatayo yanatayarishwa katika v
 - Faraja: vidhibiti vya chini huanguka huku ingizo likiendelea kuonekana. Maikrofoni iliyounganishwa na vidhibiti vya ufumbuzi, kitufe cha sauti chini ya maikrofoni, mipangilio ya muziki inayoitikia na lebo za vipengele vilivyotafsiriwa huboresha matumizi kwenye skrini ndogo.
 - Katalogi za API: 43 wasifu wa watoa huduma, ikiwa ni pamoja na TabbyAPI ndani ya nchi, zilizo na chaguo mpya za gumzo na midia. Maingizo mapya ni pamoja na GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 na GPT Image 2.6, Gemini Omni 1.2, FLUX 3 ambapo yanaweza kutumika. Onyesha upya haifichi tena matokeo zaidi ya miundo kumi. Vitambulisho kamili, maeneo ya mwisho ya kikanda, usambazaji wa kibinafsi na miundo iliyoagizwa kutoka nje inaheshimiwa.
 - Uthibitishaji: programu inayolengwa, maktaba-asili, katalogi ya umma na ukaguzi wa lugha hurekodiwa katika madokezo ya kina. Kiolesura kinaundwa kwa ajili ya Windows / macOS / Linux / Android / iOS. Miundo hii ya mandhari ya mbele haiidhinishi vifurushi asili au makisio kwenye kila kifaa.
-- Kabla ya kutolewa: thibitisha vifurushi asili vilivyoundwa upya, matokeo yaliyosalia ya usalama/utegemezi na sasisho halisi la 1.0.0 hadi 1.0.1. Upatikanaji unategemea maunzi, ufikiaji wa mtoa huduma na jukwaa. Hakuna uoanifu wa kielelezo cha wote, hali ya kutoweza kuathirika au uchapishaji uliokamilika unadaiwa.
+- Upatikanaji na hundi zilizokamilishwa zimeorodheshwa hapa chini. Vipengele vinavyotumika hutegemea maunzi, ufikiaji wa mtoa huduma na jukwaa. Matokeo ya usalama na vikomo vya uthibitishaji wa kifaa asili yanasalia kuandikwa. Hifadhi nakala kabla ya kusasisha.
 
 [Vidokezo vya kina, uthibitishaji na kazi iliyosalia](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Vipakuliwa vya umma vinasalia 1.0.0. Maboresho yafuatayo yanatayarishwa katika v
 
 <!-- novera-release-1.0.1:end -->
 
-## Upatikanaji — 2026-11-03
+## Upatikanaji — 2026-11-07
 
-**Novera 1.0.0 inapatikana kwa Windows, Linux, macOS na Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Vifurushi vya eneo-kazi, kumbukumbu za CLI, saini na maonyesho ya sasisho ni ya umma na kuthibitishwa.
+**Novera 1.0.1 inapatikana kwa Windows, Linux, macOS na Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Vifurushi vya eneo-kazi, kumbukumbu za CLI, saini na maonyesho ya sasisho ni ya umma na kuthibitishwa.
 
 | Jukwaa | Upatikanaji |
 | --- | --- |
 | Windows x64 | Kisakinishi cha Umma cha NSIS, kisakinishi kilichotiwa saini; usakinishaji asili na uingizwaji umethibitishwa. |
 | Linux x64 | AppImage ya Umma, kisasisho kilichotiwa saini; usakinishaji asili na uingizwaji umethibitishwa. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, iliyo na kituo maalum cha kusasisha kilichotiwa saini. |
-| Windows ARM64 | [Kisakinishi cha Umma cha NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), injini ya maandishi ya CPU asili; usakinishaji, uingizwaji na ukaguzi wa kituo cha umma umethibitishwa. |
-| Android ARM64 | [Iliyosainiwa na umma APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, bechi chaguo-msingi 512. Mtunzaji anathibitisha kwamba 1000012 inafanya kazi kwenye simu zao. Safisha kifurushi bila mazungumzo, mifano au funguo za kibinafsi za API. [Ushahidi na mapungufu](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Toleo rasmi la 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Masasisho yaliyosainiwa na Novera. Si Apple notarized; ukaguzi wa kiotomatiki ulipitishwa kando kwenye usanifu wote wawili, ukaguzi wa kuona umeahirishwa. [Usakinishaji na ushahidi](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, iliyo na kituo maalum cha kusasisha kilichotiwa saini. |
+| Windows ARM64 | [Kisakinishi cha Umma cha NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), injini ya maandishi ya CPU asili; usakinishaji, uingizwaji na ukaguzi wa kituo cha umma umethibitishwa. |
+| Android ARM64 | Android 1.0.1 inapatikana kama APK ya ARM64 iliyotiwa saini, tengeneza 1000013. Inatumia cheti kilichopo cha Novera na kupita ukaguzi wa kifurushi. Haina mazungumzo ya kibinafsi, miundo au vitufe vya API. Usakinishaji na usasishaji kwenye simu unasalia kujaribiwa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Toleo rasmi la 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Masasisho yaliyosainiwa na Novera. Si Apple notarized; ukaguzi wa kiotomatiki ulipitishwa kando kwenye usanifu wote wawili, ukaguzi wa kuona umeahirishwa. [Usakinishaji na ushahidi](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | muundo wa kiigaji cha ndani; Uwekaji sahihi wa Apple au utoaji unahitajika kabla ya kusakinisha iPhone. [Ufuatiliaji](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 inabebeka | [Hifadhi ya kumbukumbu ya ZIP iliyotiwa saini](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data inasalia katika Data, uingizwaji uliotiwa saini wa Program umethibitishwa. |
 | Wavuti, MSI, Debian | Kiteja cha Wavuti kilichopangishwa na miundo mingine itasalia ndani; Tovuti ya uwasilishaji ya Pages inapatikana. |
 
 Kwenye Mac, fungua DMG na unakili Novera kwenye Programu. Ikiwa uzinduzi wa kwanza umezuiwa, ruhusu Novera iingie **Mipangilio ya Mfumo → Faragha na Usalama → Fungua Hata Hivyo**. [Maagizo ya Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Sahihi za kusasisha si Windows Authenticode au uthibitishaji wa Apple. Ukaguzi wa toleo la sasa unapita dhidi ya chaneli ya umma; mpito kati ya matoleo mawili ya umma bado ni jaribio la toleo lijalo. [Ushahidi na mapungufu](docs/LAUNCH_STATUS.md).
+Sahihi za kusasisha ni tofauti na Msimbo wa Uthibitishaji wa Windows na uthibitishaji wa Apple. Heshi za kifurushi, hundi asilia na majaribio ya kusasisha hurekodiwa kando. Usasishaji kamili wa umma wa 1.0.0 hadi 1.0.1 unathibitishwa kwa matukio yaliyorekodiwa katika ripoti ya toleo pekee. [Ushahidi na mapungufu](docs/LAUNCH_STATUS.md)
 
 Kwenye Android, simu ya kisasa yenye kumbukumbu ya kutosha inapendekezwa kwa miundo ya ndani; tumia mtoa huduma wa API kwenye vifaa visivyo na nguvu. Kwa utafutaji wa wavuti, muktadha wa angalau **tokeni za 16K (16,384)** inapendekezwa, mara kwa mara katika matoleo yote.
 
@@ -143,7 +143,7 @@ Kisimbaji cha muziki cha Qwen na muundo wa kurejesha Qwen ni **faili tofauti**, 
 
 ## Watoa huduma za Wingu
 
-Vyanzo vilivyotayarishwa vina wasifu wa mtoa huduma 43: 42 huduma za wingu na TabbyAPI kwa seva ya ndani. Upatikanaji wa muundo na uwezo hutegemea akaunti, eneo na API inayotumika. Katalogi inashirikiwa na lugha zote za kiolesura cha 104.
+Katalogi ina wasifu wa watoa huduma 43: 42 huduma za wingu na TabbyAPI kwa seva ya ndani. Ufikiaji wa muundo na uwezo hutegemea akaunti, eneo na API inayotumika. Lugha zote 104 za kiolesura hushiriki katalogi hii.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Vyanzo vilivyotayarishwa vina wasifu wa mtoa huduma 43: 42 huduma za wingu na Ta
 
 ### Picha, muziki na video
 
-Katalogi ya uundaji iliyotayarishwa ina mipangilio 58 kutoka kwa watoa huduma 20: picha 30, 24 video na 4 mipangilio ya awali ya muziki. Jedwali hapa chini linaorodhesha njia zilizounganishwa; hawazai kila toleo la kibiashara.
+Katalogi ya uundaji ina 58 uwekaji mapema kutoka kwa watoa huduma 20: picha 30, 24 video na 4 mipangilio ya awali ya muziki. Majedwali yaliyo hapa chini yanaorodhesha miundo na vitambulishi halisi vinavyotumika na adapta zilizounganishwa.
 
 | Mtoa huduma | Matokeo katika Novera | Miundo ya Katalogi |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Haya ni maelekezo ya mchango na maendeleo, si madai kwamba kila ombi mahususi la
 
 ## Hali ya mradi
 
-**Novera 1.0.0 inapatikana kwa Windows, Linux, macOS na Android.** Picha ya skrini inaonyesha programu ya Windows iliyokusanywa ndani na mtunzaji. Mabadiliko ya chanzo, majaribio yaliyolengwa na uthibitishaji wa maunzi yameandikwa kando; hii haidhibitishi kila modeli, jukwaa au akaunti ya wingu.
+**Novera 1.0.1 inapatikana kwa Windows, Linux, macOS na Android.** Picha ya skrini inaonyesha programu ya Windows iliyokusanywa ndani na mtunzaji. Mabadiliko ya chanzo, majaribio yaliyolengwa na uthibitishaji wa maunzi yameandikwa kando; hii haidhibitishi kila modeli, jukwaa au akaunti ya wingu.
 
 Miundo ya Mwongozo ya GitHub Actions imewashwa kwa anuwai zote kumi na moja za usambazaji. Fuata [tengeneza matokeo na vipakuliwa vilivyothibitishwa](docs/CI_DISTRIBUTIONS.md); upatikanaji ni kumbukumbu tofauti kwa kila jukwaa. Wagombea ni tofauti na matoleo ya umma yaliyotiwa saini. Mahitaji ya usambazaji yanaelezwa katika [sera ya uchapishaji rasmi](OFFICIAL_RELEASES.md) na [ukurasa wa matoleo](https://github.com/TRON-ABS/Novera/releases). Wagombea waliopo waliolemazwa na usasishaji husalia ndani. Matoleo ya umma yanahitaji utaratibu wa kusasisha uliosanidiwa na kuthibitishwa; [ukaguzi wa sahihi wa eneo-kazi na mahitaji yaliyosalia ya uzinduzi yameandikwa](docs/LAUNCH_STATUS.md).
 

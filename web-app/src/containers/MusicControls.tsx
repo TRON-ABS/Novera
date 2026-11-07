@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { useAutoConfiguration } from '@/hooks/useAutoConfiguration'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
+import { BROWSER_MUSIC_PROVIDER, BROWSER_MUSIC_MODEL, browserLocalMusicEnabled } from '@/services/browser-preview/local-music'
+import { BrowserLocalMusicSetup } from './BrowserLocalMusicSetup'
 import { ComposerStatusSwitch } from '@/components/ComposerStatusSwitch'
 import { invoke } from '@tauri-apps/api/core'
 import { Music2, Clock3, ChevronDown, Dices } from 'lucide-react'
@@ -43,7 +46,7 @@ export function MusicProviderPicker({
 }) {
   const { t } = useTranslation()
   const selection = useCreation((s) => s.selections[scope]?.music)
-  const localAllowed = useAutoConfiguration().local.music
+  const localAllowed = useAutoConfiguration().local.music && !browserPreviewEnabled()
   const preset = selection && mediaPreset(selection.provider, selection.id)
   return (
     <DropdownMenu>
@@ -53,20 +56,21 @@ export function MusicProviderPicker({
           disabled={disabled}
           aria-label={`${t('chat:creation.music')} · ${t('chat:creation.model')}`}
         >
-          {selection && (
+          {selection && selection.provider !== BROWSER_MUSIC_PROVIDER && (
             <img
               src={getProviderLogo(selection.provider)}
               alt={getProviderTitle(selection.provider)}
               className="size-5 rounded bg-white object-contain p-0.5"
             />
           )}
-          {preset
+          {selection?.provider === BROWSER_MUSIC_PROVIDER ? 'ACE-Step · Sur cet appareil · Essai' : preset
             ? `${getProviderTitle(preset.provider)} · ${preset.name}`
             : localAllowed ? `ACE-Step 1.5 · ${t('chat:creation.local')}` : `${t('chat:creation.music')} · ${t('chat:creation.model')}`}
           <ChevronDown size={14} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
+        {browserPreviewEnabled() && browserLocalMusicEnabled() && <DropdownMenuItem onSelect={() => useCreation.getState().setSelection(scope, 'music', { provider: BROWSER_MUSIC_PROVIDER, id: BROWSER_MUSIC_MODEL })}>ACE-Step · Sur cet appareil · Essai</DropdownMenuItem>}
         <DropdownMenuItem
           disabled={!localAllowed}
           onSelect={() => useCreation.getState().setSelection(scope, 'music')}
@@ -75,7 +79,7 @@ export function MusicProviderPicker({
           ACE-Step 1.5 · {t('chat:creation.local')}
         </DropdownMenuItem>
         {mediaModelPresets
-          .filter((p) => p.task === 'music' && p.provider !== 'minimax')
+          .filter((p) => p.task === 'music' && p.provider !== 'minimax' && (!browserPreviewEnabled() || p.provider === 'fal'))
           .map((p) => (
             <DropdownMenuItem
               key={p.provider + p.id}
@@ -139,7 +143,7 @@ export function MusicDashboardControls({
   const cloud = useCreation((s) => s.selections[scope]?.music)
   const { min: minimum, max: maximum } = musicDurationLimits(cloud?.provider)
   const [durationDraft, setDurationDraft] = useState<string>()
-  const fixedFormat = cloud
+  const fixedFormat = cloud?.provider === BROWSER_MUSIC_PROVIDER ? 'WAV · 32 bit · 48 kHz' : cloud
     ? cloud.provider === 'fal'
       ? 'WAV'
       : cloud.provider === 'elevenlabs'
@@ -156,12 +160,12 @@ export function MusicDashboardControls({
     <div className="composer-size-controls ml-auto flex flex-wrap gap-1">
       <Button className="composer-setting" variant="ghost" size="xs"
         role="switch" aria-label={t('chat:creation.musicInstrumental')}
-        aria-checked={cloud && !['elevenlabs', 'fal'].includes(cloud.provider) ? true : settings.instrumental}
-        disabled={disabled || (Boolean(cloud) && !['elevenlabs', 'fal'].includes(cloud!.provider))}
+        aria-checked={cloud && !['elevenlabs', 'fal', BROWSER_MUSIC_PROVIDER].includes(cloud.provider) ? true : settings.instrumental}
+        disabled={disabled || (Boolean(cloud) && !['elevenlabs', 'fal', BROWSER_MUSIC_PROVIDER].includes(cloud!.provider))}
         onClick={() => setSettings({ instrumental: !settings.instrumental })}>
         <Music2 size={14} aria-hidden="true" />
         {t('chat:creation.musicInstrumental')}
-        <ComposerStatusSwitch active={cloud && !['elevenlabs', 'fal'].includes(cloud.provider) ? true : settings.instrumental} />
+        <ComposerStatusSwitch active={cloud && !['elevenlabs', 'fal', BROWSER_MUSIC_PROVIDER].includes(cloud.provider) ? true : settings.instrumental} />
       </Button>
       <Popover>
         <PopoverTrigger asChild>
@@ -379,7 +383,7 @@ export function MusicSetupPanel({
   disabled: boolean
 }) {
   const { t } = useTranslation()
-  const localMusic = useAutoConfiguration().local.music
+  const localMusic = useAutoConfiguration().local.music && !browserPreviewEnabled()
   const service = useServiceHub()
   const { state, settings, profile, setSettings } = useMusic(scope)
   const cloud = useCreation((s) => s.selections[scope]?.music)
@@ -443,6 +447,7 @@ export function MusicSetupPanel({
       setError(String(e))
     }
   }
+  if (browserPreviewEnabled() && browserLocalMusicEnabled() && (!cloud || cloud.provider === BROWSER_MUSIC_PROVIDER)) return <div className="space-y-3"><MusicProviderPicker scope={scope} disabled={disabled} /><BrowserLocalMusicSetup scope={scope} disabled={disabled} /><MusicDashboardControls scope={scope} disabled={disabled} /></div>
   if (cloud)
     return (
       <div className="space-y-4">
@@ -477,7 +482,7 @@ export function MusicSetupPanel({
         )}
         <a
           className="text-sm underline"
-          href={`/settings/providers/${cloud.provider}`}
+            href={browserPreviewEnabled() ? `#/settings/providers/${cloud.provider}` : `/settings/providers/${cloud.provider}`}
         >
           {getProviderTitle(cloud.provider)} · {t('common:settings')}
         </a>
@@ -738,7 +743,7 @@ export function MusicModelControl({
   const { settings, profile } = useMusic(scope)
   const selection = useCreation((s) => s.selections[scope]?.music)
   const preset = selection && mediaPreset(selection.provider, selection.id)
-  const name = preset
+  const name = selection?.provider === BROWSER_MUSIC_PROVIDER ? 'ACE-Step 1.5 Turbo · Q4_K_M · WebGPU' : preset
     ? `${getProviderTitle(preset.provider)} · ${preset.name}`
     : profile?.name || settings.generator || t('chat:creation.configure')
   return (
@@ -757,7 +762,7 @@ export function MusicModelControl({
         )
       }
     >
-      {selection ? (
+      {selection && selection.provider !== BROWSER_MUSIC_PROVIDER ? (
         <img
           src={getProviderLogo(selection.provider)}
           alt={getProviderTitle(selection.provider)}

@@ -1,14 +1,16 @@
 import {afterEach,beforeEach,describe,expect,it,vi} from 'vitest'
 import {cleanup,renderHook} from '@testing-library/react'
-const h=vi.hoisted(()=>({enabled:true,provider:'duckduckgo',native:true,android:false,ios:false,prepare:vi.fn()}))
+const h=vi.hoisted(()=>({enabled:true,provider:'duckduckgo',native:true,android:false,ios:false,browser:false,prepare:vi.fn(),browserPrepare:vi.fn(),reset:vi.fn()}))
 vi.mock('../useWebSearchConfig',()=>({useWebSearchConfig:Object.assign(
   (select:(state:{webSearchEnabled:boolean;searchProvider:string})=>unknown)=>select({webSearchEnabled:h.enabled,searchProvider:h.provider}),
   {getState:()=>({webSearchEnabled:h.enabled,searchProvider:h.provider})},
 )}))
 vi.mock('@/lib/platform/utils',()=>({isPlatformTauri:()=>h.native,isPlatformAndroid:()=>h.android,isPlatformIOS:()=>h.ios}))
 vi.mock('@/lib/duckduckgoSearch',()=>({prepareDuckDuckGo:h.prepare}))
+vi.mock('@/services/browser-preview/config',()=>({browserPreviewEnabled:()=>h.browser}))
+vi.mock('@/services/browser-preview/web-search',()=>({browserSearch:{prepare:h.browserPrepare,reset:h.reset},BROWSER_SEARCH_ENDPOINT:'https://mcp.exa.ai/mcp'}))
 import {useWebSearchWarmup} from '../useWebSearchWarmup'
-beforeEach(()=>{vi.clearAllMocks();h.enabled=true;h.provider='duckduckgo';h.native=true;h.android=false;h.ios=false;h.prepare.mockResolvedValue(undefined)})
+beforeEach(()=>{vi.clearAllMocks();h.enabled=true;h.provider='duckduckgo';h.native=true;h.android=false;h.ios=false;h.browser=false;h.prepare.mockResolvedValue(undefined);h.browserPrepare.mockResolvedValue(undefined)})
 afterEach(()=>{cleanup();vi.restoreAllMocks()})
 describe('desktop web preparation',()=>{
  it('waits for settings hydration and respects the saved Web-off choice',async()=>{
@@ -48,5 +50,23 @@ describe('desktop web preparation',()=>{
   h.prepare.mockRejectedValueOnce(new Error('unavailable'))
   renderHook(()=>useWebSearchWarmup(true))
   await vi.waitFor(()=>expect(warn).toHaveBeenCalledWith('[Novera web] background preparation unavailable'))
+ })
+ it('prepares Exa only after Web settings hydration and activation, and resets on disable',async()=>{
+  h.browser=true;h.native=false;h.provider='exa';h.enabled=false
+  const hook=renderHook(({ready})=>useWebSearchWarmup(ready),{initialProps:{ready:false}})
+  await Promise.resolve()
+  expect(h.browserPrepare).not.toHaveBeenCalled()
+  h.enabled=true;hook.rerender({ready:true})
+  await vi.waitFor(()=>expect(h.browserPrepare).toHaveBeenCalledOnce())
+  expect(h.prepare).not.toHaveBeenCalled()
+  h.enabled=false;hook.rerender({ready:true})
+  await vi.waitFor(()=>expect(h.reset).toHaveBeenCalled())
+  expect(h.browserPrepare).toHaveBeenCalledOnce()
+ })
+ it('does not prepare browser search if it is disabled before the module arrives',async()=>{
+  h.browser=true;h.native=false;h.provider='exa'
+  renderHook(()=>useWebSearchWarmup(true));h.enabled=false
+  await new Promise(resolve=>setTimeout(resolve,20))
+  expect(h.browserPrepare).not.toHaveBeenCalled()
  })
 })

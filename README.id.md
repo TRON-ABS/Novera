@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Anda menggambarkan tujuan Anda. Novera menyiapkan sumber daya, menjalankan tugas, dan mengatur hasilnya.</strong></p>
   <p>Asisten AI independen oleh TRON-ABS, dari peluncuran pertama hingga hasil: teks, gambar, musik, dan video dalam satu percakapan.</p>
-  <p><strong>Tersedia untuk Windows, Linux, macOS dan Android</strong> · Sumber yang disiapkan: 104 bahasa antarmuka · 42 penyedia cloud · 58 preset media · Apache 2.0</p>
+  <p><strong>Tersedia untuk Windows, Linux, macOS dan Android</strong> · 104 bahasa antarmuka · 42 penyedia cloud · 58 preset media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatisasi</a> · <a href="#one-dashboard-for-every-creation">Dasbor</a> · <a href="#local-models-in-use">Model AI berjalan secara lokal di perangkat Anda</a> · <a href="#hub-and-compatible-models">Format & Pusat</a> · <a href="#cloud-providers">Awan</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Berkontribusi</a></p>
   <p>Kontak resmi: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Profil sosial resmi Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Mempersiapkan versi 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Unduhan publik tetap di 1.0.0. Perbaikan berikut disiapkan pada sumber untuk 1.0.1; mereka memerlukan paket yang dibangun kembali, pemeriksaan rilis, dan publikasi. Memperbarui dokumentasi ini tidak memperbarui aplikasi yang diinstal.
+Novera 1.0.1 tersedia untuk platform yang tercantum di bawah. Unduh paket untuk sistem Anda atau gunakan saluran pembaruan yang ditandatangani. Instalasi yang ada diperbarui ketika Anda menginstal paket baru atau menerima pembaruan.
 
 - Keamanan: izin asli yang lebih ketat untuk halaman jarak jauh, autentikasi untuk API jaringan dan alat server, penyimpanan rahasia dan migrasi yang dilindungi, akses file/media yang lebih aman, penguraian spreadsheet, dan skrip pembuatan. Ketergantungan yang terekspos telah diperbarui; nasihat yang tersisa dilacak secara terbuka.
 - Privasi: statistik dan laporan kesalahan memerlukan persetujuan terpisah dan tetap tidak aktif secara default. Build mencakup konfigurasi tujuan yang terdokumentasi. Diagnostik teknis disaring; pengguna tetap mengontrol aktivasi.
@@ -37,7 +37,7 @@ Unduhan publik tetap di 1.0.0. Perbaikan berikut disiapkan pada sumber untuk 1.0
 Katalog API
 - : profil penyedia 43, termasuk TabbyAPI secara lokal, dengan obrolan yang diperbarui dan pilihan media. Entri baru mencakup GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 dan GPT Image 2.6, Gemini Omni 1.2, FLUX 3 jika didukung. Penyegaran tidak lagi menyembunyikan hasil lebih dari sepuluh model. Pengidentifikasi yang tepat, titik akhir regional, penerapan pribadi, dan model yang diimpor dihormati.
 - Validasi: aplikasi yang ditargetkan, perpustakaan asli, katalog publik, dan pemeriksaan bahasa dicatat dalam catatan terperinci. Antarmuka dibuat untuk Windows / macOS / Linux / Android / iOS. Pembuatan frontend ini tidak mensertifikasi paket atau inferensi asli pada setiap perangkat.
-- Sebelum rilis: validasi paket asli yang dibuat ulang, temuan keamanan/ketergantungan yang tersisa, dan pembaruan asli dari 1.0.0 ke 1.0.1. Ketersediaan tergantung pada perangkat keras, akses penyedia, dan platform. Tidak ada kompatibilitas model universal, status kerentanan nol, atau publikasi lengkap yang diklaim.
+- Ketersediaan dan pemeriksaan yang telah selesai tercantum di bawah ini. Fitur yang didukung bergantung pada perangkat keras, akses penyedia, dan platform. Temuan keamanan dan batas validasi perangkat asli tetap didokumentasikan. Simpan cadangan sebelum memperbarui.
 
 [Catatan detail, validasi, dan sisa pekerjaan](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Katalog API
 
 <!-- novera-release-1.0.1:end -->
 
-## Ketersediaan — 2026-11-03
+## Ketersediaan — 2026-11-07
 
-**Novera 1.0.0 tersedia untuk Windows, Linux, macOS dan Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Paket desktop, baik arsip CLI, tanda tangan, dan manifes pembaruan bersifat publik dan terverifikasi.
+**Novera 1.0.1 tersedia untuk Windows, Linux, macOS dan Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Paket desktop, baik arsip CLI, tanda tangan, dan manifes pembaruan bersifat publik dan terverifikasi.
 
 | Peron | Ketersediaan |
 | --- | --- |
 | Windows x64 | Penginstal NSIS publik, pembaru bertanda tangan; instalasi asli dan penggantian diverifikasi. |
 | Linux x64 | AppImage publik, pembaru bertanda tangan; instalasi asli dan penggantian diverifikasi. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, dengan saluran pembaruan bertanda tangan khusus. |
-| Windows ARM64 | [Pemasang NSIS publik](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), mesin teks CPU asli; pemasangan, penggantian dan pemeriksaan saluran publik diverifikasi. |
-| Android ARM64 | [APK 1.0.0 yang ditandatangani publik](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, kumpulan bawaan 512. Pengelola mengonfirmasi bahwa build 1000012 berfungsi di ponsel mereka. Paket bersih tanpa percakapan, model, atau kunci API pribadi. [Bukti dan batasan](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Rilis resmi 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Pembaruan yang ditandatangani Novera. Bukan Apple yang diaktakan; pemeriksaan otomatis diteruskan secara terpisah pada kedua arsitektur, pemeriksaan visual ditangguhkan. [Instalasi dan bukti](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, dengan saluran pembaruan bertanda tangan khusus. |
+| Windows ARM64 | [Pemasang NSIS publik](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), mesin teks CPU asli; pemasangan, penggantian dan pemeriksaan saluran publik diverifikasi. |
+| Android ARM64 | Android 1.0.1 tersedia sebagai APK ARM64 bertanda tangan, build 1000013. Ia menggunakan sertifikat Novera yang ada dan lolos pemeriksaan paket. Ini tidak berisi percakapan pribadi, model, atau kunci API. Instalasi dan pembaruan pada ponsel masih harus diuji. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Rilis resmi 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Pembaruan yang ditandatangani Novera. Bukan Apple yang diaktakan; pemeriksaan otomatis diteruskan secara terpisah pada kedua arsitektur, pemeriksaan visual ditangguhkan. [Instalasi dan bukti](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Pembuatan simulator internal; Penandatanganan/penyediaan Apple diperlukan sebelum instalasi iPhone. [Tindak lanjut](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portabel | [Arsip ZIP yang ditandatangani](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data tetap di Data, pengganti Program yang ditandatangani diverifikasi. |
 | Web, MSI, Debian | Klien Web yang dihosting dan format lainnya tetap bersifat internal; Situs presentasi Pages tersedia. |
 
 Di Mac, buka DMG dan salin Novera ke dalam Aplikasi. Jika peluncuran pertama diblokir, izinkan Novera masuk **Pengaturan Sistem → Privasi & Keamanan → Tetap Buka**. [Instruksi Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Tanda tangan pembaru bukan Windows Authenticode atau notaris Apple. Pemeriksaan manual versi saat ini dilakukan melalui saluran publik; transisi antara dua versi publik tetap menjadi uji rilis berikutnya. [Bukti dan batasan](docs/LAUNCH_STATUS.md).
+Tanda tangan pembaru terpisah dari Windows Authenticode dan notarisasi Apple. Hash paket, pemeriksaan asli, dan pengujian pembaruan didokumentasikan secara terpisah. Peningkatan versi publik lengkap dari 1.0.0 ke 1.0.1 dikonfirmasi hanya untuk skenario yang dicatat dalam laporan rilis. [Bukti dan batasan](docs/LAUNCH_STATUS.md)
 
 Di Android, disarankan menggunakan ponsel modern dengan memori yang cukup untuk model lokal; gunakan penyedia API pada perangkat yang kurang bertenaga. Untuk penelusuran web, setidaknya ada konteks **Token 16K (16,384)** direkomendasikan, secara konsisten di seluruh versi.
 
@@ -145,7 +145,7 @@ Encoder musik Qwen dan model pengambilan Qwen adalah **file berbeda**, disimpan 
 
 ## Penyedia awan
 
-Sumber yang disiapkan berisi profil penyedia 43: 42 layanan cloud dan TabbyAPI untuk server lokal. Ketersediaan dan kemampuan model bergantung pada akun, wilayah, dan API yang didukung. Katalog digunakan bersama oleh semua bahasa antarmuka 104.
+Katalog berisi profil penyedia 43: 42 layanan cloud dan TabbyAPI untuk server lokal. Akses dan kemampuan model bergantung pada akun, wilayah, dan API yang didukung. Semua bahasa antarmuka 104 menggunakan katalog ini.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Sumber yang disiapkan berisi profil penyedia 43: 42 layanan cloud dan TabbyAPI u
 
 ### Gambar, musik dan video
 
-Katalog pembuatan yang telah disiapkan berisi preset 58 dari penyedia 20: gambar 30, video 24 dan preset musik 4. Tabel di bawah mencantumkan rute terpadu; mereka tidak mereproduksi setiap penawaran komersial.
+Katalog pembuatan berisi preset 58 dari penyedia 20: preset gambar 30, video 24, dan musik 4. Tabel di bawah mencantumkan model dan pengidentifikasi persis yang didukung oleh adaptor terintegrasi.
 
 | Penyedia | Keluaran dalam Novera | Model katalog |
 | --- | --- | --- |
@@ -297,7 +297,7 @@ Ini adalah arahan untuk kontribusi dan pengembangan, bukan klaim bahwa setiap pe
 
 ## Status proyek
 
-**Novera 1.0.0 tersedia untuk Windows, Linux, macOS dan Android.** Tangkapan layar menunjukkan aplikasi Windows yang dikompilasi secara lokal oleh pengelola. Perubahan sumber, pengujian yang ditargetkan, dan validasi perangkat keras didokumentasikan secara terpisah; ini tidak memvalidasi setiap model, platform, atau akun cloud.
+**Novera 1.0.1 tersedia untuk Windows, Linux, macOS dan Android.** Tangkapan layar menunjukkan aplikasi Windows yang dikompilasi secara lokal oleh pengelola. Perubahan sumber, pengujian yang ditargetkan, dan validasi perangkat keras didokumentasikan secara terpisah; ini tidak memvalidasi setiap model, platform, atau akun cloud.
 
 Pembuatan GitHub Actions manual diaktifkan untuk sebelas varian distribusi. Ikuti [hasil pembuatan dan unduhan kandidat terverifikasi](docs/CI_DISTRIBUTIONS.md); ketersediaan dicatat secara terpisah untuk setiap platform. Kandidat berbeda dari rilis produksi yang ditandatangani. Persyaratan distribusi dijelaskan dalam [kebijakan rilis resmi](OFFICIAL_RELEASES.md) dan [halaman rilis](https://github.com/TRON-ABS/Novera/releases). Kandidat yang tidak dapat melakukan updater tetap berada di internal. Rilis publik memerlukan mekanisme pembaruan yang dikonfigurasi dan diverifikasi; [pemeriksaan tanda tangan desktop dan persyaratan peluncuran lainnya didokumentasikan](docs/LAUNCH_STATUS.md).
 

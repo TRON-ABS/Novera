@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>You describe. Novera prepares, runs and organizes.</strong></p>
   <p>An independent AI assistant by TRON-ABS, from first launch to results: text, images, music and video in one conversation.</p>
-  <p><strong>Available for Windows, Linux, macOS and Android</strong> · Prepared sources: 104 interface languages · 42 cloud providers · 58 media presets · Apache 2.0</p>
+  <p><strong>Available for Windows, Linux, macOS and Android</strong> · 104 interface languages · 42 cloud providers · 58 media presets · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Local models</a> · <a href="#hub-and-compatible-models">Formats &amp; Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p>Official Novera social profiles: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -13,13 +13,15 @@
 
 Data and privacy: [local inference, optional telemetry, error reports and update connections (French)](docs/DONNEES_ET_CONFIDENTIALITE.md). License: [Apache 2.0](LICENSE) · [Attribution](NOTICE).
 
+**Novera Web — experimental source preparation:** the Desktop interface and colors, 32k local text context, and keyless Exa search with connection preparation on activation have been tested in Edge. Local image/music work is documented; Wan video remains outside the browser conversation flow. The hosted Web application is not released yet. [Features, measured tests and remaining publication checks](docs/WEB_BROWSER_PREPARATION.md).
+
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Preparing version 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Public downloads remain at 1.0.0. The following improvements are prepared in the sources for 1.0.1; they require rebuilt packages, release checks and publication. Updating this documentation does not update installed applications.
+Novera 1.0.1 is available for the platforms listed below. Download the package for your system or use its signed update channel. Existing installations update when you install the new package or accept the update.
 
 - Security: stricter native permissions for remote pages, authentication for network APIs and server tools, protected secret storage and migration, safer file/media access, spreadsheet parsing and build scripts. Exposed dependencies have been updated; remaining advisories are tracked openly.
 - Privacy: statistics and error reports require separate consent and remain off by default. Builds include the documented destination configuration. Technical diagnostics are filtered; users keep control of activation.
@@ -35,31 +37,31 @@ Public downloads remain at 1.0.0. The following improvements are prepared in the
 - Comfort: lower controls collapse while the input stays visible. Compact microphone and disclosure controls, a sound button under the microphone, responsive music settings and translated component labels improve use on small screens.
 - API catalogs: 43 provider profiles, including TabbyAPI locally, with refreshed chat and media selections. New entries include GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 and GPT Image 2.6, Gemini Omni 1.2, FLUX 3 where supported. Refresh no longer hides results beyond ten models. Exact identifiers, regional endpoints, private deployments and imported models are respected.
 - Validation: targeted application, native-library, public-catalog and language checks are recorded in the detailed notes. The interface builds for Windows / macOS / Linux / Android / iOS. These frontend builds do not certify native packages or inference on every device.
-- Before release: validate rebuilt native packages, remaining security/dependency findings and the real 1.0.0 to 1.0.1 update. Availability depends on hardware, provider access and platform. No universal model compatibility, zero-vulnerability status or completed publication is claimed.
+- Availability and completed checks are listed below. Supported features depend on hardware, provider access and platform. Security findings and native-device validation limits remain documented. Keep a backup before updating.
 
 [Detailed notes, validation and remaining work](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
 <!-- novera-release-1.0.1:end -->
 
-## Availability — 3 November 2026
+## Availability — 2026-11-07
 
-**Novera 1.0.0 is available for Windows, Linux, macOS and Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Desktop packages, both CLI archives, signatures and update manifests are public and verified.
+**Novera 1.0.1 is available for Windows, Linux, macOS and Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Desktop packages, both CLI archives, signatures and update manifests are public and verified.
 
 | Platform | Availability |
 | --- | --- |
 | Windows x64 | Public NSIS installer, signed updater; native installation and replacement verified. |
 | Linux x64 | Public AppImage, signed updater; native installation and replacement verified. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, with a dedicated signed update channel. |
-| Windows ARM64 | [Public NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), native CPU text engine; installation, replacement and public-channel checks verified. |
-| Android ARM64 | [Public signed APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, default batch 512. The maintainer confirms build 1000012 works on their phone. Clean package with no conversations, models or personal API keys. [Evidence and limitations](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Official 1.0.0 DMG release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-signed updates. Not Apple notarized; automated checks passed separately on both architectures, visual checks deferred. [Installation and evidence](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, with a dedicated signed update channel. |
+| Windows ARM64 | [Public NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), native CPU text engine; installation, replacement and public-channel checks verified. |
+| Android ARM64 | Android 1.0.1 is available as a signed ARM64 APK, build 1000013. It uses the existing Novera certificate and passes package inspection. It contains no personal conversations, models or API keys. Installation and updating on a phone remain to be tested. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Official 1.0.1 DMG release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-signed updates. Not Apple notarized; automated checks passed separately on both architectures, visual checks deferred. [Installation and evidence](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Internal simulator build; Apple signing/provisioning is required before iPhone installation. [Follow-up](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portable | [Signed ZIP archive](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data stays in Data, signed Program replacement verified. |
 | Web, MSI, Debian | Hosted Web client and other formats remain internal; Pages presentation site is available. |
 
 On Mac, open the DMG and copy Novera into Applications. If the first launch is blocked, allow Novera in **System Settings → Privacy & Security → Open Anyway**. [Apple instructions](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Updater signatures are not Windows Authenticode or Apple notarization. Manual current-version checks pass against the public channel; a transition between two public versions remains a next-release test. [Evidence and limitations](docs/LAUNCH_STATUS.md).
+Updater signatures are separate from Windows Authenticode and Apple notarization. Package hashes, native checks and update tests are documented separately. A complete public 1.0.0 to 1.0.1 upgrade is confirmed only for the scenarios recorded in the release report. [Evidence and limitations](docs/LAUNCH_STATUS.md)
 
 On Android, a modern phone with enough memory is recommended for local models; use an API provider on less powerful devices. For web search, a context of at least **16K tokens (16,384)** is recommended, consistently across versions.
 
@@ -133,7 +135,7 @@ The Qwen music encoder and the Qwen retrieval model are **different files**, sto
 
 ## Cloud providers
 
-The prepared sources contain 43 provider profiles: 42 cloud services and TabbyAPI for a local server. Model availability and capabilities depend on the account, region and supported API. The catalog is shared by all 104 interface languages.
+The catalog contains 43 provider profiles: 42 cloud services and TabbyAPI for a local server. Model access and capabilities depend on the account, region and supported API. All 104 interface languages share this catalog.
 
 | | | |
 | --- | --- | --- |
@@ -154,7 +156,7 @@ The prepared sources contain 43 provider profiles: 42 cloud services and TabbyAP
 
 ### Image, music and video
 
-The prepared creation catalog contains 58 presets from 20 providers: 30 image, 24 video and 4 music presets. The tables below list the integrated routes; they do not reproduce every commercial offering.
+The creation catalog contains 58 presets from 20 providers: 30 image, 24 video and 4 music presets. The tables below list the exact models and identifiers supported by the integrated adapters.
 
 | Provider | Outputs in Novera | Catalog models |
 | --- | --- | --- |
@@ -285,7 +287,7 @@ These are directions for contribution and development, not a claim that every se
 
 ## Project status
 
-**Novera 1.0.0 is available for Windows, Linux, macOS and Android.** The screenshot shows a Windows application compiled locally by the maintainer. Source changes, targeted tests and hardware validation are documented separately; this does not validate every model, platform or cloud account.
+**Novera 1.0.1 is available for Windows, Linux, macOS and Android.** The screenshot shows a Windows application compiled locally by the maintainer. Source changes, targeted tests and hardware validation are documented separately; this does not validate every model, platform or cloud account.
 
 Manual GitHub Actions builds are enabled for all eleven distribution variants. Follow the [build results and verified candidate downloads](docs/CI_DISTRIBUTIONS.md); availability is recorded separately for each platform. Candidates are distinct from signed production releases. Distribution requirements are described in the [official release policy](OFFICIAL_RELEASES.md) and [releases page](https://github.com/TRON-ABS/Novera/releases). Existing updater-disabled candidates remain internal. Public releases require a configured and verified update mechanism; [desktop signature checks and remaining launch requirements are documented](docs/LAUNCH_STATUS.md).
 

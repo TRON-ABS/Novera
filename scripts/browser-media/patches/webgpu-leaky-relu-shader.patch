@@ -1,0 +1,23 @@
+--- a/src/ggml-webgpu/wgsl-shaders/unary.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/unary.wgsl
+@@ -31,6 +31,9 @@
+     ne0: u32,
+     ne1: u32,
+     ne2: u32,
++#ifdef LEAKY_RELU
++    negative_slope: f32,
++#endif
+ #ifdef CLAMP
+     clamp_min: f32,
+     clamp_max: f32,
+@@ -106,6 +109,10 @@
+ #ifdef TANH
+     let res = tanh(clamp(src[params.offset_src + src_idx], -9.010913, 9.010913));
+ #endif
++#ifdef LEAKY_RELU
++    let value = src[params.offset_src + src_idx];
++    let res = select(TYPE(params.negative_slope) * value, value, value >= TYPE(0.0));
++#endif
+ #ifdef RELU
+     let res = select(0.0, src[params.offset_src + src_idx], src[params.offset_src + src_idx] > 0.0);
+ #endif

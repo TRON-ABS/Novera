@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { RouterProvider, createRouter, createHashHistory } from '@tanstack/react-router'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { invoke } from '@tauri-apps/api/core'
 import {
   pruneLocalStorageByFlags,
@@ -93,7 +94,7 @@ const boot = async () => {
   const { routeTree } = await import('./routeTree.gen')
   await import('./i18n')
 
-  const router = createRouter({ routeTree })
+  const router = createRouter({ routeTree, ...(browserPreviewEnabled() ? { history: createHashHistory() } : {}) })
 
   const rootElement = document.getElementById('root')!
   if (!rootElement.innerHTML) {

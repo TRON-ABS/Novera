@@ -26,6 +26,35 @@ vi.mock('@/lib/backendStorage', () => ({
   },
 }))
 describe('creation choices in the composer', () => {
+  it('uses the same 2048 panorama controls in Web and applies an explicit GPU budget', () => {
+    vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
+    vi.stubEnv('VITE_NOVERA_WEB_LOCAL_MEDIA', 'true')
+    try {
+      useCreation.setState({ modes: { 'web-2048': 'image' }, selections: { 'web-2048': { image: { provider: 'novera-browser', id: 'flux-2-klein-4b-Q4_K_M' } } }, settings: { ...creationDefaults, width: 1024, height: 432, steps: 4 } })
+      render(<CreationControls scope="web-2048" disabled={false} />)
+      if (!screen.queryByRole('dialog')) fireEvent.click(screen.getByRole('button', { name: 'chat:creation.settings' }))
+      const image = within(screen.getByRole('region', { name: 'chat:creation.image' }))
+      fireEvent.click(image.getByRole('button', { name: '2048 × 880' }))
+      fireEvent.change(image.getByRole('combobox', { name: 'Budget GPU Web (Gio)' }), { target: { value: '6' } })
+      expect(useCreation.getState().settings).toMatchObject({ width: 2048, height: 880, browserGpuBudgetGiB: 6, steps: 4 })
+      expect(screen.queryByRole('button', { name: /chat:creation.upscaleTitle/ })).not.toBeInTheDocument()
+    } finally { vi.unstubAllEnvs() }
+  })
+  it('keeps the Web creation panel on cloud models without native installation controls', () => {
+    vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
+    try {
+      useCreation.setState({ modes: {}, selections: {}, settings: { ...creationDefaults }, videoSettings: { ...creationDefaults } })
+      useMusicCreation.setState({ settings: { ...musicDefaults }, profiles: [], selections: {} })
+      render(<CreationControls scope="web-media" disabled={false} />)
+      act(() => window.dispatchEvent(new CustomEvent('novera-creation-settings', { detail: { scope: 'web-media' } })))
+      expect(screen.getByRole('dialog')).toBeInTheDocument()
+      expect(screen.queryByText('Text setup')).not.toBeInTheDocument()
+      expect(screen.queryByText('Embedding setup')).not.toBeInTheDocument()
+      expect(screen.getByRole('link', { name: 'Configurer fal' })).toHaveAttribute('href', '#/settings/providers/fal')
+      expect(screen.getAllByText(/Les fichiers sont conservés dans ce navigateur/)).toHaveLength(2)
+      expect(screen.queryByText('chat:creation.autosave')).not.toBeInTheDocument()
+    } finally { vi.unstubAllEnvs() }
+  })
   it('keeps all three media modes accessible before cloud configuration on mobile', async () => {
     useHardware.setState({ hardwareData: { ...useHardware.getState().hardwareData, os_type: 'android', total_memory: 4096, gpus: [] } })
     useCreation.setState({ selections: {} })
@@ -36,7 +65,7 @@ describe('creation choices in the composer', () => {
     await act(async () => useCreation.setState({ selections: { 'mobile-cloud': {
       image: { provider: 'openai', id: 'gpt-image-2.5-sunburst' },
       music: { provider: 'elevenlabs', id: 'music_v2_5' },
-      video: { provider: 'fal', id: 'fal-ai/pika/v2.2/text-to-video' },
+      video: { provider: 'fal', id: 'fal-ai/kling-video/v3/standard/text-to-video' },
     } } }))
     for (const task of ['image', 'music', 'video'])
       expect(modes.getByText(`chat:creation.${task}`).closest('button')).toBeEnabled()

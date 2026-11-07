@@ -22,7 +22,16 @@ export function prepareWebDelivery(directory, { version, commit }) {
   visit(root)
   const index = artifacts.find(a => a.file === 'index.html')
   if (!index || !artifacts.some(a => /\.js$/.test(a.file))) throw new Error('A compiled HTML entry point and JavaScript payload are required')
-  const metadata = { formatVersion: 1, product: 'Novera Web', version, commit, entrypoint: 'index.html', entrypointSha256: index.sha256 }
+  const versionFile = path.join(root, 'novera-web-version.json')
+  let browserIdentity = {}
+  if (fs.existsSync(versionFile)) {
+    const existing = JSON.parse(fs.readFileSync(versionFile, 'utf8'))
+    if (existing.application === 'NoveraWeb') {
+      if (existing.schemaVersion !== 1 || existing.version !== version || existing.commit !== commit || typeof existing.buildId !== 'string' || !/^[A-Za-z0-9._-]{1,96}$/.test(existing.buildId)) throw new Error('Browser build identity differs from the delivery revision')
+      browserIdentity = { application: 'NoveraWeb', schemaVersion: 1, buildId: existing.buildId }
+    }
+  }
+  const metadata = { formatVersion: 1, product: 'Novera Web', version, commit, entrypoint: 'index.html', entrypointSha256: index.sha256, ...browserIdentity }
   fs.writeFileSync(path.join(root, 'novera-web-version.json'), JSON.stringify(metadata, null, 2) + '\n')
   return { ...metadata, artifacts, deliveryMode: 'browser-reload', requiredEntrypointCacheControl: 'no-cache', requiredVersionCacheControl: 'no-store', hostedChannelValidated: false, browserUpgradeValidated: false, publicReleaseAuthorized: false }
 }
@@ -46,6 +55,7 @@ export async function validateWebDelivery(baseUrl, expected) {
   if (!/(?:^|,)\s*no-store(?:\s|,|$)/i.test(manifest.cache)) throw new Error('Web version metadata must disable storage in caches')
   const metadata = JSON.parse(manifest.bytes)
   if (metadata.formatVersion !== 1 || metadata.product !== 'Novera Web' || metadata.version !== expected.version || metadata.commit !== expected.commit || metadata.entrypoint !== 'index.html' || metadata.entrypointSha256 !== expected.entrypointSha256) throw new Error('Deployed Web revision differs from the reviewed build')
+  if (expected.buildId && (metadata.application !== 'NoveraWeb' || metadata.schemaVersion !== 1 || metadata.buildId !== expected.buildId)) throw new Error('Deployed browser update identity differs from the reviewed build')
   for (const artifact of expected.artifacts) {
     if (!artifact.file || artifact.file.startsWith('/') || artifact.file.split('/').some(p => p === '..' || !p) || /[\\?#:]/.test(artifact.file)) throw new Error('Unsafe Web artifact path')
     const actual = await get(artifact.file, artifact.bytes)

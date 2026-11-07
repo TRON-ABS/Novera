@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>O ṣe apejuwe ibi-afẹde rẹ. Novera ngbaradi awọn orisun, ṣiṣe iṣẹ-ṣiṣe ati ṣeto awọn abajade.</strong></p>
   <p>Oluranlọwọ AI ti ominira nipasẹ TRON-ABS, lati ifilọlẹ akọkọ si awọn abajade: ọrọ, awọn aworan, orin ati fidio ni ibaraẹnisọrọ kan.</p>
-  <p><strong>Wa fun Windows, Linux, macOS ati Android</strong> · Awọn orisun ti a ti pese sile: 104 awọn ede wiwo · 42 awọn olupese awọsanma · 58 awọn tito tẹlẹ media · Apache 2.0</p>
+  <p><strong>Wa fun Windows, Linux, macOS ati Android</strong> · 104 awọn ede wiwo · 42 awọn olupese awọsanma · 58 awọn tito tẹlẹ media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Adaṣiṣẹ</a> · <a href="#one-dashboard-for-every-creation">Dasibodu</a> · <a href="#local-models-in-use">Awọn awoṣe AI nṣiṣẹ ni agbegbe lori ẹrọ rẹ</a> · <a href="#hub-and-compatible-models">Awọn ọna kika & Ipele</a> · <a href="#cloud-providers">Awọsanma</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Tiwon</a></p>
   <p>Olubasọrọ osise: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Awọn profaili awujọ Novera osise: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Ngbaradi ẹya 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Awọn igbasilẹ ti gbogbo eniyan wa ni 1.0.0. Awọn ilọsiwaju wọnyi ti pese sile ni awọn orisun fun 1.0.1; wọn nilo awọn idii ti a tunṣe, awọn sọwedowo idasilẹ ati titẹjade. Ṣiṣe imudojuiwọn iwe yii ko ṣe imudojuiwọn awọn ohun elo ti a fi sii.
+Novera 1.0.1 wa fun awọn iru ẹrọ ti a ṣe akojọ rẹ si isalẹ. Ṣe igbasilẹ package fun eto rẹ tabi lo ikanni imudojuiwọn ti o fowo si. Awọn fifi sori ẹrọ ti o wa tẹlẹ ṣe imudojuiwọn nigbati o ba fi package tuntun sori ẹrọ tabi gba imudojuiwọn naa.
 
 - Aabo: awọn igbanilaaye abinibi ti o muna fun awọn oju-iwe latọna jijin, ijẹrisi fun awọn API nẹtiwọọki ati awọn irinṣẹ olupin, ibi ipamọ aṣiri ti o ni aabo ati iṣiwa, faili ailewu / iraye si media, sisọ iwe kaakiri ati kọ awọn iwe afọwọkọ. Awọn igbẹkẹle ti o han ti ni imudojuiwọn; Awọn imọran ti o ku ni a tọpa ni gbangba.
 - Aṣiri: awọn iṣiro ati awọn ijabọ aṣiṣe nilo ifọkansi lọtọ ati wa ni pipa nipasẹ aiyipada. Awọn ile pẹlu iṣeto ni opin opin irin ajo. Imọ aisan ti wa ni filtered; awọn olumulo pa Iṣakoso ti ibere ise.
@@ -35,7 +35,7 @@ Awọn igbasilẹ ti gbogbo eniyan wa ni 1.0.0. Awọn ilọsiwaju wọnyi ti pe
 - Itunu: awọn idari isalẹ ṣubu lakoko ti titẹ sii wa ni han. Gbohungbohun iwapọ ati awọn iṣakoso ifihan, bọtini ohun labẹ gbohungbohun, awọn eto orin idahun ati awọn aami paati ti a tumọ ṣe ilọsiwaju lilo lori awọn iboju kekere.
 - API Catalogs: 43 awọn profaili olupese, pẹlu TabbyAPI ni agbegbe, pẹlu awọn aṣayan ifọrọranṣẹ ati media yiyan. Awọn titẹ sii titun pẹlu GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 ati GPT Image 2.6, Gemini Omni 1.2, FLUX 3 nibiti o ti ṣe atilẹyin. Sọtun ko si ohun to hides esi kọja mẹwa awoṣe. Awọn idamọ gangan, awọn aaye ipari agbegbe, awọn ifilọlẹ ikọkọ ati awọn awoṣe ti a ko wọle ni a bọwọ fun.
 - Ifọwọsi: ohun elo ti a fojusi, ile ikawe abinibi, katalogi gbogbogbo ati awọn sọwedowo ede ti wa ni igbasilẹ ninu awọn akọsilẹ alaye. Ni wiwo naa kọ fun Windows / macOS / Linux / Android / iOS. Awọn ile iwaju iwaju wọnyi ko jẹri awọn idii abinibi tabi itọkasi lori gbogbo ẹrọ.
-- Ṣaaju ki o to tu silẹ: fọwọsi awọn akojọpọ abinibi ti a tun kọ, aabo/awọn awari igbẹkẹle ati imudojuiwọn 1.0.0 gidi si 1.0.1. Wiwa da lori hardware, wiwọle olupese ati Syeed. Ko si ibamu awoṣe gbogbo agbaye, ipo ailagbara odo tabi atẹjade ti o pari ni ẹtọ.
+- Wiwa ati awọn sọwedowo ti o pari ti wa ni akojọ si isalẹ. Awọn ẹya atilẹyin da lori hardware, wiwọle olupese ati Syeed. Awọn awari aabo ati awọn opin afọwọsi ẹrọ abinibi wa ni akọsilẹ. Jeki afẹyinti ṣaaju imudojuiwọn.
 
 [Awọn akọsilẹ alaye, afọwọsi ati iṣẹ ti o ku](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Awọn igbasilẹ ti gbogbo eniyan wa ni 1.0.0. Awọn ilọsiwaju wọnyi ti pe
 
 <!-- novera-release-1.0.1:end -->
 
-## Wiwa — 2026-11-03
+## Wiwa — 2026-11-07
 
-**Novera 1.0.0 wa fun Windows, Linux, macOS ati Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Awọn idii tabili, mejeeji CLI awọn ile ifi nkan pamosi, awọn ibuwọlu ati awọn ifihan imudojuiwọn jẹ ti gbogbo eniyan ati rii daju.
+**Novera 1.0.1 wa fun Windows, Linux, macOS ati Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Awọn idii tabili, mejeeji CLI awọn ile ifi nkan pamosi, awọn ibuwọlu ati awọn ifihan imudojuiwọn jẹ ti gbogbo eniyan ati rii daju.
 
 | Platform | Wiwa |
 | --- | --- |
 | Windows x64 | Insitola ti gbogbo eniyan NSIS, imudojuiwọn ti fowo si; abinibi fifi sori ati rirọpo wadi. |
 | Linux x64 | Gbangba AppImage, imudojuiwọn ti fowo si; abinibi fifi sori ati rirọpo wadi. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, pẹlu ikanni imudojuiwọn ti a fowo si igbẹhin. |
-| Windows ARM64 | [Insitola gbangba NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), CPU abinibi ẹrọ ọrọ; fifi sori ẹrọ, rirọpo ati awọn sọwedowo ikanni ti gbogbo eniyan jẹri. |
-| Android ARM64 | [Ti gbogbo eniyan fowo si APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, aiyipada ipele 512. Olutọju naa jẹrisi pe 1000012 ṣiṣẹ lori foonu wọn. Apo mimọ laisi awọn ibaraẹnisọrọ, awọn awoṣe tabi awọn bọtini API ti ara ẹni. [Ẹri ati awọn idiwọn](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Itusilẹ 1.0.0 DMG osise](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-fọwọsi awọn imudojuiwọn. Ko Apple notarized; Aládàáṣiṣẹ sọwedowo koja lọtọ lori mejeji faaji, visual sọwedowo da duro. [Fifi sori ẹrọ ati ẹri](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, pẹlu ikanni imudojuiwọn ti a fowo si igbẹhin. |
+| Windows ARM64 | [Insitola gbangba NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), CPU abinibi ẹrọ ọrọ; fifi sori ẹrọ, rirọpo ati awọn sọwedowo ikanni ti gbogbo eniyan jẹri. |
+| Android ARM64 | Android 1.0.1 wa bi apk ARM64 ti o fowo si, kọ 1000013. O nlo iwe-ẹri Novera ti o wa ati gba ayewo akojọpọ. Ko si awọn ibaraẹnisọrọ ti ara ẹni ninu, awọn awoṣe tabi awọn bọtini API. Fifi sori ẹrọ ati imudojuiwọn lori foonu kan wa lati ṣe idanwo. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Itusilẹ 1.0.1 DMG osise](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-fọwọsi awọn imudojuiwọn. Ko Apple notarized; Aládàáṣiṣẹ sọwedowo koja lọtọ lori mejeji faaji, visual sọwedowo da duro. [Fifi sori ẹrọ ati ẹri](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Kọ simulator inu; Apple fawabale / ipese wa ni ti beere ṣaaju ki o to iPhone fifi sori. [Atẹle](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 to šee gbe | [Ti wole ZIP pamosi](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data duro ni Data, wole Program rirọpo ti wadi. |
 | Oju opo wẹẹbu, MSI, Debian | Onibara wẹẹbu ti gbalejo ati awọn ọna kika miiran wa ninu inu; Aaye igbejade Pages wa. |
 
 Lori Mac, ṣii DMG ki o daakọ Novera sinu Awọn ohun elo. Ti ifilọlẹ akọkọ ba dina, gba Novera wọle **Eto Eto → Asiri & Aabo → Ṣii Lonakona**. [Awọn ilana Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Awọn ibuwọlu imudojuiwọn kii ṣe Windows Authenticode tabi notarization Apple. Awọn sọwedowo ẹya-ọwọ lọwọlọwọ kọja lodi si ikanni gbogbo eniyan; iyipada laarin awọn ẹya gbangba meji jẹ idanwo itusilẹ atẹle. [Ẹri ati awọn idiwọn](docs/LAUNCH_STATUS.md).
+Awọn ibuwọlu imudojuiwọn jẹ iyatọ si Windows Authenticode ati notarization Apple. Awọn hashes idii, awọn sọwedowo abinibi ati awọn idanwo imudojuiwọn jẹ akọsilẹ lọtọ. Ipari gbogbo eniyan 1.0.0 si 1.0.1 iṣagbega ni a fi idi mulẹ nikan fun awọn oju iṣẹlẹ ti o gbasilẹ ninu ijabọ itusilẹ. [Ẹri ati awọn idiwọn](docs/LAUNCH_STATUS.md)
 
 Lori Android, foonu igbalode pẹlu iranti to ni iṣeduro fun awọn awoṣe agbegbe; lo olupese API lori awọn ẹrọ ti ko lagbara. Fun wiwa wẹẹbu, ọrọ-ọrọ ti o kere ju **Awọn ami 16K (16,384)** ni a ṣe iṣeduro, ni igbagbogbo kọja awọn ẹya.
 
@@ -143,7 +143,7 @@ Ayipada orin Qwen ati awoṣe imupadabọ Qwen jẹ **oriṣiriṣi awọn faili
 
 ## Awọn olupese awọsanma
 
-Awọn orisun ti a pese silẹ ni 43 awọn profaili olupese: 42 awọn iṣẹ awọsanma ati TabbyAPI fun olupin agbegbe kan. Wiwa awoṣe ati awọn agbara da lori akọọlẹ, agbegbe ati API atilẹyin. Iwe akọọlẹ jẹ pinpin nipasẹ gbogbo awọn ede wiwo 104.
+Iwe akọọlẹ naa ni awọn profaili olupese 43: 42 awọn iṣẹ awọsanma ati TabbyAPI fun olupin agbegbe kan. Wiwọle awoṣe ati awọn agbara da lori akọọlẹ, agbegbe ati API atilẹyin. Gbogbo 104 ede ni wiwo pin katalogi yii.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Awọn orisun ti a pese silẹ ni 43 awọn profaili olupese: 42 awọn iṣẹ 
 
 ### Aworan, orin ati fidio
 
-Katalogi ẹda ti a pese sile ni ninu 58 tito lati 20 awọn olupese: 30 aworan, 24 fidio ati 4 orin tito. Awọn tabili ti o wa ni isalẹ ṣe atokọ awọn ipa-ọna iṣọpọ; won ko tun gbogbo owo ẹbọ.
+Iwe akọọlẹ ẹda ni 58 tito tẹlẹ lati ọdọ awọn olupese 20: aworan 30, fidio 24 ati 4 tito tẹlẹ orin. Awọn tabili ti o wa ni isalẹ ṣe atokọ awọn awoṣe gangan ati awọn idamọ ti o ni atilẹyin nipasẹ awọn oluyipada ti a ṣepọ.
 
 | Olupese | Awọn abajade ni Novera | Awọn awoṣe katalogi |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Iwọnyi jẹ awọn itọnisọna fun idasi ati idagbasoke, kii ṣe ẹtọ pe
 
 ## Ipo ise agbese
 
-**Novera 1.0.0 wa fun Windows, Linux, macOS ati Android.** Sikirinifoto n ṣe afihan ohun elo Windows ti a ṣajọpọ ni agbegbe nipasẹ olutọju. Awọn iyipada orisun, awọn idanwo ifọkansi ati afọwọsi ohun elo jẹ akọsilẹ lọtọ; eyi ko fọwọsi gbogbo awoṣe, Syeed tabi iroyin awọsanma.
+**Novera 1.0.1 wa fun Windows, Linux, macOS ati Android.** Sikirinifoto n ṣe afihan ohun elo Windows ti a ṣajọpọ ni agbegbe nipasẹ olutọju. Awọn iyipada orisun, awọn idanwo ifọkansi ati afọwọsi ohun elo jẹ akọsilẹ lọtọ; eyi ko fọwọsi gbogbo awoṣe, Syeed tabi iroyin awọsanma.
 
 Afọwọṣe GitHub Actions kọ ni ṣiṣẹ fun gbogbo awọn iyatọ pinpin mọkanla. Tẹle awọn [kọ awọn abajade ati awọn gbigba lati ayelujara oludije ti a fọwọsi](docs/CI_DISTRIBUTIONS.md); wiwa ti wa ni gba silẹ lọtọ fun kọọkan Syeed. Awọn oludije yatọ si awọn idasilẹ iṣelọpọ ti o fowo si. Pinpin awọn ibeere ti wa ni apejuwe ninu awọn [Ilana itusilẹ osise](OFFICIAL_RELEASES.md) ati [tu iwe](https://github.com/TRON-ABS/Novera/releases). Awọn oludije alaabo imudojuiwọn ti o wa tẹlẹ wa ti inu. Awọn idasilẹ ti gbogbo eniyan nilo atunto ati ẹrọ imudojuiwọn ti o jẹrisi; [Awọn sọwedowo ibuwọlu tabili tabili ati awọn ibeere ifilọlẹ ti o ku jẹ akọsilẹ](docs/LAUNCH_STATUS.md).
 

@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Siz tarif edin. Novera hazırlıyor, çalıştırıyor ve organize ediyor.</strong></p>
   <p>İlk lansmandan sonuçlara kadar TRON-ABS tarafından sunulan bağımsız bir AI asistanı: tek bir görüşmede metin, resimler, müzik ve video.</p>
-  <p><strong>Windows, Linux, macOS ve Android için kullanılabilir</strong> · Hazırlanan kaynaklar: 104 arayüz dili · 42 bulut sağlayıcıları · 58 medya ön ayarları · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS ve Android için kullanılabilir</strong> · 104 arayüz dili · 42 bulut sağlayıcısı · 58 medya ön ayarı · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomasyon</a> · <a href="#one-dashboard-for-every-creation">Kontrol Paneli</a> · <a href="#local-models-in-use">Yerel modeller</a> · <a href="#hub-and-compatible-models">Formatlar ve Merkez</a> · <a href="#cloud-providers">Bulut</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Katkıda bulunun</a></p>
   <p>Resmi iletişim: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Resmi Novera sosyal profilleri: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -18,10 +18,10 @@ Data ve gizlilik: [yerel çıkarım, isteğe bağlı telemetri, hata raporları 
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## 1.0.1 sürümü hazırlanıyor
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Herkese açık indirmeler 1.0.0 konumunda kalacak. 1.0.1 için kaynaklarda aşağıdaki iyileştirmeler hazırlanmıştır; yeniden oluşturulmuş paketler, sürüm kontrolleri ve yayın gerektirirler. Bu dokümantasyonun güncellenmesi yüklü uygulamaları güncellemez.
+Novera 1.0.1, aşağıda listelenen platformlar için mevcuttur. Sisteminize uygun paketi indirin veya imzalı güncelleme kanalını kullanın. Yeni paketi yüklediğinizde veya güncellemeyi kabul ettiğinizde mevcut kurulumlar güncellenir.
 
 - Güvenlik: Uzak sayfalar için daha katı yerel izinler, ağ API'leri ve sunucu araçları için kimlik doğrulama, korumalı gizli depolama ve taşıma, daha güvenli dosya/medya erişimi, e-tablo ayrıştırma ve komut dosyaları oluşturma. Açığa çıkan bağımlılıklar güncellendi; geri kalan tavsiyeler açıkça izlenir.
 - Gizlilik: istatistikler ve hata raporları ayrı izin gerektirir ve varsayılan olarak kapalı kalır. Yapılar, belgelenen hedef yapılandırmasını içerir. Teknik teşhisler filtrelenir; kullanıcılar aktivasyonun kontrolünü elinde tutar.
@@ -37,7 +37,7 @@ Herkese açık indirmeler 1.0.0 konumunda kalacak. 1.0.1 için kaynaklarda aşa�
 - Rahatlık: Giriş görünür kalırken alt kontroller daraltılır. Kompakt mikrofon ve açıklama kontrolleri, mikrofonun altındaki ses düğmesi, duyarlı müzik ayarları ve çevrilmiş bileşen etiketleri, küçük ekranlarda kullanımı iyileştirir.
 - API katalogları: Yenilenen sohbet ve medya seçimleriyle yerel olarak TabbyAPI dahil olmak üzere 43 sağlayıcı profili. Yeni girişler, desteklendiği yerlerde GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 ve GPT Image 2.6, Gemini Omni 1.2, FLUX 3'yi içerir. Yenileme artık on modelin ötesindeki sonuçları gizlemiyor. Kesin tanımlayıcılara, bölgesel uç noktalara, özel dağıtımlara ve içe aktarılan modellere saygı gösterilir.
 - Doğrulama: hedeflenen uygulama, yerel kütüphane, genel katalog ve dil kontrolleri ayrıntılı notlara kaydedilir. Arayüz Windows / macOS / Linux / Android / iOS için geliştirildi. Bu ön uç yapıları, her cihazda yerel paketleri veya çıkarımları onaylamaz.
-- Yayınlanmadan önce: yeniden oluşturulan yerel paketleri, kalan güvenlik/bağımlılık bulgularını ve gerçek 1.0.0 - 1.0.1 güncellemesini doğrulayın. Kullanılabilirlik donanıma, sağlayıcı erişimine ve platforma bağlıdır. Hiçbir evrensel model uyumluluğu, sıfır güvenlik açığı durumu veya tamamlanmış yayın iddia edilmemektedir.
+- Kullanılabilirlik ve tamamlanan kontroller aşağıda listelenmiştir. Desteklenen özellikler donanıma, sağlayıcı erişimine ve platforma bağlıdır. Güvenlik bulguları ve yerel cihaz doğrulama sınırları belgelenmeye devam ediyor. Güncellemeden önce yedek tutun.
 
 [Ayrıntılı notlar, doğrulama ve kalan çalışma](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Herkese açık indirmeler 1.0.0 konumunda kalacak. 1.0.1 için kaynaklarda aşa�
 
 <!-- novera-release-1.0.1:end -->
 
-## Kullanılabilirlik — 2026-11-03
+## Kullanılabilirlik — 2026-11-07
 
-**Novera 1.0.0, Windows, Linux, macOS ve Android için kullanılabilir.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Masaüstü paketleri, hem CLI arşivleri, imzalar hem de güncelleme bildirimleri herkese açıktır ve doğrulanmıştır.
+**Novera 1.0.1, Windows, Linux, macOS ve Android için kullanılabilir.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Masaüstü paketleri, hem CLI arşivleri, imzalar hem de güncelleme bildirimleri herkese açıktır ve doğrulanmıştır.
 
 | Platform | Kullanılabilirlik |
 | --- | --- |
 | Windows x64 | Genel NSIS yükleyici, imzalı güncelleyici; yerel kurulum ve değiştirme doğrulandı. |
 | Linux x64 | Herkese açık AppImage, imzalı güncelleyici; yerel kurulum ve değiştirme doğrulandı. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, özel imzalı güncelleme kanalıyla. |
-| Windows ARM64 | [Genel NSIS yükleyici](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), yerel CPU metin motoru; kurulum, değiştirme ve genel kanal kontrolleri doğrulandı. |
-| Android ARM64 | [Herkese açık imzalı APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, varsayılan toplu iş 512. Bakımcı, 1000012 sürümünün telefonunda çalıştığını doğruladı. Konuşma, model veya kişisel API anahtar içermeyen temiz paket. [Kanıtlar ve sınırlamalar](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Resmi 1.0.0 DMG sürümü](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera imzalı güncellemeler. Apple noter tasdikli değil; otomatik kontroller her iki mimaride de ayrı ayrı gerçekleştirilir, görsel kontroller ertelenir. [Kurulum ve kanıt](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, özel imzalı güncelleme kanalıyla. |
+| Windows ARM64 | [Genel NSIS yükleyici](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), yerel CPU metin motoru; kurulum, değiştirme ve genel kanal kontrolleri doğrulandı. |
+| Android ARM64 | Android 1.0.1, imzalı bir ARM64 APK olarak mevcuttur, 1000013 derleyin. Mevcut Novera sertifikasını kullanır ve paket incelemesinden geçer. Kişisel konuşmalar, modeller veya API anahtarları içermez. Telefona kurulum ve güncelleme henüz test edilmeyi bekliyor. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Resmi 1.0.1 DMG sürümü](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera imzalı güncellemeler. Apple noter tasdikli değil; otomatik kontroller her iki mimaride de ayrı ayrı gerçekleştirilir, görsel kontroller ertelenir. [Kurulum ve kanıt](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Dahili simülatör yapısı; iPhone kurulumundan önce Apple imzalama/temel hazırlığı gereklidir. [Takip](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 taşınabilir | [İmzalı ZIP arşivi](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); veriler Data içinde kalıyor, imzalı Program değiştirme doğrulandı. |
 | Web, MSI, Debian | Barındırılan Web istemcisi ve diğer formatlar dahili olarak kalır; Pages sunum sitesi mevcut. |
 
 Mac'te DMG dosyasını açın ve Novera dosyasını Uygulamalar'a kopyalayın. İlk başlatma engellenirse Novera'nin içeri girmesine izin verin **Sistem Ayarları → Gizlilik ve Güvenlik → Yine de Aç**. [Apple talimatları](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Güncelleyici imzaları Windows Authenticode veya Apple noter tasdikli değildir. Manuel güncel sürüm kontrolleri genel kanala karşı yapılır; iki genel sürüm arasındaki geçiş, bir sonraki sürümün testi olmaya devam ediyor. [Kanıtlar ve sınırlamalar](docs/LAUNCH_STATUS.md).
+Güncelleyici imzaları Windows Authenticode ve Apple noter tasdikinden ayrıdır. Paket karmaları, yerel kontroller ve güncelleme testleri ayrı olarak belgelenir. Genel 1.0.0'dan 1.0.1'ya tam bir yükseltme, yalnızca sürüm raporunda kaydedilen senaryolar için onaylandı. [Kanıtlar ve sınırlamalar](docs/LAUNCH_STATUS.md)
 
 Android tarihinde, yerel modeller için yeterli belleğe sahip modern bir telefon önerilir; Daha az güçlü cihazlarda bir API sağlayıcısı kullanın. Web araması için en azından bir bağlam **16K jeton (16,384)** sürümler arasında tutarlı bir şekilde önerilir.
 
@@ -145,7 +145,7 @@ Qwen müzik kodlayıcı ve Qwen alma modeli **farklı dosyalar**, ayrı olarak s
 
 ## Bulut sağlayıcıları
 
-Hazırlanan kaynaklar 43 sağlayıcı profilini içerir: 42 bulut hizmetleri ve yerel sunucu için TabbyAPI. Modelin kullanılabilirliği ve yetenekleri hesaba, bölgeye ve desteklenen API'ye bağlıdır. Katalog tüm 104 arayüz dilleri tarafından paylaşılmaktadır.
+Katalogda 43 sağlayıcı profili bulunur: 42 bulut hizmetleri ve yerel sunucu için TabbyAPI. Model erişimi ve yetenekleri hesaba, bölgeye ve desteklenen API'ye bağlıdır. Tüm 104 arayüz dili bu kataloğu paylaşmaktadır.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Hazırlanan kaynaklar 43 sağlayıcı profilini içerir: 42 bulut hizmetleri ve 
 
 ### Resim, müzik ve video
 
-Hazırlanan oluşturma kataloğu, 20 sağlayıcılardan 58 ön ayar içerir: 30 resim, 24 video ve 4 müzik ön ayarı. Aşağıdaki tablolar entegre rotaları listelemektedir; her ticari teklifi çoğaltmazlar.
+Oluşturma kataloğu, 20 sağlayıcılardan 58 ön ayar içerir: 30 resim, 24 video ve 4 müzik ön ayarı. Aşağıdaki tablolarda entegre adaptörler tarafından desteklenen modeller ve tanımlayıcılar tam olarak listelenmektedir.
 
 | Sağlayıcı | Novera cinsinden çıktılar | Katalog modelleri |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ Bunlar katkı ve gelişime yönelik talimatlardır, sektöre özel her uygulaman
 
 ## Proje durumu
 
-**Novera 1.0.0, Windows, Linux, macOS ve Android için kullanılabilir.** Ekran görüntüsü, bakımcı tarafından yerel olarak derlenen bir Windows uygulamasını göstermektedir. Kaynak değişiklikleri, hedeflenen testler ve donanım doğrulaması ayrı olarak belgelenir; bu her modeli, platformu veya bulut hesabını doğrulamaz.
+**Novera 1.0.1, Windows, Linux, macOS ve Android için kullanılabilir.** Ekran görüntüsü, bakımcı tarafından yerel olarak derlenen bir Windows uygulamasını göstermektedir. Kaynak değişiklikleri, hedeflenen testler ve donanım doğrulaması ayrı olarak belgelenir; bu her modeli, platformu veya bulut hesabını doğrulamaz.
 
 On bir dağıtım değişkeninin tümü için manuel GitHub Actions derlemeler etkinleştirildi. Takip et [derleme sonuçları ve doğrulanmış aday indirmeler](docs/CI_DISTRIBUTIONS.md); kullanılabilirlik her platform için ayrı ayrı kaydedilir. Adaylar imzalı üretim sürümlerinden farklıdır. Dağıtım gereklilikleri şu şekilde açıklanmıştır: [resmi yayın politikası](OFFICIAL_RELEASES.md) ve [sürüm sayfası](https://github.com/TRON-ABS/Novera/releases). Güncelleyici tarafından devre dışı bırakılan mevcut adaylar dahili olarak kalır. Genel sürümler, yapılandırılmış ve doğrulanmış bir güncelleme mekanizması gerektirir; [masaüstü imza kontrolleri ve kalan başlatma gereksinimleri belgelenmiştir](docs/LAUNCH_STATUS.md).
 

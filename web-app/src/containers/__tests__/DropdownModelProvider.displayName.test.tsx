@@ -1,11 +1,11 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
-import { render, screen, cleanup, fireEvent } from '@testing-library/react'
+import { render, screen, cleanup, fireEvent, act } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import DropdownModelProvider from '../DropdownModelProvider'
 import { getModelDisplayName } from '@/lib/utils'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { useFavoriteModel } from '@/hooks/useFavoriteModel'
-import { useCreation } from '@/hooks/useCreation'
+import { useCreation, creationDefaults } from '@/hooks/useCreation'
 import { mediaModels } from '@/constants/mediaProviders'
 
 // Define basic types to avoid missing declarations
@@ -112,6 +112,25 @@ vi.mock('../ModelSupportStatus', () => ({
 }))
 
 describe('DropdownModelProvider - Display Name Integration', () => {
+  it('shows the configured image engine without an explicit saved selection, then follows Auto drafts and submitted work', async () => {
+    useCreation.setState({ settings: { ...creationDefaults, imageEngine: 'sdcpp', ggufImageModel: 'D:/models/flux-2-klein-4b-Q6_K.gguf' }, videoSettings: { ...creationDefaults, videoModel: 'D:/models/Wan2.1.gguf' }, selections: {}, modes: { 'label-fix': 'image' }, resolvedModes: {} })
+    const view = (draftPrompt = '', disabled = false) => <DropdownModelProvider variant="composer" mediaScope="label-fix" draftPrompt={draftPrompt} disabled={disabled} />
+    const { rerender } = render(view())
+    expect(screen.getByTestId('model-selector-trigger')).toHaveTextContent('flux-2-klein-4b-Q6_K.gguf')
+    expect(screen.getByTestId('model-selector-trigger')).not.toHaveTextContent('Custom Model 1')
+    expect(screen.queryByTestId('model-support-status')).not.toBeInTheDocument()
+    await act(async () => { useCreation.getState().setMode('label-fix', 'auto') })
+    rerender(view('Crée une vidéo du soleil'))
+    expect(screen.getByTestId('model-selector-trigger')).toHaveTextContent('Wan2.1.gguf')
+    rerender(view('Crée une image du soleil'))
+    expect(screen.getByTestId('model-selector-trigger')).toHaveTextContent('flux-2-klein-4b-Q6_K.gguf')
+    await act(async () => { useCreation.getState().setResolvedMode('label-fix', 'video') })
+    rerender(view('Une autre demande texte', true))
+    expect(screen.getByTestId('model-selector-trigger')).toHaveTextContent('Wan2.1.gguf')
+    rerender(view('Explique le soleil'))
+    expect(screen.getByTestId('model-selector-trigger')).toHaveTextContent('Custom Model 1')
+    expect(useModelProvider().selectModelProvider).not.toHaveBeenCalled()
+  })
   it('shows one compact active-model selector opening upward, then local models and cloud tasks in order', () => {
     const state = useModelProvider()
     const local = { ...mockProviders[0], models: mockProviders[0].models.map(model => ({ ...model, settings: {} })) }

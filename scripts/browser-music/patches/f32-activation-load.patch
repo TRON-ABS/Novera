@@ -1,0 +1,21 @@
+--- a/src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl
++++ b/src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl
+@@ -72,7 +72,18 @@
+             SRC1_TYPE(0.0),
+             SRC1[src1_idx/VEC_SIZE],
+             global_n < params.n && global_k < params.k);
++        #ifdef SRC1_SHMEM_F32
++#ifdef VEC
++        shmem_src1[elem_idx] = src1_val.x;
++        shmem_src1[elem_idx + 1u] = src1_val.y;
++        shmem_src1[elem_idx + 2u] = src1_val.z;
++        shmem_src1[elem_idx + 3u] = src1_val.w;
++#else
++        shmem_src1[elem_idx] = src1_val;
++#endif
++#else
+         store_shmem(SHMEM_TYPE(src1_val), TILE_SRC0_SHMEM + elem_idx);
++#endif
+     }
+ }
+ #endif // INIT_SRC1_SHMEM_FLOAT

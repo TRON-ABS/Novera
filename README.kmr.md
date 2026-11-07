@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Hûn armanca xwe diyar dikin. Novera çavkaniyan amade dike, peywirê dimeşîne û encaman organîze dike.</strong></p>
   <p>Alîkarek serbixwe AI ji hêla TRON-ABS ve, ji destpêka yekem heya encamê: nivîs, wêne, muzîk û vîdyoyê di yek danûstendinê de.</p>
-  <p><strong>Ji bo Windows, Linux, macOS û Android hene</strong> · Çavkaniyên hazirkirî: 104 zimanên navberê · 42 pêşkêşkerên ewr · 58 pêşdibistanên medyayê · Apache 2.0</p>
+  <p><strong>Ji bo Windows, Linux, macOS û Android hene</strong> · 104 zimanên navberê · 42 pêşkêşkerên ewr · 58 pêşdibistanên medyayê · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomasyon</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Modelên AI li ser cîhaza we herêmî dixebitin</a> · <a href="#hub-and-compatible-models">Hub û modelên lihevhatî</a> · <a href="#cloud-providers">Ewr</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Beşdarî</a></p>
   <p>Têkiliya fermî: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Profîlên civakî yên fermî yên Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Amadekirina guhertoya 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Dakêşanên giştî li 1.0.0 dimînin. Pêşketinên jêrîn di çavkaniyan de ji bo 1.0.1 hatine amadekirin; ji wan re pakêtên ji nû ve hatî çêkirin, kontrolên berdan û weşandinê hewce dike. Nûvekirina vê belgeyê sepanên sazkirî nûve nake.
+Novera 1.0.1 ji bo platformên li jêr hatine rêz kirin heye. Ji bo pergala xwe pakêtê dakêşin an kanala nûvekirina wê ya îmzekirî bikar bînin. Sazkirinên heyî dema ku hûn pakêta nû saz dikin an nûvekirinê qebûl dikin nûve dikin.
 
 - Ewlekarî: Destûrên xwemalî yên hişktir ji bo rûpelên dûr, erêkirina ji bo API-yên torê û amûrên serverê, hilanînê û koça veşartî ya parastî, gihîştina pelê/medya ewletir, parkirina pelgeyê û çêkirina skrîptan. Girêdanên eşkerekirî hatine nûve kirin; şîretên mayî bi eşkere têne şopandin.
 - Nepenî: îstatîstîk û raporên xeletiyê razîbûnek cûda hewce dike û ji hêla xwerû venekêşe. Avakirin veavakirina cîhê belgekirî vedihewîne. Teşhîsên teknîkî têne fîltrekirin; bikarhêner kontrolkirina çalakkirinê diparêzin.
@@ -35,7 +35,7 @@ Dakêşanên giştî li 1.0.0 dimînin. Pêşketinên jêrîn di çavkaniyan de 
 - Rehetî: dema ku têketin xuya dibe, kontrolên jêrîn hilweşin. Kontrolên mîkrofona kompakt û eşkerekirinê, bişkojka deng a li binê mîkrofonê, mîhengên muzîkê yên bersivdar û etîketên pêkhateyên wergerî karanîna li ser ekranên piçûk çêtir dikin.
 - Katalogên API: 43 profîlên pêşkêşker, di nav de TabbyAPI herêmî, bi vebijarkên sohbet û medyayê yên nûvekirî. Têketinên nû GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 û GPT Image 2.6, Gemini Omni 1.2, FLUX 3 yên ku tên piştgirîkirin hene. Refresh êdî encamên ji deh modelan wêdetir venaşêre. Nasnameyên tam, xalên dawî yên herêmî, bicihkirinên taybet û modelên îthalkirî têne rêz kirin.
 - Verastkirin: sepana armanckirî, pirtûkxaneya xwemalî, kataloga giştî û kontrolên zimanî di notên berfireh de têne tomar kirin. Têkilî ji bo Windows / macOS / Linux / Android / iOS çêdibe. Van avahiyên pêşiyê li ser her cîhazê pakêtên xwemalî an encamnameyê piştrast nakin.
-- Berî berdanê: pakêtên xwemalî yên ji nû ve hatine çêkirin, vedîtinên ewlehî/girêdayî yên mayî û nûvekirina 1.0.0 ya rastîn ya 1.0.1 rast bikin. Hebûn bi hardware, gihîştina pêşkêşker û platformê ve girêdayî ye. Lihevhatina modela gerdûnî, statûya sifir-xirabiyê an weşana qedandî nayê îdîa kirin.
+- Hebûn û kontrolên qedandî li jêr têne navnîş kirin. Taybetmendiyên piştgirî bi hardware, gihîştina pêşkêşker û platformê ve girêdayî ye. Vedîtinên ewlehiyê û sînorên pejirandina cîhaza xwecihî belgekirî dimînin. Berî nûvekirinê hilanînê hilînin.
 
 [Nîşeyên berfireh, erêkirin û xebata mayî](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Dakêşanên giştî li 1.0.0 dimînin. Pêşketinên jêrîn di çavkaniyan de 
 
 <!-- novera-release-1.0.1:end -->
 
-## Hebûn — 2026-11-03
+## Hebûn — 2026-11-07
 
-**Novera 1.0.0 ji bo Windows, Linux, macOS û Android heye.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Pakêtên sermaseyê, hem arşîvên CLI, hem îmze û hem jî diyardeyên nûvekirinê gelemperî û verastkirî ne.
+**Novera 1.0.1 ji bo Windows, Linux, macOS û Android heye.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Pakêtên sermaseyê, hem arşîvên CLI, hem îmze û hem jî diyardeyên nûvekirinê gelemperî û verastkirî ne.
 
 | Platform | Hebûn |
 | --- | --- |
 | Windows x64 | Sazkerê Giştî yê NSIS, nûvekerê îmzekirî; sazkirin û veguheztina xwecî verast kirin. |
 | Linux x64 | AppImage giştî, nûvekerê îmzekirî; sazkirin û veguheztina xwecî verast kirin. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, bi kanalek nûvekirina îmzekirî ya diyarkirî. |
-| Windows ARM64 | [Sazkerê Giştî yê NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), motora nivîsê ya xwecî CPU; sazkirin, veguheztin û kontrolên kanala gelemperî hatine verast kirin. |
-| Android ARM64 | [APK 1.0.0 îmzeya giştî](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, koma xwerû 512. Parêzger piştrast dike ku avakirina 1000012 li ser têlefona wan dixebite. Pakêta paqij bêyî danûstandin, model an bişkojkên kesane yên API. [Delîl û sînorkirin](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Serbestberdana 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera nûvekirinên îmzekirî. Apple noterized; kontrolên otomatîkî li ser her du mîmarî ji hev cuda derbas bûn, kontrolên dîtbar hatin paşxistin. [Sazkirin û delîl](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, bi kanalek nûvekirina îmzekirî ya diyarkirî. |
+| Windows ARM64 | [Sazkerê Giştî yê NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), motora nivîsê ya xwecî CPU; sazkirin, veguheztin û kontrolên kanala gelemperî hatine verast kirin. |
+| Android ARM64 | Android 1.0.1 wekî ARM64 APK-ya îmzekirî heye, avahî 1000013. Ew sertîfîkaya heyî ya Novera bikar tîne û kontrolkirina pakêtê derbas dike. Ew ti danûstendinên kesane, model an bişkojkên API-ê dihewîne. Sazkirin û nûvekirina li ser têlefonê dimîne ku were ceribandin. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Serbestberdana 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera nûvekirinên îmzekirî. Apple noterized; kontrolên otomatîkî li ser her du mîmarî ji hev cuda derbas bûn, kontrolên dîtbar hatin paşxistin. [Sazkirin û delîl](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Avakirina simulatora navxweyî; Berî sazkirina iPhone-ê îmzekirin / dabînkirina Apple hewce ye. [Şopandin](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portable | [Arşîva ZIP îmzekirî](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); Daneyên di Data de dimîne, veguhertina Program hatî îmzekirin verast kirin. |
 | Web, MSI, Debian | Muwekîlê Malpera Mêvandar û formên din hundurîn dimînin; Malpera pêşkêşkirina Pages heye. |
 
 Li Mac-ê, DMG vekin û Novera li Serlêdan kopî bikin. Ger destpêkirina yekem hate asteng kirin, destûr bidin Novera tê de **Mîhengên Pergalê → Nepenî û Ewlekarî → Bi her awayî vekin**. [talîmatên Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Îmzeyên nûveker ne Windows Authenticode an noterkirina Apple ne. Kontrolên guhertoya heyî ya manual li hember kanala giştî derbas dibin; veguheztinek di navbera du guhertoyên gelemperî de ceribandinek berdana paşîn dimîne. [Delîl û sînorkirin](docs/LAUNCH_STATUS.md).
+Îmzeyên nûveker ji noterkirina Windows Authenticode û Apple-ê veqetandî ne. Haşeyên pakêtê, kontrolên xwemalî û ceribandinên nûvekirinê ji hev cihê têne belge kirin. Nûvekirinek giştî ya tevahî 1.0.0 ji bo 1.0.1 tenê ji bo senaryoyên ku di rapora berdanê de hatine tomar kirin tê pejirandin. [Delîl û sînorkirin](docs/LAUNCH_STATUS.md)
 
 Li ser Android, têlefonek nûjen bi têra bîranîna ji bo modelên herêmî tê pêşniyar kirin; li ser cîhazên kêmtir hêzdar pêşkêşkerek API bikar bînin. Ji bo lêgerîna malperê, çarçoveyek herî kêm **Nîşaneyên 16K (16,384)** tê pêşniyar kirin, bi domdarî li seranserê guhertoyan.
 
@@ -143,7 +143,7 @@ Van modelan konfigurasyona rêberî ya heyî pêk tînin. Hûn dikarin modelên 
 
 ## Pêşkêşkerên Cloud
 
-Çavkaniyên amadekirî 43 profîlên pêşkêşker hene: 42 servîsên ewr û TabbyAPI ji bo pêşkêşkerek herêmî. Hebûn û kapasîteyên modelê bi hesab, herêm û API-ya piştgirî ve girêdayî ye. Katalog ji hêla hemî 104 zimanên navberê ve tê parve kirin.
+Katalog 43 profîlên pêşkêşker hene: 42 servîsên ewr û TabbyAPI ji bo pêşkêşkerek herêmî. Gihîştin û kapasîteyên modelê bi hesab, herêm û API-ya piştgirî ve girêdayî ye. Hemî 104 zimanên navberê vê katalogê parve dikin.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Van modelan konfigurasyona rêberî ya heyî pêk tînin. Hûn dikarin modelên 
 
 ### Wêne, muzîk û vîdyo
 
-Kataloga afirandinê ya amadekirî 58 pêşdibistanên ji pêşkêşkerên 20 dihewîne: 30 wêne, 24 vîdyo û 4 pêşdibistanên muzîkê. Tabloyên jêrîn rêyên yekbûyî navnîş dikin; ew her pêşkêşiya bazirganî dubare nakin.
+Kataloga afirandinê dihewîne 58 pêşdibistanên ji pêşkêşkerên 20: 30 wêne, 24 vîdeo û 4 pêşdibistanên muzîkê. Tabloyên jêrîn model û nasnameyên rastîn ên ku ji hêla adapterên yekbûyî ve têne piştgirî kirin navnîş dikin.
 
 | Pêşkêşker | Di Novera de derdikeve | Modelên katalogê |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Ev rêwerzên tevkarî û pêşkeftinê ne, ne îdîayek ku her serîlêdana sek
 
 ## Rewşa projeyê
 
-**Novera 1.0.0 ji bo Windows, Linux, macOS û Android heye.** Dîmenê serîlêdanek Windows nîşan dide ku li herêmê ji hêla parêzger ve hatî berhev kirin. Guhertinên çavkaniyê, ceribandinên armanckirî û pejirandina hardware ji hev cihê têne belge kirin; ev her model, platform an hesabê cloudê rast nake.
+**Novera 1.0.1 ji bo Windows, Linux, macOS û Android heye.** Dîmenê serîlêdanek Windows nîşan dide ku li herêmê ji hêla parêzger ve hatî berhev kirin. Guhertinên çavkaniyê, ceribandinên armanckirî û pejirandina hardware ji hev cihê têne belge kirin; ev her model, platform an hesabê cloudê rast nake.
 
 Avakirinên manual GitHub Actions ji bo hemî yanzdeh guhertoyên belavkirinê têne çalak kirin. Bişopînin [encam ava bikin û dakêşanên berendamê verast kirin](docs/CI_DISTRIBUTIONS.md); hebûna ji bo her platformê ji hev cuda tê tomar kirin. Namzetên ji weşanên hilberîna îmzekirî cuda ne. Pêdiviyên belavkirinê di nav de têne diyar kirin [polîtîkaya serbestberdana fermî](OFFICIAL_RELEASES.md) û [rûpela weşanên](https://github.com/TRON-ABS/Novera/releases). Namzetên heyî yên neçalak nûveker navxweyî dimînin. Weşanên gelemperî mekanîzmayek nûvekirina mîhengkirî û verastkirî hewce dike; [Kontrolên îmzeya sermaseyê û pêdiviyên destpêkirinê yên mayî têne belge kirin](docs/LAUNCH_STATUS.md).
 

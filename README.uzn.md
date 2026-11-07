@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Maqsadingizni tasvirlab berasiz. Novera resurslarni tayyorlaydi, topshiriqni bajaradi va natijalarni tashkil qiladi.</strong></p>
   <p>Mustaqil AI yordamchisi TRON-ABS tomonidan birinchi ishga tushirilgandan boshlab natijalargacha: matn, rasm, musiqa va video bir suhbatda.</p>
-  <p><strong>Windows, Linux, macOS va Android uchun mavjud</strong> · Tayyorlangan manbalar: 104 interfeys tillari · 42 bulutli provayderlar · 58 media sozlamalari · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS va Android uchun mavjud</strong> · 104 interfeys tillari · 42 bulutli provayderlar · 58 media sozlamalari · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Avtomatlashtirish</a> · <a href="#one-dashboard-for-every-creation">Boshqaruv paneli</a> · <a href="#local-models-in-use">Qurilmangizda mahalliy sifatida ishlaydigan AI modellar</a> · <a href="#hub-and-compatible-models">Hub va mos modellar</a> · <a href="#cloud-providers">Bulut</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Hissa</a></p>
   <p>Rasmiy aloqa: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Rasmiy Novera ijtimoiy profillar: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## 1.0.1 versiyasi tayyorlanmoqda
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Ommaviy yuklab olishlar 1.0.0 da qoladi. Quyidagi yaxshilanishlar 1.0.1 uchun manbalarda tayyorlangan; ular qayta tiklangan paketlarni, relizlar cheklarini va nashrni talab qiladi. Ushbu hujjatni yangilash o'rnatilgan ilovalarni yangilamaydi.
+Novera 1.0.1 quyida keltirilgan platformalar uchun mavjud. Tizimingiz uchun paketni yuklab oling yoki uning imzolangan yangilash kanalidan foydalaning. Yangi paketni o'rnatganingizda yoki yangilanishni qabul qilganingizda mavjud o'rnatishlar yangilanadi.
 
 - Xavfsizlik: masofaviy sahifalar uchun qattiq mahalliy ruxsatlar, tarmoq API va server vositalari uchun autentifikatsiya, himoyalangan maxfiy saqlash va migratsiya, xavfsizroq fayl/mediaga kirish, elektron jadvallarni tahlil qilish va skriptlarni yaratish. Ochiq bog'liqliklar yangilandi; qolgan maslahatlar ochiq kuzatiladi.
 - Maxfiylik: statistika va xato hisobotlari alohida rozilikni talab qiladi va sukut boʻyicha oʻchirib qoʻyiladi. Qurilishlar hujjatlashtirilgan maqsad konfiguratsiyasini o'z ichiga oladi. Texnik diagnostika filtrlanadi; foydalanuvchilar faollashtirishni nazorat qiladi.
@@ -35,7 +35,7 @@ Ommaviy yuklab olishlar 1.0.0 da qoladi. Quyidagi yaxshilanishlar 1.0.1 uchun ma
 - Konfor: kirish koʻrinadigan boʻlsa, pastki boshqaruvlar yiqilib tushadi. Yilni mikrofon va ochish boshqaruvlari, mikrofon ostidagi ovoz tugmasi, sezgir musiqa sozlamalari va tarjima qilingan komponent yorliqlari kichik ekranlarda foydalanishni yaxshilaydi.
 - API kataloglari: 43 provayder profillari, jumladan mahalliy TabbyAPI, yangilangan chat va media tanlovlari bilan. Yangi yozuvlar qoʻllab-quvvatlanadigan GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 va GPT Image 2.6, Gemini Omni 1.2, FLUX 3 ni oʻz ichiga oladi. Yangilash endi o‘ndan ortiq modeldagi natijalarni yashirmaydi. Aniq identifikatorlar, mintaqaviy so'nggi nuqtalar, shaxsiy joylashtirishlar va import qilingan modellar hurmat qilinadi.
 - Tasdiqlash: maqsadli ilova, mahalliy kutubxona, umumiy katalog va til tekshiruvlari batafsil eslatmalarda qayd etilgan. Interfeys Windows / macOS / Linux / Android / iOS uchun yaratilgan. Ushbu frontend tuzilmalari har bir qurilmada mahalliy paketlar yoki xulosalarni tasdiqlamaydi.
-- Chiqarishdan oldin: qayta tiklangan mahalliy paketlarni, qolgan xavfsizlik/qaramlik topilmalarini va haqiqiy 1.0.0 dan 1.0.1gacha yangilanishni tasdiqlang. Mavjudligi apparat, provayderga kirish va platformaga bog'liq. Hech qanday universal model mosligi, nol zaiflik holati yoki tugallangan nashrga da'vo qilinmaydi.
+- Mavjudligi va tugallangan tekshiruvlar quyida keltirilgan. Qo'llab-quvvatlanadigan xususiyatlar apparat, provayderga kirish va platformaga bog'liq. Xavfsizlik topilmalari va mahalliy qurilmani tekshirish chegaralari hujjatlashtirilgan. Yangilashdan oldin zaxira nusxasini saqlang.
 
 [Batafsil eslatmalar, tekshirish va qolgan ishlar](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Ommaviy yuklab olishlar 1.0.0 da qoladi. Quyidagi yaxshilanishlar 1.0.1 uchun ma
 
 <!-- novera-release-1.0.1:end -->
 
-## Mavjudligi — 2026-11-03
+## Mavjudligi — 2026-11-07
 
-**Novera 1.0.0 Windows, Linux, macOS va Android uchun mavjud.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Ish stoli paketlari, CLI arxivlari, imzolar va yangilanish manifestlari hammaga ochiq va tasdiqlangan.
+**Novera 1.0.1 Windows, Linux, macOS va Android uchun mavjud.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Ish stoli paketlari, CLI arxivlari, imzolar va yangilanish manifestlari hammaga ochiq va tasdiqlangan.
 
 | Platforma | Mavjudligi |
 | --- | --- |
 | Windows x64 | Ommaviy NSIS oʻrnatuvchi, imzolangan yangilovchi; mahalliy o'rnatish va almashtirish tasdiqlangan. |
 | Linux x64 | Ommaviy AppImage, imzolangan yangilovchi; mahalliy o'rnatish va almashtirish tasdiqlangan. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, maxsus imzolangan yangilash kanali bilan. |
-| Windows ARM64 | [Ommaviy NSIS oʻrnatuvchisi](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), mahalliy CPU matnli dvigatel; o'rnatish, almashtirish va ommaviy kanal tekshiruvlari tasdiqlangan. |
-| Android ARM64 | [Ochiq imzolangan APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, standart toʻplam 512. Xizmat koʻrsatuvchi qurilma 1000012 telefonida ishlashini tasdiqlaydi. Hech qanday suhbatlar, modellar yoki shaxsiy API kalitlarisiz toza paket. [Dalillar va cheklovlar](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Rasmiy 1.0.0 DMG chiqarish](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera imzolangan yangilanishlar. Apple notarial tasdiqlanmagan; avtomatlashtirilgan tekshiruvlar ikkala arxitekturada alohida o'tkazildi, vizual tekshiruvlar kechiktirildi. [O'rnatish va dalillar](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, maxsus imzolangan yangilash kanali bilan. |
+| Windows ARM64 | [Ommaviy NSIS oʻrnatuvchisi](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), mahalliy CPU matnli dvigatel; o'rnatish, almashtirish va ommaviy kanal tekshiruvlari tasdiqlangan. |
+| Android ARM64 | Android 1.0.1 imzolangan ARM64 APK, 1000013 versiyasi sifatida mavjud. U mavjud Novera sertifikatidan foydalanadi va paket tekshiruvidan o‘tadi. Unda shaxsiy suhbatlar, modellar yoki API kalitlari mavjud emas. Telefonda o'rnatish va yangilash sinovdan o'tishi kerak. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Rasmiy 1.0.1 DMG chiqarish](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera imzolangan yangilanishlar. Apple notarial tasdiqlanmagan; avtomatlashtirilgan tekshiruvlar ikkala arxitekturada alohida o'tkazildi, vizual tekshiruvlar kechiktirildi. [O'rnatish va dalillar](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Ichki simulyatorni qurish; iPhone-ni o'rnatishdan oldin Apple imzosi/ta'minoti talab qilinadi. [Kuzatuv](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portativ | [Imzolangan ZIP arxiv](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); ma'lumotlar Data da qoladi, imzolangan Program almashtirish tekshiriladi. |
 | Web, MSI, Debian | Xost veb-mijoz va boshqa formatlar ichki qoladi; Pages taqdimot sayti mavjud. |
 
 Mac-da DMG-ni oching va Novera-ni Ilovalarga nusxalang. Agar birinchi ishga tushirish bloklangan bo'lsa, Novera dyuymga ruxsat bering **Tizim sozlamalari → Maxfiylik va xavfsizlik → Baribir ochish**. [Apple ko'rsatmalari](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Yangilovchi imzolari Windows Authenticode yoki Apple notarial tasdiqlanishi emas. Joriy versiyani qo'lda tekshirish ommaviy kanalga qarshi o'tadi; ikkita ommaviy versiya o'rtasidagi o'tish keyingi versiya sinovi bo'lib qoladi. [Dalillar va cheklovlar](docs/LAUNCH_STATUS.md).
+Yangilovchi imzolari Windows Authenticode va Apple notarial tasdiqlashdan alohida. Paket xeshlari, mahalliy tekshiruvlar va yangilanish testlari alohida hujjatlashtirilgan. Toʻliq ommaviy 1.0.0 dan 1.0.1 ga yangilash faqat relizlar hisobotida qayd etilgan stsenariylar uchun tasdiqlangan. [Dalillar va cheklovlar](docs/LAUNCH_STATUS.md)
 
 Android da mahalliy modellar uchun yetarli xotiraga ega zamonaviy telefon tavsiya etiladi; kamroq kuchli qurilmalarda API provayderidan foydalaning. Veb-qidiruv uchun kamida kontekst **16K token (16,384)** doimiy ravishda versiyalarda tavsiya etiladi.
 
@@ -143,7 +143,7 @@ Qwen musiqa kodlovchisi va Qwen qidiruv modeli **turli fayllar**, alohida saqlan
 
 ## Bulutli provayderlar
 
-Tayyorlangan manbalarda 43 provayder profillari mavjud: 42 bulut xizmatlari va mahalliy server uchun TabbyAPI. Modelning mavjudligi va imkoniyatlari hisob, mintaqa va qo'llab-quvvatlanadigan APIga bog'liq. Katalog barcha 104 interfeys tillari tomonidan taqsimlanadi.
+Katalogda 43 ta provayder profili mavjud: 42 bulut xizmatlari va mahalliy server uchun TabbyAPI. Modelga kirish va imkoniyatlar hisobga, mintaqaga va qo'llab-quvvatlanadigan APIga bog'liq. Barcha 104 interfeys tillari ushbu katalogdan foydalanadi.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Tayyorlangan manbalarda 43 provayder profillari mavjud: 42 bulut xizmatlari va m
 
 ### Rasm, musiqa va video
 
-Tayyorlangan yaratish katalogida 20 provayderning 58 ta oldindan oʻrnatilgan sozlamalari mavjud: 30 tasvir, 24 video va 4 ta musiqa oldindan oʻrnatilgan. Quyidagi jadvallarda integratsiyalangan marshrutlar keltirilgan; ular har bir tijorat taklifini takrorlamaydilar.
+Yaratish katalogida 20 ta provayderning 58 ta oldindan sozlamalari mavjud: 30 tasvir, 24 video va 4 ta musiqa oldindan oʻrnatilgan. Quyidagi jadvallarda o'rnatilgan adapterlar tomonidan qo'llab-quvvatlanadigan aniq modellar va identifikatorlar ro'yxati keltirilgan.
 
 | Provayder | Novera da chiqishlar | Katalog modellari |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Bular hissa qo'shish va rivojlanish uchun yo'nalishlar, har bir sektorga xos ilo
 
 ## Loyiha holati
 
-**Novera 1.0.0 Windows, Linux, macOS va Android uchun mavjud.** Skrinshotda texnik xizmat ko'rsatuvchi tomonidan mahalliy ravishda tuzilgan Windows ilovasi ko'rsatilgan. Manba o'zgarishlari, maqsadli testlar va apparat tekshiruvi alohida hujjatlashtiriladi; bu har bir model, platforma yoki bulut hisobini tasdiqlamaydi.
+**Novera 1.0.1 Windows, Linux, macOS va Android uchun mavjud.** Skrinshotda texnik xizmat ko'rsatuvchi tomonidan mahalliy ravishda tuzilgan Windows ilovasi ko'rsatilgan. Manba o'zgarishlari, maqsadli testlar va apparat tekshiruvi alohida hujjatlashtiriladi; bu har bir model, platforma yoki bulut hisobini tasdiqlamaydi.
 
 GitHub Actions qo'llanmasi barcha o'n bitta tarqatish varianti uchun yoqilgan. ga rioya qiling [natijalar va tasdiqlangan nomzodlarni yuklab olish](docs/CI_DISTRIBUTIONS.md); mavjudligi har bir platforma uchun alohida qayd etiladi. Nomzodlar imzolangan ishlab chiqarish nashrlaridan farq qiladi. Tarqatish talablari maqolada tasvirlangan [rasmiy nashr siyosati](OFFICIAL_RELEASES.md) va [nashrlar sahifasi](https://github.com/TRON-ABS/Novera/releases). Mavjud yangilovchi o'chirilgan nomzodlar ichki bo'lib qoladi. Ommaviy relizlar sozlangan va tasdiqlangan yangilash mexanizmini talab qiladi; [ish stoli imzo tekshiruvlari va qolgan ishga tushirish talablari hujjatlashtirilgan](docs/LAUNCH_STATUS.md).
 

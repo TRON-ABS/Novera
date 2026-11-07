@@ -155,7 +155,6 @@ export function useCreationInstallSync() {
       useCreationInstall.persist.rehydrate(),
       useMediaLibrary.persist.rehydrate(),
       useImageUpscale.persist.rehydrate(),
-      useMusicCreation.persist.rehydrate(),
     ]).then(() => {
       if (!disposed) void poll()
     })

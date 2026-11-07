@@ -1,0 +1,90 @@
+--- a/src/model/upscaler/esrgan.hpp
++++ b/src/model/upscaler/esrgan.hpp
+@@ -22,6 +22,7 @@
+ 
+ struct ESRGANConfig {
+     int scale       = 4;
++    int pixel_unshuffle = 1;
+     int num_block   = 23;
+     int num_in_ch   = 3;
+     int num_out_ch  = 3;
+@@ -75,6 +76,15 @@
+             config.scale = 1;
+         }
+ 
++        // Official RealESRGAN_x2plus: 12 input channels, unshuffle by two,
++        // then both learned x2 upsampling blocks. No model weights change.
++        const auto* first = find_weight("conv_first.weight");
++        if (has_conv_up2 && first && first->ne[2] == 12) {
++            config.pixel_unshuffle = 2;
++            config.num_in_ch = 12;
++            config.scale = 2;
++        }
++
+         if (has_model_tensor || has_conv_up1 || has_conv_up2) {
+             LOG_VERBOSE("esrgan: scale = %d, num_block = %d, num_in_ch = %d, num_out_ch = %d, num_feat = %d, num_grow_ch = %d",
+                         config.scale,
+@@ -170,10 +180,10 @@
+             blocks[name]     = std::shared_ptr<GGMLBlock>(new RRDB(this->config.num_feat, this->config.num_grow_ch));
+         }
+         blocks["conv_body"] = std::shared_ptr<GGMLBlock>(new Conv2d(this->config.num_feat, this->config.num_feat, {3, 3}, {1, 1}, {1, 1}));
+-        if (this->config.scale >= 2) {
++        if (this->config.scale * this->config.pixel_unshuffle >= 2) {
+             blocks["conv_up1"] = std::shared_ptr<GGMLBlock>(new Conv2d(this->config.num_feat, this->config.num_feat, {3, 3}, {1, 1}, {1, 1}));
+         }
+-        if (this->config.scale == 4) {
++        if (this->config.scale * this->config.pixel_unshuffle == 4) {
+             blocks["conv_up2"] = std::shared_ptr<GGMLBlock>(new Conv2d(this->config.num_feat, this->config.num_feat, {3, 3}, {1, 1}, {1, 1}));
+         }
+         blocks["conv_hr"]   = std::shared_ptr<GGMLBlock>(new Conv2d(this->config.num_feat, this->config.num_feat, {3, 3}, {1, 1}, {1, 1}));
+@@ -209,11 +219,11 @@
+         feat      = ggml_add(ctx->ggml_ctx, feat, body_feat);
+         sd::ggml_graph_cut::mark_graph_cut(feat, "esrgan.body.out", "feat");
+         // upsample
+-        if (config.scale >= 2) {
++        if (config.scale * config.pixel_unshuffle >= 2) {
+             auto conv_up1 = std::dynamic_pointer_cast<Conv2d>(blocks["conv_up1"]);
+             feat          = lrelu(ctx, conv_up1->forward(ctx, ggml_upscale(ctx->ggml_ctx, feat, 2, GGML_SCALE_MODE_NEAREST)));
+             sd::ggml_graph_cut::mark_graph_cut(feat, "esrgan.up1", "feat");
+-            if (config.scale == 4) {
++            if (config.scale * config.pixel_unshuffle == 4) {
+                 auto conv_up2 = std::dynamic_pointer_cast<Conv2d>(blocks["conv_up2"]);
+                 feat          = lrelu(ctx, conv_up2->forward(ctx, ggml_upscale(ctx->ggml_ctx, feat, 2, GGML_SCALE_MODE_NEAREST)));
+                 sd::ggml_graph_cut::mark_graph_cut(feat, "esrgan.up2", "feat");
+@@ -229,6 +239,7 @@
+ struct ESRGAN : public GGMLRunner {
+     ESRGANConfig config;
+     std::unique_ptr<RRDBNet> rrdb_net;
++    sd::Tensor<float> unshuffled_input;
+ 
+     ESRGAN(ggml_backend_t backend,
+            const String2TensorStorage& tensor_storage_map      = {},
+@@ -256,7 +267,27 @@
+             return nullptr;
+         constexpr int kGraphNodes = 1 << 16;  // 65k
+         ggml_cgraph* gf           = new_graph_custom(kGraphNodes);
+-        ggml_tensor* x            = make_input(x_tensor);
++        auto& unshuffled = unshuffled_input;
++        unshuffled = {};
++        if (config.pixel_unshuffle == 2) {
++            if (x_tensor.dim() != 4 || x_tensor.shape()[0] % 2 || x_tensor.shape()[1] % 2 || x_tensor.shape()[2] != 3) {
++                LOG_ERROR("Real-ESRGAN x2 requires even RGB input dimensions");
++                return nullptr;
++            }
++            const int64_t w = x_tensor.shape()[0], h = x_tensor.shape()[1], n = x_tensor.shape()[3];
++            unshuffled.resize({w / 2, h / 2, 12, n});
++            for (int64_t b = 0; b < n; ++b)
++                for (int64_t c = 0; c < 3; ++c)
++                    for (int64_t dy = 0; dy < 2; ++dy)
++                        for (int64_t dx = 0; dx < 2; ++dx)
++                            for (int64_t y = 0; y < h / 2; ++y)
++                                for (int64_t x = 0; x < w / 2; ++x) {
++                                    const auto channel = c * 4 + dy * 2 + dx;
++                                    unshuffled[x + (w / 2) * (y + (h / 2) * (channel + 12 * b))] =
++                                        x_tensor[(x * 2 + dx) + w * ((y * 2 + dy) + h * (c + 3 * b))];
++                                }
++        }
++        ggml_tensor* x = make_input(unshuffled.empty() ? x_tensor : unshuffled);
+ 
+         auto runner_ctx  = get_context();
+         ggml_tensor* out = rrdb_net->forward(&runner_ctx, x);

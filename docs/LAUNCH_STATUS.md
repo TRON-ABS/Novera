@@ -1,4 +1,12 @@
-# Novera 1.0.0 — disponibilité
+# Novera 1.0.1 — disponibilité
+
+État actualisé le **7 novembre 2026** à partir des publications et manifests publics : [Desktop Windows x64 / Linux](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1), [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), [macOS Intel / Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), [CLI Novera](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera) et [Android ARM64 1000013](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) sont publiés en **1.0.1**. Les paquets et leurs contrôles sont suivis dans le [bilan 1.0.1](RELEASE_1.0.1_2026-11-07.md).
+
+Le canal Desktop `latest.json` et la CLI actuelle `latest-novera-cli.json` annoncent 1.0.1. **La version portable Windows et l’ancien canal `latest-cli.json` restent en 1.0.0** : aucun lien vers une portable 1.0.1 inexistante n’est proposé. Leurs paquets historiques restent immuables. L’installation Android 1000013 sur téléphone et la transition publique entre versions ne sont confirmées que pour les scénarios réellement documentés.
+
+**Novera Web : sources expérimentales**, interface Desktop, contexte local de 32k et recherche Internet Exa préparée à l’activation testés dans Edge. La [vitrine](https://tron-abs.github.io/Novera/) présente ces travaux ; le client Web hébergé n’est pas encore publié. Wan vidéo, audit complet, licence du SDK et contrôles de déploiement restent à terminer. [Suivi Web](WEB_BROWSER_PREPARATION.md).
+
+## Historique de la sortie 1.0.0
 
 **Sortie publique du 2 novembre 2026 : Windows x64, Windows ARM64 et Linux x64.** [Télécharger la version officielle](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0). La correction de l'updater est intégrée via la [PR #5](https://github.com/TRON-ABS/Novera/pull/5).
 

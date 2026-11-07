@@ -2,6 +2,14 @@
 
 Le mainteneur autorise le 7 novembre 2026 la mise à jour du dépôt, de la vitrine et des distributions en 1.0.1, y compris les nouveaux modèles des fournisseurs API.
 
+## État public actualisé le 7 novembre 2026
+
+Les publications **1.0.1** Windows x64/Linux, Windows ARM64, macOS Intel/ARM64, CLI Novera et Android 1000013 sont désormais publiques. Le canal `latest` pointe sur `v1.0.1` ; `latest.json` et `latest-novera-cli.json` annoncent 1.0.1. Les manifests historiques `latest-cli.json` et `latest-portable.json` conservent **1.0.0**, conformément aux paquets encore disponibles. Les anciennes mentions « en cours » ci-dessous décrivent les étapes antérieures de cette sortie.
+
+Le contrôle anonyme des manifests est conservé dans [le reçu de publication](release-evidence/1.0.1/PUBLICATION-STATUS-2026-11-07.json). Les essais natifs détaillés et leurs limites restent distincts de la disponibilité des téléchargements. Les 104 README et la vitrine sont actualisés sans modifier les paquets, leurs signatures ni les feeds. La portable n’est pas annoncée en 1.0.1 ; l’APK Android n’est pas présentée comme déjà testée sur téléphone.
+
+Le dépôt inclut aussi la **préparation expérimentale de Novera Web** : contexte 32k, recherche Exa sans clé préparée à l’activation, essais locaux image/musique et diagnostic Wan. Ces sources n’actualisent pas le binaire Desktop publié et ne constituent pas une sortie Web hébergée. [Tests et contrôles restant avant diffusion](WEB_BROWSER_PREPARATION.md).
+
 ## État initial vérifié
 
 - Sources applicatives synchronisées en 1.0.1 ; Android versionCode 1000013, identité de signature conservée.

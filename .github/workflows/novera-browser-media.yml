@@ -1,0 +1,47 @@
+name: Novera experimental browser media runtime
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - scripts/browser-media/**
+      - .github/workflows/novera-browser-media.yml
+permissions:
+  contents: read
+jobs:
+  compile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install the pinned local Emscripten SDK
+        shell: bash
+        run: |
+          set -euo pipefail
+          sdk="$RUNNER_TEMP/novera-emsdk"
+          git init "$sdk"
+          git -C "$sdk" remote add origin https://github.com/emscripten-core/emsdk.git
+          git -C "$sdk" fetch --depth 1 origin 1693ce7359fc9694f198694f902a2cc061239b86
+          git -C "$sdk" checkout --detach FETCH_HEAD
+          python3 "$sdk/emsdk.py" install 7.0.0
+          python3 "$sdk/emsdk.py" activate 7.0.0
+      - name: Compile the experimental FLUX and Wan binding
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/browser-media/build.py --emsdk "$RUNNER_TEMP/novera-emsdk" --ninja "$(command -v ninja)"
+          echo "Compiled only; exact-model browser inference is not validated by this job." >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: Novera-web-diffusion-experimental-${{ github.run_id }}
+          if-no-files-found: error
+          retention-days: 14
+          include-hidden-files: true
+          path: |
+            .build/browser-media/build/novera-diffusion.mjs
+            .build/browser-media/build/novera-diffusion.wasm
+            .build/browser-media/build/BUILD-VERIFICATION.json
+            .build/browser-media/sdcpp/LICENSE
+            .build/browser-media/ggml/LICENSE
+            scripts/browser-media/README.md

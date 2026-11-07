@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Waxaad qeexdaa yoolkaaga. Novera wuxuu diyaariyaa agabka, fuliya hawsha wuxuuna habeeyaa natiijooyinka.</strong></p>
   <p>Kaaliyaha AI kaaliyaha TRON-ABS, laga bilaabo bilawga koowaad ilaa natiijooyinka: qoraal, sawiro, muusig iyo muuqaal hal sheeko.</p>
-  <p><strong>Waxaa loo heli karaa Windows, Linux, macOS iyo Android</strong> · Ilaha la diyaariyay: 104 luqadaha is dhexgalka · 42 bixiyayaasha daruuraha · 58 presets media · Apache 2.0</p>
+  <p><strong>Waxaa loo heli karaa Windows, Linux, macOS iyo Android</strong> · 104 luqadaha is dhexgalka · 42 bixiyayaasha daruuraha · 58 presets media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI moodooyinka ku shaqeeya gudaha qalabkaaga</a> · <a href="#hub-and-compatible-models">Hub iyo moodooyinka ku habboon</a> · <a href="#cloud-providers">Daruur</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Wax ku darso</a></p>
   <p>Xiriirka rasmiga ah: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Novera bogga rasmiga ah ee bulshada: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Diyaarinta nooca 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Soodejintii dad waynaha ayaa hadhay 1.0.0. Hagaajinta soo socota waxaa lagu diyaariyay ilaha loogu talagalay 1.0.1; waxay u baahan yihiin baakado dib loo dhisay, jeegaga sii daynta iyo daabacaadda. Cusbooneysiinta dukumeentigan ma cusboonaysiiyo codsiyada la rakibay.
+Novera 1.0.1 ayaa diyaar u ah aaladaha hoos ku taxan. Soo deji xirmada nidaamkaaga ama isticmaal kanaalka cusboonaysiinta ee saxeexan. Rakibaadaha hadda jira ayaa cusbooneysiiya marka aad rakibto xirmada cusub ama aad aqbasho cusboonaysiinta.
 
 - Ammaanka: oggolaanshaha adag ee waddaniga ah ee boggaga fogfog, xaqiijinta shabakadda API-yada iyo agabka server-ka, kaydinta sirta ah ee la ilaaliyo iyo socdaalka, faylalka badbaadada/helitaanka warbaahinta, falanqaynta xaashida iyo dhis qoraallada. Ku-tiirsanaanta bannaanka waa la cusboonaysiiyay; talooyinka soo haray si furan ayaa loola socdaa.
 - Qarsoodi: xisaabaadka iyo warbixinada khaladku waxay u baahan yihiin ogolaansho gaar ah oo ku hadhi si aan toos ahayn. Dhismayaasha waxaa ka mid ah habaynta meelaynta ee la diiwaangeliyay. Baaritaannada farsamada waa la sifeeyaa; isticmaalayaashu waxay xakameynayaan firfircoonida
@@ -35,7 +35,7 @@ Soodejintii dad waynaha ayaa hadhay 1.0.0. Hagaajinta soo socota waxaa lagu diya
 - Raaxo: kontaroolada hoose ayaa burbura inta galinta ay muuqato. Makarafoonka is haysta iyo kontaroolada muujinta, badhanka codka ee makarafoonka hoostiisa, goobaha muusiga ee jawaabaha leh iyo sumadaha qaybaha la turjumay waxay hagaajiyaan isticmaalka shaashadaha yaryar.
 - Buugaagta API: 43 profiles bixiyaha, oo ay ku jiraan TabbyAPI gudaha, oo leh sheeko la cusboonaysiiyay iyo xulashada warbaahinta. Gelitaanada cusub waxaa ka mid ah GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 iyo GPT Image 2.6, Gemini Omni 1.2, FLUX 3 halka la taageeray. Cusbooneysii mar dambe ma qarinayso natiijooyinka wixii ka dambeeya toban nooc. Aqoonsiga saxda ah, meelaha dhamaadka gobolka, hawlgelinta gaarka ah iyo moodooyinka la soo dejiyay waa la ixtiraamaa.
 - Xaqiijinta: codsiga la beegsaday, maktabad-hooyo, buug-yaraha guud iyo hubinta luqadda ayaa lagu duubay qoraallada faahfaahsan. Interface-ku wuxuu u dhismaa Windows / macOS / Linux / Android / iOS. Dhismayaashan hore ma caddaynayaan baakadaha asalka ah ama fikradda qalab kasta.
-- Kahor siideynta: ansixi xirmooyinka dib-u-dhiska ee waddaniga ah, natiijooyinka amniga/ku-tiirsanaanta hadhaaga iyo cusboonaysiinta 1.0.0 ilaa 1.0.1 Helitaanka waxay ku xiran tahay qalabka, helitaanka adeeg bixiyaha iyo madal. Ma jiro ku habboonaansho nooc caalami ah, heerka nuglaanta eber ama daabacaad dhammaystiran oo la sheegtay.
+- Helitaanka iyo hubinta la dhammaystiray ayaa hoos ku taxan. Tilmaamaha la taageeray waxay ku xiran yihiin qalabka, helitaanka adeeg bixiyaha iyo madal. Natiijooyinka amniga iyo xaddidaadaha xaqiijinta qalabka-hooyo ayaa ah kuwa dukumeenti ah. Kaydso ka hor intaanad cusboonaysiin.
 
 [Qoraalo faahfaahsan, ansixinta iyo shaqada hadhay](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Soodejintii dad waynaha ayaa hadhay 1.0.0. Hagaajinta soo socota waxaa lagu diya
 
 <!-- novera-release-1.0.1:end -->
 
-## Helitaanka — 2026-11-03
+## Helitaanka — 2026-11-07
 
-**Novera 1.0.0 waa la heli karaa Windows, Linux, macOS iyo Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64)Xirmooyinka Desktop-ka, labadaba CLI kaydka, saxeexyada iyo muujinta cusboonaysiinta waa dadwaynaha oo la xaqiijiyay.
+**Novera 1.0.1 waa la heli karaa Windows, Linux, macOS iyo Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)Xirmooyinka Desktop-ka, labadaba CLI kaydka, saxeexyada iyo muujinta cusboonaysiinta waa dadwaynaha oo la xaqiijiyay.
 
 | Platform | Helitaanka |
 | --- | --- |
 | Windows x64 | Dadweynaha NSIS rakibe, saxeexay; rakibaadda waddaniga ah iyo beddelka la xaqiijiyay. |
 | Linux x64 | Dadweynaha AppImage, cusbooneysiiye saxeexay; rakibaadda waddaniga ah iyo beddelka la xaqiijiyay. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, oo leh kanaal casriyeyn oo saxeexan oo go'an. |
-| Windows ARM64 | [Dadweynaha NSIS rakibaha](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), dhalasho ahaan CPU mishiinka qoraalka; rakibidda, beddelka iyo hubinta kanaalka dadweynaha waa la xaqiijiyay. |
-| Android ARM64 | [Dadweynuhu wuu saxeexay APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, Dufcaddii caadiga ahayd 512. Ilaaliyuhu wuxuu xaqiijinayaa in 1000012 uu ku shaqeeyo telefoonkooda. Xirmo nadiif ah oo aan lahayn wada hadal, moodallo ama API furaha gaarka ah. [Caddayn iyo xaddidid](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [1.0.0 DMG siidaynta rasmiga ah](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-cusboonaysiinta saxeexay. Aan Apple notay notay; jeegag otomaatig ah ayaa si gaar ah loogu gudbiyay labada qaab-dhismeedka, hubinta muuqaalka dib loo dhigay. [Rakibaadda iyo caddaynta](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, oo leh kanaal casriyeyn oo saxeexan oo go'an. |
+| Windows ARM64 | [Dadweynaha NSIS rakibaha](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), dhalasho ahaan CPU mishiinka qoraalka; rakibidda, beddelka iyo hubinta kanaalka dadweynaha waa la xaqiijiyay. |
+| Android ARM64 | Android 1.0.1 waxa loo heli karaa sidii ARM64 APK oo saxeexan, dhis 1000013 Waxay isticmaashaa Novera shahaado jirta oo waxay gudbisaa kormeerka xirmada. Kuma jiraan wada sheekaysi shaqsiyeed, moodallo ama furayaal API Ku rakibida iyo ku cusboonaysiinta taleefanka ayaa hadhi doona in la tijaabiyo. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [1.0.1 DMG siidaynta rasmiga ah](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-cusboonaysiinta saxeexay. Aan Apple notay notay; jeegag otomaatig ah ayaa si gaar ah loogu gudbiyay labada qaab-dhismeedka, hubinta muuqaalka dib loo dhigay. [Rakibaadda iyo caddaynta](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Dhismaha jilbaha gudaha; Saxiixa Apple / bixinta ayaa loo baahan yahay ka hor inta aan la rakibin iPhone. [Dabagal](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 la qaadi karo | [Saxiixday ZIP kaydka](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); xogtu waxay joogtaa Data, saxeex Program beddelka la xaqiijiyay. |
 | Web, MSI, Debian | Macaamiisha Web-ka ee lagu martiqaaday iyo qaabab kale waxay ku sii jiraan gudaha; goobta soo bandhigidda Pages waa la heli karaa. |
 
 Mac, ka fur DMG oo koobi Novera Codsiyada. Haddii furitaanka ugu horreeya la xannibo, oggolow Novera gudaha **Habaynta Nidaamka → Qarsoodi & Amniga → Furan si kastaba**. [Tilmaamaha Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Saxiixa cusbooneysiinta maaha Windows Authenticode ama nootaayorka Apple. Jeegaga nooca hadda ee gacanta ayaa ka gudba kanaalka dadweynaha; Kala-guurka u dhexeeya laba nooc oo dadwayne ayaa weli ah imtixaan sii-dayn ah. [Caddayn iyo xaddidid](docs/LAUNCH_STATUS.md).
+Saxiixa cusbooneysiinta way ka duwan yihiin Windows Authenticode iyo notarization Apple. Xashiishyada baakadka, jeegaga waddaniga ah iyo tijaabooyinka cusboonaysiinta ayaa si gaar ah loo diiwaangeliyay. cusboonaysiinta guud ee 1.0.0 ilaa 1.0.1 waxa loo xaqiijiyay kaliya xaaladaha lagu duubay warbixinta siidaynta. [Caddayn iyo xaddidid](docs/LAUNCH_STATUS.md)
 
 Android, taleefoon casri ah oo xasuus ku filan leh ayaa lagula talinayaa moodooyinka maxaliga ah; adeegso bixiye API qalabyo ka awood yar Raadinta shabakadda, macnaha guud ee ugu yaraan **16K calaamadaha (16,384)** ayaa lagula talinayaa, si joogto ah noocyada kala duwan.
 
@@ -143,7 +143,7 @@ Koor-qoreeye muusigga Qwen iyo qaab-dhismeedka soo celinta Qwen waa **faylal kal
 
 ## Daruur bixiyayaasha
 
-Ilaha la diyaariyay waxay ka kooban yihiin 43 profiles bixiyaha: 42 adeegyada daruuraha iyo TabbyAPI server maxalli ah. Helitaanka moodeelka iyo awooduhu waxay ku xidhan yihiin akoontada, gobolka iyo API la taageero. Buug-yaraha waxa wadaaga dhammaan 104 luqadaha is dhexgalka.
+Buugyaraha waxa uu ka kooban yahay 43 profiles bixiyaha: 42 adeegyada daruuraha iyo TabbyAPI ee server maxalli ah. Helitaanka moodeelka iyo awooduhu waxay ku xidhan yihiin koontada, gobolka iyo API la taageero. Dhammaan 104 luqadaha is dhexgalka ayaa wadaaga buuggan.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Ilaha la diyaariyay waxay ka kooban yihiin 43 profiles bixiyaha: 42 adeegyada da
 
 ### Sawir, muusig iyo muuqaal
 
-Buugga abuurista ee la diyaariyey waxa uu ka kooban yahay 58 presets ka 20 bixiyeyaasha: 30 sawirka, 24 muuqaal iyo 4 presets muusik. Jadwalka hoose ayaa taxaya waddooyinka isku dhafan; ma soo saaraan qurbaan kasta oo ganacsi.
+Buugga abuurista waxa uu ka kooban yahay 58 presets ka 20 bixiyayaasha: 30 sawir, 24 fiidyow iyo 4 horudhacyada muusiga. Jadwalka hoose ayaa taxaya moodooyinka saxda ah iyo tilmaamayaasha ay taageerayaan adapters-ka isku dhafan.
 
 | Bixiyaha | Waxa ka soo baxay Novera | Moodooyinka buugaagta |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Kuwani waa tilmaamo loogu talagalay wax ku biirinta iyo horumarinta, ma aha shee
 
 ## Heerka mashruuca
 
-**Novera 1.0.0 waa la heli karaa Windows, Linux, macOS iyo Android.** Sawirku wuxuu muujinayaa Windows codsi uu ku ururiyay maxalli ah ilaaliye. Isbeddellada isha, imtixaannada la beegsanayo iyo xaqiijinta qalabka si gaar ah ayaa loo diiwaangeliyey; tani ma xaqiijinayso nooc kasta, madal ama akoon kasta.
+**Novera 1.0.1 waa la heli karaa Windows, Linux, macOS iyo Android.** Sawirku wuxuu muujinayaa Windows codsi uu ku ururiyay maxalli ah ilaaliye. Isbeddellada isha, imtixaannada la beegsanayo iyo xaqiijinta qalabka si gaar ah ayaa loo diiwaangeliyey; tani ma xaqiijinayso nooc kasta, madal ama akoon kasta.
 
 Buug-gacmeedka GitHub Actions dhismooyin ayaa loo oggolaaday dhammaan kow iyo tobanka nooc ee qaybinta. Lasoco [dhis natiijooyinka iyo soo dejinta musharraxiinta la xaqiijiyay](docs/CI_DISTRIBUTIONS.md); helitaanku si gaar ah ayaa loogu duubayaa goob kasta. Musharixiintu way ka duwan yihiin siidaynta wax soo saarka ee saxeexan. Shuruudaha qaybinta waxaa lagu qeexay [siyaasadda siidaynta rasmiga ah](OFFICIAL_RELEASES.md) iyo [bogga sii daynta](https://github.com/TRON-ABS/Novera/releases)Musharrixiinta naafada ah ee cusub ayaa hadda jira. Siidaynta dadweynuhu waxay u baahan tahay hab casriyeyn oo la xaqiijiyay; [Saxeexa saxeexa miiska iyo shuruudaha bilaabista soo hadhay waa la diiwaangeliyay](docs/LAUNCH_STATUS.md).
 

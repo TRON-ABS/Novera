@@ -1,5 +1,11 @@
 # Livraison et renouvellement du client Web
 
+## Situation au 7 novembre 2026
+
+La vitrine présente les téléchargements natifs **1.0.1** effectivement publiés et les travaux expérimentaux Web : interface Desktop, contexte 32k, recherche Exa sans clé préparée à l’activation. Le client Web n’est pas encore distribué comme application hébergée ; ses résultats locaux et contrôles de publication restants sont suivis dans [la préparation Web](WEB_BROWSER_PREPARATION.md). Une mise à jour de cette vitrine ne déploie pas le client, ne modifie pas les paquets signés et ne valide pas leur remplacement. La portable et le canal CLI historique conservent leur version réellement publiée jusqu’à validation de leurs nouveaux paquets.
+
+## Historique du canal Web et de la vitrine
+
 Le client Web reste interne. À la demande du mainteneur, GitHub Pages est désormais configuré en mode workflow, avec HTTPS imposé : [vitrine Novera](https://tron-abs.github.io/Novera/). Le [déploiement 41346258656](https://github.com/TRON-ABS/Novera/actions/runs/41346258656), commit `5faf42a6`, réussit. La page, ses deux images et son reçu de révision sont vérifiés sur HTTPS puis au navigateur. Elle présente uniquement le lancement en préparation, sans application, téléchargements ni feeds.
 
 Le premier audit Pages retournait 404 avant cette configuration. Le cache observé sur la page et `pages-probe.json` est `max-age=600` : il ne satisfait pas le contrat du client ci-dessous. Les chemins `/assets` et le routage du client doivent également être adaptés au sous-chemin `/Novera/` avant un éventuel déploiement applicatif. Cette vitrine ne valide donc pas le canal de renouvellement du client Web.

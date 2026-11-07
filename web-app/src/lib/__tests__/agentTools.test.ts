@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const toolSchemas = vi.fn()
 const executeTool = vi.fn()
@@ -37,6 +37,13 @@ const schemaFor = (name: string) => ({
 })
 
 describe('agentTools', () => {
+  afterEach(() => vi.unstubAllEnvs())
+  it('keeps browser preparation outside the native sandbox IPC', async () => {
+    vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
+    const { getSandboxStatus } = await import('../agentTools')
+    expect(await getSandboxStatus()).toEqual({ backend: 'none', enforces: false })
+    expect(sandboxStatus).not.toHaveBeenCalled()
+  })
   beforeEach(() => {
     vi.resetModules()
     toolSchemas.mockReset()

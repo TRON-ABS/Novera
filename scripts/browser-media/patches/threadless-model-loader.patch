@@ -1,0 +1,26 @@
+--- a/src/model_loader.cpp
++++ b/src/model_loader.cpp
+@@ -1194,7 +1194,7 @@
+         std::mutex backend_tensor_set_mutex;
+ 
+         for (int i = 0; i < n_threads; ++i) {
+-            workers.emplace_back([&, file_path, is_zip]() {
++            auto load_worker = [&, file_path, is_zip]() {
+                 std::ifstream file;
+                 zip_t* zip = nullptr;
+                 if (is_zip) {
+@@ -1401,7 +1401,13 @@
+                 if (zip != nullptr) {
+                     zip_close(zip);
+                 }
+-            });
++            };
++#if defined(__EMSCRIPTEN__) && !defined(__EMSCRIPTEN_PTHREADS__)
++            // Browser worker builds execute the same loader without native threads.
++            load_worker();
++#else
++            workers.emplace_back(std::move(load_worker));
++#endif
+         }
+ 
+         while (true) {

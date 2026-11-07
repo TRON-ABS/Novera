@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Aw bɛ ɲɛfɔli kɛ. Novera bɛ labɛn, ka boli ani ka labɛn.</strong></p>
   <p>AI dɛmɛbaga yɛrɛmahɔrɔnyalen dɔ TRON-ABS fɛ, k’a ta daminɛ fɔlɔ la ka se a nɔfɛkow ma: sɛbɛnni, ja, dɔnkili ani wideyow baro kelen kɔnɔ.</p>
-  <p><strong>A bɛ sɔrɔ Windows, Linux, macOS ani Android fɛ.</strong> · Sɔrɔyɔrɔw labɛnna: 104 ɲɔgɔndan kanw · 42 sankaba dilanbagaw · 58 kunnafonidilanw labɛncogo fɔlɔ · Apache 2.0</p>
+  <p><strong>A bɛ sɔrɔ Windows, Linux, macOS ani Android fɛ.</strong> · 104 ɲɔgɔndan kanw · 42 sankaba dilanbagaw · 58 kunnafonidilanw labɛncogo fɔlɔ · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatiki baara</a> · <a href="#one-dashboard-for-every-creation">Daɲɛgafe</a> · <a href="#local-models-in-use">Sigida modɛliw</a> · <a href="#hub-and-compatible-models">Fɔcogo & Hub</a> · <a href="#cloud-providers">Sankaba</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Aw ka dɛmɛ don</a></p>
   <p>Ladilikan ofisiyali: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Novera ka sosiyete ka kunnafoniw: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -18,10 +18,10 @@ Data ani danbe : [sigida inference, telemetry optionnel, filiw jaabiw ani update
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## A bɛ ka sɛgɛsɛgɛli kɛ 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Foroba telesarseli bɛ to 1.0.0 la. Nin ɲɛtaa ninnu labɛnna sɔrɔyɔrɔw la 1.0.1 kama; u bɛ pakew jɔ kokura, bɔli sɛgɛsɛgɛliw ani sɛbɛnw bɔli de wajibiya. Nin sɛbɛnw kurayali tɛ porogaramu sigilenw kuraya.
+Novera 1.0.1 bɛ sɔrɔ ka ɲɛsin plateformew ma minnu kofɔlen bɛ jukɔrɔ. Foroko telesarse i ka sistɛmu kama walima i ka baara kɛ n’a ka kunnafoni kuraw sira bolonɔbilalen ye. Installations (dadon) minnu bɛ yen, olu bɛ kura ye ni i ye pake kura in sigi walima ni i sɔnna ladamu ma.
 
 - Lakanali : native permissions gɛlɛnw yɔrɔjan ɲɛw kama, dantigɛli ka ɲɛsin réseau APIw ni server baarakɛminɛnw ma, gundo marali lakananen ani jiginni, dosiye/media sɔrɔli lakananen, jatebɔsɛbɛnw parsing ani scripts jɔli. Daɲɛgafe minnu bɛ kɛnɛ kan, olu kurayara; laadilikan tɔw bɛ tugu ɲɔgɔn kɔ kɛnɛ kan.
 - Gundo: jateminɛw ni filiw fɔli bɛ sɔnni danfaralen de wajibiya ani u bɛ to ka dabila. Builds kɔnɔ, sɛbɛnni kɛlenw bɛ taa yɔrɔ minnu na, olu labɛncogo bɛ yen. Fɛɛrɛko sɛgɛsɛgɛliw bɛ filɛri kɛ; baarakɛlaw bɛ u ka baarakɛcogo kɔrɔsi.
@@ -37,7 +37,7 @@ Foroba telesarseli bɛ to 1.0.0 la. Nin ɲɛtaa ninnu labɛnna sɔrɔyɔrɔw la 
 - Dususalo: duguma-minɛnw bɛ bin ka sɔrɔ donna-yɔrɔ bɛ to ka ye. Mikɔrɔfɔni ni kunnafonidicogo fitininw, mankan butɔni min bɛ mikro jukɔrɔ, dɔnkilidacogo minnu bɛ jaabi di ani yɔrɔ minnu bamanankanna, olu bɛ baara kɛcogo ɲɛ ka ɲɛ ɛkran misɛnninw kan.
 - API kataloguw: 43 dilanbagaw ka ɲɛfɔliw, TabbyAPI sigida la, ni baro ni kunnafonidilanw sugandili kura ye. Don kura donna GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 ani GPT Image 2.6, Gemini Omni 1.2, FLUX 3 yɔrɔ minnu na dɛmɛ bɛ kɛ. Refresh tɛ jaabiw dogo tugun ka tɛmɛ modeli tan kan. Danfara tigitigiw, marabolo labanyɔrɔw, mɔgɔ kelen-kelen ka baarakɛyɔrɔw ani misali minnu bɛ don jamana kɔnɔ, olu bɛ bonya.
 - Tiɲɛni : baarakɛminɛn laɲinitaw, native-library, public-catalog ani kan sɛgɛsɛgɛliw bɛ sɛbɛn sɛbɛn ɲɛnamaw kɔnɔ. Interface bɛ jɔ Windows / macOS / Linux / Android / iOS kama. O frontend builds tɛ native packages walima inference seereya minɛn bɛɛ kan.
-- Sani a ka bɔ: aw bɛ pakew nafamaw jɔ kokura, lakana/dafalen sɔrɔlenw tolenw ani 1.0.0 lakika ka 1.0.1 kurayali tiɲɛ. Sɔrɔli bɛ bɔ fɛnɲɛnamafagalanw, furakɛlikɛlaw ka se sɔrɔli ani plateforme (plateforme) de la. Duniya bɛɛ ka modɛli bɛnkan, zeru-vulnerability status walima sɛbɛn dafalen si tɛ fɔ.
+- Sɛgɛsɛgɛli minnu bɛ sɔrɔ ani minnu dafalen don, olu bɛ sɔrɔ jukɔrɔ. Fɛn minnu bɛ Dɛmɛ, olu bɛ Bɔ fɛnɲɛnamafagalanw, dilanbagaw ka doncogo ani plateforme (jɔyɔrɔ) la. Lakanali sɔrɔlenw ani native-device validation danw bɛ to sɛbɛnw kɔnɔ. Aw ye backup dɔ mara sani aw ka update kɛ.
 
 [Kɔlɔsili caman, tiɲɛni ani baara tɔw](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Foroba telesarseli bɛ to 1.0.0 la. Nin ɲɛtaa ninnu labɛnna sɔrɔyɔrɔw la 
 
 <!-- novera-release-1.0.1:end -->
 
-## Sɔrɔli — 2026-11-03
+## Sɔrɔli — 2026-11-07
 
-**Novera 1.0.0 bɛ sɔrɔ Windows, Linux, macOS ani Android kama.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Desktop pakew, CLI sɛbɛnmarayɔrɔw, bolonɔbilasɛbɛnw ani kunnafoni kuraw jiracogo fila bɛɛ ye foroba ye ani u sɛgɛsɛgɛra.
+**Novera 1.0.1 bɛ sɔrɔ Windows, Linux, macOS ani Android kama.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Desktop pakew, CLI sɛbɛnmarayɔrɔw, bolonɔbilasɛbɛnw ani kunnafoni kuraw jiracogo fila bɛɛ ye foroba ye ani u sɛgɛsɛgɛra.
 
 | Kalansenw | Sɔrɔli |
 | --- | --- |
 | Windows x64 | Foroba NSIS sigibaga, bolonɔbilabaga kura; native installation ani replacement sɛgɛsɛgɛra. |
 | Linux x64 | Foroba AppImage, bolonɔbilabaga kura; native installation ani replacement sɛgɛsɛgɛra. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, ni kunnafoni kuraw sira bolonɔbilalen kɛrɛnkɛrɛnnen ye. |
-| Windows ARM64 | [Foroba NSIS sigibaga](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), CPU sɛbɛnnikɛlan yɛrɛma; sigili, fɛn falen ani foroba-kanal sɛgɛsɛgɛliw sɛgɛsɛgɛra. |
-| Android ARM64 | [Foroba bolonɔbila APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, batɛmu dafalen 512. Ladonbaga bɛ a jira ko build 1000012 bɛ baara kɛ u ka telefɔni kan. Foroko saniya ni baro, modɛli walima mɔgɔ yɛrɛ ka API kilisi tɛ. [Dalilu ni dantigɛliw](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [1.0.0 DMG bɔli ofisiyali](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Ɛntɛrinɛti / 14+ Apple Silicon; Novera-bolonɔbilalenw ka kunnafoniw. Apple ma notari la; otomatiki sɛgɛsɛgɛliw tɛmɛna danfara la architecture fila bɛɛ kan, sɛgɛsɛgɛli yelenw bɛ bila kɔfɛ. [A sigili ni daliluw](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, ni kunnafoni kuraw sira bolonɔbilalen kɛrɛnkɛrɛnnen ye. |
+| Windows ARM64 | [Foroba NSIS sigibaga](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), CPU sɛbɛnnikɛlan yɛrɛma; sigili, fɛn falen ani foroba-kanal sɛgɛsɛgɛliw sɛgɛsɛgɛra. |
+| Android ARM64 | Android 1.0.1 bɛ sɔrɔ i n’a fɔ ARM64 APK bolonɔbilalen, ka 1000013 jɔ. A bɛ baara kɛ ni Novera seere ye min bɛ yen ani ka tɛmɛ pake sɛgɛsɛgɛli fɛ. Mɔgɔ yɛrɛ ka barow, modɛliw walima API kilisi si tɛ a kɔnɔ. Telefɔni sigili n’a kurayali bɛ to ka kɔrɔbɔ. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [1.0.1 DMG bɔli ofisiyali](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Ɛntɛrinɛti / 14+ Apple Silicon; Novera-bolonɔbilalenw ka kunnafoniw. Apple ma notari la; otomatiki sɛgɛsɛgɛliw tɛmɛna danfara la architecture fila bɛɛ kan, sɛgɛsɛgɛli yelenw bɛ bila kɔfɛ. [A sigili ni daliluw](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Kɔnɔna simulator jɔli; Apple bolonɔbila/labɛnni de wajibiyalen don sani iPhone sigili ka kɛ. [Ka tugu-tugu ɲɔgɔn kɔ](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 min bɛ se ka ta | [Siginiden ZIP sɛbɛnmarayɔrɔ](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data bɛ to Data kɔnɔ, bolonɔbila Program nɔnabila sɛgɛsɛgɛra. |
 | Ɛntɛrinɛti, MSI, Debian | Hosted Web client ani cogoya wɛrɛw bɛ to kɔnɔna na; Pages jirali yɔrɔ bɛ sɔrɔ. |
 
 Mac kan, DMG da wuli ka Novera kopi kɛ Applications kɔnɔ. Ni daminɛ fɔlɔ balila, a to Novera ka don **Sistɛmu Labɛncogo → Gundo & Lakanali → Da wuli cogo o cogo**. [Apple ka cikanw](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Updater bolonɔbila tɛ Windows Authenticode walima Apple ka notari ye. Bololabaarakɛlaw ka sisan-sɛgɛsɛgɛliw bɛ tɛmɛ foroba sira kan; 'tɛmɛsira min bɛ foroba-sɛbɛn fila ni ɲɔgɔn cɛ, o bɛ to bɔli nataw sɛgɛsɛgɛli ye. [Dalilu ni dantigɛliw](docs/LAUNCH_STATUS.md).
+Updater bolonɔbilaw bɛ danfara Bɔ Windows Authenticode ni Apple notarization la. Pake hashes, native checks ani update tests sɛbɛnnen don u danma. Foroba 1.0.0 ka se 1.0.1 sɛgɛsɛgɛli dafalen bɛ dafa dɔrɔn ko kɛlenw na minnu sɛbɛnna bɔli rapɔɔri kɔnɔ. [Dalilu ni dantigɛliw](docs/LAUNCH_STATUS.md)
 
 Android kan, bi telefɔni min hakili bɛ se ka kɛ, o bɛ ladilikan di sigida modɛliw ma; baara kɛ ni API dilanbaga ye minɛnw kan minnu fanga ka dɔgɔ. Ka ɲɛsin ɛntɛrinɛti ɲinini ma, contexte de au moins **16K taamasiyɛnw (16,384) .** bɛ ladilikan di, ka kɛ tuma bɛɛ a bɔcogo bɛɛ la.
 
@@ -145,7 +145,7 @@ Qwen dɔnkilidacogo ni Qwen sɔrɔli modɛli ye **filenw danfaralenw**, a marale
 
 ## Sankaba dilanbagaw
 
-Soso labɛnnenw kɔnɔ, 43 dilanbagaw ka ɲɛfɔliw bɛ sɔrɔ: 42 sankaba baarakɛminɛnw ani TabbyAPI sigida baarakɛla dɔ kama. Modeli sɔrɔli ni seko bɛ bɔ jatebɔsɛbɛn, mara ani API dɛmɛlen de la. Katalogu bɛ tila 104 ɲɔgɔndan kanw bɛɛ fɛ.
+Katalogu kɔnɔ, 43 dilanbagaw ka ɲɛfɔliw bɛ sɔrɔ: 42 sankaba baarakɛlaw ani TabbyAPI sigida baarakɛla dɔ kama. Modeli sɔrɔli ni seko bɛ bɔ jatebɔsɛbɛn, mara ani API dɛmɛlen de la. 104 ɲɔgɔndan kanw bɛɛ bɛ nin gafe in tila.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Soso labɛnnenw kɔnɔ, 43 dilanbagaw ka ɲɛfɔliw bɛ sɔrɔ: 42 sankaba baara
 
 ### Ja, dɔnkili ani wideyow
 
-Daɲɛgafe labɛnnen kɔnɔ, 58 kɔrɔlenw bɛ sɔrɔ ka bɔ 20 dilanbagaw la: 30 ja, 24 wideyow ani 4 dɔnkilidacogo. Tablo minnu bɛ duguma, olu bɛ siraw jɛlenw jira; u tɛ jagokɛla ka saraka bɛɛ lasegin.
+Daɲɛgafe kɔnɔ, 58 kɔrɔlenw bɛ sɔrɔ ka bɔ 20 dilanbagaw la: 30 ja, 24 wideyow ani 4 dɔnkilidacogo. Tablo minnu bɛ duguma, olu bɛ modeli tigitigiw ni dantigɛliw jira minnu bɛ dɛmɛ sɔrɔ adaptateurs intégrés fɛ.
 
 | Ladilikɛla | Bɔyɔrɔw Novera kɔnɔ. | Katalogu modɛliw |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ Ninnu ye dɛmɛ ni yiriwali siraw ye, u tɛ fɔ ko seko ni dɔnko ɲinini bɛɛ 
 
 ## Porozɛ cogoya
 
-**Novera 1.0.0 bɛ sɔrɔ Windows, Linux, macOS ani Android kama.** Ɲɛjirali bɛ Windows baarakɛminɛn dɔ jira min labɛnna sigida la ladonbaga fɛ. Soso caman yeli, sɛgɛsɛgɛli laɲinitaw ani fɛnɲɛnamafagalanw tiɲɛni bɛ sɛbɛn u danma; o tɛ modɛli, plateforme walima cloud account bɛɛ tiɲɛ.
+**Novera 1.0.1 bɛ sɔrɔ Windows, Linux, macOS ani Android kama.** Ɲɛjirali bɛ Windows baarakɛminɛn dɔ jira min labɛnna sigida la ladonbaga fɛ. Soso caman yeli, sɛgɛsɛgɛli laɲinitaw ani fɛnɲɛnamafagalanw tiɲɛni bɛ sɛbɛn u danma; o tɛ modɛli, plateforme walima cloud account bɛɛ tiɲɛ.
 
 Bololabaara GitHub Actions jɔli bɛ se ka kɛ tilali suguya tan ni kelen bɛɛ ye. Aw ye tugu a kɔ [ka jaabiw jɔ ani kandidaw telesarseli sɛgɛsɛgɛlenw](docs/CI_DISTRIBUTIONS.md); sɔrɔli bɛ sɛbɛn danfara la plateforme kelen-kelen bɛɛ kama. Kandidatiw ni bolonɔbilalenw ka bɔli sɛbɛnw tɛ kelen ye. Jatebɔ wajibiyalenw ɲɛfɔlen don sɛbɛn kɔnɔ [bɔli politiki ofisiyali](OFFICIAL_RELEASES.md) ani [bɛ bɔ ɲɛ](https://github.com/TRON-ABS/Novera/releases)ye . Updater-disabled kandidaw minnu bɛ yen, olu bɛ to kɔnɔna na. Foroba bɔli bɛ ɲini ni fɛn kuraw labɛncogo ye min labɛnna ani min sɛgɛsɛgɛra; [tabali bolonɔbila sɛgɛsɛgɛliw ni daminɛko wajibiyalen tɔw sɛbɛnnen don](docs/LAUNCH_STATUS.md).
 

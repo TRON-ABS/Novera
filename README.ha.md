@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Kuna bayyana burin ku. Novera yana shirya albarkatun, aiwatar da aikin kuma yana tsara sakamakon.</strong></p>
   <p>Mataimakin AI mai zaman kansa ta TRON-ABS, daga farawa na farko zuwa sakamako: rubutu, hotuna, kiɗa da bidiyo a cikin tattaunawa ɗaya.</p>
-  <p><strong>Akwai don Windows, Linux, macOS da Android</strong> · Abubuwan da aka shirya: 104 harsunan mu'amala · 42 masu samar da girgije · 58 saitattun kafofin watsa labarai · Apache 2.0</p>
+  <p><strong>Akwai don Windows, Linux, macOS da Android</strong> · 104 harsunan mu'amala · 42 masu samar da girgije · 58 saitattun kafofin watsa labarai · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Kayan aiki da kai</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Samfuran AI suna gudana cikin gida akan na'urarka</a> · <a href="#hub-and-compatible-models">Tsarukan & Hub</a> · <a href="#cloud-providers">Gajimare</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Taimakawa</a></p>
   <p>Tuntuɓar hukuma: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Bayanan martaba na jama'a na Novera na hukuma: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Ana shirya sigar 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Zazzagewar jama'a ya kasance a 1.0.0. Ana shirya abubuwan haɓakawa masu zuwa a cikin hanyoyin 1.0.1; suna buƙatar fakitin sake ginawa, sake dubawa da bugawa. Ɗaukaka wannan takaddun baya sabunta aikace-aikacen da aka shigar.
+Novera 1.0.1 yana samuwa don dandamalin da aka jera a ƙasa. Zazzage fakitin don tsarin ku ko amfani da tashar sabunta sa hannu. Sabunta shigarwar da ke wanzu lokacin da kuka shigar da sabon fakitin ko karɓar sabuntawa.
 
 - Tsaro: tsauraran izini na asali don shafuka masu nisa, tabbatarwa don APIs na cibiyar sadarwa da kayan aikin uwar garken, ma'ajin sirri da aka kare da ƙaura, samun amintaccen fayil/hanyar kafofin watsa labarai, tantance maƙunsar rubutu da gina rubutun. An sabunta abubuwan dogaro da aka fallasa; sauran shawarwarin ana bin su a fili.
 - Keɓantawa: ƙididdiga da rahotannin kuskure suna buƙatar izini daban kuma a kashe ta ta tsohuwa. Gina sun haɗa da ƙayyadaddun ƙayyadaddun ƙayyadaddun manufa. Ana tace gwajin fasaha; masu amfani suna kiyaye ikon kunnawa.
@@ -35,7 +35,7 @@ Zazzagewar jama'a ya kasance a 1.0.0. Ana shirya abubuwan haɓakawa masu zuwa a 
 - Ta'aziyya: ƙananan sarrafawa yana rushewa yayin da shigarwar ke kasancewa a bayyane. Karamin makirufo da sarrafawar bayyanawa, maɓallin sauti a ƙarƙashin makirufo, saitunan kiɗan mai amsawa da alamun abubuwan da aka fassara suna haɓaka amfani akan ƙananan fuska.
 - Taswirar API: 43 bayanan martaba, gami da TabbyAPI na gida, tare da sabunta taɗi da zaɓin kafofin watsa labarai. Sabbin shigarwar sun haɗa da GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 da GPT Image 2.6, Gemini Omni 1.2, FLUX 3 inda aka goyan baya. Refresh ba ya ɓoye sakamakon da ya wuce samfura goma. Ana mutunta ainihin masu ganowa, wuraren ƙarshen yanki, tura masu zaman kansu da samfuran shigo da kaya.
 - Tabbatarwa: aikace-aikacen da aka yi niyya, ɗakin karatu na gida, katalogin jama'a da binciken harshe ana yin rikodin su a cikin cikakkun bayanai. Ƙaddamarwa tana ginawa don Windows / macOS / Linux / Android / iOS. Waɗannan abubuwan ginin gaba ba sa tabbatar da fakiti na asali ko ƙima akan kowace na'ura.
-- Kafin saki: tabbatar da fakitin da aka sake ginawa, ragowar binciken tsaro/dogara da ainihin 1.0.0 zuwa 1.0.1 sabuntawa. Samuwar ya dogara da kayan aiki, samun damar mai badawa da dandamali. Ba a yi iƙirarin dacewa da samfurin duniya, matsayi na rashin lahani ko kammala bugawa ba.
+- Akwai da kuma kammala cak an jera a kasa. Fasalolin da aka goyan baya sun dogara da hardware, samun damar mai badawa da dandamali. Abubuwan da aka gano na tsaro da iyakokin ingantattun na'urori sun kasance a rubuce. Ajiye wariyar ajiya kafin ɗaukaka.
 
 [Cikakken bayanin kula, tabbatarwa da sauran aikin](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Zazzagewar jama'a ya kasance a 1.0.0. Ana shirya abubuwan haɓakawa masu zuwa a 
 
 <!-- novera-release-1.0.1:end -->
 
-## samuwa — 2026-11-03
+## samuwa — 2026-11-07
 
-**Novera 1.0.0 yana samuwa don Windows, Linux, macOS da Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Fakitin Desktop, duka CLI ma'ajiyar bayanai, sa hannu da sabunta bayanan jama'a ne kuma an tabbatar dasu.
+**Novera 1.0.1 yana samuwa don Windows, Linux, macOS da Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Fakitin Desktop, duka CLI ma'ajiyar bayanai, sa hannu da sabunta bayanan jama'a ne kuma an tabbatar dasu.
 
 | Dandalin | samuwa |
 | --- | --- |
 | Windows x64 | Mai sakawa NSIS na Jama'a, mai sabunta sa hannu; An tabbatar da shigarwa na asali da maye gurbinsu. |
 | Linux x64 | Jama'a AppImage, sabunta hannu; An tabbatar da shigarwa na asali da maye gurbinsu. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, tare da sadaukarwar tashar sabunta sa hannu. |
-| Windows ARM64 | [Mai sakawa NSIS na Jama'a](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), Injin rubutu na asali na CPU; an tabbatar da shigarwa, maye gurbin da tashoshi na jama'a. |
-| Android ARM64 | [Jama'a sun sanya hannu APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, tsoho tsari 512 Mai kula ya tabbatar da gina 1000012 yana aiki akan wayar su. Tsaftace fakitin ba tare da tattaunawa ba, samfuri ko maɓallan API na sirri. [Shaida da iyakoki](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Sakin 1.0.0 DMG na hukuma](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-sa hannun sabuntawa. Ba a sanar da Apple ba; cak na atomatik sun wuce daban akan gine-ginen biyu, an jinkirta duban gani. [Shigarwa da shaida](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, tare da sadaukarwar tashar sabunta sa hannu. |
+| Windows ARM64 | [Mai sakawa NSIS na Jama'a](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), Injin rubutu na asali na CPU; an tabbatar da shigarwa, maye gurbin da tashoshi na jama'a. |
+| Android ARM64 | Android 1.0.1 yana samuwa azaman sa hannun ARM64 apk, gina 1000013. Yana amfani da takardar shedar Novera data kasance da kuma wuce binciken fakitin. Ba ya ƙunshi tattaunawar sirri, samfuri ko maɓallan API. Shigarwa da sabuntawa akan wayar sun rage don gwadawa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Sakin 1.0.1 DMG na hukuma](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-sa hannun sabuntawa. Ba a sanar da Apple ba; cak na atomatik sun wuce daban akan gine-ginen biyu, an jinkirta duban gani. [Shigarwa da shaida](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Gina na'urar kwaikwayo ta ciki; Ana buƙatar sa hannu / samarwa Apple kafin shigarwar iPhone. [Bibiya](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 mai šaukuwa | [Sa hannu kan rumbun adana bayanai na ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); bayanai sun tsaya a cikin Data, an tabbatar da maye gurbin Program. |
 | Yanar Gizo, MSI, Debian | Abokin ciniki na Yanar Gizo da aka shirya da sauran tsare-tsare sun kasance na ciki; Pages yana samuwa wurin gabatarwa. |
 
 A kan Mac, buɗe DMG kuma kwafi Novera cikin Applications. Idan an katange ƙaddamarwar farko, ba da izinin shiga Novera **Saitunan Tsari → Sirri & Tsaro → Buɗe Ko ta yaya**. [umarnin Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Sa hannun Sabuntawa ba Windows Authenticode ba ko Apple notarization. Takaddun sigar da hannu ta yanzu ta wuce tashar jama'a; canji tsakanin nau'ikan jama'a guda biyu ya kasance gwajin sakewa na gaba. [Shaida da iyakoki](docs/LAUNCH_STATUS.md).
+Sa hannu na sabuntawar sun bambanta da Windows Authenticode da Apple notarization. Hashes na fakiti, cak na asali da gwaje-gwajen sabuntawa ana rubuce daban. An tabbatar da cikakkiyar haɓaka 1.0.0 zuwa 1.0.1 don abubuwan da aka rubuta a cikin rahoton sakin. [Shaida da iyakoki](docs/LAUNCH_STATUS.md)
 
 A kan Android, ana ba da shawarar wayar zamani tare da isasshen ƙwaƙwalwar ajiya don ƙirar gida; yi amfani da mai bada API akan na'urori marasa ƙarfi. Don binciken yanar gizo, mahallin aƙalla **Alamu 16K (16,384)** , akai-akai a cikin nau'ikan iri.
 
@@ -143,7 +143,7 @@ Mai rikodin kiɗan Qwen da ƙirar dawo da Qwen sune **fayiloli daban-daban**, an
 
 ## Masu samar da girgije
 
-Kafofin da aka shirya sun ƙunshi bayanan bayanan mai bada 43: 42 sabis na girgije da TabbyAPI don uwar garken gida. Samfura da iyawa sun dogara da asusu, yanki da API mai goyan baya. An raba kasidar ta duk 104 harsunan mu'amala.
+Kas ɗin ya ƙunshi bayanan bayanan mai bada 43: 42 sabis na girgije da TabbyAPI don uwar garken gida. Samun samfurin da iyawar ya dogara da asusu, yanki da API mai goyan baya. Duk 104 harsunan mu'amala suna raba wannan kasida.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Kafofin da aka shirya sun ƙunshi bayanan bayanan mai bada 43: 42 sabis na girgi
 
 ### Hoto, kiɗa da bidiyo
 
-Kundin halittar da aka shirya ya ƙunshi saitattun 58 daga masu samar da 20: 30 hoto, 24 bidiyo da 4 saitattun saitattun kiɗa. Teburan da ke ƙasa suna lissafin haɗe-haɗe hanyoyin; ba sa sake yin kowane hadaya ta kasuwanci.
+Kas ɗin ƙirƙira ya ƙunshi saitunan 58 daga masu samar da 20: 30 hoto, 24 bidiyo da 4 saitattun waƙa. Teburan da ke ƙasa suna jera ainihin ƙira da masu ganowa waɗanda ke goyan bayan haɗaɗɗun adaftan.
 
 | Mai bayarwa | Abubuwan da aka fitar a cikin Novera | Samfuran Lissafi |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Waɗannan su ne jagororin bayar da gudummawa da ci gaba, ba wai da'awar cewa kow
 
 ## Matsayin aikin
 
-**Novera 1.0.0 yana samuwa don Windows, Linux, macOS da Android.** Hoton hoton yana nuna aikace-aikacen Windows wanda mai kula da shi ya haɗa a cikin gida. Canje-canjen tushen, gwaje-gwajen da aka yi niyya da ingantaccen kayan aiki an rubuta su daban; wannan baya inganta kowane samfuri, dandamali ko asusun gajimare.
+**Novera 1.0.1 yana samuwa don Windows, Linux, macOS da Android.** Hoton hoton yana nuna aikace-aikacen Windows wanda mai kula da shi ya haɗa a cikin gida. Canje-canjen tushen, gwaje-gwajen da aka yi niyya da ingantaccen kayan aiki an rubuta su daban; wannan baya inganta kowane samfuri, dandamali ko asusun gajimare.
 
 An kunna ginin GitHub Actions na hannu don duk bambance-bambancen rarraba goma sha ɗaya. Bi [gina sakamako da tabbatar da zazzagewar ɗan takara](docs/CI_DISTRIBUTIONS.md); ana yin rikodin samuwa daban don kowane dandamali. ’Yan takarar sun bambanta da sa hannun sa hannu na samarwa. An bayyana buƙatun rarrabawa a cikin [Manufar sakin hukuma](OFFICIAL_RELEASES.md) kuma [shafin saki](https://github.com/TRON-ABS/Novera/releases). Ɗaliban nakasassu masu sabuntawa sun kasance na ciki. Fitowar jama'a na buƙatar ingantaccen tsari da ingantaccen tsarin sabuntawa; [duba sa hannun tebur da sauran buƙatun ƙaddamarwa an rubuta su](docs/LAUNCH_STATUS.md).
 

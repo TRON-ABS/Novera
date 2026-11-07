@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Popisuješ svůj cíl. Novera připravuje zdroje, provádí úlohu a organizuje výsledky.</strong></p>
   <p>Nezávislý asistent AI od TRON-ABS, od prvního spuštění až po výsledky: text, obrázky, hudba a video v jedné konverzaci.</p>
-  <p><strong>K dispozici pro Windows, Linux, macOS a Android</strong> · Připravené zdroje: 104 jazyky rozhraní · 42 poskytovatelé cloudu · 58 předvolby médií · Apache 2.0</p>
+  <p><strong>K dispozici pro Windows, Linux, macOS a Android</strong> · 104 jazyky rozhraní · 42 poskytovatelé cloudu · 58 předvolby médií · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatizace</a> · <a href="#one-dashboard-for-every-creation">Ovládací panel</a> · <a href="#local-models-in-use">Modely AI spuštěné lokálně na vašem zařízení</a> · <a href="#hub-and-compatible-models">Formáty a rozbočovač</a> · <a href="#cloud-providers">Mrak</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Přispějte</a></p>
   <p>Oficiální kontakt: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Oficiální sociální profily Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Připravuje se verze 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Veřejné stahování zůstává na 1.0.0. Následující vylepšení jsou připravena ve zdrojích pro 1.0.1; vyžadují přestavěné balíčky, kontroly vydání a publikaci. Aktualizace této dokumentace neaktualizuje nainstalované aplikace.
+Novera 1.0.1 je k dispozici pro platformy uvedené níže. Stáhněte si balíček pro váš systém nebo použijte jeho podepsaný aktualizační kanál. Stávající instalace se aktualizují, když nainstalujete nový balíček nebo přijmete aktualizaci.
 
 - Zabezpečení: přísnější nativní oprávnění pro vzdálené stránky, ověřování pro síťová rozhraní API a serverové nástroje, chráněné tajné úložiště a migrace, bezpečnější přístup k souborům/médiím, analýza tabulek a sestavování skriptů. Odkryté závislosti byly aktualizovány; zbývající upozornění jsou otevřeně sledována.
 - Ochrana osobních údajů: Statistiky a chybové zprávy vyžadují samostatný souhlas a ve výchozím nastavení zůstávají vypnuté. Sestavení zahrnují zdokumentovanou konfiguraci cíle. Technická diagnostika je filtrována; uživatelé mají kontrolu nad aktivací.
@@ -37,7 +37,7 @@ Veřejné stahování zůstává na 1.0.0. Následující vylepšení jsou přip
 Katalogy API
 - : 43 profily poskytovatelů, včetně TabbyAPI lokálně, s obnoveným výběrem chatu a médií. Mezi nové položky patří GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 a GPT Image 2.6, Gemini Omni 1.2, FLUX 3, pokud jsou podporovány. Refresh již neskrývá výsledky přesahující deset modelů. Respektují se přesné identifikátory, regionální koncové body, soukromá nasazení a importované modely.
 - Ověření: cílená aplikace, nativní knihovna, veřejný katalog a jazykové kontroly jsou zaznamenány v podrobných poznámkách. Sestavení rozhraní pro Windows / macOS / Linux / Android / iOS. Tato frontendová sestavení necertifikují nativní balíčky nebo odvození na každém zařízení.
-- Před vydáním: ověřte přestavěné nativní balíčky, zbývající zjištění týkající se zabezpečení/závislosti a skutečnou aktualizaci 1.0.0 až 1.0.1. Dostupnost závisí na hardwaru, přístupu poskytovatele a platformě. Není požadována žádná univerzální kompatibilita modelu, stav nulové zranitelnosti nebo dokončená publikace.
+- Dostupnost a dokončené kontroly jsou uvedeny níže. Podporované funkce závisí na hardwaru, přístupu poskytovatele a platformě. Bezpečnostní zjištění a limity ověření nativního zařízení zůstávají zdokumentovány. Před aktualizací si uložte zálohu.
 
 [Podrobné poznámky, ověření a zbývající práce](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Katalogy API
 
 <!-- novera-release-1.0.1:end -->
 
-## Dostupnost — 2026-11-03
+## Dostupnost — 2026-11-07
 
-**Novera 1.0.0 je k dispozici pro Windows, Linux, macOS a Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Desktopové balíčky, archivy CLI, podpisy a aktualizační manifesty jsou veřejné a ověřené.
+**Novera 1.0.1 je k dispozici pro Windows, Linux, macOS a Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Desktopové balíčky, archivy CLI, podpisy a aktualizační manifesty jsou veřejné a ověřené.
 
 | Platforma | Dostupnost |
 | --- | --- |
 | Windows x64 | Veřejný instalační program NSIS, podepsaný aktualizátor; nativní instalace a výměna ověřena. |
 | Linux x64 | Public AppImage, podepsaný aktualizátor; nativní instalace a výměna ověřena. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`s vyhrazeným podepsaným aktualizačním kanálem. |
-| Windows ARM64 | [Veřejný instalační program NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), nativní textový stroj CPU; instalace, výměna a kontroly veřejného kanálu ověřeny. |
-| Android ARM64 | [Veřejně podepsané APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, výchozí dávka 512. Správce potvrzuje, že sestavení 1000012 na jejich telefonu funguje. Čistý balíček bez konverzací, modelů nebo osobních klíčů API. [Důkazy a omezení](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Oficiální vydání 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Aktualizace podepsané Novera. Notářsky ověřeno společností Apple; automatizované kontroly prošly odděleně na obou architekturách, vizuální kontroly byly odloženy. [Instalace a evidence](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`s vyhrazeným podepsaným aktualizačním kanálem. |
+| Windows ARM64 | [Veřejný instalační program NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), nativní textový stroj CPU; instalace, výměna a kontroly veřejného kanálu ověřeny. |
+| Android ARM64 | Android 1.0.1 je k dispozici jako podepsaný ARM64 APK, sestavení 1000013. Používá stávající certifikát Novera a projde kontrolou balíčku. Neobsahuje žádné osobní konverzace, modely ani klíče API. Instalace a aktualizace na telefonu zbývá otestovat. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Oficiální vydání 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Aktualizace podepsané Novera. Notářsky ověřeno společností Apple; automatizované kontroly prošly odděleně na obou architekturách, vizuální kontroly byly odloženy. [Instalace a evidence](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Sestavení interního simulátoru; Před instalací iPhone je vyžadováno podepsání/zřízení Apple. [Sledování](docs/REPRISE_MACOS_IOS.md). |
 | Přenosný Windows x64 | [Podepsaný archiv ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data zůstávají v Data, podepsaná výměna Program ověřena. |
 | Web, MSI, Debian | Hostovaný webový klient a další formáty zůstávají interní; K dispozici je prezentační stránka Pages. |
 
 Na Macu otevřete DMG a zkopírujte Novera do Aplikace. Pokud je první spuštění zablokováno, povolte vstup Novera **Nastavení systému → Soukromí a zabezpečení → Přesto otevřít**. [Pokyny Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Podpisy aktualizačního programu nejsou ověřeny Windows Authenticode nebo Apple. Manuální kontroly aktuální verze procházejí proti veřejnému kanálu; přechod mezi dvěma veřejnými verzemi zůstává testem příštího vydání. [Důkazy a omezení](docs/LAUNCH_STATUS.md).
+Podpisy nástroje Updater jsou oddělené od Windows Authenticode a notářského ověření Apple. Hashe balíčků, nativní kontroly a testy aktualizací jsou dokumentovány samostatně. Úplný veřejný upgrade 1.0.0 na 1.0.1 je potvrzen pouze pro scénáře zaznamenané ve zprávě o vydání. [Důkazy a omezení](docs/LAUNCH_STATUS.md)
 
 Na Android se pro místní modely doporučuje moderní telefon s dostatkem paměti; použijte poskytovatele API na méně výkonných zařízeních. Pro vyhledávání na webu, kontext alespoň **Tokeny 16K (16,384)** , konzistentně napříč verzemi.
 
@@ -145,7 +145,7 @@ Hudební kodér Qwen a model vyhledávání Qwen jsou **různé soubory**, ulož
 
 ## Poskytovatelé cloudu
 
-Připravené zdroje obsahují 43 profily poskytovatelů: 42 cloudové služby a TabbyAPI pro místní server. Dostupnost a možnosti modelu závisí na účtu, regionu a podporovaném rozhraní API. Katalog je sdílen všemi 104 jazyky rozhraní.
+Katalog obsahuje 43 profily poskytovatelů: 42 cloudové služby a TabbyAPI pro místní server. Přístup k modelu a možnosti závisí na účtu, regionu a podporovaném rozhraní API. Tento katalog sdílejí všechny jazyky rozhraní 104.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Připravené zdroje obsahují 43 profily poskytovatelů: 42 cloudové služby a 
 
 ### Obrázek, hudba a video
 
-Připravený katalog výtvorů obsahuje 58 předvolby od 20 poskytovatelů: 30 obrázek, 24 video a 4 hudební předvolby. V níže uvedených tabulkách jsou uvedeny integrované trasy; nereprodukují každou komerční nabídku.
+Katalog výtvorů obsahuje 58 předvolby od 20 poskytovatelů: 30 obrázek, 24 video a 4 hudební předvolby. V níže uvedených tabulkách jsou uvedeny přesné modely a identifikátory podporované integrovanými adaptéry.
 
 | Poskytovatel | Výstupy v Novera | Katalogové modely |
 | --- | --- | --- |
@@ -297,7 +297,7 @@ Toto jsou pokyny pro přínos a vývoj, nikoli tvrzení, že každá aplikace sp
 
 ## Stav projektu
 
-**Novera 1.0.0 je k dispozici pro Windows, Linux, macOS a Android.** Snímek obrazovky ukazuje aplikaci Windows zkompilovanou lokálně správcem. Změny zdroje, cílené testy a ověření hardwaru jsou dokumentovány samostatně; to neověřuje každý model, platformu nebo cloudový účet.
+**Novera 1.0.1 je k dispozici pro Windows, Linux, macOS a Android.** Snímek obrazovky ukazuje aplikaci Windows zkompilovanou lokálně správcem. Změny zdroje, cílené testy a ověření hardwaru jsou dokumentovány samostatně; to neověřuje každý model, platformu nebo cloudový účet.
 
 Manuální sestavení GitHub Actions jsou povolena pro všech jedenáct variant distribuce. Postupujte podle [výsledky sestavení a ověřené stažení kandidátů](docs/CI_DISTRIBUTIONS.md); dostupnost se zaznamenává samostatně pro každou platformu. Kandidáti se liší od podepsaných produkčních verzí. Požadavky na distribuci jsou popsány v [oficiální politika uvolňování](OFFICIAL_RELEASES.md) a [stránka vydání](https://github.com/TRON-ABS/Novera/releases). Stávající kandidáti s deaktivovaným aktualizátorem zůstávají interní. Veřejná vydání vyžadují nakonfigurovaný a ověřený aktualizační mechanismus; [kontroly podpisů na ploše a zbývající požadavky na spuštění jsou zdokumentovány](docs/LAUNCH_STATUS.md).
 

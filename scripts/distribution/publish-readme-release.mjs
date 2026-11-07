@@ -45,10 +45,9 @@ export function preparePublishedReadme(source, locale, facts, copy) {
       lines[i] = t.media
       changed.media++
     } else if (line.startsWith('|') && /releases\/tag\/v[\d.]+-android-\d+/.test(line)) {
-      const columns = line.split('|')
-      if (columns.length !== 4) throw new Error(`Ambiguous Android table: ${locale}`)
-      columns[2] = ` ${t.android} Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v${facts.release}-android-${facts.androidVersionCode}) · [${facts.release}](${report}). `
-      lines[i] = columns.join('|')
+      const label = line.match(/^(\|[^|]*\|)[\s\S]*\|\s*$/)?.[1]
+      if (!label) throw new Error(`Ambiguous Android table: ${locale}`)
+      lines[i] = `${label} ${t.android.replaceAll('|', '\\|')} Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v${facts.release}-android-${facts.androidVersionCode}) · [${facts.release}](${report}). |`
       changed.android++
     } else if (releaseEnded && changed.heading === 0 && line.startsWith('## ')) {
       lines[i] = line.split('—')[0].trimEnd() + ' — 2026-11-07'
@@ -69,6 +68,11 @@ export function preparePublishedReadme(source, locale, facts, copy) {
   if (/\{\{\w+\}\}|android-1000012/.test(text)) throw new Error(`Stale publication content: ${locale}`)
   // The upgrade sentence must retain the actual previous version.
   text = text.replace(t.upgrade.replaceAll(facts.previous, facts.release), t.upgrade)
+  // The portable channel can deliberately remain on its own verified release.
+  if (facts.portableVersion && facts.portableVersion !== facts.release) {
+    text = text.split('\n').map(line => /windows-portable|WINDOWS_PORTABLE\.md/.test(line)
+      ? line.replaceAll(facts.release, facts.portableVersion) : line).join('\n')
+  }
   return text
 }
 
