@@ -16,7 +16,7 @@ describe('browser runtime ownership', () => {
     const f = fixture()
     await Promise.all([f.runtime.load(id), f.runtime.load(id)])
     expect(f.sdk.from_pretrained).toHaveBeenCalledTimes(1)
-    expect(f.sdk.from_pretrained.mock.calls[0][1]).toMatchObject({ revision: browserCatalog[0].revision, mmproj: 'mmproj-LFM3-Omni-2B-Q8_0.gguf' })
+    expect(f.sdk.from_pretrained.mock.calls[0][1]).toMatchObject({ revision: browserCatalog[0].revision, mmproj: 'mmproj-LFM3-Omni-2B-Q8_0.gguf', maxLength: 32768 })
     expect(f.runtime.loadedId()).toBe(id)
   })
 
@@ -32,6 +32,15 @@ describe('browser runtime ownership', () => {
     expect(f.model.dispose).toHaveBeenCalledOnce()
     expect(f.runtime.loadedId()).toBe('')
     expect(f.runtime.snapshot().phase).toBe('idle')
+  })
+
+  it('releases an SDK model that silently allocates a smaller context than requested', async () => {
+    const f = fixture()
+    Object.assign(f.model, { contextLength: 4096 })
+    await expect(f.runtime.load(id)).rejects.toThrow('32 768')
+    expect(f.model.dispose).toHaveBeenCalledOnce()
+    expect(f.model.create_session).not.toHaveBeenCalled()
+    expect(f.runtime.loadedId()).toBe('')
   })
 
   it('resets context between conversations and releases GPU resources', async () => {

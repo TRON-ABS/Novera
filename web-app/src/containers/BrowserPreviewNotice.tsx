@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react'
-import { browserRuntime } from '@/services/browser-preview/runtime'
+import { browserRuntime, BROWSER_CONTEXT_TOKENS } from '@/services/browser-preview/runtime'
 import { browserCatalog } from '@/services/browser-preview/config'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { BrowserUpdateNotice } from './BrowserUpdateNotice'
@@ -15,6 +15,7 @@ export function BrowserPreviewNotice() {
       <strong>Novera Web · préparation</strong>
       <span>Texte sur cet appareil · sans clé API</span>
       <span>{spec.name} · {(spec.bytes / 1e9).toFixed(2)} Go au premier chargement</span>
+      <span>Contexte · {BROWSER_CONTEXT_TOKENS.toLocaleString('fr-FR')} tokens</span>
       {state.phase === 'loading' ? <>
         <progress aria-label="Chargement du modèle" max={1} value={state.progress ?? 0} />
         <button className="underline" onClick={() => browserRuntime.cancelLoad()}>Annuler le chargement</button>

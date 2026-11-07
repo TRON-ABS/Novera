@@ -5,8 +5,9 @@ type SdkEvent = { type: string; text?: string }
 type SdkResult = { message: { role: string; content: string }; finish_reason: string; usage?: { prompt_tokens?: number; completion_tokens?: number; cached_tokens?: number }; timings?: { tokens_per_second?: number } }
 type Turn = AsyncIterable<SdkEvent> & { result: Promise<SdkResult>; cancel(): void }
 type Session = { generate(messages: BrowserMessage[], options: Record<string, unknown>): Turn; reset(): void; dispose(): Promise<void> }
-type Model = { create_session(): Session; dispose(): Promise<void> }
+type Model = { contextLength?: number; create_session(): Session; dispose(): Promise<void> }
 type Sdk = { from_pretrained(repo: string, options: Record<string, unknown>): Promise<Model> }
+export const BROWSER_CONTEXT_TOKENS = 32768
 export type BrowserRuntimeStatus = {
   phase: 'idle' | 'loading' | 'ready' | 'generating' | 'error'
   modelId: string
@@ -77,7 +78,7 @@ export class BrowserRuntime {
       const model = await sdk.from_pretrained(spec.repo, {
         revision: spec.revision, file: spec.file,
         ...(spec.projector ? { mmproj: spec.projector } : {}),
-        maxLength: 4096, cache: true,
+        maxLength: BROWSER_CONTEXT_TOKENS, cache: true,
         cacheName: `novera-web-${spec.id}-${spec.revision}`,
         prefixSnapshotStore: null, signal: controller.signal,
         onProgress: (event: { fraction?: number }) => {
@@ -85,6 +86,10 @@ export class BrowserRuntime {
         },
       })
       if (controller.signal.aborted) { await model.dispose(); controller.signal.throwIfAborted() }
+      if (typeof model.contextLength === 'number' && model.contextLength < BROWSER_CONTEXT_TOKENS) {
+        await model.dispose()
+        throw new Error(`Le moteur n’a alloué que ${model.contextLength} tokens de contexte au lieu des 32 768 demandés.`)
+      }
       let session: Session
       try { session = model.create_session() }
       catch (error) { await model.dispose(); throw error }
