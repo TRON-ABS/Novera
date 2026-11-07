@@ -1,9 +1,7 @@
-# fix(cli): prepare signed 1.0.1 packages for the original updater
+# test(cli): verify the original public updater migration to 1.0.1
 
-The original 1.0.0 CLI updater accepts only a format-1 archive containing `jan`/`jan.exe` at the version-matched `v1.0.1` release URL. Pointing it at the current format-2 `novera` archive would fail validation. Prepare a separate compatibility archive containing the unchanged, already-published 1.0.1 executable with the original authenticated identity contract; preserve the canonical archives and channel.
+Compatibility packages have passed signed-byte checks and real native 1.0.1 execution on Windows, Linux and macOS (run 42414860602). Add a separate, opt-in post-publication check for the actual original Windows/Linux 1.0.0 updater.
 
-The manual native workflow downloads canonical assets pinned by the reviewed public descriptor, verifies sizes, SHA-256 and Novera signatures, repackages them, signs the final compatibility bytes, and runs the real legacy-name executable on Windows x64, Linux x64 and macOS ARM64. It retains artifacts without publishing or changing a feed. Publication and a real original-updater migration check remain separate steps.
+Download and authenticate both public versions, launch the exact original executable in a disposable native profile, verify the production offer, perform its real signed replacement, compare the installed executable byte-for-byte, preserve a profile sentinel and check the canonical channel after migration. No installed user application is touched; tokens and signing secrets are removed from the child environment. The check refuses to run outside a disposable GitHub-hosted runner.
 
-Validation: `python -I -B scripts/distribution/checks/test_legacy_cli_package.py` passes two tests, including all three target formats, exact executable preservation, old-version relabel rejection and overwrite refusal. `node --check scripts/distribution/prepare-legacy-cli.mjs` passes. Native workflow results are pending; no original public updater transition is claimed yet.
-
-Related: #43 published the browser preparation and release presentation. The maintainer requires updates across all Novera distributions. The signed portable 1.0.1 build is running separately; iOS device signing and public Web release prerequisites remain explicitly tracked.
+Validation: Python syntax compilation and diff checks pass. Actual native migration is intentionally pending publication of the authenticated format-1 archives and will be run through the new workflow input. Related: #48; the current canonical CLI release remains unchanged.

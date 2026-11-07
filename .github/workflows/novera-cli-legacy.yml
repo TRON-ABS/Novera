@@ -1,10 +1,16 @@
 name: Novera - Compatible legacy CLI packages
 on:
   workflow_dispatch:
+    inputs:
+      verify_public:
+        description: Exercise the actual original updater after compatibility publication
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
   prepare:
+    if: ${{ !inputs.verify_public }}
     strategy:
       fail-fast: false
       matrix:
@@ -38,4 +44,30 @@ jobs:
             .build/legacy-cli/*.sig
             .build/legacy-cli/CLI-LEGACY-*.json
           if-no-files-found: error
+          retention-days: 14
+  verify-public:
+    if: inputs.verify_public
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-22.04, windows-2025]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Upgrade the exact original public CLI in an isolated native profile
+        shell: bash
+        run: python scripts/distribution/verify-legacy-cli-upgrade.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: legacy-cli-public-upgrade-${{ runner.os }}-${{ github.run_id }}
+          path: .build/legacy-cli-upgrade/LEGACY-CLI-UPGRADE-*.json
+          if-no-files-found: warn
           retention-days: 14
