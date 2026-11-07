@@ -75,7 +75,7 @@ To Android, foonditol jamanu marngol hakkillo heedi ko hewti e ɗum yi'a-yi'a ng
 
 Novera mawni e ɗum. Misaalu e ko ɗum waɗata waaway wallita woɓɓe huwooɓe heɓa ko haandi. Senndi ƴamol, masalaji, e miijooji e nder man. [Facebook ɓoggol](https://www.facebook.com/profile.php?id=61596114515071) ko e [E-mail](mailto:contact.novera.tronabs@gmail.com). To ɗum waaway, hawta Novera ferotiral, na'ura e local/API moodel. Tabbitina bayanuuji goɗɗi boo walaa senndira API keyji maabo kalmaaji.
 
-![Novera wurtinii hootowol e darorde hawtaande e ɗuuɗal, seedwol, ɓeydaari e kadin ɓeydaari anndal.](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera wurtinii hootowol e darorde hawtaande e ɗuuɗal, seedwol, ɓeydaari e kadin ɓeydaari anndal.](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Ɗum waɗii Windows ɓoggi kuutinirgol ko ɓeydake nder 1 lewru November 2026, mo wi'i kuutinirgol ngol huuwi no haandi. Ɗum hollii ko wanngii, kuutinirgol kuutinirgol fiiji e hawtaaki kuutinirgol; ɗo'o naa ɗum mock-up.*
 

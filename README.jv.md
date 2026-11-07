@@ -73,7 +73,7 @@ Ing Android, telpon modern kanthi memori cukup dianjurake kanggo model lokal; gu
 
 Novera tuwuh karo sampeyan. Conto lan setelan sampeyan bisa mbantu pangguna liyane nemokake persiyapan sing cocog. Nuduhake pitakon, masalah lan ide babagan kita [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) utawa dening [email](mailto:contact.novera.tronabs@gmail.com). Yen bisa, kalebu versi Novera, piranti lan model lokal / API. Mbusak informasi pribadhi lan aja nuduhake kunci utawa sandhi API.
 
-![Novera ngasilake gambar lan dashboard terpadu kanthi jumlah, winih, upscaling lan memori otomatis](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera ngasilake gambar lan dashboard terpadu kanthi jumlah, winih, upscaling lan memori otomatis](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Tangkapan layar aplikasi Windows nyata sing diwenehake dening maintainer ing 1 November 2026, sing nglaporake manawa aplikasi kasebut bisa digunakake kanthi apik. Iki nuduhake lanskap sing digawe, kontrol file sing disimpen lan dashboard nggawe gabungan; iki dudu mockup.*
 

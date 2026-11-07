@@ -75,7 +75,7 @@ Di Android, disarankan menggunakan ponsel modern dengan memori yang cukup untuk 
 
 Novera tumbuh bersama Anda. Contoh dan pengaturan Anda dapat membantu pengguna lain menemukan pengaturan yang sesuai. Bagikan pertanyaan, masalah, dan ide di kami [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) atau oleh [surel](mailto:contact.novera.tronabs@gmail.com). Jika memungkinkan, sertakan versi Novera, perangkat, dan model lokal/API Anda. Hapus informasi pribadi dan jangan pernah membagikan kunci atau kata sandi API.
 
-![Novera menghasilkan gambar dan dasbor terpadu dengan kuantitas, seed, peningkatan, dan memori otomatis](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera menghasilkan gambar dan dasbor terpadu dengan kuantitas, seed, peningkatan, dan memori otomatis](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Tangkapan layar aplikasi Windows asli disediakan oleh pengelola pada 1 November 2026, yang melaporkan bahwa aplikasi berfungsi dengan baik. Ini menunjukkan lanskap yang dihasilkan, kontrol file yang disimpan, dan dasbor pembuatan terpadu; ini bukan maket.*
 

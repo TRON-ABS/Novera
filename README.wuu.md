@@ -73,7 +73,7 @@ Novera 1.0.1 适用于下列平台。下载适合您的系统的软件包或使�
 
 Novera 佮你一起成長。你嘅範例佮設定可以幫其他使用者尋找合適的配置。佇我嘅 [Facebook 頁面分享問題、問題佮想法](https://www.facebook.com/profile.php?id=61596114515071) 抑是透過 [電子郵件](mailto:contact.novera.tronabs@gmail.com)若可以，請提供你嘅 Novera 版本、裝置佮本地/API 模型。移除個人資訊，絕對毋分享 API 金鑰抑密碼。
 
-![Novera 產生圖片佮統一儀表板，包含數量、seed、放大佮自動記憶](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera 產生圖片佮統一儀表板，包含數量、seed、放大佮自動記憶](.github/assets/novera-dashboard-2026-11-07.png)
 
 *1 Windows 應用程式截圖，由維護者佮 2026 11 月提供，報告應用程式運作良好。顯示產生風景、儲存檔案控制佮統一創作儀表板；這毋係模型。*
 

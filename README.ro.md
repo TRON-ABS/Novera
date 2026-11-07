@@ -73,7 +73,7 @@ Pe Android, se recomandă un telefon modern cu suficientă memorie pentru modele
 
 Novera crește cu tine. Exemplele și setările tale pot ajuta alți utilizatori să găsească o configurare potrivită. Împărtășiți întrebări, probleme și idei pe pagina noastră [pagina Facebook](https://www.facebook.com/profile.php?id=61596114515071) sau prin [email](mailto:contact.novera.tronabs@gmail.com). Dacă este posibil, includeți versiunea Novera, dispozitivul și modelul local/API. Eliminați informațiile personale și nu împărtășiți niciodată cheile sau parolele API.
 
-![Imagine generată de Novera și dashboard unificat cu cantitate, seed, upscaling și memorie automată](.github/assets/novera-dashboard-2026-11-01.png)
+![Imagine generată de Novera și dashboard unificat cu cantitate, seed, upscaling și memorie automată](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Captură de ecran reală a aplicației Windows furnizată de administratorul pe 1 Noiembrie 2026, care raportează că aplicația funcționează bine. Arată un peisaj generat, controlerele de fișiere salvate și panoul de control unificat de creare; acesta nu este un mockup.*
 

@@ -75,7 +75,7 @@ Sou Android, yon telefòn modèn ak ase memwa rekòmande pou modèl lokal yo; s�
 
 Novera grandi avèk ou. Egzanp ou yo ak anviwònman yo ka ede lòt itilizatè yo jwenn yon konfigirasyon apwopriye. Pataje kesyon, pwoblèm ak lide sou nou [Facebook paj](https://www.facebook.com/profile.php?id=61596114515071) oswa pa [imel](mailto:contact.novera.tronabs@gmail.com). Si sa posib, mete vèsyon Novera, aparèy ak modèl lokal/API ou. Retire enfòmasyon pèsonèl yo epi pa janm pataje API kle oswa modpas.
 
-![Novera jenere imaj ak tablodbò inifye ak kantite, grenn, amelyorasyon ak memwa otomatik](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera jenere imaj ak tablodbò inifye ak kantite, grenn, amelyorasyon ak memwa otomatik](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Ekran aplikasyon reyèl Windows Responsab antretyen an te bay nan 1 Novanm 2026, ki fè konnen aplikasyon an fonksyone byen. Li montre yon jaden flè ki pwodui, kontwòl dosye ki sove li yo ak tablodbò kreyasyon inifye a; sa a se pa yon mockup.*
 

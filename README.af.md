@@ -73,7 +73,7 @@ Op Android word 'n moderne foon met genoeg geheue aanbeveel vir plaaslike modell
 
 Novera groei saam met jou. Jou voorbeelde en instellings kan ander gebruikers help om 'n geskikte opstelling te vind. Deel vrae, kwessies en idees op ons [Facebook bladsy](https://www.facebook.com/profile.php?id=61596114515071) of deur [e-pos](mailto:contact.novera.tronabs@gmail.com). Indien moontlik, sluit jou Novera weergawe, toestel en plaaslike/API model in. Verwyder persoonlike inligting en deel nooit API sleutels of wagwoorde nie.
 
-![Novera gegenereerde beeld en verenigde dashboard met hoeveelheid, saad, opskaling en outomatiese geheue](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera gegenereerde beeld en verenigde dashboard met hoeveelheid, saad, opskaling en outomatiese geheue](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Regte Windows-toepassingskermkiekie verskaf deur die instandhouer op 1 November 2026, wat rapporteer dat die toepassing goed werk. Dit wys 'n gegenereerde landskap, sy gestoorde lêer kontroles en die verenigde skepping dashboard; dit is nie 'n mockup nie.*
 

@@ -73,7 +73,7 @@ Na Android, ekwentị ọgbara ọhụrụ nwere ebe nchekwa zuru oke ka akwador
 
 Novera na-eto gị. Ihe atụ na ntọala gị nwere ike inyere ndị ọrụ ndị ọzọ aka ịchọta ntọala dabara adaba. Kekọrịta ajụjụ, nsogbu na echiche gbasara anyị [Facebook ibe](https://www.facebook.com/profile.php?id=61596114515071) ma ọ bụ site na [email](mailto:contact.novera.tronabs@gmail.com). Ọ bụrụ na ọ ga-ekwe omume, tinye ụdị Novera gị, ngwaọrụ na ụdị mpaghara/API. Wepu ozi nkeonwe ma ghara ịkekọrịta API igodo ma ọ bụ okwuntughe.
 
-![Novera weputara onyonyo yana dashboard jikọtara ọnụ nwere oke, mkpụrụ, nkwalite na ebe nchekwa akpaka.](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera weputara onyonyo yana dashboard jikọtara ọnụ nwere oke, mkpụrụ, nkwalite na ebe nchekwa akpaka.](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Real Windows nseta ihuenyo ngwa wetara na 1 Nọvemba 2026, onye na-akọ na ngwa ahụ na-arụ ọrụ nke ọma. Ọ na-egosi odida obodo emepụtara, njikwa faịlụ echekwara yana dashboard okike jikọtara ọnụ; nke a abụghị ihe njakịrị.*
 

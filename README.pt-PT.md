@@ -73,7 +73,7 @@ No Android, um telefone moderno com memória suficiente é recomendado para mode
 
 A Novera cresce consigo. Os seus exemplos e configurações podem ajudar outros utilizadores a encontrar uma configuração adequada. Partilhe perguntas, problemas e ideias no nosso [Página de Facebook](https://www.facebook.com/profile.php?id=61596114515071) ou por [e-mail](mailto:contact.novera.tronabs@gmail.com). Se possível, inclua a sua versão do Novera, o dispositivo e o modelo local/API. Remova informações pessoais e nunca partilhe chaves API ou palavras-passe.
 
-![Imagem gerada pela Novera e dashboard unificado com quantidade, seed, upscaling e memória automática](.github/assets/novera-dashboard-2026-11-01.png)
+![Imagem gerada pela Novera e dashboard unificado com quantidade, seed, upscaling e memória automática](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Captura de ecrã real da aplicação Windows fornecida pelo mantenedor a 1 de novembro de 2026, que informa que a aplicação funciona bem. Mostra um cenário gerado, os seus controlos de ficheiros guardados e o painel de criação unificado; isto não é uma maquete.*
 

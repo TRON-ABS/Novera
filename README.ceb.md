@@ -73,7 +73,7 @@ Sa Android, usa ka moderno nga telepono nga adunay igo nga memorya ang girekomen
 
 Ang Novera motubo uban kanimo. Ang imong mga pananglitan ug mga setting makatabang sa ubang mga tiggamit sa pagpangita og angay nga setup. Ipaambit ang mga pangutana, isyu ug ideya sa among [Facebook panid](https://www.facebook.com/profile.php?id=61596114515071) o ni [email](mailto:contact.novera.tronabs@gmail.com). Kung mahimo, iapil ang imong Novera nga bersyon, aparato ug lokal/API nga modelo. Kuhaa ang personal nga impormasyon ug ayaw ipaambit ang API nga mga yawe o password.
 
-![Novera nakamugna nga imahe ug hiniusa nga dashboard nga adunay gidaghanon, liso, pagpataas ug awtomatikong memorya](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera nakamugna nga imahe ug hiniusa nga dashboard nga adunay gidaghanon, liso, pagpataas ug awtomatikong memorya](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Tinuod nga Windows nga screenshot sa aplikasyon nga gihatag sa maintainer sa 1 Nobyembre 2026, kinsa nagtaho nga ang aplikasyon nagtrabaho og maayo. Nagpakita kini og usa ka namugna nga talan-awon, ang mga kontrol nga na-save nga file ug ang hiniusa nga dashboard sa paglalang; kini dili usa ka mockup.*
 

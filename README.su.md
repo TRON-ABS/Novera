@@ -73,7 +73,7 @@ Dina Android, telepon modern kalawan memori cukup dianjurkeun pikeun model lokal
 
 Novera tumuwuh sareng anjeun. Conto sareng setelan anjeun tiasa ngabantosan pangguna sanés mendakan setélan anu cocog. Bagikeun patarosan, masalah sareng ideu ngeunaan kami [Facebook kaca](https://www.facebook.com/profile.php?id=61596114515071) atanapi ku [surélék](mailto:contact.novera.tronabs@gmail.com). Upami mungkin, kalebet versi Novera anjeun, alat sareng modél lokal / API. Cabut inpormasi pribadi sareng henteu pernah bagikeun konci atanapi kecap akses API.
 
-![Novera ngahasilkeun gambar sareng dasbor ngahiji sareng kuantitas, siki, upscaling sareng mémori otomatis](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera ngahasilkeun gambar sareng dasbor ngahiji sareng kuantitas, siki, upscaling sareng mémori otomatis](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Nyata Windows screenshot aplikasi disadiakeun ku maintainer on 1 Nopémber 2026, anu ngalaporkeun yén aplikasi jalan ogé. Ieu nembongkeun bentang dihasilkeun, na disimpen-file kadali sarta dasbor kreasi ngahiji; ieu sanés mockup.*
 

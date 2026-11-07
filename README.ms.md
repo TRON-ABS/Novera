@@ -73,7 +73,7 @@ Pada Android, telefon moden dengan memori yang mencukupi disyorkan untuk model t
 
 Novera berkembang bersama anda. Contoh dan tetapan anda boleh membantu pengguna lain mencari persediaan yang sesuai. Kongsi soalan, isu dan idea tentang kami [Facebook halaman](https://www.facebook.com/profile.php?id=61596114515071) atau oleh [e-mel](mailto:contact.novera.tronabs@gmail.com). Jika boleh, sertakan versi Novera, peranti dan model setempat/API anda. Alih keluar maklumat peribadi dan jangan sekali-kali berkongsi kunci atau kata laluan API.
 
-![Novera menghasilkan imej dan papan pemuka bersatu dengan kuantiti, benih, peningkatan dan memori automatik](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera menghasilkan imej dan papan pemuka bersatu dengan kuantiti, benih, peningkatan dan memori automatik](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Tangkapan skrin aplikasi Real Windows dibekalkan oleh penyelenggara pada 1 November 2026, yang melaporkan bahawa aplikasi itu berfungsi dengan baik. Ia menunjukkan landskap yang dijana, kawalan fail yang disimpan dan papan pemuka ciptaan bersatu; ini bukan mockup.*
 

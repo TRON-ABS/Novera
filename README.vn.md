@@ -79,7 +79,7 @@ Trên Android, điện thoại hiện đại có đủ bộ nhớ được khuy�
 
 Novera phát triển cùng bạn. Các ví dụ và cài đặt của bạn có thể giúp người dùng khác tìm thấy cách thiết lập phù hợp. Chia sẻ câu hỏi, vấn đề và ý tưởng trên trang web của chúng tôi [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) hoặc bởi [e-mail](mailto:contact.novera.tronabs@gmail.com). Nếu có thể, hãy bao gồm phiên bản Novera, thiết bị và kiểu máy cục bộ/API của bạn. Xóa thông tin cá nhân và không bao giờ chia sẻ khóa hoặc mật khẩu API.
 
-![Novera đã tạo hình ảnh và bảng điều khiển thống nhất với số lượng, hạt giống, nâng cấp và bộ nhớ tự động](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera đã tạo hình ảnh và bảng điều khiển thống nhất với số lượng, hạt giống, nâng cấp và bộ nhớ tự động](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Ảnh chụp màn hình ứng dụng Windows thực do nhà bảo trì cung cấp trên 1 tháng 11 2026, người báo cáo rằng ứng dụng hoạt động tốt. Nó hiển thị cảnh quan được tạo, các điều khiển tệp đã lưu và bảng điều khiển tạo hợp nhất; đây không phải là một mô hình.*
 

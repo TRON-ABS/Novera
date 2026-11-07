@@ -73,7 +73,7 @@ Sa Android, inirerekomenda ang modernong teleponong may sapat na memorya para sa
 
 Lumalaki ang Novera kasama mo. Ang iyong mga halimbawa at setting ay makakatulong sa ibang mga user na makahanap ng angkop na setup. Magbahagi ng mga tanong, isyu at ideya sa aming [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) o ni [email](mailto:contact.novera.tronabs@gmail.com). Kung maaari, isama ang iyong Novera na bersyon, device at lokal/API na modelo. Alisin ang personal na impormasyon at huwag kailanman ibahagi ang API key o password.
 
-![Novera nabuong imahe at pinag-isang dashboard na may dami, buto, upscaling at awtomatikong memory](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera nabuong imahe at pinag-isang dashboard na may dami, buto, upscaling at awtomatikong memory](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Real Windows application screenshot na ibinigay ng maintainer sa 1 Nobyembre 2026, na nag-uulat na gumagana nang maayos ang application. Nagpapakita ito ng nabuong landscape, ang mga naka-save na file na kontrol nito at ang pinag-isang dashboard ng paglikha; hindi ito mockup.*
 

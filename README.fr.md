@@ -73,7 +73,7 @@ Sur Android, un téléphone moderne avec suffisamment de mémoire est conseillé
 
 Novera évolue avec vous. Vos exemples et réglages peuvent aider les autres utilisateurs à trouver une configuration adaptée. Partagez vos questions, problèmes et idées sur notre [page Facebook](https://www.facebook.com/profile.php?id=61596114515071) ou par [email](mailto:contact.novera.tronabs@gmail.com). Indiquez si possible votre version de Novera, votre appareil et le modèle local ou API utilisé. Masquez les données personnelles et ne partagez jamais vos clés API ou mots de passe.
 
-![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Capture réelle de l’application Windows fournie par le mainteneur le 1er novembre 2026, qui confirme que l’application fonctionne bien. Elle montre un paysage généré, les commandes du fichier enregistré et le tableau de bord de création unifié ; ce n’est pas une maquette.*
 

@@ -73,7 +73,7 @@ Android 支援便攜式 API。 **16K 令牌 (16,384)** . 提取完整歸檔並�
 
 Novera 會同你一齊成長。你嘅範例同設定可以幫其他用戶搵到合適嘅設置。請喺我哋嘅 [Facebook 頁面分享問題、疑慮同諗法](https://www.facebook.com/profile.php?id=61596114515071) 或者透過 [電郵](mailto:contact.novera.tronabs@gmail.com)。如果可以，請提供你嘅 Novera 版本、設備同本地/API 模型。請移除個人資料，絕對唔好分享 API 密鑰或密碼。
 
-![Novera 產生相片同統一儀表板，有數量、種子、放大同自動記憶](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera 產生相片同統一儀表板，有數量、種子、放大同自動記憶](.github/assets/novera-dashboard-2026-11-07.png)
 
 *1 十一月 2026 維護者提供真 Windows 應用程式截圖，報告應用程式運作良好。顯示產生風景、儲存檔案控制同統一創作儀表板；呢毋係模型。*
 

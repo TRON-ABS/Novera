@@ -73,7 +73,7 @@ Für lokale Modelle unter Android wird ein modernes Smartphone mit ausreichend S
 
 Novera wächst mit Ihnen. Ihre Beispiele und Einstellungen können anderen Benutzern helfen, ein passendes Setup zu finden. Teilen Sie Fragen, Probleme und Ideen auf unserer Seite [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) oder per [E-Mail](mailto:contact.novera.tronabs@gmail.com). Geben Sie nach Möglichkeit Ihre Novera-Version, Ihr Gerät und Ihr lokales/API-Modell an. Entfernen Sie persönliche Daten und geben Sie niemals API-Schlüssel oder Passwörter weiter.
 
-![Novera generiertes Bild und einheitliches Dashboard mit Menge, Seed, Upscaling und automatischem Speicher](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera generiertes Bild und einheitliches Dashboard mit Menge, Seed, Upscaling und automatischem Speicher](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Echter Screenshot der Windows-Anwendung, bereitgestellt vom Betreuer am 1 November 2026, der berichtet, dass die Anwendung gut funktioniert. Es zeigt eine generierte Landschaft, ihre Steuerelemente für gespeicherte Dateien und das einheitliche Erstellungs-Dashboard; Dies ist kein Modell.*
 

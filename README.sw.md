@@ -73,7 +73,7 @@ Kwenye Android, simu ya kisasa yenye kumbukumbu ya kutosha inapendekezwa kwa miu
 
 Novera inakua pamoja nawe. Mifano na mipangilio yako inaweza kusaidia watumiaji wengine kupata usanidi unaofaa. Shiriki maswali, masuala na mawazo kwenye yetu [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) au kwa [barua pepe](mailto:contact.novera.tronabs@gmail.com). Ikiwezekana, jumuisha toleo lako la Novera, kifaa na muundo wa ndani/API. Ondoa maelezo ya kibinafsi na usishiriki kamwe vitufe au manenosiri ya API.
 
-![Novera imetengeneza picha na dashibodi iliyounganishwa yenye wingi, mbegu, upandaji wa juu na kumbukumbu otomatiki](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera imetengeneza picha na dashibodi iliyounganishwa yenye wingi, mbegu, upandaji wa juu na kumbukumbu otomatiki](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Picha ya skrini ya programu halisi ya Windows iliyotolewa na mtunza huduma mnamo 1 Novemba 2026, ambaye anaripoti kuwa programu inafanya kazi vizuri. Inaonyesha mandhari iliyozalishwa, vidhibiti vyake vya faili zilizohifadhiwa na dashibodi ya uumbaji iliyounganishwa; hii si kejeli.*
 

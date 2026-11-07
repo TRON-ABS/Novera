@@ -73,7 +73,7 @@ Lori Android, foonu igbalode pẹlu iranti to ni iṣeduro fun awọn awoṣe ag
 
 Novera dagba pẹlu rẹ. Awọn apẹẹrẹ ati eto rẹ le ṣe iranlọwọ fun awọn olumulo miiran lati wa iṣeto to dara. Pin awọn ibeere, awọn ọran ati awọn imọran lori wa [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) tabi nipasẹ [imeeli](mailto:contact.novera.tronabs@gmail.com). Ti o ba ṣeeṣe, pẹlu ẹya Novera rẹ, ẹrọ ati awoṣe agbegbe/API. Yọ alaye ti ara ẹni kuro ki o ma ṣe pin awọn bọtini API tabi awọn ọrọigbaniwọle.
 
-![Novera ti ipilẹṣẹ aworan ati dasibodu iṣọkan pẹlu opoiye, irugbin, igbega ati iranti aifọwọyi](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera ti ipilẹṣẹ aworan ati dasibodu iṣọkan pẹlu opoiye, irugbin, igbega ati iranti aifọwọyi](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Sikirinifoto ohun elo Windows gidi ti a pese nipasẹ olutọju lori 1 Kọkànlá Oṣù 2026, ẹniti o jabo pe ohun elo naa ṣiṣẹ daradara. O ṣe afihan ala-ilẹ ti ipilẹṣẹ, awọn iṣakoso faili ti o fipamọ ati dasibodu ẹda ti iṣọkan; eyi kii ṣe ẹgan.*
 

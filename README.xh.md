@@ -73,7 +73,7 @@ Kwi-Android, ifowuni yanamhlanje enememori eyaneleyo iyacetyiswa kwiimodeli zase
 
 Novera ikhula nawe. Imizekelo yakho kunye noseto lunokunceda abanye abasebenzisi bafumane useto olufanelekileyo. Yabelana ngemibuzo, imiba kunye neengcinga zethu [Facebook iphepha](https://www.facebook.com/profile.php?id=61596114515071) okanye nge [imeyile](mailto:contact.novera.tronabs@gmail.com). Ukuba kuyenzeka, bandakanya inguqulo yakho ye-Novera, isixhobo kunye nemodeli yasekhaya/API. Susa iinkcukacha zakho kwaye ungaze wabelane nge-API nezitshixo okanye amagama ayimfihlo.
 
-![Novera uveliswe umfanekiso kunye nedeshibhodi edityanisiweyo enobuninzi, imbewu, ukunyusa kunye nememori ezenzekelayo](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera uveliswe umfanekiso kunye nedeshibhodi edityanisiweyo enobuninzi, imbewu, ukunyusa kunye nememori ezenzekelayo](.github/assets/novera-dashboard-2026-11-07.png)
 
 *I-Windows yokwenyani isicelo sekhusi-skrini esibonelelwe ngumlondolozi kwi-1 ngoNovemba 2026, oxela ukuba isicelo sisebenza kakuhle. Ibonisa umhlaba owenziweyo, ulawulo lwayo lwefayile egciniweyo kunye nedeshibhodi yokudala edibeneyo; ayisiyonto intlekisa le.*
 
