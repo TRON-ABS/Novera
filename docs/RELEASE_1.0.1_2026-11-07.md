@@ -29,6 +29,12 @@ Les fournisseurs API utilisent les identifiants officiels vérifiés le 7 novemb
 
 Les preuves de la 1.0.0 ne valent pas validation de la 1.0.1.
 
+## Publication des sources et premier incident CI
+
+La [PR #26](https://github.com/TRON-ABS/Novera/pull/26) est fusionnée sur `main` (`cd7451690bddbfd39c7a3b390bfb4e129b6b3229`). Le déploiement de la vitrine depuis ce commit est lancé ; ses liens restent en 1.0.0 et présentent les notes 1.0.1 en préparation.
+
+Les cinq premiers builds desktop échouent avant la compilation applicative : `scripts/download-bin.mjs` importe un export par défaut absent de `tar` 7. Le correctif charge son espace de noms ; syntaxe Node et vraie création/extraction gzip-tar passent localement. Relancer les cibles avec ce correctif ; ne pas qualifier les jobs de sélection ignorée comme des compilations réussies.
+
 ## Livraison
 
 Préparer les paquets signés et leurs reçus par plateforme. Android exige le certificat de production existant ; le candidat debug CI ne sert pas de mise à jour publique. iOS conserve ses prérequis Apple et ses essais sur appareil. MSI/Debian ne deviennent pas publiables par une compilation seule.
