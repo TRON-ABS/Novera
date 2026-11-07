@@ -20,49 +20,49 @@
       "name": "Novera_1.0.1_aarch64.app.tar.gz",
       "bytes": 113368154,
       "sha256": "edaf83f7761ee71bfa73133d1638c56782aa495b473df007230059b02c9b6f8a",
-      "url": "https://github.com/TRON-ABS/Novera/releases/download/untagged-c6f54c6b7c8ce31844cd/Novera_1.0.1_aarch64.app.tar.gz"
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-macos/Novera_1.0.1_aarch64.app.tar.gz"
     },
     {
       "name": "Novera_1.0.1_aarch64.app.tar.gz.sig",
       "bytes": 424,
       "sha256": "4a78a373aaebe8e2ac331216a0fb8c5676790db91b65903179cfc53c97ba34c7",
-      "url": "https://github.com/TRON-ABS/Novera/releases/download/untagged-c6f54c6b7c8ce31844cd/Novera_1.0.1_aarch64.app.tar.gz.sig"
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-macos/Novera_1.0.1_aarch64.app.tar.gz.sig"
     },
     {
       "name": "Novera_1.0.1_aarch64.dmg",
       "bytes": 111960376,
       "sha256": "1706611845266606d422716c71a15a74e087a1f336f6b31f929804fdc5c5c9f8",
-      "url": "https://github.com/TRON-ABS/Novera/releases/download/untagged-c6f54c6b7c8ce31844cd/Novera_1.0.1_aarch64.dmg"
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-macos/Novera_1.0.1_aarch64.dmg"
     },
     {
       "name": "Novera_1.0.1_x64.app.tar.gz",
       "bytes": 110900663,
       "sha256": "c095d1dc09fd0e7625959a39240b69b7e4dc2b8e1d5be55679895c0c148260ca",
-      "url": "https://github.com/TRON-ABS/Novera/releases/download/untagged-c6f54c6b7c8ce31844cd/Novera_1.0.1_x64.app.tar.gz"
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-macos/Novera_1.0.1_x64.app.tar.gz"
     },
     {
       "name": "Novera_1.0.1_x64.app.tar.gz.sig",
       "bytes": 416,
       "sha256": "18c5d1a7921cff3d7b5d1cfc35a5abb57248aa1e52b4128c6eb3006047ddd953",
-      "url": "https://github.com/TRON-ABS/Novera/releases/download/untagged-c6f54c6b7c8ce31844cd/Novera_1.0.1_x64.app.tar.gz.sig"
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-macos/Novera_1.0.1_x64.app.tar.gz.sig"
     },
     {
       "name": "Novera_1.0.1_x64.dmg",
       "bytes": 110499404,
       "sha256": "a500c2494965e8c4827a5b987bc317c439dd12a3c9bf9658cb864e08e843f051",
-      "url": "https://github.com/TRON-ABS/Novera/releases/download/untagged-c6f54c6b7c8ce31844cd/Novera_1.0.1_x64.dmg"
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-macos/Novera_1.0.1_x64.dmg"
     },
     {
       "name": "Novera_1.0.1_amd64.AppImage",
       "bytes": 196712952,
       "sha256": "5e0d7ca18ba759966954dc03dc3cdbb186bb6a5cd4844bec786c30fbbc85402f",
-      "url": "https://github.com/TRON-ABS/Novera/releases/download/untagged-97c23ce4f7ac6ee97103/Novera_1.0.1_amd64.AppImage"
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/Novera_1.0.1_amd64.AppImage"
     },
     {
       "name": "Novera_1.0.1_amd64.AppImage.sig",
       "bytes": 416,
       "sha256": "4111f77e6cba2556adb91ab0f8a6be4de2073ccd65eb356b8cf58aa2e2d6bc12",
-      "url": "https://github.com/TRON-ABS/Novera/releases/download/untagged-97c23ce4f7ac6ee97103/Novera_1.0.1_amd64.AppImage.sig"
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/Novera_1.0.1_amd64.AppImage.sig"
     },
     {
       "name": "Novera_1.0.1_arm64-setup.exe",
@@ -80,13 +80,13 @@
       "name": "Novera_1.0.1_x64-setup.exe",
       "bytes": 826733127,
       "sha256": "cde4696c2ca21a28530440183575305c441f4e55bee5795466fba644a758c1a7",
-      "url": "https://github.com/TRON-ABS/Novera/releases/download/untagged-97c23ce4f7ac6ee97103/Novera_1.0.1_x64-setup.exe"
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/Novera_1.0.1_x64-setup.exe"
     },
     {
       "name": "Novera_1.0.1_x64-setup.exe.sig",
       "bytes": 416,
       "sha256": "c8263e5d17fa8b62b2dd5d5ff623ffede3732adde719c383992f8385b5a40936",
-      "url": "https://github.com/TRON-ABS/Novera/releases/download/untagged-97c23ce4f7ac6ee97103/Novera_1.0.1_x64-setup.exe.sig"
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/Novera_1.0.1_x64-setup.exe.sig"
     },
     {
       "name": "Novera_CLI_1.0.1_windows-x86_64.zip",
