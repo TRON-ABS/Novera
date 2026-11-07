@@ -75,7 +75,11 @@ Novera évolue avec vous. Vos exemples et réglages peuvent aider les autres uti
 
 ![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-2026-11-07.png)
 
-*Capture réelle de l’application Windows fournie par le mainteneur le 1er novembre 2026, qui confirme que l’application fonctionne bien. Elle montre un paysage généré, les commandes du fichier enregistré et le tableau de bord de création unifié ; ce n’est pas une maquette.*
+**Tableau de bord repliable : espace de travail maximal.** Repliez les réglages pour laisser toute la place à vos créations. La saisie, le microphone et les commandes principales restent accessibles. Cliquez sur la capture pour ouvrir le PNG original en pleine résolution.
+
+[![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
+*Capture réelle de l’application Windows fournie par le mainteneur le 7 novembre 2026, qui confirme que l’application fonctionne bien. Elle montre un paysage généré, les commandes du fichier enregistré et le tableau de bord de création unifié ; ce n’est pas une maquette.*
 
 Un seul panneau, cinq modes : **Auto / Texte / Image / Musique / Vidéo**. Les réglages suivent le mode choisi : format, résolution, durée, cadence, qualité, instrumental, paroles, graine et quantité. La largeur du panneau et les boutons s’adaptent à la fenêtre et aux libellés traduits.
 
@@ -256,7 +260,7 @@ Le tri par défaut favorise les sorties récentes à compatibilité et mémoire 
 
 [Installation Safetensors quantifiés](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorités et validations](docs/SUIVI_MOTEURS.md)
 
-Les sources ajoutent des **composants facultatifs gérés dans Configurations pour Windows x64** : environnements Python privés, profils CPU/CUDA épinglés, tailles et confirmation avant téléchargement, vérification, réparation et désinstallation. Les chemins personnalisés restent en options avancées. Les moteurs natifs GGUF gardent leurs composants existants ; le mobile et le cloud ne téléchargent pas les piles Python/PyTorch desktop. Trois profils privés CPU/export ont été testés avec des données de test synthétiques ; le mainteneur confirme le bon fonctionnement du desktop le 1er novembre 2026 ; les profils GPU et l’installation sur PC neuf restent à vérifier séparément en détail. [Profils et limites des tests](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). L’intégration de ces composants dans l’EXE est reportée.
+Les sources ajoutent des **composants facultatifs gérés dans Configurations pour Windows x64** : environnements Python privés, profils CPU/CUDA épinglés, tailles et confirmation avant téléchargement, vérification, réparation et désinstallation. Les chemins personnalisés restent en options avancées. Les moteurs natifs GGUF gardent leurs composants existants ; le mobile et le cloud ne téléchargent pas les piles Python/PyTorch desktop. Trois profils privés CPU/export ont été testés avec des données de test synthétiques ; le mainteneur confirme le bon fonctionnement du desktop le 7 novembre 2026 ; les profils GPU et l’installation sur PC neuf restent à vérifier séparément en détail. [Profils et limites des tests](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). L’intégration de ces composants dans l’EXE est reportée.
 
 ## 104 langues et variantes d’interface
 

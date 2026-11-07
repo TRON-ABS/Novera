@@ -75,6 +75,10 @@ Novera bi we re mezin dibe. Nimûne û mîhengên we dikarin ji bikarhênerên d
 
 ![Novera wêne û tabloya yekgirtî bi mîqdar, tov, bilindkirin û bîranîna otomatîkî çêkir.](.github/assets/novera-dashboard-2026-11-07.png)
 
+Rewşa mîkrofonê: kesk dema peyda dibe, sor dema mijûl e, gewr dema peyda nabe. Naskirin, ji nû ve destpêkirina guhdarîkirinê, destwerdana baldarî û dîktatoriya xuyayî hatine rast kirin. Axaftina modêla dengî ya xwemalî niha li ser Windows tê pêkanîn; platformên din hîn jî hewceyê pejirandina xwemalî û piştgiriya dengê minasib in.
+
+[![Novera wêne û tabloya yekgirtî bi mîqdar, tov, bilindkirin û bîranîna otomatîkî çêkir.](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Wêneya serîlêdana rastîn a Windows ku ji hêla parêzgerê li ser 1-ê Mijdar 2026 ve hatî peyda kirin, ku radigihîne ku serîlêdan baş dixebite. Ew perestgehek hatî çêkirin, kontrolên pelê-ya tomarkirî û dashboarda afirandina yekbûyî nîşan dide; ev ne mockup e.*
 
 Yek panel, pênc mod: **Auto / Nivîs / Wêne / Muzîk / Vîdyo**. Kontrol moda hilbijartî dişopînin: rêje, çareserî, demdirêjî, kadence, kalîte, amûr, gotin, tov û hejmar. Berfirehiya panelê û bişkokên xwe bi pencereyê û etîketên werger re diguncînin.

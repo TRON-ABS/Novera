@@ -77,6 +77,10 @@ Novera tumbuh bersama Anda. Contoh dan pengaturan Anda dapat membantu pengguna l
 
 ![Novera menghasilkan gambar dan dasbor terpadu dengan kuantitas, seed, peningkatan, dan memori otomatis](.github/assets/novera-dashboard-2026-11-07.png)
 
+Status mikrofon: hijau bila tersedia, merah saat sibuk, abu-abu bila tidak tersedia. Pengenalan, mendengarkan kembali, penanganan fokus, dan dikte yang terlihat telah diperbaiki. Pidato model audio asli saat ini diterapkan pada Windows; platform lain masih memerlukan validasi asli dan dukungan suara yang sesuai.
+
+[![Novera menghasilkan gambar dan dasbor terpadu dengan kuantitas, seed, peningkatan, dan memori otomatis](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Tangkapan layar aplikasi Windows asli disediakan oleh pengelola pada 1 November 2026, yang melaporkan bahwa aplikasi berfungsi dengan baik. Ini menunjukkan lanskap yang dihasilkan, kontrol file yang disimpan, dan dasbor pembuatan terpadu; ini bukan maket.*
 
 Satu panel, lima mode: **Otomatis / Teks / Gambar / Musik / Video**. Kontrol mengikuti mode yang dipilih: rasio, resolusi, durasi, irama, kualitas, instrumental, lirik, seed, dan kuantitas. Lebar panel dan tombol menyesuaikan dengan jendela dan label yang diterjemahkan.

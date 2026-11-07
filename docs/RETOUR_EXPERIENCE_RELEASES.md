@@ -6,6 +6,12 @@ Consigne du mainteneur confirmée le **7 novembre 2026** : toute demande de mise
 
 Le numéro visé est commun aux versions actualisées ; les moyens techniques peuvent différer selon la plateforme. Un ancien paquet immuable, un canal incompatible ou une cible sans prérequis de signature ne devient pas à jour en changeant son étiquette : préparer et vérifier le véritable successeur, conserver l’historique et signaler ce qui reste à faire. Ne pas annoncer l’ensemble comme terminé tant que des distributions demandées restent en attente.
 
+### Préparer tous les canaux avant de figer une sortie immuable
+
+La publication `v1.0.1` est immuable : GitHub refuse tout ajout de fichier (`422`, « Cannot upload assets to an immutable release. »). Le programme CLI 1.0.0 impose précisément cette URL de version pour son successeur et exige l’ancien format d’archive avec `jan`/`jan.exe`. Des paquets de compatibilité conservant les véritables octets de la CLI 1.0.1 ont été signés et lancés sur Windows/Linux/Mac, mais ne peuvent plus être ajoutés à l’emplacement requis. Ne pas rediriger l’ancien feed vers les archives canoniques incompatibles ; proposer l’installation manuelle de la CLI actuelle. [Preuve et limite](release-evidence/1.0.1/CLI-LEGACY-COMPATIBILITY-BLOCKED.json).
+
+Pour la prochaine sortie : vérifier l’immuabilité et les contraintes des anciens clients **avant** de préparer la publication ; réunir tous les paquets et tous les manifests compatibles dans les brouillons, les tester, publier les compléments sans déplacer `latest`, puis publier la sortie globale complète en dernier. Un changement de version dans les README ne répare ni une URL figée ni un format de paquet incompatible. Les processus natifs de validation reçoivent un environnement sans jetons ni clés de signature ; seul l’outil de signature en a besoin.
+
 Établi le **2 novembre 2026**, après les sorties 1.0.0 Windows x64, Windows ARM64, Linux x64, CLI x64 et Windows x64 portable.
 
 Ce fichier sert de mémoire pratique avant de préparer macOS, Android/iOS ou une nouvelle mise à jour. Il rassemble les incidents réellement rencontrés et les actions qui ont permis de progresser. Les préparations recommandées pour les plateformes restantes sont indiquées séparément ; elles ne sont pas présentées comme des validations déjà obtenues.

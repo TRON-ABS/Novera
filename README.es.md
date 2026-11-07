@@ -75,6 +75,10 @@ Novera crece contigo. Sus ejemplos y configuraciones pueden ayudar a otros usuar
 
 ![Imagen generada por Novera y tablero unificado con cantidad, semilla, escalamiento y memoria automática](.github/assets/novera-dashboard-2026-11-07.png)
 
+Estado del micrófono: verde cuando está disponible, rojo cuando está ocupado, gris cuando no está disponible. Se han corregido el reconocimiento, el reinicio de la escucha, el manejo del enfoque y el dictado visible. El habla con modelo de audio nativo se implementa actualmente en Windows; otras plataformas aún necesitan validación nativa y soporte de voz adecuado.
+
+[![Imagen generada por Novera y tablero unificado con cantidad, semilla, escalamiento y memoria automática](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Captura de pantalla real de la aplicación Windows proporcionada por el mantenedor en 1 de noviembre de 2026, quien informa que la aplicación funciona bien. Muestra un panorama generado, sus controles de archivos guardados y el panel de creación unificado; esto no es una maqueta.*
 
 Un panel, cinco modos: **Automático / Texto / Imagen / Música / Vídeo**. Los controles siguen el modo seleccionado: ratio, resolución, duración, cadencia, calidad, instrumental, letra, semilla y cantidad. El ancho del panel y los botones se adaptan a la ventana y a las etiquetas traducidas.

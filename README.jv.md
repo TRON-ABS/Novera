@@ -75,6 +75,10 @@ Novera tuwuh karo sampeyan. Conto lan setelan sampeyan bisa mbantu pangguna liya
 
 ![Novera ngasilake gambar lan dashboard terpadu kanthi jumlah, winih, upscaling lan memori otomatis](.github/assets/novera-dashboard-2026-11-07.png)
 
+Status mikropon: ijo yen kasedhiya, abang nalika sibuk, abu-abu yen ora kasedhiya. Pangenalan, ngrungokake maneh, penanganan fokus lan dikte sing katon wis didandani. Wicara model audio asli lagi ditindakake ing Windows; platform liyane isih perlu validasi native lan support swara cocok.
+
+[![Novera ngasilake gambar lan dashboard terpadu kanthi jumlah, winih, upscaling lan memori otomatis](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Tangkapan layar aplikasi Windows nyata sing diwenehake dening maintainer ing 1 November 2026, sing nglaporake manawa aplikasi kasebut bisa digunakake kanthi apik. Iki nuduhake lanskap sing digawe, kontrol file sing disimpen lan dashboard nggawe gabungan; iki dudu mockup.*
 
 Siji panel, limang mode: **Otomatis / Teks / Gambar / Musik / Video**. Kontrol tindakake mode sing dipilih: rasio, resolusi, durasi, irama, kualitas, instrumental, lirik, wiji lan jumlah. Jembar panel lan tombol adaptasi menyang jendhela lan label terjemahan.

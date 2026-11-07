@@ -10,6 +10,10 @@ Le contrôle anonyme des manifests est conservé dans [le reçu de publication](
 
 Le dépôt inclut aussi la **préparation expérimentale de Novera Web** : contexte 32k, recherche Exa sans clé préparée à l’activation, essais locaux image/musique et diagnostic Wan. Ces sources n’actualisent pas le binaire Desktop publié et ne constituent pas une sortie Web hébergée. [Tests et contrôles restant avant diffusion](WEB_BROWSER_PREPARATION.md).
 
+**Ancienne CLI : blocage confirmé.** La CLI actuelle `novera` est bien disponible en 1.0.1. Le canal historique ne peut pas proposer ce paquet au programme `jan` 1.0.0 : celui-ci impose une URL d’archive dans `v1.0.1`, désormais immuable. Les paquets de compatibilité ont passé signatures et lancement natif sur les trois hôtes, mais GitHub refuse leur ajout à cet emplacement ; la migration automatique d’une ancienne CLI n’est pas validée. Installer manuellement le paquet CLI actuel. [Reçu détaillé](release-evidence/1.0.1/CLI-LEGACY-COMPATIBILITY-BLOCKED.json).
+
+**iOS :** le mainteneur confirme le 7 novembre ne pas encore disposer du compte et des accès de signature Apple. Les sources communes sont en 1.0.1 ; aucune distribution iPhone signée n’est annoncée.
+
 ## État initial vérifié
 
 - Sources applicatives synchronisées en 1.0.1 ; Android versionCode 1000013, identité de signature conservée.

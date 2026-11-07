@@ -22,6 +22,9 @@ test('published showcase uses reviewed versions without carrying forward the old
   assert.match(html, /Novera Web : préparation expérimentale/)
   assert.deepEqual(fs.readFileSync(path.join(root, 'site/assets/dashboard.png')), fs.readFileSync(new URL('../../../.github/assets/novera-dashboard-2026-11-07.png', import.meta.url)))
   assert.match(html, /href="assets\/dashboard\.png\?v=[a-f0-9]{12}" target="_blank" rel="noreferrer" aria-label="Voir la capture originale en pleine résolution"/)
+  assert.deepEqual(fs.readFileSync(path.join(root, 'site/assets/dashboard-collapsed.png')), fs.readFileSync(new URL('../../../.github/assets/novera-dashboard-collapsed-2026-11-07.png', import.meta.url)))
+  assert.match(html, /Tableau de bord repliable : espace de travail maximal/)
+  assert.match(html, /dashboard-collapsed\.png\?v=[a-f0-9]{12}/)
   assert.match(html, /Installation et mise à jour sur téléphone restent à tester/)
 })
 
@@ -31,7 +34,7 @@ test('Pages links the verified desktop and Android releases without hosting the 
   const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: false, release: '1.0.1', stable: '1.0.0', androidReleaseVersion: '1.0.0', androidVersionCode: 1000012 }
   const out=path.join(root,'site');const result=preparePagesSite(out,'a'.repeat(40),facts)
   assert.deepEqual(fs.readdirSync(out).sort(),['assets','index.html','pages-probe.json'])
-  assert.deepEqual(fs.readdirSync(path.join(out,'assets')).sort(),['banner.png','dashboard.png'])
+  assert.deepEqual(fs.readdirSync(path.join(out,'assets')).sort(),['banner.png','dashboard-collapsed.png','dashboard.png'])
   assert.equal(result.applicationPublished,false);assert.equal(result.publicDownloadsEnabled,true);assert.equal(result.desktopReleaseVersion,'1.0.0')
   assert.equal(result.preparedSourceVersion,'1.0.1')
   assert.equal(result.preparedVersionPublished,false)

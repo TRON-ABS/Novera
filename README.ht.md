@@ -77,6 +77,10 @@ Novera grandi avèk ou. Egzanp ou yo ak anviwònman yo ka ede lòt itilizatè yo
 
 ![Novera jenere imaj ak tablodbò inifye ak kantite, grenn, amelyorasyon ak memwa otomatik](.github/assets/novera-dashboard-2026-11-07.png)
 
+Estati mikwofòn: vèt lè li disponib, wouj pandan w okipe, gri lè pa disponib. Rekonesans, rekòmanse koute, manyen konsantre ak dikte vizib yo te korije. Modèl lapawòl natif natal yo aplike kounye a sou Windows; lòt platfòm toujou bezwen validation natif natal ak sipò vwa apwopriye.
+
+[![Novera jenere imaj ak tablodbò inifye ak kantite, grenn, amelyorasyon ak memwa otomatik](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Ekran aplikasyon reyèl Windows Responsab antretyen an te bay nan 1 Novanm 2026, ki fè konnen aplikasyon an fonksyone byen. Li montre yon jaden flè ki pwodui, kontwòl dosye ki sove li yo ak tablodbò kreyasyon inifye a; sa a se pa yon mockup.*
 
 Yon panèl, senk mòd: **Oto / Tèks / Imaj / Mizik / Videyo**. Kontwòl yo swiv mòd chwazi a: rapò, rezolisyon, dire, kadans, bon jan kalite, enstrimantal, lyrics, grenn ak kantite. Lajè panèl ak bouton adapte yo ak fenèt la ak etikèt tradui.

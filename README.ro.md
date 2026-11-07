@@ -75,6 +75,10 @@ Novera crește cu tine. Exemplele și setările tale pot ajuta alți utilizatori
 
 ![Imagine generată de Novera și dashboard unificat cu cantitate, seed, upscaling și memorie automată](.github/assets/novera-dashboard-2026-11-07.png)
 
+Stare microfon: verde când este disponibil, roșu când este ocupat, gri când nu este disponibil. Recunoașterea, repornirea ascultării, manipularea focalizării și dictarea vizibilă au fost corectate. Modelul audio nativ de vorbire este implementat în prezent pe Windows; alte platforme mai au nevoie de validare nativă și suport vocal adecvat.
+
+[![Imagine generată de Novera și dashboard unificat cu cantitate, seed, upscaling și memorie automată](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Captură de ecran reală a aplicației Windows furnizată de administratorul pe 1 Noiembrie 2026, care raportează că aplicația funcționează bine. Arată un peisaj generat, controlerele de fișiere salvate și panoul de control unificat de creare; acesta nu este un mockup.*
 
 Un panou, cinci moduri: **Auto / Text / Imagine / Muzică / Video**. Controlerele urmează modulul selectat: raport, rezoluție, durată, cadență, calitate, instrumental, versuri, semință și cantitate. Lățimea panoului și butoanele se adaptează ferestrei și etichetele sunt traduse.

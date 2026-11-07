@@ -77,6 +77,10 @@ Novera e gola le wena. Mehlala ya gago le dipeakanyo di ka thuša badiriši ba b
 
 ![Novera generated setšoantšo le kopantswe dashboard le palo, peo, upscaling le memoring ya jarolla ka ho iketsa](.github/assets/novera-dashboard-2026-11-07.png)
 
+Boemo bja maekrofouno: botala ge bo le gona, bohwibidu ge bo swaregile, bohlooho ge bo sa hwetšagale. Temogo, go thoma gape go theeletša, go swara nepo le taelo ye e bonagalago di phošollotšwe. Polelo ya setlogo ya mohlala wa mamelwang ga bjale e phethagatšwa go Windows; diforamo tše dingwe di sa nyaka netefatšo ya setlogo le thekgo ya lentšu ye e swanetšego.
+
+[![Novera generated setšoantšo le kopantswe dashboard le palo, peo, upscaling le memoring ya jarolla ka ho iketsa](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Seswantšho sa nnete sa tirišo sa Windows seo se filwego ke mohlokomedi ka 1 Ngwatobošego 2026, yo a begago gore tirišo e šoma gabotse. E bontšha sebopego sa naga seo se tšweleditšwego, ditaolo tša yona tša faele ye e bolokilwego le dashboard ya tlholo ye e kopanego; se ga se mockup.*
 
 Phanele e le nngwe, mekgwa e mehlano: **Auto / Sengwalwa / Setšoantšo / Mmino / Video**. Ditaolo latela mokgwa wo o kgethilwego: karolelano, tharollo, nako, cadence, boleng, seletšo, mantšu, peu le bontši. Bophara bja phanele le dikonope di tlwaela lefasetere le dileibole tše di fetoletšwego.

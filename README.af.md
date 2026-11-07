@@ -75,6 +75,10 @@ Novera groei saam met jou. Jou voorbeelde en instellings kan ander gebruikers he
 
 ![Novera gegenereerde beeld en verenigde dashboard met hoeveelheid, saad, opskaling en outomatiese geheue](.github/assets/novera-dashboard-2026-11-07.png)
 
+Mikrofoonstatus: groen wanneer beskikbaar, rooi wanneer besig, grys wanneer nie beskikbaar nie. Herkenning, luisterherbegin, fokushantering en sigbare diktee is reggestel. Inheemse oudio-model spraak is tans geïmplementeer op Windows; ander platforms benodig steeds inheemse validering en geskikte stemondersteuning.
+
+[![Novera gegenereerde beeld en verenigde dashboard met hoeveelheid, saad, opskaling en outomatiese geheue](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Regte Windows-toepassingskermkiekie verskaf deur die instandhouer op 1 November 2026, wat rapporteer dat die toepassing goed werk. Dit wys 'n gegenereerde landskap, sy gestoorde lêer kontroles en die verenigde skepping dashboard; dit is nie 'n mockup nie.*
 
 Een paneel, vyf modusse: **Outo / Teks / Beeld / Musiek / Video**. Kontroles volg die geselekteerde modus: verhouding, resolusie, duur, kadens, kwaliteit, instrumentaal, lirieke, saad en hoeveelheid. Paneelwydte en knoppies pas by die venster en vertaalde etikette aan.

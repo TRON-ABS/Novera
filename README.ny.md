@@ -77,6 +77,10 @@ Novera imakula nanu. Zitsanzo ndi zokonda zanu zingathandize ogwiritsa ntchito e
 
 ![Novera chithunzi chopangidwa ndi dashboard yolumikizana yokhala ndi kuchuluka, mbewu, kukwera ndi kukumbukira](.github/assets/novera-dashboard-2026-11-07.png)
 
+Mkhalidwe wa maikofoni: wobiriwira ukapezeka, wofiyira uli wotanganidwa, wotuwa pakalibe. Kuzindikira, kuyambitsanso kumvetsera, kuwongolera kolunjika ndi kuwongolera kowonekera kwakonzedwa. Mawu achitsanzo chamtundu wamtundu wamtunduwu akugwiritsidwa ntchito pa Windows; mapulatifomu ena amafunikirabe kutsimikizika kwawomweko komanso thandizo la mawu oyenera.
+
+[![Novera chithunzi chopangidwa ndi dashboard yolumikizana yokhala ndi kuchuluka, mbewu, kukwera ndi kukumbukira](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Zithunzi zenizeni Windows zoperekedwa ndi woyang'anira pa 1 Novembala 2026, yemwe akuti pulogalamuyo imagwira ntchito bwino. Imawonetsa mawonekedwe opangidwa, mawonekedwe ake osungidwa-mafayilo ndi dashboard yogwirizana yolenga; uku si kuseketsa.*
 
 Gulu limodzi, mitundu isanu: **Auto / Zolemba / Chithunzi / Nyimbo / Kanema**. Kuwongolera kumatsata njira yosankhidwa: chiŵerengero, kusamvana, nthawi, cadence, khalidwe, zida, mawu, mbewu ndi kuchuluka kwake. M'lifupi mwake ndi mabatani amatengera zenera ndi zilembo zotanthauziridwa.

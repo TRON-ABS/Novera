@@ -75,6 +75,10 @@ Novera na-eto gị. Ihe atụ na ntọala gị nwere ike inyere ndị ọrụ nd
 
 ![Novera weputara onyonyo yana dashboard jikọtara ọnụ nwere oke, mkpụrụ, nkwalite na ebe nchekwa akpaka.](.github/assets/novera-dashboard-2026-11-07.png)
 
+Ọkwa igwe okwu: akwụkwọ ndụ akwụkwọ ndụ mgbe ọ dị, uhie mgbe ọ na-arụ ọrụ, isi awọ mgbe ọ na-adịghị. Edoziwo nnabata, ịmalitegharị ege ntị, njikwa elekwasị anya na nkọwa okwu a na-ahụ anya. A na-emejuputa atumatu okwu ihe nlere ọdịyo nke ala na Windows; nyiwe ndị ọzọ ka chọrọ nkwado ala ala yana nkwado olu dabara adaba.
+
+[![Novera weputara onyonyo yana dashboard jikọtara ọnụ nwere oke, mkpụrụ, nkwalite na ebe nchekwa akpaka.](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Real Windows nseta ihuenyo ngwa wetara na 1 Nọvemba 2026, onye na-akọ na ngwa ahụ na-arụ ọrụ nke ọma. Ọ na-egosi odida obodo emepụtara, njikwa faịlụ echekwara yana dashboard okike jikọtara ọnụ; nke a abụghị ihe njakịrị.*
 
 Otu panel, ụdị ise: **Akpaaka / Ederede / Foto / Egwu / Vidiyo**. Njikwa na-eso ụdị ahọpụtara: oke, mkpebi, ogologo oge, ogo, ịdịmma, ngwa egwu, egwu, mkpụrụ na ọnụọgụ. Obosara panel na bọtịnụ na-adaba na windo na akara atụgharịrị.

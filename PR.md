@@ -1,7 +1,7 @@
-# docs(showcase): publish the new dashboard screenshot at original quality
+# docs(release): showcase the collapsible dashboard and document CLI migration
 
-Replace the presentation screenshot with the maintainer's November 7 capture showing the new dashboard and the actual image model. Update all 104 README image references and the Pages generator. Keep the original PNG bytes at 1910 x 1028 (1,504,446 bytes, SHA-256 `8837822b0802052062d9b8c12d85f4f2ce5589c0214643bb57b9ec827f3b3bf1`), with no recompression, resize or AI editing. Preserve the old capture for historical references.
+Add the maintainer’s second original PNG to all 104 README presentations and the public showcase, highlighting the collapsible dashboard and maximum workspace. Preserve both screenshot files byte for byte and link previews to their full-resolution originals. Reuse existing translated interface descriptions outside English and French.
 
-Link the showcase image to its full-resolution original and use a content-derived query revision to refresh cached previews. Six publication/showcase contracts pass, including byte-for-byte equality between the staged dashboard image and the provided PNG. Public Pages deployment and verification follow the merge.
+Document the confirmed legacy CLI migration blocker: the old updater requires assets on the immutable v1.0.1 release, which rejects uploads. Link the current signed CLI 1.0.1 packages and provide manual installation steps. Record the three successful native compatibility preparation receipts without claiming a completed public upgrade. Record the user-confirmed missing Apple signing account and the release-order lesson. Remove unnecessary inherited secret variables from native compatibility preparation children.
 
-The signed portable 1.0.1 compilation continues independently. This documentation change does not modify any signed application or claim a hosted Web-client release.
+Validation: six README/publication/showcase contract tests pass, including exact equality of both staged screenshot files. JavaScript syntax and Git whitespace checks pass. Existing compatibility preparation receipts precede the environment filtering change; that workflow has not been rerun. The genuine portable build remains in progress and Web remains experimental source code.

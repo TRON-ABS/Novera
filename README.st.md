@@ -77,6 +77,10 @@ Novera e hola le uena. Mehlala le litlhophiso tsa hau li ka thusa basebelisi ba 
 
 ![Novera setšoantšo se hlahisitsoeng le dashboard e kopaneng e nang le bongata, peo, upscaling le mohopolo o ikemetseng](.github/assets/novera-dashboard-2026-11-07.png)
 
+Boemo ba maekerofounu: botala ha bo le teng, bo bofubelu ha bo ntse bo phathahane, bo bohlooho ha bo sa fumanehe. Kemohelo, ho qala bocha ho mamela, ho sebetsana le tsepamiso le taelo e bonahalang li lokisitsoe. Puo ea mofuta oa molumo oa lentsoe hajoale e sebelisoa ho Windows; li-platform tse ling li ntse li hloka netefatso ea matsoalloa le tšehetso e nepahetseng ea lentsoe.
+
+[![Novera setšoantšo se hlahisitsoeng le dashboard e kopaneng e nang le bongata, peo, upscaling le mohopolo o ikemetseng](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Senepe sa 'nete sa Windows se fanoeng ke mohlokomeli ka 1 Pulungoana 2026, ea tlalehang hore sesebelisoa se sebetsa hantle. E bonts'a sebaka se hlahisitsoeng, taolo ea lifaele tse bolokiloeng le dashboard e kopaneng ea pōpo; sena ha se papali.*
 
 Phanele e le 'ngoe, mekhoa e mehlano: **auto / mongolo / setšoantšo / mmino / video**. Litaolo li latela mokhoa o khethiloeng: karo-karolelano, qeto, nako, molumo, boleng, lisebelisoa, mantsoe, peo le bongata. Bophara ba phanele le likonopo li ikamahanya le fensetere le lileibole tse fetoletsoeng.

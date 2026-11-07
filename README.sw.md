@@ -75,6 +75,10 @@ Novera inakua pamoja nawe. Mifano na mipangilio yako inaweza kusaidia watumiaji 
 
 ![Novera imetengeneza picha na dashibodi iliyounganishwa yenye wingi, mbegu, upandaji wa juu na kumbukumbu otomatiki](.github/assets/novera-dashboard-2026-11-07.png)
 
+Hali ya maikrofoni: kijani inapopatikana, nyekundu ikiwa ina shughuli nyingi, kijivu wakati haipatikani. Utambuzi, uanzishaji upya wa usikilizaji, ushughulikiaji wa kuzingatia na imla inayoonekana imesahihishwa. Hotuba asili ya muundo wa sauti inatekelezwa kwa sasa tarehe Windows; mifumo mingine bado inahitaji uthibitishaji asilia na usaidizi wa sauti unaofaa.
+
+[![Novera imetengeneza picha na dashibodi iliyounganishwa yenye wingi, mbegu, upandaji wa juu na kumbukumbu otomatiki](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Picha ya skrini ya programu halisi ya Windows iliyotolewa na mtunza huduma mnamo 1 Novemba 2026, ambaye anaripoti kuwa programu inafanya kazi vizuri. Inaonyesha mandhari iliyozalishwa, vidhibiti vyake vya faili zilizohifadhiwa na dashibodi ya uumbaji iliyounganishwa; hii si kejeli.*
 
 Paneli moja, hali tano: **Otomatiki / Maandishi / Picha / Muziki / Video**. Vidhibiti hufuata hali iliyochaguliwa: uwiano, azimio, muda, sauti, ubora, ala, nyimbo, mbegu na wingi. Upana wa paneli na vifungo vinaendana na dirisha na lebo zilizotafsiriwa.

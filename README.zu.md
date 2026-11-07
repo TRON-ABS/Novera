@@ -75,6 +75,10 @@ Novera ikhula nawe. Izibonelo zakho nezilungiselelo zingasiza abanye abasebenzis
 
 ![Novera isithombe esakhiwe kanye nedeshibhodi ehlanganisiwe enobuningi, imbewu, ukukhushulwa kwememori kanye nenkumbulo ezenzakalelayo](.github/assets/novera-dashboard-2026-11-07.png)
 
+Isimo semakrofoni: luhlaza uma sitholakala, sibomvu ngenkathi simatasa, sibempunga uma singatholakali. Ukuqaphela, ukuqala kabusha kokulalela, ukuphatha okugxilile kanye nokubizela okubonakalayo kulungisiwe. Inkulumo yomdabu yemodeli yomsindo okwamanje isetshenziswa ngomhla ka-Windows; ezinye izinkundla zisadinga ukuqinisekiswa komdabu kanye nokusekelwa kwezwi okufanelekile.
+
+[![Novera isithombe esakhiwe kanye nedeshibhodi ehlanganisiwe enobuningi, imbewu, ukukhushulwa kwememori kanye nenkumbulo ezenzakalelayo](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Real Windows isithombe-skrini sohlelo lokusebenza esinikezwe umnakekeli ku-1 Novemba 2026, obika ukuthi uhlelo lokusebenza lusebenza kahle. Ibonisa indawo ekhiqiziwe, izilawuli zayo zefayela eligciniwe kanye nedeshibhodi yokudala ehlanganisiwe; lokhu akuyona into ehlekisayo.*
 
 Iphaneli eyodwa, izindlela ezinhlanu: **Okuzenzakalelayo / Umbhalo / Isithombe / Umculo / Ividiyo**. Izilawuli zilandela imodi ekhethiwe: isilinganiso, ukulungiswa, ubude besikhathi, i-cadence, ikhwalithi, izinsimbi, amazwi, imbewu kanye nenani. Ububanzi bephaneli nezinkinobho zivumelana newindi namalebula ahunyushiwe.
