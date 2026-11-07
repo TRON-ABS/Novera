@@ -34,6 +34,23 @@
         "bytes": 416,
         "sha256": "4111f77e6cba2556adb91ab0f8a6be4de2073ccd65eb356b8cf58aa2e2d6bc12"
       }
+    },
+    "windows-x86_64": {
+      "commit": "df02143b6018aa1c6d54c7d6359ce94409a8e87f",
+      "releaseId": 437360593,
+      "bundle": {
+        "id": 720164448,
+        "name": "Novera_1.0.1_x64-setup.exe",
+        "bytes": 826733127,
+        "sha256": "cde4696c2ca21a28530440183575305c441f4e55bee5795466fba644a758c1a7"
+      },
+      "signature": {
+        "id": 720165415,
+        "name": "Novera_1.0.1_x64-setup.exe.sig",
+        "bytes": 416,
+        "sha256": "c8263e5d17fa8b62b2dd5d5ff623ffede3732adde719c383992f8385b5a40936"
+      },
+      "runtimeExecutableSha256": "bd48da813784de0810730a1576d58707ebd835c81d96e87540f4d687a78c0cf1"
     }
   }
 }
