@@ -9,7 +9,7 @@ on:
         required: true
         type: choice
         default: all
-        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, macos-tests, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-arm64, validate-arm64-ui, validate-portable, validate-macos, stage-portable, pages]
+        options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, macos-tests, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-linux, validate-macos-installed, validate-arm64, validate-arm64-ui, validate-portable, validate-macos, stage-portable, pages]
       macos_candidate_run:
         description: Completed Mac run whose native suites passed before the isolated enumeration budget failure
         type: string
@@ -355,7 +355,7 @@ jobs:
   installed-update:
     name: Validate installed update / ${{ matrix.platform }}
     needs: checks
-    if: inputs.target == 'validate-windows' || inputs.target == 'validate-desktop' || inputs.target == 'validate-release' || inputs.target == 'validate-arm64' || inputs.target == 'validate-arm64-ui'
+    if: inputs.target == 'validate-windows' || inputs.target == 'validate-desktop' || inputs.target == 'validate-release' || inputs.target == 'validate-linux' || inputs.target == 'validate-macos-installed' || inputs.target == 'validate-arm64' || inputs.target == 'validate-arm64-ui'
     permissions:
       # Draft release assets require repository push access. This job only reads
       # the reviewed assets; the credential is removed before running any app.
@@ -387,6 +387,8 @@ jobs:
           if [[ "$REQUESTED" == validate-desktop || ( "$REQUESTED" == validate-windows && "$NOVERA_VALIDATION_PLATFORM" == windows-* ) || ( "$REQUESTED" == validate-release && "$NOVERA_VALIDATION_PLATFORM" =~ ^(windows-x86_64|linux-x86_64)$ ) ]]; then selected=true; fi
           if [[ "$REQUESTED" == validate-arm64 && "$NOVERA_VALIDATION_PLATFORM" == windows-aarch64 ]]; then selected=true; fi
           if [[ "$REQUESTED" == validate-arm64-ui && "$NOVERA_VALIDATION_PLATFORM" == windows-aarch64 ]]; then selected=true; fi
+          if [[ "$REQUESTED" == validate-linux && "$NOVERA_VALIDATION_PLATFORM" == linux-x86_64 ]]; then selected=true; fi
+          if [[ "$REQUESTED" == validate-macos-installed && "$NOVERA_VALIDATION_PLATFORM" == darwin-* ]]; then selected=true; fi
           echo "selected=$selected" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0, Node 24
         if: steps.select.outputs.selected == 'true'
