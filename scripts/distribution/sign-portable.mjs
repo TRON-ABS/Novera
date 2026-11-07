@@ -6,7 +6,8 @@ import { verifyUpdateBundle } from './ci-check-updater.mjs'
 
 if (process.env.GITHUB_ACTIONS !== 'true' || !process.env.TAURI_SIGNING_PRIVATE_KEY || !process.env.TAURI_SIGNING_PRIVATE_KEY_PASSWORD) throw new Error('Configured CI signer required')
 const output = '.build/portable/packages'
-const version = '1.0.0'
+const version = JSON.parse(fs.readFileSync('src-tauri/tauri.conf.json')).version
+if (!/^\d+\.\d+\.\d+$/.test(version)) throw new Error('Stable application version required')
 const key = JSON.parse(fs.readFileSync('src-tauri/tauri.portable.conf.json')).plugins.updater.pubkey
 const names = [`Novera_${version}_x64-portable.zip`, `Novera_${version}_x64-portable-update.exe`]
 const verified = []
@@ -18,6 +19,6 @@ for (const name of names) {
   verified.push({ name, ...result })
 }
 const update = names[1]
-fs.writeFileSync(path.join(output, 'latest-portable.json'), JSON.stringify({ version, notes: 'Novera 1.0.0 Windows x64 portable. Program and Data travel together; signed updates preserve Data.', pub_date: new Date().toISOString(), platforms: { 'windows-x86_64': { url: `https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-portable/${update}`, signature: fs.readFileSync(path.join(output, update + '.sig'), 'utf8').trim() } } }, null, 2) + '\n')
+fs.writeFileSync(path.join(output, 'latest-portable.json'), JSON.stringify({ version, notes: `Novera ${version} Windows x64 portable. Program and Data travel together; signed updates preserve Data.`, pub_date: new Date().toISOString(), platforms: { 'windows-x86_64': { url: `https://github.com/TRON-ABS/Novera/releases/download/v${version}-windows-portable/${update}`, signature: fs.readFileSync(path.join(output, update + '.sig'), 'utf8').trim() } } }, null, 2) + '\n')
 fs.writeFileSync(path.join(output, 'PORTABLE-SIGNATURES.json'), JSON.stringify(verified, null, 2) + '\n')
 console.log('Both final portable payload signatures verified with the pinned Novera key')

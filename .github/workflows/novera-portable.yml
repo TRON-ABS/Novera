@@ -58,6 +58,10 @@ jobs:
       - name: Select the native MSVC linker
         shell: pwsh
         run: ./scripts/distribution/ci-msvc.ps1
+      - uses: ./.github/actions/setup-engine-toolchain
+        with:
+          variant: cuda13-vulkan
+          cuda-release: '13.4.3'
       - name: Cache the native Rust dependencies across validation retries
         id: rust-cache
         continue-on-error: true
@@ -80,6 +84,8 @@ jobs:
           yarn build:extensions
           yarn build:icon
           yarn copy:assets:mobile
+          yarn download:bin
+          make build-engine
           yarn tauri build --ci --no-bundle --features portable --config src-tauri/tauri.portable.conf.json
           cargo test --locked --manifest-path src-tauri/portable-support/Cargo.toml --target-dir .build/portable-tools
           cargo test --locked --manifest-path src-tauri/plugins/tauri-plugin-vector-db/Cargo.toml --no-default-features portable_path_tests --target-dir src-tauri/target
@@ -95,7 +101,7 @@ jobs:
         shell: pwsh
         run: |
           $source = (Get-Content .build/portable-source.json -Raw | ConvertFrom-Json).runtime
-          python scripts/distribution/prepare-portable-runtime.py --source-runtime $source --binary src-tauri/target/release/Novera-Desktop.exe --output .build/portable/runtime --build-info .build/portable/build.json
+          python scripts/distribution/prepare-portable-runtime.py --source-runtime $source --binary src-tauri/target/release/Novera-Desktop.exe --output .build/portable/runtime --build-info .build/portable/build.json --fresh-engine
           if ($LASTEXITCODE) { exit $LASTEXITCODE }
           python scripts/distribution/package-portable.py --runtime .build/portable/runtime --helper .build/portable-tools/release/Novera-Portable-Update.exe --build-info .build/portable/build.json --output .build/portable/packages
           if ($LASTEXITCODE) { exit $LASTEXITCODE }

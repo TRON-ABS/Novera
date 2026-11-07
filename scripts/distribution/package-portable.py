@@ -6,6 +6,7 @@ the newly compiled native launcher/updater. Signing is a separate CI step.
 import argparse
 import hashlib
 import json
+import re
 import shutil
 import struct
 import zipfile
@@ -49,8 +50,9 @@ def package(runtime, helper, build_info, output):
     if output.exists():
         raise ValueError('Choose a new output directory')
     info = json.loads(build_info.read_text(encoding='utf-8-sig'))
-    if info.get('portableFeature') is not True or info.get('version') != '1.0.0':
-        raise ValueError('An actual portable-feature build at version 1.0.0 is required')
+    version = json.loads((Path(__file__).resolve().parents[2]/'src-tauri/tauri.conf.json').read_text())['version']
+    if info.get('portableFeature') is not True or info.get('version') != version or not re.fullmatch(r'\d+\.\d+\.\d+', version):
+        raise ValueError('An actual portable-feature build at the current application version is required')
     files = runtime_files(runtime)
     app = next(item for _, item in files if item['path'] == 'Program/Novera-Desktop.exe')
     if info.get('executableSha256') != app['sha256']:
@@ -84,7 +86,7 @@ def package(runtime, helper, build_info, output):
         archive.writestr('novera-portable.json', json.dumps({'format': FORMAT, 'schema': 1}))
         archive.writestr('Data/', '')
         archive.writestr('PORTABLE-PROVENANCE.json', json.dumps(info, indent=2)+'\n')
-        archive.writestr('LISEZ-MOI.txt', '''Novera 1.0.0 — Windows x64 portable
+        archive.writestr('LISEZ-MOI.txt', f'''Novera {version} — Windows x64 portable
 
 Extrayez TOUT le ZIP dans un dossier accessible en écriture, puis ouvrez Novera.exe.
 Program contient l’application ; Data conserve discussions, réglages, modèles et caches.

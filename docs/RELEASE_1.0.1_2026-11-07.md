@@ -37,6 +37,8 @@ Le [déploiement GitHub Pages](https://github.com/TRON-ABS/Novera/actions/runs/4
 
 Les cinq premiers builds desktop échouent avant la compilation applicative : `scripts/download-bin.mjs` importe un export par défaut absent de `tar` 7. Le correctif charge son espace de noms ; syntaxe Node et vraie création/extraction gzip-tar passent localement. Relancer les cibles avec ce correctif ; ne pas qualifier les jobs de sélection ignorée comme des compilations réussies.
 
+La [PR #28](https://github.com/TRON-ABS/Novera/pull/28) est fusionnée : chemins Android et prérequis CLI/Gradle corrigés. Les nouveaux contrôles source réussissent ; CLI et Android CI sont relancés. Le portable exige aussi une correction du format SHA-256 après `sha2` et le retrait des valeurs 1.0.0 figées dans ses scripts. Huit tests Rust portables, 18 tests Python de distribution et 12 contrats Node ciblés passent après ces changements. Le nouveau packaging impose le moteur texte courant ; la provenance du runtime de base réutilisé reste distincte.
+
 ## Livraison
 
 Préparer les paquets signés et leurs reçus par plateforme. Android exige le certificat de production existant ; le candidat debug CI ne sert pas de mise à jour publique. iOS conserve ses prérequis Apple et ses essais sur appareil. MSI/Debian ne deviennent pas publiables par une compilation seule.

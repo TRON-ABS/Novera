@@ -7,15 +7,17 @@ import { spawnSync } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
+import { compareVersions } from './prepare-version.mjs'
 
 const feedUrl = 'https://github.com/TRON-ABS/Novera/releases/latest/download/latest-portable.json'
+const applicationVersion = JSON.parse(fs.readFileSync(new URL('../../src-tauri/tauri.conf.json', import.meta.url))).version
 function requireWindowsUiHost(platform, architecture, env) {
   if (platform !== 'win32' || architecture !== 'x64' || env.GITHUB_ACTIONS !== 'true' || env.RUNNER_ENVIRONMENT !== 'github-hosted') throw new Error('Disposable Windows x64 GitHub runner required')
 }
 function expectedWindowsUiMessage(feed) {
   const entry = feed?.platforms?.['windows-x86_64']
   if (!entry) return { supported: false, text: 'Failed to check for updates' }
-  if (feed.version !== '1.0.0' || entry.url !== 'https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-portable/Novera_1.0.0_x64-portable-update.exe' || !entry.signature) throw new Error('Unexpected portable production feed')
+  if (compareVersions(feed.version, applicationVersion) > 0 || entry.url !== `https://github.com/TRON-ABS/Novera/releases/download/v${feed.version}-windows-portable/Novera_${feed.version}_x64-portable-update.exe` || !entry.signature) throw new Error('Unexpected portable production feed')
   return { supported: true, text: "You're running the latest version" }
 }
 
@@ -114,7 +116,7 @@ async function main(executable) {
     Object.assign(receipt, { nativeProfileReadWriteVerified: true, windowsProtectedSecretPreserved: true, modelBytesPreserved: true, settingPreserved: true, discussionPreserved: true, attachmentPathRebased: true, configuredDataDirectory: configuration.data_folder, modelDirectory })
     const button = page.getByRole('button', { name: /^check for updates$/i })
     await button.waitFor({ state: 'visible', timeout: 60_000 })
-    if (!(await page.locator('body').innerText()).includes('1.0.0')) throw new Error('Expected the real application version in Settings')
+    if (!(await page.locator('body').innerText()).includes(applicationVersion)) throw new Error('Expected the real application version in Settings')
     await button.click()
     await page.getByText(expected.text, { exact: true }).waitFor({ state: 'visible', timeout: 45_000 })
     const text = await page.locator('body').innerText()
