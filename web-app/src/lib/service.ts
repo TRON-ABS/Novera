@@ -2,6 +2,7 @@ import { CoreRoutes, APIRoutes } from '@janhq/core'
 import { getServiceHub } from '@/hooks/useServiceHub'
 import { isPlatformTauri } from '@/lib/platform'
 import type { InvokeArgs } from '@/services/core/types'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 
 export const AppRoutes = [
   'installExtensions',
@@ -109,6 +110,10 @@ export const APIs = {
 
           return getServiceHub().core().invoke(command, args)
         } else {
+          if (browserPreviewEnabled()) {
+            const command = proxy.route.replace(/([A-Z])/g, '_$1').toLowerCase()
+            return getServiceHub().core().invoke(command, args)
+          }
           // For Web platform, provide fallback implementations
           console.warn(`API call '${proxy.route}' not supported in web environment`, args)
           return Promise.resolve(null)

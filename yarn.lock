@@ -1193,6 +1193,7 @@ __metadata:
     eslint: "npm:10.14.0"
     eslint-plugin-react-hooks: "npm:7.1.1"
     eslint-plugin-react-refresh: "npm:0.5.7"
+    fake-indexeddb: "npm:6.2.7"
     framer-motion: "npm:14.9.1"
     fuse.js: "npm:7.5.0"
     fzf: "npm:0.5.2"
@@ -6563,6 +6564,13 @@ __metadata:
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: 10c0/73bf6e27406e80aa3e85b0d1c4fd987261e628064e170ca781125c0b635a3dabad5e05adbf07595ea0cf1e6c5396cacb214af933da7cbaf24fe75ff14818e8f9
+  languageName: node
+  linkType: hard
+
+"fake-indexeddb@npm:6.2.7":
+  version: 6.2.7
+  resolution: "fake-indexeddb@npm:6.2.7"
+  checksum: 10c0/634bf90ba77ffd834a347661a6f7a6dc00d97b18ae49d49e437d454a42b9250dfe92144799605255b25428df577349b9195d0c150df3507edc003e26120f81ae
   languageName: node
   linkType: hard
 

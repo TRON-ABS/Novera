@@ -1,4 +1,5 @@
 import { providerInferenceUrl } from './providerEndpoints'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { mediaPreset } from '@/constants/mediaProviders'
 /**
  * Model Factory
@@ -849,6 +850,10 @@ export class ModelFactory {
     streamThreadId?: string
   ): Promise<LanguageModel> {
       const providerName = provider.provider.toLowerCase()
+      if (browserPreviewEnabled() && providerName === 'llamacpp') {
+        const { createBrowserLanguageModel } = await import('@/services/browser-preview/language-model')
+        return createBrowserLanguageModel(modelId)
+      }
       if (mediaPreset(providerName, modelId)) throw new Error(i18n.t('chat:creation.generationOnly'))
     parameters = stripUnsupportedSamplers(parameters, provider, modelId)
 

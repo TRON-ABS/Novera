@@ -5,6 +5,7 @@
 
 import { PlatformFeature } from './types'
 import { isPlatformTauri, isPlatformIOS, isPlatformAndroid } from './utils'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 
 /**
  * Platform Features Configuration
@@ -17,7 +18,7 @@ export const PlatformFeatures: Record<PlatformFeature, boolean> = {
 
   // Local model inference (llama.cpp)
   [PlatformFeature.LOCAL_INFERENCE]:
-    isPlatformTauri() && !isPlatformIOS() && !isPlatformAndroid(),
+    (isPlatformTauri() && !isPlatformIOS() && !isPlatformAndroid()) || browserPreviewEnabled(),
 
   // Local API server
   [PlatformFeature.LOCAL_API_SERVER]:
@@ -40,20 +41,20 @@ export const PlatformFeatures: Record<PlatformFeature, boolean> = {
 
   // Projects management
   [PlatformFeature.PROJECTS]:
-    isPlatformTauri() && !isPlatformIOS() && !isPlatformAndroid(),
+    (isPlatformTauri() && !isPlatformIOS() && !isPlatformAndroid()) || browserPreviewEnabled(),
 
   // Analytics and telemetry - disabled for web
   [PlatformFeature.ANALYTICS]:
     isPlatformTauri() && !isPlatformIOS() && !isPlatformAndroid(),
 
   // Web-specific automatic model selection from jan provider - enabled for web only
-  [PlatformFeature.WEB_AUTO_MODEL_SELECTION]: !isPlatformTauri(),
+  [PlatformFeature.WEB_AUTO_MODEL_SELECTION]: !isPlatformTauri() && !browserPreviewEnabled(),
 
   // Model provider settings page management - disabled for web only
-  [PlatformFeature.MODEL_PROVIDER_SETTINGS]: isPlatformTauri(),
+  [PlatformFeature.MODEL_PROVIDER_SETTINGS]: isPlatformTauri() || browserPreviewEnabled(),
 
   // Auto-enable MCP tool permissions - enabled for web platform
-  [PlatformFeature.MCP_AUTO_APPROVE_TOOLS]: !isPlatformTauri(),
+  [PlatformFeature.MCP_AUTO_APPROVE_TOOLS]: !isPlatformTauri() && !browserPreviewEnabled(),
 
   // MCP servers settings page - disabled for web
   [PlatformFeature.MCP_SERVERS_SETTINGS]:
@@ -64,7 +65,7 @@ export const PlatformFeatures: Record<PlatformFeature, boolean> = {
     isPlatformTauri(),
 
   // Assistant functionality - disabled for web
-  [PlatformFeature.ASSISTANTS]: isPlatformTauri(),
+  [PlatformFeature.ASSISTANTS]: isPlatformTauri() || browserPreviewEnabled(),
 
   // Shortcut
   [PlatformFeature.SHORTCUT]: !isPlatformIOS() && !isPlatformAndroid(),

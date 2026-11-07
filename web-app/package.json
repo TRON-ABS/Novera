@@ -128,6 +128,7 @@
     "eslint": "10.14.0",
     "eslint-plugin-react-hooks": "7.1.1",
     "eslint-plugin-react-refresh": "0.5.7",
+    "fake-indexeddb": "6.2.7",
     "globals": "17.14.0",
     "jsdom": "31.0.0",
     "serve": "14.2.6",

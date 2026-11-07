@@ -227,13 +227,6 @@ export const mediaModelPresets: MediaPreset[] = [
     ),
     preview: true,
   },
-  video(
-    'fal',
-    'fal-ai/pika/v2.2/text-to-video',
-    'Pika 2.2 · fal',
-    'fal',
-    'https://fal.ai/models/fal-ai/pika/v2.2/text-to-video'
-  ),
   image(
     'fal',
     'fal-ai/qwen-image-2512',

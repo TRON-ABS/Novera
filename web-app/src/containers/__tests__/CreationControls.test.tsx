@@ -26,6 +26,21 @@ vi.mock('@/lib/backendStorage', () => ({
   },
 }))
 describe('creation choices in the composer', () => {
+  it('keeps the Web creation panel on cloud models without native installation controls', () => {
+    vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
+    try {
+      useCreation.setState({ modes: {}, selections: {}, settings: { ...creationDefaults }, videoSettings: { ...creationDefaults } })
+      useMusicCreation.setState({ settings: { ...musicDefaults }, profiles: [], selections: {} })
+      render(<CreationControls scope="web-media" disabled={false} />)
+      act(() => window.dispatchEvent(new CustomEvent('novera-creation-settings', { detail: { scope: 'web-media' } })))
+      expect(screen.getByRole('dialog')).toBeInTheDocument()
+      expect(screen.queryByText('Text setup')).not.toBeInTheDocument()
+      expect(screen.queryByText('Embedding setup')).not.toBeInTheDocument()
+      expect(screen.getByRole('link', { name: 'Configurer fal' })).toHaveAttribute('href', '#/settings/providers/fal')
+      expect(screen.getAllByText(/Les fichiers sont conservés dans ce navigateur/)).toHaveLength(2)
+      expect(screen.queryByText('chat:creation.autosave')).not.toBeInTheDocument()
+    } finally { vi.unstubAllEnvs() }
+  })
   it('keeps all three media modes accessible before cloud configuration on mobile', async () => {
     useHardware.setState({ hardwareData: { ...useHardware.getState().hardwareData, os_type: 'android', total_memory: 4096, gpus: [] } })
     useCreation.setState({ selections: {} })
@@ -36,7 +51,7 @@ describe('creation choices in the composer', () => {
     await act(async () => useCreation.setState({ selections: { 'mobile-cloud': {
       image: { provider: 'openai', id: 'gpt-image-2.5-sunburst' },
       music: { provider: 'elevenlabs', id: 'music_v2_5' },
-      video: { provider: 'fal', id: 'fal-ai/pika/v2.2/text-to-video' },
+      video: { provider: 'fal', id: 'fal-ai/kling-video/v3/standard/text-to-video' },
     } } }))
     for (const task of ['image', 'music', 'video'])
       expect(modes.getByText(`chat:creation.${task}`).closest('button')).toBeEnabled()
