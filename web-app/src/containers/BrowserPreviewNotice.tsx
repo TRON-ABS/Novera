@@ -3,6 +3,7 @@ import { browserRuntime, BROWSER_CONTEXT_TOKENS } from '@/services/browser-previ
 import { browserCatalog } from '@/services/browser-preview/config'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { BrowserUpdateNotice } from './BrowserUpdateNotice'
+import { BrowserSearchNotice } from './BrowserSearchNotice'
 
 export function BrowserPreviewNotice() {
   const state = useSyncExternalStore(browserRuntime.subscribe, browserRuntime.snapshot)
@@ -25,6 +26,7 @@ export function BrowserPreviewNotice() {
       }}>Charger le modèle</button> : <span role="status">{state.phase === 'generating' ? 'Réponse en cours…' : 'Modèle prêt'}</span>}
       <a className="underline ml-auto" href="https://github.com/TRON-ABS/Novera/releases" target="_blank" rel="noreferrer">Novera Desktop</a>
     </div>
+    <BrowserSearchNotice />
     <BrowserUpdateNotice modelBusy={busy} />
     {state.error && <p role="alert" className="text-destructive mt-1">{state.error}</p>}
     <details className="mt-1 text-muted-foreground"><summary className="cursor-pointer">Fonctions et données de cette préparation</summary>

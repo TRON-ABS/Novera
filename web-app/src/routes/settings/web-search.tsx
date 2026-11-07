@@ -15,6 +15,7 @@ import { Input } from '@/components/ui/input'
 import { EyeOff, Eye, ChevronsUpDown } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import {
   useWebSearchConfig,
   WEB_SEARCH_PROVIDERS,
@@ -34,6 +35,7 @@ const ProviderFavicon = ({ src }: { src: string }) => (
 )
 
 function WebSearchContent() {
+  const browser = browserPreviewEnabled()
   const { t } = useTranslation()
   const [showKey, setShowKey] = useState(false)
   const {
@@ -98,7 +100,7 @@ function WebSearchContent() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-44">
-                      {WEB_SEARCH_PROVIDERS.map((p) => (
+                      {WEB_SEARCH_PROVIDERS.filter(p => !browser || p.id === 'exa').map((p) => (
                         <DropdownMenuItem
                           key={p.id}
                           className={cn(
@@ -115,7 +117,8 @@ function WebSearchContent() {
                   </DropdownMenu>
                 }
               />
-              {provider.requiresEndpoint ? (
+              {browser && <p className="px-4 pb-3 text-sm text-muted-foreground">Sur Web, Exa fonctionne directement depuis le navigateur, sans clé et avec son quota gratuit. La connexion est préparée quand Internet est activé. Les recherches et URL à lire sont envoyées à Exa ; aucune clé API payante n’est utilisée ici.</p>}
+              {!browser && provider.requiresEndpoint ? (
                 <CardItem
                   title={t('settings:webSearch.endpoint', {
                     provider: provider.label,
@@ -140,7 +143,7 @@ function WebSearchContent() {
                     </div>
                   }
                 />
-              ) : provider.secretKey ? (
+              ) : !browser && provider.secretKey ? (
                 <CardItem
                   title={t('settings:webSearch.apiKey', {
                     provider: provider.label,

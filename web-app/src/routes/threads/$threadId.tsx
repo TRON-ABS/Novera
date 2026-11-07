@@ -791,7 +791,7 @@ function ThreadConversation() {
               (async () => {
                 if (WEB_TOOL_NAMES.has(toolName)) {
                   return await executeWebTool(toolName, toolCall.input, {
-                    maxOutputChars,
+                    maxOutputChars, signal: AbortSignal.any([signal, stopSignal]),
                   })
                 } else if (chatShellRoute(toolName) === 'builtin') {
                   // Chat's shell runs with the sandbox network closed: the

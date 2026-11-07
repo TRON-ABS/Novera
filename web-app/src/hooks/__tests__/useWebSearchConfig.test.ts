@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const { storage, invoke } = vi.hoisted(() => ({
   storage: { getItem: vi.fn(), setItem: vi.fn(), removeItem: vi.fn() },
@@ -10,6 +10,7 @@ vi.mock('@/hooks/useServiceHub', () => ({
 }))
 
 import { DEFAULT_SEARCH_PROVIDER, useWebSearchConfig } from '../useWebSearchConfig'
+afterEach(() => vi.unstubAllEnvs())
 
 describe('web search preferences', () => {
   beforeEach(() => {
@@ -40,6 +41,13 @@ describe('web search preferences', () => {
     }, version: 0 }))
     await useWebSearchConfig.persist.rehydrate()
     expect(useWebSearchConfig.getState()).toMatchObject({ searchProvider: 'tavily', webSearchEnabled: false })
+  })
+
+  it('migrates only the old nonfunctional browser DuckDuckGo default while preserving Web-off', async () => {
+    vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
+    storage.getItem.mockResolvedValue(JSON.stringify({ state: { searchProvider: 'duckduckgo', webSearchEnabled: false }, version: 0 }))
+    await useWebSearchConfig.persist.rehydrate()
+    expect(useWebSearchConfig.getState()).toMatchObject({ searchProvider: 'exa', webSearchEnabled: false })
   })
 
   it('does not read empty keyring keys for providers without API keys', async () => {

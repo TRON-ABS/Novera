@@ -5,6 +5,7 @@ import { executeDuckDuckGoTool } from '@/lib/duckduckgoSearch'
 import { executeMobileDuckDuckGoTool } from '@/lib/mobileDuckduckgoSearch'
 import { isPlatformAndroid, isPlatformIOS } from '@/lib/platform/utils'
 import { TRUNCATION_MARKER } from '@/lib/toolPresentation'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 
 export const WEB_TOOL_NAMES = new Set(['web_search', 'web_fetch'])
 
@@ -82,13 +83,17 @@ function cutText(text: string, max: number): string {
 export async function executeWebTool(
   toolName: string,
   input: WebToolInput,
-  options: { maxOutputChars?: number } = {}
+  options: { maxOutputChars?: number; signal?: AbortSignal } = {}
 ): Promise<WebToolResult> {
   const { apiKeys, endpoints, searchProvider, webSearchEnabled } = useWebSearchConfig.getState()
   if (webSearchEnabled === false) return { error: 'Web search is disabled' }
   const apiKey = apiKeys[searchProvider] || undefined
   const endpoint = endpoints[searchProvider] || undefined
   try {
+    if (browserPreviewEnabled()) {
+      const { executeBrowserWebTool } = await import('@/services/browser-preview/web-search')
+      return await executeBrowserWebTool(toolName, input, webOutputCap(options.maxOutputChars), options.signal)
+    }
     if (searchProvider === 'duckduckgo') {
       if (isPlatformAndroid() || isPlatformIOS()) {
         return await executeMobileDuckDuckGoTool(toolName, input, webOutputCap(options.maxOutputChars))

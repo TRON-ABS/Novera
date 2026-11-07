@@ -10,7 +10,7 @@ import { browserMediaCommand } from './media'
 
 const info = (spec: typeof browserCatalog[number]): modelInfo => ({
   id: spec.id, name: spec.name, providerId: 'llamacpp', port: 0, sizeBytes: spec.bytes,
-  quant_type: 'Q4_K_M', capabilities: ['completion'], tags: ['browser', 'WebGPU'],
+  quant_type: 'Q4_K_M', capabilities: ['completion', 'tools'], tags: ['browser', 'WebGPU'],
   description: 'Calcul sur cet appareil. Téléchargement au premier chargement ; texte dans cette préparation.',
 })
 
@@ -30,7 +30,7 @@ export class BrowserEngine extends AIEngine {
   async getModelContextLimit(id: string) { browserModel(id); return BROWSER_CONTEXT_TOKENS }
   async getSettings() { return [] }
   async updateSettings() { throw new Error('Les réglages natifs du moteur ne sont pas disponibles dans le navigateur.') }
-  async isToolSupported() { return false }
+  async isToolSupported() { return true }
   async chat(_request: chatCompletionRequest): Promise<never> { throw new Error('Utilisez le transport de conversation navigateur Novera.') }
   async delete(_id: string): Promise<void> { throw new Error('La gestion sélective du cache modèle reste à préparer ; aucune discussion n’est supprimée.') }
   async update(_id: string, _model: Partial<modelInfo>) { throw new Error('La modification des modèles navigateur reste à préparer.') }
@@ -55,7 +55,7 @@ export class BrowserCoreService extends DefaultCoreService {
 export class BrowserProvidersService extends DefaultProvidersService {
   async getProviders(): Promise<ModelProvider[]> {
     const fal = structuredClone(predefinedProviders.find(provider => provider.provider === 'fal')!) as unknown as ModelProvider
-    return [{ ...fal, persist: true, models: mediaModels('fal') }, { provider: 'llamacpp', active: true, persist: true, settings: [], models: browserCatalog.map(spec => ({ id: spec.id, name: spec.name, displayName: spec.name, capabilities: ['completion'], input_modalities: ['text'], output_modalities: ['text'], settings: {} })) }]
+    return [{ ...fal, persist: true, models: mediaModels('fal') }, { provider: 'llamacpp', active: true, persist: true, settings: [], models: browserCatalog.map(spec => ({ id: spec.id, name: spec.name, displayName: spec.name, capabilities: ['completion', 'tools'], input_modalities: ['text'], output_modalities: ['text'], settings: {} })) }]
   }
   async fetchModelsFromProvider(provider: ModelProvider) {
     if (provider.provider === 'llamacpp') return browserCatalog.map(model => model.id)

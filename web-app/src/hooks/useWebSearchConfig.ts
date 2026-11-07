@@ -3,6 +3,7 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 import { localStorageKey } from '@/constants/localStorage'
 import { backendStorage } from '@/lib/backendStorage'
 import { getServiceHub } from '@/hooks/useServiceHub'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 
 export type WebSearchProviderMeta = {
   id: string
@@ -52,7 +53,7 @@ export const WEB_SEARCH_PROVIDERS: WebSearchProviderMeta[] = [
   },
 ]
 
-export const DEFAULT_SEARCH_PROVIDER = 'duckduckgo'
+export const DEFAULT_SEARCH_PROVIDER = browserPreviewEnabled() ? 'exa' : 'duckduckgo'
 export const DEFAULT_WEB_SEARCH_ENABLED = true
 
 export const providerFavicon = (meta: WebSearchProviderMeta): string =>
@@ -106,6 +107,9 @@ export const useWebSearchConfig = create<WebSearchConfigState>()(
           ? persisted as Partial<WebSearchConfigState> : {}
         return {
           ...current, ...saved,
+          // The old browser preview exposed Desktop's nonfunctional default.
+          // Its Web-off preference is preserved; other explicit providers are retained.
+          searchProvider: browserPreviewEnabled() && saved.searchProvider === 'duckduckgo' ? 'exa' : saved.searchProvider ?? current.searchProvider,
           webSearchEnabled: typeof saved.webSearchEnabled === 'boolean'
             ? saved.webSearchEnabled : DEFAULT_WEB_SEARCH_ENABLED,
         }

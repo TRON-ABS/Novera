@@ -1,8 +1,10 @@
 import { browserModel, type BrowserModelSpec } from './config'
 
-export type BrowserMessage = { role: string; content: string }
+export type BrowserToolCall = { id: string; type: 'function'; function: { name: string; arguments: Record<string, unknown> }; errors?: string[] }
+export type BrowserTool = { type: 'function'; function: { name: string; description?: string; parameters?: Record<string, unknown> } }
+export type BrowserMessage = { role: string; content: string; tool_calls?: BrowserToolCall[]; tool_call_id?: string }
 type SdkEvent = { type: string; text?: string }
-type SdkResult = { message: { role: string; content: string }; finish_reason: string; usage?: { prompt_tokens?: number; completion_tokens?: number; cached_tokens?: number }; timings?: { tokens_per_second?: number } }
+export type SdkResult = { message: BrowserMessage; finish_reason: string; usage?: { prompt_tokens?: number; completion_tokens?: number; cached_tokens?: number }; timings?: { tokens_per_second?: number } }
 type Turn = AsyncIterable<SdkEvent> & { result: Promise<SdkResult>; cancel(): void }
 type Session = { generate(messages: BrowserMessage[], options: Record<string, unknown>): Turn; reset(): void; dispose(): Promise<void> }
 type Model = { contextLength?: number; create_session(): Session; dispose(): Promise<void> }
@@ -109,7 +111,7 @@ export class BrowserRuntime {
     }
   }
 
-  async *generate(id: string, messages: BrowserMessage[], signal?: AbortSignal, maxTokens = 512): AsyncGenerator<{ text?: string; result?: SdkResult }> {
+  async *generate(id: string, messages: BrowserMessage[], signal?: AbortSignal, maxTokens = 512, tools?: BrowserTool[]): AsyncGenerator<{ text?: string; result?: SdkResult }> {
     await this.load(id)
     signal?.throwIfAborted()
     if (this.turn || !this.session) throw new Error('Le moteur est occupé. Attendez la fin de la réponse.')
@@ -117,11 +119,11 @@ export class BrowserRuntime {
     // only when the complete previous exchange is an exact prefix of this one.
     // Edited, independent, regenerated or cancelled conversations reset it.
     const continuesHistory = this.previousHistory && messages.length > this.previousHistory.length &&
-      this.previousHistory.every((message, index) => message.role === messages[index].role && message.content === messages[index].content)
+      this.previousHistory.every((message, index) => JSON.stringify(message) === JSON.stringify(messages[index]))
     if (!continuesHistory) this.session.reset()
     this.previousHistory = undefined
     const started = performance.now()
-    const turn = this.session.generate(messages, { generation_mode: 'text', max_new_tokens: Math.min(1024, Math.max(1, maxTokens)), do_sample: false, signal })
+    const turn = this.session.generate(messages, { generation_mode: 'text', max_new_tokens: Math.min(1024, Math.max(1, maxTokens)), do_sample: false, signal, ...(tools?.length ? { tools } : {}) })
     this.turn = turn
     const cancel = () => turn.cancel()
     signal?.addEventListener('abort', cancel, { once: true })
