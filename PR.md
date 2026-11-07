@@ -1,11 +1,9 @@
-# fix(release): validate the current signed candidate instead of old fixtures
+# fix(linux): adapt portal proxy builders to zbus 6
 
-The 1.0.1 installation/UI lanes still reference 1.0.0 bundles, a fixed old ARM64 executable hash and a hardcoded interface version. Require a reviewed descriptor matching the application version, exact platform bundle/signature names, commit and Windows runtime hash. Reject missing targets instead of silently testing an old package.
+After enabling the proxy feature in #31, Linux compilation reaches the two XDG theme proxy builders and rejects their `?` operators. zbus 6 setters return the builder directly and retain validation errors for `build()`. Remove `?` from destination, path and interface while preserving `build().await?` in both paths.
 
-Stage the exact verified Windows ARM64 1.0.1 installer/signature in private draft 437373617 and bind the descriptor to their server IDs and SHA-256 values. The candidate archive matches GitHub's digest; the Novera updater signature and nine migration tests pass. Native installation/replacement and UI checks are launched separately; these outcomes do not certify a two-public-version upgrade.
+Reproduction: Linux run 42343670821 / job 128316700112 fails with E0277 at setup.rs:502 and :698. The pinned 6.2.1 builder source confirms the deferred error behavior; the existing sharing proxy calls already type-check.
 
-Make the ARM64 no-update UI lane check the actual application version and accept a reviewed older production feed before publication. Record both versions explicitly, use anchored official asset URLs and retain the Windows/disposable-runner guards. The fast UI lane verifies the current descriptor's executable hash rather than a stale literal.
+Validation: scoped Rust formatting/syntax and source/version contracts pass. The signed Linux candidate is relaunched for full compilation, migration and native UI checks. No successful Linux package is claimed before that run completes. Windows/Mac builds use their existing conditional code and continue independently.
 
-Validation: 19 Python distribution tests and three Windows UI contracts pass, including rejection of old, missing and cross-platform candidates and unsafe URLs. The real ARM64 CI lane is rerun against the staged bytes. Other desktop builds and the maintainer's future Windows x64 1.0.0-to-1.0.1 test remain distinct.
-
-Depends on merged #26–#33. Only ARM64 is currently in the new descriptor; add other verified 1.0.1 targets as they finish. No public feed or binary is changed by this PR.
+Depends on merged #31 and the other 1.0.1 preparation fixes. Update the release lessons to inspect the entire changed API chain and preserve final error handling.

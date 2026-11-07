@@ -500,9 +500,9 @@ async fn read_xdg_portal_color_scheme() -> Result<Option<&'static str>, Box<dyn 
 
     let connection = Connection::session().await?;
     let proxy: zbus::Proxy<'_> = zbus::proxy::Builder::new(&connection)
-        .destination("org.freedesktop.portal.Desktop")?
-        .path("/org/freedesktop/portal/desktop")?
-        .interface("org.freedesktop.portal.Settings")?
+        .destination("org.freedesktop.portal.Desktop")
+        .path("/org/freedesktop/portal/desktop")
+        .interface("org.freedesktop.portal.Settings")
         .build()
         .await?;
 
@@ -696,9 +696,9 @@ async fn setup_xdg_portal_theme_listener<R: Runtime>(
 
     // Build a proxy for the XDG Desktop Portal Settings interface
     let proxy: zbus::Proxy<'_> = zbus::proxy::Builder::new(&connection)
-        .destination("org.freedesktop.portal.Desktop")?
-        .path("/org/freedesktop/portal/desktop")?
-        .interface("org.freedesktop.portal.Settings")?
+        .destination("org.freedesktop.portal.Desktop")
+        .path("/org/freedesktop/portal/desktop")
+        .interface("org.freedesktop.portal.Settings")
         .build()
         .await?;
 
