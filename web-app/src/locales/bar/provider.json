@@ -1,0 +1,18 @@
+{
+  "addProvider": "Anbieter hinzufügn",
+  "addOpenAIProvider": "Einen eigana Provider hinzufügn",
+  "enterNameForProvider": "Provider-Name (bsp. my-llm-server)",
+  "apiTypeLabel": "API-Format",
+  "apiTypeOpenAI": "OpenAI-kompatibel",
+  "apiTypeAnthropic": "Anthropic-kompatibel",
+  "baseUrlLabel": "Basis-URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API-Schlüssel",
+  "apiKeyPlaceholder": "Kleb dei API-Schlüssel ei",
+  "invalidBaseUrl": "Basis-URL muass a gültige http(s) URL sei",
+  "globalSettings": "Globale Eistellunga",
+  "stripReasoning": "Schlussfolgerunga ausm Kontext entfern",
+  "stripReasoningDesc": "Entfern den Denk-/Schlussfolgerungsinhalt vo frühere Runden, bevor d'Gschicht wiedersendsch, bi allne Anbieter. Verbessert d'KV-Cache-Wiedernutzig für lokali Modäll, aber e paar Modäll (z.B. neui Qwen-Ussgabä) empfähled,s z'behaltä für besseri Mehr-Rund-Schlussfolgerig.",
+  "providerAlreadyExists": "E Anbieter mit em Name {{name}} existiert scho."
+}

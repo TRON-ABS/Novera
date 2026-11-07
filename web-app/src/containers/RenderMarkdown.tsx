@@ -16,7 +16,7 @@ import {
   type MermaidErrorComponentProps,
 } from 'streamdown'
 import { cjk } from '@streamdown/cjk'
-import { code } from '@streamdown/code'
+import { streamdownCode as code } from '@/lib/streamdownCode'
 import { mermaid } from '@streamdown/mermaid'
 
 import remarkGfm from 'remark-gfm'
@@ -404,8 +404,7 @@ function StreamdownViewComponent({
     <Streamdown
       mode={isStreaming ? 'streaming' : 'static'}
       parseIncompleteMarkdown={isStreaming ?? false}
-      animate={isStreaming ? false : (isAnimating ?? true)}
-      animationDuration={500}
+      animated={isStreaming || isAnimating === false ? false : { duration: 500 }}
       linkSafety={LINK_SAFETY}
       className={mergedClassName}
       remarkPlugins={REMARK_PLUGINS}

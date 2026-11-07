@@ -44,8 +44,8 @@
     "dev:ios": "yarn copy:assets:mobile && RUSTC_WRAPPER= cross-env IS_IOS=true yarn tauri ios dev --features mobile",
     "dev:android": "yarn copy:assets:mobile && cross-env IS_ANDROID=true yarn tauri android dev --features mobile",
     "build:android": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/android/build-apk.ps1",
-    "build:ios": "yarn build:icon && yarn copy:assets:mobile && cross-env IS_IOS=true yarn tauri ios build -- --no-default-features --features mobile",
-    "build:ios:device": "yarn build:icon && yarn copy:assets:mobile && cross-env IS_IOS=true yarn tauri ios build -- --no-default-features --features mobile --export-method debugging",
+    "build:ios": "bash src-tauri/build-utils/fetch-engine-source.sh && yarn build:icon && yarn copy:assets:mobile && cross-env IS_IOS=true yarn tauri ios build -- --no-default-features --features mobile",
+    "build:ios:device": "bash src-tauri/build-utils/fetch-engine-source.sh && yarn build:icon && yarn copy:assets:mobile && cross-env IS_IOS=true yarn tauri ios build -- --no-default-features --features mobile --export-method debugging",
     "copy:assets:tauri": "cpx \"LICENSE\" \"src-tauri/resources/\"",
     "copy:assets:mobile": "cpx \"LICENSE\" \"src-tauri/resources/\"",
     "download:lib": "node ./scripts/download-lib.mjs",
@@ -62,7 +62,7 @@
     "build:icon": "tauri icon ./src-tauri/icons/icon.png",
     "build:core": "cd core && yarn build && yarn pack",
     "build:web": "yarn workspace @janhq/web-app build",
-    "build:extensions": "yarn workspace @janhq/core build && yarn workspaces foreach -Apt --include '@janhq/*-extension' run build",
+    "build:extensions": "yarn workspace @janhq/core build && yarn workspaces foreach -Apt --include '@janhq/*-extension' run build && node scripts/distribution/check-extension-bundles.mjs",
     "prepare": "husky",
     "e2e": "yarn build:e2e:app && cd e2e && yarn install --immutable && yarn test",
     "build:e2e:app": "yarn build:icon && node ./scripts/stub-tauri-resources.mjs && yarn build:e2e:deps && cross-env IS_TAURI=true yarn build:web && cargo build --locked --manifest-path src-tauri/Cargo.toml --features e2e --bin Novera-Desktop",
@@ -70,17 +70,18 @@
     "prepare:image:win32": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/distribution/stage-novera-image.ps1"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "2.11.4",
-    "@vitest/coverage-v8": "^3.1.3",
-    "cpx": "^1.5.0",
-    "cross-env": "^7.0.3",
-    "husky": "^9.1.5",
-    "jsdom": "^26.1.0",
-    "rimraf": "^3.0.2",
-    "run-script-os": "^1.1.6",
-    "tar": "^4.4.19",
-    "unzipper": "^0.12.3",
-    "vitest": "^3.1.3"
+    "@tauri-apps/cli": "2.12.4",
+    "@vitest/coverage-v8": "5.1.0",
+    "cpx": "npm:cpx2@9.0.3",
+    "cross-env": "10.1.0",
+    "husky": "9.1.7",
+    "jsdom": "31.0.0",
+    "rimraf": "6.1.4",
+    "run-script-os": "1.1.6",
+    "tar": "7.5.22",
+    "unzipper": "0.12.5",
+    "vite": "8.3.6",
+    "vitest": "5.1.0"
   },
   "version": "0.0.0",
   "installConfig": {
@@ -88,8 +89,19 @@
   },
   "resolutions": {
     "yallist": "4.0.0",
-    "@types/react": "19.1.2",
-    "@types/react-dom": "19.1.2"
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "katex": "0.19.1",
+    "glob@npm:^10.2.2": "14.0.4",
+    "glob@npm:^11.0.0": "14.0.4",
+    "vite": "8.3.6",
+    "compression@npm:1.8.1": "1.8.2",
+    "minimatch@npm:^10.0.1": "11.0.5",
+    "minimatch@npm:^10.2.2": "11.0.5",
+    "glob@npm:^13.0.0": "14.0.4",
+    "glob@npm:^13.0.6": "14.0.4",
+    "minimatch@npm:^10.2.6": "11.0.5",
+    "minimatch@npm:^10.2.4": "11.0.5"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "yarn@4.18.1"
 }

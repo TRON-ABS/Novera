@@ -7,13 +7,10 @@
 //!
 //! The Linux Secret Service needs a D-Bus session + an unlocked keyring, which
 //! is often absent on headless/CI/SSH boxes. When the keyring is unavailable we
-//! fall back to an encrypted, permission-restricted file
-//! (`<jan_data>/provider_secrets.enc`, AES-256-GCM, `0600` on unix). The key is
-//! derived from a stable per-machine id + an app salt: this defeats casual disk
-//! or backup inspection, the realistic threat for a headless fallback. It is not
-//! proof against an attacker who already has code + disk access on the box (no
-//! local-key scheme can be). Keyring failure is never fatal; callers additionally
-//! have `--api-key`/env as a last resort.
+//! fall back to an authenticated encrypted file only when its random key can
+//! be protected by the OS (Windows DPAPI, or a dedicated keyring entry).
+//! Without secure storage, new secrets stay in the caller's session; persistence
+//! returns an error. Old machine-id files are read only for verified migration.
 
 use std::collections::{BTreeMap, BTreeSet};
 use std::fs;
@@ -21,7 +18,8 @@ use std::path::PathBuf;
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Mutex;
 
-use aes_gcm::aead::{Aead, AeadCore, KeyInit, OsRng};
+use aes_gcm::aead::{Aead, KeyInit};
+use rand::TryRng;
 use aes_gcm::{Aes256Gcm, Nonce};
 use keyring::Entry;
 use sha2::{Digest, Sha256};
@@ -32,6 +30,10 @@ const KEYRING_SERVICE: &str = "novera-providers";
 const SECRETS_FILE_NAME: &str = "provider_secrets.enc";
 const SECRETS_INDEX_FILE_NAME: &str = "provider_secrets.index.json";
 const NONCE_LEN: usize = 12;
+const FILE_V2: &[u8] = b"NOVERA-SECRETS-V2\0";
+
+#[path = "secret_protection.rs"]
+mod secret_protection;
 
 /// Serializes read-modify-write on the fallback file.
 static FILE_LOCK: Mutex<()> = Mutex::new(());
@@ -73,7 +75,7 @@ fn is_infra_failure(err: &keyring::Error) -> bool {
 fn note_keyring_failure(err: &keyring::Error) {
     if is_infra_failure(err) && !KEYRING_DOWN.swap(true, Ordering::Relaxed) {
         log::warn!(
-            "Keyring unavailable ({err}); using encrypted file fallback for the rest of this session"
+            "Keyring unavailable ({err}); file persistence requires an OS-protected encryption key"
         );
     }
 }
@@ -86,9 +88,16 @@ fn secrets_file_path() -> PathBuf {
     resolve_jan_data_folder().join(SECRETS_FILE_NAME)
 }
 
-/// Derive a stable 32-byte key from a per-machine id and a versioned app salt.
+/// New files use a random key protected by the OS, never a public machine ID.
 #[cfg(not(any(target_os = "android", target_os = "ios")))]
 fn derive_cipher() -> Result<Aes256Gcm, String> {
+    let key = secret_protection::load_or_create_key(&resolve_jan_data_folder())?;
+    Aes256Gcm::new_from_slice(&key).map_err(|e| e.to_string())
+}
+
+/// Read-only compatibility path. Never encrypt new data with this key.
+#[cfg(not(any(target_os = "android", target_os = "ios")))]
+fn legacy_cipher() -> Result<Aes256Gcm, String> {
     let machine_id = machine_uid::get().unwrap_or_else(|_| "jan-fallback-machine".to_string());
     let mut hasher = Sha256::new();
     hasher.update(b"jan-provider-secrets-v1");
@@ -102,7 +111,7 @@ fn derive_cipher() -> Result<Aes256Gcm, String> {
 // Android backups are disabled. Hardware-keystore integration is separate.
 #[cfg(any(target_os = "android", target_os = "ios"))]
 fn derive_cipher() -> Result<Aes256Gcm, String> {
-    use rand::RngCore;
+    use rand::TryRng;
     use std::io::Write;
     let root =
         crate::core::app::paths::data_dir().ok_or("mobile private data root not initialized")?;
@@ -112,7 +121,8 @@ fn derive_cipher() -> Result<Aes256Gcm, String> {
         Ok(key) => key,
         Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
             let mut key = vec![0u8; 32];
-            rand::rngs::OsRng.fill_bytes(&mut key);
+            rand::rngs::SysRng.try_fill_bytes(&mut key)
+                .map_err(|_| "Operating-system entropy unavailable".to_string())?;
             let mut options = fs::OpenOptions::new();
             options.write(true).create_new(true);
             #[cfg(unix)]
@@ -134,35 +144,55 @@ fn derive_cipher() -> Result<Aes256Gcm, String> {
     Aes256Gcm::new_from_slice(&key).map_err(|e| e.to_string())
 }
 
-fn read_file_map(path: &PathBuf) -> BTreeMap<String, Vec<String>> {
-    let Ok(bytes) = fs::read(path) else {
-        return BTreeMap::new();
+fn read_file_map(path: &PathBuf) -> Result<BTreeMap<String, Vec<String>>, String> {
+    let bytes = match fs::read(path) {
+        Ok(bytes) => bytes,
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(BTreeMap::new()),
+        Err(error) => return Err(error.to_string()),
     };
     #[cfg(feature = "portable")]
     {
-        return novera_portable::unprotect_secret(&bytes)
-            .ok()
-            .and_then(|plaintext| serde_json::from_slice(&plaintext).ok())
-            .unwrap_or_default();
+        let plaintext = novera_portable::unprotect_secret(&bytes).map_err(|e| e.to_string())?;
+        return serde_json::from_slice(&plaintext).map_err(|e| e.to_string());
     }
     #[cfg(not(feature = "portable"))]
     {
-        if bytes.len() <= NONCE_LEN {
-            return BTreeMap::new();
-        }
-        let (nonce, ciphertext) = bytes.split_at(NONCE_LEN);
-        let plaintext = match derive_cipher().and_then(|c| {
-            c.decrypt(Nonce::from_slice(nonce), ciphertext)
-                .map_err(|e| e.to_string())
-        }) {
-            Ok(pt) => pt,
-            Err(err) => {
-                log::warn!("Failed to decrypt provider secrets file: {err}");
-                return BTreeMap::new();
-            }
+        let versioned = bytes.starts_with(FILE_V2);
+        let payload = if versioned {
+            &bytes[FILE_V2.len()..]
+        } else {
+            &bytes[..]
         };
-        serde_json::from_slice(&plaintext).unwrap_or_default()
+        if payload.len() <= NONCE_LEN {
+            return Err("Invalid encrypted provider store".into());
+        }
+        let (nonce, ciphertext) = payload.split_at(NONCE_LEN);
+        #[cfg(not(any(target_os = "android", target_os = "ios")))]
+        let cipher = if versioned {
+            derive_cipher()?
+        } else {
+            legacy_cipher()?
+        };
+        #[cfg(any(target_os = "android", target_os = "ios"))]
+        let cipher = derive_cipher()?;
+        let plaintext = cipher
+            .decrypt(Nonce::from_slice(nonce), ciphertext)
+            .map_err(|_| "Cannot authenticate encrypted provider store".to_string())?;
+        let map = serde_json::from_slice(&plaintext).map_err(|e| e.to_string())?;
+        // Authenticate and parse the complete old map before atomically replacing
+        // it. Failure preserves the original; never return keys before migration.
+        if !versioned {
+            write_file_map_atomic(path, &map)?;
+        }
+        Ok(map)
     }
+}
+
+fn fresh_nonce() -> Result<[u8; 12], String> {
+    let mut nonce = [0u8; 12];
+    rand::rngs::SysRng.try_fill_bytes(&mut nonce)
+        .map_err(|_| "Operating-system entropy unavailable".to_string())?;
+    Ok(nonce)
 }
 
 fn write_file_map_atomic(
@@ -178,36 +208,18 @@ fn write_file_map_atomic(
     #[cfg(not(feature = "portable"))]
     let blob = {
         let cipher = derive_cipher()?;
-        let nonce = Aes256Gcm::generate_nonce(&mut OsRng);
+        let nonce = Nonce::from(fresh_nonce()?);
         let ciphertext = cipher
             .encrypt(&nonce, plaintext.as_ref())
             .map_err(|e| e.to_string())?;
-        let mut blob = nonce.to_vec();
+        let mut blob = FILE_V2.to_vec();
+        blob.extend_from_slice(&nonce);
         blob.extend_from_slice(&ciphertext);
         blob
     };
 
-    let tmp = path.with_extension("enc.tmp");
-    fs::write(&tmp, &blob).map_err(|e| e.to_string())?;
-    restrict_permissions(&tmp);
-    fs::rename(&tmp, path).map_err(|e| e.to_string())?;
-    restrict_permissions(path);
-    Ok(())
+    secret_protection::write_private_atomic(path, &blob)
 }
-
-#[cfg(unix)]
-fn restrict_permissions(path: &PathBuf) {
-    use std::os::unix::fs::PermissionsExt;
-    if let Err(err) = fs::set_permissions(path, fs::Permissions::from_mode(0o600)) {
-        log::warn!(
-            "Failed to restrict permissions on {}: {err}",
-            path.display()
-        );
-    }
-}
-
-#[cfg(not(unix))]
-fn restrict_permissions(_path: &PathBuf) {}
 
 fn secrets_index_path() -> PathBuf {
     resolve_jan_data_folder().join(SECRETS_INDEX_FILE_NAME)
@@ -273,7 +285,7 @@ pub fn has_stored_key(provider: &str) -> bool {
 fn file_store(provider: &str, keys: &[String]) -> Result<(), String> {
     let _guard = FILE_LOCK.lock().map_err(|e| e.to_string())?;
     let path = secrets_file_path();
-    let mut map = read_file_map(&path);
+    let mut map = read_file_map(&path)?;
     map.insert(provider.to_string(), keys.to_vec());
     write_file_map_atomic(&path, &map)
 }
@@ -281,7 +293,7 @@ fn file_store(provider: &str, keys: &[String]) -> Result<(), String> {
 fn file_remove(provider: &str) -> Result<(), String> {
     let _guard = FILE_LOCK.lock().map_err(|e| e.to_string())?;
     let path = secrets_file_path();
-    let mut map = read_file_map(&path);
+    let mut map = read_file_map(&path)?;
     if map.remove(provider).is_some() {
         return write_file_map_atomic(&path, &map);
     }
@@ -289,9 +301,16 @@ fn file_remove(provider: &str) -> Result<(), String> {
 }
 
 fn file_load(provider: &str) -> Vec<String> {
-    read_file_map(&secrets_file_path())
-        .remove(provider)
-        .unwrap_or_default()
+    let Ok(_guard) = FILE_LOCK.lock() else {
+        return Vec::new();
+    };
+    match read_file_map(&secrets_file_path()) {
+        Ok(mut map) => map.remove(provider).unwrap_or_default(),
+        Err(error) => {
+            log::warn!("Provider file storage unavailable: {error}");
+            Vec::new()
+        }
+    }
 }
 
 /// Store (or replace) the full key chain for a provider. An empty chain deletes
@@ -569,6 +588,62 @@ mod tests {
             !haystack.contains("openai"),
             "provider name must not appear in plaintext"
         );
+    }
+
+    #[cfg(not(any(feature = "portable", target_os = "android", target_os = "ios")))]
+    #[test]
+    fn legacy_keys_migrate_as_a_complete_map() {
+        let _tmp = TempDataFolder::new();
+        let map = BTreeMap::from([
+            ("first".to_string(), vec!["synthetic-one".to_string()]),
+            ("second".to_string(), vec!["synthetic-two".to_string()]),
+        ]);
+        let nonce = Nonce::from(fresh_nonce().expect("test entropy"));
+        let ciphertext = legacy_cipher()
+            .unwrap()
+            .encrypt(&nonce, serde_json::to_vec(&map).unwrap().as_ref())
+            .unwrap();
+        let mut legacy = nonce.to_vec();
+        legacy.extend_from_slice(&ciphertext);
+        fs::write(secrets_file_path(), legacy).unwrap();
+        assert_eq!(file_load("first"), map["first"]);
+        assert!(fs::read(secrets_file_path()).unwrap().starts_with(FILE_V2));
+        assert_eq!(file_load("second"), map["second"]);
+    }
+
+    #[test]
+    fn corrupt_ciphertext_is_preserved_instead_of_overwritten() {
+        let _tmp = TempDataFolder::new();
+        file_store("first", &["synthetic".into()]).unwrap();
+        let mut bytes = fs::read(secrets_file_path()).unwrap();
+        let last = bytes.len() - 1;
+        bytes[last] ^= 1;
+        fs::write(secrets_file_path(), &bytes).unwrap();
+        assert!(file_load("first").is_empty());
+        assert!(file_store("second", &["other".into()]).is_err());
+        assert_eq!(fs::read(secrets_file_path()).unwrap(), bytes);
+    }
+
+    #[cfg(all(windows, not(feature = "portable")))]
+    #[test]
+    fn ciphertext_and_machine_id_do_not_recover_the_new_store() {
+        let _tmp = TempDataFolder::new();
+        file_store("first", &["synthetic".into()]).unwrap();
+        let bytes = fs::read(secrets_file_path()).unwrap();
+        let payload = &bytes[FILE_V2.len()..];
+        let (nonce, ciphertext) = payload.split_at(NONCE_LEN);
+        assert!(legacy_cipher()
+            .unwrap()
+            .decrypt(Nonce::from_slice(nonce), ciphertext)
+            .is_err());
+        // The protected key itself cannot be decoded as raw key material.
+        assert_ne!(
+            fs::read(resolve_jan_data_folder().join("provider-secrets.dpapi-key"))
+                .unwrap()
+                .len(),
+            32
+        );
+        assert_eq!(file_load("first"), vec!["synthetic"]);
     }
 
     #[cfg(unix)]

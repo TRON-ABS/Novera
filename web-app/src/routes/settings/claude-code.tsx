@@ -1,6 +1,5 @@
 import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { createFileRoute } from '@tanstack/react-router'
-import { route } from '@/constants/routes'
 import HeaderPage from '@/containers/HeaderPage'
 import SettingsMenu from '@/containers/SettingsMenu'
 import { Card, CardItem } from '@/containers/Card'
@@ -30,9 +29,7 @@ import { IconChevronDown, IconPlus, IconX } from '@tabler/icons-react'
 import ProvidersAvatar from '@/containers/ProvidersAvatar'
 import Capabilities from '@/containers/Capabilities'
 import { formatBytes, getModelDisplayName, isLocalProvider } from '@/lib/utils'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute(route.settings.claude_code as any)({
+export const Route = createFileRoute("/settings/claude-code")({
   component: ClaudeCodeIntegration,
 })
 

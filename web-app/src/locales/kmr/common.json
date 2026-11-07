@@ -831,5 +831,10 @@
     "update": "Nûvekirin",
     "rollback": "Jîngeha berê vegerînin",
     "busy": "Modelên herêmî dakêşin û li bendê bin ku nifş biqedin berî ku pêkhateyan biguhezînin."
-  }
+  },
+  "voiceConversation": "Axaftina dengî",
+  "voiceUnavailable": "Axaftina dengî ne berdest e",
+  "voiceMale": "Dengê mêr",
+  "voiceFemale": "Dengê jin",
+  "voiceReadReplies": "Bersivan bi dengê bilind bixwîne"
 }

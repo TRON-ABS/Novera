@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { invoke } from '@tauri-apps/api/core'
+import { getEngineVersion } from '@janhq/tauri-plugin-llamacpp-api'
 import { useHardware } from './useHardware'
 import { resourceProfile } from '@/lib/resourceProfile'
 import { isPlatformTauri } from '@/lib/platform/utils'
@@ -27,7 +27,7 @@ export function useAutoConfiguration() {
   useEffect(() => {
     let active = true
     if (isPlatformTauri()) {
-      engineVersion ??= invoke<{ build_number: string }>('plugin:llamacpp|get_engine_version')
+      engineVersion ??= getEngineVersion()
         .then(version => version?.build_number)
         .catch(() => undefined)
       void engineVersion.then(build => { if (active) setEngineBuild(build) })

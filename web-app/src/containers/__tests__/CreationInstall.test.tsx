@@ -182,7 +182,7 @@ describe('recommended configuration installation', () => {
     expect(
       screen.getByRole('button', { name: 'hub:download 50%' })
     ).toBeInTheDocument()
-    act(() =>
+    await act(async () =>
       useCreationInstall.setState({
         job: {
           ...job('ready'),
@@ -231,7 +231,7 @@ describe('recommended configuration installation', () => {
     useCreationInstall.setState({ job: job() })
     render(<CreationInstallIndicator />)
     fireEvent.click(screen.getByRole('button', { name: 'hub:download 50%' }))
-    act(() =>
+    await act(async () =>
       useCreationInstall.setState({
         job: { ...job('ready'), verified: [true, true, true] },
       })

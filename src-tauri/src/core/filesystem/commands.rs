@@ -249,7 +249,7 @@ pub(crate) fn unpack_archive(
                     .ok_or_else(|| "Invalid zip entry path".to_string())?,
             );
 
-            if entry.name().ends_with('/') {
+            if entry.is_dir() {
                 std::fs::create_dir_all(&outpath).map_err(|e| e.to_string())?;
             } else {
                 if let Some(parent) = outpath.parent() {
@@ -263,7 +263,7 @@ pub(crate) fn unpack_archive(
                     if let Some(mode) = entry.unix_mode() {
                         let _ = std::fs::set_permissions(
                             &outpath,
-                            std::fs::Permissions::from_mode(mode),
+                            std::fs::Permissions::from_mode(mode & 0o777),
                         );
                     }
                 }
@@ -279,7 +279,8 @@ pub(crate) fn unpack_archive(
 // rfd native file dialog
 #[cfg(not(any(target_os = "android", target_os = "ios")))]
 #[tauri::command]
-pub async fn open_dialog(
+pub async fn open_dialog<R: Runtime>(
+    app: tauri::AppHandle<R>,
     options: Option<DialogOpenOptions>,
 ) -> Result<Option<serde_json::Value>, String> {
     let mut dialog = AsyncFileDialog::new();
@@ -301,6 +302,9 @@ pub async fn open_dialog(
         // Handle directory vs file selection
         if opts.directory == Some(true) {
             let result = dialog.pick_folder().await;
+            if let Some(folder) = &result {
+                crate::core::asset_access::selected(&app, folder.path())?;
+            }
             return Ok(result.map(|folder| {
                 serde_json::Value::String(folder.path().to_string_lossy().to_string())
             }));
@@ -309,6 +313,9 @@ pub async fn open_dialog(
         // Handle multiple file selection
         if opts.multiple == Some(true) {
             let result = dialog.pick_files().await;
+            if let Some(files) = &result {
+                for file in files { crate::core::asset_access::selected(&app, file.path())?; }
+            }
             return Ok(result.map(|files| {
                 let paths: Vec<String> = files
                     .iter()
@@ -321,6 +328,9 @@ pub async fn open_dialog(
 
     // Default: single file selection
     let result = dialog.pick_file().await;
+    if let Some(file) = &result {
+        crate::core::asset_access::selected(&app, file.path())?;
+    }
     Ok(result.map(|file| serde_json::Value::String(file.path().to_string_lossy().to_string())))
 }
 

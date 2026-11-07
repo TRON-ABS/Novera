@@ -1,6 +1,6 @@
 # Reproducible local release path; device approval and publication are separate.
 [CmdletBinding()]
-param([string]$OutputDirectory, [switch]$WithTelemetry)
+param([string]$OutputDirectory, [switch]$WithTelemetry = $true)
 $ErrorActionPreference='Stop'
 $repo=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 Set-Location -LiteralPath $repo

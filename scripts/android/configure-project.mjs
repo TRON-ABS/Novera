@@ -105,8 +105,23 @@ if (!text.includes('useLegacyPackaging')) text = text.replace('android {', 'andr
 text = text.replace('android {', 'android {\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_11\n        targetCompatibility = JavaVersion.VERSION_11\n    }')
 if (!text.includes('applicationIdSuffix')) text = text.replace('getByName("debug") {', 'getByName("debug") {\n            applicationIdSuffix = ".debug"\n            versionNameSuffix = "-debug"')
 const version = JSON.parse(read(path.join(repo, 'src-tauri/tauri.conf.json'))).version
+const versionCode = JSON.parse(read(path.join(repo, 'src-tauri/tauri.android.conf.json'))).bundle.android.versionCode
+const release = JSON.parse(read(path.join(here, 'release.json')))
+if (versionCode !== release.versionCode) throw new Error('Android release versionCode is not synchronized')
 text = text.replace(/getProperty\("tauri.android.versionName",\s*"[^"]*"\)/g, 'getProperty("tauri.android.versionName", "' + version + '")')
 write(app, compilerOptions(text, 'JVM_11'))
+// A direct Gradle rebuild can otherwise keep the preceding Tauri version.
+// These generated values always follow the canonical application/release files.
+const versionProperties = path.join(project, 'app/tauri.properties')
+if (fs.existsSync(versionProperties)) {
+  let generated = read(versionProperties)
+  for (const [key, value] of [['versionName', version], ['versionCode', versionCode]]) {
+    const pattern = new RegExp('^tauri\\.android\\.' + key + '=.*$', 'm')
+    const entry = 'tauri.android.' + key + '=' + value
+    generated = pattern.test(generated) ? generated.replace(pattern, entry) : generated.trimEnd() + '\n' + entry + '\n'
+  }
+  write(versionProperties, generated)
+}
 
 const main = path.join(project, 'build.gradle.kts')
 write(main, read(main)

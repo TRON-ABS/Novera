@@ -3,16 +3,18 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
-import { nodePolyfills } from 'vite-plugin-node-polyfills'
 import packageJson from './package.json'
 import { monitoringBuildInfo } from '../scripts/monitoring/build-info.mjs'
 import { prepareSymbols, uploadSymbols } from '../scripts/monitoring/symbols.mjs'
+import { resolvePublicTelemetry } from '../scripts/monitoring/telemetry.mjs'
+import publicTelemetry from '../scripts/monitoring/novera-telemetry.public.json'
 const host = process.env.TAURI_DEV_HOST
 
 // https://vite.dev/config/
 export default defineConfig(({ mode, command }) => {
   // Load env file based on `mode` in the current working directory.
   const env = loadEnv(mode, process.cwd(), '')
+  const telemetry = resolvePublicTelemetry(env, publicTelemetry)
   const build = monitoringBuildInfo()
   const monitoring = command === 'build' && env.NOVERA_MONITORING_BUILD === 'true'
   const privateSymbols = path.resolve(__dirname, '../.build/monitoring-symbols', build.buildId)
@@ -31,12 +33,11 @@ export default defineConfig(({ mode, command }) => {
       }),
       react(),
       tailwindcss(),
-      nodePolyfills({
-        include: ['path'],
-      }),
     ],
     resolve: {
       alias: {
+        path: path.resolve(__dirname, './src/lib/browserPath.ts'),
+        'node:path': path.resolve(__dirname, './src/lib/browserPath.ts'),
         '@': path.resolve(__dirname, './src'),
         '@janhq/assistant-extension': path.resolve(__dirname, '../extensions/assistant-extension/dist/index.js'),
         '@janhq/conversational-extension': path.resolve(__dirname, '../extensions/conversational-extension/dist/index.js'),
@@ -92,8 +93,8 @@ export default defineConfig(({ mode, command }) => {
 
       // Only explicit Novera configuration is accepted. Inherited Jan/GA
       // variables cannot silently activate tracking in a new build.
-      POSTHOG_KEY: JSON.stringify(env.NOVERA_ANALYTICS_PROJECT_KEY || ''),
-      POSTHOG_HOST: JSON.stringify(env.NOVERA_ANALYTICS_HOST || ''),
+      POSTHOG_KEY: JSON.stringify(telemetry.key),
+      POSTHOG_HOST: JSON.stringify(telemetry.host),
       GA_MEASUREMENT_ID: JSON.stringify(''),
       AUTO_UPDATER_DISABLED: JSON.stringify(
         process.env.NOVERA_ENABLE_UPDATER !== 'true'

@@ -833,5 +833,10 @@
     "update": "Pembaruan",
     "rollback": "Pulihkan lingkungan sebelumnya",
     "busy": "Bongkar model lokal dan tunggu hingga generasi selesai sebelum mengganti komponen."
-  }
+  },
+  "voiceConversation": "Percakapan suara",
+  "voiceUnavailable": "Percakapan suara tidak tersedia",
+  "voiceMale": "Suara pria",
+  "voiceFemale": "Suara wanita",
+  "voiceReadReplies": "Bacakan jawaban"
 }

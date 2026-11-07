@@ -833,5 +833,10 @@
     "update": "更新",
     "rollback": "恢复之前的环境",
     "busy": "卸载本地模型并等待生成完成后再更改组件。"
-  }
+  },
+  "voiceConversation": "语音对话",
+  "voiceUnavailable": "语音对话不可用",
+  "voiceMale": "男声",
+  "voiceFemale": "女声",
+  "voiceReadReplies": "朗读回复"
 }

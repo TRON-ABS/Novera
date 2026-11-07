@@ -831,5 +831,10 @@
     "update": "Bijwerken",
     "rollback": "Vorige omgeving herstellen",
     "busy": "Ontlaad lokale modellen en wacht tot generaties klaar zijn voordat u componenten vervangt."
-  }
+  },
+  "voiceConversation": "Spraakgesprek",
+  "voiceUnavailable": "Spraakgesprek niet beschikbaar",
+  "voiceMale": "Mannenstem",
+  "voiceFemale": "Vrouwenstem",
+  "voiceReadReplies": "Antwoorden voorlezen"
 }

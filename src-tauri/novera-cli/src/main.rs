@@ -1,7 +1,7 @@
 //! Novera's headless CLI (historical executable name: novera).
 //!
 //! Shares the Tauri-free core logic with the Novera desktop app; talks only to
-//! remote providers (no local inference, no GUI dependencies).
+//! remote providers or the built-in llama.cpp server, without GUI dependencies.
 //! Build with: cd src-tauri/novera-cli && cargo build --no-default-features --features cli
 
 use clap::{Args, CommandFactory, FromArgMatches, Parser, Subcommand};
@@ -21,6 +21,8 @@ use app_lib::core::cli::{
     cli_plugin_remove, cli_plugin_search, ResumeRequest, SessionFlags,
 };
 use std::fmt::Write as _;
+#[cfg(feature = "local-engine")]
+mod local_engine;
 
 // ── Top-level CLI ──────────────────────────────────────────────────────────
 
@@ -32,7 +34,7 @@ use std::fmt::Write as _;
 where you chat with a model that can run tools in your project.\n\n\
 The `novera cli` subcommand is the non-interactive fallback: run folder-based\n\
 agents headlessly and manage threads and providers.\n\n\
-Models are served by remote providers configured in ~/.novera/config.toml\n\
+Models use providers configured in ~/.novera/config.toml; `novera engine serve` runs a local llama.cpp server.\n\
 (see `novera config set`), a project's agent.toml, or the Novera desktop app.\n\n\
 A signed Novera channel is available only in builds compiled with signed-updates;\n\
 other builds refuse automatic updates. Publication also requires channel validation.\n\n\
@@ -226,6 +228,12 @@ impl ResumeRunArgs {
 /// lives under the non-interactive `cli` fallback.
 #[derive(Subcommand)]
 enum Commands {
+    /// Run the built-in local llama.cpp server, or report its pinned version
+    #[cfg(feature = "local-engine")]
+    Engine {
+        #[command(subcommand)]
+        cmd: local_engine::EngineCommands,
+    },
     /// Non-interactive CLI: launch agents, run headless agent tasks, manage models and threads
     #[command(display_order = 1)]
     Cli {
@@ -815,7 +823,11 @@ async fn main() {
     // the notice, and an update fetch on every spawn is a cost the peer pays.
     // `novera cli agent rpc` is the same deal - the peer owns the process, and a
     // notice on stdout would land inside the protocol channel.
-    if !matches!(
+    #[cfg(feature = "local-engine")]
+    let local_engine_command = matches!(&command, Commands::Engine { .. });
+    #[cfg(not(feature = "local-engine"))]
+    let local_engine_command = false;
+    if !local_engine_command && !matches!(
         command,
         Commands::Update { .. }
             | Commands::Mcp { .. }
@@ -830,6 +842,13 @@ async fn main() {
     }
 
     match command {
+        #[cfg(feature = "local-engine")]
+        Commands::Engine { cmd } => {
+            if let Err(e) = local_engine::run(cmd).await {
+                eprintln!("Local engine: {e}");
+                std::process::exit(1);
+            }
+        }
         Commands::Cli { cmd } => handle_cli(cmd).await,
         Commands::Login { paste_token } => {
             if let Err(e) = app_lib::core::cli::login::run_login(paste_token).await {

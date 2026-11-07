@@ -832,5 +832,10 @@
     "update": "Aggiornamento",
     "rollback": "Ripristina l'ambiente precedente",
     "busy": "Scarica i modelli locali e attendi il completamento delle generazioni prima di modificare i componenti."
-  }
+  },
+  "voiceConversation": "Conversazione vocale",
+  "voiceUnavailable": "Conversazione vocale non disponibile",
+  "voiceMale": "Voce maschile",
+  "voiceFemale": "Voce femminile",
+  "voiceReadReplies": "Leggi le risposte ad alta voce"
 }

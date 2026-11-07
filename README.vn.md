@@ -1,10 +1,10 @@
-<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a></p>
+<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a> · <a href="README.ny.md">Chichewa</a> · <a href="README.bm.md">Bamanankan</a> · <a href="README.sn.md">ChiShona</a> · <a href="README.tn.md">Setswana</a> · <a href="README.nso.md">Sesotho sa Leboa</a> · <a href="README.ht.md">Kreyòl ayisyen</a> · <a href="README.st.md">Sesotho</a> · <a href="README.el.md">Ελληνικά</a> · <a href="README.rn.md">Ikirundi</a> · <a href="README.dyu.md">Julakan</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.sv.md">Svenska</a> · <a href="README.gan.md">贛語</a> · <a href="README.pbt.md">پښتو (سوېلي)</a> · <a href="README.mag.md">मगही</a> · <a href="README.ars.md">عربي نجدي</a> · <a href="README.acm.md">عراقي</a> · <a href="README.fuv.md">Fulfulde (Naajeeriya)</a> · <a href="README.hne.md">छत्तीसगढ़ी</a> · <a href="README.tts.md">อีสาน</a> · <a href="README.azb.md">تۆرکجه</a> · <a href="README.bar.md">Boarisch</a> · <a href="README.ug.md">ئۇيغۇرچە</a> · <a href="README.ctg.md">চাটগাঁইয়া</a></p>
 
 <div align="center">
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Bạn mô tả mục tiêu của bạn. Novera chuẩn bị tài nguyên, thực hiện nhiệm vụ và sắp xếp kết quả.</strong></p>
   <p>Trợ lý AI độc lập của TRON-ABS, từ lần ra mắt đầu tiên đến kết quả: văn bản, hình ảnh, âm nhạc và video trong một cuộc trò chuyện.</p>
-  <p><strong>Có sẵn cho Windows, Linux, macOS và Android</strong> · Ngôn ngữ giao diện 80 · Nhà cung cấp đám mây 42 · Cài đặt trước phương tiện 49 · Apache 2.0</p>
+  <p><strong>Có sẵn cho Windows, Linux, macOS và Android</strong> · Nguồn đã chuẩn bị: 104 ngôn ngữ giao diện · 42 nhà cung cấp đám mây · 58 cài đặt trước phương tiện · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Tự động hóa</a> · <a href="#one-dashboard-for-every-creation">Trang tổng quan</a> · <a href="#local-models-in-use">Các mẫu AI chạy cục bộ trên thiết bị của bạn</a> · <a href="#hub-and-compatible-models">Định dạng & Trung tâm</a> · <a href="#cloud-providers">Đám mây</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Đóng góp</a></p>
   <p>Liên hệ chính thức: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Hồ sơ xã hội Novera chính thức: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -14,6 +14,40 @@
 > Bản dịch được hỗ trợ bởi các công cụ dịch thuật, dựa trên README tiếng Anh ngày 2026-11-03. Đánh giá bằng ngôn ngữ bản địa được chào đón. Các tài liệu được liên kết vẫn giữ nguyên ngôn ngữ gốc của chúng.
 
 ---
+
+<!-- novera-release-1.0.1:start -->
+<a id="preparing-1-0-1"></a>
+## Đang chuẩn bị phiên bản 1.0.1
+
+Lượt tải xuống công khai vẫn ở mức 1.0.0. Những cải tiến sau đây được chuẩn bị trong các nguồn dành cho 1.0.1; họ yêu cầu các gói được xây dựng lại, kiểm tra phát hành và xuất bản. Cập nhật tài liệu này không cập nhật các ứng dụng đã cài đặt.
+
+- Bảo mật: quyền gốc chặt chẽ hơn cho các trang từ xa, xác thực cho API mạng và công cụ máy chủ, lưu trữ và di chuyển bí mật được bảo vệ, truy cập tệp/phương tiện an toàn hơn, phân tích cú pháp bảng tính và xây dựng tập lệnh. Các phần phụ thuộc được hiển thị đã được cập nhật; những lời khuyên còn lại được theo dõi một cách công khai.
+- Quyền riêng tư: số liệu thống kê và báo cáo lỗi yêu cầu có sự đồng ý riêng và vẫn tắt theo mặc định. Các bản dựng bao gồm cấu hình đích được ghi lại. Chẩn đoán kỹ thuật được lọc; người dùng giữ quyền kiểm soát kích hoạt.
+- Công cụ cục bộ: `llama.cpp v0.9.0` (`b12110`, `cd959bae99ff4bed22bef2604f45241c09bbb8c8`). Phiên bản động cơ và phiên bản ứng dụng là riêng biệt. Cài đặt mô hình ban đầu và đăng ký mô hình/máy chiếu đã được sửa, bao gồm cả lỗi khởi động liên quan đến `kv_unified`. Các cài đặt cá nhân hiện tại được giữ nguyên.
+
+Ngôn ngữ
+- : 24 ngôn ngữ và biến thể bổ sung mang giao diện và bộ sưu tập README đã dịch sang 104, với các khóa giao diện 2,435 cho mỗi danh mục. Phạm vi bảo hiểm này không chứng nhận chất lượng biên tập bản địa hoặc hỗ trợ giọng nói ở mọi ngôn ngữ.
+- **LFM3-Omni-2B Q4_K_M** — Mặc định trên máy tính để bàn và thiết bị di động. Một mô hình nhỏ gọn dành cho văn bản, hình ảnh và âm thanh, sử dụng tệp `mmproj` được yêu cầu. Tải xuống: khoảng 1.39 GB cho cả hai tệp. Chọn nó để thiết lập đa phương thức nhẹ hơn. Tính năng giọng nói phụ thuộc vào nền tảng và động cơ. Ngữ cảnh dài hơn sẽ sử dụng nhiều bộ nhớ hơn.
+- **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** — Thay thế chỉ bằng văn bản cho cuộc trò chuyện, viết, công cụ và câu trả lời có cấu trúc. Tải xuống: khoảng 6.18 GB. Nó yêu cầu nhiều bộ nhớ hơn LFM3-Omni và không tự xử lý hình ảnh hoặc âm thanh. Trả lời bằng giọng nói sử dụng giọng nói của hệ thống. Chọn nó cho các tác vụ văn bản khi bạn có đủ bộ nhớ. Kiểm tra câu trả lời thực tế với các nguồn.
+- Đối với 1.0.1, LFM3-Omni-2B Q4_K_M với `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` bắt buộc là đề xuất mặc định trên máy tính để bàn và thiết bị di động; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M vẫn là lựa chọn thay thế chỉ có văn bản. Bối cảnh ban đầu là 32,768 mã thông báo trên máy tính để bàn và 2,048 trên thiết bị di động. Bối cảnh dài hơn sử dụng nhiều bộ nhớ hơn. Các lựa chọn và cài đặt mô hình hiện tại được giữ nguyên cho đến khi có thay đổi rõ ràng.
+- Giọng nói: đầu vào micrô cục bộ trực tiếp cho LFM3-Omni, cuộc trò chuyện liên tục và gửi tự động, giọng trả lời nam/nữ cho các mẫu âm thanh và giọng nói hệ thống cho các mẫu cổ điển. Tính năng đọc trả lời cũng hoạt động đối với tin nhắn đã nhập và tái tạo, độc lập với việc thu thập micrô. Một nút âm thanh nhỏ cho phép hoặc tắt tiếng đọc.
+- Trạng thái micrô: màu xanh lá cây khi khả dụng, màu đỏ khi bận, màu xám khi không khả dụng. Nhận dạng, khởi động lại nghe, xử lý tiêu điểm và đọc chính tả rõ ràng đã được sửa chữa. Giọng nói mô hình âm thanh gốc hiện được triển khai trên Windows; các nền tảng khác vẫn cần xác thực gốc và hỗ trợ giọng nói phù hợp.
+- Web: khả năng phát hiện yêu cầu thời tiết đáng tin cậy hơn, hướng dẫn cập nhật hiện tại, kết quả và trích dẫn mới cũng như câu trả lời tập trung vào yêu cầu hiện tại sau khi sử dụng công cụ. Bài phát biểu bỏ qua các nhãn và liên kết nguồn trang trí trong khi vẫn giữ các trích dẫn rõ ràng. Ngôn ngữ phản hồi và lời nói tuân theo ngôn ngữ của người dùng trong chừng mực mô hình đã chọn hỗ trợ ngôn ngữ đó.
+- Tối ưu hóa: chuẩn bị tìm kiếm trên web ở chế độ nền khi Internet được bật, khởi động dịch vụ chia sẻ, chuẩn bị đoạn giọng nói tiếp theo trước khi phát lại và cải thiện tính liên tục của câu. Năm tiếng Pháp, số thập phân và đơn vị được đọc tự nhiên hơn. Độ trễ mạng và tốc độ mô hình vẫn phụ thuộc vào thiết lập.
+- Tiện nghi: các điều khiển phía dưới thu gọn trong khi đầu vào vẫn hiển thị. Micrô nhỏ gọn và điều khiển tiết lộ, nút âm thanh bên dưới micrô, cài đặt nhạc phản hồi nhanh và nhãn thành phần được dịch giúp cải thiện việc sử dụng trên màn hình nhỏ.
+
+Danh mục API
+- : hồ sơ nhà cung cấp 43, bao gồm cả TabbyAPI cục bộ, với các lựa chọn phương tiện và trò chuyện được làm mới. Các mục mới bao gồm GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 và GPT Image 2.6, Gemini Omni 1.2, FLUX 3 nếu được hỗ trợ. Làm mới không còn ẩn kết quả ngoài mười mô hình. Mã định danh chính xác, điểm cuối khu vực, triển khai riêng tư và mô hình nhập khẩu đều được tôn trọng.
+
+Xác thực
+- : kiểm tra ứng dụng được nhắm mục tiêu, thư viện gốc, danh mục công cộng và ngôn ngữ được ghi lại trong ghi chú chi tiết. Giao diện xây dựng cho Windows / macOS / Linux / Android / iOS. Các bản dựng giao diện người dùng này không chứng nhận các gói gốc hoặc suy luận trên mọi thiết bị.
+- Trước khi phát hành: xác thực các gói gốc được xây dựng lại, các phát hiện về bảo mật/phụ thuộc còn lại và bản cập nhật thực từ 1.0.0 đến 1.0.1. Tính khả dụng phụ thuộc vào phần cứng, quyền truy cập của nhà cung cấp và nền tảng. Không có khả năng tương thích mô hình phổ quát, trạng thái không có lỗ hổng hoặc xuất bản đã hoàn thành nào được yêu cầu.
+
+[Ghi chú chi tiết, xác thực và công việc còn lại](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
+
+> Các ghi chú cập nhật này sử dụng tính năng dịch được hỗ trợ và khi cần thiết, một sổ đăng ký bằng văn bản được chia sẻ. Đánh giá bằng ngôn ngữ bản địa vẫn cần thiết. Các tài liệu được liên kết vẫn giữ nguyên ngôn ngữ gốc của chúng.
+
+<!-- novera-release-1.0.1:end -->
 
 ## Sẵn có — 2026-11-03
 
@@ -74,11 +108,11 @@ Tự động hóa bao gồm các công cụ và quy trình công việc tích h�
 
 [Hướng dẫn sử dụng](docs/USER_GUIDE.md) · [Động cơ và xác nhận](docs/SUIVI_MOTEURS.md) · [Phát triển](docs/DEVELOPMENT.md)
 
-Trong các nguồn cập nhật, **Cấu hình điều chỉnh các đề xuất của nó cho phù hợp với phần cứng di động và bị hạn chế**: LFM3-1.7B Q4 hoặc LFM3-Omni-2B Q4 với máy chiếu khi đáp ứng các yêu cầu về bộ nhớ và động cơ được báo cáo. Thế hệ cục bộ không khả dụng bị ẩn hoặc bị chặn; hình ảnh, âm nhạc và video đám mây được định cấu hình vẫn có sẵn. Hướng dẫn giao diện sử dụng lại danh mục ngôn ngữ 80. Những ước tính này vẫn yêu cầu thử nghiệm thiết bị và xây dựng lại để tiếp cận các ứng dụng đã cài đặt.
+Đối với 1.0.1, LFM3-Omni-2B Q4_K_M với `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` bắt buộc là đề xuất mặc định trên máy tính để bàn và thiết bị di động; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M vẫn là lựa chọn thay thế chỉ có văn bản. Bối cảnh ban đầu là 32,768 mã thông báo trên máy tính để bàn và 2,048 trên thiết bị di động. Bối cảnh dài hơn sử dụng nhiều bộ nhớ hơn. Các lựa chọn và cài đặt mô hình hiện tại được giữ nguyên cho đến khi có thay đổi rõ ràng.
 
 ## Khả năng trong nguồn
 
-Chẩn đoán bảo trì tùy chọn hiện phân biệt các lỗi xây dựng và xử lý công cụ cũng như các trường hợp ngoại lệ JavaScript, với sự đồng ý riêng biệt và các trường kỹ thuật được lọc. Cảnh báo qua email sản xuất hàng giờ được định cấu hình cho người bảo trì. Bản đồ nguồn riêng và chi tiết cảnh báo tuân theo [sổ tay bảo trì](docs/MAINTENANCE.md); Việc nhận email kiểm tra được xác nhận, trong khi việc tải lên biểu tượng đã xác thực và kiểm tra ở tệp nhị phân tiếp theo vẫn là kiểm tra phát hành.
+Các cải tiến về bảo trì và quyền riêng tư đã được chuẩn bị cho 1.0.1. Số liệu thống kê tùy chọn và báo cáo lỗi sử dụng chẩn đoán kỹ thuật được lọc, có sự đồng ý rõ ràng và độc lập. Kiểm tra phát hành bắt buộc và các phát hiện bảo mật còn lại được ghi lại riêng biệt. [sổ tay bảo trì](docs/MAINTENANCE.md)
 
 | Khu vực | Tính năng |
 | --- | --- |
@@ -98,7 +132,8 @@ Những mô hình này tạo thành cấu hình được hướng dẫn hiện t
 
 | Vai trò | Mô hình / thành phần được cấu hình |
 | --- | --- |
-| **Văn bản — mô hình chạy lần đầu** | **Nemotron-3.5-Bolt-E4B**, tập tin `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
+| **Văn bản — mô hình chạy lần đầu** | **LFM3-Omni-2B Q4_K_M** · `LFM3-Omni-2B-Q4_K_M.gguf` + `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` |
+| **Thay thế chỉ có văn bản** | **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** · `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf` |
 | **Truy xuất tài liệu** | **Qwen3-Embedding-0.6B Q8_0**, **CPU theo mặc định**, với lựa chọn CPU/GPU đã lưu. |
 | **Hình ảnh** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** bộ mã hóa và FLUX.2 VAE. chính thức |
 | **Hình ảnh — tùy chọn phần cứng** | **FLUX.2 Klein 4B NVFP4**, thông qua đường dẫn CUDA gốc khi GPU và môi trường tương thích. |
@@ -114,7 +149,7 @@ Bộ mã hóa âm nhạc Qwen và mô hình truy xuất Qwen là **các tệp kh
 
 ## Nhà cung cấp đám mây
 
-**Hồ sơ nhà cung cấp 42** được tích hợp. **ElevenLabs** hiện xuất hiện trong showcase cùng với các lộ trình âm nhạc từ Stability AI, fal và Replicate.
+Các nguồn đã chuẩn bị chứa 43 hồ sơ nhà cung cấp: 42 dịch vụ đám mây và TabbyAPI cho máy chủ cục bộ. Tính khả dụng và khả năng của mô hình tùy thuộc vào tài khoản, khu vực và API được hỗ trợ. Danh mục được chia sẻ bởi tất cả ngôn ngữ giao diện 104.
 
 | | | |
 | --- | --- | --- |
@@ -131,27 +166,27 @@ Bộ mã hóa âm nhạc Qwen và mô hình truy xuất Qwen là **các tệp kh
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/) |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://docs.dev.runwayml.com/api/) | <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://docs.ltx.io/models) |
 | <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
-| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/docs/model-map) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/models) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
 
 ### Hình ảnh, âm nhạc và video
 
-**Nhà cung cấp 20 tiết lộ các lộ trình tạo**, với **Cài đặt trước 49: hình ảnh 25, video 20 và nhạc 4**. Con đường âm nhạc được **ElevenMusic v2.5**, **Stable Audio 3**, **ACE-Step đến fal** và **Stable Audio 2.5 đến Replicate**.
+Danh mục tác phẩm đã chuẩn bị sẵn chứa 58 cài đặt trước từ nhà cung cấp 20: hình ảnh 30, video 24 và cài đặt trước nhạc 4. Các bảng dưới đây liệt kê các tuyến đường tích hợp; họ không sao chép mọi sản phẩm thương mại.
 
 | Nhà cung cấp | Đầu ra ở dạng Novera | Mẫu catalogue |
 | --- | --- | --- |
 | <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="24" height="24" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | Âm nhạc | `ElevenMusic v2.5` |
-| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Hình ảnh / Âm nhạc | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
-| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Hình ảnh / Âm nhạc / Video | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
-| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Hình ảnh / Âm nhạc | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
+| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Hình ảnh / Âm nhạc | `Stable Image Ultra` · `Stable Image Core` · `Stable Audio 3` |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Hình ảnh / Âm nhạc / Video | `FLUX 3 Video · fal` · `FLUX 3 Image · fal` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` · `ACE-Step · cloud` |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Hình ảnh / Âm nhạc / Video | `FLUX 3 Video · Replicate` · `FLUX.2 Max · Replicate` · `Stable Audio 2.5 · Replicate` |
 | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="24" height="24" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | Hình ảnh / Video | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
 | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="24" height="24" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | Hình ảnh / Video | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
-| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Hình ảnh / Video | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Hình ảnh / Video | `Gemini Omni 1.2 Flash` · `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
 | <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="24" height="24" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | Hình ảnh | `Krea 3` |
 | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="24" height="24" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | Hình ảnh | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
 | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="24" height="24" /> [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | Băng hình | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
-| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Hình ảnh | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Hình ảnh | `GPT Image 2.6 Sunburst` · `GPT Image 2.6 Flare` · `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
 | <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="24" height="24" /> [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | Hình ảnh / Video | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
-| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Hình ảnh | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Hình ảnh / Video | `FLUX 3 Image` · `FLUX 3 Image Klein` · `FLUX 3 Video` · `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="24" height="24" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | Hình ảnh | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
 | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="24" height="24" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | Hình ảnh | `Ideogram 4.5` |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="24" height="24" /> [Runway](https://docs.dev.runwayml.com/api/) | Băng hình | `Runway Gen-4.5` |
@@ -165,23 +200,23 @@ Bộ mã hóa âm nhạc Qwen và mô hình truy xuất Qwen là **các tệp kh
 
 | Nhà cung cấp | ID mẫu được cung cấp trong nguồn |
 | --- | --- |
-| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
+| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6.1-terra` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
 | [Microsoft Azure](https://oai.azure.com/deployments) | Cổng hoặc triển khai dành riêng cho tài khoản |
 | [Anthropic](https://platform.claude.com/docs/en/models/overview) | `claude-sonnet-5-5` · `claude-opus-5-5` · `claude-fable-5-1` · `claude-haiku-5-5` |
-| [OpenRouter](https://openrouter.ai/models) | `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
-| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `mistral-medium-3-5` · `mistral-small-2603` · `ministral-3b-2512` |
-| [Groq](https://console.groq.com/docs/models) | `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
+| [OpenRouter](https://openrouter.ai/models) | `liquid/lfm-3-1.7b` · `openai/gpt-6.1-terra` · `tencent/hy4` · `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
+| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `zai-glm-5-3-flash` · `mistral-small-2603` · `ministral-3b-2512` |
+| [Groq](https://console.groq.com/docs/models) | `qwen/qwen3.8-27b` · `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
 | [xAI](https://docs.x.ai/developers/models) | `grok-4.7` |
 | [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | `gemini-4-argon` · `gemini-3.8-flash` · `gemini-3.6-flash` · `gemini-3.5-flash-lite` |
 | [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) | `MiniMax-M3.1-Flash` · `MiniMax-M3` |
-| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
-| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3` |
+| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `MiniMaxAI/MiniMax-M3.1-Flash` · `zai-org/GLM-5.3-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
+| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3-flash` |
 | [DeepSeek](https://api-docs.deepseek.com/) | `deepseek-flash` · `deepseek-v4-pro` |
 | [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | `kimi-k3.1-pro` · `kimi-k3.1-pro-highspeed` · `kimi-k3` |
 | [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | `qwen3.8-max` · `qwen3.7-plus` · `qwen3.8-flash` |
 | [Cerebras](https://inference-docs.cerebras.ai/models/overview) | `qwen-3.8-27b` · `gpt-oss-120b` |
-| [Together AI](https://docs.together.ai/docs/serverless/models) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
-| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
+| [Together AI](https://docs.together.ai/docs/serverless/models) | `moonshotai/Kimi-K3.1-Pro` · `MiniMaxAI/MiniMax-M3.1-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
+| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/kimi-k3p1-pro` · `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
 | [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) | `perplexity/sonar` · `openai/gpt-6.1-sol` · `google/gemini-4-argon` · `perplexity/kimi-k3` |
 | [Meta AI](https://dev.meta.ai/docs/models) | `muse-wonder-1.0` · `muse-spark-1.3` |
 | [Cohere](https://docs.cohere.com/docs/models) | `command-a-plus-05-2026` |
@@ -189,8 +224,8 @@ Bộ mã hóa âm nhạc Qwen và mô hình truy xuất Qwen là **các tệp kh
 | [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | `jamba-large` · `jamba-mini-2` |
 | [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | `dola-seed-2-1-turbo-260628` |
 | [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) | `ernie-5.1` |
-| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4-preview` |
-| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-sol` |
+| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4` · `hy4-preview` |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-terra` · `openai.gpt-6.1-sol` |
 | [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) | Cổng hoặc triển khai dành riêng cho tài khoản |
 
 </details>
@@ -237,9 +272,9 @@ Loại sắp xếp mặc định được điều chỉnh theo phần cứng s�
 
 Các nguồn cập nhật thêm **các thành phần được quản lý tùy chọn trong Cấu hình cho Windows x64**: môi trường Python riêng tư, hồ sơ CPU/CUDA được ghim, ước tính và xác nhận trước khi tải xuống, xác minh, sửa chữa và xóa. Đường dẫn thông dịch tùy chỉnh nằm trong các tùy chọn nâng cao. Động cơ GGUF gốc giữ lại các thành phần hiện có của chúng; thiết bị di động và đám mây không tải xuống Python/PyTorch trên máy tính để bàn. Ba hồ sơ xuất khẩu/CPU riêng tư đã được thực hiện với dữ liệu thử nghiệm tổng hợp; Người bảo trì báo cáo việc sử dụng máy tính để bàn thành công trên 1 tháng 11 2026; Cấu hình GPU và cài đặt PC sạch vẫn cần xác thực chi tiết, riêng biệt. [Hồ sơ và giới hạn kiểm tra](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Việc nhúng ngăn xếp vào EXE bị hoãn lại.
 
-## Ngôn ngữ và biến thể giao diện 80
+## Ngôn ngữ và biến thể giao diện 104
 
-**Tất cả các danh mục 80 đều bao gồm các phím tiếng Anh 2,429 hiện tại** trên các không gian tên 15, bao gồm menu, cấu hình, cài đặt, trợ giúp và điều khiển phương tiện. Dạng số nhiều và hướng giao diện tuân theo ngôn ngữ đã chọn. Ngôn ngữ phản hồi và giọng nói phụ thuộc riêng vào kiểu máy.
+**Tất cả các danh mục 104 đều bao gồm các phím tiếng Anh 2,435 hiện tại** trên các không gian tên 15, bao gồm menu, cấu hình, cài đặt, trợ giúp và điều khiển phương tiện. Dạng số nhiều và hướng giao diện tuân theo ngôn ngữ đã chọn. Ngôn ngữ phản hồi và giọng nói phụ thuộc riêng vào kiểu máy.
 
 Phạm vi kỹ thuật này không chứng nhận chất lượng ngôn ngữ: **Đánh giá bản địa và thích ứng với khu vực vẫn cần thiết**. Xem nhãn gốc và các giới hạn đã biết trong [hướng dẫn ngôn ngữ](docs/LANGUAGES.md) và [báo cáo kiểm toán](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -275,7 +310,7 @@ Bản dựng GitHub Actions thủ công được bật cho tất cả 11 biến 
 - [Hướng dẫn sử dụng chi tiết](docs/USER_GUIDE.md), [quy tắc vàng về sản phẩm và thông tin người dùng (tiếng Pháp)](docs/REGLES_D_OR.md), [mô hình và động cơ](docs/SUIVI_MOTEURS.md).
 - [Phát triển](docs/DEVELOPMENT.md), [hướng dẫn xây dựng và phát hành](docs/BUILD_AND_RELEASE.md), [phiên bản tương lai và chuẩn bị cập nhật](docs/FUTURES_VERSIONS.md).
 - [Trang tổng quan dự án](TABLEAU_DE_BORD_NOVERA.md), [lộ trình](ROADMAP.md), [nhật ký thay đổi](docs/CHANGELOG.md).
-- [Đóng góp](CONTRIBUTING.md): mã, kiểm tra, đánh giá gốc trên các ngôn ngữ 80 và phản hồi thực tế về quy trình làm việc.
+- [Đóng góp](CONTRIBUTING.md): mã, kiểm tra, đánh giá gốc trên các ngôn ngữ 104 và phản hồi thực tế về quy trình làm việc.
 
 ## Danh tính và giấy phép
 

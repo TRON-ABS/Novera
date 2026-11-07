@@ -831,5 +831,10 @@
     "update": "ዝማኔ",
     "rollback": "የቀድሞ አካባቢን ወደነበረበት መመለስ",
     "busy": "የሀገር ውስጥ ሞዴሎችን አውርዱ እና አካላትን ከመቀየርዎ በፊት ትውልዶች እስኪጨርሱ ይጠብቁ።"
-  }
+  },
+  "voiceConversation": "የድምፅ ውይይት",
+  "voiceUnavailable": "የድምፅ ውይይት አይገኝም",
+  "voiceMale": "የወንድ ድምፅ",
+  "voiceFemale": "የሴት ድምፅ",
+  "voiceReadReplies": "ምላሾችን በድምፅ አንብብ"
 }

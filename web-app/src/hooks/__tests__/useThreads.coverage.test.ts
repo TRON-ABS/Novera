@@ -13,13 +13,13 @@ vi.mock('ulidx', () => ({
 }))
 
 vi.mock('fzf', () => ({
-  Fzf: vi.fn().mockImplementation((items: any[]) => ({
+  Fzf: vi.fn().mockImplementation(function(items: any[]) { return ({
     find: vi.fn((term: string) => {
       return items
         .filter((item: any) => item.title?.toLowerCase().includes(term.toLowerCase()))
         .map((item: any) => ({ item, positions: new Set() }))
     }),
-  })),
+  }); }),
 }))
 
 const mockCreateThread = vi.fn()

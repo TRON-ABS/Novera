@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Khoutu",
+    "preview": "Sheba esale pele",
+    "previewStreaming": "E fumaneha ha moloko o felile",
+    "unresolvedAssets_one": "Setšupiso se 1 sa thepa ha se khonehe ho hlaha ponelo-peleng. Litsela tse amanang ha li na URL ea motheo eo u lokelang ho e rarolla.",
+    "unresolvedAssets_other": "{{count}} litšupiso tsa matlotlo ha li khone ho hlaha ponelo-peleng. Litsela tse amanang ha li na motheo URL tseo u ka li rarollang."
+  },
+  "assistants": "Bathusi",
+  "hardware": "Hardware",
+  "mcp-servers": "MCP Lisefara",
+  "local_api_server": "Seva ea Lehae API",
+  "remote_access": "Phihlello ea Remote",
+  "integrations": "Likopano",
+  "experimental": "Teko",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Moemeli",
+  "web_search": "Patlisiso ea Marang-rang",
+  "shell": "Shell",
+  "browse": "Batla",
+  "moreControls": "Litaolo tse ling",
+  "starting": "E qala...",
+  "activeSuffix": "(E sebetsa)",
+  "extensions": "Keketso",
+  "attachments": "Liphutheloana",
+  "general": "Kakaretso",
+  "settings": "Litlhophiso",
+  "modelProviders": "Bafani ba Mehlala",
+  "localProviders": "Sebaka sa heno",
+  "remoteProviders": "Remote",
+  "manageProviders": "Laola bafani",
+  "hiddenProviders": "{{count}} e koaletsoe",
+  "hideProvider": "Pata mofani oa thepa",
+  "showProvider": "Hlahisa mofani oa thepa",
+  "interface": "Sehokelo",
+  "appearance": "Ponahalo",
+  "privacy": "Lekunutu",
+  "keyboardShortcuts": "Likhaoletso",
+  "home": "Lehae",
+  "cowork": "Cowork",
+  "newSession": "Seboka se secha",
+  "artifacts": "Lintho tsa khale",
+  "customize": "Iketsetse",
+  "local": "Sebaka sa heno",
+  "selectFolder": "Khetha sephutheli",
+  "selectModel": "Khetha mohlala pele",
+  "commands": "Litaelo",
+  "cmdHelp": "Thathamisa litaelo tse fumanehang",
+  "cmdClear": "Hlakola lenaneo lena",
+  "cmdModels": "Fetola mofuta o sebetsang",
+  "cmdModelsHint": "Tlanya /models ebe u khetha mohlala lethathamong",
+  "cmdModelSwitched": "Fetolela ho {{name}}",
+  "cmdUnknown": "Taelo e sa tsejoeng: {{name}}. Leka /help",
+  "cmdBusy": "Ha e khone ho etsa joalo ha moemeli a ntse a sebetsa",
+  "cmdCompact": "Kopanya moelelo oa kopano hore e be kakaretso",
+  "cmdCompacted": "E tsamaisana {{before}} -> {{after}} melaetsa",
+  "cmdNothingToCompact": "Ha ho na letho le lokelang ho kopanngoa",
+  "cmdCompactFailed": "Compaction hlolehile: {{error}}",
+  "cmdPlan": "Toggle plan mode (bala-feela: moemeli o etsa tlhahiso ntle le ho ngola)",
+  "cmdPlanOn": "Mokhoa oa ho rera: moemeli oa bala le ho etsa tlhahiso ntle le ho ngola",
+  "cmdPlanOff": "Ho tima mokhoa oa ho rera: ts'ebetso e tloaelehileng",
+  "cmdTodo": "Bula karolo ea tsoelo-pele",
+  "cmdTasks": "Bula karolo ea mesebetsi e ka morao",
+  "cmdInit": "Ithute morero le ho ngola litsebo le mohopolo",
+  "cmdInitRunning": "Kena ka morero ona",
+  "skills": "Tsebo",
+  "skillsInContext": "Tsebo e fumanehang ho moemeli nakong ena",
+  "skillsTitle": "Laola litsebo",
+  "skillsScopeProject": "Tsebo ea {{folder}}",
+  "skillsScopeGlobal": "Tsebo ea lefats'e, e fumanehang lenaneong le leng le le leng",
+  "skillsScopeMerged": "Tsebo bakeng sa {{folder}}, hammoho le tsebo ea lefats'e ka bophara eo lenaneo le leng le le leng le arolelanang",
+  "skillOriginFolder": "sephutheli",
+  "skillOriginGlobal": "lefatšeng ka bophara",
+  "skillsEmpty": "Ha ho na litsebo hajoale",
+  "skillsPickOrNew": "Khetha tsebo eo u ka e fetolang, kapa u thehe e ncha.",
+  "skillNew": "Tsebo e ncha",
+  "skillDelete": "Hlakola tsebo",
+  "skillSave": "Boloka",
+  "skillSaved": "Tsebo e bolokiloe",
+  "skillNameRequired": "Lebitso la litsebo lea hlokahala",
+  "skillNamePlaceholder": "lebitso la tsebo",
+  "skillContentPlaceholder": "Hlalosa mokhoa o ka sebelisoang hape ho Markdown…",
+  "skillHubImport": "Fumana ho tsoa ho hub",
+  "skillHubTitle": "Anthropic setsi sa litsebo",
+  "skillHubEmpty": "Ha ho litsebo tse fumanoeng setsing",
+  "skillImport": "Ho lata",
+  "skillReimport": "Kenya hape",
+  "skillImported": "E lahliloe {{name}}",
+  "sessions": "Likopano",
+  "deleteSession": "Hlakola seboka",
+  "deleteSessionTitle": "Hlakola seboka?",
+  "deleteSessionBody": "\"{{title}}\" mme sengoloa sa sona se tla hlakolwa ruri. Sena se ke ke sa etsolloa.",
+  "newChat": "Puisano e Ncha",
+  "newAgentChat": "Puisano ea Moemeli e Mocha",
+  "chats": "Meqoqo",
+  "favorites": "Lithatohatsi",
+  "recents": "Haufinyane",
+  "hub": "Sebaka",
+  "helpSupport": "Thuso & Tšehetso",
+  "helpUsImproveJan": "Re thuse ho Ntlafatsa Novera",
+  "analyticsConsentDetail": "Re bokella lintlha tse sa tsejoeng ho utloisisa tšebeliso ea likarolo. Lipuisano tsa hau le lintlha tsa hau ha li mohla li lateloang. O ka fetola sena neng kapa neng ho Litlhophiso > Lekunutu.",
+  "analyticsConsentQuestion": "Na o ka thabela ho re thusa ho ntlafatsa Novera?",
+  "unstarAll": "Tlosa linaleli Tsohle",
+  "unstar": "Tlosa naleli",
+  "deleteAll": "Hlakola Tsohle",
+  "star": "Naleli",
+  "rename": "Reha lebitso bocha",
+  "delete": "Hlakola",
+  "copied": "E qopisitsoe!",
+  "dataFolder": "Sephutheli sa Lintlha",
+  "others": "Tse ling",
+  "language": "Puo",
+  "login": "Kena",
+  "loginWith": "Kena ka {{provider}}",
+  "loginFailed": "E hlolehile ho Kena",
+  "logout": "Tsoa",
+  "loggingOut": "Ho tsoa...",
+  "loggedOut": "Ho Tsoa ka Katleho",
+  "logoutFailed": "E hlolehile ho Tsoa",
+  "profile": "Boemo",
+  "reset": "Khutlisetsa hape",
+  "search": "Batla",
+  "searchThreads": "Batla likhoele...",
+  "toNavigate": "ho tsamaea",
+  "toSelect": "ho khetha",
+  "toClose": "ho koala",
+  "clearRecent": "Hlakileng",
+  "name": "Lebitso",
+  "cancel": "Hlakola",
+  "dismiss": "Lahla",
+  "create": "Theha",
+  "save": "Boloka",
+  "edit": "Fetola",
+  "copy": "Kopitsa",
+  "back": "Morao",
+  "close": "Koala",
+  "done": "E entsoe",
+  "next": "E latelang",
+  "finish": "Qetella",
+  "skip": "Tlola",
+  "allow": "Lumella",
+  "deny": "Latola",
+  "start": "Qala",
+  "stop": "Emisa",
+  "preview": {
+    "loading": "Ho bula…",
+    "unsupported": "Novera ha e khone ho hlahisa mofuta ona oa faele. E bule ho e bona ho app e 'ngoe.",
+    "outside": "Faele ena ha e sa le sebakeng sa tšebetso.",
+    "tooLarge": "E kholo haholo hore u ka e shebella. E bule ho e bona ho app e 'ngoe.",
+    "reload": "Kenya hape",
+    "allowNetwork": "Lumella marang-rang",
+    "unsandboxed": "Sebelisa unsandboxed: data e bolokiloeng le lifaele tsa lehae lia sebetsa",
+    "unresolvedRefs_one": "Faele e le 1 eo leqephe lena e hokelang ho eona e ke keng ea bula ponelo-peleng. E bule ho e bona ho sebatli.",
+    "unresolvedRefs_other": "{{count}} lifaele tseo leqephe lena li lihokelang ho tsona ha li khone ho bula ponelo-pele. E bule ho e bona ho sebatli.",
+    "externalRefs_one": "Mokopo oa 1 mokopo eo letsatsi lena e hlahisang ho tsoa web o hlakiloe. Beha \"Allow network\" ho hlahisa.",
+    "externalRefs_other": "{{count}} lisebelisoa tseo leqephe lena le rometsoeng ho tsoa tepong li thibetsoe. Bulela \"Lumella marang-rang\" ho li kenya.",
+    "scriptErrors_one": "Leqephe le tlalehile phoso: {{message}}",
+    "scriptErrors_other": "Leqephe le tlalehile {{count}} liphoso. Ea pele: {{message}}"
+  },
+  "changes": {
+    "title": "Liphetoho tsa moemeli",
+    "empty": "Lifaele tseo moemeli a li ngolang kapa a li fetotseng li tla hlaha mona.",
+    "a11y": "Liphetoho tsa moemeli: {{files}} lifaele, {{additions}} li kentsoe, {{deletions}} li tlositsoe"
+  },
+  "modelPanel": {
+    "title": "Litlhophiso tsa mohlala",
+    "a11y": "Bula litlhophiso tsa mohlala",
+    "contextTooltip": "Fensetere ea litaba: {{value}} ea {{max}} matšoao"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Skill '{{name}}' ha e fumanehe",
+    "kind": {
+      "skill": "Tsebo",
+      "command": "Taelo",
+      "model": "Mohlala"
+    }
+  },
+  "compactWidth": "Bophara bo Compact",
+  "fullWidth": "Bophara bo Feletseng",
+  "dark": "Lefifi",
+  "light": "Leseli",
+  "system": "Sistimi",
+  "auto": "Auto",
+  "english": "Senyesemane",
+  "medium": "Mahareng",
+  "newThread": "Khoele e Ncha",
+  "noResultsFound": "Ha ho liphetho tse fumanoeng",
+  "noThreadsYet": "Ha ho na likhoele",
+  "noThreadsYetDesc": "Qala moqoqo o mocha ho bona nalane ea hau mona.",
+  "downloads": "Khoasollo",
+  "downloading": "Ho khoasolla",
+  "uploadingAttachments": "E kenya lihokelo...",
+  "cancelDownload": "Hlakola ho khoasolla",
+  "downloadCancelled": "Ho Khoasolla ho Hlakotsoe",
+  "downloadComplete": "Khoasolla e Felletse",
+  "thinking": "Ho nahana...",
+  "thought": "Monahano",
+  "callingTool": "Sesebelisoa sa ho letsetsa",
+  "completed": "E phethiloe",
+  "image": "Setšoantšo",
+  "vision": "Pono",
+  "multimodal": "Multimodal",
+  "embeddings": "E kenyellelitsoeng",
+  "tools": "Lisebelisoa",
+  "webSearch": "Patlisiso ea Marang-rang",
+  "reasoning": "Ho Bea Mabaka",
+  "proactive": "E sebetsa",
+  "selectAModel": "Khetha mofuta",
+  "noToolsAvailable": "Ha ho lisebelisoa tse teng",
+  "noModelsFoundFor": "Ha ho mefuta e fumanoeng ea \"{{searchValue}}\"",
+  "failedToLoadModels": "E hlolehile ho kenya mefuta",
+  "noModels": "Ha ho mefuta e fumanoeng",
+  "noAssistant": "Ha ho na mothusi",
+  "customAvatar": "Avatar e ikhethileng",
+  "editAssistant": "Fetola Mothusi",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Nchafatsa",
+  "threadImage": "Setšoantšo sa khoele",
+  "editMessage": "Fetola Molaetsa",
+  "deleteMessage": "Hlakola Molaetsa",
+  "deleteThread": "Hlakola Khoele",
+  "renameThread": "Reha Khoele bocha",
+  "threadTitle": "Sehlooho sa Khoele",
+  "deleteAllThreads": "Hlakola Likhoele Tsohle",
+  "allThreadsUnfavorited": "Likhoele Tsohle ha li Ratoa",
+  "deleteAllThreadsConfirm": "Na ehlile u batla ho hlakola likhoele kaofela? Ketso ena e ke ke ea etsolloa.",
+  "addProvider": "Kenya Mofani",
+  "addOpenAIProvider": "Kenya OpenAI Mofani",
+  "enterNameForProvider": "Kenya lebitso la mofani oa hau",
+  "providerAlreadyExists": "Mofani ea nang le lebitso \"{{name}}\" o se a le teng. Ka kopo, khetha lebitso le fapaneng.",
+  "adjustFontSize": "Fetola Boholo ba Mongolo",
+  "changeLanguage": "Fetola Puo",
+  "editTheme": "Hlophisa Theme",
+  "editCodeBlockStyle": "Edita Code Block Style",
+  "editServerHost": "Fetola Sebapali sa Seva",
+  "pickColorWindowBackground": "Khetha Background ea Window ea Mmala",
+  "pickColorAppMainView": "Khetha Mebala ea Konokono ea Sesebelisoa sa Mobala",
+  "pickColorAppPrimary": "Khetha Color App Primary",
+  "pickColorAppAccent": "Khetha Mobala oa App Accent",
+  "pickColorAppDestructive": "Khetha Color App E Senya",
+  "apiKeyRequired": "API Ho hlokahala senotlolo",
+  "enterTrustedHosts": "Kenya baamoheli ba tšepahalang",
+  "placeholder": {
+    "chatInput": "Mpotse eng kapa eng..."
+  },
+  "confirm": "Netefatsa",
+  "continue": "Tsoela pele",
+  "loading": "E ea kenya...",
+  "settingUpJan": "E qala Novera…",
+  "registeringExtensions": "Ngolisa likeketso…",
+  "loadingExtensions": "E kenya likeketso… ({{done}}/{{total}})",
+  "error": "phoso",
+  "success": "Katleho",
+  "warning": "Tlhokomeliso",
+  "conversationNotAvailable": "Moqoqo ha o fumanehe",
+  "conversationNotAvailableDescription": "Puisano eo u lekang ho kena ho eona ha e fumanehe kapa e hlakotsoe.",
+  "temporaryChat": "Puisano ea Nakoana",
+  "temporaryChatTooltip": "Puisano ea nakoana e ke ke ea hlaha nalaneng ea hau",
+  "noResultsFoundDesc": "Ha rea fumana lipuisano tse amanang le seo u se batlang. Leka lentsoe la bohlokoa le fapaneng.",
+  "searchModels": "Batla mefuta...",
+  "searchStyles": "Batla mekhoa...",
+  "createAssistant": "Theha Mothusi",
+  "enterApiKey": "Kenya API Senotlolo",
+  "scrollToBottom": "Tsamaisetsa tlase",
+  "generateAiResponse": "Hlahisa AI Karabo",
+  "continueAiResponse": "Tsoela pele ka Karabo ea AI",
+  "addModel": {
+    "title": "Kenya Mohlala",
+    "modelId": "Mohlala ID",
+    "enterModelId": "Kenya Mohlala ID",
+    "addModel": "Kenya Mohlala",
+    "description": "Kenya mofuta o mocha ho mofani oa litšebeletso",
+    "exploreModels": "Sheba lenane la mehlala ho tsoa ho mofani"
+  },
+  "mcpServers": {
+    "editServer": "Fetola Seva",
+    "addServer": "Kenya Seva",
+    "serverName": "Lebitso la Seva",
+    "enterServerName": "Kenya lebitso la seva",
+    "command": "Taelo",
+    "enterCommand": "Kenya taelo",
+    "arguments": "Likhang",
+    "argument": "Khang {{index}}",
+    "envVars": "Mefuta e sa tšoaneng ea Tikoloho",
+    "key": "Senotlolo",
+    "value": "Boleng",
+    "save": "Boloka"
+  },
+  "deleteServer": {
+    "title": "Hlakola Seva",
+    "delete": "Hlakola"
+  },
+  "editJson": {
+    "errorParse": "E hlolehile ho hlalosa JSON",
+    "errorPaste": "E hlolehile ho peista JSON",
+    "errorFormat": "Sebopeho se fosahetseng sa JSON",
+    "titleAll": "Hlophisa Litlhophiso Tsohle tsa Li-server",
+    "placeholder": "Kenya JSON litlhophiso...",
+    "save": "Boloka"
+  },
+  "editModel": {
+    "title": "Fetola Mohlala: {{modelId}}",
+    "description": "Hlophisa bokhoni ba mohlala ka ho fetola likhetho tse ka tlase.",
+    "capabilities": "Tsebo",
+    "tools": "Lisebelisoa",
+    "vision": "Pono",
+    "embeddings": "E kenyellelitsoeng",
+    "notAvailable": "Ha e so fumanehe"
+  },
+  "outOfContextError": {
+    "truncateInput": "Fokotsa ho Kena",
+    "title": "Phoso e kantle ho maemo",
+    "description": "Puisano ena e fihla moeling oa mohopolo oa AI, joalo ka boto e tšoeu e tlatsang. Re ka holisa fensetere ea memori (e bitsoang size size) hore e hopole haholoanyane, empa e ka sebelisa mohopolo o mongata oa komporo ea hau. Hape re ka fokotsa tlhahiso, ho bolelang hore e tla lebala nalane e 'ngoe ea meqoqo ho etsa sebaka sa melaetsa e mecha.",
+    "increaseContextSizeDescription": "Na u batla ho eketsa boholo ba moelelo oa taba?",
+    "increaseContextSize": "Eketsa Boholo ba Moelelo"
+  },
+  "toolApproval": {
+    "title": "Kopo ea Tumello ea Sesebelisoa",
+    "description": "Mothusi o batla ho sebelisa <strong>{{toolName}}</strong>",
+    "securityNotice": "Lumella lisebelisoa tseo u li tšepang feela. Lisebelisoa li ka fihlella sistimi le data ea hau.",
+    "deny": "Latola",
+    "allowOnce": "Lumella Hang",
+    "alwaysAllow": "Lumella Kamehla"
+  },
+  "deleteModel": {
+    "title": "Hlakola Mohlala: {{modelId}}",
+    "description": "Na u na le bonnete ba hore u batla ho hlakola mofuta ona? Ketso ena e ke ke ea etsolloa.",
+    "success": "Model {{modelId}} e hlakotsoe ruri.",
+    "cancel": "Hlakola",
+    "delete": "Hlakola"
+  },
+  "deleteProvider": {
+    "title": "Hlakola Mofani",
+    "description": "Hlakola mofani oa thepa ena le mefuta eohle ea eona. Ketso ena e ke ke ea etsolloa.",
+    "success": "Mofani {{provider}} o hlakotsoe ruri.",
+    "confirmTitle": "Hlakola Mofani: {{provider}}",
+    "confirmDescription": "Na ehlile u batla ho hlakola mofani oa hau? Ketso ena e ke ke ea etsolloa.",
+    "cancel": "Hlakola",
+    "delete": "Hlakola"
+  },
+  "modelSettings": {
+    "label": "Litlhophiso tsa Mohlala",
+    "title": "Litlhophiso tsa Mohlala - {{modelId}}",
+    "description": "Beakanya litlhophiso tsa mohlala ho ntlafatsa ts'ebetso le boitšoaro.",
+    "nglDisabledByFit": "Auto-fit e khetha GPU mekhahlelo. Koala Auto-fit ho seta sena ka letsoho.",
+    "samplingDefaults": {
+      "title": "Mehlala ea lisampole ea kamehla",
+      "description": "Litlhophiso tsa kamehla tsa mohlala oa mofuta ona. E sebelisoa ntle le haeba e hlakotsoe ke litekanyetso tsa mothusi ka mong kapa ka kopo."
+    },
+    "specDraft": {
+      "section": "Likhoutu tse inahaneloang",
+      "enable": "Lumella ho qaptjoa ha likhoutu",
+      "enableDescription": "Rala li-tokens tse 'maloa mohato ka mong 'me u li netefatse ka mokhoa o le mong, o potlakisang moloko. E sebelisa lihlooho tse hahelletsoeng ka har'a mofuta oa MTP, kapa mofuta o hlophisitsoeng o khoasollotsoe ka ona (MTP, Eagle3, DFlash kapa DSpark).",
+      "nMax": "Li-tokens tse ntlafetseng haholo",
+      "nMaxDescription": "Palo e kholo ea li-tokens tseo u ka li ngolang mohato ka mong. 16 ea kamehla.",
+      "nMin": "Li-tokens tse fokolang",
+      "nMinDescription": "Bonyane palo ea li-tokens tseo u ka li ngolang mohato ka mong. 0 ea kamehla.",
+      "pMin": "Monyetla o ka tlase oa ho ngola",
+      "pMinDescription": "Monyetla o fokolang oa ho ngola ka meharo (0–1). 0.75 ea kamehla."
+    },
+    "templateKwargs": {
+      "section": "Likhetho tsa thempleite tsa Chat",
+      "description": "Likhetho tse ling tseo mohlala ona oa moqoqo o li amohelang. E rometsoe joalo ka chat_template_kwargs kopong ka 'ngoe; tlohela boleng ka ho sa feleng ho lumella template ho etsa qeto.",
+      "addCustom": "Kenya khetho e ikhethileng",
+      "keyPlaceholder": "lebitso",
+      "valuePlaceholder": "boleng",
+      "add": "Eketsa",
+      "cancel": "Hlakola",
+      "remove": "Tlosa"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Ha e khone ho ntlafatsa litlhophiso tsa mohlala"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Fetola Sebaka sa Sephutheloana sa Lintlha",
+      "description": "Na u na le bonnete ba hore u batla ho fetola sebaka sa foldara ea data? Sena se tla isa lintlha tsohle tsa hau sebakeng se secha ebe o qala sesebelisoa hape.",
+      "currentLocation": "Sebaka sa Hajoale:",
+      "newLocation": "Sebaka se Secha:",
+      "cancel": "Hlakola",
+      "changeLocation": "Fetola Sebaka"
+    },
+    "deleteAllThreads": {
+      "title": "Hlakola Likhoele Tsohle",
+      "description": "Likhoele tsohle li tla hlakoloa. Ketso ena e ke ke ea etsolloa."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Hlakola Lipuisano Tsohle",
+      "description": "{{count}} lipuisano tse ho \"{{projectName}}\" li tla hlakoloa. Ketso ena e ke ke ea etsolloa."
+    },
+    "deleteThread": {
+      "description": "Na ehlile u batla ho hlakola khoele ee? Ketso ena e ke ke ea etsolloa."
+    },
+    "editMessage": {
+      "title": "Fetola Molaetsa"
+    },
+    "messageMetadata": {
+      "title": "Metadata ea Molaetsa"
+    },
+    "deleteMessage": {
+      "description": "Na u na le bonnete ba hore u batla ho hlakola molaetsa oo? Ketso ena e ke ke ea etsolloa."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Ho bile le phoso",
+    "details": "Lintlha"
+  },
+  "missingDependenciesDialog": {
+    "title": "Lilaebrari tsa Sistimi tse sieo",
+    "description": "{{backend}} e kentsoe empa lilaebrari tse ling tse hlokahalang ha li fumanehe. E ka khutlela ho CPU kapa ha e sebetse hantle.",
+    "installLabel": "Ho lokisa sena, kenya tse latelang:",
+    "download": "Khoasolla",
+    "additionalLibraries": "Lilaeborari tse ling tse sieo:",
+    "missingLibraries": "Lilaeborari tse sieo:",
+    "showRawLibraries": "Hlahisa mabitso a {{count}} a sieo laebraring"
+  },
+  "projects": {
+    "title": "Merero",
+    "new": "Merero e Mecha",
+    "addProject": "Kenya Morero",
+    "addToProject": "Kenya morerong",
+    "removeFromProject": "Tlosa morerong",
+    "createNewProject": "Theha Morero o Mocha",
+    "editProject": "Fetola morero ona",
+    "deleteProject": "Hlakola Morero",
+    "projectName": "Lebitso la Morero",
+    "enterProjectName": "Kenya lebitso la morero...",
+    "noProjectsAvailable": "Ha ho merero e teng",
+    "noProjectsYet": "Ha hona Merero",
+    "noProjectsYetDesc": "Qala morero o mocha ka ho tobetsa konopo ea Add Project.",
+    "projectNotFound": "Morero ha o Fumane",
+    "projectNotFoundDesc": "Morero oo u o batlang ha o teng kapa o hlakotsoe.",
+    "selectAssistant": "Khetha mothusi",
+    "noAssistantAssigned": "Ha ho mothusi ea abetsoeng morero ona",
+    "files": "Lifaele",
+    "filesDescription": "Eketsa li-PDF, litokomane kapa mongolo o mong molemong oa morero ona.",
+    "uploadingFiles": "E sebetsa lifaele…",
+    "processButton": "Eketsa",
+    "deleteProjectDialog": {
+      "title": "Hlakola Morero",
+      "permanentDelete": "Sena se tla hlakola likhoele tsohle ruri.",
+      "permanentDeleteWarning": "Ketso ena e tla hlakolela likhoele tsa ALL kahara morero!",
+      "deleteEmptyProject": "Ketso ena e tla hlakola morero \"{{projectName}}\".",
+      "saveThreadsAdvice": "Ho boloka likhoele, li ise lethathamong la hau la likhoele kapa morero o mong pele u li hlakola.",
+      "starredWarning": "O ntse o na le likhoele tse linaleli ka har'a projeke.",
+      "deleteButton": "Hlakola",
+      "successWithName": "Project \"{{projectName}}\" e hlakotsoe ka katleho",
+      "successWithoutName": "Morero o hlakotsoe ka katleho",
+      "error": "E hlolehile ho hlakola morero. Ka kopo, leka hape.",
+      "ariaLabel": "Hlakola {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Theha Morero o Mocha",
+      "editTitle": "Fetola morero ona",
+      "nameLabel": "Lebitso la Morero",
+      "namePlaceholder": "Kenya lebitso la morero...",
+      "assistant": "Mothusi",
+      "selectAssistant": "Khetha mothusi (boikhethelo)",
+      "noAssistant": "Ha ho na mothusi",
+      "addAssistant": "Kenya Mothusi",
+      "createButton": "Theha",
+      "updateButton": "Nchafatso",
+      "alreadyExists": "Project \"{{projectName}}\" e se e le teng",
+      "createSuccess": "Morero \"{{projectName}}\" o entsoe ka katleho",
+      "updateSuccess": "Morero \"{{projectName}}\" o ntlafalitsoe ka katleho",
+      "saveError": "Ha e khone ho boloka morero. Ka kopo, leka hape."
+    },
+    "noConversationsIn": "Ha ho Lipuisano ho {{projectName}}",
+    "startNewConversation": "Qala puisano e ncha le {{projectName}} ka tlase",
+    "conversationsIn": "Lipuisano ho {{projectName}}",
+    "conversationsDescription": "Tobetsa moqoqong ofe kapa ofe ho tsoela pele ho qoqa, kapa qala e ncha ka tlase.",
+    "conversation": "Moqoqo",
+    "instructions": "Litaelo",
+    "setup": "Hlophisa",
+    "instructionsDescription": "Iketsetse molumo le mokhoa oa ho araba",
+    "manageInstructions": "Laola Litaelo",
+    "thread": "khoele",
+    "threads": "likhoele",
+    "updated": "E ntlafalitsoe:",
+    "collapseProject": "Phula morero",
+    "expandProject": "Atolosa morero",
+    "update": "Nchafatso",
+    "searchProjects": "Batla merero...",
+    "noProjectsFound": "Ha ho merero e fumanoeng",
+    "tryDifferentSearch": "Leka lentsoe le fapaneng la ho batla"
+  },
+  "attachmentsIngestion": {
+    "title": "Khetha mokhoa oa ho kenya lihokelo",
+    "description": "Khetha hore na u kenyelletsa lifaele tsena ka kotloloho moqoqong kapa u li supe e le tse kentsoeng.",
+    "inline": "Kena moqoqong",
+    "embeddings": "Sebelisa tse kentsoeng"
+  },
+  "attachmentInjectedIndicator": "E kentsoe moqoqong",
+  "attachmentEmbeddedIndicator": "E kenyelelitsoe bakeng sa RAG",
+  "viewInjectedContent": "Sheba litaba tse kentsoeng",
+  "injectedContentTitle": "Lifaele tse kentsoeng",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Likhoele Tsohle ha li Ratoa",
+      "description": "likhoele tsohle li tlositsoe ho tseo u li ratang."
+    },
+    "deleteAllThreads": {
+      "title": "Hlakola Likhoele Tsohle",
+      "description": "Likhoele tsohle li hlakotsoe ruri."
+    },
+    "renameThread": {
+      "title": "Reha Khoele bocha",
+      "description": "Sehlooho sa khoele se fetotsoe lebitso la '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Hlakola Khoele",
+      "description": "Khoele ena e hlakotsoe ruri."
+    },
+    "errorCopied": {
+      "title": "Kopitsa e atlehile",
+      "description": "Litaba tsa phoso li kopitsoe ho clipboard"
+    },
+    "errorCopyFailed": {
+      "title": "E hlolehile ho kopitsa",
+      "description": "E hlolehile ho kopitsa lintlha tsa phoso ho clipboard"
+    },
+    "editMessage": {
+      "title": "Fetola Molaetsa",
+      "description": "Molaetsa o hlophisitsoe ka katleho. Ka kopo emela hore mohlala o arabe."
+    },
+    "appUpdateDownloaded": {
+      "title": "Ntlafatso ea App e Jarollotsoe",
+      "description": "Ntlafatso ea sesebelisoa e kopitsoe ka katleho."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Ho Khoasolla Apdeite ea App ho hlolehile",
+      "description": "E hlolehile ho khoasolla sesebelisoa sa ntlafatso. Ka kopo, leka hape."
+    },
+    "downloadComplete": {
+      "title": "Khoasolla e Felletse",
+      "description": "{{item}} e jarollotsoe"
+    },
+    "downloadCancelled": {
+      "title": "Ho Khoasolla ho Hlakotsoe",
+      "description": "Ts'ebetso ea ho jarolla e hlakotsoe"
+    },
+    "downloadFailed": {
+      "title": "Ho Khoasolla E hlolehile",
+      "description": "{{item}} ho hloleha ho khoasolla",
+      "descriptionWithReason": "{{item}} ho khoasolla ho hlolehile: {{reason}}",
+      "reason": {
+        "dns": "lebitso la seva ha le khone ho rarolloa",
+        "refused": "khokahano e hanngoe",
+        "timeout": "khokahano e felile",
+        "tls": "khokahano e sireletsehileng ha e khonehe",
+        "proxy": "proxy ha e khonehe",
+        "unreachable": "seva ha e fihlellehe"
+      }
+    },
+    "openSettings": "Bula Litlhophiso",
+    "openLogs": "Bula lits'oants'o",
+    "downloadTokenRequired": {
+      "title": "Hugging Face tokene ea hlokahala",
+      "description": "Mofuta ona o hloka tokene ea ho kena ea Hugging Face. Kenya tokene ea hau ho Litlhophiso 'me u leke hape."
+    },
+    "downloadLicenseRequired": {
+      "title": "Amohela laesense ea mohlala ho Hugging Face",
+      "description": "U tlameha ho amohela laesense ea mofuta ona leqepheng la Hugging Face pele u khoasolla."
+    },
+    "downloadRateLimited": {
+      "title": "Reiti e lekantsoe ke Hugging Face",
+      "description": "U behiloe moeli oa sekhahla. Ho eketsa lets'oao ho ka eketsa meeli ea litefiso. Ka kopo, leka hape hamorao."
+    },
+    "modelValidationStarted": {
+      "title": "Mohlala oa ho netefatsa",
+      "description": "Khoasollotse mofuta oa \"{{modelId}}\" ka katleho. E netefatsa botshepehi..."
+    },
+    "modelValidationFailed": {
+      "title": "Netefatso ea Mohlala e hlolehile",
+      "description": "Moetso o jarollotsoeng \"{{modelId}}\" o hlolehile ho netefatsa botšepehi 'me oa tlosoa. Faele e ka 'na ea senyeha kapa ea senyeha."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Khoasolla e Felletse",
+      "description": "Moetso oa \"{{item}}\" o khoasollotse le ho netefatsoa ka katleho"
+    },
+    "projectCreated": {
+      "title": "Morero o Entsoe",
+      "description": "Morero \"{{projectName}}\" o entsoe ka katleho"
+    },
+    "projectRenamed": {
+      "title": "Morero o Feletsoe Bocha",
+      "description": "Morero o fetoletsoe ho tloha \"{{oldName}}\" ho leba \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Morero o hlakotsoe",
+      "description": "Project \"{{projectName}}\" e hlakotsoe ka katleho"
+    },
+    "projectAlreadyExists": {
+      "title": "Morero o Se o Le Teng",
+      "description": "Project \"{{projectName}}\" e se e le teng"
+    },
+    "projectDeleteFailed": {
+      "title": "Ho Hlakola ho Hlolehile",
+      "description": "E hlolehile ho hlakola morero. Ka kopo, leka hape."
+    },
+    "threadAssignedToProject": {
+      "title": "Khoele e Fanoe",
+      "description": "Khoele e abetsoe \"{{projectName}}\" ka katleho"
+    },
+    "threadRemovedFromProject": {
+      "title": "Khoele e tlositsoe",
+      "description": "Khoele e tlositsoe ho \"{{projectName}}\" ka katleho"
+    },
+    "fileUploaded": {
+      "title": "File Processed",
+      "description": "Faele e sebelitsoe le ho hlophisoa ka katleho"
+    },
+    "uploadFailed": {
+      "title": "Ts'ebetso e hlolehile",
+      "description": "E hlolehile ho sebetsa faele",
+      "subjectThisFile": "Faele ena",
+      "pdfMalformedXref": "{{subject}} e na le tafole e fosahetseng ea PDF 'me ha e khone ho aroloa. Leka ho e bula ka sebali sa PDF 'me u e boloke hape (Faele → Printa → Boloka e le PDF), ebe u e kenya hape.",
+      "pdfScanned": "{{subject}} e bonahala e hlahlobiloe kapa e thehiloe setšoantšong PDF. OCR ha e so sebelisoe — ka kopo, kenya mongolo PDF.",
+      "pdfEncrypted": "{{subject}} e sirelelitsoe ka password. Tlosa senotlolo ebe u leka hape.",
+      "pdfUnsupportedFeature": "{{subject}} e sebelisa PDF tšobotsi Novera ha e khone ho hlalosa (mohl. PostScript mesebetsi ea mebala/shading). Leka ho e boloka hape (Faele → Printa → Boloka e le PDF) ho e batalatsa, ebe u e kenya hape.",
+      "pdfGeneric": "{{subject}} ha e khone ho aroloa joalo ka PDF. E ka 'na eaba faele e senyehile kapa e sebelisa karolo e sa tšehetsoeng ea PDF.",
+      "fileTooLarge": "{{subject}} e kholo haholo. {{message}}.",
+      "unsupportedType": "Mofuta oa faele \"{{type}}\" ha o sebetse.",
+      "ioError": "Ha e khone ho bala {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} ha e khone ho hlalosoa: {{message}}",
+      "fallback": "E hlolehile ho sebetsa {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Faele e hlakotsoe",
+      "description": "Faele e tlositsoe morerong"
+    },
+    "deleteFailed": {
+      "title": "Ho Hlakola ho Hlolehile",
+      "description": "E hlolehile ho hlakola faele"
+    },
+    "fileAlreadyExists": {
+      "title": "Faele e se e le Teng",
+      "description": "Faele e se e kentsoe morerong ona"
+    },
+    "unsupportedFileType": {
+      "title": "Mofuta oa Faele o sa Tšehetsoeng",
+      "description": "Katoloso ea faele \".{{extension}}\" ha e sebetse molemong oa projeke."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Likhokahanyo li holofetse",
+      "description": "Li-attachments li koetsoe ho Litlhophiso"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Faele e kholo haholo",
+    "fileTooLargeDescription": "{{fileName}} e feta moeli oa {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} likarolo",
+    "title": "Lifaele",
+    "empty": "Lifaele tseo u li kentseng le lifaele tseo moemeli a li entseng li tla hlaha mona.",
+    "a11y": "Lifaele: {{count}}",
+    "attachments": "Liphutheloana",
+    "notImported": "ha e sebakeng sa mosebetsi"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp e ntse e sebetsa",
+    "description": "Mofuta o le mong kapa ho feta ha oa ka oa theoloa ka nako. Ho qobella ho tlohela ho tla emisa llama.cpp 'me ho ka sitisa likarabelo tse hlahang.",
+    "forceQuit": "Qobella ho tlohela",
+    "forcing": "Qobella ho tlohela…",
+    "shuttingDown": "E koala…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Collapse",
+  "expand": "Eketsa",
+  "todoPanelTitle": "Tsoelo-pele",
+  "todoPanelEmpty": "Ha ho na lethathamo la lintho tseo re tla li etsa.",
+  "backgroundTasks": "Mesebetsi ea morao-rao",
+  "subagentsRunning_one": "{{count}} e sebetsang ka tlase",
+  "subagentsRunning_other": "{{count}} lisebelisoa tse tlase tse sebetsang",
+  "monitorsRunning_one": "{{count}} sehlahlobi se sebetsa",
+  "monitorsRunning_other": "{{count}} limonita lia sebetsa",
+  "backgroundRunning_one": "{{count}} mosebetsi o ka morao o sebetsang",
+  "backgroundRunning_other": "{{count}} mesebetsi e ka morao e sebetsang",
+  "monitors": "Bahlahlobisisi",
+  "monitorPolling": "Ho khetha",
+  "monitorMatched": "E tsamaellana",
+  "monitorTimedOut": "Nako e felile",
+  "monitorStopped": "E emisitsoe",
+  "monitorEnded": "E felile",
+  "coworkWatching_one": "Shebella {{count}} leihlo…",
+  "coworkWatching_other": "Ho shebella {{count}} limonita…",
+  "coworkWaitingBackground": "E emetse mesebetsi e ka morao…",
+  "noBackgroundTasks": "Ha ho na mesebetsi e ka morao.",
+  "running": "Ho matha",
+  "queued": "E behiloe moleng",
+  "waiting": "Ho ema",
+  "finished": "E felile",
+  "subagentPhase": "mohato {{phase}}",
+  "subagentWaiting": "ho ema",
+  "viewTranscript": "Sheba sengoloa",
+  "taskWorking": "E sebetsa…",
+  "taskNoOutput": "The subagent ha e hlahise tlhahiso e bonahalang.",
+  "subagentToolUses_one": "{{count}} tšebeliso ea lisebelisoa",
+  "subagentToolUses_other": "{{count}} lisebelisoa tse sebelisoang",
+  "artifactGroupCode": "Khoutu",
+  "artifactGroupImage": "Setšoantšo",
+  "artifactGroupDocument": "Tokomane",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Bula ponelopele",
+  "artifactOpenExternal": "Bula",
+  "artifactMoreActions": "Liketso tse ling",
+  "artifactShowInFolder": "Hlahisa ho Sephutheli",
+  "skillsUsedLabel": "Tsebo e sebelisitsoeng",
+  "skillsUsed": "Tsebo e sebelisitsoeng: {{skills}}",
+  "artifactsAll": "Tsohle",
+  "artifactsEmpty": "Ha ho letho le hlahisitsoeng. Lintho tsa khale tse tsoang ho Cowork li hlaha mona.",
+  "artifactsNoMatch": "Ha ho lintho tsa khale tse tšoanang.",
+  "artifactsSearch": "Batla lintho tsa khale",
+  "artifactsShowMore": "Hlahisa {{count}} tse ling",
+  "workspace": {
+    "readsFrom": "E sebetsa ho",
+    "writable": "bala le ho ngola",
+    "footnote": "Moemeli o bala le ho hlophisa sephutheli sena ka kotloloho. Hlahloba se fetohileng phanele ea diff.",
+    "footnoteEmpty": "Hokela sephutheli ho lumella moemeli hore a sebetse morerong oa hau. E khona ho bala le ho hlophisa lifaele ka hare ho eona.",
+    "attach": "Hokela sephutheli",
+    "change": "Fetola foldara",
+    "detach": "Tlosa foldara",
+    "open": "Bula",
+    "reveal": "Hlahisa",
+    "unavailable": "Sebaka sa ho sebetsa ha se fumanehe",
+    "missing": "Sephutheli sa sebaka sa mosebetsi {{folder}} ha se sa fumaneha. Khetha sephutheli se fapaneng.",
+    "openFailed": "Ha e khone ho bula sebaka sa mosebetsi",
+    "revealFailed": "Ha e khone ho senola sebaka sa mosebetsi",
+    "a11yWithFolder": "Sephutheli sa projeke {{folder}}, se hokeletsoe ka mokhoa oa ho bala le ho ngola. E fetole kapa e tlose.",
+    "a11yNoFolder": "Ha ho foldara ea projeke e kentsoeng. Hokela e le 'ngoe."
+  },
+  "coworkEmpty": {
+    "title": "Re sebetsa ka eng?",
+    "subtitleSandbox": "Fana ka Novera mosebetsi. E bala le ho ngola lifaele, e tsamaisa litaelo, 'me e sebetsa ka mehato ka boeona.",
+    "subtitleFolder": "Fana ka Novera mosebetsi. E sebetsa ka kotloloho ho {{folder}}, e ipalla le ho hlophisa lifaele ka bo eona.",
+    "try": "Leka",
+    "sandbox": {
+      "first": "Ngola script ea Python e rehang lifaele ka letsatsi leo li nkiloeng ka lona",
+      "second": "Theha dashboard ea leqephe le le leng ho tsoa ho CSV Ke tla e beha",
+      "third": "Etsa README bakeng sa morero oo ke o hlalosetsang ona"
+    },
+    "folder": {
+      "first": "Hlalosa hore na {{folder}} e kopantsoe joang",
+      "second": "Fumana TODO e 'ngoe le e 'ngoe ho {{folder}} 'me u li hlopha ka libaka",
+      "third": "Ngola liteko bakeng sa karolo ea {{folder}} Ke u supa"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Ha ho terminal",
+    "a11y": "Litaelo tse sebetsang li timiloe. Lintlha.",
+    "title": "Litaelo tse sebetsang li timiloe",
+    "body": "Novera e lumella moemeli hore a tsamaise litaelo tsa khetla ha feela sistimi ea hau e ka li koalla. Ha ho na sandbox e fumanehang mona, kahoo moemeli a khona ho bala, ho ngola le ho hlophisa lifaele ka har'a sandbox ea eona - empa a sa sebetse letho.",
+    "fixLinux": "Linux e sebelisa bubblewrap. E kenye, ebe u qala hape Novera.",
+    "fixMac": "macOS e sebelisa sandbox e hahiloeng ho /usr/bin/sandbox-exec. Qala hape Novera hang ha e se e fumaneha.",
+    "fixWindows": "Windows e sebelisa AppContainer. Qala hape Novera ho leka hape.",
+    "recheck": "Sheba hape"
+  },
+  "planMode": {
+    "label": "Moralo",
+    "tooltipOff": "Rera pele - moemeli oa bala le ho etsa tlhahiso, ntle le ho ngola.",
+    "tooltipOn": "Ho rera. Koala sena ho lumella moemeli hore a ngole lifaele.",
+    "onAnnounce": "Mokhoa oa ho rera o buletsoe",
+    "placeholder": "Kopa leano. Moemeli a ke ke a fetola lifaele."
+  },
+  "budget": {
+    "stoppedSteps": "E eme ka mehato e {{max}}. Moemeli ha a e-so qete.",
+    "keepGoing": "Tsoela pele",
+    "stoppedTokens": "E emisitsoe - Seboka sena se fihletse tekanyetso ea sona ea matšoao.",
+    "compact": "E kopane",
+    "newSession": "Seboka se secha"
+  },
+  "run": {
+    "stopped": "E emisitsoe.",
+    "failed": "Ho matha ho ile ha emisa kapele.",
+    "tryAgain": "Leka hape"
+  },
+  "modelNoTools": "{{model}} ha e khone ho letsetsa lisebelisoa, kahoo ha e khone ho sebetsa joalo ka moemeli. Khetha mokhoa oa ho letsetsa lisebelisoa.",
+  "askContinue": "Tsoela pele",
+  "askNext": "Potso e latelang",
+  "askPrev": "Potso e fetileng",
+  "askRecommended": "E khothalelitsoe",
+  "askSelectedCount": "{{count}} e khethiloe",
+  "askSomethingElse": "Ntho e 'ngoe hape",
+  "askSomethingElsePlaceholder": "Ngola karabo ea hau",
+  "submit": "Kenya",
+  "composer": {
+    "advanced": "Mekhahlelo e tsoetseng pele",
+    "modelDefaults": "Meetso ea kamehla",
+    "assistantOverrides": "Mothusi o tlositse",
+    "printPdf": "Hatisa / Boloka e le PDF",
+    "exportHint": "Mefuta e ka baloang: lekala le sebetsang. JSON: mefuta eohle ea melaetsa. Lifaele tsa kantle ha lia bokelloa."
+  },
+  "telemetry": {
+    "summary": "Ka tumello ea hau, {{host}} e fumana feela mofuta oa Novera le sistimi ea ts'ebetso, ntle le lipuisano kapa sesupa-tsela se sa khaotseng.",
+    "unavailable": "Lipalopalo ha lia hlophisoa. Ha ho data e rometsoeng."
+  },
+  "errorTracking": {
+    "title": "Ho latela phoso",
+    "summary": "Litlaleho tsa boikhethelo ho {{host}}: mofuta oa phoso, boemo ba khoutu, mofuta le sistimi ea ts'ebetso. Ha ho lipuisano, melaetsa ea liphoso kapa linotlolo. Tlosa nako efe kapa efe.",
+    "unavailable": "Ho latela phoso ha hoa hlophisoa. Ha ho litlaleho tse rometsoeng."
+  },
+  "access": {
+    "read": "Bala feela",
+    "ask": "Botsa pele u fetola kapa u hlakola",
+    "allow": "Lumella ho hlophisa le ho hlakola",
+    "folderNote": "Khetha hore na Novera e ka fihlella sephutheli sena joang."
+  },
+  "components": {
+    "title": "Likarolo tsa lehae",
+    "note": "Kenya feela likarolo tseo u li hlokang. Novera e boloka tikoloho ea Python e arohane. Litšebeletso tsa Cloud ha li hloke ho kenngoa sebakeng sa heno.",
+    "estimates": "Kakanyo ea ho khoasolla: {{download}} · Sebaka se hlokahalang sa disk: {{space}} · Sebaka sa disk se teng: {{free}}",
+    "confirm": "Kenya tikoloho ee ea lekunutu? Ke likarolo tse khethiloeng feela tse tla jarollwa. Lilaesense tsa bona tsa baphatlalatsi lia sebetsa.",
+    "removeConfirm": "Tlosa tikoloho ee e laoloang? Mehlala ea hau, liqapi le lipuisano li tla bolokoa.",
+    "verify": "Netefatsa",
+    "repair": "Ho lokisa",
+    "uninstall": "Tlosa",
+    "missing": "Ha ea kengoa",
+    "managed": "E laolwa ke Novera",
+    "external": "Tsela ea boikhethelo ea Python ea kantle e feta boemo bo laoloang. E hlakole ho sebelisa tikoloho ea Novera.",
+    "failed": "Ts'ebetso ea karolo e hlolehile. Sheba marang-rang, sebaka sa disk le litokelo tsa ho kena, ebe u leka hape kapa u lokise.",
+    "required": "Lokisetsa le ho netefatsa likarolo tse hlokahalang sebakeng sa Novera · Litlhophiso.",
+    "updateAvailable": "Nchafatso e teng",
+    "update": "Nchafatso",
+    "rollback": "Khutlisa tikoloho e fetileng",
+    "busy": "Laolla mefuta ea lehae 'me u emele meloko ho qeta pele u fetola likarolo."
+  },
+  "voiceConversation": "Moqoqo oa lentsoe",
+  "voiceUnavailable": "Moqoqo oa lentsoe ha o fumanehe",
+  "voiceMale": "Lentsoe la monna",
+  "voiceFemale": "Lentsoe la mosali",
+  "voiceReadReplies": "Bala likarabo ka lentsoe le phahameng"
+}

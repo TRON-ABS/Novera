@@ -833,5 +833,10 @@
     "update": "Aktualisierung",
     "rollback": "Vorherige Umgebung wiederherstellen",
     "busy": "Entladen Sie lokale Modelle und warten Sie, bis die Generationen abgeschlossen sind, bevor Sie Komponenten ändern."
-  }
+  },
+  "voiceConversation": "Sprachgespräch",
+  "voiceUnavailable": "Sprachgespräch nicht verfügbar",
+  "voiceMale": "Männliche Stimme",
+  "voiceFemale": "Weibliche Stimme",
+  "voiceReadReplies": "Antworten vorlesen"
 }

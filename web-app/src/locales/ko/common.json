@@ -833,5 +833,10 @@
     "update": "업데이트",
     "rollback": "이전 환경 복원",
     "busy": "구성 요소를 변경하기 전에 로컬 모델을 언로드하고 세대가 완료될 때까지 기다립니다."
-  }
+  },
+  "voiceConversation": "음성 대화",
+  "voiceUnavailable": "음성 대화를 사용할 수 없습니다",
+  "voiceMale": "남성 음성",
+  "voiceFemale": "여성 음성",
+  "voiceReadReplies": "답변 소리 내어 읽기"
 }

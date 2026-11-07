@@ -1,0 +1,18 @@
+{
+  "addProvider": "پروْوایدئر علاوه ائدین",
+  "addOpenAIProvider": "فردی پروْوایدئر علاوه ائدین",
+  "enterNameForProvider": "پروْوایدئر آدی (مثلا, می-للم-سئروئر)",
+  "apiTypeLabel": "API فوْرماتی",
+  "apiTypeOpenAI": "OpenAI-اویغوندور",
+  "apiTypeAnthropic": "Anthropic-اویغوندور",
+  "baseUrlLabel": "بازا URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API آچاری",
+  "apiKeyPlaceholder": "API آچارینیزی یاپیشدیرین",
+  "invalidBaseUrl": "بازا URL ائتیبارلی هتتپ(لر) اوْلمالیدیر URL",
+  "globalSettings": "قلوْبال پارامترلر",
+  "stripReasoning": "کوْنتئکستدَن اَساسلاندیرمانی آییرین",
+  "stripReasoningDesc": "بوٍتون پروْوایدئرلَر آراسیندا تاریخچَنی یئنیدن گؤندَرمَزدَن اوّل اوّلكی نوبه‌لَرین دوٍشونجه/ملاحظه مضمونونو سیلین. یئرلی موْدئللَر اوٍچون KV-کئشین تَکرار ایستیفادَسینی تَکمیللَشدیریر, لاكن بعضی موْدئللَر (مثلا, داها یئنی Qwen بوراخیلیشلاری) داها یاخشی چوْخدؤورَلی اَساسلاندیرما اوٍچون اوْنو ساخلاماغی توصیه ائدیر.",
+  "providerAlreadyExists": "{{name}} آدلی پروْوایدئر آرتیق مؤوجوددور."
+}

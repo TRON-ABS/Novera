@@ -3,6 +3,8 @@
 #include "server-context.h"
 #include "server-common.h"
 #include "server-http.h"
+#include "novera_audio_transcription.h"
+#include "novera_audio_speech.h"
 
 #include "arg.h"
 #include "preset.h"
@@ -233,10 +235,16 @@ struct novera_llama_engine {
     std::atomic<bool> loop_done{false};
 
     std::unordered_map<std::string, server_http_context::handler_t *> table;
+    server_http_context::handler_t transcribe_audio;
+    server_http_context::handler_t synthesize_audio;
 
     void build_table() {
         auto & r = *routes;
+        transcribe_audio = [&r](const server_http_req & req) { return novera_audio::transcribe(r, req); };
+        synthesize_audio = [&r](const server_http_req & req) { return novera_audio::speak(r, req); };
         table = {
+            {"post_novera_transcription",   &transcribe_audio},
+            {"post_novera_speech",          &synthesize_audio},
             {"get_health",                 &r.get_health},
             {"get_metrics",                &r.get_metrics},
             {"get_slots",                  &r.get_slots},

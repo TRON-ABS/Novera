@@ -831,5 +831,10 @@
     "update": "Cusbooneysii",
     "rollback": "Soo celinta deegaan hore",
     "busy": "Soo deji moodooyinka maxalliga ah oo sug jiilasha inay dhammeeyaan ka hor intaadan beddelin qaybaha."
-  }
+  },
+  "voiceConversation": "Wadahadal cod ah",
+  "voiceUnavailable": "Wadahadalka codka lama heli karo",
+  "voiceMale": "Cod lab",
+  "voiceFemale": "Cod dheddig",
+  "voiceReadReplies": "Jawaabaha cod dheer ku akhri"
 }

@@ -21,7 +21,7 @@ function occurrences(text: string, word: string) {
   return found
 }
 
-/** Conservative public command vocabulary for all 80 interface locales.
+/** Conservative public command vocabulary for all 104 interface locales.
  * This is a deterministic recognizer, not an unrestricted language classifier.
  * Select the work nearest its creation verb, never a later contextual keyword.
  */

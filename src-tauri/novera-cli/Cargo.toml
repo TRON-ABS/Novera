@@ -1,7 +1,7 @@
 [package]
 name = "novera-cli"
-version = "1.0.0"
-description = "Novera CLI: chat with remote AI models in an interactive agent console."
+version = "1.0.1"
+description = "Novera CLI: local llama.cpp inference and an interactive agent console."
 authors = ["TRON-ABS", "Jan contributors"]
 license = "Apache-2.0"
 repository = "https://github.com/TRON-ABS/Novera"
@@ -19,26 +19,31 @@ rust-version = "1.88"
 [[bin]]
 name = "novera"
 path = "src/main.rs"
+required-features = ["cli"]
 
 [features]
-cli = ["app_lib/cli"]
+default = ["cli", "signed-updates"]
+cli = ["app_lib/cli", "local-engine"]
+local-engine = ["dep:novera-inference"]
+engine-metal = ["local-engine", "novera-inference/engine-metal"]
 signed-updates = ["cli", "app_lib/cli-signed-updates"]
 
 [dependencies]
+novera-inference = { path = "../novera-inference", optional = true }
 app_lib = { path = "..", package = "Novera", default-features = false }
 tauri-plugin-agent-tools = { path = "../plugins/tauri-plugin-agent-tools", default-features = false }
-chrono = { version = "0.4", features = ["serde"] }
-clap = { version = "4", features = ["derive"] }
-console = "0.15"
-env_logger = "0.11"
-serde_json = "1.0"
-tokio = { version = "1", features = ["full"] }
+chrono = { version = "0.4.45", features = ["serde"] }
+clap = { version = "4.6.7", features = ["derive"] }
+console = "0.16.6"
+env_logger = "0.11.11"
+serde_json = "1.0.154"
+tokio = { version = "1.54.1", features = ["full"] }
 
 # Real-PTY tests (tests/tui_panic.rs, tests/tui_suspend.rs): nix's safe
 # `openpty`, `kill` and `waitpid` keep them free of `unsafe`. Pinned to the
 # version ../Cargo.toml uses.
 [target.'cfg(unix)'.dev-dependencies]
-nix = { version = "=0.30.1", features = ["term", "signal", "process"] }
+nix = { version = "0.31.3", features = ["term", "signal", "process"] }
 
 # Mirror the desktop crate's release profile: the CLI inherited it while it was a
 # bin of ../Cargo.toml, and a standalone crate would otherwise fall back to the

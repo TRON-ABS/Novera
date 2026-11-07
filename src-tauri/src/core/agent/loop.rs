@@ -10,7 +10,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::{Arc, LazyLock};
 // Agent upstream traffic runs on `genai`, which is built against reqwest 0.13;
 // the rest of the app is still on 0.12, so the two `Client` types differ.
-use reqwest13::Client;
+use reqwest::Client;
 #[cfg(not(feature = "cli"))]
 use tauri_plugin_llamacpp::state::LlamacppState;
 use tokio::sync::{mpsc, Mutex};

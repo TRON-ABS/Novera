@@ -1,0 +1,10 @@
+{
+  "newVersion": "Neia Version {{version}}",
+  "updateAvailable": "Aktualisierung verfügbar",
+  "nightlyBuild": "Nachtlicha Build",
+  "showReleaseNotes": "Release-Notizen anzeign",
+  "hideReleaseNotes": "Release-Notizen versteckn",
+  "remindMeLater": "Mi später erinnern",
+  "downloading": "Lada...",
+  "updateNow": "Jetzt aktualisiern"
+}

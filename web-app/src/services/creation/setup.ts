@@ -10,6 +10,7 @@ import { invoke } from '@tauri-apps/api/core'
 import { localStorageKey } from '@/constants/localStorage'
 import { useDefaultEmbeddingModel } from '@/hooks/useDefaultEmbeddingModel'
 import { useImageUpscale } from '@/hooks/useImageUpscale'
+import { NOVERA_RECOMMENDED_CONTEXT_SIZE } from '@/lib/noveraRecommendedModel'
 
 const usesModelFolders = (directory: string) => directory.replace(/[\\/]+$/, '').split(/[\\/]/).pop() === 'Novera models'
 const modelFolders = { image: 'FLUX.2 Klein 4B', music: 'ACE-Step 1.5 Turbo 2B Q4_K_M', video: 'Wan2.1 T2V 1.3B Q4_K_M' } as const
@@ -52,6 +53,8 @@ export async function configureRecommendedBundle(
     throw new Error('SETUP_NOT_VERIFIED')
   const text = job.plan.files.find((file) => file.role === 'text.model')
   if (!text) throw new Error('SETUP_TEXT_MISSING')
+  const projector = job.plan.files.find(file => file.role === 'text.mmproj')
+  if (/^LFM3-Omni-2B-/i.test(text.name) && !projector) throw new Error('SETUP_TEXT_PROJECTOR_MISSING')
   const embedding = job.plan.files.find((file) => file.role === 'embedding.model')
   if (!embedding) throw new Error('SETUP_EMBEDDING_MISSING')
   const upscalers = ([2, 4] as const).map((factor) => ({ factor, file: job.plan.files.find((file) => file.role === `upscale.upscale${factor}`) }))
@@ -83,15 +86,20 @@ export async function configureRecommendedBundle(
     }
   }
   const id = text.name.replace(/\.gguf$/, '')
+  const textDirectory = usesModelFolders(job.plan.directory) ? joinLocalPath(job.plan.directory,id) : job.plan.directory
   const models = getServiceHub().models()
   if (!(await models.getModel(id))) {
     await models.pullModel(
       id,
-      joinLocalPath(usesModelFolders(job.plan.directory) ? joinLocalPath(job.plan.directory, id) : job.plan.directory, text.name),
+      joinLocalPath(textDirectory, text.name),
       text.sha256,
-      text.size
+      text.size,
+      projector ? joinLocalPath(textDirectory,projector.name) : undefined,
+      projector?.sha256,
+      projector?.size
     )
     if (!(await models.getModel(id))) throw new Error('SETUP_TEXT_REGISTRATION')
+    await models.updateModelSettings(id,{ctx_len:NOVERA_RECOMMENDED_CONTEXT_SIZE})
   }
   const embeddingId = embedding.name.replace(/\.gguf$/, '')
   if (!(await models.getModel(embeddingId))) {
@@ -121,9 +129,9 @@ export async function configureRecommendedBundle(
         {
           id,
           name: id,
-          capabilities: ['completion', 'tools'],
+          capabilities: projector ? ['completion','tools','vision','audio'] : ['completion', 'tools'],
           imported: true,
-          output_modalities: ['text'],
+          output_modalities: projector ? ['text','audio'] : ['text'],
         },
       ],
     })

@@ -21,6 +21,8 @@ import { isDev } from '@/lib/utils'
 import { sweepThreadWorkspaces } from '@/lib/agentTools'
 import { invoke } from '@tauri-apps/api/core'
 import { providerHasRemoteApiKeys, providerRemoteApiKeyChain } from '@/lib/provider-api-keys'
+import { i18n } from '@/i18n/react-i18next-compat'
+import { toast } from 'sonner'
 
 type ProviderCustomHeader = {
   header: string
@@ -63,6 +65,10 @@ async function registerRemoteProvider(provider: ModelProvider) {
     console.debug(`Registered remote provider: ${provider.provider}`)
   } catch (error) {
     console.error(`Failed to register provider ${provider.provider}:`, error)
+    toast.error(i18n.t('settings:cowork.saveFailed'), {
+      id: `provider-secrets-${provider.provider}`,
+      description: String(error),
+    })
   }
 }
 

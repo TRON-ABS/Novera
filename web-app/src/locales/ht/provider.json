@@ -1,0 +1,18 @@
+{
+  "addProvider": "Ajoute Founisè",
+  "addOpenAIProvider": "Ajoute Custom Provider",
+  "enterNameForProvider": "Non founisè a (egzanp my-llm-server)",
+  "apiTypeLabel": "API fòma",
+  "apiTypeOpenAI": "OpenAI-konpatib",
+  "apiTypeAnthropic": "Anthropic-konpatib",
+  "baseUrlLabel": "Baz URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API kle",
+  "apiKeyPlaceholder": "Kole kle API ou a",
+  "invalidBaseUrl": "Baz URL dwe yon http (yo) valab URL",
+  "globalSettings": "Anviwònman mondyal yo",
+  "stripReasoning": "Retire rezònman nan kontèks",
+  "stripReasoningDesc": "Retire kontni panse/rezònman vire anvan yo anvan yo revoye istwa, atravè tout founisè yo. Amelyore KV-kachèt reitilizasyon pou modèl lokal yo, men gen kèk modèl (egzanp nouvo lage Qwen) rekòmande pou kenbe li pou pi bon rezònman plizyè vire.",
+  "providerAlreadyExists": "Yon founisè ki rele {{name}} deja egziste."
+}

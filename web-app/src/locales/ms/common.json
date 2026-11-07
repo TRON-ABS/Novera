@@ -831,5 +831,10 @@
     "update": "Kemas kini",
     "rollback": "Pulihkan persekitaran sebelumnya",
     "busy": "Punggah model tempatan dan tunggu generasi untuk selesai sebelum menukar komponen."
-  }
+  },
+  "voiceConversation": "Perbualan suara",
+  "voiceUnavailable": "Perbualan suara tidak tersedia",
+  "voiceMale": "Suara lelaki",
+  "voiceFemale": "Suara perempuan",
+  "voiceReadReplies": "Bacakan jawapan"
 }

@@ -14,15 +14,23 @@
 
 use std::fmt;
 
+#[cfg(not(feature = "headless"))]
 pub mod commands;
+#[cfg(not(feature = "headless"))]
 pub mod driver;
 pub mod events;
 pub mod http;
 pub mod preset;
 pub mod registry;
 pub mod slots;
+#[cfg(not(feature = "headless"))]
 pub mod watcher;
+#[cfg(all(not(feature = "headless"), not(target_os = "ios")))]
 pub mod worker;
+#[cfg(all(not(feature = "headless"), target_os = "ios"))]
+#[path = "ios.rs"]
+pub mod worker;
+pub mod in_process;
 pub mod sys;
 
 /// The llama.cpp this crate is pinned to, from `build.rs`.
@@ -77,6 +85,8 @@ pub enum Route {
     Completions,
     CompletionsOai,
     ChatCompletions,
+    AudioTranscription,
+    AudioSpeech,
     /// Single-pass typed decisions; no generated tokens or conversation cache.
     SystemOne,
     Embeddings,
@@ -98,6 +108,8 @@ impl Route {
             Self::Completions => "post_completions",
             Self::CompletionsOai => "post_completions_oai",
             Self::ChatCompletions => "post_chat_completions",
+            Self::AudioTranscription => "post_novera_transcription",
+            Self::AudioSpeech => "post_novera_speech",
             Self::SystemOne => "post_systemone",
             Self::Embeddings => "post_embeddings",
             Self::EmbeddingsOai => "post_embeddings_oai",
@@ -128,6 +140,8 @@ impl Route {
             "/completion" | "/completions" => Some(Self::Completions),
             "/v1/completions" => Some(Self::CompletionsOai),
             "/v1/chat/completions" | "/chat/completions" => Some(Self::ChatCompletions),
+            "/v1/novera/audio/transcriptions" => Some(Self::AudioTranscription),
+            "/v1/novera/audio/speech" => Some(Self::AudioSpeech),
             "/v1/systemone" => Some(Self::SystemOne),
             "/embedding" | "/embeddings" => Some(Self::Embeddings),
             "/v1/embeddings" => Some(Self::EmbeddingsOai),
@@ -164,7 +178,13 @@ pub const BUILD_BACKEND_DIR: &str = env!("JAN_GGML_BACKEND_DIR");
 /// keeps the two mutually exclusive.
 /// Engine startup and device enumeration call this lazily themselves. The
 /// worker's idle handshake must not wait for cold GPU backend discovery.
-#[cfg(feature = "engine")]
+#[cfg(all(feature = "engine", any(feature = "headless", target_os = "ios")))]
+pub fn load_backend_modules() {
+    // These builds register their statically linked CPU/Metal backends.
+    // They must not discover incompatible desktop modules beside the app.
+}
+
+#[cfg(all(feature = "engine", not(any(feature = "headless", target_os = "ios"))))]
 pub fn load_backend_modules() {
     use std::sync::Once;
     static ONCE: Once = Once::new();
@@ -184,7 +204,7 @@ pub fn load_backend_modules() {
 }
 
 /// A `ggml-*` shared object, by the naming ggml itself looks for.
-#[cfg(feature = "engine")]
+#[cfg(all(feature = "engine", any(test, not(any(feature = "headless", target_os = "ios")))))]
 fn has_backend_module(dir: &std::path::Path) -> bool {
     let Ok(entries) = std::fs::read_dir(dir) else {
         return false;
@@ -219,9 +239,9 @@ mod tests {
 
     #[test]
     fn pin_constants_are_populated_from_build_rs() {
-        assert_eq!(PINNED_TAG, "b11960");
-        assert_eq!(PINNED_BUILD_NUMBER, "11960");
-        assert_eq!(PINNED_VERSION, "0.8.0");
+        assert_eq!(PINNED_TAG, "v0.9.0");
+        assert_eq!(PINNED_BUILD_NUMBER, "12110");
+        assert_eq!(PINNED_VERSION, "0.9.0");
         assert_eq!(PINNED_COMMIT.len(), 40, "commit should be a full sha");
     }
 

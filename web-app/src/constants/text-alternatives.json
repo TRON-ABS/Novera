@@ -1,0 +1,9 @@
+[
+  {
+    "role": "text.model",
+    "name": "Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf",
+    "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB/resolve/main/Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf?download=true",
+    "size": 6180446208,
+    "sha256": "c8af2b8aea10a690a1d9491db744a9446660173cb38fc489612b556615a69612"
+  }
+]

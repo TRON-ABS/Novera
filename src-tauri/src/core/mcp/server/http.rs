@@ -42,8 +42,8 @@ impl BoundServer {
 
 /// A fresh random bearer token, hex-encoded 256 bits.
 pub fn generate_token() -> String {
-    use rand::Rng;
-    let bytes: [u8; 32] = rand::thread_rng().gen();
+    use rand::RngExt;
+    let bytes: [u8; 32] = rand::rng().random();
     bytes.iter().map(|b| format!("{b:02x}")).collect()
 }
 

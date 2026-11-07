@@ -1,0 +1,18 @@
+{
+  "addProvider": "Fangakɛla faranka",
+  "addOpenAIProvider": "A yɛrɛ ka baarakɛlaw fara kan",
+  "enterNameForProvider": "Baarakɛla tɔgɔ (e.g. my-llm-server)",
+  "apiTypeLabel": "Format API",
+  "apiTypeOpenAI": "OpenAI-compatible",
+  "apiTypeAnthropic": "Anthropic-compatible",
+  "baseUrlLabel": "Base URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API key",
+  "apiKeyPlaceholder": "Kopa a ka API kumaden",
+  "invalidBaseUrl": "Base URL ka kan ka kɛ http(s) ka kan ka kɛ URL",
+  "globalSettings": "Jatɛminɛw",
+  "stripReasoning": "Ka hakilina bila ka bɔ cogoya la",
+  "stripReasoningDesc": "Ka yɛlɛmaniw ka miiriya/miiriyaw kɔnɔkow bɔ yen sanni i ka tariki ci tugun, dilanbagaw bɛɛ fɛ. A be KV-cache baarakɛcogo ɲuman fisaya sigida modɛliw kama, nka modɛliw dɔw (misali la, Qwen bɔli kuraw) b’a ladi k’a mara ka se ka miiriya ɲuman sɔrɔ yɛlɛmani caaman na.",
+  "providerAlreadyExists": "Aprovider min tɔgɔ ye {{name}} bɛ yen."
+}

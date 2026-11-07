@@ -831,5 +831,10 @@
     "update": "Nganyari",
     "rollback": "Mulihake lingkungan sadurunge",
     "busy": "Mbongkar model lokal lan ngenteni nganti pirang-pirang generasi rampung sadurunge ngganti komponen."
-  }
+  },
+  "voiceConversation": "Pacelathon swara",
+  "voiceUnavailable": "Pacelathon swara ora kasedhiya",
+  "voiceMale": "Swara lanang",
+  "voiceFemale": "Swara wadon",
+  "voiceReadReplies": "Wacakake wangsulan"
 }

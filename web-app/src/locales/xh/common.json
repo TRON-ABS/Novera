@@ -831,5 +831,10 @@
     "update": "Hlaziya",
     "rollback": "Buyisela okusingqongileyo kwangaphambili",
     "busy": "Khulula iimodeli zasekhaya kwaye ulinde izizukulwana zigqibe ngaphambi kokutshintsha izinto."
-  }
+  },
+  "voiceConversation": "Incoko yelizwi",
+  "voiceUnavailable": "Incoko yelizwi ayifumaneki",
+  "voiceMale": "Ilizwi lendoda",
+  "voiceFemale": "Ilizwi lomfazi",
+  "voiceReadReplies": "Funda iimpendulo ngokuvakalayo"
 }

@@ -13,11 +13,12 @@
 // vendor/llama.cpp and with engine::PINNED_* on the Rust side; the shim
 // re-exports llama_version()/llama_build_number() so a mismatch is caught at
 // runtime instead of producing a silently wrong engine.
-pub const LLAMA_CPP_TAG: &str = "b11960";
-pub const LLAMA_CPP_BUILD_NUMBER: u32 = 11960;
-pub const LLAMA_CPP_COMMIT: &str = "8642541b255bfb5dc39cd351a178be09013a55d6";
-pub const LLAMA_CPP_VERSION: &str = "0.8.0";
+pub const LLAMA_CPP_TAG: &str = "v0.9.0";
+pub const LLAMA_CPP_BUILD_NUMBER: u32 = 12110;
+pub const LLAMA_CPP_COMMIT: &str = "cd959bae99ff4bed22bef2604f45241c09bbb8c8";
+pub const LLAMA_CPP_VERSION: &str = "0.9.0";
 
+#[cfg(not(feature = "headless"))]
 const COMMANDS: &[&str] = &[
     // Cleanup command
     "cleanup_llama_processes",
@@ -45,7 +46,8 @@ const COMMANDS: &[&str] = &[
     "is_model_supported",
 ];
 
-fn main() {
+pub fn main() {
+    #[cfg(not(feature = "headless"))]
     tauri_plugin::Builder::new(COMMANDS).build();
 
     println!("cargo:rustc-env=JAN_LLAMA_CPP_TAG={LLAMA_CPP_TAG}");
@@ -53,8 +55,8 @@ fn main() {
     println!("cargo:rustc-env=JAN_LLAMA_CPP_COMMIT={LLAMA_CPP_COMMIT}");
     println!("cargo:rustc-env=JAN_LLAMA_CPP_VERSION={LLAMA_CPP_VERSION}");
 
-    // Features reach a build script only as CARGO_FEATURE_* env vars -- a
-    // `#[cfg(feature = ...)]` here would silently never fire.
+    // Read native build selection from Cargo's feature environment so this
+    // builder can also be reused by the standalone inference crate.
     if std::env::var_os("CARGO_FEATURE_ENGINE").is_some() {
         engine::build();
     }
@@ -65,6 +67,18 @@ mod engine {
     use std::{env, fs, process::Command};
 
     use super::{LLAMA_CPP_BUILD_NUMBER, LLAMA_CPP_COMMIT, LLAMA_CPP_TAG};
+
+    fn plugin_root() -> PathBuf {
+        env::var_os("NOVERA_LLAMA_PLUGIN_ROOT").map(PathBuf::from)
+            .unwrap_or_else(|| PathBuf::from(env!("CARGO_MANIFEST_DIR")))
+    }
+
+    // iOS cannot launch a sidecar. The standalone CLI also links the engine
+    // directly, so neither may depend on a directory of loadable backends.
+    fn static_backends() -> bool {
+        env::var("CARGO_CFG_TARGET_OS").unwrap_or_default() == "ios"
+            || feature_enabled("headless")
+    }
 
     /// Static archives from stage 2, in the order the linker group needs them
     /// declared. server-context <-> llama-common <-> mtmd have circular
@@ -99,6 +113,27 @@ mod engine {
     /// compiler: the archives here link into a Rust `*-pc-windows-msvc` binary,
     /// which a GNU-driver clang would break by emitting `libllama.a`.
     fn windows_generator(cmd: &mut Command, src: &Path) {
+        if env::var("CARGO_CFG_TARGET_OS").unwrap_or_default() == "macos" {
+            let arch = if env::var("CARGO_CFG_TARGET_ARCH").unwrap_or_default() == "aarch64" { "arm64" } else { "x86_64" };
+            cmd.arg(format!("-DCMAKE_OSX_ARCHITECTURES={arch}"));
+            cmd.arg(format!("-DCMAKE_SYSTEM_PROCESSOR={arch}"));
+            return;
+        }
+        if env::var("CARGO_CFG_TARGET_OS").unwrap_or_default() == "ios" {
+            let target = env::var("TARGET").expect("TARGET is required");
+            let simulator = target.ends_with("-sim") || target.starts_with("x86_64-");
+            let sdk = if simulator { "iphonesimulator" } else { "iphoneos" };
+            let output = Command::new("xcrun").args(["--sdk", sdk, "--show-sdk-path"])
+                .output().expect("Xcode with the iOS SDK is required");
+            assert!(output.status.success(), "could not resolve the {sdk} SDK");
+            let sysroot = String::from_utf8(output.stdout).expect("iOS SDK path must be UTF-8");
+            cmd.args(["-DCMAKE_SYSTEM_NAME=iOS", "-DCMAKE_TRY_COMPILE_TARGET_TYPE=STATIC_LIBRARY"]);
+            cmd.arg(format!("-DCMAKE_OSX_SYSROOT={}", sysroot.trim()));
+            cmd.arg(format!("-DCMAKE_OSX_ARCHITECTURES={}", if target.starts_with("x86_64-") { "x86_64" } else { "arm64" }));
+            cmd.arg(format!("-DCMAKE_OSX_DEPLOYMENT_TARGET={}", env::var("IPHONEOS_DEPLOYMENT_TARGET").unwrap_or_else(|_| "15.0".into())));
+            cmd.arg("-DCMAKE_XCODE_ATTRIBUTE_CODE_SIGNING_ALLOWED=NO");
+            return;
+        }
         if env::var("CARGO_CFG_TARGET_OS").unwrap_or_default() == "android" {
             let ndk = PathBuf::from(env::var_os("NDK_HOME").expect("NDK_HOME is required for the Android engine"));
             cmd.args(["-G", "Ninja"]);
@@ -117,6 +152,13 @@ mod engine {
             return;
         }
         cmd.args(["-G", WINDOWS_GENERATOR]);
+        // The small ggml wrapper has a 3.14 policy floor. Select the MSVC CRT
+        // explicitly so a GNU-driver Clang targeting MSVC emits its default
+        // CRT library directives rather than failing at mainCRTStartup.
+        cmd.args([
+            "-DCMAKE_POLICY_DEFAULT_CMP0091=NEW",
+            "-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$<$<CONFIG:Debug>:Debug>DLL",
+        ]);
         // One per target arch, both clang. The arm64 file also pins
         // `-march=armv8.7-a`, upstream's baseline for its own ARM64 releases.
         let toolchain = if env::var("CARGO_CFG_TARGET_ARCH").unwrap_or_default() == "aarch64" {
@@ -269,6 +311,8 @@ mod engine {
     pub fn build() {
         println!("cargo:rerun-if-changed=shim/novera_llama_shim.cpp");
         println!("cargo:rerun-if-changed=shim/novera_llama_shim.h");
+        println!("cargo:rerun-if-changed=shim/novera_audio_transcription.h");
+        println!("cargo:rerun-if-changed=shim/novera_audio_speech.h");
         println!("cargo:rerun-if-env-changed=JAN_LLAMA_PREBUILT_DIR");
         println!("cargo:rerun-if-env-changed=JAN_LLAMA_CPP_DIR");
         println!("cargo:rerun-if-env-changed=JAN_ENGINE_CUDA_ARCHS");
@@ -279,6 +323,8 @@ mod engine {
         println!("cargo:rerun-if-env-changed=JAN_ENGINE_BUILD_LOG");
         println!("cargo:rerun-if-env-changed=JAN_ENGINE_BUILD_DIR");
         println!("cargo:rerun-if-env-changed=NDK_HOME");
+        println!("cargo:rerun-if-env-changed=IPHONEOS_DEPLOYMENT_TARGET");
+        println!("cargo:rerun-if-env-changed=SDKROOT");
 
         // The worker reports this in its handshake so the app can set it against
         // the NVIDIA driver (#9189). Read on the prebuilt path too: the prebuilt
@@ -303,7 +349,7 @@ mod engine {
         // source tree) and `bin/` (ggml-prefix/bin: the runtime-loaded backend
         // modules, plus ggml.dll and ggml-base.dll on Windows).
         let (mut search_dirs, generated_include, backend_dir) =
-            if let Ok(dir) = env::var("JAN_LLAMA_PREBUILT_DIR") {
+            if let Some(dir) = env::var("JAN_LLAMA_PREBUILT_DIR").ok().filter(|_| !static_backends()) {
                 let dir = PathBuf::from(dir);
                 let lib = dir.join("lib");
                 let inc = dir.join("include");
@@ -524,6 +570,14 @@ mod engine {
             "-DGGML_CUDA_GRAPHS=ON",
             "-DGGML_LLAMAFILE=ON",
         ]);
+        if static_backends() {
+            cfg.args(["-DBUILD_SHARED_LIBS=OFF", "-DGGML_BACKEND_DL=OFF",
+                "-DGGML_CPU_ALL_VARIANTS=OFF", "-DGGML_BLAS=OFF",
+                "-DGGML_METAL_EMBED_LIBRARY=ON", "-DGGML_SSE42=OFF",
+                "-DGGML_AVX=OFF", "-DGGML_AVX2=OFF", "-DGGML_BMI2=OFF",
+                "-DGGML_FMA=OFF", "-DGGML_F16C=OFF"]);
+            if !feature_enabled("engine-metal") { cfg.arg("-DGGML_METAL=OFF"); }
+        }
         // Every ggml library is staged into one directory, so each can find
         // its siblings from its own location. cmake otherwise strips the rpath
         // on install ("Set non-toolchain portion of runtime path to ''"),
@@ -684,7 +738,7 @@ mod engine {
             "-DCMAKE_PREFIX_PATH={}",
             ggml_prefix.display()
         ));
-        if env::var("CARGO_CFG_TARGET_OS").unwrap_or_default() == "android" {
+        if matches!(env::var("CARGO_CFG_TARGET_OS").unwrap_or_default().as_str(), "android" | "ios") {
             cfg.arg(format!("-Dggml_DIR={}", cmake_path(&ggml_prefix.join("lib/cmake/ggml"))));
             cfg.arg("-DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=BOTH");
         }
@@ -1043,6 +1097,7 @@ mod engine {
     /// stage-engine.sh asserts. Cost is that one backend at the toolchain
     /// file's armv8.7-a baseline instead of a runtime-scored set.
     fn cpu_all_variants_supported() -> bool {
+        if static_backends() { return false; }
         let arch = env::var("CARGO_CFG_TARGET_ARCH").unwrap_or_default();
         let os = env::var("CARGO_CFG_TARGET_OS").unwrap_or_default();
         if os == "android" { return false; }
@@ -1058,7 +1113,7 @@ mod engine {
         if let Ok(dir) = env::var("JAN_LLAMA_CPP_DIR") {
             return PathBuf::from(dir);
         }
-        let vendored = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("vendor/llama.cpp");
+        let vendored = plugin_root().join("vendor/llama.cpp");
         assert!(
             vendored.join("CMakeLists.txt").is_file(),
             "vendor/llama.cpp is empty -- run `make engine-source` to \
@@ -1074,11 +1129,13 @@ mod engine {
     /// `generated_include` is where llama.cpp's generated headers live: the
     /// cmake build dir normally, or the prebuilt bundle's include/.
     fn compile_shim(src: &Path, generated_include: &Path) -> PathBuf {
+        let plugin = plugin_root();
         let mut cc = cc::Build::new();
         cc.cpp(true)
             .std("c++17")
-            .file("shim/novera_llama_shim.cpp")
-            .include("shim")
+            .flag_if_supported("-EHsc")
+            .file(plugin.join("shim/novera_llama_shim.cpp"))
+            .include(plugin.join("shim"))
             .include(src.join("include"))
             .include(src.join("ggml/include"))
             .include(src.join("common"))
@@ -1099,7 +1156,9 @@ mod engine {
         let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap_or_default();
         // Android uses lld, which resolves archive cycles itself. Embedding
         // static libraries in the rlib also carries them to the worker crate.
-        let gnu_ld = !matches!(target_os.as_str(), "macos" | "ios" | "windows" | "android");
+        // Static headless libraries must be bundled into the rlib: link-arg
+        // directives do not propagate to the standalone CLI crate.
+        let gnu_ld = !static_backends() && !matches!(target_os.as_str(), "macos" | "ios" | "windows" | "android");
 
         if gnu_ld {
             // One group: the archives reference each other cyclically.
@@ -1118,8 +1177,13 @@ mod engine {
         }
 
         // ggml is shared now, so it links normally rather than into the group.
-        for l in SHARED_LIBS {
-            println!("cargo:rustc-link-lib=dylib={l}");
+        if static_backends() {
+            for l in ["ggml", "ggml-cpu", "ggml-base"] {
+                println!("cargo:rustc-link-lib=static={l}");
+            }
+            if feature_enabled("engine-metal") { println!("cargo:rustc-link-lib=static=ggml-metal"); }
+        } else {
+            for l in SHARED_LIBS { println!("cargo:rustc-link-lib=dylib={l}"); }
         }
 
         match target_os.as_str() {
@@ -1140,7 +1204,7 @@ mod engine {
                 println!("cargo:rustc-link-arg=-Wl,-rpath,$ORIGIN");
             }
             _ => {
-                for l in ["stdc++", "m", "pthread", "dl", "gomp"] {
+                for l in ["stdc++", "m", "pthread", "dl"] {
                     println!("cargo:rustc-link-lib=dylib={l}");
                 }
                 println!("cargo:rustc-link-arg=-Wl,-rpath,$ORIGIN");

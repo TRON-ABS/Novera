@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Kòd",
+    "preview": "Preview",
+    "previewStreaming": "Disponib lè jenerasyon an fini",
+    "unresolvedAssets_one": "1 referans avantaj pa ka chaje nan preview la. Chemen relatif yo pa gen baz URL pou rezoud kont.",
+    "unresolvedAssets_other": "{{count}} referans avantaj yo pa ka chaje nan preview la. Chemen relatif yo pa gen baz URL pou rezoud kont."
+  },
+  "assistants": "Asistan",
+  "hardware": "Materyèl",
+  "mcp-servers": "MCP Sèvè",
+  "local_api_server": "Sèvè lokal API",
+  "remote_access": "Aksè Remote",
+  "integrations": "Entegrasyon",
+  "experimental": "Eksperimantal",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Prokurasyon",
+  "web_search": "Rechèch sou Entènèt",
+  "shell": "Shell",
+  "browse": "Browse",
+  "moreControls": "Plis kontwòl",
+  "starting": "Kòmanse...",
+  "activeSuffix": "(Aktif)",
+  "extensions": "Ekstansyon",
+  "attachments": "Atachman",
+  "general": "Jeneral",
+  "settings": "Anviwònman",
+  "modelProviders": "Founisè Modèl",
+  "localProviders": "Lokal",
+  "remoteProviders": "Remote",
+  "manageProviders": "Jere founisè yo",
+  "hiddenProviders": "{{count}} andikape",
+  "hideProvider": "Kache founisè a",
+  "showProvider": "Montre founisè a",
+  "interface": "Entèfas",
+  "appearance": "Aparans",
+  "privacy": "Konfidansyalite",
+  "keyboardShortcuts": "Raccoursi",
+  "home": "Lakay",
+  "cowork": "Cowork",
+  "newSession": "Nouvo sesyon",
+  "artifacts": "Afè",
+  "customize": "Customize",
+  "local": "Lokal",
+  "selectFolder": "Chwazi katab",
+  "selectModel": "Chwazi yon modèl an premye",
+  "commands": "Kòmandman",
+  "cmdHelp": "Lis kòmandman ki disponib yo",
+  "cmdClear": "Efase sesyon sa a",
+  "cmdModels": "Chanje modèl aktif la",
+  "cmdModelsHint": "Tape /models epi chwazi yon modèl nan lis la",
+  "cmdModelSwitched": "Chanje nan {{name}}",
+  "cmdUnknown": "Kòmandman enkoni: {{name}}. Eseye /help",
+  "cmdBusy": "Pa ka fè sa pandan ajan an ap kouri",
+  "cmdCompact": "Konpare kontèks sesyon an nan yon rezime",
+  "cmdCompacted": "Compact {{before}} -> {{after}} mesaj",
+  "cmdNothingToCompact": "Pa gen anyen pou kontrakte ankò",
+  "cmdCompactFailed": "Konpaksyon echwe: {{error}}",
+  "cmdPlan": "Chanje mòd plan (li sèlman: ajan an pwopoze san ekri)",
+  "cmdPlanOn": "Mòd plan sou: ajan an li epi pwopoze san ekri",
+  "cmdPlanOff": "Mòd plan koupe: ekzekisyon nòmal",
+  "cmdTodo": "Louvri panèl pwogrè a",
+  "cmdTasks": "Louvri panèl travay background yo",
+  "cmdInit": "Etidye pwojè a epi ekri konpetans ak memwa",
+  "cmdInitRunning": "Abòde pwojè sa a",
+  "skills": "Konpetans",
+  "skillsInContext": "Konpetans ki disponib pou ajan an kouri sa a",
+  "skillsTitle": "Jere konpetans",
+  "skillsScopeProject": "Konpetans pou {{folder}}",
+  "skillsScopeGlobal": "Konpetans mondyal, disponib pou chak sesyon",
+  "skillsScopeMerged": "Konpetans pou {{folder}}, plis konpetans mondyal chak sesyon pataje",
+  "skillOriginFolder": "katab",
+  "skillOriginGlobal": "mondyal",
+  "skillsEmpty": "Pa gen ladrès ankò",
+  "skillsPickOrNew": "Chwazi yon konpetans pou modifye, oswa kreye yon nouvo.",
+  "skillNew": "Nouvo konpetans",
+  "skillDelete": "Efase konpetans",
+  "skillSave": "Sove",
+  "skillSaved": "Konpetans sove",
+  "skillNameRequired": "Non konpetans obligatwa",
+  "skillNamePlaceholder": "non konpetans",
+  "skillContentPlaceholder": "Dekri pwosedi ki kapab itilize ankò nan Markdown…",
+  "skillHubImport": "Enpòte soti nan mwaye",
+  "skillHubTitle": "Anthropic sant konpetans",
+  "skillHubEmpty": "Pa gen konpetans yo jwenn sou sant la",
+  "skillImport": "Enpòte",
+  "skillReimport": "Re-enpòte",
+  "skillImported": "Enpòte {{name}}",
+  "sessions": "Sesyon yo",
+  "deleteSession": "Efase sesyon an",
+  "deleteSessionTitle": "Efase sesyon an?",
+  "deleteSessionBody": "\"{{title}}\" ak transkripsyon li yo pral efase pou tout tan. Sa a pa ka defèt.",
+  "newChat": "Nouvo Chat",
+  "newAgentChat": "Nouvo Ajan Chat",
+  "chats": "Chat",
+  "favorites": "Favorites",
+  "recents": "Dènye",
+  "hub": "Hub",
+  "helpSupport": "Èd ak Sipò",
+  "helpUsImproveJan": "Ede nou Amelyore Novera",
+  "analyticsConsentDetail": "Nou kolekte done anonim pou konprann itilizasyon karakteristik yo. Chat ou yo ak enfòmasyon pèsonèl yo pa janm swiv. Ou ka chanje sa nenpòt lè nan Anviwònman> Konfidansyalite.",
+  "analyticsConsentQuestion": "Èske w ta renmen ede nou amelyore Novera?",
+  "unstarAll": "Unstar Tout",
+  "unstar": "Unstar",
+  "deleteAll": "Efase tout",
+  "star": "Star",
+  "rename": "Chanje non",
+  "delete": "Efase",
+  "copied": "Kopi!",
+  "dataFolder": "Dosye Done",
+  "others": "Lòt",
+  "language": "Lang",
+  "login": "Konekte",
+  "loginWith": "Konekte avèk {{provider}}",
+  "loginFailed": "Echwe pou konekte",
+  "logout": "Dekonekte",
+  "loggingOut": "Dekonekte...",
+  "loggedOut": "Dekonekte avèk siksè",
+  "logoutFailed": "Echwe pou Dekonekte",
+  "profile": "Profile",
+  "reset": "Reyajiste",
+  "search": "Chèche",
+  "searchThreads": "Chèche fil...",
+  "toNavigate": "pou navige",
+  "toSelect": "pou chwazi",
+  "toClose": "pou fèmen",
+  "clearRecent": "Klè",
+  "name": "Non",
+  "cancel": "Anile",
+  "dismiss": "Ranvwaye",
+  "create": "Kreye",
+  "save": "Sove",
+  "edit": "Edite",
+  "copy": "Kopi",
+  "back": "Retounen",
+  "close": "Fèmen",
+  "done": "Fè",
+  "next": "Pwochen",
+  "finish": "Fini",
+  "skip": "Sote",
+  "allow": "Pèmèt",
+  "deny": "Refize",
+  "start": "Kòmanse",
+  "stop": "Sispann",
+  "preview": {
+    "loading": "Ouvèti...",
+    "unsupported": "Novera pa ka montre kalite fichye sa a. Louvri li pou wè li nan yon lòt aplikasyon.",
+    "outside": "Fichye sa a pa nan espas travay sesyon an ankò.",
+    "tooLarge": "Twò gwo pou aperçu. Louvri li pou wè li nan yon lòt aplikasyon.",
+    "reload": "Rechaje",
+    "allowNetwork": "Pèmèt rezo a",
+    "unsandboxed": "Kouri san sable: done ki sove yo ak dosye lokal yo ap travay",
+    "unresolvedRefs_one": "1 ranpli paj sa a lyen yo pa ka chaje nan preview la. Louvri li pou wè li nan yon navigatè.",
+    "unresolvedRefs_other": "{{count}} dosye lyen paj sa a pa ka chaje nan preview la. Louvri li pou wè li nan yon navigatè.",
+    "externalRefs_one": "1 resous paj sa a chaje sou entènèt la bloke. Vire sou \"Pèmèt rezo\" pou chaje li.",
+    "externalRefs_other": "{{count}} resous paj sa a chaje sou entènèt la bloke. Vire sou \"Pèmèt rezo\" pou chaje yo.",
+    "scriptErrors_one": "Paj la rapòte yon erè: {{message}}",
+    "scriptErrors_other": "Paj la rapòte {{count}} erè. Premye: {{message}}"
+  },
+  "changes": {
+    "title": "Chanjman ajan yo",
+    "empty": "Fichye ajan an ekri oswa modifye yo ap parèt isit la.",
+    "a11y": "Chanjman ajan: {{files}} fichye, {{additions}} te ajoute, {{deletions}} retire"
+  },
+  "modelPanel": {
+    "title": "Anviwònman modèl yo",
+    "a11y": "Louvri paramèt modèl yo",
+    "contextTooltip": "Fenèt kontèks: {{value}} nan {{max}} marqueur"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Konpetans '{{name}}' pa disponib",
+    "kind": {
+      "skill": "Konpetans",
+      "command": "Kòmandman",
+      "model": "Modèl"
+    }
+  },
+  "compactWidth": "Kontra enfòmèl ant Lajè",
+  "fullWidth": "Tout Lajè",
+  "dark": "Fè nwa",
+  "light": "Limyè",
+  "system": "Sistèm",
+  "auto": "Oto",
+  "english": "Angle",
+  "medium": "Mwayen",
+  "newThread": "Nouvo Fil",
+  "noResultsFound": "Pa gen rezilta yo jwenn",
+  "noThreadsYet": "Pa gen fil ankò",
+  "noThreadsYetDesc": "Kòmanse yon nouvo konvèsasyon pou wè istwa fil ou isit la.",
+  "downloads": "Telechajman",
+  "downloading": "Telechaje",
+  "uploadingAttachments": "Téléchargement atachman...",
+  "cancelDownload": "Anile download",
+  "downloadCancelled": "Telechajman anile",
+  "downloadComplete": "Telechaje konplè",
+  "thinking": "Panse...",
+  "thought": "Panse",
+  "callingTool": "Zouti pou rele",
+  "completed": "Konplete",
+  "image": "Imaj",
+  "vision": "Vizyon",
+  "multimodal": "Multimodal",
+  "embeddings": "Embeddings",
+  "tools": "Zouti",
+  "webSearch": "Rechèch sou Entènèt",
+  "reasoning": "Rezonman",
+  "proactive": "Pwoaktif",
+  "selectAModel": "Chwazi yon modèl",
+  "noToolsAvailable": "Pa gen zouti ki disponib",
+  "noModelsFoundFor": "Pa gen modèl yo jwenn pou \"{{searchValue}}\"",
+  "failedToLoadModels": "Echwe pou chaje modèl yo",
+  "noModels": "Pa gen modèl yo jwenn",
+  "noAssistant": "Pa gen asistan",
+  "customAvatar": "Avatar personnalisé",
+  "editAssistant": "Edit Asistan",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Rejenere",
+  "threadImage": "Imaj fil",
+  "editMessage": "Edit mesaj",
+  "deleteMessage": "Efase mesaj",
+  "deleteThread": "Efase Fil",
+  "renameThread": "Chanje non fil",
+  "threadTitle": "Tit Fil",
+  "deleteAllThreads": "Efase tout fil yo",
+  "allThreadsUnfavorited": "Tout Threads Unfavorited",
+  "deleteAllThreadsConfirm": "Èske w sèten ou vle efase tout fil yo? Aksyon sa a pa ka defèt.",
+  "addProvider": "Ajoute Founisè",
+  "addOpenAIProvider": "Ajoute OpenAI Founisè",
+  "enterNameForProvider": "Antre yon non pou founisè w la",
+  "providerAlreadyExists": "Founisè ki gen non \"{{name}}\" deja egziste. Tanpri chwazi yon non diferan.",
+  "adjustFontSize": "Ajiste Gwosè Polis",
+  "changeLanguage": "Chanje Lang",
+  "editTheme": "Edit Tèm",
+  "editCodeBlockStyle": "Edite Style Blòk Kòd",
+  "editServerHost": "Edit sèvè Host",
+  "pickColorWindowBackground": "Chwazi background koulè fenèt la",
+  "pickColorAppMainView": "Chwazi Color App Main View",
+  "pickColorAppPrimary": "Chwazi Color App Primary",
+  "pickColorAppAccent": "Chwazi aksan aplikasyon koulè",
+  "pickColorAppDestructive": "Chwazi Color App Destructive",
+  "apiKeyRequired": "API Kle obligatwa",
+  "enterTrustedHosts": "Antre moun ki fè konfyans yo",
+  "placeholder": {
+    "chatInput": "Mande m nenpòt bagay..."
+  },
+  "confirm": "Konfime",
+  "continue": "Kontinye",
+  "loading": "Chaje...",
+  "settingUpJan": "Demaraj Novera…",
+  "registeringExtensions": "Anrejistre ekstansyon...",
+  "loadingExtensions": "Chaje ekstansyon yo... ({{done}}/{{total}})",
+  "error": "Erè",
+  "success": "Siksè",
+  "warning": "Avètisman",
+  "conversationNotAvailable": "Konvèsasyon pa disponib",
+  "conversationNotAvailableDescription": "Konvèsasyon w ap eseye jwenn aksè a pa disponib oswa yo te efase.",
+  "temporaryChat": "Chat Tanporè",
+  "temporaryChatTooltip": "Chat tanporè p ap parèt nan istwa ou",
+  "noResultsFoundDesc": "Nou pa t ka jwenn okenn chat ki koresponn ak rechèch ou a. Eseye yon mo kle diferan.",
+  "searchModels": "Chèche modèl...",
+  "searchStyles": "Recherche estil...",
+  "createAssistant": "Kreye Asistan",
+  "enterApiKey": "Antre kle API",
+  "scrollToBottom": "Scroll anba",
+  "generateAiResponse": "Jenere AI Repons",
+  "continueAiResponse": "Kontinye ak AI Repons",
+  "addModel": {
+    "title": "Ajoute Modèl",
+    "modelId": "Modèl ID",
+    "enterModelId": "Antre modèl ID",
+    "addModel": "Ajoute Modèl",
+    "description": "Ajoute yon nouvo modèl bay founisè a",
+    "exploreModels": "Gade lis modèl ki soti nan founisè a"
+  },
+  "mcpServers": {
+    "editServer": "Edit sèvè",
+    "addServer": "Ajoute sèvè",
+    "serverName": "Non sèvè",
+    "enterServerName": "Antre non sèvè a",
+    "command": "Kòmandman",
+    "enterCommand": "Antre kòmand",
+    "arguments": "Agiman",
+    "argument": "Agiman {{index}}",
+    "envVars": "Varyab Anviwònman",
+    "key": "Kle",
+    "value": "Valè",
+    "save": "Sove"
+  },
+  "deleteServer": {
+    "title": "Efase sèvè",
+    "delete": "Efase"
+  },
+  "editJson": {
+    "errorParse": "Echwe pou analize JSON",
+    "errorPaste": "Echwe pou kole JSON",
+    "errorFormat": "Fòma JSON ki pa valab",
+    "titleAll": "Edit tout konfigirasyon sèvè yo",
+    "placeholder": "Antre nan JSON konfigirasyon...",
+    "save": "Sove"
+  },
+  "editModel": {
+    "title": "Edit Modèl: {{modelId}}",
+    "description": "Konfigure kapasite modèl lè w chanje opsyon ki anba yo.",
+    "capabilities": "Kapasite",
+    "tools": "Zouti",
+    "vision": "Vizyon",
+    "embeddings": "Embeddings",
+    "notAvailable": "Poko disponib"
+  },
+  "outOfContextError": {
+    "truncateInput": "Tronke Antre",
+    "title": "Erè ki pa nan kontèks",
+    "description": "Chat sa a rive nan limit memwa AI, tankou yon tablo blanch ki ranpli. Nou ka elaji fenèt memwa a (ki rele gwosè kontèks la) pou li sonje plis, men li ka itilize plis memwa òdinatè w lan. Nou kapab tou tronpe opinyon an, ki vle di li pral bliye kèk nan istwa chat la pou fè plas pou nouvo mesaj.",
+    "increaseContextSizeDescription": "Èske ou vle ogmante gwosè kontèks la?",
+    "increaseContextSize": "Ogmante Gwosè Kontèks"
+  },
+  "toolApproval": {
+    "title": "Demann pèmisyon zouti",
+    "description": "Asistan an vle sèvi ak <strong>{{toolName}}</strong>",
+    "securityNotice": "Sèlman pèmèt zouti ou fè konfyans. Zouti ka jwenn aksè nan sistèm ou a ak done yo.",
+    "deny": "Refize",
+    "allowOnce": "Pèmèt Yon fwa",
+    "alwaysAllow": "Toujou Pèmèt"
+  },
+  "deleteModel": {
+    "title": "Efase Modèl: {{modelId}}",
+    "description": "Èske w sèten ou vle efase modèl sa a? Aksyon sa a pa ka defèt.",
+    "success": "Modèl {{modelId}} te efase nèt ale.",
+    "cancel": "Anile",
+    "delete": "Efase"
+  },
+  "deleteProvider": {
+    "title": "Efase Founisè a",
+    "description": "Efase founisè sa a ak tout modèl li yo. Aksyon sa a pa ka defèt.",
+    "success": "Founisè {{provider}} te efase nèt ale.",
+    "confirmTitle": "Efase founisè a: {{provider}}",
+    "confirmDescription": "Èske w sèten ou vle efase founisè sa a? Aksyon sa a pa ka defèt.",
+    "cancel": "Anile",
+    "delete": "Efase"
+  },
+  "modelSettings": {
+    "label": "Anviwònman Modèl",
+    "title": "Anviwònman Modèl - {{modelId}}",
+    "description": "Konfigure paramèt modèl yo pou optimize pèfòmans ak konpòtman.",
+    "nglDisabledByFit": "Auto-fit se chwazi GPU kouch. Etenn Auto-fit pou mete sa a manyèlman.",
+    "samplingDefaults": {
+      "title": "Paramèt echantiyon yo genyen yo",
+      "description": "Anviwònman echantiyon defo pou modèl sa a. Itilize sòf si valè pou chak asistan oswa pou chak demann pase."
+    },
+    "specDraft": {
+      "section": "Dekodaj spéculatif",
+      "enable": "Pèmèt dekodaj spéculatif",
+      "enableDescription": "Fè plizyè siy pou chak etap epi verifye yo nan yon sèl pas, sa ki akselere jenerasyon. Sèvi ak tèt entegre MTP modèl la, oswa modèl bouyon ki telechaje avèk li (MTP, Eagle3, DFlash oswa DSpark).",
+      "nMax": "Maksimòm bouyon",
+      "nMaxDescription": "Kantite maksimòm marqueur pou tire pa etap. Default 16.",
+      "nMin": "Min jeton bouyon",
+      "nMinDescription": "Kantite minimòm siy pou tire pa etap. Default 0.",
+      "pMin": "Min pwobabilite bouyon",
+      "pMinDescription": "Pwobabilite minimòm pou redaksyon visye (0–1). Default 0.75."
+    },
+    "templateKwargs": {
+      "section": "Opsyon modèl chat",
+      "description": "Opsyon siplemantè modèl chat modèl sa a aksepte. Voye kòm chat_template_kwargs sou chak demann; kite yon valè nan default li pou kite modèl la deside.",
+      "addCustom": "Ajoute opsyon koutim",
+      "keyPlaceholder": "non",
+      "valuePlaceholder": "valè",
+      "add": "Ajoute",
+      "cancel": "Anile",
+      "remove": "Retire"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Pa t 'kapab mete ajou paramèt modèl yo"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Chanje Kote Dosye Done yo",
+      "description": "Èske ou sèten ou vle chanje kote dosye done a? Sa a pral deplase tout done ou yo nan nouvo kote a epi rekòmanse aplikasyon an.",
+      "currentLocation": "Kote aktyèl la:",
+      "newLocation": "Nouvo Kote:",
+      "cancel": "Anile",
+      "changeLocation": "Chanje Kote"
+    },
+    "deleteAllThreads": {
+      "title": "Efase tout fil yo",
+      "description": "Tout fil yo pral efase. Aksyon sa a pa ka defèt."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Efase tout konvèsasyon yo",
+      "description": "{{count}} konvèsasyon nan \"{{projectName}}\" yo pral efase. Aksyon sa a pa ka defèt."
+    },
+    "deleteThread": {
+      "description": "Èske w sèten ou vle efase fil sa a? Aksyon sa a pa ka defèt."
+    },
+    "editMessage": {
+      "title": "Edit mesaj"
+    },
+    "messageMetadata": {
+      "title": "Metadata Mesaj yo"
+    },
+    "deleteMessage": {
+      "description": "Èske w sèten ou vle efase mesaj sa a? Aksyon sa a pa ka defèt."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Gen yon bagay ki mal pase",
+    "details": "Detay"
+  },
+  "missingDependenciesDialog": {
+    "title": "Bibliyotèk sistèm ki manke yo",
+    "description": "{{backend}} te enstale men kèk bibliyotèk sistèm obligatwa yo pa t kapab jwenn. Li ka tounen nan CPU oswa li ka pa kouri kòrèkteman.",
+    "installLabel": "Pou repare sa a, enstale bagay sa yo:",
+    "download": "Telechaje",
+    "additionalLibraries": "Lòt bibliyotèk ki manke:",
+    "missingLibraries": "Bibliyotèk ki manke yo:",
+    "showRawLibraries": "Montre {{count}} non bibliyotèk ki manke yo"
+  },
+  "projects": {
+    "title": "Pwojè",
+    "new": "Nouvo Pwojè",
+    "addProject": "Ajoute Pwojè",
+    "addToProject": "Ajoute nan pwojè a",
+    "removeFromProject": "Retire nan pwojè",
+    "createNewProject": "Kreye Nouvo Pwojè",
+    "editProject": "Edit Pwojè",
+    "deleteProject": "Efase Pwojè",
+    "projectName": "Non Pwojè a",
+    "enterProjectName": "Antre non pwojè...",
+    "noProjectsAvailable": "Pa gen pwojè ki disponib",
+    "noProjectsYet": "Pa gen Pwojè ankò",
+    "noProjectsYetDesc": "Kòmanse yon nouvo pwojè lè w klike sou bouton Ajoute Pwojè a.",
+    "projectNotFound": "Pwojè pa jwenn",
+    "projectNotFoundDesc": "Pwojè w ap chèche a pa egziste oswa yo te efase.",
+    "selectAssistant": "Chwazi asistan",
+    "noAssistantAssigned": "Pa gen asistan ki asiyen nan pwojè sa a",
+    "files": "Dosye",
+    "filesDescription": "Ajoute PDF, dokiman, oswa lòt tèks pou referans nan pwojè sa a.",
+    "uploadingFiles": "Pwosesis dosye...",
+    "processButton": "Ajoute",
+    "deleteProjectDialog": {
+      "title": "Efase Pwojè",
+      "permanentDelete": "Sa a pral efase tout fil yo pou tout tan.",
+      "permanentDeleteWarning": "Aksyon sa a pral efase ALL fil nan pwojè a pou tout tan!",
+      "deleteEmptyProject": "Aksyon sa a pral efase pwojè \"{{projectName}}\".",
+      "saveThreadsAdvice": "Pou sove fil, deplase yo nan lis fil ou a oswa nan yon lòt pwojè anvan efase.",
+      "starredWarning": "Ou toujou gen fil star nan pwojè a.",
+      "deleteButton": "Efase",
+      "successWithName": "Pwojè \"{{projectName}}\" efase avèk siksè",
+      "successWithoutName": "Pwojè efase avèk siksè",
+      "error": "Echwe pou efase pwojè a. Tanpri eseye ankò.",
+      "ariaLabel": "Efase {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Kreye Nouvo Pwojè",
+      "editTitle": "Edit Pwojè",
+      "nameLabel": "Non Pwojè a",
+      "namePlaceholder": "Antre non pwojè...",
+      "assistant": "Asistan",
+      "selectAssistant": "Chwazi yon asistan (si ou vle)",
+      "noAssistant": "Pa gen asistan",
+      "addAssistant": "Ajoute Asistan",
+      "createButton": "Kreye",
+      "updateButton": "Mizajou",
+      "alreadyExists": "Pwojè \"{{projectName}}\" deja egziste",
+      "createSuccess": "Pwojè \"{{projectName}}\" kreye avèk siksè",
+      "updateSuccess": "Pwojè \"{{projectName}}\" mete ajou avèk siksè",
+      "saveError": "Pa t 'kapab sove pwojè a. Tanpri eseye ankò."
+    },
+    "noConversationsIn": "Pa gen konvèsasyon nan {{projectName}}",
+    "startNewConversation": "Kòmanse yon nouvo konvèsasyon ak {{projectName}} anba a",
+    "conversationsIn": "Konvèsasyon nan {{projectName}}",
+    "conversationsDescription": "Klike sou nenpòt konvèsasyon pou kontinye koze, oswa kòmanse yon nouvo konvèsasyon anba a.",
+    "conversation": "Konvèsasyon",
+    "instructions": "Enstriksyon yo",
+    "setup": "Enstalasyon",
+    "instructionsDescription": "Pèsonalize ton ak style repons",
+    "manageInstructions": "Jere Enstriksyon yo",
+    "thread": "fil",
+    "threads": "fil",
+    "updated": "Mizajou:",
+    "collapseProject": "Pwojè efondre",
+    "expandProject": "Agrandi pwojè",
+    "update": "Mizajou",
+    "searchProjects": "Chèche pwojè...",
+    "noProjectsFound": "Pa gen pwojè yo jwenn",
+    "tryDifferentSearch": "Eseye yon lòt tèm rechèch"
+  },
+  "attachmentsIngestion": {
+    "title": "Chwazi ki jan yo enjere atachman yo",
+    "description": "Chwazi si w vle mete dosye sa yo dirèkteman nan chat la oswa endèks yo kòm embeddings pito.",
+    "inline": "Enjekte nan chat",
+    "embeddings": "Sèvi ak embeddings"
+  },
+  "attachmentInjectedIndicator": "Enjekte nan chat",
+  "attachmentEmbeddedIndicator": "Entègre pou RAG",
+  "viewInjectedContent": "Gade kontni sou fòm piki",
+  "injectedContentTitle": "Kontni fichye sou fòm piki",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Tout Threads Unfavorited",
+      "description": "Tout fil yo te retire nan pi renmen ou yo."
+    },
+    "deleteAllThreads": {
+      "title": "Efase tout fil yo",
+      "description": "Tout fil yo te efase pou tout tan."
+    },
+    "renameThread": {
+      "title": "Chanje non fil",
+      "description": "Yo chanje non tit fil la an '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Efase Fil",
+      "description": "Yo efase fil sa a pou tout tan."
+    },
+    "errorCopied": {
+      "title": "Kopi siksè",
+      "description": "Enfòmasyon sou erè yo kopye nan clipboard"
+    },
+    "errorCopyFailed": {
+      "title": "Echwe pou kopye",
+      "description": "Echwe pou kopye enfòmasyon sou erè nan clipboard"
+    },
+    "editMessage": {
+      "title": "Edit mesaj",
+      "description": "Mesaj modifye avèk siksè. Tanpri tann modèl la reponn."
+    },
+    "appUpdateDownloaded": {
+      "title": "Mizajou Aplikasyon an telechaje",
+      "description": "Mizajou aplikasyon an te telechaje avèk siksè."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Telechajman Mizajou Aplikasyon an echwe",
+      "description": "Echwe pou telechaje aktyalizasyon aplikasyon an. Tanpri eseye ankò."
+    },
+    "downloadComplete": {
+      "title": "Telechaje konplè",
+      "description": "{{item}} te telechaje"
+    },
+    "downloadCancelled": {
+      "title": "Telechajman anile",
+      "description": "Pwosesis download la te anile"
+    },
+    "downloadFailed": {
+      "title": "Telechajman echwe",
+      "description": "Téléchargement {{item}} echwe",
+      "descriptionWithReason": "{{item}} telechajman echwe: {{reason}}",
+      "reason": {
+        "dns": "non sèvè a pa t kapab rezoud",
+        "refused": "koneksyon an te refize",
+        "timeout": "koneksyon an fini",
+        "tls": "yon koneksyon an sekirite pa t 'kapab etabli",
+        "proxy": "pa t kapab jwenn proxy a",
+        "unreachable": "sèvè a pa t 'kapab jwenn"
+      }
+    },
+    "openSettings": "Louvri Anviwònman",
+    "openLogs": "Louvri mòso bwa",
+    "downloadTokenRequired": {
+      "title": "Hugging Face siy obligatwa",
+      "description": "Modèl sa a mande yon siy aksè Hugging Face. Ajoute siy ou a nan Anviwònman epi eseye eseye ankò."
+    },
+    "downloadLicenseRequired": {
+      "title": "Aksepte lisans modèl sou Hugging Face",
+      "description": "Ou dwe aksepte lisans modèl la sou paj Hugging Face li anvan w telechaje li."
+    },
+    "downloadRateLimited": {
+      "title": "Pousantaj limite pa Hugging Face",
+      "description": "Ou te limite nan pousantaj. Ajoute yon siy ka ogmante limit pousantaj. Tanpri eseye ankò pita."
+    },
+    "modelValidationStarted": {
+      "title": "Validasyon Modèl",
+      "description": "Te telechaje modèl \"{{modelId}}\" avèk siksè. Verifye entegrite..."
+    },
+    "modelValidationFailed": {
+      "title": "Validasyon Modèl Echwe",
+      "description": "Modèl telechaje \"{{modelId}}\" echwe verifikasyon entegrite epi yo retire li. Fichye a ka pèvèti oswa manyen."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Telechaje konplè",
+      "description": "Modèl \"{{item}}\" telechaje epi verifye avèk siksè"
+    },
+    "projectCreated": {
+      "title": "Pwojè Kreye",
+      "description": "Pwojè \"{{projectName}}\" kreye avèk siksè"
+    },
+    "projectRenamed": {
+      "title": "Pwojè a chanje non",
+      "description": "Pwojè a chanje non \"{{oldName}}\" a \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Pwojè efase",
+      "description": "Pwojè \"{{projectName}}\" efase avèk siksè"
+    },
+    "projectAlreadyExists": {
+      "title": "Pwojè a deja egziste",
+      "description": "Pwojè \"{{projectName}}\" deja egziste"
+    },
+    "projectDeleteFailed": {
+      "title": "Efase efase",
+      "description": "Echwe pou efase pwojè a. Tanpri eseye ankò."
+    },
+    "threadAssignedToProject": {
+      "title": "Thread plase",
+      "description": "Fil plase nan \"{{projectName}}\" avèk siksè"
+    },
+    "threadRemovedFromProject": {
+      "title": "Fil retire",
+      "description": "Fil yo te retire nan \"{{projectName}}\" avèk siksè"
+    },
+    "fileUploaded": {
+      "title": "Fichye trete",
+      "description": "Fichye a te trete ak endèks avèk siksè"
+    },
+    "uploadFailed": {
+      "title": "Pwosesis la echwe",
+      "description": "Echwe pou trete fichye a",
+      "subjectThisFile": "Fichye sa a",
+      "pdfMalformedXref": "{{subject}} gen yon tablo kwa-referans PDF ki pa gen fòm epi yo pa kapab analize. Eseye ouvri li nan yon visualiseur PDF epi re-sove li (Fichiye → Enprime → Sove kòm PDF), epi telechaje ankò.",
+      "pdfScanned": "{{subject}} parèt kòm yon analiz oswa imaj ki baze sou PDF. OCR poko sipòte — tanpri telechaje yon PDF ki baze sou tèks.",
+      "pdfEncrypted": "{{subject}} pwoteje pa modpas. Retire modpas la epi eseye ankò.",
+      "pdfUnsupportedFeature": "{{subject}} sèvi ak yon karakteristik PDF Novera poko kapab analize (egzanp PostScript fonksyon koulè/lonbraj). Eseye re-sove li (Fichiye → Enprime → Sove kòm PDF) pou plati li, epi telechaje ankò.",
+      "pdfGeneric": "{{subject}} pa t 'kapab analize kòm yon PDF. Fichye a ka pèvèti oswa itilize yon karakteristik PDF ki pa sipòte.",
+      "fileTooLarge": "{{subject}} twò gwo. {{message}}.",
+      "unsupportedType": "Kalite fichye \"{{type}}\" pa sipòte.",
+      "ioError": "Pa t 'kapab li {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} pa t 'kapab analize: {{message}}",
+      "fallback": "Echwe pou trete {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Fichye efase",
+      "description": "Yo retire dosye nan pwojè a"
+    },
+    "deleteFailed": {
+      "title": "Efase efase",
+      "description": "Echwe pou efase fichye a"
+    },
+    "fileAlreadyExists": {
+      "title": "Fichye a deja egziste",
+      "description": "Fichye deja tache ak pwojè sa a"
+    },
+    "unsupportedFileType": {
+      "title": "Kalite dosye ki pa sipòte",
+      "description": "Ekstansyon dosye \".{{extension}}\" pa sipòte pou referans Pwojè a."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Atachman Enfim",
+      "description": "Tachman yo dezaktive nan Anviwònman yo"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Fichye twò gwo",
+    "fileTooLargeDescription": "{{fileName}} depase limit {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} moso",
+    "title": "Dosye",
+    "empty": "Fichye ou tache ak fichye ajan an kreye ap parèt la a.",
+    "a11y": "Dosye: {{count}}",
+    "attachments": "Atachman",
+    "notImported": "pa nan espas travay"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp toujou okipe",
+    "description": "Youn oswa plizyè modèl pa t dechaje alè. Sispansyon fòs la pral mete fen nan llama.cpp epi li ka entèwonp repons aktif yo.",
+    "forceQuit": "Fòse kite",
+    "forcing": "Fòse kite...",
+    "shuttingDown": "Fèmen..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Tonbe",
+  "expand": "Elaji",
+  "todoPanelTitle": "Pwogrè",
+  "todoPanelEmpty": "Pa gen lis tout bagay ankò.",
+  "backgroundTasks": "Travay background",
+  "subagentsRunning_one": "{{count}} subagent ap kouri",
+  "subagentsRunning_other": "{{count}} sou-ajan ap kouri",
+  "monitorsRunning_one": "{{count}} kontwole kouri",
+  "monitorsRunning_other": "{{count}} monitè ap kouri",
+  "backgroundRunning_one": "{{count}} travay background ap kouri",
+  "backgroundRunning_other": "{{count}} travay background ap kouri",
+  "monitors": "Monitè",
+  "monitorPolling": "Sondaj",
+  "monitorMatched": "Matche",
+  "monitorTimedOut": "Time out",
+  "monitorStopped": "Sispann",
+  "monitorEnded": "Te fini",
+  "coworkWatching_one": "Ap gade {{count}} monitè…",
+  "coworkWatching_other": "Gade monitè {{count}}...",
+  "coworkWaitingBackground": "Ap tann sou travay background...",
+  "noBackgroundTasks": "Pa gen okenn travay background ankò.",
+  "running": "Kouri",
+  "queued": "Nan keu",
+  "waiting": "Tann",
+  "finished": "Fini",
+  "subagentPhase": "faz {{phase}}",
+  "subagentWaiting": "ap tann",
+  "viewTranscript": "Gade transkripsyon an",
+  "taskWorking": "Travay...",
+  "taskNoOutput": "Sou-ajan an pa pwodui okenn pwodiksyon vizib.",
+  "subagentToolUses_one": "{{count}} itilizasyon zouti",
+  "subagentToolUses_other": "{{count}} zouti itilize",
+  "artifactGroupCode": "Kòd",
+  "artifactGroupImage": "Imaj",
+  "artifactGroupDocument": "Dokiman",
+  "artifactGroupVideo": "Videyo",
+  "artifactGroupAudio": "Odyo",
+  "artifactOpenPreview": "Louvri preview",
+  "artifactOpenExternal": "Louvri",
+  "artifactMoreActions": "Plis aksyon",
+  "artifactShowInFolder": "Montre nan Dosye",
+  "skillsUsedLabel": "Konpetans yo itilize",
+  "skillsUsed": "Konpetans yo itilize: {{skills}}",
+  "artifactsAll": "Tout",
+  "artifactsEmpty": "Pa gen anyen ki pwodui ankò. Afèk soti nan Cowork kouri parèt isit la.",
+  "artifactsNoMatch": "Pa gen zafè matche.",
+  "artifactsSearch": "Chèche zafè",
+  "artifactsShowMore": "Montre {{count}} plis",
+  "workspace": {
+    "readsFrom": "Travay nan",
+    "writable": "li epi ekri",
+    "footnote": "Ajan an li epi modifye katab sa a dirèkteman. Revize sa ki chanje nan panèl diferans lan.",
+    "footnoteEmpty": "Tache yon katab pou kite ajan an travay sou pwojè w la. Li ka li ak edite fichye andedan li.",
+    "attach": "Tache yon katab",
+    "change": "Chanje katab",
+    "detach": "Detache katab",
+    "open": "Louvri",
+    "reveal": "Revele",
+    "unavailable": "Espas travay pa disponib",
+    "missing": "Katab espas travay {{folder}} pa disponib ankò. Chwazi yon katab diferan.",
+    "openFailed": "Pa t 'kapab louvri espas travay",
+    "revealFailed": "Pa t 'kapab revele espas travay la",
+    "a11yWithFolder": "Katab pwojè {{folder}}, ki tache ak aksè pou li ak ekri. Chanje oswa detache li.",
+    "a11yNoFolder": "Pa gen katab pwojè tache. Tache youn."
+  },
+  "coworkEmpty": {
+    "title": "Sou kisa nap travay?",
+    "subtitleSandbox": "Bay Novera yon travay. Li li ak ekri fichye, kouri kòmandman, ak travay atravè etap yo poukont li.",
+    "subtitleFolder": "Bay Novera yon travay. Li travay dirèkteman nan {{folder}}, li ak modifye fichye poukont li.",
+    "try": "Eseye",
+    "sandbox": {
+      "first": "Ekri yon script Python ki chanje non fichye yo pa dat yo te pran yo.",
+      "second": "Bati yon tablodbò yon sèl paj apati yon CSV mwen pral kole nan",
+      "third": "Ekri yon README pou yon pwojè mwen dekri ou."
+    },
+    "folder": {
+      "first": "Eksplike kijan {{folder}} mete ansanm",
+      "second": "Jwenn chak TODO nan {{folder}} epi gwoupe yo pa zòn",
+      "third": "Ekri tès pou pati {{folder}} mwen montre w"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Pa gen tèminal",
+    "a11y": "Koòdman k ap kouri yo etenn. Detay yo.",
+    "title": "Kouri kòmandman yo etenn",
+    "body": "Novera pèmèt ajan an kouri kòmandman shell sèlman lè sistèm ou a ka fèmen yo. Pa gen sandbox ki disponib isit la, kidonk ajan an ka li, ekri ak modifye fichye nan sandbox li yo - men li pa kouri anyen.",
+    "fixLinux": "Linux itilize bubblewrap. Enstale li, epi rekòmanse Novera.",
+    "fixMac": "macOS itilize sandbox entegre nan /usr/bin/sandbox-exec. Rekòmanse Novera yon fwa li disponib.",
+    "fixWindows": "Windows itilize AppContainer. Rekòmanse Novera pou eseye ankò.",
+    "recheck": "Tcheke ankò"
+  },
+  "planMode": {
+    "label": "Plan",
+    "tooltipOff": "Plan an premye — ajan an li epi pwopoze, san li pa ekri.",
+    "tooltipOn": "Planifikasyon. Etenn sa a pou kite ajan an ekri fichye yo.",
+    "onAnnounce": "Mòd plan limen",
+    "placeholder": "Mande yon plan. Ajan an pa pral chanje okenn dosye."
+  },
+  "budget": {
+    "stoppedSteps": "Te kanpe nan {{max}} etap. Ajan an poko fini.",
+    "keepGoing": "Kontinye",
+    "stoppedTokens": "Sispann — sesyon sa a frape bidjè siy li.",
+    "compact": "Kontra enfòmèl ant",
+    "newSession": "Nouvo sesyon"
+  },
+  "run": {
+    "stopped": "Sispann.",
+    "failed": "Kouri a sispann bonè.",
+    "tryAgain": "Eseye ankò"
+  },
+  "modelNoTools": "{{model}} pa ka rele zouti, kidonk li pa ka aji kòm yon ajan. Chwazi yon modèl ki rele zouti.",
+  "askContinue": "Kontinye",
+  "askNext": "Pwochen kesyon",
+  "askPrev": "Kesyon anvan",
+  "askRecommended": "Rekòmande",
+  "askSelectedCount": "{{count}} chwazi",
+  "askSomethingElse": "Yon lòt bagay",
+  "askSomethingElsePlaceholder": "Tape pwòp repons ou",
+  "submit": "Soumèt",
+  "composer": {
+    "advanced": "Paramèt avanse",
+    "modelDefaults": "Modèl par défaut",
+    "assistantOverrides": "Asistan depase",
+    "printPdf": "Enprime / Sove kòm PDF",
+    "exportHint": "Fòm lizib: branch aktif. JSON: tout vèsyon mesaj yo. Fichye ekstèn yo pa pake."
+  },
+  "telemetry": {
+    "summary": "Avèk konsantman w, {{host}} resevwa sèlman vèsyon ak sistèm opere Novera, san konvèsasyon oswa yon idantifyan ki pèsistan.",
+    "unavailable": "Estatistik yo pa configuré. Pa gen done yo voye."
+  },
+  "errorTracking": {
+    "title": "Suivi erè",
+    "summary": "Rapò opsyonèl bay {{host}}: kalite erè, pozisyon kòd, vèsyon ak sistèm opere. Pa gen konvèsasyon, mesaj erè anvan tout koreksyon oswa kle. Enfim nenpòt lè.",
+    "unavailable": "Suivi erè pa configuré. Yo pa voye okenn rapò."
+  },
+  "access": {
+    "read": "Li sèlman",
+    "ask": "Mande anvan modifye oswa efase",
+    "allow": "Pèmèt koreksyon ak efase",
+    "folderNote": "Chwazi ki jan Novera ka jwenn aksè nan katab sa a."
+  },
+  "components": {
+    "title": "Konpozan lokal yo",
+    "note": "Enstale sèlman konpozan ou bezwen yo. Novera kenbe anviwònman Python separe. Sèvis Cloud pa bezwen enstalasyon lokal yo.",
+    "estimates": "Estimasyon pou telechajman: {{download}} · Espas disk obligatwa: {{space}} · Espas disk disponib: {{free}}",
+    "confirm": "Enstale anviwònman prive sa a? Se sèlman eleman yo chwazi yo pral telechaje. Lisans piblikatè yo aplike.",
+    "removeConfirm": "Retire anviwònman jere sa a? Modèl ou yo, kreyasyon yo ak konvèsasyon yo pral kenbe.",
+    "verify": "Verifye",
+    "repair": "Reparasyon",
+    "uninstall": "Dezenstale",
+    "missing": "Pa enstale",
+    "managed": "Jere pa Novera",
+    "external": "Yon chemen Python ekstèn opsyonèl depase pwofil jere a. Efase li pou itilize anviwònman Novera.",
+    "failed": "Operasyon eleman an echwe. Tcheke rezo a, espas disk la ak dwa aksè, apresa reesye oswa repare.",
+    "required": "Prepare ak verifye konpozan lokal ki nesesè yo nan Novera · Konfigirasyon yo.",
+    "updateAvailable": "Mizajou disponib",
+    "update": "Mizajou",
+    "rollback": "Retabli anviwònman anvan yo",
+    "busy": "Dechaje modèl lokal yo epi tann jenerasyon yo fini anvan yo chanje konpozan."
+  },
+  "voiceConversation": "Konvèsasyon ak vwa",
+  "voiceUnavailable": "Konvèsasyon ak vwa pa disponib",
+  "voiceMale": "Vwa gason",
+  "voiceFemale": "Vwa fi",
+  "voiceReadReplies": "Li repons yo awotvwa"
+}

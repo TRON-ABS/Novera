@@ -21,7 +21,9 @@ describe('Western Punjabi locale completeness', () => {
     for (const [key, original] of Object.entries(english)) {
       const translated = westernPunjabi[key]
       if (original) expect(translated.length, key).toBeGreaterThan(0)
-      expect(placeholders(translated), key).toEqual(placeholders(original))
+      // Unlike English, this locale's one-category includes zero.
+      const expected = key === 'htmlArtifact.unresolvedAssets_one' ? ['count'] : placeholders(original)
+      expect(placeholders(translated), key).toEqual(expected)
       expect(code(translated), key).toEqual(code(original))
       expect(identifiers(translated), key).toEqual(identifiers(original))
       expect(translated, key).not.toMatch(/[\u0A00-\u0A7F]/)

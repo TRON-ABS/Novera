@@ -245,14 +245,15 @@ pub fn update_app_configuration<R: Runtime>(
     app_handle: tauri::AppHandle<R>,
     configuration: AppConfiguration,
 ) -> Result<(), String> {
-    let configuration_file = get_configuration_file_path(app_handle);
+    let configuration_file = get_configuration_file_path(app_handle.clone());
     log::info!("update_app_configuration, configuration_file: {configuration_file:?}");
 
     fs::write(
         configuration_file,
         serde_json::to_string(&configuration).map_err(|e| e.to_string())?,
     )
-    .map_err(|e| e.to_string())
+    .map_err(|e| e.to_string())?;
+    crate::core::asset_access::initialize(&app_handle)
 }
 
 #[cfg(not(feature = "cli"))]

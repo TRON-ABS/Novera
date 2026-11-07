@@ -1,0 +1,101 @@
+{
+  "editServer": "Ka MCP Server ladilan",
+  "addServer": "Aw ye MCP Server fara a kan",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Ka farankan cogoya lajɛ..."
+    },
+    "notInstalled": {
+      "title": "Novera bɛ baara kɛtaw dafa i ka navigatɔrɔ kɔnɔ",
+      "description": "O farankan in sigi sen kan walasa ka Novera navigatɔrɔn ka don di",
+      "getExtension": "Aw ye Extension sɔrɔ"
+    }
+  },
+  "serverName": "Server tɔgɔ",
+  "enterServerName": "Sɛbɛnnikɛla tɔgɔ sɛbɛn",
+  "command": "Cikan",
+  "enterCommand": "Ka cikan don (uvx walima npx) .",
+  "arguments": "sɔsɔliw",
+  "argument": "sɔsɔli {{index}}",
+  "envVars": "Lamini fɛn caman b’a la",
+  "key": "Kɔlɔsili",
+  "value": "Nafa",
+  "save": "Kɔlɔsili",
+  "status": "Jamana cogoya",
+  "connected": "Jɛɲɔgɔnya",
+  "disconnected": "Jɛɲɔgɔnya tigɛlen don",
+  "deleteServer": {
+    "title": "Ka MCP Server bɔ",
+    "description": "Yala aw dalen b'a la ko aw b'a fɛ ka MCP baarakɛminɛn {{serverName}} bɔ wa? O wale in tɛ se ka kɔsegin.",
+    "delete": "Ka bɔ",
+    "success": "MCP baarakɛminɛn {{serverName}} bɔra ka ɲɛ"
+  },
+  "editJson": {
+    "title": "JSON ladilan ka ɲɛsin MCP Server: {{serverName}} ma.",
+    "titleAll": "MCP Server JSON bɛɛ ladilan .",
+    "placeholder": "Aw bɛ JSON labɛncogo don",
+    "errorParse": "A ma se ka kunnafoni fɔlɔw lajɛ",
+    "errorPaste": "JSON cogoya tiɲɛnen don kɔnɔkow nɔrɔlenw na",
+    "errorFormat": "JSON cogoya tɛ tiɲɛ",
+    "errorServerName": "Server tɔgɔ wajibiyalen don, a tɛ se ka kɛ lankolon ye",
+    "errorMissingServerNameKey": "JSON ka kan ka sigi senkan i n'a fɔ {\"serverName\": {config}} - server tɔgɔ kilisi tununen",
+    "errorInvalidType": "Suguya tiɲɛnen '{{type}}' ka ɲɛsin baarakɛminɛn '{{serverName}}' ma. Sugu ka kan ka kɛ ‘stdio’, ‘http’, walima ‘sse’ ye.",
+    "save": "Kɔlɔsili"
+  },
+  "checkParams": "Aw ye paramɛtiriw lajɛ ka kɛɲɛ ni kalansen ye.",
+  "title": "MCP Baarakɛlaw",
+  "experimental": "Kɔrɔbɔli",
+  "editAllJson": "Seriwɛri bɛɛ ladilan JSON .",
+  "findMore": "Aw ye MCP baarakɛminɛn wɛrɛw sɔrɔ yɔrɔ la",
+  "allowPermissions": "A to MCP Baarakɛminɛnw ka yamaruya bɛɛ",
+  "allowPermissionsDesc": "Ni a dabɔra, MCP baarakɛminɛn weleli bɛɛ bɛna sɔn a yɛrɛma k’a sɔrɔ u ma yamaruya dialoguew jira. Nin sigicogo in bɛ tali kɛ diɲɛ fan bɛɛ la baro bɛɛ la, hali baro kura.",
+  "noServers": "MCP baarakɛminɛn si ma sɔrɔ",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Server {{serverKey}} baara kɛra ka ɲɛ",
+  "serverStatusInactive": "Server {{serverKey}} dabila ka ɲɛ",
+  "runtimeSettings": {
+    "title": "Baarakɛwaati labɛncogo",
+    "description": "Novera bɛ MCP baarakɛminɛnw ɲɛnabɔ ani k’u lajɛ kokura cogo min na, o labɛn.",
+    "toolCallTimeout": "Baarakɛminɛn wele waati dafalen (seginkanni) .",
+    "toolCallTimeoutDesc": "Waati camanba min bɛ kɛ ka MCP baarakɛminɛn jaabi makɔnɔ sani waati ka ban.",
+    "maxToolOutputChars": "Max baarakɛminɛn bɔli taamasiyɛnw",
+    "maxToolOutputCharsDesc": "Baarakɛminɛn janyalenba jaabi min maralen bɛ baro kɔnɔ. Fɛn o fɛn tɛmɛna nin kan, o bɛ tigɛtigɛ ka taamasiyɛn kɛ ko a tigɛlen don, o la, nɔba kelen tɛ se ka modɛli in kɔnɔkow sɛgɛn. Aw bɛ a bila 0 la walasa jaabiw ka to u bɛɛ la.",
+    "smartToolRouting": "Smart MCP baarakɛminɛnw siratigɛ la",
+    "smartToolRoutingDesc": "Ni a dabɔra, Novera bɛ MCP baarakɛminɛnw sugandi minnu bɛ tali kɛ u la ka sɔrɔ ka baarakɛminɛnw doni. A bali ka MCP baarakɛminɛnw lisɛli dafalen doni tuma bɛɛ.",
+    "useLightweightRouterModel": "Baara kɛ ni modɛli kɛrɛnkɛrɛnnen ye sirako la",
+    "useLightweightRouterModelDesc": "Ni smart routing bɛ sen na, i ka routing step kɛ ni modeli danfaralen ye (a ka c’a la a ka dɔgɔn) chat model nɔ na. Aw bɛ a faga walasa ka baara kɛ ni chat model active ye tuma bɛɛ routing kama.",
+    "routerModel": "Siracogo misali",
+    "routerModelDesc": "Aw bɛ furakɛlikɛla ni modɛli sugandi yɔrɔ kelen na. Modeli nɔgɔmanw dɔrɔn de bɛ jate walasa siraw ka to teliya la ani u sɔngɔ ka dɔgɔ.",
+    "selectRouterModelPlaceholder": "A’ ye sirako modɛli sugandi...",
+    "routerModelSearchPlaceholder": "Ɲini modeliw...",
+    "routerModelEmptyList": "Modeli nɔgɔmanw tɛ sɔrɔ. Modèle fitinin dɔ fara a kan walima ka API keys labɛn Models kɔnɔ.",
+    "routerModelEmptySearch": "A ma bɛn “{{query}}” ma."
+  },
+  "auth": {
+    "label": "Sɛbɛnni:",
+    "state": {
+      "notApplicable": "tɛ wajibiya",
+      "staticHeader": "Laseli kuncɛ",
+      "authenticated": "tiɲɛni kɛra",
+      "expired": "waati tɛmɛna",
+      "staleResource": "bɔra URL wɛrɛ kama .",
+      "unauthenticated": "a ma sɛgɛsɛgɛ"
+    },
+    "expiresIn": "bɛ ban {{duration}} kɔnɔ.",
+    "authenticate": "I ka don a kɔnɔ",
+    "reauthenticate": "Ka segin ka dantigɛli kɛ",
+    "clear": "Sɛbɛnni jɛlen",
+    "waiting": "Navigatɛri makɔnɔni...",
+    "openSignInPage": "Aw bɛ don yɔrɔ da wuli",
+    "needsAuth": "{{serverName}} mago bɛ dantigɛli la",
+    "needsAuthHint": "Aw bɛ don nin sèrwɛri in kɔnɔ walasa ka ɲɔgɔn sɔrɔ.",
+    "authorized": "A donna {{serverName}} la .",
+    "authorizeFailed": "{{serverName}} donni ma ɲɛ",
+    "cleared": "Seereyaw maralenw saniyalen don {{serverName}} kama.",
+    "nothingToClear": "{{serverName}} tun tɛ ni seereyaw maralen ye",
+    "clearFailed": "A ma se ka seereyaw jɛya {{serverName}} kan.",
+    "renew": "Kalansen kura",
+    "expiredAgo": "waati tɛmɛna {{duration}} tɛmɛnen kɔ"
+  }
+}

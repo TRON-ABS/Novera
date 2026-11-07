@@ -831,5 +831,10 @@
     "update": "アップデート",
     "rollback": "以前の環境を復元する",
     "busy": "ローカル モデルをアンロードし、世代が完了するまで待ってからコンポーネントを変更します。"
-  }
+  },
+  "voiceConversation": "音声会話",
+  "voiceUnavailable": "音声会話は利用できません",
+  "voiceMale": "男性の声",
+  "voiceFemale": "女性の声",
+  "voiceReadReplies": "回答を読み上げる"
 }

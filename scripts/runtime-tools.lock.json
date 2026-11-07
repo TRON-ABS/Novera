@@ -1,0 +1,62 @@
+{
+  "bun": {
+    "version": "bun-v1.4.4",
+    "repository": "oven-sh/bun",
+    "artifacts": {
+      "bun-windows-x64.zip": {
+        "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-windows-x64.zip",
+        "sha256": "cd2c0fccc78f3ede1f50ca827a15f063eda13d4d150a3d0674f4f6e323d864a5"
+      },
+      "bun-windows-aarch64.zip": {
+        "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-windows-aarch64.zip",
+        "sha256": "2d57a0eec0cb44d95c918c3f9734f60455a1306ae5085d76fc68f44e3ee30d09"
+      },
+      "bun-linux-x64.zip": {
+        "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64.zip",
+        "sha256": "bf8ccbfb2b0b80159e0f9a6d15c55317add8077534dbc6130a3edb52fccb395c"
+      },
+      "bun-linux-aarch64.zip": {
+        "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-aarch64.zip",
+        "sha256": "baa6bb36f51d6e58561e02bbea825038a9df454f673d6d776e8bbf86f8c7850e"
+      },
+      "bun-darwin-x64.zip": {
+        "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-darwin-x64.zip",
+        "sha256": "50a3491f73abc2fe81673171a85762d3bc2cc1680ccecadd983de99adf77977e"
+      },
+      "bun-darwin-aarch64.zip": {
+        "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-darwin-aarch64.zip",
+        "sha256": "c240d7f0ccb90c263a849fcdb09b7ee62630d921348ed6aafda86b9d577bc510"
+      }
+    }
+  },
+  "uv": {
+    "version": "0.13.7",
+    "repository": "astral-sh/uv",
+    "artifacts": {
+      "uv-x86_64-pc-windows-msvc.zip": {
+        "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip",
+        "sha256": "0cdc5b38fe5a8168ed6a25814f5ba43c21d313dd3187314fccb37b7cec46e021"
+      },
+      "uv-aarch64-pc-windows-msvc.zip": {
+        "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-aarch64-pc-windows-msvc.zip",
+        "sha256": "505d9e65e7692bac3ddf98c66754aa26c5050c409c184af30a881a0a72cc85e3"
+      },
+      "uv-x86_64-unknown-linux-gnu.tar.gz": {
+        "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-unknown-linux-gnu.tar.gz",
+        "sha256": "c5221ff41b7892bfc223543883600125f6a47fe845093e0f5bdff4f359196d83"
+      },
+      "uv-aarch64-unknown-linux-gnu.tar.gz": {
+        "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-aarch64-unknown-linux-gnu.tar.gz",
+        "sha256": "71279f8d3c67241e807b9d8db872d1bf541579fb9f08b7d1eb1682196d1e57dc"
+      },
+      "uv-x86_64-apple-darwin.tar.gz": {
+        "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-apple-darwin.tar.gz",
+        "sha256": "20c47e4c1f630b8abaff8c291fa9b9aa300fef92c4fbff95adf198b55287cda7"
+      },
+      "uv-aarch64-apple-darwin.tar.gz": {
+        "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-aarch64-apple-darwin.tar.gz",
+        "sha256": "81b811b57e4624df7ed3aac148e0359100d9962f3d9dce00aec533dc2e086731"
+      }
+    }
+  }
+}

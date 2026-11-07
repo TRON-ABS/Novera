@@ -1,0 +1,18 @@
+{
+  "addProvider": "Kenya Mofani",
+  "addOpenAIProvider": "Kenya Mofani oa Litloaelo",
+  "enterNameForProvider": "Lebitso la mofani (mohlala, my-llm-server)",
+  "apiTypeLabel": "API sebopeho",
+  "apiTypeOpenAI": "OpenAI-e lumellana",
+  "apiTypeAnthropic": "Anthropic-e lumellana",
+  "baseUrlLabel": "Motheo URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API senotlolo",
+  "apiKeyPlaceholder": "Beha senotlolo sa hau sa API",
+  "invalidBaseUrl": "Motheo URL e tlameha ho ba http(ma) e nepahetseng URL",
+  "globalSettings": "Litlhophiso tsa lefats'e",
+  "stripReasoning": "Fetola mabaka ho tsoa moelelong",
+  "stripReasoningDesc": "Tlosa litaba tsa ho nahana/ho beha mabaka pele u romella nalane ho bafani bohle. Ntlafatsa KV-cache ho sebelisoa hape bakeng sa mefuta ea lehae, empa mefuta e meng (e.g. tse ncha Qwen) e khothaletsa ho e boloka molemong oa ho beha mabaka ka litsela tse ngata.",
+  "providerAlreadyExists": "Ho na le mofani ea bitsoang {{name}} o se a ntse a le teng."
+}

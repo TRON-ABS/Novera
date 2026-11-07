@@ -97,7 +97,7 @@ describe('fetchTopRemoteModels gemini', () => {
 })
 
 describe('fetchTopRemoteModels openai', () => {
-  it('filters non-chat models, infers vision+tools on gpt-4o, returns top 10 sorted by created desc', async () => {
+  it('filters non-chat models, infers vision+tools on gpt-4o and sorts by created desc', async () => {
     const fetchImpl = vi.fn().mockResolvedValue(
       mkResponse({
         data: [
@@ -122,7 +122,7 @@ describe('fetchTopRemoteModels openai', () => {
     expect(result.map((m) => m.id)).not.toContain('text-embedding-3-small')
     expect(result.map((m) => m.id)).not.toContain('whisper-1')
     expect(result.map((m) => m.id)).not.toContain('dall-e-3')
-    expect(result.length).toBeLessThanOrEqual(10)
+    expect(result).toHaveLength(9)
     expect(result[0].id).toBe('gpt-5')
     const gpt4o = result.find((m) => m.id === 'gpt-4o')!
     expect(gpt4o.capabilities).toEqual(['completion', 'tools', 'vision'])

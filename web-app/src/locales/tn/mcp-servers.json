@@ -1,0 +1,101 @@
+{
+  "editServer": "Tseleganya MCP Sefara",
+  "addServer": "Tsenya Sefara ya MCP",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Go tlhola seemo sa katoloso..."
+    },
+    "notInstalled": {
+      "title": "Novera e wetsa ditiro mo sebatling sa gago",
+      "description": "Tsenya katoloso go naya Novera phitlhelelo ya sebatli",
+      "getExtension": "Bona Katoloso"
+    }
+  },
+  "serverName": "Leina la Sefara",
+  "enterServerName": "Tsenya leina la sefara",
+  "command": "Taelo",
+  "enterCommand": "Tsenya taelo (uvx kgotsa npx)",
+  "arguments": "Dingangisano",
+  "argument": "Ngangisano {{index}}",
+  "envVars": "Diphetogo tsa Tikologo",
+  "key": "Senotlolo",
+  "value": "Boleng",
+  "save": "Boloka",
+  "status": "Boemo",
+  "connected": "E golagantswe",
+  "disconnected": "E kgaotswe",
+  "deleteServer": {
+    "title": "Phimola MCP Sefara",
+    "description": "A o tlhomamisa gore o batla go phimola sefara ya MCP {{serverName}}? Tiro eno ga e ka ke ya dirololwa.",
+    "delete": "Phimola",
+    "success": "MCP sefara {{serverName}} e phimotswe ka katlego"
+  },
+  "editJson": {
+    "title": "Tseleganya JSON ya MCP Sefara: {{serverName}}",
+    "titleAll": "Tseleganya Disefara Tsotlhe tsa MCP JSON",
+    "placeholder": "Tsenya thulaganyo ya JSON",
+    "errorParse": "E paletswe ke go tlhatlhoba tshedimosetso ya ntlha",
+    "errorPaste": "Fomete ya JSON e e sa direng mo diteng tse di kgomareditsweng",
+    "errorFormat": "Fomete ya JSON e e sa direng",
+    "errorServerName": "Leina la sefara le a tlhokega mme ga le ka ke la nna lolea",
+    "errorMissingServerNameKey": "JSON e tshwanetse go rulaganngwa jaaka {\"Leina la sefara\": {thulaganyo}} - senotlolo sa leina la sefara ga se yo",
+    "errorInvalidType": "Mofuta o o sa direng wa '{{type}}' wa sefara '{{serverName}}'. Mofuta o tshwanetse go nna 'stdio', 'http', kgotsa 'sse'.",
+    "save": "Boloka"
+  },
+  "checkParams": "Tsweetswee tlhola dipharametara go ya ka thuto.",
+  "title": "MCP Disefara",
+  "experimental": "Tekeletso",
+  "editAllJson": "Tseleganya Disefara Tsotlhe JSON",
+  "findMore": "Batla disefara tse dingwe tsa MCP kwa",
+  "allowPermissions": "Letla Tsotlhe MCP Ditetlelelo tsa Didirisiwa",
+  "allowPermissionsDesc": "Fa e kgontshitswe, dipitso tsotlhe tsa didirisiwa tsa MCP di tla amogelwa ka itiriso kwantle ga go bontsha dipuisano tsa tetlelelo. Seting eno e dira lefatshe ka bophara mo metlotlong yotlhe, go akaretsa le mo metlotlong e mesha.",
+  "noServers": "Ga go na disefara tsa MCP tse di bonweng",
+  "args": "Dikgaogano",
+  "env": "Tikologo",
+  "serverStatusActive": "Sefara {{serverKey}} e tsentswe tirisong ka katlego",
+  "serverStatusInactive": "Sefara {{serverKey}} e timilwe ka katlego",
+  "runtimeSettings": {
+    "title": "Diseting tsa Nako ya go Dira",
+    "description": "Rulaganya ka moo Novera e laolang le go leka gape disefara tsa MCP ka teng.",
+    "toolCallTimeout": "Nako ya go bitsa sedirisiwa e fedile (metsotswana)",
+    "toolCallTimeoutDesc": "Nako e e kwa godimo ya go leta karabo ya sediriswa sa MCP pele ga nako e fela.",
+    "maxToolOutputChars": "Ditlhaka tse di kwa godimo tsa dipholo tsa sedirisiwa",
+    "maxToolOutputCharsDesc": "Sephetho sa sediriswa se seleele go gaisa se se bolokilweng mo motlotlong. Sengwe le sengwe se se fetileng se se a kgaolwa le go tshwaiwa jaaka se se kgaotsweng, ka jalo sephetho se le sengwe se segolo ga se ka ke sa lapisa bokao jwa sekao. Seta go 0 go boloka dipholo di feletse.",
+    "smartToolRouting": "Tsela ya didirisiwa tsa MCP tse di botlhale",
+    "smartToolRoutingDesc": "Fa e kgontshitswe, Novera e tlhopha disefara tse di maleba tsa MCP pele e laisa didiriswa. Thibela gore ka metlha o laise lenaane la didirisiwa le le feletseng la MCP.",
+    "useLightweightRouterModel": "Dirisa sekao se se kgethegileng sa go tsenya tsela",
+    "useLightweightRouterModelDesc": "Fa tsela e e botlhale e butswe, tsamaisa kgato ya tsela ka sekao se se farologaneng (gantsi se sennye) go na le sekao sa motlotlo. Tima gore ka metlha o dirise sekai sa motlotlo se se dirang sa go tsenya tsela.",
+    "routerModel": "Sekao sa tsela",
+    "routerModelDesc": "Tlhopha moabi le sekao mo lefelong le le lengwe. Feela dikai bobebe tse thathamisitsoeng kahoo routing lula ka potlako le theko e tlaase.",
+    "selectRouterModelPlaceholder": "Tlhopha sekao sa tsela...",
+    "routerModelSearchPlaceholder": "Batla dikai...",
+    "routerModelEmptyList": "Ga go na dikai tse di botlhofo tse di leng teng. Tsenya sekao se sennye kgotsa rulaganya dinotlolo tsa API mo Dimotlolong.",
+    "routerModelEmptySearch": "Ga go na ditshwano tsa “{{query}}”."
+  },
+  "auth": {
+    "label": "Boitlamo:",
+    "state": {
+      "notApplicable": "ga go tlhokege",
+      "staticHeader": "Setlhogo sa tetlelelo",
+      "authenticated": "e netefaditswe",
+      "expired": "e fedile",
+      "staleResource": "e ntsheditswe URL e nngwe",
+      "unauthenticated": "ga e a netefadiwa"
+    },
+    "expiresIn": "e felelwa ke nako ka {{duration}}",
+    "authenticate": "Tsena",
+    "reauthenticate": "Netefatsa gape",
+    "clear": "Phimola netefatso",
+    "waiting": "Ke emetse sebatli...",
+    "openSignInPage": "Bula tsebe ya go tsena",
+    "needsAuth": "{{serverName}} e tlhoka netefatso",
+    "needsAuthHint": "Saenela go tsena mo sefareng eno go golagana.",
+    "authorized": "O saenile mo {{serverName}}",
+    "authorizeFailed": "Saenela go tsena {{serverName}} go sa falole",
+    "cleared": "E phimotse dintlha tsa boitshupo tse di bolokilweng tsa {{serverName}}",
+    "nothingToClear": "{{serverName}} e ne e sena makwaloitshupo a a bolokilweng",
+    "clearFailed": "Ga e a kgona go phimola makwaloitshupo a {{serverName}}",
+    "renew": "Ntšhwafatsa thulaganyo",
+    "expiredAgo": "e feletswe ke nako {{duration}} e e fetileng"
+  }
+}

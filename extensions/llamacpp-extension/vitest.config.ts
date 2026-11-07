@@ -5,6 +5,7 @@ const resolveHere = (p: string) => fileURLToPath(new URL(p, import.meta.url))
 
 export default defineConfig({
   test: {
+    maxWorkers: 4,
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],

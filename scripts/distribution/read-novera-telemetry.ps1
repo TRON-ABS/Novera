@@ -2,13 +2,19 @@
 function Read-NoveraTelemetry([string]$Path) {
     if (!(Test-Path -LiteralPath $Path -PathType Leaf)) { throw 'Telemetry configuration file missing.' }
     $values = @{}
-    foreach ($line in [IO.File]::ReadAllLines($Path)) {
-        if ($line -match '^\s*(NOVERA_ANALYTICS_HOST|NOVERA_ANALYTICS_PROJECT_KEY)\s*=\s*(.*?)\s*$') {
-            $name = $Matches[1]
-            $value = $Matches[2]
-            if ($values.ContainsKey($name)) { throw 'Duplicate telemetry setting.' }
-            if ($value.Length -ge 2 -and (($value.StartsWith('"') -and $value.EndsWith('"')) -or ($value.StartsWith("'") -and $value.EndsWith("'")))) { $value = $value.Substring(1, $value.Length - 2) }
-            $values[$name] = $value
+    if ([IO.Path]::GetExtension($Path) -eq '.json') {
+        $publicConfig = Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json
+        $values['NOVERA_ANALYTICS_HOST'] = [string]$publicConfig.host
+        $values['NOVERA_ANALYTICS_PROJECT_KEY'] = [string]$publicConfig.projectKey
+    } else {
+        foreach ($line in [IO.File]::ReadAllLines($Path)) {
+            if ($line -match '^\s*(NOVERA_ANALYTICS_HOST|NOVERA_ANALYTICS_PROJECT_KEY)\s*=\s*(.*?)\s*$') {
+                $name = $Matches[1]
+                $value = $Matches[2]
+                if ($values.ContainsKey($name)) { throw 'Duplicate telemetry setting.' }
+                if ($value.Length -ge 2 -and (($value.StartsWith('"') -and $value.EndsWith('"')) -or ($value.StartsWith("'") -and $value.EndsWith("'")))) { $value = $value.Substring(1, $value.Length - 2) }
+                $values[$name] = $value
+            }
         }
     }
     $hostValue = [string]$values['NOVERA_ANALYTICS_HOST']

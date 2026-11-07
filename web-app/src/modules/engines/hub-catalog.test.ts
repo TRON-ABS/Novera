@@ -29,6 +29,12 @@ const sf = {
 }
 
 describe('Hub taxonomy and hardware checks', () => {
+  it('routes the verified LFM3 Audio and Omni GGUF families to llama.cpp', () => {
+    for (const model_name of ['LiquidAI/LFM3-Audio-2B-GGUF','LiquidAI/LFM3-Omni-2B-GGUF']) {
+      expect(modelEngine({...gguf,model_name,pipeline_tag:'any-to-any'})).toBe('llamacpp')
+    }
+    expect(modelEngine({...gguf,model_name:'other/audio-model',pipeline_tag:'any-to-any'})).toBe('future')
+  })
   it('never treats an adapter alone as a runnable complete model', () => {
     expect(modelEngine({ ...sf, library_name: 'peft' })).toBe('future')
     expect(diagnoseHubModel({ ...sf, library_name: 'peft' }, hardware, { weightsBytes: 1e6 })).toMatchObject({ memory: 'unknown', requiredBytes: null })

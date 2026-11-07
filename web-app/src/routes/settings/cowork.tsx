@@ -42,9 +42,7 @@ import {
   deleteMemory,
   type SkillMeta,
 } from '@/lib/agentWorkspace'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute(route.settings.cowork as any)({
+export const Route = createFileRoute("/settings/cowork")({
   beforeLoad: () => ensureCoworkEnabled(route.settings.general),
   component: CoworkSettingsContent,
 })

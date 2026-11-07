@@ -6,8 +6,8 @@ use crate::{
 use sysinfo::System;
 
 fn compute_system_info() -> SystemInfo {
-    let mut system = System::new();
-    system.refresh_memory();
+    let mut system = System::new().ok();
+    if let Some(system) = system.as_mut() { system.refresh_memory(); }
 
     let mut gpu_map = std::collections::HashMap::new();
     for gpu in nvidia::get_nvidia_gpus() {
@@ -43,7 +43,7 @@ fn compute_system_info() -> SystemInfo {
         cpu: CpuStaticInfo::new(),
         os_type: os_type.to_string(),
         os_name,
-        total_memory: system.total_memory() / 1024 / 1024, // bytes to MiB
+        total_memory: system.as_ref().map(|system| system.total_memory() / 1024 / 1024).unwrap_or(0), // bytes to MiB
         gpus: gpu_map.into_values().collect(),
     }
 }
@@ -79,7 +79,10 @@ pub fn refresh_system_info() {
 
 #[tauri::command]
 pub fn get_system_usage() -> SystemUsage {
-    let mut system = System::new();
+    let Ok(mut system) = System::new() else {
+        log::warn!("System usage is unavailable");
+        return SystemUsage { cpu: 0.0, used_memory: 0, total_memory: 0, gpus: vec![] };
+    };
     system.refresh_memory();
 
     // need to refresh 2 times to get CPU usage
@@ -89,7 +92,7 @@ pub fn get_system_usage() -> SystemUsage {
 
     let cpus = system.cpus();
     let cpu_usage =
-        cpus.iter().map(|cpu| cpu.cpu_usage()).sum::<f32>() / (cpus.len().max(1) as f32);
+        cpus.iter().map(|cpu| cpu.usage()).sum::<f32>() / (cpus.len().max(1) as f32);
 
     SystemUsage {
         cpu: cpu_usage,
@@ -102,3 +105,4 @@ pub fn get_system_usage() -> SystemUsage {
             .collect(),
     }
 }
+

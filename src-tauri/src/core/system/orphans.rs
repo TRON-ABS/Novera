@@ -200,7 +200,10 @@ pub fn sweep_orphaned_engines(data_folder: &Path) -> usize {
         return 0;
     }
 
-    let mut system = System::new();
+    let Ok(mut system) = System::new() else {
+        log::warn!("Process table unavailable; skipping orphan cleanup");
+        return 0;
+    };
     system.refresh_processes_specifics(
         ProcessesToUpdate::All,
         true,

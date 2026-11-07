@@ -73,14 +73,20 @@ try {
     $env:NOVERA_ANALYTICS_PROJECT_KEY = ''
     $telemetryConfigured = $false
     $env:NOVERA_MONITORING_BUILD = 'false'
+    $env:NOVERA_DISABLE_TELEMETRY = 'true'
     $env:NOVERA_BUILD_ID = "$($config.version)-$stamp"
     if ($monitoringRequested) {
         . (Join-Path $PSScriptRoot 'read-novera-telemetry.ps1')
-        $telemetry = Read-NoveraTelemetry (Join-Path $repo 'web-app/.env.local')
+        $telemetryPath = Join-Path $repo 'web-app/.env.local'
+        if (!(Test-Path -LiteralPath $telemetryPath -PathType Leaf)) {
+            $telemetryPath = Join-Path $repo 'scripts/monitoring/novera-telemetry.public.json'
+        }
+        $telemetry = Read-NoveraTelemetry $telemetryPath
         $env:NOVERA_ANALYTICS_HOST = $telemetry.Host
         $env:NOVERA_ANALYTICS_PROJECT_KEY = $telemetry.Key
         $telemetryConfigured = $true
         $env:NOVERA_MONITORING_BUILD = 'true'
+        $env:NOVERA_DISABLE_TELEMETRY = 'false'
         Write-Output "Telemetry destination configured: $($telemetry.Host). User consent remains required."
     }
     $env:CARGO_BUILD_JOBS = '8'

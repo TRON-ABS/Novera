@@ -831,5 +831,10 @@
     "update": "Opdatering",
     "rollback": "Herstel vorige omgewing",
     "busy": "Laai plaaslike modelle af en wag vir generasies om klaar te maak voordat komponente verander word."
-  }
+  },
+  "voiceConversation": "Stemgesprek",
+  "voiceUnavailable": "Stemgesprek is nie beskikbaar nie",
+  "voiceMale": "Manstem",
+  "voiceFemale": "Vrouestem",
+  "voiceReadReplies": "Lees antwoorde hardop"
 }

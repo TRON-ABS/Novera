@@ -1,0 +1,10 @@
+{
+  "newVersion": "Νέα έκδοση {{version}}",
+  "updateAvailable": "Διαθέσιμη ενημέρωση",
+  "nightlyBuild": "Νυχτερινή κατασκευή",
+  "showReleaseNotes": "Εμφάνιση σημειώσεων έκδοσης",
+  "hideReleaseNotes": "Απόκρυψη σημειώσεων έκδοσης",
+  "remindMeLater": "Θυμήσου με αργότερα",
+  "downloading": "ΑΠΟ ΤΗΝ ΠΟΛΗ...",
+  "updateNow": "Ενημέρωση τώρα"
+}

@@ -1774,5 +1774,538 @@
         "Ividiyo"
       ]
     }
+  },
+  "gan": {
+    "verbs": [
+      "創作",
+      "生成",
+      "創建",
+      "做"
+    ],
+    "terms": {
+      "text": [
+        "文字"
+      ],
+      "image": [
+        "圖像"
+      ],
+      "music": [
+        "音樂"
+      ],
+      "video": [
+        "影片"
+      ]
+    }
+  },
+  "pbt": {
+    "verbs": [
+      "جوړ",
+      "جوړه",
+      "جوړول",
+      "جوړه کړئ"
+    ],
+    "terms": {
+      "text": [
+        "متن"
+      ],
+      "image": [
+        "انځور"
+      ],
+      "music": [
+        "موسيقي",
+        "موسیقی"
+      ],
+      "video": [
+        "ویډیو"
+      ]
+    }
+  },
+  "mag": {
+    "verbs": [
+      "बनावऽ",
+      "बनाव",
+      "रचऽ"
+    ],
+    "terms": {
+      "text": [
+        "पाठ"
+      ],
+      "image": [
+        "छवि"
+      ],
+      "music": [
+        "संगीत"
+      ],
+      "video": [
+        "वीडियो"
+      ]
+    }
+  },
+  "ars": {
+    "verbs": [
+      "سوي",
+      "سوّي",
+      "انشئ",
+      "اصنع"
+    ],
+    "terms": {
+      "text": [
+        "نص"
+      ],
+      "image": [
+        "صورة"
+      ],
+      "music": [
+        "موسيقى",
+        "موسيقي"
+      ],
+      "video": [
+        "فيديو"
+      ]
+    }
+  },
+  "acm": {
+    "verbs": [
+      "سوي",
+      "سوّي",
+      "انشئ",
+      "اصنع"
+    ],
+    "terms": {
+      "text": [
+        "نص"
+      ],
+      "image": [
+        "صورة"
+      ],
+      "music": [
+        "موسيقى",
+        "موسيقي"
+      ],
+      "video": [
+        "فيديو"
+      ]
+    }
+  },
+  "fuv": {
+    "verbs": [
+      "taf",
+      "taggu",
+      "waɗ"
+    ],
+    "terms": {
+      "text": [
+        "Deftere"
+      ],
+      "image": [
+        "Foto"
+      ],
+      "music": [
+        "Gimol",
+        "gimɗi"
+      ],
+      "video": [
+        "Bidiyo"
+      ]
+    }
+  },
+  "hne": {
+    "verbs": [
+      "बनावव",
+      "बनाव",
+      "रचव"
+    ],
+    "terms": {
+      "text": [
+        "पाठ"
+      ],
+      "image": [
+        "छवि"
+      ],
+      "music": [
+        "संगीत"
+      ],
+      "video": [
+        "वीडियो"
+      ]
+    }
+  },
+  "tts": {
+    "verbs": [
+      "เฮ็ด",
+      "สร้าง",
+      "แต่ง"
+    ],
+    "terms": {
+      "text": [
+        "ข้อความ"
+      ],
+      "image": [
+        "รูปภาพ"
+      ],
+      "music": [
+        "เพลง",
+        "ดนตรี"
+      ],
+      "video": [
+        "วิดีโอ"
+      ]
+    }
+  },
+  "ny": {
+    "verbs": [
+      "pangani",
+      "panga"
+    ],
+    "terms": {
+      "text": [
+        "Mawu"
+      ],
+      "image": [
+        "Chithunzi"
+      ],
+      "music": [
+        "Nyimbo",
+        "nyimbo"
+      ],
+      "video": [
+        "Kanema"
+      ]
+    }
+  },
+  "bm": {
+    "verbs": [
+      "dabɔ",
+      "da",
+      "labɛn"
+    ],
+    "terms": {
+      "text": [
+        "Sɛbɛnni"
+      ],
+      "image": [
+        "Jaa"
+      ],
+      "music": [
+        "Misikili",
+        "misikili"
+      ],
+      "video": [
+        "Wideyo"
+      ]
+    }
+  },
+  "sn": {
+    "verbs": [
+      "gadzira",
+      "nyora"
+    ],
+    "terms": {
+      "text": [
+        "Runyoro"
+      ],
+      "image": [
+        "Mufananidzo"
+      ],
+      "music": [
+        "Mimhanzi",
+        "mimhanzi"
+      ],
+      "video": [
+        "Vhidhiyo"
+      ]
+    }
+  },
+  "azb": {
+    "verbs": [
+      "یارات",
+      "یاراتین",
+      "حاضیرلا",
+      "بستله"
+    ],
+    "terms": {
+      "text": [
+        "متن"
+      ],
+      "image": [
+        "شكیل"
+      ],
+      "music": [
+        "موُسیقی",
+        "موسیقی",
+        "موسیقیه"
+      ],
+      "video": [
+        "ویدئوْ"
+      ]
+    }
+  },
+  "tn": {
+    "verbs": [
+      "tlhama",
+      "dira"
+    ],
+    "terms": {
+      "text": [
+        "Mokwalo"
+      ],
+      "image": [
+        "Setshwantsho"
+      ],
+      "music": [
+        "Mmino",
+        "mmino"
+      ],
+      "video": [
+        "Bidio"
+      ]
+    }
+  },
+  "nso": {
+    "verbs": [
+      "hlama",
+      "bopa"
+    ],
+    "terms": {
+      "text": [
+        "Sengwalwa"
+      ],
+      "image": [
+        "Setšoantšo"
+      ],
+      "music": [
+        "Mmino",
+        "mmino"
+      ],
+      "video": [
+        "Bidio ya"
+      ]
+    }
+  },
+  "bar": {
+    "verbs": [
+      "mach",
+      "erstell",
+      "komponier"
+    ],
+    "terms": {
+      "text": [
+        "Text"
+      ],
+      "image": [
+        "Bild"
+      ],
+      "music": [
+        "Musig",
+        "musi",
+        "musik"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "ht": {
+    "verbs": [
+      "kreye",
+      "jenere",
+      "konpoze",
+      "fè"
+    ],
+    "terms": {
+      "text": [
+        "Tèks"
+      ],
+      "image": [
+        "Imaj"
+      ],
+      "music": [
+        "Mizik",
+        "mizik"
+      ],
+      "video": [
+        "Videyo"
+      ]
+    }
+  },
+  "ug": {
+    "verbs": [
+      "ئىجاد قىل",
+      "يارىتىڭ",
+      "ھاسىل قىل"
+    ],
+    "terms": {
+      "text": [
+        "تېكىست"
+      ],
+      "image": [
+        "سۈرەت"
+      ],
+      "music": [
+        "مۇزىكا"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "st": {
+    "verbs": [
+      "theha",
+      "bopa",
+      "etsa"
+    ],
+    "terms": {
+      "text": [
+        "Mongolo"
+      ],
+      "image": [
+        "Setšoantšo"
+      ],
+      "music": [
+        "Mmino",
+        "mmino"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "el": {
+    "verbs": [
+      "δημιούργησε",
+      "δημιουργία",
+      "φτιάξε",
+      "σύνθεσε"
+    ],
+    "terms": {
+      "text": [
+        "Κείμενο"
+      ],
+      "image": [
+        "Εικόνα"
+      ],
+      "music": [
+        "Μουσική",
+        "μουσική"
+      ],
+      "video": [
+        "Βίντεο"
+      ]
+    }
+  },
+  "ctg": {
+    "verbs": [
+      "বানাও",
+      "গর",
+      "বনাও"
+    ],
+    "terms": {
+      "text": [
+        "টেক্সট"
+      ],
+      "image": [
+        "ইমেজ"
+      ],
+      "music": [
+        "মিউজিক",
+        "গান",
+        "সঙ্গীত"
+      ],
+      "video": [
+        "ভিডিও"
+      ]
+    }
+  },
+  "rn": {
+    "verbs": [
+      "himba",
+      "rema",
+      "kora"
+    ],
+    "terms": {
+      "text": [
+        "Inyandiko"
+      ],
+      "image": [
+        "Ishusho"
+      ],
+      "music": [
+        "Muzika",
+        "umuziki",
+        "muzika"
+      ],
+      "video": [
+        "Videwo"
+      ]
+    }
+  },
+  "dyu": {
+    "verbs": [
+      "da",
+      "dilan"
+    ],
+    "terms": {
+      "text": [
+        "Fɔliko"
+      ],
+      "image": [
+        "Jatibo"
+      ],
+      "music": [
+        "Muziki",
+        "dɔnkili",
+        "fɔli"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "tr": {
+    "verbs": [
+      "oluştur",
+      "üret",
+      "bestele",
+      "yap"
+    ],
+    "terms": {
+      "text": [
+        "Metin"
+      ],
+      "image": [
+        "Görsel"
+      ],
+      "music": [
+        "Müzik",
+        "müzik"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
+  },
+  "sv": {
+    "verbs": [
+      "skapa",
+      "generera",
+      "komponera",
+      "gör"
+    ],
+    "terms": {
+      "text": [
+        "Text"
+      ],
+      "image": [
+        "Bild"
+      ],
+      "music": [
+        "Musik",
+        "musik"
+      ],
+      "video": [
+        "Video"
+      ]
+    }
   }
 }

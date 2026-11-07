@@ -26,8 +26,8 @@ use std::collections::HashMap;
 use std::io::Write;
 use std::sync::{Arc, LazyLock, Mutex, OnceLock};
 
-use hmac::{Hmac, Mac};
-use rand::RngCore;
+use hmac::{Hmac, KeyInit, Mac};
+use rand::Rng;
 use regex::Regex;
 use serde_json::Value;
 use sha2::Sha256;
@@ -164,7 +164,7 @@ fn load_key_at(path: Option<&std::path::Path>) -> [u8; 32] {
         }
     }
     let mut key = [0u8; 32];
-    rand::thread_rng().fill_bytes(&mut key);
+    rand::rng().fill_bytes(&mut key);
     if let Some(path) = path {
         if let Err(e) = save_key(path, &key) {
             log::warn!(

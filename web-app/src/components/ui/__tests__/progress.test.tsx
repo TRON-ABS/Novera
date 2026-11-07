@@ -73,7 +73,7 @@ describe('Progress', () => {
     render(<Progress value={-10} />)
     
     const indicator = document.querySelector('[data-slot="progress-indicator"]')
-    expect(indicator).toHaveStyle('transform: translateX(-110%)')
+    expect(indicator).toHaveStyle('transform: translateX(-100%)')
   })
 
   it('handles values over 100', () => {
@@ -81,7 +81,8 @@ describe('Progress', () => {
     
     const indicator = document.querySelector('[data-slot="progress-indicator"]')
     expect(indicator).toBeInTheDocument()
-    // For values over 100, the transform should be positive
-    expect(indicator?.style.transform).toContain('translateX(--50%)')
+    // Progress is bounded to the accessible 0–100 range.
+    expect(indicator).toHaveStyle('transform: translateX(0%)')
+    expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '100')
   })
 })

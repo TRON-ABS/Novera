@@ -98,6 +98,64 @@ describe('llamacpp_extension', () => {
     })
   })
 
+  describe('startup settings ordering', () => {
+    it('defers provisioning markers until startup migrations finish', async () => {
+      let release!: () => void
+      vi.spyOn(extension as any, 'initialize').mockImplementation(() => new Promise<void>(resolve => { release = resolve }))
+      vi.spyOn(extension as any, 'runStartEngine').mockResolvedValue(undefined)
+      vi.spyOn(extension as any, 'bootstrapDefaultEmbedder').mockResolvedValue(undefined)
+      const initializing = extension.onLoad()
+      const provisioning = extension['ensureProvisioned']()
+      await Promise.resolve()
+      expect(extension['backgroundInit']).toBeUndefined()
+      release()
+      await initializing
+      await provisioning
+      expect(extension['runStartEngine']).toHaveBeenCalledOnce()
+    })
+    it('waits for persisted settings before producing a preset for an early load', async () => {
+      vi.mocked(getJanDataFolderPath).mockResolvedValue('/data')
+      vi.spyOn(extension, 'getProviderPath').mockResolvedValue('/provider')
+      let release!: () => void
+      const settings = new Promise<void>(resolve => { release = resolve })
+      vi.spyOn(extension as any, 'initialize').mockImplementation(async () => {
+        await settings
+        extension['config'] = { kv_unified: 'off', fit: false, models_max: 2 } as any
+      })
+      vi.mocked(generatePreset).mockResolvedValue({ path: '/preset.ini', embeddingCount: 0 })
+      const initializing = extension.onLoad()
+      const loading = extension['startEngine']()
+      await Promise.resolve()
+      expect(generatePreset).not.toHaveBeenCalled()
+      expect(startEngine).not.toHaveBeenCalled()
+      release()
+      await initializing
+      await loading
+      expect(generatePreset).toHaveBeenCalledWith('/provider', '/data',
+        expect.objectContaining({ kv_unified: 'off', fit: false, models_max: 2 }))
+      expect(startEngine).toHaveBeenCalledOnce()
+    })
+
+    it('does not start with temporary defaults after settings initialization fails', async () => {
+      vi.spyOn(extension as any, 'initialize').mockRejectedValue(new Error('settings unreadable'))
+      await expect(extension.onLoad()).rejects.toThrow('settings unreadable')
+      await expect(extension['startEngine']()).rejects.toThrow('settings unreadable')
+      expect(startEngine).not.toHaveBeenCalled()
+    })
+
+    it('reports a failed shared start to every waiting caller', async () => {
+      let fail!: (error: Error) => void
+      const starting = new Promise<void>((_, reject) => { fail = reject })
+      vi.spyOn(extension as any, 'runStartEngine').mockReturnValue(starting)
+      const first = extension['startEngine']()
+      const second = extension['startEngine']()
+      const results = Promise.allSettled([first, second])
+      await Promise.resolve()
+      fail(new Error('worker failed'))
+      expect((await results).map(result => result.status)).toEqual(['rejected', 'rejected'])
+    })
+  })
+
   describe('resolveThreadCacheBudget', () => {
     const budget = (cfg: Record<string, unknown>): number => {
       // `config` is populated by onLoad, which is not run here.

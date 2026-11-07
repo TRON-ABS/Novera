@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { route } from '@/constants/routes'
 import SettingsMenu from '@/containers/SettingsMenu'
 import HeaderPage from '@/containers/HeaderPage'
 import { Card, CardItem } from '@/containers/Card'
@@ -21,9 +20,7 @@ import { toNumber } from '@/utils/number'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { useAppState } from '@/hooks/useAppState'
 import { Button } from '@/components/ui/button'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute(route.settings.hardware as any)({
+export const Route = createFileRoute("/settings/hardware")({
   component: HardwareContent,
 })
 

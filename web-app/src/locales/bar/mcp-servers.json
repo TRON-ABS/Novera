@@ -1,0 +1,101 @@
+{
+  "editServer": "MCP Server bearbeiten",
+  "addServer": "MCP Server hinzufügn",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Prüf Status vo da Erweiterung..."
+    },
+    "notInstalled": {
+      "title": "Novera erledigt Aufgabn in deim Browser",
+      "description": "Installier de Erweiterung, um Novera Browser-Zugriff z'gebn",
+      "getExtension": "Erweiterung kriagn"
+    }
+  },
+  "serverName": "Server-Name",
+  "enterServerName": "Server-Name eingebn",
+  "command": "Befehl",
+  "enterCommand": "Gib an Befehl ein (uvx oda npx)",
+  "arguments": "Argumente",
+  "argument": "Argument {{index}}",
+  "envVars": "Umgebungsvariablen",
+  "key": "Schlüssel",
+  "value": "Wert",
+  "save": "Speichan",
+  "status": "Status",
+  "connected": "Verbunden",
+  "disconnected": "Getrennt",
+  "deleteServer": {
+    "title": "MCP Server löschen",
+    "description": "Bist du sicher, dassd den MCP Server {{serverName}} löschen wuisd? Des geht ned wieda.",
+    "delete": "Löschn",
+    "success": "MCP Server {{serverName}} erfolgreich glöscht"
+  },
+  "editJson": {
+    "title": "JSON fia MCP Server bearbeiten: {{serverName}}",
+    "titleAll": "Alle MCP Server JSON bearbeiten",
+    "placeholder": "JSON Konfiguration eingeben",
+    "errorParse": "Initiala Datn ned gspard",
+    "errorPaste": "Ungültigs JSON-Format im eingeklebten Inhalt",
+    "errorFormat": "Ungültigs JSON-Format",
+    "errorServerName": "Servername is notwendig und deaf ned leer sei",
+    "errorMissingServerNameKey": "JSON muass wia {\"serverName\": {config}} strukturiert sei - Servername-Schlüssel fehlt",
+    "errorInvalidType": "Ungültige Typ '{{type}}' fia an Server '{{serverName}}'. Da Typ muass 'stdio', 'http' oda 'sse' sei",
+    "save": "Speichan"
+  },
+  "checkParams": "Schau bittd de Parameter gemäßm Tutorial nach.",
+  "title": "MCP Server",
+  "experimental": "Experimentell",
+  "editAllJson": "Alle Server JSON bearbeiten",
+  "findMore": "Mehr MCP Server findst bei",
+  "allowPermissions": "Ois MCP-Tool-Berechtigungn erlaubn",
+  "allowPermissionsDesc": "Wenn aktiviert, wern olle MCP-Tool-Aufrufa automatisch genehmigt, ohne dass a Berechtigungsdialog gzeigt wird. Des Eistelln gilt global für olle Gspräche, a für neie Chats.",
+  "noServers": "Koana MCP-Server gfundn",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Server {{serverKey}} erfolgreich aktiviert",
+  "serverStatusInactive": "Server {{serverKey}} erfolgreich deaktiviert",
+  "runtimeSettings": {
+    "title": "Runtime-Eistellunga",
+    "description": "Konfiguriern, wia Novera MCP-Server verwaltet und wiedaversucht.",
+    "toolCallTimeout": "Tool-Aufrufa-Timeout (Sekundn)",
+    "toolCallTimeoutDesc": "Maximale Wartezeit auf a Antwort vom MCP-Werkzeig, bevor's a Zeitüberschreitung gibt.",
+    "maxToolOutputChars": "MCP",
+    "maxToolOutputCharsDesc": "Des längste Tool-Ergebnis, des im Gspräch gspart wiad. Ois, wos dahinta is, wiad gschnittn und ois g'schnittn markiert, damit a großs Ergebnis ned den Kontext vom Modell ausschöpft. Auf 0 gstellt, um Ergebnisse ganz zum hobn.",
+    "smartToolRouting": "MCP",
+    "smartToolRoutingDesc": "Wenn aktiviert is, wählt Novera relevante MCP Server, bevor de Tools geladn wern. Deaktiviern, um immer de volle MCP Tool-List zum ladn.",
+    "useLightweightRouterModel": "Nutza a eig'n Modell fürs Routn",
+    "useLightweightRouterModelDesc": "Wenns smarte Routn on is, laffa de Routn-Schritt mit am oaner (oft kloana) Modell statt mitm Chat-Modell. Abschaltn, um immer des aktive Chat-Modell fürs Routn zum nutzn.",
+    "routerModel": "Routn-Modell",
+    "routerModelDesc": "Anbieder und Modell an oam Ort wähln. Nur leichte Modelle san glistet, damit de Routn schnö und günstig bleibt.",
+    "selectRouterModelPlaceholder": "Routn-Modell wähln…",
+    "routerModelSearchPlaceholder": "Modelle suachn…",
+    "routerModelEmptyList": "Ka leichte Modelle verfügbar. Füg a kloana Modell ob oda konfigurier API-Schlüssel in Modelle.",
+    "routerModelEmptySearch": "Ka Treffn für “{{query}}”."
+  },
+  "auth": {
+    "label": "Auth:",
+    "state": {
+      "notApplicable": "ned notwendig",
+      "staticHeader": "Autorisierungs-Header",
+      "authenticated": "autentifiziert",
+      "expired": "abglaufn",
+      "staleResource": "für a andera URL ausgstellt",
+      "unauthenticated": "ned authentifiziert"
+    },
+    "expiresIn": "g'lt no {{duration}}",
+    "authenticate": "Einloggn",
+    "reauthenticate": "Wiedr authentifiziern",
+    "clear": "Authentifizierunga leern",
+    "waiting": "wartt auf Browser...",
+    "openSignInPage": "Öffna de Anmeldungsseit",
+    "needsAuth": "{{serverName}} braucht Authentifizierung",
+    "needsAuthHint": "Meld di bei dem Server, um z'verbindn.",
+    "authorized": "{{serverName}} braucht Authentifizierung",
+    "authorizeFailed": "Mit {{serverName}} einloggn zum Verbindn.",
+    "cleared": "Mit {{serverName}} angmeldet",
+    "nothingToClear": "Anmeldung für {{serverName}} is gscheid gfoin",
+    "clearFailed": "Konnnt de Anmeldedaten für {{serverName}} ned löschn.",
+    "renew": "Sitzung erneuern",
+    "expiredAgo": "vor {{duration}} abglaufn"
+  }
+}

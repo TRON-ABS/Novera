@@ -41,6 +41,12 @@ async function ensureConnected() {
   await starting
 }
 
+// Prepare only the local service/connection. Never issue a dummy search, and
+// share the startup with an actual request arriving before preparation ends.
+export async function prepareDuckDuckGo(): Promise<void> {
+  await ensureConnected()
+}
+
 function textContent(result: MCPToolCallResult): string {
   if (result.error) throw new Error(result.error)
   const text = result.content

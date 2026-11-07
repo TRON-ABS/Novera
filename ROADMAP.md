@@ -1,5 +1,35 @@
 # Novera — feuille de route
 
+## État actuel — 6 novembre 2026
+
+**Novera 1.0.0 est disponible publiquement sur Windows, Linux, macOS et Android.** Cette synthèse reprend la [disponibilité documentée](docs/LAUNCH_STATUS.md), qui détaille les téléchargements, les preuves et les limites par plateforme.
+
+| Périmètre | État |
+| --- | --- |
+| Windows x64 / ARM64 et Linux x64 | Installateurs NSIS et AppImage publics ; mises à jour signées, installation et remplacement natif vérifiés. |
+| macOS Intel / Apple Silicon | DMG publics, paquets et remplacement signés Novera vérifiés ; notarisation Apple, essais visuels et inférence MLX restent à valider. |
+| Android ARM64 | APK signé public 1.0.0, build 1000012 ; fonctionnement sur téléphone confirmé par le mainteneur. |
+| CLI Windows x64 / Linux x64 et portable Windows x64 | Distributions publiques avec canaux de mise à jour signés dédiés. |
+| iOS, client Web hébergé, MSI et Debian | iOS reste au stade du simulateur interne ; client Web encore interne, vitrine informative en ligne ; MSI et Debian exclus de cette sortie. |
+| Sources locales | Des préparations sont plus récentes que les binaires publics : moteur partagé llama.cpp 0.9.0 et 104 catalogues de langue notamment. Leur présence dans les sources ne prouve pas leur disponibilité dans les applications distribuées. |
+
+Les signatures de mise à jour Novera sont distinctes d'Authenticode Windows et de la notarisation Apple. Le passage complet entre deux versions publiques reste à vérifier lors de la prochaine sortie. Les préparations du moteur et des langues ont leurs propres [limites de validation](PR.md).
+
+## Trois prochaines priorités
+
+1. **Valider les parcours complets dans les applications.** Vérifier installation propre, configuration, téléchargement d'un modèle, première création, sauvegarde et reprise après redémarrage. Couvrir les lecteurs média, petits écrans, clavier, tactile et RTL ; consigner plateforme, matériel, version et limites dans le [suivi des moteurs](docs/SUIVI_MOTEURS.md). Les essais visuels macOS et l'inférence MLX restent ouverts.
+2. **Préparer et vérifier la prochaine mise à jour publique.** Distinguer les changements de sources des fonctions réellement compilées et testées ; vérifier la transition depuis la 1.0.0 publiée, de l'offre dans l'interface à l'installation, avec conservation des données. Suivre la [procédure de versions](docs/FUTURES_VERSIONS.md) et terminer les contrôles de diagnostics et de symboles privés décrits dans la [maintenance](docs/MAINTENANCE.md).
+3. **Consolider l'expérience sur les petits appareils et dans les langues prises en charge.** Tester les recommandations matérielles et les capacités effectivement disponibles sur mobile et machines modestes ; poursuivre la relecture native des 104 catalogues sources et les essais des intentions Auto sur des formulations réelles. Le [suivi des langues](docs/LANGUAGES.md) distingue couverture des clés et qualité linguistique.
+
+Pour contribuer, choisir un de ces périmètres, consulter les [consignes de contribution](CONTRIBUTING.md) et fournir une reproduction ou un résultat vérifiable. Les autres chantiers restent documentés ci-dessous ; leurs cases décrivent leur état à la date de rédaction.
+
+## Historique des travaux et du lancement
+
+Les notes suivantes sont conservées comme traces datées. Les mentions « publication bloquée », « aucun feed public » ou « aucune release créée » décrivent les étapes antérieures aux sorties des 2 et 3 novembre ; elles ne représentent plus l'état actuel. Pour la disponibilité des distributions, se reporter à la synthèse ci-dessus et au [bilan actuel](docs/LAUNCH_STATUS.md).
+
+<details>
+<summary>Consulter les notes historiques et les chantiers détaillés</summary>
+
 ## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026
 
 Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et Intel**. Les reçus téléchargés et leurs digests GitHub sont vérifiés : installation du vrai paquet, signature native, rejet du contenu altéré, aucune offre à version égale, restauration effective par l’updater, empreintes runtime et témoin de profil conservés, démarrage pendant 15 secondes avant et après. Le [run Windows 41336767111](https://github.com/TRON-ABS/Novera/actions/runs/41336767111) compare 106 fichiers x64 et neuf ARM64 ; le [run Linux/macOS 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673) compare l’AppImage exacte, 22 fichiers macOS ARM64 et 30 Intel.
@@ -258,9 +288,9 @@ Référence : [Windows portable](docs/BUILD_AND_RELEASE.md#portable).
 
 Rendre les fournisseurs et capacités de modèles plus faciles à faire évoluer par des contrats explicites. Explorer outils, agents et multimodalité dans un cadre expérimental, avec validation avant promotion. Améliorer l’accessibilité, les petits matériels et les connexions limitées ; évaluer les usages éducatifs avec enseignants et apprenants avant toute promesse de disponibilité scolaire.
 
-**80 locales sources couvrent désormais les 1 738 clés** ; la relecture native reste ouverte. Les six essais Lara sans clé ne sont pas six catalogues supplémentaires.
+**104 locales sources couvrent les 2 429 clés dans 15 espaces de noms** (contrôle local du 6 novembre 2026) ; la relecture native reste ouverte. Les six essais Lara sans clé ne sont pas six catalogues supplémentaires.
 
-La feuille de route historique des 100 langues est conservée dans [le document des langues](docs/LANGUAGES.md#roadmap-100). Les nouvelles langues demandent une vérification des contributions existantes et une intégration complète.
+Le [lot demandé de 24 ajouts](docs/LANGUAGES.md#next-24) vise **104 langues et variantes sélectionnables** : 24 ajouts intégrés aux sources, 0 encore ouverts, en conservant le décompte actuel des locales. La feuille de route historique des 100 langues est conservée dans [le document des langues](docs/LANGUAGES.md#roadmap-100). Les nouvelles langues demandent une vérification des contributions existantes et une intégration complète.
 
 ## Créations dans la discussion — sources locales du 26 octobre 2026
 
@@ -291,3 +321,5 @@ La feuille de route historique des 100 langues est conservée dans [le document 
 - [ ] Compiler sur demande puis valider sélection des fichiers, préparation/cache, génération, Stop et rechargement de discussion dans un nouvel exécutable Novera.
 - [ ] Étendre les essais à d’autres modèles, architectures et matériels. Le succès d’un mélange ne valide pas toutes les quantifications.
 - [ ] Étudier séparément un chemin NVFP4 matériel natif pour les GPU et noyaux compatibles ; ne pas confondre prise en charge d’un fichier et exécution native FP4.
+
+</details>

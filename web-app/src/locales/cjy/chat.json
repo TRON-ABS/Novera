@@ -69,11 +69,11 @@
     "setupConfiguring": "正在配置推荐模型",
     "setupStorage": "文件总量：{{download}}。预留：{{reserve}}。还需空间：{{required}}。所选磁盘可用：{{free}}。",
     "setupSpaceMissing": "还缺 {{missing}}。请清理空间，或者选择另一个空间足够的磁盘。",
-    "setupTextNote": "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M 是推荐的本地文本模型，适用于对话、写作、工具调用和结构化输出。初始上下文是 16K tokens；增加前先检查可用内存。仅支持文本输入和输出，没有草稿模型。请使用搜索或你的文档来核实事实陈述。",
+    "setupTextNote": "只做文字个备选模型，支持对话、写作、工具搭结构化回答。下载大约 {{size}}。比 {{defaultModel}} 要更多内存，本身勿处理图像搭音频。朗读回答用系统语音。内存足个辰光好选来做文字工作，事实要拿来源核对。",
     "setupImageNote": "图像 — FLUX.2 Klein 4B · Q4_K_M. 正文: Qwen3 4B · Q4_K_M · CPU. VAE: FLUX.2. 纵横比: 21:9; 分辨率: 1024 × 432; 生成步骤: 4; 种子模式: 随机.",
     "setupMusicNote": "音乐 — ACE-Step 1.5 Turbo. 音乐生成模型: 2B · Q4_K_M; 音乐规划模型: 1.7B · Q8_0; 正文: Qwen3-Embedding 0.6B · Q8_0; VAE: BF16. 音乐时长: 10–600 s; 音频质量: 48 kHz · 2.0; 纯音乐 / 歌词; 随机.",
     "setupVideoNote": "视频 — Wan2.1 T2V 1.3B · Q4_K_M. 正文: UMT5-XXL · Q4_K_M. 视频时长: 5 s; 纵横比: 21:9; 每秒帧数: 16. 长视频由短片段拼接起来。接头可能看得出来，生成可能需要很长时间。 · MP4: Python + imageio-ffmpeg.",
-    "setupAllNote": "下载并配置推荐的模型：文本用 Nemotron，多语言检索用 Qwen3-Embedding Q8_0（默认 CPU），FLUX.2 Klein 4B (图像) 及其组件，Real-ESRGAN ×2/×4，音乐用 ACE-Step（默认器乐），视频用 Wan2.1。请查看下方的文件大小、磁盘空间和视频先决条件。单独下载和浏览功能依然可用。",
+    "setupAllNote": "下载并配置推荐的模型：文本用 LFM3-Omni + mmproj，多语言检索用 Qwen3-Embedding Q8_0（默认 CPU），FLUX.2 Klein 4B (图像) 及其组件，Real-ESRGAN ×2/×4，音乐用 ACE-Step（默认器乐），视频用 Wan2.1。请查看下方的文件大小、磁盘空间和视频先决条件。单独下载和浏览功能依然可用。",
     "finalizing": "视频完成处理中",
     "videoDuration": "视频时长",
     "videoDurationNote": "长视频由短片段拼接起来。接头可能看得出来，生成可能需要很长时间。",
@@ -174,7 +174,8 @@
     "resolution": "分辨率",
     "customSize": "定制",
     "sizeAutoNote": "更改比率会适应当前分辨率。尺寸使用 16 的倍数，最大为 2048 像素。",
-    "setupTextNvfp4Note": "针对检测到的 NVIDIA Blackwell 或更新的 GPU（VRAM 至少 4.5 GiB）可选的 NVFP4 权重。要在 Novera 中使用这些权重，必须先将完整模型仓库转换为兼容的 NVFP4 GGUF 并验证。此转换尚未针对此检查点验证。链接的 Safetensors 文件不能直接被内置引擎加载。Q8_0 仍是可直接使用的推荐。内存需求也取决于上下文长度。"
+    "setupTextNvfp4Note": "针对检测到的 NVIDIA Blackwell 或更新的 GPU（VRAM 至少 4.5 GiB）可选的 NVFP4 权重。要在 Novera 中使用这些权重，必须先将完整模型仓库转换为兼容的 NVFP4 GGUF 并验证。此转换尚未针对此检查点验证。链接的 Safetensors 文件不能直接被内置引擎加载。Q8_0 仍是可直接使用的推荐。内存需求也取决于上下文长度。",
+    "setupOmniNote": "电脑跟手机上默认用个模型。适合文字、图像搭音频个小模型，要有配套个 {{projector}} 文件。两个文件下载大约 {{size}}。要轻便个多模态配置好选伊。语音功能看平台搭引擎，长上下文要用更多内存。"
   },
   "creationInstall": {
     "install": "安装这套配置",

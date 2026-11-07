@@ -35,3 +35,11 @@ test('all currently extracted modules satisfy their boundaries', () => {
   assert.ok(result.checkedFiles >= 10)
   assert.deepEqual(result.violations, [])
 })
+
+test('distribution checks include the shared updater and explicit browser test adapter', () => {
+  const file = 'scripts/distribution/example.mjs'
+  assert.deepEqual(inspectModule("import { validateFeed } from '../updates/novera-update.mjs'", file, 'distribution'), [])
+  assert.deepEqual(inspectModule("import { chromium } from 'playwright-core'", file, 'distribution'), [])
+  assert.equal(inspectModule("import React from 'react'", file, 'distribution').length, 1)
+  assert.equal(inspectModule("import config from '../../web-app/src/hooks/useAppState'", file, 'distribution').length, 1)
+})

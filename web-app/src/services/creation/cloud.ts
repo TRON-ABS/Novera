@@ -307,7 +307,11 @@ export async function generateCloudMedia(o: Options): Promise<CloudMedia> {
       case 'bfl': {
         const result = await request(`/${p.id}`, {
           prompt,
-          ...(image ? { input_image: image } : {}),
+          ...(p.id === 'flux-3-video'
+            ? { mode: image ? 'i2v' : 't2v', ...(image ? { keyframes: image } : {}) }
+            : p.id.startsWith('flux-3-image')
+              ? (image ? { images: [image] } : {})
+              : (image ? { input_image: image } : {})),
         })
         if (!result.polling_url) throw new CloudCreationError('failed')
         output = await poll(safe(result.polling_url), (data) =>

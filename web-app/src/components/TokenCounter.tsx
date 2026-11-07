@@ -53,7 +53,7 @@ export const TokenCounter = memo(function TokenCounter({
   const [isAnimating, setIsAnimating] = useState(false)
   const [prevTokenCount, setPrevTokenCount] = useState(0)
   const [isUpdating, setIsUpdating] = useState(false)
-  const timersRef = useRef<{ update?: NodeJS.Timeout; anim?: NodeJS.Timeout }>(
+  const timersRef = useRef<{ update?: ReturnType<typeof setTimeout>; anim?: ReturnType<typeof setTimeout> }>(
     {}
   )
 

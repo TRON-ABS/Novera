@@ -831,5 +831,10 @@
     "update": "Mmelite",
     "rollback": "Weghachite gburugburu gara aga",
     "busy": "Budata ụdị mpaghara wee chere ọgbọ ka ha gwụchaa tupu ịgbanwe akụrụngwa."
-  }
+  },
+  "voiceConversation": "Mkparịta ụka olu",
+  "voiceUnavailable": "Mkparịta ụka olu adịghị",
+  "voiceMale": "Olu nwoke",
+  "voiceFemale": "Olu nwanyị",
+  "voiceReadReplies": "Gụọ azịza n'olu dara ụda"
 }

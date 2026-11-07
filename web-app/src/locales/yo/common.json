@@ -831,5 +831,10 @@
     "update": "Imudojuiwọn",
     "rollback": "Pada agbegbe iṣaaju pada",
     "busy": "Ṣe igbasilẹ awọn awoṣe agbegbe ati duro fun awọn iran lati pari ṣaaju iyipada awọn paati."
-  }
+  },
+  "voiceConversation": "Ìjíròrò ohùn",
+  "voiceUnavailable": "Ìjíròrò ohùn kò sí",
+  "voiceMale": "Ohùn ọkùnrin",
+  "voiceFemale": "Ohùn obìnrin",
+  "voiceReadReplies": "Ka àwọn ìdáhùn sókè"
 }

@@ -831,5 +831,10 @@
     "update": "Haaraa",
     "rollback": "Naannoo duraanii deebisuu",
     "busy": "Moodeelota naannoo buusuun qaamolee jijjiiruu dura dhaloonni akka xumuran eegaa."
-  }
+  },
+  "voiceConversation": "Marii sagalee",
+  "voiceUnavailable": "Mariin sagalee hin jiru",
+  "voiceMale": "Sagalee dhiiraa",
+  "voiceFemale": "Sagalee dubartii",
+  "voiceReadReplies": "Deebiiwwan sagaleen dubbisi"
 }

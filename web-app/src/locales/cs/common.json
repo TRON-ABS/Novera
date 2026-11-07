@@ -832,5 +832,10 @@
     "update": "Aktualizace",
     "rollback": "Obnovit předchozí prostředí",
     "busy": "Uvolněte místní modely a počkejte na dokončení generací, než změníte komponenty."
-  }
+  },
+  "voiceConversation": "Hlasová konverzace",
+  "voiceUnavailable": "Hlasová konverzace není dostupná",
+  "voiceMale": "Mužský hlas",
+  "voiceFemale": "Ženský hlas",
+  "voiceReadReplies": "Číst odpovědi nahlas"
 }

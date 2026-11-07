@@ -9,6 +9,13 @@ Set-Location -LiteralPath $android.repo
 $buildSource=Get-Content -LiteralPath 'src-tauri/plugins/tauri-plugin-llamacpp/build.rs' -Raw
 if ($buildSource -notmatch 'LLAMA_CPP_COMMIT:\s*&str\s*=\s*"([a-f0-9]{40})"') {throw 'Revision llama.cpp absente.'}
 $commit=$Matches[1]
+$llamaIdentity=@{llama_commit=$commit}
+foreach ($field in @('TAG','VERSION')) {
+    if ($buildSource -notmatch ('LLAMA_CPP_'+$field+':\s*&str\s*=\s*"([^\"]+)"')) {throw "Identite llama.cpp absente : $field"}
+    $llamaIdentity['llama_'+$field.ToLowerInvariant()]=$Matches[1]
+}
+if ($buildSource -notmatch 'LLAMA_CPP_BUILD_NUMBER:\s*u32\s*=\s*(\d+)\s*;') {throw 'Numero de build llama.cpp absent.'}
+$llamaIdentity.llama_build_number=[int]$Matches[1]
 $source=if ($env:JAN_LLAMA_CPP_DIR) {$env:JAN_LLAMA_CPP_DIR} else {Join-Path $android.repo ".build/android-llama-$($commit.Substring(0,12))"}
 if (!(Test-Path -LiteralPath $source)) {
     & git init $source
@@ -67,7 +74,7 @@ New-Item -ItemType Directory -Force -Path $assets | Out-Null
 Copy-Item -LiteralPath (Join-Path $android.repo 'LICENSE') -Destination (Join-Path $assets 'LICENSE') -Force
 Copy-Item -LiteralPath (Join-Path $source 'LICENSE') -Destination (Join-Path $assets 'llama.cpp-LICENSE') -Force
 Copy-Item -LiteralPath (Join-Path $android.ndk 'toolchains/llvm/prebuilt/windows-x86_64/NOTICE') -Destination (Join-Path $assets 'NDK-toolchain-NOTICE') -Force
-$record=[ordered]@{ndk=$android.pin.ndk;llama_commit=$commit;target='aarch64-linux-android';backend='cpu';models_max=1;slot_cache_mib=0;directory=$destination;files=@(Get-ChildItem -LiteralPath $destination -Filter '*.so' -File | ForEach-Object {@{name=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName).Hash;bytes=$_.Length}})}
+$record=[ordered]@{ndk=$android.pin.ndk;llama_commit=$commit;llama_tag=$llamaIdentity.llama_tag;llama_version=$llamaIdentity.llama_version;llama_build_number=$llamaIdentity.llama_build_number;target='aarch64-linux-android';backend='cpu';models_max=1;slot_cache_mib=0;directory=$destination;files=@(Get-ChildItem -LiteralPath $destination -Filter '*.so' -File | ForEach-Object {@{name=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName).Hash;bytes=$_.Length}})}
 $proof=Join-Path $android.repo '.build/android-engine-manifest.json'
 $record | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $proof -Encoding UTF8
 Write-Output "Moteur CPU ARM64 prepare : $destination"

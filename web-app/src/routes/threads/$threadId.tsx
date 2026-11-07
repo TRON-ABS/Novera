@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
+import { voiceConversation } from '@/lib/voiceConversation'
 import { createFileRoute, useParams, useSearch } from '@tanstack/react-router'
 
 import HeaderPage from '@/containers/HeaderPage'
@@ -1809,10 +1810,12 @@ function ThreadConversation() {
       pendingAssistantParentId.current = resolveAssistantParent(messageId)
 
       endRunningTools()
+      voiceConversation.regenerate(threadId)
       regenerate(messageId ? { messageId } : undefined)
     },
     [
       regenerate,
+      threadId,
       pendingAssistantParentId,
       endRunningTools,
       stripBannerMetadata,

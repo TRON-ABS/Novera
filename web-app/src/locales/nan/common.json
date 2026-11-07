@@ -831,5 +831,10 @@
     "update": "更新",
     "rollback": "恢復頂一版環境",
     "busy": "改元件進前，請先共本機模型對記憶體卸下，等生成結束才改。"
-  }
+  },
+  "voiceConversation": "语音对话",
+  "voiceUnavailable": "语音对话不可用",
+  "voiceMale": "查埔聲",
+  "voiceFemale": "查某聲",
+  "voiceReadReplies": "共回覆讀出聲"
 }

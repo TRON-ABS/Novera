@@ -104,6 +104,18 @@ function setupModel(id: string, yaml: Record<string, unknown>) {
   }
 }
 
+describe('preset generation without saved engine settings', () => {
+  it.each([undefined, null])('keeps an imported model usable with %s settings', async config => {
+    setupModel('omni', { model_path: 'models/omni/model.gguf', mmproj_path: 'models/omni/mmproj.gguf' })
+    await expect(generatePreset('/p', '/jan', config as any)).resolves.toMatchObject({
+      path: '/p/router.preset.ini',
+    })
+    expect(writtenFiles['/p/router.preset.ini']).toContain('[omni]')
+    expect(writtenFiles['/p/router.preset.ini']).toContain('model = /jan/models/omni/model.gguf')
+    expect(writtenFiles['/p/router.preset.ini']).toContain('mmproj = /jan/models/omni/mmproj.gguf')
+  })
+})
+
 describe('generatePreset MTP emission', () => {
   it('emits spec-type = draft-mtp when mtp is on, layers > 0, and backend supports it', async () => {
     setupModel('glm', {

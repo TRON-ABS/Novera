@@ -833,5 +833,10 @@
     "update": "Aktualizacja",
     "rollback": "Przywróć poprzednie środowisko",
     "busy": "Wyładuj modele lokalne i poczekaj, aż zakończą się generacje, zanim zmienisz komponenty."
-  }
+  },
+  "voiceConversation": "Rozmowa głosowa",
+  "voiceUnavailable": "Rozmowa głosowa jest niedostępna",
+  "voiceMale": "Głos męski",
+  "voiceFemale": "Głos żeński",
+  "voiceReadReplies": "Czytaj odpowiedzi na głos"
 }

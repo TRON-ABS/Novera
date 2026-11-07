@@ -210,7 +210,7 @@ describe('chat shell switch (#9222)', () => {
       await vi.waitFor(() => expect(model.doStreamCalls).toHaveLength(2))
       await vi.waitFor(() => expect(chat.status).toBe('ready'))
       expect(chat.error).toBeUndefined()
-      expect(model.doStreamCalls[0].tools?.map((tool) => tool.name)).not.toContain('shell')
+      expect(model.doStreamCalls[0].tools?.map((tool) => tool.name) ?? []).not.toContain('shell')
       expect(JSON.stringify(model.doStreamCalls[1].prompt)).toContain('Shell is turned off')
       expect(JSON.stringify(chat.messages)).toContain('Continuing without the shell.')
       expect(h.schemas).not.toHaveBeenCalled()

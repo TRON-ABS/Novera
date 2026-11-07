@@ -150,7 +150,7 @@ import {
   skillCommandPrefix,
 } from '@/lib/skillCommands'
 
-export const Route = createFileRoute(route.cowork as any)({
+export const Route = createFileRoute("/cowork")({
   beforeLoad: () => ensureCoworkEnabled(),
   component: CoworkPage,
 })

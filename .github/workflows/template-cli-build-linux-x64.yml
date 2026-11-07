@@ -74,6 +74,15 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y pkg-config
 
+      - name: Prepare the local llama.cpp toolchain
+        uses: ./.github/actions/setup-engine-toolchain
+        with:
+          variant: cpu
+
+      - name: Fetch the pinned llama.cpp source
+        shell: bash
+        run: bash src-tauri/build-utils/fetch-engine-source.sh
+
       - name: Cache cargo
         uses: Swatinem/rust-cache@v2
 
@@ -126,7 +135,7 @@ jobs:
           # They are versioned sonames, so the binary still fails on a host with
           # a different OpenSSL; switching reqwest to rustls-tls would drop them.
           printf '%s\n' ld-linux-x86-64.so.2 libc.so.6 libcrypto.so.3 \
-            libgcc_s.so.1 libm.so.6 libssl.so.3 | sort -u > allowed.txt
+            libgcc_s.so.1 libm.so.6 libssl.so.3 libstdc++.so.6 | sort -u > allowed.txt
           unexpected=$(comm -23 needed.txt allowed.txt)
           if [ -n "$unexpected" ]; then
             echo "::error::CLI binary gained an unexpected shared library dependency: $(echo $unexpected)"

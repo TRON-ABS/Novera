@@ -416,11 +416,13 @@ function SetupScreen() {
       (m: { id: string }) => m.id === selected.modelId
     )
   }, [selected, llamaProvider])
+  const downloadedHere = useRef(false)
 
   // Single download entry point for both the immediate and the queued path, so
   // the HF token and the skip-verification flag cannot drift between them.
   const startDownload = useCallback(
     (option: SetupModelOption) => {
+      downloadedHere.current = true
       addLocalDownloadingModel(option.modelId)
       serviceHub
         .models()
@@ -453,6 +455,9 @@ function SetupScreen() {
   const completeSetup = useCallback(async () => {
     if (!selected || hasNavigatedRef.current) return
     hasNavigatedRef.current = true
+    if (downloadedHere.current) {
+      await serviceHub.models().updateModelSettings(selected.modelId,{ctx_len:NOVERA_RECOMMENDED_CONTEXT_SIZE})
+    }
 
     // Refresh providers so the model is available in the store before selecting
     const providers = await serviceHub.providers().getProviders()

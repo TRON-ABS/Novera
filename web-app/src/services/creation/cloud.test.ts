@@ -41,7 +41,7 @@ const contracts = [
   {
     adapter: 'bfl',
     provider: 'bfl',
-    path: '/flux-2-max',
+    path: '/flux-3-image',
     responses: [
       { polling_url: 'https://api.bfl.ai/v1/get_result?id=x' },
       { status: 'Ready', result: { sample: cdn } },
@@ -96,7 +96,7 @@ const contracts = [
   {
     adapter: 'fal',
     provider: 'fal',
-    path: '/fal-ai/pika/v2.2/text-to-video',
+    path: '/blackforestlabs/flux-3/text-to-video',
     responses: [
       {
         status_url: 'https://queue.fal.run/job/status',
@@ -110,7 +110,7 @@ const contracts = [
   {
     adapter: 'replicate',
     provider: 'replicate',
-    path: '/models/black-forest-labs/flux-2-max/predictions',
+    path: '/models/black-forest-labs/flux-3/predictions',
     responses: [
       { urls: { get: 'https://api.replicate.com/v1/predictions/id' } },
       { status: 'succeeded', output: [cdn] },
@@ -224,6 +224,31 @@ function options(adapter = 'runway') {
 }
 
 describe('cloud media contracts (mock HTTP, no paid generation)', () => {
+  it.each([
+    ['flux-3-image', 'image', { images: ['data:image/png;base64,AAAA'] }],
+    ['flux-3-image-klein', 'image', { images: ['data:image/png;base64,AAAA'] }],
+    ['flux-3-video', 'video', { mode: 'i2v', keyframes: 'data:image/png;base64,AAAA' }],
+    ['flux-2-max', 'image', { input_image: 'data:image/png;base64,AAAA' }],
+  ] as const)('uses the documented input fields for %s', async (id, task, fields) => {
+    const o = options('bfl')
+    const preset = mediaModelPresets.find(item => item.provider === 'bfl' && item.id === id)!
+    o.fetch.mockResolvedValueOnce(json({ polling_url: 'https://api.bfl.ai/v1/get_result?id=x' }))
+      .mockResolvedValueOnce(json({ status: 'Ready', result: { sample: cdn } }))
+    await expect(generateCloudMedia({ ...o, preset, inputImage: 'data:image/png;base64,AAAA' })).resolves.toEqual({ url: cdn })
+    expect(preset.task).toBe(task)
+    expect(JSON.parse(o.fetch.mock.calls[0][1].body)).toEqual({ prompt: 'test scene', ...fields })
+    expect(o.fetch.mock.calls[0][0]).toBe(`https://api.bfl.ai/v1/${id}`)
+  })
+
+  it('selects text-to-video without keyframes for FLUX 3 when no image is attached', async () => {
+    const o = options('bfl')
+    const preset = mediaModelPresets.find(item => item.provider === 'bfl' && item.id === 'flux-3-video')!
+    o.fetch.mockResolvedValueOnce(json({ polling_url: 'https://api.bfl.ai/v1/get_result?id=x' }))
+      .mockResolvedValueOnce(json({ status: 'Ready', result: { sample: cdn } }))
+    await generateCloudMedia({ ...o, preset })
+    expect(JSON.parse(o.fetch.mock.calls[0][1].body)).toEqual({ prompt: 'test scene', mode: 't2v' })
+  })
+
   it.each(contracts)(
     'dispatches the $adapter API and decodes its result',
     async (contract) => {

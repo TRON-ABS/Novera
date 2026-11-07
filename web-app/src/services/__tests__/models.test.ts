@@ -131,7 +131,7 @@ describe('DefaultModelsService', () => {
     it('should stop all active models from all providers', async () => {
       mockEngine.getLoadedModels.mockResolvedValue(['model1', 'model2'])
       await modelsService.stopAllModels()
-      expect(mockEngine.unload).toHaveBeenCalledTimes(6)
+      expect(mockEngine.unload).toHaveBeenCalledTimes(8)
     })
 
     it('should handle empty active models', async () => {
@@ -265,8 +265,8 @@ describe('DefaultModelsService', () => {
       expect(result.downloads).toBe(1500)
       expect(result.num_quants).toBe(2)
       expect(result.is_mlx).toBe(true)
-      expect(result.quants[0]).toMatchObject({ model_id: 'microsoft/model-q4_0', file_size: '2.0 GB' })
-      expect(result.quants[1]).toMatchObject({ model_id: 'microsoft/model-q8_0', file_size: '4.0 GB' })
+      expect(result.quants[0]).toMatchObject({ model_id: 'microsoft/model-q4_0', file_size: '2147483648 B' })
+      expect(result.quants[1]).toMatchObject({ model_id: 'microsoft/model-q8_0', file_size: '4294967296 B' })
       expect(result.quants[0].path).toContain('/resolve/main/model-q4_0.gguf')
       expect(result.readme).toContain('/resolve/main/README.md')
     })
@@ -290,8 +290,8 @@ describe('DefaultModelsService', () => {
         ],
       }
       const result = modelsService.convertHfRepoToCatalogModel(repo as any)
-      expect(result.quants[0].file_size).toBe('500.0 MB')
-      expect(result.quants[1].file_size).toBe('3.5 GB')
+      expect(result.quants[0].file_size).toBe('524288000 B')
+      expect(result.quants[1].file_size).toBe('3758096384 B')
       expect(result.quants[2].file_size).toBe('Unknown size')
     })
 
@@ -309,8 +309,8 @@ describe('DefaultModelsService', () => {
       const result = modelsService.convertHfRepoToCatalogModel(repo as any)
       expect(result.description).toBe('**Tags**: ')
       expect(result.downloads).toBe(0)
-      expect(result.quants[0].file_size).toBe('0.0 MB')
-      expect(result.quants[1].file_size).toBe('1.0 GB')
+      expect(result.quants[0].file_size).toBe('512 B')
+      expect(result.quants[1].file_size).toBe('1073741824 B')
       expect(result.quants[2].file_size).toBe('Unknown size')
     })
 

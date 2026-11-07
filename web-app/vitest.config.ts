@@ -5,6 +5,8 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   test: {
+    // Bound parallel translation-heavy WebViews to avoid memory/CPU starvation.
+    maxWorkers: 4,
     environment: 'jsdom',
     setupFiles: ['./src/test/setup.ts'],
     globals: true,

@@ -1,9 +1,10 @@
 import type { CatalogModel } from '@/services/models/types'
 
-export const NOVERA_RECOMMENDED_CONTEXT_SIZE = IS_ANDROID || IS_IOS ? 2048 : 16384
+export const noveraRecommendedContextFor = (mobile: boolean) => mobile ? 2048 : 32768
+export const NOVERA_RECOMMENDED_CONTEXT_SIZE = noveraRecommendedContextFor(IS_ANDROID || IS_IOS)
 
 const liquidRevision = 'bad5729bba61d076fff20d2548e62526665af215'
-const omniRevision = '3d29af2ad166f8299c2d820937e47dc0add20ffc'
+const omniRevision = 'd508b88f08a5b4286f2d2805a6a8d69a0ff44c72'
 export const LIGHT_TEXT_MODEL: CatalogModel = {
   model_name: 'LFM3-1.7B', display_name: 'LFM3-1.7B · Q4_K_M',
   description: '', developer: 'LiquidAI', downloads: 0,
@@ -15,18 +16,19 @@ export const LIGHT_TEXT_MODEL: CatalogModel = {
 }
 export const LIGHT_OMNI_MODEL: CatalogModel = {
   model_name: 'LFM3-Omni-2B', display_name: 'LFM3-Omni-2B · Q4_K_M',
+  tools: true,
   description: '', developer: 'LiquidAI', downloads: 0,
   library_name: 'gguf', pipeline_tag: 'image-text-to-text', revision: omniRevision,
   hub: { parametersB: 2.17, repo: 'LiquidAI/LFM3-Omni-2B-GGUF', revision: omniRevision,
-    verifiedAt: '2026-11-01', recommended: true, source: 'https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF', benchmarks: [] },
+    verifiedAt: '2026-11-07', recommended: true, source: 'https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF', benchmarks: [] },
   quants: [{ model_id: 'LFM3-Omni-2B-Q4_K_M', file_size: '1.10 GB',
     path: `https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF/resolve/${omniRevision}/LFM3-Omni-2B-Q4_K_M.gguf?download=true` }],
-  mmproj_models: [{ model_id: 'mmproj-Q4_K_M', file_size: '291.59 MB',
+  mmproj_models: [{ model_id: 'mmproj-LFM3-Omni-2B-Q4_K_M', file_size: '291.59 MB',
     path: `https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF/resolve/${omniRevision}/mmproj-LFM3-Omni-2B-Q4_K_M.gguf?download=true` }],
 }
 
-/** Fixed Novera onboarding choice; independent of the upstream Jan feed/cache. */
-const desktopModel: CatalogModel = {
+/** Optional text-only recommendation, kept alongside the default Omni pair. */
+export const NOVERA_TEXT_ALTERNATIVE: CatalogModel = {
   model_name: 'Nemotron-3.5-Bolt-E4B',
   display_name: 'Nemotron-3.5-Bolt-E4B · Q4_K_M',
   description: 'Text conversation, writing, tool calling and structured outputs.',
@@ -41,7 +43,8 @@ const desktopModel: CatalogModel = {
 }
 
 export function noveraRecommendedModelFor(android: boolean): CatalogModel {
-  if (!android) return desktopModel
-  return LIGHT_TEXT_MODEL
+  // The same default pair is offered on desktop, Android and iOS.
+  void android
+  return LIGHT_OMNI_MODEL
 }
 export const NOVERA_RECOMMENDED_MODEL = noveraRecommendedModelFor(IS_ANDROID || IS_IOS)

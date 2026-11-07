@@ -7,10 +7,26 @@ import { fetchTopRemoteModels, supportsRemoteCatalog } from '../remoteModelCatal
 import { buildsOwnToolImageRequest, isPredefinedRemoteProvider } from '../providerCaps'
 
 describe('maintained cloud catalog', () => {
-  it('offers 42 distinct providers, with modality shortlists except account-specific gateways', () => {
-    expect(predefinedProviders).toHaveLength(42)
-    expect(new Set(predefinedProviders.map((p) => p.provider)).size).toBe(42)
+  it('keeps catalog entries beyond ten when the API supplies no creation date', async () => {
+    const data = Array.from({ length: 14 }, (_, index) => ({ id: `vendor/model-${index}` }))
+    const fetchImpl = vi.fn().mockResolvedValue(new Response(JSON.stringify({ data })))
+    const models = await fetchTopRemoteModels({ provider: 'openrouter', base_url: 'https://example.test/v1' }, fetchImpl)
+    expect(models).toHaveLength(14)
+    expect(models.some(model => model.id === 'vendor/model-9')).toBe(true)
+  })
+
+  it('offers 43 distinct providers, with modality shortlists except account-specific gateways', () => {
+    expect(predefinedProviders).toHaveLength(43)
+    expect(new Set(predefinedProviders.map((p) => p.provider)).size).toBe(43)
     for (const provider of predefinedProviders) {
+      // TabbyAPI exposes a configurable local-network backend and keeps the
+      // advanced sampler UI; its live catalog has no curated model shortlist.
+      if (provider.provider === 'tabbyapi') {
+        expect(isPredefinedRemoteProvider(provider.provider)).toBe(false)
+        expect(supportsRemoteCatalog(provider.provider)).toBe(true)
+        expect(provider.models).toEqual([])
+        continue
+      }
       expect(isPredefinedRemoteProvider(provider.provider)).toBe(true)
       if (['azure', 'watsonx'].includes(provider.provider)) continue
       expect(supportsRemoteCatalog(provider.provider)).toBe(true)

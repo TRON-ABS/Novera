@@ -18,7 +18,7 @@ use tokio::{
 
 pub static USE: LazyLock<Arc<RwLock<()>>> = LazyLock::new(|| Arc::new(RwLock::new(())));
 static JOB: LazyLock<Mutex<Option<Operation>>> = LazyLock::new(|| Mutex::new(None));
-const PYTHON: &str = "3.12.12";
+const PYTHON: &str = "3.12.15";
 const SCHEMA: u32 = 1;
 
 #[derive(Clone, Serialize)]
@@ -55,14 +55,14 @@ fn profiles() -> Vec<Profile> {
     }
     vec![
         p!("transformers-cpu","transformers","cpu",2,"import torch, transformers, safetensors, peft; assert torch.ones(2).sum().item()==2"),
-        p!("transformers-cuda","transformers","cu130",5,"import torch, transformers, safetensors, peft, bitsandbytes, comfy_kitchen; assert torch.ones(2,device='cuda').sum().item()==2"),
+        p!("transformers-cuda","transformers","cu134",5,"import torch, transformers, safetensors, peft, bitsandbytes, comfy_kitchen; assert torch.ones(2,device='cuda').sum().item()==2"),
         p!("diffusers-cpu","media","cpu",2,"import torch, diffusers, transformers, safetensors, gguf, imageio_ffmpeg; from PIL import Image; assert torch.ones(2).sum().item()==2; imageio_ffmpeg.get_ffmpeg_version()"),
-        p!("diffusers-cuda","media","cu130",5,"import torch, diffusers, transformers, safetensors, gguf, comfy_kitchen, imageio_ffmpeg; from PIL import Image; assert torch.ones(2,device='cuda').sum().item()==2; imageio_ffmpeg.get_ffmpeg_version()"),
+        p!("diffusers-cuda","media","cu134",5,"import torch, diffusers, transformers, safetensors, gguf, comfy_kitchen, imageio_ffmpeg; from PIL import Image; assert torch.ones(2,device='cuda').sum().item()==2; imageio_ffmpeg.get_ffmpeg_version()"),
         p!("onnx-cpu","onnx","cpu",1,"import onnx, onnxruntime as ort, numpy as np; m=onnx.helper.make_model(onnx.helper.make_graph([onnx.helper.make_node('Identity',['x'],['y'])],'probe',[onnx.helper.make_tensor_value_info('x',onnx.TensorProto.FLOAT,[1])],[onnx.helper.make_tensor_value_info('y',onnx.TensorProto.FLOAT,[1])]),opset_imports=[onnx.helper.make_opsetid('',18)],ir_version=9); s=ort.InferenceSession(m.SerializeToString(),providers=['CPUExecutionProvider']); assert s.run(None,{'x':np.array([7],dtype=np.float32)})[0][0]==7"),
         p!("onnx-genai","onnx","cpu",1,"import onnxruntime_genai, onnxruntime, onnx, numpy"),
         p!("video-export","video","cpu",1,"import imageio, imageio_ffmpeg; imageio_ffmpeg.get_ffmpeg_version()"),
         p!("upscale-cpu","upscale","cpu",2,"import torch, numpy; from PIL import Image; assert torch.ones(2).sum().item()==2"),
-        p!("upscale-cuda","upscale","cu130",5,"import torch, numpy; from PIL import Image; assert torch.ones(2,device='cuda').sum().item()==2"),
+        p!("upscale-cuda","upscale","cu134",5,"import torch, numpy; from PIL import Image; assert torch.ones(2,device='cuda').sum().item()==2"),
         p!("exllama","transformers","cu128",5,"import torch, exllamav2_ext, exllamav3_ext, transformers, exllamav2, exllamav3; assert torch.ones(2,device='cuda').sum().item()==2"),
     ]
 }
@@ -73,7 +73,7 @@ fn profile(id: &str) -> Result<Profile, String> {
         .ok_or_else(|| "COMPONENT_PROFILE".into())
 }
 fn hash(bytes: &[u8]) -> String {
-    format!("{:x}", Sha256::digest(bytes))
+    hex::encode(Sha256::digest(bytes))
 }
 fn root<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf, String> {
     // Independent of movable model folders and installation location.
@@ -119,9 +119,8 @@ fn python(path: &Path) -> PathBuf {
     }
 }
 fn free_space(path: &Path) -> u64 {
-    sysinfo::Disks::new_with_refreshed_list()
-        .list()
-        .iter()
+    let Ok(disks) = sysinfo::Disks::new_with_refreshed_list() else { return 0; };
+    disks.iter()
         .filter(|d| {
             path.starts_with(
                 d.mount_point()

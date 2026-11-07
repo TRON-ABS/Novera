@@ -10,7 +10,9 @@ impl Default for CpuStaticInfo {
 
 impl CpuStaticInfo {
     pub fn new() -> Self {
-        let mut system = System::new();
+        let Ok(mut system) = System::new() else {
+            return Self { name: "unknown".into(), core_count: 0, arch: System::cpu_arch(), extensions: Self::get_extensions() };
+        };
         system.refresh_cpu_all();
 
         let name = system

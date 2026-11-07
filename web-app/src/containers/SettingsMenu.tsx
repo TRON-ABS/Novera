@@ -31,7 +31,7 @@ import {
   openAIProviderSettings,
   anthropicProviderSettings,
 } from '@/constants/providers'
-import cloneDeep from 'lodash/cloneDeep'
+import cloneDeep from 'lodash.clonedeep'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 

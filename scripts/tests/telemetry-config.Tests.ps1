@@ -36,9 +36,17 @@ try {
     Assert (!(Test-Path -LiteralPath $marker)) 'Unrelated dotenv content must never execute'
     Reject "NOVERA_ANALYTICS_HOST=https://eu.i.posthog.com`nNOVERA_ANALYTICS_PROJECT_KEY=$inertCommand" 'Commands inside telemetry values must be rejected'
     Assert (!(Test-Path -LiteralPath $marker)) 'Telemetry values must never execute'
+    $publicJson = Join-Path $fixtureRoot 'public.json'
+    @{host='https://stats.example.com'; projectKey=$publicFixtureKey} | ConvertTo-Json | Set-Content -LiteralPath $publicJson
+    $result = Read-NoveraTelemetry $publicJson
+    Assert ($result.Host -eq 'https://stats.example.com' -and $result.Key -eq $publicFixtureKey) 'Public JSON fallback must pass the same validation'
+    @{host='https://stats.example.com'; projectKey='phx_private'} | ConvertTo-Json | Set-Content -LiteralPath $publicJson
+    $rejected = $false
+    try { $null = Read-NoveraTelemetry $publicJson } catch { $rejected = $true }
+    Assert $rejected 'Public JSON must reject a private token'
     "PASS: $assertions telemetry configuration assertions; no network calls or app compilation"
 } finally {
-    foreach ($path in @($fixture, $marker)) {
+    foreach ($path in @($fixture, $marker, (Join-Path $fixtureRoot 'public.json'))) {
         if (Test-Path -LiteralPath $path -PathType Leaf) { Remove-Item -LiteralPath $path -Force }
     }
     if (Test-Path -LiteralPath $fixtureRoot -PathType Container) { Remove-Item -LiteralPath $fixtureRoot }

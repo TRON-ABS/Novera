@@ -123,6 +123,15 @@ jobs:
 
       # The standalone CLI is not a workspace member. Its binary-level RPC
       # tests are not run by the app library command above.
+      - name: Prepare the local llama.cpp toolchain
+        uses: ./.github/actions/setup-engine-toolchain
+        with:
+          variant: cpu
+
+      - name: Fetch the pinned llama.cpp source
+        shell: bash
+        run: bash src-tauri/build-utils/fetch-engine-source.sh
+
       - name: cargo test (RPC CLI)
         run: |
           cargo test --locked --manifest-path src-tauri/novera-cli/Cargo.toml \
@@ -166,6 +175,15 @@ jobs:
 
       # --locked: the generated document is a function of the locked schemars,
       # so the only thing that may move it is a commit.
+      - name: Prepare the local llama.cpp toolchain
+        uses: ./.github/actions/setup-engine-toolchain
+        with:
+          variant: cpu
+
+      - name: Fetch the pinned llama.cpp source
+        shell: bash
+        run: bash src-tauri/build-utils/fetch-engine-source.sh
+
       - name: Regenerate the protocol schema
         run: |
           cd src-tauri/novera-cli
@@ -248,6 +266,17 @@ jobs:
           sudo apt update
           sudo apt install -y libglib2.0-dev libatk1.0-dev libpango1.0-dev libgtk-3-dev libsoup-3.0-dev libwebkit2gtk-4.1-dev librsvg2-dev
 
+      - name: Prepare the local llama.cpp toolchain
+        if: matrix.crate == 'novera-cli'
+        uses: ./.github/actions/setup-engine-toolchain
+        with:
+          variant: cpu
+
+      - name: Fetch the pinned llama.cpp source
+        if: matrix.crate == 'novera-cli'
+        shell: bash
+        run: bash src-tauri/build-utils/fetch-engine-source.sh
+
       - name: cargo check
         run: cargo check ${{ matrix.flags }} --manifest-path src-tauri/${{ matrix.crate }}/Cargo.toml --all-targets
 
@@ -278,6 +307,15 @@ jobs:
           node-version: '20.x'
 
       # The runtime the ADKs drive, built the way a user builds it.
+      - name: Prepare the local llama.cpp toolchain
+        uses: ./.github/actions/setup-engine-toolchain
+        with:
+          variant: cpu
+
+      - name: Fetch the pinned llama.cpp source
+        shell: bash
+        run: bash src-tauri/build-utils/fetch-engine-source.sh
+
       - name: Build the jan runtime
         run: |
           cargo build --locked --manifest-path src-tauri/novera-cli/Cargo.toml \

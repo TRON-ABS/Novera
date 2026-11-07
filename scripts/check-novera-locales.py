@@ -32,6 +32,8 @@ def validate(root):
         'telemetry.summary', 'telemetry.unavailable',
         'errorTracking.title', 'errorTracking.summary', 'errorTracking.unavailable',
         'copy', 'copied', 'edit', 'deleteMessage', 'dialogs.deleteMessage.description',
+        'collapse', 'expand', 'moreControls', 'start', 'stop',
+        'voiceConversation', 'voiceUnavailable', 'voiceMale', 'voiceFemale', 'voiceReadReplies',
     )
     required_chat = (
         'actions.regenerate', 'actions.askAgain', 'actions.continue',
@@ -76,6 +78,11 @@ def validate(root):
                     issues.append(f'{namespace}:{key}: empty')
                 for label, pattern in [('interpolation', r'\{\{(\w+)\}\}'), ('code literal', r'`[^`]*`')]:
                     left, right = re.findall(pattern, value), re.findall(pattern, reference)
+                    # Plural selection already supplies count. A locale's
+                    # "one" category can include 0 (Persian/Punjabi), even
+                    # though the English one-form spells the number as "1".
+                    if label == 'interpolation' and re.search(r'_(zero|one|two|few|many|other)$', key) and 'count' not in right:
+                        left = [name for name in left if name != 'count']
                     if (Counter(left) != Counter(right) if label == 'interpolation' else left != right):
                         issues.append(f'{namespace}:{key}: {label}')
                 if code != 'en' and re.search(r'JANPH|JANSEG|ZXQ|QXZ|\uFFFD|NOVERA_\d{4}|998877\d{6}|90781\d{4}18709|[⟦⟧⟪⟫]', value):

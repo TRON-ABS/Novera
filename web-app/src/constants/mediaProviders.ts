@@ -1,5 +1,6 @@
-// Official API sources reviewed on 2026-10-26. Public availability is not account entitlement.
-export const MEDIA_CATALOG_VERIFIED_AT = '2026-10-26'
+// Official API sources reviewed on 2026-11-07; see the dated provider audit.
+// Public availability is not account entitlement or an inference certification.
+export const MEDIA_CATALOG_VERIFIED_AT = '2026-11-07'
 export interface MediaPreset {
   provider: string
   id: string
@@ -108,7 +109,7 @@ export const mediaProviderDefinitions = [
     id: 'vidu',
     name: 'Vidu',
     base: 'https://api.vidu.com/ent/v2',
-    docs: 'https://platform.vidu.com/docs/model-map',
+    docs: 'https://platform.vidu.com/models',
     home: 'https://www.vidu.com',
   },
   {
@@ -204,6 +205,30 @@ export const mediaModelPresets: MediaPreset[] = [
   ),
   video(
     'fal',
+    'blackforestlabs/flux-3/text-to-video',
+    'FLUX 3 Video · fal',
+    'fal',
+    'https://fal.ai/models/blackforestlabs/flux-3/text-to-video/api'
+  ),
+  image(
+    'fal',
+    'blackforestlabs/flux-3/text-to-image',
+    'FLUX 3 Image · fal',
+    'fal',
+    'https://fal.ai/models/blackforestlabs/flux-3/text-to-image/api'
+  ),
+  {
+    ...video(
+      'replicate',
+      'black-forest-labs/flux-3',
+      'FLUX 3 Video · Replicate',
+      'replicate',
+      'https://replicate.com/black-forest-labs/flux-3/api'
+    ),
+    preview: true,
+  },
+  video(
+    'fal',
     'fal-ai/pika/v2.2/text-to-video',
     'Pika 2.2 · fal',
     'fal',
@@ -229,6 +254,14 @@ export const mediaModelPresets: MediaPreset[] = [
     'Adobe Firefly Video',
     'adobe',
     'https://developer.adobe.com/firefly-services/docs/firefly-api/api/'
+  ),
+  video(
+    'gemini',
+    'gemini-omni-1.2-flash',
+    'Gemini Omni 1.2 Flash',
+    'google-image',
+    'https://aistudio.google.com/docs/models/gemini-omni-flash',
+    true
   ),
   video(
     'gemini',
@@ -295,6 +328,22 @@ export const mediaModelPresets: MediaPreset[] = [
   },
   image(
     'openai',
+    'gpt-image-2.6-sunburst',
+    'GPT Image 2.6 Sunburst',
+    'openai-image',
+    'https://developers.openai.com/api/docs/models/gpt-image-2.6-sunburst',
+    true
+  ),
+  image(
+    'openai',
+    'gpt-image-2.6-flare',
+    'GPT Image 2.6 Flare',
+    'openai-image',
+    'https://developers.openai.com/api/docs/models/gpt-image-2.6-flare',
+    true
+  ),
+  image(
+    'openai',
     'gpt-image-2.5-sunburst',
     'GPT Image 2.5 Sunburst',
     'openai-image',
@@ -339,6 +388,30 @@ export const mediaModelPresets: MediaPreset[] = [
     'Grok Imagine Video 1.5 Lite',
     'xai-video',
     'https://docs.x.ai/developers/model-capabilities/imagine',
+    true
+  ),
+  image(
+    'bfl',
+    'flux-3-image',
+    'FLUX 3 Image',
+    'bfl',
+    'https://docs.bfl.ai/flux_3/flux3_image_generate',
+    true
+  ),
+  image(
+    'bfl',
+    'flux-3-image-klein',
+    'FLUX 3 Image Klein',
+    'bfl',
+    'https://docs.bfl.ai/flux_3/flux3_image_klein',
+    true
+  ),
+  video(
+    'bfl',
+    'flux-3-video',
+    'FLUX 3 Video',
+    'bfl',
+    'https://docs.bfl.ai/flux_3/flux3_video',
     true
   ),
   image(

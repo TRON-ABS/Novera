@@ -1,0 +1,18 @@
+{
+  "addProvider": "Gushyiraho umutanga",
+  "addOpenAIProvider": "Gushyiraho umwuzuzanye",
+  "enterNameForProvider": "Izina rya Provider (eg. my-llm-server)",
+  "apiTypeLabel": "API format",
+  "apiTypeOpenAI": "OpenAIcompatible",
+  "apiTypeAnthropic": "Anthropiccompatible",
+  "baseUrlLabel": "Base URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API key",
+  "apiKeyPlaceholder": "Komeka urufunguzo rwawe API",
+  "invalidBaseUrl": "Base URL igomba kuba http(s) URL",
+  "globalSettings": "Amagenamiterere rusange",
+  "stripReasoning": "Gukuraho ibyiyumvo byawe mu magambo",
+  "stripReasoningDesc": "Gukuraho ibikubiye mu bitekerezo/ibitekerezo by'imikino ishize mbere yo kongera kohereza urutonde, hagati y'abatangabuhamya bose. Ihinduranya KV-cache ku mamodeli asanzwe, ariko hari mamodeli (nk'ibya Qwen bishya) byemeza ko bikwiye gutwarwa kugirango bikoreshe neza ibitekerezo by'imikino myinshi.",
+  "providerAlreadyExists": "Icyemezo cy'ubutumwa cyitwa {{name}} gifiteho."
+}

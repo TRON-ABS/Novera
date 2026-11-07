@@ -19,7 +19,7 @@ it('preserves existing model settings and skips repeat disk hashing', async () =
 })
 it('does not resurrect an explicitly deleted recommendation', async () => {
   const local = engine()
-  await registerRecommendedModels(local, [{ provider: 'llamacpp', id: file.id }])
+  await registerRecommendedModels(local, [{ provider: 'llamacpp', id: file.id },{provider:'llamacpp',id:'LFM3-Omni-2B-Q4_K_M'}])
   expect(local.import).not.toHaveBeenCalled()
   expect(mocks.invoke).not.toHaveBeenCalled()
 })
@@ -33,4 +33,12 @@ it('does not import incomplete or unknown files absent from native discovery', a
   const local = engine()
   await registerRecommendedModels(local)
   expect(local.import).not.toHaveBeenCalled()
+})
+it('imports the verified default model and projector together, never the projector as a separate model',async()=>{
+  const pair={id:'LFM3-Omni-2B-Q4_K_M',path:'C:/Models/LFM3-Omni-2B-Q4_K_M.gguf',size:manifest[0].size,sha256:manifest[0].sha256,
+    mmprojPath:'C:/Models/mmproj-LFM3-Omni-2B-Q4_K_M.gguf',mmprojSize:manifest[1].size,mmprojSha256:manifest[1].sha256}
+  mocks.invoke.mockResolvedValue([pair])
+  const local=engine();await registerRecommendedModels(local)
+  expect(local.import).toHaveBeenCalledExactlyOnceWith(pair.id,{modelPath:pair.path,modelSize:pair.size,modelSha256:pair.sha256,
+    mmprojPath:pair.mmprojPath,mmprojSize:pair.mmprojSize,mmprojSha256:pair.mmprojSha256})
 })

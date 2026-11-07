@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "kodi",
+    "preview": "Onani",
+    "previewStreaming": "Ipezeka pamene m'badwo ukatha",
+    "unresolvedAssets_one": "Katundu 1 sangalowe muzowoneratu. Manjira achibale alibe maziko URL oti athane nawo.",
+    "unresolvedAssets_other": "{{count}} zolozera za katundu sizingalowe muzowoneratu. Manjira achibale alibe maziko URL oti athane nawo."
+  },
+  "assistants": "Othandizira",
+  "hardware": "Hardware",
+  "mcp-servers": "MCP Ma seva",
+  "local_api_server": "Seva Yapafupi API",
+  "remote_access": "Kufikira Kutali",
+  "integrations": "Kuphatikiza",
+  "experimental": "Zoyeserera",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Woyimira",
+  "web_search": "Kusaka pa intaneti",
+  "shell": "Chipolopolo",
+  "browse": "Sakatulani",
+  "moreControls": "Kuwongolera kwina",
+  "starting": "Kuyambira ...",
+  "activeSuffix": "(Yogwira)",
+  "extensions": "Zowonjezera",
+  "attachments": "Zowonjezera",
+  "general": "General",
+  "settings": "Zokonda",
+  "modelProviders": "Opereka Zitsanzo",
+  "localProviders": "Local",
+  "remoteProviders": "Akutali",
+  "manageProviders": "Sinthani othandizira",
+  "hiddenProviders": "{{count}} woyimitsidwa",
+  "hideProvider": "Bisani wothandizira",
+  "showProvider": "Onetsani wopereka",
+  "interface": "Chiyankhulo",
+  "appearance": "Mawonekedwe",
+  "privacy": "Zazinsinsi",
+  "keyboardShortcuts": "Njira zazifupi",
+  "home": "Kunyumba",
+  "cowork": "Cowork",
+  "newSession": "Gawo latsopano",
+  "artifacts": "Zojambulajambula",
+  "customize": "Sinthani Mwamakonda Anu",
+  "local": "Local",
+  "selectFolder": "Sankhani chikwatu",
+  "selectModel": "Sankhani mtundu kaye",
+  "commands": "Malamulo",
+  "cmdHelp": "Lembani malamulo omwe alipo",
+  "cmdClear": "Chotsani gawoli",
+  "cmdModels": "Sinthani mtundu womwe umagwira",
+  "cmdModelsHint": "Lembani /models kenako sankhani chitsanzo pamndandanda",
+  "cmdModelSwitched": "Kusintha kupita ku {{name}}",
+  "cmdUnknown": "Lamulo losadziwika: {{name}}. Yesani /help",
+  "cmdBusy": "Sindingathe kuchita izi pamene wothandizira akugwira ntchito",
+  "cmdCompact": "Phatikizani nkhani ya gawolo kukhala chidule",
+  "cmdCompacted": "{{before}} -> {{after}} mauthenga",
+  "cmdNothingToCompact": "Palibe chophatikiza panobe",
+  "cmdCompactFailed": "Kukhazikika kwalephera: {{error}}",
+  "cmdPlan": "Sinthani dongosolo la dongosolo (werengani-pokha: wothandizira akufuna popanda kulemba)",
+  "cmdPlanOn": "Njira yokonzekera: wothandizira amawerenga ndikufunsira popanda kulemba",
+  "cmdPlanOff": "Kuyimitsa kokonzekera: kuchita mwachizolowezi",
+  "cmdTodo": "Tsegulani gulu lakupita patsogolo",
+  "cmdTasks": "Tsegulani gulu lakumbuyo la ntchito",
+  "cmdInit": "Phunzirani ntchitoyo ndikulemba maluso ndi kukumbukira",
+  "cmdInitRunning": "Kukwera polojekitiyi",
+  "skills": "Maluso",
+  "skillsInContext": "Maluso omwe akupezeka kwa wothandizira ntchitoyi",
+  "skillsTitle": "Sinthani luso",
+  "skillsScopeProject": "Maluso a {{folder}}",
+  "skillsScopeGlobal": "Maluso apadziko lonse lapansi, omwe amapezeka pagawo lililonse",
+  "skillsScopeMerged": "Maluso a {{folder}}, kuphatikiza luso lapadziko lonse gawo lililonse limagawana",
+  "skillOriginFolder": "chikwatu",
+  "skillOriginGlobal": "padziko lonse lapansi",
+  "skillsEmpty": "Palibe luso pano",
+  "skillsPickOrNew": "Sankhani luso lomwe mungasinthe, kapena pangani lina.",
+  "skillNew": "Luso latsopano",
+  "skillDelete": "Chotsani luso",
+  "skillSave": "Sungani",
+  "skillSaved": "Luso lasungidwa",
+  "skillNameRequired": "Dzina la luso likufunika",
+  "skillNamePlaceholder": "luso-dzina",
+  "skillContentPlaceholder": "Fotokozani momwe mungagwiritsire ntchitonso mu Markdown…",
+  "skillHubImport": "Lowetsani kuchokera ku hub",
+  "skillHubTitle": "Anthropic malo ophunzirira",
+  "skillHubEmpty": "Palibe luso lomwe lapezeka pamalopo",
+  "skillImport": "Import",
+  "skillReimport": "Lowetsaninso",
+  "skillImported": "Zachokera {{name}}",
+  "sessions": "Magawo",
+  "deleteSession": "Chotsani gawo",
+  "deleteSessionTitle": "Chotsani gawo?",
+  "deleteSessionBody": "\"{{title}}\" ndipo zolembedwa zake zichotsedwa kwamuyaya. Izi sizingasinthidwe.",
+  "newChat": "Chat Chatsopano",
+  "newAgentChat": "Macheza a Wothandizira Watsopano",
+  "chats": "Macheza",
+  "favorites": "Zokonda",
+  "recents": "Zaposachedwa",
+  "hub": "Hub",
+  "helpSupport": "Thandizo & Thandizo",
+  "helpUsImproveJan": "Tithandizeni Kuyenda Bwino Novera",
+  "analyticsConsentDetail": "Timasonkhanitsa deta yosadziwika kuti timvetsetse kagwiritsidwe ntchito. Macheza anu ndi zambiri zanu sizitsatiridwa. Mutha kusintha izi nthawi iliyonse mu Zokonda > Zinsinsi.",
+  "analyticsConsentQuestion": "Kodi mungafune kutithandiza kukonza Novera?",
+  "unstarAll": "Chotsani Zonse",
+  "unstar": "Chotsani nyenyezi",
+  "deleteAll": "Chotsani Zonse",
+  "star": "Nyenyezi",
+  "rename": "Sinthani dzina",
+  "delete": "Chotsani",
+  "copied": "Zakopedwa!",
+  "dataFolder": "Foda ya data",
+  "others": "Zina",
+  "language": "Chiyankhulo",
+  "login": "Lowani",
+  "loginWith": "Lowani Ndi {{provider}}",
+  "loginFailed": "Yalephera Kulowa",
+  "logout": "Tulukani",
+  "loggingOut": "Kutuluka...",
+  "loggedOut": "Mwatuluka Bwino",
+  "logoutFailed": "Yalephera Kutuluka",
+  "profile": "Mbiri",
+  "reset": "Bwezerani",
+  "search": "Sakani",
+  "searchThreads": "Sakani ulusi...",
+  "toNavigate": "kuti muyende",
+  "toSelect": "kusankha",
+  "toClose": "kutseka",
+  "clearRecent": "Chotsani",
+  "name": "Dzina",
+  "cancel": "Kuletsa",
+  "dismiss": "Chotsani",
+  "create": "Pangani",
+  "save": "Sungani",
+  "edit": "Sinthani",
+  "copy": "Koperani",
+  "back": "Kubwerera",
+  "close": "Tsekani",
+  "done": "Zatheka",
+  "next": "Kenako",
+  "finish": "Malizani",
+  "skip": "Pitani",
+  "allow": "Lolani",
+  "deny": "Kukana",
+  "start": "Yambani",
+  "stop": "Imani",
+  "preview": {
+    "loading": "Kutsegula…",
+    "unsupported": "Novera singathe kuwonetsa fayilo yamtunduwu. Tsegulani kuti muwone mu pulogalamu ina.",
+    "outside": "Fayilo iyi siilinso mu gawo logwirira ntchito.",
+    "tooLarge": "Ndi yayikulu kwambiri kuti mungowoneratu. Tsegulani kuti muwone mu pulogalamu ina.",
+    "reload": "Kwezaninso",
+    "allowNetwork": "Lolani maukonde",
+    "unsandboxed": "Thamangani unsandbox: deta yosungidwa ndi mafayilo am'deralo amagwira ntchito",
+    "unresolvedRefs_one": "1 file ulalo wa tsambali kuti sungathe kutsitsa powoneratu. Tsegulani kuti muwone mu msakatuli.",
+    "unresolvedRefs_other": "{{count}} mafayilo omwe amalumikizana ndi tsamba ili sangathe kutsitsa powoneratu. Tsegulani kuti muwone mu msakatuli.",
+    "externalRefs_one": "1 chida chomwe tsamba ili ladzaza pa intaneti chatsekedwa. Yatsani \"Lolani network\" kuti muyitse.",
+    "externalRefs_other": "{{count}} zopezeka patsambali zaletsedwa. Yatsani \"Lolani maukonde\" kuti muwatsegule.",
+    "scriptErrors_one": "Tsambali linanena cholakwika: {{message}}",
+    "scriptErrors_other": "Tsambali linanena zolakwika {{count}}. Choyamba: {{message}}"
+  },
+  "changes": {
+    "title": "Kusintha kwa othandizira",
+    "empty": "Mafayilo omwe wothandizira amalemba kapena kusintha awoneka apa.",
+    "a11y": "Kusintha kwa othandizira: {{files}} mafayilo, {{additions}} awonjezeredwa, {{deletions}} achotsedwa"
+  },
+  "modelPanel": {
+    "title": "Zokonda zachitsanzo",
+    "a11y": "Tsegulani zokonda zachitsanzo",
+    "contextTooltip": "Zenera lachidziwitso: {{value}} ya {{max}} ma tokeni"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Luso '{{name}}' palibe",
+    "kind": {
+      "skill": "Luso",
+      "command": "Command",
+      "model": "Chitsanzo"
+    }
+  },
+  "compactWidth": "Kutalikirana Kwambiri",
+  "fullWidth": "Kukula Kwathunthu",
+  "dark": "Chakuda",
+  "light": "Kuwala",
+  "system": "System",
+  "auto": "Auto",
+  "english": "Chingerezi",
+  "medium": "Wapakatikati",
+  "newThread": "Ulusi Watsopano",
+  "noResultsFound": "Palibe zotsatira zomwe zapezeka",
+  "noThreadsYet": "Palibe ulusi pano",
+  "noThreadsYetDesc": "Yambitsani zokambirana zatsopano kuti muwone mbiri ya ulusi wanu apa.",
+  "downloads": "Kutsitsa",
+  "downloading": "Kutsitsa",
+  "uploadingAttachments": "Kukweza zomata…",
+  "cancelDownload": "Letsani kutsitsa",
+  "downloadCancelled": "Kutsitsa Kwaletsedwa",
+  "downloadComplete": "Kutsitsa Kwathunthu",
+  "thinking": "Kuganiza...",
+  "thought": "Ganizo",
+  "callingTool": "Chida choyimbira",
+  "completed": "Anamaliza",
+  "image": "Chithunzi",
+  "vision": "Masomphenya",
+  "multimodal": "Multimodal",
+  "embeddings": "Zoyika",
+  "tools": "Zida",
+  "webSearch": "Kusaka pa intaneti",
+  "reasoning": "Kukambitsirana",
+  "proactive": "Wokhazikika",
+  "selectAModel": "Sankhani mtundu",
+  "noToolsAvailable": "Palibe zida zomwe zilipo",
+  "noModelsFoundFor": "Palibe mitundu yopezeka ya \"{{searchValue}}\"",
+  "failedToLoadModels": "Yalephera kuyika zitsanzo",
+  "noModels": "Palibe zitsanzo zomwe zapezeka",
+  "noAssistant": "Palibe wothandizira",
+  "customAvatar": "avatar yamakonda",
+  "editAssistant": "Sinthani Wothandizira",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Sinthaninso",
+  "threadImage": "Chithunzi cha ulusi",
+  "editMessage": "Sinthani Uthenga",
+  "deleteMessage": "Chotsani Uthenga",
+  "deleteThread": "Chotsani Ulusi",
+  "renameThread": "Sinthani dzina Ulusi",
+  "threadTitle": "Mutu wa Ulusi",
+  "deleteAllThreads": "Chotsani Milu Yonse",
+  "allThreadsUnfavorited": "Maulusi Onse Osakonda",
+  "deleteAllThreadsConfirm": "Mukutsimikiza kuti mukufuna kuchotsa ulusi wonse? Izi sizingasinthidwe.",
+  "addProvider": "Onjezani Wopereka",
+  "addOpenAIProvider": "Onjezani OpenAI Wothandizira",
+  "enterNameForProvider": "Lowetsani dzina la omwe akukupatsani",
+  "providerAlreadyExists": "Wopereka dzina \"{{name}}\" alipo kale. Chonde sankhani dzina lina.",
+  "adjustFontSize": "Sinthani Kukula Kwa Font",
+  "changeLanguage": "Sinthani Chiyankhulo",
+  "editTheme": "Sinthani Mutu",
+  "editCodeBlockStyle": "Sinthani mawonekedwe a Code Block",
+  "editServerHost": "Sinthani Seva Host",
+  "pickColorWindowBackground": "Sankhani Mtundu Wazenera Background",
+  "pickColorAppMainView": "Sankhani Mawonekedwe Aakulu a Pulogalamu Yamtundu",
+  "pickColorAppPrimary": "Sankhani Mtundu Wapulogalamu Yoyambira",
+  "pickColorAppAccent": "Sankhani Mtundu wa App Accent",
+  "pickColorAppDestructive": "Sankhani Mtundu wa App Wowononga",
+  "apiKeyRequired": "API Kiyi ndiyofunika",
+  "enterTrustedHosts": "Lowetsani makamu odalirika",
+  "placeholder": {
+    "chatInput": "Ndifunseni chilichonse ..."
+  },
+  "confirm": "Tsimikizani",
+  "continue": "Pitirizani",
+  "loading": "Kutsegula...",
+  "settingUpJan": "Kuyambitsa Novera…",
+  "registeringExtensions": "Kulembetsa zowonjezera…",
+  "loadingExtensions": "Kutsegula zowonjezera… ({{done}}/{{total}})",
+  "error": "Zolakwika",
+  "success": "Kupambana",
+  "warning": "Chenjezo",
+  "conversationNotAvailable": "Zokambirana sizikupezeka",
+  "conversationNotAvailableDescription": "Zokambirana zomwe mukuyesera kuzipeza sizikupezeka kapena zachotsedwa.",
+  "temporaryChat": "Macheza Akanthawi",
+  "temporaryChatTooltip": "Macheza akanthawi sawoneka m'mbiri yanu",
+  "noResultsFoundDesc": "Sitinapeze macheza aliwonse ofanana ndi zomwe mumafufuza. Yesani mawu ena osafunikira.",
+  "searchModels": "Sakani mitundu...",
+  "searchStyles": "Sakani masitaelo...",
+  "createAssistant": "Pangani Wothandizira",
+  "enterApiKey": "Lowetsani API Kiyi",
+  "scrollToBottom": "Pitani pansi",
+  "generateAiResponse": "Pangani AI Yankho",
+  "continueAiResponse": "Pitirizani ndi AI Yankho",
+  "addModel": {
+    "title": "Onjezani Model",
+    "modelId": "Chitsanzo ID",
+    "enterModelId": "Lowetsani Chitsanzo ID",
+    "addModel": "Onjezani Model",
+    "description": "Onjezani mtundu watsopano kwa wothandizira",
+    "exploreModels": "Onani mndandanda wamitundu kuchokera kwa omwe amapereka"
+  },
+  "mcpServers": {
+    "editServer": "Sinthani Seva",
+    "addServer": "Onjezani Seva",
+    "serverName": "Dzina la seva",
+    "enterServerName": "Lowetsani dzina la seva",
+    "command": "Command",
+    "enterCommand": "Lowetsani lamulo",
+    "arguments": "Mikangano",
+    "argument": "Mkangano {{index}}",
+    "envVars": "Zosintha Zachilengedwe",
+    "key": "Key",
+    "value": "Mtengo",
+    "save": "Sungani"
+  },
+  "deleteServer": {
+    "title": "Chotsani Seva",
+    "delete": "Chotsani"
+  },
+  "editJson": {
+    "errorParse": "Yalephera kulongosola JSON",
+    "errorPaste": "Yalephera kuyika JSON",
+    "errorFormat": "mtundu wolakwika wa JSON",
+    "titleAll": "Sinthani Kusintha Kwa Seva Zonse",
+    "placeholder": "Lowetsani JSON kasinthidwe...",
+    "save": "Sungani"
+  },
+  "editModel": {
+    "title": "Sinthani Chitsanzo: {{modelId}}",
+    "description": "Konzani luso lachitsanzo posintha zomwe zili pansipa.",
+    "capabilities": "Maluso",
+    "tools": "Zida",
+    "vision": "Masomphenya",
+    "embeddings": "Zoyika",
+    "notAvailable": "Palibe pano"
+  },
+  "outOfContextError": {
+    "truncateInput": "Truncate Input",
+    "title": "Zolakwika zakunja",
+    "description": "Macheza awa akufikira pomwe AI atsala pang'ono kukumbukira, ngati bolodi yoyera ikudzaza. Titha kukulitsa zenera la kukumbukira (lotchedwa kukula kwa nkhani) kuti likumbukire zambiri, koma litha kugwiritsa ntchito kukumbukira kwambiri pakompyuta yanu. Tithanso kuchepetsa zolowetsa, zomwe zikutanthauza kuti iiwala mbiri yakale yochezera kuti tipeze mwayi wolandila mauthenga atsopano.",
+    "increaseContextSizeDescription": "Kodi mukufuna kuwonjezera kukula kwa nkhaniyo?",
+    "increaseContextSize": "Wonjezerani Kukula Kwa Nkhani"
+  },
+  "toolApproval": {
+    "title": "Chilolezo Chofunsira",
+    "description": "Wothandizira akufuna kugwiritsa ntchito <strong>{{toolName}}</strong>",
+    "securityNotice": "Lolani zida zomwe mumazikhulupirira zokha. Zida zimatha kulowa mudongosolo lanu ndi data.",
+    "deny": "Kukana",
+    "allowOnce": "Lolani Kamodzi",
+    "alwaysAllow": "Lolani Nthawi Zonse"
+  },
+  "deleteModel": {
+    "title": "Chotsani Chitsanzo: {{modelId}}",
+    "description": "Mukutsimikiza kuti mukufuna kuchotsa mtundu uwu? Izi sizingasinthidwe.",
+    "success": "Model {{modelId}} yachotsedwa kotheratu.",
+    "cancel": "Kuletsa",
+    "delete": "Chotsani"
+  },
+  "deleteProvider": {
+    "title": "Chotsani Wopereka",
+    "description": "Chotsani wopereka uyu ndi mitundu yake yonse. Izi sizingasinthidwe.",
+    "success": "Wothandizira {{provider}} afufutidwiratu.",
+    "confirmTitle": "Chotsani Wopereka: {{provider}}",
+    "confirmDescription": "Mukutsimikiza kuti mukufuna kuchotsa woperekayu? Izi sizingasinthidwe.",
+    "cancel": "Kuletsa",
+    "delete": "Chotsani"
+  },
+  "modelSettings": {
+    "label": "Zokonda Zachitsanzo",
+    "title": "Zokonda Zachitsanzo - {{modelId}}",
+    "description": "Konzani zokonda zachitsanzo kuti muwongolere magwiridwe antchito ndi machitidwe.",
+    "nglDisabledByFit": "Auto-fit ikusankha magawo GPU. Zimitsani Auto-fit kuti muyike izi pamanja.",
+    "samplingDefaults": {
+      "title": "Zitsanzo zokhazikika",
+      "description": "Zokonda zachitsanzo zachitsanzochi. Imagwiritsidwa ntchito pokhapokha ngati itaphwanyidwa ndi wothandizira aliyense kapena pa pempho lililonse."
+    },
+    "specDraft": {
+      "section": "Kujambula mongoyerekeza",
+      "enable": "Yambitsani kujambula mongoyerekeza",
+      "enableDescription": "Konzani ma tokeni angapo pa sitepe imodzi ndikuwonetsetsa mu chiphaso chimodzi, chomwe chimafulumizitsa kubadwa. Imagwiritsa ntchito mitu yamtundu wa MTP, kapena chojambula chomwe chidatsitsidwa nacho (MTP, Eagle3, DFlash kapena DSpark).",
+      "nMax": "Zizindikiro zazikulu zolembera",
+      "nMaxDescription": "Chiwerengero chachikulu cha ma tokeni oti mulembe pa sitepe iliyonse. Zofikira 16.",
+      "nMin": "Min draft tokeni",
+      "nMinDescription": "Chiwerengero chochepa cha ma tokeni oti mulembe pa sitepe iliyonse. Zofikira 0.",
+      "pMin": "Kuthekera kocheperako",
+      "pMinDescription": "Mpata wochepera wolemba mwadyera (0–1). Kufikira 0.75."
+    },
+    "templateKwargs": {
+      "section": "Zosankha za ma template a Chat",
+      "description": "Zosankha zinanso zomwe macheza amtunduwu amavomereza. Atumizidwa ngati chat_template_kwargs pa pempho lililonse; siyani mtengo pazokhazikika kuti mulole template isankhe.",
+      "addCustom": "Onjezani njira yosinthira",
+      "keyPlaceholder": "dzina",
+      "valuePlaceholder": "mtengo",
+      "add": "Onjezani",
+      "cancel": "Kuletsa",
+      "remove": "Chotsani"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Sitinathe kusintha makonda amitundu"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Sinthani Malo a Foda Ya data",
+      "description": "Kodi mukutsimikiza kuti mukufuna kusintha chikwatu cha data? Izi zisuntha deta yanu yonse kumalo atsopano ndikuyambitsanso pulogalamuyo.",
+      "currentLocation": "Malo Apano:",
+      "newLocation": "Malo Atsopano:",
+      "cancel": "Kuletsa",
+      "changeLocation": "Sinthani Malo"
+    },
+    "deleteAllThreads": {
+      "title": "Chotsani Milu Yonse",
+      "description": "Ulusi wonse uchotsedwa. Izi sizingasinthidwe."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Chotsani Zokambirana Zonse",
+      "description": "{{count}} zokambirana mu \"{{projectName}}\" zichotsedwa. Izi sizingasinthidwe."
+    },
+    "deleteThread": {
+      "description": "Mukutsimikiza kuti mukufuna kuchotsa ulusiwu? Izi sizingasinthidwe."
+    },
+    "editMessage": {
+      "title": "Sinthani Uthenga"
+    },
+    "messageMetadata": {
+      "title": "Metadata ya Mauthenga"
+    },
+    "deleteMessage": {
+      "description": "Mukutsimikiza kuti mukufuna kuchotsa uthengawu? Izi sizingasinthidwe."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "China chake chalakwika",
+    "details": "Tsatanetsatane"
+  },
+  "missingDependenciesDialog": {
+    "title": "Malaibulale Osowa",
+    "description": "{{backend}} idayikidwa koma malaibulale ena ofunikira sanapezeke. Itha kugweranso ku CPU kapena osayenda bwino.",
+    "installLabel": "Kuti mukonze izi, yikani izi:",
+    "download": "Tsitsani",
+    "additionalLibraries": "Malaibulale ena osowa:",
+    "missingLibraries": "malaibulale akusowa:",
+    "showRawLibraries": "Onetsani {{count}} mayina a library omwe akusowa"
+  },
+  "projects": {
+    "title": "Ntchito",
+    "new": "Ntchito Zatsopano",
+    "addProject": "Onjezani Ntchito",
+    "addToProject": "Onjezani ku polojekiti",
+    "removeFromProject": "Chotsani pulojekiti",
+    "createNewProject": "Pangani Ntchito Yatsopano",
+    "editProject": "Sinthani Pulojekiti",
+    "deleteProject": "Chotsani Ntchito",
+    "projectName": "Dzina la Ntchito",
+    "enterProjectName": "Lowetsani dzina la polojekiti...",
+    "noProjectsAvailable": "Palibe ntchito zomwe zilipo",
+    "noProjectsYet": "Palibe Ntchito Pakalipano",
+    "noProjectsYetDesc": "Yambitsani pulojekiti yatsopano podina batani la Add Project.",
+    "projectNotFound": "Pulojekiti sinapezeke",
+    "projectNotFoundDesc": "Ntchito yomwe mukuyang'ana kulibe kapena yachotsedwa.",
+    "selectAssistant": "Sankhani wothandizira",
+    "noAssistantAssigned": "Palibe womuthandizira pantchitoyi",
+    "files": "Mafayilo",
+    "filesDescription": "Onjezani ma PDF, zikalata, kapena zolemba zina kuti mugwiritse ntchito polojekitiyi.",
+    "uploadingFiles": "Kukonza mafayilo…",
+    "processButton": "Onjezani",
+    "deleteProjectDialog": {
+      "title": "Chotsani Ntchito",
+      "permanentDelete": "Izi zichotsa ulusi wonse.",
+      "permanentDeleteWarning": "Izi zichotsa ALL ulusi mkati mwa pulojekitiyi!",
+      "deleteEmptyProject": "Izi zichotsa pulojekiti \"{{projectName}}\".",
+      "saveThreadsAdvice": "Kuti musunge ulusi, zisunthireni ku mndandanda wa ulusi wanu kapena polojekiti ina musanachotse.",
+      "starredWarning": "Muli ndi nyenyezi mkati mwa polojekitiyi.",
+      "deleteButton": "Chotsani",
+      "successWithName": "Pulojekiti \"{{projectName}}\" yachotsedwa bwino",
+      "successWithoutName": "Ntchito yachotsedwa bwino",
+      "error": "Yalephera kufufuta pulojekiti. Chonde yesaninso.",
+      "ariaLabel": "Chotsani {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Pangani Ntchito Yatsopano",
+      "editTitle": "Sinthani Pulojekiti",
+      "nameLabel": "Dzina la Ntchito",
+      "namePlaceholder": "Lowetsani dzina la polojekiti...",
+      "assistant": "Wothandizira",
+      "selectAssistant": "Sankhani wothandizira (posankha)",
+      "noAssistant": "Palibe wothandizira",
+      "addAssistant": "Onjezani Wothandizira",
+      "createButton": "Pangani",
+      "updateButton": "Kusintha",
+      "alreadyExists": "Project \"{{projectName}}\" ilipo kale",
+      "createSuccess": "Pulojekiti \"{{projectName}}\" idapangidwa bwino",
+      "updateSuccess": "Pulojekiti \"{{projectName}}\" yasinthidwa bwino",
+      "saveError": "Sanathe kusunga pulojekiti. Chonde yesaninso."
+    },
+    "noConversationsIn": "Palibe Zokambirana mu {{projectName}}",
+    "startNewConversation": "Yambitsani kucheza kwatsopano ndi {{projectName}} pansipa",
+    "conversationsIn": "Zokambirana mu {{projectName}}",
+    "conversationsDescription": "Dinani pazokambirana zilizonse kuti mupitirize kucheza, kapena yambitsani ina pansipa.",
+    "conversation": "Kukambirana",
+    "instructions": "Malangizo",
+    "setup": "Kukhazikitsa",
+    "instructionsDescription": "Sinthani kamvekedwe ndi kalembedwe kake",
+    "manageInstructions": "Sinthani Malangizo",
+    "thread": "ulusi",
+    "threads": "ulusi",
+    "updated": "Zasinthidwa:",
+    "collapseProject": "Pulani pulojekiti",
+    "expandProject": "Wonjezerani ntchito",
+    "update": "Kusintha",
+    "searchProjects": "Sakani mapulojekiti...",
+    "noProjectsFound": "Palibe mapulojekiti omwe adapezeka",
+    "tryDifferentSearch": "Yesani mawu ena osakira"
+  },
+  "attachmentsIngestion": {
+    "title": "Sankhani momwe mungalowetse zomata",
+    "description": "Sankhani ngati muphatikize mafayilowa mwachindunji pamacheza kapena alondoleni ngati zoyikapo.",
+    "inline": "Lowetsani mu macheza",
+    "embeddings": "Gwiritsani ntchito zoyika"
+  },
+  "attachmentInjectedIndicator": "Analowetsedwa mu macheza",
+  "attachmentEmbeddedIndicator": "Yophatikizidwa ndi RAG",
+  "viewInjectedContent": "Onani zomwe zidalowetsedwa",
+  "injectedContentTitle": "Zomwe zili mufayilo",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Maulusi Onse Osakonda",
+      "description": "Ulusi wonse wachotsedwa pazomwe mumakonda."
+    },
+    "deleteAllThreads": {
+      "title": "Chotsani Milu Yonse",
+      "description": "Ulusi wonse wachotsedwa kotheratu."
+    },
+    "renameThread": {
+      "title": "Sinthani dzina Ulusi",
+      "description": "Mutu wa ulusi wasinthidwa kukhala '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Chotsani Ulusi",
+      "description": "Ulusi uwu wachotsedwa."
+    },
+    "errorCopied": {
+      "title": "Kukopera kwapambana",
+      "description": "Zambiri zolakwika zidakopera pa bolodi lojambula"
+    },
+    "errorCopyFailed": {
+      "title": "Yalephera kukopera",
+      "description": "Yalephera kukopera zolakwika pa clipboard"
+    },
+    "editMessage": {
+      "title": "Sinthani Uthenga",
+      "description": "Uthenga wasinthidwa bwino. Chonde dikirani kuti chitsanzocho chiyankhe."
+    },
+    "appUpdateDownloaded": {
+      "title": "Kusintha kwa Mapulogalamu Kwatsitsidwa",
+      "description": "Kusintha kwa pulogalamuyi kudatsitsidwa bwino."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Kutsitsa Kusintha Kwamapulogalamu Kwalephera",
+      "description": "Yalephera kutsitsa zosintha za pulogalamuyi. Chonde yesaninso."
+    },
+    "downloadComplete": {
+      "title": "Kutsitsa Kwathunthu",
+      "description": "{{item}} yatsitsidwa"
+    },
+    "downloadCancelled": {
+      "title": "Kutsitsa Kwaletsedwa",
+      "description": "Njira yotsitsa idathetsedwa"
+    },
+    "downloadFailed": {
+      "title": "Kutsitsa Kwalephera",
+      "description": "{{item}} kutsitsa kwalephera",
+      "descriptionWithReason": "{{item}} kutsitsa kwalephera: {{reason}}",
+      "reason": {
+        "dns": "dzina la seva silinathe kuthetsedwa",
+        "refused": "kulumikizana kwaletsedwa",
+        "timeout": "kulumikizidwa kwatha",
+        "tls": "kulumikizana kotetezeka sikunakhazikitsidwe",
+        "proxy": "woyimira sakanafikiridwa",
+        "unreachable": "seva sinafike"
+      }
+    },
+    "openSettings": "Tsegulani Zokonda",
+    "openLogs": "Tsegulani zipika",
+    "downloadTokenRequired": {
+      "title": "Hugging Face chizindikiro ndichofunika",
+      "description": "Mtunduwu umafunika chizindikiro cha Hugging Face. Onjezani chizindikiro chanu mu Zikhazikiko ndikuyesanso."
+    },
+    "downloadLicenseRequired": {
+      "title": "Landirani laisensi yachitsanzo pa Hugging Face",
+      "description": "Muyenera kuvomereza laisensi yachitsanzo patsamba lake la Hugging Face musanatsitse."
+    },
+    "downloadRateLimited": {
+      "title": "Mlingo wochepa ndi Hugging Face",
+      "description": "Mwakhala ndi malire. Kuyika chizindikiro kumatha kuwonjezera malire. Chonde yesaninso nthawi ina."
+    },
+    "modelValidationStarted": {
+      "title": "Mtundu Wotsimikizira",
+      "description": "Mtundu watsitsa \"{{modelId}}\" bwino. Kutsimikizira kukhulupirika..."
+    },
+    "modelValidationFailed": {
+      "title": "Kutsimikizika Kwachitsanzo Kwalephera",
+      "description": "Mtundu wotsitsidwa \"{{modelId}}\" walephera kutsimikizira kukhulupirika ndipo wachotsedwa. Fayilo ikhoza kusokonezedwa kapena kusokonezedwa."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Kutsitsa Kwathunthu",
+      "description": "Chitsanzo \"{{item}}\" chatsitsidwa ndikutsimikiziridwa bwino"
+    },
+    "projectCreated": {
+      "title": "Ntchito Yapangidwa",
+      "description": "Pulojekiti \"{{projectName}}\" idapangidwa bwino"
+    },
+    "projectRenamed": {
+      "title": "Pulojekiti Yasinthidwanso",
+      "description": "Pulojekiti idasinthidwa kuchokera ku \"{{oldName}}\" kukhala \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Ntchito Yachotsedwa",
+      "description": "Pulojekiti \"{{projectName}}\" yachotsedwa bwino"
+    },
+    "projectAlreadyExists": {
+      "title": "Pulojekiti Ilipo Kale",
+      "description": "Project \"{{projectName}}\" ilipo kale"
+    },
+    "projectDeleteFailed": {
+      "title": "Kuchotsa Kwalephera",
+      "description": "Yalephera kufufuta pulojekiti. Chonde yesaninso."
+    },
+    "threadAssignedToProject": {
+      "title": "Ulusi Waperekedwa",
+      "description": "Ulusi wapatsidwa \"{{projectName}}\" bwino"
+    },
+    "threadRemovedFromProject": {
+      "title": "Ulusi Wachotsedwa",
+      "description": "Ulusi wachotsedwa pa \"{{projectName}}\" bwino"
+    },
+    "fileUploaded": {
+      "title": "Fayilo Yakonzedwa",
+      "description": "Fayilo yasinthidwa ndikuyikidwa bwino"
+    },
+    "uploadFailed": {
+      "title": "Kukonza Kwalephera",
+      "description": "Yalephera kukonza fayilo",
+      "subjectThisFile": "Fayilo iyi",
+      "pdfMalformedXref": "{{subject}} ili ndi tebulo lolakwika la PDF ndipo silingathe kugawidwa. Yesani kuitsegula mu PDF yowonera ndikusunganso (Fayilo → Sindikizani → Sungani monga PDF), kenako lowetsaninso.",
+      "pdfScanned": "{{subject}} ikuwoneka ngati yojambulidwa kapena yotengera zithunzi PDF. OCR sinagwiritsidwe ntchito panobe — chonde kwezani mawu otengera PDF.",
+      "pdfEncrypted": "{{subject}} imatetezedwa ndi mawu achinsinsi. Chotsani mawu achinsinsi ndikuyesanso.",
+      "pdfUnsupportedFeature": "{{subject}} amagwiritsa ntchito chinthu cha PDF Novera chomwe sichingawunikebe (monga PostScript mawonekedwe amtundu/mthunzi). Yesani kuyisunganso (Fayilo → Sindikizani → Sungani ngati PDF) kuti muyifewetse, kenako lowetsaninso.",
+      "pdfGeneric": "{{subject}} sinathe kugawidwa ngati PDF. Fayiloyo ikhoza kukhala yoipitsidwa kapena imagwiritsa ntchito PDF yosagwirizana.",
+      "fileTooLarge": "{{subject}} ndi yayikulu kwambiri. {{message}}.",
+      "unsupportedType": "Mtundu wa fayilo \"{{type}}\" sagwirizana.",
+      "ioError": "Sindinathe kuwerenga {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} sizinatheke kufotokozedwa: {{message}}",
+      "fallback": "Yalephera kukonza {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Fayilo Yachotsedwa",
+      "description": "Fayilo yachotsedwa mu polojekitiyi"
+    },
+    "deleteFailed": {
+      "title": "Kuchotsa Kwalephera",
+      "description": "Yalephera kufufuta fayilo"
+    },
+    "fileAlreadyExists": {
+      "title": "Fayilo Ilipo Kale",
+      "description": "Fayilo idalumikizidwa kale ndi polojekitiyi"
+    },
+    "unsupportedFileType": {
+      "title": "Mtundu Wafayilo Wosagwirizana",
+      "description": "Fayilo yowonjezera \".{{extension}}\" siyikugwiritsidwa ntchito pazachidziwitso cha Project."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Zomata Zayimitsidwa",
+      "description": "Zomata zimayimitsidwa muzokonda"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Fayilo yayikulu kwambiri",
+    "fileTooLargeDescription": "{{fileName}} yadutsa malire a {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} zidutswa",
+    "title": "Mafayilo",
+    "empty": "Mafayilo omwe mumalumikiza ndi mafayilo omwe wopanga amapanga awoneka apa.",
+    "a11y": "Mafayilo: {{count}}",
+    "attachments": "Zowonjezera",
+    "notImported": "osati pamalo ogwirira ntchito"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp ikadali yotanganidwa",
+    "description": "Mtundu umodzi kapena zingapo sizinatsitse munthawi yake. Kuumiriza kusiya kuletsa llama.cpp ndipo kungasokoneze mayankho omwe akuchitika.",
+    "forceQuit": "Limbikitsani kusiya",
+    "forcing": "Limbikitsani kusiya ...",
+    "shuttingDown": "Kutseka ..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Kugwa",
+  "expand": "Onjezani",
+  "todoPanelTitle": "Kupita patsogolo",
+  "todoPanelEmpty": "Palibe mndandanda wa zochita panobe.",
+  "backgroundTasks": "Ntchito zakumbuyo",
+  "subagentsRunning_one": "{{count}} subagent ikuyenda",
+  "subagentsRunning_other": "{{count}} ma subagents akuthamanga",
+  "monitorsRunning_one": "{{count}} polojekiti ikuyenda",
+  "monitorsRunning_other": "{{count}} zowunikira zikuyenda",
+  "backgroundRunning_one": "{{count}} ntchito yakumbuyo ikuyenda",
+  "backgroundRunning_other": "{{count}} ntchito zakumbuyo zikuyenda",
+  "monitors": "Oyang'anira",
+  "monitorPolling": "Kuvota",
+  "monitorMatched": "Zofanana",
+  "monitorTimedOut": "Yatha",
+  "monitorStopped": "Ayimitsidwa",
+  "monitorEnded": "Yatha",
+  "coworkWatching_one": "Kuwonera {{count}} polojekiti…",
+  "coworkWatching_other": "Kuwonera {{count}} zowunikira…",
+  "coworkWaitingBackground": "Kudikirira ntchito zakumbuyo…",
+  "noBackgroundTasks": "Palibe ntchito zakumbuyo pano.",
+  "running": "Kuthamanga",
+  "queued": "Yakhala pamzere",
+  "waiting": "Kudikirira",
+  "finished": "Zatha",
+  "subagentPhase": "gawo {{phase}}",
+  "subagentWaiting": "kudikira",
+  "viewTranscript": "Onani zolembedwa",
+  "taskWorking": "Ntchito…",
+  "taskNoOutput": "The subagent sanatulutse zowonekera.",
+  "subagentToolUses_one": "{{count}} kugwiritsa ntchito zida",
+  "subagentToolUses_other": "{{count}} kugwiritsa ntchito zida",
+  "artifactGroupCode": "kodi",
+  "artifactGroupImage": "Chithunzi",
+  "artifactGroupDocument": "Chikalata",
+  "artifactGroupVideo": "Kanema",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Tsegulani zowonera",
+  "artifactOpenExternal": "Tsegulani",
+  "artifactMoreActions": "Zochita zambiri",
+  "artifactShowInFolder": "Onetsani mu Foda",
+  "skillsUsedLabel": "Maluso ogwiritsidwa ntchito",
+  "skillsUsed": "Maluso ogwiritsidwa ntchito: {{skills}}",
+  "artifactsAll": "Zonse",
+  "artifactsEmpty": "Palibe chomwe chapangidwa. Zopangidwa kuchokera ku Cowork zimawonekera apa.",
+  "artifactsNoMatch": "Palibe zinthu zakale zofananira.",
+  "artifactsSearch": "Sakani zinthu zakale",
+  "artifactsShowMore": "Onetsani {{count}} zina",
+  "workspace": {
+    "readsFrom": "Imagwira ntchito mkati",
+    "writable": "werengani ndi kulemba",
+    "footnote": "Wothandizira amawerenga ndikusintha fodayi mwachindunji. Onaninso zomwe zasintha mu diff panel.",
+    "footnoteEmpty": "Gwirizanitsani chikwatu kuti wothandizira agwire ntchito yanu. Imatha kuwerenga ndikusintha mafayilo mkati mwake.",
+    "attach": "Ikani chikwatu",
+    "change": "Sinthani chikwatu",
+    "detach": "Chotsani chikwatu",
+    "open": "Tsegulani",
+    "reveal": "kuwulula",
+    "unavailable": "Malo ogwirira ntchito palibe",
+    "missing": "Chikwatu cha malo ogwirira ntchito {{folder}} sichikupezeka. Sankhani chikwatu china.",
+    "openFailed": "sinathe kutsegula malo ogwirira ntchito",
+    "revealFailed": "Sizinathe kuwulula malo ogwirira ntchito",
+    "a11yWithFolder": "Foda ya polojekiti {{folder}}, yolumikizidwa ndi mwayi wowerengera ndi kulemba. Sinthani kapena chotsani.",
+    "a11yNoFolder": "Palibe chikwatu cha polojekiti chomwe chalumikizidwa. Gwirizanitsani chimodzi."
+  },
+  "coworkEmpty": {
+    "title": "Kodi tikuchita chiyani?",
+    "subtitleSandbox": "Perekani Novera ntchito. Imawerenga ndi kulemba mafayilo, imayendetsa malamulo, ndipo imagwira ntchito pamasitepe okha.",
+    "subtitleFolder": "Perekani Novera ntchito. Imagwira ntchito mwachindunji mu {{folder}}, ikuwerenga ndikusintha mafayilo palokha.",
+    "try": "Yesani",
+    "sandbox": {
+      "first": "Lembani Python script yomwe imatchulanso mafayilo pofika tsiku lomwe adatengedwa",
+      "second": "Pangani dashboard yatsamba limodzi kuchokera pa CSV ndiyikamo",
+      "third": "Jambulani README ya pulojekiti yomwe ndikufotokozerani"
+    },
+    "folder": {
+      "first": "Fotokozani momwe {{folder}} imapangidwira",
+      "second": "Pezani TODO iliyonse mu {{folder}} ndikuyika m'magulu osiyanasiyana",
+      "third": "Lembani mayeso a gawo la {{folder}} Ndikukulozerani"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Palibe terminal",
+    "a11y": "Malamulo othamanga azimitsidwa. Tsatanetsatane.",
+    "title": "Malamulo othamanga azimitsidwa",
+    "body": "Novera imalola wothandizira kuyendetsa malamulo pokhapokha ngati makina anu atha kuwatsekereza. Palibe sandbox yomwe ilipo pano, kotero wothandizira amatha kuwerenga, kulemba ndikusintha mafayilo mu sandbox yake - koma osayendetsa chilichonse.",
+    "fixLinux": "Linux imagwiritsa ntchito bubblewrap. Ikani, ndikuyambitsanso Novera.",
+    "fixMac": "macOS imagwiritsa ntchito sandbox yomangidwa ku /usr/bin/sandbox-exec. Yambitsaninso Novera ikapezeka.",
+    "fixWindows": "Windows imagwiritsa ntchito AppContainer. Yambitsaninso Novera kuti muyesenso.",
+    "recheck": "Onaninso"
+  },
+  "planMode": {
+    "label": "Plan",
+    "tooltipOff": "Konzekerani kaye - wothandizira amawerenga ndikufunsira, osalemba.",
+    "tooltipOn": "Kukonzekera. Zimitsani izi kuti mulole wothandizira kulemba mafayilo.",
+    "onAnnounce": "Mapulani ayamba",
+    "placeholder": "Funsani pulani. Wothandizira sasintha mafayilo aliwonse."
+  },
+  "budget": {
+    "stoppedSteps": "Iyima pamasitepe {{max}}. Wothandizira sanamalize.",
+    "keepGoing": "Pitirizani",
+    "stoppedTokens": "Inayimitsidwa - gawoli lafika pa bajeti yake.",
+    "compact": "Wophatikiza",
+    "newSession": "Gawo latsopano"
+  },
+  "run": {
+    "stopped": "Ayimitsidwa.",
+    "failed": "Kuthamanga kunayima msanga.",
+    "tryAgain": "Yesaninso"
+  },
+  "modelNoTools": "{{model}} sichitha kuyimba zida, kotero singachite ngati wothandizira. Sankhani chitsanzo choyimbira zida.",
+  "askContinue": "Pitirizani",
+  "askNext": "Funso lotsatira",
+  "askPrev": "Funso lam'mbuyo",
+  "askRecommended": "Yalimbikitsidwa",
+  "askSelectedCount": "{{count}} yasankhidwa",
+  "askSomethingElse": "Chinanso",
+  "askSomethingElsePlaceholder": "Lembani yankho lanu",
+  "submit": "Tumizani",
+  "composer": {
+    "advanced": "magawo apamwamba",
+    "modelDefaults": "Zosintha zamitundu",
+    "assistantOverrides": "Wothandizira adutsa",
+    "printPdf": "Sindikizani / Sungani monga PDF",
+    "exportHint": "Mawonekedwe owerengeka: nthambi yogwira. JSON: mitundu yonse ya mauthenga. Mafayilo akunja alibe mtolo."
+  },
+  "telemetry": {
+    "summary": "Ndi chilolezo chanu, {{host}} imalandira kokha mtundu wa Novera ndi makina ogwiritsira ntchito, popanda zokambirana kapena chizindikiritso chosalekeza.",
+    "unavailable": "Ziwerengero sizinakonzedwe. Palibe deta yomwe yatumizidwa."
+  },
+  "errorTracking": {
+    "title": "Kutsata zolakwika",
+    "summary": "Malipoti osankha ku {{host}}: mtundu wa zolakwika, malo a code, mtundu ndi makina ogwiritsira ntchito. Palibe zokambirana, mauthenga olakwika kapena makiyi. Zimitsani nthawi iliyonse.",
+    "unavailable": "Kutsata zolakwika sikunakhazikitsidwe. Palibe malipoti omwe amatumizidwa."
+  },
+  "access": {
+    "read": "Werengani kokha",
+    "ask": "Funsani musanasinthe kapena kufufuta",
+    "allow": "Lolani kusintha ndi kufufuta",
+    "folderNote": "Sankhani momwe Novera angapezere fodayi."
+  },
+  "components": {
+    "title": "Zigawo zakomweko",
+    "note": "Ikani zida zomwe mukufuna. Novera imachititsa kuti Python ikhale yosiyana. Ntchito zamtambo sizifunikira kukhazikitsa kwanuko.",
+    "estimates": "Chiyerekezo chotsitsa: {{download}} · Malo ofunikira a disk: {{space}} · Malo a disk omwe alipo: {{free}}",
+    "confirm": "Ikani malo achinsinsi awa? Zigawo zosankhidwa zokha zidzatsitsidwa. Malayisensi awo osindikiza amagwira ntchito.",
+    "removeConfirm": "Chotsani malo otetezedwawa? Zitsanzo zanu, zolengedwa ndi zokambirana zidzasungidwa.",
+    "verify": "Tsimikizani",
+    "repair": "Kukonza",
+    "uninstall": "Chotsani",
+    "missing": "Osayikidwa",
+    "managed": "Yoyendetsedwa ndi Novera",
+    "external": "Njira yosankha ya Python yakunja imaposa mbiri yoyendetsedwa. Itseni kuti mugwiritse ntchito malo a Novera.",
+    "failed": "Ntchito ya chigawocho yalephera. Yang'anani netiweki, malo a disk ndi ufulu wofikira, kenako yesaninso kapena kukonza.",
+    "required": "Konzekerani ndi kutsimikizira zigawo zofunikira za m'dera lanu mu Novera · Zosintha.",
+    "updateAvailable": "Zosintha zilipo",
+    "update": "Kusintha",
+    "rollback": "Bwezerani malo am'mbuyomu",
+    "busy": "Tsitsani mitundu yakomweko ndikudikirira kuti mibadwo imalize musanasinthe magawo."
+  },
+  "voiceConversation": "Kukambirana ndi mawu",
+  "voiceUnavailable": "Kukambirana ndi mawu sikupezeka",
+  "voiceMale": "Mawu a mwamuna",
+  "voiceFemale": "Mawu a mkazi",
+  "voiceReadReplies": "Werengani mayankho mokweza"
+}

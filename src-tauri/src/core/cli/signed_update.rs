@@ -177,7 +177,8 @@ fn extract_binary(bytes: &[u8], version: &str, target: &str) -> Result<Vec<u8>, 
     let mut identity = None;
     for index in 0..archive.len() {
         let mut entry = archive.by_index(index).map_err(|e| e.to_string())?;
-        if entry.name() == "CLI-UPDATE.json" {
+        let name = entry.name().map_err(|e| e.to_string())?.into_owned();
+        if name == "CLI-UPDATE.json" {
             if identity.is_some() || entry.size() > 16384 {
                 return Err("Ambiguous CLI archive identity".into());
             }
@@ -194,7 +195,7 @@ fn extract_binary(bytes: &[u8], version: &str, target: &str) -> Result<Vec<u8>, 
                 Some(serde_json::from_slice::<ArchiveIdentity>(&data).map_err(|e| e.to_string())?);
             continue;
         }
-        if entry.name() != binary {
+        if name != binary {
             continue;
         }
         if found.is_some()
@@ -400,11 +401,11 @@ mod tests {
             "binarySha256":hex::encode(Sha256::digest(&binary)),"commit":"a".repeat(40)});
         let mut writer = zip::ZipWriter::new(Cursor::new(Vec::new()));
         writer
-            .start_file(name, zip::write::FileOptions::default())
+            .start_file(name, zip::write::SimpleFileOptions::default())
             .unwrap();
         writer.write_all(&binary).unwrap();
         writer
-            .start_file("CLI-UPDATE.json", zip::write::FileOptions::default())
+            .start_file("CLI-UPDATE.json", zip::write::SimpleFileOptions::default())
             .unwrap();
         writer
             .write_all(&serde_json::to_vec(&identity).unwrap())

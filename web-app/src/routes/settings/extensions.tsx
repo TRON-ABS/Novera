@@ -1,6 +1,5 @@
 import { translateSettingText } from '@/i18n/setting-text'
 import { createFileRoute } from '@tanstack/react-router'
-import { route } from '@/constants/routes'
 import { Card, CardItem } from '@/containers/Card'
 
 import SettingsMenu from '@/containers/SettingsMenu'
@@ -8,9 +7,7 @@ import { RenderMarkdown } from '@/containers/RenderMarkdown'
 import { ExtensionManager } from '@/lib/extension'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import HeaderPage from '@/containers/HeaderPage'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute(route.settings.extensions as any)({
+export const Route = createFileRoute("/settings/extensions")({
   component: ExtensionsContent,
 })
 

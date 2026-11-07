@@ -1,6 +1,6 @@
 use base64::{engine::general_purpose, Engine as _};
-use hmac::{Hmac, Mac};
-use rand::{distributions::Alphanumeric, Rng};
+use hmac::{Hmac, KeyInit, Mac};
+use rand::{distr::Alphanumeric, RngExt};
 use sha2::{Digest, Sha256};
 use std::path::Path;
 use tokio::fs::File;
@@ -11,7 +11,7 @@ type HmacSha256 = Hmac<Sha256>;
 
 /// Generates random app token
 pub fn generate_app_token() -> String {
-    rand::thread_rng()
+    rand::rng()
         .sample_iter(&Alphanumeric)
         .take(32)
         .map(char::from)
@@ -81,7 +81,7 @@ pub async fn compute_file_sha256_with_cancellation(
     }
 
     let hash_bytes = hasher.finalize();
-    let hash_hex = format!("{:x}", hash_bytes);
+    let hash_hex = hex::encode(hash_bytes);
 
     #[cfg(feature = "logging")]
     log::debug!("Hash computation completed for {} bytes", total_read);

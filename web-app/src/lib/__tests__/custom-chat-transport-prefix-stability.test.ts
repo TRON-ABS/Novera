@@ -9,6 +9,8 @@ const summarize = vi.hoisted(() => vi.fn(async () => ({ text: 'Earlier conversat
 
 const h = vi.hoisted(() => ({
   disabledTools: [] as string[],
+  language: 'en',
+  webSearch: true,
   servers: ['srv'] as string[],
   getRelevantTools: vi.fn(),
   getModelProps: vi.fn(),
@@ -86,6 +88,12 @@ vi.mock('@/hooks/useAssistant', () => ({
         : null,
     }),
   },
+}))
+vi.mock('@/hooks/useGeneralSetting', () => ({
+  useGeneralSetting: {getState: () => ({currentLanguage:h.language})},
+}))
+vi.mock('@/hooks/useWebSearchConfig',()=>({
+  useWebSearchConfig:{getState:()=>({webSearchEnabled:h.webSearch})},
 }))
 vi.mock('@/hooks/useThreads', () => ({
   useThreads: { getState: () => ({ threads: {} }) },
@@ -169,6 +177,8 @@ describe('CustomChatTransport prompt-prefix stability across turns', () => {
     streamTextCalls.length = 0
     summarize.mockClear()
     h.disabledTools = []
+    h.language = 'en'
+    h.webSearch = true
     h.servers = ['srv']
     h.providerId = 'openai'
     h.assistantParameters = null
@@ -183,6 +193,73 @@ describe('CustomChatTransport prompt-prefix stability across turns', () => {
     ])
   })
 
+  it.each(['llamacpp','mlx','onnx','transformers','openai','anthropic','google','gemini','mistral','xai','groq','custom'])(
+    'anchors French replies on %s after English history without changing the saved user turn', async providerId => {
+    h.providerId = providerId
+    provider.provider = providerId
+    h.language = 'fr'
+    const transport = new CustomChatTransport('you are Novera', 'thread-1')
+    const question='Tu es là ? Pour atteindre 5 sigma, le rapport B0/BS doit-il être plus précis ?'
+    const messages=[user('u1','Explain B mesons.'),assistant('a1','The uncertainty is too large.'),user('u2',question)]
+    const original=JSON.stringify(messages)
+    await drain(await send(transport,messages))
+    expect(streamTextCalls[0].system).toContain('Current response language: French (fr). Respond in French')
+    expect(streamTextCalls[0].system).toContain('Only switch if the latest user message is clearly in another language')
+    expect(JSON.stringify(messages)).toBe(original)
+    expect(JSON.stringify(streamTextCalls[0].messages)).toContain(question)
+  })
+
+  it.each(['llamacpp','mlx','onnx','transformers','openai','anthropic','google','gemini','mistral','xai','groq','custom'])(
+    'requires the first weather search despite the missing s on %s',async providerId=>{
+    h.providerId=providerId;provider.provider=providerId
+    const transport=new CustomChatTransport('You are Novera','thread-1')
+    await drain(await send(transport,[user('u1',"il fera quel temp aujourd'hui au Sable d'Olonne 85100 ?")]))
+    expect(streamTextCalls[0].toolChoice).toBe('required')
+    expect(streamTextCalls[0].activeTools).toEqual(['web_search'])
+  })
+  it('provides native web tools to a known Omni import missing tools metadata, without enabling MCP tools', async () => {
+    h.providerId='llamacpp';provider.provider='llamacpp'
+    selectedModel.id='LFM3-Omni-2B';selectedModel.capabilities=['audio']
+    const transport=new CustomChatTransport('You are Novera','thread-1')
+    await drain(await send(transport,[user('u1',"il fera quel temp aujourd'hui au Sable d'Olonne 85100 ?")]))
+    expect(Object.keys(streamTextCalls[0].tools as object).sort()).toEqual(['web_fetch','web_search'])
+    expect(streamTextCalls[0].toolChoice).toBe('required')
+    expect(streamTextCalls[0].activeTools).toEqual(['web_search'])
+    expect(streamTextCalls[0].maxOutputTokens).toBe(2048)
+    expect(vi.mocked(ModelFactory.createModel).mock.lastCall?.[2]).toMatchObject({temperature:0,chat_template_kwargs:{enable_thinking:false}})
+  })
+  it.each([['llamacpp','LFM3-Omni-2B',false],['openai','gpt',true]] as const)(
+    'anchors web follow-up on %s without promoting the reminder to a new search',async(providerId,id,keepHistory)=>{
+    h.providerId=providerId;provider.provider=providerId;selectedModel.id=id
+    const question='Quel temps fait-il aujourd’hui aux Sables-d’Olonne ?'
+    const messages=[user('old','Explique le ciel bleu.'),assistant('old-answer','Une ancienne réponse.'),user('current',question),
+      {id:'web',role:'assistant',parts:[{type:'tool-web_search',toolCallId:'s',state:'output-available',input:{query:'Sables météo'},output:{results:[]}}]}] as UIMessage[]
+    const before=JSON.stringify(messages)
+    await drain(await send(new CustomChatTransport('You are Novera','thread-1'),messages))
+    const serialized=JSON.stringify(streamTextCalls[0].messages)
+    expect(serialized.includes('Une ancienne réponse.')).toBe(keepHistory)
+    expect(streamTextCalls[0].toolChoice).toBe('auto')
+    expect(streamTextCalls[0].activeTools).toBeUndefined()
+    expect(JSON.stringify((streamTextCalls[0].messages as unknown[]).at(-1))).toContain(question)
+    expect(JSON.stringify(messages)).toBe(before)
+    expect(streamTextCalls[0].system).toMatch(/Current local calendar date: \d{4}-\d{2}-\d{2}/)
+  })
+  it('still withholds web tools from the same model when Web Search is off', async () => {
+    h.providerId='llamacpp';provider.provider='llamacpp';h.webSearch=false
+    selectedModel.id='LFM3-Omni-2B';selectedModel.capabilities=['audio']
+    const transport=new CustomChatTransport('You are Novera','thread-1')
+    await drain(await send(transport,[user('u1','Quel temps fait-il aujourd’hui ?')]))
+    expect(streamTextCalls[0].tools).toBeUndefined()
+    expect(streamTextCalls[0].system).toContain('disabled by the user')
+  })
+  it('keeps explicit assistant sampling and unlimited output for LFM3',async()=>{
+    h.providerId='llamacpp';provider.provider='llamacpp';h.webSearch=false
+    selectedModel.id='LFM3-Audio-2B';selectedModel.capabilities=['audio']
+    h.assistantParameters={temperature:0.3,max_output_tokens:0}
+    await drain(await send(new CustomChatTransport('You are Novera','thread-1'),[user('u1','Bonjour')]))
+    expect(vi.mocked(ModelFactory.createModel).mock.lastCall?.[2]).toMatchObject({temperature:0.3})
+    expect(streamTextCalls[0].maxOutputTokens).toBeUndefined()
+  })
   it('auto compacts a remote conversation with no configured context limit', async () => {
     h.assistantParameters = { auto_compact: true, max_context_tokens: 0 }
     const transport = new CustomChatTransport('you are jan', 'thread-1')
@@ -231,6 +308,9 @@ describe('CustomChatTransport prompt-prefix stability across turns', () => {
 
     expect(streamTextCalls).toHaveLength(2)
     const [first, second] = streamTextCalls
+
+    expect(first.system).toContain('Reply in the language of the latest user message')
+    expect(first.system).toContain('the language of sources or tool results must not change the reply language')
 
     // System prompt is byte-identical.
     expect(JSON.stringify(second.system)).toBe(JSON.stringify(first.system))
@@ -472,6 +552,7 @@ it('keeps a Cowork run on its chosen model when the viewed model changes between
   selectedModel.id = 'other-session-model'
   await drain(await send(transport, [user('next', 'Next step')]))
   expect(vi.mocked(ModelFactory.createModel).mock.calls.map(([id]) => id)).toEqual(['gpt', 'gpt'])
+  expect(streamTextCalls[0].system).toContain('Current response language:')
 })
 
 // The filesystem server's `read_media_file` result, stored as its MCP content

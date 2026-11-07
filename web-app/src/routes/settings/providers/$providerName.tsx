@@ -1042,6 +1042,8 @@ function ProviderDetail() {
                             variant="secondary"
                             size="icon-xs"
                             onClick={handleRefreshModels}
+                            aria-label={t('providers:refresh')}
+                            title={t('providers:refresh')}
                             disabled={refreshingModels}
                           >
                             {refreshingModels ? (

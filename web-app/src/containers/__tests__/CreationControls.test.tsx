@@ -26,14 +26,14 @@ vi.mock('@/lib/backendStorage', () => ({
   },
 }))
 describe('creation choices in the composer', () => {
-  it('keeps all three media modes accessible before cloud configuration on mobile', () => {
+  it('keeps all three media modes accessible before cloud configuration on mobile', async () => {
     useHardware.setState({ hardwareData: { ...useHardware.getState().hardwareData, os_type: 'android', total_memory: 4096, gpus: [] } })
     useCreation.setState({ selections: {} })
     render(<CreationControls scope="mobile-cloud" disabled={false} />)
     const modes = within(screen.getByRole('group', { name: 'chat:creation.output' }))
     for (const task of ['image', 'music', 'video'])
       expect(modes.getByText(`chat:creation.${task}`).closest('button')).toBeEnabled()
-    act(() => useCreation.setState({ selections: { 'mobile-cloud': {
+    await act(async () => useCreation.setState({ selections: { 'mobile-cloud': {
       image: { provider: 'openai', id: 'gpt-image-2.5-sunburst' },
       music: { provider: 'elevenlabs', id: 'music_v2_5' },
       video: { provider: 'fal', id: 'fal-ai/pika/v2.2/text-to-video' },

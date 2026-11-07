@@ -1,0 +1,29 @@
+# Réponse vocale native LFM3 — préparation 1.0.1, 7 novembre 2026
+
+La réponse vocale utilise désormais le modèle local sélectionné **LFM3-Omni ou LFM3-Audio**, au lieu de la synthèse Windows dans ce parcours. Dans **Paramètres → Général → Conversation vocale**, le choix **Voix masculine / Voix féminine** est enregistré ; la valeur initiale est masculine. Les deux nouveaux libellés sont présents dans les **104 catalogues**, portés à **2 433 clés**. Le moteur reste **llama.cpp v0.9.0, build 12110, commit `cd959bae99ff4bed22bef2604f45241c09bbb8c8`**.
+
+## Ce qui a été essayé
+
+- Vrais GGUF et projecteurs Q4_K_M : Omni déjà présent sur le PC ; Audio téléchargé dans un dossier de test à la révision `39670cb5c42e9c4bfe046519ba7ffbe47f9552ad`, tailles et SHA-256 vérifiés. Aucun remplacement des modèles personnels.
+- **Omni sur CUDA/RTX 5070, puis CPU ; Audio sur CUDA** : français masculin, français féminin et anglais masculin produisent un WAV mono non silencieux à 24 kHz. Sur ces courtes références, la synthèse seule prend environ 0,36–0,60 seconde sur CUDA et 1,58–1,98 seconde sur CPU, hors chargement et lecture. Ce ne sont pas des garanties de latence.
+- Les deux phrases françaises générées sont retranscrites exactement par l'entrée native de chaque modèle. La vérification inverse en anglais altère parfois le nom propre Novera ; aucune exactitude générale de reconnaissance ou de prononciation n'est revendiquée.
+- **Vraie application Windows debug**, profil isolé : les deux choix déclenchent le backend de production, qui reçoit de l'audio `native-audio`, le décode et le joue. Deux lectures démarrées et terminées ; contextes audio fermés ; préférence féminine encore présente après rechargement. Le mainteneur confirme : **« Oui, les deux voix sont audibles et distinctes »**. Aucun microphone ouvert pour cet essai.
+- **Cycle complet dans cette application**, avec entrée audio synthétique publique à la place du microphone : capture/worklet → transcription Omni → envoi automatique → vraie réponse du chat → synthèse native en deux segments → lecture → reprise d'écoute. Stop ferme les pistes ; le bouton revient au repos. Ce test n'est pas présenté comme une nouvelle conversation humaine enregistrée.
+- Pendant une vraie lecture native, réduire la fenêtre provoque `cancelled`, ferme tous les contextes audio et empêche la suite. Une seule réponse audio native a été demandée avant cet arrêt.
+- **Langue des réponses** : instruction commune demandant de conserver la langue du dernier message utilisateur, même après recherches/outils. Le vrai modèle répond en français à une question française suivie d'un résultat d'outil anglais simulé ; réponses espagnole et anglaise également vérifiées. Le scénario de finalisation précise qu'aucun nouvel appel d'outil n'est disponible. Les données météo du test sont une fixture, pas une prévision actuelle. La langue de synthèse suit la langue utilisateur configurée dans l'interface ; aucune détection universelle de langue vocale n'est ajoutée.
+
+## Contrôles et protections
+
+**352 tests ciblés réussis dans 14 fichiers**, couvrant capture, synthèse, annulation, sélection/enregistrement du genre, paramètres, prompt de langue, stabilité du contexte, catalogue et clés. TypeScript, ESLint ciblé (zéro erreur, un avertissement Fast Refresh existant sur la route Général), contrôle structurel des 104 catalogues et compilation web réussis. La réussite ciblée ne remplace pas une validation complète de release. Commandes et empreintes dans [validation.json](validation.json).
+
+La nouvelle route `/v1/novera/audio/speech` reste authentifiée et limitée au loopback. Corps limité à 8 192 octets, segment à 1 200 octets UTF-8, deux voix autorisées, liste de langues bornée. Le serveur reconstruit les paramètres : WAV non streamé, au plus 2 048 tokens et 120 secondes ; aucun fichier de référence vocale, clonage ou URL distant n'est exposé. Le WAV traverse la FFI sous forme de JSON/base64 pour préserver ses octets. Réponse bornée à 12 Mo ; client borné à 120 secondes d'audio et 125 secondes par génération. Les longues réponses sont découpées sans couper les caractères Unicode, puis lues dans l'ordre.
+
+Tests réels de l'API : mauvaise clé **401**, mauvaise méthode **405**, voix/langue/texte invalides **400**, corps trop gros **413**. Annuler une génération libère le modèle en environ **1,23 seconde**, puis le rechargement et le chat fonctionnent. Un conflit 409 immédiat pendant le nettoyage est normal : la preuve mesure l'attente jusqu'à libération effective.
+
+Le contrôle du vrai premier plan Windows reste actif pendant génération et lecture, avec arrêt à la perte de focus. Audio local en mémoire, sans téléchargement de la réponse ni synthèse système de secours pour ces modèles. Les WAV conservés comme références sont synthétiques et publics. Profil et journal temporaires supprimés ; aucune conversation personnelle ni installation modifiée.
+
+## Portée
+
+Les fiches officielles [Omni GGUF](https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF) et [Audio GGUF](https://huggingface.co/LiquidAI/LFM3-Audio-2B-GGUF) documentent `male`/`female` et le paramètre de langue. Les langues vocales annoncées par Liquid AI ne sont pas les 104 langues de l'interface. Les langues non prises en charge sont refusées, sans substitution anglaise silencieuse. Les traductions ajoutées restent à relire nativement.
+
+Validation native sur **Windows x64**. Les autres systèmes et les variantes mobiles restent à adapter/essayer pour ce parcours. Worker release et exécutable debug de test compilés `--offline --locked` ; pas de nouvelle livraison Desktop, publication ni remplacement de l'application personnelle. Le mainteneur garde sa compilation habituelle. Cette étape complète la [validation de l'entrée microphone](../omni-microphone-2026-11-06/VALIDATION.md) : ses mentions de synthèse Windows et de sortie native Omni à faire sont désormais historiques.

@@ -120,12 +120,14 @@
         "scripts/tests/package-windows-portable.Tests.ps1"
       ],
       "strictRoots": [
-        "scripts/distribution"
+        "scripts/distribution",
+        "scripts/updates"
       ],
       "pure": false,
       "allowedAreas": [],
       "runtimeImports": [
-        "node:"
+        "node:",
+        "playwright-core"
       ],
       "typeImports": []
     }

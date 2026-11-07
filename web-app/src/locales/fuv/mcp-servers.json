@@ -1,0 +1,101 @@
+{
+  "editServer": "Wayla Serverji MCP",
+  "addServer": "Ɓesda Serverji MCP",
+  "browserExtension": {
+    "connecting": {
+      "checking": "E foonduki darnde kawtal..."
+    },
+    "notInstalled": {
+      "title": "Novera timmina kuuɗe nder tayaka",
+      "description": "Huwtinii ɓeydaari kuuɗe ngam heɓuki naafu Novera",
+      "getExtension": "Ɓesda"
+    }
+  },
+  "serverName": "Innde Serverji",
+  "enterServerName": "Innde Serverji",
+  "command": "Jamɗe",
+  "enterCommand": "Nastina umaanoore (uvx malla npx)",
+  "arguments": "Anniyaaji",
+  "argument": "{{index}}",
+  "envVars": "Waylaaki fellere",
+  "key": "Keyji",
+  "value": "Darnde",
+  "save": "Danndu",
+  "status": "Darnde",
+  "connected": "Nastina",
+  "disconnected": "Nastinaaka",
+  "deleteServer": {
+    "title": "Dillugo MCP Server",
+    "description": "Yalla o yiɗi sankita MCP server {{serverName}}? Kuutinirgel nga'al waawata sankitaaka.",
+    "delete": "Momtu",
+    "success": "MCP server {{serverName}} wattinoma boɗɗum"
+  },
+  "editJson": {
+    "title": "Wayla JSON ngam MCP Server: {{serverName}}",
+    "titleAll": "Waylugo fuu MCP Serverji JSON",
+    "placeholder": "Nasta nder JSON",
+    "errorParse": "Na waawi limtuki bayaanuuji aranndeeji.",
+    "errorPaste": "Sifakaare JSON walaa goonga nder ko hawti",
+    "errorFormat": "Sifakaare JSON walaa goonga",
+    "errorServerName": "Innde Serverwol ɗum yiɗi boo ɗum waawata walaa.",
+    "errorMissingServerNameKey": "JSON doole waɗaama bana {\"serverName\": {config}} - innde suudu suudu walaa",
+    "errorInvalidType": "Feerootiral '{{type}}' ngam na'ura '{{serverName}}'. Na'ura kanjum woni 'stdio', 'http', ko 'sse'",
+    "save": "Danndu"
+  },
+  "checkParams": "To ɓeydaari, e ɓe laara paramitaaji dow darasiwol ngal.",
+  "title": "MCP Serveeji",
+  "experimental": "foonduye",
+  "editAllJson": "Waylugo kala Serverji fu JSON",
+  "findMore": "Ɗum heɓii ko ɓuri MCP serverji to",
+  "allowPermissions": "Hawta kala kuutinirgel fuu MCP",
+  "allowPermissionsDesc": "To ɗum waddi, kala kuutinirgel fu fuu MCP e jaɓata ko ɗum yiɗi naa e holla ko ɗum yiɗi. Ɗu'um ɗatal e huuda e kala konngol fuu, hawti e konngol kesi.",
+  "noServers": "Wala servaji MCP heɓaaka",
+  "args": "Arg",
+  "env": "Envelope",
+  "serverStatusActive": "Server {{serverKey}} heɓaama boɗɗum",
+  "serverStatusInactive": "Server {{serverKey}} wattinoma boɗɗum",
+  "runtimeSettings": {
+    "title": "Ɗum waddi ko ɓeydata",
+    "description": "Hokkugo no Novera laato e foonduye MCP serverji.",
+    "toolCallTimeout": "Wakkati daarorɗe kuutinirɗum (sekondiiji)",
+    "toolCallTimeoutDesc": "Ɗuuɗal wakkatiire nde ɗum laara dow MCP kuuɗe kuutinirɗe hidde wakkatiire nden wari.",
+    "maxToolOutputChars": "Ɓurna aayaaji kuutinirɗi",
+    "maxToolOutputCharsDesc": "Ɓurna wattam kuutinirgel juutngol e hoositiree nder konngol. Koo ɗume ko saali ka'a e hoositiree boo e hoositiree dow ɗum sankitiraama, ngam non wattam mawngal waawa laataaki ko fooɗii nder haala ka'a. Hoositiree yaago 0 ngam hoositiree wattam fuu.",
+    "smartToolRouting": "Smart MCP waylugo kuje",
+    "smartToolRoutingDesc": "To ɗum waɗaama, Novera suɓata ko haandi e MCP suɓooɓe bako ɓe hawta kuutiniraaɓe maɓɓe. Ɓaɓɓina ngam ɓe hawta kuutiniraaɓe maɓɓe fuu MCP.",
+    "useLightweightRouterModel": "Ɗum naftori moodelwol ngol anndiraangol ngam waylugo.",
+    "useLightweightRouterModelDesc": "To smart routing e huwiree, huwiree laawol routing e ko feerootira (ɓurna fuu e ɗum seɗɗa) moodel naa e moodel chat. Ɓaɓɓa ngam huuduki e moodel chat ɗum huwirata ngam routing.",
+    "routerModel": "Waylitaare",
+    "routerModelDesc": "Suɓii wadduɗo e moodel nder nokkuure go'o; moodelji ɗi seɗɗa tan e hoositiree ngam ɗaɓɓitugo e ɗaɓɓitugo.",
+    "selectRouterModelPlaceholder": "Suɓi laawol",
+    "routerModelSearchPlaceholder": "Tefki moodele...",
+    "routerModelEmptyList": "Wala moodelji seɗɗa. Ɓesda moodel pamarngal ko boo hawta API keyji nder moodelji.",
+    "routerModelEmptySearch": "Wala ko nanndi e \"\"{{query}}\"."
+  },
+  "auth": {
+    "label": "Hukuuma:",
+    "state": {
+      "notApplicable": "Na ɗum tefata",
+      "staticHeader": "Darnde darnde hakkilanki",
+      "authenticated": "Anndaaka",
+      "expired": "Ɗum watti",
+      "staleResource": "ƴaɓɓitiiɗum ngam goɗɗo URL",
+      "unauthenticated": "Na hollaama"
+    },
+    "expiresIn": "ɓoggi nder {{duration}}",
+    "authenticate": "Nastina",
+    "reauthenticate": "Anndaaki",
+    "clear": "Waɗugo daliilaaji",
+    "waiting": "Ɓe yiɗi na'ura naftirki...",
+    "openSignInPage": "Fuuɗa paɓɓal nastinaaki",
+    "needsAuth": "{{serverName}} tefata authentication",
+    "needsAuthHint": "Njunna nder na'uraaji ɗi'i ngam kawta.",
+    "authorized": "Nastinaama nder {{serverName}}",
+    "authorizeFailed": "Naftaaki ngam {{serverName}}",
+    "cleared": "Nastinaama daliilaaji nastinaama ngam {{serverName}}",
+    "nothingToClear": "{{serverName}} walaa daliilaaji ko waɗata",
+    "clearFailed": "Naa waaway sankita daliilaaji ngam {{serverName}}",
+    "renew": "Wakkati go'o",
+    "expiredAgo": "saali ɗum {{duration}} ɓaawo"
+  }
+}

@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Koode",
+    "preview": "Nastina",
+    "previewStreaming": "E woodi nde tiggugo timmini",
+    "unresolvedAssets_one": "1 na waaway nastina nder nastinaaki. Nastinaaki laawol ngol walaa darnde URL je waawan nastina.",
+    "unresolvedAssets_other": "{{count}} ƴamɗeeji fiiji na waaway nastina nder nastare. Nastinaaki laabi na woodi daliila URL je nastina ɗum."
+  },
+  "assistants": "Waɗooɗo",
+  "hardware": "Hardware",
+  "mcp-servers": "MCP Serveeji",
+  "local_api_server": "Serverji API",
+  "remote_access": "Nastinaaki daga yaasi",
+  "integrations": "Ɗuuɗal",
+  "experimental": "foonduye",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Proxy",
+  "web_search": "Tefki Web",
+  "shell": "Ɗum",
+  "browse": "Foofa",
+  "moreControls": "Ɗuuɗal hakkilanki",
+  "starting": "Fuɗɗan...",
+  "activeSuffix": "Ɗum waɗata",
+  "extensions": "Ɗuuɗal",
+  "attachments": "Nastina",
+  "general": "Ɗuuɗal",
+  "settings": "Teelte",
+  "modelProviders": "Ɗum hokkay modelji.",
+  "localProviders": "Ɓaawo",
+  "remoteProviders": "Ɓurna",
+  "manageProviders": "Hokkugo",
+  "hiddenProviders": "{{count}} saakaaka",
+  "hideProvider": "Ɗum waddi",
+  "showProvider": "Holla ko hokkata",
+  "interface": "Nastina",
+  "appearance": "Darnde",
+  "privacy": "Nandugo",
+  "keyboardShortcuts": "Ɗuuɗal ɓoggi",
+  "home": "Ɓaawo",
+  "cowork": "Cowork",
+  "newSession": "Seansi kesum",
+  "artifacts": "Artifactji",
+  "customize": "Ɓesda",
+  "local": "Ɓaawo",
+  "selectFolder": "Suɓi deftere",
+  "selectModel": "Suɓi fooɗootiral arannde",
+  "commands": "Jamɗe",
+  "cmdHelp": "Taskitirgo jamɗe ɗe heɓetee",
+  "cmdClear": "Nastina nde'e wakkatiire nden",
+  "cmdModels": "Wanngugo ko woni jooni",
+  "cmdModelsHint": "Tinndina /models nden suɓa moodel gila limngal.",
+  "cmdModelSwitched": "Waylaama yaago {{name}}",
+  "cmdUnknown": "Kuugal anndaaka: {{name}}. Tefa /help",
+  "cmdBusy": "Wala no ɗum waɗata nde ajenti ɗo huuwa",
+  "cmdCompact": "Ɗum waddi ko haɓɓodii e seɗɗa nder ko haɓɓodii.",
+  "cmdCompacted": "Anniyaji {{before}} -> {{after}}",
+  "cmdNothingToCompact": "Wala ko hollata",
+  "cmdCompactFailed": "Waɗugo faay: {{error}}",
+  "cmdPlan": "Toggle plan mode (reading-only: agent no hollata wala winnduki)",
+  "cmdPlanOn": "Plan mode on: wakili’en janngata nden ɓe waɗa ko ɓe yiɗi wala winnduki.",
+  "cmdPlanOff": "Waylaaki taskaramji yaasi: huwtinirgo nanduɗo",
+  "cmdTodo": "Fuuɗa laayiwol jaawal",
+  "cmdTasks": "Fuɗɗan kuugal laatorɗe",
+  "cmdInit": "Jannguki kuugal ngal kadin winndiki anndal e numo.",
+  "cmdInitRunning": "Waɗugo taskaram ngal",
+  "skills": "Anndal",
+  "skillsInContext": "Anndal je ɗum heɓata daga ajenti ɗo.",
+  "skillsTitle": "Hokkugo kuuɗe",
+  "skillsScopeProject": "Anndal {{folder}}",
+  "skillsScopeGlobal": "Ilmuji duniyaaru, e heɓa nder kala wakkati fuu.",
+  "skillsScopeMerged": "Anndal ngam {{folder}}, e kadin anndal duuniyaaru no kala seati fuu hawtidiri.",
+  "skillOriginFolder": "deftere",
+  "skillOriginGlobal": "ko woni nder duuniyaaru",
+  "skillsEmpty": "Ɗum walaa anndal ko ɗume.",
+  "skillsPickOrNew": "Suɓti kuugal ngal ngam waylugo, malla tiggugo go'o kesum.",
+  "skillNew": "Anndal kesum",
+  "skillDelete": "Ɗum watti",
+  "skillSave": "Danndu",
+  "skillSaved": "Anndaaki",
+  "skillNameRequired": "Innde anndal yiɗama.",
+  "skillNamePlaceholder": "innde-karallaagal",
+  "skillContentPlaceholder": "Waddi bayaanu dow laabi naftirteeɗi nder Markdown...",
+  "skillHubImport": "Nastina daga hub",
+  "skillHubTitle": "Anthropic skill hub",
+  "skillHubEmpty": "Wala ko hollata ko ɓe heɓi dow ko ɓe waɗata.",
+  "skillImport": "Nastina",
+  "skillReimport": "Ɓaawo nastugo",
+  "skillImported": "Nastinaama {{name}}",
+  "sessions": "Seansi",
+  "deleteSession": "Ɗum watti kuugal gal",
+  "deleteSessionTitle": "Ɗum watti yeeso?",
+  "deleteSessionBody": "\"{{title}}\" e transcription maɓɓitaama.",
+  "newChat": "Sillaaki kesi",
+  "newAgentChat": "Anndaaki kesum",
+  "chats": "Silla",
+  "favorites": "Ɓe yiɗi",
+  "recents": "Ɓaawo",
+  "hub": "Hub",
+  "helpSupport": "Naftirki e wallugo",
+  "helpUsImproveJan": "Ɗum walliti en ɓesda Novera",
+  "analyticsConsentDetail": "Mi hawtake bayanuuji ɗi anndaaka ngam annduki no naftira e kuuɗe ɗen. Sifaaji ɗin e bayanuuji yimɓe ɗin wala ko hollata. Ɗum waaway waylitago ɗum kala wakkati fuu to Settings > Privacy.",
+  "analyticsConsentQuestion": "Ɗum yiɗi mballugo en ngam ɓesda Novera?",
+  "unstarAll": "Ɗaɓɓita kala gootel fuu",
+  "unstar": "Ɗum watti",
+  "deleteAll": "Dillugo kala gootel fuu",
+  "star": "Koowoowo",
+  "rename": "Waylugo innde",
+  "delete": "Momtu",
+  "copied": "Diwitirtee!",
+  "dataFolder": "Deftere Data",
+  "others": "Goɗɗe",
+  "language": "ɗenngal",
+  "login": "Nastina",
+  "loginWith": "Luutugo e {{provider}}",
+  "loginFailed": "Na waawi nastugo",
+  "logout": "Fuɗɗan",
+  "loggingOut": "Ɗaɓɓita",
+  "loggedOut": "Ɗaɓɓitinaama",
+  "logoutFailed": "Na waawi nastugo",
+  "profile": "Fijiilaaji",
+  "reset": "Ɗum watti",
+  "search": "Tefki",
+  "searchThreads": "Tefki ɓoggi...",
+  "toNavigate": "to navigate",
+  "toSelect": "ngam suɓaade",
+  "toClose": "ngam uddude",
+  "clearRecent": "Waylugo",
+  "name": "Innde",
+  "cancel": "Haaytu",
+  "dismiss": "Ɓaawo",
+  "create": "Tagi",
+  "save": "Danndu",
+  "edit": "Waylugo",
+  "copy": "Natto",
+  "back": "Rutto",
+  "close": "Uddu",
+  "done": "Ɓaɓɓi",
+  "next": "Yeeso",
+  "finish": "Ɗum timmini",
+  "skip": "Jillila",
+  "allow": "Hokkugo",
+  "deny": "Ɓaawo",
+  "start": "Puɗɗa",
+  "stop": "Dartin",
+  "preview": {
+    "loading": "Ɓaɓɓugo...",
+    "unsupported": "Novera waaway holla noone nde'e. Fuuna ɗum ngam holla ɗum nder goɗɗe kuuɗe.",
+    "outside": "Deftere nde'e wala nder nokkuure kuugal seansi.",
+    "tooLarge": "Ɓurnaaɗum ko waawata laara. Fuuna ɗum ngam laara ɗum nder woɓɓen taskaram.",
+    "reload": "Ɓaɓɓita",
+    "allowNetwork": "Hokkugo network",
+    "unsandboxed": "Huwtinirɗum walaa sandbox: ɓeydaari bayaanuuji e bo ɓeydaari fiiji.",
+    "unresolvedRefs_one": "1 fiiji ɗii ɓoggi nastinaaka nder suudu nastinaaki. Ɓaɓɓa ɗum ngam laara ɗum nder binndi.",
+    "unresolvedRefs_other": "{{count}} fiiji ɗii paɓɓirle nde'e kawtataako waaway nastinaaki nder nastinaaki. Fuuna ngam laara ɗum nder nastinaaki.",
+    "externalRefs_one": "1 ƴamndirɗe nde'e nastinaama gila web. Nastina \"Allow network\" ngam nastina ɗum.",
+    "externalRefs_other": "{{count}} ƴamɗe ɗen ɗe ƴaɓɓitaama gila web. Ɗum waɗay \"Allow network\" ngam ƴaɓɓita maaje.",
+    "scriptErrors_one": "Deftere nden holli miilo: {{message}}",
+    "scriptErrors_other": "Deftere nden wi'i {{count}} fewre. Arannde: {{message}}"
+  },
+  "changes": {
+    "title": "Waylaaki",
+    "empty": "Fiilaaji ɗi ajenti winndita ko waylitita e wannga e ɗon.",
+    "a11y": "Waylaaki Agent: {{files}} fiiji, {{additions}} ɓeydii, {{deletions}} wardii"
+  },
+  "modelPanel": {
+    "title": "Ɗum waddi ko haandi",
+    "a11y": "Fuɗɗan darnde noone",
+    "contextTooltip": "Feerootiral: {{value}} nder {{max}} tokenji"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Anndal '{{name}}' wala",
+    "kind": {
+      "skill": "Anndal",
+      "command": "Jamɗe",
+      "model": "Modiila"
+    }
+  },
+  "compactWidth": "Ɓurna darnde",
+  "fullWidth": "Ɗuuɗal darnde",
+  "dark": "Ɓurna",
+  "light": "Naange",
+  "system": "Sistemji",
+  "auto": "Ɗum waɗay",
+  "english": "Girkanko'en",
+  "medium": "Ɓurna",
+  "newThread": "Yeewtere hesere",
+  "noResultsFound": "Wala wattamji heɓaaɗi",
+  "noThreadsYet": "Wala darnde",
+  "noThreadsYetDesc": "Ɓe fuɗɗi hollaaki kesum ngam laara taariiha ɗin.",
+  "downloads": "Ɓaɓɓugo",
+  "downloading": "Ɗaɓɓitugo",
+  "uploadingAttachments": "Nastina ko hawtidi e",
+  "cancelDownload": "Ɗaɓɓitii",
+  "downloadCancelled": "Ɗum watti",
+  "downloadComplete": "Ɓaɓɓugo",
+  "thinking": "Numo...",
+  "thought": "miilo",
+  "callingTool": "Kuutinirgel",
+  "completed": "Ɓaɓɓi",
+  "image": "Foto",
+  "vision": "Waɗugo",
+  "multimodal": "Multimodal",
+  "embeddings": "Embeddings",
+  "tools": "Kuuje",
+  "webSearch": "Tefki Web",
+  "reasoning": "Naftoraaki",
+  "proactive": "Naftoraaki",
+  "selectAModel": "Suɓi fooɗootiral",
+  "noToolsAvailable": "Wala kuutinirgel heedi",
+  "noModelsFoundFor": "Wala moodelji heɓaaka ngam \"{{searchValue}}\"",
+  "failedToLoadModels": "Na waawi nastugo moodele",
+  "noModels": "Wala moodelji heɓaaka",
+  "noAssistant": "Wala waawude",
+  "customAvatar": "Ɗum waɗiri avatar",
+  "editAssistant": "Waylugo",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Ɗum watti",
+  "threadImage": "Foto",
+  "editMessage": "Waylotirgo haala",
+  "deleteMessage": "Ɓaɓɓina lilal",
+  "deleteThread": "Momtu yeewtere",
+  "renameThread": "Wayla innde",
+  "threadTitle": "Innde ƴamnde",
+  "deleteAllThreads": "Ɗum watti kala darnde fuu",
+  "allThreadsUnfavorited": "Ɗuuɗal ƴamɗeeji ɗii ngaɗataako",
+  "deleteAllThreadsConfirm": "A yiɗi taƴeeki kala darnde fuu? Na waaway taƴeeki kuugal ngal.",
+  "addProvider": "Ɓesda ko hokkata",
+  "addOpenAIProvider": "Ɓesda OpenAI",
+  "enterNameForProvider": "Waɗoo innde ngam hokkugo",
+  "providerAlreadyExists": "Waɗoowo innde \"{{name}}\" ɗon. Suɓi innde feere.",
+  "adjustFontSize": "Ɓesda mawnugo fontji",
+  "changeLanguage": "Canji ɗemngal",
+  "editTheme": "Waylugo huunde nde'e",
+  "editCodeBlockStyle": "Waylugo styleji kooduwol",
+  "editServerHost": "Waylugo Serverji",
+  "pickColorWindowBackground": "Suɓi kala ɓadiingal teefiiɗon",
+  "pickColorAppMainView": "Suɓi noone taƴe",
+  "pickColorAppPrimary": "Suɓi noone taska",
+  "pickColorAppAccent": "Suɓi kalaaji ɗin e ko ɓeydata",
+  "pickColorAppDestructive": "Suɓol noone",
+  "apiKeyRequired": "API ɗum tefata",
+  "enterTrustedHosts": "Nastina darnde woɓɓe",
+  "placeholder": {
+    "chatInput": "O wiɗita mi ko ɗume..."
+  },
+  "confirm": "Tabbitini",
+  "continue": "Jotta",
+  "loading": "Ɗum waddi...",
+  "settingUpJan": "Waɗugo Novera...",
+  "registeringExtensions": "Resiɗinki nastinaɗe...",
+  "loadingExtensions": "Hokkugo ɓamtal... ({{done}}/{{total}})",
+  "error": "Feesa",
+  "success": "Ɗum heɓi nasaraaku.",
+  "warning": "Anndaaki",
+  "conversationNotAvailable": "Hokkugo haala wala",
+  "conversationNotAvailableDescription": "Konngol ko ɗum yiɗi heɓa wala koo bo ɗum majjitaama.",
+  "temporaryChat": "Sowirde nde'e",
+  "temporaryChatTooltip": "Sowirde nde'e waawai wanngugo nder taariihaaji.",
+  "noResultsFoundDesc": "Mi heɓaayi kala bolle fuu ko haandi e ko mi heɓti. Tinndina kalmawol feere.",
+  "searchModels": "Tefki noone...",
+  "searchStyles": "Tefki styleji...",
+  "createAssistant": "Taggiti",
+  "enterApiKey": "Nasta key API",
+  "scrollToBottom": "Ɗaɓɓitugo yahugo les",
+  "generateAiResponse": "Waɗugo AI",
+  "continueAiResponse": "Jotta e AI",
+  "addModel": {
+    "title": "Ɗum ɓesdi noone",
+    "modelId": "ID",
+    "enterModelId": "Nastina moodel ID",
+    "addModel": "Ɗum ɓesdi noone",
+    "description": "Ɓesda moodel kesum haa ko hokkata.",
+    "exploreModels": "Laaru limngal moodelwol gila foonduɗo."
+  },
+  "mcpServers": {
+    "editServer": "Wayla Serverji",
+    "addServer": "Ɓesda Serverji",
+    "serverName": "Innde Serverji",
+    "enterServerName": "Innde Serverji",
+    "command": "Jamɗe",
+    "enterCommand": "Nastina haala",
+    "arguments": "Anniyaaji",
+    "argument": "{{index}}",
+    "envVars": "Waylaaki fellere",
+    "key": "Keyji",
+    "value": "Darnde",
+    "save": "Danndu"
+  },
+  "deleteServer": {
+    "title": "Dillugo Serverji",
+    "delete": "Momtu"
+  },
+  "editJson": {
+    "errorParse": "Faayli hawtuki JSON",
+    "errorPaste": "Na waawi nastugo JSON",
+    "errorFormat": "Sifakaare JSON walaa goonga",
+    "titleAll": "Waylugo ko hollata kala server fu",
+    "placeholder": "Nasta nder JSON config...",
+    "save": "Danndu"
+  },
+  "editModel": {
+    "title": "Waylugo suura: {{modelId}}",
+    "description": "Tabbitinii kuuɗe suuraaji ta wannginki suɓɓiire ɗen les.",
+    "capabilities": "Ɗum waaway",
+    "tools": "Kuuje",
+    "vision": "Waɗugo",
+    "embeddings": "Embeddings",
+    "notAvailable": "Ɗum walaa"
+  },
+  "outOfContextError": {
+    "truncateInput": "Ɗuuɗal Input",
+    "title": "Feerootiral yaasi haala",
+    "description": "Hokkuki bolle nga'al yo heɓa ko hewti ko ɓeydata nder ɓernde AI, bana ɓeydaari ɓoggi. Min waaway ɓesda nder ɓernde (ko wi'etee context size) ngam o heɓa ko ɓuri, amma ɗum waaway naftora ko ɓuri nder ɓernde kompuuta mi. Min kadin waaway sankitii ko ɗum heɓata, ko nufi ɗum waaway sowuki goɗɗe taariha hokkuki bolle ngam heɓa nokkuure ngam lilal kesum.",
+    "increaseContextSizeDescription": "Ɗum yiɗi ɓesda mawnugo haala?",
+    "increaseContextSize": "Ɓesda mawnugo haala"
+  },
+  "toolApproval": {
+    "title": "Yelaaki hakkiilo kuutinirgel",
+    "description": "Aadiɗo yiɗi naftirki <strong>{{toolName}}</strong>",
+    "securityNotice": "Hokkugo kuutinirgel tan ko hollata ko hollata. Kuutinirgel waaway nastina dabareeji ɗin e dataaji ɗin.",
+    "deny": "Ɓaawo",
+    "allowOnce": "Wakkati go'o",
+    "alwaysAllow": "Wakkati fu"
+  },
+  "deleteModel": {
+    "title": "Ɗaɓɓitugo noone: {{modelId}}",
+    "description": "Ko o tammi o yiɗi sankitii moobgal ngol? Kuugal ngol waawataa sankitii.",
+    "success": "Ɗuuɗal {{modelId}} e majjitaama.",
+    "cancel": "Haaytu",
+    "delete": "Momtu"
+  },
+  "deleteProvider": {
+    "title": "Nastina",
+    "description": "Nastina keeriiji ɗi'i e kala moodelji ɗin fuu. Kuutinirgel nga'al waawata nastinaaka.",
+    "success": "Provider {{provider}} ɗum majjitaama.",
+    "confirmTitle": "Ɗaɓɓitugo ko hokkata: {{provider}}",
+    "confirmDescription": "Yaake o yiɗi sankitiiɗum nde o yiɗi sankitii ɗum? Na ɗum waaway sankitii ɗum.",
+    "cancel": "Haaytu",
+    "delete": "Momtu"
+  },
+  "modelSettings": {
+    "label": "Fijiilaaji",
+    "title": "Kuuɗe - {{modelId}}",
+    "description": "Tabbitinii dabareeje dabareeje ngam foonduki kuuɗe e gikkuuji.",
+    "nglDisabledByFit": "Auto-fit suɓata GPU laayiiji. Ɓaɓɓina Auto-fit ngam taska ɗum.",
+    "samplingDefaults": {
+      "title": "Default sample parameters",
+      "description": "Default sampler settings for this model. Utataama to ɗum sanji e per-assistant ko per-request values."
+    },
+    "specDraft": {
+      "section": "Ɗuuɗal ɓoggi",
+      "enable": "Hokkugo laawol foonduyeego",
+      "enableDescription": "Tabbitina tokenji ɗuɗɗi nder kala jaawal fuu nden tabbitina ɗi nder laawol go'o, laatiiɗum e ɓesda jaawal tagugo. Ɗum naftira foonduye nde MTP mawɗe, malla foonduye nde tabbitinaama e ɗum (MTP, Eagle3, DFlash maabo DSpark).",
+      "nMax": "Ɗuuɗal darnde tagdi",
+      "nMaxDescription": "Ɗuuɗɗum limgal tokens je waɗata taskaram go'o. Default 16.",
+      "nMin": "Limngal seɗɗa nder taskaramji tokenji",
+      "nMinDescription": "Limngal seɗɗan je tokens je waaway waddugo kala jaawal fuu. Default 0.",
+      "pMin": "Ɗuuɗal ƴaɓɓutugo ɓoggi.",
+      "pMinDescription": "Seɗɗa nder ko waawata heɓtoyki ngam tiggugo (0–1). Default 0.75."
+    },
+    "templateKwargs": {
+      "section": "Suɓol suɓol",
+      "description": "Cuɓe ɓeydaaɗe ɗe template yeewtere ooɗoo model jaɓata. Neldiraa ko chat_template_kwargs e kala ɗaɓɓaande; accu nafoore e mbaydi mum ngam ɗaccude template oo fellita.",
+      "addCustom": "Ɓesda suɓol",
+      "keyPlaceholder": "innde",
+      "valuePlaceholder": "Alamaaji",
+      "add": "Ɓesda",
+      "cancel": "Haaytu",
+      "remove": "Ɓaɓɓina"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Naa waawata ɓamta darnde ko hollata"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Canji darnde deftere",
+      "description": "Ko o tammi wiɗugo waylugo darnde deftere? Ɗu'um fooɗi darnde deftere fuu yaasi darnde kesum nden ɓe fuɗɗi naftirki deftere nden.",
+      "currentLocation": "Darnde jotta:",
+      "newLocation": "Darnde kesum:",
+      "cancel": "Haaytu",
+      "changeLocation": "Wayliti nokkuure"
+    },
+    "deleteAllThreads": {
+      "title": "Ɗum watti kala darnde fuu",
+      "description": "Ɗu'um kuuɗe e majjitaama. Kuugal nga'al waawataa sankitaaka."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Ɗum watti kala konngol fuu",
+      "description": "{{count}} konngol nder \"{{projectName}}\" waawai majjitaaki. Kuugal nga'al waawataa sankitaaka."
+    },
+    "deleteThread": {
+      "description": "Ko o tammini wi'a o yiɗi sankitigo nde'e? Nde'e kuuɗe ɗen ɗe waawata sankitigo."
+    },
+    "editMessage": {
+      "title": "Waylotirgo haala"
+    },
+    "messageMetadata": {
+      "title": "Limngal Metadata"
+    },
+    "deleteMessage": {
+      "description": "A yiɗi maɓɓitina lilal ngol?"
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Ɗuuɗal saggiti ɗum.",
+    "details": "Bayanu"
+  },
+  "missingDependenciesDialog": {
+    "title": "Waylaaki laayiirɗe dabareeje",
+    "description": "{{backend}} sosaama kono won defte kuutorteeɗe e njuɓɓudi njiytaaka. Ena waawi fawde e CPU walla nde dogaani no haanirta nii.",
+    "installLabel": "Ngam wadduki ɗum, huwira ko tokkita:",
+    "download": "Ɓaɓɓugo",
+    "additionalLibraries": "Ɗuuɗal libraryji ɗi walaa:",
+    "missingLibraries": "Laabirariiji ɓooyii:",
+    "showRawLibraries": "Holla {{count}} Innde deftere janngirde wala"
+  },
+  "projects": {
+    "title": "Taskaramji",
+    "new": "Kuugal kesum",
+    "addProject": "Ɓesda taskaram",
+    "addToProject": "Ɓesda kuje",
+    "removeFromProject": "Ɓaɓɓina daga taskaram",
+    "createNewProject": "Tagi taskaram kesum",
+    "editProject": "Waylugo kuuɗe",
+    "deleteProject": "Ɗaɓɓitugo taskaram",
+    "projectName": "Innde taskaram",
+    "enterProjectName": "Innde taskaram:",
+    "noProjectsAvailable": "Wala taskaramji ko waɗata",
+    "noProjectsYet": "Wala taskaramji",
+    "noProjectsYetDesc": "Ɓe fuɗɗi waɗugo taskaram kesum ta ɗatal ɓesda taskaram.",
+    "projectNotFound": "Kuugal walaa heɓa",
+    "projectNotFoundDesc": "Kuugal ko o yiɗi walaa koo bo ɗum majjitaama.",
+    "selectAssistant": "Suɓoo waɗoowo",
+    "noAssistantAssigned": "Wala moƴƴintinaajo ngaɗiraaɗo kuungal ngol.",
+    "files": "Fiilaaji",
+    "filesDescription": "Ɓesda PDFji, defte, koo goɗɗi binndi ɗin faa ɓe annda nder taskaram nden.",
+    "uploadingFiles": "Taska fiiji...",
+    "processButton": "Ɓesda",
+    "deleteProjectDialog": {
+      "title": "Ɗaɓɓitugo taskaram",
+      "permanentDelete": "Ɗu'um fooɗay sankitiingal kala darnde fuu.",
+      "permanentDeleteWarning": "Kuugal nga'al e majjita ko woni nder ALL nder taskaram!",
+      "deleteEmptyProject": "Kuugal nga'al e maɓɓa taskaram \"{{projectName}}\".",
+      "saveThreadsAdvice": "To hokkugo fiiji ɗin, sowi ɗi nder limgal fiiji ɗin maa boo nder taskaram goɗɗum bako ɗum majjita.",
+      "starredWarning": "Ɗum haa fahin woodi ko haani nder taskaram man.",
+      "deleteButton": "Momtu",
+      "successWithName": "Kuugal \"{{projectName}}\" yottinaama boɗɗum",
+      "successWithoutName": "Kuugal ngaɗiraama.",
+      "error": "Na waawi sankitigo taskaram.",
+      "ariaLabel": "Yaara {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Tagi taskaram kesum",
+      "editTitle": "Waylugo kuuɗe",
+      "nameLabel": "Innde taskaram",
+      "namePlaceholder": "Innde taskaram:",
+      "assistant": "Waɗoowo",
+      "selectAssistant": "Suɓoo waandoowo (ƴaɓɓitaako)",
+      "noAssistant": "Wala waawude",
+      "addAssistant": "Ɗum ɓesdi waawkinaare",
+      "createButton": "Tagi",
+      "updateButton": "Waylugo",
+      "alreadyExists": "Kuugal \"{{projectName}}\" ɗon.",
+      "createSuccess": "Kuugal \"{{projectName}}\" heɓaama boɗɗum",
+      "updateSuccess": "Kuugal \"{{projectName}}\" ɓamtiniraama boɗɗum",
+      "saveError": "Na waaway tagugo taskaram."
+    },
+    "noConversationsIn": "Wala konngol nder {{projectName}}",
+    "startNewConversation": "Fuɗɗan bolle kese e {{projectName}} les",
+    "conversationsIn": "Konngol nder {{projectName}}",
+    "conversationsDescription": "Tokku e kala bolle fuuh ngam tigguki bolle, ko boo tigguki bolle kesum les.",
+    "conversation": "Anndaaki",
+    "instructions": "Anniyaji",
+    "setup": "Waɗugo",
+    "instructionsDescription": "Laabi no ɗum wolwata be no ɗum hollata.",
+    "manageInstructions": "Hokkugo bayaanuuji",
+    "thread": "ɓoggi",
+    "threads": "ɓoggi",
+    "updated": "Waylaaki:",
+    "collapseProject": "Ɓaɓɓina taskaram",
+    "expandProject": "Ɓesda taskaram",
+    "update": "Waylugo",
+    "searchProjects": "Tefki kuje...",
+    "noProjectsFound": "Wala taskaramji heɓaaka.",
+    "tryDifferentSearch": "foondol kalimaaji fere-fere"
+  },
+  "attachmentsIngestion": {
+    "title": "Suɓi no ɗum waɗata kawtal",
+    "description": "Suɓi ko hauti e hawtuki ɗi’i fiiji e nder bolle ko boo e hawtugo e nder embeddings.",
+    "inline": "Nastina nder bolle",
+    "embeddings": "Ɗum huwira e nastinaaki"
+  },
+  "attachmentInjectedIndicator": "Nastinaama nder bolle",
+  "attachmentEmbeddedIndicator": "Embedded for RAG",
+  "viewInjectedContent": "Laara ko hawti",
+  "injectedContentTitle": "Nastina ko nder deftere",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Ɗuuɗal ƴamɗeeji ɗii ngaɗataako",
+      "description": "Ɗuuɗal ƴamɗe ɗen e sankitaama gila ko ɗum yiɗi."
+    },
+    "deleteAllThreads": {
+      "title": "Ɗum watti kala darnde fuu",
+      "description": "Ɗuuɗal ƴamɗe ɗen e majjitaama."
+    },
+    "renameThread": {
+      "title": "Wayla innde",
+      "description": "Innde darnde nden waylitaama yaago '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Momtu yeewtere",
+      "description": "Ɗu’um darnde nden majjitaama."
+    },
+    "errorCopied": {
+      "title": "Deppigo heɓi nasaraaku",
+      "description": "Bayanuuji kuskure diidiraama yaasi clipboard"
+    },
+    "errorCopyFailed": {
+      "title": "Fayil:%s",
+      "description": "Na waawi tagugo bayanuuji kuskure yaasi clipboard"
+    },
+    "editMessage": {
+      "title": "Waylotirgo haala",
+      "description": "Lilal ngal waylitaama boɗɗum. Toɓɓen laara nde moodel man waddi jaabaaki."
+    },
+    "appUpdateDownloaded": {
+      "title": "Ɗaɓɓitiiɗum",
+      "description": "Ɗu'um waddi ɓeydaari ko waddi ɓeydaari kuuɗe."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Waylaaki wadditol kuugal faayi",
+      "description": "Waawaa ƴettude keso app oo. Tiiɗno enndu kadi."
+    },
+    "downloadComplete": {
+      "title": "Ɓaɓɓugo",
+      "description": "{{item}} ɗum nastinaama"
+    },
+    "downloadCancelled": {
+      "title": "Ɗum watti",
+      "description": "Ɗatal nastinaaki ngol watti."
+    },
+    "downloadFailed": {
+      "title": "Ɓaɓɓugo",
+      "description": "Ɗaɓɓitugo {{item}} faay",
+      "descriptionWithReason": "{{item}} nastinaaki: {{reason}}",
+      "reason": {
+        "dns": "Innde serwer man waawataa sankitaaka.",
+        "refused": "kawtal ngol salkinaama.",
+        "timeout": "kawtal ngol saali.",
+        "tls": "Na waaway tiggugo kawtal nandungal.",
+        "proxy": "Na waawi nastugo e proxy man.",
+        "unreachable": "Na waawi nastugo server."
+      }
+    },
+    "openSettings": "Fuɗɗan ko hollata",
+    "openLogs": "Fuuɗo logji",
+    "downloadTokenRequired": {
+      "title": "Hugging Face token yiɗi",
+      "description": "Ɗu'um foondiraa e Hugging Face token nastinaaki. Ɓesda token yi'e nder ko haandi nden foondira."
+    },
+    "downloadLicenseRequired": {
+      "title": "Jaɓi lisensi model dow Hugging Face",
+      "description": "O doole o yerda e lisensiwol moodelwol dow paande Hugging Face bako o heɓtoyki."
+    },
+    "downloadRateLimited": {
+      "title": "Ɗuuɗal darnde nde Hugging Face",
+      "description": "Ɗum waddi darnde nde'e. Ɓesdaaki token waaway ɓesda darnde nde'e. Kanji foonduye ɓaawo."
+    },
+    "modelValidationStarted": {
+      "title": "Ɗum tabbitinii no moodel woni.",
+      "description": "Nastinaama noone \"{{modelId}}\" boɗɗum. Nastinaaki darnde..."
+    },
+    "modelValidationFailed": {
+      "title": "Wadduki hokkugo daliila faay",
+      "description": "Ɓaawuɗum \"{{modelId}}\" natti dow tabbitinki integrity nden ɗum sankitaama. Binndi man waaway sankitaaka koo boo ɗum nastinaaka."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Ɓaɓɓugo",
+      "description": "Ɗum ƴaɓɓitii noone \"{{item}}\" nden ɓe tabbitinii ɗum."
+    },
+    "projectCreated": {
+      "title": "Kuugal ngaɗiraangal",
+      "description": "Kuugal \"{{projectName}}\" heɓaama boɗɗum"
+    },
+    "projectRenamed": {
+      "title": "Taskaramji",
+      "description": "Kuugal ngal wayliti innde gila \"{{oldName}}\" yaago \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Taskaram maɓɓitaande",
+      "description": "Kuugal \"{{projectName}}\" yottinaama boɗɗum"
+    },
+    "projectAlreadyExists": {
+      "title": "Kuugal ɗon.",
+      "description": "Kuugal \"{{projectName}}\" ɗon."
+    },
+    "projectDeleteFailed": {
+      "title": "Waɗugo faay",
+      "description": "Na waawi sankitigo taskaram."
+    },
+    "threadAssignedToProject": {
+      "title": "Ɗum waddi ɓoggi",
+      "description": "Ɗum waɗii ko wi'etee thread to \"{{projectName}}\""
+    },
+    "threadRemovedFromProject": {
+      "title": "Nastina",
+      "description": "Ɗum wurtinaama gila \"{{projectName}}\""
+    },
+    "fileUploaded": {
+      "title": "Deftere",
+      "description": "Deftere nden yottinaama boo ɓeydataama."
+    },
+    "uploadFailed": {
+      "title": "Waɗugo faay",
+      "description": "Na waawi huuwa deftere",
+      "subjectThisFile": "Deftere",
+      "pdfMalformedXref": "{{subject}} e woodi taawoore ko nanndi e PDF boo ɗum waawataa senndindirki. Tinndina fuɗugo maare nder PDF laatoowo nden e tabbitini ɗum (File → Print → Save as PDF), nden ɓedda ɗum.",
+      "pdfScanned": "{{subject}} wanngii dow ɗum scanned maabo imaanaaki dow PDF. OCR wala jaɓugo - laato ɓesda binndi dow PDF.",
+      "pdfEncrypted": "{{subject}} e darnaama e kalmaaji. Tabbitina kalmaaji nden foonda nden.",
+      "pdfUnsupportedFeature": "{{subject}} huudata e PDF fiiji Novera waaway faamita (bana PostScript noone/kuuɗe shading). Tinndina ɓeydugo ɗum (File → Print → Save as PDF) ngam ɓeydugo ɗum, nden ɓeydo ɗum.",
+      "pdfGeneric": "{{subject}} waawataa senndindirki bana PDF. Binndi man waaway sankitaaka koo naftoraaki fiiji PDF ɗi walaa mballa.",
+      "fileTooLarge": "{{subject}} mawni masin. {{message}}",
+      "unsupportedType": "Noone deftere \"{{type}}\" wala jaɓugo.",
+      "ioError": "Na waawi jannguki {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} waawataa sennduki: {{message}}",
+      "fallback": "Na waawi huuwa {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Deftere majjitaande",
+      "description": "Fiilaaji ɓeydataama gila taskaram."
+    },
+    "deleteFailed": {
+      "title": "Waɗugo faay",
+      "description": "Kuutinirgel wadduki deftere"
+    },
+    "fileAlreadyExists": {
+      "title": "Deftere e woodi",
+      "description": "Fiila kanjum e kawta e taskaram nga'al."
+    },
+    "unsupportedFileType": {
+      "title": "Kala fiiji ɗin na faami.",
+      "description": "Ɗuuɗal fiiji \".{{extension}}\" walaa faamiya dow taskaram."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Ɓesdaaki",
+      "description": "Ɓesdaaki e saakaama nder Feeraaji."
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Deftere man mawni.",
+    "fileTooLargeDescription": "{{fileName}} ɓurii darnde {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} ɓoggi",
+    "title": "Fiilaaji",
+    "empty": "Fayiloji je ɓeydata be fayiloji je ajenti waddi ɓeɗo wannga ha ɗon.",
+    "a11y": "Fiilaaji: {{count}}",
+    "attachments": "Nastina",
+    "notImported": "Wala nder nokkuure kuugal"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp e woodi kuuɗe",
+    "description": "Go'o koo ko ɓuri heedi moodelji ngaɗaama to sarde nden. Ɓurna-go'o e timmina llama.cpp nden waaway taƴeeki kuuɗe ɗen.",
+    "forceQuit": "Wayla",
+    "forcing": "Ɓurna wurtina...",
+    "shuttingDown": "Waɗugo..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Ɗaɓɓita",
+  "expand": "Ɓesda",
+  "todoPanelTitle": "Waylaaki",
+  "todoPanelEmpty": "Wala limgal ko waɗata.",
+  "backgroundTasks": "Kuugal ɓoggi",
+  "subagentsRunning_one": "{{count}} subagent e huwira",
+  "subagentsRunning_other": "{{count}} subagents e huwira",
+  "monitorsRunning_one": "{{count}} laatoowo dogginol",
+  "monitorsRunning_other": "{{count}} laaraaji huwira",
+  "backgroundRunning_one": "{{count}} kuugal ɓadiwal e huuwa",
+  "backgroundRunning_other": "{{count}} kuuɗe ɓadiiɗe e huuwa",
+  "monitors": "Laatorɗe",
+  "monitorPolling": "Ɗum waddi",
+  "monitorMatched": "Ko haani",
+  "monitorTimedOut": "Wakkati saali",
+  "monitorStopped": "Ɗaɓɓitii",
+  "monitorEnded": "Ɓaawo",
+  "coworkWatching_one": "Laaruki {{count}} laatoore...",
+  "coworkWatching_other": "Laarugo {{count}} laarugo...",
+  "coworkWaitingBackground": "Wakkatigal dow kuuɗe ɓadiiɗe...",
+  "noBackgroundTasks": "Wala kuungal ɓadiingal.",
+  "running": "Huwtinirde",
+  "queued": "Ɗuuɗal",
+  "waiting": "Wakkatigal",
+  "finished": "Ɓaɓɓi",
+  "subagentPhase": "{{phase}}",
+  "subagentWaiting": "Ɗaɓɓitugo",
+  "viewTranscript": "Laara transcrit",
+  "taskWorking": "Kuugal...",
+  "taskNoOutput": "Subagent ɗum wala ko ɗum heɓata.",
+  "subagentToolUses_one": "{{count}} naftoraaki kuutinirgel",
+  "subagentToolUses_other": "{{count}} kuutinirdum kuutinirdum",
+  "artifactGroupCode": "Koode",
+  "artifactGroupImage": "Foto",
+  "artifactGroupDocument": "Deftere",
+  "artifactGroupVideo": "Bidiyo",
+  "artifactGroupAudio": "Ɓaawo",
+  "artifactOpenPreview": "Fuɗɗan",
+  "artifactOpenExternal": "Fuɗɗan",
+  "artifactMoreActions": "Ɓurna kuuɗeji",
+  "artifactShowInFolder": "Holla nder deftere",
+  "skillsUsedLabel": "Anndal naftirteengal",
+  "skillsUsed": "Anndal naftiraangal: {{skills}}",
+  "artifactsAll": "Ɗum fuu",
+  "artifactsEmpty": "Wala ko waɗata. Artifactji gila Cowork wurtinii to nde.",
+  "artifactsNoMatch": "Wala ko nanndi e huunde nden.",
+  "artifactsSearch": "Tefki artifactji",
+  "artifactsShowMore": "Hollit {{count}} goɗɗum",
+  "workspace": {
+    "readsFrom": "Ɗum huuwi nder",
+    "writable": "Janngugo e winnduki",
+    "footnote": "Ajenti e jannga e waylita deftere nde'e. Laaru ko waylita nder diff panel.",
+    "footnoteEmpty": "Ɓesda deftere ngam waddugo ajenti huuwa dow taskaramji ɗin. Ɓe waaway janngugo e waylugo fiiji ɗi nder deftere nden.",
+    "attach": "Ɓesda deftere",
+    "change": "Canji deftere",
+    "detach": "Ɓawo deftere",
+    "open": "Fuɗɗan",
+    "reveal": "Ɗum waddi",
+    "unavailable": "Darnde kuugal walaa",
+    "missing": "Deftere kuugal {{folder}} wala. Suɓi deftere feere.",
+    "openFailed": "Na waaway fufki nokkuure kuugal",
+    "revealFailed": "Na waaway wanngugo nokkuure kuugal",
+    "a11yWithFolder": "Deftere taskaram {{folder}}, kawtataa e jannde e winnde. Wayliti koo senndi.",
+    "a11yNoFolder": "Wala deftere kuugal kawtataaka. Hawta gootel."
+  },
+  "coworkEmpty": {
+    "title": "Ko en huwirata?",
+    "subtitleSandbox": "Hokkuki kuuɗe Novera. Ɗum jannga e winnda fiiji, huuwa haalaaji, kadin huuwa ta ɗatal hoore maagal.",
+    "subtitleFolder": "Hokkugo Novera kuugal. E huuwa nder {{folder}}, jannguki e waylugo fiiji dow hoore maɓɓe.",
+    "try": "Yela",
+    "sandbox": {
+      "first": "Winndii deftere Python nde waylita innde fiiji dow wakkatiire nde ɓe heɓaama.",
+      "second": "Tiggugo dashiborre pecce go'o diga CSV nde mi hawta",
+      "third": "Ɗum waddi ko wi'etee draft README ngam taskaram ko mi wanngini."
+    },
+    "folder": {
+      "first": "Fassirgo no {{folder}} waɗaama.",
+      "second": "Tefuki kala TODO nder {{folder}} kadin hawta ɗum dow nokkuure.",
+      "third": "Winndii foonduye nde feccere nde {{folder}} mi hollii ɗum to."
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Na ɗum terminal.",
+    "a11y": "Ɗum watti dow huuduki e ko hollata.",
+    "title": "Ɗum watti dow huuduki e haalaaji",
+    "body": "Novera hokkata ajenti huuwa haalaji shell tan to sistimwol ngol waawan darnugo ɗi. Wala sandbox ɗum heɓirta, ngam ajenti waaway jannguki, winnduki, e waylugo fiiji nder sandbox man - amma walaa huuwa ko ɗume.",
+    "fixLinux": "Linux huudata bubblewrap. Hokkugo, nden fuɗɗa Novera.",
+    "fixMac": "MacOS e naftira e sandbox nder /usr/bin/sandbox-exec. Ɓe fuɗɗi Novera nde ɗum heɓa.",
+    "fixWindows": "Windows huwira e AppContainer. Ɓe fuɗɗi Novera ngam ɓe foonda.",
+    "recheck": "Laara nden"
+  },
+  "planMode": {
+    "label": "Plane",
+    "tooltipOff": "Taskaram arandejum—moɗo jannga nden o holla ko o yiɗi, naa to o windi.",
+    "tooltipOn": "Taskaramji. Ɗum watti ɗum ngam acci ajenti winnduki fiiji.",
+    "onAnnounce": "Ɗum watti laawol taskaramji",
+    "placeholder": "Fooɗa ko haandi. Ajenti'en waylaayi kala fiiji fuu."
+  },
+  "budget": {
+    "stoppedSteps": "Waylaama e {{max}} luttuɗe. Ajenti man hewtaayi.",
+    "keepGoing": "Jotta",
+    "stoppedTokens": "Ɗum watti – fijirde film man heɓi ceede ɗuɗɗe.",
+    "compact": "Ɗuuɗal",
+    "newSession": "Seansi kesum"
+  },
+  "run": {
+    "stopped": "Ɓaawi.",
+    "failed": "Ɓe daayii fijirde film man ɓaawo ɓe fuɗɗi.",
+    "tryAgain": "Ɓaawo foondu"
+  },
+  "modelNoTools": "{{model}} waawataa nodda kuutinirɗe, ngam non waawataa huuwa bano ajen. Suɓi kuutinirɗe nodda moodel.",
+  "askContinue": "Jotta",
+  "askNext": "ƴamle keɓaaɗe",
+  "askPrev": "ƴamle naane",
+  "askRecommended": "Anndaande",
+  "askSelectedCount": "{{count}} suɓaaka",
+  "askSomethingElse": "Wonnde huunde wonde",
+  "askSomethingElsePlaceholder": "Tinndina jaabaaki maangu.",
+  "submit": "Ɓesda",
+  "composer": {
+    "advanced": "Dabareeji ko ɓuri anndeeki",
+    "modelDefaults": "Deftere darnde",
+    "assistantOverrides": "Ɗum watti ko ɓeydata",
+    "printPdf": "Binndi / Hokkugo bana PDF",
+    "exportHint": "Ɗum waaway jannga no ɗum woni: ɓoggi ɗi huuwa. JSON: kala lilal fuu ko ɗum waddi. Lilal yaasi ɗum waɗataako."
+  },
+  "telemetry": {
+    "summary": "E jaɓuki maagal, {{host}} heɓirta tan foonduye Novera e dabareeje kuuɗe, naa e haalaaji maabo darnde darndeere.",
+    "unavailable": "Ɗum hollaayi taarihaaji. Wala bayanuuji ko ɓeydata."
+  },
+  "errorTracking": {
+    "title": "Waɗugo miilo",
+    "summary": "Anniyaaji saakaɗi yaago {{host}}: noone kuskure, darnde kuskure, foonduye kuskure e dabareeje kuskure. Wala konngol, ko wi'ete kuskure malla keyji. Sakka kala wakkatiire fuu.",
+    "unavailable": "Kuutinirgel nde kuskure waɗaaka. Wala bayaanu jaɓaaka."
+  },
+  "access": {
+    "read": "Jannguki tan",
+    "ask": "Anniya bako waylugo ko nyaamndugo",
+    "allow": "Hokkugo waylugo e ɓustaaki",
+    "folderNote": "Suɓi no Novera waaway nastina deftere nden."
+  },
+  "components": {
+    "title": "Ɗuuɗal nanduɗe",
+    "note": "Huwtinire tan ko ɗum yiɗi. Novera hokkata Python fellere feere. Huwtinire Cloud na yiɗi huwtinire to nokkuure nden.",
+    "estimates": "Ɗum foondii nastinaaki: {{download}} · Nafaajum nokkuure diski: {{space}} · Nafaajum nokkuure diski: {{free}}",
+    "confirm": "Wanngina kala fellere nde'e? Suɓol fiiji tan suɓiraama. Ɗu'um e huwira e lisensiiji ɓe wannginta.",
+    "removeConfirm": "Ɗum waaway maɓɓitii nokkuure nde'e? Ɗum waaway maɓɓitii moodelji ɗin, kuuɗe ɗin, e haalaaji ɗin.",
+    "verify": "Tabbitini",
+    "repair": "Waylugo",
+    "uninstall": "Nastina",
+    "missing": "Naa nastinaaka",
+    "managed": "Hollataama e Novera",
+    "external": "Dabare nde'e nde Python ɗo waylita ko hollata sifakaare. Holla ɗum ngam naftirgo. Noverae fellere makko.",
+    "failed": "Kuugal na'ura waaway faaruki. Laaru network, nokkuure diski, e daama nastugo, nden foonduye koo bo wo'ina.",
+    "required": "Tabbitinii kadin tabbitinii ko yi'etee nder ko yi'etee nder Novera.",
+    "updateAvailable": "Waylaaki e woodi",
+    "update": "Waylugo",
+    "rollback": "Waylugo fellere aranndeere",
+    "busy": "Ɗum waaway ƴaɓɓita moodelji ɗin e ɗaɓɓita ɓamtaare ɓamtaare ɓaawo nde ɗum waylitii kuuje."
+  },
+  "voiceConversation": "Yeewtere daande",
+  "voiceUnavailable": "Yeewtere daande heɓotaako",
+  "voiceMale": "Daande gorko",
+  "voiceFemale": "Daande debbo",
+  "voiceReadReplies": "Tar jaabawuuji e daande"
+}

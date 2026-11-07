@@ -1,0 +1,18 @@
+{
+  "addProvider": "Προσθήκη παρόχου",
+  "addOpenAIProvider": "Προσθήκη προσαρμοσμένου παρόχου",
+  "enterNameForProvider": "Όνομα παρόχου (π.χ. my-llm-server)",
+  "apiTypeLabel": "API",
+  "apiTypeOpenAI": "OpenAI-συμβατό",
+  "apiTypeAnthropic": "Anthropic-συμβατό",
+  "baseUrlLabel": "Βάση URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API κλειδί",
+  "apiKeyPlaceholder": "Επικολλήστε το κλειδί σας API",
+  "invalidBaseUrl": "Η βάση URL πρέπει να είναι έγκυρο(α) http(s) URL",
+  "globalSettings": "Καθολικές ρυθμίσεις",
+  "stripReasoning": "Απογυμνώστε τη συλλογιστική από το πλαίσιο",
+  "stripReasoningDesc": "Καταργήστε το περιεχόμενο σκέψης/συλλογισμού των προηγούμενων στροφών πριν στείλετε ξανά το ιστορικό, σε όλους τους παρόχους. Βελτιώνει την KV-επαναχρησιμοποίηση της προσωρινής μνήμης για τοπικά μοντέλα, αλλά ορισμένα μοντέλα (π.χ. νεότερες εκδόσεις Qwen) συνιστούν τη διατήρηση της για καλύτερο συλλογισμό πολλαπλών περιστροφών.",
+  "providerAlreadyExists": "Ένας πάροχος με το όνομα {{name}} υπάρχει ήδη."
+}

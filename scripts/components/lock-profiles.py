@@ -12,19 +12,19 @@ import os
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 OUT = ROOT / 'src-tauri/components'
 UV = ROOT / 'src-tauri/resources/bin/uv.exe'
-BASE = ['transformers==5.20.2', 'safetensors==0.8.0']
-MEDIA = ['diffusers==0.42.0', 'Pillow==12.0.0', 'imageio==2.37.0', 'imageio-ffmpeg==0.6.0', 'numpy==2.5.4']
+BASE = ['transformers==5.22.1', 'safetensors==0.8.0']
+MEDIA = ['diffusers==0.42.1', 'Pillow==13.0.0', 'imageio==2.38.1', 'imageio-ffmpeg==0.8.1', 'numpy==2.5.4']
 PROFILES = [
-    ('transformers-cpu', '3.12.12', 'cpu', BASE + ['torch==2.14.1+cpu', 'peft==0.21.2', 'accelerate==1.15.0']),
-    ('transformers-cuda', '3.12.12', 'cu130', BASE + ['torch==2.14.1+cu130', 'peft==0.21.2', 'accelerate==1.15.0', 'bitsandbytes==0.50.2', 'comfy-kitchen==0.2.35']),
-    ('diffusers-cpu', '3.12.12', 'cpu', BASE + MEDIA + ['torch==2.14.1+cpu', 'accelerate==1.15.0', 'gguf==0.19.0']),
-    ('diffusers-cuda', '3.12.12', 'cu130', BASE + MEDIA + ['torch==2.14.1+cu130', 'accelerate==1.15.0', 'gguf==0.19.0', 'comfy-kitchen==0.2.35']),
-    ('onnx-cpu', '3.12.12', None, ['numpy==2.5.4', 'onnx==1.23.2', 'onnxruntime==1.31.1']),
-    ('onnx-genai', '3.12.12', None, ['numpy==2.5.4', 'onnx==1.23.2', 'onnxruntime==1.31.1', 'onnxruntime-genai==0.18.0']),
-    ('video-export', '3.12.12', None, ['imageio==2.37.0', 'imageio-ffmpeg==0.6.0', 'numpy==2.5.4', 'Pillow==12.0.0']),
-    ('upscale-cpu', '3.12.12', 'cpu', ['Pillow==12.0.0', 'numpy==2.5.4', 'torch==2.14.1+cpu']),
-    ('upscale-cuda', '3.12.12', 'cu130', ['Pillow==12.0.0', 'numpy==2.5.4', 'torch==2.14.1+cu130']),
-    ('exllama', '3.12.12', 'cu128', (ROOT / 'transformers-server/requirements-exllama.txt').read_text().splitlines()),
+    ('transformers-cpu', '3.12.15', 'cpu', BASE + ['torch==2.15.0+cpu', 'peft==0.21.2', 'accelerate==1.15.0']),
+    ('transformers-cuda', '3.12.15', 'cu134', BASE + ['torch==2.15.0+cu134', 'peft==0.21.2', 'accelerate==1.15.0', 'bitsandbytes==0.50.2', 'comfy-kitchen==0.2.41']),
+    ('diffusers-cpu', '3.12.15', 'cpu', BASE + MEDIA + ['torch==2.15.0+cpu', 'accelerate==1.15.0', 'gguf==0.19.0']),
+    ('diffusers-cuda', '3.12.15', 'cu134', BASE + MEDIA + ['torch==2.15.0+cu134', 'accelerate==1.15.0', 'gguf==0.19.0', 'comfy-kitchen==0.2.41']),
+    ('onnx-cpu', '3.12.15', None, ['numpy==2.5.4', 'onnx==1.23.2', 'onnxruntime==1.31.1']),
+    ('onnx-genai', '3.12.15', None, ['numpy==2.5.4', 'onnx==1.23.2', 'onnxruntime==1.31.1', 'onnxruntime-genai==0.19.0']),
+    ('video-export', '3.12.15', None, ['imageio==2.38.1', 'imageio-ffmpeg==0.8.1', 'numpy==2.5.4', 'Pillow==13.0.0']),
+    ('upscale-cpu', '3.12.15', 'cpu', ['Pillow==13.0.0', 'numpy==2.5.4', 'torch==2.15.0+cpu']),
+    ('upscale-cuda', '3.12.15', 'cu134', ['Pillow==13.0.0', 'numpy==2.5.4', 'torch==2.15.0+cu134']),
+    ('exllama', '3.12.15', 'cu128', (ROOT / 'transformers-server/requirements-exllama.txt').read_text().splitlines()),
 ]
 
 def main():

@@ -1,0 +1,18 @@
+{
+  "addProvider": "Ɓesda ko hokkata",
+  "addOpenAIProvider": "Ɗum ɓeydii ko haani",
+  "enterNameForProvider": "Innde waddiɗo (e.g. my-llm-server)",
+  "apiTypeLabel": "API format",
+  "apiTypeOpenAI": "OpenAI-compatible",
+  "apiTypeAnthropic": "Anthropic-compatible",
+  "baseUrlLabel": "Dabare URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API key",
+  "apiKeyPlaceholder": "Nastina keyji API",
+  "invalidBaseUrl": "Dabare URL doole laato e woodi http(s) URL.",
+  "globalSettings": "Feerootiralji duuniyaaru",
+  "stripReasoning": "Ɗum waɗi iimanaaku dow ko wi’etee context.",
+  "stripReasoningDesc": "Ɗum watti keeri arannde'en ɗi numo/raayuuji hidde ɓeydaari taariihaaji, nder kala ko hokkata fuu. KV-cache naftiraama kadin ngam moodeeji to nokkuure, amma goɗɗi moodeeji (misaalu. Qwen releases) yi'i ɗum heɓa ɗum ngam ɗum heɓa daliilaaji ɓurɗi semmbe.",
+  "providerAlreadyExists": "Ko hokkata innde {{name}} e woodi."
+}

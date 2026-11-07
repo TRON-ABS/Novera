@@ -833,5 +833,10 @@
     "update": "Cập nhật",
     "rollback": "Khôi phục môi trường trước đó",
     "busy": "Dỡ bỏ các mô hình cục bộ và đợi các thế hệ kết thúc trước khi thay đổi thành phần."
-  }
+  },
+  "voiceConversation": "Trò chuyện bằng giọng nói",
+  "voiceUnavailable": "Trò chuyện bằng giọng nói không khả dụng",
+  "voiceMale": "Giọng nam",
+  "voiceFemale": "Giọng nữ",
+  "voiceReadReplies": "Đọc to câu trả lời"
 }

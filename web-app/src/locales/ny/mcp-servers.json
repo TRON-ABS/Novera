@@ -1,0 +1,101 @@
+{
+  "editServer": "Sinthani MCP Seva",
+  "addServer": "Onjezani MCP Seva",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Kuyang'ana mawonekedwe owonjezera..."
+    },
+    "notInstalled": {
+      "title": "Novera imamaliza ntchito mu msakatuli wanu",
+      "description": "Ikani zowonjezera kuti mupatse Novera msakatuli wofikira",
+      "getExtension": "Pezani Zowonjezera"
+    }
+  },
+  "serverName": "Dzina la seva",
+  "enterServerName": "Lowetsani dzina la seva",
+  "command": "Command",
+  "enterCommand": "Lowetsani lamulo (uvx kapena npx)",
+  "arguments": "Mikangano",
+  "argument": "Mkangano {{index}}",
+  "envVars": "Zosintha Zachilengedwe",
+  "key": "Key",
+  "value": "Mtengo",
+  "save": "Sungani",
+  "status": "Status",
+  "connected": "Wolumikizidwa",
+  "disconnected": "Salumikizidwa",
+  "deleteServer": {
+    "title": "Chotsani MCP Seva",
+    "description": "Mukutsimikiza kuti mukufuna kuchotsa seva ya MCP {{serverName}}? Izi sizingasinthidwe.",
+    "delete": "Chotsani",
+    "success": "MCP seva {{serverName}} yafufutidwa bwino"
+  },
+  "editJson": {
+    "title": "Sinthani JSON ya MCP Seva: {{serverName}}",
+    "titleAll": "Sinthani Ma Seva Onse MCP JSON",
+    "placeholder": "Lowetsani JSON kasinthidwe",
+    "errorParse": "Yalephera kusanthula zoyambira",
+    "errorPaste": "mtundu wolakwika wa JSON pazolemba",
+    "errorFormat": "mtundu wolakwika wa JSON",
+    "errorServerName": "Dzina la seva ndilofunika ndipo silingakhale lopanda kanthu",
+    "errorMissingServerNameKey": "JSON iyenera kusanjidwa ngati {\"serverName\": {config}} - fungulo la dzina la seva likusowa",
+    "errorInvalidType": "Mtundu wosavomerezeka '{{type}}' wa seva '{{serverName}}'. Mtundu uyenera kukhala 'stdio', 'http', kapena 'sse'",
+    "save": "Sungani"
+  },
+  "checkParams": "Chonde onani magawo malinga ndi phunziroli.",
+  "title": "MCP Ma seva",
+  "experimental": "Zoyeserera",
+  "editAllJson": "Sinthani Ma seva Onse JSON",
+  "findMore": "Pezani maseva ena MCP pa",
+  "allowPermissions": "Lolani MCP Zilolezo Zonse Zazida",
+  "allowPermissionsDesc": "Ikayatsidwa, mafoni onse a MCP adzavomerezedwa okha popanda kuwonetsa zokambirana. Izi zimagwira ntchito padziko lonse lapansi pazokambirana zonse, kuphatikiza macheza atsopano.",
+  "noServers": "Palibe ma seva a MCP omwe apezeka",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Seva {{serverKey}} idayatsidwa bwino",
+  "serverStatusInactive": "Seva {{serverKey}} yayimitsidwa bwino",
+  "runtimeSettings": {
+    "title": "Zikhazikiko za Runtime",
+    "description": "Konzani momwe Novera imasamalirira ndi kuyesanso ma seva a MCP.",
+    "toolCallTimeout": "Chida choyimba nthawi (masekondi)",
+    "toolCallTimeoutDesc": "Nthawi yokwanira kuti mudikire MCP yankho la chida musanathe nthawi.",
+    "maxToolOutputChars": "Zilembo zotulutsa zida zambiri",
+    "maxToolOutputCharsDesc": "Zotsatira zazitali kwambiri zomwe zimasungidwa pazokambirana. Chilichonse chapitachi chimakonzedwa ndikuyikidwa ngati chocheperako, kotero chotsatira chimodzi chachikulu sichingathetseretu nkhani yachitsanzocho. Khazikitsani 0 kuti zotsatira zonse zikhale bwino.",
+    "smartToolRouting": "Njira Zanzeru MCP zida",
+    "smartToolRoutingDesc": "Ikayatsidwa, Novera imasankha ma seva oyenera MCP musanalowetse zida. Letsani kuti muzitsegula zonse MCP mndandanda wa zida zonse.",
+    "useLightweightRouterModel": "Gwiritsani ntchito njira yodzipatulira panjira",
+    "useLightweightRouterModelDesc": "Pamene njira yanzeru yayatsidwa, yendetsani njira yosiyana (nthawi zambiri yaing'ono) m'malo mwa macheza. Zimitsani kuti mugwiritse ntchito njira yochezera nthawi zonse.",
+    "routerModel": "Mtundu wamayendedwe",
+    "routerModelDesc": "Sankhani wopereka ndi chitsanzo pamalo amodzi. Mitundu yopepuka yokha ndiyomwe yatchulidwa kuti njirayo ikhale yachangu komanso yotsika mtengo.",
+    "selectRouterModelPlaceholder": "Sankhani njira yolowera…",
+    "routerModelSearchPlaceholder": "Sakani mitundu…",
+    "routerModelEmptyList": "Palibe mitundu yopepuka yomwe ilipo. Onjezani mtundu wocheperako kapena konzani makiyi a API mu Ma Models.",
+    "routerModelEmptySearch": "Palibe zofananira ndi \"{{query}}\"."
+  },
+  "auth": {
+    "label": "Wolemba:",
+    "state": {
+      "notApplicable": "sikufunika",
+      "staticHeader": "Mutu wovomerezeka",
+      "authenticated": "yotsimikizika",
+      "expired": "yatha",
+      "staleResource": "yaperekedwa kwa URL ina",
+      "unauthenticated": "sichinatsimikizidwe"
+    },
+    "expiresIn": "itha ntchito mu {{duration}}",
+    "authenticate": "Lowani",
+    "reauthenticate": "Tsimikizaninso",
+    "clear": "Chotsani kutsimikizika",
+    "waiting": "Kudikirira osatsegula...",
+    "openSignInPage": "Tsegulani tsamba lolowera",
+    "needsAuth": "{{serverName}} ikufunika kutsimikiziridwa",
+    "needsAuthHint": "Lowani mu seva iyi kuti mulumikizane.",
+    "authorized": "Walowa mu {{serverName}}",
+    "authorizeFailed": "Kulowa mu {{serverName}} kwalephera",
+    "cleared": "Mbiri yosungidwa yosungidwa ya {{serverName}}",
+    "nothingToClear": "{{serverName}} analibe zizindikiro zosungidwa",
+    "clearFailed": "Sizinatheke kuzindikira zomveka za {{serverName}}",
+    "renew": "Konzaninso gawo",
+    "expiredAgo": "inatha ntchito {{duration}} zapitazo"
+  }
+}

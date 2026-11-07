@@ -25,7 +25,7 @@ use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use std::sync::Arc;
 
-use agent_client_protocol::schema::v1::{
+use agent_client_protocol::v1::schema::{
     AgentCapabilities, AuthMethod, AuthMethodTerminal, AuthenticateRequest, AuthenticateResponse,
     CancelNotification, ContentBlock, ContentChunk, EmbeddedResourceResource, Implementation,
     InitializeRequest, InitializeResponse, LoadSessionRequest, LoadSessionResponse, McpServer,
@@ -37,7 +37,8 @@ use agent_client_protocol::schema::v1::{
     UsageUpdate,
 };
 use agent_client_protocol::schema::ProtocolVersion;
-use agent_client_protocol::{Agent, Client, ConnectionTo, Error, Responder, Stdio};
+use agent_client_protocol::{Agent, Client, Error, Stdio};
+use agent_client_protocol::v1::{ConnectionTo, Responder};
 use serde_json::{json, Value};
 use tauri_plugin_agent_tools::tools::gate::PermissionDecision;
 use tokio::sync::Mutex;
@@ -118,7 +119,7 @@ pub async fn serve() -> Result<(), String> {
     // message at a time, and a prompt that awaited inline would hold back the
     // `session/cancel` and permission replies it is waiting on.
     Agent
-        .builder()
+        .v1()
         .name("novera")
         .on_receive_request(
             async move |req: InitializeRequest, responder: Responder<InitializeResponse>, _cx| {
@@ -341,7 +342,7 @@ fn read_thread(agent_dir: &Path, id: &str) -> Result<Vec<Value>, Error> {
         .ok()
         .filter(|thread| thread.get("id").and_then(Value::as_str) == Some(id));
     if found.is_none() {
-        return Err(Error::resource_not_found(None).data(json!({"sessionId": id})));
+        return Err(Error::new(-32002, "Resource not found").data(json!({"sessionId": id})));
     }
     let (messages, skipped) = cli_read_messages_lenient(agent_dir, id).map_err(internal)?;
     if skipped > 0 {
@@ -495,7 +496,7 @@ async fn prompt(
         let mut map = sessions.lock().await;
         let session = map
             .get_mut(&id)
-            .ok_or_else(|| Error::resource_not_found(None).data(json!({"sessionId": id})))?;
+            .ok_or_else(|| Error::new(-32002, "Resource not found").data(json!({"sessionId": id})))?;
         if session.turn.is_some() {
             return Err(Error::invalid_request().data(json!({"message": "a prompt is already running in this session"})));
         }

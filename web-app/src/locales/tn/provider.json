@@ -1,0 +1,18 @@
+{
+  "addProvider": "Tsenya Motlamedi",
+  "addOpenAIProvider": "Tsenya Motlamedi yo o Tlwaelegileng",
+  "enterNameForProvider": "Leina la motlamedi (ka sekai, sefara ya me-llm)",
+  "apiTypeLabel": "API",
+  "apiTypeOpenAI": "OpenAI-e tsamaisana",
+  "apiTypeAnthropic": "Anthropic-e tsamaisana",
+  "baseUrlLabel": "Motheo URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API senotlolo",
+  "apiKeyPlaceholder": "Kgomaretsa senotlolo sa gago sa API",
+  "invalidBaseUrl": "Motheo URL o tshwanetse go nna (di)http tse di amogelesegang URL",
+  "globalSettings": "Diseting tsa lefatshe ka bophara",
+  "stripReasoning": "Tlosa mabaka mo bokaong",
+  "stripReasoningDesc": "Tlosa diteng tsa go akanya/go ntsha mabaka tsa diphetogo tsa pele pele o romela gape hisitori, go ralala batlamedi botlhe. E tokafatsa tiriso gape ya polokelotlaleletso ya KV ya dikai tsa selegae, mme dikai dingwe (ka sekai, ditokololo tse disha tsa Qwen) di akantsha gore e bolokwe gore e kgone go ntsha mabaka botoka ka diphetogo tse dintsi.",
+  "providerAlreadyExists": "Motlamedi yo o bidiwang {{name}} o setse a le teng."
+}

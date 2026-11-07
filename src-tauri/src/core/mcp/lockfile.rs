@@ -14,9 +14,22 @@ pub struct McpLockFile {
     pub hostname: String,
 }
 
+#[cfg(test)]
+pub(super) struct TestLockDirectory(pub PathBuf);
+
+fn lock_directory<R: Runtime>(app: &AppHandle<R>) -> PathBuf {
+    #[cfg(test)]
+    {
+        use tauri::Manager;
+        if let Some(directory) = app.try_state::<TestLockDirectory>() {
+            return directory.0.clone();
+        }
+    }
+    crate::core::app::paths::app_data_dir_for(app).expect("Failed to get app data dir")
+}
+
 fn get_lock_file_path<R: Runtime>(app: &AppHandle<R>, port: u16) -> PathBuf {
-    let app_data_dir =
-        crate::core::app::paths::app_data_dir_for(app).expect("Failed to get app data dir");
+    let app_data_dir = lock_directory(app);
     app_data_dir.join(format!("mcp_lock_{}.json", port))
 }
 
@@ -146,8 +159,7 @@ pub async fn check_and_cleanup_stale_lock<R: Runtime>(
 }
 
 pub async fn cleanup_all_stale_locks<R: Runtime>(app: &AppHandle<R>) -> Result<(), String> {
-    let app_data_dir =
-        crate::core::app::paths::app_data_dir_for(app).expect("Failed to get app data dir");
+    let app_data_dir = lock_directory(app);
 
     let pattern = app_data_dir.join("mcp_lock_*.json");
     let pattern_str = pattern.to_string_lossy();
@@ -177,8 +189,7 @@ pub async fn cleanup_all_stale_locks<R: Runtime>(app: &AppHandle<R>) -> Result<(
 }
 
 pub fn cleanup_own_locks<R: Runtime>(app: &AppHandle<R>) -> Result<(), String> {
-    let app_data_dir =
-        crate::core::app::paths::app_data_dir_for(app).expect("Failed to get app data dir");
+    let app_data_dir = lock_directory(app);
 
     let pattern = app_data_dir.join("mcp_lock_*.json");
     let pattern_str = pattern.to_string_lossy();

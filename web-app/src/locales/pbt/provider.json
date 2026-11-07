@@ -1,0 +1,18 @@
+{
+  "addProvider": "برابرونکی اضافه کړئ",
+  "addOpenAIProvider": "د ګمرک چمتو کونکي اضافه کړئ",
+  "enterNameForProvider": "د برابرونکي نوم (لکه my-llm-server)",
+  "apiTypeLabel": "API بڼه",
+  "apiTypeOpenAI": "OpenAI-مطابق",
+  "apiTypeAnthropic": "Anthropic-مطابق",
+  "baseUrlLabel": "اساس URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API کلید",
+  "apiKeyPlaceholder": "خپل API کیلي پیسټ کړئ",
+  "invalidBaseUrl": "اساس URL باید د اعتبار وړ http(s) وي URL",
+  "globalSettings": "نړیوال ترتیبات",
+  "stripReasoning": "له شرایطو څخه استدلال پټ کړئ",
+  "stripReasoningDesc": "د ټولو چمتو کونکو په اوږدو کښي د تاریخ له بیا لیږلو دمخه د مخکینیو بدلونونو فکر / استدلال مینځپانګه لرې کړئ. د محلي موډلونو لپاره د KV-کیچ بیا کارونې ته وده ورکوي، مګر ځینې ماډلونه (د مثال په توګه نوي Qwen ریلیزونه) د ښه څو اړخیز دلیل لپاره د ساتلو وړاندیز کوي.",
+  "providerAlreadyExists": "د {{name}} په نوم یو برابرونکی لا دمخه شتون لري."
+}

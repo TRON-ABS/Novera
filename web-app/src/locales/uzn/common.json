@@ -831,5 +831,10 @@
     "update": "Yangilash",
     "rollback": "Oldingi muhitni tiklang",
     "busy": "Mahalliy modellarni yuklab oling va komponentlarni almashtirishdan oldin avlodlar tugashini kuting."
-  }
+  },
+  "voiceConversation": "Ovozli suhbat",
+  "voiceUnavailable": "Ovozli suhbat mavjud emas",
+  "voiceMale": "Erkak ovozi",
+  "voiceFemale": "Ayol ovozi",
+  "voiceReadReplies": "Javoblarni ovoz chiqarib o‘qish"
 }
