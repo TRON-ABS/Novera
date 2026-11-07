@@ -1,0 +1,41 @@
+name: Novera - Compatible legacy CLI packages
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  prepare:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-22.04, windows-2025, macos-15]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Install the locked Novera signing tool
+        shell: bash
+        run: |
+          corepack enable
+          yarn install --immutable
+      - name: Verify canonical bytes, package compatibility and sign final archives
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.NOVERA_UPDATER_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.NOVERA_UPDATER_PASSWORD }}
+        run: node scripts/distribution/prepare-legacy-cli.mjs
+      - name: Retain final verified compatibility payloads
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: legacy-cli-${{ runner.os }}-${{ github.run_id }}
+          path: |
+            .build/legacy-cli/*.zip
+            .build/legacy-cli/*.sig
+            .build/legacy-cli/CLI-LEGACY-*.json
+          if-no-files-found: error
+          retention-days: 14
