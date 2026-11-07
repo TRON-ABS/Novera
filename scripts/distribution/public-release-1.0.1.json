@@ -142,5 +142,7 @@
     "portableChannelPreservedAt": "1.0.0",
     "webApplicationPublished": false,
     "appleNotarizationClaimed": false
-  }
+  },
+  "cliIdentityFormatVersion": 2,
+  "cliSourceCommit": "7a2ce07316f607414a2fad936517a5c9bc2530ee"
 }

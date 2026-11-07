@@ -1,5 +1,5 @@
-# fix(release): use published asset tags in verification
+# fix(release): pin canonical CLI verification identity
 
-The public verification descriptor accidentally retained GitHub draft `untagged-*` download URLs for Windows x64, Linux and macOS assets. The updater manifest already uses the correct canonical version tags. Replace only the descriptor URLs with their final published tags; preserve every reviewed byte count and hash.
+The public bytes/signature verification passed for all 20 assets and eight signed channels in run 42364204595. Its subsequent native CLI check selected the legacy `jan` archive layout because the reviewed descriptor omitted the canonical identity format and compilation commit. Add format 2 and the exact existing CLI source commit from the signed package descriptors. No package, application or updater-feed bytes change.
 
-The failed run 42363980517 correctly rejected these URLs before downloading unreviewed locations. Local URL validation now accepts all 20 descriptor records and the existing eight signed channels. Repeat anonymous verification against the corrected descriptor. Record the draft-URL trap in the release lessons. This changes verification metadata, not application binaries or the published updater feed.
+The failed native check remains recorded rather than counted as successful. Rerun complete public verification and the three-host canonical CLI checks with the corrected metadata. Keep the legacy `latest-cli.json` feed unchanged. Windows installed Desktop availability has separately passed anonymous bytes/signature checks; the maintainer reports a successful Desktop update.
