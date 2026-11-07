@@ -1,3 +1,4 @@
+import { publicAsset } from './publicAsset'
 import { type ClassValue, clsx } from 'clsx'
 import { mediaProviderDefinitions } from '@/constants/mediaProviders'
 import { twMerge } from 'tailwind-merge'
@@ -129,77 +130,77 @@ export function getModelDisplayName(model: Model): string {
 }
 
 export function getProviderLogo(provider: string) {
-  if (mediaProviderDefinitions.some(item => item.id === provider)) return `/images/model-provider/${provider}.png`
-  if (provider === 'diffusers') return '/images/model-provider/huggingface.svg'
+  if (mediaProviderDefinitions.some(item => item.id === provider)) return publicAsset(`/images/model-provider/${provider}.png`)
+  if (provider === 'diffusers') return publicAsset('/images/model-provider/huggingface.svg')
   switch (provider) {
     case 'liquidai':
-      return '/images/model-provider/liquidai.png'
+      return publicAsset('/images/model-provider/liquidai.png')
     case 'qwen':
-      return '/images/model-provider/qwen.png'
+      return publicAsset('/images/model-provider/qwen.png')
     case 'novera':
-      return '/images/novera-logo.png'
+      return publicAsset('/images/novera-logo.png')
     case 'jan':
-      return '/images/model-provider/jan.png'
+      return publicAsset('/images/model-provider/jan.png')
     case 'tabbyapi':
-      return '/images/model-provider/tabbyapi.svg'
+      return publicAsset('/images/model-provider/tabbyapi.svg')
     case 'llamacpp':
-      return '/images/model-provider/llamacpp.svg'
+      return publicAsset('/images/model-provider/llamacpp.svg')
     case 'mlx':
-      return '/images/model-provider/mlx.png'
+      return publicAsset('/images/model-provider/mlx.png')
     case 'anthropic':
-      return '/images/model-provider/anthropic.svg'
+      return publicAsset('/images/model-provider/anthropic.svg')
     case 'huggingface':
-      return '/images/model-provider/huggingface.svg'
+      return publicAsset('/images/model-provider/huggingface.svg')
     case 'mistral':
-      return '/images/model-provider/mistral.svg'
+      return publicAsset('/images/model-provider/mistral.svg')
     case 'openrouter':
-      return '/images/model-provider/open-router.svg'
+      return publicAsset('/images/model-provider/open-router.svg')
     case 'groq':
-      return '/images/model-provider/groq.svg'
+      return publicAsset('/images/model-provider/groq.svg')
     case 'meta':
-      return '/images/model-provider/meta.ico'
+      return publicAsset('/images/model-provider/meta.ico')
     case 'cohere':
-      return '/images/model-provider/cohere.svg'
+      return publicAsset('/images/model-provider/cohere.svg')
     case 'zai':
-      return '/images/model-provider/zai.svg'
+      return publicAsset('/images/model-provider/zai.svg')
     case 'ai21':
-      return '/images/model-provider/ai21.png'
+      return publicAsset('/images/model-provider/ai21.png')
     case 'byteplus':
-      return '/images/model-provider/byteplus.png'
+      return publicAsset('/images/model-provider/byteplus.png')
     case 'baidu':
-      return '/images/model-provider/baidu.ico'
+      return publicAsset('/images/model-provider/baidu.ico')
     case 'tencent':
-      return '/images/model-provider/tencent.ico'
+      return publicAsset('/images/model-provider/tencent.ico')
     case 'bedrock':
-      return '/images/model-provider/bedrock.png'
+      return publicAsset('/images/model-provider/bedrock.png')
     case 'watsonx':
-      return '/images/model-provider/watsonx.png'
+      return publicAsset('/images/model-provider/watsonx.png')
     case 'gemini':
-      return '/images/model-provider/gemini.svg'
+      return publicAsset('/images/model-provider/gemini.svg')
     case 'openai':
-      return '/images/model-provider/openai.svg'
+      return publicAsset('/images/model-provider/openai.svg')
     case 'azure':
-      return '/images/model-provider/azure.svg'
+      return publicAsset('/images/model-provider/azure.svg')
     case 'xai':
-      return '/images/model-provider/xai.svg'
+      return publicAsset('/images/model-provider/xai.svg')
     case 'minimax':
-      return '/images/model-provider/minimax.svg'
+      return publicAsset('/images/model-provider/minimax.svg')
     case 'nvidia':
-      return '/images/model-provider/nvidia.svg'
+      return publicAsset('/images/model-provider/nvidia.svg')
     case 'deepseek':
-      return '/images/model-provider/deepseek.ico'
+      return publicAsset('/images/model-provider/deepseek.ico')
     case 'moonshot':
-      return '/images/model-provider/moonshot.png'
+      return publicAsset('/images/model-provider/moonshot.png')
     case 'alibaba':
-      return '/images/model-provider/alibaba.png'
+      return publicAsset('/images/model-provider/alibaba.png')
     case 'cerebras':
-      return '/images/model-provider/cerebras.png'
+      return publicAsset('/images/model-provider/cerebras.png')
     case 'together':
-      return '/images/model-provider/together.svg'
+      return publicAsset('/images/model-provider/together.svg')
     case 'fireworks':
-      return '/images/model-provider/fireworks.svg'
+      return publicAsset('/images/model-provider/fireworks.svg')
     case 'perplexity':
-      return '/images/model-provider/perplexity.png'
+      return publicAsset('/images/model-provider/perplexity.png')
     default:
       return undefined
   }

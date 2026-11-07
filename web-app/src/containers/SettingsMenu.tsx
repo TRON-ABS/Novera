@@ -1,3 +1,4 @@
+import { publicAsset } from '@/lib/publicAsset'
 import { Link } from '@tanstack/react-router'
 import { route } from '@/constants/routes'
 import { useTranslation } from '@/i18n/react-i18next-compat'
@@ -235,7 +236,7 @@ const SettingsMenu = () => {
       title: 'common:claude_code',
       route: route.settings.claude_code,
       icon: ({ size, className }: { size?: number; className?: string }) => (
-        <img src="/images/code-claude.svg" width={size} height={size} className={cn(className, 'dark:invert opacity-60')} />
+        <img src={publicAsset('/images/code-claude.svg')} width={size} height={size} className={cn(className, 'dark:invert opacity-60')} />
       ),
     },
   ]

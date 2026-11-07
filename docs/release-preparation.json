@@ -29,5 +29,6 @@
   "previous": "1.0.0",
   "androidVersionCode": 1000013,
   "androidReleaseVersion": "1.0.1",
-  "portableVersion": "1.0.0"
+  "portableVersion": "1.0.0",
+  "webExperimentalPublished": true
 }

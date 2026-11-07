@@ -1,3 +1,4 @@
+import { publicAsset } from '@/lib/publicAsset'
 import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import React, { memo } from 'react'
 
@@ -27,10 +28,10 @@ export const AvatarEmoji: React.FC<AvatarEmojiProps> = memo(({
   if (!avatar) return null
   // Existing assistants and saved threads still store Novera's original emoji.
   if (avatar === '👋') {
-    return <img src="/images/novera-logo.png" alt="Novera" className={imageClassName} />
+    return <img src={publicAsset('/images/novera-logo.png')} alt="Novera" className={imageClassName} />
   }
   if (isCustomImageAvatar(avatar)) {
-    return <img src={avatar} alt={uiT('common:customAvatar')} className={imageClassName} />
+    return <img src={publicAsset(avatar)} alt={uiT('common:customAvatar')} className={imageClassName} />
   }
 
   return <span className={textClassName}>{avatar}</span>

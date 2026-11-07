@@ -1,3 +1,4 @@
+import { publicAsset } from '@/lib/publicAsset'
 import { createFileRoute } from '@tanstack/react-router'
 import HeaderPage from '@/containers/HeaderPage'
 import SettingsMenu from '@/containers/SettingsMenu'
@@ -728,7 +729,7 @@ function MCPServersDesktop() {
                           {config.official && (
                             <div className="flex items-center gap-1.5 px-2 py-0.5 text-xs bg-secondary border rounded-sm">
                               <img
-                                src="/images/novera-logo.png"
+                                src={publicAsset('/images/novera-logo.png')}
                                 alt="Novera"
                                 className="w-3 h-3 object-contain"
                               />
