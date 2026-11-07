@@ -17,6 +17,7 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog'
 import { isPlatformTauri } from '@/lib/platform/utils'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { cn, getProviderTitle } from '@/lib/utils'
 import { mediaPreset } from '@/constants/mediaProviders'
@@ -57,7 +58,9 @@ export function CreationControls({
 
   const { t } = useTranslation()
   const service = useServiceHub()
-  const automatic = useAutoConfiguration()
+  const resourceConfiguration = useAutoConfiguration()
+  const webPreview = browserPreviewEnabled()
+  const automatic = webPreview ? { ...resourceConfiguration, local: { ...resourceConfiguration.local, image: false, music: false, video: false } } : resourceConfiguration
   const baseState = useCreation()
   const selectedMode = baseState.modes[scope] ?? 'auto'
   const mode = previewOutputMode(selectedMode, prompt, baseState.resolvedModes[scope], disabled)
@@ -640,7 +643,7 @@ export function CreationControls({
               </div>
             </details>}
             <p className="text-xs text-muted-foreground">
-              {t('chat:creation.autosave')}
+              {webPreview ? 'Les fichiers sont conservés dans ce navigateur. Utilisez Télécharger pour en garder une copie sur votre appareil.' : t('chat:creation.autosave')}
             </p>
             <p className="text-xs text-muted-foreground">
               {t('chat:creation.autoNote')}
@@ -667,7 +670,7 @@ export function CreationControls({
                 (mode === item || (item === 'auto' && selectedMode === 'auto')) && 'composer-tool-active'
               )}
               disabled={
-                disabled || (!desktop && (item === 'image' || item === 'music' || item === 'video'))
+                disabled || (!desktop && !webPreview && (item === 'image' || item === 'music' || item === 'video'))
               }
               aria-pressed={mode === item || (item === 'auto' && selectedMode === 'auto')}
               onClick={() => {
@@ -849,8 +852,9 @@ export function CreationControls({
         <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-4xl">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2"><ShieldCheck className="size-5 text-cyan-400" />Novera · {t('common:settings')}</DialogTitle>
-            <DialogDescription>{t('hub:catalog.advisorNote')}</DialogDescription>
+            <DialogDescription>{webPreview ? 'Les moteurs locaux FLUX.2 Klein, ACE-Step et Wan sont en cours d’adaptation au navigateur. La connexion fal est une option cloud utilisant votre clé et ses tarifs.' : t('hub:catalog.advisorNote')}</DialogDescription>
           </DialogHeader>
+          {webPreview ? <p className="text-sm text-muted-foreground">La clé reste en mémoire pour cette session. <a className="underline" href="#/settings/providers/fal">Configurer fal</a> · Les créations terminées sont conservées dans ce navigateur et peuvent être téléchargées.</p> : <>
           <ManagedComponents disabled={disabled} />
           <aside className="space-y-3 rounded-xl border border-cyan-400/30 bg-cyan-400/5 p-4">
             <p className="text-sm">{t(automatic.fullPack ? 'chat:creation.setupAllNote' : 'hub:catalog.advisorNote')}</p>
@@ -864,11 +868,12 @@ export function CreationControls({
             <h2 className="font-medium">{t('providers:embeddingModels')}</h2>
             <EmbeddingSetupPanel />
           </section>
+          </>}
           {(['image', 'music', 'video'] as const).map((kind) => <section key={kind} className="rounded-xl border p-4 space-y-4" aria-label={t(`chat:creation.${kind}`)}>
             <h2 className="font-medium">{t(`chat:creation.${kind}`)}</h2>
-            {!automatic.local[kind] && <p className="text-sm text-muted-foreground">{t('chat:creation.local')} · {t('common:editModel.notAvailable')} · {t('hub:catalog.tipLimited')} {t('chat:creation.cloudNote')}</p>}
+            {!automatic.local[kind] && <p className="text-sm text-muted-foreground">{!webPreview && <>{t('chat:creation.local')} · {t('common:editModel.notAvailable')} · {t('hub:catalog.tipLimited')} </>}{t('chat:creation.cloudNote')}</p>}
             {kind==='music'?<MusicSetupPanel scope={scope} disabled={disabled}/>:<>
-              <p className="text-sm text-muted-foreground">{t(`chat:creation.${kind==='image'?'setupImageNote':'setupVideoNote'}`)}</p>
+              {!webPreview && <p className="text-sm text-muted-foreground">{t(`chat:creation.${kind==='image'?'setupImageNote':'setupVideoNote'}`)}</p>}
               <CreationControls scope={scope} disabled={disabled} panelTask={kind} /></>}
           </section>)}
           <Button onClick={() => setOpen(false)}>{t('common:close')}</Button>

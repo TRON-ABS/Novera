@@ -1,4 +1,5 @@
-import { invoke } from '@tauri-apps/api/core'
+import { invokeCreation as invoke } from './backend'
+import { browserPreviewEnabled } from '../browser-preview/config'
 import type { UIMessage, UIMessageChunk } from 'ai'
 import { useMediaLibrary } from '@/hooks/useMediaLibrary'
 import { beginLocalMemory, releaseFinishedMedia } from './memory'
@@ -105,7 +106,8 @@ export function creationStream(
         },
       })
       try {
-        if (!isPlatformTauri()) fail('chat:creation.desktopOnly')
+        if (!isPlatformTauri() && !browserPreviewEnabled()) fail('chat:creation.desktopOnly')
+        if (browserPreviewEnabled() && selection?.provider !== 'fal') fail('chat:creation.configure')
         if ((!selection || selection.provider === 'diffusers') && !currentResourceProfile().local[task])
           fail('hub:catalog.tipLimited')
         if (task === 'video' && (!Number.isSafeInteger(settings.durationSeconds ?? 5) ||

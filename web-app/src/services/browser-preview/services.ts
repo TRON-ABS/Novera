@@ -4,6 +4,9 @@ import { DefaultProvidersService } from '../providers/default'
 import type { InvokeArgs } from '../core/types'
 import { browserCatalog, browserModel } from './config'
 import { browserRuntime } from './runtime'
+import { predefinedProviders } from '@/constants/providers'
+import { mediaModels } from '@/constants/mediaProviders'
+import { browserMediaCommand } from './media'
 
 const info = (spec: typeof browserCatalog[number]): modelInfo => ({
   id: spec.id, name: spec.name, providerId: 'llamacpp', port: 0, sizeBytes: spec.bytes,
@@ -41,6 +44,7 @@ export class BrowserCoreService extends DefaultCoreService {
     return [{ name: this.engine.name, url: 'browser:local', active: true, version: '1.0.1', extensionInstance: this.engine }]
   }
   async invoke<T = unknown>(command: string, args?: InvokeArgs): Promise<T> {
+    if (['sharing_metadata', 'creation_info', 'creation_image_input'].includes(command)) return await browserMediaCommand(command, args) as T
     if (command === 'settings_get') return localStorage.getItem(String(args?.key)) as T
     if (command === 'settings_set' && typeof args?.key === 'string' && typeof args.value === 'string') { localStorage.setItem(args.key, args.value); return undefined as T }
     if (command === 'settings_delete' && typeof args?.key === 'string') { localStorage.removeItem(args.key); return undefined as T }
@@ -50,10 +54,12 @@ export class BrowserCoreService extends DefaultCoreService {
 
 export class BrowserProvidersService extends DefaultProvidersService {
   async getProviders(): Promise<ModelProvider[]> {
-    return [{ provider: 'llamacpp', active: true, persist: true, settings: [], models: browserCatalog.map(spec => ({ id: spec.id, name: spec.name, displayName: spec.name, capabilities: ['completion'], input_modalities: ['text'], output_modalities: ['text'], settings: {} })) }]
+    const fal = structuredClone(predefinedProviders.find(provider => provider.provider === 'fal')!) as unknown as ModelProvider
+    return [{ ...fal, persist: true, models: mediaModels('fal') }, { provider: 'llamacpp', active: true, persist: true, settings: [], models: browserCatalog.map(spec => ({ id: spec.id, name: spec.name, displayName: spec.name, capabilities: ['completion'], input_modalities: ['text'], output_modalities: ['text'], settings: {} })) }]
   }
   async fetchModelsFromProvider(provider: ModelProvider) {
     if (provider.provider === 'llamacpp') return browserCatalog.map(model => model.id)
+    if (provider.provider === 'fal') return mediaModels('fal').map(model => model.id)
     throw new Error('Le catalogue distant de ce fournisseur reste à vérifier dans le navigateur.')
   }
   async updateSettings() { /* Provider values remain in the existing in-memory store; no browser keyring. */ }

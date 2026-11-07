@@ -205,6 +205,14 @@ Les trois revues Android initialement ouvertes sont maintenant consignées dans 
 
 ## 12. Cycle 1.0.1 du 7 novembre 2026 — enseignements en cours
 
+### Préparation Web parallèle : contrôles à conserver
+
+- Réutiliser l’interface et les thèmes existants, mais adapter réellement les services natifs : discussions et médias dans IndexedDB, lecteurs sur URL blob temporaires et export explicite. Ne pas afficher les dossiers système ou les installateurs Python comme disponibles dans le navigateur.
+- Tester les fichiers après rechargement et après téléchargement, pas seulement à partir d’une URL distante temporaire. Distinguer exemples publics, réponses API simulées et génération réellement effectuée sur un compte.
+- Une prévalidation CORS ne prouve pas qu’un modèle existe : Pika 2.2 retournait encore une réponse OPTIONS alors que sa page officielle annonçait sa suppression au 29 octobre 2026. Lire aussi les pages du modèle et conserver les erreurs de compte/quota.
+- Conserver Q4_K_M pour le modèle principal n’impose pas la même quantification au projecteur : le SDK Omni Web essayé le 7 novembre refuse le projecteur Q4 ; le projecteur Q8 charge et produit une vraie réponse texte. Documenter la combinaison testée et son téléchargement complet.
+- Ne pas publier une clé API dans un site statique. La préparation fal utilise une clé personnelle en mémoire, sans la persister dans les préférences ni la transmettre aux CDN des résultats. Les essais payants exigent un plafond explicite ; aucun succès de génération n’est déduit de la simple présence de modèles dans le sélecteur.
+
 Le mainteneur autorise la mise à jour de ce mémo pendant la sortie. Les résultats et liens évoluent dans [le suivi 1.0.1](RELEASE_1.0.1_2026-11-07.md) ; aucun résultat d'un build lancé n'est annoncé réussi avant sa fin.
 
 | Observation confirmée | Amélioration à réutiliser |

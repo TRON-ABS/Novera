@@ -11,6 +11,7 @@ import { isPlatformTauri, isPlatformAndroid } from '@/lib/platform/utils'
 import { writeClipboardText } from '@/lib/clipboard'
 import { zipFiles } from './zip'
 import { attachmentFilename } from './filename'
+import { browserPreviewEnabled } from '../browser-preview/config'
 import { renderShareHtml, markdownImages, escapeXml } from './rich'
 import {
   wordDocument,
@@ -59,6 +60,12 @@ async function readAsset(
   signal?: AbortSignal
 ): Promise<{ bytes: Uint8Array; mime: string }> {
   const ref = parseCreationReference(asset.url)
+  if (ref && browserPreviewEnabled()) {
+    const { readBrowserMedia } = await import('../browser-preview/media')
+    const { blob } = await readBrowserMedia(ref.task, ref.name)
+    signal?.throwIfAborted()
+    return { bytes: new Uint8Array(await blob.arrayBuffer()), mime: blob.type }
+  }
   if (ref && isPlatformTauri()) {
     const value = await core.invoke<{ base64: string; mime: string }>(
       'sharing_read_asset',

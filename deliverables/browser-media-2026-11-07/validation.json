@@ -1,0 +1,34 @@
+{
+  "browser": "Microsoft Edge via installed extension",
+  "date": "2026-11-07",
+  "inferenceBudgetEuro": 0,
+  "paidInferencePerformed": false,
+  "fixturesAreGeneratedByNovera": false,
+  "imageDisplayed": true,
+  "audioDecodedAndPlaybackAdvanced": true,
+  "videoDecodedAndPlaybackAdvanced": true,
+  "audioDurationSeconds": 104.202438,
+  "videoDurationSeconds": 5.184,
+  "mediaRetainedAfterReload": true,
+  "downloadedFixtures": [
+    {
+      "name": "Novera-ee13898a-bcad-47a8-ad99-dbe01acede9a.png",
+      "bytes": 1055791,
+      "sha256": "b5dad530bc4ca5f2601af77587472fe2ffbe1981fd57938f39a882d6298299bb"
+    },
+    {
+      "name": "Novera-7b4a6763-c60e-4487-8fcf-40b894f8f0dc.mp3",
+      "bytes": 1667284,
+      "sha256": "e590bb065b08e02fb3167ed1c5addae13d35486d19af6bd980fc05059d032610"
+    },
+    {
+      "name": "Novera-4eaf8c84-984a-4da9-b9ad-eeb04cb3b752.mp4",
+      "bytes": 3554670,
+      "sha256": "35620ff68e2834bb210fe15d0818e164f99cdf32fb9e113039307a64976fe813"
+    }
+  ],
+  "queueProtocolUsesSyntheticResponses": true,
+  "targetedTestsPassed": 219,
+  "productionBuildPassed": true,
+  "nativeModelBrowserInferenceValidated": false
+}

@@ -66,7 +66,7 @@ describe('cloud conversation lifecycle', () => {
     expect(invoke).not.toHaveBeenCalledWith('creation_start', expect.anything())
   })
   it('keeps cloud video generation available on a small mobile', async () => {
-    useCreation.setState({ selections: { thread: { video: { provider: 'fal', id: 'fal-ai/pika/v2.2/text-to-video' } } } })
+    useCreation.setState({ selections: { thread: { video: { provider: 'fal', id: 'fal-ai/kling-video/v3/standard/text-to-video' } } } })
     vi.mocked(generateCloudMedia).mockResolvedValue({ base64: 'AAAA' })
     vi.mocked(invoke).mockImplementation(async command => command === 'creation_cloud_save'
       ? { name: 'Novera-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee.mp4', mediaType: 'video/mp4' } : undefined)

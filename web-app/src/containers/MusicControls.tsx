@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAutoConfiguration } from '@/hooks/useAutoConfiguration'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { ComposerStatusSwitch } from '@/components/ComposerStatusSwitch'
 import { invoke } from '@tauri-apps/api/core'
 import { Music2, Clock3, ChevronDown, Dices } from 'lucide-react'
@@ -43,7 +44,7 @@ export function MusicProviderPicker({
 }) {
   const { t } = useTranslation()
   const selection = useCreation((s) => s.selections[scope]?.music)
-  const localAllowed = useAutoConfiguration().local.music
+  const localAllowed = useAutoConfiguration().local.music && !browserPreviewEnabled()
   const preset = selection && mediaPreset(selection.provider, selection.id)
   return (
     <DropdownMenu>
@@ -75,7 +76,7 @@ export function MusicProviderPicker({
           ACE-Step 1.5 · {t('chat:creation.local')}
         </DropdownMenuItem>
         {mediaModelPresets
-          .filter((p) => p.task === 'music' && p.provider !== 'minimax')
+          .filter((p) => p.task === 'music' && p.provider !== 'minimax' && (!browserPreviewEnabled() || p.provider === 'fal'))
           .map((p) => (
             <DropdownMenuItem
               key={p.provider + p.id}
@@ -379,7 +380,7 @@ export function MusicSetupPanel({
   disabled: boolean
 }) {
   const { t } = useTranslation()
-  const localMusic = useAutoConfiguration().local.music
+  const localMusic = useAutoConfiguration().local.music && !browserPreviewEnabled()
   const service = useServiceHub()
   const { state, settings, profile, setSettings } = useMusic(scope)
   const cloud = useCreation((s) => s.selections[scope]?.music)
@@ -477,7 +478,7 @@ export function MusicSetupPanel({
         )}
         <a
           className="text-sm underline"
-          href={`/settings/providers/${cloud.provider}`}
+            href={browserPreviewEnabled() ? `#/settings/providers/${cloud.provider}` : `/settings/providers/${cloud.provider}`}
         >
           {getProviderTitle(cloud.provider)} · {t('common:settings')}
         </a>

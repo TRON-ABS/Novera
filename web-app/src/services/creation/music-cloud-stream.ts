@@ -1,4 +1,5 @@
-import { invoke } from '@tauri-apps/api/core'
+import { invokeCreation as invoke } from './backend'
+import { browserPreviewEnabled } from '../browser-preview/config'
 import type { UIMessageChunk } from 'ai'
 import { useCreation } from '@/hooks/useCreation'
 import type { MediaSelection } from '@/hooks/useCreation'
@@ -45,7 +46,7 @@ export function musicCloudStream(
           .providers.find((p) => p.provider === selection?.provider)
         const preset =
           selection && mediaPreset(selection.provider, selection.id)
-        if (!provider?.active || !preset || preset.task !== 'music')
+        if (!provider?.active || !preset || preset.task !== 'music' || (browserPreviewEnabled() && provider.provider !== 'fal'))
           throw new Error(i18n.t('chat:creation.configure'))
         const settings = { ...snapshot, seed: musicSettingsFor(scope).seed }
         const song = parseMusicPrompt(prompt)
