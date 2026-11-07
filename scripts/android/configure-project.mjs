@@ -137,6 +137,11 @@ if (helperText.includes('org.jetbrains.kotlin:kotlin-gradle-plugin:')) {
 helperText = managed(helperText, 'HELPER TARGET', 'java {\n    sourceCompatibility = JavaVersion.VERSION_21\n    targetCompatibility = JavaVersion.VERSION_21\n}\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {\n    compilerOptions.jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)\n}')
 write(helper, helperText)
 write(path.join(project, 'buildSrc/src/main/java/io/github/tronabs/novera/kotlin/BuildTask.kt'), read(path.join(here, 'templates/BuildTask.kt')))
+const rustPlugin = path.join(project, 'buildSrc/src/main/java/io/github/tronabs/novera/kotlin/RustPlugin.kt')
+if (fs.existsSync(rustPlugin)) {
+  // The adapted task uses rootDirRel; Gradle's inherited rootDir is read-only.
+  write(rustPlugin, read(rustPlugin).replace(/^(\s*)rootDir\s*=\s*config\.rootDirRel\s*$/gm, '$1rootDirRel = config.rootDirRel'))
+}
 
 const wrapper = path.join(project, 'gradle/wrapper/gradle-wrapper.properties')
 write(wrapper, read(wrapper).replace(/^distributionUrl=.*$/m, 'distributionUrl=https\\://services.gradle.org/distributions/gradle-' + pin.gradle + '-bin.zip'))

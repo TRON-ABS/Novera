@@ -1,9 +1,9 @@
-# fix(linux): enable zbus client proxies after the dependency upgrade
+# fix(android): align generated Rust task calls with the adapted Gradle task
 
-The clean Linux 1.0.1 build fails with six missing `zbus::Proxy` / `zbus::proxy` errors in sharing and desktop setup. zbus 6.2.1 gates these APIs behind its `proxy` feature. This application disables default features and enabled only Tokio, so the existing D-Bus client code is compiled out. Enable the client proxy feature explicitly while retaining the selected runtime and disabled defaults.
+The inspected signed local APK builds, but fresh Android CI fails in buildSrc because Tauri's generated RustPlugin assigns `rootDir = config.rootDirRel`. Our adapted BuildTask exposes `rootDirRel`; Gradle already owns a read-only File property named rootDir. Update the generated plugin's exact task assignments alongside the task template, preserving idempotent configuration and the Cargo registry.
 
-Reproduction: Linux job 128310601176 in run 42341684328 reaches application compilation and reports that the required symbols are configured out by `#[cfg(feature = "proxy")]`.
+Reproduction: Android job 128312108465, run 42342175253, fails at RustPlugin.kt:73 with “val cannot be reassigned” and String/File mismatch. The existing local project already used rootDirRel, explaining the successful local package without certifying fresh generation.
 
-Validation: the feature is checked against the upstream [6.2.1 manifest](https://github.com/dbus2/zbus/blob/zbus-6.2.1/zbus/Cargo.toml). Source/version contracts and locked dependency resolution are checked locally; the signed Linux build is rerun for actual compilation and native checks. Windows/Mac native builds are independent and remain in progress. No Linux package success is claimed before CI completes.
+Validation: the generated-project regression covers both task assignments and repeated configuration. Targeted Android/source tests pass; the clean Android CI candidate is rerun. The separately signed local 1.0.1 APK passes package inspection, retains production certificate ccea6bf0… and versionCode 1000013; device installation remains unvalidated. No new private key is generated or committed.
 
-Depends on the merged 1.0.1 source and build corrections (#26–#30). The change is limited to the existing Linux-only optional dependency. Update the release lessons to distinguish a gated API from a renamed API.
+Depends on merged #28 and #31; independent of installed desktop builds. Update the release lessons with the fresh-project discrepancy and safe cache cleanup. The publication README helpers remain local work and are excluded from this change.
