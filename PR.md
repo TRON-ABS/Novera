@@ -1,9 +1,11 @@
-# chore(release): pin the reviewed Windows x64 1.0.1 candidate
+# fix(release): validate Windows x64 and refresh the portable test lock
 
-The signed Windows x64 build has completed. Pin its exact GitHub artifact archive and reviewed installer/signature hashes so CI can transfer the retained bytes directly into the existing private 1.0.1 draft.
+The signed Windows x64 1.0.1 candidate is now retained in the private draft. Pin its exact archive and installer/signature assets for transfer and isolated native validation. The portable build independently reached its standalone vector-db test, then failed because that plugin's Cargo.lock still described pre-migration dependencies while CI requires --locked. Refresh that standalone lock against its existing manifest and preserve compiled dependency caches even when a later validation step fails.
 
-Validation: compilation run 42341613182 succeeded; its 3,706,837,835-byte archive matches GitHub SHA-256 af0ee01fc48b39d5a497230dbcca52d14eeb7466b0075704ba56f6947bd0ab91. Local publication prerequisite/signature checks passed; all nine migration fixtures passed with no failures or ignored tests. The installer is 826,733,127 bytes. This descriptor changes neither package bytes nor public updater feeds.
+Validation:
+- Windows build 42341613182 succeeded; archive SHA-256 af0ee01fc48b39d5a497230dbcca52d14eeb7466b0075704ba56f6947bd0ab91 verified locally. Publication prerequisite/signature checks and all nine migration fixtures passed.
+- Private staging 42357610123 passed. Installer asset 720164448 and signature 720165415 match reviewed hashes and sizes.
+- Native validation 42357929006 passed: real initial installation, valid updater signature, tampered payload rejection, same-version suppression and synthetic 0.9.9→1.0.1 replacement; 106 runtime files and a synthetic profile sentinel remained intact. The app process survived 15 seconds before/after. This is not production UI interaction or an upgrade between two public releases.
+- Portable failure 42349570759 / job 128334674884 reproduces the stale-lock error after its application compiled. Cargo metadata --locked --format-version 1 passes with the refreshed lock in an isolated local manifest copy. Actual standalone plugin tests and final portable packaging/signing still require CI.
 
-Follow-up to #42. Native installed replacement validation must use the asset IDs returned by staging; it is still pending. A synthetic earlier-version probe does not establish the maintainer's real installed 1.0.0 upgrade. No publication is authorized by this descriptor. The separate Web preparation remains in #43.
-
-Private staging run 42357610123 passed. Installer asset 720164448 and signature 720165415 match the reviewed sizes and hashes. Pin their IDs and the retained runtime executable hash for isolated Windows installation/signature/tamper/synthetic replacement tests. These native results remain pending; no public feed changes.
+Follow-up to #42; Web work remains separate in #43. No package bytes or public updater feeds are changed here. Existing 1.0.0 installations and data are untouched. The portable dependency lock does not alter the source of the retained Windows installer; its compilation commit stays pinned explicitly. Desktop publication still awaits the complete platform feed and final public checks.
