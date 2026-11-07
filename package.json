@@ -62,6 +62,8 @@
     "build:icon": "tauri icon ./src-tauri/icons/icon.png",
     "build:core": "cd core && yarn build && yarn pack",
     "build:web": "yarn workspace @janhq/web-app build",
+    "dev:web:browser": "cross-env VITE_NOVERA_WEB_PREVIEW=true yarn workspace @janhq/web-app dev --host 127.0.0.1",
+    "build:web:browser": "cross-env VITE_NOVERA_WEB_PREVIEW=true yarn workspace @janhq/web-app build",
     "build:extensions": "yarn workspace @janhq/core build && yarn workspaces foreach -Apt --include '@janhq/*-extension' run build && node scripts/distribution/check-extension-bundles.mjs",
     "prepare": "husky",
     "e2e": "yarn build:e2e:app && cd e2e && yarn install --immutable && yarn test",

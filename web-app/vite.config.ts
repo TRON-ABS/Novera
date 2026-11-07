@@ -14,6 +14,7 @@ const host = process.env.TAURI_DEV_HOST
 export default defineConfig(({ mode, command }) => {
   // Load env file based on `mode` in the current working directory.
   const env = loadEnv(mode, process.cwd(), '')
+  const browserPreview = env.VITE_NOVERA_WEB_PREVIEW === 'true'
   const telemetry = resolvePublicTelemetry(env, publicTelemetry)
   const build = monitoringBuildInfo()
   const monitoring = command === 'build' && env.NOVERA_MONITORING_BUILD === 'true'
@@ -69,9 +70,9 @@ export default defineConfig(({ mode, command }) => {
       NOVERA_BUILD_ARCH: JSON.stringify(build.arch),
       NOVERA_BUILD_SOURCE_STATE: JSON.stringify(build.sourceState),
       NOVERA_BUILD_ENVIRONMENT: JSON.stringify(mode === 'production' ? 'production' : 'development'),
-      IS_TAURI: JSON.stringify(process.env.IS_TAURI),
+      IS_TAURI: JSON.stringify(browserPreview ? false : process.env.IS_TAURI),
       IS_DEV: JSON.stringify(process.env.IS_DEV),
-      IS_WEB_APP: JSON.stringify(false),
+      IS_WEB_APP: JSON.stringify(browserPreview),
       IS_MACOS: JSON.stringify(
         process.env.TAURI_ENV_PLATFORM?.includes('darwin') ?? false
       ),

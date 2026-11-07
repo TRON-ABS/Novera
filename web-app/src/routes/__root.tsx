@@ -33,6 +33,8 @@ import LlamacppBusyOnExitDialog from '@/containers/dialogs/LlamacppBusyOnExitDia
 import LlamacppOomListener from '@/containers/dialogs/LlamacppOomListener'
 import MissingDependenciesDialog from '@/containers/dialogs/MissingDependenciesDialog'
 import { NativeAccessDialog } from '@/containers/dialogs/NativeAccessDialog'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
+import { BrowserPreviewNotice } from '@/containers/BrowserPreviewNotice'
 
 export const Route = createRootRoute({
   component: RootLayout,
@@ -78,6 +80,7 @@ const AppLayout = () => {
         <LeftSidebar />
         <SidebarInset className="min-h-0 overflow-hidden">
           <div className="flex min-h-0 flex-1 flex-col bg-neutral-50 dark:bg-transparent">
+            {browserPreviewEnabled() && <BrowserPreviewNotice />}
             <Outlet />
           </div>
         </SidebarInset>

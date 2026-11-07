@@ -19,7 +19,7 @@ import { AppEvent, events } from '@janhq/core'
 import { SystemEvent } from '@/types/events'
 import { isDev } from '@/lib/utils'
 import { sweepThreadWorkspaces } from '@/lib/agentTools'
-import { invoke } from '@tauri-apps/api/core'
+import { invoke, isTauri } from '@tauri-apps/api/core'
 import { providerHasRemoteApiKeys, providerRemoteApiKeyChain } from '@/lib/provider-api-keys'
 import { i18n } from '@/i18n/react-i18next-compat'
 import { toast } from 'sonner'
@@ -39,6 +39,7 @@ type RegisterProviderRequest = {
 }
 
 async function registerRemoteProvider(provider: ModelProvider) {
+  if (!isTauri()) return
   // Skip llamacpp - those are local models
   if (provider.provider === 'llamacpp') return
 
@@ -108,6 +109,7 @@ async function seedProviderKeysFromKeyring(
 // providers, so custom providers would otherwise stay keyless after a reload).
 // Applies via updateProvider so it merges over the already-hydrated state.
 async function applyKeyringKeys(): Promise<void> {
+  if (!isTauri()) return
   const store = useModelProvider.getState()
   const seeded = await seedProviderKeysFromKeyring(store.providers)
   for (const p of seeded) {
@@ -126,6 +128,7 @@ let registeredProviderNames = new Set<string>()
 
 // Effect to sync remote providers when providers change
 const syncRemoteProviders = () => {
+  if (!isTauri()) return
   const providers = useModelProvider.getState().providers
   const currentActive = new Set<string>()
 
@@ -163,6 +166,7 @@ const MLX_SAMPLING_KEY_MAP: Record<string, string> = {
 // that omit these params inherit the GUI-configured values (overridable
 // per-request). Replaces the whole map, so an empty push clears stale entries.
 const syncModelParamDefaults = () => {
+  if (!isTauri()) return
   const providers = useModelProvider.getState().providers
   const defaults: Record<string, Record<string, number>> = {}
 
@@ -234,7 +238,7 @@ export function DataProvider() {
     })
     // Re-seed the Hugging Face token from the keyring (no longer persisted to
     // settings storage) into the store + download extension for this session.
-    invoke<string | null>('get_secret', {
+    if (isTauri()) invoke<string | null>('get_secret', {
       key: HUGGINGFACE_TOKEN_SECRET_KEY,
     })
       .then((token) => {
@@ -319,7 +323,7 @@ export function DataProvider() {
           // non-empty result: sweeping against an empty list would delete live
           // sandboxes if this fetch were still a transient not-ready state.
           // Leftovers then wait for the next startup that does see threads.
-          if (!sweptWorkspaces.current && threads.length > 0) {
+          if (isTauri() && !sweptWorkspaces.current && threads.length > 0) {
             sweptWorkspaces.current = true
             sweepThreadWorkspaces(threads.map((t) => t.id))
           }
@@ -365,7 +369,7 @@ export function DataProvider() {
     // Only check for updates if the auto updater is not disabled
     // App might be distributed via other package managers
     // or methods that handle updates differently
-    if (isDev() || !autoUpdateCheck) {
+    if (!isTauri() || isDev() || !autoUpdateCheck) {
       return
     }
 
@@ -413,6 +417,7 @@ export function DataProvider() {
 
   // Keep the backend's hide-to-tray-on-close flag in sync with the setting
   useEffect(() => {
+    if (!isTauri()) return
     serviceHub
       .app()
       .setServerRunInBackground(runInBackground)
@@ -423,7 +428,7 @@ export function DataProvider() {
 
   // Auto-start Local API Server on app startup if enabled
   useEffect(() => {
-    if (enableOnStartup) {
+    if (isTauri() && enableOnStartup) {
       // Check if server is already running
       serviceHub
         .app()

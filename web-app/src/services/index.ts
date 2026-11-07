@@ -6,6 +6,7 @@
  */
 
 import { isPlatformTauri, isPlatformIOS, isPlatformAndroid } from '@/lib/platform/utils'
+import { browserPreviewEnabled } from './browser-preview/config'
 
 // Import default services
 import { DefaultThemeService } from './theme/default'
@@ -205,6 +206,14 @@ class PlatformServiceHub implements ServiceHub {
         this.deepLinkService = new deepLinkModule.TauriDeepLinkService()
       }
 
+      if (browserPreviewEnabled() && !isPlatformTauri()) {
+        const [browser, storage] = await Promise.all([import('./browser-preview/services'), import('./browser-preview/storage')])
+        this.coreService = new browser.BrowserCoreService()
+        this.providersService = new browser.BrowserProvidersService()
+        this.threadsService = new storage.BrowserThreadsService()
+        this.messagesService = new storage.BrowserMessagesService()
+        this.assistantsService = new storage.BrowserAssistantsService()
+      }
       this.initialized = true
       console.log('Service hub initialized successfully')
     } catch (error) {
