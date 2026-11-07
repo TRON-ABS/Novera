@@ -53,6 +53,21 @@ def validate_asset(record):
     if not isinstance(record['id'],int) or record['id']<=0 or not isinstance(record['bytes'],int) or not 0<record['bytes']<2*1024**3:
         raise ValueError('Invalid asset identity or size')
 
+def select_current_candidate(config, platform, version):
+    if not re.fullmatch(r'\d+\.\d+\.\d+', version) or config.get('applicationVersion') != version:
+        raise ValueError('Validation descriptor must match the current application version')
+    selected = config.get('platforms', {}).get(platform)
+    if not selected or not re.fullmatch(r'[a-f0-9]{40}', selected.get('commit', '')):
+        raise ValueError('A reviewed current candidate is required for this platform')
+    names = {'windows-x86_64': f'Novera_{version}_x64-setup.exe', 'windows-aarch64': f'Novera_{version}_arm64-setup.exe',
+             'linux-x86_64': f'Novera_{version}_amd64.AppImage', 'darwin-aarch64': f'Novera_{version}_aarch64.app.tar.gz', 'darwin-x86_64': f'Novera_{version}_x64.app.tar.gz'}
+    if platform not in names or selected.get('bundle', {}).get('name') != names[platform] or selected.get('signature', {}).get('name') != names[platform]+'.sig':
+        raise ValueError('Validation bundle/signature names must match the current platform and version')
+    validate_asset(selected['bundle']); validate_asset(selected['signature'])
+    if platform.startswith('windows-') and not re.fullmatch(r'[a-f0-9]{64}', selected.get('runtimeExecutableSha256', '')):
+        raise ValueError('Windows validation requires the reviewed runtime executable hash')
+    return selected
+
 def wait_for(predicate, seconds, description):
     until = time.monotonic()+seconds
     while time.monotonic() < until:
@@ -114,7 +129,8 @@ def main():
     platform = sys.argv[1]
     probe = Path(sys.argv[2]).resolve(strict=True)
     config = json.loads((REPO/'scripts/distribution/validation-assets.json').read_text())
-    selected = config['platforms'][platform]
+    version = json.loads((REPO/'src-tauri/tauri.conf.json').read_text())['version']
+    selected = select_current_candidate(config, platform, version)
     root = Path(tempfile.mkdtemp(prefix='novera-install-validation-', dir=runner_temp))
     downloads = root/'downloads'; downloads.mkdir()
     receipts = root/'receipts'; receipts.mkdir()
@@ -191,6 +207,8 @@ def main():
                 archive.extractall(root/'installed',filter='data')
         else:
             shutil.copyfile(bundle,executable); executable.chmod(0o755)
+        if sys.platform == 'win32' and digest(executable) != selected['runtimeExecutableSha256']:
+            raise RuntimeError('Installed executable differs from the reviewed Windows runtime')
         initial_smoke=smoke(executable,env,receipts,'before-update')
         expected_executable=digest(executable)
         expected_runtime=runtime_hashes(executable)
