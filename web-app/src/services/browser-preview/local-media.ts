@@ -59,7 +59,9 @@ export function browserLocalImageStream(prompt: string, scope: string, signal: A
             else if (data.type === 'stage') useCreation.getState().setProgress(scope, { stage: data.stage, progress: data.progress })
             else if (data.type === 'engine-log' && /decoding .* latents/.test(data.message)) useCreation.getState().setProgress(scope, { stage: 'generating', progress: 85, detail: 'Décodage final de l’image…' })
           }
-          worker!.postMessage({ runtimeUrl: new URL(`${import.meta.env.BASE_URL}novera-runtime/novera-diffusion.mjs`, document.baseURI).href, files, prompt: generationPrompt, seed })
+          const directory = import.meta.env.VITE_NOVERA_BROWSER_MEDIA_PATH
+          if (!/^novera-runtime\/[a-f0-9]{64}$/.test(directory ?? '')) { fail(new Error('Le moteur local vérifié manque dans cette construction Web.')); return }
+          worker!.postMessage({ runtimeUrl: new URL(`${import.meta.env.BASE_URL}${directory}/novera-diffusion.mjs`, document.baseURI).href, files, prompt: generationPrompt, seed })
         })
         controller.signal.throwIfAborted()
         useCreation.getState().setProgress(scope, { stage: 'saving', progress: 98 })

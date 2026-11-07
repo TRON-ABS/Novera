@@ -21,6 +21,7 @@ const files = () => imageComponentNames.map(name => new File(['test-model'], nam
 const png = () => new NodeBlob([Uint8Array.from([137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,0,0,0,1,0,0,0,1])], { type: 'image/png' })
 beforeEach(() => {
   vi.stubEnv('VITE_NOVERA_WEB_LOCAL_MEDIA', 'true')
+  vi.stubEnv('VITE_NOVERA_BROWSER_MEDIA_PATH', `novera-runtime/${'a'.repeat(64)}`)
   vi.stubGlobal('Blob', NodeBlob)
   vi.stubGlobal('Worker', TestWorker)
   TestWorker.instances = []
@@ -43,6 +44,7 @@ it('commits local bytes and model provenance before emitting a conversation file
   const first = reader.read()
   await waitFor(() => expect(TestWorker.instances).toHaveLength(1))
   const worker = TestWorker.instances[0]
+  expect(worker.postMessage).toHaveBeenCalledWith(expect.objectContaining({ runtimeUrl: expect.stringContaining(`novera-runtime/${'a'.repeat(64)}/novera-diffusion.mjs`) }))
   expect(worker.postMessage).toHaveBeenCalledWith(expect.objectContaining({ files: expect.any(Array), prompt: 'cube' }))
   worker.onmessage?.({ data: { type: 'complete', image: png() } })
   expect((await first).value).toMatchObject({ type: 'start' })

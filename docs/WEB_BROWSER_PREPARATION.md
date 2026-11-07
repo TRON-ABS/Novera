@@ -124,3 +124,16 @@ Restent notamment : qualité visuelle et comparaison native à réglages identiq
 Le mainteneur précise qu’il vise une intervention directe dans les poids, sans entraînement ni LoRA. L’article Tech Insider fourni a permis de retrouver le [billet primaire des auteurs, publié le 2 novembre 2026](https://rikiyat.github.io/blog/weight-space-programming/). Leur expérience Qwen3.5-0.8B corrige une direction associée aux boucles de raisonnement dans deux couches : 131072 paramètres modifiés, avec un score MATH-500 rapporté de 7,9 à 48,1 %. Les auteurs distinguent cette réparation d’une capacité absente et rapportent aussi un cas sans amélioration établie.
 
 Pour Wan, conserver l’édition directe comme **piste expérimentale à étudier**, sans transfert automatique du résultat Qwen. Identifier un défaut précis et reproductible, comparer les mêmes scènes à réglages fixes et vérifier les régressions. Aucun poids de modèle n’a été modifié pendant les essais Web actuels ; les gains mesurés proviennent du moteur. Aucun remplacement de modèle ni entraînement n’a été décidé.
+
+
+### Fin de la passe vidéo et disponibilité du GPU
+
+Après reconnexion d’Edge, un onglet de test neuf a fonctionné. Le contrôle Web en **832 × 480, 5 images, 20 étapes, 8 FPS, CFG 6, flow shift 3 et graine 42** produit un WebM de 0,625 seconde, exporté puis lu jusqu’à la fin sans erreur. Temps total : **346,512 secondes**, dont 340,126 secondes dans la génération et 49,87 secondes pour le VAE. Le budget mémoire estimé du backend déclenche 49 tuiles VAE. La première image montre une balle rouge reconnaissable sur une table ; cette durée très courte ne valide pas la qualité temporelle générale. La vitesse cible en 480p n’est pas atteinte.
+
+La référence native en 832 × 480 utilise 17 images et 30 étapes, donc ses 138,823 secondes ne constituent pas une comparaison de vitesse à réglages identiques. À mêmes réglages natifs (17 images, 30 étapes, CFG 6, shift 3), le passage à 384 × 224 prend 25,680 secondes mais produit de fortes déformations. Le précédent essai natif en 256 × 144 prenait 16,355 secondes, avec d’autres paramètres et un rendu également dégradé. Ne pas attribuer automatiquement les défauts basse résolution au port Web ni prétendre que tous les réglages Wan sont équivalents.
+
+Le worker de test a été arrêté après export et lecture. Le GPU indique ensuite 0 % d’utilisation : le mainteneur est informé qu’il peut commencer son test musique Desktop sans une génération vidéo concurrente. Cela termine cette passe de mesures, sans annoncer la vidéo Web comme une fonctionnalité finale prête à publier.
+
+Le paquet Web utilise maintenant un chemin de moteur versionné par l’empreinte de l’ensemble vérifié (module, WASM, reçu et licences), afin d’éviter les mélanges entre anciennes et nouvelles versions en cache. Trois contrats Node de paquetage et les trois tests ciblés de flux image passent ; le build TypeScript/production avec le moteur inclus réussit. Le parcours d’image complet sur cette nouvelle URL reste à rejouer dans le navigateur.
+
+La piste d’édition directe des poids est **reportée à la demande du mainteneur**. Les travaux présents conservent les poids d’origine et portent sur le moteur, les réglages, les mesures et la conservation des résultats.
