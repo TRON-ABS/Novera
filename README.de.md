@@ -75,6 +75,10 @@ Novera wächst mit Ihnen. Ihre Beispiele und Einstellungen können anderen Benut
 
 ![Novera generiertes Bild und einheitliches Dashboard mit Menge, Seed, Upscaling und automatischem Speicher](.github/assets/novera-dashboard-2026-11-07.png)
 
+Mikrofonstatus: grün, wenn verfügbar, rot, wenn besetzt, grau, wenn nicht verfügbar. Erkennung, Neustart des Hörens, Fokushandhabung und sichtbares Diktat wurden korrigiert. Native Audio-Modell-Sprache ist derzeit auf Windows implementiert; Andere Plattformen benötigen noch eine native Validierung und geeignete Sprachunterstützung.
+
+[![Novera generiertes Bild und einheitliches Dashboard mit Menge, Seed, Upscaling und automatischem Speicher](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Echter Screenshot der Windows-Anwendung, bereitgestellt vom Betreuer am 1 November 2026, der berichtet, dass die Anwendung gut funktioniert. Es zeigt eine generierte Landschaft, ihre Steuerelemente für gespeicherte Dateien und das einheitliche Erstellungs-Dashboard; Dies ist kein Modell.*
 
 Ein Panel, fünf Modi: **Auto / Text / Bild / Musik / Video**. Die Steuerung folgt dem ausgewählten Modus: Verhältnis, Auflösung, Dauer, Kadenz, Qualität, Instrumental, Liedtext, Startwert und Quantität. Panelbreite und Schaltflächen passen sich dem Fenster und den übersetzten Beschriftungen an.

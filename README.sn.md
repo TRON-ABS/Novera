@@ -77,6 +77,10 @@ Novera inokura newe. Mienzaniso yako uye zvigadziriso zvinogona kubatsira vamwe 
 
 ![Novera yakagadzirwa mufananidzo uye dashboard yakabatana ine huwandu, mhodzi, kumusoro uye otomatiki ndangariro](.github/assets/novera-dashboard-2026-11-07.png)
 
+Chimiro chemaikorofoni: yegirini kana iripo, tsvuku uri mubishi, grey kana isipo. Kuzivikanwa, kutangazve kuterera, kubata kwekutarisa uye dhizaini inooneka yakagadziriswa. Matauriro emhando yekuteerera ari kushandiswa paWindows; mamwe mapuratifomu achiri kuda kusimbiswa kwekuzvarwa uye yakakodzera izwi rutsigiro.
+
+[![Novera yakagadzirwa mufananidzo uye dashboard yakabatana ine huwandu, mhodzi, kumusoro uye otomatiki ndangariro](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Chaiyo Windows application screenshot yakapihwa nemugadziri pa 1 Mbudzi 2026, uyo anoti application inoshanda nemazvo. Iyo inoratidza inogadzirwa mamiriro, ayo akachengetwa-mafaira ekutonga uye yakabatana yekugadzira dashboard; ichi hachisi chiseko.*
 
 Pane imwe, modhi shanu: **Auto / Chinyorwa / Mufananidzo / Mumhanzi / Vhidhiyo**. Zvidzoreso zvinotevera maitiro akasarudzwa: reshiyo, resolution, nguva, cadence, mhando, chiridzwa, mazwi, mhodzi uye huwandu. Panel hupamhi uye mabhatani anochinjika kune hwindo uye akashandurwa mavara.

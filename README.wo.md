@@ -75,6 +75,10 @@ Novera dafay màgg ak yaw. Sa misaal ak say jekkal mën nañu jàppale yeneen j�
 
 ![Novera dafa defar nataal ak tablo dashboard buñ boole muy bari, jiwwu, yokk escalier ak mémoire otomatik](.github/assets/novera-dashboard-2026-11-07.png)
 
+Tolluwaayu mikro bi: wert su amee, xonk su amee liggéey, dóomu-taal su ameewul. Xamme, déglu tàmbaliwaat, jëfandikoo focus ak dikte buñ mëna gis, saafara nañu ko. Fimna nii ñu ngi jëfandikoo Windows; yeneen platform yi ba leegi dañu soxla validation native ak ndimbalu baat bu méngoo.
+
+[![Novera dafa defar nataal ak tablo dashboard buñ boole muy bari, jiwwu, yokk escalier ak mémoire otomatik](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Nataalu aplikaasioŋu Windows dëgg bi maintenant bi joxe ci 1 nowàmbar 2026, moo xamle ni aplikaasioŋ bi dafay dox bu baax. Dafay wane paysage buñ defar, ay seytu fichier yuñ denc ak tablo sos biñ boole; lii du maquette.*
 
 Benn panel, juróomi anam: **Otomatik / Bind / Nataal / Woy / Wideo**. Kontrol yi dañu topp anam wiñ tànn: ratio bi, dayo bi, guddaay bi, kadans bi, kalite bi, jumtukaay bi, kàddu yi, jiwwu yi ak bariwaay bi. Yaatug paaneel bi ak butoŋu yi dañu méngoo ak palanteer bi ak etiket yiñ tekki.

@@ -75,6 +75,10 @@ Lumalaki ang Novera kasama mo. Ang iyong mga halimbawa at setting ay makakatulon
 
 ![Novera nabuong imahe at pinag-isang dashboard na may dami, buto, upscaling at awtomatikong memory](.github/assets/novera-dashboard-2026-11-07.png)
 
+Status ng mikropono: berde kapag available, pula habang abala, kulay abo kapag hindi available. Ang pagkilala, pag-restart ng pakikinig, paghawak ng focus at nakikitang pagdidikta ay naitama. Kasalukuyang ipinapatupad ang katutubong audio-model speech sa Windows; ang ibang mga platform ay nangangailangan pa rin ng katutubong pagpapatunay at angkop na suporta sa boses.
+
+[![Novera nabuong imahe at pinag-isang dashboard na may dami, buto, upscaling at awtomatikong memory](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Real Windows application screenshot na ibinigay ng maintainer sa 1 Nobyembre 2026, na nag-uulat na gumagana nang maayos ang application. Nagpapakita ito ng nabuong landscape, ang mga naka-save na file na kontrol nito at ang pinag-isang dashboard ng paglikha; hindi ito mockup.*
 
 Isang panel, limang mode: **Auto / Teksto / Larawan / Musika / Video**. Sinusunod ng mga kontrol ang napiling mode: ratio, resolution, tagal, cadence, kalidad, instrumental, lyrics, binhi at dami. Ang lapad ng panel at mga pindutan ay umaangkop sa window at mga isinaling label.

@@ -77,6 +77,10 @@ Novera e gola le wena. Dikai tsa gago le diseting di ka thusa badirisi ba bangwe
 
 ![Novera setshwantsho se se tlhagisitsweng le dasheboto e e kopantsweng e e nang le bontsi, peo, go tlhatlosa selekanyo le memori o o itirisang](.github/assets/novera-dashboard-2026-11-07.png)
 
+Seemo sa maekerofouno: botala fa bo le teng, bohibidu fa bo tshwaregile, botala fa bo le teng. Go lemoga, go simolola gape go reetsa, go tshwara tsepamo le go kwala ka go bonala go baakantswe. Puo ya sekao sa modumo ga jaana e tsenngwa tirisong mo Windows; dipolatefomo tse ding di ntse di hloka netefatso ya naha le tshehetso e loketseng ya lentswe.
+
+[![Novera setshwantsho se se tlhagisitsweng le dasheboto e e kopantsweng e e nang le bontsi, peo, go tlhatlosa selekanyo le memori o o itirisang](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Setshwantsho sa nnete sa tiriso ya Windows se se tlametsweng ke motlhokomedi ka 1 Ngwanaitseele 2026, yo o begang gore tiriso e dira sentle. E bontsha sebopeho sa naha se hlahisitsweng, ditaolo tsa yona tsa faele e bolokilweng le dashboard e kopaneng ya popo; se ga se setshwantsho.*
 
 Phanele e le nngwe, mekgwa e metlhano: **Itiriso / Mokwalo / Setshwantsho / Mmino / Bidio**. Ditaolo di latela mokgwa o o tlhophilweng: tekanyetso, tharabololo, nako, cadence, boleng, seletswa, mafoko, peo le bontsi. Phanele bophara le dikonopo ikamahanya le fensetere le fetoletsweng dileibole.

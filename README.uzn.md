@@ -75,6 +75,10 @@ Novera siz bilan birga o'sadi. Sizning misollaringiz va sozlamalaringiz boshqa f
 
 ![Novera hosil qilingan tasvir va miqdori, urugʻi, oʻlchamini oshirish va avtomatik xotira bilan birlashtirilgan boshqaruv paneli](.github/assets/novera-dashboard-2026-11-07.png)
 
+Mikrofon holati: mavjud boʻlganda yashil rang, band boʻlganda qizil, mavjud boʻlmaganda kulrang. Tanib olish, tinglashni qayta ishga tushirish, fokusni boshqarish va ko‘rinadigan diktant tuzatildi. Mahalliy audio-model nutqi hozirda Windows da joriy qilingan; boshqa platformalar hali ham mahalliy tasdiqlash va mos ovozli yordamga muhtoj.
+
+[![Novera hosil qilingan tasvir va miqdori, urugʻi, oʻlchamini oshirish va avtomatik xotira bilan birlashtirilgan boshqaruv paneli](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Haqiqiy Windows ilovasi skrinshoti 1 noyabr 2026 sanasida texnik xizmat ko'rsatuvchi tomonidan taqdim etilgan, u ilova yaxshi ishlayotganini bildiradi. U yaratilgan landshaft, saqlangan fayl boshqaruvi va birlashtirilgan yaratish paneli ko'rsatadi; bu namuna emas.*
 
 Bitta panel, besh rejim: **Avtomatik / Matn / Rasm / Musiqa / Video**. Boshqaruv elementlari tanlangan rejimga amal qiladi: nisbat, ruxsat, davomiylik, kadans, sifat, instrumental, qo'shiq matni, urug' va miqdor. Panelning kengligi va tugmalari oynaga va tarjima qilingan teglarga moslashadi.

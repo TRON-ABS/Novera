@@ -73,7 +73,11 @@ Novera grows with you. Your examples and settings can help other users find a su
 
 ![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-2026-11-07.png)
 
-*Real Windows application screenshot supplied by the maintainer on 1 November 2026, who reports that the application works well. It shows a generated landscape, its saved-file controls and the unified creation dashboard; this is not a mockup.*
+**Collapsible dashboard: maximum workspace.** Fold away the settings to give your creations more room. Input, microphone and primary controls stay accessible. Click the screenshot to open the original full-resolution PNG.
+
+[![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
+*Real Windows application screenshot supplied by the maintainer on 7 November 2026, who reports that the application works well. It shows a generated landscape, its saved-file controls and the unified creation dashboard; this is not a mockup.*
 
 One panel, five modes: **Auto / Text / Image / Music / Video**. Controls follow the selected mode: ratio, resolution, duration, cadence, quality, instrumental, lyrics, seed and quantity. Panel width and buttons adapt to the window and translated labels.
 
@@ -254,7 +258,7 @@ The default hardware-adapted sort favors newer releases within the same compatib
 
 [Quantized Safetensors setup](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [Formats, priorities and validation](docs/SUIVI_MOTEURS.md)
 
-The updated sources add **optional managed components in Configurations for Windows x64**: private Python environments, pinned CPU/CUDA profiles, estimates and confirmation before downloads, verification, repair and removal. Custom interpreter paths stay under advanced options. Native GGUF engines keep their existing components; mobile and cloud do not download desktop Python/PyTorch. Three private CPU/export profiles were tested using synthetic test data; the maintainer reports successful desktop use on 1 November 2026; GPU profiles and clean-PC installation still need separate, detailed validation. [Profiles and test limits](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Bundling these components in the EXE is deferred.
+The updated sources add **optional managed components in Configurations for Windows x64**: private Python environments, pinned CPU/CUDA profiles, estimates and confirmation before downloads, verification, repair and removal. Custom interpreter paths stay under advanced options. Native GGUF engines keep their existing components; mobile and cloud do not download desktop Python/PyTorch. Three private CPU/export profiles were tested using synthetic test data; the maintainer reports successful desktop use on 7 November 2026; GPU profiles and clean-PC installation still need separate, detailed validation. [Profiles and test limits](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Bundling these components in the EXE is deferred.
 
 ## 104 interface languages and variants
 

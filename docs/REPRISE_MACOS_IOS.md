@@ -1,5 +1,7 @@
 # Reprendre les sorties macOS et iOS après Android
 
+**Situation au 7 novembre 2026 :** macOS Intel et Apple Silicon sont publiés en [1.0.1](RELEASE_1.0.1_2026-11-07.md). iOS reste inclus dans la mise à jour 1.0.1 des sources communes ; le mainteneur confirme ne pas encore disposer du compte et de la signature Apple nécessaires à une distribution sur iPhone. Les remarques ci-dessous sur la 1.0.0 sont historiques.
+
 Mise à jour du **3 novembre 2026** : Android et macOS sont disponibles ; iOS reste interne et ne doit pas être annoncé installable sur iPhone.
 
 ## Prérequis Apple pour la suite

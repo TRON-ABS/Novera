@@ -77,6 +77,10 @@ Novera rośnie razem z Tobą. Twoje przykłady i ustawienia mogą pomóc innym u
 
 ![Novera wygenerował obraz i ujednolicił pulpit nawigacyjny z ilością, materiałem siewnym, skalowaniem w górę i automatyczną pamięcią](.github/assets/novera-dashboard-2026-11-07.png)
 
+Stan mikrofonu: zielony, gdy jest dostępny, czerwony, gdy jest zajęty, szary, gdy jest niedostępny. Poprawiono rozpoznawanie, ponowne uruchamianie słuchania, obsługę ostrości i widoczne dyktowanie. Natywny model mowy audio jest obecnie zaimplementowany w Windows; inne platformy nadal wymagają natywnej walidacji i odpowiedniej obsługi głosowej.
+
+[![Novera wygenerował obraz i ujednolicił pulpit nawigacyjny z ilością, materiałem siewnym, skalowaniem w górę i automatyczną pamięcią](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Zrzut ekranu prawdziwej aplikacji Windows dostarczony przez opiekuna w dniu 1 Listopad 2026, który informuje, że aplikacja działa dobrze. Pokazuje wygenerowany krajobraz, elementy sterujące zapisanymi plikami i ujednolicony pulpit nawigacyjny tworzenia; to nie jest makieta.*
 
 Jeden panel, pięć trybów: **Automat / Tekst / Obraz / Muzyka / Wideo**. Elementy sterujące odpowiadają wybranemu trybowi: współczynnik, rozdzielczość, czas trwania, rytm, jakość, instrument, tekst, materiał siewny i ilość. Szerokość panelu i przyciski dostosowują się do okna i przetłumaczonych etykiet.

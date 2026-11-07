@@ -77,6 +77,10 @@ Novera sizinle birlikte büyüyor. Örnekleriniz ve ayarlarınız diğer kullan�
 
 ![Novera oluşturulan görsel ve miktar, tohum, yükseltme ve otomatik hafıza içeren birleştirilmiş kontrol paneli](.github/assets/novera-dashboard-2026-11-07.png)
 
+Mikrofon durumu: kullanılabilir olduğunda yeşil, meşgul olduğunda kırmızı, kullanılamadığında gri. Tanıma, dinlemeyi yeniden başlatma, odak yönetimi ve görünür dikte düzeltildi. Yerel ses modeli konuşma şu anda Windows üzerinde uygulanmaktadır; diğer platformların hâlâ yerel doğrulamaya ve uygun ses desteğine ihtiyacı var.
+
+[![Novera oluşturulan görsel ve miktar, tohum, yükseltme ve otomatik hafıza içeren birleştirilmiş kontrol paneli](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Gerçek Windows uygulama ekran görüntüsü, uygulamanın iyi çalıştığını bildiren bakımcı tarafından 1 Kasım 2026 tarihinde sağlandı. Oluşturulmuş bir manzarayı, kayıtlı dosya kontrollerini ve birleşik oluşturma kontrol panelini gösterir; bu bir maket değil.*
 
 Bir panel, beş mod: **Otomatik / Metin / Resim / Müzik / Video**. Kontroller seçilen modu takip eder: oran, çözünürlük, süre, kadans, kalite, enstrümantal, şarkı sözleri, tohum ve miktar. Panel genişliği ve düğmeler pencereye ve çevrilmiş etiketlere uyum sağlar.

@@ -75,6 +75,10 @@ Novera ikhula nawe. Imizekelo yakho kunye noseto lunokunceda abanye abasebenzisi
 
 ![Novera uveliswe umfanekiso kunye nedeshibhodi edityanisiweyo enobuninzi, imbewu, ukunyusa kunye nememori ezenzekelayo](.github/assets/novera-dashboard-2026-11-07.png)
 
+Ubume bemakrofoni: eluhlaza xa ifumaneka, ibomvu ngelixa ixakekile, ingwevu xa ingafumaneki. Ukunakana, ukuqalisa kwakhona ukumamela, ukuphatha ingqwalasela kunye nokubiza okubonakalayo kuye kwalungiswa. Intetho yomfuziselo weaudio yemveli iphunyezwa ngoku kwi- Windows; amanye amaqonga asafuna ukuqinisekiswa kwemveli kunye nenkxaso yelizwi efanelekileyo.
+
+[![Novera uveliswe umfanekiso kunye nedeshibhodi edityanisiweyo enobuninzi, imbewu, ukunyusa kunye nememori ezenzekelayo](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *I-Windows yokwenyani isicelo sekhusi-skrini esibonelelwe ngumlondolozi kwi-1 ngoNovemba 2026, oxela ukuba isicelo sisebenza kakuhle. Ibonisa umhlaba owenziweyo, ulawulo lwayo lwefayile egciniweyo kunye nedeshibhodi yokudala edibeneyo; ayisiyonto intlekisa le.*
 
 Iphaneli enye, iindlela ezintlanu: **Auto / Umbhalo / Umfanekiso / Umculo / Ividiyo**. Ulawulo lulandela imo ekhethiweyo: umlinganiselo, isisombululo, ubude bexesha, i-cadence, umgangatho, izixhobo, amazwi, imbewu kunye nobuninzi. Ububanzi bephaneli kunye namaqhosha alungelelanisa ifestile kunye neelebhile eziguqulelweyo.

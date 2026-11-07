@@ -75,6 +75,10 @@ Novera dagba pẹlu rẹ. Awọn apẹẹrẹ ati eto rẹ le ṣe iranlọwọ 
 
 ![Novera ti ipilẹṣẹ aworan ati dasibodu iṣọkan pẹlu opoiye, irugbin, igbega ati iranti aifọwọyi](.github/assets/novera-dashboard-2026-11-07.png)
 
+Ipo gbohungbohun: alawọ ewe nigbati o wa, pupa nigba nšišẹ, grẹy nigbati ko si. Idanimọ, igbọran tun bẹrẹ, mimu idojukọ ati ilana ti o han ti jẹ atunṣe. Ọ̀rọ̀ àwòkẹ́kọ̀ọ́ ohun ìbílẹ̀ ti jẹ́ ìmúṣẹ lọ́wọ́lọ́wọ́ Windows; awọn iru ẹrọ miiran tun nilo ijẹrisi abinibi ati atilẹyin ohun to dara.
+
+[![Novera ti ipilẹṣẹ aworan ati dasibodu iṣọkan pẹlu opoiye, irugbin, igbega ati iranti aifọwọyi](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Sikirinifoto ohun elo Windows gidi ti a pese nipasẹ olutọju lori 1 Kọkànlá Oṣù 2026, ẹniti o jabo pe ohun elo naa ṣiṣẹ daradara. O ṣe afihan ala-ilẹ ti ipilẹṣẹ, awọn iṣakoso faili ti o fipamọ ati dasibodu ẹda ti iṣọkan; eyi kii ṣe ẹgan.*
 
 Panel kan, awọn ipo marun: **Aifọwọyi / Ọrọ / Aworan / Orin / Fidio**. Awọn iṣakoso tẹle ipo ti o yan: ipin, ipinnu, iye akoko, iwọn, didara, ohun elo, awọn orin, irugbin ati opoiye. Iwọn igbimọ ati awọn bọtini ṣe deede si window ati awọn aami itumọ.

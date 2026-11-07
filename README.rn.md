@@ -77,6 +77,10 @@ Novera ikurana nawe. Ingero zawe n’imiterere yawe birashobora gufasha abandi b
 
 ![Novera yashizeho ishusho n'urutonde rw'ibikoresho rumwe rufise ubwinshi, imbuto, gutera imbere n'ukwibuka kwikora](.github/assets/novera-dashboard-2026-11-07.png)
 
+Uko Mikoro imeze: icatsi kibisi iyo iriho, umutuku iyo iriho, imvi iyo itabonetse. Kwemera, gusubira kwumviriza, gufata ingingo n’ugusoma bigaragara vyarakosowe. Imvugo y'amajwi y'akavukire ubu iriko irashirwa mu ngiro kuri Windows; izindi nzira ziracari zikeneye kwemezwa n’ijwi ryiza.
+
+[![Novera yashizeho ishusho n'urutonde rw'ibikoresho rumwe rufise ubwinshi, imbuto, gutera imbere n'ukwibuka kwikora](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Igishushanyo c'ukuri c'ikoreshwa Windows catanzwe n'umucungerezi ku wa 1 Ugushyingo 2026, atangaza ko ikoreshwa rikora neza. Igaragaza ikibanza cavutse, ubugenzuzi bwaco bwa dosiye yabitswe n’urubaho rw’irema bumwe; ivyo si ivy’ugutwenga.*
 
 Igipande kimwe, uburyo butanu: **Ivyikoresho / Umwandiko / Ishusho / Umuziki / Amasanamu**. Igenzura rikurikira uburyo bwatowe: igipimo, umuti, igihe, urugero, uburyo, ibikoresho, amajambo, imbuto n’ingero. Ubwaguke bw'urubaho n'amabuto bihuye n'idirisha n'ibimenyetso vyahinduwe.

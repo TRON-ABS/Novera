@@ -77,6 +77,10 @@ Novera wachst mit dir. Deine Beispiele und Eistellunga kenna andane Nutza dabei 
 
 ![Novera generierts Bild und einheitlichs Dashboard mit Menge, Samen, Upscaling und automatischem Speicher](.github/assets/novera-dashboard-2026-11-07.png)
 
+Mikrofonstatus: grün, wenn verfügbar, rot, wenn besetzt, grau, wenn nicht verfügbar. Erkennung, Neustart des Hörens, Fokushandhabung und sichtbares Diktat wurden korrigiert. Native Audio-Modell-Sprache ist derzeit auf Windows implementiert; Andere Plattformen benötigen noch eine native Validierung und geeignete Sprachunterstützung.
+
+[![Novera generierts Bild und einheitlichs Dashboard mit Menge, Samen, Upscaling und automatischem Speicher](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+
 *Reals Windows Anwendungs-Screenshot vom Wartn bei 1 November 2026, dea sogt, dass de Anwendunga guad funktioniert. Es zeigt a generierts Landschaftsbild, sei Speicheraustellunga und des einheitliche Erstellungs-Dashboard; des is koa Mockup.*
 
 Oans Panel, fünf Modi: **Auto / Text / Bild / Musik / Video**. De Stellunga folgnm gwähltn Modus: Verhältnis, Auflösung, Dauer, Kadenz, Qualität, Instrumental, Lyrics, Samen und Menge. Panelbreitn und Knöpf adaptiern si an des Fenster und de übersetztn Beschriftunga.

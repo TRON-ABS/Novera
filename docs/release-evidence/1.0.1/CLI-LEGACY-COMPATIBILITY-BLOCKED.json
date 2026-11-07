@@ -1,0 +1,37 @@
+{
+  "checkedAtUtc": "2026-11-07T21:36:13.611872+00:00",
+  "version": "1.0.1",
+  "preparationRun": 42414860602,
+  "workflowCommit": "988b40cd5bc58a98506966340c2cced71ed5826e",
+  "compilationCommit": "7a2ce07316f607414a2fad936517a5c9bc2530ee",
+  "canonicalExecutablesUnchanged": true,
+  "nativeProbes": [
+    {
+      "platform": "darwin-aarch64",
+      "archiveSha256": "204f6885f637645a3c6a71d9dc4200c369d0bedf7222eddf8af95eacfe232ebc",
+      "archiveBytes": 12131047,
+      "nativeVersionProbePassed": true
+    },
+    {
+      "platform": "windows-x86_64",
+      "archiveSha256": "bb5fe72bfc8553bf3817de4f28f9e27dee6e5aaa1539c732e203db58ed1fca7a",
+      "archiveBytes": 14066097,
+      "nativeVersionProbePassed": true
+    },
+    {
+      "platform": "linux-x86_64",
+      "archiveSha256": "d42b369bd0a6626f731787b976fd9bb3f96547855e88cc66e74ca66e027635b1",
+      "archiveBytes": 15214808,
+      "nativeVersionProbePassed": true
+    }
+  ],
+  "publicationBlocked": true,
+  "requiredReleaseTag": "v1.0.1",
+  "releaseImmutable": true,
+  "githubHttpStatus": 422,
+  "githubMessage": "Cannot upload assets to an immutable release.",
+  "originalPublicUpdaterMigrationValidated": false,
+  "canonicalCliAvailableVersion": "1.0.1",
+  "legacyManifestRetainedVersion": "1.0.0",
+  "migration": "Install the current signed Novera CLI 1.0.1 manually; do not advertise an incompatible automatic offer."
+}

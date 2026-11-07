@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process'
 import { verifyUpdateBundle } from './ci-check-updater.mjs'
 
 if (process.env.GITHUB_ACTIONS !== 'true' || process.env.RUNNER_ENVIRONMENT !== 'github-hosted') throw new Error('Disposable native runner required')
+const nativeEnv = Object.fromEntries(Object.entries(process.env).filter(([key]) => !/TOKEN|PASSWORD|SECRET|PRIVATE_KEY/i.test(key)))
 const platform = { 'win32:x64': 'windows-x86_64', 'linux:x64': 'linux-x86_64', 'darwin:arm64': 'darwin-aarch64' }[`${process.platform}:${process.arch}`]
 if (!platform) throw new Error('Unsupported native CLI host')
 const descriptor = JSON.parse(fs.readFileSync('scripts/distribution/public-release-1.0.1.json'))
@@ -37,12 +38,12 @@ for (const name of [sourceName, sourceName + '.sig']) {
 const key = JSON.parse(fs.readFileSync('src-tauri/tauri.updater.conf.json')).plugins.updater.pubkey
 await verifyUpdateBundle(path.join(source, sourceName), fs.readFileSync(path.join(source, sourceName + '.sig'), 'utf8'), key)
 const proof = JSON.parse(execFileSync(process.platform === 'win32' ? 'python' : 'python3',
-  ['scripts/distribution/package-legacy-cli-update.py', path.join(source, sourceName), output, version, platform, descriptor.cliSourceCommit], { encoding: 'utf8' }))
+  ['scripts/distribution/package-legacy-cli-update.py', path.join(source, sourceName), output, version, platform, descriptor.cliSourceCommit], { encoding: 'utf8', env: nativeEnv }))
 if (!process.env.TAURI_SIGNING_PRIVATE_KEY || !process.env.TAURI_SIGNING_PRIVATE_KEY_PASSWORD) throw new Error('Configured Novera CI signer required')
 execFileSync(process.execPath, [path.resolve('node_modules/@tauri-apps/cli/tauri.js'), 'signer', 'sign', proof.archive], { stdio: ['ignore', 'pipe', 'pipe'] })
 const signature = fs.readFileSync(proof.archive + '.sig', 'utf8').trim()
 const checked = await verifyUpdateBundle(proof.archive, signature, key)
-const versionOutput = execFileSync(path.resolve(proof.executable), ['--version'], { encoding: 'utf8', timeout: 30000 })
+const versionOutput = execFileSync(path.resolve(proof.executable), ['--version'], { encoding: 'utf8', timeout: 30000, env: nativeEnv })
 if (!/\b1\.0\.1\b/.test(versionOutput)) throw new Error('Actual compatibility executable has the wrong version')
 const receipt = { ...proof, ...checked, name: sourceName, bytes: fs.statSync(proof.archive).size, signature,
   url: `https://github.com/TRON-ABS/Novera/releases/download/v${version}/${sourceName}`,

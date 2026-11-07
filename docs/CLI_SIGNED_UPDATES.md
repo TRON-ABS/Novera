@@ -1,5 +1,20 @@
 # Canal signé de la CLI Novera
 
+## État au 7 novembre 2026 : installation manuelle de la CLI actuelle
+
+La CLI actuelle **Novera 1.0.1** est publiée pour Windows x64, Linux x64 et macOS Apple Silicon dans la [publication officielle](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera). Elle utilise `novera.exe` sous Windows, `novera` sur les autres hôtes et le manifeste signé `latest-novera-cli.json`.
+
+Le passage depuis l’ancienne CLI `jan` 1.0.0 nécessite une **installation manuelle du paquet actuel** : son ancien mécanisme impose des fichiers sous la publication `v1.0.1`, déjà immuable. Le serveur refuse leur ajout. Les paquets de compatibilité préparés et vérifiés ne sont donc pas publiés ; aucune migration automatique 1.0.0 → 1.0.1 n’est annoncée comme validée.
+
+1. Télécharger l’archive correspondant au système depuis la publication officielle et vérifier les empreintes et la signature publiées.
+2. Fermer l’ancienne CLI. Extraire le nouveau paquet dans un dossier dédié sans écraser les discussions, les modèles ou le profil utilisateur.
+3. Ajouter ce dossier au `PATH` ou lancer directement le nouvel exécutable. Adapter les raccourcis et scripts qui appelaient `jan` pour qu’ils appellent `novera`.
+4. Exécuter `novera --version` : le résultat doit être `novera 1.0.1`. Puis `novera update --check` pour contrôler le canal actuel.
+
+Conserver le profil et l’ancien exécutable en sauvegarde tant que ses usages n’ont pas été contrôlés. Cette installation n’affirme pas que les anciens répertoires de profil `jan` sont migrés automatiquement.
+
+Les sections suivantes conservent l’historique des premiers essais du canal signé ; leurs versions et identifiants ne décrivent pas la publication actuelle.
+
 Le canal est **public et vérifié pour Windows x64 et Linux x64 depuis le 2 novembre 2026**. La CLI macOS reste interne. [Disponibilité et preuves actuelles](LAUNCH_STATUS.md). Les anciens binaires CLI, compilés sans cette option, refusent toujours les mises à jour automatiques.
 
 Le [run 41341759700](https://github.com/TRON-ABS/Novera/actions/runs/41341759700), commit `78678bf6`, réussit sur **Windows x64, Linux x64 et macOS Apple Silicon**. Les trois artefacts sont téléchargés : onze empreintes chacun, architecture native, clé publique réellement embarquée et identité interne version/platform/commit vérifiées. La signature cryptographique est recontrôlée indépendamment avec la clé épinglée. Les reçus du runner confirment le refus d’une archive altérée, le remplacement du fichier et l’exécution du binaire remplacé, avec témoin de profil préservé.
