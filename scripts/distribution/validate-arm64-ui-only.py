@@ -9,7 +9,9 @@ native=importlib.util.module_from_spec(spec);spec.loader.exec_module(native)
 def main():
     base=native.require_ci()
     if sys.platform!='win32' or os.environ.get('RUNNER_ARCH')!='ARM64':raise RuntimeError('Native Windows ARM64 runner required')
-    selected=json.loads((ROOT/'scripts/distribution/validation-assets.json').read_text())['platforms']['windows-aarch64']
+    config=json.loads((ROOT/'scripts/distribution/validation-assets.json').read_text())
+    version=json.loads((ROOT/'src-tauri/tauri.conf.json').read_text())['version']
+    selected=native.select_current_candidate(config,'windows-aarch64',version)
     scratch=Path(tempfile.mkdtemp(prefix='novera-arm64-ui-install-',dir=base))
     bundle=scratch/selected['bundle']['name'];signature=scratch/selected['signature']['name']
     native.download(selected['bundle'],bundle);native.download(selected['signature'],signature)
@@ -20,7 +22,7 @@ def main():
     target=scratch/'installed'
     subprocess.run([str(bundle),'/S','/CURRENTUSER','/D='+str(target)],env=env,check=True,timeout=600)
     exe=target/'Novera-Desktop.exe'
-    if native.digest(exe)!='dc95403cbd8ba4193f330d504f9dacccc04b524694affb189aa9eb291e8cbce0':raise RuntimeError('Installed ARM64 executable differs from the reviewed runtime')
+    if native.digest(exe)!=selected['runtimeExecutableSha256']:raise RuntimeError('Installed ARM64 executable differs from the reviewed runtime')
     out=ROOT/'.build/validation';out.mkdir(parents=True,exist_ok=True)
     (out/'UI-INSTALLATION.json').write_text(json.dumps({'platform':'windows-aarch64','installerSha256':checked['sha256'],'executableSha256':native.digest(exe),'signatureVerified':True,'sourceCommit':os.environ['GITHUB_SHA']},indent=2)+'\n')
     subprocess.run(['node',str(ROOT/'scripts/distribution/validate-windows-update-ui.mjs'),str(exe)],cwd=ROOT,env=env,check=True,timeout=180)

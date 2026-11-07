@@ -7,16 +7,18 @@ import { spawnSync } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
+import { compareVersions } from './prepare-version.mjs'
 
 const feedUrl = 'https://github.com/TRON-ABS/Novera/releases/latest/download/latest.json'
+const applicationVersion = JSON.parse(fs.readFileSync(new URL('../../src-tauri/tauri.conf.json', import.meta.url))).version
 export function requireWindowsUiHost(platform, architecture, env) {
   if (platform !== 'win32' || architecture !== 'arm64' || env.GITHUB_ACTIONS !== 'true' || env.RUNNER_ENVIRONMENT !== 'github-hosted') throw new Error('Disposable Windows ARM64 GitHub runner required')
 }
-export function expectedWindowsUiMessage(feed) {
-  if (feed?.version !== '1.0.0') throw new Error('The ARM64 1.0.0 check requires the current application version')
+export function expectedWindowsUiMessage(feed, currentVersion = applicationVersion) {
+  if (typeof feed?.version !== 'string' || !/^\d+\.\d+\.\d+$/.test(feed.version) || compareVersions(feed.version, currentVersion) > 0) throw new Error('This no-update check requires a feed no newer than the current application version')
   const entry = feed.platforms?.['windows-aarch64']
   if (!entry) return { supported: false, text: 'Failed to check for updates' }
-  if (!entry.url?.startsWith('https://github.com/TRON-ABS/Novera/releases/download/v1.0.0') || !entry.url.endsWith('/Novera_1.0.0_arm64-setup.exe') || !entry.signature) throw new Error('Missing official signed ARM64 feed entry')
+  if (typeof entry.url !== 'string' || !new RegExp(`^https://github\\.com/TRON-ABS/Novera/releases/download/v${feed.version.replaceAll('.', '\\.')}(-[a-z0-9.-]+)?/Novera_${feed.version.replaceAll('.', '\\.')}_arm64-setup\\.exe$`).test(entry.url) || !entry.signature) throw new Error('Missing official signed ARM64 feed entry')
   return { supported: true, text: "You're running the latest version" }
 }
 
@@ -41,7 +43,8 @@ async function main(executable) {
   if (binary.subarray(0, 2).toString() !== 'MZ' || binary.subarray(pe, pe + 4).toString() !== 'PE\0\0' || binary.readUInt16LE(pe + 4) !== 0xaa64) throw new Error('The tested application must be a native ARM64 PE')
   const response = await fetch(feedUrl)
   if (!response.ok) throw new Error(`Unexpected production feed HTTP ${response.status}`)
-  const expected = expectedWindowsUiMessage(await response.json())
+  const productionFeed = await response.json()
+  const expected = expectedWindowsUiMessage(productionFeed)
   const out = path.resolve('.build/validation')
   fs.mkdirSync(out, { recursive: true })
   const scratch = fs.mkdtempSync(path.join(base, 'novera-arm64-ui-'))
@@ -73,6 +76,7 @@ async function main(executable) {
   if (processHandle.integrityRid !== 8192 || processHandle.elevated !== false) throw new Error('The actual UI process must be non-elevated at medium integrity')
   let browser, page
   const receipt = { platform: 'windows-aarch64', sourceCommit: process.env.GITHUB_SHA, checkedAt: new Date().toISOString(), executableSha256: createHash('sha256').update(binary).digest('hex'), nativeArchitecture: 'arm64', processIntegrity: processHandle, feed: feedUrl, feedPlatformPresent: expected.supported, nativeUiCheckPassed: false, productionManualCheckValidated: false, updateInstalled: false, limitations: ['Direct Settings route in a fresh isolated profile; onboarding and model setup are not covered', 'No offered update or transition between two public versions is installed'] }
+  Object.assign(receipt, { applicationVersion, productionFeedVersion: productionFeed.version, feedMatchesApplicationVersion: productionFeed.version === applicationVersion })
   try {
     await until(async () => { const r = await fetch(`http://127.0.0.1:${port}/json/version`, { signal: AbortSignal.timeout(2_000) }); return r.ok })
     browser = await chromium.connectOverCDP(`http://127.0.0.1:${port}`)
@@ -81,7 +85,7 @@ async function main(executable) {
     await page.goto(origin + '/settings/general')
     const button = page.getByRole('button', { name: /^check for updates$/i })
     await button.waitFor({ state: 'visible', timeout: 60_000 })
-    if (!(await page.locator('body').innerText()).includes('1.0.0')) throw new Error('Expected the real application version in Settings')
+    if (!(await page.locator('body').innerText()).includes(applicationVersion)) throw new Error('Expected the real application version in Settings')
     await button.click()
     await page.getByText(expected.text, { exact: true }).waitFor({ state: 'visible', timeout: 45_000 })
     const text = await page.locator('body').innerText()
