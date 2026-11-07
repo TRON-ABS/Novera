@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "version": "1.0.1",
+  "publicationTag": "v1.0.1-cli-novera",
+  "kind": "cli",
+  "platform": "linux-x86_64",
+  "runId": 42343121038,
+  "artifactId": 13562258364,
+  "artifactSha256": "cb77aabc82329db5352ef73986891708c003e17e489bf9d1959abf4fb6a38116",
+  "compilationCommit": "7a2ce07316f607414a2fad936517a5c9bc2530ee",
+  "assets": [
+    {
+      "name": "Novera_CLI_1.0.1_linux-x86_64.zip",
+      "bytes": 15214813,
+      "sha256": "119ecdbe4cac7548f1db81d0bf0fcbccad5bc36a035677ced8edfc95669e9bf4"
+    },
+    {
+      "name": "Novera_CLI_1.0.1_linux-x86_64.zip.sig",
+      "bytes": 424,
+      "sha256": "a528604296fb5f882f737e11444b89473da3c0f960527afd3e98eb2aea2682bb"
+    }
+  ]
+}
