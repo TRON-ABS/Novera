@@ -8,7 +8,7 @@ $repo=[IO.Path]::GetFullPath($android.repo).TrimEnd('\','/')
 $destinationPath=[IO.Path]::GetFullPath($Destination)
 if ($destinationPath.StartsWith($repo+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)) { throw 'La sauvegarde doit rester hors du depot.' }
 if (Test-Path -LiteralPath $destinationPath) { throw 'Destination deja presente.' }
-$directory=Join-Path $env:LOCALAPPDATA 'Novera/Signing/Android'
+$directory=Get-NoveraAndroidSigningDirectory
 $first=Read-Host 'Mot de passe de recuperation (16 caracteres minimum ; a conserver separement)' -AsSecureString
 $second=Read-Host 'Confirmer le mot de passe de recuperation' -AsSecureString
 function Plain([Security.SecureString]$value) {

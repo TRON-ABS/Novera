@@ -81,7 +81,7 @@ write(path.join(project, 'novera-plugin-sources.json'), JSON.stringify(mapping, 
 // and refresh them from Cargo on every settings hook; do not disable lint.
 const generatedDependencies = path.join(project, 'app/tauri.build.gradle.kts')
 if (fs.existsSync(generatedDependencies)) {
-  const body = read(generatedDependencies).replace(/^\/\/.*$/gm, '').replace(/^val implementation by configurations\s*$/gm, '').trim()
+  const body = read(generatedDependencies).replace(/^\/\/.*$/gm, '').replace(/^val implementation(?: by configurations| = configurations\.getByName\("implementation"\))\s*$/gm, '').trim()
   if (!/^dependencies\s*\{[\s\S]*\}$/.test(body)) throw new Error('Unsupported generated Tauri dependency script')
   const appGradle = path.join(project, 'app/build.gradle.kts')
   const appText = read(appGradle).replace(/^apply\(from\s*=\s*(?:file\()?"tauri\.build\.gradle\.kts"\)?\)\s*$/gm, '')

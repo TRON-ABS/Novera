@@ -134,3 +134,18 @@ test('plugin refresh follows regenerated Cargo settings without editing the regi
   assert.ok(f.read('novera-plugins/second/build.gradle.kts').includes('compilerOptions'))
   assert.equal(fs.readFileSync(path.join(source2, 'build.gradle.kts'), 'utf8'), old)
 })
+
+test('accepts the Tauri 2.7 build dependency binding without disabling lint', t => {
+  const f = fixture(t)
+  f.put(path.join(f.project, 'app/tauri.build.gradle.kts'), '// Generated\nval implementation = configurations.getByName("implementation")\n\ndependencies { implementation(project(":example")) }\n')
+  f.put(path.join(f.project, 'app/build.gradle.kts'), f.read('app/build.gradle.kts') + '\napply(from = "tauri.build.gradle.kts")\n')
+  f.run()
+  const text = f.read('app/build.gradle.kts')
+  assert.ok(text.includes('implementation(project(":example"))'))
+  assert.ok(!text.includes('val implementation'))
+  assert.ok(!text.includes('apply(from'))
+  assert.ok(!text.includes('checkReleaseBuilds = false'))
+  const before = snapshot(f.project)
+  f.run('--plugins-only')
+  assert.deepEqual(snapshot(f.project), before)
+})

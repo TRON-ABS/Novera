@@ -47,6 +47,9 @@ case "$kind" in
     node scripts/distribution/ci-candidates.mjs web
     ;;
   cli)
+    # The CLI now embeds the shared inference crate, so clean runners need
+    # the same pinned llama.cpp source as the desktop build.
+    bash src-tauri/build-utils/fetch-engine-source.sh
     cli_features=cli
     if [[ "${NOVERA_ENABLE_CLI_UPDATER:-false}" == true ]]; then
       [[ -n "${TAURI_SIGNING_PRIVATE_KEY:-}" && -n "${TAURI_SIGNING_PRIVATE_KEY_PASSWORD:-}" ]] || { echo 'Missing CLI update signing credentials.' >&2; exit 2; }
