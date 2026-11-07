@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Mukulongosola. Novera amakonzekera, amayendetsa ndi kukonza.</strong></p>
   <p>Wothandizira wodziyimira pawokha AI ndi TRON-ABS, kuyambira pakukhazikitsa koyamba mpaka zotsatira: mawu, zithunzi, nyimbo ndi makanema pazokambirana kumodzi.</p>
-  <p><strong>Zilipo pa Windows, Linux, macOS ndi Android</strong> · Kochokera kokonzekera: 104 zilankhulo za mawonekedwe · 42 opereka mtambo · 58 zokonzedweratu zazakanema · Apache 2.0</p>
+  <p><strong>Zilipo pa Windows, Linux, macOS ndi Android</strong> · 104 zilankhulo zamawonekedwe · 42 opereka mtambo · 58 zosinthira zowonera · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Mitundu yakumalo</a> · <a href="#hub-and-compatible-models">Mawonekedwe & Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Perekani</a></p>
   <p>Kulumikizana ndi boma: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Mbiri Yovomerezeka ya Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -18,10 +18,10 @@ Data ndi zachinsinsi: [kulingalira kwanuko, telemetry yosasankha, malipoti olakw
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Kukonzekera mtundu 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Kutsitsa kwa anthu onse kumakhalabe pa 1.0.0. Zowonjezera zotsatirazi zakonzedwa m'magwero a 1.0.1; amafunikira phukusi lomangidwanso, macheke otulutsa ndi kufalitsa. Kukonzanso zolembedwazi sikusintha mapulogalamu omwe adayikidwa.
+Novera 1.0.1 ikupezeka pamapulatifomu omwe ali pansipa. Tsitsani phukusi la makina anu kapena gwiritsani ntchito njira yake yosinthira yomwe yasainidwa. Kusintha komwe kulipo kumasinthidwa mukayika phukusi latsopano kapena kuvomereza zosintha.
 
 - Chitetezo: zilolezo zokhwima zamasamba akutali, kutsimikizika kwa ma API a netiweki ndi zida za seva, kusungidwa kwachinsinsi kotetezedwa ndi kusamuka, mwayi wotetezedwa wamafayilo/zofalitsa, kugawa masamba ndi kupanga zolemba. Kudalira kowonekera kwasinthidwa; malangizo otsala amatsatiridwa poyera.
 - Zinsinsi: ziwerengero ndi malipoti olakwika zimafunikira chilolezo chosiyana ndikuzimitsa nthawi zonse. Zomanga zimaphatikizanso zolembedwa za kopitako. Kusanthula kwaukadaulo kumasefedwa; ogwiritsa amasunga kuwongolera.
@@ -37,7 +37,7 @@ Kutsitsa kwa anthu onse kumakhalabe pa 1.0.0. Zowonjezera zotsatirazi zakonzedwa
 - Chitonthozo: zowongolera zochepa zimagwa pomwe zolowetsa zikuwonekerabe. Maikolofoni ang'onoang'ono ndi maulamuliro owulula, batani lamawu pansi pa maikolofoni, zokonda za nyimbo zomvera komanso zilembo zamagulu otanthauziridwa zimapangitsa kuti pakhale zowonekera.
 - Makatalogu a API: 43 mbiri zaothandizira, kuphatikiza TabbyAPI kwanuko, zokhala ndi macheza otsitsimutsidwa komanso zotsatsira. Zatsopano zikuphatikiza GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 ndi GPT Image 2.6, Gemini Omni 1.2, FLUX 3 pomwe zimathandizira. Kutsitsimutsanso sikubisanso zotsatira kupitirira zitsanzo khumi. Zozindikiritsa zenizeni, mapeto a chigawo, kutumizidwa kwachinsinsi ndi zitsanzo zotumizidwa kunja zimalemekezedwa.
 - Kutsimikizira: ntchito yomwe mukufuna, laibulale yachilengedwe, kalozera wa anthu onse ndi zofufuza za chilankhulo zimalembedwa mwatsatanetsatane. Mawonekedwewa amapangira Windows / macOS / Linux / Android / iOS. Zomanga zakutsogolozi sizimatsimikizira phukusi lachilengedwe kapena malingaliro pazida zilizonse.
-- Isanatulutsidwe: tsimikizirani zomanga zomangidwanso, zotsalira zachitetezo/zodalira ndi zosintha zenizeni 1.0.0 mpaka 1.0.1. Kupezeka kumadalira hardware, wopereka mwayi ndi nsanja. Palibe kufanana kwamitundu yonse, kusatetezeka ku ziro kapena kusindikizidwa komwe kumanenedwa.
+- Kupezeka ndi macheke omalizidwa alembedwa pansipa. Zothandizira zimatengera hardware, mwayi wopereka chithandizo ndi nsanja. Zomwe zapezedwa zachitetezo ndi malire otsimikizira zida zakwawo zimakhalabe zolembedwa. Sungani zosunga zobwezeretsera musanasinthe.
 
 [Zolemba zatsatanetsatane, kutsimikizira ndi ntchito yotsala](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Kutsitsa kwa anthu onse kumakhalabe pa 1.0.0. Zowonjezera zotsatirazi zakonzedwa
 
 <!-- novera-release-1.0.1:end -->
 
-## kupezeka — 2026-11-03
+## kupezeka — 2026-11-07
 
-**Novera 1.0.0 ikupezeka pa Windows, Linux, macOS ndi Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Maphukusi apakompyuta, zolemba zonse za CLI, siginecha ndi zosintha zosintha ndizowonekera ndipo zimatsimikiziridwa.
+**Novera 1.0.1 ikupezeka pa Windows, Linux, macOS ndi Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Maphukusi apakompyuta, zolemba zonse za CLI, siginecha ndi zosintha zosintha ndizowonekera ndipo zimatsimikiziridwa.
 
 | nsanja | kupezeka |
 | --- | --- |
 | Windows x64 | Choyikira pagulu NSIS, chosinthira chosaina; unsembe mbadwa ndi m'malo zatsimikiziridwa. |
 | Linux x64 | Pagulu AppImage, chosinthira chosaina; unsembe mbadwa ndi m'malo zatsimikiziridwa. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, yokhala ndi njira yosinthira yokhazikika. |
-| Windows ARM64 | [Woyikira pagulu NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), injini zamawu CPU; kuyika, kusintha ndi macheke apagulu atsimikiziridwa. |
-| Android ARM64 | [Sayinidwa pagulu APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, gulu lokhazikika 512. Wothandizira amatsimikizira kuti 1000012 imagwira ntchito pafoni yawo. Chotsani phukusi popanda zokambirana, zitsanzo kapena makiyi anu API. [Umboni ndi malire](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [1.0.0 DMG kutulutsa](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-zosintha zosinthidwa. Osati Apple notarized; macheke aatomatiki adadutsa padera pazomanga zonse ziwiri, macheke owoneka adachedwetsa. [Kuyika ndi umboni](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, yokhala ndi njira yosinthira yokhazikika. |
+| Windows ARM64 | [Woyikira pagulu NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), injini zamawu CPU; kuyika, kusintha ndi macheke apagulu atsimikiziridwa. |
+| Android ARM64 | Android 1.0.1 ikupezeka ngati APK ya ARM64 yosainidwa, pangani 1000013. Imagwiritsa ntchito satifiketi yomwe ilipo kale ya Novera ndikudutsa pakuwunika kwa phukusi. Ilibe zokambirana zaumwini, zitsanzo kapena makiyi a API. Kuyika ndi kukonzanso pa foni kumayenera kuyesedwa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [1.0.1 DMG kutulutsa](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-zosintha zosinthidwa. Osati Apple notarized; macheke aatomatiki adadutsa padera pazomanga zonse ziwiri, macheke owoneka adachedwetsa. [Kuyika ndi umboni](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Kupanga kwa simulator yamkati; Kusaina kwa Apple / kupereka ndikofunikira musanakhazikitse iPhone. [Kutsatira](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 chonyamula | [Yasaina ZIP zolemba zakale](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); Zambiri zimakhalabe mu Data, zomwe zasaina Program zotsimikizika. |
 | Web, MSI, Debian | Makasitomala omwe ali pa Webusayiti ndi mawonekedwe ena amakhalabe mkati; Pages malo owonetsera alipo. |
 
 Pa Mac, tsegulani DMG ndi kukopera Novera mu Mapulogalamu. Ngati kutsegulira koyamba kwaletsedwa, lolani Novera alowe **Zokonda pa System → Zazinsinsi & Chitetezo → Tsegulani Komabe**. [Malangizo a Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Siginicha zosinthira Windows Authenticode kapena Apple notarization. Kuwunika kwaposachedwa kwapamanja kumadutsa panjira yapagulu; kusintha pakati pa mitundu iwiri ya anthu onse kumakhalabe kuyesa kotulutsanso. [Umboni ndi malire](docs/LAUNCH_STATUS.md).
+Ma signature osinthika ndi osiyana ndi Windows Authenticode ndi Apple notarization. Phukusi, macheke achilengedwe ndi mayeso osintha amalembedwa mosiyana. Kukwezedwa kwapagulu kwa 1.0.0 mpaka ku 1.0.1 kumatsimikiziridwa ndi zochitika zomwe zalembedwa mu lipoti lotulutsidwa. [Umboni ndi malire](docs/LAUNCH_STATUS.md)
 
 Pa Android, foni yamakono yokhala ndi kukumbukira kokwanira imalimbikitsidwa kuti ikhale yamtundu wakomweko; gwiritsani ntchito API pazida zamphamvu zochepa. Pakusaka pa intaneti, pafupifupi **16K zizindikiro (16,384)** imalimbikitsidwa, mosasinthasintha m'mitundu yonse.
 
@@ -145,7 +145,7 @@ Qwen makina ojambulira nyimbo ndi Qwen mtundu wopezera ndi **mafayilo osiyanasiy
 
 ## Othandizira pamtambo
 
-Zomwe zakonzedwa zili ndi 43 mbiri za operekera: 42 mautumiki apamtambo ndi TabbyAPI pa seva yapafupi. Kupezeka kwachitsanzo ndi kuthekera kumadalira akaunti, dera ndi API yothandizira. Katunduyu amagawidwa ndi 104 zinenero zonse.
+Kataloguyo ili ndi mbiri yawo ya 43: 42 mautumiki apamtambo ndi TabbyAPI pa seva yapafupi. Kufikira kwachitsanzo ndi kuthekera kumadalira akaunti, dera ndi API yothandizidwa. Zilankhulo zonse za 104 zimagawana mndandandawu.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Zomwe zakonzedwa zili ndi 43 mbiri za operekera: 42 mautumiki apamtambo ndi Tabb
 
 ### Chithunzi, nyimbo ndi kanema
 
-Kalozera wazinthu zomwe zakonzedwa zili ndi 58 zokonzeratu kuchokera kwa 20 opereka: 30 zithunzi, 24 mavidiyo ndi 4 zokonzeratu nyimbo. Matebulo ali m'munsiwa amatchula njira zophatikizika; saperekanso chopereka chilichonse chamalonda.
+Kalozera wopanga ali ndi zoikidwiratu 58 zochokera kwa opereka 20: 30 zithunzi, 24 mavidiyo ndi 4 zokonzeratu nyimbo. Matebulo ali m'munsimu amatchula zitsanzo zenizeni ndi zozindikiritsa zomwe zimathandizidwa ndi ma adapter ophatikizika.
 
 | Wopereka | Zotuluka mu Novera | Mitundu yamagulu |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ Awa ndi malangizo okhudza zopereka ndi chitukuko, osati zonena kuti ntchito iliy
 
 ## Mkhalidwe wa polojekiti
 
-**Novera 1.0.0 ikupezeka pa Windows, Linux, macOS ndi Android.** Chithunzi chojambula chikuwonetsa pulogalamu ya Windows yopangidwa kwanuko ndi wosamalira. Kusintha kwa magwero, mayesero omwe akuwunikira komanso kutsimikizira kwa hardware kumalembedwa mosiyana; izi sizikutsimikizira mtundu uliwonse, nsanja kapena akaunti yamtambo.
+**Novera 1.0.1 ikupezeka pa Windows, Linux, macOS ndi Android.** Chithunzi chojambula chikuwonetsa pulogalamu ya Windows yopangidwa kwanuko ndi wosamalira. Kusintha kwa magwero, mayesero omwe akuwunikira komanso kutsimikizira kwa hardware kumalembedwa mosiyana; izi sizikutsimikizira mtundu uliwonse, nsanja kapena akaunti yamtambo.
 
 Zomanga pamanja GitHub Actions ndizoyatsidwa pazosintha zonse khumi ndi chimodzi. Tsatirani [pangani zotsatira ndikutsimikizira kutsitsa kwa omwe akufuna](docs/CI_DISTRIBUTIONS.md); kupezeka kwalembedwa padera pa nsanja iliyonse. Otsatira amasiyana ndi zomwe zatulutsidwa zomwe zasainidwa. Zofunikira zogawa zikufotokozedwa mu [ndondomeko yotulutsa boma](OFFICIAL_RELEASES.md) ndi [tsamba lotulutsidwa](https://github.com/TRON-ABS/Novera/releases). Otsatira omwe alipo omwe ali olumala amakhalabe mkati. Kutulutsa kwapagulu kumafunikira njira yosinthidwa ndikutsimikiziridwa; [macheke a siginecha apakompyuta ndi zofunikira zina zoyambira zimalembedwa](docs/LAUNCH_STATUS.md).
 

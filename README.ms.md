@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Anda menerangkan matlamat anda. Novera menyediakan sumber, melaksanakan tugas dan menyusun keputusan.</strong></p>
   <p>Pembantu bebas AI oleh TRON-ABS, dari pelancaran pertama hingga hasil: teks, imej, muzik dan video dalam satu perbualan.</p>
-  <p><strong>Tersedia untuk Windows, Linux, macOS dan Android</strong> · Sumber yang disediakan: 104 bahasa antara muka · 42 penyedia awan · 58 pratetap media · Apache 2.0</p>
+  <p><strong>Tersedia untuk Windows, Linux, macOS dan Android</strong> · 104 bahasa antara muka · 42 penyedia awan · 58 pratetap media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automasi</a> · <a href="#one-dashboard-for-every-creation">Papan pemuka</a> · <a href="#local-models-in-use">AI model yang dijalankan secara setempat pada peranti anda</a> · <a href="#hub-and-compatible-models">Hab dan model yang serasi</a> · <a href="#cloud-providers">Awan</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Sumbangkan</a></p>
   <p>Hubungan rasmi: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Rasmi Novera profil sosial: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Menyediakan versi 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Muat turun awam kekal pada 1.0.0. Penambahbaikan berikut disediakan dalam sumber untuk 1.0.1; mereka memerlukan pakej yang dibina semula, semakan keluaran dan penerbitan. Mengemas kini dokumentasi ini tidak mengemas kini aplikasi yang dipasang.
+Novera 1.0.1 tersedia untuk platform yang disenaraikan di bawah. Muat turun pakej untuk sistem anda atau gunakan saluran kemas kini yang ditandatangani. Kemas kini pemasangan sedia ada apabila anda memasang pakej baharu atau menerima kemas kini.
 
 - Keselamatan: kebenaran asli yang lebih ketat untuk halaman jauh, pengesahan untuk API rangkaian dan alatan pelayan, storan dan pemindahan rahsia yang dilindungi, akses fail/media yang lebih selamat, penghuraian hamparan dan skrip binaan. Kebergantungan terdedah telah dikemas kini; baki nasihat dijejaki secara terbuka.
 - Privasi: statistik dan laporan ralat memerlukan persetujuan berasingan dan kekal dimatikan secara lalai. Binaan termasuk konfigurasi destinasi yang didokumenkan. Diagnostik teknikal ditapis; pengguna mengekalkan kawalan pengaktifan.
@@ -35,7 +35,7 @@ Muat turun awam kekal pada 1.0.0. Penambahbaikan berikut disediakan dalam sumber
 - Keselesaan: kawalan bawah runtuh sementara input kekal kelihatan. Mikrofon padat dan kawalan pendedahan, butang bunyi di bawah mikrofon, tetapan muzik responsif dan label komponen yang diterjemahkan meningkatkan penggunaan pada skrin kecil.
 - Katalog API: 43 profil pembekal, termasuk TabbyAPI setempat, dengan pilihan sembang dan media yang diperbaharui. Entri baharu termasuk GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 dan GPT Image 2.6, Gemini Omni 1.2, FLUX 3 jika disokong. Muat semula tidak lagi menyembunyikan hasil melebihi sepuluh model. Pengecam tepat, titik akhir wilayah, penempatan peribadi dan model yang diimport dihormati.
 - Pengesahan: semakan aplikasi disasarkan, perpustakaan asli, katalog awam dan bahasa direkodkan dalam nota terperinci. Antara muka dibina untuk Windows / macOS / Linux / Android / iOS. Binaan bahagian hadapan ini tidak memperakui pakej asli atau inferens pada setiap peranti.
-- Sebelum keluaran: sahkan pakej asli yang dibina semula, baki penemuan keselamatan/pergantungan dan kemas kini 1.0.0 kepada 1.0.1 sebenar. Ketersediaan bergantung pada perkakasan, akses pembekal dan platform. Tiada keserasian model universal, status kerentanan sifar atau penerbitan lengkap dituntut.
+- Ketersediaan dan semakan lengkap disenaraikan di bawah. Ciri yang disokong bergantung pada perkakasan, akses pembekal dan platform. Penemuan keselamatan dan had pengesahan peranti asli kekal didokumenkan. Simpan sandaran sebelum mengemas kini.
 
 [Nota terperinci, pengesahan dan baki kerja](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Muat turun awam kekal pada 1.0.0. Penambahbaikan berikut disediakan dalam sumber
 
 <!-- novera-release-1.0.1:end -->
 
-## Ketersediaan — 2026-11-03
+## Ketersediaan — 2026-11-07
 
-**Novera 1.0.0 tersedia untuk Windows, Linux, macOS dan Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Pakej desktop, kedua-dua arkib CLI, tandatangan dan manifes kemas kini adalah umum dan disahkan.
+**Novera 1.0.1 tersedia untuk Windows, Linux, macOS dan Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Pakej desktop, kedua-dua arkib CLI, tandatangan dan manifes kemas kini adalah umum dan disahkan.
 
 | Platform | Ketersediaan |
 | --- | --- |
 | Windows x64 | Awam NSIS pemasang, pengemas kini bertandatangan; pemasangan dan penggantian asli disahkan. |
 | Linux x64 | Awam AppImage, pengemas kini bertandatangan; pemasangan dan penggantian asli disahkan. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, dengan saluran kemas kini bertandatangan khusus. |
-| Windows ARM64 | [Awam NSIS pemasang](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), enjin teks asli CPU; pemasangan, penggantian dan pemeriksaan saluran awam disahkan. |
-| Android ARM64 | [Awam ditandatangani APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, kumpulan lalai 512. Penyelenggara mengesahkan binaan 1000012 berfungsi pada telefon mereka. Pakej bersih tanpa perbualan, model atau kekunci API peribadi. [Bukti dan batasan](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Keluaran Rasmi 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Kemas kini yang ditandatangani Novera. Bukan Apple disahkan notari; semakan automatik diluluskan secara berasingan pada kedua-dua seni bina, semakan visual ditangguhkan. [Pemasangan dan bukti](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, dengan saluran kemas kini bertandatangan khusus. |
+| Windows ARM64 | [Awam NSIS pemasang](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), enjin teks asli CPU; pemasangan, penggantian dan pemeriksaan saluran awam disahkan. |
+| Android ARM64 | Android 1.0.1 tersedia sebagai APK ARM64 yang ditandatangani, bina 1000013. Ia menggunakan sijil Novera sedia ada dan lulus pemeriksaan pakej. Ia tidak mengandungi perbualan peribadi, model atau kunci API. Pemasangan dan pengemaskinian pada telefon masih perlu diuji. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Keluaran Rasmi 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Kemas kini yang ditandatangani Novera. Bukan Apple disahkan notari; semakan automatik diluluskan secara berasingan pada kedua-dua seni bina, semakan visual ditangguhkan. [Pemasangan dan bukti](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Binaan simulator dalaman; Tandatangan/peruntukan Apple diperlukan sebelum pemasangan iPhone. [Susulan](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 mudah alih | [Ditandatangani ZIP arkib](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data kekal dalam Data, ditandatangani Program penggantian disahkan. |
 | Web, MSI, Debian | Pelanggan Web yang dihoskan dan format lain kekal dalaman; Pages tapak pembentangan tersedia. |
 
 Pada Mac, buka DMG dan salin Novera ke dalam Aplikasi. Jika pelancaran pertama disekat, benarkan Novera in **Tetapan Sistem → Privasi & Keselamatan → Buka Bagaimanapun**. [Arahan Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Tandatangan pengemas kini bukan Windows Authenticode atau notari Apple. Semakan versi semasa manual melepasi saluran awam; peralihan antara dua versi awam kekal sebagai ujian keluaran seterusnya. [Bukti dan batasan](docs/LAUNCH_STATUS.md).
+Tandatangan pengemas kini adalah berasingan daripada Windows Authenticode dan Apple notarization. Cincang pakej, semakan asli dan ujian kemas kini didokumenkan secara berasingan. Peningkatan 1.0.0 awam yang lengkap kepada 1.0.1 disahkan hanya untuk senario yang direkodkan dalam laporan keluaran. [Bukti dan batasan](docs/LAUNCH_STATUS.md)
 
 Pada Android, telefon moden dengan memori yang mencukupi disyorkan untuk model tempatan; gunakan pembekal API pada peranti yang kurang berkuasa. Untuk carian web, konteks sekurang-kurangnya **16K token (16,384)** disyorkan, secara konsisten merentas versi.
 
@@ -143,7 +143,7 @@ Pengekod muzik Qwen dan model pengambilan Qwen ialah **fail yang berbeza**, disi
 
 ## Pembekal awan
 
-Sumber yang disediakan mengandungi 43 profil pembekal: 42 perkhidmatan awan dan TabbyAPI untuk pelayan setempat. Ketersediaan dan keupayaan model bergantung pada akaun, rantau dan API yang disokong. Katalog dikongsi oleh semua 104 bahasa antara muka.
+Katalog mengandungi 43 profil pembekal: 42 perkhidmatan awan dan TabbyAPI untuk pelayan setempat. Akses dan keupayaan model bergantung pada akaun, rantau dan API yang disokong. Semua 104 bahasa antara muka berkongsi katalog ini.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Sumber yang disediakan mengandungi 43 profil pembekal: 42 perkhidmatan awan dan 
 
 ### Imej, muzik dan video
 
-Katalog ciptaan yang disediakan mengandungi 58 pratetap daripada 20 pembekal: 30 pratetap imej, 24 dan 4 pratetap muzik. Jadual di bawah menyenaraikan laluan bersepadu; mereka tidak mengeluarkan semula setiap tawaran komersial.
+Katalog penciptaan mengandungi 58 pratetap daripada 20 pembekal: 30 pratetap imej, 24 video dan 4 pratetap muzik. Jadual di bawah menyenaraikan model dan pengecam tepat yang disokong oleh penyesuai bersepadu.
 
 | Pembekal | Output dalam Novera | Model katalog |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Ini adalah arahan untuk sumbangan dan pembangunan, bukan dakwaan bahawa setiap a
 
 ## Status projek
 
-**Novera 1.0.0 tersedia untuk Windows, Linux, macOS dan Android.** Tangkapan skrin menunjukkan aplikasi Windows yang disusun secara tempatan oleh penyelenggara. Perubahan sumber, ujian sasaran dan pengesahan perkakasan didokumenkan secara berasingan; ini tidak mengesahkan setiap model, platform atau akaun awan.
+**Novera 1.0.1 tersedia untuk Windows, Linux, macOS dan Android.** Tangkapan skrin menunjukkan aplikasi Windows yang disusun secara tempatan oleh penyelenggara. Perubahan sumber, ujian sasaran dan pengesahan perkakasan didokumenkan secara berasingan; ini tidak mengesahkan setiap model, platform atau akaun awan.
 
 Binaan manual GitHub Actions didayakan untuk kesemua sebelas varian pengedaran. Ikuti [hasil binaan dan muat turun calon yang disahkan](docs/CI_DISTRIBUTIONS.md); ketersediaan direkodkan secara berasingan untuk setiap platform. Calon berbeza daripada keluaran pengeluaran yang ditandatangani. Keperluan pengedaran diterangkan dalam [dasar keluaran rasmi](OFFICIAL_RELEASES.md) dan [keluaran halaman](https://github.com/TRON-ABS/Novera/releases). Calon kurang upaya pengemas kini sedia ada kekal dalaman. Keluaran awam memerlukan mekanisme kemas kini yang dikonfigurasikan dan disahkan; [semakan tandatangan desktop dan baki keperluan pelancaran didokumenkan](docs/LAUNCH_STATUS.md).
 

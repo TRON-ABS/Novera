@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Du beskriver. Novera förbereder, kör och organiserar.</strong></p>
   <p>En oberoende AI-assistent av TRON-ABS, från första lansering till resultat: text, bilder, musik och video i en konversation.</p>
-  <p><strong>Tillgänglig för Windows, Linux, macOS och Android</strong> · Förberedda källor: 104 gränssnittsspråk · 42 molnleverantörer · 58 medieförinställningar · Apache 2.0</p>
+  <p><strong>Tillgänglig för Windows, Linux, macOS och Android</strong> · 104 gränssnittsspråk · 42 molnleverantörer · 58 medieförinställningar · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Instrumentpanel</a> · <a href="#local-models-in-use">Lokala modeller</a> · <a href="#hub-and-compatible-models">Format & Hub</a> · <a href="#cloud-providers">Moln</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Bidra</a></p>
   <p>Officiell kontakt: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Officiella Novera sociala profiler: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -18,10 +18,10 @@ Data och integritet: [lokal slutledning, valfri telemetri, felrapporter och uppd
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Förbereder version 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Offentliga nedladdningar kvarstår på 1.0.0. Följande förbättringar är förberedda i källorna för 1.0.1; de kräver ombyggda paket, releasekontroller och publicering. Att uppdatera den här dokumentationen uppdaterar inte installerade applikationer.
+Novera 1.0.1 är tillgänglig för plattformarna som listas nedan. Ladda ner paketet för ditt system eller använd dess signerade uppdateringskanal. Befintliga installationer uppdateras när du installerar det nya paketet eller accepterar uppdateringen.
 
 - Säkerhet: strängare inbyggda behörigheter för fjärrsidor, autentisering för nätverks-API:er och serververktyg, skyddad hemlig lagring och migrering, säkrare fil-/mediaåtkomst, kalkylarksanalys och byggskript. Exponerade beroenden har uppdaterats; återstående råd spåras öppet.
 - Sekretess: statistik och felrapporter kräver separat samtycke och förblir avstängda som standard. Byggnader inkluderar den dokumenterade destinationskonfigurationen. Teknisk diagnostik filtreras; användare har kontroll över aktiveringen.
@@ -37,7 +37,7 @@ Offentliga nedladdningar kvarstår på 1.0.0. Följande förbättringar är för
 - Komfort: nedre kontroller kollapsar medan ingången förblir synlig. Kompakt mikrofon och avslöjande kontroller, en ljudknapp under mikrofonen, responsiva musikinställningar och översatta komponentetiketter förbättrar användningen på små skärmar.
 - API-kataloger: 43 leverantörsprofiler, inklusive TabbyAPI lokalt, med uppdaterade chatt- och mediaval. Nya poster inkluderar GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 och GPT Image 2.6, Gemini Omni 1.2, FLUX 3 där de stöds. Uppdatera döljer inte längre resultat utöver tio modeller. Exakta identifierare, regionala slutpunkter, privata distributioner och importerade modeller respekteras.
 - Validering: målinriktad applikation, inbyggt bibliotek, offentlig katalog och språkkontroller registreras i de detaljerade anteckningarna. Gränssnittet bygger för Windows / macOS / Linux / Android / iOS. Dessa frontend-byggen certifierar inte inbyggda paket eller slutsatser på varje enhet.
-- Före release: validera ombyggda inbyggda paket, återstående säkerhets-/beroendefynd och den verkliga uppdateringen från 1.0.0 till 1.0.1. Tillgänglighet beror på hårdvara, leverantörsåtkomst och plattform. Ingen universell modellkompatibilitet, noll-sårbarhetsstatus eller slutförd publicering görs anspråk på.
+- Tillgänglighet och genomförda kontroller listas nedan. Funktioner som stöds beror på hårdvara, leverantörsåtkomst och plattform. Säkerhetsfynd och valideringsgränser för inbyggda enheter förblir dokumenterade. Håll en säkerhetskopia innan du uppdaterar.
 
 [Detaljerade anteckningar, validering och återstående arbete](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Offentliga nedladdningar kvarstår på 1.0.0. Följande förbättringar är för
 
 <!-- novera-release-1.0.1:end -->
 
-## Tillgänglighet — 2026-11-03
+## Tillgänglighet — 2026-11-07
 
-**Novera 1.0.0 är tillgänglig för Windows, Linux, macOS och Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Desktoppaket, både CLI arkiv, signaturer och uppdateringsmanifest är offentliga och verifierade.
+**Novera 1.0.1 är tillgänglig för Windows, Linux, macOS och Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Desktoppaket, både CLI arkiv, signaturer och uppdateringsmanifest är offentliga och verifierade.
 
 | Plattform | Tillgänglighet |
 | --- | --- |
 | Windows x64 | Offentlig NSIS installationsprogram, signerad uppdaterare; inbyggd installation och utbyte verifierad. |
 | Linux x64 | Offentlig AppImage, signerad uppdaterare; inbyggd installation och utbyte verifierad. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, med en dedikerad signerad uppdateringskanal. |
-| Windows ARM64 | [Offentlig installation av NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), inbyggd CPU textmotor; verifierade installation, utbyte och kontroller av offentliga kanaler. |
-| Android ARM64 | [Offentlig signerad APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, standardbatch 512. Underhållaren bekräftar att build 1000012 fungerar på deras telefon. Rent paket utan konversationer, modeller eller personliga API nycklar. [Bevis och begränsningar](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Officiell 1.0.0 DMG release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-signerade uppdateringar. Inte Apple attesterat; automatiserade kontroller passerade separat på båda arkitekturerna, visuella kontroller skjuts upp. [Installation och bevis](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, med en dedikerad signerad uppdateringskanal. |
+| Windows ARM64 | [Offentlig installation av NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), inbyggd CPU textmotor; verifierade installation, utbyte och kontroller av offentliga kanaler. |
+| Android ARM64 | Android 1.0.1 är tillgänglig som en signerad ARM64 APK, build 1000013. Den använder det befintliga Novera-certifikatet och klarar paketinspektionen. Den innehåller inga personliga konversationer, modeller eller API-nycklar. Installation och uppdatering på en telefon återstår att testa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Officiell 1.0.1 DMG release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-signerade uppdateringar. Inte Apple attesterat; automatiserade kontroller passerade separat på båda arkitekturerna, visuella kontroller skjuts upp. [Installation och bevis](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Bygg av intern simulator; Apple-signering/provisionering krävs innan iPhone-installation. [Uppföljning](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 bärbar | [Signerat ZIP arkiv](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data stannar i Data, signerad Program ersättning verifierad. |
 | Webb, MSI, Debian | Hosted webbklient och andra format förblir interna; Pages presentationswebbplats är tillgänglig. |
 
 På Mac, öppna DMG och kopiera Novera till Applications. Om den första lanseringen är blockerad, låt Novera komma in **Systeminställningar → Sekretess och säkerhet → Öppna ändå**. [Apple-instruktioner](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Uppdateringssignaturer är inte Windows Authenticode eller Apple-notarisering. Manuella kontroller av aktuell version passerar mot den offentliga kanalen; en övergång mellan två offentliga versioner förblir ett test för nästa utgåva. [Bevis och begränsningar](docs/LAUNCH_STATUS.md).
+Uppdateringssignaturer är separata från Windows Authenticode och Apple-notarisering. Pakethaschar, inbyggda kontroller och uppdateringstester dokumenteras separat. En fullständig offentlig uppgradering från 1.0.0 till 1.0.1 bekräftas endast för de scenarier som registrerats i releaserapporten. [Bevis och begränsningar](docs/LAUNCH_STATUS.md)
 
 På Android rekommenderas en modern telefon med tillräckligt med minne för lokala modeller; använd en API-leverantör på mindre kraftfulla enheter. För webbsökning, ett sammanhang på minst **16K tokens (16,384)** rekommenderas, konsekvent i olika versioner.
 
@@ -145,7 +145,7 @@ Musikkodaren Qwen och Qwen-hämtningsmodellen är **olika filer**, lagras separa
 
 ## Molnleverantörer
 
-De förberedda källorna innehåller 43 leverantörsprofiler: 42 molntjänster och TabbyAPI för en lokal server. Modelltillgänglighet och möjligheter beror på kontot, regionen och API som stöds. Katalogen delas av alla 104 gränssnittsspråk.
+Katalogen innehåller 43 leverantörsprofiler: 42 molntjänster och TabbyAPI för en lokal server. Modellåtkomst och möjligheter beror på kontot, regionen och API som stöds. Alla 104 gränssnittsspråk delar denna katalog.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ De förberedda källorna innehåller 43 leverantörsprofiler: 42 molntjänster o
 
 ### Bild, musik och video
 
-Den förberedda skapelsekatalogen innehåller 58 förinställningar från 20 leverantörer: 30 bild, 24 video och 4 musikförinställningar. Tabellerna nedan listar de integrerade rutterna; de återger inte alla kommersiella erbjudanden.
+Skapandekatalogen innehåller 58 förinställningar från 20 leverantörer: 30 bild, 24 video och 4 musikförinställningar. Tabellerna nedan listar de exakta modellerna och identifierarna som stöds av de integrerade adaptrarna.
 
 | Leverantör | Utgångar i Novera | Katalogmodeller |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ Dessa är anvisningar för bidrag och utveckling, inte ett påstående om att va
 
 ## Projektstatus
 
-**Novera 1.0.0 är tillgänglig för Windows, Linux, macOS och Android.** Skärmdumpen visar en Windows-applikation kompilerad lokalt av underhållaren. Källändringar, riktade tester och hårdvaruvalidering dokumenteras separat; detta validerar inte varje modell, plattform eller molnkonto.
+**Novera 1.0.1 är tillgänglig för Windows, Linux, macOS och Android.** Skärmdumpen visar en Windows-applikation kompilerad lokalt av underhållaren. Källändringar, riktade tester och hårdvaruvalidering dokumenteras separat; detta validerar inte varje modell, plattform eller molnkonto.
 
 Manual GitHub Actions builds är aktiverade för alla elva distributionsvarianter. Följ [bygga resultat och verifierade kandidatnedladdningar](docs/CI_DISTRIBUTIONS.md); tillgänglighet registreras separat för varje plattform. Kandidater skiljer sig från undertecknade produktionsutgåvor. Distributionskraven beskrivs i [officiell utgivningspolicy](OFFICIAL_RELEASES.md) och [releases sida](https://github.com/TRON-ABS/Novera/releases). Befintliga kandidater som är inaktiverade för uppdateringar förblir interna. Offentliga utgåvor kräver en konfigurerad och verifierad uppdateringsmekanism; [skrivbordssignaturkontroller och återstående startkrav dokumenteras](docs/LAUNCH_STATUS.md).
 

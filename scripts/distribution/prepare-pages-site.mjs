@@ -72,7 +72,11 @@ ${creationPromptGuide(repository)}
       .replaceAll('1.0.0', facts.stable)
       .replace('notes de préparation de la', 'notes de version de la')
       .replace(`Sources ${facts.release} en préparation :`, `Version ${facts.release} :`)
+    const portableVersion = facts.portableVersion ?? facts.stable
+    html = html.replaceAll(`v${facts.stable}-windows-portable`, `v${portableVersion}-windows-portable`)
+      .replace(`La version portable Windows x64 ${facts.stable} est disponible`, `La version portable Windows x64 ${portableVersion} est disponible`)
   }
+  html = html.replace('<section class="cards"', `<section class="notice" aria-labelledby="web-title"><h2 id="web-title">Novera Web : préparation expérimentale</h2><p>L’interface et ses couleurs sont reprises de Desktop. Les essais locaux utilisent un contexte texte de 32k et une recherche Internet Exa sans clé, préparée dès l’activation, dans les limites du quota gratuit du fournisseur. Les créations image et musique locales sont testées ; Wan vidéo reste expérimental et n’est pas encore intégré à la conversation Web.</p><p>Les sources et résultats sont publics sur le dépôt. Le client Web n’est pas encore proposé comme service hébergé : audit de sécurité complet, licences du moteur et validations de publication restent à terminer. <a href="${repository}/blob/main/docs/WEB_BROWSER_PREPARATION.md">Fonctions, essais et limites de Novera Web</a>.</p></section><section class="cards"`)
   fs.mkdirSync(path.join(output, 'assets'), { recursive: true })
   fs.writeFileSync(path.join(output, 'index.html'), html)
   for (const [source, target] of [['novera-banner-en.png', 'banner.png'], ['novera-dashboard-2026-11-01.png', 'dashboard.png']]) {

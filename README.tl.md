@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ilarawan mo ang iyong layunin. Inihahanda ng Novera ang mga mapagkukunan, isinasagawa ang gawain at inaayos ang mga resulta.</strong></p>
   <p>Isang independiyenteng AI na assistant ni TRON-ABS, mula sa unang paglulunsad hanggang sa mga resulta: teksto, mga larawan, musika at video sa isang pag-uusap.</p>
-  <p><strong>Available para sa Windows, Linux, macOS at Android</strong> · Mga inihandang mapagkukunan: 104 mga wika sa interface · 42 mga tagapagbigay ng cloud · 58 mga preset ng media · Apache 2.0</p>
+  <p><strong>Available para sa Windows, Linux, macOS at Android</strong> · 104 mga wika sa interface · 42 mga tagapagbigay ng cloud · 58 mga preset ng media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI na mga modelong lokal na tumatakbo sa iyong device</a> · <a href="#hub-and-compatible-models">Mga Format at Hub</a> · <a href="#cloud-providers">Ulap</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Mag-ambag</a></p>
   <p>Opisyal na contact: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Opisyal na Novera na mga social profile: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Inihahanda ang bersyon 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Ang mga pampublikong pag-download ay nananatili sa 1.0.0. Ang mga sumusunod na pagpapabuti ay inihanda sa mga mapagkukunan para sa 1.0.1; nangangailangan sila ng mga itinayong muli na pakete, mga tseke sa paglabas at paglalathala. Ang pag-update sa dokumentasyong ito ay hindi nag-a-update ng mga naka-install na application.
+Novera 1.0.1 ay available para sa mga platform na nakalista sa ibaba. I-download ang package para sa iyong system o gamitin ang nilagdaang update channel nito. Ang mga kasalukuyang pag-install ay na-update kapag nag-install ka ng bagong package o tinanggap ang update.
 
 - Seguridad: mas mahigpit na mga native na pahintulot para sa malalayong pahina, pagpapatotoo para sa mga network API at mga tool sa server, protektadong sikretong storage at paglipat, mas ligtas na pag-access sa file/media, pag-parse ng spreadsheet at pagbuo ng mga script. Na-update ang mga nakalantad na dependency; ang natitirang mga advisory ay bukas na sinusubaybayan.
 - Privacy: ang mga istatistika at ulat ng error ay nangangailangan ng hiwalay na pahintulot at nananatiling naka-off bilang default. Kasama sa mga Build ang nakadokumentong configuration ng destinasyon. Sinasala ang mga teknikal na diagnostic; pinapanatili ng mga gumagamit ang kontrol sa pag-activate.
@@ -35,7 +35,7 @@ Ang mga pampublikong pag-download ay nananatili sa 1.0.0. Ang mga sumusunod na p
 - Kaginhawaan: bumabagsak ang mas mababang mga kontrol habang nananatiling nakikita ang input. Ang mga compact na mikropono at mga kontrol sa pagsisiwalat, isang sound button sa ilalim ng mikropono, tumutugon na mga setting ng musika at mga naisaling bahagi na label ay nagpapahusay sa paggamit sa maliliit na screen.
 - Mga catalog ng API: 43 mga profile ng provider, kabilang ang TabbyAPI nang lokal, na may na-refresh na mga pagpipilian sa chat at media. Kasama sa mga bagong entry ang GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 at GPT Image 2.6, Gemini Omni 1.2, FLUX 3 kung saan sinusuportahan. Ang pag-refresh ay hindi na nagtatago ng mga resulta na lampas sa sampung modelo. Iginagalang ang mga eksaktong identifier, panrehiyong endpoint, pribadong deployment at imported na modelo.
 - Pagpapatunay: naka-target na application, native-library, public-catalog at mga pagsusuri sa wika ay naitala sa mga detalyadong tala. Binubuo ang interface para sa Windows / macOS / Linux / Android / iOS. Ang mga frontend build na ito ay hindi nagpapatunay ng mga native na pakete o hinuha sa bawat device.
-- Bago i-release: i-validate ang mga itinayong muli na native packages, natitirang mga natuklasan sa seguridad/dependency at ang tunay na 1.0.0 hanggang 1.0.1 update. Ang availability ay depende sa hardware, provider access at platform. Walang unibersal na pagkakatugma ng modelo, zero-vulnerability status o nakumpletong publikasyon ang inaangkin.
+- Ang availability at mga nakumpletong pagsusuri ay nakalista sa ibaba. Nakadepende ang mga sinusuportahang feature sa hardware, access ng provider at platform. Nananatiling dokumentado ang mga natuklasan sa seguridad at mga limitasyon sa pagpapatunay ng native-device. Panatilihin ang isang backup bago mag-update.
 
 [Mga detalyadong tala, pagpapatunay at natitirang gawain](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Ang mga pampublikong pag-download ay nananatili sa 1.0.0. Ang mga sumusunod na p
 
 <!-- novera-release-1.0.1:end -->
 
-## Availability — 2026-11-03
+## Availability — 2026-11-07
 
-**Novera 1.0.0 ay available para sa Windows, Linux, macOS at Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Ang mga desktop package, parehong CLI archive, signatures at update manifests ay pampubliko at na-verify.
+**Novera 1.0.1 ay available para sa Windows, Linux, macOS at Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Ang mga desktop package, parehong CLI archive, signatures at update manifests ay pampubliko at na-verify.
 
 | Plataporma | Availability |
 | --- | --- |
 | Windows x64 | Pampublikong NSIS installer, nilagdaang updater; na-verify ang katutubong pag-install at pagpapalit. |
 | Linux x64 | Pampublikong AppImage, nilagdaang updater; na-verify ang katutubong pag-install at pagpapalit. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, na may nakalaang nilagdaang update na channel. |
-| Windows ARM64 | [Pampublikong NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), native na CPU text engine; na-verify ang pag-install, pagpapalit at mga pagsusuri sa pampublikong channel. |
-| Android ARM64 | [Publikong nilagdaan ang APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, default na batch 512. Kinukumpirma ng maintainer na gumagana ang build 1000012 sa kanilang telepono. Malinis na pakete na walang mga pag-uusap, modelo o personal na API key. [Katibayan at limitasyon](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Opisyal na paglabas ng 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-sign na mga update. Hindi Apple notarized; hiwalay na ipinasa ang mga awtomatikong pagsusuri sa parehong mga arkitektura, ipinagpaliban ang mga visual na pagsusuri. [Pag-install at ebidensya](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, na may nakalaang nilagdaang update na channel. |
+| Windows ARM64 | [Pampublikong NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), native na CPU text engine; na-verify ang pag-install, pagpapalit at mga pagsusuri sa pampublikong channel. |
+| Android ARM64 | Available ang Android 1.0.1 bilang isang nilagdaang ARM64 APK, build 1000013. Ginagamit nito ang umiiral nang certificate ng Novera at pumasa sa inspeksyon ng package. Wala itong mga personal na pag-uusap, modelo o API key. Ang pag-install at pag-update sa isang telepono ay mananatiling pagsubok. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Opisyal na paglabas ng 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-sign na mga update. Hindi Apple notarized; hiwalay na ipinasa ang mga awtomatikong pagsusuri sa parehong mga arkitektura, ipinagpaliban ang mga visual na pagsusuri. [Pag-install at ebidensya](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Paggawa ng panloob na simulator; Kinakailangan ang pag-sign/provisioning sa Apple bago ang pag-install ng iPhone. [Pagsubaybay](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portable | [Nilagdaan ZIP archive](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); ang data ay nananatili sa Data, pinirmahang Program na kapalit na na-verify. |
 | Web, MSI, Debian | Ang naka-host na Web client at iba pang mga format ay nananatiling panloob; Available ang site ng pagtatanghal ng Pages. |
 
 Sa Mac, buksan ang DMG at kopyahin ang Novera sa Applications. Kung na-block ang unang paglunsad, payagan ang Novera na pumasok **Mga Setting ng System → Privacy at Seguridad → Open Anyway**. [Mga tagubilin sa Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Ang mga lagda ng updater ay hindi Windows Authenticode o Apple notarization. Ang mga manu-manong pagsusuri sa kasalukuyang bersyon ay pumasa laban sa pampublikong channel; ang paglipat sa pagitan ng dalawang pampublikong bersyon ay nananatiling isang susunod na paglabas na pagsubok. [Katibayan at limitasyon](docs/LAUNCH_STATUS.md).
+Ang mga lagda ng Updater ay hiwalay sa Windows Authenticode at Apple notarization. Ang mga package hash, native na mga pagsusuri at mga pagsusuri sa pag-update ay nakadokumento nang hiwalay. Ang kumpletong pampublikong 1.0.0 hanggang 1.0.1 na pag-upgrade ay nakumpirma lamang para sa mga senaryo na naitala sa ulat ng paglabas. [Katibayan at limitasyon](docs/LAUNCH_STATUS.md)
 
 Sa Android, inirerekomenda ang modernong teleponong may sapat na memorya para sa mga lokal na modelo; gumamit ng API provider sa hindi gaanong makapangyarihang mga device. Para sa paghahanap sa web, isang konteksto ng hindi bababa sa **16K token (16,384)** ay inirerekomenda, pare-pareho sa mga bersyon.
 
@@ -143,7 +143,7 @@ Ang Qwen music encoder at ang Qwen retrieval model ay **iba't ibang mga file**, 
 
 ## Mga provider ng cloud
 
-Ang mga inihandang source ay naglalaman ng 43 mga profile ng provider: 42 mga serbisyo sa cloud at TabbyAPI para sa isang lokal na server. Nakadepende ang availability at kakayahan ng modelo sa account, rehiyon at sinusuportahang API. Ang catalog ay ibinabahagi ng lahat ng 104 na mga wika sa interface.
+Ang catalog ay naglalaman ng 43 mga profile ng provider: 42 mga serbisyo sa cloud at TabbyAPI para sa isang lokal na server. Nakadepende ang access at mga kakayahan ng modelo sa account, rehiyon at sinusuportahang API. Lahat ng 104 interface na wika ay nagbabahagi ng catalog na ito.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Ang mga inihandang source ay naglalaman ng 43 mga profile ng provider: 42 mga se
 
 ### Larawan, musika at video
 
-Ang inihandang katalogo ng paglikha ay naglalaman ng 58 na mga preset mula sa 20 na mga provider: 30 larawan, 24 video at 4 mga preset ng musika. Ang mga talahanayan sa ibaba ay naglilista ng mga pinagsamang ruta; hindi nila ginagawa ang bawat komersyal na handog.
+Ang katalogo ng paggawa ay naglalaman ng 58 na mga preset mula sa 20 na mga provider: 30 larawan, 24 video at 4 mga preset ng musika. Inililista ng mga talahanayan sa ibaba ang eksaktong mga modelo at identifier na sinusuportahan ng mga pinagsama-samang adapter.
 
 | Provider | Mga output sa Novera | Mga modelo ng catalog |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Ito ay mga direksyon para sa kontribusyon at pag-unlad, hindi isang pag-aangkin 
 
 ## Katayuan ng proyekto
 
-**Novera 1.0.0 ay available para sa Windows, Linux, macOS at Android.** Ang screenshot ay nagpapakita ng Windows application na lokal na pinagsama ng maintainer. Ang mga pagbabago sa pinagmulan, naka-target na mga pagsubok at pagpapatunay ng hardware ay nakadokumento nang hiwalay; hindi nito pinapatunayan ang bawat modelo, platform o cloud account.
+**Novera 1.0.1 ay available para sa Windows, Linux, macOS at Android.** Ang screenshot ay nagpapakita ng Windows application na lokal na pinagsama ng maintainer. Ang mga pagbabago sa pinagmulan, naka-target na mga pagsubok at pagpapatunay ng hardware ay nakadokumento nang hiwalay; hindi nito pinapatunayan ang bawat modelo, platform o cloud account.
 
 Ang mga manual na GitHub Actions build ay pinagana para sa lahat ng labing-isang variant ng pamamahagi. Sundin ang [bumuo ng mga resulta at na-verify na mga pag-download ng kandidato](docs/CI_DISTRIBUTIONS.md); ang availability ay itinatala nang hiwalay para sa bawat platform. Ang mga kandidato ay naiiba sa mga pinirmahang release ng produksyon. Ang mga kinakailangan sa pamamahagi ay inilarawan sa [opisyal na patakaran sa pagpapalabas](OFFICIAL_RELEASES.md) at [ay naglalabas ng pahina](https://github.com/TRON-ABS/Novera/releases). Ang mga kasalukuyang kandidatong may kapansanan sa updater ay nananatiling panloob. Ang mga pampublikong release ay nangangailangan ng naka-configure at na-verify na mekanismo ng pag-update; [desktop signature check at natitirang mga kinakailangan sa paglunsad](docs/LAUNCH_STATUS.md).
 

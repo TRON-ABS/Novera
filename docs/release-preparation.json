@@ -1,7 +1,7 @@
 {
   "release": "1.0.1",
-  "stable": "1.0.0",
-  "published": false,
+  "stable": "1.0.1",
+  "published": true,
   "languages": "104",
   "addedLanguages": "24",
   "keys": "2,435",
@@ -25,5 +25,9 @@
   "mobileContext": "2,048",
   "platforms": "Windows / macOS / Linux / Android / iOS",
   "newChat": "GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4",
-  "newMedia": "GPT Image 2.6, Gemini Omni 1.2, FLUX 3"
+  "newMedia": "GPT Image 2.6, Gemini Omni 1.2, FLUX 3",
+  "previous": "1.0.0",
+  "androidVersionCode": 1000013,
+  "androidReleaseVersion": "1.0.1",
+  "portableVersion": "1.0.0"
 }

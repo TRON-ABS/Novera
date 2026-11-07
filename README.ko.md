@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>당신은 당신의 목표를 설명합니다. Novera는 리소스를 준비하고 작업을 실행하며 결과를 정리합니다.</strong></p>
   <p>TRON-ABS의 독립적인 AI 도우미는 첫 출시부터 결과까지 텍스트, 이미지, 음악 및 비디오를 하나의 대화로 제공합니다.</p>
-  <p><strong>Windows, Linux, macOS 및 Android에 사용 가능</strong> · 준비된 소스: 104 인터페이스 언어 · 42 클라우드 제공업체 · 58 미디어 사전 설정 · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS 및 Android에 사용 가능</strong> · 104 인터페이스 언어 · 42 클라우드 제공업체 · 58 미디어 사전 설정 · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">자동화</a> · <a href="#one-dashboard-for-every-creation">대시보드</a> · <a href="#local-models-in-use">기기에서 실행하는 AI 모델</a> · <a href="#hub-and-compatible-models">형식 및 허브</a> · <a href="#cloud-providers">클라우드</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">기여</a></p>
   <p>공식 연락처: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Novera 공식 소셜 프로필: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## 버전 1.0.1 준비 중
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-공개 다운로드는 1.0.0에 남아 있습니다. 1.0.1 소스에는 다음과 같은 개선 사항이 준비되어 있습니다. 패키지 재빌드, 릴리스 확인 및 게시가 필요합니다. 이 설명서를 업데이트해도 설치된 애플리케이션은 업데이트되지 않습니다.
+Novera 1.0.1은(는) 아래 나열된 플랫폼에서 사용할 수 있습니다. 시스템에 맞는 패키지를 다운로드하거나 서명된 업데이트 채널을 사용하세요. 새 패키지를 설치하거나 업데이트를 수락하면 기존 설치가 업데이트됩니다.
 
 - 보안: 원격 페이지에 대한 더 엄격한 기본 권한, 네트워크 API 및 서버 도구에 대한 인증, 보호된 비밀 저장 및 마이그레이션, 더 안전한 파일/미디어 액세스, 스프레드시트 구문 분석 및 빌드 스크립트. 노출된 종속성이 업데이트되었습니다. 나머지 권고 사항은 공개적으로 추적됩니다.
 - 개인정보 보호: 통계 및 오류 보고에는 별도의 동의가 필요하며 기본적으로 꺼져 있습니다. 빌드에는 문서화된 대상 구성이 포함됩니다. 기술 진단은 필터링됩니다. 사용자는 활성화를 계속 제어합니다.
@@ -35,7 +35,7 @@
 - 편안함: 입력이 계속 표시되는 동안 낮은 컨트롤이 축소됩니다. 컴팩트한 마이크 및 공개 컨트롤, 마이크 아래의 사운드 버튼, 반응형 음악 설정 및 번역된 구성 요소 라벨을 통해 작은 화면에서의 사용이 향상됩니다.
 - API 카탈로그: 43 제공자 프로필(로컬에서 TabbyAPI 포함), 새로워진 채팅 및 미디어 선택이 포함됩니다. 새 항목에는 지원되는 경우 GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 및 GPT Image 2.6, Gemini Omni 1.2, FLUX 3가 포함됩니다. 새로 고침 시 더 이상 모델 10개를 초과하는 결과를 숨기지 않습니다. 정확한 식별자, 지역 엔드포인트, 비공개 배포 및 가져온 모델이 존중됩니다.
 - 검증: 대상 애플리케이션, 네이티브 라이브러리, 공개 카탈로그 및 언어 확인이 세부 메모에 기록됩니다. Windows / macOS / Linux / Android / iOS용 인터페이스가 빌드되었습니다. 이러한 프런트엔드 빌드는 모든 장치에서 기본 패키지 또는 추론을 인증하지 않습니다.
-- 출시 전: 다시 빌드된 네이티브 패키지, 나머지 보안/종속성 조사 결과 및 실제 1.0.0에서 1.0.1 업데이트를 확인하세요. 가용성은 하드웨어, 공급자 액세스 및 플랫폼에 따라 다릅니다. 범용 모델 호환성, 취약점 제로 상태 또는 완료된 출판이 주장되지 않습니다.
+- 가용성 및 완료된 확인 사항은 다음과 같습니다. 지원되는 기능은 하드웨어, 공급자 액세스 및 플랫폼에 따라 다릅니다. 보안 발견 사항 및 기본 장치 유효성 검사 제한은 문서화되어 있습니다. 업데이트하기 전에 백업을 유지하십시오.
 
 [자세한 메모, 검증 및 남은 작업](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@
 
 <!-- novera-release-1.0.1:end -->
 
-## 가용성 — 2026-11-03
+## 가용성 — 2026-11-07
 
-**Novera 1.0.0는 Windows, Linux, macOS 및 Android에 사용할 수 있습니다.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). 데스크탑 패키지, CLI 아카이브, 서명 및 업데이트 매니페스트는 모두 공개되고 검증되었습니다.
+**Novera 1.0.1는 Windows, Linux, macOS 및 Android에 사용할 수 있습니다.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). 데스크탑 패키지, CLI 아카이브, 서명 및 업데이트 매니페스트는 모두 공개되고 검증되었습니다.
 
 | 플랫폼 | 가용성 |
 | --- | --- |
 | Windows x64 | 공개 NSIS 설치 프로그램, 서명된 업데이트 프로그램; 기본 설치 및 교체가 확인되었습니다. |
 | Linux x64 | 공개 AppImage, 서명된 업데이트 프로그램; 기본 설치 및 교체가 확인되었습니다. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, 서명된 전용 업데이트 채널이 있습니다. |
-| Windows ARM64 | [공개 NSIS 설치 프로그램](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), 기본 CPU 텍스트 엔진; 설치, 교체 및 공개 채널 점검이 확인되었습니다. |
-| Android ARM64 | [공개 서명된 APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, 기본 배치 512. 관리자는 빌드 1000012가 휴대폰에서 작동하는지 확인합니다. 대화, 모델 또는 개인 API 키가 없는 깔끔한 패키지입니다. [증거 및 한계](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [1.0.0 DMG 공식 출시](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ 인텔 / 14+ Apple Silicon; Novera 서명 업데이트. Apple이 공증하지 않았습니다. 두 아키텍처 모두에서 자동 검사가 별도로 통과되고 시각적 검사는 연기됩니다. [설치 및 증거](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, 서명된 전용 업데이트 채널이 있습니다. |
+| Windows ARM64 | [공개 NSIS 설치 프로그램](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), 기본 CPU 텍스트 엔진; 설치, 교체 및 공개 채널 점검이 확인되었습니다. |
+| Android ARM64 | Android 1.0.1는 서명된 ARM64 APK, 빌드 1000013로 제공됩니다. 기존 Novera 인증서를 사용하고 패키지 검사를 통과합니다. 여기에는 개인적인 대화, 모델 또는 API 키가 포함되어 있지 않습니다. 휴대폰에서의 설치 및 업데이트는 아직 테스트 중입니다. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [1.0.1 DMG 공식 출시](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ 인텔 / 14+ Apple Silicon; Novera 서명 업데이트. Apple이 공증하지 않았습니다. 두 아키텍처 모두에서 자동 검사가 별도로 통과되고 시각적 검사는 연기됩니다. [설치 및 증거](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | 내부 시뮬레이터 빌드; iPhone을 설치하기 전에 Apple 서명/프로비저닝이 필요합니다. [후속 조치](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 휴대용 | [서명된 ZIP 아카이브](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); 데이터는 Data에 유지되며 서명된 Program 교체가 확인되었습니다. |
 | 웹, MSI, 데비안 | 호스팅된 웹 클라이언트 및 기타 형식은 내부적으로 유지됩니다. Pages 프레젠테이션 사이트를 이용하실 수 있습니다. |
 
 Mac에서는 DMG를 열고 Novera를 응용 프로그램에 복사하세요. 첫 번째 실행이 차단된 경우 Novera를 허용하세요. **시스템 설정 → 개인 정보 보호 및 보안 → 어쨌든 열기**. [Apple 지침](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-업데이터 서명은 Windows Authenticode 또는 Apple 공증이 아닙니다. 수동 현재 버전 확인은 공개 채널에 대해 통과됩니다. 두 공개 버전 간의 전환은 다음 릴리스 테스트로 남아 있습니다. [증거 및 한계](docs/LAUNCH_STATUS.md).
+업데이터 서명은 Windows Authenticode 및 Apple 공증과는 별개입니다. 패키지 해시, 기본 검사 및 업데이트 테스트는 별도로 문서화됩니다. 릴리스 보고서에 기록된 시나리오에 대해서만 완전한 공개 1.0.0에서 1.0.1로의 업그레이드가 확인되었습니다. [증거 및 한계](docs/LAUNCH_STATUS.md)
 
 Android에서는 로컬 모델에 메모리가 충분한 최신 전화기를 권장합니다. 덜 강력한 장치에서는 API 공급자를 사용하십시오. 웹 검색의 경우 최소한 **16K 토큰 (16,384)** 는 여러 버전에서 일관되게 권장됩니다.
 
@@ -143,7 +143,7 @@ Qwen 음악 인코더와 Qwen 검색 모델은 **다른 파일**, 별도로 보�
 
 ## 클라우드 제공업체
 
-준비된 소스에는 43 공급자 프로필(42 클라우드 서비스 및 로컬 서버용 TabbyAPI)이 포함되어 있습니다. 모델 가용성 및 기능은 계정, 지역 및 지원되는 API에 따라 다릅니다. 카탈로그는 모든 104 인터페이스 언어에서 공유됩니다.
+카탈로그에는 43 공급자 프로필(42 클라우드 서비스 및 로컬 서버용 TabbyAPI)이 포함되어 있습니다. 모델 액세스 및 기능은 계정, 지역 및 지원되는 API에 따라 다릅니다. 모든 104 인터페이스 언어는 이 카탈로그를 공유합니다.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Qwen 음악 인코더와 Qwen 검색 모델은 **다른 파일**, 별도로 보�
 
 ### 이미지, 음악, 동영상
 
-준비된 생성 카탈로그에는 20 제공업체의 58 사전 설정(30 이미지, 24 비디오 및 4 음악 사전 설정)이 포함되어 있습니다. 아래 표에는 통합 경로가 나열되어 있습니다. 그들은 모든 상업적 제품을 재생산하지 않습니다.
+생성 카탈로그에는 20 제공업체의 사전 설정 58개(30 이미지, 24 비디오 및 4 음악 사전 설정)가 포함되어 있습니다. 아래 표에는 통합 어댑터가 지원하는 정확한 모델과 식별자가 나열되어 있습니다.
 
 | 제공자 | Novera의 출력 | 카탈로그 모델 |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ AWQ 4-bit, GPTQ 4-bit, NF4 및 INT8는 각각 오프라인으로 생성된 훈�
 
 ## 프로젝트 현황
 
-**Novera 1.0.0는 Windows, Linux, macOS 및 Android에 사용할 수 있습니다.** 스크린샷은 관리자가 로컬로 컴파일한 Windows 애플리케이션을 보여줍니다. 소스 변경, 대상 테스트 및 하드웨어 검증은 별도로 문서화됩니다. 이는 모든 모델, 플랫폼 또는 클라우드 계정을 검증하지는 않습니다.
+**Novera 1.0.1는 Windows, Linux, macOS 및 Android에 사용할 수 있습니다.** 스크린샷은 관리자가 로컬로 컴파일한 Windows 애플리케이션을 보여줍니다. 소스 변경, 대상 테스트 및 하드웨어 검증은 별도로 문서화됩니다. 이는 모든 모델, 플랫폼 또는 클라우드 계정을 검증하지는 않습니다.
 
 수동 GitHub Actions 빌드는 11개 배포 변형 모두에 대해 활성화됩니다. 따라가다 [빌드 결과 및 검증된 후보 다운로드](docs/CI_DISTRIBUTIONS.md); 가용성은 각 플랫폼마다 별도로 기록됩니다. 후보자는 서명된 프로덕션 릴리스와 다릅니다. 배포 요구 사항은 [공식 출시 정책](OFFICIAL_RELEASES.md) 그리고 [출시 페이지](https://github.com/TRON-ABS/Novera/releases). 기존 업데이트 프로그램이 비활성화된 후보는 내부에 남아 있습니다. 공개 릴리스에는 구성되고 검증된 업데이트 메커니즘이 필요합니다. [데스크톱 서명 확인 및 나머지 실행 요구 사항이 문서화되어 있습니다.](docs/LAUNCH_STATUS.md).
 

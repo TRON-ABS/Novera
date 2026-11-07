@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Sampeyan nggambarake tujuan sampeyan. Novera nyiapake sumber daya, nglakokake tugas lan ngatur asil.</strong></p>
   <p>Asisten AI independen dening TRON-ABS, saka wiwitan nganti asil: teks, gambar, musik lan video ing siji obrolan.</p>
-  <p><strong>Kasedhiya kanggo Windows, Linux, macOS lan Android</strong> · Sumber sing disiapake: 104 basa antarmuka · 42 panyedhiya awan · 58 prasetel media · Apache 2.0</p>
+  <p><strong>Kasedhiya kanggo Windows, Linux, macOS lan Android</strong> · 104 basa antarmuka · 42 panyedhiya awan · 58 prasetel media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatisasi</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Model AI mlaku sacara lokal ing piranti sampeyan</a> · <a href="#hub-and-compatible-models">Format & Hub</a> · <a href="#cloud-providers">Awan</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Kontribusi</a></p>
   <p>Kontak resmi: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Profil sosial resmi Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Nyiapake versi 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Undhuhan umum tetep ana ing 1.0.0. Dandan ing ngisor iki disiapake ing sumber kanggo 1.0.1; padha mbutuhake paket dibangun maneh, release mriksa lan publikasi. Nganyari dokumentasi iki ora nganyari aplikasi sing diinstal.
+Novera 1.0.1 kasedhiya kanggo platform ing ngisor iki. Unduh paket kanggo sistem sampeyan utawa gunakake saluran nganyari sing wis ditandatangani. Nganyari panginstalan sing ana nalika sampeyan nginstal paket anyar utawa nampa nganyari.
 
 - Keamanan: ijin asli sing luwih ketat kanggo kaca remot, otentikasi kanggo API jaringan lan piranti server, panyimpenan lan migrasi rahasia sing dilindhungi, akses file/media sing luwih aman, parsing spreadsheet lan mbangun skrip. Ketergantungan sing kapapar wis dianyari; advisories isih dilacak mbukak.
 - Privasi: statistik lan laporan kesalahan mbutuhake idin sing kapisah lan tetep mati minangka standar. Dibangun kalebu konfigurasi tujuan sing didokumentasikan. Diagnosa teknis disaring; pangguna tetep kontrol aktifitas.
@@ -35,7 +35,7 @@ Undhuhan umum tetep ana ing 1.0.0. Dandan ing ngisor iki disiapake ing sumber ka
 - Kenyamanan: kontrol ngisor ambruk nalika input tetep katon. Kontrol mikropon lan pambocoran sing kompak, tombol swara ing sangisore mikropon, setelan musik responsif lan label komponen sing diterjemahake nambah panggunaan ing layar cilik.
 - Katalog API: 43 profil panyedhiya, kalebu TabbyAPI lokal, kanthi pilihan obrolan lan media sing dianyari. Entri anyar kalebu GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 lan GPT Image 2.6, Gemini Omni 1.2, FLUX 3 sing didhukung. Refresh ora ndhelikake asil ngluwihi sepuluh model. Pengenal sing tepat, titik pungkasan regional, penyebaran pribadi lan model sing diimpor diajeni.
 - Validasi: aplikasi sing ditarget, perpustakaan asli, katalog umum lan pamriksa basa dicathet ing cathetan rinci. Antarmuka dibangun kanggo Windows / macOS / Linux / Android / iOS. Bangunan frontend iki ora menehi sertifikat paket asli utawa inferensi ing saben piranti.
-- Sadurunge dirilis: validasi paket asli sing dibangun maneh, temuan keamanan/ketergantungan sing isih ana lan nganyari 1.0.0 nganti 1.0.1 nyata. Kasedhiyan gumantung ing hardware, akses panyedhiya lan platform. Ora ana kompatibilitas model universal, status kerentanan nol utawa publikasi rampung sing diklaim.
+- Kasedhiyan lan mriksa rampung kapacak ing ngisor iki. Fitur sing didhukung gumantung ing hardware, akses panyedhiya lan platform. Temuan keamanan lan watesan validasi piranti asli tetep didokumentasikan. Tansah serep sadurunge nganyari.
 
 [Cathetan rinci, validasi lan karya sing isih ana](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Undhuhan umum tetep ana ing 1.0.0. Dandan ing ngisor iki disiapake ing sumber ka
 
 <!-- novera-release-1.0.1:end -->
 
-## Kasedhiyan — 2026-11-03
+## Kasedhiyan — 2026-11-07
 
-**Novera 1.0.0 kasedhiya kanggo Windows, Linux, macOS lan Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Paket desktop, arsip CLI, teken lan manifes nganyari wis umum lan diverifikasi.
+**Novera 1.0.1 kasedhiya kanggo Windows, Linux, macOS lan Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Paket desktop, arsip CLI, teken lan manifes nganyari wis umum lan diverifikasi.
 
 | Platform | Kasedhiyan |
 | --- | --- |
 | Windows x64 | Pemasang umum NSIS, nganyari nganyari; instalasi native lan panggantos diverifikasi. |
 | Linux x64 | Public AppImage, nganyari nganyari; instalasi native lan panggantos diverifikasi. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, kanthi saluran nganyari sing ditandatangani khusus. |
-| Windows ARM64 | [Pemasang umum NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), mesin teks asli CPU; instalasi, panggantos lan mriksa saluran umum diverifikasi. |
-| Android ARM64 | [Ditandatangani umum APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, kumpulan standar 512. Penyelenggara negesake manawa 1000012 bisa digunakake ing telpon. Paket resik tanpa obrolan, model utawa tombol API pribadi. [Bukti lan watesan](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Rilis resmi 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Nganyari Novera. Ora Apple notarized; mriksa otomatis liwati kapisah ing loro arsitektur, kir visual ditundha. [Instalasi lan bukti](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, kanthi saluran nganyari sing ditandatangani khusus. |
+| Windows ARM64 | [Pemasang umum NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), mesin teks asli CPU; instalasi, panggantos lan mriksa saluran umum diverifikasi. |
+| Android ARM64 | Android 1.0.1 kasedhiya minangka APK ARM64 sing wis ditandatangani, gawe 1000013. Iki nggunakake sertifikat Novera sing wis ana lan lulus pemeriksaan paket. Ora ana obrolan pribadi, model utawa kunci API. Instalasi lan nganyari ing telpon isih kudu dites. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Rilis resmi 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Nganyari Novera. Ora Apple notarized; mriksa otomatis liwati kapisah ing loro arsitektur, kir visual ditundha. [Instalasi lan bukti](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | mbangun simulator internal; Apple tondo asto / provisioning dibutuhake sadurunge instalasi iPhone. [Tindak lanjut](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portabel | [Arsip ZIP mlebu](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data tetep ing Data, mlebu Program panggantos diverifikasi. |
 | Web, MSI, Debian | Klien Web sing di-host lan format liyane tetep internal; Situs presentasi Pages kasedhiya. |
 
 Ing Mac, bukak DMG banjur salin Novera menyang Aplikasi. Yen peluncuran pisanan diblokir, ngidini Novera mlebu **Setelan Sistem → Privasi & Keamanan → Bukak wae**. [Instruksi Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Tandha nganyari dudu Windows Authenticode utawa notarisasi Apple. Priksa versi saiki manual liwat saluran umum; transisi antarane rong versi umum tetep test sabanjuré-release. [Bukti lan watesan](docs/LAUNCH_STATUS.md).
+Tandha Updater kapisah saka Windows Authenticode lan Apple notarization. Hash paket, pamriksa asli lan tes nganyari didokumentasikake kanthi kapisah. Peningkatan 1.0.0 umum lengkap nganti 1.0.1 dikonfirmasi mung kanggo skenario sing direkam ing laporan rilis. [Bukti lan watesan](docs/LAUNCH_STATUS.md)
 
 Ing Android, telpon modern kanthi memori cukup dianjurake kanggo model lokal; gunakake panyedhiya API ing piranti sing kurang kuat. Kanggo panelusuran web, konteks paling ora **Token 16K (16,384)** dianjurake, terus-terusan ing versi.
 
@@ -143,7 +143,7 @@ Encoder musik Qwen lan model retrieval Qwen yaiku **macem-macem file**, disimpen
 
 ## Panyedhiya awan
 
-Sumber sing disiapake ngemot 43 profil panyedhiya: 42 layanan awan lan TabbyAPI kanggo server lokal. Kasedhiyan model lan kapabilitas gumantung ing akun, wilayah lan API sing didhukung. Katalog iki dienggo bareng karo kabeh basa antarmuka 104.
+Katalog kasebut ngemot profil panyedhiya 43: 42 layanan awan lan TabbyAPI kanggo server lokal. Akses model lan kapabilitas gumantung ing akun, wilayah lan API sing didhukung. Kabeh basa antarmuka 104 nuduhake katalog iki.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Sumber sing disiapake ngemot 43 profil panyedhiya: 42 layanan awan lan TabbyAPI 
 
 ### Gambar, musik lan video
 
-Katalog kreasi sing wis disiapake ngemot prasetel 58 saka panyedhiya 20: gambar 30, video 24 lan prasetel musik 4. Tabel ing ngisor iki dhaptar rute terpadu; padha ora ngasilake saben kurban komersial.
+Katalog gawean ngemot prasetel 58 saka panyedhiya 20: 30 prasetel gambar, 24 video lan 4 prasetel musik. Tabel ing ngisor iki nampilake model lan pengenal sing tepat sing didhukung dening adaptor terpadu.
 
 | Panyedhiya | Output ing Novera | Model katalog |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Iki minangka pituduh kanggo kontribusi lan pangembangan, dudu pratelan manawa sa
 
 ## Status proyek
 
-**Novera 1.0.0 kasedhiya kanggo Windows, Linux, macOS lan Android.** Gambar nuduhake aplikasi Windows sing disusun sacara lokal dening pangurus. Owah-owahan sumber, tes sing ditarget lan validasi hardware didokumentasikake kanthi kapisah; iki ora validasi saben model, platform utawa akun maya.
+**Novera 1.0.1 kasedhiya kanggo Windows, Linux, macOS lan Android.** Gambar nuduhake aplikasi Windows sing disusun sacara lokal dening pangurus. Owah-owahan sumber, tes sing ditarget lan validasi hardware didokumentasikake kanthi kapisah; iki ora validasi saben model, platform utawa akun maya.
 
 Manual GitHub Actions mbangun diaktifake kanggo kabeh sewelas varian distribusi. Tindakake [gawe asil lan download calon sing wis diverifikasi](docs/CI_DISTRIBUTIONS.md); kasedhiyan direkam dhewe kanggo saben platform. Calon beda karo rilis produksi sing ditandatangani. Syarat distribusi diterangake ing [kabijakan rilis resmi](OFFICIAL_RELEASES.md) lan [rilis kaca](https://github.com/TRON-ABS/Novera/releases). Kandidat sing ora aktif nganyari saiki tetep internal. Rilis umum mbutuhake mekanisme nganyari sing dikonfigurasi lan diverifikasi; [mriksa teken desktop lan syarat peluncuran isih didokumentasikan](docs/LAUNCH_STATUS.md).
 

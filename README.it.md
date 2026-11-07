@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Conoscenza per tutti" width="100%" />
   <p><strong>Descrivi ciò che vuoi ottenere. Novera prepara, esegue e organizza.</strong></p>
   <p>Un assistente IA indipendente di TRON-ABS, dal primo avvio ai risultati: testo, immagini, musica e video in una sola conversazione.</p>
-  <p><strong>Disponibile per Windows, Linux, macOS e Android</strong> · Sorgenti preparate: 104 linguaggi dell'interfaccia · 42 provider cloud · 58 preimpostazioni multimediali · Apache 2.0</p>
+  <p><strong>Disponibile per Windows, Linux, macOS e Android</strong> · 104 lingue dell'interfaccia · 42 fornitori di servizi cloud · 58 preimpostazioni multimediali · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automazione</a> · <a href="#one-dashboard-for-every-creation">Pannello di creazione</a> · <a href="#local-models-in-use">Modelli locali</a> · <a href="#hub-and-compatible-models">Formati e Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="CONTRIBUTING.md">Contribuisci</a></p>
   <p>Contatto ufficiale: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Profili social ufficiali Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Preparazione della versione 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-I download pubblici rimangono su 1.0.0. I seguenti miglioramenti sono preparati nei sorgenti per 1.0.1; richiedono pacchetti ricostruiti, controlli di rilascio e pubblicazione. L'aggiornamento di questa documentazione non aggiorna le applicazioni installate.
+Novera 1.0.1 è disponibile per le piattaforme elencate di seguito. Scarica il pacchetto per il tuo sistema o utilizza il canale di aggiornamento firmato. Le installazioni esistenti si aggiornano quando installi il nuovo pacchetto o accetti l'aggiornamento.
 
 - Sicurezza: autorizzazioni native più rigorose per le pagine remote, autenticazione per API di rete e strumenti server, archiviazione e migrazione di segreti protetti, accesso più sicuro a file/media, analisi di fogli di calcolo e creazione di script. Le dipendenze esposte sono state aggiornate; gli avvisi rimanenti vengono monitorati apertamente.
 - Privacy: statistiche e segnalazioni errori richiedono un consenso separato e rimangono disattivate per impostazione predefinita. Le build includono la configurazione di destinazione documentata. La diagnostica tecnica viene filtrata; gli utenti mantengono il controllo dell'attivazione.
@@ -37,7 +37,7 @@ I download pubblici rimangono su 1.0.0. I seguenti miglioramenti sono preparati 
 Cataloghi API
 - : profili dei fornitori di 43, incluso TabbyAPI a livello locale, con selezioni aggiornate di chat e contenuti multimediali. Le nuove voci includono GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 e GPT Image 2.6, Gemini Omni 1.2, FLUX 3 dove supportato. L'aggiornamento non nasconde più i risultati oltre i dieci modelli. Vengono rispettati gli identificatori esatti, gli endpoint regionali, le distribuzioni private e i modelli importati.
 - Validazione: i controlli dell'applicazione mirata, della libreria nativa, del catalogo pubblico e della lingua vengono registrati nelle note di dettaglio. L'interfaccia è stata creata per Windows / macOS / Linux / Android / iOS. Queste build di frontend non certificano pacchetti nativi o inferenze su ogni dispositivo.
-- Prima del rilascio: convalida dei pacchetti nativi ricostruiti, dei restanti risultati sulla sicurezza/dipendenza e dell'aggiornamento reale da 1.0.0 a 1.0.1. La disponibilità dipende dall'hardware, dall'accesso del provider e dalla piattaforma. Non viene rivendicata la compatibilità universale del modello, lo stato di vulnerabilità zero o la pubblicazione completata.
+- La disponibilità e i controlli completati sono elencati di seguito. Le funzionalità supportate dipendono dall'hardware, dall'accesso del provider e dalla piattaforma. I risultati sulla sicurezza e i limiti di convalida del dispositivo nativo rimangono documentati. Conserva un backup prima dell'aggiornamento.
 
 [Note dettagliate, validazione e lavoro rimanente](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Cataloghi API
 
 <!-- novera-release-1.0.1:end -->
 
-## Disponibilità — 3 novembre 2026
+## Disponibilità — 2026-11-07
 
-**Novera 1.0.0 è disponibile per Windows, Linux, macOS e Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). I pacchetti desktop, gli archivi CLI, le firme e i manifesti degli aggiornamenti sono pubblici e verificati.
+**Novera 1.0.1 è disponibile per Windows, Linux, macOS e Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). I pacchetti desktop, gli archivi CLI, le firme e i manifesti degli aggiornamenti sono pubblici e verificati.
 
 | Piattaforma | Disponibilità |
 | --- | --- |
 | Windows x64 | Programma di installazione pubblico NSIS, aggiornamento firmato; installazione nativa e sostituzione verificata. |
 | Linux x64 | Pubblico AppImage, aggiornamento firmato; installazione nativa e sostituzione verificata. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, con canale di aggiornamento firmato dedicato. |
-| Windows ARM64 | [Programma di installazione pubblico NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), motore di testo nativo CPU; verificate installazione, sostituzione e controlli del canale pubblico. |
-| Android ARM64 | [Firmato pubblico APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, lotto predefinito 512. Il manutentore conferma che la build 1000012 funziona sul proprio telefono. Pacchetto pulito senza conversazioni, modelli o chiavi personali API. [Evidenze e limitazioni](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Versione ufficiale 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Aggiornamenti firmati Novera. Senza notarizzazione Apple; controlli automatizzati superati separatamente su entrambe le architetture, controlli visivi differiti. [Installazione e prove](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, con canale di aggiornamento firmato dedicato. |
+| Windows ARM64 | [Programma di installazione pubblico NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), motore di testo nativo CPU; verificate installazione, sostituzione e controlli del canale pubblico. |
+| Android ARM64 | Android 1.0.1 è disponibile come APK ARM64 firmato, build 1000013. Utilizza il certificato esistente Novera e supera l'ispezione del pacchetto. Non contiene conversazioni personali, modelli o chiavi API. L'installazione e l'aggiornamento su un telefono restano da testare. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Versione ufficiale 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Aggiornamenti firmati Novera. Senza notarizzazione Apple; controlli automatizzati superati separatamente su entrambe le architetture, controlli visivi differiti. [Installazione e prove](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Costruzione del simulatore interno; È necessario firmare/provisioning Apple prima dell'installazione dell'iPhone. [Seguito](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portatile | [Archivio firmato ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); i dati rimangono in Data, sostituzione firmata Program verificata. |
 | Web, MSI, Debian | Il client Web ospitato e altri formati rimangono interni; È disponibile il sito di presentazione delle pagine. |
 
 Su Mac, apri DMG e copia Novera in Applicazioni. Se il primo avvio viene bloccato, consentire l'accesso a Novera **Impostazioni di sistema → Privacy e sicurezza → Apri comunque**. [Istruzioni Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Le firme dell'aggiornamento non sono Windows Authenticode o autenticazione Apple. I controlli manuali della versione corrente superano il canale pubblico; una transizione tra due versioni pubbliche rimane un test per la prossima versione. [Evidenze e limitazioni](docs/LAUNCH_STATUS.md).
+Le firme del programma di aggiornamento sono separate dall'Authenticode di Windows e dall'autenticazione di Apple. Gli hash dei pacchetti, i controlli nativi e i test di aggiornamento sono documentati separatamente. Un aggiornamento pubblico completo da 1.0.0 a 1.0.1 è confermato solo per gli scenari registrati nel rapporto di rilascio. [Evidenze e limitazioni](docs/LAUNCH_STATUS.md)
 
 Su Android, per i modelli locali si consiglia un telefono moderno con memoria sufficiente; sui dispositivi meno potenti, usare un fornitore API. Per la ricerca sul web si consiglia un contesto di almeno **16K token (16,384)** in tutte le versioni.
 
@@ -145,7 +145,7 @@ Il codificatore musicale Qwen e il modello di recupero Qwen sono **file diversi*
 
 ## Fornitori di servizi cloud
 
-Le fonti preparate contengono 43 profili fornitore: 42 servizi cloud e TabbyAPI per un server locale. La disponibilità e le funzionalità del modello dipendono dall'account, dalla regione e dall'API supportata. Il catalogo è condiviso da tutte le lingue dell'interfaccia 104.
+Il catalogo contiene i profili dei fornitori 43: servizi cloud 42 e TabbyAPI per un server locale. L'accesso e le funzionalità del modello dipendono dall'account, dalla regione e dall'API supportata. Tutte le lingue dell'interfaccia 104 condividono questo catalogo.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Le fonti preparate contengono 43 profili fornitore: 42 servizi cloud e TabbyAPI 
 
 ### Immagine, musica e video
 
-Il catalogo di creazione preparato contiene 58 preimpostazioni da 20 fornitori: 30 immagine, 24 video e 4 preimpostazioni musicali. Nelle tabelle sottostanti sono elencati i percorsi integrati; non riproducono ogni offerta commerciale.
+Il catalogo di creazione contiene 58 preimpostazioni di 20 fornitori: 30 immagini, 24 video e 4 preimpostazioni musicali. Le tabelle seguenti elencano i modelli e gli identificatori esatti supportati dagli adattatori integrati.
 
 | Fornitore | Uscite in Novera | Catalogo modelli |
 | --- | --- | --- |
@@ -297,7 +297,7 @@ Queste sono indicazioni per il contributo e lo sviluppo, non la pretesa che ogni
 
 ## Stato del progetto
 
-**Novera 1.0.0 è disponibile per Windows, Linux, macOS e Android.** Lo screenshot mostra un'applicazione Windows compilata localmente dal manutentore. Le modifiche all'origine, i test mirati e la convalida dell'hardware sono documentati separatamente; questo non convalida ogni modello, piattaforma o account cloud.
+**Novera 1.0.1 è disponibile per Windows, Linux, macOS e Android.** Lo screenshot mostra un'applicazione Windows compilata localmente dal manutentore. Le modifiche all'origine, i test mirati e la convalida dell'hardware sono documentati separatamente; questo non convalida ogni modello, piattaforma o account cloud.
 
 Le build GitHub Actions manuali sono abilitate per tutte le undici varianti di distribuzione. Segui il [crea risultati e scarica i candidati verificati](docs/CI_DISTRIBUTIONS.md); la disponibilità viene registrata separatamente per ciascuna piattaforma. I candidati sono distinti dalle versioni di produzione firmate. I requisiti di distribuzione sono descritti nel [politica di rilascio ufficiale](OFFICIAL_RELEASES.md) e [pagina dei rilasci](https://github.com/TRON-ABS/Novera/releases). I candidati esistenti con aggiornamento disabilitato rimangono interni. Le versioni pubbliche richiedono un meccanismo di aggiornamento configurato e verificato; [i controlli della firma del desktop e i restanti requisiti di avvio sono documentati](docs/LAUNCH_STATUS.md).
 

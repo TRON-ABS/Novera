@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Voi descrie obiectivul. Novera pregătește resursele, execută sarcina și organizează rezultatele.</strong></p>
   <p>Un asistent AI independent de TRON-ABS, de la prima lansare la rezultate: text, imagini, muzică și video într-o singură conversație.</p>
-  <p><strong>Disponibil pentru Windows, Linux, macOS și Android</strong> · Surse pregătite: 104 limbi de interfață · 42 furnizori de cloud · 58 presetări media · Apache 2.0</p>
+  <p><strong>Disponibil pentru Windows, Linux, macOS și Android</strong> · 104 limbi de interfață · 42 furnizori de cloud · 58 presetări media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatizare</a> · <a href="#one-dashboard-for-every-creation">Panou de control</a> · <a href="#local-models-in-use">Modele AI care rulează local pe dispozitivul dvs.</a> · <a href="#hub-and-compatible-models">Hub și modele compatibile</a> · <a href="#cloud-providers">Nor</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribuie</a></p>
   <p>Contact oficial: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Profiluri sociale oficiale Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Se pregătește versiunea 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Descărcările publice rămân la 1.0.0. Următoarele îmbunătățiri sunt pregătite în sursele pentru 1.0.1; necesită pachete reconstruite, verificări de lansare și publicare. Actualizarea acestei documentații nu actualizează aplicațiile instalate.
+Novera 1.0.1 este disponibil pentru platformele enumerate mai jos. Descărcați pachetul pentru sistemul dvs. sau utilizați canalul de actualizare semnat. Instalările existente se actualizează atunci când instalați noul pachet sau acceptați actualizarea.
 
 - Securitate: permisiuni native mai stricte pentru paginile de la distanță, autentificare pentru API-uri de rețea și instrumente de server, stocare și migrare secretă protejată, acces mai sigur la fișiere/media, analizare a foilor de calcul și scripturi de compilare. Dependențele expuse au fost actualizate; avizele rămase sunt urmărite în mod deschis.
 - Confidențialitate: statisticile și rapoartele de eroare necesită consimțământ separat și rămân dezactivate în mod implicit. Compilările includ configurația de destinație documentată. Diagnosticele tehnice sunt filtrate; utilizatorii păstrează controlul activării.
@@ -35,7 +35,7 @@ Descărcările publice rămân la 1.0.0. Următoarele îmbunătățiri sunt preg
 - Confort: comenzile inferioare se prăbușesc în timp ce intrarea rămâne vizibilă. Microfonul compact și comenzile de dezvăluire, un buton de sunet sub microfon, setările de muzică receptive și etichetele traduse ale componentelor îmbunătățesc utilizarea pe ecranele mici.
 - Cataloage API: 43 profiluri de furnizori, inclusiv TabbyAPI local, cu selecții de chat și media actualizate. Intrările noi includ GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 și GPT Image 2.6, Gemini Omni 1.2, FLUX 3 acolo unde sunt acceptate. Refresh nu mai ascunde rezultate dincolo de zece modele. Sunt respectate identificatorii exacti, punctele finale regionale, implementările private și modelele importate.
 - Validare: aplicația vizată, bibliotecă nativă, catalogul public și verificările de limbă sunt înregistrate în notele detaliate. Interfața este creată pentru Windows / macOS / Linux / Android / iOS. Aceste versiuni frontale nu certifică pachetele native sau inferențe pe fiecare dispozitiv.
-- Înainte de lansare: validați pachetele native reconstruite, constatările rămase privind securitatea/dependența și actualizarea reală 1.0.0 la 1.0.1. Disponibilitatea depinde de hardware, de accesul furnizorului și de platformă. Nu se revendică compatibilitatea universală a modelului, starea de vulnerabilitate zero sau publicația finalizată.
+- Disponibilitatea și verificările efectuate sunt enumerate mai jos. Funcțiile acceptate depind de hardware, de accesul furnizorului și de platformă. Constatările de securitate și limitele de validare a dispozitivelor native rămân documentate. Păstrați o copie de rezervă înainte de a actualiza.
 
 [Note detaliate, validare și lucrări rămase](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Descărcările publice rămân la 1.0.0. Următoarele îmbunătățiri sunt preg
 
 <!-- novera-release-1.0.1:end -->
 
-## Disponibilitate — 2026-11-03
+## Disponibilitate — 2026-11-07
 
-**Novera 1.0.0 este disponibil pentru Windows, Linux, macOS și Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Pachetele desktop, atât arhivele CLI, cât și semnăturile și manifestele de actualizare sunt publice și verificate.
+**Novera 1.0.1 este disponibil pentru Windows, Linux, macOS și Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Pachetele desktop, atât arhivele CLI, cât și semnăturile și manifestele de actualizare sunt publice și verificate.
 
 | Platformă | Disponibilitate |
 | --- | --- |
 | Windows x64 | Instalator public NSIS, actualizator semnat; instalarea și înlocuirea native verificate. |
 | Linux x64 | AppImage public, actualizator semnat; instalarea și înlocuirea native verificate. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, cu un canal de actualizare semnat dedicat. |
-| Windows ARM64 | [Instalator NSIS public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), motor de text CPU nativ; instalarea, înlocuirea și verificările canalului public verificate. |
-| Android ARM64 | [APK 1.0.0 semnat public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, lot implicit 512. Menținătorul confirmă că build-ul 1000012 funcționează pe telefonul său. Pachet curat fără conversații, modele sau chei personale API. [Dovezi și limitări](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Lansare oficială 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; actualizări semnate Novera. Nu notarizat de Apple; verificările automate au trecut separat pe ambele arhitecturi, verificările vizuale amânate. [Instalare și dovezi](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, cu un canal de actualizare semnat dedicat. |
+| Windows ARM64 | [Instalator NSIS public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), motor de text CPU nativ; instalarea, înlocuirea și verificările canalului public verificate. |
+| Android ARM64 | Android 1.0.1 este disponibil ca un APK ARM64 semnat, versiunea 1000013. Utilizează certificatul Novera existent și trece inspecția pachetului. Nu conține conversații personale, modele sau chei API. Instalarea și actualizarea pe un telefon rămân de testat. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Lansare oficială 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; actualizări semnate Novera. Nu notarizat de Apple; verificările automate au trecut separat pe ambele arhitecturi, verificările vizuale amânate. [Instalare și dovezi](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Build intern de simulator; semnare/provisionare Apple este necesară înainte de instalarea pe iPhone. [Urmărire](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 portabil | [Arhivă ZIP semnată](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); datele rămân în Data, înlocuirea Program semnată verificată. |
 | Web, MSI, Debian | Client Web găzduit și alte formate rămân interne; site-ul de prezentare Pages este disponibil. |
 
 Pe Mac, deschideți DMG și copiați Novera în Aplicații. Dacă prima lansare este blocată, permiteți Novera în **Setări Sistem → Confidențialitate și Securitate → Deschide Oricum**. [Instrucțiuni Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Semnăturile actualizatorului nu sunt Windows Authenticode sau notarierea Apple. Verificările manuale ale versiunii curente trec prin canalul public; o tranziție între două versiuni publice rămâne un test de lansare următoare. [Dovezi și limitări](docs/LAUNCH_STATUS.md).
+Semnăturile de actualizare sunt separate de Windows Authenticode și notarizarea Apple. Hashe-urile pachetelor, verificările native și testele de actualizare sunt documentate separat. O actualizare publică completă de la 1.0.0 la 1.0.1 este confirmată numai pentru scenariile înregistrate în raportul de lansare. [Dovezi și limitări](docs/LAUNCH_STATUS.md)
 
 Pe Android, se recomandă un telefon modern cu suficientă memorie pentru modele locale; folosiți un furnizor API pe dispozitive mai puțin puternice. Pentru căutare web, un context de cel puțin **token-uri 16K (16,384)** este recomandat, în mod consecvent pe toate versiunile.
 
@@ -143,7 +143,7 @@ Encoderul muzical Qwen și modelul de recuperare Qwen sunt **fișiere diferite**
 
 ## Furnizori de cloud
 
-Sursele pregătite conțin 43 profiluri de furnizor: 42 servicii cloud și TabbyAPI pentru un server local. Disponibilitatea și capabilitățile modelului depind de cont, regiune și API-ul acceptat. Catalogul este partajat de toate 104 limbi de interfață.
+Catalogul conține 43 profiluri de furnizor: 42 servicii cloud și TabbyAPI pentru un server local. Accesul la model și capabilitățile depind de cont, regiune și API-ul acceptat. Toate 104 limbi de interfață au acest catalog.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ Sursele pregătite conțin 43 profiluri de furnizor: 42 servicii cloud și Tabby
 
 ### Imagine, muzică și video
 
-Catalogul de creații pregătit conține 58 presetări de la 20 furnizori: 30 imagine, 24 videoclip și 4 presetări muzicale. Tabelele de mai jos listează rutele integrate; nu reproduc fiecare ofertă comercială.
+Catalogul de creații conține 58 presetări de la 20 furnizori: 30 imagine, 24 video și 4 presetări muzicale. Tabelele de mai jos prezintă modelele exacte și identificatorii acceptați de adaptoarele integrate.
 
 | Furnizor | Ieșiri în Novera | Modele de catalog |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Acestea sunt direcții de contribuție și dezvoltare, nu o afirmație că fieca
 
 ## Starea proiectului
 
-**Novera 1.0.0 este disponibil pentru Windows, Linux, macOS și Android.** Captura de ecran arată o aplicație Windows compilată local de deținătorul (maintainer). Schimbările sursă, testele țintite și validarea hardware sunt documentate separat; aceasta nu validează fiecare model, platformă sau cont cloud.
+**Novera 1.0.1 este disponibil pentru Windows, Linux, macOS și Android.** Captura de ecran arată o aplicație Windows compilată local de deținătorul (maintainer). Schimbările sursă, testele țintite și validarea hardware sunt documentate separat; aceasta nu validează fiecare model, platformă sau cont cloud.
 
 Construirile manuale GitHub Actions sunt activate pentru toate cele unsprezece variante de distribuție. Urmăriți [rezultatele compilării și descărcările de candidați verificați](docs/CI_DISTRIBUTIONS.md); disponibilitatea este înregistrată separat pentru fiecare platformă. Candidații sunt distincti de lansările de producție semnate. Cerințele de distribuție sunt descrise în [politica oficială de lansare](OFFICIAL_RELEASES.md) și [pagina de lansări](https://github.com/TRON-ABS/Novera/releases). Candidații existenți dezactivați pentru actualizator rămân interni. Lansările publice necesită un mecanism de actualizare configurat și verificat; [verificările de semnătură desktop și cerințele de lansare rămase sunt documentate](docs/LAUNCH_STATUS.md).
 

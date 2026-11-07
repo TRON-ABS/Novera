@@ -16,7 +16,10 @@ test('published showcase uses reviewed versions without carrying forward the old
   assert.equal(result.androidVersionCode, 1000013)
   assert.equal(result.androidStatus, 'package-verified-device-pending')
   assert.match(html, /releases\/tag\/v1\.0\.1/)
-  assert.doesNotMatch(html, /releases\/(?:tag|download)\/v1\.0\.0|confirme le bon fonctionnement du build/)
+  assert.doesNotMatch(html, /releases\/(?:tag|download)\/v1\.0\.0(?!-windows-portable)|confirme le bon fonctionnement du build/)
+  assert.match(html, /v1\.0\.0-windows-portable/)
+  assert.match(html, /La version portable Windows x64 1\.0\.0 est disponible/)
+  assert.match(html, /Novera Web : préparation expérimentale/)
   assert.match(html, /Installation et mise à jour sur téléphone restent à tester/)
 })
 

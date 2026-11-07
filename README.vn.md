@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Bạn mô tả mục tiêu của bạn. Novera chuẩn bị tài nguyên, thực hiện nhiệm vụ và sắp xếp kết quả.</strong></p>
   <p>Trợ lý AI độc lập của TRON-ABS, từ lần ra mắt đầu tiên đến kết quả: văn bản, hình ảnh, âm nhạc và video trong một cuộc trò chuyện.</p>
-  <p><strong>Có sẵn cho Windows, Linux, macOS và Android</strong> · Nguồn đã chuẩn bị: 104 ngôn ngữ giao diện · 42 nhà cung cấp đám mây · 58 cài đặt trước phương tiện · Apache 2.0</p>
+  <p><strong>Có sẵn cho Windows, Linux, macOS và Android</strong> · 104 ngôn ngữ giao diện · 42 nhà cung cấp đám mây · 58 cài đặt trước phương tiện · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Tự động hóa</a> · <a href="#one-dashboard-for-every-creation">Trang tổng quan</a> · <a href="#local-models-in-use">Các mẫu AI chạy cục bộ trên thiết bị của bạn</a> · <a href="#hub-and-compatible-models">Định dạng & Trung tâm</a> · <a href="#cloud-providers">Đám mây</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Đóng góp</a></p>
   <p>Liên hệ chính thức: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Hồ sơ xã hội Novera chính thức: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Đang chuẩn bị phiên bản 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Lượt tải xuống công khai vẫn ở mức 1.0.0. Những cải tiến sau đây được chuẩn bị trong các nguồn dành cho 1.0.1; họ yêu cầu các gói được xây dựng lại, kiểm tra phát hành và xuất bản. Cập nhật tài liệu này không cập nhật các ứng dụng đã cài đặt.
+Novera 1.0.1 có sẵn cho các nền tảng được liệt kê bên dưới. Tải xuống gói cho hệ thống của bạn hoặc sử dụng kênh cập nhật đã ký của nó. Bản cập nhật cài đặt hiện có khi bạn cài đặt gói mới hoặc chấp nhận bản cập nhật.
 
 - Bảo mật: quyền gốc chặt chẽ hơn cho các trang từ xa, xác thực cho API mạng và công cụ máy chủ, lưu trữ và di chuyển bí mật được bảo vệ, truy cập tệp/phương tiện an toàn hơn, phân tích cú pháp bảng tính và xây dựng tập lệnh. Các phần phụ thuộc được hiển thị đã được cập nhật; những lời khuyên còn lại được theo dõi một cách công khai.
 - Quyền riêng tư: số liệu thống kê và báo cáo lỗi yêu cầu có sự đồng ý riêng và vẫn tắt theo mặc định. Các bản dựng bao gồm cấu hình đích được ghi lại. Chẩn đoán kỹ thuật được lọc; người dùng giữ quyền kiểm soát kích hoạt.
@@ -41,7 +41,7 @@ Danh mục API
 
 Xác thực
 - : kiểm tra ứng dụng được nhắm mục tiêu, thư viện gốc, danh mục công cộng và ngôn ngữ được ghi lại trong ghi chú chi tiết. Giao diện xây dựng cho Windows / macOS / Linux / Android / iOS. Các bản dựng giao diện người dùng này không chứng nhận các gói gốc hoặc suy luận trên mọi thiết bị.
-- Trước khi phát hành: xác thực các gói gốc được xây dựng lại, các phát hiện về bảo mật/phụ thuộc còn lại và bản cập nhật thực từ 1.0.0 đến 1.0.1. Tính khả dụng phụ thuộc vào phần cứng, quyền truy cập của nhà cung cấp và nền tảng. Không có khả năng tương thích mô hình phổ quát, trạng thái không có lỗ hổng hoặc xuất bản đã hoàn thành nào được yêu cầu.
+- Kiểm tra tính sẵn có và hoàn thành được liệt kê dưới đây. Các tính năng được hỗ trợ phụ thuộc vào phần cứng, quyền truy cập của nhà cung cấp và nền tảng. Các phát hiện bảo mật và giới hạn xác thực thiết bị gốc vẫn được ghi lại. Giữ một bản sao lưu trước khi cập nhật.
 
 [Ghi chú chi tiết, xác thực và công việc còn lại](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -49,25 +49,25 @@ Xác thực
 
 <!-- novera-release-1.0.1:end -->
 
-## Sẵn có — 2026-11-03
+## Sẵn có — 2026-11-07
 
-**Novera 1.0.0 có sẵn cho Windows, Linux, macOS và Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Các gói máy tính để bàn, cả kho lưu trữ, chữ ký và bảng kê khai cập nhật CLI đều được công khai và xác minh.
+**Novera 1.0.1 có sẵn cho Windows, Linux, macOS và Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Các gói máy tính để bàn, cả kho lưu trữ, chữ ký và bảng kê khai cập nhật CLI đều được công khai và xác minh.
 
 | Nền tảng | Sẵn có |
 | --- | --- |
 | Windows x64 | Trình cài đặt NSIS công khai, trình cập nhật đã ký; cài đặt gốc và thay thế đã được xác minh. |
 | Linux x64 | AppImage công khai, trình cập nhật đã ký; cài đặt gốc và thay thế đã được xác minh. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, với kênh cập nhật có chữ ký riêng. |
-| Windows ARM64 | [Trình cài đặt NSIS công khai](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), công cụ văn bản CPU gốc; cài đặt, thay thế và kiểm tra kênh công cộng đã được xác minh. |
-| Android ARM64 | [APK 1.0.0 được ký công khai](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, lô mặc định 512. Người bảo trì xác nhận bản dựng 1000012 hoạt động trên điện thoại của họ. Gói gọn gàng không có cuộc hội thoại, mô hình hoặc khóa API cá nhân. [Bằng chứng và hạn chế](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Bản phát hành 1.0.0 DMG chính thức](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Cập nhật có chữ ký Novera. Không được Apple công chứng; kiểm tra tự động được chuyển riêng trên cả hai kiến ​​trúc, kiểm tra trực quan bị trì hoãn. [Cài đặt và bằng chứng](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, với kênh cập nhật có chữ ký riêng. |
+| Windows ARM64 | [Trình cài đặt NSIS công khai](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), công cụ văn bản CPU gốc; cài đặt, thay thế và kiểm tra kênh công cộng đã được xác minh. |
+| Android ARM64 | Android 1.0.1 có sẵn dưới dạng APK ARM64 đã ký, bản dựng 1000013. Nó sử dụng chứng chỉ Novera hiện có và vượt qua quá trình kiểm tra gói. Nó không chứa các cuộc trò chuyện cá nhân, mô hình hoặc khóa API. Việc cài đặt và cập nhật trên điện thoại vẫn đang được thử nghiệm. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Bản phát hành 1.0.1 DMG chính thức](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Cập nhật có chữ ký Novera. Không được Apple công chứng; kiểm tra tự động được chuyển riêng trên cả hai kiến ​​trúc, kiểm tra trực quan bị trì hoãn. [Cài đặt và bằng chứng](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Bản dựng mô phỏng nội bộ; Cần phải có chữ ký/cung cấp của Apple trước khi cài đặt iPhone. [Theo dõi](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 di động | [Đã ký kho lưu trữ ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); dữ liệu vẫn ở trong Data, đã xác minh thay thế Program đã ký. |
 | Web, MSI, Debian | Máy khách Web được lưu trữ và các định dạng khác vẫn giữ nguyên ở nội bộ; Trang web trình bày Pages có sẵn. |
 
 Trên máy Mac, mở DMG và sao chép Novera vào Ứng dụng. Nếu lần khởi chạy đầu tiên bị chặn, hãy cho phép Novera vào **Cài đặt hệ thống → Quyền riêng tư và bảo mật → Vẫn mở**. [Hướng dẫn của Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Chữ ký của người cập nhật không phải là Windows Authenticode hoặc công chứng của Apple. Kiểm tra phiên bản hiện tại theo cách thủ công được chuyển qua kênh công cộng; quá trình chuyển đổi giữa hai phiên bản công khai vẫn là bản thử nghiệm phát hành tiếp theo. [Bằng chứng và hạn chế](docs/LAUNCH_STATUS.md).
+Chữ ký của người cập nhật tách biệt với Windows Authenticode và công chứng của Apple. Băm gói, kiểm tra gốc và kiểm tra cập nhật được ghi lại riêng biệt. Bản nâng cấp công khai hoàn chỉnh từ 1.0.0 lên 1.0.1 chỉ được xác nhận cho các trường hợp được ghi trong báo cáo phát hành. [Bằng chứng và hạn chế](docs/LAUNCH_STATUS.md)
 
 Trên Android, điện thoại hiện đại có đủ bộ nhớ được khuyến nghị cho các kiểu máy địa phương; sử dụng nhà cung cấp API trên các thiết bị kém mạnh mẽ hơn. Đối với tìm kiếm trên web, ngữ cảnh ít nhất **Mã thông báo 16K (16,384)** được khuyến nghị, nhất quán trên các phiên bản.
 
@@ -149,7 +149,7 @@ Bộ mã hóa âm nhạc Qwen và mô hình truy xuất Qwen là **các tệp kh
 
 ## Nhà cung cấp đám mây
 
-Các nguồn đã chuẩn bị chứa 43 hồ sơ nhà cung cấp: 42 dịch vụ đám mây và TabbyAPI cho máy chủ cục bộ. Tính khả dụng và khả năng của mô hình tùy thuộc vào tài khoản, khu vực và API được hỗ trợ. Danh mục được chia sẻ bởi tất cả ngôn ngữ giao diện 104.
+Danh mục này chứa hồ sơ nhà cung cấp 43: dịch vụ đám mây 42 và TabbyAPI cho máy chủ cục bộ. Quyền truy cập và khả năng của mô hình tùy thuộc vào tài khoản, khu vực và API được hỗ trợ. Tất cả ngôn ngữ giao diện 104 đều dùng chung danh mục này.
 
 | | | |
 | --- | --- | --- |
@@ -170,7 +170,7 @@ Các nguồn đã chuẩn bị chứa 43 hồ sơ nhà cung cấp: 42 dịch v�
 
 ### Hình ảnh, âm nhạc và video
 
-Danh mục tác phẩm đã chuẩn bị sẵn chứa 58 cài đặt trước từ nhà cung cấp 20: hình ảnh 30, video 24 và cài đặt trước nhạc 4. Các bảng dưới đây liệt kê các tuyến đường tích hợp; họ không sao chép mọi sản phẩm thương mại.
+Danh mục tác phẩm chứa 58 cài đặt trước từ nhà cung cấp 20: hình ảnh 30, video 24 và cài đặt trước nhạc 4. Các bảng bên dưới liệt kê các mẫu và mã nhận dạng chính xác được hỗ trợ bởi các bộ điều hợp tích hợp.
 
 | Nhà cung cấp | Đầu ra ở dạng Novera | Mẫu catalogue |
 | --- | --- | --- |
@@ -301,7 +301,7 @@ Ngoài trường học và giáo dục, tham vọng của chúng tôi là giúp 
 
 ## Tình trạng dự án
 
-**Novera 1.0.0 có sẵn cho Windows, Linux, macOS và Android.** Ảnh chụp màn hình hiển thị ứng dụng Windows được nhà bảo trì biên dịch cục bộ. Các thay đổi về nguồn, kiểm tra mục tiêu và xác thực phần cứng được ghi lại riêng biệt; điều này không xác thực mọi mô hình, nền tảng hoặc tài khoản đám mây.
+**Novera 1.0.1 có sẵn cho Windows, Linux, macOS và Android.** Ảnh chụp màn hình hiển thị ứng dụng Windows được nhà bảo trì biên dịch cục bộ. Các thay đổi về nguồn, kiểm tra mục tiêu và xác thực phần cứng được ghi lại riêng biệt; điều này không xác thực mọi mô hình, nền tảng hoặc tài khoản đám mây.
 
 Bản dựng GitHub Actions thủ công được bật cho tất cả 11 biến thể phân phối. Theo dõi [xây dựng kết quả và tải xuống ứng viên đã được xác minh](docs/CI_DISTRIBUTIONS.md); tính khả dụng được ghi lại riêng cho từng nền tảng. Các ứng cử viên khác biệt với các bản phát hành sản xuất đã ký. Yêu cầu phân phối được mô tả trong [chính sách phát hành chính thức](OFFICIAL_RELEASES.md) và [trang phát hành](https://github.com/TRON-ABS/Novera/releases). Các ứng cử viên hiện tại bị vô hiệu hóa trình cập nhật vẫn là nội bộ. Các bản phát hành công khai yêu cầu cơ chế cập nhật được định cấu hình và xác minh; [Kiểm tra chữ ký trên máy tính để bàn và các yêu cầu khởi chạy còn lại đều được ghi lại](docs/LAUNCH_STATUS.md).
 

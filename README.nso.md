@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>O hlalosa. Novera e lokišetša, e matha le go rulaganya.</strong></p>
   <p>Mothuši yo a ikemetšego AI ke TRON-ABS, go tloga go thakgolwa la mathomo go fihla dipoelong: sengwalwa, diswantšho, mmino le bidio poledišanong e tee.</p>
-  <p><strong>E hwetšagala bakeng sa Windows, Linux, macOS le Android</strong> · Mehlodi ye e lokišitšwego: 104 maleme a segokanyimmediamentsi sa sebolokigolo · 42 baabi ba leru · 58 dipeakanyo tša ditaba tša pele · Apache 2.0</p>
+  <p><strong>E hwetšagala bakeng sa Windows, Linux, macOS le Android</strong> · 104 maleme a segokanyimmediamentsi sa sebolokigolo · 42 baabi ba leru · 58 dipeakanyo tša pele ga methopo ya ditaba · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Go itirela</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Mehlala ya selegae</a> · <a href="#hub-and-compatible-models">Difomete & Hub</a> · <a href="#cloud-providers">Leru</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Tsenya letsogo</a></p>
   <p>Ikgokaganye ya semmušo: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Diprofaele tša semmušo tša Novera tša leago: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -18,10 +18,10 @@ Data le sephiri: [phetho ya selegae, telemetry ya boikgethelo, dipego tša dipho
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Go lokišetša phetolelo 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Di-download tša setšhaba di dula di le go 1.0.0. Dikaonafatšo tše di latelago di lokišitšwe methopong ya 1.0.1; di nyaka diphuthelwana tše di agilwego lefsa, ditšheke tša go lokollwa le phatlalatšo. Go mpshafatša ditokomane tše ga go mpshafatše ditirišo tše di hlomilwego.
+Novera 1.0.1 e hwetšagala bakeng sa diforamo tšeo di lokeleditšwego ka mo tlase. Taonelouta sephuthelwana sa tshepedišo ya gago goba o šomiše mokero wa yona wa mpshafatšo wo o saennwego. Ditlhomo tše di lego gona di mpshafatša ge o tsenya sephuthelwana se sefsa goba o amogela mpshafatšo.
 
 - Tšhireletšo: ditumelelo tša setlogo tše di tiilego tša matlakala a kgole, netefatšo ya di-API tša netweke le didirišwa tša seva, polokelo ya sephiri ye e šireleditšwego le go huduga, phihlelelo ya faele / methopo ya ditaba ye e bolokegilego, go arola dispreadsheet le go aga dingwalwa. Ditshepetšo tše di pepentšhitšwego di mpshafaditšwe; dikeletšo tše di šetšego di latišišwa pepeneneng.
 - Sephiri: dipalopalo le dipego tša diphošo di nyaka tumelelo ye e aroganego gomme di dula di timilwe ka go ikemela. Di-builds di akaretša peakanyo ya lefelo la go ya leo le ngwadilwego. Diteko tša setegeniki di a sefiwa; basebedisi ba boloka taolo ya kenya tshebetsong.
@@ -37,7 +37,7 @@ Di-download tša setšhaba di dula di le go 1.0.0. Dikaonafatšo tše di latelag
 - Matšeliso: ditaolo tša tlase di a phuhlama mola tsenyo e dula e bonagala. Ditaolo tša maekrofouno le tša go utolla tše di kopanego, konope ya modumo ka fase ga maekrofouno, dipeakanyo tša mmino tše di arabelago le dileibole tša dikarolo tše di fetoletšwego di kaonafatša tšhomišo go diskrini tše nnyane.
 - Dipuku tša dipuku tša API: 43 diprofaele tša moabi, go akaretšwa TabbyAPI ka mo nageng, ka dikgetho tša poledišano le tša boraditaba tše di mpshafaditšwego. Dikeno tše mpsha di akaretša GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 le GPT Image 2.6, Gemini Omni 1.2, FLUX 3 moo di thekgwago. Refresh ga e sa uta dipoelo tše di fetago dika tše lesome. Dišupo tše di nepagetšego, mafelelo a selete, go tsenywa tirišong ga poraebete le dika tše di tšwago dinageng tša ka ntle di a hlompšha.
 - Netefatšo: tirišo ye e nepišitšwego, bokgobapuku bja setlogo, lelokelelo la setšhaba le ditlhahlobo tša polelo di rekotwa ka dinoutse tše di tletšego. Segokaganyi se aga bakeng sa Windows / macOS / Linux / Android / iOS. Dihaga tše tša frontend ga di netefatše diphuthelwana tša setlogo goba phetho go sedirišwa se sengwe le se sengwe.
-- Pele o lokollwa: netefatša diphuthelwana tša setlogo tšeo di agilwego lefsa, dikhwetšo tša tšhireletšo/go ithekga tše di šetšego le mpshafatšo ya nnete ya 1.0.0 go 1.0.1. Go hwetšagala go ithekgile ka didirišwa tša go šoma, phihlelelo ya moabi le sefala. Ga go na go sepelelana ga mohlala wa lefase ka bophara, maemo a go se be kotsing goba phatlalatšo ye e phethilwego yeo e bolelwago.
+- Go hwetšagala le ditšheke tše di phethilwego di lokeleditšwe ka mo tlase. Dikarolo tše di thekgwago di ithekgile ka didirišwa tša go šoma, phihlelelo ya moabi le sefala. Diphetho tša tšhireletšo le mellwane ya netefatšo ya sedirišwa sa setlogo di sa dutše di ngwadilwe. Boloka bekapo pele o mpshafatša.
 
 [Dintlha tše di tletšego, netefatšo le mošomo wo o šetšego](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Di-download tša setšhaba di dula di le go 1.0.0. Dikaonafatšo tše di latelag
 
 <!-- novera-release-1.0.1:end -->
 
-## Go hwetšagala — 2026-11-03
+## Go hwetšagala — 2026-11-07
 
-**Novera 1.0.0 e hwetšagala bakeng sa Windows, Linux, macOS le Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Diphuthelwana tša komporong, bobedi CLI dipolokelo, ditshaeno le dipontšho tša mpshafatšo ke tša setšhaba ebile di netefaditšwe.
+**Novera 1.0.1 e hwetšagala bakeng sa Windows, Linux, macOS le Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Diphuthelwana tša komporong, bobedi CLI dipolokelo, ditshaeno le dipontšho tša mpshafatšo ke tša setšhaba ebile di netefaditšwe.
 
 | Sefala sa | Go hwetšagala |
 | --- | --- |
 | Windows x64 | Sehlomathiši sa setšhaba NSIS, mompshafatši yo a saennwego; tlhomamiso ya setlogo le go tšeelwa legato netefaditšwe. |
 | Linux x64 | Setšhaba AppImage, mompshafatši yo a saennwego; tlhomamiso ya setlogo le go tšeelwa legato netefaditšwe. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, ka inehetseng saennweng update lam kanale. |
-| Windows ARM64 | [Sehlomathiši sa setšhaba NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), entšene ya sengwalwa ya setlogo CPU; tlhomamiso, phetolo le sechaba-kanale ditshekatsheko netefatswa. |
-| Android ARM64 | [Setšhaba se saennwe APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, sehlopha sa kamehla 512. Mohlokomedi o tiišetša go aga 1000012 go šoma mo founong ya bona. Hlwekiša sephuthelwana se se se nago dipoledišano, dika goba dinotlelo tša motho ka noši API. [Bohlatse le mellwane](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Tokollo ya semmušo ya 1.0.0 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-diapdeite tše di saennwego. E sego Apple yeo e ngwadilwego ka notari; ditlhahlobo jarolla ka ho iketsa fetisoa ka thoko ka mehaho bobeli, ditsheke pono diegišwa. [Go hlongwa le bohlatse](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, ka inehetseng saennweng update lam kanale. |
+| Windows ARM64 | [Sehlomathiši sa setšhaba NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), entšene ya sengwalwa ya setlogo CPU; tlhomamiso, phetolo le sechaba-kanale ditshekatsheko netefatswa. |
+| Android ARM64 | Android 1.0.1 e fumaneha e le saennweng ARM64 APK, haha ​​1000013. E šomiša setifikeiti sa Novera seo se lego gona gomme e feta tlhahlobo ya sephuthelwana. Ga e na dipoledišano tša motho ka noši, dika goba dinotlelo tša API. Go tsenya le go mpshafatša mo founong go sa swanetše go lekwa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Tokollo ya semmušo ya 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-diapdeite tše di saennwego. E sego Apple yeo e ngwadilwego ka notari; ditlhahlobo jarolla ka ho iketsa fetisoa ka thoko ka mehaho bobeli, ditsheke pono diegišwa. [Go hlongwa le bohlatse](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Ka hare simulator haha; Apple saena / kabo e hlokahala pele iPhone tlhomamiso. [Go latela](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 e nkehang habobebe | [E saennwe ZIP polokelo](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable), e lego ; ya data lula ka Data, saennweng Program phetolo netefatsoa. |
 | Wepesaete, MSI, Debian | Hosted Web moreki le difomete tse ling lula ka hare; Pages sebaka sa tlhagišo se a hwetšagala. |
 
 Go Mac, bula DMG gomme o kopiše Novera go Ditirišo. Ge e le gore go tsebagatšwa ga mathomo go thibetšwe, dumelela Novera go tsena **Dipeakanyo tša Tshepedišo → Sephiri & Tšhireletšo → Bula Le ge go le bjalo**. [Ditaelo tša apole](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Ditshaeno tša mompshafatši ga se Windows Authenticode goba notari ya Apple. Ditlhahlobo tša phetolelo ya bjale ka seatla di feta kgahlanong le mokero wa setšhaba; phetogo magareng ga diphetolelo tše pedi tša setšhaba e sa dutše e le teko ya go lokollwa mo go latelago. [Bohlatse le mellwane](docs/LAUNCH_STATUS.md).
+Ditshaeno tša updater di arogile go tšwa go Windows Authenticode le Apple notarization. Dihash tša sephuthelwana, ditšheke tša setlogo le diteko tša mpshafatšo di ngwadilwe ka thoko. Ntlafatšo ya setšhaba ye e feletšego ya 1.0.0 go ya go 1.0.1 e tiišetšwa fela bakeng sa maemo ao a ngwadilwego ka pegong ya tokollo. [Bohlatse le mellwane](docs/LAUNCH_STATUS.md)
 
 Go Android, mogala wa sebjalebjale wo o nago le memori ye e lekanego o kgothaletšwa bakeng sa dika tša lefelong leo; diriša moabi wa API go didirišwa tšeo di sego matla kudu. Bakeng sa web search, seemo sa bonyane **16K ditšhupetšo (16,384) .** e kgothaletšwa, ka go se fetoge go ralala le diphetolelo.
 
@@ -145,7 +145,7 @@ Sekhoutu sa mmino sa Qwen le mohlala wa go bušetša Qwen ke **difaele tse fapan
 
 ## Baabi ba leru
 
-Methopo ye e lokišitšwego e na le 43 diprofaele tša moabi: 42 ditirelo tša leru le TabbyAPI tša seva ya selegae. Go hwetšagala ga mohlala le bokgoni di ithekgile ka akhaonto, selete le API yeo e thekgwago. Lenaneo le abelanwa ke maleme ka moka a segokanyimmediamentsi sa sebolokigolo 104.
+Lenaneo le na le 43 diprofaele tša moabi: 42 ditirelo tša leru le TabbyAPI bakeng sa seva ya selegae. Phihlelelo ya mohlala le bokgoni di ithekgile ka akhaonto, selete le API ye e thekgwago. Maleme ka moka a segokanyimmediamentsi sa sebolokigolo 104 a abelana lelokelelo le.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Methopo ye e lokišitšwego e na le 43 diprofaele tša moabi: 42 ditirelo tša l
 
 ### Setšoantšo, mmino le video
 
-Lenaneo la tlholo leo le lokišitšwego le na le 58 dipeakanyo tša pele go tšwa go 20 baabi: 30 seswantšho, 24 bidio le 4 dipeakanyo tša mmino. Ditafola tše di lego ka mo tlase di lokeletša ditsela tše di kopantšwego; ga ba tšweletše gape sehlabelo se sengwe le se sengwe sa kgwebo.
+Lenaneo la tlholo le na le 58 dipeakanyo tša pele go tšwa go 20 baabi: 30 seswantšho, 24 bidio le 4 dipeakanyo tša mmino. Ditafola tše di lego ka mo tlase di lokeletša dika tše di nepagetšego le ditšhupetšo tšeo di thekgwago ke di-adapter tše di kopantšwego.
 
 | Moabi | Ditšweletšwa ka go Novera . | Dika tša lelokelelo |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ Tše ke ditaelo tša go tsenya letsogo le tlhabollo, e sego kgopelo ya gore kgop
 
 ## Boemo bja porojeke
 
-**Novera 1.0.0 e hwetšagala bakeng sa Windows, Linux, macOS le Android.** Seswantšho sa skrine se bontšha tirišo ya Windows yeo e kgobokeditšwego ka mo nageng ke mohlokomedi. Diphetogo tša mothopo, diteko tše di nepišitšwego le netefatšo ya didirišwa tša go šoma di ngwadilwe ka thoko; se ga se netefatše mohlala o mongwe le o mongwe, sefala goba akhaonto ya leru.
+**Novera 1.0.1 e hwetšagala bakeng sa Windows, Linux, macOS le Android.** Seswantšho sa skrine se bontšha tirišo ya Windows yeo e kgobokeditšwego ka mo nageng ke mohlokomedi. Diphetogo tša mothopo, diteko tše di nepišitšwego le netefatšo ya didirišwa tša go šoma di ngwadilwe ka thoko; se ga se netefatše mohlala o mongwe le o mongwe, sefala goba akhaonto ya leru.
 
 Di-build tša ka seatla GitHub Actions di kgontšhitšwe bakeng sa diphetogo ka moka tše lesometee tša kabo. Latela ka [go aga dipoelo le di-download tša nkgetheng tše di netefaditšwego](docs/CI_DISTRIBUTIONS.md); go hwetšagala go rekotwa ka thoko bakeng sa sefala se sengwe le se sengwe. Balekwa ba fapane le ditokollo tša tšweletšo tše di saennwego. Dinyakwa tša kabo di hlalošitšwe go [pholisi ya semmušo ya go lokollwa](OFFICIAL_RELEASES.md) le [e lokolla letlakala](https://github.com/TRON-ABS/Novera/releases). Bonkgetheng ba gona bjale bao ba šitišitšwego ke updater ba dula ba le ka gare. Ditokollo tša setšhaba di nyaka mokgwa wa mpshafatšo wo o rulagantšwego le wo o netefaditšwego; [ditlhahlobo tša mosaeno wa komporong le dinyakwa tše di šetšego tša go tsebagatša di ngwadilwe](docs/LAUNCH_STATUS.md).
 

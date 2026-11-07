@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ua hlalosa. Novera e a lokisa, e tsamaisa le ho hlophisa.</strong></p>
   <p>Mothusi ea ikemetseng AI ka TRON-ABS, ho tloha qalong ho fihlela liphetho: mongolo, litšoantšo, 'mino le lifitio moqoqong o le mong.</p>
-  <p><strong>E fumaneha bakeng sa Windows, Linux, macOS le Android</strong> · Mehloli e lokisitsoeng: 104 lipuo tsa interface · 42 bafani ba cloud · 58 litlhophiso tsa media · Apache 2.0</p>
+  <p><strong>E fumaneha bakeng sa Windows, Linux, macOS le Android</strong> · 104 lipuo tse sebelisoang · 42 bafani ba cloud · 58 litlhophiso tsa mecha ea litaba · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Boiketsetso</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Mefuta ea lehae</a> · <a href="#hub-and-compatible-models">Mefuta le Sebaka</a> · <a href="#cloud-providers">Leru</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Kenya letsoho</a></p>
   <p>Khokahano ea semmuso: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Boemo ba Novera ba semmuso: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -18,10 +18,10 @@ Data le lekunutu: [maikutlo a lehae, telemetry ea boikhethelo, litlaleho tsa lip
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Ho lokisa mofuta 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Likhoutu tsa batho kaofela li salla ho 1.0.0. Lintlafatso tse latelang li lokisitsoe mehloling ea 1.0.1; li hloka liphutheloana tse hahiloeng bocha, licheke tsa tokollo le phatlalatso. Ho nchafatsa litokomane tsena ha ho ntlafatse lits'ebetso tse kentsoeng.
+Novera 1.0.1 ea fumaneha bakeng sa lifolamo tse thathamisitsoeng ka tlase. Khoasolla sephutheloana sa sistimi ea hau kapa sebelisa kanale ea eona ea ntlafatso e saenneng. Lisebelisoa tse seng li ntse li le teng lia ntlafatsoa ha u kenya sephutheloana se secha kapa u amohela ntlafatso.
 
 - Ts'ireletso: litumello tse thata tsa tlhaho bakeng sa maqephe a hole, netefatso ea li-API tsa marang-rang le lisebelisoa tsa li-server, polokelo ea lekunutu e sirelelitsoeng le ho falla, mokhoa o sireletsehileng oa ho fumana lifaele/ media, ho arola li-spreadsheet le ho aha lingoliloeng. Litšepe tse pepesitsoeng li ntlafalitsoe; likeletso tse setseng li lateloa pepeneneng.
 - Lekunutu: lipalopalo le litlaleho tsa liphoso li hloka tumello e arohaneng 'me li lule li tiisitsoe. Mehaho e kenyelletsa tlhophiso e ngotsoeng ea sebaka seo u eang ho sona. Tlhahlobo ea tekheniki e tlhotliloeng; basebelisi ba boloka taolo ea ho kenya tshebetsong.
@@ -37,7 +37,7 @@ Likhoutu tsa batho kaofela li salla ho 1.0.0. Lintlafatso tse latelang li lokisi
 - Matšeliso: litaolo tse tlase lia putlama ha tlhahiso e ntse e bonahala. Maekerofounu e kopaneng le taolo ea ho senola, konopo ea molumo tlas'a maekrofono, litlhophiso tsa 'mino o arabelang le li-label tsa likarolo tse fetoletsoeng li ntlafatsa ts'ebeliso ea li-skrini tse nyane.
 - Likhatiso tsa API: 43 liprofaele tsa batsweletsi, ho kenyeletsoa TabbyAPI sebakeng sa heno, ka lipuisano tse nchafalitsoeng le mecha ea litaba. Kenyelletso e ncha e kenyelletsa GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 le GPT Image 2.6, Gemini Omni 1.2, FLUX 3 moo e tšehetsoang. Refresh ha e sa pata liphetho ho feta mefuta e leshome. Litlhahiso tse nepahetseng, libaka tsa ho qetela tsa libaka, lipehelo tsa poraefete le mefuta e tsoang kantle ho naha lia hlomphuoa.
 - Netefatso: ts'ebeliso e lebisitsoeng, laeborari ea lehae, lethathamo la libuka tsa sechaba le licheke tsa lipuo li tlalehiloe ka botlalo. Khokahano e hahela Windows / macOS / Linux / Android / iOS. Mehaho ena ea li-frontend ha e netefatse liphutheloana tsa tlhaho kapa tlhahiso-leseling ho sesebelisoa se seng le se seng.
-- Pele o lokolloa: netefatsa liphutheloana tse hahiloeng bocha, liphetho tse setseng tsa ts'ireletso/botšepehi le lintlha tsa sebele tsa 1.0.0 ho 1.0.1. Ho fumaneha ho itšetlehile ka hardware, phihlello ea mofani le sethala. Ha ho na litšebelisano tsa mefuta eohle, boemo ba ho se sireletsehe kapa phatlalatso e phethiloeng e tsekoang.
+- Boteng le licheke tse phethiloeng li thathamisitsoe ka tlase. Likarolo tse tšehelitsoeng li ipapisitse le lisebelisoa, phihlello ea mofani le sethala. Liphuputso tsa ts'ireletso le meeli ea netefatso ea lisebelisoa tsa lehae li lula li ngotsoe. Boloka bekapo pele o apdeita.
 
 [Lintlha tse felletseng, netefatso le mosebetsi o setseng](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Likhoutu tsa batho kaofela li salla ho 1.0.0. Lintlafatso tse latelang li lokisi
 
 <!-- novera-release-1.0.1:end -->
 
-## Ho fumaneha — 2026-11-03
+## Ho fumaneha — 2026-11-07
 
-**Novera 1.0.0 e teng bakeng sa Windows, Linux, macOS le Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Liphutheloana tsa Desktop, li-archive tsa CLI ka bobeli, li-signature le lipontšo tsa ntlafatso li fumaneha phatlalatsa ebile li netefalitsoe.
+**Novera 1.0.1 e teng bakeng sa Windows, Linux, macOS le Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Liphutheloana tsa Desktop, li-archive tsa CLI ka bobeli, li-signature le lipontšo tsa ntlafatso li fumaneha phatlalatsa ebile li netefalitsoe.
 
 | Sethala | Ho fumaneha |
 | --- | --- |
 | Windows x64 | Sehokelo sa Sechaba NSIS, sentlafatsa se saenneng; ho kenngoa le ho nkela sebaka sa matsoalloa ho netefalitsoe. |
 | Linux x64 | Sechaba AppImage, sentlafatsi se saenneng; ho kenngoa le ho nkela sebaka sa matsoalloa ho netefalitsoe. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, e nang le mocha oa ntlafatso o saenneng. |
-| Windows ARM64 | [Sehokelo sa Sechaba NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), enjene ea mongolo ea CPU; ho kenngoa, ho nchafatsa le ho hlahloba mocha oa sechaba ho netefalitsoe. |
-| Android ARM64 | [E saennoe ke sechaba APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, beche ea kamehla 512. Mohlokomeli o tiisa hore mohaho oa 1000012 o sebetsa mohaleng oa hae. Hloekisa thepa ntle le lipuisano, mefuta kapa linotlolo tsa hau tsa API. [Bopaki le meeli](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [1.0.0 DMG e lokollotsoeng](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Lintlafatso tse saenneng ka Novera. Eseng Apple notarized; licheke tsa othomathiki li fetisitsoe ka thoko ho meaho ka bobeli, licheke tsa pono li chechisitsoe morao. [Ho kenya le bopaki](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, e nang le mocha oa ntlafatso o saenneng. |
+| Windows ARM64 | [Sehokelo sa Sechaba NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), enjene ea mongolo ea CPU; ho kenngoa, ho nchafatsa le ho hlahloba mocha oa sechaba ho netefalitsoe. |
+| Android ARM64 | Android 1.0.1 ea fumaneha e le APK ea ARM64 e saennoeng, haha ​​1000013. E sebelisa setifikeiti sa hona joale sa Novera 'me e feta tlhahlobo ea thepa. Ha e na lipuisano tsa botho, mehlala kapa linotlolo tsa API. Ho kenya le ho ntlafatsa fonong ho sa ntse ho lokela ho lekoa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [1.0.1 DMG e lokollotsoeng](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Lintlafatso tse saenneng ka Novera. Eseng Apple notarized; licheke tsa othomathiki li fetisitsoe ka thoko ho meaho ka bobeli, licheke tsa pono li chechisitsoe morao. [Ho kenya le bopaki](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | mohaho oa simulator ea ka hare; Ho saena / ho fana ka Apple hoa hlokahala pele ho kenya iPhone. [Tsoelo-pele](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 ea nkeha | [E saennoe ZIP polokelo ea litaba](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); Lintlha li lula ho Data, 'me tsa saena Program li netefalitsoe. |
 | Web, MSI, Debian | Sebatli sa Websaete le lifomate tse ling li lula li le kahare; Pages sebaka sa tlhahiso se teng. |
 
 Ho Mac, bula DMG 'me u kopitse Novera ho Lisebelisoa. Haeba lenaneo la pele le koetsoe, lumella Novera ho kena **Litlhophiso tsa Sistimi → Lekunutu le Tšireletso → Bula Leha ho le joalo**. [Litaelo tsa Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Mesaeno ea ntlafatso ha se Windows Authenticode kapa Apple notarization. Licheke tsa morao-rao tsa morao-rao li feta khahlano le kanale ea sechaba; phetoho lipakeng tsa liphetolelo tse peli tsa sechaba e ntse e le teko ea tokollo e latelang. [Bopaki le meeli](docs/LAUNCH_STATUS.md).
+Li-signature tsa ntlafatso li arohane le Windows Authenticode le Apple notarization. Li-hashes tsa liphutheloana, licheke tsa tlhaho le liteko tsa ntlafatso li ngotsoe ka thoko. Katoloso e felletseng ea sechaba 1.0.0 ho isa ho 1.0.1 e netefatsoa feela bakeng sa maemo a tlalehiloeng tlalehong ea tokollo. [Bopaki le meeli](docs/LAUNCH_STATUS.md)
 
 Ho Android, ho khothaletsoa mohala oa sejoale-joale o nang le mohopolo o lekaneng bakeng sa mefuta ea lehae; sebelisa mofani oa API ho lisebelisoa tse seng matla haholo. Bakeng sa patlo ea tepo, moelelo oa bonyane **16K matšoao (16,384)** e khothaletsoa, ​​ka linako tsohle liphetolelong tsohle.
 
@@ -145,7 +145,7 @@ Qwen sekhouto sa mmino le Qwen mofuta oa ho khutlisa li **lifaele tse fapaneng**
 
 ## Bafani ba maru
 
-Mehloli e lokisitsoeng e na le 43 boemo ba bafani: 42 lits'ebeletso tsa cloud le TabbyAPI bakeng sa li-server tsa lehae. Ho fumaneha ha mohlala le bokhoni bo itšetlehile ka akhaonto, sebaka le API e tšehetsoeng. Lethathamo lena le arolelanoa ka lipuo tsohle tsa 104.
+Lethathamo le na le 43 liprofaele tsa bafani: 42 lits'ebeletso tsa cloud le TabbyAPI bakeng sa li-server tsa lehae. Phihlello ea mohlala le bokhoni li itšetlehile ka akhaonto, sebaka le API e tšehetsoeng. Lipuo tsohle tsa 104 li arolelana lethathamo lena.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Mehloli e lokisitsoeng e na le 43 boemo ba bafani: 42 lits'ebeletso tsa cloud le
 
 ### Setšoantšo, 'mino le video
 
-Lethathamo le lokisitsoeng la tlhophiso le na le 58 litlhophiso tsa 20: 30 litšoantšo, 24 lifitio le 4 litlhophiso tsa 'mino. Litafole tse ka tlase li thathamisa litsela tse kopantsoeng; ha ba hlahise sehlabelo se seng le se seng sa khoebo.
+Lenane la meralo le na le 58 litlhophiso esale pele ho tsoa ho bafani ba 20: 30 litšoantšo, 24 lifitio le 4 litlhophiso tsa 'mino. Litafole tse ka tlase li thathamisa mehlala le li-identifiers tse tšehetsoeng ke li-adapter tse kopantsoeng.
 
 | Mofani | Lintho tse hlahisoang ke Novera | Mefuta ea lethathamo |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ Tsena ke litaelo tsa tlatsetso le ntlafatso, eseng tseko ea hore kopo e 'ngoe le
 
 ## Boemo ba morero
 
-**Novera 1.0.0 e teng bakeng sa Windows, Linux, macOS le Android.** Senepe se bontša Windows sesebelisoa se hlophisitsoeng sebakeng sa heno ke mohlokomeli. Liphetoho tsa mohloli, liteko tse lebisitsoeng le netefatso ea hardware li ngotsoe ka thoko; sena ha se netefatse mohlala o mong le o mong, sethala kapa akhaonto ea leru.
+**Novera 1.0.1 e teng bakeng sa Windows, Linux, macOS le Android.** Senepe se bontša Windows sesebelisoa se hlophisitsoeng sebakeng sa heno ke mohlokomeli. Liphetoho tsa mohloli, liteko tse lebisitsoeng le netefatso ea hardware li ngotsoe ka thoko; sena ha se netefatse mohlala o mong le o mong, sethala kapa akhaonto ea leru.
 
 Mehaho ea GitHub Actions ea Manual e lumelletsoe bakeng sa mefuta e leshome le motso o mong ea kabo. Latela [theha sephetho le ho khoasolla batho ba netefalitsoeng](docs/CI_DISTRIBUTIONS.md); ho fumaneha ho tlalehiloe ka thoko bakeng sa sethala ka seng. Bakhethoa ba fapane le litokollo tse saennoeng tsa tlhahiso. Litlhoko tsa kabo li hlalositsoe ho [leano la semmuso la tokollo](OFFICIAL_RELEASES.md) le [leqephe la ho lokolloa](https://github.com/TRON-ABS/Novera/releases). Bonkgetheng ba ntseng ba le teng ba nang le bokowa ba dulang ba le teng. Litokollo tsa sechaba li hloka mokhoa o hlophisitsoeng le o netefalitsoeng oa ntlafatso; [licheke tsa ho saena tsa komporo le litlhoko tse setseng tsa ho qala li ngotsoe](docs/LAUNCH_STATUS.md).
 

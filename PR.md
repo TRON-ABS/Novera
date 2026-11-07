@@ -1,6 +1,8 @@
-# feat(web): prepare local conversations, image and music inference with safe updates
+# feat(web): publish browser preparation and refresh the release showcase
 
 The static showcase cannot run a Novera conversation. Add an opt-in browser build that reuses the Desktop interface, colors, language preferences and model picker, with WebGPU text inference and IndexedDB conversation/media storage.
+
+Publish the reviewed experimental sources on the repository and update all 104 release presentations plus the Pages showcase to the publicly verified Desktop/Mac/Android/current-CLI 1.0.1 releases. Preserve the portable and legacy CLI 1.0.0 references until genuine compatible 1.0.1 payloads are validated; a signed portable build has been requested separately. Fix the editorial generator to retain the portable channel's actual version and escape translated table delimiters. Twenty-two focused publication/distribution contracts pass. The showcase explicitly describes Web preparation and does not expose an unfinished hosted client. Public manifest receipts distinguish availability from signature/upgrade validation.
 
 Desktop follow-up found during 1.0.1 user testing: a retained custom Python path pointed into a deleted development directory, blocking Real-ESRGAN before diffusion. Reject missing custom interpreter files with actionable component diagnostics while preserving existing overrides. Fix managed-component verification to derive the expected Python version from its profile: installation requested 3.12.15 but verification still required 3.12.12. Source regression checks and the user's installed-runtime repair are tracked separately from the published binary.
 

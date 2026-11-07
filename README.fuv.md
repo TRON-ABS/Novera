@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ɗum hollii. Novera waɗay, huuwa e hawta.</strong></p>
   <p>Ɓeɗo mari ndimu AI Ɗum wallitii TRON-ABSDiga fuɗɗam yahugo ko heɓata: defte, hootoji, gimi be video nder haalaji go’o.</p>
-  <p><strong>E woodi nde Windows, Linux, macOS e Android.</strong> · Iwdiiji peewnaaɗi: 104 ɗemɗe jokkorɗe · 42 rokkooɓe duule · 58 jokkorgal media · Apache 2.0</p>
+  <p><strong>E woodi nde Windows, Linux, macOS e Android.</strong> · 104 ɗemɗe jokkorɗe · 42 rokkooɓe ruulde · 58 kuutorɗe jaayɗe · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Ɗum woni no ɗum woni.</a> · <a href="#hub-and-compatible-models">Formatji &amp; Hubji</a> · <a href="#cloud-providers">Ɓurna</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Waylugo</a></p>
   <p>Anndaaki: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Gootum nder Novera social profiles: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -18,10 +18,10 @@ Data e soinde: [Ɗuuɗal ƴaɓɓutugo, telemetri, ƴaɓɓutugo ƴaɓɓutugo e ƴ
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Peewnugol mbaydi 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Sokkitde yimɓe fof ina heddii e 1.0.0. Ɓeydagol ngol ina feewnaa e iwdiiji ngam 1.0.1; ina ɗaɓɓi paaspooruuji mahraaɗi, ƴeewndorɗe yaltinɗe e bayyinaango. Hesɗitinde ndee winndannde hesɗitinaani kuutorɗe joɗɗinaaɗe.
+Novera 1.0.1 ena tawee e lowe caaɗe les ɗee. Sokkit paaspoor oo ngam system maa walla huutoro laawol mum kesɗitingol siynaango. Installations gonɗe ɗee ina kesɗitina so a hesɗitinii paaspoor keso oo walla aɗa jaɓa kesɗitingol ngol.
 
 - Kisal : yamiroore native ɓurnde tiiɗde wonande kelle woɗɗuɗe, hoolkiso wonande APIiji resooji e kuutorɗe serwer, reentorde sirlu e yahdu, jokkondire fiilde/media ɓurɗe kisal, ƴeewndo limlebbi e mahngo binndanɗe. Dependensiiji peeñɗi ɗii kesɗitinaama ; wasiyaaji keddiiɗi ɗii ina njokki e peeñcu.
 - Sirlu : limlebbi e ciimtol boowal ina ɗaɓɓi jaɓgol ceertungol kadi ina heddii e udditde no haanirta nii. Builds ina waɗi konfiguraasiyoŋ jokkondire binndaaɗe. Diagnostics karallaagal ina filtiree ; huutortooɓe ina njokki e ƴellitde activation.
@@ -37,7 +37,7 @@ Sokkitde yimɓe fof ina heddii e 1.0.0. Ɓeydagol ngol ina feewnaa e iwdiiji nga
 - Comfort: kuutorɗe les ɗee ina njuumta tawa naatgol ngol ina yiyee. Mikrofoon compact e jokkondire baylugol, butoŋ daande les mikroo, kuutorɗe jimɗi jaabotooɗe e nate kuutorɗe firo ina moƴƴina kuutoragol e ekkoraaji tokoosi.
 - Catal API: 43 nate dokkoowo, tawa ina waɗi TabbyAPI nokkuure, e yeewtere hesɗitinaande e suɓagol jaayɗe. Naatgol kesol ina waɗi GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 e GPT Image 2.6, Gemini Omni 1.2, FLUX 3 ɗo wallitaa. Refresh nattii suuɗde njeñtudi ko ɓuri modeleeji sappo. Anndinooje laaɓtuɗe, toɓɓe diiwaan, jokkondire keertiiɗe e mbaadiiji naatnaaɗi ina teddinee.
 - Sifaa: kuutorgal teskinngal, defterdu-native, catal-jaaynde e ƴeewndo ɗemɗe ina mbinndee e teskuyaaji laaɓtuɗi. Jokkondire ɗee mahata ko Windows / macOS / Linux / Android / iOS. Ɗee mahdiiji frontend seedtinaani paaspooruuji native walla inference e kala kaɓirgal.
-- Ko adii yaltineede: hoolkiso pakkeeji asliiji mahraaɗi, heddiiɓe e keɓgol kisal/faggudu e 1.0.0 goonga to 1.0.1 kesɗitingol. Heɓde fawii ko e kaɓirɗe, jokkondire dokkoowo e laylaytol. Alaa fof ko ina wona jokkondire e mbaadiiji winndereeji, ngonka zero-vulnerability walla bayyinaango timmungo ina ɗaɓɓiree.
+- Heɓde e ƴeewte timmuɗe ina limtaa les ɗoo. Feereeji ballitooji fawii ko e kaɓirɗe, jokkondire dokkoowo e laylaytol. Ko yiytaa e kisal e keerol jaɓgol native-device ina keddii e binndanɗe. Mbaɗtu backup hade maa hesɗitinde.
 
 [Teskorɗe laaɓtuɗe, tabitingol e golle heddiiɗe](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -45,25 +45,25 @@ Sokkitde yimɓe fof ina heddii e 1.0.0. Ɓeydagol ngol ina feewnaa e iwdiiji nga
 
 <!-- novera-release-1.0.1:end -->
 
-## Ɗum waɗata — 2026-11-03
+## Ɗum waɗata — 2026-11-07
 
-**Ɗum waɗi iimaanaaku dow ko wi'etee Novera 1.0.0 ngam Windows, Linux, macOS e Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64).Desktop packages, fuu maaje CLI archives, signatures, be update manifests don laara be holla.
+**Ɗum waɗi iimaanaaku dow ko wi'etee Novera 1.0.1 ngam Windows, Linux, macOS e Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64).Desktop packages, fuu maaje CLI archives, signatures, be update manifests don laara be holla.
 
 | Platform | Ɗum waɗata |
 | --- | --- |
 | Windows x64 | Gootal NSIS Taskaaki, wattitinoowo, native taskaaki e waylitinaaki tabbitinaama. |
 | Linux x64 | Gootal AppImage, signed updater; native installation and replacement verified. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, bee nanta laawol ko ɓe waɗi haa wadduki kubaruuji. |
-| Windows ARM64 | [Nanduɗo NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), native CPU text engine; hawtuki, wayluki e foonduki darnde yimɓe. |
-| Android ARM64 | [APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, default batch 512. Hokkuɗo tabbitinii tiggugo 1000012 e huuwa dow telimawol maɓɓe. Hokkuɗo tabbitinii paketwol ngol wala haalaaji, moodelji ko bo keyji API. [Seydaaji e keeriiji.](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Gootal 1.0.0 DMG Ɗum waddi](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-signed updates. Not Apple notarized; automatic checks passed separately on both architectures, visual checks delayed. [Naftirki e hujjaaji.](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, bee nanta laawol ko ɓe waɗi haa wadduki kubaruuji. |
+| Windows ARM64 | [Nanduɗo NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), native CPU text engine; hawtuki, wayluki e foonduki darnde yimɓe. |
+| Android ARM64 | Android 1.0.1 ena heɓoo e APK ARM64 mo nganndu-ɗaa ko kañum woni Siynaaɗo, mahoowo 1000013. Ina huutoroo seedantaagal Novera gonngal ngal, ina rewa ƴeewndo paaspoor. Alaa heen jeewte keertiiɗe, moodeluuji walla kuutorɗe API. Installation e update e telefoŋ ina heddii e ƴeewteede. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Gootal 1.0.1 DMG Ɗum waddi](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-signed updates. Not Apple notarized; automatic checks passed separately on both architectures, visual checks delayed. [Naftirki e hujjaaji.](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Taskaaki simulator nder; Apple signing/provisioning e ɗum yiɗi bako waɗuki iPhone. [Ɗum waddi](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 | [Binndi ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); limngal ngal e jooɗa nder Data, e darorde Program tabbitinaama. |
 | Web, MSI | Hosted Web client be fere-fere formats ɗon nder; Pages website hautata. |
 
 To Mac, huuwa DMG nden huwira Novera nder taskaramji. To tiggugo arandejum sanji, hokka Novera nder **Ɗum waddi laabi nastinaɗi**. [Anniyaji Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Siynooji kesɗitinoowo ɗii ngonaa Windows Authenticode walla seedantaagal Apple. Ƴeewndorɗe mbaydi jooni-jooni e junngo ina njalta e kanaal renndo ; mbayliigu hakkunde mbaydiiji ɗiɗi renndo ina heddii e jarribo yaltinngo aroore. [Seydaaji e keeriiji.](docs/LAUNCH_STATUS.md).
+Siynooji kesɗitinoowo ina ceerti e koɗki Windows e notari Apple. Hashes package, ƴeewndorɗe native e jarribooji kesɗitingol ina mbinndee ceertuɗe. Jamaanu timmuɗo 1.0.0 ha 1.0.1 upgrade ina tabitinaa tan wonande senaareeji binndaaɗi e ciimtol yaltinngol ngol. [Seydaaji e keeriiji.](docs/LAUNCH_STATUS.md)
 
 To Android, foonditol jamanu marngol hakkillo heedi ko hewti e ɗum yi'a-yi'a ngam moodelji to nokkuure; naftora API nder ko hewti e ko hewti. Ngam tefuki nder webre, ko hewti e ko hewti. **16K tokenji (16,384)** Ɗu’um ɗon hoo’e, e ko nandi e maajum nder ferɗoodiral ɗenɗe.
 
@@ -145,7 +145,7 @@ Toppitagol e moƴƴitingol sirlu ina peewnitee ngam 1.0.1. Limlebbi cuɓaaɗi e 
 
 ## Ɓe hokkata Cloud
 
-Iwdiiji peewnaaɗi ɗii ina njogii 43 nate dokkoowo: 42 sarwisaaji ruulde e TabbyAPI ngam serwer nokkuure. Model keɓgol e mbaawkaaji fawii ko e konte, diiwaan e API ballitooɗo. Catal ngal renndini ko denndaangal 104 ɗemɗe jokkorɗe.
+Catal ngal ina waɗi 43 porofayle dokkoowo: 42 sarwisaaji ruulde e TabbyAPI ngam serwer nokkuure. Model keɓgol e mbaawkaaji fawii ko e konte, diiwaan e API ballitooɗo. Denndaangal 104 jokkorgal ina ndennda ndee catal.
 
 | | | |
 | --- | --- | --- |
@@ -166,7 +166,7 @@ Iwdiiji peewnaaɗi ɗii ina njogii 43 nate dokkoowo: 42 sarwisaaji ruulde e Tabb
 
 ### Hooto, gimol be bidiyo
 
-Catal tafngo peewniraangal ngal ina waɗi 58 dokke ummoraade e 20 rokkooɓe: 30 natal, 24 wideyoo e 4 dokke jimɗi. Tablooji les ɗii ina limta laabi denndaaɗi ɗii ; ɓe njibinataa kala dokkal njulaagu.
+Catal tagoore ndee ina waɗi 58 dokke ummoraade e 20 dokkuɓe: 30 natal, 24 wideyoo e 4 dokke jimɗi. Tablooji les ɗii ina limta moodeluuji e anndinooje laaɓtuɗe ɗe adapteeruuji kuutorteeɗi ɗii mballirta.
 
 | Waɗooɗo | Ko wurtata nder Novera | Ɗuuɗal ɓoggi |
 | --- | --- | --- |
@@ -299,7 +299,7 @@ AWQ 4-bit, GPTQ 4-bit, NF4 e INT8 kala go'o nder ɗerewol ngol heɓaama dow RTX 
 
 ## Darnde taskaram
 
-**Ɗum waɗi iimaanaaku dow ko wi'etee Novera 1.0.0 ngam Windows, Linux, macOS e Android.** Taskaramji ɗin hollii Windows kuutinirɗum ko ɓeydii nder nokkuure nde mo hokkata. Waylaaki ɓoggi, foonduye e tabbitinki fiiji ɗin e hoosiree feere-feere; ɗu'um tabbitinaayi kala moodelwol fuu, foonduye maabo kawtal cloud.
+**Ɗum waɗi iimaanaaku dow ko wi'etee Novera 1.0.1 ngam Windows, Linux, macOS e Android.** Taskaramji ɗin hollii Windows kuutinirɗum ko ɓeydii nder nokkuure nde mo hokkata. Waylaaki ɓoggi, foonduye e tabbitinki fiiji ɗin e hoosiree feere-feere; ɗu'um tabbitinaayi kala moodelwol fuu, foonduye maabo kawtal cloud.
 
 Binndi deftere nde GitHub Actions e waɗaa ngam kala darnde nde go'o fuu. [Tigguki wattamji e tigguki tabbitinirɗe.](docs/CI_DISTRIBUTIONS.md); keɓal ina winndee heen seerti e kala plateau. Kanndidaaji ina ceerti e yaltooje peewnugol siynaaɗe. Sarɗiiji peccitagol ina cifaa e nder... [Ɗum waddi dookaaji ko haani.](OFFICIAL_RELEASES.md) e [Ɗaɓɓitiiɗe](https://github.com/TRON-ABS/Novera/releases). Ɗuuɗɓe nder ɓe anndiraa e ɓe anndiraa e ɓe anndiraa e ɓe anndiraa e ɓe anndiraa e ɓe anndiraa. [Ɗum waɗay lincitol dow sifakaare desktaaboore e ko lutti nder ko yiɗi.](docs/LAUNCH_STATUS.md).
 

@@ -21,6 +21,8 @@ test('publication preview covers all locales without changing source or overstat
   assert.doesNotMatch(english, /Before release:|Preparing version 1\.0\.1/)
   assert.match(english, /Installation and updating on a phone remain to be tested/)
   assert.match(english, /public 1\.0\.0 to 1\.0\.1 upgrade/)
+  assert.match(english, /releases\/tag\/v1\.0\.0-windows-portable/)
+  assert.doesNotMatch(english, /releases\/tag\/v1\.0\.1-windows-portable/)
 })
 test('unpublished state refuses source publication before reading or writing READMEs', t => {
   const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-publish-guard-'))

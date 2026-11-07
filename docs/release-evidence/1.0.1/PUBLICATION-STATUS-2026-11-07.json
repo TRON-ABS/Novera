@@ -1,0 +1,53 @@
+{
+  "checkedAtUtc": "2026-11-07T20:59:33.559842+00:00",
+  "scope": "Anonymous public manifest bytes and declared platform URLs; not a new package-signature or upgrade test",
+  "manifests": {
+    "latest.json": {
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/latest.json",
+      "anonymous": true,
+      "bytes": 3249,
+      "sha256": "09b7f8eeebab88e90b52a41e33bfa1dcd96ecbf64ae48794193780b0c74d160a",
+      "version": "1.0.1",
+      "platformUrls": {
+        "darwin-aarch64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-macos/Novera_1.0.1_aarch64.app.tar.gz",
+        "darwin-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-macos/Novera_1.0.1_x64.app.tar.gz",
+        "linux-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/Novera_1.0.1_amd64.AppImage",
+        "windows-aarch64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-windows-arm64/Novera_1.0.1_arm64-setup.exe",
+        "windows-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/Novera_1.0.1_x64-setup.exe"
+      }
+    },
+    "latest-novera-cli.json": {
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/latest-novera-cli.json",
+      "anonymous": true,
+      "bytes": 2122,
+      "sha256": "a56fd7aaeef0f378d012aabb16492a81a70349b2dd14dc23422e076fb78d6d29",
+      "version": "1.0.1",
+      "platformUrls": {
+        "windows-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-cli-novera/Novera_CLI_1.0.1_windows-x86_64.zip",
+        "linux-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-cli-novera/Novera_CLI_1.0.1_linux-x86_64.zip",
+        "darwin-aarch64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1-cli-novera/Novera_CLI_1.0.1_darwin-aarch64.zip"
+      }
+    },
+    "latest-cli.json": {
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/latest-cli.json",
+      "anonymous": true,
+      "bytes": 1392,
+      "sha256": "ad47faa0f6f22d614c9b4627d71328494c9dea2536e2710eec676fc9b897cb75",
+      "version": "1.0.0",
+      "platformUrls": {
+        "windows-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_CLI_1.0.0_windows-x86_64.zip",
+        "linux-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0/Novera_CLI_1.0.0_linux-x86_64.zip"
+      }
+    },
+    "latest-portable.json": {
+      "url": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.1/latest-portable.json",
+      "anonymous": true,
+      "bytes": 812,
+      "sha256": "908a31fe4d76213451325bc9f78e87286b63ea1cb35dda70b67070be372be235",
+      "version": "1.0.0",
+      "platformUrls": {
+        "windows-x86_64": "https://github.com/TRON-ABS/Novera/releases/download/v1.0.0-windows-portable/Novera_1.0.0_x64-portable-update.exe"
+      }
+    }
+  }
+}

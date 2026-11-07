@@ -4,7 +4,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Je beschrijft je doel. Novera bereidt de middelen voor, voert de taak uit en organiseert de resultaten.</strong></p>
   <p>Een onafhankelijke AI-assistent van TRON-ABS, van de eerste lancering tot de resultaten: tekst, afbeeldingen, muziek en video in één gesprek.</p>
-  <p><strong>Beschikbaar voor Windows, Linux, macOS en Android</strong> · Voorbereide bronnen: 104 interfacetalen · 42 cloudproviders · 58 mediavoorinstellingen · Apache 2.0</p>
+  <p><strong>Beschikbaar voor Windows, Linux, macOS en Android</strong> · 104 interfacetalen · 42 cloudproviders · 58 mediavoorinstellingen · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatisering</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI-modellen die lokaal op uw apparaat draaien</a> · <a href="#hub-and-compatible-models">Formaten en hub</a> · <a href="#cloud-providers">Clouddiensten</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Draag bij</a></p>
   <p>Officieel contact: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Officiële sociale Novera-profielen: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -16,10 +16,10 @@
 ---
 
 <!-- novera-release-1.0.1:start -->
-<a id="preparing-1-0-1"></a>
-## Versie voorbereiden 1.0.1
+<a id="version-1-0-1"></a>
+## Novera 1.0.1
 
-Openbare downloads blijven op 1.0.0. De volgende verbeteringen zijn voorbereid in de bronnen voor 1.0.1; ze vereisen opnieuw opgebouwde pakketten, releasecontroles en publicatie. Als u deze documentatie bijwerkt, worden de geïnstalleerde toepassingen niet bijgewerkt.
+Novera 1.0.1 is beschikbaar voor de onderstaande platforms. Download het pakket voor uw systeem of gebruik het ondertekende updatekanaal. Bestaande installaties worden bijgewerkt wanneer u het nieuwe pakket installeert of de update accepteert.
 
 - Beveiliging: strengere native machtigingen voor externe pagina's, authenticatie voor netwerk-API's en servertools, beschermde geheime opslag en migratie, veiligere toegang tot bestanden/media, parseren van spreadsheets en build-scripts. Blootgestelde afhankelijkheden zijn bijgewerkt; overige adviezen worden openlijk gevolgd.
 - Privacy: statistieken en foutrapporten vereisen afzonderlijke toestemming en blijven standaard uitgeschakeld. Builds omvatten de gedocumenteerde bestemmingsconfiguratie. Technische diagnostiek wordt gefilterd; gebruikers houden de controle over de activering.
@@ -35,7 +35,7 @@ Openbare downloads blijven op 1.0.0. De volgende verbeteringen zijn voorbereid i
 - Comfort: lagere bedieningselementen klappen in terwijl de invoer zichtbaar blijft. Compacte microfoon- en openbaarmakingsbedieningen, een geluidsknop onder de microfoon, responsieve muziekinstellingen en vertaalde componentlabels verbeteren het gebruik op kleine schermen.
 - API-catalogi: 43 providerprofielen, inclusief TabbyAPI lokaal, met vernieuwde chat- en mediaselecties. Nieuwe vermeldingen zijn onder meer GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 en GPT Image 2.6, Gemini Omni 1.2, FLUX 3, indien ondersteund. Vernieuwen verbergt niet langer resultaten buiten tien modellen. Exacte identificatiegegevens, regionale eindpunten, privé-implementaties en geïmporteerde modellen worden gerespecteerd.
 - Validatie: gerichte applicatie-, native-bibliotheek-, openbare-catalogus- en taalcontroles worden vastgelegd in de gedetailleerde opmerkingen. De interface is gebouwd voor Windows / macOS / Linux / Android / iOS. Deze frontend-builds certificeren geen native pakketten of gevolgtrekkingen op elk apparaat.
-- Vóór release: valideer opnieuw opgebouwde native pakketten, resterende beveiligings-/afhankelijkheidsbevindingen en de echte update van 1.0.0 naar 1.0.1. Beschikbaarheid is afhankelijk van hardware, providertoegang en platform. Er wordt geen universele modelcompatibiliteit, nul-kwetsbaarheidsstatus of voltooide publicatie geclaimd.
+- Beschikbaarheid en voltooide controles vindt u hieronder. Ondersteunde functies zijn afhankelijk van hardware, providertoegang en platform. Beveiligingsbevindingen en validatielimieten voor native apparaten blijven gedocumenteerd. Maak een back-up voordat u gaat updaten.
 
 [Gedetailleerde opmerkingen, validatie en resterend werk](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
 
@@ -43,25 +43,25 @@ Openbare downloads blijven op 1.0.0. De volgende verbeteringen zijn voorbereid i
 
 <!-- novera-release-1.0.1:end -->
 
-## Beschikbaarheid — 2026-11-03
+## Beschikbaarheid — 2026-11-07
 
-**Novera 1.0.0 is beschikbaar voor Windows, Linux, macOS en Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64). Desktoppakketten, zowel CLI-archieven, handtekeningen als updatemanifesten zijn openbaar en geverifieerd.
+**Novera 1.0.1 is beschikbaar voor Windows, Linux, macOS en Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Desktoppakketten, zowel CLI-archieven, handtekeningen als updatemanifesten zijn openbaar en geverifieerd.
 
 | Platform | Beschikbaarheid |
 | --- | --- |
 | Windows x64 | Openbaar NSIS-installatieprogramma, ondertekende updater; native installatie en vervanging geverifieerd. |
 | Linux x64 | Openbare AppImage, ondertekende updater; native installatie en vervanging geverifieerd. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`, met een speciaal ondertekend updatekanaal. |
-| Windows ARM64 | [Openbaar NSIS-installatieprogramma](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64), native CPU-tekstengine; installatie, vervanging en controles op openbare kanalen geverifieerd. |
-| Android ARM64 | [Openbaar ondertekend APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+, standaardbatch 512. De beheerder bevestigt dat build 1000012 op zijn telefoon werkt. Schoon pakket zonder gesprekken, modellen of persoonlijke API-sleutels. [Bewijs en beperkingen](docs/RELEASE_ANDROID_1.0.0.md). |
-| macOS Intel / Apple Silicon | [Officiële 1.0.0 DMG-uitgave](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-ondertekende updates. Niet notarieel door Apple; geautomatiseerde controles worden afzonderlijk op beide architecturen uitgevoerd, visuele controles worden uitgesteld. [Installatie en bewijsmateriaal](docs/RELEASE_MACOS_1.0.0.md). |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, met een speciaal ondertekend updatekanaal. |
+| Windows ARM64 | [Openbaar NSIS-installatieprogramma](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), native CPU-tekstengine; installatie, vervanging en controles op openbare kanalen geverifieerd. |
+| Android ARM64 | Android 1.0.1 is beschikbaar als ondertekende ARM64 APK, build 1000013. Het maakt gebruik van het bestaande Novera-certificaat en doorstaat de pakketinspectie. Het bevat geen persoonlijke gesprekken, modellen of API-sleutels. Installatie en updaten op een telefoon moet nog worden getest. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
+| macOS Intel / Apple Silicon | [Officiële 1.0.1 DMG-uitgave](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-ondertekende updates. Niet notarieel door Apple; geautomatiseerde controles worden afzonderlijk op beide architecturen uitgevoerd, visuele controles worden uitgesteld. [Installatie en bewijsmateriaal](docs/RELEASE_1.0.1_2026-11-07.md). |
 | iOS | Interne simulatorconstructie; Ondertekening/provisioning van Apple is vereist vóór installatie van de iPhone. [Vervolg](docs/REPRISE_MACOS_IOS.md). |
 | Windows x64 draagbaar | [Ondertekend ZIP-archief](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); gegevens blijven in Data, ondertekende Program-vervanging geverifieerd. |
 | Web, MSI, Debian | Gehoste webclient en andere formaten blijven intern; Pages-presentatiesite is beschikbaar. |
 
 Op Mac: open de DMG en kopieer Novera naar Programma's. Als de eerste start wordt geblokkeerd, laat dan Novera toe **Systeeminstellingen → Privacy en beveiliging → Toch openen**. [Apple-instructies](https://support.apple.com/guide/mac-help/mh40616/mac).
 
-Updater-handtekeningen zijn niet Windows Authenticode of Apple-notarisatie. Handmatige controles van de huidige versie passeren het publieke kanaal; een overgang tussen twee openbare versies blijft een test voor de volgende release. [Bewijs en beperkingen](docs/LAUNCH_STATUS.md).
+Updater-handtekeningen staan ​​los van Windows Authenticode en Apple-notarisatie. Pakkethashes, systeemeigen controles en updatetests worden afzonderlijk gedocumenteerd. Een volledige openbare upgrade van 1.0.0 naar 1.0.1 wordt alleen bevestigd voor de scenario's die zijn vastgelegd in het releaserapport. [Bewijs en beperkingen](docs/LAUNCH_STATUS.md)
 
 Op Android wordt een moderne telefoon met voldoende geheugen aanbevolen voor lokale modellen; gebruik een API-provider op minder krachtige apparaten. Voor zoeken op internet is een context van minimaal **16K-tokens (16,384)** wordt aanbevolen, consistent in alle versies.
 
@@ -143,7 +143,7 @@ De muziekencoder Qwen en het ophaalmodel Qwen zijn **verschillende bestanden**, 
 
 ## Cloudproviders
 
-De voorbereide bronnen bevatten 43 providerprofielen: 42 cloudservices en TabbyAPI voor een lokale server. De beschikbaarheid en mogelijkheden van modellen zijn afhankelijk van het account, de regio en de ondersteunde API. De catalogus wordt gedeeld door alle 104 interfacetalen.
+De catalogus bevat 43 providerprofielen: 42 cloudservices en TabbyAPI voor een lokale server. Modeltoegang en -mogelijkheden zijn afhankelijk van het account, de regio en de ondersteunde API. Alle 104 interfacetalen delen deze catalogus.
 
 | | | |
 | --- | --- | --- |
@@ -164,7 +164,7 @@ De voorbereide bronnen bevatten 43 providerprofielen: 42 cloudservices en TabbyA
 
 ### Beeld, muziek en video
 
-De voorbereide creatiecatalogus bevat 58 voorinstellingen van 20 providers: 30 afbeelding, 24 video en 4 muziekvoorinstellingen. In onderstaande tabellen staan ​​de geïntegreerde routes; ze reproduceren niet elk commercieel aanbod.
+De creatiecatalogus bevat 58 voorinstellingen van 20 providers: 30 afbeelding, 24 video en 4 muziekvoorinstellingen. In de onderstaande tabellen staan ​​de exacte modellen en identificaties die door de geïntegreerde adapters worden ondersteund.
 
 | Aanbieder | Uitvoer in Novera | Catalogusmodellen |
 | --- | --- | --- |
@@ -295,7 +295,7 @@ Dit zijn aanwijzingen voor bijdrage en ontwikkeling, geen claim dat elke sectors
 
 ## Projectstatus
 
-**Novera 1.0.0 is beschikbaar voor Windows, Linux, macOS en Android.** De schermafbeelding toont een Windows-applicatie die lokaal is samengesteld door de beheerder. Bronwijzigingen, gerichte tests en hardwarevalidatie worden afzonderlijk gedocumenteerd; dit valideert niet elk model, platform of cloudaccount.
+**Novera 1.0.1 is beschikbaar voor Windows, Linux, macOS en Android.** De schermafbeelding toont een Windows-applicatie die lokaal is samengesteld door de beheerder. Bronwijzigingen, gerichte tests en hardwarevalidatie worden afzonderlijk gedocumenteerd; dit valideert niet elk model, platform of cloudaccount.
 
 Handmatige GitHub Actions-builds zijn ingeschakeld voor alle elf distributievarianten. Volg de [resultaten opbouwen en kandidaatdownloads verifiëren](docs/CI_DISTRIBUTIONS.md); beschikbaarheid wordt voor elk platform afzonderlijk vastgelegd. Kandidaten onderscheiden zich van ondertekende productiereleases. Distributievereisten worden beschreven in de [officieel releasebeleid](OFFICIAL_RELEASES.md) en [releasepagina](https://github.com/TRON-ABS/Novera/releases). Bestaande kandidaten waarvoor de updater is uitgeschakeld, blijven intern. Publieke releases vereisen een geconfigureerd en geverifieerd updatemechanisme; [Controles van desktophandtekeningen en overige opstartvereisten zijn gedocumenteerd](docs/LAUNCH_STATUS.md).
 
