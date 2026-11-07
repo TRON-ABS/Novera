@@ -1,9 +1,9 @@
-# fix(ci): accommodate clean Android and portable native builds
+# chore(release): pin the reviewed Linux 1.0.1 package and scoped native validation
 
-The portable 1.0.1 job is cancelled at its 90-minute limit while compiling Rust after building the current pinned CUDA/Vulkan worker. Increase its native build budget to 180 minutes while retaining all compilation, signatures and validation steps. No older worker is substituted.
+Linux build 42345624586 now completes successfully after retry. Its retained archive and final AppImage match their checksums, the updater signature verifies against the pinned Novera key, and all recorded migration fixtures pass. Pin the exact successful artifact and signed AppImage bytes for direct transfer into the existing private 1.0.1 draft.
 
-Fresh Android run 42347394466 now compiles the adapted Kotlin task, then fails because the generated project enables Gradle configuration caching. The settings-time Node refresh and execution-time native task project paths are incompatible with that cache. Explicitly disable this performance option in generated Gradle properties; retain Lint and all package checks. The production release APK already built and published is unchanged.
+Add explicit Linux-only and Mac-only installed-update targets so a ready platform can be tested without substituting older assets or failing unrelated platforms that are still compiling. These targets use the existing current-version descriptor guards and disposable native installation probe.
 
-Validation: nine Android configuration tests pass, including a newly generated properties file initially enabling configuration caching; actionlint passes for the portable workflow. New clean native runs are dispatched for both targets. No successful portable or Android CI candidate is claimed before they finish.
+Validation: local signed publication prerequisites pass for the reviewed Linux artifact. Source contracts/actionlint run before merge; private CI transfer and native installation validation are tracked separately and will be recorded after completion. No Linux public download or global 1.0.1 Desktop feed is claimed yet.
 
-Depends on merged #28/#32/#38/#40. Update the release lessons with actual current platform prerequisites, the Web frontend/hosted-app distinction, and the two confirmed clean-host failures. Desktop x64 remains on its independent pinned compilation.
+Depends on merged #35–#41. This delivery-only change does not alter the application packages already compiling. The separate Web preparation remains outside this PR.
