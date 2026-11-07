@@ -1,0 +1,15 @@
+--- a/src/model_manager.cpp
++++ b/src/model_manager.cpp
+@@ -1795,6 +1795,12 @@
+                      weights_resident / (1024.0 * 1024.0), other_runtime / (1024.0 * 1024.0),
+                      request.runtime_resident_bytes / (1024.0 * 1024.0));
+         }
++        // The pinned WebGPU backend reports maxBufferSize here, not VRAM.
++        // Keep physical memory unknown and enforce the explicit graph budget
++        // through request.max_backend_bytes; real allocations still may fail.
++        if (sd_backend_is(backend, "WebGPU")) {
++            return SIZE_MAX;
++        }
+         if (free_bytes == 0 && total_bytes == 0) {
+             return SIZE_MAX;
+         }

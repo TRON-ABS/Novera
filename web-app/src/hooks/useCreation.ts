@@ -19,6 +19,7 @@ export interface CreationSettings {
   videoModel: string
   width: number
   height: number
+  browserGpuBudgetGiB?: number
   mediaRatio?: string
   steps: number
   frames: number

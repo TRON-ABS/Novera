@@ -1,0 +1,19 @@
+--- a/src/pipeline/image.cpp
++++ b/src/pipeline/image.cpp
+@@ -725,6 +725,16 @@
+             return nullptr;
+         }
+ 
++#if defined(__EMSCRIPTEN__)
++        for (const auto& image : decoded_images) {
++            for (float value : image.values()) {
++                if (!std::isfinite(value)) {
++                    LOG_ERROR("VAE produced non-finite pixels; refusing to encode an invalid image");
++                    return nullptr;
++                }
++            }
++        }
++#endif
+         int image_count           = static_cast<int>(decoded_images.size());
+         sd_image_t* result_images = (sd_image_t*)calloc(image_count, sizeof(sd_image_t));
+         if (result_images == nullptr) {

@@ -20,6 +20,15 @@ add_subdirectory("${NOVERA_SD_SOURCE}" sdcpp)
 add_executable(novera-diffusion binding.cpp)
 option(NOVERA_WEBGPU_VAE_PROBE "Try direct WebGPU VAE convolution; not a validated release configuration" OFF)
 option(NOVERA_CPU_VAE_FALLBACK "Decode the VAE on CPU for compatibility investigation" OFF)
+option(NOVERA_IMAGE_VAE_MATMUL_PROBE "Benchmark tiled image VAE matrix multiplication" OFF)
+option(NOVERA_HEAP_PROBE "Validate the experimental WASM allocator and stack" OFF)
+if(NOVERA_HEAP_PROBE)
+  target_link_options(novera-diffusion PRIVATE -sMALLOC=emmalloc-memvalidate -sASSERTIONS=2)
+endif()
+if(NOVERA_IMAGE_VAE_MATMUL_PROBE)
+  target_compile_definitions(novera-diffusion PRIVATE NOVERA_IMAGE_VAE_MATMUL_PROBE=1)
+  target_compile_definitions(stable-diffusion PRIVATE NOVERA_IMAGE_VAE_MATMUL_PROBE=1)
+endif()
 if(NOVERA_CPU_VAE_FALLBACK)
   target_compile_definitions(novera-diffusion PRIVATE NOVERA_CPU_VAE_FALLBACK=1)
 endif()
@@ -31,10 +40,11 @@ target_link_libraries(novera-diffusion PRIVATE stable-diffusion)
 target_link_options(novera-diffusion PRIVATE
   -O1 --emit-symbol-map
   -sMEMORY64=1 -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=67108864 -sMAXIMUM_MEMORY=17179869184
+  -sSTACK_SIZE=8388608 -sSTACK_OVERFLOW_CHECK=2
   -sMODULARIZE=1 -sEXPORT_ES6=1 -sENVIRONMENT=worker -sFORCE_FILESYSTEM=1
   -sJSPI=1 -fwasm-exceptions -lworkerfs.js --no-entry
-  "-sJSPI_EXPORTS=['novera_load','novera_generate','novera_release']"
-  "-sEXPORTED_FUNCTIONS=['_novera_load','_novera_configure_video','_novera_generate','_novera_width','_novera_height','_novera_channels','_novera_frame_count','_novera_frame_data','_novera_release']"
+  "-sJSPI_EXPORTS=['novera_load','novera_generate','novera_upscale_image','novera_release']"
+  "-sEXPORTED_FUNCTIONS=['_novera_load','_novera_configure_video','_novera_configure_image_budget','_novera_generate','_novera_upscale_image','_novera_width','_novera_height','_novera_channels','_novera_frame_count','_novera_frame_data','_novera_release']"
   "-sEXPORTED_RUNTIME_METHODS=['ccall','FS','WORKERFS','HEAPU8']")
 set_target_properties(novera-diffusion PROPERTIES SUFFIX ".mjs")
 
@@ -43,6 +53,6 @@ if(NOVERA_NUMERICAL_CHECKS)
   add_executable(novera-im2col-check numerical-check.cpp)
   target_link_libraries(novera-im2col-check PRIVATE ggml ggml-webgpu)
   target_link_options(novera-im2col-check PRIVATE -O1 -sMEMORY64=1 -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=67108864 -sMAXIMUM_MEMORY=2147483648 -sMODULARIZE=1 -sEXPORT_ES6=1 -sENVIRONMENT=worker -sJSPI=1 -fwasm-exceptions --no-entry
-    "-sJSPI_EXPORTS=['novera_check_im2col']" "-sEXPORTED_FUNCTIONS=['_novera_check_im2col']" "-sEXPORTED_RUNTIME_METHODS=['ccall']")
+    "-sJSPI_EXPORTS=['novera_check_im2col','novera_check_leaky_relu']" "-sEXPORTED_FUNCTIONS=['_novera_check_im2col','_novera_check_leaky_relu']" "-sEXPORTED_RUNTIME_METHODS=['ccall']")
   set_target_properties(novera-im2col-check PROPERTIES SUFFIX ".mjs")
 endif()

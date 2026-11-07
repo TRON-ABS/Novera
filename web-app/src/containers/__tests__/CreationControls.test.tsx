@@ -26,6 +26,20 @@ vi.mock('@/lib/backendStorage', () => ({
   },
 }))
 describe('creation choices in the composer', () => {
+  it('uses the same 2048 panorama controls in Web and applies an explicit GPU budget', () => {
+    vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
+    vi.stubEnv('VITE_NOVERA_WEB_LOCAL_MEDIA', 'true')
+    try {
+      useCreation.setState({ modes: { 'web-2048': 'image' }, selections: { 'web-2048': { image: { provider: 'novera-browser', id: 'flux-2-klein-4b-Q4_K_M' } } }, settings: { ...creationDefaults, width: 1024, height: 432, steps: 4 } })
+      render(<CreationControls scope="web-2048" disabled={false} />)
+      if (!screen.queryByRole('dialog')) fireEvent.click(screen.getByRole('button', { name: 'chat:creation.settings' }))
+      const image = within(screen.getByRole('region', { name: 'chat:creation.image' }))
+      fireEvent.click(image.getByRole('button', { name: '2048 × 880' }))
+      fireEvent.change(image.getByRole('combobox', { name: 'Budget GPU Web (Gio)' }), { target: { value: '6' } })
+      expect(useCreation.getState().settings).toMatchObject({ width: 2048, height: 880, browserGpuBudgetGiB: 6, steps: 4 })
+      expect(screen.queryByRole('button', { name: /chat:creation.upscaleTitle/ })).not.toBeInTheDocument()
+    } finally { vi.unstubAllEnvs() }
+  })
   it('keeps the Web creation panel on cloud models without native installation controls', () => {
     vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
     try {

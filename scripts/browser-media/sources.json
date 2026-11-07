@@ -53,6 +53,54 @@
       "file": "src/ggml-webgpu/wgsl-shaders/im2col_3d.wgsl",
       "beforeSha256": null,
       "afterSha256": "8414ac0eae6d8ae714fae08bbc73d5ba6ff680907d0c7a7b87d265b3ace40d76"
+    },
+    {
+      "source": "sdcpp",
+      "patch": "patches/webgpu-memory-budget.patch",
+      "patchSha256": "294f56b233ea7f6e10a39f6226981556ec52cf6ab530f9f9eb4e16cd430dca76",
+      "file": "src/model_manager.cpp",
+      "beforeSha256": "12249fb19721b060dad7b63a9dce7bd8e9160762b2f506518ed7ef7bd1bea5ee",
+      "afterSha256": "5b6de059ad4c960d9547998732245480fdfe5baa487c809a37d8bc06a8e516df"
+    },
+    {
+      "source": "sdcpp",
+      "patch": "patches/esrgan-x2-pixel-unshuffle.patch",
+      "patchSha256": "0304b10fbf4eb5bc0db51248bca82b1b68e66c27fefe0d2aade1c9ef45d3bfe0",
+      "file": "src/model/upscaler/esrgan.hpp",
+      "beforeSha256": "24e3c25169e09d1f0bc9908c9fe4930673cdeefc5d3aab0a3317c6b591554a73",
+      "afterSha256": "cf35fc40603fe9a39763628ef3c257a7cf7e38faa437f5382143c3e5d23efa62"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-leaky-relu-dispatch.patch",
+      "patchSha256": "1fae6a0b4b75a9e59e1f9453f937c3e9197238d59219ef9e29a75b70d5fe64f9",
+      "file": "src/ggml-webgpu/ggml-webgpu.cpp",
+      "beforeSha256": "d3036e092d49a4f5c3d6216f41c9c2b481fd94182b0dc0996553d15c99ff6359",
+      "afterSha256": "20217278c021a68894eb2c06628f43547201e3aa768acc575c458c4af2268d17"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-leaky-relu-shader.patch",
+      "patchSha256": "e3f225a1fed19c9ffcb36f189e32870278bc8ad105c2dba66c2b0b27efb1cdeb",
+      "file": "src/ggml-webgpu/wgsl-shaders/unary.wgsl",
+      "beforeSha256": "7d4d66e2b954b5d1067447bb24082cf19f5fba7e021d7101193e3edc73cefbc1",
+      "afterSha256": "c73032725753d82413bcadf7ebb2a19a4b385464fe9edb16d4d78588d48c97ac"
+    },
+    {
+      "source": "sdcpp",
+      "patch": "patches/vae-matmul-range-probe.patch",
+      "patchSha256": "2385e38bc6dd97fc663c5fc8d7feb503d7df2a363a8681eb6386b55ade3ef093",
+      "file": "src/pipeline/model_builders.cpp",
+      "beforeSha256": "8bdd1a77e2267dc7b092c2189a92242dcb2033c94751cda108e847819b3d51f9",
+      "afterSha256": "83122fb85f7f369c46e4a86bef7b913db942a8df603bc1eeaa00d2275b9577c6"
+    },
+    {
+      "source": "sdcpp",
+      "patch": "patches/browser-finite-image-pixels.patch",
+      "patchSha256": "1e4ea8015829b84db1b9f12e60fc01397cd0ac505ca78a4450039f3ad27722b8",
+      "file": "src/pipeline/image.cpp",
+      "beforeSha256": "b05d5aa1fde5f5a019ea5cc372ac4cd2a3ce7dc1d0f28b302fec03d26b7defd3",
+      "afterSha256": "17871287e2a714b1464900a869b876264b27fd39feddb6232af844db151a06e1"
     }
   ]
 }

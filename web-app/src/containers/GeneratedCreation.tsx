@@ -14,6 +14,7 @@ import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { ShareButton } from './ShareButton'
 import { MediaPlayer } from '@/components/MediaPlayer'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
+import { browserImagePerformance } from '@/services/browser-preview/image-options'
 import { readBrowserMedia, downloadBrowserBlob } from '@/services/browser-preview/media'
 
 export function GeneratedCreation({
@@ -40,6 +41,7 @@ export function GeneratedCreation({
     threadId ? !!state.progress[threadId] : false
   )
   const reference = parseCreationReference(url)
+  const performance = browserPreviewEnabled() && reference?.task === 'image' ? browserImagePerformance(timing) : []
   useEffect(() => {
     if (hasCurrentDuration) return
     const reference = parseCreationReference(url)
@@ -143,6 +145,7 @@ export function GeneratedCreation({
               )}
             </div>
           )}
+          {performance.length > 0 && <details className="text-xs text-muted-foreground"><summary className="cursor-pointer">Mesures de performance</summary><dl className="mt-2 space-y-1">{performance.map(item => <div key={item.label} className="flex gap-2"><dt>{item.label} :</dt><dd>{formatCreationDuration(item.ms, locale)}</dd></div>)}</dl></details>}
           {reference.task === 'image' && threadId && canAnimate && (
             <Button
               size="sm"
