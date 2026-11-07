@@ -149,3 +149,17 @@ test('accepts the Tauri 2.7 build dependency binding without disabling lint', t 
   f.run('--plugins-only')
   assert.deepEqual(snapshot(f.project), before)
 })
+
+test('adapts freshly generated Rust tasks without assigning the Gradle rootDir property', t => {
+  const f = fixture(t)
+  const plugin = 'buildSrc/src/main/java/io/github/tronabs/novera/kotlin/RustPlugin.kt'
+  f.put(path.join(f.project, plugin), 'val first = task.apply {\n    rootDir = config.rootDirRel\n}\nval second = task.apply {\n    rootDir = config.rootDirRel\n}\n')
+  f.run()
+  const text = f.read(plugin)
+  assert.equal((text.match(/rootDirRel = config.rootDirRel/g) ?? []).length, 2)
+  assert.doesNotMatch(text, /\brootDir\s*=/)
+  assert.match(f.read('buildSrc/src/main/java/io/github/tronabs/novera/kotlin/BuildTask.kt'), /var rootDirRel/)
+  const before = snapshot(f.project)
+  f.run()
+  assert.deepEqual(snapshot(f.project), before)
+})
