@@ -75,11 +75,12 @@ Novera grow with you. Your examples and settings fit help other users find good 
 
 ![Novera generate image and unified dashboard wey get quantity, seed, upscaling, and automatic memory](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Microphone status: green when e ready, red when e busy, grey when e no available. We don fix recognition, listening restart, focus handling and visible dictation. Native voice for audio models dey implemented for Windows now; other platforms still need native tests and suitable voice support.
 
 [![Novera generate image and unified dashboard wey get quantity, seed, upscaling, and automatic memory](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Real Windows application screenshot wey maintainer send for 1 November 2026, wey him talk say application dey work well. E show generated landscape, its saved-file controls and the unified creation dashboard; dis no be mockup.*
 
 One panel, five modes: **Auto / Text / Picture / Music / Video**. Controls go follow the mode we select: ratio, resolution, duration, cadence, quality, instrumental, lyrics, seed and quantity. Panel width and buttons go fit the window and translated labels.
 

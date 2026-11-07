@@ -75,11 +75,12 @@ Novera berkembang bersama anda. Contoh dan tetapan anda boleh membantu pengguna 
 
 ![Novera menghasilkan imej dan papan pemuka bersatu dengan kuantiti, benih, peningkatan dan memori automatik](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Status mikrofon: hijau apabila tersedia, merah semasa sibuk, kelabu apabila tidak tersedia. Pengecaman, pendengaran dimulakan semula, pengendalian fokus dan imlak yang boleh dilihat telah diperbetulkan. Pertuturan model audio asli sedang dilaksanakan pada Windows; platform lain masih memerlukan pengesahan asli dan sokongan suara yang sesuai.
 
 [![Novera menghasilkan imej dan papan pemuka bersatu dengan kuantiti, benih, peningkatan dan memori automatik](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Tangkapan skrin aplikasi Real Windows dibekalkan oleh penyelenggara pada 1 November 2026, yang melaporkan bahawa aplikasi itu berfungsi dengan baik. Ia menunjukkan landskap yang dijana, kawalan fail yang disimpan dan papan pemuka ciptaan bersatu; ini bukan mockup.*
 
 Satu panel, lima mod: **Auto / Teks / Imej / Muzik / Video**. Kawalan mengikut mod yang dipilih: nisbah, resolusi, tempoh, irama, kualiti, instrumental, lirik, benih dan kuantiti. Lebar dan butang panel menyesuaikan diri dengan tetingkap dan label yang diterjemahkan.
 

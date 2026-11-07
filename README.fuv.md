@@ -77,11 +77,12 @@ Novera mawni e ɗum. Misaalu e ko ɗum waɗata waaway wallita woɓɓe huwooɓe h
 
 ![Novera wurtinii hootowol e darorde hawtaande e ɗuuɗal, seedwol, ɓeydaari e kadin ɓeydaari anndal.](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Ngonka mikroo: ɓaleejo so ina woodi, boɗeejo so ina jokki, boɗeejo so ina woodi. Anndinde, fuɗɗoraade heɗtaade, jogaade hakkille e dictation yiyteteeɗo peewnitaama. Haala mbaydi-heɗto ina huutoree jooni e Windows; platforms goɗɗi ina njiɗi haa jooni ƴeewndo native e ballal daande potngal.
 
 [![Novera wurtinii hootowol e darorde hawtaande e ɗuuɗal, seedwol, ɓeydaari e kadin ɓeydaari anndal.](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Ɗum waɗii Windows ɓoggi kuutinirgol ko ɓeydake nder 1 lewru November 2026, mo wi'i kuutinirgol ngol huuwi no haandi. Ɗum hollii ko wanngii, kuutinirgol kuutinirgol fiiji e hawtaaki kuutinirgol; ɗo'o naa ɗum mock-up.*
 
 Panel go'o, laabi jowee: **Automatic / Text / Image / Music / Video** Ɗum waawan huuwa no ɗum suɓii: rasio, raayu, juutal wakkati, cadence, quality, instrument, lyrics, seed e quantity. Width be buttons ɓeydata e window be translation labels.
 

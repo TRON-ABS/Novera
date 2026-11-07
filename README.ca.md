@@ -75,11 +75,12 @@ Novera creix amb tu. Els vostres exemples i configuració poden ajudar altres us
 
 ![Novera imatge generada i tauler de control unificat amb quantitat, llavor, augment d'escala i memòria automàtica](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Estat del micròfon: verd quan està disponible, vermell quan està ocupat, gris quan no està disponible. S'han corregit el reconeixement, el reinici de l'escolta, el maneig del focus i el dictat visible. El model de veu natiu d'àudio està implementat actualment a Windows; altres plataformes encara necessiten validació nativa i suport de veu adequat.
 
 [![Novera imatge generada i tauler de control unificat amb quantitat, llavor, augment d'escala i memòria automàtica](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Captura de pantalla real de l'aplicació Windows proporcionada pel responsable a 1 novembre 2026, que informa que l'aplicació funciona bé. Mostra un paisatge generat, els seus controls de fitxers desats i el tauler de creació unificat; això no és una maqueta.*
 
 Un panell, cinc modes: **Automàtic / Text / Imatge / Música / Vídeo**. Els controls segueixen el mode seleccionat: proporció, resolució, durada, cadència, qualitat, instrumental, lletra, llavor i quantitat. L'amplada del panell i els botons s'adapten a la finestra i a les etiquetes traduïdes.
 

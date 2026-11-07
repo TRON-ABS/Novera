@@ -77,11 +77,12 @@ Novera be bonya ka taga n’i ye. I ka misaliyaw n’i ka labɛnw be se ka baara
 
 ![Novera ja bɔra ani tablo kelen ni hakɛ, dannifɛnw, yɛlɛmani ani hakilijagabɔ min be kɛ a yɛrɛ ma](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Mikɔrɔfɔni cogoya: binkɛnɛman n'a be yen, wuleman n'a bolo degunnin lo, bugurinjɛ n'a t'a la. Lalɔnniya, lamɛnni daminɛ tugun, sinsinni ani dictée visible latilenna. Dugudenw ka kumakanw lamɛncogo be waleya sisan Windows kan; pilatifɔmu wɛrɛw bele mako be native validation la ani kumakan dɛmɛ ɲuman na.
 
 [![Novera ja bɔra ani tablo kelen ni hakɛ, dannifɛnw, yɛlɛmani ani hakilijagabɔ min be kɛ a yɛrɛ ma](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Windows porogaramu jaa yɛrɛ yɛrɛ min dira a ladonbaga fɛ 1 Nowanburukalo la 2026, min y’a fɔ ko porogaramu be baara kɛ ka ɲɛ. A be yɔrɔ dɔ yira min bɔra, a ka saved-file kɔlɔsili ani danni tablo kelen; nin tɛ yɛlɛko ye.*
 
 Panɛli kelen, cogoya duuru: **Moto / Sɛbɛri / Jaa / Dɔnkili / Wideyo**. Kɔlɔsili be tugu cogo sugandinin kɔ: hakɛ, resolution, wagati, cadence, kalite, minɛnw, kumadenw, dannifɛnw ani hakɛ. Panɛli bonya ni butɔnw be bɛn ni finɛtiri ye ani tagamasiɲɛ bayɛlɛmaniw ye.
 

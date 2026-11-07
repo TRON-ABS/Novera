@@ -1,7 +1,5 @@
-# docs(release): showcase the collapsible dashboard and document CLI migration
+# fix(docs): align screenshot captions with the current captures
 
-Add the maintainer’s second original PNG to all 104 README presentations and the public showcase, highlighting the collapsible dashboard and maximum workspace. Preserve both screenshot files byte for byte and link previews to their full-resolution originals. Reuse existing translated interface descriptions outside English and French.
+The two dashboard screenshots shared a landscape caption below the second image, and regional presentations retained the obsolete November 1 date. Place the landscape caption directly under its matching screenshot, retain the reviewed English/French descriptions and use factual PNG dimensions/date metadata in the other presentations. Give the collapsed screenshot specific English/French alt text. The original PNG files and published showcase remain unchanged.
 
-Document the confirmed legacy CLI migration blocker: the old updater requires assets on the immutable v1.0.1 release, which rejects uploads. Link the current signed CLI 1.0.1 packages and provide manual installation steps. Record the three successful native compatibility preparation receipts without claiming a completed public upgrade. Record the user-confirmed missing Apple signing account and the release-order lesson. Remove unnecessary inherited secret variables from native compatibility preparation children.
-
-Validation: six README/publication/showcase contract tests pass, including exact equality of both staged screenshot files. JavaScript syntax and Git whitespace checks pass. Existing compatibility preparation receipts precede the environment filtering change; that workflow has not been rerun. The genuine portable build remains in progress and Web remains experimental source code.
+Validation: all six README/publication/showcase contract tests pass, including exact staged PNG equality and README publication idempotence. No application binary changes.
