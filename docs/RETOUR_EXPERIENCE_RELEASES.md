@@ -205,14 +205,6 @@ Les trois revues Android initialement ouvertes sont maintenant consignées dans 
 
 ## 12. Cycle 1.0.1 du 7 novembre 2026 — enseignements en cours
 
-### Préparation Web parallèle : contrôles à conserver
-
-- Réutiliser l’interface et les thèmes existants, mais adapter réellement les services natifs : discussions et médias dans IndexedDB, lecteurs sur URL blob temporaires et export explicite. Ne pas afficher les dossiers système ou les installateurs Python comme disponibles dans le navigateur.
-- Tester les fichiers après rechargement et après téléchargement, pas seulement à partir d’une URL distante temporaire. Distinguer exemples publics, réponses API simulées et génération réellement effectuée sur un compte.
-- Une prévalidation CORS ne prouve pas qu’un modèle existe : Pika 2.2 retournait encore une réponse OPTIONS alors que sa page officielle annonçait sa suppression au 29 octobre 2026. Lire aussi les pages du modèle et conserver les erreurs de compte/quota.
-- Conserver Q4_K_M pour le modèle principal n’impose pas la même quantification au projecteur : le SDK Omni Web essayé le 7 novembre refuse le projecteur Q4 ; le projecteur Q8 charge et produit une vraie réponse texte. Documenter la combinaison testée et son téléchargement complet.
-- Ne pas publier une clé API dans un site statique. La préparation fal utilise une clé personnelle en mémoire, sans la persister dans les préférences ni la transmettre aux CDN des résultats. Les essais payants exigent un plafond explicite ; aucun succès de génération n’est déduit de la simple présence de modèles dans le sélecteur.
-
 Le mainteneur autorise la mise à jour de ce mémo pendant la sortie. Les résultats et liens évoluent dans [le suivi 1.0.1](RELEASE_1.0.1_2026-11-07.md) ; aucun résultat d'un build lancé n'est annoncé réussi avant sa fin.
 
 | Observation confirmée | Amélioration à réutiliser |
@@ -253,3 +245,25 @@ Un contrôle Linux a atteint le vrai bouton de mise à jour et le message attend
 Pour préparer les README de publication sans modifier les sources : `node scripts/distribution/publish-readme-release.mjs --preview NOUVEAU_DOSSIER`. Les brouillons conservent les limites de relecture native. L'application normale exige des faits de publication explicites ; la vitrine dispose d'un état publié distinct et testé. Ce mécanisme de documentation ne remplace pas la vérification des paquets et des endpoints publics.
 
 La validation locale de ce cycle comprend 63 contrats Node réussis, 17 contrôles supplémentaires réussis et deux scénarios Windows ignorés par leurs conditions, 16 tests Python de distribution, huit tests Python Android et 23 tests de catalogue dont trois catalogues publics réels. Le build Web/TypeScript réussit. Les suites applicatives complètes passent : 8 069 tests réussis, 20 ignorés. Les compilations natives restent suivies séparément. Les tests ignorés ne sont pas comptés comme réussis.
+
+
+Une URL `browser_download_url` renvoyée par GitHub pour un brouillon peut contenir `untagged-*`. Construire les URL finales à partir du tag de publication revu et du nom exact du fichier ; valider toutes les URL du descripteur avant publication. Les empreintes et IDs d’assets restent les contrôles des octets, indépendamment de ce changement de chemin. Le contrôle public 42363980517 a refusé ces anciens chemins avant téléchargement ; conserver cet échec et relancer après correction du seul descripteur.
+
+
+### Journal complémentaire du 7 novembre 2026 — Desktop et médias Web
+
+La Desktop 1.0.1 installée est publique. Les cinq plateformes Desktop ont passé les contrôles natifs de remplacement signé (run 42361963273). Les vingt assets et les huit canaux signés Desktop/CLI ont été vérifiés anonymement ; les contrôles publics complets et les trois hôtes CLI ont ensuite réussi dans les runs 42365448454 et 42365450447. Les corrections de métadonnées sont fusionnées dans #44, #46 et #47. Le mainteneur rapporte une mise à jour Desktop réussie (« mis a jour au top ») ; ce retour ne remplace pas une inspection indépendante de sa version affichée, de ses données ou de son profil. Le canal portable reste en 1.0.0 pendant sa compilation 1.0.1 ; le canal CLI historique reste conservé séparément.
+
+Le journal détaillé des modèles, prompts, formats audio, réglages et limites se trouve dans [WEB_BROWSER_PREPARATION.md](WEB_BROWSER_PREPARATION.md#journal-des-mesures-du-7-novembre-2026). Conserver les enseignements suivants pour les prochaines sorties :
+
+- **Précision musicale :** une activation Qwen3 valide d’environ -70011 débordait la mémoire de travail F16 et rendait les 217204 premiers logits non finis. Conserver les activations F32, sans les écrêter. Le contrôle corrigé restitue 217204 logits finis ; la synthèse, les paroles et la qualité restent des contrôles distincts.
+- **Consignes et durée :** verrouiller description et paroles lorsque l’utilisateur les fournit. L’enrichissement automatique ajoutait des instruments interdits. Le budget audio explicite doit être borné avant synthèse : une demande de 10 secondes avait produit 19,44 secondes. Le budget de codes peut arrêter sans fin musicale naturelle ; contrôler ce point à l’écoute. Respecter un EOS plus précoce et afficher la vraie durée.
+- **Optimisation sans dégradation masquée :** le cache d’un même fichier composite ACE évite ses relectures par plusieurs composants. L’instrumental de 10 secondes passe de 43,601 à 38,691 secondes avec un WAV intégralement identique. Ne pas réduire en secret les étapes, la durée ou la précision pour annoncer un gain.
+- **Vidéo :** éviter le tampon CPU réutilisé en place après une convolution 3D. La préparation de convolution 3D sur GPU a ensuite passé douze comparaisons exactes avec GGML CPU (F16/F32, padding, dilation, lots et vues). Le petit clip de cinq images passe de 65,102 à 32,046 secondes, avec un WebM identique octet par octet. Il ne dure que 0,625 seconde en 256 × 144, quatre étapes : ce n’est pas une preuve de qualité finale ou de vitesse sur une vraie vidéo longue.
+- **Limites observées :** le clip de 17 images, 20 étapes et 16 FPS dure 1,0625 seconde et demande 91,273 secondes. Le rendu visuel est insuffisant à ce stade. Le mainteneur juge la qualité de Wan faible, tout en appréciant sa petite taille ; conserver cet avis sans attribuer toute la qualité du modèle au seul essai en très basse résolution.
+- **Mémoire WebGPU :** `maxBufferSize` est utilisé comme estimation de mémoire par le backend actuel. Les 2 Gio ainsi annoncés ne sont pas une mesure de la VRAM réelle de la RTX 5070 Laptop de 8 Gio. Le plus grand clip déclenche le découpage VAE automatique. Ne pas confondre limite d’un tampon, budget cumulé et mémoire disponible.
+- **Cache et mises à jour :** identifier les fichiers moteur par leur empreinte pour éviter de charger un ancien module ou un ancien WASM pendant les essais et les futures mises à jour. Les essais diagnostiques ont utilisé des noms distincts. Le versionnement des chemins des assets de production reste à terminer.
+- **Preuves :** compiler ne valide pas l’inférence ; un fichier numériquement valide ne certifie ni les paroles intelligibles, ni l’absence d’instruments, ni la fidélité à une scène. Garder les démonstrations réellement créées par Novera et distinguer les fixtures publiques. Budget de génération payante toujours nul.
+- **Ordre de validation :** finir fonctionnement, qualité et performances, puis l’audit de sécurité complet demandé, corriger les problèmes confirmés et relancer les contrôles avant publication de l’application Web. Ne pas présenter l’audit comme déjà réalisé.
+
+Le mainteneur propose également l’édition directe des poids sans entraînement, à partir de l’expérience Qwen décrite dans le billet primaire cité dans le suivi Web. La conserver comme piste distincte des corrections de moteur ; ne pas attribuer nos gains actuels à des poids modifiés, ni promettre que le résultat Qwen se transpose à Wan.

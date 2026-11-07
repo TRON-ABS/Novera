@@ -56,3 +56,71 @@ Sources : [file fal](https://fal.ai/docs/api-reference/inference-api/queue/submi
 Le texte WebGPU fonctionne localement ; les créations fal utilisent un service externe. GitHub Pages ne fournit aucun calcul GPU. Le moteur stable-diffusion.cpp utilisé pour FLUX et Wan possède une dépendance GGML avec un backend WebGPU Emscripten réel, mais aucune interface JavaScript prête pour ces modèles. L’essai de portage doit vérifier compilation, accès aux fichiers, mémoire, opérations GPU, encodage des images/vidéos, annulation et libération du moteur. Un build natif ou l’existence du backend ne prouve pas ce fonctionnement navigateur.
 
 Une autre voie musicale existe dans [FluidAudio Web](https://github.com/FluidInference/fluidaudio-web/tree/8ff2a995d820981887b2c660f2e5b12a849ccc70) : ACE-Step exige environ 5,75 Go de modèles, OPFS, un worker et WebGPU avec `shader-f16`. Ces paquets sont convertis et ne chargent pas directement nos GGUF ; ils ne constituent donc pas un remplacement implicite. Le paquet npm publié n’exporte pas ce moteur musical. L’adaptation d’acestep.cpp pour nos fichiers exacts reste à réaliser. Les entrées audio/vision d’Omni, la localisation des nouveaux textes de préparation et le mode hors connexion complet restent à terminer.
+
+
+## Journal des mesures du 7 novembre 2026
+
+Ces essais utilisent Edge et une RTX 5070 Laptop GPU de 8 Gio. Les poids étaient déjà disponibles en fichiers locaux : les temps incluent les chargements du moteur pendant la demande, mais pas un téléchargement initial des modèles depuis Internet. Les mesures ACE et Wan viennent d’un prototype navigateur isolé ; elles ne valent pas intégration finale aux conversations Novera, sauvegarde après rechargement, export utilisateur complet ou parité Desktop. Le budget reste **0 €**, sans génération payante.
+
+| Essai | Réglages et durée réelle | Temps total observé | Portée |
+| --- | --- | --- | --- |
+| Image FLUX.2 Klein Q4 dans Novera | 256 × 256, 4 étapes | 32,7 s affichées | PNG téléchargé et conservé après rechargement |
+| Texte LFM3 Omni Q4 / projecteur Q8 | 93 jetons | 95,58 jetons/s affichés | Réponse française réelle ; structure et qualité imparfaites ; cache optimisé à remesurer |
+| ACE instrumental | Durée demandée/réelle 10 s, 8 étapes, graine 42 | 38,691 s | WAV valide ; écoute musicale à contrôler |
+| ACE chanson française, piano et guitare | Durée demandée 10 s, réelle 9,84 s, 8 étapes, graine 42 | 34,911 s | Paroles fournies conservées dans la requête ; intelligibilité chantée à contrôler |
+| ACE a cappella française | Durée demandée/réelle 10 s, 8 étapes, graine 42 | 37,294 s | Consigne sans instruments conservée ; résultat sonore à contrôler |
+| Wan, petit clip avec préparation 3D sur CPU | 256 × 144, 5 images, 4 étapes, 8 FPS, graine 42 ; 0,625 s | 65,102 s | Référence sans instrumentation détaillée |
+| Wan, même petit clip avec préparation 3D sur GPU | Réglages identiques ; 0,625 s | 32,046 s | WebM identique à la référence ; qualité finale non validée |
+| Wan, clip plus représentatif | 256 × 144, 17 images, 20 étapes, 16 FPS, graine 42 ; 1,0625 s | 91,273 s | Découpage VAE automatique ; rendu visuel insuffisant à ce stade |
+
+L’ancien diagnostic vidéo par opération avait pris 68,835 secondes pour cinq images ; le comparer séparément aux mesures normales. Le gain du petit clip provient surtout du VAE, de 31,33 à 1,72 seconde. Les douze comparaisons numériques GPU/CPU couvrent sorties F16/F32, padding, dilation, lots, pas et vues décalées. Empreinte du WebM identique avant/après : `f5570cbfbc9cca4da27182f8be77b6509fcc069b717239e7fe9e523bffaff7a4`.
+
+Le cache de lecture ACE fait passer l’instrumental de 43,601 à 38,691 secondes avec un WAV identique : `dbde0d33c4514229f77952890f4aa9a6575d87a20f83ec248dddde73b2a46531`. La description est verrouillée ; le budget de codes respecte la durée maximale, mais un EOS peut finir plus tôt. Atteindre la limite ne garantit pas une fin musicale naturelle. Aucun de ces trois fichiers n’est encore présenté comme une démonstration musicale de qualité validée.
+
+### Test musical Desktop à comparer
+
+Utiliser les mêmes quatre fichiers du bundle **ACE-Step 1.5 Turbo 2B Q4_K_M** :
+
+- `acestep-v15-turbo-Q4_K_M.gguf` ;
+- `acestep-5Hz-lm-1.7B-Q8_0.gguf` ;
+- `Qwen3-Embedding-0.6B-Q8_0.gguf` ;
+- `vae-BF16.gguf`.
+
+Durée manuelle **10 secondes**, durée automatique désactivée, **8 étapes**, graine **42**, sortie **WAV 32 bits flottants, 48 kHz, stéréo**. Désactiver la réécriture de description si cette option est disponible. Chronométrer du clic de génération au morceau prêt à lire ; noter séparément le premier lancement et le suivant. Conserver durée réellement obtenue et réglages effectifs : moteurs CUDA et WebGPU, politique de description et fin de génération peuvent encore différer. La mesure Web à comparer est **34,911 secondes pour 9,84 secondes d’audio**.
+
+Description exacte :
+
+```text
+French gentle pop song, clear sung French lyrics, piano and acoustic guitar accompaniment.
+```
+
+Paroles exactes :
+
+```text
+[Verse]
+Le jour se lève et je souris
+Une lumière éclaire ma vie
+```
+
+Le premier prompt musical du mainteneur reste un autre essai, instrumental :
+
+```text
+[Style: neoclassical, cinematic, emotional piano] [Mood: tender, hopeful, awe] [Instrumentation: grand piano, strings, no vocals, no drums] [Tempo: slow]
+```
+
+Il s’agit d’une description pour le modèle, pas d’une grammaire de commandes garantie ; utiliser `[Instrumental]` dans le champ paroles. Les trois modes à vérifier restent instrumental, chanson avec accompagnement et a cappella. Le mainteneur attend la fin des essais vidéo avant de chronométrer la musique Desktop.
+
+### État et suite
+
+Desktop 1.0.1 est publique et le mainteneur rapporte une mise à jour réussie. Les canaux Desktop/CLI, les signatures publiques et les contrôles natifs de publication ont passé leurs vérifications ; le portable reste dans son canal indépendant en 1.0.0 pendant sa compilation. La préparation Web conserve l’interface et ses couleurs ; elle n’est pas publiée comme application complète.
+
+Avis du mainteneur sur Wan : qualité visuelle jugée faible, mais intérêt pour sa petite taille. Conserver Wan1.3B Q4 comme option légère de travail, sans annoncer un niveau de qualité élevé ni une validation globale du modèle à partir de ce seul essai basse résolution. Aucun remplacement de modèle n’a été décidé.
+
+Restent notamment : qualité visuelle et comparaison native à réglages identiques, écoute et intelligibilité des trois modes musicaux, intégration des sorties locales aux conversations et leur conservation, chemins moteur versionnés par empreinte pour éviter les mélanges de cache, mesures texte après optimisation et essais de l’autre modèle. Ensuite : audit de sécurité complet, corrections et nouveaux contrôles avant publication Web.
+
+
+### Piste demandée : édition directe des poids, sans entraînement
+
+Le mainteneur précise qu’il vise une intervention directe dans les poids, sans entraînement ni LoRA. L’article Tech Insider fourni a permis de retrouver le [billet primaire des auteurs, publié le 2 novembre 2026](https://rikiyat.github.io/blog/weight-space-programming/). Leur expérience Qwen3.5-0.8B corrige une direction associée aux boucles de raisonnement dans deux couches : 131072 paramètres modifiés, avec un score MATH-500 rapporté de 7,9 à 48,1 %. Les auteurs distinguent cette réparation d’une capacité absente et rapportent aussi un cas sans amélioration établie.
+
+Pour Wan, conserver l’édition directe comme **piste expérimentale à étudier**, sans transfert automatique du résultat Qwen. Identifier un défaut précis et reproductible, comparer les mêmes scènes à réglages fixes et vérifier les régressions. Aucun poids de modèle n’a été modifié pendant les essais Web actuels ; les gains mesurés proviennent du moteur. Aucun remplacement de modèle ni entraînement n’a été décidé.
