@@ -51,6 +51,38 @@
         "sha256": "c8263e5d17fa8b62b2dd5d5ff623ffede3732adde719c383992f8385b5a40936"
       },
       "runtimeExecutableSha256": "bd48da813784de0810730a1576d58707ebd835c81d96e87540f4d687a78c0cf1"
+    },
+    "darwin-aarch64": {
+      "commit": "df02143b6018aa1c6d54c7d6359ce94409a8e87f",
+      "releaseId": 437481941,
+      "bundle": {
+        "id": 720284382,
+        "name": "Novera_1.0.1_aarch64.app.tar.gz",
+        "bytes": 113368154,
+        "sha256": "edaf83f7761ee71bfa73133d1638c56782aa495b473df007230059b02c9b6f8a"
+      },
+      "signature": {
+        "id": 720284505,
+        "name": "Novera_1.0.1_aarch64.app.tar.gz.sig",
+        "bytes": 424,
+        "sha256": "4a78a373aaebe8e2ac331216a0fb8c5676790db91b65903179cfc53c97ba34c7"
+      }
+    },
+    "darwin-x86_64": {
+      "commit": "df02143b6018aa1c6d54c7d6359ce94409a8e87f",
+      "releaseId": 437481941,
+      "bundle": {
+        "id": 720284634,
+        "name": "Novera_1.0.1_x64.app.tar.gz",
+        "bytes": 110900663,
+        "sha256": "c095d1dc09fd0e7625959a39240b69b7e4dc2b8e1d5be55679895c0c148260ca"
+      },
+      "signature": {
+        "id": 720284773,
+        "name": "Novera_1.0.1_x64.app.tar.gz.sig",
+        "bytes": 416,
+        "sha256": "18c5d1a7921cff3d7b5d1cfc35a5abb57248aa1e52b4128c6eb3006047ddd953"
+      }
     }
   }
 }
