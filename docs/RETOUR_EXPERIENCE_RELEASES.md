@@ -139,10 +139,11 @@ Pour la prochaine évolution du schéma de données, prévoir une sauvegarde de 
 
 ### Attention à la release GitHub marquée « latest »
 
-Les clients utilisent des URL de type `releases/latest/download/...`. **Chaque release choisie comme dernière release doit conserver les trois manifests actuels :**
+Les clients utilisent des URL de type `releases/latest/download/...`. **Chaque release choisie comme dernière release doit conserver tous les manifests réellement utilisés par les clients publiés :**
 
 - `latest.json` : applications desktop installées ;
-- `latest-cli.json` : CLI ;
+- `latest-novera-cli.json` : CLI Novera publiée avec le nom d'exécutable `novera` ;
+- `latest-cli.json` : ancien canal CLI, à conserver si des clients publiés le consultent ; ne pas le substituer au canal Novera ;
 - `latest-portable.json` : portable Windows.
 
 Pour un canal qui ne change pas, reprendre ses octets valides et ses références de paquets immuables. Pour celui qui évolue, n’annoncer que les plateformes construites, signées et vérifiées, sans perdre les autres distributions déjà servies. Une release de compatibilité ou une sortie Mac ne doit pas rendre les mises à jour Windows, Linux, CLI ou portable introuvables. Les canaux mobiles choisis seront documentés séparément.
@@ -196,3 +197,17 @@ Les trois revues Android initialement ouvertes sont maintenant consignées dans 
 - **Tauri sous Windows sans liens symboliques :** Cargo peut réussir le build puis Tauri échouer au lien de `libapp_lib.so`. Conserver les deux résultats séparément. Copier les octets vérifiés et conditionner avec Gradle, en sautant seulement la tâche Rust déjà réussie ; ne pas changer les protections du poste pour obtenir un succès apparent.
 - **Release différente du debug :** les règles ProGuard consommateur omises de certains plugins et le plantage K2 de Lint n'apparaissaient pas dans l'APK debug. Adapter uniquement les copies générées, garder Lint actif et rendre la génération idempotente.
 - **Inspection des ressources optimisées :** R8/AAPT peuvent renommer `res/xml/network_security_config.xml` en un nom court. Résoudre le fichier depuis l'identifiant de ressource du manifeste compilé, puis contrôler sa structure et ses valeurs ; ne pas déduire la politique réseau du seul XML source.
+
+## 12. Cycle 1.0.1 du 7 novembre 2026 — enseignements en cours
+
+Le mainteneur autorise la mise à jour de ce mémo pendant la sortie. Les résultats et liens évoluent dans [le suivi 1.0.1](RELEASE_1.0.1_2026-11-07.md) ; aucun résultat d'un build lancé n'est annoncé réussi avant sa fin.
+
+| Observation confirmée | Amélioration à réutiliser |
+| --- | --- |
+| Le dépôt local contenait de nombreux travaux validés, des sorties `.tmp`, des copies Android générées et des profils de test. | Construire une liste explicite des sources à publier. Exclure les sorties de compilation, journaux, profils `test-data-ThreadId*` à toute profondeur et copies `android/.tauri`. Préserver les fichiers locaux ; ne pas utiliser `git add .` pour une sortie. |
+| `gh` et `yarn` n'étaient pas directement accessibles dans le shell, alors que Git, Node et Corepack fonctionnaient. | Contrôler les outils avant les opérations longues. Utiliser le Corepack du projet pour Yarn et les accès GitHub existants sans afficher ni enregistrer les identifiants. Un échec de résolution de commande n'est pas un échec de test applicatif. |
+| Les anciens guides parlaient de trois manifests, mais la CLI Novera publique utilise `latest-novera-cli.json`. | Relever les endpoints dans les sources des clients et les assets de la vraie dernière release. Préserver aussi le nom historique s'il reste utilisé ; ne pas compter les manifests à partir d'un ancien tableau. |
+| Les nouveaux modèles API sont partagés entre les 104 langues ; certains catalogues publics sont accessibles sans clé. | Vérifier noms, identifiants et modalités dans les sources officielles et les réponses réelles du parseur. Tester les nouveaux champs d'appel, les modèles personnels conservés et les limites de compte/région. Un GET de catalogue ne prouve pas une génération réussie. |
+| Le premier commit local a été refusé faute d'identité Git configurée. | Vérifier l'identité de commit avant de publier ; reprendre l'identité publique déjà utilisée par le mainteneur pour ce dépôt, sans modifier la configuration globale du poste. |
+
+La validation locale de ce cycle comprend 63 contrats Node réussis, 17 contrôles supplémentaires réussis et deux scénarios Windows ignorés par leurs conditions, 16 tests Python de distribution, huit tests Python Android et 23 tests de catalogue dont trois catalogues publics réels. Le build Web/TypeScript réussit. Les suites applicatives complètes et compilations natives restent suivies séparément. Les tests ignorés ne sont pas comptés comme réussis.
