@@ -8,6 +8,18 @@ Ce fichier sert de mémoire pratique avant de préparer macOS, Android/iOS ou un
 
 ## 1. Commencer par les vrais prérequis
 
+### Incident Desktop 1.0.1 : Python supprimé et vérification des composants
+
+Le 7 novembre, le test utilisateur de Real-ESRGAN a échoué avant la génération : le profil conservait un Python de développement sous `.build/safetensors-2026-10-26/python315-cuda`, supprimé entre-temps. La mise à jour de l’application conserve les réglages personnalisés ; elle ne réinstalle pas cet environnement externe.
+
+Un second défaut empêchait la réparation par les composants gérés : l’installateur demandait Python 3.12.15, mais sa sonde exigeait encore exactement 3.12.12. Le code de la sonde utilise désormais la version du profil. Les chemins Python personnalisés supprimés sont rejetés avant le lancement avec `COMPONENT_REQUIRED` et une indication de réparation ; aucun autre Python n’est choisi silencieusement. Ces changements source ne modifient pas rétroactivement le binaire 1.0.1 publié.
+
+Pour les prochaines sorties : tester l’installation réelle d’un composant, sa sonde Python et une génération avec agrandissement depuis un profil migré. Une vérification du remplacement de l’exécutable ne suffit pas à valider les composants facultatifs. Les environnements nécessaires à l’application doivent rester dans un emplacement durable, indépendant du nettoyage de `.build`.
+
+Réparation locale effectuée : environnement externe durable sous `%LOCALAPPDATA%/Novera/Runtimes/upscale-cuda-py31215`, dépendances du verrou `upscale-cuda.txt` installées avec contrôle des empreintes, puis chemin Image/Python corrigé dans l’interface 1.0.1. `uv pip check` valide les 12 paquets ; le moteur Real-ESRGAN utilise les poids officiels x2 déjà présents, sur RTX 5070 Laptop : image synthétique 96 × 64 vers 192 × 128 en 1,257 s. Il s’agit d’un test moteur, pas du temps d’une génération FLUX complète. Trois tests ciblés de l’agrandissement passent ; le quatrième test du fichier concerne la publication Diffusers et ne peut pas tourner dans ce profil minimal sans Diffusers. Aucune attestation de composant géré n’a été fabriquée pour cet environnement externe.
+
+La vérification native explicite `real_private_video_lifecycle` passe aussi : installation réelle d’un environnement temporaire, vérification, réparation, retour arrière, annulation et désinstallation. Elle exerce la nouvelle sonde avec Python 3.12.15. Un ancien test attendait encore Torch 2.14.1 alors que les verrous CUDA livrés utilisent 2.15.0+cu134 ; son attente a été actualisée.
+
 Avant une compilation longue, remplir une fiche avec la plateforme, l’architecture, le format, la version applicative, le canal de mise à jour, les accès de signature disponibles et le matériel de test prévu.
 
 | Prochaine cible | Ce que nous avons déjà | Ce qu’il faut obtenir ou vérifier avant publication |
