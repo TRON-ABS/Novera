@@ -61,6 +61,22 @@
       "file": "src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl",
       "beforeSha256": "2d1cb611caf10b72d20b021772806ca4b3ea4f40c9d7a93941e135dacf859f81",
       "afterSha256": "50d4a3ffccb72110b441c0fdeb038bd12ca433d5fd67ba5d07f04f244889dfec"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/workerfs-gguf-buffer.patch",
+      "patchSha256": "5fa09681011de5ff698a12d4061d75f9c53f68661d6794d379f4c740b6f9d2fe",
+      "file": "src/gguf.cpp",
+      "beforeSha256": "7505d6a434dc740941a682fd3b476ef9bd9893ab76adf18c9969daa528bd5be5",
+      "afterSha256": "904eb8cac21d10847566e8b67c15effacd4ece0c147cbc7455fb16a7628151a9"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-col2im-1d.patch",
+      "patchSha256": "1300cca0f79a1dc603b25d46401621df306ab08af387cfa0d54505207860a166",
+      "file": "src/ggml-webgpu/ggml-webgpu.cpp",
+      "beforeSha256": "995b30ce233bdc23cf918da8916485b568aeac0371bcab458d0df3b7b1d172cf",
+      "afterSha256": "37ef3eb5eb51e25e252c9e2156e7c091fc90e96fdd1ce1d948bb6a8c881933cf"
     }
   ]
 }

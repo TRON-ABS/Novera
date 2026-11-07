@@ -1,0 +1,16 @@
+--- a/src/gguf.cpp
++++ b/src/gguf.cpp
+@@ -1022,6 +1022,13 @@
+         return nullptr;
+     }
+ 
++#if defined(__EMSCRIPTEN__)
++    // WORKERFS performs a synchronous Blob read on every libc buffer refill.
++    // GGUF token/merge strings otherwise cause thousands of tiny file reads.
++    // Keep one bounded buffer alive through fclose; parsed bytes are unchanged.
++    std::vector<char> browser_read_buffer(1024 * 1024);
++    setvbuf(file, browser_read_buffer.data(), _IOFBF, browser_read_buffer.size());
++#endif
+     struct gguf_context * result = gguf_init_from_file_ptr(file, params);
+     fclose(file);
+     return result;

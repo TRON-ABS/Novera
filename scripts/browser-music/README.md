@@ -34,4 +34,18 @@ These measurements belong to the development prototype before removal of tempora
 
 Numerical validity, encoding and duration do not certify intelligible French lyrics, instrument exclusion, a natural ending or musical quality. Listening review, further performance measurements and update/cancellation checks remain necessary before claiming readiness. Desktop CUDA and browser WebGPU also need comparisons at matching settings, caption policy and actual output duration.
 
+## Music performance follow-up
+
+The maintainer reports **14.5 s in Desktop 1.0.1** for the fixed-seed instrumental comparison. This is a user-reported UI result, not a new automated Desktop measurement.
+
+- Buffer GGUF metadata reads with a bounded 1 MiB libc buffer on Emscripten. WORKERFS otherwise issues thousands of synchronous Blob reads while parsing tokenizer strings. The buffer remains alive until `fclose`; tensor values and model files are unchanged.
+- Execute contiguous F32 `COL2IM_1D` on WebGPU. Match the CPU gather order, preserve F32 sums, and avoid repeated audio activation transfers to the single-threaded CPU. Reject unsupported precision, strided layouts and invalid parameter/index ranges at backend dispatch.
+- Preserve phase timings through the conversation metadata and display them under “Mesures de performance”. Loading is included in the planning/synthesis/decode phases; the total also includes startup, export and saving. Timings accept only known, finite, bounded fields.
+
+With the same four GGUFs, caption, instrumental marker, `unknown` language, seed 42, eight steps and ten seconds requested, a fresh-worker diagnostic measured **37.5965 s before**, **21.2555 s with buffered reads**, then **16.5904 s with GPU COL2IM**. The initial run with Desktop's text model still resident took 75.578 s and is excluded from the optimization comparison. Actual output is 9.44 s, stereo float32/48 kHz. All three downloaded WAVs match the earlier 39.0-second UI output byte-for-byte: SHA-256 `03e4ea7612f883405061330939d4620d15bfbefd56e4bf17cef8a0629db63c67`.
+
+The production-shaped Novera Web conversation then measured **16.2 s and 16.0 s** on two consecutive fresh-worker runs, with the same prompt, controls and output format. Both downloaded WAVs match the same hash; phase details appear in the real interface. The second WAV also played to its end without a decode error. This is approximately 59% less total time than the earlier 39.0-second UI reference, and about 1.5–1.7 seconds above the maintainer's Desktop report. OS file/shader caches and GPU contention affect these observations; do not promise these times on every device.
+
+Compile the optional CPU/WebGPU reference module with `--numerical-checks`, then invoke `novera_check_col2im` from its dedicated browser worker. Twelve real GPU comparisons match finite CPU F32 results exactly, including all VAE strides, padding, channel counts, offset views and a 4.48-million-sample output that crosses the two-dimensional dispatch boundary. Two additional guards reject F16 and strided sources. The passing module returns 14; compilation alone is not a passing numerical test.
+
 For an internal browser build, set `VITE_NOVERA_WEB_LOCAL_MUSIC=true` and `NOVERA_BROWSER_MUSIC_BUILD` to the verified build directory, then run `corepack yarn build:web:browser`. Packaging checks module/WASM hashes and includes the ACE and GGML licenses in a content-versioned directory. Select the four local files under Music in creation settings; file handles remain session-only, while musical settings and finished WAVs persist locally. The trial accepts 10–30 s, eight steps, automatic WebGPU placement and float32 WAV. Unsupported settings are rejected before model loading.

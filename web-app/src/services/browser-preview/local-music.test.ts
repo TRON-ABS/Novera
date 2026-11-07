@@ -4,6 +4,7 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import { waitFor } from '@testing-library/react'
 import { browserLocalMusicStream, musicComponentNames, setBrowserMusicFiles } from './local-music'
 import { musicWav } from './music-wav'
+import { browserMusicTiming, browserMusicPerformance } from './music-performance'
 import { musicDefaults } from '@/modules/engines/music'
 import { useCreation } from '@/hooks/useCreation'
 import { readBrowserMedia } from './media'
@@ -43,9 +44,13 @@ it('persists local audio before emitting its conversation reference and preserve
   await waitFor(() => expect(TestWorker.instances).toHaveLength(1))
   const worker = TestWorker.instances[0]
   expect(worker.postMessage).toHaveBeenCalledWith(expect.objectContaining({ runtimeUrl: expect.stringContaining(`novera-runtime/${'b'.repeat(64)}/novera-music.mjs`), lyrics: '[Verse]\nBonjour le monde', language: 'fr', seconds: 10, seed: 42 }))
+  worker.onmessage?.({ data: { type: 'music-timing', phase: 'planningMs', milliseconds: 1200 } })
+  worker.onmessage?.({ data: { type: 'music-timing', phase: 'synthesisMs', milliseconds: NaN } })
   worker.onmessage?.({ data: { type: 'complete', wav: musicWav(new Float32Array([0.2, -0.2]), 1, 48000), seconds: 1 / 48000 } })
   expect((await first).value).toMatchObject({ type: 'start' })
   const chunk = (await reader.read()).value as { url: string }
+  expect(chunk).toMatchObject({ providerMetadata: { novera: { planningMs: 1200 } } })
+  expect(JSON.stringify(chunk)).not.toContain('synthesisMs')
   const reference = parseCreationReference(chunk.url)!
   const record = await readBrowserMedia('music', reference.name)
   expect(record.metadata).toMatchObject({ provider: 'novera-browser-music', model: 'acestep-v15-turbo-Q4_K_M', prompt: 'French piano and guitar song.' })
@@ -54,6 +59,11 @@ it('persists local audio before emitting its conversation reference and preserve
   expect((await reader.read()).done).toBe(true)
   expect(finish).toHaveBeenCalledTimes(1); expect(worker.terminate).toHaveBeenCalled()
   expect(useCreation.getState().progress).toEqual({})
+})
+
+it('bounds stored musical timings and ignores unknown or inherited phase names', () => {
+  for (const [phase, ms] of [['totalMs', 10], ['__proto__', 1], ['planningMs', -1], ['planningMs', Infinity], ['planningMs', '20'], ['planningMs', 604800001]]) expect(browserMusicTiming(phase, ms)).toEqual({})
+  expect(browserMusicPerformance({ planningMs: 2000, audioDecodeMs: 0, totalMs: 50 })).toEqual([{ label: 'Chargement et planification musicale', ms: 2000 }, { label: 'Chargement et décodage audio', ms: 0 }])
 })
 
 it('cancels the owning worker and ignores a queued late completion', async () => {

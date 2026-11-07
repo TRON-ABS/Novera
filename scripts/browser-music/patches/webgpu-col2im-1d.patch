@@ -1,0 +1,87 @@
+--- a/src/ggml-webgpu/ggml-webgpu.cpp
++++ b/src/ggml-webgpu/ggml-webgpu.cpp
+@@ -202,6 +202,7 @@
+ 
+     wgpu::Buffer    memset_params_buf;
+     webgpu_pipeline memset_pipeline;
++    webgpu_pipeline novera_col2im_pipeline;
+ 
+     std::string vendor;
+ 
+@@ -3373,6 +3374,50 @@
+ }
+ 
+ // Returns the encoded command, or std::nullopt if the operation is a no-op
++// F32 gather matching the CPU COL2IM_1D summation order. Each invocation owns
++// one output sample; no atomics, clamping, or CPU/GPU activation round trips.
++static webgpu_encoded_op novera_webgpu_col2im(webgpu_context & ctx, ggml_tensor * src, ggml_tensor * dst) {
++    auto & pipeline = ctx->global_ctx->novera_col2im_pipeline;
++    if (!pipeline.pipeline) {
++        pipeline = ggml_webgpu_create_pipeline(ctx->global_ctx->device, R"WGSL(
++@group(0) @binding(0) var<storage, read_write> input: array<f32>;
++@group(0) @binding(1) var<storage, read_write> output: array<f32>;
++struct Params { offset_i:u32, offset_o:u32, k_oc:u32, t_in:u32, t_out:u32, oc:u32, stride:u32, padding:u32 }
++@group(0) @binding(2) var<uniform> p: Params;
++@compute @workgroup_size(64)
++fn main(@builtin(global_invocation_id) gid:vec3<u32>, @builtin(num_workgroups) groups:vec3<u32>) {
++    let index = gid.x + groups.x * 64u * gid.y;
++    if (index >= p.t_out * p.oc) { return; }
++    let channel = index / p.t_out;
++    let absolute_t = i32(index % p.t_out + p.padding);
++    let kernel = i32(p.k_oc / p.oc);
++    let low = max(0, (absolute_t - kernel + i32(p.stride)) / i32(p.stride));
++    let high = min(i32(p.t_in)-1, absolute_t / i32(p.stride));
++    var sum = 0.0f;
++    for (var t = low; t <= high; t++) {
++        let k = absolute_t - t * i32(p.stride);
++        if (k >= 0 && k < kernel) {
++            sum += input[p.offset_i + channel * u32(kernel) + u32(k) + u32(t) * p.k_oc];
++        }
++    }
++    output[p.offset_o + index] = sum;
++}
++)WGSL", "novera_col2im_1d_f32");
++    }
++    std::vector<uint32_t> params = {
++        (uint32_t)(ggml_webgpu_tensor_misalignment(ctx, src)/sizeof(float)),
++        (uint32_t)(ggml_webgpu_tensor_misalignment(ctx, dst)/sizeof(float)),
++        (uint32_t)src->ne[0], (uint32_t)src->ne[1], (uint32_t)dst->ne[0], (uint32_t)dst->ne[1],
++        (uint32_t)ggml_get_op_params_i32(dst,0), (uint32_t)ggml_get_op_params_i32(dst,2),
++    };
++    std::vector<wgpu::BindGroupEntry> entries = {
++        ggml_webgpu_make_tensor_bind_group_entry(ctx,0,src), ggml_webgpu_make_tensor_bind_group_entry(ctx,1,dst),
++    };
++    uint32_t wg_x, wg_y;
++    compute_2d_workgroups(CEIL_DIV(ggml_nelements(dst),64),ctx->global_ctx->capabilities.limits.maxComputeWorkgroupsPerDimension,wg_x,wg_y);
++    return ggml_backend_webgpu_build(ctx,pipeline,params,entries,wg_x,wg_y);
++}
++
+ static std::optional<webgpu_encoded_op> ggml_webgpu_encode(webgpu_context ctx,
+                                                            ggml_cgraph *  cgraph,
+                                                            int            node_idx,
+@@ -3490,6 +3535,8 @@
+             return ggml_webgpu_conv_2d(ctx, src0, src1, node);
+         case GGML_OP_CONV_2D_DW:
+             return ggml_webgpu_conv_2d_dw(ctx, src0, src1, node);
++        case GGML_OP_COL2IM_1D:
++            return novera_webgpu_col2im(ctx, src0, node);
+         case GGML_OP_IM2COL:
+             return ggml_webgpu_im2col(ctx, src0, src1, node);
+         case GGML_OP_UPSCALE:
+@@ -4724,6 +4771,16 @@
+                           (src1->type == GGML_TYPE_F32 || src1->type == GGML_TYPE_F16) &&
+                           (ggml_is_contiguous(src1) || ggml_is_contiguous_channels(src1));
+             break;
++        case GGML_OP_COL2IM_1D:
++            supports_op = src0->type == GGML_TYPE_F32 && op->type == GGML_TYPE_F32 &&
++                ggml_is_contiguous(src0) && ggml_is_contiguous(op) &&
++                src0->ne[2] == 1 && src0->ne[3] == 1 && op->ne[2] == 1 && op->ne[3] == 1 &&
++                ggml_get_op_params_i32(op,0) > 0 && ggml_get_op_params_i32(op,2) >= 0 &&
++                ggml_get_op_params_i32(op,1) == op->ne[1] && op->ne[1] > 0 &&
++                src0->ne[0] % op->ne[1] == 0 && src0->ne[0] / op->ne[1] > 0 &&
++                ggml_nelements(src0) < INT32_MAX && ggml_nelements(op) < INT32_MAX &&
++                op->ne[0] + (int64_t)ggml_get_op_params_i32(op,2) + ggml_get_op_params_i32(op,0) < INT32_MAX;
++            break;
+         case GGML_OP_IM2COL:
+             supports_op = (op->type == GGML_TYPE_F32 || op->type == GGML_TYPE_F16) &&
+                           (src0->type == GGML_TYPE_F32 || src0->type == GGML_TYPE_F16);

@@ -21,6 +21,7 @@ def main():
     parser.add_argument('--ninja', default='ninja')
     parser.add_argument('--cache', type=Path, default=ROOT / '.build/browser-music')
     parser.add_argument('--jobs', type=int, default=2)
+    parser.add_argument('--numerical-checks', action='store_true', help='Compile the separate CPU/GPU reference module; does not run it')
     options = parser.parse_args()
     if not 1 <= options.jobs <= 16:
         parser.error('--jobs must be between 1 and 16')
@@ -80,14 +81,17 @@ def main():
     build = cache / 'build'
     subprocess.run([sys.executable, str(emcmake), options.cmake, '-S', str(HERE), '-B', str(build), '-G', 'Ninja',
                     '-DCMAKE_BUILD_TYPE=Release', '-DCMAKE_MAKE_PROGRAM=' + options.ninja,
+                    '-DNOVERA_NUMERICAL_CHECKS=' + ('ON' if options.numerical_checks else 'OFF'),
                     '-DGIT_EXE:FILEPATH=', '-DGGML_BUILD_COMMIT=' + lock['sources'][1]['commit'],
                     '-DNOVERA_ACE_SOURCE=' + str(sources['ace']), '-DNOVERA_GGML_SOURCE=' + str(sources['ggml'])], env=environment, check=True)
     subprocess.run([options.cmake, '--build', str(build), '--target', 'novera-music', '-j', str(options.jobs)], env=environment, check=True)
+    if options.numerical_checks:
+        subprocess.run([options.cmake, '--build', str(build), '--target', 'novera-music-check', '-j', str(options.jobs)], env=environment, check=True)
     artifacts = []
     for suffix in ['mjs', 'wasm']:
         path = build / f'novera-music.{suffix}'
         artifacts.append({'name': path.name, 'bytes': path.stat().st_size, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
-    result = {'compiled': True, 'modelInferenceValidated': False, 'captionRewriting': False, 'explicitDurationCodeBudget': True, 'maxInputBytesPerField': 512, 'sources': lock, 'artifacts': artifacts}
+    result = {'compiled': True, 'modelInferenceValidated': False, 'numericalCheckModuleCompiled': options.numerical_checks, 'captionRewriting': False, 'explicitDurationCodeBudget': True, 'maxInputBytesPerField': 512, 'sources': lock, 'artifacts': artifacts}
     (build / 'BUILD-VERIFICATION.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))
 

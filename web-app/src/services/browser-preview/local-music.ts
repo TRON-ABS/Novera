@@ -7,6 +7,7 @@ import { parseMusicPrompt } from '@/modules/engines/music-prompt'
 import { creationReference } from '@/modules/engines/creation'
 import { browserRuntime } from './runtime'
 import { saveBrowserLocalMedia } from './media'
+import { browserMusicTiming } from './music-performance'
 
 export const BROWSER_MUSIC_PROVIDER = 'novera-browser-music'
 export const BROWSER_MUSIC_MODEL = 'acestep-v15-turbo-Q4_K_M'
@@ -59,6 +60,7 @@ export function browserLocalMusicStream(prompt: string, scope: string, settings:
         const plan = imageSeedPlan(settings.seed, settings.seedMode, settings.seedMode === 'random' ? crypto.getRandomValues(new Uint32Array(1))[0] : 0)
         useMusicCreation.getState().setSettings({ seed: plan.nextSeed, lastSeed: plan.seed }, scope)
         worker = new Worker(new URL('./local-music.worker.ts', import.meta.url), { type: 'module' })
+        const timings: Record<string, number> = {}
         const result = await new Promise<{ wav: Blob; seconds: number }>((resolve, reject) => {
           let settled = false
           const complete = (error?: Error, value?: { wav: Blob; seconds: number }) => {
@@ -75,7 +77,8 @@ export function browserLocalMusicStream(prompt: string, scope: string, settings:
             if (data.type === 'complete' && data.wav instanceof Blob) {
               if (!Number.isFinite(data.seconds) || data.seconds <= 0 || data.seconds > seconds) complete(new Error('Durée audio invalide.'))
               else complete(undefined, data)
-            } else if (data.type === 'error') complete(new Error(String(data.message).slice(0, 1000)))
+            } else if (data.type === 'music-timing') Object.assign(timings, browserMusicTiming(data.phase, data.milliseconds))
+            else if (data.type === 'error') complete(new Error(String(data.message).slice(0, 1000)))
             else if (['planning', 'synthesizing', 'decoding'].includes(data.phase)) useCreation.getState().setProgress(scope, { stage: 'generating', progress: data.phase === 'decoding' ? 85 : 20 })
           }
           worker!.postMessage({ runtimeUrl: new URL(`${import.meta.env.BASE_URL}${directory}/novera-music.mjs`, document.baseURI).href, files, prompt: caption, lyrics, language, seconds, seed: plan.seed })
@@ -84,7 +87,7 @@ export function browserLocalMusicStream(prompt: string, scope: string, settings:
         useCreation.getState().setProgress(scope, { stage: 'saving', progress: 98 })
         const saved = await saveBrowserLocalMedia(result.wav, { task: 'music', provider: BROWSER_MUSIC_PROVIDER, model: BROWSER_MUSIC_MODEL, prompt: caption }, controller.signal)
         output.enqueue({ type: 'start', messageId: crypto.randomUUID() })
-        output.enqueue({ type: 'file', url: creationReference('music', saved.name), mediaType: saved.mediaType, providerMetadata: { novera: { totalMs: performance.now() - started, seed: plan.seed, durationSeconds: result.seconds } } })
+        output.enqueue({ type: 'file', url: creationReference('music', saved.name), mediaType: saved.mediaType, providerMetadata: { novera: { totalMs: performance.now() - started, seed: plan.seed, durationSeconds: result.seconds, ...timings } } })
         output.enqueue({ type: 'finish', finishReason: 'stop' }); output.close()
       } catch (error) { output.error(error) }
       finally { cleanup() }

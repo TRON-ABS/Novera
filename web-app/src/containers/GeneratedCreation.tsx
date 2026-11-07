@@ -15,6 +15,7 @@ import { ShareButton } from './ShareButton'
 import { MediaPlayer } from '@/components/MediaPlayer'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { browserImagePerformance } from '@/services/browser-preview/image-options'
+import { browserMusicPerformance } from '@/services/browser-preview/music-performance'
 import { readBrowserMedia, downloadBrowserBlob } from '@/services/browser-preview/media'
 
 export function GeneratedCreation({
@@ -41,7 +42,7 @@ export function GeneratedCreation({
     threadId ? !!state.progress[threadId] : false
   )
   const reference = parseCreationReference(url)
-  const performance = browserPreviewEnabled() && reference?.task === 'image' ? browserImagePerformance(timing) : []
+  const performance = !browserPreviewEnabled() ? [] : reference?.task === 'image' ? browserImagePerformance(timing) : reference?.task === 'music' ? browserMusicPerformance(timing) : []
   useEffect(() => {
     if (hasCurrentDuration) return
     const reference = parseCreationReference(url)

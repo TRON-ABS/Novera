@@ -26,3 +26,10 @@ target_link_options(novera-music PRIVATE -O1 --emit-symbol-map -sMEMORY64=1 -sAL
 "-sEXPORTED_FUNCTIONS=['_novera_music_generate','_novera_music_samples','_novera_music_length','_novera_music_rate','_novera_music_release']"
 "-sEXPORTED_RUNTIME_METHODS=['ccall','FS','WORKERFS','HEAPF32']")
 set_target_properties(novera-music PROPERTIES SUFFIX ".mjs")
+option(NOVERA_NUMERICAL_CHECKS "Build the separate music CPU/GPU reference module" OFF)
+if(NOVERA_NUMERICAL_CHECKS)
+  add_executable(novera-music-check numerical-check.cpp)
+  target_link_libraries(novera-music-check PRIVATE ggml ggml-webgpu)
+  target_link_options(novera-music-check PRIVATE -O1 -sMEMORY64=1 -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=67108864 -sMAXIMUM_MEMORY=2147483648 -sMODULARIZE=1 -sEXPORT_ES6=1 -sENVIRONMENT=worker -sJSPI=1 -fwasm-exceptions --no-entry "-sJSPI_EXPORTS=['novera_check_col2im']" "-sEXPORTED_FUNCTIONS=['_novera_check_col2im']" "-sEXPORTED_RUNTIME_METHODS=['ccall']")
+  set_target_properties(novera-music-check PROPERTIES SUFFIX ".mjs")
+endif()
