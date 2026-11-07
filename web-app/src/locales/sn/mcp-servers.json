@@ -1,0 +1,101 @@
+{
+  "editServer": "Rongedza MCP Sevha",
+  "addServer": "Wedzera MCP Server",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Kutarisa mamiriro ekuwedzera..."
+    },
+    "notInstalled": {
+      "title": "Novera inopedza mabasa mubrowser yako",
+      "description": "Isa iyo yekuwedzera kuti upe Novera mukana webrowser",
+      "getExtension": "Wana Wedzero"
+    }
+  },
+  "serverName": "Zita reSevha",
+  "enterServerName": "Isa zita reseva",
+  "command": "Command",
+  "enterCommand": "Isa murairo (uvx kana npx)",
+  "arguments": "Nharo",
+  "argument": "Nharo {{index}}",
+  "envVars": "Nzvimbo dzakasiyana",
+  "key": "Kiyi",
+  "value": "Kukosha",
+  "save": "Sevha",
+  "status": "Status",
+  "connected": "Yakabatanidzwa",
+  "disconnected": "Yakabviswa",
+  "deleteServer": {
+    "title": "Dzima MCP Sevha",
+    "description": "Une chokwadi chekuti unoda kudzima MCP server {{serverName}}? Chiito ichi hachigone kuregererwa.",
+    "delete": "Dzima",
+    "success": "MCP server {{serverName}} yabviswa zvinobudirira"
+  },
+  "editJson": {
+    "title": "Rongedza JSON yeMCP Sevha: {{serverName}}",
+    "titleAll": "Rongedza Ese MCP Maseva JSON",
+    "placeholder": "Isa JSON gadziriso",
+    "errorParse": "Yatadza kufambisa data rekutanga",
+    "errorPaste": "Fomati JSON isiriyo mune zvakanamirwa",
+    "errorFormat": "Fomati JSON haisiyo",
+    "errorServerName": "Zita reseva rinodiwa uye harigone kuve risina chinhu",
+    "errorMissingServerNameKey": "JSON inofanira kurongeka se {\"serverName\": {config}} - isipo server zita kiyi",
+    "errorInvalidType": "Mhando isiriyo '{{type}}' yeserver '{{serverName}}'. Rudzi runofanira kuva 'stdio', 'http', kana 'sse'",
+    "save": "Sevha"
+  },
+  "checkParams": "Ndokumbira utarise ma paramita zvinoenderana nedzidziso.",
+  "title": "MCP Masevha",
+  "experimental": "Kuedza",
+  "editAllJson": "Rongedza Masevha Ese JSON",
+  "findMore": "Tsvaga mamwe MCP maseva pa",
+  "allowPermissions": "Bvumira Zvese MCP Mvumo",
+  "allowPermissionsDesc": "Kana yabatidzwa, ese MCP mafoni ezvishandiso anotenderwa otomatiki pasina kuratidza ma dialog emvumo. Maseting aya anoshanda pasi rose kunhaurirano dzese, kusanganisira itsva chats.",
+  "noServers": "Hapana MCP maseva awanikwa",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Server {{serverKey}} yaitwa zvinobudirira",
+  "serverStatusInactive": "Server {{serverKey}} yakadzimwa zvinobudirira",
+  "runtimeSettings": {
+    "title": "Runtime Settings",
+    "description": "Gadzirisa kuti Novera anotonga sei uye anoedzazve MCP maseva.",
+    "toolCallTimeout": "Tool call timeout (masekondi)",
+    "toolCallTimeoutDesc": "Nguva yakawanda yekumirira MCP mhinduro yekushandisa nguva isati yapera.",
+    "maxToolOutputChars": "Mabhii ekushandisa anobuda",
+    "maxToolOutputCharsDesc": "Chirevo chekushandisa chakareba chakachengetwa muhurukuro. Chese chakapfuura ichi chakachekwa uye chakatemwa sechidiki, saka imwe hombe mhedzisiro haigone kupedza mamiriro emuenzaniso. Isa kuna 0 kuti mibairo igare yakazara.",
+    "smartToolRouting": "Yakangwara MCP yekushandisa nzira",
+    "smartToolRoutingDesc": "Kana yabatidzwa, Novera inosarudza MCP maseva akakodzera isati yasimudza maturusi. Dzima kuti ugare uchirodha MCP runyorwa rweturusi.",
+    "useLightweightRouterModel": "Shandisa yakatsaurirwa modhi yekufambisa",
+    "useLightweightRouterModelDesc": "Kana smart routing iripo, mhanya nhanho yenzira neyakaparadzana (kazhinji diki) modhi pachinzvimbo chechat modhi. Dzima kuti ugare uchishandisa inoshanda chat modhi yekufambisa.",
+    "routerModel": "Routing modhi",
+    "routerModelDesc": "Sarudza mupi uye modhi munzvimbo imwechete. Mamodheru akareruka chete ndiwo akanyorwa saka nzira inogara ichikurumidza uye yakachipa.",
+    "selectRouterModelPlaceholder": "Sarudza nzira yekufambisa…",
+    "routerModelSearchPlaceholder": "Tsvaga mhando…",
+    "routerModelEmptyList": "Hapana mhando dzakareruka dziripo. Wedzera imwe modhi diki kana gadzira makiyi eAPI mumaModheru.",
+    "routerModelEmptySearch": "Hapana machisi e\"{{query}}\"."
+  },
+  "auth": {
+    "label": "Auth:",
+    "state": {
+      "notApplicable": "hazvidiwi",
+      "staticHeader": "Mvumo musoro",
+      "authenticated": "yakasimbiswa",
+      "expired": "yapera",
+      "staleResource": "yakapihwa imwe URL",
+      "unauthenticated": "haina kuvimbiswa"
+    },
+    "expiresIn": "inopera mu {{duration}}",
+    "authenticate": "Pinda",
+    "reauthenticate": "simbisazve",
+    "clear": "Huchokwadi hwechokwadi",
+    "waiting": "takamirira browser...",
+    "openSignInPage": "Vhura peji rekusaina",
+    "needsAuth": "{{serverName}} inoda humbowo",
+    "needsAuthHint": "Pinda kune iyi server kuti ubatane.",
+    "authorized": "Sainirwa ku {{serverName}}",
+    "authorizeFailed": "Kupinda kwe {{serverName}} kwakundikana",
+    "cleared": "Dzakadzima magwaro akachengetwa e{{serverName}}",
+    "nothingToClear": "{{serverName}} yanga isina zvitupa zvakachengetwa",
+    "clearFailed": "Hatina kukwanisa kujekesa zvinyorwa zve {{serverName}}",
+    "renew": "Vandudza chikamu",
+    "expiredAgo": "yakapera nguva {{duration}} yapfuura"
+  }
+}

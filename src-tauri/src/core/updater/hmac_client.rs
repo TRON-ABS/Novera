@@ -2,8 +2,8 @@
  * HMAC client for secure update check requests
  * Provides request signing to verify request integrity and prevent tampering
  */
-use hmac::{Hmac, Mac};
-use rand::Rng;
+use hmac::{Hmac, KeyInit, Mac};
+use rand::RngExt;
 use sha2::Sha256;
 use std::time::{SystemTime, UNIX_EPOCH};
 
@@ -27,8 +27,8 @@ impl HeaderNames {
 
 /// Generate a cryptographically secure nonce (64 hex characters = 32 bytes)
 pub fn generate_nonce() -> String {
-    let mut rng = rand::thread_rng();
-    let bytes: [u8; 32] = rng.gen();
+    let mut rng = rand::rng();
+    let bytes: [u8; 32] = rng.random();
     hex::encode(bytes)
 }
 

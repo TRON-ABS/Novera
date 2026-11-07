@@ -9,6 +9,10 @@ import { detectSystemLanguage, isSupportedLanguage } from '@/lib/systemLanguage'
 export const HUGGINGFACE_TOKEN_SECRET_KEY = 'huggingface'
 type GeneralSettingState = {
   currentLanguage: Language
+  voiceGender: 'male' | 'female'
+  readReplies: boolean
+  setReadReplies: (value: boolean) => void
+  setVoiceGender: (value: 'male' | 'female') => void
   spellCheckChatInput: boolean
   tokenCounterCompact: boolean
   autoUpdateCheck: boolean
@@ -52,6 +56,10 @@ export const useGeneralSetting = create<GeneralSettingState>()(
   persist(
     (set) => ({
       currentLanguage: 'en',
+      voiceGender: 'male',
+      readReplies: true,
+      setReadReplies: (value) => set({readReplies:value}),
+      setVoiceGender: (value) => set({voiceGender:value === 'female' ? 'female' : 'male'}),
       spellCheckChatInput: true,
       tokenCounterCompact: true,
       autoUpdateCheck: true,
@@ -106,6 +114,8 @@ export const useGeneralSetting = create<GeneralSettingState>()(
       // huggingfaceToken is a secret — kept in the OS keyring, never persisted here.
       partialize: (state) => ({
         currentLanguage: state.currentLanguage,
+        voiceGender: state.voiceGender,
+        readReplies: state.readReplies,
         spellCheckChatInput: state.spellCheckChatInput,
         tokenCounterCompact: state.tokenCounterCompact,
         autoUpdateCheck: state.autoUpdateCheck,

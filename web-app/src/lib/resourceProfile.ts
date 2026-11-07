@@ -24,7 +24,7 @@ export function resourceProfile(input: {
   const music = !mobile && ((!known && !input.platform) || (/windows/i.test(input.platform) && (!known || hasRamTier(16384))))
   const video = !mobile && (!known || (hasRamTier(16384) && (gpu >= 6144 || (!!input.unified && hasRamTier(24576)))))
   return {
-    known, light, omni, engineReady, textFits, context: light ? 2048 : 16384,
+    mobile: !!mobile, known, light, omni, engineReady, textFits, context: light ? 2048 : 16384,
     local: { image, music, video },
     fullPack: known && !light && image && music && video && free !== undefined && free >= 10240,
   }

@@ -1,10 +1,10 @@
-<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a></p>
+<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a> · <a href="README.ny.md">Chichewa</a> · <a href="README.bm.md">Bamanankan</a> · <a href="README.sn.md">ChiShona</a> · <a href="README.tn.md">Setswana</a> · <a href="README.nso.md">Sesotho sa Leboa</a> · <a href="README.ht.md">Kreyòl ayisyen</a> · <a href="README.st.md">Sesotho</a> · <a href="README.el.md">Ελληνικά</a> · <a href="README.rn.md">Ikirundi</a> · <a href="README.dyu.md">Julakan</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.sv.md">Svenska</a> · <a href="README.gan.md">贛語</a> · <a href="README.pbt.md">پښتو (سوېلي)</a> · <a href="README.mag.md">मगही</a> · <a href="README.ars.md">عربي نجدي</a> · <a href="README.acm.md">عراقي</a> · <a href="README.fuv.md">Fulfulde (Naajeeriya)</a> · <a href="README.hne.md">छत्तीसगढ़ी</a> · <a href="README.tts.md">อีสาน</a> · <a href="README.azb.md">تۆرکجه</a> · <a href="README.bar.md">Boarisch</a> · <a href="README.ug.md">ئۇيغۇرچە</a> · <a href="README.ctg.md">চাটগাঁইয়া</a></p>
 
 <div align="center">
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>আপুনি আপোনাৰ লক্ষ্য বৰ্ণনা কৰে। Novera সম্পদ প্ৰস্তুত কৰে, কামটো সম্পাদন কৰে আৰু ফলাফলসমূহ সুসংগঠিত কৰে।</strong></p>
   <p>TRON-ABS ৰ দ্বাৰা এটা স্বাধীন AI সহায়ক, প্ৰথম আৰম্ভণিৰ পৰা ফলাফললৈ: এটা কথোপকথনত পাঠ্য, ছবি, সংগীত আৰু ভিডিঅ'।</p>
-  <p><strong>Windows, Linux, macOS আৰু Android ৰ বাবে উপলব্ধ।</strong> · 80 ইণ্টাৰফেচ ভাষা · 42 ক্লাউড প্ৰোভাইডাৰ · 49 মিডিয়া প্ৰিছেট · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS আৰু Android ৰ বাবে উপলব্ধ।</strong> · প্ৰস্তুত কৰা উৎসসমূহ: 104 আন্তঃপৃষ্ঠ ভাষাসমূহ · 42 ক্লাউড প্ৰদানকাৰীসমূহ · 58 মাধ্যম প্ৰিছেটসমূহ · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">স্বয়ংক্রিয়তা</a> · <a href="#one-dashboard-for-every-creation">ডেশব'ৰ্ড</a> · <a href="#local-models-in-use">আপোনাৰ ডিভাইচত স্থানীয়ভাৱে চলি থকা AI মডেলসমূহ</a> · <a href="#hub-and-compatible-models">হাব আৰু সামঞ্জস্যপূৰ্ণ মডেলসমূহ</a> · <a href="#cloud-providers">ক্লাউড</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">অৰিহণা যোগাওক</a></p>
   <p>আনুষ্ঠানিক যোগাযোগ: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>আনুষ্ঠানিক Novera সামাজিক প্ৰফাইলসমূহ: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -14,6 +14,34 @@
 > 2026-11-03 তাৰিখৰ ইংৰাজী README ৰ সহায়ক অনুবাদ। স্থানীয় ভাষাত পুনৰীক্ষণ এতিয়াও প্ৰয়োজন। সংযোগ কৰা নথিসমূহে তেওঁলোকৰ মূল ভাষা বজাই ৰাখে।
 
 ---
+
+<!-- novera-release-1.0.1:start -->
+<a id="preparing-1-0-1"></a>
+## সংস্কৰণ প্ৰস্তুত কৰা হৈছে 1.0.1
+
+ৰাজহুৱা ডাউনলোডসমূহ 1.0.0 ত থাকে। 1.0.1 ৰ বাবে উৎসসমূহত নিম্নলিখিত উন্নতিসমূহ প্ৰস্তুত কৰা হৈছে; সিহঁতক পুনৰ নিৰ্মাণ কৰা সৰঞ্জাম, উন্মোচন পৰীক্ষা আৰু প্ৰকাশৰ প্ৰয়োজন। এই আলেখ্যন আপডেইট কৰিলে সংস্থাপিত এপ্লিকেচনসমূহ আপডেইট কৰা নহয়।
+
+- সুৰক্ষা: দূৰৱৰ্তী পৃষ্ঠাসমূহৰ বাবে কঠোৰ স্থানীয় অনুমতিসমূহ, নে'টৱৰ্ক APIসমূহ আৰু চাৰ্ভাৰ সঁজুলিসমূহৰ বাবে প্ৰমাণীকৰণ, সুৰক্ষিত গোপন সংৰক্ষণ আৰু প্ৰব্ৰজন, সুৰক্ষিত নথিপত্ৰ/মিডিয়া অভিগম, স্প্ৰেডশ্বীট বিশ্লেষণ আৰু বিল্ড স্ক্ৰিপ্টসমূহ। উন্মুক্ত নিৰ্ভৰশীলতাসমূহ আপডেইট কৰা হৈছে; বাকী থকা পৰামৰ্শসমূহ মুকলিকৈ অনুসৰণ কৰা হয়।
+- গোপনীয়তা: পৰিসংখ্যা আৰু ভুল প্ৰতিবেদনসমূহৰ বাবে পৃথক সন্মতিৰ প্ৰয়োজন আৰু অবিকল্পিতভাৱে বন্ধ হৈ থাকে। বিল্ডসমূহে নথিভুক্ত গন্তব্য বিন্যাস অন্তৰ্ভুক্ত কৰে। কাৰিকৰী নিদানসমূহ ফিল্টাৰ কৰা হয়; ব্যৱহাৰকাৰীসকলে সক্ৰিয়কৰণৰ নিয়ন্ত্ৰণ ৰাখে।
+- স্থানীয় ইঞ্জিন: `llama.cpp v0.9.0` (`b12110`, `cd959bae99ff4bed22bef2604f45241c09bbb8c8`)। ইঞ্জিন সংস্কৰণ আৰু এপ্লিকেচন সংস্কৰণ পৃথক। প্ৰাৰম্ভিক আৰ্হি সংহতিসমূহ আৰু আৰ্হি/প্ৰজেক্টৰ পঞ্জীয়ন সংশোধন কৰা হয়, `kv_unified` জড়িত আৰম্ভণি বিফলতা অন্তৰ্ভুক্ত কৰি। বৰ্তমানৰ ব্যক্তিগত ছেটিংছ সংৰক্ষিত কৰা হয়।
+- ভাষাসমূহ: 24 অতিৰিক্ত ভাষা আৰু ভিন্নতাসমূহে আন্তঃপৃষ্ঠ আৰু অনুবাদিত README সংগ্ৰহক 104 লৈ আনে, প্ৰতিটো কেটেলগত 2,435 আন্তঃপৃষ্ঠ কি'সমূহৰ সৈতে। এই কভাৰেজে প্ৰতিটো ভাষাতে স্থানীয় সম্পাদকীয় মানদণ্ড বা বক্তৃতা সমৰ্থন প্ৰমাণ নকৰে।
+- **LFM3-Omni-2B Q4_K_M** — ডেস্কটপ আৰু মোবাইলত অবিকল্পিত। লিখনী, ছবি আৰু অডিঅ'ৰ বাবে এটা কমপেক্ট আৰ্হি, প্ৰয়োজনীয় `mmproj` নথিপত্ৰ ব্যৱহাৰ কৰি। ডাউনলোড: দুয়োটা ফাইলৰ বাবে 1.39 GB ৰ বিষয়ে। এটা লঘু মাল্টিম'ডাল ছেটআপৰ বাবে ইয়াক বাছক। ভয়েচৰ বৈশিষ্ট্যসমূহ প্লেটফৰ্ম আৰু ইঞ্জিনৰ ওপৰত নিৰ্ভৰ কৰে। দীঘলীয়া প্ৰসংগত অধিক স্মৃতিশক্তি ব্যৱহাৰ কৰা হয়।
+- **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** — কথোপকথন, লিখা, সঁজুলি আৰু গাঁথনিগত উত্তৰৰ বাবে কেৱল পাঠ্যৰ বিকল্প। ডাউনলোড: 6.18 GBৰ বিষয়ে। ইয়াৰ বাবে LFM3-Omniতকৈ অধিক মেমৰিৰ প্ৰয়োজন আৰু ই ছবি বা অডিঅ' নিজেই প্ৰক্ৰিয়া নকৰে। কথিত উত্তৰসমূহে চিস্টেমৰ কণ্ঠ ব্যৱহাৰ কৰে। লিখনী কাৰ্য্যসমূহৰ বাবে ইয়াক নিৰ্ব্বাচন কৰক যেতিয়া আপোনাৰ ওচৰত পৰ্যাপ্ত মেমৰি থাকে। উৎসৰ সৈতে বাস্তৱিক উত্তৰ পৰীক্ষা কৰক।
+- 1.0.1 ৰ বাবে, LFM3-Omni-2B Q4_K_M ইয়াৰ প্ৰয়োজনীয় `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ৰ সৈতে ডেস্কটপ আৰু মোবাইলত অবিকল্পিত পৰামৰ্শ; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M এটা কেৱল লিখনী বিকল্প হৈয়েই আছে। প্ৰাৰম্ভিক প্ৰসংগ হৈছে ডেস্কটপত 32,768 টোকেন আৰু মোবাইলত 2,048। দীঘলীয়া প্ৰসংগসমূহে অধিক স্মৃতিশক্তি ব্যৱহাৰ কৰে। বৰ্তমানৰ মডেল পছন্দ আৰু সংহতিসমূহ স্পষ্টভাৱে সলনি নকৰালৈকে সংৰক্ষণ কৰা হয়।
+- কণ্ঠস্বৰ: LFM3-Omni ৰ বাবে প্ৰত্যক্ষ স্থানীয় মাইক্ৰ'ফোন ইনপুট, অবিৰত কথোপকথন আৰু স্বয়ংক্ৰিয় প্ৰেৰণ, অডিঅ' মডেলসমূহৰ বাবে পুৰুষ/মহিলা উত্তৰ কণ্ঠ, আৰু ক্লাছিক মডেলসমূহৰ বাবে চিস্টেম বক্তৃতা। উত্তৰ পঢ়াই টাইপ কৰা বাৰ্তা আৰু পুনৰুত্পাদনৰ বাবেও কাম কৰে, মাইক্ৰ'ফোন কেপচাৰৰ পৰা স্বাধীনভাৱে। এটা সৰু শব্দ বুটামে পঢ়া সামৰ্থবান বা নিস্তব্ধ কৰে।
+- মাইক্ৰ'ফোনৰ অৱস্থা: উপলব্ধ হ'লে সেউজীয়া, ব্যস্ত থকাৰ সময়ত ৰঙা, উপলব্ধ নহ'লে ধূসৰ। চিনাক্তকৰণ, শুনা পুনৰাৰম্ভ, ফ'কাচ নিয়ন্ত্ৰণ আৰু দৃশ্যমান ডিক্টেচন সংশোধন কৰা হৈছে। স্থানীয় অডিঅ'-মডেল বক্তৃতা বৰ্তমানে Windows ত প্ৰণয়ন কৰা হৈছে; অন্য প্লেটফৰ্মসমূহক এতিয়াও স্থানীয় বৈধকৰণ আৰু উপযুক্ত ভয়েচ সমৰ্থনৰ প্ৰয়োজন।
+- ৱেব: অধিক নিৰ্ভৰযোগ্য বতৰ-অনুৰোধ ধৰা পেলোৱা, বৰ্তমান-তাৰিখৰ নিৰ্দেশনা, সতেজ ফলাফল আৰু উদ্ধৃতি, আৰু সঁজুলি ব্যৱহাৰৰ পিছত বৰ্তমানৰ অনুৰোধৰ ওপৰত কেন্দ্ৰিত উত্তৰ। বক্তৃতাই দৃশ্যমান উদ্ধৃতিসমূহ ৰাখি সজ্জাগত উৎস লেবেল আৰু লিংকসমূহ বাদ দিয়ে। সঁহাৰি আৰু বাক্য ভাষাই ব্যৱহাৰকাৰীৰ ভাষা অনুসৰণ কৰে যিমানদূৰলৈকে নিৰ্বাচিত মডেলে ইয়াক সমৰ্থন কৰে।
+- অনুকূলনসমূহ: ইন্টাৰনেট সামৰ্থবান হ'লে পটভূমিত ৱেব সন্ধান প্ৰস্তুত কৰক, সেৱা আৰম্ভণি অংশীদাৰী কৰক, প্লেবেকৰ আগতে পৰৱৰ্তী বক্তৃতা খণ্ড প্ৰস্তুত কৰক আৰু বাক্যৰ ধাৰাবাহিকতা উন্নত কৰক। ফৰাচী বছৰ, দশমিক সংখ্যা আৰু একক অধিক স্বাভাৱিকভাৱে পঢ়া হয়। নে'টৱৰ্ক বিলম্ব আৰু মডেলৰ গতি এতিয়াও ছেটআপৰ ওপৰত নিৰ্ভৰ কৰে।
+- আৰাম: ইনপুট দৃশ্যমান হৈ থকাৰ সময়ত নিম্ন নিয়ন্ত্ৰণসমূহ ভাঙি যায়। কমপেক্ট মাইক্ৰ'ফোন আৰু প্ৰকাশ নিয়ন্ত্ৰণ, মাইক্ৰ'ফোনৰ তলত এটা শব্দ বুটাম, প্ৰতিক্ৰিয়াশীল সংগীত ছেটিংছ আৰু অনুবাদ কৰা উপাদান লেবেলসমূহে সৰু পৰ্দাত ব্যৱহাৰ উন্নত কৰে।
+- API কেটেলগসমূহ: 43 প্ৰদানকাৰী আলেখ্যনসমূহ, স্থানীয়ভাৱে TabbyAPI অন্তৰ্ভুক্ত কৰি, সতেজ আড্ডা আৰু মাধ্যম নিৰ্বাচনসমূহৰ সৈতে। নতুন প্ৰৱেশসমূহে GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 আৰু GPT Image 2.6, Gemini Omni 1.2, FLUX 3 অন্তৰ্ভুক্ত কৰে য'ত সমৰ্থিত। ৰিফ্ৰেছে আৰু দহটা মডেলৰ বাহিৰৰ ফলাফল লুকুৱাব নোৱাৰে। সঠিক চিনাক্তকৰ্তা, আঞ্চলিক শেষ বিন্দু, ব্যক্তিগত মোতায়েন আৰু আমদানি কৰা আৰ্হিসমূহ সন্মান কৰা হয়।
+- বৈধকৰণ: লক্ষ্য কৰা এপ্লিকেচন, স্থানীয়-লাইব্ৰেৰী, ৰাজহুৱা-কেটেলগ আৰু ভাষা পৰীক্ষাসমূহ বিৱৰিত টোকাসমূহত লিপিবদ্ধ কৰা হয়। আন্তঃপৃষ্ঠই Windows / macOS / Linux / Android / iOS ৰ বাবে নিৰ্মাণ কৰে। এই ফ্ৰন্টএণ্ড বিল্ডসমূহে প্ৰতিটো ডিভাইচত স্থানীয় পেকেইজসমূহ বা অনুমান প্ৰমাণ নকৰে।
+- মুক্তিৰ আগতে: পুনৰ নিৰ্মাণ কৰা স্থানীয় সৰঞ্জামসমূহ, বাকী সুৰক্ষা/নিৰ্ভৰশীলতা সন্ধানসমূহ আৰু প্ৰকৃত 1.0.0 1.0.1 আপডেইটলৈ বৈধ কৰক। উপলব্ধতা হাৰ্ডৱেৰ, প্ৰদানকাৰী অভিগম আৰু প্লেটফৰ্মৰ ওপৰত নিৰ্ভৰ কৰে। কোনো সাৰ্বজনীন আৰ্হি সামঞ্জস্যতা, শূন্য-দুৰ্বলতা অৱস্থা বা সম্পূৰ্ণ প্ৰকাশন দাবী কৰা হোৱা নাই।
+
+[বিশদ টোকা, বৈধকৰণ আৰু বাকী থকা কাম](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
+
+> এই আপডেইট টোকাসমূহে সহায়ক অনুবাদ আৰু, প্ৰয়োজন সাপেক্ষে, এটা অংশীদাৰী লিখিত পঞ্জিকা ব্যৱহাৰ কৰে। থলুৱা ভাষাৰ পৰ্যালোচনা প্ৰয়োজনীয় হৈয়েই আছে। সংযুক্ত নথিপত্ৰসমূহে নিজৰ মূল ভাষা ধৰি ৰাখে।
+
+<!-- novera-release-1.0.1:end -->
 
 ## উপলব্ধতা — 2026-11-03
 
@@ -74,11 +102,11 @@ Novera আপোনাৰ সৈতে ডাঙৰ হয়। আপোনা
 
 [ব্যৱহাৰকাৰী গাইড](docs/USER_GUIDE.md) · [ইঞ্জিন আৰু প্ৰমাণীকৰণ](docs/SUIVI_MOTEURS.md) · [বিকাশ](docs/DEVELOPMENT.md)
 
-আপডেট কৰা উৎসসমূহত, **কনফিগাৰেশ্যনসমূহে মোবাইল আৰু সীমিত হাৰ্ডৱেৰৰ বাবে নিজৰ পৰামৰ্শসমূহ খাপ খুৱায়**: LFM3-1.7B Q4, অথবা LFM3-Omni-2B Q4 তাৰ প্ৰজেক্টৰৰ সৈতে যেতিয়া প্ৰতিবেদন কৰা মেমৰি আৰু ইঞ্জিনৰ প্ৰয়োজনীয়তা পূৰ্ণ হয়। উপলব্ধ নোহোৱা স্থানীয় উৎপাদন লুকাই থকা বা ব্লক কৰা হৈছে; কনফিগাৰেট কৰা ক্লাউড ইমেজ, সংগীত আৰু ভিডিঅ' উপলব্ধ হৈ থাকে। ইণ্টাৰফেচ গাইডেন্স 80 ভাষা ক্যাটালগসমূহ পুনৰ ব্যৱহাৰ কৰে। এই অনুমানসমূহৰ বাবে ইনষ্টল কৰা এপ্লিকেচনসমূহলৈ উপনীত হ'বলৈ ডিভাইচ পৰীক্ষা আৰু পুনৰ নিৰ্মাণৰ প্ৰয়োজন।
+1.0.1 ৰ বাবে, LFM3-Omni-2B Q4_K_M ইয়াৰ প্ৰয়োজনীয় `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ৰ সৈতে ডেস্কটপ আৰু মোবাইলত অবিকল্পিত পৰামৰ্শ; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M এটা কেৱল লিখনী বিকল্প হৈয়েই আছে। প্ৰাৰম্ভিক প্ৰসংগ হৈছে ডেস্কটপত 32,768 টোকেন আৰু মোবাইলত 2,048। দীঘলীয়া প্ৰসংগসমূহে অধিক স্মৃতিশক্তি ব্যৱহাৰ কৰে। বৰ্তমানৰ মডেল পছন্দ আৰু সংহতিসমূহ স্পষ্টভাৱে সলনি নকৰালৈকে সংৰক্ষণ কৰা হয়।
 
 ## উৎসত সামৰ্থ্যসমূহ
 
-ঐচ্ছিক ৰক্ষণাবেক্ষণ ডায়াগনষ্টিকসমূহে এতিয়া বিল্ড আৰু ইনষ্ট্ৰুমেণ্টৰ দ্বাৰা সামলা সামৰ্থ্যসমূহৰ লগতে JavaScript ব্যতিক্রমসমূহো পৃথক কৰে, পৃথক সন্মতি আৰু ফিল্টাৰ কৰা প্ৰযুক্তিগত ক্ষেত্ৰৰ সৈতে। ৰক্ষণাবেক্ষণ কৰোঁতাৰ বাবে এটা ঘণ্টাভিত্তিক উৎপাদন ইমেইল সতৰ্কবাণী কনফিগাৰেট কৰা হৈছে। ব্যক্তিগত উৎস মানচিত্ৰ আৰু সতৰ্কবাণী বিৱৰণসমূহ তলত দিয়া [ৰক্ষণাবেক্ষণ ৰানবুক](docs/MAINTENANCE.md); পৰীক্ষা ইমেইল প্ৰেৰণ নিশ্চিত কৰা হৈছে, আনহাতে প্ৰমাণিত চিহ্ন আপলোড আৰু পৰৱৰ্তী বাইনাৰীত পৰীক্ষা এতিয়াও ৰিলিজ পৰীক্ষা হৈ আছে।
+ৰক্ষণাবেক্ষণ আৰু গোপনীয়তা উন্নয়নসমূহ 1.0.1 ৰ বাবে প্ৰস্তুত কৰা হৈছে। বৈকল্পিক পৰিসংখ্যা আৰু ভুল প্ৰতিবেদনে স্বতন্ত্ৰ, স্পষ্ট সন্মতি আৰু ফিল্টাৰ কৰা কাৰিকৰী নিদান ব্যৱহাৰ কৰে। প্ৰয়োজনীয় মুক্তি পৰীক্ষা আৰু বাকী সুৰক্ষা তথ্যসমূহ পৃথকে নথিভুক্ত কৰা হয়। [ৰক্ষণাবেক্ষণ ৰানবুক](docs/MAINTENANCE.md)
 
 | ক্ষেত্ৰ | বৈশিষ্ট্যসমূহ |
 | --- | --- |
@@ -98,7 +126,8 @@ Novera আপোনাৰ সৈতে ডাঙৰ হয়। আপোনা
 
 | ভূমিকা | মডেল / কনফিগাৰেড উপাদানসমূহ |
 | --- | --- |
-| **পাঠ্য — প্ৰথম-চালিত মডেল** | **Nemotron-3.5-Bolt-E4B**, ফাইল `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
+| **পাঠ্য — প্ৰথম-চালিত মডেল** | **LFM3-Omni-2B Q4_K_M** · `LFM3-Omni-2B-Q4_K_M.gguf` + `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` |
+| **কেৱল পাঠ্যৰ বিকল্প** | **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** · `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf` |
 | **নথি পুনৰুদ্ধাৰ** | **Qwen3-Embedding-0.6B Q8_0**, **ডিফল্টভাৱে CPU**, সেভ কৰা CPU/GPU পছন্দৰ সৈতে। |
 | **ছবি** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** এনকোডাৰ আৰু আনুষ্ঠানিক FLUX.2 VAE. |
 | **ছবি — হাৰ্ডৱে অপচন** | **FLUX.2 Klein 4B NVFP4**, যেতিয়া GPU আৰু পৰিৱেশ সামঞ্জস্যপূৰ্ণ হয় তেতিয়া নেটিভ CUDA পথৰ জৰিয়তে। |
@@ -114,7 +143,7 @@ Qwen সংগীত এনকোডাৰ আৰু Qwen পুনৰুদ্�
 
 ## ক্লাউড প্ৰৱৰ্তকসমূহ
 
-**42 প্ৰৱৰ্তক প্ৰোফাইলসমূহ** সংহত কৰা হৈছে। **ElevenLabs** এতিয়া Stability AI, fal আৰু Replicate ৰ সংগীত ৰুটসমূহৰ সৈতে প্ৰদৰ্শনত প্ৰদৰ্শিত হয়।
+প্ৰস্তুত কৰা উৎসসমূহে 43 প্ৰদানকাৰী আলেখ্যনসমূহ অন্তৰ্ভুক্ত কৰে: 42 ক্লাউড সেৱাসমূহ আৰু এটা স্থানীয় চাৰ্ভাৰৰ বাবে TabbyAPI। মডেলৰ উপলব্ধতা আৰু ক্ষমতাসমূহ একাউণ্ট, অঞ্চল আৰু সমৰ্থিত API ৰ ওপৰত নিৰ্ভৰ কৰে। কেটেলগ সকলো 104 আন্তঃপৃষ্ঠ ভাষাৰ দ্বাৰা অংশীদাৰী কৰা হয়।
 
 | | | |
 | --- | --- | --- |
@@ -131,27 +160,27 @@ Qwen সংগীত এনকোডাৰ আৰু Qwen পুনৰুদ্�
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/) |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://docs.dev.runwayml.com/api/) | <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://docs.ltx.io/models) |
 | <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
-| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/docs/model-map) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/models) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
 
 ### ছবি, সংগীত আৰু ভিডিঅ'
 
-**20 প্ৰৱৰ্তকসকলে সৃষ্টি ৰুটসমূহ প্ৰকাশ কৰে**, সৈতে **49 প্ৰিসেটসমূহ: 25 ছবি, 20 ভিডিঅ' আৰু 4 সংগীত**. সংগীত ৰুটসমূহ হৈছে **ElevenMusic v2.5**, **Stable Audio 3**, **ACE-Step ৰ পৰা fal লৈ** আৰু **Stable Audio 2.5 ৰ পৰা Replicate লৈ**.
+প্ৰস্তুত কৰা সৃষ্টি কেটেলগত 20 প্ৰদানকাৰীৰ পৰা 58 প্ৰিছেট আছে: 30 ছবি, 24 ভিডিঅ' আৰু 4 সংগীত প্ৰিছেট। তলৰ তালিকাসমূহত সংহত পথসমূহৰ তালিকা দিয়া হৈছে; তেওঁলোকে প্ৰতিটো বাণিজ্যিক প্ৰসাদৰ পুনৰুত্পাদন নকৰে।
 
 | প্ৰদানকাৰী | Novera ত আউটপুটসমূহ | ক্যাটালগ মডেলসমূহ |
 | --- | --- | --- |
 | <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="24" height="24" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | সংগীত | `ElevenMusic v2.5` |
-| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | ছবি / সংগীত | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
-| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | ছবি / সংগীত / ভিডিঅ' | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
-| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | ছবি / সংগীত | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
+| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | ছবি / সংগীত | `Stable Image Ultra` · `Stable Image Core` · `Stable Audio 3` |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | ছবি / সংগীত / ভিডিঅ' | `FLUX 3 Video · fal` · `FLUX 3 Image · fal` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` · `ACE-Step · cloud` |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | ছবি / সংগীত / ভিডিঅ' | `FLUX 3 Video · Replicate` · `FLUX.2 Max · Replicate` · `Stable Audio 2.5 · Replicate` |
 | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="24" height="24" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | ছবি / ভিডিঅ' | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
 | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="24" height="24" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | ছবি / ভিডিঅ' | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
-| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | ছবি / ভিডিঅ' | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | ছবি / ভিডিঅ' | `Gemini Omni 1.2 Flash` · `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
 | <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="24" height="24" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | ছবি | `Krea 3` |
 | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="24" height="24" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | ছবি | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
 | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="24" height="24" /> [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | ভিডিঅ' | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
-| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | ছবি | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | ছবি | `GPT Image 2.6 Sunburst` · `GPT Image 2.6 Flare` · `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
 | <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="24" height="24" /> [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | ছবি / ভিডিঅ' | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
-| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | ছবি | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | ছবি / ভিডিঅ' | `FLUX 3 Image` · `FLUX 3 Image Klein` · `FLUX 3 Video` · `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="24" height="24" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | ছবি | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
 | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="24" height="24" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | ছবি | `Ideogram 4.5` |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="24" height="24" /> [Runway](https://docs.dev.runwayml.com/api/) | ভিডিঅ' | `Runway Gen-4.5` |
@@ -165,23 +194,23 @@ Qwen সংগীত এনকোডাৰ আৰু Qwen পুনৰুদ্�
 
 | প্ৰদানকাৰী | উৎসত আগবঢ়োৱা মডেল ID সমূহ |
 | --- | --- |
-| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
+| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6.1-terra` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
 | [Microsoft Azure](https://oai.azure.com/deployments) | একাউণ্ট-নির্দিষ্ট স্থাপন বা গেটৱে |
 | [Anthropic](https://platform.claude.com/docs/en/models/overview) | `claude-sonnet-5-5` · `claude-opus-5-5` · `claude-fable-5-1` · `claude-haiku-5-5` |
-| [OpenRouter](https://openrouter.ai/models) | `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
-| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `mistral-medium-3-5` · `mistral-small-2603` · `ministral-3b-2512` |
-| [Groq](https://console.groq.com/docs/models) | `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
+| [OpenRouter](https://openrouter.ai/models) | `liquid/lfm-3-1.7b` · `openai/gpt-6.1-terra` · `tencent/hy4` · `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
+| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `zai-glm-5-3-flash` · `mistral-small-2603` · `ministral-3b-2512` |
+| [Groq](https://console.groq.com/docs/models) | `qwen/qwen3.8-27b` · `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
 | [xAI](https://docs.x.ai/developers/models) | `grok-4.7` |
 | [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | `gemini-4-argon` · `gemini-3.8-flash` · `gemini-3.6-flash` · `gemini-3.5-flash-lite` |
 | [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) | `MiniMax-M3.1-Flash` · `MiniMax-M3` |
-| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
-| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3` |
+| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `MiniMaxAI/MiniMax-M3.1-Flash` · `zai-org/GLM-5.3-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
+| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3-flash` |
 | [DeepSeek](https://api-docs.deepseek.com/) | `deepseek-flash` · `deepseek-v4-pro` |
 | [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | `kimi-k3.1-pro` · `kimi-k3.1-pro-highspeed` · `kimi-k3` |
 | [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | `qwen3.8-max` · `qwen3.7-plus` · `qwen3.8-flash` |
 | [Cerebras](https://inference-docs.cerebras.ai/models/overview) | `qwen-3.8-27b` · `gpt-oss-120b` |
-| [Together AI](https://docs.together.ai/docs/serverless/models) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
-| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
+| [Together AI](https://docs.together.ai/docs/serverless/models) | `moonshotai/Kimi-K3.1-Pro` · `MiniMaxAI/MiniMax-M3.1-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
+| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/kimi-k3p1-pro` · `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
 | [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) | `perplexity/sonar` · `openai/gpt-6.1-sol` · `google/gemini-4-argon` · `perplexity/kimi-k3` |
 | [Meta AI](https://dev.meta.ai/docs/models) | `muse-wonder-1.0` · `muse-spark-1.3` |
 | [Cohere](https://docs.cohere.com/docs/models) | `command-a-plus-05-2026` |
@@ -189,8 +218,8 @@ Qwen সংগীত এনকোডাৰ আৰু Qwen পুনৰুদ্�
 | [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | `jamba-large` · `jamba-mini-2` |
 | [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | `dola-seed-2-1-turbo-260628` |
 | [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) | `ernie-5.1` |
-| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4-preview` |
-| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-sol` |
+| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4` · `hy4-preview` |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-terra` · `openai.gpt-6.1-sol` |
 | [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) | একাউণ্ট-নির্দিষ্ট স্থাপন বা গেটৱে |
 
 </details>
@@ -237,9 +266,9 @@ AWQ 4-বিট, GPTQ 4-বিট, NF4 আৰু INT8 প্ৰত্যেক�
 
 আপডেট কৰা উৎসসমূহে যোগ কৰে **Windows x64-ৰ বাবে কনফিগাৰেচনত ঐচ্ছিক পৰিচালিত উপাদান**: ব্যক্তিগত Python পৰিৱেশ, পিন কৰা CPU/CUDA প্ৰফাইল, ডাউনলোডৰ পূৰ্বে অনুমান আৰু নিশ্চিতকৰণ, প্ৰমাণীকৰণ, মুকলি কৰা আৰু অপসারণ। কাস্টম ইন্টাৰpreter পথসমূহ উন্নত বিকল্পসমূহৰ অধীনত থাকে। নেটিভ GGUF ইঞ্জিনসমূহে তেওঁলোকৰ বিদ্যমান উপাদানসমূহ ৰাখে; মোবাইল আৰু ক্লাউড ডেস্কটপ Python/PyTorch ডাউনলোড নকৰে। কৃত্ৰিম পৰীক্ষাৰ তথ্যৰ সৈতে তিনিটা ব্যক্তিগত CPU/পৰিবৰ্তন প্ৰফাইল পৰীক্ষা কৰা হৈছিল; ৰক্ষণাবেক্ষণকাৰীয়ে 1 নৱেম্বৰ 2026 ত সফল ডেস্কটপ ব্যৱহাৰৰ প্ৰতিবেদন দিছে; GPU প্ৰফাইল আৰু clean-PC স্থাপনৰ বাবে এতিয়াও পৃথক, বিশদ প্ৰমাণীকৰণৰ প্ৰয়োজন। [প্ৰফাইল আৰু পৰীক্ষাৰ সীমা](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). EXE ত ষ্টেক এমবেডিং স্থগিত কৰা হৈছে।
 
-## 80 ইণ্টাৰফেচ ভাষা আৰু প্ৰকাৰসমূহ
+## 104 ইণ্টাৰফেচ ভাষা আৰু প্ৰকাৰসমূহ
 
-**সকলো 80 ক্যাটালগসমূহে বৰ্তমানৰ 2,429 ইংৰাজী কি-সমূহ সামৰি লয়** 15 নেমস্পেছসমূহত, মেনু, কনফিগাৰেচন, ছেটিং, সহায় আৰু মিডিয়া নিয়ন্ত্ৰণৰ সৈতে। বহুবচন ৰূপ আৰু ইণ্টাৰফেচ দিশ নিৰ্বাচিত ভাষাটো অনুসৰণ কৰে। প্ৰতিক্ৰিয়া আৰু কণ্ঠস্বৰৰ ভাষা মডেলৰ ওপৰত পৃথকভাৱে নিৰ্ভৰ কৰে।
+**সকলো 104 ক্যাটালগসমূহে বৰ্তমানৰ 2,435 ইংৰাজী কি-সমূহ সামৰি লয়** 15 নেমস্পেছসমূহত, মেনু, কনফিগাৰেচন, ছেটিং, সহায় আৰু মিডিয়া নিয়ন্ত্ৰণৰ সৈতে। বহুবচন ৰূপ আৰু ইণ্টাৰফেচ দিশ নিৰ্বাচিত ভাষাটো অনুসৰণ কৰে। প্ৰতিক্ৰিয়া আৰু কণ্ঠস্বৰৰ ভাষা মডেলৰ ওপৰত পৃথকভাৱে নিৰ্ভৰ কৰে।
 
 এই প্ৰযুক্তিগত কভারেজে ভাষাগত গুণমান প্ৰমাণ কৰা নহয়: **নেটিভ প্ৰতিবেদন আৰু আঞ্চলিক অভিযোজন এতিয়াও প্ৰয়োজনীয়**. নেটিভ লেবেল আৰু জ্ঞাত সীমাসমূহ চাওক [ভাষা গাইড](docs/LANGUAGES.md) আৰু [অডিট প্ৰতিবেদন](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -275,7 +304,7 @@ AWQ 4-বিট, GPTQ 4-বিট, NF4 আৰু INT8 প্ৰত্যেক�
 - [বিশদ ব্যৱহাৰকাৰী পথপ্ৰদৰ্শন](docs/USER_GUIDE.md), [প্ৰডাক্ট আৰু ব্যৱহাৰকাৰী-তথ্যৰ সোণালী নিয়মসমূহ (ফ্ৰেঞ্চ)](docs/REGLES_D_OR.md), [মডেল আৰু ইঞ্জিনসমূহ](docs/SUIVI_MOTEURS.md).
 - [বিকাশ](docs/DEVELOPMENT.md), [বিল্ড আৰু ৰিলিজ গাইড](docs/BUILD_AND_RELEASE.md), [ভৱিষ্যত সংস্কৰণ আৰু আপডেট প্ৰস্তুতি](docs/FUTURES_VERSIONS.md).
 - [প্ৰজেক্ট ডেশব'ৰ্ড](TABLEAU_DE_BORD_NOVERA.md), [ৰoadmap](ROADMAP.md), [চেঞ্জলগ](docs/CHANGELOG.md).
-- [অংশগ্ৰহণ](CONTRIBUTING.md): 80 ভাষাৰ ওপৰত কোড, পৰীক্ষা, স্থানীয় প্ৰতিবেদন আৰু বাস্তৱ প্ৰবাহৰ প্ৰতিক্ৰিয়া।
+- [অংশগ্ৰহণ](CONTRIBUTING.md): 104 ভাষাৰ ওপৰত কোড, পৰীক্ষা, স্থানীয় প্ৰতিবেদন আৰু বাস্তৱ প্ৰবাহৰ প্ৰতিক্ৰিয়া।
 
 ## পৰিচয় আৰু লাইচেঞ্চ
 

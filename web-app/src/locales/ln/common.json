@@ -831,5 +831,10 @@
     "update": "Mikolo oyo",
     "rollback": "Kozongisa environnement ya kala",
     "busy": "Décharger ba modèles locales pe zela ba génération esila avant ya ko changer ba composants."
-  }
+  },
+  "voiceConversation": "Lisolo ya mongongo",
+  "voiceUnavailable": "Lisolo ya mongongo ezali te",
+  "voiceMale": "Mongongo ya mobali",
+  "voiceFemale": "Mongongo ya mwasi",
+  "voiceReadReplies": "Tángá biyano na mongongo"
 }

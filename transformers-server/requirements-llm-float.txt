@@ -1,3 +1,3 @@
 # Install with the CUDA base requirements as constraints; no vLLM dependency.
 accelerate==1.15.0
-comfy-kitchen==0.2.35
+comfy-kitchen==0.2.41

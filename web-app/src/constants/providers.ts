@@ -452,7 +452,7 @@ export const predefinedProviders = [
     api_key: '',
     provider: 'byteplus',
     base_url: 'https://ark.ap-southeast.bytepluses.com/api/v3',
-    explore_models_url: 'https://docs.byteplus.com/en/docs/modelark/model-parameter-support',
+    explore_models_url: 'https://docs.byteplus.com/en/docs/modelark/model-list',
     settings: [],
     models: [],
   },

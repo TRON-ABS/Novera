@@ -1,0 +1,101 @@
+{
+  "editServer": "MCP सर्वर संपादन",
+  "addServer": "MCP सर्वर जोड़ो",
+  "browserExtension": {
+    "connecting": {
+      "checking": "विस्तार स्थिति जाँचल जा रहल हई..."
+    },
+    "notInstalled": {
+      "title": "Novera आपके ब्राउज़र में कार्य पूरा करई छई",
+      "description": "Novera ब्राउज़र पहुँच देवे के लेल विस्तार स्थापित करई छई",
+      "getExtension": "विस्तार प्राप्त करई हई"
+    }
+  },
+  "serverName": "सर्वर नाम",
+  "enterServerName": "सर्वर नाम प्रविष्ट करई हई",
+  "command": "कमांड",
+  "enterCommand": "कमांड (uvx चाहे npx) दाखिल करई छई",
+  "arguments": "तर्क",
+  "argument": "{{index}}",
+  "envVars": "एनवायरनमेंट वेरिएबल",
+  "key": "कुंजी",
+  "value": "मान",
+  "save": "सहेजऽ",
+  "status": "स्थिति",
+  "connected": "कनेक्टेड",
+  "disconnected": "डिस्कनेक्टेड",
+  "deleteServer": {
+    "title": "MCP सर्वर मिटाओ",
+    "description": "क्या आप निश्चित रूप से MCP सर्वर {{serverName}} के मिटावे चाहो हई? ई कार्य के पूर्ववत् न कैल जा सकई हई।",
+    "delete": "मिटा",
+    "success": "MCP सर्वर {{serverName}} सफलतापूर्वक मिटावल गेलई"
+  },
+  "editJson": {
+    "title": "JSON के लेल संपादन MCP सर्वर: {{serverName}}",
+    "titleAll": "सभे MCP सर्वर JSON संपादित करो",
+    "placeholder": "JSON विन्यास प्रविष्ट करई छई",
+    "errorParse": "प्रारंभिक डेटा के पद वर्णन करे में विफल",
+    "errorPaste": "चिपकावल सामग्रि में अवैध JSON प्रारूप",
+    "errorFormat": "अवैध JSON प्रारूप",
+    "errorServerName": "सर्वर नाम आवश्यक हई अउर खाली ना हो सकई हई",
+    "errorMissingServerNameKey": "JSON के {\"serverName\": {config}} के रूप में संरचनात्मक होवे चाहि - गुम सर्वर नाम कुंजी",
+    "errorInvalidType": "सर्वर '{{serverName}}' के लेल अवैध प्रकार '{{type}}'. प्रकार 'stdio', 'http', चाहे 'sse' होए के चाहि",
+    "save": "सहेजऽ"
+  },
+  "checkParams": "कृपया ट्यूटोरियल के अनुसार पैरामीटर के जाँच करई छलई।",
+  "title": "MCP सर्वर",
+  "experimental": "प्रयोगात्मक",
+  "editAllJson": "सभे सर्वर संपादित करो JSON",
+  "findMore": "अधिक MCP सर्वर पर खोजो",
+  "allowPermissions": "सभे MCP उपकरण अनुमति के अनुमति देई हई",
+  "allowPermissionsDesc": "जब सक्षम करल जाई हई, त सभे MCP टूल कॉल स्वचालित रूप से अनुमति संवाद न दिखाबे के बिना अनुमोदित कैल जाई छलई। ई विन्यास नया चैट सहित सभे बातचीत पर वैश्विक रूप से लागू होई छलई।",
+  "noServers": "MCP सर्वर न पावल गेलई",
+  "args": "तर्क",
+  "env": "लिफाफा",
+  "serverStatusActive": "सर्वर {{serverKey}} सफलतापूर्वक सक्रिय कैल गेलई",
+  "serverStatusInactive": "सर्वर {{serverKey}} सफलतापूर्वक निष्क्रिय करल गेलई",
+  "runtimeSettings": {
+    "title": "रनटाइम सेटिंग",
+    "description": "कैसे Novera प्रबंधन और MCP सर्वर के फिर से कोशिश करई छलई।",
+    "toolCallTimeout": "उपकरण कॉल टाइमआउट (सेकेंड)",
+    "toolCallTimeoutDesc": "टाइमआउट से पहिले MCP टूल प्रतिक्रिया के लेल प्रतीक्षारत अधिकतम समय।",
+    "maxToolOutputChars": "अधिकतम उपकरण आउटपुट अक्षर",
+    "maxToolOutputCharsDesc": "सबसे लंबा टूल परिणाम संवाद में रखल जाई हई। एकरा बाद के कोनो चीज के काट देल जाई हई अउर कटौती के रूप में चिह्नित कैल जाई हई, येहिलेल एगो बड़ परिणाम मॉडल के संदर्भ के समाप्त न कर सकई हई। परिणाम के पूरा रखे के लेल 0 पर सेट करई हई।",
+    "smartToolRouting": "स्मार्ट MCP टूल रूटिंग",
+    "smartToolRoutingDesc": "जब सक्षम करल जाई हई, Novera उपकरण लोड करे से पहिले प्रासंगिक MCP सर्वर के चुनई हई. हमेशा पूरा MCP उपकरण सूची लोड करे के लेल अक्षम करई हई.",
+    "useLightweightRouterModel": "रूटिंग के लेल एगो समर्पित मॉडल के उपयोग करई छलई",
+    "useLightweightRouterModelDesc": "जब स्मार्ट रूटिंग चालू होई हई, त चैट मॉडल के बजाय एगो अलग (अक्सर छोट) मॉडल के जौरे रूटिंग चरण के चलाई हई। रूटिंग के लेल हमेशा सक्रिय चैट मॉडल के उपयोग करे के लेल बंद कर देई छलई।",
+    "routerModel": "रूटिंग मॉडल",
+    "routerModelDesc": "एक स्थान पर प्रदाता और मॉडल चुनल जा हय। केवल हल्के मॉडल सूचीबद्ध होवो हय ताकि रूटिंग तेज और सस्ता रहे।",
+    "selectRouterModelPlaceholder": "रूटिंग मॉडल चुनई...",
+    "routerModelSearchPlaceholder": "खोज मॉडल...",
+    "routerModelEmptyList": "कोई हल्का मॉडल उपलब्ध ना हई. मॉडल में एगो छोट मॉडल जोड़ि चाहे API कुंजी के कॉन्फ़िगर करई छई।",
+    "routerModelEmptySearch": "\"{{query}}\" के लेल कोई मेल ना खाई हई।"
+  },
+  "auth": {
+    "label": "अधिकार:",
+    "state": {
+      "notApplicable": "आवश्यक ना हई",
+      "staticHeader": "प्रमाणीकरण हेडर",
+      "authenticated": "प्रमाणित",
+      "expired": "मियाद समाप्त",
+      "staleResource": "URL के लेल दोसर के लेल जारी कैल गेल रहई",
+      "unauthenticated": "प्रमाणित ना हई"
+    },
+    "expiresIn": "{{duration}} में समाप्त हो जा हई",
+    "authenticate": "लॉगइन",
+    "reauthenticate": "फिर से सत्यापित करई हई",
+    "clear": "प्रमाणीकरण साफ करई हई",
+    "waiting": "ब्राउज़र के लिए प्रतीक्षारत...",
+    "openSignInPage": "लॉगइन पृष्ठ खोलो",
+    "needsAuth": "{{serverName}} के प्रमाणीकरण के आवश्यकता हई",
+    "needsAuthHint": "जुड़े के लेल येई सर्वर में लॉगइन करई छलई।",
+    "authorized": "{{serverName}} पर साइन इन कैल गेल हई",
+    "authorizeFailed": "{{serverName}} के लेल लॉगइन विफल",
+    "cleared": "{{serverName}} के लेल भंडारित प्रमाणपत्र के साफ कैल गेल हई",
+    "nothingToClear": "{{serverName}} में कोई भंडारित प्रमाणपत्र न रहई",
+    "clearFailed": "{{serverName}} के लेल प्रमाणपत्र के साफ ना कर सकई छलई",
+    "renew": "सत्र के बहाल करई छलई",
+    "expiredAgo": "{{duration}} पहिले समाप्त हो गेलई"
+  }
+}

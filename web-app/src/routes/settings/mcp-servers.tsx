@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { route } from '@/constants/routes'
 import HeaderPage from '@/containers/HeaderPage'
 import SettingsMenu from '@/containers/SettingsMenu'
 import { Card, CardItem } from '@/containers/Card'
@@ -89,9 +88,7 @@ const maskSensitiveUrl = (url: string) => {
     return baseUrl + '******'
   }
 }
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute(route.settings.mcp_servers as any)({
+export const Route = createFileRoute("/settings/mcp-servers")({
   component: MCPServersDesktop,
 })
 

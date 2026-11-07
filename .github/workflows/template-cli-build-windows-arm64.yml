@@ -55,6 +55,15 @@ jobs:
         with:
           toolchain: stable
 
+      - name: Prepare the local llama.cpp toolchain
+        uses: ./.github/actions/setup-engine-toolchain
+        with:
+          variant: cpu
+
+      - name: Fetch the pinned llama.cpp source
+        shell: bash
+        run: bash src-tauri/build-utils/fetch-engine-source.sh
+
       - name: Cache cargo
         uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
 

@@ -2,6 +2,8 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   test: {
+    // Bound parallel translation-heavy WebViews to avoid memory/CPU starvation.
+    maxWorkers: 4,
     projects: [
       // Core package - use its own vitest config
       './core',

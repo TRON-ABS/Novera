@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { route } from '@/constants/routes'
 import HeaderPage from '@/containers/HeaderPage'
 import SettingsMenu from '@/containers/SettingsMenu'
 import { Card, CardItem } from '@/containers/Card'
@@ -46,9 +45,7 @@ import {
   IconLoader2,
 } from '@tabler/icons-react'
 import { ChevronsUpDown } from 'lucide-react'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute(route.settings.local_api_server as any)({
+export const Route = createFileRoute("/settings/local-api-server")({
   component: LocalAPIServerContent,
 })
 
@@ -117,15 +114,15 @@ function LocalAPIServerContent() {
   const toggleAPIServer = async () => {
     // Validate API key before starting server
     if (serverStatus === 'stopped') {
+      if ((serverHost !== '127.0.0.1' || enableServerToolExecution) && !apiKey.trim()) {
+        setShowApiKeyError(true)
+        toast.error(t('common:apiKeyRequired'))
+        return
+      }
       console.log('Starting server with port:', serverPort)
       toast.info(t('ui:startingServer'), {
         description: t('ui:attemptingToStartServerOnPortValue0', { value0: serverPort }),
       })
-
-      // if (!apiKey || apiKey.toString().trim().length === 0) {
-      //   setShowApiKeyError(true)
-      //   return
-      // }
 
       setShowApiKeyError(false)
 
@@ -165,7 +162,7 @@ function LocalAPIServerContent() {
             host: serverHost,
             port: serverPort,
             prefix: apiPrefix,
-            apiKey,
+            apiKey: apiKey.trim(),
             trustedHosts,
             isCorsEnabled: corsEnabled,
             isVerboseEnabled: verboseLogs,

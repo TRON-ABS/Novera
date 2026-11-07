@@ -617,12 +617,12 @@ struct Interaction {
 }
 
 fn random_ids() -> ([u8; 16], [u8; 8]) {
-    use rand::Rng;
-    let mut rng = rand::thread_rng();
+    use rand::RngExt;
+    let mut rng = rand::rng();
     // All-zero ids are invalid in W3C trace context; a 2^-64 retry is cheap.
     loop {
-        let trace: [u8; 16] = rng.gen();
-        let span: [u8; 8] = rng.gen();
+        let trace: [u8; 16] = rng.random();
+        let span: [u8; 8] = rng.random();
         if trace != [0; 16] && span != [0; 8] {
             return (trace, span);
         }

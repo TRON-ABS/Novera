@@ -1,10 +1,10 @@
-<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a></p>
+<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a> · <a href="README.ny.md">Chichewa</a> · <a href="README.bm.md">Bamanankan</a> · <a href="README.sn.md">ChiShona</a> · <a href="README.tn.md">Setswana</a> · <a href="README.nso.md">Sesotho sa Leboa</a> · <a href="README.ht.md">Kreyòl ayisyen</a> · <a href="README.st.md">Sesotho</a> · <a href="README.el.md">Ελληνικά</a> · <a href="README.rn.md">Ikirundi</a> · <a href="README.dyu.md">Julakan</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.sv.md">Svenska</a> · <a href="README.gan.md">贛語</a> · <a href="README.pbt.md">پښتو (سوېلي)</a> · <a href="README.mag.md">मगही</a> · <a href="README.ars.md">عربي نجدي</a> · <a href="README.acm.md">عراقي</a> · <a href="README.fuv.md">Fulfulde (Naajeeriya)</a> · <a href="README.hne.md">छत्तीसगढ़ी</a> · <a href="README.tts.md">อีสาน</a> · <a href="README.azb.md">تۆرکجه</a> · <a href="README.bar.md">Boarisch</a> · <a href="README.ug.md">ئۇيغۇرچە</a> · <a href="README.ctg.md">চাটগাঁইয়া</a></p>
 
 <div align="center">
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>O ṣe apejuwe ibi-afẹde rẹ. Novera ngbaradi awọn orisun, ṣiṣe iṣẹ-ṣiṣe ati ṣeto awọn abajade.</strong></p>
   <p>Oluranlọwọ AI ti ominira nipasẹ TRON-ABS, lati ifilọlẹ akọkọ si awọn abajade: ọrọ, awọn aworan, orin ati fidio ni ibaraẹnisọrọ kan.</p>
-  <p><strong>Wa fun Windows, Linux, macOS ati Android</strong> · 80 awọn ede ni wiwo · 42 awọn olupese awọsanma · 49 media tito tẹlẹ · Apache 2.0</p>
+  <p><strong>Wa fun Windows, Linux, macOS ati Android</strong> · Awọn orisun ti a ti pese sile: 104 awọn ede wiwo · 42 awọn olupese awọsanma · 58 awọn tito tẹlẹ media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Adaṣiṣẹ</a> · <a href="#one-dashboard-for-every-creation">Dasibodu</a> · <a href="#local-models-in-use">Awọn awoṣe AI nṣiṣẹ ni agbegbe lori ẹrọ rẹ</a> · <a href="#hub-and-compatible-models">Awọn ọna kika & Ipele</a> · <a href="#cloud-providers">Awọsanma</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Tiwon</a></p>
   <p>Olubasọrọ osise: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Awọn profaili awujọ Novera osise: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -14,6 +14,34 @@
 > Itumọ iranlọwọ nipasẹ awọn irinṣẹ itumọ, da lori Gẹẹsi README ti ọjọ 2026-11-03. Atunwo ede abinibi jẹ itẹwọgba. Awọn iwe aṣẹ ti o ni asopọ ṣe idaduro ede atilẹba wọn.
 
 ---
+
+<!-- novera-release-1.0.1:start -->
+<a id="preparing-1-0-1"></a>
+## Ngbaradi ẹya 1.0.1
+
+Awọn igbasilẹ ti gbogbo eniyan wa ni 1.0.0. Awọn ilọsiwaju wọnyi ti pese sile ni awọn orisun fun 1.0.1; wọn nilo awọn idii ti a tunṣe, awọn sọwedowo idasilẹ ati titẹjade. Ṣiṣe imudojuiwọn iwe yii ko ṣe imudojuiwọn awọn ohun elo ti a fi sii.
+
+- Aabo: awọn igbanilaaye abinibi ti o muna fun awọn oju-iwe latọna jijin, ijẹrisi fun awọn API nẹtiwọọki ati awọn irinṣẹ olupin, ibi ipamọ aṣiri ti o ni aabo ati iṣiwa, faili ailewu / iraye si media, sisọ iwe kaakiri ati kọ awọn iwe afọwọkọ. Awọn igbẹkẹle ti o han ti ni imudojuiwọn; Awọn imọran ti o ku ni a tọpa ni gbangba.
+- Aṣiri: awọn iṣiro ati awọn ijabọ aṣiṣe nilo ifọkansi lọtọ ati wa ni pipa nipasẹ aiyipada. Awọn ile pẹlu iṣeto ni opin opin irin ajo. Imọ aisan ti wa ni filtered; awọn olumulo pa Iṣakoso ti ibere ise.
+- Enjini agbegbe: `llama.cpp v0.9.0` (`b12110`, `cd959bae99ff4bed22bef2604f45241c09bbb8c8`). Ẹya engine ati ẹya ohun elo jẹ lọtọ. Awọn eto awoṣe akọkọ ati awoṣe/iforukọsilẹ olupilẹṣẹ jẹ atunṣe, pẹlu ikuna ibẹrẹ ti o kan `kv_unified`. Awọn eto ti ara ẹni ti o wa tẹlẹ wa ni ipamọ.
+- Awọn ede: 24 awọn ede afikun ati awọn iyatọ mu wiwo ati itumọ README si 104, pẹlu awọn bọtini wiwo 2,435 fun katalogi. Agbegbe yii ko jẹri didara olootu abinibi tabi atilẹyin ọrọ ni gbogbo ede.
+- **LFM3-Omni-2B Q4_K_M** — Aiyipada lori tabili ati alagbeka. Awoṣe iwapọ fun ọrọ, awọn aworan ati ohun, ni lilo ohun ti o nilo `mmproj` faili. Download: nipa 1.39 GB fun awọn mejeeji awọn faili. Yan rẹ fun iṣeto multimodal fẹẹrẹfẹ. Awọn ẹya ohun da lori pẹpẹ ati ẹrọ. Atokọ to gun lo iranti diẹ sii.
+- **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** — Yiyan ọrọ-nikan fun ibaraẹnisọrọ, kikọ, awọn irinṣẹ ati awọn idahun ti a ṣeto. Download: nipa 6.18 GB. O nilo iranti diẹ sii ju LFM3-Omni ati pe ko ṣe ilana awọn aworan tabi ohun ohun funrararẹ. Awọn idahun ti a sọ lo ohun eto. Yan fun awọn iṣẹ-ṣiṣe ọrọ nigbati o ba ni iranti to. Ṣayẹwo awọn idahun otitọ pẹlu awọn orisun.
+- Fun 1.0.1, LFM3-Omni-2B Q4_K_M pẹlu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ti o nilo rẹ jẹ iṣeduro aiyipada lori tabili tabili ati alagbeka; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M wa ni yiyan ọrọ-nikan. Ipilẹ ọrọ akọkọ jẹ awọn ami-ami 32,768 lori tabili tabili ati 2,048 lori alagbeka. Awọn ipo to gun lo iranti diẹ sii. Awọn aṣayan awoṣe ti o wa tẹlẹ ati awọn eto ti wa ni ipamọ titi di igba ti o yipada ni gbangba.
+- Ohùn: igbewọle gbohungbohun agbegbe taara fun LFM3-Omni, ibaraẹnisọrọ lemọlemọfún ati fifiranṣẹ aladaaṣe, awọn ohun idahun akọ/obinrin fun awọn awoṣe ohun, ati ọrọ eto fun awọn awoṣe Ayebaye. Kika idahun tun ṣiṣẹ fun awọn ifiranṣẹ ti a tẹ ati isọdọtun, ni ominira ti gbigba gbohungbohun. Bọtini ohun kekere kan ngbanilaaye tabi dakẹ kika.
+- Ipo gbohungbohun: alawọ ewe nigbati o wa, pupa nigba nšišẹ, grẹy nigbati ko si. Idanimọ, igbọran tun bẹrẹ, mimu idojukọ ati ilana ti o han ti jẹ atunṣe. Ọ̀rọ̀ àwòkẹ́kọ̀ọ́ ohun ìbílẹ̀ ti jẹ́ ìmúṣẹ lọ́wọ́lọ́wọ́ Windows; awọn iru ẹrọ miiran tun nilo ijẹrisi abinibi ati atilẹyin ohun to dara.
+- Oju opo wẹẹbu: wiwa wiwa oju-ọjọ ti o ni igbẹkẹle diẹ sii, itọsọna-ọjọ lọwọlọwọ, awọn abajade tuntun ati awọn itọka, ati awọn idahun da lori ibeere lọwọlọwọ lẹhin lilo irinṣẹ. Ọrọ sisọ awọn aami orisun ohun ọṣọ ati awọn ọna asopọ silẹ lakoko ti o tọju awọn itọka ti o han. Idahun ati ede sisọ tẹle ede olumulo niwọn bi awoṣe ti o yan ṣe atilẹyin.
+- Awọn iṣapeye: mura wiwa wẹẹbu ni abẹlẹ nigbati Intanẹẹti ti ṣiṣẹ, pin ibẹrẹ iṣẹ, mura abala ọrọ atẹle ṣaaju ṣiṣiṣẹsẹhin ki o mu ilọsiwaju gbolohun sii. Awọn ọdun Faranse, awọn nọmba eleemewa ati awọn ẹya jẹ kika diẹ sii nipa ti ara. Lairi nẹtiwọki ati iyara awoṣe tun dale lori iṣeto.
+- Itunu: awọn idari isalẹ ṣubu lakoko ti titẹ sii wa ni han. Gbohungbohun iwapọ ati awọn iṣakoso ifihan, bọtini ohun labẹ gbohungbohun, awọn eto orin idahun ati awọn aami paati ti a tumọ ṣe ilọsiwaju lilo lori awọn iboju kekere.
+- API Catalogs: 43 awọn profaili olupese, pẹlu TabbyAPI ni agbegbe, pẹlu awọn aṣayan ifọrọranṣẹ ati media yiyan. Awọn titẹ sii titun pẹlu GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 ati GPT Image 2.6, Gemini Omni 1.2, FLUX 3 nibiti o ti ṣe atilẹyin. Sọtun ko si ohun to hides esi kọja mẹwa awoṣe. Awọn idamọ gangan, awọn aaye ipari agbegbe, awọn ifilọlẹ ikọkọ ati awọn awoṣe ti a ko wọle ni a bọwọ fun.
+- Ifọwọsi: ohun elo ti a fojusi, ile ikawe abinibi, katalogi gbogbogbo ati awọn sọwedowo ede ti wa ni igbasilẹ ninu awọn akọsilẹ alaye. Ni wiwo naa kọ fun Windows / macOS / Linux / Android / iOS. Awọn ile iwaju iwaju wọnyi ko jẹri awọn idii abinibi tabi itọkasi lori gbogbo ẹrọ.
+- Ṣaaju ki o to tu silẹ: fọwọsi awọn akojọpọ abinibi ti a tun kọ, aabo/awọn awari igbẹkẹle ati imudojuiwọn 1.0.0 gidi si 1.0.1. Wiwa da lori hardware, wiwọle olupese ati Syeed. Ko si ibamu awoṣe gbogbo agbaye, ipo ailagbara odo tabi atẹjade ti o pari ni ẹtọ.
+
+[Awọn akọsilẹ alaye, afọwọsi ati iṣẹ ti o ku](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
+
+> Awọn akọsilẹ imudojuiwọn wọnyi lo itumọ iranlọwọ ati, nibiti o ba jẹ dandan, iforukọsilẹ kikọ pinpin. Atunyẹwo ede abinibi jẹ dandan. Awọn iwe aṣẹ ti o ni asopọ ṣe idaduro ede atilẹba wọn.
+
+<!-- novera-release-1.0.1:end -->
 
 ## Wiwa — 2026-11-03
 
@@ -74,11 +102,11 @@ Automation ni wiwa awọn ẹrọ iṣọpọ ati ṣiṣan iṣẹ; ko ṣe gbo
 
 [Itọsọna olumulo](docs/USER_GUIDE.md) · [Awọn ẹrọ ati afọwọsi](docs/SUIVI_MOTEURS.md) · [Idagbasoke](docs/DEVELOPMENT.md)
 
-Ninu awọn orisun imudojuiwọn, **Awọn atunto ṣe deede awọn iṣeduro rẹ si alagbeka ati ohun elo ihamọ**: LFM3-1.7B Q4, tabi LFM3-Omni-2B Q4 pẹlu pirojekito rẹ nigbati iranti royin ati awọn ibeere engine ti pade. Iran agbegbe ti ko si ti wa ni pamọ tabi dina; aworan awọsanma ti a tunto, orin ati fidio wa. Itọnisọna ni wiwo tun lo awọn iwe kika ede 80. Awọn iṣiro wọnyi tun nilo idanwo ẹrọ ati atunkọ lati de awọn ohun elo ti a fi sii.
+Fun 1.0.1, LFM3-Omni-2B Q4_K_M pẹlu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ti o nilo rẹ jẹ iṣeduro aiyipada lori tabili tabili ati alagbeka; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M wa ni yiyan ọrọ-nikan. Ipilẹ ọrọ akọkọ jẹ awọn ami-ami 32,768 lori tabili tabili ati 2,048 lori alagbeka. Awọn ipo to gun lo iranti diẹ sii. Awọn aṣayan awoṣe ti o wa tẹlẹ ati awọn eto ti wa ni ipamọ titi di igba ti o yipada ni gbangba.
 
 ## Awọn agbara ni orisun
 
-Awọn ayẹwo iwadii itọju aṣayan ni bayi ṣe iyatọ awọn ile-itumọ ati awọn ikuna ti ohun elo ti a mu bi daradara bi awọn imukuro JavaScript, pẹlu ifọkansi lọtọ ati awọn aaye imọ-ẹrọ filtered. Itaniji imeeli iṣelọpọ wakati kan jẹ tunto fun olutọju naa. Awọn maapu orisun aladani ati awọn alaye itaniji tẹle awọn [runbook itọju](docs/MAINTENANCE.md); iwe-ẹri imeeli idanwo jẹ timo, lakoko ti o ti fi idiwe aami-iṣipopada ati idanwo ni awọn sọwedowo itusilẹ alakomeji atẹle.
+Itọju ati awọn ilọsiwaju asiri ti pese sile fun 1.0.1. Awọn iṣiro iyan ati ijabọ aṣiṣe lo ominira, ifọkansi ti o fojuhan ati awọn iwadii imọ-ẹrọ filtered. Awọn sọwedowo itusilẹ ti o nilo ati awọn awari aabo ti o ku jẹ akọsilẹ lọtọ. [runbook itọju](docs/MAINTENANCE.md)
 
 | Agbegbe | Awọn ẹya ara ẹrọ |
 | --- | --- |
@@ -98,7 +126,8 @@ Awọn awoṣe wọnyi ṣe agbekalẹ iṣeto itọsọna lọwọlọwọ. O l
 
 | Ipa | Awoṣe / tunto irinše |
 | --- | --- |
-| **Ọrọ - awoṣe akọkọ-ṣiṣe** | **Nemotron-3.5-Bolt-E4B**, faili `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
+| **Ọrọ - awoṣe akọkọ-ṣiṣe** | **LFM3-Omni-2B Q4_K_M** · `LFM3-Omni-2B-Q4_K_M.gguf` + `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` |
+| **Yiyan ọrọ-nikan** | **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** · `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf` |
 | **Gbigba iwe-ipamọ** | **Qwen3-Embedding-0.6B Q8_0**, **CPU nipa aiyipada**, pẹlu yiyan CPU/GPU ti o fipamọ. |
 | **Aworan** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** kooduopo ati osise FLUX.2 VAE. |
 | **Aworan — aṣayan hardware** | **FLUX.2 Klein 4B NVFP4**, nipasẹ ọna abinibi CUDA nigbati GPU ati ayika wa ni ibamu. |
@@ -114,7 +143,7 @@ Ayipada orin Qwen ati awoṣe imupadabọ Qwen jẹ **oriṣiriṣi awọn faili
 
 ## Awọn olupese awọsanma
 
-**42 awọn profaili olupese** ti wa ni idapo. **ElevenLabs** ni bayi farahan ninu iṣafihan lẹgbẹẹ awọn ipa ọna orin lati Stability AI, fal ati Replicate.
+Awọn orisun ti a pese silẹ ni 43 awọn profaili olupese: 42 awọn iṣẹ awọsanma ati TabbyAPI fun olupin agbegbe kan. Wiwa awoṣe ati awọn agbara da lori akọọlẹ, agbegbe ati API atilẹyin. Iwe akọọlẹ jẹ pinpin nipasẹ gbogbo awọn ede wiwo 104.
 
 | | | |
 | --- | --- | --- |
@@ -131,27 +160,27 @@ Ayipada orin Qwen ati awoṣe imupadabọ Qwen jẹ **oriṣiriṣi awọn faili
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/) |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://docs.dev.runwayml.com/api/) | <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://docs.ltx.io/models) |
 | <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
-| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/docs/model-map) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/models) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
 
 ### Aworan, orin ati fidio
 
-**Awọn olupese 20 ṣafihan awọn ipa ọna iran**, pẹlu **49 tito tẹlẹ: aworan 25, fidio 20 ati orin 4**. Awọn ipa ọna orin jẹ **ElevenMusic v2.5**, **Stable Audio 3**, **ACE-Step nipasẹ fal** ati **Stable Audio 2.5 nipasẹ Replicate**.
+Katalogi ẹda ti a pese sile ni ninu 58 tito lati 20 awọn olupese: 30 aworan, 24 fidio ati 4 orin tito. Awọn tabili ti o wa ni isalẹ ṣe atokọ awọn ipa-ọna iṣọpọ; won ko tun gbogbo owo ẹbọ.
 
 | Olupese | Awọn abajade ni Novera | Awọn awoṣe katalogi |
 | --- | --- | --- |
 | <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="24" height="24" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | Orin | `ElevenMusic v2.5` |
-| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Aworan / Orin | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
-| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Aworan / Orin / Fidio | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
-| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Aworan / Orin | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
+| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Aworan / Orin | `Stable Image Ultra` · `Stable Image Core` · `Stable Audio 3` |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Aworan / Orin / Fidio | `FLUX 3 Video · fal` · `FLUX 3 Image · fal` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` · `ACE-Step · cloud` |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Aworan / Orin / Fidio | `FLUX 3 Video · Replicate` · `FLUX.2 Max · Replicate` · `Stable Audio 2.5 · Replicate` |
 | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="24" height="24" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | Aworan / Fidio | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
 | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="24" height="24" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | Aworan / Fidio | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
-| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Aworan / Fidio | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Aworan / Fidio | `Gemini Omni 1.2 Flash` · `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
 | <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="24" height="24" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | Aworan | `Krea 3` |
 | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="24" height="24" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | Aworan | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
 | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="24" height="24" /> [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | Fidio | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
-| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Aworan | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Aworan | `GPT Image 2.6 Sunburst` · `GPT Image 2.6 Flare` · `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
 | <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="24" height="24" /> [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | Aworan / Fidio | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
-| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Aworan | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Aworan / Fidio | `FLUX 3 Image` · `FLUX 3 Image Klein` · `FLUX 3 Video` · `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="24" height="24" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | Aworan | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
 | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="24" height="24" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | Aworan | `Ideogram 4.5` |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="24" height="24" /> [Runway](https://docs.dev.runwayml.com/api/) | Fidio | `Runway Gen-4.5` |
@@ -165,23 +194,23 @@ Ayipada orin Qwen ati awoṣe imupadabọ Qwen jẹ **oriṣiriṣi awọn faili
 
 | Olupese | Awọn ID awoṣe ti a nṣe ni orisun |
 | --- | --- |
-| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
+| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6.1-terra` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
 | [Microsoft Azure](https://oai.azure.com/deployments) | Ifiranṣẹ pato-ipamọ tabi ẹnu-ọna |
 | [Anthropic](https://platform.claude.com/docs/en/models/overview) | `claude-sonnet-5-5` · `claude-opus-5-5` · `claude-fable-5-1` · `claude-haiku-5-5` |
-| [OpenRouter](https://openrouter.ai/models) | `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
-| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `mistral-medium-3-5` · `mistral-small-2603` · `ministral-3b-2512` |
-| [Groq](https://console.groq.com/docs/models) | `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
+| [OpenRouter](https://openrouter.ai/models) | `liquid/lfm-3-1.7b` · `openai/gpt-6.1-terra` · `tencent/hy4` · `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
+| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `zai-glm-5-3-flash` · `mistral-small-2603` · `ministral-3b-2512` |
+| [Groq](https://console.groq.com/docs/models) | `qwen/qwen3.8-27b` · `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
 | [xAI](https://docs.x.ai/developers/models) | `grok-4.7` |
 | [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | `gemini-4-argon` · `gemini-3.8-flash` · `gemini-3.6-flash` · `gemini-3.5-flash-lite` |
 | [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) | `MiniMax-M3.1-Flash` · `MiniMax-M3` |
-| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
-| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3` |
+| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `MiniMaxAI/MiniMax-M3.1-Flash` · `zai-org/GLM-5.3-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
+| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3-flash` |
 | [DeepSeek](https://api-docs.deepseek.com/) | `deepseek-flash` · `deepseek-v4-pro` |
 | [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | `kimi-k3.1-pro` · `kimi-k3.1-pro-highspeed` · `kimi-k3` |
 | [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | `qwen3.8-max` · `qwen3.7-plus` · `qwen3.8-flash` |
 | [Cerebras](https://inference-docs.cerebras.ai/models/overview) | `qwen-3.8-27b` · `gpt-oss-120b` |
-| [Together AI](https://docs.together.ai/docs/serverless/models) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
-| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
+| [Together AI](https://docs.together.ai/docs/serverless/models) | `moonshotai/Kimi-K3.1-Pro` · `MiniMaxAI/MiniMax-M3.1-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
+| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/kimi-k3p1-pro` · `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
 | [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) | `perplexity/sonar` · `openai/gpt-6.1-sol` · `google/gemini-4-argon` · `perplexity/kimi-k3` |
 | [Meta AI](https://dev.meta.ai/docs/models) | `muse-wonder-1.0` · `muse-spark-1.3` |
 | [Cohere](https://docs.cohere.com/docs/models) | `command-a-plus-05-2026` |
@@ -189,8 +218,8 @@ Ayipada orin Qwen ati awoṣe imupadabọ Qwen jẹ **oriṣiriṣi awọn faili
 | [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | `jamba-large` · `jamba-mini-2` |
 | [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | `dola-seed-2-1-turbo-260628` |
 | [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) | `ernie-5.1` |
-| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4-preview` |
-| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-sol` |
+| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4` · `hy4-preview` |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-terra` · `openai.gpt-6.1-sol` |
 | [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) | Ifiranṣẹ pato-ipamọ tabi ẹnu-ọna |
 
 </details>
@@ -237,9 +266,9 @@ Iru ohun elo ti o ni ibamu pẹlu aifọwọyi ṣe ojurere awọn idasilẹ tun
 
 Awọn orisun imudojuiwọn ṣafikun **awọn paati iṣakoso iyan ni Awọn atunto fun Windows x64**: Awọn agbegbe Python ikọkọ, awọn profaili CPU/CUDA pinned, awọn iṣiro ati ijẹrisi ṣaaju awọn igbasilẹ, ijẹrisi, atunṣe ati yiyọ kuro. Awọn ọna onitumọ aṣa duro labẹ awọn aṣayan ilọsiwaju. Abinibi GGUF enjini pa wọn tẹlẹ irinše; alagbeka ati awọsanma ko ṣe igbasilẹ tabili Python/PyTorch. Meta ikọkọ CPU / okeere profaili won idaraya pẹlu gidi sintetiki amuse; Olutọju ṣe ijabọ lilo tabili aṣeyọri lori 1 Oṣu kọkanla 2026; Awọn profaili GPU ati mimọ-PC fifi sori si tun nilo lọtọ, alaye afọwọsi. [Awọn profaili ati awọn opin idanwo](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Ifisinu akopọ ninu EXE ti wa ni idaduro.
 
-## 80 ni wiwo awọn ede ati awọn iyatọ
+## 104 ni wiwo awọn ede ati awọn iyatọ
 
-**Gbogbo awọn katalogi 80 bo awọn bọtini Gẹẹsi lọwọlọwọ 2,429** kọja awọn aaye orukọ 15, pẹlu awọn akojọ aṣayan, awọn atunto, eto, iranlọwọ ati awọn iṣakoso media. Awọn fọọmu pupọ ati itọsọna wiwo tẹle ede ti o yan. Idahun ati awọn ede ohun gbarale lọtọ lori awoṣe.
+**Gbogbo awọn katalogi 104 bo awọn bọtini Gẹẹsi lọwọlọwọ 2,435** kọja awọn aaye orukọ 15, pẹlu awọn akojọ aṣayan, awọn atunto, eto, iranlọwọ ati awọn iṣakoso media. Awọn fọọmu pupọ ati itọsọna wiwo tẹle ede ti o yan. Idahun ati awọn ede ohun gbarale lọtọ lori awoṣe.
 
 Agbegbe imọ-ẹrọ yii ko jẹri didara ede: **atunwo abinibi ati aṣamubadọgba agbegbe wa pataki**. Wo awọn akole abinibi ati awọn opin ti a mọ ninu [ede itọnisọna](docs/LANGUAGES.md) ati [se ayewo iroyin](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -275,7 +304,7 @@ Afọwọṣe GitHub Actions kọ ni ṣiṣẹ fun gbogbo awọn iyatọ pinpin
 - [Itọsọna olumulo alaye](docs/USER_GUIDE.md), [ọja ati alaye olumulo awọn ofin goolu (Faranse)](docs/REGLES_D_OR.md), [si dede ati enjini](docs/SUIVI_MOTEURS.md).
 - [Idagbasoke](docs/DEVELOPMENT.md), [kọ ati itọsọna itusilẹ](docs/BUILD_AND_RELEASE.md), [awọn ẹya iwaju ati igbaradi imudojuiwọn](docs/FUTURES_VERSIONS.md).
 - [Dasibodu ise agbese](TABLEAU_DE_BORD_NOVERA.md), [ọna maapu](ROADMAP.md), [changelog](docs/CHANGELOG.md).
-- [Ilowosi](CONTRIBUTING.md): koodu, awọn idanwo, atunyẹwo abinibi kọja awọn ede 80 ati awọn esi ṣiṣan iṣẹ gidi.
+- [Ilowosi](CONTRIBUTING.md): koodu, awọn idanwo, atunyẹwo abinibi kọja awọn ede 104 ati awọn esi ṣiṣan iṣẹ gidi.
 
 ## Idanimọ ati iwe-aṣẹ
 

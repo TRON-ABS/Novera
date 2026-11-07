@@ -831,5 +831,10 @@
     "update": "Apdet",
     "rollback": "Mulangkeun lingkungan saméméhna",
     "busy": "Unload model lokal jeung antosan generasi nepi ka rengse sateuacan ngaganti komponén."
-  }
+  },
+  "voiceConversation": "Paguneman sora",
+  "voiceUnavailable": "Paguneman sora teu sayogi",
+  "voiceMale": "Sora lalaki",
+  "voiceFemale": "Sora awéwé",
+  "voiceReadReplies": "Bacakeun jawaban"
 }

@@ -25,7 +25,7 @@ import {
   type CoworkArtifact,
 } from '@/lib/coworkArtifacts'
 
-export const Route = createFileRoute(route.artifacts as any)({
+export const Route = createFileRoute("/artifacts")({
   beforeLoad: () => ensureCoworkEnabled(),
   component: ArtifactsPage,
 })

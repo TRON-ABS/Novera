@@ -429,7 +429,8 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
   llamacpp_env: string = ''
   readonly providerId: string = 'llamacpp'
 
-  private config: LlamacppConfig
+  private config: LlamacppConfig = {} as LlamacppConfig
+  private settingsReady?: Promise<void>
   private providerPath!: string
   private apiSecret: string = 'JustAskNow'
   private pendingDownloads: Map<string, Promise<void>> = new Map()
@@ -463,9 +464,13 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
   /** Single-flight provisioning run; see ensureProvisioned(). */
   private provisioning?: Promise<void>
 
-  override async onLoad(): Promise<void> {
-    super.onLoad() // Calls registerEngine() from AIEngine
+  override onLoad(): Promise<void> {
+    // Publish the promise before initialization can invoke any callbacks.
+    // Model/setup requests must wait for persisted settings and migrations.
+    return this.settingsReady ??= Promise.resolve().then(() => this.initialize())
+  }
 
+  private async initialize(): Promise<void> {
     await this.migrateLocalStorageToFile()
 
     // The engine is bundled at a pinned version, so there is no backend or
@@ -511,6 +516,9 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
       events.emit(DownloadEvent.onModelValidationStarted, event.payload)
     })
 
+    // Do not expose a partially initialized engine if reading settings fails.
+    super.onLoad()
+
     // Deferred off onLoad so the UI unblocks; performLoad awaits it via
     // ensureEngineReady(). The engine is bundled with the app now, so there is
     // no backend catalog fetch and no hundreds-of-megabytes download to ask
@@ -552,7 +560,8 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
    * the shipped worker at a pinned version, so the ordering dance between
    * "download a backend first" and "start first for availability" is gone.
    */
-  private ensureProvisioned(): Promise<void> {
+  private async ensureProvisioned(): Promise<void> {
+    await this.settingsReady
     this.provisioning ??= (async () => {
       try {
         await this.startEngine()
@@ -863,10 +872,11 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
    * up. A late caller gets the in-flight start rather than a restart.
    */
   private async startEngine(): Promise<void> {
+    await this.settingsReady
     const inflight = this.engineStartLock
     if (inflight) {
       logger.info('startEngine already in progress; awaiting the in-flight run')
-      await inflight.catch(() => undefined)
+      await inflight
       return
     }
     this.engineStartLock = this.runStartEngine().finally(() => {
@@ -2169,7 +2179,8 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
 
     // TODO: add updateModelConfig() method
     const modelConfig = {
-      ...noveraModelDefaults(modelId, opts.modelPath),
+      ...noveraModelDefaults(modelId, opts.modelPath, typeof navigator !== 'undefined' &&
+        (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))),
       model_path: modelPath,
       ...(opts.modelShards ? {
         model_shards: opts.modelShards.map((part, index) => ({

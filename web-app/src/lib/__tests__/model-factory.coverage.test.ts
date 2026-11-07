@@ -9,7 +9,7 @@ vi.mock('@tauri-apps/api/core', () => ({
 }))
 
 vi.mock('@tauri-apps/plugin-http', () => ({
-  fetch: vi.fn().mockImplementation(async (input: any, init: any) => {
+  fetch: vi.fn().mockImplementation(async function(input: any, init: any) {
     return new Response('{}', { status: 200 })
   }),
 }))
@@ -19,10 +19,10 @@ vi.mock('@tauri-apps/api/event', () => ({
 }))
 
 vi.mock('@ai-sdk/openai-compatible', () => {
-  const MockChatModel = vi.fn().mockImplementation(() => ({
+  const MockChatModel = vi.fn().mockImplementation(function() { return ({
     type: 'openai-compatible',
     modelId: 'test-model',
-  }))
+  }); })
   return {
     createOpenAICompatible: vi.fn(() => ({
       languageModel: vi.fn(() => ({ type: 'openai-compatible' })),

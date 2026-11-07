@@ -4,6 +4,7 @@
 pub mod commands;
 pub mod converters;
 pub mod provider_secrets;
+pub(crate) mod api_security;
 #[cfg(not(feature = "cli"))]
 pub mod proxy;
 #[cfg(not(feature = "cli"))]

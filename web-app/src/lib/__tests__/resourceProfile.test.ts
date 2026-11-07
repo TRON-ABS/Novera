@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { resourceProfile } from '../resourceProfile'
-import { LIGHT_OMNI_MODEL, LIGHT_TEXT_MODEL, noveraRecommendedModelFor } from '../noveraRecommendedModel'
+import { LIGHT_OMNI_MODEL, LIGHT_TEXT_MODEL, noveraRecommendedModelFor, noveraRecommendedContextFor } from '../noveraRecommendedModel'
 import { modelEngine } from '@/modules/engines/hub-catalog'
 import { readFileSync, readdirSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -41,7 +41,10 @@ describe('automatic resource configuration', () => {
       .toMatchObject({ light: false, fullPack: false, local: { image: true, music: false, video: true } })
   })
   it('pins the light downloads and includes the matching Omni projector', () => {
-    expect(noveraRecommendedModelFor(true)).toEqual(LIGHT_TEXT_MODEL)
+    expect(noveraRecommendedContextFor(false)).toBe(32768)
+    expect(noveraRecommendedContextFor(true)).toBe(2048)
+    expect(noveraRecommendedModelFor(true)).toEqual(LIGHT_OMNI_MODEL)
+    expect(noveraRecommendedModelFor(false)).toEqual(LIGHT_OMNI_MODEL)
     for (const model of [LIGHT_TEXT_MODEL, LIGHT_OMNI_MODEL]) {
       expect(model.quants).toHaveLength(1)
       expect(model.quants![0].path).toContain(`/resolve/${model.revision}/`)
@@ -55,10 +58,10 @@ describe('automatic resource configuration', () => {
     expect(modelEngine(omni)).toBe('llamacpp')
     expect(modelEngine({ ...omni, model_name: 'other/any-model' })).toBe('future')
   })
-  it('has every reused configuration message in all 80 locale catalogs', () => {
+  it('has every reused configuration message in all 104 locale catalogs', () => {
     const directory = resolve(__dirname, '../../locales')
     const locales = readdirSync(directory, { withFileTypes: true }).filter(entry => entry.isDirectory() && entry.name !== '__tests__')
-    expect(locales).toHaveLength(80)
+    expect(locales).toHaveLength(104)
     const keys = {
       hub: ['catalog.advisorNote', 'catalog.reasonSmall', 'catalog.tipLimited', 'catalog.context', 'catalog.hardwareUnknown', 'catalog.engine', 'catalog.check'],
       chat: ['creation.auto', 'creation.text', 'creation.local', 'creation.cloudNote', 'creationInstall.error'],

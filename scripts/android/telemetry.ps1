@@ -4,11 +4,16 @@ function Set-NoveraAndroidTelemetry {
     $env:NOVERA_ANALYTICS_HOST=''
     $env:NOVERA_ANALYTICS_PROJECT_KEY=''
     $env:NOVERA_MONITORING_BUILD='false'
+    $env:NOVERA_DISABLE_TELEMETRY='true'
     if (!$Enabled) { return }
     . (Join-Path $PSScriptRoot '../distribution/read-novera-telemetry.ps1')
+    if (!$ConfigurationPath -or !(Test-Path -LiteralPath $ConfigurationPath -PathType Leaf)) {
+        $ConfigurationPath = Join-Path $PSScriptRoot '../monitoring/novera-telemetry.public.json'
+    }
     $telemetry = Read-NoveraTelemetry $ConfigurationPath
     $env:NOVERA_ANALYTICS_HOST=$telemetry.Host
     $env:NOVERA_ANALYTICS_PROJECT_KEY=$telemetry.Key
     $env:NOVERA_MONITORING_BUILD='true'
+    $env:NOVERA_DISABLE_TELEMETRY='false'
     Write-Output "Telemetry destination configured: $($telemetry.Host). User consent remains required."
 }

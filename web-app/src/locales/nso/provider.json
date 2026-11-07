@@ -1,0 +1,18 @@
+{
+  "addProvider": "Oketša Moabi",
+  "addOpenAIProvider": "Oketša Moabi wa Tlwaelo",
+  "enterNameForProvider": "Leina la moabi (mohlala, my-llm-server) .",
+  "apiTypeLabel": "API sebopego",
+  "apiTypeOpenAI": "OpenAI-e sepelelanago le yona",
+  "apiTypeAnthropic": "Anthropic-e sepelelanago",
+  "baseUrlLabel": "Motheo URL .",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API senotlolo",
+  "apiKeyPlaceholder": "Kgomaretša senotlelo sa gago sa API",
+  "invalidBaseUrl": "Motheo URL e swanetše go ba http (s) ye e šomago URL .",
+  "globalSettings": "Dipeakanyo tša lefase ka bophara",
+  "stripReasoning": "Hlobola mabaka go tšwa go seemo",
+  "stripReasoningDesc": "Tloša diteng tša go nagana/go bea mabaka tša go retologela ga pele pele ga go romela histori gape, go ralala le baabi ka moka. E kaonafatša KV-tšhomišo gape ya cache bakeng sa dika tša selegae, eupša dika tše dingwe (e.g. ditokollo tše mpsha tša Qwen) di kgothaletša go e boloka bakeng sa mabaka a kaone a go retologela ga bontši.",
+  "providerAlreadyExists": "Moabi yo a bitšwago {{name}} o šetše a le gona."
+}

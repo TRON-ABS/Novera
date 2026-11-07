@@ -1,0 +1,10 @@
+{
+  "crate": "glib",
+  "version": "0.18.5",
+  "original_archive": "https://static.crates.io/crates/glib/glib-0.18.5.crate",
+  "original_sha256": "233daaf6e83ae6a12a52055f568f9d7cf4671dabb78ff9560ab6da230ce00ee5",
+  "advisory": "RUSTSEC-2024-0429",
+  "fix": "https://github.com/gtk-rs/gtk-rs-core/pull/1343",
+  "upstream_merge_commit": "05dff0ee696f9bcd8617cd48c4b812d046d440cb",
+  "note": "Exact two-line upstream mutability fix backported to the GTK3-compatible branch. Linux native compilation remains required."
+}

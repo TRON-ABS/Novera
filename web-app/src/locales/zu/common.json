@@ -831,5 +831,10 @@
     "update": "Buyekeza",
     "rollback": "Buyisela indawo yangaphambilini",
     "busy": "Layisha amamodeli endawo bese ulinda ukuthi izizukulwane ziqede ngaphambi kokushintsha izingxenye."
-  }
+  },
+  "voiceConversation": "Ingxoxo yezwi",
+  "voiceUnavailable": "Ingxoxo yezwi ayitholakali",
+  "voiceMale": "Izwi lowesilisa",
+  "voiceFemale": "Izwi lowesifazane",
+  "voiceReadReplies": "Funda izimpendulo ngokuzwakalayo"
 }

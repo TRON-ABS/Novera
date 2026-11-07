@@ -21,7 +21,9 @@ describe('Iranian Persian locale completeness', () => {
     for (const [key, original] of Object.entries(english)) {
       const translated = iranianpersian[key]
       if (original) expect(translated.length, key).toBeGreaterThan(0)
-      expect(placeholders(translated), key).toEqual(placeholders(original))
+      // Unlike English, this locale's one-category includes zero.
+      const expected = key === 'htmlArtifact.unresolvedAssets_one' ? ['count'] : placeholders(original)
+      expect(placeholders(translated), key).toEqual(expected)
       expect(code(translated), key).toEqual(code(original))
       expect(identifiers(translated), key).toEqual(identifiers(original))
       expect(translated, key).not.toMatch(/[⟦⟧⟪⟫]|ZXQ|QXZ|JANPH|JANSEG|⟦[\d]+⟧|⟪[\d]+⟫|\uFFFD/)

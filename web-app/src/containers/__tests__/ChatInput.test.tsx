@@ -460,7 +460,69 @@ describe('ChatInput', () => {
   })
   beforeEach(() => {
     resetAll()
+    localStorage.removeItem('novera.composer.controlsCollapsed')
     mobilePlatform.android = false
+  })
+
+  it('folds only the lower controls and keeps the same input, draft and attachments visible', () => {
+    promptState = 'Keep this draft'
+    attachmentsList = [{ type: 'document', name: 'notes.txt', fileType: 'txt', size: 10 }]
+    const view = renderInput()
+    const input = getTextarea()
+    const attachment = screen.getByText('notes.txt')
+    const footer = view.container.querySelector('.composer-footer')!
+    const toggle = screen.getByTestId('composer-disclosure')
+    const content = document.getElementById(toggle.getAttribute('aria-controls')!)!
+    expect(toggle.previousElementSibling).toHaveClass('composer-new-chat-area')
+    expect(toggle.nextElementSibling).toHaveClass('composer-input-area')
+    expect(content.contains(footer)).toBe(true)
+    expect(input).toBeVisible()
+    toggle.focus()
+    fireEvent.click(toggle)
+    expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    expect(content).toHaveAttribute('hidden')
+    expect(input).toBeVisible()
+    expect(footer).not.toBeVisible()
+    expect(attachment).toBeVisible()
+    expect(toggle).toHaveFocus()
+    expect(setPromptMock).not.toHaveBeenCalled()
+    expect(clearAttachmentsMock).not.toHaveBeenCalled()
+    fireEvent.click(toggle)
+    expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    expect(content).not.toHaveAttribute('hidden')
+    expect(getTextarea()).toBe(input)
+    expect(input).toHaveValue('Keep this draft')
+    expect(input).toBeVisible()
+    expect(attachment).toBeVisible()
+  })
+
+  it('remembers the lower-controls fold and still exposes Stop during tool work', () => {
+    const first = renderInput()
+    fireEvent.click(screen.getByTestId('composer-disclosure'))
+    first.unmount()
+    const second = renderInput()
+    expect(getTextarea()).toBeVisible()
+    expect(second.container.querySelector('.composer-footer')).not.toBeVisible()
+    const onStop = vi.fn()
+    second.rerender(<ChatInput toolsRunning onStop={onStop} />)
+    expect(getTextarea()).toBeVisible()
+    expect(screen.getByTestId('composer-disclosure')).not.toBeDisabled()
+    const stop = screen.getByTestId('stop-message-button')
+    expect(stop).toBeVisible()
+    fireEvent.click(stop)
+    expect(onStop).toHaveBeenCalledOnce()
+  })
+
+  it('places the microphone immediately before Send in the unchanged upper composer', () => {
+    renderInput()
+    const mic = screen.getByTestId('voice-conversation-button')
+    expect(mic.closest('.composer-prompt')).toBe(getTextarea().closest('.composer-prompt'))
+    const submit = mic.closest('.composer-prompt')?.querySelector('.composer-submit-area')
+    expect(submit).toBeInTheDocument()
+    expect(mic.compareDocumentPosition(submit!)).toBe(Node.DOCUMENT_POSITION_FOLLOWING)
+    fireEvent.click(screen.getByTestId('composer-disclosure'))
+    expect(mic).toBeVisible()
+    expect(getTextarea()).toBeVisible()
   })
 
   it('keeps the mobile keyboard closed through reasoning and allows explicit typing focus', async () => {

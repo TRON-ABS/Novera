@@ -831,5 +831,10 @@
     "update": "Sasisha",
     "rollback": "Rejesha mazingira ya awali",
     "busy": "Pakua miundo ya ndani na usubiri vizazi imalize kabla ya kubadilisha vipengee."
-  }
+  },
+  "voiceConversation": "Mazungumzo ya sauti",
+  "voiceUnavailable": "Mazungumzo ya sauti hayapatikani",
+  "voiceMale": "Sauti ya kiume",
+  "voiceFemale": "Sauti ya kike",
+  "voiceReadReplies": "Soma majibu kwa sauti"
 }

@@ -84,6 +84,9 @@ macro_rules! invoke_commands_with_extras {
         core::sharing::sharing_native,
         core::sharing::sharing_copy_file,
         core::sharing::sharing_copy_text,
+        core::voice::voice_run,
+        core::voice::voice_cancel,
+        core::voice::voice_is_foreground,
         core::sharing::sharing_metadata,
         core::filesystem::commands::write_yaml,
         core::filesystem::commands::read_yaml,
@@ -502,6 +505,7 @@ pub fn run() {
             store.set("version", serde_json::json!(app_version));
             store.save().expect("Failed to save store");
             // Migration completed
+            core::asset_access::initialize(app.handle())?;
 
             #[cfg(feature = "desktop")]
             if setup::tray_always_visible() {
@@ -546,7 +550,33 @@ pub fn run() {
         .expect("error while running tauri application");
     // Handle app lifecycle events
     app.run(|app, event| {
+        if let RunEvent::WindowEvent {
+            label,
+            event,
+            ..
+        } = &event {
+            let cancel = match event {
+                tauri::WindowEvent::Destroyed | tauri::WindowEvent::CloseRequested { .. } => true,
+                tauri::WindowEvent::Focused(false) => app.get_webview_window(label)
+                    .map_or(true, |window| !core::voice::window_is_foreground(&window)),
+                _ => false,
+            };
+            if cancel { core::voice::cancel_window(label); }
+        }
         use std::sync::atomic::Ordering;
+        if let RunEvent::WindowEvent {
+            event: tauri::WindowEvent::DragDrop(tauri::DragDropEvent::Drop { paths, .. }),
+            label,
+            ..
+        } = &event {
+            if label == "main" {
+                for path in paths {
+                    if let Err(error) = core::asset_access::selected(app, path) {
+                        log::warn!("Cannot authorize dropped asset: {error}");
+                    }
+                }
+            }
+        }
         if let RunEvent::WindowEvent {
             event: tauri::WindowEvent::CloseRequested { api, .. },
             label,

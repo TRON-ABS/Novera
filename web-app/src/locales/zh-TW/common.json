@@ -833,5 +833,10 @@
     "update": "更新",
     "rollback": "恢復之前的環境",
     "busy": "卸載本機模型並等待生成完成後再更改組件。"
-  }
+  },
+  "voiceConversation": "語音對話",
+  "voiceUnavailable": "語音對話無法使用",
+  "voiceMale": "男聲",
+  "voiceFemale": "女聲",
+  "voiceReadReplies": "朗讀回覆"
 }

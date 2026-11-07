@@ -831,5 +831,10 @@
     "update": "Pag-update",
     "rollback": "Iuli ang kanhing palibot",
     "busy": "Idiskarga ang mga lokal nga modelo ug paghulat nga mahuman ang mga henerasyon sa dili pa mag-ilis sa mga sangkap."
-  }
+  },
+  "voiceConversation": "Panag-istorya pinaagi sa tingog",
+  "voiceUnavailable": "Dili magamit ang panag-istorya pinaagi sa tingog",
+  "voiceMale": "Tingog sa lalaki",
+  "voiceFemale": "Tingog sa babaye",
+  "voiceReadReplies": "Basaha og kusog ang mga tubag"
 }

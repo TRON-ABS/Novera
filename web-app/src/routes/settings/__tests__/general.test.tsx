@@ -4,6 +4,8 @@ import { Route as GeneralRoute } from '../general'
 import { toast } from 'sonner'
 
 // Mock all the dependencies
+const setVoiceGender = vi.hoisted(() => vi.fn())
+const setReadReplies = vi.hoisted(() => vi.fn())
 vi.mock('@/containers/SettingsMenu', () => ({
   default: () => <div data-testid="settings-menu">Settings Menu</div>,
 }))
@@ -60,6 +62,10 @@ vi.mock('@/containers/dialogs/ChangeDataFolderLocation', () => ({
 
 vi.mock('@/hooks/useGeneralSetting', () => ({
   useGeneralSetting: () => ({
+    voiceGender: 'male',
+    setVoiceGender,
+    readReplies: true,
+    setReadReplies,
     spellCheckChatInput: true,
     setSpellCheckChatInput: vi.fn(),
     huggingfaceToken: 'test-token',
@@ -88,13 +94,16 @@ vi.mock('@/components/ui/switch', () => ({
   Switch: ({
     checked,
     onCheckedChange,
+    'aria-label': label,
   }: {
     checked: boolean
     onCheckedChange: (checked: boolean) => void
+    'aria-label'?: string
   }) => (
     <input
       data-testid="switch"
       type="checkbox"
+      aria-label={label}
       checked={checked}
       onChange={(e) => onCheckedChange(e.target.checked)}
     />
@@ -310,6 +319,24 @@ Object.assign(navigator, {
 })
 
 describe('General Settings Route', () => {
+  it('offers an independent switch for reading typed replies', async () => {
+    const Component=GeneralRoute.component as React.ComponentType
+    await act(async()=>{render(<Component />)})
+    const checkbox=screen.getByLabelText('common:voiceReadReplies')
+    expect(checkbox).toBeChecked()
+    fireEvent.click(checkbox)
+    expect(setReadReplies).toHaveBeenCalledWith(false)
+  })
+  it('offers both native model voices and saves the selected gender', async () => {
+    const Component = GeneralRoute.component as React.ComponentType
+    await act(async () => { render(<Component />) })
+    const select = screen.getByRole('combobox', {name:'common:voiceConversation'})
+    expect(select).toHaveValue('male')
+    fireEvent.change(select, {target:{value:'female'}})
+    expect(setVoiceGender).toHaveBeenCalledWith('female')
+    expect(screen.getByRole('option',{name:'common:voiceMale'})).toBeInTheDocument()
+    expect(screen.getByRole('option',{name:'common:voiceFemale'})).toBeInTheDocument()
+  })
   beforeEach(() => {
     vi.clearAllMocks()
     // Reset the mock to return a promise that resolves immediately by default

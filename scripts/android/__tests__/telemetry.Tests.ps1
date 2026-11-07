@@ -2,7 +2,7 @@ $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot '../telemetry.ps1')
 $fixture=Join-Path ([IO.Path]::GetTempPath()) ('novera-android-telemetry-'+[Guid]::NewGuid().ToString('N')+'.env')
 $saved=@{}
-foreach ($name in @('NOVERA_ANALYTICS_HOST','NOVERA_ANALYTICS_PROJECT_KEY','NOVERA_MONITORING_BUILD')) {
+foreach ($name in @('NOVERA_ANALYTICS_HOST','NOVERA_ANALYTICS_PROJECT_KEY','NOVERA_MONITORING_BUILD','NOVERA_DISABLE_TELEMETRY')) {
     $saved[$name]=[Environment]::GetEnvironmentVariable($name,'Process')
 }
 $passed=0

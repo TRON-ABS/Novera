@@ -42,38 +42,38 @@ tauri = [
 ]
 
 [dependencies]
-base64 = "0.22"
+base64 = "0.23.1"
 # Pure Rust, no GUI linkage; used by the webview screenshot path and harmless in
 # the CLI graph.
-png = "0.17"
-glob = "0.3"
-percent-encoding = "2"
-ignore = "0.4"
-regex = "1"
+png = "0.18.1"
+glob = "0.3.4"
+percent-encoding = "2.3.2"
+ignore = "0.4.34"
+regex = "1.13.1"
 # `MonitorSnapshot` travels inside a `StreamEvent`, so the protocol schema
 # reaches it: the type derives its own schema rather than being mirrored.
-schemars = "1"
-similar = "2.6"
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
+schemars = "1.2.3"
+similar = "3.2.1"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
 serde_yaml = "0.9.34"
-thiserror = "2.0.12"
-tokio = { version = "1", features = ["full"] }
-tauri = { version = "2.8.5", default-features = false, optional = true }
+thiserror = "2.0.21"
+tokio = { version = "1.54.1", features = ["full"] }
+tauri = { version = "2.12.5", default-features = false, optional = true }
 # `provider` only; `default-features = false` keeps `tauri` out of the graph so
 # the headless CLI can use the web tools.
 tauri-plugin-websearch = { path = "../tauri-plugin-websearch", default-features = false }
 
 [build-dependencies]
-tauri-plugin = { version = "2.3.1", features = ["build"], optional = true }
+tauri-plugin = { version = "2.7.2", features = ["build"], optional = true }
 
 [target.'cfg(unix)'.dependencies]
-nix = { version = "=0.30.1", features = ["signal", "process"] }
+nix = { version = "0.31.3", features = ["signal", "process"] }
 
 # Webview `screenshot` backend (see `webview_shot.rs`). All optional and enabled
 # by the `tauri` feature, so the headless CLI never pulls a GUI stack in.
 [target.'cfg(target_os = "linux")'.dependencies]
-webkit2gtk = { version = "2.0", features = ["v2_8"], optional = true }
+webkit2gtk = { version = "2.0.2", features = ["v2_8"], optional = true }
 cairo-rs = { version = "0.18", optional = true }
 gio = { version = "0.18", optional = true }
 glib = { version = "0.18", optional = true }
@@ -81,20 +81,20 @@ glib = { version = "0.18", optional = true }
 # macOS webview `screenshot` backend. Versions pinned to the workspace lockfile
 # so linkage does not duplicate the objc2 stack tauri/wry already pulls.
 [target.'cfg(target_os = "macos")'.dependencies]
-objc2 = { version = "0.6", optional = true }
-objc2-web-kit = { version = "0.3", features = [
+objc2 = { version = "0.6.5", optional = true }
+objc2-web-kit = { version = "0.3.2", features = [
   "WKWebView",
   "WKSnapshotConfiguration",
   "block2",
   "objc2-app-kit",
   "objc2-core-foundation",
 ], optional = true }
-objc2-app-kit = { version = "0.3", features = [
+objc2-app-kit = { version = "0.3.2", features = [
   "NSImage",
   "NSImageRep",
   "NSBitmapImageRep",
 ], optional = true }
-objc2-foundation = { version = "0.3", features = [
+objc2-foundation = { version = "0.3.2", features = [
   "NSData",
   "NSDictionary",
   "NSError",
@@ -102,15 +102,15 @@ objc2-foundation = { version = "0.3", features = [
   "NSString",
   "NSValue",
 ], optional = true }
-block2 = { version = "0.6", optional = true }
+block2 = { version = "0.6.2", optional = true }
 
-# Windows webview `screenshot` backend. `windows` (0.61) matches the version
+# Windows webview `screenshot` backend. `windows` (0.62) matches the version
 # `webview2-com` / `tauri-runtime-wry` resolve to, so the `IStream` handed to
 # `CapturePreview` is the same type. Separate from the `windows-sys` crate used
 # by the bash sandbox below.
 [target.'cfg(target_os = "windows")'.dependencies]
-webview2-com = { version = "0.38", optional = true }
-windows = { version = "0.61", features = [
+webview2-com = { version = "0.39.1", optional = true }
+windows = { version = "0.62.2", features = [
   "Win32_Foundation",
   "Win32_System_Com",
   "Win32_UI_Shell",
@@ -119,7 +119,7 @@ windows = { version = "0.61", features = [
 # AppContainer confinement for the `bash` tool: profile creation, workspace ACLs
 # and the `STARTUPINFOEX` spawn that carries the lowbox token.
 [target.'cfg(windows)'.dependencies]
-windows-sys = { version = "0.60.2", features = [
+windows-sys = { version = "0.61.2", features = [
   "Win32_Foundation",
   "Win32_Security",
   "Win32_Security_Authorization",

@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Code",
+    "preview": "Preview",
+    "previewStreaming": "Inowanikwa kana chizvarwa chapera",
+    "unresolvedAssets_one": "1 asset reference haigone kurodha mukutarisa. Nzira dzeukama hadzina hwaro URL hwekugadziriswa.",
+    "unresolvedAssets_other": "{{count}} mareferensi easset haakwanise kurodha mukutarisisa. Nzira dzehukama hadzina hwaro URL yekugadzirisa."
+  },
+  "assistants": "Vabatsiri",
+  "hardware": "Hardware",
+  "mcp-servers": "MCP Masevha",
+  "local_api_server": "Yenzvimbo API Sevha",
+  "remote_access": "Remote Access",
+  "integrations": "Kubatanidzwa",
+  "experimental": "Kuedza",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Mumiririri",
+  "web_search": "Web Search",
+  "shell": "Shell",
+  "browse": "Bhurawuza",
+  "moreControls": "Zvimwe zvinodzora",
+  "starting": "Kutanga...",
+  "activeSuffix": "(Inoshanda)",
+  "extensions": "Mawedzero",
+  "attachments": "Zvakanamirwa",
+  "general": "Zvakawanda",
+  "settings": "Zvirongwa",
+  "modelProviders": "Model Providers",
+  "localProviders": "Local",
+  "remoteProviders": "Kure",
+  "manageProviders": "Manage vanopa",
+  "hiddenProviders": "{{count}} yakaremara",
+  "hideProvider": "Viga mupi",
+  "showProvider": "Ratidza mupi",
+  "interface": "Interface",
+  "appearance": "Chitarisiko",
+  "privacy": "Zvakavanzika",
+  "keyboardShortcuts": "Shortcuts",
+  "home": "Kumba",
+  "cowork": "Cowork",
+  "newSession": "Chikamu chitsva",
+  "artifacts": "Artifacts",
+  "customize": "Gadzirisa",
+  "local": "Local",
+  "selectFolder": "Sarudza folda",
+  "selectModel": "Sarudza modhi kutanga",
+  "commands": "Mirairo",
+  "cmdHelp": "Nyora mirairo iripo",
+  "cmdClear": "Bvisa chikamu ichi",
+  "cmdModels": "Chinja iyo inoshanda modhi",
+  "cmdModelsHint": "Nyora /models wobva watora modhi kubva pane rondedzero",
+  "cmdModelSwitched": "Chinja kuenda ku {{name}}",
+  "cmdUnknown": "Murairo usingazivikanwe: {{name}}. Edza /help",
+  "cmdBusy": "Haikwanise kuita izvo mumiririri ari kushanda",
+  "cmdCompact": "Batanidza mamiriro echikamu kuita muchidimbu",
+  "cmdCompacted": "Zvakabatanidzwa {{before}} -> {{after}} mameseji",
+  "cmdNothingToCompact": "Hapana chekugadzirisa parizvino",
+  "cmdCompactFailed": "Compaction yakundikana: {{error}}",
+  "cmdPlan": "Shandura maitiro ehurongwa (kuverenga-chete: mumiriri anopa zano asina kunyora)",
+  "cmdPlanOn": "Ronga maitiro pa: mumiririri anoverenga uye anopa zano asina kunyora",
+  "cmdPlanOff": "Ronga maitiro ekudzima: zvakajairika kuuraya",
+  "cmdTodo": "Vhura iyo yekufambira mberi",
+  "cmdTasks": "Vhura iyo yekumashure mabasa mapaneru",
+  "cmdInit": "Dzidza chirongwa uye nyora hunyanzvi uye ndangariro",
+  "cmdInitRunning": "Kukwira chirongwa ichi",
+  "skills": "Unyanzvi",
+  "skillsInContext": "Unyanzvi huripo kune mumiririri kumhanya uku",
+  "skillsTitle": "Tonga hunyanzvi",
+  "skillsScopeProject": "Unyanzvi hwe{{folder}}",
+  "skillsScopeGlobal": "Unyanzvi hwepasi rose, hunowanikwa kune yega yega chikamu",
+  "skillsScopeMerged": "Unyanzvi hwe{{folder}}, pamwe nehunyanzvi hwepasi rose hunogoverwa",
+  "skillOriginFolder": "folda",
+  "skillOriginGlobal": "pasi rose",
+  "skillsEmpty": "Hapana hunyanzvi parizvino",
+  "skillsPickOrNew": "Sarudza hunyanzvi hwekugadzirisa, kana kugadzira hutsva.",
+  "skillNew": "Hunyanzvi hutsva",
+  "skillDelete": "Dzima hunyanzvi",
+  "skillSave": "Sevha",
+  "skillSaved": "Unyanzvi hwakachengetwa",
+  "skillNameRequired": "Zita reunyanzvi rinodiwa",
+  "skillNamePlaceholder": "hunyanzvi-zita",
+  "skillContentPlaceholder": "Rondedzera maitiro ekushandisa zvakare mu Markdown…",
+  "skillHubImport": "Ngenisa kubva kuhub",
+  "skillHubTitle": "Anthropic hub yehunyanzvi",
+  "skillHubEmpty": "Hapana hunyanzvi hwawanikwa pahubhu",
+  "skillImport": "Import",
+  "skillReimport": "tumira zvakare",
+  "skillImported": "Zvakatengeswa kunze kwenyika {{name}}",
+  "sessions": "Zvirongwa",
+  "deleteSession": "Dzima chikamu",
+  "deleteSessionTitle": "Kudzima chikamu?",
+  "deleteSessionBody": "\"{{title}}\" uye zvinyorwa zvayo zvichadzimwa zvachose. Izvi hazvigone kugadziriswa.",
+  "newChat": "New Chat",
+  "newAgentChat": "Hurukuro itsva yemubatsiri",
+  "chats": "Chats",
+  "favorites": "Favorites",
+  "recents": "Zvichangoburwa",
+  "hub": "Hub",
+  "helpSupport": "Rubatsiro & Tsigiro",
+  "helpUsImproveJan": "Tibatsire Kuvandudza Novera",
+  "analyticsConsentDetail": "Isu tinounganidza zvisingazivikanwe data kuti tinzwisise mashandisirwo emhando. Chats ako uye ruzivo rwemunhu haambotevedzwa. Unogona kushandura izvi chero nguva muSettings > Privacy.",
+  "analyticsConsentQuestion": "Unoda kutibatsira kuvandudza Novera?",
+  "unstarAll": "Unstar All",
+  "unstar": "Unstar",
+  "deleteAll": "Delete chinhu chose",
+  "star": "Nyeredzi",
+  "rename": "Rename",
+  "delete": "Dzima",
+  "copied": "Kopirwa!",
+  "dataFolder": "Data Folder",
+  "others": "Zvimwe",
+  "language": "Mutauro",
+  "login": "Log In",
+  "loginWith": "Pinda ne{{provider}}",
+  "loginFailed": "Yatadza Kupinda",
+  "logout": "Log Out",
+  "loggingOut": "Kubuda...",
+  "loggedOut": "Zvakabudirira Kubuda",
+  "logoutFailed": "Yatadza Kubuda",
+  "profile": "Profile",
+  "reset": "Reset",
+  "search": "Tsvaga",
+  "searchThreads": "Tsvaga ma thread...",
+  "toNavigate": "kufamba",
+  "toSelect": "kusarudza",
+  "toClose": "kuvhara",
+  "clearRecent": "Zvakajeka",
+  "name": "Zita",
+  "cancel": "Kanzura",
+  "dismiss": "Ramba",
+  "create": "Gadzira",
+  "save": "Sevha",
+  "edit": "Rongedza",
+  "copy": "Kopisha",
+  "back": "Kumashure",
+  "close": "Vhara",
+  "done": "Zvaitwa",
+  "next": "Zvinotevera",
+  "finish": "Pedzisa",
+  "skip": "Skip",
+  "allow": "Bvumira",
+  "deny": "Ramba",
+  "start": "Tanga",
+  "stop": "Mira",
+  "preview": {
+    "loading": "Kuvhura…",
+    "unsupported": "Novera haigone kuratidza rudzi urwu rwefaira. Ivhure kuti uione mune imwe app.",
+    "outside": "Iyi faira haisisiri munzvimbo yebasa yeseshini.",
+    "tooLarge": "Yakakura kwazvo kuti utarise. Ivhure kuti uione mune imwe app.",
+    "reload": "Reload",
+    "allowNetwork": "Bvumira network",
+    "unsandboxed": "Mhanya unsandboxed: data rakachengetwa uye mafaera emunharaunda anoshanda",
+    "unresolvedRefs_one": "1 faira peji rino rinobatanidza kuti harigone kurodha mukutarisa. Ivhure kuti uione mubrowser.",
+    "unresolvedRefs_other": "{{count}} mafaera anoenderana nepeji ino haakwanise kurodha mukutarisa. Ivhure kuti uione mubrowser.",
+    "externalRefs_one": "1 sosi inorodha peji ino kubva pawebhu yakavharwa. Batidza \"Bvumira network\" kuiisa.",
+    "externalRefs_other": "{{count}} zviwanikwa zvinotakurwa nepeji rino kubva pawebhu zvakavharwa. Batidza \"Bvumira network\" kuti uzviise.",
+    "scriptErrors_one": "Peji yataura kukanganisa: {{message}}",
+    "scriptErrors_other": "Peji iyi yakashuma {{count}} kukanganisa. Kutanga: {{message}}"
+  },
+  "changes": {
+    "title": "Agent inochinja",
+    "empty": "Mafaira anonyorwa nemumiririri kana kurongeka achaonekwa pano.",
+    "a11y": "Shanduko dzemumiririri: {{files}} mafaera, {{additions}} akawedzerwa, {{deletions}} abviswa"
+  },
+  "modelPanel": {
+    "title": "Modhi marongero",
+    "a11y": "Vhura marongero emhando",
+    "contextTooltip": "Hwindo remukati: {{value}} ye {{max}} tokeni"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Skill '{{name}}' haisipo",
+    "kind": {
+      "skill": "Unyanzvi",
+      "command": "Command",
+      "model": "Model"
+    }
+  },
+  "compactWidth": "Compact Width",
+  "fullWidth": "Full Width",
+  "dark": "Yakasviba",
+  "light": "Chiedza",
+  "system": "System",
+  "auto": "Auto",
+  "english": "Chirungu",
+  "medium": "Pakati",
+  "newThread": "New Thread",
+  "noResultsFound": "Hapana zvawanikwa",
+  "noThreadsYet": "Hapana ma threads parizvino",
+  "noThreadsYetDesc": "Tanga nhaurirano itsva kuti uone nhoroondo yako ye thread pano.",
+  "downloads": "Dhaunirodha",
+  "downloading": "Kudhaunirodha",
+  "uploadingAttachments": "Kuisa zvakanamirwa…",
+  "cancelDownload": "Rega kudhawunirodha",
+  "downloadCancelled": "Kudhaunirodha Kwakanzurwa",
+  "downloadComplete": "Dhaunirodha Yakwana",
+  "thinking": "Kufunga...",
+  "thought": "Pfungwa",
+  "callingTool": "Chimbo chekufona",
+  "completed": "Zvakapedzwa",
+  "image": "Mufananidzo",
+  "vision": "Vision",
+  "multimodal": "Multimodal",
+  "embeddings": "Embeddings",
+  "tools": "Zvishandiso",
+  "webSearch": "Web Search",
+  "reasoning": "Kukurukurirana",
+  "proactive": "Proactive",
+  "selectAModel": "Sarudza modhi",
+  "noToolsAvailable": "Hapana maturusi aripo",
+  "noModelsFoundFor": "Hapana mhando dzawanikwa dze \"{{searchValue}}\"",
+  "failedToLoadModels": "Yatadza kurodha modhi",
+  "noModels": "Hapana mhando dzawanikwa",
+  "noAssistant": "Hapana mubatsiri",
+  "customAvatar": "Custom avatar",
+  "editAssistant": "Rongedza Mubatsiri",
+  "jan": "Novera",
+  "metadata": "Metadata",
+  "regenerate": "Gadzira patsva",
+  "threadImage": "Thread mufananidzo",
+  "editMessage": "Rongedza Mharidzo",
+  "deleteMessage": "Delete Mharidzo",
+  "deleteThread": "Dzima hurukuro iyi",
+  "renameThread": "Rename Thread",
+  "threadTitle": "Thread Title",
+  "deleteAllThreads": "Delete Ma Threads Ese",
+  "allThreadsUnfavorited": "Ma Threads ese asina kufarirwa",
+  "deleteAllThreadsConfirm": "Une chokwadi chekuti unoda kudzima tambo dzese? Chiito ichi hachigone kuregererwa.",
+  "addProvider": "Wedzera Mupi",
+  "addOpenAIProvider": "Wedzera OpenAI Provider",
+  "enterNameForProvider": "Isa zita remupi wako",
+  "providerAlreadyExists": "Mupi ane zita \"{{name}}\" atovako. Ndapota sarudza zita rakasiyana.",
+  "adjustFontSize": "Gadzirisa Saizi Yemavara",
+  "changeLanguage": "Shandura Mutauro",
+  "editTheme": "Rongedza Theme",
+  "editCodeBlockStyle": "Rongedza Code Block Style",
+  "editServerHost": "Rongedza Server Host",
+  "pickColorWindowBackground": "Sarudza Ruvara Window Background",
+  "pickColorAppMainView": "Sarudza Ruvara App Main View",
+  "pickColorAppPrimary": "Sarudza Ruvara App Primary",
+  "pickColorAppAccent": "Sarudza Ruvara rweApp Accent",
+  "pickColorAppDestructive": "Sarudza Ruvara App Inoparadza",
+  "apiKeyRequired": "API Kiyi inodiwa",
+  "enterTrustedHosts": "Pinda vatenzi vakavimbika",
+  "placeholder": {
+    "chatInput": "Ndibvunze chero chinhu..."
+  },
+  "confirm": "Simbisa",
+  "continue": "Ramba",
+  "loading": "Loading...",
+  "settingUpJan": "Kubatidza Novera…",
+  "registeringExtensions": "Kunyoresa mawedzero…",
+  "loadingExtensions": "Tinoisa maedzero… ({{done}}/{{total}})",
+  "error": "kukanganisa",
+  "success": "Kubudirira",
+  "warning": "Yambiro",
+  "conversationNotAvailable": "Hurukuro haisi kuwanikwa",
+  "conversationNotAvailableDescription": "Hurukuro yauri kuyedza kuwana haisi kuwanikwa kana kuti yakadzimwa.",
+  "temporaryChat": "Kukurukurirana Kwenguva",
+  "temporaryChatTooltip": "Chat yenguva pfupi haizooneke munhoroondo yako",
+  "noResultsFoundDesc": "Hatina kuwana chats dzinoenderana netsvagiridzo yako. Edza rimwe keyword.",
+  "searchModels": "Tsvaga mhando...",
+  "searchStyles": "Zvitaera zvekutsvaga...",
+  "createAssistant": "Gadzira Mubatsiri",
+  "enterApiKey": "Pinda API Kiyi",
+  "scrollToBottom": "Skrolela pasi",
+  "generateAiResponse": "Gadzira AI Mhinduro",
+  "continueAiResponse": "Enderera ne AI Mhinduro",
+  "addModel": {
+    "title": "Wedzera Model",
+    "modelId": "Model ID",
+    "enterModelId": "Pinda Model ID",
+    "addModel": "Wedzera Model",
+    "description": "Wedzera modhi nyowani kune mupi",
+    "exploreModels": "Ona rondedzero yemhando kubva kumupi"
+  },
+  "mcpServers": {
+    "editServer": "Rongedza Server",
+    "addServer": "Wedzera Server",
+    "serverName": "Zita reSevha",
+    "enterServerName": "Isa zita reseva",
+    "command": "Command",
+    "enterCommand": "Pinda kuraira",
+    "arguments": "Nharo",
+    "argument": "Nharo {{index}}",
+    "envVars": "Nzvimbo dzakasiyana",
+    "key": "Kiyi",
+    "value": "Kukosha",
+    "save": "Sevha"
+  },
+  "deleteServer": {
+    "title": "Dzima sevha iyi",
+    "delete": "Dzima"
+  },
+  "editJson": {
+    "errorParse": "Yatadza kupatsanura JSON",
+    "errorPaste": "Yatadza kunamira JSON",
+    "errorFormat": "Fomati JSON haisiyo",
+    "titleAll": "Rongedza ese Sevha Kugadziriswa",
+    "placeholder": "Pinda JSON gadziriso...",
+    "save": "Sevha"
+  },
+  "editModel": {
+    "title": "Rongedza Model: {{modelId}}",
+    "description": "Gadzirisa maitiro emodhi nekushandura sarudzo dziri pazasi.",
+    "capabilities": "Kugona",
+    "tools": "Zvishandiso",
+    "vision": "Vision",
+    "embeddings": "Embeddings",
+    "notAvailable": "Haisati yave kuwanikwa"
+  },
+  "outOfContextError": {
+    "truncateInput": "Truncate Input",
+    "title": "Kunze kwekukanganisa kwechirevo",
+    "description": "Kukurukurirana uku kwave kusvika pa AI inogumira, sekunge bhodhi chena richizadza. Isu tinokwanisa kuwedzera hwindo rekurangarira (rinonzi saizi yemukati) kuti irangarire zvakawanda, asi inogona kushandisa yakawanda ndangariro yekombuta yako. Isu tinokwanisa zvakare kudzikisa mapindiro, zvinoreva kuti ichakanganwa imwe yenhoroondo yekutaura kuti iwane nzvimbo yemeseji mitsva.",
+    "increaseContextSizeDescription": "Iwe unoda kuwedzera saizi yemukati?",
+    "increaseContextSize": "Wedzera Context size"
+  },
+  "toolApproval": {
+    "title": "Chikumbiro cheMvumo yekushandisa",
+    "description": "Mubatsiri anoda kushandisa <strong>{{toolName}}</strong>",
+    "securityNotice": "Bvumira zvishandiso zvaunovimba chete. Zvishandiso zvinogona kuwana yako system uye data.",
+    "deny": "Ramba",
+    "allowOnce": "Bvumira Kamwe",
+    "alwaysAllow": "Gara Uchibvumira"
+  },
+  "deleteModel": {
+    "title": "Dzima iyi modhi: {{modelId}}",
+    "description": "Une chokwadi chekuti unoda kudzima modhi iyi? Chiito ichi hachigone kuregererwa.",
+    "success": "Model {{modelId}} yakadzimwa zvachose.",
+    "cancel": "Kanzura",
+    "delete": "Dzima"
+  },
+  "deleteProvider": {
+    "title": "Dzima mupi uyu",
+    "description": "Bvisa mupi uyu nemhando dzayo dzese. Chiito ichi hachigone kuregererwa.",
+    "success": "Provider {{provider}} yakabviswa zvachose.",
+    "confirmTitle": "Dzima mutengesi uyu: {{provider}}",
+    "confirmDescription": "Une chokwadi chekuti unoda kudzima mupi uyu? Chiito ichi hachigone kuregererwa.",
+    "cancel": "Kanzura",
+    "delete": "Dzima"
+  },
+  "modelSettings": {
+    "label": "Model Settings",
+    "title": "Model Settings - {{modelId}}",
+    "description": "Gadzirisa marongero emodhi kuti ugone kuita uye maitiro.",
+    "nglDisabledByFit": "Auto-fit iri kusarudza GPU ma layer. Dzima Auto-fit kuti uise izvi nemaoko.",
+    "samplingDefaults": {
+      "title": "Default sampling paramita",
+      "description": "Default sampler marongero eiyi modhi. Inoshandiswa kunze kwekunge yatsiviwa ne-per-mubatsiri kana per-chikumbiro kukosha."
+    },
+    "specDraft": {
+      "section": "Kudhirodha kwekufungidzira",
+      "enable": "Gonesa kufungidzira kudhikodha",
+      "enableDescription": "Gadzira ma tokens akati wandei padanho uye woasimbisa mune imwe pass, iyo inomhanyisa chizvarwa. Inoshandisa misoro yemodhi yeMTP, kana kuti modhi yakadhaunirodwa nayo (MTP, Eagle3, DFlash kana DSpark).",
+      "nMax": "Max dhizaini tokeni",
+      "nMaxDescription": "Huwandu hwehuwandu hwematokeni ekunyora padanho. Default 16.",
+      "nMin": "Tokens diki dzekugadzirisa",
+      "nMinDescription": "Nhamba shoma yematokeni ekunyora padanho. Default 0.",
+      "pMin": "Min dhizaini mukana",
+      "pMinDescription": "Zvishoma zvingangoitika zvekukara kunyora (0–1). Default 0.75."
+    },
+    "templateKwargs": {
+      "section": "Chat template sarudzo",
+      "description": "Zvimwe zvingasarudzwa netemplate iyi yekutaura inogamuchirwa. Yatumirwa sechat_template_kwargs pachikumbiro chega chega; siya kukosha pakusarudzika kwayo kuti template isarudze.",
+      "addCustom": "Wedzera tsika sarudzo",
+      "keyPlaceholder": "zita",
+      "valuePlaceholder": "kukosha",
+      "add": "Wedzera",
+      "cancel": "Kanzura",
+      "remove": "Bvisa"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Haikwanise kugadzirisa marongero emodhi"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Shandura Dhata Folder Nzvimbo",
+      "description": "Une chokwadi chekuti unoda kushandura iyo data folda nzvimbo? Izvi zvinofambisa data rako rese kunzvimbo nyowani uye wotangazve application.",
+      "currentLocation": "Nzvimbo Yazvino:",
+      "newLocation": "Nzvimbo Itsva:",
+      "cancel": "Kanzura",
+      "changeLocation": "Shandura Nzvimbo"
+    },
+    "deleteAllThreads": {
+      "title": "Delete Ma Threads Ese",
+      "description": "Mashinda ese achadzimwa. Chiito ichi hachigone kuregererwa."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Dzima Kukurukurirana Kwese",
+      "description": "{{count}} hurukuro dziri mu \"{{projectName}}\" dzichadzimwa. Chiito ichi hachigone kuregererwa."
+    },
+    "deleteThread": {
+      "description": "Une chokwadi chekuti unoda kudzima shinda iyi? Chiito ichi hachigone kuregererwa."
+    },
+    "editMessage": {
+      "title": "Rongedza Mharidzo"
+    },
+    "messageMetadata": {
+      "title": "Metadata yeMharidzo"
+    },
+    "deleteMessage": {
+      "description": "Une chokwadi chekuti unoda kudzima meseji iyi? Chiito ichi hachigone kuregererwa."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Pane chakaipa",
+    "details": "Details"
+  },
+  "missingDependenciesDialog": {
+    "title": "Maraibhurari eSitimu Yakashaikwa",
+    "description": "Iyo {{backend}} yakaiswa asi mamwe maraibhurari anodiwa haana kuwanikwa. Inogona kudzokera kumashure kuCPU kana kusamhanya nemazvo.",
+    "installLabel": "Kugadzirisa izvi, isa zvinotevera:",
+    "download": "Dhaunirodha",
+    "additionalLibraries": "Mamwe maraibhurari asipo:",
+    "missingLibraries": "Maraibhurari akashaikwa:",
+    "showRawLibraries": "Ratidza {{count}} mazita asiripo eraibhurari"
+  },
+  "projects": {
+    "title": "Zvirongwa",
+    "new": "Zvirongwa Zvitsva",
+    "addProject": "Wedzera Chirongwa",
+    "addToProject": "Wedzera kupurojekiti",
+    "removeFromProject": "Bvisa mupurojekiti",
+    "createNewProject": "Gadzira Chirongwa Chitsva",
+    "editProject": "Rongedza Project",
+    "deleteProject": "Dzima chirongwa ichi",
+    "projectName": "Zita reProjekiti",
+    "enterProjectName": "Isa zita rechirongwa...",
+    "noProjectsAvailable": "Hapana mapurojekiti aripo",
+    "noProjectsYet": "Hapana Mapurojekiti Parizvino",
+    "noProjectsYetDesc": "Tanga chirongwa chitsva nekudzvanya bhatani reKuwedzera Chirongwa.",
+    "projectNotFound": "Project Haisati Yawanikwa",
+    "projectNotFoundDesc": "Iyo purojekiti yauri kutsvaga haipo kana kuti yakadzimwa.",
+    "selectAssistant": "Sarudza mubatsiri",
+    "noAssistantAssigned": "Hapana mubatsiri akapihwa chirongwa ichi",
+    "files": "Mafaira",
+    "filesDescription": "Wedzera maPDF, zvinyorwa, kana mamwe mameseji kunongedzera muchirongwa ichi.",
+    "uploadingFiles": "Kugadzira mafaera…",
+    "processButton": "Wedzera",
+    "deleteProjectDialog": {
+      "title": "Dzima chirongwa ichi",
+      "permanentDelete": "Izvi zvichabvisa zvachose ma threads.",
+      "permanentDeleteWarning": "Ichi chiito chichadzima zvachose ALL ma thread mukati meprojekti!",
+      "deleteEmptyProject": "Chiito ichi chinodzima chirongwa \"{{projectName}}\".",
+      "saveThreadsAdvice": "Kuti uchengetedze tambo, dzifambise kune yako tambo runyorwa kana imwe chirongwa usati wadzima.",
+      "starredWarning": "Uchiri netambo dzine nyeredzi mukati meprojekti.",
+      "deleteButton": "Dzima",
+      "successWithName": "Project \"{{projectName}}\" yabviswa zvinobudirira",
+      "successWithoutName": "Project yakabviswa zvinobudirira",
+      "error": "Yatadza kudzima chirongwa. Ndapota edza zvakare.",
+      "ariaLabel": "Delete {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Gadzira Chirongwa Chitsva",
+      "editTitle": "Rongedza Project",
+      "nameLabel": "Zita reProjekiti",
+      "namePlaceholder": "Isa zita rechirongwa...",
+      "assistant": "Mubatsiri",
+      "selectAssistant": "Sarudza mubatsiri (optional)",
+      "noAssistant": "Hapana mubatsiri",
+      "addAssistant": "Wedzera Mubatsiri",
+      "createButton": "Gadzira",
+      "updateButton": "Update",
+      "alreadyExists": "Project \"{{projectName}}\" yatovapo",
+      "createSuccess": "Project \"{{projectName}}\" yakagadzirwa zvinobudirira",
+      "updateSuccess": "Project \"{{projectName}}\" yakagadziridzwa zvakabudirira",
+      "saveError": "Haikwanise kuchengetedza chirongwa. Ndapota edza zvakare."
+    },
+    "noConversationsIn": "Hapana Hurukuro mu {{projectName}}",
+    "startNewConversation": "Tanga nhaurirano itsva na {{projectName}} pazasi",
+    "conversationsIn": "Hurukuro mu {{projectName}}",
+    "conversationsDescription": "Dzvanya pane chero hurukuro kuti uenderere mberi nekutaura, kana tanga imwe pazasi.",
+    "conversation": "Hurukuro",
+    "instructions": "Mirayiridzo",
+    "setup": "Setup",
+    "instructionsDescription": "Gadzirisa inzwi uye maitiro ekupindura",
+    "manageInstructions": "Manage Mirayiridzo",
+    "thread": "thread",
+    "threads": "threads",
+    "updated": "Yakagadziridzwa:",
+    "collapseProject": "Pura chirongwa",
+    "expandProject": "Wedzera chirongwa",
+    "update": "Update",
+    "searchProjects": "Tsvaga mapurojekiti...",
+    "noProjectsFound": "Hapana mapurojekiti awanikwa",
+    "tryDifferentSearch": "Edza izwi rekutsvaga rakasiyana"
+  },
+  "attachmentsIngestion": {
+    "title": "Sarudza nzira yekupinza zvakabatanidzwa",
+    "description": "Sarudza kana kuisa mafaera aya zvakananga muchat kana kuti indexed seanomisikidzwa panzvimbo.",
+    "inline": "Bayira mukutaura",
+    "embeddings": "Shandisa zvakaiswa"
+  },
+  "attachmentInjectedIndicator": "Yakaiswa mukutaura",
+  "attachmentEmbeddedIndicator": "Yakaisirwa RAG",
+  "viewInjectedContent": "Ona zvemukati zvakabaiwa",
+  "injectedContentTitle": "Injected file contents",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Ma Threads ese asina kufarirwa",
+      "description": "Mashinda ese abviswa kubva kune ako aunofarira."
+    },
+    "deleteAllThreads": {
+      "title": "Delete Ma Threads Ese",
+      "description": "Mashinda ese akadzimwa zvachose."
+    },
+    "renameThread": {
+      "title": "Rename Thread",
+      "description": "Thread title yapihwa zita rekuti '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Dzima hurukuro iyi",
+      "description": "thread iyi yadzimwa zvachose."
+    },
+    "errorCopied": {
+      "title": "Copy yabudirira",
+      "description": "Ruzivo rwemhosho rwakakopwa kuclipboard"
+    },
+    "errorCopyFailed": {
+      "title": "Yatadza kukopa",
+      "description": "Yatadza kukopa ruzivo rwekukanganisa kuclipboard"
+    },
+    "editMessage": {
+      "title": "Rongedza Mharidzo",
+      "description": "Mharidzo yakagadziriswa zvakanaka. Ndokumbira umirire iyo modhi ipindure."
+    },
+    "appUpdateDownloaded": {
+      "title": "App Yekuvandudza Yakarodha",
+      "description": "Iyo app yekuvandudza yakatorwa zvinobudirira."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "App Yekuvandudza Kurodha Yakundikana",
+      "description": "Yatadza kudhawunirodha iyo app update. Ndapota edza zvakare."
+    },
+    "downloadComplete": {
+      "title": "Dhaunirodha Yakwana",
+      "description": "{{item}} yakadhaunirodwa"
+    },
+    "downloadCancelled": {
+      "title": "Kudhaunirodha Kwakanzurwa",
+      "description": "Maitiro ekurodha akamiswa"
+    },
+    "downloadFailed": {
+      "title": "Kudhaunirodha Kwakundikana",
+      "description": "{{item}} kudhaunirodha zvaramba",
+      "descriptionWithReason": "{{item}} kudhaunirodha zvaramba: {{reason}}",
+      "reason": {
+        "dns": "zita reseva ratadza kugadziriswa",
+        "refused": "kubatana kwakarambwa",
+        "timeout": "kubatana kwapera",
+        "tls": "kubatana kwakachengeteka hakuna kugona kusimbiswa",
+        "proxy": "proxy haina kuwanikwa",
+        "unreachable": "server haina kuwanikwa"
+      }
+    },
+    "openSettings": "Vhura Zvirongwa",
+    "openLogs": "Vhura matanda",
+    "downloadTokenRequired": {
+      "title": "Hugging Face tokeni inodiwa",
+      "description": "Modhi iyi inoda Hugging Face tokeni yekuwana. Wedzera chiratidzo chako muZvirongwa uye edza zvakare."
+    },
+    "downloadLicenseRequired": {
+      "title": "Bvuma rezinesi remuenzaniso paHugging Face",
+      "description": "Unofanira kugamuchira rezinesi remuenzaniso pane Hugging Face peji usati wadhaunirodha."
+    },
+    "downloadRateLimited": {
+      "title": "Chiyero chinogumira ne Hugging Face",
+      "description": "Wakave wakaganhurirwa. Kuwedzera chiratidzo kunogona kuwedzera chiyero chemiganhu. Ndapota edza zvakare gare gare."
+    },
+    "modelValidationStarted": {
+      "title": "Validating Model",
+      "description": "Kudhaunirodha modhi \"{{modelId}}\" zvakabudirira. Kuongorora kutendeseka..."
+    },
+    "modelValidationFailed": {
+      "title": "Model Kugadziriswa Kwakundikana",
+      "description": "Modhi yakadhaunirodwa \"{{modelId}}\" yatadza kusimbiswa uye yabviswa. Iyo faira inogona kushatiswa kana kukanganiswa."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Dhaunirodha Yakwana",
+      "description": "Model \"{{item}}\" yakadhaunirodwa uye yakasimbiswa zvinobudirira"
+    },
+    "projectCreated": {
+      "title": "Project Yakagadzirwa",
+      "description": "Project \"{{projectName}}\" yakagadzirwa zvinobudirira"
+    },
+    "projectRenamed": {
+      "title": "Chirongwa Chapiwa Zita",
+      "description": "Chirongwa chakapihwa zita kubva ku\"{{oldName}}\" kuenda ku\"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Project Yadzimwa",
+      "description": "Project \"{{projectName}}\" yabviswa zvinobudirira"
+    },
+    "projectAlreadyExists": {
+      "title": "Project Yatovepo",
+      "description": "Project \"{{projectName}}\" yatovapo"
+    },
+    "projectDeleteFailed": {
+      "title": "Delete Yakundikana",
+      "description": "Yatadza kudzima chirongwa. Ndapota edza zvakare."
+    },
+    "threadAssignedToProject": {
+      "title": "Thread Yakapiwa",
+      "description": "Thread yakapihwa \"{{projectName}}\" zvakabudirira"
+    },
+    "threadRemovedFromProject": {
+      "title": "Thread Yakabviswa",
+      "description": "Thread yakabviswa mu \"{{projectName}}\" zvakabudirira"
+    },
+    "fileUploaded": {
+      "title": "Faira Yakagadziriswa",
+      "description": "Faira rakagadziriswa uye rakanyorwa zvinobudirira"
+    },
+    "uploadFailed": {
+      "title": "Kugadzirisa Kwakundikana",
+      "description": "Yakundikana kugadzirisa faira",
+      "subjectThisFile": "Iyi faira",
+      "pdfMalformedXref": "{{subject}} haina kurongeka PDF tafura yereferensi uye haina kuparadzaniswa. Edza kuivhura mu PDF inoona woichengeta zvakare (Faira → Prinda → Sevha se PDF), wobva waisa zvakare.",
+      "pdfScanned": "{{subject}} inoita seyakaongororwa kana kuti ine mufananidzo PDF. OCR haisati yave kutsigirwa — ndapota isa mavara anoenderana nePDF.",
+      "pdfEncrypted": "{{subject}} yakachengetedzwa pasiwedhi. Bvisa password woedza zvakare.",
+      "pdfUnsupportedFeature": "{{subject}} inoshandisa PDF chimiro Novera haisati yagona kupeta (e.g. PostScript mavara/shading function). Edza kuichengeta zvakare (Faira → Prinda → Sevha se PDF) kuti uipfavise, wobva waisa zvakare.",
+      "pdfGeneric": "{{subject}} haina kupatsanurwa se PDF. Iro faira rinogona kunge rakashatiswa kana kushandisa PDF isiri kutsigirwa.",
+      "fileTooLarge": "{{subject}} yakakurisa. {{message}}.",
+      "unsupportedType": "Mhando yefaira \"{{type}}\" haisi kutsigirwa.",
+      "ioError": "Hatina kukwanisa kuverenga {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} haina kupatsanurwa: {{message}}",
+      "fallback": "Yatadza kugadzirisa {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Faira Rakabviswa",
+      "description": "Faira rabviswa mupurojekiti"
+    },
+    "deleteFailed": {
+      "title": "Delete Yakundikana",
+      "description": "Yatadza kudzima faira"
+    },
+    "fileAlreadyExists": {
+      "title": "Faira Yatovepo",
+      "description": "Faira rakatobatanidzwa kune iyi purojekiti"
+    },
+    "unsupportedFileType": {
+      "title": "Isingatsigirwe Faili Type",
+      "description": "Faili yekuwedzera \".{{extension}}\" haitsigirwe paProjekti referensi."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Zvakanamirwa Zvakaremara",
+      "description": "Zvinonamirwa zvakadzimwa mumasetingi"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Faira yakakurisa",
+    "fileTooLargeDescription": "{{fileName}} inodarika {{maxFileSizeMB}}MB muganhu"
+  },
+  "files": {
+    "chunksCount": "{{count}} zvimedu",
+    "title": "Mafaira",
+    "empty": "Mafaira aunobata uye mafaera anogadzirwa nemumiririri acharatidza pano.",
+    "a11y": "Mafaira: {{count}}",
+    "attachments": "Zvakanamirwa",
+    "notImported": "kwete munzvimbo yekushanda"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp ichiri kubatikana",
+    "description": "Imwe kana akawanda modhi haana kuburitsa nenguva. Kumanikidza kusiya basa kunomisa llama.cpp uye kunogona kukanganisa mhinduro dziripo.",
+    "forceQuit": "Simba kurega",
+    "forcing": "Simba kurega…",
+    "shuttingDown": "Kudzima…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Kuputsika",
+  "expand": "Wedzera",
+  "todoPanelTitle": "Kufambira mberi",
+  "todoPanelEmpty": "Hapana zvekuita runyorwa parizvino.",
+  "backgroundTasks": "Kumashure mabasa",
+  "subagentsRunning_one": "{{count}} subagegent iri kushanda",
+  "subagentsRunning_other": "{{count}} zvidiki zviri kushanda",
+  "monitorsRunning_one": "{{count}} tarisisa iri kushanda",
+  "monitorsRunning_other": "{{count}} mamonitor ari kushanda",
+  "backgroundRunning_one": "{{count}} basa rekumashure rinomhanya",
+  "backgroundRunning_other": "{{count}} mabasa ekumashure ari kushanda",
+  "monitors": "Vatariri",
+  "monitorPolling": "Polling",
+  "monitorMatched": "Yakafanana",
+  "monitorTimedOut": "Nguva yapera",
+  "monitorStopped": "Yakamiswa",
+  "monitorEnded": "Yapera",
+  "coworkWatching_one": "Kuona {{count}} monitor…",
+  "coworkWatching_other": "Kuona {{count}} mamonitor…",
+  "coworkWaitingBackground": "Kumirira mabasa ekumashure…",
+  "noBackgroundTasks": "Hapana mabasa ekumashure parizvino.",
+  "running": "Kumhanya",
+  "queued": "Yaiswa mumutsara",
+  "waiting": "Kumirira",
+  "finished": "Yapera",
+  "subagentPhase": "chikamu {{phase}}",
+  "subagentWaiting": "kumirira",
+  "viewTranscript": "Ona zvinyorwa",
+  "taskWorking": "Kushanda…",
+  "taskNoOutput": "Iyo subagent haina kuburitsa inooneka.",
+  "subagentToolUses_one": "{{count}} kushandiswa kweturusi",
+  "subagentToolUses_other": "{{count}} zvishandiso zvinoshandiswa",
+  "artifactGroupCode": "Code",
+  "artifactGroupImage": "Mufananidzo",
+  "artifactGroupDocument": "Gwaro",
+  "artifactGroupVideo": "Vhidhiyo",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Vhura preview",
+  "artifactOpenExternal": "Vhura",
+  "artifactMoreActions": "Zvimwe zviito",
+  "artifactShowInFolder": "Ratidza muFolder",
+  "skillsUsedLabel": "Unyanzvi hunoshandiswa",
+  "skillsUsed": "Unyanzvi hwakashandiswa: {{skills}}",
+  "artifactsAll": "Zvese",
+  "artifactsEmpty": "Hapana chakagadzirwa. Zvigadzirwa zve Cowork zvinoonekwa pano.",
+  "artifactsNoMatch": "Hapana zvigadzirwa zvinoenderana.",
+  "artifactsSearch": "Tsvaga zvinyorwa",
+  "artifactsShowMore": "Ratidza {{count}} zvimwe",
+  "workspace": {
+    "readsFrom": "Inoshanda mukati",
+    "writable": "verenga & nyora",
+    "footnote": "Mumiririri anoverenga uye anogadzirisa iyi folda zvakananga. Ongorora zvakachinja mune diff panel.",
+    "footnoteEmpty": "Batanidza folda kuti mumiriri ashande pachirongwa chako. Inogona kuverenga nekugadzirisa mafaira mukati mayo.",
+    "attach": "Batanidza folda",
+    "change": "Shandura folda",
+    "detach": "Detach folder",
+    "open": "Vhura",
+    "reveal": "Ratidza",
+    "unavailable": "Nzvimbo yekushanda haisipo",
+    "missing": "Folda yenzvimbo yebasa {{folder}} haichawanikwi. Sarudza imwe folda.",
+    "openFailed": "Haina kukwanisa kuvhura nzvimbo yekushandira",
+    "revealFailed": "Haina kukwanisa kuratidza nzvimbo yekushandira",
+    "a11yWithFolder": "Project folder {{folder}}, yakabatanidzwa nekuverenga nekunyora. Chinja kana bvisa.",
+    "a11yNoFolder": "Hapana purojekiti folda yakanamirwa. Batanidza imwe."
+  },
+  "coworkEmpty": {
+    "title": "Chii chatiri kushanda nacho?",
+    "subtitleSandbox": "Ipa Novera basa. Inoverenga uye inonyora mafaera, inomhanyisa mirairo, uye inoshanda nematanho pachayo.",
+    "subtitleFolder": "Ipa Novera basa. Inoshanda zvakananga mu {{folder}}, kuverenga nekugadzirisa mafaera ega.",
+    "try": "Edza",
+    "sandbox": {
+      "first": "Nyora chinyorwa chePython chinotumidza mafaera nemusi waakatorwa",
+      "second": "Vaka dashboard peji rimwe kubva ku CSV yandichanamira mairi",
+      "third": "Gadzira README yechirongwa chandinotsanangura kwauri"
+    },
+    "folder": {
+      "first": "Tsanangura kuti {{folder}} inosanganiswa sei",
+      "second": "Tsvaka TODO yese mu {{folder}} wozvibatanidza nenzvimbo",
+      "third": "Nyora bvunzo dzechikamu che{{folder}} ndinonongedza iwe"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Hapana terminal",
+    "a11y": "Kumhanya mirairo kunodzimwa. Details.",
+    "title": "Kumhanya mirairo kunodzimwa",
+    "body": "Novera inobvumira mumiririri kuti aite mirairo yegomba chete kana system yako ichigona kuvavharira. Hapana bhokisi rejecha riripo pano, saka mumiririri anogona kuverenga, kunyora uye kugadzirisa mafaera mubhokisi rayo rejecha - asi kwete kumhanya chero chinhu.",
+    "fixLinux": "Linux inoshandisa bubblewrap. Isaise, wobva watangazve Novera.",
+    "fixMac": "macOS inoshandisa yakavakirwa-mukati bhokisi rejecha pa /usr/bin/sandbox-exec. Tangazve Novera kana yavepo.",
+    "fixWindows": "Windows inoshandisa AppContainer. Tanga patsva Novera kuti uedze zvakare.",
+    "recheck": "Tarisa zvakare"
+  },
+  "planMode": {
+    "label": "Ronga",
+    "tooltipOff": "Ronga kutanga - mumiririri anoverenga uye anopa zano, pasina kunyora.",
+    "tooltipOn": "Kuronga. Dzima izvi kuti mumiririri anyore mafaera.",
+    "onAnnounce": "Ronga maitiro",
+    "placeholder": "Bvunza chirongwa. Mumiririri haachinje chero mafaera."
+  },
+  "budget": {
+    "stoppedSteps": "Yakamira pa {{max}} nhanho. Mumiririri haasati apedza.",
+    "keepGoing": "Ramba uchienda",
+    "stoppedTokens": "Yakamiswa - chikamu ichi chakabata bhajeti rayo.",
+    "compact": "Compact",
+    "newSession": "Chikamu chitsva"
+  },
+  "run": {
+    "stopped": "Yakamiswa.",
+    "failed": "Kumhanya kwakamira nekukurumidza.",
+    "tryAgain": "Edza zvakare"
+  },
+  "modelNoTools": "{{model}} haikwanise kufonera maturusi, saka haikwanise kuita semumiririri. Sarudza chishandiso-kufona modhi.",
+  "askContinue": "Ramba",
+  "askNext": "Mubvunzo unotevera",
+  "askPrev": "Mubvunzo wapfuura",
+  "askRecommended": "Inokurudzirwa",
+  "askSelectedCount": "{{count}} yakasarudzwa",
+  "askSomethingElse": "Chimwe chinhu",
+  "askSomethingElsePlaceholder": "Nyora yako mhinduro",
+  "submit": "Tumira",
+  "composer": {
+    "advanced": "Yepamusoro paramita",
+    "modelDefaults": "Model defaults",
+    "assistantOverrides": "Mubatsiri anodarika",
+    "printPdf": "Prinda / Sevha se PDF",
+    "exportHint": "Mafomati anoverengeka: inoshanda bazi. JSON: meseji meseji. Mafaira ekunze haana kuunganidzwa."
+  },
+  "telemetry": {
+    "summary": "Nemvumo yako, {{host}} inogamuchira chete Novera vhezheni uye sisitimu yekushandisa, pasina hurukuro kana chiziviso chinoramba chiripo.",
+    "unavailable": "Statistics haina kugadzirwa. Hapana data inotumirwa."
+  },
+  "errorTracking": {
+    "title": "kukanganisa kutevera",
+    "summary": "Inosarudzwa mishumo ku{{host}}: rudzi rwekukanganisa, chinzvimbo chekodhi, shanduro uye sisitimu yekushandisa. Hapana nhaurirano, mbishi mbishi meseji kana makiyi. Dzima chero nguva.",
+    "unavailable": "Mhosho yekutevera haina kugadzirwa. Hapana mishumo inotumirwa."
+  },
+  "access": {
+    "read": "Verenga chete",
+    "ask": "Bvunza usati wagadzirisa kana kudzima",
+    "allow": "Bvumira kugadzirisa uye kudzima",
+    "folderNote": "Sarudza kuti Novera ingawane sei folda iyi."
+  },
+  "components": {
+    "title": "Zvikamu zvemunharaunda",
+    "note": "Isa chete zvinhu zvaunoda. Novera inochengeta nzvimbo dzePython dzakaparadzana. Cloud masevhisi haadi kuiswa kwenzvimbo.",
+    "estimates": "Zvinofungidzirwa kudhawunirodha: {{download}} · Inodiwa dhisiki nzvimbo: {{space}} · Inowanikwa disk nzvimbo: {{free}}",
+    "confirm": "Isa iyi nharaunda yakavanzika? Zvikamu zvakasarudzwa chete ndizvo zvichatorwa. Marezinesi evashambadziri avo anoshanda.",
+    "removeConfirm": "Bvisa iyi nharaunda yakachengetedzwa? Mienzaniso yako, zvisikwa uye hurukuro zvichachengetwa.",
+    "verify": "Verify",
+    "repair": "Gadzirisa",
+    "uninstall": "Dzima",
+    "missing": "Haina kuiswa",
+    "managed": "Inotungamirirwa neNovera",
+    "external": "Imwe nzira yePython yekunze inosarudzika inodarika iyo yakachengetedzwa chimiro. Ibvise kuti ushandise Novera nharaunda.",
+    "failed": "Kushanda kwechikamu kwakundikana. Tarisa network, disk space uye kodzero dzekuwana, wozoedzazve kana kugadzirisa.",
+    "required": "Gadzirira uye simbisa zvinodiwa zvemunharaunda mu Novera · Magadzirirwo.",
+    "updateAvailable": "Update iripo",
+    "update": "Update",
+    "rollback": "Dzosera nharaunda yapfuura",
+    "busy": "Burutsa modhi dzemuno uye mirira kuti zvizvarwa zvipedze usati wachinja zvikamu."
+  },
+  "voiceConversation": "Hurukuro yezwi",
+  "voiceUnavailable": "Hurukuro yezwi haisi kuwanikwa",
+  "voiceMale": "Izwi remurume",
+  "voiceFemale": "Izwi remukadzi",
+  "voiceReadReplies": "Verenga mhinduro zvinonzwika"
+}

@@ -213,10 +213,8 @@ async fn save<R: Runtime>(app: &AppHandle<R>, job: &Snapshot) -> Result<(), Stri
         .map_err(|e| e.to_string())
 }
 fn free_space(path: &Path) -> u64 {
-    let disks = sysinfo::Disks::new_with_refreshed_list();
-    disks
-        .list()
-        .iter()
+    let Ok(disks) = sysinfo::Disks::new_with_refreshed_list() else { return 0; };
+    disks.iter()
         .filter(|d| {
             path.starts_with(
                 d.mount_point()
@@ -245,7 +243,9 @@ fn plain(path: &Path) -> Result<(), String> {
 }
 fn model_file_path(plan: &Plan, file: &FileSpec) -> PathBuf {
     if plan.variant != "all-recommended" || plan.directory.file_name().and_then(|n| n.to_str()) != Some("Novera models") { return plan.directory.join(&file.name) }
-    let folder = if file.role.starts_with("text.") || file.role.starts_with("embedding.") { file.name.strip_suffix(".gguf").unwrap_or(&file.name) }
+    let folder = if file.role.starts_with("text.") {
+            plan.files.iter().find(|f| f.role == "text.model").and_then(|f| f.name.strip_suffix(".gguf")).unwrap_or("text")
+        } else if file.role.starts_with("embedding.") { file.name.strip_suffix(".gguf").unwrap_or(&file.name) }
         else if file.role.starts_with("image.") { "FLUX.2 Klein 4B" }
         else if file.role.starts_with("music.") { "ACE-Step 1.5 Turbo 2B Q4_K_M" }
         else if file.role.starts_with("upscale.") { "upscale_models" }
@@ -392,7 +392,7 @@ async fn hash_matches(
         }
         hash.update(&buffer[..n]);
     }
-    Ok(format!("{:x}", hash.finalize()) == spec.sha256)
+    Ok(hex::encode(hash.finalize()) == spec.sha256)
 }
 async fn publish(partial: &Path, path: &Path) -> Result<(), String> {
     #[cfg(windows)]
@@ -675,9 +675,13 @@ mod tests {
         assert!(music.iter().all(|f|f.sha256.len()==64&&f.url.starts_with("https://")&&!f.name.contains(['/', '\\'])));
         let all=files_for("all-recommended");
         assert_eq!(all[0].role,"text.model");
-        assert_eq!(all[0].name,"Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf");
+        assert_eq!(all[0].name,"LFM3-Omni-2B-Q4_K_M.gguf");
+        assert_eq!(all[1].role,"text.mmproj");
+        assert_eq!(all[1].name,"mmproj-LFM3-Omni-2B-Q4_K_M.gguf");
+        let plan = Plan { variant:"all-recommended".into(), python:String::new(), token:String::new(), directory:PathBuf::from("Novera models"), files:all.clone(), total:0, available:0, required_space:0, video_runtime_ready:None };
+        assert_eq!(model_file_path(&plan,&all[0]).parent(),model_file_path(&plan,&all[1]).parent());
         assert!(!all.iter().any(|f|f.name.contains("DSpark")));
-        assert_eq!(all.len(),24);assert_eq!(all.iter().map(|f|f.size).sum::<u64>(),21832486641);
+        assert_eq!(all.len(),25);assert_eq!(all.iter().map(|f|f.size).sum::<u64>(),17043257233);
         // ACE-Step's encoder shares a filename with the retrieval model, but
         // has different weights. Roles and destination folders keep them separate.
         let names:std::collections::HashSet<_>=all.iter().map(|f|&f.name).collect();assert_eq!(names.len(),all.len()-1);
@@ -791,7 +795,7 @@ mod tests {
             name: "tiny.gguf".into(),
             url: format!("http://{addr}/tiny"),
             size: content.len() as u64,
-            sha256: format!("{:x}", Sha256::digest(content)),
+            sha256: hex::encode(Sha256::digest(content)),
         };
         if partial {
             std::fs::write(directory.join("tiny.gguf.novera-part"), &content[..7]).unwrap();

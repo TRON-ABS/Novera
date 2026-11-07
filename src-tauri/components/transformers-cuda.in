@@ -1,7 +1,7 @@
-transformers==5.20.2
+transformers==5.22.1
 safetensors==0.8.0
-torch==2.14.1+cu130
+torch==2.15.0+cu134
 peft==0.21.2
 accelerate==1.15.0
 bitsandbytes==0.50.2
-comfy-kitchen==0.2.35
+comfy-kitchen==0.2.41

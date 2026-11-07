@@ -1,0 +1,18 @@
+{
+  "addProvider": "Onjezani Wopereka",
+  "addOpenAIProvider": "Onjezani Wopereka Mwamakonda",
+  "enterNameForProvider": "Dzina laopereka (monga my-llm-server)",
+  "apiTypeLabel": "API mtundu",
+  "apiTypeOpenAI": "OpenAI-zogwirizana",
+  "apiTypeAnthropic": "Anthropic-zogwirizana",
+  "baseUrlLabel": "Base URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API kiyi",
+  "apiKeyPlaceholder": "Matani kiyi yanu ya API",
+  "invalidBaseUrl": "Poyambira URL akuyenera kukhala ma http(ma)URL",
+  "globalSettings": "Zokonda zapadziko lonse lapansi",
+  "stripReasoning": "Chotsani kulingalira kuchokera munkhani",
+  "stripReasoningDesc": "Chotsani kuganiza ndi kulingalira kwanthawi yayitali musanatumizenso mbiri, kwa onse ogulitsa. Imawongolera KV-kachesi kagwiritsidwenso ka mamotchi am'deralo, koma mitundu ina (monga zatsopano Qwen) imalimbikitsa kuisunga kuti muzitha kulingalira mosiyanasiyana.",
+  "providerAlreadyExists": "Wothandizira dzina lake {{name}} alipo kale."
+}

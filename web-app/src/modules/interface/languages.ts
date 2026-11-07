@@ -7,6 +7,7 @@ export const supportedLanguages = [
   'es', 'fr', 'it', 'hi', 'id', 'pl', 'vn', 'zh-CN', 'zh-TW',
   'de-DE', 'cs', 'pt-BR', 'ko', 'ja', 'ru', 'ca',
   'ceb', 'kk', 'si', 'xh', 'km', 'af', 'mai', 'wo', 'kmr', 'rw',
+  'gan', 'pbt', 'mag', 'ars', 'acm', 'fuv', 'hne', 'tts', 'ny', 'bm', 'sn', 'azb', 'tn', 'nso', 'bar', 'ht', 'ug', 'st', 'el', 'ctg', 'rn', 'dyu', 'tr', 'sv',
 ] as const satisfies readonly Language[]
 
 export const isSupportedLanguage = (value: unknown): value is Language =>
@@ -19,7 +20,13 @@ export function matchSystemLanguage(preferences: readonly string[]): Language {
       const normalized = preference.trim().replaceAll('_', '-').split(/[.@]/)[0]
       const tag = new Intl.Locale(normalized)
       // Intl canonicalizes dialect identifiers; keep Southern Pashto distinct.
-      if (normalized.split('-')[0].toLowerCase() === 'pbt') continue
+      const requestedLanguage = normalized.split('-')[0].toLowerCase()
+      const regionalScripts: Record<string, string> = {"gan": "Hant", "pbt": "Arab", "ars": "Arab", "acm": "Arab", "tts": "Thai", "azb": "Arab", "ctg": "Beng"}
+      if (requestedLanguage in regionalScripts) {
+        if (tag.script && tag.script !== regionalScripts[requestedLanguage]) continue
+        if (isSupportedLanguage(requestedLanguage)) return requestedLanguage
+      }
+      if (tag.language === 'ug' && tag.script && tag.script !== 'Arab') continue
       if (tag.language === 'uz' && tag.script && tag.script !== 'Latn') continue
       if (tag.language === 'ps' && tag.script && tag.script !== 'Arab') continue
       if (tag.language === 'om' && tag.script && tag.script !== 'Latn') continue
@@ -30,6 +37,7 @@ export function matchSystemLanguage(preferences: readonly string[]): Language {
       const exact = supportedLanguages.find((language) => language.toLowerCase() === tag.baseName.toLowerCase())
       if (exact) return exact
       const language = tag.language
+      if (language === 'az' && tag.script === 'Arab') return 'azb'
       if (language === 'ku' && tag.script === 'Latn') return 'kmr'
       if (language === 'uz') return 'uzn'
       if (language === 'ps') return 'pbu'
@@ -45,6 +53,10 @@ export function matchSystemLanguage(preferences: readonly string[]): Language {
       if (language === 'fa' && tag.region === 'AF') return 'prs'
       if (language === 'fa') return 'fa-IR'
       if (language === 'fil') return 'tl'
+      if (language === 'ar' && tag.region === 'IQ') {
+        if (tag.script && tag.script !== 'Arab') continue
+        return 'acm'
+      }
       if (language === 'ar' && ['LB', 'SY', 'JO', 'PS'].includes(tag.region ?? '')) return 'apc'
       if (language === 'ar' && tag.region === 'SD') return 'apd'
       if (language === 'ar' && tag.region === 'DZ') return 'arq'

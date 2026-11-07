@@ -1323,7 +1323,7 @@ async fn send_with_one_retry(req: reqwest::RequestBuilder) -> Result<reqwest::Re
 /// `genai`, which is built against reqwest 0.13, so this is the aliased crate
 /// rather than the 0.12 `Client` the rest of the app (and the API server below)
 /// uses. Pool tuning lives with the builder in [`super::genai_bridge`].
-pub(crate) fn agent_http_client() -> reqwest13::Client {
+pub(crate) fn agent_http_client() -> reqwest::Client {
     super::genai_bridge::shared_http_client()
 }
 
@@ -1413,7 +1413,7 @@ pub(crate) fn describe_request_error(err: &reqwest::Error) -> String {
 /// the wire format for an existing config. The API server's own converters
 /// (`core::server::converters`) remain the only consumer of that field.
 pub(crate) async fn stream_openai_chat_completions(
-    client: &reqwest13::Client,
+    client: &reqwest::Client,
     upstream_url: &str,
     api_keys: &[String],
     api_type: Option<&str>,
@@ -2510,7 +2510,7 @@ mod tests {
         let (tx, mut rx) = sink();
         let url = format!("http://{addr}/v1/chat/completions");
         let completion = stream_openai_chat_completions(
-            &reqwest13::Client::new(),
+            &reqwest::Client::new(),
             &url,
             &[],
             None,

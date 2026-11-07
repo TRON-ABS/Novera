@@ -432,7 +432,7 @@ async fn schedule_mcp_start_task<R: Runtime>(
         // One client for both transports, and one place the configured headers
         // are turned into a `HeaderMap` -- the http and sse arms used to carry
         // identical copies of that loop.
-        let base = reqwest13::Client::builder()
+        let base = reqwest::Client::builder()
             .default_headers(header_map(&config_params.headers))
             .connect_timeout(config_params.timeout.unwrap_or(Duration::MAX))
             .build()
@@ -778,13 +778,13 @@ fn log_mcp_stderr_line(server_name: &str, line: &str) {
 /// Turn the entry's configured `headers` map into a `HeaderMap`, skipping any
 /// pair that is not a valid header name/value. Uses `reqwest13` because rmcp's
 /// streamable-http transport is implemented for reqwest 0.13.
-fn header_map(headers: &serde_json::Map<String, Value>) -> reqwest13::header::HeaderMap {
-    let mut map = reqwest13::header::HeaderMap::new();
+fn header_map(headers: &serde_json::Map<String, Value>) -> reqwest::header::HeaderMap {
+    let mut map = reqwest::header::HeaderMap::new();
     for (key, value) in headers.iter() {
         if let Some(v) = value.as_str() {
             if let (Ok(name), Ok(val)) = (
-                reqwest13::header::HeaderName::from_bytes(key.as_bytes()),
-                reqwest13::header::HeaderValue::from_str(v),
+                reqwest::header::HeaderName::from_bytes(key.as_bytes()),
+                reqwest::header::HeaderValue::from_str(v),
             ) {
                 map.insert(name, val);
             }

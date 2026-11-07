@@ -832,5 +832,10 @@
     "update": "Actualització",
     "rollback": "Restaura l'entorn anterior",
     "busy": "Descarregueu models locals i espereu que acabin generacions abans de canviar els components."
-  }
+  },
+  "voiceConversation": "Conversa de veu",
+  "voiceUnavailable": "Conversa de veu no disponible",
+  "voiceMale": "Veu masculina",
+  "voiceFemale": "Veu femenina",
+  "voiceReadReplies": "Llegeix les respostes en veu alta"
 }

@@ -946,11 +946,9 @@
   "Configuring recommended models": "chat:creation.setupConfiguring",
   "Total files: {{download}}. Reserve: {{reserve}}. Additional space needed: {{required}}. Free on selected drive: {{free}}.": "chat:creation.setupStorage",
   "Missing {{missing}}. Free up space or choose another drive with enough storage.": "chat:creation.setupSpaceMissing",
-  "NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M is the recommended local text model for conversation, writing, tool calls and structured outputs. The initial context is 16K tokens; check available memory before increasing it. Text input and output only, with no draft model. Use search or your documents to verify factual claims.": "chat:creation.setupTextNote",
   "FLUX.2 Klein 4B Q4_K_M generates images; Qwen3 encodes the description and the VAE produces the final image. Adjust aspect ratio, resolution, seed, steps and upscaling. Initial recommendation: 21:9, four steps and a random seed.": "chat:creation.setupImageNote",
   "ACE-Step 1.5 Turbo generates instrumental music or songs. The planner builds the structure; the 2B Q4_K_M generator synthesizes, the text encoder handles the description and the VAE decodes stereo 48 kHz audio. Adjust duration, audio format, tempo, lyrics, language, steps and seed. Recommended: 30 seconds, eight steps, WAV 24-bit and a random seed.": "chat:creation.setupMusicNote",
   "Wan2.1 T2V 1.3B Q4_K_M creates clips from a description. Recommended: five seconds, 21:9 and 16 FPS. Adjust duration, frame rate, resolution, steps and seed. Long targets assemble short clips; visible cuts are possible. · MP4: Python + imageio-ffmpeg.": "chat:creation.setupVideoNote",
-  "Downloads and configures the recommended models: Nemotron for text, Qwen3-Embedding Q8_0 for multilingual retrieval (CPU by default), FLUX.2 Klein 4B and its components, Real-ESRGAN ×2/×4, ACE-Step for music (Instrumental on by default), and Wan2.1 for video. Check file sizes, disk space and video prerequisites below. Separate downloads and Browse remain available.": "chat:creation.setupAllNote",
   "Finalizing video": "chat:creation.finalizing",
   "Video duration": "chat:creation.videoDuration",
   "Long videos are assembled from short clips. Cuts may be visible and generation can take a long time.": "chat:creation.videoDurationNote",
@@ -2150,5 +2148,8 @@
   "Install the CUDA Toolkit 12 from NVIDIA. During installation, select \"CUDA\" components.": "ui:dependencyInstallTheCudaToolkit12FromNvidiaDuringInstallation",
   "Install the CUDA Toolkit 12 from NVIDIA. On Debian/Ubuntu: sudo apt install cuda-toolkit-12. On RHEL/Fedora: use the NVIDIA repo.": "ui:dependencyInstallTheCudaToolkit12FromNvidiaOnDebian",
   "Install the CUDA Toolkit 13 from NVIDIA. During installation, select \"CUDA\" components.": "ui:dependencyInstallTheCudaToolkit13FromNvidiaDuringInstallation",
-  "Install the CUDA Toolkit 13 from NVIDIA. On Debian/Ubuntu: sudo apt install cuda-toolkit-13. On RHEL/Fedora: use the NVIDIA repo.": "ui:dependencyInstallTheCudaToolkit13FromNvidiaOnDebian"
+  "Install the CUDA Toolkit 13 from NVIDIA. On Debian/Ubuntu: sudo apt install cuda-toolkit-13. On RHEL/Fedora: use the NVIDIA repo.": "ui:dependencyInstallTheCudaToolkit13FromNvidiaOnDebian",
+  "Text-only alternative for conversation, writing, tools and structured answers. Download: about {{size}}. It requires more memory than {{defaultModel}} and does not process images or audio itself. Spoken replies use the system voice. Choose it for text tasks when you have enough memory. Check factual answers with sources.": "chat:creation.setupTextNote",
+  "Downloads and configures the recommended models: LFM3-Omni + mmproj for text, Qwen3-Embedding Q8_0 for multilingual retrieval (CPU by default), FLUX.2 Klein 4B and its components for image generation, Real-ESRGAN ×2/×4, ACE-Step for music (Instrumental on by default), and Wan2.1 for video. Check file sizes, disk space and video prerequisites below. Separate downloads and Browse remain available.": "chat:creation.setupAllNote",
+  "Default on desktop and mobile. A compact model for text, images and audio, using the required {{projector}} file. Download: about {{size}} for both files. Choose it for a lighter multimodal setup. Voice features depend on the platform and engine. A longer context uses more memory.": "chat:creation.setupOmniNote"
 }

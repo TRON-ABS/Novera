@@ -246,12 +246,15 @@ La distribution retenue est un APK téléchargé manuellement et installé par A
 
 ## CLI locale
 
+Préparation locale du 6 novembre 2026 : llama.cpp **v0.9.0** est commun au desktop, au portable, à Android, à iOS et à la CLI. Les sources iOS ajoutent le moteur dans l’application et la CLI ajoute `novera engine version` / `novera engine serve`. Ces ajouts restent sans compilation ni publication. Voir [le périmètre, les limites et les commandes du moteur](LLAMA_CPP_0_9_0.md).
+
 Le code de la CLI reste dans `src-tauri/novera-cli`. Pour une compilation locale
 depuis la racine du dépôt :
 
 ```sh
+bash src-tauri/build-utils/fetch-engine-source.sh
 cd src-tauri/novera-cli
-cargo build --no-default-features --features cli --release
+cargo build --locked --no-default-features --features cli --release
 ```
 
 Le binaire est `novera` (`novera.exe` sous Windows). Le fichier de

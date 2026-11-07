@@ -140,6 +140,8 @@ export function getProviderLogo(provider: string) {
       return '/images/novera-logo.png'
     case 'jan':
       return '/images/model-provider/jan.png'
+    case 'tabbyapi':
+      return '/images/model-provider/tabbyapi.svg'
     case 'llamacpp':
       return '/images/model-provider/llamacpp.svg'
     case 'mlx':

@@ -1,6 +1,6 @@
 # APK entry point; disabled by default and guarded by preparation checks.
 [CmdletBinding()]
-param([switch]$AllowUnreviewedTestBuild, [switch]$Release, [switch]$WithTelemetry)
+param([switch]$AllowUnreviewedTestBuild, [switch]$Release, [switch]$WithTelemetry = $true)
 $ErrorActionPreference='Stop'
 if ($env:NOVERA_BUILD_ANDROID -ne '1') { Write-Output 'Android desactive. Seule Novera-Desktop est activee dans le BAT.'; exit 2 }
 $repo=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent

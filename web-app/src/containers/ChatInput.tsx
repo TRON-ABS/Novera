@@ -11,7 +11,9 @@ import { resolveOutputMode } from '@/modules/engines/creation'
 import { cn, formatBytes } from '@/lib/utils'
 import { usePrompt } from '@/hooks/usePrompt'
 import { useThreads } from '@/hooks/useThreads'
-import { useCallback, useEffect, useMemo, useRef, useState, memo } from 'react'
+import {
+  useCallback, useEffect, useId, useMemo, useRef, useState, memo,
+} from 'react'
 import type { ReactNode } from 'react'
 import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
@@ -31,7 +33,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
 } from '@/components/ui/dropdown-menu'
-import { ArrowRight, PlusIcon, MessageSquarePlus } from 'lucide-react'
+import { ArrowRight, ChevronDown, ChevronUp, PlusIcon, MessageSquarePlus } from 'lucide-react'
 import {
   IconPhoto,
   IconMusic,
@@ -135,6 +137,10 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 import { useElementWidth } from '@/hooks/useElementWidth'
+import { useComposerDisclosure } from '@/hooks/useComposerDisclosure'
+import { VoiceConversationButton } from './VoiceConversationButton'
+import { voiceConversation } from '@/lib/voiceConversation'
+import { isOmniVoiceModel } from '@/lib/omniVoice'
 
 type ChatInputProps = {
   className?: string
@@ -283,6 +289,8 @@ const ChatInput = memo(function ChatInput({
   const isStreaming = chatStatus === 'submitted' || chatStatus === 'streaming'
   const turnBusy = isStreaming || !!toolsRunning
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const [composerFolded, setComposerFolded] = useComposerDisclosure()
+  const composerContentId = useId()
   const highlightRef = useRef<HTMLDivElement>(null)
   const [isFocused, setIsFocused] = useState(false)
   const [rows, setRows] = useState(1)
@@ -672,6 +680,8 @@ const ChatInput = memo(function ChatInput({
       toast.info(t('ui:pleaseWaitForAttachmentsToFinishProcessing'))
       return
     }
+
+    if (outputMode === 'text') voiceConversation.manualSubmit(effectivePrompt)
 
     if (isPlatformAndroid() || isPlatformIOS()) textareaRef.current?.blur()
     setMessage('')
@@ -2233,12 +2243,25 @@ const ChatInput = memo(function ChatInput({
               <Button variant="ghost" size="icon-sm" className="composer-submit-button"
                 data-testid="new-chat-button" aria-label={t('common:newChat')} title={t('common:newChat')}
                 onClick={() => {
+                  voiceConversation.stop()
                   useAgentMode.getState().removeThread(TEMPORARY_CHAT_ID)
                   void router.navigate({ to: route.home })
                 }}>
                 <MessageSquarePlus className="size-4" aria-hidden="true" />
               </Button>
             </div>
+            <button
+              type="button"
+              className="composer-disclosure"
+              data-testid="composer-disclosure"
+              aria-expanded={!composerFolded}
+              aria-controls={composerContentId}
+              aria-label={`${t(composerFolded ? 'common:expand' : 'common:collapse')} — ${t('common:moreControls')}`}
+              title={`${t(composerFolded ? 'common:expand' : 'common:collapse')} — ${t('common:moreControls')}`}
+              onClick={() => setComposerFolded(!composerFolded)}
+            >
+              {composerFolded ? <ChevronDown aria-hidden="true" size={14} /> : <ChevronUp aria-hidden="true" size={14} />}
+            </button>
             <div className="composer-input-area relative min-w-0">
               {highlightedPrefix && prompt.startsWith(highlightedPrefix) && (
                 <div
@@ -2266,6 +2289,7 @@ const ChatInput = memo(function ChatInput({
                 }
               }}
               onChange={(e) => {
+                voiceConversation.edit()
                 const value = e.target.value
                 const cursorIdx = e.target.selectionStart
 
@@ -2352,6 +2376,23 @@ const ChatInput = memo(function ChatInput({
               )}
             />
             </div>
+            <VoiceConversationButton
+              scope={scopeKey ?? currentThreadId ?? 'new'}
+              isNew={!currentThreadId || currentThreadId === TEMPORARY_CHAT_ID}
+              eligible={!effectiveAgentMode && !scopeKey}
+              busy={turnBusy}
+              failed={chatStatus === 'error'}
+              canStart={Boolean(selectedModel) && !ingestingAny && !prompt.trim() && attachments.length === 0}
+              canContinue={Boolean(selectedModel) && !ingestingAny && attachments.length === 0}
+              modelKey={`${selectedProvider}|${selectedModel?.id ?? ''}`}
+              omniModelId={selectedModel && isOmniVoiceModel(selectedProvider, selectedModel.id, selectedModel.name) ? selectedModel.id : undefined}
+              messages={threadMessages ?? []}
+              submit={handleSendMessage}
+              transcribe={setPrompt}
+              recover={text => {
+                if (!usePrompt.getState().prompt.trim()) setPrompt(text)
+              }}
+            />
             <div className="composer-submit-area">
               {isStreaming || toolsRunning ? (
                 <Tooltip>
@@ -2430,6 +2471,7 @@ const ChatInput = memo(function ChatInput({
               </div>
             )}
 
+            <div id={composerContentId} hidden={composerFolded}>
         {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} showSettingsButton={false} />}
         <div className="composer-footer relative z-20 w-full p-2">
           <div
@@ -2437,6 +2479,7 @@ const ChatInput = memo(function ChatInput({
             className="composer-footer-row flex items-end justify-between gap-2 w-full"
           >
             <div className="composer-footer-content px-1 flex flex-wrap items-center gap-1 flex-1 min-w-0">
+
               <CollapsibleControls
                 collapsed={collapseControls}
                 label={t('common:moreControls')}
@@ -3083,6 +3126,7 @@ const ChatInput = memo(function ChatInput({
             </div>
           </div>
         </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3106,7 +3150,7 @@ const ChatInput = memo(function ChatInput({
       )}
 
       {tokenCounterVisible && !tokenCounterCompact && (
-        <div className="flex-1 w-full flex justify-start px-2">
+        <div className="flex-1 w-full flex justify-start px-2" style={composerFolded ? { display: 'none' } : undefined}>
           <TokenCounter messages={threadMessages || []} source={tokenSource}
             showPending={selectedProvider === 'llamacpp' || selectedProvider === 'mlx'} />
         </div>

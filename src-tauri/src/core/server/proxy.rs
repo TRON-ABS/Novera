@@ -2322,9 +2322,12 @@ async fn proxy_request(
 
 /// True when this bind exposes the API to the network with no authentication:
 /// a non-loopback host and an empty API key.
+#[cfg(test)]
 fn is_insecure_public_bind(host: &str, api_key: &str) -> bool {
-    let is_loopback = matches!(host, "127.0.0.1" | "localhost" | "::1");
-    !is_loopback && api_key.is_empty()
+    let is_loopback = host == "localhost"
+        || host.trim_matches(['[', ']']).parse::<std::net::IpAddr>()
+            .is_ok_and(|address| address.is_loopback());
+    !is_loopback && api_key.trim().is_empty()
 }
 
 /// Convert a TCP bind failure into a user-facing message. Address-in-use
@@ -2448,6 +2451,12 @@ async fn start_server_internal(
         return Err("Server is already running".into());
     }
 
+    // Enforce this in the backend, including startup/CLI callers that bypass
+    // the settings screen. A Host allowlist is not authentication.
+    let proxy_api_key = super::api_security::validate_bind(
+        &host, &proxy_api_key, enable_server_tool_execution,
+    )?;
+
     let addr: SocketAddr = format!("{host}:{port}")
         .parse()
         .map_err(|e| format!("Invalid address: {e}"))?;
@@ -2457,9 +2466,6 @@ async fn start_server_internal(
     // and send that literal IP as the Host header; is_valid_host now accepts loopback
     // and private-range IP literals, which is safe against DNS rebinding (that sends an
     // attacker *hostname*, not an IP). Hostnames still require an explicit allowlist entry.
-
-    // Calculate this before proxy_api_key is moved into ProxyConfig.
-    let insecure_public_bind = is_insecure_public_bind(&host, &proxy_api_key);
 
     let config = ProxyConfig {
         prefix,
@@ -2484,19 +2490,6 @@ async fn start_server_internal(
         }
     };
     log::info!("Jan API server started on http://{addr}");
-
-    // Security: binding to a non-loopback interface exposes the OpenAI-compatible
-    // API on the network. With no API key set, any reachable host can call it
-    // unauthenticated (model inference, model enumeration, and MCP tool execution
-    // when enabled). Warn loudly rather than refuse to start, so existing
-    // trusted-LAN setups keep working, but the operator is told.
-    if insecure_public_bind {
-        log::warn!(
-            "Jan API server is bound to a non-loopback address ({host}) with no API key set. \
-             The local API is reachable UNAUTHENTICATED by any host that can reach this machine. \
-             Set an API key in Settings > Local API Server to require authentication."
-        );
-    }
 
     let server_task = tokio::spawn(async move {
         loop {
@@ -2980,9 +2973,12 @@ mod tests {
     }
 
     #[test]
-    fn public_bind_without_key_warns() {
+    fn public_bind_without_key_is_insecure() {
         assert!(is_insecure_public_bind("0.0.0.0", ""));
         assert!(is_insecure_public_bind("192.168.1.10", ""));
+        assert!(is_insecure_public_bind("0.0.0.0", " \t\n"));
+        assert!(!is_insecure_public_bind("127.0.0.2", ""));
+        assert!(!is_insecure_public_bind("[::1]", ""));
     }
 
     #[test]

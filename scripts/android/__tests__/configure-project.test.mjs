@@ -39,6 +39,18 @@ function fixture(t) {
   }
   return { temporary, project, source, put, run, read: p => fs.readFileSync(path.join(project, p), 'utf8') }
 }
+test('synchronizes cached Gradle version values from canonical application and release settings', t => {
+  const f = fixture(t)
+  f.put(path.join(f.project, 'app/tauri.properties'), 'tauri.android.versionName=0.0.1\ntauri.android.versionCode=1\ncustom.keep=unchanged\n')
+  f.run()
+  const app = JSON.parse(fs.readFileSync(path.join(root, 'src-tauri/tauri.conf.json'), 'utf8'))
+  const release = JSON.parse(fs.readFileSync(path.join(root, 'scripts/android/release.json'), 'utf8'))
+  const properties = f.read('app/tauri.properties')
+  assert.ok(properties.includes('tauri.android.versionName=' + app.version + '\n'))
+  assert.ok(properties.includes('tauri.android.versionCode=' + release.versionCode + '\n'))
+  assert.match(properties, /^custom.keep=unchanged$/m)
+})
+
 function snapshot(directory, prefix = '') {
   return Object.fromEntries(fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
     const relative = prefix + entry.name

@@ -1,0 +1,101 @@
+{
+  "editServer": "Fetola MCP Seva",
+  "addServer": "Kenya MCP Seva",
+  "browserExtension": {
+    "connecting": {
+      "checking": "E hlahloba boemo ba katoloso..."
+    },
+    "notInstalled": {
+      "title": "Novera e phethela mesebetsi ho sebatli sa hau",
+      "description": "Kenya katoloso ho fa sebatli sa Novera phihlello",
+      "getExtension": "Fumana Katoloso"
+    }
+  },
+  "serverName": "Lebitso la Seva",
+  "enterServerName": "Kenya lebitso la seva",
+  "command": "Taelo",
+  "enterCommand": "Kenya taelo (uvx kapa npx)",
+  "arguments": "Likhang",
+  "argument": "Khang {{index}}",
+  "envVars": "Mefuta e sa tšoaneng ea Tikoloho",
+  "key": "Senotlolo",
+  "value": "Boleng",
+  "save": "Boloka",
+  "status": "Boemo",
+  "connected": "E hokahane",
+  "disconnected": "E khaotsoe",
+  "deleteServer": {
+    "title": "Hlakola MCP Seva",
+    "description": "Na ehlile u batla ho hlakola seva sa MCP {{serverName}}? Ketso ena e ke ke ea etsolloa.",
+    "delete": "Hlakola",
+    "success": "MCP seva {{serverName}} e hlakotsoe ka katleho"
+  },
+  "editJson": {
+    "title": "Fetola JSON bakeng sa MCP Sefara: {{serverName}}",
+    "titleAll": "Fetola Li-server tsa MCP Tsohle JSON",
+    "placeholder": "Kenya JSON litlhophiso",
+    "errorParse": "E hlolehile ho hlalosa lintlha tsa pele",
+    "errorPaste": "fomete e fosahetseng JSON ka har'a litaba tse petisitsoeng",
+    "errorFormat": "Sebopeho se fosahetseng sa JSON",
+    "errorServerName": "Lebitso la seva le a hlokahala, 'me ha le khone ho ba le letho",
+    "errorMissingServerNameKey": "JSON e tlameha ho hlophisoa joalo ka {\"serverName\": {config}} - e sieo senotlolo sa lebitso la seva",
+    "errorInvalidType": "Mofuta o fosahetseng '{{type}}' bakeng sa seva '{{serverName}}'. Mofuta o tlameha ho ba 'stdio', 'http', kapa 'sse'",
+    "save": "Boloka"
+  },
+  "checkParams": "Ka kopo sheba liparamente ho latela thuto.",
+  "title": "MCP Lisefara",
+  "experimental": "Teko",
+  "editAllJson": "Fetola Li-server Tsohle JSON",
+  "findMore": "Fumana li-server tse ling tsa MCP ho",
+  "allowPermissions": "Lumella MCP Litumello Tsohle tsa Lisebelisoa",
+  "allowPermissionsDesc": "Ha e laelitsoe, mehala eohle ea MCP e tla amoheloa ntle le ho hlahisa lipuisano tsa tumello. Litlhophiso tsena li sebetsa lefatšeng ka bophara lipuisanong tsohle, ho kenyeletsoa le lipuisano tse ncha.",
+  "noServers": "Ha ho li-server tsa MCP tse fumanoeng",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Seva {{serverKey}} e atlehile ho sebetsa",
+  "serverStatusInactive": "Seva {{serverKey}} e atlehile ho tima",
+  "runtimeSettings": {
+    "title": "Litlhophiso tsa Nako ea ho Ruta",
+    "description": "Lokisa kamoo Novera e laolang le ho leka hape li-server tsa MCP.",
+    "toolCallTimeout": "Nako ea ho letsetsa sesebelisoa (metsotsoana)",
+    "toolCallTimeoutDesc": "Nako e phahameng ea ho emela karabo ea MCP pele u qeta nako.",
+    "maxToolOutputChars": "Litlhaku tse hlahisoang ke lisebelisoa tse ngata",
+    "maxToolOutputCharsDesc": "Sephetho sa sesebelisoa se telele ka ho fetesisa se bolokiloeng moqoqong. Ntho efe kapa efe e fetileng e hlophisitsoe 'me e tšoauoa e le e fokolitsoeng, kahoo sephetho se le seng se seholo se ke ke sa felisa moelelo oa mohlala. E behe ho 0 ho boloka liphetho li feletse.",
+    "smartToolRouting": "Smart MCP lisebelisoa tsa ho tsamaisa lisebelisoa",
+    "smartToolRoutingDesc": "Ha e laelitsoe, Novera e khetha li-server tsa MCP tse loketseng pele e kenya lisebelisoa. Koala hore u lule u kenya lenane la MCP ka botlalo.",
+    "useLightweightRouterModel": "Sebelisa mofuta o ikhethileng oa ho tsamaisa litsela",
+    "useLightweightRouterModelDesc": "Ha mokhoa o bohlale o butsoe, tsamaisa mohato oa ho tsamaisa ka mofuta o ikhethileng (hangata o le o monyane) ho fapana le mofuta oa moqoqo. Koala hore u lule u sebelisa mokhoa oa moqoqo o sebetsang bakeng sa ho tsamaisa.",
+    "routerModel": "Mokhoa oa ho tsamaisa",
+    "routerModelDesc": "Khetha mofani oa thepa le mohlala sebakeng se le seng. Ke mefuta e bobebe feela e thathamisitsoeng e le hore litsela li lule li potlakile ebile li le theko e tlase.",
+    "selectRouterModelPlaceholder": "Khetha mokhoa oa ho tsamaisa…",
+    "routerModelSearchPlaceholder": "Batla mefuta…",
+    "routerModelEmptyList": "Ha ho mefuta e bobebe e fumanehang. Kenya mofuta o monyane kapa u lokise likonopo tsa API ho Mefuta.",
+    "routerModelEmptySearch": "Ha ho tse tšoanang bakeng sa \"{{query}}\"."
+  },
+  "auth": {
+    "label": "Bongoli:",
+    "state": {
+      "notApplicable": "ha e hlokehe",
+      "staticHeader": "Hlooho ea tumello",
+      "authenticated": "e netefalitsoe",
+      "expired": "e feletsoe ke nako",
+      "staleResource": "e fuoe e 'ngoe URL",
+      "unauthenticated": "ha e netefatsoe"
+    },
+    "expiresIn": "e felloa ke nako ka mor'a {{duration}}",
+    "authenticate": "Kena",
+    "reauthenticate": "netefatsa hape",
+    "clear": "Netefatso e hlakileng",
+    "waiting": "E emetse sebatli...",
+    "openSignInPage": "Bula leqephe la ho kena",
+    "needsAuth": "{{serverName}} e hloka netefatso",
+    "needsAuthHint": "Kena ho seva sena ho hokela.",
+    "authorized": "O kene ho {{serverName}}",
+    "authorizeFailed": "Ho kena ha {{serverName}} ho hlolehile",
+    "cleared": "E hlakotsoe lintlha tse bolokiloeng tsa {{serverName}}",
+    "nothingToClear": "{{serverName}} e ne e se na mangolo a bopaki",
+    "clearFailed": "Ha e khone ho hlakisa lintlha tsa {{serverName}}",
+    "renew": "Nchafatsa seboka",
+    "expiredAgo": "e feletsoe ke nako {{duration}} e fetileng"
+  }
+}

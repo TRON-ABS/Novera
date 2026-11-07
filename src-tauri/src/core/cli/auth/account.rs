@@ -1,5 +1,5 @@
 use base64::{engine::general_purpose::URL_SAFE_NO_PAD, Engine as _};
-use rand::RngCore;
+use rand::Rng;
 use sha2::{Digest, Sha256};
 
 use super::{Credential, CredentialStore, OAuthToken};
@@ -156,7 +156,7 @@ pub fn debug_log(message: &str) {
 
 fn random_url_safe(bytes: usize) -> String {
     let mut value = vec![0; bytes];
-    rand::thread_rng().fill_bytes(&mut value);
+    rand::rng().fill_bytes(&mut value);
     URL_SAFE_NO_PAD.encode(value)
 }
 
@@ -166,7 +166,7 @@ fn random_url_safe(bytes: usize) -> String {
 /// authorize/callback round trip cares that it matches.
 fn random_hex(bytes: usize) -> String {
     let mut value = vec![0; bytes];
-    rand::thread_rng().fill_bytes(&mut value);
+    rand::rng().fill_bytes(&mut value);
     hex::encode(value)
 }
 

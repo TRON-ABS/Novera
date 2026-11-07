@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "کوډ",
+    "preview": "مخکتنه",
+    "previewStreaming": "موجود وي کله چي نسل پای ته ورسیږي",
+    "unresolvedAssets_one": "1 د شتمنۍ حواله په مخکتنه کښي نشي پورته کیدی. اړوندې لارې د حل لپاره هیڅ اساس URL نلري.",
+    "unresolvedAssets_other": "{{count}} د شتمنۍ حوالې په مخکتنه کښي نشي پورته کیدی. اړوندې لارې د حل لپاره هیڅ اساس URL نلري."
+  },
+  "assistants": "معاونین",
+  "hardware": "هارډویر",
+  "mcp-servers": "MCP سرورونه",
+  "local_api_server": "ځایی API سرور",
+  "remote_access": "لرې لاسرسی",
+  "integrations": "ادغام",
+  "experimental": "تجربوي",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS پراکسي",
+  "web_search": "ویب لټون",
+  "shell": "شیل",
+  "browse": "لټون وکړئ",
+  "moreControls": "نور کنټرولونه",
+  "starting": "پیل کیږي...",
+  "activeSuffix": "(فعال)",
+  "extensions": "غزول",
+  "attachments": "ضمیمې",
+  "general": "عمومي",
+  "settings": "ترتیبات",
+  "modelProviders": "ماډل چمتو کونکي",
+  "localProviders": "ځایی",
+  "remoteProviders": "ریموټ",
+  "manageProviders": "چمتو کونکي اداره کړئ",
+  "hiddenProviders": "{{count}} غیر فعال شوی",
+  "hideProvider": "چمتو کوونکی پټ کړئ",
+  "showProvider": "وړاندې کوونکی ښکاره کړئ",
+  "interface": "انٹرفیس",
+  "appearance": "بڼه",
+  "privacy": "محرمیت",
+  "keyboardShortcuts": "شارټ کټونه",
+  "home": "کور",
+  "cowork": "Cowork",
+  "newSession": "نوې غونډه",
+  "artifacts": "هنري اثار",
+  "customize": "اصلاح کول",
+  "local": "ځایی",
+  "selectFolder": "فولډر غوره کړئ",
+  "selectModel": "لومړی موډل غوره کړئ",
+  "commands": "کمانډونه",
+  "cmdHelp": "شته کمانډونه لیست کړئ",
+  "cmdClear": "دا ناسته پاکه کړئ",
+  "cmdModels": "فعال ماډل بدل کړئ",
+  "cmdModelsHint": "ټایپ کړئ /models بیا له لیست څخه یو ماډل غوره کړئ",
+  "cmdModelSwitched": "{{name}} ته بدل شوی",
+  "cmdUnknown": "نامعلوم قومانده: {{name}}. هڅه وکړئ /help",
+  "cmdBusy": "نشي کولی دا کار وکړي پداسې حال کښي چي اجنټ روان وي",
+  "cmdCompact": "د غونډې شرایط په لنډیز کښي تنظیم کړئ",
+  "cmdCompacted": "تړون شوی {{before}} -> {{after}} پیغامونه",
+  "cmdNothingToCompact": "تر اوسه د تړون کولو لپاره هیڅ شی نشته",
+  "cmdCompactFailed": "ترکیب ناکام سو: {{error}}",
+  "cmdPlan": "د پلان حالت بدل کړئ (یوازې لوستل: اجنټ پرته له لیکلو وړاندیز کوي)",
+  "cmdPlanOn": "د پلان حالت: اجنټ له لیکلو پرته لوستل او وړاندیز کوي",
+  "cmdPlanOff": "پلان حالت بند: نورمال اجرا کول",
+  "cmdTodo": "د پرمختګ پینل خلاص کړئ",
+  "cmdTasks": "د شالید دندو پینل خلاص کړئ",
+  "cmdInit": "پروژه مطالعه کړئ او د لیکلو مهارتونه او حافظه ولرئ",
+  "cmdInitRunning": "په دې پروژه کښي شاملول",
+  "skills": "مهارتونه",
+  "skillsInContext": "مهارتونه چي په دې برخه کښي ایجنټ ته شتون لري",
+  "skillsTitle": "مهارتونه اداره کړئ",
+  "skillsScopeProject": "مهارتونه د {{folder}} لپاره",
+  "skillsScopeGlobal": "نړیوال مهارتونه، هرې ناستې ته شتون لري",
+  "skillsScopeMerged": "د {{folder}} لپاره مهارتونه، او همدارنګه نړیوال مهارتونه چي هره ناسته شریکوي",
+  "skillOriginFolder": "فولډر",
+  "skillOriginGlobal": "نړیوال",
+  "skillsEmpty": "تراوسه هیڅ مهارت نشته",
+  "skillsPickOrNew": "د سمون لپاره یو مهارت وټاکئ، یا یو نوی جوړ کړئ.",
+  "skillNew": "نوی مهارت",
+  "skillDelete": "د حذف کولو مهارت",
+  "skillSave": "خوندي کړئ",
+  "skillSaved": "مهارت خوندي شوی",
+  "skillNameRequired": "د مهارت نوم ته اړتیا ده",
+  "skillNamePlaceholder": "د مهارت نوم",
+  "skillContentPlaceholder": "په Markdown کښي د بیا کارونې وړ طرزالعمل تشریح کړئ…",
+  "skillHubImport": "له مرکز څخه واردول",
+  "skillHubTitle": "Anthropic د مهارتونو مرکز",
+  "skillHubEmpty": "په مرکز کښي هیڅ مهارت ونه موندل سو",
+  "skillImport": "واردول",
+  "skillReimport": "بیا واردول",
+  "skillImported": "وارد شوی {{name}}",
+  "sessions": "ناستې",
+  "deleteSession": "سیشن ړنګول",
+  "deleteSessionTitle": "سیشن ړنګ کړئ؟",
+  "deleteSessionBody": "\"{{title}}\" او د هغې لیږد به د تل لپاره حذف سي. دا نه سي ختمېدای.",
+  "newChat": "نوې چیٹ",
+  "newAgentChat": "د نوي اجنټ چیټ",
+  "chats": "چیټونه",
+  "favorites": "د خوښې وړ",
+  "recents": "وروستي",
+  "hub": "مرکز",
+  "helpSupport": "مرسته او ملاتړ",
+  "helpUsImproveJan": "له موږ سره مرسته وکړئ چي په ښه کولو کښي Novera",
+  "analyticsConsentDetail": "موږ د ځانګړتیاوو په کارولو پوهیدو لپاره نامعلوم معلومات راټولوو. ستاسي چیټونه او شخصي معلومات هیڅکله نه تعقیب کیږي. تاسي کولی شئ دا هر وخت په ترتیباتو > محرمیت کښي بدل کړئ.",
+  "analyticsConsentQuestion": "ایا تاسي غواړئ چي د Novera په ښه کولو کښي له موږ سره مرسته وکړئ؟",
+  "unstarAll": "ټول له ستورو خلاص کړئ",
+  "unstar": "بې ستوري",
+  "deleteAll": "ټول ړنګ کړئ",
+  "star": "ستوری",
+  "rename": "نوم بدل کړئ",
+  "delete": "ړنګول",
+  "copied": "کاپي شوی!",
+  "dataFolder": "ډیټا فولډر",
+  "others": "نور",
+  "language": "ژبه",
+  "login": "ننوتل",
+  "loginWith": "د {{provider}} سره ننوتل",
+  "loginFailed": "په ننوتلو کښي پاتې راغلی",
+  "logout": "ننوتل",
+  "loggingOut": "ننوتل ...",
+  "loggedOut": "په بریالیتوب سره ننوتل",
+  "logoutFailed": "په ننوتلو کښي پاتې راغلی",
+  "profile": "پروفایل",
+  "reset": "بیا تنظیم کول",
+  "search": "لټون",
+  "searchThreads": "تارونه وپلټئ...",
+  "toNavigate": "د غوره کولو لپاره",
+  "toSelect": "غوره کول",
+  "toClose": "د تړلو لپاره",
+  "clearRecent": "پاک",
+  "name": "نوم",
+  "cancel": "لغوه",
+  "dismiss": "ګوښه کول",
+  "create": "جوړ کړئ",
+  "save": "خوندي کړئ",
+  "edit": "سمون",
+  "copy": "کاپي",
+  "back": "بېرته",
+  "close": "تړل",
+  "done": "بشپړ سو",
+  "next": "راتلونکی",
+  "finish": "پای",
+  "skip": "پریږدئ",
+  "allow": "اجازه ورکړئ",
+  "deny": "انکار",
+  "start": "پیل",
+  "stop": "ودریږئ",
+  "preview": {
+    "loading": "پرانیستل…",
+    "unsupported": "Novera نشي کولی دا ډول فایل ښکاره کړي. په بل اپلیکیشن کښي د لیدلو لپاره یې خلاص کړئ.",
+    "outside": "دا دوتنه نور د سیشن په کاري ځای کښي نشته.",
+    "tooLarge": "د لیدو لپاره خورا لوی دی. په بل اپلیکیشن کښي د لیدلو لپاره یې خلاص کړئ.",
+    "reload": "بیا پورته کول",
+    "allowNetwork": "شبکې ته اجازه ورکړئ",
+    "unsandboxed": "غیر سینډ باکس چلول: خوندي سوي ډاټا او ځایی فایلونه کار کوي",
+    "unresolvedRefs_one": "1 دوتنې چي دا مخ لینک لري په مخکتنه کښي نشي پورته کیدی. په براوزر کښي د لیدلو لپاره یې خلاص کړئ.",
+    "unresolvedRefs_other": "{{count}} فایلونه چي د دې پاڼې سره اړیکه لري په مخکتنه کښي نشي پورته کیدی. په براوزر کښي د لیدلو لپاره یې خلاص کړئ.",
+    "externalRefs_one": "1 سرچینه چي دا پاڼه له ویب څخه پورته کیږي بنده شوې ده. د دې د پورته کولو لپاره \"نیټ ورک ته اجازه ورکړئ\" فعال کړئ.",
+    "externalRefs_other": "{{count}} سرچینې چي دا پاڼه له ویب څخه پورته کوي بلاک سوي دي. د دوی د پورته کولو لپاره \"نیټ ورک ته اجازه ورکړئ\" فعال کړئ.",
+    "scriptErrors_one": "پاڼې د تېروتنې راپور ورکړی: {{message}}",
+    "scriptErrors_other": "پاڼې {{count}} تېروتنې راپور کړې. لومړی: {{message}}"
+  },
+  "changes": {
+    "title": "اجنټ بدلونونه",
+    "empty": "هغه فایلونه چي اجنټ یې لیکي یا ایډیټ کوي به دلته ښکاره سي.",
+    "a11y": "د اجنټ بدلونونه: {{files}} فایلونه، {{additions}} اضافه سوي، {{deletions}} حذف"
+  },
+  "modelPanel": {
+    "title": "ماډل ترتیبات",
+    "a11y": "د موډل ترتیبات خلاص کړئ",
+    "contextTooltip": "د متن کړکۍ: {{value}} د {{max}} ټوکن"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "مهارت '{{name}}' شتون نلري",
+    "kind": {
+      "skill": "مهارت",
+      "command": "کمانډ",
+      "model": "ماډل"
+    }
+  },
+  "compactWidth": "د تړون پلنوالی",
+  "fullWidth": "بشپړ عرض",
+  "dark": "تیاره",
+  "light": "رڼا",
+  "system": "سیسټم",
+  "auto": "اتومات",
+  "english": "انګلیسي",
+  "medium": "منځنی",
+  "newThread": "نوې موضوع",
+  "noResultsFound": "هیڅ پایله ونه موندل شوه",
+  "noThreadsYet": "تر اوسه هیڅ موضوع نشته",
+  "noThreadsYetDesc": "دلته د خپل تار تاریخ لیدو لپاره نوې خبرې پیل کړئ.",
+  "downloads": "ډاونلوډونه",
+  "downloading": "ډاونلوډ کول",
+  "uploadingAttachments": "ضمیمې پورته کول…",
+  "cancelDownload": "ډاونلوډ لغوه کړئ",
+  "downloadCancelled": "ډاونلوډ لغوه سو",
+  "downloadComplete": "ډاونلوډ بشپړ سو",
+  "thinking": "فکر کول...",
+  "thought": "فکر",
+  "callingTool": "د زنګ وهلو وسیله",
+  "completed": "بشپړ سو",
+  "image": "انځور",
+  "vision": "لید",
+  "multimodal": "ملټي موډل",
+  "embeddings": "سرایتونه",
+  "tools": "اوزار",
+  "webSearch": "ویب لټون",
+  "reasoning": "استدلال",
+  "proactive": "فعال",
+  "selectAModel": "یو ماډل غوره کړئ",
+  "noToolsAvailable": "هیڅ وسیلې شتون نلري",
+  "noModelsFoundFor": "د \"{{searchValue}}\" لپاره هیڅ ماډل ونه موندل سو",
+  "failedToLoadModels": "د موډلونو په پورته کولو کښي پاتې راغلی",
+  "noModels": "هیڅ ماډل ونه موندل سو",
+  "noAssistant": "هیڅ مرستیال نشته",
+  "customAvatar": "دودیز اوتار",
+  "editAssistant": "د سمون معاون",
+  "jan": "Novera",
+  "metadata": "میټاډاټا",
+  "regenerate": "بیا تولید",
+  "threadImage": "د تار انځور",
+  "editMessage": "پیغام ایډیټ کړئ",
+  "deleteMessage": "پیغام ړنګ کړئ",
+  "deleteThread": "تار ړنګ کړئ",
+  "renameThread": "د موضوع نوم بدل کړئ",
+  "threadTitle": "د موضوع سرلیک",
+  "deleteAllThreads": "ټولې تارونه ړنګ کړئ",
+  "allThreadsUnfavorited": "ټولې موضوعګانې ناخوښه شوې",
+  "deleteAllThreadsConfirm": "ایا تاسي ډاډه یاست چي تاسي ټول تارونه حذف کول غواړئ؟ دا کړنه نه سي ختمولی.",
+  "addProvider": "برابرونکی اضافه کړئ",
+  "addOpenAIProvider": "OpenAI برابرونکي اضافه کړئ",
+  "enterNameForProvider": "د خپل چمتو کونکي لپاره نوم ولیکئ",
+  "providerAlreadyExists": "وړاندې کوونکی چي نوم یې \"{{name}}\" له مخکې شتون لري. مهرباني وکړئ یو بل نوم غوره کړئ.",
+  "adjustFontSize": "د فونټ اندازه تنظیم کړئ",
+  "changeLanguage": "ژبه بدل کړئ",
+  "editTheme": "ایډیټ موضوع",
+  "editCodeBlockStyle": "ایډیټ کوډ بلاک سټایل",
+  "editServerHost": "د سرور کوربه ایډیټ کړئ",
+  "pickColorWindowBackground": "رنګ کړکۍ پس منظر غوره کړئ",
+  "pickColorAppMainView": "د رنګ اپلیکیشن اصلي لید غوره کړئ",
+  "pickColorAppPrimary": "د رنګ ایپ لومړني غوره کړئ",
+  "pickColorAppAccent": "د رنګ اپلیکیشن تلفظ غوره کړئ",
+  "pickColorAppDestructive": "غوره رنګ ایپ ویجاړونکی",
+  "apiKeyRequired": "API کیلي ته اړتیا ده",
+  "enterTrustedHosts": "باوري کوربه ته ننوځئ",
+  "placeholder": {
+    "chatInput": "زما څخه څه پوښتنه وکړئ ..."
+  },
+  "confirm": "تایید کړئ",
+  "continue": "دوام ورکړئ",
+  "loading": "بار کول...",
+  "settingUpJan": "بوټ کول Novera…",
+  "registeringExtensions": "د تمدید ثبتول…",
+  "loadingExtensions": "توزیع پورته کول… ({{done}}/{{total}})",
+  "error": "تېروتنه",
+  "success": "بریالیتوب",
+  "warning": "خبرداری",
+  "conversationNotAvailable": "خبرې اترې شتون نلري",
+  "conversationNotAvailableDescription": "هغه خبرې چي تاسي یې د لاسرسي هڅه کوئ شتون نلري یا حذف سوي.",
+  "temporaryChat": "لنډمهاله چټ",
+  "temporaryChatTooltip": "لنډمهاله چیٹ به ستاسي په تاریخ کښي نه څرګندیږي",
+  "noResultsFoundDesc": "موږ ونه سو موندلای چي ستاسي د لټون سره سمون ولري. یو مختلف کلیدي هڅه وکړئ.",
+  "searchModels": "موډلونه لټون...",
+  "searchStyles": "د لټون سټایلونه...",
+  "createAssistant": "معاون جوړ کړئ",
+  "enterApiKey": "داخل کړئ API کیلي",
+  "scrollToBottom": "لاندې ته سکرول کړئ",
+  "generateAiResponse": "AI ځواب پیدا کړئ",
+  "continueAiResponse": "د AI ځواب سره دوام ورکړئ",
+  "addModel": {
+    "title": "موډل اضافه کړئ",
+    "modelId": "ماډل ID",
+    "enterModelId": "موډل داخل کړئ ID",
+    "addModel": "موډل اضافه کړئ",
+    "description": "چمتو کونکي ته نوی ماډل اضافه کړئ",
+    "exploreModels": "د چمتو کونکي څخه د ماډل لیست وګورئ"
+  },
+  "mcpServers": {
+    "editServer": "اډیټ سرور",
+    "addServer": "سرور اضافه کړئ",
+    "serverName": "د سرور نوم",
+    "enterServerName": "د سرور نوم دننه کړئ",
+    "command": "کمانډ",
+    "enterCommand": "کمانډ دننه کړئ",
+    "arguments": "دلیلونه",
+    "argument": "دلیل {{index}}",
+    "envVars": "د چاپیریال تغیرات",
+    "key": "کلید",
+    "value": "ارزښت",
+    "save": "خوندي کړئ"
+  },
+  "deleteServer": {
+    "title": "سرور ړنګول",
+    "delete": "ړنګول"
+  },
+  "editJson": {
+    "errorParse": "په تجزیه کولو کښي پاتې راغلی JSON",
+    "errorPaste": "JSON پیسټ کولو کښي پاتې راغلی",
+    "errorFormat": "ناسم JSON بڼه",
+    "titleAll": "د ټولو سرورونو ترتیب ایډیټ کړئ",
+    "placeholder": "داخل کړئ JSON ترتیب...",
+    "save": "خوندي کړئ"
+  },
+  "editModel": {
+    "title": "د ترمیم ماډل: {{modelId}}",
+    "description": "د لاندې اختیارونو په بدلولو سره د ماډل وړتیاوې تنظیم کړئ.",
+    "capabilities": "وړتیاوې",
+    "tools": "اوزار",
+    "vision": "لید",
+    "embeddings": "سرایتونه",
+    "notAvailable": "تراوسه شتون نلري"
+  },
+  "outOfContextError": {
+    "truncateInput": "ان پټول",
+    "title": "د شرایطو څخه بهر تېروتنه",
+    "description": "دا چیټ د AI د حافظې حد ته رسي، لکه د سپینې تختې ډکول. موږ کولی سو د حافظې کړکۍ پراخه کړو (چي د شرایطو اندازه ورته ویل کیږي) نو دا ډیر په یاد لري ، مګر دا ممکن ستاسي د کمپیوټر ډیر حافظه وکاروي. موږ کولی سو ان پټ هم لنډ کړو ، پدې معنی چي دا به د نوي پیغامونو لپاره ځای رامینځته کولو لپاره د چیټ تاریخ ځینې هیر کړي.",
+    "increaseContextSizeDescription": "ایا تاسي غواړئ د شرایطو اندازه زیاته کړئ؟",
+    "increaseContextSize": "د متن اندازه زیاته کړئ"
+  },
+  "toolApproval": {
+    "title": "د وسیلې د اجازې غوښتنه",
+    "description": "معاون غواړي چي <strong>{{toolName}}</strong> وکاروي",
+    "securityNotice": "یوازې هغه وسیلو ته اجازه ورکړئ چي تاسي باور لرئ. وسیلې کولی سي ستاسي سیسټم او ډیټا ته لاسرسی ومومي.",
+    "deny": "انکار",
+    "allowOnce": "یو ځل اجازه ورکړئ",
+    "alwaysAllow": "تل اجازه ورکړئ"
+  },
+  "deleteModel": {
+    "title": "ماډل ړنګ کړئ: {{modelId}}",
+    "description": "ایا تاسي ډاډه یاست چي دا ماډل حذف کول غواړئ؟ دا کړنه نه سي ختمولی.",
+    "success": "ماډل {{modelId}} د تل لپاره ړنګ شوی.",
+    "cancel": "لغوه",
+    "delete": "ړنګول"
+  },
+  "deleteProvider": {
+    "title": "چمتو کونکی ړنګ کړئ",
+    "description": "دا چمتو کونکی او د هغې ټول ماډلونه حذف کړئ. دا کړنه نه سي ختمولی.",
+    "success": "برابرونکی {{provider}} د تل لپاره ړنګ شوی.",
+    "confirmTitle": "وړاندې کوونکی ړنګ کړئ: {{provider}}",
+    "confirmDescription": "ایا تاسي ډاډه یاست چي دا چمتو کونکی حذف کول غواړئ؟ دا کړنه نه سي ختمولی.",
+    "cancel": "لغوه",
+    "delete": "ړنګول"
+  },
+  "modelSettings": {
+    "label": "ماډل ترتیبات",
+    "title": "ماډل ترتیبات - {{modelId}}",
+    "description": "د فعالیت او چلند غوره کولو لپاره د ماډل تنظیمات تنظیم کړئ.",
+    "nglDisabledByFit": "آټو فټ کول GPU پرتونه غوره کوي. دا په لاسي ډول تنظیم کولو لپاره آٹو فټ بند کړئ.",
+    "samplingDefaults": {
+      "title": "د نمونې اخیستلو اصلي پیرامیټونه",
+      "description": "د دې ماډل لپاره د ډیفالټ نمونې تنظیمات. کارول کیږي پرته لدې چي د هر معاون یا د هرې غوښتنې ارزښتونو لخوا تکرار سي."
+    },
+    "specDraft": {
+      "section": "تخیل کوډ کول",
+      "enable": "قیاس کوډ کول فعال کړئ",
+      "enableDescription": "په هر ګام کښي څو ټوکنونه مسوده کړئ او په یوه پاس کښي یې تایید کړئ، کوم چي د نسل ګړندی کوي. د موډل جوړ سوي MTP سرونه، یا د مسودې ماډل له دې سره ډاونلوډ سوي (MTP، Eagle3، DFlash یا DSpark).",
+      "nMax": "اعظمي مسوده نښه",
+      "nMaxDescription": "په هر ګام کښي د مسودې لپاره د ټوکنونو اعظمي شمیر. ډیفالټ 16.",
+      "nMin": "دقیقې مسودې نښه",
+      "nMinDescription": "په هر ګام کښي مسوده کولو لپاره لږترلږه د ټوکن شمیر. ډیفالټ 0.",
+      "pMin": "د دقیقې مسودې احتمال",
+      "pMinDescription": "د لالچ مسودې لپاره لږترلږه احتمال (0–1). ډیفالټ 0.75."
+    },
+    "templateKwargs": {
+      "section": "د چیٹ ټیمپلیټ اختیارونه",
+      "description": "اضافي اختیارونه د دې ماډل د چیٹ ټیمپلیټ مني. په هرې غوښتنې کښي د chat_template_kwargs په توګه لیږل شوی؛ یو ارزښت په ډیفالټ کښي پریږدئ ترڅو ټیمپلیټ پریکړه وکړي.",
+      "addCustom": "دودیز اختیار اضافه کړئ",
+      "keyPlaceholder": "نوم",
+      "valuePlaceholder": "ارزښت",
+      "add": "اضافه کړئ",
+      "cancel": "لغوه",
+      "remove": "لرې کړئ"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "نشي کولی د ماډل ترتیبات تازه کړي"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "د ډیټا فولډر ځای بدل کړئ",
+      "description": "ایا تاسي ډاډه یاست چي تاسي غواړئ د ډیټا فولډر موقعیت بدل کړئ؟ دا به ستاسي ټول معلومات نوي ځای ته انتقال کړي او غوښتنلیک بیا پیل کړي.",
+      "currentLocation": "اوسنی ځای:",
+      "newLocation": "نوی ځای:",
+      "cancel": "لغوه",
+      "changeLocation": "ځای بدل کړئ"
+    },
+    "deleteAllThreads": {
+      "title": "ټولې تارونه ړنګ کړئ",
+      "description": "ټول تارونه به حذف سي. دا کړنه نه سي ختمولی."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "ټولې خبرې ړنګ کړئ",
+      "description": "{{count}} خبرې اترې به په \"{{projectName}}\" کښي حذف سي. دا کړنه نه سي ختمولی."
+    },
+    "deleteThread": {
+      "description": "ایا تاسي ډاډه یاست چي تاسي دا موضوع حذف کول غواړئ؟ دا کړنه نه سي ختمولی."
+    },
+    "editMessage": {
+      "title": "پیغام ایډیټ کړئ"
+    },
+    "messageMetadata": {
+      "title": "د پیغام میټاډاټا"
+    },
+    "deleteMessage": {
+      "description": "ایا تاسي ډاډه یاست چي دا پیغام حذف کول غواړئ؟ دا کړنه نه سي ختمولی."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "یو څه غلط سو",
+    "details": "تفصیلات"
+  },
+  "missingDependenciesDialog": {
+    "title": "ورک سوي سیسټم کتابتونونه",
+    "description": "{{backend}} نصب شوی خو ځینې اړین سیسټم کتابتونونه ونه موندل شول. کیدای سي بیرته CPU ته راښکته سي او یا په سمه توګه ونه چلیږي.",
+    "installLabel": "د دې د حل لپاره، لاندې نصب کړئ:",
+    "download": "ډاونلوډ کړئ",
+    "additionalLibraries": "اضافي ورک سوي کتابتونونه:",
+    "missingLibraries": "ورک سوي کتابتونونه:",
+    "showRawLibraries": "ښکاره کړئ {{count}} ورک سوي کتابتون نومونه"
+  },
+  "projects": {
+    "title": "پروژې",
+    "new": "نوې پروژې",
+    "addProject": "پروژه اضافه کړئ",
+    "addToProject": "پروژې ته اضافه کړئ",
+    "removeFromProject": "له پروژې څخه لرې کړئ",
+    "createNewProject": "نوې پروژه جوړه کړئ",
+    "editProject": "ترمیم پروژه",
+    "deleteProject": "پروژه ړنګول",
+    "projectName": "د پروژې نوم",
+    "enterProjectName": "د پروژې نوم ولیکئ...",
+    "noProjectsAvailable": "هیڅ پروژه شتون نلري",
+    "noProjectsYet": "تر اوسه کومه پروژه نه ده",
+    "noProjectsYetDesc": "د پروژې اضافه کولو تڼۍ په کلیک کولو سره نوې پروژه پیل کړئ.",
+    "projectNotFound": "پروژه ونه موندل شوه",
+    "projectNotFoundDesc": "هغه پروژه چي تاسي یې په لټه کښي یاست شتون نلري یا حذف شوی.",
+    "selectAssistant": "معاون وټاکئ",
+    "noAssistantAssigned": "دې پروژې ته هیڅ مرستیال نه دی ګمارل شوی",
+    "files": "فایلونه",
+    "filesDescription": "په دې پروژه کښي د حوالې لپاره PDFs، اسناد، یا نور متن اضافه کړئ.",
+    "uploadingFiles": "د فایلونو پروسس کول…",
+    "processButton": "اضافه کړئ",
+    "deleteProjectDialog": {
+      "title": "پروژه ړنګول",
+      "permanentDelete": "دا به د تل لپاره ټول تارونه حذف کړي.",
+      "permanentDeleteWarning": "دا عمل به د پروژې دننه ټول تارونه د تل لپاره حذف کړي!",
+      "deleteEmptyProject": "دا عمل به پروژه \"{{projectName}}\" ړنګوي.",
+      "saveThreadsAdvice": "د تارونو د خوندي کولو لپاره، د ړنګولو دمخه یې خپل د تار لیست یا بلې پروژې ته واستوئ.",
+      "starredWarning": "تاسي لاهم په پروژه کښي ستوري تارونه لرئ.",
+      "deleteButton": "ړنګول",
+      "successWithName": "پروژه \"{{projectName}}\" په بریالیتوب سره ړنګه شوه",
+      "successWithoutName": "پروژه په بریالیتوب سره ړنګه شوه",
+      "error": "د پروژې په ړنګولو کښي پاتې راغلی. مهرباني وکړئ بیا هڅه وکړئ.",
+      "ariaLabel": "ړنګول {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "نوې پروژه جوړه کړئ",
+      "editTitle": "ترمیم پروژه",
+      "nameLabel": "د پروژې نوم",
+      "namePlaceholder": "د پروژې نوم ولیکئ...",
+      "assistant": "معاون",
+      "selectAssistant": "یو معاون وټاکئ (اختیاري)",
+      "noAssistant": "هیڅ مرستیال نشته",
+      "addAssistant": "معاون اضافه کړئ",
+      "createButton": "جوړ کړئ",
+      "updateButton": "تازه کول",
+      "alreadyExists": "پروژه \"{{projectName}}\" دمخه شتون لري",
+      "createSuccess": "پروژه \"{{projectName}}\" په بریالیتوب سره جوړه شوه",
+      "updateSuccess": "پروژه \"{{projectName}}\" په بریالیتوب سره تازه شوه",
+      "saveError": "پروژه خوندي نشوه. مهرباني وکړئ بیا هڅه وکړئ."
+    },
+    "noConversationsIn": "په {{projectName}} کښي خبرې اترې نشته",
+    "startNewConversation": "لاندې {{projectName}} سره نوې خبرې پیل کړئ",
+    "conversationsIn": "خبرې اترې په {{projectName}} کښي",
+    "conversationsDescription": "چیټینګ ته دوام ورکولو لپاره په هر ډول خبرو اترو کلیک وکړئ، یا لاندې یو نوی پیل کړئ.",
+    "conversation": "خبرې اترې",
+    "instructions": "لارښوونې",
+    "setup": "ترتیب",
+    "instructionsDescription": "د غبرګون ټون او سټایل تنظیم کړئ",
+    "manageInstructions": "لارښوونې اداره کړئ",
+    "thread": "تار",
+    "threads": "تارونه",
+    "updated": "تازه شوی:",
+    "collapseProject": "سقوط پروژه",
+    "expandProject": "پروژه پراخه کړئ",
+    "update": "تازه کول",
+    "searchProjects": "پروژې پلټنه...",
+    "noProjectsFound": "هیڅ پروژه ونه موندل شوه",
+    "tryDifferentSearch": "د لټون مختلف اصطلاح هڅه وکړئ"
+  },
+  "attachmentsIngestion": {
+    "title": "غوره کړئ چي څنګه ضمیمه وخورئ",
+    "description": "غوره کړئ چي ایا دا فایلونه په مستقیم ډول په چیٹ کښي شامل کړئ یا د ځای پرځای کولو په توګه یې لیست کړئ.",
+    "inline": "چیټ ته داخل کړئ",
+    "embeddings": "سرایتونه وکاروئ"
+  },
+  "attachmentInjectedIndicator": "په چیٹ کښي داخل شوی",
+  "attachmentEmbeddedIndicator": "د RAG لپاره سرایت شوی",
+  "viewInjectedContent": "انجیکشن سوي مینځپانګې وګورئ",
+  "injectedContentTitle": "انجکشن سوي فایل مینځپانګه",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "ټولې موضوعګانې ناخوښه شوې",
+      "description": "ټول تارونه ستاسي د خوښې څخه لرې سوي دي."
+    },
+    "deleteAllThreads": {
+      "title": "ټولې تارونه ړنګ کړئ",
+      "description": "ټول تارونه د تل لپاره حذف سوي دي."
+    },
+    "renameThread": {
+      "title": "د موضوع نوم بدل کړئ",
+      "description": "د موضوع سرلیک '{{title}}' ته بدل شوی دی"
+    },
+    "deleteThread": {
+      "title": "تار ړنګ کړئ",
+      "description": "دا تار د تل لپاره ړنګ شوی دی."
+    },
+    "errorCopied": {
+      "title": "کاپي بریالۍ شوه",
+      "description": "د تېروتنې معلومات کلپ بورډ ته کاپي سوي"
+    },
+    "errorCopyFailed": {
+      "title": "کاپي کولو کښي پاتې راغلی",
+      "description": "کلیپبورډ ته د غلطۍ معلوماتو کاپي کولو کښي پاتې راغلی"
+    },
+    "editMessage": {
+      "title": "پیغام ایډیټ کړئ",
+      "description": "پیغام په بریالیتوب سره تدوین سو. مهرباني وکړئ د ماډل ځواب ته انتظار وکړئ."
+    },
+    "appUpdateDownloaded": {
+      "title": "اپډیټ ډاونلوډ شوی",
+      "description": "اپډیټ په بریالیتوب سره ډاونلوډ شوی."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "اپډیټ ډاونلوډ ناکام سو",
+      "description": "د اپډیټ ډاونلوډ کولو کښي پاتې راغلی. مهرباني وکړئ بیا هڅه وکړئ."
+    },
+    "downloadComplete": {
+      "title": "ډاونلوډ بشپړ سو",
+      "description": "{{item}} ډاونلوډ شوی دی"
+    },
+    "downloadCancelled": {
+      "title": "ډاونلوډ لغوه سو",
+      "description": "د ډاونلوډ پروسه لغوه شوه"
+    },
+    "downloadFailed": {
+      "title": "ډاونلوډ ناکام سو",
+      "description": "{{item}} ډاونلوډ ناکام سو",
+      "descriptionWithReason": "{{item}} ډاونلوډ ناکام سو: {{reason}}",
+      "reason": {
+        "dns": "د سرور نوم حل نشو",
+        "refused": "پیوستون رد سو",
+        "timeout": "د پیوستون وخت پای ته ورسید",
+        "tls": "خوندي پیوستون نشي رامینځته کیدی",
+        "proxy": "پراکسي نشي رسیدلی",
+        "unreachable": "سرور ته نشي رسیدلی"
+      }
+    },
+    "openSettings": "ترتیبات خلاص کړئ",
+    "openLogs": "لاګ خلاص کړئ",
+    "downloadTokenRequired": {
+      "title": "Hugging Face نښه اړینه ده",
+      "description": "دا ماډل د Hugging Face لاسرسي نښه ته اړتیا لري. په ترتیباتو کښي خپل نښه اضافه کړئ او بیا هڅه وکړئ."
+    },
+    "downloadLicenseRequired": {
+      "title": "په Hugging Face کښي د ماډل جواز قبول کړئ",
+      "description": "تاسي باید د ډاونلوډ کولو دمخه د دې Hugging Face پاڼې کښي د ماډل جواز قبول کړئ."
+    },
+    "downloadRateLimited": {
+      "title": "نرخ د Hugging Face لخوا محدود شوی",
+      "description": "تاسي نرخ محدود سوي یاست. د نښه اضافه کول کولی سي د نرخ حد زیات کړي. مهرباني وکړئ وروسته بیا هڅه وکړئ."
+    },
+    "modelValidationStarted": {
+      "title": "د اعتبار وړ ماډل",
+      "description": "موډل \"{{modelId}}\" په بریالیتوب سره ډاونلوډ شوی. د بشپړتیا تصدیق کول ..."
+    },
+    "modelValidationFailed": {
+      "title": "د ماډل تایید ناکام سو",
+      "description": "ډاونلوډ شوی ماډل \"{{modelId}}\" د بشپړتیا تایید کښي پاتې راغلی او لرې شوی. فایل ممکن فاسد یا خراب شوی وي."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "ډاونلوډ بشپړ سو",
+      "description": "ماډل \"{{item}}\" ډاونلوډ شوی او په بریالیتوب سره تایید شوی"
+    },
+    "projectCreated": {
+      "title": "پروژه جوړه شوه",
+      "description": "پروژه \"{{projectName}}\" په بریالیتوب سره جوړه شوه"
+    },
+    "projectRenamed": {
+      "title": "پروژې نوم بدل سو",
+      "description": "د پروژې نوم له \"{{oldName}}\" څخه \"{{newName}}\" ته بدل سو"
+    },
+    "projectDeleted": {
+      "title": "پروژه ړنګه شوه",
+      "description": "پروژه \"{{projectName}}\" په بریالیتوب سره ړنګه شوه"
+    },
+    "projectAlreadyExists": {
+      "title": "پروژه لا دمخه شتون لري",
+      "description": "پروژه \"{{projectName}}\" دمخه شتون لري"
+    },
+    "projectDeleteFailed": {
+      "title": "ړنګول ناکام شول",
+      "description": "د پروژې په ړنګولو کښي پاتې راغلی. مهرباني وکړئ بیا هڅه وکړئ."
+    },
+    "threadAssignedToProject": {
+      "title": "تار ټاکل شوی",
+      "description": "موضوع \"{{projectName}}\" ته په بریالیتوب سره ټاکل شوې"
+    },
+    "threadRemovedFromProject": {
+      "title": "تار لرې شوی",
+      "description": "موضوع له \"{{projectName}}\" څخه په بریالیتوب سره لیرې شوه"
+    },
+    "fileUploaded": {
+      "title": "فایل پروسس شوی",
+      "description": "فایل پروسس شوی او په بریالیتوب سره لیست شوی"
+    },
+    "uploadFailed": {
+      "title": "پروسس ناکام سو",
+      "description": "د فایل پروسس کولو کښي پاتې راغلی",
+      "subjectThisFile": "دا دوتنه",
+      "pdfMalformedXref": "{{subject}} یو خراب شکل لري PDF کراس-ریفرنس جدول او تجزیه کیدی نشي. هڅه وکړئ چي دا په PDF لیدونکي کښي پرانیزئ او بیا یې خوندي کړئ (فایل → چاپ → د PDF په توګه خوندي کړئ)، بیا بیا اپلوډ کړئ.",
+      "pdfScanned": "{{subject}} داسې ښکاري چي سکین شوی یا د انځور پر بنسټ PDF وي. OCR لا تر اوسه ملاتړ شوی نه دی — مهرباني وکړئ د متن پر بنسټ PDF پورته کړئ.",
+      "pdfEncrypted": "{{subject}} د پټنوم سره خوندي دی. پټنوم لرې کړئ او بیا هڅه وکړئ.",
+      "pdfUnsupportedFeature": "{{subject}} د PDF فیچر کاروي Novera لا تر اوسه پارس نشي کولی (د مثال په توګه PostScript رنګ/شیډینګ افعال). د بیا خوندي کولو هڅه وکړئ (فایل → چاپ → د PDF په توګه خوندي کړئ) د فلیټ کولو لپاره یې بیا پورته کړئ.",
+      "pdfGeneric": "{{subject}} نشي کولی د PDF په توګه تجزیه سي. دوتنې کیدای سي فاسد وي یا یو غیر ملاتړ شوی PDF خصوصیت کاروي.",
+      "fileTooLarge": "{{subject}} ډیر لوی دی. {{message}}.",
+      "unsupportedType": "د دوتنې ډول \"{{type}}\" ملاتړ نه کوي.",
+      "ioError": "نشي لوستلی {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} تجزیه نشي کیدی: {{message}}",
+      "fallback": "د {{subject}} پروسس کولو کښي پاتې راغلی."
+    },
+    "fileDeleted": {
+      "title": "دوتنه ړنګه شوه",
+      "description": "فایل د پروژې څخه لیرې شوی"
+    },
+    "deleteFailed": {
+      "title": "ړنګول ناکام شول",
+      "description": "د دوتنې ړنګولو کښي پاتې راغلل"
+    },
+    "fileAlreadyExists": {
+      "title": "دوتنه لا دمخه شتون لري",
+      "description": "فایل لا دمخه د دې پروژې سره وصل دی"
+    },
+    "unsupportedFileType": {
+      "title": "د نه ملاتړ سوي فایل ډول",
+      "description": "د فایل توسیع \".{{extension}}\" د پروژې حوالې لپاره ملاتړ نه کوي."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "ضمیمې غیر فعال سوي",
+      "description": "ضمیمې په ترتیباتو کښي غیر فعال دي"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "دوتنه ډیره لویه ده",
+    "fileTooLargeDescription": "{{fileName}} د {{maxFileSizeMB}}MB حد څخه تیریږي"
+  },
+  "files": {
+    "chunksCount": "{{count}} ټوټې",
+    "title": "فایلونه",
+    "empty": "هغه فایلونه چي تاسي یې ضمیمه کوئ او هغه فایلونه چي استازی یې رامینځته کوي دلته به ښکاره سي.",
+    "a11y": "دوتنې: {{count}}",
+    "attachments": "ضمیمې",
+    "notImported": "په کاري ځای کښي نه دی"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp اوس هم بوخت دی",
+    "description": "یو یا څو ماډلونه په وخت کښي نه پورته کیږي. په زور پریښودل به llama.cpp ختم کړي او ممکن فعال ځوابونه ګډوډ کړي.",
+    "forceQuit": "جبري پريښودل",
+    "forcing": "جبري پريښودل…",
+    "shuttingDown": "بندول…"
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "سقوط",
+  "expand": "پراخ کړئ",
+  "todoPanelTitle": "پرمختګ",
+  "todoPanelEmpty": "تر اوسه د ترسره کولو لیست نشته.",
+  "backgroundTasks": "د شاليد دندې",
+  "subagentsRunning_one": "{{count}} فرعي اجنټ چلول",
+  "subagentsRunning_other": "{{count}} فرعي اجنټان روان دي",
+  "monitorsRunning_one": "{{count}} مانیټر چلول",
+  "monitorsRunning_other": "{{count}} مانیټرونه روان دي",
+  "backgroundRunning_one": "{{count}} شاليد کار روان دی",
+  "backgroundRunning_other": "{{count}} شاليد کارونه روان دي",
+  "monitors": "مانیټرونه",
+  "monitorPolling": "رایه ورکول",
+  "monitorMatched": "مل شوی",
+  "monitorTimedOut": "وخت تېر سو",
+  "monitorStopped": "ودرول سو",
+  "monitorEnded": "پای ته ورسید",
+  "coworkWatching_one": "کتل {{count}} مانیټر…",
+  "coworkWatching_other": "د {{count}} مانیټر کتل…",
+  "coworkWaitingBackground": "د شالید کارونو ته انتظار کول…",
+  "noBackgroundTasks": "تر اوسه د شاليد کومه دنده نشته.",
+  "running": "چلول",
+  "queued": "قطار شوی",
+  "waiting": "انتظار",
+  "finished": "بشپړ سو",
+  "subagentPhase": "پړاو {{phase}}",
+  "subagentWaiting": "انتظار",
+  "viewTranscript": "لیږد وګورئ",
+  "taskWorking": "کار کوي…",
+  "taskNoOutput": "فرعي اجنټ هیڅ ښکاره محصول نه تولیدوي.",
+  "subagentToolUses_one": "{{count}} وسیله کارول",
+  "subagentToolUses_other": "{{count}} وسیله کاروي",
+  "artifactGroupCode": "کوډ",
+  "artifactGroupImage": "انځور",
+  "artifactGroupDocument": "سند",
+  "artifactGroupVideo": "ویډیو",
+  "artifactGroupAudio": "آډیو",
+  "artifactOpenPreview": "خلاص مخکتنه",
+  "artifactOpenExternal": "خلاص",
+  "artifactMoreActions": "نور عملونه",
+  "artifactShowInFolder": "په فولډر کښي ښکاره کړئ",
+  "skillsUsedLabel": "مهارتونه کارول سوي",
+  "skillsUsed": "کارول سوي مهارتونه: {{skills}}",
+  "artifactsAll": "ټول",
+  "artifactsEmpty": "تراوسه هیڅ شی نه دی تولید شوی. د Cowork څخه اثار دلته ښودل کیږي.",
+  "artifactsNoMatch": "د هنري اثارو سره سمون نه خوري.",
+  "artifactsSearch": "اثار وپلټئ",
+  "artifactsShowMore": "{{count}} نور ښکاره کړئ",
+  "workspace": {
+    "readsFrom": "په کښي کار کوي",
+    "writable": "لوستل او لیکل",
+    "footnote": "اجنټ دا فولډر مستقیم لولي او ترمیموي. بیاکتنه وکړئ چي په ډیف پینل کښي څه بدل سوي.",
+    "footnoteEmpty": "یو فولډر ضمیمه کړئ ترڅو اجنټ ستاسي په پروژه کښي کار وکړي. دا کولی سي دننه فایلونه ولولي او ترمیم کړي.",
+    "attach": "یو فولډر ضمیمه کړئ",
+    "change": "فولډر بدل کړئ",
+    "detach": "فولډر جلا کړئ",
+    "open": "خلاص",
+    "reveal": "ښکاره کول",
+    "unavailable": "کاري ځای شتون نلري",
+    "missing": "د کاري ځای فولډر {{folder}} نور شتون نلري. یو بل فولډر غوره کړئ.",
+    "openFailed": "د کار ځای خلاص نشو",
+    "revealFailed": "د کار ځای ښکاره نشو",
+    "a11yWithFolder": "د پروژې فولډر {{folder}}، د لوستلو او لیکلو لاسرسي سره ضمیمه شوی. بدل کړئ یا جلا کړئ.",
+    "a11yNoFolder": "د پروژې فولډر نشته. یو وصل کړئ."
+  },
+  "coworkEmpty": {
+    "title": "موږ په څه کار کوو؟",
+    "subtitleSandbox": "Novera ته دنده ورکړئ. دا فایلونه لولي او لیکي، کمانډونه چلوي، او پخپله د ګامونو له لارې کار کوي.",
+    "subtitleFolder": "Novera ته دنده ورکړئ. دا په مستقیم ډول په {{folder}} کښي کار کوي، په خپله د فایلونو لوستل او سمول.",
+    "try": "هڅه وکړئ",
+    "sandbox": {
+      "first": "د Python سکریپټ ولیکئ چي د فایلونو نوم یې د اخیستلو نیټې پورې بدلوي",
+      "second": "د CSV څخه یو واحد پاڼه ډشبورډ جوړ کړئ زه به یې پیسټ کړم",
+      "third": "د یوې پروژې لپاره چي زه تاسي ته تشریح کوم README مسوده"
+    },
+    "folder": {
+      "first": "تشریح کړئ چي څنګه {{folder}} یوځای کیږي",
+      "second": "هر TODO په {{folder}} کښي ومومئ او د ساحې له مخې یې ګروپ کړئ",
+      "third": "د {{folder}} برخې لپاره ازموینې ولیکئ زه تاسي ته اشاره کوم"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "هیڅ ټرمینل نشته",
+    "a11y": "چلول کمانډونه بند دي. جزیات.",
+    "title": "چلول کمانډونه بند دي",
+    "body": "Novera اجنټ ته اجازه ورکوي د شیل کمانډونه یوازې هغه وخت پرمخ وړي کله چي ستاسي سیسټم دوی محدود کړي. دلته هیڅ سینڈ باکس شتون نلري ، نو اجنټ کولی سي په خپل سینڈ باکس کښي فایلونه ولولي ، ولیکي او ایډیټ کړي - مګر هیڅ شی نه چلوي.",
+    "fixLinux": "لینکس bubblewrap کاروي. نصب یې کړئ، بیا یې پیل کړئ Novera.",
+    "fixMac": "macOS په /usr/bin/sandbox-exec کښي جوړ شوی سینڈ باکس کاروي. یوځل چي شتون ولري بیا پیل کړئ Novera.",
+    "fixWindows": "وینډوز AppContainer کاروي. د بیا هڅه کولو لپاره Novera بیا پیل کړئ.",
+    "recheck": "بیا وګورئ"
+  },
+  "planMode": {
+    "label": "پلان",
+    "tooltipOff": "لومړی پلان جوړ کړئ - اجنټ له لیکلو پرته لوستل او وړاندیز کوي.",
+    "tooltipOn": "پلان جوړونه. دا بند کړئ ترڅو اجنټ ته فایلونه ولیکي.",
+    "onAnnounce": "پلان حالت فعال دی",
+    "placeholder": "د پلان غوښتنه وکړئ. اجنټ به هیڅ فایل بدل نه کړي."
+  },
+  "budget": {
+    "stoppedSteps": "په {{max}} قدمونو ودرېد. اجنټ پای ته نه دی رسیدلی.",
+    "keepGoing": "دوام ورکړئ",
+    "stoppedTokens": "ودرول سو — دا غونډه په نښه شوې بودیجه وه.",
+    "compact": "تړون",
+    "newSession": "نوې غونډه"
+  },
+  "run": {
+    "stopped": "ودرول سو.",
+    "failed": "منډې ژر ودرول شوې.",
+    "tryAgain": "بیا هڅه وکړئ"
+  },
+  "modelNoTools": "{{model}} وسیلې نشي کولی، نو دا نشي کولی د اجنټ په توګه عمل وکړي. د وسیلې غږولو ماډل غوره کړئ.",
+  "askContinue": "دوام ورکړئ",
+  "askNext": "بله پوښتنه",
+  "askPrev": "مخکینۍ پوښتنه",
+  "askRecommended": "وړاندیز شوی",
+  "askSelectedCount": "{{count}} غوره شوی",
+  "askSomethingElse": "بل څه",
+  "askSomethingElsePlaceholder": "خپل ځواب ټایپ کړئ",
+  "submit": "سپارل",
+  "composer": {
+    "advanced": "پرمختللي پیرامیټونه",
+    "modelDefaults": "ماډل ډیفالټ",
+    "assistantOverrides": "معاون زیری",
+    "printPdf": "چاپ / خوندي کړئ لکه PDF",
+    "exportHint": "د لوستلو وړ بڼه: فعاله څانګه. JSON: د پیغام ټولې نسخې. بهرنۍ فایلونه بنډل سوي ندي."
+  },
+  "telemetry": {
+    "summary": "ستاسي په رضایت سره، {{host}} یوازې Novera نسخه او عملیاتي سیسټم ترلاسه کوي، پرته له خبرو اترو یا دوامداره پیژندونکي.",
+    "unavailable": "احصایې ترتیب سوي ندي. هیڅ معلومات نه لیږل کیږي."
+  },
+  "errorTracking": {
+    "title": "د تېروتنې تعقیب",
+    "summary": "اختیاري راپورونه {{host}} ته: د تېروتنې ډول، د کوډ موقعیت، نسخه او عملیاتي سیسټم. هیڅ خبرې اترې، خام خطا پیغامونه یا کیلي نشته. هر وخت غیر فعال کړئ.",
+    "unavailable": "د تېروتنې تعقیب نه دی ترتیب شوی. هیڅ راپور نه لیږل کیږي."
+  },
+  "access": {
+    "read": "یوازې لوستل",
+    "ask": "د ترمیم یا حذف کولو دمخه پوښتنه وکړئ",
+    "allow": "د ترمیم او ړنګولو اجازه ورکړئ",
+    "folderNote": "غوره کړئ چي څنګه Novera دې فولډر ته لاسرسی ومومي."
+  },
+  "components": {
+    "title": "ځایی اجزا",
+    "note": "یوازې هغه برخې نصب کړئ چي تاسي ورته اړتیا لرئ. Novera د Python چاپیریالونه جلا ساتي. د کلاوډ خدمات هیڅ ځایی نصب ته اړتیا نلري.",
+    "estimates": "اټکل شوی ډاونلوډ: {{download}} · د ډیسک اړین ځای: {{space}} · د ډیسک موجود ځای: {{free}}",
+    "confirm": "دا شخصي چاپیریال نصب کړئ؟ یوازې ټاکل سوي برخې به ډاونلوډ سي. د دوی د خپرونکو جوازونه پلي کیږي.",
+    "removeConfirm": "دا اداره شوی چاپیریال لرې کړئ؟ ستاسي ماډلونه، تخلیقات او خبرې اترې به ساتل کیږي.",
+    "verify": "تایید کړئ",
+    "repair": "ترمیم",
+    "uninstall": "غیر نصب کړئ",
+    "missing": "نه دی نصب شوی",
+    "managed": "د Novera لخوا اداره کیږي",
+    "external": "یو اختیاري بهرنۍ Python لاره د مدیریت سوي پروفایل څخه تیریږي. د Novera چاپیریال کارولو لپاره یې پاک کړئ.",
+    "failed": "د برخې عملیات ناکام شول. شبکه، د ډیسک ځای او د لاسرسي حقونه وګورئ، بیا بیا هڅه وکړئ یا ترمیم کړئ.",
+    "required": "په Novera کښي د اړتیا وړ محلي اجزاو چمتو کول او تصدیق کول.",
+    "updateAvailable": "تازه معلومات شتون لري",
+    "update": "تازه کول",
+    "rollback": "پخوانی چاپیریال بحال کړئ",
+    "busy": "محلي ماډلونه پورته کړئ او د اجزاو بدلولو دمخه د نسلونو پای ته رسیدو ته انتظار وکړئ."
+  },
+  "voiceConversation": "غږیزې خبرې",
+  "voiceUnavailable": "غږیزې خبرې شتون نه لري",
+  "voiceMale": "نارینه غږ",
+  "voiceFemale": "ښځینه غږ",
+  "voiceReadReplies": "ځوابونه په لوړ غږ ولولئ"
+}

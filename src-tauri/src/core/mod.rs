@@ -1,5 +1,7 @@
 pub mod agent;
 pub mod app;
+#[cfg(not(feature = "cli"))]
+pub mod voice;
 #[cfg(feature = "cli")]
 pub mod cli;
 // Download manager, native file dialogs/IO commands, and the system/tray
@@ -49,3 +51,5 @@ pub mod onnx;
 
 #[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
 pub mod components;
+#[cfg(not(feature = "cli"))]
+pub(crate) mod asset_access;

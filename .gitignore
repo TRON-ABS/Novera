@@ -77,6 +77,9 @@ src-tauri/resources/
 test-data
 # Native test fixtures include a thread id and must remain local.
 /test-data-ThreadId*/
+**/test-data-ThreadId*/
+/.tmp/
+**/android/.tauri/
 /deliverables/safetensors-test-*/
 llm-docs
 .claude/agents
@@ -113,3 +116,4 @@ e2e/logs
 
 # Pin the isolated native updater probe to the reviewed application dependencies.
 !/scripts/distribution/checks/native-update/Cargo.lock
+!/scripts/security/native/Cargo.lock

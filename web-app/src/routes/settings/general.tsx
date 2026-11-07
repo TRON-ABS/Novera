@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { route } from '@/constants/routes'
 import SettingsMenu from '@/containers/SettingsMenu'
 import { MemoryModeControl } from '@/containers/MemoryModeControl'
 import HeaderPage from '@/containers/HeaderPage'
@@ -31,9 +30,7 @@ import { useHardware } from '@/hooks/useHardware'
 import LanguageSwitcher from '@/containers/LanguageSwitcher'
 import { isRootDir } from '@/utils/path'
 const TOKEN_VALIDATION_TIMEOUT_MS = 10_000
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute(route.settings.general as any)({
+export const Route = createFileRoute("/settings/general")({
   component: General,
 })
 
@@ -47,6 +44,10 @@ function General() {
     setAutoUpdateCheck,
     huggingfaceToken,
     setHuggingfaceToken,
+    voiceGender,
+    setVoiceGender,
+    readReplies,
+    setReadReplies,
   } = useGeneralSetting()
   const serviceHub = useServiceHub()
 
@@ -234,6 +235,27 @@ function General() {
             </Card>
 
             <MemoryModeControl scope="settings" />
+
+            <Card title={t('common:voiceConversation')}>
+              <CardItem
+                title={t('common:voiceReadReplies')}
+                actions={<Switch aria-label={t('common:voiceReadReplies')} checked={readReplies !== false} onCheckedChange={setReadReplies} />}
+              />
+              <CardItem
+                title="LFM3-Omni / LFM3-Audio"
+                actions={
+                  <select
+                    aria-label={t('common:voiceConversation')}
+                    className="bg-secondary border rounded-md px-3 py-2 text-sm max-w-full"
+                    value={voiceGender === 'female' ? 'female' : 'male'}
+                    onChange={event => setVoiceGender(event.target.value === 'female' ? 'female' : 'male')}
+                  >
+                    <option value="male">{t('common:voiceMale')}</option>
+                    <option value="female">{t('common:voiceFemale')}</option>
+                  </select>
+                }
+              />
+            </Card>
 
             {/* Data folder - Desktop only */}
             <Card title={t('common:dataFolder')}>

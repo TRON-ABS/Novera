@@ -77,7 +77,7 @@ vi.mock('@/lib/predefinedParams', () => ({
   ],
   paramGroups: [],
   LLAMACPP_ONLY_PARAM_KEYS: new Set<string>(),
-  evaluateDisabled: () => ({ disabled: false }),
+  evaluateDisabled: () => null,
   isGroupedParamKey: () => false,
 }))
 

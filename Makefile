@@ -281,7 +281,7 @@ else
 endif
 
 # Build jan CLI (release, platform-aware) → src-tauri/resources/bin/novera[.exe]
-build-cli:
+build-cli: engine-source
 ifeq ($(DETECTED_OS),Darwin)
 	cd src-tauri/novera-cli && cargo build --release --no-default-features --features cli --target aarch64-apple-darwin
 	cd src-tauri/novera-cli && cargo build --release --no-default-features --features cli --target x86_64-apple-darwin
@@ -572,7 +572,7 @@ agent: build-agent
 # Build the jan agent CLI binary (release, platform-aware)
 # The binary is compiled into src-tauri/target/<triple>/release/novera[.exe]
 # and then installed to src-tauri/resources/bin/novera[.exe] for bundling.
-build-agent:
+build-agent: engine-source
 ifeq ($(DETECTED_OS),Windows)
 	cd src-tauri/novera-cli && cargo build --release --no-default-features --features cli
 	copy src-tauri\target\release\novera.exe src-tauri\resources\bin\novera.exe

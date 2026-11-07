@@ -1,10 +1,10 @@
-<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a></p>
+<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a> · <a href="README.ny.md">Chichewa</a> · <a href="README.bm.md">Bamanankan</a> · <a href="README.sn.md">ChiShona</a> · <a href="README.tn.md">Setswana</a> · <a href="README.nso.md">Sesotho sa Leboa</a> · <a href="README.ht.md">Kreyòl ayisyen</a> · <a href="README.st.md">Sesotho</a> · <a href="README.el.md">Ελληνικά</a> · <a href="README.rn.md">Ikirundi</a> · <a href="README.dyu.md">Julakan</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.sv.md">Svenska</a> · <a href="README.gan.md">贛語</a> · <a href="README.pbt.md">پښتو (سوېلي)</a> · <a href="README.mag.md">मगही</a> · <a href="README.ars.md">عربي نجدي</a> · <a href="README.acm.md">عراقي</a> · <a href="README.fuv.md">Fulfulde (Naajeeriya)</a> · <a href="README.hne.md">छत्तीसगढ़ी</a> · <a href="README.tts.md">อีสาน</a> · <a href="README.azb.md">تۆرکجه</a> · <a href="README.bar.md">Boarisch</a> · <a href="README.ug.md">ئۇيغۇرچە</a> · <a href="README.ctg.md">চাটগাঁইয়া</a></p>
 
 <div align="center">
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Anjeun ngajelaskeun tujuan anjeun. Novera nyiapkeun sumber daya, ngalaksanakeun tugas sareng ngatur hasilna.</strong></p>
   <p>bebas AI asisten ku TRON-ABS, ti mimiti peluncuran nepi ka hasil: téks, gambar, musik jeung video dina hiji paguneman.</p>
-  <p><strong>Sadia pikeun Windows, Linux, macOS jeung Android</strong> · 80 basa panganteur · 42 panyadia awan · 49 prasetél média · Apache 2.0</p>
+  <p><strong>Sadia pikeun Windows, Linux, macOS jeung Android</strong> · Sumber anu disiapkeun: 104 basa panganteur · 42 panyadia awan · 58 prasetél média · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatisasi</a> · <a href="#one-dashboard-for-every-creation">Dasbor</a> · <a href="#local-models-in-use">AI model jalan lokal dina alat anjeun</a> · <a href="#hub-and-compatible-models">Hub sareng modél anu cocog</a> · <a href="#cloud-providers">Awan</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Kontribusi</a></p>
   <p>Kontak resmi: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Resmi Novera profil sosial: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -14,6 +14,34 @@
 > Tarjamahan anu dibantuan tina basa Inggris README tanggal 2026-11-03. Tinjauan basa asli masih diperyogikeun. Dokumén anu dikaitkeun ngajaga basa aslina.
 
 ---
+
+<!-- novera-release-1.0.1:start -->
+<a id="preparing-1-0-1"></a>
+## Nyiapkeun versi 1.0.1
+
+Undeuran umum tetep aya di 1.0.0. Perbaikan di handap ieu disiapkeun dina sumber pikeun 1.0.1; aranjeunna merlukeun bungkusan rebuilt, cék release sarta publikasi. Ngamutahirkeun dokuméntasi ieu henteu ngamutahirkeun aplikasi anu dipasang.
+
+- Kaamanan: idin asli anu langkung ketat pikeun halaman jauh, auténtikasi pikeun API jaringan sareng alat pangladén, neundeun rahasia sareng migrasi anu ditangtayungan, aksés file/média anu langkung aman, parsing spreadsheet sareng ngawangun skrip. kagumantungan kakeunaan geus diropéa; advisories sésana dilacak kabuka.
+- Privasi: statistik jeung laporan kasalahan merlukeun idin misah tur tetep pareum sacara standar. Wangunan kalebet konfigurasi tujuan anu didokumentasikeun. Diagnostik téknis disaring; pamaké tetep ngadalikeun aktivasina.
+- Mesin lokal: `llama.cpp v0.9.0` (`b12110`, `cd959bae99ff4bed22bef2604f45241c09bbb8c8`). Versi mesin sareng versi aplikasi misah. Setélan modél awal sareng pendaptaran modél/proyektor dilereskeun, kalebet kagagalan ngamimitian anu kalebet `kv_unified`. Setelan pribadi anu tos aya disimpen.
+- Basa: 24 basa jeung varian tambahan mawa panganteur jeung kumpulan README ditarjamahkeun kana 104, kalawan 2,435 konci panganteur per katalog. Liputan ieu henteu ngajamin kualitas redaksi asli atanapi dukungan pidato dina unggal basa.
+- **LFM3-Omni-2B Q4_K_M** — Default dina desktop jeung mobile. Model kompak pikeun téks, gambar sareng audio, nganggo file `mmproj` anu diperyogikeun. Unduh: kira-kira 1.39 GB pikeun duanana file. Pilih eta pikeun setelan multimodal torek. Fitur sora gumantung kana platform sareng mesin. Kontéks anu langkung panjang ngagunakeun langkung seueur mémori.
+- **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** — Alternatif ukur téks pikeun paguneman, tulisan, alat sareng jawaban terstruktur. Unduh: ngeunaan 6.18 GB. Merlukeun memori leuwih ti LFM3-Omni jeung teu ngolah gambar atawa audio sorangan. Balesan anu diucapkeun nganggo sora sistem. Pilih éta pikeun tugas téks nalika anjeun gaduh mémori anu cekap. Pariksa jawaban faktual jeung sumber.
+- Kanggo 1.0.1, LFM3-Omni-2B Q4_K_M sareng `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` anu diperyogikeun mangrupikeun rekomendasi standar dina desktop sareng mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M tetep alternatif téks wungkul. Kontéks awal nyaéta 32,768 token dina desktop sareng 2,048 dina sélulér. Konteks anu langkung panjang ngagunakeun langkung seueur memori. Pilihan sareng setelan model anu tos aya disimpen dugi ka robah sacara eksplisit.
+- Sora: input mikropon lokal langsung pikeun LFM3-Omni, paguneman kontinyu jeung ngirim otomatis, sora balesan jalu/awewe keur model audio, jeung ucapan sistem keur model klasik. Balasan maca ogé lumaku pikeun talatah diketik jeung regenerasi, bebas tina newak mikropon. Tombol sora leutik ngaktifkeun atanapi mutes maca.
+- Status mikropon: héjo lamun sadia, beureum bari sibuk, kulawu lamun teu sadia. Pangenal, dengekeun balikan deui, penanganan fokus sareng dikte anu katingali parantos dilereskeun. Biantara modél audio asli ayeuna dilaksanakeun dina Windows; platform séjénna masih perlu validasi asli jeung rojongan sora cocog.
+- Wéb: deteksi pamundut cuaca anu langkung dipercaya, pituduh tanggal ayeuna, hasil sareng kutipan énggal, sareng jawaban anu dipuseurkeun kana pamundut ayeuna saatos panggunaan alat. Biantara ngaleungitkeun labél sumber hiasan sareng tautan bari tetep kutipan anu katingali. Basa réspon sareng ucapan nuturkeun basa pangguna salami modél anu dipilih ngadukung éta.
+- Optimasi: nyiapkeun panéangan wéb di latar tukang nalika Internét diaktipkeun, bagikeun ngamimitian layanan, nyiapkeun bagéan pidato salajengna sateuacan playback sareng ningkatkeun kontinuitas kalimah. Taun Perancis, angka desimal sareng unit dibaca sacara alami. Latensi jaringan sareng laju modél masih gumantung kana setélan.
+- Kanyamanan: kadali handap runtuh bari input tetep katingali. Mikropon kompak sareng kadali panyingkepan, tombol sora handapeun mikropon, setélan musik responsif sareng labél komponén anu ditarjamahkeun ningkatkeun panggunaan dina layar leutik.
+- Katalog API: 43 propil panyadia, kaasup TabbyAPI sacara lokal, kalayan pilihan obrolan sareng média anu énggal. Éntri anyar kalebet GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 sareng GPT Image 2.6, Gemini Omni 1.2, FLUX 3 upami didukung. Refresh henteu deui nyumputkeun hasil saluareun sapuluh model. Identifiers pasti, titik tungtung régional, deployments swasta sarta model diimpor dihormat.
+- Validasi: aplikasi anu dituju, perpustakaan asli, katalog umum sareng pamariksaan basa kacatet dina catetan anu lengkep. Antarbeungeut diwangun pikeun Windows / macOS / Linux / Android / iOS. Wangunan frontend ieu henteu ngajamin bungkusan asli atanapi inferensi dina unggal alat.
+- Sateuacan dileupaskeun: validasi bungkusan asli anu diwangun deui, sésa-sésa panemuan kaamanan/dependensi sareng apdet 1.0.0 dugi ka 1.0.1 nyata. Kasadiaan gumantung kana hardware, aksés panyadia sareng platform. Henteu aya kasaluyuan modél universal, status kerentanan enol atanapi publikasi réngsé anu diklaim.
+
+[Detil catetan, validasi sareng karya sésana](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
+
+> Catetan apdet ieu nganggo tarjamahan anu dibantuan sareng, upami diperyogikeun, daptar tulisan anu dibagi. Tinjauan basa asli tetep diperyogikeun. Dokumén anu dikaitkeun ngajaga basa aslina.
+
+<!-- novera-release-1.0.1:end -->
 
 ## kasadiaan — 2026-11-03
 
@@ -74,11 +102,11 @@ Automation nyertakeun mesin terpadu jeung workflows; éta henteu ngajantenkeun u
 
 [Pituduh pamaké](docs/USER_GUIDE.md) · [Mesin sareng validasi](docs/SUIVI_MOTEURS.md) · [Kamekaran](docs/DEVELOPMENT.md)
 
-Dina sumber anu diropéa, **Konfigurasi diluyukeun saran na ka hardware mobile sarta konstrain**: LFM3-1.7B Q4, atawa LFM3-Omni-2B Q4 kalawan projector na lamun dilaporkeun memori jeung engine syarat anu patepung. Generasi lokal anu henteu sayogi disumputkeun atanapi diblokir; gambar awan ngonpigurasi, musik jeung video tetep sadia. Pituduh panganteur ngagunakeun deui katalog basa 80. Perkiraan ieu masih peryogi uji alat sareng ngawangun deui pikeun ngahontal aplikasi anu dipasang.
+Kanggo 1.0.1, LFM3-Omni-2B Q4_K_M sareng `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` anu diperyogikeun mangrupikeun rekomendasi standar dina desktop sareng mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M tetep alternatif téks wungkul. Kontéks awal nyaéta 32,768 token dina desktop sareng 2,048 dina sélulér. Konteks anu langkung panjang ngagunakeun langkung seueur memori. Pilihan sareng setelan model anu tos aya disimpen dugi ka robah sacara eksplisit.
 
 ## Kamampuhan dina sumberna
 
-Diagnostik pangropéa opsional ayeuna ngabédakeun gagalna ngawangun sareng alat anu diurus ogé JavaScript pengecualian, kalayan idin anu misah sareng widang téknis anu disaring. Peringatan email produksi per jam dikonpigurasi pikeun pangropéa. Peta sumber pribadi sareng detil waspada turutan [runbook pangropéa](docs/MAINTENANCE.md); resi email test dikonfirmasi, bari dioténtikasi unggah simbol jeung nguji dina binér salajengna tetep cék release.
+Pangropéa sareng perbaikan privasi disiapkeun pikeun 1.0.1. Statistik pilihan sareng ngalaporkeun kasalahan ngagunakeun idin anu mandiri, eksplisit sareng diagnostik téknis anu disaring. Cék sékrési anu diperyogikeun sareng panemuan kaamanan sésana didokumentasikeun sacara misah. [runbook pangropéa](docs/MAINTENANCE.md)
 
 | Wewengkon | Fitur |
 | --- | --- |
@@ -98,7 +126,8 @@ Modél ieu ngabentuk konfigurasi dipandu ayeuna. Anjeun tiasa ngimpor modél anu
 
 | Peran | Modél / komponén ngonpigurasi |
 | --- | --- |
-| **Téks — modél mimiti jalan** | **Nemotron-3.5-Bolt-E4B**, file `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
+| **Téks — modél mimiti jalan** | **LFM3-Omni-2B Q4_K_M** · `LFM3-Omni-2B-Q4_K_M.gguf` + `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` |
+| **Alternatif téks wungkul** | **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** · `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf` |
 | **Dimeunangkeun dokumén** | **Qwen3-Embedding-0.6B Q8_0**, **CPU sacara standar**, kalayan pilihan CPU/GPU disimpen. |
 | **Gambar** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** encoder sareng resmi FLUX.2 VAE. |
 | **Gambar - pilihan hardware** | **FLUX.2 Klein 4B NVFP4**, ngaliwatan jalur CUDA asli nalika GPU sareng lingkunganana cocog. |
@@ -114,7 +143,7 @@ Encoder musik Qwen sareng modél panéangan Qwen nyaéta **file béda**, disimpe
 
 ## Panyadia awan
 
-**42 propil panyadia** anu terpadu. **ElevenLabs** ayeuna muncul dina showcase barengan rute musik ti Stability AI, fal sareng Replicate.
+Sumber anu disusun ngandung 43 propil panyadia: 42 jasa awan sareng TabbyAPI kanggo server lokal. Kasadiaan modél sareng kamampuan gumantung kana akun, daérah sareng API anu dirojong. Katalog ieu dibagikeun ku sadaya basa panganteur 104.
 
 | | | |
 | --- | --- | --- |
@@ -131,27 +160,27 @@ Encoder musik Qwen sareng modél panéangan Qwen nyaéta **file béda**, disimpe
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/) |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://docs.dev.runwayml.com/api/) | <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://docs.ltx.io/models) |
 | <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
-| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/docs/model-map) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/models) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
 
 ### Gambar, musik sareng video
 
-**20 panyadia ngalaan rute generasi**, jeung **49 prasetél: 25 gambar, 20 video sareng 4 musik**. Rute musik nyaéta **ElevenMusic v2.5**, **Stable Audio 3**, **ACE-Step ngaliwatan fal** jeung **Stable Audio 2.5 ngaliwatan Replicate**.
+Katalog kreasi anu disusun ngandung 58 prasetél ti 20 panyadia: 30 gambar, 24 vidéo sareng 4 prasetél musik. Tabél di handap daptar rute terpadu; aranjeunna teu baranahan unggal kurban komérsial.
 
 | Panyadia | Kaluaran dina Novera | Modél katalog |
 | --- | --- | --- |
 | <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="24" height="24" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | Musik | `ElevenMusic v2.5` |
-| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Gambar / Musik | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
-| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Gambar / Musik / Video | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
-| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Gambar / Musik | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
+| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Gambar / Musik | `Stable Image Ultra` · `Stable Image Core` · `Stable Audio 3` |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Gambar / Musik / Video | `FLUX 3 Video · fal` · `FLUX 3 Image · fal` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` · `ACE-Step · cloud` |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Gambar / Musik / Video | `FLUX 3 Video · Replicate` · `FLUX.2 Max · Replicate` · `Stable Audio 2.5 · Replicate` |
 | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="24" height="24" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | Gambar / Pidéo | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
 | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="24" height="24" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | Gambar / Pidéo | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
-| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Gambar / Pidéo | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Gambar / Pidéo | `Gemini Omni 1.2 Flash` · `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
 | <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="24" height="24" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | Gambar | `Krea 3` |
 | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="24" height="24" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | Gambar | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
 | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="24" height="24" /> [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | Video | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
-| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Gambar | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Gambar | `GPT Image 2.6 Sunburst` · `GPT Image 2.6 Flare` · `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
 | <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="24" height="24" /> [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | Gambar / Pidéo | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
-| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Gambar | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Gambar / Pidéo | `FLUX 3 Image` · `FLUX 3 Image Klein` · `FLUX 3 Video` · `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="24" height="24" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | Gambar | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
 | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="24" height="24" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | Gambar | `Ideogram 4.5` |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="24" height="24" /> [Runway](https://docs.dev.runwayml.com/api/) | Video | `Runway Gen-4.5` |
@@ -165,23 +194,23 @@ Encoder musik Qwen sareng modél panéangan Qwen nyaéta **file béda**, disimpe
 
 | Panyadia | Modél ID ditawarkeun dina sumber |
 | --- | --- |
-| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
+| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6.1-terra` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
 | [Microsoft Azure](https://oai.azure.com/deployments) | deployment atawa gateway husus akun |
 | [Anthropic](https://platform.claude.com/docs/en/models/overview) | `claude-sonnet-5-5` · `claude-opus-5-5` · `claude-fable-5-1` · `claude-haiku-5-5` |
-| [OpenRouter](https://openrouter.ai/models) | `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
-| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `mistral-medium-3-5` · `mistral-small-2603` · `ministral-3b-2512` |
-| [Groq](https://console.groq.com/docs/models) | `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
+| [OpenRouter](https://openrouter.ai/models) | `liquid/lfm-3-1.7b` · `openai/gpt-6.1-terra` · `tencent/hy4` · `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
+| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `zai-glm-5-3-flash` · `mistral-small-2603` · `ministral-3b-2512` |
+| [Groq](https://console.groq.com/docs/models) | `qwen/qwen3.8-27b` · `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
 | [xAI](https://docs.x.ai/developers/models) | `grok-4.7` |
 | [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | `gemini-4-argon` · `gemini-3.8-flash` · `gemini-3.6-flash` · `gemini-3.5-flash-lite` |
 | [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) | `MiniMax-M3.1-Flash` · `MiniMax-M3` |
-| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
-| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3` |
+| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `MiniMaxAI/MiniMax-M3.1-Flash` · `zai-org/GLM-5.3-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
+| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3-flash` |
 | [DeepSeek](https://api-docs.deepseek.com/) | `deepseek-flash` · `deepseek-v4-pro` |
 | [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | `kimi-k3.1-pro` · `kimi-k3.1-pro-highspeed` · `kimi-k3` |
 | [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | `qwen3.8-max` · `qwen3.7-plus` · `qwen3.8-flash` |
 | [Cerebras](https://inference-docs.cerebras.ai/models/overview) | `qwen-3.8-27b` · `gpt-oss-120b` |
-| [Together AI](https://docs.together.ai/docs/serverless/models) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
-| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
+| [Together AI](https://docs.together.ai/docs/serverless/models) | `moonshotai/Kimi-K3.1-Pro` · `MiniMaxAI/MiniMax-M3.1-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
+| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/kimi-k3p1-pro` · `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
 | [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) | `perplexity/sonar` · `openai/gpt-6.1-sol` · `google/gemini-4-argon` · `perplexity/kimi-k3` |
 | [Meta AI](https://dev.meta.ai/docs/models) | `muse-wonder-1.0` · `muse-spark-1.3` |
 | [Cohere](https://docs.cohere.com/docs/models) | `command-a-plus-05-2026` |
@@ -189,8 +218,8 @@ Encoder musik Qwen sareng modél panéangan Qwen nyaéta **file béda**, disimpe
 | [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | `jamba-large` · `jamba-mini-2` |
 | [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | `dola-seed-2-1-turbo-260628` |
 | [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) | `ernie-5.1` |
-| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4-preview` |
-| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-sol` |
+| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4` · `hy4-preview` |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-terra` · `openai.gpt-6.1-sol` |
 | [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) | deployment atawa gateway husus akun |
 
 </details>
@@ -237,9 +266,9 @@ Diurutkeun hardware-diadaptasi standar ni'mat Kaluaran anyar dina kasaluyuan sar
 
 Sumber anu diropéa nambihan **komponén junun opsional dina Konfigurasi pikeun Windows x64**: lingkungan Python swasta, pinned CPU/CUDA propil, estimasi jeung konfirmasi saméméh undeuran, verifikasi, perbaikan sarta ngaleupaskeun. Jalur juru khusus tetep dina pilihan canggih. Mesin asli GGUF ngajaga komponénna anu aya; mobile sareng awan henteu ngaunduh desktop Python/PyTorch. Tilu swasta CPU / propil ékspor ieu exercised kalawan data uji sintétik; The maintainer ngalaporkeun suksés pamakéan desktop on 1 November 2026; GPU profil sareng pamasangan bersih-PC masih peryogi papisah, validasi lengkep. [Propil sarta wates test](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Embedding tumpukan dina EXE ditunda.
 
-## 80 basa panganteur sareng varian
+## 104 basa panganteur sareng varian
 
-**Sadaya 80 katalog nutupan konci Inggris ayeuna 2,429** sakuliah 15 ngaranspasi, kaasup ménu, konfigurasi, setelan, pitulung sarta kadali media. Bentuk jamak sareng arah antarmuka nuturkeun basa anu dipilih. Basa réspon sareng sora gumantung sacara misah kana modél.
+**Sadaya 104 katalog nutupan konci Inggris ayeuna 2,435** sakuliah 15 ngaranspasi, kaasup ménu, konfigurasi, setelan, pitulung sarta kadali media. Bentuk jamak sareng arah antarmuka nuturkeun basa anu dipilih. Basa réspon sareng sora gumantung sacara misah kana modél.
 
 Cakupan téknis ieu henteu ngajamin kualitas linguistik: **ulasan asli sareng adaptasi régional tetep diperyogikeun**. Tempo labél asli jeung wates dipikawanoh dina [pituduh basa](docs/LANGUAGES.md) jeung [laporan audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -275,7 +304,7 @@ Manual GitHub Actions ngawangun diaktipkeun pikeun sadaya sabelas varian distrib
 - [Pituduh pamaké lengkep](docs/USER_GUIDE.md), [aturan emas produk sareng inpormasi pangguna (Perancis)](docs/REGLES_D_OR.md), [modél sareng mesin](docs/SUIVI_MOTEURS.md).
 - [Kamekaran](docs/DEVELOPMENT.md), [ngawangun sareng ngaleupaskeun pituduh](docs/BUILD_AND_RELEASE.md), [versi hareup jeung préparasi update](docs/FUTURES_VERSIONS.md).
 - [dasbor proyék](TABLEAU_DE_BORD_NOVERA.md), [peta jalan](ROADMAP.md), [changelog](docs/CHANGELOG.md).
-- [Kontribusi](CONTRIBUTING.md): kode, tés, ulasan asli dina 80 basa sareng eupan balik alur kerja nyata.
+- [Kontribusi](CONTRIBUTING.md): kode, tés, ulasan asli dina 104 basa sareng eupan balik alur kerja nyata.
 
 ## Idéntitas sareng lisénsi
 

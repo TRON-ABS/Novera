@@ -831,5 +831,10 @@
     "update": "yeesal",
     "rollback": "Delloosi environmaa bi njëkk",
     "busy": "Yebbi model yu dëkk bi nga xaar ba generation yi jeex balaa ngay soppi composant yi."
-  }
+  },
+  "voiceConversation": "Waxtaan ak baat",
+  "voiceUnavailable": "Waxtaan ak baat jàppandiwul",
+  "voiceMale": "Baatu góor",
+  "voiceFemale": "Baatu jigéen",
+  "voiceReadReplies": "Jàng tontu yi ci kaw"
 }

@@ -571,7 +571,7 @@ describe('ProviderDetail route', () => {
         fireEvent.click(screen.getByText('providers:apiKeys.test'))
       })
       await waitFor(() => {
-        expect(screen.getAllByText('OK').length).toBeGreaterThan(0)
+        expect(screen.getAllByText('ui:keyOk').length).toBeGreaterThan(0)
       })
     })
 
@@ -610,9 +610,9 @@ describe('ProviderDetail route', () => {
         fireEvent.click(screen.getByText('providers:apiKeys.test'))
       })
       await waitFor(() => {
-        expect(screen.getByText(/Invalid \/ revoked key/)).toBeInTheDocument()
+        expect(screen.getByText('ui:keyUnauthorized')).toBeInTheDocument()
       })
-      expect(screen.getByText(/Forbidden \(403\)/)).toBeInTheDocument()
+      expect(screen.getByText('ui:keyForbidden')).toBeInTheDocument()
     })
   })
 

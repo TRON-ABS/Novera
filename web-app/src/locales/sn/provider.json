@@ -1,0 +1,18 @@
+{
+  "addProvider": "Wedzera Mupi",
+  "addOpenAIProvider": "Wedzera Custom Provider",
+  "enterNameForProvider": "Zita remupi (e.g. my-llm-server)",
+  "apiTypeLabel": "API fomati",
+  "apiTypeOpenAI": "OpenAI-inoenderana",
+  "apiTypeAnthropic": "Anthropic-inoenderana",
+  "baseUrlLabel": "Base URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API kiyi",
+  "apiKeyPlaceholder": "Namira API kiyi yako",
+  "invalidBaseUrl": "Base URL inofanira kuva http(s) inoshanda URL",
+  "globalSettings": "Zvirongwa zvepasi rose",
+  "stripReasoning": "Bvisa kufunga kubva pane zviri mukati",
+  "stripReasoningDesc": "Bvisa kufunga kwekutanga / kufunga zvemukati usati watumira nhoroondo, kune vese vanopa. Inovandudza KV-cache reuse yemamodheru emuno, asi mamwe mamodheru (e.g. matsva Qwen anoburitswa) anokurudzira kuti uzvichengete kuitira kufunga kuri nani kweakawanda.",
+  "providerAlreadyExists": "Mumwe mutengesi anonzi {{name}} atovako."
+}

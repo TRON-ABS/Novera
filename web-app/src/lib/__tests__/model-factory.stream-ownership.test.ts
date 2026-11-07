@@ -5,7 +5,7 @@ import { useAppState } from '@/hooks/useAppState'
 
 const { extractors } = vi.hoisted(() => ({ extractors: [] as MetadataExtractor[] }))
 vi.mock('@ai-sdk/openai-compatible', () => ({
-  OpenAICompatibleChatLanguageModel: vi.fn().mockImplementation((_id, config) => {
+  OpenAICompatibleChatLanguageModel: vi.fn().mockImplementation(function(_id, config) {
     extractors.push(config.metadataExtractor)
     return { modelId: _id }
   }),

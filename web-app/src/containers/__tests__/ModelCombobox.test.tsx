@@ -18,6 +18,7 @@ vi.mock('@/i18n/react-i18next-compat', () => ({
   useTranslation: () => ({
     t: (key: string, options?: Record<string, string>) => {
       if (key === 'common:failedToLoadModels') return 'Failed to load models'
+      if (key === 'ui:refreshModels') return 'Refresh models'
       if (key === 'common:loading') return 'Loading'
       if (key === 'common:noModelsFoundFor')
         return `No models found for "${options?.searchValue}"`

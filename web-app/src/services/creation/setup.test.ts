@@ -70,7 +70,7 @@ function bundle(): InstallSnapshot {
 }
 beforeEach(() => {
   vi.clearAllMocks()
-  mocks.get.mockResolvedValue({ id: 'Nemotron-3.5-Bolt-E4B-Q4_K_M' })
+  mocks.get.mockResolvedValue({ id: 'LFM3-Omni-2B-Q4_K_M' })
   mocks.pull.mockResolvedValue(undefined)
   mocks.invoke.mockResolvedValue(undefined)
   mocks.update.mockResolvedValue(undefined)
@@ -119,19 +119,22 @@ it('splits a verified shared-folder pack without losing names, checksums or runt
     )
   ).toBe(true)
 })
-it('configures three independent media banks and imports text by reference with the separate Nemotron text model', async () => {
+it('configures three independent media banks and imports text by reference with the default Omni model and its projector', async () => {
   mocks.get
     .mockResolvedValueOnce(undefined)
-    .mockResolvedValue({ id: 'Nemotron-3.5-Bolt-E4B-Q4_K_M' })
+    .mockResolvedValue({ id: 'LFM3-Omni-2B-Q4_K_M' })
   await configureRecommendedBundle(bundle(), 'new')
   expect(mocks.invoke).toHaveBeenCalledWith('creation_video_runtime_check', {
     python: 'chosen-python',
   })
   expect(mocks.pull).toHaveBeenCalledWith(
-    'Nemotron-3.5-Bolt-E4B-Q4_K_M',
-    'D:/Novera models/Nemotron-3.5-Bolt-E4B-Q4_K_M/Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf',
+    'LFM3-Omni-2B-Q4_K_M',
+    'D:/Novera models/LFM3-Omni-2B-Q4_K_M/LFM3-Omni-2B-Q4_K_M.gguf',
     text[0].sha256,
-    text[0].size
+    text[0].size,
+    'D:/Novera models/LFM3-Omni-2B-Q4_K_M/mmproj-LFM3-Omni-2B-Q4_K_M.gguf',
+    text[1].sha256,
+    text[1].size
   )
   expect(useCreation.getState().settings.ggufImageModel).toContain(
     'image-ggufImageModel'
@@ -148,7 +151,7 @@ it('configures three independent media banks and imports text by reference with 
     instrumental: true,
   })
   expect(useCreation.getState().modes.new).toBe('music')
-  expect(useModelProvider.getState().selectedModel?.id).toBe('Nemotron-3.5-Bolt-E4B-Q4_K_M')
+  expect(useModelProvider.getState().selectedModel?.id).toBe('LFM3-Omni-2B-Q4_K_M')
   await configureRecommendedBundle(bundle(), 'new')
   expect(useMediaLibrary.getState().profiles).toHaveLength(2)
   expect(useMusicCreation.getState().profiles).toHaveLength(1)
@@ -163,30 +166,32 @@ it('registers the independent Qwen retrieval weights on CPU and both upscalers a
     'D:/Novera models/Qwen3-Embedding-0.6B-Q8_0/Qwen3-Embedding-0.6B-Q8_0.gguf', embedding[0].sha256, embedding[0].size)
   expect(mocks.update).toHaveBeenCalledWith('Qwen3-Embedding-0.6B-Q8_0', { ngl: 0 })
   expect(useDefaultEmbeddingModel.getState().defaultByProvider.llamacpp).toBe('Qwen3-Embedding-0.6B-Q8_0')
-  expect(useModelProvider.getState().selectedModel?.id).toBe('Nemotron-3.5-Bolt-E4B-Q4_K_M')
+  expect(useModelProvider.getState().selectedModel?.id).toBe('LFM3-Omni-2B-Q4_K_M')
   expect(useImageUpscale.getState().installedModels).toEqual({
     2: 'D:/Novera models/upscale_models/RealESRGAN_x2plus.pth',
     4: 'D:/Novera models/upscale_models/RealESRGAN_x4plus.pth',
   })
 })
-it.each(['embedding.model', 'upscale.upscale2', 'upscale.upscale4'])('refuses to claim full setup when %s is missing', async (role) => {
+it.each(['text.mmproj','embedding.model', 'upscale.upscale2', 'upscale.upscale4'])('refuses to claim full setup when %s is missing', async (role) => {
   const job = bundle()
   job.plan.files = job.plan.files.filter((file) => file.role !== role)
   job.verified = job.plan.files.map(() => true)
-  await expect(configureRecommendedBundle(job)).rejects.toThrow(role.startsWith('embedding') ? 'SETUP_EMBEDDING_MISSING' : 'SETUP_UPSCALE_MISSING')
+  await expect(configureRecommendedBundle(job)).rejects.toThrow(role==='text.mmproj'?'SETUP_TEXT_PROJECTOR_MISSING':role.startsWith('embedding') ? 'SETUP_EMBEDDING_MISSING' : 'SETUP_UPSCALE_MISSING')
   expect(mocks.pull).not.toHaveBeenCalled()
 })
 it('registers a resumed Q6_K bundle under its original model id and folder', async () => {
   const job = bundle()
   const legacy = job.plan.files.find((file) => file.role === 'text.model')!
   legacy.name = 'LFM3-1.7B-Q6_K.gguf'
+  job.plan.files=job.plan.files.filter(file=>file.role!=='text.mmproj')
+  job.verified=job.plan.files.map(()=>true)
   mocks.get.mockResolvedValueOnce(undefined).mockResolvedValue({ id: 'LFM3-1.7B-Q6_K' })
   await configureRecommendedBundle(job, 'new')
   expect(mocks.pull).toHaveBeenCalledWith(
     'LFM3-1.7B-Q6_K',
     'D:/Novera models/LFM3-1.7B-Q6_K/LFM3-1.7B-Q6_K.gguf',
     legacy.sha256,
-    legacy.size
+    legacy.size, undefined, undefined, undefined
   )
   expect(useModelProvider.getState().selectedModel?.id).toBe('LFM3-1.7B-Q6_K')
 })

@@ -19,6 +19,7 @@ const hoisted = vi.hoisted(() => ({
     setProviders: vi.fn(),
   },
   pullModelWithMetadataMock: vi.fn(),
+  updateModelSettingsMock: vi.fn().mockResolvedValue(undefined),
   isModelSupportedMock: vi.fn().mockResolvedValue('GREEN'),
   startEngineSetupMock: vi.fn().mockResolvedValue(undefined),
   verifyGpuOffloadMock: vi.fn(),
@@ -52,6 +53,7 @@ vi.mock('@/hooks/useServiceHub', () => {
   const stub = () => ({
     models: () => ({
       isModelSupported: hoisted.isModelSupportedMock,
+      updateModelSettings: hoisted.updateModelSettingsMock,
       pullModelWithMetadata: hoisted.pullModelWithMetadataMock,
       startEngineSetup: hoisted.startEngineSetupMock,
       verifyGpuOffload: hoisted.verifyGpuOffloadMock,
@@ -594,23 +596,23 @@ describe('SetupScreen', () => {
       await renderPastSetup()
       expect(screen.queryByRole('checkbox', { name: 'setup:dsparkEnable' })).not.toBeInTheDocument()
     })
-    it('offers and downloads the Novera NVIDIA Q4_K_M recommendation', async () => {
+    it('offers and downloads the default Omni pair', async () => {
       hoisted.janModel = NOVERA_RECOMMENDED_MODEL
       await renderPastSetup()
-      expect(screen.getByText('Nemotron-3.5-Bolt-E4B · Q4_K_M')).toBeInTheDocument()
+      expect(screen.getByText('LFM3-Omni-2B · Q4_K_M')).toBeInTheDocument()
       expect(screen.queryByRole('checkbox', { name: 'setup:dsparkEnable' })).not.toBeInTheDocument()
       expect(hoisted.isModelSupportedMock).toHaveBeenCalledWith(
-        NOVERA_RECOMMENDED_MODEL.quants![0].path, 16384
+        NOVERA_RECOMMENDED_MODEL.quants![0].path, 32768
       )
       fireEvent.click(screen.getByText('setup:download'))
       await waitFor(() => expect(hoisted.pullModelWithMetadataMock).toHaveBeenCalledWith(
-        'Nemotron-3.5-Bolt-E4B-Q4_K_M',
-        'https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB/resolve/main/Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf?download=true',
-        undefined, 'hf-token', true
+        'LFM3-Omni-2B-Q4_K_M',
+        NOVERA_RECOMMENDED_MODEL.quants![0].path,
+        NOVERA_RECOMMENDED_MODEL.mmproj_models![0].path, 'hf-token', true
       ))
     })
 
-    it('downloads only Nemotron after a queued support check completes', async () => {
+    it('downloads only the Omni pair after a queued support check completes', async () => {
       hoisted.janModel = NOVERA_RECOMMENDED_MODEL
       let resolveSupport!: (status: string) => void
       hoisted.isModelSupportedMock.mockImplementationOnce(() => new Promise((resolve) => { resolveSupport = resolve }))
@@ -619,8 +621,8 @@ describe('SetupScreen', () => {
       expect(hoisted.pullModelWithMetadataMock).not.toHaveBeenCalled()
       await act(async () => resolveSupport('GREEN'))
       await waitFor(() => expect(hoisted.pullModelWithMetadataMock).toHaveBeenCalledWith(
-        'Nemotron-3.5-Bolt-E4B-Q4_K_M', NOVERA_RECOMMENDED_MODEL.quants![0].path,
-        undefined, 'hf-token', true
+        'LFM3-Omni-2B-Q4_K_M', NOVERA_RECOMMENDED_MODEL.quants![0].path,
+        NOVERA_RECOMMENDED_MODEL.mmproj_models![0].path, 'hf-token', true
       ))
     })
 

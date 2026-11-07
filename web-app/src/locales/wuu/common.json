@@ -831,5 +831,10 @@
     "update": "更新",
     "rollback": "恢复前一版环境",
     "busy": "改组件之前，先拿本机模型卸载出内存，再等生成结束。"
-  }
+  },
+  "voiceConversation": "语音对话",
+  "voiceUnavailable": "语音对话不可用",
+  "voiceMale": "男声",
+  "voiceFemale": "女声",
+  "voiceReadReplies": "朗读回复"
 }

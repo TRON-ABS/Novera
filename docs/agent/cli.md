@@ -10,6 +10,15 @@ novera [OPTIONS]
 novera <COMMAND>
 ```
 
+## Built-in local engine (source preparation)
+
+The next CLI build includes llama.cpp **v0.9.0** through the GUI-free
+`novera-inference` crate. `novera engine version` reports its pinned identity;
+`novera engine serve --preset /absolute/path/local.ini --port 8080` serves the
+models on loopback. Set a non-empty `NOVERA_ENGINE_API_KEY` first. CPU is the
+default; macOS builds can opt into `engine-metal`. This source change has not
+been compiled or exercised. See [configuration and platform limits](../LLAMA_CPP_0_9_0.md).
+
 ## Opening the console
 
 | Flag | Description |

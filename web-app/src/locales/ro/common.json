@@ -831,5 +831,10 @@
     "update": "Actualizare",
     "rollback": "Restaurați mediul anterior",
     "busy": "Descărcați modelele locale și așteptați ca generațiile să se termine înainte de a schimba componentele."
-  }
+  },
+  "voiceConversation": "Conversație vocală",
+  "voiceUnavailable": "Conversația vocală nu este disponibilă",
+  "voiceMale": "Voce masculină",
+  "voiceFemale": "Voce feminină",
+  "voiceReadReplies": "Citește răspunsurile cu voce tare"
 }

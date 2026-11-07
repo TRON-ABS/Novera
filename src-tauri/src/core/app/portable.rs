@@ -58,7 +58,7 @@ pub fn initialize() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 pub fn configure(context: &mut tauri::Context<tauri::Wry>) {
-    let suffix = format!("{:x}", Sha256::digest(root().to_string_lossy().as_bytes()));
+    let suffix = hex::encode(Sha256::digest(root().to_string_lossy().as_bytes()));
     context.config_mut().identifier =
         format!("io.github.tronabs.novera.portable.{}", &suffix[..16]);
     for window in &mut context.config_mut().app.windows {

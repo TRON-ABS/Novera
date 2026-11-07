@@ -85,13 +85,13 @@ pub async fn register_provider_config(
     // Service) must not block registration; the in-memory config still works.
     let provider_name = request.provider.clone();
     let keys = config.api_keys.clone();
-    if let Err(err) = tauri::async_runtime::spawn_blocking(move || {
+    let persistence = tauri::async_runtime::spawn_blocking(move || {
         crate::core::server::provider_secrets::store_provider_keys(&provider_name, &keys)
     })
     .await
     .map_err(|e| e.to_string())
-    .and_then(|r| r)
-    {
+    .and_then(|r| r);
+    if let Err(err) = &persistence {
         log::warn!(
             "Failed to persist API keys to keyring for {}: {err}",
             request.provider
@@ -103,7 +103,9 @@ pub async fn register_provider_config(
     let provider_name = request.provider.clone();
     configs.insert(provider_name.clone(), config);
     log::debug!("Registered provider config: {provider_name}");
-    Ok(())
+    // Keep the configured provider usable in memory, but never report that
+    // persistence succeeded when no secure store could retain its keys.
+    persistence.map_err(|_| "Secure storage unavailable; API keys are available only in this session".into())
 }
 
 /// Replace the per-model sampling defaults the API server injects for MLX

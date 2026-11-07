@@ -929,7 +929,7 @@ fn render_table(header: &[Cell], rows: &[Vec<Cell>], width: u16) -> Vec<Line<'st
 
     let mut table = Table::new();
     table
-        .load_preset(comfy_table::presets::UTF8_FULL)
+        .load_style(comfy_table::presets::UTF8_FULL)
         .set_content_arrangement(ContentArrangement::Dynamic)
         .set_width(width.max(20))
         .set_header(header.iter().map(cell_text));

@@ -7,7 +7,7 @@ describe('migrateLegacyModels', () => {
   let extension: llamacpp_extension
 
   beforeEach(() => {
-    vi.clearAllMocks()
+    vi.resetAllMocks()
     extension = new llamacpp_extension({
       name: 'llamacpp-extension',
       productName: 'LlamaC++ Extension',
@@ -225,8 +225,11 @@ describe('migrateLegacyModels', () => {
 
       vi.mocked(fs.existsSync).mockResolvedValue(true)
       vi.mocked(fs.readdirSync)
-        .mockResolvedValueOnce(['subdir']) // First call returns only a directory
-        .mockResolvedValueOnce([]) // Second call for subdirectory returns empty
+        // The native readdir contract returns full paths, not basenames.
+        .mockResolvedValueOnce(['/path/to/jan/models/subdir'])
+        .mockResolvedValueOnce(['/path/to/jan/models/subdir'])
+        .mockResolvedValueOnce([])
+        .mockResolvedValueOnce([])
 
       vi.mocked(fs.fileStat)
         .mockResolvedValueOnce({ isDirectory: true, size: 0 }) // subdir is a directory
@@ -234,11 +237,10 @@ describe('migrateLegacyModels', () => {
 
       await extension['migrateLegacyModels']()
 
-      expect(fs.readdirSync).toHaveBeenCalledTimes(2)
-      expect(fs.readdirSync).toHaveBeenCalledWith('/path/to/jan/models')
-      // Note: The original code has a bug where it pushes just 'child' instead of the full path
-      // so it would call fs.readdirSync('subdir') instead of the full path
-      expect(fs.readdirSync).toHaveBeenCalledWith('/path/to/jan/models')
+      expect(fs.readdirSync.mock.calls.map(([path]) => path)).toEqual([
+        '/path/to/jan/models', '/path/to/jan/models',
+        '/path/to/jan/models/subdir', '/path/to/jan/models/subdir',
+      ])
     })
   })
 

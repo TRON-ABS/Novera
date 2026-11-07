@@ -16,9 +16,9 @@ vi.mock('ulidx', () => ({
 
 // Mock fzf
 vi.mock('fzf', () => ({
-  Fzf: vi.fn(() => ({
+  Fzf: vi.fn(function() { return ({
     find: vi.fn(() => []),
-  })),
+  }); }),
 }))
 global.__TAURI_INTERNALS__ = {
   plugins: {

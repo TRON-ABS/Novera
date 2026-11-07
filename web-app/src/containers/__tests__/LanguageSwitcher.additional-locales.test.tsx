@@ -19,6 +19,30 @@ afterEach(() => {
 })
 
 it.each([
+  ["gan", "贛語", "關", "ltr"],
+  ["pbt", "پښتو (سوېلي)", "تړل", "rtl"],
+  ["mag", "मगही", "बंद करऽ", "ltr"],
+  ["ars", "عربي نجدي", "سكّر", "rtl"],
+  ["acm", "عراقي", "سد", "rtl"],
+  ["fuv", "Fulfulde (Naajeeriya)", "Uddu", "ltr"],
+  ["hne", "छत्तीसगढ़ी", "बंद", "ltr"],
+  ["tts", "อีสาน", "ปิด", "ltr"],
+  ["ny", "Chichewa", "Tsekani", "ltr"],
+  ["bm", "Bamanankan", "Da tugu", "ltr"],
+  ["sn", "ChiShona", "Vhara", "ltr"],
+  ["azb", "تۆرکجه", "باغلایین", "rtl"],
+  ["tn", "Setswana", "Tswala", "ltr"],
+  ["nso", "Sesotho sa Leboa", "Tswala", "ltr"],
+  ["bar", "Boarisch", "Schliaßn", "ltr"],
+  ["ht", "Kreyòl ayisyen", "Fèmen", "ltr"],
+  ["ug", "ئۇيغۇرچە", "تاق", "rtl"],
+  ["st", "Sesotho", "Koala", "ltr"],
+  ["el", "Ελληνικά", "Κλείσιμο", "ltr"],
+  ["ctg", "চাটগাঁইয়া", "বন্ধ", "ltr"],
+  ["rn", "Ikirundi", "Funga", "ltr"],
+  ["dyu", "Julakan", "K'a Datugu", "ltr"],
+  ["tr", "Türkçe", "Kapat", "ltr"],
+  ["sv", "Svenska", "Stäng", "ltr"],
   ["ceb", "Sinugbuanon", "Sirad-i", "ltr"],
   ["kk", "Қазақша", "Жабу", "ltr"],
   ["si", "සිංහල", "වසන්න", "ltr"],
@@ -71,7 +95,7 @@ it.each([
   expect(settings.setCurrentLanguage).toHaveBeenCalledWith(locale)
   expect(i18n.language).toBe(locale)
   expect(i18n.t('common:close')).toBe(close)
-  expect(document.documentElement).toHaveAttribute('lang', ({ prs: 'fa-AF', uzn: 'uz', pbu: 'ps', gaz: 'om' } as Record<string, string>)[locale] ?? locale)
+  expect(document.documentElement).toHaveAttribute('lang', ({ pbt: 'ps-AF', ars: 'ar-SA', acm: 'ar-IQ', azb: 'az-Arab-IR', tts: 'th-TH', prs: 'fa-AF', uzn: 'uz', pbu: 'ps', gaz: 'om' } as Record<string, string>)[locale] ?? locale)
   expect(document.documentElement).toHaveAttribute('dir', direction)
   expect(JSON.parse(localStorage.getItem(localStorageKey.settingGeneral)!)).toMatchObject({
     state: { currentLanguage: locale },

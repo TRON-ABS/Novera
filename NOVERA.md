@@ -1,5 +1,10 @@
 # Novera — instructions du projet
 
+## État courant — sources 1.0.1, 7 novembre 2026
+
+Le mainteneur demande le passage des sources en **1.0.1** après son retour positif Desktop. Manifests et verrous applicatifs synchronisés ; Android **versionCode 1000013**, identité et certificat conservés. Les **104 README** et la source de la vitrine portent les notes complètes, optimisations, tableau de bord repliable, micro/son et limites. Les téléchargements publics restent **1.0.0** ; aucune publication ou modification GitHub/Pages n’est exécutée pour ce lot. Les constats antérieurs ci-dessous sont historiques. [Suivi et validation](deliverables/full-update-2026-11-06/SUIVI.md).
+
+
 Le [bilan vérifié du 1er novembre](docs/VALIDATION_RESULTS_2026-11-01.md) clôt les contrôles autonomes de compilation, paquets et remplacement natif. Les cinq desktops, les trois CLI et le renouvellement Web local ont leurs preuves ; la CI source `41345584039` à `6129a15a` passe 55 contrats Node (53 réussis, deux propres à Windows ignorés sur Ubuntu) et sept tests Python. Aucun feed public ni publication ; les accès/identités Apple et Android, les validations de production restent requis. La [vitrine GitHub Pages](https://tron-abs.github.io/Novera/) est maintenant configurée et vérifiée sous HTTPS (run `41346258656`, commit `5faf42a6`) ; elle ne publie pas le client Web. Le cache observé `max-age=600` et les chemins du client nécessitent encore une validation adaptée au sous-chemin `/Novera/`. Le contrôle Pages ajoute deux contrats : 57 Node locaux réussis, 55 réussis/deux ignorés sur Ubuntu, sept Python réussis. Les caches locaux ont été nettoyés sur demande ; ne pas les reconstruire sans nécessité.
 
 ## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026

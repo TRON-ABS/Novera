@@ -831,5 +831,10 @@
     "update": "Update",
     "rollback": "Ibalik ang dating kapaligiran",
     "busy": "I-unload ang mga lokal na modelo at hintaying matapos ang mga henerasyon bago magpalit ng mga bahagi."
-  }
+  },
+  "voiceConversation": "Pag-uusap gamit ang boses",
+  "voiceUnavailable": "Hindi available ang pag-uusap gamit ang boses",
+  "voiceMale": "Boses ng lalaki",
+  "voiceFemale": "Boses ng babae",
+  "voiceReadReplies": "Basahin nang malakas ang mga sagot"
 }

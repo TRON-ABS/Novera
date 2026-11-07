@@ -9,7 +9,7 @@ import { getProviderLogo } from '@/lib/utils'
 
 function assertBundledImage(src: string | undefined) {
   expect(src).toMatch(/^\/images\/model-provider\//)
-  const data = readFileSync(resolve(process.cwd(), `public${src}`))
+  const data = readFileSync(resolve(__dirname, '../../..', `public${src}`))
   expect(data.length).toBeGreaterThan(100)
   expect(data.toString('utf8', 0, 100)).not.toContain('<!DOCTYPE html')
 }

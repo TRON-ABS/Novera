@@ -1,10 +1,10 @@
-<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a></p>
+<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a> · <a href="README.ny.md">Chichewa</a> · <a href="README.bm.md">Bamanankan</a> · <a href="README.sn.md">ChiShona</a> · <a href="README.tn.md">Setswana</a> · <a href="README.nso.md">Sesotho sa Leboa</a> · <a href="README.ht.md">Kreyòl ayisyen</a> · <a href="README.st.md">Sesotho</a> · <a href="README.el.md">Ελληνικά</a> · <a href="README.rn.md">Ikirundi</a> · <a href="README.dyu.md">Julakan</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.sv.md">Svenska</a> · <a href="README.gan.md">贛語</a> · <a href="README.pbt.md">پښتو (سوېلي)</a> · <a href="README.mag.md">मगही</a> · <a href="README.ars.md">عربي نجدي</a> · <a href="README.acm.md">عراقي</a> · <a href="README.fuv.md">Fulfulde (Naajeeriya)</a> · <a href="README.hne.md">छत्तीसगढ़ी</a> · <a href="README.tts.md">อีสาน</a> · <a href="README.azb.md">تۆرکجه</a> · <a href="README.bar.md">Boarisch</a> · <a href="README.ug.md">ئۇيغۇرچە</a> · <a href="README.ctg.md">চাটগাঁইয়া</a></p>
 
 <div align="center">
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Yaa ngi leeral sa mébet. Novera mooy waajal jumtukaay yi, def liggéey bi ba noppi nas njariñ yi.</strong></p>
   <p>Jàppalekatu AI bu moom boppam bu TRON-ABS defar, daale ko ci ubbite bu njëkk bi ba ci njariñ yi: bind, nataal, music ak wideo ci benn waxtaan.</p>
-  <p><strong>Amna ci Windows, Linux, macOS ak Android</strong> · 80 làkki interface · 42 Fournisseur cloud · 49 media preset · Apache 2.0</p>
+  <p><strong>Amna ci Windows, Linux, macOS ak Android</strong> · Ay balluwaay yuñ waajal: 104 làkki interface · 42 fournisseurs cloud · 58 media yiñ tëral · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatisation</a> · <a href="#one-dashboard-for-every-creation">Tablo</a> · <a href="#local-models-in-use">AI model yiy daw ci sa aparey</a> · <a href="#hub-and-compatible-models">Hub ak model yu méngoo</a> · <a href="#cloud-providers">Niir</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Jàppale</a></p>
   <p>Jokkoo ofisel: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Profil sosio ofisel Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -14,6 +14,34 @@
 > Tekki làkku README ci Àngle biñ jàppale ci 2026-11-03. Ba leegi ñu ngi soxla xoolaat làkk wiñ nàmp. Këyitu lëkkalekaay yi dañuy tëye seen làkk wiñ ko bindee.
 
 ---
+
+<!-- novera-release-1.0.1:start -->
+<a id="preparing-1-0-1"></a>
+## Dafay waajal xeetu 1.0.1
+
+Yebbite yi ñépp bokk dañuy des ci 1.0.0. Yooyu yokkute ñu ngi leen waajal ci balluwaay yi ngir 1.0.1; Dañuy laaj ñu tabaxaat kofre yi, saytu génne gi ak siiwal ko. Yeesal dokimaa bii du yeesal aplikaasioŋ yiñ samp.
+
+- Kaaraange: sañ-sañ yu gëna tar ngir xët yu sori, xamle API reso bi ak jumtukaayi serwër yi, dencukaay sekkere ak migraasioŋ buñ aar, jëfandikoo fichier/media bu gëna wóor, jàngat këyitu xayma ak defar script. Dependence yiñ wane yeesal nañu leen; dessitu advisories yi ñu ngi leen di topp ci lu leer.
+- Sutura: lim yi ak rapoor njuumte yi dañuy laaj ndigalu wuute te dañuy des ci default. Tabax yi dañuy àndaale ak tabb jëmmal buñ bind. Diagnostic teknik dañu koy segg; jëfandikukat yi ñooy saytu aktivaasioŋ bi.
+- Motër lokaal: `llama.cpp v0.9.0` (`b12110`, `cd959bae99ff4bed22bef2604f45241c09bbb8c8`). Versioŋu motër bi ak xeetu aplikaasioŋ bi dañu wuute. Jekkal model bi njëkk ak bindu model/projecteur bi dañu leen saafara, boole ci jafe-jafe ndoorte li ci `kv_unified`. Jekkal sa bopp yi fi nekk dañu leen di denc.
+- Làkk yi: 24 yeneen làkk ak xeeñ yi indi interfaas bi ak dajale README biñ tekki ci 104, ak 2,435 caabi interfaas bu nekk ci katalog bu nekk. Lii ñuy wax du seede kalite editorial wala ndimmbalu wax ci làkk wu nekk.
+- **LFM3-Omni-2B Q4_K_M** — Defa am ci ordinatër ak mobile. Benn xeetu mbind, nataal ak audio bu dëgër, di jëfandikoo dencukaay biñ soxla `mmproj`. Yebbi: lu tollu ci 1.39 GB ngir ñaari dencukaay yi. Tannal ko ngir am tabb multimodal bu gëna woyof. Man-mani baat mingi aju ci platform bi ak motër bi. Kontekst bu gëna gudd dafay jëfandikoo memory bu gëna bari.
+- **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** — Bind kese mooy wuutale waxtaan, bind, jumtukaay ak tontu yu jaar yoon. Yebbi: lu jëm ci 6.18 GB. Dafay laaj mémoire bu ëpp LFM3-Omni te du jëfandikoo ay nataal wala ay déglu ci boppam. Tontu yiñ wax dañuy jëfandikoo baatu sistem bi. Soo amee mémoire bu doy, tannal ko ngir bind. Saytu tontu yu dëggu yi ak balluwaay yi.
+- Ngir 1.0.1, LFM3-Omni-2B Q4_K_M ak `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` bi war mooy liñ jagleel ci ordinatëru biro wala mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M dafay des ci mbind kese. Kontekst bu njëkk bi mooy 32,768 ci ordinatër bi ak 2,048 ci mobile bi. Context yu gëna gudd dañuy jëfandikoo memory bu gëna bari. Tanneef ak jekkal model yi fi nekk dañu leen di denc ba keroog ñu leen di soppi ci anam wu leer.
+- Baat: duggal mikrofoŋ bu jub ci LFM3-Omni, waxtaan bu wéy ak yónnee ci saa si, baatu tontu góor/jigéen ngir model audio yi, ak kàddu sistem ngir model yu yàgg yi. Liggéeyu tontu dafay dox itam ci mesaas yiñ bind ak defaraat, amul benn njeexte ci jàpp mikro bi. Benn butoŋu son bu ndaw dafay may wala mu noppi jàng.
+- Tolluwaayu mikro bi: wert su amee, xonk su amee liggéey, dóomu-taal su ameewul. Xamme, déglu tàmbaliwaat, jëfandikoo focus ak dikte buñ mëna gis, saafara nañu ko. Fimna nii ñu ngi jëfandikoo Windows; yeneen platform yi ba leegi dañu soxla validation native ak ndimbalu baat bu méngoo.
+- Web: gis-gis bu gëna wóor ci laaj meteo, tegtal ci bis bi fi nekk, njariñ yu bees ak ay lim, ak tontu yu lalu ci laaj bi fi nekk ginaaw bi ñu jëfandikoo jumtukaay bi. Wax ji dafay bàyyi etiketu dekoraasioŋ ak lëkkalekaay yi ci noonu muy denc ay sitaasioŋ yuñ mëna gis. Tontu ak làkku wax dañu topp làkku jëfandikukat bi ci anam wi model biñ tànn mëna jàppale ko.
+- Optimisations: waajal seetlu web ci ginaaw sudee Internet bi tàmbali, séddoo tàmbali serwiis, waajal pàccu kàddu yi ci topp laataa ñuy jouer ak gëna suqali wéyal santaane. At yi ci français, nimero desimal yi ak benn-benn yi dañu leen di gëna mëna jàng ci anam wu natureel. Latency reso bi ak gaawaayu model bi mingi aju ci tabb gi.
+- Konfort: komand yi gëna suufe dañuy wàcci fekk dugal bi dafay wéy di feeñ. Mikro bu dëgër ak ay doxalinu fësal, ab butoŋu son ci suufu mikro bi, jekkal music buy tontu ak etiketu komponent yuñ tekki gëna yombal jëfandikoo gi ci ekraŋ yu ndaw yi.
+- Katalogu API yi: 43 profaalu joxekat yi, boole ci TabbyAPI ci dëkk bi, ak tànneefi waxtaan ak mejaa yu bees. Duggal yu bees yi ñooy GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 ak GPT Image 2.6, Gemini Omni 1.2, FLUX 3 fi ñu ko jàppale. Refresh dootul nëbb resultaa yi ginaaw fukki model. ràññeekaay yu dëggu yi, poñ yu mujj yi ci diwaan yi, dugal ay mbir ci seen bopp ak xeetu indi yiñ indi dañu leen di jox cër.
+- Taxawam: aplikaasioŋ biñ tànn, bibliotek-natiif, katalog publik ak saytu làkk yi dañu leen bind ci notu detaay yi. Jokkoo bi dafa defar ngir Windows / macOS / Linux / Android / iOS. Yii tabax frontend duñu sertifiye kofre wala inference ci bépp aparey.
+- Laata ñuy génne: xool bu baax kofre yiñ tabaxaat, dessitu kaaraange/jëfandikoo ak yeesal 1.0.0 ba 1.0.1 dëgg. Disponibilite mingi aju ci aparey bi, jëfandikoo gi ak platform bi. Amul benn xeetu dëppoo bu mat sëkk, amul benn vulnérabilité wala piblikaasioŋ bu mat.
+
+[Saaga yu leer, validasioŋ ak liggéey bi des](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
+
+> Yii notu yeesal dañuy jëfandikoo tekki làkk buñ jàppale, ak, fépp fu ko jaree, ñu bokk bind buñ bind. Xoolaat làkk wiñ nàmp lu am solo la. Këyitu lëkkalekaay yi dañuy tëye seen làkk wiñ ko bindee.
+
+<!-- novera-release-1.0.1:end -->
 
 ## Disponibilite — 2026-11-03
 
@@ -74,11 +102,11 @@ Otomatisation dafay muur motëri liggéey yuñ boole; du tax model Hub bu nekk m
 
 [Gitu jëfandikukat](docs/USER_GUIDE.md) · [Motëri ak gëmloo](docs/SUIVI_MOTEURS.md) · [Yokkateg](docs/DEVELOPMENT.md)
 
-Ci balluwaay yiñ yeesal, **Tabluwaay yi dañuy méngale ay xalaatam ak jumtukaayi mobile ak yu tënk** LFM3-1.7B Q4, wala LFM3-Omni-2B Q4 ak projectër bi sudee liñu laaj ci memory bi ak ci motër bi matna. Generation local bi amul dañu ko nëbb wala ñu ko tëj; nataalu cloud biñ tabb, music ak wideo ñu ngi wéy di jàppandi. Njàngaley interface bi dafay jëfandikoowaat 80 katalog làkk yi. Xayma yooyu dañuy laaj ñu saytu aparey bi ba noppi tabaxaat ko ngir mëna yegg ci aplikaasioŋ yiñ samp.
+Ngir 1.0.1, LFM3-Omni-2B Q4_K_M ak `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` bi war mooy liñ jagleel ci ordinatëru biro wala mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M dafay des ci mbind kese. Kontekst bu njëkk bi mooy 32,768 ci ordinatër bi ak 2,048 ci mobile bi. Context yu gëna gudd dañuy jëfandikoo memory bu gëna bari. Tanneef ak jekkal model yi fi nekk dañu leen di denc ba keroog ñu leen di soppi ci anam wu leer.
 
 ## Mën-mën yi ci balluwaay bi
 
-Diagnostic maintenance bu tànneef leegi dafay wuutale tabax ak jumtukaay yiñ jëfandikoo ak JavaScript exceptions, ak ndigalu wuute ak barabi xarala yuñ segg. Dañu tabb ab àrtu ci imeel waxtu wu nekk ngir kiy toppatoo bi. kàrtu source privé ak leeral yi ci topp [téere toppatoo bi](docs/MAINTENANCE.md); test email receipt firndeel nañu ko, ci noonu la màndarga gëmloo yebbi ak test ci binaire bi ci topp des xool génne.
+1.0.1 lañu waajal toppatoo bi ak sutura bi. Limu tànneef yi ak rapoor njuumte yi dañuy jëfandikoo ndigalu moom seen bopp, leer ak saytu xarala yuñ segg. Saytu yiñ laaj ngir génne ak yeneen mbir yuñ gis ci wàllu kaaraange, dañu leen di tàqale ci këyit. [téere toppatoo bi](docs/MAINTENANCE.md)
 
 | Barab | Man-man yi |
 | --- | --- |
@@ -98,7 +126,8 @@ Modèle yooyu ñooy forme configuration guidée bi fi nekk. Mën nga indi yeneen
 
 | Rol | Modèle / komponent yiñ tabb |
 | --- | --- |
-| **Text — model bi njëkk** | **Nemotron-3.5-Bolt-E4B**, dosie `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
+| **Text — model bi njëkk** | **LFM3-Omni-2B Q4_K_M** · `LFM3-Omni-2B-Q4_K_M.gguf` + `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` |
+| **Alternatif bi nekk ci bind kese** | **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** · `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf` |
 | **Seetlu këyit** | **Qwen3-Embedding-0.6B Q8_0**, **CPU biñu ko jagleel**, ak tànneef CPU/GPU buñ denc. |
 | **Nataal** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** enkodeur ak FLUX.2 VAE ofisel. |
 | **Nataal — tànneef ci aparey** | **FLUX.2 Klein 4B NVFP4**, jaaraleko ci yoonu CUDA bi su GPU bi ak environmaa bi méngoo. |
@@ -114,7 +143,7 @@ Encodeur musical Qwen ak modelu recuperation Qwen ñooy **fichier yu wuute**, de
 
 ## Fournisseur cloud
 
-**42 profile** dañu boole. **ElevenLabs** Leegi mingi feeñ ci vitrine bi ci wetu yooni misik yu bawoo ci Stability AI, fal ak Replicate.
+Balluwaay yi ñu waajal deñoo am 43 ay profaayilu joxekat yi: 42 sarwis yu niir yi ak TabbyAPI ngir ab serwër bu dëkk bi. Disponibilite model bi ak kàttan yi a ngi aju ci kontu bi, gox bi ak API bi ñuy jàppale. 104 bépp làkki interfaas ñoo bokk catalog bi.
 
 | | | |
 | --- | --- | --- |
@@ -131,27 +160,27 @@ Encodeur musical Qwen ak modelu recuperation Qwen ñooy **fichier yu wuute**, de
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/) |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://docs.dev.runwayml.com/api/) | <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://docs.ltx.io/models) |
 | <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
-| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/docs/model-map) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/models) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
 
 ### Nataal, music ak wideo
 
-**20 furnisër dañu wane yooni defar**, ak **49 tànneef: 25 nataal, 20 wideo ak 4 music**. Yooni music ñooy **ElevenMusic v2.5**, **Stable Audio 3**, **ACE-Step ci fal** ak **Stable Audio 2.5 jaare ko ci Replicate**.
+Catalogu sos bi ñu defar dafa am 58 paramet yu bawoo ci 20 : 30 nataal, 24 wideo ak 4 paraset misik. Tablo yi ci suuf dañuy lim yoon yiñ boole; duñu defar bépp saraxu jënd ak jaay.
 
 | Fournisseur | Novera | Modèlu katalog |
 | --- | --- | --- |
 | <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="24" height="24" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | Woy | `ElevenMusic v2.5` |
-| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Nataal / Musik | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
-| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Nataal / Music / Wideo | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
-| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Nataal / Musik | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
+| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Nataal / Musik | `Stable Image Ultra` · `Stable Image Core` · `Stable Audio 3` |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Nataal / Music / Wideo | `FLUX 3 Video · fal` · `FLUX 3 Image · fal` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` · `ACE-Step · cloud` |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Nataal / Music / Wideo | `FLUX 3 Video · Replicate` · `FLUX.2 Max · Replicate` · `Stable Audio 2.5 · Replicate` |
 | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="24" height="24" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | Nataal / Wideo | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
 | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="24" height="24" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | Nataal / Wideo | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
-| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Nataal / Wideo | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Nataal / Wideo | `Gemini Omni 1.2 Flash` · `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
 | <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="24" height="24" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | Nataal | `Krea 3` |
 | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="24" height="24" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | Nataal | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
 | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="24" height="24" /> [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | Wideo | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
-| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Nataal | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Nataal | `GPT Image 2.6 Sunburst` · `GPT Image 2.6 Flare` · `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
 | <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="24" height="24" /> [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | Nataal / Wideo | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
-| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Nataal | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Nataal / Wideo | `FLUX 3 Image` · `FLUX 3 Image Klein` · `FLUX 3 Video` · `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="24" height="24" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | Nataal | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
 | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="24" height="24" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | Nataal | `Ideogram 4.5` |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="24" height="24" /> [Runway](https://docs.dev.runwayml.com/api/) | Wideo | `Runway Gen-4.5` |
@@ -165,23 +194,23 @@ Encodeur musical Qwen ak modelu recuperation Qwen ñooy **fichier yu wuute**, de
 
 | Fournisseur | ID model yiñ joxe ci balluwaay bi |
 | --- | --- |
-| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
+| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6.1-terra` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
 | [Microsoft Azure](https://oai.azure.com/deployments) | Dugalug kontu wala buntu |
 | [Anthropic](https://platform.claude.com/docs/en/models/overview) | `claude-sonnet-5-5` · `claude-opus-5-5` · `claude-fable-5-1` · `claude-haiku-5-5` |
-| [OpenRouter](https://openrouter.ai/models) | `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
-| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `mistral-medium-3-5` · `mistral-small-2603` · `ministral-3b-2512` |
-| [Groq](https://console.groq.com/docs/models) | `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
+| [OpenRouter](https://openrouter.ai/models) | `liquid/lfm-3-1.7b` · `openai/gpt-6.1-terra` · `tencent/hy4` · `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
+| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `zai-glm-5-3-flash` · `mistral-small-2603` · `ministral-3b-2512` |
+| [Groq](https://console.groq.com/docs/models) | `qwen/qwen3.8-27b` · `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
 | [xAI](https://docs.x.ai/developers/models) | `grok-4.7` |
 | [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | `gemini-4-argon` · `gemini-3.8-flash` · `gemini-3.6-flash` · `gemini-3.5-flash-lite` |
 | [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) | `MiniMax-M3.1-Flash` · `MiniMax-M3` |
-| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
-| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3` |
+| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `MiniMaxAI/MiniMax-M3.1-Flash` · `zai-org/GLM-5.3-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
+| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3-flash` |
 | [DeepSeek](https://api-docs.deepseek.com/) | `deepseek-flash` · `deepseek-v4-pro` |
 | [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | `kimi-k3.1-pro` · `kimi-k3.1-pro-highspeed` · `kimi-k3` |
 | [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | `qwen3.8-max` · `qwen3.7-plus` · `qwen3.8-flash` |
 | [Cerebras](https://inference-docs.cerebras.ai/models/overview) | `qwen-3.8-27b` · `gpt-oss-120b` |
-| [Together AI](https://docs.together.ai/docs/serverless/models) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
-| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
+| [Together AI](https://docs.together.ai/docs/serverless/models) | `moonshotai/Kimi-K3.1-Pro` · `MiniMaxAI/MiniMax-M3.1-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
+| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/kimi-k3p1-pro` · `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
 | [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) | `perplexity/sonar` · `openai/gpt-6.1-sol` · `google/gemini-4-argon` · `perplexity/kimi-k3` |
 | [Meta AI](https://dev.meta.ai/docs/models) | `muse-wonder-1.0` · `muse-spark-1.3` |
 | [Cohere](https://docs.cohere.com/docs/models) | `command-a-plus-05-2026` |
@@ -189,8 +218,8 @@ Encodeur musical Qwen ak modelu recuperation Qwen ñooy **fichier yu wuute**, de
 | [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | `jamba-large` · `jamba-mini-2` |
 | [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | `dola-seed-2-1-turbo-260628` |
 | [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) | `ernie-5.1` |
-| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4-preview` |
-| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-sol` |
+| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4` · `hy4-preview` |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-terra` · `openai.gpt-6.1-sol` |
 | [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) | Dugalug kontu wala buntu |
 
 </details>
@@ -237,9 +266,9 @@ Xeetu tànneef biñ jagleel hardware bi mooy gëna bëgg génne yu bees yi ci bi
 
 Sources yu bees yi yokk **komponent yiñ yor ci tànneef yi ngir Windows x64**: environmaa yi Python privé, profil CPU/CUDA yuñ tënk, xayma ak firnde laataa ñuy yebbi, xool, defar ak dindi. Yooni tekkikatu làkk yiñ personaalise dañuy des ci tànneef yu xóot yi. Motëri GGUF yi dañuy tëye seen cër yi fi nekk; mobile ak cloud duñu yebbi Python/PyTorch. Ñatti profil CPU/export yuñ jëfandikoo ak jumtukaayi synthetik dëgg; Toppatookat bi dafa wax ni jëfandikoo na bu baax ordinatër bi ci 1 nowàmbar 2026; Profil GPU ak instalaasioŋ bu sell-PC ba leegi dañu soxla tàqaloo, gëna leer. [Profil yi ak àppu test yi](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). dugal stack bi ci EXE defa yeex.
 
-## 80 làkki interface ak seeni variant
+## 104 làkki interface ak seeni variant
 
-**80 katalog yi dañuy tënk 2,429 caabi angale yi fi nekk** ci barabi tur 15, boole ci mënu yi, tabb yi, jekkal yi, ndimbal yi ak seytu media yi. Formu plural yi ak yoon wi interface bi di jaar dañu topp làkk wiñ tànn. Tontu ak làkku baat a ngi aju ci model bi.
+**104 katalog yi dañuy tënk 2,435 caabi angale yi fi nekk** ci barabi tur 15, boole ci mënu yi, tabb yi, jekkal yi, ndimbal yi ak seytu media yi. Formu plural yi ak yoon wi interface bi di jaar dañu topp làkk wiñ tànn. Tontu ak làkku baat a ngi aju ci model bi.
 
 Bii coverage technique seedewul kalite linguistic: **xoolaat ci dëkk bi ak méngale ci diwaan yi dañuy wéy di am njariñ**. Xoolal etiketu cosaan ak àpp yiñ xam ci [tegtal làkk](docs/LANGUAGES.md) ak [rapooru audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -275,7 +304,7 @@ Tabax GitHub Actions ak loxo mën nañu ko def ci fukk ak benn xeeti séddale y�
 - [Gitu jëfandikukat bu leer](docs/USER_GUIDE.md), [sàrti wurus yi ci wàllu produit ak jëfandikukat (Français)](docs/REGLES_D_OR.md), [model ak motëri](docs/SUIVI_MOTEURS.md).
 - [Yokkateg](docs/DEVELOPMENT.md), [tabax ak génne tegtal](docs/BUILD_AND_RELEASE.md), [xeetu ëlëg ak waajal yeesal](docs/FUTURES_VERSIONS.md).
 - [Tablo projet](TABLEAU_DE_BORD_NOVERA.md), [kàrtu yoon](ROADMAP.md), [coppite](docs/CHANGELOG.md).
-- [Di jàppale](CONTRIBUTING.md): kode, test, jàngat ci làkki 80 ak feedback ci liggéey bi dëgg.
+- [Di jàppale](CONTRIBUTING.md): kode, test, jàngat ci làkki 104 ak feedback ci liggéey bi dëgg.
 
 ## Ndaxte ak lisence
 

@@ -19,20 +19,21 @@ export function MusicModelLibrary() {
     useCreation.getState().setSelection(scope, 'music')
     setOpen(true)
   }
-  return <section aria-label={t('chat:creation.music')} className="rounded-lg border p-3 space-y-3">
-    <div className="flex items-center justify-between gap-2">
-      <h3 className="text-sm font-medium">{t('chat:creation.music')} · {t('chat:creation.local')}
+  return <section aria-label={t('chat:creation.music')} className="min-w-0 rounded-lg border p-3 space-y-3">
+    <div className="flex flex-wrap items-start justify-between gap-2">
+      <h3 className="min-w-0 text-sm font-medium">{t('chat:creation.music')} · {t('chat:creation.local')}
         <span className="ml-2 rounded-full border px-2 py-0.5 text-xs">{profiles.length}</span>
       </h3>
-      <Button size="sm" variant="secondary" onClick={() => configure()}>{t('chat:creation.configure')}</Button>
+      <Button size="sm" variant="secondary" className="h-auto max-w-full whitespace-normal break-words" onClick={() => configure()}>{t('chat:creation.settings')}</Button>
     </div>
+    <p className="max-w-full break-words text-sm text-muted-foreground">{t('chat:creation.configure')}</p>
     {!profiles.length && <p className="text-sm text-muted-foreground">{t('providers:noInstalledModels')}</p>}
-    {profiles.map((profile) => <article key={profile.id} className="rounded-xl border border-violet-400/25 p-3 space-y-2">
+    {profiles.map((profile) => <article key={profile.id} className="min-w-0 rounded-xl border border-violet-400/25 p-3 space-y-2">
       <h4 className="font-medium break-words">{profile.name}</h4>
       <p className="break-all text-xs text-muted-foreground">{profile.settings.directory}</p>
       <dl className="grid gap-2 text-xs sm:grid-cols-2">
-        {(['generator', 'planner', 'encoder', 'vae'] as const).map((role) => <div key={role}>
-          <dt className="font-medium">{t(`chat:creation.${{generator: 'musicGenerator', planner: 'musicPlanner', encoder: 'musicEncoder', vae: 'musicVae'}[role]}`)}</dt>
+        {(['generator', 'planner', 'encoder', 'vae'] as const).map((role) => <div key={role} className="min-w-0">
+          <dt className="font-medium">{t(`chat:creation.${{generator: 'musicGenerator', planner: 'musicPlanner', encoder: 'ggufTextEncoder', vae: 'ggufVae'}[role]}`)}</dt>
           <dd className="break-all text-muted-foreground">{profile.settings[role] ? modelPath(profile.settings.directory, profile.settings[role]) : '—'}</dd>
         </div>)}
       </dl>
@@ -40,7 +41,7 @@ export function MusicModelLibrary() {
     </article>)}
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="max-h-[85vh] overflow-y-auto">
-        <DialogHeader><DialogTitle>{t('chat:creation.music')} · {t('chat:creation.configure')}</DialogTitle>
+        <DialogHeader><DialogTitle>{t('chat:creation.music')} · {t('chat:creation.settings')}</DialogTitle>
           <DialogDescription>{t('chat:creation.autosave')}</DialogDescription>
         </DialogHeader>
         {open && <MusicSetupPanel scope={scope} disabled={false} />}

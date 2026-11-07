@@ -673,19 +673,19 @@ fn client_info() -> ClientInfo {
 /// because rmcp's streamable-http transport is implemented for reqwest 0.13.
 fn http_client(
     headers: &serde_json::Map<String, Value>,
-) -> Result<reqwest13::Client, String> {
-    let mut map = reqwest13::header::HeaderMap::new();
+) -> Result<reqwest::Client, String> {
+    let mut map = reqwest::header::HeaderMap::new();
     for (key, value) in headers.iter() {
         if let Some(v) = value.as_str() {
             if let (Ok(name), Ok(val)) = (
-                reqwest13::header::HeaderName::from_bytes(key.as_bytes()),
-                reqwest13::header::HeaderValue::from_str(v),
+                reqwest::header::HeaderName::from_bytes(key.as_bytes()),
+                reqwest::header::HeaderValue::from_str(v),
             ) {
                 map.insert(name, val);
             }
         }
     }
-    reqwest13::Client::builder()
+    reqwest::Client::builder()
         .default_headers(map)
         .build()
         .map_err(|e| e.to_string())

@@ -8,7 +8,7 @@ vi.mock('@tauri-apps/api/core', () => ({
 }))
 
 vi.mock('@tauri-apps/plugin-http', () => ({
-  fetch: vi.fn().mockImplementation(async () => new Response('{}', { status: 200 })),
+  fetch: vi.fn().mockImplementation(async function() { return new Response('{}', { status: 200 }); }),
 }))
 
 vi.mock('@tauri-apps/api/event', () => ({
@@ -16,7 +16,7 @@ vi.mock('@tauri-apps/api/event', () => ({
 }))
 
 vi.mock('@ai-sdk/openai-compatible', () => {
-  const MCM = vi.fn().mockImplementation((_id: string, opts: any) => {
+  const MCM = vi.fn().mockImplementation(function(_id: string, opts: any) {
     ;(globalThis as any).__capturedModelOpts = opts
     return { type: 'openai-compatible', modelId: _id }
   })

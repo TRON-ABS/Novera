@@ -1,0 +1,101 @@
+{
+  "editServer": "Edit sèvè MCP",
+  "addServer": "Ajoute sèvè MCP",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Tcheke estati ekstansyon..."
+    },
+    "notInstalled": {
+      "title": "Novera fini travay nan navigatè w la",
+      "description": "Enstale ekstansyon an pou bay Novera aksè nan navigatè",
+      "getExtension": "Jwenn ekstansyon"
+    }
+  },
+  "serverName": "Non sèvè",
+  "enterServerName": "Antre non sèvè a",
+  "command": "Kòmandman",
+  "enterCommand": "Antre kòmand (uvx oswa npx)",
+  "arguments": "Agiman",
+  "argument": "Agiman {{index}}",
+  "envVars": "Varyab Anviwònman",
+  "key": "Kle",
+  "value": "Valè",
+  "save": "Sove",
+  "status": "Estati",
+  "connected": "Konekte",
+  "disconnected": "Dekonekte",
+  "deleteServer": {
+    "title": "Efase sèvè MCP",
+    "description": "Èske w sèten ou vle efase sèvè MCP {{serverName}}? Aksyon sa a pa ka defèt.",
+    "delete": "Efase",
+    "success": "MCP sèvè {{serverName}} efase avèk siksè"
+  },
+  "editJson": {
+    "title": "Edit JSON pou sèvè MCP: {{serverName}}",
+    "titleAll": "Edit tout sèvè MCP JSON",
+    "placeholder": "Antre konfigirasyon JSON",
+    "errorParse": "Echwe pou analize premye done yo",
+    "errorPaste": "Fòma JSON ki pa valab nan kontni kole",
+    "errorFormat": "Fòma JSON ki pa valab",
+    "errorServerName": "Non sèvè obligatwa epi li pa kapab vid",
+    "errorMissingServerNameKey": "JSON dwe estriktire kòm {\"serverName\": {config}} - kle non sèvè ki manke",
+    "errorInvalidType": "Kalite '{{type}}' ki pa valab pou sèvè '{{serverName}}'. Kalite dwe 'stdio', 'http', oswa 'sse'",
+    "save": "Sove"
+  },
+  "checkParams": "Tanpri tcheke paramèt yo dapre leson patikilye a.",
+  "title": "MCP Sèvè",
+  "experimental": "Eksperimantal",
+  "editAllJson": "Edit tout sèvè JSON",
+  "findMore": "Jwenn plis MCP serveurs nan",
+  "allowPermissions": "Pèmèt tout MCP otorizasyon zouti",
+  "allowPermissionsDesc": "Lè yo aktive, tout apèl zouti MCP pral otomatikman apwouve san yo pa montre dyalòg pèmisyon. Anviwònman sa a aplike globalman pou tout konvèsasyon, tankou nouvo chat.",
+  "noServers": "Pa gen MCP sèvè yo jwenn",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Sèvè {{serverKey}} aktive avèk siksè",
+  "serverStatusInactive": "Sèvè {{serverKey}} dezaktive avèk siksè",
+  "runtimeSettings": {
+    "title": "Anviwònman Runtime",
+    "description": "Konfigure kòman Novera jere epi eseye ankò MCP sèvè yo.",
+    "toolCallTimeout": "Delè pou apèl zouti (segonn)",
+    "toolCallTimeoutDesc": "Tan maksimòm pou w tann yon repons zouti MCP anvan li rive.",
+    "maxToolOutputChars": "Maksimòm karaktè pwodiksyon zouti",
+    "maxToolOutputCharsDesc": "Pi long rezilta zouti kenbe nan konvèsasyon an. Nenpòt bagay ki pase sa a taye epi make kòm tronke, kidonk yon gwo rezilta pa ka fin itilize kontèks modèl la. Mete sou 0 pou kenbe rezilta yo antye.",
+    "smartToolRouting": "Entelijan wout zouti MCP",
+    "smartToolRoutingDesc": "Lè yo aktive, Novera chwazi sèvè ki enpòtan MCP anvan yo chaje zouti. Dezaktive pou toujou chaje lis zouti konplè MCP.",
+    "useLightweightRouterModel": "Sèvi ak yon modèl devwe pou routage",
+    "useLightweightRouterModelDesc": "Lè routage entelijan an limen, kouri etap routage a ak yon modèl separe (souvan pi piti) olye de modèl chat la. Etenn pou toujou itilize modèl chat aktif la pou routage.",
+    "routerModel": "Modèl routage",
+    "routerModelDesc": "Chwazi founisè ak modèl nan yon sèl kote. Se sèlman modèl ki lejè ki nan lis pou routage rete vit ak bon mache.",
+    "selectRouterModelPlaceholder": "Chwazi modèl routage...",
+    "routerModelSearchPlaceholder": "Chèche modèl...",
+    "routerModelEmptyList": "Pa gen modèl ki lejè ki disponib. Ajoute yon modèl ki pi piti oswa konfigirasyon kle API nan Modèl.",
+    "routerModelEmptySearch": "Pa gen alimèt pou “{{query}}”."
+  },
+  "auth": {
+    "label": "Otorite:",
+    "state": {
+      "notApplicable": "pa obligatwa",
+      "staticHeader": "Tèt otorizasyon",
+      "authenticated": "otantifye",
+      "expired": "ekspire",
+      "staleResource": "emèt pou yon lòt URL",
+      "unauthenticated": "pa otantifye"
+    },
+    "expiresIn": "ekspire nan {{duration}}",
+    "authenticate": "Enskri",
+    "reauthenticate": "Re-otantifye",
+    "clear": "Otantifikasyon klè",
+    "waiting": "Ap tann navigatè...",
+    "openSignInPage": "Louvri paj enskripsyon an",
+    "needsAuth": "{{serverName}} bezwen otantifikasyon",
+    "needsAuthHint": "Konekte sou sèvè sa a pou w konekte.",
+    "authorized": "Siyen nan {{serverName}}",
+    "authorizeFailed": "Enskripsyon pou {{serverName}} echwe",
+    "cleared": "Efase kalifikasyon ki estoke pou {{serverName}}",
+    "nothingToClear": "{{serverName}} pa te gen okenn kalifikasyon ki estoke",
+    "clearFailed": "Pa t 'kapab efase kalifikasyon pou {{serverName}}",
+    "renew": "Renouvle sesyon",
+    "expiredAgo": "ekspire {{duration}} de sa"
+  }
+}

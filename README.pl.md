@@ -1,10 +1,10 @@
-<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a></p>
+<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a> · <a href="README.ny.md">Chichewa</a> · <a href="README.bm.md">Bamanankan</a> · <a href="README.sn.md">ChiShona</a> · <a href="README.tn.md">Setswana</a> · <a href="README.nso.md">Sesotho sa Leboa</a> · <a href="README.ht.md">Kreyòl ayisyen</a> · <a href="README.st.md">Sesotho</a> · <a href="README.el.md">Ελληνικά</a> · <a href="README.rn.md">Ikirundi</a> · <a href="README.dyu.md">Julakan</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.sv.md">Svenska</a> · <a href="README.gan.md">贛語</a> · <a href="README.pbt.md">پښتو (سوېلي)</a> · <a href="README.mag.md">मगही</a> · <a href="README.ars.md">عربي نجدي</a> · <a href="README.acm.md">عراقي</a> · <a href="README.fuv.md">Fulfulde (Naajeeriya)</a> · <a href="README.hne.md">छत्तीसगढ़ी</a> · <a href="README.tts.md">อีสาน</a> · <a href="README.azb.md">تۆرکجه</a> · <a href="README.bar.md">Boarisch</a> · <a href="README.ug.md">ئۇيغۇرچە</a> · <a href="README.ctg.md">চাটগাঁইয়া</a></p>
 
 <div align="center">
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Opisujesz swój cel. Novera przygotowuje zasoby, wykonuje zadanie i organizuje wyniki.</strong></p>
   <p>Niezależny asystent AI autorstwa TRON-ABS, od pierwszego uruchomienia do wyników: tekst, obrazy, muzyka i wideo w jednej rozmowie.</p>
-  <p><strong>Dostępne dla Windows, Linux, macOS i Android</strong> · Języki interfejsu 80 · Dostawcy chmury 42 · Wstępne ustawienia multimediów 49 · Apache 2.0</p>
+  <p><strong>Dostępne dla Windows, Linux, macOS i Android</strong> · Przygotowane źródła: 104 języki interfejsu · 42 dostawcy usług w chmurze · 58 ustawienia multimediów · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatyzacja</a> · <a href="#one-dashboard-for-every-creation">Panel kontrolny</a> · <a href="#local-models-in-use">Modele AI działające lokalnie na Twoim urządzeniu</a> · <a href="#hub-and-compatible-models">Formaty i centrum</a> · <a href="#cloud-providers">Chmura</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Przekaż swój wkład</a></p>
   <p>Oficjalny kontakt: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Oficjalne profile społecznościowe Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -14,6 +14,36 @@
 > Tłumaczenie wspomagane narzędziami tłumaczeniowymi, oparte na angielskim README z datą 2026-11-03. Mile widziana recenzja w języku ojczystym. Połączone dokumenty zachowują swój oryginalny język.
 
 ---
+
+<!-- novera-release-1.0.1:start -->
+<a id="preparing-1-0-1"></a>
+## Przygotowywanie wersji 1.0.1
+
+Publiczne pliki do pobrania pozostają w 1.0.0. W źródłach dla 1.0.1 przygotowano następujące ulepszenia; wymagają przebudowania pakietów, sprawdzenia wersji i publikacji. Aktualizacja tej dokumentacji nie powoduje aktualizacji zainstalowanych aplikacji.
+
+- Bezpieczeństwo: bardziej rygorystyczne uprawnienia natywne dla stron zdalnych, uwierzytelnianie dla interfejsów API sieci i narzędzi serwerowych, chronione tajne przechowywanie i migracja, bezpieczniejszy dostęp do plików/multimediów, analizowanie arkuszy kalkulacyjnych i tworzenie skryptów. Ujawnione zależności zostały zaktualizowane; pozostałe porady są śledzone w sposób jawny.
+- Prywatność: statystyki i raporty o błędach wymagają osobnej zgody i domyślnie pozostają wyłączone. Kompilacje obejmują udokumentowaną konfigurację docelową. Diagnostyka techniczna jest filtrowana; użytkownicy zachowują kontrolę nad aktywacją.
+- Silnik lokalny: `llama.cpp v0.9.0` (`b12110`, `cd959bae99ff4bed22bef2604f45241c09bbb8c8`). Wersja silnika i wersja aplikacji są oddzielne. Poprawiono początkowe ustawienia modelu i rejestrację modelu/projektora, w tym błąd uruchamiania związany z `kv_unified`. Istniejące ustawienia osobiste zostaną zachowane.
+- Języki: 24 dodatkowe języki i warianty wprowadzają interfejs i przetłumaczoną kolekcję README do 104, z 2,435 kluczami interfejsu na katalog. Ten zakres nie poświadcza natywnej jakości redakcyjnej ani obsługi mowy w każdym języku.
+- **LFM3-Omni-2B Q4_K_M** — Domyślnie na komputerze i urządzeniu mobilnym. Kompaktowy model tekstu, obrazów i dźwięku, wykorzystujący wymagany plik `mmproj`. Pobierz: około 1.39 GB dla obu plików. Wybierz go, aby uzyskać lżejszą konfigurację multimodalną. Funkcje głosowe zależą od platformy i silnika. Dłuższy kontekst zużywa więcej pamięci.
+- **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** — Alternatywa tekstowa do rozmów, pisania, narzędzi i ustrukturyzowanych odpowiedzi. Pobierz: o 6.18 GB. Wymaga więcej pamięci niż LFM3-Omni i sam nie przetwarza obrazów ani dźwięku. W odpowiedziach głosowych używany jest głos systemowy. Wybierz tę opcję do zadań tekstowych, gdy masz wystarczającą ilość pamięci. Sprawdź merytoryczne odpowiedzi w źródłach.
+- W przypadku 1.0.1, LFM3-Omni-2B Q4_K_M z wymaganym `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` jest domyślną rekomendacją na komputerach stacjonarnych i urządzeniach mobilnych; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M pozostaje alternatywą wyłącznie tekstową. Początkowy kontekst to tokeny 32,768 na komputerze i 2,048 na urządzeniu mobilnym. Dłuższe konteksty zużywają więcej pamięci. Istniejące wybory i ustawienia modelu zostaną zachowane do czasu wyraźnej zmiany.
+- Głos: bezpośrednie wejście lokalnego mikrofonu dla LFM3-Omni, ciągła rozmowa i automatyczne wysyłanie, głosy odpowiedzi męskiej/żeńskiej dla modeli audio oraz mowa systemowa dla modeli klasycznych. Odczytywanie odpowiedzi działa również w przypadku wiadomości pisanych i regeneracji, niezależnie od przechwytywania mikrofonu. Mały przycisk dźwiękowy umożliwia lub wycisza czytanie.
+- Stan mikrofonu: zielony, gdy jest dostępny, czerwony, gdy jest zajęty, szary, gdy jest niedostępny. Poprawiono rozpoznawanie, ponowne uruchamianie słuchania, obsługę ostrości i widoczne dyktowanie. Natywny model mowy audio jest obecnie zaimplementowany w Windows; inne platformy nadal wymagają natywnej walidacji i odpowiedniej obsługi głosowej.
+- Sieć: bardziej niezawodne wykrywanie żądań pogodowych, wskazówki dotyczące aktualnych dat, świeże wyniki i cytaty oraz odpowiedzi skupione na bieżącym żądaniu po użyciu narzędzia. Mowa pomija ozdobne etykiety źródłowe i linki, zachowując jednocześnie widoczne cytaty. Język odpowiedzi i mowy dopasowuje się do języka użytkownika, o ile wybrany model go obsługuje.
+- Optymalizacje: przygotowanie wyszukiwania internetowego w tle, gdy Internet jest włączony, udostępnienie uruchamiania usługi, przygotowanie kolejnego segmentu mowy przed odtwarzaniem i poprawa ciągłości zdań. Francuskie lata, liczby dziesiętne i jednostki są odczytywane bardziej naturalnie. Opóźnienie sieci i prędkość modelu nadal zależą od konfiguracji.
+- Komfort: dolne elementy sterujące zwijają się, a dane wejściowe pozostają widoczne. Kompaktowe elementy sterujące mikrofonem i ujawnianiem informacji, przycisk dźwięku pod mikrofonem, responsywne ustawienia muzyki i przetłumaczone etykiety komponentów ułatwiają korzystanie z małych ekranów.
+
+Katalogi API
+- : profile dostawców 43, w tym lokalnie TabbyAPI, z odświeżonym czatem i wyborem multimediów. Nowe wpisy obejmują GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 i GPT Image 2.6, Gemini Omni 1.2, FLUX 3, jeśli są obsługiwane. Odśwież nie ukrywa już wyników powyżej dziesięciu modeli. Przestrzegane są dokładne identyfikatory, regionalne punkty końcowe, wdrożenia prywatne i importowane modele.
+- Walidacja: w szczegółowych notatkach odnotowane są kontrole aplikacji docelowej, biblioteki natywnej, katalogu publicznego i języka. Interfejs jest tworzony dla Windows / macOS / Linux / Android / iOS. Te kompilacje frontendu nie certyfikują pakietów natywnych ani wnioskowania na każdym urządzeniu.
+- Przed wydaniem: sprawdź przebudowane pakiety natywne, pozostałe ustalenia dotyczące bezpieczeństwa/zależności i rzeczywistą aktualizację 1.0.0 do 1.0.1. Dostępność zależy od sprzętu, dostępu dostawcy i platformy. Nie deklaruje się żadnej uniwersalnej kompatybilności modelu, statusu zerowej podatności ani ukończonej publikacji.
+
+[Szczegółowe notatki, walidacja i pozostała praca](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
+
+> W niniejszych notatkach aktualizacyjnych zastosowano tłumaczenie wspomagane oraz, w razie potrzeby, wspólny rejestr pisemny. Konieczna jest weryfikacja języka ojczystego. Połączone dokumenty zachowują swój oryginalny język.
+
+<!-- novera-release-1.0.1:end -->
 
 ## Dostępność — 2026-11-03
 
@@ -74,11 +104,11 @@ Automatyzacja obejmuje zintegrowane silniki i przepływy pracy; nie sprawia to, 
 
 [Podręcznik użytkownika](docs/USER_GUIDE.md) · [Silniki i walidacja](docs/SUIVI_MOTEURS.md) · [Rozwój](docs/DEVELOPMENT.md)
 
-W zaktualizowanych źródłach **Konfiguracje dostosowuje swoje zalecenia do sprzętu mobilnego i ograniczonego**: LFM3-1.7B Q4 lub LFM3-Omni-2B Q4 z projektorem, gdy spełnione są zgłoszone wymagania dotyczące pamięci i silnika. Niedostępne generowanie lokalne jest ukryte lub zablokowane; skonfigurowany obraz w chmurze, muzyka i wideo pozostają dostępne. Wskazówki dotyczące interfejsu ponownie wykorzystują katalogi językowe 80. Szacunki te nadal wymagają przetestowania urządzenia i przebudowy, aby dotrzeć do zainstalowanych aplikacji.
+W przypadku 1.0.1, LFM3-Omni-2B Q4_K_M z wymaganym `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` jest domyślną rekomendacją na komputerach stacjonarnych i urządzeniach mobilnych; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M pozostaje alternatywą wyłącznie tekstową. Początkowy kontekst to tokeny 32,768 na komputerze i 2,048 na urządzeniu mobilnym. Dłuższe konteksty zużywają więcej pamięci. Istniejące wybory i ustawienia modelu zostaną zachowane do czasu wyraźnej zmiany.
 
 ## Możliwości w źródle
 
-Opcjonalna diagnostyka konserwacji rozróżnia teraz kompilacje i obsługiwane awarie przyrządów, a także wyjątki JavaScript, z oddzielną zgodą i filtrowanymi polami technicznymi. Dla opiekuna skonfigurowano cogodzinne produkcyjne powiadomienie e-mailem. Prywatne mapy źródłowe i szczegóły alertów znajdują się poniżej [element runbook konserwacji](docs/MAINTENANCE.md); Otrzymanie testowej wiadomości e-mail zostało potwierdzone, podczas gdy uwierzytelnione przesyłanie symboli i testowanie w kolejnym pliku binarnym pozostają kontrolą wydania.
+Przygotowano ulepszenia w zakresie konserwacji i prywatności dla 1.0.1. Opcjonalne statystyki i raportowanie błędów wykorzystują niezależną, wyraźną zgodę i filtrowaną diagnostykę techniczną. Wymagane kontrole wersji i pozostałe ustalenia dotyczące bezpieczeństwa są dokumentowane osobno. [element runbook konserwacji](docs/MAINTENANCE.md)
 
 | Obszar | Funkcje |
 | --- | --- |
@@ -98,7 +128,8 @@ Modele te tworzą bieżącą konfigurację z przewodnikiem. Możesz importować 
 
 | Rola | Model / skonfigurowane komponenty |
 | --- | --- |
-| **Tekst — model pierwszego uruchomienia** | **Nemotron-3.5-Bolt-E4B**, plik `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf`. |
+| **Tekst — model pierwszego uruchomienia** | **LFM3-Omni-2B Q4_K_M** · `LFM3-Omni-2B-Q4_K_M.gguf` + `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` |
+| **Alternatywa wyłącznie tekstowa** | **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** · `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf` |
 | **Odzyskiwanie dokumentów** | **Qwen3-Embedding-0.6B Q8_0**, **CPU**, z zapisanym wyborem CPU/GPU. |
 | **Obraz** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** i oficjalny FLUX.2 VAE. |
 | **Obraz — opcja sprzętowa** | **FLUX.2 Klein 4B NVFP4**, poprzez natywną ścieżkę CUDA, jeśli GPU i środowisko są kompatybilne. |
@@ -114,7 +145,7 @@ Koder muzyczny Qwen i model odzyskiwania Qwen są **różne pliki**, przechowywa
 
 ## Dostawcy usług w chmurze
 
-**Profile dostawców 42** są zintegrowane. **ElevenLabs** pojawia się teraz w gablocie wraz ze ścieżkami muzycznymi z Stability AI, fal i Replicate.
+Przygotowane źródła zawierają profile dostawców 43: usługi chmurowe 42 i TabbyAPI dla serwera lokalnego. Dostępność i możliwości modelu zależą od konta, regionu i obsługiwanego interfejsu API. Katalog jest współdzielony przez wszystkie języki interfejsu 104.
 
 | | | |
 | --- | --- | --- |
@@ -131,27 +162,27 @@ Koder muzyczny Qwen i model odzyskiwania Qwen są **różne pliki**, przechowywa
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/) |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://docs.dev.runwayml.com/api/) | <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://docs.ltx.io/models) |
 | <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
-| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/docs/model-map) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/models) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
 
 ### Obraz, muzyka i wideo
 
-**Dostawcy 20 udostępniają trasy generacji**, z **Presety 49: obraz 25, wideo 20 i muzyka 4**. Ścieżki muzyczne są **ElevenMusic v2.5**, **Stable Audio 3**, **ACE-Step do fal** i **Stable Audio 2.5 do Replicate**.
+Przygotowany katalog kreacji zawiera 58 presety od 20 dostawców: 30 obraz, 24 wideo i 4 presety muzyczne. Poniższe tabele zawierają listę zintegrowanych tras; nie reprodukują każdej oferty komercyjnej.
 
 | Dostawca | Dane wyjściowe w Novera | Modele katalogowe |
 | --- | --- | --- |
 | <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="24" height="24" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | Muzyka | `ElevenMusic v2.5` |
-| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Obraz / Muzyka | `Stable Audio 3` · `Stable Image Ultra` · `Stable Image Core` |
-| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Obraz / Muzyka / Wideo | `ACE-Step · cloud` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` |
-| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Obraz / Muzyka | `Stable Audio 2.5 · Replicate` · `FLUX.2 Max · Replicate` |
+| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | Obraz / Muzyka | `Stable Image Ultra` · `Stable Image Core` · `Stable Audio 3` |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | Obraz / Muzyka / Wideo | `FLUX 3 Video · fal` · `FLUX 3 Image · fal` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` · `ACE-Step · cloud` |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | Obraz / Muzyka / Wideo | `FLUX 3 Video · Replicate` · `FLUX.2 Max · Replicate` · `Stable Audio 2.5 · Replicate` |
 | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="24" height="24" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | Obraz/wideo | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
 | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="24" height="24" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | Obraz/wideo | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
-| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Obraz/wideo | `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | Obraz/wideo | `Gemini Omni 1.2 Flash` · `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
 | <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="24" height="24" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | Obraz | `Krea 3` |
 | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="24" height="24" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | Obraz | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
 | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="24" height="24" /> [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | Wideo | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
-| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Obraz | `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | Obraz | `GPT Image 2.6 Sunburst` · `GPT Image 2.6 Flare` · `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
 | <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="24" height="24" /> [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | Obraz/wideo | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
-| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Obraz | `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | Obraz/wideo | `FLUX 3 Image` · `FLUX 3 Image Klein` · `FLUX 3 Video` · `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
 | <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="24" height="24" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | Obraz | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
 | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="24" height="24" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | Obraz | `Ideogram 4.5` |
 | <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="24" height="24" /> [Runway](https://docs.dev.runwayml.com/api/) | Wideo | `Runway Gen-4.5` |
@@ -165,23 +196,23 @@ Koder muzyczny Qwen i model odzyskiwania Qwen są **różne pliki**, przechowywa
 
 | Dostawca | Identyfikatory modeli oferowane w źródle |
 | --- | --- |
-| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
+| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6.1-terra` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
 | [Microsoft Azure](https://oai.azure.com/deployments) | Wdrożenie lub brama specyficzne dla konta |
 | [Anthropic](https://platform.claude.com/docs/en/models/overview) | `claude-sonnet-5-5` · `claude-opus-5-5` · `claude-fable-5-1` · `claude-haiku-5-5` |
-| [OpenRouter](https://openrouter.ai/models) | `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
-| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `mistral-medium-3-5` · `mistral-small-2603` · `ministral-3b-2512` |
-| [Groq](https://console.groq.com/docs/models) | `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
+| [OpenRouter](https://openrouter.ai/models) | `liquid/lfm-3-1.7b` · `openai/gpt-6.1-terra` · `tencent/hy4` · `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
+| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `zai-glm-5-3-flash` · `mistral-small-2603` · `ministral-3b-2512` |
+| [Groq](https://console.groq.com/docs/models) | `qwen/qwen3.8-27b` · `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
 | [xAI](https://docs.x.ai/developers/models) | `grok-4.7` |
 | [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | `gemini-4-argon` · `gemini-3.8-flash` · `gemini-3.6-flash` · `gemini-3.5-flash-lite` |
 | [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) | `MiniMax-M3.1-Flash` · `MiniMax-M3` |
-| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
-| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3` |
+| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `MiniMaxAI/MiniMax-M3.1-Flash` · `zai-org/GLM-5.3-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
+| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3-flash` |
 | [DeepSeek](https://api-docs.deepseek.com/) | `deepseek-flash` · `deepseek-v4-pro` |
 | [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | `kimi-k3.1-pro` · `kimi-k3.1-pro-highspeed` · `kimi-k3` |
 | [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | `qwen3.8-max` · `qwen3.7-plus` · `qwen3.8-flash` |
 | [Cerebras](https://inference-docs.cerebras.ai/models/overview) | `qwen-3.8-27b` · `gpt-oss-120b` |
-| [Together AI](https://docs.together.ai/docs/serverless/models) | `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
-| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
+| [Together AI](https://docs.together.ai/docs/serverless/models) | `moonshotai/Kimi-K3.1-Pro` · `MiniMaxAI/MiniMax-M3.1-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
+| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/kimi-k3p1-pro` · `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
 | [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) | `perplexity/sonar` · `openai/gpt-6.1-sol` · `google/gemini-4-argon` · `perplexity/kimi-k3` |
 | [Meta AI](https://dev.meta.ai/docs/models) | `muse-wonder-1.0` · `muse-spark-1.3` |
 | [Cohere](https://docs.cohere.com/docs/models) | `command-a-plus-05-2026` |
@@ -189,8 +220,8 @@ Koder muzyczny Qwen i model odzyskiwania Qwen są **różne pliki**, przechowywa
 | [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | `jamba-large` · `jamba-mini-2` |
 | [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | `dola-seed-2-1-turbo-260628` |
 | [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) | `ernie-5.1` |
-| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4-preview` |
-| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-sol` |
+| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4` · `hy4-preview` |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-terra` · `openai.gpt-6.1-sol` |
 | [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) | Wdrożenie lub brama specyficzne dla konta |
 
 </details>
@@ -237,9 +268,9 @@ Domyślne sortowanie dostosowane do sprzętu faworyzuje nowsze wydania w ramach 
 
 Zaktualizowane źródła dodają **opcjonalne komponenty zarządzane w konfiguracjach dla Windows x64**: prywatne środowiska Python, przypięte profile CPU/CUDA, szacunki i potwierdzenia przed pobraniem, weryfikacja, naprawa i usunięcie. Niestandardowe ścieżki interpretera pozostają w opcjach zaawansowanych. Natywne silniki GGUF zachowują swoje istniejące komponenty; urządzenia mobilne i chmury nie pobierają Pythona/PyTorch na komputer stacjonarny. Trzy prywatne profile CPU/eksport zostały przetestowane z prawdziwymi syntetycznymi mocowaniami; Opiekun zgłasza pomyślne użycie pulpitu na 1 Listopad 2026; Profile GPU i czysta instalacja PC nadal wymagają osobnej, szczegółowej weryfikacji. [Profile i limity testów](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Osadzanie stosu w EXE jest opóźnione.
 
-## Języki i warianty interfejsu 80
+## Języki i warianty interfejsu 104
 
-**Wszystkie katalogi 80 obejmują aktualne klucze angielskie 2,429** w przestrzeniach nazw 15, w tym menu, konfiguracje, ustawienia, pomoc i elementy sterujące multimediami. Formy liczby mnogiej i kierunek interfejsu są zgodne z wybranym językiem. Języki reakcji i głosu zależą od modelu.
+**Wszystkie katalogi 104 obejmują aktualne klucze angielskie 2,435** w przestrzeniach nazw 15, w tym menu, konfiguracje, ustawienia, pomoc i elementy sterujące multimediami. Formy liczby mnogiej i kierunek interfejsu są zgodne z wybranym językiem. Języki reakcji i głosu zależą od modelu.
 
 Ten zakres techniczny nie potwierdza jakości językowej: **Przegląd natywny i adaptacja regionalna nadal są konieczne**. Zobacz natywne etykiety i znane limity w pliku [przewodnik językowy](docs/LANGUAGES.md) i [raport z audytu](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -275,7 +306,7 @@ Ręczne kompilacje GitHub Actions są włączone dla wszystkich jedenastu warian
 - [Szczegółowa instrukcja obsługi](docs/USER_GUIDE.md), [Złote zasady dotyczące informacji o produktach i użytkownikach (francuski)](docs/REGLES_D_OR.md), [modele i silniki](docs/SUIVI_MOTEURS.md).
 - [Rozwój](docs/DEVELOPMENT.md), [przewodnik po kompilacji i wydaniu](docs/BUILD_AND_RELEASE.md), [przyszłe wersje i przygotowanie aktualizacji](docs/FUTURES_VERSIONS.md).
 - [Pulpit nawigacyjny projektu](TABLEAU_DE_BORD_NOVERA.md), [plan działania](ROADMAP.md), [dziennik zmian](docs/CHANGELOG.md).
-- [Współtworzenie](CONTRIBUTING.md): kod, testy, natywna recenzja w językach 80 i rzeczywiste opinie dotyczące przepływu pracy.
+- [Współtworzenie](CONTRIBUTING.md): kod, testy, natywna recenzja w językach 104 i rzeczywiste opinie dotyczące przepływu pracy.
 
 ## Tożsamość i licencja
 

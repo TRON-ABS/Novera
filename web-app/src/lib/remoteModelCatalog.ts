@@ -26,8 +26,6 @@ type ProviderLike = {
 
 type FetchImpl = typeof fetch
 
-const TOP_N = 10
-
 const ANTHROPIC_VERSION_HEADER = 'anthropic-version'
 const ANTHROPIC_VERSION = '2023-06-01'
 const ANTHROPIC_BROWSER_ACCESS_HEADER =
@@ -193,7 +191,7 @@ async function getJson(
   headers: Record<string, string>
 ): Promise<{ ok: boolean; status: number; statusText: string; body: unknown }> {
   const response = await fetchImpl(url, { method: 'GET', headers })
-  let body: unknown = null
+  let body: unknown
   try {
     body = await response.json()
   } catch {
@@ -301,7 +299,7 @@ function normalizeCatalog(kind: CatalogKind, rows: unknown[], provider: string):
     }
     parsed.sort((a, b) => b.createdMs - a.createdMs || rank(a.id) - rank(b.id) || a.id.localeCompare(b.id))
   }
-  return parsed.filter((model, index, all) => all.findIndex((m) => m.id === model.id) === index).slice(0, TOP_N)
+  return parsed.filter((model, index, all) => all.findIndex((m) => m.id === model.id) === index)
 }
 
 // Catalogs can also expose speech, embeddings, moderation and image generation.

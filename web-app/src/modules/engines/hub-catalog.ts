@@ -262,9 +262,9 @@ export function modelEngine(
     task === 'text-generation' ||
     task === 'image-text-to-text' ||
     task === 'image-to-text' ||
-    // This GGUF family has a text/vision path in llama.cpp >= b11960.
+    // These GGUF families have text/audio paths in llama.cpp >= b11960.
     // Do not turn arbitrary any-to-any containers into supported chat models.
-    (task === 'any-to-any' && model.model_name === 'LiquidAI/LFM3-Omni-2B-GGUF')
+    (task === 'any-to-any' && ['LiquidAI/LFM3-Omni-2B-GGUF','LiquidAI/LFM3-Audio-2B-GGUF'].includes(model.model_name ?? ''))
   if (model.is_mlx || model.library_name === 'mlx')
     return causal ? 'mlx' : 'future'
   // A container format alone does not imply that an image/video/audio pipeline can run in chat.

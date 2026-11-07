@@ -45,6 +45,8 @@ describe('useGeneralSetting', () => {
     // Reset store state to defaults
     useGeneralSetting.setState({
       currentLanguage: 'en',
+      voiceGender: 'male',
+      readReplies: true,
       spellCheckChatInput: true,
       tokenCounterCompact: true,
       huggingfaceToken: undefined,
@@ -70,6 +72,21 @@ describe('useGeneralSetting', () => {
     expect(typeof result.current.setCurrentLanguage).toBe('function')
     expect(typeof result.current.setSpellCheckChatInput).toBe('function')
     expect(typeof result.current.setHuggingfaceToken).toBe('function')
+  })
+
+  it('defaults to male voice and allows switching to female and back', () => {
+    expect(useGeneralSetting.getState().voiceGender).toBe('male')
+    useGeneralSetting.getState().setVoiceGender('female')
+    expect(useGeneralSetting.getState().voiceGender).toBe('female')
+    useGeneralSetting.getState().setVoiceGender('male')
+    expect(useGeneralSetting.getState().voiceGender).toBe('male')
+  })
+  it('allows independent reply reading to be disabled without changing the voice gender', () => {
+    useGeneralSetting.getState().setReadReplies(false)
+    expect(useGeneralSetting.getState().readReplies).toBe(false)
+    expect(useGeneralSetting.getState().voiceGender).toBe('male')
+    useGeneralSetting.getState().setReadReplies(true)
+    expect(useGeneralSetting.getState().readReplies).toBe(true)
   })
 
   describe('setCurrentLanguage', () => {

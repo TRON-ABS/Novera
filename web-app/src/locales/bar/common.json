@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Code",
+    "preview": "Vorschau",
+    "previewStreaming": "Verfügbar, wann de Generierung fertig is",
+    "unresolvedAssets_one": "1 Asset-Referenz ko ned im Vorschau ladn. Relative Pfad hom ko Basis-URL zum Auflösan.",
+    "unresolvedAssets_other": "{{count}} Asset-Referenza ko ned im Vorschau ladn. Relative Pfad hom ko Basis-URL zum Auflösan."
+  },
+  "assistants": "Assistentn",
+  "hardware": "Hardware",
+  "mcp-servers": "MCP Server",
+  "local_api_server": "Lokaler API Server",
+  "remote_access": "Fernzugriff",
+  "integrations": "Integrationa",
+  "experimental": "Experimentell",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS",
+  "web_search": "Websuach",
+  "shell": "Shell",
+  "browse": "Durchschaun",
+  "moreControls": "Mehr Steuunga",
+  "starting": "Startn...",
+  "activeSuffix": " (Aktiv)",
+  "extensions": "Erweiterunga",
+  "attachments": "Anhänga",
+  "general": "Allgemein",
+  "settings": "Eistellunga",
+  "modelProviders": "Modell-Anbieter",
+  "localProviders": "Lokal",
+  "remoteProviders": "Fern",
+  "manageProviders": "Anbieter managa",
+  "hiddenProviders": "{{count}} deaktiviert",
+  "hideProvider": "Anbieter verstecka",
+  "showProvider": "Anbieter eiga",
+  "interface": "Schnittstell",
+  "appearance": "Auszeign",
+  "privacy": "Datenschutz",
+  "keyboardShortcuts": "Kurzn",
+  "home": "Heim",
+  "cowork": "Cowork",
+  "newSession": "Neids Gspräch",
+  "artifacts": "Artefaktn",
+  "customize": "Anpassa",
+  "local": "Lokal",
+  "selectFolder": "Ordner wähln",
+  "selectModel": "Wähl z'erst a Modell",
+  "commands": "Befiehl",
+  "cmdHelp": "Liest de verfügbare Befiehl",
+  "cmdClear": "Des Gspräch leera",
+  "cmdModels": "Wechsls des aktive Modell",
+  "cmdModelsHint": "Gib /models ei und wähl a Modell aus da List",
+  "cmdModelSwitched": "G'schalt auf {{name}}",
+  "cmdUnknown": "Unbekannta Befehl: {{name}}. Probier /help",
+  "cmdBusy": "Des geht ned, solang da Agent laft",
+  "cmdCompact": "Fassn den Kontext vom Gspräch z'amoi z'amoi z'sammgfasst",
+  "cmdCompacted": "G'packt {{before}} -> {{after}} Meldunga",
+  "cmdNothingToCompact": "Nocht wos zum packa",
+  "cmdCompactFailed": "Packa is g'scheitert: {{error}}",
+  "cmdPlan": "Plan-Modus umschaltn (nur lesn: da Agent schlägt vor, ois ned schreibn)",
+  "cmdPlanOn": "Plan-Modus an: da Agent liat und schlägt vor, ohne zum schreibn",
+  "cmdPlanOff": "Plan-Modus aus: normale Ausführung",
+  "cmdTodo": "Öffna des Fortschritts-Panel",
+  "cmdTasks": "Öffna des Hintergrund-Aufgaben-Panel",
+  "cmdInit": "Studiern des Projekt und schreibn Fähigkeitn und Gschicht",
+  "cmdInitRunning": "Des Projekt einbindn",
+  "skills": "Fähigkeitn",
+  "skillsInContext": "Fähigkeitn, de da Agent in dem Lauf hod.",
+  "skillsTitle": "Fähigkeitn managa",
+  "skillsScopeProject": "Fähigkeitn für {{folder}}",
+  "skillsScopeGlobal": "Globale Fähigkeitn, für jede Sitzung verfügbar.",
+  "skillsScopeMerged": "Fähigkeitn für {{folder}}, plus de globaln Fähigkeitn, de jede Sitzung teilt.",
+  "skillOriginFolder": "Ordner",
+  "skillOriginGlobal": "global",
+  "skillsEmpty": "No Fähigkeita no",
+  "skillsPickOrNew": "Wähl a Fähigkeit zum Bearbeitn, oda erschaff a neia.",
+  "skillNew": "Neia Fähigkeit",
+  "skillDelete": "Fähigkeit löschen",
+  "skillSave": "Speichan",
+  "skillSaved": "Fähigkeit gspeicha",
+  "skillNameRequired": "Fähigkeitsnama is notwendig",
+  "skillNamePlaceholder": "skill-name",
+  "skillContentPlaceholder": "Beschreib's wied'nutzbare Prozedur in Markdown…",
+  "skillHubImport": "Vom Hub importiern",
+  "skillHubTitle": "Anthropic Fähigkeitshub",
+  "skillHubEmpty": "Auf'm Hub is koane Fähigkeit gfundn",
+  "skillImport": "Importiern",
+  "skillReimport": "Wied' importiern",
+  "skillImported": "{{name}} importiert",
+  "sessions": "Sessiona",
+  "deleteSession": "Sessiona löschn",
+  "deleteSessionTitle": "Sessiona löschn?",
+  "deleteSessionBody": "\"{{title}}\" und sei Transkript wiad ois dauerhaft glöscht. Des geht ned zruck.",
+  "newChat": "Neia Gspräch",
+  "newAgentChat": "Neia Agent-Gspräch",
+  "chats": "Gspräche",
+  "favorites": "Favorita",
+  "recents": "Zuletzt",
+  "hub": "Hub",
+  "helpSupport": "Hilf & Support",
+  "helpUsImproveJan": "Hilf uns, Novera z'verbessern",
+  "analyticsConsentDetail": "Mia sammlan anonyme Daten, um d'Nutzung vo de Features zum versteh. Dei Gspräche und persönliche Infos wern nia g'trackt. Des konnst jederzeit in Einstellungen > Datenschutz ändan.",
+  "analyticsConsentQuestion": "Wüsd du uns beim Verbessern vo Novera helfa?",
+  "unstarAll": "Ois Unstarra",
+  "unstar": "Unstarra",
+  "deleteAll": "Ois Löschen",
+  "star": "Starra",
+  "rename": "Umbenennan",
+  "delete": "Löschn",
+  "copied": "Kopiert!",
+  "dataFolder": "Datn-Ordner",
+  "others": "Andere",
+  "language": "Sprach",
+  "login": "Einlogga",
+  "loginWith": "Mit {{provider}} einlogga",
+  "loginFailed": "Einlogga is gscheid gfoin",
+  "logout": "Auslogga",
+  "loggingOut": "Wird ausgloggt...",
+  "loggedOut": "Erfolgriach ausg'loggt",
+  "logoutFailed": "Ausloggn is g'scheitn",
+  "profile": "Profil",
+  "reset": "Zurücksetzn",
+  "search": "Sucha",
+  "searchThreads": "Threads suacha...",
+  "toNavigate": "zum navigiern",
+  "toSelect": "zum auswähln",
+  "toClose": "zum schliaßn",
+  "clearRecent": "Leern",
+  "name": "Name",
+  "cancel": "Abbrechn",
+  "dismiss": "Schliaßn",
+  "create": "Erstelln",
+  "save": "Speichan",
+  "edit": "Bearbeitn",
+  "copy": "Kopiern",
+  "back": "Zruck",
+  "close": "Schliaßn",
+  "done": "Fertig",
+  "next": "Nächst",
+  "finish": "Fertig",
+  "skip": "Überspringa",
+  "allow": "Zulassn",
+  "deny": "Ablehnn",
+  "start": "Startn",
+  "stop": "Stoppn",
+  "preview": {
+    "loading": "Öffna'...",
+    "unsupported": "Novera ko desa Art vo Datei ned zeign. Öffna's, um's in ana andern App zum sehn.",
+    "outside": "Dea Datei is nimma im Session-Arbeitsbereich.",
+    "tooLarge": "Zu groß zum Vorausschau-schaugn. Öffna's, um's in ana andern App zum sehn.",
+    "reload": "Neulada'n",
+    "allowNetwork": "Netzwerk erlaubn",
+    "unsandboxed": "Ohn Sandbox laffa: gspeicha Data und lokale Dateien funktioniern",
+    "unresolvedRefs_one": "1 Datei, auf de de Seitn verlinkt is, ko ned in da Vorschau ladn. Öffna's, um's im Browser zum sehn.",
+    "unresolvedRefs_other": "{{count}} Dateien, auf de de Seitn verlinkt is, ko ned in da Vorschau ladn. Öffna's, um's im Browser zum sehn.",
+    "externalRefs_one": "1 Ressource, de Seitn vom Web ladt, is blockiert. Schalt 'Netzwerk erlaubn' ei, um's zum ladn.",
+    "externalRefs_other": "{{count}} Ressourcn, de Seitn vom Web ladt, san blockiert. Schalt 'Netzwerk erlaubn' ei, um's zum ladn.",
+    "scriptErrors_one": "De Seitn hot an Fehler gemeldet: {{message}}",
+    "scriptErrors_other": "De Seitn hot {{count}} Fehler gemeldet. Oans: {{message}}"
+  },
+  "changes": {
+    "title": "Agent Änderunga",
+    "empty": "Dateien, de da Agent schreibt oda ändert, san do zum sehn.",
+    "a11y": "Agent Änderunga: {{files}} Dateien, {{additions}} gfüagd, {{deletions}} entfernt"
+  },
+  "modelPanel": {
+    "title": "Modell Eistellunga",
+    "a11y": "Modell Eistellunga öffna",
+    "contextTooltip": "Kontextfenster: {{value}} vo {{max}} Tokens"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Skill '{{name}}' is ned verfügbar",
+    "kind": {
+      "skill": "Skill",
+      "command": "Befehl",
+      "model": "Modell"
+    }
+  },
+  "compactWidth": "Kompaktbreit",
+  "fullWidth": "Volle Breit",
+  "dark": "Dunkel",
+  "light": "Hell",
+  "system": "System",
+  "auto": "Automatisch",
+  "english": "Englisch",
+  "medium": "Mittel",
+  "newThread": "Neids Gspräch",
+  "noResultsFound": "Koa Ergebnisse gfundn",
+  "noThreadsYet": "Noa Gspräche no",
+  "noThreadsYetDesc": "Start a neids Gspräch, um dei Gsprächsgschicht do zum sehn.",
+  "downloads": "Downloads",
+  "downloading": "Lada",
+  "uploadingAttachments": "Anhänge hochladn…",
+  "cancelDownload": "Lada abbrechn",
+  "downloadCancelled": "Lada abbrocha",
+  "downloadComplete": "Lada fertig",
+  "thinking": "Denkt...",
+  "thought": "Gedanke",
+  "callingTool": "Tool aufrufa",
+  "completed": "Fertig",
+  "image": "Bild",
+  "vision": "Vision",
+  "multimodal": "Multimodal",
+  "embeddings": "Embeddings",
+  "tools": "Tools",
+  "webSearch": "Websuach",
+  "reasoning": "Schlussfolgerung",
+  "proactive": "Proaktiv",
+  "selectAModel": "Wähl a Modell",
+  "noToolsAvailable": "Koa Werkzeig verfügbar",
+  "noModelsFoundFor": "Koane Modella gfundn fia \"{{searchValue}}\"",
+  "failedToLoadModels": "Modella laden is gscheit gfoin",
+  "noModels": "Koane Modella gfundn",
+  "noAssistant": "Koa Assistent",
+  "customAvatar": "Eigana Avatar",
+  "editAssistant": "Assistent bearbeiten",
+  "jan": "Novera",
+  "metadata": "Metadaten",
+  "regenerate": "Noi generiern",
+  "threadImage": "Gsprächsbild",
+  "editMessage": "Nachricht bearbeitn",
+  "deleteMessage": "Nachricht löschn",
+  "deleteThread": "Gspräch löschn",
+  "renameThread": "Gspräch umbenennn",
+  "threadTitle": "Gsprächs-Titel",
+  "deleteAllThreads": "Ois Gspräche löschen",
+  "allThreadsUnfavorited": "Ois Gspräche ned favorisiert",
+  "deleteAllThreadsConfirm": "Bist da sicher, dassd ois Gspräche löschen wuisd? Des geht ned zruck.",
+  "addProvider": "Anbieter hinzufügn",
+  "addOpenAIProvider": "OpenAI Anbieter hinzufügn",
+  "enterNameForProvider": "Gib an Nam für dei Anbieter ei",
+  "providerAlreadyExists": "Anbieter mitm Nam \"{{name}}\" existat scho. Wähl bitt an andern Nam.",
+  "adjustFontSize": "Schriftgröße eistelln",
+  "changeLanguage": "Sprach wechseln",
+  "editTheme": "Theme bearbeiten",
+  "editCodeBlockStyle": "Code-Block-Stil bearbeiten",
+  "editServerHost": "Server-Host bearbeiten",
+  "pickColorWindowBackground": "Farbe für Fensterhintergrund wähln",
+  "pickColorAppMainView": "Pick Color App Hauptansicht",
+  "pickColorAppPrimary": "Pick Color App Primär",
+  "pickColorAppAccent": "Pick Color App Akzent",
+  "pickColorAppDestructive": "Pick Color App Destruktiv",
+  "apiKeyRequired": "API Schlüssel is notwendig",
+  "enterTrustedHosts": "Vertrauta Host eingebn",
+  "placeholder": {
+    "chatInput": "Frag mi wos a..."
+  },
+  "confirm": "Bestätign",
+  "continue": "Fortsetzn",
+  "loading": "Ladn...",
+  "settingUpJan": "Novera",
+  "registeringExtensions": "Erweiterunga registriern...",
+  "loadingExtensions": "Erweiterunga ladan... ({{done}})/{{total}}",
+  "error": "Fehler",
+  "success": "Erfolgrich",
+  "warning": "Warnung",
+  "conversationNotAvailable": "Gspräch ned verfügbar",
+  "conversationNotAvailableDescription": "Des Gspräch, desd probierst z'öffna, is ned verfügbar oda is glöscht.",
+  "temporaryChat": "Vorläufigs Gspräch",
+  "temporaryChatTooltip": "Temporäres Gspräch erscheint ned in da Gschicht",
+  "noResultsFoundDesc": "Mia ham koane Gspräche gfundn, de zu deim Suchbegriff passn. Probier a andere Stichwort.",
+  "searchModels": "Modell suachn...",
+  "searchStyles": "Stile suachn...",
+  "createAssistant": "Assistent erstelln",
+  "enterApiKey": "API-Schlüssel eingebn",
+  "scrollToBottom": "Untn scrolln",
+  "generateAiResponse": "AI-Antwort generiern",
+  "continueAiResponse": "Mit AI-Antwort fortfahn",
+  "addModel": {
+    "title": "Modell hinzufügn",
+    "modelId": "Modell-ID",
+    "enterModelId": "Modell-ID eingebn",
+    "addModel": "Modell hinzufügn",
+    "description": "A neis Modell zum Provider hinzufügn",
+    "exploreModels": "Modell-List vom Provider sehn"
+  },
+  "mcpServers": {
+    "editServer": "Server bearbeiten",
+    "addServer": "Server hinzufügn",
+    "serverName": "Server-Name",
+    "enterServerName": "Server-Name eingebn",
+    "command": "Befehl",
+    "enterCommand": "Befehl eingebn",
+    "arguments": "Argumente",
+    "argument": "Argument {{index}}",
+    "envVars": "Umgebungsvariablen",
+    "key": "Schlüssel",
+    "value": "Wert",
+    "save": "Speichan"
+  },
+  "deleteServer": {
+    "title": "Server löschn",
+    "delete": "Löschn"
+  },
+  "editJson": {
+    "errorParse": "Konnt JSON ned parsn",
+    "errorPaste": "Hoid ned gschafft, JSON einzufügn",
+    "errorFormat": "Ungültigs JSON-Format",
+    "titleAll": "Alle Server-Konfiguration bearbeiten",
+    "placeholder": "JSON-Konfiguration eifügn...",
+    "save": "Speichan"
+  },
+  "editModel": {
+    "title": "Modell bearbeiten: {{modelId}}",
+    "description": "Konfigurier de Modell-Fähigkeitn, indemst de Optionn unta wia umschaltst.",
+    "capabilities": "Fähigkeiten",
+    "tools": "Tools",
+    "vision": "Vision",
+    "embeddings": "Embeddings",
+    "notAvailable": "No ned verfügbar"
+  },
+  "outOfContextError": {
+    "truncateInput": "Eingab kürzn",
+    "title": "Fehler außerhalb vom Kontext",
+    "description": "Des Gspräch erreicht de Gedächtnisgrenzn vom AI, wia a Schloifn, de si vollsetzt. Mia kenna des Gedächtnisfenster (g'nannt Kontextgröße) erweitern, damit's mehr erinnert, oba des ko mehr vo de Computa-Gedächtnis nutzn. Mia kenna a de Eingab kürzn, des hoaßt,s vergiss a an Teil vo da Gsprächsgschicht, um Platz für neie Meldunga zum machn.",
+    "increaseContextSizeDescription": "Wuisd du de Kontextgröße erhöhn?",
+    "increaseContextSize": "Kontextgröße erhöhn"
+  },
+  "toolApproval": {
+    "title": "Tool-Berechtigungsfoig",
+    "description": "Da Assistent wü a <strong>{{toolName}}</strong> nutzn",
+    "securityNotice": "Nur Werkzeig zulassn, de du vertraust. Werkzeig kenna auf dei System und dei Daten zugreifa.",
+    "deny": "Ablehnn",
+    "allowOnce": "Einmal zulassn",
+    "alwaysAllow": "Immer zulassn"
+  },
+  "deleteModel": {
+    "title": "Modell löschn: {{modelId}}",
+    "description": "Bist da sicher, dassd des Modell löschn wuisd? Des kann ned zruckgnumma wern.",
+    "success": "Des Modell {{modelId}} is ois g'löscht.",
+    "cancel": "Abbrechn",
+    "delete": "Löschn"
+  },
+  "deleteProvider": {
+    "title": "Provider löschn",
+    "description": "Des Provider und olle sei Modelle löschn. Des kann ned zruckgnumma wern.",
+    "success": "Da Provider {{provider}} is ois g'löscht.",
+    "confirmTitle": "Provider löschn: {{provider}}",
+    "confirmDescription": "Bist da sicher, dassd des Provider löschn wuisd? Des kann ned zruckgnumma wern.",
+    "cancel": "Abbrechn",
+    "delete": "Löschn"
+  },
+  "modelSettings": {
+    "label": "Modell-Eistellunga",
+    "title": "Modell-Eistellunga - {{modelId}}",
+    "description": "Konfigurier de Modell-Eistellunga, um de Leistung und des Verhalten zum optimiern.",
+    "nglDisabledByFit": "Auto-fit wählt GPU-Schichtn. Schalt Auto-fit aus, um des manuell einzustellen.",
+    "samplingDefaults": {
+      "title": "Standard-Sampling-Parameter",
+      "description": "Standard-Sampler-Eistellunga für des Modell. Wird gnutzt, wenn ned durch Assistentn- oder Anfroga-Werte überschriebn."
+    },
+    "specDraft": {
+      "section": "Spekulatives Dekodiern",
+      "enable": "Spekulatives Dekodiern oischtelln",
+      "enableDescription": "Draft mehrere Token pro Schritt und prüf's in am Durchgang, des beschleunigt d'Generierung. Nutzt de eingebaute MTP-Kopf vom Modell, oder des Draft-Modell, des mitg'ladn is (MTP, Eagle3, DFlash oder DSpark).",
+      "nMax": "Max. Draft-Token",
+      "nMaxDescription": "Maximale Anzahl vo Token zum Draftn pro Schritt. Standard 16.",
+      "nMin": "Min. Draft-Token",
+      "nMinDescription": "Minimale Anzahl vo Token zum Draftn pro Schritt. Standard 0.",
+      "pMin": "Minimale Draft-Wahrscheinlichkeit",
+      "pMinDescription": "Minimuma Wahrscheinlichkeit für gierigs Draftn (0–1). Standard 0.75"
+    },
+    "templateKwargs": {
+      "section": "Chat-Template-Optiona",
+      "description": "Zusätzliche Optiona, de des Chat-Template vo dem Modell akzeptiert. Ois chat_template_kwargs bei jeda Anfroga gschickt; lass an Wert aufm Standard, damit des Template entscheidet.",
+      "addCustom": "A eigene Option hinzufügn",
+      "keyPlaceholder": "Name",
+      "valuePlaceholder": "Wert",
+      "add": "Hinzufügn",
+      "cancel": "Abbrechn",
+      "remove": "Entfern'n"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Konfigurationseistellunga vom Modell konnt ned aktualisiert wern"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Datenordner-Standort ändan",
+      "description": "Bist da sicher, dassd den Datenordner-Standort ändan wuisd? Des wiad olle dei Daten zum neia Ort verschiebn und de App neistartn.",
+      "currentLocation": "Aktuella Ort:",
+      "newLocation": "Neia Ort:",
+      "cancel": "Abbrechn",
+      "changeLocation": "Ort ändan"
+    },
+    "deleteAllThreads": {
+      "title": "Ois Gspräche löschen",
+      "description": "Olle Threads wern glöcht wern. Des kann ned rückgängig gmacht wern."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Olle Gspräche glöchn",
+      "description": "{{count}} Gspräche in \"{{projectName}}\" wern glöcht wern. Des kann ned rückgängig gmacht wern."
+    },
+    "deleteThread": {
+      "description": "Bist du sicher, dassd den Thread löschen wuisd? Des geht ned wieda zruck."
+    },
+    "editMessage": {
+      "title": "Nachricht bearbeitn"
+    },
+    "messageMetadata": {
+      "title": "Nachrichta-Metadaten"
+    },
+    "deleteMessage": {
+      "description": "Bist du sicher, dassd de Nachricht löschen wuisd? Des geht ned wieda zruck."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Wos is gschiefa",
+    "details": "Details"
+  },
+  "missingDependenciesDialog": {
+    "title": "Fehlende Systembibliotheken",
+    "description": "Da {{backend}} is installiert worn, oba a boar nötige Systembibliotheken san ned gfundn worn. Es ko auf CPU zruckfalla oda ned richtig laffa.",
+    "installLabel": "Zum Fixn, installier folgendes:",
+    "download": "Unteladn",
+    "additionalLibraries": "Zusätzliche fehlende Bibliotheken:",
+    "missingLibraries": "Fehlende Bibliotheken:",
+    "showRawLibraries": "Zeig {{count}} fehlende Bibliotheksnamma"
+  },
+  "projects": {
+    "title": "Projekte",
+    "new": "Neie Projekte",
+    "addProject": "Projekt hinzufügn",
+    "addToProject": "Zu Projekt hinzufügn",
+    "removeFromProject": "Aus Projekt entfern'n",
+    "createNewProject": "Neis Projekt erstelln",
+    "editProject": "Projekt bearbeitn",
+    "deleteProject": "Projekt lösch'n",
+    "projectName": "Projektnam",
+    "enterProjectName": "Projektnam eingebn...",
+    "noProjectsAvailable": "Ka Projekte verfügbar",
+    "noProjectsYet": "Noa Projekte",
+    "noProjectsYetDesc": "Fang a neis Projekt o, indemst auf de \"Projekt hinzufügn\"-Tastn klickst.",
+    "projectNotFound": "Projekt ned gfundn",
+    "projectNotFoundDesc": "Des Projekt, desd suachst, existiert ned oda is glöscht worn.",
+    "selectAssistant": "Assistent wähln",
+    "noAssistantAssigned": "Ka assistent fia des Projekt zugwiesn",
+    "files": "Dateia",
+    "filesDescription": "Füg PDFs, Dokumente oda andere Texta zum Bezug in des Projekt ei.",
+    "uploadingFiles": "Dateia wern verarbeitet...",
+    "processButton": "Hinzufügn",
+    "deleteProjectDialog": {
+      "title": "Projekt lösch'n",
+      "permanentDelete": "Des löscht olle Threads endgültig.",
+      "permanentDeleteWarning": "Des Vorgeh löscht ALLE Threads im Projekt endgültig!",
+      "deleteEmptyProject": "Des Vorgeh löscht des Projekt \"{{projectName}}\".",
+      "saveThreadsAdvice": "Zum Speichan vo Threads, verschieba's in dei Thread-List oda in a andas Projekt, bevorst glöschst.",
+      "starredWarning": "Du host no gsternte Threads im Projekt.",
+      "deleteButton": "Löschn",
+      "successWithName": "Projekt \"{{projectName}}\" erfolgreich glöscht",
+      "successWithoutName": "Projekt erfolgreich glöscht",
+      "error": "Glöschn vom Projekt is gscheid. Probier's noamoi.",
+      "ariaLabel": "Glösch {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Neis Projekt erstelln",
+      "editTitle": "Projekt bearbeitn",
+      "nameLabel": "Projektnam",
+      "namePlaceholder": "Projektnam eingebn...",
+      "assistant": "Assistent",
+      "selectAssistant": "Wähl an Assistent (optional)",
+      "noAssistant": "Koa Assistent",
+      "addAssistant": "Assistent hinzufügn",
+      "createButton": "Erstelln",
+      "updateButton": "Aktualisiern",
+      "alreadyExists": "Des Projekt \"{{projectName}}\" existat scho",
+      "createSuccess": "Des Projekt \"{{projectName}}\" erfolgreich erstellt",
+      "updateSuccess": "Des Projekt \"{{projectName}}\" erfolgreich aktualisiert",
+      "saveError": "Projekt konnt ned gspeicha wern. Probier's noamoi."
+    },
+    "noConversationsIn": "Ka Gspräche in {{projectName}}",
+    "startNewConversation": "Start a neis Gspräch mit {{projectName}} unta",
+    "conversationsIn": "Gspräche in {{projectName}}",
+    "conversationsDescription": "Klick auf a Gspräch, um weida zum Redn, oda start a neis unta.",
+    "conversation": "Gspräch",
+    "instructions": "Anweisunga",
+    "setup": "Eistellunga",
+    "instructionsDescription": "Ton und Stil vo da Antwort anpassn",
+    "manageInstructions": "Anweisunga managa",
+    "thread": "drahtl",
+    "threads": "Gspräche",
+    "updated": "Aktualisiert:",
+    "collapseProject": "Projekt zammklappn",
+    "expandProject": "Projekt aufklappn",
+    "update": "Aktualisiern",
+    "searchProjects": "Projekte suachn...",
+    "noProjectsFound": "Koa Projekte gfundn",
+    "tryDifferentSearch": "Probier an andern Suchbegriff"
+  },
+  "attachmentsIngestion": {
+    "title": "Wähl, wia Anhäng aufnehma soi",
+    "description": "Wähl, ob dea Dateien direkt im Gspräch sei soin oda stattdessen ois Embeddings indiziert wern soin.",
+    "inline": "In ins Gspräch injiziern",
+    "embeddings": "Embeddings nutzn"
+  },
+  "attachmentInjectedIndicator": "In ins Gspräch injiziert",
+  "attachmentEmbeddedIndicator": "Für RAG eingebettet",
+  "viewInjectedContent": "Injiziertn Inhalt anschaun",
+  "injectedContentTitle": "Injizierta Dateiinhoid",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Ois Gspräche ned favorisiert",
+      "description": "Oafocha Gspräche san aus deine Favorita g'numma."
+    },
+    "deleteAllThreads": {
+      "title": "Ois Gspräche löschen",
+      "description": "Oafocha Gspräche san ois endgültig glöscht."
+    },
+    "renameThread": {
+      "title": "Gspräch umbenennn",
+      "description": "Gsprächstitel is in '{{title}}' umg'nannt worn"
+    },
+    "deleteThread": {
+      "title": "Gspräch löschn",
+      "description": "Des Gspräch is ois endgültig glöscht."
+    },
+    "errorCopied": {
+      "title": "Kopiern is g'schafft",
+      "description": "Fehlerinfo auf de Zwischenablag gkopft"
+    },
+    "errorCopyFailed": {
+      "title": "Kopiern ned gschafft",
+      "description": "Fehlerinfo ned auf de Zwischenablag gkopft"
+    },
+    "editMessage": {
+      "title": "Nachricht bearbeitn",
+      "description": "Nachricht erfolgreich bearbeitet. Bitte wartn, bis des Modell antwortt."
+    },
+    "appUpdateDownloaded": {
+      "title": "App-Update g'ladn",
+      "description": "De App-Aktualisierung is erfolgreich runterg'wordn."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "App-Aktualisierung Download g'scheitert",
+      "description": "Is ned g'scheitert, de App-Aktualisierung zum runterladn. Probier's bitt' noamoi."
+    },
+    "downloadComplete": {
+      "title": "Lada fertig",
+      "description": "{{item}} is g'ladn"
+    },
+    "downloadCancelled": {
+      "title": "Lada abbrocha",
+      "description": "Da Download-Prozess is abbrocha"
+    },
+    "downloadFailed": {
+      "title": "Download fehlgschlogn",
+      "description": "{{item}} Download is gfoin",
+      "descriptionWithReason": "{{item}} Download is gfoin: {{reason}}",
+      "reason": {
+        "dns": "Da Server-Name konnt ned aufglöst wern",
+        "refused": "De Verbindung is abglehnt worn",
+        "timeout": "De Verbindung is zeitüberschritten",
+        "tls": "A sichere Verbindung konnt ned aufgstellt wern",
+        "proxy": "Da Proxy konnt ned erreicht wern",
+        "unreachable": "Da Server is ned erreichbar"
+      }
+    },
+    "openSettings": "Eistellunga aufmachn",
+    "openLogs": "Logs aufmachn",
+    "downloadTokenRequired": {
+      "title": "Hugging Face Token is nötig",
+      "description": "Des Modell braucht an Hugging Face Zugriffstoken. Füg dei Token in de Eistellunga ein und probier noamoi."
+    },
+    "downloadLicenseRequired": {
+      "title": "Modelllizenz auf Hugging Face akzeptiern",
+      "description": "Du muasst de Modelllizenz auf seina Hugging Face Seitn akzeptiern, bevorst's downloadst."
+    },
+    "downloadRateLimited": {
+      "title": "Vo Hugging Face limitiert",
+      "description": "Du bist limitiert. A Token zua fügn ko de Limits erhöhn. Probier bitt noamoi spöta."
+    },
+    "modelValidationStarted": {
+      "title": "Modell validiern",
+      "description": "Downloadts Modell \"{{modelId}}\" erfolgreich. Integrität prüfn..."
+    },
+    "modelValidationFailed": {
+      "title": "Modellvalidierung gscheitert",
+      "description": "Des downloadte Modell \"{{modelId}}\" is bei da Integritätsprüfung gscheitert und is entfernt worn. De Datei ko beschädigt oda manipuliert sei."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Lada fertig",
+      "description": "Modell \"{{item}}\" downloadt und validiert erfolgreich"
+    },
+    "projectCreated": {
+      "title": "Projekt gschaffa",
+      "description": "Des Projekt \"{{projectName}}\" erfolgreich erstellt"
+    },
+    "projectRenamed": {
+      "title": "Projekt umgnannt",
+      "description": "Projekt umgnannt vo \"{{oldName}}\" zu \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Projekt glöscht",
+      "description": "Projekt \"{{projectName}}\" erfolgreich glöscht"
+    },
+    "projectAlreadyExists": {
+      "title": "Projekt existiert scho",
+      "description": "Des Projekt \"{{projectName}}\" existat scho"
+    },
+    "projectDeleteFailed": {
+      "title": "Löschn gscheid",
+      "description": "Glöschn vom Projekt is gscheid. Probier's noamoi."
+    },
+    "threadAssignedToProject": {
+      "title": "Fad zugwiesn",
+      "description": "Fad is erfolgreich auf \"{{projectName}}\" zugwiesn"
+    },
+    "threadRemovedFromProject": {
+      "title": "Fad entfernt",
+      "description": "Fad is erfolgreich aus \"{{projectName}}\" entfernt"
+    },
+    "fileUploaded": {
+      "title": "Dokument verarbeitet",
+      "description": "Des Dokument is erfolgreich verarbeitet und indiziert"
+    },
+    "uploadFailed": {
+      "title": "Verarbeitung gscheid",
+      "description": "Konnt ned des Dokument verarbeiten",
+      "subjectThisFile": "Des Dokument",
+      "pdfMalformedXref": "{{subject}} hot a fehlerhafte PDF-Querverweis-Tabell und konnt ned glesn wern. Probier's,s in am PDF-Betrachter zum öffna und wieda zum speichan (Datei → Druckn → Ois PDF speichan), dann wieda hochladn.",
+      "pdfScanned": "{{subject}} schaut aus wia a gscannts oda bildbasierts PDF. OCR is no ned unterstützt — lad bitte a textbasierts PDF hoch.",
+      "pdfEncrypted": "{{subject}} is passwortgschützt. Entfern des Passwort und probier's wieda.",
+      "pdfUnsupportedFeature": "{{subject}} nutzt a PDF-Funktion, de Novera no ned parsiern ko (z.B. PostScript Farb-/Schattierungsfunktiona). Probier's wieda z'speichan (Datei → Druckn → Ois PDF speichan), damit's flach wird, und lad's dann wieda hoch.",
+      "pdfGeneric": "{{subject}} konnt ned ois PDF parsiert wern. De Datei ko beschädigt sei oda nutzt a ned unterstützts PDF-Feature.",
+      "fileTooLarge": "{{subject}} is z'groß. {{message}}.",
+      "unsupportedType": "Dateityp \"{{type}}\" wird ned unterstützt.",
+      "ioError": "Konnt ned {{subject}} lesn: {{message}}",
+      "parseGeneric": "{{subject}} konnt ned parsiert wern: {{message}}",
+      "fallback": "Isd ned g'schafft, {{subject}} z'verarbeiten."
+    },
+    "fileDeleted": {
+      "title": "Datei glöscht",
+      "description": "De Datei is ausm Projekt entfernt worn"
+    },
+    "deleteFailed": {
+      "title": "Löschn gscheid",
+      "description": "Ned g'schafft, Datei z'löschn"
+    },
+    "fileAlreadyExists": {
+      "title": "Datei scho do",
+      "description": "De Datei is scho zu dem Projekt g'hängt"
+    },
+    "unsupportedFileType": {
+      "title": "Ned unterstützts Dateiformat",
+      "description": "De Dateierweiterung \".{{extension}}\" is für de Projektreferenz ned unterstützt."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Anhänge deaktiviert",
+      "description": "Anhänge san in de Einstellungen deaktiviert"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Datei z'groß",
+    "fileTooLargeDescription": "{{fileName}} überschreitet des {{maxFileSizeMB}}MB Limit"
+  },
+  "files": {
+    "chunksCount": "{{count}} Stücke",
+    "title": "Dateia",
+    "empty": "Dateien, de du anhängst und de Agent erstellt, wern do gzeigt.",
+    "a11y": "Dateien: {{count}}",
+    "attachments": "Anhänga",
+    "notImported": "ned im Arbeitsbereich"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp is nocha bsog'n",
+    "description": "Oana oda mehra Modella san ned rechtzeitig entladn worn. Mitm Force-Quit wird llama.cpp beendigt und aktive Antworten kenna unterbrochn wern.",
+    "forceQuit": "Erzwungn beendign",
+    "forcing": "Erzwungn beendign...",
+    "shuttingDown": "Wird gschlossn..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Zammklappn",
+  "expand": "Erweitern",
+  "todoPanelTitle": "Fortschritt",
+  "todoPanelEmpty": "Noa To-Do-List no.",
+  "backgroundTasks": "Hintergrundaufgabe",
+  "subagentsRunning_one": "{{count}} Subagent laft",
+  "subagentsRunning_other": "{{count}} Subagentn lafn",
+  "monitorsRunning_one": "{{count}} Monitor laft",
+  "monitorsRunning_other": "{{count}} Monitorn lafn",
+  "backgroundRunning_one": "{{count}} Hintergrundaufgabe laft",
+  "backgroundRunning_other": "{{count}} Hintergrundaufgaben lafn",
+  "monitors": "Monitorn",
+  "monitorPolling": "Abfragen",
+  "monitorMatched": "Gpasst",
+  "monitorTimedOut": "Isd zeitlos",
+  "monitorStopped": "Gstoppt",
+  "monitorEnded": "G'endat",
+  "coworkWatching_one": "Schau {{count}} Monitorn zua…",
+  "coworkWatching_other": "Schau {{count}} Monitorn zua…",
+  "coworkWaitingBackground": "Wartn auf Hintaun-Aufgabn…",
+  "noBackgroundTasks": "Noa hintaun-Aufgabn",
+  "running": "Laft",
+  "queued": "In da Warteschleif",
+  "waiting": "Wartn",
+  "finished": "Fertig",
+  "subagentPhase": "Phase {{phase}}",
+  "subagentWaiting": "wartn",
+  "viewTranscript": "Transkript anschaun",
+  "taskWorking": "Arbeitn…",
+  "taskNoOutput": "Da Subagent hot koan sichtbarn Output gmocht.",
+  "subagentToolUses_one": "{{count}} Werkzeignutzung",
+  "subagentToolUses_other": "{{count}} Werkzeignutzunga",
+  "artifactGroupCode": "Code",
+  "artifactGroupImage": "Bild",
+  "artifactGroupDocument": "Dokument",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Audio",
+  "artifactOpenPreview": "Vorschau öffna",
+  "artifactOpenExternal": "Öffna",
+  "artifactMoreActions": "Mehr Aktionen",
+  "artifactShowInFolder": "Im Ordner zeign",
+  "skillsUsedLabel": "Gnutzte Fähigkeitn",
+  "skillsUsed": "Gnutzte Fähigkeitn: {{skills}}",
+  "artifactsAll": "Ois",
+  "artifactsEmpty": "Noch nix produziert. Artefaktn vo Cowork-Läuf ziagn do auf.",
+  "artifactsNoMatch": "Koane Artefaktn passn.",
+  "artifactsSearch": "Artefaktn suachn",
+  "artifactsShowMore": "Zeig {{count}} mehr",
+  "workspace": {
+    "readsFrom": "Funktioniert in",
+    "writable": "lesn & schreibn",
+    "footnote": "Da Agent liest und bearbeitet ansdn Ordner direkt. Schau da, wos im Diff-Panel gändert worn is.",
+    "footnoteEmpty": "Befüg a Ordner, damit da Agent an deinem Projekt arbeiten ko. Er ko Dateien drin lesn und bearbeitn.",
+    "attach": "Ordner befügn",
+    "change": "Ordner ändern",
+    "detach": "Ordner entfügn",
+    "open": "Öffna",
+    "reveal": "Aufdeckn",
+    "unavailable": "Arbeitsplatz ned verfügbar",
+    "missing": "Da Arbeitsplatz-Ordner {{folder}} is nimma verfügbar. Wähl an andern Ordner.",
+    "openFailed": "Konntn den Arbeitsplatz ned öffna",
+    "revealFailed": "Konntn den Arbeitsplatz ned aufdecka",
+    "a11yWithFolder": "Projekt-Ordner {{folder}}, mit Les- und Schreibzugriff befestigt. Ändern oda entfestign.",
+    "a11yNoFolder": "Ko koa Projektordner gschlossn. Schliaß an."
+  },
+  "coworkEmpty": {
+    "title": "Wos macha ma?",
+    "subtitleSandbox": "Gib Novera a Aufgab. De liat und schreibt auf Dateia, führt Befehle aus und arbeitet de Schritt selber durch.",
+    "subtitleFolder": "Gib Novera a Aufgab. De arbeitet direkt in {{folder}}, liat und bearbeitet Dateia selber.",
+    "try": "Probier",
+    "sandbox": {
+      "first": "Schreib a Python-Skript, des Dateia nachm Datum umnannt, wann's g'nommen worn san",
+      "second": "Bau a einseitigs Dashboard aus am CSV, des i eipasst",
+      "third": "Entwirf a README für a Projekt, des i da beschreib"
+    },
+    "folder": {
+      "first": "Erklär, wia {{folder}} zammg'macht is",
+      "second": "Find olle TODOs in {{folder}} und gruppier's nach Bereich",
+      "third": "Schreib Tests für den Teil vo {{folder}}, den i da zeig"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Novera",
+    "a11y": "Novera",
+    "title": "Novera",
+    "body": "Novera lassd'n Agent nur Shell-Befehle ausführa, wann dei System'schaun kann. Ka Sandbox is do ned, drum ko da Agent in sei Sandbox lesn, schreibn und bearbeitn — oba nix ausführa.",
+    "fixLinux": "Linux nutzt bubblewrap. Installier's, dann start Novera wieda.",
+    "fixMac": "macOS nutzt de eingebaute Sandbox bei /usr/bin/sandbox-exec. Start Novera wieda, wann's verfügbar is.",
+    "fixWindows": "Windows nutzt AppContainer. Start Novera wieda, um's noamoi zum probiern.",
+    "recheck": "Noamoi prüfa"
+  },
+  "planMode": {
+    "label": "Plan",
+    "tooltipOff": "Zuerst Plan — da Agent liest und schlägt vor, ohne zum schreibn.",
+    "tooltipOn": "Planung. Schalt des aus, damit da Agent Dateien schreibn ko.",
+    "onAnnounce": "Plan-Modus an",
+    "placeholder": "Nach an Plan frog'n. Da Agent ändert ko koane Dateien."
+  },
+  "budget": {
+    "stoppedSteps": "Gstoppt bei {{max}} Schrittn. Da Agent is no ned fertig.",
+    "keepGoing": "Weida macha",
+    "stoppedTokens": "Gstoppt — de Session hot ihr Token-Budget erreicht.",
+    "compact": "Kompakt",
+    "newSession": "Neids Gspräch"
+  },
+  "run": {
+    "stopped": "Gstoppt.",
+    "failed": "Da Lauf is z'früh gstoppt.",
+    "tryAgain": "Noch amoi probiern"
+  },
+  "modelNoTools": "{{model}} koan Tools aufrufa, drum ko a ois Agent sei. Wähl a Modell, des Tools aufrufa ko.",
+  "askContinue": "Fortsetzn",
+  "askNext": "Nächste Frog",
+  "askPrev": "Vorige Frog",
+  "askRecommended": "Empfohlene",
+  "askSelectedCount": "{{count}} ausgwählt",
+  "askSomethingElse": "Wos anders",
+  "askSomethingElsePlaceholder": "Schreib dei eigne Antwort",
+  "submit": "Senden",
+  "composer": {
+    "advanced": "Fortgschrittene Parameter",
+    "modelDefaults": "Modell-Standard",
+    "assistantOverrides": "Assistent-Überschreibunga",
+    "printPdf": "Druckn / Ois PDF speichan",
+    "exportHint": "Lesbare Formate: aktive Branch. JSON: olle Nachrichtn-Versiona. Externe Foialn wern ned zammgpackt."
+  },
+  "telemetry": {
+    "summary": "Mit deina Zuestimmunga kriagt {{host}} nur de Novera-Version und des Betriebssystem, ohne Gspräche oda an beständign Identifikator.",
+    "unavailable": "Statistikn san ned konfiguriert. Koane Daten wern gschickt."
+  },
+  "errorTracking": {
+    "title": "Fehler-Tracking",
+    "summary": "Optionale Berichte zu {{host}}: Fehler-Typ, Code-Position, Version und Betriebssystem. Koane Gspräche, rohe Fehlermeldunga oda Schliaß. Jedazeit ausschaltn.",
+    "unavailable": "Fehler-Tracking is ned konfiguriert. Koane Berichte wern gschickt."
+  },
+  "access": {
+    "read": "Nur zum Lesn",
+    "ask": "Frogn, bevor g'ändert oda glöscht wird",
+    "allow": "Bearbeitn und Löschn erlaubn",
+    "folderNote": "Wähl, wia Novera auf den Foiald zugreifa soi."
+  },
+  "components": {
+    "title": "Lokale Komponenta",
+    "note": "Installier nur de Komponenta, ded'd brauchst. Novera hot Python-Umgebunga getrennt. Cloud-Diensta brauchan koane lokale Installation.",
+    "estimates": "Gschätzta Download: {{download}} · Brauchta Foialdplatz: {{space}} · Verfügbara Foialdplatz: {{free}}",
+    "confirm": "Des private Umfoid installiern? Nur de gwähltn Komponentn wern runterg'ladn. De Lizenza vo de Veröffentlicha g'engan.",
+    "removeConfirm": "Des verwaltete Umfoid entfern'n? Dei Modella, Schöpfunga und Gspräche bleibn.",
+    "verify": "Prüfn",
+    "repair": "Repariern",
+    "uninstall": "Entinstalliern",
+    "missing": "Ned installiert",
+    "managed": "G'wartet vo Novera",
+    "external": "A optionale externe Python-Pfad überschreibt des verwaltete Profil. Leer's, um Novera's Umfoid zum nutzn.",
+    "failed": "De Komponentn-Operation is g'scheitert. Prüf des Netz, de Festplattn, und de Zugriffsrecht, dann probier's noamoi oda reparier's.",
+    "required": "Vorbereitn und überprüfn vo de nötign lokalen Komponenta in Novera · Konfigurationa.",
+    "updateAvailable": "Aktualisierung verfügbar",
+    "update": "Aktualisiern",
+    "rollback": "Vorherigs Umfoid wiederherstelln",
+    "busy": "Lokale Modella entladn und waratn, bis de Generazionn fertig san, bevor ma Komponentn ändert."
+  },
+  "voiceConversation": "Sprachgspräch",
+  "voiceUnavailable": "Sprachgspräch is ned verfügbar",
+  "voiceMale": "Männliche Stimm",
+  "voiceFemale": "Weibliche Stimm",
+  "voiceReadReplies": "Antwortn vorlesn"
+}

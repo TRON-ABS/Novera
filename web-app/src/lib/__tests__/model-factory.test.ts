@@ -23,10 +23,10 @@ vi.mock('@tauri-apps/plugin-http', () => ({
 
 // Mock the AI SDK providers
 vi.mock('@ai-sdk/openai-compatible', () => {
-  const MockChatModel = vi.fn().mockImplementation(() => ({
+  const MockChatModel = vi.fn().mockImplementation(function() { return ({
     type: 'openai-compatible-chat',
     modelId: 'apple/on-device',
-  }))
+  }); })
   return {
     createOpenAICompatible: vi.fn(() => ({
       languageModel: vi.fn(() => ({ type: 'openai-compatible' })),
@@ -592,7 +592,7 @@ describe('createCustomFetch — llamacpp 500 handling', () => {
 
 describe('createCustomFetch sampling retry response handling', () => {
   const progress = 'event: progress\ndata: {"type":"progress","percent":10}\n\n'
-  const completion = 'data: {"id":"reply","model":"fixture","created":1,"choices":[{"index":0,"delta":{"content":"Hello"}}]}\n\n'
+  const completion = 'data: {"id":"reply","model":"fixture","created":1,"choices":[{"index":0,"delta":{"content":"Hello"},"finish_reason":"stop"}]}\n\n'
   const done = 'data: [DONE]\n\n'
   const rejected = () => new Response(JSON.stringify({ error: { message: 'Unsupported parameter: temperature' } }), {
     status: 400, headers: { 'content-type': 'application/json' },

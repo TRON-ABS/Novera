@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "कोड",
+    "preview": "पूर्वावलोकन",
+    "previewStreaming": "उत्पादन समाप्त होवे पर उपलब्ध",
+    "unresolvedAssets_one": "1 संपत्ति संदर्भ पूर्वावलोकन में लोड न कैल जा सकई हई. सापेक्षिक पथ में कोई आधार URL न हई जेकरा खिलाफ हल कैल जाए के चाहि।",
+    "unresolvedAssets_other": "{{count}} संपत्ति संदर्भ के पूर्वावलोकन में लोड न कैल जा सकई हई. सापेक्षिक पथ के खिलाफ हल करे के लेल कोई आधार URL ना हई।"
+  },
+  "assistants": "सहायक",
+  "hardware": "हार्डवेयर",
+  "mcp-servers": "MCP सर्वर",
+  "local_api_server": "स्थानीय API सर्वर",
+  "remote_access": "रिमोट एक्सेस",
+  "integrations": "एकीकरण",
+  "experimental": "प्रयोगात्मक",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS प्रोक्सी",
+  "web_search": "वेब खोज",
+  "shell": "शेल",
+  "browse": "ब्राउज़",
+  "moreControls": "अधिक नियंत्रण",
+  "starting": "प्रारंभ करई हई...",
+  "activeSuffix": "(सक्रिय)",
+  "extensions": "एक्सटेंशन",
+  "attachments": "संलग्नक",
+  "general": "सामान्य",
+  "settings": "सेटिंग्स",
+  "modelProviders": "मॉडल प्रदाता",
+  "localProviders": "स्थानीय",
+  "remoteProviders": "रिमोट",
+  "manageProviders": "प्रदायक के प्रबंधन करई छलई",
+  "hiddenProviders": "{{count}} अक्षम",
+  "hideProvider": "प्रदायक छुपाओ",
+  "showProvider": "प्रदाता दिखाएँ",
+  "interface": "इंटरफेस",
+  "appearance": "उपस्थिति",
+  "privacy": "गोपनीयता",
+  "keyboardShortcuts": "शॉर्टकट",
+  "home": "घर",
+  "cowork": "Cowork",
+  "newSession": "नया सत्र",
+  "artifacts": "आर्टिफैक्ट",
+  "customize": "अनुकूलित",
+  "local": "स्थानीय",
+  "selectFolder": "फ़ोल्डर चुनलो",
+  "selectModel": "पहले एक मॉडल चुनो",
+  "commands": "कमांड",
+  "cmdHelp": "उपलब्ध कमांड के सूचीबद्ध करई हई",
+  "cmdClear": "ई सत्र के साफ करई हई",
+  "cmdModels": "सक्रिय मॉडल स्विच करो",
+  "cmdModelsHint": "टाइप /models फेर सूची से एगो मॉडल चुनई छलई",
+  "cmdModelSwitched": "{{name}} पर स्विच कैल गेलई",
+  "cmdUnknown": "अज्ञात कमांड: {{name}}. /help कोशिश करई छलई",
+  "cmdBusy": "जब एजेंट चल रहल हो तब ऐसन ना कर सकई हई",
+  "cmdCompact": "सत्र के संदर्भ के एगो सारांश में संकुचित करई हई",
+  "cmdCompacted": "{{before}} -> {{after}} संदेश के संकुचित कैल गेलई",
+  "cmdNothingToCompact": "अभी तक संपीड़ित करे के लेल कुछ ना हई",
+  "cmdCompactFailed": "संपीड़न विफल: {{error}}",
+  "cmdPlan": "योजना मोड टॉगल करई हई (केवल-पढ़ाई: एजेंट लेखन के बिना प्रस्तावित करई हई)",
+  "cmdPlanOn": "योजना मोड चालू: एजेंट बिना लिखल के पढ़ई हई अउर प्रस्तावित करई हई।",
+  "cmdPlanOff": "योजना मोड बंद: सामान्य कार्यान्वयन",
+  "cmdTodo": "प्रगति फलक खोलो",
+  "cmdTasks": "पृष्ठभूमि कार्य फलक खोलो",
+  "cmdInit": "परियोजना के अध्ययन करई हई अउर लेखन कौशल अउर स्मृति के लिखई हई।",
+  "cmdInitRunning": "ई परियोजना के अनबोर्डिंग",
+  "skills": "कौशल",
+  "skillsInContext": "ई चल रहल एजेंट के लेल उपलब्ध कौशल",
+  "skillsTitle": "कौशल प्रबंधन",
+  "skillsScopeProject": "{{folder}} के लेल कौशल",
+  "skillsScopeGlobal": "वैश्विक कौशल, प्रत्येक सत्र के लेल उपलब्ध।",
+  "skillsScopeMerged": "{{folder}} के लेल कौशल, प्लस प्रत्येक सत्र के साझा वैश्विक कौशल",
+  "skillOriginFolder": "फ़ोल्डर",
+  "skillOriginGlobal": "वैश्विक",
+  "skillsEmpty": "अभी तक कोई कौशल नए हई",
+  "skillsPickOrNew": "संपादित करे के लेल एगो कौशल चुनई हई, चाहे एगो नया बनाई हई।",
+  "skillNew": "नया कौशल",
+  "skillDelete": "कौशल मिटाओ",
+  "skillSave": "सहेजऽ",
+  "skillSaved": "कौशल संरक्षित",
+  "skillNameRequired": "कौशल नाम आवश्यक हई",
+  "skillNamePlaceholder": "कौशल-नाम",
+  "skillContentPlaceholder": "Markdown में पुन: प्रयोज्य प्रक्रिया के वर्णन करई हई...",
+  "skillHubImport": "हब से आयात करें",
+  "skillHubTitle": "Anthropic कौशल केंद्र",
+  "skillHubEmpty": "हब पर कोई कौशल न पावल गेलई",
+  "skillImport": "आयात",
+  "skillReimport": "पुनः आयात",
+  "skillImported": "आयातित {{name}}",
+  "sessions": "सत्र",
+  "deleteSession": "सत्र मिटाओ",
+  "deleteSessionTitle": "सत्र मिटाबैक?",
+  "deleteSessionBody": "\"{{title}}\" और एकर अनुक्रमणिका स्थायी रूप से मिटा देल जाई छलई. एकरा पूर्ववत ना कैल जा सकई छलई।",
+  "newChat": "नया गपशप",
+  "newAgentChat": "नया एजेंट चैट",
+  "chats": "गपशप",
+  "favorites": "पसंदीदा",
+  "recents": "हालिया",
+  "hub": "हब",
+  "helpSupport": "मदद आउर समर्थन",
+  "helpUsImproveJan": "Novera के बेहतर बनावे में मदद करो",
+  "analyticsConsentDetail": "हम फीचर उपयोग के समझे के लेल बेनामी डेटा एकत्र करई हई। आपके चैट अउर व्यक्तिगत जानकारी के कभी भी ट्रैक ना कैल जाई हई। आप एकरा सेटिंग्स > गोपनीयता में कोनो समय बदल सकई हई।",
+  "analyticsConsentQuestion": "क्या आप हमारे Novera के बेहतर बनावे में मदद करनाई चाहो हय?",
+  "unstarAll": "सबके अनस्टार",
+  "unstar": "अनस्टार",
+  "deleteAll": "सब मिटा देल जा रहल हई",
+  "star": "तारा",
+  "rename": "नाम बदलि",
+  "delete": "मिटा",
+  "copied": "नक़ल!",
+  "dataFolder": "डाटा फ़ोल्डर",
+  "others": "अन्य",
+  "language": "भाषा",
+  "login": "लॉगइन",
+  "loginWith": "{{provider}} के जौरे लॉगइन",
+  "loginFailed": "लॉगइन करे में विफल",
+  "logout": "लॉग आउट",
+  "loggingOut": "लॉगआउट कर रहल हई...",
+  "loggedOut": "सफलतापूर्वक लॉगआउट कैल गेलई",
+  "logoutFailed": "लॉग आउट करे में विफल",
+  "profile": "प्रोफ़ाइल",
+  "reset": "रीसेट",
+  "search": "खोज",
+  "searchThreads": "थ्रेड के खोजो...",
+  "toNavigate": "नेविगेशन",
+  "toSelect": "चयनित",
+  "toClose": "बंद करे के लेल",
+  "clearRecent": "साफ",
+  "name": "नाम",
+  "cancel": "रद्द करऽ",
+  "dismiss": "खारिज कर देई हई",
+  "create": "बनावऽ",
+  "save": "सहेजऽ",
+  "edit": "संपादन",
+  "copy": "नक़ल",
+  "back": "पीछे",
+  "close": "बंद करऽ",
+  "done": "पूरा होलय",
+  "next": "अगला",
+  "finish": "समाप्त",
+  "skip": "जहाज",
+  "allow": "अनुमति दें",
+  "deny": "अस्वीकार",
+  "start": "प्रारंभ",
+  "stop": "रोक",
+  "preview": {
+    "loading": "खोलई छई...",
+    "unsupported": "Novera ई तरह के फ़ाइल न दिखा सकई हई. एकरा दोसर अनुप्रयोग में देखे के लेल खोलई छलई.",
+    "outside": "ई फ़ाइल अब सत्र कार्यक्षेत्र में ना हई।",
+    "tooLarge": "पूर्वावलोकन के लेल बहुत बड़ हई. एकरा दोसर अनुप्रयोग में देखे के लेल खोलई छलई।",
+    "reload": "पुनः लोड",
+    "allowNetwork": "नेटवर्क स्वीकार करई हई",
+    "unsandboxed": "अनसेंडबॉक्सेड चलाए: संरक्षित डेटा अउर स्थानीय फ़ाइल काम करई छई",
+    "unresolvedRefs_one": "1 फ़ाइल जेकरा येई पृष्ठ लिंक करई हई, पूर्वावलोकन में लोड न कैल जा सकई छई. एकरा ब्राउज़र में देखे के लेल खोलई छई।",
+    "unresolvedRefs_other": "{{count}} फ़ाइलें जेकरा येई पृष्ठ लिंक करई हई, पूर्वावलोकन में लोड न कैल जा सकई हई. एकरा ब्राउज़र में देखे के लेल खोलई छई.",
+    "externalRefs_one": "1 संसाधन जे ई पृष्ठ वेब से लोड करई हई, अवरुद्ध हई. एकरा लोड करे के लेल \"नेटवर्क अनुमति\" चालू करई छई.",
+    "externalRefs_other": "{{count}} संसाधन जे ई पृष्ठ वेब से लोड करई हई, अवरुद्ध छलई. ओकरा लोड करे के लेल \"नेटवर्क अनुमति\" चालू करई छलई।",
+    "scriptErrors_one": "पृष्ठ एगो त्रुटि के रिपोर्ट कलई: {{message}}",
+    "scriptErrors_other": "पृष्ठ {{count}} त्रुटि के रिपोर्ट कलई। पहिला: {{message}}"
+  },
+  "changes": {
+    "title": "एजेंट परिवर्तन",
+    "empty": "फ़ाइलें जे एजेंट लिखई हई चाहे संपादित करई हई, ईहां दिखाई देतो।",
+    "a11y": "एजेंट परिवर्तन: {{files}} फ़ाइलें, {{additions}} जोड़ल गेलई, {{deletions}} हटाएल गेलई"
+  },
+  "modelPanel": {
+    "title": "मॉडल विन्यास",
+    "a11y": "मॉडल विन्यास खोलो",
+    "contextTooltip": "संदर्भ विंडो: {{value}} में से {{max}} टोकन"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "कौशल '{{name}}' उपलब्ध ना हई",
+    "kind": {
+      "skill": "कौशल",
+      "command": "कमांड",
+      "model": "मॉडल"
+    }
+  },
+  "compactWidth": "संकुचित चौड़ाई",
+  "fullWidth": "पूरा चौड़ाई",
+  "dark": "गहरा",
+  "light": "प्रकाश",
+  "system": "प्रणाली",
+  "auto": "स्वचालित",
+  "english": "अंग्रेजी",
+  "medium": "मीडिया",
+  "newThread": "नया प्रसंग",
+  "noResultsFound": "कोई परिणाम न पावल गेलई",
+  "noThreadsYet": "अभी कोई Thread नय हई",
+  "noThreadsYetDesc": "अपन Thread इतिहास के देखे के लेल यहाँ एगो नया बातचीत शुरू करई छलई।",
+  "downloads": "डाउनलोड",
+  "downloading": "डाउनलोड कर रहल हई",
+  "uploadingAttachments": "संलग्नक अपलोड करई हई...",
+  "cancelDownload": "डाउनलोड रद्द करो",
+  "downloadCancelled": "डाउनलोड रद्द",
+  "downloadComplete": "डाउनलोड पूरा होलय",
+  "thinking": "सोचई हई...",
+  "thought": "विचार",
+  "callingTool": "कॉलिंग टूल",
+  "completed": "पूरा होलय",
+  "image": "छवि",
+  "vision": "विजन",
+  "multimodal": "मल्टीमोडल",
+  "embeddings": "एम्बेडिंग्स",
+  "tools": "औजार",
+  "webSearch": "वेब खोज",
+  "reasoning": "तर्क",
+  "proactive": "सक्रिय",
+  "selectAModel": "एगो मॉडल चुनई छलई",
+  "noToolsAvailable": "कोई उपकरण उपलब्ध ना हई",
+  "noModelsFoundFor": "\"{{searchValue}}\" के लेल कोनो मॉडल न मिललई",
+  "failedToLoadModels": "मॉडल लोड करे में विफल",
+  "noModels": "कोई मॉडल न पावल गेलई",
+  "noAssistant": "कोई सहायक ना",
+  "customAvatar": "मनपसंद अवतार",
+  "editAssistant": "संपादन सहायक",
+  "jan": "Novera",
+  "metadata": "मेटाडाटा",
+  "regenerate": "पुन: उत्पन्न करो",
+  "threadImage": "थ्रेड छवि",
+  "editMessage": "संदेश संपादित करें",
+  "deleteMessage": "संदेश मिटाओ",
+  "deleteThread": "लड़ी मिटाओ",
+  "renameThread": "लड़ी के नाम बदलें",
+  "threadTitle": "Thread शीर्षक",
+  "deleteAllThreads": "सभी विषयों के मिटाओ",
+  "allThreadsUnfavorited": "सब थ्रेड्स पसंदीदा ना हई",
+  "deleteAllThreadsConfirm": "क्या आप निश्चित रूप से सभे Threads के मिटावे के चाहो हय? ई क्रिया पूर्ववत न कैल जा सकई हई.",
+  "addProvider": "प्रदाता जोड़ो",
+  "addOpenAIProvider": "OpenAI प्रदाता जोड़ो",
+  "enterNameForProvider": "आपन प्रदाता के लेल एगो नाम प्रविष्ट करई हई",
+  "providerAlreadyExists": "नाम \"{{name}}\" वाला प्रदाता पहिले से मौजूद हई. कृपया एगो अलग नाम चुनई।",
+  "adjustFontSize": "फ़ॉन्ट आकार समायोजित करई हई",
+  "changeLanguage": "भाषा बदलें",
+  "editTheme": "थीम संपादित करें",
+  "editCodeBlockStyle": "कोड ब्लॉक शैली संपादित करो",
+  "editServerHost": "सर्वर होस्ट संपादित करें",
+  "pickColorWindowBackground": "विंडो पृष्ठभूमि के रंग चुनई छई",
+  "pickColorAppMainView": "रंग अनुप्रयोग मुख्य दृश्य चुनई छलई",
+  "pickColorAppPrimary": "रंग एप प्राथमिक चुनई छई",
+  "pickColorAppAccent": "रंग अनुप्रयोग उच्चारण चुनई",
+  "pickColorAppDestructive": "रंग अनुप्रयोग विनाशकारी चुनई छई",
+  "apiKeyRequired": "API कुंजी आवश्यक हई",
+  "enterTrustedHosts": "विश्वसनीय होस्ट प्रविष्ट करो",
+  "placeholder": {
+    "chatInput": "मुझे कुछ पूछो..."
+  },
+  "confirm": "पुष्टि करई हई",
+  "continue": "जारी रखऽ",
+  "loading": "लोड हो रहल हई...",
+  "settingUpJan": "Novera बूट कर रहल हई...",
+  "registeringExtensions": "विस्तार पंजीकरण कर रहल हई...",
+  "loadingExtensions": "विस्तारण लोड हो रहल हई... ({{done}}/{{total}})",
+  "error": "त्रुटि",
+  "success": "सफलता",
+  "warning": "चेतावनी",
+  "conversationNotAvailable": "वार्तालाप उपलब्ध ना हई",
+  "conversationNotAvailableDescription": "संवाद जेकरा आप पहुँचे के कोशिश कर रहल हई ऊ उपलब्ध ना हई चाहे मिटावल गेल हई।",
+  "temporaryChat": "अस्थायी चैट",
+  "temporaryChatTooltip": "अस्थायी चैट आपके इतिहास में न दिखाई देतो",
+  "noResultsFoundDesc": "हम आपके खोज से मेल खाए वाला कोनो बातचीत न पा सकलो। एगो अलगे शब्दकोश के कोशिश करलो।",
+  "searchModels": "खोज मॉडल...",
+  "searchStyles": "खोज शैली...",
+  "createAssistant": "सहायक बनाएँ",
+  "enterApiKey": "API कुंजी प्रविष्ट करो",
+  "scrollToBottom": "निचला तक स्क्रॉल करें",
+  "generateAiResponse": "AI प्रतिक्रिया उत्पन्न करई छई",
+  "continueAiResponse": "AI प्रतिक्रिया के जौरे जारी रखो",
+  "addModel": {
+    "title": "मॉडल जोड़ो",
+    "modelId": "ID मॉडल",
+    "enterModelId": "ID मॉडल प्रविष्ट करो",
+    "addModel": "मॉडल जोड़ो",
+    "description": "प्रदायक में एगो नया मॉडल जोड़ो",
+    "exploreModels": "प्रदाता से मॉडल सूची देखें"
+  },
+  "mcpServers": {
+    "editServer": "सर्वर संपादित करें",
+    "addServer": "सर्वर जोड़ो",
+    "serverName": "सर्वर नाम",
+    "enterServerName": "सर्वर नाम प्रविष्ट करई हई",
+    "command": "कमांड",
+    "enterCommand": "कमांड दाखिल करई छई",
+    "arguments": "तर्क",
+    "argument": "{{index}}",
+    "envVars": "एनवायरनमेंट वेरिएबल",
+    "key": "कुंजी",
+    "value": "मान",
+    "save": "सहेजऽ"
+  },
+  "deleteServer": {
+    "title": "सर्वर मिटाओ",
+    "delete": "मिटा"
+  },
+  "editJson": {
+    "errorParse": "JSON के विश्लेषण करे में विफल",
+    "errorPaste": "JSON चिपकाबे में विफल",
+    "errorFormat": "अवैध JSON प्रारूप",
+    "titleAll": "सभे सर्वर कॉन्फ़िगरेशन संपादित करई छलई",
+    "placeholder": "JSON विन्यास प्रविष्ट करो...",
+    "save": "सहेजऽ"
+  },
+  "editModel": {
+    "title": "मॉडल संपादन: {{modelId}}",
+    "description": "नीचे के विकल्पों के टॉगल करके मॉडल क्षमताओं के कॉन्फ़िगर करो।",
+    "capabilities": "क्षमता",
+    "tools": "औजार",
+    "vision": "विजन",
+    "embeddings": "एम्बेडिंग्स",
+    "notAvailable": "अभी उपलब्ध ना हई"
+  },
+  "outOfContextError": {
+    "truncateInput": "इनपुट काट देई हई",
+    "title": "संदर्भ से बाहर त्रुटि",
+    "description": "ई चैट AI के मेमोरी सीमा तक पहुँच रहल हई, जैसे कि एगो व्हाइटबोर्ड भरे के तरह। हम मेमोरी विंडो के विस्तार कर सकई हई (जेकरा संदर्भ आकार कहल जाई हई) ताकि ई अधिक याद कर सकई हई, लेकिन ई आपके कंप्यूटर के मेमोरी के अधिक उपयोग कर सकई हई। हम इनपुट के भी काट सकई हई, जेकर अर्थ हई कि ई नया संदेश के लेल जगह बनावे के लेल चैट इतिहास के कुछ भूल जाई छलई।",
+    "increaseContextSizeDescription": "क्या आप संदर्भ आकार बढ़ाना चाहो हय?",
+    "increaseContextSize": "संदर्भ आकार बढ़ाओ"
+  },
+  "toolApproval": {
+    "title": "उपकरण अनुमति अनुरोध",
+    "description": "सहायक <strong>{{toolName}}</strong> के उपयोग करे चाहई छई",
+    "securityNotice": "केवल उ उपकरण के अनुमति देई हई जेकरा पर आप भरोसा करई हई। उपकरण आपके सिस्टम अउर डेटा तक पहुँच सकई छलई।",
+    "deny": "अस्वीकार",
+    "allowOnce": "एक बार अनुमति देई हई",
+    "alwaysAllow": "हमेशा अनुमति देई हई"
+  },
+  "deleteModel": {
+    "title": "मॉडल मिटाओ: {{modelId}}",
+    "description": "क्या आप निश्चित रूप से ई मॉडल के मिटावे के चाहो हय? ई क्रिया पूर्ववत न कैल जा सकई हई।",
+    "success": "मॉडल {{modelId}} स्थायी रूप से मिटावल गेल हई।",
+    "cancel": "रद्द करऽ",
+    "delete": "मिटा"
+  },
+  "deleteProvider": {
+    "title": "प्रदाता मिटाओ",
+    "description": "ई प्रदाता अउर एकर सभे मॉडल के मिटाबई छई। ई कार्य के पूर्ववत् ना कैल जा सकई छई।",
+    "success": "प्रदाता {{provider}} के स्थायी रूप से हटा देल गेल हई।",
+    "confirmTitle": "प्रदाता मिटाओ: {{provider}}",
+    "confirmDescription": "क्या आप निश्चित रूप से ई प्रदाता के मिटावे चाहई हई? ई क्रिया पूर्ववत न कैल जा सकई हई।",
+    "cancel": "रद्द करऽ",
+    "delete": "मिटा"
+  },
+  "modelSettings": {
+    "label": "मॉडल विन्यास",
+    "title": "मॉडल सेटिंग्स - {{modelId}}",
+    "description": "प्रदर्शन और व्यवहार के अनुकूलित करे के लिए मॉडल सेटिंग्स के कॉन्फ़िगर करो।",
+    "nglDisabledByFit": "स्वचालित-फिट GPU परत के चुनई छई। एकरा हाथ से सेट करे के लेल स्वचालित-फिट के बंद कर देई छई।",
+    "samplingDefaults": {
+      "title": "डिफ़ॉल्ट नमूनाकरण पैरामीटर",
+      "description": "ई मॉडल के लेल डिफ़ॉल्ट नमूनाकरण सेटिंग्स. उपयोग करल जाई हई जब तक कि प्रति-सहायक चाहे प्रति-अनुरोध मान द्वारा ओवरराइड न कैल जाई हई।"
+    },
+    "specDraft": {
+      "section": "अनुमानित डिकोडिंग",
+      "enable": "अनुमानित डिकोडिंग सक्षम करई हई",
+      "enableDescription": "प्रति चरण कई टोकन के ड्राफ्ट करो और एक पास में ओकरा सत्यापित करो, जे उत्पादन के गति प्रदान करो हय। मॉडल के अंतर्निर्मित MTP हेड के उपयोग करो हय, या एकर साथ डाउनलोड कैल गेल ड्राफ्ट मॉडल (MTP, Eagle3, DFlash या DSpark)।",
+      "nMax": "अधिकतम ड्राफ्ट टोकन",
+      "nMaxDescription": "प्रति चरण ड्राफ्ट करे के लेल टोकन के अधिकतम संख्या. डिफ़ॉल्ट 16.",
+      "nMin": "न्यूनतम ड्राफ्ट टोकन",
+      "nMinDescription": "प्रति चरण ड्राफ्ट करे के लेल टोकन के न्यूनतम संख्या. डिफ़ॉल्ट 0.",
+      "pMin": "न्यूनतम ड्राफ्ट संभावना",
+      "pMinDescription": "लालची ड्राफ्टिंग के लेल न्यूनतम संभावना (0–1). डिफ़ॉल्ट 0.75."
+    },
+    "templateKwargs": {
+      "section": "चैट टैम्प्लेट विकल्प",
+      "description": "इ मॉडल के चैट टैम्प्लेट अतिरिक्त विकल्प के स्वीकार करई हई. प्रत्येक अनुरोध पर chat_template_kwargs के रूप में भेजल जाई हई; टैम्प्लेट के तय करे के लेल अपन डिफ़ॉल्ट पर एगो मान छोड़ई छलई।",
+      "addCustom": "मनपसंद विकल्प जोड़ो",
+      "keyPlaceholder": "नाम",
+      "valuePlaceholder": "मान",
+      "add": "जोड़ो",
+      "cancel": "रद्द करऽ",
+      "remove": "हटाओ"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "मॉडल सेटिंग्स के अद्यतनित ना कर सकलो"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "डाटा फ़ोल्डर स्थान बदलें",
+      "description": "क्या आप निश्चित रूप से डेटा फ़ोल्डर के स्थान बदलना चाहो हय? ई आपके सभे डेटा के नया स्थान पर ले जाई छलई आउर अनुप्रयोग के फिर से शुरू कर देई छलई।",
+      "currentLocation": "वर्तमान स्थान:",
+      "newLocation": "नया स्थान:",
+      "cancel": "रद्द करऽ",
+      "changeLocation": "स्थान बदलें"
+    },
+    "deleteAllThreads": {
+      "title": "सभी विषयों के मिटाओ",
+      "description": "सभे threads मिटावल जाई छलई। ई क्रिया के पूर्ववत् ना कैल जा सकई छलई।"
+    },
+    "deleteAllThreadsInProject": {
+      "title": "सभे बातचीत मिटा देल जाई हई",
+      "description": "{{count}} \"{{projectName}}\" में बातचीत के मिटा देल जाई छलई. ई क्रिया के पूर्ववत ना कैल जा सकई छलई."
+    },
+    "deleteThread": {
+      "description": "क्या आप निश्चित रूप से ई thread के मिटावे चाहई हई? ई क्रिया पूर्ववत् न कैल जा सकई हई."
+    },
+    "editMessage": {
+      "title": "संदेश संपादित करें"
+    },
+    "messageMetadata": {
+      "title": "संदेश मेटाडाटा"
+    },
+    "deleteMessage": {
+      "description": "क्या आप निश्चित रूप से ई संदेश के मिटावे चाहई हई? ई क्रिया पूर्ववत् न कैल जा सकई हई."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "कुछ गलत होलय",
+    "details": "विवरण"
+  },
+  "missingDependenciesDialog": {
+    "title": "गुम प्रणाली लाइब्रेरी",
+    "description": "{{backend}} स्थापित कैल गेल रहई लेकिन कुछ आवश्यक सिस्टम लाइब्रेरी के खोजल ना जा सकई रहई। ई CPU में वापस जा सकई हई चाहे सही तरह से न चल सकई हई।",
+    "installLabel": "एकरा ठीक करे के लेल, निम्नलिखित स्थापित करई छई:",
+    "download": "डाउनलोड",
+    "additionalLibraries": "अतिरिक्त लापता लाइब्रेरी:",
+    "missingLibraries": "लापता लाइब्रेरी:",
+    "showRawLibraries": "{{count}} लापता लाइब्रेरी नाम दिखाई देई हई"
+  },
+  "projects": {
+    "title": "परियोजना",
+    "new": "नया परियोजना",
+    "addProject": "परियोजना जोड़ो",
+    "addToProject": "परियोजना में जोड़ो",
+    "removeFromProject": "परियोजना से हटाओ",
+    "createNewProject": "नया परियोजना बनाएँ",
+    "editProject": "परियोजना संपादित करें",
+    "deleteProject": "परियोजना मिटाओ",
+    "projectName": "परियोजना नाम",
+    "enterProjectName": "परियोजना नाम प्रविष्ट करई हई...",
+    "noProjectsAvailable": "कोई परियोजना उपलब्ध ना हई",
+    "noProjectsYet": "अभी कोई परियोजना ना हई",
+    "noProjectsYetDesc": "परियोजना जोड़े बटन पर क्लिक करके एगो नया परियोजना शुरू करई छलई।",
+    "projectNotFound": "परियोजना न पावल गेलई",
+    "projectNotFoundDesc": "आपन खोजल परियोजना मौजूद ना हई चाहे मिटावल गेल हई।",
+    "selectAssistant": "सहायक चुनई छलई",
+    "noAssistantAssigned": "ई परियोजना के लेल कोनो सहायक न सौंपल गेल हई",
+    "files": "फ़ाइलें",
+    "filesDescription": "ई परियोजना में संदर्भित करे के लेल पीडीएफ, दस्तावेज़ चाहे दोसर पाठ जोड़ो।",
+    "uploadingFiles": "फ़ाइलें संसाधित कर रहल हई...",
+    "processButton": "जोड़ो",
+    "deleteProjectDialog": {
+      "title": "परियोजना मिटाओ",
+      "permanentDelete": "ई सभे थ्रेड्स के स्थायी रूप से मिटाबई छई।",
+      "permanentDeleteWarning": "ई क्रिया परियोजना के भीतर ALL थ्रेड के स्थायी रूप से मिटाबई छई!",
+      "deleteEmptyProject": "ई क्रिया परियोजना \"{{projectName}}\" के मिटाबई छई।",
+      "saveThreadsAdvice": "थ्रेड्स के संग्रहित करे के लेल, ओकरा मिटावे से पहिले अपन थ्रेड्स सूची चाहे दोसर परियोजना में स्थानांतरित करई छलई।",
+      "starredWarning": "आपके पास अभी भी परियोजना के भीतर स्टारर थ्रेड्स हय।",
+      "deleteButton": "मिटा",
+      "successWithName": "परियोजना \"{{projectName}}\" सफलतापूर्वक मिटावल गेलई",
+      "successWithoutName": "परियोजना सफलतापूर्वक मिटावल गेलई",
+      "error": "परियोजना मिटावे में विफल. कृपया फिर से कोशिश करई छलई।",
+      "ariaLabel": "{{projectName}} मिटाओ"
+    },
+    "addProjectDialog": {
+      "createTitle": "नया परियोजना बनाएँ",
+      "editTitle": "परियोजना संपादित करें",
+      "nameLabel": "परियोजना नाम",
+      "namePlaceholder": "परियोजना नाम प्रविष्ट करई हई...",
+      "assistant": "सहायक",
+      "selectAssistant": "सहायक (वैकल्पिक) चुनई छलई",
+      "noAssistant": "कोई सहायक ना",
+      "addAssistant": "सहायक जोड़ो",
+      "createButton": "बनावऽ",
+      "updateButton": "अद्यतन",
+      "alreadyExists": "परियोजना \"{{projectName}}\" पहिले से मौजूद हई",
+      "createSuccess": "परियोजना \"{{projectName}}\" सफलतापूर्वक बनावल गेलई",
+      "updateSuccess": "परियोजना \"{{projectName}}\" सफलतापूर्वक अद्यतन करल गेलई",
+      "saveError": "परियोजना संरक्षित न कैल जा सकई हई. कृपया फेर से कोशिश करई छलई।"
+    },
+    "noConversationsIn": "{{projectName}} में कोनो बातचीत ना हई",
+    "startNewConversation": "नीचे {{projectName}} के जौरे एगो नया बातचीत शुरू करई छलई",
+    "conversationsIn": "{{projectName}} में बातचीत",
+    "conversationsDescription": "बात करनाई जारी रखे के लेल कोनो बातचीत पर क्लिक करई हई, चाहे नीचे एगो नया शुरू करई हई।",
+    "conversation": "वार्तालाप",
+    "instructions": "निर्देश",
+    "setup": "सेटअप",
+    "instructionsDescription": "प्रतिक्रिया के टोन और शैली अनुकूलित करई हई",
+    "manageInstructions": "निर्देश प्रबंधित करो",
+    "thread": "थ्रेड",
+    "threads": "थ्रेड",
+    "updated": "अद्यतन:",
+    "collapseProject": "परियोजना संकुचित करई छई",
+    "expandProject": "परियोजना विस्तारित करई हई",
+    "update": "अद्यतन",
+    "searchProjects": "परियोजना के खोज...",
+    "noProjectsFound": "कोई परियोजना न पावल गेलई",
+    "tryDifferentSearch": "एगो अलग खोज शब्द के कोशिश करई छलई"
+  },
+  "attachmentsIngestion": {
+    "title": "संलग्नक के इंगित करे के तरीका चुनई छलई",
+    "description": "चुनल जा सकई हई कि ई फाइल के सीधे चैट में शामिल कैल जाए चाहे एकरा बजाय एम्बेडिंग के रूप में सूचकांकित कैल जाए।",
+    "inline": "गपशप में इंजेक्ट करई हई",
+    "embeddings": "एम्बेडिंग इस्तेमाल करई छलई"
+  },
+  "attachmentInjectedIndicator": "चैट में इंजेक्ट कैल गेल हई",
+  "attachmentEmbeddedIndicator": "RAG के लेल अंतर्निर्मित",
+  "viewInjectedContent": "इंजेक्टेड सामग्री देखो",
+  "injectedContentTitle": "फ़ाइल सामग्री इंजेक्ट कैल गेल हई",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "सब थ्रेड्स पसंदीदा ना हई",
+      "description": "सभे थ्रेड आपके पसंदीदा से हटा देल गेल हई।"
+    },
+    "deleteAllThreads": {
+      "title": "सभी विषयों के मिटाओ",
+      "description": "सभे थ्रेड स्थायी रूप से मिटा देल गेल हई।"
+    },
+    "renameThread": {
+      "title": "लड़ी के नाम बदलें",
+      "description": "Thread शीर्षक के नाम '{{title}}' पर बदल देल गेल हई"
+    },
+    "deleteThread": {
+      "title": "लड़ी मिटाओ",
+      "description": "ई thread स्थायी रूप से मिटावल गेल हई।"
+    },
+    "errorCopied": {
+      "title": "नक़ल सफल",
+      "description": "त्रुटि सूचना क्लिपबोर्ड में नक़ल कैल गेल हई"
+    },
+    "errorCopyFailed": {
+      "title": "नक़ल करे में विफल",
+      "description": "क्लिपबोर्ड में त्रुटि सूचना के नक़ल करे में विफल"
+    },
+    "editMessage": {
+      "title": "संदेश संपादित करें",
+      "description": "संदेश सफलतापूर्वक संपादित कैल गेल हई. कृपया मॉडल के जवाब देवे के लेल प्रतीक्षा करई छलई।"
+    },
+    "appUpdateDownloaded": {
+      "title": "अनुप्रयोग अद्यतन डाउनलोड कैल गेल हई",
+      "description": "ऐप अद्यतन सफलतापूर्वक डाउनलोड कैल गेल हई।"
+    },
+    "appUpdateDownloadFailed": {
+      "title": "अनुप्रयोग अद्यतन डाउनलोड असफल",
+      "description": "अनुप्रयोग अद्यतन डाउनलोड करे में विफल. कृपया फिर से कोशिश करई छलई।"
+    },
+    "downloadComplete": {
+      "title": "डाउनलोड पूरा होलय",
+      "description": "{{item}} डाउनलोड कैल गेल हई"
+    },
+    "downloadCancelled": {
+      "title": "डाउनलोड रद्द",
+      "description": "डाउनलोड प्रक्रिया रद्द कर देल गेल रहई"
+    },
+    "downloadFailed": {
+      "title": "डाउनलोड असफल",
+      "description": "{{item}} डाउनलोड विफल भईल",
+      "descriptionWithReason": "{{item}} डाउनलोड असफल: {{reason}}",
+      "reason": {
+        "dns": "सर्वर नाम के हल न कैल जा सकई छई",
+        "refused": "कनेक्शन अस्वीकार कर देल गेल रहई",
+        "timeout": "कनेक्शन टाइमआउट होलय",
+        "tls": "एगो सुरक्षित कनेक्शन स्थापित ना कैल जा सकई छलई",
+        "proxy": "प्रॉक्सी तक पहुँच ना हो सको हय",
+        "unreachable": "सर्वर से संपर्क ना करल जा सको हय"
+      }
+    },
+    "openSettings": "विन्यास खोलो",
+    "openLogs": "लॉग खोलो",
+    "downloadTokenRequired": {
+      "title": "Hugging Face टोकन आवश्यक हई",
+      "description": "ई मॉडल के Hugging Face एक्सेस टोकन के आवश्यकता होव हई. सेटिंग्स में अपन टोकन जोड़ि अउर फेर से कोशिश करई छलई."
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face पर मॉडल लाइसेंस स्वीकार करो",
+      "description": "डाउनलोड करे से पहले आपन Hugging Face पेज पर मॉडल के लाइसेंस के स्वीकार करेके चाहि।"
+    },
+    "downloadRateLimited": {
+      "title": "Hugging Face द्वारा सीमित दर",
+      "description": "आपन दर-सीमित होएल हई. एगो टोकन जोड़े से दर सीमा बढ़ सकई छई. कृपया बाद में फेर से कोशिश करई छलई।"
+    },
+    "modelValidationStarted": {
+      "title": "मॉडल के सत्यापित करई हई",
+      "description": "मॉडल \"{{modelId}}\" सफलतापूर्वक डाउनलोड कैल गेलई। अखंडता के जांच कैल जा रहल हई..."
+    },
+    "modelValidationFailed": {
+      "title": "मॉडल वैधता विफल",
+      "description": "डाउनलोड कैल गेल मॉडल \"{{modelId}}\" अखंडता सत्यापन में विफल रहई अउर हटा देल गेल रहई। फ़ाइल खराब हो सकई हई चाहे एकरा साथ छेड़छाड़ कैल जा सकई हई।"
+    },
+    "downloadAndVerificationComplete": {
+      "title": "डाउनलोड पूरा होलय",
+      "description": "मॉडल \"{{item}}\" सफलतापूर्वक डाउनलोड और सत्यापित कैल गेलई"
+    },
+    "projectCreated": {
+      "title": "परियोजना बनाएल गेल हई",
+      "description": "परियोजना \"{{projectName}}\" सफलतापूर्वक बनावल गेलई"
+    },
+    "projectRenamed": {
+      "title": "परियोजना के नाम बदलेल गेल हई",
+      "description": "परियोजना के नाम \"{{oldName}}\" से \"{{newName}}\" में बदल देल गेल हई"
+    },
+    "projectDeleted": {
+      "title": "परियोजना मिटावल गेल हई",
+      "description": "परियोजना \"{{projectName}}\" सफलतापूर्वक मिटावल गेलई"
+    },
+    "projectAlreadyExists": {
+      "title": "परियोजना पहिले से मौजूद हई",
+      "description": "परियोजना \"{{projectName}}\" पहिले से मौजूद हई"
+    },
+    "projectDeleteFailed": {
+      "title": "मिटावे में विफल",
+      "description": "परियोजना मिटावे में विफल. कृपया फिर से कोशिश करई छलई।"
+    },
+    "threadAssignedToProject": {
+      "title": "थ्रेड्स आबंटित",
+      "description": "\"{{projectName}}\" के सफलतापूर्वक Thread सौंपल गेलई"
+    },
+    "threadRemovedFromProject": {
+      "title": "थ्रेड हटाएल गेलई",
+      "description": "\"{{projectName}}\" से Thread सफलतापूर्वक हटाएल गेलई"
+    },
+    "fileUploaded": {
+      "title": "फ़ाइल संसाधित",
+      "description": "फ़ाइल सफलतापूर्वक संसाधित और अनुक्रमित कैल गेल हई"
+    },
+    "uploadFailed": {
+      "title": "प्रोसेसिंग विफल",
+      "description": "फ़ाइल प्रक्रिया में विफल",
+      "subjectThisFile": "ई फ़ाइल",
+      "pdfMalformedXref": "{{subject}} में PDF क्रॉस-संदर्भ तालिका गलत रूप से बनल हई अउर विश्लेषण ना कैल जा सकई छलई. एकरा PDF प्रदर्शक में खोलई के कोशिश करई हई अउर एकरा फिर से संग्रहित करई हई (फ़ाइल → छपाई → येई रूप में संग्रहित करई हई PDF), फेर फेर से अपलोड करई हई।",
+      "pdfScanned": "{{subject}} स्कैन कैल गेल चाहे छवि-आधारित PDF प्रतीत होई हई. OCR अभी तक समर्थित ना हई - कृपया पाठ-आधारित PDF अपलोड करई हई।",
+      "pdfEncrypted": "{{subject}} पासवर्ड-संरक्षित हई. पासवर्ड हटाके फेर कोशिश करई छलई.",
+      "pdfUnsupportedFeature": "{{subject}} एगो PDF विशेषता Novera के उपयोग करई हई जेकरा अभी तक विश्लेषण ना कैल जा सकई हई (उदाहरण के लेल PostScript रंग/शेडिंग फंक्शन)। एकरा फ्लैट करे के लेल एकरा फिर से संग्रहित करे के कोशिश करई हई (फ़ाइल → छपाई → PDF के रूप में संग्रहित) अउर फेर से अपलोड करई हई।",
+      "pdfGeneric": "{{subject}} के PDF के रूप में विश्लेषण ना कैल जा सकई हई. फ़ाइल खराब हो सकई हई चाहे एगो असमर्थित PDF विशेषता के उपयोग कर सकई हई.",
+      "fileTooLarge": "{{subject}} बहुत बड़ हई. {{message}}.",
+      "unsupportedType": "फ़ाइल प्रकार \"{{type}}\" समर्थित ना हई।",
+      "ioError": "{{subject}}: {{message}} पढ़ न सकलो",
+      "parseGeneric": "{{subject}} के विश्लेषण ना कैल जा सकई हई: {{message}}",
+      "fallback": "{{subject}} प्रक्रिया में विफल."
+    },
+    "fileDeleted": {
+      "title": "फ़ाइल मिटा देल गेल हई",
+      "description": "फ़ाइल के परियोजना से हटा देल गेल हई"
+    },
+    "deleteFailed": {
+      "title": "मिटावे में विफल",
+      "description": "फ़ाइल के मिटावे में विफल"
+    },
+    "fileAlreadyExists": {
+      "title": "फ़ाइल पहिले से मौजूद हई",
+      "description": "फ़ाइल पहले से ही येई परियोजना से जुड़ल हई"
+    },
+    "unsupportedFileType": {
+      "title": "असमर्थित फ़ाइल प्रकार",
+      "description": "परियोजना संदर्भ के लेल फ़ाइल विस्तार \".{{extension}}\" समर्थित ना हई।"
+    },
+    "attachmentsDisabledInfo": {
+      "title": "संलग्नक अक्षम",
+      "description": "सेटिंग में संलग्नक अक्षम करल गेल हई"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "फ़ाइल बहुत बड़ हई",
+    "fileTooLargeDescription": "{{fileName}} {{maxFileSizeMB}}MB सीमा के पार करई छई"
+  },
+  "files": {
+    "chunksCount": "{{count}} टुकड़ा",
+    "title": "फ़ाइलें",
+    "empty": "फ़ाइलें जेकरा आप संलग्न करई हई अउर फ़ाइलें जे एजेंट बनाबई हई, ईहां दिखाई देतो।",
+    "a11y": "फ़ाइलें: {{count}}",
+    "attachments": "संलग्नक",
+    "notImported": "कार्यक्षेत्र में ना हई"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp अभीयो व्यस्त हई",
+    "description": "एक या एक से अधिक मॉडल समय में अनलोड न कैल गेलई। बल छोड़े से llama.cpp समाप्त हो जाई छलई अउर सक्रिय प्रतिक्रिया के बाधित कर सकई छलई।",
+    "forceQuit": "बाहर होए के मजबूर करई हई",
+    "forcing": "बाध्य करके बाहर हो रहल हई...",
+    "shuttingDown": "बंद कर रहल हई..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "संकुचित",
+  "expand": "विस्तारित",
+  "todoPanelTitle": "प्रगति",
+  "todoPanelEmpty": "अभी तक कोई कार्य सूची ना हई।",
+  "backgroundTasks": "पृष्ठभूमि कार्य",
+  "subagentsRunning_one": "{{count}} उप-एजेंट चल रहल हई",
+  "subagentsRunning_other": "{{count}} उप-एजेंट चल रहल हई",
+  "monitorsRunning_one": "{{count}} मॉनीटर चल रहल हई",
+  "monitorsRunning_other": "{{count}} मॉनीटर चल रहल हई",
+  "backgroundRunning_one": "{{count}} पृष्ठभूमि कार्य चल रहल हई",
+  "backgroundRunning_other": "{{count}} पृष्ठभूमि कार्य चल रहल हई",
+  "monitors": "मॉनीटर",
+  "monitorPolling": "पोलिंग",
+  "monitorMatched": "मेल खाईल",
+  "monitorTimedOut": "टाइमआउट",
+  "monitorStopped": "रुकल",
+  "monitorEnded": "समाप्त",
+  "coworkWatching_one": "{{count}} मॉनीटर देख रहल हई...",
+  "coworkWatching_other": "{{count}} मॉनीटर के देख रहल हई...",
+  "coworkWaitingBackground": "पृष्ठभूमि कार्य के लिए प्रतीक्षारत...",
+  "noBackgroundTasks": "अभी तक कोई पृष्ठभूमि कार्य ना हई।",
+  "running": "चल रहल हई",
+  "queued": "कतार में",
+  "waiting": "प्रतीक्षारत",
+  "finished": "पूरा होलय",
+  "subagentPhase": "चरण {{phase}}",
+  "subagentWaiting": "प्रतीक्षारत",
+  "viewTranscript": "ट्रांसक्रिप्शन देखई छलई",
+  "taskWorking": "काम कर रहल हई...",
+  "taskNoOutput": "उप-एजेंट कोई दृश्य आउटपुट प्रदान ना करई छलई।",
+  "subagentToolUses_one": "{{count}} उपकरण उपयोग",
+  "subagentToolUses_other": "{{count}} टूल उपयोग करई छई",
+  "artifactGroupCode": "कोड",
+  "artifactGroupImage": "छवि",
+  "artifactGroupDocument": "दस्तावेज़",
+  "artifactGroupVideo": "वीडियो",
+  "artifactGroupAudio": "ऑडियो",
+  "artifactOpenPreview": "पूर्वावलोकन खोलो",
+  "artifactOpenExternal": "खोलो",
+  "artifactMoreActions": "अधिक क्रिया",
+  "artifactShowInFolder": "फ़ोल्डर में देखाई देई हई",
+  "skillsUsedLabel": "उपयोग कैल गेल कौशल",
+  "skillsUsed": "उपयोग कैल गेल कौशल: {{skills}}",
+  "artifactsAll": "सब कुछ",
+  "artifactsEmpty": "अभी तक कुछ भी उत्पादित ना होलय। Cowork से आर्टिफैक्ट्स इहां दिखाई देवो हय।",
+  "artifactsNoMatch": "कोई आर्टिफैक्ट मेल न खाई छलई।",
+  "artifactsSearch": "आर्टिफैक्ट्स खोज",
+  "artifactsShowMore": "{{count}} अधिक दिखाएँ",
+  "workspace": {
+    "readsFrom": "में काम करई हई",
+    "writable": "पढे और लिखे",
+    "footnote": "एजेंट ई फ़ोल्डर के सीधे पढ़ई हई अउर संपादित करई हई। भिन्न फलक में परिवर्तन के समीक्षा करई हई।",
+    "footnoteEmpty": "एजेंट के आपन परियोजना पर काम करे के अनुमति देवे के लेल एगो फ़ोल्डर संलग्न करई हई। ई एकरा भीतर फाइल के पढ़ सकई हई अउर संपादित कर सकई हई।",
+    "attach": "एगो फ़ोल्डर संलग्न करई हई",
+    "change": "फ़ोल्डर बदलें",
+    "detach": "फ़ोल्डर अलग करई हई",
+    "open": "खोलो",
+    "reveal": "खुलासा",
+    "unavailable": "कार्यक्षेत्र उपलब्ध ना हई",
+    "missing": "कार्यक्षेत्र फ़ोल्डर {{folder}} अब उपलब्ध ना हई. एगो अलग फ़ोल्डर चुनलो।",
+    "openFailed": "कार्यक्षेत्र खोले में अक्षम",
+    "revealFailed": "कार्यक्षेत्र के प्रकट ना कर सकई छलई",
+    "a11yWithFolder": "परियोजना फ़ोल्डर {{folder}}, पढ़े आउर लिखे के अनुमति के जौरे संलग्न हई. एकरा बदले चाहे अलग करई छलई।",
+    "a11yNoFolder": "कोई परियोजना फ़ोल्डर संलग्न ना हई. एगो संलग्न करई छलई।"
+  },
+  "coworkEmpty": {
+    "title": "हम कोन पर काम कर रहल हई?",
+    "subtitleSandbox": "Novera एगो कार्य देई हई। ई फ़ाइल पढ़ई हई अउर लिखई हई, आदेश चलाई हई, अउर अपन आप में चरण के माध्यम से काम करई हई।",
+    "subtitleFolder": "Novera एगो कार्य देई हई. ई सीधे {{folder}} में काम करई हई, फ़ाइल के पढ़ई अउर संपादित करई छलई।",
+    "try": "कोशिश करो",
+    "sandbox": {
+      "first": "एगो पायथन स्क्रिप्ट लिखई हई जे फ़ाइल के नाम के फेर से नामित करई हई उ दिनांक द्वारा जे ऊ लेल गेल रहई",
+      "second": "CSV से एगो एकल-पृष्ठ डैशबोर्ड बनाई हई जे मैं चिपकाबई हई",
+      "third": "एगो परियोजना के लेल README मसौदा जे हम तुम्हारा वर्णन करई हई"
+    },
+    "folder": {
+      "first": "समझाओ कि कैसे {{folder}} एक साथ रखल जा हई",
+      "second": "{{folder}} में हर TODO के ढूंढें और ओकरा क्षेत्र द्वारा समूहित करें",
+      "third": "{{folder}} के हिस्से के लेल परीक्षण लिखई हई, मैं एकरा पर इशारा करई हई"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "टर्मिनल में न",
+    "a11y": "कमांड चलाबे के बंद कर देल गेल हई। विवरण।",
+    "title": "चल रहल कमांड अक्षम करल गेल हई",
+    "body": "Novera एजेंट के केवल तब शेल आदेश चलाबे के अनुमति देई हई जब आपका सिस्टम ओकरा सीमित कर सकई हई. ईहां कोई सेंडबॉक्स उपलब्ध ना हई, येहिलेल एजेंट अपन सेंडबॉक्स में फ़ाइल के पढ़ सकई हई, लिख सकई हई अउर संपादित कर सकई हई - लेकिन कुछो न चला सकई हई।",
+    "fixLinux": "लिनक्स bubblewrap के उपयोग करई हई. एकरा स्थापित करई हई, फेर Novera के फिर से शुरू करई हई।",
+    "fixMac": "macOS /usr/bin/sandbox-exec पर अंतर्निर्मित सेंडबॉक्स के उपयोग करई हई. जब ई उपलब्ध होई हई त Novera के फिर से शुरू करई छई।",
+    "fixWindows": "विंडो AppContainer के उपयोग करई छई. फेर से कोशिश करे के लेल Novera के फिर से शुरू करई छई।",
+    "recheck": "दुबारा जाँच"
+  },
+  "planMode": {
+    "label": "प्लान",
+    "tooltipOff": "योजना पहले - एजेंट लिखे के बिना पढ़ई हई अउर प्रस्तावित करई हई।",
+    "tooltipOn": "योजना. एजेंट के फ़ाइल लिखे के अनुमति देवे के लेल एकरा बंद कर देई छलई।",
+    "onAnnounce": "प्लान मोड चालू",
+    "placeholder": "एगो योजना के लेल पूछो. एजेंट कोनो फाइल के बदलत ना हई।"
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} चरण पर रोकल गेलई। एजेंट पूरा ना होलो हई।",
+    "keepGoing": "जारी रखो",
+    "stoppedTokens": "बंद कर देल गेलई - ई सत्र अपन टोकन बजट के पार कर गेलई।",
+    "compact": "कॉम्पैक्ट",
+    "newSession": "नया सत्र"
+  },
+  "run": {
+    "stopped": "रोकल गेलई।",
+    "failed": "रन जल्दी बंद हो गेलई।",
+    "tryAgain": "फिर से कोशिश करई छलई"
+  },
+  "modelNoTools": "{{model}} टूल के कॉल ना कर सकई हई, येहिलेल ई एगो एजेंट के रूप में कार्य ना कर सकई हई. एगो टूल-कॉलिंग मॉडल चुनई छलई।",
+  "askContinue": "जारी रखऽ",
+  "askNext": "अगला प्रश्न",
+  "askPrev": "पिछला प्रश्न",
+  "askRecommended": "अनुशंसित",
+  "askSelectedCount": "{{count}} चयनित",
+  "askSomethingElse": "कुछ और",
+  "askSomethingElsePlaceholder": "अपना उत्तर टाइप करई छलई",
+  "submit": "जमा करो",
+  "composer": {
+    "advanced": "उन्नत पैरामीटर",
+    "modelDefaults": "मॉडल डिफ़ॉल्ट",
+    "assistantOverrides": "सहायक ओवरराइड",
+    "printPdf": "PDF के रूप में मुद्रित/संरक्षित",
+    "exportHint": "पढे योग्य प्रारूप: सक्रिय शाखा. JSON: सभे संदेश संस्करण. बाहरी फ़ाइलें बंडल ना हई।"
+  },
+  "telemetry": {
+    "summary": "आपकी स्वीकृति के साथ, {{host}} केवल Novera संस्करण और ऑपरेटिंग सिस्टम प्राप्त करो हय, बिना बातचीत या स्थायी पहचानकर्ता के।",
+    "unavailable": "आंकड़ा विन्यासित ना हई. कोनो डेटा भेजल ना गेल हई।"
+  },
+  "errorTracking": {
+    "title": "त्रुटि ट्रैकिंग",
+    "summary": "{{host}} के वैकल्पिक रिपोर्ट: त्रुटि प्रकार, कोड स्थिति, संस्करण अउर ऑपरेटिंग सिस्टम. कोई बातचीत, कच्चा त्रुटि संदेश चाहे कुंजियाँ ना. कोनो समय अक्षम करई छलई.",
+    "unavailable": "बग ट्रैकिंग विन्यासित ना हई. कोई रिपोर्ट भेजल ना जाई छलई।"
+  },
+  "access": {
+    "read": "सिर्फ पढ़े के लेल",
+    "ask": "संपादन चाहे मिटावे से पहिले पूछो",
+    "allow": "संपादन और मिटाए के अनुमति देई हई",
+    "folderNote": "चुनलो कि Novera ई फ़ोल्डर के कैसे पहुँच सकई छई।"
+  },
+  "components": {
+    "title": "स्थानीय घटक",
+    "note": "केवल ओई घटक के इंस्टॉल करई हई जे आपके चाहि. Novera पाइथन वातावरण के अलग रखई हई. क्लाउड सेवा के स्थानीय इंस्टॉलेशन के आवश्यकता ना हई।",
+    "estimates": "अनुमानित डाउनलोड: {{download}} · आवश्यक डिस्क स्थान: {{space}} · उपलब्ध डिस्क स्थान: {{free}}",
+    "confirm": "ई निजी वातावरण स्थापित करेके चाहो हई? केवल चयनित घटक डाउनलोड कैल जाई छलई। उनकर प्रकाशक के लाइसेंस लागू होई छलई।",
+    "removeConfirm": "ई प्रबंधित वातावरण के हटाबैके हो? आपके मॉडल, रचना अउर बातचीत के संरक्षित कैल जाई छलई।",
+    "verify": "सत्यापित",
+    "repair": "सुधार",
+    "uninstall": "अनइंस्टॉल",
+    "missing": "संस्थापित ना हई",
+    "managed": "Novera द्वारा प्रबंधित",
+    "external": "एगो वैकल्पिक बाहरी पायथन पथ प्रबंधित प्रोफ़ाइल के ओवरराइड करई छई। Novera के वातावरण के उपयोग करे के लेल एकरा साफ करई छई।",
+    "failed": "घटक संचालन असफल होलो। नेटवर्क, डिस्क स्थान और पहुँच अधिकार के जाँच करलो, फेर फिर से कोशिश करलो या ठीक करलो।",
+    "required": "Novera विन्यास में आवश्यक स्थानीय घटक के तैयार अउर सत्यापित करई छलई।",
+    "updateAvailable": "अपडेट उपलब्ध हई",
+    "update": "अद्यतन",
+    "rollback": "पिछला वातावरण बहाल करई हई",
+    "busy": "स्थानीय मॉडल के अनलोड करो और घटक के बदलने से पहले पूरा होवे के लिए पीढ़ि के इंतजार करो।"
+  },
+  "voiceConversation": "आवाज से बातचीत",
+  "voiceUnavailable": "आवाज से बातचीत उपलब्ध न हइ",
+  "voiceMale": "पुरुष के आवाज",
+  "voiceFemale": "महिला के आवाज",
+  "voiceReadReplies": "जवाब पढ़ के सुनावऽ"
+}

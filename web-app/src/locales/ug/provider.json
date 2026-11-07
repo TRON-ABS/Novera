@@ -1,0 +1,18 @@
+{
+  "addProvider": "تەمىنلىگۈچنى قوشۇش",
+  "addOpenAIProvider": "خالىغان تەمىنلىگۈچنى قوشۇش",
+  "enterNameForProvider": "تەمىنلىگۈچىنىڭ ئىسمى (مەسىلەن my-llm-server)",
+  "apiTypeLabel": "API پىچىمى",
+  "apiTypeOpenAI": "OpenAI-مۇۋاپىق",
+  "apiTypeAnthropic": "Anthropic-مۇۋاپىق",
+  "baseUrlLabel": "ئاساس URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API ئاچقۇچ",
+  "apiKeyPlaceholder": "API ئاچقۇچىڭىزنى چاپلاڭ",
+  "invalidBaseUrl": "Base URL مۇۋاپىق http(s) URL بولۇشى كېرەك",
+  "globalSettings": "پۈتۈنلەي تەڭشىكى",
+  "stripReasoning": "تەپەككۇرنى مەزمۇندىن چىقىرىۋېتىش",
+  "stripReasoningDesc": "تارىخنى قايتا ئەۋەتىشتىن بۇرۇن، بارلىق مۇلازىمەتچىلەرگە قارىتا، ئالدىنقى باسقۇچلاردىكى ئويلاش/ئىزاھلاش مەزمۇنىنى چىقىرىۋېتىش. KV-كەچۈرۈمچىنى ئورتاق مودېل ئۈچۈن قايتا ئىشلىتىشنى ياخشىلايدۇ، لېكىن بەزى مودېللار (مەسىلەن، يېڭى Qwen ئېلانى) كۆپ باسقۇچلۇق ئىزاھلاشنى ياخشىلاش ئۈچۈن ئۇنى ساقلاشنى تەۋسىيە قىلىدۇ.",
+  "providerAlreadyExists": "{{name}} دەپ ئاتىلىدىغان تەمىنلىگۈچ بارغانسېرى كۆپىيىۋاتىدۇ."
+}

@@ -550,10 +550,19 @@ impl EngineServer {
             return json_error(StatusCode::NOT_FOUND, &format!("no such route: {path}"));
         };
 
-        let body = match req.into_body().collect().await {
+        let body = if matches!(route, Route::AudioTranscription | Route::AudioSpeech) {
+            if method != Method::POST {
+                return json_error(StatusCode::METHOD_NOT_ALLOWED, "audio requires POST");
+            }
+            let limit = if route == Route::AudioSpeech { 8192 } else { 1_400_000 };
+            match http_body_util::Limited::new(req.into_body(), limit).collect().await {
+                Ok(body) => body.to_bytes(),
+                Err(_) => return json_error(StatusCode::PAYLOAD_TOO_LARGE, "audio request exceeds the limit"),
+            }
+        } else { match req.into_body().collect().await {
             Ok(b) => b.to_bytes(),
             Err(_) => return json_error(StatusCode::BAD_REQUEST, "could not read the body"),
-        };
+        }};
         let body = String::from_utf8_lossy(&body).into_owned();
 
         // Routes that do not name a model are answered by any resident engine;
@@ -1100,6 +1109,10 @@ async fn run(
         // destruction before its context, including on cancellation or panic.
         let mut owned = owned;
         loop {
+            if tx.is_closed() {
+                owned.response.cancel();
+                break;
+            }
             match owned.response.next_chunk() {
                 Ok(Some(chunk)) => {
                     if chunk.is_empty() {

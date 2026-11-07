@@ -1,0 +1,350 @@
+<div dir="rtl" lang="pbt">
+
+<p align="center"><a href="README.md">English</a> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a> · <a href="README.de.md">Deutsch</a> · <a href="README.it.md">Italiano</a> · <a href="README.pt-BR.md">Português (Brasil)</a> · <a href="README.ru.md">Русский</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a> · <a href="README.ar.md">العربية</a> · <a href="README.hi.md">हिंदी</a> · <a href="README.bn.md">বাংলা</a> · <a href="README.ur.md">اردو</a> · <a href="README.mr.md">मराठी</a> · <a href="README.te.md">తెలుగు</a> · <a href="README.ta.md">தமிழ்</a> · <a href="README.sw.md">Kiswahili</a> · <a href="README.ha.md">Hausa</a> · <a href="README.tl.md">Tagalog</a> · <a href="README.fa-IR.md">فارسی (ایران)</a> · <a href="README.am.md">አማርኛ</a> · <a href="README.th.md">ไทย</a> · <a href="README.jv.md">Basa Jawa</a> · <a href="README.id.md">Bahasa Indonesia</a> · <a href="README.pl.md">Polski</a> · <a href="README.vn.md">Tiếng Việt</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.cs.md">Čeština</a> · <a href="README.ko.md">한국어</a> · <a href="README.ca.md">Català</a> · <a href="README.gu.md">ગુજરાતી</a> · <a href="README.kn.md">ಕನ್ನಡ</a> · <a href="README.yo.md">Yorùbá</a> · <a href="README.my.md">မြန်မာ</a> · <a href="README.ln.md">Lingála</a> · <a href="README.or.md">ଓଡ଼ିଆ</a> · <a href="README.uk.md">Українська</a> · <a href="README.ml.md">മലയാളം</a> · <a href="README.pa.md">ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ)</a> · <a href="README.nl.md">Nederlands</a> · <a href="README.pcm.md">Naijíriá Píjin</a> · <a href="README.arz.md">مصري</a> · <a href="README.pnb.md">پنجابی (شاہ مکھی)</a> · <a href="README.pt-PT.md">Português (Portugal)</a> · <a href="README.yue.md">粵語</a> · <a href="README.wuu.md">吴语（上海话）</a> · <a href="README.apc.md">عربي شامي</a> · <a href="README.apd.md">عربي سوداني</a> · <a href="README.bho.md">भोजपुरी</a> · <a href="README.cjy.md">晋语</a> · <a href="README.nan.md">閩南語</a> · <a href="README.arq.md">دارجة جزائرية</a> · <a href="README.hak.md">客家話</a> · <a href="README.ary.md">الدارجة المغربية</a> · <a href="README.hsn.md">湘语</a> · <a href="README.sd.md">سنڌي</a> · <a href="README.su.md">Basa Sunda</a> · <a href="README.ig.md">Ìgbò</a> · <a href="README.prs.md">دری</a> · <a href="README.ne.md">नेपाली</a> · <a href="README.ms.md">Bahasa Melayu</a> · <a href="README.uzn.md">O‘zbekcha (shimoliy)</a> · <a href="README.zu.md">isiZulu</a> · <a href="README.aec.md">عربي صعيدي</a> · <a href="README.pbu.md">پښتو (شمالي)</a> · <a href="README.gaz.md">Oromoo (Giddugaleessa-Lixaa)</a> · <a href="README.skr.md">سرائیکی</a> · <a href="README.so.md">Soomaali</a> · <a href="README.ro.md">Română</a> · <a href="README.as.md">অসমীয়া</a> · <a href="README.ceb.md">Sinugbuanon</a> · <a href="README.kk.md">Қазақша</a> · <a href="README.si.md">සිංහල</a> · <a href="README.xh.md">isiXhosa</a> · <a href="README.km.md">ខ្មែរ</a> · <a href="README.af.md">Afrikaans</a> · <a href="README.mai.md">मैथिली</a> · <a href="README.wo.md">Wolof</a> · <a href="README.kmr.md">Kurmancî</a> · <a href="README.rw.md">Ikinyarwanda</a> · <a href="README.ny.md">Chichewa</a> · <a href="README.bm.md">Bamanankan</a> · <a href="README.sn.md">ChiShona</a> · <a href="README.tn.md">Setswana</a> · <a href="README.nso.md">Sesotho sa Leboa</a> · <a href="README.ht.md">Kreyòl ayisyen</a> · <a href="README.st.md">Sesotho</a> · <a href="README.el.md">Ελληνικά</a> · <a href="README.rn.md">Ikirundi</a> · <a href="README.dyu.md">Julakan</a> · <a href="README.tr.md">Türkçe</a> · <a href="README.sv.md">Svenska</a> · <a href="README.gan.md">贛語</a> · <a href="README.pbt.md">پښتو (سوېلي)</a> · <a href="README.mag.md">मगही</a> · <a href="README.ars.md">عربي نجدي</a> · <a href="README.acm.md">عراقي</a> · <a href="README.fuv.md">Fulfulde (Naajeeriya)</a> · <a href="README.hne.md">छत्तीसगढ़ी</a> · <a href="README.tts.md">อีสาน</a> · <a href="README.azb.md">تۆرکجه</a> · <a href="README.bar.md">Boarisch</a> · <a href="README.ug.md">ئۇيغۇرچە</a> · <a href="README.ctg.md">চাটগাঁইয়া</a></p>
+
+<div align="center">
+  <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
+  <p><strong>تاسي تشریح کوئ. Novera چمتو کوي، چلوي او تنظیموي.</strong></p>
+  <p>د TRON-ABS لخوا یو خپلواک AI مرستیال، د لومړي پیل څخه تر پایلو پورې: متن، انځورونه، موسیقي او ویډیو په یوه خبرو اترو کښي.</p>
+  <p><strong>د Windows، Linux، macOS او Android لپاره شتون لري</strong> · چمتو شوي سرچینې: 104 انٹرفیس ژبې · 42 کلاوډ چمتو کونکي · 58 میډیا پریزیټ · Apache 2.0</p>
+  <p><a href="#from-first-launch-to-results">اتومات</a> · <a href="#one-dashboard-for-every-creation">ډشبورډ</a> · <a href="#local-models-in-use">محلي ماډلونه</a> · <a href="#hub-and-compatible-models">شکلونه او مرکز</a> · <a href="#cloud-providers">اوبو</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">مرسته وکړئ</a></p>
+  <p>رسمي اړیکه: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
+  <p>رسمي Novera ټولنیز پروفایلونه: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
+  <p>خپل تخلیقات، ماډلونه، ترتیبات، پوښتنې، فیډبیک او نظرونه شریک کړئ.</p>
+</div>
+
+Data او محرمیت: [ځایی اټکل، اختیاری ټیلی میټری، د خطا راپورونه او د اړیکو تازه کول (فرانسوی)](docs/DONNEES_ET_CONFIDENTIALITE.md)جواز: [Apache 2.0](LICENSE) · [انتساب](NOTICE).
+
+> د انګلیسي جزوی لیکل شوی سیمه ایز تطابق README نیټه 2026-11-06، د شریکې لیکل شوې ژبې په کارولو سره او مرسته شوې ژباړې. اصلي سیمه ایز او املا بیاکتنه اړینه ده. تړل سوي اسناد خپله اصلي ژبه ساتي.
+
+---
+
+<!-- novera-release-1.0.1:start -->
+<a id="preparing-1-0-1"></a>
+## نسخه چمتو کول 1.0.1
+
+عامه ډاونلوډونه په 1.0.0 کې پاتې دي. لاندې اصلاحات د 1.0.1 لپاره په سرچینو کې چمتو شوي؛ دوی بیا رغول شوي کڅوړې ته اړتیا لري، چکونه خوشې کوي او خپرونې ته اړتیا لري. د دې اسنادو تازه کول نصب شوي غوښتنلیکونه نه تازه کوي.
+
+- امنیت: د لرې پرتو پاڼو لپاره سخت اصلي اجازې، د شبکې APIs او سرور وسیلو لپاره تصدیق، خوندي پټ ذخیره او مهاجرت، خوندي فایل/میډیا لاسرسی، سپریډ شیټ پارس کول او سکریپټونه جوړول. ښکاره شوي انحصارونه تازه شوي؛ پاتې مشورې په خلاص ډول تعقیب کیږي.
+- محرمیت: احصایې او د خطا راپورونه جلا رضایت ته اړتیا لري او د ډیفالټ له مخې بند پاتې کیږي. په جوړونو کې د مستند شوي منزل ترتیب شامل دي. تخنیکي تشخیص فلټر شوي؛ کاروونکي د فعالولو کنټرول ساتي.
+- محلي انجن: `llama.cpp v0.9.0` (`b12110`, `cd959bae99ff4bed22bef2604f45241c09bbb8c8`). د انجن نسخه او غوښتنلیک نسخه جلا دي. د ابتدايي موډل ترتیبات او د ماډل/پروجیکٹر ثبت کول سم شوي، په شمول د پیل ناکامي چې په کې شامل دي `kv_unified`. موجوده شخصي ترتیبات ساتل کیږي.
+- ژبې: 24 اضافي ژبې او ډولونه انٹرفیس او ژباړل شوي README ټولګه 104 ته راوړي، په هر کتلاګ کې د 2,435 انٹرفیس کلیدونو سره. دا پوښښ په هره ژبه کې د اصلي مدیر کیفیت یا د وینا ملاتړ تصدیق نه کوي.
+- **LFM3-Omni-2B Q4_K_M** — په ډیسټاپ او موبایل کې ډیفالټ. د متن، انځورونو او آډیو لپاره یو کمپیکٹ ماډل، د اړتیا وړ `mmproj` فایل په کارولو سره. کښته کول: د دواړو فایلونو لپاره د 1.39 GB په اړه. دا د سپک ملټي موډل ترتیب لپاره غوره کړئ. د غږ ځانګړتیاوې په پلیټ فارم او انجن پورې اړه لري. اوږد شرایط ډیر حافظه کاروي.
+- **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** — د خبرو اترو، لیکلو، وسیلو او جوړښت شوي ځوابونو لپاره یوازې د متن بدیل. کښته کول: د 6.18 GB په اړه. دا د LFM3-Omni څخه ډیر حافظې ته اړتیا لري او پخپله عکسونه یا آډیو پروسس نه کوي. خبرې شوي ځوابونه د سیسټم غږ کاروي. دا د متن دندو لپاره غوره کړئ کله چې تاسو کافي حافظه ولرئ. د سرچینو سره حقیقي ځوابونه وګورئ.
+- د 1.0.1 لپاره، LFM3-Omni-2B Q4_K_M د اړتیا سره سم `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` په ډیسټاپ او موبایل کې ډیفالټ وړاندیز دی؛ NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M یوازې د متن بدیل پاتې دی. ابتدايي شرایط په ډیسټاپ کې 32,768 ټوکن او په موبایل کې 2,048 دي. اوږد شرایط ډیر حافظه کاروي. د موجوده ماډل انتخابونه او تنظیمات تر هغه وخته پورې ساتل کیږي چې په واضح ډول بدل شي.
+- غږ: د LFM3-Omni لپاره مستقیم محلي مایکروفون داخلول، دوامداره خبرې اترې او اتوماتیک لیږل، د آډیو ماډلونو لپاره د نارینه/ښځینه ځواب غږونه، او د کلاسیک ماډلونو لپاره د سیسټم وینا. د ځواب لوستل د ټایپ شوي پیغامونو او بیا رامینځته کولو لپاره هم کار کوي ، په خپلواک ډول د مایکروفون نیول. یو کوچنی غږ تڼۍ د لوستلو وړ یا خاموش کوي.
+- د مایکروفون حالت: شنه کله چې شتون ولري، سور کله چې بوخت وي، خړ کله چې شتون نلري. پیژندنه، د اوریدلو بیا پیلول، د تمرکز اداره کول او د لیدلو امر سم شوی دی. اصلي آډیو ماډل وینا اوس مهال په Windows کې پلي کیږي؛ نور پلیټ فارمونه لاهم اصلي تایید او مناسب غږ ملاتړ ته اړتیا لري.
+- ویب: د وسیلې کارولو وروسته د اوسنۍ غوښتنې په اړه ډیر معتبر د هوا غوښتنې کشف ، د اوسني نیټې لارښود ، تازه پایلې او حوالې او ځوابونه. وینا د آرائشی سرچینې لیبلونه او لینکونه پریږدي پداسې حال کې چې د لید وړ حوالې ساتل کیږي. د ځواب او وینا ژبه د کارونکي ژبه تعقیبوي تر هغه چې غوره شوی ماډل یې ملاتړ کوي.
+- اصلاح کول: په شاليد کې د ویب لټون چمتو کول کله چې انټرنیټ فعال وي، د خدماتو پیل شریک کړئ، د غږولو راتلونکی برخه د پلے بیک څخه مخکې چمتو کړئ او د جملې دوام ته وده ورکړئ. فرانسوي کلونه، لسیزې شمیرې او واحدونه په طبیعي توګه لوستل کیږي. د شبکې ځنډ او د ماډل سرعت لاهم په ترتیب پورې اړه لري.
+- راحت: ټیټ کنټرولونه سقوط کوي پداسې حال کې چې ان پټ ښکاره کیږي. د مایکروفون کمپیکٹ او افشا کولو کنټرولونه، د مایکروفون لاندې د غږ تڼۍ، د ځواب ورکوونکي موسیقۍ ترتیبات او د ژباړل شوي برخې لیبلونه په کوچنیو سکرینونو کې کارول ښه کوي.
+- API کتلاګونه: 43 چمتو کونکي پروفایلونه، په شمول په ځایی توګه TabbyAPI، د تازه خبرو اترو او رسنیو انتخابونو سره. په نویو لیکنو کې شامل دي GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 او GPT Image 2.6, Gemini Omni 1.2, FLUX 3 چیرته چې ملاتړ کیږي. تازه کول نور د لسو ماډلونو څخه بهر پایلې نه پټوي. دقیق پیژندونکي، سیمه ایز پای ټکي، شخصي ګمارنې او وارد شوي ماډلونه درناوی کیږي.
+- تایید: په نښه شوي غوښتنلیک، اصلي کتابتون، عامه کتلاګ او د ژبې چکونه په تفصیلي یادښتونو کې ثبت شوي. انٹرفیس د Windows / macOS / Linux / Android / iOS لپاره جوړیږي. دا فرنټ اینډ جوړونه په هر وسیله کې اصلي کڅوړې یا اټکل تصدیق نه کوي.
+- مخکې له دې چې خپور شي: بیا جوړ شوي اصلي کڅوړې تایید کړئ، پاتې امنیت/انحصار موندنې او اصلي 1.0.0 ته 1.0.1 تازه کول. شتون په هارډویر ، چمتو کونکي لاسرسي او پلیټ فارم پورې اړه لري. د نړیوال ماډل مطابقت، د صفر زیان مننې وضعیت یا بشپړ شوي خپرونه ادعا شوې نه ده.
+
+[تفصيلي یادښتونه، تایید او پاتې کار](docs/CHANGELOG.md) · [1.0.1](docs/FUTURES_VERSIONS.md) · [SECURITY.md](SECURITY.md)
+
+> دا تازه یادښتونه مرسته شوي ژباړې کاروي او که اړتیا وي، یو شریک لیکل شوی راجستر. د مورنۍ ژبې بیاکتنه اړینه ده. تړل شوي اسناد خپله اصلي ژبه ساتي.
+
+<!-- novera-release-1.0.1:end -->
+
+## موجودیت — 2026-11-03
+
+**Novera 1.0.0 د Windows، Linux، macOS او Android لپاره شتون لري.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64)د ډیسټاپ کڅوړې، دواړه CLI آرشیفونه، لاسلیکونه او تازه معلومات عامه او تایید سوي دي.
+
+| پلیټ فارم | موجودیت |
+| --- | --- |
+| Windows x64 | عامه NSIS نصب کونکی، لاسلیک شوی تازه کوونکی؛ اصلي نصب او بدیل تایید شوی. |
+| Linux x64 | عامه AppImage، لاسلیک شوی تازه کوونکی؛ اصلي نصب او بدیل تایید شوی. |
+| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-cli-novera): `novera.exe` / `novera`، د وقف سوي لاسلیک سوي تازه چینل سره. |
+| Windows ARM64 | [عامه NSIS انسټالر](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-arm64)، اصلي CPU د متن انجن؛ نصب، بدیل او د عامه چینل چکونه تایید سوي. |
+| Android ARM64 | [عامه لاسلیک شوی APK 1.0.0](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012), Android 7+، ډیفالټ بسته 512. ساتونکی تاییدوي چي ساختمان 1000012 د دوی په تلیفون کښي کار کوي. پاک کڅوړه پرته له خبرو اترو، ماډلونو یا شخصي API کلیدونو څخه. [شواهد او محدودیتونه](docs/RELEASE_ANDROID_1.0.0.md). |
+| macOS Intel / Apple Silicon | [رسمي 1.0.0 DMG خپرول](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-لاسلیک سوي تازه معلومات. ایپل نوټری شوی نه دی؛ اتوماتیک چیکونه په جلا توګه په دواړو جوړښتونو کښي تیر سوي، لید چکونه ځنډول سوي. [نصب او شواهد](docs/RELEASE_MACOS_1.0.0.md). |
+| iOS | داخلي سمیلیټر جوړول؛ د آی فون نصبولو دمخه د ایپل لاسلیک / چمتو کول اړین دي. [تعقیب](docs/REPRISE_MACOS_IOS.md). |
+| Windows x64 پورټ ایبل | [لاسلیک شوی ZIP آرشیف](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); ډاټا په Data کښي پاتې کیږي، لاسلیک شوی Program بدیل تایید شوی. |
+| ویب، MSI، Debian | کوربه سوي ویب پیرودونکي او نور فارمیټونه داخلي پاتې کیږي؛ Pages د پریزنټشن سایټ شتون لري. |
+
+په میک کښي، DMG خلاص کړئ او په غوښتنلیکونو کښي Novera کاپي کړئ. که لومړی لانچ بند شوی وي، Novera ته اجازه ورکړئ **د سیسټم ترتیبات → محرمیت او امنیت → په هر حال خلاص کړئ**. [د اپل لارښوونې](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+د اپډیټ لاسلیکونه Windows Authenticode یا د Apple notarization نه دي. د لاسي اوسني نسخه چیکونه د عامه چینل په وړاندې تیریږي؛ د دوه عامه نسخو تر مینځ لیږد د راتلونکي خوشې کیدو ازموینه پاتې ده. [شواهد او محدودیتونه](docs/LAUNCH_STATUS.md).
+
+په Android کښي، یو عصري تلیفون چي کافي حافظه لري د محلي ماډلونو لپاره وړاندیز کیږي؛ په لږ ځواکمن وسایلو کښي د API برابرونکي وکاروئ. د ویب لټون لپاره، لږترلږه یو شرایط **16K ټوکن (16,384)** سپارښتنه کیږي، په دوامداره توګه په نسخو کښي.
+
+**Windows x64 پورټ ایبل 1.0.0 شتون لري.** بحثونه، ترتیبات او ډاونلوډ سوي ماډلونه د پورټ ایبل فولډر لاندې پاتې کیږي `Data`بشپړ آرشیف راوباسئ او پیل کړئ `Novera.exe`Novera وتړئ مخکې له دې چي فولډر ته حرکت ورکړئ یا د USB ذخیرې خارج کړئ. [د پورټ ایبل لارښود او محدودیتونه](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+## د هر تخلیق لپاره یو ډشبورډ
+
+Novera ستاسي سره وده کوي. ستاسي مثالونه او تنظیمات کولی سي د نورو کاروونکو سره د مناسب ترتیب په موندلو کښي مرسته وکړي. پوښتنې، ستونزې او نظریات مو راسره شریک کړئ [Facebook پاڼه](https://www.facebook.com/profile.php?id=61596114515071) یا له خوا [بریښنالیک](mailto:contact.novera.tronabs@gmail.com)که ممکنه وي، خپل Novera نسخه، وسیله او محلي/API ماډل شامل کړئ. شخصي معلومات لرې کړئ او هیڅکله API کیلي یا پاسورډونه مه شریکوئ.
+
+![Novera تولید شوی انځور او متحد ډشبورډ د مقدار، تخم، لوړولو او اتوماتیک حافظې سره](.github/assets/novera-dashboard-2026-11-01.png)
+
+*د ریښتیني Windows غوښتنلیک سکرین شاټ د ساتونکي لخوا په 1 نومبر 2026 کښي چمتو شوی، څوک چي راپور ورکوي چي غوښتنلیک ښه کار کوي. دا یو تولید شوی منظره ښیې، د دې خوندي سوي فایل کنټرولونه او د متحد جوړونې ډشبورډ؛ دا ټوکه نه ده.*
+
+یو پینل، پنځه طریقې: **اتومات / متن / انځور / میوزیک / ویډیو** کنټرولونه ټاکل سوي حالت تعقیبوي: تناسب، ریزولوشن، موده، کیډنس، کیفیت، وسیله، سندرې، تخم او مقدار. د پینل پلنوالی او تڼۍ د کړکۍ او ژباړل سوي لیبلونو سره سمون لري.
+
+- **1–10 پرله پسې نسلونه**، د انځور، موسیقۍ او ویډیو لپاره د خپلواک مقدار سره، 1 ته په ډیفالټ کښي. Stop د فعاله دنده او پاتې کتار لغوه کوي.
+- **تصادفي، ثابت، +1 او −1 تخمونه**، مخکینۍ یا دودیز تناسب او اختیاري **Real-ESRGAN ×2/×4** پورته کول د وروستي ابعادو ښودل سوي.
+- غوره شوی ماډل، اتوماتیک حافظه، ضمیمې، لارښوونې، ویب لټون او اوزار په ورته بار کښي پاتې کیږي. وسیلې د ماډل وړتیاو او ورکړل سوي لاسرسي پورې اړه لري.
+
+<a id="from-first-launch-to-results"></a>
+
+## د لومړي پیل څخه پایلو ته
+
+**زموږ اتومات چمتووالی د بشپړ اجرا کولو کاري فلو سره نښلوي.** Novera د ټاکل سوي ترتیب لپاره موجود تخنیکي مرحلې اداره کوي، پداسې حال کښي چي پرمختللي کنټرولونه د لاسرسي وړ ساتي.
+
+| ګام | هغه څه چي Novera سمبالوي |
+| --- | --- |
+| **1. پیل** | په لومړي پیل کښي د ملاتړ سوي سیسټم ژبه غوره کوي او ستاسي غوره توب خوندي کوي. د پیل ماډلونه او ګټور هارډویر معلومات وړاندې کوي. |
+| **2. چمتو کړئ** | لارښود نصب متن، سرایتونه، عکس، میوزیک، ویډیو او لوړوالی وړاندیز کوي. دا ستاسي د تصویب څخه دمخه اجزاو، اندازو او وړیا ځای ته کتنه کوي، بیا د پرمختګ، وقف/بیا پیل او SHA-256 تایید سره ډاونلوډونه تعقیبوي. |
+| **3. ترتیب کړئ** | موډلونه او د هغوی برخې راجستر کوي، اړونده پروفایلونه چمتو کوي او د اړتیا وړ انحصارونو راپور ورکوي. د بیرته ترلاسه کولو ځای پرځای کول په CPU کښي د خوندي سوي CPU/GPU انتخاب سره پیل کیږي. د میوزیک نوي پروفایلونه د وسیلې حالت ته ډیفالټ. |
+| **4. په غوښتنه پوه شئ** | اتومات لارې د متن ، عکس ، میوزیک یا ویډیو لپاره د جوړولو غوښتنې پیژندلي. تاسي کولی شئ په ښکاره ډول د محصول حالت او ځایی یا کلاوډ ماډل غوره کړئ. |
+| **5. اجرا کول** | اتومات حافظه د فعال کار لپاره انتظار کوي، غیر ضروري ماډلونه خپروي او اړین سرچینې بیا پورته کوي. د 1–10 د کار لړۍ په ترتیب سره پرمخ ځي او د بلې دندې دمخه سرچینې خپروي. د کلاوډ چمتو کونکي غوره سوي حساب او تشکیلات کاروي. |
+| **6. ترلاسه کول او بیا کارول** | میډیا په Novera سیسټم فولډرونو کښي خوندي کوي، پایلې او موجود وختونه ښکاره کوي، بیا ډولونه، کتابتون، کاپي کول، صادرات یا د سیسټم شریکول وړاندې کوي. بل غوښتنلیک ته لیږل ستاسي عمل پاتې دی. |
+
+آټومیشن مربوط انجنونه او کاري جریان پوښي؛ دا هر هب ماډل د اجرا وړ نه کوي. هارډویر، نصب سوي اجزاوې او چمتو کونکي لاسرسی ټاکي چي څه چلولی سي. فولډر، د فایل بدلونونه او د شیل کمانډونه د خبرو اترو د لاسرسي مرستې تعقیبوي.
+
+[د کارونکي لارښود](docs/USER_GUIDE.md) · [انجنونه او تایید](docs/SUIVI_MOTEURS.md) · [پراختیا](docs/DEVELOPMENT.md)
+
+د 1.0.1 لپاره، LFM3-Omni-2B Q4_K_M د اړتیا سره سم `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` په ډیسټاپ او موبایل کې ډیفالټ وړاندیز دی؛ NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M یوازې د متن بدیل پاتې دی. ابتدايي شرایط په ډیسټاپ کې 32,768 ټوکن او په موبایل کې 2,048 دي. اوږد شرایط ډیر حافظه کاروي. د موجوده ماډل انتخابونه او تنظیمات تر هغه وخته پورې ساتل کیږي چې په واضح ډول بدل شي.
+
+## وړتیاوې
+
+ساتنه او د محرمیت ښه والی د 1.0.1 لپاره چمتو شوي. اختیاري احصایې او د تېروتنې راپور ورکول خپلواک، څرګند رضایت او فلټر شوي تخنیکي تشخیص کاروي. د خوشې کولو اړین چکونه او پاتې امنیتي موندنې په جلا توګه مستند شوي. [د ساتنې چلولو کتاب](docs/MAINTENANCE.md)
+
+| مساحت | ځانګړتیاوې |
+| --- | --- |
+| **متن او لید** | خبرې اترې، د اسنادو ضمیمه، جریان سوي ځوابونه او محلي یا کلاوډ ماډلونه. لید په ماډل پورې اړه لري؛ د انځورونو درک کول او پیدا کول جلا وړتیاوې دي. |
+| **تصویر** | د خبرو اترو نسل، تخمونه، تناسب، حل، GGUF/Safetensors اجزا، ترتیب سوي Diffusers فولډرونه او ملاتړ سوي اصلي NVFP4 CUDA پروفایل |
+| **موسیقي** | محلي یا کلاوډ نسل، موده، کیفیت، وسیلې یا غږونه چیرې چي ملاتړ کیږي، جوړښت سوي سندرې او یو آډیو پلیر. د چمتو کونکي اختیارونه توپیر لري. |
+| **د جوړولو تنظیمات** | محلي یا کلاوډ نسل، موده، د محلي پروفایلونو، تناسب، ریزولوشن او ویډیو پلیر لپاره د چوکاټ شمیر/کیډنس. |
+| **لټون او اوزار** | ویب پلټنه، د ایمبیډنګ پر بنسټ د اسنادو ترلاسه کول، MCP، کاري ځایونه او محلي وسایل د ماډل ملاتړ او ورکړل سوي لاسرسي سره سم. |
+| **پایلې او شریکول** | د رسنیو کتابتون، ډولونه، د ځواب / خبرو اترو صادرات، اسناد او اصلي رسنۍ، چاپ کول/PDF او د پلیټ فارم پورې تړلي سیسټم شریکول. |
+| **د سرچینو مدیریت** | اتومات حافظه په ډیفالټ فعاله شوې، CPU/GPU د ملاتړ سوي برخو او لارښود پروفایلونو لپاره ترتیبات کله چي سرچینې اجازه ورکوي. |
+
+<a id="local-models-in-use"></a>
+
+## محلي موډلونه په کار دي
+
+دا ماډلونه اوسنی لارښود ترتیب تشکیلوي. تاسي کولی شئ نور مناسب ماډلونه وارد کړئ یا پروفایلونه بدل کړئ.
+
+| رول | ماډل / ترتیب سوي اجزا |
+| --- | --- |
+| **متن — لومړی چلول ماډل** | **LFM3-Omni-2B Q4_K_M** · `LFM3-Omni-2B-Q4_K_M.gguf` + `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` |
+| **یوازې د متن بدیل** | **NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M** · `Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf` |
+| **د اسنادو ترلاسه کول** | **Qwen3-Embedding-0.6B Q8_0**, **CPU په ترتیب سره**، د خوندي سوي CPU/GPU انتخاب سره. |
+| **تصویر** | **FLUX.2 Klein 4B Q4_K_M**, **Qwen3-4B Q4_K_M** کوډ کونکی او رسمي FLUX.2 VAE. |
+| **انځور - د هارډویر اختیار** | **FLUX.2 Klein 4B NVFP4**، د اصلي CUDA لارې له لارې کله چي GPU او چاپیریال سره مطابقت ولري. |
+| **موسیقي** | **ACE-Step 1.5 Turbo 2B Q4_K_M**, `acestep-5Hz-lm-1.7B-Q8_0.gguf` پلان جوړونکی، وقف شوی Qwen میوزیک انکوډر او VAE. |
+| **د جوړولو تنظیمات** | **Wan2.1 T2V 1.3B Q4_K_M**, **UMT5-XXL Q4_K_M** کوډګر او Wan 2.1 VAE. |
+| **لوړوالی** | اختیاري **Real-ESRGAN ×2 او ×4**، د انحصار چک سره. |
+
+د Qwen میوزیک انکوډر او د Qwen د ترلاسه کولو ماډل دي **مختلف فایلونه**، په جلا توګه زیرمه شوی. د ماډل جوازونه د دوی خپرونکو ته پاتې دي.
+
+[متن ښکاره](web-app/src/constants/text-manifest.json) · [Embeddings](web-app/src/constants/embedding-manifest.json) · [موسیقي](web-app/src/constants/music-manifest.json) · [انځور/ویډیو اجزا](src-tauri/src/core/creation_bundle.rs)
+
+<a id="cloud-providers"></a>
+
+## کلاوډ چمتو کونکي
+
+چمتو شوي سرچینې د 43 چمتو کونکي پروفایلونه لري: 42 کلاوډ خدمات او TabbyAPI د محلي سرور لپاره. د ماډل شتون او وړتیاوې په حساب، سیمه او ملاتړ شوي API پورې اړه لري. کتلاګ د ټولو 104 انٹرفیس ژبو لخوا شریک شوی.
+
+| | | |
+| --- | --- | --- |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="28" height="28" /> [OpenAI](https://platform.openai.com/docs/models) | <img src="web-app/public/images/model-provider/azure.svg" alt="Microsoft Azure" width="28" height="28" /> [Microsoft Azure](https://oai.azure.com/deployments) | <img src="web-app/public/images/model-provider/anthropic.svg" alt="Anthropic" width="28" height="28" /> [Anthropic](https://platform.claude.com/docs/en/models/overview) |
+| <img src="web-app/public/images/model-provider/open-router.svg" alt="OpenRouter" width="28" height="28" /> [OpenRouter](https://openrouter.ai/models) | <img src="web-app/public/images/model-provider/mistral.svg" alt="Mistral" width="28" height="28" /> [Mistral](https://docs.mistral.ai/models) | <img src="web-app/public/images/model-provider/groq.svg" alt="Groq" width="28" height="28" /> [Groq](https://console.groq.com/docs/models) |
+| <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="28" height="28" /> [xAI](https://docs.x.ai/developers/models) | <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="28" height="28" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | <img src="web-app/public/images/model-provider/minimax.svg" alt="MiniMax" width="28" height="28" /> [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) |
+| <img src="web-app/public/images/model-provider/huggingface.svg" alt="Hugging Face" width="28" height="28" /> [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | <img src="web-app/public/images/model-provider/nvidia.svg" alt="NVIDIA NIM" width="28" height="28" /> [NVIDIA NIM](https://build.nvidia.com/models) | <img src=".github/assets/providers/deepseek.png" alt="DeepSeek" width="28" height="28" /> [DeepSeek](https://api-docs.deepseek.com/) |
+| <img src="web-app/public/images/model-provider/moonshot.png" alt="Kimi · Moonshot AI" width="28" height="28" /> [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | <img src="web-app/public/images/model-provider/alibaba.png" alt="Alibaba Cloud · Qwen" width="28" height="28" /> [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | <img src="web-app/public/images/model-provider/cerebras.png" alt="Cerebras" width="28" height="28" /> [Cerebras](https://inference-docs.cerebras.ai/models/overview) |
+| <img src="web-app/public/images/model-provider/together.svg" alt="Together AI" width="28" height="28" /> [Together AI](https://docs.together.ai/docs/serverless/models) | <img src="web-app/public/images/model-provider/fireworks.svg" alt="Fireworks AI" width="28" height="28" /> [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | <img src="web-app/public/images/model-provider/perplexity.png" alt="Perplexity" width="28" height="28" /> [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) |
+| <img src=".github/assets/providers/meta.png" alt="Meta AI" width="28" height="28" /> [Meta AI](https://dev.meta.ai/docs/models) | <img src="web-app/public/images/model-provider/cohere.svg" alt="Cohere" width="28" height="28" /> [Cohere](https://docs.cohere.com/docs/models) | <img src="web-app/public/images/model-provider/zai.svg" alt="Z.ai" width="28" height="28" /> [Z.ai](https://docs.z.ai/guides/llm/glm-5.3) |
+| <img src="web-app/public/images/model-provider/ai21.png" alt="AI21 Labs" width="28" height="28" /> [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="28" height="28" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | <img src=".github/assets/providers/baidu.png" alt="Baidu Qianfan" width="28" height="28" /> [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) |
+| <img src=".github/assets/providers/tencent.png" alt="Tencent TokenHub" width="28" height="28" /> [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | <img src="web-app/public/images/model-provider/bedrock.png" alt="Amazon Bedrock" width="28" height="28" /> [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | <img src="web-app/public/images/model-provider/watsonx.png" alt="IBM watsonx" width="28" height="28" /> [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) |
+| <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="28" height="28" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="28" height="28" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="28" height="28" /> [Stability AI](https://docs.stability.ai/api-reference) |
+| <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="28" height="28" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="28" height="28" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="28" height="28" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/) |
+| <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="28" height="28" /> [Runway](https://docs.dev.runwayml.com/api/) | <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="28" height="28" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="28" height="28" /> [LTX (Lightricks)](https://docs.ltx.io/models) |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="28" height="28" /> [fal](https://fal.ai/docs/documentation/model-apis/inference/queue) | <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="28" height="28" /> [Replicate](https://replicate.com/docs/reference/http) | <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="28" height="28" /> [Leonardo.Ai](https://docs.leonardo.ai/reference/creategeneration) |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="28" height="28" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview) | <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="28" height="28" /> [Vidu](https://platform.vidu.com/models) | <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="28" height="28" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) |
+
+### انځور، میوزیک او ویډیو
+
+د چمتو شوي جوړونې کتلاګ کې د 20 چمتو کونکو څخه 58 مخکینۍ سیټونه شامل دي: 30 انځور، 24 ویډیو او 4 میوزیک پریزیټ. لاندې جدول د مدغم لارې لیست کوي؛ دوی هر سوداګریز وړاندیز نه تولیدوي.
+
+| چمتو کوونکی | محصول په Novera کښي | کتلاګ موډلونه |
+| --- | --- | --- |
+| <img src="web-app/public/images/model-provider/elevenlabs.png" alt="ElevenLabs" width="24" height="24" /> [ElevenLabs](https://elevenlabs.io/docs/api-reference/music/compose) | موسیقي | `ElevenMusic v2.5` |
+| <img src="web-app/public/images/model-provider/stability.png" alt="Stability AI" width="24" height="24" /> [Stability AI](https://docs.stability.ai/api-reference/stable-audio/text-to-audio) | انځور / موسیقي | `Stable Image Ultra` · `Stable Image Core` · `Stable Audio 3` |
+| <img src="web-app/public/images/model-provider/fal.png" alt="fal" width="24" height="24" /> [fal](https://fal.ai/models/fal-ai/ace-step/api) | انځور / میوزیک / ویډیو | `FLUX 3 Video · fal` · `FLUX 3 Image · fal` · `Pika 2.2 · fal` · `Qwen Image 2512 · fal` · `FLUX.2 Max · fal` · `Kling 3 Pro · fal` · `Kling 3 Standard · fal` · `ACE-Step · cloud` |
+| <img src="web-app/public/images/model-provider/replicate.png" alt="Replicate" width="24" height="24" /> [Replicate](https://replicate.com/stability-ai/stable-audio-2.5/api/schema) | انځور / میوزیک / ویډیو | `FLUX 3 Video · Replicate` · `FLUX.2 Max · Replicate` · `Stable Audio 2.5 · Replicate` |
+| <img src="web-app/public/images/model-provider/byteplus.png" alt="BytePlus · ByteDance" width="24" height="24" /> [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/ModelArk/image-generation-api) | انځور / ویډیو | `Dola Seedream 5 Pro` · `Dreamina Seedance 2.5` |
+| <img src="web-app/public/images/model-provider/adobe-firefly.png" alt="Adobe Firefly" width="24" height="24" /> [Adobe Firefly](https://developer.adobe.com/firefly-services/docs/firefly-api/api/) | انځور / ویډیو | `Adobe Firefly Image 5` · `Adobe Firefly Video` |
+| <img src="web-app/public/images/model-provider/gemini.svg" alt="Google Gemini" width="24" height="24" /> [Google Gemini](https://ai.google.dev/gemini-api/docs/omni) | انځور / ویډیو | `Gemini Omni 1.2 Flash` · `Gemini Omni 1.1 Flash` · `Gemini Nano Banana 2.1` |
+| <img src="web-app/public/images/model-provider/krea.png" alt="Krea" width="24" height="24" /> [Krea](https://www.krea.ai/docs/developers/krea-3/overview.md) | تصویر | `Krea 3` |
+| <img src="web-app/public/images/model-provider/leonardo.png" alt="Leonardo.Ai" width="24" height="24" /> [Leonardo.Ai](https://docs.leonardo.ai/docs/lucid-origin) | تصویر | `Lucid Origin` · `Krea 2 Turbo · Leonardo` · `Ideogram 3 · Leonardo` |
+| <img src="web-app/public/images/model-provider/vidu.png" alt="Vidu" width="24" height="24" /> [Vidu](https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/image-to-video) | د جوړولو تنظیمات | `Vidu Q4 Preview` · `Vidu Q3 Pro` · `Vidu Q3 Turbo` |
+| <img src="web-app/public/images/model-provider/openai.svg" alt="OpenAI" width="24" height="24" /> [OpenAI](https://developers.openai.com/api/docs/guides/image-generation) | تصویر | `GPT Image 2.6 Sunburst` · `GPT Image 2.6 Flare` · `GPT Image 2.5 Sunburst` · `GPT Image 2.5 Flare` |
+| <img src="web-app/public/images/model-provider/xai.svg" alt="xAI" width="24" height="24" /> [xAI](https://docs.x.ai/developers/model-capabilities/imagine) | انځور / ویډیو | `Grok Imagine Image 2.0` · `Grok Imagine Video 1.5` · `Grok Imagine Video 1.5 Lite` |
+| <img src="web-app/public/images/model-provider/bfl.png" alt="Black Forest Labs" width="24" height="24" /> [Black Forest Labs](https://docs.bfl.ai/quick_start/generating_images) | انځور / ویډیو | `FLUX 3 Image` · `FLUX 3 Image Klein` · `FLUX 3 Video` · `FLUX.2 [max]` · `FLUX.2 [pro]` · `FLUX.2 [klein] 9B` |
+| <img src="web-app/public/images/model-provider/recraft.png" alt="Recraft" width="24" height="24" /> [Recraft](https://www.recraft.ai/docs/api-reference/agents.md) | تصویر | `Recraft V4.1` · `Recraft V4.1 Flash` · `Recraft V4.1 Pro` |
+| <img src="web-app/public/images/model-provider/ideogram.png" alt="Ideogram" width="24" height="24" /> [Ideogram](https://developer.ideogram.ai/ideogram-api/api-overview) | تصویر | `Ideogram 4.5` |
+| <img src="web-app/public/images/model-provider/runway.png" alt="Runway" width="24" height="24" /> [Runway](https://docs.dev.runwayml.com/api/) | د جوړولو تنظیمات | `Runway Gen-4.5` |
+| <img src="web-app/public/images/model-provider/luma.png" alt="Luma" width="24" height="24" /> [Luma](https://docs.agents.lumalabs.ai/guides/model/) | انځور / ویډیو | `Luma Uni-1 Max` · `Luma Uni-1` · `Luma Ray 3.2` |
+| <img src="web-app/public/images/model-provider/ltx.png" alt="LTX (Lightricks)" width="24" height="24" /> [LTX (Lightricks)](https://docs.ltx.io/models) | د جوړولو تنظیمات | `LTX-2.5 Pro` · `LTX-2.5 Fast` |
+| <img src="web-app/public/images/model-provider/minimax.svg" alt="MiniMax" width="24" height="24" /> [MiniMax](https://platform.minimax.io/docs/api-reference/video-generation-v2-create) | انځور / ویډیو | `MiniMax H3 Max` · `MiniMax H3` · `MiniMax H3 Highspeed` · `MiniMax Image-01` |
+| <img src="web-app/public/images/model-provider/pixverse.png" alt="PixVerse" width="24" height="24" /> [PixVerse](https://docs.platform.pixverse.ai/changelog-2394996m0) | د جوړولو تنظیمات | `PixVerse V6 Max` · `PixVerse V6` |
+
+<details>
+<summary><strong>د چمتو کونکي لخوا د متن او لید ماډل لنډ لیستونه وښایاست</strong></summary>
+
+| چمتو کوونکی | ماډل IDs په سرچینه کښي وړاندیز سوي |
+| --- | --- |
+| [OpenAI](https://platform.openai.com/docs/models) | `gpt-6.1-sol` · `gpt-6.1-terra` · `gpt-6-astra` · `gpt-6-luna` · `gpt-6-sol` |
+| [Microsoft Azure](https://oai.azure.com/deployments) | د حساب ځانګړي ځای پرځای کول یا ګیټ ویز |
+| [Anthropic](https://platform.claude.com/docs/en/models/overview) | `claude-sonnet-5-5` · `claude-opus-5-5` · `claude-fable-5-1` · `claude-haiku-5-5` |
+| [OpenRouter](https://openrouter.ai/models) | `liquid/lfm-3-1.7b` · `openai/gpt-6.1-terra` · `tencent/hy4` · `moonshotai/kimi-k3.1-pro` · `minimax/minimax-m3.1-flash` · `deepseek/deepseek-v4.1-flash-1017` · `nvidia/nemotron-3.5-super-vl:free` |
+| [Mistral](https://docs.mistral.ai/models) | `mistral-large-4` · `zai-glm-5-3-flash` · `mistral-small-2603` · `ministral-3b-2512` |
+| [Groq](https://console.groq.com/docs/models) | `qwen/qwen3.8-27b` · `openai/gpt-oss-120b` · `openai/gpt-oss-20b` · `llama-3.3-70b-versatile` · `llama-3.1-8b-instant` |
+| [xAI](https://docs.x.ai/developers/models) | `grok-4.7` |
+| [Google Gemini](https://ai.google.dev/gemini-api/docs/models) | `gemini-4-argon` · `gemini-3.8-flash` · `gemini-3.6-flash` · `gemini-3.5-flash-lite` |
+| [MiniMax](https://platform.minimax.io/docs/api-reference/text-openai-api) | `MiniMax-M3.1-Flash` · `MiniMax-M3` |
+| [Hugging Face](https://huggingface.co/models?pipeline_tag=text-generation&inference_provider=all) | `MiniMaxAI/MiniMax-M3.1-Flash` · `zai-org/GLM-5.3-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `Qwen/Qwen3.8-27B` · `moonshotai/Kimi-K3` · `zai-org/GLM-5.3` |
+| [NVIDIA NIM](https://build.nvidia.com/models) | `minimaxai/minimax-m3.1-flash` · `deepseek-ai/deepseek-v4.1-flash` · `nvidia/nemotron-3.5-super-vl-120b-a12b` · `nvidia/nemotron-3.5-lightning-30b-a3b` · `z-ai/glm-5.3-flash` |
+| [DeepSeek](https://api-docs.deepseek.com/) | `deepseek-flash` · `deepseek-v4-pro` |
+| [Kimi · Moonshot AI](https://platform.kimi.ai/docs/models) | `kimi-k3.1-pro` · `kimi-k3.1-pro-highspeed` · `kimi-k3` |
+| [Alibaba Cloud · Qwen](https://www.alibabacloud.com/help/en/model-studio/models) | `qwen3.8-max` · `qwen3.7-plus` · `qwen3.8-flash` |
+| [Cerebras](https://inference-docs.cerebras.ai/models/overview) | `qwen-3.8-27b` · `gpt-oss-120b` |
+| [Together AI](https://docs.together.ai/docs/serverless/models) | `moonshotai/Kimi-K3.1-Pro` · `MiniMaxAI/MiniMax-M3.1-Flash` · `deepseek-ai/DeepSeek-V4.1-Flash-1017` · `moonshotai/Kimi-K3` · `Qwen/Qwen3.8-Flash` · `Qwen/Qwen3.8-2.4T-A95B` |
+| [Fireworks AI](https://docs.fireworks.ai/getting-started/models) | `accounts/fireworks/models/kimi-k3p1-pro` · `accounts/fireworks/models/deepseek-v4p1-flash-1017` · `accounts/fireworks/models/kimi-k3` · `accounts/fireworks/models/minimax-m3` |
+| [Perplexity](https://docs.perplexity.ai/docs/agent-api/models) | `perplexity/sonar` · `openai/gpt-6.1-sol` · `google/gemini-4-argon` · `perplexity/kimi-k3` |
+| [Meta AI](https://dev.meta.ai/docs/models) | `muse-wonder-1.0` · `muse-spark-1.3` |
+| [Cohere](https://docs.cohere.com/docs/models) | `command-a-plus-05-2026` |
+| [Z.ai](https://docs.z.ai/guides/llm/glm-5.3) | `glm-5.3` · `glm-5.3-flash` · `glm-5.3-flashx` |
+| [AI21 Labs](https://docs.ai21.com/docs/jamba-foundation-models) | `jamba-large` · `jamba-mini-2` |
+| [BytePlus · ByteDance](https://docs.byteplus.com/en/docs/modelark/model-parameter-support) | `dola-seed-2-1-turbo-260628` |
+| [Baidu Qianfan](https://cloud.baidu.com/doc/qianfan/s/rmh4stp0j) | `ernie-5.1` |
+| [Tencent TokenHub](https://cloud.tencent.com/document/product/1823/130078) | `hy4` · `hy4-preview` |
+| [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions.html) | `openai.gpt-6.1-terra` · `openai.gpt-6.1-sol` |
+| [IBM watsonx](https://www.ibm.com/docs/en/watsonx/saas?topic=preview-inferencing-gateway-models) | د حساب ځانګړي ځای پرځای کول یا ګیټ ویز |
+
+</details>
+
+موجودیت د سرچینې په وړاندې چک شوی **29 اکتوبر 2026** دا نومونه د Novera پریزیټ تشریح کوي، د هر حساب لپاره د لاسرسي تضمین نه دی. لیرې کتلاګونه، سیمې، جوازونه، کوټې او بلینګ د چمتو کونکي لپاره ځانګړي پاتې دي. مناسب پروفایلونه کولی سي خپل کتلاګ تازه کړي؛ Azure او ځینې دروازې د حساب ګمارنې کاروي. د کلاوډ قراردادونه سمول سوي ازموینې لري؛ د دې نندارې تازه کولو لپاره هیڅ تادیه سوي نسل ندی ترسره شوی.
+
+[د رسنیو کتلاګ](web-app/src/constants/mediaProviders.ts) · [متن/ لید موډل](web-app/src/constants/cloudModels.ts) · [کلاوډ تنظیم کول](docs/USER_GUIDE.md#cloud) · [آیکون ثابتول](docs/DEVELOPMENT.md#logos)
+
+<a id="hub-and-compatible-models"></a>
+
+## حب او مناسب ماډلونه
+
+**GGUF، معياري او اندازه شوې Safetensors، ONNX، او MLX**: د دندې له مخې موډلونه وپلټئ او د انجن او ستاسي هارډویر سره مطابقت لرونکي ډولونه غوره کړئ.
+
+| کورنۍ | په سرچینه کښي ملاتړ | اړتیاوې |
+| --- | --- | --- |
+| **GGUF** | متن د llama.cpp له لارې؛ د ملاتړ سوي پروفایلونو لپاره عکس / ویډیو برخې. | جوړښت د بنډل انجن لخوا پیژندل شوی. |
+| **تقسیم GGUF** | په هر بشپړ لړۍ کښي یو ډول، مجموعه اندازه، ټول شارډ ډاونلوډ او اندازه/SHA-256/سرلیک چکونه. | معیاري شمیره سوي فایل نومونه؛ د 500 GB ډاونلوډ کول پدې معنی ندي چي ماډل دې PC. سره سمون لري |
+| **معیاري Safetensors** | د Transformers له لارې فولډر بشپړ کړئ، په CPU یا NVIDIA CUDA کښي د علت متن. | ترتیب، ټوکنائزر او هر اړین شارډ. |
+| **ONNX Runtime** | د عددي/بول ګراف محلي واردات او چمتو سوي GenAI متن صادرات. | تایید شوی بشپړ فولډر؛ د دندې ځانګړي پری پروسس / پوسټ پروسس کول اړین دي؛ [ترتیب او حدود](onnx-server/README.md). |
+| **LoRA / PEFT اډاپټرونه** | په Safetensors چمتو کونکي کښي د خپل جلا محلي اډاپټر سره بشپړ بیس وارد کړئ. | غیر متزلزل علت Transformers اساس، د سمون پیژندنه، د ټینسر چک او د حافظې مجموعي اټکل؛ [ترتیب او حدود](transformers-server/README.md#local-lora--peft-adapters). |
+| **FP8 LLM / ModelOpt** | اصلي CUDA اجرا کول د مناسب کثافاتو لپاره Llama/Qwen2/Qwen3 فی ټینسر FP8 صادرات. | آرکیټیکچر/ټینسر چیکونه او ریښتیني کرنل تحقیقات؛ [ترتیب او حدود](transformers-server/README.md#modelopt-fp8-and-nvfp4-llms). |
+| **NVFP4 LLM / ModelOpt** | بسته سوي بلاک-16 FP4 اټکلونه د اصلي CUDA GEMMs له لارې؛ له انځور NVFP4 څخه جلا. | مطابقت لرونکی Blackwell GPU، ملاتړ شوی ابعاد/صادرات او حقیقي کرنل تحقیقات؛ بې روزل سوي ازموینې ماډلونه په RTX 5070 کښي ازمول سوي. |
+| **AWQ** | بې کاره 4-bit GEMM پوستې. | NVIDIA CUDA او اختیاري GPTQModel/Transformers لوډر. |
+| **GPTQ** | 2/3/4/8-بټ تشکیلات، gptq/gptq_v2 شکلونه. | NVIDIA CUDA، GPTQModel او Optimum; ریښتیني اجرا کول په 4 بټونو کښي ازمول سوي. |
+| **bitsandbytes** | 4-bit NF4/FP4 یا 8-bit INT8. | NVIDIA CUDA او اختیاري انحصار؛ اصلي NF4 او INT8 ازموینې. |
+| **EXL3** | بشپړ اندازه سوي Safetensors فولډر د ExLlamaV3 له لارې؛ اصلی CUDA نسل ازمول شوی. | NVIDIA GPU، جلا Python 3.12 چاپیریال او مناسب جوړښت؛ نه CPU فال بیک. |
+| **EXL2** | وقف شوی ExLlamaV2 لوډر؛ په GPU. کښي د خپریدو، لغوه کولو او پورته کولو ازموینه شوې | په ښکاره ډول د ازمول سوي سافټویر سټیک لپاره CUDA د توجه شاته غوره کړئ؛ یو بشپړ ماډل پوسته او کافي موجود VRAM ته اړتیا ده. |
+| **MLX** | په Apple Silicon کښي مناسب ماډلونه. | MLX انجن او ملاتړ شوی پلیټ فارم. |
+
+حب اوس پین کوي **LFM3-1.7B** د Q4_K_M، Q6_K او Q8_0 ډولونو سره د مطابقت وړ تشکیلاتو لپاره د هغې د LiquidAI سپارښتنې په توګه. د لومړي چلولو ماډل هغه پاتې دی چي پورته لارښود سوي ترتیب کښي لیست شوی.
+
+فلټر ډاونلوډ وزن له دې څخه **تر 1 GB تر 500 GB او پورته**، بیا د هارډویر فټ، اندازې، بیاکتنې یا ډاونلوډونو له مخې ترتیب کړئ. پایلې په تدریجي ډول پورته کیږي؛ فلټرونه په ترلاسه سوي ماډلونو او د دوی ډیفالټ ډول باندې پلي کیږي. د حافظې مشوره د موجود RAM/VRAM، سیاق او ملګري برخې کاروي، پرته له دې چي دوه ځله شمیرل سوي شریک سوي GPU حافظه.
+
+AWQ 4- بټ، GPTQ 4- بټ، NF4 او INT8 هر یو تولید شوی متن په یو RTX 5070 Laptop د کوچني غیر روزل سوي ماډلونو په کارولو سره آفلاین رامینځته سوي. دا بار کول او اجرا کول تاییدوي، نه د هر ماډل کیفیت یا فعالیت. **دا اضافه کول په سرچینه کښي دي: بیا رغونه او مطابقت لرونکي انحصار ته اړتیا ده؛ دا README تازه کول نصب سوي بائنری نه لوړوي.**
+
+**په RTX 5070 Laptop کښي اندازه شوی:** Qwen2.5-0.5B-Instruct، شرایط 2,048، پرامپټ 272 ټوکنونه، 128 تولید سوي ټوکنونه، پنځه ګرمې منډې: میډین ډیکوډ **GGUF Q4_K_M 402.7 tokens/s · EXL3 4 bpw 312.5 · EXL2 4 bpw 146.9** دلته د GGUF څخه د سرعت ګټه نه ده ښودل شوې. اندازه کول/شمیر کول توپیر لري، او EXL3 د حسابي بنسټیز چیک کښي پاتې راغلی؛ دا پایلې عمومي سرعت یا د کیفیت درجه نه ده. [بشپړ اندازه او حدود](deliverables/exllama-2026-10-30/validation.md).
+
+**TabbyAPI** یو اختیاري دی، په جلا توګه اداره شوی OpenAI-مطابق سرور پیوستون، د ډیفالټ لخوا غیر فعال شوی. مستند سوي EXL3 ماډل کشف او سټرینګ ازمول سوي. اداره شوې سیمه ییزه ExLlama لاره جلا پاتې ده. [ExLlama ترتیب او TabbyAPI پیوستون](transformers-server/README.md#exl3-first-exl2-second--nvidia-execution).
+
+د ډیفالټ هارډویر لخوا تطبیق شوی ترتیب د ورته مطابقت او موجود حافظې درجې کښي نوي ریلیزونه خوښوي. نصب سوي ماډلونه په اوتومات ډول نه بدلیږي.
+
+[اندازه شوی Safetensors ترتیب](transformers-server/README.md#quantized-safetensors--source-integration-29-october-2026) · [شکلونه، لومړیتوبونه او اعتبار](docs/SUIVI_MOTEURS.md)
+
+تازه سرچینې اضافه کوي **اختیاري مدیریت سوي برخې د Windows x64 لپاره په ترتیب کښي**: د Python شخصي چاپېریالونه، پېن سوي CPU/CUDA پروفایلونه، اټکلونه او تایید مخکې له دې چي ډاونلوډ، تایید، ترمیم او لیرې سي. د ګمرک ژباړونکي لارې د پرمختللي انتخابونو لاندې پاتې کیږي. اصلي GGUF انجنونه خپلې موجودې برخې ساتي؛ موبایل او کلاوډ د ډیسټاپ Python/PyTorch ډاونلوډ نه کوي. درې شخصي CPU/د صادراتو پروفایلونه د مصنوعي ازموینې ډیټا په کارولو سره ازمول سوي؛ ساتونکی په 1 نومبر 2026 کښي د ډیسټاپ بریالۍ کارونې راپور ورکوي؛ GPU پروفایلونه او پاکول-PC نصبول اوس هم جلا، مفصل تایید ته اړتیا لري. [پروفایلونه او د ازموینې حدود](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)په EXE کښي د دې اجزاوو بنډل کول ځنډول سوي.
+
+## 104 د انٹرفیس ژبې او ډولونه
+
+سرچینه تازه، 6 نومبر 2026: 24 اضافي انٹرفیس کتلاګ ټولټال 104 ته راوړي. دا د ژباړې مسودې سره مرسته کوي؛ اصلي بیاکتنه او سیمه ایز تطبیق ته اړتیا پاتې ده. دا ډله کتلاګ او ژباړل سوي READMEs چمتو کوي؛ د غوښتنلیک بیا رغول اړین دي ترڅو دوی په نصب سوي بائنریونو کښي شامل کړي.
+
+**ټول 104 کتلاګ اوسنۍ 2,435 انګلیسي کیلي پوښي** د 15 نوم ځایونه، په شمول د مینو، تشکیلاتو، ترتیباتو، مرستې او رسنیو کنټرولونه. جمع فورمې او د انٹرفیس لار غوره شوې ژبه تعقیبوي. د ځواب او غږ ژبې په جلا توګه په ماډل پورې اړه لري.
+
+دا تخنیکي پوښښ د ژبني کیفیت تصدیق نه کوي: **اصلي بیاکتنه او سیمه ایز تطبیق ته اړتیا پاتې ده** اصلي لیبلونه او پیژندل سوي حدود په کښي وګورئ [د ژبې لارښود](docs/LANGUAGES.md) او [د پلټنې راپور](deliverables/interface-audit-2026-10-29/RAPPORT.md).
+
+## د خلکو سره په هره برخه کښي مرسته کول
+
+د ښوونځي او زده کړې هاخوا، زموږ هیله دا ده چي د خلکو سره مرسته وکړو چي زده کړه وکړو، ستونزې حل کړو، په ټوله نړۍ کښي ګټورې پروژې رامینځته کړو. Novera موخه دا ده چي اوسني AI پرمختګونه د پوهیدو او کارولو لپاره اسانه کړي، په ټولو ژبو، د تجربې کچې او شته هارډویر.
+
+| سکټورونه چي موږ غواړو په پراختیا کښي مرسته وکړو | د ګټورو مرستو بېلګې |
+| --- | --- |
+| ښوونځي، زده کړه او د ژوندانه زده کړه | مفاهیم تشریح کړئ، د زده کړې مواد تطبیق کړئ او د ښوونکو، زده کونکو او کورنیو ملاتړ وکړئ. |
+| څیړنه، ساینس او فضا | ادبيات وپلټئ، میتودونه تشریح کړئ، ډاټا تحلیل کړئ او پوهه شریک کړئ. |
+| روغتیا، پاملرنه او ټولنیز ملاتړ | معلومات د پوهیدو لپاره اسانه کړئ او د څیړنې او مسلکي کاري فلو ملاتړ وکړئ. |
+| کرنه، خواړه او کلیوالي ټولنې | عملي پوهه شریک کړئ، د پالن جوړونې ملاتړ وکړئ او په محلي توګه ګټورې وسیلې رامینځته کړئ. |
+| چاپیریال، اقلیم، اوبه او حیاتي تنوع | شواهد تشریح کړئ، د نظارت ملاتړ وکړئ او د پروژو په پالن کښي د ټولنو سره مرسته وکړئ. |
+| انرژي، صنعت، ساختماني او صنایع | د اسنادو، ډیزاین، ساتنې، تخنیکي زده کړې او پروسې ښه کولو ملاتړ کوي. |
+| سوداګرۍ، سوداګرۍ، مالیه او کارموندنه | د کار په تنظیمولو، د معلوماتو د پوهیدو، د پروژو په پراختیا او د مسلکي مهارتونو په زده کولو کښي مرسته وکړئ. |
+| عامه خدمتونه، قانون او مدني ګډون | اسناد او طرزالعملونه د پوهیدو لپاره اسانه او معلوماتو ته لاسرسی اسانه کړئ. |
+| کمپیوټري، سایبر امنیت، روبوټکس او مخابرات | د سافټویر په پراختیا، سیسټمونو پوهیدو او ګټورو وسیلو جوړولو کښي مرسته وکړئ. |
+| هنر، کلتور، رسنۍ، ژبې او میراث | د لیکلو، ژباړې، انځورونو، ویډیو، تخلیقي پروژو او کلتوري شریکولو ملاتړ کوي. |
+| ټرانسپورټ، لوژستیک، سیاحت، سپورت او د ټولنې ژوند | د پلان جوړونې، ارتباطاتو، زده کړې او محلي نوښتونو سره مرسته. |
+| لاسرسی، بشردوستانه کار او ورځني ژوند | د ژبې او پوهې خنډونه کم کړئ او د خلکو سره د عملي مرستې ملاتړ وکړئ. |
+
+دا د ونډې او پراختیا لپاره لارښوونې دي، دا ادعا نه ده چي د هر سکټور ځانګړي غوښتنلیک دمخه وړاندې شوی یا تایید شوی. موږ د ورځني کارونې لپاره ساده لارښود غواړو، د اړتیا په وخت کښي پرمختللي اختیارونه روښانه کړئ، شفاف هارډویر او کلاوډ اړتیاوې، او د هغو خلکو سره همکاري چي هره ساحه او سیمه ایز شرایط پیژني.
+
+## د پروژې حالت
+
+**Novera 1.0.0 د Windows، Linux، macOS او Android لپاره شتون لري.** سکرین شاټ یو Windows غوښتنلیک ښیې چي په محلي ډول د ساتونکي لخوا ترتیب شوی. د سرچینې بدلونونه، په نښه سوي ازموینې او د هارډویر اعتبار په جلا توګه مستند شوی؛ دا هر ماډل، پلیټ فارم یا کلاوډ حساب نه تاییدوي.
+
+لارښود GitHub Actions جوړونه د ټولو یوولس ویشلو ډولونو لپاره فعال سوي. تعقیب کړئ [پایلې او تایید سوي کاندید ډاونلوډونه جوړ کړئ](docs/CI_DISTRIBUTIONS.md); شتون د هر پلیټ فارم لپاره په جلا توګه ثبت شوی. نوماندان د لاسلیک سوي تولید ریلیزونو څخه جلا دي. د ویش اړتیاوې په کښي تشریح سوي [د رسمي خوشې کولو پالیسي](OFFICIAL_RELEASES.md) او [پاڼه خپروي](https://github.com/TRON-ABS/Novera/releases)اوسني تازه کونکي معیوب سوي کاندیدان داخلي پاتې کیږي. عامه ریلیزونه ترتیب سوي او تایید سوي تازه میکانیزم ته اړتیا لري؛ [د ډیسټاپ لاسلیک چیکونه او د لانچ پاتې اړتیاوې مستند سوي](docs/LAUNCH_STATUS.md).
+
+## اسناد او ونډې
+
+- [مفصل کارن لارښود](docs/USER_GUIDE.md), [محصول او د کارن معلوماتو زرین قواعد (فرانسوی)](docs/REGLES_D_OR.md), [ماډلونه او انجنونه](docs/SUIVI_MOTEURS.md).
+- [پراختیا](docs/DEVELOPMENT.md), [د جوړولو او خوشې کولو لارښود](docs/BUILD_AND_RELEASE.md), [راتلونکي نسخې او تازه چمتو کول](docs/FUTURES_VERSIONS.md).
+- [د پروژې ډشبورډ](TABLEAU_DE_BORD_NOVERA.md), [سړک نقشه](ROADMAP.md), [بدلون لاګ](docs/CHANGELOG.md).
+- [مرسته کول](CONTRIBUTING.md): کوډ، ازمایښتونه، په 104 ژبو کښي اصلي بیاکتنه او د ریښتینې کاري جریان فیډبیک.
+
+## هویت او جواز
+
+Novera لخوا ساتل کیږي **TRON-ABS** په [دا ذخیره](https://github.com/TRON-ABS/Novera)وګورئ [د هویت پالیسي](BRANDING.md) او [د رسمي خوشې کولو پالیسي](OFFICIAL_RELEASES.md).
+
+Novera جوړیږي [Jan](https://github.com/janhq/jan)، د Menlo Research او د هغې مرسته کونکو لخوا جوړ شوی. اصلي او د دریمې ډلې ځانګړتیاوې او د [Apache 2.0 جواز](LICENSE) ساتل کیږي. Jan ډاونلوډونه Novera ریلیز نه دي.
+
+## ملاتړ Novera
+
+د یو خپلواک څیړونکي په توګه، زه پوهیږم چي څنګه د تمویل نشتوالی کولی سي د څیړنې تعقیب ستونزمن کړي.
+
+که تاسي غواړئ چي د Novera ساہسک برخه واوسئ، تاسي کولی شئ زما د څیړنې او د پروژې پراختیا د داوطلبانه بټکوین ونډې سره مرسته وکړئ.
+
+ستاسي د ملاتړ، ونډې، فیډبیک او هڅونې لپاره له ټولو مننه. هر اشاره پدې جرات کښي حسابیږي!
+
+**Bitcoin (BTC) — Bitcoin شبکه**
+
+د ترلاسه کولو پته: <bdi dir="ltr">`17TXpB1aBj5DxjwEfM3K44zyqhixRzY78i`</bdi>
+
+د ونډې اخیستنې لپاره، دا QR کوډ د خپل بټوې سره سکین کړئ یا پورته پته کاپي کړئ. وټاکئ **Bitcoin (BTC)، په Bitcoin شبکه کښي**، بیا هر هغه مقدار غوره کړئ چي تاسي یې غواړئ.
+
+<img src=".github/assets/novera-bitcoin-support.png" alt="QR کوډ د Novera Bitcoin ملاتړ پتې لپاره" width="240" />
+
+---
+
+<div align="center">
+  <p>هرچا ته چي خپل سفر د Novera سره پیل کړي: ستاسي لیوالتیا نوې دروازې پرانیزي، ستاسي نظرونه ژوندي سي او هر تخلیق تاسي یو څه نور هم پرمخ بوځي.</p>
+  <p><strong>TRON-ABS</strong></p>
+  <p>ښاغلی Sachet Jean-Marc - خپلواک څیړونکی - فرانسه</p>
+  <p><em>د انسان هنر د AI سره</em></p>
+  <p>د هر هغه چا څخه مننه کوم چي په ښه نړۍ کښي مرسته کوي. د دوی د موندنو، کار، متقابل ملاتړ او هغه پوهې له لارې چي دوی یې تیریږي، دوی موږ سره مرسته کړې چي موږ نن چیرته یو.</p>
+  <p>موږ دوی ته د راتلونکي لپاره د بریا هیله کوو، د هر هغه چا سره چي د شریکولو او نورو سره د مرستې کولو دا روحیه لري.</p>
+</div>
+
+<div align="center"><sub>د پراختیا وسیله: 🧠 Codex — GPT-6.1 Sol</sub></div>
+
+</div>

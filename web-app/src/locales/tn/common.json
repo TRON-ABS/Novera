@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Khoutu",
+    "preview": "Tebopele",
+    "previewStreaming": "E teng fa kokomana e fetsa",
+    "unresolvedAssets_one": "Tshupiso ya letlotlo le le 1 ga e kgone go laisa mo tebopeleng. Ditsela tse di amanang ga di na motheo URL tse di ka rarabololwang kgatlhanong le tsone.",
+    "unresolvedAssets_other": "{{count}} ditshupiso tsa letlotlo ga di kgone go laisa mo tebopele. Ditsela tse di amanang ga di na motheo URL tse di ka rarabololwang kgatlhanong le tsone."
+  },
+  "assistants": "Bathusi",
+  "hardware": "Serwethata",
+  "mcp-servers": "MCP Disefara",
+  "local_api_server": "Sefara ya Selegae API",
+  "remote_access": "Phitlhelelo ya Kgakala",
+  "integrations": "Dikopano",
+  "experimental": "Tekeletso",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Moemedi",
+  "web_search": "Patlo ya Webo",
+  "shell": "Kgapetla",
+  "browse": "Batla",
+  "moreControls": "Ditaolo tse dingwe",
+  "starting": "Go simolola...",
+  "activeSuffix": "(E a dira)",
+  "extensions": "Dikatoloso",
+  "attachments": "Dimametlelelo",
+  "general": "Kakaretso",
+  "settings": "Dipeakanyo",
+  "modelProviders": "Batlamedi ba Sekao",
+  "localProviders": "Selegae",
+  "remoteProviders": "Kgakala",
+  "manageProviders": "Laola batlamedi",
+  "hiddenProviders": "{{count}} e thibetswe",
+  "hideProvider": "Fitlha moabi",
+  "showProvider": "Bontsha moabi",
+  "interface": "Segokaganyi",
+  "appearance": "Ponagalo",
+  "privacy": "Polokodiphiri",
+  "keyboardShortcuts": "Dikgaoganyo",
+  "home": "Gae",
+  "cowork": "Cowork",
+  "newSession": "Thulaganyo e ntšhwa",
+  "artifacts": "Dilo tse di dirilweng ka diatla",
+  "customize": "Itebagantse",
+  "local": "Selegae",
+  "selectFolder": "Tlhopha foltara",
+  "selectModel": "Tlhopha sekai pele",
+  "commands": "Ditaelo",
+  "cmdHelp": "Lenaane la ditaelo tse di leng teng",
+  "cmdClear": "Phimola thulaganyo eno",
+  "cmdModels": "Fetola sekao se se dirang",
+  "cmdModelsHint": "Thaepa /models o bo o tlhopha sekao mo lenaaneng",
+  "cmdModelSwitched": "E fetoletswe go {{name}}",
+  "cmdUnknown": "Taelo e e sa itsiweng: {{name}}. Leka /help",
+  "cmdBusy": "Ga ke kgone go dira jalo fa moemedi a ntse a dira",
+  "cmdCompact": "Kopanya bokao jwa thulaganyo go nna tshoboko",
+  "cmdCompacted": "E pitlagane {{before}} -> {{after}} melaetsa",
+  "cmdNothingToCompact": "Ga go ise go nne le sepe se se ka kopanngwang",
+  "cmdCompactFailed": "Go katisega ga go a atlega: {{error}}",
+  "cmdPlan": "Fetola mokgwa wa leano (go bala fela: moemedi o tshitshinya ntle le go kwala)",
+  "cmdPlanOn": "Mokgwa wa leano mo: moemedi o buisa le go tshitshinya ntle le go kwala",
+  "cmdPlanOff": "Mokgwa wa thulaganyo o timilwe: tiragatso e e tlwaelegileng",
+  "cmdTodo": "Bula phanele ya kgatelopele",
+  "cmdTasks": "Bula phanele ya ditiro tsa lemorago",
+  "cmdInit": "Ithute porojeke mme o kwale bokgoni le go gakologelwa",
+  "cmdInitRunning": "Go tsenya porojeke eno",
+  "skills": "Bokgoni",
+  "skillsInContext": "Bokgoni jo moemedi a nang le jone mo lobelong lono",
+  "skillsTitle": "Laola bokgoni",
+  "skillsScopeProject": "Bokgoni jwa {{folder}}",
+  "skillsScopeGlobal": "Bokgoni jwa lefatshe lotlhe, bo teng mo thulaganyong nngwe le nngwe",
+  "skillsScopeMerged": "Bokgoni jwa {{folder}}, mmogo le bokgoni jwa lefatshe lotlhe jo thulaganyo nngwe le nngwe e bo abelanang",
+  "skillOriginFolder": "foltara",
+  "skillOriginGlobal": "lefatshe ka bophara",
+  "skillsEmpty": "Ga ke ise ke nne le bokgoni",
+  "skillsPickOrNew": "Tlhopha bokgoni jo o tla bo tseleganang, kgotsa tlhama jo bošwa.",
+  "skillNew": "Bokgoni jo bošwa",
+  "skillDelete": "Phimola bokgoni",
+  "skillSave": "Boloka",
+  "skillSaved": "Bokgoni bo bolokilwe",
+  "skillNameRequired": "Leina la bokgoni le a tlhokega",
+  "skillNamePlaceholder": "leina la bokgoni",
+  "skillContentPlaceholder": "Tlhalosa tsamaiso e e ka dirisiwang gape mo go Markdown...",
+  "skillHubImport": "Thomeloteng go tswa mo hub",
+  "skillHubTitle": "Anthropic lefelo la bokgoni",
+  "skillHubEmpty": "Ga go na bokgoni jo bo bonweng mo hubeng",
+  "skillImport": "Thomeloteng",
+  "skillReimport": "Thomeloteng gape",
+  "skillImported": "E rometswe kwa ntle {{name}}",
+  "sessions": "Dithulaganyo",
+  "deleteSession": "Phimola thulaganyo",
+  "deleteSessionTitle": "Phimola thulaganyo?",
+  "deleteSessionBody": "\"{{title}}\" le sekwalwa sa yone se tla phimolelwa ruri. Se ga se ka ke sa dirololwa.",
+  "newChat": "Puisano e ntšhwa",
+  "newAgentChat": "Puisano ya Moemedi yo Mosha",
+  "chats": "Dipuisano",
+  "favorites": "Ditlhopho",
+  "recents": "Bosheng",
+  "hub": "Setsi",
+  "helpSupport": "Thuso le Tshegetso",
+  "helpUsImproveJan": "Re Thuse go Tokafatsa Novera",
+  "analyticsConsentDetail": "Re kokoanya tshedimosetso e e sa itsiweng go tlhaloganya tiriso ya ntlha. Dipuisano tsa gago le tshedimosetso ya gago ga di ke di latedisiwa. O ka fetola seno nako nngwe le nngwe mo Diseting > Polokodiphiri.",
+  "analyticsConsentQuestion": "A o ka rata go re thusa go tokafatsa Novera?",
+  "unstarAll": "Tlosa Dinaledi Tsotlhe",
+  "unstar": "Tlosa naledi",
+  "deleteAll": "Phimola Tsotlhe",
+  "star": "Naledi",
+  "rename": "Naya leina gape",
+  "delete": "Phimola",
+  "copied": "E kopolotswe!",
+  "dataFolder": "Setsholadifaele sa Tshedimosetso",
+  "others": "Tse dingwe",
+  "language": "Puo",
+  "login": "Tsena",
+  "loginWith": "Tsena ka {{provider}}",
+  "loginFailed": "E Paletswe ke go Tsena",
+  "logout": "Tswa",
+  "loggingOut": "Go tswa...",
+  "loggedOut": "O dule ka katlego",
+  "logoutFailed": "E Paletswe ke go Tswa",
+  "profile": "Porofaele",
+  "reset": "Seta gape",
+  "search": "Batla",
+  "searchThreads": "Batla ditlhale...",
+  "toNavigate": "go tsamaya",
+  "toSelect": "go tlhopha",
+  "toClose": "go tswalwa",
+  "clearRecent": "Tlhatswa",
+  "name": "Leina",
+  "cancel": "Khansela",
+  "dismiss": "Leleka",
+  "create": "Tlhama",
+  "save": "Boloka",
+  "edit": "Tseleganya",
+  "copy": "Khopi",
+  "back": "Morago",
+  "close": "Tswala",
+  "done": "E dirilwe",
+  "next": "Latelang",
+  "finish": "Fetsa",
+  "skip": "Tlola",
+  "allow": "Letla",
+  "deny": "Gana",
+  "start": "Simolola",
+  "stop": "Ema",
+  "preview": {
+    "loading": "Pulo...",
+    "unsupported": "Novera ga e kgone go bontsha mofuta ono wa faele. E bule go e bona mo app e nngwe.",
+    "outside": "Faele eno ga e tlhole e le mo lefelong la tiro la nako.",
+    "tooLarge": "E kgolo thata go ka e bona pele. E bule go e bona mo app e nngwe.",
+    "reload": "Laisa gape",
+    "allowNetwork": "Letla neteweke",
+    "unsandboxed": "Tsamaisa ntle le lebokoso la motlhaba: tshedimosetso e e bolokilweng le difaele tsa selegae di a bereka",
+    "unresolvedRefs_one": "1 faele e tsebe eno e e golaganyang ga e kgone go laisa mo tebopeleng. E bule gore o e bone mo sebatling.",
+    "unresolvedRefs_other": "{{count}} difaele tse tsebe eno e golaganang le tsone ga di kgone go laisa mo tebopele. E bule gore o e bone mo sebatling.",
+    "externalRefs_one": "Motswedi o le 1 o tsebe eno e o laisa go tswa mo webong o thibetswe. Tobetsa \"Letla neteweke\" go e laisa.",
+    "externalRefs_other": "{{count}} didirisiwa tse tsebe eno e di laisa go tswa mo webong di thibetswe. Tobetsa \"Letla neteweke\" go di laisa.",
+    "scriptErrors_one": "Tsebe e begile phoso: {{message}}",
+    "scriptErrors_other": "Tsebe e begile diphoso tsa {{count}}. Sa ntlha: {{message}}"
+  },
+  "changes": {
+    "title": "Diphetogo tsa moemedi",
+    "empty": "Difaele tse moemedi a di kwalang kgotsa a di fetolang di tla bonala fano.",
+    "a11y": "Diphetogo tsa moemedi: difaele tsa {{files}}, {{additions}} di tsentswe, {{deletions}} di tlositswe"
+  },
+  "modelPanel": {
+    "title": "Dipeakanyo tsa sekao",
+    "a11y": "Bula dipeakanyo tsa sekao",
+    "contextTooltip": "Lefensetere la bokao: {{value}} ya {{max}} dithokene"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Bokgoni '{{name}}' ga bo yo",
+    "kind": {
+      "skill": "Bokgoni",
+      "command": "Taelo",
+      "model": "Mmotlolo"
+    }
+  },
+  "compactWidth": "Bophara jo bo kopantsweng",
+  "fullWidth": "Bophara jo bo tletseng",
+  "dark": "Lefifi",
+  "light": "Lesedi",
+  "system": "Tsamaiso",
+  "auto": "Boitiriso",
+  "english": "Setswana",
+  "medium": "Magareng",
+  "newThread": "Tlhale e ntšhwa",
+  "noResultsFound": "Ga go na dipholo tse di bonweng",
+  "noThreadsYet": "Ga go ise go nne le ditlhale",
+  "noThreadsYetDesc": "Simolola motlotlo o mosha go bona hisitori ya tlhale ya gago fano.",
+  "downloads": "Ditaisololo",
+  "downloading": "Go laisolola",
+  "uploadingAttachments": "Go laisa dimametlelelo...",
+  "cancelDownload": "Khansela go laisolola",
+  "downloadCancelled": "Laisolola e Khansetswe",
+  "downloadComplete": "Laisolola e feletse",
+  "thinking": "Go akanya...",
+  "thought": "Kakanyo",
+  "callingTool": "Sediriswa sa go leletsa",
+  "completed": "E weditswe",
+  "image": "Setshwantsho",
+  "vision": "Pono",
+  "multimodal": "Mefuta e mentsi",
+  "embeddings": "Ditsenngwa",
+  "tools": "Didirisiwa",
+  "webSearch": "Patlo ya Webo",
+  "reasoning": "Go ntsha mabaka",
+  "proactive": "Go nna matlhagatlhaga",
+  "selectAModel": "Tlhopha sekao",
+  "noToolsAvailable": "Ga go na didirisiwa tse di leng teng",
+  "noModelsFoundFor": "Ga go na dikai tse di bonweng tsa \"{{searchValue}}\"",
+  "failedToLoadModels": "E paletswe ke go laisa dimmotlolo",
+  "noModels": "Ga go dimotlolo tse di bonweng",
+  "noAssistant": "Ga go na mothusi",
+  "customAvatar": "Setshwantsho se se itiretsweng",
+  "editAssistant": "Mothusa-Tseleganyo",
+  "jan": "Novera",
+  "metadata": "Tshedimosetso",
+  "regenerate": "Tsosolosa",
+  "threadImage": "Setshwantsho sa tlhale",
+  "editMessage": "Tseleganya Molaetsa",
+  "deleteMessage": "Phimola Molaetsa",
+  "deleteThread": "Phimola Tlhale",
+  "renameThread": "Naya Tlhale Leina Sešwa",
+  "threadTitle": "Setlhogo sa Tlhale",
+  "deleteAllThreads": "Phimola Ditlhale Tsotlhe",
+  "allThreadsUnfavorited": "Ditlhale tsotlhe ga di ratege",
+  "deleteAllThreadsConfirm": "A o tlhomamisa gore o batla go phimola ditlhale tsotlhe? Tiro eno ga e ka ke ya dirololwa.",
+  "addProvider": "Tsenya Motlamedi",
+  "addOpenAIProvider": "Tsenya OpenAI Motlamedi",
+  "enterNameForProvider": "Tsenya leina la motlamedi wa gago",
+  "providerAlreadyExists": "Motlamedi yo o nang le leina \"{{name}}\" o setse a le teng. Tsweetswee tlhopha leina le le farologaneng.",
+  "adjustFontSize": "Fetola Bogolo jwa Fonto",
+  "changeLanguage": "Fetola Puo",
+  "editTheme": "Tseleganya Setlhogo",
+  "editCodeBlockStyle": "Tseleganya Setaele sa Boloko jwa Khoutu",
+  "editServerHost": "Tseleganya Moamogedi wa Sefara",
+  "pickColorWindowBackground": "Tlhopha Lemorago la Lefensetere la Mmala",
+  "pickColorAppMainView": "Tlhopha Mmala wa Tiriswa Tebokgolo",
+  "pickColorAppPrimary": "Tlhopha Tiriswa ya Mmala ya Motheo",
+  "pickColorAppAccent": "Tlhopha Mmala wa Tiriswa Segalo",
+  "pickColorAppDestructive": "Tlhopha Mmala Tiriswa e e Senyang",
+  "apiKeyRequired": "API Selotlolo se a tlhokega",
+  "enterTrustedHosts": "Tsenya baamogedi ba ba ikanyegang",
+  "placeholder": {
+    "chatInput": "Mpotse sengwe le sengwe..."
+  },
+  "confirm": "Tlhomamisa",
+  "continue": "Tswelela",
+  "loading": "E laisa...",
+  "settingUpJan": "Go simolola Novera...",
+  "registeringExtensions": "Go kwadisa dikatoloso...",
+  "loadingExtensions": "Go laisa dikatoloso... ({{done}}/{{total}})",
+  "error": "Phoso",
+  "success": "Katlego",
+  "warning": "Tlhagiso",
+  "conversationNotAvailable": "Puisano ga e yo",
+  "conversationNotAvailableDescription": "Puisano e o lekang go e bona ga e yo kgotsa e phimotswe.",
+  "temporaryChat": "Puisano ya nakwana",
+  "temporaryChatTooltip": "Puisano ya nakwana ga e kitla e tlhagelela mo hisitoring ya gago",
+  "noResultsFoundDesc": "Ga re a bona dipuisano dipe tse di tsamaelanang le patlo ya gago. Leka lefoko la botlhokwa le le farologaneng.",
+  "searchModels": "Batla dikai...",
+  "searchStyles": "Ditaele tsa patlo...",
+  "createAssistant": "Tlhama Mothusi",
+  "enterApiKey": "Tsenya API Senotlolo",
+  "scrollToBottom": "Tsamaisetsa kwa tlase",
+  "generateAiResponse": "Tlhagisa Tsibogo ya AI",
+  "continueAiResponse": "Tswelela ka AI Tsibogo",
+  "addModel": {
+    "title": "Tsenya Mmotlolo",
+    "modelId": "Motlolo ID",
+    "enterModelId": "Tsenya Mmotlolo ID",
+    "addModel": "Tsenya Mmotlolo",
+    "description": "Tsenya sekao se sešwa mo tlameding",
+    "exploreModels": "Bona lenaane la sekao go tswa go moabi"
+  },
+  "mcpServers": {
+    "editServer": "Tseleganya Sefara",
+    "addServer": "Tsenya Sefara",
+    "serverName": "Leina la Sefara",
+    "enterServerName": "Tsenya leina la sefara",
+    "command": "Taelo",
+    "enterCommand": "Tsenya taelo",
+    "arguments": "Dingangisano",
+    "argument": "Ngangisano {{index}}",
+    "envVars": "Diphetogo tsa Tikologo",
+    "key": "Senotlolo",
+    "value": "Boleng",
+    "save": "Boloka"
+  },
+  "deleteServer": {
+    "title": "Phimola Sefara",
+    "delete": "Phimola"
+  },
+  "editJson": {
+    "errorParse": "E paletswe ke go tlhatlhoba JSON",
+    "errorPaste": "E paletswe ke go kgomaretsa JSON",
+    "errorFormat": "Fomete ya JSON e e sa direng",
+    "titleAll": "Tseleganya Thulaganyo ya Disefara Tsotlhe",
+    "placeholder": "Tsenya thulaganyo ya JSON...",
+    "save": "Boloka"
+  },
+  "editModel": {
+    "title": "Tseleganya Motlolo: {{modelId}}",
+    "description": "Rulaganya bokgoni jwa sekao ka go fetola dikgetho tse di fa tlase.",
+    "capabilities": "Bokgoni",
+    "tools": "Didirisiwa",
+    "vision": "Pono",
+    "embeddings": "Ditsenngwa",
+    "notAvailable": "Ga e ise e nne teng"
+  },
+  "outOfContextError": {
+    "truncateInput": "Kgaola Tsenyo",
+    "title": "Phoso ya go tswa mo bokaong",
+    "description": "Puisano eno e fitlha kwa selekanyong sa memori sa AI, jaaka boto e tshweu e tlala. Re ka atolosa fensetere ya memori (e e bidiwang bogolo jwa bokao) gore e gakologelwe go le gontsi, mme e ka nna ya dirisa memori o montsi wa khomphutha ya gago. Re ka kgona gape go kgaola tsenyo, se se rayang gore e tla lebala hisitori nngwe ya motlotlo go dira sebaka sa melaetsa e mešwa.",
+    "increaseContextSizeDescription": "A o batla go oketsa bogolo jwa bokao?",
+    "increaseContextSize": "Oketsa Bogolo jwa Bokao"
+  },
+  "toolApproval": {
+    "title": "Kopo ya Tetla ya Sediriswa",
+    "description": "Mothusi o batla go dirisa <strong>{{toolName}}</strong>",
+    "securityNotice": "Letla fela didirisiwa tse o di tshepang. Didiriswa di kgona go fitlhelela tsamaiso ya gago le tshedimosetso.",
+    "deny": "Gana",
+    "allowOnce": "Letla Gangwe",
+    "alwaysAllow": "Ka metlha Letla"
+  },
+  "deleteModel": {
+    "title": "Phimola Motlolo: {{modelId}}",
+    "description": "A o tlhomamisa gore o batla go phimola sekao seno? Tiro eno ga e ka ke ya dirololwa.",
+    "success": "Mmotlolo wa {{modelId}} o phimotswe ruri.",
+    "cancel": "Khansela",
+    "delete": "Phimola"
+  },
+  "deleteProvider": {
+    "title": "Phimola Motlamedi",
+    "description": "Phimola mofani enwa le dikai tsohle tsa hae. Tiro eno ga e ka ke ya dirololwa.",
+    "success": "Motlamedi wa ditirelo {{provider}} o phimotswe ruri.",
+    "confirmTitle": "Phimola Motlamedi: {{provider}}",
+    "confirmDescription": "A o tlhomamisa gore o batla go phimola motlamedi yono? Tiro eno ga e ka ke ya dirololwa.",
+    "cancel": "Khansela",
+    "delete": "Phimola"
+  },
+  "modelSettings": {
+    "label": "Dipeakanyo tsa Mmotlolo",
+    "title": "Dipeakanyo tsa Mmotlolo - {{modelId}}",
+    "description": "Rulaganya dipeakanyo tsa sekao go tokafatsa tiragatso le boitshwaro.",
+    "nglDisabledByFit": "Go tshwanela ka go itirisa ke go tlhopha GPU dikarolo. Tima Auto-fit go seta seno ka seatla.",
+    "samplingDefaults": {
+      "title": "Dipharametara tsa go tsaya disampole tsa thulaganyetsoruri",
+      "description": "Dipeakanyo tsa sampole tsa thulaganyetsoruri tsa sekai seno. E dirisiwa ntle le fa e phimotswe ke boleng jwa mothusi mongwe le mongwe kgotsa jwa kopo nngwe le nngwe."
+    },
+    "specDraft": {
+      "section": "Go tlhalosa ka go fopholetsa",
+      "enable": "Kgontsha go tlhalosa ka tsela e e fopholediwang",
+      "enableDescription": "Thala dithokene tse mmalwa ka kgato mme o di netefatse ka ho feta e le nngwe, e potlakisang moloko. E dirisa ditlhogo tsa MTP tse di ageletsweng tsa sekao, kgotsa sekao sa terafote se se laisolotsweng le sone (MTP, Eagle3, DFlash kgotsa DSpark).",
+      "nMax": "Dithokene tsa terafote tse di kwa godimo",
+      "nMaxDescription": "Palo e e kwa godimo ya dithokene tse di tshwanetseng go kwalwa ka kgato. Thulaganyetsoruri 16.",
+      "nMin": "Dithokene tse di kwa tlase",
+      "nMinDescription": "Palo e e kwa tlase ya dithokene tse di tshwanetseng go kwalwa ka kgato. Thulaganyetsoruri 0.",
+      "pMin": "Kgonagalo e nnye ya terafote",
+      "pMinDescription": "Bonnye jwa kgonagalo ya go kwala ka bopelotshetlha (0–1). Ka thulaganyetsoruri 0.75."
+    },
+    "templateKwargs": {
+      "section": "Ditlhopho tsa thempoleite ya motlotlo",
+      "description": "Dikgetho tse eketsehileng tseo thempoleite ya puisano ya mohlala ona e di amohelang. E rometswe jaaka chat_template_kwargs mo kopong nngwe le nngwe; tlogela boleng ka thulaganyetsoruri go letla thempoleite go swetsa.",
+      "addCustom": "Tsenya tlhopho e e tlwaelegileng",
+      "keyPlaceholder": "leina",
+      "valuePlaceholder": "tlhwatlhwa",
+      "add": "Oketsa",
+      "cancel": "Khansela",
+      "remove": "Tlosa"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Ga e kgone go tlhabolola diseting tsa sekao"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Fetola Lefelo la Setsholadifaele sa Tshedimosetso",
+      "description": "A o tlhomamisa gore o batla go fetola lefelo la foltara ya tshedimosetso? Seno se tla sutisetsa tshedimosetso yotlhe ya gago kwa lefelong le lesha le go simolola tiriso gape.",
+      "currentLocation": "Lefelo la ga jaana:",
+      "newLocation": "Lefelo le lesha:",
+      "cancel": "Khansela",
+      "changeLocation": "Fetola Lefelo"
+    },
+    "deleteAllThreads": {
+      "title": "Phimola Ditlhale Tsotlhe",
+      "description": "Ditlhale tsotlhe di tla phimolwa. Tiro eno ga e ka ke ya dirololwa."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Phimola Dipuisano Tsotlhe",
+      "description": "{{count}} dipuisano mo go \"{{projectName}}\" di tla phimolwa. Tiro eno ga e ka ke ya dirololwa."
+    },
+    "deleteThread": {
+      "description": "A o tlhomamisa gore o batla go phimola tlhale e? Tiro eno ga e ka ke ya dirololwa."
+    },
+    "editMessage": {
+      "title": "Tseleganya Molaetsa"
+    },
+    "messageMetadata": {
+      "title": "Tshedimosetso ya Molaetsa"
+    },
+    "deleteMessage": {
+      "description": "A o tlhomamisa gore o batla go phimola molaetsa ono? Tiro eno ga e ka ke ya dirololwa."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Sengwe se senyegile",
+    "details": "Dintlha"
+  },
+  "missingDependenciesDialog": {
+    "title": "Dilaeborari tsa Tsamaiso tse di tlhaelang",
+    "description": "{{backend}} e tsentswe mme dilaeborari dingwe tsa tsamaiso tse di tlhokegang ga di a bonwa. E ka nna ya boela kwa go CPU kgotsa ya se dire sentle.",
+    "installLabel": "Go baakanya se, tsenya tse di latelang:",
+    "download": "Laisolola",
+    "additionalLibraries": "Dilaeborari tse dingwe tse di tlhaelang:",
+    "missingLibraries": "Dilaeborari tse di tlhaelang:",
+    "showRawLibraries": "Bontsha {{count}} maina a laeborari a a tlhaelang"
+  },
+  "projects": {
+    "title": "Diporojeke",
+    "new": "Diporojeke tse dintšhwa",
+    "addProject": "Tsenya Porojeke",
+    "addToProject": "Tsenya mo porojekeng",
+    "removeFromProject": "Tlosa mo porojekeng",
+    "createNewProject": "Tlhama Porojeke e Ntšhwa",
+    "editProject": "Tseleganya Porojeke",
+    "deleteProject": "Phimola Porojeke",
+    "projectName": "Leina la Porojeke",
+    "enterProjectName": "Tsenya leina la porojeke...",
+    "noProjectsAvailable": "Ga go na diporojeke tse di leng teng",
+    "noProjectsYet": "Ga go ise go nne le Diporojeke",
+    "noProjectsYetDesc": "Simolola porojeke e ntšhwa ka go tobetsa konopo ya Tsenya Porojeke.",
+    "projectNotFound": "Porojeke ga e bonwe",
+    "projectNotFoundDesc": "Porojeke e o e batlang ga e yo kgotsa e phimotswe.",
+    "selectAssistant": "Tlhopha mothusi",
+    "noAssistantAssigned": "Ga go na mothusi yo o abetsweng porojeke eno",
+    "files": "Difaele",
+    "filesDescription": "Tsenya di-PDF, ditokomane, kgotsa sekwalwa se sengwe go se dirisa mo porojekeng eno.",
+    "uploadingFiles": "Go dira difaele...",
+    "processButton": "Oketsa",
+    "deleteProjectDialog": {
+      "title": "Phimola Porojeke",
+      "permanentDelete": "Se se tla phimolela ditlhale tsotlhe ruri.",
+      "permanentDeleteWarning": "Tiro eno e tla phimolela ruri ditlhale tsa ALL mo teng ga porojeke!",
+      "deleteEmptyProject": "Tiro eno e tla phimola porojeke \"{{projectName}}\".",
+      "saveThreadsAdvice": "Go boloka ditlhale, di sutisetse kwa lenaaneng la gago la ditlhale kgotsa kwa porojekeng e nngwe pele o di phimola.",
+      "starredWarning": "O sa ntse o na le ditlhale tse di nang le dinaledi mo teng ga porojeke.",
+      "deleteButton": "Phimola",
+      "successWithName": "Porojeke \"{{projectName}}\" e phimotswe ka katlego",
+      "successWithoutName": "Porojeke e phimotswe ka katlego",
+      "error": "E paletswe ke go phimola porojeke. Tsweetswee leka gape.",
+      "ariaLabel": "Phimola {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Tlhama Porojeke e Ntšhwa",
+      "editTitle": "Tseleganya Porojeke",
+      "nameLabel": "Leina la Porojeke",
+      "namePlaceholder": "Tsenya leina la porojeke...",
+      "assistant": "Mothusi",
+      "selectAssistant": "Tlhopha mothusi (ga go tlhokege)",
+      "noAssistant": "Ga go na mothusi",
+      "addAssistant": "Tsenya Mothusi",
+      "createButton": "Tlhama",
+      "updateButton": "Ntšhwafatso",
+      "alreadyExists": "Porojeke ya \"{{projectName}}\" e setse e le teng",
+      "createSuccess": "Porojeke \"{{projectName}}\" e tlhamilwe ka katlego",
+      "updateSuccess": "Porojeke \"{{projectName}}\" e tlhabolotswe ka katlego",
+      "saveError": "Ga e a kgona go boloka porojeke. Tsweetswee leka gape."
+    },
+    "noConversationsIn": "Ga go na Dipuisano mo {{projectName}}",
+    "startNewConversation": "Simolola motlotlo o mošwa ka {{projectName}} fa tlase",
+    "conversationsIn": "Dipuisano mo {{projectName}}",
+    "conversationsDescription": "Tobetsa motlotlo ope fela go tswelela ka motlotlo, kgotsa simolola o mosha o o fa tlase.",
+    "conversation": "Motlotlo",
+    "instructions": "Ditaelo",
+    "setup": "Thulaganyo",
+    "instructionsDescription": "Itebagantse le segalo le setaele sa tsibogo",
+    "manageInstructions": "Laola Ditaelo",
+    "thread": "tlhale",
+    "threads": "ditlhale",
+    "updated": "E tlhabolotswe:",
+    "collapseProject": "Go phutlhama ga porojeke",
+    "expandProject": "Atolosa porojeke",
+    "update": "Ntšhwafatso",
+    "searchProjects": "Batla diporojeke...",
+    "noProjectsFound": "Ga go diporojeke tse di bonweng",
+    "tryDifferentSearch": "Leka lereo le lengwe la patlo"
+  },
+  "attachmentsIngestion": {
+    "title": "Tlhopha gore o tsenya jang dimametlelelo",
+    "description": "Tlhopha gore a o tla akaretsa difaele tseno ka tlhamalalo mo motlotlong kgotsa o di indexe jaaka di-embedding boemong jwa tsone.",
+    "inline": "Tsenya mo motlotlong",
+    "embeddings": "Dirisa ditsenngwateng"
+  },
+  "attachmentInjectedIndicator": "E tsentswe mo motlotlong",
+  "attachmentEmbeddedIndicator": "E tsentswe mo RAG",
+  "viewInjectedContent": "Leba diteng tse di tsentsweng",
+  "injectedContentTitle": "Diteng tsa faele tse di tsenngwang",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Ditlhale tsotlhe ga di ratege",
+      "description": "Ditlhale tsotlhe di tlositswe mo dilong tse o di ratang."
+    },
+    "deleteAllThreads": {
+      "title": "Phimola Ditlhale Tsotlhe",
+      "description": "Ditlhale tsotlhe di phimotswe ruri."
+    },
+    "renameThread": {
+      "title": "Naya Tlhale Leina Sešwa",
+      "description": "Setlhogo sa tlhale se fetotswe go nna '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Phimola Tlhale",
+      "description": "Thread e e phimotswe ruri."
+    },
+    "errorCopied": {
+      "title": "Khopi e atlegile",
+      "description": "Tshedimosetso ya phoso e kopolotswe mo lebokosong la peeletso"
+    },
+    "errorCopyFailed": {
+      "title": "E paletswe ke go kopolola",
+      "description": "E paletswe ke go kopololela tshedimosetso ya phoso mo lebokosong la peeletso"
+    },
+    "editMessage": {
+      "title": "Tseleganya Molaetsa",
+      "description": "Molaetsa o tselegantswe ka katlego. Tsweetswee emela gore sekao se arabe."
+    },
+    "appUpdateDownloaded": {
+      "title": "Ntšhwafatso ya Tiriswa e laisolotswe",
+      "description": "Ntšhwafatso ya tiriswa e laisolotswe ka katlego."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Go Laisolola ga Tiriswa ga go Paletswe",
+      "description": "E paletswe ke go laisolola ntšhwafatso ya tiriswa. Tsweetswee leka gape."
+    },
+    "downloadComplete": {
+      "title": "Laisolola e feletse",
+      "description": "{{item}} e laisolotswe"
+    },
+    "downloadCancelled": {
+      "title": "Laisolola e Khansetswe",
+      "description": "Thulaganyo ya go laisolola e khansetswe"
+    },
+    "downloadFailed": {
+      "title": "Laisolola e paletswe",
+      "description": "{{item}} e paletswe ke go laisolola",
+      "descriptionWithReason": "{{item}} go laisolola ga go a atlega: {{reason}}",
+      "reason": {
+        "dns": "leina la sefara ga le a kgona go rarabololwa",
+        "refused": "kgolagano e gannwe",
+        "timeout": "nako ya kgolagano e fedile",
+        "tls": "kgolagano e e sireletsegileng ga e a kgona go tlhongwa",
+        "proxy": "moemedi ga a kgone go fitlhelelwa",
+        "unreachable": "sefara ga e a kgona go fitlhelelwa"
+      }
+    },
+    "openSettings": "Bula Diseting",
+    "openLogs": "Bula dikutu",
+    "downloadTokenRequired": {
+      "title": "Hugging Face letshwao le a tlhokega",
+      "description": "Mofuta ono o tlhoka letshwao la phitlhelelo la Hugging Face. Tsenya letshwao la gago mo Diseting o bo o leka gape."
+    },
+    "downloadLicenseRequired": {
+      "title": "Amogela laesense ya sekao mo Hugging Face",
+      "description": "O tshwanetse go amogela laesense ya sekao mo tsebeng ya sone ya Hugging Face pele o e laisolola."
+    },
+    "downloadRateLimited": {
+      "title": "Seelo se lekanyeditswe ke Hugging Face",
+      "description": "O ntse o lekanyeditswe ditlhwatlhwa. Go tsenya letshwao go ka oketsa ditekanyetso tsa selekanyo. Tsweetswee leka gape moragonyana."
+    },
+    "modelValidationStarted": {
+      "title": "Go Netefatsa Mmotlolo",
+      "description": "O laisolotse sekao sa \"{{modelId}}\" ka katlego. Go tlhomamisa bothokgami..."
+    },
+    "modelValidationFailed": {
+      "title": "Netefatso ya Mmotlolo e Paletswe",
+      "description": "Mofuta o o laisolotsweng wa \"{{modelId}}\" o paletswe ke go netefatsa bothokgami mme wa tlosiwa. Faele e ka tswa e senyegile kgotsa e fetotswe."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Laisolola e feletse",
+      "description": "Mmotlolo \"{{item}}\" o laisolotswe le go netefadiwa ka katlego"
+    },
+    "projectCreated": {
+      "title": "Porojeke e tlhamilwe",
+      "description": "Porojeke \"{{projectName}}\" e tlhamilwe ka katlego"
+    },
+    "projectRenamed": {
+      "title": "Porojeke e biditswe sešwa",
+      "description": "Porojeke e biditswe sešwa go tswa go \"{{oldName}}\" go \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Porojeke e Phimotswe",
+      "description": "Porojeke \"{{projectName}}\" e phimotswe ka katlego"
+    },
+    "projectAlreadyExists": {
+      "title": "Porojeke e Setse e le Teng",
+      "description": "Porojeke ya \"{{projectName}}\" e setse e le teng"
+    },
+    "projectDeleteFailed": {
+      "title": "Phimola e paletswe",
+      "description": "E paletswe ke go phimola porojeke. Tsweetswee leka gape."
+    },
+    "threadAssignedToProject": {
+      "title": "Tlhale e e Abilweng",
+      "description": "Tlhale e abetswe \"{{projectName}}\" ka katlego"
+    },
+    "threadRemovedFromProject": {
+      "title": "Tlhale e Tlositswe",
+      "description": "Tlhale e tlositswe mo go \"{{projectName}}\" ka katlego"
+    },
+    "fileUploaded": {
+      "title": "Faele e dirilwe",
+      "description": "Faele e dirilwe le go tsenngwa mo tshupaneng ka katlego"
+    },
+    "uploadFailed": {
+      "title": "Go dira ga go a atlega",
+      "description": "E paletswe ke go dira faele",
+      "subjectThisFile": "Faele e",
+      "pdfMalformedXref": "{{subject}} e na le sebopego se se sa siamang PDF tafole ya ditshupiso tsa sefapano mme e ne e sa kgone go sekasekwa. Leka go e bula mo PDF sebogedi le go se boloka gape (Faele → Gatisa → Boloka jaaka PDF), o bo o laisa gape.",
+      "pdfScanned": "{{subject}} e lebega e le PDF e e skenilweng kgotsa e e theilweng mo setshwantshong. OCR ga e ise e tshegediwe — tsweetswee laisa PDF e e theilweng mo mafokong.",
+      "pdfEncrypted": "{{subject}} e sireleditswe ka nomoro ya sephiri. Tlosa nomoro ya sephiri mme o leke gape.",
+      "pdfUnsupportedFeature": "{{subject}} o dirisa PDF popego Novera ga e ise e kgone go tlhatlhoba (sk. PostScript ditiro tsa mmala/go dira moriti). Leka go e boloka gape (Faele → Gatisa → Boloka jaaka PDF) go e sephaphathi, o bo o e laisa gape.",
+      "pdfGeneric": "{{subject}} ga e a kgona go tlhatlhobiwa jaaka PDF. Faele e ka tswa e senyegile kgotsa e dirisa tshupo ya PDF e e sa tshegediweng.",
+      "fileTooLarge": "{{subject}} e kgolo thata. {{message}}.",
+      "unsupportedType": "Mofuta wa faele \"{{type}}\" ga o tshegediwe.",
+      "ioError": "Ga e kgone go buisa {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} ga e a kgona go tlhatlhobiwa: {{message}}",
+      "fallback": "E paletswe ke go dira {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Faele e Phimotswe",
+      "description": "Faele e tlositswe mo porojekeng"
+    },
+    "deleteFailed": {
+      "title": "Phimola e paletswe",
+      "description": "E paletswe ke go phimola faele"
+    },
+    "fileAlreadyExists": {
+      "title": "Faele e setse e le teng",
+      "description": "Faele e setse e gokeletswe mo porojekeng eno"
+    },
+    "unsupportedFileType": {
+      "title": "Mofuta wa Faele o o sa tshegediweng",
+      "description": "Katoloso ya faele \".{{extension}}\" ga e tshegediwe go nna tshupiso ya Porojeke."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Dimametlelelo di thibetswe",
+      "description": "Dimametlelelo di thibetswe mo Diseting"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Faele e kgolo thata",
+    "fileTooLargeDescription": "{{fileName}} e feta tekanyetso ya {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} dikarolo",
+    "title": "Difaele",
+    "empty": "Difaele tse o di gokelelang le difaele tse moemedi a di tlhamang di tla bonala fano.",
+    "a11y": "Difaele: {{count}}",
+    "attachments": "Dimametlelelo",
+    "notImported": "ga e mo lefelong la tiro"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp e santse e tshwaregile",
+    "description": "Mofuta o le mongwe kgotsa go feta ga o a folosa ka nako. Go tlogela ka dikgoka go tla fedisa llama.cpp mme go ka nna ga kgoreletsa dikarabo tse di dirang.",
+    "forceQuit": "Pateletsa go tlogela",
+    "forcing": "Go pateletsa go tlogela...",
+    "shuttingDown": "Go a tima..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Go phutlhama",
+  "expand": "Atolosa",
+  "todoPanelTitle": "Kgatelopele",
+  "todoPanelEmpty": "Ga go ise go nne le lenaane la ditiro.",
+  "backgroundTasks": "Ditiro tsa lemorago",
+  "subagentsRunning_one": "{{count}} moemedipotlana o a dira",
+  "subagentsRunning_other": "{{count}} diemedipotlana tse di dirang",
+  "monitorsRunning_one": "{{count}} monithara o a dira",
+  "monitorsRunning_other": "{{count}} dimonithara tse di dirang",
+  "backgroundRunning_one": "{{count}} tiro ya lemorago e a dira",
+  "backgroundRunning_other": "{{count}} ditiro tsa lemorago tse di dirwang",
+  "monitors": "Ditlhokomedi",
+  "monitorPolling": "Go tlhopha",
+  "monitorMatched": "E Tshwantshitswe",
+  "monitorTimedOut": "Nako e fedile",
+  "monitorStopped": "E emisitswe",
+  "monitorEnded": "E fedile",
+  "coworkWatching_one": "Go lebelela {{count}} monithara...",
+  "coworkWatching_other": "Go lebelela dimonithara tsa {{count}}...",
+  "coworkWaitingBackground": "Go leta ditiro tsa lemorago...",
+  "noBackgroundTasks": "Ga go ise go nne le ditiro tsa lemorago.",
+  "running": "Go taboga",
+  "queued": "E mo moleng",
+  "waiting": "Ke letile",
+  "finished": "Feditse",
+  "subagentPhase": "{{phase}}",
+  "subagentWaiting": "e letile",
+  "viewTranscript": "Leba se se kwadilweng",
+  "taskWorking": "Ke a bereka...",
+  "taskNoOutput": "Moemedipotlana ga a ka a ntsha dipholo tse di bonalang.",
+  "subagentToolUses_one": "{{count}} tiriso ya didirisiwa",
+  "subagentToolUses_other": "{{count}} sediriswa se dirisa",
+  "artifactGroupCode": "Khoutu",
+  "artifactGroupImage": "Setshwantsho",
+  "artifactGroupDocument": "Tokomane",
+  "artifactGroupVideo": "Bidio",
+  "artifactGroupAudio": "Modumo",
+  "artifactOpenPreview": "Bula tebopele",
+  "artifactOpenExternal": "Butswe",
+  "artifactMoreActions": "Ditiro tse dingwe",
+  "artifactShowInFolder": "Bontsha mo Setsholadifaeleng",
+  "skillsUsedLabel": "Bokgoni jo bo dirisitsweng",
+  "skillsUsed": "Bokgoni jo bo dirisitsweng: {{skills}}",
+  "artifactsAll": "Tsotlhe",
+  "artifactsEmpty": "Ga go ise go tlhagisiwe sepe. Dilo tse di dirilweng ka diatla go tswa mo dipoelong tsa Cowork di bonala fano.",
+  "artifactsNoMatch": "Ga go na dilo tse di dirilweng ka diatla tse di tshwanang.",
+  "artifactsSearch": "Batla dilo tse di dirilweng ka diatla",
+  "artifactsShowMore": "Bontsha {{count}} tse dingwe",
+  "workspace": {
+    "readsFrom": "O dira mo",
+    "writable": "buisa le go kwala",
+    "footnote": "Moemedi o bala le go tseleganya foltara eno ka tlhamalalo. Boeletsa se se fetogileng mo phaneleng ya pharologano.",
+    "footnoteEmpty": "Gokelela foltara go letla moemedi go dira mo porojekeng ya gago. E kgona go bala le go rulaganya difaele tse di mo teng ga yone.",
+    "attach": "Gokelela foltara",
+    "change": "Fetola foltara",
+    "detach": "Kgaoganya foltara",
+    "open": "Butswe",
+    "reveal": "Senola",
+    "unavailable": "Lefelo la tiro ga le yo",
+    "missing": "Setsholadifaele sa lefelotiro {{folder}} ga se tlhole se le teng. Tlhopha foltara e e farologaneng.",
+    "openFailed": "Ga e kgone go bula lefelo la tiro",
+    "revealFailed": "Ga e kgone go senola lefelo la tiro",
+    "a11yWithFolder": "Setsholadifaele sa porojeke {{folder}}, se se gokeletsweng le phitlhelelo ya go buisa le go kwala. E fetole kgotsa o e kgaoganye.",
+    "a11yNoFolder": "Ga go na foltara ya porojeke e e gokeletsweng. Gokelela e le nngwe."
+  },
+  "coworkEmpty": {
+    "title": "Re bereka mo go eng?",
+    "subtitleSandbox": "Naya Novera tiro. E bala le go kwala difaele, e dira ditaelo le go dira dikgato ka boyone.",
+    "subtitleFolder": "Naya Novera tiro. E dira ka tlhamalalo mo {{folder}}, e buisa le go tseleganya difaele ka boyone.",
+    "try": "Leka",
+    "sandbox": {
+      "first": "Kwala sekwalwa sa Python se se nayang difaele maina a mašwa ka letlha le di tserweng ka lone",
+      "second": "Aga dasheboto ya tsebe e le nngwe go tswa mo CSV Ke tla e kgomaretsa mo",
+      "third": "Kwala README ya porojeke e ke e go tlhalosetsang"
+    },
+    "folder": {
+      "first": "Tlhalosa gore {{folder}} e kopantswe jang",
+      "second": "Batla TODO nngwe le nngwe mo {{folder}} o bo o e tlhopha ka kgaolo",
+      "third": "Kwala diteko tsa karolo ya {{folder}} Ke go supa mo"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Ga go na theminale",
+    "a11y": "Go dira ditaelo go timilwe. Dintlha.",
+    "title": "Go dira ditaelo go timilwe",
+    "body": "Novera e letla moemedi go dirisa ditaelo tsa shele fela fa tsamaiso ya gago e ka di tswalela. Ga go na sandbox e e leng teng fano, ka jalo moemedi a ka bala, a kwala le go tseleganya difaele mo sandbox ya gagwe — mme a sa tsamaise sepe.",
+    "fixLinux": "Linux e dirisa bubblewrap. E tsenye, o bo o simolola gape Novera.",
+    "fixMac": "macOS e dirisa lebokoso la motlhaba le le ageletsweng mo go /usr/bin/sandbox-exec. Simolola gape Novera fa e setse e le teng.",
+    "fixWindows": "Difensetere di dirisa AppContainer. Simolola gape Novera go leka gape.",
+    "recheck": "Tlhola gape"
+  },
+  "planMode": {
+    "label": "Leano",
+    "tooltipOff": "Rulaganya pele — moemedi o bala le go tshitshinya, ntle le go kwala.",
+    "tooltipOn": "Go rulaganya. Tima se go letla moemedi go kwala difaele.",
+    "onAnnounce": "Mokgwa wa thulaganyo mo",
+    "placeholder": "Kopa leano. Moemedi ga a kitla a fetola difaele dipe."
+  },
+  "budget": {
+    "stoppedSteps": "E eme mo dikgatong tsa {{max}}. Moemedi ga a ise a fetse.",
+    "keepGoing": "Tswelela pele",
+    "stoppedTokens": "E emisitswe — thulaganyo eno e ne ya itaya tekanyetsokabo ya yone ya letshwao.",
+    "compact": "E kopantswe",
+    "newSession": "Thulaganyo e ntšhwa"
+  },
+  "run": {
+    "stopped": "E emisitswe.",
+    "failed": "Go taboga go ne ga ema go sa le gale.",
+    "tryAgain": "Leka gape"
+  },
+  "modelNoTools": "{{model}} ga e kgone go bitsa didirisiwa, ka jalo ga e kgone go dira jaaka moemedi. Tlhopha sekao sa go bitsa didirisiwa.",
+  "askContinue": "Tswelela",
+  "askNext": "Potso e e latelang",
+  "askPrev": "Potso e e fetileng",
+  "askRecommended": "E atlanegisiwa",
+  "askSelectedCount": "{{count}} e tlhophilwe",
+  "askSomethingElse": "Sengwe se sele",
+  "askSomethingElsePlaceholder": "Thaepa karabo ya gago",
+  "submit": "Romela",
+  "composer": {
+    "advanced": "Dipharametara tsa maemo a a kwa godimo",
+    "modelDefaults": "Dithulaganyetsoruri tsa sekao",
+    "assistantOverrides": "Mothusi o tlola",
+    "printPdf": "Gatisa / Boloka jaaka PDF",
+    "exportHint": "Difomete tse di balegang: lekala le le dirang. JSON: mefuta yotlhe ya melaetsa. Difaele tsa kwa ntle ga di a kopanngwa."
+  },
+  "telemetry": {
+    "summary": "Ka tumelelo ya gago, {{host}} e amogela fela mofuta wa Novera le tsamaiso ya tiriso, ntle le dipuisano kgotsa sesupo se se sa kgaotseng.",
+    "unavailable": "Dipalopalo ga di a rulaganngwa. Ga go na tshedimosetso e e rometsweng."
+  },
+  "errorTracking": {
+    "title": "Go latedisa diphoso",
+    "summary": "Dipegelo tsa boikgethelo go {{host}}: mofuta wa phoso, boemo jwa khoutu, mofuta le tsamaiso ya tiriso. Ga go na dipuisano, melaetsa ya phoso e e tala kgotsa dinotlolo. Thibela nako nngwe le nngwe.",
+    "unavailable": "Go latedisa diphoso ga go a rulaganngwa. Ga go romelwe dipegelo."
+  },
+  "access": {
+    "read": "Buisa fela",
+    "ask": "Botsa pele o tseleganya kgotsa o phimola",
+    "allow": "Letla go tseleganya le go phimola",
+    "folderNote": "Tlhopha gore Novera e ka fitlhelela jang foltara eno."
+  },
+  "components": {
+    "title": "Dikarolo tsa selegae",
+    "note": "Tsenya fela dikarolo tse o di tlhokang. Novera e boloka ditikologo tsa Python di kgaogane. Ditirelo tsa kwa marung ga di tlhoke go tsenngwa ga selegae.",
+    "estimates": "Go laisolola go go fopholediwang: {{download}} · Sebaka se se tlhokegang mo disekeng: {{space}} · Sebaka se se leng teng mo disekeng: {{free}}",
+    "confirm": "Tsenya tikologo eno ya poraefete? Ke dikarolo tse di tlhophilweng fela tse di tla laisololwang. Dilaesense tsa bagatisi ba bone di a dira.",
+    "removeConfirm": "Tlosa tikologo e e laolwang e? Dikai tsa gago, dipopo le metlotlo di tla bolokwa.",
+    "verify": "Tlhomamisa",
+    "repair": "Baakanya",
+    "uninstall": "Tsenya",
+    "missing": "Ga e ise e tsenngwe",
+    "managed": "E laolwa ke Novera",
+    "external": "Tsela ya Python ya kwa ntle ya boikgethelo e phimola porofaele e e laolwang. E phimole gore o dirise tikologo ya Novera.",
+    "failed": "Tshebetso ya karolo e hlolehile. Hlahloba marangrang, sebaka sa disk le ditokelo tsa ho fihlella, ebe o leka hape kapa o lokisa.",
+    "required": "Baakanyetsa le go netefatsa dikarolo tsa selegae tse di tlhokegang mo Novera · Dithulaganyo.",
+    "updateAvailable": "Ntšhwafatso e teng",
+    "update": "Ntšhwafatso",
+    "rollback": "Busetsa tikologo ya pele",
+    "busy": "Laisa dikai tsa selegae mme o emele dikokomana go fetsa pele o fetola dikarolo."
+  },
+  "voiceConversation": "Puisano ya lentswe",
+  "voiceUnavailable": "Puisano ya lentswe ga e teng",
+  "voiceMale": "Lentswe la monna",
+  "voiceFemale": "Lentswe la mosadi",
+  "voiceReadReplies": "Buisa dikarabo ka lentswe le le kwa godimo"
+}

@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { route } from '@/constants/routes'
 import SettingsMenu from '@/containers/SettingsMenu'
 import HeaderPage from '@/containers/HeaderPage'
 import { Switch } from '@/components/ui/switch'
@@ -8,9 +7,7 @@ import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useAnalytic } from '@/hooks/useAnalytic'
 import { useErrorTracking } from '@/hooks/useErrorTracking'
 import { ErrorTrackingDetails } from '@/containers/analytics/ErrorTrackingDetails'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute(route.settings.privacy as any)({
+export const Route = createFileRoute("/settings/privacy")({
   component: Privacy,
 })
 

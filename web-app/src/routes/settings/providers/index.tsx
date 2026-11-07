@@ -18,12 +18,10 @@ import {
   openAIProviderSettings,
   anthropicProviderSettings,
 } from '@/constants/providers'
-import cloneDeep from 'lodash/cloneDeep'
+import cloneDeep from 'lodash.clonedeep'
 import { toast } from 'sonner'
 import { useServiceHub } from '@/hooks/useServiceHub'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute(route.settings.model_providers as any)({
+export const Route = createFileRoute('/settings/providers/')({
   component: ModelProviders,
 })
 

@@ -429,7 +429,7 @@ impl PendingAuth {
         let exchanged = self.client
             .exchange_code(oauth2::AuthorizationCode::new(callback.code))
             .set_pkce_verifier(self.verifier)
-            .request_async(&self.http).await
+            .request_async(&|request| oauth_request(self.http.clone(), request)).await
             .map_err(|e| format!("could not exchange the authorization code: {e}"))?;
         // rmcp's token response carries its own extra-fields type; the `oauth2`
         // client returns the empty one, so restate the fields it did fill in.
@@ -607,8 +607,8 @@ pub async fn authorized_client(
     name: &str,
     url: &str,
     config: &Value,
-    base: reqwest13::Client,
-) -> Result<Option<AuthClient<reqwest13::Client>>, String> {
+    base: reqwest::Client,
+) -> Result<Option<AuthClient<reqwest::Client>>, String> {
     if has_static_authorization(config) {
         return Ok(None);
     }
@@ -729,9 +729,9 @@ mod tests {
                         "access_token": if refreshed { "refreshed" } else { "issued" },
                         "token_type": "Bearer", "expires_in": 3600, "refresh_token": "refresh",
                     }).to_string())
-                } else if bytes.starts_with(b"GET /mcp ") {
+                } else if bytes.starts_with(b"GET /mcp ") || bytes.starts_with(b"GET /.well-known/oauth-protected-resource") {
                     // A 200 here is read as the RFC 9728 protected-resource
-                    // document, whose `resource` rmcp 3.2 requires to match.
+                    // document. Modern discovery also requests the well-known path.
                     (200, json!({
                         "resource": format!("{origin}/mcp"),
                         "authorization_servers": [origin.clone()],
@@ -789,7 +789,7 @@ mod tests {
         stored.expires_at = Some(0);
         save(dir.path(), "server", &stored).unwrap();
         let client = authorized_client(
-            dir.path(), "server", &url, &json!({}), reqwest13::Client::new(),
+            dir.path(), "server", &url, &json!({}), reqwest::Client::new(),
         ).await.unwrap().unwrap();
         assert_eq!(client.get_access_token().await.unwrap(), "refreshed");
         assert_eq!(
@@ -987,7 +987,7 @@ mod tests {
                 "s",
                 "https://x/mcp",
                 &config,
-                reqwest13::Client::new(),
+                reqwest::Client::new(),
             ));
         assert!(matches!(got, Ok(None)));
     }
@@ -1006,7 +1006,7 @@ mod tests {
                 "s",
                 "https://new/mcp",
                 &config,
-                reqwest13::Client::new(),
+                reqwest::Client::new(),
             ));
         let err = got.expect_err("stale resource is an error, not a silent skip");
         assert!(err.contains("https://old/mcp"), "{err}");
@@ -1095,4 +1095,16 @@ mod tests {
             assert_eq!(got.state, "s1");
         });
     }
+}
+
+async fn oauth_request(client: reqwest::Client, request: oauth2::HttpRequest) -> Result<oauth2::HttpResponse, reqwest::Error> {
+    let request = reqwest::Request::try_from(request)?;
+    let upstream = client.execute(request).await?;
+    let status = upstream.status();
+    let headers = upstream.headers().clone();
+    let bytes = upstream.bytes().await?.to_vec();
+    let mut response = oauth2::HttpResponse::new(bytes);
+    *response.status_mut() = status;
+    *response.headers_mut() = headers;
+    Ok(response)
 }

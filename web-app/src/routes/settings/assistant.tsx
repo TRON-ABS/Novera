@@ -1,12 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { route } from '@/constants/routes'
 import HeaderPage from '@/containers/HeaderPage'
 import SettingsMenu from '@/containers/SettingsMenu'
 import { NoveraInstructionsGuide } from '@/containers/NoveraInstructionsGuide'
 import { useTranslation } from '@/i18n/react-i18next-compat'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute(route.settings.assistant as any)({
+export const Route = createFileRoute("/settings/assistant")({
   component: AssistantContent,
 })
 

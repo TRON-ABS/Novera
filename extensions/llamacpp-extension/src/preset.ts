@@ -169,8 +169,11 @@ function escapeIniValue(v: string): string {
 export async function generatePreset(
   providerPath: string,
   janDataFolderPath: string,
-  config: LlamacppConfig
+  config: LlamacppConfig = {} as LlamacppConfig
 ): Promise<{ path: string; embeddingCount: number }> {
+  // Older callers can omit engine settings on a fresh install. Model YAML
+  // still supplies per-model values; absent engine values use safe defaults.
+  config ??= {} as LlamacppConfig
   const modelsDir = await joinPath([providerPath, 'models'])
 
   // Ensure the directory exists; an empty install is fine — we still emit a

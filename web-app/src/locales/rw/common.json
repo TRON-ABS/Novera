@@ -831,5 +831,10 @@
     "update": "Kuvugurura",
     "rollback": "Kugarura ibidukikije byabanje",
     "busy": "Kuramo moderi zaho hanyuma utegereze ibisekuruza birangire mbere yo guhindura ibice."
-  }
+  },
+  "voiceConversation": "Ikiganiro cy’ijwi",
+  "voiceUnavailable": "Ikiganiro cy’ijwi ntikiboneka",
+  "voiceMale": "Ijwi ry'umugabo",
+  "voiceFemale": "Ijwi ry'umugore",
+  "voiceReadReplies": "Soma ibisubizo mu ijwi riranguruye"
 }

@@ -43,18 +43,18 @@ const CONNECT_TIMEOUT: Duration = Duration::from_secs(30);
 /// the two `Client` types are not interchangeable.
 ///
 /// No overall request timeout: a streamed answer legitimately runs for minutes.
-pub(crate) fn shared_http_client() -> reqwest13::Client {
+pub(crate) fn shared_http_client() -> reqwest::Client {
     // One pool for the process. `reqwest::Client` is an `Arc` internally, so the
     // clone is cheap and every caller shares the same connections -- building one
     // per turn (or per API-server request) would discard the pool each time,
     // which is the opposite of what the idle-timeout tuning above is for.
-    static SHARED: std::sync::LazyLock<reqwest13::Client> =
+    static SHARED: std::sync::LazyLock<reqwest::Client> =
         std::sync::LazyLock::new(build_http_client);
     SHARED.clone()
 }
 
-fn build_http_client() -> reqwest13::Client {
-    reqwest13::Client::builder()
+fn build_http_client() -> reqwest::Client {
+    reqwest::Client::builder()
         .pool_idle_timeout(POOL_IDLE_TIMEOUT)
         .tcp_keepalive(TCP_KEEPALIVE)
         .connect_timeout(CONNECT_TIMEOUT)
@@ -94,13 +94,13 @@ pub(crate) fn adapter_kind_for(api_type: Option<&str>) -> AdapterKind {
 /// upstream this model lives on, and letting `genai` re-derive it from the model
 /// name would route a local llama.cpp model to api.openai.com.
 fn client_for(
-    http: &reqwest13::Client,
+    http: &reqwest::Client,
     endpoint_base: &str,
     request_url: &str,
     api_key: Option<&str>,
     adapter: AdapterKind,
     extra_headers: &[(String, String)],
-) -> Client {
+) -> Result<Client, String> {
     let endpoint = Endpoint::from_owned(endpoint_base.to_string());
 
     // `RequestOverride` rather than `AuthData::Key`, for three reasons:
@@ -148,6 +148,7 @@ fn client_for(
         .with_reqwest(http.clone())
         .with_service_target_resolver(resolver)
         .build()
+        .map_err(|error| format!("Cannot initialize upstream client: {error}"))
 }
 
 /// Everything the agent sends that `genai`'s typed options do not model. `top_k`
@@ -520,7 +521,7 @@ fn disposition_for_status(status: u16) -> Disposition {
 /// A provider-requested delay, honored when it is present and sane.
 /// `retry-after-ms` wins over `retry-after` (it is more precise); a date-form
 /// `Retry-After` is ignored rather than parsed.
-fn provider_retry_after(headers: &reqwest13::header::HeaderMap) -> Option<Duration> {
+fn provider_retry_after(headers: &reqwest::header::HeaderMap) -> Option<Duration> {
     let ms = headers
         .get("retry-after-ms")
         .and_then(|v| v.to_str().ok())
@@ -538,7 +539,7 @@ fn provider_retry_after(headers: &reqwest13::header::HeaderMap) -> Option<Durati
 /// Pull the HTTP status, response body, and headers out of whichever error shape
 /// `genai` used. Kept in one place because the same failure arrives as
 /// `HttpError`, `WebModelCall`, or `WebAdapterCall` depending on the call stage.
-fn http_parts(err: &genai::Error) -> (Option<u16>, Option<&str>, Option<&reqwest13::header::HeaderMap>) {
+fn http_parts(err: &genai::Error) -> (Option<u16>, Option<&str>, Option<&reqwest::header::HeaderMap>) {
     use genai::webc::Error as WebcError;
     match err {
         genai::Error::HttpError {
@@ -745,7 +746,7 @@ struct ToolCallProgress {
 /// visible. A retry is attempted **only before the first event reaches the
 /// consumer** -- afterwards a second attempt would duplicate visible output.
 pub(crate) async fn stream_chat_completions(
-    http: &reqwest13::Client,
+    http: &reqwest::Client,
     upstream_url: &str,
     api_keys: &[String],
     api_type: Option<&str>,
@@ -775,7 +776,7 @@ pub(crate) async fn stream_chat_completions(
             *key,
             adapter,
             extra_headers,
-        );
+        )?;
 
         for attempt in 0..MAX_ATTEMPTS {
             let mut progressed = false;

@@ -4,6 +4,7 @@ import { initializeServiceHubStore } from '@/hooks/useServiceHub'
 import { hydrateBackendStores } from '@/lib/hydrateStores'
 import { migrateLocalStorageToBackend } from '@/lib/migrateLocalStorageSettings'
 import { applyAndroidDesktopAppearance } from '@/lib/applyAndroidDesktopAppearance'
+import { useWebSearchWarmup } from '@/hooks/useWebSearchWarmup'
 
 interface ServiceHubProviderProps {
   children: React.ReactNode
@@ -11,6 +12,7 @@ interface ServiceHubProviderProps {
 
 export function ServiceHubProvider({ children }: ServiceHubProviderProps) {
   const [isReady, setIsReady] = useState(false)
+  useWebSearchWarmup(isReady)
 
   useEffect(() => {
     initializeServiceHub()

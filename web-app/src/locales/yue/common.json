@@ -831,5 +831,10 @@
     "update": "更新",
     "rollback": "還原之前嘅環境",
     "busy": "卸載本地型號，等幾代完成先換組件。"
-  }
+  },
+  "voiceConversation": "語音對話",
+  "voiceUnavailable": "語音對話無法使用",
+  "voiceMale": "男聲",
+  "voiceFemale": "女聲",
+  "voiceReadReplies": "讀出回覆"
 }

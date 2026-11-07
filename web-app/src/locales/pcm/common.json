@@ -831,5 +831,10 @@
     "update": "Update am",
     "rollback": "Bring back di former environment",
     "busy": "Unload local models and wait make generation finish before you change components."
-  }
+  },
+  "voiceConversation": "Talk with voice",
+  "voiceUnavailable": "Voice talk no dey available",
+  "voiceMale": "Man voice",
+  "voiceFemale": "Woman voice",
+  "voiceReadReplies": "Read replies out loud"
 }

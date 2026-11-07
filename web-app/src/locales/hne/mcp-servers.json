@@ -1,0 +1,101 @@
+{
+  "editServer": "MCP सर्वर संपादन",
+  "addServer": "MCP सर्वर जोड़ें",
+  "browserExtension": {
+    "connecting": {
+      "checking": "विस्तारण स्थिति ल जांच करत हवय..."
+    },
+    "notInstalled": {
+      "title": "Novera अपन ब्राउज़र म कार्यों ल पूरा करत हवय",
+      "description": "Novera ब्राउज़र पहुंच प्रदान करे बर विस्तारण इंस्टॉल करे",
+      "getExtension": "विस्तारण प्राप्त करे"
+    }
+  },
+  "serverName": "सर्वर नाम",
+  "enterServerName": "सर्वर ईसाई मन भरें",
+  "command": "आदेश",
+  "enterCommand": "आदेश (यूवीएक्स या एनपीएक्स) दाहर",
+  "arguments": "तर्क",
+  "argument": "तर्क {{index}}",
+  "envVars": "एनवायरनमेंट वेरिएबल",
+  "key": "कुंजी",
+  "value": "मान",
+  "save": "सहेजें",
+  "status": "स्थिति",
+  "connected": "कनेक्टेड",
+  "disconnected": "डिस्कनेक्टेड",
+  "deleteServer": {
+    "title": "MCP सर्वर मिटाएं",
+    "description": "क्या आप निश्चित रूप ले MCP सर्वर {{serverName}} ल मिटाए बर चाहत हवय? ए कार्रवाई ल वापस नी करे जा सकत हवय।",
+    "delete": "मिटाएं",
+    "success": "MCP सर्वर {{serverName}} सफलतापूर्वक मिटाए गए"
+  },
+  "editJson": {
+    "title": "संपादित JSON बर MCP सर्वर: {{serverName}}",
+    "titleAll": "जम्‍मो MCP सर्वर के संपादन JSON",
+    "placeholder": "JSON कॉन्फ़िगरेशन प्रविष्ट करे",
+    "errorParse": "प्रारंभिक डेटा के विश्लेषण करे म विफल",
+    "errorPaste": "चिपके होइस सामग्री म अवैध JSON फॉर्मेट",
+    "errorFormat": "अवैध JSON फॉर्मेट",
+    "errorServerName": "सर्वर नाम आवश्यक हवय अउ खाली नी हो सकत हवय",
+    "errorMissingServerNameKey": "JSON ल {\"serverName\": {config}} के रूप म संरचना करे जाना चाहि - गुम सर्वर नाम कुंजी",
+    "errorInvalidType": "सर्वर '{{serverName}}' बर अवैध प्रकार '{{type}}'। प्रकार 'stdio', 'http', या 'sse' होना चाहि",
+    "save": "सहेजें"
+  },
+  "checkParams": "कृपया ट्यूटोरियल के अनुसार पैरामीटरों ल चेक करे।",
+  "title": "MCP सर्वर",
+  "experimental": "प्रयोगात्मक",
+  "editAllJson": "जम्‍मो सर्वर के संपादन JSON",
+  "findMore": "ज्‍यादा MCP सर्वर म खोजें",
+  "allowPermissions": "जम्‍मो MCP टूल अनुमतिमन के अनुमति दें",
+  "allowPermissionsDesc": "जब सक्षम होत हवय, तो जम्‍मो MCP टूल कॉल स्वचालित रूप ले अनुमति संवादों ल दिखाए बिना अनुमोदित करे जाथे। ए लेटिंग नवा चैट सहित जम्‍मो बातचीत म वैश्विक रूप ले लागू होत हवय।",
+  "noServers": "कोई MCP सर्वर नी मिले",
+  "args": "आर्क",
+  "env": "लिफाफा",
+  "serverStatusActive": "सर्वर {{serverKey}} सफलतापूर्वक सक्रिय होइस",
+  "serverStatusInactive": "सर्वर {{serverKey}} सफलतापूर्वक निष्क्रिय हो गइस",
+  "runtimeSettings": {
+    "title": "रनटाइम विन्यास",
+    "description": "विन्यास कैसे Novera प्रबंधित करत हवय अउ MCP सर्वर ल फिर ले कोशिश करत हवय।",
+    "toolCallTimeout": "टूल कॉल टाइमआउट (सेकंड)",
+    "toolCallTimeoutDesc": "टाइमआउट ले पहीली MCP टूल प्रतिक्रिया बर प्रतीक्षा करे बर अधिकतम समय।",
+    "maxToolOutputChars": "अधिकतम टूल आउटपुट अक्षर",
+    "maxToolOutputCharsDesc": "सबले लंबा टूल परिणाम बातचीत म रखा जात हवय   । एखर पाछू काखरो  घलो चीज ल कटौती करे जात हवय अउ कटौती के रूप म चिह्नित करे जात हवय   , एखरबर एक बडखा परिणाम मॉडल के संदर्भ ल समाप्त नी कर सकत हवय । परिणामों ल पूरा बनाए बर 0 म सेट करे जात हवय ।",
+    "smartToolRouting": "स्मार्ट MCP टूल रूटिंग",
+    "smartToolRoutingDesc": "जब सक्षम होत हवय, तो Novera उपकरणों ल लोड करे ले पहीली प्रासंगिक MCP सर्वर ल चुनता हवय। हमेशा पूरा MCP उपकरण सूची ल लोड करे बर अक्षम।",
+    "useLightweightRouterModel": "रूटिंग बर एक समर्पित मॉडल का उपयोग करें",
+    "useLightweightRouterModelDesc": "जब स्मार्ट रूटिंग चालू होत हवय, तो चैट मॉडल के बजाय एकठन अलग (अक्सर छोटे) मॉडल के साथ रूटिंग चरण ल चलाएं। रूटिंग बर हमेशा सक्रिय चैट मॉडल के उपयोग करे बर बंद कर दें।",
+    "routerModel": "रूटिंग मॉडल",
+    "routerModelDesc": "एक जगह म प्रदाता अउ मॉडल चुनें। केवल हल्के मॉडल सूचीबद्ध हंवय ताकि रूटिंग तेजी ले  अउ सस्ता रहे।",
+    "selectRouterModelPlaceholder": "रूटिंग मॉडल चुनें...",
+    "routerModelSearchPlaceholder": "खोज मॉडल...",
+    "routerModelEmptyList": "कोई हल्के मॉडल उपलब्ध नी हवय। एक छोटे ले मॉडल जोड़ें या मॉडल म API कुंजियों ल कॉन्फ़िगर करें।",
+    "routerModelEmptySearch": "\"{{query}}\" बर कोई मेल नी हवय।"
+  },
+  "auth": {
+    "label": "अधिकार:",
+    "state": {
+      "notApplicable": "आवश्यक नी हवय",
+      "staticHeader": "प्राधिकरण हेडर",
+      "authenticated": "सत्यापित",
+      "expired": "म्याद समाप्त",
+      "staleResource": "एक अउ बर जारी URL",
+      "unauthenticated": "सत्यापित नी होइस"
+    },
+    "expiresIn": "{{duration}} म समाप्त होत हवय",
+    "authenticate": "लॉगइन",
+    "reauthenticate": "पुन: सत्यापित",
+    "clear": "सत्यापन साफ करे",
+    "waiting": "ब्राउज़र बर प्रतीक्षा करत हवय...",
+    "openSignInPage": "लॉगइन पृष्ठ खोलें",
+    "needsAuth": "{{serverName}} ल सत्यापन के जरूरत हवय",
+    "needsAuthHint": "जुड़ने बर इ सर्वर म लॉगइन करें।",
+    "authorized": "{{serverName}} म हस्ताक्षरित",
+    "authorizeFailed": "{{serverName}} बर लॉगइन असफल",
+    "cleared": "{{serverName}} बर भंडारित प्रमाणपत्रों ल साफ करिस",
+    "nothingToClear": "{{serverName}} म लई संग्रहीत प्रमाणपत्र नी रहिस",
+    "clearFailed": "{{serverName}} बर प्रमाणपत्रों ल साफ नी कर सकत हवय।",
+    "renew": "सत्र पुन: प्राप्ति",
+    "expiredAgo": "{{duration}} पहीली समाप्त"
+  }
+}

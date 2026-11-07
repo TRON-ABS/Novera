@@ -1,0 +1,18 @@
+{
+  "addProvider": "Furakɛla dɔ fara a kan",
+  "addOpenAIProvider": "A’ ye Ladamuni dilanbaga fara a kan",
+  "enterNameForProvider": "Lasebaga tɔgɔ (misali la, my-llm-server) .",
+  "apiTypeLabel": "API cogo la",
+  "apiTypeOpenAI": "OpenAI-a bɛ se ka kɛ",
+  "apiTypeAnthropic": "Anthropic-a bɛ se ka kɛ",
+  "baseUrlLabel": "Basi URL Bamako, Mali.",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API kilisi",
+  "apiKeyPlaceholder": "Aw bɛ aw ka API kilisi nɔrɔ",
+  "invalidBaseUrl": "Basi URL ka kan ka kɛ http(w) ye min bɛ se ka kɛ URL .",
+  "globalSettings": "Duniya bɛɛ ka sigicogo",
+  "stripReasoning": "Ka hakilinata bɔ a kɔnɔkow la",
+  "stripReasoningDesc": "Ka tɛmɛn turns ka miiri/hakilila kɔnɔkow bɔ sani tariku ci kokura, furakɛlikɛlaw bɛɛ kɔnɔ. A bɛ KV-cache baarakɛcogo ɲɛ ka ɲɛ sigida modɛliw kama, nka misali dɔw (misali la Qwen bɔko kura) b’a ɲini k’a mara walasa ka hakilina caman sɔrɔ ka ɲɛ.",
+  "providerAlreadyExists": "Ladilikɛla dɔ tɔgɔ ye ko {{name}} bɛ yen kaban."
+}

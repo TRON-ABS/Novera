@@ -11,22 +11,22 @@ exclude = ["/examples", "/dist-js", "/guest-js", "/node_modules"]
 links = "tauri-plugin-hardware"
 
 [dependencies]
-libc = "0.2"
-log = "0.4"
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-sysinfo = "0.34.2"
-tauri = { version = "2.5.0", default-features = false, features = ["test"] }
+libc = "0.2.191"
+log = "0.4.35"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+sysinfo = "0.40.1"
+tauri = { version = "2.12.5", default-features = false, features = ["test"] }
 
 # Desktop-only dependencies
 [target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
-vulkano = "0.34"
-ash = "0.37"
-nvml-wrapper = "0.10.0"
+vulkano = "0.35.2"
+ash = "0.38.0"
+nvml-wrapper = "0.13.0"
 
 # Windows-specific dependencies
 [target.'cfg(windows)'.dependencies]
-libloading = "0.8"
+libloading = "0.9.0"
 
 [build-dependencies]
-tauri-plugin = { version = "2.3.1", features = ["build"] }
+tauri-plugin = { version = "2.7.2", features = ["build"] }

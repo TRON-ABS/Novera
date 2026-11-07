@@ -13,7 +13,7 @@ vi.mock('@/hooks/useServiceHub', () => ({
 vi.mock('@janhq/tauri-plugin-websearch-api', () => native)
 
 import { executeWebTool } from '../webSearchTool'
-import { DEFAULT_DUCKDUCKGO_CONFIG, executeDuckDuckGoTool } from '../duckduckgoSearch'
+import { DEFAULT_DUCKDUCKGO_CONFIG, executeDuckDuckGoTool, prepareDuckDuckGo } from '../duckduckgoSearch'
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
 import { parseWebFetchOutput } from '../toolPresentation'
 import { parseCitationsFromToolOutput } from '../citation-parser'
@@ -22,6 +22,25 @@ const result = (text: string) => ({ error: '', content: [{ type: 'text', text }]
 const searchText = 'Found 1 search results:\n\n1. Jan\n   URL: https://jan.ai/\n   Summary: Local AI\n'
 
 describe('web search providers', () => {
+  it('prepares the service without sending any search or page request',async()=>{
+    mcp.getConnectedServers.mockResolvedValue([])
+    await prepareDuckDuckGo()
+    expect(mcp.activateMCPServer).toHaveBeenCalledWith('DuckDuckGo',DEFAULT_DUCKDUCKGO_CONFIG)
+    expect(mcp.callTool).not.toHaveBeenCalled()
+    expect(native.webSearch).not.toHaveBeenCalled()
+  })
+  it('shares preparation with a search arriving during startup',async()=>{
+    mcp.getConnectedServers.mockResolvedValue([])
+    let release!:()=>void
+    mcp.activateMCPServer.mockImplementation(()=>new Promise<void>(resolve=>{release=resolve}))
+    const warm=prepareDuckDuckGo()
+    await vi.waitFor(()=>expect(mcp.activateMCPServer).toHaveBeenCalledOnce())
+    const search=executeWebTool('web_search',{query:'Jan'})
+    await Promise.resolve();release()
+    await Promise.all([warm,search])
+    expect(mcp.activateMCPServer).toHaveBeenCalledOnce()
+    expect(mcp.callTool).toHaveBeenCalledOnce()
+  })
   beforeEach(() => {
     vi.resetAllMocks()
     useWebSearchConfig.setState({

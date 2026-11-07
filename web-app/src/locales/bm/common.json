@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Kode",
+    "preview": "Ɲɛjirali",
+    "previewStreaming": "A bɛ sɔrɔ ni mɔgɔw bɔnsɔn banna",
+    "unresolvedAssets_one": "1 nafolo jiracogo tɛ se ka doni kɛ ɲɛjirali kɔnɔ. Sira danfaralenw tɛ basigi URL sɔrɔ ka ɲɛnabɔ u kama.",
+    "unresolvedAssets_other": "{{count}} nafolo jiracogo tɛ se ka doni jira ɲɛjirali kɔnɔ. Sira danfaralenw tɛ basigi URL sɔrɔ ka ɲɛnabɔ u kama."
+  },
+  "assistants": "Dɛmɛbagaw",
+  "hardware": "Baarakɛminɛnw",
+  "mcp-servers": "MCP Baarakɛlaw",
+  "local_api_server": "Sigida API Baarakɛla",
+  "remote_access": "Yɔrɔjan sɔrɔli",
+  "integrations": "Jɛkuluw",
+  "experimental": "Kɔrɔbɔli",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Lasigiden",
+  "web_search": "Ɛntɛrinɛti ɲinini",
+  "shell": "Koli",
+  "browse": "Aw ye a lajɛ",
+  "moreControls": "Kɔrɔsili caman",
+  "starting": "Ka daminɛ...",
+  "activeSuffix": "(A bɛ baara kɛ) .",
+  "extensions": "Jateminɛw",
+  "attachments": "Fɛn minnu bɛ fara ɲɔgɔn kan",
+  "general": "Jɛkuluba",
+  "settings": "Labɛnw",
+  "modelProviders": "Modeli dilanbagaw",
+  "localProviders": "Sigida la",
+  "remoteProviders": "Yɔrɔjan",
+  "manageProviders": "Ka furakɛlikɛlaw ɲɛnabɔ",
+  "hiddenProviders": "{{count}} baarakɛbali",
+  "hideProvider": "Ka furakɛlikɛla dogo",
+  "showProvider": "A jira ko a dibaga",
+  "interface": "Ɲɛjirali",
+  "appearance": "Yecogo",
+  "privacy": "Kunnafoni-falen-falen",
+  "keyboardShortcuts": "Sira surunw",
+  "home": "So kɔnɔ",
+  "cowork": "Cowork",
+  "newSession": "Lajɛ kura",
+  "artifacts": "Fɛn minnu bɛ kɛ ka fɛn dilannenw",
+  "customize": "Ka kɛɲɛ ni mɔgɔw sago ye",
+  "local": "Sigida la",
+  "selectFolder": "Foli sugandi",
+  "selectModel": "Aw bɛ modɛli dɔ sugandi fɔlɔ",
+  "commands": "Cikanw",
+  "cmdHelp": "Cikan minnu bɛ sɔrɔ, olu fɔ",
+  "cmdClear": "Aw ye nin kalan in jɛya",
+  "cmdModels": "Aw bɛ modɛli baarakɛta caman wuli",
+  "cmdModelsHint": "Aw bɛ /models sɛbɛn o kɔfɛ, aw bɛ modɛli dɔ ta ka bɔ lisi kɔnɔ",
+  "cmdModelSwitched": "Yɛlɛma donna {{name}} la.",
+  "cmdUnknown": "Cikan dɔnbali : {{name}}. Aw ye /help lajɛ.",
+  "cmdBusy": "Se tɛ o kɛ ka sɔrɔ ciden bɛ boli",
+  "cmdCompact": "Ka kalansen kɔnɔkow fara ɲɔgɔn kan ka kɛ kumasen kuncɛlen ye",
+  "cmdCompacted": "{{before}} -> {{after}} cikanw faralen ɲɔgɔn kan",
+  "cmdNothingToCompact": "Foyi ma kɛ ka compact fɔlɔ",
+  "cmdCompactFailed": "Kɔrɔbɔli ma ɲɛ: {{error}} .",
+  "cmdPlan": "Toggle plan mode (kalan dɔrɔn: ciden bɛ hakilina di k’a sɔrɔ a ma sɛbɛn)",
+  "cmdPlanOn": "Plan mode on: ciden bɛ kalan kɛ ka proposer kɛ k’a sɔrɔ a ma sɛbɛn",
+  "cmdPlanOff": "Plan mode off: waleyali nɔrɔlen",
+  "cmdTodo": "Ɲɛtaa panɛli da wuli",
+  "cmdTasks": "Baarakɛminɛnw kɔkanna dakun da wuli",
+  "cmdInit": "Porozɛ kalan ani ka seko ni hakilijagabɔ sɛbɛnni kɛ",
+  "cmdInitRunning": "Ka nin porozɛ in don kurun kɔnɔ",
+  "skills": "Seko ni dɔnko",
+  "skillsInContext": "Seko ni dɔnko minnu bɛ sɔrɔ ciden bolo nin boli in na",
+  "skillsTitle": "Seko ni dɔnko ɲɛnabɔli",
+  "skillsScopeProject": "Seko ni dɔnko ka ɲɛsin {{folder}} ma.",
+  "skillsScopeGlobal": "Duniya seko ni dɔnko, min bɛ sɔrɔ kalansen bɛɛ la",
+  "skillsScopeMerged": "Seko ni dɔnko {{folder}} kama, ka fara diɲɛ seko ni dɔnko kan kalansen kelen-kelen bɛɛ bɛ minnu tila ɲɔgɔn na",
+  "skillOriginFolder": "foli",
+  "skillOriginGlobal": "diɲɛ bɛɛ kɔnɔ",
+  "skillsEmpty": "Seko si tɛ yen fɔlɔ",
+  "skillsPickOrNew": "Seko ni dɔnko dɔ sugandi ka ladilan, walima ka kura dɔ da.",
+  "skillNew": "Seko kura",
+  "skillDelete": "Seko ni dɔnko bɔli",
+  "skillSave": "Kɔlɔsili",
+  "skillSaved": "Seko ni dɔnko kisilen don",
+  "skillNameRequired": "Seko ni dɔnko tɔgɔ de wajibiyalen don",
+  "skillNamePlaceholder": "seko-tɔgɔ",
+  "skillContentPlaceholder": "Baara kɛcogo kura ɲɛfɔ Markdown kɔnɔ...",
+  "skillHubImport": "Import ka bɔ hub la",
+  "skillHubTitle": "Anthropic seko ni dɔnko yɔrɔ",
+  "skillHubEmpty": "Seko si ma sɔrɔ hubu kan",
+  "skillImport": "Ka don jamana kɔnɔ",
+  "skillReimport": "Segin ka don jamana kɔnɔ",
+  "skillImported": "A donna jamana kɔnɔ {{name}} .",
+  "sessions": "Lajɛw",
+  "deleteSession": "Kalansenw bɔli",
+  "deleteSessionTitle": "Sesɔn bɔli?",
+  "deleteSessionBody": "\"{{title}}\" n'a sɛbɛnni bɛna bɔ yen kudayi. Nin tɛ se ka kɔsegin.",
+  "newChat": "Baro kura",
+  "newAgentChat": "Agent kura ka baro",
+  "chats": "Barow",
+  "favorites": "A ka di mɔgɔw ye",
+  "recents": "Kɔsa in na",
+  "hub": "Hub",
+  "helpSupport": "Dɛmɛ & Dɛmɛ",
+  "helpUsImproveJan": "An dɛmɛ ka ɲɛtaa sɔrɔ Novera",
+  "analyticsConsentDetail": "An bɛ kunnafoniw lajɛ minnu tɔgɔ ma fɔ walasa ka fɛnw baaracogo faamuya. I ka barow ni i ka kunnafoniw tɛ tugu abada. I bɛ se k’o Changer waati o waati Settings > Privacy kɔnɔ.",
+  "analyticsConsentQuestion": "Aw b'a fɛ k'an dɛmɛ ka Novera ɲɛ wa?",
+  "unstarAll": "Unstar Bɛɛ",
+  "unstar": "Unstar ye",
+  "deleteAll": "Ka Bɛɛ Bɔ",
+  "star": "Dolow",
+  "rename": "Tɔgɔ caman wɛrɛ",
+  "delete": "Ka bɔ",
+  "copied": "Kopi kɛra!",
+  "dataFolder": "Donanw ka foli",
+  "others": "Wɛrɛw",
+  "language": "Kanko",
+  "login": "Ka don a kɔnɔ",
+  "loginWith": "Don ni {{provider}} ye.",
+  "loginFailed": "A ma se ka don",
+  "logout": "Ka bɔ kɛnɛ kan",
+  "loggingOut": "Ka bɔ kɛnɛ kan...",
+  "loggedOut": "A bɔra ka ɲɛ",
+  "logoutFailed": "A ma se ka bɔ kɛnɛ kan",
+  "profile": "Ɲɛfɔli",
+  "reset": "Segin-ka-bɔnye",
+  "search": "Ɲini",
+  "searchThreads": "Ɲini fɛnw...",
+  "toNavigate": "ka taama",
+  "toSelect": "ka sugandi",
+  "toClose": "ka da tugu",
+  "clearRecent": "A jɛlen don",
+  "name": "Tɔgɔ",
+  "cancel": "A bali",
+  "dismiss": "Ka bɔ baara la",
+  "create": "Dabɔ",
+  "save": "Kɔlɔsili",
+  "edit": "Labɛnni",
+  "copy": "Kopi kɛ",
+  "back": "Kɔfɛ",
+  "close": "Da tugu",
+  "done": "A kɛra",
+  "next": "O kɔfɛ",
+  "finish": "Ka ban",
+  "skip": "Ka tɛmɛn",
+  "allow": "Aw ye a to",
+  "deny": "Banni kɛ",
+  "start": "A daminɛ",
+  "stop": "Dabila",
+  "preview": {
+    "loading": "Dakabanɔgɔ...",
+    "unsupported": "Novera tɛ se ka nin filen sugu jira. A da wuli walisa k’a ye appli wɛrɛ kɔnɔ.",
+    "outside": "Nin dosiye in tɛ session baarakɛyɔrɔ la tugun.",
+    "tooLarge": "A ka bon kojugu ka tɛmɛn a kan. A da wuli walisa k’a ye appli wɛrɛ kɔnɔ.",
+    "reload": "Lasegin ka doni",
+    "allowNetwork": "Ka sira di rezo ma",
+    "unsandboxed": "Run unsandboxed: kunnafoniw maralenw ni sigida dosiyew bɛ baara kɛ",
+    "unresolvedRefs_one": "1 file nin ɲɛ in bɛ tali kɛ min na o tɛ se ka doni preview kɔnɔ. A da wuli walisa k’a ye navigatɛri dɔ kɔnɔ.",
+    "unresolvedRefs_other": "{{count}} file minnu bɛ nin ɲɛ in ladɛrɛsi la olu tɛ se ka doni preview kɔnɔ. A da wuli walisa k’a ye navigatɛri dɔ kɔnɔ.",
+    "externalRefs_one": "1 nafolo min bɛ nin ɲɛ in doni ka bɔ ɛntɛrinɛti kan o bɛ bali. \"Allow network\" da Minɛ k'a Lase.",
+    "externalRefs_other": "{{count}} nafolo minnu bɛ nin ɲɛ in doni ka bɔ ɛntɛrinɛti kan, olu bɛ bali. \"Allow network\" da wuli walasa k'u doni.",
+    "scriptErrors_one": "Ɲɛ in ye fili dɔ fɔ: {{message}} .",
+    "scriptErrors_other": "Ɲɛ in ye {{count}} filiw fɔ. Fɔlɔ: {{message}}"
+  },
+  "changes": {
+    "title": "Agent ka fɛn caman Changements",
+    "empty": "Ciden bɛ dosiye minnu sɛbɛn walima k’u ladilan, olu bɛna jira yan.",
+    "a11y": "Agent fɛn caman Changements : {{files}} files, {{additions}} farala, {{deletions}} bɔra"
+  },
+  "modelPanel": {
+    "title": "Modeli sigicogo",
+    "a11y": "Da wuli modɛli sigicogo",
+    "contextTooltip": "Kunnafoni-falen-falen: {{value}} ka {{max}} tokenw"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Seko ni dɔnko '{{name}}' tɛ sɔrɔ",
+    "kind": {
+      "skill": "Seko ni dɔnko",
+      "command": "Cikan",
+      "model": "Modèle"
+    }
+  },
+  "compactWidth": "A bonya jɛlen",
+  "fullWidth": "A bonya dafalen",
+  "dark": "Dibi don",
+  "light": "Yeelen",
+  "system": "Sisɛmɛti",
+  "auto": "Oto",
+  "english": "Bamanankan",
+  "medium": "Cɛmancɛ",
+  "newThread": "Filɛ kura",
+  "noResultsFound": "Jateminɛ si ma sɔrɔ",
+  "noThreadsYet": "Filɛ si ma sɔrɔ fɔlɔ",
+  "noThreadsYetDesc": "Baro kura daminɛ walasa k’i ka dilan tariku ye yan.",
+  "downloads": "Téléchargements",
+  "downloading": "Téléchargement",
+  "uploadingAttachments": "Ka farankanw bila...",
+  "cancelDownload": "Téléchargement (téléchargement) dabila",
+  "downloadCancelled": "Télécharger (Téléchargement) Dabilalen don",
+  "downloadComplete": "Télécharger Dafalen",
+  "thinking": "Miirili...",
+  "thought": "Miirili",
+  "callingTool": "Weelekɛminɛn",
+  "completed": "A dafara",
+  "image": "Jaa",
+  "vision": "Yeli",
+  "multimodal": "Baarakɛcogo caman",
+  "embeddings": "Fɛn minnu bɛ don a kɔnɔ",
+  "tools": "Baarakɛminɛnw",
+  "webSearch": "Ɛntɛrinɛti ɲinini",
+  "reasoning": "Hakilila-jɔ-cogo",
+  "proactive": "A bɛ kɛ ka ɲɛ",
+  "selectAModel": "Modèle dɔ sugandi",
+  "noToolsAvailable": "Baarakɛminɛn si tɛ yen",
+  "noModelsFoundFor": "Modeli si ma sɔrɔ \"{{searchValue}}\" kan.",
+  "failedToLoadModels": "A ma se ka modeliw doni",
+  "noModels": "Modeli si ma sɔrɔ",
+  "noAssistant": "Dɛmɛbaga si tɛ yen",
+  "customAvatar": "Avatar ladamulen",
+  "editAssistant": "Ladilikan dɛmɛbaga",
+  "jan": "Novera",
+  "metadata": "Kunnafoni minnu bɛ sɔrɔ",
+  "regenerate": "Ka segin a cogo kɔrɔ la",
+  "threadImage": "Filɛri ja",
+  "editMessage": "Ladilikan cikan",
+  "deleteMessage": "Cikan bɔli",
+  "deleteThread": "Ka fɛnw bɔ yen",
+  "renameThread": "Tɔgɔ caman bɛ sɔrɔ Thread la",
+  "threadTitle": "Filɛri tɔgɔ",
+  "deleteAllThreads": "Ka fɛnw bɛɛ bɔ yen",
+  "allThreadsUnfavorited": "Filɛw bɛɛ ma diya",
+  "deleteAllThreadsConfirm": "Yala aw b'a fɛ ka jirisunw bɛɛ bɔ yen wa? O wale in tɛ se ka kɔsegin.",
+  "addProvider": "Furakɛla dɔ fara a kan",
+  "addOpenAIProvider": "Aw ye OpenAI Dilanbaga fara a kan",
+  "enterNameForProvider": "Aw bɛ tɔgɔ sɛbɛn aw ka furakɛlikɛla ye",
+  "providerAlreadyExists": "Ladilikɛla min tɔgɔ ye ko \"{{name}}\" o bɛ yen kaban. Aw ye tɔgɔ wɛrɛ sugandi.",
+  "adjustFontSize": "Aw bɛ sɛbɛnnibolo hakɛ ladilan",
+  "changeLanguage": "Kan caman Changer",
+  "editTheme": "Labɛnni barokun",
+  "editCodeBlockStyle": "Kode bloki cogoya ladilan",
+  "editServerHost": "Sɛbɛnnikɛla ka jatigila ladilan",
+  "pickColorWindowBackground": "Pick Kulɛri Fenɛtiri kɔkanna",
+  "pickColorAppMainView": "Pick Kulɛri App Ɲɛjirali kunba",
+  "pickColorAppPrimary": "Pick Kulɛri App Primaire",
+  "pickColorAppAccent": "Pick Kulɛri App Accent",
+  "pickColorAppDestructive": "Pick Kulɛri App Tiɲɛni",
+  "apiKeyRequired": "API Kilisi de wajibiyalen don",
+  "enterTrustedHosts": "Jatigila dannamɔgɔw don",
+  "placeholder": {
+    "chatInput": "Aw ye n ɲininka fɛn o fɛn na..."
+  },
+  "confirm": "Aw ye a dafa",
+  "continue": "Aw bɛ taa ɲɛ",
+  "loading": "A bɛ ka doni...",
+  "settingUpJan": "Ka daminɛ Novera...",
+  "registeringExtensions": "Ka jatebɔw sɛbɛn...",
+  "loadingExtensions": "Ka farankanw doni... ({{done}}/{{total}})",
+  "error": "Misali",
+  "success": "Ɲɛtaa",
+  "warning": "Ladilikan",
+  "conversationNotAvailable": "Baro tɛ kɛ",
+  "conversationNotAvailableDescription": "I b’a ɲini ka baro min kɛ, o tɛ sɔrɔ walima a bɔra.",
+  "temporaryChat": "Waati dɔɔnin baro",
+  "temporaryChatTooltip": "Waati dɔɔnin baro tɛna bɔ i ka tariku kɔnɔ",
+  "noResultsFoundDesc": "An ma se ka baro si sɔrɔ min bɛ bɛn i ka ɲinini ma. A ɲini ka daɲɛ koloma wɛrɛ wɛrɛ kɛ.",
+  "searchModels": "Ɲini modeliw...",
+  "searchStyles": "Ɲini cogoyaw...",
+  "createAssistant": "Dɛmɛbaga dabɔ",
+  "enterApiKey": "Aw bɛ API Kilisi don",
+  "scrollToBottom": "Aw bɛ taa duguma",
+  "generateAiResponse": "Ka AI Jaabi lawuli",
+  "continueAiResponse": "Aw bɛ tɛmɛ ni AI Jaabi ye",
+  "addModel": {
+    "title": "Modèle fara a kan",
+    "modelId": "Modèle ID Bamako, Mali.",
+    "enterModelId": "Don Model ID kɔnɔ.",
+    "addModel": "Modèle fara a kan",
+    "description": "Aw bɛ modɛli kura fara furakɛlikɛla kan",
+    "exploreModels": "Aw ye modɛli lisi lajɛ ka bɔ furakɛlikɛla fɛ"
+  },
+  "mcpServers": {
+    "editServer": "Baarakɛminɛnw sɛgɛsɛgɛli",
+    "addServer": "Baarakɛminɛnw faralen ɲɔgɔn kan",
+    "serverName": "Server tɔgɔ",
+    "enterServerName": "Sɛbɛnnikɛla tɔgɔ sɛbɛn",
+    "command": "Cikan",
+    "enterCommand": "Ka cikan don",
+    "arguments": "sɔsɔliw",
+    "argument": "sɔsɔli {{index}}",
+    "envVars": "Lamini fɛn caman b’a la",
+    "key": "Kɔlɔsili",
+    "value": "Nafa",
+    "save": "Kɔlɔsili"
+  },
+  "deleteServer": {
+    "title": "Server ka bɔ yen",
+    "delete": "Ka bɔ"
+  },
+  "editJson": {
+    "errorParse": "A ma se ka JSON sɛgɛsɛgɛ .",
+    "errorPaste": "A ma se ka JSON nɔrɔ.",
+    "errorFormat": "JSON cogoya tɛ tiɲɛ",
+    "titleAll": "Serwɛriw bɛɛ labɛncogo ladilan",
+    "placeholder": "Aw bɛ JSON labɛncogo don...",
+    "save": "Kɔlɔsili"
+  },
+  "editModel": {
+    "title": "Labɛncogo misali: {{modelId}}",
+    "description": "Ka modɛli sekow labɛn ni sugandiliw sɛgɛsɛgɛli ye minnu bɛ duguma.",
+    "capabilities": "Seko ni dɔnko",
+    "tools": "Baarakɛminɛnw",
+    "vision": "Yeli",
+    "embeddings": "Fɛn minnu bɛ don a kɔnɔ",
+    "notAvailable": "A ma sɔrɔ fɔlɔ"
+  },
+  "outOfContextError": {
+    "truncateInput": "Tiɲɛni doncogo",
+    "title": "Ka bɔ kɔnɔko fili la",
+    "description": "Nin baro in bɛ ka se AI ka hakilijagabɔ dancɛ ma, i n’a fɔ tablo finman bɛ fa. An bɛ se ka hakilijagabɔ-yɔrɔ (min bɛ wele ko contexte size) bonya walasa a hakili ka to ka caya, nka a bɛ se ka baara kɛ ni i ka ɔridinatɛri hakilijagabɔlan caman ye. An bɛ se fana ka donnakow tigɛ, o kɔrɔ ye ko a bɛna ɲinɛ baro tariku dɔw kɔ walasa ka yɔrɔ di cikan kuraw ma.",
+    "increaseContextSizeDescription": "Yala aw b’a fɛ ka dɔ fara contexte hakɛ kan wa?",
+    "increaseContextSize": "Ka dɔ fara Contexte hakɛ kan"
+  },
+  "toolApproval": {
+    "title": "Baarakɛminɛnw ka yamaruya ɲinini",
+    "description": "Dɛmɛbaga b'a fɛ ka baara kɛ ni <strong>{{toolName}}</strong> ye.",
+    "securityNotice": "Aw bɛ baarakɛminɛn minnu dɔrɔn de to aw dalen bɛ minnu na. Baarakɛminɛnw bɛ se ka don i ka sistɛmu ni i ka kunnafoniw na.",
+    "deny": "Banni kɛ",
+    "allowOnce": "Aw bɛ a to Siɲɛ kelen",
+    "alwaysAllow": "Aw bɛ a to tuma bɛɛ"
+  },
+  "deleteModel": {
+    "title": "Modèle bɔli: {{modelId}}",
+    "description": "Yala aw b'a fɛ ka nin modɛli in bɔ wa? O wale in tɛ se ka kɔsegin.",
+    "success": "Modeli {{modelId}} bɔra kudayi.",
+    "cancel": "A bali",
+    "delete": "Ka bɔ"
+  },
+  "deleteProvider": {
+    "title": "Ladilikɛla ka bɔ",
+    "description": "Aw bɛ nin dilanbaga in n’a modɛliw bɛɛ bɔ yen. O wale in tɛ se ka kɔsegin.",
+    "success": "Ladilikɛla {{provider}} bɔra kudayi.",
+    "confirmTitle": "Baarakɛla min bɛ bɔ: {{provider}}",
+    "confirmDescription": "Yala aw b'a fɛ ka nin furakɛlikɛla in bɔ yen wa? O wale in tɛ se ka kɔsegin.",
+    "cancel": "A bali",
+    "delete": "Ka bɔ"
+  },
+  "modelSettings": {
+    "label": "Modeli sigicogo",
+    "title": "Modeli sigicogo - {{modelId}}",
+    "description": "Ka modɛli sigicogo labɛn walasa ka baarakɛcogo ni kɛwalew ɲɛ.",
+    "nglDisabledByFit": "Auto-fit ye ​​GPU layɛrɛw sugandili ye. Aw bɛ Auto-fit faga walasa ka nin sigi sen kan ni bolo ye.",
+    "samplingDefaults": {
+      "title": "Sampling paramètres (sɛgɛsɛgɛli kɛcogo kɔrɔlenw).",
+      "description": "Sampler sigicogo dafalenw nin modɛli in na. Baara bɛ kɛ ni a ye fo ni a kɛra dɛmɛbaga kelen-kelen bɛɛ walima ɲinini kelen-kelen bɛɛ nafaw ye."
+    },
+    "specDraft": {
+      "section": "Dekodɔn hakilinata",
+      "enable": "Ka se ka hakilinata dekodɔn kɛ",
+      "enableDescription": "Aw bɛ token caman sɛbɛn sen kelen-kelen bɛɛ la k’u sɛgɛsɛgɛ tɛmɛsira kelen kɔnɔ, o bɛ mɔgɔw bɔli teliya. A bɛ baara kɛ ni modɛli ka MTP kunkolow ye minnu bɛ a kɔnɔ, walima modɛli sɛbɛnfura min telesarse n’a ye (MTP, Eagle3, DFlash walima DSpark).",
+      "nMax": "Max draft tokenw",
+      "nMaxDescription": "Token hakɛ min ka kan ka sɛbɛn sen kelen-kelen bɛɛ la. Default 16. Bamako, Mali.",
+      "nMin": "Min sɛbɛn tokenw",
+      "nMinDescription": "Token hakɛ fitinin min ka kan ka sɛbɛn sen kelen-kelen bɛɛ la. Default 0 ye.",
+      "pMin": "Min bɛ se ka kɛ",
+      "pMinDescription": "A ka dɔgɔn ka ɲɛsin sɛbɛnnikɛcogo namara ma (0–1). Dafalen 0.75."
+    },
+    "templateKwargs": {
+      "section": "Chat template sugandiliw",
+      "description": "Sugandili wɛrɛw nin modɛli ka baro-sɛbɛn bɛ sɔn. A cilen don iko chat_template_kwargs ɲinini kelen-kelen bɛɛ kan; nafa dɔ to a cogo kɔrɔ la walasa ka a to jatebɔlan ka latigɛ.",
+      "addCustom": "Ka ladamu sugandili fara a kan",
+      "keyPlaceholder": "tɔgɔ",
+      "valuePlaceholder": "nafa",
+      "add": "Fàra o kan",
+      "cancel": "A bali",
+      "remove": "Aw bɛ a bɔ"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "A ma se ka modɛli sigicogo kura"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Donanw ka foli yɔrɔ Changer",
+      "description": "Yala aw dalen b’a la ko aw b’a fɛ ka kunnafonidilanw sigiyɔrɔ Changer wa? O bɛna i ka kunnafoniw bɛɛ lase yɔrɔ kura la ani ka porogaramu daminɛ kokura.",
+      "currentLocation": "Yɔrɔ min bɛ yen sisan:",
+      "newLocation": "Yɔrɔ kura:",
+      "cancel": "A bali",
+      "changeLocation": "Yɔrɔ caman Changer"
+    },
+    "deleteAllThreads": {
+      "title": "Ka fɛnw bɛɛ bɔ yen",
+      "description": "Filɛriw bɛɛ bɛna bɔ yen. O wale in tɛ se ka kɔsegin."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Baro bɛɛ bɔ yen",
+      "description": "{{count}} baro minnu bɛ \"{{projectName}}\" kɔnɔ, olu bɛna bɔ yen. O wale in tɛ se ka kɔsegin."
+    },
+    "deleteThread": {
+      "description": "Yala aw b'a fɛ ka nin dilan in bɔ wa? O wale in tɛ se ka kɔsegin."
+    },
+    "editMessage": {
+      "title": "Ladilikan cikan"
+    },
+    "messageMetadata": {
+      "title": "Cikanw ka kunnafonidilanw"
+    },
+    "deleteMessage": {
+      "description": "Yala aw b'a fɛ ka nin cikan in bɔ yen wa? O wale in tɛ se ka kɔsegin."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Fɛn dɔ ma ɲɛ",
+    "details": "Kunnafoni wɛrɛw"
+  },
+  "missingDependenciesDialog": {
+    "title": "Sisitɛmu gafemarayɔrɔw tununnen",
+    "description": "{{backend}} sigilen don nka sitɛmu gafemarayɔrɔ wajibiyalen dɔw ma se ka sɔrɔ. A bɛ se ka segin ka bin CPU kan walima a tɛ boli ka ɲɛ.",
+    "installLabel": "Walasa ka nin ko in ɲɛnabɔ, aw bɛ ninnu sigi sen kan :",
+    "download": "Télécharger",
+    "additionalLibraries": "Gafemarayɔrɔ wɛrɛw minnu tununna:",
+    "missingLibraries": "Kitabumaraso minnu tununna:",
+    "showRawLibraries": "{{count}} gafemarayɔrɔ tɔgɔ minnu tununna, olu jira"
+  },
+  "projects": {
+    "title": "Porozɛw",
+    "new": "Porozɛ kura",
+    "addProject": "Porozɛ faralen ɲɔgɔn kan",
+    "addToProject": "Ka fara poroze kan",
+    "removeFromProject": "Aw bɛ bɔ poroze la",
+    "createNewProject": "Porozɛ kura dabɔ",
+    "editProject": "Porozɛ min bɛ sɛgɛsɛgɛli kɛ",
+    "deleteProject": "Porozɛ bɔli",
+    "projectName": "Porozɛ tɔgɔ",
+    "enterProjectName": "Porozɛ tɔgɔ sɛbɛn...",
+    "noProjectsAvailable": "Porozɛ si tɛ yen",
+    "noProjectsYet": "Porozɛ si ma kɛ fɔlɔ",
+    "noProjectsYetDesc": "Porozɛ kura daminɛ ni poroze fara butɔni digilen ye.",
+    "projectNotFound": "Porozɛ ma sɔrɔ",
+    "projectNotFoundDesc": "I bɛ porozɛ min ɲini, o tɛ yen walima a bɔra.",
+    "selectAssistant": "Dɛmɛbaga sugandi",
+    "noAssistantAssigned": "Dɛmɛbaga si ma bila nin porozɛ in na",
+    "files": "Filenw",
+    "filesDescription": "PDF, sɛbɛnw, walima sɛbɛn wɛrɛw fara a kan ka ɲɛsin nin porozɛ in ma.",
+    "uploadingFiles": "Baara kɛli ni dosiyew ye...",
+    "processButton": "Fàra o kan",
+    "deleteProjectDialog": {
+      "title": "Porozɛ bɔli",
+      "permanentDelete": "O bɛna jirisunw bɛɛ bɔ yen kudayi.",
+      "permanentDeleteWarning": "Nin wale in bɛna ALL jiriw bɔ kudayi poroze kɔnɔ !",
+      "deleteEmptyProject": "Nin wale in bɛna porozɛ \"{{projectName}}\" bɔ yen.",
+      "saveThreadsAdvice": "Walasa ka jiriw mara, aw bɛ u bila aw ka jiriw lisɛli la walima porozɛ wɛrɛ la sani aw ka u bɔ.",
+      "starredWarning": "Aw ye dolow dilan hali bi porozɛ kɔnɔ.",
+      "deleteButton": "Ka bɔ",
+      "successWithName": "Porozɛ \"{{projectName}}\" bɔra ka ɲɛ",
+      "successWithoutName": "Porozɛ bɔra ka ɲɛ",
+      "error": "A ma se ka poroze bɔ. Aw ye aw jija ka segin a kan.",
+      "ariaLabel": "Ka {{projectName}} bɔ yen."
+    },
+    "addProjectDialog": {
+      "createTitle": "Porozɛ kura dabɔ",
+      "editTitle": "Porozɛ min bɛ sɛgɛsɛgɛli kɛ",
+      "nameLabel": "Porozɛ tɔgɔ",
+      "namePlaceholder": "Porozɛ tɔgɔ sɛbɛn...",
+      "assistant": "Dɛmɛbaga",
+      "selectAssistant": "Dɛmɛbaga dɔ sugandi (a bɛ se ka kɛ i yɛrɛ sago ye) .",
+      "noAssistant": "Dɛmɛbaga si tɛ yen",
+      "addAssistant": "Dɛmɛbaga fara a kan",
+      "createButton": "Dabɔ",
+      "updateButton": "Kunnafoni kura",
+      "alreadyExists": "Porozɛ \"{{projectName}}\" bɛ yen kaban",
+      "createSuccess": "Porozɛ \"{{projectName}}\" dabɔra ka ɲɛ",
+      "updateSuccess": "Porozɛ \"{{projectName}}\" kurayara ka ɲɛ",
+      "saveError": "A ma se ka poroze kisi. Aw ye aw jija ka segin a kan."
+    },
+    "noConversationsIn": "Baro si ma kɛ {{projectName}} kɔnɔ.",
+    "startNewConversation": "Baro kura daminɛ ni {{projectName}} ye jukɔrɔ",
+    "conversationsIn": "Baro minnu bɛ kɛ {{projectName}} kɔnɔ.",
+    "conversationsDescription": "Baro o baro digi walasa ka taa a fɛ ka baro kɛ, walima ka kura daminɛ jukɔrɔ.",
+    "conversation": "Baro",
+    "instructions": "Ladilikanw",
+    "setup": "Seginkanni",
+    "instructionsDescription": "Aw bɛ jaabi ton ni a kɛcogo kɛ ka kɛɲɛ ni aw sago ye",
+    "manageInstructions": "Ladilikanw ɲɛnabɔli",
+    "thread": "jiribolo",
+    "threads": "jiriw",
+    "updated": "Lakurayali:",
+    "collapseProject": "Porozɛ min bɛ bin",
+    "expandProject": "Porozɛ ka bonya",
+    "update": "Kunnafoni kura",
+    "searchProjects": "Porozɛw ɲinini...",
+    "noProjectsFound": "Porozɛ si ma sɔrɔ",
+    "tryDifferentSearch": "Aw bɛ ɲinini daɲɛ wɛrɛ lajɛ"
+  },
+  "attachmentsIngestion": {
+    "title": "Aw bɛ fɛnw minɛcogo sugandi",
+    "description": "A sugandi n’i bɛna nin dosiye ninnu don baro la k’a ɲɛsin u ma walima n’u bɛ index kɛ i n’a fɔ embeddings o nɔ na.",
+    "inline": "Pikiri kɛ ka don baro la",
+    "embeddings": "Baara kɛ ni embeddings ye"
+  },
+  "attachmentInjectedIndicator": "Pikiri bɛ kɛ baro la",
+  "attachmentEmbeddedIndicator": "A donna RAG kama.",
+  "viewInjectedContent": "Pikiri kɛlenw kɔnɔkow lajɛ",
+  "injectedContentTitle": "Filen kɔnɔkow pikirilen",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Filɛw bɛɛ ma diya",
+      "description": "Filɛ bɛɛ bɔra i ka fɛn kanulenw na."
+    },
+    "deleteAllThreads": {
+      "title": "Ka fɛnw bɛɛ bɔ yen",
+      "description": "Filɛriw bɛɛ bɔra kudayi."
+    },
+    "renameThread": {
+      "title": "Tɔgɔ caman bɛ sɔrɔ Thread la",
+      "description": "Thread tɔgɔ jiginna ka kɛ '{{title}}' ye."
+    },
+    "deleteThread": {
+      "title": "Ka fɛnw bɔ yen",
+      "description": "Nin dilan in bɔra kudayi."
+    },
+    "errorCopied": {
+      "title": "Kopi kɛra ka ɲɛ",
+      "description": "Misali kunnafoniw kopi kɛra clipboard kɔnɔ"
+    },
+    "errorCopyFailed": {
+      "title": "A ma se ka kopi kɛ",
+      "description": "A ma se ka fili kunnafoniw kopi kɛ clipboard kɔnɔ"
+    },
+    "editMessage": {
+      "title": "Ladilikan cikan",
+      "description": "Cikan sɛgɛsɛgɛra ka ɲɛ. Aw ye aw jija ka modeli makɔnɔ a ka jaabi di."
+    },
+    "appUpdateDownloaded": {
+      "title": "App Update Télécharger",
+      "description": "Application kura in telesarse ka ɲɛ."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "App Update Téléchargement ma ɲɛ",
+      "description": "A ma se ka appli update telesarse. Aw ye aw jija ka segin a kan."
+    },
+    "downloadComplete": {
+      "title": "Télécharger Dafalen",
+      "description": "{{item}} ye telesarse"
+    },
+    "downloadCancelled": {
+      "title": "Télécharger (Téléchargement) Dabilalen don",
+      "description": "Telesarse baara dabilalen don"
+    },
+    "downloadFailed": {
+      "title": "Téléchargement ma ɲɛ",
+      "description": "{{item}} telesarse ma ɲɛ",
+      "descriptionWithReason": "{{item}} telesarse ma ɲɛ: {{reason}}",
+      "reason": {
+        "dns": "baarakɛla tɔgɔ ma se ka ɲɛnabɔ",
+        "refused": "ɲɔgɔndan in banna",
+        "timeout": "ɲɔgɔndan waati tɛmɛna",
+        "tls": "jɛɲɔgɔnya lakananen ma se ka sigi sen kan",
+        "proxy": "proxy ma se ka sɔrɔ",
+        "unreachable": "baarakɛla ma se ka sɔrɔ"
+      }
+    },
+    "openSettings": "Da wulicogo",
+    "openLogs": "Sɛbɛnw da wuli",
+    "downloadTokenRequired": {
+      "title": "Hugging Face taamasiyɛn wajibiyalen don",
+      "description": "Nin modɛli in bɛ Hugging Face doncogo taamasiyɛn de wajibiya. Aw ye aw ka token fara Settings kan ani ka segin k’a ɲini."
+    },
+    "downloadLicenseRequired": {
+      "title": "Sɔn modɛli lase ma Hugging Face kan.",
+      "description": "I ka kan ka sɔn modeli ka lase ma a Hugging Face ɲɛ kan sani i ka telesarse."
+    },
+    "downloadRateLimited": {
+      "title": "Hakɛ dan ye Hugging Face ye.",
+      "description": "Aw ye hakɛ dantigɛlen kɛ. Ni i ye token dɔ fara a kan, o bɛ se ka dɔ fara hakɛ danw kan. Aw ye aw jija ka segin ka a lajɛ kɔfɛ."
+    },
+    "modelValidationStarted": {
+      "title": "Modèle valide",
+      "description": "Modeli \"{{modelId}}\" telesarsera ka ɲɛ. Ka dafalenya sɛgɛsɛgɛ..."
+    },
+    "modelValidationFailed": {
+      "title": "Modeli tiɲɛni ma ɲɛ",
+      "description": "Modeli telesarselen \"{{modelId}}\" ma se ka dafalenya sɛgɛsɛgɛli kɛ, wa a bɔra yen. Dosiyɛri bɛ se ka tiɲɛ walima ka fɛn dɔ sɛgɛsɛgɛ."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Télécharger Dafalen",
+      "description": "Model \"{{item}}\" telesarsera ka sɛgɛsɛgɛ ka ɲɛ"
+    },
+    "projectCreated": {
+      "title": "Porozɛ Dabɔra",
+      "description": "Porozɛ \"{{projectName}}\" dabɔra ka ɲɛ"
+    },
+    "projectRenamed": {
+      "title": "Porozɛ tɔgɔ jiginna",
+      "description": "Porozɛ tɔgɔ jiginna ka bɔ \"{{oldName}}\" la ka kɛ \"{{newName}}\" ye."
+    },
+    "projectDeleted": {
+      "title": "Porozɛ bɔra",
+      "description": "Porozɛ \"{{projectName}}\" bɔra ka ɲɛ"
+    },
+    "projectAlreadyExists": {
+      "title": "Porozɛ bɛ yen kaban",
+      "description": "Porozɛ \"{{projectName}}\" bɛ yen kaban"
+    },
+    "projectDeleteFailed": {
+      "title": "Delete ma ɲɛ",
+      "description": "A ma se ka poroze bɔ. Aw ye aw jija ka segin a kan."
+    },
+    "threadAssignedToProject": {
+      "title": "Filɛri min dira",
+      "description": "Filɛri min dira \"{{projectName}}\" ma ka ɲɛ"
+    },
+    "threadRemovedFromProject": {
+      "title": "Filɛri bɔra",
+      "description": "Filɛri bɔra \"{{projectName}}\" la ka ɲɛ"
+    },
+    "fileUploaded": {
+      "title": "Filen min bɛ baara kɛ",
+      "description": "File in baara kɛra ani ka index kɛ ka ɲɛ"
+    },
+    "uploadFailed": {
+      "title": "Baarakɛcogo ma ɲɛ",
+      "description": "A ma se ka dosiye baara",
+      "subjectThisFile": "Nin filen in",
+      "pdfMalformedXref": "{{subject}} ka PDF cross-reference tabali ma ɲɛ, wa a ma se ka parse. A ɲini k’a da wuli PDF filɛlikɛlan kɔnɔ k’a mara kokura (File → Print → Save as PDF), o kɔfɛ k’a bila tugun.",
+      "pdfScanned": "{{subject}} bɛ i n’a fɔ PDF min sɛgɛsɛgɛra walima min sinsinnen bɛ ja kan. OCR ma dɛmɛ fɔlɔ — i ka PDF sɛbɛnni-sɛbɛn dɔ bila.",
+      "pdfEncrypted": "{{subject}} ye tɔgɔlasɛbɛn lakananen ye. Aw bɛ tɔgɔlasɛbɛn bɔ ka segin a kan.",
+      "pdfUnsupportedFeature": "{{subject}} bɛ baara kɛ ni PDF fɛɛrɛ ye Novera tɛ se ka parse fɔlɔ (misali la PostScript kulɛri/sumaya baarakɛcogo). A ɲini k’a mara kokura (File → Print → Save as PDF) walasa k’a flakɛ, o kɔfɛ k’a bila kokura.",
+      "pdfGeneric": "{{subject}} ma se ka parse i n'a fɔ PDF. Filen bɛ se ka tiɲɛ walima a bɛ baara kɛ ni PDF fɛɛrɛ ye min tɛ dɛmɛ.",
+      "fileTooLarge": "{{subject}} ka bon kojugu. {{message}} ye.",
+      "unsupportedType": "Filen suguya \"{{type}}\" tɛ dɛmɛ.",
+      "ioError": "A ma se ka {{subject}} kalan: {{message}}",
+      "parseGeneric": "{{subject}} ma se ka parse: {{message}} .",
+      "fallback": "A ma se ka {{subject}} baara."
+    },
+    "fileDeleted": {
+      "title": "Filen bɔra",
+      "description": "Filen bɔra poroze la"
+    },
+    "deleteFailed": {
+      "title": "Delete ma ɲɛ",
+      "description": "A ma se ka filen bɔ"
+    },
+    "fileAlreadyExists": {
+      "title": "Filen bɛ yen kaban",
+      "description": "Filen bɛ nɔrɔ nin porozɛ in na kaban"
+    },
+    "unsupportedFileType": {
+      "title": "Filen suguya min tɛ dɛmɛ",
+      "description": "Filen \".{{extension}}\" tɛ dɛmɛ ka Porozɛ ɲɛfɔli kɛ."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Attachments (daɲɛw faralen ɲɔgɔn kan) Dabilalen don",
+      "description": "Attachments bɛ baara kɛ Settings kɔnɔ"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Filen ka bon kojugu",
+    "fileTooLargeDescription": "{{fileName}} tɛmɛna {{maxFileSizeMB}}MB dan kan"
+  },
+  "files": {
+    "chunksCount": "{{count}} sɔgɔsɔgɔninjɛ",
+    "title": "Filenw",
+    "empty": "I bɛ dosiye minnu nɔrɔ ɲɔgɔn na ani ciden bɛ dosiye minnu da, olu bɛna jira yan.",
+    "a11y": "Filenw: {{count}}",
+    "attachments": "Fɛn minnu bɛ fara ɲɔgɔn kan",
+    "notImported": "tɛ baarakɛyɔrɔ la"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp bolo degunnen don hali bi",
+    "description": "Modeli kelen walima caman ma jigin a waati la. Fanga-dabila bɛna llama.cpp ban, wa a bɛ se ka jaabi baarakɛtaw tigɛ.",
+    "forceQuit": "Fanga dabila",
+    "forcing": "Forobaciyɛn dabila...",
+    "shuttingDown": "Ka da tugu..."
+  },
+  "duration": {
+    "seconds": "{{count}}s",
+    "minutes": "{{count}}m",
+    "hours": "{{count}}h"
+  },
+  "collapse": "Ka bɔgɔbɔgɔ",
+  "expand": "A ka ca a la",
+  "todoPanelTitle": "Ɲɛtaa",
+  "todoPanelEmpty": "Todo list tɛ yen fɔlɔ.",
+  "backgroundTasks": "Baara minnu bɛ kɛ kɔkan",
+  "subagentsRunning_one": "{{count}} subagent ka boli",
+  "subagentsRunning_other": "{{count}} baarakɛminɛn fitininw bɛ boli",
+  "monitorsRunning_one": "{{count}} kɔlɔsilikɛla bɛ boli",
+  "monitorsRunning_other": "{{count}} kɔlɔsilikɛlaw bɛ boli",
+  "backgroundRunning_one": "{{count}} kɔkanna baara bɛ boli",
+  "backgroundRunning_other": "{{count}} kɔkanna baara minnu bɛ boli",
+  "monitors": "Kɔlɔsilikɛlaw",
+  "monitorPolling": "Wote kɛli",
+  "monitorMatched": "A bɛ bɛn",
+  "monitorTimedOut": "Waati tɛmɛna",
+  "monitorStopped": "A dabilalen don",
+  "monitorEnded": "A banna",
+  "coworkWatching_one": "Ka {{count}} kɔlɔsi...",
+  "coworkWatching_other": "{{count}} kɔlɔsilikɛlaw kɔlɔsili...",
+  "coworkWaitingBackground": "Jiginni kɔkanna baara kan...",
+  "noBackgroundTasks": "Baara si ma kɛ kɔkanna na fɔlɔ.",
+  "running": "Boli",
+  "queued": "Layidu talen",
+  "waiting": "Jiginni",
+  "finished": "A dafara",
+  "subagentPhase": "fasa {{phase}}",
+  "subagentWaiting": "makɔnɔni",
+  "viewTranscript": "Sɛbɛnniw lajɛ",
+  "taskWorking": "Baarakɛlaw...",
+  "taskNoOutput": "Subagent ma bɔli yelen si bɔ.",
+  "subagentToolUses_one": "{{count}} baarakɛminɛnw baara",
+  "subagentToolUses_other": "{{count}} baarakɛminɛn bɛ baara kɛ ni a ye",
+  "artifactGroupCode": "Kode",
+  "artifactGroupImage": "Jaa",
+  "artifactGroupDocument": "Sɛbɛn",
+  "artifactGroupVideo": "Wideyo",
+  "artifactGroupAudio": "Lamɛnni",
+  "artifactOpenPreview": "Da wulilen ɲɛjirali",
+  "artifactOpenExternal": "Da wuli",
+  "artifactMoreActions": "Waleya wɛrɛw",
+  "artifactShowInFolder": "A jira Foli kɔnɔ",
+  "skillsUsedLabel": "Seko ni dɔnko minnu bɛ kɛ",
+  "skillsUsed": "Seko ni dɔnko minnu bɛ kɛ: {{skills}}",
+  "artifactsAll": "Bɛɛ",
+  "artifactsEmpty": "Foyi ma bɔ fɔlɔ. Fɛn minnu bɔra Cowork boliw la, olu bɛ jira yan.",
+  "artifactsNoMatch": "Fɛnɲɛnɛma si tɛ bɛn.",
+  "artifactsSearch": "Fɛnkɔrɔw ɲinini",
+  "artifactsShowMore": "A jira {{count}} la",
+  "workspace": {
+    "readsFrom": "Baara bɛ kɛ san",
+    "writable": "kalan & sɛbɛnni",
+    "footnote": "Ciden bɛ nin foli in kalan k’a ladilan k’a ɲɛsin a ma. Fɛn min Changé diff panel kɔnɔ, o lajɛ.",
+    "footnoteEmpty": "Foli dɔ nɔrɔ a la walasa ka ciden bila ka baara kɛ i ka poroze kan. A bɛ se ka dosiyew kalan ani k’u ladilan a kɔnɔ.",
+    "attach": "Foli dɔ nɔrɔ a la",
+    "change": "Yɛlɛma don foli la",
+    "detach": "Foli bɛ bɔ a la",
+    "open": "Da wuli",
+    "reveal": "A jira",
+    "unavailable": "Baarakɛyɔrɔ tɛ sɔrɔ",
+    "missing": "Baarakɛyɔrɔ foli {{folder}} tɛ sɔrɔ tugun. Foli wɛrɛ sugandi.",
+    "openFailed": "A ma se ka baarakɛyɔrɔ da wuli",
+    "revealFailed": "A ma se ka baarakɛyɔrɔ jira",
+    "a11yWithFolder": "Porozɛ foli {{folder}}, nɔrɔlen bɛ ni kalan ni sɛbɛnni sɔrɔli ye. A Changer walima k’a bɔ a la.",
+    "a11yNoFolder": "Porozɛ foli si ma fara a kan. Aw bɛ kelen nɔrɔ a la."
+  },
+  "coworkEmpty": {
+    "title": "An bɛ baara kɛ mun kan?",
+    "subtitleSandbox": "Baara dɔ di Novera ma. A bɛ dosiyew kalan ani k’u sɛbɛn, ka cikanw boli, ka baara kɛ senfɛ-sɛbɛnw fɛ a yɛrɛ ma.",
+    "subtitleFolder": "Baara dɔ di Novera ma. A bɛ baara kɛ {{folder}} kɔnɔ k’a ɲɛsin a ma, ka dosiyew kalan ani k’u labɛn a yɛrɛ ma.",
+    "try": "Aw bɛ a ɲini",
+    "sandbox": {
+      "first": "Python sɛbɛnnikɛlan dɔ sɛbɛn min bɛ dosiyew tɔgɔ caman sɛmɛntiya ka kɛɲɛ ni u ta don ye",
+      "second": "Aw bɛ ɲɛ kelen dakun dɔ jɔ ka bɔ CSV n bɛna nɔrɔ a kɔnɔ",
+      "third": "Aw ye README sɛbɛn porozɛ dɔ kama n bɛ min ɲɛfɔ aw ye"
+    },
+    "folder": {
+      "first": "{{folder}} bɛ fara ɲɔgɔn kan cogo min na, o ɲɛfɔ",
+      "second": "TODO kelen-kelen bɛɛ sɔrɔ {{folder}} kɔnɔ k'u kuluw kɛ yɔrɔw la",
+      "third": "Kɔrɔbɔliw sɛbɛn {{folder}} yɔrɔ la n b'i jira"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Terminal tɛ yen",
+    "a11y": "Boli cikanw bɛ dabila. Ɲɛfɔli.",
+    "title": "Boli cikanw bɛ dabila",
+    "body": "Novera bɛ a to ciden ka shell cikanw kɛ dɔrɔn ni i ka sistɛm bɛ se k’u datugu. Sandbox si tɛ sɔrɔ yan, o la ciden bɛ se ka dosiyew kalan, k’u sɛbɛn ani k’u ladilan a ka sandbox kɔnɔ — nka a tɛ foyi boli.",
+    "fixLinux": "Linux bɛ baara kɛ ni bubblewrap ye. A sigi sen kan, o kɔ, Novera daminɛ kokura.",
+    "fixMac": "macOS bɛ baara kɛ ni cɛncɛn ye min bɛ a kɔnɔ /usr/bin/sandbox-exec. Novera daminɛ kokura ni a sɔrɔla.",
+    "fixWindows": "Windows bɛ baara kɛ ni AppContainer ye. Novera daminɛ kokura walasa ka segin a kan.",
+    "recheck": "Aw bɛ segin ka a lajɛ"
+  },
+  "planMode": {
+    "label": "Labɛn",
+    "tooltipOff": "Labɛn fɔlɔ — ciden bɛ kalan kɛ ka hakilina di, k’a sɔrɔ a ma sɛbɛn.",
+    "tooltipOn": "Labɛnni. O dabila walasa ka ciden bila ka dosiyew sɛbɛn.",
+    "onAnnounce": "Labɛn cogoya bɛ da",
+    "placeholder": "Aw ye fɛɛrɛ ɲini. Agent tɛna dosiye si Changé."
+  },
+  "budget": {
+    "stoppedSteps": "A jɔra {{max}} senfɛ. Agent ma ban.",
+    "keepGoing": "Aw ka to ka taa ɲɛ",
+    "stoppedTokens": "A jɔra — nin kalan in y’a ka token budget gosi.",
+    "compact": "Baarakɛɲɔgɔnya",
+    "newSession": "Lajɛ kura"
+  },
+  "run": {
+    "stopped": "A dabilalen don.",
+    "failed": "Boli jɔra joona.",
+    "tryAgain": "Aw bɛ segin ka a lajɛ"
+  },
+  "modelNoTools": "{{model}} tɛ se ka baarakɛminɛnw wele, o la a tɛ se ka kɛ ciden ye. Baarakɛminɛnw welecogo misali dɔ sugandi.",
+  "askContinue": "Aw bɛ taa ɲɛ",
+  "askNext": "Ɲininkali nata",
+  "askPrev": "Ɲininkali tɛmɛnen",
+  "askRecommended": "Ladilikan don",
+  "askSelectedCount": "{{count}} sugandilen don",
+  "askSomethingElse": "Fɛn wɛrɛ",
+  "askSomethingElsePlaceholder": "I yɛrɛ ka jaabi sɛbɛn",
+  "submit": "Aw ye a bila",
+  "composer": {
+    "advanced": "Paramɛtiriw ɲɛtaa",
+    "modelDefaults": "Modèle ka baarakɛcogo",
+    "assistantOverrides": "Dɛmɛbaga ka fɛnw tigɛli",
+    "printPdf": "Sɛbɛn / A mara i n'a fɔ PDF .",
+    "exportHint": "Kalansenw cogoya: bolofara min bɛ baara la. JSON: cikanw bɛɛ lajɛlen. Kɛnɛma dosiyew tɛ fara ɲɔgɔn kan."
+  },
+  "telemetry": {
+    "summary": "Ni i sɔnna, {{host}} bɛ Novera bɔko ni baarakɛminɛnw dɔrɔn de sɔrɔ, k’a sɔrɔ barow ma kɛ walima ni taamasiyɛn basigilen tɛ.",
+    "unavailable": "Jateminɛw ma labɛn. Donan si tɛ ci."
+  },
+  "errorTracking": {
+    "title": "Misaliw nɔfɛtaama",
+    "summary": "Laseli minnu bɛ kɛ ni ŋaniya ye {{host}} ma : fili suguya, kode jɔyɔrɔ, a bɔcogo ani baarakɛcogo. Baro, fili cikan raw walima kilisi si tɛ yen. Aw bɛ a bali waati o waati.",
+    "unavailable": "Misaliw nɔfɛta ma labɛn. Rapport si tɛ ci."
+  },
+  "access": {
+    "read": "Kalan dɔrɔn",
+    "ask": "Aw ye ɲininkali kɛ sani aw ka sɛgɛsɛgɛli kɛ walima ka bɔ yen",
+    "allow": "A to ka sɛgɛsɛgɛli ni bɔli kɛ",
+    "folderNote": "Novera bɛ se ka don nin foli in na cogo min na, o sugandi."
+  },
+  "components": {
+    "title": "Sigida yɔrɔw",
+    "note": "Aw mago bɛ fɛn minnu na, olu dɔrɔn de don. Novera bɛ Python sigidaw to ɲɔgɔn na. Sankaba baarakɛlaw mago tɛ sigida sigili la.",
+    "estimates": "Téléchargement estimé: {{download}} · Disiki yɔrɔ wajibiyalen: {{space}} · Disiki yɔrɔ min bɛ sɔrɔ: {{free}}",
+    "confirm": "Nin sigida kɛrɛnkɛrɛnnen in sigi sen kan wa? Yɔrɔ sugandilenw dɔrɔn de bɛna telesarse. U ka weleweledalaw ka lase bɛ sirataama.",
+    "removeConfirm": "Aw bɛ nin sigida ɲɛnabɔlen in bɔ yen wa? Aw ka misaliw, aw ka daɲɛw ani aw ka barow bɛna mara.",
+    "verify": "Aw ye sɛgɛsɛgɛli kɛ",
+    "repair": "Dilancogo",
+    "uninstall": "Aw bɛ a bɔ a la",
+    "missing": "A ma sigi sen kan",
+    "managed": "A ɲɛmɔgɔya bɛ Novera bolo.",
+    "external": "Kɛnɛma Python sira min bɛ se ka sugandi, o bɛ profil ɲɛnabɔlen wuli. A jɛya walasa ka baara kɛ ni Novera ka sigida ye.",
+    "failed": "Kɔnɔnafili baara ma ɲɛ. Aw ye réseau, disiki yɔrɔ ani doncogo hakɛw lajɛ, o kɔ aw bɛ segin k’a lajɛ walima k’a dilan.",
+    "required": "Sigida yɔrɔ wajibiyalenw labɛn ani k’u sɛgɛsɛgɛ Novera · Labɛnw kɔnɔ.",
+    "updateAvailable": "Kuma kura bɛ sɔrɔ",
+    "update": "Kunnafoni kura",
+    "rollback": "Aw bɛ sigida kɔrɔ lasegin a cogo kɔrɔ la",
+    "busy": "Sigida modɛliw jigin ani ka mɔgɔw makɔnɔ u ka ban ka sɔrɔ ka yɔrɔw Changer."
+  },
+  "voiceConversation": "Kumakan baro",
+  "voiceUnavailable": "Kumakan baro tɛ sɔrɔ",
+  "voiceMale": "Cɛ kan",
+  "voiceFemale": "Muso kan",
+  "voiceReadReplies": "Jaabiw kalan ni kan ye"
+}

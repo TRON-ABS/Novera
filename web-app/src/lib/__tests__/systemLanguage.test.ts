@@ -10,11 +10,14 @@ afterEach(() => { vi.restoreAllMocks(); h.native = false; h.locale.mockReset() }
 
 describe('system language matching', () => {
   it.each([
+    ["gan-Hant", "gan"], ["pbt-Arab", "pbt"], ["ars-Arab", "ars"], ["acm-Arab", "acm"], ["tts-Thai", "tts"], ["azb-Arab", "azb"], ["ctg-Beng", "ctg"], ["pbt-Latn", "en"], ["ars-Latn", "en"], ["acm-Latn", "en"], ["tts-Latn", "en"], ["azb-Latn", "en"], ["ctg-Latn", "en"], ["gan-Hans", "en"], ["ar-IQ", "acm"], ["az-Arab-IR", "azb"],
+    ['gan', 'gan'], ['pbt', 'pbt'], ['mag', 'mag'], ['ars', 'ars'], ['acm', 'acm'], ['fuv', 'fuv'], ['hne', 'hne'], ['tts', 'tts'], ['ny', 'ny'], ['bm', 'bm'], ['sn', 'sn'], ['azb', 'azb'], ['tn', 'tn'], ['nso', 'nso'], ['bar', 'bar'], ['ht', 'ht'], ['ug', 'ug'], ['st', 'st'], ['el', 'el'], ['ctg', 'ctg'], ['rn', 'rn'], ['dyu', 'dyu'], ['tr', 'tr'], ['sv', 'sv'],
     ['ceb', 'ceb'], ['kk', 'kk'], ['si', 'si'], ['xh', 'xh'], ['km', 'km'],
     ['af', 'af'], ['mai', 'mai'], ['wo', 'wo'], ['kmr', 'kmr'], ['rw', 'rw'],
+    ['ug-Arab-CN', 'ug'], ['ug-Latn', 'en'], ['tr-TR', 'tr'],
     ['ku-Latn-TR', 'kmr'], ['ku-Arab-IQ', 'en'],
     ['uzn', 'uzn'], ['uz-UZ', 'uzn'], ['uz-Latn-UZ', 'uzn'], ['uz-Cyrl-UZ', 'en'], ['uz-Arab-AF', 'en'],
-    ['pbu-AF', 'pbu'], ['ps-PK', 'pbu'], ['ps-Arab-AF', 'pbu'], ['ps-Latn', 'en'], ['pbt-AF', 'en'],
+    ['pbu-AF', 'pbu'], ['ps-PK', 'pbu'], ['ps-Arab-AF', 'pbu'], ['ps-Latn', 'en'], ['pbt-AF', 'pbt'],
     ['gaz-ET', 'gaz'], ['om-ET', 'gaz'], ['om-Latn-KE', 'gaz'], ['om-Ethi', 'en'],
     ['zu-ZA', 'zu'], ['aec-EG', 'aec'], ['skr-PK', 'skr'], ['nl-NL', 'nl'], ['nl-BE', 'nl'],
     ['so-SO', 'so'], ['ro-RO', 'ro'], ['as-IN', 'as'],
@@ -30,14 +33,14 @@ describe('system language matching', () => {
     ['cjy-CN', 'cjy'], ['nan-TW', 'nan'], ['my-MM', 'my'], ['hak-TW', 'hak'],
     ['ln-CD', 'ln'], ['or-IN', 'or'], ['uk-UA', 'uk'], ['hsn-CN', 'hsn'],
     ['ml-IN', 'ml'], ['sd-PK', 'sd'], ['sd-Arab-IN', 'sd'], ['sd-Deva-IN', 'en'],
-    ['su-ID', 'su'], ['ig-NG', 'ig'], ['ne-NP', 'ne'], ['ms-MY', 'ms'], ['ar-SA', 'ar'], ['ar-EG', 'ar'], ['arz-EG', 'arz'], ['en-US', 'en'], ['sv-SE', 'en'],
+    ['su-ID', 'su'], ['ig-NG', 'ig'], ['ne-NP', 'ne'], ['ms-MY', 'ms'], ['ar-SA', 'ar'], ['ar-EG', 'ar'], ['arz-EG', 'arz'], ['en-US', 'en'], ['sv-SE', 'sv'],
   ])('matches %s to %s', (tag, language) => {
     expect(matchSystemLanguage([tag])).toBe(language)
   })
   it('tries later preferred languages and falls back safely on invalid or absent tags', () => {
-    expect(matchSystemLanguage(['bad tag', 'sv-SE', 'ja-JP', 'fr-FR'])).toBe('ja')
+    expect(matchSystemLanguage(['bad tag', 'zz-ZZ', 'ja-JP', 'fr-FR'])).toBe('ja')
     expect(matchSystemLanguage(['sd-Deva-IN', 'fr-FR'])).toBe('fr')
-    expect(matchSystemLanguage(['uz-Cyrl-UZ', 'ps-Latn', 'om-Ethi', 'pbt-AF', 'nl-BE'])).toBe('nl')
+    expect(matchSystemLanguage(['uz-Cyrl-UZ', 'ps-Latn', 'om-Ethi', 'pbt-Latn', 'nl-BE'])).toBe('nl')
     expect(matchSystemLanguage([])).toBe('en')
     expect(matchSystemLanguage(['C', ''])).toBe('en')
   })

@@ -4,9 +4,11 @@ use std::collections::HashMap;
 use std::path::PathBuf;
 use std::sync::Arc;
 
-use rand::Rng;
+use rand::RngExt;
 use serde::{Deserialize, Serialize};
-use tauri::{Emitter, Manager, State};
+use tauri::{Emitter, State};
+#[cfg(not(target_os = "ios"))]
+use tauri::Manager;
 use tauri_plugin_hardware::vendor::nvidia::{nvidia_driver, CudaVersion, NvidiaDriver};
 
 use super::driver;
@@ -37,7 +39,7 @@ impl From<&WorkerHandle> for EngineInfo {
 /// the router's key was: the worker's port is assigned by the OS, and a key any
 /// other local process could recompute is not much of a key.
 fn generate_worker_key() -> String {
-    let bytes: [u8; 32] = rand::thread_rng().gen();
+    let bytes: [u8; 32] = rand::rng().random();
     bytes.iter().map(|b| format!("{b:02x}")).collect()
 }
 
@@ -54,6 +56,12 @@ fn generate_worker_key() -> String {
 /// so its absence always means the install is damaged rather than that the user
 /// has something to configure, and which directory came up empty is the only
 /// thing that distinguishes the ways that happens.
+#[cfg(target_os = "ios")]
+fn resolve_worker_exe<R: tauri::Runtime>(_: &tauri::AppHandle<R>) -> Result<PathBuf, String> {
+    Ok(PathBuf::new()) // No executable: the engine runs inside the iOS app.
+}
+
+#[cfg(not(target_os = "ios"))]
 fn resolve_worker_exe<R: tauri::Runtime>(
     app_handle: &tauri::AppHandle<R>,
 ) -> Result<PathBuf, String> {
@@ -95,6 +103,7 @@ fn resolve_worker_exe<R: tauri::Runtime>(
 /// Split out so it can be tested: the caller needs an `AppHandle` to resolve
 /// the bundle directory, but which paths were checked is the whole content of
 /// the message.
+#[cfg(any(not(target_os = "ios"), test))]
 fn worker_missing_message(tried: &[PathBuf]) -> String {
     let checked = if tried.is_empty() {
         "no candidate path could be resolved".to_string()
@@ -190,7 +199,9 @@ pub async fn start_engine<R: tauri::Runtime>(
     slot_cache_mib: u64,
     envs: HashMap<String, String>,
 ) -> Result<EngineInfo, String> {
-    #[cfg(target_os = "android")]
+    #[cfg(any(target_os = "android", target_os = "ios"))]
+    let _ = (models_max, slot_cache_mib);
+    #[cfg(any(target_os = "android", target_os = "ios"))]
     let (models_max, slot_cache_mib) = (1u32, 0u64);
     let mut guard = state.engine.lock().await;
     if let Some(existing) = guard.as_ref() {
@@ -339,6 +350,16 @@ pub async fn engine_devices<R: tauri::Runtime>(
     app_handle: tauri::AppHandle<R>,
     envs: HashMap<String, String>,
 ) -> Result<Vec<EngineDevice>, String> {
+    #[cfg(target_os = "ios")]
+    {
+        let _ = (app_handle, envs);
+        super::assert_pinned_version().map_err(|e| e.to_string())?;
+        let json = tokio::task::spawn_blocking(super::Engine::devices_json).await
+            .map_err(|e| e.to_string())?.map_err(|e| e.to_string())?;
+        serde_json::from_str(&json).map_err(|e| e.to_string())
+    }
+    #[cfg(not(target_os = "ios"))]
+    {
     let exe = resolve_worker_exe(&app_handle)?;
     let mut cmd = tokio::process::Command::new(&exe);
     cmd.arg("--list-devices").envs(envs);
@@ -363,6 +384,7 @@ pub async fn engine_devices<R: tauri::Runtime>(
             String::from_utf8_lossy(&out.stdout).trim()
         )
     })
+    }
 }
 
 /// Reload outcome, for the caller's log line. All four lists together name
@@ -390,6 +412,11 @@ pub async fn reload_engine_models(
     models_max: Option<u32>,
     slot_cache_mib: Option<u64>,
 ) -> Result<ReloadReport, String> {
+    #[cfg(any(target_os = "android", target_os = "ios"))]
+    let (models_max, slot_cache_mib) = {
+        let _ = (models_max, slot_cache_mib);
+        (Some(1), Some(0))
+    };
     let (port, api_key) = {
         let guard = state.engine.lock().await;
         let h = guard
@@ -583,7 +610,7 @@ pub async fn get_engine_info<R: tauri::Runtime>(
 pub struct EngineVersion {
     /// llama.cpp's own version, e.g. `0.5.0`.
     pub version: String,
-    /// The upstream build tag the source was taken from, e.g. `b11146`.
+    /// The upstream source tag, e.g. `b11146` or the release tag `v0.9.0`.
     pub tag: String,
     /// The same tag's build number, which is what the shim reports back over
     /// the FFI and what a version mismatch is checked against.
@@ -596,6 +623,17 @@ pub struct EngineVersion {
 pub async fn get_engine_version<R: tauri::Runtime>(
     app_handle: tauri::AppHandle<R>,
 ) -> Result<EngineVersion, String> {
+    #[cfg(target_os = "ios")]
+    {
+        let _ = app_handle;
+        super::assert_pinned_version().map_err(|e| e.to_string())?;
+        Ok(EngineVersion {
+            version: super::PINNED_VERSION.into(), tag: super::PINNED_TAG.into(),
+            build_number: super::PINNED_BUILD_NUMBER.into(), commit: super::PINNED_COMMIT.into(),
+        })
+    }
+    #[cfg(not(target_os = "ios"))]
+    {
     let exe = resolve_worker_exe(&app_handle)?;
     let mut command = tokio::process::Command::new(&exe);
     command.arg("--version-json").kill_on_drop(true);
@@ -610,15 +648,25 @@ pub async fn get_engine_version<R: tauri::Runtime>(
         return Err(format!("engine version query failed: {}", output.status));
     }
     parse_engine_version(&output.stdout)
+    }
 }
 
+#[cfg(any(not(target_os = "ios"), test))]
 fn parse_engine_version(bytes: &[u8]) -> Result<EngineVersion, String> {
     let info: EngineVersion = serde_json::from_slice(bytes)
         .map_err(|e| format!("invalid engine version response: {e}"))?;
+    // Stable releases use vX.Y.Z rather than a nightly bNNNNN tag. Keep the
+    // build number separate: the native shim still checks that number, and
+    // existing installed nightly workers must remain readable after an update.
+    let release_tag = info.tag == format!("v{}", info.version)
+        && info.version.split('.').count() == 3
+        && info.version.split('.').all(|part| {
+            !part.is_empty() && part.bytes().all(|c| c.is_ascii_digit())
+        });
     if info.version.is_empty()
         || info.build_number.is_empty()
         || !info.build_number.bytes().all(|c| c.is_ascii_digit())
-        || info.tag != format!("b{}", info.build_number)
+        || (info.tag != format!("b{}", info.build_number) && !release_tag)
         || info.commit.len() != 40
         || !info.commit.bytes().all(|c| c.is_ascii_hexdigit())
     {
@@ -648,6 +696,39 @@ mod tests {
         assert!(parse_engine_version(b"not JSON").is_err());
         let response = br#"{"version":"0.7.0","tag":"b11146","build_number":"11721","commit":"ff5a23376725e5a889fa0bfb987b7541dc304da0"}"#;
         assert!(parse_engine_version(response).is_err());
+    }
+
+    #[test]
+    fn engine_version_accepts_release_tags_independently_of_the_desktop_pin() {
+        for (version, build) in [("0.9.0", "12110"), ("0.10.0", "12345")] {
+            let response = serde_json::json!({
+                "version": version, "tag": format!("v{version}"),
+                "build_number": build,
+                "commit": "cd959bae99ff4bed22bef2604f45241c09bbb8c8"
+            }).to_string();
+            let parsed = parse_engine_version(response.as_bytes()).unwrap();
+            assert_eq!(parsed.version, version);
+            assert_eq!(parsed.tag, format!("v{version}"));
+            assert_eq!(parsed.build_number, build);
+        }
+    }
+
+    #[test]
+    fn engine_version_rejects_mismatched_or_malformed_release_tags() {
+        for (version, tag, build) in [
+            ("0.9.0", "v0.8.0", "12110"),
+            ("0.9", "v0.9", "12110"),
+            ("0..9", "v0..9", "12110"),
+            ("0.9.0-dev", "v0.9.0-dev", "12110"),
+            ("0.9.0", "v0.9.0", ""),
+            ("0.9.0", "v0.9.0", "b12110"),
+        ] {
+            let response = serde_json::json!({
+                "version": version, "tag": tag, "build_number": build,
+                "commit": "cd959bae99ff4bed22bef2604f45241c09bbb8c8"
+            }).to_string();
+            assert!(parse_engine_version(response.as_bytes()).is_err(), "{response}");
+        }
     }
 
     #[test]
@@ -754,6 +835,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(not(target_os = "ios"))]
     fn the_worker_file_name_is_platform_correct() {
         let name = super::worker::worker_file_name();
         assert!(name.starts_with("novera-llama-worker"));

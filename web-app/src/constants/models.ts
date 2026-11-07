@@ -9,7 +9,7 @@ export const DEFAULT_MODEL_QUANTIZATIONS = ['iq4_xs', 'q4_k_m']
 
 /**
  * Quantizations to check for SetupScreen quick start
- * Novera pins the NVIDIA Q4_K_M file selected by the maintainer
+ * Novera recommends the LFM3-Omni Q4_K_M model/projector pair
  */
 export const SETUP_SCREEN_QUANTIZATIONS = ['q4_k_m']
 

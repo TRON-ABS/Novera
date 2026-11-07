@@ -10,7 +10,7 @@ pub async fn is_process_running_by_pid<R: Runtime>(
     app_handle: tauri::AppHandle<R>,
     pid: i32,
 ) -> Result<bool, String> {
-    let mut system = System::new();
+    let mut system = System::new().map_err(|error| format!("Cannot read process table: {error}"))?;
     system.refresh_processes(sysinfo::ProcessesToUpdate::All, true);
     let process_pid = Pid::from(pid as usize);
     let alive = system.process(process_pid).is_some();

@@ -107,7 +107,7 @@ function getQuantTier(modelId: string): QuantTier | null {
   return null
 }
 
-export const Route = createFileRoute(route.hub.index as any)({
+export const Route = createFileRoute("/hub/")({
   component: HubContent,
   validateSearch: (search: Record<string, unknown>): SearchParams => ({
     repo: search.repo as SearchParams['repo'],

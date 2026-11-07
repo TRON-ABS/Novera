@@ -1,5 +1,43 @@
 # Préparer les prochaines versions et mises à jour Novera
 
+## Prochaine version prévue : 1.0.1
+
+Sources passées en **1.0.1 le 7 novembre 2026** : Desktop, interface, CLI et verrous applicatifs synchronisés ; Android **versionCode 1000013**, certificat conservé. Aucun nouveau paquet publié ; téléchargements publics en 1.0.0. Les notes complètes sont intégrées aux 104 README et à la source de la vitrine. Retour du mainteneur sur sa compilation Desktop : « tout marche au top ». La vraie mise à jour 1.0.0 → 1.0.1 et les vérifications de chaque paquet restent à terminer.
+
+Contrôle des 43 fournisseurs prédéfinis à partir des sources officielles et de trois API publiques. Mise à jour des présélections : GPT-6.1 Terra, Kimi K3.1 Pro, MiniMax M3.1 Flash, GLM 5.3 Flash, Hy4 ; ajout des variantes GPT Image 2.6, Gemini Omni 1.2 et FLUX 3 prises en charge. Les 104 langues utilisent le même catalogue, avec noms et identifiants officiels ; action de rafraîchissement accessible traduite partout. Suppression de la limite de dix résultats ; nouveaux champs BFL testés. 194 tests ciblés et trois tests publics réels réussis ; TypeScript, lint des sources concernées et cinq builds de l'interface réussis. Aucun appel payant ni clé utilisateur, aucun paquet natif publié. Les déploiements Azure/IBM et la disponibilité régionale restent propres au compte. [Validation](../deliverables/api-catalog-2026-11-07/VALIDATION.md).
+
+LFM3-Omni-2B Q4_K_M et son mmproj deviennent la recommandation par défaut des interfaces Desktop, Android et iOS ; Nemotron reste disponible en alternative texte. Explications dans les 104 catalogues (2 435 clés). Contexte initial : 32 768 jetons sur ordinateur, 2 048 sur mobile, sans écraser les réglages existants. Vérification native de la paire par taille et SHA-256, import dans le même dossier. 161 tests ciblés web, quatre tests de réglages et treize tests Rust réussis ; TypeScript et cinq builds de l'interface réussis. Les builds natifs et essais sur les autres systèmes restent à réaliser ; la voix native LFM3 reste Windows. [Validation](../deliverables/default-omni-2026-11-07/VALIDATION.md).
+
+Le lot prévu réunit les **24 langues et variantes ajoutées**, **llama.cpp v0.9.0 (build 12110, commit `cd959bae99ff4bed22bef2604f45241c09bbb8c8`)** et les **correctifs de sécurité**. Les [notes de travail 1.0.1](CHANGELOG.md) et le [suivi sécurité](../SECURITY.md) sont à tenir à jour jusqu'à la sortie. La publication 1.0.1 reste en préparation ; les manifests des applications sont désormais en 1.0.1 sur demande du mainteneur. Cette inscription ne publie rien et ne remplace pas les validations requises ci-dessous.
+
+## Confidentialité et interface — préparation de la 1.0.1
+
+Lecture des réponses au clavier indépendante du micro, activée par défaut sur les hôtes compatibles et désactivable dans Général. Vraie lecture confirmée sans capture. Requêtes météo actuelles reconnues : première recherche réelle imposée, puis outils automatiques ; DuckDuckGo, lecture de page et réponse citée vérifiés. 368 tests ciblés et 104 catalogues à 2 434 clés. La justesse des prévisions reste à évaluer. [Preuves et limites](../deliverables/typed-replies-web-2026-11-07/VALIDATION.md).
+
+Langue du message prioritaire sur celle de l'interface : détection locale bornée, consigne commune au chat et Cowork. Qwen3, Nemotron et Omni passent 21 scénarios réels. La voix suit le message et prépare les réponses numériques sans modifier l'affichage ; le mainteneur confirme les deux voix françaises sur le calcul. 344 tests ciblés et compilation web réussis. Dépendance tinyld 1.3.4 verrouillée, licence MIT incluse ; ni détection ni parole validées dans toutes les 104 langues. [Preuves](../deliverables/multimodel-language-2026-11-07/VALIDATION.md).
+
+Entrée et sortie vocales natives LFM3-Omni/LFM3-Audio intégrées sur Windows x64 : transcription locale, envoi automatique, réponse synthétisée par le modèle puis écoute reprise. Voix masculine par défaut, choix féminin dans Paramètres → Général et préférence conservée. Le mainteneur confirme les deux voix françaises audibles et distinctes. Contrôle réel du premier plan pendant capture et lecture ; deux nouveaux libellés dans les 104 catalogues, à 2 434 clés. Les langues vocales restent celles des modèles, sans validation des 104 langues. Autres plateformes encore à adapter. [Preuves et limites](../deliverables/omni-speech-2026-11-07/VALIDATION.md).
+
+Validation locale consolidée : 7 856 tests réussis, zéro échec, 17 ignorés pour le cœur, l'interface et les extensions. Le [contrôle global du 6 novembre](../deliverables/security-remediation-2026-11-06/ETAT_GLOBAL.md) recense les mises à jour restantes et les limites : anciennes dépendances du runtime ExLlama, glib Linux, migration MLX, choix d'un Python compatible avec ONNX et essais natifs. La réussite locale ne constitue pas une validation de release.
+
+La configuration publique de collecte sera intégrée aux prochaines compilations desktop et mobiles, avec opt-out de compilation. Elle rend les boutons disponibles sans donner le consentement : statistiques et rapports d'erreurs restent deux choix séparés, désactivés par défaut et révocables. Contrôle local : 16 textes présents dans les 104 catalogues, dont le destinataire. Les anciennes applications publiées ne sont pas modifiées. Le destinataire, la conservation et les conditions de traitement doivent être documentés avant publication.
+
+La bibliothèque musicale utilise désormais un bouton court et une phrase explicative qui peut revenir à la ligne ; les rôles encodeur/VAE utilisent les clés traduites existantes. Compilation web et tests ciblés ne remplacent pas les essais des paquets sur chaque plateforme.
+
+Après précision du mainteneur, ce sont les **commandes du bas qui se replient**, la saisie restant visible. Nouvelle commande à droite de Nouvelle discussion et microphone à gauche d'Envoyer, chacun à mi-largeur. Conversation vocale continue locale sous Windows, et API locales de navigateur si disponibles ; les autres applications natives nécessitent encore un adaptateur. Libellés dans les 104 catalogues, désormais à 2 431 clés. 627 tests ciblés et trois tests natifs réussis ; compilation Desktop laissée au mainteneur. [Preuves et limites](../deliverables/composer-controls-voice-2026-11-06/VALIDATION.md).
+
+La migration complète des dépendances reste suivie dans le [journal du 6 novembre](../deliverables/full-update-2026-11-06/SUIVI.md). La compilation **Desktop Windows x64 est terminée**, après correction du verrou Cargo du moteur : moteur CPU/CUDA, interface et exécutable compilés, 92 fichiers assemblés vérifiés et RTX 5070 détectée depuis ce dossier. Le [suivi distinct](../deliverables/full-update-2026-11-06/BUILD_DESKTOP.md) précise les preuves et les essais encore nécessaires, dont l'inférence et l'interface native.
+
+## Moteur commun llama.cpp v0.9.0 — préparation locale du 6 novembre 2026
+
+Les prochaines compilations qui embarquent llama.cpp utilisent le même verrouillage : **v0.9.0**, build **12110**, commit `cd959bae99ff4bed22bef2604f45241c09bbb8c8`. Il couvre Windows x64/ARM64, le portable construit depuis le runtime Windows, Linux, macOS Intel/Apple Silicon, Android ARM64, iOS et la CLI autonome. Les variantes CPU, Vulkan, CUDA, Metal et HIP/ROCm du worker lisent ce même verrouillage dans `src-tauri/plugins/tauri-plugin-llamacpp/build.rs` ; leur disponibilité dépend toujours du matériel et de l’outillage de chaque cible. Le manifeste Android reprend également le tag, la version et le numéro de build depuis cette source commune.
+
+Les sources iOS intègrent désormais le moteur dans l’application, avec CPU/Metal statiques, un seul modèle résident et sans persistance KV entre sessions. La CLI ajoute `novera engine version` et `novera engine serve`, via un moteur CPU statique sans Tauri ; Metal est une option de compilation sur Mac. Le serveur reste limité à `127.0.0.1` et exige une clé API. Ces nouveaux parcours ne sont pas encore compilés ni essayés sur appareil. Voir [le périmètre et les commandes](LLAMA_CPP_0_9_0.md).
+
+La version de l’application reste 1.0.0. Le lot de sécurité ultérieur comprend une compilation web, un contrôle Rust et des tests natifs locaux ; il ne valide pas une compilation du nouveau moteur C/C++ ni son inférence. Aucun binaire installé n'est modifié, aucun paquet n'est publié et aucun commit, push ou workflow CI n'est lancé. Les preuves des versions déjà publiées ci-dessous restent historiques.
+
+**Repère au 2 novembre 2026 :** les versions Windows x64/ARM64, Linux x64, CLI x64 et Windows x64 portable 1.0.0 sont publiques. Consulter [la disponibilité actuelle](LAUNCH_STATUS.md) et le [retour d’expérience pratique pour macOS, Android/iOS et les futures mises à jour](RETOUR_EXPERIENCE_RELEASES.md). Les bilans datés du 1er novembre ci-dessous sont historiques ; leurs mentions « publication bloquée » ne décrivent pas l’état actuel de ces versions publiques.
+
 ## Cinq installations et remplacements natifs vérifiés — 1er novembre 2026
 
 Les essais réussissent sur **Windows x64 et ARM64, Linux x64, macOS ARM64 et Intel**. Les reçus téléchargés et leurs digests GitHub sont vérifiés : installation du vrai paquet, signature native, rejet du contenu altéré, aucune offre à version égale, restauration effective par l’updater, empreintes runtime et témoin de profil conservés, démarrage pendant 15 secondes avant et après. Le [run Windows 41336767111](https://github.com/TRON-ABS/Novera/actions/runs/41336767111) compare 106 fichiers x64 et neuf ARM64 ; le [run Linux/macOS 41334675673](https://github.com/TRON-ABS/Novera/actions/runs/41334675673) compare l’AppImage exacte, 22 fichiers macOS ARM64 et 30 Intel.
@@ -223,6 +261,33 @@ Sur Windows : **41 tests Node ciblés réussis**, dont sept tests du générateu
 
 Pour chaque nouvelle version, mettre à jour les notes de changements, ce guide si le cycle évolue, le suivi de validation et `PR.md`. Conserver le commit exact, les résultats exécutés et les limites connues ; ne pas reporter une réussite d’un ancien paquet sur une nouvelle compilation.
 
+Suivi demandé le 2 novembre 2026 : le produit porte le nom **Novera**, mais la CLI déclare encore `[[bin]] name = "jan"` dans `src-tauri/novera-cli/Cargo.toml`, d'où `jan.exe` / `jan`. Après la finalisation Android, prévoir un renommage cohérent des exécutables, de l'aide, des scripts de conditionnement, de l'installation et des contrôles de mise à jour ; vérifier aussi la continuité des profils et des commandes existantes. Ne pas présenter ce renommage comme déjà livré dans les ZIP publics ni modifier leurs noms dans le suivi avant reconstruction et validation.
+
 **TRON-ABS**
 
 *The art of Human with AI*
+
+
+## Complément 7 novembre — contrôle vocal
+
+Petit bouton de son sous le micro, préférence persistante commune aux voix natives LFM3 et système pour les modèles classiques. Lecture restaurée après régénération ; mode muet sans synthèse et sans interrompre durablement la conversation. Nombres français dans les phrases préparés en mots. Réglages personnels Omni contrôlés en lecture seule : température texte du GGUF déjà à 0, contexte 32768 ; valeurs manquantes bornées à 2048 tokens et raisonnement Omni auto désactivé par requête. Choix explicites préservés, fichiers personnels inchangés. 206 tests ciblés, TypeScript et build web réussis ; 104 catalogues à 2434 clés. Test réel Windows : lecture initiale/régénérée, silence après coupure, deux voix Omni et voix système terminées. Qualité phonétique des nouveaux essais et autres plateformes non certifiées. [Preuves](../deliverables/voice-controls-2026-11-07/VALIDATION.md).
+
+
+## 7 novembre — fluidité vocale
+
+Lecture continue optimisée pour les deux chemins vocaux : préparation d’un extrait LFM3 en avance et programmation sur l’horloge audio ; file navigateur locale limitée à deux énoncés ; réponses Windows usuelles conservées dans une session système jusqu’à 4500 caractères. Dernière phrase conservée et attendue avant reprise de l’écoute, erreurs natives signalées, annulation maintenue. Test réel Omni masculin/féminin : huit phrases jouées, six transitions sans intervalle ajouté ; dernière phrase retranscrite exactement dans les deux voix. Voix système Windows terminée. Le mainteneur confirme « Oui, lecture fluide et complète ». 214 tests, TypeScript, ESLint ciblé et build web réussis. La vitesse du matériel et les moteurs système peuvent encore imposer des pauses ; les autres plateformes ne sont pas certifiées. [Preuves et limites](../deliverables/speech-flow-2026-11-07/VALIDATION.md).
+
+
+## 7 novembre — tolérance de saisie pour la météo
+
+Le déclencheur météo accepte désormais « quel temp aujourd’hui » sans s. La recherche restait auparavant facultative et LFM3 pouvait refuser malgré Internet activé. Test réel Windows Omni : recherche avec la formulation exacte, sources récupérées, réponse citée ; régénération avec nouvelle recherche et lecture de page réussie. 238 tests dans 10 fichiers, TypeScript, ESLint ciblé et build web réussis ; contrats vérifiés sur 12 routes de fournisseurs. Réglages personnels inchangés, véracité des prévisions non certifiée. [Preuves et limites](../deliverables/weather-typo-2026-11-07/VALIDATION.md).
+
+
+## 7 novembre — citations et langue de la voix
+
+Nettoyage vocal renforcé pour les liens « image », les URL utilisées comme libellés et la forme réelle [[cite:source]](URL), dont l’adresse restait auparavant à lire. Traitement commun aux voix natives LFM3 et système, sans modifier les messages ni ouvrir les liens. Test réel Windows : deux phrases dans les deux voix LFM3, quatre WAV terminés, langue fr, zéro adresse envoyée, enchaînement sans intervalle ajouté ; voix système terminée. Le mainteneur confirme « Oui, les deux restent en français, sans lien ». 241 tests, TypeScript, ESLint ciblé et build web réussis ; fidélité de tout autre texte et autres plateformes non certifiées. [Preuves et limites](../deliverables/source-links-speech-2026-11-07/VALIDATION.md).
+
+
+## 7 novembre — reprise après recherche et préparation web
+
+Correction de la réponse météo qui reprenait un exercice précédent : synthèse web LFM3 recentrée sur la question actuelle et ses résultats, historique conservé ; rappel commun après outils et date locale. Le vocal attend la vraie réponse finale, sans consommer une étape vide ni une ancienne réponse. Test Windows réel des trois questions puis régénération : météo lue les deux fois, confirmé par le mainteneur. Préparation DuckDuckGo en arrière-plan après restauration des réglages quand Web est actif, sans recherche fictive ; service prêt avant la demande, essai indicatif 10 s contre 22 s auparavant. Web-off respecté sur un nouveau démarrage. 298 tests réussis, un ignoré, TypeScript, ESLint ciblé et build web réussis. Le ciblage du contexte des petites familles audio locales et la variabilité du réseau sont détaillés dans les limites. [Preuves et limites](../deliverables/web-turns-prewarm-2026-11-07/VALIDATION.md).

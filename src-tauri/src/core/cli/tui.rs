@@ -245,7 +245,7 @@ fn group_is_orphaned() -> bool {
     let Ok(session) = getsid(None) else {
         return true;
     };
-    let mut table = System::new();
+    let Ok(mut table) = System::new() else { return true; };
     table.refresh_processes(ProcessesToUpdate::All, true);
     orphaned_via(
         getpgrp().as_raw(),
@@ -35679,7 +35679,7 @@ mod tests {
         let completion = tokio::time::timeout(
             Duration::from_secs(10),
             crate::core::agent::genai_bridge::stream_chat_completions(
-                &reqwest13::Client::new(),
+                &reqwest::Client::new(),
                 &format!("http://{addr}/v1/chat/completions"),
                 &[],
                 None,

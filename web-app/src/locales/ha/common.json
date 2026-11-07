@@ -831,5 +831,10 @@
     "update": "Sabuntawa",
     "rollback": "Mayar da muhallin da ya gabata",
     "busy": "Zazzage samfuran gida kuma jira tsararraki don gamawa kafin canza abubuwan."
-  }
+  },
+  "voiceConversation": "Hira ta murya",
+  "voiceUnavailable": "Ba a samun hira ta murya",
+  "voiceMale": "Muryar namiji",
+  "voiceFemale": "Muryar mace",
+  "voiceReadReplies": "Karanta amsoshi da murya"
 }
