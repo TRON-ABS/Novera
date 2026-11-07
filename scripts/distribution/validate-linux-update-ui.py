@@ -131,7 +131,9 @@ def main():
             opposite = "You're running the latest version" if status == 404 else 'Failed to check for updates'
             if opposite in text:
                 raise RuntimeError('UI result disagrees with the actual production feed')
-            screenshot = call('GET',f'/session/{session}/screenshot')
+            # WebKit can reset the screenshot connection while the live session
+            # remains usable. Require a real screenshot after a bounded retry.
+            screenshot = wait_for(lambda: call('GET',f'/session/{session}/screenshot'), timeout=15)
             (out/'LINUX-UPDATER-UI.png').write_bytes(base64.b64decode(screenshot))
             receipt.update(nativeUiCheckPassed=True, observedMessage=message, visibleText=text, settingsOrigin=origin, productionFeedReachable=status==200)
             if status == 404:

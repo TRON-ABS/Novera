@@ -1,4 +1,5 @@
 import importlib.util
+from http.client import RemoteDisconnected
 import os
 from pathlib import Path
 import unittest
@@ -32,7 +33,7 @@ class LinuxUiGuards(unittest.TestCase):
                 validation.wait_for(lambda: False, timeout=1)
 
     def test_transient_driver_errors_are_retried_until_a_real_result(self):
-        attempts = iter([RuntimeError('not ready'), {'observed':'error toast'}])
+        attempts = iter([RuntimeError('not ready'), RemoteDisconnected('screenshot reset'), {'observed':'error toast'}])
         def observe():
             result = next(attempts)
             if isinstance(result, Exception):
@@ -40,6 +41,13 @@ class LinuxUiGuards(unittest.TestCase):
             return result
         with patch.object(validation.time, 'sleep'):
             self.assertEqual(validation.wait_for(observe), {'observed':'error toast'})
+
+    def test_persistent_screenshot_connection_failure_cannot_pass(self):
+        def disconnected():
+            raise RemoteDisconnected('screenshot reset')
+        with patch.object(validation.time, 'monotonic', side_effect=[0, 0, 2]), patch.object(validation.time, 'sleep'):
+            with self.assertRaisesRegex(RuntimeError, 'timed out.*screenshot reset'):
+                validation.wait_for(disconnected, timeout=1)
 
 
 if __name__ == '__main__':

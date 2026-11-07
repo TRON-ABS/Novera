@@ -1,9 +1,9 @@
-# fix(release): verify the current public version and reviewed CLI platform scope
+# fix(ci): retry transient WebKit screenshot disconnects with a bounded wait
 
-The public-release workflow and native CLI production check still reference 1.0.0 filenames and success messages, so they cannot validate the new 1.0.1 channels. Accept a reviewed repository descriptor, require its version to match the checked-out application, and derive the download and CLI identity expectations from it.
+Linux run 42345624586 builds and signs the 1.0.1 AppImage, reaches the real update-check button and observes the expected production-feed result. Its first WebDriver screenshot resets the connection; the exception diagnostic then successfully reads the same session and captures an image. The run correctly remains failed.
 
-Canonical CLI verification can now include the reviewed macOS ARM64 package alongside the required Windows/Linux packages, and runs on all three native hosts. Unknown, duplicated, missing or unplanned platforms remain rejected. No public asset or channel is changed by these checks.
+Use the existing bounded observation retry for the normal screenshot call. A successful test still requires a real screenshot, the expected DOM result and the existing feed checks; persistent connection failures remain errors. This changes CI observation only, without changing the AppImage bytes.
 
-Validation: 12 Node public-feed/CLI contracts pass, Python syntax compilation passes, and actionlint passes. Actual anonymous downloads and native production checks will run only after signed packages and the final descriptor are published. This PR does not claim a successful public 1.0.1 release.
+Validation: five Linux UI guard tests pass, including transient RemoteDisconnected recovery and timeout on persistent disconnection. The unchanged native Linux job is already relaunched; actual native CI completion is tracked separately. Update the release memo and status with the verified partial Android, ARM64 and CLI publications, while explicitly retaining the 1.0.0 global feed.
 
-Depends on merged #36–#38 and overlaps only delivery verification scripts. Record the version-pinning lesson in the release memo. The final public descriptor will be added after all package identities are reviewed.
+Depends on merged #35/#39; no overlap with application behavior or signing identity. No successful Linux native run or Desktop x64 publication is claimed by this PR.
