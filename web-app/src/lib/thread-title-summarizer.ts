@@ -2,6 +2,7 @@ import { generateText } from 'ai'
 import { ModelFactory } from './model-factory'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { BACKGROUND_THREAD_ID, CHAT_SLOT_ID } from '@/constants/models'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 
 import { cleanTitle, MAX_TITLE_WORDS } from '@/modules/conversations/titles'
 export { cleanTitle } from '@/modules/conversations/titles'
@@ -32,6 +33,10 @@ export async function generateThreadTitle(
       return null
     }
     const { id: modelId, provider: selectedProvider } = threadModel
+    // The browser SDK owns one GPU session and cannot park a background slot
+    // like Desktop. Use the existing title cleaner without replacing chat KV
+    // state or loading a text model after an image-only conversation.
+    if (browserPreviewEnabled() && selectedProvider === 'llamacpp') return cleanTitle(transcript)
 
     // MLX models often emit reasoning that can't be reliably suppressed; fall back to default title.
     if (selectedProvider === 'mlx') return null

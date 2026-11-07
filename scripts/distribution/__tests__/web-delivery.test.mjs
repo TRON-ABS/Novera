@@ -15,6 +15,17 @@ function payload(t) {
 }
 const identity = { version: '1.0.0', commit: 'a'.repeat(40) }
 
+test('delivery preserves the browser update identity emitted by the actual application build', t => {
+  const root = payload(t)
+  const file = path.join(root, 'novera-web-version.json')
+  const browser = { application: 'NoveraWeb', schemaVersion: 1, ...identity, buildId: 'reviewed-browser-build' }
+  fs.writeFileSync(file, JSON.stringify(browser))
+  const prepared = prepareWebDelivery(root, identity)
+  assert.equal(prepared.buildId, browser.buildId)
+  assert.equal(JSON.parse(fs.readFileSync(file)).buildId, browser.buildId)
+  assert.throws(() => prepareWebDelivery(root, { ...identity, commit: 'b'.repeat(40) }), /identity differs/)
+})
+
 test('Web preparation rejects personal data, symbols, missing payloads and ambiguous revisions', t => {
   const root = payload(t)
   for (const file of ['.env', 'model.gguf', 'app.js.map']) {

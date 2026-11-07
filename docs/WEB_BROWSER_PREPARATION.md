@@ -2,6 +2,8 @@
 
 Cette branche reprend l’application React, ses composants, ses couleurs et ses thèmes. Elle ne remplace pas la vitrine GitHub Pages et n’est pas encore une distribution Web publique.
 
+Le mainteneur demande, après les tests de fonctionnement et les optimisations, un audit de sécurité complet avant la mise en ligne : dépendances et moteurs embarqués, intégrité des modèles téléchargés, clés API, stockage local, imports/exports, protections navigateur et déploiement GitHub. Les problèmes confirmés devront être corrigés puis les contrôles relancés ; aucune validation de sécurité globale n’est encore revendiquée pour cette préparation.
+
 ## Lancement local
 
 Depuis la racine : `corepack yarn dev:web:browser --port 5187 --strictPort`.
@@ -23,6 +25,14 @@ Le navigateur choisit la langue initiale parmi les langues existantes de Novera.
 Dans Edge connecté par l’extension : chargement du modèle Omni Q4 avec projecteur Q8 réussi, réponse réelle en français à une question arithmétique, puis messages conservés après rechargement de la page. Le sélecteur expose aussi LFM3 1.7B. La génération de cette alternative, l’annulation dans Edge et les scénarios mémoire restent à valider. Les tests unitaires utilisent des doubles explicites et ne remplacent pas ces essais.
 
 ## Image, musique et vidéo
+
+### Inférence locale observée le 7 novembre 2026
+
+Dans l'interface Novera sous Edge, le vrai bundle FLUX.2 Klein Q4 a produit une image de 256 × 256 en quatre étapes : **32,7 secondes affichées**, téléchargement PNG et conservation après rechargement vérifiés. Le décodage VAE WebGPU corrigé remplace le premier repli CPU qui prenait 3 min 54 s. Ce résultat limité ne valide ni les grandes résolutions ni une performance identique aux réglages Desktop. Les images et leurs empreintes sont dans `examples/media/novera-web-flux/`.
+
+Le moteur optionnel se construit avec `scripts/browser-media/build.py`. Ses archives sources, correctifs et sorties sont contrôlés par empreinte ; le reçu de compilation ne revendique jamais une validation d'inférence. Le portage ACE-Step et les essais Wan restent expérimentaux, hors des fonctions locales considérées comme prêtes. Un premier fichier musical complet a été obtenu après correction d'un débordement de précision WebGPU ; la qualité instrumentale, les paroles et la fidélité aux consignes restent à vérifier avant intégration.
+
+Le texte Omni a produit une réponse réelle à 95,58 jetons/s pour 93 jetons, avec des défauts de structure et de contenu qui empêchent de revendiquer une qualité globale validée. Les métriques de délai sont exposées et la continuation du cache de conversation est couverte par tests ; sa performance après optimisation reste à mesurer dans le navigateur.
 
 La priorité demandée par le mainteneur est de conserver **nos modèles locaux Desktop**, avec un budget de test de **0 €**. Il s’agit de FLUX.2 Klein 4B Q4_K_M et ses composants Qwen3/VAE, ACE-Step 1.5 Turbo GGUF et son planificateur/encodeur/VAE, ainsi que Wan2.1 T2V 1.3B Q4_K_M et UMT5/VAE. Aucun modèle ni API payante ne doit les remplacer silencieusement. Le texte Omni reste indépendant de ces générateurs.
 

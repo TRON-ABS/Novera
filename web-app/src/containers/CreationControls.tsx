@@ -18,6 +18,8 @@ import {
 } from '@/components/ui/dialog'
 import { isPlatformTauri } from '@/lib/platform/utils'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
+import { BrowserLocalMediaSetup } from './BrowserLocalMediaSetup'
+import { BROWSER_IMAGE_MODEL, BROWSER_IMAGE_PROVIDER, browserLocalImagesEnabled } from '@/services/browser-preview/local-media'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { cn, getProviderTitle } from '@/lib/utils'
 import { mediaPreset } from '@/constants/mediaProviders'
@@ -109,7 +111,8 @@ export function CreationControls({
   const separate = cpp || nativeFp4
   const imagePath = ['sdcpp', 'nvfp4-cuda'].includes(baseState.settings.imageEngine ?? '') ? baseState.settings.ggufImageModel : baseState.settings.imageModel
   const selection = state.selections[scope]?.[task]
-  const isCloud = (!panelTask&&mode==='music')?false:selection && selection.provider !== 'diffusers'
+  const browserImage = webPreview && selection?.provider === BROWSER_IMAGE_PROVIDER
+  const isCloud = (!panelTask&&mode==='music')?false:selection && selection.provider !== 'diffusers' && !browserImage
   const progress = state.progress[scope]
   const desktop = isPlatformTauri()
   const numericSettings =
@@ -247,6 +250,7 @@ export function CreationControls({
                       : 'Diffusers'}{' '}
                     · {t('chat:creation.local')}
                   </option>
+                  {webPreview && task === 'image' && browserLocalImagesEnabled() && <option value={JSON.stringify({ provider: BROWSER_IMAGE_PROVIDER, id: BROWSER_IMAGE_MODEL })}>FLUX.2 Klein Q4 · Sur cet appareil · Essai</option>}
                   {mediaProfiles
                     .filter((p) => p.task === task && automatic.local[task])
                     .map((p) => (
@@ -289,11 +293,11 @@ export function CreationControls({
               </label>
             ))}
             <p className="text-xs text-muted-foreground">
-              {t('chat:creation.cloudNote')}
+              {browserImage ? 'Création sur cet appareil, sans clé API. Essai limité à 256 × 256 et 4 étapes, avec accélération GPU.' : t('chat:creation.cloudNote')}
             </p>
-            <p className="text-xs text-muted-foreground">
+            {!browserImage && <p className="text-xs text-muted-foreground">
               {t('chat:creation.cloudDefaults')}
-            </p>
+            </p>}
             {automatic.local[task] && <details open={!isCloud}>
               <summary className="cursor-pointer text-sm">
                 {t('chat:creation.local')}
@@ -705,7 +709,8 @@ export function CreationControls({
         {showSettingsButton && <CreationSettingsControl scope={scope} disabled={disabled} onOpen={() => setOpen(true)} />}
       </div>
       {mode==='music'&&<MusicDashboardControls scope={scope} disabled={disabled} prompt={prompt}/>}
-      {(mode === 'image' || mode === 'video') && !isCloud && (
+      {mode === 'image' && browserImage && <span className="text-xs text-muted-foreground">FLUX.2 Klein · 256 × 256 · 4 étapes · 1 image · Essai local</span>}
+      {(mode === 'image' || mode === 'video') && !isCloud && !browserImage && (
         <div className="composer-size-controls ml-auto flex flex-wrap gap-1">
           {mode === 'video' && <VideoDurationControl settings={settings} setSettings={state.setSettings} disabled={disabled} prompt={prompt} />}
           <ComposerSizeButton kind="ratio" settings={settings} setSettings={state.setSettings} disabled={disabled} />
@@ -854,7 +859,7 @@ export function CreationControls({
             <DialogTitle className="flex items-center gap-2"><ShieldCheck className="size-5 text-cyan-400" />Novera · {t('common:settings')}</DialogTitle>
             <DialogDescription>{webPreview ? 'Les moteurs locaux FLUX.2 Klein, ACE-Step et Wan sont en cours d’adaptation au navigateur. La connexion fal est une option cloud utilisant votre clé et ses tarifs.' : t('hub:catalog.advisorNote')}</DialogDescription>
           </DialogHeader>
-          {webPreview ? <p className="text-sm text-muted-foreground">La clé reste en mémoire pour cette session. <a className="underline" href="#/settings/providers/fal">Configurer fal</a> · Les créations terminées sont conservées dans ce navigateur et peuvent être téléchargées.</p> : <>
+          {webPreview ? <><BrowserLocalMediaSetup scope={scope} disabled={disabled} /><p className="text-sm text-muted-foreground">La clé reste en mémoire pour cette session. <a className="underline" href="#/settings/providers/fal">Configurer fal</a> · Les créations terminées sont conservées dans ce navigateur et peuvent être téléchargées.</p></> : <>
           <ManagedComponents disabled={disabled} />
           <aside className="space-y-3 rounded-xl border border-cyan-400/30 bg-cyan-400/5 p-4">
             <p className="text-sm">{t(automatic.fullPack ? 'chat:creation.setupAllNote' : 'hub:catalog.advisorNote')}</p>
@@ -871,7 +876,7 @@ export function CreationControls({
           </>}
           {(['image', 'music', 'video'] as const).map((kind) => <section key={kind} className="rounded-xl border p-4 space-y-4" aria-label={t(`chat:creation.${kind}`)}>
             <h2 className="font-medium">{t(`chat:creation.${kind}`)}</h2>
-            {!automatic.local[kind] && <p className="text-sm text-muted-foreground">{!webPreview && <>{t('chat:creation.local')} · {t('common:editModel.notAvailable')} · {t('hub:catalog.tipLimited')} </>}{t('chat:creation.cloudNote')}</p>}
+            {!automatic.local[kind] && !(webPreview && kind === 'image' && browserLocalImagesEnabled()) && <p className="text-sm text-muted-foreground">{!webPreview && <>{t('chat:creation.local')} · {t('common:editModel.notAvailable')} · {t('hub:catalog.tipLimited')} </>}{t('chat:creation.cloudNote')}</p>}
             {kind==='music'?<MusicSetupPanel scope={scope} disabled={disabled}/>:<>
               {!webPreview && <p className="text-sm text-muted-foreground">{t(`chat:creation.${kind==='image'?'setupImageNote':'setupVideoNote'}`)}</p>}
               <CreationControls scope={scope} disabled={disabled} panelTask={kind} /></>}

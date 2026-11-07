@@ -1,7 +1,9 @@
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig, loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
+import { readFileSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import packageJson from './package.json'
 import { monitoringBuildInfo } from '../scripts/monitoring/build-info.mjs'
@@ -19,9 +21,30 @@ export default defineConfig(({ mode, command }) => {
   const build = monitoringBuildInfo()
   const monitoring = command === 'build' && env.NOVERA_MONITORING_BUILD === 'true'
   const privateSymbols = path.resolve(__dirname, '../.build/monitoring-symbols', build.buildId)
+  const localMedia = browserPreview && env.VITE_NOVERA_WEB_LOCAL_MEDIA === 'true'
 
   return {
+    base: browserPreview ? './' : undefined,
     plugins: [
+      ...(localMedia ? [{ name: 'novera-local-media-assets', generateBundle() {
+        if (!env.NOVERA_BROWSER_MEDIA_BUILD) throw new Error('Set NOVERA_BROWSER_MEDIA_BUILD to a verified experimental runtime build directory.')
+        const folder = path.resolve(env.NOVERA_BROWSER_MEDIA_BUILD)
+        const receipt = JSON.parse(readFileSync(path.join(folder, 'BUILD-VERIFICATION.json'), 'utf8'))
+        if (receipt.compiled !== true) throw new Error('The browser media runtime has no successful build receipt.')
+        for (const name of ['novera-diffusion.mjs', 'novera-diffusion.wasm']) {
+          const bytes = readFileSync(path.join(folder, name))
+          const expected = receipt.artifacts.find((artifact: { name: string }) => artifact.name === name)
+          if (!expected || expected.bytes !== bytes.length || expected.sha256 !== createHash('sha256').update(bytes).digest('hex')) throw new Error(`Browser media artifact differs from its receipt: ${name}`)
+          this.emitFile({ type: 'asset', fileName: `novera-runtime/${name}`, source: bytes })
+        }
+        this.emitFile({ type: 'asset', fileName: 'novera-runtime/BUILD-VERIFICATION.json', source: JSON.stringify(receipt) })
+        for (const name of ['sdcpp', 'ggml']) this.emitFile({ type: 'asset', fileName: `novera-runtime/LICENSE-${name}.txt`, source: readFileSync(path.resolve(folder, '..', name, 'LICENSE')) })
+      } } satisfies Plugin] : []),
+      ...(browserPreview ? [{ name: 'novera-web-version', generateBundle() {
+        this.emitFile({ type: 'asset', fileName: 'novera-web-version.json', source: JSON.stringify({
+          application: 'NoveraWeb', schemaVersion: 1, version: packageJson.version, buildId: build.buildId, commit: build.commit,
+        }) })
+      } } satisfies Plugin] : []),
       ...(monitoring ? [{ name: 'novera-private-symbols', closeBundle() {
         prepareSymbols({ dist: path.resolve(__dirname, 'dist'), output: privateSymbols, ...build, version: packageJson.version })
         if (process.env.POSTHOG_CLI_API_KEY) uploadSymbols(privateSymbols)

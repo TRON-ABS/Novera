@@ -2,7 +2,7 @@ import { browserModel, type BrowserModelSpec } from './config'
 
 export type BrowserMessage = { role: string; content: string }
 type SdkEvent = { type: string; text?: string }
-type SdkResult = { message: { role: string; content: string }; finish_reason: string; usage?: { prompt_tokens?: number; completion_tokens?: number } }
+type SdkResult = { message: { role: string; content: string }; finish_reason: string; usage?: { prompt_tokens?: number; completion_tokens?: number; cached_tokens?: number }; timings?: { tokens_per_second?: number } }
 type Turn = AsyncIterable<SdkEvent> & { result: Promise<SdkResult>; cancel(): void }
 type Session = { generate(messages: BrowserMessage[], options: Record<string, unknown>): Turn; reset(): void; dispose(): Promise<void> }
 type Model = { create_session(): Session; dispose(): Promise<void> }
@@ -12,6 +12,7 @@ export type BrowserRuntimeStatus = {
   modelId: string
   progress?: number
   error?: string
+  lastGeneration?: { firstTextMs?: number; totalMs: number; tokensPerSecond?: number; completionTokens?: number; cachedTokens?: number }
 }
 
 async function loadPinnedSdk(spec: BrowserModelSpec): Promise<Sdk> {
@@ -38,6 +39,7 @@ export class BrowserRuntime {
   private loadController?: AbortController
   private turn?: Turn
   private activeId = ''
+  private previousHistory?: BrowserMessage[]
 
   constructor(private sdkLoader = loadPinnedSdk, private gpuAvailable = async () => {
     const gpu = (navigator as Navigator & { gpu?: { requestAdapter(): Promise<unknown> } }).gpu
@@ -66,6 +68,7 @@ export class BrowserRuntime {
     const job = (async () => {
       await this.session?.dispose()
       await this.model?.dispose()
+      this.previousHistory = undefined
       this.session = undefined; this.model = undefined; this.activeId = ''
       controller.signal.throwIfAborted()
       if (!(await this.gpuAvailable())) throw new Error('WebGPU est nécessaire. Essayez Edge ou Chrome sur un appareil compatible, ou utilisez Novera Desktop.')
@@ -105,21 +108,38 @@ export class BrowserRuntime {
     await this.load(id)
     signal?.throwIfAborted()
     if (this.turn || !this.session) throw new Error('Le moteur est occupé. Attendez la fin de la réponse.')
-    // Complete history is supplied by Novera; reset the KV session when switching
-    // conversations instead of leaking a previous conversation into this one.
-    this.session.reset()
+    // Both pinned SDKs reconcile token prefixes internally. Reuse their cache
+    // only when the complete previous exchange is an exact prefix of this one.
+    // Edited, independent, regenerated or cancelled conversations reset it.
+    const continuesHistory = this.previousHistory && messages.length > this.previousHistory.length &&
+      this.previousHistory.every((message, index) => message.role === messages[index].role && message.content === messages[index].content)
+    if (!continuesHistory) this.session.reset()
+    this.previousHistory = undefined
+    const started = performance.now()
     const turn = this.session.generate(messages, { generation_mode: 'text', max_new_tokens: Math.min(1024, Math.max(1, maxTokens)), do_sample: false, signal })
     this.turn = turn
     const cancel = () => turn.cancel()
     signal?.addEventListener('abort', cancel, { once: true })
     this.publish({ phase: 'generating', modelId: id })
+    let firstTextMs: number | undefined
+    let result: SdkResult | undefined
     try {
-      for await (const event of turn) if (event.type === 'text' && event.text) yield { text: event.text }
-      yield { result: await turn.result }
+      for await (const event of turn) if (event.type === 'text' && event.text) {
+        firstTextMs ??= performance.now() - started
+        yield { text: event.text }
+      }
+      result = await turn.result
+      if (result.finish_reason === 'stop' && !signal?.aborted) this.previousHistory = [...messages.map(message => ({ ...message })), { ...result.message }]
+      yield { result }
     } finally {
       signal?.removeEventListener('abort', cancel)
       if (this.turn === turn) this.turn = undefined
-      if (this.model && this.activeId === id) this.publish({ phase: 'ready', modelId: id })
+      if (this.model && this.activeId === id) this.publish({ phase: 'ready', modelId: id, ...(result?.finish_reason !== 'cancelled' && result ? { lastGeneration: {
+        firstTextMs, totalMs: performance.now() - started,
+        ...(Number.isFinite(result.timings?.tokens_per_second) && result.timings!.tokens_per_second! >= 0 ? { tokensPerSecond: result.timings!.tokens_per_second } : {}),
+        ...(Number.isSafeInteger(result.usage?.completion_tokens) && result.usage!.completion_tokens! >= 0 ? { completionTokens: result.usage!.completion_tokens } : {}),
+        ...(Number.isSafeInteger(result.usage?.cached_tokens) && result.usage!.cached_tokens! >= 0 ? { cachedTokens: result.usage!.cached_tokens } : {}),
+      } } : {}) })
     }
   }
 
@@ -132,6 +152,7 @@ export class BrowserRuntime {
     await this.session?.dispose()
     await this.model?.dispose()
     this.session = undefined; this.model = undefined; this.activeId = ''
+    this.previousHistory = undefined
     this.publish({ phase: 'idle', modelId: '' })
   }
 }

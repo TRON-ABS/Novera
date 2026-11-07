@@ -60,4 +60,34 @@ describe('browser runtime ownership', () => {
     await expect(unavailable.load(id)).rejects.toThrow('WebGPU')
     expect(f.loader).not.toHaveBeenCalled()
   })
+
+  it('reports observed text timings and SDK token counts without retaining conversation text', async () => {
+    const f = fixture()
+    f.session.generate.mockImplementation(() => ({
+      async *[Symbol.asyncIterator]() { yield { type: 'text', text: 'Private response' } },
+      result: Promise.resolve({ message: { role: 'assistant', content: 'Private response' }, finish_reason: 'stop', usage: { completion_tokens: 12 }, timings: { tokens_per_second: 45.5 } }),
+      cancel: vi.fn(),
+    }))
+    for await (const _part of f.runtime.generate(id, [{ role: 'user', content: 'Private request' }])) { /* Consume the real runtime lifecycle. */ }
+    expect(f.runtime.snapshot().lastGeneration).toMatchObject({ completionTokens: 12, tokensPerSecond: 45.5, firstTextMs: expect.any(Number), totalMs: expect.any(Number) })
+    expect(JSON.stringify(f.runtime.snapshot())).not.toContain('Private')
+  })
+
+  it('reuses an exact conversation prefix and resets it when an earlier message changes', async () => {
+    const f = fixture()
+    f.session.generate.mockImplementation(() => ({
+      async *[Symbol.asyncIterator]() { yield { type: 'text', text: '42' } },
+      result: Promise.resolve({ message: { role: 'assistant', content: '42' }, finish_reason: 'stop' }),
+      cancel: vi.fn(),
+    }))
+    const first = [{ role: 'user', content: '6 × 7 ?' }]
+    for await (const _part of f.runtime.generate(id, first)) { /* Consume. */ }
+    const continued = [...first, { role: 'assistant', content: '42' }, { role: 'user', content: 'Répète.' }]
+    for await (const _part of f.runtime.generate(id, continued)) { /* Consume. */ }
+    expect(f.session.reset).toHaveBeenCalledTimes(1)
+    const edited = [{ role: 'user', content: 'Independent conversation' }, ...continued.slice(1)]
+    for await (const _part of f.runtime.generate(id, edited)) { /* Consume. */ }
+    expect(f.session.reset).toHaveBeenCalledTimes(2)
+    await f.runtime.unload()
+  })
 })

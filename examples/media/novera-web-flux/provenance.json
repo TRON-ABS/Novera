@@ -1,0 +1,22 @@
+{
+  "generatedBy": "Novera Web experimental local image integration",
+  "date": "2026-11-07",
+  "provider": "novera-browser",
+  "model": "FLUX.2 Klein 4B Q4_K_M",
+  "encoder": "Qwen3-4B-Q4_K_M.gguf",
+  "vae": "diffusion_pytorch_model.safetensors",
+  "prompt": "A simple cyan cube on a dark blue background, clean illustration.",
+  "seedMode": "random",
+  "width": 256,
+  "height": 256,
+  "steps": 4,
+  "totalSecondsDisplayed": 234,
+  "diffusionBackend": "WebGPU",
+  "vaeBackend": "CPU",
+  "bytes": 62047,
+  "sha256": "1e3d59fc3493646bb0822e0a270100ffd8424b48759591c4ce0fb44901ed0825",
+  "downloadedFromNoveraUi": true,
+  "survivedBrowserReload": true,
+  "paidApiUsed": false,
+  "limitation": "Small experimental image; does not establish final speed or video/music support."
+}

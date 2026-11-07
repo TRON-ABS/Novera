@@ -114,21 +114,28 @@ export async function browserMediaCommand(command: string, args?: Record<string,
   const job = jobs.get(request.id)
   if (!job) throw new Error('La création n’est plus active.')
   const bytes = await resultBytes(request, job.signal)
-  const [extension, mediaType] = format(bytes, request.task)
+  return saveBrowserLocalMedia(new Blob([bytes.slice().buffer]), request, job.signal)
+}
+
+/** Commit a locally generated result before publishing its conversation reference. */
+export async function saveBrowserLocalMedia(blob: Blob, request: { task: CreationTask; provider: string; model: string; prompt: string }, signal: AbortSignal) {
+  signal.throwIfAborted()
+  if (!blob.size || blob.size > BROWSER_MEDIA_LIMIT) throw new Error('Fichier média trop volumineux ou vide.')
+  const [extension, mediaType] = format(new Uint8Array(await blob.slice(0, 4096).arrayBuffer()), request.task)
   const name = `Novera-${crypto.randomUUID()}.${extension}`
-  const record: MediaRecord = { name, task: request.task, blob: new Blob([bytes.slice().buffer], { type: mediaType }), metadata: { provider: request.provider, model: request.model, prompt: request.prompt, createdAt: Date.now() } }
-  job.signal.throwIfAborted()
+  const record: MediaRecord = { name, task: request.task, blob: blob.slice(0, blob.size, mediaType), metadata: { provider: request.provider, model: request.model, prompt: request.prompt, createdAt: Date.now() } }
+  signal.throwIfAborted()
   const db = await database()
-  job.signal.throwIfAborted()
+  signal.throwIfAborted()
   await new Promise<void>((resolve, reject) => {
     const transaction = db.transaction('media', 'readwrite')
     const abort = () => { try { transaction.abort() } catch { /* Already settled. */ } }
-    job.signal.addEventListener('abort', abort, { once: true })
-    transaction.oncomplete = () => { job.signal.removeEventListener('abort', abort); resolve() }
-    transaction.onabort = transaction.onerror = () => { job.signal.removeEventListener('abort', abort); reject(transaction.error ?? new Error('Enregistrement du média impossible. Vérifiez l’espace du navigateur.')) }
+    signal.addEventListener('abort', abort, { once: true })
+    transaction.oncomplete = () => { signal.removeEventListener('abort', abort); resolve() }
+    transaction.onabort = transaction.onerror = () => { signal.removeEventListener('abort', abort); reject(transaction.error ?? new Error('Enregistrement du média impossible. Vérifiez l’espace du navigateur.')) }
     try { transaction.objectStore('media').put(record) }
-    catch (error) { job.signal.removeEventListener('abort', abort); abort(); reject(error) }
-    if (job.signal.aborted) abort()
+    catch (error) { signal.removeEventListener('abort', abort); abort(); reject(error) }
+    if (signal.aborted) abort()
   })
   return { name, mediaType }
 }

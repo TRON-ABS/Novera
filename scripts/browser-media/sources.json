@@ -1,0 +1,34 @@
+{
+  "status": "experimental-not-validated",
+  "emscripten": "7.0.0",
+  "sources": [
+    {
+      "repo": "leejet/stable-diffusion.cpp",
+      "commit": "5a1ba5d895bec4e07deab80d6d791721cd59d9c2",
+      "archiveSha256": "51217f95be552e23b3139bd91f17f4458003d445d1b62c2bcc0a0e7062349f00"
+    },
+    {
+      "repo": "leejet/ggml",
+      "commit": "135ce1e0e3f2b0693d3de93d4f6b5fa0a1947820",
+      "archiveSha256": "e39d282158022f9c8a56581aa02b9fc1c11dbe7747c5aa1089cb57d55862810b"
+    }
+  ],
+  "patches": [
+    {
+      "source": "sdcpp",
+      "patch": "patches/threadless-model-loader.patch",
+      "patchSha256": "f875ccb0a216a948b66e580f7083b3f79f220d87678fecd3b0943eb75bb4de5a",
+      "file": "src/model_loader.cpp",
+      "beforeSha256": "a833dca9c58318d4d37365913ecc1f27da997e3e7fa8cf52a88793b5aa473153",
+      "afterSha256": "a10e0644fb8494ba20224fef888d8a309885e656dd592dad9d9f18d64888e07a"
+    },
+    {
+      "source": "sdcpp",
+      "patch": "patches/webgpu-group-norm-affine.patch",
+      "patchSha256": "0071a1eb1d54d3bc209a53b342c67f5849e4e617127ffbeab458ead67672cda6",
+      "file": "src/core/ggml_extend.cpp",
+      "beforeSha256": "b7fa090c1306c34fac5c8f70d91770833236ae8e2a24acf0d0f99b48c38f44cc",
+      "afterSha256": "7518b446cfa38de678135630ce606a5191344349d154e2d0c2e55ad6fd3f0f86"
+    }
+  ]
+}

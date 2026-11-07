@@ -1,18 +1,22 @@
-# feat(web): prepare local inference and persistent media conversations
+# feat(web): prepare local conversations, image inference and safe updates
 
-The static showcase cannot run a Novera conversation. Add an explicit browser preparation build that reuses the application UI, themes, language preference handling and model picker, with real WebGPU inference and IndexedDB conversation storage.
+The static showcase cannot run a Novera conversation. Add an opt-in browser build that reuses the Desktop interface, colors, language preferences and model picker, with WebGPU text inference and IndexedDB conversation/media storage.
 
-Default to the pinned LiquidAI LFM3 Omni Q4_K_M model with the Q8 projector required by its current official Web SDK. The Q4 projector was tried in Edge and rejected by a missing SDK quantization kernel. Include a separately pinned LFM3 1.7B text alternative in the picker. Verify the remote SDK digest before import and bypass native localhost inference and desktop-only startup calls.
+Pin LiquidAI LFM3 Omni Q4_K_M and its supported Q8 projector, verify the official SDK digest before import, and offer the pinned LFM3 1.7B alternative. Avoid native localhost startup calls. Preserve the text KV cache only across an exact continuation of the prior conversation; deterministic browser titles avoid background generation taking over the GPU. Show measured response timing and defer update reloads during generation or storage writes.
 
-Validation:
-- Browser runtime/transport and browser media readiness: 10 tests passed.
-- `corepack yarn build:web:browser`: TypeScript and production build passed; existing large-chunk warnings remain.
-- Actual Edge: Omni Q4/Q8 loads and answers in French; saved messages survive reload; alternative model selection works.
+Add a reproducible experimental WASM64/WebGPU image runtime using the exact Desktop FLUX.2 Klein 4B Q4_K_M, Qwen3 Q4 encoder and FLUX.2 VAE files. Pin source archives and guarded patches, verify runtime receipts before packaging, and keep the runtime optional. Fix threadless loading and the WebGPU VAE normalization affine buffer path. Save generated media before exposing conversation references; reuse existing players and exports.
 
-Optional browser media now reuses the existing fal queue adapter for image/music/video and saves bounded, typed files in IndexedDB before exposing stable conversation references. Reuse Novera players, sharing, exports and model configuration; hide native installers and filesystem claims in the browser panel. Remove retired Pika 2.2 from the catalog, whose official page says requests stopped on October 29.
+## Validation
 
-Media validation: 219 targeted tests passed. Actual Edge tests load public PNG/MP3/MP4 fixtures into the real Novera UI, play audio/video without decoding errors, retain all three after reload, and download the expected byte lengths. These are existing public fixtures, not newly generated media. Queue protocol tests use synthetic credentials and responses. No paid generation ran; the maintainer specifies a zero-euro test budget.
+- 23 targeted Vitest files: **290 tests passed**, covering runtime, cache continuation, titles, storage, update notices, media and related browser behavior.
+- `corepack yarn build:web:browser`: TypeScript and production build passed. Existing chunk-size and mixed storage-import warnings remain.
+- Web delivery tests: **4 passed**. Showcase preparation tests: **3 passed**.
+- Actual Edge: Omni Q4/Q8 answered in French; one response reported 95.58 tokens/s for 93 tokens. It did not fully obey the requested answer structure. The new cache optimization still needs a real follow-up benchmark.
+- Actual Novera image UI: genuine 256 x 256, four-step image in **32.7 seconds**, downloaded and retained after reload. Earlier CPU VAE baseline: 3 min 54 s. Both images have qualified provenance under `examples/media/novera-web-flux/`.
+- Public PNG/MP3/MP4 fixtures validated rendering, playback, downloads and persistence only. They are not newly generated Novera music/video. No paid generation ran.
 
-The maintainer prioritizes the exact local Desktop models (FLUX.2 Klein, ACE-Step 1.5 Turbo and Wan2.1), so fal remains secondary. Browser-local media runtime porting is unfinished; static hosting cannot run the existing native engines. Do not claim free media inference or silently substitute converted model packs.
+## Limits and dependencies
 
-Limits: the alternative text model has not yet completed a real generation test. Real media inference, audio/vision inputs, full offline behavior, orphan-media cleanup, selective model cache deletion and broader browser/device testing remain unfinished. The normal non-preview Web path retains its explicit refusal; none of these tests claims real media inference. Clarify the Omni SDK redistribution license before public distribution. No public website or Desktop updater is changed by this PR. This is an opt-in preparation, separate from the 1.0.1 release delivery work in #42.
+Browser-local ACE-Step and Wan porting remains experimental and is not enabled as validated production functionality. Music planner correctness, instrumental/song/a-cappella quality, video generation and matched Desktop performance still require validation. The image result does not establish larger-resolution performance or Desktop parity. The alternative text model has not completed a real generation test; audio/vision inputs, full offline behavior, cache cleanup and broader device testing remain unfinished.
+
+The beginner music/video guide was published separately in #45. Desktop 1.0.1 delivery and native updater validation are tracked separately in #44. This PR does not publish the Web application or change the public Desktop updater. Clarify the Omni SDK redistribution license and complete the requested security audit after functional/performance testing, before public Web release. Keep the zero-euro generation budget and genuine Novera-only demo policy.

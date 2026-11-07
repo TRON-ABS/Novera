@@ -50,6 +50,16 @@ async function write(store: Store, value: { id: string } | string, remove = fals
   })
 }
 
+/** A read transaction waits behind already queued writes to these stores. */
+export async function flushBrowserConversations(): Promise<void> {
+  const db = await database()
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(['threads', 'messages', 'assistants'], 'readonly')
+    transaction.oncomplete = () => resolve()
+    transaction.onabort = transaction.onerror = () => reject(transaction.error ?? new Error('Enregistrement des discussions non terminé.'))
+  })
+}
+
 export class BrowserThreadsService implements ThreadsService {
   async fetchThreads(): Promise<Thread[]> {
     return (await all<Thread>('threads')).filter(thread => thread.id !== TEMPORARY_CHAT_ID).sort((a, b) => (b.updated ?? 0) - (a.updated ?? 0))
