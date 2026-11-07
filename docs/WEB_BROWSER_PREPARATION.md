@@ -1,8 +1,12 @@
 # Novera Web — préparation navigateur
 
-Cette branche reprend l’application React, ses composants, ses couleurs et ses thèmes. Elle ne remplace pas la vitrine GitHub Pages et n’est pas encore une distribution Web publique.
+Le mainteneur a demandé sa publication expérimentale le **8 novembre 2026**, sans attendre la parité de performance Desktop. **[Ouvrir Novera Web 1.0.1](https://tron-abs.github.io/Novera/web/)**. L’interface, les couleurs et les thèmes Desktop sont conservés ; le lien apparaît en tête de la vitrine et dans les 104 présentations README.
 
-Le mainteneur demande, après les tests de fonctionnement et les optimisations, un audit de sécurité complet avant la mise en ligne : dépendances et moteurs embarqués, intégrité des modèles téléchargés, clés API, stockage local, imports/exports, protections navigateur et déploiement GitHub. Les problèmes confirmés devront être corrigés puis les contrôles relancés ; aucune validation de sécurité globale n’est encore revendiquée pour cette préparation.
+Le [déploiement 42424998699](https://github.com/TRON-ABS/Novera/actions/runs/42424998699) réussit pour le commit `9ec7c5efea4ae669af74082466588399e397970d`. Les **757 fichiers, 101 928 075 octets**, correspondent aux empreintes du reçu servi publiquement. Le démarrage neuf, les logos sous le sous-chemin, un vrai texte et la conservation de la discussion après rechargement sont vérifiés au navigateur. Le calcul 12 + 30 donne 42 en **1,02 s après chargement**, premier texte 0,91 s, huit tokens à 64,6 tokens/s ; ce petit essai ne mesure ni tout le contexte 32k ni la qualité générale. [Reçu et limites](release-evidence/1.0.1/WEB-PUBLIC-EXPERIMENTAL.json).
+
+Image et musique restent des essais locaux avec les fichiers Desktop choisis par l’utilisateur. Wan vidéo n’est pas intégré à la conversation publique. La parité Desktop, un audit complet de sécurité et le contrat strict de cache ne sont pas certifiés. GitHub Pages impose son cache CDN ; aucune discussion n’est effacée et aucun rechargement n’est imposé pendant une génération ou un brouillon.
+
+Le mainteneur a demandé un audit de sécurité complet, puis a expressément autorisé cette publication expérimentale avant sa clôture : dépendances et moteurs embarqués, intégrité des modèles téléchargés, clés API, stockage local, imports/exports, protections navigateur et déploiement GitHub. Les problèmes confirmés devront être corrigés puis les contrôles relancés ; aucune validation de sécurité globale n’est encore revendiquée pour cette préparation.
 
 ## Lancement local
 
@@ -20,7 +24,7 @@ Le navigateur choisit la langue initiale parmi les langues existantes de Novera.
 - Alternative sélectionnable : LiquidAI/LFM3-1.7B-GGUF, Q4_K_M, moteur texte distinct. Les autres architectures devront être vérifiées avant leur ajout ; un fichier GGUF quelconque ne garantit pas la compatibilité navigateur.
 - Les révisions du modèle et du moteur sont figées dans `web-app/src/services/browser-preview/catalog.json`. Le JavaScript du moteur distant est contrôlé par SHA-256 avant import. Les poids restent téléchargés par le SDK depuis Hugging Face ; les SHA-256 du catalogue documentent les fichiers attendus, sans constituer un contrôle supplémentaire de chaque poids par Novera.
 - WebGPU et HTTPS ou localhost sont nécessaires. Aucun serveur de calcul n’est exécuté par GitHub Pages. Les discussions sont stockées dans IndexedDB et les préférences dans ce navigateur. Le mode hors connexion complet reste à tester.
-- Les modèles conservent leur licence LiquidAI. La licence de redistribution du SDK Omni doit encore être clarifiée avant une distribution publique. Aucun SDK ni poids n’est incorporé au dépôt.
+- Les modèles conservent leur licence LiquidAI. Le SDK Omni est chargé à distance à sa révision officielle vérifiée ; aucun SDK ni poids LiquidAI n’est recopié dans le site. Sa redistribution en propre reste à clarifier avant toute incorporation. Les licences des moteurs FLUX/ACE redistribués sont incluses dans leurs dossiers de runtime.
 
 ## Recherche Internet et préparation de la première demande
 
@@ -237,3 +241,8 @@ Le mainteneur rapporte ensuite **14,5 s dans Desktop 1.0.1** avec la même deman
 La véritable interface Novera Web, reconstruite avec les moteurs vérifiés et les mêmes réglages, donne **16,2 s puis 16,0 s**. Les mesures par phase sont affichées dans la conversation. La première sortie téléchargée, comme celles des variantes diagnostiques, garde le SHA-256 **`03e4ea7612f883405061330939d4620d15bfbefd56e4bf17cef8a0629db63c67`** de l’ancien instrumental en 39,0 s : aucun changement du WAV, de la graine, des fichiers de poids ou des huit étapes. Le résultat dépasse encore le temps Desktop rapporté de 1,5–1,7 s ; ce n’est pas une promesse de délai universel. Les caches et la concurrence GPU doivent être consignés séparément.
 
 Validation source de cette passe : **28 tests Vitest dans cinq fichiers**, **huit contrats Node de packaging/livraison**, compilation WASM et construction TypeScript/production réussies. L’essai initial avec un autre modèle en VRAM (75,578 s) est un diagnostic de concurrence, exclu de la comparaison du gain. Publication Web, qualité du chant et audit de sécurité complet restent des validations distinctes.
+
+
+## Essai image après correction du budget réel — 7 novembre, 23:44
+
+L’essai intégré 2048 × 880, quatre étapes, graine 42, ×2 et budget explicite **6 Gio** échoue avec `Queue wait timed out after 30000 ms`. Aucun PNG n’a été produit : ce résultat ne valide aucun gain de vitesse. Le budget normal reste **2 Gio** ; les mesures historiques décrites ci-dessus restent les seules références d’image complète. Un essai 4 Gio a été lancé sans résultat final observé dans cette session.

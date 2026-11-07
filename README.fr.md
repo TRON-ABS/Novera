@@ -18,7 +18,7 @@ Données et confidentialité : [inférence locale, télémétrie facultative, er
 ---
 
 <!-- novera-web-preparation:start -->
-**Novera Web 1.0.1 — canal public expérimental :** interface et couleurs Desktop, contexte texte local de 32k et recherche Exa sans clé avec préparation de connexion à l’activation testés dans Edge. Les travaux image et musique locaux sont documentés ; Wan vidéo reste hors conversation Web. La publication de l’application Web expérimentale est autorisée ; utilisez le lien Web ci-dessus après déploiement. Les grandes images et Wan vidéo n’ont pas les performances Desktop. [Fonctions, mesures et contrôles restant avant publication](docs/WEB_BROWSER_PREPARATION.md).
+**Novera Web 1.0.1 — canal public expérimental :** interface et couleurs Desktop, contexte texte local de 32k et recherche Exa sans clé avec préparation de connexion à l’activation testés dans Edge. Les travaux image et musique locaux sont documentés ; Wan vidéo reste hors conversation Web. L’application Web expérimentale est en ligne ; utilisez le lien Web ci-dessus. Les grandes images et Wan vidéo n’ont pas les performances Desktop. [Fonctions, mesures et contrôles restant avant publication](docs/WEB_BROWSER_PREPARATION.md).
 <!-- novera-web-preparation:end -->
 
 <!-- novera-release-1.0.1:start -->

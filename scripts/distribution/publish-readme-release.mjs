@@ -74,8 +74,9 @@ export function preparePublishedReadme(source, locale, facts, copy) {
       ? line.replaceAll(facts.release, facts.portableVersion) : line).join('\n')
   }
   if (facts.webExperimentalPublished === true) {
-    const webLink = '[Novera Web 1.0.1 · Experimental](https://tron-abs.github.io/Novera/web/)'
-    if (!text.includes(webLink)) text = webLink + '\n\n' + text
+    const webLink = `[Novera Web ${facts.release} · Experimental](https://tron-abs.github.io/Novera/web/)`
+    text = text.replace(/^\[Novera Web [^\n]+\]\(https:\/\/tron-abs\.github\.io\/Novera\/web\/\)\n\n/, '')
+    text = webLink + '\n\n' + text
   }
   return text
 }

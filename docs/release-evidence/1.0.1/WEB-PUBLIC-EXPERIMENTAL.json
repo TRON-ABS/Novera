@@ -1,0 +1,38 @@
+{
+  "url": "https://tron-abs.github.io/Novera/web/",
+  "version": "1.0.1",
+  "commit": "9ec7c5efea4ae669af74082466588399e397970d",
+  "filesVerified": 757,
+  "bytesVerified": 101928075,
+  "filesExpected": 757,
+  "failed": {},
+  "strictNoStoreContractPassed": false,
+  "manifestCacheControl": "max-age=600",
+  "publicReleaseAuthorized": true,
+  "deploymentRun": 42424998699,
+  "schemaVersion": 1,
+  "date": "2026-11-08",
+  "status": "public-experimental",
+  "sourcePullRequests": [
+    53,
+    54
+  ],
+  "fullSecurityAuditPassed": false,
+  "browserUpgradeValidated": false,
+  "nativePerformanceParity": false,
+  "localVideoIntegrated": false,
+  "hostedTextTest": {
+    "model": "LFM3-Omni-2B-Q4_K_M",
+    "contextTokens": 32768,
+    "prompt": "Réponds uniquement en français, en une phrase : combien font 12 + 30 ?",
+    "response": "12 + 30 font 42.",
+    "firstTextSeconds": 0.91,
+    "totalSecondsAfterModelLoad": 1.02,
+    "completionTokens": 8,
+    "tokensPerSecond": 64.6,
+    "conversationRetainedAfterReload": true
+  },
+  "cacheLimitation": "GitHub Pages serves max-age=600. Version checks and user-initiated reloads vary their query URL. Strict no-store hosting contract is not certified.",
+  "publicMediaInferenceRetested": false,
+  "showcaseWebLinkVerified": true
+}
