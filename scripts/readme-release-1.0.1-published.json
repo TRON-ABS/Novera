@@ -1,0 +1,938 @@
+{
+  "acm": {
+    "status": "Novera {{release}} متاح للأنظمة الأساسية المذكورة أدناه. قم بتنزيل الحزمة لنظامك أو استخدم قناة التحديث الموقعة الخاصة بها. يتم تحديث عمليات التثبيت الموجودة عند تثبيت الحزمة الجديدة أو قبول التحديث.",
+    "limits": "يتم سرد التوفر والفحوصات المكتملة أدناه. تعتمد الميزات المدعومة على الأجهزة وإمكانية وصول الموفر والنظام الأساسي. تظل النتائج الأمنية وحدود التحقق من صحة الجهاز الأصلي موثقة. احتفظ بنسخة احتياطية قبل التحديث.",
+    "metrics": "{{languages}} لغات الواجهة · {{cloud}} موفرو السحابة · {{media}} إعدادات الوسائط المسبقة · {{license}}",
+    "providers": "يحتوي الكتالوج على ملفات تعريف موفر {{providers}}: {{cloud}} الخدمات السحابية و{{localProvider}} للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة {{languages}} في هذا الكتالوج.",
+    "media": "يحتوي كتالوج الإنشاء على {{media}} إعدادات مسبقة من موفري {{mediaProviders}}: {{images}} صورة و{{videos}} فيديو و{{music}} إعدادات مسبقة للموسيقى. تسرد الجداول أدناه النماذج والمعرفات الدقيقة التي تدعمها المحولات المدمجة.",
+    "upgrade": "توقيعات المحدث منفصلة عن رمز مصادقة Windows وتوثيق Apple. يتم توثيق تجزئات الحزمة والفحوصات الأصلية واختبارات التحديث بشكل منفصل. تم تأكيد ترقية {{previous}} العامة الكاملة إلى {{release}} فقط للسيناريوهات المسجلة في تقرير الإصدار.",
+    "android": "يتوفر Android {{release}} كنسخة ARM64 APK موقعة، الإصدار {{androidVersionCode}}. ويستخدم شهادة Novera الحالية ويجتاز فحص الحزمة. لا يحتوي على محادثات شخصية أو نماذج أو مفاتيح API. لا يزال التثبيت والتحديث على الهاتف قيد الاختبار."
+  },
+  "aec": {
+    "status": "Novera {{release}} متاح للأنظمة الأساسية المذكورة أدناه. قم بتنزيل الحزمة لنظامك أو استخدم قناة التحديث الموقعة الخاصة بها. يتم تحديث عمليات التثبيت الموجودة عند تثبيت الحزمة الجديدة أو قبول التحديث.",
+    "limits": "يتم سرد التوفر والفحوصات المكتملة أدناه. تعتمد الميزات المدعومة على الأجهزة وإمكانية وصول الموفر والنظام الأساسي. تظل النتائج الأمنية وحدود التحقق من صحة الجهاز الأصلي موثقة. احتفظ بنسخة احتياطية قبل التحديث.",
+    "metrics": "{{languages}} لغات الواجهة · {{cloud}} موفرو السحابة · {{media}} إعدادات الوسائط المسبقة · {{license}}",
+    "providers": "يحتوي الكتالوج على ملفات تعريف موفر {{providers}}: {{cloud}} الخدمات السحابية و{{localProvider}} للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة {{languages}} في هذا الكتالوج.",
+    "media": "يحتوي كتالوج الإنشاء على {{media}} إعدادات مسبقة من موفري {{mediaProviders}}: {{images}} صورة و{{videos}} فيديو و{{music}} إعدادات مسبقة للموسيقى. تسرد الجداول أدناه النماذج والمعرفات الدقيقة التي تدعمها المحولات المدمجة.",
+    "upgrade": "توقيعات المحدث منفصلة عن رمز مصادقة Windows وتوثيق Apple. يتم توثيق تجزئات الحزمة والفحوصات الأصلية واختبارات التحديث بشكل منفصل. تم تأكيد ترقية {{previous}} العامة الكاملة إلى {{release}} فقط للسيناريوهات المسجلة في تقرير الإصدار.",
+    "android": "يتوفر Android {{release}} كنسخة ARM64 APK موقعة، الإصدار {{androidVersionCode}}. ويستخدم شهادة Novera الحالية ويجتاز فحص الحزمة. لا يحتوي على محادثات شخصية أو نماذج أو مفاتيح API. لا يزال التثبيت والتحديث على الهاتف قيد الاختبار."
+  },
+  "af": {
+    "status": "Novera {{release}} is beskikbaar vir die platforms wat hieronder gelys word. Laai die pakket vir jou stelsel af of gebruik sy getekende opdateringskanaal. Bestaande installasies werk op wanneer jy die nuwe pakket installeer of die opdatering aanvaar.",
+    "limits": "Beskikbaarheid en voltooide tjeks word hieronder gelys. Ondersteunde kenmerke hang af van hardeware, verskaffertoegang en platform. Sekuriteitsbevindings en valideringslimiete vir oorspronklike toestelle bly gedokumenteer. Hou 'n rugsteun voor opdatering.",
+    "metrics": "{{languages}} koppelvlaktale · {{cloud}} wolkverskaffers · {{media}} mediavoorinstellings · {{license}}",
+    "providers": "Die katalogus bevat {{providers}} verskafferprofiele: {{cloud}} wolkdienste en {{localProvider}} vir 'n plaaslike bediener. Modeltoegang en vermoëns hang af van die rekening, streek en ondersteunde API. Alle {{languages}} koppelvlaktale deel hierdie katalogus.",
+    "media": "Die skeppingskatalogus bevat {{media}} voorafinstellings van {{mediaProviders}} verskaffers: {{images}} prent, {{videos}} video en {{music}} musiekvoorafstellings. Die tabelle hieronder lys die presiese modelle en identifiseerders wat deur die geïntegreerde adapters ondersteun word.",
+    "upgrade": "Updater-handtekeninge is apart van Windows Authenticode en Apple-notarisering. Pakket-hashes, inheemse tjeks en opdateringstoetse word afsonderlik gedokumenteer. 'n Volledige publieke opgradering van {{previous}} na {{release}} word slegs bevestig vir die scenario's wat in die vrystellingverslag aangeteken is.",
+    "android": "Android {{release}} is beskikbaar as 'n getekende ARM64 APK, bou {{androidVersionCode}}. Dit gebruik die bestaande Novera-sertifikaat en slaag pakketinspeksie. Dit bevat geen persoonlike gesprekke, modelle of API-sleutels nie. Installasie en opdatering op 'n foon moet nog getoets word."
+  },
+  "am": {
+    "status": "Novera {{release}} ከታች ለተዘረዘሩት የመሣሪያ ስርዓቶች ይገኛል። ጥቅሉን ለስርዓትዎ ያውርዱ ወይም የተፈረመበትን የዝማኔ ቻናል ይጠቀሙ። አዲሱን ፓኬጅ ሲጭኑ ወይም ዝመናውን ሲቀበሉ ነባር የመጫኛዎች ይዘምናል።",
+    "limits": "ተገኝነት እና የተጠናቀቁ ቼኮች ከዚህ በታች ተዘርዝረዋል. የሚደገፉ ባህሪያት በሃርድዌር፣ በአቅራቢዎች መዳረሻ እና በመድረክ ላይ ይወሰናሉ። የደህንነት ግኝቶች እና ቤተኛ-መሣሪያ ማረጋገጫ ገደቦች በሰነድ ይቆያሉ። ከማዘመንዎ በፊት ምትኬ ያስቀምጡ።",
+    "metrics": "{{languages}} የበይነገጽ ቋንቋዎች · {{cloud}} የደመና አቅራቢዎች · {{media}} የሚዲያ ቅድመ-ቅምጦች · {{license}}",
+    "providers": "ካታሎጉ {{providers}} የአቅራቢ መገለጫዎችን፡ {{cloud}} የደመና አገልግሎቶችን እና {{localProvider}} ለሀገር ውስጥ አገልጋይ ይዟል። የሞዴል መዳረሻ እና ችሎታዎች በመለያው፣ በክልል እና በሚደገፈው ኤፒአይ ላይ ይወሰናሉ። ሁሉም {{languages}} የበይነገጽ ቋንቋዎች ይህን ካታሎግ ይጋራሉ።",
+    "media": "የፍጥረት ካታሎግ {{media}} ቅድመ-ቅምጦች ከ{{mediaProviders}} አቅራቢዎች፡ {{images}} ምስል፣ {{videos}} ቪዲዮ እና {{music}} የሙዚቃ ቅምጦች ይዟል። ከታች ያሉት ሰንጠረዦች በተዋሃዱ አስማሚዎች የተደገፉ ትክክለኛ ሞዴሎችን እና መለያዎችን ይዘረዝራሉ።",
+    "upgrade": "የዝማኔ ፊርማዎች ከWindows Authenticode እና Apple notarization የተለዩ ናቸው። የጥቅል ሃሽ፣ ቤተኛ ቼኮች እና የዝማኔ ሙከራዎች ለየብቻ ተመዝግበዋል። የተሟላ የ{{previous}} ወደ {{release}} ማሻሻያ የተረጋገጠው በመልቀቂያ ሪፖርቱ ውስጥ ለተመዘገቡት ሁኔታዎች ብቻ ነው።",
+    "android": "አንድሮይድ {{release}} እንደ የተፈረመ ARM64 ኤፒኬ፣ ግንባታ {{androidVersionCode}} ይገኛል። ያለውን የNovera ሰርተፍኬት ይጠቀማል እና የጥቅል ፍተሻን ያልፋል። ምንም የግል ንግግሮች፣ ሞዴሎች ወይም የኤፒአይ ቁልፎች አልያዘም። በስልክ ላይ መጫን እና ማዘመን ለመፈተሽ ይቀራል።"
+  },
+  "apc": {
+    "status": "Novera {{release}} متاح للأنظمة الأساسية المذكورة أدناه. قم بتنزيل الحزمة لنظامك أو استخدم قناة التحديث الموقعة الخاصة بها. يتم تحديث عمليات التثبيت الموجودة عند تثبيت الحزمة الجديدة أو قبول التحديث.",
+    "limits": "يتم سرد التوفر والفحوصات المكتملة أدناه. تعتمد الميزات المدعومة على الأجهزة وإمكانية وصول الموفر والنظام الأساسي. تظل النتائج الأمنية وحدود التحقق من صحة الجهاز الأصلي موثقة. احتفظ بنسخة احتياطية قبل التحديث.",
+    "metrics": "{{languages}} لغات الواجهة · {{cloud}} موفرو السحابة · {{media}} إعدادات الوسائط المسبقة · {{license}}",
+    "providers": "يحتوي الكتالوج على ملفات تعريف موفر {{providers}}: {{cloud}} الخدمات السحابية و{{localProvider}} للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة {{languages}} في هذا الكتالوج.",
+    "media": "يحتوي كتالوج الإنشاء على {{media}} إعدادات مسبقة من موفري {{mediaProviders}}: {{images}} صورة و{{videos}} فيديو و{{music}} إعدادات مسبقة للموسيقى. تسرد الجداول أدناه النماذج والمعرفات الدقيقة التي تدعمها المحولات المدمجة.",
+    "upgrade": "توقيعات المحدث منفصلة عن رمز مصادقة Windows وتوثيق Apple. يتم توثيق تجزئات الحزمة والفحوصات الأصلية واختبارات التحديث بشكل منفصل. تم تأكيد ترقية {{previous}} العامة الكاملة إلى {{release}} فقط للسيناريوهات المسجلة في تقرير الإصدار.",
+    "android": "يتوفر Android {{release}} كنسخة ARM64 APK موقعة، الإصدار {{androidVersionCode}}. ويستخدم شهادة Novera الحالية ويجتاز فحص الحزمة. لا يحتوي على محادثات شخصية أو نماذج أو مفاتيح API. لا يزال التثبيت والتحديث على الهاتف قيد الاختبار."
+  },
+  "apd": {
+    "status": "Novera {{release}} متاح للأنظمة الأساسية المذكورة أدناه. قم بتنزيل الحزمة لنظامك أو استخدم قناة التحديث الموقعة الخاصة بها. يتم تحديث عمليات التثبيت الموجودة عند تثبيت الحزمة الجديدة أو قبول التحديث.",
+    "limits": "يتم سرد التوفر والفحوصات المكتملة أدناه. تعتمد الميزات المدعومة على الأجهزة وإمكانية وصول الموفر والنظام الأساسي. تظل النتائج الأمنية وحدود التحقق من صحة الجهاز الأصلي موثقة. احتفظ بنسخة احتياطية قبل التحديث.",
+    "metrics": "{{languages}} لغات الواجهة · {{cloud}} موفرو السحابة · {{media}} إعدادات الوسائط المسبقة · {{license}}",
+    "providers": "يحتوي الكتالوج على ملفات تعريف موفر {{providers}}: {{cloud}} الخدمات السحابية و{{localProvider}} للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة {{languages}} في هذا الكتالوج.",
+    "media": "يحتوي كتالوج الإنشاء على {{media}} إعدادات مسبقة من موفري {{mediaProviders}}: {{images}} صورة و{{videos}} فيديو و{{music}} إعدادات مسبقة للموسيقى. تسرد الجداول أدناه النماذج والمعرفات الدقيقة التي تدعمها المحولات المدمجة.",
+    "upgrade": "توقيعات المحدث منفصلة عن رمز مصادقة Windows وتوثيق Apple. يتم توثيق تجزئات الحزمة والفحوصات الأصلية واختبارات التحديث بشكل منفصل. تم تأكيد ترقية {{previous}} العامة الكاملة إلى {{release}} فقط للسيناريوهات المسجلة في تقرير الإصدار.",
+    "android": "يتوفر Android {{release}} كنسخة ARM64 APK موقعة، الإصدار {{androidVersionCode}}. ويستخدم شهادة Novera الحالية ويجتاز فحص الحزمة. لا يحتوي على محادثات شخصية أو نماذج أو مفاتيح API. لا يزال التثبيت والتحديث على الهاتف قيد الاختبار."
+  },
+  "ar": {
+    "status": "Novera {{release}} متاح للأنظمة الأساسية المذكورة أدناه. قم بتنزيل الحزمة لنظامك أو استخدم قناة التحديث الموقعة الخاصة بها. يتم تحديث عمليات التثبيت الموجودة عند تثبيت الحزمة الجديدة أو قبول التحديث.",
+    "limits": "يتم سرد التوفر والفحوصات المكتملة أدناه. تعتمد الميزات المدعومة على الأجهزة وإمكانية وصول الموفر والنظام الأساسي. تظل النتائج الأمنية وحدود التحقق من صحة الجهاز الأصلي موثقة. احتفظ بنسخة احتياطية قبل التحديث.",
+    "metrics": "{{languages}} لغات الواجهة · {{cloud}} موفرو السحابة · {{media}} إعدادات الوسائط المسبقة · {{license}}",
+    "providers": "يحتوي الكتالوج على ملفات تعريف موفر {{providers}}: {{cloud}} الخدمات السحابية و{{localProvider}} للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة {{languages}} في هذا الكتالوج.",
+    "media": "يحتوي كتالوج الإنشاء على {{media}} إعدادات مسبقة من موفري {{mediaProviders}}: {{images}} صورة و{{videos}} فيديو و{{music}} إعدادات مسبقة للموسيقى. تسرد الجداول أدناه النماذج والمعرفات الدقيقة التي تدعمها المحولات المدمجة.",
+    "upgrade": "توقيعات المحدث منفصلة عن رمز مصادقة Windows وتوثيق Apple. يتم توثيق تجزئات الحزمة والفحوصات الأصلية واختبارات التحديث بشكل منفصل. تم تأكيد ترقية {{previous}} العامة الكاملة إلى {{release}} فقط للسيناريوهات المسجلة في تقرير الإصدار.",
+    "android": "يتوفر Android {{release}} كنسخة ARM64 APK موقعة، الإصدار {{androidVersionCode}}. ويستخدم شهادة Novera الحالية ويجتاز فحص الحزمة. لا يحتوي على محادثات شخصية أو نماذج أو مفاتيح API. لا يزال التثبيت والتحديث على الهاتف قيد الاختبار."
+  },
+  "arq": {
+    "status": "Novera {{release}} متاح للأنظمة الأساسية المذكورة أدناه. قم بتنزيل الحزمة لنظامك أو استخدم قناة التحديث الموقعة الخاصة بها. يتم تحديث عمليات التثبيت الموجودة عند تثبيت الحزمة الجديدة أو قبول التحديث.",
+    "limits": "يتم سرد التوفر والفحوصات المكتملة أدناه. تعتمد الميزات المدعومة على الأجهزة وإمكانية وصول الموفر والنظام الأساسي. تظل النتائج الأمنية وحدود التحقق من صحة الجهاز الأصلي موثقة. احتفظ بنسخة احتياطية قبل التحديث.",
+    "metrics": "{{languages}} لغات الواجهة · {{cloud}} موفرو السحابة · {{media}} إعدادات الوسائط المسبقة · {{license}}",
+    "providers": "يحتوي الكتالوج على ملفات تعريف موفر {{providers}}: {{cloud}} الخدمات السحابية و{{localProvider}} للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة {{languages}} في هذا الكتالوج.",
+    "media": "يحتوي كتالوج الإنشاء على {{media}} إعدادات مسبقة من موفري {{mediaProviders}}: {{images}} صورة و{{videos}} فيديو و{{music}} إعدادات مسبقة للموسيقى. تسرد الجداول أدناه النماذج والمعرفات الدقيقة التي تدعمها المحولات المدمجة.",
+    "upgrade": "توقيعات المحدث منفصلة عن رمز مصادقة Windows وتوثيق Apple. يتم توثيق تجزئات الحزمة والفحوصات الأصلية واختبارات التحديث بشكل منفصل. تم تأكيد ترقية {{previous}} العامة الكاملة إلى {{release}} فقط للسيناريوهات المسجلة في تقرير الإصدار.",
+    "android": "يتوفر Android {{release}} كنسخة ARM64 APK موقعة، الإصدار {{androidVersionCode}}. ويستخدم شهادة Novera الحالية ويجتاز فحص الحزمة. لا يحتوي على محادثات شخصية أو نماذج أو مفاتيح API. لا يزال التثبيت والتحديث على الهاتف قيد الاختبار."
+  },
+  "ars": {
+    "status": "Novera {{release}} متاح للأنظمة الأساسية المذكورة أدناه. قم بتنزيل الحزمة لنظامك أو استخدم قناة التحديث الموقعة الخاصة بها. يتم تحديث عمليات التثبيت الموجودة عند تثبيت الحزمة الجديدة أو قبول التحديث.",
+    "limits": "يتم سرد التوفر والفحوصات المكتملة أدناه. تعتمد الميزات المدعومة على الأجهزة وإمكانية وصول الموفر والنظام الأساسي. تظل النتائج الأمنية وحدود التحقق من صحة الجهاز الأصلي موثقة. احتفظ بنسخة احتياطية قبل التحديث.",
+    "metrics": "{{languages}} لغات الواجهة · {{cloud}} موفرو السحابة · {{media}} إعدادات الوسائط المسبقة · {{license}}",
+    "providers": "يحتوي الكتالوج على ملفات تعريف موفر {{providers}}: {{cloud}} الخدمات السحابية و{{localProvider}} للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة {{languages}} في هذا الكتالوج.",
+    "media": "يحتوي كتالوج الإنشاء على {{media}} إعدادات مسبقة من موفري {{mediaProviders}}: {{images}} صورة و{{videos}} فيديو و{{music}} إعدادات مسبقة للموسيقى. تسرد الجداول أدناه النماذج والمعرفات الدقيقة التي تدعمها المحولات المدمجة.",
+    "upgrade": "توقيعات المحدث منفصلة عن رمز مصادقة Windows وتوثيق Apple. يتم توثيق تجزئات الحزمة والفحوصات الأصلية واختبارات التحديث بشكل منفصل. تم تأكيد ترقية {{previous}} العامة الكاملة إلى {{release}} فقط للسيناريوهات المسجلة في تقرير الإصدار.",
+    "android": "يتوفر Android {{release}} كنسخة ARM64 APK موقعة، الإصدار {{androidVersionCode}}. ويستخدم شهادة Novera الحالية ويجتاز فحص الحزمة. لا يحتوي على محادثات شخصية أو نماذج أو مفاتيح API. لا يزال التثبيت والتحديث على الهاتف قيد الاختبار."
+  },
+  "ary": {
+    "status": "Novera {{release}} متاح للأنظمة الأساسية المذكورة أدناه. قم بتنزيل الحزمة لنظامك أو استخدم قناة التحديث الموقعة الخاصة بها. يتم تحديث عمليات التثبيت الموجودة عند تثبيت الحزمة الجديدة أو قبول التحديث.",
+    "limits": "يتم سرد التوفر والفحوصات المكتملة أدناه. تعتمد الميزات المدعومة على الأجهزة وإمكانية وصول الموفر والنظام الأساسي. تظل النتائج الأمنية وحدود التحقق من صحة الجهاز الأصلي موثقة. احتفظ بنسخة احتياطية قبل التحديث.",
+    "metrics": "{{languages}} لغات الواجهة · {{cloud}} موفرو السحابة · {{media}} إعدادات الوسائط المسبقة · {{license}}",
+    "providers": "يحتوي الكتالوج على ملفات تعريف موفر {{providers}}: {{cloud}} الخدمات السحابية و{{localProvider}} للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة {{languages}} في هذا الكتالوج.",
+    "media": "يحتوي كتالوج الإنشاء على {{media}} إعدادات مسبقة من موفري {{mediaProviders}}: {{images}} صورة و{{videos}} فيديو و{{music}} إعدادات مسبقة للموسيقى. تسرد الجداول أدناه النماذج والمعرفات الدقيقة التي تدعمها المحولات المدمجة.",
+    "upgrade": "توقيعات المحدث منفصلة عن رمز مصادقة Windows وتوثيق Apple. يتم توثيق تجزئات الحزمة والفحوصات الأصلية واختبارات التحديث بشكل منفصل. تم تأكيد ترقية {{previous}} العامة الكاملة إلى {{release}} فقط للسيناريوهات المسجلة في تقرير الإصدار.",
+    "android": "يتوفر Android {{release}} كنسخة ARM64 APK موقعة، الإصدار {{androidVersionCode}}. ويستخدم شهادة Novera الحالية ويجتاز فحص الحزمة. لا يحتوي على محادثات شخصية أو نماذج أو مفاتيح API. لا يزال التثبيت والتحديث على الهاتف قيد الاختبار."
+  },
+  "arz": {
+    "status": "Novera {{release}} متاح للأنظمة الأساسية المذكورة أدناه. قم بتنزيل الحزمة لنظامك أو استخدم قناة التحديث الموقعة الخاصة بها. يتم تحديث عمليات التثبيت الموجودة عند تثبيت الحزمة الجديدة أو قبول التحديث.",
+    "limits": "يتم سرد التوفر والفحوصات المكتملة أدناه. تعتمد الميزات المدعومة على الأجهزة وإمكانية وصول الموفر والنظام الأساسي. تظل النتائج الأمنية وحدود التحقق من صحة الجهاز الأصلي موثقة. احتفظ بنسخة احتياطية قبل التحديث.",
+    "metrics": "{{languages}} لغات الواجهة · {{cloud}} موفرو السحابة · {{media}} إعدادات الوسائط المسبقة · {{license}}",
+    "providers": "يحتوي الكتالوج على ملفات تعريف موفر {{providers}}: {{cloud}} الخدمات السحابية و{{localProvider}} للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة {{languages}} في هذا الكتالوج.",
+    "media": "يحتوي كتالوج الإنشاء على {{media}} إعدادات مسبقة من موفري {{mediaProviders}}: {{images}} صورة و{{videos}} فيديو و{{music}} إعدادات مسبقة للموسيقى. تسرد الجداول أدناه النماذج والمعرفات الدقيقة التي تدعمها المحولات المدمجة.",
+    "upgrade": "توقيعات المحدث منفصلة عن رمز مصادقة Windows وتوثيق Apple. يتم توثيق تجزئات الحزمة والفحوصات الأصلية واختبارات التحديث بشكل منفصل. تم تأكيد ترقية {{previous}} العامة الكاملة إلى {{release}} فقط للسيناريوهات المسجلة في تقرير الإصدار.",
+    "android": "يتوفر Android {{release}} كنسخة ARM64 APK موقعة، الإصدار {{androidVersionCode}}. ويستخدم شهادة Novera الحالية ويجتاز فحص الحزمة. لا يحتوي على محادثات شخصية أو نماذج أو مفاتيح API. لا يزال التثبيت والتحديث على الهاتف قيد الاختبار."
+  },
+  "as": {
+    "status": "Novera {{release}} তলত তালিকাভুক্ত প্লেটফৰ্মসমূহৰ বাবে উপলব্ধ। আপোনাৰ ব্যৱস্থাপ্ৰণালীৰ বাবে সৰঞ্জাম ডাউনল'ড কৰক বা ইয়াৰ স্বাক্ষৰিত আপডেইট চেনেল ব্যৱহাৰ কৰক । বৰ্ত্তমানৰ সংস্থাপনসমূহ আপডেইট কৰে যেতিয়া আপুনি নতুন সৰঞ্জাম সংস্থাপন কৰে বা আপডেইট গ্ৰহণ কৰে ।",
+    "limits": "উপলব্ধতা আৰু সম্পূৰ্ণ কৰা পৰীক্ষাসমূহ তলত তালিকাভুক্ত কৰা হৈছে। সমৰ্থিত বৈশিষ্ট্যসমূহ হাৰ্ডৱেৰ, প্ৰদানকাৰী অভিগম আৰু প্লেটফৰ্মৰ ওপৰত নিৰ্ভৰ কৰে। সুৰক্ষাৰ তথ্য আৰু স্থানীয়-ডিভাইচ বৈধকৰণ সীমা নথিভুক্ত হৈ থাকে। আপডেইট কৰাৰ আগতে এটা বেকআপ ৰাখক।",
+    "metrics": "{{languages}} আন্তঃপৃষ্ঠ ভাষাসমূহ · {{cloud}} ক্লাউড প্ৰদানকাৰীসমূহ · {{media}} মাধ্যম প্ৰিছেটসমূহ · {{license}}",
+    "providers": "কেটেলগত {{providers}} প্ৰদানকাৰী আলেখ্যনসমূহ আছে: {{cloud}} ক্লাউড সেৱাসমূহ আৰু এটা স্থানীয় চাৰ্ভাৰৰ বাবে {{localProvider}}। মডেল অভিগম আৰু ক্ষমতাসমূহ একাউণ্ট, অঞ্চল আৰু সমৰ্থিত API ৰ ওপৰত নিৰ্ভৰ কৰে। সকলো {{languages}} আন্তঃপৃষ্ঠ ভাষাই এই কেটেলগ অংশীদাৰী কৰে।",
+    "media": "সৃষ্টি কেটেলগত {{media}} প্ৰিছেটসমূহ {{mediaProviders}} প্ৰদানকাৰীৰ পৰা আছে: {{images}} ছবি, {{videos}} ভিডিঅ' আৰু {{music}} সংগীত প্ৰিছেটসমূহ। তলৰ টেবুলসমূহে সংহত এডাপ্টাৰসমূহৰ দ্বাৰা সমৰ্থিত সঠিক আৰ্হি আৰু চিনাক্তকৰ্তাসমূহ তালিকাভুক্ত কৰে।",
+    "upgrade": "আপডেটাৰ স্বাক্ষৰসমূহ উইণ্ড'জ প্ৰমাণিক'ড আৰু এপল নটাৰাইজেচনৰ পৰা পৃথক। পেকেইজ হেচসমূহ, স্থানীয় পৰীক্ষাসমূহ আৰু আপডেইট পৰীক্ষাসমূহ পৃথকে নথিভুক্ত কৰা হয়। এটা সম্পূৰ্ণ ৰাজহুৱা {{previous}} ৰ পৰা {{release}} উন্নয়ন নিশ্চিত কৰা হৈছে কেৱল উন্মোচন প্ৰতিবেদনত ৰেকৰ্ড কৰা পৰিস্থিতিসমূহৰ বাবে।",
+    "android": "Android {{release}} এটা স্বাক্ষৰিত ARM64 APK হিচাপে উপলব্ধ, নিৰ্মাণ {{androidVersionCode}}। ই বৰ্ত্তমানৰ Novera প্ৰমাণপত্ৰ ব্যৱহাৰ কৰে আৰু সৰঞ্জাম পৰিদৰ্শন পাছ কৰে। ইয়াত কোনো ব্যক্তিগত কথোপকথন, মডেল বা API কি নাই। এটা ফোনত ইনষ্টলেচন আৰু আপডেট কৰাটো পৰীক্ষা কৰিবলগীয়া আছে।"
+  },
+  "azb": {
+    "status": "Novera {{release}} آشاغیدا گؤستریلن پلاتفورمالار اوچون موجوددور. سیزیـن سیستمه اویغون پاکتی اندیرین یا ایمضالی یئنیلمه کانالیندان ایستیفاده ائدین. قورولموش اویغولاما یئنی پاکتی قوراندا یا یئنیلمه‌نی قبول ائدنده یئنیلنیر.",
+    "limits": "موجودلوق و بیتن یوْخلامالار آشاغیدا گؤستریلیب. ایمکانلار دونانیم، تداروکچو حسابی و پلاتفورمادان آسیلیدیر. گؤوَنلیک مسئله‌لری و گرچک جیهاز سیناقلارینین سینیرلری سندلشدیریلیب. یئنیلمه‌دن اؤنجه یئدک ساخالایین.",
+    "metrics": "{{languages}} اینترفیس دیلی · {{cloud}} کلاؤد تداروکچو · {{media}} مدیا اؤن‌تنظیمی · {{license}}",
+    "providers": "کاتالوق‌دا {{providers}} تداروکچو پروفیلی وار: {{cloud}} کلاؤد سرویسی و یئرلی سرور اوچون {{localProvider}}. موْدل و ایمکانلار حساب، بؤلگه و دستکلَنَن API دن آسیلیدیر. کاتالوق {{languages}} اینترفیس دیلی اوچون اورتاق‌دیر.",
+    "media": "یاراتما کاتالوقوندا {{mediaProviders}} تداروکچودن {{media}} اؤن‌تنظیم وار: {{images}} شکیل، {{videos}} ویدئو و {{music}} موسیقی. آشاغیداکی جدوللار داخیل اولونان آداپتورلارین دستکلدیگی دقیق موْدل و تانیملایجیلاری گؤستریر.",
+    "upgrade": "یئنیلمه ایمضالاری Windows Authenticode و Apple notarization ایله ائینی دئییل. پاکت هش‌لری، یئرلی یوْخلامالار و یئنیلمه سیناقلاری آیری سندلشدیریلیب. {{previous}} دن {{release}} یه تام عمومی یئنیلمه یالنیز چیخیش راپوروندا یازیلمیش سناریولار اوچون تصدیق اولونور.",
+    "android": "Android {{release}} ایمضالی ARM64 APK اولاراق موجوددور، قۇرۇلۇش {{androidVersionCode}}. اؤنجه‌کی Novera سرتیفیکاتی ایستیفاده اولونور و پاکت یوْخلاماسی کئچیب. شخصی سوْحبت، موْدل یا API آچاری یوخدور. تلفوندا قورما و یئنیلمه سیناغی هله قالیر."
+  },
+  "bar": {
+    "status": "Novera {{release}} ist für die unten aufgeführten Plattformen verfügbar. Laden Sie das Paket für Ihr System herunter oder nutzen Sie den signierten Update-Kanal. Vorhandene Installationen werden aktualisiert, wenn Sie das neue Paket installieren oder das Update akzeptieren.",
+    "limits": "Verfügbarkeit und abgeschlossene Prüfungen sind unten aufgeführt. Unterstützte Funktionen hängen von der Hardware, dem Anbieterzugriff und der Plattform ab. Sicherheitsergebnisse und Validierungsgrenzen für native Geräte bleiben dokumentiert. Erstellen Sie vor der Aktualisierung ein Backup.",
+    "metrics": "{{languages}} Schnittstellensprachen · {{cloud}} Cloud-Anbieter · {{media}} Medienvoreinstellungen · {{license}}",
+    "providers": "Der Katalog enthält {{providers}} Anbieterprofile: {{cloud}} Cloud-Dienste und {{localProvider}} für einen lokalen Server. Modellzugriff und -funktionen hängen vom Konto, der Region und der unterstützten API ab. Alle {{languages}} Schnittstellensprachen teilen sich diesen Katalog.",
+    "media": "Der Erstellungskatalog enthält {{media}} Voreinstellungen von {{mediaProviders}} Anbietern: {{images}} Bild-, {{videos}} Video- und {{music}} Musikvoreinstellungen. In den folgenden Tabellen sind die genauen Modelle und Kennungen aufgeführt, die von den integrierten Adaptern unterstützt werden.",
+    "upgrade": "Updater-Signaturen sind unabhängig von Windows Authenticode und der Apple-Beglaubigung. Paket-Hashes, native Prüfungen und Update-Tests werden separat dokumentiert. Ein vollständiges öffentliches Upgrade von {{previous}} auf {{release}} wird nur für die im Veröffentlichungsbericht aufgezeichneten Szenarien bestätigt.",
+    "android": "Android {{release}} ist als signiertes ARM64 APK, Build {{androidVersionCode}} verfügbar. Es verwendet das vorhandene Novera-Zertifikat und besteht die Paketprüfung. Es enthält keine persönlichen Gespräche, Modelle oder API-Schlüssel. Die Installation und Aktualisierung auf einem Telefon muss noch getestet werden."
+  },
+  "bho": {
+    "status": "Novera {{release}} नीचे दिहल प्लेटफार्म सभ खातिर उपलब्ध बा। अपना सिस्टम खातिर पैकेज डाउनलोड करीं भा ओकर साइन कइल अपडेट चैनल के इस्तेमाल करीं. मौजूदा इंस्टॉलेशन तब अपडेट होला जब रउआँ नया पैकेज इंस्टॉल करीं या अपडेट स्वीकार करीं।",
+    "limits": "उपलब्धता आ पूरा भइल जांच नीचे दिहल गइल बा। समर्थित फीचर हार्डवेयर, प्रदाता के पहुँच आ प्लेटफार्म पर निर्भर करे ला। सुरक्षा के निष्कर्ष आ नेटिव-डिवाइस सत्यापन सीमा के दस्तावेजीकरण बनल बा। अपडेट करे से पहिले बैकअप रखे के चाहीं।",
+    "metrics": "{{languages}} इंटरफेस भाषा · {{cloud}} क्लाउड प्रदाता · {{media}} मीडिया प्रीसेट · {{license}}",
+    "providers": "कैटलॉग में {{providers}} प्रदाता प्रोफाइल बा: {{cloud}} क्लाउड सेवा आ स्थानीय सर्वर खातिर {{localProvider}}। मॉडल के पहुँच आ क्षमता खाता, क्षेत्र आ समर्थित एपीआई पर निर्भर करे ला। सभ {{languages}} इंटरफेस भाषा सभ एह कैटलॉग के साझा करे लीं।",
+    "media": "निर्माण कैटलॉग में {{mediaProviders}} प्रदाता लोग से {{media}} प्रीसेट बा: {{images}} छवि, {{videos}} वीडियो आ {{music}} संगीत प्रीसेट। नीचे दिहल तालिका सभ में इंटीग्रेटेड एडाप्टर सभ द्वारा समर्थित सटीक मॉडल आ पहचानकर्ता सभ के लिस्ट दिहल गइल बा।",
+    "upgrade": "अपडेटर के हस्ताक्षर विंडोज ऑथेंटिकोड आ एप्पल नोटराइजेशन से अलग होला। पैकेज हैश, नेटिव चेक आ अपडेट टेस्ट के अलग से दस्तावेजीकरण कइल जाला। {{previous}} से {{release}} अपग्रेड के पुष्टि खाली रिलीज रिपोर्ट में रिकार्ड कइल गइल परिदृश्य सभ खातिर कइल गइल बा।",
+    "android": "एंड्रॉयड {{release}} एगो साइन कइल ARM64 APK के रूप में उपलब्ध बा, बिल्ड {{androidVersionCode}}। ई मौजूदा Novera प्रमाणपत्र के इस्तेमाल करे ला आ पैकेज निरीक्षण पास करे ला। एह में कवनो निजी बातचीत, मॉडल भा एपीआई कुंजी नइखे. फोन प इंस्टॉलेशन अवुरी अपडेट के परीक्षण बाकी बा।"
+  },
+  "bm": {
+    "status": "Novera {{release}} bɛ sɔrɔ ka ɲɛsin plateformew ma minnu kofɔlen bɛ jukɔrɔ. Foroko telesarse i ka sistɛmu kama walima i ka baara kɛ n’a ka kunnafoni kuraw sira bolonɔbilalen ye. Installations (dadon) minnu bɛ yen, olu bɛ kura ye ni i ye pake kura in sigi walima ni i sɔnna ladamu ma.",
+    "limits": "Sɛgɛsɛgɛli minnu bɛ sɔrɔ ani minnu dafalen don, olu bɛ sɔrɔ jukɔrɔ. Fɛn minnu bɛ Dɛmɛ, olu bɛ Bɔ fɛnɲɛnamafagalanw, dilanbagaw ka doncogo ani plateforme (jɔyɔrɔ) la. Lakanali sɔrɔlenw ani native-device validation danw bɛ to sɛbɛnw kɔnɔ. Aw ye backup dɔ mara sani aw ka update kɛ.",
+    "metrics": "{{languages}} ɲɔgɔndan kanw · {{cloud}} sankaba dilanbagaw · {{media}} kunnafonidilanw labɛncogo fɔlɔ · {{license}}",
+    "providers": "Katalogu kɔnɔ, {{providers}} dilanbagaw ka ɲɛfɔliw bɛ sɔrɔ: {{cloud}} sankaba baarakɛlaw ani {{localProvider}} sigida baarakɛla dɔ kama. Modeli sɔrɔli ni seko bɛ bɔ jatebɔsɛbɛn, mara ani API dɛmɛlen de la. {{languages}} ɲɔgɔndan kanw bɛɛ bɛ nin gafe in tila.",
+    "media": "Daɲɛgafe kɔnɔ, {{media}} kɔrɔlenw bɛ sɔrɔ ka bɔ {{mediaProviders}} dilanbagaw la: {{images}} ja, {{videos}} wideyow ani {{music}} dɔnkilidacogo. Tablo minnu bɛ duguma, olu bɛ modeli tigitigiw ni dantigɛliw jira minnu bɛ dɛmɛ sɔrɔ adaptateurs intégrés fɛ.",
+    "upgrade": "Updater bolonɔbilaw bɛ danfara Bɔ Windows Authenticode ni Apple notarization la. Pake hashes, native checks ani update tests sɛbɛnnen don u danma. Foroba {{previous}} ka se {{release}} sɛgɛsɛgɛli dafalen bɛ dafa dɔrɔn ko kɛlenw na minnu sɛbɛnna bɔli rapɔɔri kɔnɔ.",
+    "android": "Android {{release}} bɛ sɔrɔ i n’a fɔ ARM64 APK bolonɔbilalen, ka {{androidVersionCode}} jɔ. A bɛ baara kɛ ni Novera seere ye min bɛ yen ani ka tɛmɛ pake sɛgɛsɛgɛli fɛ. Mɔgɔ yɛrɛ ka barow, modɛliw walima API kilisi si tɛ a kɔnɔ. Telefɔni sigili n’a kurayali bɛ to ka kɔrɔbɔ."
+  },
+  "bn": {
+    "status": "Novera {{release}} নীচে তালিকাভুক্ত প্ল্যাটফর্মগুলির জন্য উপলব্ধ৷ আপনার সিস্টেমের জন্য প্যাকেজটি ডাউনলোড করুন বা এটির স্বাক্ষরিত আপডেট চ্যানেল ব্যবহার করুন। আপনি যখন নতুন প্যাকেজ ইনস্টল করেন বা আপডেট গ্রহণ করেন তখন বিদ্যমান ইনস্টলেশন আপডেট।",
+    "limits": "উপলব্ধতা এবং সম্পন্ন চেক নীচে তালিকাভুক্ত করা হয়. সমর্থিত বৈশিষ্ট্যগুলি হার্ডওয়্যার, প্রদানকারীর অ্যাক্সেস এবং প্ল্যাটফর্মের উপর নির্ভর করে। নিরাপত্তা ফলাফল এবং নেটিভ-ডিভাইস যাচাইকরণ সীমা নথিভুক্ত থাকে। আপডেট করার আগে একটি ব্যাকআপ রাখুন।",
+    "metrics": "{{languages}} ইন্টারফেস ভাষা · {{cloud}} ক্লাউড প্রদানকারী · {{media}} মিডিয়া প্রিসেট · {{license}}",
+    "providers": "ক্যাটালগটিতে {{providers}} প্রদানকারীর প্রোফাইল রয়েছে: {{cloud}} ক্লাউড পরিষেবা এবং একটি স্থানীয় সার্ভারের জন্য {{localProvider}}৷ মডেল অ্যাক্সেস এবং ক্ষমতা অ্যাকাউন্ট, অঞ্চল এবং সমর্থিত API এর উপর নির্ভর করে। সমস্ত {{languages}} ইন্টারফেস ভাষা এই ক্যাটালগ ভাগ করে।",
+    "media": "তৈরির ক্যাটালগে {{mediaProviders}} প্রদানকারীদের থেকে {{media}} প্রিসেট রয়েছে: {{images}} ছবি, {{videos}} ভিডিও এবং {{music}} মিউজিক প্রিসেট৷ নীচের সারণীগুলি সমন্বিত অ্যাডাপ্টারগুলির দ্বারা সমর্থিত সঠিক মডেল এবং শনাক্তকারীগুলির তালিকা করে৷",
+    "upgrade": "আপডেটার স্বাক্ষরগুলি উইন্ডোজ অথেনটিকোড এবং অ্যাপল নোটারাইজেশন থেকে আলাদা৷ প্যাকেজ হ্যাশ, নেটিভ চেক এবং আপডেট পরীক্ষা আলাদাভাবে নথিভুক্ত করা হয়। একটি সম্পূর্ণ সর্বজনীন {{previous}} থেকে {{release}} আপগ্রেড শুধুমাত্র রিলিজ রিপোর্টে রেকর্ড করা পরিস্থিতিগুলির জন্য নিশ্চিত করা হয়েছে৷",
+    "android": "Android {{release}} একটি স্বাক্ষরিত ARM64 APK হিসেবে উপলব্ধ, বিল্ড {{androidVersionCode}}৷ এটি বিদ্যমান Novera সার্টিফিকেট ব্যবহার করে এবং প্যাকেজ পরিদর্শন পাস করে। এতে কোনো ব্যক্তিগত কথোপকথন, মডেল বা API কী নেই। একটি ফোনে ইনস্টল করা এবং আপডেট করা পরীক্ষা করা বাকি।"
+  },
+  "ca": {
+    "status": "Novera {{release}} està disponible per a les plataformes que s'indiquen a continuació. Baixeu el paquet per al vostre sistema o utilitzeu el seu canal d'actualització signat. Les instal·lacions existents s'actualitzen quan instal·leu el paquet nou o accepteu l'actualització.",
+    "limits": "A continuació s'enumeren la disponibilitat i les comprovacions realitzades. Les funcions admeses depenen del maquinari, l'accés del proveïdor i la plataforma. Les troballes de seguretat i els límits de validació de dispositius natius continuen documentats. Mantingueu una còpia de seguretat abans d'actualitzar.",
+    "metrics": "{{languages}} idiomes de la interfície · {{cloud}} proveïdors de núvol · {{media}} presets multimèdia · {{license}}",
+    "providers": "El catàleg conté {{providers}} perfils de proveïdors: {{cloud}} serveis al núvol i {{localProvider}} per a un servidor local. L'accés al model i les capacitats depenen del compte, la regió i l'API admesa. Tots els {{languages}} idiomes de la interfície comparteixen aquest catàleg.",
+    "media": "El catàleg de creació conté {{media}} presets de {{mediaProviders}} proveïdors: {{images}} imatge, {{videos}} vídeo i {{music}} música. Les taules següents mostren els models i identificadors exactes compatibles amb els adaptadors integrats.",
+    "upgrade": "Les signatures de l'actualitzador són independents de Windows Authenticode i de la notarització d'Apple. Els hash de paquets, les comprovacions natives i les proves d'actualització es documenten per separat. Només es confirma una actualització pública completa de {{previous}} a {{release}} per als escenaris registrats a l'informe de llançament.",
+    "android": "Android {{release}} està disponible com a APK ARM64 signat, versió {{androidVersionCode}}. Utilitza el certificat Novera existent i passa la inspecció del paquet. No conté converses personals, models o claus API. La instal·lació i l'actualització en un telèfon encara s'han de provar."
+  },
+  "ceb": {
+    "status": "Novera {{release}} anaa alang sa mga plataporma nga gilista sa ubos. I-download ang package para sa imong sistema o gamita ang gipirmahan nga update channel niini. Ang kasamtangan nga pag-update sa mga instalasyon kung imong gi-install ang bag-ong package o gidawat ang update.",
+    "limits": "Ang pagkaanaa ug nahuman nga mga tseke gilista sa ubos. Ang gisuportahan nga mga bahin nagdepende sa hardware, pag-access sa provider ug plataporma. Ang mga nahibal-an sa seguridad ug mga limitasyon sa pag-validate sa lumad nga aparato nagpabilin nga dokumentado. Pagtipig og backup sa dili pa mag-update.",
+    "metrics": "{{languages}} interface nga pinulongan · {{cloud}} cloud providers · {{media}} media preset · {{license}}",
+    "providers": "Ang katalogo adunay {{providers}} mga profile sa tighatag: {{cloud}} serbisyo sa panganod ug {{localProvider}} para sa lokal nga server. Ang pag-access sa modelo ug mga kapabilidad nagdepende sa account, rehiyon ug gisuportahan nga API. Tanan nga {{languages}} interface nga pinulongan nag-ambit niini nga katalogo.",
+    "media": "Ang katalogo sa paghimo adunay {{media}} preset gikan sa {{mediaProviders}} providers: {{images}} larawan, {{videos}} video ug {{music}} music preset. Ang mga lamesa sa ubos naglista sa eksaktong mga modelo ug mga identifier nga gisuportahan sa mga integrated adapter.",
+    "upgrade": "Ang mga pirma sa Updater lahi sa Windows Authenticode ug Apple notarization. Ang mga hashes sa package, lumad nga pagsusi ug mga pagsulay sa pag-update gidokumento nga gilain. Ang bug-os nga publiko nga {{previous}} ngadto sa {{release}} pag-upgrade gipamatud-an lamang alang sa mga senaryo nga natala sa report sa pagpagawas.",
+    "android": "Anaa ang Android {{release}} isip usa ka pinirmahan nga ARM64 APK, paghimo {{androidVersionCode}}. Gigamit niini ang kasamtangan nga Novera nga sertipiko ug gipasa ang inspeksyon sa pakete. Wala kini mga personal nga panag-istoryahanay, modelo o mga yawe sa API. Ang pag-instalar ug pag-update sa usa ka telepono nagpabilin nga gisulayan."
+  },
+  "cjy": {
+    "status": "Novera {{release}} 适用于下列平台。下载适合您的系统的软件包或使用其签名的更新通道。当您安装新软件包或接受更新时，现有安装会更新。",
+    "limits": "下面列出了可用性和已完成的检查。支持的功能取决于硬件、提供商访问权限和平台。安全发现和本机设备验证限制仍然记录在案。更新前请保留备份。",
+    "metrics": "{{languages}} 界面语言 · {{cloud}} 云提供商 · {{media}} 媒体预设 · {{license}}",
+    "providers": "该目录包含 {{providers}} 提供商配置文件：{{cloud}} 云服务和本地服务器的 {{localProvider}}。模型访问和功能取决于帐户、区域和支持的 API。所有 {{languages}} 界面语言共享此目录。",
+    "media": "创建目录包含来自 {{mediaProviders}} 提供商的 {{media}} 预设：{{images}} 图片、{{videos}} 视频和 {{music}} 音乐预设。下表列出了集成适配器支持的确切型号和标识符。",
+    "upgrade": "更新程序签名与 Windows Authenticode 和 Apple 公证分开。包哈希、本机检查和更新测试单独记录。仅针对发布报告中记录的场景确认完整的公共 {{previous}} 到 {{release}} 升级。",
+    "android": "Android {{release}} 可作为签名的 ARM64 APK，版本为 {{androidVersionCode}}。它使用现有的 Novera 证书并通过包检查。它不包含个人对话、模型或 API 密钥。在手机上的安装和更新仍有待测试。"
+  },
+  "cs": {
+    "status": "Novera {{release}} je k dispozici pro platformy uvedené níže. Stáhněte si balíček pro váš systém nebo použijte jeho podepsaný aktualizační kanál. Stávající instalace se aktualizují, když nainstalujete nový balíček nebo přijmete aktualizaci.",
+    "limits": "Dostupnost a dokončené kontroly jsou uvedeny níže. Podporované funkce závisí na hardwaru, přístupu poskytovatele a platformě. Bezpečnostní zjištění a limity ověření nativního zařízení zůstávají zdokumentovány. Před aktualizací si uložte zálohu.",
+    "metrics": "{{languages}} jazyky rozhraní · {{cloud}} poskytovatelé cloudu · {{media}} předvolby médií · {{license}}",
+    "providers": "Katalog obsahuje {{providers}} profily poskytovatelů: {{cloud}} cloudové služby a {{localProvider}} pro místní server. Přístup k modelu a možnosti závisí na účtu, regionu a podporovaném rozhraní API. Tento katalog sdílejí všechny jazyky rozhraní {{languages}}.",
+    "media": "Katalog výtvorů obsahuje {{media}} předvolby od {{mediaProviders}} poskytovatelů: {{images}} obrázek, {{videos}} video a {{music}} hudební předvolby. V níže uvedených tabulkách jsou uvedeny přesné modely a identifikátory podporované integrovanými adaptéry.",
+    "upgrade": "Podpisy nástroje Updater jsou oddělené od Windows Authenticode a notářského ověření Apple. Hashe balíčků, nativní kontroly a testy aktualizací jsou dokumentovány samostatně. Úplný veřejný upgrade {{previous}} na {{release}} je potvrzen pouze pro scénáře zaznamenané ve zprávě o vydání.",
+    "android": "Android {{release}} je k dispozici jako podepsaný ARM64 APK, sestavení {{androidVersionCode}}. Používá stávající certifikát Novera a projde kontrolou balíčku. Neobsahuje žádné osobní konverzace, modely ani klíče API. Instalace a aktualizace na telefonu zbývá otestovat."
+  },
+  "ctg": {
+    "status": "Novera {{release}} নীচে তালিকাভুক্ত প্ল্যাটফর্মগুলির জন্য উপলব্ধ৷ আপনার সিস্টেমের জন্য প্যাকেজটি ডাউনলোড করুন বা এটির স্বাক্ষরিত আপডেট চ্যানেল ব্যবহার করুন। আপনি যখন নতুন প্যাকেজ ইনস্টল করেন বা আপডেট গ্রহণ করেন তখন বিদ্যমান ইনস্টলেশন আপডেট।",
+    "limits": "উপলব্ধতা এবং সম্পন্ন চেক নীচে তালিকাভুক্ত করা হয়. সমর্থিত বৈশিষ্ট্যগুলি হার্ডওয়্যার, প্রদানকারীর অ্যাক্সেস এবং প্ল্যাটফর্মের উপর নির্ভর করে। নিরাপত্তা ফলাফল এবং নেটিভ-ডিভাইস যাচাইকরণ সীমা নথিভুক্ত থাকে। আপডেট করার আগে একটি ব্যাকআপ রাখুন।",
+    "metrics": "{{languages}} ইন্টারফেস ভাষা · {{cloud}} ক্লাউড প্রদানকারী · {{media}} মিডিয়া প্রিসেট · {{license}}",
+    "providers": "ক্যাটালগটিতে {{providers}} প্রদানকারীর প্রোফাইল রয়েছে: {{cloud}} ক্লাউড পরিষেবা এবং একটি স্থানীয় সার্ভারের জন্য {{localProvider}}৷ মডেল অ্যাক্সেস এবং ক্ষমতা অ্যাকাউন্ট, অঞ্চল এবং সমর্থিত API এর উপর নির্ভর করে। সমস্ত {{languages}} ইন্টারফেস ভাষা এই ক্যাটালগ ভাগ করে।",
+    "media": "তৈরির ক্যাটালগে {{mediaProviders}} প্রদানকারীদের থেকে {{media}} প্রিসেট রয়েছে: {{images}} ছবি, {{videos}} ভিডিও এবং {{music}} মিউজিক প্রিসেট৷ নীচের সারণীগুলি সমন্বিত অ্যাডাপ্টারগুলির দ্বারা সমর্থিত সঠিক মডেল এবং শনাক্তকারীগুলির তালিকা করে৷",
+    "upgrade": "আপডেটার স্বাক্ষরগুলি উইন্ডোজ অথেনটিকোড এবং অ্যাপল নোটারাইজেশন থেকে আলাদা৷ প্যাকেজ হ্যাশ, নেটিভ চেক এবং আপডেট পরীক্ষা আলাদাভাবে নথিভুক্ত করা হয়। একটি সম্পূর্ণ সর্বজনীন {{previous}} থেকে {{release}} আপগ্রেড শুধুমাত্র রিলিজ রিপোর্টে রেকর্ড করা পরিস্থিতিগুলির জন্য নিশ্চিত করা হয়েছে৷",
+    "android": "Android {{release}} একটি স্বাক্ষরিত ARM64 APK হিসেবে উপলব্ধ, বিল্ড {{androidVersionCode}}৷ এটি বিদ্যমান Novera সার্টিফিকেট ব্যবহার করে এবং প্যাকেজ পরিদর্শন পাস করে। এতে কোনো ব্যক্তিগত কথোপকথন, মডেল বা API কী নেই। একটি ফোনে ইনস্টল করা এবং আপডেট করা পরীক্ষা করা বাকি।"
+  },
+  "de-DE": {
+    "status": "Novera {{release}} ist für die unten aufgeführten Plattformen verfügbar. Laden Sie das Paket für Ihr System herunter oder nutzen Sie den signierten Update-Kanal. Vorhandene Installationen werden aktualisiert, wenn Sie das neue Paket installieren oder das Update akzeptieren.",
+    "limits": "Verfügbarkeit und abgeschlossene Prüfungen sind unten aufgeführt. Unterstützte Funktionen hängen von der Hardware, dem Anbieterzugriff und der Plattform ab. Sicherheitsergebnisse und Validierungsgrenzen für native Geräte bleiben dokumentiert. Erstellen Sie vor der Aktualisierung ein Backup.",
+    "metrics": "{{languages}} Schnittstellensprachen · {{cloud}} Cloud-Anbieter · {{media}} Medienvoreinstellungen · {{license}}",
+    "providers": "Der Katalog enthält {{providers}} Anbieterprofile: {{cloud}} Cloud-Dienste und {{localProvider}} für einen lokalen Server. Modellzugriff und -funktionen hängen vom Konto, der Region und der unterstützten API ab. Alle {{languages}} Schnittstellensprachen teilen sich diesen Katalog.",
+    "media": "Der Erstellungskatalog enthält {{media}} Voreinstellungen von {{mediaProviders}} Anbietern: {{images}} Bild-, {{videos}} Video- und {{music}} Musikvoreinstellungen. In den folgenden Tabellen sind die genauen Modelle und Kennungen aufgeführt, die von den integrierten Adaptern unterstützt werden.",
+    "upgrade": "Updater-Signaturen sind unabhängig von Windows Authenticode und der Apple-Beglaubigung. Paket-Hashes, native Prüfungen und Update-Tests werden separat dokumentiert. Ein vollständiges öffentliches Upgrade von {{previous}} auf {{release}} wird nur für die im Veröffentlichungsbericht aufgezeichneten Szenarien bestätigt.",
+    "android": "Android {{release}} ist als signiertes ARM64 APK, Build {{androidVersionCode}} verfügbar. Es verwendet das vorhandene Novera-Zertifikat und besteht die Paketprüfung. Es enthält keine persönlichen Gespräche, Modelle oder API-Schlüssel. Die Installation und Aktualisierung auf einem Telefon muss noch getestet werden."
+  },
+  "dyu": {
+    "status": "Novera {{release}} be sɔrɔ yɔrɔ minw na, o be sɔrɔ yɔrɔ minw na. I ka pake nin telesarse i ka sisitɛmu kama wala i ka baara kɛ n’a ka yɛlɛmaniw ye minw bolonɔ bilara. Instalation kɔrɔw be yɛlɛma n’i ye pake kura don wala n’i sɔnna o yɛlɛmani ma.",
+    "limits": "Sɛgɛsɛgɛri minw be sɔrɔ ani u dafanin lo, u sɛbɛra duguman. Fɛɛn minw dɛmɛna, o be bɔ minanw na, dilanbaga ka sɔrɔyɔrɔ n'a ka pilatifɔmu la. Lakanali sɛgɛsɛgɛliw ani native-device sɛgɛsɛgɛli dancɛw be to ka sɛbɛn. I ka kopi dɔ mara sanni i k’a lakuraya.",
+    "metrics": "{{languages}} ɲɔgɔndankanw · {{cloud}} sankaba dilanbagaw · {{media}} kunnafoni dicogo fɔlɔw · {{license}}",
+    "providers": "{{providers}} dilanbagaw ka porofayiliw be sɔrɔ gafe kɔnɔ: {{cloud}} sankaba baarakɛyɔrɔw ani {{localProvider}} sigida baarakɛyɔrɔ dɔ kama. Modɛli sɔrɔcogo n’a seko be bɔ kɔnti, mara ani API dɛmɛnin lo la. {{languages}} kaanw bɛɛ be nin gafe nin tilan.",
+    "media": "Danni gafe kɔnɔ, {{media}} labɛnni fɔlɔw be sɔrɔ {{mediaProviders}} dilanbagaw fɛ: {{images}} ja, {{videos}} videyo ani {{music}} labɛnni fɔlɔw. Tabali minw be duguman, olu be modɛli tigitigiw ani tagamasiɲɛw yira minw be dɛmɛ ni adaptɛriw ye minw be don ɲɔgɔn na.",
+    "upgrade": "O yɛlɛmaniw bolonɔw be dan na ni Windows Authenticode ani Apple ka notari ye. Pake hashes, native sɛgɛsɛgɛliw ani sɛgɛsɛgɛli kurakurayali sɛbɛnna dan na dan na. Foroba {{previous}} ka {{release}} yɛlɛmani dafalen be sabati kokɛtaw dɔrɔn lo la minw sɛbɛra bɔli rapɔɔri kɔnɔ.",
+    "android": "Android {{release}} be sɔrɔ i n'a fɔ ARM64 APK bolonɔbilanin, {{androidVersionCode}} dilan. A be baara kɛ ni Novera sɛbɛ ye min be yen ani a be tɛmɛ pakew sɛgɛsɛgɛri fɛ. Mɔgɔ yɛrɛ ka barokunw, modɛliw wala API kilɛw tɛ yen. Ka telefɔni don ani k’a lakuraya, o bele ka ɲi ka kɔrɔbɔ."
+  },
+  "el": {
+    "status": "Το Novera {{release}} είναι διαθέσιμο για τις πλατφόρμες που αναφέρονται παρακάτω. Κάντε λήψη του πακέτου για το σύστημά σας ή χρησιμοποιήστε το υπογεγραμμένο κανάλι ενημέρωσης. Οι υπάρχουσες εγκαταστάσεις ενημερώνονται κατά την εγκατάσταση του νέου πακέτου ή την αποδοχή της ενημέρωσης.",
+    "limits": "Η διαθεσιμότητα και οι ολοκληρωμένοι έλεγχοι αναφέρονται παρακάτω. Οι υποστηριζόμενες λειτουργίες εξαρτώνται από το υλικό, την πρόσβαση του παρόχου και την πλατφόρμα. Τα ευρήματα ασφαλείας και τα όρια επικύρωσης εγγενών συσκευών παραμένουν τεκμηριωμένα. Κρατήστε αντίγραφο ασφαλείας πριν από την ενημέρωση.",
+    "metrics": "{{languages}} γλώσσες διεπαφής · {{cloud}} πάροχοι cloud · {{media}} προεπιλογές πολυμέσων · {{license}}",
+    "providers": "Ο κατάλογος περιέχει {{providers}} προφίλ παρόχου: {{cloud}} υπηρεσίες cloud και {{localProvider}} για έναν τοπικό διακομιστή. Η πρόσβαση και οι δυνατότητες του μοντέλου εξαρτώνται από τον λογαριασμό, την περιοχή και το υποστηριζόμενο API. Όλες οι {{languages}} γλώσσες διεπαφής μοιράζονται αυτόν τον κατάλογο.",
+    "media": "Ο κατάλογος δημιουργίας περιέχει {{media}} προεπιλογές από {{mediaProviders}} παρόχους: {{images}} εικόνα, {{videos}} βίντεο και {{music}} προεπιλογές μουσικής. Οι παρακάτω πίνακες παραθέτουν τα ακριβή μοντέλα και τα αναγνωριστικά που υποστηρίζονται από τους ενσωματωμένους προσαρμογείς.",
+    "upgrade": "Οι υπογραφές του προγράμματος ενημέρωσης είναι ξεχωριστές από την επικύρωση του Windows Authenticode και της Apple. Οι κατακερματισμοί πακέτων, οι εγγενείς έλεγχοι και οι δοκιμές ενημέρωσης τεκμηριώνονται χωριστά. Μια πλήρης δημόσια αναβάθμιση {{previous}} σε {{release}} επιβεβαιώνεται μόνο για τα σενάρια που καταγράφονται στην αναφορά κυκλοφορίας.",
+    "android": "Το Android {{release}} είναι διαθέσιμο ως υπογεγραμμένο ARM64 APK, έκδοση {{androidVersionCode}}. Χρησιμοποιεί το υπάρχον πιστοποιητικό Novera και περνά από έλεγχο πακέτου. Δεν περιέχει προσωπικές συνομιλίες, μοντέλα ή κλειδιά API. Η εγκατάσταση και η ενημέρωση σε ένα τηλέφωνο πρέπει να δοκιμαστούν."
+  },
+  "en": {
+    "status": "Novera {{release}} is available for the platforms listed below. Download the package for your system or use its signed update channel. Existing installations update when you install the new package or accept the update.",
+    "limits": "Availability and completed checks are listed below. Supported features depend on hardware, provider access and platform. Security findings and native-device validation limits remain documented. Keep a backup before updating.",
+    "metrics": "{{languages}} interface languages · {{cloud}} cloud providers · {{media}} media presets · {{license}}",
+    "providers": "The catalog contains {{providers}} provider profiles: {{cloud}} cloud services and {{localProvider}} for a local server. Model access and capabilities depend on the account, region and supported API. All {{languages}} interface languages share this catalog.",
+    "media": "The creation catalog contains {{media}} presets from {{mediaProviders}} providers: {{images}} image, {{videos}} video and {{music}} music presets. The tables below list the exact models and identifiers supported by the integrated adapters.",
+    "upgrade": "Updater signatures are separate from Windows Authenticode and Apple notarization. Package hashes, native checks and update tests are documented separately. A complete public {{previous}} to {{release}} upgrade is confirmed only for the scenarios recorded in the release report.",
+    "android": "Android {{release}} is available as a signed ARM64 APK, build {{androidVersionCode}}. It uses the existing Novera certificate and passes package inspection. It contains no personal conversations, models or API keys. Installation and updating on a phone remain to be tested."
+  },
+  "es": {
+    "status": "Novera {{release}} está disponible para las plataformas que se enumeran a continuación. Descargue el paquete para su sistema o utilice su canal de actualización firmado. Las instalaciones existentes se actualizan cuando instala el nuevo paquete o acepta la actualización.",
+    "limits": "La disponibilidad y las comprobaciones completadas se enumeran a continuación. Las funciones admitidas dependen del hardware, el acceso del proveedor y la plataforma. Los hallazgos de seguridad y los límites de validación del dispositivo nativo permanecen documentados. Mantenga una copia de seguridad antes de actualizar.",
+    "metrics": "{{languages}} idiomas de interfaz · {{cloud}} proveedores de nube · {{media}} ajustes preestablecidos de medios · {{license}}",
+    "providers": "El catálogo contiene {{providers}} perfiles de proveedores: {{cloud}} servicios en la nube y {{localProvider}} para un servidor local. El acceso y las capacidades del modelo dependen de la cuenta, la región y la API admitida. Todos los idiomas de la interfaz {{languages}} comparten este catálogo.",
+    "media": "El catálogo de creación contiene {{media}} ajustes preestablecidos de {{mediaProviders}} proveedores: {{images}} imagen, {{videos}} vídeo y {{music}} ajustes preestablecidos de música. Las tablas siguientes enumeran los modelos e identificadores exactos admitidos por los adaptadores integrados.",
+    "upgrade": "Las firmas del actualizador son independientes de la certificación notarial de Windows Authenticode y Apple. Los hashes de paquetes, las comprobaciones nativas y las pruebas de actualización se documentan por separado. Se confirma una actualización pública completa de {{previous}} a {{release}} solo para los escenarios registrados en el informe de lanzamiento.",
+    "android": "Android {{release}} está disponible como APK ARM64 firmado, compilación {{androidVersionCode}}. Utiliza el certificado Novera existente y pasa la inspección del paquete. No contiene conversaciones personales, modelos ni claves API. Queda por probar la instalación y actualización en un teléfono."
+  },
+  "fa-IR": {
+    "status": "Novera {{release}} برای پلتفرم های فهرست شده در زیر در دسترس است. بسته را برای سیستم خود دانلود کنید یا از کانال به روز رسانی امضا شده آن استفاده کنید. نصب‌های موجود هنگام نصب بسته جدید یا پذیرش به‌روزرسانی به‌روزرسانی می‌شوند.",
+    "limits": "در دسترس بودن و بررسی های تکمیل شده در زیر ذکر شده است. ویژگی های پشتیبانی شده به سخت افزار، دسترسی ارائه دهنده و پلت فرم بستگی دارد. یافته‌های امنیتی و محدودیت‌های اعتبار دستگاه بومی همچنان مستند هستند. قبل از به روز رسانی یک نسخه پشتیبان تهیه کنید.",
+    "metrics": "{{languages}} زبان رابط · {{cloud}} ارائه‌دهنده ابر · {{media}} پیش‌تنظیم رسانه · {{license}}",
+    "providers": "کاتالوگ شامل نمایه های ارائه دهنده {{providers}} است: {{cloud}} خدمات ابری و {{localProvider}} برای یک سرور محلی. دسترسی و قابلیت های مدل به حساب، منطقه و API پشتیبانی شده بستگی دارد. همه {{languages}} زبان های رابط این کاتالوگ را به اشتراک می گذارند.",
+    "media": "کاتالوگ ایجاد شامل {{media}} ایستگاه از پیش تنظیم شده از ارائه دهندگان {{mediaProviders}} است: {{images}} تصویر، {{videos}} ویدیو و {{music}} از پیش تنظیم های موسیقی. جداول زیر مدل های دقیق و شناسه های پشتیبانی شده توسط آداپتورهای یکپارچه را نشان می دهد.",
+    "upgrade": "امضای به‌روزرسانی‌کننده جدا از Windows Authenticode و تأیید رسمی اپل است. درهم‌سازی بسته‌ها، بررسی‌های بومی و آزمایش‌های به‌روزرسانی به‌طور جداگانه مستند شده‌اند. ارتقاء عمومی کامل {{previous}} به {{release}} فقط برای سناریوهای ثبت شده در گزارش انتشار تأیید می‌شود.",
+    "android": "Android {{release}} به عنوان یک APK امضا شده ARM64، ساخت {{androidVersionCode}} در دسترس است. از گواهی Novera موجود استفاده می‌کند و بازرسی بسته را انجام می‌دهد. این شامل هیچ مکالمه شخصی، مدل یا کلید API نیست. نصب و به روز رسانی در تلفن همچنان باید آزمایش شود."
+  },
+  "fr": {
+    "status": "Novera {{release}} est disponible pour les plateformes indiquées ci-dessous. Téléchargez le paquet adapté à votre système ou utilisez son canal de mise à jour signé. Les installations existantes évoluent lorsque vous installez le nouveau paquet ou acceptez la mise à jour.",
+    "limits": "La disponibilité et les contrôles terminés sont indiqués ci-dessous. Les fonctions prises en charge dépendent du matériel, du compte fournisseur et de la plateforme. Les alertes de sécurité et les limites de validation native restent documentées. Gardez une sauvegarde avant la mise à jour.",
+    "metrics": "{{languages}} langues de l’interface · {{cloud}} fournisseurs cloud · {{media}} préréglages média · {{license}}",
+    "providers": "Le catalogue contient {{providers}} profils de fournisseurs : {{cloud}} services cloud et {{localProvider}} pour un serveur local. L’accès aux modèles et leurs capacités dépendent du compte, de la région et de l’API prise en charge. Les {{languages}} langues de l’interface partagent ce catalogue.",
+    "media": "Le catalogue de création contient {{media}} préréglages de {{mediaProviders}} fournisseurs : {{images}} pour l’image, {{videos}} pour la vidéo et {{music}} pour la musique. Les tableaux ci-dessous donnent les modèles et identifiants exacts pris en charge par les adaptateurs intégrés.",
+    "upgrade": "Les signatures updater sont distinctes d’Authenticode Windows et de la notarisation Apple. Empreintes des paquets, contrôles natifs et essais de mise à jour sont documentés séparément. Une transition publique complète de {{previous}} vers {{release}} n’est confirmée que pour les scénarios consignés dans le bilan de sortie.",
+    "android": "Android {{release}} est disponible en APK ARM64 signé, build {{androidVersionCode}}. Il conserve le certificat Novera existant et passe l’inspection du paquet. Il ne contient aucune conversation, aucun modèle ni aucune clé API personnelle. Installation et mise à jour sur téléphone restent à tester."
+  },
+  "fuv": {
+    "status": "Novera {{release}} ena tawee e lowe caaɗe les ɗee. Sokkit paaspoor oo ngam system maa walla huutoro laawol mum kesɗitingol siynaango. Installations gonɗe ɗee ina kesɗitina so a hesɗitinii paaspoor keso oo walla aɗa jaɓa kesɗitingol ngol.",
+    "limits": "Heɓde e ƴeewte timmuɗe ina limtaa les ɗoo. Feereeji ballitooji fawii ko e kaɓirɗe, jokkondire dokkoowo e laylaytol. Ko yiytaa e kisal e keerol jaɓgol native-device ina keddii e binndanɗe. Mbaɗtu backup hade maa hesɗitinde.",
+    "metrics": "{{languages}} ɗemɗe jokkorɗe · {{cloud}} rokkooɓe ruulde · {{media}} kuutorɗe jaayɗe · {{license}}",
+    "providers": "Catal ngal ina waɗi {{providers}} porofayle dokkoowo: {{cloud}} sarwisaaji ruulde e {{localProvider}} ngam serwer nokkuure. Model keɓgol e mbaawkaaji fawii ko e konte, diiwaan e API ballitooɗo. Denndaangal {{languages}} jokkorgal ina ndennda ndee catal.",
+    "media": "Catal tagoore ndee ina waɗi {{media}} dokke ummoraade e {{mediaProviders}} dokkuɓe: {{images}} natal, {{videos}} wideyoo e {{music}} dokke jimɗi. Tablooji les ɗii ina limta moodeluuji e anndinooje laaɓtuɗe ɗe adapteeruuji kuutorteeɗi ɗii mballirta.",
+    "upgrade": "Siynooji kesɗitinoowo ina ceerti e koɗki Windows e notari Apple. Hashes package, ƴeewndorɗe native e jarribooji kesɗitingol ina mbinndee ceertuɗe. Jamaanu timmuɗo {{previous}} ha {{release}} upgrade ina tabitinaa tan wonande senaareeji binndaaɗi e ciimtol yaltinngol ngol.",
+    "android": "Android {{release}} ena heɓoo e APK ARM64 mo nganndu-ɗaa ko kañum woni Siynaaɗo, mahoowo {{androidVersionCode}}. Ina huutoroo seedantaagal Novera gonngal ngal, ina rewa ƴeewndo paaspoor. Alaa heen jeewte keertiiɗe, moodeluuji walla kuutorɗe API. Installation e update e telefoŋ ina heddii e ƴeewteede."
+  },
+  "gan": {
+    "status": "Novera {{release}} 适用于下列平台。下载适合您的系统的软件包或使用其签名的更新通道。当您安装新软件包或接受更新时，现有安装会更新。",
+    "limits": "下面列出了可用性和已完成的检查。支持的功能取决于硬件、提供商访问权限和平台。安全发现和本机设备验证限制仍然记录在案。更新前请保留备份。",
+    "metrics": "{{languages}} 界面语言 · {{cloud}} 云提供商 · {{media}} 媒体预设 · {{license}}",
+    "providers": "该目录包含 {{providers}} 提供商配置文件：{{cloud}} 云服务和本地服务器的 {{localProvider}}。模型访问和功能取决于帐户、区域和支持的 API。所有 {{languages}} 界面语言共享此目录。",
+    "media": "创建目录包含来自 {{mediaProviders}} 提供商的 {{media}} 预设：{{images}} 图片、{{videos}} 视频和 {{music}} 音乐预设。下表列出了集成适配器支持的确切型号和标识符。",
+    "upgrade": "更新程序签名与 Windows Authenticode 和 Apple 公证分开。包哈希、本机检查和更新测试单独记录。仅针对发布报告中记录的场景确认完整的公共 {{previous}} 到 {{release}} 升级。",
+    "android": "Android {{release}} 可作为签名的 ARM64 APK，版本为 {{androidVersionCode}}。它使用现有的 Novera 证书并通过包检查。它不包含个人对话、模型或 API 密钥。在手机上的安装和更新仍有待测试。"
+  },
+  "gaz": {
+    "status": "Novera {{release}} waltajjiiwwan armaan gadii tarreeffamaniif ni argama. Paakeejii sirna keessaniif buufadhaa ykn chaanaalii update isaa kan mallattaa'e fayyadamaa. Fe'iinsa jiran yeroo paakeejii haaraa fe'attu ykn fooyya'iinsa fudhattu haaromsa.",
+    "limits": "Argamuu fi cheekiin xumurame akka armaan gadiitti tarreeffameera. Amaloonni deeggaraman haardwaara, qaqqabummaa dhiyeessaa fi waltajjii irratti hundaa'u. Argannoon nageenyaa fi daangaa mirkaneessuu meeshaa dhalootaa galmaa'ee jira. Fooyyessuun dura backup qabadhu.",
+    "metrics": "{{languages}} afaanota walqunnamtii · {{cloud}} dhiyeessitoota duumessaa · {{media}} durtii miidiyaa · {{license}}",
+    "providers": "Kaataloogin piroofaayilii dhiyeessaa {{providers}} of keessaa qaba: {{cloud}} tajaajiloota duumessaa fi {{localProvider}} sarvarii naannoodhaaf. Dhaqqabummaa fi dandeettiin moodeela herrega, naannoo fi API deeggarame irratti hundaa'a. Afaanonni walqunnamtii {{languages}} hundi kataloogii kana qooddatu.",
+    "media": "Kaataloogin uumuu {{media}} durtii {{mediaProviders}} dhiyeessitoota irraa of keessaa qaba: {{images}} fakkii, {{videos}} viidiyoo fi {{music}} durtii muuziqaa. Gabateewwan armaan gadii moodeelota sirrii fi adda baastoota adaaptaroota walitti makamaniin deeggaraman tarreessu.",
+    "upgrade": "Mallattoolee fooyyessaa Windows Authenticode fi Apple notarization irraa adda. Haashiin paakeejii, sakatta'iinsa dhalootaa fi qorannoowwan fooyya'iinsaa addaan galmaa'u. Fooyya'iinsi ummataa guutuu {{previous}} hanga {{release}} haalawwan gabaasa gadhiifama keessatti galmaa'aniif qofa mirkanaa'a.",
+    "android": "Android {{release}} akka mallattoo ARM64 APK, ijaarsa {{androidVersionCode}} ta'ee argama. Ragaa Novera jiru fayyadama fi sakatta'iinsa paakeejii darba. Haasaa dhuunfaa, moodeelota ykn furtuu API hin qabu. Bilbila tokko irratti fe'uu fi fooyyessuunis qoratamuu qaba."
+  },
+  "gu": {
+    "status": "Novera {{release}} નીચે સૂચિબદ્ધ પ્લેટફોર્મ્સ માટે ઉપલબ્ધ છે. તમારી સિસ્ટમ માટે પેકેજ ડાઉનલોડ કરો અથવા તેની સહી કરેલ અપડેટ ચેનલનો ઉપયોગ કરો. જ્યારે તમે નવું પેકેજ ઇન્સ્ટોલ કરો છો અથવા અપડેટ સ્વીકારો છો ત્યારે હાલની ઇન્સ્ટોલેશન અપડેટ થાય છે.",
+    "limits": "ઉપલબ્ધતા અને પૂર્ણ થયેલ ચેક નીચે સૂચિબદ્ધ છે. સપોર્ટેડ ફીચર્સ હાર્ડવેર, પ્રોવાઈડર એક્સેસ અને પ્લેટફોર્મ પર આધાર રાખે છે. સુરક્ષા તારણો અને મૂળ-ઉપકરણ માન્યતા મર્યાદા દસ્તાવેજીકૃત રહે છે. અપડેટ કરતા પહેલા બેકઅપ રાખો.",
+    "metrics": "{{languages}} ઇન્ટરફેસ ભાષાઓ · {{cloud}} ક્લાઉડ પ્રદાતાઓ · {{media}} મીડિયા પ્રીસેટ્સ · {{license}}",
+    "providers": "કેટલોગમાં {{providers}} પ્રદાતા પ્રોફાઇલ્સ છે: {{cloud}} ક્લાઉડ સેવાઓ અને સ્થાનિક સર્વર માટે {{localProvider}}. મોડલ એક્સેસ અને ક્ષમતાઓ એકાઉન્ટ, પ્રદેશ અને સપોર્ટેડ API પર આધાર રાખે છે. તમામ {{languages}} ઈન્ટરફેસ ભાષાઓ આ કેટલોગ શેર કરે છે.",
+    "media": "બનાવટ સૂચિમાં {{mediaProviders}} પ્રદાતાઓ તરફથી {{media}} પ્રીસેટ્સ છે: {{images}} છબી, {{videos}} વિડિઓ અને {{music}} સંગીત પ્રીસેટ્સ. નીચેના કોષ્ટકો સંકલિત એડેપ્ટરો દ્વારા સમર્થિત ચોક્કસ મોડેલો અને ઓળખકર્તાઓની સૂચિ આપે છે.",
+    "upgrade": "અપડેટર હસ્તાક્ષર વિન્ડોઝ ઓથેન્ટિકોડ અને એપલ નોટરાઇઝેશનથી અલગ છે. પેકેજ હેશ, નેટિવ ચેક અને અપડેટ ટેસ્ટ અલગથી દસ્તાવેજીકૃત કરવામાં આવે છે. સંપૂર્ણ સાર્વજનિક {{previous}} થી {{release}} અપગ્રેડની પુષ્ટિ ફક્ત પ્રકાશન અહેવાલમાં નોંધાયેલા દૃશ્યો માટે થાય છે.",
+    "android": "Android {{release}} એ હસ્તાક્ષરિત ARM64 APK, બિલ્ડ {{androidVersionCode}} તરીકે ઉપલબ્ધ છે. તે હાલના Novera પ્રમાણપત્રનો ઉપયોગ કરે છે અને પેકેજ નિરીક્ષણ પાસ કરે છે. તેમાં કોઈ વ્યક્તિગત વાતચીત, મોડેલ અથવા API કી નથી. ફોન પર ઇન્સ્ટોલ અને અપડેટનું પરીક્ષણ કરવાનું બાકી છે."
+  },
+  "ha": {
+    "status": "Novera {{release}} yana samuwa don dandamalin da aka jera a ƙasa. Zazzage fakitin don tsarin ku ko amfani da tashar sabunta sa hannu. Sabunta shigarwar da ke wanzu lokacin da kuka shigar da sabon fakitin ko karɓar sabuntawa.",
+    "limits": "Akwai da kuma kammala cak an jera a kasa. Fasalolin da aka goyan baya sun dogara da hardware, samun damar mai badawa da dandamali. Abubuwan da aka gano na tsaro da iyakokin ingantattun na'urori sun kasance a rubuce. Ajiye wariyar ajiya kafin ɗaukaka.",
+    "metrics": "{{languages}} harsunan mu'amala · {{cloud}} masu samar da girgije · {{media}} saitattun kafofin watsa labarai · {{license}}",
+    "providers": "Kas ɗin ya ƙunshi bayanan bayanan mai bada {{providers}}: {{cloud}} sabis na girgije da {{localProvider}} don uwar garken gida. Samun samfurin da iyawar ya dogara da asusu, yanki da API mai goyan baya. Duk {{languages}} harsunan mu'amala suna raba wannan kasida.",
+    "media": "Kas ɗin ƙirƙira ya ƙunshi saitunan {{media}} daga masu samar da {{mediaProviders}}: {{images}} hoto, {{videos}} bidiyo da {{music}} saitattun waƙa. Teburan da ke ƙasa suna jera ainihin ƙira da masu ganowa waɗanda ke goyan bayan haɗaɗɗun adaftan.",
+    "upgrade": "Sa hannu na sabuntawar sun bambanta da Windows Authenticode da Apple notarization. Hashes na fakiti, cak na asali da gwaje-gwajen sabuntawa ana rubuce daban. An tabbatar da cikakkiyar haɓaka {{previous}} zuwa {{release}} don abubuwan da aka rubuta a cikin rahoton sakin.",
+    "android": "Android {{release}} yana samuwa azaman sa hannun ARM64 apk, gina {{androidVersionCode}}. Yana amfani da takardar shedar Novera data kasance da kuma wuce binciken fakitin. Ba ya ƙunshi tattaunawar sirri, samfuri ko maɓallan API. Shigarwa da sabuntawa akan wayar sun rage don gwadawa."
+  },
+  "hak": {
+    "status": "Novera {{release}} 適用於下列平台。下載適合您的系統的軟體包或使用其簽署的更新通道。當您安裝新軟體包或接受更新時，現有安裝會更新。",
+    "limits": "下面列出了可用性和已完成的檢查。支援的功能取決於硬體、提供者存取權限和平台。安全發現和本機設備驗證限制仍然記錄在案。更新前請保留備份。",
+    "metrics": "{{languages}} 介面語言 · {{cloud}} 雲端提供者 · {{media}} 媒體預設 · {{license}}",
+    "providers": "目錄包含 {{providers}} 提供者設定檔：{{cloud}} 雲端服務和本機伺服器的 {{localProvider}}。模型存取和功能取決於帳戶、區域和支援的 API。所有 {{languages}} 介面語言共用此目錄。",
+    "media": "建立目錄包含來自 {{mediaProviders}} 提供者的 {{media}} 預設：{{images}} 圖片、{{videos}} 影片和 {{music}} 音樂預設。下表列出了整合式適配器支援的確切型號和識別碼。",
+    "upgrade": "更新程式簽章與 Windows Authenticode 和 Apple 公證分開。包雜湊、本機檢查和更新測試單獨記錄。僅針對發布報告中記錄的場景確認完整的公共 {{previous}} 到 {{release}} 升級。",
+    "android": "Android {{release}} 可作為簽署的 ARM64 APK，版本為 {{androidVersionCode}}。它使用現有的 Novera 憑證並通過套件檢查。它不包含個人對話、模型或 API 金鑰。在手機上的安裝和更新仍有待測試。"
+  },
+  "hi": {
+    "status": "Novera {{release}} नीचे सूचीबद्ध प्लेटफ़ॉर्म के लिए उपलब्ध है। अपने सिस्टम के लिए पैकेज डाउनलोड करें या इसके हस्ताक्षरित अपडेट चैनल का उपयोग करें। जब आप नया पैकेज इंस्टॉल करते हैं या अपडेट स्वीकार करते हैं तो मौजूदा इंस्टॉलेशन अपडेट हो जाते हैं।",
+    "limits": "उपलब्धता और पूर्ण जांच नीचे सूचीबद्ध हैं। समर्थित सुविधाएँ हार्डवेयर, प्रदाता पहुंच और प्लेटफ़ॉर्म पर निर्भर करती हैं। सुरक्षा निष्कर्ष और मूल-डिवाइस सत्यापन सीमाएँ दस्तावेज़ीकृत रहती हैं। अपडेट करने से पहले बैकअप रखें.",
+    "metrics": "{{languages}} इंटरफ़ेस भाषाएँ · {{cloud}} क्लाउड प्रदाता · {{media}} मीडिया प्रीसेट · {{license}}",
+    "providers": "कैटलॉग में शामिल है {{providers}} प्रदाता प्रोफाइल: {{cloud}} क्लाउड सेवाएँ और {{localProvider}} एक स्थानीय सर्वर के लिए. मॉडल पहुंच और क्षमताएं खाते, क्षेत्र और समर्थित एपीआई पर निर्भर करती हैं। सभी {{languages}} इंटरफ़ेस भाषाएँ इस कैटलॉग को साझा करती हैं।",
+    "media": "निर्माण कैटलॉग में {{mediaProviders}} प्रदाताओं के {{media}} प्रीसेट शामिल हैं: {{images}} छवि, {{videos}} वीडियो और {{music}} संगीत प्रीसेट। नीचे दी गई तालिकाएँ एकीकृत एडेप्टर द्वारा समर्थित सटीक मॉडल और पहचानकर्ताओं को सूचीबद्ध करती हैं।",
+    "upgrade": "अपडेटर हस्ताक्षर विंडोज़ ऑथेंटिकोड और ऐप्पल नोटरीकरण से अलग हैं। पैकेज हैश, मूल जांच और अद्यतन परीक्षण अलग से प्रलेखित किए जाते हैं। पूर्ण सार्वजनिक {{previous}} से {{release}} अपग्रेड की पुष्टि केवल रिलीज़ रिपोर्ट में दर्ज परिदृश्यों के लिए की जाती है।",
+    "android": "एंड्रॉइड {{release}} हस्ताक्षरित ARM64 एपीके, बिल्ड {{androidVersionCode}} के रूप में उपलब्ध है। यह मौजूदा Novera प्रमाणपत्र का उपयोग करता है और पैकेज निरीक्षण पास करता है। इसमें कोई व्यक्तिगत बातचीत, मॉडल या एपीआई कुंजियाँ नहीं हैं। फ़ोन पर इंस्टालेशन और अपडेट का परीक्षण किया जाना बाकी है।"
+  },
+  "hne": {
+    "status": "Novera {{release}} नीचे सूचीबद्ध प्लेटफ़ॉर्म के लिए उपलब्ध है। अपने सिस्टम के लिए पैकेज डाउनलोड करें या इसके हस्ताक्षरित अपडेट चैनल का उपयोग करें। जब आप नया पैकेज इंस्टॉल करते हैं या अपडेट स्वीकार करते हैं तो मौजूदा इंस्टॉलेशन अपडेट हो जाते हैं।",
+    "limits": "उपलब्धता और पूर्ण जांच नीचे सूचीबद्ध हैं। समर्थित सुविधाएँ हार्डवेयर, प्रदाता पहुंच और प्लेटफ़ॉर्म पर निर्भर करती हैं। सुरक्षा निष्कर्ष और मूल-डिवाइस सत्यापन सीमाएँ दस्तावेज़ीकृत रहती हैं। अपडेट करने से पहले बैकअप रखें.",
+    "metrics": "{{languages}} इंटरफ़ेस भाषाएँ · {{cloud}} क्लाउड प्रदाता · {{media}} मीडिया प्रीसेट · {{license}}",
+    "providers": "कैटलॉग में शामिल है {{providers}} प्रदाता प्रोफाइल: {{cloud}} क्लाउड सेवाएँ और {{localProvider}} एक स्थानीय सर्वर के लिए. मॉडल पहुंच और क्षमताएं खाते, क्षेत्र और समर्थित एपीआई पर निर्भर करती हैं। सभी {{languages}} इंटरफ़ेस भाषाएँ इस कैटलॉग को साझा करती हैं।",
+    "media": "निर्माण कैटलॉग में {{mediaProviders}} प्रदाताओं के {{media}} प्रीसेट शामिल हैं: {{images}} छवि, {{videos}} वीडियो और {{music}} संगीत प्रीसेट। नीचे दी गई तालिकाएँ एकीकृत एडेप्टर द्वारा समर्थित सटीक मॉडल और पहचानकर्ताओं को सूचीबद्ध करती हैं।",
+    "upgrade": "अपडेटर हस्ताक्षर विंडोज़ ऑथेंटिकोड और ऐप्पल नोटरीकरण से अलग हैं। पैकेज हैश, मूल जांच और अद्यतन परीक्षण अलग से प्रलेखित किए जाते हैं। पूर्ण सार्वजनिक {{previous}} से {{release}} अपग्रेड की पुष्टि केवल रिलीज़ रिपोर्ट में दर्ज परिदृश्यों के लिए की जाती है।",
+    "android": "एंड्रॉइड {{release}} हस्ताक्षरित ARM64 एपीके, बिल्ड {{androidVersionCode}} के रूप में उपलब्ध है। यह मौजूदा Novera प्रमाणपत्र का उपयोग करता है और पैकेज निरीक्षण पास करता है। इसमें कोई व्यक्तिगत बातचीत, मॉडल या एपीआई कुंजियाँ नहीं हैं। फ़ोन पर इंस्टालेशन और अपडेट का परीक्षण किया जाना बाकी है।"
+  },
+  "hsn": {
+    "status": "Novera {{release}} 适用于下列平台。下载适合您的系统的软件包或使用其签名的更新通道。当您安装新软件包或接受更新时，现有安装会更新。",
+    "limits": "下面列出了可用性和已完成的检查。支持的功能取决于硬件、提供商访问权限和平台。安全发现和本机设备验证限制仍然记录在案。更新前请保留备份。",
+    "metrics": "{{languages}} 界面语言 · {{cloud}} 云提供商 · {{media}} 媒体预设 · {{license}}",
+    "providers": "该目录包含 {{providers}} 提供商配置文件：{{cloud}} 云服务和本地服务器的 {{localProvider}}。模型访问和功能取决于帐户、区域和支持的 API。所有 {{languages}} 界面语言共享此目录。",
+    "media": "创建目录包含来自 {{mediaProviders}} 提供商的 {{media}} 预设：{{images}} 图片、{{videos}} 视频和 {{music}} 音乐预设。下表列出了集成适配器支持的确切型号和标识符。",
+    "upgrade": "更新程序签名与 Windows Authenticode 和 Apple 公证分开。包哈希、本机检查和更新测试单独记录。仅针对发布报告中记录的场景确认完整的公共 {{previous}} 到 {{release}} 升级。",
+    "android": "Android {{release}} 可作为签名的 ARM64 APK，版本为 {{androidVersionCode}}。它使用现有的 Novera 证书并通过包检查。它不包含个人对话、模型或 API 密钥。在手机上的安装和更新仍有待测试。"
+  },
+  "ht": {
+    "status": "Novera {{release}} disponib pou platfòm ki nan lis anba a. Telechaje pake a pou sistèm ou an oswa itilize chanèl aktyalizasyon li siyen. Enstalasyon ki egziste deja yo mete ajou lè ou enstale nouvo pake a oswa aksepte aktyalizasyon a.",
+    "limits": "Disponibilite ak chèk ranpli yo endike anba a. Karakteristik sipòte depann sou pyès ki nan konpitè, aksè founisè ak platfòm. Konklizyon sekirite ak limit validasyon aparèy natif natal yo rete dokimante. Kenbe yon backup anvan mete ajou.",
+    "metrics": "{{languages}} lang koòdone · {{cloud}} founisè nwaj · {{media}} prereglaj medya · {{license}}",
+    "providers": "Katalòg la gen {{providers}} pwofil founisè: {{cloud}} sèvis nwaj ak {{localProvider}} pou yon sèvè lokal. Aksè ak kapasite modèl depann sou kont, rejyon an ak API sipòte. Tout {{languages}} lang koòdone pataje katalòg sa a.",
+    "media": "Katalòg kreyasyon an gen {{media}} prereglaj ki soti nan founisè {{mediaProviders}}: {{images}} imaj, {{videos}} videyo ak {{music}} prereglaj mizik. Tablo ki anba yo lis modèl egzak ak idantifyan adaptè entegre yo sipòte.",
+    "upgrade": "Siyati Updater yo separe de Windows Authenticode ak notarizasyon Apple. Pake hash, chèk natif natal ak tès aktyalizasyon yo dokimante separeman. Yon ajou piblik konplè {{previous}} a {{release}} konfime sèlman pou senaryo ki anrejistre nan rapò lage a.",
+    "android": "Android {{release}} disponib kòm yon APK ARM64 ki siyen, konstwi {{androidVersionCode}}. Li sèvi ak sètifika Novera ki egziste deja epi li pase enspeksyon pake a. Li pa gen okenn konvèsasyon pèsonèl, modèl oswa kle API. Enstalasyon ak mete ajou sou yon telefòn rete yo dwe teste."
+  },
+  "id": {
+    "status": "Novera {{release}} tersedia untuk platform yang tercantum di bawah. Unduh paket untuk sistem Anda atau gunakan saluran pembaruan yang ditandatangani. Instalasi yang ada diperbarui ketika Anda menginstal paket baru atau menerima pembaruan.",
+    "limits": "Ketersediaan dan pemeriksaan yang telah selesai tercantum di bawah ini. Fitur yang didukung bergantung pada perangkat keras, akses penyedia, dan platform. Temuan keamanan dan batas validasi perangkat asli tetap didokumentasikan. Simpan cadangan sebelum memperbarui.",
+    "metrics": "{{languages}} bahasa antarmuka · {{cloud}} penyedia cloud · {{media}} preset media · {{license}}",
+    "providers": "Katalog berisi profil penyedia {{providers}}: {{cloud}} layanan cloud dan {{localProvider}} untuk server lokal. Akses dan kemampuan model bergantung pada akun, wilayah, dan API yang didukung. Semua bahasa antarmuka {{languages}} menggunakan katalog ini.",
+    "media": "Katalog pembuatan berisi preset {{media}} dari penyedia {{mediaProviders}}: preset gambar {{images}}, video {{videos}}, dan musik {{music}}. Tabel di bawah mencantumkan model dan pengidentifikasi persis yang didukung oleh adaptor terintegrasi.",
+    "upgrade": "Tanda tangan pembaru terpisah dari Windows Authenticode dan notarisasi Apple. Hash paket, pemeriksaan asli, dan pengujian pembaruan didokumentasikan secara terpisah. Peningkatan versi publik lengkap dari {{previous}} ke {{release}} dikonfirmasi hanya untuk skenario yang dicatat dalam laporan rilis.",
+    "android": "Android {{release}} tersedia sebagai APK ARM64 bertanda tangan, build {{androidVersionCode}}. Ia menggunakan sertifikat Novera yang ada dan lolos pemeriksaan paket. Ini tidak berisi percakapan pribadi, model, atau kunci API. Instalasi dan pembaruan pada ponsel masih harus diuji."
+  },
+  "ig": {
+    "status": "Novera {{release}} dị maka nyiwe ndị edepụtara n'okpuru. Budata ngwugwu maka sistemụ gị ma ọ bụ jiri ọwa mmelite bịanyere aka na ya. Mmelite nrụnye dị adị mgbe ị wụnye ngwugwu ọhụrụ ma ọ bụ nabata mmelite ahụ.",
+    "limits": "Edepụtara nnweta na ndenye ndenye ego n'okpuru. Atụmatụ akwadoro dabere na ngwaike, ohere ndị na-eweta na ikpo okwu. A ka na-edekọ nchoputa nchekwa yana oke nnabata ngwa ngwa. Debe ndabere tupu emelite.",
+    "metrics": "{{languages}} interface asụsụ · {{cloud}} ndị na-eweta igwe ojii · {{media}} nhazi mgbasa ozi · {{license}}",
+    "providers": "Katalọgụ ahụ nwere profaịlụ ndị na-eweta {{providers}}: {{cloud}} ọrụ igwe ojii yana {{localProvider}} maka sava mpaghara. Ịnweta ụdị na ike dabere na akaụntụ, mpaghara yana API akwadoro. Asụsụ interface {{languages}} niile na-ekekọrịta katalọgụ a.",
+    "media": "Katalọgụ okike ahụ nwere ntọala {{media}} sitere na {{mediaProviders}} ndị na-eweta: {{images}} onyonyo, vidiyo {{videos}} na {{music}} atọrọ ntọala egwu. Tebụl ndị dị n'okpuru depụtara ụdịdị na njirimara nke ihe nkwụnye agbakwunyere na-akwado.",
+    "upgrade": "Mbinye aka mmelite dị iche na Windows Authenticode na Apple notarization. A na-edekọ hashes ngwugwu, nlele ala na nyocha mmelite iche iche. A kwadoro nkwalite ọha {{previous}} ruo {{release}} naanị maka ọnọdụ ndị edekọtara na mkpesa mwepụta ahụ.",
+    "android": "Android {{release}} dị ka ngwa ARM64 bịanyere aka na ya, wuo {{androidVersionCode}}. Ọ na-eji akwụkwọ Novera dị na-agafe nyocha ngwungwu. O nweghi mkparịta ụka nkeonwe, ụdị ma ọ bụ igodo API. Nwụnye na emelite na ekwentị ka ga-anwale."
+  },
+  "it": {
+    "status": "Novera {{release}} è disponibile per le piattaforme elencate di seguito. Scarica il pacchetto per il tuo sistema o utilizza il canale di aggiornamento firmato. Le installazioni esistenti si aggiornano quando installi il nuovo pacchetto o accetti l'aggiornamento.",
+    "limits": "La disponibilità e i controlli completati sono elencati di seguito. Le funzionalità supportate dipendono dall'hardware, dall'accesso del provider e dalla piattaforma. I risultati sulla sicurezza e i limiti di convalida del dispositivo nativo rimangono documentati. Conserva un backup prima dell'aggiornamento.",
+    "metrics": "{{languages}} lingue dell'interfaccia · {{cloud}} fornitori di servizi cloud · {{media}} preimpostazioni multimediali · {{license}}",
+    "providers": "Il catalogo contiene i profili dei fornitori {{providers}}: servizi cloud {{cloud}} e {{localProvider}} per un server locale. L'accesso e le funzionalità del modello dipendono dall'account, dalla regione e dall'API supportata. Tutte le lingue dell'interfaccia {{languages}} condividono questo catalogo.",
+    "media": "Il catalogo di creazione contiene {{media}} preimpostazioni di {{mediaProviders}} fornitori: {{images}} immagini, {{videos}} video e {{music}} preimpostazioni musicali. Le tabelle seguenti elencano i modelli e gli identificatori esatti supportati dagli adattatori integrati.",
+    "upgrade": "Le firme del programma di aggiornamento sono separate dall'Authenticode di Windows e dall'autenticazione di Apple. Gli hash dei pacchetti, i controlli nativi e i test di aggiornamento sono documentati separatamente. Un aggiornamento pubblico completo da {{previous}} a {{release}} è confermato solo per gli scenari registrati nel rapporto di rilascio.",
+    "android": "Android {{release}} è disponibile come APK ARM64 firmato, build {{androidVersionCode}}. Utilizza il certificato esistente Novera e supera l'ispezione del pacchetto. Non contiene conversazioni personali, modelli o chiavi API. L'installazione e l'aggiornamento su un telefono restano da testare."
+  },
+  "ja": {
+    "status": "Novera {{release}} は、以下にリストされているプラ​​ットフォームで利用できます。システムのパッケージをダウンロードするか、署名された更新チャネルを使用します。新しいパッケージをインストールするか、更新を受け入れると、既存のインストールが更新されます。",
+    "limits": "可用性と完了したチェックは以下にリストされています。サポートされる機能は、ハードウェア、プロバイダーのアクセス、およびプラットフォームによって異なります。セキュリティに関する調査結果とネイティブ デバイスの検証制限は文書化されたままです。アップデートする前にバックアップをとってください。",
+    "metrics": "{{languages}} 個のインターフェース言語 · {{cloud}} 個のクラウド プロバイダー · {{media}} 個のメディア プリセット · {{license}}",
+    "providers": "カタログには、{{providers}} プロバイダー プロファイル: {{cloud}} クラウド サービスとローカル サーバーの {{localProvider}} が含まれています。モデルのアクセスと機能は、アカウント、リージョン、サポートされている API によって異なります。すべての {{languages}} インターフェース言語はこのカタログを共有します。",
+    "media": "作成カタログには、{{mediaProviders}} プロバイダーからの {{media}} 個のプリセットが含まれています: {{images}} 画像、{{videos}} 個のビデオ、および {{music}} 個の音楽プリセット。以下の表は、統合アダプターでサポートされる正確なモデルと識別子のリストです。",
+    "upgrade": "アップデーターの署名は、Windows Authenticode および Apple 公証とは別のものです。パッケージのハッシュ、ネイティブ チェック、および更新テストについては、個別に文書化されています。 {{previous}} から {{release}} への完全な公開アップグレードは、リリース レポートに記録されているシナリオについてのみ確認されています。",
+    "android": "Android {{release}} は、署名付き ARM64 APK、ビルド {{androidVersionCode}} として利用できます。既存の Novera 証明書を使用し、パッケージ検査に合格しています。個人的な会話、モデル、API キーは含まれません。電話機へのインストールとアップデートはまだテストされていません。"
+  },
+  "jv": {
+    "status": "Novera {{release}} kasedhiya kanggo platform ing ngisor iki. Unduh paket kanggo sistem sampeyan utawa gunakake saluran nganyari sing wis ditandatangani. Nganyari panginstalan sing ana nalika sampeyan nginstal paket anyar utawa nampa nganyari.",
+    "limits": "Kasedhiyan lan mriksa rampung kapacak ing ngisor iki. Fitur sing didhukung gumantung ing hardware, akses panyedhiya lan platform. Temuan keamanan lan watesan validasi piranti asli tetep didokumentasikan. Tansah serep sadurunge nganyari.",
+    "metrics": "{{languages}} basa antarmuka · {{cloud}} panyedhiya awan · {{media}} prasetel media · {{license}}",
+    "providers": "Katalog kasebut ngemot profil panyedhiya {{providers}}: {{cloud}} layanan awan lan {{localProvider}} kanggo server lokal. Akses model lan kapabilitas gumantung ing akun, wilayah lan API sing didhukung. Kabeh basa antarmuka {{languages}} nuduhake katalog iki.",
+    "media": "Katalog gawean ngemot prasetel {{media}} saka panyedhiya {{mediaProviders}}: {{images}} prasetel gambar, {{videos}} video lan {{music}} prasetel musik. Tabel ing ngisor iki nampilake model lan pengenal sing tepat sing didhukung dening adaptor terpadu.",
+    "upgrade": "Tandha Updater kapisah saka Windows Authenticode lan Apple notarization. Hash paket, pamriksa asli lan tes nganyari didokumentasikake kanthi kapisah. Peningkatan {{previous}} umum lengkap nganti {{release}} dikonfirmasi mung kanggo skenario sing direkam ing laporan rilis.",
+    "android": "Android {{release}} kasedhiya minangka APK ARM64 sing wis ditandatangani, gawe {{androidVersionCode}}. Iki nggunakake sertifikat Novera sing wis ana lan lulus pemeriksaan paket. Ora ana obrolan pribadi, model utawa kunci API. Instalasi lan nganyari ing telpon isih kudu dites."
+  },
+  "kk": {
+    "status": "Novera {{release}} төменде тізімделген платформалар үшін қолжетімді. Жүйеге арналған буманы жүктеп алыңыз немесе оның қол қойылған жаңарту арнасын пайдаланыңыз. Жаңа буманы орнатқанда немесе жаңартуды қабылдағанда бар орнатулар жаңартылады.",
+    "limits": "Қол жетімділік және аяқталған тексерулер төменде берілген. Қолдау көрсетілетін мүмкіндіктер аппараттық құралға, провайдер рұқсатына және платформаға байланысты. Қауіпсіздік нәтижелері мен жергілікті құрылғыны тексеру шектеулері құжатталған күйінде қалады. Жаңарту алдында сақтық көшірме жасаңыз.",
+    "metrics": "{{languages}} интерфейс тілдері · {{cloud}} бұлттық провайдерлер · {{media}} медиа алдын ала орнатулары · {{license}}",
+    "providers": "Каталогта {{providers}} провайдер профилі бар: {{cloud}} бұлттық қызметтер және жергілікті серверге арналған {{localProvider}}. Үлгіге қол жеткізу және мүмкіндіктер тіркелгіге, аймаққа және қолдау көрсетілетін API интерфейсіне байланысты. Барлық {{languages}} интерфейс тілдері осы каталогты бөліседі.",
+    "media": "Жасалу каталогында {{mediaProviders}} провайдерлерінің {{media}} алдын ала орнатулары бар: {{images}} кескін, {{videos}} бейне және {{music}} музыканың алдын ала орнатулары. Төмендегі кестелерде біріктірілген адаптерлер қолдайтын нақты үлгілер мен идентификаторлар тізімі берілген.",
+    "upgrade": "Жаңартқыш қолтаңбалары Windows Authenticode және Apple нотариалдық куәландырудан бөлек. Пакет хэштері, жергілікті тексерулер және жаңарту сынақтары бөлек құжатталады. Толық жалпыға қолжетімді {{previous}} {{release}} дейін жаңарту тек шығарылым есебінде жазылған сценарийлер үшін расталады.",
+    "android": "Android {{release}} қол қойылған ARM64 APK ретінде қолжетімді, құрастыру {{androidVersionCode}}. Ол бар Novera сертификатын пайдаланады және пакеттік тексеруден өтеді. Онда жеке сөйлесулер, үлгілер немесе API кілттері жоқ. Телефонда орнату және жаңарту сынақтан өтуі керек."
+  },
+  "km": {
+    "status": "Novera {{release}} មានសម្រាប់វេទិកាដែលបានរាយខាងក្រោម។ ទាញយកកញ្ចប់សម្រាប់ប្រព័ន្ធរបស់អ្នក ឬប្រើឆានែលអាប់ដេតដែលបានចុះហត្ថលេខារបស់វា។ ការដំឡើងដែលមានស្រាប់ធ្វើបច្ចុប្បន្នភាពនៅពេលអ្នកដំឡើងកញ្ចប់ថ្មី ឬទទួលយកការធ្វើបច្ចុប្បន្នភាព។",
+    "limits": "ភាពអាចរកបាន និងការត្រួតពិនិត្យដែលបានបញ្ចប់មានរាយខាងក្រោម។ មុខងារដែលបានគាំទ្រអាស្រ័យលើផ្នែករឹង ការចូលប្រើរបស់អ្នកផ្តល់សេវា និងវេទិកា។ ការរកឃើញសុវត្ថិភាព និងដែនកំណត់សុពលភាពឧបករណ៍ដើមនៅតែជាឯកសារ។ រក្សាការបម្រុងទុកមុនពេលធ្វើបច្ចុប្បន្នភាព។",
+    "metrics": "ភាសាចំណុចប្រទាក់ {{languages}} · អ្នកផ្តល់សេវាពពក {{cloud}} · ការកំណត់មេឌៀ {{media}} · {{license}}",
+    "providers": "កាតាឡុកមានទម្រង់អ្នកផ្តល់សេវា {{providers}}៖ សេវាកម្មពពក {{cloud}} និង {{localProvider}} សម្រាប់ម៉ាស៊ីនមេក្នុងតំបន់។ ការចូលប្រើគំរូ និងសមត្ថភាពអាស្រ័យលើគណនី តំបន់ និង API ដែលគាំទ្រ។ ភាសាចំណុចប្រទាក់ {{languages}} ទាំងអស់ចែករំលែកកាតាឡុកនេះ។",
+    "media": "កាតាឡុកនៃការបង្កើតមាន {{media}} កំណត់ជាមុនពីអ្នកផ្តល់សេវា {{mediaProviders}}៖ រូបភាព {{images}} វីដេអូ {{videos}} និងការកំណត់តន្ត្រីជាមុន {{music}} ។ តារាងខាងក្រោមរាយបញ្ជីម៉ូដែល និងអត្តសញ្ញាណជាក់លាក់ដែលគាំទ្រដោយអាដាប់ទ័ររួមបញ្ចូលគ្នា។",
+    "upgrade": "ហត្ថលេខាអ្នកធ្វើបច្ចុប្បន្នភាពគឺដាច់ដោយឡែកពី Windows Authenticode និង Apple notarization ។ សញ្ញាកញ្ចប់ ការត្រួតពិនិត្យដើម និងការធ្វើតេស្តធ្វើបច្ចុប្បន្នភាពត្រូវបានចងក្រងដោយឡែកពីគ្នា។ ការធ្វើឱ្យប្រសើរឡើងជាសាធារណៈពេញលេញពី {{previous}} ទៅ {{release}} ត្រូវបានបញ្ជាក់សម្រាប់តែស្ថានភាពដែលបានកត់ត្រានៅក្នុងរបាយការណ៍ចេញផ្សាយប៉ុណ្ណោះ។",
+    "android": "Android {{release}} អាចប្រើបានជា ARM64 APK ដែលបានចុះហត្ថលេខា បង្កើត {{androidVersionCode}}។ វាប្រើវិញ្ញាបនបត្រ Novera ដែលមានស្រាប់ និងឆ្លងកាត់ការត្រួតពិនិត្យកញ្ចប់។ វាមិនមានការសន្ទនាផ្ទាល់ខ្លួន ម៉ូដែល ឬសោ API ទេ។ ការដំឡើង និងការអាប់ដេតនៅលើទូរសព្ទនៅតែត្រូវបានសាកល្បង។"
+  },
+  "kmr": {
+    "status": "Novera {{release}} ji bo platformên li jêr hatine rêz kirin heye. Ji bo pergala xwe pakêtê dakêşin an kanala nûvekirina wê ya îmzekirî bikar bînin. Sazkirinên heyî dema ku hûn pakêta nû saz dikin an nûvekirinê qebûl dikin nûve dikin.",
+    "limits": "Hebûn û kontrolên qedandî li jêr têne navnîş kirin. Taybetmendiyên piştgirî bi hardware, gihîştina pêşkêşker û platformê ve girêdayî ye. Vedîtinên ewlehiyê û sînorên pejirandina cîhaza xwecihî belgekirî dimînin. Berî nûvekirinê hilanînê hilînin.",
+    "metrics": "{{languages}} zimanên navberê · {{cloud}} pêşkêşkerên ewr · {{media}} pêşdibistanên medyayê · {{license}}",
+    "providers": "Katalog {{providers}} profîlên pêşkêşker hene: {{cloud}} servîsên ewr û {{localProvider}} ji bo pêşkêşkerek herêmî. Gihîştin û kapasîteyên modelê bi hesab, herêm û API-ya piştgirî ve girêdayî ye. Hemî {{languages}} zimanên navberê vê katalogê parve dikin.",
+    "media": "Kataloga afirandinê dihewîne {{media}} pêşdibistanên ji pêşkêşkerên {{mediaProviders}}: {{images}} wêne, {{videos}} vîdeo û {{music}} pêşdibistanên muzîkê. Tabloyên jêrîn model û nasnameyên rastîn ên ku ji hêla adapterên yekbûyî ve têne piştgirî kirin navnîş dikin.",
+    "upgrade": "Îmzeyên nûveker ji noterkirina Windows Authenticode û Apple-ê veqetandî ne. Haşeyên pakêtê, kontrolên xwemalî û ceribandinên nûvekirinê ji hev cihê têne belge kirin. Nûvekirinek giştî ya tevahî {{previous}} ji bo {{release}} tenê ji bo senaryoyên ku di rapora berdanê de hatine tomar kirin tê pejirandin.",
+    "android": "Android {{release}} wekî ARM64 APK-ya îmzekirî heye, avahî {{androidVersionCode}}. Ew sertîfîkaya heyî ya Novera bikar tîne û kontrolkirina pakêtê derbas dike. Ew ti danûstendinên kesane, model an bişkojkên API-ê dihewîne. Sazkirin û nûvekirina li ser têlefonê dimîne ku were ceribandin."
+  },
+  "kn": {
+    "status": "ಕೆಳಗೆ ಪಟ್ಟಿ ಮಾಡಲಾದ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳಿಗೆ Novera {{release}} ಲಭ್ಯವಿದೆ. ನಿಮ್ಮ ಸಿಸ್ಟಂಗಾಗಿ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ ಅಥವಾ ಅದರ ಸಹಿ ಮಾಡಿದ ನವೀಕರಣ ಚಾನಲ್ ಅನ್ನು ಬಳಸಿ. ನೀವು ಹೊಸ ಪ್ಯಾಕೇಜ್ ಅನ್ನು ಸ್ಥಾಪಿಸಿದಾಗ ಅಥವಾ ನವೀಕರಣವನ್ನು ಸ್ವೀಕರಿಸಿದಾಗ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಅನುಸ್ಥಾಪನೆಗಳನ್ನು ನವೀಕರಿಸಲಾಗುತ್ತದೆ.",
+    "limits": "ಲಭ್ಯತೆ ಮತ್ತು ಪೂರ್ಣಗೊಂಡ ಚೆಕ್‌ಗಳನ್ನು ಕೆಳಗೆ ಪಟ್ಟಿ ಮಾಡಲಾಗಿದೆ. ಬೆಂಬಲಿತ ವೈಶಿಷ್ಟ್ಯಗಳು ಹಾರ್ಡ್‌ವೇರ್, ಪೂರೈಕೆದಾರರ ಪ್ರವೇಶ ಮತ್ತು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಅನ್ನು ಅವಲಂಬಿಸಿರುತ್ತದೆ. ಭದ್ರತಾ ಸಂಶೋಧನೆಗಳು ಮತ್ತು ಸ್ಥಳೀಯ-ಸಾಧನದ ಮೌಲ್ಯೀಕರಣ ಮಿತಿಗಳನ್ನು ದಾಖಲಿಸಲಾಗಿದೆ. ನವೀಕರಿಸುವ ಮೊದಲು ಬ್ಯಾಕಪ್ ಅನ್ನು ಇರಿಸಿಕೊಳ್ಳಿ.",
+    "metrics": "{{languages}} ಇಂಟರ್‌ಫೇಸ್ ಭಾಷೆಗಳು · {{cloud}} ಕ್ಲೌಡ್ ಪೂರೈಕೆದಾರರು · {{media}} ಮಾಧ್ಯಮ ಪೂರ್ವನಿಗದಿಗಳು · {{license}}",
+    "providers": "ಕ್ಯಾಟಲಾಗ್ {{providers}} ಒದಗಿಸುವವರ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಒಳಗೊಂಡಿದೆ: {{cloud}} ಕ್ಲೌಡ್ ಸೇವೆಗಳು ಮತ್ತು ಸ್ಥಳೀಯ ಸರ್ವರ್‌ಗಾಗಿ {{localProvider}}. ಮಾದರಿ ಪ್ರವೇಶ ಮತ್ತು ಸಾಮರ್ಥ್ಯಗಳು ಖಾತೆ, ಪ್ರದೇಶ ಮತ್ತು ಬೆಂಬಲಿತ API ಅನ್ನು ಅವಲಂಬಿಸಿರುತ್ತದೆ. ಎಲ್ಲಾ {{languages}} ಇಂಟರ್ಫೇಸ್ ಭಾಷೆಗಳು ಈ ಕ್ಯಾಟಲಾಗ್ ಅನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತವೆ.",
+    "media": "ರಚನೆಯ ಕ್ಯಾಟಲಾಗ್ {{mediaProviders}} ಪೂರೈಕೆದಾರರಿಂದ {{media}} ಪೂರ್ವನಿಗದಿಗಳನ್ನು ಒಳಗೊಂಡಿದೆ: {{images}} ಚಿತ್ರ, {{videos}} ವೀಡಿಯೊ ಮತ್ತು {{music}} ಸಂಗೀತ ಪೂರ್ವನಿಗದಿಗಳು. ಕೆಳಗಿನ ಕೋಷ್ಟಕಗಳು ಸಮಗ್ರ ಅಡಾಪ್ಟರುಗಳಿಂದ ಬೆಂಬಲಿತವಾದ ನಿಖರವಾದ ಮಾದರಿಗಳು ಮತ್ತು ಗುರುತಿಸುವಿಕೆಗಳನ್ನು ಪಟ್ಟಿಮಾಡುತ್ತವೆ.",
+    "upgrade": "ಅಪ್‌ಡೇಟರ್ ಸಹಿಗಳು ವಿಂಡೋಸ್ ಅಥೆಂಟಿಕೋಡ್ ಮತ್ತು ಆಪಲ್ ನೋಟರೈಸೇಶನ್‌ನಿಂದ ಪ್ರತ್ಯೇಕವಾಗಿರುತ್ತವೆ. ಪ್ಯಾಕೇಜ್ ಹ್ಯಾಶ್‌ಗಳು, ಸ್ಥಳೀಯ ಚೆಕ್‌ಗಳು ಮತ್ತು ನವೀಕರಣ ಪರೀಕ್ಷೆಗಳನ್ನು ಪ್ರತ್ಯೇಕವಾಗಿ ದಾಖಲಿಸಲಾಗಿದೆ. ಸಂಪೂರ್ಣ ಸಾರ್ವಜನಿಕ {{previous}} ಗೆ {{release}} ಅಪ್‌ಗ್ರೇಡ್ ಅನ್ನು ಬಿಡುಗಡೆ ವರದಿಯಲ್ಲಿ ದಾಖಲಿಸಲಾದ ಸನ್ನಿವೇಶಗಳಿಗೆ ಮಾತ್ರ ದೃಢೀಕರಿಸಲಾಗಿದೆ.",
+    "android": "Android {{release}} ಸಹಿ ಮಾಡಿದ ARM64 APK ಆಗಿ ಲಭ್ಯವಿದೆ, ನಿರ್ಮಿಸಲು {{androidVersionCode}}. ಇದು ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ Novera ಪ್ರಮಾಣಪತ್ರವನ್ನು ಬಳಸುತ್ತದೆ ಮತ್ತು ಪ್ಯಾಕೇಜ್ ತಪಾಸಣೆಯನ್ನು ಹಾದುಹೋಗುತ್ತದೆ. ಇದು ಯಾವುದೇ ವೈಯಕ್ತಿಕ ಸಂಭಾಷಣೆಗಳು, ಮಾದರಿಗಳು ಅಥವಾ API ಕೀಗಳನ್ನು ಹೊಂದಿಲ್ಲ. ಫೋನ್‌ನಲ್ಲಿ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡುವುದು ಮತ್ತು ಅಪ್‌ಡೇಟ್ ಮಾಡುವುದನ್ನು ಪರೀಕ್ಷಿಸಬೇಕಾಗಿದೆ."
+  },
+  "ko": {
+    "status": "Novera {{release}}은(는) 아래 나열된 플랫폼에서 사용할 수 있습니다. 시스템에 맞는 패키지를 다운로드하거나 서명된 업데이트 채널을 사용하세요. 새 패키지를 설치하거나 업데이트를 수락하면 기존 설치가 업데이트됩니다.",
+    "limits": "가용성 및 완료된 확인 사항은 다음과 같습니다. 지원되는 기능은 하드웨어, 공급자 액세스 및 플랫폼에 따라 다릅니다. 보안 발견 사항 및 기본 장치 유효성 검사 제한은 문서화되어 있습니다. 업데이트하기 전에 백업을 유지하십시오.",
+    "metrics": "{{languages}} 인터페이스 언어 · {{cloud}} 클라우드 제공업체 · {{media}} 미디어 사전 설정 · {{license}}",
+    "providers": "카탈로그에는 {{providers}} 공급자 프로필({{cloud}} 클라우드 서비스 및 로컬 서버용 {{localProvider}})이 포함되어 있습니다. 모델 액세스 및 기능은 계정, 지역 및 지원되는 API에 따라 다릅니다. 모든 {{languages}} 인터페이스 언어는 이 카탈로그를 공유합니다.",
+    "media": "생성 카탈로그에는 {{mediaProviders}} 제공업체의 사전 설정 {{media}}개({{images}} 이미지, {{videos}} 비디오 및 {{music}} 음악 사전 설정)가 포함되어 있습니다. 아래 표에는 통합 어댑터가 지원하는 정확한 모델과 식별자가 나열되어 있습니다.",
+    "upgrade": "업데이터 서명은 Windows Authenticode 및 Apple 공증과는 별개입니다. 패키지 해시, 기본 검사 및 업데이트 테스트는 별도로 문서화됩니다. 릴리스 보고서에 기록된 시나리오에 대해서만 완전한 공개 {{previous}}에서 {{release}}로의 업그레이드가 확인되었습니다.",
+    "android": "Android {{release}}는 서명된 ARM64 APK, 빌드 {{androidVersionCode}}로 제공됩니다. 기존 Novera 인증서를 사용하고 패키지 검사를 통과합니다. 여기에는 개인적인 대화, 모델 또는 API 키가 포함되어 있지 않습니다. 휴대폰에서의 설치 및 업데이트는 아직 테스트 중입니다."
+  },
+  "ln": {
+    "status": "Novera {{release}} ezali mpo na ba plateformes oyo ezali awa na se. Télécharger forfait mpo na système na yo to salela chaîne na yango ya mise à jour oyo e signer. Ba installations oyo ezali kosala mise à jour tango o installer forfait ya sika to ondimi mise à jour.",
+    "limits": "Disponibilité mpe ba chèques oyo esilisi ezali na liste oyo ezali awa na se. Ba fonctionnalités oyo esungami etali matériel, accès ya fournisseur na plateforme. Ba résultats ya sécurité mpe ba limite ya validation ya appareil native etikali na mikanda. Bomba sauvegarde liboso ya kosala mise à jour.",
+    "metrics": "{{languages}} minoko ya interface · {{cloud}} ba fournisseurs ya mapata · {{media}} ba pré-réglages ya media · {{license}}",
+    "providers": "Catalogue ezali na {{providers}} ba profils ya mopesi: {{cloud}} misala ya lipata mpe {{localProvider}} mpo na mosaleli ya esika. Accès ya modèle mpe makoki etali compte, région mpe API oyo esungami. Minɔkɔ nyonso ya interface {{languages}} ekabolaka catalogue oyo.",
+    "media": "Catalogue ya bokeli ezali na {{media}} ba pré-réglages oyo euti na {{mediaProviders}} ba fournisseurs: {{images}} image, {{videos}} video mpe {{music}} ba pré-réglages ya miziki. Ba tableaux oyo ezali awa na se ezali kotanga ba modèles ya sikisiki mpe ba identifiants oyo esungami na ba adaptateurs intégrés.",
+    "upgrade": "Ba signature ya mise à jour ezali separate na Windows Authenticode na notariation ya Apple. Ba hashes ya paquet, ba vérifications natives na ba tests ya mise à jour e documenté separatement. Bomatisi mobimba ya bato banso {{previous}} na {{release}} endimami kaka mpo na ba scénarios oyo ekomami na rapport ya bobimisi.",
+    "android": "Android {{release}} ezali lokola APK ARM64 oyo etiamaki sinyatili, kotonga {{androidVersionCode}}. Esalelaka certificat Novera oyo ezali mpe elekaka botali ya paquet. Ezali na masolo ya moto ye moko te, ba modèles to ba clés ya API te. Installation mpe mise à jour na téléphone etikali komekama."
+  },
+  "mag": {
+    "status": "Novera {{release}} नीचे सूचीबद्ध प्लेटफ़ॉर्म के लिए उपलब्ध है। अपने सिस्टम के लिए पैकेज डाउनलोड करें या इसके हस्ताक्षरित अपडेट चैनल का उपयोग करें। जब आप नया पैकेज इंस्टॉल करते हैं या अपडेट स्वीकार करते हैं तो मौजूदा इंस्टॉलेशन अपडेट हो जाते हैं।",
+    "limits": "उपलब्धता और पूर्ण जांच नीचे सूचीबद्ध हैं। समर्थित सुविधाएँ हार्डवेयर, प्रदाता पहुंच और प्लेटफ़ॉर्म पर निर्भर करती हैं। सुरक्षा निष्कर्ष और मूल-डिवाइस सत्यापन सीमाएँ दस्तावेज़ीकृत रहती हैं। अपडेट करने से पहले बैकअप रखें.",
+    "metrics": "{{languages}} इंटरफ़ेस भाषाएँ · {{cloud}} क्लाउड प्रदाता · {{media}} मीडिया प्रीसेट · {{license}}",
+    "providers": "कैटलॉग में शामिल है {{providers}} प्रदाता प्रोफाइल: {{cloud}} क्लाउड सेवाएँ और {{localProvider}} एक स्थानीय सर्वर के लिए. मॉडल पहुंच और क्षमताएं खाते, क्षेत्र और समर्थित एपीआई पर निर्भर करती हैं। सभी {{languages}} इंटरफ़ेस भाषाएँ इस कैटलॉग को साझा करती हैं।",
+    "media": "निर्माण कैटलॉग में {{mediaProviders}} प्रदाताओं के {{media}} प्रीसेट शामिल हैं: {{images}} छवि, {{videos}} वीडियो और {{music}} संगीत प्रीसेट। नीचे दी गई तालिकाएँ एकीकृत एडेप्टर द्वारा समर्थित सटीक मॉडल और पहचानकर्ताओं को सूचीबद्ध करती हैं।",
+    "upgrade": "अपडेटर हस्ताक्षर विंडोज़ ऑथेंटिकोड और ऐप्पल नोटरीकरण से अलग हैं। पैकेज हैश, मूल जांच और अद्यतन परीक्षण अलग से प्रलेखित किए जाते हैं। पूर्ण सार्वजनिक {{previous}} से {{release}} अपग्रेड की पुष्टि केवल रिलीज़ रिपोर्ट में दर्ज परिदृश्यों के लिए की जाती है।",
+    "android": "एंड्रॉइड {{release}} हस्ताक्षरित ARM64 एपीके, बिल्ड {{androidVersionCode}} के रूप में उपलब्ध है। यह मौजूदा Novera प्रमाणपत्र का उपयोग करता है और पैकेज निरीक्षण पास करता है। इसमें कोई व्यक्तिगत बातचीत, मॉडल या एपीआई कुंजियाँ नहीं हैं। फ़ोन पर इंस्टालेशन और अपडेट का परीक्षण किया जाना बाकी है।"
+  },
+  "mai": {
+    "status": "Novera {{release}} नीचाँ सूचीबद्ध प्लेटफॉर्मक लेल उपलब्ध अछि. अपन सिस्टम कें लेल पैकेज डाउनलोड करूं या ओकर हस्ताक्षरित अपडेट चैनल कें उपयोग करूं. मौजूदा इंस्टॉलेशन तखन अपडेट करैत अछि जखन अहाँ नव पैकेज इंस्टॉल करैत छी अथवा अपडेट स्वीकार करैत छी.",
+    "limits": "उपलब्धता आ पूरा भेल चेक नीचा देल गेल अछि। समर्थित सुविधा हार्डवेयर, प्रदाता पहुंच आ प्लेटफॉर्म पर निर्भर करएयत छै. सुरक्षा निष्कर्ष आ देशी-डिवाइस सत्यापन सीमा दस्तावेजबद्ध छै. अपडेट करबा स पहिने बैकअप राखू।",
+    "metrics": "{{languages}} इंटरफेस भाषा · {{cloud}} क्लाउड प्रदाता · {{media}} मीडिया प्रीसेट · {{license}}",
+    "providers": "कैटलॉग मे {{providers}} प्रदाता प्रोफाइल शामिल अछि: {{cloud}} क्लाउड सेवा आओर {{localProvider}} एकटा स्थानीय सर्वर क लेल. मॉडल पहुंच आ क्षमता खाता, क्षेत्र आ समर्थित एपीआई पर निर्भर करएयत छै. सभ {{languages}} इंटरफेस भाषा एहि कैटलॉग केँ साझा करैत अछि.",
+    "media": "निर्माण कैटलॉग मे {{media}} पूर्वनिर्धारित {{mediaProviders}} प्रदाता: {{images}} छवि, {{videos}} वीडियो आओर {{music}} संगीत पूर्वनिर्धारित अछि. नीचा देल गेल तालिकाक मे एकीकृत एडाप्टरक कें द्वारा समर्थित सटीक मॉडल आ पहचानकर्ताक कें सूचीबद्ध कैल गेल छै.",
+    "upgrade": "अपडेटर हस्ताक्षर विंडोज ऑथेंटिकोड आ एप्पल नोटराइजेशन सं अलग छै. पैकेज हैश, नेटिव चेक आ अपडेट टेस्ट कें अलग सं दस्तावेजीकरण कैल जायत छै. एकटा पूर्ण सार्वजनिक {{previous}} सं {{release}} अपग्रेड कें पुष्टि केवल रिलीज रिपोर्ट मे दर्ज परिदृश्यक कें लेल कैल गेल छै.",
+    "android": "एंड्रॉयड {{release}} एकटा हस्ताक्षरित ARM64 APK, बिल्ड {{androidVersionCode}} के रूप मे उपलब्ध अछि. ई मौजूदा Novera प्रमाणपत्र क उपयोग करैत अछि आओर पैकेज निरीक्षण पास करैत अछि. एहि मे कोनो व्यक्तिगत बातचीत, मॉडल या एपीआई कुंजी नहि अछि. फोन पर इंस्टॉलेशन आ अपडेटिंग क परीक्षण बाकी अछि।"
+  },
+  "ml": {
+    "status": "Novera {{release}} താഴെ ലിസ്റ്റ് ചെയ്തിരിക്കുന്ന പ്ലാറ്റ്‌ഫോമുകൾക്ക് ലഭ്യമാണ്. നിങ്ങളുടെ സിസ്റ്റത്തിനായുള്ള പാക്കേജ് ഡൗൺലോഡ് ചെയ്യുക അല്ലെങ്കിൽ അതിൻ്റെ ഒപ്പിട്ട അപ്‌ഡേറ്റ് ചാനൽ ഉപയോഗിക്കുക. നിങ്ങൾ പുതിയ പാക്കേജ് ഇൻസ്റ്റാൾ ചെയ്യുമ്പോൾ അല്ലെങ്കിൽ അപ്ഡേറ്റ് അംഗീകരിക്കുമ്പോൾ നിലവിലുള്ള ഇൻസ്റ്റാളേഷനുകൾ അപ്ഡേറ്റ് ചെയ്യുന്നു.",
+    "limits": "ലഭ്യതയും പൂർത്തിയാക്കിയ പരിശോധനകളും ചുവടെ പട്ടികപ്പെടുത്തിയിരിക്കുന്നു. പിന്തുണയ്‌ക്കുന്ന സവിശേഷതകൾ ഹാർഡ്‌വെയർ, ദാതാവിൻ്റെ ആക്‌സസ്, പ്ലാറ്റ്‌ഫോം എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു. സുരക്ഷാ കണ്ടെത്തലുകളും നേറ്റീവ്-ഉപകരണ മൂല്യനിർണ്ണയ പരിധികളും രേഖപ്പെടുത്തപ്പെട്ടിരിക്കുന്നു. അപ്ഡേറ്റ് ചെയ്യുന്നതിന് മുമ്പ് ഒരു ബാക്കപ്പ് സൂക്ഷിക്കുക.",
+    "metrics": "{{languages}} ഇൻ്റർഫേസ് ഭാഷകൾ · {{cloud}} ക്ലൗഡ് ദാതാക്കൾ · {{media}} മീഡിയ പ്രീസെറ്റുകൾ · {{license}}",
+    "providers": "കാറ്റലോഗിൽ {{providers}} പ്രൊവൈഡർ പ്രൊഫൈലുകൾ അടങ്ങിയിരിക്കുന്നു: {{cloud}} ക്ലൗഡ് സേവനങ്ങളും ഒരു പ്രാദേശിക സെർവറിനായുള്ള {{localProvider}}. മോഡൽ ആക്സസും കഴിവുകളും അക്കൗണ്ട്, പ്രദേശം, പിന്തുണയ്ക്കുന്ന API എന്നിവയെ ആശ്രയിച്ചിരിക്കുന്നു. എല്ലാ {{languages}} ഇൻ്റർഫേസ് ഭാഷകളും ഈ കാറ്റലോഗ് പങ്കിടുന്നു.",
+    "media": "സൃഷ്‌ടി കാറ്റലോഗിൽ {{mediaProviders}} ദാതാക്കളിൽ നിന്നുള്ള {{media}} പ്രീസെറ്റുകൾ അടങ്ങിയിരിക്കുന്നു: {{images}} ചിത്രം, {{videos}} വീഡിയോ, {{music}} സംഗീത പ്രീസെറ്റുകൾ. സംയോജിത അഡാപ്റ്ററുകൾ പിന്തുണയ്ക്കുന്ന കൃത്യമായ മോഡലുകളും ഐഡൻ്റിഫയറുകളും ചുവടെയുള്ള പട്ടികകൾ പട്ടികപ്പെടുത്തുന്നു.",
+    "upgrade": "അപ്‌ഡേറ്റർ ഒപ്പുകൾ വിൻഡോസ് ഓതൻറികോഡിൽ നിന്നും ആപ്പിൾ നോട്ടറൈസേഷനിൽ നിന്നും വ്യത്യസ്തമാണ്. പാക്കേജ് ഹാഷുകൾ, നേറ്റീവ് ചെക്കുകൾ, അപ്ഡേറ്റ് ടെസ്റ്റുകൾ എന്നിവ പ്രത്യേകം രേഖപ്പെടുത്തുന്നു. ഒരു സമ്പൂർണ്ണ പൊതു {{previous}} ലേക്കുള്ള {{release}} അപ്‌ഗ്രേഡ് റിലീസ് റിപ്പോർട്ടിൽ രേഖപ്പെടുത്തിയിരിക്കുന്ന സാഹചര്യങ്ങൾക്ക് മാത്രമേ സ്ഥിരീകരിക്കൂ.",
+    "android": "ആൻഡ്രോയിഡ് {{release}} ഒപ്പിട്ട ARM64 APK ആയി ലഭ്യമാണ്, ബിൽഡ് {{androidVersionCode}}. ഇത് നിലവിലുള്ള Novera സർട്ടിഫിക്കറ്റ് ഉപയോഗിക്കുകയും പാക്കേജ് പരിശോധനയിൽ വിജയിക്കുകയും ചെയ്യുന്നു. ഇതിൽ വ്യക്തിഗത സംഭാഷണങ്ങളോ മോഡലുകളോ API കീകളോ അടങ്ങിയിട്ടില്ല. ഒരു ഫോണിൽ ഇൻസ്റ്റാളേഷനും അപ്‌ഡേറ്റും പരിശോധിക്കേണ്ടതുണ്ട്."
+  },
+  "mr": {
+    "status": "Novera {{release}} खाली सूचीबद्ध केलेल्या प्लॅटफॉर्मसाठी उपलब्ध आहे. तुमच्या सिस्टमसाठी पॅकेज डाउनलोड करा किंवा त्याचे स्वाक्षरी केलेले अपडेट चॅनल वापरा. तुम्ही नवीन पॅकेज इंस्टॉल करता किंवा अपडेट स्वीकारता तेव्हा विद्यमान इंस्टॉलेशन्स अपडेट होतात.",
+    "limits": "उपलब्धता आणि पूर्ण झालेले धनादेश खाली सूचीबद्ध आहेत. समर्थित वैशिष्ट्ये हार्डवेअर, प्रदाता प्रवेश आणि प्लॅटफॉर्मवर अवलंबून असतात. सुरक्षितता निष्कर्ष आणि नेटिव्ह-डिव्हाइस प्रमाणीकरण मर्यादा दस्तऐवजीकृत राहतील. अपडेट करण्यापूर्वी बॅकअप ठेवा.",
+    "metrics": "{{languages}} इंटरफेस भाषा · {{cloud}} क्लाउड प्रदाते · {{media}} मीडिया प्रीसेट · {{license}}",
+    "providers": "कॅटलॉगमध्ये {{providers}} प्रदाता प्रोफाइल आहेत: {{cloud}} क्लाउड सेवा आणि स्थानिक सर्व्हरसाठी {{localProvider}}. मॉडेल प्रवेश आणि क्षमता खाते, प्रदेश आणि समर्थित API वर अवलंबून असतात. सर्व {{languages}} इंटरफेस भाषा हा कॅटलॉग शेअर करतात.",
+    "media": "निर्मिती कॅटलॉगमध्ये {{mediaProviders}} प्रदात्यांकडून {{media}} प्रीसेट आहेत: {{images}} प्रतिमा, {{videos}} व्हिडिओ आणि {{music}} संगीत प्रीसेट. खालील तक्त्या एकात्मिक अडॅप्टर्सद्वारे समर्थित अचूक मॉडेल्स आणि अभिज्ञापकांची यादी करतात.",
+    "upgrade": "अपडेटर स्वाक्षरी Windows Authenticod आणि Apple notarization पेक्षा वेगळी आहेत. पॅकेज हॅश, नेटिव्ह चेक आणि अपडेट चाचण्या स्वतंत्रपणे दस्तऐवजीकरण केल्या जातात. संपूर्ण सार्वजनिक {{previous}} ते {{release}} अपग्रेडची पुष्टी केवळ प्रकाशन अहवालात नोंदवलेल्या परिस्थितींसाठी केली जाते.",
+    "android": "Android {{release}} स्वाक्षरी केलेले ARM64 APK, बिल्ड {{androidVersionCode}} म्हणून उपलब्ध आहे. हे विद्यमान Novera प्रमाणपत्र वापरते आणि पॅकेज तपासणी उत्तीर्ण करते. यात कोणतीही वैयक्तिक संभाषणे, मॉडेल किंवा API की नाहीत. फोनवर इन्स्टॉलेशन आणि अपडेट करणे तपासणे बाकी आहे."
+  },
+  "ms": {
+    "status": "Novera {{release}} tersedia untuk platform yang disenaraikan di bawah. Muat turun pakej untuk sistem anda atau gunakan saluran kemas kini yang ditandatangani. Kemas kini pemasangan sedia ada apabila anda memasang pakej baharu atau menerima kemas kini.",
+    "limits": "Ketersediaan dan semakan lengkap disenaraikan di bawah. Ciri yang disokong bergantung pada perkakasan, akses pembekal dan platform. Penemuan keselamatan dan had pengesahan peranti asli kekal didokumenkan. Simpan sandaran sebelum mengemas kini.",
+    "metrics": "{{languages}} bahasa antara muka · {{cloud}} penyedia awan · {{media}} pratetap media · {{license}}",
+    "providers": "Katalog mengandungi {{providers}} profil pembekal: {{cloud}} perkhidmatan awan dan {{localProvider}} untuk pelayan setempat. Akses dan keupayaan model bergantung pada akaun, rantau dan API yang disokong. Semua {{languages}} bahasa antara muka berkongsi katalog ini.",
+    "media": "Katalog penciptaan mengandungi {{media}} pratetap daripada {{mediaProviders}} pembekal: {{images}} pratetap imej, {{videos}} video dan {{music}} pratetap muzik. Jadual di bawah menyenaraikan model dan pengecam tepat yang disokong oleh penyesuai bersepadu.",
+    "upgrade": "Tandatangan pengemas kini adalah berasingan daripada Windows Authenticode dan Apple notarization. Cincang pakej, semakan asli dan ujian kemas kini didokumenkan secara berasingan. Peningkatan {{previous}} awam yang lengkap kepada {{release}} disahkan hanya untuk senario yang direkodkan dalam laporan keluaran.",
+    "android": "Android {{release}} tersedia sebagai APK ARM64 yang ditandatangani, bina {{androidVersionCode}}. Ia menggunakan sijil Novera sedia ada dan lulus pemeriksaan pakej. Ia tidak mengandungi perbualan peribadi, model atau kunci API. Pemasangan dan pengemaskinian pada telefon masih perlu diuji."
+  },
+  "my": {
+    "status": "Novera {{release}} ကို အောက်တွင်ဖော်ပြထားသော ပလပ်ဖောင်းများအတွက် ရနိုင်ပါသည်။ သင့်စနစ်အတွက် ပက်ကေ့ဂျ်ကို ဒေါင်းလုဒ်လုပ်ပါ သို့မဟုတ် ၎င်း၏ လက်မှတ်ထိုးထားသော အပ်ဒိတ်ချန်နယ်ကို အသုံးပြုပါ။ ပက်ကေ့ဂျ်အသစ်ကို ထည့်သွင်းသည့်အခါ သို့မဟုတ် အပ်ဒိတ်ကို လက်ခံသည့်အခါ ရှိပြီးသား တပ်ဆင်မှုများကို အပ်ဒိတ်လုပ်ပါ။",
+    "limits": "ရရှိနိုင်မှုနှင့် ပြီးပြည့်စုံသော စစ်ဆေးမှုများကို အောက်တွင်ဖော်ပြထားပါသည်။ ပံ့ပိုးပေးထားသည့် အင်္ဂါရပ်များသည် ဟာ့ဒ်ဝဲ၊ ဝန်ဆောင်မှုပေးသူ ဝင်ရောက်ခွင့်နှင့် ပလပ်ဖောင်းပေါ်တွင် မူတည်သည်။ လုံခြုံရေးရှာဖွေတွေ့ရှိမှုများနှင့် မူရင်း-စက်ပစ္စည်းအတည်ပြုခြင်းကန့်သတ်ချက်များကို မှတ်တမ်းတင်ထားဆဲဖြစ်သည်။ အပ်ဒိတ်မလုပ်မီ အရန်ကူးထားပါ။",
+    "metrics": "{{languages}} ကြားခံဘာသာစကားများ · {{cloud}} cloud ဝန်ဆောင်မှုပေးသူများ · {{media}} မီဒီယာ ကြိုတင်သတ်မှတ်မှုများ · {{license}}",
+    "providers": "ကတ်တလောက်တွင် {{providers}} ဝန်ဆောင်မှုပေးသူပရိုဖိုင်များ ပါဝင်သည်- {{cloud}} cloud ဝန်ဆောင်မှုများနှင့် ဒေသတွင်းဆာဗာအတွက် {{localProvider}}။ မော်ဒယ်အသုံးပြုခွင့်နှင့် စွမ်းဆောင်ရည်များသည် အကောင့်၊ ဒေသနှင့် ပံ့ပိုးပေးထားသော API ပေါ်တွင် မူတည်ပါသည်။ အင်တာဖေ့စ်ဘာသာစကား {{languages}} အားလုံးသည် ဤကတ်တလောက်ကို မျှဝေပါသည်။",
+    "media": "ဖန်တီးမှုကတ်တလောက်တွင် ပါရှိသည်။ {{media}} presets များမှ {{mediaProviders}} ဝန်ဆောင်မှုပေးသူများ- {{images}} ပုံ၊ {{videos}} ဗီဒီယိုနှင့် {{music}} ဂီတကြိုတင်သတ်မှတ်မှုများ။ အောက်ဖော်ပြပါဇယားများသည် ပေါင်းစပ်အဒက်တာများမှ ပံ့ပိုးပေးသည့် မော်ဒယ်များနှင့် ခွဲခြားသတ်မှတ်မှုများကို စာရင်းပြုစုထားသည်။",
+    "upgrade": "Updater လက်မှတ်များသည် Windows Authenticode နှင့် Apple notarization တို့မှ သီးခြားဖြစ်သည်။ Package hashes၊ မူရင်းစစ်ဆေးမှုများနှင့် အပ်ဒိတ်စစ်ဆေးမှုများကို သီးခြားစီ မှတ်တမ်းတင်ထားပါသည်။ ပြီးပြည့်စုံသောလူထု {{previous}} ရန် {{release}} အဆင့်မြှင့်တင်မှုအား ထုတ်ပြန်ချက်အစီရင်ခံစာတွင် မှတ်တမ်းတင်ထားသော အခြေအနေများအတွက်သာ အတည်ပြုပါသည်။",
+    "android": "Android {{release}} ကို လက်မှတ်ထိုးထားသော ARM64 APK၊ build {{androidVersionCode}} အဖြစ် ရနိုင်ပါသည်။ ၎င်းသည် ရှိပြီးသား Novera လက်မှတ်ကို အသုံးပြုပြီး ပက်ကေ့ဂျ်စစ်ဆေးခြင်းကို ပေးသည်။ ၎င်းတွင် ကိုယ်ရေးကိုယ်တာ စကားဝိုင်းများ၊ မော်ဒယ်များ သို့မဟုတ် API သော့များ မပါဝင်ပါ။ ဖုန်းတွင် ထည့်သွင်းခြင်းနှင့် အပ်ဒိတ်လုပ်ခြင်းကို စမ်းသပ်ရန် ကျန်ရှိနေပါသည်။"
+  },
+  "nan": {
+    "status": "Novera {{release}} 適用於下列平台。下載適合您的系統的軟體包或使用其簽署的更新通道。當您安裝新軟體包或接受更新時，現有安裝會更新。",
+    "limits": "下面列出了可用性和已完成的檢查。支援的功能取決於硬體、提供者存取權限和平台。安全發現和本機設備驗證限制仍然記錄在案。更新前請保留備份。",
+    "metrics": "{{languages}} 介面語言 · {{cloud}} 雲端提供者 · {{media}} 媒體預設 · {{license}}",
+    "providers": "目錄包含 {{providers}} 提供者設定檔：{{cloud}} 雲端服務和本機伺服器的 {{localProvider}}。模型存取和功能取決於帳戶、區域和支援的 API。所有 {{languages}} 介面語言共用此目錄。",
+    "media": "建立目錄包含來自 {{mediaProviders}} 提供者的 {{media}} 預設：{{images}} 圖片、{{videos}} 影片和 {{music}} 音樂預設。下表列出了整合式適配器支援的確切型號和識別碼。",
+    "upgrade": "更新程式簽章與 Windows Authenticode 和 Apple 公證分開。包雜湊、本機檢查和更新測試單獨記錄。僅針對發布報告中記錄的場景確認完整的公共 {{previous}} 到 {{release}} 升級。",
+    "android": "Android {{release}} 可作為簽署的 ARM64 APK，版本為 {{androidVersionCode}}。它使用現有的 Novera 憑證並通過套件檢查。它不包含個人對話、模型或 API 金鑰。在手機上的安裝和更新仍有待測試。"
+  },
+  "ne": {
+    "status": "Novera {{release}} तल सूचीबद्ध प्लेटफर्महरूको लागि उपलब्ध छ। आफ्नो प्रणालीको लागि प्याकेज डाउनलोड गर्नुहोस् वा यसको हस्ताक्षर अद्यावधिक च्यानल प्रयोग गर्नुहोस्। तपाईंले नयाँ प्याकेज स्थापना गर्दा वा अद्यावधिक स्वीकार गर्दा अवस्थित स्थापनाहरू अद्यावधिक गर्नुहोस्।",
+    "limits": "उपलब्धता र पूरा चेकहरू तल सूचीबद्ध छन्। समर्थित सुविधाहरू हार्डवेयर, प्रदायक पहुँच र प्लेटफर्ममा निर्भर गर्दछ। सुरक्षा खोजहरू र नेटिभ-उपकरण प्रमाणीकरण सीमाहरू दस्तावेज रहन्छन्। अद्यावधिक गर्नु अघि ब्याकअप राख्नुहोस्।",
+    "metrics": "{{languages}} इन्टरफेस भाषाहरू · {{cloud}} क्लाउड प्रदायकहरू · {{media}} मिडिया प्रिसेटहरू · {{license}}",
+    "providers": "क्याटलगमा {{providers}} प्रदायक प्रोफाइलहरू छन्: {{cloud}} क्लाउड सेवाहरू र स्थानीय सर्भरका लागि {{localProvider}}। मोडेल पहुँच र क्षमताहरू खाता, क्षेत्र र समर्थित API मा निर्भर गर्दछ। सबै {{languages}} इन्टरफेस भाषाहरूले यो क्याटलग साझा गर्छन्।",
+    "media": "सिर्जना क्याटलगमा {{mediaProviders}} प्रदायकहरूबाट {{media}} प्रिसेटहरू छन्: {{images}} छवि, {{videos}} भिडियो र {{music}} संगीत प्रिसेटहरू। तलका तालिकाहरूले एकीकृत एडेप्टरहरूद्वारा समर्थित सटीक मोडेलहरू र पहिचानकर्ताहरूलाई सूचीबद्ध गर्दछ।",
+    "upgrade": "अपडेटर हस्ताक्षरहरू Windows Authenticod र Apple notarization बाट अलग छन्। प्याकेज ह्यासहरू, नेटिभ जाँचहरू र अद्यावधिक परीक्षणहरू अलग-अलग दस्तावेज गरिएका छन्। एक पूर्ण सार्वजनिक {{previous}} देखि {{release}} स्तरवृद्धि मात्र रिलीज रिपोर्टमा रेकर्ड गरिएका परिदृश्यहरूको लागि पुष्टि हुन्छ।",
+    "android": "एन्ड्रोइड {{release}} एक हस्ताक्षरित ARM64 APK को रूपमा उपलब्ध छ, निर्माण {{androidVersionCode}}। यसले अवस्थित Novera प्रमाणपत्र प्रयोग गर्दछ र प्याकेज निरीक्षण पास गर्दछ। यसले कुनै व्यक्तिगत कुराकानी, मोडेल वा API कुञ्जीहरू समावेश गर्दैन। फोनमा स्थापना र अद्यावधिक परीक्षण गर्न बाँकी छ।"
+  },
+  "nl": {
+    "status": "Novera {{release}} is beschikbaar voor de onderstaande platforms. Download het pakket voor uw systeem of gebruik het ondertekende updatekanaal. Bestaande installaties worden bijgewerkt wanneer u het nieuwe pakket installeert of de update accepteert.",
+    "limits": "Beschikbaarheid en voltooide controles vindt u hieronder. Ondersteunde functies zijn afhankelijk van hardware, providertoegang en platform. Beveiligingsbevindingen en validatielimieten voor native apparaten blijven gedocumenteerd. Maak een back-up voordat u gaat updaten.",
+    "metrics": "{{languages}} interfacetalen · {{cloud}} cloudproviders · {{media}} mediavoorinstellingen · {{license}}",
+    "providers": "De catalogus bevat {{providers}} providerprofielen: {{cloud}} cloudservices en {{localProvider}} voor een lokale server. Modeltoegang en -mogelijkheden zijn afhankelijk van het account, de regio en de ondersteunde API. Alle {{languages}} interfacetalen delen deze catalogus.",
+    "media": "De creatiecatalogus bevat {{media}} voorinstellingen van {{mediaProviders}} providers: {{images}} afbeelding, {{videos}} video en {{music}} muziekvoorinstellingen. In de onderstaande tabellen staan ​​de exacte modellen en identificaties die door de geïntegreerde adapters worden ondersteund.",
+    "upgrade": "Updater-handtekeningen staan ​​los van Windows Authenticode en Apple-notarisatie. Pakkethashes, systeemeigen controles en updatetests worden afzonderlijk gedocumenteerd. Een volledige openbare upgrade van {{previous}} naar {{release}} wordt alleen bevestigd voor de scenario's die zijn vastgelegd in het releaserapport.",
+    "android": "Android {{release}} is beschikbaar als ondertekende ARM64 APK, build {{androidVersionCode}}. Het maakt gebruik van het bestaande Novera-certificaat en doorstaat de pakketinspectie. Het bevat geen persoonlijke gesprekken, modellen of API-sleutels. Installatie en updaten op een telefoon moet nog worden getest."
+  },
+  "nso": {
+    "status": "Novera {{release}} e hwetšagala bakeng sa diforamo tšeo di lokeleditšwego ka mo tlase. Taonelouta sephuthelwana sa tshepedišo ya gago goba o šomiše mokero wa yona wa mpshafatšo wo o saennwego. Ditlhomo tše di lego gona di mpshafatša ge o tsenya sephuthelwana se sefsa goba o amogela mpshafatšo.",
+    "limits": "Go hwetšagala le ditšheke tše di phethilwego di lokeleditšwe ka mo tlase. Dikarolo tše di thekgwago di ithekgile ka didirišwa tša go šoma, phihlelelo ya moabi le sefala. Diphetho tša tšhireletšo le mellwane ya netefatšo ya sedirišwa sa setlogo di sa dutše di ngwadilwe. Boloka bekapo pele o mpshafatša.",
+    "metrics": "{{languages}} maleme a segokanyimmediamentsi sa sebolokigolo · {{cloud}} baabi ba leru · {{media}} dipeakanyo tša pele ga methopo ya ditaba · {{license}}",
+    "providers": "Lenaneo le na le {{providers}} diprofaele tša moabi: {{cloud}} ditirelo tša leru le {{localProvider}} bakeng sa seva ya selegae. Phihlelelo ya mohlala le bokgoni di ithekgile ka akhaonto, selete le API ye e thekgwago. Maleme ka moka a segokanyimmediamentsi sa sebolokigolo {{languages}} a abelana lelokelelo le.",
+    "media": "Lenaneo la tlholo le na le {{media}} dipeakanyo tša pele go tšwa go {{mediaProviders}} baabi: {{images}} seswantšho, {{videos}} bidio le {{music}} dipeakanyo tša mmino. Ditafola tše di lego ka mo tlase di lokeletša dika tše di nepagetšego le ditšhupetšo tšeo di thekgwago ke di-adapter tše di kopantšwego.",
+    "upgrade": "Ditshaeno tša updater di arogile go tšwa go Windows Authenticode le Apple notarization. Dihash tša sephuthelwana, ditšheke tša setlogo le diteko tša mpshafatšo di ngwadilwe ka thoko. Ntlafatšo ya setšhaba ye e feletšego ya {{previous}} go ya go {{release}} e tiišetšwa fela bakeng sa maemo ao a ngwadilwego ka pegong ya tokollo.",
+    "android": "Android {{release}} e fumaneha e le saennweng ARM64 APK, haha ​​{{androidVersionCode}}. E šomiša setifikeiti sa Novera seo se lego gona gomme e feta tlhahlobo ya sephuthelwana. Ga e na dipoledišano tša motho ka noši, dika goba dinotlelo tša API. Go tsenya le go mpshafatša mo founong go sa swanetše go lekwa."
+  },
+  "ny": {
+    "status": "Novera {{release}} ikupezeka pamapulatifomu omwe ali pansipa. Tsitsani phukusi la makina anu kapena gwiritsani ntchito njira yake yosinthira yomwe yasainidwa. Kusintha komwe kulipo kumasinthidwa mukayika phukusi latsopano kapena kuvomereza zosintha.",
+    "limits": "Kupezeka ndi macheke omalizidwa alembedwa pansipa. Zothandizira zimatengera hardware, mwayi wopereka chithandizo ndi nsanja. Zomwe zapezedwa zachitetezo ndi malire otsimikizira zida zakwawo zimakhalabe zolembedwa. Sungani zosunga zobwezeretsera musanasinthe.",
+    "metrics": "{{languages}} zilankhulo zamawonekedwe · {{cloud}} opereka mtambo · {{media}} zosinthira zowonera · {{license}}",
+    "providers": "Kataloguyo ili ndi mbiri yawo ya {{providers}}: {{cloud}} mautumiki apamtambo ndi {{localProvider}} pa seva yapafupi. Kufikira kwachitsanzo ndi kuthekera kumadalira akaunti, dera ndi API yothandizidwa. Zilankhulo zonse za {{languages}} zimagawana mndandandawu.",
+    "media": "Kalozera wopanga ali ndi zoikidwiratu {{media}} zochokera kwa opereka {{mediaProviders}}: {{images}} zithunzi, {{videos}} mavidiyo ndi {{music}} zokonzeratu nyimbo. Matebulo ali m'munsimu amatchula zitsanzo zenizeni ndi zozindikiritsa zomwe zimathandizidwa ndi ma adapter ophatikizika.",
+    "upgrade": "Ma signature osinthika ndi osiyana ndi Windows Authenticode ndi Apple notarization. Phukusi, macheke achilengedwe ndi mayeso osintha amalembedwa mosiyana. Kukwezedwa kwapagulu kwa {{previous}} mpaka ku {{release}} kumatsimikiziridwa ndi zochitika zomwe zalembedwa mu lipoti lotulutsidwa.",
+    "android": "Android {{release}} ikupezeka ngati APK ya ARM64 yosainidwa, pangani {{androidVersionCode}}. Imagwiritsa ntchito satifiketi yomwe ilipo kale ya Novera ndikudutsa pakuwunika kwa phukusi. Ilibe zokambirana zaumwini, zitsanzo kapena makiyi a API. Kuyika ndi kukonzanso pa foni kumayenera kuyesedwa."
+  },
+  "or": {
+    "status": "Novera {{release}} ନିମ୍ନରେ ତାଲିକାଭୁକ୍ତ ପ୍ଲାଟଫର୍ମଗୁଡିକ ପାଇଁ ଉପଲବ୍ଧ | ଆପଣଙ୍କ ସିଷ୍ଟମ୍ ପାଇଁ ପ୍ୟାକେଜ୍ ଡାଉନଲୋଡ୍ କରନ୍ତୁ କିମ୍ବା ଏହାର ଦସ୍ତଖତ ହୋଇଥିବା ଅପଡେଟ୍ ଚ୍ୟାନେଲ୍ ବ୍ୟବହାର କରନ୍ତୁ | ବିଦ୍ୟମାନ ସଂସ୍ଥାଗୁଡ଼ିକ ଯେତେବେଳେ ଆପଣ ନୂତନ ପ୍ୟାକେଜ୍ ସଂସ୍ଥାପନ କରନ୍ତି କିମ୍ବା ଅଦ୍ୟତନକୁ ଗ୍ରହଣ କରନ୍ତି ସେତେବେଳେ ଅଦ୍ୟତନ କରନ୍ତି |",
+    "limits": "ଉପଲବ୍ଧତା ଏବଂ ସମାପ୍ତ ଯାଞ୍ଚଗୁଡ଼ିକ ନିମ୍ନରେ ତାଲିକାଭୁକ୍ତ | ସମର୍ଥିତ ବ features ଶିଷ୍ଟ୍ୟଗୁଡିକ ହାର୍ଡୱେର୍, ପ୍ରଦାନକାରୀ ପ୍ରବେଶ ଏବଂ ପ୍ଲାଟଫର୍ମ ଉପରେ ନିର୍ଭର କରେ | ସୁରକ୍ଷା ଅନୁସନ୍ଧାନ ଏବଂ ଦେଶୀ-ଉପକରଣ ବ valid ଧତା ସୀମା ଡକ୍ୟୁମେଣ୍ଟ୍ ହୋଇ ରହିଥାଏ | ଅଦ୍ୟତନ କରିବା ପୂର୍ବରୁ ଏକ ନକଲ ସଂରକ୍ଷଣ ରଖନ୍ତୁ |",
+    "metrics": "{{languages}} ଇଣ୍ଟରଫେସ୍ ଭାଷା · {{cloud}} କ୍ଲାଉଡ୍ ପ୍ରଦାନକାରୀ · {{media}} ମିଡିଆ ପ୍ରିସେଟ୍ · {{license}}",
+    "providers": "କାଟାଲଗ୍ {{providers}} ପ୍ରଦାନକାରୀ ପ୍ରୋଫାଇଲ୍ ଧାରଣ କରେ: {{cloud}} କ୍ଲାଉଡ୍ ସେବା ଏବଂ ଏକ ସ୍ଥାନୀୟ ସର୍ଭର ପାଇଁ {{localProvider}} | ମଡେଲ୍ ପ୍ରବେଶ ଏବଂ ସାମର୍ଥ୍ୟ ଖାତା, ଅଞ୍ଚଳ ଏବଂ ସମର୍ଥିତ API ଉପରେ ନିର୍ଭର କରେ | ସମସ୍ତ {{languages}} ଇଣ୍ଟରଫେସ୍ ଭାଷାଗୁଡ଼ିକ ଏହି କାଟାଲଗ୍ ଅଂଶୀଦାର କରନ୍ତି |",
+    "media": "ସୃଷ୍ଟି କାଟାଲଗ୍ {{media}} ପ୍ରଦାନକାରୀଙ୍କ ଠାରୁ {{mediaProviders}} ପ୍ରିସେଟ୍ ଧାରଣ କରେ: {{images}} ପ୍ରତିଛବି, {{videos}} ଭିଡିଓ ଏବଂ {{music}} ମ୍ୟୁଜିକ୍ ପ୍ରିସେଟ୍ | ନିମ୍ନରେ ଥିବା ସାରଣୀଗୁଡ଼ିକ ଇଣ୍ଟିଗ୍ରେଟେଡ୍ ଆଡାପ୍ଟର ଦ୍ୱାରା ସମର୍ଥିତ ପ୍ରକୃତ ମଡେଲ ଏବଂ ପରିଚାୟକଗୁଡ଼ିକୁ ତାଲିକାଭୁକ୍ତ କରେ |",
+    "upgrade": "ଅପଡେଟର୍ ସ୍ atures ାକ୍ଷର ୱିଣ୍ଡୋଜ୍ ପ୍ରାମାଣିକ କୋଡ୍ ଏବଂ ଆପଲ୍ ନୋଟାରୀକରଣ ଠାରୁ ଅଲଗା ଅଟେ | ପ୍ୟାକେଜ୍ ହ୍ୟାସ୍, ଦେଶୀ ଚେକ୍ ଏବଂ ଅପଡେଟ୍ ପରୀକ୍ଷଣଗୁଡିକ ପୃଥକ ଭାବରେ ଡକ୍ୟୁମେଣ୍ଟ୍ ହୋଇଛି | ଏକ ସମ୍ପୂର୍ଣ୍ଣ ସାର୍ବଜନୀନ {{previous}} ରୁ {{release}} ଅପଗ୍ରେଡ୍ କେବଳ ପ୍ରକାଶନ ରିପୋର୍ଟରେ ରେକର୍ଡ ହୋଇଥିବା ପରିସ୍ଥିତି ପାଇଁ ନିଶ୍ଚିତ ହୋଇଛି |",
+    "android": "ଆଣ୍ଡ୍ରଏଡ୍ | {{release}} ଏକ ସ୍ signed ାକ୍ଷରିତ ARM64 APK ଭାବରେ ଉପଲବ୍ଧ, ନିର୍ମାଣ କରନ୍ତୁ | {{androidVersionCode}}। ଏହା ବିଦ୍ୟମାନ ବ୍ୟବହାର କରେ | Novera ସାର୍ଟିଫିକେଟ୍ ଏବଂ ପ୍ୟାକେଜ୍ ଯାଞ୍ଚ ପାସ୍ କରେ | ଏଥିରେ କ personal ଣସି ବ୍ୟକ୍ତିଗତ ବାର୍ତ୍ତାଳାପ, ମଡେଲ କିମ୍ବା API କି ନାହିଁ | ଏକ ଫୋନରେ ସଂସ୍ଥାପନ ଏବଂ ଅପଡେଟ୍ ପରୀକ୍ଷା କରିବାକୁ ବାକି ଅଛି |"
+  },
+  "pa": {
+    "status": "Novera {{release}} ਹੇਠਾਂ ਸੂਚੀਬੱਧ ਪਲੇਟਫਾਰਮਾਂ ਲਈ ਉਪਲਬਧ ਹੈ। ਆਪਣੇ ਸਿਸਟਮ ਲਈ ਪੈਕੇਜ ਨੂੰ ਡਾਊਨਲੋਡ ਕਰੋ ਜਾਂ ਇਸ ਦੇ ਹਸਤਾਖਰਿਤ ਅੱਪਡੇਟ ਚੈਨਲ ਦੀ ਵਰਤੋਂ ਕਰੋ। ਜਦੋਂ ਤੁਸੀਂ ਨਵਾਂ ਪੈਕੇਜ ਸਥਾਪਤ ਕਰਦੇ ਹੋ ਜਾਂ ਅੱਪਡੇਟ ਸਵੀਕਾਰ ਕਰਦੇ ਹੋ ਤਾਂ ਮੌਜੂਦਾ ਸਥਾਪਨਾਵਾਂ ਅੱਪਡੇਟ ਹੁੰਦੀਆਂ ਹਨ।",
+    "limits": "ਉਪਲਬਧਤਾ ਅਤੇ ਮੁਕੰਮਲ ਕੀਤੇ ਗਏ ਚੈਕ ਹੇਠਾਂ ਦਿੱਤੇ ਗਏ ਹਨ। ਸਮਰਥਿਤ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਹਾਰਡਵੇਅਰ, ਪ੍ਰਦਾਤਾ ਪਹੁੰਚ ਅਤੇ ਪਲੇਟਫਾਰਮ 'ਤੇ ਨਿਰਭਰ ਕਰਦੀਆਂ ਹਨ। ਸੁਰੱਖਿਆ ਖੋਜਾਂ ਅਤੇ ਨੇਟਿਵ-ਡਿਵਾਈਸ ਪ੍ਰਮਾਣਿਕਤਾ ਸੀਮਾਵਾਂ ਦਸਤਾਵੇਜ਼ੀ ਰਹਿੰਦੀਆਂ ਹਨ। ਅੱਪਡੇਟ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਬੈਕਅੱਪ ਰੱਖੋ।",
+    "metrics": "{{languages}} ਇੰਟਰਫੇਸ ਭਾਸ਼ਾਵਾਂ · {{cloud}} ਕਲਾਉਡ ਪ੍ਰਦਾਤਾ · {{media}} ਮੀਡੀਆ ਪ੍ਰੀਸੈੱਟ · {{license}}",
+    "providers": "ਕੈਟਾਲਾਗ ਵਿੱਚ {{providers}} ਪ੍ਰਦਾਤਾ ਪ੍ਰੋਫਾਈਲ ਹਨ: {{cloud}} ਕਲਾਊਡ ਸੇਵਾਵਾਂ ਅਤੇ {{localProvider}} ਇੱਕ ਸਥਾਨਕ ਸਰਵਰ ਲਈ। ਮਾਡਲ ਪਹੁੰਚ ਅਤੇ ਸਮਰੱਥਾਵਾਂ ਖਾਤੇ, ਖੇਤਰ ਅਤੇ ਸਮਰਥਿਤ API 'ਤੇ ਨਿਰਭਰ ਕਰਦੀਆਂ ਹਨ। ਸਾਰੀਆਂ {{languages}} ਇੰਟਰਫੇਸ ਭਾਸ਼ਾਵਾਂ ਇਸ ਕੈਟਾਲਾਗ ਨੂੰ ਸਾਂਝਾ ਕਰਦੀਆਂ ਹਨ।",
+    "media": "ਰਚਨਾ ਕੈਟਾਲਾਗ ਵਿੱਚ {{mediaProviders}} ਪ੍ਰਦਾਤਾਵਾਂ ਤੋਂ {{media}} ਪ੍ਰੀਸੈਟਸ ਹਨ: {{images}} ਚਿੱਤਰ, {{videos}} ਵੀਡੀਓ ਅਤੇ {{music}} ਸੰਗੀਤ ਪ੍ਰੀਸੈਟਸ। ਹੇਠਾਂ ਦਿੱਤੀ ਸਾਰਣੀ ਏਕੀਕ੍ਰਿਤ ਅਡਾਪਟਰਾਂ ਦੁਆਰਾ ਸਮਰਥਿਤ ਸਹੀ ਮਾਡਲਾਂ ਅਤੇ ਪਛਾਣਕਰਤਾਵਾਂ ਦੀ ਸੂਚੀ ਦਿੰਦੀ ਹੈ।",
+    "upgrade": "ਅੱਪਡੇਟਰ ਦਸਤਖਤ ਵਿੰਡੋਜ਼ ਪ੍ਰਮਾਣਿਕਤਾ ਅਤੇ ਐਪਲ ਨੋਟਰਾਈਜ਼ੇਸ਼ਨ ਤੋਂ ਵੱਖਰੇ ਹਨ। ਪੈਕੇਜ ਹੈਸ਼, ਨੇਟਿਵ ਚੈਕ ਅਤੇ ਅੱਪਡੇਟ ਟੈਸਟਾਂ ਨੂੰ ਵੱਖਰੇ ਤੌਰ 'ਤੇ ਦਸਤਾਵੇਜ਼ੀ ਰੂਪ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ। ਇੱਕ ਪੂਰਨ ਜਨਤਕ {{previous}} ਤੋਂ {{release}} ਅੱਪਗਰੇਡ ਦੀ ਪੁਸ਼ਟੀ ਸਿਰਫ਼ ਰੀਲੀਜ਼ ਰਿਪੋਰਟ ਵਿੱਚ ਦਰਜ ਦ੍ਰਿਸ਼ਾਂ ਲਈ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।",
+    "android": "Android {{release}} ਇੱਕ ਦਸਤਖਤ ਕੀਤੇ ARM64 APK, ਬਿਲਡ {{androidVersionCode}} ਦੇ ਰੂਪ ਵਿੱਚ ਉਪਲਬਧ ਹੈ। ਇਹ ਮੌਜੂਦਾ Novera ਸਰਟੀਫਿਕੇਟ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ ਅਤੇ ਪੈਕੇਜ ਨਿਰੀਖਣ ਪਾਸ ਕਰਦਾ ਹੈ। ਇਸ ਵਿੱਚ ਕੋਈ ਨਿੱਜੀ ਗੱਲਬਾਤ, ਮਾਡਲ ਜਾਂ API ਕੁੰਜੀਆਂ ਨਹੀਂ ਹਨ। ਫ਼ੋਨ 'ਤੇ ਸਥਾਪਨਾ ਅਤੇ ਅੱਪਡੇਟ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾਣੀ ਬਾਕੀ ਹੈ।"
+  },
+  "pbt": {
+    "status": "Novera {{release}} د لاندې لیست شوي پلیټ فارمونو لپاره شتون لري. د خپل سیسټم لپاره کڅوړه ډاونلوډ کړئ یا د دې لاسلیک شوي تازه چینل وکاروئ. کله چې تاسو نوی بسته نصب کړئ یا تازه یې ومنئ نو موجوده تاسیسات تازه کیږي.",
+    "limits": "شتون او بشپړ شوي چیکونه لاندې لیست شوي دي. ملاتړ شوي ب featuresې په هارډویر ، چمتو کونکي لاسرسي او پلیټ فارم پورې اړه لري. د امنیت موندنې او د اصلي وسیلې د اعتبار محدودیتونه مستند پاتې دي. د تازه کولو دمخه یو بیک اپ وساتئ.",
+    "metrics": "{{languages}} د انٹرفیس ژبې · {{cloud}} کلاوډ چمتو کونکي · {{media}} میډیا پری سیټونه · {{license}}",
+    "providers": "په کتلاګ کې د {{providers}} چمتو کونکي پروفایلونه شامل دي: {{cloud}} کلاوډ خدمتونه او {{localProvider}} د محلي سرور لپاره. د ماډل لاسرسی او وړتیاوې په حساب، سیمه او ملاتړ شوي API پورې اړه لري. ټولې {{languages}} انٹرفیس ژبې دا کتلاګ شریکوي.",
+    "media": "د جوړونې کتلاګ د {{mediaProviders}} چمتو کونکو څخه {{media}} مخکینۍ سیټونه لري: {{images}} انځور، {{videos}} ویډیو او {{music}} میوزیک پریزیټ. لاندې جدولونه دقیق ماډلونه او پیژندونکي لیست کوي چې د مدغم اډاپټرونو لخوا ملاتړ کیږي.",
+    "upgrade": "د اپډیټر لاسلیکونه د وینډوز مستند کوډ او ایپل نوټرائزیشن څخه جلا دي. د بسته بندۍ هشونه، اصلي چکونه او تازه ازموینې په جلا توګه مستند شوي. یو بشپړ عامه {{previous}} ته {{release}} اپ گریڈ یوازې د خوشې شوي راپور کې ثبت شوي سناریوګانو لپاره تایید شوی.",
+    "android": "Android {{release}} د لاسلیک شوي ARM64 APK په توګه شتون لري، {{androidVersionCode}} جوړ کړئ. دا موجوده Novera سند کاروي او د بسته بندۍ معاینه کوي. دا هیڅ شخصي خبرې اترې، ماډلونه یا API کیلي نلري. په تلیفون کې نصب او تازه کول د ازموینې لپاره پاتې دي."
+  },
+  "pbu": {
+    "status": "Novera {{release}} د لاندې لیست شوي پلیټ فارمونو لپاره شتون لري. د خپل سیسټم لپاره کڅوړه ډاونلوډ کړئ یا د دې لاسلیک شوي تازه چینل وکاروئ. کله چې تاسو نوی بسته نصب کړئ یا تازه یې ومنئ نو موجوده تاسیسات تازه کیږي.",
+    "limits": "شتون او بشپړ شوي چیکونه لاندې لیست شوي دي. ملاتړ شوي ب featuresې په هارډویر ، چمتو کونکي لاسرسي او پلیټ فارم پورې اړه لري. د امنیت موندنې او د اصلي وسیلې د اعتبار محدودیتونه مستند پاتې دي. د تازه کولو دمخه یو بیک اپ وساتئ.",
+    "metrics": "{{languages}} د انٹرفیس ژبې · {{cloud}} کلاوډ چمتو کونکي · {{media}} میډیا پری سیټونه · {{license}}",
+    "providers": "په کتلاګ کې د {{providers}} چمتو کونکي پروفایلونه شامل دي: {{cloud}} کلاوډ خدمتونه او {{localProvider}} د محلي سرور لپاره. د ماډل لاسرسی او وړتیاوې په حساب، سیمه او ملاتړ شوي API پورې اړه لري. ټولې {{languages}} انٹرفیس ژبې دا کتلاګ شریکوي.",
+    "media": "د جوړونې کتلاګ د {{mediaProviders}} چمتو کونکو څخه {{media}} مخکینۍ سیټونه لري: {{images}} انځور، {{videos}} ویډیو او {{music}} میوزیک پریزیټ. لاندې جدولونه دقیق ماډلونه او پیژندونکي لیست کوي چې د مدغم اډاپټرونو لخوا ملاتړ کیږي.",
+    "upgrade": "د اپډیټر لاسلیکونه د وینډوز مستند کوډ او ایپل نوټرائزیشن څخه جلا دي. د بسته بندۍ هشونه، اصلي چکونه او تازه ازموینې په جلا توګه مستند شوي. یو بشپړ عامه {{previous}} ته {{release}} اپ گریڈ یوازې د خوشې شوي راپور کې ثبت شوي سناریوګانو لپاره تایید شوی.",
+    "android": "Android {{release}} د لاسلیک شوي ARM64 APK په توګه شتون لري، {{androidVersionCode}} جوړ کړئ. دا موجوده Novera سند کاروي او د بسته بندۍ معاینه کوي. دا هیڅ شخصي خبرې اترې، ماډلونه یا API کیلي نلري. په تلیفون کې نصب او تازه کول د ازموینې لپاره پاتې دي."
+  },
+  "pcm": {
+    "status": "Novera {{release}} don dey available for the platforms we list below. Download package for your system or use im signed update channel. App wey you don install go update when you install the new package or accept the update.",
+    "limits": "Availability and checks wey don finish dey below. Features depend on hardware, provider account and platform. Security findings and native-device test limits still dey documented. Keep backup before you update.",
+    "metrics": "{{languages}} interface languages · {{cloud}} cloud providers · {{media}} media presets · {{license}}",
+    "providers": "Catalog get {{providers}} provider profiles: {{cloud}} cloud services and {{localProvider}} for local server. Model access and features depend on account, region and supported API. All {{languages}} interface languages dey use this catalog.",
+    "media": "Creation catalog get {{media}} presets from {{mediaProviders}} providers: {{images}} image, {{videos}} video and {{music}} music presets. Tables below show exact models and identifiers wey the integrated adapters support.",
+    "upgrade": "Updater signatures no be the same thing as Windows Authenticode or Apple notarization. Package hashes, native checks and update tests get separate records. We only confirm full public update from {{previous}} to {{release}} for scenarios wey release report record.",
+    "android": "Android {{release}} don dey available as signed ARM64 APK, build {{androidVersionCode}}. E use the same Novera certificate and pass package inspection. E no contain personal chats, models or API keys. Installation and update for phone still need test."
+  },
+  "pl": {
+    "status": "Novera {{release}} jest dostępny dla platform wymienionych poniżej. Pobierz pakiet dla swojego systemu lub skorzystaj z podpisanego kanału aktualizacji. Istniejące instalacje aktualizują się po zainstalowaniu nowego pakietu lub zaakceptowaniu aktualizacji.",
+    "limits": "Dostępność i zakończone kontrole są wymienione poniżej. Obsługiwane funkcje zależą od sprzętu, dostępu dostawcy i platformy. Ustalenia dotyczące bezpieczeństwa i limity sprawdzania poprawności urządzeń natywnych pozostają udokumentowane. Przed aktualizacją zachowaj kopię zapasową.",
+    "metrics": "{{languages}} języki interfejsu · {{cloud}} dostawcy usług w chmurze · {{media}} ustawienia multimediów · {{license}}",
+    "providers": "Katalog zawiera profile dostawców {{providers}}: usługi w chmurze {{cloud}} i {{localProvider}} dla serwera lokalnego. Dostęp do modelu i możliwości zależą od konta, regionu i obsługiwanego interfejsu API. Wszystkie języki interfejsu {{languages}} korzystają z tego katalogu.",
+    "media": "Katalog kreacji zawiera gotowe ustawienia {{media}} od dostawców {{mediaProviders}}: obrazy {{images}}, ustawienia wideo {{videos}} i ustawienia muzyczne {{music}}. W poniższych tabelach wymieniono dokładne modele i identyfikatory obsługiwane przez zintegrowane adaptery.",
+    "upgrade": "Podpisy programu aktualizującego są niezależne od uwierzytelnienia Windows Authenticode i notarialnego Apple. Skróty pakietów, kontrole natywne i testy aktualizacji są dokumentowane osobno. Pełna publiczna aktualizacja {{previous}} do {{release}} jest potwierdzana tylko dla scenariuszy zarejestrowanych w raporcie wydania.",
+    "android": "Android {{release}} jest dostępny jako podpisany pakiet APK ARM64, kompilacja {{androidVersionCode}}. Wykorzystuje istniejący certyfikat Novera i przechodzi kontrolę paczki. Nie zawiera żadnych osobistych rozmów, modeli ani kluczy API. Instalacja i aktualizacja na telefonie wymagają jeszcze przetestowania."
+  },
+  "pnb": {
+    "status": "Novera {{release}} تھلے دتے گئے پلیٹ فارماں لئی دستیاب اے۔ اپنے سسٹم لئی پیکیج ڈاؤن لوڈ کرو یا ایہدے دستخط شدہ اپ ڈیٹ چینل نوں ورتو۔ جدوں تسی نواں پیکیج انسٹال کردے او یا اپ ڈیٹ قبول کردے او تے موجودہ تنصیبات اپ ڈیٹ ہوندیاں نیں.",
+    "limits": "دستیابی تے مکمل چیک تھلے دتے گئے ہن۔ تعاون یافتہ خصوصیات ہارڈ ویئر، فراہم کرن آلے تک رسائی تے پلیٹ فارم تے منحصر ہن۔ حفاظتی نتائج تے مقامی آلے دی توثیق دی حدود دستاویزی رہندیاں ہن۔ اپ ڈیٹ کرن توں پہلاں اک بیک اپ رکھو۔",
+    "metrics": "{{languages}} انٹرفیس زباناں · {{cloud}} کلاؤڈ فراہم کرن آلے · {{media}} میڈیا پری سیٹ · {{license}}",
+    "providers": "کیٹلاگ چ {{providers}} فراہم کرن آلے پروفائلز شامل نیں: {{cloud}} کلاؤڈ سروسز تے {{localProvider}} مقامی سرور لئی۔ ماڈل تک رسائی تے صلاحیتاں اکاؤنٹ، ریجن تے سپورٹڈ API تے منحصر ہن۔ سارے {{languages}} انٹرفیس بولیاں ایس کیٹلاگ نوں ونڈدیاں نیں۔",
+    "media": "تخلیق کیٹلاگ چ شامل اے {{media}} توں پری سیٹ {{mediaProviders}} فراہم کرن آلے: {{images}} تصویر، {{videos}} ویڈیو تے {{music}} میوزک پری سیٹ۔ تھلے دتے گئے جدولاں چ انٹیگریٹڈ اڈاپٹرز دے ذریعہ تعاون یافتہ عین مطابق ماڈل تے شناخت کنندگان دی فہرست دتی گئی اے۔",
+    "upgrade": "اپ ڈیٹر دے دستخط ونڈوز آتھینٹیکوڈ تے ایپل نوٹریائزیشن توں وکھرے ہن۔ پیکیج ہیش، نیٹیو چیک تے اپ ڈیٹ ٹیسٹ وکھرے طور تے دستاویز کیتے گئے ہن۔ اک مکمل عوامی {{previous}} توں {{release}} اپ گریڈ صرف ریلیز رپورٹ چ درج کیتے گئے منظر نامیاں لئی تصدیق کیتی گئی اے۔",
+    "android": "اینڈروئیڈ {{release}} دستخط شدہ ARM64 APK، بلڈ {{androidVersionCode}} دے طور تے دستیاب اے۔ ایہ موجودہ Novera سرٹیفکیٹ ورتدا اے تے پیکیج انسپیکشن پاس کردا اے۔ اس چ کوئی ذاتی گل بات، ماڈل یا API چابیاں نئیں ہن۔ فون تے انسٹالیشن تے اپ ڈیٹ کرن دی جانچ کرنی باقی اے۔"
+  },
+  "prs": {
+    "status": "Novera {{release}} برای پلت فورم های ذکر شده در زیر موجود است. بسته را برای سیستم تان بارگیری کنید یا از کانال به روز رسانی امضاء شده آن استفاده کنید. نصب های موجود زمانیکه شما بسته جدید را نصب میکنید یا به روز رسانی را قبول میکنید به روز میشوند.",
+    "limits": "موجودیت و چک های تکمیل شده در زیر لیست شده اند. ویژگی های پشتیبانی شده به سخت افزار، دسترسی فراهم کننده و پلت فورم بستگی دارد. یافته های امنیتی و محدودیت های اعتبار سنجی دستگاه بومی مستند باقی مانده است. قبل از به روز رسانی یک نسخه پشتیبان نگهداری کنید.",
+    "metrics": "{{languages}} زبان های رابط · {{cloud}} فراهم کنندگان ابری · {{media}} پیش تنظیمات رسانه · {{license}}",
+    "providers": "کتلاگ شامل {{providers}} پروفایل های فراهم کننده است: {{cloud}} خدمات ابری و {{localProvider}} برای یک سرور محلی. دسترسی و قابلیت های مدل به حساب، ساحه و API پشتیبانی شده بستگی دارد. تمام زبان های رابط {{languages}} این فهرست را به اشتراک می گذارند.",
+    "media": "کاتالوگ ایجاد شامل پیش تنظیمات {{media}} از فراهم کنندگان {{mediaProviders}} است: تصویر {{images}}، ویدیو {{videos}} و پیش تنظیمات موسیقی {{music}}. جداول ذیل مدل ها و شناسه های دقیق که توسط اډاپترهای یکپارچه پشتیبانی میشوند را لیست میکند.",
+    "upgrade": "امضاء های به روز کننده از Windows Authenticode و تصدیق اپل جدا است. هش های بسته، چک های بومی و تست های به روز رسانی بشکل جداگانه مستند شده اند. یک ارتقای کامل عامه {{previous}} به {{release}} فقط برای سناریوهای ثبت شده در گزارش انتشار تایید شده است.",
+    "android": "اندروید {{release}} به عنوان یک APK امضاء شده ARM64، ساختار {{androidVersionCode}} موجود است. این از گواهینامه موجود Novera استفاده میکند و بازرسی بسته را سپری میکند. این شامل هیچ مکالمه شخصی، مدل ها یا کلید های API نیست. نصب و به روز رسانی در یک تیلفون باید آزمایش گردد."
+  },
+  "pt-BR": {
+    "status": "Novera {{release}} está disponível para as plataformas listadas abaixo. Baixe o pacote para o seu sistema ou use o canal de atualização assinado. As instalações existentes são atualizadas quando você instala o novo pacote ou aceita a atualização.",
+    "limits": "A disponibilidade e as verificações concluídas estão listadas abaixo. Os recursos suportados dependem do hardware, do acesso do provedor e da plataforma. As descobertas de segurança e os limites de validação do dispositivo nativo permanecem documentados. Mantenha um backup antes de atualizar.",
+    "metrics": "{{languages}} linguagens de interface · {{cloud}} provedores de nuvem · {{media}} predefinições de mídia · {{license}}",
+    "providers": "O catálogo contém {{providers}} perfis de provedores: {{cloud}} serviços em nuvem e {{localProvider}} para um servidor local. O acesso e os recursos do modelo dependem da conta, da região e da API compatível. Todas as linguagens de interface {{languages}} compartilham este catálogo.",
+    "media": "O catálogo de criação contém {{media}} predefinições de {{mediaProviders}} provedores: {{images}} predefinições de imagem, {{videos}} vídeo e {{music}} predefinições de música. As tabelas abaixo listam os modelos e identificadores exatos suportados pelos adaptadores integrados.",
+    "upgrade": "As assinaturas do atualizador são separadas do Windows Authenticode e do reconhecimento de firma da Apple. Hashes de pacotes, verificações nativas e testes de atualização são documentados separadamente. Uma atualização pública completa de {{previous}} para {{release}} é confirmada apenas para os cenários registrados no relatório de lançamento.",
+    "android": "O Android {{release}} está disponível como um APK ARM64 assinado, versão {{androidVersionCode}}. Ele usa o certificado Novera existente e passa na inspeção do pacote. Não contém conversas pessoais, modelos ou chaves de API. A instalação e atualização em um telefone ainda precisam ser testadas."
+  },
+  "pt-PT": {
+    "status": "Novera {{release}} está disponível para as plataformas listadas abaixo. Transfira o pacote para o seu sistema ou utilize o canal de atualização subscrito. As instalações existentes são atualizadas quando instala o novo pacote ou aceita a atualização.",
+    "limits": "A disponibilidade e as verificações concluídas estão listadas abaixo. As características suportadas dependem do hardware, do acesso do fornecedor e da plataforma. As conclusões de segurança e os limites de validação do dispositivo nativo permanecem documentados. Mantenha um backup antes de atualizar.",
+    "metrics": "{{languages}} linguagens de interface · {{cloud}} fornecedores de cloud · {{media}} media predefinições · {{license}}",
+    "providers": "O catálogo contém {{providers}} perfis de fornecedores: {{cloud}} serviços na nuvem e {{localProvider}} para um servidor local. O acesso e as características do modelo dependem da conta, da região e da API compatível. Todas as linguagens de interface {{languages}} partilham este catálogo.",
+    "media": "O catálogo de criação contém {{media}} predefinições de {{mediaProviders}} fornecedores: {{images}} predefinições de imagem, {{videos}} vídeo e {{music}} predefinições de música. As tabelas abaixo listam os modelos e identificadores exatos suportados pelos adaptadores integrados.",
+    "upgrade": "As subscrições do atualizador são separadas do Windows Authenticode e do reconhecimento de assinatura da Apple. Os hashes de pacotes, as verificações nativas e os testes de atualização são documentados separadamente. Uma atualização pública completa de {{previous}} para {{release}} é confirmada apenas para os cenários registados no relatório de lançamento.",
+    "android": "O Android {{release}} está disponível como um APK ARM64 assinado, versão {{androidVersionCode}}. Utiliza o certificado Novera existente e passa a inspeção do pacote. Não contém conversas pessoais, modelos ou chaves API. A instalação e atualização num telefone ainda precisam de ser testadas."
+  },
+  "rn": {
+    "status": "Novera {{release}} iraboneka ku mbuga ziri aha hepfo. Gukuraho iyo porogaramu kuri sisitemu yawe canke ukoreshe umurongo wayo wo guhindura. Ivyashizweho biriho birahindurwa iyo ushizeho porogaramu nshasha canke wemeye ivugurura.",
+    "limits": "Uko biboneka n’ivyo gusuzuma vyuzuye biri aha hepfo. Ibirango bishigikiwe bivana n'ibikoresho, ukwinjira kw'ababitanga n'urubuga. Ivyo umutekano wabonye n’imipaka y’ukwemeza ibikoresho vy’akavukire biraguma vyanditswe. Gumana ububiko imbere yo guhindura.",
+    "metrics": "{{languages}} indimi z'ikigaragaza · {{cloud}} abatanga ibicu · {{media}} ivy'itangazamakuru · {{license}}",
+    "providers": "Urutonde rurimwo {{providers}} imirongo y'abatanga: {{cloud}} ibikorwa vyo mu gicu na {{localProvider}} ku mukozi wo mu karere. Ugushika ku citegererezo n'ubushobozi bivana na konti, akarere na API ishigikiwe. Indimi zose {{languages}} zisangira uru rutonde.",
+    "media": "Urutonde rw'irema rurimwo {{media}} ivyategekanijwe kuva {{mediaProviders}} abatanga: {{images}} ishusho, {{videos}} videwo na {{music}} umuziki ushizweho. Imbonerahamwe zikurikira zirerekana ivyitegererezo nyavyo n’ibimenyetso bishigikiwe n’ibikoresho vy’uguhinduranya.",
+    "upgrade": "Imikono y’abavugurura itandukanye n’ivyemezo vya Windows be n’ivyemezo vya Apple. Hashes z'amapaki, ivyigwa vy'imvukira n'ibipimo vy'ivugurura vyanditswe bitandukanye. Ivugurura ry'ibintu vyose {{previous}} gushika kuri {{release}} ryemezwa gusa ku bintu vyanditswe muri raporo y'isohoka.",
+    "android": "Android {{release}} iraboneka nk'umukono wa ARM64 APK, yubatse {{androidVersionCode}}. Ikoresha icemeza Novera kiriho kandi irenga igenzura ry'amapaki. Nta biganiro vy’umuntu ku giti ciwe, ivyitegererezo canke imfunguruzo za API birimwo. Gushiramwo no guhindura kuri telefone biracari ivy’ukugeragezwa."
+  },
+  "ro": {
+    "status": "Novera {{release}} este disponibil pentru platformele enumerate mai jos. Descărcați pachetul pentru sistemul dvs. sau utilizați canalul de actualizare semnat. Instalările existente se actualizează atunci când instalați noul pachet sau acceptați actualizarea.",
+    "limits": "Disponibilitatea și verificările efectuate sunt enumerate mai jos. Funcțiile acceptate depind de hardware, de accesul furnizorului și de platformă. Constatările de securitate și limitele de validare a dispozitivelor native rămân documentate. Păstrați o copie de rezervă înainte de a actualiza.",
+    "metrics": "{{languages}} limbi de interfață · {{cloud}} furnizori de cloud · {{media}} presetări media · {{license}}",
+    "providers": "Catalogul conține {{providers}} profiluri de furnizor: {{cloud}} servicii cloud și {{localProvider}} pentru un server local. Accesul la model și capabilitățile depind de cont, regiune și API-ul acceptat. Toate {{languages}} limbi de interfață au acest catalog.",
+    "media": "Catalogul de creații conține {{media}} presetări de la {{mediaProviders}} furnizori: {{images}} imagine, {{videos}} video și {{music}} presetări muzicale. Tabelele de mai jos prezintă modelele exacte și identificatorii acceptați de adaptoarele integrate.",
+    "upgrade": "Semnăturile de actualizare sunt separate de Windows Authenticode și notarizarea Apple. Hashe-urile pachetelor, verificările native și testele de actualizare sunt documentate separat. O actualizare publică completă de la {{previous}} la {{release}} este confirmată numai pentru scenariile înregistrate în raportul de lansare.",
+    "android": "Android {{release}} este disponibil ca un APK ARM64 semnat, versiunea {{androidVersionCode}}. Utilizează certificatul Novera existent și trece inspecția pachetului. Nu conține conversații personale, modele sau chei API. Instalarea și actualizarea pe un telefon rămân de testat."
+  },
+  "ru": {
+    "status": "Novera {{release}} доступен для платформ, перечисленных ниже. Загрузите пакет для своей системы или воспользуйтесь его подписанным каналом обновления. Существующие установки обновляются при установке нового пакета или принятии обновления.",
+    "limits": "Доступность и завершенные проверки перечислены ниже. Поддерживаемые функции зависят от оборудования, доступа провайдера и платформы. Выводы по безопасности и пределы проверки собственных устройств остаются документированными. Сохраняйте резервную копию перед обновлением.",
+    "metrics": "{{languages}} языки интерфейса · {{cloud}} облачные провайдеры · {{media}} настройки мультимедиа · {{license}}",
+    "providers": "В каталоге содержатся профили провайдеров {{providers}}: облачные сервисы {{cloud}} и {{localProvider}} для локального сервера. Доступ к модели и ее возможности зависят от учетной записи, региона и поддерживаемого API. Этот каталог используется всеми языками интерфейса {{languages}}.",
+    "media": "Каталог создания содержит пресеты {{media}} от поставщиков {{mediaProviders}}: изображения {{images}}, видео {{videos}} и музыкальные пресеты {{music}}. В таблицах ниже перечислены точные модели и идентификаторы, поддерживаемые встроенными адаптерами.",
+    "upgrade": "Подписи средства обновления отделены от Windows Authenticode и нотариального заверения Apple. Хэши пакетов, встроенные проверки и тесты обновлений документируются отдельно. Полное публичное обновление {{previous}} до {{release}} подтверждается только для сценариев, записанных в отчете о выпуске.",
+    "android": "Android {{release}} доступен в виде подписанного APK-файла ARM64, сборка {{androidVersionCode}}. Он использует существующий сертификат Novera и проходит проверку упаковки. Он не содержит личных разговоров, моделей или ключей API. Установка и обновление на телефоне еще предстоит протестировать."
+  },
+  "rw": {
+    "status": "Novera {{release}} irahari kurubuga rwavuzwe hepfo. Kuramo paki ya sisitemu yawe cyangwa ukoreshe umuyoboro wogusinya. Kwishyiriraho biriho kuvugurura iyo ushyizeho pake nshya cyangwa wemera ibishya.",
+    "limits": "Kuboneka no kugenzura byuzuye kurutonde hepfo. Ibikoresho bishyigikiwe biterwa nibyuma, kubitanga hamwe na platform. Ibyagaragaye mu mutekano hamwe n’ibikoresho byemewe-byemewe bigumaho inyandiko. Bika ibikubiyemo mbere yo kuvugurura.",
+    "metrics": "{{languages}} indimi za interineti · {{cloud}} abatanga ibicu · {{media}} itangazamakuru ryandika · {{license}}",
+    "providers": "Urutonde rurimo {{providers}} imyirondoro yabatanga: {{cloud}} serivisi zicu na {{localProvider}} kuri seriveri yaho. Icyitegererezo cyubushobozi nubushobozi biterwa na konte, akarere hamwe na API ishyigikiwe. Byose {{languages}} indimi zindimi zisangiye uru rutonde.",
+    "media": "Cataloge yo kurema ikubiyemo {{media}} igenamigambi kuva {{mediaProviders}} abatanga: {{images}} ishusho, {{videos}} amashusho na {{music}}. Imbonerahamwe ikurikira irerekana urutonde rwukuri nibiranga bishyigikiwe na adaptate ihuriweho.",
+    "upgrade": "Imikono yo kuvugurura itandukanye na Windows Authenticode na noteri wa Apple. Ibikoresho byo gupakira, kugenzura kavukire no kuvugurura ibizamini byanditswe bitandukanye. Byuzuye rusange {{previous}} kugeza {{release}} kuzamura byemejwe gusa kuri ssenariyo yanditse muri raporo yo gusohora.",
+    "android": "Android {{release}} irahari nka ARM64 yashyizweho umukono, kubaka {{androidVersionCode}}. Ikoresha icyemezo gihari Novera kandi ikanagenzura igenzura. Ntabwo ikubiyemo ibiganiro byihariye, icyitegererezo cyangwa urufunguzo rwa API. Kwinjiza no kuvugurura kuri terefone bisigaye kugeragezwa."
+  },
+  "sd": {
+    "status": "Novera {{release}} هيٺ ڏنل پليٽ فارمن لاءِ موجود آهي. توھان جي سسٽم لاءِ پيڪيج ڊائون لوڊ ڪريو يا ان جي سائن ٿيل اپڊيٽ چينل استعمال ڪريو. موجوده تنصيب تازه ڪاري ڪريو جڏهن توهان نئون پيڪيج انسٽال ڪريو يا تازه ڪاري قبول ڪريو.",
+    "limits": "دستيابي ۽ مڪمل چيڪ ھيٺ ڏنل آھن. سپورٽ خاصيتون هارڊويئر، فراهم ڪندڙ جي رسائي ۽ پليٽ فارم تي منحصر آهن. سيڪيورٽي جا نتيجا ۽ اصلي-ڊوائيس جي تصديق جون حدون دستاويز ٿيل آهن. اپڊيٽ ڪرڻ کان پهريان هڪ بيڪ اپ رکو.",
+    "metrics": "{{languages}} انٽرفيس ٻوليون · {{cloud}} ڪلائوڊ فراهم ڪندڙ · {{media}} ميڊيا پريزٽس · {{license}}",
+    "providers": "فهرست ۾ شامل آهي {{providers}} مهيا ڪندڙ پروفائل: {{cloud}} ڪلائوڊ خدمتون ۽ {{localProvider}} مقامي سرور لاءِ. ماڊل رسائي ۽ صلاحيتون اڪائونٽ، علائقي ۽ سپورٽ API تي منحصر آهن. سڀئي {{languages}} انٽرفيس ٻوليون هن فهرست کي شيئر ڪن ٿيون.",
+    "media": "ٺاھڻ جي فهرست ۾ شامل آھن {{media}} اڳوڻن کان {{mediaProviders}} مهيا ڪندڙ: {{images}} تصوير، {{videos}} وڊيو ۽ {{music}} ميوزڪ پريزٽس. هيٺ ڏنل جدولن کي درست ماڊلز ۽ سڃاڻپ ڪندڙ جي فهرست ڏني وئي آهي جيڪو مربوط اڊاپٽرن جي مدد سان.",
+    "upgrade": "اپڊيٽر جا دستخط Windows Authenticode ۽ Apple notarization کان الڳ آهن. پيڪيج هيش، اصلي چيڪ ۽ تازه ڪاري ٽيسٽ الڳ الڳ دستاويز ٿيل آهن. مڪمل عوامي {{previous}} کان {{release}} اپ گريڊ جي تصديق ڪئي وئي آهي صرف جاري ڪيل رپورٽ ۾ رڪارڊ ڪيل منظرنامي لاءِ.",
+    "android": "Android {{release}} دستياب آهي هڪ دستخط ٿيل ARM64 APK، تعمير {{androidVersionCode}}. اهو موجوده Novera سرٽيفڪيٽ استعمال ڪري ٿو ۽ پيڪيج جي چڪاس پاس ڪري ٿو. ان ۾ ڪا به ذاتي گفتگو، ماڊلز يا API ڪنجيون شامل نه آھن. هڪ فون تي تنصيب ۽ تازه ڪاري جي جانچ ٿيڻ باقي آهي."
+  },
+  "si": {
+    "status": "Novera {{release}} පහත ලැයිස්තුගත කර ඇති වේදිකා සඳහා තිබේ. ඔබේ පද්ධතිය සඳහා පැකේජය බාගන්න හෝ එහි අත්සන් කළ යාවත්කාලීන නාලිකාව භාවිතා කරන්න. ඔබ නව පැකේජය ස්ථාපනය කරන විට හෝ යාවත්කාලීනය පිළිගන්නා විට පවතින ස්ථාපනයන් යාවත්කාලීන වේ.",
+    "limits": "ලබා ගත හැකි සහ සම්පූර්ණ කරන ලද චෙක්පත් පහත ලැයිස්තුගත කර ඇත. සහය දක්වන විශේෂාංග දෘඪාංග, සැපයුම්කරු ප්‍රවේශය සහ වේදිකාව මත රඳා පවතී. ආරක්ෂක සොයාගැනීම් සහ දේශීය උපාංග වලංගු කිරීමේ සීමාවන් ලේඛනගතව පවතී. යාවත්කාලීන කිරීමට පෙර උපස්ථයක් තබා ගන්න.",
+    "metrics": "{{languages}} අතුරුමුහුණත් භාෂා · {{cloud}} ක්ලවුඩ් සපයන්නන් · {{media}} මාධ්‍ය පෙරසිටුවීම් · {{license}}",
+    "providers": "නාමාවලියෙහි {{providers}} සපයන්නන්ගේ පැතිකඩ: {{cloud}} වලාකුළු සේවා සහ දේශීය සේවාදායකයක් සඳහා {{localProvider}} ඇත. ආදර්ශ ප්‍රවේශය සහ හැකියාවන් ගිණුම, කලාපය සහ සහාය දක්වන API මත රඳා පවතී. සියලුම {{languages}} අතුරුමුහුණත් භාෂා මෙම නාමාවලිය බෙදා ගනී.",
+    "media": "නිර්මාණ නාමාවලියෙහි {{mediaProviders}} සපයන්නන්ගෙන් පෙරසිටුවීම් {{media}} ඇත: {{images}} රූපය, {{videos}} වීඩියෝ සහ {{music}} සංගීත පෙරසිටුවීම්. පහත වගු වල ඒකාබද්ධ ඇඩප්ටර මගින් සහය දක්වන නිවැරදි මාදිලි සහ හඳුනාගැනීම් ලැයිස්තුගත කරයි.",
+    "upgrade": "යාවත්කාලීන කරන්නාගේ අත්සන් වින්ඩෝස් සත්‍යාපන කේතය සහ ඇපල් නොතාරිස්කරණයෙන් වෙන්ව ඇත. පැකේජ හැෂ්, ස්වදේශීය චෙක්පත් සහ යාවත්කාලීන පරීක්ෂණ වෙන වෙනම ලේඛනගත කර ඇත. සම්පූර්ණ පොදු {{previous}} සිට {{release}} දක්වා උත්ශ්‍රේණි කිරීම තහවුරු වන්නේ නිකුත් කිරීමේ වාර්තාවේ සටහන් කර ඇති අවස්ථා සඳහා පමණි.",
+    "android": "Android {{release}} අත්සන් කරන ලද ARM64 APK එකක් ලෙස ලබා ගත හැක, ගොඩනඟන්න {{androidVersionCode}}. එය දැනට පවතින Novera සහතිකය භාවිතා කරන අතර පැකේජ පරීක්ෂාව සමත් වේ. එහි පුද්ගලික සංවාද, ආකෘති හෝ API යතුරු අඩංගු නොවේ. දුරකථනයක ස්ථාපනය සහ යාවත්කාලීන කිරීම පරීක්ෂා කිරීමට ඉතිරිව ඇත."
+  },
+  "skr": {
+    "status": "Novera {{release}} ہیٹھ ݙسائے پلیٹ فارماں واسطے دستیاب ہے۔ آپݨے سسٹم دا پیکیج ڈاؤن لوڈ کرو یا اوہدا دستخط شدہ اپ ڈیٹ چینل ورتو۔ نصب تھئی ایپ اوہدوں بدلسی جݙاں تساں نواں پیکیج نصب کریسو یا اپ ڈیٹ قبول کریسو۔",
+    "limits": "دستیابی تے مکمل تھئی جانچ ہیٹھ ݙسائی ڳئی ہے۔ صلاحیتاں ہارڈویئر، فراہم کنندہ کھاتے تے پلیٹ فارم اُتے منحصر ہن۔ حفاظتی مسئلے تے اصل ڈیوائس دی جانچ دیاں حداں دستاویز وچ ہن۔ اپ ڈیٹ توں پہلے بیک اپ رکھو۔",
+    "metrics": "{{languages}} انٹرفیس ٻولیاں · {{cloud}} کلاؤڈ فراہم کنندے · {{media}} میڈیا پیش ترتیباں · {{license}}",
+    "providers": "کیٹلاگ وچ {{providers}} پروفائل ہن: {{cloud}} کلاؤڈ سروس تے مقامی سرور واسطے {{localProvider}}۔ ماڈلاں تے صلاحیتاں دی دستیابی کھاتے، علاقے تے API اُتے منحصر ہے۔ {{languages}} انٹرفیس ٻولیاں دا کیٹلاگ ہکّو ہے۔",
+    "media": "تخلیقی کیٹلاگ وچ {{mediaProviders}} فراہم کنندیاں توں {{media}} پیش ترتیباں ہن: {{images}} تصویر، {{videos}} ویڈیو تے {{music}} موسیقی۔ ہیٹھ دے جدول شامل اڈاپٹراں دے اصل ماڈل تے شناختاں ݙسیندن۔",
+    "upgrade": "اپ ڈیٹر دے دستخط Windows Authenticode تے Apple notarization توں وکھرے ہن۔ پیکیج دے ہیش، مقامی جانچ تے اپ ڈیٹ دے تجربے وکھرے درج ہن۔ {{previous}} توں {{release}} دی مکمل عوامی اپ ڈیٹ صرف ریلیز رپورٹ وچ درج صورتاں واسطے تصدیق تھئی ہے۔",
+    "android": "Android {{release}} دستخط شدہ ARM64 APK، بلڈ {{androidVersionCode}} دے طور تے دستیاب ہے۔ ایہ اوہو Novera سرٹیفکیٹ ورتیندا ہے تے پیکیج دی جانچ پاس کریندا ہے۔ ایندے وچ ذاتی گالھ بات، ماڈل یا API کنجیاں کائنی۔ فون اُتے نصب کرݨ تے اپ ڈیٹ دا تجربہ ہݨ وی باقی ہے۔"
+  },
+  "sn": {
+    "status": "Novera {{release}} iripo kumapuratifomu akanyorwa pazasi. Dhawunirodha pasuru yesystem yako kana shandisa yakasainwa yekuvandudza chiteshi. Kumisikidzwa kuriko kunogadziridza paunoisa pasuru nyowani kana kugamuchira iyo yekuvandudza.",
+    "limits": "Kuvepo uye macheki akapedzwa akanyorwa pazasi. Anotsigirwa maficha anoenderana nehardware, mupi wekuwana uye chikuva. Chengetedzo yakawanikwa uye yemuno-mudziyo yekusimbisa miganho inoramba yakanyorwa. Chengetedza backup usati wagadziridza.",
+    "metrics": "{{languages}} interface mitauro · {{cloud}} vanopa makore · {{media}} magadzirirwo enhau · {{license}}",
+    "providers": "Katalog ine {{providers}} maprofile evanopa: {{cloud}} cloud services uye {{localProvider}} yeserver yemunharaunda. Kuwana modhi uye kugona zvinoenderana neakaundi, dunhu uye inotsigirwa API. Mitauro yese {{languages}} inogovera bhuku iri.",
+    "media": "Katalog yekugadzira ine {{media}} zvakagadziridzwa kubva ku {{mediaProviders}} vanopa: {{images}} mufananidzo, {{videos}} mavhidhiyo uye {{music}} mimhanzi preset. Matafura ari pasi apa anonyora mamodheru chaiwo uye zviziviso zvinotsigirwa nemaadapter akabatanidzwa.",
+    "upgrade": "Updater masiginicha akaparadzana neWindows Authenticode uye Apple notarization. Package hashes, cheki cheki uye bvunzo dzekuvandudza zvakanyorwa zvakasiyana. Kukwidziridzwa kweruzhinji kuzere {{previous}} kusvika ku{{release}} kunosimbiswa chete nemamiriro akanyorwa mumushumo wekuburitswa.",
+    "android": "Android {{release}} inowanikwa seArM64 APK yakasainwa, gadzira {{androidVersionCode}}. Inoshandisa chiripo Novera chitupa uye ichipfuura pasuru yekuongorora. Iyo haina nhaurirano dzemunhu, modhi kana makiyi eAPI. Kuiswa uye kugadzirisa parunhare kunoramba kuchiedzwa."
+  },
+  "so": {
+    "status": "Novera {{release}} ayaa diyaar u ah aaladaha hoos ku taxan. Soo deji xirmada nidaamkaaga ama isticmaal kanaalka cusboonaysiinta ee saxeexan. Rakibaadaha hadda jira ayaa cusbooneysiiya marka aad rakibto xirmada cusub ama aad aqbasho cusboonaysiinta.",
+    "limits": "Helitaanka iyo hubinta la dhammaystiray ayaa hoos ku taxan. Tilmaamaha la taageeray waxay ku xiran yihiin qalabka, helitaanka adeeg bixiyaha iyo madal. Natiijooyinka amniga iyo xaddidaadaha xaqiijinta qalabka-hooyo ayaa ah kuwa dukumeenti ah. Kaydso ka hor intaanad cusboonaysiin.",
+    "metrics": "{{languages}} luqadaha is dhexgalka · {{cloud}} bixiyayaasha daruuraha · {{media}} presets media · {{license}}",
+    "providers": "Buugyaraha waxa uu ka kooban yahay {{providers}} profiles bixiyaha: {{cloud}} adeegyada daruuraha iyo {{localProvider}} ee server maxalli ah. Helitaanka moodeelka iyo awooduhu waxay ku xidhan yihiin koontada, gobolka iyo API la taageero. Dhammaan {{languages}} luqadaha is dhexgalka ayaa wadaaga buuggan.",
+    "media": "Buugga abuurista waxa uu ka kooban yahay {{media}} presets ka {{mediaProviders}} bixiyayaasha: {{images}} sawir, {{videos}} fiidyow iyo {{music}} horudhacyada muusiga. Jadwalka hoose ayaa taxaya moodooyinka saxda ah iyo tilmaamayaasha ay taageerayaan adapters-ka isku dhafan.",
+    "upgrade": "Saxiixa cusbooneysiinta way ka duwan yihiin Windows Authenticode iyo notarization Apple. Xashiishyada baakadka, jeegaga waddaniga ah iyo tijaabooyinka cusboonaysiinta ayaa si gaar ah loo diiwaangeliyay. cusboonaysiinta guud ee {{previous}} ilaa {{release}} waxa loo xaqiijiyay kaliya xaaladaha lagu duubay warbixinta siidaynta.",
+    "android": "Android {{release}} waxa loo heli karaa sidii ARM64 APK oo saxeexan, dhis {{androidVersionCode}} Waxay isticmaashaa Novera shahaado jirta oo waxay gudbisaa kormeerka xirmada. Kuma jiraan wada sheekaysi shaqsiyeed, moodallo ama furayaal API Ku rakibida iyo ku cusboonaysiinta taleefanka ayaa hadhi doona in la tijaabiyo."
+  },
+  "st": {
+    "status": "Novera {{release}} ea fumaneha bakeng sa lifolamo tse thathamisitsoeng ka tlase. Khoasolla sephutheloana sa sistimi ea hau kapa sebelisa kanale ea eona ea ntlafatso e saenneng. Lisebelisoa tse seng li ntse li le teng lia ntlafatsoa ha u kenya sephutheloana se secha kapa u amohela ntlafatso.",
+    "limits": "Boteng le licheke tse phethiloeng li thathamisitsoe ka tlase. Likarolo tse tšehelitsoeng li ipapisitse le lisebelisoa, phihlello ea mofani le sethala. Liphuputso tsa ts'ireletso le meeli ea netefatso ea lisebelisoa tsa lehae li lula li ngotsoe. Boloka bekapo pele o apdeita.",
+    "metrics": "{{languages}} lipuo tse sebelisoang · {{cloud}} bafani ba cloud · {{media}} litlhophiso tsa mecha ea litaba · {{license}}",
+    "providers": "Lethathamo le na le {{providers}} liprofaele tsa bafani: {{cloud}} lits'ebeletso tsa cloud le {{localProvider}} bakeng sa li-server tsa lehae. Phihlello ea mohlala le bokhoni li itšetlehile ka akhaonto, sebaka le API e tšehetsoeng. Lipuo tsohle tsa {{languages}} li arolelana lethathamo lena.",
+    "media": "Lenane la meralo le na le {{media}} litlhophiso esale pele ho tsoa ho bafani ba {{mediaProviders}}: {{images}} litšoantšo, {{videos}} lifitio le {{music}} litlhophiso tsa 'mino. Litafole tse ka tlase li thathamisa mehlala le li-identifiers tse tšehetsoeng ke li-adapter tse kopantsoeng.",
+    "upgrade": "Li-signature tsa ntlafatso li arohane le Windows Authenticode le Apple notarization. Li-hashes tsa liphutheloana, licheke tsa tlhaho le liteko tsa ntlafatso li ngotsoe ka thoko. Katoloso e felletseng ea sechaba {{previous}} ho isa ho {{release}} e netefatsoa feela bakeng sa maemo a tlalehiloeng tlalehong ea tokollo.",
+    "android": "Android {{release}} ea fumaneha e le APK ea ARM64 e saennoeng, haha ​​{{androidVersionCode}}. E sebelisa setifikeiti sa hona joale sa Novera 'me e feta tlhahlobo ea thepa. Ha e na lipuisano tsa botho, mehlala kapa linotlolo tsa API. Ho kenya le ho ntlafatsa fonong ho sa ntse ho lokela ho lekoa."
+  },
+  "su": {
+    "status": "Novera {{release}} sayogi pikeun platform anu didaptarkeun di handap. Unduh pakét pikeun sistem anjeun atanapi nganggo saluran pembaruan anu ditandatanganan. Pembaruan pamasangan anu aya nalika anjeun masang pakét énggal atanapi nampi apdet.",
+    "limits": "Kasadiaan jeung cék réngsé dibéréndélkeun di handap. Fitur anu dirojong gumantung kana hardware, aksés panyadia sareng platform. Papanggihan kaamanan sareng wates validasi alat asli tetep didokumentasikeun. Simpen cadangan sateuacan ngapdet.",
+    "metrics": "{{languages}} basa panganteur · {{cloud}} panyadia awan · {{media}} prasetél média · {{license}}",
+    "providers": "Katalog ngandung {{providers}} propil panyadia: {{cloud}} jasa awan sareng {{localProvider}} kanggo server lokal. Aksés modél sareng kamampuan gumantung kana akun, daérah sareng API anu dirojong. Sadaya basa panganteur {{languages}} ngabagi katalog ieu.",
+    "media": "Katalog kreasi ngandung {{media}} prasetél ti {{mediaProviders}} panyadia: {{images}} gambar, {{videos}} vidéo sareng {{music}} prasetél musik. Tabél di handap ieu daptar model sareng identifier anu dirojong ku adaptor terpadu.",
+    "upgrade": "Tanda tangan Updater dipisahkeun tina Windows Authenticode sareng Apple notarization. Hashes pakét, cék asli sareng tés update didokumentasikeun sacara misah. Pamutahiran {{previous}} umum lengkep ka {{release}} dikonfirmasi ngan pikeun skenario anu kacatet dina laporan pelepasan.",
+    "android": "Android {{release}} sayogi salaku APK ARM64 anu ditandatanganan, ngawangun {{androidVersionCode}}. Nganggo sertipikat Novera anu tos aya sareng lulus pamariksaan pakét. Éta henteu ngandung paguneman pribadi, modél atanapi konci API. Pamasangan sareng ngapdet dina telepon tetep kedah diuji."
+  },
+  "sv": {
+    "status": "Novera {{release}} är tillgänglig för plattformarna som listas nedan. Ladda ner paketet för ditt system eller använd dess signerade uppdateringskanal. Befintliga installationer uppdateras när du installerar det nya paketet eller accepterar uppdateringen.",
+    "limits": "Tillgänglighet och genomförda kontroller listas nedan. Funktioner som stöds beror på hårdvara, leverantörsåtkomst och plattform. Säkerhetsfynd och valideringsgränser för inbyggda enheter förblir dokumenterade. Håll en säkerhetskopia innan du uppdaterar.",
+    "metrics": "{{languages}} gränssnittsspråk · {{cloud}} molnleverantörer · {{media}} medieförinställningar · {{license}}",
+    "providers": "Katalogen innehåller {{providers}} leverantörsprofiler: {{cloud}} molntjänster och {{localProvider}} för en lokal server. Modellåtkomst och möjligheter beror på kontot, regionen och API som stöds. Alla {{languages}} gränssnittsspråk delar denna katalog.",
+    "media": "Skapandekatalogen innehåller {{media}} förinställningar från {{mediaProviders}} leverantörer: {{images}} bild, {{videos}} video och {{music}} musikförinställningar. Tabellerna nedan listar de exakta modellerna och identifierarna som stöds av de integrerade adaptrarna.",
+    "upgrade": "Uppdateringssignaturer är separata från Windows Authenticode och Apple-notarisering. Pakethaschar, inbyggda kontroller och uppdateringstester dokumenteras separat. En fullständig offentlig uppgradering från {{previous}} till {{release}} bekräftas endast för de scenarier som registrerats i releaserapporten.",
+    "android": "Android {{release}} är tillgänglig som en signerad ARM64 APK, build {{androidVersionCode}}. Den använder det befintliga Novera-certifikatet och klarar paketinspektionen. Den innehåller inga personliga konversationer, modeller eller API-nycklar. Installation och uppdatering på en telefon återstår att testa."
+  },
+  "sw": {
+    "status": "Novera {{release}} inapatikana kwa mifumo iliyoorodheshwa hapa chini. Pakua kifurushi cha mfumo wako au utumie chaneli yake ya sasisho iliyotiwa saini. Usakinishaji uliopo husasishwa unaposakinisha kifurushi kipya au kukubali sasisho.",
+    "limits": "Upatikanaji na hundi zilizokamilishwa zimeorodheshwa hapa chini. Vipengele vinavyotumika hutegemea maunzi, ufikiaji wa mtoa huduma na jukwaa. Matokeo ya usalama na vikomo vya uthibitishaji wa kifaa asili yanasalia kuandikwa. Hifadhi nakala kabla ya kusasisha.",
+    "metrics": "{{languages}} lugha za kiolesura · {{cloud}} watoa huduma za wingu · {{media}} mipangilio ya awali ya maudhui · {{license}}",
+    "providers": "Katalogi ina wasifu wa watoa huduma {{providers}}: {{cloud}} huduma za wingu na {{localProvider}} kwa seva ya ndani. Ufikiaji wa muundo na uwezo hutegemea akaunti, eneo na API inayotumika. Lugha zote {{languages}} za kiolesura hushiriki katalogi hii.",
+    "media": "Katalogi ya uundaji ina {{media}} uwekaji mapema kutoka kwa watoa huduma {{mediaProviders}}: picha {{images}}, {{videos}} video na {{music}} mipangilio ya awali ya muziki. Majedwali yaliyo hapa chini yanaorodhesha miundo na vitambulishi halisi vinavyotumika na adapta zilizounganishwa.",
+    "upgrade": "Sahihi za kusasisha ni tofauti na Msimbo wa Uthibitishaji wa Windows na uthibitishaji wa Apple. Heshi za kifurushi, hundi asilia na majaribio ya kusasisha hurekodiwa kando. Usasishaji kamili wa umma wa {{previous}} hadi {{release}} unathibitishwa kwa matukio yaliyorekodiwa katika ripoti ya toleo pekee.",
+    "android": "Android {{release}} inapatikana kama APK ya ARM64 iliyotiwa saini, tengeneza {{androidVersionCode}}. Inatumia cheti kilichopo cha Novera na kupita ukaguzi wa kifurushi. Haina mazungumzo ya kibinafsi, miundo au vitufe vya API. Usakinishaji na usasishaji kwenye simu unasalia kujaribiwa."
+  },
+  "ta": {
+    "status": "கீழே பட்டியலிடப்பட்டுள்ள தளங்களில் Novera {{release}} கிடைக்கிறது. உங்கள் கணினிக்கான தொகுப்பைப் பதிவிறக்கவும் அல்லது அதன் கையொப்பமிடப்பட்ட புதுப்பிப்பு சேனலைப் பயன்படுத்தவும். புதிய தொகுப்பை நிறுவும் போது அல்லது புதுப்பிப்பை ஏற்கும் போது இருக்கும் நிறுவல்கள் புதுப்பிக்கப்படும்.",
+    "limits": "கிடைக்கும் மற்றும் பூர்த்தி செய்யப்பட்ட காசோலைகள் கீழே பட்டியலிடப்பட்டுள்ளன. ஆதரிக்கப்படும் அம்சங்கள் வன்பொருள், வழங்குநர் அணுகல் மற்றும் இயங்குதளத்தைப் பொறுத்தது. பாதுகாப்பு கண்டுபிடிப்புகள் மற்றும் சொந்த சாதன சரிபார்ப்பு வரம்புகள் ஆவணப்படுத்தப்பட்டுள்ளன. புதுப்பிப்பதற்கு முன் காப்புப்பிரதியை வைத்திருங்கள்.",
+    "metrics": "{{languages}} இடைமுக மொழிகள் · {{cloud}} கிளவுட் வழங்குநர்கள் · {{media}} மீடியா முன்னமைவுகள் · {{license}}",
+    "providers": "பட்டியலில் {{providers}} வழங்குநர் சுயவிவரங்கள் உள்ளன: {{cloud}} கிளவுட் சேவைகள் மற்றும் உள்ளூர் சேவையகத்திற்கான {{localProvider}}. மாதிரி அணுகல் மற்றும் திறன்கள் கணக்கு, பகுதி மற்றும் ஆதரிக்கப்படும் API ஆகியவற்றைப் பொறுத்தது. எல்லா {{languages}} இடைமுக மொழிகளும் இந்தப் பட்டியலைப் பகிர்ந்து கொள்கின்றன.",
+    "media": "உருவாக்கம் அட்டவணையில் {{mediaProviders}} வழங்குநர்களிடமிருந்து {{media}} முன்னமைவுகள் உள்ளன: {{images}} படம், {{videos}} வீடியோ மற்றும் {{music}} இசை முன்னமைவுகள். கீழே உள்ள அட்டவணைகள் ஒருங்கிணைந்த அடாப்டர்களால் ஆதரிக்கப்படும் சரியான மாதிரிகள் மற்றும் அடையாளங்காட்டிகளை பட்டியலிடுகின்றன.",
+    "upgrade": "புதுப்பிப்பு கையொப்பங்கள் விண்டோஸ் அங்கீகாரம் மற்றும் ஆப்பிள் நோட்டரைசேஷன் ஆகியவற்றிலிருந்து தனித்தனியாக இருக்கும். பேக்கேஜ் ஹாஷ்கள், நேட்டிவ் காசோலைகள் மற்றும் புதுப்பிப்பு சோதனைகள் தனித்தனியாக ஆவணப்படுத்தப்பட்டுள்ளன. முழுமையான பொது {{previous}} க்கு {{release}} மேம்படுத்தல் வெளியீட்டு அறிக்கையில் பதிவுசெய்யப்பட்ட காட்சிகளுக்கு மட்டுமே உறுதி செய்யப்படுகிறது.",
+    "android": "ஆண்ட்ராய்டு {{release}} கையொப்பமிடப்பட்ட ARM64 APK ஆகக் கிடைக்கிறது, உருவாக்கம் {{androidVersionCode}}. இது ஏற்கனவே உள்ள Novera சான்றிதழைப் பயன்படுத்துகிறது மற்றும் தொகுப்பு ஆய்வில் தேர்ச்சி பெறுகிறது. இதில் தனிப்பட்ட உரையாடல்கள், மாதிரிகள் அல்லது API விசைகள் எதுவும் இல்லை. ஃபோனில் நிறுவுதல் மற்றும் புதுப்பித்தல் இன்னும் சோதிக்கப்பட உள்ளது."
+  },
+  "te": {
+    "status": "దిగువ జాబితా చేయబడిన ప్లాట్‌ఫారమ్‌ల కోసం Novera {{release}} అందుబాటులో ఉంది. మీ సిస్టమ్ కోసం ప్యాకేజీని డౌన్‌లోడ్ చేయండి లేదా దాని సంతకం చేసిన నవీకరణ ఛానెల్‌ని ఉపయోగించండి. మీరు కొత్త ప్యాకేజీని ఇన్‌స్టాల్ చేసినప్పుడు లేదా నవీకరణను ఆమోదించినప్పుడు ఇప్పటికే ఉన్న ఇన్‌స్టాలేషన్‌లు అప్‌డేట్ అవుతాయి.",
+    "limits": "లభ్యత మరియు పూర్తయిన తనిఖీలు క్రింద ఇవ్వబడ్డాయి. మద్దతు ఉన్న ఫీచర్లు హార్డ్‌వేర్, ప్రొవైడర్ యాక్సెస్ మరియు ప్లాట్‌ఫారమ్‌పై ఆధారపడి ఉంటాయి. భద్రతా ఫలితాలు మరియు స్థానిక-పరికర ధ్రువీకరణ పరిమితులు డాక్యుమెంట్ చేయబడి ఉంటాయి. నవీకరించడానికి ముందు బ్యాకప్ ఉంచండి.",
+    "metrics": "{{languages}} ఇంటర్‌ఫేస్ భాషలు · {{cloud}} క్లౌడ్ ప్రొవైడర్‌లు · {{media}} మీడియా ప్రీసెట్‌లు · {{license}}",
+    "providers": "కేటలాగ్‌లో {{providers}} ప్రొవైడర్ ప్రొఫైల్‌లు ఉన్నాయి: {{cloud}} క్లౌడ్ సేవలు మరియు స్థానిక సర్వర్ కోసం {{localProvider}}. మోడల్ యాక్సెస్ మరియు సామర్థ్యాలు ఖాతా, ప్రాంతం మరియు మద్దతు ఉన్న APIపై ఆధారపడి ఉంటాయి. అన్ని {{languages}} ఇంటర్‌ఫేస్ భాషలు ఈ కేటలాగ్‌ను భాగస్వామ్యం చేస్తాయి.",
+    "media": "సృష్టి కేటలాగ్‌లో {{mediaProviders}} ప్రొవైడర్‌ల నుండి {{media}} ప్రీసెట్‌లు ఉన్నాయి: {{images}} చిత్రం, {{videos}} వీడియో మరియు {{music}} మ్యూజిక్ ప్రీసెట్‌లు. దిగువ పట్టికలు ఇంటిగ్రేటెడ్ ఎడాప్టర్‌ల ద్వారా మద్దతు ఇచ్చే ఖచ్చితమైన మోడల్‌లు మరియు ఐడెంటిఫైయర్‌లను జాబితా చేస్తాయి.",
+    "upgrade": "అప్‌డేటర్ సంతకాలు Windows Authenticode మరియు Apple నోటరైజేషన్ నుండి వేరుగా ఉంటాయి. ప్యాకేజీ హ్యాష్‌లు, స్థానిక తనిఖీలు మరియు నవీకరణ పరీక్షలు విడిగా డాక్యుమెంట్ చేయబడతాయి. విడుదల నివేదికలో నమోదు చేయబడిన దృశ్యాలకు మాత్రమే పూర్తి పబ్లిక్ {{previous}} నుండి {{release}} అప్‌గ్రేడ్ నిర్ధారించబడింది.",
+    "android": "Android {{release}} సంతకం చేయబడిన ARM64 APK వలె అందుబాటులో ఉంది, {{androidVersionCode}}ని రూపొందించండి. ఇది ఇప్పటికే ఉన్న Novera సర్టిఫికేట్‌ను ఉపయోగిస్తుంది మరియు ప్యాకేజీ తనిఖీని పాస్ చేస్తుంది. ఇందులో వ్యక్తిగత సంభాషణలు, మోడల్‌లు లేదా API కీలు లేవు. ఫోన్‌లో ఇన్‌స్టాలేషన్ మరియు అప్‌డేట్ చేయడం ఇంకా పరీక్షించాల్సి ఉంది."
+  },
+  "th": {
+    "status": "Novera {{release}} พร้อมใช้งานสำหรับแพลตฟอร์มที่แสดงด้านล่าง ดาวน์โหลดแพ็คเกจสำหรับระบบของคุณหรือใช้ช่องทางการอัพเดตที่เซ็นชื่อ การอัปเดตการติดตั้งที่มีอยู่เมื่อคุณติดตั้งแพ็คเกจใหม่หรือยอมรับการอัปเดต",
+    "limits": "ความพร้อมใช้งานและการตรวจสอบที่เสร็จสมบูรณ์มีดังต่อไปนี้ คุณสมบัติที่รองรับขึ้นอยู่กับฮาร์ดแวร์ การเข้าถึงของผู้ให้บริการ และแพลตฟอร์ม การค้นพบด้านความปลอดภัยและขีดจำกัดการตรวจสอบความถูกต้องของอุปกรณ์ดั้งเดิมยังคงมีการบันทึกไว้ สำรองข้อมูลก่อนการอัพเดต",
+    "metrics": "ภาษาอินเทอร์เฟซ {{languages}} ภาษา · ผู้ให้บริการระบบคลาวด์ {{cloud}} ราย · ค่าสื่อล่วงหน้า {{media}} รายการ · {{license}}",
+    "providers": "แค็ตตาล็อกประกอบด้วยโปรไฟล์ผู้ให้บริการ {{providers}}: บริการคลาวด์ {{cloud}} และ {{localProvider}} สำหรับเซิร์ฟเวอร์ภายในเครื่อง การเข้าถึงโมเดลและความสามารถขึ้นอยู่กับบัญชี ภูมิภาค และ API ที่รองรับ ภาษาอินเทอร์เฟซ {{languages}} ทั้งหมดใช้แค็ตตาล็อกนี้ร่วมกัน",
+    "media": "แค็ตตาล็อกการสร้างประกอบด้วยค่าที่ตั้งไว้ล่วงหน้า {{media}} รายการจากผู้ให้บริการ {{mediaProviders}} รายการ: รูปภาพ {{images}} รายการ, วิดีโอ {{videos}} รายการ และค่าที่ตั้งไว้ล่วงหน้าเพลง {{music}} รายการ ตารางด้านล่างแสดงรายการรุ่นและตัวระบุที่อะแดปเตอร์ในตัวรองรับ",
+    "upgrade": "ลายเซ็นตัวอัปเดตจะแยกจาก Windows Authenticode และการรับรองเอกสารของ Apple แฮชของแพ็คเกจ การตรวจสอบดั้งเดิม และการทดสอบการอัปเดตจะมีการจัดทำเอกสารแยกต่างหาก การอัปเกรด {{previous}} สู่ {{release}} แบบสาธารณะโดยสมบูรณ์ได้รับการยืนยันสำหรับสถานการณ์ที่บันทึกไว้ในรายงานการเผยแพร่เท่านั้น",
+    "android": "Android {{release}} มีให้บริการในรูปแบบ ARM64 APK ที่ลงนามแล้ว รุ่น {{androidVersionCode}} ใช้ใบรับรอง Novera ที่มีอยู่และผ่านการตรวจสอบพัสดุ ไม่มีการสนทนาส่วนตัว โมเดล หรือคีย์ API การติดตั้งและการอัพเดตบนโทรศัพท์ยังคงต้องได้รับการทดสอบ"
+  },
+  "tl": {
+    "status": "Novera {{release}} ay available para sa mga platform na nakalista sa ibaba. I-download ang package para sa iyong system o gamitin ang nilagdaang update channel nito. Ang mga kasalukuyang pag-install ay na-update kapag nag-install ka ng bagong package o tinanggap ang update.",
+    "limits": "Ang availability at mga nakumpletong pagsusuri ay nakalista sa ibaba. Nakadepende ang mga sinusuportahang feature sa hardware, access ng provider at platform. Nananatiling dokumentado ang mga natuklasan sa seguridad at mga limitasyon sa pagpapatunay ng native-device. Panatilihin ang isang backup bago mag-update.",
+    "metrics": "{{languages}} mga wika sa interface · {{cloud}} mga tagapagbigay ng cloud · {{media}} mga preset ng media · {{license}}",
+    "providers": "Ang catalog ay naglalaman ng {{providers}} mga profile ng provider: {{cloud}} mga serbisyo sa cloud at {{localProvider}} para sa isang lokal na server. Nakadepende ang access at mga kakayahan ng modelo sa account, rehiyon at sinusuportahang API. Lahat ng {{languages}} interface na wika ay nagbabahagi ng catalog na ito.",
+    "media": "Ang katalogo ng paggawa ay naglalaman ng {{media}} na mga preset mula sa {{mediaProviders}} na mga provider: {{images}} larawan, {{videos}} video at {{music}} mga preset ng musika. Inililista ng mga talahanayan sa ibaba ang eksaktong mga modelo at identifier na sinusuportahan ng mga pinagsama-samang adapter.",
+    "upgrade": "Ang mga lagda ng Updater ay hiwalay sa Windows Authenticode at Apple notarization. Ang mga package hash, native na mga pagsusuri at mga pagsusuri sa pag-update ay nakadokumento nang hiwalay. Ang kumpletong pampublikong {{previous}} hanggang {{release}} na pag-upgrade ay nakumpirma lamang para sa mga senaryo na naitala sa ulat ng paglabas.",
+    "android": "Available ang Android {{release}} bilang isang nilagdaang ARM64 APK, build {{androidVersionCode}}. Ginagamit nito ang umiiral nang certificate ng Novera at pumasa sa inspeksyon ng package. Wala itong mga personal na pag-uusap, modelo o API key. Ang pag-install at pag-update sa isang telepono ay mananatiling pagsubok."
+  },
+  "tn": {
+    "status": "Novera {{release}} e teng mo dipolatefomong tse di kwadilweng fa tlase fano. Laisolola sephuthelwana sa tsamaiso ya gago kgotsa dirisa kanale ya yone ya ntšhwafatso e e saenilweng. Ditlhomo tse di leng teng di a tlhabololwa fa o tsenya sephuthelwana se sešwa kgotsa o amogela tlhabololo.",
+    "limits": "Go nna teng le ditšheke tse di tladitsweng di kwadilwe fa tlase. Ditiriso tse di tshegediwang di ikaegile ka serwethata, phitlhelelo ya motlamedi le polatefomo. Diphitlhelelo tsa tshireletsego le melelwane ya netefatso ya sediriswa sa naga di sa ntse di kwadilwe. Boloka bekapo pele o ntšhwafatsa.",
+    "metrics": "{{languages}} dipuo tsa segokaganyi · {{cloud}} batlamedi ba kwa marung · {{media}} disetepele tsa mmedia · {{license}}",
+    "providers": "Khathaloko e na le {{providers}} diporofaele tsa motlamedi: {{cloud}} ditirelo tsa kwa marung le {{localProvider}} tsa sefara ya selegae. Phitlhelelo ya sekao le bokgoni di ikaegile ka akhaonto, kgaolo le API e e tshegediwang. Dipuo tsotlhe tsa segokaganyi {{languages}} di abelana lenaane leno la dibuka.",
+    "media": "Lenaneo la ditlhamo le na le {{media}} disetepele go tswa go {{mediaProviders}} batlamedi: {{images}} setshwantsho, {{videos}} bidio le {{music}} di-preset tsa mmino. Ditafole tse ka tlase di thathamisa dikai tse tobileng le ditshupo tse tshehetswang ke diadaptara tse kopantsweng.",
+    "upgrade": "Ditshaeno tsa tlhabololo di kgaogane le Khoutu ya Bonetefatsi ya Windows le go netefatsa ga Apple. Di-hashes tsa sephuthelwana, ditshekatsheko tsa naga le diteko tsa ntšhwafatso di kwadilwe ka go kgaogana. Setšhaba se se feletseng {{previous}} go {{release}} tlhabololo e netefaditswe fela mo ditiragalo tse di kwadilweng mo pegelong ya tokololo.",
+    "android": "Android {{release}} e teng jaaka APK ya ARM64 e e saennweng, kago ya {{androidVersionCode}}. E dirisa setifikeiti se se leng teng sa Novera mme e feta tlhatlhobo ya sephuthelwana. Ga e na metlotlo ya botho, dikai kgotsa dinotlolo tsa API. Go tsenya le go tlhabolola mo founong go sa ntse go tla lekwa."
+  },
+  "tr": {
+    "status": "Novera {{release}}, aşağıda listelenen platformlar için mevcuttur. Sisteminize uygun paketi indirin veya imzalı güncelleme kanalını kullanın. Yeni paketi yüklediğinizde veya güncellemeyi kabul ettiğinizde mevcut kurulumlar güncellenir.",
+    "limits": "Kullanılabilirlik ve tamamlanan kontroller aşağıda listelenmiştir. Desteklenen özellikler donanıma, sağlayıcı erişimine ve platforma bağlıdır. Güvenlik bulguları ve yerel cihaz doğrulama sınırları belgelenmeye devam ediyor. Güncellemeden önce yedek tutun.",
+    "metrics": "{{languages}} arayüz dili · {{cloud}} bulut sağlayıcısı · {{media}} medya ön ayarı · {{license}}",
+    "providers": "Katalogda {{providers}} sağlayıcı profili bulunur: {{cloud}} bulut hizmetleri ve yerel sunucu için {{localProvider}}. Model erişimi ve yetenekleri hesaba, bölgeye ve desteklenen API'ye bağlıdır. Tüm {{languages}} arayüz dili bu kataloğu paylaşmaktadır.",
+    "media": "Oluşturma kataloğu, {{mediaProviders}} sağlayıcılardan {{media}} ön ayar içerir: {{images}} resim, {{videos}} video ve {{music}} müzik ön ayarı. Aşağıdaki tablolarda entegre adaptörler tarafından desteklenen modeller ve tanımlayıcılar tam olarak listelenmektedir.",
+    "upgrade": "Güncelleyici imzaları Windows Authenticode ve Apple noter tasdikinden ayrıdır. Paket karmaları, yerel kontroller ve güncelleme testleri ayrı olarak belgelenir. Genel {{previous}}'dan {{release}}'ya tam bir yükseltme, yalnızca sürüm raporunda kaydedilen senaryolar için onaylandı.",
+    "android": "Android {{release}}, imzalı bir ARM64 APK olarak mevcuttur, {{androidVersionCode}} derleyin. Mevcut Novera sertifikasını kullanır ve paket incelemesinden geçer. Kişisel konuşmalar, modeller veya API anahtarları içermez. Telefona kurulum ve güncelleme henüz test edilmeyi bekliyor."
+  },
+  "tts": {
+    "status": "Novera {{release}} พร้อมใช้งานสำหรับแพลตฟอร์มที่แสดงด้านล่าง ดาวน์โหลดแพ็คเกจสำหรับระบบของคุณหรือใช้ช่องทางการอัพเดตที่เซ็นชื่อ การอัปเดตการติดตั้งที่มีอยู่เมื่อคุณติดตั้งแพ็คเกจใหม่หรือยอมรับการอัปเดต",
+    "limits": "ความพร้อมใช้งานและการตรวจสอบที่เสร็จสมบูรณ์มีดังต่อไปนี้ คุณสมบัติที่รองรับขึ้นอยู่กับฮาร์ดแวร์ การเข้าถึงของผู้ให้บริการ และแพลตฟอร์ม การค้นพบด้านความปลอดภัยและขีดจำกัดการตรวจสอบความถูกต้องของอุปกรณ์ดั้งเดิมยังคงมีการบันทึกไว้ สำรองข้อมูลก่อนการอัพเดต",
+    "metrics": "ภาษาอินเทอร์เฟซ {{languages}} ภาษา · ผู้ให้บริการระบบคลาวด์ {{cloud}} ราย · ค่าสื่อล่วงหน้า {{media}} รายการ · {{license}}",
+    "providers": "แค็ตตาล็อกประกอบด้วยโปรไฟล์ผู้ให้บริการ {{providers}}: บริการคลาวด์ {{cloud}} และ {{localProvider}} สำหรับเซิร์ฟเวอร์ภายในเครื่อง การเข้าถึงโมเดลและความสามารถขึ้นอยู่กับบัญชี ภูมิภาค และ API ที่รองรับ ภาษาอินเทอร์เฟซ {{languages}} ทั้งหมดใช้แค็ตตาล็อกนี้ร่วมกัน",
+    "media": "แค็ตตาล็อกการสร้างประกอบด้วยค่าที่ตั้งไว้ล่วงหน้า {{media}} รายการจากผู้ให้บริการ {{mediaProviders}} รายการ: รูปภาพ {{images}} รายการ, วิดีโอ {{videos}} รายการ และค่าที่ตั้งไว้ล่วงหน้าเพลง {{music}} รายการ ตารางด้านล่างแสดงรายการรุ่นและตัวระบุที่อะแดปเตอร์ในตัวรองรับ",
+    "upgrade": "ลายเซ็นตัวอัปเดตจะแยกจาก Windows Authenticode และการรับรองเอกสารของ Apple แฮชของแพ็คเกจ การตรวจสอบดั้งเดิม และการทดสอบการอัปเดตจะมีการจัดทำเอกสารแยกต่างหาก การอัปเกรด {{previous}} สู่ {{release}} แบบสาธารณะโดยสมบูรณ์ได้รับการยืนยันสำหรับสถานการณ์ที่บันทึกไว้ในรายงานการเผยแพร่เท่านั้น",
+    "android": "Android {{release}} มีให้บริการในรูปแบบ ARM64 APK ที่ลงนามแล้ว รุ่น {{androidVersionCode}} ใช้ใบรับรอง Novera ที่มีอยู่และผ่านการตรวจสอบพัสดุ ไม่มีการสนทนาส่วนตัว โมเดล หรือคีย์ API การติดตั้งและการอัพเดตบนโทรศัพท์ยังคงต้องได้รับการทดสอบ"
+  },
+  "ug": {
+    "status": "Novera {{release}} تۆۋەندە كۆرسىتىلگەن سۇپىلاردا بار. سىستېمىڭىزنىڭ بولىقىنى چۈشۈرۈڭ ياكى ئىمزا قويغان يېڭىلاش قانىلىنى ئىشلىتىڭ. يېڭى ئورالمىنى قاچىلىغاندا ياكى يېڭىلاشنى قوبۇل قىلغاندا مەۋجۇت قاچىلاشلار يېڭىلىنىدۇ.",
+    "limits": "ئىشلىتىشچانلىقى ۋە تاماملانغان تەكشۈرۈشلىرى تۆۋەندە كۆرسىتىلدى. قوللايدىغان ئىقتىدارلار قاتتىق دېتال ، تەمىنلىگۈچىلەرنىڭ زىيارەت قىلىشى ۋە سۇپىسىغا باغلىق. بىخەتەرلىك بايقاشلىرى ۋە يەرلىك ئۈسكۈنىلەرنى دەلىللەش چەكلىمىسى يەنىلا خاتىرىلەنگەن. يېڭىلاشتىن بۇرۇن زاپاسلاشنى ساقلاڭ.",
+    "metrics": "{{languages}} كۆرۈنمە يۈزى تىللىرى · {{cloud}} بۇلۇت تەمىنلىگۈچىلەر · {{media}} media presets · {{license}}",
+    "providers": "مۇندەرىجە {{providers}} تەمىنلىگۈچىنىڭ ئارخىپى: {{cloud}} بۇلۇت مۇلازىمىتى ۋە يەرلىك مۇلازىمېتىر ئۈچۈن {{localProvider}}. مودېل زىيارەت قىلىش ۋە ئىقتىدار ھېسابات ، رايون ۋە قوللايدىغان API غا باغلىق. بارلىق {{languages}} كۆرۈنمە يۈزى تىللىرى بۇ مۇندەرىجىنى ئورتاقلىشىدۇ.",
+    "media": "قۇرۇش مۇندەرىجىسى بار {{media}} ئالدىن بەلگىلەيدۇ {{mediaProviders}} تەمىنلىگۈچىلەر: {{images}} image, {{videos}} video and {{music}} music presets. تۆۋەندىكى جەدۋەللەردە توپلاشتۇرۇلغان ماسلاشتۇرغۇچ قوللايدىغان ئېنىق مودېل ۋە پەرقلىگۈچ كۆرسىتىلدى.",
+    "upgrade": "يېڭىلاش ئىمزاسى Windows Authenticode ۋە ئالما ھۆكۈمەت گۇۋاھلىقىدىن ئايرىلىدۇ. بوغچا ، يەرلىك تەكشۈرۈش ۋە يېڭىلاش سىناقلىرى ئايرىم خاتىرىلەنگەن. ئېلان قىلىنغان دوكلاتتا خاتىرىلەنگەن سىنارىيەلەر ئۈچۈن تولۇق {{previous}} دىن {{release}} غا يېڭىلاش تاماملانغان.",
+    "android": "Android {{release}} ئىمزالانغان ARM64 APK سۈپىتىدە قۇرغىلى بولىدۇ {{androidVersionCode}}. ئۇ مەۋجۇت Novera گۇۋاھنامە ۋە يۈرۈشلۈك تەكشۈرۈشتىن ئۆتىدۇ. ئۇنىڭدا شەخسىي سۆھبەت ، مودېل ياكى API كۇنۇپكىسى يوق. تېلېفونغا قاچىلاش ۋە يېڭىلاش يەنىلا سىناق قىلىنىۋاتىدۇ."
+  },
+  "uk": {
+    "status": "Novera {{release}} доступний для перелічених нижче платформ. Завантажте пакет для вашої системи або скористайтеся його підписаним каналом оновлення. Існуючі установки оновлюються, коли ви встановлюєте новий пакет або приймаєте оновлення.",
+    "limits": "Наявність і завершені перевірки наведені нижче. Підтримувані функції залежать від апаратного забезпечення, доступу постачальника та платформи. Висновки безпеки та обмеження перевірки рідного пристрою залишаються задокументованими. Перед оновленням створіть резервну копію.",
+    "metrics": "{{languages}} мови інтерфейсу · {{cloud}} хмарні постачальники · {{media}} медіа-налаштування · {{license}}",
+    "providers": "Каталог містить {{providers}} профілі провайдерів: {{cloud}} хмарні сервіси та {{localProvider}} для локального сервера. Доступ до моделі та можливості залежать від облікового запису, регіону та підтримуваного API. Усі мови інтерфейсу {{languages}} використовують цей каталог.",
+    "media": "Каталог створення містить {{media}} стилів від {{mediaProviders}} постачальників: {{images}} зображення, {{videos}} відео та {{music}} стилі музики. У таблицях нижче наведено точні моделі та ідентифікатори, які підтримуються вбудованими адаптерами.",
+    "upgrade": "Підписи програми оновлення відрізняються від нотаріального засвідчення Windows Authenticode і Apple. Хеші пакетів, власні перевірки та тести оновлень документуються окремо. Повне загальнодоступне оновлення {{previous}} до {{release}} підтверджується лише для сценаріїв, записаних у звіті про випуск.",
+    "android": "Android {{release}} доступний як підписаний файл .apk ARM64, збірка {{androidVersionCode}}. Він використовує наявний сертифікат Novera і проходить перевірку пакета. Він не містить особистих розмов, моделей або ключів API. Залишилося перевірити встановлення та оновлення на телефоні."
+  },
+  "ur": {
+    "status": "Novera {{release}} ذیل میں درج پلیٹ فارمز کے لیے دستیاب ہے۔ اپنے سسٹم کے لیے پیکج ڈاؤن لوڈ کریں یا اس کا دستخط شدہ اپ ڈیٹ چینل استعمال کریں۔ جب آپ نیا پیکج انسٹال کرتے ہیں یا اپ ڈیٹ قبول کرتے ہیں تو موجودہ انسٹالیشنز اپ ڈیٹ ہوتی ہیں۔",
+    "limits": "دستیابی اور مکمل شدہ چیک ذیل میں درج ہیں۔ معاون خصوصیات ہارڈ ویئر، فراہم کنندہ تک رسائی اور پلیٹ فارم پر منحصر ہیں۔ سیکیورٹی کے نتائج اور مقامی ڈیوائس کی توثیق کی حدیں دستاویزی رہیں۔ اپ ڈیٹ کرنے سے پہلے بیک اپ رکھیں۔",
+    "metrics": "{{languages}} انٹرفیس زبانیں · {{cloud}} کلاؤڈ فراہم کرنے والے · {{media}} میڈیا پیش سیٹس · {{license}}",
+    "providers": "کیٹلاگ میں {{providers}} فراہم کنندہ پروفائلز ہیں: {{cloud}} کلاؤڈ سروسز اور {{localProvider}} مقامی سرور کے لیے۔ ماڈل تک رسائی اور صلاحیتوں کا انحصار اکاؤنٹ، علاقے اور تعاون یافتہ API پر ہے۔ تمام {{languages}} انٹرفیس زبانیں اس کیٹلاگ کا اشتراک کرتی ہیں۔",
+    "media": "تخلیق کیٹلاگ میں {{mediaProviders}} فراہم کنندگان کی طرف سے {{media}} پیش سیٹ ہیں: {{images}} تصویر، {{videos}} ویڈیو اور {{music}} موسیقی کے پیش سیٹ۔ نیچے دی گئی جدولیں ان درست ماڈلز اور شناخت کنندگان کی فہرست دیتی ہیں جو مربوط اڈاپٹرز کے ذریعے تعاون یافتہ ہیں۔",
+    "upgrade": "اپڈیٹر کے دستخط Windows Authenticode اور Apple notarization سے الگ ہیں۔ پیکیج ہیش، مقامی چیک اور اپ ڈیٹ ٹیسٹ الگ الگ دستاویز کیے گئے ہیں۔ مکمل عوامی {{previous}} سے {{release}} تک اپ گریڈ کی تصدیق صرف ریلیز رپورٹ میں درج منظرناموں کے لیے ہوتی ہے۔",
+    "android": "Android {{release}} ایک دستخط شدہ ARM64 APK کے طور پر دستیاب ہے، {{androidVersionCode}} بنائیں۔ یہ موجودہ Novera سرٹیفکیٹ کا استعمال کرتا ہے اور پیکج معائنہ پاس کرتا ہے۔ اس میں کوئی ذاتی گفتگو، ماڈل یا API کیز نہیں ہیں۔ فون پر انسٹالیشن اور اپ ڈیٹ کرنا ابھی باقی ہے۔"
+  },
+  "uzn": {
+    "status": "Novera {{release}} quyida keltirilgan platformalar uchun mavjud. Tizimingiz uchun paketni yuklab oling yoki uning imzolangan yangilash kanalidan foydalaning. Yangi paketni o'rnatganingizda yoki yangilanishni qabul qilganingizda mavjud o'rnatishlar yangilanadi.",
+    "limits": "Mavjudligi va tugallangan tekshiruvlar quyida keltirilgan. Qo'llab-quvvatlanadigan xususiyatlar apparat, provayderga kirish va platformaga bog'liq. Xavfsizlik topilmalari va mahalliy qurilmani tekshirish chegaralari hujjatlashtirilgan. Yangilashdan oldin zaxira nusxasini saqlang.",
+    "metrics": "{{languages}} interfeys tillari · {{cloud}} bulutli provayderlar · {{media}} media sozlamalari · {{license}}",
+    "providers": "Katalogda {{providers}} ta provayder profili mavjud: {{cloud}} bulut xizmatlari va mahalliy server uchun {{localProvider}}. Modelga kirish va imkoniyatlar hisobga, mintaqaga va qo'llab-quvvatlanadigan APIga bog'liq. Barcha {{languages}} interfeys tillari ushbu katalogdan foydalanadi.",
+    "media": "Yaratish katalogida {{mediaProviders}} ta provayderning {{media}} ta oldindan sozlamalari mavjud: {{images}} tasvir, {{videos}} video va {{music}} ta musiqa oldindan oʻrnatilgan. Quyidagi jadvallarda o'rnatilgan adapterlar tomonidan qo'llab-quvvatlanadigan aniq modellar va identifikatorlar ro'yxati keltirilgan.",
+    "upgrade": "Yangilovchi imzolari Windows Authenticode va Apple notarial tasdiqlashdan alohida. Paket xeshlari, mahalliy tekshiruvlar va yangilanish testlari alohida hujjatlashtirilgan. Toʻliq ommaviy {{previous}} dan {{release}} ga yangilash faqat relizlar hisobotida qayd etilgan stsenariylar uchun tasdiqlangan.",
+    "android": "Android {{release}} imzolangan ARM64 APK, {{androidVersionCode}} versiyasi sifatida mavjud. U mavjud Novera sertifikatidan foydalanadi va paket tekshiruvidan o‘tadi. Unda shaxsiy suhbatlar, modellar yoki API kalitlari mavjud emas. Telefonda o'rnatish va yangilash sinovdan o'tishi kerak."
+  },
+  "vn": {
+    "status": "Novera {{release}} có sẵn cho các nền tảng được liệt kê bên dưới. Tải xuống gói cho hệ thống của bạn hoặc sử dụng kênh cập nhật đã ký của nó. Bản cập nhật cài đặt hiện có khi bạn cài đặt gói mới hoặc chấp nhận bản cập nhật.",
+    "limits": "Kiểm tra tính sẵn có và hoàn thành được liệt kê dưới đây. Các tính năng được hỗ trợ phụ thuộc vào phần cứng, quyền truy cập của nhà cung cấp và nền tảng. Các phát hiện bảo mật và giới hạn xác thực thiết bị gốc vẫn được ghi lại. Giữ một bản sao lưu trước khi cập nhật.",
+    "metrics": "{{languages}} ngôn ngữ giao diện · {{cloud}} nhà cung cấp đám mây · {{media}} cài đặt trước phương tiện · {{license}}",
+    "providers": "Danh mục này chứa hồ sơ nhà cung cấp {{providers}}: dịch vụ đám mây {{cloud}} và {{localProvider}} cho máy chủ cục bộ. Quyền truy cập và khả năng của mô hình tùy thuộc vào tài khoản, khu vực và API được hỗ trợ. Tất cả ngôn ngữ giao diện {{languages}} đều dùng chung danh mục này.",
+    "media": "Danh mục tác phẩm chứa {{media}} cài đặt trước từ nhà cung cấp {{mediaProviders}}: hình ảnh {{images}}, video {{videos}} và cài đặt trước nhạc {{music}}. Các bảng bên dưới liệt kê các mẫu và mã nhận dạng chính xác được hỗ trợ bởi các bộ điều hợp tích hợp.",
+    "upgrade": "Chữ ký của người cập nhật tách biệt với Windows Authenticode và công chứng của Apple. Băm gói, kiểm tra gốc và kiểm tra cập nhật được ghi lại riêng biệt. Bản nâng cấp công khai hoàn chỉnh từ {{previous}} lên {{release}} chỉ được xác nhận cho các trường hợp được ghi trong báo cáo phát hành.",
+    "android": "Android {{release}} có sẵn dưới dạng APK ARM64 đã ký, bản dựng {{androidVersionCode}}. Nó sử dụng chứng chỉ Novera hiện có và vượt qua quá trình kiểm tra gói. Nó không chứa các cuộc trò chuyện cá nhân, mô hình hoặc khóa API. Việc cài đặt và cập nhật trên điện thoại vẫn đang được thử nghiệm."
+  },
+  "wo": {
+    "status": "Novera {{release}} am na ci platform yiñ lim ci suuf. Yebbi kofre bi ngir sa sistem wala nga jëfandikoo chaine yeesal biñ siñe. Instalaasioŋ yi fi nekk dañuy yeesal soo sampalee kofre bu bees bi wala nga nangu yeesal bi.",
+    "limits": "Disponibilite ak saytu yiñ def ñu ngi lim ci suuf. Man-mani yi ñuy jàppale a ngi aju ci aparey bi, jëfandikoo gi ak platform bi. Kaaraange giñ gis ak àppu siiwal aparey bi ñu ngi des ci këyit. Defal ab backup balaa ngay yeesal.",
+    "metrics": "{{languages}} làkki interface · {{cloud}} fournisseurs cloud · {{media}} media yiñ tëral · {{license}}",
+    "providers": "Catalog bi denc na {{providers}} ay joxekaay yu joxekat yi: {{cloud}} ay cëri cloud ak {{localProvider}} ngir serwóor bu dëkk bi. Modèlu jëfandikoo gi ak kàttan yi a ngi aju ci kontu bi, gox bi ak API bi ñuy jàppale. {{languages}} bépp làkki interfaas ñoo bokk katalog bii.",
+    "media": "Catalogu sos bi dafa am {{media}} jéego yu bawoo ci {{mediaProviders}} joxekat yi: {{images}} nataal, {{videos}} wideo ak {{music}} jéego yu music. Tablo yi ci suuf dañuy lim model yi ak ràññeekaay yi adaptatër yiñ boole jàppale.",
+    "upgrade": "Siñaale yeesalkat yi wuute nañu ak kodu gëmloo Windows ak notarisasioŋ Apple. Hash package yi, saytu native yi ak test yeesal yi dañu leen di bind ñu wuute. Yeesal bu mat sëkk {{previous}} ba {{release}} amul lenn luñu koy firndeel ci senaario yiñ bind ci rapooru génne gi.",
+    "android": "Android {{release}} am na ci ARM64 APK buñ siñe, defar {{androidVersionCode}}. Dafay jëfandikoo sertifikaa bi fi nekk Novera ba noppi jàll ci saytu koli bi. Amul benn waxtaan, model wala caabi API. Instalaasioŋ ak yeesal ci telefon dese nañu ko saytu."
+  },
+  "wuu": {
+    "status": "Novera {{release}} 适用于下列平台。下载适合您的系统的软件包或使用其签名的更新通道。当您安装新软件包或接受更新时，现有安装会更新。",
+    "limits": "下面列出了可用性和已完成的检查。支持的功能取决于硬件、提供商访问权限和平台。安全发现和本机设备验证限制仍然记录在案。更新前请保留备份。",
+    "metrics": "{{languages}} 界面语言 · {{cloud}} 云提供商 · {{media}} 媒体预设 · {{license}}",
+    "providers": "该目录包含 {{providers}} 提供商配置文件：{{cloud}} 云服务和本地服务器的 {{localProvider}}。模型访问和功能取决于帐户、区域和支持的 API。所有 {{languages}} 界面语言共享此目录。",
+    "media": "创建目录包含来自 {{mediaProviders}} 提供商的 {{media}} 预设：{{images}} 图片、{{videos}} 视频和 {{music}} 音乐预设。下表列出了集成适配器支持的确切型号和标识符。",
+    "upgrade": "更新程序签名与 Windows Authenticode 和 Apple 公证分开。包哈希、本机检查和更新测试单独记录。仅针对发布报告中记录的场景确认完整的公共 {{previous}} 到 {{release}} 升级。",
+    "android": "Android {{release}} 可作为签名的 ARM64 APK，版本为 {{androidVersionCode}}。它使用现有的 Novera 证书并通过包检查。它不包含个人对话、模型或 API 密钥。在手机上的安装和更新仍有待测试。"
+  },
+  "xh": {
+    "status": "Novera {{release}} iyafumaneka kumaqonga adweliswe ngezantsi. Khuphela iphakheji yesixokelelwano sakho okanye usebenzise itshaneli yohlaziyo esayiniweyo. Ufakelo olukhoyo luhlaziywa xa ufaka ipakethe entsha okanye wamkela uhlaziyo.",
+    "limits": "Ubukho kunye neetshekhi ezigqityiweyo zidweliswe ngezantsi. Iimpawu ezixhaswayo zixhomekeke kwi-hardware, ukufikelela komnikezeli kunye neqonga. Iziphumo zokhuseleko kunye nemida yokuqinisekisa isixhobo sasekhaya ihlala ibhaliwe. Gcina i-backup phambi kokuhlaziya.",
+    "metrics": "{{languages}} ujongano lweelwimi · {{cloud}} ababoneleli belifu · {{media}} ukusetha kwangaphambili kwemidiya · {{license}}",
+    "providers": "Ikhathalogu iqulathe {{providers}} iinkangeleko zababoneleli: {{cloud}} iinkonzo zelifu kunye {{localProvider}} neseva yasekhaya. Ukufikelela kwimodeli kunye nezakhono kuxhomekeke kwi-akhawunti, ummandla kunye ne-API exhaswayo. Zonke {{languages}} iilwimi zojongano zabelana ngale khathalogu.",
+    "media": "Ikhathalogu yokudala iqulathe {{media}} useto lwangaphambili olusuka {{mediaProviders}} ababoneleli: {{images}} umfanekiso, {{videos}} ividiyo kunye {{music}} noseti lwangaphambili lomculo. Ezi theyibhile zingezantsi zidwelisa imifuziselo kunye neziphawuli ezixhaswa ziiadaptha ezihlanganisiweyo.",
+    "upgrade": "Utyikityo lohlaziyo lwahlukile kwi-Windows Authenticode kunye ne-Apple notarization. I-Package hashes, iitshekhi zomthonyama kunye neemvavanyo zohlaziyo zibhalwe ngokwahlukeneyo. Uluntu olupheleleyo {{previous}} ukuya ku-{{release}} uphuculo luqinisekiswa kuphela kwiimeko ezirekhodwe kwingxelo yokukhutshwa.",
+    "android": "I-Android {{release}} iyafumaneka njenge-ARM64 APK esayiniweyo, yakha {{androidVersionCode}}. Isebenzisa Novera isatifikethi kwaye iphumelele ukuhlolwa kwephakheji. Ayinancoko yobuqu, iimodeli okanye izitshixo ze-API. Ukufakela kunye nokuhlaziywa kwifowuni kuhlala kuvavanywa."
+  },
+  "yo": {
+    "status": "Novera {{release}} wa fun awọn iru ẹrọ ti a ṣe akojọ rẹ si isalẹ. Ṣe igbasilẹ package fun eto rẹ tabi lo ikanni imudojuiwọn ti o fowo si. Awọn fifi sori ẹrọ ti o wa tẹlẹ ṣe imudojuiwọn nigbati o ba fi package tuntun sori ẹrọ tabi gba imudojuiwọn naa.",
+    "limits": "Wiwa ati awọn sọwedowo ti o pari ti wa ni akojọ si isalẹ. Awọn ẹya atilẹyin da lori hardware, wiwọle olupese ati Syeed. Awọn awari aabo ati awọn opin afọwọsi ẹrọ abinibi wa ni akọsilẹ. Jeki afẹyinti ṣaaju imudojuiwọn.",
+    "metrics": "{{languages}} awọn ede wiwo · {{cloud}} awọn olupese awọsanma · {{media}} awọn tito tẹlẹ media · {{license}}",
+    "providers": "Iwe akọọlẹ naa ni awọn profaili olupese {{providers}}: {{cloud}} awọn iṣẹ awọsanma ati {{localProvider}} fun olupin agbegbe kan. Wiwọle awoṣe ati awọn agbara da lori akọọlẹ, agbegbe ati API atilẹyin. Gbogbo {{languages}} ede ni wiwo pin katalogi yii.",
+    "media": "Iwe akọọlẹ ẹda ni {{media}} tito tẹlẹ lati ọdọ awọn olupese {{mediaProviders}}: aworan {{images}}, fidio {{videos}} ati {{music}} tito tẹlẹ orin. Awọn tabili ti o wa ni isalẹ ṣe atokọ awọn awoṣe gangan ati awọn idamọ ti o ni atilẹyin nipasẹ awọn oluyipada ti a ṣepọ.",
+    "upgrade": "Awọn ibuwọlu imudojuiwọn jẹ iyatọ si Windows Authenticode ati notarization Apple. Awọn hashes idii, awọn sọwedowo abinibi ati awọn idanwo imudojuiwọn jẹ akọsilẹ lọtọ. Ipari gbogbo eniyan {{previous}} si {{release}} iṣagbega ni a fi idi mulẹ nikan fun awọn oju iṣẹlẹ ti o gbasilẹ ninu ijabọ itusilẹ.",
+    "android": "Android {{release}} wa bi apk ARM64 ti o fowo si, kọ {{androidVersionCode}}. O nlo iwe-ẹri Novera ti o wa ati gba ayewo akojọpọ. Ko si awọn ibaraẹnisọrọ ti ara ẹni ninu, awọn awoṣe tabi awọn bọtini API. Fifi sori ẹrọ ati imudojuiwọn lori foonu kan wa lati ṣe idanwo."
+  },
+  "yue": {
+    "status": "Novera {{release}} 可用於下面列出嘅平台。下載你嘅系統嘅包，或者用佢嘅簽名更新頻道。當你安裝新嘅軟件包或者接受更新嗰陣，現有嘅安裝就會更新。",
+    "limits": "可用性同完成嘅檢查列喺下面。支援嘅功能取決於硬件、供應商存取權同平台。安全性發現同原生裝置驗證限制仍然有記錄。更新之前保留備份。",
+    "metrics": "{{languages}} 介面語言 · {{cloud}} 雲提供商 · {{media}} 媒體預設 · {{license}}",
+    "providers": "目錄包含 {{providers}} 供應商設定檔： {{cloud}} 雲端服務同埋本地伺服器嘅 {{localProvider}} 。模型存取權同功能取決於帳戶、地區同埋支援嘅 API 。所有 {{languages}} 介面語言都共用呢個目錄。",
+    "media": "創作目錄包含 {{media}} 預設嚟自 {{mediaProviders}} 供應商： {{images}} 形象， {{videos}} 影片同埋 {{music}} 音樂預設。下表列出咗集成適配器支援嘅確切型號同識別碼。",
+    "upgrade": "更新者簽名同 Windows 認證同 Apple 公證係分開嘅。包哈希、原生檢查同更新測試會分開記錄。只有發佈報告入面記錄嘅情況先會確認完全公開嘅 {{previous}} 至 {{release}} 升級。",
+    "android": "Android {{release}} 可以以簽名 ARM64 APK 形式使用，構建 {{androidVersionCode}} 。佢用現有嘅 Novera 證書，並且通過包檢查。佢冇包含任何個人對話、模型或者 API 密鑰。手機嘅安裝同更新仲有待測試。"
+  },
+  "zh-CN": {
+    "status": "Novera {{release}} 适用于下列平台。下载适合您的系统的软件包或使用其签名的更新通道。当您安装新软件包或接受更新时，现有安装会更新。",
+    "limits": "下面列出了可用性和已完成的检查。支持的功能取决于硬件、提供商访问权限和平台。安全发现和本机设备验证限制仍然记录在案。更新前请保留备份。",
+    "metrics": "{{languages}} 界面语言 · {{cloud}} 云提供商 · {{media}} 媒体预设 · {{license}}",
+    "providers": "该目录包含 {{providers}} 提供商配置文件：{{cloud}} 云服务和本地服务器的 {{localProvider}}。模型访问和功能取决于帐户、区域和支持的 API。所有 {{languages}} 界面语言共享此目录。",
+    "media": "创建目录包含来自 {{mediaProviders}} 提供商的 {{media}} 预设：{{images}} 图片、{{videos}} 视频和 {{music}} 音乐预设。下表列出了集成适配器支持的确切型号和标识符。",
+    "upgrade": "更新程序签名与 Windows Authenticode 和 Apple 公证分开。包哈希、本机检查和更新测试单独记录。仅针对发布报告中记录的场景确认完整的公共 {{previous}} 到 {{release}} 升级。",
+    "android": "Android {{release}} 可作为签名的 ARM64 APK，版本为 {{androidVersionCode}}。它使用现有的 Novera 证书并通过包检查。它不包含个人对话、模型或 API 密钥。在手机上的安装和更新仍有待测试。"
+  },
+  "zh-TW": {
+    "status": "Novera {{release}} 適用於下列平台。下載適合您的系統的軟體包或使用其簽署的更新通道。當您安裝新軟體包或接受更新時，現有安裝會更新。",
+    "limits": "下面列出了可用性和已完成的檢查。支援的功能取決於硬體、提供者存取權限和平台。安全發現和本機設備驗證限制仍然記錄在案。更新前請保留備份。",
+    "metrics": "{{languages}} 介面語言 · {{cloud}} 雲端提供者 · {{media}} 媒體預設 · {{license}}",
+    "providers": "目錄包含 {{providers}} 提供者設定檔：{{cloud}} 雲端服務和本機伺服器的 {{localProvider}}。模型存取和功能取決於帳戶、區域和支援的 API。所有 {{languages}} 介面語言共用此目錄。",
+    "media": "建立目錄包含來自 {{mediaProviders}} 提供者的 {{media}} 預設：{{images}} 圖片、{{videos}} 影片和 {{music}} 音樂預設。下表列出了整合式適配器支援的確切型號和識別碼。",
+    "upgrade": "更新程式簽章與 Windows Authenticode 和 Apple 公證分開。包雜湊、本機檢查和更新測試單獨記錄。僅針對發布報告中記錄的場景確認完整的公共 {{previous}} 到 {{release}} 升級。",
+    "android": "Android {{release}} 可作為簽署的 ARM64 APK，版本為 {{androidVersionCode}}。它使用現有的 Novera 憑證並通過套件檢查。它不包含個人對話、模型或 API 金鑰。在手機上的安裝和更新仍有待測試。"
+  },
+  "zu": {
+    "status": "Novera {{release}} iyatholakala ezinkundleni ezibalwe ngezansi. Dawuniloda iphakheji yesistimu yakho noma usebenzise isiteshi sayo sokubuyekeza esisayiniwe. Ukufakwa okukhona kubuyekezwa uma ufaka iphakheji entsha noma wamukela isibuyekezo.",
+    "limits": "Ukutholakala nokuhlola okuqediwe kubalwe ngezansi. Izici ezisekelwayo zincike kuhadiwe, ukufinyelela komhlinzeki nenkundla. Okutholakele kokuvikeleka kanye nemikhawulo yokuqinisekisa yedivayisi yomdabu kuhlala kubhaliwe. Gcina ikhophi yasenqolobaneni ngaphambi kokubuyekeza.",
+    "metrics": "{{languages}} izilimi zesixhumi esibonakalayo · {{cloud}} abahlinzeki befu · {{media}} ukusetha kusengaphambili kwemidiya · {{license}}",
+    "providers": "Ikhathalogi iqukethe amaphrofayela abahlinzeki be-{{providers}}: {{cloud}} amasevisi efu kanye ne-{{localProvider}} yeseva yendawo. Ukufinyelela kwemodeli namandla kuncike ku-akhawunti, isifunda kanye ne-API esekelwe. Zonke {{languages}} izilimi zokusebenzelana zabelana ngale khathalogi.",
+    "media": "Ikhathalogi yokudala iqukethe {{media}} okusethiwe ngaphambili okuvela kubahlinzeki be-{{mediaProviders}}: {{images}} isithombe, {{videos}} ividiyo kanye {{music}} nokusetha ngaphambilini komculo. Amathebula angezansi aklelisa amamodeli kanye nezihlonzi ezisekelwa ama-adaptha ahlanganisiwe.",
+    "upgrade": "Amasignesha okuvuselela ahlukene ne-Windows Authenticode kanye ne-Apple notarization. Ama-hashi ephakheji, amasheke omdabu kanye nokuhlolwa kokubuyekeza kubhalwa ngokwehlukana. Ukuthuthukiswa okuphelele kwasesidlangalaleni {{previous}} ukuya kokuthi {{release}} kuqinisekiswa kuphela ngezimo ezirekhodwe embikweni wokukhishwa.",
+    "android": "I-Android {{release}} iyatholakala njenge-ARM64 APK esayiniwe, yakha i-{{androidVersionCode}}. Isebenzisa isitifiketi esikhona se-Novera futhi iphumelele ukuhlolwa kwephakheji. Ayiqukethe izingxoxo zomuntu siqu, amamodeli noma okhiye be-API. Ukufakwa nokubuyekezwa ocingweni kusazohlolwa."
+  }
+}

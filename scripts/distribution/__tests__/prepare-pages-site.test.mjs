@@ -5,10 +5,26 @@ import path from 'node:path'
 import os from 'node:os'
 import { preparePagesSite } from '../prepare-pages-site.mjs'
 
+test('published showcase uses reviewed versions without carrying forward the old device-test claim', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-pages-published-'))
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }))
+  const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: true, stable: '1.0.1', previous: '1.0.0', androidVersionCode: 1000013 }
+  const result = preparePagesSite(path.join(root, 'site'), 'a'.repeat(40), facts)
+  const html = fs.readFileSync(path.join(root, 'site/index.html'), 'utf8')
+  assert.equal(result.applicationPublished, true)
+  assert.equal(result.desktopReleaseVersion, '1.0.1')
+  assert.equal(result.androidVersionCode, 1000013)
+  assert.equal(result.androidStatus, 'package-verified-device-pending')
+  assert.match(html, /releases\/tag\/v1\.0\.1/)
+  assert.doesNotMatch(html, /releases\/(?:tag|download)\/v1\.0\.0|confirme le bon fonctionnement du build/)
+  assert.match(html, /Installation et mise à jour sur téléphone restent à tester/)
+})
+
 test('Pages links the verified desktop and Android releases without hosting the Web application', t => {
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'novera-pages-'))
   t.after(()=>fs.rmSync(root,{recursive:true,force:true}))
-  const out=path.join(root,'site');const result=preparePagesSite(out,'a'.repeat(40))
+  const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: false, release: '1.0.1', stable: '1.0.0', androidReleaseVersion: '1.0.0', androidVersionCode: 1000012 }
+  const out=path.join(root,'site');const result=preparePagesSite(out,'a'.repeat(40),facts)
   assert.deepEqual(fs.readdirSync(out).sort(),['assets','index.html','pages-probe.json'])
   assert.deepEqual(fs.readdirSync(path.join(out,'assets')).sort(),['banner.png','dashboard.png'])
   assert.equal(result.applicationPublished,false);assert.equal(result.publicDownloadsEnabled,true);assert.equal(result.desktopReleaseVersion,'1.0.0')

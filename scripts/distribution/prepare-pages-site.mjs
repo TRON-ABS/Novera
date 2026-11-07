@@ -13,21 +13,31 @@ const socialProfiles = [
   ['X', 'https://x.com/noveratronabs'],
   ['Bluesky', 'https://bsky.app/profile/noveratronabs.bsky.social'],
 ]
-const androidReleaseTag = 'v1.0.0-android-1000012'
-const androidDownload = `${repository}/releases/download/${androidReleaseTag}/Novera_1.0.0_android-arm64.apk`
-export function preparePagesSite(output, commit) {
+export function preparePagesSite(output, commit, factsOverride) {
   if (!/^[a-f0-9]{40}$/.test(commit)) throw new Error('An exact reviewed source commit is required')
   if (fs.existsSync(output)) throw new Error('Pages staging output already exists')
   const root = fileURLToPath(new URL('../../', import.meta.url))
-  const facts = JSON.parse(fs.readFileSync(path.join(root, 'docs/release-preparation.json'), 'utf8'))
+  const facts = factsOverride ?? JSON.parse(fs.readFileSync(path.join(root, 'docs/release-preparation.json'), 'utf8'))
   const copy = JSON.parse(fs.readFileSync(path.join(root, 'scripts/readme-release-1.0.1.json'), 'utf8')).fr
+  const published = facts.published === true
+  const androidVersion = facts.androidReleaseVersion ?? facts.stable
+  const androidVersionCode = facts.androidVersionCode ?? 1000012
+  if (![facts.release, facts.stable, androidVersion].every(version => /^\d+\.\d+\.\d+$/.test(version)) || !Number.isSafeInteger(androidVersionCode)) throw new Error('Invalid public release identity')
+  const androidReleaseTag = `v${androidVersion}-android-${androidVersionCode}`
+  const androidDownload = `${repository}/releases/download/${androidReleaseTag}/Novera_${androidVersion}_android-arm64.apk`
+  let publicationCopy
+  if (published) {
+    if (facts.stable !== facts.release || !Number.isSafeInteger(facts.androidVersionCode) || facts.androidVersionCode < 1000013) throw new Error('Published release versions require review')
+    publicationCopy = JSON.parse(fs.readFileSync(path.join(root, `scripts/readme-release-${facts.release}-published.json`), 'utf8')).fr
+    Object.assign(copy, { title: `Novera ${facts.release}`, status: publicationCopy.status, limits: publicationCopy.limits })
+  }
   const locales = JSON.parse(fs.readFileSync(path.join(root, 'docs/language-support.json'), 'utf8'))
   const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;')
   const render = value => escape(value.replace(/\{\{(\w+)\}\}/g, (_, key) => {
     if (!(key in facts)) throw new Error(`Missing release fact: ${key}`)
     return facts[key]
   })).replace(/`([^`]+)`/g, '<code>$1</code>')
-  if (facts.published !== false || String(locales.length) !== facts.languages) throw new Error('Release-preparation facts require review')
+  if (typeof facts.published !== 'boolean' || String(locales.length) !== facts.languages) throw new Error('Release-preparation facts require review')
   const noteKeys = ['security', 'privacy', 'engine', 'languages', 'recommendation', 'voice', 'microphone', 'web', 'optimization', 'interface', 'api', 'checks', 'limits']
   const preparedNotes = `<section class="notice" aria-labelledby="preparation-title"><h2 id="preparation-title">${render(copy.title)}</h2><p>${render(copy.status)}</p><p>${render(copy.interface)}</p><p>${render(copy.optimization)}</p><details><summary>${render(copy.details)}</summary><ul>${noteKeys.map(key => `<li>${render(copy[key])}</li>`).join('')}</ul><p><a href="${repository}/blob/main/docs/CHANGELOG.md">Notes 1.0.1</a> · <a href="${repository}/blob/main/SECURITY.md">Sécurité et limites</a></p></details></section>`
   const languageLinks = locales.map(locale => {
@@ -35,7 +45,7 @@ export function preparePagesSite(output, commit) {
     if (!fs.existsSync(path.join(root, filename))) throw new Error(`Missing translated README: ${filename}`)
     return `<a class="button" dir="auto" href="${repository}/blob/main/${filename}">${escape(locale.label)}</a>`
   }).join('')
-  const html = `<!doctype html>
+  let html = `<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Novera, l’assistant IA indépendant de TRON-ABS. Novera 1.0.0 est disponible sur Windows, Linux, macOS et Android ; téléchargez la version officielle.">
 <meta name="novera-pages-commit" content="${commit}"><title>Novera — Windows, Linux, macOS et Android</title>
@@ -52,6 +62,15 @@ ${preparedNotes}
 <section class="notice" aria-labelledby="languages-title"><h2 id="languages-title">La présentation dans ${facts.languages} langues et variantes</h2><p>Consultez les README du dépôt avec les notes de préparation de la ${facts.release}. Les traductions assistées et variantes écrites nécessitent encore une relecture native.</p><details><summary>Choisir une langue</summary><div class="actions">${languageLinks}</div></details></section>
 <p class="numbers">Sources ${facts.release} en préparation : ${facts.languages} langues d’interface · ${facts.providers} profils dont ${facts.cloud} fournisseurs cloud · ${facts.media} préréglages média · Apache 2.0</p></main>
 <footer><p>Je vous souhaite à toutes et à tous une merveilleuse aventure avec Novera. Que votre curiosité ouvre de nouvelles portes, que vos idées prennent vie et que chaque création vous emmène un peu plus loin.</p><p class="signature">TRON-ABS<br><span>Mr Sachet Jean-Marc — Chercheur indépendant — France</span><br><span>The art of Human with AI</span></p><p>Merci à toutes les personnes qui contribuent à un monde meilleur. Par leurs découvertes, leur travail, leur entraide et leur transmission, elles nous ont permis d’en être là aujourd’hui.</p><p>Nous leur souhaitons le meilleur pour l’avenir, ainsi qu’à toutes celles et ceux qui poursuivent cet élan de partage et d’entraide.</p><p><small>Outil de développement : 🧠 Codex — GPT-6.1 Sol</small></p></footer></body></html>`
+  if (published) {
+    const report = `${repository}/blob/main/docs/RELEASE_1.0.1_2026-11-07.md`
+    html = html.replace(/<p><strong>Android 1\.0\.0 est disponible en APK signé\.<\/strong>[\s\S]*?<\/p>/,
+      `<p>${render(publicationCopy.android)} <a href="${repository}/releases/tag/${androidReleaseTag}">Publication Android et vérification</a>.</p>`)
+      .replace(/https:\/\/github\.com\/TRON-ABS\/Novera\/blob\/main\/docs\/RELEASE_(?:MACOS|ANDROID)_1\.0\.0\.md/g, report)
+      .replaceAll('1.0.0', facts.stable)
+      .replace('notes de préparation de la', 'notes de version de la')
+      .replace(`Sources ${facts.release} en préparation :`, `Version ${facts.release} :`)
+  }
   fs.mkdirSync(path.join(output, 'assets'), { recursive: true })
   fs.writeFileSync(path.join(output, 'index.html'), html)
   for (const [source, target] of [['novera-banner-en.png', 'banner.png'], ['novera-dashboard-2026-11-01.png', 'dashboard.png']]) {
@@ -59,6 +78,7 @@ ${preparedNotes}
   }
   const probe = { product: 'Novera launch information', commit, applicationPublished: false, publicDownloadsEnabled: true, desktopReleaseVersion: '1.0.0', cliReleaseTag: 'v1.0.0-cli-novera', cliExecutableNames: ['novera.exe', 'novera'], macosReleaseTag: 'v1.0.0-macos', macosOfficial: true, macosAppleNotarized: false, macosVisualTestsPerformed: false, androidStatus: 'maintainer-confirmed-public', androidReleaseTag, androidVersionCode: 1000012, androidDownloadUrl: androidDownload, htmlSha256: createHash('sha256').update(html).digest('hex') }
   Object.assign(probe, { preparedSourceVersion: facts.release, preparedVersionPublished: false, readmeLanguageCount: locales.length, preparedMediaPresets: Number(facts.media) })
+  if (published) Object.assign(probe, { applicationPublished: true, desktopReleaseVersion: facts.stable, cliReleaseTag: `v${facts.stable}-cli-novera`, macosReleaseTag: `v${facts.stable}-macos`, preparedVersionPublished: true, androidVersionCode, androidStatus: 'package-verified-device-pending' })
   fs.writeFileSync(path.join(output, 'pages-probe.json'), JSON.stringify(probe, null, 2) + '\n')
   return probe
 }
