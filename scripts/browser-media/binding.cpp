@@ -21,6 +21,8 @@ namespace {
 sd_ctx_t* context = nullptr;
 sd_image_generation_result_t* images = nullptr;
 sd_video_generation_result_t* video = nullptr;
+float video_cfg = 6.0f;
+float video_flow_shift = 3.0f;
 
 #ifdef NOVERA_WEBGPU_VAE_PROBE
 bool inspect_vae_node(ggml_tensor* tensor, bool ask, void*) {
@@ -37,7 +39,7 @@ bool inspect_vae_node(ggml_tensor* tensor, bool ask, void*) {
 #endif
 void log_callback(sd_log_level_t level, const char* text, void*) {
 #ifdef NOVERA_WEBGPU_VAE_PROBE
-    if (std::strstr(text, "decoding ") && std::strstr(text, "latents")) sd_set_backend_eval_callback(inspect_vae_node, nullptr);
+    if ((std::strstr(text, "decoding ") && std::strstr(text, "latents")) || std::strstr(text, "wan_vae build cached")) sd_set_backend_eval_callback(inspect_vae_node, nullptr);
 #endif
     if (level >= SD_LOG_INFO) browser_log(static_cast<int>(level), text);
 }
@@ -69,6 +71,12 @@ EMSCRIPTEN_KEEPALIVE void novera_release() {
 
 // File paths refer only to files mounted into this worker's virtual filesystem.
 // kind 0 = FLUX.2 Klein + Qwen3; kind 1 = Wan + UMT5.
+EMSCRIPTEN_KEEPALIVE int novera_configure_video(float cfg, float flow_shift) {
+    if (!(cfg >= 1.f && cfg <= 15.f && flow_shift > 0.f && flow_shift <= 20.f)) return 0;
+    video_cfg = cfg;
+    video_flow_shift = flow_shift;
+    return 1;
+}
 EMSCRIPTEN_KEEPALIVE int novera_load(const char* diffusion, const char* encoder, const char* vae, int kind) {
     if (!diffusion || !encoder || !vae || (kind != 0 && kind != 1)) return 0;
     novera_release();
@@ -87,7 +95,7 @@ EMSCRIPTEN_KEEPALIVE int novera_load(const char* diffusion, const char* encoder,
     // The reviewed group-normalization patch preserves buffer ownership when
     // unsupported normalization nodes temporarily execute on the CPU.
     params.backend = "diffusion=WebGPU,te=WebGPU,vae=WebGPU";
-    params.vae_conv_direct = true;
+    params.vae_conv_direct = kind == 0;
 #endif
     params.enable_mmap = false;
     params.disable_prefetch = true;
@@ -127,6 +135,8 @@ EMSCRIPTEN_KEEPALIVE int novera_generate(int kind, const char* prompt, int width
     params.sample_params.sample_steps = steps;
     params.sample_params.sample_method = sd_get_default_sample_method(context);
     params.sample_params.scheduler = sd_get_default_scheduler(context, params.sample_params.sample_method);
+    params.sample_params.guidance.txt_cfg = video_cfg;
+    params.sample_params.flow_shift = video_flow_shift;
     return generate_video(context, &params, &video) && video && video->frame_count > 0;
 }
 

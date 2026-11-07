@@ -34,6 +34,15 @@ target_link_options(novera-diffusion PRIVATE
   -sMODULARIZE=1 -sEXPORT_ES6=1 -sENVIRONMENT=worker -sFORCE_FILESYSTEM=1
   -sJSPI=1 -fwasm-exceptions -lworkerfs.js --no-entry
   "-sJSPI_EXPORTS=['novera_load','novera_generate','novera_release']"
-  "-sEXPORTED_FUNCTIONS=['_novera_load','_novera_generate','_novera_width','_novera_height','_novera_channels','_novera_frame_count','_novera_frame_data','_novera_release']"
+  "-sEXPORTED_FUNCTIONS=['_novera_load','_novera_configure_video','_novera_generate','_novera_width','_novera_height','_novera_channels','_novera_frame_count','_novera_frame_data','_novera_release']"
   "-sEXPORTED_RUNTIME_METHODS=['ccall','FS','WORKERFS','HEAPU8']")
 set_target_properties(novera-diffusion PROPERTIES SUFFIX ".mjs")
+
+option(NOVERA_NUMERICAL_CHECKS "Build the CPU-reference numerical validation module" OFF)
+if(NOVERA_NUMERICAL_CHECKS)
+  add_executable(novera-im2col-check numerical-check.cpp)
+  target_link_libraries(novera-im2col-check PRIVATE ggml ggml-webgpu)
+  target_link_options(novera-im2col-check PRIVATE -O1 -sMEMORY64=1 -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=67108864 -sMAXIMUM_MEMORY=2147483648 -sMODULARIZE=1 -sEXPORT_ES6=1 -sENVIRONMENT=worker -sJSPI=1 -fwasm-exceptions --no-entry
+    "-sJSPI_EXPORTS=['novera_check_im2col']" "-sEXPORTED_FUNCTIONS=['_novera_check_im2col']" "-sEXPORTED_RUNTIME_METHODS=['ccall']")
+  set_target_properties(novera-im2col-check PROPERTIES SUFFIX ".mjs")
+endif()

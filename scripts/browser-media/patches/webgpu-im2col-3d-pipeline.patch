@@ -1,0 +1,49 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -396,17 +396,19 @@
+ 
+ /** Im2Col **/
+ struct ggml_webgpu_im2col_pipeline_key {
++    bool is_3d;
+     ggml_type input_type;
+     ggml_type output_type;
+ 
+     bool operator==(const ggml_webgpu_im2col_pipeline_key & other) const {
+-        return input_type == other.input_type && output_type == other.output_type;
++        return is_3d == other.is_3d && input_type == other.input_type && output_type == other.output_type;
+     }
+ };
+ 
+ struct ggml_webgpu_im2col_pipeline_key_hash {
+     size_t operator()(const ggml_webgpu_im2col_pipeline_key & key) const {
+         size_t seed = 0;
++        ggml_webgpu_hash_combine(seed, key.is_3d);
+         ggml_webgpu_hash_combine(seed, key.input_type);
+         ggml_webgpu_hash_combine(seed, key.output_type);
+         return seed;
+@@ -3432,6 +3434,7 @@
+     webgpu_pipeline get_im2col_pipeline(const ggml_webgpu_shader_lib_context & context) {
+         ggml_webgpu_im2col_pipeline_key key = {};
+         key.input_type                      = context.src1->type;
++        key.is_3d = context.dst->op == GGML_OP_IM2COL_3D;
+         key.output_type                     = context.dst->type;
+ 
+         auto it = im2col_pipelines.find(key);
+@@ -3440,7 +3443,7 @@
+         }
+ 
+         std::vector<std::string> defines;
+-        std::string              variant = "im2col";
++        std::string              variant = key.is_3d ? "im2col_3d" : "im2col";
+ 
+         auto push_type_defines = [&](const char * prefix, ggml_type type) {
+             std::string s_prefix = prefix;
+@@ -3458,7 +3461,7 @@
+ 
+         defines.push_back(std::string("WG_SIZE=") + std::to_string(context.max_wg_size));
+ 
+-        auto processed           = preprocessor.preprocess(wgsl_im2col, defines);
++        auto processed           = preprocessor.preprocess(key.is_3d ? wgsl_im2col_3d : wgsl_im2col, defines);
+         auto decisions           = std::make_shared<ggml_webgpu_generic_shader_decisions>();
+         decisions->wg_size       = context.max_wg_size;
+         webgpu_pipeline pipeline = ggml_webgpu_create_pipeline(device, processed, variant);

@@ -23,6 +23,7 @@ def main():
     parser.add_argument('--jobs', type=int, default=2)
     parser.add_argument('--gpu-vae-probe', action='store_true', help='Experimental direct GPU VAE; does not establish compatibility')
     parser.add_argument('--cpu-vae-fallback', action='store_true', help='Slower CPU VAE fallback for compatibility investigation')
+    parser.add_argument('--numerical-checks', action='store_true', help='Compile the separate CPU-reference validation module; does not run browser tests')
     options = parser.parse_args()
     if not 1 <= options.jobs <= 16:
         parser.error('--jobs must be between 1 and 16')
@@ -69,7 +70,7 @@ def main():
         if hashlib.sha256(patch_file.read_bytes()).hexdigest() != patch['patchSha256']:
             raise RuntimeError('Reviewed browser patch digest mismatch')
         target = sources[patch['source']] / patch['file']
-        digest = hashlib.sha256(target.read_bytes()).hexdigest()
+        digest = hashlib.sha256(target.read_bytes()).hexdigest() if target.exists() else None
         if digest == patch['afterSha256']:
             continue
         if digest != patch['beforeSha256']:
@@ -83,16 +84,19 @@ def main():
     subprocess.run([sys.executable, str(emcmake), options.cmake, '-S', str(HERE), '-B', str(build), '-G', 'Ninja',
                     '-DCMAKE_BUILD_TYPE=Release', '-DCMAKE_MAKE_PROGRAM=' + options.ninja,
                     '-DNOVERA_WEBGPU_VAE_PROBE=' + ('ON' if options.gpu_vae_probe else 'OFF'),
+                    '-DNOVERA_NUMERICAL_CHECKS=' + ('ON' if options.numerical_checks else 'OFF'),
                     '-DNOVERA_CPU_VAE_FALLBACK=' + ('ON' if options.cpu_vae_fallback else 'OFF'),
                     '-DGIT_EXE:FILEPATH=', '-DSDCPP_BUILD_VERSION=novera-web-experiment',
                     '-DSDCPP_BUILD_COMMIT=' + lock['sources'][0]['commit'], '-DGGML_BUILD_COMMIT=' + lock['sources'][1]['commit'],
                     '-DNOVERA_SD_SOURCE=' + str(sources['sdcpp']), '-DSD_GGML_SOURCE_DIR=' + str(sources['ggml'])], env=environment, check=True)
     subprocess.run([options.cmake, '--build', str(build), '--target', 'novera-diffusion', '-j', str(options.jobs)], env=environment, check=True)
+    if options.numerical_checks:
+        subprocess.run([options.cmake, '--build', str(build), '--target', 'novera-im2col-check', '-j', str(options.jobs)], env=environment, check=True)
     artifacts = []
     for suffix in ['mjs', 'wasm']:
         path = build / f'novera-diffusion.{suffix}'
         artifacts.append({'name': path.name, 'bytes': path.stat().st_size, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
-    result = {'compiled': True, 'modelInferenceValidated': False, 'vaeBackend': 'cpu' if options.cpu_vae_fallback else 'webgpu-direct', 'diagnosticNodeTracing': options.gpu_vae_probe, 'sources': lock, 'artifacts': artifacts}
+    result = {'compiled': True, 'modelInferenceValidated': False, 'vaeBackend': 'cpu' if options.cpu_vae_fallback else 'webgpu-direct', 'diagnosticNodeTracing': options.gpu_vae_probe, 'numericalCheckModuleCompiled': options.numerical_checks, 'sources': lock, 'artifacts': artifacts}
     (build / 'BUILD-VERIFICATION.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))
 

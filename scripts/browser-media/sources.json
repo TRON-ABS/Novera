@@ -25,10 +25,34 @@
     {
       "source": "sdcpp",
       "patch": "patches/webgpu-group-norm-affine.patch",
-      "patchSha256": "0071a1eb1d54d3bc209a53b342c67f5849e4e617127ffbeab458ead67672cda6",
+      "patchSha256": "6ddeb861c576cdb660abdc90b8045146f105500514e08513408eb5df149c4d24",
       "file": "src/core/ggml_extend.cpp",
       "beforeSha256": "b7fa090c1306c34fac5c8f70d91770833236ae8e2a24acf0d0f99b48c38f44cc",
-      "afterSha256": "7518b446cfa38de678135630ce606a5191344349d154e2d0c2e55ad6fd3f0f86"
+      "afterSha256": "b370f57f2666d3077b0b3f3dd67522093e28ff9fd964bbf6ed3974690edfbf43"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-im2col-3d-pipeline.patch",
+      "patchSha256": "a2e157e49b6c262910a34d7ca139f264bb3d33b6c18a106fc03242dd1a1cbf58",
+      "file": "src/ggml-webgpu/ggml-webgpu-shader-lib.hpp",
+      "beforeSha256": "ab446e25ba92b0733bbe957b32adab70be2c3973cd8f412fbbcf2dd86818a289",
+      "afterSha256": "32fea3273275c50124226be72f6bc7b356bb7f73199230f2ec6fb0da02eb5d2e"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-im2col-3d-dispatch.patch",
+      "patchSha256": "bdc1d8c08c161d5088da954e7825ea5c90ae7e46f9d1a35d1feb7acf4dafe589",
+      "file": "src/ggml-webgpu/ggml-webgpu.cpp",
+      "beforeSha256": "995b30ce233bdc23cf918da8916485b568aeac0371bcab458d0df3b7b1d172cf",
+      "afterSha256": "d3036e092d49a4f5c3d6216f41c9c2b481fd94182b0dc0996553d15c99ff6359"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-im2col-3d-shader.patch",
+      "patchSha256": "a404b7290a1f8cf4079f07f2a4c499a3ffab2bd223d1e487e518ac538c771733",
+      "file": "src/ggml-webgpu/wgsl-shaders/im2col_3d.wgsl",
+      "beforeSha256": null,
+      "afterSha256": "8414ac0eae6d8ae714fae08bbc73d5ba6ff680907d0c7a7b87d265b3ace40d76"
     }
   ]
 }
