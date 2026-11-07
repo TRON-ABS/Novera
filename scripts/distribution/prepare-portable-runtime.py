@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import urllib.request
@@ -41,7 +42,7 @@ def source_runtime():
     return runtime
 
 
-def stage(source, binary, output, info_path, profile, local_engine=False):
+def stage(source, binary, output, info_path, profile, local_engine=False, fresh_engine=False):
     if output.exists() or info_path.exists():
         raise ValueError('Choose new staging outputs')
     output.mkdir(parents=True)
@@ -56,7 +57,23 @@ def stage(source, binary, output, info_path, profile, local_engine=False):
     shutil.copy2(binary, output/'Novera-Desktop.exe')
     for name in ['LICENSE', 'BRANDING.md', 'OFFICIAL_RELEASES.md']:
         shutil.copy2(REPO/name, output/name)
-    info = {'product': 'Novera', 'version': '1.0.0', 'platform': 'windows-x86_64', 'portableFeature': True, 'profile': profile,
+    version = json.loads((REPO/'src-tauri/tauri.conf.json').read_text())['version']
+    if fresh_engine:
+        resources = REPO/'src-tauri/resources/bin'
+        identity = json.loads(subprocess.check_output([str(resources/'novera-llama-worker.exe'), '--version-json'], text=True))
+        pin = (REPO/'src-tauri/plugins/tauri-plugin-llamacpp/build.rs').read_text()
+        expected_commit = re.search(r'LLAMA_CPP_COMMIT: &str = "([a-f0-9]{40})"', pin).group(1)
+        if identity.get('commit') != expected_commit:
+            raise ValueError('Portable worker does not match the current engine pin')
+        target = output/'resources/bin'
+        for old in target.glob('*.dll'):
+            old.unlink()  # Only the newly created output tree, never the source.
+        for path in [resources/'novera-llama-worker.exe', *resources.glob('*.dll')]:
+            if path.is_symlink(): raise ValueError('Linked fresh engine input')
+            shutil.copy2(path, target/path.name)
+        for name in ['bun', 'uv']:
+            shutil.copy2(resources/(name+'-x86_64-pc-windows-msvc.exe'), output/(name+'.exe'))
+    info = {'product': 'Novera', 'version': version, 'platform': 'windows-x86_64', 'portableFeature': True, 'profile': profile,
             'applicationCommit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=REPO, text=True).strip(),
             'applicationRun': os.environ.get('GITHUB_RUN_ID'), 'executableSha256': digest(binary),
             'engineSourceCommit': SOURCE_COMMIT, 'engineSourceInstallerSha256': SOURCE_SHA256,
@@ -67,6 +84,13 @@ def stage(source, binary, output, info_path, profile, local_engine=False):
         info.pop('engineSourceInstallerSha256')
         info.pop('engineSourceUrl')
         info['engineOrigin'] = 'local-build; not the immutable release fixture'
+    if fresh_engine:
+        info['runtimeBaseSourceCommit'] = SOURCE_COMMIT
+        info['runtimeBaseInstallerSha256'] = info.pop('engineSourceInstallerSha256')
+        info['runtimeBaseUrl'] = info.pop('engineSourceUrl')
+        info['engineSourceCommit'] = info['applicationCommit']
+        info['engineOrigin'] = 'fresh-build-from-application-commit'
+        info['workerIdentity'] = identity
     info_path.write_text(json.dumps(info, indent=2)+'\n', encoding='utf-8')
     # These sidecars are needed by tauri-build, even though the engine itself
     # is reused byte-for-byte and is not recompiled by this workflow.
@@ -81,6 +105,7 @@ if __name__ == '__main__':
     parser.add_argument('--output', type=Path)
     parser.add_argument('--build-info', type=Path)
     parser.add_argument('--local-engine', action='store_true')
+    parser.add_argument('--fresh-engine', action='store_true')
     parser.add_argument('--profile', choices=['debug', 'release'], default='release')
     args = parser.parse_args()
     source = source_runtime() if args.download_source else args.source_runtime
@@ -97,4 +122,4 @@ if __name__ == '__main__':
         (REPO/'.build/portable-source.json').write_text(json.dumps({'runtime': str(source)}))
         print('Pinned runtime prepared for native compilation')
     else:
-        print(json.dumps(stage(source, args.binary, args.output, args.build_info, args.profile, args.local_engine)))
+        print(json.dumps(stage(source, args.binary, args.output, args.build_info, args.profile, args.local_engine, args.fresh_engine)))

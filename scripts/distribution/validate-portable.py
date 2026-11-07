@@ -57,8 +57,9 @@ def main():
     if sys.argv[1:] and not components_only:
         raise RuntimeError('Unknown portable validation mode')
     packages = REPO/'.build/portable/packages'
-    archive = packages/'Novera_1.0.0_x64-portable.zip'
-    payload = packages/'Novera_1.0.0_x64-portable-update.exe'
+    version = json.loads((REPO/'src-tauri/tauri.conf.json').read_text())['version']
+    archive = packages/f'Novera_{version}_x64-portable.zip'
+    payload = packages/f'Novera_{version}_x64-portable-update.exe'
     signature = Path(str(payload)+'.sig').read_text().strip()
     base = Path(tempfile.mkdtemp(prefix='novera-portable-validation-', dir=os.environ['RUNNER_TEMP']))
     initial = base/'clé USB initiale'
@@ -132,7 +133,7 @@ def main():
         def do_GET(self):
             if self.path in ['/feed.json', '/tampered.json']:
                 route = '/tampered' if self.path == '/tampered.json' else '/payload'
-                data = json.dumps({'version': '1.0.0', 'notes': 'Isolated portable updater fixture', 'pub_date': '2026-11-02T00:00:00Z',
+                data = json.dumps({'version': version, 'notes': 'Isolated portable updater fixture', 'pub_date': '2026-11-07T00:00:00Z',
                                    'platforms': {'windows-x86_64': {'signature': signature, 'url': f'http://127.0.0.1:{self.server.server_port}'+route}}}).encode()
                 self.send_response(200)
                 self.send_header('Content-Length', str(len(data)))
@@ -163,7 +164,7 @@ def main():
         return json.loads(receipt.read_text())
     try:
         downloaded = run_probe('download', '0.9.9')
-        current = run_probe('check-current', '1.0.0')
+        current = run_probe('check-current', version)
         rejected = run_probe('reject-tampered', '0.9.9', '/tampered.json')
         missing = moved/'Program/resources/SIGNATURE.txt'
         expected_missing = digest(missing)
@@ -184,7 +185,7 @@ def main():
         if not components_only:
             subprocess.run(['node', 'scripts/distribution/validate-portable-ui.mjs', str(executable), 'updated'], env=env, cwd=REPO, check=True, timeout=240)
         ui = {} if components_only else json.loads((out/'PORTABLE-UI-updated.json').read_text())
-        report = {'applicationVersion': '1.0.0', 'sourceCommit': os.environ['GITHUB_SHA'], 'compilationCommit': provenance['applicationCommit'], 'zipSha256': digest(archive), 'updaterSha256': digest(payload),
+        report = {'applicationVersion': version, 'sourceCommit': os.environ['GITHUB_SHA'], 'compilationCommit': provenance['applicationCommit'], 'zipSha256': digest(archive), 'updaterSha256': digest(payload),
                   'nativeSignatureVerified': downloaded['nativeSignatureVerified'], 'sameVersionNotOffered': current['sameVersionNotOffered'],
                   'tamperedPayloadRejected': rejected['tamperedPayloadRejectedByNativeVerifier'], 'nativeInstallationRequested': installed['installerRequested'],
                   'programRestored': True, 'runtimeFilesCompared': len(provenance['files']), 'discussionBytesPreserved': True, 'modelBytesPreserved': True,

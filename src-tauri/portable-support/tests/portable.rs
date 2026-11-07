@@ -3,6 +3,17 @@ use serde_json::json;
 use sha2::{Digest, Sha256};
 
 #[test]
+fn file_digest_matches_the_standard_sha256_vector() {
+    let temp = tempfile::tempdir().unwrap();
+    let file = temp.path().join("digest.txt");
+    std::fs::write(&file, b"abc").unwrap();
+    assert_eq!(
+        digest(&file).unwrap(),
+        "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+    );
+}
+
+#[test]
 fn relocating_a_large_discussion_streams_messages_and_preserves_their_text() {
     let temp = tempfile::tempdir().unwrap();
     let first = temp.path().join("first");
@@ -173,7 +184,10 @@ fn replacement_touches_program_only_and_recovery_restores_an_interrupted_swap() 
     let stage = tmp.path().join(".novera-update-123-456");
     fs::create_dir(&stage).unwrap();
     let payload = b"new native executable witness";
-    let hash = format!("{:x}", Sha256::digest(payload));
+    let hash: String = Sha256::digest(payload)
+        .iter()
+        .map(|byte| format!("{byte:02x}"))
+        .collect();
     extract_payload(
         Cursor::new(archive("Program/Novera-Desktop.exe", payload, &hash)),
         &stage,
@@ -260,7 +274,10 @@ fn footer_bounds_and_root_marker_are_required() {
     let content = archive(
         "Program/Novera-Desktop.exe",
         b"payload",
-        &format!("{:x}", Sha256::digest(b"payload")),
+        &Sha256::digest(b"payload")
+            .iter()
+            .map(|byte| format!("{byte:02x}"))
+            .collect::<String>(),
     );
     let exe = tmp.path().join("update.exe");
     let mut file = fs::File::create(&exe).unwrap();

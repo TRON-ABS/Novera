@@ -499,7 +499,11 @@ pub fn digest(path: &Path) -> io::Result<String> {
         }
         hash.update(&buffer[..n]);
     }
-    Ok(format!("{:x}", hash.finalize()))
+    Ok(hash
+        .finalize()
+        .iter()
+        .map(|byte| format!("{byte:02x}"))
+        .collect())
 }
 
 /// Bounded view of the appended ZIP; offsets are relative to the ZIP, not the PE.
