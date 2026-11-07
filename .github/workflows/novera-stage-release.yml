@@ -1,0 +1,43 @@
+name: Novera - Stage reviewed private release
+on:
+  workflow_dispatch:
+    inputs:
+      descriptor:
+        description: Reviewed descriptor under scripts/distribution/staging/
+        type: string
+        required: true
+      draft_release_id:
+        description: Existing private draft with the descriptor's exact tag
+        type: string
+        required: true
+permissions:
+  contents: read
+jobs:
+  stage:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 40
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Transfer exact signed bytes to the existing private draft
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DESCRIPTOR: ${{ inputs.descriptor }}
+          DRAFT_RELEASE_ID: ${{ inputs.draft_release_id }}
+        run: python3 scripts/distribution/stage-reviewed-release.py "$DESCRIPTOR" "$DRAFT_RELEASE_ID"
+      - name: Retain private staging receipt
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: private-release-staging-${{ github.run_id }}
+          path: .build/release-staging/
+          if-no-files-found: ignore
+          retention-days: 14

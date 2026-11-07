@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "version": "1.0.1",
+  "publicationTag": "v1.0.1-windows-arm64",
+  "kind": "desktop",
+  "platform": "windows-aarch64",
+  "runId": 42341687065,
+  "artifactId": 13562544930,
+  "artifactSha256": "d224da1165e830232a3191cbda1a626f0e9b141044e99eff0f717b6cb8b2f50a",
+  "compilationCommit": "df02143b6018aa1c6d54c7d6359ce94409a8e87f",
+  "assets": [
+    {
+      "name": "Novera_1.0.1_arm64-setup.exe",
+      "bytes": 71062854,
+      "sha256": "65a9b5c179b4128f1da2fd5ba053ccdd481eb2344f195910b213c982f662d9a1"
+    },
+    {
+      "name": "Novera_1.0.1_arm64-setup.exe.sig",
+      "bytes": 420,
+      "sha256": "032e1ad7e1196b12001c65a427f7d050cb0ddd7e999eb1a500d9d9f7efe4e2d5"
+    }
+  ]
+}

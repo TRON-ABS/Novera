@@ -1,9 +1,9 @@
-# fix(linux): adapt portal proxy builders to zbus 6
+# feat(release): stage reviewed signed artifacts directly into private drafts
 
-After enabling the proxy feature in #31, Linux compilation reaches the two XDG theme proxy builders and rejects their `?` operators. zbus 6 setters return the builder directly and retain validation errors for `build()`. Remove `?` from destination, path and interface while preserving `build().await?` in both paths.
+Large signed Actions packages otherwise require downloading and uploading again through the maintainer's PC. Add a GitHub-hosted transfer workflow that accepts a reviewed repository descriptor and an existing private draft ID. It verifies the successful source run, original archive digest, exact payload bytes, pinned-key signatures and desktop publication prerequisites before upload; it then checks GitHub's stored size and digest. It neither receives signing keys nor publishes a release.
 
-Reproduction: Linux run 42343670821 / job 128316700112 fails with E0277 at setup.rs:502 and :698. The pinned 6.2.1 builder source confirms the deferred error behavior; the existing sharing proxy calls already type-check.
+The initial descriptor uses the reviewed 1.0.1 Windows ARM64 artifact already staged locally, allowing an idempotent CI check against those exact existing bytes. Invalid paths, tags, versions, duplicate payloads, missing signatures, oversized files and public release destinations are rejected. Record the transfer and verified private signing-backup lessons in the release memo without storing private material.
 
-Validation: Rust 2021 syntax parsing and 16 source/version contracts pass. Whole-file formatting still reports preexisting differences outside the changed builder chains. The signed Linux candidate is relaunched for full compilation, migration and native UI checks. No successful Linux package is claimed before that run completes. Windows/Mac builds use their existing conditional code and continue independently.
+Validation: three targeted Python staging tests pass. Full distribution Python checks and actionlint are run before submission. The actual GitHub transfer will be dispatched after the workflow reaches the default branch; local tests alone do not claim a successful remote transfer.
 
-Depends on merged #31 and the other 1.0.1 preparation fixes. Update the release lessons to inspect the entire changed API chain and preserve final error handling.
+Depends on the merged 1.0.1 signing/publication prerequisites and preparation fixes (#26–#35). This delivery-only change does not alter the native application packages already compiling. Historical 1.0.0 release bytes remain unchanged.
