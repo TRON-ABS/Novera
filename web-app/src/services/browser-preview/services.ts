@@ -3,7 +3,7 @@ import { DefaultCoreService } from '../core/default'
 import { DefaultProvidersService } from '../providers/default'
 import type { InvokeArgs } from '../core/types'
 import { browserCatalog, browserModel } from './config'
-import { browserRuntime } from './runtime'
+import { browserRuntime, BROWSER_CONTEXT_TOKENS } from './runtime'
 import { predefinedProviders } from '@/constants/providers'
 import { mediaModels } from '@/constants/mediaProviders'
 import { browserMediaCommand } from './media'
@@ -27,7 +27,7 @@ export class BrowserEngine extends AIEngine {
   }
   async unload() { await browserRuntime.unload(); return { success: true } }
   async getLoadedModels() { const id = browserRuntime.loadedId(); return id ? [id] : [] }
-  async getModelContextLimit(id: string) { browserModel(id); return 4096 }
+  async getModelContextLimit(id: string) { browserModel(id); return BROWSER_CONTEXT_TOKENS }
   async getSettings() { return [] }
   async updateSettings() { throw new Error('Les réglages natifs du moteur ne sont pas disponibles dans le navigateur.') }
   async isToolSupported() { return false }
