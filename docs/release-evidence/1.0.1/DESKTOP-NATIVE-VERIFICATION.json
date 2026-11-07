@@ -1,0 +1,144 @@
+{
+  "version": "1.0.1",
+  "validationRun": 42361963273,
+  "platforms": {
+    "darwin-aarch64": {
+      "platform": "darwin-aarch64",
+      "compilationCommit": "df02143b6018aa1c6d54c7d6359ce94409a8e87f",
+      "sourceReleaseId": 437481941,
+      "bundleSha256": "edaf83f7761ee71bfa73133d1638c56782aa495b473df007230059b02c9b6f8a",
+      "initialInstallationPerformed": true,
+      "nativeUpdaterSignatureVerified": true,
+      "tamperedPayloadRejected": true,
+      "sameVersionNotOffered": true,
+      "nativeUpdaterInstallationRestoredExpectedPayload": true,
+      "syntheticProfileSentinelPreserved": true,
+      "installedRuntimeFileHashesMatchBeforeAfter": true,
+      "installedRuntimeFilesCompared": 22,
+      "beforeUpdateSmoke": {
+        "processAliveAfterSeconds": 15,
+        "interfaceInteractionValidated": false
+      },
+      "afterUpdateSmoke": {
+        "processAliveAfterSeconds": 15,
+        "interfaceInteractionValidated": false
+      },
+      "updaterProbeVersion": "0.9.9",
+      "candidateVersion": "1.0.1",
+      "productionUiEndToEndValidated": false,
+      "upgradeBetweenTwoReleasedApplicationsValidated": false,
+      "releasePublicationAuthorizedByThisTest": false
+    },
+    "darwin-x86_64": {
+      "platform": "darwin-x86_64",
+      "compilationCommit": "df02143b6018aa1c6d54c7d6359ce94409a8e87f",
+      "sourceReleaseId": 437481941,
+      "bundleSha256": "c095d1dc09fd0e7625959a39240b69b7e4dc2b8e1d5be55679895c0c148260ca",
+      "initialInstallationPerformed": true,
+      "nativeUpdaterSignatureVerified": true,
+      "tamperedPayloadRejected": true,
+      "sameVersionNotOffered": true,
+      "nativeUpdaterInstallationRestoredExpectedPayload": true,
+      "syntheticProfileSentinelPreserved": true,
+      "installedRuntimeFileHashesMatchBeforeAfter": true,
+      "installedRuntimeFilesCompared": 30,
+      "beforeUpdateSmoke": {
+        "processAliveAfterSeconds": 15,
+        "interfaceInteractionValidated": false
+      },
+      "afterUpdateSmoke": {
+        "processAliveAfterSeconds": 15,
+        "interfaceInteractionValidated": false
+      },
+      "updaterProbeVersion": "0.9.9",
+      "candidateVersion": "1.0.1",
+      "productionUiEndToEndValidated": false,
+      "upgradeBetweenTwoReleasedApplicationsValidated": false,
+      "releasePublicationAuthorizedByThisTest": false
+    },
+    "linux-x86_64": {
+      "platform": "linux-x86_64",
+      "compilationCommit": "d31d802377960982f35325e4b53e661bf32921eb",
+      "sourceReleaseId": 437360593,
+      "bundleSha256": "5e0d7ca18ba759966954dc03dc3cdbb186bb6a5cd4844bec786c30fbbc85402f",
+      "initialInstallationPerformed": true,
+      "nativeUpdaterSignatureVerified": true,
+      "tamperedPayloadRejected": true,
+      "sameVersionNotOffered": true,
+      "nativeUpdaterInstallationRestoredExpectedPayload": true,
+      "syntheticProfileSentinelPreserved": true,
+      "installedRuntimeFileHashesMatchBeforeAfter": true,
+      "installedRuntimeFilesCompared": 1,
+      "beforeUpdateSmoke": {
+        "processAliveAfterSeconds": 15,
+        "interfaceInteractionValidated": false
+      },
+      "afterUpdateSmoke": {
+        "processAliveAfterSeconds": 15,
+        "interfaceInteractionValidated": false
+      },
+      "updaterProbeVersion": "0.9.9",
+      "candidateVersion": "1.0.1",
+      "productionUiEndToEndValidated": false,
+      "upgradeBetweenTwoReleasedApplicationsValidated": false,
+      "releasePublicationAuthorizedByThisTest": false
+    },
+    "windows-aarch64": {
+      "platform": "windows-aarch64",
+      "compilationCommit": "df02143b6018aa1c6d54c7d6359ce94409a8e87f",
+      "sourceReleaseId": 437373617,
+      "bundleSha256": "65a9b5c179b4128f1da2fd5ba053ccdd481eb2344f195910b213c982f662d9a1",
+      "initialInstallationPerformed": true,
+      "nativeUpdaterSignatureVerified": true,
+      "tamperedPayloadRejected": true,
+      "sameVersionNotOffered": true,
+      "nativeUpdaterInstallationRestoredExpectedPayload": true,
+      "syntheticProfileSentinelPreserved": true,
+      "installedRuntimeFileHashesMatchBeforeAfter": true,
+      "installedRuntimeFilesCompared": 9,
+      "beforeUpdateSmoke": {
+        "processAliveAfterSeconds": 15,
+        "interfaceInteractionValidated": false
+      },
+      "afterUpdateSmoke": {
+        "processAliveAfterSeconds": 15,
+        "interfaceInteractionValidated": false
+      },
+      "updaterProbeVersion": "0.9.9",
+      "candidateVersion": "1.0.1",
+      "productionUiEndToEndValidated": false,
+      "upgradeBetweenTwoReleasedApplicationsValidated": false,
+      "releasePublicationAuthorizedByThisTest": false
+    },
+    "windows-x86_64": {
+      "platform": "windows-x86_64",
+      "compilationCommit": "df02143b6018aa1c6d54c7d6359ce94409a8e87f",
+      "sourceReleaseId": 437360593,
+      "bundleSha256": "cde4696c2ca21a28530440183575305c441f4e55bee5795466fba644a758c1a7",
+      "initialInstallationPerformed": true,
+      "nativeUpdaterSignatureVerified": true,
+      "tamperedPayloadRejected": true,
+      "sameVersionNotOffered": true,
+      "nativeUpdaterInstallationRestoredExpectedPayload": true,
+      "syntheticProfileSentinelPreserved": true,
+      "installedRuntimeFileHashesMatchBeforeAfter": true,
+      "installedRuntimeFilesCompared": 106,
+      "beforeUpdateSmoke": {
+        "processAliveAfterSeconds": 15,
+        "interfaceInteractionValidated": false
+      },
+      "afterUpdateSmoke": {
+        "processAliveAfterSeconds": 15,
+        "interfaceInteractionValidated": false
+      },
+      "updaterProbeVersion": "0.9.9",
+      "candidateVersion": "1.0.1",
+      "productionUiEndToEndValidated": false,
+      "upgradeBetweenTwoReleasedApplicationsValidated": false,
+      "releasePublicationAuthorizedByThisTest": false
+    }
+  },
+  "twoPublishedVersionsUpgradeValidated": false,
+  "portableVersion": "1.0.0",
+  "publicationState": "private review; not yet published"
+}

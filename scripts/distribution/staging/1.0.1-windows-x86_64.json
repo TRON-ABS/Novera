@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "version": "1.0.1",
+  "publicationTag": "v1.0.1",
+  "kind": "desktop",
+  "platform": "windows-x86_64",
+  "runId": 42341613182,
+  "artifactId": 13567420151,
+  "artifactSha256": "af0ee01fc48b39d5a497230dbcca52d14eeb7466b0075704ba56f6947bd0ab91",
+  "compilationCommit": "df02143b6018aa1c6d54c7d6359ce94409a8e87f",
+  "assets": [
+    {
+      "name": "Novera_1.0.1_x64-setup.exe",
+      "bytes": 826733127,
+      "sha256": "cde4696c2ca21a28530440183575305c441f4e55bee5795466fba644a758c1a7"
+    },
+    {
+      "name": "Novera_1.0.1_x64-setup.exe.sig",
+      "bytes": 416,
+      "sha256": "c8263e5d17fa8b62b2dd5d5ff623ffede3732adde719c383992f8385b5a40936"
+    }
+  ]
+}
