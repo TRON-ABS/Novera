@@ -18,6 +18,22 @@
         "sha256": "032e1ad7e1196b12001c65a427f7d050cb0ddd7e999eb1a500d9d9f7efe4e2d5"
       },
       "runtimeExecutableSha256": "e274956f2ea56f2a7400d892f743f092bbf1ed8c9e44b4fc654c69030e56a3b2"
+    },
+    "linux-x86_64": {
+      "commit": "d31d802377960982f35325e4b53e661bf32921eb",
+      "releaseId": 437360593,
+      "bundle": {
+        "id": 719959846,
+        "name": "Novera_1.0.1_amd64.AppImage",
+        "bytes": 196712952,
+        "sha256": "5e0d7ca18ba759966954dc03dc3cdbb186bb6a5cd4844bec786c30fbbc85402f"
+      },
+      "signature": {
+        "id": 719960134,
+        "name": "Novera_1.0.1_amd64.AppImage.sig",
+        "bytes": 416,
+        "sha256": "4111f77e6cba2556adb91ab0f8a6be4de2073ccd65eb356b8cf58aa2e2d6bc12"
+      }
     }
   }
 }
