@@ -1,9 +1,9 @@
-# fix(android): reapply task bindings after Tauri regenerates Gradle sources
+# fix(release): verify the current public version and reviewed CLI platform scope
 
-Fresh Android run 42344464455 fails at RustPlugin.kt:73: Tauri 2.12.4 assigns `projectDir = project.projectDir.path`, but our adapted BuildTask obtains that path from Gradle directly and exposes no String property. Gradle therefore resolves the inherited read-only File property and rejects the assignment.
+The public-release workflow and native CLI production check still reference 1.0.0 filenames and success messages, so they cannot validate the new 1.0.1 channels. Accept a reviewed repository descriptor, require its version to match the checked-out application, and derive the download and CLI identity expectations from it.
 
-Remove only that generated assignment and keep the task's existing `File(project.projectDir, root)` working directory. Reapply both task adaptations from the settings hook as well as full configuration, because Tauri can regenerate the task files after the initial configuration step. Preserve target/release assignments and other generated settings.
+Canonical CLI verification can now include the reviewed macOS ARM64 package alongside the required Windows/Linux packages, and runs on all three native hosts. Unknown, duplicated, missing or unplanned platforms remain rejected. No public asset or channel is changed by these checks.
 
-Validation: nine Android configuration tests pass, including a fresh modern template, regeneration after initial configuration, plugin-only refresh, and repeated idempotent configuration. A new Android CI candidate is dispatched for the actual Gradle compilation; no successful remote package is claimed yet.
+Validation: 12 Node public-feed/CLI contracts pass, Python syntax compilation passes, and actionlint passes. Actual anonymous downloads and native production checks will run only after signed packages and the final descriptor are published. This PR does not claim a successful public 1.0.1 release.
 
-Depends on merged #28/#32 and follows #37. The signed production APK already built locally is retained; this change repairs clean-runner reproducibility without rotating Android signing identity or changing Desktop packages. Add the confirmed lesson to the release memo.
+Depends on merged #36–#38 and overlaps only delivery verification scripts. Record the version-pinning lesson in the release memo. The final public descriptor will be added after all package identities are reviewed.

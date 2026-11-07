@@ -9,12 +9,16 @@ import { verifyUpdateBundle } from './ci-check-updater.mjs'
 const origin = 'https://github.com/TRON-ABS/Novera/releases/'
 const targets = ['linux-x86_64', 'windows-x86_64']
 
-export function reviewCanonicalCliFeed(feed, version) {
+export function reviewCanonicalCliFeed(feed, version, selected = targets) {
+  selected = [...selected].sort()
   if (!/^\d+\.\d+\.\d+$/.test(version) || feed.version !== version ||
-      JSON.stringify(Object.keys(feed.platforms ?? {}).sort()) !== JSON.stringify(targets)) {
+      !targets.every(target => selected.includes(target)) ||
+      selected.some(target => ![...targets, 'darwin-aarch64'].includes(target)) ||
+      new Set(selected).size !== selected.length ||
+      JSON.stringify(Object.keys(feed.platforms ?? {}).sort()) !== JSON.stringify(selected)) {
     throw new Error('Canonical CLI feed version/platform scope differs')
   }
-  for (const target of targets) {
+  for (const target of selected) {
     const entry = feed.platforms[target]
     if (entry.url !== `${origin}download/v${version}-cli-novera/Novera_CLI_${version}_${target}.zip` ||
         !/^[a-f0-9]{64}$/.test(entry.sha256 ?? '') || typeof entry.signature !== 'string' || !entry.signature) {
@@ -39,7 +43,7 @@ async function getBytes(url, limit) {
 
 async function main(descriptorPath) {
   if (process.env.GITHUB_ACTIONS !== 'true' || process.env.RUNNER_ENVIRONMENT !== 'github-hosted') throw new Error('Disposable GitHub-hosted runner required')
-  const target = { 'win32:x64': 'windows-x86_64', 'linux:x64': 'linux-x86_64' }[`${process.platform}:${process.arch}`]
+  const target = { 'win32:x64': 'windows-x86_64', 'linux:x64': 'linux-x86_64', 'darwin:arm64': 'darwin-aarch64' }[`${process.platform}:${process.arch}`]
   if (!target) throw new Error('Unsupported public CLI validation host')
   const descriptor = JSON.parse(fs.readFileSync(descriptorPath))
   if (descriptor.cliIdentityFormatVersion !== 2 || descriptor.cliManifestName !== 'latest-novera-cli.json' || !/^[a-f0-9]{40}$/.test(descriptor.cliSourceCommit)) throw new Error('Reviewed canonical CLI descriptor required')
@@ -53,7 +57,7 @@ async function main(descriptorPath) {
   }
   const feedBytes = await getBytes(`${origin}latest/download/latest-novera-cli.json`, 1024 * 1024)
   check(feedBytes, record('latest-novera-cli.json'))
-  const feed = reviewCanonicalCliFeed(JSON.parse(feedBytes), descriptor.version)
+  const feed = reviewCanonicalCliFeed(JSON.parse(feedBytes), descriptor.version, descriptor.channels?.cli ? Object.keys(descriptor.channels.cli) : targets)
   const name = `Novera_CLI_${descriptor.version}_${target}.zip`
   const entry = feed.platforms[target]
   const archive = await getBytes(entry.url, 128 * 1024 * 1024)

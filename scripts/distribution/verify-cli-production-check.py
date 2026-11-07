@@ -2,6 +2,7 @@
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -16,10 +17,13 @@ def main():
     descriptor_path = Path(sys.argv[2]) if len(sys.argv) > 2 else root/'scripts/distribution/public-release-1.0.0.json'
     descriptor = json.loads(descriptor_path.read_text(encoding='utf-8-sig'))
     expected = descriptor if isinstance(descriptor, list) else descriptor['assets']
+    version = '1.0.0' if isinstance(descriptor, list) else descriptor.get('version', '')
+    if not re.fullmatch(r'\d+\.\d+\.\d+', version):
+        raise RuntimeError('Reviewed stable CLI version required')
     identity_format = 1 if isinstance(descriptor, list) else descriptor.get('cliIdentityFormatVersion', 1)
     if identity_format not in (1, 2):
         raise RuntimeError('Unknown reviewed CLI identity format')
-    record = next(r for r in expected if r['name'] == f'Novera_CLI_1.0.0_{platform}.zip')
+    record = next(r for r in expected if r['name'] == f'Novera_CLI_{version}_{platform}.zip')
     with archive.open('rb') as stream:
         digest = hashlib.sha256()
         for block in iter(lambda: stream.read(1024*1024), b''):
@@ -37,7 +41,7 @@ def main():
                 raise RuntimeError('Unexpected CLI archive layout')
             identity = json.loads(package.read('CLI-UPDATE.json'))
             payload = package.read(binary)
-            if identity['formatVersion'] != identity_format or identity['product'] != 'Novera CLI' or identity['binary'] != binary or identity['version'] != '1.0.0' or identity['platform'] != platform or identity['binarySha256'] != hashlib.sha256(payload).hexdigest():
+            if identity['formatVersion'] != identity_format or identity['product'] != 'Novera CLI' or identity['binary'] != binary or identity['version'] != version or identity['platform'] != platform or identity['binarySha256'] != hashlib.sha256(payload).hexdigest():
                 raise RuntimeError('Signed CLI identity mismatch')
             if isinstance(descriptor, dict) and descriptor.get('cliSourceCommit') != identity['commit']:
                 raise RuntimeError('CLI executable source differs from the reviewed descriptor')
@@ -50,9 +54,9 @@ def main():
             profile.mkdir(parents=True)
             env[name] = str(profile)
         result = subprocess.run([str(executable), 'update', '--check'], env=env, cwd=scratch, text=True, capture_output=True, timeout=90)
-        if result.returncode or 'Already on the latest ' not in result.stdout or ' build (1.0.0)' not in result.stdout:
+        if result.returncode or 'Already on the latest ' not in result.stdout or f' build ({version})' not in result.stdout:
             raise RuntimeError(f'CLI production check failed: {result.returncode}: {result.stdout}\n{result.stderr}')
-        receipt = {'platform':platform,'version':'1.0.0','binary':binary,'identityFormatVersion':identity_format,'archiveSha256':record['sha256'],'productionCheckPassed':True,'updateInstalled':False,'stdout':result.stdout}
+        receipt = {'platform':platform,'version':version,'binary':binary,'identityFormatVersion':identity_format,'archiveSha256':record['sha256'],'productionCheckPassed':True,'updateInstalled':False,'stdout':result.stdout}
         (out/f'CLI-PRODUCTION-CHECK-{platform}.json').write_text(json.dumps(receipt,indent=2)+'\n')
         print(json.dumps(receipt,indent=2))
 
