@@ -4,7 +4,7 @@
 
 Le canal Desktop `latest.json` et la CLI actuelle `latest-novera-cli.json` annoncent 1.0.1. **La version portable Windows et l’ancien canal `latest-cli.json` restent en 1.0.0** : aucun lien vers une portable 1.0.1 inexistante n’est proposé. Leurs paquets historiques restent immuables. L’installation Android 1000013 sur téléphone et la transition publique entre versions ne sont confirmées que pour les scénarios réellement documentés.
 
-**Novera Web 1.0.1 : publication expérimentale autorisée le 8 novembre 2026**, interface Desktop, contexte local de 32k et recherche Internet Exa préparée à l’activation testés dans Edge. La [vitrine](https://tron-abs.github.io/Novera/) présente ces travaux ; le [client Web expérimental](https://tron-abs.github.io/Novera/web/) est préparé par le workflow dédié, à vérifier après déploiement. Wan vidéo, audit complet, licence du SDK et contrôles de déploiement restent à terminer. [Suivi Web](WEB_BROWSER_PREPARATION.md).
+**Novera Web 1.0.1 : publication expérimentale autorisée le 8 novembre 2026**, interface Desktop, contexte local de 32k et recherche Internet Exa préparée à l’activation testés dans Edge. La [vitrine](https://tron-abs.github.io/Novera/) présente ces travaux ; le [client Web expérimental](https://tron-abs.github.io/Novera/web/) est en ligne ; 757 fichiers, démarrage et conversation après rechargement sont vérifiés. [Reçu public](release-evidence/1.0.1/WEB-PUBLIC-EXPERIMENTAL.json). Wan vidéo, audit complet, licence du SDK et contrôles de déploiement restent à terminer. [Suivi Web](WEB_BROWSER_PREPARATION.md).
 
 ## Historique de la sortie 1.0.0
 

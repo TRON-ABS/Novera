@@ -6,6 +6,12 @@ Consigne du mainteneur confirmée le **7 novembre 2026** : toute demande de mise
 
 Le numéro visé est commun aux versions actualisées ; les moyens techniques peuvent différer selon la plateforme. Un ancien paquet immuable, un canal incompatible ou une cible sans prérequis de signature ne devient pas à jour en changeant son étiquette : préparer et vérifier le véritable successeur, conserver l’historique et signaler ce qui reste à faire. Ne pas annoncer l’ensemble comme terminé tant que des distributions demandées restent en attente.
 
+### Garder le client Web dans les prochaines publications
+
+Depuis le **8 novembre 2026**, Web 1.0.1 est un canal public **expérimental** sous `/Novera/web/`. Utiliser `novera-web-publish.yml` ; la cible `pages` du workflow général réutilise ce même déploiement. Ne pas remplacer le site par une vitrine seule : application et vitrine doivent être publiées ensemble. Les scripts suivent la version applicative et les faits de sortie, sans numéro 1.0.1 figé.
+
+Vérifier une origine neuve : l’accueil ne doit pas rediriger vers les réglages pendant l’initialisation du catalogue. Résoudre les logos sous la base de déploiement. Compiler les moteurs avec les révisions vérifiées et leurs licences ; ne pas embarquer les poids, profils, clés ou symboles privés. Après déploiement, vérifier révision, empreintes publiques et conservation d’une discussion après rechargement. GitHub Pages ne fournit pas le contrat strict `no-store` : conserver cette limite et les résultats réels dans le reçu. Une courte réponse ne valide ni 32k en charge ni la parité Desktop. Wan reste hors conversation tant que son parcours n’est pas intégré et testé.
+
 ### Préparer tous les canaux avant de figer une sortie immuable
 
 La publication `v1.0.1` est immuable : GitHub refuse tout ajout de fichier (`422`, « Cannot upload assets to an immutable release. »). Le programme CLI 1.0.0 impose précisément cette URL de version pour son successeur et exige l’ancien format d’archive avec `jan`/`jan.exe`. Des paquets de compatibilité conservant les véritables octets de la CLI 1.0.1 ont été signés et lancés sur Windows/Linux/Mac, mais ne peuvent plus être ajoutés à l’emplacement requis. Ne pas rediriger l’ancien feed vers les archives canoniques incompatibles ; proposer l’installation manuelle de la CLI actuelle. [Preuve et limite](release-evidence/1.0.1/CLI-LEGACY-COMPATIBILITY-BLOCKED.json).
@@ -49,7 +55,7 @@ Avant une compilation longue, remplir une fiche avec la plateforme, l’architec
 | Android | APK release 1.0.1 / 1000013 publique, certificat de production conservé et paquet inspecté ; audits source mobiles consignés. | Tester cette APK et sa mise à jour sur téléphone. Le retour positif du build 1000012 ne valide pas le 1000013. Garder les sauvegardes de signature indépendantes du seul profil Windows. |
 | iOS | Candidat simulateur interne. | Équipe Apple, identifiants et accès nécessaires, provisioning, build pour appareil et essais réels via le canal retenu. |
 | Prochaine version Windows/Linux/portable | Paquets publics 1.0.0 et canaux signés disponibles. | Véritable transition de la version publique précédente vers la nouvelle, dans l’interface et avec conservation des données. |
-| Web | Interface compilée et vitrine informative Pages publique ; aucune application complète en ligne validée. | Adapter les services natifs au navigateur, tester persistance et fournisseurs. Un moteur navigateur compatible peut exécuter un petit modèle sur l'appareil ; tester architecture, téléchargement, mémoire et vitesse avant d'annoncer une compatibilité. Pages ne fournit pas le serveur de calcul natif. |
+| Web | Client 1.0.1 public expérimental ; texte et conversation après rechargement vérifiés, image/musique expérimentales, Wan hors conversation. | Déployer client et vitrine ensemble ; garder les limites de cache, de mémoire et de performance explicites. Refaire les essais après une modification du moteur. |
 
 Tableau actualisé le **7 novembre 2026** pendant la sortie 1.0.1. Les observations datées des sections suivantes restent des historiques ; les états de publication courants sont dans le suivi de sortie.
 

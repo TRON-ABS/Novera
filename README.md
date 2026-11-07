@@ -15,7 +15,7 @@
 
 Data and privacy: [local inference, optional telemetry, error reports and update connections (French)](docs/DONNEES_ET_CONFIDENTIALITE.md). License: [Apache 2.0](LICENSE) · [Attribution](NOTICE).
 
-**Novera Web 1.0.1 — public experimental channel:** the Desktop interface and colors, 32k local text context, and keyless Exa search with connection preparation on activation have been tested in Edge. Local image/music work is documented; Wan video remains outside the browser conversation flow. Publication of the experimental Web application is authorized; use the Web link above after deployment. Large-image performance and Wan video are not Desktop-equivalent. [Features, measured tests and remaining publication checks](docs/WEB_BROWSER_PREPARATION.md).
+**Novera Web 1.0.1 — public experimental channel:** the Desktop interface and colors, 32k local text context, and keyless Exa search with connection preparation on activation have been tested in Edge. Local image/music work is documented; Wan video remains outside the browser conversation flow. The experimental Web application is online; use the Web link above. Large-image performance and Wan video are not Desktop-equivalent. [Features, measured tests and remaining publication checks](docs/WEB_BROWSER_PREPARATION.md).
 
 ---
 

@@ -6,7 +6,8 @@ import { prepareWebDelivery } from './web-delivery.mjs'
 const [output, commit, source] = process.argv.slice(2)
 if (!output || !source || !/^[a-f0-9]{40}$/.test(commit ?? '')) throw new Error('Usage: stage-web-pages.mjs NEW_OUTPUT COMMIT COMPILED_WEB')
 const identity = JSON.parse(fs.readFileSync(path.join(source, 'novera-web-version.json'), 'utf8'))
-if (identity.application !== 'NoveraWeb' || identity.commit !== commit || identity.version !== '1.0.1') throw new Error('Web identity differs from reviewed source')
+const version = JSON.parse(fs.readFileSync(new URL('../../web-app/package.json', import.meta.url), 'utf8')).version
+if (identity.application !== 'NoveraWeb' || identity.commit !== commit || identity.version !== version) throw new Error('Web identity differs from reviewed source')
 // Reject private data, models, symbols and unexpected symlinks before staging.
 const receipt = prepareWebDelivery(source, { version: identity.version, commit })
 for (const module of ['novera-diffusion', 'novera-music']) {
