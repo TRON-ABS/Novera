@@ -95,6 +95,24 @@ test('reconfiguration preserves generated content without duplicate blocks', t =
   assert.deepEqual(snapshot(f.project), before)
 })
 
+test('settings hook reapplies the task adaptation after Tauri regenerates Kotlin files', t => {
+  const f = fixture(t)
+  f.run()
+  const appBefore = f.read('app/build.gradle.kts')
+  const plugin = 'buildSrc/src/main/java/io/github/tronabs/novera/kotlin/RustPlugin.kt'
+  f.put(path.join(f.project, plugin), 'task.apply {\n    rootDirRel = config.rootDirRel\n    projectDir = project.projectDir.path\n    target = targetName\n}\n')
+  f.put(path.join(f.project, 'buildSrc/src/main/java/io/github/tronabs/novera/kotlin/BuildTask.kt'), 'regenerated upstream task\n')
+  f.run('--plugins-only')
+  assert.doesNotMatch(f.read(plugin), /\bprojectDir\s*=/)
+  assert.match(f.read(plugin), /rootDirRel = config.rootDirRel/)
+  assert.match(f.read(plugin), /target = targetName/)
+  assert.match(f.read('buildSrc/src/main/java/io/github/tronabs/novera/kotlin/BuildTask.kt'), /workingDir\(File\(project\.projectDir, root\)\)/)
+  assert.equal(f.read('app/build.gradle.kts'), appBefore)
+  const before = snapshot(f.project)
+  f.run('--plugins-only')
+  assert.deepEqual(snapshot(f.project), before)
+})
+
 test('release packaging exports omitted consumer rules without changing registry sources', t => {
   const f = fixture(t)
   f.put(path.join(f.source, 'build.gradle.kts'), 'android { defaultConfig { consumerProguardFiles("consumer-rules.pro") } }\n')
@@ -153,12 +171,15 @@ test('accepts the Tauri 2.7 build dependency binding without disabling lint', t 
 test('adapts freshly generated Rust tasks without assigning the Gradle rootDir property', t => {
   const f = fixture(t)
   const plugin = 'buildSrc/src/main/java/io/github/tronabs/novera/kotlin/RustPlugin.kt'
-  f.put(path.join(f.project, plugin), 'val first = task.apply {\n    rootDir = config.rootDirRel\n}\nval second = task.apply {\n    rootDir = config.rootDirRel\n}\n')
+  f.put(path.join(f.project, plugin), 'val first = task.apply {\n    rootDir = config.rootDirRel\n}\nval second = task.apply {\n    rootDirRel = config.rootDirRel\n    projectDir = project.projectDir.path\n    target = targetName\n}\n')
   f.run()
   const text = f.read(plugin)
   assert.equal((text.match(/rootDirRel = config.rootDirRel/g) ?? []).length, 2)
   assert.doesNotMatch(text, /\brootDir\s*=/)
+  assert.doesNotMatch(text, /\bprojectDir\s*=/)
+  assert.match(text, /target = targetName/)
   assert.match(f.read('buildSrc/src/main/java/io/github/tronabs/novera/kotlin/BuildTask.kt'), /var rootDirRel/)
+  assert.match(f.read('buildSrc/src/main/java/io/github/tronabs/novera/kotlin/BuildTask.kt'), /workingDir\(File\(project\.projectDir, root\)\)/)
   const before = snapshot(f.project)
   f.run()
   assert.deepEqual(snapshot(f.project), before)
