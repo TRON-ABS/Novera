@@ -2,12 +2,18 @@ name: Novera - Verify public release
 on:
   workflow_dispatch:
     inputs:
+      descriptor:
+        description: Reviewed public-release JSON under scripts/distribution/
+        type: string
+        default: scripts/distribution/public-release-1.0.1.json
       cli_only:
         description: Verify only the canonical CLI downloads and native production checks
         type: boolean
         default: false
 permissions:
   contents: read
+env:
+  RELEASE_DESCRIPTOR: ${{ inputs.descriptor || 'scripts/distribution/public-release-1.0.1.json' }}
 jobs:
   verify:
     if: ${{ !inputs.cli_only }}
@@ -22,17 +28,20 @@ jobs:
           node-version: 24
           package-manager-cache: false
       - name: Verify public feeds and all exact signed release assets
-        run: node scripts/distribution/verify-public-release.mjs 1.0.0 scripts/distribution/public-release-1.0.0-macos.json
+        run: |
+          node scripts/distribution/prepare-public-verification.mjs
+      - name: Read and verify the current public channels
+        run: node scripts/distribution/verify-public-release.mjs "$RELEASE_VERSION" "$RELEASE_DESCRIPTOR"
       - name: Native Linux UI prerequisites
         run: |
           bash scripts/distribution/ci-prerequisites.sh desktop
           cargo install tauri-driver --version 2.1.0 --locked
       - name: Check the actual Linux CLI against the production feed
-        run: python3 scripts/distribution/verify-cli-production-check.py .build/public-release/Novera_CLI_1.0.0_linux-x86_64.zip scripts/distribution/public-release-1.0.0-macos.json
+        run: python3 scripts/distribution/verify-cli-production-check.py ".build/public-release/Novera_CLI_${RELEASE_VERSION}_linux-x86_64.zip" "$RELEASE_DESCRIPTOR"
       - name: Exercise the current production feed in the actual AppImage
         run: |
           mkdir -p .build/candidates/packages
-          cp .build/public-release/Novera_1.0.0_amd64.AppImage .build/candidates/packages/
+          cp ".build/public-release/Novera_${RELEASE_VERSION}_amd64.AppImage" .build/candidates/packages/
           xvfb-run -a python3 scripts/distribution/validate-linux-update-ui.py
       - name: Retain public verification and native UI receipts
         if: always()
@@ -51,7 +60,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: [ubuntu-22.04, windows-2025]
+        runner: [ubuntu-22.04, windows-2025, macos-15]
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 15
     steps:
@@ -63,7 +72,12 @@ jobs:
           node-version: 24
           package-manager-cache: false
       - name: Verify signed canonical CLI and its real production check
-        run: node scripts/distribution/verify-cli-public.mjs scripts/distribution/public-release-1.0.0-macos.json
+        shell: bash
+        run: |
+          node scripts/distribution/prepare-public-verification.mjs
+      - name: Check the reviewed canonical CLI on this native host
+        shell: bash
+        run: node scripts/distribution/verify-cli-public.mjs "$RELEASE_DESCRIPTOR"
       - name: Retain native public CLI receipt
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
