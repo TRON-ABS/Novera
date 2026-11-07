@@ -137,3 +137,27 @@ Le worker de test a été arrêté après export et lecture. Le GPU indique ensu
 Le paquet Web utilise maintenant un chemin de moteur versionné par l’empreinte de l’ensemble vérifié (module, WASM, reçu et licences), afin d’éviter les mélanges entre anciennes et nouvelles versions en cache. Trois contrats Node de paquetage et les trois tests ciblés de flux image passent ; le build TypeScript/production avec le moteur inclus réussit. Le parcours d’image complet sur cette nouvelle URL reste à rejouer dans le navigateur.
 
 La piste d’édition directe des poids est **reportée à la demande du mainteneur**. Les travaux présents conservent les poids d’origine et portent sur le moteur, les réglages, les mesures et la conservation des résultats.
+
+### Musique raccordée aux conversations et sélecteur partagé — 7 novembre, après-midi
+
+Le moteur ACE-Step reproductible est maintenant raccordé à une construction Web interne optionnelle (`VITE_NOVERA_WEB_LOCAL_MUSIC=true`, `NOVERA_BROWSER_MUSIC_BUILD` vers le dossier compilé vérifié). Les quatre fichiers GGUF Desktop sont choisis localement et restent attachés à la session. Les réglages musicaux sont restaurés au démarrage ; les WAV sont enregistrés en IndexedDB avant l’ajout de leur référence dans la discussion. Le lecteur, le téléchargement et l’annulation utilisent les parcours de Novera. Limites affichées : 10–30 s demandées, 8 étapes, WAV flottant 32 bits, stéréo 48 kHz, WebGPU automatique ; description et paroles limitées chacune à 512 octets UTF-8. Les réglages incompatibles sont refusés avant chargement.
+
+Contrôles réels dans Edge, RTX 5070 Laptop, sans API payante :
+
+| Demande | Temps total affiché dans Novera | Audio réel |
+| --- | --- | --- |
+| Chanson française, piano et guitare, paroles du test Desktop ci-dessus | 42,3 s au premier lancement | 9,84 s |
+| `Gentle instrumental ambient piano, calm warm atmosphere, no vocals.` | 41,6 s | 9,44 s |
+| `French a cappella solo voice, clear sung lyrics, absolutely no instruments, no musical accompaniment.` avec les mêmes paroles françaises | 36,3 s | 9,44 s |
+
+Les trois demandes utilisent une durée manuelle de 10 s et la graine fixe 42. Les fichiers ont été téléchargés. La chanson a été retrouvée dans un nouvel onglet et lue jusqu’à la fin sans erreur ; l’a cappella a aussi atteint la fin du lecteur. La chanson exportée fait 3778604 octets ; SHA-256 `e3cd16ab1fd431adfed7fb7055a1da85fbbabd542e0c2145f5583253a98f95ef`, identique au prototype isolé. Les durées des deux autres sorties diffèrent des anciennes mesures : ne pas les présenter comme des comparaisons strictes ni comme des validations acoustiques de l’instrumentation. Les fins précoces restent possibles. L’objectif inférieur à 40 secondes n’est pas atteint pour toutes les demandes.
+
+Deux défauts fonctionnels découverts pendant cette passe sont corrigés : le magasin des réglages musicaux n’était réhydraté que par le suivi d’installation Desktop ; une entrée de progression terminée avec une valeur `undefined` pouvait encore bloquer une nouvelle création image/musique. Les vérifications n’interprètent plus cette entrée comme un travail actif.
+
+À la demande du mainteneur, le sélecteur partagé affiche le modèle du mode actif sur les prochaines compilations Web/Desktop/mobile, avec déduction du modèle local configuré même sans sélection média explicite. Auto suit le brouillon puis le mode soumis pendant la génération. Le contrôle Edge montre FLUX.2 Klein Q4 en Image et ACE-Step Q4 en Musique ; la sélection du modèle texte reste conservée. Aucun paquet publié n’a été remplacé.
+
+Validation source : 160 tests ciblés dans dix fichiers passent (sélecteur, compositeur, musique, persistance initiale, annulation, encodage WAV et flux image), quatre contrats Node de paquetage passent, compilation TypeScript/production réussie avec les deux moteurs inclus. Le paquet ACE conserve ses licences et son propre chemin versionné par empreinte. Cette préparation n’est pas une publication complète ; la vidéo Web, l’écoute qualitative, les mesures texte complémentaires et l’audit de sécurité final restent à terminer.
+
+Le parcours image a également été rejoué avec le moteur versionné par empreinte, après les créations musicales : FLUX.2 Klein Q4, 256 × 256, quatre étapes, demande `A small red ceramic cup on a wooden table, soft morning light, clean product photograph.`. Image réelle affichée en **31,9 s**, tasse rouge reconnaissable, PNG téléchargé et sélecteur FLUX correct pendant la génération. Cette mesure porte sur le petit préréglage expérimental, sans agrandissement ; elle ne valide pas une génération haute résolution en moins de 40 secondes.
+
+Dernier contrôle dans un nouvel onglet : les trois pistes sont décodables sans erreur (9,84 / 9,44 / 9,44 s), le PNG est entièrement chargé en 256 × 256 et les quatre références de conversation sont conservées. Le worker propriétaire est terminé après chaque résultat. L’aperçu local est destiné aux essais du mainteneur ; aucune annonce de disponibilité publique complète n’en découle.

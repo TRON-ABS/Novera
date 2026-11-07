@@ -8,6 +8,12 @@ Ce fichier sert de mémoire pratique avant de préparer macOS, Android/iOS ou un
 
 ## 1. Commencer par les vrais prérequis
 
+### Régression signalée : nom du modèle dans le sélecteur Desktop
+
+Le 7 novembre 2026, après passage en 1.0.1, le mainteneur signale que le modèle affiché ne s’actualise plus automatiquement sur le bon modèle comme en 1.0.0. **Cas précisé : pendant une création d’image, le sélecteur conserve « Nemotron-3.5-Bolt-E4B » au lieu d’afficher le modèle image utilisé.** La capture `Capture d'écran 2026-11-07 125519.png` montre ce libellé. Correction demandée pour la prochaine mise à jour ; cause et modèle réellement actif à reproduire avant de conclure. Vérifier la synchronisation entre modèle chargé, sélection de la discussion et libellé affiché, notamment après un changement automatique et une génération multimédia. Ce signalement ne prouve pas que le mauvais modèle exécute les requêtes.
+
+Correctif appliqué au sélecteur partagé, à la demande du mainteneur pour toutes les plateformes : si aucun profil média explicite n’est sélectionné, déduire le modèle image/vidéo de ses réglages effectifs au lieu de conserver le modèle texte. En Auto, suivre la demande en cours de rédaction puis le mode réellement soumis pendant le travail. Vérification dans Edge : le passage Image/Musique affiche respectivement FLUX.2 Klein Q4 et ACE-Step Q4. Un test d’intégration couvre aussi le mode Vidéo et le retour Texte sans changer le moteur texte sélectionné. Ce code commun concerne les prochaines compilations Desktop/mobile/Web ; aucun ancien paquet signé n’a été remplacé.
+
 ### Incident Desktop 1.0.1 : Python supprimé et vérification des composants
 
 Le 7 novembre, le test utilisateur de Real-ESRGAN a échoué avant la génération : le profil conservait un Python de développement sous `.build/safetensors-2026-10-26/python315-cuda`, supprimé entre-temps. La mise à jour de l’application conserve les réglages personnalisés ; elle ne réinstalle pas cet environnement externe.
@@ -19,6 +25,8 @@ Pour les prochaines sorties : tester l’installation réelle d’un composant, 
 Réparation locale effectuée : environnement externe durable sous `%LOCALAPPDATA%/Novera/Runtimes/upscale-cuda-py31215`, dépendances du verrou `upscale-cuda.txt` installées avec contrôle des empreintes, puis chemin Image/Python corrigé dans l’interface 1.0.1. `uv pip check` valide les 12 paquets ; le moteur Real-ESRGAN utilise les poids officiels x2 déjà présents, sur RTX 5070 Laptop : image synthétique 96 × 64 vers 192 × 128 en 1,257 s. Il s’agit d’un test moteur, pas du temps d’une génération FLUX complète. Trois tests ciblés de l’agrandissement passent ; le quatrième test du fichier concerne la publication Diffusers et ne peut pas tourner dans ce profil minimal sans Diffusers. Aucune attestation de composant géré n’a été fabriquée pour cet environnement externe.
 
 La vérification native explicite `real_private_video_lifecycle` passe aussi : installation réelle d’un environnement temporaire, vérification, réparation, retour arrière, annulation et désinstallation. Elle exerce la nouvelle sonde avec Python 3.12.15. Un ancien test attendait encore Torch 2.14.1 alors que les verrous CUDA livrés utilisent 2.15.0+cu134 ; son attente a été actualisée.
+
+Le mainteneur confirme ensuite que la génération avec ×2 fonctionne dans sa 1.0.1 ; le problème restant signalé concerne le libellé du modèle.
 
 Avant une compilation longue, remplir une fiche avec la plateforme, l’architecture, le format, la version applicative, le canal de mise à jour, les accès de signature disponibles et le matériel de test prévu.
 

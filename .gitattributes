@@ -17,3 +17,4 @@ src-tauri/src/core/cli/signed-update-fixtures/*.bin binary
 # their required leading space and must not be rewritten as ordinary prose.
 docs/release-evidence/**/APPLICATION-SOURCE.patch -text -whitespace
 scripts/browser-media/patches/*.patch -text -whitespace
+scripts/browser-music/patches/*.patch -text -whitespace

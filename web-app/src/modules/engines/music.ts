@@ -53,6 +53,7 @@ export function normalizeMusicSettings(settings: MusicSettings): MusicSettings {
 export function musicDurationLimits(provider?: string) {
   // Provider contracts checked against their official schemas on 2026-10-27.
   switch (provider) {
+    case 'novera-browser-music': return { min: 10, max: 30 }
     case 'elevenlabs': return { min: 3, max: 600 }
     case 'stability': return { min: 1, max: 380 }
     case 'fal': return { min: 5, max: 240 }

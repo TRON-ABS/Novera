@@ -2,6 +2,7 @@ import { beforeEach, expect, it, vi } from 'vitest'
 
 const h = vi.hoisted(() => ({ stores: new Map<string, { persist: { rehydrate: ReturnType<typeof vi.fn>, hasHydrated: ReturnType<typeof vi.fn> } }>() }))
 vi.mock('@/hooks/useTheme', () => ({ useTheme: h.stores.get('useTheme') }))
+vi.mock('@/hooks/useMusicCreation', () => ({ useMusicCreation: h.stores.get('useMusicCreation') }))
 vi.mock('@/hooks/useInterfaceSettings', () => ({ useInterfaceSettings: h.stores.get('useInterfaceSettings') }))
 vi.mock('@/hooks/useGeneralSetting', () => ({ useGeneralSetting: h.stores.get('useGeneralSetting') }))
 vi.mock('@/hooks/useLeftPanel', () => ({ useLeftPanel: h.stores.get('useLeftPanel') }))
@@ -32,6 +33,7 @@ beforeEach(() => {
   // Mock factories are cached across resetModules; keep their store objects.
   if (h.stores.size === 0) {
   h.stores.set('useTheme', { persist: { rehydrate: vi.fn().mockResolvedValue(undefined), hasHydrated: vi.fn().mockReturnValue(true) } })
+  h.stores.set('useMusicCreation', { persist: { rehydrate: vi.fn().mockResolvedValue(undefined), hasHydrated: vi.fn().mockReturnValue(true) } })
   h.stores.set('useInterfaceSettings', { persist: { rehydrate: vi.fn().mockResolvedValue(undefined), hasHydrated: vi.fn().mockReturnValue(true) } })
   h.stores.set('useGeneralSetting', { persist: { rehydrate: vi.fn().mockResolvedValue(undefined), hasHydrated: vi.fn().mockReturnValue(true) } })
   h.stores.set('useLeftPanel', { persist: { rehydrate: vi.fn().mockResolvedValue(undefined), hasHydrated: vi.fn().mockReturnValue(true) } })

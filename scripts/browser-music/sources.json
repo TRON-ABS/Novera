@@ -1,0 +1,66 @@
+{
+  "status": "experimental; isolated browser tests only",
+  "emscripten": "7.0.0",
+  "sources": [
+    {
+      "repo": "ServeurpersoCom/acestep.cpp",
+      "commit": "de858d8e1a94f0e1939cf9bdd8ff7d9631953077",
+      "archiveSha256": "a51c071f4949aea538e57196ffc21b7f52a4ca6950a05ebf174a70522525b223"
+    },
+    {
+      "repo": "leejet/ggml",
+      "commit": "135ce1e0e3f2b0693d3de93d4f6b5fa0a1947820",
+      "archiveSha256": "e39d282158022f9c8a56581aa02b9fc1c11dbe7747c5aa1089cb57d55862810b"
+    }
+  ],
+  "patches": [
+    {
+      "source": "ace",
+      "patch": "patches/threadless-backend.patch",
+      "patchSha256": "0437efd325d484d0af1870fdd2ac1940be19587d5d69c7c6e51bbf7c3dc96d5a",
+      "file": "src/backend.h",
+      "beforeSha256": "db955feb065f5bb33601a25b94fc94928a7cd9842e26769a169b4963c043c4aa",
+      "afterSha256": "df49289dd2ec259f6d3344f6b4a4eaf513841054abc0ac313db0a9c8bfba347a"
+    },
+    {
+      "source": "ace",
+      "patch": "patches/workerfs-composite-cache.patch",
+      "patchSha256": "946f819e9fe0714b2b24311810e168266423b363d72235f3bebc0dec808c784d",
+      "file": "src/gguf-weights.h",
+      "beforeSha256": "e38372f51f9d6b07061cb98936228e3e40713120e19944faa9b94cc77eb1bebd",
+      "afterSha256": "dee4feec78ba75211cf99f7c863b0128e7b621d331693adc0784aa33174c1401"
+    },
+    {
+      "source": "ace",
+      "patch": "patches/explicit-duration-budget.patch",
+      "patchSha256": "868dc4984ffd9cfd9d3103af38eacdbe210ccc0df6d622649c41c14af199ecdc",
+      "file": "src/pipeline-lm.cpp",
+      "beforeSha256": "75e270ccc3e00cf6711a6cbb21e143f59e067b7bb7ae8b88c779595f2c5f202e",
+      "afterSha256": "e6916efde695a99594ca0c6bc2636ad6abb81ed6bb9df379a2cf6e8ff32021a7"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/f32-activation-pipeline.patch",
+      "patchSha256": "809289d70810a87d7ec21d843a90d94ef8e9be67ca91dd9ec0d51fe737c2c33a",
+      "file": "src/ggml-webgpu/ggml-webgpu-shader-lib.hpp",
+      "beforeSha256": "ab446e25ba92b0733bbe957b32adab70be2c3973cd8f412fbbcf2dd86818a289",
+      "afterSha256": "99b2bffe56338b32b1b4fcfde726b41f9dbb28d3cc92ae77eb62884fff3d4358"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/f32-activation-load.patch",
+      "patchSha256": "26bb5f1b8e03d7c2881da72b9f271b434fed4a044a0fba6ac0cf376d8fb958ab",
+      "file": "src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl",
+      "beforeSha256": "e29282ffcb16bdeb0aa0c6cd7ae15703ec855c4ff010e8398075d0257b6a49d5",
+      "afterSha256": "3e2bd6cb687ce8942472b869cd7b606d97e7940edcb7928fbfd456f96b44ff96"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/f32-activation-storage.patch",
+      "patchSha256": "0f5c347a139e94d2cd5a368d4ed6f50a1557a824057dcf5a92a460311b2048fc",
+      "file": "src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl",
+      "beforeSha256": "2d1cb611caf10b72d20b021772806ca4b3ea4f40c9d7a93941e135dacf859f81",
+      "afterSha256": "50d4a3ffccb72110b441c0fdeb038bd12ca433d5fd67ba5d07f04f244889dfec"
+    }
+  ]
+}

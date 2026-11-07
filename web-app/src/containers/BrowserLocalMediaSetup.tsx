@@ -9,7 +9,7 @@ export function BrowserLocalMediaSetup({ scope, disabled }: { scope: string; dis
   if (!browserLocalImagesEnabled()) return null
   return <fieldset className="rounded-md border border-border p-3 space-y-2" disabled={disabled}>
     <legend className="px-1 font-medium">Image sur cet appareil · essai FLUX.2 Klein</legend>
-    <p className="text-sm text-muted-foreground">Choisissez les trois fichiers Desktop. Ils restent sur cet appareil, pour cette session. Premier essai limité à 256 × 256 et 4 étapes, avec accélération GPU. La vitesse dépend de votre appareil. Musique et vidéo locales restent en préparation.</p>
+    <p className="text-sm text-muted-foreground">Choisissez les trois fichiers Desktop. Ils restent sur cet appareil, pour cette session. Premier essai limité à 256 × 256 et 4 étapes, avec accélération GPU. La vitesse dépend de votre appareil. La vidéo locale reste en préparation.</p>
     {imageComponentNames.map((name, index) => <label key={name} className="block text-xs break-all">{name}
       <input className="block w-full mt-1" type="file" accept={index === 2 ? '.safetensors' : '.gguf'} onChange={event => {
         setReady(false); setError('')

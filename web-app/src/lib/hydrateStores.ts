@@ -2,6 +2,7 @@ import { useTheme } from '@/hooks/useTheme'
 import { useNoveraInstructions } from '@/hooks/useNoveraInstructions'
 import { useMemoryPolicy } from '@/hooks/useMemoryPolicy'
 import { useCreation } from '@/hooks/useCreation'
+import { useMusicCreation } from '@/hooks/useMusicCreation'
 import { useErrorTracking } from '@/hooks/useErrorTracking'
 import { useInterfaceSettings } from '@/hooks/useInterfaceSettings'
 import { useGeneralSetting } from '@/hooks/useGeneralSetting'
@@ -43,6 +44,7 @@ import { useImageAttachmentConfig } from '@/hooks/useImageAttachmentConfig'
 const secondaryStores = [
   useNoveraInstructions,
   useCreation,
+  useMusicCreation,
   useMemoryPolicy,
   useErrorTracking,
   useInterfaceSettings,

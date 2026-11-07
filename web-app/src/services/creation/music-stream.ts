@@ -12,6 +12,7 @@ import { beginLocalMemory, releaseFinishedMedia } from './memory'
 import i18n from '@/i18n'
 import { isPlatformTauri } from '@/lib/platform/utils'
 import { browserPreviewEnabled } from '../browser-preview/config'
+import { BROWSER_MUSIC_PROVIDER, browserLocalMusicStream } from '../browser-preview/local-music'
 import { musicCloudStream } from './music-cloud-stream'
 import { generationSequence } from './sequence'
 import type { MusicSettings } from '@/modules/engines/music'
@@ -37,6 +38,10 @@ function singleMusicStream(
   prompt: string, messages: UIMessage[], scope: string, signal: AbortSignal | undefined,
   onFinish: () => void, snapshot: MusicSettings, cloudSelection: MediaSelection | undefined,
 ) {
+  if (browserPreviewEnabled() && cloudSelection?.provider === BROWSER_MUSIC_PROVIDER) {
+    if (messages.filter(m => m.role === 'user').at(-1)?.parts.some(p => p.type === 'file')) return new ReadableStream<UIMessageChunk>({ start(controller) { controller.error(new Error(i18n.t('chat:creation.inputUnsupported'))); onFinish() } })
+    return browserLocalMusicStream(prompt, scope, { ...snapshot, seed: musicSettingsFor(scope).seed }, signal, onFinish)
+  }
   if ((isPlatformTauri() || browserPreviewEnabled()) && cloudSelection) {
     if(messages.filter((m)=>m.role==='user').at(-1)?.parts.some((p)=>p.type==='file'))return new ReadableStream<UIMessageChunk>({start(controller){controller.error(new Error(i18n.t('chat:creation.inputUnsupported')));onFinish()}})
     return musicCloudStream(prompt,scope,signal,onFinish,snapshot,cloudSelection)

@@ -1,0 +1,77 @@
+--- a/src/gguf-weights.h
++++ b/src/gguf-weights.h
+@@ -17,6 +17,7 @@
+ #include "weight-ctx.h"
+ 
+ #include <cstdio>
++#include <algorithm>
+ #include <cstdlib>
+ #include <string>
+ 
+@@ -27,6 +28,20 @@
+ #    include <sys/mman.h>
+ #    include <sys/stat.h>
+ #    include <unistd.h>
++#endif
++
++#if defined(__EMSCRIPTEN__)
++// One read-only composite model is shared by its sequential component loaders.
++// The owning worker resets this cache only after all models have been released.
++inline std::string novera_gf_cached_path;
++inline uint8_t* novera_gf_cached_bytes = nullptr;
++inline size_t novera_gf_cached_size = 0;
++inline void novera_gf_cache_reset(const char* next_path = "") {
++    free(novera_gf_cached_bytes);
++    novera_gf_cached_bytes = nullptr;
++    novera_gf_cached_size = 0;
++    novera_gf_cached_path = next_path;
++}
+ #endif
+ 
+ struct GGUFModel {
+@@ -60,6 +75,9 @@
+     if (gf->fh && gf->fh != INVALID_HANDLE_VALUE) {
+         CloseHandle(gf->fh);
+     }
++#elif defined(__EMSCRIPTEN__)
++    if (gf->mapping != novera_gf_cached_bytes) free(gf->mapping);
++    if (gf->fd >= 0) close(gf->fd);
+ #else
+     if (gf->mapping) {
+         munmap(gf->mapping, gf->file_size);
+@@ -96,6 +114,35 @@
+         CloseHandle(gf->fh);
+         fprintf(stderr, "[GGUF] MapViewOfFile failed %s\n", path);
+         return false;
++    }
++#elif defined(__EMSCRIPTEN__)
++    // WORKERFS exposes the selected File read-only, without POSIX mmap.
++    gf->fd = open(path, O_RDONLY);
++    if (gf->fd < 0) return false;
++    struct stat sb;
++    if (fstat(gf->fd, &sb) || sb.st_size <= 0 || static_cast<uint64_t>(sb.st_size) > 8ULL * 1024 * 1024 * 1024) {
++        close(gf->fd); gf->fd = -1; return false;
++    }
++    gf->file_size = static_cast<size_t>(sb.st_size);
++    const bool use_cache = novera_gf_cached_path == path;
++    if (use_cache && novera_gf_cached_bytes && novera_gf_cached_size == gf->file_size) {
++        gf->mapping = novera_gf_cached_bytes;
++        close(gf->fd); gf->fd = -1;
++    } else {
++    gf->mapping = static_cast<uint8_t*>(malloc(gf->file_size));
++    if (!gf->mapping) { close(gf->fd); gf->fd = -1; return false; }
++    size_t offset = 0;
++    while (offset < gf->file_size) {
++        const size_t amount = std::min<size_t>(64 * 1024 * 1024, gf->file_size - offset);
++        const auto count = read(gf->fd, gf->mapping + offset, amount);
++        if (count <= 0) { free(gf->mapping); gf->mapping = nullptr; close(gf->fd); gf->fd = -1; return false; }
++        offset += static_cast<size_t>(count);
++    }
++    close(gf->fd); gf->fd = -1;
++    if (use_cache) {
++        novera_gf_cached_bytes = gf->mapping;
++        novera_gf_cached_size = gf->file_size;
++    }
+     }
+ #else
+     gf->fd = open(path, O_RDONLY);

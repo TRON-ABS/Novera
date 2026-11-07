@@ -26,6 +26,10 @@ import { useServiceHub } from '@/hooks/useServiceHub'
 import { getLastUsedModel } from '@/utils/getModelToStart'
 import { useMediaLibrary, selectMediaProfile } from '@/hooks/useMediaLibrary'
 import { useCreation, videoSettingsFor } from '@/hooks/useCreation'
+import { previewOutputMode } from '@/modules/engines/creation'
+import { BROWSER_IMAGE_PROVIDER, BROWSER_IMAGE_MODEL, browserLocalImagesEnabled } from '@/services/browser-preview/local-media'
+import { BROWSER_MUSIC_PROVIDER, BROWSER_MUSIC_MODEL, browserLocalMusicEnabled } from '@/services/browser-preview/local-music'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { useAgentMode } from '@/hooks/useAgentMode'
 import { useMusicCreation } from '@/hooks/useMusicCreation'
 import { mediaModels } from '@/constants/mediaProviders'
@@ -49,6 +53,7 @@ type DropdownModelProviderProps = {
   variant?: 'default' | 'composer'
   disabled?: boolean
   mediaScope?: string
+  draftPrompt?: string
   allowMedia?: boolean
   model?: ThreadModel
   useLastUsedModel?: boolean
@@ -92,6 +97,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   disabled = false,
   model,
   mediaScope,
+  draftPrompt = '',
   allowMedia = true,
   useLastUsedModel = false,
   onModelChange,
@@ -122,12 +128,15 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   const [category, setCategory] = useState<ModelCategory>('all')
   const [source, setSource] = useState<ModelSource>('all')
   const configuredMode = creation.modes[scope] ?? 'auto'
-  const mode = variant === 'composer' && disabled && configuredMode === 'auto'
-    ? creation.resolvedModes[scope] ?? configuredMode : configuredMode
+  const mode = variant === 'composer'
+    ? previewOutputMode(configuredMode, draftPrompt, creation.resolvedModes[scope], disabled) : configuredMode
   const localMusicProfile = music.profiles.find(profile => profile.id === music.selections[scope])
+  const activeMediaMode = mediaAllowed && (mode === 'image' || mode === 'video' || mode === 'music')
+  const activePath = mode === 'image' ? (['sdcpp', 'nvfp4-cuda'].includes(creation.settings.imageEngine ?? '') ? creation.settings.ggufImageModel : creation.settings.imageModel) : mode === 'video' ? videoSettingsFor(creation).videoModel : ''
+  const activeProfile = mediaProfiles.find(p => p.task === mode && (mode === 'video' ? p.settings.videoModel === activePath : p.settings.ggufImageModel === activePath || p.settings.imageModel === activePath))
   const selectedMedia =
     mediaAllowed && (mode === 'image' || mode === 'video' || mode === 'music')
-      ? creation.selections[scope]?.[mode] ?? (mode === 'music' && localMusicProfile ? { provider: 'novera-music', id: localMusicProfile.id } : undefined)
+      ? creation.selections[scope]?.[mode] ?? (mode === 'music' && localMusicProfile ? { provider: 'novera-music', id: localMusicProfile.id } : activePath ? { provider: 'diffusers', id: activeProfile?.id ?? `diffusers-${mode}` } : undefined)
       : undefined
   const allProviders = useMemo(() => {
     const fallback: Model[] = (['image', 'video'] as const).flatMap((task) => {
@@ -177,6 +186,10 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
       ...fallback,
     ]
     return [
+      ...(variant === 'composer' && mediaAllowed && browserPreviewEnabled() ? [
+        ...(browserLocalImagesEnabled() ? [{ provider: BROWSER_IMAGE_PROVIDER, active: true, settings: [], models: [{ id: BROWSER_IMAGE_MODEL, displayName: 'FLUX.2 Klein 4B · Q4_K_M · WebGPU', output_modalities: ['image'], capabilities: ['image-generation'] }] } as ModelProvider] : []),
+        ...(browserLocalMusicEnabled() ? [{ provider: BROWSER_MUSIC_PROVIDER, active: true, settings: [], models: [{ id: BROWSER_MUSIC_MODEL, displayName: 'ACE-Step 1.5 Turbo · Q4_K_M · WebGPU', output_modalities: ['audio'], capabilities: ['audio-generation'] }] } as ModelProvider] : []),
+      ] : []),
       ...providers.map(provider => variant === 'composer' && mediaAllowed ? {
         ...provider,
         models: [...provider.models, ...mediaModels(provider.provider).filter(model => !provider.models.some(item => item.id === model.id))],
@@ -662,7 +675,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   const mediaProvider = selectedMedia
     ? allProviders.find((item) => item.provider === selectedMedia.provider)
     : undefined
-  const provider = mediaProvider ?? (mode === 'music' && mediaAllowed ? undefined : getProviderByName(selectedProvider))
+  const provider = mediaProvider ?? (activeMediaMode ? undefined : getProviderByName(selectedProvider))
   const displayedName = selectedMedia
     ? getModelDisplayName(
         mediaProvider?.models.find((item) => item.id === selectedMedia.id) ?? {
@@ -671,7 +684,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
       )
     : mode === 'music' && mediaAllowed
       ? music.profiles.find(profile => profile.id === music.selections[scope])?.name || music.settings.generator || t('common:selectAModel')
-      : displayModel
+      : activeMediaMode ? t('common:selectAModel') : displayModel
 
   return (
     <Popover open={open} onOpenChange={onOpenChange}>
@@ -707,7 +720,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
             <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground" />
           </button>
           </PopoverTrigger>
-          {!selectedMedia && !(mode === 'music' && mediaAllowed) && currentModel &&
+          {!activeMediaMode && currentModel &&
             provider &&
             LOCAL_MODEL_PROVIDERS.has(provider.provider) && (
               <div onClick={(e) => e.stopPropagation()}>
@@ -721,7 +734,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
             setOpen(false)
             window.dispatchEvent(new CustomEvent('novera-creation-settings', { detail: { scope, task: mode } }))
           }} />}
-          {!selectedMedia && !(mode === 'music' && mediaAllowed) && (
+          {!activeMediaMode && (
             <ModelSupportStatus
               modelId={selectedModel?.id}
               provider={selectedProvider}

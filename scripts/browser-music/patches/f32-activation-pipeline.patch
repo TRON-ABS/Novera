@@ -1,0 +1,16 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -2190,6 +2190,13 @@
+         std::vector<std::string> defines;
+         std::string              variant = key.use_subgroup_matrix ? "mul_mat_subgroup_matrix" : "mul_mat_reg_tile";
+ 
++        // F32 activations can exceed the finite range of f16 (e.g. Qwen3 SwiGLU).
++        // The existing src1_type/subgroup cache key fully identifies this variant.
++        if (!key.use_subgroup_matrix && key.src1_type == GGML_TYPE_F32) {
++            defines.push_back("SRC1_SHMEM_F32");
++            variant += "_src1_shmem_f32";
++        }
++
+         // src1 type
+         switch (context.src1->type) {
+             case GGML_TYPE_F32:

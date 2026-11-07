@@ -36,7 +36,7 @@ export function browserLocalImageStream(prompt: string, scope: string, signal: A
       try {
         controller.signal.throwIfAborted()
         if (!browserLocalImagesEnabled() || !modelFiles) throw new Error('Choisissez les trois fichiers du modèle image dans les réglages de création pour cette session.')
-        if (active || Object.keys(useCreation.getState().progress).length) throw new Error('Une création est déjà en cours.')
+        if (active || Object.values(useCreation.getState().progress).some(Boolean)) throw new Error('Une création est déjà en cours.')
         if (browserRuntime.snapshot().phase === 'generating') throw new Error('Attendez la fin de la réponse texte avant de créer une image.')
         active = true; claimed = true
         const files = modelFiles.slice()

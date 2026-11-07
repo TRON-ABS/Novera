@@ -6,7 +6,7 @@ import path from 'node:path'
 import { createHash } from 'node:crypto'
 import { prepareBrowserRuntime } from '../browser-runtime-assets.mjs'
 
-function fixture(t) {
+function fixture(t, kind = 'image') {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-browser-runtime-'))
   t.after(() => {
     assert.ok(path.resolve(root).startsWith(path.resolve(os.tmpdir()) + path.sep + 'novera-browser-runtime-'))
@@ -14,10 +14,11 @@ function fixture(t) {
   })
   const build = path.join(root, 'build')
   fs.mkdirSync(build)
-  for (const name of ['sdcpp', 'ggml']) { fs.mkdirSync(path.join(root, name)); fs.writeFileSync(path.join(root, name, 'LICENSE'), `Test license ${name}`) }
-  fs.writeFileSync(path.join(build, 'novera-diffusion.mjs'), 'export default function testOnly() {}')
-  fs.writeFileSync(path.join(build, 'novera-diffusion.wasm'), 'synthetic package bytes; not an inference engine')
-  const record = () => fs.writeFileSync(path.join(build, 'BUILD-VERIFICATION.json'), JSON.stringify({ compiled: true, artifacts: ['novera-diffusion.mjs', 'novera-diffusion.wasm'].map(name => {
+  const module = kind === 'music' ? 'novera-music' : 'novera-diffusion'
+  for (const name of [kind === 'music' ? 'ace' : 'sdcpp', 'ggml']) { fs.mkdirSync(path.join(root, name)); fs.writeFileSync(path.join(root, name, 'LICENSE'), `Test license ${name}`) }
+  fs.writeFileSync(path.join(build, `${module}.mjs`), 'export default function testOnly() {}')
+  fs.writeFileSync(path.join(build, `${module}.wasm`), 'synthetic package bytes; not an inference engine')
+  const record = () => fs.writeFileSync(path.join(build, 'BUILD-VERIFICATION.json'), JSON.stringify({ compiled: true, artifacts: [`${module}.mjs`, `${module}.wasm`].map(name => {
     const bytes = fs.readFileSync(path.join(build, name))
     return { name, bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') }
   }) }))
@@ -48,4 +49,12 @@ test('rejects an unsuccessful compilation receipt', t => {
   const { build } = fixture(t)
   fs.writeFileSync(path.join(build, 'BUILD-VERIFICATION.json'), JSON.stringify({ compiled: false, artifacts: [] }))
   assert.throws(() => prepareBrowserRuntime(build), /no successful build receipt/)
+})
+
+test('packages ACE independently with its own licenses and rejects tampered audio runtime bytes', t => {
+  const { build } = fixture(t, 'music')
+  const result = prepareBrowserRuntime(build, 'music')
+  assert.deepEqual(result.assets.map(a => a.name), ['novera-music.mjs', 'novera-music.wasm', 'BUILD-VERIFICATION.json', 'LICENSE-ace.txt', 'LICENSE-ggml.txt'])
+  fs.appendFileSync(path.join(build, 'novera-music.wasm'), '-tampered')
+  assert.throws(() => prepareBrowserRuntime(build, 'music'), /differs from its receipt/)
 })

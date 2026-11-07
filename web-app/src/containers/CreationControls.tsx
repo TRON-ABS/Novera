@@ -20,6 +20,7 @@ import { isPlatformTauri } from '@/lib/platform/utils'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { BrowserLocalMediaSetup } from './BrowserLocalMediaSetup'
 import { BROWSER_IMAGE_MODEL, BROWSER_IMAGE_PROVIDER, browserLocalImagesEnabled } from '@/services/browser-preview/local-media'
+import { BROWSER_MUSIC_PROVIDER, browserLocalMusicEnabled } from '@/services/browser-preview/local-music'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { cn, getProviderTitle } from '@/lib/utils'
 import { mediaPreset } from '@/constants/mediaProviders'
@@ -820,7 +821,7 @@ export function CreationControls({
         <GenerationCountControl value={settings.generationCount} disabled={disabled}
           onChange={generationCount => state.setSettings({ generationCount })} />
       )}
-      {(isCloud || (mode==='music' && !!baseState.selections[scope]?.music)) && (
+      {(isCloud || (mode==='music' && !!baseState.selections[scope]?.music && baseState.selections[scope]?.music?.provider !== BROWSER_MUSIC_PROVIDER)) && (
         <p className="text-xs text-muted-foreground">
           {t('chat:creation.cloudNote')}
         </p>
@@ -876,7 +877,7 @@ export function CreationControls({
           </>}
           {(['image', 'music', 'video'] as const).map((kind) => <section key={kind} className="rounded-xl border p-4 space-y-4" aria-label={t(`chat:creation.${kind}`)}>
             <h2 className="font-medium">{t(`chat:creation.${kind}`)}</h2>
-            {!automatic.local[kind] && !(webPreview && kind === 'image' && browserLocalImagesEnabled()) && <p className="text-sm text-muted-foreground">{!webPreview && <>{t('chat:creation.local')} · {t('common:editModel.notAvailable')} · {t('hub:catalog.tipLimited')} </>}{t('chat:creation.cloudNote')}</p>}
+            {!automatic.local[kind] && !(webPreview && ((kind === 'image' && browserLocalImagesEnabled()) || (kind === 'music' && browserLocalMusicEnabled()))) && <p className="text-sm text-muted-foreground">{!webPreview && <>{t('chat:creation.local')} · {t('common:editModel.notAvailable')} · {t('hub:catalog.tipLimited')} </>}{t('chat:creation.cloudNote')}</p>}
             {kind==='music'?<MusicSetupPanel scope={scope} disabled={disabled}/>:<>
               {!webPreview && <p className="text-sm text-muted-foreground">{t(`chat:creation.${kind==='image'?'setupImageNote':'setupVideoNote'}`)}</p>}
               <CreationControls scope={scope} disabled={disabled} panelTask={kind} /></>}

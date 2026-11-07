@@ -22,10 +22,15 @@ export default defineConfig(({ mode, command }) => {
   const privateSymbols = path.resolve(__dirname, '../.build/monitoring-symbols', build.buildId)
   const localMedia = browserPreview && env.VITE_NOVERA_WEB_LOCAL_MEDIA === 'true'
   const mediaRuntime = localMedia ? prepareBrowserRuntime(env.NOVERA_BROWSER_MEDIA_BUILD) : undefined
+  const localMusic = browserPreview && env.VITE_NOVERA_WEB_LOCAL_MUSIC === 'true'
+  const musicRuntime = localMusic ? prepareBrowserRuntime(env.NOVERA_BROWSER_MUSIC_BUILD, 'music') : undefined
 
   return {
     base: browserPreview ? './' : undefined,
     plugins: [
+      ...(musicRuntime ? [{ name: 'novera-local-music-assets', generateBundle() {
+        for (const asset of musicRuntime.assets) this.emitFile({ type: 'asset', fileName: `${musicRuntime.directory}/${asset.name}`, source: asset.source })
+      } } satisfies Plugin] : []),
       ...(localMedia ? [{ name: 'novera-local-media-assets', generateBundle() {
         for (const asset of mediaRuntime!.assets) this.emitFile({ type: 'asset', fileName: `${mediaRuntime!.directory}/${asset.name}`, source: asset.source })
       } } satisfies Plugin] : []),
@@ -78,6 +83,7 @@ export default defineConfig(({ mode, command }) => {
     },
     define: {
       'import.meta.env.VITE_NOVERA_BROWSER_MEDIA_PATH': JSON.stringify(mediaRuntime?.directory ?? ''),
+      'import.meta.env.VITE_NOVERA_BROWSER_MUSIC_PATH': JSON.stringify(musicRuntime?.directory ?? ''),
       NOVERA_BUILD_ID: JSON.stringify(build.buildId),
       NOVERA_BUILD_COMMIT: JSON.stringify(build.commit),
       NOVERA_BUILD_ARCH: JSON.stringify(build.arch),
