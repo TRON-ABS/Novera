@@ -25,7 +25,7 @@ function fixture(t) {
   put(path.join(project, 'build.gradle.kts'), 'classpath("com.android.tools.build:gradle:8.11.0")\nclasspath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.25")\n')
   put(path.join(project, 'buildSrc/build.gradle.kts'), 'dependencies {\n    implementation("com.android.tools.build:gradle:8.11.0")\n}\n')
   put(path.join(project, 'gradle/wrapper/gradle-wrapper.properties'), 'distributionUrl=https\\://services.gradle.org/distributions/gradle-8.14.3-bin.zip\n')
-  put(path.join(project, 'gradle.properties'), 'android.useAndroidX=true\n')
+  put(path.join(project, 'gradle.properties'), 'android.useAndroidX=true\norg.gradle.configuration-cache=true\n')
   put(path.join(project, 'app/src/main/AndroidManifest.xml'), '<manifest><application android:label="Novera" /></manifest>\n')
   t.after(() => {
     const absolute = path.resolve(temporary)
@@ -71,6 +71,8 @@ test('aligns root and exported Kotlin versions, typed targets and pinned SDK too
   assert.ok(!f.read('novera-plugins/example/build.gradle.kts').includes('kotlinOptions'))
   assert.equal(fs.readFileSync(path.join(f.source, 'build.gradle.kts'), 'utf8'), original)
   assert.ok(f.read('gradle/wrapper/gradle-wrapper.properties').includes('gradle-' + pin.gradle + '-bin.zip'))
+  assert.match(f.read('gradle.properties'), /^org\.gradle\.configuration-cache=false$/m)
+  assert.doesNotMatch(f.read('gradle.properties'), /^org\.gradle\.configuration-cache=true$/m)
   assert.ok(f.read('settings.gradle').includes("apply from: 'novera.settings.gradle'"))
   assert.ok(f.read('novera.settings.gradle').includes('plugin.class.protectionDomain.codeSource.location'))
   assert.ok(f.read('buildSrc/src/main/java/io/github/tronabs/novera/kotlin/BuildTask.kt').includes('execOperations.exec'))

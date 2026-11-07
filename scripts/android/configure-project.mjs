@@ -151,7 +151,9 @@ const wrapper = path.join(project, 'gradle/wrapper/gradle-wrapper.properties')
 write(wrapper, read(wrapper).replace(/^distributionUrl=.*$/m, 'distributionUrl=https\\://services.gradle.org/distributions/gradle-' + pin.gradle + '-bin.zip'))
 const properties = path.join(project, 'gradle.properties')
 let props = read(properties)
-for (const [key, value] of [['android.builtInKotlin', 'false'], ['android.newDsl', 'false'], ['org.gradle.workers.max', '4']]) {
+// The generated settings refresh invokes Node and the adapted native task uses
+// Gradle project paths during execution. They do not support configuration cache.
+for (const [key, value] of [['android.builtInKotlin', 'false'], ['android.newDsl', 'false'], ['org.gradle.workers.max', '4'], ['org.gradle.configuration-cache', 'false']]) {
   const expression = new RegExp('^' + key.replaceAll('.', '\\.') + '=.*$', 'm')
   props = expression.test(props) ? props.replace(expression, key + '=' + value) : props.trimEnd() + '\n' + key + '=' + value + '\n'
 }

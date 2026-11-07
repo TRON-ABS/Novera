@@ -1,9 +1,9 @@
-# fix(ci): retry transient WebKit screenshot disconnects with a bounded wait
+# fix(ci): accommodate clean Android and portable native builds
 
-Linux run 42345624586 builds and signs the 1.0.1 AppImage, reaches the real update-check button and observes the expected production-feed result. Its first WebDriver screenshot resets the connection; the exception diagnostic then successfully reads the same session and captures an image. The run correctly remains failed.
+The portable 1.0.1 job is cancelled at its 90-minute limit while compiling Rust after building the current pinned CUDA/Vulkan worker. Increase its native build budget to 180 minutes while retaining all compilation, signatures and validation steps. No older worker is substituted.
 
-Use the existing bounded observation retry for the normal screenshot call. A successful test still requires a real screenshot, the expected DOM result and the existing feed checks; persistent connection failures remain errors. This changes CI observation only, without changing the AppImage bytes.
+Fresh Android run 42347394466 now compiles the adapted Kotlin task, then fails because the generated project enables Gradle configuration caching. The settings-time Node refresh and execution-time native task project paths are incompatible with that cache. Explicitly disable this performance option in generated Gradle properties; retain Lint and all package checks. The production release APK already built and published is unchanged.
 
-Validation: five Linux UI guard tests pass, including transient RemoteDisconnected recovery and timeout on persistent disconnection. The unchanged native Linux job is already relaunched; actual native CI completion is tracked separately. Update the release memo and status with the verified partial Android, ARM64 and CLI publications, while explicitly retaining the 1.0.0 global feed.
+Validation: nine Android configuration tests pass, including a newly generated properties file initially enabling configuration caching; actionlint passes for the portable workflow. New clean native runs are dispatched for both targets. No successful portable or Android CI candidate is claimed before they finish.
 
-Depends on merged #35/#39; no overlap with application behavior or signing identity. No successful Linux native run or Desktop x64 publication is claimed by this PR.
+Depends on merged #28/#32/#38/#40. Update the release lessons with actual current platform prerequisites, the Web frontend/hosted-app distinction, and the two confirmed clean-host failures. Desktop x64 remains on its independent pinned compilation.
