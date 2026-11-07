@@ -1,6 +1,14 @@
 # Livraison et renouvellement du client Web
 
-## Situation au 7 novembre 2026
+## Publication expérimentale autorisée — 8 novembre 2026
+
+À la demande explicite du mainteneur, le client **Web 1.0.1 expérimental** est préparé pour publication sous [GitHub Pages /Novera/web/](https://tron-abs.github.io/Novera/web/), avec un lien en tête de vitrine. Le workflow `novera-web-publish.yml` compile les deux moteurs depuis leurs révisions et correctifs vérifiés, conserve leurs licences, construit le frontend et déploie application et vitrine ensemble. Les poids des modèles et données personnelles ne sont pas inclus. La publication est vérifiée après la réussite du déploiement ; cette autorisation ne certifie ni une parité Desktop ni un audit complet.
+
+GitHub Pages impose son cache CDN et ne fournit pas ici les headers stricts du contrat cible ci-dessous. Le contrôle de nouvelle version utilise une requête sans cache avec une URL renouvelée ; le rechargement choisi renouvelle aussi l’URL sans changer l’origine ni effacer les données. Aucun rechargement forcé pendant une création ou un brouillon. Les sessions anciennes peuvent nécessiter un rechargement après déploiement. Le reçu conserve les validations non exécutées à `false`.
+
+Le SDK texte est chargé à distance depuis sa révision LiquidAI vérifiée, sans recopier le SDK ni les poids dans l’hébergement. Les licences du modèle restent applicables. Les moteurs FLUX/ACE et leurs licences sont inclus dans des répertoires portant l’empreinte du contenu. Image et musique locales restent expérimentales ; Wan vidéo n’est pas intégré à cette interface. Aucun crédit cloud partagé n’est fourni.
+
+## Situation historique au 7 novembre 2026
 
 La vitrine présente les téléchargements natifs **1.0.1** effectivement publiés et les travaux expérimentaux Web : interface Desktop, contexte 32k, recherche Exa sans clé préparée à l’activation. Le client Web n’est pas encore distribué comme application hébergée ; ses résultats locaux et contrôles de publication restants sont suivis dans [la préparation Web](WEB_BROWSER_PREPARATION.md). Une mise à jour de cette vitrine ne déploie pas le client, ne modifie pas les paquets signés et ne valide pas leur remplacement. La portable et le canal CLI historique conservent leur version réellement publiée jusqu’à validation de leurs nouveaux paquets.
 

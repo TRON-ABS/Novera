@@ -1,3 +1,4 @@
+import { publicAsset } from '@/lib/publicAsset'
 ﻿import { createFileRoute } from '@tanstack/react-router'
 import SettingsMenu from '@/containers/SettingsMenu'
 import HeaderPage from '@/containers/HeaderPage'
@@ -41,7 +42,7 @@ function InterfaceSettings() {
         <div className="novera-interface-content p-4 pt-0 min-w-0 w-full overflow-y-auto">
           <div className="mx-auto flex max-w-5xl flex-col gap-5 w-full pb-6">
             <header className="novera-interface-heading">
-              <img src="/images/novera-logo.png" alt="" className="size-11 shrink-0" />
+              <img src={publicAsset('/images/novera-logo.png')} alt="" className="size-11 shrink-0" />
               <div>
                 <p className="novera-settings-eyebrow">Novera</p>
                 <h1 className="font-studio text-2xl font-medium">{t('settings:interface.title')}</h1>

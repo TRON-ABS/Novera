@@ -1,0 +1,108 @@
+name: Publish Novera Web experimental
+on:
+  workflow_dispatch:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  runtime:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {kind: media, source: sdcpp}
+          - {kind: music, source: ace}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install pinned Emscripten
+        shell: bash
+        run: |
+          set -euo pipefail
+          sdk="$RUNNER_TEMP/novera-emsdk"
+          git init "$sdk"
+          git -C "$sdk" remote add origin https://github.com/emscripten-core/emsdk.git
+          git -C "$sdk" fetch --depth 1 origin 1693ce7359fc9694f198694f902a2cc061239b86
+          git -C "$sdk" checkout --detach FETCH_HEAD
+          python3 "$sdk/emsdk.py" install 7.0.0
+          python3 "$sdk/emsdk.py" activate 7.0.0
+      - name: Build hash-checked browser runtime
+        env:
+          RUNTIME_KIND: ${{ matrix.kind }}
+        run: python3 "scripts/browser-$RUNTIME_KIND/build.py" --emsdk "$RUNNER_TEMP/novera-emsdk" --ninja "$(command -v ninja)"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: web-runtime-${{ matrix.kind }}-${{ github.sha }}
+          retention-days: 7
+          if-no-files-found: error
+          path: |
+            .build/browser-${{ matrix.kind }}/build/novera-*.mjs
+            .build/browser-${{ matrix.kind }}/build/novera-*.wasm
+            .build/browser-${{ matrix.kind }}/build/BUILD-VERIFICATION.json
+            .build/browser-${{ matrix.kind }}/${{ matrix.source }}/LICENSE
+            .build/browser-${{ matrix.kind }}/ggml/LICENSE
+  build:
+    needs: runtime
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: web-runtime-media-${{ github.sha }}
+          path: .build/browser-media
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: web-runtime-music-${{ github.sha }}
+          path: .build/browser-music
+      - name: Build browser application and stage showcase
+        env:
+          VITE_NOVERA_WEB_LOCAL_MEDIA: 'true'
+          VITE_NOVERA_WEB_LOCAL_MUSIC: 'true'
+          VITE_NOVERA_WEB_BASE: /Novera/web/
+          NOVERA_BROWSER_MEDIA_BUILD: .build/browser-media/build
+          NOVERA_BROWSER_MUSIC_BUILD: .build/browser-music/build
+          NOVERA_MONITORING_BUILD: 'false'
+        shell: bash
+        run: |
+          set -euo pipefail
+          corepack enable
+          corepack prepare yarn@4.5.3 --activate
+          yarn install --immutable
+          yarn build:tauri:plugin:api
+          yarn build:core
+          yarn build:extensions
+          export NOVERA_BROWSER_MEDIA_BUILD="$GITHUB_WORKSPACE/.build/browser-media/build"
+          export NOVERA_BROWSER_MUSIC_BUILD="$GITHUB_WORKSPACE/.build/browser-music/build"
+          yarn build:web:browser
+          node scripts/distribution/stage-web-pages.mjs .build/pages-site "$GITHUB_SHA" web-app/dist
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
+        with:
+          path: .build/pages-site
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    concurrency:
+      group: novera-pages-publication
+      cancel-in-progress: false
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b
+      - name: Publish experimental Web and showcase atomically
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e

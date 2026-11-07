@@ -26,7 +26,7 @@ export default defineConfig(({ mode, command }) => {
   const musicRuntime = localMusic ? prepareBrowserRuntime(env.NOVERA_BROWSER_MUSIC_BUILD, 'music') : undefined
 
   return {
-    base: browserPreview ? './' : undefined,
+    base: browserPreview ? (env.VITE_NOVERA_WEB_BASE || './') : undefined,
     plugins: [
       ...(musicRuntime ? [{ name: 'novera-local-music-assets', generateBundle() {
         for (const asset of musicRuntime.assets) this.emitFile({ type: 'asset', fileName: `${musicRuntime.directory}/${asset.name}`, source: asset.source })

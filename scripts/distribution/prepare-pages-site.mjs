@@ -82,6 +82,14 @@ ${creationPromptGuide(repository)}
       .replace(`La version portable Windows x64 ${facts.stable} est disponible`, `La version portable Windows x64 ${portableVersion} est disponible`)
   }
   html = html.replace('<section class="cards"', `<section class="notice" aria-labelledby="web-title"><h2 id="web-title">Novera Web : préparation expérimentale</h2><p>L’interface et ses couleurs sont reprises de Desktop. Les essais locaux utilisent un contexte texte de 32k et une recherche Internet Exa sans clé, préparée dès l’activation, dans les limites du quota gratuit du fournisseur. Les créations image et musique locales sont testées ; Wan vidéo reste expérimental et n’est pas encore intégré à la conversation Web.</p><p>Les sources et résultats sont publics sur le dépôt. Le client Web n’est pas encore proposé comme service hébergé : audit de sécurité complet, licences du moteur et validations de publication restent à terminer. <a href="${repository}/blob/main/docs/WEB_BROWSER_PREPARATION.md">Fonctions, essais et limites de Novera Web</a>.</p></section><section class="cards"`)
+  if (published && facts.webExperimentalPublished === true) {
+    const start = html.indexOf('<section class="notice" aria-labelledby="web-title">')
+    const end = html.indexOf('</section>', start) + '</section>'.length
+    if (start < 0 || end <= start) throw new Error('Missing Web showcase section')
+    html = html.slice(0, start) + html.slice(end)
+    const hero = `<section class="notice" aria-labelledby="web-title"><h2 id="web-title">Novera Web 1.0.1 · version expérimentale</h2><p>Retrouvez l’interface et les couleurs de Desktop directement dans votre navigateur. Texte local, contexte 32k, recherche Exa sans clé dans les limites du quota du fournisseur, essais image FLUX.2 Klein et musique ACE-Step avec vos fichiers Desktop.</p><p><a class="button" href="web/">Ouvrir Novera Web</a></p><p>Un navigateur récent compatible WebGPU et une mémoire suffisante sont nécessaires pour les modèles locaux. Le téléchargement du modèle texte représente environ 1,61 Go. Image et musique restent expérimentales ; les grandes images peuvent prendre plusieurs minutes ou échouer. Wan vidéo n’est pas encore intégré. Les services cloud facultatifs utilisent votre propre clé et peuvent être payants. Aucun serveur GPU ni crédit API n’est fourni. <a href="${repository}/blob/main/docs/WEB_BROWSER_PREPARATION.md">Guide et limites</a>.</p></section>`
+    html = html.replace('<main>', '<main>' + hero)
+  }
   fs.mkdirSync(path.join(output, 'assets'), { recursive: true })
   fs.writeFileSync(path.join(output, 'index.html'), html)
   for (const [source, target] of [['novera-banner-en.png', 'banner.png'], ['novera-dashboard-2026-11-07.png', 'dashboard.png'], ['novera-dashboard-collapsed-2026-11-07.png', 'dashboard-collapsed.png']]) {

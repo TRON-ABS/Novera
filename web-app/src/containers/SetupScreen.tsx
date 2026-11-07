@@ -1,3 +1,4 @@
+import { publicAsset } from '@/lib/publicAsset'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { useNavigate } from '@tanstack/react-router'
 import { route } from '@/constants/routes'
@@ -80,7 +81,7 @@ function ModelCard({
       className="bg-secondary/50 p-3 rounded-lg border flex items-center gap-3"
     >
       <div className="shrink-0 size-12 bg-background rounded-xl flex items-center justify-center">
-        <img src="/images/novera-logo.png" alt="Novera" className="size-6" />
+        <img src={publicAsset('/images/novera-logo.png')} alt="Novera" className="size-6" />
       </div>
 
       <div className="min-w-0 flex-1">

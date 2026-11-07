@@ -1,3 +1,4 @@
+import { publicAsset } from '@/lib/publicAsset'
 import { useTranslation as useUiLocale } from '@/i18n/react-i18next-compat'
 import { memo } from 'react'
 
@@ -19,7 +20,7 @@ function MermaidErrorComponent({
 
   return (
     <div className="flex flex-col items-center justify-center p-6 gap-3">
-      <img src="/images/novera-logo.png" alt="Novera" className="h-12 w-12" />
+      <img src={publicAsset('/images/novera-logo.png')} alt="Novera" className="h-12 w-12" />
       <p className="text-sm text-muted-foreground text-center">
         {uiT('ui:diagramErrorDetected')}</p>
       <p className="text-xs text-muted-foreground/60 text-center mt-1">

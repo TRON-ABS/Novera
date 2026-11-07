@@ -33,7 +33,9 @@ export function BrowserUpdateNotice({ modelBusy }: { modelBusy: boolean }) {
       controller = new AbortController()
       const timeout = window.setTimeout(() => controller?.abort(), 10_000)
       try {
-        const response = await fetch(new URL(`${import.meta.env.BASE_URL}novera-web-version.json`, document.baseURI), {
+        const manifestUrl = new URL(`${import.meta.env.BASE_URL}novera-web-version.json`, document.baseURI)
+        manifestUrl.searchParams.set('check', String(Date.now()))
+        const response = await fetch(manifestUrl, {
           cache: 'no-store', credentials: 'omit', signal: controller.signal,
         })
         if (!response.ok) return
@@ -60,7 +62,9 @@ export function BrowserUpdateNotice({ modelBusy }: { modelBusy: boolean }) {
         setReloading(false)
         return
       }
-      window.location.reload()
+      const next = new URL(window.location.href)
+      next.searchParams.set('novera_reload', String(Date.now()))
+      window.location.replace(next.href)
     } catch { setReloading(false); setError('Les discussions ne sont pas encore enregistrées. Réessayez avant de recharger.') }
   }
   return <div className="mt-2 flex flex-wrap items-center gap-2" role="status">
