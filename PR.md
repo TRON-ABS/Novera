@@ -1,9 +1,7 @@
-# chore(release): pin the reviewed Linux 1.0.1 package and scoped native validation
+# chore(release): pin the reviewed Windows x64 1.0.1 candidate
 
-Linux build 42345624586 now completes successfully after retry. Its retained archive and final AppImage match their checksums, the updater signature verifies against the pinned Novera key, and all recorded migration fixtures pass. Pin the exact successful artifact and signed AppImage bytes for direct transfer into the existing private 1.0.1 draft.
+The signed Windows x64 build has completed. Pin its exact GitHub artifact archive and reviewed installer/signature hashes so CI can transfer the retained bytes directly into the existing private 1.0.1 draft.
 
-Add explicit Linux-only and Mac-only installed-update targets so a ready platform can be tested without substituting older assets or failing unrelated platforms that are still compiling. These targets use the existing current-version descriptor guards and disposable native installation probe.
+Validation: compilation run 42341613182 succeeded; its 3,706,837,835-byte archive matches GitHub SHA-256 af0ee01fc48b39d5a497230dbcca52d14eeb7466b0075704ba56f6947bd0ab91. Local publication prerequisite/signature checks passed; all nine migration fixtures passed with no failures or ignored tests. The installer is 826,733,127 bytes. This descriptor changes neither package bytes nor public updater feeds.
 
-Validation: local signed publication prerequisites pass for the reviewed Linux artifact. Direct GitHub transfer run 42350864441 succeeds; the private draft asset IDs, sizes and hashes match the reviewed package. Pin those exact assets in the installed-update descriptor. Source contracts/actionlint run before merge; native installation validation is tracked separately. No Linux public download or global 1.0.1 Desktop feed is claimed yet.
-
-Depends on merged #35–#41. This delivery-only change does not alter the application packages already compiling. The separate Web preparation remains outside this PR.
+Follow-up to #42. Native installed replacement validation must use the asset IDs returned by staging; it is still pending. A synthetic earlier-version probe does not establish the maintainer's real installed 1.0.0 upgrade. No publication is authorized by this descriptor. The separate Web preparation remains in #43.
