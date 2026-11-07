@@ -1,9 +1,9 @@
-# fix(cli): keep ordinary Windows paths for the native engine build
+# fix(linux): enable zbus client proxies after the dependency upgrade
 
-The shared CLI inference build canonicalizes its sibling plugin directory. On Windows this adds the verbatim `\\?\` prefix; CMake rewrites it to `//?/D:/...`, and Clang cannot find the generated source paths. Derive the sibling path directly from Cargo's already absolute manifest directory, then check that the shared build source exists.
+The clean Linux 1.0.1 build fails with six missing `zbus::Proxy` / `zbus::proxy` errors in sharing and desktop setup. zbus 6.2.1 gates these APIs behind its `proxy` feature. This application disables default features and enabled only Tokio, so the existing D-Bus client code is compiled out. Enable the client proxy feature explicitly while retaining the selected runtime and disabled defaults.
 
-Reproduction: Windows CLI job 128312114370 in run 42342173025 fails with Clang `no such file or directory` / `no input files` for ggml sources. The initial missing-checkout issue was fixed in merged #28; this failure occurs after that checkout and CMake configuration.
+Reproduction: Linux job 128310601176 in run 42341684328 reaches application compilation and reports that the required symbols are configured out by `#[cfg(feature = "proxy")]`.
 
-Validation: Rust formatting and syntax checks pass; the Windows/Linux/Mac CLI CI matrix is relaunched to exercise the actual source compiler. No successful native result is claimed before it completes. Update the release lessons with Windows verbatim paths and the distinction between PowerShell 5 stderr handling and a native build failure.
+Validation: the feature is checked against the upstream [6.2.1 manifest](https://github.com/dbus2/zbus/blob/zbus-6.2.1/zbus/Cargo.toml). Source/version contracts and locked dependency resolution are checked locally; the signed Linux build is rerun for actual compilation and native checks. Windows/Mac native builds are independent and remain in progress. No Linux package success is claimed before CI completes.
 
-Depends on merged #28. Portable changes are already merged in #29 and do not change installed desktop code. The separate iOS PR #22 remains independent.
+Depends on the merged 1.0.1 source and build corrections (#26–#30). The change is limited to the existing Linux-only optional dependency. Update the release lessons to distinguish a gated API from a renamed API.
