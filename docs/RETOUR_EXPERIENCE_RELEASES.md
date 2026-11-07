@@ -1,5 +1,11 @@
 # Novera — problèmes à éviter et méthode pour les prochaines sorties
 
+## Consigne permanente : une mise à jour concerne toutes les versions
+
+Consigne du mainteneur confirmée le **7 novembre 2026** : toute demande de mise à jour de Novera couvre par défaut **l’ensemble des distributions et canaux** : Desktop Windows/macOS/Linux, portable, CLI, Android, iOS et Web. Ne pas limiter spontanément le travail à la plateforme en cours. Actualiser les sources communes, les catalogues applicables, les paquets et manifests compatibles, la documentation et les vitrines. Suivre chaque cible jusqu’à sa publication ou à l’identification d’un blocage concret.
+
+Le numéro visé est commun aux versions actualisées ; les moyens techniques peuvent différer selon la plateforme. Un ancien paquet immuable, un canal incompatible ou une cible sans prérequis de signature ne devient pas à jour en changeant son étiquette : préparer et vérifier le véritable successeur, conserver l’historique et signaler ce qui reste à faire. Ne pas annoncer l’ensemble comme terminé tant que des distributions demandées restent en attente.
+
 Établi le **2 novembre 2026**, après les sorties 1.0.0 Windows x64, Windows ARM64, Linux x64, CLI x64 et Windows x64 portable.
 
 Ce fichier sert de mémoire pratique avant de préparer macOS, Android/iOS ou une nouvelle mise à jour. Il rassemble les incidents réellement rencontrés et les actions qui ont permis de progresser. Les préparations recommandées pour les plateformes restantes sont indiquées séparément ; elles ne sont pas présentées comme des validations déjà obtenues.
