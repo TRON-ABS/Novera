@@ -4,7 +4,7 @@
 
 The public source still lacks the local dependency, security, voice, language and provider-catalog updates. Integrate those changes with synchronized 1.0.1 manifests and complete notes in 104 READMEs. The maintainer authorized repository, GitHub Pages and distribution publication on 7 November 2026. Public 1.0.0 download links remain until new packages pass their signing and upgrade checks.
 
-Current validation: `node scripts/distribution/check-release-readiness.mjs --json` passes; 63 Node distribution/version/showcase contracts pass, with zero failures or skips. Full application tests and native CI results will be recorded when complete. Source checks, CI builds, upgrade validation and publication are separate milestones.
+Current validation: `node scripts/distribution/check-release-readiness.mjs --json` passes; 63 Node distribution/version/showcase contracts pass, with zero failures or skips. `corepack yarn test` passes: core 172, Web 7,500 and extensions 397 tests (8,069 passed; 20 Web tests skipped). The production Web/TypeScript build passes. An additional 17 Node release checks pass with two conditional Windows checks skipped; 16 distribution and eight Android Python tests pass. All 23 catalog tests pass, including three live public provider catalogs. GitHub source checks pass on both source commits; the Web CI candidate passes. Native builds remain in progress. Source checks, CI builds, upgrade validation and publication are separate milestones.
 
 Related: PR #22 remains open for iOS simulator/window validation; no iOS device release is claimed. Preserve the updater keys, Android certificate and all public update manifests. [Release tracking](docs/RELEASE_1.0.1_2026-11-07.md).
 

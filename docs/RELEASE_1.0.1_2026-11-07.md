@@ -20,7 +20,14 @@ Les fournisseurs API utilisent les identifiants officiels vérifiés le 7 novemb
 
 - Définitions de distribution valides pour 1.0.1.
 - 63 contrats Node de préparation, versions, canaux, distribution et vitrine réussis localement, aucun échec ni test ignoré.
-- Suites applicatives et compilations natives : résultats à consigner après exécution ; les preuves de la 1.0.0 ne valent pas validation de la 1.0.1.
+- `corepack yarn test` : 172 tests core, 7 500 tests Web et 397 tests extensions réussis, soit 8 069 réussites ; 20 tests Web ignorés. Aucun échec.
+- Build de production Web/TypeScript réussi ; 23 tests de catalogue réussis, dont trois catalogues publics réels.
+- Contrôles complémentaires : 17 Node réussis / deux ignorés, 16 Python distribution et huit Python Android réussis.
+- [Contrôles source GitHub](https://github.com/TRON-ABS/Novera/actions/runs/42341229174) réussis ; [candidat Web](https://github.com/TRON-ABS/Novera/actions/runs/42341138005) réussi. Il ne s'agit pas du déploiement de la vitrine.
+- [Desktop Windows x64 signé](https://github.com/TRON-ABS/Novera/actions/runs/42341089285), [Linux](https://github.com/TRON-ABS/Novera/actions/runs/42341126078), [Windows ARM64](https://github.com/TRON-ABS/Novera/actions/runs/42341128270), [Mac](https://github.com/TRON-ABS/Novera/actions/runs/42341130724), [CLI](https://github.com/TRON-ABS/Novera/actions/runs/42341133260) et [portable](https://github.com/TRON-ABS/Novera/actions/runs/42341135482) lancés sur le commit `ea08b41bd9e15bfcd54d4e4864689ed00730f390` ; résultats natifs à consigner après exécution.
+- Android : diagnostic local sans blocage de toolchain. Identité de production absente du dossier habituel ; le mainteneur indique une sauvegarde sur `D:\`. Aucune nouvelle identité générée.
+
+Les preuves de la 1.0.0 ne valent pas validation de la 1.0.1.
 
 ## Livraison
 
