@@ -75,11 +75,12 @@ Novera tumuwuh sareng anjeun. Conto sareng setelan anjeun tiasa ngabantosan pang
 
 ![Novera ngahasilkeun gambar sareng dasbor ngahiji sareng kuantitas, siki, upscaling sareng mémori otomatis](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Status mikropon: héjo lamun sadia, beureum bari sibuk, kulawu lamun teu sadia. Pangenal, dengekeun balikan deui, penanganan fokus sareng dikte anu katingali parantos dilereskeun. Biantara modél audio asli ayeuna dilaksanakeun dina Windows; platform séjénna masih perlu validasi asli jeung rojongan sora cocog.
 
 [![Novera ngahasilkeun gambar sareng dasbor ngahiji sareng kuantitas, siki, upscaling sareng mémori otomatis](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Nyata Windows screenshot aplikasi disadiakeun ku maintainer on 1 Nopémber 2026, anu ngalaporkeun yén aplikasi jalan ogé. Ieu nembongkeun bentang dihasilkeun, na disimpen-file kadali sarta dasbor kreasi ngahiji; ieu sanés mockup.*
 
 Hiji panel, lima mode: **Otomatis / Téks / Gambar / Musik / Pidéo**. Kontrol nuturkeun mode anu dipilih: rasio, résolusi, durasi, irama, kualitas, instrumental, lirik, siki sareng kuantitas. Lebar panel sareng tombol adaptasi kana jandela sareng labél anu ditarjamahkeun.
 

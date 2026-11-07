@@ -73,11 +73,12 @@ Novera grows with you. Your examples and settings can help other users find a su
 
 ![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-2026-11-07.png)
 
+*Real Windows application screenshot supplied by the maintainer on 7 November 2026, who reports that the application works well. It shows a generated landscape, its saved-file controls and the unified creation dashboard; this is not a mockup.*
+
 **Collapsible dashboard: maximum workspace.** Fold away the settings to give your creations more room. Input, microphone and primary controls stay accessible. Click the screenshot to open the original full-resolution PNG.
 
-[![Novera generated image and unified dashboard with quantity, seed, upscaling and automatic memory](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+[![Novera: collapsed dashboard for maximum workspace, with input and microphone accessible](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Real Windows application screenshot supplied by the maintainer on 7 November 2026, who reports that the application works well. It shows a generated landscape, its saved-file controls and the unified creation dashboard; this is not a mockup.*
 
 One panel, five modes: **Auto / Text / Image / Music / Video**. Controls follow the selected mode: ratio, resolution, duration, cadence, quality, instrumental, lyrics, seed and quantity. Panel width and buttons adapt to the window and translated labels.
 

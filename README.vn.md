@@ -81,11 +81,12 @@ Novera phát triển cùng bạn. Các ví dụ và cài đặt của bạn có 
 
 ![Novera đã tạo hình ảnh và bảng điều khiển thống nhất với số lượng, hạt giống, nâng cấp và bộ nhớ tự động](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Trạng thái micrô: màu xanh lá cây khi khả dụng, màu đỏ khi bận, màu xám khi không khả dụng. Nhận dạng, khởi động lại nghe, xử lý tiêu điểm và đọc chính tả rõ ràng đã được sửa chữa. Giọng nói mô hình âm thanh gốc hiện được triển khai trên Windows; các nền tảng khác vẫn cần xác thực gốc và hỗ trợ giọng nói phù hợp.
 
 [![Novera đã tạo hình ảnh và bảng điều khiển thống nhất với số lượng, hạt giống, nâng cấp và bộ nhớ tự động](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Ảnh chụp màn hình ứng dụng Windows thực do nhà bảo trì cung cấp trên 1 tháng 11 2026, người báo cáo rằng ứng dụng hoạt động tốt. Nó hiển thị cảnh quan được tạo, các điều khiển tệp đã lưu và bảng điều khiển tạo hợp nhất; đây không phải là một mô hình.*
 
 Một bảng điều khiển, năm chế độ: **Tự động / Văn bản / Hình ảnh / Nhạc / Video**. Các điều khiển tuân theo chế độ đã chọn: tỷ lệ, độ phân giải, thời lượng, nhịp điệu, chất lượng, nhạc cụ, lời bài hát, hạt giống và số lượng. Độ rộng của bảng điều khiển và các nút thích ứng với cửa sổ và nhãn đã dịch.
 

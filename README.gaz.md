@@ -75,11 +75,12 @@ Novera si waliin guddata. Fakkeenyonni fi qindaa'inoota kee fayyadamtoonni biroo
 
 ![Novera fakkii fi daashboordii tokkummaa kan baay'ina, sanyii, olka'iinsaa fi yaadannoo ofumaan qabu maddisiise](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Haala maaykiroofoonii: yeroo argamu magariisa, yeroo hojiin itti baay'atu diimaa, yeroo hin jirre halluu diimaa. Beekkamtii, dhaggeeffachuu deebi’ee jalqabuu, xiyyeeffannoo qabachuu fi dictation mul’atu sirreeffamaniiru. Haasaan moodeela sagalee dhalootaa yeroo ammaa Windows irratti hojiirra oola; waltajjiiwwan biroo ammallee mirkaneessa dhalootaa fi deeggarsa sagalee mijaawaa barbaadu.
 
 [![Novera fakkii fi daashboordii tokkummaa kan baay'ina, sanyii, olka'iinsaa fi yaadannoo ofumaan qabu maddisiise](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Fakkii iskiriinii iyyannoo dhugaa Windows kan kunuunsaan 1 Sadaasa 2026 irratti dhihaate, innis aplikeeshiniin akka gaariitti akka hojjetu gabaase. Laandiskaappii uumame, too'annoowwan faayilii qusatame isaa fi daashboordii uumuu tokkummaa agarsiisa; kun mockup miti.*
 
 Paanaalii tokko, haalawwan shan: **Ofumaan / Barreeffama / Fakkii / Muuziqaa / Viidiyoo**. To'annoon haalata filatame hordofu: reeshiyoo, furmaata, yeroo, kaadeensi, qulqullina, meeshaa, jechoota, sanyii fi baay'ina. Bal'inni paanaalii fi qareewwan foddaa fi asxaalee hiikamanitti madaqu.
 

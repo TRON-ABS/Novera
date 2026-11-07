@@ -75,11 +75,12 @@ Novera kula koraa Tusaalooyinkaaga iyo dejimahaaga ayaa ka caawin kara isticmaal
 
 ![Novera sawir ayaa sameeyay iyo dashboard midaysan oo leh tiro, abuur, kor u qaadis iyo xasuus toos ah](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Xaaladda makarafoonka: cagaar marka la heli karo, casaan marka la mashquulsan yahay, cawl marka aan la heli karin. Aqoonsiga, dib u bilaabashada dhagaysiga, maaraynta diirada iyo hadalka muuqata waa la saxay. Hadalka qaab-maqalka-hooyada waxa hadda la hirgeliyay Windows; Goobaha kale waxay wali u baahan yihiin ansaxinta asalka ah iyo taageerada cod ku haboon.
 
 [![Novera sawir ayaa sameeyay iyo dashboard midaysan oo leh tiro, abuur, kor u qaadis iyo xasuus toos ah](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Real Windows screenshot dalabka oo uu bixiyay haye 1 Noofambar 2026, kaas oo sheegay in codsigu si fiican u shaqeeyo. Waxay muujinaysaa muuqaal muuqaal ah, kontaroolkeeda faylka la kaydiyay iyo dashboardka hal abuurka midaysan; tani ma aha jeesjees.*
 
 Hal gole, shan qaab: **Toos ah / Qoraal / Sawirka / Muusig / Muuqaal** Xakamaynta waxay raacdaa qaabka la doortay: saamiga, xallinta, muddada, cadaynta, tayada, qalabka, erayada, abuur iyo tirada. Ballaca guddida iyo badhamada waxay la qabsadaan daaqadda iyo summada la turjumay.
 

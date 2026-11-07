@@ -77,11 +77,12 @@ Novera roste s vámi. Vaše příklady a nastavení mohou pomoci ostatním uživ
 
 ![Novera generovaný obraz a jednotný řídicí panel s množstvím, seedem, upscaling a automatickou pamětí](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Stav mikrofonu: zelený, když je dostupný, červený, když je zaneprázdněn, šedý, když není k dispozici. Bylo opraveno rozpoznávání, restart poslechu, ovládání zaostření a viditelné diktování. Nativní řeč zvukového modelu je aktuálně implementována na Windows; ostatní platformy stále potřebují nativní ověření a vhodnou hlasovou podporu.
 
 [![Novera generovaný obraz a jednotný řídicí panel s množstvím, seedem, upscaling a automatickou pamětí](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Skutečný snímek obrazovky aplikace Windows dodaný správcem na 1 Listopad 2026, který hlásí, že aplikace funguje dobře. Zobrazuje vygenerovanou krajinu, její ovládací prvky pro uložené soubory a sjednocený řídicí panel vytváření; toto není maketa.*
 
 Jeden panel, pět režimů: **Auto / Text / Obrázek / Hudba / Video**. Ovládací prvky se řídí zvoleným režimem: poměr, rozlišení, trvání, kadence, kvalita, instrumentál, texty, semeno a kvantita. Šířka panelu a tlačítka se přizpůsobí oknu a přeloženým popiskům.
 

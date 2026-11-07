@@ -77,11 +77,12 @@ Novera bɛ bonya ni i ye. I ka misaliw ni i ka sigicogo bɛ se ka baarakɛla tɔ
 
 ![Novera ye ja dilan ani dashboard kelen ye ni hakɛ, kisɛ, sɛgɛsɛgɛli ani otomatiki hakilijagabɔ ye](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Mikɔrɔfɔni cogoya: jɛman ni a bɛ sɔrɔ, bilen ni a bolo degunnen don, a ɲɛ jɛman ni a tɛ sɔrɔ. Dɔnniya, lamɛnni daminɛni kokura, sinsinni ɲɛnabɔli ani dictation yelen ye latilen. Native audio-model kuma bɛ waleya sisan Windows kan; plateforme wɛrɛw mago bɛ hali bi native validation ani kan dɛmɛni bɛnnen na.
 
 [![Novera ye ja dilan ani dashboard kelen ye ni hakɛ, kisɛ, sɛgɛsɛgɛli ani otomatiki hakilijagabɔ ye](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Windows baarakɛminɛnw ja lakika min dira ladonbaga fɛ 1 Nowanburukalo 2026, min y’a jira ko baarakɛminɛn bɛ baara kɛ ka ɲɛ. A bɛ dugukolo-yɔrɔ dɔ jira min dabɔra, a ka dosiye maralenw kɔlɔsili ani dabɔ-dasibɔlan kelen; nin tɛ mockup ye.*
 
 Panɛli kelen, cogoya duuru: **Auto / Texte / Image / Misikili / Wideyo** ye . Kontrɔliw bɛ tugu cogo sugandilen na: ratio, resolution, duration, cadence, quality, instrumental, lyrics, seed ani quantity. Panɛli bonya ni butɔni bɛ bɛn finɛtiri ni labeli bamanankan na.
 

@@ -77,11 +77,12 @@ Novera växer med dig. Dina exempel och inställningar kan hjälpa andra använd
 
 ![Novera genererad bild och enhetlig instrumentpanel med kvantitet, utsäde, uppskalning och automatiskt minne](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Mikrofonstatus: grön när den är tillgänglig, röd när den är upptagen, grå när den inte är tillgänglig. Igenkänning, omstart av lyssnande, fokushantering och synlig diktering har korrigerats. Inbyggt ljudmodelltal är för närvarande implementerat på Windows; andra plattformar behöver fortfarande inbyggd validering och lämpligt röststöd.
 
 [![Novera genererad bild och enhetlig instrumentpanel med kvantitet, utsäde, uppskalning och automatiskt minne](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Riktig skärmdump av Windows-applikationen tillhandahållen av underhållaren den 1 november 2026, som rapporterar att applikationen fungerar bra. Den visar ett genererat landskap, dess kontroller för sparade filer och den enhetliga instrumentpanelen för skapande; det här är inte en mockup.*
 
 En panel, fem lägen: **Auto / Text / Bild / Musik / Video**. Kontrollerna följer det valda läget: förhållande, upplösning, varaktighet, kadens, kvalitet, instrumental, text, frö och kvantitet. Panelbredd och knappar anpassar sig till fönstret och översatta etiketter.
 

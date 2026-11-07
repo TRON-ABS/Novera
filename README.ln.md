@@ -75,11 +75,12 @@ Novera ekolaka elongo na yo. Bandakisa mpe ba paramètres na yo ekoki kosalisa b
 
 ![Novera esalemi image mpe tableau de bord unifié na quantité, semence, upscaling mpe mémoire automatique](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Ezalela ya micro: vert soki ezali, rouge tango ozali na mosala, gris soki ezali te. Reconnaissance, restart ya koyoka, manipulation ya focus na dictation visible e corrigé. Discours audio-modèle natif ezali kosalelama sikoyo na Windows; ba plateformes misusu esengeli kaka na validation native na soutien ya voix oyo ebongi.
 
 [![Novera esalemi image mpe tableau de bord unifié na quantité, semence, upscaling mpe mémoire automatique](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Capture d'écran ya application ya Windows ya solo oyo epesami na mobateli na 1 Novembre 2026, oyo ayebisi ete application esalaka malamu. Ezali kolakisa paysage oyo esalemi, ba contrôles na yango ya fichier oyo ebombami mpe tableau de bord ya création unifié; oyo ezali maquette te.*
 
 Panneau moko, ba modes mitano: **Auto / Mokanda ya kokoma / Elilingi / Miziki / Vidéo oyo ezali**. Ba contrôles elandaka mode oyo oponi : rapport, résolution, durée, cadence, qualité, instrumental, paroles, semence na quantité. Largeur ya panneau na ba boutons ezo adapter na fenêtre na ba étiquettes oyo ebongolami.
 

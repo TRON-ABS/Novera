@@ -75,11 +75,12 @@ Novera ikura hamwe nawe. Ingero zawe nigenamiterere birashobora gufasha abandi b
 
 ![Icyo cy'amashusho cyo'Novera cyanditswe n'ikoranabuhanga kigaragara cy'ibintu, ingano, seed, upscaling n'amemori y'automatisme](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Imiterere ya mikoro: icyatsi iyo kiboneka, umutuku mugihe uhuze, imvi iyo zitaboneka. Kumenyekana, gutegera amatwi, gutangira kwibanda hamwe nigitekerezo kigaragara byakosowe. Imvugo kavukire-yerekana imvugo ishyirwa mubikorwa kuri Windows; andi mahuriro aracyakeneye kwemerwa kavukire hamwe nijwi ryumvikana.
 
 [![Icyo cy'amashusho cyo'Novera cyanditswe n'ikoranabuhanga kigaragara cy'ibintu, ingano, seed, upscaling n'amemori y'automatisme](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Ishusho ya Windows yerekana amashusho yatanzwe nuwayibitse kuri 1 Ugushyingo 2026, utangaza ko porogaramu ikora neza. Yerekana ahantu nyaburanga, ibitse-dosiye igenzura hamwe nububiko bumwe bwo kurema; ibi ntabwo ari ugusebanya.*
 
 Umwanya umwe, uburyo butanu: **Byikora / Inyandiko / Ishusho / Umuziki / Video**. Igenzura rikurikiza uburyo bwatoranijwe: igipimo, gukemura, igihe bimara, cadence, ubuziranenge, ibikoresho, amagambo, imbuto ninshi. Ubugari bwa paneli na buto bihuza nidirishya hamwe nibirango byahinduwe.
 

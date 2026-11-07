@@ -75,11 +75,12 @@ Ang Novera motubo uban kanimo. Ang imong mga pananglitan ug mga setting makataba
 
 ![Novera nakamugna nga imahe ug hiniusa nga dashboard nga adunay gidaghanon, liso, pagpataas ug awtomatikong memorya](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Status sa mikropono: berde kung magamit, pula samtang busy, gray kung dili magamit. Ang pag-ila, pagpaminaw pag-usab, pagdumala sa focus ug makita nga pagdiktar natul-id na. Ang lumad nga audio-model nga sinultihan gipatuman karon sa Windows; ang ubang mga plataporma nagkinahanglan gihapon ug lumad nga validation ug angay nga suporta sa tingog.
 
 [![Novera nakamugna nga imahe ug hiniusa nga dashboard nga adunay gidaghanon, liso, pagpataas ug awtomatikong memorya](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Tinuod nga Windows nga screenshot sa aplikasyon nga gihatag sa maintainer sa 1 Nobyembre 2026, kinsa nagtaho nga ang aplikasyon nagtrabaho og maayo. Nagpakita kini og usa ka namugna nga talan-awon, ang mga kontrol nga na-save nga file ug ang hiniusa nga dashboard sa paglalang; kini dili usa ka mockup.*
 
 Usa ka panel, lima ka mga mode: **Auto / Text / Hulagway / Musika / Video**. Ang mga kontrol nagsunod sa gipili nga mode: ratio, resolusyon, gidugayon, cadence, kalidad, instrumental, lyrics, liso ug gidaghanon. Ang gilapdon sa panel ug mga buton mopahiangay sa bintana ug gihubad nga mga label.
 

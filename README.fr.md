@@ -75,11 +75,12 @@ Novera évolue avec vous. Vos exemples et réglages peuvent aider les autres uti
 
 ![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-2026-11-07.png)
 
+*Capture réelle de l’application Windows fournie par le mainteneur le 7 novembre 2026, qui confirme que l’application fonctionne bien. Elle montre un paysage généré, les commandes du fichier enregistré et le tableau de bord de création unifié ; ce n’est pas une maquette.*
+
 **Tableau de bord repliable : espace de travail maximal.** Repliez les réglages pour laisser toute la place à vos créations. La saisie, le microphone et les commandes principales restent accessibles. Cliquez sur la capture pour ouvrir le PNG original en pleine résolution.
 
-[![Novera : image créée et tableau de bord unifié avec quantité, graine, agrandissement et mémoire automatique](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
+[![Novera : tableau de bord replié pour un espace de travail maximal, avec la saisie et le microphone accessibles](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Capture réelle de l’application Windows fournie par le mainteneur le 7 novembre 2026, qui confirme que l’application fonctionne bien. Elle montre un paysage généré, les commandes du fichier enregistré et le tableau de bord de création unifié ; ce n’est pas une maquette.*
 
 Un seul panneau, cinq modes : **Auto / Texte / Image / Musique / Vidéo**. Les réglages suivent le mode choisi : format, résolution, durée, cadence, qualité, instrumental, paroles, graine et quantité. La largeur du panneau et les boutons s’adaptent à la fenêtre et aux libellés traduits.
 

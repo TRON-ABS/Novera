@@ -75,11 +75,12 @@ Novera girma tare da ku. Misalan ku da saitunanku na iya taimaka wa sauran masu 
 
 ![Novera da aka ƙirƙira hoto da haɗaɗɗen dashboard tare da yawa, iri, haɓakawa da ƙwaƙwalwar atomatik](.github/assets/novera-dashboard-2026-11-07.png)
 
+<sub>PNG · 1910 × 1028 · 2026-11-07</sub>
+
 Matsayin makirufo: kore idan akwai, ja yayin aiki, launin toka idan babu. An gyara ganewa, sake kunna saurara, kulawa da mayar da hankali da lafazin bayyane. A halin yanzu ana aiwatar da magana-samfurin sauti na asali akan Windows; sauran dandamali har yanzu suna buƙatar ingantaccen asalin ƙasa da tallafin murya mai dacewa.
 
 [![Novera da aka ƙirƙira hoto da haɗaɗɗen dashboard tare da yawa, iri, haɓakawa da ƙwaƙwalwar atomatik](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
 
-*Hoton hoton aikace-aikacen Windows na ainihi wanda mai kulawa ya kawo akan 1 Nuwamba 2026, wanda ya ba da rahoton cewa aikace-aikacen yana aiki da kyau. Yana nuna shimfidar wuri da aka ƙirƙira, sarrafa fayil ɗin ajiyar sa da haɗewar dashboard ɗin ƙirƙira; wannan ba izgili ba ne.*
 
 Panel ɗaya, hanyoyi biyar: **Atomatik / Rubutu / Hoto / Kiɗa / Bidiyo**. Sarrafa suna bin yanayin da aka zaɓa: rabo, ƙuduri, tsawon lokaci, ƙaranci, inganci, kayan aiki, waƙoƙi, iri da yawa. Faɗin panel da maɓallan sun dace da taga da alamun da aka fassara.
 
