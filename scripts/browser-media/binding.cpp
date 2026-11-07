@@ -6,6 +6,9 @@
 #include <vector>
 #include <cstdio>
 #include <emscripten.h>
+#include "ggml.h"
+#include "ggml-backend.h"
+#include <set>
 #ifdef NOVERA_WEBGPU_VAE_PROBE
 #include "ggml.h"
 #include "ggml-backend.h"
@@ -27,6 +30,25 @@ sd_video_generation_result_t* video = nullptr;
 float video_cfg = 6.0f;
 float video_flow_shift = 3.0f;
 float image_budget_gib = 2.0f;
+float video_budget_gib = 2.0f;
+bool video_flash_attention = false;
+bool video_batched_cfg = true;
+bool video_trace_cpu = false;
+bool video_expand_linear_weights = false;
+std::set<std::string> video_cpu_nodes;
+
+bool inspect_video_cpu_node(ggml_tensor* tensor, bool ask, void*) {
+    if (ask && tensor->buffer && tensor->op != GGML_OP_NONE && video_cpu_nodes.size() < 32) {
+        const char* owner = ggml_backend_buffer_name(tensor->buffer);
+        if (std::string(owner).find("CPU") != std::string::npos) {
+            std::string key = std::string(ggml_op_name(tensor->op)) + " type=" + ggml_type_name(tensor->type);
+            for (int i=0;i<4;++i) key += " " + std::to_string(tensor->ne[i]);
+            if (video_cpu_nodes.insert(key).second) browser_log(2, ("Video CPU fallback: " + key).c_str());
+        }
+    }
+    // Observation only: never request per-node synchronization or readback.
+    return false;
+}
 
 #ifdef NOVERA_WEBGPU_VAE_PROBE
 bool inspect_vae_node(ggml_tensor* tensor, bool ask, void*) {
@@ -73,6 +95,7 @@ EMSCRIPTEN_KEEPALIVE int novera_configure_image_budget(float budget_gib) {
     return 1;
 }
 EMSCRIPTEN_KEEPALIVE void novera_release() {
+    sd_set_backend_eval_callback(nullptr, nullptr);
     clear_result();
     if (context) free_sd_ctx(context);
     context = nullptr;
@@ -84,6 +107,26 @@ EMSCRIPTEN_KEEPALIVE int novera_configure_video(float cfg, float flow_shift) {
     if (!(cfg >= 1.f && cfg <= 15.f && flow_shift > 0.f && flow_shift <= 20.f)) return 0;
     video_cfg = cfg;
     video_flow_shift = flow_shift;
+    return 1;
+}
+// Explicit diagnostic/runtime policy, independent of image settings. Physical
+// VRAM is not measurable through WebGPU; the caller must leave a reserve.
+EMSCRIPTEN_KEEPALIVE int novera_configure_video_runtime(float budget_gib, int flash_attention) {
+    if (!(budget_gib == 2.f || budget_gib == 4.f || budget_gib == 6.f || budget_gib == 8.f || budget_gib == 12.f) ||
+        (flash_attention != 0 && flash_attention != 1)) return 0;
+    video_budget_gib = budget_gib;
+    video_flash_attention = flash_attention == 1;
+    return 1;
+}
+EMSCRIPTEN_KEEPALIVE int novera_configure_video_execution(int batched_cfg, int trace_cpu) {
+    if ((batched_cfg != 0 && batched_cfg != 1) || (trace_cpu != 0 && trace_cpu != 1)) return 0;
+    video_batched_cfg = batched_cfg == 1;
+    video_trace_cpu = trace_cpu == 1;
+    return 1;
+}
+EMSCRIPTEN_KEEPALIVE int novera_configure_video_weights(int expand_linear_weights) {
+    if (expand_linear_weights != 0 && expand_linear_weights != 1) return 0;
+    video_expand_linear_weights = expand_linear_weights == 1;
     return 1;
 }
 EMSCRIPTEN_KEEPALIVE int novera_load(const char* diffusion, const char* encoder, const char* vae, int kind) {
@@ -111,16 +154,27 @@ EMSCRIPTEN_KEEPALIVE int novera_load(const char* diffusion, const char* encoder,
     params.enable_mmap = false;
     params.disable_prefetch = true;
     params.conditioning_cache_size = 0;
+    if (kind == 1) params.batched_cfg = video_batched_cfg;
+    if (kind == 1 && video_expand_linear_weights) {
+        if (video_budget_gib < 6.f) return 0;
+        // Expand only the repeated DiT linear matrices in memory. Leave original
+        // GGUFs, normalization, text encoder and VAE precision untouched.
+        params.tensor_type_rules = R"(^model\.diffusion_model\.blocks\.[0-9]+\.(self_attn\.[qkvo]|cross_attn\.[qkvo]|ffn\.[02])\.weight$=f16)";
+    }
     // Browser APIs expose no reliable VRAM size. Use an explicit bounded budget.
-    const std::string memory_budget = kind == 0 ? std::to_string(image_budget_gib) : "2";
+    const std::string memory_budget = std::to_string(kind == 0 ? image_budget_gib : video_budget_gib);
     params.max_vram = memory_budget.c_str();
     // Avoid the quadratic attention buffer at desktop-sized image resolutions.
     // The pinned GGML WebGPU backend implements FLASH_ATTN_EXT on this path.
-    if (kind == 0) {
+    if (kind == 0 || video_flash_attention) {
         params.flash_attn = true;
         params.diffusion_flash_attn = true;
     }
     context = new_sd_ctx(&params);
+    if (context && kind == 1 && video_trace_cpu) {
+        video_cpu_nodes.clear();
+        sd_set_backend_eval_callback(inspect_video_cpu_node, nullptr);
+    }
     return context ? 1 : 0;
 }
 
@@ -164,6 +218,14 @@ EMSCRIPTEN_KEEPALIVE int novera_generate(int kind, const char* prompt, int width
     params.sample_params.scheduler = sd_get_default_scheduler(context, params.sample_params.sample_method);
     params.sample_params.guidance.txt_cfg = video_cfg;
     params.sample_params.flow_shift = video_flow_shift;
+    if (video_budget_gib > 2.f) {
+        // A larger DiT budget must not create one oversized 3D VAE dispatch.
+        // Leave room for browser/driver memory and bound temporal scratch.
+        params.vae_tiling_params.enabled = true;
+        params.vae_tiling_params.temporal_tiling = true;
+        params.vae_tiling_params.tile_size_w = 256;
+        params.vae_tiling_params.tile_size_h = 192;
+    }
     return generate_video(context, &params, &video) && video && video->frame_count > 0;
 }
 

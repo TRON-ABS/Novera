@@ -44,7 +44,7 @@ target_link_options(novera-diffusion PRIVATE
   -sMODULARIZE=1 -sEXPORT_ES6=1 -sENVIRONMENT=worker -sFORCE_FILESYSTEM=1
   -sJSPI=1 -fwasm-exceptions -lworkerfs.js --no-entry
   "-sJSPI_EXPORTS=['novera_load','novera_generate','novera_upscale_image','novera_release']"
-  "-sEXPORTED_FUNCTIONS=['_novera_load','_novera_configure_video','_novera_configure_image_budget','_novera_generate','_novera_upscale_image','_novera_width','_novera_height','_novera_channels','_novera_frame_count','_novera_frame_data','_novera_release']"
+  "-sEXPORTED_FUNCTIONS=['_novera_load','_novera_configure_video','_novera_configure_video_runtime','_novera_configure_video_execution','_novera_configure_video_weights','_novera_configure_image_budget','_novera_generate','_novera_upscale_image','_novera_width','_novera_height','_novera_channels','_novera_frame_count','_novera_frame_data','_novera_release']"
   "-sEXPORTED_RUNTIME_METHODS=['ccall','FS','WORKERFS','HEAPU8']")
 set_target_properties(novera-diffusion PROPERTIES SUFFIX ".mjs")
 

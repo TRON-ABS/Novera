@@ -101,6 +101,22 @@
       "file": "src/pipeline/image.cpp",
       "beforeSha256": "b05d5aa1fde5f5a019ea5cc372ac4cd2a3ce7dc1d0f28b302fec03d26b7defd3",
       "afterSha256": "17871287e2a714b1464900a869b876264b27fd39feddb6232af844db151a06e1"
+    },
+    {
+      "source": "sdcpp",
+      "patch": "patches/browser-finite-video-pixels.patch",
+      "file": "src/pipeline/video.cpp",
+      "patchSha256": "c80e15c40b59bc8fd6880984044a1c807a86350e0ca764078e9462aa0d7ac8f8",
+      "beforeSha256": "7220f99bcdcb176c8fc0ef55b045979a253f4ba8ea69ac0fedf502c245f299cc",
+      "afterSha256": "66c1b14b45d88e6f6282fc67e24530343aee55f1d6de766872f39d27b67c8c53"
+    },
+    {
+      "source": "sdcpp",
+      "patch": "patches/webgpu-planner-budget.patch",
+      "file": "src/core/backend_fit.cpp",
+      "patchSha256": "170ab9f8b88d7828a24b1cd351cab00ff6f71f3d3fc57c2797bcd852e4e3ddbf",
+      "beforeSha256": "361d686a185e8b0aedfc98251e7b868d1d022a91c8a6bd4ae6e967d576fe927b",
+      "afterSha256": "5a7c603377c80294fedd9eb7e760f9c5e0d4b32badd5d316ced25cdb3c449bf0"
     }
   ]
 }

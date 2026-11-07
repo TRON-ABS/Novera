@@ -26,6 +26,8 @@ Le navigateur choisit la langue initiale parmi les langues existantes de Novera.
 
 Dans Edge connecté par l’extension : chargement du modèle Omni Q4 avec projecteur Q8 réussi, réponse réelle en français à une question arithmétique, puis messages conservés après rechargement de la page. Le sélecteur expose aussi LFM3 1.7B. La génération de cette alternative, l’annulation dans Edge et les scénarios mémoire restent à valider. Les tests unitaires utilisent des doubles explicites et ne remplacent pas ces essais.
 
+Suivi Wan en soirée : le banc séparé obtient **289,631 s** pour cinq images 832 × 480 (0,625 s à 8 FPS), contre **320,056 s** auparavant, à 20 étapes/graine 42/CFG 6/shift 3. La variante combine tuiles VAE bornées et expansion explicite des matrices DiT en mémoire, sans réécrire les modèles ; celle-ci reste désactivée par défaut. Les cinq images décodées sont proches de la référence, pas identiques. Une référence du moteur Desktop installé termine les cinq PNG en **40,539 s** avec CUDA, encodeur texte CPU et une autre révision ; ce n’est pas une mesure dans l’interface ni un export WebM. La vidéo Web reste hors conversation et très loin de la parité. Les mesures, l’essai Flash Attention interrompu et le décodage expiré sont qualifiés dans [le suivi du moteur navigateur](../scripts/browser-media/README.md#wan-video-findings). Le correctif expérimental du budget GPU concerne aussi les images : revalider le véritable budget 6 Gio avant publication, les anciennes mesures étant plafonnées à 2 Gio malgré le réglage affiché.
+
 ## Image, musique et vidéo
 
 ### Inférence locale observée le 7 novembre 2026

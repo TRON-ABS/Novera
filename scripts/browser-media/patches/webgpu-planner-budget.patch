@@ -1,0 +1,21 @@
+--- a/src/core/backend_fit.cpp
++++ b/src/core/backend_fit.cpp
+@@ -152,7 +152,18 @@
+                 gib = it->second;
+             }
+             if (gib > 0.f) {
++#if defined(__EMSCRIPTEN__)
++                // WebGPU reports a single-buffer limit, not physical free VRAM.
++                // Keep the explicit bounded caller budget; allocations and all
++                // individual binding/buffer limits remain enforced by GGML.
++                if (std::string(ggml_backend_reg_name(ggml_backend_dev_backend_reg(dev))) == "WebGPU") {
++                    device.budget_bytes = (int64_t)(gib * 1024.0 * MiB);
++                    LOG_INFO("WebGPU physical memory unknown; using explicit VRAM budget %.2f GiB", gib);
++                } else
++#endif
++                {
+                 device.budget_bytes = (int64_t)std::min(gib * 1024.0 * MiB, (double)device.free_bytes);
++                }
+             } else if (gib < 0.f) {
+                 device.budget_bytes = (int64_t)std::max<double>(device.free_bytes + gib * 1024.0 * MiB, 0);
+             } else {
