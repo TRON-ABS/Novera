@@ -5,7 +5,7 @@ $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot 'environment.ps1')
 $android=Get-NoveraAndroidEnvironment
 Set-NoveraAndroidEnvironment $android
-$directory=Join-Path $env:LOCALAPPDATA 'Novera/Signing/Android'
+$directory=Get-NoveraAndroidSigningDirectory
 $store=Join-Path $directory 'novera-android.p12'
 $passwordFile=Join-Path $directory 'password.dpapi'
 if ((Test-Path -LiteralPath $store) -or (Test-Path -LiteralPath $passwordFile)) { throw 'Identite Android deja presente : la reutiliser, ne jamais la remplacer.' }

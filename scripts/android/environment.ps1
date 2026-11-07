@@ -1,4 +1,13 @@
 # Shared, process-local Android tool resolution. Never changes persistent variables.
+function Get-NoveraAndroidSigningDirectory {
+    # Keep production keys outside the NSIS installation directory.
+    $stable=Join-Path $env:LOCALAPPDATA 'Novera-Signing/Android'
+    $legacy=Join-Path $env:LOCALAPPDATA 'Novera/Signing/Android'
+    if ((Test-Path -LiteralPath (Join-Path $stable 'novera-android.p12')) -or (Test-Path -LiteralPath (Join-Path $stable 'password.dpapi'))) {return $stable}
+    if ((Test-Path -LiteralPath (Join-Path $legacy 'novera-android.p12')) -or (Test-Path -LiteralPath (Join-Path $legacy 'password.dpapi'))) {return $legacy}
+    return $stable
+}
+
 function Get-NoveraAndroidEnvironment {
     $repoRoot=Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
     $pin=Get-Content -LiteralPath (Join-Path $PSScriptRoot 'toolchain.json') -Raw | ConvertFrom-Json
