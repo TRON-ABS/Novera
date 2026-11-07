@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "version": "1.0.1",
+  "publicationTag": "v1.0.1-cli-novera",
+  "kind": "cli",
+  "platform": "windows-x86_64",
+  "runId": 42343121038,
+  "artifactId": 13563272755,
+  "artifactSha256": "beb91e21d8030b6cb7e3c76dde65e3924f1a3e0f9668039f6a55f1b0840af18a",
+  "compilationCommit": "7a2ce07316f607414a2fad936517a5c9bc2530ee",
+  "assets": [
+    {
+      "name": "Novera_CLI_1.0.1_windows-x86_64.zip",
+      "bytes": 14066102,
+      "sha256": "2d37ddafd4acb9d29ed1f05a0a292da7e2041f3f71646faf8e905f61a358e7e3"
+    },
+    {
+      "name": "Novera_CLI_1.0.1_windows-x86_64.zip.sig",
+      "bytes": 428,
+      "sha256": "3dc04d6f1df90f4076ceb67e82d4355ac7f0f832fff3595c9f14fb2ac3f5dc08"
+    }
+  ]
+}

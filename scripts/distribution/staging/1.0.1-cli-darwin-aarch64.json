@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "version": "1.0.1",
+  "publicationTag": "v1.0.1-cli-novera",
+  "kind": "cli",
+  "platform": "darwin-aarch64",
+  "runId": 42343121038,
+  "artifactId": 13563322583,
+  "artifactSha256": "a9c2388dd1e9e808fc4306d00ddeb0fe8112507a4832b0031358c2b3b2fbbf68",
+  "compilationCommit": "7a2ce07316f607414a2fad936517a5c9bc2530ee",
+  "assets": [
+    {
+      "name": "Novera_CLI_1.0.1_darwin-aarch64.zip",
+      "bytes": 12131053,
+      "sha256": "5b901e04b3fa78c987ae264cd724e18e3f47543873f8c699a8687911cdbadbfb"
+    },
+    {
+      "name": "Novera_CLI_1.0.1_darwin-aarch64.zip.sig",
+      "bytes": 428,
+      "sha256": "2cb91739e77dae4cbf992b2cf2822849acbb35bbaed3697e225d828605b92c5f"
+    }
+  ]
+}
