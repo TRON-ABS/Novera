@@ -11,6 +11,7 @@ import { useModelProvider } from '@/hooks/useModelProvider'
 import SetupScreen from '@/containers/SetupScreen'
 import { route } from '@/constants/routes'
 import { hasUsableProvider } from '@/lib/providerReadiness'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 
 type ThreadModel = {
   id: string
@@ -48,7 +49,7 @@ function Index() {
     setCurrentThreadId(undefined)
   }, [setCurrentThreadId])
 
-  if (!hasValidProviders) {
+  if (!hasValidProviders && !browserPreviewEnabled()) {
     if (!isTauri()) {
       return <Navigate to={route.settings.model_providers as any} replace />
     }
