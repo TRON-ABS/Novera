@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "version": "1.0.1",
+  "publicationTag": "v1.0.1-macos",
+  "kind": "desktop",
+  "platform": "darwin-x86_64",
+  "runId": 42341689234,
+  "artifactId": 13569175699,
+  "artifactSha256": "51d9788b2f58c38fe18e71e405f6d47f4d6e8c38ab967707db1602a88861c65b",
+  "compilationCommit": "df02143b6018aa1c6d54c7d6359ce94409a8e87f",
+  "assets": [
+    {
+      "name": "Novera_1.0.1_x64.app.tar.gz",
+      "bytes": 110900663,
+      "sha256": "c095d1dc09fd0e7625959a39240b69b7e4dc2b8e1d5be55679895c0c148260ca"
+    },
+    {
+      "name": "Novera_1.0.1_x64.app.tar.gz.sig",
+      "bytes": 416,
+      "sha256": "18c5d1a7921cff3d7b5d1cfc35a5abb57248aa1e52b4128c6eb3006047ddd953"
+    },
+    {
+      "name": "Novera_1.0.1_x64.dmg",
+      "bytes": 110499404,
+      "sha256": "a500c2494965e8c4827a5b987bc317c439dd12a3c9bf9658cb864e08e843f051"
+    }
+  ]
+}

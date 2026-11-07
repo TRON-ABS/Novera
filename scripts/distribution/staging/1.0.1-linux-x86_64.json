@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "version": "1.0.1",
+  "publicationTag": "v1.0.1",
+  "kind": "desktop",
+  "platform": "linux-x86_64",
+  "runId": 42345624586,
+  "artifactId": 13564314748,
+  "artifactSha256": "85072d30e215a80668a974d0770742ac1fe76756a60c058551078df1d5b3178d",
+  "compilationCommit": "d31d802377960982f35325e4b53e661bf32921eb",
+  "assets": [
+    {
+      "name": "Novera_1.0.1_amd64.AppImage",
+      "bytes": 196712952,
+      "sha256": "5e0d7ca18ba759966954dc03dc3cdbb186bb6a5cd4844bec786c30fbbc85402f"
+    },
+    {
+      "name": "Novera_1.0.1_amd64.AppImage.sig",
+      "bytes": 416,
+      "sha256": "4111f77e6cba2556adb91ab0f8a6be4de2073ccd65eb356b8cf58aa2e2d6bc12"
+    }
+  ]
+}
