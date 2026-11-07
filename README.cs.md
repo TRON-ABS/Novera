@@ -75,7 +75,7 @@ Na Android se pro místní modely doporučuje moderní telefon s dostatkem pamě
 
 Novera roste s vámi. Vaše příklady a nastavení mohou pomoci ostatním uživatelům najít vhodné nastavení. Sdílejte otázky, problémy a nápady na našem webu [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) nebo podle [e-mail](mailto:contact.novera.tronabs@gmail.com). Pokud je to možné, uveďte svou verzi Novera, zařízení a místní model/API. Odstraňte osobní údaje a nikdy nesdílejte klíče nebo hesla API.
 
-![Novera generovaný obraz a jednotný řídicí panel s množstvím, seedem, upscaling a automatickou pamětí](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera generovaný obraz a jednotný řídicí panel s množstvím, seedem, upscaling a automatickou pamětí](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Skutečný snímek obrazovky aplikace Windows dodaný správcem na 1 Listopad 2026, který hlásí, že aplikace funguje dobře. Zobrazuje vygenerovanou krajinu, její ovládací prvky pro uložené soubory a sjednocený řídicí panel vytváření; toto není maketa.*
 

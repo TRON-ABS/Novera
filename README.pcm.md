@@ -73,7 +73,7 @@ For Android, modern phone with plenty memory be recommended for local models; us
 
 Novera grow with you. Your examples and settings fit help other users find good setup. Share questions, issues and ideas for our [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) or by [email](mailto:contact.novera.tronabs@gmail.com). If e possible, give your Novera version, device and local/API model. Remove personal info and never share API keys or passwords.
 
-![Novera generate image and unified dashboard wey get quantity, seed, upscaling, and automatic memory](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera generate image and unified dashboard wey get quantity, seed, upscaling, and automatic memory](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Real Windows application screenshot wey maintainer send for 1 November 2026, wey him talk say application dey work well. E show generated landscape, its saved-file controls and the unified creation dashboard; dis no be mockup.*
 

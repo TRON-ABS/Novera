@@ -75,7 +75,7 @@ Auf Android wead a moderne Handy mit gnua Speicher für lokale Modella empfoin; 
 
 Novera wachst mit dir. Deine Beispiele und Eistellunga kenna andane Nutza dabei holfn, a gscheids Setup z'findn. Teile Frog'n, Problem und Ideen auf unsara [Facebook Seitn](https://www.facebook.com/profile.php?id=61596114515071) oda durch [E-Mail](mailto:contact.novera.tronabs@gmail.com). Wenn möglich, gib dei Novera Version, Gerät und lokal/API Modell an. Persönliche Infos entfern und API Schlüssel oder Passwörter niemals teila.
 
-![Novera generierts Bild und einheitlichs Dashboard mit Menge, Samen, Upscaling und automatischem Speicher](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera generierts Bild und einheitlichs Dashboard mit Menge, Samen, Upscaling und automatischem Speicher](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Reals Windows Anwendungs-Screenshot vom Wartn bei 1 November 2026, dea sogt, dass de Anwendunga guad funktioniert. Es zeigt a generierts Landschaftsbild, sei Speicheraustellunga und des einheitliche Erstellungs-Dashboard; des is koa Mockup.*
 

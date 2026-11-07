@@ -75,7 +75,7 @@ Pa Android, foni yemazuva ano ine ndangariro yakakwana inokurudzirwa kumamodheru
 
 Novera inokura newe. Mienzaniso yako uye zvigadziriso zvinogona kubatsira vamwe vashandisi kuwana setup yakakodzera. Govera mibvunzo, nyaya uye mazano pane yedu [Facebook peji](https://www.facebook.com/profile.php?id=61596114515071) kana ne [email](mailto:contact.novera.tronabs@gmail.com). Kana zvichiita, sanganisira Novera vhezheni yako, mudziyo uye yemuno/API modhi. Bvisa ruzivo rwako uye usambopa API makiyi kana mapassword.
 
-![Novera yakagadzirwa mufananidzo uye dashboard yakabatana ine huwandu, mhodzi, kumusoro uye otomatiki ndangariro](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera yakagadzirwa mufananidzo uye dashboard yakabatana ine huwandu, mhodzi, kumusoro uye otomatiki ndangariro](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Chaiyo Windows application screenshot yakapihwa nemugadziri pa 1 Mbudzi 2026, uyo anoti application inoshanda nemazvo. Iyo inoratidza inogadzirwa mamiriro, ayo akachengetwa-mafaira ekutonga uye yakabatana yekugadzira dashboard; ichi hachisi chiseko.*
 

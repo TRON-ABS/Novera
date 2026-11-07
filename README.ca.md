@@ -73,7 +73,7 @@ A Android, es recomana un telèfon modern amb prou memòria per als models local
 
 Novera creix amb tu. Els vostres exemples i configuració poden ajudar altres usuaris a trobar una configuració adequada. Compartiu preguntes, problemes i idees al nostre [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) o per [correu electrònic](mailto:contact.novera.tronabs@gmail.com). Si és possible, incloeu la vostra versió Novera, dispositiu i model local/API. Elimineu la informació personal i no compartiu mai les claus ni les contrasenyes API.
 
-![Novera imatge generada i tauler de control unificat amb quantitat, llavor, augment d'escala i memòria automàtica](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera imatge generada i tauler de control unificat amb quantitat, llavor, augment d'escala i memòria automàtica](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Captura de pantalla real de l'aplicació Windows proporcionada pel responsable a 1 novembre 2026, que informa que l'aplicació funciona bé. Mostra un paisatge generat, els seus controls de fitxers desats i el tauler de creació unificat; això no és una maqueta.*
 

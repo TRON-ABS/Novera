@@ -73,7 +73,7 @@ Android에서는 로컬 모델에 메모리가 충분한 최신 전화기를 권
 
 Novera는 당신과 함께 성장합니다. 귀하의 예시와 설정은 다른 사용자가 적절한 설정을 찾는 데 도움이 될 수 있습니다. 질문, 문제, 아이디어를 공유하세요. [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) 또는 작성자 [이메일](mailto:contact.novera.tronabs@gmail.com). 가능하다면 Novera 버전, 장치 및 로컬/API 모델을 포함하세요. 개인 정보를 제거하고 API 키나 비밀번호를 공유하지 마십시오.
 
-![Novera 생성 이미지 및 수량, 시드, 업스케일링 및 자동 메모리를 갖춘 통합 대시보드](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera 생성 이미지 및 수량, 시드, 업스케일링 및 자동 메모리를 갖춘 통합 대시보드](.github/assets/novera-dashboard-2026-11-07.png)
 
 *2026년 11월 1일에 관리자가 제공한 실제 Windows 애플리케이션 스크린샷, 애플리케이션이 잘 작동한다고 보고합니다. 생성된 풍경, 저장된 파일 컨트롤 및 통합 생성 대시보드를 보여줍니다. 이것은 모형이 아닙니다.*
 

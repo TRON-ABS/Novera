@@ -73,7 +73,7 @@ Android irratti bilbilli ammayyaa mimoorii gahaa qabu moodeelota biyya keessaati
 
 Novera si waliin guddata. Fakkeenyonni fi qindaa'inoota kee fayyadamtoonni biroo qindeessaa mijaawaa akka argatan gargaaruu danda'a. Gaaffii, dhimmaa fi yaada keenya irratti waliif qoodaa [Facebook fuula](https://www.facebook.com/profile.php?id=61596114515071) ykn karaa [iimeelii](mailto:contact.novera.tronabs@gmail.com). Yoo danda'ame, Novera version, meeshaa fi moodeela local/API keessan dabalaa. Odeeffannoo dhuunfaa haqi malee furtuu ykn jecha icciitii API gonkumaa hin qoodinaa.
 
-![Novera fakkii fi daashboordii tokkummaa kan baay'ina, sanyii, olka'iinsaa fi yaadannoo ofumaan qabu maddisiise](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera fakkii fi daashboordii tokkummaa kan baay'ina, sanyii, olka'iinsaa fi yaadannoo ofumaan qabu maddisiise](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Fakkii iskiriinii iyyannoo dhugaa Windows kan kunuunsaan 1 Sadaasa 2026 irratti dhihaate, innis aplikeeshiniin akka gaariitti akka hojjetu gabaase. Laandiskaappii uumame, too'annoowwan faayilii qusatame isaa fi daashboordii uumuu tokkummaa agarsiisa; kun mockup miti.*
 

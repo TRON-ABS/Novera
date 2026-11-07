@@ -75,7 +75,7 @@ Mo go Android, go kgothalediwa founo ya segompieno e e nang le memori o o lekane
 
 Novera e gola le wena. Dikai tsa gago le diseting di ka thusa badirisi ba bangwe go bona thulaganyo e e tshwanetseng. Abelana dipotso, dikgang le dikakanyo mo [Facebook tsebe](https://www.facebook.com/profile.php?id=61596114515071) kgotsa ka [imeile](mailto:contact.novera.tronabs@gmail.com). Fa go kgonega, akaretsa mofuta wa gago wa Novera, sediriswa le sekao sa selegae/API. Tlosa tshedimosetso ya poraefete mme le ka motlha o se ka wa abelana dinotlolo tsa API kgotsa dikhunololamoraba.
 
-![Novera setshwantsho se se tlhagisitsweng le dasheboto e e kopantsweng e e nang le bontsi, peo, go tlhatlosa selekanyo le memori o o itirisang](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera setshwantsho se se tlhagisitsweng le dasheboto e e kopantsweng e e nang le bontsi, peo, go tlhatlosa selekanyo le memori o o itirisang](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Setshwantsho sa nnete sa tiriso ya Windows se se tlametsweng ke motlhokomedi ka 1 Ngwanaitseele 2026, yo o begang gore tiriso e dira sentle. E bontsha sebopeho sa naha se hlahisitsweng, ditaolo tsa yona tsa faele e bolokilweng le dashboard e kopaneng ya popo; se ga se setshwantsho.*
 

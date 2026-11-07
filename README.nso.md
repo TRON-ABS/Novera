@@ -75,7 +75,7 @@ Go Android, mogala wa sebjalebjale wo o nago le memori ye e lekanego o kgothalet
 
 Novera e gola le wena. Mehlala ya gago le dipeakanyo di ka thuša badiriši ba bangwe go hwetša peakanyo ye e swanetšego. Abelana dipotšišo, ditaba le dikgopolo ka ga rena [Facebook letlakala](https://www.facebook.com/profile.php?id=61596114515071) goba ka [imeile](mailto:contact.novera.tronabs@gmail.com). Ge go kgonega, akaretša phetolelo ya gago ya Novera, sedirišwa le mohlala wa selegae/API. Tloša tshedimošo ya motho gomme o se ke wa abelana dinotlelo tša API goba diphasewete.
 
-![Novera generated setšoantšo le kopantswe dashboard le palo, peo, upscaling le memoring ya jarolla ka ho iketsa](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera generated setšoantšo le kopantswe dashboard le palo, peo, upscaling le memoring ya jarolla ka ho iketsa](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Seswantšho sa nnete sa tirišo sa Windows seo se filwego ke mohlokomedi ka 1 Ngwatobošego 2026, yo a begago gore tirišo e šoma gabotse. E bontšha sebopego sa naga seo se tšweleditšwego, ditaolo tša yona tša faele ye e bolokilwego le dashboard ya tlholo ye e kopanego; se ga se mockup.*
 

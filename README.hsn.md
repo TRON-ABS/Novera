@@ -73,7 +73,7 @@ Android 喺，推荐用内存够嘅现代手机做本地模型；用较弱设备
 
 Novera 随你成长。你嘅例子同设置可帮其他用户搵到合适配置。喺我哋嘅 [Facebook 页面分享问题、问题同想法](https://www.facebook.com/profile.php?id=61596114515071) 或者通过 [电邮](mailto:contact.novera.tronabs@gmail.com)。如果可以，请提供你嘅 Novera 版本、设备同本地/API 模型。移除个人信息，绝唔好分享 API 密钥或密码。
 
-![Novera 生成图像和统一仪表板，包含数量、种子、放大和自动内存](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera 生成图像和统一仪表板，包含数量、种子、放大和自动内存](.github/assets/novera-dashboard-2026-11-07.png)
 
 *由维护者在 1 年 11 月 2026 提供的真实 Windows 应用程序截图，报告应用程序运行良好。它显示了生成的风景、其保存文件控件和统一创建仪表板；这不是模型。*
 

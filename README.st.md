@@ -75,7 +75,7 @@ Ho Android, ho khothaletsoa mohala oa sejoale-joale o nang le mohopolo o lekanen
 
 Novera e hola le uena. Mehlala le litlhophiso tsa hau li ka thusa basebelisi ba bang ho fumana seta se loketseng. Arolelana lipotso, litaba le mehopolo ho rona [Facebook leqephe](https://www.facebook.com/profile.php?id=61596114515071) kapa ka [lengolo-tsoibila](mailto:contact.novera.tronabs@gmail.com). Ha ho khoneha, kenyelletsa beshene ea hau ea Novera, sesebelisoa le mofuta oa lehae/API. Tlosa lintlha tsa hau 'me u se ke ua arolelana le API linotlolo kapa li-password.
 
-![Novera setšoantšo se hlahisitsoeng le dashboard e kopaneng e nang le bongata, peo, upscaling le mohopolo o ikemetseng](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera setšoantšo se hlahisitsoeng le dashboard e kopaneng e nang le bongata, peo, upscaling le mohopolo o ikemetseng](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Senepe sa 'nete sa Windows se fanoeng ke mohlokomeli ka 1 Pulungoana 2026, ea tlalehang hore sesebelisoa se sebetsa hantle. E bonts'a sebaka se hlahisitsoeng, taolo ea lifaele tse bolokiloeng le dashboard e kopaneng ea pōpo; sena ha se papali.*
 

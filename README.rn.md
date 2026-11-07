@@ -75,7 +75,7 @@ Kuri Android, telefone y’ubuhinga bwa none ifise ubwonko buhagije irakenewe ku
 
 Novera ikurana nawe. Ingero zawe n’imiterere yawe birashobora gufasha abandi bakoresha kuronka imiterere ibereye. Sangira ibibazo, ibibazo n'ivyiyumviro ku rubuga rwacu [Facebook urupapuro](https://www.facebook.com/profile.php?id=61596114515071) canke kuri [imeyili](mailto:contact.novera.tronabs@gmail.com). Niba bishoboka, shiramwo verisiyo yawe ya Novera, igikoresho n’ikigereranyo c’aho hantu/API. Kuraho amakuru y’ibanga kandi ntukigere usangira imfunguruzo za API canke amajambo banga.
 
-![Novera yashizeho ishusho n'urutonde rw'ibikoresho rumwe rufise ubwinshi, imbuto, gutera imbere n'ukwibuka kwikora](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera yashizeho ishusho n'urutonde rw'ibikoresho rumwe rufise ubwinshi, imbuto, gutera imbere n'ukwibuka kwikora](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Igishushanyo c'ukuri c'ikoreshwa Windows catanzwe n'umucungerezi ku wa 1 Ugushyingo 2026, atangaza ko ikoreshwa rikora neza. Igaragaza ikibanza cavutse, ubugenzuzi bwaco bwa dosiye yabitswe n’urubaho rw’irema bumwe; ivyo si ivy’ugutwenga.*
 

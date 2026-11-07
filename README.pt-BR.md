@@ -73,7 +73,7 @@ No Android, recomenda-se um celular moderno com memória suficiente para modelos
 
 Novera cresce com você. Seus exemplos e configurações podem ajudar outros usuários a encontrar uma configuração adequada. Compartilhe perguntas, problemas e ideias em nosso [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) ou por [e-mail](mailto:contact.novera.tronabs@gmail.com). Se possível, inclua a versão do Novera, dispositivo e modelo local/API. Remova informações pessoais e nunca compartilhe chaves ou senhas API.
 
-![Imagem gerada Novera e painel unificado com quantidade, seed, upscaling e memória automática](.github/assets/novera-dashboard-2026-11-01.png)
+![Imagem gerada Novera e painel unificado com quantidade, seed, upscaling e memória automática](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Captura de tela real do aplicativo Windows fornecida pelo mantenedor em 1 novembro 2026, que relata que o aplicativo funciona bem. Mostra um cenário gerado, seus controles de arquivos salvos e o painel de criação unificado; isso não é uma maquete.*
 

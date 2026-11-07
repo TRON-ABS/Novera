@@ -73,7 +73,7 @@ Kuri Android, terefone igezweho ifite ububiko buhagije irasabwa moderi zaho; kor
 
 Novera ikura hamwe nawe. Ingero zawe nigenamiterere birashobora gufasha abandi bakoresha kubona uburyo bukwiye. Sangira ibibazo, ibibazo n'ibitekerezo kuri twe [Urupapuro rwa Facebook](https://www.facebook.com/profile.php?id=61596114515071) cyangwa na [imeri](mailto:contact.novera.tronabs@gmail.com). Niba byoroshye, nyandika ingano ya Novera, ikoranabuhanga, n'ikoreshwa cy'ibanze/API. Hagarika amakuru y'umuntu kandi nta gihe utangaje ibikoresho by'API cyangwa amasezerano.
 
-![Icyo cy'amashusho cyo'Novera cyanditswe n'ikoranabuhanga kigaragara cy'ibintu, ingano, seed, upscaling n'amemori y'automatisme](.github/assets/novera-dashboard-2026-11-01.png)
+![Icyo cy'amashusho cyo'Novera cyanditswe n'ikoranabuhanga kigaragara cy'ibintu, ingano, seed, upscaling n'amemori y'automatisme](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Ishusho ya Windows yerekana amashusho yatanzwe nuwayibitse kuri 1 Ugushyingo 2026, utangaza ko porogaramu ikora neza. Yerekana ahantu nyaburanga, ibitse-dosiye igenzura hamwe nububiko bumwe bwo kurema; ibi ntabwo ari ugusebanya.*
 

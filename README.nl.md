@@ -73,7 +73,7 @@ Op Android wordt een moderne telefoon met voldoende geheugen aanbevolen voor lok
 
 Novera groeit met u mee. Jouw voorbeelden en instellingen kunnen andere gebruikers helpen een geschikte opstelling te vinden. Deel vragen, problemen en ideeën op onze [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) of door [e-mail](mailto:contact.novera.tronabs@gmail.com). Vermeld indien mogelijk uw Novera-versie, apparaat en lokaal/API-model. Verwijder persoonlijke gegevens en deel nooit API-sleutels of wachtwoorden.
 
-![Novera gegenereerde afbeelding en uniform dashboard met hoeveelheid, zaad, opschaling en automatisch geheugen](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera gegenereerde afbeelding en uniform dashboard met hoeveelheid, zaad, opschaling en automatisch geheugen](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Echte screenshot van de Windows-applicatie geleverd door de beheerder op 1 november 2026, die meldt dat de applicatie goed werkt. Het toont een gegenereerd landschap, de bedieningselementen voor opgeslagen bestanden en het uniforme creatiedashboard; dit is geen mockup.*
 

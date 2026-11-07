@@ -75,7 +75,7 @@ Android kan, bi telefɔni min hakili bɛ se ka kɛ, o bɛ ladilikan di sigida mo
 
 Novera bɛ bonya ni i ye. I ka misaliw ni i ka sigicogo bɛ se ka baarakɛla tɔw dɛmɛ ka sigicogo bɛnnen sɔrɔ. Ɲininkaliw, koɲɛw ani hakilinaw tila ɲɔgɔn na an ka... [Facebook ɲɛ](https://www.facebook.com/profile.php?id=61596114515071) walima ka tɛmɛ [bataki cilen](mailto:contact.novera.tronabs@gmail.com)ye . Ni aw bɛ se, aw ka Novera bɔko, minɛn ani sigida/API modɛli don a kɔnɔ. Aw ye aw yɛrɛ ka kunnafoniw bɔ yen ani aw kana API kilisi walima daɲɛw tila ɲɔgɔn na abada.
 
-![Novera ye ja dilan ani dashboard kelen ye ni hakɛ, kisɛ, sɛgɛsɛgɛli ani otomatiki hakilijagabɔ ye](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera ye ja dilan ani dashboard kelen ye ni hakɛ, kisɛ, sɛgɛsɛgɛli ani otomatiki hakilijagabɔ ye](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Windows baarakɛminɛnw ja lakika min dira ladonbaga fɛ 1 Nowanburukalo 2026, min y’a jira ko baarakɛminɛn bɛ baara kɛ ka ɲɛ. A bɛ dugukolo-yɔrɔ dɔ jira min dabɔra, a ka dosiye maralenw kɔlɔsili ani dabɔ-dasibɔlan kelen; nin tɛ mockup ye.*
 

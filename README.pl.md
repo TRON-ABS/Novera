@@ -75,7 +75,7 @@ W przypadku Android zalecany jest nowoczesny telefon z wystarczającą ilością
 
 Novera rośnie razem z Tobą. Twoje przykłady i ustawienia mogą pomóc innym użytkownikom w znalezieniu odpowiedniej konfiguracji. Dziel się pytaniami, problemami i pomysłami na naszej stronie [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) lub przez [e-mail](mailto:contact.novera.tronabs@gmail.com). Jeśli to możliwe, podaj wersję Novera, urządzenie i model lokalny/API. Usuń dane osobowe i nigdy nie udostępniaj kluczy ani haseł API.
 
-![Novera wygenerował obraz i ujednolicił pulpit nawigacyjny z ilością, materiałem siewnym, skalowaniem w górę i automatyczną pamięcią](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera wygenerował obraz i ujednolicił pulpit nawigacyjny z ilością, materiałem siewnym, skalowaniem w górę i automatyczną pamięcią](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Zrzut ekranu prawdziwej aplikacji Windows dostarczony przez opiekuna w dniu 1 Listopad 2026, który informuje, że aplikacja działa dobrze. Pokazuje wygenerowany krajobraz, elementy sterujące zapisanymi plikami i ujednolicony pulpit nawigacyjny tworzenia; to nie jest makieta.*
 

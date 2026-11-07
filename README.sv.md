@@ -75,7 +75,7 @@ På Android rekommenderas en modern telefon med tillräckligt med minne för lok
 
 Novera växer med dig. Dina exempel och inställningar kan hjälpa andra användare att hitta en lämplig installation. Dela frågor, frågor och idéer på vår [Facebook sida](https://www.facebook.com/profile.php?id=61596114515071) eller av [e-post](mailto:contact.novera.tronabs@gmail.com). Om möjligt, inkludera din Novera-version, enhet och lokala/API-modell. Ta bort personlig information och dela aldrig API nycklar eller lösenord.
 
-![Novera genererad bild och enhetlig instrumentpanel med kvantitet, utsäde, uppskalning och automatiskt minne](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera genererad bild och enhetlig instrumentpanel med kvantitet, utsäde, uppskalning och automatiskt minne](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Riktig skärmdump av Windows-applikationen tillhandahållen av underhållaren den 1 november 2026, som rapporterar att applikationen fungerar bra. Den visar ett genererat landskap, dess kontroller för sparade filer och den enhetliga instrumentpanelen för skapande; det här är inte en mockup.*
 

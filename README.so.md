@@ -73,7 +73,7 @@ Android, taleefoon casri ah oo xasuus ku filan leh ayaa lagula talinayaa moodooy
 
 Novera kula koraa Tusaalooyinkaaga iyo dejimahaaga ayaa ka caawin kara isticmaalayaasha kale inay helaan habayn ku habboon. La wadaag su'aalaha, arrimaha iyo fikradaha ku saabsan our [Facebook bogga](https://www.facebook.com/profile.php?id=61596114515071) ama by [iimaylka](mailto:contact.novera.tronabs@gmail.com)Haddii ay suurtagal tahay, ku dar nooca Novera, qalabka iyo nooca maxalliga ah/API. Ka saar macluumaadka gaarka ah oo waligaa la wadaagin API furayaasha ama furayaasha sirta ah.
 
-![Novera sawir ayaa sameeyay iyo dashboard midaysan oo leh tiro, abuur, kor u qaadis iyo xasuus toos ah](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera sawir ayaa sameeyay iyo dashboard midaysan oo leh tiro, abuur, kor u qaadis iyo xasuus toos ah](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Real Windows screenshot dalabka oo uu bixiyay haye 1 Noofambar 2026, kaas oo sheegay in codsigu si fiican u shaqeeyo. Waxay muujinaysaa muuqaal muuqaal ah, kontaroolkeeda faylka la kaydiyay iyo dashboardka hal abuurka midaysan; tani ma aha jeesjees.*
 

@@ -73,7 +73,7 @@ Android da mahalliy modellar uchun yetarli xotiraga ega zamonaviy telefon tavsiy
 
 Novera siz bilan birga o'sadi. Sizning misollaringiz va sozlamalaringiz boshqa foydalanuvchilarga mos sozlashni topishga yordam beradi. Bizning saytimizda savollar, muammolar va g'oyalarni baham ko'ring [Facebook sahifa](https://www.facebook.com/profile.php?id=61596114515071) yoki tomonidan [elektron pochta](mailto:contact.novera.tronabs@gmail.com). Iloji bo'lsa, Novera versiyasi, qurilma va mahalliy/API modelingizni kiriting. Shaxsiy ma'lumotlarni olib tashlang va API kalitlari yoki parollarini hech qachon baham ko'rmang.
 
-![Novera hosil qilingan tasvir va miqdori, urugʻi, oʻlchamini oshirish va avtomatik xotira bilan birlashtirilgan boshqaruv paneli](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera hosil qilingan tasvir va miqdori, urugʻi, oʻlchamini oshirish va avtomatik xotira bilan birlashtirilgan boshqaruv paneli](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Haqiqiy Windows ilovasi skrinshoti 1 noyabr 2026 sanasida texnik xizmat ko'rsatuvchi tomonidan taqdim etilgan, u ilova yaxshi ishlayotganini bildiradi. U yaratilgan landshaft, saqlangan fayl boshqaruvi va birlashtirilgan yaratish paneli ko'rsatadi; bu namuna emas.*
 

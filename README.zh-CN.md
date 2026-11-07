@@ -73,7 +73,7 @@ Novera 1.0.1 适用于下列平台。下载适合您的系统的软件包或使�
 
 Novera 与您一起成长。您的示例和设置可以帮助其他用户找到合适的设置。在我们的网站上分享疑问、问题和想法 [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) 或 [邮箱](mailto:contact.novera.tronabs@gmail.com)。如果可能，请包含您的 Novera 版本、设备和本地/API 型号。删除个人信息，切勿共享 API 密钥或密码。
 
-![Novera 生成的图像和统一的仪表板，具有数量、种子、放大和自动记忆功能](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera 生成的图像和统一的仪表板，具有数量、种子、放大和自动记忆功能](.github/assets/novera-dashboard-2026-11-07.png)
 
 *真实的 Windows 应用程序屏幕截图由 1 维护者于 11 月 2026 提供，该维护者报告该应用程序运行良好。它显示了生成的景观、其保存的文件控件和统一的创建仪表板；这不是一个模型。*
 

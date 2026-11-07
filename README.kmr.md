@@ -73,7 +73,7 @@ Li ser Android, têlefonek nûjen bi têra bîranîna ji bo modelên herêmî t�
 
 Novera bi we re mezin dibe. Nimûne û mîhengên we dikarin ji bikarhênerên din re bibin alîkar ku saziyek maqûl bibînin. Pirs, pirsgirêk û ramanan li ser me parve bikin [rûpel Facebook](https://www.facebook.com/profile.php?id=61596114515071) an ji hêla [email](mailto:contact.novera.tronabs@gmail.com). Ger gengaz be, guhertoya Novera, cîhaz û modela xweya herêmî/API vekin. Agahdariya kesane jêbirin û tu carî mift û şîfreyên API parve nekin.
 
-![Novera wêne û tabloya yekgirtî bi mîqdar, tov, bilindkirin û bîranîna otomatîkî çêkir.](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera wêne û tabloya yekgirtî bi mîqdar, tov, bilindkirin û bîranîna otomatîkî çêkir.](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Wêneya serîlêdana rastîn a Windows ku ji hêla parêzgerê li ser 1-ê Mijdar 2026 ve hatî peyda kirin, ku radigihîne ku serîlêdan baş dixebite. Ew perestgehek hatî çêkirin, kontrolên pelê-ya tomarkirî û dashboarda afirandina yekbûyî nîşan dide; ev ne mockup e.*
 

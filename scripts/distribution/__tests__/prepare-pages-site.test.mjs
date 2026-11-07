@@ -20,6 +20,8 @@ test('published showcase uses reviewed versions without carrying forward the old
   assert.match(html, /v1\.0\.0-windows-portable/)
   assert.match(html, /La version portable Windows x64 1\.0\.0 est disponible/)
   assert.match(html, /Novera Web : préparation expérimentale/)
+  assert.deepEqual(fs.readFileSync(path.join(root, 'site/assets/dashboard.png')), fs.readFileSync(new URL('../../../.github/assets/novera-dashboard-2026-11-07.png', import.meta.url)))
+  assert.match(html, /href="assets\/dashboard\.png\?v=[a-f0-9]{12}" target="_blank" rel="noreferrer" aria-label="Voir la capture originale en pleine résolution"/)
   assert.match(html, /Installation et mise à jour sur téléphone restent à tester/)
 })
 

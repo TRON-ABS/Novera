@@ -73,7 +73,7 @@ A kan Android, ana ba da shawarar wayar zamani tare da isasshen ƙwaƙwalwar aji
 
 Novera girma tare da ku. Misalan ku da saitunanku na iya taimaka wa sauran masu amfani samun saitin da ya dace. Raba tambayoyi, batutuwa da ra'ayoyi akan mu [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) ko ta [imel](mailto:contact.novera.tronabs@gmail.com). Idan zai yiwu, haɗa da sigar Novera ɗinku, na'urar da ƙirar gida/API. Cire keɓaɓɓen bayaninka kuma kar a taɓa raba maɓallan API ko kalmomin shiga.
 
-![Novera da aka ƙirƙira hoto da haɗaɗɗen dashboard tare da yawa, iri, haɓakawa da ƙwaƙwalwar atomatik](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera da aka ƙirƙira hoto da haɗaɗɗen dashboard tare da yawa, iri, haɓakawa da ƙwaƙwalwar atomatik](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Hoton hoton aikace-aikacen Windows na ainihi wanda mai kulawa ya kawo akan 1 Nuwamba 2026, wanda ya ba da rahoton cewa aikace-aikacen yana aiki da kyau. Yana nuna shimfidar wuri da aka ƙirƙira, sarrafa fayil ɗin ajiyar sa da haɗewar dashboard ɗin ƙirƙira; wannan ba izgili ba ne.*
 

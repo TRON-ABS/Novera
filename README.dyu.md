@@ -75,7 +75,7 @@ Android kan, bi telefɔni min hakili ka ca, o ladili be di sigida modɛliw ma; b
 
 Novera be bonya ka taga n’i ye. I ka misaliyaw n’i ka labɛnw be se ka baarakɛla tɔɔw dɛmɛ ka labɛn ɲuman sɔrɔ. Aw ka ɲiningaliw, koow ani miiriya dɔw tilan an ka . [Facebook ɲɛɛ](https://www.facebook.com/profile.php?id=61596114515071) walima ka tɛmɛ [imeli](mailto:contact.novera.tronabs@gmail.com). N'a be se ka kɛ, i ka Novera suguya, minɛn ani sigiyɔrɔ/API modɛli fara a kan. I ka mɔgɔ ka kunnafoniw bɔ yen ani i kana API kilɛw wala i ka gundokow tilan abada.
 
-![Novera ja bɔra ani tablo kelen ni hakɛ, dannifɛnw, yɛlɛmani ani hakilijagabɔ min be kɛ a yɛrɛ ma](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera ja bɔra ani tablo kelen ni hakɛ, dannifɛnw, yɛlɛmani ani hakilijagabɔ min be kɛ a yɛrɛ ma](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Windows porogaramu jaa yɛrɛ yɛrɛ min dira a ladonbaga fɛ 1 Nowanburukalo la 2026, min y’a fɔ ko porogaramu be baara kɛ ka ɲɛ. A be yɔrɔ dɔ yira min bɔra, a ka saved-file kɔlɔsili ani danni tablo kelen; nin tɛ yɛlɛko ye.*
 

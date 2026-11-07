@@ -73,7 +73,7 @@ Ci Android, telefon bu bees bu am memory bu doy lañuy digal model yu dëkk bi; 
 
 Novera dafay màgg ak yaw. Sa misaal ak say jekkal mën nañu jàppale yeneen jëfandikukat ñu am jekkal bu méngoo. Séddoo ay laaj, ay jafe-jafe ak ay xalaat ci sunu [Xëtu Facebook](https://www.facebook.com/profile.php?id=61596114515071) wala ci [bataaxal](mailto:contact.novera.tronabs@gmail.com). Soo ko mënee, boole ci sa xeetu Novera, sa aparey ak sa modelu lokal/API. Dindil say leerali bopp te bul musa séddoo caabi API wala baatu-jàll.
 
-![Novera dafa defar nataal ak tablo dashboard buñ boole muy bari, jiwwu, yokk escalier ak mémoire otomatik](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera dafa defar nataal ak tablo dashboard buñ boole muy bari, jiwwu, yokk escalier ak mémoire otomatik](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Nataalu aplikaasioŋu Windows dëgg bi maintenant bi joxe ci 1 nowàmbar 2026, moo xamle ni aplikaasioŋ bi dafay dox bu baax. Dafay wane paysage buñ defar, ay seytu fichier yuñ denc ak tablo sos biñ boole; lii du maquette.*
 

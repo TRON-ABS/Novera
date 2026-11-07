@@ -73,7 +73,7 @@ Ku-Android, ifoni yesimanje enenkumbulo eyanele iyanconywa kumamodeli endawo; se
 
 Novera ikhula nawe. Izibonelo zakho nezilungiselelo zingasiza abanye abasebenzisi bathole ukusetha okulungile. Yabelana ngemibuzo, izingqinamba kanye nemibono kwethi [Facebook ikhasi](https://www.facebook.com/profile.php?id=61596114515071) noma ngo [i-imeyili](mailto:contact.novera.tronabs@gmail.com). Uma kungenzeka, faka inguqulo yakho ye-Novera, idivayisi kanye nemodeli yendawo/API. Susa ulwazi lomuntu siqu futhi ungalokothi wabelane ngokhiye noma amaphasiwedi angu-API.
 
-![Novera isithombe esakhiwe kanye nedeshibhodi ehlanganisiwe enobuningi, imbewu, ukukhushulwa kwememori kanye nenkumbulo ezenzakalelayo](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera isithombe esakhiwe kanye nedeshibhodi ehlanganisiwe enobuningi, imbewu, ukukhushulwa kwememori kanye nenkumbulo ezenzakalelayo](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Real Windows isithombe-skrini sohlelo lokusebenza esinikezwe umnakekeli ku-1 Novemba 2026, obika ukuthi uhlelo lokusebenza lusebenza kahle. Ibonisa indawo ekhiqiziwe, izilawuli zayo zefayela eligciniwe kanye nedeshibhodi yokudala ehlanganisiwe; lokhu akuyona into ehlekisayo.*
 

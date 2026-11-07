@@ -75,7 +75,7 @@ Android tarihinde, yerel modeller için yeterli belleğe sahip modern bir telefo
 
 Novera sizinle birlikte büyüyor. Örnekleriniz ve ayarlarınız diğer kullanıcıların uygun bir kurulum bulmasına yardımcı olabilir. Sorularınızı, sorunlarınızı ve fikirlerinizi sayfamızda paylaşın [Facebook sayfa](https://www.facebook.com/profile.php?id=61596114515071) veya tarafından [e-posta](mailto:contact.novera.tronabs@gmail.com). Mümkünse Novera sürümünüzü, cihazınızı ve yerel/API modelinizi ekleyin. Kişisel bilgileri kaldırın ve asla API anahtarlarını veya şifrelerini paylaşmayın.
 
-![Novera oluşturulan görsel ve miktar, tohum, yükseltme ve otomatik hafıza içeren birleştirilmiş kontrol paneli](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera oluşturulan görsel ve miktar, tohum, yükseltme ve otomatik hafıza içeren birleştirilmiş kontrol paneli](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Gerçek Windows uygulama ekran görüntüsü, uygulamanın iyi çalıştığını bildiren bakımcı tarafından 1 Kasım 2026 tarihinde sağlandı. Oluşturulmuş bir manzarayı, kayıtlı dosya kontrollerini ve birleşik oluşturma kontrol panelini gösterir; bu bir maket değil.*
 

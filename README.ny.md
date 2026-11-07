@@ -75,7 +75,7 @@ Pa Android, foni yamakono yokhala ndi kukumbukira kokwanira imalimbikitsidwa kut
 
 Novera imakula nanu. Zitsanzo ndi zokonda zanu zingathandize ogwiritsa ntchito ena kupeza khwekhwe yoyenera. Gawani mafunso, nkhani ndi malingaliro athu [Facebook tsamba](https://www.facebook.com/profile.php?id=61596114515071) or by [imelo](mailto:contact.novera.tronabs@gmail.com). Ngati n'kotheka, phatikizani mtundu wanu wa Novera, chipangizo chanu ndi m'deralo/API. Chotsani zambiri zanu ndipo musagawane API makiyi kapena mawu achinsinsi.
 
-![Novera chithunzi chopangidwa ndi dashboard yolumikizana yokhala ndi kuchuluka, mbewu, kukwera ndi kukumbukira](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera chithunzi chopangidwa ndi dashboard yolumikizana yokhala ndi kuchuluka, mbewu, kukwera ndi kukumbukira](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Zithunzi zenizeni Windows zoperekedwa ndi woyang'anira pa 1 Novembala 2026, yemwe akuti pulogalamuyo imagwira ntchito bwino. Imawonetsa mawonekedwe opangidwa, mawonekedwe ake osungidwa-mafayilo ndi dashboard yogwirizana yolenga; uku si kuseketsa.*
 

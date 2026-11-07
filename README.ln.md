@@ -73,7 +73,7 @@ Na Android, téléphone ya sika oyo ezali na mémoire ekoki esengami mpo na ba m
 
 Novera ekolaka elongo na yo. Bandakisa mpe ba paramètres na yo ekoki kosalisa basaleli mosusu bázwa ebongiseli oyo ebongi. Bokabola mituna, makambo pe makanisi na biso [Facebook page](https://www.facebook.com/profile.php?id=61596114515071) to na nzela ya [email na yo](mailto:contact.novera.tronabs@gmail.com). Soki likoki ezali, kotia version na yo ya Novera, dispositif mpe modèle local/API. Longola ba informations personnelles mpe kabola jamais ba touches to ba mots de passe ya API.
 
-![Novera esalemi image mpe tableau de bord unifié na quantité, semence, upscaling mpe mémoire automatique](.github/assets/novera-dashboard-2026-11-01.png)
+![Novera esalemi image mpe tableau de bord unifié na quantité, semence, upscaling mpe mémoire automatique](.github/assets/novera-dashboard-2026-11-07.png)
 
 *Capture d'écran ya application ya Windows ya solo oyo epesami na mobateli na 1 Novembre 2026, oyo ayebisi ete application esalaka malamu. Ezali kolakisa paysage oyo esalemi, ba contrôles na yango ya fichier oyo ebombami mpe tableau de bord ya création unifié; oyo ezali maquette te.*
 
