@@ -22,6 +22,7 @@ Add experimental Real-ESRGAN x2 using the hash-verified original Desktop checkpo
 
 ## Validation
 
+- After syncing current `main` release/showcase changes, **11 Node delivery, runtime-packaging and showcase contracts passed**. Preserve this Web PR description and the combined release lessons; no public deployment or merge was performed.
 - Latest image follow-up: **51 Vitest tests passed in four files**, including full-resolution forwarding, explicit GPU budgets, x2 worker ownership, cancellation, timing retention, tile bounds and progress phases. **Seven offline Python patch-chain tests passed.** TypeScript/production and the pinned WASM build passed, including a repeat build from the already-patched cache.
 - Actual GPU numerical checks: **12/12 IM2COL CPU comparisons remain byte-identical**; **6/6 Leaky-ReLU comparisons match the CPU's finite F32 values exactly**, covering in-place execution, offset/strided views, odd sizes, multiple slopes and values outside F16 range. Six compiled C++ pixel-unshuffle layouts also match PyTorch exactly.
 - Actual Novera Web: valid **2048 x 880 PNG, four steps, seed 42, 449 s total**, including 322 s diffusion and 117 s decoding. A tiled/matmul decoder probe took 365 s but produced an entirely white PNG; reject that timing as invalid and retain the normal direct-convolution path.
