@@ -39,6 +39,18 @@ Les cinq premiers builds desktop échouent avant la compilation applicative : `s
 
 La [PR #28](https://github.com/TRON-ABS/Novera/pull/28) est fusionnée : chemins Android et prérequis CLI/Gradle corrigés. Les nouveaux contrôles source réussissent ; CLI et Android CI sont relancés. Le portable exige aussi une correction du format SHA-256 après `sha2` et le retrait des valeurs 1.0.0 figées dans ses scripts. Huit tests Rust portables, 18 tests Python de distribution et 12 contrats Node ciblés passent après ces changements. Le nouveau packaging impose le moteur texte courant ; la provenance du runtime de base réutilisé reste distincte.
 
+## Livraisons partielles vérifiées
+
+Les corrections de préparation #29 à #39 sont fusionnées : portable, chemins CLI Windows, API zbus Linux, génération Android, transitions documentaires, descripteurs de validation et transfert direct CI vers les brouillons. Les corrections d'outillage ne sont pas assimilées à des compilations natives réussies.
+
+- [Windows ARM64 1.0.1](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64) est publié. [Compilation signée](https://github.com/TRON-ABS/Novera/actions/runs/42341687065) et [installation/remplacement/interface natifs](https://github.com/TRON-ABS/Novera/actions/runs/42345384781) réussis. Le paquet est signé par la clé updater Novera ; ces contrôles isolés ne certifient pas une transition entre deux applications publiques.
+- [CLI 1.0.1](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera) est publiée pour Windows x64, Linux x64 et macOS ARM64. Le [run 42343121038](https://github.com/TRON-ABS/Novera/actions/runs/42343121038) passe sur les trois hôtes ; le test explicite d'archive signée, remplacement et lancement isolés réussit sur chacun. Les signatures finales et empreintes sont vérifiées avant transfert et après stockage GitHub.
+- [Android 1.0.1 / 1000013](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) est publiée : APK release locale, certificat de production conservé, signature/alignement et six ELF vérifiés. SHA-256 APK : `e3656733703b26ef306ddd6d0d03c2cbf2d2bb63fae0b8affc4012e9dfa4a3e7`. Aucun essai téléphone de cette APK n'est revendiqué. Le correctif de régénération Android #38 est lancé séparément en CI.
+- Le canal global `latest` reste volontairement sur la sortie 1.0.0 pendant les compilations Windows x64, portable, Linux et Mac Intel. Ces publications de plateformes ne changent pas le canal Desktop de l'installation 1.0.0 du mainteneur.
+- Linux atteint la compilation et la signature finales, puis le run 42345624586 échoue sur la première capture WebDriver après le message attendu. Le diagnostic conserve la lecture DOM et une seconde capture réussie ; le run échoué reste compté comme tel. Une relance native est en cours, la capture reçoit un retry borné séparément.
+
+Les identités de signature disponibles sont copiées dans une sauvegarde privée hors dépôt. Les 18 fichiers sont contrôlés ; la restauration Android et la récupération chiffrée de la même clé updater Windows/macOS/Linux/CLI/portable sont vérifiées. Aucun secret n'est ajouté au dépôt.
+
 ## Livraison
 
 Préparer les paquets signés et leurs reçus par plateforme. Android exige le certificat de production existant ; le candidat debug CI ne sert pas de mise à jour publique. iOS conserve ses prérequis Apple et ses essais sur appareil. MSI/Debian ne deviennent pas publiables par une compilation seule.
