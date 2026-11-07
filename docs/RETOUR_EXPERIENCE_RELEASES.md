@@ -12,11 +12,14 @@ Avant une compilation longue, remplir une fiche avec la plateforme, l’architec
 
 | Prochaine cible | Ce que nous avons déjà | Ce qu’il faut obtenir ou vérifier avant publication |
 | --- | --- | --- |
-| macOS Apple Silicon | Candidats inspectés, signatures updater et remplacements natifs contrôlés en CI. | Identité Apple de distribution, signature/notarisation du paquet final, contrôle du canal public et du parcours réel sur Mac. |
-| macOS Intel | Candidats x64 inspectés et essais natifs distincts de ceux d’Apple Silicon. | Même chaîne de distribution Apple, contrôle sur Intel et dépendances adaptées ; ne pas reprendre le résultat ARM64 comme preuve Intel. |
-| Android | APK debug ARM64 inspectée ; signature debug, ELF et alignement contrôlés. | Trois audits mobiles, identité de signature durable, canal de distribution choisi et installation/mise à jour sur appareil. |
+| macOS Apple Silicon | Distribution directe 1.0.0 publique, signatures updater et remplacements natifs contrôlés en CI. Candidat 1.0.1 compilé séparément. | Vérifier le paquet exact, le canal et le parcours de la nouvelle version. Developer ID/notarisation restent à préparer pour la future distribution Apple ; ne pas les présenter comme déjà obtenus. |
+| macOS Intel | Distribution directe 1.0.0 publique ; essais natifs distincts de ceux d’Apple Silicon. Nouvelle compilation 1.0.1 en cours. | Contrôler Intel et ses dépendances ; ne pas reprendre le résultat ARM64 comme preuve Intel. Conserver la limite de signature/notarisation Apple de la distribution directe. |
+| Android | APK release 1.0.1 / 1000013 publique, certificat de production conservé et paquet inspecté ; audits source mobiles consignés. | Tester cette APK et sa mise à jour sur téléphone. Le retour positif du build 1000012 ne valide pas le 1000013. Garder les sauvegardes de signature indépendantes du seul profil Windows. |
 | iOS | Candidat simulateur interne. | Équipe Apple, identifiants et accès nécessaires, provisioning, build pour appareil et essais réels via le canal retenu. |
 | Prochaine version Windows/Linux/portable | Paquets publics 1.0.0 et canaux signés disponibles. | Véritable transition de la version publique précédente vers la nouvelle, dans l’interface et avec conservation des données. |
+| Web | Interface compilée et vitrine informative Pages publique ; aucune application complète en ligne validée. | Adapter les services natifs au navigateur, tester persistance et fournisseurs. Un moteur navigateur compatible peut exécuter un petit modèle sur l'appareil ; tester architecture, téléchargement, mémoire et vitesse avant d'annoncer une compatibilité. Pages ne fournit pas le serveur de calcul natif. |
+
+Tableau actualisé le **7 novembre 2026** pendant la sortie 1.0.1. Les observations datées des sections suivantes restent des historiques ; les états de publication courants sont dans le suivi de sortie.
 
 Préparer les certificats et accès dans les emplacements sécurisés prévus. Ne jamais mettre leurs valeurs dans ce fichier, un ticket, le chat, Git ou un artefact. Vérifier les exigences officielles Apple/Google et les outils disponibles au moment de chaque sortie ; les références de ce dépôt ne sont pas une garantie de règles de store inchangées.
 
@@ -232,6 +235,10 @@ Le mainteneur autorise la mise à jour de ce mémo pendant la sortie. Les résul
 | Une copie de `password.dpapi` seule ne permet pas la récupération après perte du profil Windows. | Conserver aussi une récupération chiffrée indépendante du compte, vérifier qu'elle restitue la même identité et tester la restauration dans un dossier privé neuf. Les copies Android et Desktop ont été vérifiées pour ce cycle. La clé updater commune couvre Windows, macOS, Linux, CLI et portable ; les futures identités Apple exigent leur propre sauvegarde. Garder les codes de récupération séparément des archives et hors de Git. |
 
 Le contrôle post-publication doit lui aussi suivre la version : son workflow et le contrôle natif CLI contenaient encore des chemins et messages 1.0.0. Utiliser un descripteur revu correspondant à la version applicative, refuser l'ancien descripteur et contrôler explicitement le périmètre Windows/Linux/macOS de la CLI. Un contrôle réussi de l'ancienne sortie ne valide pas la nouvelle.
+
+Le portable 1.0.1 atteint la limite CI de 90 minutes pendant la compilation Rust après son nouveau worker CUDA/Vulkan. Porter ce budget à 180 minutes ; conserver moteur courant, tests et signatures. Ne pas réutiliser l'ancien worker sous un nouveau numéro pour gagner du temps. Une limite de temps est un run annulé, pas un paquet validé.
+
+Le projet Android fraîchement généré active le cache de configuration Gradle, incompatible avec le hook Node de rafraîchissement et les chemins de notre tâche native à l'exécution. Le désactiver explicitement dans les propriétés générées et couvrir un fichier neuf initialement réglé à `true`. Cette option de performance ne doit pas masquer un échec de compilation ou désactiver Lint.
 
 Un contrôle Linux a atteint le vrai bouton de mise à jour et le message attendu, puis sa première capture WebDriver a fermé la connexion. La lecture DOM et la seconde capture du diagnostic réussissent : conserver l'échec du run et ajouter une relance bornée de la capture normale, sans ignorer une panne persistante ni déclarer une image absente comme réussie. Le contrôle reste à réexécuter en CI.
 
