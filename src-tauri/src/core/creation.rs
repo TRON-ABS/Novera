@@ -5,6 +5,8 @@ use std::{collections::HashMap, path::PathBuf, process::Stdio, sync::LazyLock};
 use tauri::{AppHandle, Manager, Runtime};
 #[path = "creation_music.rs"]
 mod music;
+#[path = "creation_native.rs"]
+mod native;
 use tokio::{
     process::{Child, Command},
     sync::Mutex,
@@ -28,6 +30,7 @@ struct Job {
     pending_upscale: Option<Request>,
     upscale_source: Option<PathBuf>,
     expected_upscale: Option<(u32, u32)>,
+    native_upscale_stage: bool,
     started: std::time::Instant,
     pending_music: Option<Request>,
     music_request: Option<Request>,
@@ -70,6 +73,12 @@ pub struct Request {
     compat_quantize: bool,
     #[serde(default)]
     memory_policy: Option<String>,
+    #[serde(skip)]
+    native_runtime: Option<PathBuf>,
+    #[serde(skip)]
+    native_backend: Option<String>,
+    #[serde(skip)]
+    native_combined: bool,
 }
 
 fn local_file(value: &str, extensions: &[&str]) -> Result<PathBuf, String> {
@@ -304,17 +313,18 @@ fn cpp_command(
         .arg(request.seed.to_string())
         .arg("--cfg-scale")
         .arg(request.cpp_cfg.unwrap_or(1.0).to_string())
-        .args([
-            "--sampling-method",
-            "euler",
-            "--offload-to-cpu",
-            "--vae-tiling",
-        ]);
+        .args(["--sampling-method", "euler"]);
+    cli.args(native::image_flags(request.task == "image" && request.native_runtime.is_some()));
+    if request.native_combined {
+        cli.arg("--upscale-model").arg(request.upscale_model.as_deref().ok_or("CREATION_UPSCALE_MISSING")?)
+            .args(["--upscale-repeats", "1", "--upscale-tile-size", "128"]);
+    }
     // The bundled engine can cut the graph to fit live free VRAM. Reserve space
     // for display/driver allocations instead of planning against all free memory.
     // Keep externally selected engines compatible with their own CLI versions.
-    #[cfg(windows)]
-    cli.args(["--max-vram", "-0.5"]);
+    if cfg!(windows) || request.native_runtime.is_some() {
+        cli.args(["--max-vram", "-0.5"]);
+    }
     if request.task == "video" {
         cli.arg("--video-frames").arg(request.frames.to_string())
             .arg("--fps").arg(request.fps.to_string()).args(["--flow-shift", "3.0"]);
@@ -330,6 +340,8 @@ fn cpp_command(
         Some("cuda") => backends.push("te=cuda0"),
         _ => {}
     }
+    let upscale_backend = request.native_combined.then(|| format!("upscaler={}", if request.device == "cpu" { "cpu" } else { request.native_backend.as_deref().unwrap_or("auto") }));
+    if let Some(value) = &upscale_backend { backends.push(value.as_str()); }
     if !backends.is_empty() {
         cli.args(["--backend", &backends.join(",")]);
     }
@@ -487,14 +499,7 @@ pub async fn creation_start<R: Runtime>(
     mut request: Request,
 ) -> Result<String, String> {
     let components_lease = super::components::lease().await?;
-    if request.task != "music" {
-        let family = if request.backend.as_deref() == Some("sdcpp") {
-            if request.task == "video" { Some("video") }
-            else if requires_nvfp4(&request.model)? || request.cpp_llm.as_deref().map(requires_nvfp4).transpose()?.unwrap_or(false) { Some("media") }
-            else if request.upscale_factor.is_some() { Some("upscale") } else { None }
-        } else { Some("media") };
-        if let Some(family) = family { request.python = super::components::resolve(&app, &request.python, family)?; }
-    }
+    let started = std::time::Instant::now();
     if let Some(factor) = request.upscale_factor {
         if request.task != "image" || ![2, 4].contains(&factor) {
             return Err("CREATION_UPSCALE_INVALID".into());
@@ -522,9 +527,27 @@ pub async fn creation_start<R: Runtime>(
         }
         request.cpp_executable = Some(executable.to_string_lossy().into_owned());
     }
-    let started = std::time::Instant::now();
+    if matches!(std::env::var("NOVERA_NATIVE_IMAGE_FAST").as_deref(), Ok("1"))
+        && request.task == "image" && request.backend.as_deref() == Some("sdcpp") && !requires_nvfp4(&request.model)?
+        && !request.cpp_llm.as_deref().map(requires_nvfp4).transpose()?.unwrap_or(false) {
+        if let Some(executable) = request.cpp_executable.as_deref() {
+            if let Some(runtime) = native::discover(std::path::Path::new(executable), &request.device, request.encoder_device.as_deref()).await {
+                request.native_runtime = Some(runtime.executable);
+                request.native_backend = runtime.backend;
+                request.native_combined = runtime.combined && request.upscale_factor.is_some();
+            }
+        }
+    }
+    if request.task != "music" {
+        let family = if request.backend.as_deref() == Some("sdcpp") {
+            if request.task == "video" { Some("video") }
+            else if requires_nvfp4(&request.model)? || request.cpp_llm.as_deref().map(requires_nvfp4).transpose()?.unwrap_or(false) { Some("media") }
+            else if request.upscale_factor.is_some() && request.native_runtime.is_none() { Some("upscale") } else { None }
+        } else { Some("media") };
+        if let Some(family) = family { request.python = super::components::resolve(&app, &request.python, family)?; }
+    }
     validate(&request)?;
-    if request.upscale_factor.is_some() {
+    if request.upscale_factor.is_some() && request.native_runtime.is_none() {
         // Fail before generating an image when the selected Python cannot run
         // the optional upscaler. This process exits before either model loads.
         let mut probe = Command::new(if request.python.trim().is_empty() {
@@ -749,9 +772,10 @@ pub async fn creation_start<R: Runtime>(
             } else {
                 None
             },
-            pending_upscale: request.upscale_factor.map(|_| request.clone()),
+            pending_upscale: if request.native_combined { None } else { request.upscale_factor.map(|_| request.clone()) },
             upscale_source: None,
-            expected_upscale: None,
+            expected_upscale: if request.native_combined { request.upscale_factor.map(|factor| (request.width * factor, request.height * factor)) } else { None },
+            native_upscale_stage: request.native_combined,
             cpp: cpp && !cpp_video,
             started,
             pending_music: (request.task == "music").then(|| request.clone()),
@@ -771,13 +795,14 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
         return Ok(json!({"stage":"cancelled"}));
     }
     let log = std::fs::read_to_string(job.directory.join("progress.jsonl")).unwrap_or_default();
-    let progress = if job.task == "music" || (job.cpp && job.pending_cpp.is_none() && job.expected_upscale.is_none()) {
+    let progress = if job.task == "music" || (job.cpp && job.pending_cpp.is_none() && (job.expected_upscale.is_none() || job.native_upscale_stage)) {
         None
     } else {
         log.lines()
             .rev()
             .find_map(|line| serde_json::from_str::<Value>(line).ok())
     };
+    let native_upscaling = job.native_upscale_stage && (job.upscale_source.is_some() || log.contains("upscaling from ") || std::fs::read_to_string(job.directory.join("error.log")).unwrap_or_default().contains("upscaling from "));
     let status = job.child.try_wait().map_err(|e| e.to_string())?;
     if matches!(status, Some(status) if !status.success()) && music::recoverable(job) {
         match music::recover(job) {
@@ -898,11 +923,18 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             let path = job.directory.join("upscale-request.json");
             std::fs::write(&path, serde_json::to_vec(&config).map_err(|e| e.to_string())?)
                 .map_err(|e| e.to_string())?;
-            let mut command = Command::new(if request.python.trim().is_empty() { "python" } else { &request.python });
-            super::components::configure_python(&mut command, &request.python);
-            command.arg("-u").arg(job.directory.join("upscale.py")).arg(path);
-            // From this point parse only the owned Python worker's JSON. Never
-            // reinterpret raw sd-cli output as trusted progress after transition.
+            let mut command = if let Some(runtime) = &request.native_runtime {
+                job.native_upscale_stage = true;
+                native::upscale_command(runtime, request.native_backend.as_deref(),
+                    std::path::Path::new(request.upscale_model.as_deref().ok_or("CREATION_UPSCALE_MISSING")?), &job.staged, &output)?
+            } else {
+                let mut command = Command::new(if request.python.trim().is_empty() { "python" } else { &request.python });
+                super::components::configure_python(&mut command, &request.python);
+                command.arg("-u").arg(job.directory.join("upscale.py")).arg(path);
+                command
+            };
+            // Only the Python fallback emits structured progress. Native
+            // upscaling stays on the raw-CLI path and still verifies dimensions.
             command.stdout(Stdio::from(std::fs::OpenOptions::new().write(true).truncate(true)
                     .open(job.directory.join("progress.jsonl")).map_err(|e| e.to_string())?))
                 .stderr(Stdio::from(std::fs::OpenOptions::new().append(true)
@@ -1003,7 +1035,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             Ok(music::progress(job))
         },
         None => Ok(progress
-            .unwrap_or(json!({"stage":if job.expected_upscale.is_some() {"upscaling"} else if job.cpp {"generating"} else {"loading"},"progress":if job.cpp {-1} else {0}}))),
+            .unwrap_or(json!({"stage":if job.expected_upscale.is_some() && (!job.native_upscale_stage || native_upscaling) {"upscaling"} else if job.cpp {"generating"} else {"loading"},"progress":if job.cpp {-1} else {0}}))),
         Some(status) if status.success() && job.output.is_file() => {
             job.delivered = true;
             job.components_lease.take();

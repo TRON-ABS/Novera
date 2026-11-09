@@ -28,6 +28,16 @@ Windows application builds stage this runtime under `resources/image-engine/` au
 
 The probe reports the selected family, GPU token and detected CUDA compute capabilities. A compatible NVIDIA GPU alone does not prove that arbitrary model operators/layouts are supported.
 
+## Shared native image improvements (1.0.1)
+
+The reviewed RealESRGAN_x2plus correction and guarded build provenance are shared with the Web native bridge. Start Desktop with `NOVERA_NATIVE_IMAGE_FAST=1` to opt in to the experimental image path. With a verified runtime, it can generate and enlarge in one process using flash attention without forced CPU offload or VAE tiling. The launcher reports `upscaler_backend: true` when it supports explicit upscaler placement. Explicit CPU assignments remain respected. Final dimensions are checked before publishing the output.
+
+`prepare.ps1` now builds the corrected CUDA and portable CPU cores and writes a `BUILD-VERIFICATION.json` beside each runtime. `-SkipEngineBuild` requires a matching existing receipt. The portable core is also packaged with Vulkan, without requiring a CUDA driver. `build-launcher.ps1` builds the launcher and runs its policy checks using MSVC; its dynamic CUDA query ABI does not require the full CUDA compiler SDK.
+
+Linux/macOS builders can use `python media-server/image-launcher/build-core.py --source <pinned-source> --build <separate-build-directory> --backend metal` (or `cpu`, `cuda`, `vulkan`) with their normal compiler and SDK. Package the resulting CLI, libraries and receipt together. Regenerate the receipt after stripping or signing nested binaries, before signing the outer application bundle. These platform procedures are prepared, but were not executed on Linux/macOS in the Windows validation session.
+
+The local Rust benchmark measured 36.023 s for the previous pipeline and 31.572 s for combined native generation plus x2 (2048 × 880 to 4096 × 1760, four steps, seed 42, RTX 5070 Laptop). The comparison used the pipeline outside the Desktop GUI. The final PNGs differed by a mean of 7.35 RGB levels per channel on a 0–255 scale. Python was faster for the isolated x2 stage in that comparison.
+
 ## CUDA formats and scope
 
 | Path | CUDA execution | Constraints |
