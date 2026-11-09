@@ -4,6 +4,7 @@ The shipped sd-cli can fall back to AVI even for a .webm output name.
 Use its AVI explicitly; never trust an extension as a container signature.
 """
 import ctypes
+from itertools import islice
 import json
 import os
 import codecs
@@ -202,7 +203,9 @@ def run(config):
                 emit(stage='generating', progress=min(98, int(98*(emitted+take*fraction)/(duration*config['fps']))))
             run_cpp_clip(argv, config.get('video_cwd'), config.get('steps', 20), progress)
             progress(1)
-            reader = imageio_ffmpeg.read_frames(str(clip), pix_fmt='rgb24')
+            # Wan generates a 4n+1 clip. Stop the export reader at the last used frame.
+            reader = imageio_ffmpeg.read_frames(str(clip), pix_fmt='rgb24',
+                                                 output_params=['-frames:v', str(take)])
             try:
                 info = next(reader)
                 if tuple(info['size']) != size:
@@ -213,9 +216,7 @@ def run(config):
                                                         output_params=['-movflags', '+faststart'], ffmpeg_log_level='error')
                     writer.send(None)
                 received = 0
-                for frame in reader:
-                    if received >= take:
-                        break
+                for frame in islice(reader, take):
                     writer.send(frame)
                     received += 1
                 if received != take:
@@ -280,13 +281,14 @@ def run_diffusers_video(pipeline, args, config, device):
                 writer.send(None)
             if len(result.frames[0]) < take:
                 raise ValueError('Video pipeline returned too few frames')
-            for frame in result.frames[0][:take]:
+            for frame in islice(result.frames[0], take):
                 frame = np.asarray(frame)
                 if frame.dtype.kind == 'f':
                     frame = (frame.clip(0, 1) * 255).round().astype('uint8')
                 if frame.shape != (size[1], size[0], 3) or frame.dtype != np.uint8:
                     raise ValueError('Video pipeline returned an unsupported frame')
-                writer.send(np.ascontiguousarray(frame).tobytes())
+                # The FFmpeg pipe accepts contiguous buffers directly.
+                writer.send(np.ascontiguousarray(frame))
             del result
             emitted += take
             segments += 1
