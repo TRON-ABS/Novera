@@ -12,10 +12,10 @@ async function verified(url, sha) {
 const modelUrl = 'https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF/resolve/d508b88f08a5b4286f2d2805a6a8d69a0ff44c72/' + modelName;
 const modelSize = 1099630080;
 
-async function readModel(response) {
-  if (!response.ok || !response.body) throw new Error('Téléchargement du modèle impossible.');
+async function readModel(body) {
+  if (!body) throw new Error('Téléchargement du modèle impossible.');
   const bytes = new Uint8Array(modelSize);
-  const reader = response.body.getReader();
+  const reader = body.getReader();
   let offset = 0;
   let lastPercent = -1;
   try {
@@ -40,26 +40,34 @@ async function readModel(response) {
 }
 
 async function loadCatalogModel() {
-  const cache = await self.caches?.open('novera-web-text-model-v1').catch(() => undefined);
-  const cached = await cache?.match(modelUrl).catch(() => undefined);
-  if (cached) {
-    try { return await readModel(cached); }
-    catch { await cache.delete(modelUrl).catch(() => {}); }
+  const root = await navigator.storage?.getDirectory?.().catch(() => undefined);
+  const filename = `novera-text-${modelSha}.gguf`;
+  const cached = await root?.getFileHandle(filename).then(handle => handle.getFile()).catch(() => undefined);
+  if (cached?.size === modelSize) {
+    try { return await readModel(cached.stream()); }
+    catch (error) { postMessage({type:'log',line:`Vérification du cache texte : ${error}`}); }
   }
-  const bytes = await readModel(await fetch(modelUrl, {credentials:'omit', referrerPolicy:'no-referrer'}));
-  if (cache) {
-    let offset = 0;
-    const body = new ReadableStream({
-      pull(controller) {
-        if (offset === bytes.length) { controller.close(); return; }
-        const chunk = bytes.subarray(offset, offset + 4 * 1024 * 1024);
-        offset += chunk.length;
-        controller.enqueue(chunk);
-      },
-    });
-    await cache.put(modelUrl, new Response(body)).catch(() => {});
-  }
+  const response = await fetch(modelUrl, {credentials:'omit', referrerPolicy:'no-referrer'});
+  if (!response.ok) throw new Error('Téléchargement du modèle impossible.');
+  const bytes = await readModel(response.body);
+  if (root) await cacheModel(root, filename, bytes);
   return bytes;
+}
+
+async function cacheModel(root, filename, bytes) {
+  let stream;
+  try {
+    const handle = await root.getFileHandle(filename, {create:true});
+    stream = await handle.createWritable();
+    const block = 4 * 1024 * 1024;
+    for (let offset = 0; offset < bytes.length; offset += block) {
+      await stream.write(bytes.subarray(offset, offset + block));
+    }
+    await stream.close();
+  } catch (error) {
+    await stream?.abort().catch(() => {});
+    postMessage({type:'log',line:`Enregistrement du cache texte : ${error}`});
+  }
 }
 function result(){return JSON.parse(engine.UTF8ToString(engine._novera_result()));}
 self.onmessage=async event=>{
