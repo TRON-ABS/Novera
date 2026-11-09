@@ -6,6 +6,7 @@ on:
     paths:
       - .github/workflows/novera-web-publish.yml
       - scripts/browser-music/**
+      - scripts/browser-text/**
       - web-app/src/services/browser-preview/local-music.worker.ts
 permissions:
   contents: read
@@ -16,6 +17,7 @@ jobs:
       matrix:
         include:
           - {kind: media, source: sdcpp}
+          - {kind: text, source: source}
           - {kind: music, source: ace}
     runs-on: ubuntu-24.04
     timeout-minutes: 60
@@ -43,6 +45,13 @@ jobs:
           runtime_args=()
           if [[ "$RUNTIME_KIND" == media ]]; then
             runtime_args+=(--kernel-tuning)
+          elif [[ "$RUNTIME_KIND" == text ]]; then
+            llama=src-tauri/plugins/tauri-plugin-llamacpp/vendor/llama.cpp
+            git init "$llama"
+            git -C "$llama" remote add origin https://github.com/ggml-org/llama.cpp.git
+            git -C "$llama" fetch --depth 1 origin cd959bae99ff4bed22bef2604f45241c09bbb8c8
+            git -C "$llama" checkout --detach FETCH_HEAD
+            runtime_args+=(--batched-host-inputs --cmake "$(command -v cmake)")
           else
             runtime_args+=(--web-release)
           fi
@@ -78,6 +87,10 @@ jobs:
         with:
           name: web-runtime-music-${{ github.sha }}
           path: .build/browser-music
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: web-runtime-text-${{ github.sha }}
+          path: .build/browser-text
       - name: Build browser application and stage showcase
         env:
           VITE_NOVERA_WEB_LOCAL_MEDIA: 'true'
@@ -95,6 +108,7 @@ jobs:
           yarn build:tauri:plugin:api
           yarn build:core
           yarn build:extensions
+          export NOVERA_BROWSER_TEXT_BUILD="$GITHUB_WORKSPACE/.build/browser-text/build"
           export NOVERA_BROWSER_MEDIA_BUILD="$GITHUB_WORKSPACE/.build/browser-media/build"
           export NOVERA_BROWSER_MUSIC_BUILD="$GITHUB_WORKSPACE/.build/browser-music/build"
           yarn build:web:browser

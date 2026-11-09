@@ -1,0 +1,83 @@
+--- a/ggml/src/ggml-backend.cpp
++++ b/ggml/src/ggml-backend.cpp
+@@ -8,6 +8,9 @@
+ #include <windows.h>
+ #endif
+ 
++#if defined(__EMSCRIPTEN__) && !defined(__EMSCRIPTEN_PTHREADS__)
++#include <emscripten.h>
++#endif
+ #include "ggml-backend.h"
+ #include "ggml-backend-impl.h"
+ #include "ggml-alloc.h"
+@@ -2122,6 +2125,45 @@
+     }
+ }
+ 
++// Restricted optimization: all inputs are CPU-host non-weights, one copy slot,
++// one CPU source backend, and a WebGPU destination. Validate everything before
++// any upload; preserve the original path for every other configuration.
++static bool novera_try_batch_host_inputs(ggml_backend_sched_t sched, ggml_backend_sched_split * split) {
++#if defined(__EMSCRIPTEN__) && !defined(__EMSCRIPTEN_PTHREADS__)
++    if (sched->n_copies != 1 || split->n_inputs < 2 ||
++        !EM_ASM_INT({ return globalThis.noveraBatchHostInputs === true ? 1 : 0; })) return false;
++    auto destination = sched->backends[split->backend_id];
++    auto reg = ggml_backend_dev_backend_reg(ggml_backend_get_device(destination));
++    if (strcmp(ggml_backend_reg_name(reg), "WebGPU") != 0) return false;
++    ggml_backend_t source = nullptr;
++    for (int i = 0; i < split->n_inputs; ++i) {
++        auto input = split->inputs[i];
++        auto backend = ggml_backend_sched_get_tensor_backend(sched, input);
++        if (!backend || backend == destination || !input->buffer ||
++            !ggml_backend_buffer_is_host(input->buffer) || ggml_backend_sched_is_host_weight(input) ||
++            ggml_backend_dev_type(ggml_backend_get_device(backend)) != GGML_BACKEND_DEVICE_TYPE_CPU ||
++            (source && source != backend)) return false;
++        source = backend;
++    }
++    // CPU input production is complete; all old GPU reads finish before the
++    // first overwrite. WriteBuffer copies each host input before this call returns.
++    ggml_backend_synchronize(source);
++    ggml_backend_synchronize(destination);
++    for (int i = 0; i < split->n_inputs; ++i) {
++        auto input = split->inputs[i];
++        ggml_backend_tensor_copy(input, tensor_copy(input, split->backend_id, sched->cur_copy));
++    }
++    EM_ASM({
++        globalThis.noveraBatchedHostInputSplits = (globalThis.noveraBatchedHostInputSplits || 0) + 1;
++        globalThis.noveraBatchedHostInputTensors = (globalThis.noveraBatchedHostInputTensors || 0) + $0;
++    }, split->n_inputs);
++    return true;
++#else
++    GGML_UNUSED(sched); GGML_UNUSED(split);
++    return false;
++#endif
++}
++
+ static enum ggml_status ggml_backend_sched_compute_splits(ggml_backend_sched_t sched) {
+     GGML_ASSERT(sched);
+     struct ggml_backend_sched_split * splits = sched->splits;
+@@ -2145,14 +2187,16 @@
+ 
+         // copy the input tensors to the split backend
+         // the weights in host memory are copied last, so that the copy callback can read the other inputs of the split
+-        for (int input_id = 0; input_id < split->n_inputs; input_id++) {
+-            if (!ggml_backend_sched_is_host_weight(split->inputs[input_id])) {
+-                ggml_backend_sched_copy_input(sched, split, split->inputs[input_id]);
+-            }
+-        }
+-        for (int input_id = 0; input_id < split->n_inputs; input_id++) {
+-            if (ggml_backend_sched_is_host_weight(split->inputs[input_id])) {
+-                ggml_backend_sched_copy_input(sched, split, split->inputs[input_id]);
++        if (!novera_try_batch_host_inputs(sched, split)) {
++            for (int input_id = 0; input_id < split->n_inputs; input_id++) {
++                if (!ggml_backend_sched_is_host_weight(split->inputs[input_id])) {
++                    ggml_backend_sched_copy_input(sched, split, split->inputs[input_id]);
++                }
++            }
++            for (int input_id = 0; input_id < split->n_inputs; input_id++) {
++                if (ggml_backend_sched_is_host_weight(split->inputs[input_id])) {
++                    ggml_backend_sched_copy_input(sched, split, split->inputs[input_id]);
++                }
+             }
+         }
+ 

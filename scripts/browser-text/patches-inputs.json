@@ -1,0 +1,19 @@
+{
+  "file": "ggml/src/ggml-webgpu/ggml-webgpu.cpp",
+  "patch": "patches/webgpu-completed-fence-cache.patch",
+  "beforeSha256": "00a2e4f69e4c2e6eb093695c9a3c140e9e8fe44d31f81f3acfe661903e5bc340",
+  "afterSha256": "6254cbff6d3958c93eda608d9864e919c1e8de46b67448e56dd10b73da9103ac",
+  "patchSha256": "847d68722b103bd407c457bd34e4e3a9f01ecc959daaf251b79a9e1b7bc0e64a",
+  "queueOrderedReadback": true,
+  "completedFenceCache": true,
+  "batchedHostInputs": true,
+  "extraPatches": [
+    {
+      "file": "ggml/src/ggml-backend.cpp",
+      "patch": "patches/webgpu-batched-host-inputs.patch",
+      "beforeSha256": "16ac528cb0221ce1d14a97d035064947f9dae46748dc1ef6db802d06f80eaa79",
+      "afterSha256": "d69368da81fbd9a0d0c1ee5398eb3fcc595c1a1ffa6d41de965c96d811acb7c2",
+      "patchSha256": "6a5adba65a5539f1d9e042197119e8e14268b6fce4cf75152185f310ab0cd296"
+    }
+  ]
+}
