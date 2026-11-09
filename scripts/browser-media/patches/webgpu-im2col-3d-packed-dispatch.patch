@@ -1,0 +1,31 @@
+--- a/src/ggml-webgpu/ggml-webgpu.cpp
++++ b/src/ggml-webgpu/ggml-webgpu.cpp
+@@ -1191,9 +1191,12 @@
+ static webgpu_encoded_op ggml_webgpu_im2col_3d(webgpu_context & ctx, ggml_tensor * src0, ggml_tensor * src1, ggml_tensor * dst) {
+     const uint32_t ic = ggml_get_op_params_i32(dst, 9);
+     const uint32_t n = src1->ne[3] / ic;
++    const uint32_t offset_o = ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type);
++    const bool packed = (novera_image_kernel_flags() & 4194304) != 0 &&
++        dst->type == GGML_TYPE_F16 && dst->ne[0] % 4 == 0 && offset_o % 4 == 0;
+     std::vector<uint32_t> params = {
+         (uint32_t)(ggml_webgpu_tensor_misalignment(ctx, src1) / ggml_type_size(src1->type)),
+-        (uint32_t)(ggml_webgpu_tensor_misalignment(ctx, dst) / ggml_type_size(dst->type)),
++        offset_o,
+         (uint32_t)(src1->nb[0] / ggml_type_size(src1->type)),
+         (uint32_t)(src1->nb[1] / ggml_type_size(src1->type)),
+         (uint32_t)(src1->nb[2] / ggml_type_size(src1->type)),
+@@ -1210,10 +1213,12 @@
+     ggml_webgpu_shader_lib_context shader_lib_ctx = {};
+     shader_lib_ctx.src0=src0;shader_lib_ctx.src1=src1;shader_lib_ctx.dst=dst;
+     shader_lib_ctx.max_wg_size=ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
+-    webgpu_pipeline pipeline=ctx->shader_lib->get_im2col_pipeline(shader_lib_ctx);
++    webgpu_pipeline pipeline=ctx->shader_lib->get_im2col_pipeline(shader_lib_ctx, packed);
+     auto * decisions=static_cast<ggml_webgpu_generic_shader_decisions *>(pipeline.context.get());
+     uint32_t wg_x,wg_y;
+-    compute_2d_workgroups(CEIL_DIV((uint32_t)ggml_nelements(dst),decisions->wg_size),ctx->global_ctx->capabilities.limits.maxComputeWorkgroupsPerDimension,wg_x,wg_y);
++    const uint32_t invocations = (uint32_t)ggml_nelements(dst) / (packed ? 4u : 1u);
++    compute_2d_workgroups(CEIL_DIV(invocations, decisions->wg_size),
++                          ctx->global_ctx->capabilities.limits.maxComputeWorkgroupsPerDimension, wg_x, wg_y);
+     return ggml_backend_webgpu_build(ctx,pipeline,params,entries,wg_x,wg_y);
+ }
+ #endif

@@ -24,6 +24,7 @@ export function BrowserPreviewNotice() {
         select('llamacpp', spec.id)
         void browserRuntime.load(spec.id).catch(() => {})
       }}>Charger le modèle</button> : <span role="status">{state.phase === 'generating' ? 'Réponse en cours…' : 'Modèle prêt'}</span>}
+      {import.meta.env.VITE_NOVERA_WEB_LOCAL_WAN === 'true' && <a className="underline" href={`${import.meta.env.BASE_URL}video-performance/`}>Vidéo Wan locale</a>}
       <a className="underline ml-auto" href="https://github.com/TRON-ABS/Novera/releases" target="_blank" rel="noreferrer">Novera Desktop</a>
     </div>
     <BrowserSearchNotice />
@@ -32,7 +33,7 @@ export function BrowserPreviewNotice() {
     <details className="mt-1 text-muted-foreground"><summary className="cursor-pointer">Fonctions, données et limites</summary>
       {state.lastGeneration && <p role="status">Dernier texte · {state.lastGeneration.firstTextMs === undefined ? 'Aucun texte affiché' : `Premier affichage : ${(state.lastGeneration.firstTextMs / 1000).toFixed(2)} s`} · Total : {(state.lastGeneration.totalMs / 1000).toFixed(2)} s{state.lastGeneration.tokensPerSecond === undefined ? '' : ` · ${state.lastGeneration.tokensPerSecond.toFixed(1)} tokens/s`}{state.lastGeneration.completionTokens === undefined ? '' : ` · ${state.lastGeneration.completionTokens} tokens produits`}{state.lastGeneration.cachedTokens === undefined ? '' : ` · ${state.lastGeneration.cachedTokens} tokens réutilisés`}. Mesure après chargement du modèle.</p>}
       <p className="mt-1">Les discussions et fichiers créés sont conservés dans ce navigateur, sans synchronisation de compte. Choisissez un autre modèle depuis le sélecteur Novera. Le texte local fonctionne sans clé API ; la voix LFM3-Omni est expérimentale. Les pièces jointes restent à adapter.</p>
-      <p>Image FLUX.2 Klein et musique ACE-Step : essais locaux avec vos fichiers Desktop, à sélectionner dans les réglages de création. Les grandes images peuvent prendre plusieurs minutes ou échouer selon la mémoire GPU. Wan vidéo n’est pas encore disponible dans cette interface. Les performances Desktop ne sont pas garanties.</p>
+      <p>Image FLUX.2 Klein et musique ACE-Step avec vos fichiers Desktop, à sélectionner dans les réglages de création. Les grandes images peuvent prendre plusieurs minutes ou échouer selon la mémoire GPU.{import.meta.env.VITE_NOVERA_WEB_LOCAL_WAN === 'true' ? ' La génération locale Wan se fait sur la page Vidéo Wan locale, avec les trois fichiers du modèle Desktop.' : ''}</p>
       <p>Option cloud : choisissez un modèle fal dans les réglages du format et saisissez votre clé personnelle dans <a href="#/settings/providers/fal" className="underline">les paramètres fal</a>. La clé reste en mémoire pour cette session. Ces créations utilisent le service fal, ses tarifs et ses quotas ; elles ne sont pas exécutées localement. Aucune clé partagée n’est fournie par le site.</p>
       <p>Le modèle est téléchargé depuis Hugging Face puis mis en cache localement.{spec.projector ? ' Le modèle principal reste en Q4_K_M ; le projecteur audio est en Q8, format requis par ce moteur Web.' : ''} La mémoire nécessaire dépasse la taille du téléchargement. Le mode hors connexion complet reste à vérifier. <a href={spec.licenseUrl} className="underline" target="_blank" rel="noreferrer">Licence du modèle LiquidAI</a>.</p>
     </details>

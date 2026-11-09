@@ -1,4 +1,5 @@
 import { browserModel, type BrowserModelSpec } from './config'
+import { loadWasmTextModel, wasmTextSupported } from './wasm-text'
 
 export type BrowserToolCall = { id: string; type: 'function'; function: { name: string; arguments: Record<string, unknown> }; errors?: string[] }
 export type BrowserTool = { type: 'function'; function: { name: string; description?: string; parameters?: Record<string, unknown> } }
@@ -7,9 +8,9 @@ type SdkEvent = { type: string; text?: string }
 type SpeechEvent = SdkEvent & { audio?: Float32Array }
 export type SpeechMessage = { role: string; content: string | { type: 'audio'; audio: Float32Array }[] }
 export type SdkResult = { message: BrowserMessage; finish_reason: string; usage?: { prompt_tokens?: number; completion_tokens?: number; cached_tokens?: number }; timings?: { tokens_per_second?: number } }
-type Turn = AsyncIterable<SdkEvent> & { result: Promise<SdkResult>; cancel(): void }
+export type Turn = AsyncIterable<SdkEvent> & { result: Promise<SdkResult>; cancel(): void }
 type Session = { generate(messages: (BrowserMessage | SpeechMessage)[], options: Record<string, unknown>): Turn; reset(): void; dispose(): Promise<void> }
-type Model = { contextLength?: number; create_session(): Session; dispose(): Promise<void> }
+export type Model = { contextLength?: number; create_session(): Session; dispose(): Promise<void> }
 type Sdk = { from_pretrained(repo: string, options: Record<string, unknown>): Promise<Model> }
 export const BROWSER_CONTEXT_TOKENS = 32768
 export type BrowserRuntimeStatus = {
@@ -44,6 +45,8 @@ export class BrowserRuntime {
   private loadController?: AbortController
   private turn?: Turn
   private activeId = ''
+  private engine?: 'wasm' | 'sdk'
+  private loadingEngine?: 'wasm' | 'sdk'
   private previousHistory?: BrowserMessage[]
 
   constructor(private sdkLoader = loadPinnedSdk, private gpuAvailable = async () => {
@@ -57,18 +60,20 @@ export class BrowserRuntime {
   loadedId() { return this.model ? this.activeId : '' }
   cancelLoad() { this.loadController?.abort() }
 
-  async load(id: string): Promise<void> {
-    browserModel(id)
-    if (this.model && this.activeId === id) return
+  async load(id: string, preferSdk = false): Promise<void> {
+    const spec = browserModel(id)
+    const engine = !preferSdk && spec.id === 'LFM3-Omni-2B-Q4_K_M' && wasmTextSupported() ? 'wasm' : 'sdk'
+    if (this.model && this.activeId === id && this.engine === engine) return
     if (this.loadJob) {
-      if (this.status.modelId === id) return this.loadJob
+      if (this.status.modelId === id && this.loadingEngine === engine) return this.loadJob
       this.cancelLoad()
       await this.loadJob.catch(() => {})
+      return this.load(id, preferSdk)
     }
     if (this.turn) throw new Error('Arrêtez la réponse en cours avant de changer de modèle.')
-    const spec = browserModel(id)
     const controller = new AbortController()
     this.loadController = controller
+    this.loadingEngine = engine
     this.publish({ phase: 'loading', modelId: id, progress: 0 })
     const job = (async () => {
       await this.session?.dispose()
@@ -77,18 +82,23 @@ export class BrowserRuntime {
       this.session = undefined; this.model = undefined; this.activeId = ''
       controller.signal.throwIfAborted()
       if (!(await this.gpuAvailable())) throw new Error('WebGPU est nécessaire. Essayez Edge ou Chrome sur un appareil compatible, ou utilisez Novera Desktop.')
-      const sdk = await this.sdkLoader(spec)
-      controller.signal.throwIfAborted()
-      const model = await sdk.from_pretrained(spec.repo, {
-        revision: spec.revision, file: spec.file,
-        ...(spec.projector ? { mmproj: spec.projector } : {}),
-        maxLength: BROWSER_CONTEXT_TOKENS, cache: true,
-        cacheName: `novera-web-${spec.id}-${spec.revision}`,
-        prefixSnapshotStore: null, signal: controller.signal,
-        onProgress: (event: { fraction?: number }) => {
-          if (typeof event.fraction === 'number') this.publish({ phase: 'loading', modelId: id, progress: Math.max(0, Math.min(1, event.fraction)) })
-        },
-      })
+      const progress = (fraction: number) =>
+        this.publish({ phase: 'loading', modelId: id, progress: Math.max(0, Math.min(1, fraction)) })
+      const loadSdk = async () => {
+        const sdk = await this.sdkLoader(spec)
+        controller.signal.throwIfAborted()
+        return sdk.from_pretrained(spec.repo, {
+          revision: spec.revision, file: spec.file,
+          ...(spec.projector ? { mmproj: spec.projector } : {}),
+          maxLength: BROWSER_CONTEXT_TOKENS, cache: true,
+          cacheName: `novera-web-${spec.id}-${spec.revision}`,
+          prefixSnapshotStore: null, signal: controller.signal,
+          onProgress: (event: { fraction?: number }) => {
+            if (typeof event.fraction === 'number') progress(event.fraction)
+          },
+        })
+      }
+      const model = await (engine === 'wasm' ? loadWasmTextModel(controller.signal, progress) : loadSdk())
       if (controller.signal.aborted) { await model.dispose(); controller.signal.throwIfAborted() }
       if (typeof model.contextLength === 'number' && model.contextLength < BROWSER_CONTEXT_TOKENS) {
         await model.dispose()
@@ -100,6 +110,7 @@ export class BrowserRuntime {
       this.model = model
       this.session = session
       this.activeId = id
+      this.engine = engine
       if (this.model && this.activeId === id) this.publish({ phase: 'ready', modelId: id })
     })()
     this.loadJob = job
@@ -114,7 +125,10 @@ export class BrowserRuntime {
   }
 
   async *generate(id: string, messages: BrowserMessage[], signal?: AbortSignal, maxTokens = 512, tools?: BrowserTool[]): AsyncGenerator<{ text?: string; result?: SdkResult }> {
-    await this.load(id)
+    const requiresSdk = messages.at(-1)?.role === 'assistant' ||
+      messages.some(message => message.role === 'tool' || message.tool_calls?.length)
+    signal?.throwIfAborted()
+    await this.load(id, requiresSdk)
     signal?.throwIfAborted()
     if (this.turn || !this.session) throw new Error('Le moteur est occupé. Attendez la fin de la réponse.')
     // Both pinned SDKs reconcile token prefixes internally. Reuse their cache
@@ -128,13 +142,14 @@ export class BrowserRuntime {
     // On the pinned Omni SDK, short replies benefit from less speculative GPU
     // work queued beyond the stop token. Keep its sustained-decode default.
     const shortOmni = browserModel(id).kind === 'omni' && maxTokens <= 128
-    const turn = this.session.generate(messages, { generation_mode: 'text', max_new_tokens: Math.min(1024, Math.max(1, maxTokens)), do_sample: false, signal, ...(shortOmni ? { decode_pipeline_depth: 2 } : {}), ...(tools?.length ? { tools } : {}) })
+    const turn = this.session.generate(messages, { generation_mode: 'text', max_new_tokens: Math.min(1024, Math.max(1, maxTokens)), do_sample: false, signal, ...(shortOmni ? { decode_pipeline_depth: 2 } : {}), ...(this.engine !== 'wasm' && tools?.length ? { tools } : {}) })
     this.turn = turn
     const cancel = () => turn.cancel()
     signal?.addEventListener('abort', cancel, { once: true })
     this.publish({ phase: 'generating', modelId: id })
     let firstTextMs: number | undefined
     let result: SdkResult | undefined
+    void turn.result.catch(() => {})
     try {
       for await (const event of turn) if (event.type === 'text' && event.text) {
         firstTextMs ??= performance.now() - started
@@ -144,6 +159,7 @@ export class BrowserRuntime {
       if (result.finish_reason === 'stop' && !signal?.aborted) this.previousHistory = [...messages.map(message => ({ ...message })), { ...result.message }]
       yield { result }
     } finally {
+      if (!result) { turn.cancel(); await turn.result.catch(() => {}) }
       signal?.removeEventListener('abort', cancel)
       if (this.turn === turn) this.turn = undefined
       if (this.model && this.activeId === id) this.publish({ phase: 'ready', modelId: id, ...(result?.finish_reason !== 'cancelled' && result ? { lastGeneration: {
@@ -161,7 +177,7 @@ export class BrowserRuntime {
     onAudio?: (samples: Float32Array) => void): Promise<string> {
     if (browserModel(id).kind !== 'omni') throw new Error('unavailable')
     signal.throwIfAborted()
-    await this.load(id)
+    await this.load(id, true)
     signal.throwIfAborted()
     if (this.turn || !this.model) throw new Error('unavailable')
     const session = this.model.create_session()

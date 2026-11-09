@@ -1,0 +1,45 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -2236,6 +2236,19 @@
+         key.large_regular_tile = !key.use_subgroup_matrix && context.vendor == "nvidia" &&
+             context.src0->ne[1] >= 512 && context.src1->ne[1] >= 256;
+ 
++        // Wan's VAE multiplies a long im2col matrix by relatively few
++        // output channels. Reuse the F16 operands in larger M tiles.
++        const bool narrow_half = (novera_image_kernel_flags() & 8388608) != 0 &&
++            !key.use_subgroup_matrix && context.vendor == "nvidia" &&
++            key.src0_type == GGML_TYPE_F16 && key.src1_type == GGML_TYPE_F16 &&
++            context.src0->ne[0] >= 512 && context.src0->ne[0] % 32 == 0 &&
++            context.src0->ne[1] >= 1024 && context.src1->ne[1] >= 32 && context.src1->ne[1] <= 192 &&
++            context.src1->ne[1] % 32 == 0 && context.max_wg_size >= 128u && context.wg_mem_limit_bytes >= 10880u;
++        if (narrow_half) {
++            key.large_regular_tile = true;
++            key.geometry = context.src1->ne[1] <= 96 ? 4 : 3;
++        }
++
+         key.unroll4 = key.large_regular_tile && (context.src0->type == GGML_TYPE_Q4_K || context.src0->type == GGML_TYPE_Q5_K) && (novera_image_kernel_flags() & 2) != 0;
+         key.unroll8 = key.unroll4 && (novera_image_kernel_flags() & 512) != 0;
+         const bool q45 = context.src0->type == GGML_TYPE_Q4_K || context.src0->type == GGML_TYPE_Q5_K;
+@@ -2250,7 +2263,7 @@
+             (novera_image_kernel_flags() & 8192) && (novera_image_kernel_flags() & 2097152)) key.geometry = 3;
+         const bool fma_half_staged = q45 || context.src0->type == GGML_TYPE_Q6_K || context.src0->type == GGML_TYPE_F16 || context.src0->type == GGML_TYPE_BF16;
+         key.fused_madd = key.large_regular_tile && fma_half_staged && (novera_image_kernel_flags() & 4096) != 0;
+-        key.transposed_shared = key.large_regular_tile && fma_half_staged && context.src1->ne[1] >= 1024 && (novera_image_kernel_flags() & 8192) != 0;
++        key.transposed_shared = key.large_regular_tile && fma_half_staged && (context.src1->ne[1] >= 1024 || narrow_half) && (novera_image_kernel_flags() & 8192) != 0;
+         if (key.transposed_shared) {
+             const int flags = novera_image_kernel_flags();
+             if (flags & 262144) key.shared_pad = 1;
+@@ -2354,10 +2367,11 @@
+ 
+         const bool is_quant = ggml_is_quantized(context.src0->type);
+ 
+-        const uint32_t wg_m = key.geometry == 1 ? 4u : key.geometry == 2 ? 16u : WEBGPU_MUL_MAT_WG_SIZE_M;
++        const uint32_t wg_m = key.geometry == 1 ? 4u : (key.geometry == 2 || key.geometry == 4) ? 16u : WEBGPU_MUL_MAT_WG_SIZE_M;
+         if (key.geometry) variant += "_geometry" + std::to_string(key.geometry);
+         const uint32_t tile_m = key.large_regular_tile ? 8u : WEBGPU_MUL_MAT_TILE_M;
+-        const uint32_t wg_n = key.geometry == 1 ? 64u : (key.geometry == 2 || key.geometry == 3) ? 16u : key.large_regular_tile ? 32u : WEBGPU_MUL_MAT_WG_SIZE_N;
++        const uint32_t wg_n = key.geometry == 1 ? 64u : (key.geometry == 2 || key.geometry == 3) ? 16u :
++            key.geometry == 4 ? 8u : key.large_regular_tile ? 32u : WEBGPU_MUL_MAT_WG_SIZE_N;
+         uint32_t tile_k;
+         if (key.use_subgroup_matrix) {
+             tile_k = is_quant ? WEBGPU_MUL_MAT_SUBGROUP_TILE_K_QUANT : WEBGPU_MUL_MAT_SUBGROUP_TILE_K_FLOAT;

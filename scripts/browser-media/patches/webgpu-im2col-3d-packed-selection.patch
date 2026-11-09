@@ -1,0 +1,56 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -415,11 +415,12 @@
+ /** Im2Col **/
+ struct ggml_webgpu_im2col_pipeline_key {
+     bool is_3d;
++    bool packed_3d;
+     ggml_type input_type;
+     ggml_type output_type;
+ 
+     bool operator==(const ggml_webgpu_im2col_pipeline_key & other) const {
+-        return is_3d == other.is_3d && input_type == other.input_type && output_type == other.output_type;
++        return is_3d == other.is_3d && packed_3d == other.packed_3d && input_type == other.input_type && output_type == other.output_type;
+     }
+ };
+ 
+@@ -427,6 +428,7 @@
+     size_t operator()(const ggml_webgpu_im2col_pipeline_key & key) const {
+         size_t seed = 0;
+         ggml_webgpu_hash_combine(seed, key.is_3d);
++        ggml_webgpu_hash_combine(seed, key.packed_3d);
+         ggml_webgpu_hash_combine(seed, key.input_type);
+         ggml_webgpu_hash_combine(seed, key.output_type);
+         return seed;
+@@ -3591,10 +3593,11 @@
+         return conv2d_dw_pipelines[key];
+     }
+ 
+-    webgpu_pipeline get_im2col_pipeline(const ggml_webgpu_shader_lib_context & context) {
++    webgpu_pipeline get_im2col_pipeline(const ggml_webgpu_shader_lib_context & context, bool packed_3d = false) {
+         ggml_webgpu_im2col_pipeline_key key = {};
+         key.input_type                      = context.src1->type;
+         key.is_3d = context.dst->op == GGML_OP_IM2COL_3D;
++        key.packed_3d = packed_3d;
+         key.output_type                     = context.dst->type;
+ 
+         auto it = im2col_pipelines.find(key);
+@@ -3619,11 +3622,16 @@
+         push_type_defines("INPUT_TYPE", key.input_type);
+         push_type_defines("OUTPUT_TYPE", key.output_type);
+ 
+-        defines.push_back(std::string("WG_SIZE=") + std::to_string(context.max_wg_size));
++        if (key.packed_3d) {
++            defines.push_back("PACKED_IM2COL_3D");
++            variant += "_packed";
++        }
++        const uint32_t wg_size = key.packed_3d ? std::min(context.max_wg_size, 256u) : context.max_wg_size;
++        defines.push_back(std::string("WG_SIZE=") + std::to_string(wg_size));
+ 
+         auto processed           = preprocessor.preprocess(key.is_3d ? wgsl_im2col_3d : wgsl_im2col, defines);
+         auto decisions           = std::make_shared<ggml_webgpu_generic_shader_decisions>();
+-        decisions->wg_size       = context.max_wg_size;
++        decisions->wg_size       = wg_size;
+         webgpu_pipeline pipeline = ggml_webgpu_create_pipeline(device, processed, variant);
+         pipeline.context         = decisions;
+         im2col_pipelines[key]    = pipeline;
