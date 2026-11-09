@@ -4,9 +4,11 @@ export type BrowserToolCall = { id: string; type: 'function'; function: { name: 
 export type BrowserTool = { type: 'function'; function: { name: string; description?: string; parameters?: Record<string, unknown> } }
 export type BrowserMessage = { role: string; content: string; tool_calls?: BrowserToolCall[]; tool_call_id?: string }
 type SdkEvent = { type: string; text?: string }
+type SpeechEvent = SdkEvent & { audio?: Float32Array }
+export type SpeechMessage = { role: string; content: string | { type: 'audio'; audio: Float32Array }[] }
 export type SdkResult = { message: BrowserMessage; finish_reason: string; usage?: { prompt_tokens?: number; completion_tokens?: number; cached_tokens?: number }; timings?: { tokens_per_second?: number } }
 type Turn = AsyncIterable<SdkEvent> & { result: Promise<SdkResult>; cancel(): void }
-type Session = { generate(messages: BrowserMessage[], options: Record<string, unknown>): Turn; reset(): void; dispose(): Promise<void> }
+type Session = { generate(messages: (BrowserMessage | SpeechMessage)[], options: Record<string, unknown>): Turn; reset(): void; dispose(): Promise<void> }
 type Model = { contextLength?: number; create_session(): Session; dispose(): Promise<void> }
 type Sdk = { from_pretrained(repo: string, options: Record<string, unknown>): Promise<Model> }
 export const BROWSER_CONTEXT_TOKENS = 32768
@@ -123,7 +125,10 @@ export class BrowserRuntime {
     if (!continuesHistory) this.session.reset()
     this.previousHistory = undefined
     const started = performance.now()
-    const turn = this.session.generate(messages, { generation_mode: 'text', max_new_tokens: Math.min(1024, Math.max(1, maxTokens)), do_sample: false, signal, ...(tools?.length ? { tools } : {}) })
+    // On the pinned Omni SDK, short replies benefit from less speculative GPU
+    // work queued beyond the stop token. Keep its sustained-decode default.
+    const shortOmni = browserModel(id).kind === 'omni' && maxTokens <= 128
+    const turn = this.session.generate(messages, { generation_mode: 'text', max_new_tokens: Math.min(1024, Math.max(1, maxTokens)), do_sample: false, signal, ...(shortOmni ? { decode_pipeline_depth: 2 } : {}), ...(tools?.length ? { tools } : {}) })
     this.turn = turn
     const cancel = () => turn.cancel()
     signal?.addEventListener('abort', cancel, { once: true })
@@ -147,6 +152,44 @@ export class BrowserRuntime {
         ...(Number.isSafeInteger(result.usage?.completion_tokens) && result.usage!.completion_tokens! >= 0 ? { completionTokens: result.usage!.completion_tokens } : {}),
         ...(Number.isSafeInteger(result.usage?.cached_tokens) && result.usage!.cached_tokens! >= 0 ? { cachedTokens: result.usage!.cached_tokens } : {}),
       } } : {}) })
+    }
+  }
+
+  // Keep the chat's KV prefix intact while using an ephemeral audio session.
+  // Share the GPU turn lock and release this extra cache after each operation.
+  async speech(id: string, messages: SpeechMessage[], mode: 'text' | 'audio', signal: AbortSignal,
+    onAudio?: (samples: Float32Array) => void): Promise<string> {
+    if (browserModel(id).kind !== 'omni') throw new Error('unavailable')
+    signal.throwIfAborted()
+    await this.load(id)
+    signal.throwIfAborted()
+    if (this.turn || !this.model) throw new Error('unavailable')
+    const session = this.model.create_session()
+    let turn: Turn | undefined
+    const cancel = () => turn?.cancel()
+    let text = ''
+    try {
+      turn = session.generate(messages, { generation_mode: mode, max_new_tokens: mode === 'audio' ? 2048 : 512, do_sample: false, signal })
+      this.turn = turn
+      void turn.result.catch(() => {})
+      signal.addEventListener('abort', cancel, { once: true })
+      this.publish({ phase: 'generating', modelId: id })
+      for await (const event of turn as AsyncIterable<SpeechEvent>) {
+        signal.throwIfAborted()
+        if (event.type === 'text' && event.text) text += event.text
+        if (event.type === 'audio' && event.audio) onAudio?.(event.audio)
+      }
+      const result = await turn.result
+      signal.throwIfAborted()
+      if (result.finish_reason !== 'stop') throw new Error('unavailable')
+      return typeof result.message.content === 'string' ? result.message.content : text
+    } finally {
+      signal.removeEventListener('abort', cancel)
+      turn?.cancel()
+      if (turn) await turn.result.catch(() => {})
+      await session.dispose()
+      if (this.turn === turn) this.turn = undefined
+      if (this.model && this.activeId === id) this.publish({ phase: 'ready', modelId: id })
     }
   }
 

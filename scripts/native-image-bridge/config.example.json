@@ -1,0 +1,10 @@
+{
+  "engine": ".build/native-image-bridge/runtime/sd-cli.exe",
+  "libraryDirectory": "C:/Users/<user>/AppData/Local/Novera/resources/image-engine/cuda",
+  "diffusion": "C:/Models/flux-2-klein-4b-Q4_K_M/flux-2-klein-4b-Q4_K_M.gguf",
+  "encoder": "C:/Models/Qwen3-4B-Q4_K_M/Qwen3-4B-Q4_K_M.gguf",
+  "vae": "C:/Models/diffusion_pytorch_model.safetensors/diffusion_pytorch_model.safetensors",
+  "upscaler": "C:/Models/upscale_models/RealESRGAN_x2plus.pth",
+  "backend": "cuda0",
+  "budgetGiB": 6
+}

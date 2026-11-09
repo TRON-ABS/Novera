@@ -1,0 +1,149 @@
+--- a/src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
+@@ -36,92 +36,58 @@
+ @group(0) @binding(3)
+ var<uniform> params: Params;
+ 
+-fn ceil_div_u32(x: u32, y: u32) -> u32 {
+-    return (x + y - 1) / y;
++// Implicit GEMM: reuse each spatial sample and weight across a 16x16
++// output tile. Keep activations and accumulation in F32; never form an
++// F16 im2col buffer or split the VAE's normalization across image tiles.
++var<workgroup> input_tile: array<f32, WG_SIZE * WG_SIZE>;
++var<workgroup> weight_tile: array<f32, WG_SIZE * WG_SIZE>;
++
++@compute @workgroup_size(WG_SIZE, WG_SIZE)
++fn main(@builtin(workgroup_id) wid: vec3<u32>,
++        @builtin(num_workgroups) num_wg: vec3<u32>,
++        @builtin(local_invocation_id) lid: vec3<u32>) {
++    let positions = params.OW * params.OH;
++    let tiles_m = (positions + WG_SIZE - 1u) / WG_SIZE;
++    let tiles_n = (params.OC_out + WG_SIZE - 1u) / WG_SIZE;
++    let tile = wid.x + wid.y * num_wg.x;
++    if (tile >= tiles_m * tiles_n * params.N_out) { return; }
++    let batch = tile / (tiles_m * tiles_n);
++    let tile_n = (tile / tiles_m) % tiles_n;
++    let tile_m = tile % tiles_m;
++    let position = tile_m * WG_SIZE + lid.x;
++    let oc = tile_n * WG_SIZE + lid.y;
++    let ow = position % params.OW;
++    let oh = position / params.OW;
++    let reduction = params.KW * params.KH * params.IC;
++    var sum = 0.0f;
++    for (var base = 0u; base < reduction; base += WG_SIZE) {
++        let ka = base + lid.y;
++        let kw = ka % params.KW;
++        let kh = (ka / params.KW) % params.KH;
++        let ic = ka / (params.KW * params.KH);
++        let iw = i32(ow * params.s0 + kw * params.d0) - i32(params.p0);
++        let ih = i32(oh * params.s1 + kh * params.d1) - i32(params.p1);
++        var value = 0.0f;
++        if (position < positions && ka < reduction && iw >= 0 && ih >= 0 && iw < i32(params.IW) && ih < i32(params.IH)) {
++            value = f32(input[params.offset_i + u32(iw) * params.si0 + u32(ih) * params.si1 + ic * params.si2 + batch * params.si3]);
++        }
++        input_tile[lid.y * WG_SIZE + lid.x] = value;
++        let kb = base + lid.x;
++        var weight = 0.0f;
++        if (oc < params.OC_out && kb < reduction) {
++            let wk = kb % params.KW;
++            let hk = (kb / params.KW) % params.KH;
++            let ck = kb / (params.KW * params.KH);
++            weight = f32(weights[params.offset_w + wk * params.sw0 + hk * params.sw1 + ck * params.sw2 + oc * params.sw3]);
++        }
++        weight_tile[lid.y * WG_SIZE + lid.x] = weight;
++        workgroupBarrier();
++        for (var k = 0u; k < WG_SIZE; k++) {
++            sum += input_tile[k * WG_SIZE + lid.x] * weight_tile[lid.y * WG_SIZE + k];
++        }
++        workgroupBarrier();
++    }
++    if (position < positions && oc < params.OC_out) {
++        output[params.offset_o + ow * params.so0 + oh * params.so1 + oc * params.so2 + batch * params.so3] = OUTPUT_TYPE(sum);
++    }
+ }
+-
+-// returns the first valid kernel index k such that base + k * step >= 0
+-fn first_valid_k(base: i32, step: u32) -> u32 {
+-    if (base >= 0) {
+-        return 0;
+-    }
+-
+-    return ceil_div_u32(u32(-base), step);
+-}
+-
+-// returns the first invalid kernel index k such that base + k * step >= limit so valid k are in [0, end_valid_k)
+-fn end_valid_k(base: i32, step: u32, limit: u32, k_max: u32) -> u32 {
+-    let remaining = i32(limit) - base;
+-    if (remaining <= 0) {
+-        return 0;
+-    }
+-
+-    return min(k_max, ceil_div_u32(u32(remaining), step));
+-}
+-
+-@compute @workgroup_size(WG_SIZE)
+-fn main(
+-    @builtin(global_invocation_id) gid: vec3<u32>,
+-    @builtin(num_workgroups) num_wg: vec3<u32>
+-) {
+-
+-    let threads_per_group = u32(WG_SIZE);
+-    let i_out = gid.x + (num_wg.x * threads_per_group) * gid.y;
+-    let n_out = params.OW * params.OH * params.OC_out * params.N_out;
+-
+-    var sum: f32 = 0.0;
+-    if (i_out >= n_out) {
+-        return;
+-    }
+-
+-    // Kernel layout: [KW, KH, IC, ..]
+-    // Input layout:  [IW, IH, .., ..]
+-    // Output layout: [OW, OH, OC, N]
+-
+-    var i = i_out;
+-    let n = i / (params.OC_out * params.OH * params.OW);
+-    i = i % (params.OC_out * params.OH * params.OW);
+-    let oc = i / (params.OH * params.OW);
+-    i = i % (params.OH * params.OW);
+-    let oh = i / params.OW;
+-    let ow = i % params.OW;
+-
+-    let ow_base = i32(ow * params.s0) - i32(params.p0);
+-    let oh_base = i32(oh * params.s1) - i32(params.p1);
+-
+-    // clip the valid kernel window once
+-    let kw_begin = first_valid_k(ow_base, params.d0);
+-    let kw_end = end_valid_k(ow_base, params.d0, params.IW, params.KW);
+-    let kh_begin = first_valid_k(oh_base, params.d1);
+-    let kh_end = end_valid_k(oh_base, params.d1, params.IH, params.KH);
+-
+-    // entire receptive field is out of bounds
+-    if (kw_begin >= kw_end || kh_begin >= kh_end) {
+-        let out_idx = params.offset_o + ow * params.so0 + oh * params.so1 + oc * params.so2 + n * params.so3;
+-        output[out_idx] = OUTPUT_TYPE(0.0);
+-        return;
+-    }
+-
+-    let weight_oc_base = params.offset_w + oc * params.sw3;
+-    let input_n_base = params.offset_i + n * params.si3;
+-
+-    for (var ic: u32 = 0; ic < params.IC; ic += 1) {
+-        let w_base_ic = ic * params.sw2 + weight_oc_base;
+-        let in_base = ic * params.si2 + input_n_base;
+-
+-        for (var kh: u32 = kh_begin; kh < kh_end; kh += 1) {
+-            let ih = u32(oh_base + i32(kh * params.d1));
+-            let w_row_base = w_base_ic + kh * params.sw1;
+-            let in_row_base = in_base + ih * params.si1;
+-            for (var kw: u32 = kw_begin; kw < kw_end; kw += 1) {
+-                let iw = u32(ow_base + i32(kw * params.d0));
+-                let w_idx = w_row_base + kw * params.sw0;
+-                let in_idx = in_row_base + iw * params.si0;
+-                sum += f32(weights[w_idx]) * f32(input[in_idx]);
+-            }
+-        }
+-    }
+-
+-    let out_idx = params.offset_o + ow * params.so0 + oh * params.so1 + oc * params.so2 + n * params.so3;
+-    output[out_idx] = OUTPUT_TYPE(sum);
+-}

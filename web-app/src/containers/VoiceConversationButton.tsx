@@ -11,6 +11,10 @@ import { createOmniVoiceBackend, omniVoiceSupported } from '@/lib/omniVoice'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { getServiceHub } from '@/hooks/useServiceHub'
 import { getEngineInfo } from '@janhq/tauri-plugin-llamacpp-api'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
+import { browserVoiceSupported, createBrowserVoiceBackend, unlockBrowserVoice } from '@/services/browser-preview/voice'
+import { createSystemSpeechBackend, localSystemVoice } from '@/lib/systemSpeech'
+import { useBrowserSystemVoices } from '@/hooks/useBrowserSystemVoices'
 
 export function VoiceConversationButton({ scope, isNew, eligible, busy, failed, canStart, canContinue, modelKey, omniModelId, messages, submit, transcribe, recover }: {
   scope: string
@@ -32,9 +36,16 @@ export function VoiceConversationButton({ scope, isNew, eligible, busy, failed, 
   const active = phase !== 'idle'
   const language = useGeneralSetting(state => state.currentLanguage) ?? navigator.language
   const voiceGender = useGeneralSetting(state => state.voiceGender) === 'female' ? 'female' : 'male'
+  const webVoiceOutput = useGeneralSetting(state => state.webVoiceOutput)
+  const systemVoiceURI = useGeneralSetting(state => state.webSystemVoiceURI) ?? ''
+  const browser = browserPreviewEnabled()
+  const systemOutput = browser && webVoiceOutput === 'system'
+  const systemVoices = useBrowserSystemVoices(browser)
   const readReplies = useGeneralSetting(state => state.readReplies) !== false
   const setReadReplies = useGeneralSetting(state => state.setReadReplies)
   const previousLanguage = useRef(language)
+  const outputKey = systemOutput ? `system:${systemVoiceURI}` : `model:${voiceGender}`
+  const previousOutput = useRef(outputKey)
   const threads = useThreads(state => state.threads)
   const knownScopes = useMemo(() => Object.keys(threads), [threads])
   const statusId = useId()
@@ -61,9 +72,16 @@ export function VoiceConversationButton({ scope, isNew, eligible, busy, failed, 
       toast.error(t('common:voiceUnavailable'))
     },
   }
-  const supported = eligible && (omniModelId ? omniVoiceSupported() : voiceSupported())
+  const browserOmni = browserPreviewEnabled() && Boolean(omniModelId)
+  const supported = eligible && (omniModelId ? (browserOmni ? browserVoiceSupported() : omniVoiceSupported()) : voiceSupported())
+  const outputSupported = eligible && (systemOutput ? Boolean(localSystemVoice(voiceLocale(language), systemVoiceURI, systemVoices)) : supported)
   const createBackend = () => {
     const locale=voiceLocale(language)
+    if (systemOutput) {
+      const input = browserOmni && omniModelId ? createBrowserVoiceBackend(omniModelId, locale, undefined, voiceGender) : voiceSupported() ? createVoiceBackend(locale) : undefined
+      return createSystemSpeechBackend(locale, systemVoiceURI, input)
+    }
+    if (browserOmni && omniModelId) return createBrowserVoiceBackend(omniModelId, locale, undefined, voiceGender)
     return omniModelId ? createOmniVoiceBackend(locale, {
       model:omniModelId,voice:voiceGender,
       prepare: async signal => {
@@ -81,12 +99,27 @@ export function VoiceConversationButton({ scope, isNew, eligible, busy, failed, 
     if (!eligible) return
     voiceConversation.setOutputEnabled(readReplies)
     voiceConversation.observe(binding)
-    voiceConversation.configureAutoRead(supported && readReplies ? {createBackend,binding:{...binding,canStart:canContinue??canStart}} : undefined)
+    voiceConversation.configureAutoRead(outputSupported && readReplies ? {createBackend,binding:{...binding,canStart:canContinue??canStart}} : undefined)
   })
   useEffect(() => {
     if (previousLanguage.current !== language) voiceConversation.stop()
     previousLanguage.current = language
   }, [language])
+  useEffect(() => {
+    if (previousOutput.current !== outputKey) voiceConversation.stop()
+    previousOutput.current = outputKey
+  }, [outputKey])
+  useEffect(() => {
+    if (!eligible || !browserOmni || systemOutput || !readReplies || !supported) return
+    // Unlock during the user's composer interaction, before async generation.
+    const unlock = () => unlockBrowserVoice()
+    document.addEventListener('pointerdown', unlock, { passive: true })
+    document.addEventListener('keydown', unlock)
+    return () => {
+      document.removeEventListener('pointerdown', unlock)
+      document.removeEventListener('keydown', unlock)
+    }
+  }, [eligible, browserOmni, systemOutput, readReplies, supported])
   useEffect(() => {
     if (!eligible) return
     const stop = () => voiceConversation.stop()
@@ -120,6 +153,7 @@ export function VoiceConversationButton({ scope, isNew, eligible, busy, failed, 
       onClick={() => {
         if (active) { voiceConversation.stop(); return }
         try {
+          if (browserOmni && !systemOutput) unlockBrowserVoice()
           voiceConversation.start(createBackend(), binding)
         } catch { binding.error() }
       }}
@@ -130,7 +164,7 @@ export function VoiceConversationButton({ scope, isNew, eligible, busy, failed, 
       aria-label={t('common:voiceReadReplies')} aria-pressed={readReplies}
       title={`${t('common:voiceReadReplies')} — ${t(readReplies ? 'ui:on' : 'ui:off')}`}
       disabled={!eligible}
-      onClick={() => { voiceConversation.setOutputEnabled(!readReplies); setReadReplies(!readReplies) }}>
+      onClick={() => { if (browserOmni && !systemOutput && !readReplies) unlockBrowserVoice(); voiceConversation.setOutputEnabled(!readReplies); setReadReplies(!readReplies) }}>
       {readReplies ? <Volume2 size={12} aria-hidden="true" /> : <VolumeX size={12} aria-hidden="true" />}
     </button>
     <span id={statusId} className="sr-only" role="status">

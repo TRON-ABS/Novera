@@ -1,0 +1,48 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -1044,10 +1044,11 @@
+     bool      unroll8 = false;
+     uint32_t geometry = 0;
+     bool fused_madd = false;
++    bool transposed_shared = false;
+ 
+     bool operator==(const ggml_webgpu_mul_mat_pipeline_key & other) const {
+         return src0_type == other.src0_type && src1_type == other.src1_type && vectorized == other.vectorized &&
+-               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile && unroll4 == other.unroll4 && unroll8 == other.unroll8 && geometry == other.geometry && fused_madd == other.fused_madd;
++               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile && unroll4 == other.unroll4 && unroll8 == other.unroll8 && geometry == other.geometry && fused_madd == other.fused_madd && transposed_shared == other.transposed_shared;
+     }
+ };
+ 
+@@ -1064,6 +1065,7 @@
+         ggml_webgpu_hash_combine(seed, key.unroll8);
+         ggml_webgpu_hash_combine(seed, key.geometry);
+         ggml_webgpu_hash_combine(seed, key.fused_madd);
++        ggml_webgpu_hash_combine(seed, key.transposed_shared);
+         return seed;
+     }
+ };
+@@ -2232,6 +2234,7 @@
+         }
+         const bool fma_half_staged = q45 || context.src0->type == GGML_TYPE_Q6_K || context.src0->type == GGML_TYPE_F16 || context.src0->type == GGML_TYPE_BF16;
+         key.fused_madd = key.large_regular_tile && fma_half_staged && (novera_image_kernel_flags() & 4096) != 0;
++        key.transposed_shared = key.large_regular_tile && fma_half_staged && (novera_image_kernel_flags() & 8192) != 0;
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+             return it->second;
+@@ -2343,7 +2346,7 @@
+             const size_t rows = wg_m * tile_m +
+                                 wg_n * WEBGPU_MUL_MAT_TILE_N;
+             const uint32_t minimum = is_quant ? 32u : 8u;
+-            while (tile_k > minimum && rows * (tile_k + 2u) * 2u > limit) tile_k /= 2u;
++            while (tile_k > minimum && (key.transposed_shared ? (rows + 4u) * tile_k * 2u : rows * (tile_k + 2u) * 2u) > limit) tile_k /= 2u;
+         }
+ 
+         // Tiles
+@@ -2381,6 +2384,7 @@
+         }
+ 
+         if (key.fused_madd) { defines.push_back("NOVERA_MATMUL_FMA"); variant += "_fma"; }
++        if (key.transposed_shared) { defines.push_back("NOVERA_MATMUL_TRANSPOSED_SHARED"); variant += "_transposed_shared"; }
+         if (key.unroll8) { defines.push_back("NOVERA_MATMUL_UNROLL8"); variant += "_unroll8"; }
+         else if (key.unroll4) { defines.push_back("NOVERA_MATMUL_UNROLL4"); variant += "_unroll4"; }
+         if (!key.use_subgroup_matrix && WEBGPU_MUL_MAT_TILE_N == 4 && (tile_m == 4u || tile_m == 8u)) {

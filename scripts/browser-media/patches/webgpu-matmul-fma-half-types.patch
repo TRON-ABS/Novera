@@ -1,0 +1,12 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -2230,7 +2230,8 @@
+             if ((novera_image_kernel_flags() & 1024) && limit >= 288u * 34u * 2u) key.geometry = 1;
+             else if ((novera_image_kernel_flags() & 2048) && limit >= 192u * 34u * 2u) key.geometry = 2;
+         }
+-        key.fused_madd = key.large_regular_tile && q45 && (novera_image_kernel_flags() & 4096) != 0;
++        const bool fma_half_staged = q45 || context.src0->type == GGML_TYPE_Q6_K || context.src0->type == GGML_TYPE_F16 || context.src0->type == GGML_TYPE_BF16;
++        key.fused_madd = key.large_regular_tile && fma_half_staged && (novera_image_kernel_flags() & 4096) != 0;
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+             return it->second;

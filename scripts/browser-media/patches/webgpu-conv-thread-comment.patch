@@ -1,0 +1,20 @@
+--- a/src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
+@@ -134,7 +134,7 @@
+ #define CONV_K WG_SIZE
+ #define CONV_M WG_SIZE
+ 
+-// Register-tiled implicit convolution. Each of 64 threads computes a 4x4
++// Register-tiled implicit convolution. Each thread computes a 4x4
+ // output block; F32 shared rows have one pad to avoid bank conflicts.
+ var<workgroup> input_tile: array<f32, CONV_K * (CONV_M + 1u)>;
+ var<workgroup> weight_tile: array<f32, WG_SIZE * (CONV_K + 1u)>;
+@@ -250,7 +250,7 @@
+ 
+ #define CONV_K WG_SIZE
+ 
+-// Register-tiled implicit convolution. Each of 64 threads computes a 4x4
++// Register-tiled implicit convolution. Each thread computes a 4x4
+ // output block; F32 shared rows have one pad to avoid bank conflicts.
+ var<workgroup> input_tile: array<f32, CONV_K * (WG_SIZE + 1u)>;
+ var<workgroup> weight_tile: array<f32, WG_SIZE * (CONV_K + 1u)>;

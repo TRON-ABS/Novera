@@ -13,7 +13,18 @@ function fixture(text = 'Title: Exa\nURL: https://exa.ai/\nHighlights:\nSearch d
   })
   return { http, client: new BrowserSearch(http as typeof fetch) }
 }
-afterEach(() => { browserSearch.reset(); preferences.webSearchEnabled = true; vi.unstubAllGlobals(); vi.restoreAllMocks() })
+afterEach(() => { browserSearch.reset(); preferences.webSearchEnabled = true; preferences.searchProvider = 'exa'; vi.unstubAllGlobals(); vi.restoreAllMocks() })
+
+it('routes an explicit DuckDuckGo choice directly without preparing Exa or sending API keys', async () => {
+  preferences.searchProvider = 'duckduckgo'
+  const http = vi.fn().mockResolvedValue(Response.json({ Heading: 'Source', AbstractText: 'A direct answer.', AbstractURL: 'https://example.org/' }))
+  vi.stubGlobal('fetch', http)
+  await expect(executeBrowserWebTool('web_search', { query: 'Public test', count: 1 })).resolves.toMatchObject({ content: { provider: 'DuckDuckGo', results: [{ url: 'https://example.org/' }] } })
+  expect(http).toHaveBeenCalledOnce()
+  expect(String(http.mock.calls[0][0])).toContain('api.duckduckgo.com')
+  expect(JSON.stringify(http.mock.calls)).not.toContain('never-send-this-key')
+  expect(browserSearch.snapshot().phase).toBe('idle')
+})
 
 it('shares preparation with the first search, without issuing any warm-up query', async () => {
   const f = fixture()

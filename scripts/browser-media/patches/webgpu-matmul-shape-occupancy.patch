@@ -1,0 +1,44 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -1013,10 +1013,11 @@
+     int       vectorized;
+     int       use_subgroup_matrix;
+     bool      src_overlap;
++    bool      large_regular_tile;
+ 
+     bool operator==(const ggml_webgpu_mul_mat_pipeline_key & other) const {
+         return src0_type == other.src0_type && src1_type == other.src1_type && vectorized == other.vectorized &&
+-               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap;
++               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile;
+     }
+ };
+ 
+@@ -1028,6 +1029,7 @@
+         ggml_webgpu_hash_combine(seed, key.vectorized);
+         ggml_webgpu_hash_combine(seed, key.use_subgroup_matrix);
+         ggml_webgpu_hash_combine(seed, key.src_overlap);
++        ggml_webgpu_hash_combine(seed, key.large_regular_tile);
+         return seed;
+     }
+ };
+@@ -2182,6 +2184,9 @@
+                                       0;
+         key.use_subgroup_matrix = context.supports_subgroup_matrix;
+         key.src_overlap         = src_overlap;
++        // Small ESRGAN matrices need more workgroups to occupy the device.
++        key.large_regular_tile = !key.use_subgroup_matrix && context.vendor == "nvidia" &&
++            context.src0->ne[1] >= 512 && context.src1->ne[1] >= 256;
+ 
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+@@ -2278,8 +2283,8 @@
+ 
+         const bool is_quant = ggml_is_quantized(context.src0->type);
+ 
+-        const uint32_t tile_m = !key.use_subgroup_matrix && context.vendor == "nvidia" ? 8u : WEBGPU_MUL_MAT_TILE_M;
+-        const uint32_t wg_n = !key.use_subgroup_matrix && context.vendor == "nvidia" ? 32u : WEBGPU_MUL_MAT_WG_SIZE_N;
++        const uint32_t tile_m = key.large_regular_tile ? 8u : WEBGPU_MUL_MAT_TILE_M;
++        const uint32_t wg_n = key.large_regular_tile ? 32u : WEBGPU_MUL_MAT_WG_SIZE_N;
+         uint32_t tile_k;
+         if (key.use_subgroup_matrix) {
+             tile_k = is_quant ? WEBGPU_MUL_MAT_SUBGROUP_TILE_K_QUANT : WEBGPU_MUL_MAT_SUBGROUP_TILE_K_FLOAT;

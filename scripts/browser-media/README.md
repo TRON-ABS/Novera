@@ -65,3 +65,11 @@ A nominal six-GiB run took 322.215 s but its logs revealed an effective two-GiB 
 The combined bounded-tile/F16-matrix candidate subsequently completed the same short test in **289.631 s total** (5.819 s load, 283.523 s generation; text 13.85 s, diffusion 233.02 s, VAE 36.61 s), about 9.5% below the 320.056 s baseline. All five 832 × 480 frames decoded at eight FPS; the WebM is 21,640 bytes, SHA-256 `648c25ab776fbd19d8089671c8a0498053b57b5ccda6677e1430c2b378277493`. First/middle/last frames remain visually close; decoded RGB mean absolute difference from the old WebM is 0.920/255, maximum 48/255, including lossy VP8 encoding. The files are not identical. These combined changes do not isolate each optimization's contribution and the 0.625-second clip does not validate longer temporal decoding or general motion quality. Weight expansion stays explicit and off by default, requiring at least six GiB.
 
 A serial run of the installed Desktop engine with the same files, prompt, resolution, five frames, seed, 20 steps, CFG and shift took **40.539 s** to save five PNGs (text 14.54 s, diffusion 19.30 s, VAE 4.01 s). It used CUDA diffusion/VAE, CPU text encoding, CPU weight offloading and the native engine's own revision/defaults, rather than the WebGPU/F16 candidate; it is not a measured Desktop conversation or a WebM export. The substantial diffusion/decode gap remains. Do not claim Desktop parity or general Web video readiness.
+
+The Web Pages build enables the guarded WebGPU image profile (143602) with
+`--kernel-tuning`. The release manifest pins all source patches by SHA-256.
+Local 2048×880 four-step reference images match the decoded RGB of the earlier
+profile. On the validated RTX 5070 Laptop configuration, the latest standalone
+reference control took 111.967 seconds. See `docs/WEB_DELIVERY.md` for the
+published channel. Other devices select the supported kernels through the
+existing capability guards.

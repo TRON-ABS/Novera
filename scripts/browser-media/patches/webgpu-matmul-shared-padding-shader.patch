@@ -1,0 +1,39 @@
+--- a/src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
+@@ -7,7 +7,8 @@
+ #define SRC1 merged_src
+ #endif
+ #include "common_decls.tmpl"
+-// A two-half row pad avoids bank conflicts between register-tile rows.
++// Guarded padding for register-tile shared staging.
++#define SHARED_MN_PAD 2u
+ #define MUL_MAT_SHMEM_INDEX padded_matmul_shmem_index
+ #define QUANT_SHMEM_INDEX padded_matmul_shmem_index
+ // Half-staged operands have an exactly representable F32 product.
+@@ -29,7 +30,7 @@
+ }
+ fn novera_src0_index(index: u32) -> u32 {
+ #ifdef NOVERA_MATMUL_TRANSPOSED_SHARED
+-    return (index % TILE_K) * (WORKGROUP_SIZE_M * TILE_M + 2u) + index / TILE_K;
++    return (index % TILE_K) * (WORKGROUP_SIZE_M * TILE_M + SHARED_MN_PAD) + index / TILE_K;
+ #else
+     return (index / TILE_K) * (TILE_K + 2u) + index % TILE_K;
+ #endif
+@@ -37,7 +38,7 @@
+ fn novera_src1_index(index: u32) -> u32 {
+ #ifdef NOVERA_MATMUL_TRANSPOSED_SHARED
+     let i = index - TILE_SRC0_SHMEM;
+-    return TILE_K * (WORKGROUP_SIZE_M * TILE_M + 2u) + (i % TILE_K) * (WORKGROUP_SIZE_N * TILE_N + 2u) + i / TILE_K;
++    return TILE_K * (WORKGROUP_SIZE_M * TILE_M + SHARED_MN_PAD) + (i % TILE_K) * (WORKGROUP_SIZE_N * TILE_N + SHARED_MN_PAD) + i / TILE_K;
+ #else
+     return (index / TILE_K) * (TILE_K + 2u) + index % TILE_K;
+ #endif
+@@ -99,7 +100,7 @@
+ const TILE_SRC1_SHMEM = TILE_K * WORKGROUP_SIZE_N * TILE_N;
+ 
+ #ifdef NOVERA_MATMUL_TRANSPOSED_SHARED
+-var<workgroup> shmem: array<f16, TILE_K * (WORKGROUP_SIZE_M * TILE_M + WORKGROUP_SIZE_N * TILE_N + 4u)>;
++var<workgroup> shmem: array<f16, TILE_K * (WORKGROUP_SIZE_M * TILE_M + WORKGROUP_SIZE_N * TILE_N + 2u * SHARED_MN_PAD)>;
+ #else
+ var<workgroup> shmem: array<f16, (TILE_K + 2u) * (WORKGROUP_SIZE_M * TILE_M + WORKGROUP_SIZE_N * TILE_N)>;
+ #endif

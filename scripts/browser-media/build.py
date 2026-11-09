@@ -61,10 +61,14 @@ def main():
     parser.add_argument('--image-vae-matmul-probe', action='store_true', help='Benchmark 512-pixel tiled image VAE matrix multiplication')
     parser.add_argument('--heap-probe', action='store_true', help='Validate allocator consistency and stack bounds (diagnostic only)')
     parser.add_argument('--numerical-checks', action='store_true', help='Compile the separate CPU-reference validation module; does not run browser tests')
+    parser.add_argument('--gpu-profile', action='store_true', help='Diagnostic GPU timestamps; never use this build for performance comparisons')
+    parser.add_argument('--kernel-tuning', action='store_true', help='Opt-in optimized image kernel profile with explicit runtime controls')
     options = parser.parse_args()
     if not 1 <= options.jobs <= 16:
         parser.error('--jobs must be between 1 and 16')
     lock = json.loads((HERE / 'sources.json').read_text())
+    if options.kernel_tuning:
+        lock['patches'].extend(json.loads((HERE / 'kernel-tuning.json').read_text())['patches'])
     sdk = options.emsdk.resolve()
     emcc = sdk / 'upstream/emscripten/emcc.py'
     emcmake = sdk / 'upstream/emscripten/emcmake.py'
@@ -107,7 +111,9 @@ def main():
     subprocess.run([sys.executable, str(emcmake), options.cmake, '-S', str(HERE), '-B', str(build), '-G', 'Ninja',
                     '-DCMAKE_BUILD_TYPE=Release', '-DCMAKE_MAKE_PROGRAM=' + options.ninja,
                     '-DNOVERA_WEBGPU_VAE_PROBE=' + ('ON' if options.gpu_vae_probe else 'OFF'),
+                    '-DNOVERA_IMAGE_KERNEL_TUNING=' + ('ON' if options.kernel_tuning else 'OFF'),
                     '-DNOVERA_NUMERICAL_CHECKS=' + ('ON' if options.numerical_checks else 'OFF'),
+                    '-DGGML_WEBGPU_GPU_PROFILE=' + ('ON' if options.gpu_profile else 'OFF'),
                     '-DNOVERA_CPU_VAE_FALLBACK=' + ('ON' if options.cpu_vae_fallback else 'OFF'),
                     '-DNOVERA_IMAGE_VAE_MATMUL_PROBE=' + ('ON' if options.image_vae_matmul_probe else 'OFF'),
                     '-DNOVERA_HEAP_PROBE=' + ('ON' if options.heap_probe else 'OFF'),
@@ -121,7 +127,7 @@ def main():
     for suffix in ['mjs', 'wasm']:
         path = build / f'novera-diffusion.{suffix}'
         artifacts.append({'name': path.name, 'bytes': path.stat().st_size, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
-    result = {'compiled': True, 'modelInferenceValidated': False, 'vaeBackend': 'cpu' if options.cpu_vae_fallback else ('webgpu-tiled-matmul-probe' if options.image_vae_matmul_probe else 'webgpu-direct'), 'stackBytes': 8388608, 'heapValidation': options.heap_probe, 'diagnosticNodeTracing': options.gpu_vae_probe, 'numericalCheckModuleCompiled': options.numerical_checks, 'sources': lock, 'artifacts': artifacts}
+    result = {'compiled': True, 'modelInferenceValidated': False, 'vaeBackend': 'cpu' if options.cpu_vae_fallback else ('webgpu-tiled-matmul-probe' if options.image_vae_matmul_probe else 'webgpu-direct'), 'stackBytes': 8388608, 'heapValidation': options.heap_probe, 'diagnosticNodeTracing': options.gpu_vae_probe, 'gpuProfiling': options.gpu_profile, 'kernelTuningCompiled': options.kernel_tuning, 'kernelDefaultFlags': 143602 if options.kernel_tuning else 0, 'numericalCheckModuleCompiled': options.numerical_checks, 'sources': lock, 'artifacts': artifacts}
     (build / 'BUILD-VERIFICATION.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))
 

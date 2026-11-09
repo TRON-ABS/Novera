@@ -1,0 +1,47 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -665,9 +665,10 @@
+     ggml_webgpu_flash_attn_common_pipeline_key common;
+     bool                                       use_sg_matrix;
+     bool unroll4 = false;
++    bool value_unroll4 = false;
+ 
+     bool operator==(const ggml_webgpu_flash_attn_pipeline_key & other) const {
+-        return common == other.common && use_sg_matrix == other.use_sg_matrix && unroll4 == other.unroll4;
++        return common == other.common && use_sg_matrix == other.use_sg_matrix && unroll4 == other.unroll4 && value_unroll4 == other.value_unroll4;
+     }
+ };
+ 
+@@ -677,6 +678,7 @@
+         ggml_webgpu_flash_attn_hash_common_pipeline_key(seed, key.common);
+         ggml_webgpu_hash_combine(seed, key.use_sg_matrix);
+         ggml_webgpu_hash_combine(seed, key.unroll4);
++        ggml_webgpu_hash_combine(seed, key.value_unroll4);
+         return seed;
+     }
+ };
+@@ -2205,7 +2207,7 @@
+         key.large_regular_tile = !key.use_subgroup_matrix && context.vendor == "nvidia" &&
+             context.src0->ne[1] >= 512 && context.src1->ne[1] >= 256;
+ 
+-        key.unroll4 = !key.use_subgroup_matrix && (novera_image_kernel_flags() & 2) != 0;
++        key.unroll4 = key.large_regular_tile && (context.src0->type == GGML_TYPE_Q4_K || context.src0->type == GGML_TYPE_Q5_K) && (novera_image_kernel_flags() & 2) != 0;
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+             return it->second;
+@@ -3028,6 +3030,7 @@
+         }
+ 
+         key.unroll4 = !decisions.use_sg_matrix && (novera_image_kernel_flags() & 4) != 0 && key.common.head_dim_qk % 16u == 0u;
++        key.value_unroll4 = !decisions.use_sg_matrix && (novera_image_kernel_flags() & 8) != 0;
+         auto it = flash_attn_pipelines.find(key);
+         if (it != flash_attn_pipelines.end()) {
+             return it->second;
+@@ -3039,6 +3042,7 @@
+         const char *             shader_src = nullptr;
+         if (!key.use_sg_matrix) {
+             if (key.unroll4) { defines.push_back("NOVERA_ATTENTION_UNROLL4"); variant += "_unroll4"; }
++            if (key.value_unroll4) { defines.push_back("NOVERA_ATTN_VALUE_UNROLL4"); variant += "_value_unroll4"; }
+             shader_src = wgsl_flash_attn_tile;
+             defines.push_back("MIN_SUBGROUP_SIZE=" + std::to_string(context.min_subgroup_size) + "u");
+             defines.push_back("MAX_SUBGROUP_SIZE=" + std::to_string(context.max_subgroup_size) + "u");

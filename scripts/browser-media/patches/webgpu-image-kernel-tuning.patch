@@ -1,0 +1,130 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -7,6 +7,17 @@
+ #include "pre_wgsl.hpp"
+ 
+ #include <webgpu/webgpu_cpp.h>
++
++#if defined(__EMSCRIPTEN__) && defined(NOVERA_IMAGE_KERNEL_TUNING)
++#include <emscripten.h>
++#endif
++static inline int novera_image_kernel_flags() {
++#if defined(__EMSCRIPTEN__) && defined(NOVERA_IMAGE_KERNEL_TUNING)
++    return EM_ASM_INT({ return globalThis.noveraImageKernelFlags || 0; });
++#else
++    return 0;
++#endif
++}
+ 
+ #include <algorithm>
+ #include <memory>
+@@ -354,9 +365,10 @@
+     ggml_type weight_type;
+     ggml_type input_type;
+     ggml_type output_type;
++    uint32_t reduction_tile = 32;
+ 
+     bool operator==(const ggml_webgpu_conv2d_pipeline_key & other) const {
+-        return weight_type == other.weight_type && input_type == other.input_type && output_type == other.output_type;
++        return weight_type == other.weight_type && input_type == other.input_type && output_type == other.output_type && reduction_tile == other.reduction_tile;
+     }
+ };
+ 
+@@ -366,6 +378,7 @@
+         ggml_webgpu_hash_combine(seed, key.weight_type);
+         ggml_webgpu_hash_combine(seed, key.input_type);
+         ggml_webgpu_hash_combine(seed, key.output_type);
++        ggml_webgpu_hash_combine(seed, key.reduction_tile);
+         return seed;
+     }
+ };
+@@ -651,9 +664,10 @@
+ struct ggml_webgpu_flash_attn_pipeline_key {
+     ggml_webgpu_flash_attn_common_pipeline_key common;
+     bool                                       use_sg_matrix;
++    bool unroll4 = false;
+ 
+     bool operator==(const ggml_webgpu_flash_attn_pipeline_key & other) const {
+-        return common == other.common && use_sg_matrix == other.use_sg_matrix;
++        return common == other.common && use_sg_matrix == other.use_sg_matrix && unroll4 == other.unroll4;
+     }
+ };
+ 
+@@ -662,6 +676,7 @@
+         size_t seed = 0;
+         ggml_webgpu_flash_attn_hash_common_pipeline_key(seed, key.common);
+         ggml_webgpu_hash_combine(seed, key.use_sg_matrix);
++        ggml_webgpu_hash_combine(seed, key.unroll4);
+         return seed;
+     }
+ };
+@@ -1014,10 +1029,11 @@
+     int       use_subgroup_matrix;
+     bool      src_overlap;
+     bool      large_regular_tile;
++    bool      unroll4 = false;
+ 
+     bool operator==(const ggml_webgpu_mul_mat_pipeline_key & other) const {
+         return src0_type == other.src0_type && src1_type == other.src1_type && vectorized == other.vectorized &&
+-               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile;
++               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile && unroll4 == other.unroll4;
+     }
+ };
+ 
+@@ -1030,6 +1046,7 @@
+         ggml_webgpu_hash_combine(seed, key.use_subgroup_matrix);
+         ggml_webgpu_hash_combine(seed, key.src_overlap);
+         ggml_webgpu_hash_combine(seed, key.large_regular_tile);
++        ggml_webgpu_hash_combine(seed, key.unroll4);
+         return seed;
+     }
+ };
+@@ -2188,6 +2205,7 @@
+         key.large_regular_tile = !key.use_subgroup_matrix && context.vendor == "nvidia" &&
+             context.src0->ne[1] >= 512 && context.src1->ne[1] >= 256;
+ 
++        key.unroll4 = !key.use_subgroup_matrix && (novera_image_kernel_flags() & 2) != 0;
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+             return it->second;
+@@ -2334,6 +2352,7 @@
+             defines.push_back("TILE_K=" + std::to_string(tile_k) + "u");
+         }
+ 
++        if (key.unroll4) { defines.push_back("NOVERA_MATMUL_UNROLL4"); variant += "_unroll4"; }
+         if (!key.use_subgroup_matrix && WEBGPU_MUL_MAT_TILE_N == 4 && (tile_m == 4u || tile_m == 8u)) {
+             defines.push_back("REGISTER_VEC_ACCUM");
+             if (tile_m == 8u) defines.push_back("REGISTER_M8");
+@@ -3008,6 +3027,7 @@
+             }
+         }
+ 
++        key.unroll4 = !decisions.use_sg_matrix && (novera_image_kernel_flags() & 4) != 0 && key.common.head_dim_qk % 16u == 0u;
+         auto it = flash_attn_pipelines.find(key);
+         if (it != flash_attn_pipelines.end()) {
+             return it->second;
+@@ -3018,6 +3038,7 @@
+                                                                                  decisions.kv_tile, decisions.wg_size);
+         const char *             shader_src = nullptr;
+         if (!key.use_sg_matrix) {
++            if (key.unroll4) { defines.push_back("NOVERA_ATTENTION_UNROLL4"); variant += "_unroll4"; }
+             shader_src = wgsl_flash_attn_tile;
+             defines.push_back("MIN_SUBGROUP_SIZE=" + std::to_string(context.min_subgroup_size) + "u");
+             defines.push_back("MAX_SUBGROUP_SIZE=" + std::to_string(context.max_subgroup_size) + "u");
+@@ -3389,6 +3410,7 @@
+         key.input_type                      = context.src1->type;
+         key.output_type                     = context.dst->type;
+ 
++        if ((novera_image_kernel_flags() & 1) && context.src0->ne[2] >= 32 && context.wg_mem_limit_bytes >= 16768u) key.reduction_tile = 64;
+         auto it = conv2d_pipelines.find(key);
+         if (it != conv2d_pipelines.end()) {
+             return it->second;
+@@ -3413,6 +3435,8 @@
+         push_type_defines("OUTPUT_TYPE", key.output_type);
+ 
+         defines.push_back(std::string("WG_SIZE=") + std::to_string(32u));
++        defines.push_back("CONV_K=" + std::to_string(key.reduction_tile) + "u");
++        variant += "_k" + std::to_string(key.reduction_tile);
+ 
+         auto processed           = preprocessor.preprocess(wgsl_conv2d, defines);
+         auto decisions           = std::make_shared<ggml_webgpu_generic_shader_decisions>();

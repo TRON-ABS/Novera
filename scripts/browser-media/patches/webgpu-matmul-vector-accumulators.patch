@@ -1,0 +1,70 @@
+--- a/src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
+@@ -117,6 +117,19 @@
+     let offset_n = wg_n * WORKGROUP_SIZE_N * TILE_N;
+ 
+     var acc: array<array<f32, TILE_N>, TILE_M>;
++#ifdef REGISTER_VEC_ACCUM
++    var a0 = vec4<f32>(0.0);
++    var a1 = vec4<f32>(0.0);
++    var a2 = vec4<f32>(0.0);
++    var a3 = vec4<f32>(0.0);
++#ifdef REGISTER_M8
++    var a4 = vec4<f32>(0.0);
++    var a5 = vec4<f32>(0.0);
++    var a6 = vec4<f32>(0.0);
++    var a7 = vec4<f32>(0.0);
++#endif
++#endif
++
+ 
+     for (var k_outer = 0u; k_outer < params.k; k_outer += TILE_K) {
+ 
+@@ -128,6 +141,23 @@
+ 
+         let k_end = min(TILE_K, params.k - k_outer);
+ 
++#ifdef REGISTER_VEC_ACCUM
++        for (var k_inner = 0u; k_inner < k_end; k_inner++) {
++            let row_m = local_m * TILE_M;
++            let row_n = local_n * TILE_N;
++            let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + k_inner)]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + k_inner)]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + k_inner)]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + k_inner)]));
++            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + k_inner)]) * y;
++            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + k_inner)]) * y;
++            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + k_inner)]) * y;
++            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + k_inner)]) * y;
++#ifdef REGISTER_M8
++            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + k_inner)]) * y;
++            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + k_inner)]) * y;
++            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + k_inner)]) * y;
++            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + k_inner)]) * y;
++#endif
++        }
++#else
+         for (var k_inner = 0u; k_inner < k_end; k_inner++) {
+             var src0_tile: array<f16, TILE_M>;
+             for (var tm = 0u; tm < TILE_M; tm++) {
+@@ -145,9 +175,23 @@
+             }
+         }
+ 
++
++#endif
+         workgroupBarrier();
+     }
+ 
++#ifdef REGISTER_VEC_ACCUM
++    acc[0] = array<f32,4>(a0.x,a0.y,a0.z,a0.w);
++    acc[1] = array<f32,4>(a1.x,a1.y,a1.z,a1.w);
++    acc[2] = array<f32,4>(a2.x,a2.y,a2.z,a2.w);
++    acc[3] = array<f32,4>(a3.x,a3.y,a3.z,a3.w);
++#ifdef REGISTER_M8
++    acc[4] = array<f32,4>(a4.x,a4.y,a4.z,a4.w);
++    acc[5] = array<f32,4>(a5.x,a5.y,a5.z,a5.w);
++    acc[6] = array<f32,4>(a6.x,a6.y,a6.z,a6.w);
++    acc[7] = array<f32,4>(a7.x,a7.y,a7.z,a7.w);
++#endif
++#endif
+     let dst_batch_offset = params.offset_dst + dst3_idx * dst3_stride + dst2_idx * dst2_stride;
+ 
+     for (var tn = 0u; tn < TILE_N; tn++) {

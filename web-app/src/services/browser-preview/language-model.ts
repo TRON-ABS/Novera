@@ -1,8 +1,16 @@
 import { createOpenAICompatible } from '@ai-sdk/openai-compatible'
 import { browserRuntime, type BrowserMessage, type BrowserRuntime, type BrowserTool, type BrowserToolCall, type SdkResult } from './runtime'
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
+import { createProviderMetadataExtractor } from '@/modules/engines/stream-metadata'
 
 const WEB_TOOLS = new Set(['web_search', 'web_fetch'])
+function measuredTimings(result?: SdkResult) {
+  const rate = result?.timings?.tokens_per_second
+  if (typeof rate !== 'number' || !Number.isFinite(rate) || rate < 0) return undefined
+  const cached = result?.usage?.cached_tokens ?? 0
+  return { predicted_per_second: rate, predicted_n: result?.usage?.completion_tokens,
+    prompt_n: Math.max(0, (result?.usage?.prompt_tokens ?? 0) - cached), cache_n: cached }
+}
 function toolCalls(value: unknown): BrowserToolCall[] | undefined {
   if (value === undefined) return
   if (!Array.isArray(value)) throw new Error('Appels d’outils invalides.')
@@ -68,7 +76,7 @@ export function localBrowserFetch(runtime: BrowserRuntime = browserRuntime): typ
         }
         return Response.json({ id, object: 'chat.completion', created: Math.floor(Date.now() / 1000), model: body.model,
           choices: [{ index: 0, message: { role: 'assistant', content: result?.message.content ?? content, ...(result?.message.tool_calls ? { tool_calls: callsForWire(result.message.tool_calls) } : {}) }, finish_reason: result?.finish_reason === 'tool_calls' ? 'tool_calls' : result?.finish_reason === 'length' ? 'length' : 'stop' }],
-          usage: { prompt_tokens: result?.usage?.prompt_tokens ?? 0, completion_tokens: result?.usage?.completion_tokens ?? 0, total_tokens: (result?.usage?.prompt_tokens ?? 0) + (result?.usage?.completion_tokens ?? 0) } })
+          usage: { prompt_tokens: result?.usage?.prompt_tokens ?? 0, completion_tokens: result?.usage?.completion_tokens ?? 0, total_tokens: (result?.usage?.prompt_tokens ?? 0) + (result?.usage?.completion_tokens ?? 0) }, ...(measuredTimings(result) ? { timings: measuredTimings(result) } : {}) })
       } finally { init.signal?.removeEventListener('abort', abort) }
     }
     const stream = new ReadableStream<Uint8Array>({
@@ -82,7 +90,7 @@ export function localBrowserFetch(runtime: BrowserRuntime = browserRuntime): typ
             if (event.result) {
               const calls = callsForWire(event.result.message.tool_calls)
               if (calls?.length) push({ ...base, choices: [{ index: 0, delta: { tool_calls: calls.map((call, index) => ({ index, ...call })) }, finish_reason: null }] })
-              push({ ...base, choices: [{ index: 0, delta: {}, finish_reason: event.result.finish_reason === 'tool_calls' ? 'tool_calls' : event.result.finish_reason === 'length' ? 'length' : 'stop' }], usage: { prompt_tokens: event.result.usage?.prompt_tokens ?? 0, completion_tokens: event.result.usage?.completion_tokens ?? 0, total_tokens: (event.result.usage?.prompt_tokens ?? 0) + (event.result.usage?.completion_tokens ?? 0) } })
+              push({ ...base, choices: [{ index: 0, delta: {}, finish_reason: event.result.finish_reason === 'tool_calls' ? 'tool_calls' : event.result.finish_reason === 'length' ? 'length' : 'stop' }], usage: { prompt_tokens: event.result.usage?.prompt_tokens ?? 0, completion_tokens: event.result.usage?.completion_tokens ?? 0, total_tokens: (event.result.usage?.prompt_tokens ?? 0) + (event.result.usage?.completion_tokens ?? 0) }, ...(measuredTimings(event.result) ? { timings: measuredTimings(event.result) } : {}) })
             }
           }
           output.enqueue(encoder.encode('data: [DONE]\n\n')); output.close()
@@ -95,7 +103,7 @@ export function localBrowserFetch(runtime: BrowserRuntime = browserRuntime): typ
   }
 }
 
-export async function createBrowserLanguageModel(id: string) {
-  await browserRuntime.load(id)
-  return createOpenAICompatible({ name: 'novera-browser', baseURL: 'https://novera-browser.invalid/v1', fetch: localBrowserFetch(), includeUsage: true }).languageModel(id)
+export async function createBrowserLanguageModel(id: string, runtime: BrowserRuntime = browserRuntime) {
+  await runtime.load(id)
+  return createOpenAICompatible({ name: 'novera-browser', baseURL: 'https://novera-browser.invalid/v1', fetch: localBrowserFetch(runtime), includeUsage: true, metadataExtractor: createProviderMetadataExtractor() }).languageModel(id)
 }

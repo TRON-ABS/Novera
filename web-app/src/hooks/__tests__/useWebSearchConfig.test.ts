@@ -43,11 +43,11 @@ describe('web search preferences', () => {
     expect(useWebSearchConfig.getState()).toMatchObject({ searchProvider: 'tavily', webSearchEnabled: false })
   })
 
-  it('migrates only the old nonfunctional browser DuckDuckGo default while preserving Web-off', async () => {
+  it('preserves the selected autonomous DuckDuckGo mode and the Web-off preference', async () => {
     vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
     storage.getItem.mockResolvedValue(JSON.stringify({ state: { searchProvider: 'duckduckgo', webSearchEnabled: false }, version: 0 }))
     await useWebSearchConfig.persist.rehydrate()
-    expect(useWebSearchConfig.getState()).toMatchObject({ searchProvider: 'exa', webSearchEnabled: false })
+    expect(useWebSearchConfig.getState()).toMatchObject({ searchProvider: 'duckduckgo', webSearchEnabled: false })
   })
 
   it('does not read empty keyring keys for providers without API keys', async () => {

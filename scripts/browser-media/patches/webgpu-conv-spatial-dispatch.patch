@@ -1,0 +1,11 @@
+--- a/src/ggml-webgpu/ggml-webgpu.cpp
++++ b/src/ggml-webgpu/ggml-webgpu.cpp
+@@ -1029,7 +1029,7 @@
+     uint32_t wg_x;
+     uint32_t wg_y;
+     // One shared-memory tile covers spatial positions x output channels.
+-    uint32_t total_wg = CEIL_DIV((uint32_t) (dst->ne[0] * dst->ne[1]), decisions->wg_size) *
++    uint32_t total_wg = CEIL_DIV((uint32_t) (dst->ne[0] * dst->ne[1]), decisions->conv_spatial_tile) *
+                         CEIL_DIV((uint32_t) dst->ne[2], decisions->wg_size) * (uint32_t) dst->ne[3];
+     compute_2d_workgroups(total_wg, ctx->global_ctx->capabilities.limits.maxComputeWorkgroupsPerDimension, wg_x, wg_y);
+ 

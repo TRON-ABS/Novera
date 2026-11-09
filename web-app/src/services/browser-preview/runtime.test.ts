@@ -12,6 +12,84 @@ function fixture() {
 }
 
 describe('browser runtime ownership', () => {
+  it('bounds short Omni speculative work while preserving the sustained SDK default', async () => {
+    const f = fixture()
+    f.session.generate.mockImplementation(() => ({
+      async *[Symbol.asyncIterator]() { yield { type: 'text', text: '42' } },
+      result: Promise.resolve({ message: { role: 'assistant', content: '42' }, finish_reason: 'stop' }),
+      cancel: vi.fn(),
+    }))
+    for await (const event of f.runtime.generate(id, [{ role: 'user', content: '17+25' }], undefined, 128)) void event
+    expect(f.session.generate.mock.calls[0][1]).toMatchObject({ max_new_tokens: 128, decode_pipeline_depth: 2, do_sample: false })
+    for await (const event of f.runtime.generate(id, [{ role: 'user', content: 'Guide détaillé' }], undefined, 512)) void event
+    expect(f.session.generate.mock.calls[1][1]).not.toHaveProperty('decode_pipeline_depth')
+  })
+  it('routes local audio through Omni and clears the speech context', async () => {
+    const f = fixture()
+    const speechSession = { ...f.session, reset: vi.fn(), dispose: vi.fn().mockResolvedValue(undefined) }
+    f.model.create_session.mockReturnValueOnce(f.session).mockReturnValue(speechSession)
+    const samples = new Float32Array([0.25, -0.25])
+    f.session.generate.mockImplementation(() => ({
+      async *[Symbol.asyncIterator]() { yield { type: 'audio', audio: samples } },
+      result: Promise.resolve({ message: { role: 'assistant', content: [] }, finish_reason: 'stop' }),
+      cancel: vi.fn(),
+    }))
+    const audio = vi.fn()
+    await f.runtime.speech(id, [{ role: 'user', content: 'Bonjour' }], 'audio', new AbortController().signal, audio)
+    expect(audio).toHaveBeenCalledWith(samples)
+    expect(f.session.generate.mock.calls[0][1]).toMatchObject({ generation_mode: 'audio', do_sample: false })
+    expect(f.session.reset).not.toHaveBeenCalled()
+    expect(f.session.dispose).not.toHaveBeenCalled()
+    expect(speechSession.dispose).toHaveBeenCalledOnce()
+    expect(f.model.create_session).toHaveBeenCalledTimes(2)
+    expect(f.runtime.snapshot().phase).toBe('ready')
+  })
+
+  it('cancels speech, rejects concurrent generation and releases its lock', async () => {
+    const f = fixture()
+    const controller = new AbortController()
+    let complete!: () => void
+    const done = new Promise<void>(resolve => { complete = resolve })
+    const cancel = vi.fn(complete)
+    f.session.generate.mockImplementation(() => ({
+      async *[Symbol.asyncIterator]() { await done },
+      result: done.then(() => ({ message: { role: 'assistant', content: '' }, finish_reason: 'cancelled' })),
+      cancel,
+    }))
+    const job = f.runtime.speech(id, [{ role: 'user', content: [{ type: 'audio', audio: new Float32Array(320) }] }], 'text', controller.signal)
+    const rejected = expect(job).rejects.toThrow()
+    await vi.waitFor(() => expect(f.runtime.snapshot().phase).toBe('generating'))
+    await expect(f.runtime.generate(id, [{ role: 'user', content: 'parallel' }]).next()).rejects.toThrow('occupé')
+    controller.abort()
+    await rejected
+    expect(cancel).toHaveBeenCalled()
+    expect(f.runtime.snapshot().phase).toBe('ready')
+    expect(f.session.reset).not.toHaveBeenCalled()
+  })
+
+  it('preserves the chat prefix cache across speech playback', async () => {
+    const f = fixture()
+    const speechSession = { ...f.session, reset: vi.fn(), dispose: vi.fn().mockResolvedValue(undefined) }
+    f.model.create_session.mockReturnValueOnce(f.session).mockReturnValue(speechSession)
+    f.session.generate.mockImplementation(() => ({
+      async *[Symbol.asyncIterator]() { yield { type: 'text', text: '42' } },
+      result: Promise.resolve({ message: { role: 'assistant', content: '42' }, finish_reason: 'stop' }),
+      cancel: vi.fn(),
+    }))
+    const messages = [{ role: 'user', content: '17 + 25 ?' }]
+    for await (const _part of f.runtime.generate(id, messages)) { /* Consume. */ }
+    await f.runtime.speech(id, [{ role: 'user', content: '42' }], 'audio', new AbortController().signal)
+    for await (const _part of f.runtime.generate(id, [...messages, { role: 'assistant', content: '42' }, { role: 'user', content: 'Répète.' }])) { /* Consume. */ }
+    expect(f.session.reset).toHaveBeenCalledOnce()
+    expect(f.session.dispose).not.toHaveBeenCalled()
+    expect(speechSession.dispose).toHaveBeenCalledOnce()
+  })
+
+  it('rejects speech for text-only models before loading', async () => {
+    const f = fixture()
+    await expect(f.runtime.speech(browserCatalog[1].id, [{ role: 'user', content: 'Bonjour' }], 'audio', new AbortController().signal)).rejects.toThrow('unavailable')
+    expect(f.loader).not.toHaveBeenCalled()
+  })
   it('shares a concurrent load and pins the compatible projector', async () => {
     const f = fixture()
     await Promise.all([f.runtime.load(id), f.runtime.load(id)])

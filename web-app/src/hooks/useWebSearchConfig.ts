@@ -107,9 +107,7 @@ export const useWebSearchConfig = create<WebSearchConfigState>()(
           ? persisted as Partial<WebSearchConfigState> : {}
         return {
           ...current, ...saved,
-          // The old browser preview exposed Desktop's nonfunctional default.
-          // Its Web-off preference is preserved; other explicit providers are retained.
-          searchProvider: browserPreviewEnabled() && saved.searchProvider === 'duckduckgo' ? 'exa' : saved.searchProvider ?? current.searchProvider,
+          searchProvider: saved.searchProvider ?? current.searchProvider,
           webSearchEnabled: typeof saved.webSearchEnabled === 'boolean'
             ? saved.webSearchEnabled : DEFAULT_WEB_SEARCH_ENABLED,
         }

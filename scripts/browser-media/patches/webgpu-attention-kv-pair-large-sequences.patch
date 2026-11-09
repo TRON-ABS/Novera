@@ -1,0 +1,11 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -3079,7 +3079,7 @@
+         key.pair_unroll2 = key.score_pair && key.common.head_dim_qk % 8u == 0u && (novera_image_kernel_flags() & 256) != 0;
+         key.value_fma = !decisions.use_sg_matrix && !key.common.v_direct && key.common.head_dim_v >= 128u && context.src0->ne[1] >= 1024 && (novera_image_kernel_flags() & 16384) != 0;
+         key.query_registers = key.score_pair && key.common.head_dim_qk == 128u && (novera_image_kernel_flags() & 65536) != 0;
+-        key.packed_kv = key.score_pair && key.common.head_dim_qk == 128u && key.common.head_dim_v == 128u && context.src0->ne[1] >= 1024 && !decisions.use_sg_matrix && !key.common.k_direct && !key.common.v_direct &&
++        key.packed_kv = key.score_pair && key.common.head_dim_qk == 128u && key.common.head_dim_v == 128u && context.src0->ne[1] >= 4096 && !decisions.use_sg_matrix && !key.common.k_direct && !key.common.v_direct &&
+             key.common.k_type == GGML_TYPE_F16 && key.common.v_type == GGML_TYPE_F16 &&
+             key.common.head_dim_qk % 4u == 0u && key.common.head_dim_v % 4u == 0u &&
+             (novera_image_kernel_flags() & 131072) != 0;

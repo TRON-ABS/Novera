@@ -1,0 +1,106 @@
+--- a/src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
+@@ -1,3 +1,97 @@
++#ifdef NOVERA_CONV_NARROW
++#include "common_decls.tmpl"
++enable f16;
++
++@group(0) @binding(0)
++var<storage, read_write> weights: array<WEIGHT_TYPE>;
++@group(0) @binding(1)
++var<storage, read_write> input: array<INPUT_TYPE>;
++@group(0) @binding(2)
++var<storage, read_write> output: array<OUTPUT_TYPE>;
++
++struct Params {
++    offset_w: u32,
++    offset_i: u32,
++    offset_o: u32,
++
++    // element strides
++    sw0: u32, sw1: u32, sw2: u32, sw3: u32,
++    si0: u32, si1: u32, si2: u32, si3: u32,
++    so0: u32, so1: u32, so2: u32, so3: u32,
++
++    // kernel dimensions
++    KW: u32, KH: u32, IC: u32,
++    // input dimensions
++    IW: u32, IH: u32,
++    // output dimensions
++    OW: u32, OH: u32, OC_out: u32, N_out: u32,
++
++    // stride
++    s0: u32, s1: u32,
++    // padding
++    p0: u32, p1: u32,
++    // dilation
++    d0: u32, d1: u32,
++};
++
++@group(0) @binding(3)
++var<uniform> params: Params;
++
++// Each lane produces one spatial pixel and only the actual output channels.
++// Inputs and sums remain F32; kernel order is IC, KH, KW as in the tiled path.
++#define NARROW_CHANNELS 3
++@compute @workgroup_size(128)
++fn main(@builtin(workgroup_id) wid: vec3<u32>,
++        @builtin(num_workgroups) num_wg: vec3<u32>,
++        @builtin(local_invocation_id) lid: vec3<u32>) {
++    let positions = params.OW * params.OH;
++    let tiles_m = (positions + 127u) / 128u;
++    let tile = wid.x + wid.y * num_wg.x;
++    let batch = tile / tiles_m;
++    let position = (tile % tiles_m) * 128u + lid.x;
++    if (batch >= params.N_out || position >= positions) { return; }
++    let ow = position % params.OW;
++    let oh = position / params.OW;
++    var sum = vec4<f32>(0.0);
++    for (var ic = 0u; ic < params.IC; ic++) {
++        for (var kh = 0u; kh < 3u; kh++) {
++            let ih = i32(oh * params.s1 + kh * params.d1) - i32(params.p1);
++            for (var kw = 0u; kw < 3u; kw++) {
++                let iw = i32(ow * params.s0 + kw * params.d0) - i32(params.p0);
++                var value = 0.0f;
++                if (iw >= 0 && ih >= 0 && iw < i32(params.IW) && ih < i32(params.IH)) {
++                    value = f32(input[params.offset_i + u32(iw)*params.si0 + u32(ih)*params.si1 + ic*params.si2 + batch*params.si3]);
++                }
++                let index = params.offset_w + kw*params.sw0 + kh*params.sw1 + ic*params.sw2;
++                var w = vec4<f32>(0.0);
++                w.x = f32(weights[index]);
++#if NARROW_CHANNELS > 1
++                w.y = f32(weights[index + params.sw3]);
++#endif
++#if NARROW_CHANNELS > 2
++                w.z = f32(weights[index + 2u*params.sw3]);
++#endif
++#if NARROW_CHANNELS > 3
++                w.w = f32(weights[index + 3u*params.sw3]);
++#endif
++                sum += value * w;
++            }
++        }
++    }
++    let index = params.offset_o + ow*params.so0 + oh*params.so1 + batch*params.so3;
++    output[index] = OUTPUT_TYPE(sum.x);
++#if NARROW_CHANNELS > 1
++    output[index + params.so2] = OUTPUT_TYPE(sum.y);
++#endif
++#if NARROW_CHANNELS > 2
++    output[index + 2u*params.so2] = OUTPUT_TYPE(sum.z);
++#endif
++#if NARROW_CHANNELS > 3
++    output[index + 3u*params.so2] = OUTPUT_TYPE(sum.w);
++#endif
++}
++
++#else
+ #ifdef NOVERA_CONV_SPATIAL64
+ #include "common_decls.tmpl"
+ enable f16;
+@@ -230,3 +324,5 @@
+ }
+ 
+ #endif
++
++#endif

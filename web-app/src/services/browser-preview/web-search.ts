@@ -1,4 +1,5 @@
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
+import { fetchPublicBrowserPage, searchDuckDuckGo } from './duckduckgo'
 
 type SearchStatus = { phase: 'idle' | 'preparing' | 'ready' | 'error'; error?: string; preparationMs?: number }
 const LIMIT = 1024 * 1024
@@ -129,12 +130,17 @@ function publicUrl(value: string): string {
 export async function executeBrowserWebTool(name: string, input: { query?: unknown; count?: unknown; url?: unknown }, cap = 16000, signal?: AbortSignal) {
   const config = useWebSearchConfig.getState()
   if (!config.webSearchEnabled) throw new Error('La recherche Internet est désactivée.')
-  if (config.searchProvider !== 'exa') throw new Error('Cette préparation Web utilise Exa. Choisissez-le dans les paramètres Internet.')
+  const budget = Math.min(40000, Math.max(1, Number.isFinite(cap) ? Math.floor(cap) : 16000))
+  if (config.searchProvider === 'duckduckgo') {
+    if (name === 'web_fetch' && typeof input.url === 'string') return { content: await fetchPublicBrowserPage(input.url, budget, signal) }
+    if (name !== 'web_search' || typeof input.query !== 'string') throw new Error('Requête DuckDuckGo invalide.')
+    return { content: await searchDuckDuckGo(input.query, typeof input.count === 'number' ? input.count : 5, budget, signal) }
+  }
+  if (config.searchProvider !== 'exa') throw new Error('Choisissez Exa ou DuckDuckGo dans les paramètres Internet Web.')
   const call = async (tool: string, args: object) => {
     if (!useWebSearchConfig.getState().webSearchEnabled) throw new Error('La recherche Internet est désactivée.')
     return browserSearch.textTool(BROWSER_SEARCH_ENDPOINT, tool, args, signal)
   }
-  const budget = Math.min(40000, Math.max(1, Number.isFinite(cap) ? Math.floor(cap) : 16000))
   if (name === 'web_fetch') {
     const url = publicUrl(typeof input.url === 'string' ? input.url : '')
     const content = await call('web_fetch_exa', { urls: [url], maxCharacters: budget })

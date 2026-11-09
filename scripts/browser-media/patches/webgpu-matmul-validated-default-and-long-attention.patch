@@ -1,0 +1,20 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -13,7 +13,7 @@
+ #endif
+ static inline int novera_image_kernel_flags() {
+ #if defined(__EMSCRIPTEN__) && defined(NOVERA_IMAGE_KERNEL_TUNING)
+-    return EM_ASM_INT({ return globalThis.noveraImageKernelFlags ?? 242; });
++    return EM_ASM_INT({ return globalThis.noveraImageKernelFlags ?? 12530; });
+ #else
+     return 0;
+ #endif
+@@ -3075,7 +3075,7 @@
+         key.value_unroll4 = !decisions.use_sg_matrix && (novera_image_kernel_flags() & 8) != 0;
+         key.score_pair = !decisions.use_sg_matrix && decisions.kv_tile > 32u && decisions.kv_tile <= 64u && context.min_subgroup_size == 32u && context.max_subgroup_size == 32u && (novera_image_kernel_flags() & 32) != 0;
+         key.pair_unroll2 = key.score_pair && key.common.head_dim_qk % 8u == 0u && (novera_image_kernel_flags() & 256) != 0;
+-        key.value_fma = !decisions.use_sg_matrix && !key.common.v_direct && key.common.head_dim_v >= 128u && (novera_image_kernel_flags() & 16384) != 0;
++        key.value_fma = !decisions.use_sg_matrix && !key.common.v_direct && key.common.head_dim_v >= 128u && context.src0->ne[1] >= 1024 && (novera_image_kernel_flags() & 16384) != 0;
+         key.query_registers = key.score_pair && key.common.head_dim_qk == 128u && (novera_image_kernel_flags() & 65536) != 0;
+         auto it = flash_attn_pipelines.find(key);
+         if (it != flash_attn_pipelines.end()) {

@@ -1,0 +1,56 @@
+--- a/src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
+@@ -36,10 +36,12 @@
+ @group(0) @binding(3)
+ var<uniform> params: Params;
+ 
++#define CONV_K WG_SIZE
++
+ // Register-tiled implicit convolution. Each of 64 threads computes a 4x4
+ // output block; F32 shared rows have one pad to avoid bank conflicts.
+-var<workgroup> input_tile: array<f32, WG_SIZE * (WG_SIZE + 1u)>;
+-var<workgroup> weight_tile: array<f32, WG_SIZE * (WG_SIZE + 1u)>;
++var<workgroup> input_tile: array<f32, CONV_K * (WG_SIZE + 1u)>;
++var<workgroup> weight_tile: array<f32, WG_SIZE * (CONV_K + 1u)>;
+ @compute @workgroup_size(8, 8)
+ fn main(@builtin(workgroup_id) wid: vec3<u32>,
+         @builtin(num_workgroups) num_wg: vec3<u32>,
+@@ -58,8 +60,8 @@
+     let tid = lid.y * 8u + lid.x;
+     var a0 = vec4<f32>(0.0); var a1 = vec4<f32>(0.0);
+     var a2 = vec4<f32>(0.0); var a3 = vec4<f32>(0.0);
+-    for (var base = 0u; base < reduction; base += WG_SIZE) {
+-        for (var elem = tid; elem < WG_SIZE * WG_SIZE; elem += 64u) {
++    for (var base = 0u; base < reduction; base += CONV_K) {
++        for (var elem = tid; elem < WG_SIZE * CONV_K; elem += 64u) {
+             let pos_local = elem % WG_SIZE;
+             let k_local = elem / WG_SIZE;
+             let position = tile_m * WG_SIZE + pos_local;
+@@ -74,8 +76,8 @@
+                 value = f32(input[params.offset_i + u32(iw) * params.si0 + u32(ih) * params.si1 + ic * params.si2 + batch * params.si3]);
+             }
+             input_tile[k_local * (WG_SIZE + 1u) + pos_local] = value;
+-            let n_local = elem / WG_SIZE;
+-            let wk_local = elem % WG_SIZE;
++            let n_local = elem / CONV_K;
++            let wk_local = elem % CONV_K;
+             let kb = base + wk_local;
+             let oc = tile_n * WG_SIZE + n_local;
+             var weight = 0.0f;
+@@ -85,13 +87,13 @@
+                 let ck = kb / (params.KW * params.KH);
+                 weight = f32(weights[params.offset_w + wk * params.sw0 + hk * params.sw1 + ck * params.sw2 + oc * params.sw3]);
+             }
+-            weight_tile[n_local * (WG_SIZE + 1u) + wk_local] = weight;
++            weight_tile[n_local * (CONV_K + 1u) + wk_local] = weight;
+         }
+         workgroupBarrier();
+-        for (var k = 0u; k < WG_SIZE; k++) {
++        for (var k = 0u; k < CONV_K; k++) {
+             let i = k * (WG_SIZE + 1u) + lid.x * 4u;
+             let x = vec4<f32>(input_tile[i], input_tile[i+1u], input_tile[i+2u], input_tile[i+3u]);
+-            let w = vec4<f32>(weight_tile[(lid.y*4u)*(WG_SIZE+1u)+k],weight_tile[(lid.y*4u+1u)*(WG_SIZE+1u)+k],weight_tile[(lid.y*4u+2u)*(WG_SIZE+1u)+k],weight_tile[(lid.y*4u+3u)*(WG_SIZE+1u)+k]);
++            let w = vec4<f32>(weight_tile[(lid.y*4u)*(CONV_K+1u)+k],weight_tile[(lid.y*4u+1u)*(CONV_K+1u)+k],weight_tile[(lid.y*4u+2u)*(CONV_K+1u)+k],weight_tile[(lid.y*4u+3u)*(CONV_K+1u)+k]);
+             a0 += x.x * w; a1 += x.y * w; a2 += x.z * w; a3 += x.w * w;
+         }
+         workgroupBarrier();

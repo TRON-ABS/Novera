@@ -28,6 +28,7 @@ import { useMediaLibrary, selectMediaProfile } from '@/hooks/useMediaLibrary'
 import { useCreation, videoSettingsFor } from '@/hooks/useCreation'
 import { previewOutputMode } from '@/modules/engines/creation'
 import { BROWSER_IMAGE_PROVIDER, BROWSER_IMAGE_MODEL, browserLocalImagesEnabled } from '@/services/browser-preview/local-media'
+import { NATIVE_IMAGE_PROVIDER, NATIVE_IMAGE_MODEL, useNativeImageBridge } from '@/services/browser-preview/native-image-bridge'
 import { BROWSER_MUSIC_PROVIDER, BROWSER_MUSIC_MODEL, browserLocalMusicEnabled } from '@/services/browser-preview/local-music'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { useAgentMode } from '@/hooks/useAgentMode'
@@ -120,6 +121,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
 
   const creation = useCreation()
   const music = useMusicCreation()
+  const nativeImageHealth = useNativeImageBridge(state => state.health)
   const mediaProfiles = useMediaLibrary((s) => s.profiles)
   const currentThreadId = useThreads((state) => state.currentThreadId)
   const scope = mediaScope ?? currentThreadId ?? 'new'
@@ -187,6 +189,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
     ]
     return [
       ...(variant === 'composer' && mediaAllowed && browserPreviewEnabled() ? [
+        ...(nativeImageHealth ? [{ provider: NATIVE_IMAGE_PROVIDER, active: true, settings: [], models: [{ id: NATIVE_IMAGE_MODEL, displayName: 'FLUX.2 Klein 4B · Moteur natif local', output_modalities: ['image'], capabilities: ['image-generation'] }] } as ModelProvider] : []),
         ...(browserLocalImagesEnabled() ? [{ provider: BROWSER_IMAGE_PROVIDER, active: true, settings: [], models: [{ id: BROWSER_IMAGE_MODEL, displayName: 'FLUX.2 Klein 4B · Q4_K_M · WebGPU', output_modalities: ['image'], capabilities: ['image-generation'] }] } as ModelProvider] : []),
         ...(browserLocalMusicEnabled() ? [{ provider: BROWSER_MUSIC_PROVIDER, active: true, settings: [], models: [{ id: BROWSER_MUSIC_MODEL, displayName: 'ACE-Step 1.5 Turbo · Q4_K_M · WebGPU', output_modalities: ['audio'], capabilities: ['audio-generation'] }] } as ModelProvider] : []),
       ] : []),
@@ -213,7 +216,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   }, [
     providers,
     mediaProfiles,
-    variant, mediaAllowed, music.profiles, creation,
+    variant, mediaAllowed, music.profiles, creation, nativeImageHealth,
   ])
 
   // Search state

@@ -1,0 +1,37 @@
+--- a/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
+@@ -131,6 +131,26 @@
+         if (row_active) {
+             var score0 = 0.0;
+             var score1 = 0.0;
++#ifdef NOVERA_ATTN_PAIR_UNROLL2
++            for (var chunk = 0u; chunk < Q_CHUNKS; chunk += 2u) {
++                {
++                let q_off = q_base + (chunk + 0u) * 4u;
++                let qv = vec4<f32>(vec4<Q_TYPE>(q_shmem[q_off],q_shmem[q_off+1u],q_shmem[q_off+2u],q_shmem[q_off+3u]));
++                let k0 = sg_inv_id * K_ROW_STRIDE + (chunk + 0u) * 4u;
++                let k1 = min(sg_inv_id + subgroup_size, KV_TILE - 1u) * K_ROW_STRIDE + (chunk + 0u) * 4u;
++                score0 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k0],kv_shmem[k0+1u],kv_shmem[k0+2u],kv_shmem[k0+3u])));
++                score1 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k1],kv_shmem[k1+1u],kv_shmem[k1+2u],kv_shmem[k1+3u])));
++                }
++                {
++                let q_off = q_base + (chunk + 1u) * 4u;
++                let qv = vec4<f32>(vec4<Q_TYPE>(q_shmem[q_off],q_shmem[q_off+1u],q_shmem[q_off+2u],q_shmem[q_off+3u]));
++                let k0 = sg_inv_id * K_ROW_STRIDE + (chunk + 1u) * 4u;
++                let k1 = min(sg_inv_id + subgroup_size, KV_TILE - 1u) * K_ROW_STRIDE + (chunk + 1u) * 4u;
++                score0 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k0],kv_shmem[k0+1u],kv_shmem[k0+2u],kv_shmem[k0+3u])));
++                score1 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k1],kv_shmem[k1+1u],kv_shmem[k1+2u],kv_shmem[k1+3u])));
++                }
++            }
++#else
+             for (var chunk = 0u; chunk < Q_CHUNKS; chunk += 1u) {
+                 let q_off = q_base + chunk * 4u;
+                 let qv = vec4<f32>(vec4<Q_TYPE>(q_shmem[q_off],q_shmem[q_off+1u],q_shmem[q_off+2u],q_shmem[q_off+3u]));
+@@ -139,6 +159,7 @@
+                 score0 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k0],kv_shmem[k0+1u],kv_shmem[k0+2u],kv_shmem[k0+3u])));
+                 score1 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k1],kv_shmem[k1+1u],kv_shmem[k1+2u],kv_shmem[k1+3u])));
+             }
++#endif
+             for (var slot = 0u; slot < score_slots; slot += 1u) {
+                 let kv_local = sg_inv_id + slot * subgroup_size;
+                 if (kv_local >= kv_count) { continue; }

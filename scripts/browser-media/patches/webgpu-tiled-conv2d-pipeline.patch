@@ -1,0 +1,16 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -3375,11 +3375,11 @@
+         push_type_defines("INPUT_TYPE", key.input_type);
+         push_type_defines("OUTPUT_TYPE", key.output_type);
+ 
+-        defines.push_back(std::string("WG_SIZE=") + std::to_string(context.max_wg_size));
++        defines.push_back(std::string("WG_SIZE=") + std::to_string(16u));
+ 
+         auto processed           = preprocessor.preprocess(wgsl_conv2d, defines);
+         auto decisions           = std::make_shared<ggml_webgpu_generic_shader_decisions>();
+-        decisions->wg_size       = context.max_wg_size;
++        decisions->wg_size       = 16u;
+         webgpu_pipeline pipeline = ggml_webgpu_create_pipeline(device, processed, variant);
+         pipeline.context         = decisions;
+         conv2d_pipelines[key]    = pipeline;
