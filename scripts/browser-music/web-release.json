@@ -1,0 +1,210 @@
+[
+  {
+    "source": "ace",
+    "patch": "patches/workerfs-gguf-read-blocks.patch",
+    "file": "src/gguf-weights.h",
+    "patchSha256": "2a74ca3c6a3e898ebd89a456838479e510b04799963db2d5d34afc2e32f001bf",
+    "beforeSha256": "dee4feec78ba75211cf99f7c863b0128e7b621d331693adc0784aa33174c1401",
+    "afterSha256": "4dda399e67eb342a8833f24e73e6dc5b5efd53a10f35ac3749f08fe7b2aa5746"
+  },
+  {
+    "source": "ace",
+    "file": "src/weight-ctx.h",
+    "patch": "patches/workerfs-planner-weight-staging.patch",
+    "patchSha256": "ef592a9d0f9d4c66bdf38f90373a6cee2e289d3bc71494f2ba3dd56611249123",
+    "beforeSha256": "662523164ae4a99092a345b039c41fc17144389623517512bd438f82bb5a34d3",
+    "afterSha256": "de41aa316fa3fa077e15f3ce66870d8c3d399ee1c9e9c881f3d950fb41e5c84e"
+  },
+  {
+    "source": "ace",
+    "file": "src/gguf-weights.h",
+    "patch": "patches/workerfs-planner-gguf-ranges.patch",
+    "patchSha256": "b525224d7b086f46c4ba4723fb92abddec1eaea35da3dcfe5528947d8606a68e",
+    "beforeSha256": "4dda399e67eb342a8833f24e73e6dc5b5efd53a10f35ac3749f08fe7b2aa5746",
+    "afterSha256": "b77f0f11df77c71d0769a638efc07a81c33963db745b45fb055283f9f1c868d3"
+  },
+  {
+    "source": "ace",
+    "file": "src/qwen3-lm.h",
+    "patch": "patches/workerfs-planner-range-selection.patch",
+    "patchSha256": "0b5a2228987321d0e8c1653100f813451caa34b8549fdd153f264dbc017ef1b0",
+    "beforeSha256": "9bda1ff22b2434b4bf534189faae2bc0c0b428fb7002d31827e5b0786e12b7ab",
+    "afterSha256": "0dc69d96bec45fb1e36bee9a9a52317688aba12344d266965842f857d21a2839"
+  },
+  {
+    "source": "ace",
+    "file": "src/weight-ctx.h",
+    "patch": "patches/workerfs-planner-read-window.patch",
+    "patchSha256": "092f2df9093c482f9d93f97bcdc5df3defd12bc6d897294d2d3418cbf0f21b37",
+    "beforeSha256": "de41aa316fa3fa077e15f3ce66870d8c3d399ee1c9e9c881f3d950fb41e5c84e",
+    "afterSha256": "18a37ca118f676e0ea5a686fe3fcfa9566f0c1a8be5bd2f7f19f9863d00657a9"
+  },
+  {
+    "source": "ace",
+    "file": "src/gguf-weights.h",
+    "patch": "patches/workerfs-planner-defer-small-conversions.patch",
+    "patchSha256": "37ea9a0ff616827cf9b2064a39979e09ed235e46bbe180e78c1f95026b417848",
+    "beforeSha256": "b77f0f11df77c71d0769a638efc07a81c33963db745b45fb055283f9f1c868d3",
+    "afterSha256": "7fb9dbb0e918f32e1501cbe6153e0b23bf8f31368c240186a3ea5eeb99e3a728"
+  },
+  {
+    "source": "ace",
+    "file": "src/qwen3-lm.h",
+    "patch": "patches/workerfs-planner-window-selection.patch",
+    "patchSha256": "01aa9f0e2122ab3d3668cdbbbfb0f3062e99dc9390b8d82cc7c4b78c755f0604",
+    "beforeSha256": "0dc69d96bec45fb1e36bee9a9a52317688aba12344d266965842f857d21a2839",
+    "afterSha256": "dd31f31e686cbd2d3f2e89bbc6c4f5d80eca660aadd74cbd2ced3de450f6b23b"
+  },
+  {
+    "source": "ace",
+    "file": "src/qwen3-enc.h",
+    "patch": "patches/workerfs-text-encoder-window-selection.patch",
+    "patchSha256": "c5cf9aac009c592ff09768648c5852e712bd7c9a3a473612859aaaa44c1fa985",
+    "beforeSha256": "03dacaa50549034e4e715ca9a2725b7a8dabd737f884088b39522184d05eba1f",
+    "afterSha256": "f14a47664e397e66ca70c4631d00c499b32020e5a1932ca32ce427dce6314460"
+  },
+  {
+    "source": "ace",
+    "file": "src/weight-ctx.h",
+    "patch": "patches/workerfs-composite-range-reader.patch",
+    "patchSha256": "d7b34ebc68005c33dcce34f5fa747cb060d0510c3f817fa6dbb8fafb69bfc10d",
+    "beforeSha256": "18a37ca118f676e0ea5a686fe3fcfa9566f0c1a8be5bd2f7f19f9863d00657a9",
+    "afterSha256": "8277ab607ea8bbc872cffbdbdd5d2cb63c942577312b3f335f1b0781d912dc82"
+  },
+  {
+    "source": "ace",
+    "file": "src/gguf-weights.h",
+    "patch": "patches/workerfs-composite-window-loader.patch",
+    "patchSha256": "a68a2ef38f6be559161297aef54a5341ccc8f812d0d81070f952d17e2951601e",
+    "beforeSha256": "7fb9dbb0e918f32e1501cbe6153e0b23bf8f31368c240186a3ea5eeb99e3a728",
+    "afterSha256": "6d4e4a476df6cd56002cefab5a61ca4fb2cf5bc67115d1a504cc231a42e8d6b1"
+  },
+  {
+    "source": "ace",
+    "file": "src/dit.h",
+    "patch": "patches/workerfs-composite-dit-projections.patch",
+    "patchSha256": "fb4547166ded3dcfdafc6fb8d077db9787549c5f857ec421bd2264eec83ee050",
+    "beforeSha256": "0c87ed1d4deccee9b74ab9b241042a7b0d4339ab2966475c21e508668cc499d2",
+    "afterSha256": "bd7ec38eb3a293d8679e3d38c4ba52daa4bd43d6934af3345279695f2dd6d94d"
+  },
+  {
+    "source": "ace",
+    "file": "src/cond-enc.h",
+    "patch": "patches/workerfs-composite-condition.patch",
+    "patchSha256": "dab9fb77b4278767e8d01d278cf3a3754e7fa40177518468036b58bb4137200f",
+    "beforeSha256": "771b01b8309dad4a1e5d2b338e99c7f5172295ff44962b4f328824dcc3c8b9ae",
+    "afterSha256": "04dbfcc4cd911480c92a37cfdfbc739d8504905ebc4a04a81f77d873070235fb"
+  },
+  {
+    "source": "ace",
+    "file": "src/fsq-detok.h",
+    "patch": "patches/workerfs-composite-detokenizer.patch",
+    "patchSha256": "2fa6404bc031f471ec45e9a1ab9306c304d77737c70d27da876543d9c7239bab",
+    "beforeSha256": "be1df808f9ca7d5acd55ae3dd3063e0ab847c5ffa78637244e4e048479338422",
+    "afterSha256": "715a05e6fcfca45e98a701923c5f37ccb21a44f0f1c85e32ea3371f07d023a48"
+  },
+  {
+    "source": "ace",
+    "file": "src/fsq-tok.h",
+    "patch": "patches/workerfs-composite-tokenizer.patch",
+    "patchSha256": "30f6149300796feb61a180cd793341b131a4bfd367e45dc79c6d57af607d5c63",
+    "beforeSha256": "67492848c794a75033659f182230f66572fe4bb482269bcb40b38e25caa12ab7",
+    "afterSha256": "541c35452c0174d35f31ada1789c79e583d44ed2bbc299314936c2075ea1898e"
+  },
+  {
+    "source": "ace",
+    "file": "src/model-store.cpp",
+    "patch": "patches/workerfs-composite-cpu-tensors.patch",
+    "patchSha256": "c679904e7380f4cb5cb643a1632e685c4af05d7a726d98f063ab439b19107be0",
+    "beforeSha256": "15563ecdfa59befc943f308785bf95391dc8f1ac9b98fa43e593845168e37bac",
+    "afterSha256": "c1e57c7113729f52685d43eac1c98cec8f3d4cc85c2f9f65a79d17cab8918166"
+  },
+  {
+    "source": "ace",
+    "file": "src/sampling.h",
+    "patch": "patches/planner-reuse-sampling-exp.patch",
+    "patchSha256": "58d1407880b84323383f4a777dc4edf7c2ad3acb3dc4aee57db8d17122e05162",
+    "beforeSha256": "648be009bf94e3210e8d32fc6d04d85d9a705bc5d5859b824a568494e067e895",
+    "afterSha256": "bbf14daee1a4c990cf1be62d502f4ded0d64131774db6c5e4f567942ee117e2c"
+  },
+  {
+    "source": "ace",
+    "file": "src/pipeline-lm.cpp",
+    "patch": "patches/planner-audio-decode-profile.patch",
+    "patchSha256": "460b68b6ff17cbc92a4eccde88cdc999dd1d7dc9d1b97610c73c62876a0491c0",
+    "beforeSha256": "e6916efde695a99594ca0c6bc2636ad6abb81ed6bb9df379a2cf6e8ff32021a7",
+    "afterSha256": "e6d69378b20afbb5be77e80bc3257e3a514d9a3e752a45da770fcad59cba9bcc"
+  },
+  {
+    "source": "ggml",
+    "file": "include/ggml-webgpu.h",
+    "patch": "patches/webgpu-planner-head-copy-declaration.patch",
+    "patchSha256": "cb157d0e86ba4e56a7f089620cc6618f2eb00b0a6b799f499eb61c8305d66f65",
+    "beforeSha256": "a91d855313a9e85e75ba597ff869a267247dea936a2c0faef03aeb7f1ea6e79c",
+    "afterSha256": "a4dd5a844729841ab23c98cc459523abfaab9c6bc5c3c73b3e45a96cc20c0fcc"
+  },
+  {
+    "source": "ggml",
+    "file": "src/ggml-webgpu/ggml-webgpu.cpp",
+    "patch": "patches/webgpu-planner-head-copy.patch",
+    "patchSha256": "622980c87c0db7ba382a2afd479d600a9577bcc5a7b7d1554a08415c4b968455",
+    "beforeSha256": "37ef3eb5eb51e25e252c9e2156e7c091fc90e96fdd1ce1d948bb6a8c881933cf",
+    "afterSha256": "0d3c79b7b0cdca939670698cebd42898ceae3af448f6fba1acc898f2f7d39c46"
+  },
+  {
+    "source": "ace",
+    "file": "src/qwen3-lm.h",
+    "patch": "patches/planner-select-gpu-head-copy.patch",
+    "patchSha256": "58744890073ec946a1a174c8bb74e777ab7303a0c7558ac967cf539c2c420718",
+    "beforeSha256": "dd31f31e686cbd2d3f2e89bbc6c4f5d80eca660aadd74cbd2ced3de450f6b23b",
+    "afterSha256": "6ec66f91c976d009a97bfec68930a14f184f7afbbaf93e0891a9dc931ff2bc96"
+  },
+  {
+    "source": "ace",
+    "file": "src/pipeline-lm.cpp",
+    "patch": "patches/planner-measure-gpu-head-copy.patch",
+    "patchSha256": "0f82ab8cca1a8ec8d4d23a113ecb6bd7a9cc69f002e3d1ef91b964253a3b4f80",
+    "beforeSha256": "e6d69378b20afbb5be77e80bc3257e3a514d9a3e752a45da770fcad59cba9bcc",
+    "afterSha256": "1d3ddd2759f075128317e2c2ca1573db2be8546f661c176faf33956ce570e67c"
+  },
+  {
+    "source": "ace",
+    "file": "src/pipeline-lm.cpp",
+    "patch": "patches/workerfs-planner-read-ahead-worker.patch",
+    "patchSha256": "6a54413da198ff97ab6dc41e4a3042d851145a882fb1d905fcb37683cb410f9a",
+    "beforeSha256": "1d3ddd2759f075128317e2c2ca1573db2be8546f661c176faf33956ce570e67c",
+    "afterSha256": "53098c622e56cb350dd5490497c96346076d2e57d9b04f0dafdb4b57d899c025"
+  },
+  {
+    "source": "ace",
+    "file": "src/weight-ctx.h",
+    "patch": "patches/workerfs-planner-read-ahead.patch",
+    "patchSha256": "3bce35dc328332352fc44a99d1de3a0a8ccc9851bdac052985d5def2f8934f1e",
+    "beforeSha256": "8277ab607ea8bbc872cffbdbdd5d2cb63c942577312b3f335f1b0781d912dc82",
+    "afterSha256": "7a6e195866b960cbce6b575545cb0600c94baf3ba58e5df846759fb88a576d2b"
+  },
+  {
+    "source": "ace",
+    "file": "src/qwen3-lm.h",
+    "patch": "patches/workerfs-planner-read-ahead-selection.patch",
+    "patchSha256": "b8fea1d742222b7c2d55eeb1356f9ce0a7265d6a4c541ce164c1ae3972693ed8",
+    "beforeSha256": "6ec66f91c976d009a97bfec68930a14f184f7afbbaf93e0891a9dc931ff2bc96",
+    "afterSha256": "1db162a53e0feb0a3e9c8fec394717f8c1caa30f8d97101df2831ff722ca91b5"
+  },
+  {
+    "source": "ace",
+    "file": "src/gguf-weights.h",
+    "patch": "patches/workerfs-composite-file-order-selection.patch",
+    "patchSha256": "b7e7a6daf1e7c92e1eb2531d45772ad76cb0ab5be9acaa0ef3044812d38e1bec",
+    "beforeSha256": "6d4e4a476df6cd56002cefab5a61ca4fb2cf5bc67115d1a504cc231a42e8d6b1",
+    "afterSha256": "fa22624b723e5d4243a9a2bd2b3b21b2dab25f6217cf62631c2ac7f3b781ccb7"
+  },
+  {
+    "source": "ace",
+    "file": "src/weight-ctx.h",
+    "patch": "patches/workerfs-release-combine-windows.patch",
+    "patchSha256": "4aff6587c2fb1d834e07f6dc1c1f20990d0fe567cac57b0bdbbc08bfec3d8dfa",
+    "beforeSha256": "7a6e195866b960cbce6b575545cb0600c94baf3ba58e5df846759fb88a576d2b",
+    "afterSha256": "0070fe18b7151ceb6bca55465c5cbfd7f87dd54074becd9acf65d54631d15f34"
+  }
+]

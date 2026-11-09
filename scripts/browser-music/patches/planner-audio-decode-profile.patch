@@ -1,0 +1,152 @@
+--- a/src/pipeline-lm.cpp
++++ b/src/pipeline-lm.cpp
+@@ -21,6 +21,15 @@
+ #include <string>
+ #include <unordered_map>
+ #include <vector>
++
++#ifdef __EMSCRIPTEN__
++static void planner_metric(const char * stage, double ms, size_t tokens = 0) {
++    EM_ASM({
++        self.postMessage({ type: "music-planner-profile", stage: UTF8ToString(Number($0)),
++            ms: $1, tokens: Number($2), heapBytes: Number($3) });
++    }, stage, ms, tokens, emscripten_get_heap_size());
++}
++#endif
+ 
+ struct AceLm {
+     ModelStore * store;
+@@ -105,6 +114,10 @@
+     fprintf(stderr, "[LM-Phase1] Prefill %.0fms, %zu tokens, N=%d, CFG=%.2f, prompts=%s\n", t_prefill.ms(),
+             prompts[0].size(), N, cfg_scale, shared_prompt ? "shared" : "independent");
+ 
++#ifdef __EMSCRIPTEN__
++    planner_metric("metadata-prefill", t_prefill.ms(), prompts[0].size());
++#endif
++
+     // Per-element state
+     struct P1Seq {
+         std::mt19937     rng;
+@@ -274,6 +287,9 @@
+     }
+ 
+     fprintf(stderr, "[LM-Phase1] Decode %.0fms\n", t_decode.ms());
++#ifdef __EMSCRIPTEN__
++    planner_metric("metadata-decode", t_decode.ms(), seqs[0].gen_tokens.size());
++#endif
+ 
+     // Decode tokens to text
+     std::vector<std::string> results(N);
+@@ -369,6 +385,9 @@
+     }
+ 
+     double prefill_ms = t_prefill.ms();
++#ifdef __EMSCRIPTEN__
++    planner_metric("audio-prefill", prefill_ms, prompts[0].size() + unconds[0].size());
++#endif
+     fprintf(stderr, "[LM-Phase2] Prefill %.0fms (%s)\n", prefill_ms,
+             shared_prompt ? "shared, 1 cond + 1 uncond" : "individual, N cond + N uncond");
+ 
+@@ -417,6 +436,13 @@
+         cond_sets[i]   = i;
+         uncond_sets[i] = N + i;
+     }
++
++    bool reuse_exp = false;
++#ifdef __EMSCRIPTEN__
++    reuse_exp = EM_ASM_INT({ return globalThis.noveraMusicReuseSamplingExp === true; });
++    double forward_ms = 0;
++    double sampling_ms = 0;
++#endif
+ 
+     // Batched decode loop.
+     // partial head: pre-extracted contiguous tensor for [TOKEN_IM_END..V) rows.
+@@ -477,6 +503,9 @@
+             }
+         }
+ 
++#ifdef __EMSCRIPTEN__
++        const double forward_started = emscripten_get_now();
++#endif
+         // 2. FORWARD PASS: GPU only computes attention for n_active sequences
+         if (use_cfg && !use_batch_cfg) {
+             // Two separate N=1 forwards (cond, then uncond).
+@@ -492,6 +521,10 @@
+                                 lm_offset, lm_count);
+         }
+ 
++#ifdef __EMSCRIPTEN__
++        const double sampling_started = emscripten_get_now();
++        forward_ms += sampling_started - forward_started;
++#endif
+         // 3. TARGETED CFG & LOGIT EXTRACTION
+         for (int a = 0; a < n_active; a++) {
+             int orig_i = active_to_orig[a];  // Map back to original sequence object
+@@ -519,7 +552,7 @@
+ 
+             // CPU samples instantly because it only has to sort ~2049 items instead of 150,000+
+             int compact_tok =
+-                sample_top_k_p(compact_logits.data(), compact_V, temperature, top_p, top_k, seqs[orig_i].rng);
++                sample_top_k_p(compact_logits.data(), compact_V, temperature, top_p, top_k, seqs[orig_i].rng, reuse_exp);
+ 
+             // Map the sampled index back to global vocabulary ID
+             int tok = (compact_tok == 0) ? TOKEN_IM_END : (AUDIO_CODE_BASE + compact_tok - 1);
+@@ -542,6 +575,9 @@
+             }
+         }
+ 
++#ifdef __EMSCRIPTEN__
++        sampling_ms += emscripten_get_now() - sampling_started;
++#endif
+         // 4. UPDATE ACTIVE COUNT for the next loop iteration
+         int next_active_count = 0;
+         int total_codes       = 0;
+@@ -561,6 +597,12 @@
+     }
+ 
+     double decode_ms = t_decode.ms();
++#ifdef __EMSCRIPTEN__
++    const size_t codes = seqs[0].audio_codes.size();
++    planner_metric("audio-decode", decode_ms, codes);
++    planner_metric("audio-forward", forward_ms);
++    planner_metric(reuse_exp ? "audio-sampling-reuse" : "audio-sampling", sampling_ms);
++#endif
+     fprintf(stderr, "[LM-Phase2] Decode %.0fms\n", decode_ms);
+ 
+     // Build results
+@@ -640,7 +682,14 @@
+     }
+ 
+     // Acquire GPU LM from the store. RAII releases it on scope exit.
++#ifdef __EMSCRIPTEN__
++    Timer profile_timer;
++#endif
+     Qwen3LM * model = store_require_lm(ctx->store, ctx->lm_key);
++#ifdef __EMSCRIPTEN__
++    planner_metric("weights-and-kv", profile_timer.ms());
++    profile_timer.reset();
++#endif
+     if (!model) {
+         fprintf(stderr, "[Ace-LM] ERROR: store_require_lm failed\n");
+         return -1;
+@@ -660,6 +709,10 @@
+         qw3lm_build_partial_head(model, TOKEN_IM_END);
+     }
+ 
++#ifdef __EMSCRIPTEN__
++    planner_metric("audio-head", profile_timer.ms());
++    profile_timer.reset();
++#endif
+     // CPU-resident tokenizer and FSM template. Owned by the store, never
+     // evicted. FSM must be copied before mutation since the template is shared.
+     BPETokenizer * bpe = store_bpe(ctx->store, ctx->params.model_path);
+@@ -677,6 +730,9 @@
+         }
+     }
+ 
++#ifdef __EMSCRIPTEN__
++    planner_metric("tokenizer-fsm", profile_timer.ms());
++#endif
+     Timer t_total;
+ 
+     // mt19937 consumes the low 32 bits of lm_seed (resolved by caller).

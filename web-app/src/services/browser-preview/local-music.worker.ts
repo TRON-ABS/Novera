@@ -2,6 +2,17 @@
 import { musicWav } from './music-wav'
 
 const worker = self as unknown as DedicatedWorkerGlobalScope
+// The reviewed Web runtime reads these settings from its owning Worker.
+Object.assign(worker, {
+  noveraMusicPlannerRanges: true,
+  noveraMusicPlannerWindows: true,
+  noveraMusicEncoderWindows: true,
+  noveraMusicDiTWindows: true,
+  noveraMusicDiTFileOrder: true,
+  noveraMusicPlannerGpuHead: true,
+  noveraMusicPlannerReadAhead: true,
+  noveraMusicReuseSamplingExp: true,
+})
 worker.onmessage = async event => {
   let runtime: any
   try {

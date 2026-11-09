@@ -1,0 +1,39 @@
+--- a/src/cond-enc.h
++++ b/src/cond-enc.h
+@@ -83,6 +83,8 @@
+ // Load from ACEStep DiT GGUF
+ // gguf_path: path to the DiT .gguf file
+ // Tensors have prefix "encoder." for lyric/timbre, and "null_condition_emb"
++static void cond_ggml_free(CondGGML * m);
++
+ static bool cond_ggml_load(CondGGML * m, const char * gguf_path) {
+     // Backend init
+     BackendPair bp    = backend_init("CondEncoder");
+@@ -96,7 +98,7 @@
+     m->timbre_cfg = qwen3_timbre_config();
+ 
+     GGUFModel gf;
+-    if (!gf_load(&gf, gguf_path)) {
++    if (!gf_load_composite(&gf, gguf_path, "condition")) {
+         fprintf(stderr, "[Load] FATAL: cannot load %s\n", gguf_path);
+         return false;
+     }
+@@ -111,6 +113,7 @@
+     // text_proj(1) + null_cond(1) = 2
+     int n_tensors = 91 + 47 + 2 + (m->use_timbre_cls ? 1 : 0);
+     wctx_init(&m->wctx, n_tensors);
++    gf_composite_prepare_weights(gf, &m->wctx);
+ 
+     // Lyric encoder
+     m->lyric_embed_w = gf_load_tensor(&m->wctx, gf, "encoder.lyric_encoder.embed_tokens.weight");
+@@ -146,8 +149,10 @@
+ 
+     if (!wctx_alloc(&m->wctx, m->backend)) {
+         gf_close(&gf);
++        cond_ggml_free(m);
+         return false;
+     }
++    gf_composite_finish_weights(gf, m->wctx);
+     gf_close(&gf);
+ 
+     fprintf(stderr, "[Load] CondEncoder: lyric(%dL), timbre(%dL%s), text_proj, null_cond\n", m->lyric_cfg.n_layers,

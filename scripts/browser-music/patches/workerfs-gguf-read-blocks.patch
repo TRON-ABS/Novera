@@ -1,0 +1,40 @@
+--- a/src/gguf-weights.h
++++ b/src/gguf-weights.h
+@@ -31,6 +31,7 @@
+ #endif
+ 
+ #if defined(__EMSCRIPTEN__)
++#include <emscripten.h>
+ // One read-only composite model is shared by its sequential component loaders.
+ // The owning worker resets this cache only after all models have been released.
+ inline std::string novera_gf_cached_path;
+@@ -129,15 +130,28 @@
+         gf->mapping = novera_gf_cached_bytes;
+         close(gf->fd); gf->fd = -1;
+     } else {
++    const int block_mib = EM_ASM_INT({
++        const block = globalThis.noveraMusicReadBlockMiB;
++        return block === 16 || block === 32 ? block : 64;
++    });
++    const double alloc_started = emscripten_get_now();
+     gf->mapping = static_cast<uint8_t*>(malloc(gf->file_size));
+     if (!gf->mapping) { close(gf->fd); gf->fd = -1; return false; }
++    const double read_started = emscripten_get_now();
+     size_t offset = 0;
++    uint32_t read_calls = 0;
+     while (offset < gf->file_size) {
+-        const size_t amount = std::min<size_t>(64 * 1024 * 1024, gf->file_size - offset);
++        const size_t amount = std::min<size_t>(static_cast<size_t>(block_mib) * 1024 * 1024, gf->file_size - offset);
++        ++read_calls;
+         const auto count = read(gf->fd, gf->mapping + offset, amount);
+         if (count <= 0) { free(gf->mapping); gf->mapping = nullptr; close(gf->fd); gf->fd = -1; return false; }
+         offset += static_cast<size_t>(count);
+     }
++    const double read_ms = emscripten_get_now() - read_started;
++    EM_ASM({
++        self.postMessage({ type: "music-gguf-read", file: UTF8ToString(Number($0)).split("/").pop(),
++                           bytes: Number($1), blockMiB: $2, calls: $3, allocMs: $4, readMs: $5 });
++    }, path, gf->file_size, block_mib, read_calls, read_started - alloc_started, read_ms);
+     close(gf->fd); gf->fd = -1;
+     if (use_cache) {
+         novera_gf_cached_bytes = gf->mapping;

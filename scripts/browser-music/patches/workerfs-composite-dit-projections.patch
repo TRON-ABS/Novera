@@ -1,0 +1,75 @@
+--- a/src/dit.h
++++ b/src/dit.h
+@@ -155,8 +155,9 @@
+         fprintf(stderr, "[GGUF] FATAL: meta tensor '%s' not found\n", name.c_str());
+         exit(1);
+     }
+-    size_t       offset = gguf_get_tensor_offset(gf.gguf, idx);
+-    const void * raw    = gf.mapping + gf.data_offset + offset;
++    std::vector<uint32_t> staging;
++    const void * raw = gf_composite_tensor_view(gf, idx, src, staging);
++    if (!raw) return nullptr;
+ 
+     struct ggml_tensor * dst = ggml_new_tensor_2d(wctx->ctx, GGML_TYPE_F32, in_ch * P, H);
+     ggml_set_name(dst, name.c_str());
+@@ -212,8 +213,9 @@
+         fprintf(stderr, "[GGUF] FATAL: meta tensor '%s' not found\n", name.c_str());
+         exit(1);
+     }
+-    size_t       offset = gguf_get_tensor_offset(gf.gguf, idx);
+-    const void * raw    = gf.mapping + gf.data_offset + offset;
++    std::vector<uint32_t> staging;
++    const void * raw = gf_composite_tensor_view(gf, idx, src, staging);
++    if (!raw) return nullptr;
+ 
+     struct ggml_tensor * dst = ggml_new_tensor_2d(wctx->ctx, GGML_TYPE_F32, H, out_ch * P);
+     ggml_set_name(dst, name.c_str());
+@@ -252,6 +254,8 @@
+     return dst;
+ }
+ 
++static void dit_ggml_free(DiTGGML * m);
++
+ // Load full DiT model from GGUF
+ static bool dit_ggml_load(DiTGGML *    m,
+                           const char * gguf_path,
+@@ -266,7 +270,7 @@
+     m->use_flash_attn = bp.has_gpu;
+ 
+     GGUFModel gf;
+-    if (!gf_load(&gf, gguf_path)) {
++    if (!gf_load_composite(&gf, gguf_path, "dit", adapter_path == nullptr)) {
+         fprintf(stderr, "[Load] FATAL: cannot load %s\n", gguf_path);
+         return false;
+     }
+@@ -298,6 +302,7 @@
+     // tensor count: temb(6*2) + proj_in(2) + cond_emb(2) + layers(19*N) + output(4) + null_cond(1) + scalar_one(1)
+     int n_tensors = 6 * 2 + 2 + 2 + 19 * cfg.n_layers + 4 + 1 + 1;
+     wctx_init(&m->wctx, n_tensors);
++    gf_composite_prepare_weights(gf, &m->wctx);
+ 
+     // Timestep embeddings
+     dit_ggml_load_temb(&m->time_embed, &m->wctx, gf, "decoder.time_embed");
+@@ -430,10 +435,12 @@
+     }
+ 
+     // Allocate backend buffer and copy weights
+-    if (!wctx_alloc(&m->wctx, m->backend)) {
++    if (!m->proj_in_w || !m->proj_out_w || !wctx_alloc(&m->wctx, m->backend)) {
+         gf_close(&gf);
++        dit_ggml_free(m);
+         return false;
+     }
++    gf_composite_finish_weights(gf, m->wctx);
+     gf_close(&gf);
+ 
+     fprintf(stderr, "[Load] DiT: %d layers, H=%d, Nh=%d/%d, D=%d\n", cfg.n_layers, cfg.hidden_size, cfg.n_heads,
+@@ -456,7 +463,7 @@
+ // Returns true on success, false on I/O or missing key.
+ static bool dit_ggml_load_config(DiTGGMLConfig * cfg, const char * gguf_path) {
+     GGUFModel gf;
+-    if (!gf_load(&gf, gguf_path)) {
++    if (!gf_load_composite(&gf, gguf_path, "config")) {
+         fprintf(stderr, "[Load] FATAL: cannot load %s\n", gguf_path);
+         return false;
+     }

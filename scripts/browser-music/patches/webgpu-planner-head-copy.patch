@@ -1,0 +1,47 @@
+--- a/src/ggml-webgpu/ggml-webgpu.cpp
++++ b/src/ggml-webgpu/ggml-webgpu.cpp
+@@ -3958,6 +3958,44 @@
+     buf_ctx->global_ctx->get_tensor_staging_buf.Unmap();
+     WEBGPU_CPU_PROFILE_TOTAL_END(get_tensor, buf_ctx->global_ctx);
+ }
++
++#ifdef __EMSCRIPTEN__
++bool ggml_backend_webgpu_copy_rows(const ggml_tensor * source, size_t first_row, ggml_tensor * destination) {
++    if (!source->buffer || !destination->buffer || source->view_src || destination->view_src ||
++        source->buffer->iface.get_tensor != ggml_backend_webgpu_buffer_get_tensor ||
++        destination->buffer->iface.get_tensor != ggml_backend_webgpu_buffer_get_tensor ||
++        source->type != destination->type || source->ne[0] != destination->ne[0] ||
++        !ggml_is_matrix(source) || !ggml_is_matrix(destination) ||
++        !ggml_is_contiguous(source) || !ggml_is_contiguous(destination) ||
++        first_row > (size_t) source->ne[1] || (size_t) destination->ne[1] > (size_t) source->ne[1] - first_row) {
++        return false;
++    }
++
++    auto * src = static_cast<ggml_backend_webgpu_buffer_context *>(source->buffer->context);
++    auto * dst = static_cast<ggml_backend_webgpu_buffer_context *>(destination->buffer->context);
++    if (src->global_ctx != dst->global_ctx || src->buffer.Get() == dst->buffer.Get()) {
++        return false;
++    }
++
++    const size_t src_offset = ggml_webgpu_tensor_offset(source) + first_row * source->nb[1];
++    const size_t dst_offset = ggml_webgpu_tensor_offset(destination);
++    const size_t bytes = ggml_nbytes(destination);
++    if (bytes == 0 || (src_offset | dst_offset | bytes) % 4 != 0 ||
++        src_offset > src->buffer.GetSize() || bytes > src->buffer.GetSize() - src_offset ||
++        dst_offset > dst->buffer.GetSize() || bytes > dst->buffer.GetSize() - dst_offset) {
++        return false;
++    }
++
++    auto & ctx = src->global_ctx;
++    std::lock_guard<std::recursive_mutex> lock(ctx->mutex);
++    wgpu::CommandEncoder encoder = ctx->device.CreateCommandEncoder();
++    encoder.CopyBufferToBuffer(src->buffer, src_offset, dst->buffer, dst_offset, bytes);
++    wgpu::CommandBuffer commands = encoder.Finish();
++    ctx->queue.Submit(1, &commands);
++    ggml_backend_webgpu_wait_queue(ctx);
++    return true;
++}
++#endif
+ 
+ static void ggml_backend_webgpu_buffer_clear(ggml_backend_buffer_t buffer, uint8_t value) {
+     WEBGPU_LOG_DEBUG("ggml_backend_webgpu_buffer_clear(" << buffer << ", " << (uint32_t) value << ")");

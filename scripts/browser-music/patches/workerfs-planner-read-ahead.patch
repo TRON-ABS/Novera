@@ -1,0 +1,130 @@
+--- a/src/weight-ctx.h
++++ b/src/weight-ctx.h
+@@ -43,8 +43,10 @@
+     std::vector<PendingCopy> pending;
+ #ifdef __EMSCRIPTEN__
+     bool group_ranges = false;
++    bool prefetch_ranges = false;
+     struct RangeStats {
+         size_t windows = 0;
++        size_t prefetched = 0;
+         size_t window_hits = 0;
+         size_t bytes = 0;
+         size_t calls = 0;
+@@ -62,6 +64,9 @@
+ #ifdef __EMSCRIPTEN__
+ static constexpr size_t WCTX_RANGE_BUFFER_BYTES = 64 * 1024 * 1024;
+ static constexpr size_t WCTX_WINDOW_CONVERT_INPUT_BYTES = 32 * 1024;
++
++extern "C" int wctx_begin_read_ahead(int fd, size_t start, size_t size);
++extern "C" int wctx_take_read_ahead(int fd, size_t start, void * output, size_t size);
+ 
+ static bool wctx_read_range(WeightCtx::RangeStats & stats, int fd, size_t offset, void * data, size_t size) {
+     const double started = emscripten_get_now();
+@@ -94,6 +99,7 @@
+ #ifdef __EMSCRIPTEN__
+     wctx->range_stats = {};
+     wctx->group_ranges = false;
++    wctx->prefetch_ranges = false;
+ #endif
+     size_t                  ctx_size = (size_t) n_tensors * ggml_tensor_overhead() + 1024;
+     struct ggml_init_params params   = {
+@@ -107,12 +113,57 @@
+     wctx->pending.reserve(n_tensors);
+ }
+ 
++#ifdef __EMSCRIPTEN__
++struct WctxRange {
++    size_t start;
++    size_t end;
++};
++
++static WctxRange wctx_window_for_copy(const WeightCtx & wctx, size_t index, size_t offset, size_t count) {
++    const auto & copy = wctx.pending[index];
++    WctxRange window{copy.file_offset + offset, copy.file_offset + offset + count};
++    if (wctx.group_ranges && offset + count == copy.nbytes) {
++        // Keep the upload order and the original grouping policy.
++        for (size_t next = index + 1; next < wctx.pending.size(); ++next) {
++            const auto & following = wctx.pending[next];
++            if (following.fd != copy.fd) break;
++            const size_t first = std::min(window.start, following.file_offset);
++            const size_t last = std::max(window.end, following.file_offset + following.nbytes);
++            if (last - first > WCTX_RANGE_BUFFER_BYTES) break;
++            window = {first, last};
++        }
++    }
++    return window;
++}
++
++static bool wctx_prefetch_next(WeightCtx & wctx, size_t index, size_t offset, int fd, WctxRange current) {
++    for (; index < wctx.pending.size(); ++index, offset = 0) {
++        const auto & copy = wctx.pending[index];
++        if (copy.fd < 0) continue;
++        for (; offset < copy.nbytes; ) {
++            const size_t count = std::min(WCTX_RANGE_BUFFER_BYTES, copy.nbytes - offset);
++            const size_t start = copy.file_offset + offset;
++            if (copy.fd != fd || start < current.start || start + count > current.end) {
++                const WctxRange next = wctx_window_for_copy(wctx, index, offset, count);
++                const double started = emscripten_get_now();
++                const bool ready = wctx_begin_read_ahead(copy.fd, next.start, next.end - next.start);
++                wctx.range_stats.ms += emscripten_get_now() - started;
++                return ready;
++            }
++            offset += count;
++        }
++    }
++    return false;
++}
++#endif
++
+ static bool wctx_alloc(WeightCtx * wctx, ggml_backend_t backend) {
+ #ifdef __EMSCRIPTEN__
+     if (wctx->range_stats.failed) return false;
+     std::unique_ptr<uint8_t[]> range_buffer;
+     std::vector<float> converted;
+     int window_fd = -1;
++    bool next_prefetched = false;
+     size_t window_start = 0;
+     size_t window_end = 0;
+ #endif
+@@ -142,24 +193,26 @@
+                 if (hit) {
+                     ++wctx->range_stats.window_hits;
+                 } else {
+-                    window_start = start;
+-                    window_end = end;
+-                    if (wctx->group_ranges && offset + count == pc.nbytes) {
+-                        // Only extend over consecutive uploads that fit in one window.
+-                        // Preserve upload order and split large tensors as in the control.
+-                        for (size_t next = i + 1; next < wctx->pending.size(); ++next) {
+-                            const auto & following = wctx->pending[next];
+-                            if (following.fd != pc.fd) break;
+-                            const size_t first = std::min(window_start, following.file_offset);
+-                            const size_t last = std::max(window_end, following.file_offset + following.nbytes);
+-                            if (last - first > WCTX_RANGE_BUFFER_BYTES) break;
+-                            window_start = first;
+-                            window_end = last;
++                    const WctxRange window = wctx_window_for_copy(*wctx, i, offset, count);
++                    window_start = window.start;
++                    window_end = window.end;
++                    const size_t length = window.end - window.start;
++                    bool read_ahead = false;
++                    if (next_prefetched) {
++                        const double started = emscripten_get_now();
++                        read_ahead = wctx_take_read_ahead(pc.fd, window.start, range_buffer.get(), length);
++                        wctx->range_stats.ms += emscripten_get_now() - started;
++                        if (read_ahead) {
++                            ++wctx->range_stats.prefetched;
++                            ++wctx->range_stats.calls;
++                            wctx->range_stats.bytes += length;
+                         }
+                     }
+-                    if (!wctx_read_range(wctx, pc.fd, window_start, range_buffer.get(), window_end - window_start)) {
++                    if (!read_ahead && !wctx_read_range(wctx, pc.fd, window.start, range_buffer.get(), length)) {
+                         return false;
+                     }
++                    next_prefetched = wctx->prefetch_ranges &&
++                        wctx_prefetch_next(*wctx, i, offset + count, pc.fd, window);
+                     window_fd = pc.fd;
+                     if (wctx->group_ranges) ++wctx->range_stats.windows;
+                 }

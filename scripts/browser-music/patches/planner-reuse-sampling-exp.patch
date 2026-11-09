@@ -1,0 +1,74 @@
+--- a/src/sampling.h
++++ b/src/sampling.h
+@@ -27,7 +27,8 @@
+ // cumulative sum, mask tokens beyond the nucleus threshold.
+ // This matches nano-vLLM: apply_top_k_top_p sorts the full vocab when
+ // k is None, so we must not inject an artificial cap.
+-static int sample_top_k_p(float * logits, int V, float temperature, float top_p, int top_k, std::mt19937 & rng) {
++static int sample_top_k_p(float * logits, int V, float temperature, float top_p, int top_k, std::mt19937 & rng,
++                          bool reuse_exp = false) {
+     if (temperature <= 0.0f) {
+         // greedy
+         return (int) (std::max_element(logits, logits + V) - logits);
+@@ -55,6 +56,10 @@
+             }
+         }
+     }
++
++    // Reuse the exact exponentials when both softmax passes have the same
++    // finite maximum. Keep both sums in token order, including masked slots.
++    float cached_max = -INFINITY;
+ 
+     // 3. top_p: nucleus filter.
+     // the expensive part is sorting, not softmax. we compute the full-vocab
+@@ -71,8 +76,19 @@
+             }
+         }
+         float sum_exp = 0.0f;
+-        for (int i = 0; i < V; i++) {
+-            sum_exp += expf(logits[i] - max_logit);
++        const bool cache_exp = reuse_exp && std::isfinite(max_logit);
++        if (cache_exp) {
++            cached_max = max_logit;
++            tmp_buf.resize(V);
++            for (int i = 0; i < V; i++) {
++                const float weight = expf(logits[i] - max_logit);
++                tmp_buf[i] = weight;
++                sum_exp += weight;
++            }
++        } else {
++            for (int i = 0; i < V; i++) {
++                sum_exp += expf(logits[i] - max_logit);
++            }
+         }
+         float inv_sum = 1.0f / sum_exp;
+ 
+@@ -84,7 +100,7 @@
+         sorted_buf.clear();
+         for (int i = 0; i < V; i++) {
+             if (logits[i] >= cutoff) {
+-                float prob = expf(logits[i] - max_logit) * inv_sum;
++                float prob = (cache_exp ? tmp_buf[i] : expf(logits[i] - max_logit)) * inv_sum;
+                 sorted_buf.push_back({ i, prob });
+             } else {
+                 logits[i] = -INFINITY;
+@@ -115,9 +131,16 @@
+         }
+     }
+     float sum = 0.0f;
+-    for (int i = 0; i < V; i++) {
+-        logits[i] = expf(logits[i] - max_val);
+-        sum += logits[i];
++    if (std::isfinite(cached_max) && cached_max == max_val) {
++        for (int i = 0; i < V; i++) {
++            logits[i] = logits[i] == -INFINITY ? 0.0f : tmp_buf[i];
++            sum += logits[i];
++        }
++    } else {
++        for (int i = 0; i < V; i++) {
++            logits[i] = expf(logits[i] - max_val);
++            sum += logits[i];
++        }
+     }
+ 
+     std::uniform_real_distribution<float> dist(0.0f, sum);

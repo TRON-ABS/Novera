@@ -1,0 +1,33 @@
+--- a/src/gguf-weights.h
++++ b/src/gguf-weights.h
+@@ -77,11 +77,11 @@
+                 ranged: !!$1, fileBytes: Number($2), bytes: Number($3), calls: Number($4),
+                 readMs: $5, loadMs: $6, heapBeforeBytes: Number($7),
+                 heapAfterBytes: Number($8), fullCopyBytes: Number($9),
+-                windowBytes: Number($10), windows: Number($11), windowHits: Number($12)});
++                windowBytes: Number($10), windows: Number($11), windowHits: Number($12), fileOrder: !!$13});
+         }, gf->composite_stage, static_cast<int>(gf->mapping == nullptr), gf->file_size,
+            stats.bytes, stats.calls, stats.ms, emscripten_get_now() - gf->composite_started,
+            gf->composite_heap_before, emscripten_get_heap_size(),
+-           gf->mapping ? gf->file_size : 0, gf->composite_window_bytes, stats.windows, stats.window_hits);
++           gf->mapping ? gf->file_size : 0, gf->composite_window_bytes, stats.windows, stats.window_hits, static_cast<int>(stats.file_order));
+     }
+ #endif
+     if (gf->gguf) {
+@@ -273,6 +273,8 @@
+ static void gf_composite_prepare_weights(const GGUFModel & gf, WeightCtx * wctx) {
+ #ifdef __EMSCRIPTEN__
+     wctx->group_ranges = !gf.mapping;
++    wctx->try_file_order = wctx->group_ranges &&
++        EM_ASM_INT({ return globalThis.noveraMusicDiTFileOrder === true; });
+ #else
+     (void) gf;
+     (void) wctx;
+@@ -286,6 +288,7 @@
+     gf.composite_reads.ms += wctx.range_stats.ms;
+     gf.composite_reads.windows += wctx.range_stats.windows;
+     gf.composite_reads.window_hits += wctx.range_stats.window_hits;
++    gf.composite_reads.file_order = wctx.range_stats.file_order;
+     if (wctx.range_stats.windows > 0) gf.composite_window_bytes = WCTX_RANGE_BUFFER_BYTES;
+ #else
+     (void) gf;

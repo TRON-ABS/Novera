@@ -1,0 +1,40 @@
+--- a/src/fsq-tok.h
++++ b/src/fsq-tok.h
+@@ -63,6 +63,8 @@
+ }
+ 
+ // Load tokenizer weights from DiT GGUF
++static void tok_ggml_free(TokGGML * m);
++
+ static bool tok_ggml_load(TokGGML * m, const char * gguf_path) {
+     BackendPair bp    = backend_init("Tokenizer");
+     m->backend        = bp.backend;
+@@ -81,13 +83,14 @@
+     m->cfg.is_causal         = false;
+ 
+     GGUFModel gf;
+-    if (!gf_load(&gf, gguf_path)) {
++    if (!gf_load_composite(&gf, gguf_path, "tokenizer")) {
+         fprintf(stderr, "[Tok] FATAL: cannot load %s\n", gguf_path);
+         return false;
+     }
+ 
+     // proj(2) + embed(2) + special(1) + 2 layers x 11(22) + norm(1) + fsq_in(2) = 30
+     wctx_init(&m->wctx, 30);
++    gf_composite_prepare_weights(gf, &m->wctx);
+ 
+     m->proj_w      = gf_load_tensor(&m->wctx, gf, "tokenizer.audio_acoustic_proj.weight");
+     m->proj_b      = gf_load_tensor(&m->wctx, gf, "tokenizer.audio_acoustic_proj.bias");
+@@ -106,8 +109,10 @@
+ 
+     if (!wctx_alloc(&m->wctx, m->backend)) {
+         gf_close(&gf);
+-        return false;
+-    }
++        tok_ggml_free(m);
++        return false;
++    }
++    gf_composite_finish_weights(gf, m->wctx);
+     gf_close(&gf);
+ 
+     // Scheduler

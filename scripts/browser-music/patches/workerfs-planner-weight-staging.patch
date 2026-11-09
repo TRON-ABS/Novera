@@ -1,0 +1,112 @@
+--- a/src/weight-ctx.h
++++ b/src/weight-ctx.h
+@@ -17,6 +17,12 @@
+ #include <cstdio>
+ #include <memory>
+ #include <vector>
++#ifdef __EMSCRIPTEN__
++#include <algorithm>
++#include <emscripten.h>
++#include <new>
++#include <unistd.h>
++#endif
+ 
+ struct WeightCtx {
+     struct ggml_context * ctx;
+@@ -27,9 +33,21 @@
+         const void *         src;
+         size_t               nbytes;
+         size_t               offset;  // byte offset into dst tensor (0 for regular loads)
++#ifdef __EMSCRIPTEN__
++        int                  fd = -1; // borrowed; GGUFModel owns the open file
++        size_t               file_offset = 0;
++#endif
+     };
+ 
+     std::vector<PendingCopy> pending;
++#ifdef __EMSCRIPTEN__
++    struct RangeStats {
++        size_t bytes = 0;
++        size_t calls = 0;
++        double ms = 0;
++        bool failed = false;
++    } range_stats;
++#endif
+ 
+     // Staging buffers for type-converted data, kept alive until wctx_alloc.
+     // unique_ptr keeps the data address stable even when the outer vector grows,
+@@ -37,7 +55,36 @@
+     std::vector<std::unique_ptr<float[]>> staging;
+ };
+ 
++#ifdef __EMSCRIPTEN__
++static constexpr size_t WCTX_RANGE_BUFFER_BYTES = 64 * 1024 * 1024;
++
++static bool wctx_read_range(WeightCtx * wctx, int fd, size_t offset, void * data, size_t size) {
++    const double started = emscripten_get_now();
++    if (lseek(fd, static_cast<off_t>(offset), SEEK_SET) != static_cast<off_t>(offset)) {
++        wctx->range_stats.failed = true;
++        return false;
++    }
++    auto * bytes = static_cast<uint8_t *>(data);
++    size_t done = 0;
++    while (done < size) {
++        const auto count = read(fd, bytes + done, size - done);
++        ++wctx->range_stats.calls;
++        if (count <= 0) {
++            wctx->range_stats.failed = true;
++            return false;
++        }
++        done += static_cast<size_t>(count);
++    }
++    wctx->range_stats.bytes += done;
++    wctx->range_stats.ms += emscripten_get_now() - started;
++    return true;
++}
++#endif
++
+ static void wctx_init(WeightCtx * wctx, int n_tensors) {
++#ifdef __EMSCRIPTEN__
++    wctx->range_stats = {};
++#endif
+     size_t                  ctx_size = (size_t) n_tensors * ggml_tensor_overhead() + 1024;
+     struct ggml_init_params params   = {
+         /*.mem_size   =*/ctx_size,
+@@ -51,6 +98,10 @@
+ }
+ 
+ static bool wctx_alloc(WeightCtx * wctx, ggml_backend_t backend) {
++#ifdef __EMSCRIPTEN__
++    if (wctx->range_stats.failed) return false;
++    std::unique_ptr<uint8_t[]> range_buffer;
++#endif
+     wctx->buffer = ggml_backend_alloc_ctx_tensors(wctx->ctx, backend);
+     if (!wctx->buffer) {
+         fprintf(stderr, "[WeightCtx] FATAL: failed to allocate backend buffer\n");
+@@ -61,7 +112,25 @@
+     ggml_backend_buffer_set_usage(wctx->buffer, GGML_BACKEND_BUFFER_USAGE_WEIGHTS);
+     size_t total = 0;
+     for (auto & pc : wctx->pending) {
+-        ggml_backend_tensor_set(pc.tensor, pc.src, pc.offset, pc.nbytes);
++#ifdef __EMSCRIPTEN__
++        if (pc.fd >= 0) {
++            if (!range_buffer) {
++                range_buffer.reset(new (std::nothrow) uint8_t[WCTX_RANGE_BUFFER_BYTES]);
++                if (!range_buffer) return false;
++            }
++            for (size_t offset = 0; offset < pc.nbytes; ) {
++                const size_t count = std::min(WCTX_RANGE_BUFFER_BYTES, pc.nbytes - offset);
++                if (!wctx_read_range(wctx, pc.fd, pc.file_offset + offset, range_buffer.get(), count)) {
++                    return false;
++                }
++                ggml_backend_tensor_set(pc.tensor, range_buffer.get(), pc.offset + offset, count);
++                offset += count;
++            }
++        } else
++#endif
++        {
++            ggml_backend_tensor_set(pc.tensor, pc.src, pc.offset, pc.nbytes);
++        }
+         total += pc.nbytes;
+     }
+     fprintf(stderr, "[WeightCtx] Loaded %zu tensors, %.1f MB into backend\n", wctx->pending.size(),
