@@ -3,7 +3,7 @@
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <windows.h>
-#include <cuda_runtime_api.h>
+#include "cuda-query-abi.h"
 #include <tlhelp32.h>
 #include <thread>
 #include <cwctype>
@@ -111,7 +111,7 @@ int wmain(int argc,wchar_t** argv) {
         watch_parent();
         wchar_t module[32768];DWORD len=GetModuleFileNameW(nullptr,module,32768);if(!len||len==32768)throw std::runtime_error("Cannot locate image engine bundle");
         fs::path root=fs::path(std::wstring(module,len)).parent_path();
-        std::vector<std::wstring> args;std::map<std::wstring,std::wstring> modules{{L"diffusion",L"auto"},{L"te",L"auto"},{L"vae",L"auto"}};
+        std::vector<std::wstring> args;std::map<std::wstring,std::wstring> modules{{L"diffusion",L"auto"},{L"te",L"auto"},{L"vae",L"auto"},{L"upscaler",L"auto"}};
         bool probe=false,list=false;
         for(int i=1;i<argc;++i) {
             std::wstring arg=argv[i];
@@ -120,6 +120,9 @@ int wmain(int argc,wchar_t** argv) {
             else if(arg==L"--backend") {if(++i>=argc)throw std::runtime_error("Missing backend value");backend_request(argv[i],modules);}
             else args.push_back(arg);
         }
+        const bool upscaling=std::find(args.begin(),args.end(),L"--upscale-model")!=args.end();
+        if(!upscaling)modules.erase(L"upscaler");
+        else if(modules[L"upscaler"]==L"auto")modules[L"upscaler"]=modules[L"diffusion"];
         bool force_vulkan=false,need_gpu=false;
         for(const auto& item:modules) {
             auto value=item.second;
@@ -142,7 +145,7 @@ int wmain(int argc,wchar_t** argv) {
         if(probe) {
             std::wcout<<L"{\"family\":\""<<selected.family<<L"\",\"device\":\""<<selected.token<<L"\",\"cuda_toolkit\":\"13.4.3\",\"minimum_cuda_sm\":75,\"cuda_devices\":[";
             for(size_t i=0;i<cuda.size();++i){if(i)std::wcout<<L",";std::wcout<<L"{\"index\":"<<cuda[i].ordinal<<L",\"sm\":"<<cuda[i].capability<<L"}";}
-            std::wcout<<L"],\"cuda_engine_ready\":"<<(cuda_ready?L"true":L"false")<<L",\"vulkan_devices\":"<<vulkan.size()<<L"}"<<std::endl;return 0;
+            std::wcout<<L"],\"cuda_engine_ready\":"<<(cuda_ready?L"true":L"false")<<L",\"vulkan_devices\":"<<vulkan.size()<<L",\"upscaler_backend\":true}"<<std::endl;return 0;
         }
         if(list) {
             if(cuda_ready)std::cout<<run(root/L"cuda"/L"sd-cli.exe",{L"--list-devices"},true,30000).output;

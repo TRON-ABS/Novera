@@ -31,3 +31,9 @@ The Web search default is DuckDuckGo. Existing saved provider choices are still 
 ## Native video export
 
 Apply the Web clip export limit to the shared Desktop worker. FFmpeg returns only the frames needed from each Wan AVI. Diffusers sends contiguous RGB frames to the encoder directly, avoiding a separate byte copy. Windows validation passed all nine video worker tests. Both native export paths produced byte-identical before and after MP4s with 80 frames at 512 × 224, 16 FPS, using controlled test clips and the same pinned FFmpeg. These checks exercise export rather than model inference or VAE speed. The worker is used by Desktop on Windows, Linux and macOS. CLI, Android and iOS do not include it.
+
+## Native FLUX and RealESRGAN
+
+Transfer the reviewed RealESRGAN ×2 topology correction from the native Web image bridge. Desktop checks the native image runtime receipt and can run generation and upscaling in one process. The combined path verifies the final PNG dimensions. It is opt-in via `NOVERA_NATIVE_IMAGE_FAST=1` because its decoded pixels differ from the default path. Windows builds can prepare the corrected CUDA and portable cores. The native build helper also accepts CPU, CUDA, Vulkan and Metal backends.
+
+The November 8 Windows benchmark used a RTX 5070 Laptop, FLUX.2 Klein 4B Q4_K_M, seed 42 and four steps at 2048 × 880. The complete ×2 pipeline took 36.023 s before and 31.572 s with the combined process. Both PNGs were 4096 × 1760. Their mean absolute RGB difference was 7.35 levels per channel, with a maximum of 184. This measures the engine pipeline outside the Desktop UI. Linux and macOS performance remains unmeasured.

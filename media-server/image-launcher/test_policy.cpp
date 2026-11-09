@@ -11,7 +11,8 @@ int main(){
  assert(choose({},{}).family==L"cpu");
  assert(choose({{0,70}},{}).family==L"cpu");
  assert(choose({},{{L"vulkan2",L"AMD"}}).token==L"vulkan2");
- std::map<std::wstring,std::wstring> parts{{L"diffusion",L"auto"},{L"te",L"auto"},{L"vae",L"auto"}};
+ std::map<std::wstring,std::wstring> parts{{L"diffusion",L"auto"},{L"te",L"auto"},{L"vae",L"auto"},{L"upscaler",L"auto"}};
+ backend_request(L"upscaler=cpu",parts);assert(parts[L"upscaler"]==L"cpu");
  backend_request(L"diffusion=cuda0,vae=cuda0,te=cpu",parts);assert(parts[L"te"]==L"cpu"&&parts[L"diffusion"]==L"cuda0");
  backend_request(L"cpu",parts);assert(parts[L"te"]==L"cpu"&&parts[L"vae"]==L"cpu");
  bool rejected=false;try {backend_request(L"unexpected=gpu",parts);}catch(...){rejected=true;}assert(rejected);

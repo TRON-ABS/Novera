@@ -35,7 +35,8 @@ if(!(Test-Path -LiteralPath (Join-Path $source 'CMakeLists.txt'))) {
 }
 if((& git -C $source rev-parse HEAD) -ne $pin.revision){throw 'Unexpected source revision'}
 if((& git -C (Join-Path $source 'ggml') rev-parse HEAD) -ne $pin.ggmlRevision){throw 'Unexpected GGML revision'}
-if(& git -C $source status --porcelain --untracked-files=no){throw 'Pinned source has tracked local changes'}
+python (Join-Path $PSScriptRoot 'native_runtime.py') --source $source
+if($LASTEXITCODE -ne 0){throw 'Reviewed native image source validation failed'}
 $vswhere=Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio/Installer/vswhere.exe'
 $vs=& $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
 if(!$vs){throw 'MSVC x64 Build Tools are required'}
@@ -53,8 +54,26 @@ if(!$SkipEngineBuild){
  if($LASTEXITCODE -ne 0){throw 'CUDA engine configuration failed'}
  & $cmake --build $build --target sd-cli --parallel $Jobs
  if($LASTEXITCODE -ne 0){throw 'CUDA engine build failed'}
+ python (Join-Path $PSScriptRoot 'native_runtime.py') --source $source --receipt (Join-Path $build 'bin')
+ if($LASTEXITCODE -ne 0){throw 'CUDA core receipt failed'}
 }
 if(!(Test-Path -LiteralPath (Join-Path $build 'bin/sd-cli.exe'))){throw 'CUDA engine executable missing'}
+python (Join-Path $PSScriptRoot 'native_runtime.py') --source $source --check-receipt (Join-Path $build 'bin')
+if($LASTEXITCODE -ne 0){throw 'CUDA build is stale or unverified'}
+# Build a core without a CUDA-driver dependency for CPU/Vulkan bundles. Their
+# original same-revision CLI and GGML plugins remain in place.
+$portableBuild=Join-Path $BuildRoot 'build-portable-core'
+if(!$SkipEngineBuild){
+ & $cmake -S $source -B $portableBuild -G Ninja "-DCMAKE_MAKE_PROGRAM=$ninja" -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl -DSD_CUDA=OFF -DSD_VULKAN=OFF -DGGML_NATIVE=OFF -DGGML_BACKEND_DL=ON -DSD_BUILD_SHARED_LIBS=ON -DSD_BUILD_SHARED_GGML_LIB=ON -DSD_WEBM=OFF
+ if($LASTEXITCODE -ne 0){throw 'Portable image core configuration failed'}
+ & $cmake --build $portableBuild --target sd-cli --parallel $Jobs
+ if($LASTEXITCODE -ne 0){throw 'Portable image core build failed'}
+ python (Join-Path $PSScriptRoot 'native_runtime.py') --source $source --receipt (Join-Path $portableBuild 'bin')
+ if($LASTEXITCODE -ne 0){throw 'Portable core receipt failed'}
+}
+if(!(Test-Path -LiteralPath (Join-Path $portableBuild 'bin/stable-diffusion.dll'))){throw 'Patched portable image core missing'}
+python (Join-Path $PSScriptRoot 'native_runtime.py') --source $source --check-receipt (Join-Path $portableBuild 'bin')
+if($LASTEXITCODE -ne 0){throw 'Portable build is stale or unverified'}
 if(!$VulkanArchive){$VulkanArchive=Join-Path $BuildRoot 'vulkan-official.zip'}
 if(!(Test-Path -LiteralPath $VulkanArchive)){Invoke-WebRequest -Uri $pin.vulkanArchive -OutFile $VulkanArchive}
 if((Get-FileHash -LiteralPath $VulkanArchive -Algorithm SHA256).Hash.ToLowerInvariant() -ne $pin.vulkanSHA256){throw 'Vulkan archive checksum mismatch'}
@@ -100,7 +119,15 @@ try {
  & (Join-Path $launcherBuild 'test-policy.exe')
  if($LASTEXITCODE -ne 0){throw 'Policy checks failed'}
 }finally{Pop-Location}
+foreach($family in @('cpu','vulkan')) {
+ Copy-Item -LiteralPath (Join-Path $portableBuild 'bin/stable-diffusion.dll') -Destination (Join-Path $Output "$family/stable-diffusion.dll") -Force
+}
+foreach($family in @('cuda','cpu','vulkan')) {
+ python (Join-Path $PSScriptRoot 'native_runtime.py') --source $source --receipt (Join-Path $Output $family)
+ if($LASTEXITCODE -ne 0){throw "Native capability receipt failed: $family"}
+}
 $files=@(Get-ChildItem -LiteralPath $Output -File -Recurse | Where-Object Name -ne 'manifest.json' | ForEach-Object { @{path=[IO.Path]::GetRelativePath($Output,$_.FullName);bytes=$_.Length;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()} })
 $manifest=@{schema=1;cuda_toolkit=$pin.cudaToolkit;nvcc=$pin.nvcc;source_revision=$pin.revision;ggml_revision=$pin.ggmlRevision;architectures=$pin.cudaArchitectures;legacy_route='Vulkan when exposed by driver, otherwise CPU';platform=$pin.platform;files=$files}
+$manifest.esrgan_sha256='3acf673f80617b6e4af130662dd30ddadd6361f993c43216a4fb646a945c0cbc'
 $manifest | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $Output 'manifest.json') -Encoding utf8
 Write-Output "Image engine launcher: $Output/novera-image-engine.exe"
