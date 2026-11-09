@@ -1,0 +1,17 @@
+--- a/src/gguf-weights.h
++++ b/src/gguf-weights.h
+@@ -316,6 +316,14 @@
+     struct ggml_tensor * tensor = ggml_new_tensor(wctx->ctx, GGML_TYPE_F32, n_dims, ne);
+     ggml_set_name(tensor, name.c_str());
+ 
++#ifdef __EMSCRIPTEN__
++    const size_t input_bytes = ggml_nbytes(src);
++    if (!gf.mapping && wctx->group_ranges && input_bytes <= WCTX_WINDOW_CONVERT_INPUT_BYTES) {
++        const size_t offset = gf.data_offset + gguf_get_tensor_offset(gf.gguf, idx);
++        wctx->pending.push_back({tensor, nullptr, input_bytes, 0, gf.fd, offset, src->type});
++        return tensor;
++    }
++#endif
+     // Convert data into staging buffer. unique_ptr keeps .get() stable even
+     // when wctx->staging grows on subsequent calls.
+     size_t  n    = ggml_nelements(src);

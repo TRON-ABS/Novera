@@ -1,0 +1,162 @@
+--- a/src/gguf-weights.h
++++ b/src/gguf-weights.h
+@@ -19,6 +19,7 @@
+ #include <cstdio>
+ #include <algorithm>
+ #include <cstdlib>
++#include <cstring>
+ #include <string>
+ 
+ #ifdef _WIN32
+@@ -32,6 +33,7 @@
+ 
+ #if defined(__EMSCRIPTEN__)
+ #include <emscripten.h>
++#include <emscripten/heap.h>
+ // One read-only composite model is shared by its sequential component loaders.
+ // The owning worker resets this cache only after all models have been released.
+ inline std::string novera_gf_cached_path;
+@@ -51,6 +53,13 @@
+     uint8_t *             mapping;      // mmapped file
+     size_t                file_size;
+     size_t                data_offset;  // gguf_get_data_offset(gguf)
++#ifdef __EMSCRIPTEN__
++    const char * composite_stage = nullptr;
++    double composite_started = 0;
++    size_t composite_heap_before = 0;
++    size_t composite_window_bytes = 0;
++    mutable WeightCtx::RangeStats composite_reads;
++#endif
+ #ifdef _WIN32
+     HANDLE fh;
+     HANDLE mh;
+@@ -60,6 +69,21 @@
+ };
+ 
+ static void gf_close(GGUFModel * gf) {
++#ifdef __EMSCRIPTEN__
++    if (gf->composite_stage) {
++        const auto & stats = gf->composite_reads;
++        EM_ASM({
++            self.postMessage({type: "music-composite-load", stage: UTF8ToString(Number($0)),
++                ranged: !!$1, fileBytes: Number($2), bytes: Number($3), calls: Number($4),
++                readMs: $5, loadMs: $6, heapBeforeBytes: Number($7),
++                heapAfterBytes: Number($8), fullCopyBytes: Number($9),
++                windowBytes: Number($10), windows: Number($11), windowHits: Number($12)});
++        }, gf->composite_stage, static_cast<int>(gf->mapping == nullptr), gf->file_size,
++           stats.bytes, stats.calls, stats.ms, emscripten_get_now() - gf->composite_started,
++           gf->composite_heap_before, emscripten_get_heap_size(),
++           gf->mapping ? gf->file_size : 0, gf->composite_window_bytes, stats.windows, stats.window_hits);
++    }
++#endif
+     if (gf->gguf) {
+         gguf_free(gf->gguf);
+     }
+@@ -90,10 +114,18 @@
+     *gf = {};
+ }
+ 
+-static bool gf_load(GGUFModel * gf, const char * path, bool use_ranges = false) {
++static bool gf_load(GGUFModel * gf, const char * path, bool use_ranges = false,
++                    const char * composite_stage = nullptr) {
+     *gf = {};
+-#ifndef __EMSCRIPTEN__
++#ifdef __EMSCRIPTEN__
++    gf->composite_stage = composite_stage;
++    if (composite_stage) {
++        gf->composite_started = emscripten_get_now();
++        gf->composite_heap_before = emscripten_get_heap_size();
++    }
++#else
+     (void) use_ranges;
++    (void) composite_stage;
+ #endif
+ 
+     // mmap the file
+@@ -153,6 +185,11 @@
+         offset += static_cast<size_t>(count);
+     }
+     const double read_ms = emscripten_get_now() - read_started;
++    if (composite_stage) {
++        gf->composite_reads.bytes = gf->file_size;
++        gf->composite_reads.calls = read_calls;
++        gf->composite_reads.ms = read_ms;
++    }
+     EM_ASM({
+         self.postMessage({ type: "music-gguf-read", file: UTF8ToString(Number($0)).split("/").pop(),
+                            bytes: Number($1), blockMiB: $2, calls: $3, allocMs: $4, readMs: $5 });
+@@ -219,7 +256,73 @@
+     return true;
+ }
+ 
+-// Record the same tensor copy, with a borrowed file range in the planner path.
++// Composite readers opt in only for the DiT file owned by this Web request.
++static bool gf_load_composite(GGUFModel * gf, const char * path, const char * stage, bool allow_ranges = true) {
++#ifdef __EMSCRIPTEN__
++    const bool composite = novera_gf_cached_path == path;
++    const bool ranged = composite && allow_ranges &&
++        EM_ASM_INT({ return globalThis.noveraMusicDiTWindows === true; });
++    return gf_load(gf, path, ranged, composite ? stage : nullptr);
++#else
++    (void) stage;
++    (void) allow_ranges;
++    return gf_load(gf, path);
++#endif
++}
++
++static void gf_composite_prepare_weights(const GGUFModel & gf, WeightCtx * wctx) {
++#ifdef __EMSCRIPTEN__
++    wctx->group_ranges = !gf.mapping;
++#else
++    (void) gf;
++    (void) wctx;
++#endif
++}
++
++static void gf_composite_finish_weights(GGUFModel & gf, const WeightCtx & wctx) {
++#ifdef __EMSCRIPTEN__
++    gf.composite_reads.bytes += wctx.range_stats.bytes;
++    gf.composite_reads.calls += wctx.range_stats.calls;
++    gf.composite_reads.ms += wctx.range_stats.ms;
++    gf.composite_reads.windows += wctx.range_stats.windows;
++    gf.composite_reads.window_hits += wctx.range_stats.window_hits;
++    if (wctx.range_stats.windows > 0) gf.composite_window_bytes = WCTX_RANGE_BUFFER_BYTES;
++#else
++    (void) gf;
++    (void) wctx;
++#endif
++}
++
++// Copy validated tensor data into its existing CPU destination.
++static bool gf_copy_tensor(const GGUFModel & gf, int64_t index, const ggml_tensor * tensor,
++                           void * output, size_t bytes) {
++    if (index < 0 || !tensor || bytes > ggml_nbytes(tensor)) return false;
++    const size_t offset = gf.data_offset + gguf_get_tensor_offset(gf.gguf, index);
++#ifdef __EMSCRIPTEN__
++    if (!gf.mapping) return wctx_read_range(gf.composite_reads, gf.fd, offset, output, bytes);
++#endif
++    std::memcpy(output, gf.mapping + offset, bytes);
++    return true;
++}
++
++// Two DiT projections use CPU permutations of the original tensor bytes.
++static const void * gf_composite_tensor_view(const GGUFModel & gf, int64_t index, const ggml_tensor * tensor,
++                                              std::vector<uint32_t> & staging) {
++    if (index < 0 || !tensor) return nullptr;
++#ifdef __EMSCRIPTEN__
++    if (!gf.mapping) {
++        const size_t bytes = ggml_nbytes(tensor);
++        if (bytes > WCTX_RANGE_BUFFER_BYTES) return nullptr;
++        staging.resize((bytes + sizeof(uint32_t) - 1) / sizeof(uint32_t));
++        return gf_copy_tensor(gf, index, tensor, staging.data(), bytes) ? staging.data() : nullptr;
++    }
++#else
++    (void) staging;
++#endif
++    return gf.mapping + gf.data_offset + gguf_get_tensor_offset(gf.gguf, index);
++}
++
++// Record the same tensor copy, with a borrowed file range in the bounded path.
+ static void gf_queue_tensor_copy(WeightCtx * wctx, const GGUFModel & gf, ggml_tensor * tensor,
+                                  int64_t index, size_t nbytes, size_t dst_offset) {
+     GGML_ASSERT(index >= 0);

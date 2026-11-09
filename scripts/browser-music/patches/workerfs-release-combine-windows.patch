@@ -1,0 +1,85 @@
+--- a/src/weight-ctx.h
++++ b/src/weight-ctx.h
+@@ -22,6 +22,7 @@
+ #include <emscripten.h>
+ #include <new>
+ #include <unistd.h>
++#include <unordered_map>
+ #endif
+ 
+ struct WeightCtx {
+@@ -43,6 +44,7 @@
+     std::vector<PendingCopy> pending;
+ #ifdef __EMSCRIPTEN__
+     bool group_ranges = false;
++    bool try_file_order = false;
+     bool prefetch_ranges = false;
+     struct RangeStats {
+         size_t windows = 0;
+@@ -52,6 +54,7 @@
+         size_t calls = 0;
+         double ms = 0;
+         bool failed = false;
++        bool file_order = false;
+     } range_stats;
+ #endif
+ 
+@@ -64,6 +67,7 @@
+ #ifdef __EMSCRIPTEN__
+ static constexpr size_t WCTX_RANGE_BUFFER_BYTES = 64 * 1024 * 1024;
+ static constexpr size_t WCTX_WINDOW_CONVERT_INPUT_BYTES = 32 * 1024;
++static constexpr size_t WCTX_FILE_ORDER_MAX_GAP = 1024 * 1024;
+ 
+ extern "C" int wctx_begin_read_ahead(int fd, size_t start, size_t size);
+ extern "C" int wctx_take_read_ahead(int fd, size_t start, void * output, size_t size);
+@@ -99,6 +103,7 @@
+ #ifdef __EMSCRIPTEN__
+     wctx->range_stats = {};
+     wctx->group_ranges = false;
++    wctx->try_file_order = false;
+     wctx->prefetch_ranges = false;
+ #endif
+     size_t                  ctx_size = (size_t) n_tensors * ggml_tensor_overhead() + 1024;
+@@ -114,6 +119,25 @@
+ }
+ 
+ #ifdef __EMSCRIPTEN__
++static void wctx_order_file_uploads(WeightCtx * wctx) {
++    // A view can alias another tensor. Fused tensors can have several writes
++    // but these must cover disjoint destination ranges to change their order.
++    std::unordered_map<const ggml_tensor *, size_t> destination_ends;
++    for (const auto & copy : wctx->pending) {
++        if (copy.tensor->view_src) return;
++        auto & end = destination_ends[copy.tensor];
++        const size_t bytes = copy.convert_from == GGML_TYPE_COUNT ? copy.nbytes : 2 * copy.nbytes;
++        const size_t capacity = ggml_nbytes(copy.tensor);
++        if (copy.offset < end || copy.offset > capacity || bytes > capacity - copy.offset) return;
++        end = copy.offset + bytes;
++    }
++    std::stable_sort(wctx->pending.begin(), wctx->pending.end(), [](const auto & a, const auto & b) {
++        if (a.fd != b.fd) return a.fd < b.fd;
++        return a.file_offset < b.file_offset;
++    });
++    wctx->range_stats.file_order = true;
++}
++
+ struct WctxRange {
+     size_t start;
+     size_t end;
+@@ -127,6 +151,8 @@
+         for (size_t next = index + 1; next < wctx.pending.size(); ++next) {
+             const auto & following = wctx.pending[next];
+             if (following.fd != copy.fd) break;
++            if (wctx.range_stats.file_order && following.file_offset > window.end &&
++                following.file_offset - window.end > WCTX_FILE_ORDER_MAX_GAP) break;
+             const size_t first = std::min(window.start, following.file_offset);
+             const size_t last = std::max(window.end, following.file_offset + following.nbytes);
+             if (last - first > WCTX_RANGE_BUFFER_BYTES) break;
+@@ -160,6 +186,7 @@
+ static bool wctx_alloc(WeightCtx * wctx, ggml_backend_t backend) {
+ #ifdef __EMSCRIPTEN__
+     if (wctx->range_stats.failed) return false;
++    if (wctx->try_file_order) wctx_order_file_uploads(wctx);
+     std::unique_ptr<uint8_t[]> range_buffer;
+     std::vector<float> converted;
+     int window_fd = -1;

@@ -1,0 +1,22 @@
+--- a/src/pipeline-lm.cpp
++++ b/src/pipeline-lm.cpp
+@@ -705,12 +705,14 @@
+     // Fresh load only: allocate the partial LM head for phase2 audio codes.
+     // Contiguous GPU tensor instead of ggml_view_2d on quantized weights.
+     // Cached on the model itself, freed by qw3lm_free when the store evicts.
++    bool gpu_head_copy = false;
+     if (!model->lm_head_buf) {
+-        qw3lm_build_partial_head(model, TOKEN_IM_END);
+-    }
+-
+-#ifdef __EMSCRIPTEN__
+-    planner_metric("audio-head", profile_timer.ms());
++        qw3lm_build_partial_head(model, TOKEN_IM_END, gpu_head_copy);
++    }
++
++#ifdef __EMSCRIPTEN__
++    planner_metric(gpu_head_copy ? "audio-head-gpu-copy" : "audio-head", profile_timer.ms(),
++                   model->lm_head_phase2 ? ggml_nbytes(model->lm_head_phase2) : 0);
+     profile_timer.reset();
+ #endif
+     // CPU-resident tokenizer and FSM template. Owned by the store, never

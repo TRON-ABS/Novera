@@ -1,0 +1,84 @@
+--- a/src/model-store.cpp
++++ b/src/model-store.cpp
+@@ -470,6 +470,14 @@
+     return bpe;
+ }
+ 
++static bool store_read_silence(const GGUFModel & gf, std::vector<float> & target) {
++    const int64_t index = gguf_find_tensor(gf.gguf, "silence_latent");
++    const auto * tensor = ggml_get_tensor(gf.meta, "silence_latent");
++    if (!tensor || tensor->type != GGML_TYPE_F32 || ggml_nelements(tensor) != 15000 * 64) return false;
++    target.resize(15000 * 64);
++    return gf_copy_tensor(gf, index, tensor, target.data(), target.size() * sizeof(float));
++}
++
+ const float * store_silence(ModelStore * s, const char * dit_path) {
+     std::lock_guard<std::mutex> lock(s->mtx);
+     std::string                 key = dit_path ? dit_path : "";
+@@ -478,18 +486,17 @@
+         return static_cast<const std::vector<float> *>(it->second.ptr)->data();
+     }
+     GGUFModel gf = {};
+-    if (!gf_load(&gf, dit_path)) {
++    if (!gf_load_composite(&gf, dit_path, "silence")) {
+         fprintf(stderr, "[Store] FATAL: silence cannot open %s\n", dit_path);
+         return nullptr;
+     }
+-    const void * sl = gf_get_data(gf, "silence_latent");
+-    if (!sl) {
+-        fprintf(stderr, "[Store] FATAL: silence_latent not found in %s\n", dit_path);
++    auto * vec = new std::vector<float>();
++    if (!store_read_silence(gf, *vec)) {
++        fprintf(stderr, "[Store] FATAL: cannot read silence_latent in %s\n", dit_path);
+         gf_close(&gf);
+-        return nullptr;
+-    }
+-    auto * vec = new std::vector<float>(15000 * 64);
+-    memcpy(vec->data(), sl, 15000 * 64 * sizeof(float));
++        delete vec;
++        return nullptr;
++    }
+     gf_close(&gf);
+ 
+     CpuEntry e;
+@@ -538,7 +545,7 @@
+         return nullptr;
+     }
+     GGUFModel gf = {};
+-    if (!gf_load(&gf, dit_path)) {
++    if (!gf_load_composite(&gf, dit_path, "metadata")) {
+         fprintf(stderr, "[Store] FATAL: DiT cannot reopen %s for metadata\n", dit_path);
+         delete meta;
+         return nullptr;
+@@ -548,21 +555,25 @@
+     // silence_latent: [15000, 64] f32, also accessible via store_silence for
+     // callers that only need the pointer. Cached here too so DiTMeta is
+     // self-contained.
+-    const void * sl = gf_get_data(gf, "silence_latent");
+-    if (!sl) {
+-        fprintf(stderr, "[Store] FATAL: silence_latent not found in %s\n", dit_path);
++    if (!store_read_silence(gf, meta->silence_full)) {
++        fprintf(stderr, "[Store] FATAL: cannot read silence_latent in %s\n", dit_path);
+         gf_close(&gf);
+         delete meta;
+         return nullptr;
+     }
+-    meta->silence_full.resize(15000 * 64);
+-    memcpy(meta->silence_full.data(), sl, 15000 * 64 * sizeof(float));
+ 
+     // null_condition_emb: present on some variants, absent on others.
+     struct ggml_tensor * nce_meta = ggml_get_tensor(gf.meta, "null_condition_emb");
+     if (nce_meta) {
+         int          emb_n = (int) ggml_nelements(nce_meta);
+-        const void * raw   = gf_get_data(gf, "null_condition_emb");
++        std::vector<uint32_t> staging;
++        const void * raw = gf_composite_tensor_view(
++            gf, gguf_find_tensor(gf.gguf, "null_condition_emb"), nce_meta, staging);
++        if (!raw) {
++            gf_close(&gf);
++            delete meta;
++            return nullptr;
++        }
+         meta->null_cond_cpu.resize(emb_n);
+         if (nce_meta->type == GGML_TYPE_BF16) {
+             const uint16_t * src = (const uint16_t *) raw;

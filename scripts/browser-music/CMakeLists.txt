@@ -20,10 +20,11 @@ add_library(ace-core STATIC ${NOVERA_ACE_SOURCE}/src/request.cpp ${NOVERA_ACE_SO
 target_include_directories(ace-core PUBLIC ${NOVERA_ACE_SOURCE}/src)
 target_link_libraries(ace-core PUBLIC ggml ace-json)
 add_executable(novera-music binding.cpp)
+target_include_directories(novera-music PRIVATE "${NOVERA_ACE_SOURCE}")
 target_link_libraries(novera-music PRIVATE ace-core ggml-webgpu)
 target_link_options(novera-music PRIVATE -O1 --emit-symbol-map -sMEMORY64=1 -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=67108864 -sMAXIMUM_MEMORY=17179869184 -sSTACK_SIZE=1048576 -sMODULARIZE=1 -sEXPORT_ES6=1 -sENVIRONMENT=worker -sFORCE_FILESYSTEM=1 -sJSPI=1 -fwasm-exceptions -lworkerfs.js --no-entry
 "-sJSPI_EXPORTS=['novera_music_generate','novera_music_release']"
-"-sEXPORTED_FUNCTIONS=['_novera_music_generate','_novera_music_samples','_novera_music_length','_novera_music_rate','_novera_music_release']"
+"-sEXPORTED_FUNCTIONS=['_novera_music_generate','_novera_music_samples','_novera_music_length','_novera_music_rate','_novera_music_release','_novera_music_encode_mp3','_novera_music_mp3_size']"
 "-sEXPORTED_RUNTIME_METHODS=['ccall','FS','WORKERFS','HEAPF32']")
 set_target_properties(novera-music PROPERTIES SUFFIX ".mjs")
 option(NOVERA_NUMERICAL_CHECKS "Build the separate music CPU/GPU reference module" OFF)

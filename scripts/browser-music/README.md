@@ -49,3 +49,11 @@ The production-shaped Novera Web conversation then measured **16.2 s and 16.0 s*
 Compile the optional CPU/WebGPU reference module with `--numerical-checks`, then invoke `novera_check_col2im` from its dedicated browser worker. Twelve real GPU comparisons match finite CPU F32 results exactly, including all VAE strides, padding, channel counts, offset views and a 4.48-million-sample output that crosses the two-dimensional dispatch boundary. Two additional guards reject F16 and strided sources. The passing module returns 14; compilation alone is not a passing numerical test.
 
 For an internal browser build, set `VITE_NOVERA_WEB_LOCAL_MUSIC=true` and `NOVERA_BROWSER_MUSIC_BUILD` to the verified build directory, then run `corepack yarn build:web:browser`. Packaging checks module/WASM hashes and includes the ACE and GGML licenses in a content-versioned directory. Select the four local files under Music in creation settings; file handles remain session-only, while musical settings and finished WAVs persist locally. The trial accepts 10–30 s, eight steps, automatic WebGPU placement and float32 WAV. Unsupported settings are rejected before model loading.
+
+## Web 1.0.1 release profile
+
+The Pages build selects `--web-release` and enables the reviewed music profile in its worker. The planner, Qwen3-Embedding and the composite DiT use 64 MiB weight windows. The planner reads the next window during GPU uploads, and its partial audio head copies quantized rows between GPU buffers. The DiT groups reads in file order when destination ranges are independent. Sampling reuses the same exponentials without changing the accumulation order.
+
+Rebuild this profile with `python scripts/browser-music/build.py --web-release --emsdk C:/path/to/emsdk` and a dedicated build cache. The deployment packages the content-addressed module, WASM, build receipt and both upstream licenses. The Web application version remains 1.0.1.
+
+The Web worker can now encode the normalized PCM to MP3 locally with ACE-Step's pinned encoder. New songs select MP3 320 kb/s by default. MP3 128 kb/s and the lossless WAV 32-bit format remain selectable.

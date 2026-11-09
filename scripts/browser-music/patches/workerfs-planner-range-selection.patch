@@ -1,0 +1,54 @@
+--- a/src/qwen3-lm.h
++++ b/src/qwen3-lm.h
+@@ -279,14 +279,26 @@
+     m->kv_pos[dst] = m->kv_pos[src];
+ }
+ 
++#ifdef __EMSCRIPTEN__
++#include <emscripten/heap.h>
++#endif
++
++static void qw3lm_free(Qwen3LM * m);
++
+ // Load model weights from GGUF
+ static bool qw3lm_load(Qwen3LM * m, const char * gguf_path, int max_seq_len, int n_kv_sets) {
+     *m = {};
+ 
+     qw3lm_init_backend(m);
+ 
++    bool use_ranges = false;
++#ifdef __EMSCRIPTEN__
++    use_ranges = EM_ASM_INT({ return globalThis.noveraMusicPlannerRanges === true; });
++    const size_t heap_before = emscripten_get_heap_size();
++    const double load_started = emscripten_get_now();
++#endif
+     GGUFModel gf;
+-    if (!gf_load(&gf, gguf_path)) {
++    if (!gf_load(&gf, gguf_path, use_ranges)) {
+         fprintf(stderr, "[LM-Load] FATAL: cannot load %s\n", gguf_path);
+         return false;
+     }
+@@ -316,7 +328,22 @@
+         qwen3_load_layer(&m->wctx, gf, &m->layers[i], prefix, i);
+     }
+ 
+-    wctx_alloc(&m->wctx, m->backend);
++    if (!wctx_alloc(&m->wctx, m->backend)) {
++        gf_close(&gf);
++        qw3lm_free(m);
++        return false;
++    }
++#ifdef __EMSCRIPTEN__
++    const auto & stats = m->wctx.range_stats;
++    EM_ASM({
++        self.postMessage({type: "music-planner-weights", ranged: !!$0,
++            fileBytes: Number($1), rangeBytes: Number($2), calls: Number($3),
++            rangeReadMs: $4, loadMs: $5, heapBeforeBytes: Number($6),
++            heapAfterBytes: Number($7), scratchBytes: Number($8)});
++    }, static_cast<int>(use_ranges), gf.file_size, stats.bytes, stats.calls, stats.ms,
++       emscripten_get_now() - load_started, heap_before, emscripten_get_heap_size(),
++       use_ranges ? WCTX_RANGE_BUFFER_BYTES : gf.file_size);
++#endif
+     gf_close(&gf);
+ 
+     // KV cache

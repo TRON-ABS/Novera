@@ -6,6 +6,7 @@ const musicPhases = {
   synthesisMs: 'Chargement et synthèse audio',
   audioDecodeMs: 'Chargement et décodage audio',
   normalizationMs: 'Normalisation audio',
+  mp3EncodeMs: 'Encodage MP3',
 } as const
 
 export function browserMusicTiming(phase: unknown, milliseconds: unknown): Record<string, number> {

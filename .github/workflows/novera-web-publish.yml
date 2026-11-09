@@ -2,6 +2,11 @@ name: Publish Novera Web experimental
 on:
   workflow_dispatch:
   workflow_call:
+  pull_request:
+    paths:
+      - .github/workflows/novera-web-publish.yml
+      - scripts/browser-music/**
+      - web-app/src/services/browser-preview/local-music.worker.ts
 permissions:
   contents: read
 jobs:
@@ -38,6 +43,8 @@ jobs:
           runtime_args=()
           if [[ "$RUNTIME_KIND" == media ]]; then
             runtime_args+=(--kernel-tuning)
+          else
+            runtime_args+=(--web-release)
           fi
           python3 "scripts/browser-$RUNTIME_KIND/build.py" --emsdk "$RUNNER_TEMP/novera-emsdk" --ninja "$(command -v ninja)" "${runtime_args[@]}"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
@@ -96,6 +103,7 @@ jobs:
         with:
           path: .build/pages-site
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-24.04
     timeout-minutes: 10

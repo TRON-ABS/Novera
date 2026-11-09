@@ -22,10 +22,13 @@ def main():
     parser.add_argument('--cache', type=Path, default=ROOT / '.build/browser-music')
     parser.add_argument('--jobs', type=int, default=2)
     parser.add_argument('--numerical-checks', action='store_true', help='Compile the separate CPU/GPU reference module; does not run it')
+    parser.add_argument('--web-release', action='store_true', help='Compile the reviewed Web music profile')
     options = parser.parse_args()
     if not 1 <= options.jobs <= 16:
         parser.error('--jobs must be between 1 and 16')
     lock = json.loads((HERE / 'sources.json').read_text())
+    if options.web_release:
+        lock['patches'].extend(json.loads((HERE / 'web-release.json').read_text()))
     sdk = options.emsdk.resolve()
     emcc = sdk / 'upstream/emscripten/emcc.py'
     emcmake = sdk / 'upstream/emscripten/emcmake.py'
@@ -63,13 +66,18 @@ def main():
                     target.write_bytes(archive.read(entry))
             receipt.write_text(json.dumps(source, indent=2))
         sources[short] = destination
-    for patch in lock.get('patches', []):
+    for index, patch in enumerate(lock['patches']):
         patch_file = HERE / patch['patch']
         if hashlib.sha256(patch_file.read_bytes()).hexdigest() != patch['patchSha256']:
             raise RuntimeError('Reviewed browser patch digest mismatch')
         target = sources[patch['source']] / patch['file']
         digest = hashlib.sha256(target.read_bytes()).hexdigest()
-        if digest == patch['afterSha256']:
+        # A validated cache may already contain a later patch for this file.
+        chain = [step for step in lock['patches'][index:]
+                 if (step['source'], step['file']) == (patch['source'], patch['file'])]
+        if any(left['afterSha256'] != right['beforeSha256'] for left, right in zip(chain, chain[1:])):
+            raise RuntimeError('Browser patch chain is not contiguous')
+        if any(digest == step['afterSha256'] for step in chain):
             continue
         if digest != patch['beforeSha256']:
             raise RuntimeError('The browser patch target differs from its reviewed source')
@@ -92,6 +100,8 @@ def main():
         path = build / f'novera-music.{suffix}'
         artifacts.append({'name': path.name, 'bytes': path.stat().st_size, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
     result = {'compiled': True, 'modelInferenceValidated': False, 'numericalCheckModuleCompiled': options.numerical_checks, 'captionRewriting': False, 'explicitDurationCodeBudget': True, 'maxInputBytesPerField': 512, 'sources': lock, 'artifacts': artifacts}
+    if options.web_release:
+        result['webMusicProfile'] = 'bounded-read-ahead'
     (build / 'BUILD-VERIFICATION.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))
 

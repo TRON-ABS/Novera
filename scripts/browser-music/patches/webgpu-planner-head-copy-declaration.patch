@@ -1,0 +1,16 @@
+--- a/include/ggml-webgpu.h
++++ b/include/ggml-webgpu.h
+@@ -14,6 +14,13 @@
+ 
+ GGML_BACKEND_API ggml_backend_reg_t ggml_backend_webgpu_reg(void);
+ 
++#ifdef __EMSCRIPTEN__
++// Copy aligned rows to a standalone tensor on the same WebGPU device.
++// Returns false without submitting work if the buffers are incompatible.
++GGML_BACKEND_API bool ggml_backend_webgpu_copy_rows(const struct ggml_tensor * source, size_t first_row,
++                                                   struct ggml_tensor * destination);
++#endif
++
+ #ifdef  __cplusplus
+ }
+ #endif

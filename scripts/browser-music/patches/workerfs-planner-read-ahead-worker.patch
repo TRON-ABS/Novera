@@ -1,0 +1,38 @@
+--- a/src/pipeline-lm.cpp
++++ b/src/pipeline-lm.cpp
+@@ -23,6 +23,35 @@
+ #include <vector>
+ 
+ #ifdef __EMSCRIPTEN__
++// The FileReaderSync control also stages one Blob range before copying it
++// into Wasm. Keep one asynchronous request at a time in the same runtime.
++EM_JS(int, wctx_begin_read_ahead, (int fd, size_t start, size_t size), {
++    try {
++        const blob = FS.getStreamChecked(fd).node.contents;
++        const offset = Number(start);
++        const length = Number(size);
++        if (!(blob instanceof Blob) || offset + length > blob.size) return 0;
++        Module.noveraPlannerReadAhead = {
++            fd, offset, length,
++            data: blob.slice(offset, offset + length).arrayBuffer().catch(() => null)
++        };
++        return 1;
++    } catch {
++        return 0;
++    }
++});
++
++EM_ASYNC_JS(int, wctx_take_read_ahead, (int fd, size_t start, void * output, size_t size), {
++    const pending = Module.noveraPlannerReadAhead;
++    Module.noveraPlannerReadAhead = undefined;
++    if (!pending || pending.fd !== fd || pending.offset !== Number(start) ||
++        pending.length !== Number(size)) return 0;
++    const data = await pending.data;
++    if (!data || data.byteLength !== pending.length) return 0;
++    HEAPU8.set(new Uint8Array(data), Number(output));
++    return 1;
++});
++
+ static void planner_metric(const char * stage, double ms, size_t tokens = 0) {
+     EM_ASM({
+         self.postMessage({ type: "music-planner-profile", stage: UTF8ToString(Number($0)),

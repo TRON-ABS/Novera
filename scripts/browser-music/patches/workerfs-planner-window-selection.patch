@@ -1,0 +1,27 @@
+--- a/src/qwen3-lm.h
++++ b/src/qwen3-lm.h
+@@ -318,6 +318,9 @@
+     // embed(1) + layers * 11 + final_norm(1) = 2 + n_layers * 11
+     int n_tensors = 2 + c.n_layers * 11;
+     wctx_init(&m->wctx, n_tensors);
++#ifdef __EMSCRIPTEN__
++    m->wctx.group_ranges = use_ranges && EM_ASM_INT({ return globalThis.noveraMusicPlannerWindows === true; });
++#endif
+ 
+     m->embed_tokens = gf_load_tensor(&m->wctx, gf, "model.embed_tokens.weight");
+     m->final_norm   = gf_load_tensor_f32(&m->wctx, gf, "model.norm.weight");
+@@ -339,10 +342,12 @@
+         self.postMessage({type: "music-planner-weights", ranged: !!$0,
+             fileBytes: Number($1), rangeBytes: Number($2), calls: Number($3),
+             rangeReadMs: $4, loadMs: $5, heapBeforeBytes: Number($6),
+-            heapAfterBytes: Number($7), scratchBytes: Number($8)});
++            heapAfterBytes: Number($7), scratchBytes: Number($8),
++            grouped: !!$9, windows: Number($10), windowHits: Number($11)});
+     }, static_cast<int>(use_ranges), gf.file_size, stats.bytes, stats.calls, stats.ms,
+        emscripten_get_now() - load_started, heap_before, emscripten_get_heap_size(),
+-       use_ranges ? WCTX_RANGE_BUFFER_BYTES : gf.file_size);
++       use_ranges ? WCTX_RANGE_BUFFER_BYTES : gf.file_size,
++       static_cast<int>(m->wctx.group_ranges), stats.windows, stats.window_hits);
+ #endif
+     gf_close(&gf);
+ 

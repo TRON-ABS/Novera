@@ -1,0 +1,142 @@
+--- a/src/gguf-weights.h
++++ b/src/gguf-weights.h
+@@ -90,8 +90,11 @@
+     *gf = {};
+ }
+ 
+-static bool gf_load(GGUFModel * gf, const char * path) {
++static bool gf_load(GGUFModel * gf, const char * path, bool use_ranges = false) {
+     *gf = {};
++#ifndef __EMSCRIPTEN__
++    (void) use_ranges;
++#endif
+ 
+     // mmap the file
+ #ifdef _WIN32
+@@ -125,6 +128,8 @@
+         close(gf->fd); gf->fd = -1; return false;
+     }
+     gf->file_size = static_cast<size_t>(sb.st_size);
++    // A range reader keeps its file open until all deferred uploads complete.
++    if (!use_ranges) {
+     const bool use_cache = novera_gf_cached_path == path;
+     if (use_cache && novera_gf_cached_bytes && novera_gf_cached_size == gf->file_size) {
+         gf->mapping = novera_gf_cached_bytes;
+@@ -158,6 +163,7 @@
+         novera_gf_cached_size = gf->file_size;
+     }
+     }
++    }
+ #else
+     gf->fd = open(path, O_RDONLY);
+     if (gf->fd < 0) {
+@@ -198,13 +204,12 @@
+         struct ggml_tensor * t     = ggml_get_tensor(gf->meta, tname);
+         size_t               toff  = gguf_get_tensor_offset(gf->gguf, i);
+         size_t               tsize = ggml_nbytes(t);
+-        size_t               end   = gf->data_offset + toff + tsize;
+-        if (end > gf->file_size) {
++        if (gf->data_offset > gf->file_size || toff > gf->file_size - gf->data_offset ||
++            tsize > gf->file_size - gf->data_offset - toff) {
+             fprintf(stderr,
+                     "[GGUF] FATAL: '%s' is truncated or corrupt.\n"
+-                    "       tensor '%s' needs bytes [%zu..%zu) but file is only %zu bytes.\n"
+-                    "       Re-download the file and verify its size or checksum.\n",
+-                    path, tname, gf->data_offset + toff, end, gf->file_size);
++                    "       tensor '%s' at data offset %zu + %zu needs %zu bytes in a %zu-byte file.\n",
++                    path, tname, gf->data_offset, toff, tsize, gf->file_size);
+             gf_close(gf);
+             return false;
+         }
+@@ -212,6 +217,20 @@
+ 
+     fprintf(stderr, "[GGUF] %s: %lld tensors, data at offset %zu\n", path, (long long) n, gf->data_offset);
+     return true;
++}
++
++// Record the same tensor copy, with a borrowed file range in the planner path.
++static void gf_queue_tensor_copy(WeightCtx * wctx, const GGUFModel & gf, ggml_tensor * tensor,
++                                 int64_t index, size_t nbytes, size_t dst_offset) {
++    GGML_ASSERT(index >= 0);
++    const size_t file_offset = gf.data_offset + gguf_get_tensor_offset(gf.gguf, index);
++#ifdef __EMSCRIPTEN__
++    if (!gf.mapping) {
++        wctx->pending.push_back({tensor, nullptr, nbytes, dst_offset, gf.fd, file_offset});
++        return;
++    }
++#endif
++    wctx->pending.push_back({tensor, gf.mapping + file_offset, nbytes, dst_offset});
+ }
+ 
+ // Load a tensor from GGUF into the weight context.
+@@ -253,11 +272,7 @@
+     struct ggml_tensor * tensor = ggml_new_tensor(wctx->ctx, src->type, n_dims, ne);
+     ggml_set_name(tensor, name.c_str());
+ 
+-    size_t       offset = gguf_get_tensor_offset(gf.gguf, idx);
+-    const void * data   = gf.mapping + gf.data_offset + offset;
+-    size_t       nbytes = ggml_nbytes(src);
+-
+-    wctx->pending.push_back({ tensor, data, nbytes, 0 });
++    gf_queue_tensor_copy(wctx, gf, tensor, idx, ggml_nbytes(src), 0);
+     return tensor;
+ }
+ 
+@@ -307,8 +322,19 @@
+     auto    buf  = std::make_unique<float[]>(n);
+     float * data = buf.get();
+ 
+-    size_t       offset = gguf_get_tensor_offset(gf.gguf, idx);
+-    const void * raw    = gf.mapping + gf.data_offset + offset;
++    const size_t offset = gf.data_offset + gguf_get_tensor_offset(gf.gguf, idx);
++    const void * raw;
++#ifdef __EMSCRIPTEN__
++    std::vector<uint16_t> range;
++    if (!gf.mapping) {
++        range.resize(n);
++        if (!wctx_read_range(wctx, gf.fd, offset, range.data(), ggml_nbytes(src))) return nullptr;
++        raw = range.data();
++    } else
++#endif
++    {
++        raw = gf.mapping + offset;
++    }
+ 
+     if (src->type == GGML_TYPE_BF16) {
+         const uint16_t * p = (const uint16_t *) raw;
+@@ -368,15 +394,9 @@
+     size_t k_bytes  = k_src->ne[1] * row_size;
+     size_t v_bytes  = v_src->ne[1] * row_size;
+ 
+-    auto get_data = [&](const std::string & name) -> const void * {
+-        int64_t idx = gguf_find_tensor(gf.gguf, name.c_str());
+-        size_t  off = gguf_get_tensor_offset(gf.gguf, idx);
+-        return gf.mapping + gf.data_offset + off;
+-    };
+-
+-    wctx->pending.push_back({ fused, get_data(q_name), q_bytes, 0 });
+-    wctx->pending.push_back({ fused, get_data(k_name), k_bytes, q_bytes });
+-    wctx->pending.push_back({ fused, get_data(v_name), v_bytes, q_bytes + k_bytes });
++    gf_queue_tensor_copy(wctx, gf, fused, gguf_find_tensor(gf.gguf, q_name.c_str()), q_bytes, 0);
++    gf_queue_tensor_copy(wctx, gf, fused, gguf_find_tensor(gf.gguf, k_name.c_str()), k_bytes, q_bytes);
++    gf_queue_tensor_copy(wctx, gf, fused, gguf_find_tensor(gf.gguf, v_name.c_str()), v_bytes, q_bytes + k_bytes);
+     return fused;
+ }
+ 
+@@ -403,14 +423,8 @@
+     size_t a_bytes  = a_src->ne[1] * row_size;
+     size_t b_bytes  = b_src->ne[1] * row_size;
+ 
+-    auto get_data = [&](const std::string & name) -> const void * {
+-        int64_t idx = gguf_find_tensor(gf.gguf, name.c_str());
+-        size_t  off = gguf_get_tensor_offset(gf.gguf, idx);
+-        return gf.mapping + gf.data_offset + off;
+-    };
+-
+-    wctx->pending.push_back({ fused, get_data(a_name), a_bytes, 0 });
+-    wctx->pending.push_back({ fused, get_data(b_name), b_bytes, a_bytes });
++    gf_queue_tensor_copy(wctx, gf, fused, gguf_find_tensor(gf.gguf, a_name.c_str()), a_bytes, 0);
++    gf_queue_tensor_copy(wctx, gf, fused, gguf_find_tensor(gf.gguf, b_name.c_str()), b_bytes, a_bytes);
+     return fused;
+ }
+ 

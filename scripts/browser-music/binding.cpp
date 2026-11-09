@@ -3,23 +3,27 @@
 #include "model-store.h"
 #include "backend.h"
 #include "gguf-weights.h"
+#include "mp3/mp3enc.h"
 #include <emscripten.h>
 #include <cstdint>
 #include <algorithm>
 #include <vector>
 #include <cmath>
 #include <cstring>
+#include <memory>
 static ModelStore* store=nullptr;
 static AceLm* planner=nullptr;
 static AceSynth* synth=nullptr;
 static AceSynthJob* job=nullptr;
 static AceAudio output={};
+static std::vector<uint8_t> mp3_output;
 EM_JS(void, music_plan, (const char* value), {self.postMessage({phase:"planned-metadata",value:UTF8ToString(Number(value))});});
 EM_JS(void, music_stage, (const char* value), {self.postMessage({phase:UTF8ToString(Number(value))});});
 EM_JS(void, music_timing, (const char* phase, double milliseconds), {self.postMessage({type:"music-timing",phase:UTF8ToString(Number(phase)),milliseconds});});
 extern "C" {
 EMSCRIPTEN_KEEPALIVE void novera_music_release(){
  ace_audio_free(&output);output={};
+ std::vector<uint8_t>().swap(mp3_output);
  if(job)ace_synth_job_free(job);job=nullptr;
  if(synth)ace_synth_free(synth);synth=nullptr;
  if(planner)ace_lm_free(planner);planner=nullptr;
@@ -67,4 +71,25 @@ EMSCRIPTEN_KEEPALIVE int novera_music_generate(const char* lm,const char* dit,co
 EMSCRIPTEN_KEEPALIVE uintptr_t novera_music_samples(){return reinterpret_cast<uintptr_t>(output.samples);}
 EMSCRIPTEN_KEEPALIVE int novera_music_length(){return output.n_samples;}
 EMSCRIPTEN_KEEPALIVE int novera_music_rate(){return output.sample_rate;}
+
+EMSCRIPTEN_KEEPALIVE uintptr_t novera_music_encode_mp3(int bitrate) {
+    mp3_output.clear();
+    if (!output.samples || output.n_samples < 1 || output.n_samples > 30 * 48000 ||
+        output.sample_rate != 48000 || (bitrate != 128 && bitrate != 320)) return 0;
+    std::unique_ptr<mp3enc_t, decltype(&mp3enc_free)> encoder(
+        mp3enc_init(output.sample_rate, 2, bitrate), mp3enc_free);
+    if (!encoder) return 0;
+
+    // Encode the normalized planar samples in place without modifying them.
+    int size = 0;
+    const uint8_t * frames = mp3enc_encode(encoder.get(), output.samples, output.n_samples, &size);
+    if (size > 0) mp3_output.assign(frames, frames + size);
+    const uint8_t * tail = mp3enc_flush(encoder.get(), &size);
+    if (size > 0) mp3_output.insert(mp3_output.end(), tail, tail + size);
+    return mp3_output.empty() ? 0 : reinterpret_cast<uintptr_t>(mp3_output.data());
+}
+
+EMSCRIPTEN_KEEPALIVE int novera_music_mp3_size() {
+    return static_cast<int>(mp3_output.size());
+}
 }

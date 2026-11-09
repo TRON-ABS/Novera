@@ -1,0 +1,38 @@
+--- a/src/fsq-detok.h
++++ b/src/fsq-detok.h
+@@ -66,6 +66,8 @@
+ };
+ 
+ // Load from DiT GGUF
++static void detok_ggml_free(DetokGGML * m);
++
+ static bool detok_ggml_load(DetokGGML * m, const char * gguf_path) {
+     m->cfg = detok_config();
+ 
+@@ -75,13 +77,14 @@
+     m->use_flash_attn = bp.has_gpu;
+ 
+     GGUFModel gf;
+-    if (!gf_load(&gf, gguf_path)) {
++    if (!gf_load_composite(&gf, gguf_path, "detokenizer")) {
+         fprintf(stderr, "[Load] FATAL: cannot load %s\n", gguf_path);
+         return false;
+     }
+ 
+     // FSQ(2) + embed(2) + special(1) + 2 layers x 11(22) + norm(1) + proj(2) = 30
+     wctx_init(&m->wctx, 30);
++    gf_composite_prepare_weights(gf, &m->wctx);
+ 
+     m->fsq_proj_w = gf_load_tensor(&m->wctx, gf, "tokenizer.quantizer.project_out.weight");
+     m->fsq_proj_b = gf_load_tensor(&m->wctx, gf, "tokenizer.quantizer.project_out.bias");
+@@ -103,8 +106,10 @@
+ 
+     if (!wctx_alloc(&m->wctx, m->backend)) {
+         gf_close(&gf);
++        detok_ggml_free(m);
+         return false;
+     }
++    gf_composite_finish_weights(gf, m->wctx);
+     gf_close(&gf);
+ 
+     // Scheduler

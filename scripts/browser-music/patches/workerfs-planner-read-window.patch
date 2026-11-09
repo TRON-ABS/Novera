@@ -1,0 +1,120 @@
+--- a/src/weight-ctx.h
++++ b/src/weight-ctx.h
+@@ -36,12 +36,16 @@
+ #ifdef __EMSCRIPTEN__
+         int                  fd = -1; // borrowed; GGUFModel owns the open file
+         size_t               file_offset = 0;
++        ggml_type            convert_from = GGML_TYPE_COUNT;
+ #endif
+     };
+ 
+     std::vector<PendingCopy> pending;
+ #ifdef __EMSCRIPTEN__
++    bool group_ranges = false;
+     struct RangeStats {
++        size_t windows = 0;
++        size_t window_hits = 0;
+         size_t bytes = 0;
+         size_t calls = 0;
+         double ms = 0;
+@@ -57,6 +61,7 @@
+ 
+ #ifdef __EMSCRIPTEN__
+ static constexpr size_t WCTX_RANGE_BUFFER_BYTES = 64 * 1024 * 1024;
++static constexpr size_t WCTX_WINDOW_CONVERT_INPUT_BYTES = 32 * 1024;
+ 
+ static bool wctx_read_range(WeightCtx * wctx, int fd, size_t offset, void * data, size_t size) {
+     const double started = emscripten_get_now();
+@@ -84,6 +89,7 @@
+ static void wctx_init(WeightCtx * wctx, int n_tensors) {
+ #ifdef __EMSCRIPTEN__
+     wctx->range_stats = {};
++    wctx->group_ranges = false;
+ #endif
+     size_t                  ctx_size = (size_t) n_tensors * ggml_tensor_overhead() + 1024;
+     struct ggml_init_params params   = {
+@@ -101,6 +107,10 @@
+ #ifdef __EMSCRIPTEN__
+     if (wctx->range_stats.failed) return false;
+     std::unique_ptr<uint8_t[]> range_buffer;
++    std::vector<float> converted;
++    int window_fd = -1;
++    size_t window_start = 0;
++    size_t window_end = 0;
+ #endif
+     wctx->buffer = ggml_backend_alloc_ctx_tensors(wctx->ctx, backend);
+     if (!wctx->buffer) {
+@@ -111,7 +121,8 @@
+     // backend based on weight location (avoids fallback through expansion).
+     ggml_backend_buffer_set_usage(wctx->buffer, GGML_BACKEND_BUFFER_USAGE_WEIGHTS);
+     size_t total = 0;
+-    for (auto & pc : wctx->pending) {
++    for (size_t i = 0; i < wctx->pending.size(); ++i) {
++        const auto & pc = wctx->pending[i];
+ #ifdef __EMSCRIPTEN__
+         if (pc.fd >= 0) {
+             if (!range_buffer) {
+@@ -120,10 +131,50 @@
+             }
+             for (size_t offset = 0; offset < pc.nbytes; ) {
+                 const size_t count = std::min(WCTX_RANGE_BUFFER_BYTES, pc.nbytes - offset);
+-                if (!wctx_read_range(wctx, pc.fd, pc.file_offset + offset, range_buffer.get(), count)) {
+-                    return false;
++                const size_t start = pc.file_offset + offset;
++                const size_t end = start + count;
++                const bool hit = wctx->group_ranges && window_fd == pc.fd &&
++                    start >= window_start && end <= window_end;
++                if (hit) {
++                    ++wctx->range_stats.window_hits;
++                } else {
++                    window_start = start;
++                    window_end = end;
++                    if (wctx->group_ranges && offset + count == pc.nbytes) {
++                        // Only extend over consecutive uploads that fit in one window.
++                        // Preserve upload order and split large tensors as in the control.
++                        for (size_t next = i + 1; next < wctx->pending.size(); ++next) {
++                            const auto & following = wctx->pending[next];
++                            if (following.fd != pc.fd) break;
++                            const size_t first = std::min(window_start, following.file_offset);
++                            const size_t last = std::max(window_end, following.file_offset + following.nbytes);
++                            if (last - first > WCTX_RANGE_BUFFER_BYTES) break;
++                            window_start = first;
++                            window_end = last;
++                        }
++                    }
++                    if (!wctx_read_range(wctx, pc.fd, window_start, range_buffer.get(), window_end - window_start)) {
++                        return false;
++                    }
++                    window_fd = pc.fd;
++                    if (wctx->group_ranges) ++wctx->range_stats.windows;
+                 }
+-                ggml_backend_tensor_set(pc.tensor, range_buffer.get(), pc.offset + offset, count);
++                const auto * raw = range_buffer.get() + (start - window_start);
++                if (pc.convert_from != GGML_TYPE_COUNT) {
++                    GGML_ASSERT(offset == 0 && count == pc.nbytes && count <= WCTX_WINDOW_CONVERT_INPUT_BYTES);
++                    const size_t n = count / sizeof(uint16_t);
++                    converted.resize(n);
++                    if (pc.convert_from == GGML_TYPE_BF16) {
++                        const auto * bf16 = reinterpret_cast<const ggml_bf16_t *>(raw);
++                        for (size_t k = 0; k < n; ++k) converted[k] = ggml_bf16_to_fp32(bf16[k]);
++                    } else {
++                        GGML_ASSERT(pc.convert_from == GGML_TYPE_F16);
++                        ggml_fp16_to_fp32_row(reinterpret_cast<const ggml_fp16_t *>(raw), converted.data(), n);
++                    }
++                    ggml_backend_tensor_set(pc.tensor, converted.data(), pc.offset, n * sizeof(float));
++                } else {
++                    ggml_backend_tensor_set(pc.tensor, raw, pc.offset + offset, count);
++                }
+                 offset += count;
+             }
+         } else
+@@ -132,6 +183,9 @@
+             ggml_backend_tensor_set(pc.tensor, pc.src, pc.offset, pc.nbytes);
+         }
+         total += pc.nbytes;
++#ifdef __EMSCRIPTEN__
++        if (pc.convert_from != GGML_TYPE_COUNT) total += pc.nbytes;
++#endif
+     }
+     fprintf(stderr, "[WeightCtx] Loaded %zu tensors, %.1f MB into backend\n", wctx->pending.size(),
+             (float) total / (1024 * 1024));

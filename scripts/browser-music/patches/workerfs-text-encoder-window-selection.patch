@@ -1,0 +1,69 @@
+--- a/src/qwen3-enc.h
++++ b/src/qwen3-enc.h
+@@ -20,6 +20,9 @@
+ #include <cstdio>
+ #include <string>
+ #include <vector>
++#ifdef __EMSCRIPTEN__
++#include <emscripten/heap.h>
++#endif
+ 
+ #define QWEN3_MAX_LAYERS 32
+ 
+@@ -314,6 +317,8 @@
+     ly->down_proj = gf_load_tensor(wctx, gf, prefix + ".mlp.down_proj.weight");
+ }
+ 
++static void qwen3_free(Qwen3GGML * m);
++
+ // Load standalone text encoder (Qwen3-Embedding) from GGUF
+ // gguf_path: path to the .gguf file
+ static bool qwen3_load_text_encoder(Qwen3GGML * m, const char * gguf_path) {
+@@ -336,8 +341,14 @@
+         /*is_causal*/ true,
+     };
+ 
++    bool group_ranges = false;
++#ifdef __EMSCRIPTEN__
++    group_ranges = EM_ASM_INT({ return globalThis.noveraMusicEncoderWindows === true; });
++    const size_t heap_before = emscripten_get_heap_size();
++    const double load_started = emscripten_get_now();
++#endif
+     GGUFModel gf;
+-    if (!gf_load(&gf, gguf_path)) {
++    if (!gf_load(&gf, gguf_path, group_ranges)) {
+         fprintf(stderr, "[Load] FATAL: cannot load %s\n", gguf_path);
+         return false;
+     }
+@@ -345,6 +356,9 @@
+     // embed(1) + 28 layers * 11 weights + final_norm(1) = 310
+     int n_tensors = 1 + m->cfg.n_layers * 11 + 1;
+     wctx_init(&m->wctx, n_tensors);
++#ifdef __EMSCRIPTEN__
++    m->wctx.group_ranges = group_ranges;
++#endif
+ 
+     m->embed_tokens = gf_load_tensor(&m->wctx, gf, "embed_tokens.weight");
+     m->final_norm   = gf_load_tensor_f32(&m->wctx, gf, "norm.weight");
+@@ -359,8 +373,21 @@
+ 
+     if (!wctx_alloc(&m->wctx, m->backend)) {
+         gf_close(&gf);
++        qwen3_free(m);
+         return false;
+     }
++#ifdef __EMSCRIPTEN__
++    const auto & stats = m->wctx.range_stats;
++    EM_ASM({
++        self.postMessage({type: "music-encoder-weights", grouped: !!$0,
++            fileBytes: Number($1), rangeBytes: Number($2), calls: Number($3),
++            rangeReadMs: $4, loadMs: $5, heapBeforeBytes: Number($6),
++            heapAfterBytes: Number($7), scratchBytes: Number($8),
++            windows: Number($9), windowHits: Number($10)});
++    }, static_cast<int>(group_ranges), gf.file_size, stats.bytes, stats.calls, stats.ms,
++       emscripten_get_now() - load_started, heap_before, emscripten_get_heap_size(),
++       group_ranges ? WCTX_RANGE_BUFFER_BYTES : gf.file_size, stats.windows, stats.window_hits);
++#endif
+     gf_close(&gf);
+ 
+     return true;
