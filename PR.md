@@ -15,3 +15,7 @@ The existing image kernel profile and pinned text SDKs are part of the same Page
 The same update makes MP3 320 kb/s the default for new local Web songs. The existing sharing and download flows use the stored MP3. WAV 32-bit remains selectable for exact-reference checks.
 
 The Web search default is DuckDuckGo. Existing saved provider choices are still restored, and Exa remains available as an explicit option for full search.
+
+## Native video export
+
+Apply the Web clip export limit to the shared Desktop worker. FFmpeg returns only the frames needed from each Wan AVI. Diffusers sends contiguous RGB frames to the encoder directly, avoiding a separate byte copy. Windows validation passed all nine video worker tests. Both native export paths produced byte-identical before and after MP4s with 80 frames at 512 × 224, 16 FPS, using controlled test clips and the same pinned FFmpeg. These checks exercise export rather than model inference or VAE speed. The worker is used by Desktop on Windows, Linux and macOS. CLI, Android and iOS do not include it.
