@@ -10,8 +10,11 @@ const version = JSON.parse(fs.readFileSync(new URL('../../web-app/package.json',
 if (identity.application !== 'NoveraWeb' || identity.commit !== commit || identity.version !== version) throw new Error('Web identity differs from reviewed source')
 // Reject private data, models, symbols and unexpected symlinks before staging.
 const receipt = prepareWebDelivery(source, { version: identity.version, commit })
-for (const module of ['novera-diffusion', 'novera-music']) {
-  for (const suffix of ['.mjs', '.wasm']) if (!receipt.artifacts.some(asset => asset.file.endsWith(`/${module}${suffix}`))) throw new Error('Missing bundled browser runtime')
+const requiredRuntimeFiles = ['novera-diffusion.mjs', 'novera-diffusion.wasm', 'novera-music.mjs', 'novera-music.wasm', 'novera-text.mjs', 'novera-text.wasm', 'worker.mjs']
+for (const name of requiredRuntimeFiles) {
+  if (!receipt.artifacts.some(asset => asset.file.startsWith('novera-runtime/') && asset.file.endsWith(`/${name}`))) {
+    throw new Error(`Missing bundled browser runtime file ${name}`)
+  }
 }
 preparePagesSite(output, commit)
 fs.cpSync(source, path.join(output, 'web'), { recursive: true, errorOnExist: true, force: false })

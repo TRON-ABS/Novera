@@ -99,15 +99,16 @@ def apply_override(record, override_directory='override'):
     original = source / record['file']
     if hashlib.sha256(patch_file.read_bytes()).hexdigest() != record['patchSha256']:
         raise ValueError('Browser patch checksum mismatch.')
-    if hashlib.sha256(original.read_bytes()).hexdigest() != record['beforeSha256']:
+    # Git archive can use CRLF on Windows. Check the canonical patch input.
+    patch_input = original.read_bytes().replace(b'\r\n', b'\n')
+    if hashlib.sha256(patch_input).hexdigest() != record['beforeSha256']:
         raise ValueError('Browser patch input checksum mismatch.')
     # Apply only inside a disposable override tree, preserving the verified archive.
     override_root = cache / override_directory
     target = override_root / record['file']
     target.parent.mkdir(parents=True, exist_ok=True)
     if not target.is_file() or hashlib.sha256(target.read_bytes()).hexdigest() != record['afterSha256']:
-        # The pinned archive uses CRLF; apply the LF patch to a normalized copy.
-        target.write_bytes(original.read_text(encoding='utf-8').encode('utf-8'))
+        target.write_bytes(patch_input)
         patch_environment = dict(environment, GIT_CEILING_DIRECTORIES=str(cache))
         subprocess.run(['git', '-c', 'core.autocrlf=false', 'apply', '--check', str(patch_file)], cwd=override_root, env=patch_environment, check=True)
         subprocess.run(['git', '-c', 'core.autocrlf=false', 'apply', str(patch_file)], cwd=override_root, env=patch_environment, check=True)
