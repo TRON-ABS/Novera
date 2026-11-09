@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useAutoConfiguration } from '@/hooks/useAutoConfiguration'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
-import { BROWSER_MUSIC_PROVIDER, BROWSER_MUSIC_MODEL, browserLocalMusicEnabled } from '@/services/browser-preview/local-music'
+import { BROWSER_MUSIC_PROVIDER, BROWSER_MUSIC_MODEL, browserLocalMusicEnabled, browserMusicFormats, browserMusicQuality } from '@/services/browser-preview/local-music'
 import { BrowserLocalMusicSetup } from './BrowserLocalMusicSetup'
 import { ComposerStatusSwitch } from '@/components/ComposerStatusSwitch'
 import { invoke } from '@tauri-apps/api/core'
@@ -143,7 +143,8 @@ export function MusicDashboardControls({
   const cloud = useCreation((s) => s.selections[scope]?.music)
   const { min: minimum, max: maximum } = musicDurationLimits(cloud?.provider)
   const [durationDraft, setDurationDraft] = useState<string>()
-  const fixedFormat = cloud?.provider === BROWSER_MUSIC_PROVIDER ? 'WAV · 32 bit · 48 kHz' : cloud
+  const localWebMusic = cloud?.provider === BROWSER_MUSIC_PROVIDER
+  const fixedFormat = localWebMusic ? browserMusicFormats[browserMusicQuality(settings.quality)] : cloud
     ? cloud.provider === 'fal'
       ? 'WAV'
       : cloud.provider === 'elevenlabs'
@@ -237,7 +238,7 @@ export function MusicDashboardControls({
             variant="ghost"
             size="xs"
             disabled={
-              disabled || (Boolean(cloud) && cloud?.provider !== 'stability')
+              disabled || (Boolean(cloud) && !localWebMusic && cloud?.provider !== 'stability')
             }
             aria-label={t('chat:creation.musicQuality')}
           >
@@ -254,7 +255,7 @@ export function MusicDashboardControls({
             <select
               aria-label={t('chat:creation.musicQuality')}
               className="mt-1 w-full rounded border bg-background p-2"
-              value={settings.quality}
+              value={localWebMusic ? browserMusicQuality(settings.quality) : settings.quality}
               disabled={disabled}
               onChange={(e) =>
                 setSettings({
@@ -263,7 +264,7 @@ export function MusicDashboardControls({
               }
             >
               {Object.entries(
-                cloud ? { 'mp3-320': 'MP3', 'wav24': 'WAV' } : musicFormats
+                localWebMusic ? browserMusicFormats : cloud ? { 'mp3-320': 'MP3', 'wav24': 'WAV' } : musicFormats
               ).map(([value, label]) => (
                 <option key={value} value={value}>
                   {label}

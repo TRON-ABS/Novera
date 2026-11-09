@@ -19,7 +19,7 @@ class TestWorker {
   postMessage = vi.fn()
   constructor() { TestWorker.instances.push(this) }
 }
-const settings = { ...musicDefaults, durationSeconds: 10, durationAuto: false, quality: 'wav32' as const, seedMode: 'fixed' as const }
+const settings = { ...musicDefaults, durationSeconds: 10, durationAuto: false, seedMode: 'fixed' as const }
 const files = () => musicComponentNames.map(name => new File(['test-model'], name))
 beforeEach(() => {
   vi.stubEnv('VITE_NOVERA_WEB_LOCAL_MUSIC', 'true')
@@ -34,19 +34,24 @@ it('requires the actual four model files before claiming the GPU', async () => {
   expect(TestWorker.instances).toHaveLength(0)
 })
 
-it('persists local audio before emitting its conversation reference and preserves French lyrics', async () => {
+it.each([
+  ['mp3-320', 320, 'audio/mpeg', '.mp3'],
+  ['mp3-128', 128, 'audio/mpeg', '.mp3'],
+  ['wav32', 0, 'audio/wav', '.wav'],
+] as const)('persists %s before emitting its conversation reference and preserves French lyrics', async (quality, bitrate, mime, extension) => {
   // A completed prior job leaves an undefined progress entry in the shared store.
   useCreation.setState({ progress: { 'previous-job': undefined } })
   setBrowserMusicFiles(files())
   const finish = vi.fn()
-  const reader = browserLocalMusicStream('French piano and guitar song.', 'music-test', { ...settings, instrumental: false, lyrics: '[Verse]\nBonjour le monde', language: 'fr' }, undefined, finish).getReader()
+  const reader = browserLocalMusicStream('French piano and guitar song.', 'music-test', { ...settings, quality, instrumental: false, lyrics: '[Verse]\nBonjour le monde', language: 'fr' }, undefined, finish).getReader()
   const first = reader.read()
   await waitFor(() => expect(TestWorker.instances).toHaveLength(1))
   const worker = TestWorker.instances[0]
-  expect(worker.postMessage).toHaveBeenCalledWith(expect.objectContaining({ runtimeUrl: expect.stringContaining(`novera-runtime/${'b'.repeat(64)}/novera-music.mjs`), lyrics: '[Verse]\nBonjour le monde', language: 'fr', seconds: 10, seed: 42 }))
+  expect(worker.postMessage).toHaveBeenCalledWith(expect.objectContaining({ runtimeUrl: expect.stringContaining(`novera-runtime/${'b'.repeat(64)}/novera-music.mjs`), lyrics: '[Verse]\nBonjour le monde', language: 'fr', seconds: 10, seed: 42, bitrate }))
   worker.onmessage?.({ data: { type: 'music-timing', phase: 'planningMs', milliseconds: 1200 } })
   worker.onmessage?.({ data: { type: 'music-timing', phase: 'synthesisMs', milliseconds: NaN } })
-  worker.onmessage?.({ data: { type: 'complete', wav: musicWav(new Float32Array([0.2, -0.2]), 1, 48000), seconds: 1 / 48000 } })
+  const audio = bitrate ? new Blob([new Uint8Array([0xff, 0xfb, 0xb4, 0x04])], { type: mime }) : musicWav(new Float32Array([0.2, -0.2]), 1, 48000)
+  worker.onmessage?.({ data: { type: 'complete', audio, seconds: 1 / 48000 } })
   expect((await first).value).toMatchObject({ type: 'start' })
   const chunk = (await reader.read()).value as { url: string }
   expect(chunk).toMatchObject({ providerMetadata: { novera: { planningMs: 1200 } } })
@@ -54,7 +59,8 @@ it('persists local audio before emitting its conversation reference and preserve
   const reference = parseCreationReference(chunk.url)!
   const record = await readBrowserMedia('music', reference.name)
   expect(record.metadata).toMatchObject({ provider: 'novera-browser-music', model: 'acestep-v15-turbo-Q4_K_M', prompt: 'French piano and guitar song.' })
-  expect(record.blob.type).toBe('audio/wav')
+  expect(reference.name.endsWith(extension)).toBe(true)
+  expect(record.blob.type).toBe(mime)
   expect((await reader.read()).value).toMatchObject({ type: 'finish' })
   expect((await reader.read()).done).toBe(true)
   expect(finish).toHaveBeenCalledTimes(1); expect(worker.terminate).toHaveBeenCalled()
@@ -74,7 +80,7 @@ it('cancels the owning worker and ignores a queued late completion', async () =>
   await waitFor(() => expect(TestWorker.instances).toHaveLength(1))
   const worker = TestWorker.instances[0], queued = worker.onmessage
   abort.abort(); await rejected
-  queued?.({ data: { type: 'complete', wav: musicWav(new Float32Array(2), 1, 48000), seconds: 1 / 48000 } })
+  queued?.({ data: { type: 'complete', audio: musicWav(new Float32Array(2), 1, 48000), seconds: 1 / 48000 } })
   expect(worker.terminate).toHaveBeenCalled(); expect(finish).toHaveBeenCalledTimes(1)
   expect(useCreation.getState().progress).toEqual({})
 })

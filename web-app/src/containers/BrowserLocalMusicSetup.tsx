@@ -13,7 +13,7 @@ export function BrowserLocalMusicSetup({ scope, disabled }: { scope: string; dis
   if (!browserLocalMusicEnabled()) return null
   return <fieldset className="rounded-md border border-border p-3 space-y-3" disabled={disabled}>
     <legend className="px-1 font-medium">Musique sur cet appareil · essai ACE-Step</legend>
-    <p className="text-sm text-muted-foreground">Choisissez les quatre fichiers Desktop. Ils restent sur cet appareil pour cette session. Essai : 10–30 secondes, 8 étapes, WebGPU, WAV 32 bits stéréo 48 kHz. La fin peut être plus courte ; la qualité du chant reste à vérifier. Décrivez les instruments ou « a cappella, sans instruments » dans votre demande.</p>
+    <p className="text-sm text-muted-foreground">Choisissez les quatre fichiers Desktop. Ils restent sur cet appareil pour cette session. Essai de 10 à 30 secondes, 8 étapes et WebGPU. Le MP3 stéréo à 320 kb/s est sélectionné par défaut. Le WAV 32 bits à 48 kHz reste disponible. La fin peut être plus courte. Décrivez les instruments ou « a cappella, sans instruments » dans votre demande.</p>
     {musicComponentNames.map((name, index) => <label key={name} className="block text-xs break-all">{name}
       <input className="block w-full mt-1" type="file" accept=".gguf" onChange={event => {
         setReady(false); setError('')
@@ -21,7 +21,7 @@ export function BrowserLocalMusicSetup({ scope, disabled }: { scope: string; dis
         if (!next.every(Boolean)) return
         try {
           setBrowserMusicFiles(next as File[])
-          setSettings({ durationSeconds: 10, durationAuto: false, steps: 8, quality: 'wav32', bpm: 0, device: 'auto', generationCount: 1 })
+          setSettings({ durationSeconds: 10, durationAuto: false, steps: 8, quality: 'mp3-320', bpm: 0, device: 'auto', generationCount: 1 })
           useCreation.getState().setSelection(scope, 'music', { provider: BROWSER_MUSIC_PROVIDER, id: BROWSER_MUSIC_MODEL })
           setReady(true)
         } catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)) }

@@ -55,3 +55,5 @@ For an internal browser build, set `VITE_NOVERA_WEB_LOCAL_MUSIC=true` and `NOVER
 The Pages build selects `--web-release` and enables the reviewed music profile in its worker. The planner, Qwen3-Embedding and the composite DiT use 64 MiB weight windows. The planner reads the next window during GPU uploads, and its partial audio head copies quantized rows between GPU buffers. The DiT groups reads in file order when destination ranges are independent. Sampling reuses the same exponentials without changing the accumulation order.
 
 Rebuild this profile with `python scripts/browser-music/build.py --web-release --emsdk C:/path/to/emsdk` and a dedicated build cache. The deployment packages the content-addressed module, WASM, build receipt and both upstream licenses. The Web application version remains 1.0.1.
+
+The Web worker can now encode the normalized PCM to MP3 locally with ACE-Step's pinned encoder. New songs select MP3 320 kb/s by default. MP3 128 kb/s and the lossless WAV 32-bit format remain selectable.
