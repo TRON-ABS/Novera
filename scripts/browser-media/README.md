@@ -36,6 +36,8 @@ Do not enable this runtime in the normal Web UI until the build and exact-model 
 
 The dedicated `novera-browser-media.yml` workflow builds an experimental artifact with upstream licenses and a verification receipt. It does not deploy the Web app or change a Desktop update feed.
 
+The Web Pages workflow builds a separate Wan binary with `--kernel-tuning --wan-tuning` and stages the linked `/Novera/web/video-performance/` page. The public page defaults to profile 12742898, the 512 × 224 Desktop preset at 16 FPS, Flash Attention, separate CFG passes and 4 GiB. Users select the original three Wan components locally and can export the WebM and its measurement report. The image composer uses its own binary with profile 143602.
+
 ## Browser findings, November 7, 2026
 
 An actual Edge test on an RTX 5070 Laptop generated the same FLUX.2 Klein Q4 bundle at 256 × 256, four steps. The first compatibility fallback used CPU VAE decoding: 207.88 seconds for decoding and 237.87 seconds inside generation. A second test completed the full file-load/generation/PNG path in **31.768 seconds**, with **2.77 seconds** for VAE decoding. This small test does not establish larger-image, music or video performance.

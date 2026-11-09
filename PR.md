@@ -1,8 +1,14 @@
-## Web autonomous text runtime
+## Web autonomous text and Wan update
 
 Normal LFM3-Omni text replies in compatible browsers use the pinned single-thread WebAssembly/WebGPU Worker and compact GPU sampling. The Worker verifies the model bytes downloaded from the pinned catalog revision. It caches verified weights when browser storage is available. Voice, tool history, assistant prefills and browsers without JSPI use the autonomous SDK. The 147.39 tokens/s figure is the median of the earlier local 512-token decode series and depends on the browser and device.
 
-Pages builds and checksums the engine, Worker and license. No weights or native bridge are bundled. Local checks cover the production TypeScript configuration and the runtime, voice and transport tests. Browser playback and hosted deployment results are tracked separately.
+Pages builds and checksums the engine, Worker and license. No weights or native bridge are bundled. Local checks cover the production TypeScript configuration and the runtime, voice and transport tests. A local Edge run through the packaged chat answered 42 using the checksum-verified model from a local mirror.
+
+The Pages candidate adds a linked Wan page at `/Novera/web/video-performance/`. It selects profile 12742898, the five-second Desktop preset, Flash Attention, separate CFG passes and a 4 GiB GPU budget. It requires the three original Wan files, processes them in the browser, and offers WebM and a measurement report. Its binary builds separately from FLUX, which continues to use profile 143602.
+
+The November 9 local Edge comparison used the RTX 5070 Laptop, seed 331914466 and 20 steps at 512 × 224. VAE decode fell from 121.41 s to 97.87 s and total through WebM export from 642.876 s to 619.918 s. All 80 RGBA hashes matched. Both WebM SHA-256 values were `c6855682cdf638a3513ab46b68b39cb19f67eb7846f3735d05df788b18fc3f9d`. These are local reference measurements.
+
+The public 1.0.1 build at `a48093137f50351305606375606b9b7ff01aa6a5` was checked before the update. The hosted JS and Wasm files match both the FLUX profile 143602 and the ACE bounded read-ahead receipts. Deployment and browser checks for the new candidate are tracked in [PR #58](https://github.com/TRON-ABS/Novera/pull/58).
 
 # fix(web): record the public release and follow shared version facts
 

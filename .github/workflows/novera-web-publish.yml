@@ -6,6 +6,7 @@ on:
     paths:
       - .github/workflows/novera-web-publish.yml
       - scripts/browser-music/**
+      - scripts/browser-media/**
       - scripts/browser-text/**
       - web-app/src/services/browser-preview/local-music.worker.ts
 permissions:
@@ -17,6 +18,7 @@ jobs:
       matrix:
         include:
           - {kind: media, source: sdcpp}
+          - {kind: video, source: sdcpp}
           - {kind: text, source: source}
           - {kind: music, source: ace}
     runs-on: ubuntu-24.04
@@ -43,8 +45,12 @@ jobs:
         run: |
           set -euo pipefail
           runtime_args=()
+          runtime_script="scripts/browser-$RUNTIME_KIND/build.py"
           if [[ "$RUNTIME_KIND" == media ]]; then
             runtime_args+=(--kernel-tuning)
+          elif [[ "$RUNTIME_KIND" == video ]]; then
+            runtime_script=scripts/browser-media/build.py
+            runtime_args+=(--kernel-tuning --wan-tuning --cache .build/browser-video)
           elif [[ "$RUNTIME_KIND" == text ]]; then
             llama=src-tauri/plugins/tauri-plugin-llamacpp/vendor/llama.cpp
             git init "$llama"
@@ -55,7 +61,7 @@ jobs:
           else
             runtime_args+=(--web-release)
           fi
-          python3 "scripts/browser-$RUNTIME_KIND/build.py" --emsdk "$RUNNER_TEMP/novera-emsdk" --ninja "$(command -v ninja)" "${runtime_args[@]}"
+          python3 "$runtime_script" --emsdk "$RUNNER_TEMP/novera-emsdk" --ninja "$(command -v ninja)" "${runtime_args[@]}"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: web-runtime-${{ matrix.kind }}-${{ github.sha }}
@@ -91,10 +97,15 @@ jobs:
         with:
           name: web-runtime-text-${{ github.sha }}
           path: .build/browser-text
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: web-runtime-video-${{ github.sha }}
+          path: .build/browser-video
       - name: Build browser application and stage showcase
         env:
           VITE_NOVERA_WEB_LOCAL_MEDIA: 'true'
           VITE_NOVERA_WEB_LOCAL_MUSIC: 'true'
+          VITE_NOVERA_WEB_LOCAL_WAN: 'true'
           VITE_NOVERA_WEB_BASE: /Novera/web/
           NOVERA_BROWSER_MEDIA_BUILD: .build/browser-media/build
           NOVERA_BROWSER_MUSIC_BUILD: .build/browser-music/build
@@ -112,6 +123,7 @@ jobs:
           export NOVERA_BROWSER_MEDIA_BUILD="$GITHUB_WORKSPACE/.build/browser-media/build"
           export NOVERA_BROWSER_MUSIC_BUILD="$GITHUB_WORKSPACE/.build/browser-music/build"
           yarn build:web:browser
+          node scripts/browser-media/create-video-probe.mjs web-app/dist .build/browser-video/build --public
           node scripts/distribution/stage-web-pages.mjs .build/pages-site "$GITHUB_SHA" web-app/dist
       - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
         with:

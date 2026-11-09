@@ -63,12 +63,17 @@ def main():
     parser.add_argument('--numerical-checks', action='store_true', help='Compile the separate CPU-reference validation module; does not run browser tests')
     parser.add_argument('--gpu-profile', action='store_true', help='Diagnostic GPU timestamps; never use this build for performance comparisons')
     parser.add_argument('--kernel-tuning', action='store_true', help='Opt-in optimized image kernel profile with explicit runtime controls')
+    parser.add_argument('--wan-tuning', action='store_true', help='Include the packed Wan decoder and narrow F16 matrix kernels')
     options = parser.parse_args()
     if not 1 <= options.jobs <= 16:
         parser.error('--jobs must be between 1 and 16')
+    if options.wan_tuning and not options.kernel_tuning:
+        parser.error('--wan-tuning requires --kernel-tuning')
     lock = json.loads((HERE / 'sources.json').read_text())
     if options.kernel_tuning:
         lock['patches'].extend(json.loads((HERE / 'kernel-tuning.json').read_text())['patches'])
+    if options.wan_tuning:
+        lock['patches'].extend(json.loads((HERE / 'wan-tuning.json').read_text())['patches'])
     sdk = options.emsdk.resolve()
     emcc = sdk / 'upstream/emscripten/emcc.py'
     emcmake = sdk / 'upstream/emscripten/emcmake.py'

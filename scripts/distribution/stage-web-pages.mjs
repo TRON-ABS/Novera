@@ -16,6 +16,9 @@ for (const name of requiredRuntimeFiles) {
     throw new Error(`Missing bundled browser runtime file ${name}`)
   }
 }
+for (const file of ['video-performance/index.html', 'video-performance/worker.js']) {
+  if (!receipt.artifacts.some(asset => asset.file === file)) throw new Error(`Missing Wan video page file ${file}`)
+}
 preparePagesSite(output, commit)
 fs.cpSync(source, path.join(output, 'web'), { recursive: true, errorOnExist: true, force: false })
 fs.writeFileSync(path.join(output, 'web/WEB-DELIVERY-READINESS.json'), JSON.stringify({ ...receipt, channel: 'public-experimental', publicReleaseAuthorized: true, cachePolicy: 'GitHub Pages managed cache; no strict no-store guarantee' }, null, 2) + '\n')
