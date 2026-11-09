@@ -1,0 +1,200 @@
+--- a/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
+@@ -35,13 +35,29 @@
+ #define K_ROW_STRIDE HEAD_DIM_QK
+ #endif
+ #define STAGING_K_STRIDE K_ROW_STRIDE
++#if defined(NOVERA_ATTN_PACKED_KV) && !defined(FLASH_ATTN_SCALAR_KV)
++#define NOVERA_ATTN_KV_PAIRS_ACTIVE
++#endif
+ 
+ #if !defined(K_DIRECT) || !defined(V_DIRECT)
+ #define STAGING_SHMEM kv_shmem
+ #define STAGING_OUT_TYPE f16
+ #include "flash_attn_staging.tmpl"
+ const kv_shmem_size = KV_TILE * max(K_ROW_STRIDE, HEAD_DIM_V);
++#ifdef NOVERA_ATTN_KV_PAIRS_ACTIVE
++var<workgroup> kv_shmem: array<vec2<f16>, kv_shmem_size / 2u>;
++#else
+ var<workgroup> kv_shmem: array<f16, kv_shmem_size>;
++#endif
++fn novera_kv_load4(index: u32) -> vec4<f16> {
++#ifdef NOVERA_ATTN_KV_PAIRS_ACTIVE
++    let lo = kv_shmem[index / 2u];
++    let hi = kv_shmem[index / 2u + 1u];
++    return vec4<f16>(lo, hi);
++#else
++    return vec4<f16>(kv_shmem[index], kv_shmem[index+1u], kv_shmem[index+2u], kv_shmem[index+3u]);
++#endif
++}
+ #endif
+ 
+ var<workgroup> q_shmem: array<Q_TYPE, Q_TILE * HEAD_DIM_QK>;
+@@ -162,8 +178,8 @@
+ #endif
+                 let k0 = sg_inv_id * K_ROW_STRIDE + (chunk + 0u) * 4u;
+                 let k1 = min(sg_inv_id + subgroup_size, KV_TILE - 1u) * K_ROW_STRIDE + (chunk + 0u) * 4u;
+-                score0 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k0],kv_shmem[k0+1u],kv_shmem[k0+2u],kv_shmem[k0+3u])));
+-                score1 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k1],kv_shmem[k1+1u],kv_shmem[k1+2u],kv_shmem[k1+3u])));
++                score0 += dot(qv,vec4<f32>(novera_kv_load4(k0)));
++                score1 += dot(qv,vec4<f32>(novera_kv_load4(k1)));
+                 }
+                 {
+                 let q_off = q_base + (chunk + 1u) * 4u;
+@@ -174,8 +190,8 @@
+ #endif
+                 let k0 = sg_inv_id * K_ROW_STRIDE + (chunk + 1u) * 4u;
+                 let k1 = min(sg_inv_id + subgroup_size, KV_TILE - 1u) * K_ROW_STRIDE + (chunk + 1u) * 4u;
+-                score0 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k0],kv_shmem[k0+1u],kv_shmem[k0+2u],kv_shmem[k0+3u])));
+-                score1 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k1],kv_shmem[k1+1u],kv_shmem[k1+2u],kv_shmem[k1+3u])));
++                score0 += dot(qv,vec4<f32>(novera_kv_load4(k0)));
++                score1 += dot(qv,vec4<f32>(novera_kv_load4(k1)));
+                 }
+             }
+ #else
+@@ -188,8 +204,8 @@
+ #endif
+                 let k0 = sg_inv_id * K_ROW_STRIDE + chunk * 4u;
+                 let k1 = min(sg_inv_id + subgroup_size, KV_TILE - 1u) * K_ROW_STRIDE + chunk * 4u;
+-                score0 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k0],kv_shmem[k0+1u],kv_shmem[k0+2u],kv_shmem[k0+3u])));
+-                score1 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k1],kv_shmem[k1+1u],kv_shmem[k1+2u],kv_shmem[k1+3u])));
++                score0 += dot(qv,vec4<f32>(novera_kv_load4(k0)));
++                score1 += dot(qv,vec4<f32>(novera_kv_load4(k1)));
+             }
+ #endif
+             for (var slot = 0u; slot < score_slots; slot += 1u) {
+@@ -233,11 +249,7 @@
+                         q_shmem[q_off + 2u],
+                         q_shmem[q_off + 3u]);
+                     let kv_off = kv_local * K_ROW_STRIDE + (chunk + 0u) * 4u;
+-                    let kv = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let kv = novera_kv_load4(kv_off + 0u);
+                     dot_val += dot(vec4<f32>(qv), vec4<f32>(kv));
+                     }
+                     {
+@@ -248,11 +260,7 @@
+                         q_shmem[q_off + 2u],
+                         q_shmem[q_off + 3u]);
+                     let kv_off = kv_local * K_ROW_STRIDE + (chunk + 1u) * 4u;
+-                    let kv = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let kv = novera_kv_load4(kv_off + 0u);
+                     dot_val += dot(vec4<f32>(qv), vec4<f32>(kv));
+                     }
+                     {
+@@ -263,11 +271,7 @@
+                         q_shmem[q_off + 2u],
+                         q_shmem[q_off + 3u]);
+                     let kv_off = kv_local * K_ROW_STRIDE + (chunk + 2u) * 4u;
+-                    let kv = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let kv = novera_kv_load4(kv_off + 0u);
+                     dot_val += dot(vec4<f32>(qv), vec4<f32>(kv));
+                     }
+                     {
+@@ -278,11 +282,7 @@
+                         q_shmem[q_off + 2u],
+                         q_shmem[q_off + 3u]);
+                     let kv_off = kv_local * K_ROW_STRIDE + (chunk + 3u) * 4u;
+-                    let kv = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let kv = novera_kv_load4(kv_off + 0u);
+                     dot_val += dot(vec4<f32>(qv), vec4<f32>(kv));
+                     }
+                 }
+@@ -295,11 +295,7 @@
+                         q_shmem[q_off + 2u],
+                         q_shmem[q_off + 3u]);
+                     let kv_off = kv_local * K_ROW_STRIDE + chunk * 4u;
+-                    let kv = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let kv = novera_kv_load4(kv_off + 0u);
+                     dot_val += dot(vec4<f32>(qv), vec4<f32>(kv));
+                 }
+ #endif
+@@ -362,63 +358,39 @@
+                     {
+                     let p = f32(p_shmem[subgroup_p_offset + (kv_local + 0u)]);
+                     let kv_off = (kv_local + 0u) * HEAD_DIM_V + chunk * 4u;
+-                    let v4 = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let v4 = novera_kv_load4(kv_off + 0u);
+                     acc = novera_attention_madd(acc, p, v4);
+                     }
+                     {
+                     let p = f32(p_shmem[subgroup_p_offset + (kv_local + 1u)]);
+                     let kv_off = (kv_local + 1u) * HEAD_DIM_V + chunk * 4u;
+-                    let v4 = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let v4 = novera_kv_load4(kv_off + 0u);
+                     acc = novera_attention_madd(acc, p, v4);
+                     }
+                     {
+                     let p = f32(p_shmem[subgroup_p_offset + (kv_local + 2u)]);
+                     let kv_off = (kv_local + 2u) * HEAD_DIM_V + chunk * 4u;
+-                    let v4 = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let v4 = novera_kv_load4(kv_off + 0u);
+                     acc = novera_attention_madd(acc, p, v4);
+                     }
+                     {
+                     let p = f32(p_shmem[subgroup_p_offset + (kv_local + 3u)]);
+                     let kv_off = (kv_local + 3u) * HEAD_DIM_V + chunk * 4u;
+-                    let v4 = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let v4 = novera_kv_load4(kv_off + 0u);
+                     acc = novera_attention_madd(acc, p, v4);
+                     }
+                 }
+                 for (var kv_local = kv_main; kv_local < kv_count; kv_local += 1u) {
+                     let p = f32(p_shmem[subgroup_p_offset + kv_local]);
+                     let kv_off = kv_local * HEAD_DIM_V + chunk * 4u;
+-                    let v4 = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let v4 = novera_kv_load4(kv_off + 0u);
+                     acc = novera_attention_madd(acc, p, v4);
+                 }
+ #else
+                 for (var kv_local = 0u; kv_local < kv_count; kv_local += 1u) {
+                     let p = f32(p_shmem[subgroup_p_offset + kv_local]);
+                     let kv_off = kv_local * HEAD_DIM_V + chunk * 4u;
+-                    let v4 = vec4<f16>(
+-                        kv_shmem[kv_off + 0u],
+-                        kv_shmem[kv_off + 1u],
+-                        kv_shmem[kv_off + 2u],
+-                        kv_shmem[kv_off + 3u]);
++                    let v4 = novera_kv_load4(kv_off + 0u);
+                     acc = novera_attention_madd(acc, p, v4);
+                 }
+ #endif

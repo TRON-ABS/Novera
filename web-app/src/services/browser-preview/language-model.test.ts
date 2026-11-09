@@ -1,5 +1,6 @@
 import { expect, it, vi } from 'vitest'
-import { localBrowserFetch } from './language-model'
+import { createBrowserLanguageModel, localBrowserFetch } from './language-model'
+import { streamText } from 'ai'
 import type { BrowserRuntime } from './runtime'
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
 
@@ -19,6 +20,29 @@ it('serves real runtime chunks through SSE and non-streaming completions', async
   expect(await stream.text()).toContain('"content":"Bonjour"')
   const response = await f.fetch(url, request())
   expect(await response.json()).toMatchObject({ choices: [{ message: { content: 'Bonjour' } }], usage: { total_tokens: 3 } })
+})
+
+it('preserves measured SDK rates for the same metadata extractor used by Desktop', async () => {
+  const f = fixture()
+  f.generate.mockImplementation(async function* () {
+    yield { result: { message: { role: 'assistant', content: '42' }, finish_reason: 'stop', usage: { prompt_tokens: 20, completion_tokens: 8, cached_tokens: 12 }, timings: { tokens_per_second: 76.25 } } } as never
+  })
+  const response = await f.fetch(url, request())
+  expect(await response.json()).toMatchObject({ timings: { predicted_per_second: 76.25, predicted_n: 8, prompt_n: 8, cache_n: 12 } })
+  const stream = await f.fetch(url, request({ stream: true }))
+  expect(await stream.text()).toContain('"predicted_per_second":76.25')
+})
+
+it('delivers measured rates through the actual AI SDK provider metadata contract', async () => {
+  const generate = vi.fn(async function* () {
+    yield { text: '42' }
+    yield { result: { message: { role: 'assistant', content: '42' }, finish_reason: 'stop', usage: { prompt_tokens: 4, completion_tokens: 2 }, timings: { tokens_per_second: 210 } } }
+  })
+  const runtime = { load: vi.fn(), generate } as unknown as BrowserRuntime
+  const model = await createBrowserLanguageModel('test', runtime)
+  const output = streamText({ model, messages: [{ role: 'user', content: '17+25' }] })
+  expect(await output.text).toBe('42')
+  expect(await output.providerMetadata).toMatchObject({ providerMetadata: { tokensPerSecond: 210, completionTokens: 2 } })
 })
 
 it('rejects media and external destinations before calling the runtime', async () => {

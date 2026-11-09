@@ -1,6 +1,8 @@
 import { invokeCreation as invoke } from './backend'
 import { browserPreviewEnabled } from '../browser-preview/config'
 import { BROWSER_IMAGE_PROVIDER, browserLocalImageStream } from '../browser-preview/local-media'
+import { NATIVE_IMAGE_PROVIDER } from '../browser-preview/native-image-bridge'
+import { nativeImageStream } from '../browser-preview/native-image-stream'
 import type { UIMessage, UIMessageChunk } from 'ai'
 import { useMediaLibrary } from '@/hooks/useMediaLibrary'
 import { beginLocalMemory, releaseFinishedMedia } from './memory'
@@ -42,6 +44,10 @@ export function creationStream(
   const state = useCreation.getState()
   const generationPrompt = withNoveraInstructions(task, prompt.replace(/^\/(?:image|video)\s*/i, ''))
   const selection = state.selections?.[scope]?.[task]
+  if (browserPreviewEnabled() && task === 'image' && selection?.provider === NATIVE_IMAGE_PROVIDER) {
+    if (messages.at(-1)?.parts.some(part => part.type === 'file')) throw new Error('Le moteur natif local accepte ici une demande texte sans pièce jointe.')
+    return nativeImageStream(prompt, scope, signal, onFinish)
+  }
   if (browserPreviewEnabled() && task === 'image' && selection?.provider === BROWSER_IMAGE_PROVIDER) {
     if (messages.at(-1)?.parts.some(part => part.type === 'file')) throw new Error('Cet essai local accepte uniquement une demande texte, sans image jointe.')
     return browserLocalImageStream(prompt, scope, signal, onFinish)

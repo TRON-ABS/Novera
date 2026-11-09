@@ -15,6 +15,7 @@ export const LOCAL_MODEL_PROVIDERS = new Set([
   'onnx',
   'diffusers',
   'novera-music',
+  'novera-native-bridge',
 ])
 export function modelModalities(model: ModalModel) {
   const capabilities = model.capabilities ?? []

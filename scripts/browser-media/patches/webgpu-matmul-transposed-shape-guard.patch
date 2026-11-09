@@ -1,0 +1,11 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -2234,7 +2234,7 @@
+         }
+         const bool fma_half_staged = q45 || context.src0->type == GGML_TYPE_Q6_K || context.src0->type == GGML_TYPE_F16 || context.src0->type == GGML_TYPE_BF16;
+         key.fused_madd = key.large_regular_tile && fma_half_staged && (novera_image_kernel_flags() & 4096) != 0;
+-        key.transposed_shared = key.large_regular_tile && fma_half_staged && (novera_image_kernel_flags() & 8192) != 0;
++        key.transposed_shared = key.large_regular_tile && fma_half_staged && context.src1->ne[1] >= 1024 && (novera_image_kernel_flags() & 8192) != 0;
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+             return it->second;

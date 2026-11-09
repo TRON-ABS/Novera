@@ -1,5 +1,20 @@
 # Livraison et renouvellement du client Web
 
+## Mise à jour Web 1.0.1 du 9 novembre 2026
+
+La compilation Pages sélectionne le profil WebGPU image 143602. Il active
+les variantes validées des convolutions, des matrices et de l’attention sur
+les formes et appareils admissibles. Les comparaisons locales sur le rendu
+FLUX de référence à 2048×880 et quatre étapes ont conservé le même RGB après
+décodage indépendant. Le dernier contrôle autonome local a pris 111,967 s.
+Les variantes de tampon F16 évaluées en recherche restent hors du moteur livré.
+
+Cette mise à jour inclut la lecture locale des réponses, la voix Omni Web,
+le choix explicite de DuckDuckGo et la connexion facultative au moteur image
+natif de l’utilisateur. Les voix système dépendent des voix locales déclarées
+par le navigateur. La passerelle image exige un service local et un appairage
+explicite avec l’origine HTTPS. La version applicative est 1.0.1.
+
 ## Publication expérimentale autorisée — 8 novembre 2026
 
 À la demande explicite du mainteneur, le client **Web 1.0.1 expérimental** est préparé pour publication sous [GitHub Pages /Novera/web/](https://tron-abs.github.io/Novera/web/), avec un lien en tête de vitrine. Le workflow `novera-web-publish.yml` compile les deux moteurs depuis leurs révisions et correctifs vérifiés, conserve leurs licences, construit le frontend et déploie application et vitrine ensemble. Les poids des modèles et données personnelles ne sont pas inclus. Le [déploiement 42424998699](https://github.com/TRON-ABS/Novera/actions/runs/42424998699) a réussi ; les 757 fichiers sont vérifiés par empreinte sur HTTPS et une conversation reste présente après rechargement. [Reçu](release-evidence/1.0.1/WEB-PUBLIC-EXPERIMENTAL.json). Cela ne certifie ni une parité Desktop ni un audit complet.

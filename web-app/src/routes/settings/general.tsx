@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardItem } from '@/containers/Card'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useGeneralSetting } from '@/hooks/useGeneralSetting'
+import { BrowserSystemVoiceSetup } from '@/containers/BrowserSystemVoiceSetup'
 import { useAppUpdater } from '@/hooks/useAppUpdater'
 import { useEffect, useState, useCallback } from 'react'
 import ChangeDataFolderLocation from '@/containers/dialogs/ChangeDataFolderLocation'
@@ -255,6 +256,7 @@ function General() {
                   </select>
                 }
               />
+              <BrowserSystemVoiceSetup />
             </Card>
 
             {/* Data folder - Desktop only */}

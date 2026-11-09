@@ -1,0 +1,75 @@
+--- a/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
+@@ -116,6 +116,13 @@
+     }
+ 
+     let q_base = subgroup_id * HEAD_DIM_QK;
++#ifdef NOVERA_ATTN_QUERY_REGISTERS
++    var q_registers = vec4<f32>(0.0);
++    if (subgroup_id < Q_TILE && sg_inv_id < Q_CHUNKS) {
++        let q = q_base + sg_inv_id * 4u;
++        q_registers = vec4<f32>(vec4<Q_TYPE>(q_shmem[q], q_shmem[q+1u], q_shmem[q+2u], q_shmem[q+3u]));
++    }
++#endif
+     let subgroup_p_offset = subgroup_id * KV_TILE;
+ 
+     for (var kv_tile = 0u; kv_tile < params.seq_len_kv; kv_tile += KV_TILE) {
+@@ -137,14 +144,22 @@
+ 
+ #ifdef NOVERA_ATTN_SCORE_PAIR
+         var local_max = FLOAT_MIN;
++#ifdef NOVERA_ATTN_QUERY_REGISTERS
++        {
++#else
+         if (row_active) {
++#endif
+             var score0 = 0.0;
+             var score1 = 0.0;
+ #ifdef NOVERA_ATTN_PAIR_UNROLL2
+             for (var chunk = 0u; chunk < Q_CHUNKS; chunk += 2u) {
+                 {
+                 let q_off = q_base + (chunk + 0u) * 4u;
++                #ifdef NOVERA_ATTN_QUERY_REGISTERS
++                let qv = subgroupShuffle(q_registers, (q_off - q_base) / 4u);
++#else
+                 let qv = vec4<f32>(vec4<Q_TYPE>(q_shmem[q_off],q_shmem[q_off+1u],q_shmem[q_off+2u],q_shmem[q_off+3u]));
++#endif
+                 let k0 = sg_inv_id * K_ROW_STRIDE + (chunk + 0u) * 4u;
+                 let k1 = min(sg_inv_id + subgroup_size, KV_TILE - 1u) * K_ROW_STRIDE + (chunk + 0u) * 4u;
+                 score0 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k0],kv_shmem[k0+1u],kv_shmem[k0+2u],kv_shmem[k0+3u])));
+@@ -152,7 +167,11 @@
+                 }
+                 {
+                 let q_off = q_base + (chunk + 1u) * 4u;
++                #ifdef NOVERA_ATTN_QUERY_REGISTERS
++                let qv = subgroupShuffle(q_registers, (q_off - q_base) / 4u);
++#else
+                 let qv = vec4<f32>(vec4<Q_TYPE>(q_shmem[q_off],q_shmem[q_off+1u],q_shmem[q_off+2u],q_shmem[q_off+3u]));
++#endif
+                 let k0 = sg_inv_id * K_ROW_STRIDE + (chunk + 1u) * 4u;
+                 let k1 = min(sg_inv_id + subgroup_size, KV_TILE - 1u) * K_ROW_STRIDE + (chunk + 1u) * 4u;
+                 score0 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k0],kv_shmem[k0+1u],kv_shmem[k0+2u],kv_shmem[k0+3u])));
+@@ -162,7 +181,11 @@
+ #else
+             for (var chunk = 0u; chunk < Q_CHUNKS; chunk += 1u) {
+                 let q_off = q_base + chunk * 4u;
++                #ifdef NOVERA_ATTN_QUERY_REGISTERS
++                let qv = subgroupShuffle(q_registers, (q_off - q_base) / 4u);
++#else
+                 let qv = vec4<f32>(vec4<Q_TYPE>(q_shmem[q_off],q_shmem[q_off+1u],q_shmem[q_off+2u],q_shmem[q_off+3u]));
++#endif
+                 let k0 = sg_inv_id * K_ROW_STRIDE + chunk * 4u;
+                 let k1 = min(sg_inv_id + subgroup_size, KV_TILE - 1u) * K_ROW_STRIDE + chunk * 4u;
+                 score0 += dot(qv,vec4<f32>(vec4<f16>(kv_shmem[k0],kv_shmem[k0+1u],kv_shmem[k0+2u],kv_shmem[k0+3u])));
+@@ -171,7 +194,11 @@
+ #endif
+             for (var slot = 0u; slot < score_slots; slot += 1u) {
+                 let kv_local = sg_inv_id + slot * subgroup_size;
++#ifdef NOVERA_ATTN_QUERY_REGISTERS
++                if (!row_active || kv_local >= kv_count) { continue; }
++#else
+                 if (kv_local >= kv_count) { continue; }
++#endif
+                 let global_k_row = kv_tile + kv_local;
+                 var dot_val = select(score0,score1,slot == 1u);
+ #ifdef LOGIT_SOFTCAP

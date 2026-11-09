@@ -1,0 +1,72 @@
+--- a/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
+@@ -12,6 +12,15 @@
+ #define Q_TILE 4
+ #define KV_TILE 64
+ #define WG_SIZE 128
++
++// Both p and v are read from half staging; products remain exact in F32.
++fn novera_attention_madd(acc: vec4<f32>, p: f32, v: vec4<f16>) -> vec4<f32> {
++#ifdef NOVERA_ATTN_VALUE_FMA
++    return fma(vec4<f32>(p), vec4<f32>(v), acc);
++#else
++    return acc + p * vec4<f32>(v);
++#endif
++}
+ 
+ const Q_CHUNKS: u32 = HEAD_DIM_QK / 4u;
+ const V_CHUNKS: u32 = HEAD_DIM_V / 4u;
+@@ -331,7 +340,7 @@
+                         kv_shmem[kv_off + 1u],
+                         kv_shmem[kv_off + 2u],
+                         kv_shmem[kv_off + 3u]);
+-                    acc += p * vec4<f32>(v4);
++                    acc = novera_attention_madd(acc, p, v4);
+                     }
+                     {
+                     let p = f32(p_shmem[subgroup_p_offset + (kv_local + 1u)]);
+@@ -341,7 +350,7 @@
+                         kv_shmem[kv_off + 1u],
+                         kv_shmem[kv_off + 2u],
+                         kv_shmem[kv_off + 3u]);
+-                    acc += p * vec4<f32>(v4);
++                    acc = novera_attention_madd(acc, p, v4);
+                     }
+                     {
+                     let p = f32(p_shmem[subgroup_p_offset + (kv_local + 2u)]);
+@@ -351,7 +360,7 @@
+                         kv_shmem[kv_off + 1u],
+                         kv_shmem[kv_off + 2u],
+                         kv_shmem[kv_off + 3u]);
+-                    acc += p * vec4<f32>(v4);
++                    acc = novera_attention_madd(acc, p, v4);
+                     }
+                     {
+                     let p = f32(p_shmem[subgroup_p_offset + (kv_local + 3u)]);
+@@ -361,7 +370,7 @@
+                         kv_shmem[kv_off + 1u],
+                         kv_shmem[kv_off + 2u],
+                         kv_shmem[kv_off + 3u]);
+-                    acc += p * vec4<f32>(v4);
++                    acc = novera_attention_madd(acc, p, v4);
+                     }
+                 }
+                 for (var kv_local = kv_main; kv_local < kv_count; kv_local += 1u) {
+@@ -372,7 +381,7 @@
+                         kv_shmem[kv_off + 1u],
+                         kv_shmem[kv_off + 2u],
+                         kv_shmem[kv_off + 3u]);
+-                    acc += p * vec4<f32>(v4);
++                    acc = novera_attention_madd(acc, p, v4);
+                 }
+ #else
+                 for (var kv_local = 0u; kv_local < kv_count; kv_local += 1u) {
+@@ -383,7 +392,7 @@
+                         kv_shmem[kv_off + 1u],
+                         kv_shmem[kv_off + 2u],
+                         kv_shmem[kv_off + 3u]);
+-                    acc += p * vec4<f32>(v4);
++                    acc = novera_attention_madd(acc, p, v4);
+                 }
+ #endif
+                 out_regs[reg_idx] = acc;

@@ -6,6 +6,10 @@ export function BrowserSearchNotice() {
   const enabled = useWebSearchConfig(state => state.webSearchEnabled)
   const provider = useWebSearchConfig(state => state.searchProvider)
   const state = useSyncExternalStore(browserSearch.subscribe, browserSearch.snapshot)
+  if (provider === 'duckduckgo') return <div className="flex flex-wrap items-center gap-2 mt-1" aria-label="État de la recherche Internet">
+    <span role="status">Internet · DuckDuckGo · {enabled ? 'réponses directes à la demande' : 'désactivé'}</span>
+    <span className="text-muted-foreground">Sans clé · recherches envoyées à DuckDuckGo. Réponses directes et sujets associés ; recherche complète et actualité non couvertes. La lecture d’une page dépend de son autorisation CORS.</span>
+  </div>
   const label = !enabled ? 'désactivé' : provider !== 'exa' ? 'choisir Exa dans les paramètres' :
     state.phase === 'ready' ? 'connexion prête' : state.phase === 'preparing' ? 'préparation en cours…' :
       state.phase === 'error' ? 'indisponible' : 'en attente'

@@ -1,0 +1,39 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -1043,10 +1043,11 @@
+     bool      unroll4 = false;
+     bool      unroll8 = false;
+     uint32_t geometry = 0;
++    bool fused_madd = false;
+ 
+     bool operator==(const ggml_webgpu_mul_mat_pipeline_key & other) const {
+         return src0_type == other.src0_type && src1_type == other.src1_type && vectorized == other.vectorized &&
+-               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile && unroll4 == other.unroll4 && unroll8 == other.unroll8 && geometry == other.geometry;
++               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile && unroll4 == other.unroll4 && unroll8 == other.unroll8 && geometry == other.geometry && fused_madd == other.fused_madd;
+     }
+ };
+ 
+@@ -1062,6 +1063,7 @@
+         ggml_webgpu_hash_combine(seed, key.unroll4);
+         ggml_webgpu_hash_combine(seed, key.unroll8);
+         ggml_webgpu_hash_combine(seed, key.geometry);
++        ggml_webgpu_hash_combine(seed, key.fused_madd);
+         return seed;
+     }
+ };
+@@ -2228,6 +2230,7 @@
+             if ((novera_image_kernel_flags() & 1024) && limit >= 288u * 34u * 2u) key.geometry = 1;
+             else if ((novera_image_kernel_flags() & 2048) && limit >= 192u * 34u * 2u) key.geometry = 2;
+         }
++        key.fused_madd = key.large_regular_tile && q45 && (novera_image_kernel_flags() & 4096) != 0;
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+             return it->second;
+@@ -2376,6 +2379,7 @@
+             defines.push_back("TILE_K=" + std::to_string(tile_k) + "u");
+         }
+ 
++        if (key.fused_madd) { defines.push_back("NOVERA_MATMUL_FMA"); variant += "_fma"; }
+         if (key.unroll8) { defines.push_back("NOVERA_MATMUL_UNROLL8"); variant += "_unroll8"; }
+         else if (key.unroll4) { defines.push_back("NOVERA_MATMUL_UNROLL4"); variant += "_unroll4"; }
+         if (!key.use_subgroup_matrix && WEBGPU_MUL_MAT_TILE_N == 4 && (tile_m == 4u || tile_m == 8u)) {

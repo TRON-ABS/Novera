@@ -1,0 +1,333 @@
+--- a/src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
+@@ -10,6 +10,15 @@
+ // A two-half row pad avoids bank conflicts between register-tile rows.
+ #define MUL_MAT_SHMEM_INDEX padded_matmul_shmem_index
+ #define QUANT_SHMEM_INDEX padded_matmul_shmem_index
++// Half-staged operands have an exactly representable F32 product.
++fn novera_matrix_madd(acc: vec4<f32>, x: f32, y: vec4<f32>) -> vec4<f32> {
++#ifdef NOVERA_MATMUL_FMA
++    return fma(vec4<f32>(x), y, acc);
++#else
++    return acc + x * y;
++#endif
++}
++
+ fn padded_matmul_shmem_index(index: u32) -> u32 {
+     return (index / TILE_K) * (TILE_K + 2u) + index % TILE_K;
+ }
+@@ -148,120 +157,120 @@
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 0u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 0u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 0u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 0u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 0u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 0u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 0u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 0u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 0u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 0u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 0u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 0u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 0u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 0u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 0u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 0u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 0u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 0u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 0u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 0u))]), y);
+ #endif
+             }
+             if (k_inner + 1u < k_end) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 1u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 1u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 1u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 1u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 1u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 1u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 1u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 1u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 1u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 1u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 1u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 1u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 1u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 1u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 1u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 1u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 1u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 1u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 1u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 1u))]), y);
+ #endif
+             }
+             if (k_inner + 2u < k_end) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 2u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 2u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 2u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 2u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 2u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 2u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 2u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 2u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 2u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 2u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 2u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 2u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 2u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 2u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 2u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 2u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 2u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 2u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 2u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 2u))]), y);
+ #endif
+             }
+             if (k_inner + 3u < k_end) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 3u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 3u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 3u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 3u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 3u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 3u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 3u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 3u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 3u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 3u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 3u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 3u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 3u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 3u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 3u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 3u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 3u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 3u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 3u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 3u))]), y);
+ #endif
+             }
+             if (k_inner + 4u < k_end) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 4u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 4u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 4u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 4u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 4u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 4u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 4u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 4u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 4u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 4u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 4u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 4u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 4u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 4u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 4u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 4u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 4u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 4u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 4u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 4u))]), y);
+ #endif
+             }
+             if (k_inner + 5u < k_end) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 5u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 5u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 5u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 5u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 5u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 5u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 5u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 5u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 5u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 5u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 5u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 5u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 5u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 5u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 5u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 5u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 5u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 5u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 5u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 5u))]), y);
+ #endif
+             }
+             if (k_inner + 6u < k_end) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 6u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 6u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 6u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 6u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 6u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 6u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 6u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 6u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 6u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 6u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 6u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 6u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 6u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 6u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 6u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 6u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 6u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 6u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 6u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 6u))]), y);
+ #endif
+             }
+             if (k_inner + 7u < k_end) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 7u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 7u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 7u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 7u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 7u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 7u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 7u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 7u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 7u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 7u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 7u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 7u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 7u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 7u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 7u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 7u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 7u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 7u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 7u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 7u))]), y);
+ #endif
+             }
+         }
+@@ -271,60 +280,60 @@
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 0u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 0u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 0u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 0u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 0u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 0u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 0u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 0u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 0u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 0u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 0u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 0u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 0u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 0u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 0u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 0u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 0u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 0u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 0u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 0u))]), y);
+ #endif
+             }
+             if (k_inner + 1u < k_end) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 1u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 1u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 1u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 1u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 1u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 1u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 1u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 1u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 1u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 1u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 1u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 1u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 1u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 1u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 1u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 1u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 1u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 1u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 1u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 1u))]), y);
+ #endif
+             }
+             if (k_inner + 2u < k_end) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 2u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 2u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 2u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 2u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 2u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 2u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 2u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 2u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 2u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 2u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 2u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 2u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 2u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 2u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 2u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 2u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 2u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 2u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 2u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 2u))]), y);
+ #endif
+             }
+             if (k_inner + 3u < k_end) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 3u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 3u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 3u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 3u))]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 3u))]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 3u))]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 3u))]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 3u))]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 3u))]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 3u))]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 3u))]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 3u))]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 3u))]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 3u))]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 3u))]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 3u))]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 3u))]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 3u))]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 3u))]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 3u))]), y);
+ #endif
+             }
+         }
+@@ -333,15 +342,15 @@
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+             let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + k_inner)]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + k_inner)]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + k_inner)]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + k_inner)]));
+-            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + k_inner)]) * y;
+-            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + k_inner)]) * y;
+-            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + k_inner)]) * y;
+-            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + k_inner)]) * y;
+-#ifdef REGISTER_M8
+-            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + k_inner)]) * y;
+-            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + k_inner)]) * y;
+-            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + k_inner)]) * y;
+-            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + k_inner)]) * y;
++            a0 = novera_matrix_madd(a0, f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + k_inner)]), y);
++            a1 = novera_matrix_madd(a1, f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + k_inner)]), y);
++            a2 = novera_matrix_madd(a2, f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + k_inner)]), y);
++            a3 = novera_matrix_madd(a3, f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + k_inner)]), y);
++#ifdef REGISTER_M8
++            a4 = novera_matrix_madd(a4, f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + k_inner)]), y);
++            a5 = novera_matrix_madd(a5, f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + k_inner)]), y);
++            a6 = novera_matrix_madd(a6, f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + k_inner)]), y);
++            a7 = novera_matrix_madd(a7, f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + k_inner)]), y);
+ #endif
+         }
+ #endif

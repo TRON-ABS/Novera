@@ -1,0 +1,10 @@
+--- a/src/ggml-webgpu/ggml-webgpu.cpp
++++ b/src/ggml-webgpu/ggml-webgpu.cpp
+@@ -1677,6 +1677,7 @@
+     shader_lib_ctx.src1                     = src1;
+     shader_lib_ctx.dst                      = dst;
+     shader_lib_ctx.max_wg_size              = ctx->global_ctx->capabilities.limits.maxComputeInvocationsPerWorkgroup;
++    shader_lib_ctx.wg_mem_limit_bytes       = ctx->global_ctx->capabilities.limits.maxComputeWorkgroupStorageSize;
+     shader_lib_ctx.supports_subgroups       = ctx->global_ctx->capabilities.supports_subgroups;
+     shader_lib_ctx.supports_subgroup_matrix = ctx->global_ctx->capabilities.supports_subgroup_matrix;
+     shader_lib_ctx.sg_mat_m                 = ctx->global_ctx->capabilities.sg_mat_m;

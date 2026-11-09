@@ -20,6 +20,7 @@ import { isPlatformTauri } from '@/lib/platform/utils'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { BrowserLocalMediaSetup } from './BrowserLocalMediaSetup'
 import { BROWSER_IMAGE_MODEL, BROWSER_IMAGE_PROVIDER, browserLocalImagesEnabled, browserImageUpscaleReady } from '@/services/browser-preview/local-media'
+import { NATIVE_IMAGE_MODEL, NATIVE_IMAGE_PROVIDER, useNativeImageBridge } from '@/services/browser-preview/native-image-bridge'
 import { BROWSER_MUSIC_PROVIDER, browserLocalMusicEnabled } from '@/services/browser-preview/local-music'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { cn, getProviderTitle } from '@/lib/utils'
@@ -112,7 +113,10 @@ export function CreationControls({
   const separate = cpp || nativeFp4
   const imagePath = ['sdcpp', 'nvfp4-cuda'].includes(baseState.settings.imageEngine ?? '') ? baseState.settings.ggufImageModel : baseState.settings.imageModel
   const selection = state.selections[scope]?.[task]
-  const browserImage = webPreview && selection?.provider === BROWSER_IMAGE_PROVIDER
+  const nativeImageHealth = useNativeImageBridge(state => state.health)
+  const nativeImage = webPreview && selection?.provider === NATIVE_IMAGE_PROVIDER
+  const browserImage = webPreview && (selection?.provider === BROWSER_IMAGE_PROVIDER || nativeImage)
+  const localUpscaleReady = nativeImage ? Boolean(nativeImageHealth?.upscaleX2) : browserImageUpscaleReady()
   const isCloud = (!panelTask&&mode==='music')?false:selection && selection.provider !== 'diffusers' && !browserImage
   const progress = state.progress[scope]
   const desktop = isPlatformTauri()
@@ -252,6 +256,7 @@ export function CreationControls({
                     · {t('chat:creation.local')}
                   </option>
                   {webPreview && task === 'image' && browserLocalImagesEnabled() && <option value={JSON.stringify({ provider: BROWSER_IMAGE_PROVIDER, id: BROWSER_IMAGE_MODEL })}>FLUX.2 Klein Q4 · Sur cet appareil · Essai</option>}
+                  {webPreview && task === 'image' && nativeImageHealth && <option value={JSON.stringify({ provider: NATIVE_IMAGE_PROVIDER, id: NATIVE_IMAGE_MODEL })}>FLUX.2 Klein Q4 · Moteur natif local</option>}
                   {mediaProfiles
                     .filter((p) => p.task === task && automatic.local[task])
                     .map((p) => (
@@ -294,12 +299,12 @@ export function CreationControls({
               </label>
             ))}
             <p className="text-xs text-muted-foreground">
-              {browserImage ? 'Création sur cet appareil, sans clé API. Résolution réglable jusqu’à 2048 pixels par côté ; Real-ESRGAN ×2 expérimental avec le fichier Desktop. Mémoire et performances à vérifier sur votre appareil.' : t('chat:creation.cloudNote')}
+              {nativeImage ? 'Création avec le moteur natif de cet ordinateur. Résolution réglable jusqu’à 2048 pixels par côté, puis Real-ESRGAN ×2.' : browserImage ? 'Création sur cet appareil, sans clé API. Résolution réglable jusqu’à 2048 pixels par côté ; Real-ESRGAN ×2 expérimental avec le fichier Desktop. Mémoire et performances à vérifier sur votre appareil.' : t('chat:creation.cloudNote')}
             </p>
             {!browserImage && <p className="text-xs text-muted-foreground">
               {t('chat:creation.cloudDefaults')}
             </p>}
-            {browserImage && <><MediaSizeControls settings={settings} setSettings={state.setSettings} /><label className="block text-sm">{t('chat:creation.steps')}<input aria-label={t('chat:creation.steps')} className="mt-1 w-full rounded border bg-background p-2" type="number" min={1} max={100} value={settings.steps} onChange={event => state.setSettings({ steps: Number(event.target.value) })} /></label><label className="block text-sm">Budget GPU Web (Gio)<select aria-label="Budget GPU Web (Gio)" className="block w-full rounded border bg-background p-2" value={settings.browserGpuBudgetGiB ?? 2} onChange={event => state.setSettings({ browserGpuBudgetGiB: Number(event.target.value) })}>{[2,4,6,8,12].map(value => <option key={value} value={value}>{value} Gio</option>)}</select></label><p className="text-xs text-muted-foreground">Le navigateur ne mesure pas la VRAM libre. Choisissez un budget inférieur à la mémoire de votre carte ; 6 Gio laisse une réserve sur une carte de 8 Gio. Commencez plus bas sur un appareil moins équipé.</p></>}
+            {browserImage && <><MediaSizeControls settings={settings} setSettings={state.setSettings} /><label className="block text-sm">{t('chat:creation.steps')}<input aria-label={t('chat:creation.steps')} className="mt-1 w-full rounded border bg-background p-2" type="number" min={1} max={100} value={settings.steps} onChange={event => state.setSettings({ steps: Number(event.target.value) })} /></label>{!nativeImage && <><label className="block text-sm">Budget GPU Web (Gio)<select aria-label="Budget GPU Web (Gio)" className="block w-full rounded border bg-background p-2" value={settings.browserGpuBudgetGiB ?? 2} onChange={event => state.setSettings({ browserGpuBudgetGiB: Number(event.target.value) })}>{[2,4,6,8,12].map(value => <option key={value} value={value}>{value} Gio</option>)}</select></label><p className="text-xs text-muted-foreground">Le navigateur ne mesure pas la VRAM libre. Choisissez un budget inférieur à la mémoire de votre carte ; 6 Gio laisse une réserve sur une carte de 8 Gio. Commencez plus bas sur un appareil moins équipé.</p></>}</>}
             {automatic.local[task] && <details open={!isCloud}>
               <summary className="cursor-pointer text-sm">
                 {t('chat:creation.local')}
@@ -742,10 +747,10 @@ export function CreationControls({
           {mode === 'image' && browserImage && <Button
             size="xs" variant="ghost"
             className={cn('composer-setting composer-upscale border border-transparent', upscale.enabled && 'composer-tool-active')}
-            disabled={disabled || (!upscale.enabled && !browserImageUpscaleReady())}
+            disabled={disabled || (!upscale.enabled && !localUpscaleReady)}
             data-state={upscale.enabled ? 'on' : 'off'} aria-pressed={upscale.enabled}
             aria-label={`Real-ESRGAN Web ×2 · ${upscale.enabled ? `${settings.width * 2} × ${settings.height * 2}` : t('ui:off')}`}
-            title={browserImageUpscaleReady() ? `Real-ESRGAN ×2 · ${settings.width * 2} × ${settings.height * 2}` : 'Choisissez RealESRGAN_x2plus.pth dans les réglages image pour cette session.'}
+            title={localUpscaleReady ? `Real-ESRGAN ×2 · ${settings.width * 2} × ${settings.height * 2}` : 'Choisissez RealESRGAN_x2plus.pth dans les réglages image pour cette session.'}
             onClick={() => { upscale.setFactor(2); upscale.setEnabled(!upscale.enabled) }}
           ><Expand aria-hidden="true" size={16} />×2 · {upscale.enabled ? t('ui:on') : t('ui:off')}<ComposerStatusSwitch active={upscale.enabled} /><span className="composer-final-size" aria-hidden="true">{settings.width * (upscale.enabled ? 2 : 1)} × {settings.height * (upscale.enabled ? 2 : 1)}</span></Button>}
           {mode === 'image' && !browserImage && (
@@ -868,7 +873,7 @@ export function CreationControls({
         <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-4xl">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2"><ShieldCheck className="size-5 text-cyan-400" />Novera · {t('common:settings')}</DialogTitle>
-            <DialogDescription>{webPreview ? 'Les moteurs locaux FLUX.2 Klein, ACE-Step et Wan sont en cours d’adaptation au navigateur. La connexion fal est une option cloud utilisant votre clé et ses tarifs.' : t('hub:catalog.advisorNote')}</DialogDescription>
+            <DialogDescription>{webPreview ? 'Pour les images, vous pouvez connecter le moteur natif de cet ordinateur ou essayer WebGPU. Les moteurs musique et vidéo restent expérimentaux. La connexion fal est une option cloud utilisant votre clé et ses tarifs.' : t('hub:catalog.advisorNote')}</DialogDescription>
           </DialogHeader>
           {webPreview ? <><BrowserLocalMediaSetup scope={scope} disabled={disabled} /><p className="text-sm text-muted-foreground">La clé reste en mémoire pour cette session. <a className="underline" href="#/settings/providers/fal">Configurer fal</a> · Les créations terminées sont conservées dans ce navigateur et peuvent être téléchargées.</p></> : <>
           <ManagedComponents disabled={disabled} />

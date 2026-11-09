@@ -11,6 +11,10 @@ type GeneralSettingState = {
   currentLanguage: Language
   voiceGender: 'male' | 'female'
   readReplies: boolean
+  webVoiceOutput: 'model' | 'system'
+  webSystemVoiceURI: string
+  setWebVoiceOutput: (value: 'model' | 'system') => void
+  setWebSystemVoiceURI: (value: string) => void
   setReadReplies: (value: boolean) => void
   setVoiceGender: (value: 'male' | 'female') => void
   spellCheckChatInput: boolean
@@ -58,6 +62,10 @@ export const useGeneralSetting = create<GeneralSettingState>()(
       currentLanguage: 'en',
       voiceGender: 'male',
       readReplies: true,
+      webVoiceOutput: 'model',
+      webSystemVoiceURI: '',
+      setWebVoiceOutput: value => set({ webVoiceOutput: value === 'system' ? 'system' : 'model' }),
+      setWebSystemVoiceURI: value => set({ webSystemVoiceURI: value.slice(0, 1024) }),
       setReadReplies: (value) => set({readReplies:value}),
       setVoiceGender: (value) => set({voiceGender:value === 'female' ? 'female' : 'male'}),
       spellCheckChatInput: true,
@@ -116,6 +124,8 @@ export const useGeneralSetting = create<GeneralSettingState>()(
         currentLanguage: state.currentLanguage,
         voiceGender: state.voiceGender,
         readReplies: state.readReplies,
+        webVoiceOutput: state.webVoiceOutput,
+        webSystemVoiceURI: state.webSystemVoiceURI,
         spellCheckChatInput: state.spellCheckChatInput,
         tokenCounterCompact: state.tokenCounterCompact,
         autoUpdateCheck: state.autoUpdateCheck,

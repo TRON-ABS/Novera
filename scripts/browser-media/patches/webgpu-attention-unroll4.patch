@@ -1,0 +1,81 @@
+--- a/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
+@@ -136,6 +136,70 @@
+ 
+                 let global_k_row = kv_tile + kv_local;
+                 var dot_val = 0.0;
++#ifdef NOVERA_ATTENTION_UNROLL4
++                for (var chunk = 0u; chunk < Q_CHUNKS; chunk += 4u) {
++                    {
++                    let q_off = q_base + (chunk + 0u) * 4u;
++                    let qv = vec4<Q_TYPE>(
++                        q_shmem[q_off + 0u],
++                        q_shmem[q_off + 1u],
++                        q_shmem[q_off + 2u],
++                        q_shmem[q_off + 3u]);
++                    let kv_off = kv_local * K_ROW_STRIDE + (chunk + 0u) * 4u;
++                    let kv = vec4<f16>(
++                        kv_shmem[kv_off + 0u],
++                        kv_shmem[kv_off + 1u],
++                        kv_shmem[kv_off + 2u],
++                        kv_shmem[kv_off + 3u]);
++                    dot_val += dot(vec4<f32>(qv), vec4<f32>(kv));
++                    }
++                    {
++                    let q_off = q_base + (chunk + 1u) * 4u;
++                    let qv = vec4<Q_TYPE>(
++                        q_shmem[q_off + 0u],
++                        q_shmem[q_off + 1u],
++                        q_shmem[q_off + 2u],
++                        q_shmem[q_off + 3u]);
++                    let kv_off = kv_local * K_ROW_STRIDE + (chunk + 1u) * 4u;
++                    let kv = vec4<f16>(
++                        kv_shmem[kv_off + 0u],
++                        kv_shmem[kv_off + 1u],
++                        kv_shmem[kv_off + 2u],
++                        kv_shmem[kv_off + 3u]);
++                    dot_val += dot(vec4<f32>(qv), vec4<f32>(kv));
++                    }
++                    {
++                    let q_off = q_base + (chunk + 2u) * 4u;
++                    let qv = vec4<Q_TYPE>(
++                        q_shmem[q_off + 0u],
++                        q_shmem[q_off + 1u],
++                        q_shmem[q_off + 2u],
++                        q_shmem[q_off + 3u]);
++                    let kv_off = kv_local * K_ROW_STRIDE + (chunk + 2u) * 4u;
++                    let kv = vec4<f16>(
++                        kv_shmem[kv_off + 0u],
++                        kv_shmem[kv_off + 1u],
++                        kv_shmem[kv_off + 2u],
++                        kv_shmem[kv_off + 3u]);
++                    dot_val += dot(vec4<f32>(qv), vec4<f32>(kv));
++                    }
++                    {
++                    let q_off = q_base + (chunk + 3u) * 4u;
++                    let qv = vec4<Q_TYPE>(
++                        q_shmem[q_off + 0u],
++                        q_shmem[q_off + 1u],
++                        q_shmem[q_off + 2u],
++                        q_shmem[q_off + 3u]);
++                    let kv_off = kv_local * K_ROW_STRIDE + (chunk + 3u) * 4u;
++                    let kv = vec4<f16>(
++                        kv_shmem[kv_off + 0u],
++                        kv_shmem[kv_off + 1u],
++                        kv_shmem[kv_off + 2u],
++                        kv_shmem[kv_off + 3u]);
++                    dot_val += dot(vec4<f32>(qv), vec4<f32>(kv));
++                    }
++                }
++#else
+                 for (var chunk = 0u; chunk < Q_CHUNKS; chunk += 1u) {
+                     let q_off = q_base + chunk * 4u;
+                     let qv = vec4<Q_TYPE>(
+@@ -151,6 +215,7 @@
+                         kv_shmem[kv_off + 3u]);
+                     dot_val += dot(vec4<f32>(qv), vec4<f32>(kv));
+                 }
++#endif
+ #ifdef LOGIT_SOFTCAP
+                 dot_val = params.logit_softcap * tanh(dot_val);
+ #endif

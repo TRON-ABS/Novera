@@ -44,7 +44,7 @@ export async function capturePcm(signal: AbortSignal): Promise<Uint8Array> {
     if (signal.aborted) throw new Error('cancelled')
     context = new AudioContext({sampleRate:16000})
     if (context.sampleRate !== 16000) throw new Error('unavailable')
-    await abortable(context.audioWorklet.addModule('/audio/pcm-capture-worklet.js'), signal)
+    await abortable(context.audioWorklet.addModule(`${import.meta.env.BASE_URL}audio/pcm-capture-worklet.js`), signal)
     if (signal.aborted) throw new Error('cancelled')
     source = context.createMediaStreamSource(stream)
     node = new AudioWorkletNode(context, 'novera-pcm-capture')

@@ -1,0 +1,31 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -2242,6 +2242,10 @@
+             if ((novera_image_kernel_flags() & 1024) && limit >= 288u * 34u * 2u) key.geometry = 1;
+             else if ((novera_image_kernel_flags() & 2048) && limit >= 192u * 34u * 2u) key.geometry = 2;
+         }
++        // Smaller shared tiles may allow more resident workgroups. Research only.
++        if (key.large_regular_tile && q45 && context.max_wg_size >= 128u &&
++            context.src1->ne[1] >= 1024 && context.wg_mem_limit_bytes >= (128u + 16u) * 32u * 2u &&
++            (novera_image_kernel_flags() & 8192) && (novera_image_kernel_flags() & 2097152)) key.geometry = 3;
+         const bool fma_half_staged = q45 || context.src0->type == GGML_TYPE_Q6_K || context.src0->type == GGML_TYPE_F16 || context.src0->type == GGML_TYPE_BF16;
+         key.fused_madd = key.large_regular_tile && fma_half_staged && (novera_image_kernel_flags() & 4096) != 0;
+         key.transposed_shared = key.large_regular_tile && fma_half_staged && context.src1->ne[1] >= 1024 && (novera_image_kernel_flags() & 8192) != 0;
+@@ -2251,7 +2255,7 @@
+             else if (flags & 524288) key.shared_pad = 4;
+             else if (flags & 1048576) key.shared_pad = 8;
+         }
+-        const size_t k64_bytes = ((key.geometry == 1 ? 288u : 192u) + 2u * key.shared_pad) * 64u * 2u;
++        const size_t k64_bytes = ((key.geometry == 1 ? 288u : key.geometry == 3 ? 128u : 192u) + 2u * key.shared_pad) * 64u * 2u;
+         key.reduction64 = key.transposed_shared && ggml_is_quantized(context.src0->type) && context.wg_mem_limit_bytes >= k64_bytes && (novera_image_kernel_flags() & 32768) != 0;
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+@@ -2351,7 +2355,7 @@
+         const uint32_t wg_m = key.geometry == 1 ? 4u : key.geometry == 2 ? 16u : WEBGPU_MUL_MAT_WG_SIZE_M;
+         if (key.geometry) variant += "_geometry" + std::to_string(key.geometry);
+         const uint32_t tile_m = key.large_regular_tile ? 8u : WEBGPU_MUL_MAT_TILE_M;
+-        const uint32_t wg_n = key.geometry == 1 ? 64u : key.geometry == 2 ? 16u : key.large_regular_tile ? 32u : WEBGPU_MUL_MAT_WG_SIZE_N;
++        const uint32_t wg_n = key.geometry == 1 ? 64u : (key.geometry == 2 || key.geometry == 3) ? 16u : key.large_regular_tile ? 32u : WEBGPU_MUL_MAT_WG_SIZE_N;
+         uint32_t tile_k;
+         if (key.use_subgroup_matrix) {
+             tile_k = is_quant ? WEBGPU_MUL_MAT_SUBGROUP_TILE_K_QUANT : WEBGPU_MUL_MAT_SUBGROUP_TILE_K_FLOAT;

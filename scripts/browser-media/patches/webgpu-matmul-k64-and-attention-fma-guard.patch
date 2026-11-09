@@ -1,0 +1,50 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -1047,10 +1047,11 @@
+     uint32_t geometry = 0;
+     bool fused_madd = false;
+     bool transposed_shared = false;
++    bool reduction64 = false;
+ 
+     bool operator==(const ggml_webgpu_mul_mat_pipeline_key & other) const {
+         return src0_type == other.src0_type && src1_type == other.src1_type && vectorized == other.vectorized &&
+-               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile && unroll4 == other.unroll4 && unroll8 == other.unroll8 && geometry == other.geometry && fused_madd == other.fused_madd && transposed_shared == other.transposed_shared;
++               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile && unroll4 == other.unroll4 && unroll8 == other.unroll8 && geometry == other.geometry && fused_madd == other.fused_madd && transposed_shared == other.transposed_shared && reduction64 == other.reduction64;
+     }
+ };
+ 
+@@ -1068,6 +1069,7 @@
+         ggml_webgpu_hash_combine(seed, key.geometry);
+         ggml_webgpu_hash_combine(seed, key.fused_madd);
+         ggml_webgpu_hash_combine(seed, key.transposed_shared);
++        ggml_webgpu_hash_combine(seed, key.reduction64);
+         return seed;
+     }
+ };
+@@ -2237,6 +2239,8 @@
+         const bool fma_half_staged = q45 || context.src0->type == GGML_TYPE_Q6_K || context.src0->type == GGML_TYPE_F16 || context.src0->type == GGML_TYPE_BF16;
+         key.fused_madd = key.large_regular_tile && fma_half_staged && (novera_image_kernel_flags() & 4096) != 0;
+         key.transposed_shared = key.large_regular_tile && fma_half_staged && context.src1->ne[1] >= 1024 && (novera_image_kernel_flags() & 8192) != 0;
++        const size_t k64_bytes = (key.geometry == 1 ? 292u : 196u) * 64u * 2u;
++        key.reduction64 = key.transposed_shared && ggml_is_quantized(context.src0->type) && context.wg_mem_limit_bytes >= k64_bytes && (novera_image_kernel_flags() & 32768) != 0;
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+             return it->second;
+@@ -2342,6 +2346,8 @@
+         } else {
+             tile_k = is_quant ? WEBGPU_MUL_MAT_REG_TILE_K_QUANT : WEBGPU_MUL_MAT_REG_TILE_K_FLOAT;
+         }
++
++        if (key.reduction64) { tile_k = 64u; variant += "_k64"; }
+ 
+         if (!key.use_subgroup_matrix) {
+             const size_t limit = context.wg_mem_limit_bytes ? context.wg_mem_limit_bytes : 16384u;
+@@ -3067,7 +3073,7 @@
+         key.value_unroll4 = !decisions.use_sg_matrix && (novera_image_kernel_flags() & 8) != 0;
+         key.score_pair = !decisions.use_sg_matrix && decisions.kv_tile > 32u && decisions.kv_tile <= 64u && context.min_subgroup_size == 32u && context.max_subgroup_size == 32u && (novera_image_kernel_flags() & 32) != 0;
+         key.pair_unroll2 = key.score_pair && key.common.head_dim_qk % 8u == 0u && (novera_image_kernel_flags() & 256) != 0;
+-        key.value_fma = !decisions.use_sg_matrix && !key.common.v_direct && (novera_image_kernel_flags() & 16384) != 0;
++        key.value_fma = !decisions.use_sg_matrix && !key.common.v_direct && key.common.head_dim_v >= 128u && (novera_image_kernel_flags() & 16384) != 0;
+         auto it = flash_attn_pipelines.find(key);
+         if (it != flash_attn_pipelines.end()) {
+             return it->second;

@@ -117,6 +117,158 @@
       "patchSha256": "170ab9f8b88d7828a24b1cd351cab00ff6f71f3d3fc57c2797bcd852e4e3ddbf",
       "beforeSha256": "361d686a185e8b0aedfc98251e7b868d1d022a91c8a6bd4ae6e967d576fe927b",
       "afterSha256": "5a7c603377c80294fedd9eb7e760f9c5e0d4b32badd5d316ced25cdb3c449bf0"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-group-norm-dispatch.patch",
+      "patchSha256": "8cf138585f129aadf61c39ceff9da73da2d7468de05328fe116c895bfb6e368f",
+      "file": "src/ggml-webgpu/ggml-webgpu.cpp",
+      "beforeSha256": "20217278c021a68894eb2c06628f43547201e3aa768acc575c458c4af2268d17",
+      "afterSha256": "7270efcd2c24dd7c0886bd4947219fd22376c34a4cca22911fc407b6e4577522"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-tiled-conv2d-shader.patch",
+      "patchSha256": "28243f3391bc5115d270d27849deacaecdd0110ae01bece590a2e27866ed599c",
+      "file": "src/ggml-webgpu/wgsl-shaders/conv2d.wgsl",
+      "beforeSha256": "f256a9000d171a0966095ea1f27b3aa3b405fb4ccff5556fa60e9c47b945f84d",
+      "afterSha256": "4d2cb02ab6ca8984d0077ebac5803d580d67a46072c949ae4d292917e6accd44"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-tiled-conv2d-pipeline.patch",
+      "patchSha256": "c01ff0705dce08d33e29760226ad84420aafa92eb67c3d089bc70a2889a7badf",
+      "file": "src/ggml-webgpu/ggml-webgpu-shader-lib.hpp",
+      "beforeSha256": "32fea3273275c50124226be72f6bc7b356bb7f73199230f2ec6fb0da02eb5d2e",
+      "afterSha256": "549d20a0b8be211eb5072fb9248cc11c50fdb2afce22e0c54cc62ee33765f295"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-tiled-conv2d-dispatch.patch",
+      "patchSha256": "d9fadfaef146ba04e794428b6d407cbfed3782d2651fb4b43bebe3358d1adf64",
+      "file": "src/ggml-webgpu/ggml-webgpu.cpp",
+      "beforeSha256": "7270efcd2c24dd7c0886bd4947219fd22376c34a4cca22911fc407b6e4577522",
+      "afterSha256": "9b4ca23d1040bd6291a9047395f50f147adaf71df5a24a5354eea111ca9a4337"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-attention-bank-padding.patch",
+      "patchSha256": "5a28d719ea1629c6ef21f01d0582d72418513c86e844086d2c2b602071757881",
+      "file": "src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl",
+      "beforeSha256": "ac2186476a9426ac525e2ace891c2add10cfc1b6404e1600495f9348fb51ab7b",
+      "afterSha256": "3da8fb33c8bb3d3095ad28e574dbf781446e36936333a2743f7d7102ba2e198c"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-attention-key-staging.patch",
+      "patchSha256": "856c63e13cf5e742d933db96223b14a2c9d8892418549ed291f02238434a5336",
+      "file": "src/ggml-webgpu/wgsl-shaders/flash_attn_staging.tmpl",
+      "beforeSha256": "4531292a3288b1064ed8c6c4caf48299e4dd86caa5e4dc48abad73da36cbf691",
+      "afterSha256": "be59b129bc44980677f1ea7dd21fccf1b527f6f25487e7ee2a8d2f02582296e1"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-attention-query-reuse.patch",
+      "patchSha256": "e0c099b5acb0a8e605de4b259098302d4510a78ae5bf88b8e3cda9e55359754e",
+      "file": "src/ggml-webgpu/ggml-webgpu-shader-lib.hpp",
+      "beforeSha256": "549d20a0b8be211eb5072fb9248cc11c50fdb2afce22e0c54cc62ee33765f295",
+      "afterSha256": "8a50057839f9391a1d5043e9f11b68f079546d16c59f0128f76e96e74086179d"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-matmul-bank-padding.patch",
+      "patchSha256": "e142b313ded23c97eb8772469bd020b2b4be5bd9df3b6ac20230857306f586be",
+      "file": "src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl",
+      "beforeSha256": "2d1cb611caf10b72d20b021772806ca4b3ea4f40c9d7a93941e135dacf859f81",
+      "afterSha256": "6fe941da2537cee61357944d8e5c761a5513bf669a95ac9ef1677fbd9ac11f4d"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-matmul-padded-staging.patch",
+      "patchSha256": "9c149a9669705692dfc6cf482bb7fb9fd301bc20bf3cd8fcdcb09c62bccdb33b",
+      "file": "src/ggml-webgpu/wgsl-shaders/mul_mat_decls.tmpl",
+      "beforeSha256": "e29282ffcb16bdeb0aa0c6cd7ae15703ec855c4ff010e8398075d0257b6a49d5",
+      "afterSha256": "84c21f687583b78be709856e79b4ca5bc328a3cd906859a5bee99144cda025ba"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-quant-padded-staging.patch",
+      "patchSha256": "28ee13fa2d34c405b97e88b57f83ba3f0bba8ad77c411c1145c06a956142d45e",
+      "file": "src/ggml-webgpu/wgsl-shaders/quant_inner_loops.tmpl",
+      "beforeSha256": "7f023ec774a11265985d92fb630fb94cd8e4599499f941983d1b23b37dacf5ad",
+      "afterSha256": "52b61cd73c2e27587d68d54951034ffad1d5016302911957bcf027faa6acb4b2"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-matmul-reduction-tiles.patch",
+      "patchSha256": "b7643e6bb461616517bc016d66183f2fd28bda344f8d6d1efc0662c89d32bdcf",
+      "file": "src/ggml-webgpu/ggml-webgpu-shader-lib.hpp",
+      "beforeSha256": "8a50057839f9391a1d5043e9f11b68f079546d16c59f0128f76e96e74086179d",
+      "afterSha256": "2944dbf5faf02dec684bbdbf34445cbb85a16531ae258b55fa792e71c551d9f4"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-matmul-memory-limit.patch",
+      "patchSha256": "77fa283908709f32f75b1fe0d025b80f5a67800e2c402bc760482cc31efaef0d",
+      "file": "src/ggml-webgpu/ggml-webgpu.cpp",
+      "beforeSha256": "9b4ca23d1040bd6291a9047395f50f147adaf71df5a24a5354eea111ca9a4337",
+      "afterSha256": "31deff7cc1e487d0aae28f4186578d77b25537b73e6f97821bc49cea497fd0ec"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-register-conv2d-shader.patch",
+      "patchSha256": "4d8be8936decc6ef60f9eff9b5fef9ad9162d5149e015889e22150682250600d",
+      "file": "src/ggml-webgpu/wgsl-shaders/conv2d.wgsl",
+      "beforeSha256": "4d2cb02ab6ca8984d0077ebac5803d580d67a46072c949ae4d292917e6accd44",
+      "afterSha256": "1fa147f97e6b6c92f51a1e11220ce1516c0ff93fc2e620caeb70a12d6bf67b92"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-register-conv2d-pipeline.patch",
+      "patchSha256": "e0b5bde746e28b9774f4fde63966309608841a5aebc7664756b4a660cfc753c4",
+      "file": "src/ggml-webgpu/ggml-webgpu-shader-lib.hpp",
+      "beforeSha256": "2944dbf5faf02dec684bbdbf34445cbb85a16531ae258b55fa792e71c551d9f4",
+      "afterSha256": "29a8c700bcd2270c5ce3f8d56bc118047fa6a85b264d802b6ba7dc8cc4a4510b"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-matmul-register-reuse.patch",
+      "patchSha256": "1e24f25f070441d471e2c084e72f58048b789ff0b6b0ba2e584e35c3d5bbd004",
+      "file": "src/ggml-webgpu/ggml-webgpu-shader-lib.hpp",
+      "beforeSha256": "29a8c700bcd2270c5ce3f8d56bc118047fa6a85b264d802b6ba7dc8cc4a4510b",
+      "afterSha256": "2b23a6730e0c224fecca611785e5a727a3e0c1d39a438a5a6ee19d99824378d5"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-matmul-vector-accumulators.patch",
+      "patchSha256": "37492f86966e0645ec0ab48371120a1157152e74d28d257088822cde1ab21a55",
+      "file": "src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl",
+      "beforeSha256": "6fe941da2537cee61357944d8e5c761a5513bf669a95ac9ef1677fbd9ac11f4d",
+      "afterSha256": "5c4829a7b847f7fe6189ee15347183feb36b44b4a734c1c1cf36253790657797"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-matmul-vector-accumulators-pipeline.patch",
+      "patchSha256": "5b9757bad46880bed45ed9505164a715d80ccb35c9c94083187ae2e9fdbdc03b",
+      "file": "src/ggml-webgpu/ggml-webgpu-shader-lib.hpp",
+      "beforeSha256": "2b23a6730e0c224fecca611785e5a727a3e0c1d39a438a5a6ee19d99824378d5",
+      "afterSha256": "97802deeb5cf66146ecc5c113a7e1ec1001c779b550fd24e905365ee1dc01bf3"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-matmul-wide-workgroup.patch",
+      "patchSha256": "de5f79a7c047f63802624697c6d38de04a644484e4f6d0aaa57a4c533e7a896f",
+      "file": "src/ggml-webgpu/ggml-webgpu-shader-lib.hpp",
+      "beforeSha256": "97802deeb5cf66146ecc5c113a7e1ec1001c779b550fd24e905365ee1dc01bf3",
+      "afterSha256": "e0e3473595a06d43f94da62ca4dc22d47d0af41e1cad2df51846348475297d6b"
+    },
+    {
+      "source": "ggml",
+      "patch": "patches/webgpu-matmul-shape-occupancy.patch",
+      "patchSha256": "fd558025323926de94e4e8ae6e6bda90543f95a85a13497d6bb6f732635a83ea",
+      "file": "src/ggml-webgpu/ggml-webgpu-shader-lib.hpp",
+      "beforeSha256": "e0e3473595a06d43f94da62ca4dc22d47d0af41e1cad2df51846348475297d6b",
+      "afterSha256": "c1aed83c9b5758b3ae63de1f0d22f1a8681de311247b0694f43868bfe396ed76"
     }
   ]
 }

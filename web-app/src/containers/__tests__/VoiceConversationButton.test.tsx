@@ -1,11 +1,15 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import type { ThreadMessage } from '@janhq/core'
 
-const voice = vi.hoisted(() => ({ phase: 'idle', supported: true, stop: vi.fn(), setReadReplies:vi.fn() }))
+const voice = vi.hoisted(() => ({ phase: 'idle', supported: true, output: 'model', stop: vi.fn(), setReadReplies:vi.fn() }))
+const browserVoice = vi.hoisted(() => ({ create: vi.fn(() => ({ browser: true })), unlock: vi.fn() }))
+vi.mock('@/services/browser-preview/voice', () => ({ browserVoiceSupported: () => true, createBrowserVoiceBackend: browserVoice.create, unlockBrowserVoice: browserVoice.unlock }))
+vi.mock('@/hooks/useBrowserSystemVoices', () => ({ useBrowserSystemVoices: () => [{ voiceURI: 'local-fr', name: 'French', lang: 'fr-FR', localService: true }] }))
+afterEach(() => vi.unstubAllEnvs())
 vi.mock('@/i18n/react-i18next-compat', () => ({ useTranslation: () => ({ t: (key: string) => key }) }))
-vi.mock('@/hooks/useGeneralSetting', () => ({ useGeneralSetting: (selector: (state: unknown)=>unknown) => selector({currentLanguage:'fr-FR',voiceGender:'male',readReplies:true,setReadReplies:voice.setReadReplies}) }))
+vi.mock('@/hooks/useGeneralSetting', () => ({ useGeneralSetting: (selector: (state: unknown)=>unknown) => selector({currentLanguage:'fr-FR',voiceGender:'male',webVoiceOutput:voice.output,webSystemVoiceURI:'',readReplies:true,setReadReplies:voice.setReadReplies}) }))
 vi.mock('@/hooks/useThreads', () => ({ useThreads: () => ({}) }))
 vi.mock('@/lib/voicePlatform', () => ({
   voiceSupported: () => voice.supported,
@@ -28,6 +32,24 @@ const defaults = {
 const button = () => screen.getByTestId('voice-conversation-button')
 
 describe('microphone availability', () => {
+  it('can read with a local system voice while leaving an unavailable microphone disabled', async () => {
+    vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
+    voice.output = 'system'; voice.supported = false
+    render(<VoiceConversationButton {...defaults} />)
+    expect(button()).toBeDisabled()
+    const configuration = vi.mocked(voiceConversation.configureAutoRead).mock.calls.at(-1)?.[0]
+    expect(configuration).toMatchObject({ createBackend: expect.any(Function) })
+    await expect(configuration!.createBackend().listen(new AbortController().signal)).rejects.toThrow('unavailable')
+    expect(browserVoice.create).not.toHaveBeenCalled()
+  })
+  it('uses the local WebGPU voice adapter for browser Omni', () => {
+    vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
+    render(<VoiceConversationButton {...defaults} omniModelId="LFM3-Omni-2B-Q4_K_M" />)
+    fireEvent.click(button())
+    expect(browserVoice.unlock).toHaveBeenCalled()
+    expect(browserVoice.create).toHaveBeenCalledWith('LFM3-Omni-2B-Q4_K_M', 'fr-FR', undefined, 'male')
+    expect(voiceConversation.start).toHaveBeenCalledWith({ browser: true }, expect.objectContaining({ scope: 'thread-1' }))
+  })
   it('marks tool-call steps as intermediate even when they contain text',()=>{
     render(<VoiceConversationButton {...defaults} messages={[
       {id:'step',role:'assistant',status:'ready',metadata:{finishReason:'tool-calls'},content:[{type:'text',text:{value:'Je recherche.'}}]} as unknown as ThreadMessage,
@@ -48,7 +70,7 @@ describe('microphone availability', () => {
     expect(button()).toBeDisabled()
     expect(voiceConversation.configureAutoRead).toHaveBeenCalledWith(expect.objectContaining({binding:expect.objectContaining({canStart:true})}))
   })
-  beforeEach(() => { voice.phase = 'idle'; voice.supported = true; vi.clearAllMocks() })
+  beforeEach(() => { voice.phase = 'idle'; voice.supported = true; voice.output = 'model'; vi.clearAllMocks() })
 
   it('is ready and enabled when a voice turn can start', () => {
     render(<VoiceConversationButton {...defaults} />)

@@ -1,0 +1,27 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -2964,6 +2964,24 @@
+                 std::min(context.max_wg_size, std::max(GGML_WEBGPU_FLASH_ATTN_PREFERRED_WG_SIZE,
+                                                        GGML_WEBGPU_FLASH_ATTN_TILE_Q_TILE * context.max_subgroup_size));
+ 
++        // Reuse staged keys/values across more query rows without changing
++        // the KV tile or the arithmetic order within a row. Keep the old path
++        // for larger heads or devices that cannot hold the complete workgroup.
++        if (!decisions.use_sg_matrix && context.min_subgroup_size == 32u && context.max_subgroup_size == 32u &&
++            key.common.head_dim_qk <= 128u && key.common.head_dim_v <= 128u &&
++            (key.common.k_type == GGML_TYPE_F16 || key.common.k_type == GGML_TYPE_F32) &&
++            (key.common.v_type == GGML_TYPE_F16 || key.common.v_type == GGML_TYPE_F32)) {
++            const uint32_t query_tile = 16u;
++            const uint32_t workgroup = query_tile * context.max_subgroup_size;
++            const size_t memory = size_t(query_tile) * key.common.head_dim_qk * 4u +
++                size_t(decisions.kv_tile) * std::max(key.common.head_dim_qk + 2u, key.common.head_dim_v) * 2u +
++                size_t(query_tile) * decisions.kv_tile * 2u;
++            if (workgroup <= context.max_wg_size && memory <= context.wg_mem_limit_bytes) {
++                decisions.q_tile = query_tile;
++                decisions.wg_size = workgroup;
++            }
++        }
++
+         if (key.common.k_direct || key.common.v_direct) {
+             decisions.kv_tile = std::min(decisions.kv_tile, GGML_WEBGPU_KV_SEQ_PAD);
+             while (GGML_WEBGPU_KV_SEQ_PAD % decisions.kv_tile != 0) {

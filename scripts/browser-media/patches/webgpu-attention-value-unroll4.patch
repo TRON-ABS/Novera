@@ -1,0 +1,72 @@
+--- a/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/flash_attn_tile.wgsl
+@@ -268,6 +268,61 @@
+                 }
+ 
+                 var acc = out_regs[reg_idx];
++#ifdef NOVERA_ATTN_VALUE_UNROLL4
++                let kv_main = (kv_count / 4u) * 4u;
++                for (var kv_local = 0u; kv_local < kv_main; kv_local += 4u) {
++                    {
++                    let p = f32(p_shmem[subgroup_p_offset + (kv_local + 0u)]);
++                    let kv_off = (kv_local + 0u) * HEAD_DIM_V + chunk * 4u;
++                    let v4 = vec4<f16>(
++                        kv_shmem[kv_off + 0u],
++                        kv_shmem[kv_off + 1u],
++                        kv_shmem[kv_off + 2u],
++                        kv_shmem[kv_off + 3u]);
++                    acc += p * vec4<f32>(v4);
++                    }
++                    {
++                    let p = f32(p_shmem[subgroup_p_offset + (kv_local + 1u)]);
++                    let kv_off = (kv_local + 1u) * HEAD_DIM_V + chunk * 4u;
++                    let v4 = vec4<f16>(
++                        kv_shmem[kv_off + 0u],
++                        kv_shmem[kv_off + 1u],
++                        kv_shmem[kv_off + 2u],
++                        kv_shmem[kv_off + 3u]);
++                    acc += p * vec4<f32>(v4);
++                    }
++                    {
++                    let p = f32(p_shmem[subgroup_p_offset + (kv_local + 2u)]);
++                    let kv_off = (kv_local + 2u) * HEAD_DIM_V + chunk * 4u;
++                    let v4 = vec4<f16>(
++                        kv_shmem[kv_off + 0u],
++                        kv_shmem[kv_off + 1u],
++                        kv_shmem[kv_off + 2u],
++                        kv_shmem[kv_off + 3u]);
++                    acc += p * vec4<f32>(v4);
++                    }
++                    {
++                    let p = f32(p_shmem[subgroup_p_offset + (kv_local + 3u)]);
++                    let kv_off = (kv_local + 3u) * HEAD_DIM_V + chunk * 4u;
++                    let v4 = vec4<f16>(
++                        kv_shmem[kv_off + 0u],
++                        kv_shmem[kv_off + 1u],
++                        kv_shmem[kv_off + 2u],
++                        kv_shmem[kv_off + 3u]);
++                    acc += p * vec4<f32>(v4);
++                    }
++                }
++                for (var kv_local = kv_main; kv_local < kv_count; kv_local += 1u) {
++                    let p = f32(p_shmem[subgroup_p_offset + kv_local]);
++                    let kv_off = kv_local * HEAD_DIM_V + chunk * 4u;
++                    let v4 = vec4<f16>(
++                        kv_shmem[kv_off + 0u],
++                        kv_shmem[kv_off + 1u],
++                        kv_shmem[kv_off + 2u],
++                        kv_shmem[kv_off + 3u]);
++                    acc += p * vec4<f32>(v4);
++                }
++#else
+                 for (var kv_local = 0u; kv_local < kv_count; kv_local += 1u) {
+                     let p = f32(p_shmem[subgroup_p_offset + kv_local]);
+                     let kv_off = kv_local * HEAD_DIM_V + chunk * 4u;
+@@ -278,6 +333,7 @@
+                         kv_shmem[kv_off + 3u]);
+                     acc += p * vec4<f32>(v4);
+                 }
++#endif
+                 out_regs[reg_idx] = acc;
+             }
+         }

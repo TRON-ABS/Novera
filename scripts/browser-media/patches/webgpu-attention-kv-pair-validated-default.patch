@@ -1,0 +1,11 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -13,7 +13,7 @@
+ #endif
+ static inline int novera_image_kernel_flags() {
+ #if defined(__EMSCRIPTEN__) && defined(NOVERA_IMAGE_KERNEL_TUNING)
+-    return EM_ASM_INT({ return globalThis.noveraImageKernelFlags ?? 12530; });
++    return EM_ASM_INT({ return globalThis.noveraImageKernelFlags ?? 143602; });
+ #else
+     return 0;
+ #endif

@@ -1,0 +1,34 @@
+--- a/src/ggml-webgpu/wgsl-shaders/flash_attn_staging.tmpl
++++ b/src/ggml-webgpu/wgsl-shaders/flash_attn_staging.tmpl
+@@ -81,10 +81,15 @@
+         let k_vec_index = (k_head_offset + global_k_row * params.stride_k1 + chunk * 4u) >> 2u;
+         let k4 = K[k_vec_index];
+         let kv_off = kv_local * STAGING_K_STRIDE + chunk * 4u;
++#ifdef NOVERA_ATTN_KV_PAIRS_ACTIVE
++        STAGING_SHMEM[kv_off / 2u] = vec2<STAGING_OUT_TYPE>(k4.xy);
++        STAGING_SHMEM[kv_off / 2u + 1u] = vec2<STAGING_OUT_TYPE>(k4.zw);
++#else
+         STAGING_SHMEM[kv_off + 0u] = STAGING_OUT_TYPE(k4.x);
+         STAGING_SHMEM[kv_off + 1u] = STAGING_OUT_TYPE(k4.y);
+         STAGING_SHMEM[kv_off + 2u] = STAGING_OUT_TYPE(k4.z);
+         STAGING_SHMEM[kv_off + 3u] = STAGING_OUT_TYPE(k4.w);
++#endif
+     }
+ #endif
+ }
+@@ -130,10 +135,15 @@
+         let v_vec_index = (v_head_offset + global_v_row * params.stride_v1 + chunk * 4u) >> 2u;
+         let v4 = V[v_vec_index];
+         let kv_off = kv_local * HEAD_DIM_V + chunk * 4u;
++#ifdef NOVERA_ATTN_KV_PAIRS_ACTIVE
++        STAGING_SHMEM[kv_off / 2u] = vec2<STAGING_OUT_TYPE>(v4.xy);
++        STAGING_SHMEM[kv_off / 2u + 1u] = vec2<STAGING_OUT_TYPE>(v4.zw);
++#else
+         STAGING_SHMEM[kv_off + 0u] = STAGING_OUT_TYPE(v4.x);
+         STAGING_SHMEM[kv_off + 1u] = STAGING_OUT_TYPE(v4.y);
+         STAGING_SHMEM[kv_off + 2u] = STAGING_OUT_TYPE(v4.z);
+         STAGING_SHMEM[kv_off + 3u] = STAGING_OUT_TYPE(v4.w);
++#endif
+     }
+ #endif
+ }

@@ -1,0 +1,13 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -2328,6 +2328,10 @@
+             defines.push_back("TILE_K=" + std::to_string(tile_k) + "u");
+         }
+ 
++        if (!key.use_subgroup_matrix && WEBGPU_MUL_MAT_TILE_N == 4 && (tile_m == 4u || tile_m == 8u)) {
++            defines.push_back("REGISTER_VEC_ACCUM");
++            if (tile_m == 8u) defines.push_back("REGISTER_M8");
++        }
+         auto processed = preprocessor.preprocess(shader_src, defines);
+ 
+         auto decisions                 = std::make_shared<ggml_webgpu_mul_mat_shader_decisions>();

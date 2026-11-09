@@ -100,7 +100,7 @@ function WebSearchContent() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-44">
-                      {WEB_SEARCH_PROVIDERS.filter(p => !browser || p.id === 'exa').map((p) => (
+                      {WEB_SEARCH_PROVIDERS.filter(p => !browser || ['exa', 'duckduckgo'].includes(p.id)).map((p) => (
                         <DropdownMenuItem
                           key={p.id}
                           className={cn(
@@ -117,7 +117,8 @@ function WebSearchContent() {
                   </DropdownMenu>
                 }
               />
-              {browser && <p className="px-4 pb-3 text-sm text-muted-foreground">Sur Web, Exa fonctionne directement depuis le navigateur, sans clé et avec son quota gratuit. La connexion est préparée quand Internet est activé. Les recherches et URL à lire sont envoyées à Exa ; aucune clé API payante n’est utilisée ici.</p>}
+              {browser && searchProvider === 'exa' && <p className="px-4 pb-3 text-sm text-muted-foreground">Sur Web, Exa fonctionne directement depuis le navigateur, sans clé et avec son quota gratuit. La connexion est préparée quand Internet est activé. Les recherches et URL à lire sont envoyées à Exa ; aucune clé API payante n’est utilisée ici.</p>}
+              {browser && searchProvider === 'duckduckgo' && <p className="px-4 pb-3 text-sm text-muted-foreground">DuckDuckGo fournit ici des réponses directes et des sujets associés, sans clé. Ce mode autonome ne fournit pas la recherche Web complète ni une couverture fiable de l’actualité. Les requêtes sont envoyées à DuckDuckGo et la lecture des pages dépend de CORS.</p>}
               {!browser && provider.requiresEndpoint ? (
                 <CardItem
                   title={t('settings:webSearch.endpoint', {

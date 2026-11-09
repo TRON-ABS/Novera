@@ -1,0 +1,108 @@
+--- a/src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/conv2d.wgsl
+@@ -36,13 +36,11 @@
+ @group(0) @binding(3)
+ var<uniform> params: Params;
+ 
+-// Implicit GEMM: reuse each spatial sample and weight across a 16x16
+-// output tile. Keep activations and accumulation in F32; never form an
+-// F16 im2col buffer or split the VAE's normalization across image tiles.
+-var<workgroup> input_tile: array<f32, WG_SIZE * WG_SIZE>;
+-var<workgroup> weight_tile: array<f32, WG_SIZE * WG_SIZE>;
+-
+-@compute @workgroup_size(WG_SIZE, WG_SIZE)
++// Register-tiled implicit convolution. Each of 64 threads computes a 4x4
++// output block; F32 shared rows have one pad to avoid bank conflicts.
++var<workgroup> input_tile: array<f32, WG_SIZE * (WG_SIZE + 1u)>;
++var<workgroup> weight_tile: array<f32, WG_SIZE * (WG_SIZE + 1u)>;
++@compute @workgroup_size(8, 8)
+ fn main(@builtin(workgroup_id) wid: vec3<u32>,
+         @builtin(num_workgroups) num_wg: vec3<u32>,
+         @builtin(local_invocation_id) lid: vec3<u32>) {
+@@ -54,40 +52,59 @@
+     let batch = tile / (tiles_m * tiles_n);
+     let tile_n = (tile / tiles_m) % tiles_n;
+     let tile_m = tile % tiles_m;
+-    let position = tile_m * WG_SIZE + lid.x;
+-    let oc = tile_n * WG_SIZE + lid.y;
+-    let ow = position % params.OW;
+-    let oh = position / params.OW;
++    let position_base = tile_m * WG_SIZE + lid.x * 4u;
++    let oc_base = tile_n * WG_SIZE + lid.y * 4u;
+     let reduction = params.KW * params.KH * params.IC;
+-    var sum = 0.0f;
++    let tid = lid.y * 8u + lid.x;
++    var a0 = vec4<f32>(0.0); var a1 = vec4<f32>(0.0);
++    var a2 = vec4<f32>(0.0); var a3 = vec4<f32>(0.0);
+     for (var base = 0u; base < reduction; base += WG_SIZE) {
+-        let ka = base + lid.y;
+-        let kw = ka % params.KW;
+-        let kh = (ka / params.KW) % params.KH;
+-        let ic = ka / (params.KW * params.KH);
+-        let iw = i32(ow * params.s0 + kw * params.d0) - i32(params.p0);
+-        let ih = i32(oh * params.s1 + kh * params.d1) - i32(params.p1);
+-        var value = 0.0f;
+-        if (position < positions && ka < reduction && iw >= 0 && ih >= 0 && iw < i32(params.IW) && ih < i32(params.IH)) {
+-            value = f32(input[params.offset_i + u32(iw) * params.si0 + u32(ih) * params.si1 + ic * params.si2 + batch * params.si3]);
++        for (var elem = tid; elem < WG_SIZE * WG_SIZE; elem += 64u) {
++            let pos_local = elem % WG_SIZE;
++            let k_local = elem / WG_SIZE;
++            let position = tile_m * WG_SIZE + pos_local;
++            let ka = base + k_local;
++            let kw = ka % params.KW;
++            let kh = (ka / params.KW) % params.KH;
++            let ic = ka / (params.KW * params.KH);
++            let iw = i32((position % params.OW) * params.s0 + kw * params.d0) - i32(params.p0);
++            let ih = i32((position / params.OW) * params.s1 + kh * params.d1) - i32(params.p1);
++            var value = 0.0f;
++            if (position < positions && ka < reduction && iw >= 0 && ih >= 0 && iw < i32(params.IW) && ih < i32(params.IH)) {
++                value = f32(input[params.offset_i + u32(iw) * params.si0 + u32(ih) * params.si1 + ic * params.si2 + batch * params.si3]);
++            }
++            input_tile[k_local * (WG_SIZE + 1u) + pos_local] = value;
++            let n_local = elem / WG_SIZE;
++            let wk_local = elem % WG_SIZE;
++            let kb = base + wk_local;
++            let oc = tile_n * WG_SIZE + n_local;
++            var weight = 0.0f;
++            if (oc < params.OC_out && kb < reduction) {
++                let wk = kb % params.KW;
++                let hk = (kb / params.KW) % params.KH;
++                let ck = kb / (params.KW * params.KH);
++                weight = f32(weights[params.offset_w + wk * params.sw0 + hk * params.sw1 + ck * params.sw2 + oc * params.sw3]);
++            }
++            weight_tile[n_local * (WG_SIZE + 1u) + wk_local] = weight;
+         }
+-        input_tile[lid.y * WG_SIZE + lid.x] = value;
+-        let kb = base + lid.x;
+-        var weight = 0.0f;
+-        if (oc < params.OC_out && kb < reduction) {
+-            let wk = kb % params.KW;
+-            let hk = (kb / params.KW) % params.KH;
+-            let ck = kb / (params.KW * params.KH);
+-            weight = f32(weights[params.offset_w + wk * params.sw0 + hk * params.sw1 + ck * params.sw2 + oc * params.sw3]);
+-        }
+-        weight_tile[lid.y * WG_SIZE + lid.x] = weight;
+         workgroupBarrier();
+         for (var k = 0u; k < WG_SIZE; k++) {
+-            sum += input_tile[k * WG_SIZE + lid.x] * weight_tile[lid.y * WG_SIZE + k];
++            let i = k * (WG_SIZE + 1u) + lid.x * 4u;
++            let x = vec4<f32>(input_tile[i], input_tile[i+1u], input_tile[i+2u], input_tile[i+3u]);
++            let w = vec4<f32>(weight_tile[(lid.y*4u)*(WG_SIZE+1u)+k],weight_tile[(lid.y*4u+1u)*(WG_SIZE+1u)+k],weight_tile[(lid.y*4u+2u)*(WG_SIZE+1u)+k],weight_tile[(lid.y*4u+3u)*(WG_SIZE+1u)+k]);
++            a0 += x.x * w; a1 += x.y * w; a2 += x.z * w; a3 += x.w * w;
+         }
+         workgroupBarrier();
+     }
+-    if (position < positions && oc < params.OC_out) {
+-        output[params.offset_o + ow * params.so0 + oh * params.so1 + oc * params.so2 + batch * params.so3] = OUTPUT_TYPE(sum);
++    let accum = array<vec4<f32>,4>(a0,a1,a2,a3);
++    for (var m = 0u; m < 4u; m++) {
++        let position = position_base + m;
++        if (position >= positions) { continue; }
++        for (var n = 0u; n < 4u; n++) {
++            let oc = oc_base + n;
++            if (oc < params.OC_out) {
++                output[params.offset_o + (position%params.OW)*params.so0 + (position/params.OW)*params.so1 + oc*params.so2 + batch*params.so3] = OUTPUT_TYPE(accum[m][n]);
++            }
++        }
+     }
+ }

@@ -1,0 +1,39 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -2279,6 +2279,7 @@
+         const bool is_quant = ggml_is_quantized(context.src0->type);
+ 
+         const uint32_t tile_m = !key.use_subgroup_matrix && context.vendor == "nvidia" ? 8u : WEBGPU_MUL_MAT_TILE_M;
++        const uint32_t wg_n = !key.use_subgroup_matrix && context.vendor == "nvidia" ? 32u : WEBGPU_MUL_MAT_WG_SIZE_N;
+         uint32_t tile_k;
+         if (key.use_subgroup_matrix) {
+             tile_k = is_quant ? WEBGPU_MUL_MAT_SUBGROUP_TILE_K_QUANT : WEBGPU_MUL_MAT_SUBGROUP_TILE_K_FLOAT;
+@@ -2289,7 +2290,7 @@
+         if (!key.use_subgroup_matrix) {
+             const size_t limit = context.wg_mem_limit_bytes ? context.wg_mem_limit_bytes : 16384u;
+             const size_t rows = WEBGPU_MUL_MAT_WG_SIZE_M * tile_m +
+-                                WEBGPU_MUL_MAT_WG_SIZE_N * WEBGPU_MUL_MAT_TILE_N;
++                                wg_n * WEBGPU_MUL_MAT_TILE_N;
+             const uint32_t minimum = is_quant ? 32u : 8u;
+             while (tile_k > minimum && rows * (tile_k + 2u) * 2u > limit) tile_k /= 2u;
+         }
+@@ -2324,7 +2325,7 @@
+ 
+         if (!key.use_subgroup_matrix) {
+             defines.push_back("WORKGROUP_SIZE_M=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_M) + "u");
+-            defines.push_back("WORKGROUP_SIZE_N=" + std::to_string(WEBGPU_MUL_MAT_WG_SIZE_N) + "u");
++            defines.push_back("WORKGROUP_SIZE_N=" + std::to_string(wg_n) + "u");
+             defines.push_back("TILE_K=" + std::to_string(tile_k) + "u");
+         }
+ 
+@@ -2347,8 +2348,8 @@
+             decisions->wg_size           = context.max_subgroup_size;
+         } else {
+             decisions->wg_size_m       = WEBGPU_MUL_MAT_WG_SIZE_M;
+-            decisions->wg_size_n       = WEBGPU_MUL_MAT_WG_SIZE_N;
+-            decisions->wg_size         = WEBGPU_MUL_MAT_WG_SIZE_M * WEBGPU_MUL_MAT_WG_SIZE_N;
++            decisions->wg_size_n       = wg_n;
++            decisions->wg_size         = WEBGPU_MUL_MAT_WG_SIZE_M * wg_n;
+             decisions->mul_mat_wg_size = WEBGPU_MUL_MAT_WG_SIZE;
+         }
+ 

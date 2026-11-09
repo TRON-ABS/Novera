@@ -1,0 +1,81 @@
+--- a/src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
++++ b/src/ggml-webgpu/wgsl-shaders/mul_mat_reg_tile.wgsl
+@@ -142,6 +142,70 @@
+         let k_end = min(TILE_K, params.k - k_outer);
+ 
+ #ifdef REGISTER_VEC_ACCUM
++#ifdef NOVERA_MATMUL_UNROLL4
++        for (var k_inner = 0u; k_inner < k_end; k_inner += 4u) {
++            if (k_inner + 0u < k_end) {
++            let row_m = local_m * TILE_M;
++            let row_n = local_n * TILE_N;
++            let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 0u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 0u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 0u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 0u))]));
++            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 0u))]) * y;
++            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 0u))]) * y;
++            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 0u))]) * y;
++            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 0u))]) * y;
++#ifdef REGISTER_M8
++            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 0u))]) * y;
++            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 0u))]) * y;
++            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 0u))]) * y;
++            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 0u))]) * y;
++#endif
++            }
++            if (k_inner + 1u < k_end) {
++            let row_m = local_m * TILE_M;
++            let row_n = local_n * TILE_N;
++            let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 1u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 1u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 1u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 1u))]));
++            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 1u))]) * y;
++            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 1u))]) * y;
++            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 1u))]) * y;
++            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 1u))]) * y;
++#ifdef REGISTER_M8
++            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 1u))]) * y;
++            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 1u))]) * y;
++            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 1u))]) * y;
++            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 1u))]) * y;
++#endif
++            }
++            if (k_inner + 2u < k_end) {
++            let row_m = local_m * TILE_M;
++            let row_n = local_n * TILE_N;
++            let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 2u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 2u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 2u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 2u))]));
++            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 2u))]) * y;
++            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 2u))]) * y;
++            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 2u))]) * y;
++            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 2u))]) * y;
++#ifdef REGISTER_M8
++            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 2u))]) * y;
++            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 2u))]) * y;
++            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 2u))]) * y;
++            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 2u))]) * y;
++#endif
++            }
++            if (k_inner + 3u < k_end) {
++            let row_m = local_m * TILE_M;
++            let row_n = local_n * TILE_N;
++            let y = vec4<f32>(f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 0u) * TILE_K + (k_inner + 3u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 1u) * TILE_K + (k_inner + 3u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 2u) * TILE_K + (k_inner + 3u))]),f32(shmem[padded_matmul_shmem_index(TILE_SRC0_SHMEM + (row_n + 3u) * TILE_K + (k_inner + 3u))]));
++            a0 += f32(shmem[padded_matmul_shmem_index((row_m + 0u) * TILE_K + (k_inner + 3u))]) * y;
++            a1 += f32(shmem[padded_matmul_shmem_index((row_m + 1u) * TILE_K + (k_inner + 3u))]) * y;
++            a2 += f32(shmem[padded_matmul_shmem_index((row_m + 2u) * TILE_K + (k_inner + 3u))]) * y;
++            a3 += f32(shmem[padded_matmul_shmem_index((row_m + 3u) * TILE_K + (k_inner + 3u))]) * y;
++#ifdef REGISTER_M8
++            a4 += f32(shmem[padded_matmul_shmem_index((row_m + 4u) * TILE_K + (k_inner + 3u))]) * y;
++            a5 += f32(shmem[padded_matmul_shmem_index((row_m + 5u) * TILE_K + (k_inner + 3u))]) * y;
++            a6 += f32(shmem[padded_matmul_shmem_index((row_m + 6u) * TILE_K + (k_inner + 3u))]) * y;
++            a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + (k_inner + 3u))]) * y;
++#endif
++            }
++        }
++#else
+         for (var k_inner = 0u; k_inner < k_end; k_inner++) {
+             let row_m = local_m * TILE_M;
+             let row_n = local_n * TILE_N;
+@@ -157,6 +221,7 @@
+             a7 += f32(shmem[padded_matmul_shmem_index((row_m + 7u) * TILE_K + k_inner)]) * y;
+ #endif
+         }
++#endif
+ #else
+         for (var k_inner = 0u; k_inner < k_end; k_inner++) {
+             var src0_tile: array<f16, TILE_M>;

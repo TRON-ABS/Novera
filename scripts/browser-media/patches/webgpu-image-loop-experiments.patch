@@ -1,0 +1,77 @@
+--- a/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
++++ b/src/ggml-webgpu/ggml-webgpu-shader-lib.hpp
+@@ -672,9 +672,10 @@
+     bool unroll4 = false;
+     bool value_unroll4 = false;
+     bool score_pair = false;
++    bool pair_unroll2 = false;
+ 
+     bool operator==(const ggml_webgpu_flash_attn_pipeline_key & other) const {
+-        return common == other.common && use_sg_matrix == other.use_sg_matrix && unroll4 == other.unroll4 && value_unroll4 == other.value_unroll4 && score_pair == other.score_pair;
++        return common == other.common && use_sg_matrix == other.use_sg_matrix && unroll4 == other.unroll4 && value_unroll4 == other.value_unroll4 && score_pair == other.score_pair && pair_unroll2 == other.pair_unroll2;
+     }
+ };
+ 
+@@ -686,6 +687,7 @@
+         ggml_webgpu_hash_combine(seed, key.unroll4);
+         ggml_webgpu_hash_combine(seed, key.value_unroll4);
+         ggml_webgpu_hash_combine(seed, key.score_pair);
++        ggml_webgpu_hash_combine(seed, key.pair_unroll2);
+         return seed;
+     }
+ };
+@@ -1039,10 +1041,11 @@
+     bool      src_overlap;
+     bool      large_regular_tile;
+     bool      unroll4 = false;
++    bool      unroll8 = false;
+ 
+     bool operator==(const ggml_webgpu_mul_mat_pipeline_key & other) const {
+         return src0_type == other.src0_type && src1_type == other.src1_type && vectorized == other.vectorized &&
+-               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile && unroll4 == other.unroll4;
++               use_subgroup_matrix == other.use_subgroup_matrix && src_overlap == other.src_overlap && large_regular_tile == other.large_regular_tile && unroll4 == other.unroll4 && unroll8 == other.unroll8;
+     }
+ };
+ 
+@@ -1056,6 +1059,7 @@
+         ggml_webgpu_hash_combine(seed, key.src_overlap);
+         ggml_webgpu_hash_combine(seed, key.large_regular_tile);
+         ggml_webgpu_hash_combine(seed, key.unroll4);
++        ggml_webgpu_hash_combine(seed, key.unroll8);
+         return seed;
+     }
+ };
+@@ -2215,6 +2219,7 @@
+             context.src0->ne[1] >= 512 && context.src1->ne[1] >= 256;
+ 
+         key.unroll4 = key.large_regular_tile && (context.src0->type == GGML_TYPE_Q4_K || context.src0->type == GGML_TYPE_Q5_K) && (novera_image_kernel_flags() & 2) != 0;
++        key.unroll8 = key.unroll4 && (novera_image_kernel_flags() & 512) != 0;
+         auto it = mul_mat_fast_pipelines.find(key);
+         if (it != mul_mat_fast_pipelines.end()) {
+             return it->second;
+@@ -2361,7 +2366,8 @@
+             defines.push_back("TILE_K=" + std::to_string(tile_k) + "u");
+         }
+ 
+-        if (key.unroll4) { defines.push_back("NOVERA_MATMUL_UNROLL4"); variant += "_unroll4"; }
++        if (key.unroll8) { defines.push_back("NOVERA_MATMUL_UNROLL8"); variant += "_unroll8"; }
++        else if (key.unroll4) { defines.push_back("NOVERA_MATMUL_UNROLL4"); variant += "_unroll4"; }
+         if (!key.use_subgroup_matrix && WEBGPU_MUL_MAT_TILE_N == 4 && (tile_m == 4u || tile_m == 8u)) {
+             defines.push_back("REGISTER_VEC_ACCUM");
+             if (tile_m == 8u) defines.push_back("REGISTER_M8");
+@@ -3039,6 +3045,7 @@
+         key.unroll4 = !decisions.use_sg_matrix && (novera_image_kernel_flags() & 4) != 0 && key.common.head_dim_qk % 16u == 0u;
+         key.value_unroll4 = !decisions.use_sg_matrix && (novera_image_kernel_flags() & 8) != 0;
+         key.score_pair = !decisions.use_sg_matrix && decisions.kv_tile > 32u && decisions.kv_tile <= 64u && context.min_subgroup_size == 32u && context.max_subgroup_size == 32u && (novera_image_kernel_flags() & 32) != 0;
++        key.pair_unroll2 = key.score_pair && key.common.head_dim_qk % 8u == 0u && (novera_image_kernel_flags() & 256) != 0;
+         auto it = flash_attn_pipelines.find(key);
+         if (it != flash_attn_pipelines.end()) {
+             return it->second;
+@@ -3052,6 +3059,7 @@
+             if (key.unroll4) { defines.push_back("NOVERA_ATTENTION_UNROLL4"); variant += "_unroll4"; }
+             if (key.value_unroll4) { defines.push_back("NOVERA_ATTN_VALUE_UNROLL4"); variant += "_value_unroll4"; }
+             if (key.score_pair) { defines.push_back("NOVERA_ATTN_SCORE_PAIR"); variant += "_score_pair"; }
++            if (key.pair_unroll2) { defines.push_back("NOVERA_ATTN_PAIR_UNROLL2"); variant += "_pair_unroll2"; }
+             shader_src = wgsl_flash_attn_tile;
+             defines.push_back("MIN_SUBGROUP_SIZE=" + std::to_string(context.min_subgroup_size) + "u");
+             defines.push_back("MAX_SUBGROUP_SIZE=" + std::to_string(context.max_subgroup_size) + "u");
