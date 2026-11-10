@@ -1,3 +1,9 @@
+## Direct Qwen GGUF for Desktop NVFP4
+
+The NVFP4 image worker previously expanded Qwen3-4B GGUF to BF16 before encoding the prompt. Run the pinned stable-diffusion.cpp conditioner in a short-lived process with the same selected GGUF and keep the existing CPU, CUDA and Auto options. Packaging checks the encoder source fingerprint. Creation settings describe direct GGUF loading in all 104 catalogs.
+
+On Windows with RTX 5070 Laptop, the local worker generated 512 × 512 images at four steps and seed 99474568 using the original Qwen3-4B Q4_K_M, NVFP4 diffusion model and VAE. Two independent CPU encoder runs took 5.23 s and 4.70 s for encoding and produced byte-identical PNGs. CUDA encoding took 2.91 s. All three runs executed 400 native NVFP4 matmuls. The 15 Python NVFP4 tests passed. Desktop installation and the Web 1.0.1 Pages deployment are separate checks.
+
 ## Web autonomous text and Wan update
 
 Normal LFM3-Omni text replies in compatible browsers use the pinned single-thread WebAssembly/WebGPU Worker and compact GPU sampling. The Worker verifies the model bytes downloaded from the pinned catalog revision. It caches verified weights when browser storage is available. Voice, tool history, assistant prefills and browsers without JSPI use the autonomous SDK. The 147.39 tokens/s figure is the median of the earlier local 512-token decode series and depends on the browser and device.

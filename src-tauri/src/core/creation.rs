@@ -654,12 +654,6 @@ pub async fn creation_start<R: Runtime>(
                 include_str!("../../../media-server/native-flux2-klein-4b/vae/config.json"),
             ),
             (
-                "text_encoder/config.json",
-                include_str!(
-                    "../../../media-server/native-flux2-klein-4b/text_encoder/config.json"
-                ),
-            ),
-            (
                 "scheduler/scheduler_config.json",
                 include_str!(
                     "../../../media-server/native-flux2-klein-4b/scheduler/scheduler_config.json"
@@ -671,6 +665,16 @@ pub async fn creation_start<R: Runtime>(
             std::fs::write(target, source).map_err(|e| e.to_string())?;
         }
         config["torch_cache"] = json!(directory.join("torch-cache"));
+        let encoder_runtime = app
+            .path()
+            .resource_dir()
+            .map_err(|e| e.to_string())?
+            .join("resources/image-engine");
+        #[cfg(not(windows))]
+        let encoder_runtime = std::env::var_os("NOVERA_IMAGE_RUNTIME")
+            .map(PathBuf::from)
+            .unwrap_or(encoder_runtime);
+        config["encoder_runtime"] = json!(encoder_runtime);
     }
     if request.upscale_factor.is_some() {
         config["upscale_metadata"] = json!(directory.join("generated.json"));

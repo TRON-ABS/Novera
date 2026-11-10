@@ -1,11 +1,34 @@
 """Native hardware gating, component placement and real CUDA FP4 GEMM checks."""
 import unittest
+from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 import torch
-from nvfp4_cuda import native_available, encoder_target, blocked, unblocked, generate, native_linear
+from nvfp4_cuda import native_available, encoder_target, blocked, unblocked, generate, encode_prompt, native_linear
 
 
 class NativeFP4(unittest.TestCase):
+    def test_encoder_reads_gguf_directly_and_keeps_utf8_prompt(self):
+        prompt = 'Lumière du matin 朝'
+        events = []
+
+        def encode(args, *, input, **kwargs):
+            self.assertEqual(input, prompt.encode('utf-8'))
+            self.assertEqual(Path(args[3]).name, 'qwen.gguf')
+            self.assertEqual(args[4], 'cpu')
+            Path(args[5]).write_bytes(bytes(512 * 7680 * 4))
+            return SimpleNamespace(returncode=0)
+
+        with patch('nvfp4_cuda.subprocess.run', side_effect=encode):
+            result = encode_prompt('qwen.gguf', prompt, '.', lambda **event: events.append(event), 'cpu')
+        self.assertEqual(tuple(result.shape), (1, 512, 7680))
+        self.assertEqual(events[0]['encoder_backend'], 'gguf-direct')
+
+    def test_encoder_rejects_invalid_embedding(self):
+        with patch('nvfp4_cuda.subprocess.run', return_value=SimpleNamespace(returncode=0)):
+            with self.assertRaisesRegex(RuntimeError, 'embedding size'):
+                encode_prompt('qwen.gguf', 'test', '.', lambda **kw: None, 'cpu')
+
     def test_cpu_cannot_be_reported_as_native_fp4(self):
         with patch('torch.cuda.is_available', return_value=False):
             self.assertFalse(native_available())
@@ -64,7 +87,19 @@ class NativeFP4(unittest.TestCase):
         self.assertEqual(layer.packed_weight.dtype,torch.uint8)
         self.assertFalse(any(name == 'weight' for name,_ in layer.named_parameters()))
         self.assertEqual(layer.calls,1)
-        self.assertTrue(any('e2m1' in event.key.lower() for event in prof.key_averages()))
+        cuda_kernels = [
+            event.name.lower() for event in prof.events()
+            if event.device_type == torch.autograd.DeviceType.CUDA
+        ]
+        # The SM120 cuBLAS NVJET kernel names its block scales but omits E2M1.
+        self.assertTrue(
+            any(
+                'e2m1' in name
+                or (name.startswith('nvjet_sm120_ootst_mma_') and '_ue4m3_' in name)
+                for name in cuda_kernels
+            ),
+            f'Expected an FP4 CUDA kernel, observed {cuda_kernels}',
+        )
 
 
 if __name__ == '__main__':

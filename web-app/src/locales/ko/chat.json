@@ -145,7 +145,7 @@
     "ggufGuidance": "가이던스(CFG)",
     "ggufNote": "확산 모델, 텍스트 인코더 및 VAE를 별도로 선택하십시오. FLUX.2 Klein 4B의 경우 GGUF 변형을 포함하여 호환 가능한 Qwen3-4B 인코더를 사용하십시오. 지원되는 NVFP4 파일은 Python 및 PyTorch를 사용하여 더 큰 호환성 캐시로 준비됩니다. 원본은 변경되지 않습니다. 이를 위해서는 추가 디스크 공간과 RAM이 필요합니다. 라이브러리와 함께 sd-cli를 유지하세요. 자동은 사용 가능한 하드웨어를 사용합니다. CUDA에는 CUDA 빌드가 필요합니다. Distilled Klein은 일반적으로 4단계와 CFG 1을 사용합니다. 가중치는 다운로드되지 않습니다.",
     "ggufWrongModel": "이 GGUF에는 텍스트 인코더가 포함되어 있습니다. 인코더 필드에서 선택하고 이미지 필드에서 별도의 확산 모델을 선택합니다.",
-    "nativeNote": "기본 NVFP4 CUDA: FLUX.2 Klein 4B Comfy 가중치, Qwen3-4B GGUF 인코더 및 FLUX.2 Safetensors VAE. Blackwell(RTX 50 시리즈 또는 호환), Python, CUDA PyTorch 및 선택적 NVFP4 종속성이 필요합니다. 텍스트-이미지로만 가능합니다. 지원되지 않는 하드웨어는 명시적으로 실패합니다. 호환성을 위해 stable-diffusion.cpp를 선택하세요. BF16 확산 캐시가 없습니다.",
+    "nativeNote": "기본 NVFP4 CUDA: FLUX.2 Klein 4B Comfy 가중치, Qwen3-4B GGUF 인코더 및 FLUX.2 Safetensors VAE. Blackwell(RTX 50 시리즈 또는 호환), Python, CUDA PyTorch 및 선택적 NVFP4 종속성이 필요합니다. 텍스트-이미지로만 가능합니다. 지원되지 않는 하드웨어는 명시적으로 실패합니다. 호환성을 위해 stable-diffusion.cpp를 선택하세요. BF16 확산 캐시가 없습니다. Novera는 GGUF 파일에서 Qwen을 직접 읽습니다.",
     "encoderDevice": "텍스트 인코더: CPU/GPU\n세대: CPU/GPU\n이들 구성요소는 독립적인 장치 선택을 갖습니다. 자동은 사용 가능한 하드웨어를 사용합니다. 기본 NVFP4는 생성을 위해 항상 호환 가능한 GPU가 필요하며 충분한 VRAM이 사용 가능한 경우 GPU 텍스트 인코딩을 사용합니다. CPU의 Qwen은 VRAM을 절약할 수 있지만 인코딩 속도가 느립니다. GPU의 Qwen은 레이어 오프로드를 사용합니다. stable-diffusion.cpp에서 Auto는 선택한 엔진을 따릅니다. CUDA를 강제하려면 CUDA 빌드가 필요합니다.",
     "generationDevice": "세대: CPU / GPU",
     "deviceNote": "이러한 구성 요소에는 독립적인 장치 선택이 있습니다. 자동은 사용 가능한 하드웨어를 사용합니다. 기본 NVFP4는 생성을 위해 항상 호환 가능한 GPU가 필요하며 충분한 VRAM이 사용 가능한 경우 GPU 텍스트 인코딩을 사용합니다. CPU의 Qwen은 VRAM을 절약할 수 있지만 인코딩 속도가 느립니다. GPU의 Qwen은 레이어 오프로드를 사용합니다. stable-diffusion.cpp에서 Auto는 선택한 엔진을 따릅니다. CUDA를 강제하려면 CUDA 빌드가 필요합니다.",

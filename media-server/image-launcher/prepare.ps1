@@ -129,5 +129,6 @@ foreach($family in @('cuda','cpu','vulkan')) {
 $files=@(Get-ChildItem -LiteralPath $Output -File -Recurse | Where-Object Name -ne 'manifest.json' | ForEach-Object { @{path=[IO.Path]::GetRelativePath($Output,$_.FullName);bytes=$_.Length;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()} })
 $manifest=@{schema=1;cuda_toolkit=$pin.cudaToolkit;nvcc=$pin.nvcc;source_revision=$pin.revision;ggml_revision=$pin.ggmlRevision;architectures=$pin.cudaArchitectures;legacy_route='Vulkan when exposed by driver, otherwise CPU';platform=$pin.platform;files=$files}
 $manifest.esrgan_sha256='3acf673f80617b6e4af130662dd30ddadd6361f993c43216a4fb646a945c0cbc'
+$manifest.qwen_encoder_sha256=(Get-FileHash -LiteralPath (Join-Path $PSScriptRoot 'qwen_encoder.cpp') -Algorithm SHA256).Hash.ToLowerInvariant()
 $manifest | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $Output 'manifest.json') -Encoding utf8
 Write-Output "Image engine launcher: $Output/novera-image-engine.exe"

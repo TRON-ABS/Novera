@@ -145,7 +145,7 @@
     "ggufGuidance": "ガイダンス(CFG)\nFLUX.2 Klein 4Bの場合、画像GGUF、互換性のあるQwen3-4BテキストエンコーダGGUF、FLUX.2 VAEおよびsd-cliを選択する。実行可能ファイルは、提供されたライブラリとともに保管してください。 Auto は、そのビルドで利用可能なデバイスを使用します。 CPU は CPU を強制し、CUDA には CUDA ビルドが必要です。蒸留クラインは通常 4 ステップと CFG 1 を使用します。基本バリアントには独自の設定が必要です。モデル ファイルは自動的にはダウンロードされません。",
     "ggufNote": "拡散モデル、テキスト エンコーダ、VAE を個別に選択します。 FLUX.2 Klein 4B の場合は、GGUF バリアントを含む互換性のある Qwen3-4B エンコーダを使用します。サポートされている NVFP4 ファイルは、Python と PyTorch を使用して、より大きな互換性キャッシュに一度準備されます。オリジナルは変更されません。これには追加のディスク容量と RAM が必要です。 sd-cli をそのライブラリとともに保持します。自動は利用可能なハードウェアを使用します。 CUDA には CUDA ビルドが必要です。 Distilled Klein は通常 4 ステップと CFG 1 を使用します。ウェイトはダウンロードされません。",
     "ggufWrongModel": "このGGUFにはテキストエンコーダが含まれている。エンコーダフィールドでそれを選択し、画像フィールドで別の拡散モデルを選択します。",
-    "nativeNote": "ネイティブ NVFP4 CUDA: FLUX.2 Klein 4B Comfy ウェイト、Qwen3-4B GGUF エンコーダー、および FLUX.2 Safetensors VAE。 Blackwell (RTX 50 シリーズまたは互換性)、Python、CUDA PyTorch、およびオプションの NVFP4 依存関係が必要です。テキストから画像への変換のみ。サポートされていないハードウェアは明示的に失敗します。互換性を確保するには、stable-diffusion.cpp を選択してください。 BF16 拡散キャッシュはありません。",
+    "nativeNote": "ネイティブ NVFP4 CUDA: FLUX.2 Klein 4B Comfy ウェイト、Qwen3-4B GGUF エンコーダー、および FLUX.2 Safetensors VAE。 Blackwell (RTX 50 シリーズまたは互換性)、Python、CUDA PyTorch、およびオプションの NVFP4 依存関係が必要です。テキストから画像への変換のみ。サポートされていないハードウェアは明示的に失敗します。互換性を確保するには、stable-diffusion.cpp を選択してください。 BF16 拡散キャッシュはありません。 Novera は Qwen を GGUF ファイルから直接読み込みます。",
     "encoderDevice": "テキストエンコーダ:CPU / GPU",
     "generationDevice": "世代:CPU / GPU",
     "deviceNote": "これらのコンポーネントには、独立したデバイスの選択肢があります。自動は利用可能なハードウェアを使用します。ネイティブ NVFP4 は生成に互換性のある GPU を常に必要とし、十分な VRAM が空いた場合は GPU テキスト エンコーディングを使用します。 CPU 上の Qwen は VRAM を節約できますが、エンコードが遅くなります。 GPU 上の Qwen はレイヤー オフロードを使用します。 Stable-diffusion.cpp では、Auto は選択したエンジンに従います。 CUDA を強制するには CUDA ビルドが必要です。",
