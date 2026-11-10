@@ -145,7 +145,7 @@
     "ggufGuidance": "指导(CFG)",
     "ggufNote": "分别选择扩散模型、文本编码器和VAE。对于 FLUX.2 Klein 4B,请使用兼容的 Qwen3-4B 编码器,包括其 GGUF 变体。支持的 NVFP4 文件使用 Python 和 PyTorch 一次性准备到更大的兼容性缓存中;原件保持不变。这需要额外的磁盘空间和 RAM。保留 sd-cli 及其库。自动使用可用的硬件; CUDA 需要 CUDA 构建。 Distilled Klein 通常使用 4 个步骤和 CFG 1。不下载权重。",
     "ggufWrongModel": "该GGUF包含文本编码器。在编码器字段中选择它,并在图像字段中选择单独的扩散模型。",
-    "nativeNote": "原生 NVFP4 CUDA:FLUX.2 Klein 4B Comfy 权重、Qwen3-4B GGUF 编码器和 FLUX.2 Safetensors VAE。需要 Blackwell(RTX 50 系列或兼容版)、Python、CUDA PyTorch 和可选的 NVFP4 依赖项。仅文本到图像。不支持的硬件明显失败;选择 stable-diffusion.cpp 以实现兼容性。无 BF16 扩散缓存。",
+    "nativeNote": "原生 NVFP4 CUDA:FLUX.2 Klein 4B Comfy 权重、Qwen3-4B GGUF 编码器和 FLUX.2 Safetensors VAE。需要 Blackwell(RTX 50 系列或兼容版)、Python、CUDA PyTorch 和可选的 NVFP4 依赖项。仅文本到图像。不支持的硬件明显失败;选择 stable-diffusion.cpp 以实现兼容性。无 BF16 扩散缓存。 Novera 直接从 GGUF 文件里读 Qwen。",
     "encoderDevice": "文本编码器:CPU/GPU",
     "generationDevice": "生成:CPU/GPU",
     "deviceNote": "这些组件具有独立的设备选择。自动使用可用的硬件;本机 NVFP4 始终需要兼容的 GPU 进行生成,并在有足够的 VRAM 空闲时使用 GPU 文本编码。 CPU 上的 Qwen 可以节省 VRAM,但编码速度较慢。 GPU 上的 Qwen 使用层卸载。在 stable-diffusion.cpp 中,Auto 遵循选定的引擎;强制 CUDA 需要 CUDA 构建。",

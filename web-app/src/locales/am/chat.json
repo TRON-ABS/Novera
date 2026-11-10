@@ -145,7 +145,7 @@
     "ggufGuidance": "መመሪያ (CFG)",
     "ggufNote": "የስርጭት ሞዴሉን፣ የጽሑፍ ኢንኮደርን እና VAEን ለየብቻ ይምረጡ። ለFLUX.2 Klein 4B፣ የGGUF ተለዋጮችን ጨምሮ ተኳሃኝ የሆነ የQwen3-4B ኢንኮደር ይጠቀሙ። የሚደገፉ NVFP4 ፋይሎች አንድ ጊዜ ከ Python እና PyTorch ጋር ወደ ትልቅ የተኳሃኝነት መሸጎጫ ይዘጋጃሉ። ኦርጅናሎች ሳይለወጡ ይቆያሉ. ይህ ተጨማሪ የዲስክ ቦታ እና ራም ያስፈልገዋል. ኤስዲ-ክሊን ከቤተ-መጽሐፍቶቹ ጋር አቆይ። በራስ-ሰር የሚገኝ ሃርድዌር ይጠቀማል; CUDA የCUDA ግንባታ ያስፈልገዋል። Distilled Klein በመደበኛነት 4 ደረጃዎችን እና CFG 1 ይጠቀማል. ምንም ክብደት አይወርድም.",
     "ggufWrongModel": "ይህ GGUF የጽሑፍ ኢንኮደር ይዟል። በመቀየሪያ መስኩ ውስጥ ይምረጡት እና በምስሉ መስኩ ውስጥ የተለየ የስርጭት ሞዴል ይምረጡ።",
-    "nativeNote": "ቤተኛ NVFP4 CUDA፡ FLUX.2 Klein 4B ምቹ ክብደቶች፣ Qwen3-4B GGUF ኢንኮደር እና FLUX.2 Safetensors VAE። ብላክዌል (RTX 50 ተከታታይ ወይም ተኳሃኝ)፣ Python፣ CUDA PyTorch እና አማራጭ የNVFP4 ጥገኞች ያስፈልገዋል። ጽሑፍ-ወደ-ምስል ብቻ። የማይደገፍ ሃርድዌር በግልጽ አይሳካም; ለተኳሃኝነት stable-diffusion.cpp ን ይምረጡ። ምንም BF16 ስርጭት መሸጎጫ የለም።",
+    "nativeNote": "ቤተኛ NVFP4 CUDA፡ FLUX.2 Klein 4B ምቹ ክብደቶች፣ Qwen3-4B GGUF ኢንኮደር እና FLUX.2 Safetensors VAE። ብላክዌል (RTX 50 ተከታታይ ወይም ተኳሃኝ)፣ Python፣ CUDA PyTorch እና አማራጭ የNVFP4 ጥገኞች ያስፈልገዋል። ጽሑፍ-ወደ-ምስል ብቻ። የማይደገፍ ሃርድዌር በግልጽ አይሳካም; ለተኳሃኝነት stable-diffusion.cpp ን ይምረጡ። ምንም BF16 ስርጭት መሸጎጫ የለም። Novera Qwenን ከGGUF ፋይሉ በቀጥታ ያነባል።",
     "encoderDevice": "የጽሁፍ መቀየሪያ፡ ሲፒዩ/ጂፒዩ",
     "generationDevice": "ትውልድ: ሲፒዩ / ጂፒዩ",
     "deviceNote": "እነዚህ ክፍሎች ገለልተኛ የመሳሪያ ምርጫዎች አሏቸው። በራስ-ሰር የሚገኝ ሃርድዌር ይጠቀማል; ቤተኛ NVFP4 ሁል ጊዜ ለትውልድ ተኳሃኝ ጂፒዩ ይፈልጋል እና በቂ ቪራም ነፃ ሲሆን የጂፒዩ ጽሑፍ ኢንኮዲንግ ይጠቀማል። Qwen በሲፒዩ ላይ VRAMን መቆጠብ ይችላል ነገር ግን ቀርፋፋ ኢንኮዲንግ ነው። Qwen በጂፒዩ የንብርብር ማጥፋትን ይጠቀማል። በ stable-diffusion.cpp, አውቶሞቢል የተመረጠውን ሞተር ይከተላል; CUDA ማስገደድ የCUDA ግንባታ ያስፈልገዋል።",

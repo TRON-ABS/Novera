@@ -145,7 +145,7 @@
     "ggufGuidance": "توجيه (CFG)",
     "ggufNote": "اختر نموذج الـ diffusion، وtext encoder، والـ VAE لحالهم. لـ FLUX.2 Klein 4B، استخدم encoder متوافق من Qwen3-4B، بما فيه من نسخ GGUF. ملفات NVFP4 المدعومة تجهز مرة وحدة بـ Python و PyTorch في cache أكبر عشان التوافق؛ الأصلية ما تتغير. هالشي يحتاج مساحة قرص و RAM زيادة. على ويندوز، Novera يشمل ويدير الـ engine لحاله. الأوتو يستخدم الهاردوير المتوفر؛ CUDA يحتاج build حق CUDA. Klein المقطر عادة يستخدم 4 خطوات و CFG 1. ما ينزل أي weights.",
     "ggufWrongModel": "هالـ GGUF فيه text encoder. اختاره في خانة الـ encoder واختار نموذج diffusion ثاني في خانة الصورة.",
-    "nativeNote": "NVFP4 CUDA أصلي: أوزان FLUX.2 Klein 4B Comfy، وencoder Qwen3-4B GGUF، وVAE FLUX.2 Safetensors. يحتاج Blackwell (RTX 50 series أو متوافق)، Python، CUDA PyTorch، وتبعيات NVFP4 اختيارية. نص لـ صورة بس. الهاردوير غير المدعوم يفشل بوضوح؛ اختار stable-diffusion.cpp عشان التوافق. ما فيه cache diffusion حق BF16.",
+    "nativeNote": "NVFP4 CUDA أصلي: أوزان FLUX.2 Klein 4B Comfy، وencoder Qwen3-4B GGUF، وVAE FLUX.2 Safetensors. يحتاج Blackwell (RTX 50 series أو متوافق)، Python، CUDA PyTorch، وتبعيات NVFP4 اختيارية. نص لـ صورة بس. الهاردوير غير المدعوم يفشل بوضوح؛ اختار stable-diffusion.cpp عشان التوافق. ما فيه cache diffusion حق BF16. نوڤيرا يقرا Qwen مباشرة من ملف GGUF.",
     "encoderDevice": "برنامج ترميز النص: CPU / GPU",
     "generationDevice": "التوليد: CPU / GPU",
     "deviceNote": "هال مكونات لها خيارات أجهزة مستقلة. الأوتو يستخدم الهاردوير المتوفر؛ الـ NVFP4 الأصلي دايمًا يحتاج GPU متوافق للتوليد ويستخدم ترميز نص الـ GPU إذا كان فيه VRAM فاضي كافي. الـ Qwen على CPU يوفر VRAM بس الترميز يصير بطيء. الـ Qwen على GPU يستخدم تفريغ الطبقات. في stable-diffusion.cpp، الأوتو يتبع المحرك المختار؛ إجبار CUDA يحتاج بناء CUDA.",

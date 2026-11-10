@@ -9,6 +9,10 @@ function Prepare-NoveraImageEngine([string]$Repo) {
     $record = Get-Content -LiteralPath (Join-Path $runtime 'manifest.json') -Raw | ConvertFrom-Json
     $pin = Get-Content -LiteralPath (Join-Path $Repo 'media-server/image-launcher/toolchain.json') -Raw | ConvertFrom-Json
     if ($record.source_revision -ne $pin.revision -or $record.cuda_toolkit -ne $pin.cudaToolkit) { throw 'Image runtime is not the pinned build.' }
+    $qwenSource = Join-Path $Repo 'media-server/image-launcher/qwen_encoder.cpp'
+    if ($record.qwen_encoder_sha256 -ne (Get-FileHash -LiteralPath $qwenSource -Algorithm SHA256).Hash) {
+        throw 'Rebuild the image runtime with the Qwen GGUF encoder before packaging Desktop.'
+    }
     $destination = Join-Path $Repo 'src-tauri/resources/image-engine'
     foreach ($entry in $record.files) {
         $source = [IO.Path]::GetFullPath((Join-Path $runtime $entry.path))

@@ -4,11 +4,15 @@ Packed diffusion weights stay packed. GEMMs use PyTorch scaled_mm with NVFP4
 recipes; no BF16 weight cache and no eager/dequantization fallback in those GEMMs.
 Layout specification: https://github.com/Comfy-Org/comfy-quants/blob/main/docs/formats/nvfp4.md
 """
-import gc
 import json
 import os
+import subprocess
+import sys
+import tempfile
 import time
 from pathlib import Path
+
+ENCODER_SHAPE = (1, 512, 7680)
 
 
 def native_available():
@@ -132,39 +136,70 @@ def encoder_target(requested):
     if requested == 'cuda' and not available:
         raise RuntimeError('NVFP4_NATIVE_UNAVAILABLE: encoder CUDA unavailable')
     if requested == 'auto':
-        # Qwen3-4B expands to roughly 8 GB BF16. Prefer CPU when there is no
-        # headroom for it, avoiding repeated PCIe transfers on small GPUs.
-        # Explicit CUDA remains available with one-block-at-a-time offload.
+        # Keep headroom for the CUDA renderer on smaller GPUs.
         return 'cuda' if available and torch.cuda.mem_get_info()[0] >= 10 * 1024**3 else 'cpu'
     return requested
 
 
-def encode_prompt(path, prompt, config_dir, emit, device='cuda'):
+def encode_prompt(path, prompt, runtime_root, emit, device):
     import torch
-    from transformers import AutoModelForCausalLM, AutoTokenizer, Qwen3Config
-    from accelerate import cpu_offload
-    text_config = json.loads((config_dir/'text_encoder'/'config.json').read_text())
-    config = Qwen3Config(**{k:v for k,v in text_config.items() if not k.startswith('_')})
-    emit(stage='loading', progress=5)
-    tokenizer = AutoTokenizer.from_pretrained(str(config_dir/'text_encoder'), gguf_file=str(path), local_files_only=True, trust_remote_code=False, fix_mistral_regex=False)
-    encoder = AutoModelForCausalLM.from_pretrained(str(config_dir/'text_encoder'), gguf_file=str(path), config=config, dtype=torch.bfloat16, local_files_only=True, trust_remote_code=False, low_cpu_mem_usage=True).eval()
-    if device == 'cuda':
-        cpu_offload(encoder.model, execution_device=torch.device('cuda'), offload_buffers=True)
-    text = tokenizer.apply_chat_template([{'role':'user','content':prompt}], tokenize=False, add_generation_prompt=True, enable_thinking=False)
-    inputs = tokenizer(text, return_tensors='pt', padding='max_length', truncation=True, max_length=512).to(device)
-    emit(stage='loading', progress=20, encoder_device=device)
-    with torch.inference_mode():
-        out = encoder.model(**inputs, output_hidden_states=True, use_cache=False)
-        embeds = torch.stack([out.hidden_states[i] for i in (9,18,27)], dim=1).permute(0,2,1,3).reshape(1,512,7680).contiguous()
-    del out, inputs, encoder, tokenizer
-    gc.collect(); torch.cuda.empty_cache()
-    return embeds.to('cuda')
+
+    if not runtime_root:
+        raise RuntimeError('Qwen GGUF runtime directory is missing')
+    root = Path(runtime_root)
+    runtime = root / device if (root / device).is_dir() else root
+    emit(stage='loading', progress=20, encoder_device=device, encoder_backend='gguf-direct')
+    with tempfile.TemporaryDirectory(prefix='novera-qwen-') as temp:
+        output = Path(temp) / 'prompt.f32'
+        result = subprocess.run(
+            [sys.executable, str(Path(__file__).resolve()), str(runtime.resolve()),
+             str(Path(path).resolve()), device, str(output), str(os.getpid())],
+            input=prompt.encode('utf-8'), stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0),
+        )
+        if result.returncode:
+            detail = result.stderr.decode('utf-8', errors='replace').strip().splitlines()
+            message = detail[-1] if detail else f'exit {result.returncode}'
+            raise RuntimeError(f'Qwen GGUF encoder failed on {device}: {message}')
+        if not output.is_file() or output.stat().st_size != 512 * 7680 * 4:
+            raise RuntimeError('Unexpected Qwen GGUF embedding size')
+        values = torch.frombuffer(bytearray(output.read_bytes()), dtype=torch.float32)
+    if not torch.isfinite(values).all():
+        raise RuntimeError('Invalid Qwen GGUF embeddings')
+    return values.reshape(ENCODER_SHAPE)
+
+
+def run_gguf_encoder(runtime, model, device, output, parent):
+    import ctypes
+    from contextlib import nullcontext
+    from math import prod
+    from worker import watch_parent
+
+    watch_parent(int(parent))
+    name = {'win32': 'stable-diffusion.dll', 'darwin': 'libstable-diffusion.dylib'}.get(
+        sys.platform, 'libstable-diffusion.so',
+    )
+    dll_scope = os.add_dll_directory(runtime) if sys.platform == 'win32' else nullcontext()
+    with dll_scope:
+        library = ctypes.CDLL(str(Path(runtime) / name))
+        encode = library.novera_encode_qwen_gguf
+        encode.argtypes = (ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p,
+                           ctypes.c_bool, ctypes.POINTER(ctypes.c_float), ctypes.c_size_t)
+        encode.restype = ctypes.c_int
+        values = (ctypes.c_float * prod(ENCODER_SHAPE))()
+        status = encode(runtime.encode('utf-8'), model.encode('utf-8'), sys.stdin.buffer.read(),
+                        device == 'cuda', values, len(values))
+        if status:
+            detail = {1: 'invalid output buffer', 2: 'backend unavailable',
+                      3: 'invalid or unsupported Qwen3-4B GGUF', 4: 'invalid embedding shape'}
+            raise RuntimeError(detail.get(status, 'native encoder exception'))
+        Path(output).write_bytes(bytes(values))
 
 
 def generate(config, emit):
     if config.get('task', 'image') != 'image' or config.get('input_image') or config.get('device', 'auto') not in ('auto','cuda'):
         raise RuntimeError('NVFP4_NATIVE_UNAVAILABLE')
-    if not str(config.get('prompt','')).strip() or len(config['prompt']) > 32000:
+    if not str(config.get('prompt','')).strip() or len(config['prompt']) > 32000 or '\0' in config['prompt']:
         raise ValueError('A bounded prompt is required')
     for name, low, high in [('width',64,2048),('height',64,2048),('steps',1,100),('seed',0,2**32-1)]:
         value = config[name]
@@ -189,7 +224,9 @@ def generate(config, emit):
     torch.cuda.reset_peak_memory_stats()
     start = time.monotonic()
     encoder_device = encoder_target(config.get('encoder_device') or 'auto')
-    embeds = encode_prompt(config['cpp_llm'], config['prompt'], config_dir, emit, encoder_device)
+    embeds = encode_prompt(
+        config['cpp_llm'], config['prompt'], config.get('encoder_runtime'), emit, encoder_device,
+    ).to(device='cuda', dtype=torch.bfloat16)
     torch.cuda.synchronize()
     encoding_seconds = time.monotonic() - start
     emit(stage='loading', progress=35)
@@ -218,4 +255,11 @@ def generate(config, emit):
     calls = sum(module.calls for module in modules)
     if calls == 0:
         raise RuntimeError('NVFP4 native GEMM did not execute')
-    return result.images[0], {'native_nvfp4':True,'native_matmuls':calls,'native_layers':len(modules),'gpu':torch.cuda.get_device_name(),'capability':list(torch.cuda.get_device_capability()),'torch':torch.__version__,'compatibility_cache':False,'encoder_device':encoder_device,'encoder_gpu_layer_offload':encoder_device == 'cuda','encoding_seconds':encoding_seconds,'generation_seconds':generation_seconds,'peak_torch_vram_bytes':torch.cuda.max_memory_allocated()}
+    return result.images[0], {'native_nvfp4':True,'native_matmuls':calls,'native_layers':len(modules),'gpu':torch.cuda.get_device_name(),'capability':list(torch.cuda.get_device_capability()),'torch':torch.__version__,'compatibility_cache':False,'encoder_device':encoder_device,'encoder_backend':'gguf-direct','encoder_gpu_layer_offload':encoder_device == 'cuda','encoding_seconds':encoding_seconds,'generation_seconds':generation_seconds,'peak_torch_vram_bytes':torch.cuda.max_memory_allocated()}
+
+
+if __name__ == '__main__':
+    try:
+        run_gguf_encoder(*sys.argv[1:])
+    except (AttributeError, OSError, RuntimeError) as exc:
+        sys.exit(str(exc))
