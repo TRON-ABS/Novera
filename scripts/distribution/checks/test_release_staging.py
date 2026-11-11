@@ -37,6 +37,19 @@ class ReleaseStaging(unittest.TestCase):
             with self.subTest(descriptor=descriptor), self.assertRaises(ValueError):
                 staging.validate_descriptor(descriptor)
 
+    def test_windows_x64_accepts_the_msi_only_with_its_signature(self):
+        descriptor = self.descriptor()
+        descriptor['platform'] = 'windows-x86_64'
+        descriptor['publicationTag'] = 'v1.0.1'
+        for asset in descriptor['assets']:
+            asset['name'] = asset['name'].replace('_arm64-', '_x64-')
+        msi = 'Novera_1.0.1_x64_en-US.msi'
+        descriptor['assets'].append({'name': msi, 'bytes': 123, 'sha256': 'c'*64})
+        with self.assertRaisesRegex(ValueError, 'MSI must include its signature'):
+            staging.validate_descriptor(descriptor)
+        descriptor['assets'].append({'name': msi+'.sig', 'bytes': 123, 'sha256': 'c'*64})
+        staging.validate_descriptor(descriptor)
+
     def test_payload_size_and_digest_are_verified_before_network_upload(self):
         with tempfile.TemporaryDirectory() as temporary:
             file = Path(temporary)/'payload.exe'; file.write_bytes(b'reviewed payload')

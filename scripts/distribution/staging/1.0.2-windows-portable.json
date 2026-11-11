@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "version": "1.0.2",
+  "publicationTag": "v1.0.2-windows-portable",
+  "kind": "portable",
+  "platform": "windows-x86_64",
+  "runId": 43065243200,
+  "artifactId": 13889541075,
+  "artifactSha256": "490918d38f5af7f1e9594c6c641036781ae614b0c67a2315e770bb70b1b3b342",
+  "compilationCommit": "3e6830318983b92764f570f23cf2705d71e02b34",
+  "assets": [
+    {
+      "name": "Novera_1.0.2_x64-portable-update.exe",
+      "bytes": 1363924632,
+      "sha256": "cf933cc9bcb60e0ebe16c7ff0660e0d6a14a5efb69a383d791e84033e96909cb"
+    },
+    {
+      "name": "Novera_1.0.2_x64-portable-update.exe.sig",
+      "bytes": 428,
+      "sha256": "3d3d992bbc45dc0050d36dbdd2f4307dd01d7f978ba61b5eafef15d20a2e40de"
+    },
+    {
+      "name": "Novera_1.0.2_x64-portable.zip",
+      "bytes": 1363569667,
+      "sha256": "a811a0258faf4a44ecc3c4f5a35d8bbc6039c06664b9f5aca86d5a48a2ad9af8"
+    },
+    {
+      "name": "Novera_1.0.2_x64-portable.zip.sig",
+      "bytes": 420,
+      "sha256": "2442a02875c9f32dd70238f9e113432a6249235acd76f7a928ae99b6573d1c0b"
+    }
+  ]
+}
