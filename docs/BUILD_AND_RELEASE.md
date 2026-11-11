@@ -4,6 +4,10 @@
 
 ## Contrôle complet à chaque mise à jour du dépôt
 
+### Respecter le périmètre autorisé
+
+Modifier uniquement les éléments explicitement autorisés par le mainteneur. Toute extension du périmètre, y compris une modification du code, de la configuration, des ressources ou du comportement d’un paquet déjà validé, demande son accord préalable. Pour une demande Android limitée au numéro de version, repartir du build validé et limiter le changement à l’identité de version autorisée. Si une autre modification est techniquement nécessaire, présenter le point précis au mainteneur avant de poursuivre. L’autorisation de vérifier une compilation ne vaut pas autorisation de remplacer le paquet public.
+
 Avant la publication, comparer les versions et compteurs affichés aux sources et aux paquets effectivement validés. Contrôler la section About, le README principal et toutes ses traductions, les sélecteurs de langue, les liens de téléchargement, la vitrine et les fichiers de suivi. Compter séparément les catalogues d’interface et les README publiés. Relire la page complète du dépôt dans chaque langue. Le tableau des téléchargements, les annonces de disponibilité, les encadrés et les liens doivent tous présenter la dernière version effectivement publiée par plateforme. Conserver les chiffres des notes de version datées dans l’historique.
 
 ### Dossier unique des builds locaux sur le PC du mainteneur
