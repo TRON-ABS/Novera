@@ -1,3 +1,7 @@
+## Windows portable 1.0.2
+
+The signed portable ZIP and Program-only updater are public. The package digests match the native component validation receipt for build 43065243200. The showcase links the portable release.
+
 ## Intel Mac 1.0.2
 
 The Intel build passed its CI build and tests. Its DMG and signed update archive are available under the canonical 1.0.2 macOS tag. Native installation and replacement passed for Windows ARM64, Linux x64 and Apple Silicon on the exact published update packages.

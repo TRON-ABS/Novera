@@ -14,8 +14,9 @@
 - [macOS Apple Silicon (DMG)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64)
 - [macOS Intel (DMG)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos)
 - [CLI Windows, Linux et macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera)
+- [Windows x64 portable (ZIP)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable)
 
-Les compilations ou les vérifications de ces paquets sont en cours : Windows x64 (EXE et MSI), Windows x64 portable (ZIP).
+Les compilations ou les vérifications de ces paquets sont en cours : Windows x64 (EXE et MSI).
 <!-- novera-current-distributions:end -->
 
 ## Publications 1.0.1
