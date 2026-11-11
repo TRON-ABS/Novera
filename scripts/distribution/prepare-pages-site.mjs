@@ -110,7 +110,8 @@ ${creationPromptGuide(repository)}
     const androidButton = `<a class="button" href="${androidDownload}">Android ARM64 · APK · ${androidVersion}</a>`
     const pending = Object.keys(distributionLinks).some(platform => !Object.hasOwn(publicDistributions, platform))
     const earlier = pending ? `<a class="button" href="${repository}/releases">Versions précédentes</a>` : ''
-    html = html.replace(/<h1>Novera [\d.]+ est disponible\.<\/h1>/, '<h1>Télécharger Novera</h1>')
+    html = html.replace('<h2 id="preparation-title">Novera', '<h2 id="preparation-title">Historique Novera')
+      .replace(/<h1>Novera [\d.]+ est disponible\.<\/h1>/, '<h1>Télécharger Novera</h1>')
       .replace(/<div class="actions"><a class="button primary" href="[^"]+">Windows x64 \/ Linux x64<\/a>[\s\S]*?<\/div><\/div><figure>/,
         `<div class="actions" aria-label="Téléchargements publics">${buttons}${androidButton}${earlier}</div></div><figure>`)
       .replace(/<aside class="notice" aria-label="Disponibilité">[\s\S]*?<\/aside>/,
@@ -137,7 +138,12 @@ ${creationPromptGuide(repository)}
   if (published && facts.webExperimentalPublished === true && webVersion) {
     Object.assign(probe, { webVersion, webInterfaceLanguageCount: locales.length })
   }
-  if (Object.keys(publicDistributions).length) probe.publicDistributions = publicDistributions
+  if (Object.keys(publicDistributions).length) {
+    probe.publicDistributions = publicDistributions
+    if (publicDistributions.windows) probe.desktopReleaseVersion = publicDistributions.windows
+    if (publicDistributions.cli) probe.cliReleaseTag = `v${publicDistributions.cli}-cli-novera`
+    if (publicDistributions.macIntel) probe.macosReleaseTag = `v${publicDistributions.macIntel}-macos`
+  }
   fs.writeFileSync(path.join(output, 'pages-probe.json'), JSON.stringify(probe, null, 2) + '\n')
   return probe
 }
