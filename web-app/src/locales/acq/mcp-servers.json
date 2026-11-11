@@ -1,0 +1,101 @@
+{
+  "editServer": "تحرير MCP خادم",
+  "addServer": "إضافة MCP خادم",
+  "browserExtension": {
+    "connecting": {
+      "checking": "اتحقق من حالة التمديد..."
+    },
+    "notInstalled": {
+      "title": "Novera يكتمل المهام في متصفحك",
+      "description": "حدد التوسع ليعطي Novera وصول المتصفح",
+      "getExtension": "احصل على تمديد"
+    }
+  },
+  "serverName": "اسم الخادم",
+  "enterServerName": "أدخل اسم الخادم",
+  "command": "القيادة",
+  "enterCommand": "أدخل الأوامر (uvx او npx)",
+  "arguments": "الحجج",
+  "argument": "الحجة {{index}}",
+  "envVars": "متغيرات البيئة",
+  "key": "مفتاح",
+  "value": "القيمة",
+  "save": "حفظ",
+  "status": "وضعية",
+  "connected": "متصلة",
+  "disconnected": "مقطوع",
+  "deleteServer": {
+    "title": "حذف MCP خادم",
+    "description": "هل انت متأكد انك تريد تحذيف MCP خادم {{serverName}}هذا الإجراء لا يمكن تغييره",
+    "delete": "حذف",
+    "success": "MCP خادم {{serverName}} تم حذفها بنجاح"
+  },
+  "editJson": {
+    "title": "تحرير JSON لـ MCP خادم: {{serverName}}",
+    "titleAll": "تحرير كل MCP خادمات JSON",
+    "placeholder": "ادخل JSON تشكيل",
+    "errorParse": "فشل في تحليل البيانات الاولية",
+    "errorPaste": "غير صالح JSON صيغة في المحتوى الملصق",
+    "errorFormat": "غير صالح JSON صيغة",
+    "errorServerName": "اسم الخادم مطلوب ولا يمكن أن يكون فارغ",
+    "errorMissingServerNameKey": "JSON يجب أن يكون مهيكل ك {\"serverName\": {config}} - مفتاح اسم الخادم المفقود",
+    "errorInvalidType": "نوع غير صالح\"{{type}}\" للخادم \"{{serverName}}النمط يجب ان يكون \"studio\"، \"http\"، او \"sse\"",
+    "save": "حفظ"
+  },
+  "checkParams": "رجاءا تحقق من المعايير وفقا للتدريس.",
+  "title": "MCP خادمات",
+  "experimental": "تجربي",
+  "editAllJson": "تحرير كل الخادمات JSON",
+  "findMore": "ابحث عن المزيد MCP خادمات في",
+  "allowPermissions": "تسمح للجميع MCP تصاريح الأدوات",
+  "allowPermissionsDesc": "اذا تمكنت، كلهم MCP مكالمات الأداة سيتم الموافقة عليها تلقائياً دون إظهار أجزاء حوار الإذن. هذا الإعداد ينطبق على مستوى العالم على جميع المحادثات، بما في ذلك المحادثات الجديدة.",
+  "noServers": "لا، لا MCP خادمات وجدت",
+  "args": "ارغز",
+  "env": "Env",
+  "serverStatusActive": "خادم {{serverKey}} تم تنشيطها بنجاح",
+  "serverStatusInactive": "خادم {{serverKey}} تم إيقافه بنجاح",
+  "runtimeSettings": {
+    "title": "إعدادات وقت التشغيل",
+    "description": "تشكيل كيف Novera تدير وتجربة ثانية MCP خوادم.",
+    "toolCallTimeout": "توقيت مكالمة الأداة (ثواني)",
+    "toolCallTimeoutDesc": "وقت أقصى للانتظار MCP استجابة الأداة قبل التوقيت.",
+    "maxToolOutputChars": "ماكس أدوات خيارات الخروج",
+    "maxToolOutputCharsDesc": "أطول نتيجة أداة تبقى في المحادثة. أي شيء بعده يختصر ويتم وضع علامة على أنه قصر، لذلك نتيجة كبيرة واحدة لا يمكن أن تستنفد سياق النموذج. 0 للحفاظ على النتائج كاملة.",
+    "smartToolRouting": "ذكي MCP توجيه الأدوات",
+    "smartToolRoutingDesc": "متى تمكنت، Novera يختار ما يهم MCP الخوادم قبل تحميل الأدوات MCP قائمة الأدوات.",
+    "useLightweightRouterModel": "استخدم نموذج مخصص للتوجيه",
+    "useLightweightRouterModelDesc": "عندما يكون التوجيه الذكي مشغولا، اجري خطوة التوجيه باستخدام نموذج منفصل (غالبًا أصغر) بدلاً من نموذج الدردشة. أطفئ لاستخدام نموذج الدردشة النشط دائمًا للتوجيه.",
+    "routerModel": "نموذج التوجيه",
+    "routerModelDesc": "اختر مزود ونموذج في مكان واحد. النماذج الخفيفة فقط هي مدرجة بحيث التوجيه يبقى سريع و رخيص.",
+    "selectRouterModelPlaceholder": "اختر نموذج توجيه...",
+    "routerModelSearchPlaceholder": "نماذج البحث...",
+    "routerModelEmptyList": "لا توجد نماذج خفيفة الوزن متاحة. اضيف نموذج أصغر أو تشكيل API المفاتيح في النماذج.",
+    "routerModelEmptySearch": "لا مشابهه لـ  ⁇{{query}}”."
+  },
+  "auth": {
+    "label": "مؤلف:",
+    "state": {
+      "notApplicable": "مش مطلوب",
+      "staticHeader": "عنوان الترخيص",
+      "authenticated": "مصادقة",
+      "expired": "انتهت صلاحية",
+      "staleResource": "صُدر لغيره URL",
+      "unauthenticated": "غير مصادقة"
+    },
+    "expiresIn": "تنتهي في {{duration}}",
+    "authenticate": "تسجيل الدخول",
+    "reauthenticate": "إعادة المصادقة",
+    "clear": "توثيق واضح",
+    "waiting": "إنتظر المتصفح...",
+    "openSignInPage": "افتح صفحة تسجيل الدخول",
+    "needsAuth": "{{serverName}} احتياجات التوثيق",
+    "needsAuthHint": "تسجيل الدخول لهذه الخادم للاتصال.",
+    "authorized": "وقعت على {{serverName}}",
+    "authorizeFailed": "تسجيل الدخول {{serverName}} فشل",
+    "cleared": "تصحيحات الاعتماد المخزنة ل {{serverName}}",
+    "nothingToClear": "{{serverName}} ما كان ليه سندات مخزنة",
+    "clearFailed": "ما استطعتش تطهير الاعتمادات ل {{serverName}}",
+    "renew": "تجديد الجلسة",
+    "expiredAgo": "انتهت صلاحية {{duration}} من وقت سابق"
+  }
+}

@@ -1,5 +1,5 @@
 import { localStorageKey } from '@/constants/localStorage'
-import { isSupportedLanguage, matchSystemLanguage } from '@/modules/interface/languages'
+import { isSupportedLanguage, languageDirection, matchSystemLanguage } from '@/modules/interface/languages'
 import { browserLanguagePreferences } from '@/modules/platform/browser-language'
 import { intlLocale } from '@/utils/intlLocale'
 
@@ -135,7 +135,7 @@ function syncDocumentLanguage(language: string): void {
   if (typeof document === 'undefined') return
   const aliases: Record<string, string> = { pbt: 'ps-AF', ars: 'ar-SA', acm: 'ar-IQ', azb: 'az-Arab-IR', tts: 'th-TH', vn: 'vi', prs: 'fa-AF', uzn: 'uz', pbu: 'ps', gaz: 'om' }
   document.documentElement.lang = aliases[language] ?? language
-  document.documentElement.dir = ['pbt', 'ars', 'acm', 'azb', 'ug', 'ar', 'aec', 'pbu', 'skr', 'apc', 'apd', 'arq', 'ary', 'sd', 'prs', 'ur', 'arz', 'pnb', 'fa', 'fa-IR'].includes(language) ? 'rtl' : 'ltr'
+  document.documentElement.dir = languageDirection(language)
 }
 
 // Change language function

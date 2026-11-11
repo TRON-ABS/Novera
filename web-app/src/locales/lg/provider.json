@@ -1,0 +1,18 @@
+{
+  "addProvider": "Okwongerako Omuwa",
+  "addOpenAIProvider": "Yongera ku Custom Provider",
+  "enterNameForProvider": "Erinnya ly'omugabi (e.g. my-llm-server)",
+  "apiTypeLabel": "Enkola ya API",
+  "apiTypeOpenAI": "Ekwatagana ne OpenAI",
+  "apiTypeAnthropic": "Ekwatagana n’abantu",
+  "baseUrlLabel": "URL y’omusingi",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "Ekisumuluzo kya API",
+  "apiKeyPlaceholder": "Teeka ekisumuluzo kyo ekya API",
+  "invalidBaseUrl": "URL ya base erina okuba URL ya http(s) entuufu",
+  "globalSettings": "Ensengeka z'ensi yonna",
+  "stripReasoning": "Ggyako ensonga okuva mu mbeera",
+  "stripReasoningDesc": "Ggyawo ebirimu eby’okulowooza/okulowooza ku kukyuka okwasooka nga tonnaddamu kuweereza byafaayo, mu bagaba bonna. Erongoosa okuddamu okukozesa KV-cache ku models ez'omu kitundu, naye models ezimu (e.g. newer Qwen releases) ziteesa okugikuuma olw'ensonga ennungi ey'okukyusakyusa emirundi mingi.",
+  "providerAlreadyExists": "Omugabi ayitibwa {{name}} yaliwo dda."
+}

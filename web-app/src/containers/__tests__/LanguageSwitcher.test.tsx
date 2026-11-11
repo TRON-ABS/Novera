@@ -34,8 +34,8 @@ it('selects Bengali by its native label, translates text, and persists bn', asyn
   await waitFor(() => expect(screen.getByRole('button', { name: 'বাংলা' })).toBeInTheDocument())
 })
 
-it('shows all 104 native names with language and automatic reading direction', async () => {
-  expect(NATIVE_LANGUAGES).toHaveLength(104)
+it('shows all 120 native names with language and automatic reading direction', async () => {
+  expect(NATIVE_LANGUAGES).toHaveLength(120)
   expect(new Set(NATIVE_LANGUAGES.map((l) => l.value))).toEqual(new Set(supportedLanguages))
   const user = userEvent.setup()
   render(<TranslationProvider><LanguageSwitcher /></TranslationProvider>)

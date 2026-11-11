@@ -1,0 +1,10 @@
+{
+  "newVersion": "Az új verzió {{version}}",
+  "updateAvailable": "A frissítés elérhető",
+  "nightlyBuild": "Nightly Build játék",
+  "showReleaseNotes": "Kibocsátási megjegyzések megjelenítése",
+  "hideReleaseNotes": "Kiadási megjegyzések elrejtése",
+  "remindMeLater": "Emlékeztessen később",
+  "downloading": "Tovább a letöltéshez...",
+  "updateNow": "Frissítsen most!"
+}

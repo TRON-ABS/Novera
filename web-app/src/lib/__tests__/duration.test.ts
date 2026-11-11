@@ -46,7 +46,7 @@ describe('formatCompactDuration', () => {
   })
 })
 
-describe('duration units in the 104 real catalogs', () => {
+describe('duration units in the 120 real catalogs', () => {
   const root = join(__dirname, '../../locales')
   const locales = readdirSync(root).filter(locale => !locale.startsWith('__'))
   const load = (locale: string) => JSON.parse(
@@ -56,7 +56,7 @@ describe('duration units in the 104 real catalogs', () => {
     load(locale)[key.split('.')[1]].replace('{{count}}', String(options?.count))
 
   it('covers all supported languages', () => {
-    expect(locales).toHaveLength(104)
+    expect(locales).toHaveLength(120)
   })
 
   it.each(locales)('%s includes a distinct unit for seconds, minutes and hours', (locale) => {

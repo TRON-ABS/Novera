@@ -1,0 +1,18 @@
+{
+  "addProvider": "Add Provider",
+  "addOpenAIProvider": "Add Custom Provider",
+  "enterNameForProvider": "Sõngd-soaba yʋʋr (b.e. my-llm-server)",
+  "apiTypeLabel": "API formã",
+  "apiTypeOpenAI": "OpenAI- sẽn zems ne taaba",
+  "apiTypeAnthropic": "Anthropic- sẽn zems ne taaba",
+  "baseUrlLabel": "Bãngr-gomdã URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API gãagã",
+  "apiKeyPlaceholder": "Pʋʋs-y y sẽn datã API gãagã",
+  "invalidBaseUrl": "Bãngr-gomdã URL segd n yaa http(s sẽn yaa sõma) URL",
+  "globalSettings": "Bõn-naands sẽn be dũniyã gill zugu",
+  "stripReasoning": "Yãk-y n tool-y neda Yãk-y n tool-y neda",
+  "stripReasoningDesc": "Yãk-y reasoning goamã sõs-kʋdã pʋgẽ ka y tʋm historiqueã n lebge ye, provider fãa yĩnga. A sõngda KV-cacheã t’a lebg tʋme. La modɛl kẽer, wala Qwen versio-paalgã, sagenda tɩ y gũus reasoningã sõs sẽn ya woko yĩnga.",
+  "providerAlreadyExists": "Ned sẽn kõt-b bũmbã yʋʋr la a {{name}} b zoe n beeme."
+}

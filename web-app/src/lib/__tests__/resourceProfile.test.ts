@@ -58,10 +58,10 @@ describe('automatic resource configuration', () => {
     expect(modelEngine(omni)).toBe('llamacpp')
     expect(modelEngine({ ...omni, model_name: 'other/any-model' })).toBe('future')
   })
-  it('has every reused configuration message in all 104 locale catalogs', () => {
+  it('has every reused configuration message in all 120 locale catalogs', () => {
     const directory = resolve(__dirname, '../../locales')
     const locales = readdirSync(directory, { withFileTypes: true }).filter(entry => entry.isDirectory() && entry.name !== '__tests__')
-    expect(locales).toHaveLength(104)
+    expect(locales).toHaveLength(120)
     const keys = {
       hub: ['catalog.advisorNote', 'catalog.reasonSmall', 'catalog.tipLimited', 'catalog.context', 'catalog.hardwareUnknown', 'catalog.engine', 'catalog.check'],
       chat: ['creation.auto', 'creation.text', 'creation.local', 'creation.cloudNote', 'creationInstall.error'],

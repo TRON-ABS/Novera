@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Kód",
+    "preview": "Előnézet",
+    "previewStreaming": "Elérhető, amikor a generáció befejeződik",
+    "unresolvedAssets_one": "1 A relatív elérési utak nem rendelkeznek alapértelmezett elérési útvonallal. URL Ellene szavaztam.",
+    "unresolvedAssets_other": "{{count}} A relatív elérési utak nem rendelkeznek alapértelmezett elérési útvonallal. URL Ellene szavaztam."
+  },
+  "assistants": "Asszisztensek",
+  "hardware": "Hardver",
+  "mcp-servers": "MCP Szerverek",
+  "local_api_server": "Helyi API Kiszolgáló",
+  "remote_access": "Távoli hozzáférés szolgáltatások",
+  "integrations": "Integrációk",
+  "experimental": "Kísérleti",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Proxy",
+  "web_search": "Keresés a weben",
+  "shell": "Shell",
+  "browse": "Böngészés",
+  "moreControls": "További vezérlők",
+  "starting": "Kezdődik a...",
+  "activeSuffix": " (Aktív)",
+  "extensions": "Kiterjesztés",
+  "attachments": "Mellékletek",
+  "general": "Általános",
+  "settings": "Beállítások",
+  "modelProviders": "Modell szolgáltatók listája",
+  "localProviders": "Helyi",
+  "remoteProviders": "Távoli",
+  "manageProviders": "Szolgáltatók kezelése",
+  "hiddenProviders": "{{count}} letiltott",
+  "hideProvider": "Szolgáltató elrejtése",
+  "showProvider": "Szolgáltató megjelenítése",
+  "interface": "Interfész",
+  "appearance": "Megjelenés",
+  "privacy": "Adatvédelem",
+  "keyboardShortcuts": "Parancsikonok",
+  "home": "Otthon.",
+  "cowork": "Cowork",
+  "newSession": "Új munkamenet",
+  "artifacts": "Tárgyak",
+  "customize": "Testreszabás",
+  "local": "Helyi",
+  "selectFolder": "Mappa kiválasztása",
+  "selectModel": "Először válasszon egy modellt",
+  "commands": "Parancsok",
+  "cmdHelp": "Az elérhető parancsok listája",
+  "cmdClear": "A munkamenet törlése",
+  "cmdModels": "Váltás az aktív modellre",
+  "cmdModelsHint": "Típus /models Ezután válassza ki a modellt a listából",
+  "cmdModelSwitched": "Átvált a következőre: {{name}}",
+  "cmdUnknown": "Ismeretlen parancs: {{name}}Próbáld meg. /help",
+  "cmdBusy": "Ezt nem teheti meg, amíg az ügynök fut",
+  "cmdCompact": "A munkamenet környezetének tömörítése egy összefoglalóba",
+  "cmdCompacted": "Tömörített {{before}} -> {{after}} üzenetek",
+  "cmdNothingToCompact": "Még nincs semmi tömörítendő",
+  "cmdCompactFailed": "A tömörítés sikertelen volt: {{error}}",
+  "cmdPlan": "Terv mód kapcsolása (csak olvasható: az ügynök írás nélkül javasol)",
+  "cmdPlanOn": "Tervezési mód bekapcsolva: az ügyintéző írás nélkül olvassa és javaslatot tesz",
+  "cmdPlanOff": "Tervezési mód ki: normál végrehajtás",
+  "cmdTodo": "A folyamatpanel megnyitása",
+  "cmdTasks": "A háttérfeladatok panel megnyitása",
+  "cmdInit": "Tanulmányozza a projektet és írja meg a készségeket és a memóriát",
+  "cmdInitRunning": "Ennek a projektnek a bevezetése",
+  "skills": "Készségek",
+  "skillsInContext": "Az ügynök számára elérhető képességek ebben a futásban",
+  "skillsTitle": "A készségek kezelése",
+  "skillsScopeProject": "Készségek a tanuláshoz {{folder}}",
+  "skillsScopeGlobal": "Globális készségek, elérhető minden ülésen",
+  "skillsScopeMerged": "Készségek a tanuláshoz {{folder}}, plusz a globális készségek, amelyeket minden munkamenet megoszt",
+  "skillOriginFolder": "mappa",
+  "skillOriginGlobal": "globális",
+  "skillsEmpty": "Még nincsenek készségek",
+  "skillsPickOrNew": "Válassza ki a szerkeszteni kívánt képességet, vagy hozzon létre újat.",
+  "skillNew": "Az új képesség",
+  "skillDelete": "Képesség törlése",
+  "skillSave": "Mentés",
+  "skillSaved": "A készség mentett",
+  "skillNameRequired": "A képesség neve kötelező",
+  "skillNamePlaceholder": "Képzettség",
+  "skillContentPlaceholder": "Ismertesse az újrafelhasználható eljárást Markdown…",
+  "skillHubImport": "Importálás hubból",
+  "skillHubTitle": "Anthropic A készség hub",
+  "skillHubEmpty": "Nem találhatók készségek a központban",
+  "skillImport": "Importálás",
+  "skillReimport": "Újrabehozatal",
+  "skillImported": "Importált {{name}}",
+  "sessions": "Ülésszakok",
+  "deleteSession": "Munkamenet törlése",
+  "deleteSessionTitle": "Törli a munkamenetet?",
+  "deleteSessionBody": "\"{{title}}\" és az átirata véglegesen törlődik. Ezt a műveletet nem lehet visszavonni.",
+  "newChat": "Új beszélgetés",
+  "newAgentChat": "Új ügynök chat",
+  "chats": "Beszélgetés",
+  "favorites": "Kedvencek",
+  "recents": "Legutóbbi",
+  "hub": "Hub",
+  "helpSupport": "Súgó & támogatás",
+  "helpUsImproveJan": "Segítsen nekünk fejlődni Novera",
+  "analyticsConsentDetail": "Névtelen adatokat gyűjtünk, hogy megértsük a funkció használatát. A csevegéseket és a személyes adatokat soha nem követjük nyomon. Ezt bármikor módosíthatja a Beállítások > Adatvédelem menüpontban.",
+  "analyticsConsentQuestion": "Szeretne segíteni a Novera fejlesztésében?",
+  "unstarAll": "Az összes eltávolítása",
+  "unstar": "Unstar",
+  "deleteAll": "Az összes törlése",
+  "star": "Csillag",
+  "rename": "Átnevezés",
+  "delete": "Törlés",
+  "copied": "Megértettem!",
+  "dataFolder": "Adatmappa",
+  "others": "Egyéb",
+  "language": "Nyelv",
+  "login": "Jelentkezz be!",
+  "loginWith": "Jelentkezz be! {{provider}}",
+  "loginFailed": "Nem sikerült bejelentkezni",
+  "logout": "Kijelentkezés",
+  "loggingOut": "Kijelentkezés folyamatban...",
+  "loggedOut": "Sikeresen kijelentkezett",
+  "logoutFailed": "Nem sikerült kijelentkezni",
+  "profile": "Profil",
+  "reset": "Visszaállítás",
+  "search": "Keresés",
+  "searchThreads": "Keresés a beszélgetésekben…",
+  "toNavigate": "Kattintson ide a navigáláshoz",
+  "toSelect": "Kattintson ide a kiválasztáshoz",
+  "toClose": "Kattints ide a bezáráshoz",
+  "clearRecent": "Tiszta.",
+  "name": "Név",
+  "cancel": "Mégse",
+  "dismiss": "Elvetés",
+  "create": "Létrehozás",
+  "save": "Mentés",
+  "edit": "Szerkesztés",
+  "copy": "Másolás",
+  "back": "Vissza",
+  "close": "Bezárás",
+  "done": "Kész.",
+  "next": "Következő",
+  "finish": "Befejezés",
+  "skip": "Hajók",
+  "allow": "Engedélyezés",
+  "deny": "Megtagadás",
+  "start": "Kezdés",
+  "stop": "Állj!",
+  "preview": {
+    "loading": "Megnyitás…",
+    "unsupported": "Novera Nem tudjuk megjeleníteni ezt a típusú fájlt. Nyisd meg egy másik alkalmazásban való megtekintéshez.",
+    "outside": "A fájl már nincs a munkamenet munkaterületén.",
+    "tooLarge": "A fájl túl nagy az előnézethez. Nyissa meg egy másik alkalmazásban.",
+    "reload": "Újratöltés",
+    "allowNetwork": "Hálózati hozzáférés engedélyezése",
+    "unsandboxed": "Futtatás elkülönítés nélkül: a mentett adatok és a helyi fájlok elérhetők",
+    "unresolvedRefs_one": "1 A fájl, amelyre ez az oldal hivatkozik, nem tölthető be az előnézetben. Nyissa meg, hogy böngészőben is megtekinthesse.",
+    "unresolvedRefs_other": "{{count}} Az ezen az oldalon hivatkozott fájlok nem tölthetők be az előnézetben. Nyissa meg a böngészőben való megtekintéshez.",
+    "externalRefs_one": "1 Az oldal által betöltött erőforrás blokkolva van. Kapcsolja be a \"Hálózat engedélyezése\" opciót a betöltéshez.",
+    "externalRefs_other": "{{count}} Az oldal által az internetről betöltött erőforrások blokkolva vannak. Kapcsolja be a \"Hálózat engedélyezése\" lehetőséget a betöltéshez.",
+    "scriptErrors_one": "Az oldal hibát jelentett: {{message}}",
+    "scriptErrors_other": "Az oldal jelentése {{count}} Először is: {{message}}"
+  },
+  "changes": {
+    "title": "Az ügynök változásai",
+    "empty": "Az ügynök által írt vagy szerkesztett fájlok itt jelennek meg.",
+    "a11y": "Ügynök változások: {{files}} sorok, {{additions}} hozzátette: {{deletions}} eltávolítva"
+  },
+  "modelPanel": {
+    "title": "Modellbeállítások",
+    "a11y": "Modellbeállítások megnyitása",
+    "contextTooltip": "Kontextusablak: {{value}} / {{max}} token"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Képesség{{name}}' nem érhető el",
+    "kind": {
+      "skill": "Képesség",
+      "command": "Parancs",
+      "model": "Modell"
+    }
+  },
+  "compactWidth": "• Kompakt szélesség",
+  "fullWidth": "Teljes szélesség",
+  "dark": "Sötét",
+  "light": "Fény",
+  "system": "Rendszer",
+  "auto": "Automatikus",
+  "english": "Angol",
+  "medium": "Közepes",
+  "newThread": "Új beszélgetés",
+  "noResultsFound": "Nincs találat",
+  "noThreadsYet": "Még nincs beszélgetés",
+  "noThreadsYetDesc": "Új beszélgetést indítva itt megtekintheti a téma előzményeit.",
+  "downloads": "Letöltések",
+  "downloading": "Letöltés",
+  "uploadingAttachments": "Mellékletek feltöltése...",
+  "cancelDownload": "A letöltés megszakítása",
+  "downloadCancelled": "A letöltés megszűnt",
+  "downloadComplete": "A letöltés befejeződött",
+  "thinking": "- Gondolkodom.",
+  "thought": "Gondolkodás",
+  "callingTool": "Hívási eszköz",
+  "completed": "Befejezett",
+  "image": "Kép",
+  "vision": "Jövőkép",
+  "multimodal": "Multimodális",
+  "embeddings": "Beágyazás",
+  "tools": "Szerszámok",
+  "webSearch": "Keresés a weben",
+  "reasoning": "Indoklás",
+  "proactive": "Proaktív",
+  "selectAModel": "Modell kiválasztása",
+  "noToolsAvailable": "Nincsenek elérhető eszközök",
+  "noModelsFoundFor": "Nincs modell található a következőre: \"{{searchValue}}\"",
+  "failedToLoadModels": "Nem sikerült betölteni a modelleket",
+  "noModels": "Nincs talált modell",
+  "noAssistant": "Nincs asszisztens",
+  "customAvatar": "Egyéni avatár létrehozása",
+  "editAssistant": "Szerkesztő asszisztens",
+  "jan": "Novera",
+  "metadata": "Metaadatok",
+  "regenerate": "Regenerálás",
+  "threadImage": "A téma kép",
+  "editMessage": "Üzenet szerkesztése",
+  "deleteMessage": "Üzenet törlése",
+  "deleteThread": "Téma törlése",
+  "renameThread": "A szál átnevezése",
+  "threadTitle": "A téma címe",
+  "deleteAllThreads": "Az összes téma törlése",
+  "allThreadsUnfavorited": "Összes téma Unfavorite",
+  "deleteAllThreadsConfirm": "Biztosan törölni szeretné az összes témát? Ez a művelet nem vonható vissza.",
+  "addProvider": "Szolgáltató hozzáadása",
+  "addOpenAIProvider": "Hozzáadás OpenAI Szolgáltató",
+  "enterNameForProvider": "Adja meg a szolgáltató nevét",
+  "providerAlreadyExists": "Szolgáltató neve \"{{name}}\" már létezik. Kérjük, válasszon másik nevet.",
+  "adjustFontSize": "Betűméret módosítása",
+  "changeLanguage": "Nyelv módosítása »",
+  "editTheme": "Téma szerkesztése",
+  "editCodeBlockStyle": "Kódblokk stílus szerkesztése",
+  "editServerHost": "Szerver host szerkesztése",
+  "pickColorWindowBackground": "Válassza ki az ablak háttérszínét",
+  "pickColorAppMainView": "Pick Color App Fő nézet",
+  "pickColorAppPrimary": "Válassza ki a színt App Primary",
+  "pickColorAppAccent": "Válassza ki a színes App Accent",
+  "pickColorAppDestructive": "Pick Color App destruktív",
+  "apiKeyRequired": "API Kulcs szükséges",
+  "enterTrustedHosts": "Adja meg a megbízható állomásokat",
+  "placeholder": {
+    "chatInput": "Kérdezz bármit..."
+  },
+  "confirm": "Megerősítés",
+  "continue": "Folytatás",
+  "loading": "További információk...",
+  "settingUpJan": "A Novera indítása…",
+  "registeringExtensions": "Bővítmények regisztrálása…",
+  "loadingExtensions": "Bővítmények betöltése… ({{done}}/{{total}})",
+  "error": "Hiba",
+  "success": "Siker",
+  "warning": "Figyelmeztetés",
+  "conversationNotAvailable": "A beszélgetés nem érhető el",
+  "conversationNotAvailableDescription": "Az Ön által kért oldal nem található! Az Ön által kért oldal nem található!",
+  "temporaryChat": "Ideiglenes csevegés",
+  "temporaryChatTooltip": "Az ideiglenes csevegés nem jelenik meg az előzményekben",
+  "noResultsFoundDesc": "Nem találtunk a keresésnek megfelelő csevegést. Próbáljon ki egy másik kulcsszót.",
+  "searchModels": "Modellek keresése...",
+  "searchStyles": "Stílusok keresése...",
+  "createAssistant": "Asszisztens létrehozása",
+  "enterApiKey": "Belépni API Kulcs",
+  "scrollToBottom": "Görgetés az oldal aljára",
+  "generateAiResponse": "Létrehozás AI Válasz",
+  "continueAiResponse": "Folytatás a következővel: AI Válasz",
+  "addModel": {
+    "title": "Modell hozzáadása",
+    "modelId": "Modell ID",
+    "enterModelId": "Adja meg a modellt ID",
+    "addModel": "Modell hozzáadása",
+    "description": "Új modell hozzáadása a szolgáltatóhoz",
+    "exploreModels": "Lásd a modelllistát a szolgáltatótól"
+  },
+  "mcpServers": {
+    "editServer": "Szerver szerkesztése",
+    "addServer": "Szerver hozzáadása",
+    "serverName": "A szerver neve",
+    "enterServerName": "Szervernév megadása",
+    "command": "Parancs",
+    "enterCommand": "Írja be a parancsot",
+    "arguments": "Érvelések",
+    "argument": "Argumentum {{index}}",
+    "envVars": "A környezeti változók",
+    "key": "Kulcs",
+    "value": "Érték",
+    "save": "Mentés"
+  },
+  "deleteServer": {
+    "title": "Kiszolgáló törlése",
+    "delete": "Törlés"
+  },
+  "editJson": {
+    "errorParse": "Nem sikerült az elemzés JSON",
+    "errorPaste": "Nem sikerült beilleszteni JSON",
+    "errorFormat": "Érvénytelen JSON formátum",
+    "titleAll": "Az összes kiszolgáló konfigurációjának szerkesztése",
+    "placeholder": "Belépni JSON A konfiguráció megkezdése...",
+    "save": "Mentés"
+  },
+  "editModel": {
+    "title": "Modell szerkesztése: {{modelId}}",
+    "description": "Konfigurálja a modell képességeit az alábbi beállítások váltásával.",
+    "capabilities": "Képességek",
+    "tools": "Szerszámok",
+    "vision": "Jövőkép",
+    "embeddings": "Beágyazás",
+    "notAvailable": "Még nem elérhető"
+  },
+  "outOfContextError": {
+    "truncateInput": "Bemenet csonkolása",
+    "title": "Kontextusból kilépő hiba",
+    "description": "Ez a chat eléri a AIMegnövelhetjük a memóriaablakot (amelyet kontextusméretnek hívunk), hogy többet emlékezzen meg, de ez több memóriát foglalhat el a számítógépen. Megcsonkíthatjuk a bemenetet is, ami azt jelenti, hogy elfelejti a csevegési előzmények egy részét, hogy helyet biztosítson az új üzenetek számára.",
+    "increaseContextSizeDescription": "Növelni szeretné a környezet méretét?",
+    "increaseContextSize": "Környezetméret növelése"
+  },
+  "toolApproval": {
+    "title": "Eszköz engedély kérés",
+    "description": "Az asszisztens használni akarja <strong>{{toolName}}</strong>",
+    "securityNotice": "Csak megbízható eszközök engedélyezése: Az eszközök hozzáférhetnek a rendszerhez és az adatokhoz.",
+    "deny": "Megtagadás",
+    "allowOnce": "Engedélyezés egyszer",
+    "alwaysAllow": "Mindig engedélyezve"
+  },
+  "deleteModel": {
+    "title": "Modell törlése: {{modelId}}",
+    "description": "Biztosan törölni szeretné ezt a modellt? Ez a művelet nem vonható vissza.",
+    "success": "Modell {{modelId}} Az oldal véglegesen törölve lett.",
+    "cancel": "Mégsem",
+    "delete": "Törlés"
+  },
+  "deleteProvider": {
+    "title": "Szolgáltató törlése",
+    "description": "A szolgáltató és az összes modelljének törlése. Ez a művelet nem vonható vissza.",
+    "success": "Szolgáltató {{provider}} Az oldal véglegesen törölve lett.",
+    "confirmTitle": "Szolgáltató törlése: {{provider}}",
+    "confirmDescription": "Biztosan törölni szeretné ezt a szolgáltatót? Ez a művelet nem vonható vissza.",
+    "cancel": "Mégsem",
+    "delete": "Törlés"
+  },
+  "modelSettings": {
+    "label": "Modellbeállítások",
+    "title": "Modell beállítások - {{modelId}}",
+    "description": "Modellbeállítások konfigurálása a teljesítmény és a viselkedés optimalizálásához.",
+    "nglDisabledByFit": "Az automatikus illeszkedés kiválasztás GPU Kapcsolja ki az Automatikus illesztést, ha ezt manuálisan szeretné beállítani.",
+    "samplingDefaults": {
+      "title": "Alapértelmezett mintavételi paraméterek",
+      "description": "Alapértelmezett mintavételező beállítások ehhez a modellhez. Használt, hacsak nem írják felül a per-assistant vagy per-request értékek."
+    },
+    "specDraft": {
+      "section": "A spekulatív dekódolás",
+      "enable": "Spekulatív dekódolás engedélyezése",
+      "enableDescription": "Lépésenként több tokent is létrehozhat, és egyetlen lépésben ellenőrizheti őket, ami felgyorsítja a létrehozást. MTP Fejek, vagy a tervezett modell letöltött vele (MTP, Eagle3, DFlash vagy DSpark).",
+      "nMax": "Max draft tokenek",
+      "nMaxDescription": "A lépésenként húzható zsetonok maximális száma. Alapértelmezett 16.",
+      "nMin": "Min draft tokenek",
+      "nMinDescription": "A lépésenként húzandó tokenek minimális száma. Alapértelmezett 0.",
+      "pMin": "Min draft valószínűség",
+      "pMinDescription": "A kapzsi draftolás minimális valószínűsége (0–1). Alapértelmezett 0.75."
+    },
+    "templateKwargs": {
+      "section": "Csevegéssablon-beállítások",
+      "description": "További opciók, melyeket a modell chat sablonja elfogad. Küldve: chat_template_kwargs Minden kérésnél; hagyjon egy értéket az alapértelmezett értéknél, hogy a sablon dönthessen.",
+      "addCustom": "Egyéni opció hozzáadása",
+      "keyPlaceholder": "név",
+      "valuePlaceholder": "érték",
+      "add": "Hozzáadás",
+      "cancel": "Mégsem",
+      "remove": "Eltávolítás"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Nem sikerült frissíteni a modellbeállításokat"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Az adatmappa helyének módosítása",
+      "description": "Biztosan meg szeretné változtatni az adatmappa helyét? Ezzel az összes adatot áthelyezi az új helyre, és újraindítja az alkalmazást.",
+      "currentLocation": "Jelenlegi tartózkodási hely:",
+      "newLocation": "Új helyszín:",
+      "cancel": "Mégsem",
+      "changeLocation": "Hely megváltoztatása"
+    },
+    "deleteAllThreads": {
+      "title": "Az összes téma törlése",
+      "description": "Az összes téma törlődik. Ez a művelet nem vonható vissza."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Az összes beszélgetés törlése",
+      "description": "{{count}} Beszélgetések a \"{{projectName}}\" törlődik. Ez a művelet nem vonható vissza."
+    },
+    "deleteThread": {
+      "description": "Biztosan törli ezt a beszélgetést? A törlés végleges."
+    },
+    "editMessage": {
+      "title": "Üzenet szerkesztése"
+    },
+    "messageMetadata": {
+      "title": "Az üzenet metaadatai"
+    },
+    "deleteMessage": {
+      "description": "Biztosan törli ezt az üzenetet? A törlés végleges."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Valami hiba történt.",
+    "details": "Részletek"
+  },
+  "missingDependenciesDialog": {
+    "title": "Hiányzó rendszerkönyvtárak",
+    "description": "A {{backend}} A telepítés sikeresen befejeződött, de néhány szükséges rendszerkönyvtár nem található. Visszaeshet az eredeti állapotra. CPU vagy nem működik megfelelően.",
+    "installLabel": "A probléma megoldásához telepítse az alábbiakat:",
+    "download": "Letöltés",
+    "additionalLibraries": "További hiányzó könyvtárak:",
+    "missingLibraries": "Hiányzó könyvtárak:",
+    "showRawLibraries": "Mutasd! {{count}} Hiányzó könyvtárnevek"
+  },
+  "projects": {
+    "title": "Projektek",
+    "new": "Új projektek »",
+    "addProject": "Projekt hozzáadása",
+    "addToProject": "Hozzáadás a projekthez",
+    "removeFromProject": "Eltávolítás a projektből",
+    "createNewProject": "Új projekt létrehozása",
+    "editProject": "Projekt szerkesztése",
+    "deleteProject": "Projekt törlése",
+    "projectName": "A projekt neve",
+    "enterProjectName": "Adja meg a projekt nevét...",
+    "noProjectsAvailable": "Nincs elérhető projekt",
+    "noProjectsYet": "Még nincsenek projektek",
+    "noProjectsYetDesc": "Új projekt indításához kattintson a Projekt hozzáadása gombra.",
+    "projectNotFound": "A cikk nem található",
+    "projectNotFoundDesc": "Az Ön által keresett oldal nem létezik, vagy törölve lett.",
+    "selectAssistant": "Válassza ki az asszisztenst",
+    "noAssistantAssigned": "Ehhez a projekthez nincs asszisztens hozzárendelve",
+    "files": "Fájlok",
+    "filesDescription": "Hozzáadás PDFs, dokumentumok vagy más szöveg, amelyre hivatkozni lehet ebben a projektben.",
+    "uploadingFiles": "Fájlok feldolgozása...",
+    "processButton": "Hozzáadás",
+    "deleteProjectDialog": {
+      "title": "Projekt törlése",
+      "permanentDelete": "Ez véglegesen törli az összes szálat.",
+      "permanentDeleteWarning": "Ez a művelet véglegesen törli ALL Szálak a projekten belül!",
+      "deleteEmptyProject": "Ez a művelet törli a projektet \"{{projectName}}\".",
+      "saveThreadsAdvice": "A szálak mentéséhez a törlés előtt helyezze át őket a szállistára vagy egy másik projektbe.",
+      "starredWarning": "Még mindig vannak csillagos szálak a projekten belül.",
+      "deleteButton": "Törlés",
+      "successWithName": "A projekt \"{{projectName}}\" sikeresen törölve",
+      "successWithoutName": "A projekt sikeresen törlődött",
+      "error": "Nem sikerült törölni a projektet. Kérjük, próbálja újra.",
+      "ariaLabel": "Törlés {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Új projekt létrehozása",
+      "editTitle": "Projekt szerkesztése",
+      "nameLabel": "A projekt neve",
+      "namePlaceholder": "Adja meg a projekt nevét...",
+      "assistant": "Asszisztens",
+      "selectAssistant": "Asszisztens kiválasztása (nem kötelező)",
+      "noAssistant": "Nincs asszisztens",
+      "addAssistant": "Asszisztens hozzáadása",
+      "createButton": "Létrehozás",
+      "updateButton": "Frissítés",
+      "alreadyExists": "A projekt \"{{projectName}}\" már létezik",
+      "createSuccess": "A projekt \"{{projectName}}\" sikeresen létrehozva",
+      "updateSuccess": "A projekt \"{{projectName}}\" frissítés sikeresen megtörtént",
+      "saveError": "Nem sikerült elmenteni a projektet. Kérjük, próbálkozzon újra."
+    },
+    "noConversationsIn": "Nincsenek beszélgetések ebben a kategóriában. {{projectName}}",
+    "startNewConversation": "Új beszélgetés indítása ezzel: {{projectName}} alább",
+    "conversationsIn": "Beszélgetések a városban {{projectName}}",
+    "conversationsDescription": "Kattintson bármelyik beszélgetésre a csevegés folytatásához, vagy kezdjen újat az alábbiakban.",
+    "conversation": "Beszélgetés",
+    "instructions": "Használati utasítás",
+    "setup": "Beállítás",
+    "instructionsDescription": "A válasz hangjának és stílusának testreszabása",
+    "manageInstructions": "Az utasítások kezelése",
+    "thread": "szál",
+    "threads": "szálak",
+    "updated": "Frissítve:",
+    "collapseProject": "A projekt összecsukása",
+    "expandProject": "A projekt kibontása",
+    "update": "Frissítés",
+    "searchProjects": "Projektek keresése...",
+    "noProjectsFound": "Nem található projekt",
+    "tryDifferentSearch": "Próbáljon ki egy másik keresési kifejezést"
+  },
+  "attachmentsIngestion": {
+    "title": "A mellékletek beolvasási módjának kiválasztása",
+    "description": "Válassza ki, hogy ezeket a fájlokat közvetlenül a csevegésbe szeretné-e foglalni, vagy inkább beágyazásként indexeli őket.",
+    "inline": "Injektálj a chatbe",
+    "embeddings": "Beágyazások használata"
+  },
+  "attachmentInjectedIndicator": "Injektált chatbe",
+  "attachmentEmbeddedIndicator": "Beágyazott megoldások RAG",
+  "viewInjectedContent": "Injektált tartalom megtekintése",
+  "injectedContentTitle": "Injektált fájl tartalma",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Összes téma Unfavorite",
+      "description": "Minden téma el lett távolítva a kedvencek közül."
+    },
+    "deleteAllThreads": {
+      "title": "Az összes téma törlése",
+      "description": "Az oldal véglegesen törölve lett."
+    },
+    "renameThread": {
+      "title": "A szál átnevezése",
+      "description": "A téma címe át lett nevezve '{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Téma törlése",
+      "description": "Ezt az oldalt töröltük."
+    },
+    "errorCopied": {
+      "title": "A másolás sikeres",
+      "description": "A vágólapra másolt hibainformációk"
+    },
+    "errorCopyFailed": {
+      "title": "A másolás nem sikerült",
+      "description": "Nem sikerült a hibainformációkat a vágólapra másolni"
+    },
+    "editMessage": {
+      "title": "Üzenet szerkesztése",
+      "description": "Az üzenet sikeresen szerkesztve. Kérjük, várja meg a modell válaszát."
+    },
+    "appUpdateDownloaded": {
+      "title": "Alkalmazásfrissítés letöltve",
+      "description": "Az alkalmazásfrissítés sikeresen letöltődött."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Alkalmazásfrissítés letöltése sikertelen",
+      "description": "Nem sikerült letölteni az alkalmazásfrissítést. Kérjük, próbálkozzon újra."
+    },
+    "downloadComplete": {
+      "title": "Teljes verzió letöltése",
+      "description": "{{item}} A fájl letöltésre került"
+    },
+    "downloadCancelled": {
+      "title": "A letöltés megszűnt",
+      "description": "A letöltési folyamat megszakadt"
+    },
+    "downloadFailed": {
+      "title": "A letöltés sikertelen",
+      "description": "{{item}} A letöltés sikertelen.",
+      "descriptionWithReason": "{{item}} A letöltés sikertelen volt: {{reason}}",
+      "reason": {
+        "dns": "A kiszolgáló neve nem oldható fel",
+        "refused": "A kapcsolat megszakadt.",
+        "timeout": "A kapcsolat időtúllépése",
+        "tls": "Nem sikerült biztonságos kapcsolatot létesíteni.",
+        "proxy": "A proxy nem érhető el.",
+        "unreachable": "A szerver nem érhető el."
+      }
+    },
+    "openSettings": "Nyissa meg a beállításokat",
+    "openLogs": "Nyitott naplók",
+    "downloadTokenRequired": {
+      "title": "Hugging Face Token nem szükséges",
+      "description": "Ehhez a modellhez egy Hugging Face Adja hozzá a tokenjét a Beállítások menüpontban, majd próbálkozzon újra."
+    },
+    "downloadLicenseRequired": {
+      "title": "Elfogadom a modellengedélyt Hugging Face",
+      "description": "El kell fogadnod a modell licencét az oldalon. Hugging Face Letöltés előtt ellenőrizze az oldalt."
+    },
+    "downloadRateLimited": {
+      "title": "Arány korlátozott Hugging Face",
+      "description": "Az oldal nem található. Kérjük, próbálkozzon újra később, vagy lépjen kapcsolatba a webhely adminisztrátorával."
+    },
+    "modelValidationStarted": {
+      "title": "A modell érvényesítése",
+      "description": "Letöltött modell \"{{modelId}}\" sikeresen. Sértetlenség ellenőrzése..."
+    },
+    "modelValidationFailed": {
+      "title": "A modell érvényesítése sikertelen",
+      "description": "A letöltött modell \"{{modelId}}A fájl sérült lehet, vagy módosították, ezért eltávolításra került a rendszerből."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Teljes verzió letöltése",
+      "description": "Modell \"{{item}}\" sikeresen letöltött és ellenőrzött"
+    },
+    "projectCreated": {
+      "title": "A projekt létrehozva",
+      "description": "A projekt \"{{projectName}}\" sikeresen létrehozva"
+    },
+    "projectRenamed": {
+      "title": "A projekt átnevezése",
+      "description": "A projekt átnevezése \"{{oldName}}\" to \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "A projekt törölve",
+      "description": "A projekt \"{{projectName}}\" sikeresen törölve"
+    },
+    "projectAlreadyExists": {
+      "title": "A projekt már létezik",
+      "description": "A projekt \"{{projectName}}\" már létezik"
+    },
+    "projectDeleteFailed": {
+      "title": "A törlés sikertelen",
+      "description": "Nem sikerült törölni a projektet. Kérjük, próbálja újra."
+    },
+    "threadAssignedToProject": {
+      "title": "Hozzárendelt szál",
+      "description": "Hozzárendelt téma: \"{{projectName}}\" sikeresen"
+    },
+    "threadRemovedFromProject": {
+      "title": "Téma eltávolítva",
+      "description": "Téma eltávolítva a \"{{projectName}}\" sikeresen"
+    },
+    "fileUploaded": {
+      "title": "Fájl feldolgozva",
+      "description": "A fájl sikeresen feldolgozásra és indexelésre került"
+    },
+    "uploadFailed": {
+      "title": "A feldolgozás sikertelen",
+      "description": "Nem sikerült a fájl feldolgozása",
+      "subjectThisFile": "Ez a fájl",
+      "pdfMalformedXref": "{{subject}} Rendellenes alakja van PDF A kereszthivatkozási táblázat hibás, és nem lehetett elemezni. Próbálja megnyitni egy másik programban. PDF A megjelenítő megnyitása és újbóli mentése (Fájl → Nyomtatás → Mentés másként) PDF), majd töltse fel újra.",
+      "pdfScanned": "{{subject}} Úgy tűnik, hogy egy beolvasott vagy képalapú PDF. OCR Az oldal még nem támogatott — kérjük, tölts fel egy szöveges változatot. PDF.",
+      "pdfEncrypted": "{{subject}} Kérjük, távolítsa el a jelszót, és próbálja meg újra.",
+      "pdfUnsupportedFeature": "{{subject}} használja a PDF funkció Novera Még nem lehet elemezni (pl. PostScript Próbálja meg újra menteni a fájlt (Fájl → Nyomtatás → Mentés másként). PDF) a laposra simításhoz, majd töltse fel újra.",
+      "pdfGeneric": "{{subject}} A kért oldal nem található. PDFLehet, hogy a fájl sérült, vagy nem támogatott fájlformátumot használ. PDF funkció.",
+      "fileTooLarge": "{{subject}} Túl nagy. {{message}}.",
+      "unsupportedType": "Fájltípus \"{{type}}\" nem támogatott.",
+      "ioError": "Nem lehetett olvasni {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} A kért oldal nem található! {{message}}",
+      "fallback": "Nem sikerült feldolgozni {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "A fájl törölve lett",
+      "description": "A fájl el lett távolítva a projektből"
+    },
+    "deleteFailed": {
+      "title": "A törlés sikertelen",
+      "description": "Nem sikerült törölni a fájlt"
+    },
+    "fileAlreadyExists": {
+      "title": "A fájl már létezik",
+      "description": "A fájl már csatolva van ehhez a projekthez"
+    },
+    "unsupportedFileType": {
+      "title": "Nem támogatott fájltípus",
+      "description": "Fájl kiterjesztése \".{{extension}}\" nem támogatott a Project referencia esetében."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "A csatolmányok le vannak tiltva",
+      "description": "A mellékletek le vannak tiltva a Beállításokban"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "A fájl túl nagy",
+    "fileTooLargeDescription": "{{fileName}} meghaladja {{maxFileSizeMB}}MB határérték"
+  },
+  "files": {
+    "chunksCount": "{{count}} darabok",
+    "title": "Fájlok",
+    "empty": "Az Ön által csatolt fájlok és az ügynök által létrehozott fájlok itt jelennek meg.",
+    "a11y": "Fájlok: {{count}}",
+    "attachments": "Mellékletek",
+    "notImported": "Nem a munkaterületen"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp Még mindig elfoglalt",
+    "description": "Egy vagy több modell nem töltődött le időben. A kényszerleállás megszűnik llama.cpp és megszakíthatja az aktív válaszokat.",
+    "forceQuit": "Kilépés kényszerítése",
+    "forcing": "Kilépés kényszerítése…",
+    "shuttingDown": "Leállítás folyamatban…"
+  },
+  "duration": {
+    "seconds": "{{count}} mp",
+    "minutes": "{{count}} p",
+    "hours": "{{count}} óra"
+  },
+  "collapse": "Összecsukás",
+  "expand": "Kibontás",
+  "todoPanelTitle": "Haladás",
+  "todoPanelEmpty": "Még nincs feladatlista.",
+  "backgroundTasks": "Háttérben futó feladatok",
+  "subagentsRunning_one": "{{count}} futó alügynök",
+  "subagentsRunning_other": "{{count}} Futó alügynökök száma",
+  "monitorsRunning_one": "{{count}} A monitor futása",
+  "monitorsRunning_other": "{{count}} A monitorok futnak",
+  "backgroundRunning_one": "{{count}} Futó háttérfeladat",
+  "backgroundRunning_other": "{{count}} Futó háttérfeladatok",
+  "monitors": "Monitorok",
+  "monitorPolling": "Szavazás",
+  "monitorMatched": "Egyeztetett",
+  "monitorTimedOut": "Lejárt az idő",
+  "monitorStopped": "Leállítva",
+  "monitorEnded": "Befejezett",
+  "coworkWatching_one": "Figyelem. {{count}} monitor…",
+  "coworkWatching_other": "Figyelem. {{count}} monitorok…",
+  "coworkWaitingBackground": "Várakozás a háttérfeladatokra…",
+  "noBackgroundTasks": "Még nincsenek háttérfeladatok.",
+  "running": "Futás",
+  "queued": "Várólisták",
+  "waiting": "Várakozás",
+  "finished": "Kész.",
+  "subagentPhase": "fázis {{phase}}",
+  "subagentWaiting": "várakozás",
+  "viewTranscript": "Átirat megtekintése",
+  "taskWorking": "Dolgozom...",
+  "taskNoOutput": "A subagent nem hozott létre látható kimenetet.",
+  "subagentToolUses_one": "{{count}} A szerszám használata",
+  "subagentToolUses_other": "{{count}} A szerszám használata",
+  "artifactGroupCode": "Kód",
+  "artifactGroupImage": "Kép",
+  "artifactGroupDocument": "Dokumentum",
+  "artifactGroupVideo": "Videó",
+  "artifactGroupAudio": "Audió",
+  "artifactOpenPreview": "Előnézet megnyitása",
+  "artifactOpenExternal": "Megnyitás",
+  "artifactMoreActions": "Még több művelet",
+  "artifactShowInFolder": "Megjelenítés mappában",
+  "skillsUsedLabel": "Használt készségek",
+  "skillsUsed": "Használt készségek: {{skills}}",
+  "artifactsAll": "Minden",
+  "artifactsEmpty": "Még nem készült semmi. Cowork Itt jelennek meg a futók.",
+  "artifactsNoMatch": "Nincsenek egyező tárgyak.",
+  "artifactsSearch": "Keresés a tárgyak között",
+  "artifactsShowMore": "Mutasd! {{count}} több",
+  "workspace": {
+    "readsFrom": "Művei Magyarországon",
+    "writable": "Olvasás & írás",
+    "footnote": "Az ügynök közvetlenül olvassa és szerkeszti ezt a mappát. Ellenőrizze a változásokat a diff panelen.",
+    "footnoteEmpty": "Csatoljon egy mappát, hogy az ügynök dolgozhasson a projektjén, olvashatja és szerkesztheti a benne lévő fájlokat.",
+    "attach": "Mappa csatolása",
+    "change": "Mappa módosítása",
+    "detach": "Mappa leválasztása",
+    "open": "Megnyitás",
+    "reveal": "Felfedés",
+    "unavailable": "Munkaterület nem elérhető",
+    "missing": "A munkaterület mappa {{folder}} Kérjük, válasszon másik mappát.",
+    "openFailed": "Nem lehet megnyitni a munkaterületet",
+    "revealFailed": "Nem sikerült felfedni a munkaterületet",
+    "a11yWithFolder": "A projekt mappája {{folder}}, olvasási és írási hozzáféréssel csatlakoztatva. Módosítsa vagy távolítsa el.",
+    "a11yNoFolder": "Nincs projektmappa csatolva. Csatoljon egyet."
+  },
+  "coworkEmpty": {
+    "title": "Mire törekszünk?",
+    "subtitleSandbox": "Add ide! Novera Fájlokat olvas és ír, parancsokat hajt végre, és önállóan végzi el a szükséges lépéseket.",
+    "subtitleFolder": "Add ide! Novera Közvetlenül a számítógépben működik. {{folder}}, olvasni és szerkeszteni a fájlokat önmagában.",
+    "try": "Próbáld ki!",
+    "sandbox": {
+      "first": "Írjon egy véleményt Python Szkript, amely átnevezi a fájlokat a készítésük dátuma szerint",
+      "second": "Építsen egy egyoldalas irányítópultot egy CSV Beillesztem.",
+      "third": "Tervezet a README Egy projekthez, amit leírtam neked"
+    },
+    "folder": {
+      "first": "Magyarázza el, hogyan {{folder}} Össze van állítva",
+      "second": "Találj meg minden TODO és {{folder}} és csoportosítsa őket terület szerint",
+      "third": "Írjon teszteket a következő részhez: {{folder}} Rámutatok neked"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "A terminálon",
+    "a11y": "A parancsok futtatása ki van kapcsolva. Részletek.",
+    "title": "A parancsok futtatása ki van kapcsolva",
+    "body": "Novera Itt nincs homokozó, így az ügynök olvashat, írhat és szerkeszthet fájlokat a homokozójában — de nem futtathat semmit.Az ügynök csak akkor futtat shell parancsokat, ha a rendszer korlátozni tudja őket.Nem áll rendelkezésre homokozó, így az ügynök olvashat, írhat és szerkeszthet fájlokat a homokozójában — de nem futtathat semmit.",
+    "fixLinux": "A Linux használja bubblewrap. Telepítse, majd indítsa újra Novera.",
+    "fixMac": "májusOS Használja a beépített sandbox-ot /usr/bin/sandbox-execÚjraindítás Novera Amint elérhetővé válik.",
+    "fixWindows": "Windows Használat AppContainerÚjraindítás Novera Próbálja meg újra.",
+    "recheck": "Ellenőrizze újra!"
+  },
+  "planMode": {
+    "label": "Terv",
+    "tooltipOff": "Tervezzen először - az ügynök olvassa és javaslatot tesz, írás nélkül.",
+    "tooltipOn": "Tervezés: Kapcsolja ki ezt a beállítást, ha engedélyezni szeretné az ügynöknek a fájlok írását.",
+    "onAnnounce": "Tervezési mód bekapcsolva",
+    "placeholder": "Kérjen egy tervet. Az ügynök nem módosítja a fájlokat."
+  },
+  "budget": {
+    "stoppedSteps": "Megállt itt: {{max}} Az ügynök még nem fejezte be.",
+    "keepGoing": "Folytasd!",
+    "stoppedTokens": "Leállítva – ez a munkamenet elérte a token költségvetését.",
+    "compact": "Kompakt",
+    "newSession": "Új munkamenet indítása"
+  },
+  "run": {
+    "stopped": "Megállt.",
+    "failed": "A futás korán leállt.",
+    "tryAgain": "Próbálja meg újra"
+  },
+  "modelNoTools": "{{model}} Ez a modell nem tud eszközöket hívni, így nem tud ügynökként működni. Válassz egy eszközhívó modellt.",
+  "askContinue": "Folytatás",
+  "askNext": "Következő kérdés",
+  "askPrev": "Az előző kérdés",
+  "askRecommended": "Javasolt",
+  "askSelectedCount": "{{count}} kiválasztott",
+  "askSomethingElse": "Valami más.",
+  "askSomethingElsePlaceholder": "Írja be saját válaszát",
+  "submit": "Küldés",
+  "composer": {
+    "advanced": "A speciális paraméterek",
+    "modelDefaults": "A modell alapértelmezett beállításai",
+    "assistantOverrides": "Az asszisztens felülírásai",
+    "printPdf": "Nyomtatás / Mentés másként PDF",
+    "exportHint": "Olvasható formátumok: active branch. JSON: az összes üzenetverzió. A külső fájlok nincsenek csomagolva."
+  },
+  "telemetry": {
+    "summary": "Az Ön hozzájárulásával a(z) {{host}} csak a Novera verzióját és az operációs rendszer adatait kapja meg. A beszélgetéseket és az állandó azonosítót nem kapja meg.",
+    "unavailable": "A statisztikák küldése nincs beállítva. Az alkalmazás nem küld adatot."
+  },
+  "errorTracking": {
+    "title": "Hibakövetés",
+    "summary": "A(z) {{host}} számára küldött opcionális jelentés tartalma: a hiba típusa, helye a kódban, a verzió és az operációs rendszer. A jelentés nem tartalmaz beszélgetéseket, nyers hibaüzeneteket vagy kulcsokat. A küldés bármikor kikapcsolható.",
+    "unavailable": "A hibakövetés nincs beállítva. Az alkalmazás nem küld jelentést."
+  },
+  "access": {
+    "read": "Csak olvasás",
+    "ask": "Módosítás vagy törlés előtt kérdezzen rá",
+    "allow": "Módosítás és törlés engedélyezése",
+    "folderNote": "Válassza ki, hogyan férhet hozzá a Novera ehhez a mappához."
+  },
+  "components": {
+    "title": "A helyi komponensek",
+    "note": "Csak a szükséges összetevőket telepítse. A Novera elkülöníti a Python-környezeteket. A felhőszolgáltatásokhoz helyi telepítés nem szükséges.",
+    "estimates": "Becsült letöltési idő: {{download}} Szükséges lemezterület: {{space}} · Szabad lemezterület: {{free}}",
+    "confirm": "Telepíti ezt a privát környezetet? Csak a kiválasztott komponensek lesznek letöltve, ezekre a kiadói licencek vonatkoznak.",
+    "removeConfirm": "Eltávolítja ezt a felügyelt környezetet? Modelljei, alkotásai és beszélgetései megmaradnak.",
+    "verify": "Ellenőrzés",
+    "repair": "Javítás",
+    "uninstall": "Eltávolítás",
+    "missing": "Nincs telepítve",
+    "managed": "Irányítja: Novera",
+    "external": "A külső Python elérési útja opcionális és felülírja a kezelt profilt. Törölje az utat a Novera környezetének használatához.",
+    "failed": "Ellenőrizze a hálózatot, a lemezterületet és a hozzáférési jogokat, majd próbálkozzon újra, vagy javítsa ki a problémát.",
+    "required": "Készítse elő és ellenőrizze a szükséges helyi komponenseket Novera · A konfigurációk.",
+    "updateAvailable": "A frissítés elérhető",
+    "update": "Frissítés",
+    "rollback": "Előző környezet visszaállítása",
+    "busy": "Törölje a helyi modelleket, és várja meg, amíg a generációk befejeződnek az alkatrészek cseréje előtt."
+  },
+  "voiceConversation": "Hangbeszélgetés",
+  "voiceUnavailable": "A hangbeszélgetés nem érhető el",
+  "voiceMale": "A férfi hang",
+  "voiceFemale": "A női hang",
+  "voiceReadReplies": "A válaszok felolvasása"
+}

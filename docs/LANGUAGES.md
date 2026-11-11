@@ -1,5 +1,77 @@
 # Langues d’interface Novera
 
+## Extension à 120 langues et variantes — 11 novembre 2026
+
+Les sources proposent **120 locales d’interface**, chacune avec **2 484 clés** dans **15 espaces de noms**. Ce lot suit les rangs 108 à 117 de la [compilation communautaire 2025](https://www.jetpunk.com/user-quizzes/2026529/top-200-languages-ethnologue-2025). Le sélecteur, la détection d’une préférence système explicite, la persistance et les commandes du mode Auto couvrent les dix ajouts.
+
+| Rang de référence 2025 | Langue ou variante | Locale | Écriture et sens | Base de traduction |
+| ---: | --- | --- | --- | --- |
+| 108 | Arabe du Hedjaz | `acw` | Arabe, RTL | Adaptation partielle de l’arabe standard |
+| 109 | Arabe de Taëz et d’Aden | `acq` | Arabe, RTL | Brouillon NLLB et corrections éditoriales |
+| 110 | Hongrois | `hu` | Latin, LTR | Brouillon MADLAD et corrections éditoriales |
+| 111 | Sadri (nagpuri) | `sck` | Devanagari, LTR | Adaptation partielle du hindi écrit |
+| 112 | Oromo oriental | `hae` | Latin, LTR | Adaptation partielle de l’oromo du Centre-Ouest |
+| 113 | Pidgin camerounais (kamtok) | `wes` | Latin, LTR | Adaptation partielle du pidgin nigérian |
+| 114 | Arabe mésopotamien du Nord | `ayp` | Arabe, RTL | Adaptation partielle de l’arabe standard |
+| 115 | Mooré (mossi) | `mos` | Latin, LTR | Brouillon NLLB et corrections éditoriales |
+| 116 | Min du Nord (minbei) | `mnp` | Han traditionnel, LTR | Adaptation partielle du chinois écrit traditionnel |
+| 117 | Sylheti | `syl` | Bengali, LTR | Adaptation partielle du bengali écrit |
+
+### Relecture éditoriale des dix catalogues
+
+Les **24 350 entrées** ont été comparées à la référence anglaise pour contrôler les variables, les extraits de code, les liens, les nombres, les noms techniques et les anomalies de mise en forme. La passe éditoriale a corrigé **770 entrées**.
+
+| Locale | Entrées corrigées |
+| --- | ---: |
+| Arabe du Hedjaz (`acw`) | 60 |
+| Arabe de Taëz et d’Aden (`acq`) | 92 |
+| Hongrois (`hu`) | 78 |
+| Sadri (`sck`) | 72 |
+| Oromo oriental (`hae`) | 66 |
+| Pidgin camerounais (`wes`) | 53 |
+| Arabe mésopotamien du Nord (`ayp`) | 61 |
+| Mooré (`mos`) | 128 |
+| Min du Nord (`mnp`) | 86 |
+| Sylheti (`syl`) | 74 |
+
+La révision a privilégié les aperçus, les autorisations d’outils, les confirmations de suppression, la mémoire et les messages de confidentialité. Elle a rétabli les liens de configuration des fournisseurs en arabe de Taëz et d’Aden et en mooré, séparé des libellés fusionnés en minbei et distingué des messages différents traduits à l’identique en mooré. Les aides techniques reprennent les noms, valeurs et prérequis de la référence actuelle.
+
+Les sept adaptations partielles reprennent encore le registre écrit de leur base pour la majorité des clés. Les trois catalogues traduits par des modèles locaux restent des brouillons. La relecture par des locuteurs natifs reste ouverte pour les dix ajouts.
+
+Le build Web **1.0.2** reprend ces catalogues sur la branche principale. Les 49 libellés Auto Tune propres à cette version ont été complétés dans les seize catalogues ajoutés depuis le dernier build Web public.
+
+## Extension à 110 langues et variantes — 11 novembre 2026
+
+Ce lot a porté l’inventaire à **110 locales d’interface sélectionnables**, avec **2 435 clés par catalogue** dans **15 espaces de noms**. Les six nouvelles locales couvrent le sélecteur, le choix au démarrage, la mémorisation de la préférence et les commandes du mode Auto.
+
+| Rang de référence 2025 | Langue ou variante | Locale | Écriture et sens | Traduction |
+| ---: | --- | --- | --- | --- |
+| 101 | Dakhini (du Deccan) | `dcc` | Arabe, RTL | Adaptation partielle de l’ourdou écrit |
+| 102 | Bajjika | `vjk` | Devanagari, LTR | Adaptation partielle du maïthili écrit |
+| 103 | Luganda | `lg` | Latin, LTR | Brouillon Google Traduction et corrections éditoriales |
+| 104 | Arabe de Sanaa | `ayn` | Arabe, RTL | Adaptation partielle de l’arabe standard |
+| 105 | Arabe tunisien | `aeb` | Arabe, RTL | Adaptation partielle de l’arabe standard |
+| 107 | Kituba (RDC) | `ktu` | Latin, LTR | Brouillon Google Traduction et corrections éditoriales |
+
+L’ordre prolonge la [compilation communautaire de 2025](https://www.jetpunk.com/user-quizzes/2026529/top-200-languages-ethnologue-2025) utilisée pour la feuille de route historique. Le tchèque, classé 106ᵉ, figure déjà au sélecteur.
+
+### Relecture éditoriale des six catalogues
+
+Les **14 610 entrées** ont été comparées à la référence anglaise pour contrôler les variables, les extraits de code, les liens, les nombres, les noms techniques et les anomalies de mise en forme. La passe éditoriale a corrigé **451 entrées**.
+
+| Locale | Entrées corrigées |
+| --- | ---: |
+| Dakhini (`dcc`) | 74 |
+| Bajjika (`vjk`) | 89 |
+| Luganda (`lg`) | 57 |
+| Arabe de Sanaa (`ayn`) | 72 |
+| Arabe tunisien (`aeb`) | 74 |
+| Kituba (`ktu`) | 85 |
+
+La relecture a privilégié les commandes courantes, la conversation, la voix, les aperçus, les confirmations de suppression et les autorisations des outils. Les aides de création image, musique et vidéo reprennent les réglages de la référence actuelle. Les noms de produits et de formats sont rétablis, notamment Hugging Face et OpenAI, ainsi que les noms d’exécutables tels que `imageio-ffmpeg`.
+
+Le dakhini, le bajjika, l’arabe de Sanaa et l’arabe tunisien restent des **adaptations partielles**. Les parcours principaux sont davantage régionalisés et de nombreuses chaînes reprennent encore la base écrite. Les six catalogues sont complets sur le plan des clés. La relecture par des locuteurs natifs reste ouverte.
+
 ## Extension des catalogues — 6 novembre 2026
 
 **Second contrôle des 24 ajouts :** 68 064 chaînes de catalogues et fragments README parcourus ; au moins 245 couples langue/texte repris, dont 329 occurrences JSON et 22 fragments README. Les contrôles supplémentaires ne détectent plus les anomalies recherchées. Les 1 118 tests ciblés passent ensemble, ainsi que TypeScript. Les sept adaptations régionales restent partielles : les essais locaux supplémentaires ne permettent pas de revendiquer une finition dialectale complète. Voir [le bilan approfondi](../deliverables/languages-104-2026-11-06/RAPPORT.md#deuxième-contrôle-complet-demandé).
@@ -212,114 +284,130 @@ Arabe, arabe égyptien, arabe levantin, arabe soudanais, arabe algérien, arabe 
 
 ## Complete selector inventory
 
-État vérifié le **7 novembre 2026** : **104 catalogues × 2 435 clés**, dans **15 espaces de noms**. Couverture structurelle complète ; relecture native et adaptation régionale encore nécessaires.
+État vérifié le **11 novembre 2026** avec **120 catalogues × 2 484 clés** dans **15 espaces de noms**. Couverture structurelle complète, avec relecture native et adaptation régionale encore nécessaires.
 
 | Locale | Language | Native selector label | Direction | English keys covered | Source |
 | --- | --- | --- | --- | ---: | --- |
-| `en` | English | English | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `bn` | Bengali | বাংলা | LTR | 2,434 / 2,434 | [Contribution 9381](https://github.com/TRON-ABS/Novera/commit/5affd45c30b10057f5f7751f5550ce148a7adcfc) |
-| `ar` | Modern Standard Arabic | العربية | RTL | 2,434 / 2,434 | [Contribution 9382](https://github.com/TRON-ABS/Novera/commit/a4bca7f321e6ea296de0e9d4fa45923e6828b689) |
-| `ur` | Urdu | اردو | RTL | 2,434 / 2,434 | [Contribution 9397](https://github.com/TRON-ABS/Novera/commit/8aefadf68b30506d7327e55a978c85d68607d762) |
-| `pcm` | Nigerian Pidgin | Naijíriá Píjin | LTR | 2,434 / 2,434 | [Contribution 9398](https://github.com/TRON-ABS/Novera/commit/9c6f6ae3caf4c9dd85f715ca38d44157bca2a245) |
-| `arz` | Egyptian Arabic | مصري | RTL | 2,434 / 2,434 | [Contribution 9400](https://github.com/TRON-ABS/Novera/commit/482d429940d2cbdb68d5a0b3c7d685667c73533b) |
-| `mr` | Marathi | मराठी | LTR | 2,434 / 2,434 | [Contribution 9401](https://github.com/TRON-ABS/Novera/commit/5d1787d233aa8edb6afed65985749fd970ea5dba) |
-| `te` | Telugu | తెలుగు | LTR | 2,434 / 2,434 | [Contribution 9402](https://github.com/TRON-ABS/Novera/commit/039bf57e59537eaa043ab22ddc4a75e7a5567f8b) |
-| `ta` | Tamil | தமிழ் | LTR | 2,434 / 2,434 | [Contribution 9403](https://github.com/TRON-ABS/Novera/commit/df665fdf9b70d06b9f10203d53eb5167bbd21e03) |
-| `sw` | Swahili | Kiswahili | LTR | 2,434 / 2,434 | [Contribution 9404](https://github.com/TRON-ABS/Novera/commit/fc7127b9e45db9bd2c150b448c15edfe23f94123) |
-| `ha` | Hausa | Hausa | LTR | 2,434 / 2,434 | [Contribution 9406](https://github.com/TRON-ABS/Novera/commit/e4259f6a100b26f71fa2e775fe43c054671149d8) |
-| `pnb` | Western Punjabi (Shahmukhi) | پنجابی (شاہ مکھی) | RTL | 2,434 / 2,434 | [Contribution 9408](https://github.com/TRON-ABS/Novera/commit/cef56cd697fe9edfbcc1441ae97b69f03f0ea7a6) |
-| `tl` | Tagalog | Tagalog | LTR | 2,434 / 2,434 | [Contribution 9409](https://github.com/TRON-ABS/Novera/commit/9a5c67ec3631d45bf9d093523c46c239ae6f3ea7) |
-| `pt-PT` | Portuguese (Portugal) | Português (Portugal) | LTR | 2,434 / 2,434 | [Contribution 9410](https://github.com/TRON-ABS/Novera/commit/feebfd09e9790284a48c4412eec8bd0a1c725d48) |
-| `yue` | Cantonese | 粵語 | LTR | 2,434 / 2,434 | [Contribution 9411](https://github.com/TRON-ABS/Novera/commit/c08f3313b074d6449fb4d08f9d6a7a1a10973723) |
-| `wuu` | Wu (Shanghainese) | 吴语（上海话） | LTR | 2,434 / 2,434 | [Contribution 9412](https://github.com/TRON-ABS/Novera/commit/cea04c0e641ce91656c02ca79d11db318508afa7), completed on 25 October 2026 |
-| `fa-IR` | Iranian Persian | فارسی (ایران) | RTL | 2,434 / 2,434 | [Contribution 9413](https://github.com/TRON-ABS/Novera/commit/7390c493df3373aae20a3598d6942fc59db71e3c) |
-| `am` | Amharic | አማርኛ | LTR | 2,434 / 2,434 | [Contribution 9414](https://github.com/TRON-ABS/Novera/commit/5834c83c2c0134af807454ba5f9d155dd0c0cfae) |
-| `th` | Thai | ไทย | LTR | 2,434 / 2,434 | [Contribution 9415](https://github.com/TRON-ABS/Novera/commit/9b9a4cab272ad9b96ae52a0c9c33f3d6ca891e70) |
-| `jv` | Javanese | Basa Jawa | LTR | 2,434 / 2,434 | [Contribution 9416](https://github.com/TRON-ABS/Novera/commit/ea9a66394fcbee0da167ab8776fbb857285aa865) |
-| `es` | Spanish | Español | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `fr` | French | Français | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `it` | Italian | Italiano | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `hi` | Hindi | हिंदी | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `id` | Indonesian | Bahasa | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `pl` | Polish | Polski | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `vn` | Vietnamese | Tiếng Việt | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `zh-CN` | Chinese (Simplified) | 简体中文 | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `zh-TW` | Chinese (Traditional) | 繁體中文 | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `de-DE` | German | Deutsch | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `cs` | Czech | Čeština | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `pt-BR` | Portuguese (Brazil) | Português (Brasil) | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `ko` | Korean | 한국어 | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `ja` | Japanese | 日本語 | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `ru` | Russian | Русский | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `ca` | Catalan | Català | LTR | 2,434 / 2,434 | Inherited from Jan |
-| `gu` | Gujarati | ગુજરાતી | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `kn` | Kannada | ಕನ್ನಡ | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `apc` | Levantine Arabic | عربي شامي | RTL | 2,434 / 2,434 | Novera — draft, native review pending |
-| `apd` | Sudanese Arabic | عربي سوداني | RTL | 2,434 / 2,434 | Novera — draft, native review pending |
-| `yo` | Yoruba | Yorùbá | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `bho` | Bhojpuri | भोजपुरी | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `cjy` | Jin Chinese | 晋语 | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `nan` | Min Nan Chinese | 閩南語 | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `my` | Burmese | မြန်မာ | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `arq` | Algerian Arabic | دارجة جزائرية | RTL | 2,434 / 2,434 | Novera — draft, native review pending |
-| `hak` | Hakka Chinese | 客家話 | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `ln` | Lingala | Lingála | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `ary` | Moroccan Arabic | الدارجة المغربية | RTL | 2,434 / 2,434 | Novera — draft, native review pending |
-| `or` | Odia | ଓଡ଼ିଆ | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `uk` | Ukrainian | Українська | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `hsn` | Xiang Chinese | 湘语 | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `ml` | Malayalam | മലയാളം | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `sd` | Sindhi | سنڌي | RTL | 2,434 / 2,434 | Novera — draft, native review pending |
-| `pa` | Eastern Punjabi | ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ) | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `su` | Sundanese | Basa Sunda | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `ig` | Igbo | Ìgbò | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `prs` | Dari | دری | RTL | 2,434 / 2,434 | Novera — draft, native review pending |
-| `ne` | Nepali | नेपाली | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `ms` | Malay | Bahasa Melayu | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `uzn` | Northern Uzbek | O‘zbekcha (shimoliy) | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `zu` | Zulu | isiZulu | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `aec` | Saidi Arabic | عربي صعيدي | RTL | 2,434 / 2,434 | Novera — draft, native review pending |
-| `pbu` | Northern Pashto | پښتو (شمالي) | RTL | 2,434 / 2,434 | Novera — draft, native review pending |
-| `gaz` | West Central Oromo | Oromoo (Giddugaleessa-Lixaa) | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `skr` | Saraiki | سرائیکی | RTL | 2,434 / 2,434 | Novera — draft, native review pending |
-| `nl` | Dutch | Nederlands | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `so` | Somali | Soomaali | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `ro` | Romanian | Română | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `as` | Assamese | অসমীয়া | LTR | 2,434 / 2,434 | Novera — draft, native review pending |
-| `ceb` | Cebuano | Sinugbuanon | LTR | 2,434 / 2,434 | Google — draft, native review pending |
-| `kk` | Kazakh | Қазақша | LTR | 2,434 / 2,434 | Google — draft, native review pending |
-| `si` | Sinhala | සිංහල | LTR | 2,434 / 2,434 | Google — draft, native review pending |
-| `xh` | Xhosa | isiXhosa | LTR | 2,434 / 2,434 | Google — draft, native review pending |
-| `km` | Khmer | ខ្មែរ | LTR | 2,434 / 2,434 | Google — draft, native review pending |
-| `af` | Afrikaans | Afrikaans | LTR | 2,434 / 2,434 | Google — draft, native review pending |
-| `mai` | Maithili | मैथिली | LTR | 2,434 / 2,434 | Google — draft, native review pending |
-| `wo` | Wolof | Wolof | LTR | 2,434 / 2,434 | Google — draft, native review pending |
-| `kmr` | Northern Kurdish (Kurmanji) | Kurmancî | LTR | 2,434 / 2,434 | Google — draft, native review pending |
-| `rw` | Kinyarwanda | Ikinyarwanda | LTR | 2,434 / 2,434 | Google + Microsoft — draft, native review pending |
-| `gan` | Gan Chinese | 贛語 | LTR | 2,434 / 2,434 | Partial written regional adaptation — complete keys, native regional review pending |
-| `pbt` | Southern Pashto | پښتو (سوېلي) | RTL | 2,434 / 2,434 | Partial written regional adaptation — complete keys, native regional review pending |
-| `mag` | Magahi | मगही | LTR | 2,434 / 2,434 | Local MADLAD — draft, native review pending |
-| `ars` | Najdi Arabic | عربي نجدي | RTL | 2,434 / 2,434 | Partial written regional adaptation — complete keys, native regional review pending |
-| `acm` | Mesopotamian Arabic | عراقي | RTL | 2,434 / 2,434 | Partial written regional adaptation — complete keys, native regional review pending |
-| `fuv` | Nigerian Fulfulde | Fulfulde (Naajeeriya) | LTR | 2,434 / 2,434 | Local MADLAD — draft, native review pending |
-| `hne` | Chhattisgarhi | छत्तीसगढ़ी | LTR | 2,434 / 2,434 | Local MADLAD — draft, native review pending |
-| `tts` | Northeastern Thai (Isan) | อีสาน | LTR | 2,434 / 2,434 | Partial written regional adaptation — complete keys, native regional review pending |
-| `ny` | Chichewa | Chichewa | LTR | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `bm` | Bambara | Bamanankan | LTR | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `sn` | Shona | ChiShona | LTR | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `azb` | South Azerbaijani | تۆرکجه | RTL | 2,434 / 2,434 | Partial written regional adaptation — complete keys, native regional review pending |
-| `tn` | Tswana | Setswana | LTR | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `nso` | Northern Sotho | Sesotho sa Leboa | LTR | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `bar` | Bavarian | Boarisch | LTR | 2,434 / 2,434 | Local Nemotron — written regional draft, native review pending |
-| `ht` | Haitian Creole | Kreyòl ayisyen | LTR | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `ug` | Uyghur | ئۇيغۇرچە | RTL | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `st` | Southern Sotho | Sesotho | LTR | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `el` | Greek | Ελληνικά | LTR | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `ctg` | Chittagonian | চাটগাঁইয়া | LTR | 2,434 / 2,434 | Partial written regional adaptation — complete keys, native regional review pending |
-| `rn` | Kirundi | Ikirundi | LTR | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `dyu` | Dyula | Julakan | LTR | 2,434 / 2,434 | Google/MADLAD/local — draft, native review pending |
-| `tr` | Turkish | Türkçe | LTR | 2,434 / 2,434 | [Jan #8939](https://github.com/janhq/jan/pull/8939) + assisted completion; upstream PR still open |
-| `sv` | Swedish | Svenska | LTR | 2,434 / 2,434 | [Jan #8829](https://github.com/janhq/jan/pull/8829) + assisted completion; upstream PR still open |
+| `en` | English | English | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `bn` | Bengali | বাংলা | LTR | 2,484 / 2,484 | [Contribution 9381](https://github.com/TRON-ABS/Novera/commit/5affd45c30b10057f5f7751f5550ce148a7adcfc) |
+| `ar` | Modern Standard Arabic | العربية | RTL | 2,484 / 2,484 | [Contribution 9382](https://github.com/TRON-ABS/Novera/commit/a4bca7f321e6ea296de0e9d4fa45923e6828b689) |
+| `ur` | Urdu | اردو | RTL | 2,484 / 2,484 | [Contribution 9397](https://github.com/TRON-ABS/Novera/commit/8aefadf68b30506d7327e55a978c85d68607d762) |
+| `pcm` | Nigerian Pidgin | Naijíriá Píjin | LTR | 2,484 / 2,484 | [Contribution 9398](https://github.com/TRON-ABS/Novera/commit/9c6f6ae3caf4c9dd85f715ca38d44157bca2a245) |
+| `arz` | Egyptian Arabic | مصري | RTL | 2,484 / 2,484 | [Contribution 9400](https://github.com/TRON-ABS/Novera/commit/482d429940d2cbdb68d5a0b3c7d685667c73533b) |
+| `mr` | Marathi | मराठी | LTR | 2,484 / 2,484 | [Contribution 9401](https://github.com/TRON-ABS/Novera/commit/5d1787d233aa8edb6afed65985749fd970ea5dba) |
+| `te` | Telugu | తెలుగు | LTR | 2,484 / 2,484 | [Contribution 9402](https://github.com/TRON-ABS/Novera/commit/039bf57e59537eaa043ab22ddc4a75e7a5567f8b) |
+| `ta` | Tamil | தமிழ் | LTR | 2,484 / 2,484 | [Contribution 9403](https://github.com/TRON-ABS/Novera/commit/df665fdf9b70d06b9f10203d53eb5167bbd21e03) |
+| `sw` | Swahili | Kiswahili | LTR | 2,484 / 2,484 | [Contribution 9404](https://github.com/TRON-ABS/Novera/commit/fc7127b9e45db9bd2c150b448c15edfe23f94123) |
+| `ha` | Hausa | Hausa | LTR | 2,484 / 2,484 | [Contribution 9406](https://github.com/TRON-ABS/Novera/commit/e4259f6a100b26f71fa2e775fe43c054671149d8) |
+| `pnb` | Western Punjabi (Shahmukhi) | پنجابی (شاہ مکھی) | RTL | 2,484 / 2,484 | [Contribution 9408](https://github.com/TRON-ABS/Novera/commit/cef56cd697fe9edfbcc1441ae97b69f03f0ea7a6) |
+| `tl` | Tagalog | Tagalog | LTR | 2,484 / 2,484 | [Contribution 9409](https://github.com/TRON-ABS/Novera/commit/9a5c67ec3631d45bf9d093523c46c239ae6f3ea7) |
+| `pt-PT` | Portuguese (Portugal) | Português (Portugal) | LTR | 2,484 / 2,484 | [Contribution 9410](https://github.com/TRON-ABS/Novera/commit/feebfd09e9790284a48c4412eec8bd0a1c725d48) |
+| `yue` | Cantonese | 粵語 | LTR | 2,484 / 2,484 | [Contribution 9411](https://github.com/TRON-ABS/Novera/commit/c08f3313b074d6449fb4d08f9d6a7a1a10973723) |
+| `wuu` | Wu (Shanghainese) | 吴语（上海话） | LTR | 2,484 / 2,484 | [Contribution 9412](https://github.com/TRON-ABS/Novera/commit/cea04c0e641ce91656c02ca79d11db318508afa7), completed on 25 October 2026 |
+| `fa-IR` | Iranian Persian | فارسی (ایران) | RTL | 2,484 / 2,484 | [Contribution 9413](https://github.com/TRON-ABS/Novera/commit/7390c493df3373aae20a3598d6942fc59db71e3c) |
+| `am` | Amharic | አማርኛ | LTR | 2,484 / 2,484 | [Contribution 9414](https://github.com/TRON-ABS/Novera/commit/5834c83c2c0134af807454ba5f9d155dd0c0cfae) |
+| `th` | Thai | ไทย | LTR | 2,484 / 2,484 | [Contribution 9415](https://github.com/TRON-ABS/Novera/commit/9b9a4cab272ad9b96ae52a0c9c33f3d6ca891e70) |
+| `jv` | Javanese | Basa Jawa | LTR | 2,484 / 2,484 | [Contribution 9416](https://github.com/TRON-ABS/Novera/commit/ea9a66394fcbee0da167ab8776fbb857285aa865) |
+| `es` | Spanish | Español | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `fr` | French | Français | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `it` | Italian | Italiano | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `hi` | Hindi | हिंदी | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `id` | Indonesian | Bahasa | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `pl` | Polish | Polski | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `vn` | Vietnamese | Tiếng Việt | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `zh-CN` | Chinese (Simplified) | 简体中文 | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `zh-TW` | Chinese (Traditional) | 繁體中文 | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `de-DE` | German | Deutsch | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `cs` | Czech | Čeština | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `pt-BR` | Portuguese (Brazil) | Português (Brasil) | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `ko` | Korean | 한국어 | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `ja` | Japanese | 日本語 | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `ru` | Russian | Русский | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `ca` | Catalan | Català | LTR | 2,484 / 2,484 | Inherited from Jan |
+| `gu` | Gujarati | ગુજરાતી | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `kn` | Kannada | ಕನ್ನಡ | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `apc` | Levantine Arabic | عربي شامي | RTL | 2,484 / 2,484 | Novera — draft, native review pending |
+| `apd` | Sudanese Arabic | عربي سوداني | RTL | 2,484 / 2,484 | Novera — draft, native review pending |
+| `yo` | Yoruba | Yorùbá | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `bho` | Bhojpuri | भोजपुरी | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `cjy` | Jin Chinese | 晋语 | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `nan` | Min Nan Chinese | 閩南語 | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `my` | Burmese | မြန်မာ | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `arq` | Algerian Arabic | دارجة جزائرية | RTL | 2,484 / 2,484 | Novera — draft, native review pending |
+| `hak` | Hakka Chinese | 客家話 | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `ln` | Lingala | Lingála | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `ary` | Moroccan Arabic | الدارجة المغربية | RTL | 2,484 / 2,484 | Novera — draft, native review pending |
+| `or` | Odia | ଓଡ଼ିଆ | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `uk` | Ukrainian | Українська | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `hsn` | Xiang Chinese | 湘语 | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `ml` | Malayalam | മലയാളം | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `sd` | Sindhi | سنڌي | RTL | 2,484 / 2,484 | Novera — draft, native review pending |
+| `pa` | Eastern Punjabi | ਪੰਜਾਬੀ (ਗੁਰਮੁਖੀ) | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `su` | Sundanese | Basa Sunda | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `ig` | Igbo | Ìgbò | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `prs` | Dari | دری | RTL | 2,484 / 2,484 | Novera — draft, native review pending |
+| `ne` | Nepali | नेपाली | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `ms` | Malay | Bahasa Melayu | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `uzn` | Northern Uzbek | O‘zbekcha (shimoliy) | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `zu` | Zulu | isiZulu | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `aec` | Saidi Arabic | عربي صعيدي | RTL | 2,484 / 2,484 | Novera — draft, native review pending |
+| `pbu` | Northern Pashto | پښتو (شمالي) | RTL | 2,484 / 2,484 | Novera — draft, native review pending |
+| `gaz` | West Central Oromo | Oromoo (Giddugaleessa-Lixaa) | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `skr` | Saraiki | سرائیکی | RTL | 2,484 / 2,484 | Novera — draft, native review pending |
+| `nl` | Dutch | Nederlands | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `so` | Somali | Soomaali | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `ro` | Romanian | Română | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `as` | Assamese | অসমীয়া | LTR | 2,484 / 2,484 | Novera — draft, native review pending |
+| `ceb` | Cebuano | Sinugbuanon | LTR | 2,484 / 2,484 | Google — draft, native review pending |
+| `kk` | Kazakh | Қазақша | LTR | 2,484 / 2,484 | Google — draft, native review pending |
+| `si` | Sinhala | සිංහල | LTR | 2,484 / 2,484 | Google — draft, native review pending |
+| `xh` | Xhosa | isiXhosa | LTR | 2,484 / 2,484 | Google — draft, native review pending |
+| `km` | Khmer | ខ្មែរ | LTR | 2,484 / 2,484 | Google — draft, native review pending |
+| `af` | Afrikaans | Afrikaans | LTR | 2,484 / 2,484 | Google — draft, native review pending |
+| `mai` | Maithili | मैथिली | LTR | 2,484 / 2,484 | Google — draft, native review pending |
+| `wo` | Wolof | Wolof | LTR | 2,484 / 2,484 | Google — draft, native review pending |
+| `kmr` | Northern Kurdish (Kurmanji) | Kurmancî | LTR | 2,484 / 2,484 | Google — draft, native review pending |
+| `rw` | Kinyarwanda | Ikinyarwanda | LTR | 2,484 / 2,484 | Google + Microsoft — draft, native review pending |
+| `gan` | Gan Chinese | 贛語 | LTR | 2,484 / 2,484 | Partial written regional adaptation — complete keys, native regional review pending |
+| `pbt` | Southern Pashto | پښتو (سوېلي) | RTL | 2,484 / 2,484 | Partial written regional adaptation — complete keys, native regional review pending |
+| `mag` | Magahi | मगही | LTR | 2,484 / 2,484 | Local MADLAD — draft, native review pending |
+| `ars` | Najdi Arabic | عربي نجدي | RTL | 2,484 / 2,484 | Partial written regional adaptation — complete keys, native regional review pending |
+| `acm` | Mesopotamian Arabic | عراقي | RTL | 2,484 / 2,484 | Partial written regional adaptation — complete keys, native regional review pending |
+| `fuv` | Nigerian Fulfulde | Fulfulde (Naajeeriya) | LTR | 2,484 / 2,484 | Local MADLAD — draft, native review pending |
+| `hne` | Chhattisgarhi | छत्तीसगढ़ी | LTR | 2,484 / 2,484 | Local MADLAD — draft, native review pending |
+| `tts` | Northeastern Thai (Isan) | อีสาน | LTR | 2,484 / 2,484 | Partial written regional adaptation — complete keys, native regional review pending |
+| `ny` | Chichewa | Chichewa | LTR | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `bm` | Bambara | Bamanankan | LTR | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `sn` | Shona | ChiShona | LTR | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `azb` | South Azerbaijani | تۆرکجه | RTL | 2,484 / 2,484 | Partial written regional adaptation — complete keys, native regional review pending |
+| `tn` | Tswana | Setswana | LTR | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `nso` | Northern Sotho | Sesotho sa Leboa | LTR | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `bar` | Bavarian | Boarisch | LTR | 2,484 / 2,484 | Local Nemotron — written regional draft, native review pending |
+| `ht` | Haitian Creole | Kreyòl ayisyen | LTR | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `ug` | Uyghur | ئۇيغۇرچە | RTL | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `st` | Southern Sotho | Sesotho | LTR | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `el` | Greek | Ελληνικά | LTR | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `ctg` | Chittagonian | চাটগাঁইয়া | LTR | 2,484 / 2,484 | Partial written regional adaptation — complete keys, native regional review pending |
+| `rn` | Kirundi | Ikirundi | LTR | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `dyu` | Dyula | Julakan | LTR | 2,484 / 2,484 | Google/MADLAD/local — draft, native review pending |
+| `tr` | Turkish | Türkçe | LTR | 2,484 / 2,484 | [Jan #8939](https://github.com/janhq/jan/pull/8939) + assisted completion; upstream PR still open |
+| `sv` | Swedish | Svenska | LTR | 2,484 / 2,484 | [Jan #8829](https://github.com/janhq/jan/pull/8829) + assisted completion; upstream PR still open |
+| `dcc` | Dakhini | دکنی | RTL | 2,484 / 2,484 | Partial written adaptation from Urdu |
+| `vjk` | Bajjika | बज्जिका | LTR | 2,484 / 2,484 | Partial written adaptation from Maithili |
+| `lg` | Luganda | Luganda | LTR | 2,484 / 2,484 | Google Translate draft with editorial corrections |
+| `ayn` | Sanaani Arabic | عربي صنعاني | RTL | 2,484 / 2,484 | Partial written adaptation from Modern Standard Arabic |
+| `aeb` | Tunisian Arabic | تونسي | RTL | 2,484 / 2,484 | Partial written adaptation from Modern Standard Arabic |
+| `ktu` | Kituba (DR Congo) | Kituba | LTR | 2,484 / 2,484 | Google Translate draft with editorial corrections |
+| `acw` | Hijazi Arabic | عربي حجازي | RTL | 2,484 / 2,484 | Partial adaptation from Modern Standard Arabic |
+| `acq` | Taʻizzi-Adeni Arabic | عربي تعزّي–عدني | RTL | 2,484 / 2,484 | NLLB draft with editorial corrections |
+| `hu` | Hungarian | Magyar | LTR | 2,484 / 2,484 | MADLAD draft with editorial corrections |
+| `sck` | Sadri (Nagpuri) | सादरी | LTR | 2,484 / 2,484 | Partial adaptation from Hindi |
+| `hae` | Eastern Oromo | Afaan Oromoo (Bahaa) | LTR | 2,484 / 2,484 | Partial adaptation from West Central Oromo |
+| `wes` | Cameroon Pidgin | Kamtok | LTR | 2,484 / 2,484 | Partial adaptation from Nigerian Pidgin |
+| `ayp` | Northern Mesopotamian Arabic | عربي شمال بلاد الرافدين | RTL | 2,484 / 2,484 | Partial adaptation from Modern Standard Arabic |
+| `mos` | Mooré | Mòoré | LTR | 2,484 / 2,484 | NLLB draft with editorial corrections |
+| `mnp` | Northern Min Chinese | 閩北語 | LTR | 2,484 / 2,484 | Partial adaptation using traditional written Chinese |
+| `syl` | Sylheti | সিলেটি | LTR | 2,484 / 2,484 | Partial adaptation from Bengali |
 
 <a id="next-20"></a>
 <a id="next-24"></a>
@@ -373,7 +461,7 @@ MADLAD fournit les cibles exactes `mag`, `hne` et `fuv`. Le bavarois est rédig�
 
 ## Feuille de route historique des 100 langues
 
-Le tableau de planification ci-dessous conserve ses 100 langues ; l’état d’intégration et les compteurs des catalogues sont actualisés au 6 novembre 2026. L’ordre historique est conservé ; le lot demandé de 24 ajouts est détaillé ci-dessus. Ses estimations de locuteurs mélangent les relevés 2025/2026 et ne constituent ni un classement officiel actualisé ni 100 langues prises en charge. Les 104 locales effectives sont celles de l’inventaire ci-dessus. Portugal et Brésil ont des catalogues distincts mais ne comptent pas deux langues dans ce classement.
+Le tableau de planification ci-dessous conserve ses 100 langues ; l’état d’intégration et les compteurs des catalogues sont actualisés au 6 novembre 2026. L’ordre historique est conservé ; le lot demandé de 24 ajouts est détaillé ci-dessus. Ses estimations de locuteurs mélangent les relevés 2025/2026 et ne constituent ni un classement officiel actualisé ni 100 langues prises en charge. Les 120 locales effectives sont celles de l’inventaire ci-dessus. Portugal et Brésil ont des catalogues distincts mais ne comptent pas deux langues dans ce classement.
 
 Les statuts des PR externes correspondent au relevé historique sur Jan `44aee093ae5a974c31ec43d24ceca163c0e59c14`, sans nouvelle vérification le 25 octobre. Les contributions Novera sont intégrées. Avant toute nouvelle traduction, vérifier les contributions existantes ; une recherche par titre ne garantit pas leur absence.
 

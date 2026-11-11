@@ -1,0 +1,101 @@
+{
+  "editServer": "Okulongoosa Seva ya MCP",
+  "addServer": "Yongera ku MCP Server",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Okukebera embeera y'okugaziya..."
+    },
+    "notInstalled": {
+      "title": "Novera emaliriza emirimu mu browser yo",
+      "description": "Teeka ekyongereza okuwa Novera browser access",
+      "getExtension": "Funa Okwongera"
+    }
+  },
+  "serverName": "Erinnya lya Seva",
+  "enterServerName": "Yingiza erinnya lya seva",
+  "command": "Ekiragiro",
+  "enterCommand": "Yingiza ekiragiro (uvx oba npx) .",
+  "arguments": "Enkaayana",
+  "argument": "Ensonga {{index}}",
+  "envVars": "Enkyukakyuka mu butonde",
+  "key": "Ekisumuluzo",
+  "value": "Omuwendo",
+  "save": "Teeka",
+  "status": "Embeera",
+  "connected": "Eyungiddwa",
+  "disconnected": "Ekutuddwako",
+  "deleteServer": {
+    "title": "Okusazaamu Seva ya MCP",
+    "description": "Okakasa nti oyagala kusazaamu seva ya MCP {{serverName}}? Ekikolwa kino tekiyinza kuddibwamu.",
+    "delete": "Okusazaamu",
+    "success": "MCP server {{serverName}} esaziddwamu bulungi"
+  },
+  "editJson": {
+    "title": "Okulongoosa JSON ku MCP Server: {{serverName}}",
+    "titleAll": "Edita Seva Za MCP Zonna JSON",
+    "placeholder": "Yingiza ensengeka ya JSON",
+    "errorParse": "Eremereddwa okusengejja data eyasooka",
+    "errorPaste": "Enkola ya JSON etali ntuufu mu birimu ebissiddwa",
+    "errorFormat": "Enkola ya JSON etali ntuufu",
+    "errorServerName": "Erinnya lya seva lyetaagibwa era teriyinza kuba bwereere",
+    "errorMissingServerNameKey": "JSON erina okusengekebwa nga {\"serverName\": {config}} - ekisumuluzo ky'erinnya lya seva ekibula",
+    "errorInvalidType": "Ekika ekitali kituufu '{{type}}' ku seva '{{serverName}}'. Ekika kiteekwa okuba 'stdio', 'http', oba 'sse'.",
+    "save": "Teeka"
+  },
+  "checkParams": "Nsaba okebere parameters okusinziira ku tutorial.",
+  "title": "Seva za MCP",
+  "experimental": "Okugezesa",
+  "editAllJson": "Edita Seva Zonna JSON",
+  "findMore": "Funa seeva za MCP endala ku",
+  "allowPermissions": "Kiriza Olukusa lwonna olw'Ekikozesebwa kya MCP",
+  "allowPermissionsDesc": "Bwe kinaakozesebwa, okuyita kwonna okw’ebikozesebwa mu MCP kujja kukkirizibwa mu ngeri ey’otoma awatali kulaga mboozi za lukusa. Ensengeka eno ekola mu nsi yonna ku mboozi zonna, omuli n’emboozi empya.",
+  "noServers": "Tewali seeva za MCP zizuuliddwa",
+  "args": "Args",
+  "env": "Env",
+  "serverStatusActive": "Seva {{serverKey}} etandise bulungi",
+  "serverStatusInactive": "Seva {{serverKey}} eyimiriziddwa bulungi",
+  "runtimeSettings": {
+    "title": "Enteekateeka z'obudde bw'okudduka",
+    "description": "Tegeka engeri Novera gy'eddukanya n'okuddamu okugezaako seeva za MCP.",
+    "toolCallTimeout": "Ekiseera ky’okuyita kw’ekintu (sekondi) .",
+    "toolCallTimeoutDesc": "Obudde obusinga obunene okulinda okuddamu kw’ekintu kya MCP nga tonnaggwaako.",
+    "maxToolOutputChars": "Max ekintu ekifulumya ennukuta",
+    "maxToolOutputCharsDesc": "Ekiva mu kikozesebwa ekisinga obuwanvu ekikuumibwa mu mboozi. Ekintu kyonna ekiyise ku kino kisaliddwako era ne kiteekebwako akabonero nti kisaliddwako, kale ekivaamu ekimu ekinene tekisobola kumalawo mbeera ya muze. Teeka ku 0 okukuuma ebivuddemu nga bijjuvu.",
+    "smartToolRouting": "Enkola y’ebikozesebwa mu ngeri ey’amagezi MCP",
+    "smartToolRoutingDesc": "Bwe kikozesebwa, Novera elonda seeva za MCP ezikwatagana nga tennatikka bikozesebwa. Lemesa bulijjo okutikka olukalala lw'ebikozesebwa bya MCP mu bujjuvu.",
+    "useLightweightRouterModel": "Kozesa model eyetongodde okukola routing",
+    "useLightweightRouterModelDesc": "Nga smart routing etandise, dduka omutendera gw’okuyisa n’eky’enjawulo (ekitera okuba ekitono) mu kifo ky’eky’okukubaganya ebirowoozo. Ggyako bulijjo okukozesa enkola ya chat ekola ku routing.",
+    "routerModel": "Omuze gw’okuyisa amakubo",
+    "routerModelDesc": "Londa provider ne model mu kifo kimu. Ebika ebitono byokka bye biwandiikiddwa kale routing esigala ya mangu ate nga ya buseere.",
+    "selectRouterModelPlaceholder": "Londa enkola y'okuyisaamu ekkubo...",
+    "routerModelSearchPlaceholder": "Noonya ebikozesebwa...",
+    "routerModelEmptyList": "Tewali bika bitono. Yongera ku model entono oba sengeka ebisumuluzo bya API mu Models.",
+    "routerModelEmptySearch": "Tewali kukwatagana na “{{query}}”."
+  },
+  "auth": {
+    "label": "Obuwandiisi:",
+    "state": {
+      "notApplicable": "tekyetaagisa",
+      "staticHeader": "Omutwe gw'olukusa",
+      "authenticated": "ekakasiddwa",
+      "expired": "yaggwaako",
+      "staleResource": "efulumiziddwa ku URL endala",
+      "unauthenticated": "tekikakasibwa"
+    },
+    "expiresIn": "eggwaako mu {{duration}}",
+    "authenticate": "Yingira mu",
+    "reauthenticate": "Ddamu okukakasa",
+    "clear": "Okulongoosa okukakasa",
+    "waiting": "Lindirira browser...",
+    "openSignInPage": "Ggulawo omuko gw'okuyingira",
+    "needsAuth": "{{serverName}} yeetaaga okukakasa",
+    "needsAuthHint": "Yingira mu seva eno okuyungibwa.",
+    "authorized": "Yayingidde mu {{serverName}}",
+    "authorizeFailed": "Okuyingira ku {{serverName}} kulemereddwa",
+    "cleared": "Okulongoosa ebiwandiiko ebiterekeddwa ku {{serverName}}",
+    "nothingToClear": "{{serverName}} teyalina biwandiiko bya kukakasa biterekeddwa",
+    "clearFailed": "Teyasobodde kulongoosa biwandiiko bya {{serverName}}",
+    "renew": "Okuzza obuggya olutuula",
+    "expiredAgo": "yaggwaako {{duration}} emabega"
+  }
+}

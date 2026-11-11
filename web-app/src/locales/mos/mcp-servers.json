@@ -1,0 +1,101 @@
+{
+  "editServer": "Yãk-y n tool-yã MCP Servɛɛrã",
+  "addServer": "Add a Comment MCP Servɛɛrã",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Mam baooda sẽn yaa to-to wã n na n leoke."
+    },
+    "notInstalled": {
+      "title": "Novera tʋmda tʋʋm ne y karen-biisa",
+      "description": "Yãk-y n tool-y neda Yãk-y n tool-y neda Novera bẽn-kẽndr kẽere",
+      "getExtension": "Kẽng-y n paam tɩ b paas-y-yã"
+    }
+  },
+  "serverName": "Server yʋʋr",
+  "enterServerName": "Add server naam",
+  "command": "Tʋʋm-kãsengã",
+  "enterCommand": "Add command (uvx wala npx)",
+  "arguments": "Sõs-kãsemse",
+  "argument": "A Zeova Kaset rãmbã {{index}}",
+  "envVars": "Yel-gɛt ning sẽn be tẽngã zugã",
+  "key": "Gʋls-kãsengã",
+  "value": "Tʋʋmdã yõodo",
+  "save": "Ges-y-yã",
+  "status": "Sõsg ning b sẽn kõ-dã",
+  "connected": "Sõng ne taab",
+  "disconnected": "B sẽn yiisd-a wã",
+  "deleteServer": {
+    "title": "Bãng-y-yã MCP Servɛɛrã",
+    "description": "Yãmb kɩsa sɩd tɩ y rat n yẽese MCP serverã {{serverName}}D pa tõe n bas tʋʋm-kãngã ye.",
+    "delete": "Bãng-y-yã",
+    "success": "MCP serverã {{serverName}} b sẽn yiis-a ne sũ-noogo"
+  },
+  "editJson": {
+    "title": "Yãk-y n tool-yã JSON yaa MCP Serverã: {{serverName}}",
+    "titleAll": "Modif-y fãa MCP Serversã JSON",
+    "placeholder": "Kẽng-y n kẽ JSON sõor sẽn yaa sõma",
+    "errorParse": "D pa tõog n vaees pipi sõssã ye",
+    "errorPaste": "B sẽn pa maand woto wã JSON b sẽn gʋlsd bũmb ning b sẽn gʋlsã pʋgẽ",
+    "errorFormat": "B sẽn pa maand woto wã JSON formã",
+    "errorServerName": "Server yʋʋr yaa tɩlae la a pa tõe n yɩ zaalem ye",
+    "errorMissingServerNameKey": "JSON segd n yaa {\"serverName\": {config}} - server name key missing",
+    "errorInvalidType": "No-kãsems sẽn pa tar yõodã \"{{type}}\" sẽn yaa tʋm-tʋmdã yĩnga \"{{serverName}}'Bɩ b gʋls ne 'studio', 'http' bɩ 'sse'",
+    "save": "Ges-y-yã"
+  },
+  "checkParams": "Sõng-y tɩ y ges parametr nins sẽn be lekollã pʋgẽ wã.",
+  "title": "MCP Serversã",
+  "experimental": "B sẽn maan mak-sõngo",
+  "editAllJson": "Yãk-y n tool-y neda JSON",
+  "findMore": "Bao n bãng bũmb a taab MCP serverã la",
+  "allowPermissions": "Bɩ ned kam fãa maan a woto MCP Sõs-kãsems sõssã",
+  "allowPermissionsDesc": "Sã n yaa tɩlae, b fãa MCP Sõsg ning b sẽn boond tɩ toolã na n paama lohorem tɩ b pa wilg tɩ b tara sor n na n wilg sõsg sõsg ye.",
+  "noServers": "Pa rẽ ye. MCP b sẽn yã wã",
+  "args": "Bõn-naandsã",
+  "env": "D D D",
+  "serverStatusActive": "Servɛɛrã {{serverKey}} b sẽn tõog n tʋmã",
+  "serverStatusInactive": "Servɛɛrã {{serverKey}} b sẽn tõog n kʋ-a",
+  "runtimeSettings": {
+    "title": "Yãk-y n tool-y neda Yãk-y n tool-y neda",
+    "description": "Yãk-y n tool-y neda Novera b baooda la b modgd n le maand b sẽn datã MCP Servɛɛr dãmbã.",
+    "toolCallTimeout": "Sõng-n-taarã sẽn be wakat fãa (sekõnd)",
+    "toolCallTimeoutDesc": "Sẽn yɩɩd wakat ning b sẽn na n gũ MCP Sõng-y n bãng y sẽn tõe n maan to-to.",
+    "maxToolOutputChars": "Sõng-y n tool-yẽ-yã",
+    "maxToolOutputCharsDesc": "Sõsg pʋgẽ, tʋʋm-teed ning b sẽn tall n kaoosd n yɩɩda, b sã n pa sõsd ne-a wã, b sã n pa sõsd ne-a wã, b sã n pa sõsd ne-a wã, b sõsd ne-a lame, tɩ rẽ kɩt t'a pa tõe n kɩt t'a sõsd ne-a ye. 0 Sẽn na yɩl tɩ bõn-kãens tall pãnga.",
+    "smartToolRouting": "Yaa yam soaba. MCP tool routing",
+    "smartToolRoutingDesc": "B sã n tõe n maan woto, Novera yãkd sẽn yaa sõma MCP Servɛɛr dãmb sẽn deng n laad tʋʋm-teedã. MCP tʋʋm-teed sõore.",
+    "useLightweightRouterModel": "Sõng-y ne modɛl sẽn dat n sõng-y tɩ y tall sorã",
+    "useLightweightRouterModelDesc": "Y sã n wa ket n tũud no-rɩtgo, bɩ y tʋm no-rɩtgo ne modɛl a to (tõnd sẽn yaa bilfã) sẽn pa tũud ne no-rɩtgo.",
+    "routerModel": "Rɩk-rɩk modɛl",
+    "routerModelDesc": "Y tõe n yãka y sẽn na n kõ-yã la y model zĩig a yembre.",
+    "selectRouterModelPlaceholder": "Yãk-y n tool-y neda",
+    "routerModelSearchPlaceholder": "Baoosg mak-sõamyã...",
+    "routerModelEmptyList": "B pa tõe n tall mak-sõngo ye. Yãk-y mak-sõngo, bɩ y maneg-y-yã API Modɛl-rãmbã pʋgẽ.",
+    "routerModelEmptySearch": "B pa tõe n ges a  ⁇  wã ye{{query}}”."
+  },
+  "auth": {
+    "label": "Auteur:",
+    "state": {
+      "notApplicable": "pa tɩlae ye",
+      "staticHeader": "Sõsg ning b sẽn kõ-dã",
+      "authenticated": "b sẽn wilg tɩ yaa sɩda",
+      "expired": "b sẽn da wa n pa le be",
+      "staleResource": "b sẽn yiisd bũmb a to yĩnga URL",
+      "unauthenticated": "sã n pa yɩ sɩda"
+    },
+    "expiresIn": "sã n wa na n {{duration}}",
+    "authenticate": "Sõng-y n kẽ",
+    "reauthenticate": "Sõng-y tɩ b lebs n wilg tɩ b sɩd yaa sɩda",
+    "clear": "Sõsg ning b sẽn kõ-dã",
+    "waiting": "Mam gũuda b sẽn na n yã-a wã...",
+    "openSignInPage": "Wilg-y log-n-taagã",
+    "needsAuth": "{{serverName}} rat n bãng n bãng a sẽn yaa sɩda",
+    "needsAuthHint": "Log-y n kẽ server-kãngã pʋgẽ tɩ y tõe n kẽ.",
+    "authorized": "B sẽn gʋls tɩ {{serverName}}",
+    "authorizeFailed": "Sõngd-y n deeg lisgu {{serverName}} b pa tõog ye",
+    "cleared": "B sẽn yiis b sẽn tall b sõssã {{serverName}}",
+    "nothingToClear": "{{serverName}} b ra pa tall b sõssã ye",
+    "clearFailed": "A pa tõog n kɩt tɩ b bãng b sẽn tõe n maan bũmb ninsã ye {{serverName}}",
+    "renew": "Tʋʋm-no-kẽndre",
+    "expiredAgo": "b sẽn da wa n pa le be {{duration}} sẽn sɩngrẽ wã"
+  }
+}

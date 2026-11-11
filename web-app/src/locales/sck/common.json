@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "कोड",
+    "preview": "पूर्वावलोकन",
+    "previewStreaming": "पीढ़ी समाप्त होने पर उपलब्ध",
+    "unresolvedAssets_one": "1 परिसंपत्ति संदर्भ पूर्वावलोकन में लोड नहीं हो सकता। संबंधित पथों के पास हल करने के लिए कोई आधार URL नहीं है।",
+    "unresolvedAssets_other": "{{count}} परिसंपत्ति संदर्भ पूर्वावलोकन में लोड नहीं हो सकते। सापेक्ष पथों के पास हल करने के लिए कोई आधार URL नहीं है।"
+  },
+  "assistants": "सहायक",
+  "hardware": "हार्डवेयर",
+  "mcp-servers": "MCP सर्वर",
+  "local_api_server": "लोकल API सर्वर",
+  "remote_access": "रिमोट एक्सेस",
+  "integrations": "इंटीग्रेशन",
+  "experimental": "प्रायोगिक",
+  "claude_code": "Claude कोड",
+  "https_proxy": "HTTPS प्रॉक्सी",
+  "web_search": "वेब खोज",
+  "shell": "शैल",
+  "browse": "ब्राउज़ करें",
+  "moreControls": "आउर विकल्प",
+  "starting": "प्रारंभ...",
+  "activeSuffix": "(सक्रिय)",
+  "extensions": "एक्सटेंशन",
+  "attachments": "संलग्नक",
+  "general": "सामान्य",
+  "settings": "सेटिंग",
+  "modelProviders": "मॉडल प्रदाता",
+  "localProviders": "स्थानीय",
+  "remoteProviders": "दूरस्थ",
+  "manageProviders": "प्रदाताओं का प्रबंधन करें",
+  "hiddenProviders": "{{count}} निष्क्रिय",
+  "hideProvider": "प्रदाता छिपाएं",
+  "showProvider": "प्रदाता दिखाएं",
+  "interface": "इंटरफेस",
+  "appearance": "दिखावट",
+  "privacy": "गोपनीयता",
+  "keyboardShortcuts": "शॉर्टकट",
+  "home": "होम",
+  "cowork": "Cowork",
+  "newSession": "नवा सत्र",
+  "artifacts": "कलाकृतियाँ",
+  "customize": "अनुकूलित करें",
+  "local": "स्थानीय",
+  "selectFolder": "फ़ोल्डर चुनें",
+  "selectModel": "पहिले एक मॉडल चुनु",
+  "commands": "कमांड",
+  "cmdHelp": "उपलब्ध आदेशों की सूची बनाएं",
+  "cmdClear": "इस सत्र को साफ़ करें",
+  "cmdModels": "सक्रिय मॉडल स्विच करें",
+  "cmdModelsHint": "/models टाइप करें फिर सूची से एक मॉडल चुनें",
+  "cmdModelSwitched": "{{name}} पर स्विच किया गया",
+  "cmdUnknown": "अज्ञात कमांड: {{name}}। /help आज़माएँ",
+  "cmdBusy": "जब एजेंट चल रहा हो तो ऐसा नहीं कर सकता",
+  "cmdCompact": "सत्र के संदर्भ को सारांश में संक्षिप्त करें",
+  "cmdCompacted": "संकुचित {{before}} -> {{after}} संदेश",
+  "cmdNothingToCompact": "अभी तक कॉम्पैक्ट करने के लिए कुछ भी नहीं है",
+  "cmdCompactFailed": "संघनन विफल: {{error}}",
+  "cmdPlan": "योजना मोड टॉगल करें (केवल पढ़ने के लिए: एजेंट बिना लिखे प्रस्ताव करता है)",
+  "cmdPlanOn": "योजना मोड चालू: एजेंट पढ़ता है और बिना लिखे प्रस्ताव करता है",
+  "cmdPlanOff": "योजना मोड बंद: सामान्य निष्पादन",
+  "cmdTodo": "प्रगति पैनल खोलें",
+  "cmdTasks": "बैकग्राउंड टास्क पैनल खोलें",
+  "cmdInit": "परियोजना का अध्ययन करें और कौशल और स्मृति लिखें",
+  "cmdInitRunning": "इस प्रोजेक्ट में शामिल होना",
+  "skills": "कौशल",
+  "skillsInContext": "इस बार एजेंट के लिए उपलब्ध कौशल",
+  "skillsTitle": "कौशल प्रबंधित करें",
+  "skillsScopeProject": "{{folder}} के लिए कौशल",
+  "skillsScopeGlobal": "वैश्विक कौशल, हर सत्र के लिए उपलब्ध",
+  "skillsScopeMerged": "{{folder}} के लिए कौशल, साथ ही हर सत्र में साझा किए जाने वाले वैश्विक कौशल",
+  "skillOriginFolder": "फ़ोल्डर",
+  "skillOriginGlobal": "वैश्विक",
+  "skillsEmpty": "अभी तक कोई कौशल नहीं",
+  "skillsPickOrNew": "संपादित करने या नया बनाने के लिए एक कौशल का चयन करें।",
+  "skillNew": "नया कौशल",
+  "skillDelete": "कौशल हटाएं",
+  "skillSave": "सहेजें",
+  "skillSaved": "कौशल सहेजा गया",
+  "skillNameRequired": "कौशल नाम आवश्यक है",
+  "skillNamePlaceholder": "कौशल-नाम",
+  "skillContentPlaceholder": "Markdown में पुन: प्रयोज्य प्रक्रिया का वर्णन करें…",
+  "skillHubImport": "हब से आयात",
+  "skillHubTitle": "Anthropic कौशल केंद्र",
+  "skillHubEmpty": "हब पर कोई कौशल नहीं मिला",
+  "skillImport": "आयात",
+  "skillReimport": "पुनः आयात",
+  "skillImported": "आयातित {{name}}",
+  "sessions": "सत्र",
+  "deleteSession": "सत्र हटाएं",
+  "deleteSessionTitle": "सत्र हटाएं?",
+  "deleteSessionBody": "\"{{title}}\" और इसकी प्रतिलिपि स्थायी रूप से हटा दी जाएगी। इसे पूर्ववत नहीं किया जा सकता.",
+  "newChat": "नवा बात-चीत",
+  "newAgentChat": "एजेंट के साथ नई चैट",
+  "chats": "चैट्स",
+  "favorites": "पसंदीदा",
+  "recents": "हाल के",
+  "hub": "हब",
+  "helpSupport": "सहायता और समर्थन",
+  "helpUsImproveJan": "Novera को बेहतर बनाने में हमारी मदद करें",
+  "analyticsConsentDetail": "हम फीचर उपयोग को समझने के लिए गुमनाम डेटा एकत्र करते हैं। आपकी चैट और निजी जानकारी कभी ट्रैक नहीं की जाती. आप इसे सेटिंग्स > गोपनीयता में कभी भी बदल सकते हैं।",
+  "analyticsConsentQuestion": "Novera सुधारे में मदद करबा?",
+  "unstarAll": "सभी स्टार हटाएं",
+  "unstar": "स्टार हटाएं",
+  "deleteAll": "सभी हटाएं",
+  "star": "स्टार करें",
+  "rename": "नाम बदलें",
+  "delete": "मिटावु",
+  "copied": "कॉपी किया गया!",
+  "dataFolder": "डेटा फ़ोल्डर",
+  "others": "अन्य",
+  "language": "भाषा",
+  "login": "लॉग इन करें",
+  "loginWith": "{{provider}} के साथ लॉग इन करें",
+  "loginFailed": "लॉग इन विफल",
+  "logout": "लॉग आउट करें",
+  "loggingOut": "लॉग आउट हो रहा है...",
+  "loggedOut": "सफलतापूर्वक लॉग आउट हुआ",
+  "logoutFailed": "लॉग आउट विफल",
+  "profile": "प्रोफ़ाइल",
+  "reset": "रीसेट करें",
+  "search": "खोजु",
+  "searchThreads": "बात-चीत खोजु…",
+  "toNavigate": "नेविगेट करने के लिए",
+  "toSelect": "चुनने के लिए",
+  "toClose": "बंद करने के लिए",
+  "clearRecent": "साफ करें",
+  "name": "नाम",
+  "cancel": "रद्द करु",
+  "dismiss": "बर्खास्त करें",
+  "create": "बनावु",
+  "save": "सहेजु",
+  "edit": "संपादित करें",
+  "copy": "कॉपी करें",
+  "back": "पाछू",
+  "close": "बंद करु",
+  "done": "पूरा",
+  "next": "आगू",
+  "finish": "समाप्त करें",
+  "skip": "छोड़ें",
+  "allow": "अनुमति दें",
+  "deny": "अस्वीकार करें",
+  "start": "शुरू करें",
+  "stop": "रोकें",
+  "preview": {
+    "loading": "खुलत हे…",
+    "unsupported": "Novera इस प्रकार की फ़ाइल नहीं दिखा सकता। इसे किसी अन्य ऐप में देखने के लिए खोलें।",
+    "outside": "इ फाइल अब सत्र कर काम करेक जगह में नइ हे।",
+    "tooLarge": "इ फाइल देखाय लागिन बहुत बड़ हे। देखेक लागिन दोसर ऐप में खोलु।",
+    "reload": "फेर लोड करु",
+    "allowNetwork": "नेटवर्क कर अनुमति देउ",
+    "unsandboxed": "सैंडबॉक्स बिना चलावु: सहेजल डेटा आ लोकल फाइल काम करेला",
+    "unresolvedRefs_one": "1 फ़ाइल इस पेज लिंक को पूर्वावलोकन में लोड नहीं कर सकती। इसे ब्राउज़र में देखने के लिए खोलें.",
+    "unresolvedRefs_other": "{{count}} फ़ाइलें इस पेज लिंक को पूर्वावलोकन में लोड नहीं कर सकतीं। इसे ब्राउज़र में देखने के लिए खोलें.",
+    "externalRefs_one": "वेब से इस पृष्ठ द्वारा लोड किया गया 1 संसाधन अवरुद्ध है। इसे लोड करने के लिए \"नेटवर्क की अनुमति दें\" चालू करें।",
+    "externalRefs_other": "{{count}} संसाधन वेब से लोड किए गए इस पृष्ठ को अवरुद्ध कर दिया गया है। उन्हें लोड करने के लिए \"नेटवर्क की अनुमति दें\" चालू करें।",
+    "scriptErrors_one": "पृष्ठ ने एक त्रुटि की सूचना दी: {{message}}",
+    "scriptErrors_other": "पृष्ठ ने {{count}} त्रुटियों की सूचना दी। पहला: {{message}}"
+  },
+  "changes": {
+    "title": "एजेंट बदलता है",
+    "empty": "एजेंट द्वारा लिखी या संपादित की गई फ़ाइलें यहां दिखाई देंगी।",
+    "a11y": "एजेंट परिवर्तन: {{files}} फ़ाइलें, {{additions}} जोड़ा गया, {{deletions}} हटाया गया"
+  },
+  "modelPanel": {
+    "title": "मॉडल कर सेटिंग",
+    "a11y": "मॉडल सेटिंग्स खोलें",
+    "contextTooltip": "संदर्भ विंडो: {{max}} में से {{value}} टोकन"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "कौशल '{{name}}' उपलब्ध नहीं है",
+    "kind": {
+      "skill": "कौशल",
+      "command": "कमांड",
+      "model": "मॉडल"
+    }
+  },
+  "compactWidth": "कॉम्पैक्ट चौड़ाई",
+  "fullWidth": "पूर्ण चौड़ाई",
+  "dark": "डार्क",
+  "light": "लाइट",
+  "system": "सिस्टम",
+  "auto": "अपने से",
+  "english": "अंग्रेज़ी",
+  "medium": "मध्यम",
+  "newThread": "नवा बात-चीत",
+  "noResultsFound": "कोई परिणाम नहीं मिला",
+  "noThreadsYet": "अभी कोनो बात-चीत नइ हे",
+  "noThreadsYetDesc": "अपना थ्रेड इतिहास यहाँ देखने के लिए एक नई बातचीत शुरू करें।",
+  "downloads": "डाउनलोड",
+  "downloading": "डाउनलोड हो रहा है",
+  "uploadingAttachments": "संलग्नक अपलोड किए जा रहे हैं…",
+  "cancelDownload": "डाउनलोड रद्द करें",
+  "downloadCancelled": "डाउनलोड रद्द किया गया",
+  "downloadComplete": "डाउनलोड पूरा हो गेलक",
+  "thinking": "सोच रहा है...",
+  "thought": "विचार",
+  "callingTool": "टूल को कॉल किया जा रहा है",
+  "completed": "पूर्ण",
+  "image": "छवि",
+  "vision": "दृष्टि",
+  "multimodal": "मल्टीमॉडल",
+  "embeddings": "एम्बेडिंग्स",
+  "tools": "उपकरण",
+  "webSearch": "वेब खोज",
+  "reasoning": "तर्क",
+  "proactive": "सक्रिय",
+  "selectAModel": "मॉडल चुनु",
+  "noToolsAvailable": "कोई उपकरण उपलब्ध नहीं है",
+  "noModelsFoundFor": "\"{{searchValue}}\" के लिए कोई मॉडल नहीं मिला",
+  "failedToLoadModels": "मॉडल लोड करने में विफल",
+  "noModels": "कोई मॉडल नहीं मिला",
+  "noAssistant": "कोई सहायक नहीं",
+  "customAvatar": "कस्टम अवतार",
+  "editAssistant": "सहायक संपादित करें",
+  "jan": "Novera",
+  "metadata": "मेटाडेटा",
+  "regenerate": "पुनः उत्पन्न करें",
+  "threadImage": "थ्रेड की छवि",
+  "editMessage": "संदेश संपादित करें",
+  "deleteMessage": "संदेस मिटावु",
+  "deleteThread": "थ्रेड हटाएं",
+  "renameThread": "थ्रेड का नाम बदलें",
+  "threadTitle": "थ्रेड शीर्षक",
+  "deleteAllThreads": "सभी थ्रेड हटाएं",
+  "allThreadsUnfavorited": "सभी थ्रेड से स्टार हटाए गए",
+  "deleteAllThreadsConfirm": "क्या आप वाकई सभी थ्रेड हटाना चाहते हैं? यह कार्रवाई वापस नहीं ली जा सकती।",
+  "addProvider": "प्रदाता जोड़ें",
+  "addOpenAIProvider": "OpenAI प्रदाता जोड़ें",
+  "enterNameForProvider": "अपने प्रदाता के लिए एक नाम दर्ज करें",
+  "providerAlreadyExists": "\"{{name}}\" नाम का प्रदाता पहले से मौजूद है। कृपया कोई दूसरा नाम चुनें।",
+  "adjustFontSize": "फ़ॉन्ट आकार समायोजित करें",
+  "changeLanguage": "भाषा बदलें",
+  "editTheme": "थीम संपादित करें",
+  "editCodeBlockStyle": "कोड ब्लॉक शैली संपादित करें",
+  "editServerHost": "सर्वर होस्ट संपादित करें",
+  "pickColorWindowBackground": "विंडो पृष्ठभूमि का रंग चुनें",
+  "pickColorAppMainView": "मुख्य दृश्य का रंग चुनें",
+  "pickColorAppPrimary": "प्राथमिक रंग चुनें",
+  "pickColorAppAccent": "एक्सेंट रंग चुनें",
+  "pickColorAppDestructive": "डिस्ट्रक्टिव रंग चुनें",
+  "apiKeyRequired": "API कुंजी आवश्यक है",
+  "enterTrustedHosts": "विश्वसनीय होस्ट दर्ज करें",
+  "placeholder": {
+    "chatInput": "मुझसे कुछ भी पूछें..."
+  },
+  "confirm": "पुष्टि करें",
+  "continue": "जारी रखें",
+  "loading": "लोड हो रहा है...",
+  "settingUpJan": "Novera सुरु होवत हे…",
+  "registeringExtensions": "एक्सटेंशन पंजीकृत हो रहा है...",
+  "loadingExtensions": "एक्सटेंशन लोड हो रहा है… ({{done}}/{{total}})",
+  "error": "त्रुटि",
+  "success": "सफलता",
+  "warning": "चेतावनी",
+  "conversationNotAvailable": "वार्तालाप उपलब्ध नहीं है",
+  "conversationNotAvailableDescription": "जिस वार्तालाप तक आप पहुंचने का प्रयास कर रहे हैं वह उपलब्ध नहीं है या हटा दिया गया है।",
+  "temporaryChat": "अस्थायी चैट",
+  "temporaryChatTooltip": "अस्थायी चैट आपके इतिहास में दिखाई नहीं देगी",
+  "noResultsFoundDesc": "हम आपकी खोज से मेल खाने वाली कोई चैट नहीं ढूंढ पाए। कृपया कोई अन्य कीवर्ड आज़माएं।",
+  "searchModels": "मॉडल खोजें...",
+  "searchStyles": "शैलियाँ खोजें...",
+  "createAssistant": "सहायक बनाएं",
+  "enterApiKey": "API कुंजी दर्ज करें",
+  "scrollToBottom": "नीचे स्क्रॉल करें",
+  "generateAiResponse": "AI प्रतिक्रिया उत्पन्न करें",
+  "continueAiResponse": "AI प्रतिक्रिया जारी रखें",
+  "addModel": {
+    "title": "मॉडल जोड़ें",
+    "modelId": "मॉडल ID",
+    "enterModelId": "मॉडल ID दर्ज करें",
+    "addModel": "मॉडल जोड़ें",
+    "description": "प्रदाता में नया मॉडल जोड़ें",
+    "exploreModels": "प्रदाता के मॉडलों की सूची देखें"
+  },
+  "mcpServers": {
+    "editServer": "सर्वर संपादित करें",
+    "addServer": "सर्वर जोड़ें",
+    "serverName": "सर्वर का नाम",
+    "enterServerName": "सर्वर का नाम दर्ज करें",
+    "command": "कमांड",
+    "enterCommand": "कमांड दर्ज करें",
+    "arguments": "आर्ग्युमेंट्स",
+    "argument": "आर्ग्युमेंट {{index}}",
+    "envVars": "पर्यावरण चर",
+    "key": "कुंजी",
+    "value": "मान",
+    "save": "सहेजें"
+  },
+  "deleteServer": {
+    "title": "सर्वर हटाएं",
+    "delete": "हटाएं"
+  },
+  "editJson": {
+    "errorParse": "JSON पार्स करने में त्रुटि",
+    "errorPaste": "JSON पेस्ट करने में त्रुटि",
+    "errorFormat": "अमान्य JSON प्रारूप",
+    "titleAll": "सभी सर्वरों की कॉन्फ़िगरेशन संपादित करें",
+    "placeholder": "JSON कॉन्फ़िगरेशन दर्ज करें...",
+    "save": "सहेजें"
+  },
+  "editModel": {
+    "title": "मॉडल संपादित करें: {{modelId}}",
+    "description": "नीचे दिए गए विकल्पों को सक्षम करके मॉडल की क्षमताओं को कॉन्फ़िगर करें।",
+    "capabilities": "क्षमताएँ",
+    "tools": "उपकरण",
+    "vision": "दृष्टि",
+    "embeddings": "एम्बेडिंग्स",
+    "notAvailable": "अभी उपलब्ध नहीं"
+  },
+  "outOfContextError": {
+    "truncateInput": "इनपुट को ट्रंकेट करें",
+    "title": "संदर्भ सीमा पार त्रुटि",
+    "description": "यह चैट AI की मेमोरी सीमा तक पहुंच रही है, जैसे एक व्हाइटबोर्ड जो भर जाता है। हम मेमोरी विंडो (जिसे कॉन्टेक्स्ट साइज कहा जाता है) बढ़ा सकते हैं ताकि यह अधिक याद रख सके, लेकिन इससे आपके कंप्यूटर की मेमोरी अधिक उपयोग हो सकती है। हम इनपुट को ट्रंकेट भी कर सकते हैं, जिसका मतलब है कि नए संदेशों के लिए जगह बनाने हेतु यह चैट इतिहास का कुछ हिस्सा भूल जाएगा।",
+    "increaseContextSizeDescription": "क्या आप कॉन्टेक्स्ट साइज बढ़ाना चाहते हैं?",
+    "increaseContextSize": "कॉन्टेक्स्ट साइज बढ़ाएं"
+  },
+  "toolApproval": {
+    "title": "टूल अनुमति अनुरोध",
+    "description": "सहायक <strong>{{toolName}}</strong> का उपयोग करना चाहता है",
+    "securityNotice": "केवल उन्हीं टूल्स की अनुमति दें जिन पर आप भरोसा करते हैं। टूल्स आपके सिस्टम और डेटा तक पहुंच सकते हैं।",
+    "deny": "अस्वीकार करें",
+    "allowOnce": "एक बार अनुमति दें",
+    "alwaysAllow": "हमेशा अनुमति दें"
+  },
+  "deleteModel": {
+    "title": "मॉडल हटाएं: {{modelId}}",
+    "description": "क्या आप वाकई इस मॉडल को हटाना चाहते हैं? यह कार्रवाई वापस नहीं ली जा सकती।",
+    "success": "मॉडल {{modelId}} को स्थायी रूप से हटा दिया गया है।",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं"
+  },
+  "deleteProvider": {
+    "title": "प्रदाता हटाएं",
+    "description": "इस प्रदाता और इसके सभी मॉडलों को हटाएं। यह कार्रवाई वापस नहीं ली जा सकती।",
+    "success": "प्रदाता {{provider}} को स्थायी रूप से हटा दिया गया है।",
+    "confirmTitle": "प्रदाता हटाएं: {{provider}}",
+    "confirmDescription": "क्या आप वाकई इस प्रदाता को हटाना चाहते हैं? यह कार्रवाई वापस नहीं ली जा सकती।",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं"
+  },
+  "modelSettings": {
+    "label": "मॉडल कर सेटिंग",
+    "title": "मॉडल सेटिंग्स - {{modelId}}",
+    "description": "प्रदर्शन और व्यवहार को अनुकूलित करने के लिए मॉडल सेटिंग्स कॉन्फ़िगर करें।",
+    "nglDisabledByFit": "ऑटो-फिट GPU परतें चुन रहा है। इसे मैन्युअल रूप से सेट करने के लिए ऑटो-फ़िट बंद करें।",
+    "samplingDefaults": {
+      "title": "डिफ़ॉल्ट नमूना पैरामीटर",
+      "description": "इस मॉडल के लिए डिफ़ॉल्ट सैंपलर सेटिंग्स। इसका उपयोग तब तक किया जाता है जब तक कि इसे प्रति-सहायक या प्रति-अनुरोध मानों द्वारा ओवरराइड न किया जाए।"
+    },
+    "specDraft": {
+      "section": "सट्टा डिकोडिंग",
+      "enable": "सट्टा डिकोडिंग सक्षम करें",
+      "enableDescription": "प्रति चरण कई टोकन ड्राफ्ट करें और उन्हें एक पास में सत्यापित करें, जिससे पीढ़ी में तेजी आती है। मॉडल के अंतर्निर्मित MTP हेड, या इसके साथ डाउनलोड किए गए ड्राफ्ट मॉडल (MTP, Eagle3, DFlash या DSpark) का उपयोग करता है।",
+      "nMax": "अधिकतम ड्राफ्ट टोकन",
+      "nMaxDescription": "प्रति चरण ड्राफ्ट करने के लिए टोकन की अधिकतम संख्या। डिफ़ॉल्ट 16.",
+      "nMin": "न्यूनतम ड्राफ्ट टोकन",
+      "nMinDescription": "प्रति चरण ड्राफ्ट करने के लिए टोकन की न्यूनतम संख्या। डिफ़ॉल्ट 0.",
+      "pMin": "न्यूनतम ड्राफ्ट संभावना",
+      "pMinDescription": "लालची प्रारूपण के लिए न्यूनतम संभावना (0-1)। डिफ़ॉल्ट 0.75."
+    },
+    "templateKwargs": {
+      "section": "चैट टेम्पलेट विकल्प",
+      "description": "इस मॉडल का चैट टेम्प्लेट अतिरिक्त विकल्प स्वीकार करता है। प्रत्येक अनुरोध पर chat_template_kwargs के रूप में भेजा गया; टेम्पलेट को निर्णय लेने देने के लिए उसके डिफ़ॉल्ट पर एक मान छोड़ें।",
+      "addCustom": "कस्टम विकल्प जोड़ें",
+      "keyPlaceholder": "नाम",
+      "valuePlaceholder": "मान",
+      "add": "जोड़ें",
+      "cancel": "रद्द करें",
+      "remove": "हटाएं"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "मॉडल सेटिंग्स को अपडेट नहीं किया जा सका"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "डेटा फ़ोल्डर का स्थान बदलें",
+      "description": "क्या आप वाकई डेटा फ़ोल्डर का स्थान बदलना चाहते हैं? इससे आपका सारा डेटा नए स्थान पर स्थानांतरित हो जाएगा और ऐप पुनः प्रारंभ होगा।",
+      "currentLocation": "वर्तमान स्थान:",
+      "newLocation": "नया स्थान:",
+      "cancel": "रद्द करें",
+      "changeLocation": "स्थान बदलें"
+    },
+    "deleteAllThreads": {
+      "title": "सभी थ्रेड हटाएं",
+      "description": "सभी थ्रेड हटा दिए जाएंगे। यह कार्रवाई वापस नहीं ली जा सकती।"
+    },
+    "deleteAllThreadsInProject": {
+      "title": "सभी वार्तालाप हटाएं",
+      "description": "\"{{projectName}}\" में {{count}} वार्तालाप हटा दिए जाएंगे। यह कार्रवाई वापस नहीं ली जा सकती।"
+    },
+    "deleteThread": {
+      "description": "इ बात-चीत मिटाय के पक्का हे? एकरा फेर वापस नइ लाय सकबा।"
+    },
+    "editMessage": {
+      "title": "संदेश संपादित करें"
+    },
+    "messageMetadata": {
+      "title": "संदेश मेटाडेटा"
+    },
+    "deleteMessage": {
+      "description": "इ संदेस मिटाय के पक्का हे? एकरा फेर वापस नइ लाय सकबा।"
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "कुछ गलत हो गया",
+    "details": "विवरण"
+  },
+  "missingDependenciesDialog": {
+    "title": "गुम सिस्टम लाइब्रेरी",
+    "description": "{{backend}} स्थापित किया गया था लेकिन कुछ आवश्यक सिस्टम लाइब्रेरी नहीं मिल सकीं। यह CPU पर वापस आ सकता है या ठीक से नहीं चल सकता है।",
+    "installLabel": "इसे ठीक करने के लिए, निम्नलिखित स्थापित करें:",
+    "download": "डाउनलोड करें",
+    "additionalLibraries": "अतिरिक्त लापता पुस्तकालय:",
+    "missingLibraries": "गुम पुस्तकालय:",
+    "showRawLibraries": "{{count}} गुम लाइब्रेरी नाम दिखाएं"
+  },
+  "projects": {
+    "title": "प्रोजेक्ट्स",
+    "new": "नए प्रोजेक्ट्स",
+    "addProject": "प्रोजेक्ट जोड़ें",
+    "addToProject": "प्रोजेक्ट में जोड़ें",
+    "removeFromProject": "प्रोजेक्ट से हटाएं",
+    "createNewProject": "नया प्रोजेक्ट बनाएं",
+    "editProject": "प्रोजेक्ट संपादित करें",
+    "deleteProject": "प्रोजेक्ट हटाएं",
+    "projectName": "प्रोजेक्ट का नाम",
+    "enterProjectName": "प्रोजेक्ट का नाम दर्ज करें...",
+    "noProjectsAvailable": "कोई प्रोजेक्ट उपलब्ध नहीं है",
+    "noProjectsYet": "अभी तक कोई प्रोजेक्ट नहीं है",
+    "noProjectsYetDesc": "प्रोजेक्ट जोड़ें बटन पर क्लिक करके नया प्रोजेक्ट शुरू करें।",
+    "projectNotFound": "प्रोजेक्ट नहीं मिला",
+    "projectNotFoundDesc": "जिस प्रोजेक्ट को आप खोज रहे हैं वह मौजूद नहीं है या हटा दिया गया है।",
+    "selectAssistant": "सहायक चुनें",
+    "noAssistantAssigned": "इस प्रोजेक्ट को कोई सहायक असाइन नहीं किया गया है",
+    "files": "फाइलें",
+    "filesDescription": "इस प्रोजेक्ट में संदर्भ के रूप में उपयोग के लिए PDF, दस्तावेज़ या अन्य टेक्स्ट जोड़ें।",
+    "uploadingFiles": "फाइलें प्रोसेस हो रही हैं…",
+    "processButton": "जोड़ें",
+    "deleteProjectDialog": {
+      "title": "प्रोजेक्ट हटाएं",
+      "permanentDelete": "यह सभी थ्रेड्स को स्थायी रूप से हटा देगा।",
+      "permanentDeleteWarning": "यह कार्रवाई प्रोजेक्ट के भीतर सभी थ्रेड्स को स्थायी रूप से हटा देगी!",
+      "deleteEmptyProject": "यह कार्रवाई \"{{projectName}}\" प्रोजेक्ट को हटा देगी।",
+      "saveThreadsAdvice": "थ्रेड्स को सुरक्षित रखने के लिए, हटाने से पहले उन्हें अपनी थ्रेड सूची या किसी अन्य प्रोजेक्ट में स्थानांतरित करें।",
+      "starredWarning": "आपके पास अभी भी प्रोजेक्ट के भीतर स्टार किए गए थ्रेड्स हैं।",
+      "deleteButton": "हटाएं",
+      "successWithName": "प्रोजेक्ट \"{{projectName}}\" सफलतापूर्वक हटा दिया गया",
+      "successWithoutName": "प्रोजेक्ट सफलतापूर्वक हटा दिया गया",
+      "error": "प्रोजेक्ट हटाने में त्रुटि हुई। कृपया पुनः प्रयास करें।",
+      "ariaLabel": "{{projectName}} हटाएं"
+    },
+    "addProjectDialog": {
+      "createTitle": "नया प्रोजेक्ट बनाएं",
+      "editTitle": "प्रोजेक्ट संपादित करें",
+      "nameLabel": "प्रोजेक्ट का नाम",
+      "namePlaceholder": "प्रोजेक्ट का नाम दर्ज करें...",
+      "assistant": "सहायक",
+      "selectAssistant": "एक सहायक चुनें (वैकल्पिक)",
+      "noAssistant": "कोई सहायक नहीं",
+      "addAssistant": "सहायक जोड़ें",
+      "createButton": "बनाएं",
+      "updateButton": "अपडेट करें",
+      "alreadyExists": "प्रोजेक्ट \"{{projectName}}\" पहले से मौजूद है",
+      "createSuccess": "प्रोजेक्ट \"{{projectName}}\" सफलतापूर्वक बनाया गया",
+      "updateSuccess": "प्रोजेक्ट \"{{projectName}}\" सफलतापूर्वक अपडेट किया गया",
+      "saveError": "प्रोजेक्ट सहेजा नहीं जा सका. कृपया पुन: प्रयास करें।"
+    },
+    "noConversationsIn": "{{projectName}} में कोई वार्तालाप नहीं है",
+    "startNewConversation": "{{projectName}} के साथ नीचे एक नई वार्तालाप शुरू करें",
+    "conversationsIn": "{{projectName}} में वार्तालाप",
+    "conversationsDescription": "चैट जारी रखने के लिए किसी भी वार्तालाप पर क्लिक करें, या नीचे एक नई शुरू करें।",
+    "conversation": "वार्तालाप",
+    "instructions": "निर्देश",
+    "setup": "सेटअप",
+    "instructionsDescription": "प्रतिक्रिया के टोन और शैली को अनुकूलित करें",
+    "manageInstructions": "निर्देश प्रबंधित करें",
+    "thread": "थ्रेड",
+    "threads": "थ्रेड्स",
+    "updated": "अपडेट किया गया:",
+    "collapseProject": "प्रोजेक्ट संक्षिप्त करें",
+    "expandProject": "प्रोजेक्ट विस्तृत करें",
+    "update": "अपडेट करें",
+    "searchProjects": "प्रोजेक्ट खोजें...",
+    "noProjectsFound": "कोई प्रोजेक्ट नहीं मिला",
+    "tryDifferentSearch": "कोई अलग खोज शब्द आज़माएं"
+  },
+  "attachmentsIngestion": {
+    "title": "संलग्नकों को कैसे प्रोसेस करना है चुनें",
+    "description": "चुनें कि इन फ़ाइलों को सीधे चैट में शामिल करना है या उन्हें एम्बेडिंग्स के रूप में इंडेक्स करना है।",
+    "inline": "चैट में शामिल करें",
+    "embeddings": "एम्बेडिंग्स का उपयोग करें"
+  },
+  "attachmentInjectedIndicator": "चैट में शामिल किया गया",
+  "attachmentEmbeddedIndicator": "RAG के लिए एम्बेड किया गया",
+  "viewInjectedContent": "इंजेक्ट किया गया कंटेंट देखें",
+  "injectedContentTitle": "इंजेक्ट की गई फ़ाइल का कंटेंट",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "सभी थ्रेड्स से स्टार हटाए गए",
+      "description": "सभी थ्रेड्स को आपके पसंदीदा से हटा दिया गया है।"
+    },
+    "deleteAllThreads": {
+      "title": "सभी थ्रेड्स हटाएं",
+      "description": "सभी थ्रेड्स स्थायी रूप से हटा दिए गए हैं।"
+    },
+    "renameThread": {
+      "title": "थ्रेड का नाम बदलें",
+      "description": "थ्रेड का शीर्षक '{{title}}' में बदल दिया गया है"
+    },
+    "deleteThread": {
+      "title": "थ्रेड हटाएं",
+      "description": "यह थ्रेड स्थायी रूप से हटा दिया गया है।"
+    },
+    "errorCopied": {
+      "title": "कॉपी सफल रही",
+      "description": "त्रुटि की जानकारी क्लिपबोर्ड में कॉपी की गई"
+    },
+    "errorCopyFailed": {
+      "title": "कॉपी करने में त्रुटि",
+      "description": "त्रुटि की जानकारी क्लिपबोर्ड में कॉपी नहीं हो सकी"
+    },
+    "editMessage": {
+      "title": "संदेश संपादित करें",
+      "description": "संदेश सफलतापूर्वक संपादित किया गया। कृपया मॉडल के उत्तर की प्रतीक्षा करें।"
+    },
+    "appUpdateDownloaded": {
+      "title": "अपडेट डाउनलोड हुआ",
+      "description": "ऐप का अपडेट सफलतापूर्वक डाउनलोड हो गया है।"
+    },
+    "appUpdateDownloadFailed": {
+      "title": "अपडेट डाउनलोड विफल",
+      "description": "अपडेट डाउनलोड करने में त्रुटि हुई। कृपया पुनः प्रयास करें।"
+    },
+    "downloadComplete": {
+      "title": "डाउनलोड पूरा",
+      "description": "{{item}} डाउनलोड हो गया है"
+    },
+    "downloadCancelled": {
+      "title": "डाउनलोड रद्द",
+      "description": "डाउनलोड प्रक्रिया रद्द कर दी गई"
+    },
+    "downloadFailed": {
+      "title": "डाउनलोड त्रुटि",
+      "description": "{{item}} का डाउनलोड विफल हुआ",
+      "descriptionWithReason": "{{item}} डाउनलोड विफल: {{reason}}",
+      "reason": {
+        "dns": "सर्वर नाम का समाधान नहीं किया जा सका",
+        "refused": "कनेक्शन अस्वीकार कर दिया गया था",
+        "timeout": "कनेक्शन का समय समाप्त हो गया",
+        "tls": "सुरक्षित कनेक्शन स्थापित नहीं किया जा सका",
+        "proxy": "प्रॉक्सी तक नहीं पहुंचा जा सका",
+        "unreachable": "सर्वर तक नहीं पहुंचा जा सका"
+      }
+    },
+    "openSettings": "सेटिंग्स खोलें",
+    "openLogs": "लॉग खोलें",
+    "downloadTokenRequired": {
+      "title": "Hugging Face टोकन आवश्यक है",
+      "description": "इस मॉडल को Hugging Face एक्सेस टोकन की आवश्यकता है। सेटिंग्स में अपना टोकन जोड़ें और पुनः प्रयास करें।"
+    },
+    "downloadLicenseRequired": {
+      "title": "Hugging Face पर मॉडल लाइसेंस स्वीकार करें",
+      "description": "डाउनलोड करने से पहले आपको मॉडल के लाइसेंस को उसके Hugging Face पेज पर स्वीकार करना होगा।"
+    },
+    "downloadRateLimited": {
+      "title": "दर Hugging Face द्वारा सीमित",
+      "description": "आपकी दर सीमित कर दी गई है। टोकन जोड़ने से दर सीमा बढ़ सकती है। कृपया बाद में पुन: प्रयास करें।"
+    },
+    "modelValidationStarted": {
+      "title": "मॉडल सत्यापित हो रहा है",
+      "description": "मॉडल \"{{modelId}}\" सफलतापूर्वक डाउनलोड हुआ। सत्यापन किया जा रहा है..."
+    },
+    "modelValidationFailed": {
+      "title": "मॉडल सत्यापन विफल",
+      "description": "डाउनलोड किया गया मॉडल \"{{modelId}}\" सत्यापन में असफल रहा और हटा दिया गया। फ़ाइल भ्रष्ट या छेड़छाड़ की गई हो सकती है।"
+    },
+    "downloadAndVerificationComplete": {
+      "title": "डाउनलोड पूरा",
+      "description": "मॉडल \"{{item}}\" सफलतापूर्वक डाउनलोड और सत्यापित किया गया"
+    },
+    "projectCreated": {
+      "title": "प्रोजेक्ट बनाया गया",
+      "description": "प्रोजेक्ट \"{{projectName}}\" सफलतापूर्वक बनाया गया"
+    },
+    "projectRenamed": {
+      "title": "प्रोजेक्ट का नाम बदला गया",
+      "description": "प्रोजेक्ट का नाम \"{{oldName}}\" से \"{{newName}}\" कर दिया गया"
+    },
+    "projectDeleted": {
+      "title": "प्रोजेक्ट हटाया गया",
+      "description": "प्रोजेक्ट \"{{projectName}}\" सफलतापूर्वक हटा दिया गया"
+    },
+    "projectAlreadyExists": {
+      "title": "प्रोजेक्ट पहले से मौजूद है",
+      "description": "प्रोजेक्ट \"{{projectName}}\" पहले से मौजूद है"
+    },
+    "projectDeleteFailed": {
+      "title": "हटाने में त्रुटि",
+      "description": "प्रोजेक्ट हटाने में त्रुटि हुई। कृपया पुनः प्रयास करें।"
+    },
+    "threadAssignedToProject": {
+      "title": "थ्रेड असाइन किया गया",
+      "description": "थ्रेड को \"{{projectName}}\" में सफलतापूर्वक असाइन किया गया"
+    },
+    "threadRemovedFromProject": {
+      "title": "थ्रेड हटाया गया",
+      "description": "थ्रेड को \"{{projectName}}\" से सफलतापूर्वक हटाया गया"
+    },
+    "fileUploaded": {
+      "title": "फ़ाइल प्रोसेस की गई",
+      "description": "फ़ाइल सफलतापूर्वक प्रोसेस और इंडेक्स की गई"
+    },
+    "uploadFailed": {
+      "title": "प्रोसेसिंग में त्रुटि",
+      "description": "फ़ाइल प्रोसेस करने में त्रुटि हुई",
+      "subjectThisFile": "यह फ़ाइल",
+      "pdfMalformedXref": "{{subject}} में एक विकृत PDF क्रॉस-रेफरेंस तालिका है और इसे पार्स नहीं किया जा सका। इसे PDF व्यूअर में खोलने और पुनः सहेजने का प्रयास करें (फ़ाइल → प्रिंट → PDF के रूप में सहेजें), फिर दोबारा अपलोड करें।",
+      "pdfScanned": "{{subject}} एक स्कैन किया हुआ या छवि-आधारित PDF प्रतीत होता है। OCR अभी तक समर्थित नहीं है - कृपया टेक्स्ट-आधारित PDF अपलोड करें।",
+      "pdfEncrypted": "{{subject}} पासवर्ड से सुरक्षित है। पासवर्ड निकालें और पुनः प्रयास करें.",
+      "pdfUnsupportedFeature": "{{subject}} एक PDF सुविधा का उपयोग करता है Novera अभी तक पार्स नहीं कर सकता है (उदाहरण के लिए PostScript रंग/छायांकन फ़ंक्शन)। इसे समतल करने के लिए इसे पुनः सहेजने का प्रयास करें (फ़ाइल → प्रिंट → PDF के रूप में सहेजें), फिर दोबारा अपलोड करें।",
+      "pdfGeneric": "{{subject}} को PDF के रूप में पार्स नहीं किया जा सका। फ़ाइल दूषित हो सकती है या असमर्थित PDF सुविधा का उपयोग कर सकती है।",
+      "fileTooLarge": "{{subject}} बहुत बड़ा है। {{message}}.",
+      "unsupportedType": "फ़ाइल प्रकार \"{{type}}\" समर्थित नहीं है।",
+      "ioError": "{{subject}} नहीं पढ़ सका: {{message}}",
+      "parseGeneric": "{{subject}} को पार्स नहीं किया जा सका: {{message}}",
+      "fallback": "{{subject}} को संसाधित करने में विफल।"
+    },
+    "fileDeleted": {
+      "title": "फ़ाइल हटाई गई",
+      "description": "फ़ाइल को प्रोजेक्ट से हटा दिया गया है"
+    },
+    "deleteFailed": {
+      "title": "हटाने में त्रुटि",
+      "description": "फ़ाइल हटाने में त्रुटि हुई"
+    },
+    "fileAlreadyExists": {
+      "title": "फ़ाइल पहले से मौजूद है",
+      "description": "यह फ़ाइल पहले से इस प्रोजेक्ट से जुड़ी हुई है"
+    },
+    "unsupportedFileType": {
+      "title": "असमर्थित फ़ाइल प्रकार",
+      "description": "फ़ाइल एक्सटेंशन \".{{extension}}\" प्रोजेक्ट संदर्भ के लिए समर्थित नहीं है।"
+    },
+    "attachmentsDisabledInfo": {
+      "title": "संलग्नक निष्क्रिय हैं",
+      "description": "संलग्नक सेटिंग्स में निष्क्रिय किए गए हैं"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "फ़ाइल बहुत बड़ी है",
+    "fileTooLargeDescription": "{{fileName}} {{maxFileSizeMB}}MB की सीमा से अधिक है"
+  },
+  "files": {
+    "chunksCount": "{{count}} खंड",
+    "title": "फ़ाइलें",
+    "empty": "आपके द्वारा संलग्न की गई फ़ाइलें और एजेंट द्वारा बनाई गई फ़ाइलें यहां दिखाई देंगी।",
+    "a11y": "फ़ाइलें: {{count}}",
+    "attachments": "संलग्नक",
+    "notImported": "कार्यक्षेत्र में नहीं"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp अभी भी व्यस्त है",
+    "description": "एक या अधिक मॉडल समय पर अनलोड नहीं हुए। बलपूर्वक छोड़ने से llama.cpp समाप्त हो जाएगा और सक्रिय प्रतिक्रियाएं बाधित हो सकती हैं।",
+    "forceQuit": "Force quit",
+    "forcing": "Force quitting…",
+    "shuttingDown": "Shutting down…"
+  },
+  "duration": {
+    "seconds": "{{count}} सेकंड",
+    "minutes": "{{count}} मिनट",
+    "hours": "{{count}} घंटा"
+  },
+  "collapse": "पतन",
+  "expand": "विस्तार करें",
+  "todoPanelTitle": "प्रगति",
+  "todoPanelEmpty": "अभी तक कोई कार्य सूची नहीं।",
+  "backgroundTasks": "पृष्ठभूमि कार्य",
+  "subagentsRunning_one": "{{count}} सबएजेंट चल रहा है",
+  "subagentsRunning_other": "{{count}} सबएजेंट चल रहे हैं",
+  "monitorsRunning_one": "{{count}} मॉनिटर चल रहा है",
+  "monitorsRunning_other": "{{count}} मॉनिटर चल रहा है",
+  "backgroundRunning_one": "{{count}} पृष्ठभूमि कार्य चल रहा है",
+  "backgroundRunning_other": "{{count}} पृष्ठभूमि कार्य चल रहे हैं",
+  "monitors": "मॉनिटर्स",
+  "monitorPolling": "मतदान",
+  "monitorMatched": "मिलान हुआ",
+  "monitorTimedOut": "समय समाप्त हो गया",
+  "monitorStopped": "रुक गया",
+  "monitorEnded": "ख़त्म",
+  "coworkWatching_one": "{{count}} मॉनिटर देखना…",
+  "coworkWatching_other": "{{count}} मॉनिटर देखना…",
+  "coworkWaitingBackground": "पृष्ठभूमि कार्यों पर प्रतीक्षा की जा रही है...",
+  "noBackgroundTasks": "अभी तक कोई पृष्ठभूमि कार्य नहीं।",
+  "running": "चल रहा है",
+  "queued": "कतारबद्ध",
+  "waiting": "इंतज़ार कर रहा हूँ",
+  "finished": "समाप्त",
+  "subagentPhase": "चरण {{phase}}",
+  "subagentWaiting": "प्रतीक्षा कर रहा है",
+  "viewTranscript": "प्रतिलेख देखें",
+  "taskWorking": "कार्य करना…",
+  "taskNoOutput": "सबएजेंट ने कोई दृश्यमान आउटपुट नहीं दिया।",
+  "subagentToolUses_one": "{{count}} टूल का उपयोग",
+  "subagentToolUses_other": "{{count}} टूल का उपयोग",
+  "artifactGroupCode": "कोड",
+  "artifactGroupImage": "छवि",
+  "artifactGroupDocument": "दस्तावेज़",
+  "artifactGroupVideo": "वीडियो",
+  "artifactGroupAudio": "ऑडियो",
+  "artifactOpenPreview": "पूर्वावलोकन खोलें",
+  "artifactOpenExternal": "खोलें",
+  "artifactMoreActions": "अधिक कार्रवाइयां",
+  "artifactShowInFolder": "फ़ोल्डर में दिखाएँ",
+  "skillsUsedLabel": "प्रयुक्त कौशल",
+  "skillsUsed": "प्रयुक्त कौशल: {{skills}}",
+  "artifactsAll": "सभी",
+  "artifactsEmpty": "अभी तक कुछ भी उत्पादन नहीं हुआ है। Cowork रन की कलाकृतियाँ यहाँ दिखाई देती हैं।",
+  "artifactsNoMatch": "कोई कलाकृतियाँ मेल नहीं खातीं।",
+  "artifactsSearch": "कलाकृतियाँ खोजें",
+  "artifactsShowMore": "{{count}} और दिखाएं",
+  "workspace": {
+    "readsFrom": "में काम करता है",
+    "writable": "पढ़ें और लिखें",
+    "footnote": "एजेंट इस फ़ोल्डर को सीधे पढ़ता और संपादित करता है। समीक्षा करें कि अंतर पैनल में क्या परिवर्तन हुआ।",
+    "footnoteEmpty": "एजेंट को आपके प्रोजेक्ट पर काम करने देने के लिए एक फ़ोल्डर संलग्न करें। यह इसके अंदर फाइलों को पढ़ और संपादित कर सकता है।",
+    "attach": "एक फ़ोल्डर संलग्न करें",
+    "change": "फ़ोल्डर बदलें",
+    "detach": "फ़ोल्डर को अलग करें",
+    "open": "खोलें",
+    "reveal": "खुलासा",
+    "unavailable": "कार्यस्थान अनुपलब्ध",
+    "missing": "कार्यस्थान फ़ोल्डर {{folder}} अब उपलब्ध नहीं है। कोई भिन्न फ़ोल्डर चुनें.",
+    "openFailed": "कार्यस्थान नहीं खुल सका",
+    "revealFailed": "कार्यस्थान प्रकट नहीं किया जा सका",
+    "a11yWithFolder": "प्रोजेक्ट फ़ोल्डर {{folder}}, पढ़ने और लिखने की पहुंच के साथ संलग्न। इसे बदलो या अलग करो.",
+    "a11yNoFolder": "कोई प्रोजेक्ट फ़ोल्डर संलग्न नहीं है। एक संलग्न करें."
+  },
+  "coworkEmpty": {
+    "title": "हम किस पर काम कर रहे हैं?",
+    "subtitleSandbox": "Novera को एक कार्य दें। यह फाइलों को पढ़ता और लिखता है, कमांड चलाता है और चरणों के माध्यम से अपने आप काम करता है।",
+    "subtitleFolder": "Novera को एक कार्य दें। यह सीधे {{folder}} में काम करता है, फ़ाइलों को अपने आप पढ़ता और संपादित करता है।",
+    "try": "प्रयास करें",
+    "sandbox": {
+      "first": "एक Python स्क्रिप्ट लिखु जे फाइल कर नाम ओकरा खींचल तारीख से बदले",
+      "second": "CSV से एक सिंगल-पेज डैशबोर्ड बनाएं, मैं उसमें पेस्ट करूंगा",
+      "third": "मैं जिस प्रोजेक्ट के बारे में आपको बता रहा हूं उसके लिए एक README ड्राफ्ट करें"
+    },
+    "folder": {
+      "first": "बताएं कि {{folder}} को एक साथ कैसे रखा जाता है",
+      "second": "{{folder}} में प्रत्येक TODO ढूंढें और उन्हें क्षेत्र के अनुसार समूहित करें",
+      "third": "{{folder}} के भाग के लिए परीक्षण लिखें मैं आपको इंगित करता हूं"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "कोई टर्मिनल नहीं",
+    "a11y": "रनिंग कमांड बंद है। विवरण।",
+    "title": "रनिंग कमांड बंद है",
+    "body": "Novera एजेंट को शेल कमांड तभी चलाने देता है जब आपका सिस्टम उन्हें सीमित कर सकता है। यहां कोई सैंडबॉक्स उपलब्ध नहीं है, इसलिए एजेंट अपने सैंडबॉक्स में फ़ाइलों को पढ़, लिख और संपादित कर सकता है - लेकिन कुछ भी नहीं चला सकता है।",
+    "fixLinux": "लिनक्स bubblewrap का उपयोग करता है। इसे इंस्टॉल करें, फिर Novera को पुनरारंभ करें।",
+    "fixMac": "macOS /usr/bin/sandbox-exec पर बिल्ट-इन सैंडबॉक्स का उपयोग करता है। Novera उपलब्ध होने पर पुनः आरंभ करें।",
+    "fixWindows": "Windows AppContainer इस्तेमाल करेला। फेर कोशिश लागिन Novera दोबारा सुरु करु।",
+    "recheck": "दोबारा जांचें"
+  },
+  "planMode": {
+    "label": "योजना",
+    "tooltipOff": "पहले योजना बनाएं - एजेंट पढ़ता है और प्रस्ताव देता है, बिना लिखे।",
+    "tooltipOn": "योजना. एजेंट को फ़ाइलें लिखने देने के लिए इसे बंद करें।",
+    "onAnnounce": "योजना मोड चालू",
+    "placeholder": "एक योजना के लिए पूछें। एजेंट कोई फ़ाइल नहीं बदलेगा."
+  },
+  "budget": {
+    "stoppedSteps": "{{max}} चरणों पर रुका। एजेंट समाप्त नहीं हुआ है.",
+    "keepGoing": "चलते रहो",
+    "stoppedTokens": "रोक दिया गया — इस सत्र का टोकन बजट समाप्त हो गया है।",
+    "compact": "कॉम्पैक्ट",
+    "newSession": "नया सत्र"
+  },
+  "run": {
+    "stopped": "रुक गया.",
+    "failed": "रन जल्दी रुक गया।",
+    "tryAgain": "पुनः प्रयास करें"
+  },
+  "modelNoTools": "{{model}} टूल को कॉल नहीं कर सकता, इसलिए यह एजेंट के रूप में कार्य नहीं कर सकता। टूल-कॉलिंग मॉडल चुनें.",
+  "askContinue": "जारी रखें",
+  "askNext": "अगला प्रश्न",
+  "askPrev": "पिछला प्रश्न",
+  "askRecommended": "अनुशंसित",
+  "askSelectedCount": "{{count}} चयनित",
+  "askSomethingElse": "कुछ और",
+  "askSomethingElsePlaceholder": "अपना उत्तर स्वयं टाइप करें",
+  "submit": "सबमिट करें",
+  "composer": {
+    "advanced": "उन्नत पैरामीटर",
+    "modelDefaults": "मॉडल के डिफ़ॉल्ट मान",
+    "assistantOverrides": "सहायक के कस्टम पैरामीटर",
+    "printPdf": "प्रिंट करें / PDF के रूप में सहेजें",
+    "exportHint": "पढ़ने योग्य प्रारूप: सक्रिय शाखा। JSON: संदेशों के सभी संस्करण। बाहरी फ़ाइलें शामिल नहीं हैं।"
+  },
+  "telemetry": {
+    "summary": "आपकी सहमति से {{host}} को केवल Novera का संस्करण और ऑपरेटिंग सिस्टम मिलता है, बातचीत या स्थायी पहचानकर्ता नहीं।",
+    "unavailable": "आँकड़ा भेजेक सेटिंग नइ हे। कोनो डेटा नइ भेजाला।"
+  },
+  "errorTracking": {
+    "title": "त्रुटियों की निगरानी",
+    "summary": "{{host}} को वैकल्पिक रिपोर्ट: त्रुटि का प्रकार, कोड में स्थान, संस्करण और ऑपरेटिंग सिस्टम। बातचीत, मूल त्रुटि संदेश या कुंजियाँ नहीं। कभी भी बंद करें।",
+    "unavailable": "गलती रिपोर्ट कर सेटिंग नइ हे। कोनो रिपोर्ट नइ भेजाला।"
+  },
+  "access": {
+    "read": "खाली पढ़ेक लागिन",
+    "ask": "बदलेक या मिटाय से पहिले पूछु",
+    "allow": "बदलेक आ मिटाय कर अनुमति देउ",
+    "folderNote": "चुनु कि Novera इ फोल्डर के कइसन इस्तेमाल कर सकेला।"
+  },
+  "components": {
+    "title": "स्थानीय घटक",
+    "note": "खाली जरूरी हिस्सा इंस्टॉल करु। Novera Python कर माहौल अलग रखेला। क्लाउड सेवा लागिन लोकल इंस्टॉल नइ चाही।",
+    "estimates": "अनुमानित डाउनलोड: {{download}} · आवश्यक डिस्क स्थान: {{space}} · उपलब्ध डिस्क स्थान: {{free}}",
+    "confirm": "इस निजी वातावरण को स्थापित करें? केवल चयनित घटक ही डाउनलोड किए जाएंगे. उनके प्रकाशकों के लाइसेंस लागू होते हैं।",
+    "removeConfirm": "इस प्रबंधित वातावरण को हटाएं? आपके मॉडल, रचनाएं और बातचीत रखी जाएंगी.",
+    "verify": "सत्यापित करें",
+    "repair": "मरम्मत",
+    "uninstall": "अनइंस्टॉल करें",
+    "missing": "स्थापित नहीं है",
+    "managed": "Novera द्वारा प्रबंधित",
+    "external": "बाहरी Python कर पथ चाहला पर देउ। इ प्रबंधित प्रोफाइल कर जगह लेवेला। Novera कर माहौल इस्तेमाल करे लागिन पथ हटावु।",
+    "failed": "घटक संचालन विफल रहा। नेटवर्क, डिस्क स्थान और एक्सेस अधिकारों की जाँच करें, फिर पुनः प्रयास करें या मरम्मत करें।",
+    "required": "Novera · कॉन्फ़िगरेशन में आवश्यक स्थानीय घटकों को तैयार और सत्यापित करें।",
+    "updateAvailable": "अद्यतन उपलब्ध है",
+    "update": "अद्यतन",
+    "rollback": "पिछले वातावरण को पुनर्स्थापित करें",
+    "busy": "स्थानीय मॉडल उतारें और घटकों को बदलने से पहले पीढ़ियों के खत्म होने की प्रतीक्षा करें।"
+  },
+  "voiceConversation": "आवाज से बात-चीत",
+  "voiceUnavailable": "आवाज से बात-चीत अभी नइ हो सकेला",
+  "voiceMale": "पुरुष की आवाज़",
+  "voiceFemale": "महिला की आवाज़",
+  "voiceReadReplies": "जवाब पढ़ के सुनावु"
+}

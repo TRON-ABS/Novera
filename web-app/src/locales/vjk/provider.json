@@ -1,0 +1,18 @@
+{
+  "addProvider": "प्रदाता जोड़ू",
+  "addOpenAIProvider": "कस्टम प्रदाता जोड़ू",
+  "enterNameForProvider": "प्रदाता नाम (जैसे my-llm-server)",
+  "apiTypeLabel": "API प्रारूप",
+  "apiTypeOpenAI": "OpenAI-संगत",
+  "apiTypeAnthropic": "Anthropic-संगत",
+  "baseUrlLabel": "आधार URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API कुंजी",
+  "apiKeyPlaceholder": "अपन API कुंजी पेस्ट करू",
+  "invalidBaseUrl": "बेस URL एकटा वैध http(s) URL होबाक चाही",
+  "globalSettings": "वैश्विक सेटिंग्स",
+  "stripReasoning": "संदर्भ से तर्क के पट्टी",
+  "stripReasoningDesc": "इतिहास कें पुनः भेजय सं पहिने, सब प्रदाताक कें पार, पूर्व मोड़ कें सोच/तर्क सामग्री कें हटाउ. स्थानीय मॉडल कें लेल KV-cache पुन: उपयोग मे सुधार करयत छै, मुदा किछ मॉडल (जैना नव Qwen रिलीज) बेहतर बहु-मोड़ तर्क कें लेल एकरा रखनाय कें सलाह दैत छै.",
+  "providerAlreadyExists": "{{name}} नामक एकटा प्रदाता पहिने सं मौजूद अछि."
+}
