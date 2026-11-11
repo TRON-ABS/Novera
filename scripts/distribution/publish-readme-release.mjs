@@ -85,13 +85,14 @@ export function preparePublication(rootPath, preview = false) {
   const sourceFacts = JSON.parse(fs.readFileSync(path.join(rootPath, 'docs/release-preparation.json')))
   if (!preview && sourceFacts.published !== true) throw new Error('Refusing to announce an unpublished release')
   if (!preview && !sourceFacts.previous) throw new Error('The previous public version must be explicit')
-  const android = JSON.parse(fs.readFileSync(path.join(rootPath, 'scripts/android/release.json')))
-  const facts = { ...sourceFacts, previous: sourceFacts.previous ?? sourceFacts.stable, androidVersionCode: android.versionCode }
+  const facts = { ...sourceFacts, previous: sourceFacts.previous ?? sourceFacts.stable }
   if (preview) Object.assign(facts, { published: true, stable: facts.release })
   const locales = JSON.parse(fs.readFileSync(path.join(rootPath, 'docs/language-support.json')))
   const copies = JSON.parse(fs.readFileSync(path.join(rootPath, `scripts/readme-release-${facts.release}-published.json`)))
-  if (Object.keys(copies).length !== locales.length) throw new Error('Incomplete publication translations')
-  return locales.map(({ locale }) => {
+  const currentLocales = new Set(locales.map(({ locale }) => locale))
+  const translatedLocales = Object.keys(copies)
+  if (translatedLocales.length !== Number(facts.languages) || translatedLocales.some(locale => !currentLocales.has(locale))) throw new Error('Incomplete publication translations')
+  return translatedLocales.map(locale => {
     const name = locale === 'en' ? 'README.md' : `README.${locale === 'de-DE' ? 'de' : locale}.md`
     const before = fs.readFileSync(path.join(rootPath, name), 'utf8')
     return { name, before, after: preparePublishedReadme(before, locale, facts, copies[locale]) }

@@ -25,8 +25,8 @@ export function preparePagesSite(output, commit, factsOverride, webVersion) {
   const facts = factsOverride ?? JSON.parse(fs.readFileSync(path.join(root, 'docs/release-preparation.json'), 'utf8'))
   const copy = JSON.parse(fs.readFileSync(path.join(root, 'scripts/readme-release-1.0.1.json'), 'utf8')).fr
   const published = facts.published === true
-  const androidVersion = facts.androidReleaseVersion ?? facts.stable
-  const androidVersionCode = facts.androidVersionCode ?? 1000012
+  const androidVersion = facts.androidCurrentRelease?.version ?? facts.androidReleaseVersion ?? facts.stable
+  const androidVersionCode = facts.androidCurrentRelease?.versionCode ?? facts.androidVersionCode ?? 1000012
   if (![facts.release, facts.stable, androidVersion].every(version => /^\d+\.\d+\.\d+$/.test(version)) || !Number.isSafeInteger(androidVersionCode)) throw new Error('Invalid public release identity')
   const androidReleaseTag = `v${androidVersion}-android-${androidVersionCode}`
   const androidDownload = `${repository}/releases/download/${androidReleaseTag}/Novera_${androidVersion}_android-arm64.apk`
@@ -47,7 +47,9 @@ export function preparePagesSite(output, commit, factsOverride, webVersion) {
     if (!(key in facts)) throw new Error(`Missing release fact: ${key}`)
     return facts[key]
   })).replace(/`([^`]+)`/g, '<code>$1</code>')
-  if (typeof facts.published !== 'boolean' || String(readmeLocales.length) !== facts.languages) throw new Error('Release-preparation facts require review')
+  if (typeof facts.published !== 'boolean' || !/^\d+$/.test(facts.languages) || readmeLocales.length < Number(facts.languages)) {
+    throw new Error('Release-preparation facts require review')
+  }
   const noteKeys = ['security', 'privacy', 'engine', 'languages', 'recommendation', 'voice', 'microphone', 'web', 'optimization', 'interface', 'api', 'checks', 'limits']
   const preparedNotes = `<section class="notice" aria-labelledby="preparation-title"><h2 id="preparation-title">${render(copy.title)}</h2><p>${render(copy.status)}</p><p>${render(copy.interface)}</p><p>${render(copy.optimization)}</p><details><summary>${render(copy.details)}</summary><ul>${noteKeys.map(key => `<li>${render(copy[key])}</li>`).join('')}</ul><p><a href="${repository}/blob/main/docs/CHANGELOG.md">Notes 1.0.1</a> · <a href="${repository}/blob/main/SECURITY.md">Sécurité et limites</a></p></details></section>`
   const languageLinks = readmeLocales.map(({ filename, label }) =>
@@ -69,13 +71,16 @@ ${preparedNotes}
 <section class="cards" aria-label="Le projet"><article class="card"><h2>Du premier message au résultat</h2><p>Conversation, recherche et création se suivent dans un tableau de bord commun.</p></article><article class="card"><h2>Local et cloud</h2><p>Les capacités locales dépendent du matériel et des modèles installés. Le cloud utilise les accès choisis par l’utilisateur.</p></article><article class="card"><h2>Un projet indépendant</h2><p>Sources ouvertes, documentation et disponibilité sont suivies sur le dépôt officiel TRON-ABS/Novera.</p></article></section>
 <section class="notice" aria-labelledby="community-title"><h2 id="community-title">Novera évolue avec vous</h2><p>Le savoir pour tous, un avenir à construire ensemble. Partagez vos créations, vos modèles et vos réglages : vos expériences peuvent aussi aider les autres utilisateurs à trouver une configuration adaptée.</p><p>Un retour, une question, un problème ou une idée ? Nous sommes là pour vous aider. Indiquez si possible votre version de Novera, votre appareil et si vous utilisez un modèle local ou une API. Masquez les données personnelles ; ne partagez jamais vos clés API ou mots de passe.</p><p>Retrouvez les comptes officiels de Novera :</p><div class="actions" aria-label="Réseaux officiels de Novera">${socialProfiles.map(([name, url]) => `<a class="button" href="${url}">${name}</a>`).join('')}<a class="button" href="mailto:contact.novera.tronabs@gmail.com">Écrire à Novera</a></div></section>
 ${creationPromptGuide(repository)}
-<section class="notice" aria-labelledby="languages-title"><h2 id="languages-title">La présentation dans ${facts.languages} langues et variantes</h2><p>Consultez les README du dépôt avec les notes de préparation de la ${facts.release}. Les traductions assistées et variantes écrites nécessitent encore une relecture native.</p><details><summary>Choisir une langue</summary><div class="actions">${languageLinks}</div></details></section>
+<section class="notice" aria-labelledby="languages-title"><h2 id="languages-title">La présentation dans ${readmeLocales.length} langues et variantes</h2><p>Consultez les README du dépôt avec les notes de préparation de la ${facts.release}. Les traductions assistées et variantes écrites nécessitent encore une relecture native.</p><details><summary>Choisir une langue</summary><div class="actions">${languageLinks}</div></details></section>
 <p class="numbers">Sources ${facts.release} en préparation : ${facts.languages} langues d’interface · ${facts.providers} profils dont ${facts.cloud} fournisseurs cloud · ${facts.media} préréglages média · Apache 2.0</p></main>
 <footer><p>Je vous souhaite à toutes et à tous une merveilleuse aventure avec Novera. Que votre curiosité ouvre de nouvelles portes, que vos idées prennent vie et que chaque création vous emmène un peu plus loin.</p><p class="signature">TRON-ABS<br><span>Mr Sachet Jean-Marc — Chercheur indépendant — France</span><br><span>The art of Human with AI</span></p><p>Merci à toutes les personnes qui contribuent à un monde meilleur. Par leurs découvertes, leur travail, leur entraide et leur transmission, elles nous ont permis d’en être là aujourd’hui.</p><p>Nous leur souhaitons le meilleur pour l’avenir, ainsi qu’à toutes celles et ceux qui poursuivent cet élan de partage et d’entraide.</p><p><small>Outil de développement : 🧠 Codex — GPT-6.1 Sol</small></p></footer></body></html>`
   if (published) {
     const report = `${repository}/blob/main/docs/RELEASE_1.0.1_2026-11-07.md`
+    const androidSummary = facts.androidCurrentRelease?.deviceValidated === true
+      ? `<strong>Android ${androidVersion} est disponible en APK signé.</strong> Le clavier et les langues d’interface ont été testés sur Huawei P20 avec le build ${androidVersionCode}. Installez l’APK par-dessus la version existante pour conserver vos données.`
+      : render(publicationCopy.android)
     html = html.replace(/<p><strong>Android 1\.0\.0 est disponible en APK signé\.<\/strong>[\s\S]*?<\/p>/,
-      `<p>${render(publicationCopy.android)} <a href="${repository}/releases/tag/${androidReleaseTag}">Publication Android et vérification</a>.</p>`)
+      `<p>${androidSummary} <a href="${repository}/releases/tag/${androidReleaseTag}">Publication Android et vérification</a>.</p>`)
       .replace(/https:\/\/github\.com\/TRON-ABS\/Novera\/blob\/main\/docs\/RELEASE_(?:MACOS|ANDROID)_1\.0\.0\.md/g, report)
       .replaceAll('1.0.0', facts.stable)
       .replace('notes de préparation de la', 'notes de version de la')
@@ -101,7 +106,7 @@ ${creationPromptGuide(repository)}
   }
   const probe = { product: 'Novera launch information', commit, applicationPublished: false, publicDownloadsEnabled: true, desktopReleaseVersion: '1.0.0', cliReleaseTag: 'v1.0.0-cli-novera', cliExecutableNames: ['novera.exe', 'novera'], macosReleaseTag: 'v1.0.0-macos', macosOfficial: true, macosAppleNotarized: false, macosVisualTestsPerformed: false, androidStatus: 'maintainer-confirmed-public', androidReleaseTag, androidVersionCode: 1000012, androidDownloadUrl: androidDownload, htmlSha256: createHash('sha256').update(html).digest('hex') }
   Object.assign(probe, { preparedSourceVersion: facts.release, preparedVersionPublished: false, readmeLanguageCount: readmeLocales.length, preparedMediaPresets: Number(facts.media) })
-  if (published) Object.assign(probe, { applicationPublished: true, desktopReleaseVersion: facts.stable, cliReleaseTag: `v${facts.stable}-cli-novera`, macosReleaseTag: `v${facts.stable}-macos`, preparedVersionPublished: true, androidVersionCode, androidStatus: 'package-verified-device-pending' })
+  if (published) Object.assign(probe, { applicationPublished: true, desktopReleaseVersion: facts.stable, cliReleaseTag: `v${facts.stable}-cli-novera`, macosReleaseTag: `v${facts.stable}-macos`, preparedVersionPublished: true, androidVersionCode, androidStatus: facts.androidCurrentRelease?.deviceValidated === true ? 'maintainer-confirmed-public' : 'package-verified-device-pending' })
   if (published && facts.webExperimentalPublished === true && webVersion) {
     Object.assign(probe, { webVersion, webInterfaceLanguageCount: locales.length })
   }

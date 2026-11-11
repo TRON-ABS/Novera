@@ -1,5 +1,9 @@
 # Novera — suivi des essais avant les compilations par système
 
+## Android 1.0.2 — 11 novembre 2026
+
+Le mainteneur a testé le build ARM64 1000023 sur Huawei P20 et validé le clavier et les 120 langues. Le paquet publié reprend les octets exacts du test. [APK signé et somme SHA-256](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-android-1000023).
+
 ## Compilations sur GitHub autorisées — 1er novembre 2026
 
 Le [cycle des prochaines versions](FUTURES_VERSIONS.md) couvre la synchronisation des numéros, les contrôles de migration et la préparation des mises à jour signées desktop. Les résultats des candidats restent propres à leur commit et à leur plateforme.

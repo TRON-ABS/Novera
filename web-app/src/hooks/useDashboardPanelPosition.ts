@@ -1,6 +1,7 @@
 import { useLayoutEffect, useState } from 'react'
 import type { CSSProperties } from 'react'
 import { useDashboardPanel } from './useDashboardPanel'
+import { androidViewportEvent, getAndroidVisibleHeight } from './useAndroidVisualViewport'
 
 /** Use the composer stack, with a fixed fallback when the stack is absent. */
 export function useDashboardPanelPosition(enabled: boolean, positioningStack = false) {
@@ -24,26 +25,33 @@ export function useDashboardPanelPosition(enabled: boolean, positioningStack = f
         if (target && !host) observer?.observe(target)
       }
       if (host) return
+      const android = typeof IS_ANDROID !== 'undefined' && IS_ANDROID
+      const viewport = window.visualViewport
+      const viewportTop = viewport?.offsetTop ?? 0
+      const viewportHeight = android ? getAndroidVisibleHeight() : viewport?.height ?? window.innerHeight
       if (!target?.isConnected) {
-        apply({ left: '1rem', right: '1rem', top: '4rem', maxHeight: 'calc(100dvh - 5rem)' })
+        apply({
+          left: '1rem', right: '1rem',
+          ...(android
+            ? { top: viewportTop + 8, maxHeight: Math.max(0, viewportHeight - 16) }
+            : { top: '4rem', maxHeight: 'calc(100dvh - 5rem)' }),
+        })
         return
       }
       const input = positioningStack ? target.querySelector<HTMLElement>('[data-dashboard-input]') : null
       const rect = (input ?? target).getBoundingClientRect()
-      const viewport = window.visualViewport
-      const viewportTop = viewport?.offsetTop ?? 0
       const viewportLeft = viewport?.offsetLeft ?? 0
       const viewportWidth = viewport?.width ?? window.innerWidth
-      const viewportHeight = viewport?.height ?? window.innerHeight
       const width = Math.min(rect.width, viewportWidth - 16)
-      const availableAboveComposer = Math.max(0, rect.top - viewportTop - 16)
-      const useViewport = !positioningStack && IS_ANDROID && availableAboveComposer < 160
+      const composerTop = android ? Math.min(rect.top, viewportTop + viewportHeight) : rect.top
+      const availableAboveComposer = Math.max(0, composerTop - viewportTop - 16)
+      const useViewport = android && availableAboveComposer < 112
       apply({
         left: Math.max(viewportLeft + 8, Math.min(rect.left, viewportLeft + viewportWidth - width - 8)),
         width,
         ...(useViewport
           ? { top: viewportTop + 8, maxHeight: Math.max(0, viewportHeight - 16) }
-          : { bottom: window.innerHeight - rect.top + 8, maxHeight: availableAboveComposer }),
+          : { bottom: window.innerHeight - composerTop + 8, maxHeight: availableAboveComposer }),
       })
     }
     const observer = typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(update)
@@ -51,6 +59,7 @@ export function useDashboardPanelPosition(enabled: boolean, positioningStack = f
     mounts.observe(document.body, { subtree: true, childList: true })
     update()
     window.addEventListener('resize', update)
+    window.addEventListener(androidViewportEvent, update)
     window.addEventListener('scroll', update, true)
     window.visualViewport?.addEventListener('resize', update)
     window.visualViewport?.addEventListener('scroll', update)
@@ -58,6 +67,7 @@ export function useDashboardPanelPosition(enabled: boolean, positioningStack = f
       observer?.disconnect()
       mounts.disconnect()
       window.removeEventListener('resize', update)
+      window.removeEventListener(androidViewportEvent, update)
       window.removeEventListener('scroll', update, true)
       window.visualViewport?.removeEventListener('resize', update)
       window.visualViewport?.removeEventListener('scroll', update)

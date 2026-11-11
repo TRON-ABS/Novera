@@ -1,4 +1,12 @@
-# Novera 1.0.1 — disponibilité
+# Novera — disponibilité
+
+## Publications 1.0.2 du 11 novembre 2026
+
+- Android ARM64 1000023 est publié. Le clavier et les 120 langues d’interface ont été validés sur Huawei P20. [APK signé et somme SHA-256](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-android-1000023).
+- Le client Web expérimental 1.0.2 est en ligne avec 120 langues d’interface. [Ouvrir Novera Web](https://tron-abs.github.io/Novera/web/).
+- Les publications Desktop, CLI et portable sont suivies séparément. iOS reste en attente.
+
+## Publications 1.0.1
 
 État actualisé le **7 novembre 2026** à partir des publications et manifests publics : [Desktop Windows x64 / Linux](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1), [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), [macOS Intel / Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), [CLI Novera](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera) et [Android ARM64 1000013](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) sont publiés en **1.0.1**. Les paquets et leurs contrôles sont suivis dans le [bilan 1.0.1](RELEASE_1.0.1_2026-11-07.md).
 

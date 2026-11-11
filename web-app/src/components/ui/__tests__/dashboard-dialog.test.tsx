@@ -3,6 +3,8 @@ import { act, cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { Dialog, DialogContent, DialogTitle } from '../dialog'
 import { useDashboardPanel } from '@/hooks/useDashboardPanel'
+import { DashboardPanelStack } from '@/containers/DashboardPanelStack'
+import { androidViewportEvent } from '@/hooks/useAndroidVisualViewport'
 
 vi.mock('@/i18n/react-i18next-compat', () => ({ useTranslation: () => ({ t: (key: string) => key }) }))
 let top = 400
@@ -65,5 +67,24 @@ it('keeps four independent windows in the composer stack and refuses a fifth', a
   expect(screen.getAllByRole('dialog')).toHaveLength(2)
   expect(screen.getByRole('dialog', { name: 'models' })).toBeInTheDocument()
   expect(screen.getByRole('dialog', { name: 'search' })).toBeInTheDocument()
+  expect(screen.getByRole('textbox')).toHaveValue('Keep this draft')
+})
+
+it('moves the Android dashboard above the keyboard even when the WebView does not resize', () => {
+  vi.stubGlobal('IS_ANDROID', true)
+  useDashboardPanel.setState({ panels: ['auto-tune'] })
+  const { container } = render(
+    <div data-dashboard-composer>
+      <DashboardPanelStack />
+      <div data-dashboard-input><textarea defaultValue="Keep this draft" /></div>
+    </div>,
+  )
+  const dashboard = container.querySelector('[data-dashboard-stack]')
+  expect(dashboard).toHaveStyle({ bottom: `${window.innerHeight - 400 + 8}px` })
+  act(() => {
+    vi.stubGlobal('__noveraAndroidVisibleHeight', 260)
+    window.dispatchEvent(new Event(androidViewportEvent))
+  })
+  expect(dashboard).toHaveStyle({ bottom: `${window.innerHeight - 260 + 8}px`, maxHeight: '244px' })
   expect(screen.getByRole('textbox')).toHaveValue('Keep this draft')
 })

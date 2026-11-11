@@ -1,5 +1,9 @@
 # Novera — historique consolidé
 
+## 1.0.2 — Android et Web
+
+Android ARM64 1000023 embarque les 120 langues d’interface et ajuste la zone de saisie à l’ouverture du clavier. Le mainteneur a validé ces deux points sur Huawei P20. Le fichier téléchargé publiquement correspond à l’APK signé testé. [Release Android](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-android-1000023). Le client Web expérimental 1.0.2 propose également les 120 langues. [Novera Web](https://tron-abs.github.io/Novera/web/).
+
 ## 1.0.1 — sources versionnées le 7 novembre 2026, publication en préparation
 
 Le mainteneur confirme, après sa compilation et ses essais Desktop du 7 novembre : « tout marche au top ». Retour utilisateur positif, distinct des contrôles automatisés et des validations natives encore nécessaires sur les autres plateformes. Les 104 README présentent les notes complètes, dont sécurité, moteur, langues, modèles, API, voix, web, optimisations et commandes repliables du tableau de bord. La vitrine est préparée localement avec les 104 liens de langues ; aucune publication n’est exécutée.

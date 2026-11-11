@@ -1,5 +1,7 @@
 # Official Novera releases and governance
 
+Android ARM64 **1.0.2**, build **1000023**, a été publié le **11 novembre 2026**. Le clavier et les 120 langues d’interface ont été testés sur Huawei P20. Le téléchargement public a été vérifié par SHA-256. [APK signé et notes](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-android-1000023).
+
 Novera 1.0.0 was published on 2 November 2026 for Windows x64 and Linux x64, with signed desktop and CLI update channels. The fifteen public assets and both production feeds are verified. Updater signatures are not Windows Authenticode. Current platform availability is maintained in the launch status; the dated counts in this paragraph describe the initial Windows/Linux release. See [current availability](docs/LAUNCH_STATUS.md) and [the release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0).
 
 Android ARM64 **1.0.0** was published on **3 November 2026** as a clean signed direct APK. [Download and verification](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-android-1000012); [device-test scope and recommendations](docs/RELEASE_ANDROID_1.0.0.md). Desktop and CLI channels are unchanged.
