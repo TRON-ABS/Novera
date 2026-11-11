@@ -245,6 +245,21 @@ def main():
             'releasePublicationAuthorizedByThisTest':False}
         destination=REPO/'.build/validation';destination.mkdir(parents=True,exist_ok=True)
         (destination/(platform+'.json')).write_text(json.dumps(report,indent=2)+'\n')
+        if os.environ.get('NOVERA_VALIDATE_AUTO_TUNE') == 'true':
+            if platform.startswith('windows-'):
+                subprocess.run(['python', str(REPO/'scripts/distribution/verify-packaged-locales.py'), str(executable), '--expected-count', '120'], env=env, cwd=REPO, check=True, timeout=60)
+                subprocess.run(['node', str(REPO/'scripts/distribution/validate-windows-update-ui.mjs'), str(executable), '--auto-tune'], env=env, cwd=REPO, check=True, timeout=180)
+            elif platform.startswith('darwin-'):
+                subprocess.run(['python3', str(REPO/'scripts/distribution/verify-packaged-locales.py'), str(executable), '--expected-count', '120'], env=env, cwd=REPO, check=True, timeout=60)
+            elif platform.startswith('linux-'):
+                extract = root/'locale-check'
+                extract.mkdir()
+                subprocess.run([str(bundle), '--appimage-extract'], env=env, cwd=extract, check=True, timeout=180, stdout=subprocess.DEVNULL)
+                candidates = list((extract/'squashfs-root').glob('**/Novera-Desktop'))
+                if len(candidates) != 1:
+                    raise RuntimeError('Expected one application executable inside the AppImage')
+                subprocess.run(['python3', str(REPO/'scripts/distribution/verify-packaged-locales.py'), str(candidates[0]), '--expected-count', '120'], env=env, cwd=REPO, check=True, timeout=60)
+                subprocess.run(['python3', str(REPO/'scripts/distribution/validate-linux-update-ui.py'), '--auto-tune', str(bundle)], env=env, cwd=REPO, check=True, timeout=180)
         if platform=='windows-aarch64' and os.environ.get('NOVERA_VALIDATE_WINDOWS_UI')=='true':
             subprocess.run(['node',str(REPO/'scripts/distribution/validate-windows-update-ui.mjs'),str(executable)],env=env,cwd=REPO,check=True,timeout=180)
         print(json.dumps(report,indent=2))

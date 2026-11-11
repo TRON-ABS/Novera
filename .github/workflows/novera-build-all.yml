@@ -10,6 +10,10 @@ on:
         type: choice
         default: all
         options: [all, checks, native, desktop, windows-linux, setup, msi, portable, arm64, linux, macos, macos-tests, android, ios, web, cli, validate-windows, validate-desktop, validate-release, validate-linux, validate-macos-installed, validate-arm64, validate-arm64-ui, validate-portable, validate-macos, stage-portable, pages]
+      verify_auto_tune:
+        description: Exercise Auto Tune on exact staged Windows and Linux desktop packages
+        type: boolean
+        default: false
       macos_candidate_run:
         description: Completed Mac run whose native suites passed before the isolated enumeration budget failure
         type: string
@@ -415,15 +419,20 @@ jobs:
           CARGO_BUILD_JOBS: 2
         run: cargo build --locked --manifest-path scripts/distribution/checks/native-update/Cargo.toml --target-dir .build/native-update-probe
       - name: Prepare the isolated native WebView2 test driver
-        if: steps.select.outputs.selected == 'true' && (inputs.target == 'validate-arm64' || inputs.target == 'validate-arm64-ui')
+        if: steps.select.outputs.selected == 'true' && runner.os == 'Windows' && (inputs.verify_auto_tune || inputs.target == 'validate-arm64' || inputs.target == 'validate-arm64-ui')
         shell: bash
         run: npm install --prefix .build/webview2-driver --ignore-scripts --no-audit --no-fund --save-exact playwright-core@1.56.1
+      - name: Install Linux WebDriver for the packaged Auto Tune check
+        if: steps.select.outputs.selected == 'true' && runner.os == 'Linux' && inputs.verify_auto_tune
+        shell: bash
+        run: cargo install tauri-driver --version 2.1.0 --locked
       - name: Install and exercise the reviewed signed package
         if: steps.select.outputs.selected == 'true'
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
           NOVERA_VALIDATION_PLATFORM: ${{ matrix.platform }}
+          NOVERA_VALIDATE_AUTO_TUNE: ${{ inputs.verify_auto_tune && 'true' || 'false' }}
           NOVERA_VALIDATE_WINDOWS_UI: ${{ inputs.target == 'validate-arm64' && 'true' || 'false' }}
           REQUESTED_VALIDATION_TARGET: ${{ inputs.target }}
         run: |

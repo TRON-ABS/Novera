@@ -56,8 +56,17 @@ def main():
     if sys.platform != 'linux' or os.environ.get('GITHUB_ACTIONS') != 'true' or os.environ.get('RUNNER_ENVIRONMENT') != 'github-hosted':
         raise RuntimeError('Requires an isolated Linux GitHub Actions runner')
     runner_temp = Path(os.environ['RUNNER_TEMP']).resolve(strict=True)
-    out = Path('.build/candidates').resolve(strict=True)
-    packages = list((out/'packages').glob('Novera_*_amd64.AppImage'))
+    auto_tune = len(sys.argv) == 3 and sys.argv[1] == '--auto-tune'
+    if auto_tune:
+        out = Path('.build/validation').resolve()
+        out.mkdir(parents=True, exist_ok=True)
+        candidate = Path(sys.argv[2]).resolve(strict=True)
+        if not candidate.is_relative_to(runner_temp) or candidate.suffix != '.AppImage':
+            raise RuntimeError('Use the isolated signed AppImage')
+        packages = [candidate]
+    else:
+        out = Path('.build/candidates').resolve(strict=True)
+        packages = list((out/'packages').glob('Novera_*_amd64.AppImage'))
     if len(packages) != 1:
         raise RuntimeError('Expected one signed Linux updater AppImage')
     app = packages[0].resolve(strict=True)
@@ -121,6 +130,15 @@ def main():
                 origin = execute('return location.origin')
                 return origin if origin in ['tauri://localhost', 'http://tauri.localhost'] else None
             origin = wait_for(app_origin)
+            if auto_tune:
+                call('POST', f'/session/{session}/url', {'url':origin+'/'})
+                source = (Path(__file__).parent/'auto-tune-smoke.js').read_text(encoding='utf8').removeprefix('export ')
+                script = source + "\nconst done = arguments[arguments.length - 1]; checkAutoTune().then(done, e => done({error: String(e)}));"
+                result = call('POST', f'/session/{session}/execute/async', {'script':script,'args':[]})
+                if not result.get('nativeToggleVerified') or not result.get('initialStateRestored'):
+                    raise RuntimeError(f'Auto Tune native smoke failed: {result}')
+                receipt['autoTune'] = result
+                return
             call('POST', f'/session/{session}/url', {'url':origin+'/settings/general'})
             xpath = "//button[contains(translate(normalize-space(.), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'check for updates')]"
             button = wait_for(lambda: call('POST', f'/session/{session}/element', {'using':'xpath', 'value':xpath}))
@@ -161,7 +179,7 @@ def main():
                     process.wait(timeout=10)
                 except (ProcessLookupError, subprocess.TimeoutExpired):
                     pass
-            (out/'LINUX-UPDATER-UI.json').write_text(json.dumps(receipt,indent=2)+'\n')
+            (out/('LINUX-AUTO-TUNE.json' if auto_tune else 'LINUX-UPDATER-UI.json')).write_text(json.dumps(receipt,indent=2)+'\n')
     print('Real Linux AppImage manual check matches the production feed')
 
 
