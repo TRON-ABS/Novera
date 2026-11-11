@@ -40,7 +40,10 @@ export function browserModelPacks() {
 
 const importedPacks = new Map<string, string>()
 
-export async function importBrowserModelFiles(files: File[], background = false) {
+export async function importBrowserModelFiles(
+  files: File[],
+  { background = false, persistFiles = true } = {},
+) {
   const messages: string[] = []
   const packs = browserModelPacks()
   const enabledPacks = packs.filter(pack => pack.enabled)
@@ -58,9 +61,9 @@ export async function importBrowserModelFiles(files: File[], background = false)
     if (background && importedPacks.get(pack.kind) === version) continue
     try {
       pack.apply(complete)
-      await saveBrowserModelImport(pack.kind, complete)
+      if (persistFiles) await saveBrowserModelImport(pack.kind, complete)
       importedPacks.set(pack.kind, version)
-      messages.push(pack.title + ' · Enregistré dans Auto-Tune')
+      messages.push(pack.title + ' · Ajouté à Auto-Tune')
     } catch (error) {
       messages.push(pack.title + ' · ' + (error instanceof Error ? error.message : String(error)))
     }
@@ -71,7 +74,7 @@ export async function importBrowserModelFiles(files: File[], background = false)
       if (mediaNames.has(file.name) || /(?:^|[-_.])(?:mmproj|taesd)(?:[-_.]|$)/i.test(file.name)) continue
       try {
         if (!await registerBrowserLocalTextModel(file)) continue
-        await saveBrowserModelImport('text', [file])
+        if (persistFiles) await saveBrowserModelImport('text', [file])
         messages.push(file.name + ' · Ajouté à Auto-Tune pour vérifier sa compatibilité')
       } catch (error) {
         messages.push(file.name + ' · ' + (error instanceof Error ? error.message : String(error)))
@@ -91,6 +94,7 @@ const directoryPicker = () => (window as Window & {
 export const browserModelFolderPickerAvailable = () => typeof window !== 'undefined' && Boolean(directoryPicker())
 
 let folder: ModelDirectory | undefined
+let rememberedFolder: ModelDirectory | undefined
 let directoryRestored: Promise<void> | undefined
 let scan: Promise<string[] | undefined> | undefined
 let fingerprint: string | undefined
@@ -110,7 +114,12 @@ async function readFiles(directory: ModelDirectory, files: File[]) {
 
 export async function scanBrowserModelFolder(force = false) {
   directoryRestored ??= savedBrowserModelFolder()
-    .then(saved => { folder ??= saved as ModelDirectory | undefined })
+    .then(saved => {
+      if (!folder && saved) {
+        folder = saved as ModelDirectory
+        rememberedFolder = folder
+      }
+    })
     .catch(error => { directoryRestored = undefined; if (!folder) throw error })
   await directoryRestored
   const directory = folder
@@ -124,7 +133,10 @@ export async function scanBrowserModelFolder(force = false) {
     await readFiles(directory, files)
     const version = JSON.stringify(files.map(file => JSON.stringify([file.name, file.size, file.lastModified])).sort())
     if (!force && fingerprint === version) return
-    const result = await importBrowserModelFiles(files, !force)
+    const result = await importBrowserModelFiles(files, {
+      background: !force,
+      persistFiles: directory !== rememberedFolder,
+    })
     if (folder === directory) fingerprint = version
     return result
   })()
@@ -139,11 +151,12 @@ export async function chooseBrowserModelFolder() {
   const directory = await picker.call(window, { id: 'novera-models', startIn: 'documents', mode: 'read' })
   folder = directory
   fingerprint = undefined
-  let saved = true
-  try { await rememberBrowserModelFolder(directory) }
-  catch { saved = false }
+  try {
+    await rememberBrowserModelFolder(directory)
+    rememberedFolder = directory
+  } catch { /* The selected directory still works while this tab remains open. */ }
   const results = await scanBrowserModelFolder(true) ?? []
-  return [saved ? directory.name + ' · Dossier mémorisé' : directory.name + ' · Dossier autorisé pour cet onglet', ...results]
+  return [rememberedFolder === directory ? directory.name + ' · Dossier mémorisé' : directory.name + ' · Dossier autorisé pour cet onglet', ...results]
 }
 
 export function watchBrowserModelFolder(onImport: () => Promise<void>) {
