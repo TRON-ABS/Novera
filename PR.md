@@ -1,3 +1,6 @@
+## Published 1.0.2 distributions
+
+The CLI for Windows x64, Linux x64 and Apple Silicon, the Windows ARM64 installer, the Linux AppImage and Debian packages, and the Apple Silicon DMG are public. The downloaded CI archives matched GitHub’s archive digests. The updater payloads were independently verified with the pinned Novera key. The showcase uses the verified public links and retains access to earlier packages while the remaining builds finish.
 ## Android 1.0.2 and release showcase
 
 The Android 1000023 APK was verified on a Huawei P20 for keyboard layout and the 120 interface locales. The public file matches the tested APK. Restore the corresponding keyboard changes in Git and point the showcase to the verified release. iOS remains pending.

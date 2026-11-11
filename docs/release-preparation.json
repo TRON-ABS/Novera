@@ -29,7 +29,17 @@
   "previous": "1.0.0",
   "androidVersionCode": 1000013,
   "androidReleaseVersion": "1.0.1",
-  "androidCurrentRelease": { "version": "1.0.2", "versionCode": 1000023, "deviceValidated": true },
+  "androidCurrentRelease": {
+    "version": "1.0.2",
+    "versionCode": 1000023,
+    "deviceValidated": true
+  },
   "portableVersion": "1.0.0",
-  "webExperimentalPublished": true
+  "webExperimentalPublished": true,
+  "publicDistributions": {
+    "windowsArm": "1.0.2",
+    "linux": "1.0.2",
+    "macArm": "1.0.2",
+    "cli": "1.0.2"
+  }
 }

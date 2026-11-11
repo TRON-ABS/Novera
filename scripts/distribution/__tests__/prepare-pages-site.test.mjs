@@ -8,7 +8,7 @@ import { preparePagesSite } from '../prepare-pages-site.mjs'
 test('published showcase uses reviewed versions without carrying forward the old device-test claim', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-pages-published-'))
   t.after(() => fs.rmSync(root, { recursive: true, force: true }))
-  const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: true, stable: '1.0.1', previous: '1.0.0', androidReleaseVersion: '1.0.1', androidVersionCode: 1000013, androidCurrentRelease: undefined }
+  const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: true, stable: '1.0.1', previous: '1.0.0', androidReleaseVersion: '1.0.1', androidVersionCode: 1000013, androidCurrentRelease: undefined, publicDistributions: undefined }
   const result = preparePagesSite(path.join(root, 'site'), 'a'.repeat(40), facts, '1.0.2')
   const html = fs.readFileSync(path.join(root, 'site/index.html'), 'utf8')
   assert.equal(result.applicationPublished, true)
@@ -38,7 +38,7 @@ test('published showcase uses reviewed versions without carrying forward the old
 test('Pages links the verified desktop and Android releases without hosting the Web application', t => {
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'novera-pages-'))
   t.after(()=>fs.rmSync(root,{recursive:true,force:true}))
-  const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: false, androidCurrentRelease: undefined, release: '1.0.1', stable: '1.0.0', androidReleaseVersion: '1.0.0', androidVersionCode: 1000012 }
+  const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: false, androidCurrentRelease: undefined, publicDistributions: undefined, release: '1.0.1', stable: '1.0.0', androidReleaseVersion: '1.0.0', androidVersionCode: 1000012 }
   const out=path.join(root,'site');const result=preparePagesSite(out,'a'.repeat(40),facts)
   assert.deepEqual(fs.readdirSync(out).sort(),['assets','index.html','pages-probe.json'])
   assert.deepEqual(fs.readdirSync(path.join(out,'assets')).sort(),['banner.png','dashboard-collapsed.png','dashboard.png'])
@@ -81,4 +81,24 @@ test('Pages links the verified desktop and Android releases without hosting the 
 
 test('Pages staging refuses an unreviewed or injected source identity before creating files', () => {
   for(const commit of ['main','<script>','a'.repeat(39)])assert.throws(()=>preparePagesSite('unused',commit),/exact reviewed/)
+})
+
+test('showcase links public 1.0.2 packages while other platforms are pending', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-pages-current-'))
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }))
+  const facts = {
+    ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))),
+    publicDistributions: { windowsArm: '1.0.2', linux: '1.0.2', cli: '1.0.2' },
+  }
+  const output = path.join(root, 'site')
+  const result = preparePagesSite(output, 'a'.repeat(40), facts, '1.0.2')
+  const html = fs.readFileSync(path.join(output, 'index.html'), 'utf8')
+  assert.deepEqual(result.publicDistributions, facts.publicDistributions)
+  assert.match(html, /Télécharger Novera/)
+  assert.match(html, /v1\.0\.2-windows-arm64/)
+  assert.match(html, /v1\.0\.2-linux-x64/)
+  assert.match(html, /v1\.0\.2-cli-novera/)
+  assert.match(html, /v1\.0\.2-android-1000023/)
+  assert.match(html, /Versions précédentes/)
+  assert.doesNotMatch(html, /v1\.0\.2-macos|Windows x64 \/ Linux x64<\/a>/)
 })
