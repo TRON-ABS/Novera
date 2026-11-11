@@ -1,5 +1,13 @@
 # Livraison et renouvellement du client Web
 
+## Contributions Auto-Tune sur le Web
+
+Le Web et le Desktop utilisent le même relais de contribution. Pour activer la soumission automatique sur GitHub Pages, déployer `scripts/distribution/auto-tune-contribution-relay.mjs` derrière un endpoint HTTPS `/auto-tune`. Configurer le jeton du bot GitHub et son fork avec `NOVERA_CONTRIBUTION_GITHUB_TOKEN` et `NOVERA_CONTRIBUTION_FORK_OWNER` sur le serveur. Autoriser `https://tron-abs.github.io` via `NOVERA_CONTRIBUTION_ORIGINS`.
+
+Dans les variables Actions du dépôt, renseigner `NOVERA_AUTO_TUNE_CONTRIBUTION_URL` avec cette URL publique puis relancer `novera-web-publish.yml`. La compilation Web reçoit uniquement cette URL. Le consentement est propre au relais. Sans variable, le Web prépare des rapports à valider sur GitHub.
+
+Les essais locaux du relais utilisent un GitHub simulé et vérifient le filtrage des rapports et leur déduplication.
+
 ## Mise à jour Web 1.0.1 du 9 novembre 2026
 
 La compilation Pages sélectionne le profil WebGPU image 143602. Il active

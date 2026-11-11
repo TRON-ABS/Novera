@@ -1,3 +1,7 @@
+## Web Auto Tune contribution endpoint
+
+Read the optional public relay URL from a repository Actions variable when building Web Pages. The existing consent and submission flow uses the same relay contract as Desktop. The relay retains the dedicated GitHub bot credential. The local relay and consent tests passed using simulated GitHub requests.
+
 ## Remembered Web models stay in their directory
 
 A remembered directory supplies the files on each scan. Novera stores the authorized directory handle without duplicating its model weights in IndexedDB. The manual folder input retains its existing persistence behavior. The scanner test verifies startup, new downloads and zero duplicate writes.
