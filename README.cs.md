@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Popisuješ svůj cíl. Novera připravuje zdroje, provádí úlohu a organizuje výsledky.</strong></p>
   <p>Nezávislý asistent AI od TRON-ABS, od prvního spuštění až po výsledky: text, obrázky, hudba a video v jedné konverzaci.</p>
-  <p><strong>K dispozici pro Windows, Linux, macOS a Android</strong> · 104 jazyky rozhraní · 42 poskytovatelé cloudu · 58 předvolby médií · Apache 2.0</p>
+  <p><strong>K dispozici pro Windows, Linux, macOS a Android</strong> · 120 jazyky rozhraní · 42 poskytovatelé cloudu · 58 předvolby médií · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatizace</a> · <a href="#one-dashboard-for-every-creation">Ovládací panel</a> · <a href="#local-models-in-use">Modely AI spuštěné lokálně na vašem zařízení</a> · <a href="#hub-and-compatible-models">Formáty a rozbočovač</a> · <a href="#cloud-providers">Mrak</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Přispějte</a></p>
   <p>Oficiální kontakt: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Oficiální sociální profily Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Hudební kodér Qwen a model vyhledávání Qwen jsou **různé soubory**, ulož
 
 ## Poskytovatelé cloudu
 
-Katalog obsahuje 43 profily poskytovatelů: 42 cloudové služby a TabbyAPI pro místní server. Přístup k modelu a možnosti závisí na účtu, regionu a podporovaném rozhraní API. Tento katalog sdílejí všechny jazyky rozhraní 104.
+Katalog obsahuje 43 profily poskytovatelů: 42 cloudové služby a TabbyAPI pro místní server. Přístup k modelu a možnosti závisí na účtu, regionu a podporovaném rozhraní API. Tento katalog sdílejí všechny jazyky rozhraní 120.
 
 | | | |
 | --- | --- | --- |
@@ -275,9 +275,9 @@ Výchozí řazení přizpůsobené hardwaru upřednostňuje novější verze v r
 
 Aktualizované zdroje přidávají **volitelné spravované součásti v Configuration for Windows x64**: soukromá prostředí Pythonu, připojené profily CPU/CUDA, odhady a potvrzení před stažením, ověření, opravy a odstranění. Vlastní cesty tlumočníka zůstávají v pokročilých možnostech. Nativní motory GGUF si zachovávají své stávající komponenty; mobil a cloud nestahují desktopový Python/PyTorch. Tři soukromé profily CPU/export byly provedeny se syntetickými testovacími daty; Správce hlásí úspěšné použití desktopu na 1 Listopad 2026; Profily GPU a čistá instalace PC stále vyžadují samostatné podrobné ověření. [Profily a testovací limity](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Vložení zásobníku do EXE je odloženo.
 
-## Jazyky a varianty rozhraní 104
+## Jazyky a varianty rozhraní 120
 
-**Všechny katalogy 104 pokrývají aktuální anglické klíče 2,435** napříč jmennými prostory 15, včetně nabídek, konfigurací, nastavení, nápovědy a ovládacích prvků médií. Plurální tvary a směr rozhraní se řídí zvoleným jazykem. Jazyky odezvy a hlasu závisí samostatně na modelu.
+**Všechny katalogy 120 pokrývají aktuální anglické klíče 2,484** napříč jmennými prostory 15, včetně nabídek, konfigurací, nastavení, nápovědy a ovládacích prvků médií. Plurální tvary a směr rozhraní se řídí zvoleným jazykem. Jazyky odezvy a hlasu závisí samostatně na modelu.
 
 Toto technické pokrytí neosvědčuje jazykovou kvalitu: **nativní revize a regionální adaptace zůstávají nezbytné**. Viz nativní štítky a známé limity v [jazykový průvodce](docs/LANGUAGES.md) a [revizní zpráva](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -313,7 +313,7 @@ Manuální sestavení GitHub Actions jsou povolena pro všech jedenáct variant 
 - [Podrobná uživatelská příručka](docs/USER_GUIDE.md), [zlatá pravidla pro produkty a informace o uživateli (francouzsky)](docs/REGLES_D_OR.md), [modely a motory](docs/SUIVI_MOTEURS.md).
 - [Vývoj](docs/DEVELOPMENT.md), [průvodce sestavením a vydáním](docs/BUILD_AND_RELEASE.md), [budoucí verze a příprava aktualizace](docs/FUTURES_VERSIONS.md).
 - [Řídicí panel projektu](TABLEAU_DE_BORD_NOVERA.md), [cestovní mapa](ROADMAP.md), [seznam změn](docs/CHANGELOG.md).
-- [Přispívání](CONTRIBUTING.md): kód, testy, nativní recenze napříč jazyky 104 a skutečná zpětná vazba k pracovnímu postupu.
+- [Přispívání](CONTRIBUTING.md): kód, testy, nativní recenze napříč jazyky 120 a skutečná zpětná vazba k pracovnímu postupu.
 
 ## Totožnost a licence
 

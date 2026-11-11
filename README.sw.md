@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Unaelezea lengo lako. Novera huandaa rasilimali, kutekeleza kazi na kupanga matokeo.</strong></p>
   <p>Msaidizi wa kujitegemea wa AI na TRON-ABS, kutoka uzinduzi wa kwanza hadi matokeo: maandishi, picha, muziki na video katika mazungumzo moja.</p>
-  <p><strong>Inapatikana kwa Windows, Linux, macOS na Android</strong> · 104 lugha za kiolesura · 42 watoa huduma za wingu · 58 mipangilio ya awali ya maudhui · Apache 2.0</p>
+  <p><strong>Inapatikana kwa Windows, Linux, macOS na Android</strong> · 120 lugha za kiolesura · 42 watoa huduma za wingu · 58 mipangilio ya awali ya maudhui · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Uendeshaji otomatiki</a> · <a href="#one-dashboard-for-every-creation">Dashibodi</a> · <a href="#local-models-in-use">Miundo ya AI inayoendeshwa ndani ya kifaa chako</a> · <a href="#hub-and-compatible-models">Miundo na Kitovu</a> · <a href="#cloud-providers">Wingu</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Changia</a></p>
   <p>Mawasiliano rasmi: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Wasifu Rasmi wa kijamii wa Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Kisimbaji cha muziki cha Qwen na muundo wa kurejesha Qwen ni **faili tofauti**, 
 
 ## Watoa huduma za Wingu
 
-Katalogi ina wasifu wa watoa huduma 43: 42 huduma za wingu na TabbyAPI kwa seva ya ndani. Ufikiaji wa muundo na uwezo hutegemea akaunti, eneo na API inayotumika. Lugha zote 104 za kiolesura hushiriki katalogi hii.
+Katalogi ina wasifu wa watoa huduma 43: 42 huduma za wingu na TabbyAPI kwa seva ya ndani. Ufikiaji wa muundo na uwezo hutegemea akaunti, eneo na API inayotumika. Lugha zote 120 za kiolesura hushiriki katalogi hii.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Aina chaguomsingi iliyobadilishwa maunzi inapendelea matoleo mapya zaidi ndani y
 
 Vyanzo vilivyosasishwa vinaongeza **vipengele vinavyodhibitiwa kwa hiari katika Usanidi wa Windows x64**: Mazingira ya kibinafsi ya Chatu, wasifu wa CPU/CUDA uliobandikwa, makadirio na uthibitisho kabla ya upakuaji, uthibitishaji, ukarabati na kuondolewa. Njia za mkalimani maalum hukaa chini ya chaguo za kina. Injini za asili za GGUF huweka vifaa vyao vilivyopo; rununu na wingu hazipakui eneo-kazi Python/PyTorch. Profaili tatu za kibinafsi za CPU/usafirishaji nje zilitekelezwa kwa data bandia za majaribio; Mtunzaji anaripoti utumiaji mzuri wa eneo-kazi kwenye 1 Novemba 2026; Profaili za GPU na usakinishaji safi-PC bado zinahitaji uthibitisho tofauti, wa kina. [Wasifu na vikomo vya majaribio](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Kupachika rafu katika EXE kumeahirishwa.
 
-## 104 lugha na vibadala vya kiolesura
+## 120 lugha na vibadala vya kiolesura
 
-**Katalogi zote za 104 hushughulikia funguo za sasa za 2,435 za Kiingereza** kwenye nafasi za majina za 15, ikijumuisha menyu, usanidi, mipangilio, usaidizi na vidhibiti vya maudhui. Aina za wingi na mwelekeo wa kiolesura hufuata lugha iliyochaguliwa. Lugha za majibu na sauti hutegemea tofauti kwenye muundo.
+**Katalogi zote za 120 hushughulikia funguo za sasa za 2,484 za Kiingereza** kwenye nafasi za majina za 15, ikijumuisha menyu, usanidi, mipangilio, usaidizi na vidhibiti vya maudhui. Aina za wingi na mwelekeo wa kiolesura hufuata lugha iliyochaguliwa. Lugha za majibu na sauti hutegemea tofauti kwenye muundo.
 
 Njia hii ya kiufundi haidhibitishi ubora wa lugha: **mapitio asilia na urekebishaji wa eneo bado ni muhimu**. Tazama lebo asili na mipaka inayojulikana katika [mwongozo wa lugha](docs/LANGUAGES.md) na [ripoti ya ukaguzi](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Miundo ya Mwongozo ya GitHub Actions imewashwa kwa anuwai zote kumi na moja za u
 - [Mwongozo wa kina wa mtumiaji](docs/USER_GUIDE.md), [sheria za dhahabu za maelezo ya mtumiaji (Kifaransa)](docs/REGLES_D_OR.md), [miundo na injini](docs/SUIVI_MOTEURS.md).
 - [Maendeleo](docs/DEVELOPMENT.md), [mwongozo wa kuunda na kutolewa](docs/BUILD_AND_RELEASE.md), [matoleo yajayo na utayarishaji wa sasisho](docs/FUTURES_VERSIONS.md).
 - [Dashibodi ya mradi](TABLEAU_DE_BORD_NOVERA.md), [ramani ya barabara](ROADMAP.md), [logi ya mabadiliko](docs/CHANGELOG.md).
-- [Kuchangia](CONTRIBUTING.md): msimbo, majaribio, mapitio asilia katika lugha zote za 104 na maoni halisi ya mtiririko wa kazi.
+- [Kuchangia](CONTRIBUTING.md): msimbo, majaribio, mapitio asilia katika lugha zote za 120 na maoni halisi ya mtiririko wa kazi.
 
 ## Utambulisho na leseni
 

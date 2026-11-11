@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Kaayyoo kee ibsita. Novera qabeenya qopheessa, hojii raawwachuu fi bu'aa ni qindeessa.</strong></p>
   <p>Gargaaraa of danda'e AI TRON-ABS, jalqaba eebba irraa kaasee hanga bu'aa: barreeffama, fakkii, muuziqaa fi viidiyoo haasawa tokko keessatti.</p>
-  <p><strong>Windows, Linux, macOS fi Android irratti argama</strong> · 104 afaanota walqunnamtii · 42 dhiyeessitoota duumessaa · 58 durtii miidiyaa · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS fi Android irratti argama</strong> · 120 afaanota walqunnamtii · 42 dhiyeessitoota duumessaa · 58 durtii miidiyaa · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otoomaashiniin</a> · <a href="#one-dashboard-for-every-creation">Daashboordii</a> · <a href="#local-models-in-use">AI moodeelota meeshaa keessan irratti naannootti hojjetan</a> · <a href="#hub-and-compatible-models">Hub fi moodeelota walsimsiisan</a> · <a href="#cloud-providers">Duumeessa</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Gumaacha</a></p>
   <p>Quunnamtii ofiisaa: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Official Novera piroofaayilii hawaasummaa: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Enkoodarri muuziqaa Qwen fi moodeelli deebisuu Qwen dha **faayiloota adda addaa*
 
 ## Dhiyeessitoota duumessaa
 
-Kaataloogin piroofaayilii dhiyeessaa 43 of keessaa qaba: 42 tajaajiloota duumessaa fi TabbyAPI sarvarii naannoodhaaf. Dhaqqabummaa fi dandeettiin moodeela herrega, naannoo fi API deeggarame irratti hundaa'a. Afaanonni walqunnamtii 104 hundi kataloogii kana qooddatu.
+Kaataloogin piroofaayilii dhiyeessaa 43 of keessaa qaba: 42 tajaajiloota duumessaa fi TabbyAPI sarvarii naannoodhaaf. Dhaqqabummaa fi dandeettiin moodeela herrega, naannoo fi API deeggarame irratti hundaa'a. Afaanonni walqunnamtii 120 hundi kataloogii kana qooddatu.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Sassaabni durtii haardwaarii-madaqfame gadhiifama haaraa sadarkaa walsimsiisaa f
 
 Maddoonni haaromfaman dabalaniiru **qaamolee filannoo bulfaman Qindeessitoota Windows x64 keessatti**: naannoowwan Paayitoon dhuunfaa, piroofaayilii CPU/CUDA pinned, tilmaama fi mirkaneessuu osoo hin buufachuu, mirkaneessuu, suphuu fi balleessuu. Daandiiwwan hiikkaa amala filannoowwan sadarkaa olaanaa jala turu. Mootoroonni dhalootaan GGUF qaamolee isaanii jiran ni eegu; mobaayila fi duumessaa desktop Python/PyTorch hin buufanne. Piroofaayiloonni dhuunfaa CPU/al-ergii sadii meeshaalee sintetiksii dhugaa ta’aniin shaakalaman; Kunuunsaan fayyadama deeskitooppii milkaa'aa ta'e 1 Sadaasa 2026 irratti gabaasa; GPU piroofaayilii fi clean-PC fe'iinsi ammallee adda ta'e, bal'inaan mirkaneessuu barbaachisa. [Profaayilii fi daangaa qorannoo](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Tuullaa EXE keessatti galchuun yeroo biraatti darba.
 
-## 104 afaanota walqunnamtii fi garaagarummaa
+## 120 afaanota walqunnamtii fi garaagarummaa
 
-**Kataloogoonni 104 hundi furtuuwwan Ingiliffaa 2,435 ammaa uwwisa** iddoowwan maqaa 15 keessaa, menu, qindeessaa, qindaa'inoota, gargaarsaa fi to'annoo miidiyaa dabalatee. Unkaalee dachaa fi kallattii walqunnamtii afaan filatame hordofu. Afaan deebii fi sagalee adda addaan moodeela irratti hundaa’a.
+**Kataloogoonni 120 hundi furtuuwwan Ingiliffaa 2,484 ammaa uwwisa** iddoowwan maqaa 15 keessaa, menu, qindeessaa, qindaa'inoota, gargaarsaa fi to'annoo miidiyaa dabalatee. Unkaalee dachaa fi kallattii walqunnamtii afaan filatame hordofu. Afaan deebii fi sagalee adda addaan moodeela irratti hundaa’a.
 
 Uwwisni teeknikaa kun qulqullina afaanii hin mirkaneessu: **gamaaggamni dhalootaa fi madaqfamuu naannoo barbaachisaa ta’ee hafa**. Asxaalee dhalootaa fi daangaawwan beekamoo keessatti ilaali [qajeelfama afaanii](docs/LANGUAGES.md) fi [gabaasa odiitii](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Maanu'alii GitHub Actions ijaarsi garaagarummaa raabsaa kudha tokko hundaaf dand
 - [Qajeelfama fayyadamaa bal’aa](docs/USER_GUIDE.md), [oomishaa fi odeeffannoo fayyadamaa seera warqee (Faransaayi) .](docs/REGLES_D_OR.md), [moodeelota fi motora](docs/SUIVI_MOTEURS.md).
 - [Misooma](docs/DEVELOPMENT.md), [qajeelfama ijaarsaa fi gadhiisuu](docs/BUILD_AND_RELEASE.md), [gara fuula duraa fi qophii haaromsaa](docs/FUTURES_VERSIONS.md).
 - [Daashboordii pirojektii](TABLEAU_DE_BORD_NOVERA.md), [kaartaa daandii](ROADMAP.md), [galmee jijjiiramaa](docs/CHANGELOG.md).
-- [Gumaacha gochuu](CONTRIBUTING.md): koodii, qormaata, gamaaggama dhalootaa afaanota 104 fi yaada adeemsa hojii dhugaa.
+- [Gumaacha gochuu](CONTRIBUTING.md): koodii, qormaata, gamaaggama dhalootaa afaanota 120 fi yaada adeemsa hojii dhugaa.
 
 ## Eenyummaa fi hayyama
 

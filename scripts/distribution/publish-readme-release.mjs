@@ -13,7 +13,12 @@ const render = (text, facts) => text.replace(/\{\{(\w+)\}\}/g, (_, key) => {
 export function preparePublishedReadme(source, locale, facts, copy) {
   source = source.replaceAll('\r\n', '\n')
   if (facts.published !== true || facts.stable !== facts.release || !/^\d+\.\d+\.\d+$/.test(facts.release)) throw new Error('Verified published release facts required')
-  const t = Object.fromEntries(Object.entries(copy).map(([key, value]) => [key, render(value, facts)]))
+  const currentLanguages = facts.currentLanguages ?? facts.languages
+  const languageCount = new RegExp(`(^|\\D)(?:${facts.languages}|${currentLanguages})(\\D|$)`)
+  const currentFacts = { ...facts, languages: currentLanguages }
+  const t = Object.fromEntries(Object.entries(copy).map(([key, value]) => [
+    key, render(value, ['metrics', 'providers'].includes(key) ? currentFacts : facts),
+  ]))
   const start = `<!-- novera-release-${facts.release}:start -->`
   const end = `<!-- novera-release-${facts.release}:end -->`
   const first = source.indexOf(start), last = source.indexOf(end)
@@ -35,10 +40,10 @@ export function preparePublishedReadme(source, locale, facts, copy) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i]
     if (line.includes(end)) releaseEnded = true
-    if (line.includes('<p><strong>') && line.includes('Apache 2.0') && line.includes(facts.languages)) {
+    if (line.includes('<p><strong>') && line.includes('Apache 2.0') && languageCount.test(line)) {
       lines[i] = line.slice(0, line.indexOf('</strong>') + 9) + ' · ' + t.metrics + '</p>'
       changed.metrics++
-    } else if (!line.startsWith('|') && ['TabbyAPI', facts.providers, facts.cloud, facts.languages].every(value => line.includes(String(value)))) {
+    } else if (!line.startsWith('|') && ['TabbyAPI', facts.providers, facts.cloud].every(value => line.includes(String(value))) && languageCount.test(line)) {
       lines[i] = t.providers
       changed.providers++
     } else if (!line.startsWith('|') && [facts.media, facts.mediaProviders, facts.images, facts.videos, facts.music].every(value => new RegExp(`(^|\\D)${value}(\\D|$)`).test(line))) {
@@ -90,6 +95,7 @@ export function preparePublication(rootPath, preview = false) {
   const locales = JSON.parse(fs.readFileSync(path.join(rootPath, 'docs/language-support.json')))
   const copies = JSON.parse(fs.readFileSync(path.join(rootPath, `scripts/readme-release-${facts.release}-published.json`)))
   const currentLocales = new Set(locales.map(({ locale }) => locale))
+  facts.currentLanguages = currentLocales.size
   const translatedLocales = Object.keys(copies)
   if (translatedLocales.length !== Number(facts.languages) || translatedLocales.some(locale => !currentLocales.has(locale))) throw new Error('Incomplete publication translations')
   return translatedLocales.map(locale => {

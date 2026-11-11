@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Hûn armanca xwe diyar dikin. Novera çavkaniyan amade dike, peywirê dimeşîne û encaman organîze dike.</strong></p>
   <p>Alîkarek serbixwe AI ji hêla TRON-ABS ve, ji destpêka yekem heya encamê: nivîs, wêne, muzîk û vîdyoyê di yek danûstendinê de.</p>
-  <p><strong>Ji bo Windows, Linux, macOS û Android hene</strong> · 104 zimanên navberê · 42 pêşkêşkerên ewr · 58 pêşdibistanên medyayê · Apache 2.0</p>
+  <p><strong>Ji bo Windows, Linux, macOS û Android hene</strong> · 120 zimanên navberê · 42 pêşkêşkerên ewr · 58 pêşdibistanên medyayê · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomasyon</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Modelên AI li ser cîhaza we herêmî dixebitin</a> · <a href="#hub-and-compatible-models">Hub û modelên lihevhatî</a> · <a href="#cloud-providers">Ewr</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Beşdarî</a></p>
   <p>Têkiliya fermî: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Profîlên civakî yên fermî yên Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Van modelan konfigurasyona rêberî ya heyî pêk tînin. Hûn dikarin modelên 
 
 ## Pêşkêşkerên Cloud
 
-Katalog 43 profîlên pêşkêşker hene: 42 servîsên ewr û TabbyAPI ji bo pêşkêşkerek herêmî. Gihîştin û kapasîteyên modelê bi hesab, herêm û API-ya piştgirî ve girêdayî ye. Hemî 104 zimanên navberê vê katalogê parve dikin.
+Katalog 43 profîlên pêşkêşker hene: 42 servîsên ewr û TabbyAPI ji bo pêşkêşkerek herêmî. Gihîştin û kapasîteyên modelê bi hesab, herêm û API-ya piştgirî ve girêdayî ye. Hemî 120 zimanên navberê vê katalogê parve dikin.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Cureya xwerû ya ku ji hêla hardware ve hatî adaptekirin, berdanên nûtir di 
 
 Çavkaniyên nûvekirî lê zêde dikin **di Veavakirinên ji bo Windows x64 de pêkhateyên vebijarkî yên birêvebirî**: hawîrdorên Python-ê yên taybet, profîlên CPU/CUDA-ê yên pêçandî, texmîn û pejirandin berî dakêşandin, verastkirin, tamîrkirin û rakirin. Rêyên wergêrê yên xwerû di bin vebijarkên pêşkeftî de dimînin. Motorên xwecî GGUF pêkhateyên xwe yên heyî diparêzin; mobîl û ewr Python/PyTorch ya sermaseyê danaxînin. Sê profîlên taybet ên CPU / hinardekirinê bi daneyên ceribandinê yên sentetîk ve hatin xebitandin; Parêzger karanîna sermaseya serketî ya li ser 1-ê Mijdar 2026 radigihîne; Profîlên GPU û sazkirina paqij-PC hîn jî hewceyê verastkirina veqetandî, hûrgulî ne. [Profîl û sînorên testê](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Bicihkirina stakê di EXE de tê paşxistin.
 
-## Ziman û guhertoyên pêwendiya 104
+## Ziman û guhertoyên pêwendiya 120
 
-**Hemî katalogên 104 bişkojkên îngilîzî yên heyî yên 2,435 vedigirin** li nav deverên navên 15, di nav de pêşek, veavakirin, mîheng, alîkarî û kontrolên medyayê. Formên pirjimar û rêgeziya navberê li pey zimanê hilbijartî dikevin. Zimanên bersiv û deng ji hev cuda bi modelê ve girêdayî ne.
+**Hemî katalogên 120 bişkojkên îngilîzî yên heyî yên 2,484 vedigirin** li nav deverên navên 15, di nav de pêşek, veavakirin, mîheng, alîkarî û kontrolên medyayê. Formên pirjimar û rêgeziya navberê li pey zimanê hilbijartî dikevin. Zimanên bersiv û deng ji hev cuda bi modelê ve girêdayî ne.
 
 Ev vegirtina teknîkî qalîteya zimanî piştrast nake: **vekolîna xwemalî û adaptasyona herêmî pêdivî ye**. Etîketên xwemalî û sînorên naskirî di nav de bibînin [rêberê ziman](docs/LANGUAGES.md) û [rapora kontrolê](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Avakirinên manual GitHub Actions ji bo hemî yanzdeh guhertoyên belavkirinê t
 - [Rêbernameya bikarhêner a berfireh](docs/USER_GUIDE.md), [rêzikên zêrîn ên hilber û agahdariya bikarhêner (Fransî)](docs/REGLES_D_OR.md), [model û motor](docs/SUIVI_MOTEURS.md).
 - [Pêşveçûn](docs/DEVELOPMENT.md), [rêberê avakirin û berdan](docs/BUILD_AND_RELEASE.md), [guhertoyên pêşerojê û amadekirina nûvekirinê](docs/FUTURES_VERSIONS.md).
 - [Tabloya projeyê](TABLEAU_DE_BORD_NOVERA.md), [nexşeya rê](ROADMAP.md), [guheztin](docs/CHANGELOG.md).
-- [Beşdarî](CONTRIBUTING.md): kod, ceribandin, nirxandina xwemalî li ser zimanên 104 û bertekên xebata rastîn.
+- [Beşdarî](CONTRIBUTING.md): kod, ceribandin, nirxandina xwemalî li ser zimanên 120 û bertekên xebata rastîn.
 
 ## Nasname û destûr
 

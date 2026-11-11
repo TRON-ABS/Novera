@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>你描述你嘅目標。 Novera準備資源,執行任務同整理結果。</strong></p>
   <p>TRON-ABS嘅獨立AI助理,由第一次推出到結果:文字、圖像、音樂同視頻喺一個對話入面。</p>
-  <p><strong>有Windows、Linux、macOS和Android</strong> · 104 介面語言 · 42 雲提供商 · 58 媒體預設 · Apache 2.0</p>
+  <p><strong>有Windows、Linux、macOS和Android</strong> · 120 介面語言 · 42 雲提供商 · 58 媒體預設 · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">自動化</a> · <a href="#one-dashboard-for-every-creation">仪表板</a> · <a href="#local-models-in-use">AI型號喺你嘅裝置本機運行緊</a> · <a href="#hub-and-compatible-models">格式同模型中心</a> · <a href="#cloud-providers">雲</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">貢獻</a></p>
   <p>官方聯絡人: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>官方Novera社交資料: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Qwen 音樂編碼器同 Qwen 檢索模型係 **唔同嘅檔案**,分開儲存。
 
 ## 雲端供應商
 
-目錄包含 43 供應商設定檔： 42 雲端服務同埋本地伺服器嘅 TabbyAPI 。模型存取權同功能取決於帳戶、地區同埋支援嘅 API 。所有 104 介面語言都共用呢個目錄。
+目錄包含 43 供應商設定檔： 42 雲端服務同埋本地伺服器嘅 TabbyAPI 。模型存取權同功能取決於帳戶、地區同埋支援嘅 API 。所有 120 介面語言都共用呢個目錄。
 
 | | | |
 | --- | --- | --- |
@@ -273,7 +273,7 @@ AWQ 4-bit, GPTQ 4-bit, NF4 and INT8 each generated text on an RTX 5070 Laptop使
 
 更新咗嘅來源補充 **Windows x64嘅配置入面嘅可選受管理組件**:私人 Python 環境,固定CPU/CUDA個人檔案,喺下載、驗證、修復同移除之前嘅估算同確認。自訂 Python 解譯器路徑會保留喺進階選項之下。原生GGUF引擎保留佢哋現有嘅部件;手機同雲端唔會下載桌面 Python/PyTorch。三個私人CPU/匯出設定檔係用合成測試資料行使;維護者報告桌面使用成功 2026年11月1日; GPU設定檔同清潔 -PC安裝仍然需要分開,詳細驗證。 [配置文件同測試限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)。將堆棧嵌入 EXE 延後處理。
 
-## 104 接口語言同變體
+## 120 接口語言同變體
 
 **所有80目錄都涵蓋咗目前嘅2,435英文密鑰** 跨越15個命名空間,包括菜單、配置、設定、幫助同媒體控制。複數形式同介面方向係遵循所選語言。回應同語音語言分別取決於模型。
 

@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Maqsadingizni tasvirlab berasiz. Novera resurslarni tayyorlaydi, topshiriqni bajaradi va natijalarni tashkil qiladi.</strong></p>
   <p>Mustaqil AI yordamchisi TRON-ABS tomonidan birinchi ishga tushirilgandan boshlab natijalargacha: matn, rasm, musiqa va video bir suhbatda.</p>
-  <p><strong>Windows, Linux, macOS va Android uchun mavjud</strong> · 104 interfeys tillari · 42 bulutli provayderlar · 58 media sozlamalari · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS va Android uchun mavjud</strong> · 120 interfeys tillari · 42 bulutli provayderlar · 58 media sozlamalari · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Avtomatlashtirish</a> · <a href="#one-dashboard-for-every-creation">Boshqaruv paneli</a> · <a href="#local-models-in-use">Qurilmangizda mahalliy sifatida ishlaydigan AI modellar</a> · <a href="#hub-and-compatible-models">Hub va mos modellar</a> · <a href="#cloud-providers">Bulut</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Hissa</a></p>
   <p>Rasmiy aloqa: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Rasmiy Novera ijtimoiy profillar: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Qwen musiqa kodlovchisi va Qwen qidiruv modeli **turli fayllar**, alohida saqlan
 
 ## Bulutli provayderlar
 
-Katalogda 43 ta provayder profili mavjud: 42 bulut xizmatlari va mahalliy server uchun TabbyAPI. Modelga kirish va imkoniyatlar hisobga, mintaqaga va qo'llab-quvvatlanadigan APIga bog'liq. Barcha 104 interfeys tillari ushbu katalogdan foydalanadi.
+Katalogda 43 ta provayder profili mavjud: 42 bulut xizmatlari va mahalliy server uchun TabbyAPI. Modelga kirish va imkoniyatlar hisobga, mintaqaga va qo'llab-quvvatlanadigan APIga bog'liq. Barcha 120 interfeys tillari ushbu katalogdan foydalanadi.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Standart uskunaga moslashtirilgan tartib bir xil moslik va mavjud xotira darajas
 
 Yangilangan manbalar qo'shiladi **Windows x64 uchun konfiguratsiyalardagi ixtiyoriy boshqariladigan komponentlar**: shaxsiy Python muhitlari, mahkamlangan CPU/CUDA profillari, yuklab olish, tekshirish, tuzatish va olib tashlashdan oldin hisob-kitoblar va tasdiqlash. Maxsus tarjimon yo'llari kengaytirilgan variantlar ostida qoladi. Native GGUF dvigatellari mavjud komponentlarini saqlaydi; mobil va bulut Python/PyTorch ish stolini yuklab olmaydi. Uchta xususiy CPU/eksport profili sunʼiy sinov maʼlumotlari bilan mashq qilingan; Ta'minotchi 1 Noyabr 2026 da ish stolidan muvaffaqiyatli foydalanish haqida xabar beradi; GPU profillari va toza-PC o'rnatilishi hali ham alohida, batafsil tekshirishga muhtoj. [Profillar va sinov chegaralari](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Stackni EXE raqamiga joylashtirish kechiktirildi.
 
-## 104 interfeys tillari va variantlari
+## 120 interfeys tillari va variantlari
 
-**Barcha 104 kataloglari joriy 2,435 inglizcha kalitlarni qamrab oladi** 15 nom maydoni, jumladan menyular, konfiguratsiyalar, sozlamalar, yordam va media boshqaruvlari. Ko'plik shakllari va interfeys yo'nalishi tanlangan tilga mos keladi. Javob va ovoz tillari alohida modelga bog'liq.
+**Barcha 120 kataloglari joriy 2,484 inglizcha kalitlarni qamrab oladi** 15 nom maydoni, jumladan menyular, konfiguratsiyalar, sozlamalar, yordam va media boshqaruvlari. Ko'plik shakllari va interfeys yo'nalishi tanlangan tilga mos keladi. Javob va ovoz tillari alohida modelga bog'liq.
 
 Ushbu texnik qamrov lingvistik sifatni tasdiqlamaydi: **Mahalliy ko'rib chiqish va mintaqaviy moslashuv zarur bo'lib qolmoqda**. Mahalliy teglar va ma'lum chegaralarni ko'ring [til qoʻllanmasi](docs/LANGUAGES.md) va [audit hisoboti](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ GitHub Actions qo'llanmasi barcha o'n bitta tarqatish varianti uchun yoqilgan. g
 - [Batafsil foydalanuvchi qo'llanmasi](docs/USER_GUIDE.md), [mahsulot va foydalanuvchi ma'lumotlari oltin qoidalari (fransuzcha)](docs/REGLES_D_OR.md), [modellar va dvigatellar](docs/SUIVI_MOTEURS.md).
 - [Rivojlanish](docs/DEVELOPMENT.md), [qurish va chiqarish qo'llanmasi](docs/BUILD_AND_RELEASE.md), [kelajakdagi versiyalar va yangilanishga tayyorgarlik](docs/FUTURES_VERSIONS.md).
 - [Loyiha boshqaruv paneli](TABLEAU_DE_BORD_NOVERA.md), [yo'l xaritasi](ROADMAP.md), [o'zgarishlar jurnali](docs/CHANGELOG.md).
-- [Hissa](CONTRIBUTING.md): kod, testlar, 104 tillar bo'yicha mahalliy ko'rib chiqish va haqiqiy ish jarayoni haqida fikr-mulohaza.
+- [Hissa](CONTRIBUTING.md): kod, testlar, 120 tillar bo'yicha mahalliy ko'rib chiqish va haqiqiy ish jarayoni haqida fikr-mulohaza.
 
 ## Identifikatsiya va litsenziya
 

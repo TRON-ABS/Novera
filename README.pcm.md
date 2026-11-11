@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>You talk wetin you wan do. Novera go prepare wetin e need, do the work and arrange the results.</strong></p>
   <p>Independent AI assistant by TRON-ABS, from first launch till result: text, images, music and video for one conversation.</p>
-  <p><strong>Fit for Windows, Linux, macOS and Android</strong> · 104 interface languages · 42 cloud providers · 58 media presets · Apache 2.0</p>
+  <p><strong>Fit for Windows, Linux, macOS and Android</strong> · 120 interface languages · 42 cloud providers · 58 media presets · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI models wey dey run for your own device</a> · <a href="#hub-and-compatible-models">Hub and compatible models</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Help out</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Official Novera social profiles: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ The Qwen music encoder and the Qwen retrieval model na **different files**, stor
 
 ## Cloud providers
 
-Catalog get 43 provider profiles: 42 cloud services and TabbyAPI for local server. Model access and features depend on account, region and supported API. All 104 interface languages dey use this catalog.
+Catalog get 43 provider profiles: 42 cloud services and TabbyAPI for local server. Model access and features depend on account, region and supported API. All 120 interface languages dey use this catalog.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ The default hardware-adapted sort favor newer releases inside same compatibility
 
 The updated sources add **optional managed components for Configurations for Windows x64**: private Python environments, pinned CPU/CUDA profiles, estimates and confirmation before downloads, verification, repair and removal. Custom interpreter paths stay for advanced options. Native GGUF engines keep dem existing components; mobile and cloud no download desktop Python/PyTorch. Three private CPU/export profiles don exercise with synthetic test data; The maintainer report successful desktop use for 1 November 2026; GPU profiles and clean-PC installation still need separate, detailed validation. [Profiles and test limits](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Embedding the stack for EXE don be postpone.
 
-## 104 interface languages and variants
+## 120 interface languages and variants
 
-**All 104 catalogs cover current 2,435 English keys** across 15 namespaces, including menus, configurations, settings, help and media controls. Plural forms and interface direction follow the language we select. Response and voice languages depend separate for the model.
+**All 120 catalogs cover current 2,484 English keys** across 15 namespaces, including menus, configurations, settings, help and media controls. Plural forms and interface direction follow the language we select. Response and voice languages depend separate for the model.
 
 Dis technical coverage no certify linguistic quality: **native review and regional adaptation still necessary**. See native labels and known limits for the [language guide](docs/LANGUAGES.md) and [audit report](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Manual GitHub Actions builds don enable for all eleven distribution variants. Fo
 - [Detailed user guide](docs/USER_GUIDE.md), [product and user-information golden rules (French)](docs/REGLES_D_OR.md), [models and engines](docs/SUIVI_MOTEURS.md).
 - [Development](docs/DEVELOPMENT.md), [guide for build and release](docs/BUILD_AND_RELEASE.md), [future versions and how to prepare for update](docs/FUTURES_VERSIONS.md).
 - [Project dashboard](TABLEAU_DE_BORD_NOVERA.md), [roadmap](ROADMAP.md), [changelog](docs/CHANGELOG.md).
-- [Contributing](CONTRIBUTING.md): code, tests, native review for 104 languages and real workflow feedback.
+- [Contributing](CONTRIBUTING.md): code, tests, native review for 120 languages and real workflow feedback.
 
 ## Identity and license
 

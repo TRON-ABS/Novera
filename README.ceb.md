@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Imong gihulagway ang imong tumong. Ang Novera nag-andam sa mga kahinguhaan, nagpatuman sa buluhaton ug nag-organisar sa mga resulta.</strong></p>
   <p>Usa ka independente nga AI nga katabang ni TRON-ABS, gikan sa una nga paglansad hangtod sa mga resulta: teksto, mga imahe, musika ug video sa usa ka panag-istoryahanay.</p>
-  <p><strong>Anaa alang sa Windows, Linux, macOS ug Android</strong> · 104 interface nga pinulongan · 42 cloud providers · 58 media preset · Apache 2.0</p>
+  <p><strong>Anaa alang sa Windows, Linux, macOS ug Android</strong> · 120 interface nga pinulongan · 42 cloud providers · 58 media preset · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI nga mga modelo nga nagdagan sa lokal sa imong aparato</a> · <a href="#hub-and-compatible-models">Hub ug compatible nga mga modelo</a> · <a href="#cloud-providers">Panganod</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Pag-amot</a></p>
   <p>Opisyal nga kontak: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Opisyal nga Novera sosyal nga mga profile: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Ang Qwen music encoder ug ang Qwen retrieval model kay **lainlain nga mga file**
 
 ## Mga tighatag sa panganod
 
-Ang katalogo adunay 43 mga profile sa tighatag: 42 serbisyo sa panganod ug TabbyAPI para sa lokal nga server. Ang pag-access sa modelo ug mga kapabilidad nagdepende sa account, rehiyon ug gisuportahan nga API. Tanan nga 104 interface nga pinulongan nag-ambit niini nga katalogo.
+Ang katalogo adunay 43 mga profile sa tighatag: 42 serbisyo sa panganod ug TabbyAPI para sa lokal nga server. Ang pag-access sa modelo ug mga kapabilidad nagdepende sa account, rehiyon ug gisuportahan nga API. Tanan nga 120 interface nga pinulongan nag-ambit niini nga katalogo.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Ang default nga hardware-adapted sort mipabor sa mas bag-ong releases sulod sa s
 
 Ang gi-update nga mga tinubdan midugang **opsyonal nga gidumala nga mga sangkap sa Configurations para sa Windows x64**: pribadong Python environment, pinned CPU/CUDA profiles, banabana ug kumpirmasyon sa dili pa i-download, pag-verify, pag-ayo ug pagtangtang. Ang naandan nga mga agianan sa tighubad nagpabilin ubos sa mga advanced nga kapilian. Ang lumad nga GGUF nga mga makina nagpadayon sa ilang kasamtangan nga mga sangkap; mobile ug cloud dili mag-download sa desktop Python/PyTorch. Tulo ka pribado nga CPU/export nga mga profile ang gigamit sa sintetikong datos sa pagsulay; Gi-report sa maintainer ang malampuson nga paggamit sa desktop sa 1 Nobyembre 2026; Ang mga profile sa GPU ug ang pag-install nga limpyo-PC kinahanglan gihapon nga bulag, detalyado nga pag-validate. [Mga profile ug limitasyon sa pagsulay](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Ang pag-embed sa stack sa EXE gi-defer.
 
-## 104 interface nga mga pinulongan ug mga variant
+## 120 interface nga mga pinulongan ug mga variant
 
-**Ang tanan nga 104 katalogo naglangkob sa kasamtangan nga 2,435 English nga mga yawe** sa tibuok 15 namespaces, lakip na ang mga menu, configuration, setting, tabang ug media controls. Ang mga plural nga porma ug direksyon sa interface nagsunod sa pinili nga pinulongan. Ang tubag ug mga lengguwahe sa tingog nagdepende nga lahi sa modelo.
+**Ang tanan nga 120 katalogo naglangkob sa kasamtangan nga 2,484 English nga mga yawe** sa tibuok 15 namespaces, lakip na ang mga menu, configuration, setting, tabang ug media controls. Ang mga plural nga porma ug direksyon sa interface nagsunod sa pinili nga pinulongan. Ang tubag ug mga lengguwahe sa tingog nagdepende nga lahi sa modelo.
 
 Kini nga teknikal nga pagsakup wala magpamatuod sa kalidad sa lingguwistika: **ang lumad nga pagrepaso ug pagpahiangay sa rehiyon nagpabilin nga gikinahanglan**. Tan-awa ang lumad nga mga label ug nahibal-an nga mga limitasyon sa [giya sa pinulongan](docs/LANGUAGES.md) ug [report sa pag-audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Ang manwal nga GitHub Actions nga mga pagtukod gi-enable para sa tanang onse ka 
 - [Detalyadong giya sa tiggamit](docs/USER_GUIDE.md), [produkto ug impormasyon sa tiggamit bulawan nga mga lagda (French)](docs/REGLES_D_OR.md), [mga modelo ug makina](docs/SUIVI_MOTEURS.md).
 - [Pag-uswag](docs/DEVELOPMENT.md), [giya sa pagtukod ug pagpagawas](docs/BUILD_AND_RELEASE.md), [umaabot nga mga bersyon ug pag-andam sa update](docs/FUTURES_VERSIONS.md).
 - [Dashboard sa proyekto](TABLEAU_DE_BORD_NOVERA.md), [mapa sa dalan](ROADMAP.md), [changelog](docs/CHANGELOG.md).
-- [Nag-amot](CONTRIBUTING.md): code, mga pagsulay, lumad nga pagrepaso sa 104 nga mga pinulongan ug tinuod nga feedback sa workflow.
+- [Nag-amot](CONTRIBUTING.md): code, mga pagsulay, lumad nga pagrepaso sa 120 nga mga pinulongan ug tinuod nga feedback sa workflow.
 
 ## Pagkatawo ug lisensya
 

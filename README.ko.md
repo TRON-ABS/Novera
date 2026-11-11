@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>당신은 당신의 목표를 설명합니다. Novera는 리소스를 준비하고 작업을 실행하며 결과를 정리합니다.</strong></p>
   <p>TRON-ABS의 독립적인 AI 도우미는 첫 출시부터 결과까지 텍스트, 이미지, 음악 및 비디오를 하나의 대화로 제공합니다.</p>
-  <p><strong>Windows, Linux, macOS 및 Android에 사용 가능</strong> · 104 인터페이스 언어 · 42 클라우드 제공업체 · 58 미디어 사전 설정 · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS 및 Android에 사용 가능</strong> · 120 인터페이스 언어 · 42 클라우드 제공업체 · 58 미디어 사전 설정 · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">자동화</a> · <a href="#one-dashboard-for-every-creation">대시보드</a> · <a href="#local-models-in-use">기기에서 실행하는 AI 모델</a> · <a href="#hub-and-compatible-models">형식 및 허브</a> · <a href="#cloud-providers">클라우드</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">기여</a></p>
   <p>공식 연락처: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Novera 공식 소셜 프로필: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Qwen 음악 인코더와 Qwen 검색 모델은 **다른 파일**, 별도로 보�
 
 ## 클라우드 제공업체
 
-카탈로그에는 43 공급자 프로필(42 클라우드 서비스 및 로컬 서버용 TabbyAPI)이 포함되어 있습니다. 모델 액세스 및 기능은 계정, 지역 및 지원되는 API에 따라 다릅니다. 모든 104 인터페이스 언어는 이 카탈로그를 공유합니다.
+카탈로그에는 43 공급자 프로필(42 클라우드 서비스 및 로컬 서버용 TabbyAPI)이 포함되어 있습니다. 모델 액세스 및 기능은 계정, 지역 및 지원되는 API에 따라 다릅니다. 모든 120 인터페이스 언어는 이 카탈로그를 공유합니다.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ AWQ 4-bit, GPTQ 4-bit, NF4 및 INT8는 각각 오프라인으로 생성된 훈�
 
 업데이트된 소스 추가 **Windows x64 구성의 선택적 관리 구성 요소**: 비공개 Python 환경, 고정된 CPU/CUDA 프로필, 다운로드 전 견적 및 확인, 확인, 수리 및 제거. 사용자 정의 통역사 경로는 고급 옵션 아래에 있습니다. 기본 GGUF 엔진은 기존 구성 요소를 유지합니다. 모바일 및 클라우드에서는 데스크톱 Python/PyTorch를 다운로드하지 않습니다. 3개의 개인용 CPU/내보내기 프로파일이 합성 테스트 데이터를 사용하여 실행되었습니다. 관리자는 2026년 11월 1일에 성공적인 데스크톱 사용을 보고합니다. GPU 프로필 및 클린 PC 설치는 여전히 별도의 자세한 검증이 필요합니다. [프로필 및 테스트 한도](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). EXE에 스택을 포함하는 것은 연기됩니다.
 
-## 104 인터페이스 언어 및 변형
+## 120 인터페이스 언어 및 변형
 
-**모든 104 카탈로그는 현재 2,435 영어 키를 다루고 있습니다.** 메뉴, 구성, 설정, 도움말 및 미디어 컨트롤을 포함하여 15 네임스페이스 전체에 적용됩니다. 복수형과 인터페이스 방향은 선택한 언어를 따릅니다. 응답 및 음성 언어는 모델에 따라 별도로 다릅니다.
+**모든 120 카탈로그는 현재 2,484 영어 키를 다루고 있습니다.** 메뉴, 구성, 설정, 도움말 및 미디어 컨트롤을 포함하여 15 네임스페이스 전체에 적용됩니다. 복수형과 인터페이스 방향은 선택한 언어를 따릅니다. 응답 및 음성 언어는 모델에 따라 별도로 다릅니다.
 
 이 기술 범위는 언어 품질을 인증하지 않습니다. **기본 검토 및 지역적 적응이 여전히 필요함**. 기본 라벨과 알려진 제한 사항을 확인하세요. [언어 가이드](docs/LANGUAGES.md) 그리고 [감사 보고서](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ AWQ 4-bit, GPTQ 4-bit, NF4 및 INT8는 각각 오프라인으로 생성된 훈�
 - [상세 사용자 가이드](docs/USER_GUIDE.md), [제품 및 사용자 정보 황금률(프랑스어)](docs/REGLES_D_OR.md), [모델 및 엔진](docs/SUIVI_MOTEURS.md).
 - [개발](docs/DEVELOPMENT.md), [빌드 및 출시 가이드](docs/BUILD_AND_RELEASE.md), [향후 버전 및 업데이트 준비](docs/FUTURES_VERSIONS.md).
 - [프로젝트 대시보드](TABLEAU_DE_BORD_NOVERA.md), [로드맵](ROADMAP.md), [변경 내역](docs/CHANGELOG.md).
-- [기여 중](CONTRIBUTING.md): 104 언어 전반에 걸친 코드, 테스트, 기본 검토 및 실제 워크플로 피드백.
+- [기여 중](CONTRIBUTING.md): 120 언어 전반에 걸친 코드, 테스트, 기본 검토 및 실제 워크플로 피드백.
 
 ## 신원 및 면허증
 

@@ -8,7 +8,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>আপনি আপনার লক্ষ্য বর্ণনা করুন. Novera সম্পদ প্রস্তুত করে, কার্য সম্পাদন করে এবং ফলাফল সংগঠিত করে।</strong></p>
   <p>Novera একটা স্বাধীন AI সহকারী। এক আলাপত লেখা, ছবি, গান আর ভিডিও বানাইতা পারইন। ওয়েব ইন্টারফেসত 120 ভাষা আর ভাষার ধরন আছে।</p>
-  <p><strong>Windows, Linux, macOS এবং Android এর জন্য উপলব্ধ</strong> · 42 ক্লাউড প্রদানকারী · 58 মিডিয়া প্রিসেট · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS এবং Android এর জন্য উপলব্ধ</strong> · ইন্টারফেসর 120 ভাষা আর ভাষার ধরন · 42 ক্লাউড প্রদানকারী · 58 মিডিয়া প্রিসেট · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">অটোমেশন</a> · <a href="#one-dashboard-for-every-creation">ড্যাশবোর্ড</a> · <a href="#local-models-in-use">আপনার ডিভাইসে স্থানীয়ভাবে চলছে AI মডেল</a> · <a href="#hub-and-compatible-models">ফরম্যাট এবং হাব</a> · <a href="#cloud-providers">মেঘ</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">অবদান</a></p>
   <p>অফিসিয়াল যোগাযোগ: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>অফিসিয়াল Novera সামাজিক প্রোফাইল: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Qwen সঙ্গীত এনকোডার এবং Qwen পুনরুদ�
 
 ## ক্লাউড প্রদানকারী
 
-ক্যাটালগটিতে 43 প্রদানকারীর প্রোফাইল রয়েছে: 42 ক্লাউড পরিষেবা এবং একটি স্থানীয় সার্ভারের জন্য TabbyAPI৷ মডেল অ্যাক্সেস এবং ক্ষমতা অ্যাকাউন্ট, অঞ্চল এবং সমর্থিত API এর উপর নির্ভর করে। সমস্ত 104 ইন্টারফেস ভাষা এই ক্যাটালগ ভাগ করে।
+ক্যাটালগটিতে 43 প্রদানকারীর প্রোফাইল রয়েছে: 42 ক্লাউড পরিষেবা এবং একটি স্থানীয় সার্ভারের জন্য TabbyAPI৷ মডেল অ্যাক্সেস এবং ক্ষমতা অ্যাকাউন্ট, অঞ্চল এবং সমর্থিত API এর উপর নির্ভর করে। সমস্ত 120 ইন্টারফেস ভাষা এই ক্যাটালগ ভাগ করে।
 
 | | | |
 | --- | --- | --- |
@@ -313,7 +313,7 @@ AWQ 4-bit, GPTQ 4-বিট, NF4 এবং INT8 প্রতিটি একট�
 - [বিস্তারিত ব্যবহারকারীর নির্দেশিকা](docs/USER_GUIDE.md), [পণ্য এবং ব্যবহারকারী-তথ্য সুবর্ণ নিয়ম (ফরাসি)](docs/REGLES_D_OR.md), [মডেল এবং ইঞ্জিন](docs/SUIVI_MOTEURS.md).
 - [উন্নয়ন](docs/DEVELOPMENT.md), [বিল্ড এবং রিলিজ গাইড](docs/BUILD_AND_RELEASE.md), [ভবিষ্যত সংস্করণ এবং আপডেট প্রস্তুতি](docs/FUTURES_VERSIONS.md).
 - [প্রকল্প ড্যাশবোর্ড](TABLEAU_DE_BORD_NOVERA.md), [রোডম্যাপ](ROADMAP.md), [চেঞ্জলগ](docs/CHANGELOG.md).
-- [অবদান](CONTRIBUTING.md): কোড, পরীক্ষা, 104 ভাষা জুড়ে নেটিভ পর্যালোচনা এবং বাস্তব কর্মপ্রবাহ প্রতিক্রিয়া।
+- [অবদান](CONTRIBUTING.md): কোড, পরীক্ষা, 120 ভাষা জুড়ে নেটিভ পর্যালোচনা এবং বাস্তব কর্মপ্রবাহ প্রতিক্রিয়া।
 
 ## পরিচয় এবং লাইসেন্স
 

@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Du beskriver. Novera förbereder, kör och organiserar.</strong></p>
   <p>En oberoende AI-assistent av TRON-ABS, från första lansering till resultat: text, bilder, musik och video i en konversation.</p>
-  <p><strong>Tillgänglig för Windows, Linux, macOS och Android</strong> · 104 gränssnittsspråk · 42 molnleverantörer · 58 medieförinställningar · Apache 2.0</p>
+  <p><strong>Tillgänglig för Windows, Linux, macOS och Android</strong> · 120 gränssnittsspråk · 42 molnleverantörer · 58 medieförinställningar · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Instrumentpanel</a> · <a href="#local-models-in-use">Lokala modeller</a> · <a href="#hub-and-compatible-models">Format & Hub</a> · <a href="#cloud-providers">Moln</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Bidra</a></p>
   <p>Officiell kontakt: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Officiella Novera sociala profiler: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Musikkodaren Qwen och Qwen-hämtningsmodellen är **olika filer**, lagras separa
 
 ## Molnleverantörer
 
-Katalogen innehåller 43 leverantörsprofiler: 42 molntjänster och TabbyAPI för en lokal server. Modellåtkomst och möjligheter beror på kontot, regionen och API som stöds. Alla 104 gränssnittsspråk delar denna katalog.
+Katalogen innehåller 43 leverantörsprofiler: 42 molntjänster och TabbyAPI för en lokal server. Modellåtkomst och möjligheter beror på kontot, regionen och API som stöds. Alla 120 gränssnittsspråk delar denna katalog.
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ Den standardhårdvaruanpassade sorteringen gynnar nyare versioner inom samma kom
 
 De uppdaterade källorna lägger till **valfria hanterade komponenter i konfigurationer för Windows x64**: privata Python-miljöer, fästa CPU/CUDA profiler, uppskattningar och bekräftelse före nedladdningar, verifiering, reparation och borttagning. Anpassade tolkvägar stannar under avancerade alternativ. Inbyggda GGUF motorer behåller sina befintliga komponenter; mobil och moln laddar inte ned desktop Python/PyTorch. Tre privata CPU/export-profiler testades med syntetiska testdata; underhållaren rapporterar framgångsrik datoranvändning den 1 november 2026; GPU profiler och ren-PC installation behöver fortfarande separat, detaljerad validering. [Profiler och testgränser](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Gruppering av dessa komponenter i EXE skjuts upp.
 
-## 104 gränssnittsspråk och varianter
+## 120 gränssnittsspråk och varianter
 
 Källuppdatering, 6 november 2026: 24 ytterligare gränssnittskataloger ger totalsumman till 104. Dessa är utkast till assisterad översättning; inhemsk granskning och regional anpassning är fortfarande nödvändig. Denna batch förbereder kataloger och översatta READMEs; en ombyggnad av programmet krävs för att inkludera dem i installerade binärer.
 
-**Alla 104 kataloger täcker de nuvarande 2,435 engelska nycklarna** över 15 namnområden, inklusive menyer, konfigurationer, inställningar, hjälp och mediekontroller. Pluralformer och gränssnittsriktning följer det valda språket. Svars- och röstspråk beror separat på modellen.
+**Alla 120 kataloger täcker de nuvarande 2,484 engelska nycklarna** över 15 namnområden, inklusive menyer, konfigurationer, inställningar, hjälp och mediekontroller. Pluralformer och gränssnittsriktning följer det valda språket. Svars- och röstspråk beror separat på modellen.
 
 Denna tekniska täckning intygar inte språklig kvalitet: **inhemsk granskning och regional anpassning är fortfarande nödvändig**. Se inbyggda etiketter och kända gränser i [språkguide](docs/LANGUAGES.md) och [revisionsberättelse](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ Manual GitHub Actions builds är aktiverade för alla elva distributionsvariante
 - [Detaljerad användarguide](docs/USER_GUIDE.md), [produkt- och användarinformation gyllene regler (franska)](docs/REGLES_D_OR.md), [modeller och motorer](docs/SUIVI_MOTEURS.md).
 - [Utveckling](docs/DEVELOPMENT.md), [bygg- och släppguide](docs/BUILD_AND_RELEASE.md), [framtida versioner och uppdateringsförberedelser](docs/FUTURES_VERSIONS.md).
 - [Projektinstrumentpanel](TABLEAU_DE_BORD_NOVERA.md), [färdplan](ROADMAP.md), [ändringslogg](docs/CHANGELOG.md).
-- [Bidrar](CONTRIBUTING.md): kod, tester, inbyggd granskning över 104 språk och verklig arbetsflödesfeedback.
+- [Bidrar](CONTRIBUTING.md): kod, tester, inbyggd granskning över 120 språk och verklig arbetsflödesfeedback.
 
 ## Identitet och licens
 

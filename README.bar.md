@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Du beschreibst. Novera bereitet vor, laft und organisiert.</strong></p>
   <p>A unabhängiga AI Assistent vo TRON-ABS, vom erste Start bis zu de Resultat: Text, Bilder, Musig und Video in am Gspräch.</p>
-  <p><strong>Verfügbar für Windows, Linux, macOS und Android</strong> · 104 Schnittstellensprachen · 42 Cloud-Anbieter · 58 Medienvoreinstellungen · Apache 2.0</p>
+  <p><strong>Verfügbar für Windows, Linux, macOS und Android</strong> · 120 Schnittstellensprachen · 42 Cloud-Anbieter · 58 Medienvoreinstellungen · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatisierig</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Lokali Modella</a> · <a href="#hub-and-compatible-models">Formatä &amp; Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Mitbringe</a></p>
   <p>Offizielli Kontakt: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Offizielli Novera Social-Profil: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Da Qwen Musik-Encoder und des Qwen Suchmodell san **andere Dateia**, separat gsp
 
 ## Cloud-Anbieter
 
-Der Katalog enthält 43 Anbieterprofile: 42 Cloud-Dienste und TabbyAPI für einen lokalen Server. Modellzugriff und -funktionen hängen vom Konto, der Region und der unterstützten API ab. Alle 104 Schnittstellensprachen teilen sich diesen Katalog.
+Der Katalog enthält 43 Anbieterprofile: 42 Cloud-Dienste und TabbyAPI für einen lokalen Server. Modellzugriff und -funktionen hängen vom Konto, der Region und der unterstützten API ab. Alle 120 Schnittstellensprachen teilen sich diesen Katalog.
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ Da standardmäßige, an d'Hardware angepasste Sortierung bevorzugt neuare Versio
 
 De aktualisierten Quelln füga **optionale verwaltete Komponenta in Konfigurationa fia Windows x64**: private Python Umfäld, fixierte CPU/CUDA Profila, Schätzunga und Bestätigung vor Downloads, Überprüfunga, Reparatur und Entfernunga. Individuelle Interpreter-Pfad bleibn unter fortgschrittana Optiona. Native GGUF Motora behaltn ihre bestehenda Komponenta; mobil und Cloud ladn ned Desktop Python/PyTorch. Drei private CPU/Export Profila wern mit synthetischa Testdatn probiert; da Warta meldt an erfolgreicha Desktop-Nutzung am 1 November 2026; GPU Profila und sauber-PC Einrichtn brauchn no a separate, detaillierte Validierung. [Profila und Testgrenzn](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Des Bündln vo de Komponenta im EXE wird aufg'schobn.
 
-## 104 Schnittstelln-Sprachn und Varianten
+## 120 Schnittstelln-Sprachn und Varianten
 
 Quell-Update, 6 November 2026: 24 zusätzliche Schnittstelln-Kataloge bringan de Gesamt auf 104. Des san unterstützte Übersetzungsentwürfa; native Prüafung und regionale Anpassung is no notwendig. Des Batch bereitet Kataloge und übersetzte READMEs vor; a Applikations-Neubau is nötig, um's in de installierten Binärdateien einzuschliaßn.
 
-**Ois 104 Kataloge deckan de aktuelle 2,435 englische Schlüssel ab** über 15 Namtsrufa, dozu ghern Menüs, Konfigurationa, Eistellunga, Hilf und Mediakontrolla. Pluralforma und Schnittstellrichtunga folgn da gwähltn Sproch. Antwort- und Sprachsprocha hänga separat vom Modell ob.
+**Ois 120 Kataloge deckan de aktuelle 2,484 englische Schlüssel ab** über 15 Namtsrufa, dozu ghern Menüs, Konfigurationa, Eistellunga, Hilf und Mediakontrolla. Pluralforma und Schnittstellrichtunga folgn da gwähltn Sproch. Antwort- und Sprachsprocha hänga separat vom Modell ob.
 
 De technische Abdeckunga zertifiziert ned de sprachliche Qualität: **a nativa Überprüfunga und regionale Anpassunga san no notwendig**. Schau da nativa Beschriftunga und bekannte Grenzn im [Sprachleitfunga](docs/LANGUAGES.md) und [Prüfbericht](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ Manuelle GitHub Actions Builds san fia olle elfzehn Verteilungsvariantn aktivier
 - [Detaillierte Benutzeranleitung](docs/USER_GUIDE.md), [Produkt- und Benutzer-Informations-Goldene Regeln (Französisch)](docs/REGLES_D_OR.md), [Modelle und Engines](docs/SUIVI_MOTEURS.md).
 - [Entwicklung](docs/DEVELOPMENT.md), [Build- und Release-Anleitung](docs/BUILD_AND_RELEASE.md), [zukünftige Versionen und Update-Vorbereitung](docs/FUTURES_VERSIONS.md).
 - [Projekt-Dashboard](TABLEAU_DE_BORD_NOVERA.md), [Roadmap](ROADMAP.md), [Änderungsprotokoll](docs/CHANGELOG.md).
-- [Mitwirken](CONTRIBUTING.md): Code, Tests, native Prüafung über 104 Sprachn und echta Workflow-Feedback.
+- [Mitwirken](CONTRIBUTING.md): Code, Tests, native Prüafung über 120 Sprachn und echta Workflow-Feedback.
 
 ## Identität und Lizenz
 

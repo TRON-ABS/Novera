@@ -8,7 +8,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>توهان پنهنجو مقصد بيان ڪيو. Novera وسيلن کي تيار ڪري ٿو، ڪم کي انجام ڏئي ٿو ۽ نتيجن کي منظم ڪري ٿو.</strong></p>
   <p>هڪ آزاد AI اسسٽنٽ پاران TRON-ABS، پهرين لانچ کان وٺي نتيجن تائين: متن، تصويرون، ميوزڪ ۽ وڊيو هڪ گفتگو ۾.</p>
-  <p><strong>Windows، Linux، macOS ۽ Android لاءِ دستياب آهي</strong> · 104 انٽرفيس ٻوليون · 42 ڪلائوڊ فراهم ڪندڙ · 58 ميڊيا پريزٽس · Apache 2.0</p>
+  <p><strong>Windows، Linux، macOS ۽ Android لاءِ دستياب آهي</strong> · 120 انٽرفيس ٻوليون · 42 ڪلائوڊ فراهم ڪندڙ · 58 ميڊيا پريزٽس · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">خودڪار</a> · <a href="#one-dashboard-for-every-creation">ڊيش بورڊ</a> · <a href="#local-models-in-use">AI ماڊل توهان جي ڊوائيس تي مقامي طور تي هلندا آهن</a> · <a href="#hub-and-compatible-models">حب ۽ مطابقت رکندڙ ماڊل</a> · <a href="#cloud-providers">بادل</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">حصو ڏيو</a></p>
   <p>سرڪاري رابطو: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>سرڪاري Novera سماجي پروفائل: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Qwen ميوزڪ انڪوڊر ۽ Qwen ٻيهر حاصل ڪرڻ جا ماڊل آه
 
 ## ڪلائوڊ فراهم ڪندڙ
 
-فهرست ۾ شامل آهي 43 مهيا ڪندڙ پروفائل: 42 ڪلائوڊ خدمتون ۽ TabbyAPI مقامي سرور لاءِ. ماڊل رسائي ۽ صلاحيتون اڪائونٽ، علائقي ۽ سپورٽ API تي منحصر آهن. سڀئي 104 انٽرفيس ٻوليون هن فهرست کي شيئر ڪن ٿيون.
+فهرست ۾ شامل آهي 43 مهيا ڪندڙ پروفائل: 42 ڪلائوڊ خدمتون ۽ TabbyAPI مقامي سرور لاءِ. ماڊل رسائي ۽ صلاحيتون اڪائونٽ، علائقي ۽ سپورٽ API تي منحصر آهن. سڀئي 120 انٽرفيس ٻوليون هن فهرست کي شيئر ڪن ٿيون.
 
 | | | |
 | --- | --- | --- |
@@ -275,9 +275,9 @@ AWQ 4-bit, GPTQ 4-bit, NF4 ۽ INT8 هر هڪ RTX 5070 Laptop تي ننڍڙن غ�
 
 تازه ڪاري ذريعن شامل ڪيو **Windows x64 لاءِ ترتيبن ۾ اختياري منظم اجزاء**: نجي پٿون ماحول، پن ٿيل CPU/CUDA پروفائلز، تخمينو ۽ تصديق کان اڳ ڊائون لوڊ، تصديق، مرمت ۽ هٽائڻ. ڪسٽم مترجم رستا ترقي يافته اختيارن جي تحت رھندا آھن. اصلي GGUF انجڻون انهن جي موجوده حصن کي برقرار رکندا آهن. موبائل ۽ ڪلائوڊ ڊيسڪ ٽاپ Python/PyTorch ڊائون لوڊ نٿا ڪن. ٽي پرائيويٽ CPU / ايڪسپورٽ پروفائلز مصنوعي ٽيسٽ ڊيٽا سان استعمال ڪيا ويا. سنڀاليندڙ 1 نومبر 2026 تي ڪامياب ڊيسڪ ٽاپ استعمال جي رپورٽ ڪري ٿو. GPU پروفائلز ۽ صاف-PC تنصيب اڃا تائين الڳ، تفصيلي تصديق جي ضرورت آھي. [پروفائلز ۽ ٽيسٽ جون حدون](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). EXE ۾ اسٽيڪ کي شامل ڪرڻ کي ملتوي ڪيو ويو آهي.
 
-## 104 انٽرفيس ٻوليون ۽ مختلف قسمون
+## 120 انٽرفيس ٻوليون ۽ مختلف قسمون
 
-**سڀئي 104 ڪيٽلاگ موجوده 2,435 انگريزي ڪيز کي ڍڪيندا آهن** 15 نالن جي جڳھن ۾، بشمول مينيو، ترتيب، سيٽنگون، مدد ۽ ميڊيا ڪنٽرول. جمع فارم ۽ انٽرفيس جي هدايت منتخب ٿيل ٻولي جي تابعداري ڪريو. جواب ۽ آواز جون ٻوليون الڳ الڳ نموني تي منحصر آهن.
+**سڀئي 120 ڪيٽلاگ موجوده 2,484 انگريزي ڪيز کي ڍڪيندا آهن** 15 نالن جي جڳھن ۾، بشمول مينيو، ترتيب، سيٽنگون، مدد ۽ ميڊيا ڪنٽرول. جمع فارم ۽ انٽرفيس جي هدايت منتخب ٿيل ٻولي جي تابعداري ڪريو. جواب ۽ آواز جون ٻوليون الڳ الڳ نموني تي منحصر آهن.
 
 هي ٽيڪنيڪل ڪوريج لساني معيار جي تصديق نٿو ڪري: **مقامي جائزو ۽ علائقائي موافقت ضروري آهي**۾ ڏيهي ليبل ۽ معلوم حدون ڏسو [ٻولي گائيڊ](docs/LANGUAGES.md) ۽ [آڊٽ رپورٽ](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -313,7 +313,7 @@ AWQ 4-bit, GPTQ 4-bit, NF4 ۽ INT8 هر هڪ RTX 5070 Laptop تي ننڍڙن غ�
 - [تفصيلي صارف گائيڊ](docs/USER_GUIDE.md), [پراڊڪٽ ۽ يوزر انفارميشن سونهري ضابطا (فرانسيسي)](docs/REGLES_D_OR.md), [ماڊل ۽ انجڻ](docs/SUIVI_MOTEURS.md).
 - [ترقي](docs/DEVELOPMENT.md), [ٺاھڻ ۽ ڇڏڻ جي ھدايت](docs/BUILD_AND_RELEASE.md), [مستقبل جو نسخو ۽ تازه ڪاري جي تياري](docs/FUTURES_VERSIONS.md).
 - [پروجيڪٽ ڊيش بورڊ](TABLEAU_DE_BORD_NOVERA.md), [روڊ ميپ](ROADMAP.md), [تبديلي لاگ](docs/CHANGELOG.md).
-- [حصو ڏيڻ](CONTRIBUTING.md): ڪوڊ، ٽيسٽ، ڏيهي جائزو 104 ٻولين ۾ ۽ حقيقي ڪم فلو موٽ.
+- [حصو ڏيڻ](CONTRIBUTING.md): ڪوڊ، ٽيسٽ، ڏيهي جائزو 120 ٻولين ۾ ۽ حقيقي ڪم فلو موٽ.
 
 ## سڃاڻپ ۽ لائسنس
 

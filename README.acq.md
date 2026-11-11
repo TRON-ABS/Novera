@@ -10,7 +10,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>تصفيه. Novera يستعد ويقود ويقوم بتنظيم</strong></p>
   <p>Novera مساعد ذكاء اصطناعي مستقل. تقدر تكتب وتعمل صور وموسيقى وفيديو في محادثة واحدة. واجهة الويب فيها 120 لغة ولهجة.</p>
-  <p><strong>متاح ل Windows, Linux, macOS و Android</strong> · 42 مزودي السحابة · 58 تعيينات مسبقة للوسائط · Apache 2.0</p>
+  <p><strong>متاح ل Windows, Linux, macOS و Android</strong> · 120 لغة ولهجة للواجهة · 42 مزودي السحابة · 58 تعيينات مسبقة للوسائط · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">الآلات</a> · <a href="#one-dashboard-for-every-creation">لوحة التحكم</a> · <a href="#local-models-in-use">النماذج المحلية</a> · <a href="#hub-and-compatible-models">تنسيقات &amp; Hub</a> · <a href="#cloud-providers">السحابة</a> · <a href="README.fr.md">فرنسية</a> · <a href="CONTRIBUTING.md">المساهمة</a></p>
   <p>الاتصال الرسمي: <a href="mailto:contact.novera.tronabs@gmail.com">الاتصال.novera.tronabs@gmail.com</a></p>
   <p>رسمي Novera الملفات الاجتماعية: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Novera يتنمو معك. مثالاتك وإعداداتك يمكن أن تسا
 <a id="cloud-providers"></a>
 ## مزودي السحابة
 
-الكتالوج يحتوي 43 ملفات المزودين: 42 خدمات السحابة و TabbyAPI لخادم محلي. النموذج الوصول والقدرات تعتمد على الحساب والمنطقة والدعم API. كلهم 104 لغات واجهة تشارك هذا الكتالوج.
+الكتالوج يحتوي 43 ملفات المزودين: 42 خدمات السحابة و TabbyAPI لخادم محلي. النموذج الوصول والقدرات تعتمد على الحساب والمنطقة والدعم API. كلهم 120 لغات واجهة تشارك هذا الكتالوج.
 
 | | | |
 | --- | --- | --- |
@@ -310,7 +310,7 @@ AWQ 4-بيت، GPTQ 4-بيت، NF4 و INT8 كل نص تم توليده على RT
 - [دليل المستخدم المفصل](docs/USER_GUIDE.md), [القواعد الذهبية للمنتج ومعلومات المستخدمين (الفرنسية)](docs/REGLES_D_OR.md), [موديلات ومحركات](docs/SUIVI_MOTEURS.md).
 - [تنمية](docs/DEVELOPMENT.md), [دليل البناء والإفراج](docs/BUILD_AND_RELEASE.md), [الإصدارات المستقبلية وتحضير التحديثات](docs/FUTURES_VERSIONS.md).
 - [لوحة التحكم في المشروع](TABLEAU_DE_BORD_NOVERA.md), [خريطة الطريق](ROADMAP.md), [تغييرات](docs/CHANGELOG.md).
-- [المساهمة](CONTRIBUTING.md): كود، اختبارات، مراجعة وطنية عبر 104 اللغات و ردود الفعل الحقيقية في سير العمل.
+- [المساهمة](CONTRIBUTING.md): كود، اختبارات، مراجعة وطنية عبر 120 اللغات و ردود الفعل الحقيقية في سير العمل.
 
 ## هوية وترخيص
 

@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Uyichaza injongo yakho. I-Novera ilungisa izixhobo, yenza umsebenzi kwaye iququzelele iziphumo.</strong></p>
   <p>Umncedisi we-AI ozimeleyo ngu-TRON-ABS, ukususela ekuqaleni ukuya kwiziphumo: umbhalo, imifanekiso, umculo kunye nevidiyo kwincoko enye.</p>
-  <p><strong>Iyafumaneka kwi Windows, Linux, macOS kunye ne Android</strong> · 104 ujongano lweelwimi · 42 ababoneleli belifu · 58 ukusetha kwangaphambili kwemidiya · Apache 2.0</p>
+  <p><strong>Iyafumaneka kwi Windows, Linux, macOS kunye ne Android</strong> · 120 ujongano lweelwimi · 42 ababoneleli belifu · 58 ukusetha kwangaphambili kwemidiya · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Ukuzenzekela</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI iimodeli ezisebenza ekuhlaleni kwisixhobo sakho</a> · <a href="#hub-and-compatible-models">Hub kunye neemodeli ezihambelanayo</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Faka igalelo</a></p>
   <p>Uqhagamshelwano olusemthethweni: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Iiprofayile zezentlalo Novera ezisemthethweni: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ I-encoder yomculo ye-Qwen kunye nemodeli yokubuyisela ye-Qwen **iifayile ezahluk
 
 ## Cloud ababoneleli
 
-Ikhathalogu iqulathe 43 iinkangeleko zababoneleli: 42 iinkonzo zelifu kunye TabbyAPI neseva yasekhaya. Ukufikelela kwimodeli kunye nezakhono kuxhomekeke kwi-akhawunti, ummandla kunye ne-API exhaswayo. Zonke 104 iilwimi zojongano zabelana ngale khathalogu.
+Ikhathalogu iqulathe 43 iinkangeleko zababoneleli: 42 iinkonzo zelifu kunye TabbyAPI neseva yasekhaya. Ukufikelela kwimodeli kunye nezakhono kuxhomekeke kwi-akhawunti, ummandla kunye ne-API exhaswayo. Zonke 120 iilwimi zojongano zabelana ngale khathalogu.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Uhlobo olumiselweyo lwehardware olumiselweyo luthanda ukukhutshwa okutsha ngapha
 
 Imithombo ehlaziyiweyo yongeza **amacandelo alawulwayo ngokuzikhethela kuLungiselelo lwe-Windows x64**: Imimandla yangasese yePython, ekhonjiweyo yeeprofayili ze-CPU/CUDA, uqikelelo kunye nokuqinisekiswa ngaphambi kokukhuphela, ukuqinisekiswa, ukulungiswa kunye nokususwa. Iindlela zokutolika ngokwesiko zihlala phantsi kweenketho eziphambili. Iinjini ze-GGUF zoMthonyama zigcina amacandelo azo akhoyo; iselula kunye nelifu alikhupheli i-desktop Python/PyTorch. Iiprofayili ezintathu zabucala ze-CPU/zokuthunyelwa ngaphandle ziye zasetyenziswa ngokulungiswa kwenyani; Umlondolozi unika ingxelo yokusetyenziswa ngempumelelo kwe-desktop kwi-1 ngoNovemba 2026; Iiprofayili ze-GPU kunye nokucoca-PC ukufakela kusafuna ukwahluka, ukuqinisekiswa okuneenkcukacha. [Iiprofayili kunye nemida yovavanyo](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Ukufakela isitaki kwi-EXE kuyarhoxiswa.
 
-## 104 ujongano lweelwimi kunye nokwahluka
+## 120 ujongano lweelwimi kunye nokwahluka
 
-**Zonke iikhathalogu 104 zigubungela izitshixo zesiNgesi 2,435 zangoku** kuyo yonke indawo ye-15, kuquka iimenyu, ulungelelwaniso, izicwangciso, uncedo kunye nolawulo lwemidiya. Iifom zobuninzi kunye nezalathiso zojongano zilandela ulwimi olukhethiweyo. Iilwimi zokuphendula kunye nezwi zixhomekeke ngokwahlukeneyo kwimodeli.
+**Zonke iikhathalogu 120 zigubungela izitshixo zesiNgesi 2,484 zangoku** kuyo yonke indawo ye-15, kuquka iimenyu, ulungelelwaniso, izicwangciso, uncedo kunye nolawulo lwemidiya. Iifom zobuninzi kunye nezalathiso zojongano zilandela ulwimi olukhethiweyo. Iilwimi zokuphendula kunye nezwi zixhomekeke ngokwahlukeneyo kwimodeli.
 
 Olu khuselo lobugcisa aluqinisekisi umgangatho wolwimi: **uphononongo lwemveli kunye nohlengahlengiso lwengingqi luhlala luyimfuneko**. Bona iilebhile zomthonyama kunye nemida eyaziwayo kwi [isikhokelo solwimi](docs/LANGUAGES.md) kunye [ingxelo yophicotho](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Incwadi ye-GitHub Actions yokwakha yenziwe ukuba isebenze kuzo zonke iintlobo ez
 - [Isikhokelo somsebenzisi esineenkcukacha](docs/USER_GUIDE.md), [imveliso kunye nolwazi lomsebenzisi imithetho yegolide (French)](docs/REGLES_D_OR.md), [iimodeli kunye neenjini](docs/SUIVI_MOTEURS.md).
 - [Uphuhliso](docs/DEVELOPMENT.md), [ukwakha kunye nokukhupha isikhokelo](docs/BUILD_AND_RELEASE.md), [iinguqulelo zexesha elizayo kunye nokulungiswa kohlaziyo](docs/FUTURES_VERSIONS.md).
 - [Ideshibhodi yeprojekthi](TABLEAU_DE_BORD_NOVERA.md), [imephu yendlela](ROADMAP.md), [utshintsho](docs/CHANGELOG.md).
-- [Igalelo](CONTRIBUTING.md): ikhowudi, iimvavanyo, uphononongo lwemveli kuzo zonke iilwimi ze-104 kunye nengxelo yokwenyani yokuhamba komsebenzi.
+- [Igalelo](CONTRIBUTING.md): ikhowudi, iimvavanyo, uphononongo lwemveli kuzo zonke iilwimi ze-120 kunye nengxelo yokwenyani yokuhamba komsebenzi.
 
 ## Isazisi kunye nelayisensi
 

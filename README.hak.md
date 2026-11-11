@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>您描述目標。Novera 準備資源、執行任務並整理結果。</strong></p>
   <p>由 TRON-ABS 獨立嘅 AI 助理，自首次啟動至結果：文字、圖像、音樂同影片，一對話內完成。</p>
-  <p><strong>適用於 Windows、Linux、macOS 同 Android</strong> · 104 介面語言 · 42 雲端提供者 · 58 媒體預設 · Apache 2.0</p>
+  <p><strong>適用於 Windows、Linux、macOS 同 Android</strong> · 120 介面語言 · 42 雲端提供者 · 58 媒體預設 · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">自動化</a> · <a href="#one-dashboard-for-every-creation">儀表板</a> · <a href="#local-models-in-use">AI 模型於您設備本地運行</a> · <a href="#hub-and-compatible-models">樞紐同相容模型</a> · <a href="#cloud-providers">雲</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">貢獻</a></p>
   <p>官方聯絡： <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>官方 Novera 社交媒體頁面： <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Qwen 音樂編碼器佮 Qwen 檢索模型係 **唔同檔案**分別儲存。模�
 
 ## 雲端服務商
 
-目錄包含 43 提供者設定檔：42 雲端服務和本機伺服器的 TabbyAPI。模型存取和功能取決於帳戶、區域和支援的 API。所有 104 介面語言共用此目錄。
+目錄包含 43 提供者設定檔：42 雲端服務和本機伺服器的 TabbyAPI。模型存取和功能取決於帳戶、區域和支援的 API。所有 120 介面語言共用此目錄。
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ AWQ 4-bit、GPTQ 4-bit、NF4 佮 INT8 各生成文字於 RTX 5070 Laptop，使�
 
 更新的源碼增加 **Windows x64 系統中配置裡可選管理組件**: 私人 Python 環境、固定 CPU/CUDA 設定檔、下載前估算同確認、驗證、修復同移除。自訂解譯器路徑留喺進階選項之下。原生 GGUF 引擎保留現有組件；行動同雲端唔會下載桌面 Python/PyTorch。三個私人 CPU/匯出設定檔用真合成測試資料測試；維護者報告 2026年11月1日桌面使用成功；GPU 設定檔同乾淨-PC 安裝仍需分開詳細驗證。 [設定檔及測試限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). 將堆疊嵌入 EXE 延後處理。
 
-## 104 介面語言及變體
+## 120 介面語言及變體
 
-**所有 104 目錄涵蓋當前 2,435 英文鍵** 跨 15 命名空間，包含選單、配置、設定、幫助及媒體控制。複數形式及介面方向遵從所選語言。回應及語音語言則分別依賴模型。
+**所有 120 目錄涵蓋當前 2,484 英文鍵** 跨 15 命名空間，包含選單、配置、設定、幫助及媒體控制。複數形式及介面方向遵從所選語言。回應及語音語言則分別依賴模型。
 
 此技術覆蓋不認證語言品質： **本地審閱及區域適應仍必要**. 請參閱本地標籤及已知限制於 [語言指南](docs/LANGUAGES.md) 仲 [審計報告](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ AWQ 4-bit、GPTQ 4-bit、NF4 佮 INT8 各生成文字於 RTX 5070 Laptop，使�
 - [詳細用戶指南](docs/USER_GUIDE.md), [產品同用戶資訊黃金法則（法語）](docs/REGLES_D_OR.md), [模型同引擎](docs/SUIVI_MOTEURS.md).
 - [開發](docs/DEVELOPMENT.md), [建置同發行指南](docs/BUILD_AND_RELEASE.md), [未來版本同更新準備](docs/FUTURES_VERSIONS.md).
 - [專案儀表板](TABLEAU_DE_BORD_NOVERA.md), [發展藍圖](ROADMAP.md), [變更日誌](docs/CHANGELOG.md).
-- [貢獻](CONTRIBUTING.md): 跨 104 語言之程式碼、測試、原生審查同實際工作流程回饋。
+- [貢獻](CONTRIBUTING.md): 跨 120 語言之程式碼、測試、原生審查同實際工作流程回饋。
 
 ## 身份同授權
 

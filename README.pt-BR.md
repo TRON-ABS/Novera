@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Conhecimento para todos" width="100%" />
   <p><strong>Você descreve o que precisa. O Novera prepara, executa e organiza.</strong></p>
   <p>Um assistente de IA independente da TRON-ABS, da primeira inicialização aos resultados: texto, imagens, música e vídeo em uma só conversa.</p>
-  <p><strong>Disponível para Windows, Linux, macOS e Android</strong> · 104 linguagens de interface · 42 provedores de nuvem · 58 predefinições de mídia · Apache 2.0</p>
+  <p><strong>Disponível para Windows, Linux, macOS e Android</strong> · 120 linguagens de interface · 42 provedores de nuvem · 58 predefinições de mídia · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automação</a> · <a href="#one-dashboard-for-every-creation">Painel de criação</a> · <a href="#local-models-in-use">Modelos locais</a> · <a href="#hub-and-compatible-models">Formatos e Hub</a> · <a href="#cloud-providers">Nuvem</a> · <a href="CONTRIBUTING.md">Contribuir</a></p>
   <p>Contato oficial: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Perfis sociais oficiais do Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ O codificador de música Qwen e o modelo de recuperação Qwen são **arquivos d
 
 ## Provedores de nuvem
 
-O catálogo contém 43 perfis de provedores: 42 serviços em nuvem e TabbyAPI para um servidor local. O acesso e os recursos do modelo dependem da conta, da região e da API compatível. Todas as linguagens de interface 104 compartilham este catálogo.
+O catálogo contém 43 perfis de provedores: 42 serviços em nuvem e TabbyAPI para um servidor local. O acesso e os recursos do modelo dependem da conta, da região e da API compatível. Todas as linguagens de interface 120 compartilham este catálogo.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ A classificação adaptada ao hardware padrão favorece versões mais recentes d
 
 As fontes atualizadas adicionam **componentes gerenciados opcionais em Configurações para Windows x64**: ambientes Python privados, perfis CPU/CUDA fixados, estimativas e confirmação antes de downloads, verificação, reparo e remoção. Os caminhos de intérprete personalizados permanecem nas opções avançadas. Os motores GGUF nativos mantêm seus componentes existentes; dispositivos móveis e nuvem não baixam Python/PyTorch para desktop. Três perfis privados de CPU/exportação foram testados com dados de teste sintéticos; O mantenedor relata uso bem-sucedido do desktop em 1 novembro 2026; Os perfis GPU e a instalação clean-PC ainda precisam de validação detalhada e separada. [Perfis e limites de teste](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). A incorporação da pilha no EXE é adiada.
 
-## Idiomas e variantes da interface 104
+## Idiomas e variantes da interface 120
 
-**Todos os catálogos 104 cobrem as chaves inglesas 2,435 atuais** em namespaces 15, incluindo menus, configurações, definições, ajuda e controles de mídia. As formas plurais e a direção da interface seguem o idioma selecionado. Os idiomas de resposta e voz dependem separadamente do modelo.
+**Todos os catálogos 120 cobrem as chaves inglesas 2,484 atuais** em namespaces 15, incluindo menus, configurações, definições, ajuda e controles de mídia. As formas plurais e a direção da interface seguem o idioma selecionado. Os idiomas de resposta e voz dependem separadamente do modelo.
 
 Esta cobertura técnica não certifica qualidade linguística: **a revisão nativa e a adaptação regional continuam necessárias**. Veja rótulos nativos e limites conhecidos no [guia de idiomas](docs/LANGUAGES.md) e [relatório de auditoria](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ As compilações manuais do GitHub Actions estão habilitadas para todas as onze
 - [Guia do usuário detalhado](docs/USER_GUIDE.md), [regras de ouro sobre produtos e informações do usuário (francês)](docs/REGLES_D_OR.md), [modelos e motores](docs/SUIVI_MOTEURS.md).
 - [Desenvolvimento](docs/DEVELOPMENT.md), [guia de construção e lançamento](docs/BUILD_AND_RELEASE.md), [versões futuras e preparação para atualização](docs/FUTURES_VERSIONS.md).
 - [Painel do projeto](TABLEAU_DE_BORD_NOVERA.md), [roteiro](ROADMAP.md), [registro de alterações](docs/CHANGELOG.md).
-- [Contribuindo](CONTRIBUTING.md): código, testes, revisão nativa em linguagens 104 e feedback real do fluxo de trabalho.
+- [Contribuindo](CONTRIBUTING.md): código, testes, revisão nativa em linguagens 120 e feedback real do fluxo de trabalho.
 
 ## Identidade e licença
 

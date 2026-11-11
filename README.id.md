@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Anda menggambarkan tujuan Anda. Novera menyiapkan sumber daya, menjalankan tugas, dan mengatur hasilnya.</strong></p>
   <p>Asisten AI independen oleh TRON-ABS, dari peluncuran pertama hingga hasil: teks, gambar, musik, dan video dalam satu percakapan.</p>
-  <p><strong>Tersedia untuk Windows, Linux, macOS dan Android</strong> · 104 bahasa antarmuka · 42 penyedia cloud · 58 preset media · Apache 2.0</p>
+  <p><strong>Tersedia untuk Windows, Linux, macOS dan Android</strong> · 120 bahasa antarmuka · 42 penyedia cloud · 58 preset media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatisasi</a> · <a href="#one-dashboard-for-every-creation">Dasbor</a> · <a href="#local-models-in-use">Model AI berjalan secara lokal di perangkat Anda</a> · <a href="#hub-and-compatible-models">Format & Pusat</a> · <a href="#cloud-providers">Awan</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Berkontribusi</a></p>
   <p>Kontak resmi: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Profil sosial resmi Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Encoder musik Qwen dan model pengambilan Qwen adalah **file berbeda**, disimpan 
 
 ## Penyedia awan
 
-Katalog berisi profil penyedia 43: 42 layanan cloud dan TabbyAPI untuk server lokal. Akses dan kemampuan model bergantung pada akun, wilayah, dan API yang didukung. Semua bahasa antarmuka 104 menggunakan katalog ini.
+Katalog berisi profil penyedia 43: 42 layanan cloud dan TabbyAPI untuk server lokal. Akses dan kemampuan model bergantung pada akun, wilayah, dan API yang didukung. Semua bahasa antarmuka 120 menggunakan katalog ini.
 
 | | | |
 | --- | --- | --- |
@@ -275,9 +275,9 @@ Jenis default yang disesuaikan dengan perangkat keras lebih menyukai rilis yang 
 
 Sumber yang diperbarui menambahkan **komponen terkelola opsional di Konfigurasi untuk Windows x64**: lingkungan Python pribadi, profil CPU/CUDA yang disematkan, perkiraan dan konfirmasi sebelum pengunduhan, verifikasi, perbaikan, dan penghapusan. Jalur juru bahasa khusus tetap berada dalam opsi lanjutan. Mesin asli GGUF mempertahankan komponen yang ada; seluler dan cloud jangan mengunduh desktop Python/PyTorch. Tiga profil CPU/ekspor pribadi dikerjakan dengan data uji sintetis; Pengelola melaporkan keberhasilan penggunaan desktop pada 1 November 2026; Profil GPU dan instalasi clean-PC masih memerlukan validasi terpisah dan terperinci. [Profil dan batas pengujian](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Penyematan tumpukan di EXE ditangguhkan.
 
-## Bahasa dan varian antarmuka 104
+## Bahasa dan varian antarmuka 120
 
-**Semua katalog 104 mencakup kunci bahasa Inggris 2,435 saat ini** di seluruh namespace 15, termasuk menu, konfigurasi, pengaturan, bantuan, dan kontrol media. Bentuk jamak dan arah antarmuka mengikuti bahasa yang dipilih. Respons dan bahasa suara bergantung secara terpisah pada model.
+**Semua katalog 120 mencakup kunci bahasa Inggris 2,484 saat ini** di seluruh namespace 15, termasuk menu, konfigurasi, pengaturan, bantuan, dan kontrol media. Bentuk jamak dan arah antarmuka mengikuti bahasa yang dipilih. Respons dan bahasa suara bergantung secara terpisah pada model.
 
 Cakupan teknis ini tidak menjamin kualitas linguistik: **tinjauan asli dan adaptasi regional tetap diperlukan**. Lihat label asli dan batasan yang diketahui di [panduan bahasa](docs/LANGUAGES.md) dan [laporan audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -313,7 +313,7 @@ Pembuatan GitHub Actions manual diaktifkan untuk sebelas varian distribusi. Ikut
 - [Panduan pengguna terperinci](docs/USER_GUIDE.md), [aturan emas produk dan informasi pengguna (Prancis)](docs/REGLES_D_OR.md), [model dan mesin](docs/SUIVI_MOTEURS.md).
 - [Pengembangan](docs/DEVELOPMENT.md), [panduan pembuatan dan rilis](docs/BUILD_AND_RELEASE.md), [versi mendatang dan persiapan pembaruan](docs/FUTURES_VERSIONS.md).
 - [Dasbor proyek](TABLEAU_DE_BORD_NOVERA.md), [peta jalan](ROADMAP.md), [catatan perubahan](docs/CHANGELOG.md).
-- [Berkontribusi](CONTRIBUTING.md): kode, pengujian, tinjauan asli dalam bahasa 104 dan masukan alur kerja nyata.
+- [Berkontribusi](CONTRIBUTING.md): kode, pengujian, tinjauan asli dalam bahasa 120 dan masukan alur kerja nyata.
 
 ## Identitas dan lisensi
 

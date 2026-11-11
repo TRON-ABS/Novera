@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ozali kolimbola mokano na yo. Novera ebongisaka ba ressources, e exécuter mosala pe ebongisaka ba résultats.</strong></p>
   <p>Mosungi ya AI ya lipanda na TRON-ABS, kobanda na bobandi ya yambo kino na mbano : makomi, bilili, miziki mpe video na lisolo moko.</p>
-  <p><strong>Ezali mpo na Windows, Linux, macOS mpe Android</strong> · 104 minoko ya interface · 42 ba fournisseurs ya mapata · 58 ba pré-réglages ya media · Apache 2.0</p>
+  <p><strong>Ezali mpo na Windows, Linux, macOS mpe Android</strong> · 120 minoko ya interface · 42 ba fournisseurs ya mapata · 58 ba pré-réglages ya media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatisation ya kosala</a> · <a href="#one-dashboard-for-every-creation">Tableau de bord</a> · <a href="#local-models-in-use">AI modèles oyo ezali kosala localement na appareil na yo</a> · <a href="#hub-and-compatible-models">Ba formats & Hub</a> · <a href="#cloud-providers">Lipata</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Kopesa maboko</a></p>
   <p>Bokutani ya officiel: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Ba profils sociaux officiels ya Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Encodeur ya miziki Qwen mpe modèle ya récupération Qwen ezali **ba fichiers n
 
 ## Ba fournisseurs ya cloud
 
-Catalogue ezali na 43 ba profils ya mopesi: 42 misala ya lipata mpe TabbyAPI mpo na mosaleli ya esika. Accès ya modèle mpe makoki etali compte, région mpe API oyo esungami. Minɔkɔ nyonso ya interface 104 ekabolaka catalogue oyo.
+Catalogue ezali na 43 ba profils ya mopesi: 42 misala ya lipata mpe TabbyAPI mpo na mosaleli ya esika. Accès ya modèle mpe makoki etali compte, région mpe API oyo esungami. Minɔkɔ nyonso ya interface 120 ekabolaka catalogue oyo.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Sortage adapté par matériel par défaut e favorisaka ba sorties ya sika na kat
 
 Ba sources oyo ebongwani ebakisi **ba composants gérés optionnels na Configurations pona Windows x64**: ba environnements ya Python privés, ba profils CPU/CUDA pinné, ba estimations mpe confirmation avant ba téléchargements, vérification, réparation mpe kolongola. Banzela ya mobongoli ya moto ye moko etikalaka na nse ya ba options ya liboso. Ba moteurs natifs GGUF ebatelaka ba composants na yango oyo ezali; mobile na cloud ba télécharger bureau Python/PyTorch te. Ba profils privés misato ya CPU/export esalemaki na ba vrais fixations synthétiques; Mobateli apesi lapolo ya bosaleli ya bureau ya elonga na 1 Novembre 2026; Ba profils ya GPU mpe installation ya propre-PC esengeli naino validation separate, détaillée. [Ba profils na ba limite ya test](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Ko kotisa stack na EXE ezo différer.
 
-## 104 minoko ya interface mpe ba variantes
+## 120 minoko ya interface mpe ba variantes
 
-**Ba catalogues nionso ya 104 ezo couvrir ba touches ya Anglais ya 2,435 ya lelo** na kati ya bisika ya nkombo ya 15, bakisa mpe ba menu, ba configurations, ba paramètres, lisalisi mpe ba contrôles ya media. Ba formes ya boike mpe direction ya interface elandi monoko oyo oponi. Minɔkɔ ya eyano mpe ya mongongo etaleli ndenge moko na modɛlɛ.
+**Ba catalogues nionso ya 120 ezo couvrir ba touches ya Anglais ya 2,484 ya lelo** na kati ya bisika ya nkombo ya 15, bakisa mpe ba menu, ba configurations, ba paramètres, lisalisi mpe ba contrôles ya media. Ba formes ya boike mpe direction ya interface elandi monoko oyo oponi. Minɔkɔ ya eyano mpe ya mongongo etaleli ndenge moko na modɛlɛ.
 
 Couverture technique oyo e certifier qualité linguistique te : **botali ya mboka pe bobongisi ya etuka etikali na tina**. Tala ba étiquettes natives mpe ba limite eyebani na [motambwisi ya nkota](docs/LANGUAGES.md) mpe [lapolo ya botali misolo](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Manuel GitHub Actions builds ezali activé pona ba variantes nionso zomi na moko
 - [Buku ya mosaleli ya sikisiki](docs/USER_GUIDE.md), [mibeko ya wolo ya biloko mpe makambo ya mosaleli (Français)](docs/REGLES_D_OR.md), [ba modèles na ba moteurs](docs/SUIVI_MOTEURS.md).
 - [Bokoli](docs/DEVELOPMENT.md), [motambwisi ya kotonga mpe kobimisa](docs/BUILD_AND_RELEASE.md), [ba versions oyo ekoya pe préparation ya mise à jour](docs/FUTURES_VERSIONS.md).
 - [Tableau de bord ya projet](TABLEAU_DE_BORD_NOVERA.md), [mokanda ya nzela](ROADMAP.md), [mokanda ya mbongwana](docs/CHANGELOG.md).
-- [Kopesa maboko](CONTRIBUTING.md): code, ba tests, revue native na ba langues 104 mpe ba réactions ya solo ya flux ya mosala.
+- [Kopesa maboko](CONTRIBUTING.md): code, ba tests, revue native na ba langues 120 mpe ba réactions ya solo ya flux ya mosala.
 
 ## Bomoto mpe mokanda ya ndingisa
 

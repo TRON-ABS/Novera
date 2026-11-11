@@ -8,7 +8,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Yãmb wilga rẽ. Novera a rengda, a kẽndame, la a sigdame.</strong></p>
   <p>Novera yaa AI sõngd sẽn tʋmd a menga. Sõs a ye pʋgẽ, yãmb tõe n gʋls, maan foto, yɩɩla la wideyo. Web interfaceã tara goam 120 la b buudu.</p>
-  <p><strong>Novera be Windows, Linux, macOS la Android yĩnga</strong> · 42 cloud service · 58 media preset · Apache 2.0</p>
+  <p><strong>Novera be Windows, Linux, macOS la Android yĩnga</strong> · Goam 120 la b buudu interfaceã pʋgẽ · 42 cloud service · 58 media preset · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Bõn-naandsã</a> · <a href="#one-dashboard-for-every-creation">Dɩs-kãnga</a> · <a href="#local-models-in-use">Tẽns mak-sõamyã</a> · <a href="#hub-and-compatible-models">Dɩt-rɩtbã &amp; Hub</a> · <a href="#cloud-providers">Yel-sãoong</a> · <a href="README.fr.md">Frans nebã</a> · <a href="CONTRIBUTING.md">Sõng-y n sõng-y</a></p>
   <p>Sõng-n-soaba: <a href="mailto:contact.novera.tronabs@gmail.com">kontak.novera.tronabs@gmail.com</a></p>
   <p>Tʋʋmdã taoor soaba Novera social profiles: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -148,7 +148,7 @@ The Qwen music encoder and the Qwen retrieval model are **different files**, sto
 <a id="cloud-providers"></a>
 ## Yel-soaba pʋɩtbã
 
-The catalog contains 43 provider profiles: 42 cloud services and TabbyAPI for a local server. Model access and capabilities depend on the account, region and supported API. All 104 interface languages share this catalog.
+The catalog contains 43 provider profiles: 42 cloud services and TabbyAPI for a local server. Model access and capabilities depend on the account, region and supported API. All 120 interface languages share this catalog.
 
 | | | |
 | --- | --- | --- |
@@ -308,7 +308,7 @@ Manual GitHub Actions builds are enabled for all eleven distribution variants. F
 - [Sõng-n-taase](docs/USER_GUIDE.md), [Sõng-n-taase la sõng-n-taase (Franse)](docs/REGLES_D_OR.md), [modɛl-rãmb la motorã](docs/SUIVI_MOTEURS.md).
 - [Tẽegre](docs/DEVELOPMENT.md), [gãd-y n yiis-y-yã](docs/BUILD_AND_RELEASE.md), [b sẽn na n yiis-b beoog-daare, la b sẽn na n segl-b tɩ b le toeeme](docs/FUTURES_VERSIONS.md).
 - [Tʋʋmd siglgã](TABLEAU_DE_BORD_NOVERA.md), [rotã](ROADMAP.md), [sã n wa lebg n wa](docs/CHANGELOG.md).
-- [Sõng-y n sõng-y](CONTRIBUTING.md): code, test, native review across 104 buud-goamã la tʋm-tʋmdb sẽn maand bũmbu.
+- [Sõng-y n sõng-y](CONTRIBUTING.md): code, test, native review across 120 buud-goamã la tʋm-tʋmdb sẽn maand bũmbu.
 
 ## Identity and license
 

@@ -8,7 +8,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Oyinza okunnyonnyola. Novera ateekateeka, atambuza era ateekateeka.</strong></p>
   <p>Novera muyambi wa AI eyeetongodde. Mu mboozi emu osobola okuwandiika, okukola ebifaananyi, omuziki ne vidiyo. Enkola ya Web erimu ennimi n’enjawulo zaazo 120.</p>
-  <p><strong>Esobola okukozesebwa ku Windows, Linux, macOS ne Android</strong> · 42 abagaba obuweereza bwa cloud · 58 enteekateeka za media · Apache 2.0</p>
+  <p><strong>Esobola okukozesebwa ku Windows, Linux, macOS ne Android</strong> · Ennimi 120 n’enjawulo zaazo ku ntimbe · 42 abagaba obuweereza bwa cloud · 58 enteekateeka za media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Okutambuza</a> · <a href="#one-dashboard-for-every-creation">Dasibooli</a> · <a href="#local-models-in-use">Emizingo gy'omu kitundu</a> · <a href="#hub-and-compatible-models">Enkola &amp; Hub</a> · <a href="#cloud-providers">Obudde</a> · <a href="README.fr.md">Olugambo olw'Olufalansa</a> · <a href="CONTRIBUTING.md">Weeyongere</a></p>
   <p>Enkolagana ey'obuyinza: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p>Omusuubuzi Novera ebifaananyi by'abantu: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -148,7 +148,7 @@ Ab'oluganda Qwen enkola y'okuwandiika ennyimba n'enkola y'okuwandiika ennyimba Q
 <a id="cloud-providers"></a>
 ## Abasuubuzi b'omu bire
 
-Katalogi erimu 43 ebiwandiiko by'abaweereza: 42 obuweereza obw'omu bire ne TabbyAPI Omutindo gw'okuyingira n'obusobozi bwesigamye ku akaawunti, ekitundu n'obuyinza obuweereddwa API. Bonna 104 ennimi z'okuvuganya zikozesa mu katabo kano.
+Katalogi erimu 43 ebiwandiiko by'abaweereza: 42 obuweereza obw'omu bire ne TabbyAPI Omutindo gw'okuyingira n'obusobozi bwesigamye ku akaawunti, ekitundu n'obuyinza obuweereddwa API. Bonna 120 ennimi z'okuvuganya zikozesa mu katabo kano.
 
 | | | |
 | --- | --- | --- |
@@ -308,7 +308,7 @@ Manual GitHub Actions builds are enabled for all eleven distribution variants. F
 - [Akatabo k'omukozesa akali mu bujjuvu](docs/USER_GUIDE.md), [Ebiragiro eby'omugaati n'ebikwata ku bakozesa (mu Lufalansa)](docs/REGLES_D_OR.md), [emizingo n'emmotoka](docs/SUIVI_MOTEURS.md).
 - [Enkulaakulana](docs/DEVELOPMENT.md), [okuzimba n'okufulumya ekitabo](docs/BUILD_AND_RELEASE.md), [Enkyusa ez'omu biseera eby'omu maaso n'okutegeka okukyusibwa](docs/FUTURES_VERSIONS.md).
 - [Ekipande ky'obukodyo](TABLEAU_DE_BORD_NOVERA.md), [olupapula lw'olugendo](ROADMAP.md), [enkola ey'okukyusa](docs/CHANGELOG.md).
-- [Okuyamba](CONTRIBUTING.md): code, ebikebera, okukebera mu nsi yonna 104 ennimi n'okuddamu okw'amaanyi mu mulimu gw'okukola.
+- [Okuyamba](CONTRIBUTING.md): code, ebikebera, okukebera mu nsi yonna 120 ennimi n'okuddamu okw'amaanyi mu mulimu gw'okukola.
 
 ## Obumanyirivu n'obutuuze
 

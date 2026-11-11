@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ilarawan mo ang iyong layunin. Inihahanda ng Novera ang mga mapagkukunan, isinasagawa ang gawain at inaayos ang mga resulta.</strong></p>
   <p>Isang independiyenteng AI na assistant ni TRON-ABS, mula sa unang paglulunsad hanggang sa mga resulta: teksto, mga larawan, musika at video sa isang pag-uusap.</p>
-  <p><strong>Available para sa Windows, Linux, macOS at Android</strong> · 104 mga wika sa interface · 42 mga tagapagbigay ng cloud · 58 mga preset ng media · Apache 2.0</p>
+  <p><strong>Available para sa Windows, Linux, macOS at Android</strong> · 120 mga wika sa interface · 42 mga tagapagbigay ng cloud · 58 mga preset ng media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI na mga modelong lokal na tumatakbo sa iyong device</a> · <a href="#hub-and-compatible-models">Mga Format at Hub</a> · <a href="#cloud-providers">Ulap</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Mag-ambag</a></p>
   <p>Opisyal na contact: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Opisyal na Novera na mga social profile: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Ang Qwen music encoder at ang Qwen retrieval model ay **iba't ibang mga file**, 
 
 ## Mga provider ng cloud
 
-Ang catalog ay naglalaman ng 43 mga profile ng provider: 42 mga serbisyo sa cloud at TabbyAPI para sa isang lokal na server. Nakadepende ang access at mga kakayahan ng modelo sa account, rehiyon at sinusuportahang API. Lahat ng 104 interface na wika ay nagbabahagi ng catalog na ito.
+Ang catalog ay naglalaman ng 43 mga profile ng provider: 42 mga serbisyo sa cloud at TabbyAPI para sa isang lokal na server. Nakadepende ang access at mga kakayahan ng modelo sa account, rehiyon at sinusuportahang API. Lahat ng 120 interface na wika ay nagbabahagi ng catalog na ito.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Ang default na hardware-adapted sort ay pinapaboran ang mga bagong release sa lo
 
 Idinagdag ang Nagdagdag ang na-update na source code ng **opsyonal na pinamamahalaang mga bahagi sa Configurations para sa Windows x64**: mga pribadong Python environment, naka-pin na CPU/CUDA na mga profile, mga pagtatantya at kumpirmasyon bago ang mga pag-download, pag-verify, pagkumpuni at pagtanggal. Ang mga custom na interpreter path ay nananatili sa ilalim ng mga advanced na opsyon. Pinapanatili ng mga katutubong GGUF na makina ang kanilang mga kasalukuyang bahagi; ang mobile at cloud ay hindi nagda-download ng desktop Python/PyTorch. Tatlong pribadong CPU/export na profile ang ginamit gamit ang sintetikong datos para sa pagsubok; Iniuulat ng maintainer ang matagumpay na paggamit ng desktop sa 1 Nobyembre 2026; Ang mga profile ng GPU at ang pag-install ng clean-PC ay nangangailangan pa rin ng hiwalay, detalyadong pagpapatunay. [Mga profile at limitasyon sa pagsubok](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Ang pag-embed ng stack sa EXE ay ipinagpaliban.
 
-## mga wika at variant ng interface ng 104
+## mga wika at variant ng interface ng 120
 
-**Lahat ng 104 catalog ay sumasaklaw sa kasalukuyang 2,435 English key** sa mga namespace ng 15, kabilang ang mga menu, configuration, setting, tulong at kontrol ng media. Ang mga plural na anyo at direksyon ng interface ay sumusunod sa napiling wika. Ang mga wika ng tugon at boses ay nakadepende nang hiwalay sa modelo.
+**Lahat ng 120 catalog ay sumasaklaw sa kasalukuyang 2,484 English key** sa mga namespace ng 15, kabilang ang mga menu, configuration, setting, tulong at kontrol ng media. Ang mga plural na anyo at direksyon ng interface ay sumusunod sa napiling wika. Ang mga wika ng tugon at boses ay nakadepende nang hiwalay sa modelo.
 
 Ang teknikal na saklaw na ito ay hindi nagpapatunay sa kalidad ng lingguwistika: **katutubong pagsusuri at pagbagay sa rehiyon ay nananatiling kinakailangan**. Tingnan ang mga native na label at alam na limitasyon sa [gabay sa wika](docs/LANGUAGES.md) at [ulat sa pag-audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Ang mga manual na GitHub Actions build ay pinagana para sa lahat ng labing-isang
 - [Detalyadong gabay sa paggamit](docs/USER_GUIDE.md), [mga gintong panuntunan ng produkto at impormasyon ng gumagamit (French)](docs/REGLES_D_OR.md), [mga modelo at makina](docs/SUIVI_MOTEURS.md).
 - [Pag-unlad](docs/DEVELOPMENT.md), [gabay sa pagbuo at paglabas](docs/BUILD_AND_RELEASE.md), [mga bersyon sa hinaharap at paghahanda sa pag-update](docs/FUTURES_VERSIONS.md).
 - [Dashboard ng proyekto](TABLEAU_DE_BORD_NOVERA.md), [roadmap](ROADMAP.md), [changelog](docs/CHANGELOG.md).
-- [Nag-aambag](CONTRIBUTING.md): code, mga pagsubok, katutubong pagsusuri sa mga 104 na wika at totoong feedback sa daloy ng trabaho.
+- [Nag-aambag](CONTRIBUTING.md): code, mga pagsubok, katutubong pagsusuri sa mga 120 na wika at totoong feedback sa daloy ng trabaho.
 
 ## Pagkakakilanlan at lisensya
 

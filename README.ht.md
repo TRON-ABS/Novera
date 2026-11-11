@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ou dekri. Novera prepare, kouri ak òganize.</strong></p>
   <p>Yon asistan endepandan AI pa TRON-ABS, depi premye lansman rive nan rezilta yo: tèks, imaj, mizik ak videyo nan yon sèl konvèsasyon.</p>
-  <p><strong>Disponib pou Windows, Linux, macOS ak Android</strong> · 104 lang koòdone · 42 founisè nwaj · 58 prereglaj medya · Apache 2.0</p>
+  <p><strong>Disponib pou Windows, Linux, macOS ak Android</strong> · 120 lang koòdone · 42 founisè nwaj · 58 prereglaj medya · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatik</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Modèl lokal yo</a> · <a href="#hub-and-compatible-models">Fòma & Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Kontribye</a></p>
   <p>Kontak ofisyèl: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Pwofil sosyal ofisyèl Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Ankode mizik Qwen ak modèl rekiperasyon Qwen yo se **fichye diferan**, ki estok
 
 ## Founisè Cloud
 
-Katalòg la gen 43 pwofil founisè: 42 sèvis nwaj ak TabbyAPI pou yon sèvè lokal. Aksè ak kapasite modèl depann sou kont, rejyon an ak API sipòte. Tout 104 lang koòdone pataje katalòg sa a.
+Katalòg la gen 43 pwofil founisè: 42 sèvis nwaj ak TabbyAPI pou yon sèvè lokal. Aksè ak kapasite modèl depann sou kont, rejyon an ak API sipòte. Tout 120 lang koòdone pataje katalòg sa a.
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ Sòt ki adapte pou pyès ki nan konpitè defo a favorize nouvo lage nan menm niv
 
 Sous ajou yo ajoute **konpozan jere opsyonèl nan konfigirasyon pou Windows x64**: anviwònman Python prive, pwofil ki fikse CPU/CUDA, estimasyon ak konfimasyon anvan telechajman, verifikasyon, reparasyon ak retire. Chemen entèprèt koutim rete anba opsyon avanse. Motè natif natal GGUF kenbe eleman ki egziste deja yo; mobil ak nwaj pa telechaje Desktop Python/PyTorch. Twa pwofil prive CPU/ekspòtasyon yo te teste lè l sèvi avèk done tès sentetik; Moun k ap fè antretyen an fè konnen si yo sèvi ak òdinatè avèk siksè nan 1 Novanm 2026; Pwofil GPU ak enstalasyon pwòp-PC toujou bezwen yon validasyon detaye separe. [Pwofil ak limit tès yo](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Regroupman konpozan sa yo nan EXE yo difere.
 
-## 104 lang koòdone ak varyant
+## 120 lang koòdone ak varyant
 
 Sous aktyalizasyon, 6 Novanm 2026: 24 katalòg koòdone adisyonèl pote total la nan 104. Sa yo se tradiksyon asistans; revizyon natif natal ak adaptasyon rejyonal rete nesesè. Pakèt sa a prepare katalòg ak README tradui; se yon rebati aplikasyon an oblije mete yo nan binè enstale.
 
-**Tout katalòg 104 kouvri kle anglè aktyèl 2,435** atravè 15 espas non, ki gen ladan meni, konfigirasyon, paramèt, èd ak kontwòl medya yo. Fòm pliryèl ak direksyon koòdone swiv lang yo chwazi a. Repons ak lang vwa depann separeman sou modèl la.
+**Tout katalòg 120 kouvri kle anglè aktyèl 2,484** atravè 15 espas non, ki gen ladan meni, konfigirasyon, paramèt, èd ak kontwòl medya yo. Fòm pliryèl ak direksyon koòdone swiv lang yo chwazi a. Repons ak lang vwa depann separeman sou modèl la.
 
 Kouvèti teknik sa a pa sètifye bon jan kalite lengwistik: **revizyon natif natal ak adaptasyon rejyonal rete nesesè**. Gade etikèt natif natal ak limit li te ye nan la [gid lang](docs/LANGUAGES.md) ak [rapò odit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ Manyèl GitHub Actions bati yo aktive pou tout onz varyant distribisyon. Swiv la
 - [Gid itilizatè detaye](docs/USER_GUIDE.md), [pwodwi ak enfòmasyon itilizatè règ an lò (franse)](docs/REGLES_D_OR.md), [modèl ak motè](docs/SUIVI_MOTEURS.md).
 - [Devlopman](docs/DEVELOPMENT.md), [bati ak lage gid](docs/BUILD_AND_RELEASE.md), [vèsyon lavni ak preparasyon aktyalizasyon](docs/FUTURES_VERSIONS.md).
 - [Pwojè tablodbò](TABLEAU_DE_BORD_NOVERA.md), [plan wout](ROADMAP.md), [changelog](docs/CHANGELOG.md).
-- [Kontribye](CONTRIBUTING.md): kòd, tès, revizyon natif natal nan 104 lang ak reyèl fidbak workflow.
+- [Kontribye](CONTRIBUTING.md): kòd, tès, revizyon natif natal nan 120 lang ak reyèl fidbak workflow.
 
 ## Idantite ak lisans
 

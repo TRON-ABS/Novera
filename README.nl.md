@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Je beschrijft je doel. Novera bereidt de middelen voor, voert de taak uit en organiseert de resultaten.</strong></p>
   <p>Een onafhankelijke AI-assistent van TRON-ABS, van de eerste lancering tot de resultaten: tekst, afbeeldingen, muziek en video in één gesprek.</p>
-  <p><strong>Beschikbaar voor Windows, Linux, macOS en Android</strong> · 104 interfacetalen · 42 cloudproviders · 58 mediavoorinstellingen · Apache 2.0</p>
+  <p><strong>Beschikbaar voor Windows, Linux, macOS en Android</strong> · 120 interfacetalen · 42 cloudproviders · 58 mediavoorinstellingen · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatisering</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI-modellen die lokaal op uw apparaat draaien</a> · <a href="#hub-and-compatible-models">Formaten en hub</a> · <a href="#cloud-providers">Clouddiensten</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Draag bij</a></p>
   <p>Officieel contact: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Officiële sociale Novera-profielen: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ De muziekencoder Qwen en het ophaalmodel Qwen zijn **verschillende bestanden**, 
 
 ## Cloudproviders
 
-De catalogus bevat 43 providerprofielen: 42 cloudservices en TabbyAPI voor een lokale server. Modeltoegang en -mogelijkheden zijn afhankelijk van het account, de regio en de ondersteunde API. Alle 104 interfacetalen delen deze catalogus.
+De catalogus bevat 43 providerprofielen: 42 cloudservices en TabbyAPI voor een lokale server. Modeltoegang en -mogelijkheden zijn afhankelijk van het account, de regio en de ondersteunde API. Alle 120 interfacetalen delen deze catalogus.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ De standaard, aan hardware aangepaste sortering geeft de voorkeur aan nieuwere r
 
 De bijgewerkte broncode voegt **optionele beheerde componenten in Configuraties voor Windows x64** toe: privé Python-omgevingen, vastgezette CPU/CUDA-profielen, schattingen en bevestiging vóór downloads, verificatie, reparatie en verwijdering. Aangepaste interpreterpaden blijven onder geavanceerde opties. Native GGUF-motoren behouden hun bestaande componenten; mobiel en cloud downloaden desktop Python/PyTorch niet. Drie afzonderlijke CPU/export-profielen zijn getest met synthetische testgegevens; De beheerder rapporteert succesvol desktopgebruik op 1 november 2026; GPU-profielen en schone PC-installatie hebben nog steeds afzonderlijke, gedetailleerde validatie nodig. [Profielen en testlimieten](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Het inbedden van de stapel in de EXE wordt uitgesteld.
 
-## 104-interfacetalen en varianten
+## 120-interfacetalen en varianten
 
-**Alle 104-catalogi omvatten de huidige 2,435 Engelse sleutels** in 15-naamruimten, inclusief menu's, configuraties, instellingen, help en mediabediening. Meervoudsvormen en interfacerichting volgen de geselecteerde taal. Antwoord- en stemtalen zijn afzonderlijk afhankelijk van het model.
+**Alle 120-catalogi omvatten de huidige 2,484 Engelse sleutels** in 15-naamruimten, inclusief menu's, configuraties, instellingen, help en mediabediening. Meervoudsvormen en interfacerichting volgen de geselecteerde taal. Antwoord- en stemtalen zijn afzonderlijk afhankelijk van het model.
 
 Deze technische dekking garandeert geen taalkundige kwaliteit: **Native review en regionale aanpassing blijven noodzakelijk**. Bekijk native labels en bekende limieten in de [taalgids](docs/LANGUAGES.md) en [auditrapport](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Handmatige GitHub Actions-builds zijn ingeschakeld voor alle elf distributievari
 - [Gedetailleerde gebruikershandleiding](docs/USER_GUIDE.md), [Gouden regels voor product- en gebruikersinformatie (Frans)](docs/REGLES_D_OR.md), [modellen en motoren](docs/SUIVI_MOTEURS.md).
 - [Ontwikkeling](docs/DEVELOPMENT.md), [handleiding voor bouwen en vrijgeven](docs/BUILD_AND_RELEASE.md), [toekomstige versies en voorbereiding van updates](docs/FUTURES_VERSIONS.md).
 - [Projectdashboard](TABLEAU_DE_BORD_NOVERA.md), [routekaart](ROADMAP.md), [wijzigingslogboek](docs/CHANGELOG.md).
-- [Bijdragen](CONTRIBUTING.md): code, tests, native review in alle 104-talen en echte workflowfeedback.
+- [Bijdragen](CONTRIBUTING.md): code, tests, native review in alle 120-talen en echte workflowfeedback.
 
 ## Identiteit en licentie
 

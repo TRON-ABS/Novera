@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Siz tarif edin. Novera hazırlıyor, çalıştırıyor ve organize ediyor.</strong></p>
   <p>İlk lansmandan sonuçlara kadar TRON-ABS tarafından sunulan bağımsız bir AI asistanı: tek bir görüşmede metin, resimler, müzik ve video.</p>
-  <p><strong>Windows, Linux, macOS ve Android için kullanılabilir</strong> · 104 arayüz dili · 42 bulut sağlayıcısı · 58 medya ön ayarı · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS ve Android için kullanılabilir</strong> · 120 arayüz dili · 42 bulut sağlayıcısı · 58 medya ön ayarı · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomasyon</a> · <a href="#one-dashboard-for-every-creation">Kontrol Paneli</a> · <a href="#local-models-in-use">Yerel modeller</a> · <a href="#hub-and-compatible-models">Formatlar ve Merkez</a> · <a href="#cloud-providers">Bulut</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Katkıda bulunun</a></p>
   <p>Resmi iletişim: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Resmi Novera sosyal profilleri: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Qwen müzik kodlayıcı ve Qwen alma modeli **farklı dosyalar**, ayrı olarak s
 
 ## Bulut sağlayıcıları
 
-Katalogda 43 sağlayıcı profili bulunur: 42 bulut hizmetleri ve yerel sunucu için TabbyAPI. Model erişimi ve yetenekleri hesaba, bölgeye ve desteklenen API'ye bağlıdır. Tüm 104 arayüz dili bu kataloğu paylaşmaktadır.
+Katalogda 43 sağlayıcı profili bulunur: 42 bulut hizmetleri ve yerel sunucu için TabbyAPI. Model erişimi ve yetenekleri hesaba, bölgeye ve desteklenen API'ye bağlıdır. Tüm 120 arayüz dili bu kataloğu paylaşmaktadır.
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ Varsayılan donanıma uyarlanmış sıralama, aynı uyumluluk ve kullanılabilir
 
 Güncellenen kaynaklar ekleniyor **Windows x64 için Yapılandırmalarda isteğe bağlı yönetilen bileşenler**: özel Python ortamları, sabitlenmiş CPU/CUDA profilleri, indirme, doğrulama, onarım ve kaldırma öncesinde tahminler ve onay. Özel tercüman yolları gelişmiş seçenekler altında kalır. Yerel GGUF motorlar mevcut bileşenlerini korur; mobil ve bulut masaüstü Python'u indirmez/PyTorch. Sentetik test verileri kullanılarak üç özel CPU/dışa aktarma profili test edildi; bakımcı, 1 Kasım 2026 tarihinde başarılı masaüstü kullanımını bildirdi; GPU profilleri ve temiz-PC kurulumunun hâlâ ayrı, ayrıntılı doğrulamaya ihtiyacı var. [Profiller ve test limitleri](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Bu bileşenlerin EXE içinde paketlenmesi ertelendi.
 
-## 104 arayüz dili ve çeşitleri
+## 120 arayüz dili ve çeşitleri
 
 Kaynak güncellemesi, 6 Kasım 2026: 24 ek arayüz katalogları toplamı 104 değerine getirir. Bunlar yardımlı çeviri taslaklarıdır; yerel inceleme ve bölgesel adaptasyon gerekli olmaya devam etmektedir. Bu grup katalogları ve çevrilmiş README'leri hazırlar; bunları yüklü ikili dosyalara dahil etmek için uygulamanın yeniden oluşturulması gerekir.
 
-**Tüm 104 katalogları mevcut 2,435 İngilizce anahtarlarını kapsar** Menüler, yapılandırmalar, ayarlar, yardım ve medya kontrolleri dahil olmak üzere 15 ad alanında. Çoğul biçimler ve arayüz yönü seçilen dili takip eder. Yanıt ve ses dilleri modele ayrı ayrı bağlıdır.
+**Tüm 120 katalogları mevcut 2,484 İngilizce anahtarlarını kapsar** Menüler, yapılandırmalar, ayarlar, yardım ve medya kontrolleri dahil olmak üzere 15 ad alanında. Çoğul biçimler ve arayüz yönü seçilen dili takip eder. Yanıt ve ses dilleri modele ayrı ayrı bağlıdır.
 
 Bu teknik kapsam dil kalitesini onaylamaz: **yerel inceleme ve bölgesel uyarlama gerekli olmaya devam ediyor**. Yerel etiketleri ve bilinen sınırları şurada görün: [dil kılavuzu](docs/LANGUAGES.md) ve [denetim raporu](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ On bir dağıtım değişkeninin tümü için manuel GitHub Actions derlemeler e
 - [Ayrıntılı kullanım kılavuzu](docs/USER_GUIDE.md), [ürün ve kullanıcı bilgilerinin altın kuralları (Fransızca)](docs/REGLES_D_OR.md), [modeller ve motorlar](docs/SUIVI_MOTEURS.md).
 - [Geliştirme](docs/DEVELOPMENT.md), [oluşturma ve yayınlama kılavuzu](docs/BUILD_AND_RELEASE.md), [gelecek sürümler ve güncelleme hazırlığı](docs/FUTURES_VERSIONS.md).
 - [Proje kontrol paneli](TABLEAU_DE_BORD_NOVERA.md), [yol haritası](ROADMAP.md), [değişiklik günlüğü](docs/CHANGELOG.md).
-- [Katkıda Bulunmak](CONTRIBUTING.md): kod, testler, 104 dilde yerel inceleme ve gerçek iş akışı geri bildirimi.
+- [Katkıda Bulunmak](CONTRIBUTING.md): kod, testler, 120 dilde yerel inceleme ve gerçek iş akışı geri bildirimi.
 
 ## Kimlik ve lisans
 

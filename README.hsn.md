@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>您描述目標。Novera 準備資源、執行任務並整理結果。</strong></p>
   <p>由 TRON-ABS 提供的独立 AI 助手，从首次启动到结果：在一个对话中包含文本、图像、音乐和视频。</p>
-  <p><strong>适用于 Windows、Linux、macOS 和 Android</strong> · 104 界面语言 · 42 云提供商 · 58 媒体预设 · Apache 2.0</p>
+  <p><strong>适用于 Windows、Linux、macOS 和 Android</strong> · 120 界面语言 · 42 云提供商 · 58 媒体预设 · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">自动化</a> · <a href="#one-dashboard-for-every-creation">仪表板</a> · <a href="#local-models-in-use">AI 模型在您的設備上本地運行</a> · <a href="#hub-and-compatible-models">中心和兼容模型</a> · <a href="#cloud-providers">云</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">贡献</a></p>
   <p>官方联系方式： <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>官方 Novera 社交资料： <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Qwen 音频编码器和 Qwen 检索模型是 **不同文件**，分别存储。�
 
 ## 云服务提供商
 
-该目录包含 43 提供商配置文件：42 云服务和本地服务器的 TabbyAPI。模型访问和功能取决于帐户、区域和支持的 API。所有 104 界面语言共享此目录。
+该目录包含 43 提供商配置文件：42 云服务和本地服务器的 TabbyAPI。模型访问和功能取决于帐户、区域和支持的 API。所有 120 界面语言共享此目录。
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ AWQ 4-bit、GPTQ 4-bit、NF4 和 INT8 各自使用离线创建的微小未训练
 
 更新的源添加了 **Windows x64 配置中的可选管理组件**: 私有 Python 环境，固定的 CPU/CUDA 配置，下载前的估算和确认，验证、修复和移除。自定义解释器路径保留在高级选项下。原生 GGUF 引擎保留现有组件；移动和云端不下载桌面 Python/PyTorch。三个私有 CPU/导出配置已使用真实合成测试数据进行测试；维护者报告在 2026年11月1日成功在桌面使用；GPU 配置和干净的 PC 安装仍需要单独、详细的验证。 [配置和测试限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). 将堆栈嵌入 EXE 已推迟。
 
-## 104 接口语言和变体
+## 120 接口语言和变体
 
-**所有 104 目录涵盖当前的 2,435 英语键** 跨 15 命名空间，包括菜单、配置、设置、帮助和媒体控件。复数形式和界面方向遵循所选语言。响应和语音语言分别取决于模型。
+**所有 120 目录涵盖当前的 2,484 英语键** 跨 15 命名空间，包括菜单、配置、设置、帮助和媒体控件。复数形式和界面方向遵循所选语言。响应和语音语言分别取决于模型。
 
 此技术覆盖不认证语言质量： **原生审查和区域适应仍然是必要的**. 参见原生标签和已知限制在 [语言指南](docs/LANGUAGES.md) 和 [审计报告](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ AWQ 4-bit、GPTQ 4-bit、NF4 和 INT8 各自使用离线创建的微小未训练
 - [详细用户指南](docs/USER_GUIDE.md), [产品和用户信息黄金规则（法语）](docs/REGLES_D_OR.md), [模型和引擎](docs/SUIVI_MOTEURS.md).
 - [开发](docs/DEVELOPMENT.md), [建構與發布指南](docs/BUILD_AND_RELEASE.md), [未來版本與更新準備](docs/FUTURES_VERSIONS.md).
 - [專案儀表板](TABLEAU_DE_BORD_NOVERA.md), [路線圖](ROADMAP.md), [變更日誌](docs/CHANGELOG.md).
-- [貢獻](CONTRIBUTING.md): 代碼、測試、跨 104 語言的原生審查和真實工作流程反饋。
+- [貢獻](CONTRIBUTING.md): 代碼、測試、跨 120 語言的原生審查和真實工作流程反饋。
 
 ## 身份與許可證
 

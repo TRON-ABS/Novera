@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>ግብህን ትገልጻለህ። Novera ንብረቱን ያዘጋጃል, ተግባሩን ያከናውናል እና ውጤቱን ያደራጃል.</strong></p>
   <p>አንድ ገለልተኛ AI ረዳት በ TRON-ABS፣ ከመጀመሪያው ጅምር እስከ ውጤት፡ ጽሑፍ፣ ምስሎች፣ ሙዚቃ እና ቪዲዮ በአንድ ውይይት።</p>
-  <p><strong>ለWindows፣ Linux፣ macOS እና Android ይገኛል።</strong> · 104 የበይነገጽ ቋንቋዎች · 42 የደመና አቅራቢዎች · 58 የሚዲያ ቅድመ-ቅምጦች · Apache 2.0</p>
+  <p><strong>ለWindows፣ Linux፣ macOS እና Android ይገኛል።</strong> · 120 የበይነገጽ ቋንቋዎች · 42 የደመና አቅራቢዎች · 58 የሚዲያ ቅድመ-ቅምጦች · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">አውቶሜሽን</a> · <a href="#one-dashboard-for-every-creation">ዳሽቦርድ</a> · <a href="#local-models-in-use">የAI ሞዴሎች በመሣሪያዎ ላይ በአካባቢው ይሰራሉ</a> · <a href="#hub-and-compatible-models">ቅርጸቶች እና መገናኛ</a> · <a href="#cloud-providers">ደመና</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">አዋጡ</a></p>
   <p>ይፋዊ ግንኙነት፡- <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>ይፋዊ Novera ማህበራዊ መገለጫዎች፡- <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Novera ከእርስዎ ጋር ይበቅላል። የእርስዎ ምሳሌዎች
 
 ## የክላውድ አቅራቢዎች
 
-ካታሎጉ 43 የአቅራቢ መገለጫዎችን፡ 42 የደመና አገልግሎቶችን እና TabbyAPI ለሀገር ውስጥ አገልጋይ ይዟል። የሞዴል መዳረሻ እና ችሎታዎች በመለያው፣ በክልል እና በሚደገፈው ኤፒአይ ላይ ይወሰናሉ። ሁሉም 104 የበይነገጽ ቋንቋዎች ይህን ካታሎግ ይጋራሉ።
+ካታሎጉ 43 የአቅራቢ መገለጫዎችን፡ 42 የደመና አገልግሎቶችን እና TabbyAPI ለሀገር ውስጥ አገልጋይ ይዟል። የሞዴል መዳረሻ እና ችሎታዎች በመለያው፣ በክልል እና በሚደገፈው ኤፒአይ ላይ ይወሰናሉ። ሁሉም 120 የበይነገጽ ቋንቋዎች ይህን ካታሎግ ይጋራሉ።
 
 | | | |
 | --- | --- | --- |
@@ -273,7 +273,7 @@ AWQ 4-bit፣ GPTQ 4-bit፣ NF4 እና INT8 እያንዳንዱ ከመስመር �
 
 የተሻሻሉ ምንጮች ይጨምራሉ **ለ Windows x64 በማዋቀር ውስጥ በአማራጭ የሚተዳደሩ ክፍሎች**: የግል የፓይዘን አከባቢዎች፣ የተሰኩ CPU/CUDA መገለጫዎች፣ ግምቶች እና ማረጋገጫ ከመውረዶች በፊት፣ ማረጋገጥ፣ መጠገን እና ማስወገድ። ብጁ የአስተርጓሚ መንገዶች በላቁ አማራጮች ውስጥ ይቆያሉ። ቤተኛ GGUF ሞተሮች ነባራዊ ክፍሎቻቸውን ያቆያሉ; ሞባይል እና ደመና ዴስክቶፕ Python/PyTorchን አያወርዱም። ሶስት የግል CPU/የመላክ መገለጫዎች በተጨባጭ ሰው ሰራሽ የሙከራ ውሂብ ተካሂደዋል። ጠባቂው በ1 ህዳር 2026 ላይ የተሳካ የዴስክቶፕ አጠቃቀምን ሪፖርት ያደርጋል። GPU መገለጫዎች እና ንጹህ-PC ጭነት አሁንም የተለየ ዝርዝር ማረጋገጫ ያስፈልጋቸዋል። [መገለጫዎች እና የሙከራ ገደቦች](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). ቁልልን በEXE ውስጥ መክተት ተላልፏል።
 
-## 104 በይነገጽ ቋንቋዎች እና ልዩነቶች
+## 120 በይነገጽ ቋንቋዎች እና ልዩነቶች
 
 **ሁሉም የ80 ካታሎጎች የአሁኑን 2,435 የእንግሊዝኛ ቁልፎችን ይሸፍናሉ** በ15 የስም ቦታዎች፣ ሜኑዎች፣ ውቅሮች፣ ቅንብሮች፣ እገዛ እና የሚዲያ መቆጣጠሪያዎችን ጨምሮ። የብዙ ቅርጾች እና የበይነገጽ አቅጣጫዎች የተመረጠውን ቋንቋ ይከተላሉ. የምላሽ እና የድምጽ ቋንቋዎች በአምሳያው ላይ በተናጠል ይወሰናሉ.
 

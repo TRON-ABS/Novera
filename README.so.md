@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Waxaad qeexdaa yoolkaaga. Novera wuxuu diyaariyaa agabka, fuliya hawsha wuxuuna habeeyaa natiijooyinka.</strong></p>
   <p>Kaaliyaha AI kaaliyaha TRON-ABS, laga bilaabo bilawga koowaad ilaa natiijooyinka: qoraal, sawiro, muusig iyo muuqaal hal sheeko.</p>
-  <p><strong>Waxaa loo heli karaa Windows, Linux, macOS iyo Android</strong> · 104 luqadaha is dhexgalka · 42 bixiyayaasha daruuraha · 58 presets media · Apache 2.0</p>
+  <p><strong>Waxaa loo heli karaa Windows, Linux, macOS iyo Android</strong> · 120 luqadaha is dhexgalka · 42 bixiyayaasha daruuraha · 58 presets media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI moodooyinka ku shaqeeya gudaha qalabkaaga</a> · <a href="#hub-and-compatible-models">Hub iyo moodooyinka ku habboon</a> · <a href="#cloud-providers">Daruur</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Wax ku darso</a></p>
   <p>Xiriirka rasmiga ah: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Novera bogga rasmiga ah ee bulshada: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Koor-qoreeye muusigga Qwen iyo qaab-dhismeedka soo celinta Qwen waa **faylal kal
 
 ## Daruur bixiyayaasha
 
-Buugyaraha waxa uu ka kooban yahay 43 profiles bixiyaha: 42 adeegyada daruuraha iyo TabbyAPI ee server maxalli ah. Helitaanka moodeelka iyo awooduhu waxay ku xidhan yihiin koontada, gobolka iyo API la taageero. Dhammaan 104 luqadaha is dhexgalka ayaa wadaaga buuggan.
+Buugyaraha waxa uu ka kooban yahay 43 profiles bixiyaha: 42 adeegyada daruuraha iyo TabbyAPI ee server maxalli ah. Helitaanka moodeelka iyo awooduhu waxay ku xidhan yihiin koontada, gobolka iyo API la taageero. Dhammaan 120 luqadaha is dhexgalka ayaa wadaaga buuggan.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Nooca caadiga ah ee qalabka-la-qabsiga ah wuxuu jecel yahay sii-deynta cusub ee 
 
 Ilaha la cusboonaysiiyay ayaa ku daray **Qaybaha la maareeyay ee ikhtiyaarka ah ee Qaabaynta Windows x64**: Deegaan Python gaar ah, ku dhejiyay CPU/CUDA profiles, qiyaasaha iyo xaqiijinta ka hor inta aan la soo dejin, xaqiijinta, hagaajinta iyo saarista. Dariiqooyinka turjubaanka gaarka ah waxay ku hoos jiraan doorashooyin horumarsan. Dhaladka GGUF matoorada ayaa ilaalinaya qaybahooda jira; mobilka iyo daruurtu ma soo dejiyaan desktop Python/PyTorch. Saddex gaar ah oo CPU / Dhoofinta profiles ayaa lagu leyliyey qalab synthetic oo dhab ah; Ilaaliyuhu waxa uu ka warbixiyaa isticmaalka miis-ka ee guusha leh 1 Noofambar 2026; GPU profiles iyo nadiif-PC rakibaadda weli waxay u baahan tahay xaqiijin gaar ah oo faahfaahsan. [Profile iyo xadka imtixaanka](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)Ku-xidhka xidhmada EXE dib baa loo dhigay.
 
-## 104 luqadaha is dhexgalka iyo kala duwanaanta
+## 120 luqadaha is dhexgalka iyo kala duwanaanta
 
-**Dhammaan 104 buugaagta waxay daboolayaan furayaasha Ingiriisiga hadda 2,435** guud ahaan 15 magacyada, oo ay ku jiraan menus, habayn, dejin, caawimo iyo kontaroolada warbaahinta. Foomamka jamac iyo jihada isku xidhka ayaa raacaya luqadda la doortay. Jawaabta iyo luqadaha codku waxay si gooni ah ugu xiran yihiin moodeelka.
+**Dhammaan 120 buugaagta waxay daboolayaan furayaasha Ingiriisiga hadda 2,484** guud ahaan 15 magacyada, oo ay ku jiraan menus, habayn, dejin, caawimo iyo kontaroolada warbaahinta. Foomamka jamac iyo jihada isku xidhka ayaa raacaya luqadda la doortay. Jawaabta iyo luqadaha codku waxay si gooni ah ugu xiran yihiin moodeelka.
 
 Daboolistan farsamo ma caddaynayso tayada luqadda: **dib u eegis wadaniga ah iyo la qabsiga gobolka ayaa ah lama huraan** Ka eeg calaamadaha asalka ah iyo xadka la yaqaan ee ku yaal [hagaha luqadda](docs/LANGUAGES.md) iyo [warbixin xisaabeedka](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Buug-gacmeedka GitHub Actions dhismooyin ayaa loo oggolaaday dhammaan kow iyo to
 - [Tilmaamaha isticmaalaha oo faahfaahsan](docs/USER_GUIDE.md), [badeecada iyo macluumaadka isticmaalaha xeerarka dahabiga ah (Faransiiska)](docs/REGLES_D_OR.md), [moodooyinka iyo matoorada](docs/SUIVI_MOTEURS.md).
 - [Horumarinta](docs/DEVELOPMENT.md), [dhis oo sii dayn hagaha](docs/BUILD_AND_RELEASE.md), [noocyada mustaqbalka iyo diyaarinta cusboonaysiinta](docs/FUTURES_VERSIONS.md).
 - [Dashboardka mashruuca](TABLEAU_DE_BORD_NOVERA.md), [khariidad waddo](ROADMAP.md), [isbedel](docs/CHANGELOG.md).
-- [Wax ku biirinta](CONTRIBUTING.md): code, imtixaano, dib u eegis hooyo oo dhan 104 luqadood iyo jawaab celinta socodka shaqada dhabta ah.
+- [Wax ku biirinta](CONTRIBUTING.md): code, imtixaano, dib u eegis hooyo oo dhan 120 luqadood iyo jawaab celinta socodka shaqada dhabta ah.
 
 ## Aqoonsiga iyo shatiga
 

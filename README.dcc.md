@@ -10,7 +10,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>آپ اپنا مقصد بیان کریں۔ Novera وسائل تیار کرتا ہے، کام کو انجام دیتا ہے اور نتائج کو منظم کرتا ہے۔</strong></p>
   <p>Novera ایک آزاد AI مددگار ہے۔ ایک ہی بات چیت میں لکھو، تصویریں بناؤ، موسیقی تیار کرو اور ویڈیو بناؤ۔ ویب انٹرفیس میں 120 زبانیں اور بولیاں ہیں۔</p>
-  <p><strong>Windows، Linux، macOS اور Android کے لیے دستیاب ہے</strong> · 42 کلاؤڈ فراہم کرنے والے · 58 میڈیا پیش سیٹس · Apache 2.0</p>
+  <p><strong>Windows، Linux، macOS اور Android کے لیے دستیاب ہے</strong> · 120 انٹرفیس زبانیں اور بولیاں · 42 کلاؤڈ فراہم کرنے والے · 58 میڈیا پیش سیٹس · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">آٹومیشن</a> · <a href="#one-dashboard-for-every-creation">ڈیش بورڈ</a> · <a href="#local-models-in-use">AI ماڈلز مقامی طور پر آپ کے آلے پر چل رہے ہیں۔</a> · <a href="#hub-and-compatible-models">فارمیٹس اور حب</a> · <a href="#cloud-providers">بادل</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">تعاون کریں۔</a></p>
   <p>سرکاری رابطہ: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>آفیشل Novera سوشل پروفائلز: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -154,7 +154,7 @@ Qwen میوزک انکوڈر اور Qwen بازیافت ماڈل ہیں **مخت
 
 ## کلاؤڈ فراہم کرنے والے
 
-کیٹلاگ میں 43 فراہم کنندہ پروفائلز ہیں: 42 کلاؤڈ سروسز اور TabbyAPI مقامی سرور کے لیے۔ ماڈل تک رسائی اور صلاحیتوں کا انحصار اکاؤنٹ، علاقے اور تعاون یافتہ API پر ہے۔ تمام 104 انٹرفیس زبانیں اس کیٹلاگ کا اشتراک کرتی ہیں۔
+کیٹلاگ میں 43 فراہم کنندہ پروفائلز ہیں: 42 کلاؤڈ سروسز اور TabbyAPI مقامی سرور کے لیے۔ ماڈل تک رسائی اور صلاحیتوں کا انحصار اکاؤنٹ، علاقے اور تعاون یافتہ API پر ہے۔ تمام 120 انٹرفیس زبانیں اس کیٹلاگ کا اشتراک کرتی ہیں۔
 
 | | | |
 | --- | --- | --- |
@@ -315,7 +315,7 @@ AWQ 4-bit, GPTQ 4-bit, NF4 اور INT8 ہر ایک RTX 5070 Laptop پر بنائ
 - [تفصیلی صارف گائیڈ](docs/USER_GUIDE.md), [مصنوعات اور صارف کی معلومات کے سنہری اصول (فرانسیسی)](docs/REGLES_D_OR.md), [ماڈل اور انجن](docs/SUIVI_MOTEURS.md).
 - [ترقی](docs/DEVELOPMENT.md), [تعمیر اور ریلیز گائیڈ](docs/BUILD_AND_RELEASE.md), [مستقبل کے ورژن اور اپ ڈیٹ کی تیاری](docs/FUTURES_VERSIONS.md).
 - [پروجیکٹ ڈیش بورڈ](TABLEAU_DE_BORD_NOVERA.md), [روڈ میپ](ROADMAP.md), [چینج لاگ](docs/CHANGELOG.md).
-- [تعاون کرنا](CONTRIBUTING.md): کوڈ، ٹیسٹ، 104 زبانوں میں مقامی جائزہ اور حقیقی ورک فلو فیڈ بیک۔
+- [تعاون کرنا](CONTRIBUTING.md): کوڈ، ٹیسٹ، 120 زبانوں میں مقامی جائزہ اور حقیقی ورک فلو فیڈ بیک۔
 
 ## شناخت اور لائسنس
 

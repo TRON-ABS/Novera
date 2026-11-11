@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Le savoir pour tous" width="100%" />
   <p><strong>Vous décrivez. Novera prépare, exécute et organise.</strong></p>
   <p>Un assistant IA indépendant de TRON-ABS, du premier démarrage aux résultats : texte, images, musique et vidéo dans la même discussion.</p>
-  <p><strong>Disponible sur Windows, Linux, macOS et Android</strong> · 104 langues de l’interface · 42 fournisseurs cloud · 58 préréglages média · Apache 2.0</p>
+  <p><strong>Disponible sur Windows, Linux, macOS et Android</strong> · 120 langues de l’interface · 42 fournisseurs cloud · 58 préréglages média · Apache 2.0</p>
   <p><a href="#du-démarrage-au-résultat">Automatisation</a> · <a href="#un-tableau-de-bord-pour-tout-créer">Tableau de bord</a> · <a href="#modèles-locaux-utilisés">Modèles locaux</a> · <a href="#hub-et-modèles-compatibles">Formats et Hub</a> · <a href="#fournisseurs-cloud">Cloud</a> · <a href="README.md">English</a> · <a href="CONTRIBUTING.md">Contribuer</a></p>
   <p>Contact officiel : <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p>Réseaux officiels de Novera : <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -144,7 +144,7 @@ L’encodeur Qwen du profil musical et le modèle Qwen de recherche sont **deux 
 
 ## Fournisseurs cloud
 
-Le catalogue contient 43 profils de fournisseurs : 42 services cloud et TabbyAPI pour un serveur local. L’accès aux modèles et leurs capacités dépendent du compte, de la région et de l’API prise en charge. Les 104 langues de l’interface partagent ce catalogue.
+Le catalogue contient 43 profils de fournisseurs : 42 services cloud et TabbyAPI pour un serveur local. L’accès aux modèles et leurs capacités dépendent du compte, de la région et de l’API prise en charge. Les 120 langues de l’interface partagent ce catalogue.
 
 | | | |
 | --- | --- | --- |
@@ -265,11 +265,11 @@ Le tri par défaut favorise les sorties récentes à compatibilité et mémoire 
 
 Les sources ajoutent des **composants facultatifs gérés dans Configurations pour Windows x64** : environnements Python privés, profils CPU/CUDA épinglés, tailles et confirmation avant téléchargement, vérification, réparation et désinstallation. Les chemins personnalisés restent en options avancées. Les moteurs natifs GGUF gardent leurs composants existants ; le mobile et le cloud ne téléchargent pas les piles Python/PyTorch desktop. Trois profils privés CPU/export ont été testés avec des données de test synthétiques ; le mainteneur confirme le bon fonctionnement du desktop le 7 novembre 2026 ; les profils GPU et l’installation sur PC neuf restent à vérifier séparément en détail. [Profils et limites des tests](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). L’intégration de ces composants dans l’EXE est reportée.
 
-## 104 langues et variantes d’interface
+## 120 langues et variantes d’interface
 
 Mise à jour des sources du 6 novembre 2026 : 24 catalogues supplémentaires portent le total à 104. Ces traductions assistées restent à relire et à adapter par des locuteurs natifs. Ce lot prépare les catalogues et les README traduits ; une recompilation est nécessaire pour les inclure dans les applications installées.
 
-Les **104 catalogues couvrent les 2 435 clés anglaises actuelles**, dans 15 espaces de noms : menus, configurations, réglages, aides et contrôles média. Les formes plurielles et la direction de l’interface suivent la langue choisie. La langue des réponses et des voix dépend séparément du modèle.
+Les **120 catalogues couvrent les 2 484 clés anglaises actuelles**, dans 15 espaces de noms : menus, configurations, réglages, aides et contrôles média. Les formes plurielles et la direction de l’interface suivent la langue choisie. La langue des réponses et des voix dépend séparément du modèle.
 
 Cette couverture technique ne certifie pas la qualité linguistique : **relecture native et adaptation régionale restent nécessaires**. Consultez les langues, leurs noms et les limites connues dans le [guide des langues](docs/LANGUAGES.md) et le [rapport d’audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -305,7 +305,7 @@ Les compilations manuelles GitHub Actions sont activées pour les onze variantes
 - [Guide utilisateur détaillé](docs/USER_GUIDE.md), [règles d’or du produit et de l’information utilisateur](docs/REGLES_D_OR.md), [modèles et moteurs](docs/SUIVI_MOTEURS.md).
 - [Développement](docs/DEVELOPMENT.md), [construction et distribution](docs/BUILD_AND_RELEASE.md), [prochaines versions et préparation des mises à jour](docs/FUTURES_VERSIONS.md).
 - [Tableau de bord du projet](TABLEAU_DE_BORD_NOVERA.md), [feuille de route](ROADMAP.md), [historique](docs/CHANGELOG.md).
-- [Contribuer](CONTRIBUTING.md) : code, tests, relecture des 104 langues et retours sur les parcours réels.
+- [Contribuer](CONTRIBUTING.md) : code, tests, relecture des 120 langues et retours sur les parcours réels.
 
 ## Identité et licence
 
