@@ -89,6 +89,33 @@ ${creationPromptGuide(repository)}
     html = html.replaceAll(`v${facts.stable}-windows-portable`, `v${portableVersion}-windows-portable`)
       .replace(`La version portable Windows x64 ${facts.stable} est disponible`, `La version portable Windows x64 ${portableVersion} est disponible`)
   }
+  const distributionLinks = {
+    windows: ['Windows x64 · EXE et MSI', ''],
+    windowsArm: ['Windows ARM64 · EXE', '-windows-arm64'],
+    linux: ['Linux x64 · AppImage et Debian', '-linux-x64'],
+    macArm: ['macOS Apple Silicon · DMG', '-macos-arm64'],
+    macIntel: ['macOS Intel · DMG', '-macos'],
+    cli: ['Novera CLI', '-cli-novera'],
+    portable: ['Windows x64 portable · ZIP', '-windows-portable'],
+  }
+  const publicDistributions = facts.publicDistributions ?? {}
+  for (const [platform, version] of Object.entries(publicDistributions)) {
+    if (!Object.hasOwn(distributionLinks, platform) || !/^\d+\.\d+\.\d+$/.test(version)) throw new Error('Invalid public distribution')
+  }
+  if (Object.keys(publicDistributions).length) {
+    const buttons = Object.entries(publicDistributions).map(([platform, version]) => {
+      const [label, suffix] = distributionLinks[platform]
+      return `<a class="button" href="${repository}/releases/tag/v${version}${suffix}">${label} · ${version}</a>`
+    }).join('')
+    const androidButton = `<a class="button" href="${androidDownload}">Android ARM64 · APK · ${androidVersion}</a>`
+    const pending = Object.keys(distributionLinks).some(platform => !Object.hasOwn(publicDistributions, platform))
+    const earlier = pending ? `<a class="button" href="${repository}/releases">Versions précédentes</a>` : ''
+    html = html.replace(/<h1>Novera [\d.]+ est disponible\.<\/h1>/, '<h1>Télécharger Novera</h1>')
+      .replace(/<div class="actions"><a class="button primary" href="[^"]+">Windows x64 \/ Linux x64<\/a>[\s\S]*?<\/div><\/div><figure>/,
+        `<div class="actions" aria-label="Téléchargements publics">${buttons}${androidButton}${earlier}</div></div><figure>`)
+      .replace(/<aside class="notice" aria-label="Disponibilité">[\s\S]*?<\/aside>/,
+        `<aside class="notice" aria-label="Disponibilité"><p>La version de chaque paquet figure sur son lien de téléchargement. Le clavier et les 120 langues de l’APK Android 1.0.2 ont été testés sur Huawei P20. Sur macOS, consultez les instructions d’installation du DMG sur la page de sa version. iOS reste en préparation.</p></aside>`)
+  }
   html = html.replace('<section class="cards"', `<section class="notice" aria-labelledby="web-title"><h2 id="web-title">Novera Web : préparation expérimentale</h2><p>L’interface et ses couleurs sont reprises de Desktop. Les essais locaux utilisent un contexte texte de 32k et une recherche Internet Exa sans clé, préparée dès l’activation, dans les limites du quota gratuit du fournisseur. Les créations image et musique locales sont testées ; Wan vidéo reste expérimental et n’est pas encore intégré à la conversation Web.</p><p>Les sources et résultats sont publics sur le dépôt. Le client Web n’est pas encore proposé comme service hébergé : audit de sécurité complet, licences du moteur et validations de publication restent à terminer. <a href="${repository}/blob/main/docs/WEB_BROWSER_PREPARATION.md">Fonctions, essais et limites de Novera Web</a>.</p></section><section class="cards"`)
   if (published && facts.webExperimentalPublished === true) {
     const start = html.indexOf('<section class="notice" aria-labelledby="web-title">')
@@ -110,6 +137,7 @@ ${creationPromptGuide(repository)}
   if (published && facts.webExperimentalPublished === true && webVersion) {
     Object.assign(probe, { webVersion, webInterfaceLanguageCount: locales.length })
   }
+  if (Object.keys(publicDistributions).length) probe.publicDistributions = publicDistributions
   fs.writeFileSync(path.join(output, 'pages-probe.json'), JSON.stringify(probe, null, 2) + '\n')
   return probe
 }
