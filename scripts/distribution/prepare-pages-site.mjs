@@ -14,7 +14,7 @@ const socialProfiles = [
   ['X', 'https://x.com/noveratronabs'],
   ['Bluesky', 'https://bsky.app/profile/noveratronabs.bsky.social'],
 ]
-export function preparePagesSite(output, commit, factsOverride) {
+export function preparePagesSite(output, commit, factsOverride, webVersion) {
   if (!/^[a-f0-9]{40}$/.test(commit)) throw new Error('An exact reviewed source commit is required')
   if (fs.existsSync(output)) throw new Error('Pages staging output already exists')
   const root = fileURLToPath(new URL('../../', import.meta.url))
@@ -37,19 +37,22 @@ export function preparePagesSite(output, commit, factsOverride) {
     Object.assign(copy, { title: `Novera ${facts.release}`, status: publicationCopy.status, limits: publicationCopy.limits })
   }
   const locales = JSON.parse(fs.readFileSync(path.join(root, 'docs/language-support.json'), 'utf8'))
+  const readmeLocales = locales.map(locale => ({
+    label: locale.label,
+    filename: locale.locale === 'en' ? 'README.md' : `README.${locale.locale === 'de-DE' ? 'de' : locale.locale}.md`,
+  })).filter(({ filename }) => fs.existsSync(path.join(root, filename)))
+  if (webVersion !== undefined && !/^\d+\.\d+\.\d+$/.test(webVersion)) throw new Error('Invalid public Web version')
   const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;')
   const render = value => escape(value.replace(/\{\{(\w+)\}\}/g, (_, key) => {
     if (!(key in facts)) throw new Error(`Missing release fact: ${key}`)
     return facts[key]
   })).replace(/`([^`]+)`/g, '<code>$1</code>')
-  if (typeof facts.published !== 'boolean' || String(locales.length) !== facts.languages) throw new Error('Release-preparation facts require review')
+  if (typeof facts.published !== 'boolean' || String(readmeLocales.length) !== facts.languages) throw new Error('Release-preparation facts require review')
   const noteKeys = ['security', 'privacy', 'engine', 'languages', 'recommendation', 'voice', 'microphone', 'web', 'optimization', 'interface', 'api', 'checks', 'limits']
   const preparedNotes = `<section class="notice" aria-labelledby="preparation-title"><h2 id="preparation-title">${render(copy.title)}</h2><p>${render(copy.status)}</p><p>${render(copy.interface)}</p><p>${render(copy.optimization)}</p><details><summary>${render(copy.details)}</summary><ul>${noteKeys.map(key => `<li>${render(copy[key])}</li>`).join('')}</ul><p><a href="${repository}/blob/main/docs/CHANGELOG.md">Notes 1.0.1</a> · <a href="${repository}/blob/main/SECURITY.md">Sécurité et limites</a></p></details></section>`
-  const languageLinks = locales.map(locale => {
-    const filename = locale.locale === 'en' ? 'README.md' : `README.${locale.locale === 'de-DE' ? 'de' : locale.locale}.md`
-    if (!fs.existsSync(path.join(root, filename))) throw new Error(`Missing translated README: ${filename}`)
-    return `<a class="button" dir="auto" href="${repository}/blob/main/${filename}">${escape(locale.label)}</a>`
-  }).join('')
+  const languageLinks = readmeLocales.map(({ filename, label }) =>
+    `<a class="button" dir="auto" href="${repository}/blob/main/${filename}">${escape(label)}</a>`
+  ).join('')
   let html = `<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Novera, l’assistant IA indépendant de TRON-ABS. Novera 1.0.0 est disponible sur Windows, Linux, macOS et Android ; téléchargez la version officielle.">
@@ -87,7 +90,8 @@ ${creationPromptGuide(repository)}
     const end = html.indexOf('</section>', start) + '</section>'.length
     if (start < 0 || end <= start) throw new Error('Missing Web showcase section')
     html = html.slice(0, start) + html.slice(end)
-    const hero = `<section class="notice" aria-labelledby="web-title"><h2 id="web-title">Novera Web ${facts.release} · version expérimentale</h2><p>Retrouvez l’interface et les couleurs de Desktop directement dans votre navigateur. Texte local, contexte 32k, recherche Exa sans clé dans les limites du quota du fournisseur, essais image FLUX.2 Klein et musique ACE-Step avec vos fichiers Desktop.</p><p><a class="button" href="web/">Ouvrir Novera Web</a></p><p>Un navigateur récent compatible WebGPU et une mémoire suffisante sont nécessaires pour les modèles locaux. Le téléchargement du modèle texte représente environ 1,61 Go. Image et musique restent expérimentales ; les grandes images peuvent prendre plusieurs minutes ou échouer. Wan vidéo n’est pas encore intégré. Les services cloud facultatifs utilisent votre propre clé et peuvent être payants. Aucun serveur GPU ni crédit API n’est fourni. <a href="${repository}/blob/main/docs/WEB_BROWSER_PREPARATION.md">Guide et limites</a>.</p></section>`
+    const webLanguageSummary = webVersion ? ` L’interface Web propose ${locales.length} langues et variantes.` : ''
+    const hero = `<section class="notice" aria-labelledby="web-title"><h2 id="web-title">Novera Web ${webVersion ?? facts.release} · version expérimentale</h2><p>Retrouvez l’interface et les couleurs de Desktop directement dans votre navigateur. Texte local, contexte 32k, recherche Exa sans clé dans les limites du quota du fournisseur, essais image FLUX.2 Klein et musique ACE-Step avec vos fichiers Desktop.${webLanguageSummary}</p><p><a class="button" href="web/">Ouvrir Novera Web</a></p><p>Un navigateur récent compatible WebGPU et une mémoire suffisante sont nécessaires pour les modèles locaux. Le téléchargement du modèle texte représente environ 1,61 Go. Image et musique restent expérimentales ; les grandes images peuvent prendre plusieurs minutes ou échouer. Wan vidéo n’est pas encore intégré. Les services cloud facultatifs utilisent votre propre clé et peuvent être payants. Aucun serveur GPU ni crédit API n’est fourni. <a href="${repository}/blob/main/docs/WEB_BROWSER_PREPARATION.md">Guide et limites</a>.</p></section>`
     html = html.replace('<main>', '<main>' + hero)
   }
   fs.mkdirSync(path.join(output, 'assets'), { recursive: true })
@@ -96,8 +100,11 @@ ${creationPromptGuide(repository)}
     fs.copyFileSync(path.join(root, '.github/assets', source), path.join(output, 'assets', target))
   }
   const probe = { product: 'Novera launch information', commit, applicationPublished: false, publicDownloadsEnabled: true, desktopReleaseVersion: '1.0.0', cliReleaseTag: 'v1.0.0-cli-novera', cliExecutableNames: ['novera.exe', 'novera'], macosReleaseTag: 'v1.0.0-macos', macosOfficial: true, macosAppleNotarized: false, macosVisualTestsPerformed: false, androidStatus: 'maintainer-confirmed-public', androidReleaseTag, androidVersionCode: 1000012, androidDownloadUrl: androidDownload, htmlSha256: createHash('sha256').update(html).digest('hex') }
-  Object.assign(probe, { preparedSourceVersion: facts.release, preparedVersionPublished: false, readmeLanguageCount: locales.length, preparedMediaPresets: Number(facts.media) })
+  Object.assign(probe, { preparedSourceVersion: facts.release, preparedVersionPublished: false, readmeLanguageCount: readmeLocales.length, preparedMediaPresets: Number(facts.media) })
   if (published) Object.assign(probe, { applicationPublished: true, desktopReleaseVersion: facts.stable, cliReleaseTag: `v${facts.stable}-cli-novera`, macosReleaseTag: `v${facts.stable}-macos`, preparedVersionPublished: true, androidVersionCode, androidStatus: 'package-verified-device-pending' })
+  if (published && facts.webExperimentalPublished === true && webVersion) {
+    Object.assign(probe, { webVersion, webInterfaceLanguageCount: locales.length })
+  }
   fs.writeFileSync(path.join(output, 'pages-probe.json'), JSON.stringify(probe, null, 2) + '\n')
   return probe
 }

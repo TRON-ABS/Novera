@@ -1,3 +1,7 @@
+## Web 1.0.2 showcase staging
+
+The Web build has 120 interface locales and the release documentation has 104 translated README files. The Pages generator counts each independently and uses the staged build's 1.0.2 version for the Web heading. The three showcase staging tests pass.
+
 ## Web 1.0.2 with 120 interface locales
 
 The public Web bundle has 104 interface catalogs. This change adds the 16 reviewed catalogs to the 1.0.2 Web sources on main and carries over its 49 additional Auto Tune keys. Locale switching, saved and system preferences, RTL direction, and explicit Auto creation commands use the same application paths.
