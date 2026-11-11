@@ -28,7 +28,7 @@ export function BrowserModelsFolderSetup({ disabled }: { disabled: boolean }) {
     <section className="space-y-2 rounded-xl border p-4" aria-label="Dossier des modèles Novera">
       <h2 className="font-medium">Dossier des modèles Novera</h2>
       <p className="text-sm text-muted-foreground">
-        Choisis <code>C:\Users\&lt;nom&gt;\Documents\Novera models</code>. Novera cherche les packs pris en charge et les GGUF texte dans ses sous-dossiers. Auto-Tune teste automatiquement les modèles ajoutés quand il est activé.
+        Choisis <code>C:\Users\&lt;nom&gt;\Documents\Novera models</code>. Novera cherche les packs pris en charge et les GGUF texte dans ses sous-dossiers. Auto-Tune teste automatiquement les modèles ajoutés quand il est activé. Le moteur texte Web accepte les fichiers GGUF de moins de 4 Gio.
       </p>
       {browserModelFolderPickerAvailable() ? (
         <button type="button" className="underline text-sm" disabled={disabled || busy}

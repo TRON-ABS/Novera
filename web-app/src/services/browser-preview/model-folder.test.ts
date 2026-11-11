@@ -1,5 +1,5 @@
 import { afterEach, expect, it, vi } from 'vitest'
-import { browserLocalTextModels } from './local-text-imports'
+import { browserLocalTextModels, registerBrowserLocalTextModel } from './local-text-imports'
 import { watchBrowserModelFolder } from './model-folder'
 
 const storage = vi.hoisted(() => ({
@@ -17,7 +17,7 @@ vi.mock('./model-imports', () => ({
   restoreBrowserModelImports: async () => {},
 }))
 
-function fileHandle(name: string, valid = true) {
+function fileHandle(name: string, valid = true, size = 100) {
   const header = new ArrayBuffer(24)
   const view = new DataView(header)
   view.setUint32(0, valid ? 0x46554747 : 0, true)
@@ -25,7 +25,7 @@ function fileHandle(name: string, valid = true) {
   view.setBigUint64(8, 1n, true)
   view.setBigUint64(16, 1n, true)
   return { kind: 'file', name, getFile: async () => ({
-    name, size: 100, lastModified: 1, slice: () => ({ arrayBuffer: async () => header }),
+    name, size, lastModified: 1, slice: () => ({ arrayBuffer: async () => header }),
   }) }
 }
 
@@ -65,4 +65,9 @@ it('scans the authorized folder at startup and adds newly downloaded GGUFs on th
     expect(refresh).toHaveBeenCalledTimes(2)
     expect(storage.load).toHaveBeenCalledTimes(1)
   } finally { stop?.() }
+})
+
+it('reports the wasm32 limit before enqueuing an oversized local GGUF', async () => {
+  const file = await fileHandle('Nemotron-3.5-Bolt-E4B-Q4_K_M.gguf', true, 6_180_446_208).getFile()
+  await expect(registerBrowserLocalTextModel(file as File)).rejects.toThrow('4 Gio')
 })

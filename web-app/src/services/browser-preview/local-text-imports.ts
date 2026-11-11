@@ -12,6 +12,9 @@ export async function registerBrowserLocalTextModel(file: File) {
       ![2, 3].includes(header.getUint32(4, true)) ||
       header.getBigUint64(8, true) === 0n || header.getBigUint64(16, true) === 0n) return
 
+  // The published wasm32 GGUF parser accumulates tensor sizes in a 32-bit size_t.
+  if (file.size >= 2 ** 32) throw new Error('Ce GGUF atteint la limite de 4 Gio du moteur texte Web.')
+
   const id = JSON.stringify([file.name, file.size, file.lastModified])
   if (!imported.has(id)) {
     imported.set(id, { id, file })
