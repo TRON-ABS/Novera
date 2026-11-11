@@ -60,6 +60,10 @@ try {
     try { $locked = $mutex.WaitOne(0) } catch [Threading.AbandonedMutexException] { $locked = $true }
     if (!$locked) { throw 'Une autre compilation de ce lanceur est en cours.' }
     Set-Location -LiteralPath $repo
+    $sourceCommit = (& git rev-parse HEAD)
+    if ($LASTEXITCODE -ne 0) { throw 'Commit source du build introuvable.' }
+    $sourceStatus = @(& git status --porcelain --untracked-files=normal)
+    if ($LASTEXITCODE -ne 0) { throw 'Etat des sources du build introuvable.' }
     $nodeDir = Join-Path $env:ProgramFiles 'nodejs'
     $env:PATH = "$nodeDir;" + $env:PATH
     $corepack = (Get-Command corepack.cmd -ErrorAction Stop).Source
@@ -220,9 +224,10 @@ try {
             }
         }
     }
-    $record = [ordered]@{variant=$id;version=$config.version;build_id=$env:NOVERA_BUILD_ID;completed_utc=[DateTime]::UtcNow.ToString('o');output=$output;logs=$logs;published=$false;automatic_updates=$false;statistics=$false;telemetry_configured=$telemetryConfigured;consent_default=$false;private_symbols=if ($telemetryConfigured) {".build/monitoring-symbols/$env:NOVERA_BUILD_ID"} else {$null}}
+    $record = [ordered]@{variant=$id;version=$config.version;build_id=$env:NOVERA_BUILD_ID;source_commit=$sourceCommit;source_dirty=($sourceStatus.Count -gt 0);completed_utc=[DateTime]::UtcNow.ToString('o');output=$output;logs=$logs;published=$false;automatic_updates=$false;statistics=$false;telemetry_configured=$telemetryConfigured;consent_default=$false;private_symbols=if ($telemetryConfigured) {".build/monitoring-symbols/$env:NOVERA_BUILD_ID"} else {$null}}
     $record | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $logs 'result.json') -Encoding UTF8
     if (Test-Path -LiteralPath $output) {
+        $record | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $output 'BUILD-RECEIPT.json') -Encoding UTF8
         $checksums = Get-ChildItem -LiteralPath $output -File -Recurse | ForEach-Object { "$((Get-FileHash -LiteralPath $_.FullName).Hash)  $($_.FullName.Substring($output.Length + 1))" }
         $checksums | Set-Content -LiteralPath (Join-Path $output 'SHA256SUMS') -Encoding UTF8
     }

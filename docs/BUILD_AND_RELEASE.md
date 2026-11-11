@@ -8,7 +8,7 @@ Avant la publication, comparer les versions et compteurs affichés aux sources e
 
 ### Dossier unique des builds locaux sur le PC du mainteneur
 
-Déposer chaque livrable compilé localement sous `C:\msys64\home\jmsga\Novera\deliverables`, y compris si les sources se trouvent dans un autre worktree. Utiliser `NOVERA_BUILD_OUTPUT_DIR` dans le lanceur Windows et conserver un sous-dossier distinct par version, variante et build. Les dossiers de travail Cargo, Gradle et Vite restent des intermédiaires. Identifier le dernier livrable à partir de sa version, de son numéro de build, de son empreinte et de son reçu de validation.
+Déposer chaque livrable compilé localement sous `C:\msys64\home\jmsga\Novera\deliverables`, y compris si les sources se trouvent dans un autre worktree. Utiliser `NOVERA_BUILD_OUTPUT_DIR` dans le lanceur Windows et conserver un sous-dossier distinct par version, variante et build. Les dossiers de travail Cargo, Gradle et Vite restent des intermédiaires. Identifier le dernier livrable à partir de sa version, de son numéro de build, de son empreinte et de son reçu de validation. L’index `SUIVI_BUILDS_LOCAUX.md` indique les références utiles et leur état. Le reçu `BUILD-RECEIPT.json` du lanceur identifie le commit et indique si les sources comportaient des modifications locales avant compilation.
 
 ### Vérifier le point de départ et les paquets livrés
 
