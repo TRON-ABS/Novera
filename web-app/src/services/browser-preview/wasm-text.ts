@@ -4,13 +4,25 @@ import type { BrowserLocalTextModel } from './local-text-imports'
 import type { Model, SdkResult, Turn } from './runtime'
 
 const runtimePath: string = import.meta.env.VITE_NOVERA_BROWSER_TEXT_PATH ?? ''
+const runtime64Path: string = import.meta.env.VITE_NOVERA_BROWSER_TEXT64_PATH ?? ''
+export const largeBrowserTextModel = 2 ** 32
+const memory64Probe = Uint8Array.of(0, 97, 115, 109, 1, 0, 0, 0, 5, 3, 1, 4, 0)
+
+export function browserLargeTextSupported() {
+  return Boolean(runtime64Path) && wasmTextSupported() && WebAssembly.validate(memory64Probe)
+}
+
+export function browserTextRuntimeFor(spec: BrowserTextSource) {
+  return !('repo' in spec) && spec.file.size >= largeBrowserTextModel ? runtime64Path : runtimePath
+}
+
 export const defaultBrowserTextModel = 'LFM3-Omni-2B-Q4_K_M'
 export const browserSamplingKey = 'novera-web-sampling:' + runtimePath
 
 export type BrowserTextSource = BrowserModelSpec | BrowserLocalTextModel
 
 export function browserTextProfileKey(spec: BrowserTextSource) {
-  if (!('repo' in spec)) return JSON.stringify([browserSamplingKey, 'local', spec.id])
+  if (!('repo' in spec)) return JSON.stringify([browserTextRuntimeFor(spec), 'local', spec.id])
   return spec.id === defaultBrowserTextModel ? browserSamplingKey : JSON.stringify([browserSamplingKey, spec.id, spec.revision, spec.file])
 }
 
@@ -52,7 +64,11 @@ export async function loadWasmTextModel(signal: AbortSignal, onProgress: (fracti
     : { localFile: spec.file }
   if ('repo' in spec && !asset) throw new Error('Fichier du modèle absent du catalogue.')
   const base = new URL(import.meta.env.BASE_URL, window.location.href)
-  const worker = new Worker(new URL(runtimePath + '/worker.mjs', base), { type: 'module' })
+  const runtime = browserTextRuntimeFor(spec)
+  if (!runtime || (runtime === runtime64Path && !browserLargeTextSupported())) {
+    throw new Error('Ce GGUF nécessite le moteur texte WebAssembly 64 bits.')
+  }
+  const worker = new Worker(new URL(runtime + '/worker.mjs', base), { type: 'module' })
 
   function request(message: object, done: string, onEvent: (event: Reply) => void, abort?: AbortSignal) {
     return new Promise<Reply>((resolve, reject) => {

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { dashboardPanelLimit, useDashboardPanel } from '@/hooks/useDashboardPanel'
 import { createPortal } from 'react-dom'
 import { AutoTuneDashboard, type ConfirmedGain } from './AutoTuneDashboard'
 import { invoke } from '@tauri-apps/api/core'
@@ -45,7 +46,11 @@ export function AutoTuneControl() {
   const progress = useSyncExternalStore(subscribeAutoTuneProgress, getAutoTuneProgress, getInitialAutoTuneProgress)
   const controlRef = useRef<HTMLButtonElement>(null)
   const [panelHost, setPanelHost] = useState<HTMLElement | null>(null)
-  const [panelOpen, setPanelOpen] = useState(false)
+  const panelOpen = useDashboardPanel(state => state.panels.includes('auto-tune'))
+  const stackFull = useDashboardPanel(state => state.panels.length >= dashboardPanelLimit)
+  const openPanel = useDashboardPanel(state => state.openPanel)
+  const closeDashboard = useDashboardPanel(state => state.closePanel)
+  useEffect(() => () => closeDashboard('auto-tune'), [closeDashboard])
   const enabled = useDesktopAutoTuneEnabled()
   const browser = browserPreviewEnabled()
   const ios = typeof IS_IOS !== 'undefined' && IS_IOS
@@ -55,8 +60,8 @@ export function AutoTuneControl() {
   useEffect(() => {
     if (enabled === null && !unavailable) return
     setPanelHost(controlRef.current?.closest('[data-dashboard-composer]')?.querySelector<HTMLElement>('[data-auto-tune-panel]') ?? null)
-    if (enabled) setPanelOpen(true)
-  }, [enabled, unavailable])
+    if (enabled) openPanel('auto-tune')
+  }, [enabled, openPanel, unavailable])
   useEffect(() => {
     if (!panelOpen || enabled || unavailable) return
     const refresh = () => void refreshAutoTuneModels().catch(error => console.warn('Auto Tune:', error))
@@ -130,7 +135,7 @@ export function AutoTuneControl() {
     try {
       const value = browser ? setBrowserAutoTune(next) : await invoke<boolean | null>('desktop_calibration', { enabled: next })
       window.dispatchEvent(new CustomEvent('novera:calibration-change', { detail: value }))
-      if (close && value === false) setPanelOpen(false)
+      if (close && value === false) closeDashboard('auto-tune')
       if (value === true) void startAutoTune().catch(error => console.warn('Auto Tune:', error))
     } catch (error) {
       console.warn('Auto Tune:', error)
@@ -141,7 +146,7 @@ export function AutoTuneControl() {
   function closePanel() {
     if (changing) return
     if (enabled) void changeCalibration(false, true)
-    else setPanelOpen(false)
+    else closeDashboard('auto-tune')
   }
   return (
     <>
@@ -155,7 +160,7 @@ export function AutoTuneControl() {
           <Button ref={controlRef} type="button" size="icon-xs" variant="ghost"
             className={cn('composer-tool shrink-0', enabled && 'composer-tool-active')}
             data-state={enabled ? 'on' : 'off'} aria-label="Auto Tune" aria-expanded={panelOpen}
-            disabled={changing} onClick={() => panelOpen ? closePanel() : setPanelOpen(true)}>
+            disabled={changing || (!panelOpen && stackFull)} onClick={() => panelOpen ? closePanel() : openPanel('auto-tune')}>
             <Gauge className="size-4" strokeWidth={1.8} aria-hidden="true" />
             <span className="composer-state" aria-hidden="true">{enabled ? t('ui:on') : t('ui:off')}</span>
           </Button>

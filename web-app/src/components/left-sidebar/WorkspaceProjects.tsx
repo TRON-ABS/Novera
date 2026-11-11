@@ -9,6 +9,8 @@ import { FolderAccessDialog } from '@/containers/dialogs/FolderAccessDialog'
 import { basenameOf } from '@/lib/coworkPreview'
 import { route } from '@/constants/routes'
 import { toast } from 'sonner'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
+import { useProjectDialog } from '@/hooks/useProjectDialog'
 import { useDashboardPanel } from '@/hooks/useDashboardPanel'
 
 export function NewWorkspaceProject({ controllerOnly = false }: { controllerOnly?: boolean }) {
@@ -18,18 +20,21 @@ export function NewWorkspaceProject({ controllerOnly = false }: { controllerOnly
   const [folder, setFolder] = useState<string | null>(null)
   const [picking, setPicking] = useState(false)
   const pickingRef = useRef(false)
-  const panel = useDashboardPanel(state => state.panel)
+  const projectOpen = useDashboardPanel(state => state.panels.includes('project'))
   useEffect(() => {
-    if (controllerOnly && panel !== 'project') setFolder(null)
-  }, [controllerOnly, panel])
+    if (controllerOnly && !projectOpen) setFolder(null)
+  }, [controllerOnly, projectOpen])
   const pick = async () => {
-    if (pickingRef.current) return
+    if (browserPreviewEnabled()) {
+      useProjectDialog.getState().setOpen(true)
+      return
+    }
+    if (pickingRef.current || (controllerOnly && !useDashboardPanel.getState().openPanel('project'))) return
     pickingRef.current = true
-    if (controllerOnly) useDashboardPanel.getState().openPanel('project')
     setPicking(true)
     try {
       const path = await hub.dialog().open({ directory: true })
-      if (typeof path === 'string' && (!controllerOnly || useDashboardPanel.getState().panel === 'project')) setFolder(path)
+      if (typeof path === 'string' && (!controllerOnly || useDashboardPanel.getState().panels.includes('project'))) setFolder(path)
       else if (controllerOnly) useDashboardPanel.getState().closePanel('project')
     } catch {
       if (controllerOnly) useDashboardPanel.getState().closePanel('project')
@@ -47,7 +52,7 @@ export function NewWorkspaceProject({ controllerOnly = false }: { controllerOnly
       <FolderPlus className="size-4 shrink-0" />
       <span className="group-data-[collapsible=icon]:hidden">{t('settings:shortcuts.newProject')}</span>
     </Button>}
-    <FolderAccessDialog key={folder ?? 'closed'} path={folder} docked={controllerOnly} visible={!controllerOnly || panel === 'project'} onCancel={() => {
+    <FolderAccessDialog key={folder ?? 'closed'} path={folder} docked={controllerOnly} visible={!controllerOnly || projectOpen} onCancel={() => {
       setFolder(null)
       if (controllerOnly) useDashboardPanel.getState().closePanel('project')
     }} onConfirm={(access) => {

@@ -28,12 +28,18 @@ export default defineConfig(({ mode, command }) => {
 
   const textRuntime = browserPreview && env.NOVERA_BROWSER_TEXT_BUILD ? prepareBrowserRuntime(env.NOVERA_BROWSER_TEXT_BUILD, 'text') : undefined
 
+  const text64Runtime = browserPreview && env.NOVERA_BROWSER_TEXT64_BUILD
+    ? prepareBrowserRuntime(env.NOVERA_BROWSER_TEXT64_BUILD, 'text', true) : undefined
+
   return {
     base: browserPreview ? (env.VITE_NOVERA_WEB_BASE || './') : undefined,
     plugins: [
-      ...(textRuntime ? [{ name: 'novera-local-text-assets', generateBundle() {
-        for (const asset of textRuntime.assets) this.emitFile({ type: 'asset', fileName: `${textRuntime.directory}/${asset.name}`, source: asset.source })
-      } } satisfies Plugin] : []),
+      ...[textRuntime, text64Runtime].filter(runtime => runtime !== undefined).map((runtime, index) => ({
+        name: 'novera-local-text-assets-' + index,
+        generateBundle() {
+          for (const asset of runtime.assets) this.emitFile({ type: 'asset', fileName: `${runtime.directory}/${asset.name}`, source: asset.source })
+        },
+      } satisfies Plugin)),
       ...(musicRuntime ? [{ name: 'novera-local-music-assets', generateBundle() {
         for (const asset of musicRuntime.assets) this.emitFile({ type: 'asset', fileName: `${musicRuntime.directory}/${asset.name}`, source: asset.source })
       } } satisfies Plugin] : []),
@@ -88,6 +94,7 @@ export default defineConfig(({ mode, command }) => {
       ],
     },
     define: {
+      'import.meta.env.VITE_NOVERA_BROWSER_TEXT64_PATH': JSON.stringify(text64Runtime?.directory ?? ''),
       'import.meta.env.VITE_NOVERA_BROWSER_TEXT_PATH': JSON.stringify(textRuntime?.directory ?? ''),
       'import.meta.env.VITE_NOVERA_BROWSER_MEDIA_PATH': JSON.stringify(mediaRuntime?.directory ?? ''),
       'import.meta.env.VITE_NOVERA_BROWSER_MUSIC_PATH': JSON.stringify(musicRuntime?.directory ?? ''),

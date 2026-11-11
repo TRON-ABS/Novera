@@ -13,14 +13,14 @@ vi.mock('@/hooks/useServiceHub', () => {
 const model = { id: 'model-a', settings: {} } as Model
 const provider = { provider: 'test', models: [model], settings: [] } as unknown as ProviderObject
 beforeEach(() => {
-  useDashboardPanel.setState({ panel: null, anchor: null, modelSettings: null })
+  useDashboardPanel.setState({ panels: [], anchor: null, modelSettings: null })
   useModelProvider.setState({ providers: [provider] })
   vi.stubGlobal('ResizeObserver', class { observe() {} unobserve() {} disconnect() {} })
   vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({
     top: 400, left: 20, width: 700, height: 160, right: 720, bottom: 560, x: 20, y: 400, toJSON() {},
   })
 })
-afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); useDashboardPanel.getState().closePanel() })
+afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); useDashboardPanel.setState({ panels: [] }) })
 
 it('opens one Novera model-settings window above the composer and survives its trigger unmounting', async () => {
   const user = userEvent.setup()
@@ -49,6 +49,8 @@ it('opens one Novera model-settings window above the composer and survives its t
   expect(screen.getAllByRole('dialog')).toHaveLength(1)
   expect(useDashboardPanel.getState().modelSettings?.model.id).toBe('model-b')
   act(() => { useDashboardPanel.getState().openPanel('search') })
+  expect(screen.getByRole('dialog')).toBeInTheDocument()
+  await user.click(screen.getByRole('button', { name: 'common:close' }))
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   expect(useDashboardPanel.getState().modelSettings).toBeNull()
   expect(screen.getByRole('textbox')).toHaveValue('Keep draft intact')

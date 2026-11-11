@@ -542,6 +542,32 @@
 }
 
 /* Keep the existing appearance while rows respond to the panel, not the screen. */
+.novera-dashboard-stack:empty { display: none; }
+.novera-dashboard-stack:not(:empty) {
+  position: fixed;
+  z-index: 45;
+  display: grid;
+  gap: 0.5rem;
+  min-height: 0;
+  max-height: min(56vh, 40rem);
+  max-height: min(calc(var(--novera-visual-height, 100dvh) * 0.56), 40rem);
+  overflow-y: auto;
+}
+.novera-dashboard-stack:has(> :nth-child(2)) {
+  height: min(56vh, 40rem);
+  height: min(calc(var(--novera-visual-height, 100dvh) * 0.56), 40rem);
+  grid-auto-rows: minmax(48px, 1fr);
+}
+.novera-dashboard-stack > [data-auto-tune-dashboard] {
+  order: -1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin-bottom: 0;
+}
+.novera-dashboard-stack > [data-auto-tune-dashboard] > :first-child { flex: none; }
+.novera-dashboard-stack > [data-auto-tune-dashboard] > :nth-child(2) { min-height: 0; }
+
 .novera-dashboard-window {
   --background: #f0f9ff;
   --card: #e8f2fb;

@@ -19,6 +19,7 @@ parser.add_argument('--emsdk', type=Path, required=True)
 parser.add_argument('--cmake', required=True)
 parser.add_argument('--ninja', required=True)
 parser.add_argument('--cache', type=Path, default=ROOT / '.build/browser-text')
+parser.add_argument('--memory64', action='store_true', help='Build the 64-bit memory runtime for large local GGUFs')
 parser.add_argument('--jobs', type=int, default=2)
 parser.add_argument('--parameter-batching', action='store_true', help='Build the checksummed browser parameter-upload optimization')
 parser.add_argument('--bulk-encoding', action='store_true', help='Experimental batched Wasm/JS command encoding; no throughput gain is assumed')
@@ -137,6 +138,7 @@ build = cache / 'build'
 subprocess.run([sys.executable, str(sdk / 'upstream/emscripten/emcmake.py'), args.cmake,
                '-S', str(HERE), '-B', str(build), '-G', 'Ninja', '-DCMAKE_BUILD_TYPE=Release',
                '-DCMAKE_MAKE_PROGRAM=' + args.ninja, '-DNOVERA_LLAMA_SOURCE=' + str(source),
+               '-DNOVERA_WASM_MEMORY64=' + ('ON' if args.memory64 else 'OFF'),
                '-DNOVERA_WEBGPU_SOURCE=' + override,
                '-DNOVERA_CPU_PTHREADS=' + ('ON' if args.cpu_threads else 'OFF'),
                '-DNOVERA_CPU_SOURCE=' + cpu_source_override,
@@ -151,7 +153,7 @@ for extension in ['mjs', 'wasm']:
     file = build / ('novera-text.' + extension)
     artifacts.append({'name': file.name, 'bytes': file.stat().st_size, 'sha256': hashlib.file_digest(file.open('rb'), 'sha256').hexdigest()})
 verification = {'version': '1.0.1', 'compiled': True, 'modelInferenceValidated': False, 'sourceCommit': PIN,
-                'compiler': version, 'contextTokens': 32768, 'jspi': True, 'memory64': False,
+                'compiler': version, 'contextTokens': 32768, 'jspi': True, 'memory64': args.memory64,
                 'threads': 'auto' if args.cpu_threads else 1, 'pthreads': args.cpu_threads, 'cpuThreadLimit': 64 if args.cpu_threads else 1, 'modelWeightsChanged': False, 'artifacts': artifacts}
 verification['sourceArchiveSha256'] = source_record['archiveSha256']
 verification['backendPatch'] = patch_record

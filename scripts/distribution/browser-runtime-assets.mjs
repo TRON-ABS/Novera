@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
 
-export function prepareBrowserRuntime(folder, kind = 'image') {
+export function prepareBrowserRuntime(folder, kind = 'image', memory64 = false) {
   if (!['image', 'music', 'text'].includes(kind)) throw new Error('Unknown browser runtime kind.')
   if (!folder) throw new Error('Set the browser runtime build directory to a verified build.')
   const root = path.resolve(folder)
@@ -19,6 +19,7 @@ export function prepareBrowserRuntime(folder, kind = 'image') {
   }
   assets.push({ name: 'BUILD-VERIFICATION.json', source: Buffer.from(JSON.stringify(receipt)) })
   if (kind === 'text') {
+    if (Boolean(receipt.memory64) !== memory64) throw new Error('The browser text runtime uses the wrong memory width.')
     if (receipt.pthreads !== false || receipt.jspi !== true || receipt.tokenOnlySampler !== true ||
         receipt.backendPatch?.batchedHostInputs !== true || receipt.contextTokens !== 32768) {
       throw new Error('The text runtime must use the verified single-thread WebGPU configuration.')

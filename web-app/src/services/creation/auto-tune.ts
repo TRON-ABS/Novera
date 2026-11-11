@@ -7,6 +7,7 @@ import { normalizeLocalPath } from '@/modules/platform/local-path'
 import { musicCalibrationRequest, visualCalibrationRequest } from './calibration'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { browserAutoTuneAvailable, browserAutoTuneEnabled, browserAutoTuneTextModels, browserAutoTuneTested, calibrateBrowserMedia, calibrateBrowserSampling } from '@/services/browser-preview/auto-tune'
+import { browserTextRuntimeFor } from '@/services/browser-preview/wasm-text'
 import { browserLocalTextModels } from '@/services/browser-preview/local-text-imports'
 import { browserAutoTuneWait, discoverBrowserAutoTuneProbes } from '@/services/browser-preview/auto-tune-registry'
 import type { BrowserWorkProgress } from '@/services/browser-preview/auto-tune'
@@ -229,7 +230,7 @@ async function discoverJobs(): Promise<PlannedJob[][]> {
       const task = { task: 'text' as const, model: label, provider: 'novera-browser' }
       const job = plannedJob(task.task, task.model, task.provider, () => runBrowserJob(
         task, update => calibrateBrowserSampling(update, model),
-      ), [import.meta.env.VITE_NOVERA_BROWSER_TEXT_PATH, ...identity, browserTextCalibrationRevision],
+      ), [browserTextRuntimeFor(model), ...identity, browserTextCalibrationRevision],
       browserTextProfiles.map(profile => profile.sampling.toUpperCase() + ' · ' + profile.commandBatchSize),
       undefined, model.id)
       text.push({ ...job, alreadyComplete: browserAutoTuneTested(model) })

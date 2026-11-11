@@ -16,6 +16,11 @@ for (const name of requiredRuntimeFiles) {
     throw new Error(`Missing bundled browser runtime file ${name}`)
   }
 }
+const textRuntimeReceipts = receipt.artifacts
+  .filter(asset => /^novera-runtime\/[a-f0-9]{64}\/novera-text\.wasm$/.test(asset.file))
+  .map(asset => JSON.parse(fs.readFileSync(path.join(source, path.dirname(asset.file), 'BUILD-VERIFICATION.json'), 'utf8')))
+if (textRuntimeReceipts.length !== 2 || !textRuntimeReceipts.some(runtime => runtime.memory64 === true) ||
+    !textRuntimeReceipts.some(runtime => runtime.memory64 === false)) throw new Error('Both Web text memory widths must be staged.')
 for (const file of ['video-performance/index.html', 'video-performance/worker.js']) {
   if (!receipt.artifacts.some(asset => asset.file === file)) throw new Error(`Missing Wan video page file ${file}`)
 }

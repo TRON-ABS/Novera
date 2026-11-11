@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { browserModelFolderPickerAvailable, browserModelPacks, chooseBrowserModelFolder, importBrowserModelFiles } from '@/services/browser-preview/model-folder'
-import { wasmTextSupported } from '@/services/browser-preview/wasm-text'
+import { browserLargeTextSupported, wasmTextSupported } from '@/services/browser-preview/wasm-text'
 import { refreshAutoTuneModels } from '@/services/creation/auto-tune'
 
 export function BrowserModelsFolderSetup({ disabled }: { disabled: boolean }) {
@@ -28,7 +28,7 @@ export function BrowserModelsFolderSetup({ disabled }: { disabled: boolean }) {
     <section className="space-y-2 rounded-xl border p-4" aria-label="Dossier des modèles Novera">
       <h2 className="font-medium">Dossier des modèles Novera</h2>
       <p className="text-sm text-muted-foreground">
-        Choisis <code>C:\Users\&lt;nom&gt;\Documents\Novera models</code>. Novera cherche les packs pris en charge et les GGUF texte dans ses sous-dossiers. Auto-Tune teste automatiquement les modèles ajoutés quand il est activé. Le moteur texte Web accepte les fichiers GGUF de moins de 4 Gio.
+        Choisis <code>C:\Users\&lt;nom&gt;\Documents\Novera models</code>. Novera cherche les packs pris en charge et les GGUF texte dans ses sous-dossiers. Auto-Tune teste automatiquement les modèles ajoutés quand il est activé.
       </p>
       {browserModelFolderPickerAvailable() ? (
         <button type="button" className="underline text-sm" disabled={disabled || busy}
@@ -44,6 +44,9 @@ export function BrowserModelsFolderSetup({ disabled }: { disabled: boolean }) {
             void importFolder(() => importBrowserModelFiles(files))
           }} />
       </label>}
+      {wasmTextSupported() && !browserLargeTextSupported() && <p className="text-sm text-muted-foreground">
+        Sur ce navigateur, le moteur texte accepte les GGUF de moins de 4 Gio.
+      </p>}
       {browserModelFolderPickerAvailable() && <p className="text-sm text-muted-foreground">
         Le dossier mémorisé est scanné à l’ouverture puis toutes les 30 secondes pendant que la page est visible.
       </p>}
