@@ -37,6 +37,7 @@
   "portableVersion": "1.0.0",
   "webExperimentalPublished": true,
   "publicDistributions": {
+    "windows": "1.0.2",
     "windowsArm": "1.0.2",
     "linux": "1.0.2",
     "macArm": "1.0.2",
