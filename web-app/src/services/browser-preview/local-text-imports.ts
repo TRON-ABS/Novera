@@ -1,4 +1,5 @@
 import { notifyBrowserAutoTuneSourcesChanged } from './auto-tune-registry'
+import { browserLargeTextSupported, largeBrowserTextModel } from './wasm-text'
 
 export type BrowserLocalTextModel = { id: string; file: File }
 const imported = new Map<string, BrowserLocalTextModel>()
@@ -13,7 +14,7 @@ export async function registerBrowserLocalTextModel(file: File) {
       header.getBigUint64(8, true) === 0n || header.getBigUint64(16, true) === 0n) return
 
   // The published wasm32 GGUF parser accumulates tensor sizes in a 32-bit size_t.
-  if (file.size >= 2 ** 32) throw new Error('Ce GGUF atteint la limite de 4 Gio du moteur texte Web.')
+  if (file.size >= largeBrowserTextModel && !browserLargeTextSupported()) throw new Error('Ce GGUF atteint la limite de 4 Gio du moteur texte Web.')
 
   const id = JSON.stringify([file.name, file.size, file.lastModified])
   if (!imported.has(id)) {

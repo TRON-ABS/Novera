@@ -20,6 +20,7 @@ jobs:
           - {kind: media, source: sdcpp}
           - {kind: video, source: sdcpp}
           - {kind: text, source: source}
+          - {kind: text64, source: source}
           - {kind: music, source: ace}
     runs-on: ubuntu-24.04
     timeout-minutes: 60
@@ -51,7 +52,11 @@ jobs:
           elif [[ "$RUNTIME_KIND" == video ]]; then
             runtime_script=scripts/browser-media/build.py
             runtime_args+=(--kernel-tuning --wan-tuning --cache .build/browser-video)
-          elif [[ "$RUNTIME_KIND" == text ]]; then
+          elif [[ "$RUNTIME_KIND" == text || "$RUNTIME_KIND" == text64 ]]; then
+            runtime_script=scripts/browser-text/build.py
+            if [[ "$RUNTIME_KIND" == text64 ]]; then
+              runtime_args+=(--memory64 --cache .build/browser-text64)
+            fi
             llama=src-tauri/plugins/tauri-plugin-llamacpp/vendor/llama.cpp
             git init "$llama"
             git -C "$llama" remote add origin https://github.com/ggml-org/llama.cpp.git
@@ -99,6 +104,10 @@ jobs:
           path: .build/browser-text
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
+          name: web-runtime-text64-${{ github.sha }}
+          path: .build/browser-text64
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
           name: web-runtime-video-${{ github.sha }}
           path: .build/browser-video
       - name: Build browser application and stage showcase
@@ -120,6 +129,7 @@ jobs:
           yarn build:core
           yarn build:extensions
           export NOVERA_BROWSER_TEXT_BUILD="$GITHUB_WORKSPACE/.build/browser-text/build"
+          export NOVERA_BROWSER_TEXT64_BUILD="$GITHUB_WORKSPACE/.build/browser-text64/build"
           export NOVERA_BROWSER_MEDIA_BUILD="$GITHUB_WORKSPACE/.build/browser-media/build"
           export NOVERA_BROWSER_MUSIC_BUILD="$GITHUB_WORKSPACE/.build/browser-music/build"
           yarn build:web:browser

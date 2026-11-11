@@ -207,7 +207,7 @@ bool observe_placement(ggml_tensor * tensor, bool ask, void *) {
 }
 
 EM_JS(void, publish_bytes, (const char * ptr, int length), {
-    const start = ptr >>> 0;
+    const start = typeof ptr === 'bigint' ? Number(ptr) : (ptr < 0 ? ptr >>> 0 : ptr);
     const bytes = HEAPU8.slice(start, start + length);
     postMessage({type: 'text-bytes', bytes: bytes.buffer}, [bytes.buffer]);
 });

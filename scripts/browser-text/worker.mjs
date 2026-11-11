@@ -73,7 +73,24 @@ async function cacheModel(root, filename, bytes) {
     postMessage({type:'log',line:`Enregistrement du cache texte : ${error}`});
   }
 }
-function result(){return JSON.parse(engine.UTF8ToString(engine._novera_result()));}
+function configureLocalFileReads(filesystem) {
+  if (!filesystem) return;
+  const operations = filesystem.stream_ops;
+  const read = operations.read;
+  const chunkSize = 32 * 1024 * 1024;
+  // A tensor can be larger than the browser's single FileReaderSync allocation.
+  operations.read = (stream, buffer, offset, length, position) => {
+    if (length <= chunkSize) return read(stream, buffer, offset, length, position);
+    let total = 0;
+    while (total < length) {
+      const count = read(stream, buffer, offset + total, Math.min(chunkSize, length - total), position + total);
+      if (count === 0) break;
+      total += count;
+    }
+    return total;
+  };
+}
+function result(){return JSON.parse(engine.UTF8ToString(Number(engine._novera_result())));}
 self.onmessage=async event=>{
   if(event.data.type==='cancel'){engine?._novera_cancel();return;}
   if(busy){postMessage({type:'error',error:'An operation is already running'});return;}
@@ -138,6 +155,7 @@ self.onmessage=async event=>{
       if (!engine) {
         const factory=(await import('./novera-text.mjs')).default;
         engine=await factory({wasmBinary:wasm,print:line=>postMessage({type:'log',line}),printErr:line=>postMessage({type:'log',line})});
+        if (receipt.memory64) configureLocalFileReads(engine.WORKERFS);
         initializedCpuThreads = selected; initializedModuleSha = metadata.sha256;
       }
       const localFile = event.data.localFile;
