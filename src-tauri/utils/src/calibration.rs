@@ -14,8 +14,7 @@ pub fn available() -> bool {
     cfg!(any(
         target_os = "windows",
         target_os = "linux",
-        target_os = "macos",
-        target_os = "android"
+        target_os = "macos"
     ))
 }
 static ENABLED: AtomicBool = AtomicBool::new(false);

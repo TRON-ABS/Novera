@@ -48,7 +48,7 @@ pub mod recommended_models;
 
 #[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
 pub mod onnx;
-#[cfg(all(not(feature = "cli"), not(target_os = "ios")))]
+#[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
 pub mod desktop_calibration;
 #[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
 pub mod mlx_calibration;

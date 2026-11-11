@@ -435,12 +435,7 @@ pub fn run() {
     ]);
 
     // Mobile: no updater commands
-    #[cfg(target_os = "android")]
-    let app_builder = app_builder.invoke_handler(invoke_commands_with_extras![
-        core::desktop_calibration::desktop_auto_tune_gains,
-        core::desktop_calibration::desktop_auto_tune_activity,
-    ]);
-    #[cfg(target_os = "ios")]
+    #[cfg(any(target_os = "android", target_os = "ios"))]
     let app_builder = app_builder.invoke_handler(invoke_commands_with_extras![]);
 
     let app = app_builder
